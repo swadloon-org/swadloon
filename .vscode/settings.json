@@ -1,0 +1,10 @@
+{
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "[yaml]": {
+    "editor.formatOnSave": false
+  },
+  "search.exclude": {
+    "**/node_modules": true
+  },
+  "typescript.tsdk": "node_modules/typescript/lib"
+}

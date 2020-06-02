@@ -1,0 +1,63 @@
+# IDEs
+.vs
+.idea
+
+# system
+Thumbs.db
+ehthumbs.db
+.DS_Store
+logs
+*.log
+*.swp
+pids
+*.pid
+*.seed
+*.iml
+.lock-wscript
+
+# certificates
+*.pem
+
+# npm
+node_modules
+npm-debug.log
+
+# lerna
+lerna-debug.log
+
+# packages
+packages/**/dist/
+packages/**/package-lock.json
+packages/**/bin/
+packages/**/lib/
+!packages/core-yo-generator/lib/
+packages/**/charts/
+
+# jest
+_reports
+__metrics__
+
+# server
+
+# docker
+.docker
+docker-compose-ci.yml
+
+# kubernetes
+cluster-kubeconfig.yaml
+credentials-velero
+credentials
+*.secret.yaml
+*secrets.yaml
+
+# gatsby
+packages/**/public/
+.cache
+static/admin/*.bundle.*
+
+# others
+lib-cov
+/tsd_typings/
+
+# env
+.env

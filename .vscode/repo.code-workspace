@@ -1,0 +1,18 @@
+{
+  "folders": [
+    {
+      "path": "../"
+    },
+    {
+      "path": "../packages/core-webpack-config"
+    },
+    {
+      "path": "../packages/core-yo-generator"
+    }
+  ],
+  "settings": {
+    "typescript.surveys.enabled": false,
+    "terminals.sortTerminals": true,
+    "terminals.env": {}
+  }
+}

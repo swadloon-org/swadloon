@@ -1,0 +1,54 @@
+{
+  "autorun": true,
+  "autokill": true,
+  "terminals": [
+    {
+      "name": "root",
+      "cwd": "[workspaceFolder]",
+      "open": true,
+      "focus": true
+    },
+    {
+      "name": "core-docs-generator",
+      "cwd": "[workspaceFolder]/packages/core-docs-generator",
+      "open": true,
+      "focus": false
+    },
+    {
+      "name": "core-jest-config",
+      "cwd": "[workspaceFolder]/packages/core-jest-config",
+      "open": true,
+      "focus": false
+    },
+    {
+      "name": "core-ui-lib",
+      "cwd": "[workspaceFolder]/packages/core-ui-lib",
+      "open": true,
+      "focus": false
+    },
+    {
+      "name": "core-webpack-config",
+      "cwd": "[workspaceFolder]/packages/core-webpack-config",
+      "open": true,
+      "focus": false
+    },
+    {
+      "name": "core-yo-generator",
+      "cwd": "[workspaceFolder]/packages/core-yo-generator",
+      "open": true,
+      "focus": false
+    },
+    {
+      "name": "design-tokens-diez",
+      "cwd": "[workspaceFolder]/packages/design-tokens-diez",
+      "open": true,
+      "focus": false
+    },
+    {
+      "name": "design-tokens-web",
+      "cwd": "[workspaceFolder]/packages/design-tokens-web",
+      "open": true,
+      "focus": false
+    }
+  ]
+}

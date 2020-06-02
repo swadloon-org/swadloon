@@ -1,0 +1,17 @@
+mutation createMovie($title: String!) {
+    title
+}
+
+type Query {
+    movie(title: String!): Movie
+}
+
+type Movie {
+    title: String
+    Director: Director
+}
+
+type Director {
+    name: String
+    movies: [Movie]
+}
