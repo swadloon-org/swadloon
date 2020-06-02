@@ -1,0 +1,48 @@
+name: Build packages
+
+on: [push]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+    - uses: actions/checkout@v1
+
+    # - name: Restore cached node_modules
+    #   uses: actions/cache@v1
+    #   with:
+    #     path: node_modules
+    #     key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+    #     restore-keys: |
+    #       ${{ runner.os }}-node-
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Increase system limit for number of file watchers
+      run: |
+        echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+
+    - name: Run npm install
+      run: |
+        npm install
+
+    # - name: Run npm build
+    #   run: |
+    #     npm run build
+
+    # - name: Run npm test
+    #   run: |
+    #     npm test
+        
+      env:
+        CI: true

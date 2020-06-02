@@ -12,7 +12,10 @@ scriptLog(`node js version for this project: ${process.env['NODE_VERSION']}`);
 scriptLog(`installing node with nvm...`);
 
 const cwd = spawn(
-  'unset npm_config_prefix && source ~/.nvm/nvm.sh && nvm install $NODE_VERSION && nvm alias default $NODE_VERSION',
+  `unset npm_config_prefix && \
+  source ~/.nvm/nvm.sh && \
+  nvm install $NODE_VERSION && \
+  nvm alias default $NODE_VERSION`,
   {
     cwd: '..',
     shell: true,
