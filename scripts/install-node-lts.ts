@@ -3,7 +3,7 @@
 import * as dotenv from 'dotenv';
 import { spawn } from 'child_process';
 
-import { toolLog, scriptLog } from './log';
+import { log, scriptLog } from './log';
 
 dotenv.config(); // add env variables from .env
 
@@ -28,21 +28,21 @@ const cwd = spawn(
  */
 
 cwd.stdout.on('data', (data) => {
-  toolLog(data, {
+  log(data, {
     toolName: 'nvm',
     noNewline: true,
   });
 });
 
 cwd.stderr.on('data', (data) => {
-  toolLog(data, {
+  log(data, {
     toolName: 'nvm',
     noNewline: true,
   });
 });
 
 cwd.on('close', (code) => {
-  toolLog('done', {
+  log('done', {
     toolName: 'nvm',
   });
 });

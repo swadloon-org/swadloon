@@ -24,8 +24,8 @@ export const devTools: DevTool[] = [
   {
     name: 'yarn',
     command: 'yarn --version',
-    versionRegex: /1.19\..*/,
-    messageIfRegexFails: `yarn should be at least version 1.19.x`,
+    versionRegex: /1\.2\d.*/,
+    messageIfRegexFails: `yarn should be at least version 1.2x.x`,
     mandatory: true
   }
 ];

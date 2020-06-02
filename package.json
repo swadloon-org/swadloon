@@ -26,8 +26,7 @@
   },
   "scripts": {
     "init": "ts-node --script-mode scripts/install-node-lts.ts",
-    "test-dev-setup": "ts-node --script-mode scripts/test-dev-setup.ts",
-    "test:env": "npm run test-dev-setup",
+    "test:dev-setup": "ts-node --script-mode scripts/test-dev-setup.ts",
     "commit": "git-cz",
     "lint": "eslint . --ext js,ts,tsx"
   },

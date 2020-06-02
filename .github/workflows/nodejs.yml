@@ -34,15 +34,15 @@ jobs:
 
     - name: Run npm install
       run: |
-        npm install --loglevel info --audit true
+        npm install --loglevel warn --audit true
 
     # - name: Run npm build
     #   run: |
     #     npm run build
 
-    - name: Test environment
+    - name: Test dev setup
       run: |
-        npm run test:env
+        npm run test:dev-setup
         
       env:
         CI: true

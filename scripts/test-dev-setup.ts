@@ -5,13 +5,15 @@ import * as dotenv from 'dotenv';
 import { spawn } from 'child_process';
 
 import { log, scriptLog, LOG_LEVEL } from './log';
-import { devTools } from './dev-tools';
+import { devTools, DevTool } from './dev-tools';
 
 dotenv.config(); // add env variables from .env
 
-scriptLog(`checking if required local deps are installed...`);
+scriptLog(`checking for required dependencies...`);
 
-devTools.forEach(tool => {
+const failedDevTools: DevTool[] = [];
+
+devTools.forEach((tool, index) => {
   const cwd = invokeCommand(tool.command);
 
   cwd.stdout.on('data', data => {
@@ -20,7 +22,7 @@ devTools.forEach(tool => {
         toolName: tool.name,
         noNewline: true
       });
-      log(`version ${chalk.green('ok')}`, {
+      log(`version check ${chalk.green('ok')}`, {
         toolName: tool.name
       });
       return;
@@ -30,13 +32,16 @@ devTools.forEach(tool => {
       toolName: tool.name,
       noNewline: true
     });
-    log(`version ${chalk.red('fail')}`, {
+    log(`version check ${chalk.red('fail')}`, {
       toolName: tool.name
     });
     log(tool.messageIfRegexFails, {
       toolName: tool.name,
       level: LOG_LEVEL.ERROR
     });
+    if (tool?.mandatory) {
+      failedDevTools.push(tool);
+    }
   });
 
   cwd.stderr.on('data', data => {
@@ -47,11 +52,18 @@ devTools.forEach(tool => {
   });
 
   cwd.on('close', code => {
-    // log('done', {
-    //   toolName: 'nvm'
-    // });
+    // on the last tool
+    if (index === devTools.length - 1) {
+      checkForFailures();
+    }
   });
 });
+
+function checkForFailures() {
+  if (failedDevTools?.length) {
+    scriptLog(`missing mandatory dependencies: ${failedDevTools.map(tool => tool.name).join(', ')}`);
+  }
+}
 
 function invokeCommand(command: string) {
   return spawn(command, {
