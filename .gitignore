@@ -60,4 +60,5 @@ lib-cov
 /tsd_typings/
 
 # env
-.env
+.env*
+!.env.test

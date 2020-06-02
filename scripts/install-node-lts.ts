@@ -7,14 +7,14 @@ import { log, scriptLog } from './log';
 
 dotenv.config(); // add env variables from .env
 
-scriptLog(`node js version for this project: ${process.env['NODE_VERSION']}`);
+scriptLog(`node js version for this project: ${process.env['NVM_NODE_VERSION']}`);
 scriptLog(`installing node with nvm...`);
 
 const cwd = spawn(
   `unset npm_config_prefix && \
   source ~/.nvm/nvm.sh && \
-  nvm install $NODE_VERSION && \
-  nvm alias default $NODE_VERSION`,
+  nvm install $NVM_NODE_VERSION && \
+  nvm alias default $NVM_NODE_VERSION`,
   {
     cwd: '..',
     shell: true,
