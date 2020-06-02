@@ -34,7 +34,7 @@ jobs:
 
     - name: Run npm install
       run: |
-        npm install
+        npm install --loglevel info --audit true
 
     # - name: Run npm build
     #   run: |
