@@ -5,8 +5,7 @@ import { spawn } from 'child_process';
 
 import { toolLog, scriptLog } from './log';
 
-// add env variables from .env
-dotenv.config();
+dotenv.config(); // add env variables from .env
 
 scriptLog(`node js version for this project: ${process.env['NODE_VERSION']}`);
 scriptLog(`installing node with nvm...`);
@@ -24,7 +23,9 @@ const cwd = spawn(
   }
 );
 
-// handle spawn output
+/**
+ * handle command output
+ */
 
 cwd.stdout.on('data', (data) => {
   toolLog(data, {
