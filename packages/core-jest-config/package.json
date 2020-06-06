@@ -1,0 +1,28 @@
+{
+  "name": "core-jest-config",
+  "version": "1.0.0",
+  "description": "Default jest config and transformers",
+  "repository": "https://github.com/newrade/newrade/tree/master/packages/core-yo-generator",
+  "author": {
+    "name": "Philippe Leger",
+    "email": "philippe.leger@newrade.ca",
+    "url": "https://github.com/newrade/newrade"
+  },
+  "license": "MIT",
+  "main": "./lib/index.js",
+  "typings": "./lib/index.d.ts",
+  "files": [
+    "./lib/**/*"
+  ],
+  "scripts": {
+    "start": "tsc --build tsconfig.json --watch",
+    "build": "tsc --build tsconfig.json",
+    "pretest": "yarn build",
+    "test": "jest",
+    "clean": "rimraf -r lib/**"
+  },
+  "peerDependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "declaration": true,
+    "sourceMap": true,
+    "outDir": "./lib/",
+    "rootDir": "./src/",
+    "strict": false,
+    "target": "es6",
+    "module": "commonjs",
+    "types": ["jest", "node", "expect-puppeteer", "jest-environment-puppeteer", "puppeteer"]
+  },
+  "typeRoots": ["../../node_modules/@types", "typings"],
+  "include": ["./src/", "typings"]
+}

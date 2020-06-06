@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "outDir": "./dist/",
+    "rootDir": "./",
+    "strict": false,
+    "target": "es2017",
+    "types": ["jest", "node", "react", "expect-puppeteer", "jest-environment-puppeteer", "puppeteer"]
+  },
+  "typeRoots": ["../../node_modules/@types", "./src/typings"],
+  "include": ["./test/**/*"]
+}
