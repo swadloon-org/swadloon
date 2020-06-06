@@ -14,19 +14,15 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    # - name: Restore cached node_modules
-    #   uses: actions/cache@v1
-    #   with:
-    #     path: node_modules
-    #     key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-    #     restore-keys: |
-    #       ${{ runner.os }}-node-
-
     - name: Set up Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
 
+    #
+    # Cache yarn deps
+    # https://github.com/actions/cache/blob/master/examples.md#node---yarn
+    #
     - name: Yarn cache directory
       id: yarn-cache-dir
       run: echo "::set-output name=dir::$(yarn cache dir)"
