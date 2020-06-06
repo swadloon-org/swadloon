@@ -3,9 +3,7 @@ name: build
 on: [push]
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -13,7 +11,8 @@ jobs:
         node-version: [14.x]
 
     steps:
-    - uses: actions/checkout@v1
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
     # - name: Restore cached node_modules
     #   uses: actions/cache@v1
@@ -23,30 +22,39 @@ jobs:
     #     restore-keys: |
     #       ${{ runner.os }}-node-
 
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Set up Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+
+    - name: Yarn cache directory
+      id: yarn-cache-dir
+      run: echo "::set-output name=dir::$(yarn cache dir)"
+
+    - name: Yarn cache
+      uses: actions/cache@v1
+      id: yarn-cache
+      with:
+        path: ${{ steps.yarn-cache-dir.outputs.dir }}
+        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-yarn-
 
     - name: Increase system limit for number of file watchers
       run: |
         echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 
-    # - name: Run npm install
-    #   run: |
-    #     npm install --loglevel warn --audit true
+    - name: Install dependencies
+      run: yarn
 
-    - name: Yarn install
-      run: |
-        yarn
+    - name: Lint
+      run: yarn lint
 
-    - name: Yarn build
-      run: |
-        yarn build
+    - name: Build
+      run: yarn build
 
-    - name: Yarn test
-      run: |
-        yarn test
+    - name: Test
+      run: yarn test
         
       env:
         CI: true
