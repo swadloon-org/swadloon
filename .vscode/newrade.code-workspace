@@ -4,10 +4,25 @@
       "path": "../"
     },
     {
+      "path": "../packages/core-design-system"
+    },
+    {
+      "path": "../packages/core-docs-generator"
+    },
+    {
+      "path": "../packages/core-jest-config"
+    },
+    {
+      "path": "../packages/core-react-ui"
+    },
+    {
       "path": "../packages/core-webpack-config"
     },
     {
       "path": "../packages/core-yo-generator"
+    },
+    {
+      "path": "../packages/newrade-website"
     }
   ],
   "settings": {

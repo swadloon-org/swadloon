@@ -9,6 +9,12 @@
       "focus": true
     },
     {
+      "name": "core-design-system",
+      "cwd": "[workspaceFolder]/packages/core-design-system",
+      "open": true,
+      "focus": false
+    },
+    {
       "name": "core-docs-generator",
       "cwd": "[workspaceFolder]/packages/core-docs-generator",
       "open": true,
@@ -21,8 +27,8 @@
       "focus": false
     },
     {
-      "name": "core-ui-lib",
-      "cwd": "[workspaceFolder]/packages/core-ui-lib",
+      "name": "core-react-ui",
+      "cwd": "[workspaceFolder]/packages/core-react-ui",
       "open": true,
       "focus": false
     },
@@ -39,14 +45,8 @@
       "focus": false
     },
     {
-      "name": "design-tokens-diez",
-      "cwd": "[workspaceFolder]/packages/design-tokens-diez",
-      "open": true,
-      "focus": false
-    },
-    {
-      "name": "design-tokens-web",
-      "cwd": "[workspaceFolder]/packages/design-tokens-web",
+      "name": "newrade-website",
+      "cwd": "[workspaceFolder]/packages/newrade-website",
       "open": true,
       "focus": false
     }
