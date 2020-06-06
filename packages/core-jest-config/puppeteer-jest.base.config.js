@@ -5,5 +5,5 @@ module.exports.puppeteerPreset = {
   globalSetup: 'jest-environment-puppeteer/setup',
   globalTeardown: 'jest-environment-puppeteer/teardown',
   testEnvironment: 'jest-environment-puppeteer',
-  setupFilesAfterEnv: ['expect-puppeteer']
+  setupFilesAfterEnv: ['expect-puppeteer'],
 };

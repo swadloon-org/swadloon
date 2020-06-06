@@ -18,7 +18,7 @@ describe('jest', () => {
   });
 
   it('should compile dynamic import with .then', () => {
-    const lazyImport = import('./jest-setup').then(module => {
+    const lazyImport = import('./jest-setup').then((module) => {
       expect(module.jestSetup).toEqual('jestSetup');
     });
   });

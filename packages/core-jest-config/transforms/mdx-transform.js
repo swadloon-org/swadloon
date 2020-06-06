@@ -20,9 +20,9 @@ module.exports = {
     // Transform ES6 with babel
     const babelResult = babel.transform(injectedJSX, {
       presets,
-      plugins
+      plugins,
     }).code;
 
     return babelResult;
-  }
+  },
 };

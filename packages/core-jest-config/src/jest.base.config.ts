@@ -8,11 +8,11 @@ export const baseJestConfig: jest.InitialOptions = {
   transform: {
     '\\.(mjs|js|jsx)$': '../core-jest-config/transforms/babel-transform.js',
     '\\.(ttf|eot|woff2?|svg|jpe?g|png|gif|ico)$': '../core-jest-config/transforms/file-transform.js',
-    '\\.(mdx?)$': '../core-jest-config/transforms/mdx-transform.js'
+    '\\.(mdx?)$': '../core-jest-config/transforms/mdx-transform.js',
   },
   transformIgnorePatterns: ['node_modules/(?!(idlize)/)'],
   moduleNameMapper: {
-    '\\.(css|less|sass|scss)$': 'identity-obj-proxy'
+    '\\.(css|less|sass|scss)$': 'identity-obj-proxy',
   },
   testRegex: '.+\\.test\\.tsx?',
   testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/dist/', '(\\.js\\.map)$', '<rootDir>/package.json'],
@@ -23,7 +23,7 @@ export const baseJestConfig: jest.InitialOptions = {
   roots: ['<rootDir>/src', '<rootDir>/test'],
   globals: {
     'ts-jest': {
-      tsConfig: '<rootDir>/tsconfig.jest.json'
-    }
-  }
+      tsConfig: '<rootDir>/tsconfig.jest.json',
+    },
+  },
 };

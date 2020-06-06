@@ -5,21 +5,21 @@ const presets = [
     '@babel/env',
     {
       targets: {
-        node: 'current'
-      }
-    }
+        node: 'current',
+      },
+    },
   ],
-  '@babel/preset-react'
+  '@babel/preset-react',
 ];
 const plugins = [
   '@babel/plugin-transform-react-jsx',
   '@babel/plugin-transform-modules-commonjs',
-  '@babel/plugin-syntax-dynamic-import'
+  '@babel/plugin-syntax-dynamic-import',
 ];
 
 module.exports = babelJest.createTransformer({
   presets,
-  plugins
+  plugins,
 });
 
 module.exports.presets = presets;

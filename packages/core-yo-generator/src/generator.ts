@@ -42,19 +42,19 @@ export default class extends Generator {
         type: 'list',
         name: 'template',
         message: 'What do you want to generate?',
-        choices: this.generators.map(generator => generator.name),
-        default: CHOICES.NEW_PACKAGE
-      }
+        choices: this.generators.map((generator) => generator.name),
+        default: CHOICES.NEW_PACKAGE,
+      },
     ];
 
-    return this.prompt(prompts as Questions).then(answers => {
+    return this.prompt(prompts as Questions).then((answers) => {
       this.answers = answers;
     });
   }
 
   promptingNewPackage() {
     if (this.answers.template === CHOICES.NEW_PACKAGE) {
-      return this.prompt(this.generatorsMap[CHOICES.NEW_PACKAGE].questions).then(answers => {
+      return this.prompt(this.generatorsMap[CHOICES.NEW_PACKAGE].questions).then((answers) => {
         this.answers = { ...this.answers, ...answers };
       });
     }
@@ -62,16 +62,16 @@ export default class extends Generator {
 
   writingNewPackage() {
     if (this.answers.template === CHOICES.NEW_PACKAGE) {
-      this.generatorsMap[CHOICES.NEW_PACKAGE].templates.forEach(template => {
+      this.generatorsMap[CHOICES.NEW_PACKAGE].templates.forEach((template) => {
         template.render({
           ...template,
           context: {
             [NEW_PACKAGE_TEMPLATE_PROPS.SCOPE]: this.answers[NEW_PACKAGE_TEMPLATE_PROPS.SCOPE],
             [NEW_PACKAGE_TEMPLATE_PROPS.NAME]: this.answers[NEW_PACKAGE_TEMPLATE_PROPS.NAME],
-            [NEW_PACKAGE_TEMPLATE_PROPS.DESCRIPTION]: this.answers[NEW_PACKAGE_TEMPLATE_PROPS.DESCRIPTION]
+            [NEW_PACKAGE_TEMPLATE_PROPS.DESCRIPTION]: this.answers[NEW_PACKAGE_TEMPLATE_PROPS.DESCRIPTION],
           },
           generator: this,
-          copyTpl: this.fs.copyTpl
+          copyTpl: this.fs.copyTpl,
         });
       });
     }

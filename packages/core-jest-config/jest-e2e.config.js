@@ -6,5 +6,5 @@ const jestConfig = require('./jest.config.js');
 module.exports = {
   ...puppeteerPreset,
   ...jestConfig,
-  testMatch: ['**/(src|test)/**/?(*.)+(suite).ts?(x)']
+  testMatch: ['**/(src|test)/**/?(*.)+(suite).ts?(x)'],
 };

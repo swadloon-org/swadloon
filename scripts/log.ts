@@ -6,7 +6,7 @@ export function scriptLog(message: string) {
 
 export enum LOG_LEVEL {
   INFO,
-  ERROR
+  ERROR,
 }
 
 export function log(
@@ -15,7 +15,7 @@ export function log(
     chalkColor = 'yellow',
     toolName,
     noNewline,
-    level = LOG_LEVEL.INFO
+    level = LOG_LEVEL.INFO,
   }: { chalkColor?: string; toolName: string; noNewline?: boolean; level?: LOG_LEVEL }
 ) {
   const errorTemplate = `${chalk[chalkColor](`[${toolName || 'tool'}]`)} ${chalk.red(message)}`;

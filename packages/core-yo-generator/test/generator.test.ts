@@ -20,7 +20,7 @@ describe('The new-package-generator', () => {
       .withPrompts({ [NEW_PACKAGE_TEMPLATE_PROPS.SCOPE]: testPackageScope })
       .withPrompts({ [NEW_PACKAGE_TEMPLATE_PROPS.NAME]: testPackageName })
       .withPrompts({ [NEW_PACKAGE_TEMPLATE_PROPS.DESCRIPTION]: testDescription })
-      .then(function() {
+      .then(function () {
         assert.file([path.join(testPathPackage, `/package.json`)]);
       });
   });
