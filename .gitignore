@@ -35,6 +35,7 @@ packages/**/charts/
 # jest
 _reports
 __metrics__
+junit.xml
 
 # server
 
