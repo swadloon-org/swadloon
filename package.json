@@ -2,7 +2,7 @@
   "private": true,
   "license": "UNLICENSED",
   "engines": {
-    "node": "12"
+    "node": "14"
   },
   "config": {
     "commitizen": {
@@ -25,8 +25,12 @@
     ]
   },
   "scripts": {
+    "yo": "core-yo-generator",
     "postinstall": "npm run test:dev-setup",
-    "reset": "rimraf -r ./node_modules packages/**/node_modules && npm i",
+    "clean": "lerna exec -- yarn clean",
+    "build": "lerna exec --concurrency 1 -- yarn build",
+    "test": "lerna exec --concurrency 1 -- yarn test",
+    "reset": "rimraf -r ./node_modules packages/**/node_modules **/package-lock.json",
     "init": "ts-node --script-mode scripts/install-node-lts.ts",
     "test:dev-setup": "ts-node --script-mode scripts/test-dev-setup.ts",
     "commit": "git-cz",
@@ -54,9 +58,18 @@
     "eslint-plugin-prettier": "3.1.3",
     "eslint-plugin-react": "7.20.0",
     "eslint-plugin-react-hooks": "4.0.2",
+    "lerna": "^3.22.0",
+    "mocha": "^7.2.0",
     "prettier": "^1.19.1",
     "rimraf": "^3.0.2",
     "ts-node": "^8.6.2",
-    "typescript": "^3.7.5"
+    "typescript": "^3.7.5",
+    "yo": "^3.1.1"
+  },
+  "dependencies": {
+    "@types/mocha": "^7.0.2",
+    "@types/yeoman-assert": "^3.1.1",
+    "@types/yeoman-generator": "^3.1.4",
+    "@types/yeoman-test": "^2.0.4"
   }
 }

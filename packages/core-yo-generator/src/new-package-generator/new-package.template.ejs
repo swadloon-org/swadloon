@@ -1,0 +1,14 @@
+{
+  "name": "@<%= scope %>/<%= name %>",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "<%= description %>",
+  "scripts": {
+    "start": "npm run tsc -- --watch",
+    "build": "npm run tsc",
+    "prebuild": "npm run clean",
+    "clean": "rimraf -r dist/**"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

@@ -13,7 +13,7 @@ Make sure `nvm` is available in the terminal.
 Install the recommended NodeJS version with :
 
 ```bash
-# allow script
+# set permissions to scripts
 chmod 755 scripts/*
 npm run init
 ```

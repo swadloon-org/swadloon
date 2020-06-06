@@ -30,7 +30,6 @@ packages/**/dist/
 packages/**/package-lock.json
 packages/**/bin/
 packages/**/lib/
-!packages/core-yo-generator/lib/
 packages/**/charts/
 
 # jest

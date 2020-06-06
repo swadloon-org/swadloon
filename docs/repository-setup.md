@@ -2,9 +2,7 @@
 
 ## Brew (Mac)
 
-```
-
-```
+Install brew from the website: https://brew.sh/
 
 ## Yarn
 

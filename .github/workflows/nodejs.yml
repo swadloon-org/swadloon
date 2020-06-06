@@ -32,17 +32,21 @@ jobs:
       run: |
         echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 
-    - name: Run npm install
-      run: |
-        npm install --loglevel warn --audit true
-
-    # - name: Run npm build
+    # - name: Run npm install
     #   run: |
-    #     npm run build
+    #     npm install --loglevel warn --audit true
 
-    - name: Test dev setup
+    - name: Yarn install
       run: |
-        npm run test:dev-setup
+        yarn
+
+    - name: Yarn build
+      run: |
+        yarn build
+
+    - name: Yarn test
+      run: |
+        yarn test
         
       env:
         CI: true
