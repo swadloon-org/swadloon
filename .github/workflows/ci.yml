@@ -20,7 +20,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
 
     #
-    # Cache yarn deps
+    # Cache yarn dependencies
     # https://github.com/actions/cache/blob/master/examples.md#node---yarn
     #
     - name: Yarn cache directory
@@ -36,6 +36,10 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-yarn-
 
+    #
+    # Fix for build issues with Gatsby or other tools that uses
+    # many file watchers
+    #
     - name: Increase system limit for number of file watchers
       run: |
         echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p

@@ -9,15 +9,15 @@
       "path": "node_modules/cz-conventional-changelog"
     }
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "prettier --write packages/**/CHANGELOG.md --loglevel silent && git add packages/**/CHANGELOG.md"
-    }
-  },
   "lint-staged": {
     "*.{js,ts,tsx}": [
-      "eslint --ext js,ts,tsx --fix"
+      "yarn lint:fix"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && yarn format:changelog"
+    }
   },
   "workspaces": {
     "packages": [
@@ -25,16 +25,18 @@
     ]
   },
   "scripts": {
-    "yo": "core-yo-generator",
+    "init": "ts-node --script-mode scripts/install-node-lts.ts",
     "postinstall": "npm run test:dev-setup",
     "clean": "lerna exec -- yarn clean",
     "build": "lerna exec --concurrency 1 -- yarn build",
+    "yo": "core-yo-generator",
     "test": "lerna exec --concurrency 1 -- yarn test",
-    "reset": "rimraf -r ./node_modules packages/**/node_modules **/package-lock.json",
-    "init": "ts-node --script-mode scripts/install-node-lts.ts",
     "test:dev-setup": "ts-node --script-mode scripts/test-dev-setup.ts",
+    "format:changelog": "prettier --write packages/**/CHANGELOG.md --loglevel silent && git add packages/**/CHANGELOG.md",
+    "lint": "eslint . --ext js,ts,tsx",
+    "lint:fix": "eslint . --ext js,ts,tsx --fix",
     "commit": "git-cz",
-    "lint": "eslint . --ext js,ts,tsx"
+    "reset": "rimraf -r ./node_modules packages/**/node_modules **/package-lock.json"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
@@ -65,10 +67,12 @@
     "eslint-plugin-react": "7.x",
     "eslint-plugin-react-hooks": "4.0.4",
     "expect-puppeteer": "^4.4.0",
+    "husky": "^4.2.5",
     "jest": "^26.0.1",
     "jest-environment-puppeteer": "^4.4.0",
     "jest-junit": "^10.0.0",
     "lerna": "^3.22.0",
+    "lint-staged": "^10.2.9",
     "mocha": "^7.2.0",
     "node": "^14.4.0",
     "prettier": "^2.0.5",
