@@ -1,20 +1,19 @@
 #!/usr/bin/env ts-node-script
 
-import * as dotenv from 'dotenv';
 import { spawn } from 'child_process';
-
 import { log, scriptLog } from './log';
+import { loadDotEnv, dotEnvProcess } from './utils';
 
-dotenv.config(); // add env variables from .env
+loadDotEnv();
 
-scriptLog(`node js version for this project: ${process.env['NVM_NODE_VERSION']}`);
+scriptLog(`node js version for this project: ${dotEnvProcess.NVM_NODE_VERSION}`);
 scriptLog(`installing node with nvm...`);
 
 const cwd = spawn(
-  `unset npm_config_prefix && \
+  `unset npm_config_prefix PREFIX && \
   source ~/.nvm/nvm.sh && \
-  nvm install $NVM_NODE_VERSION && \
-  nvm alias default $NVM_NODE_VERSION`,
+  nvm install ${dotEnvProcess.NVM_NODE_VERSION} && \
+  nvm alias default ${dotEnvProcess.NVM_NODE_VERSION}`,
   {
     cwd: '..',
     shell: true,

@@ -9,14 +9,33 @@
 
 ## Quickstart
 
+### Prerequisites
+
+- bash terminal (MacOs, or WSL 2 on Windows 10)
+- [nvm](https://github.com/nvm-sh/nvm)
+- [brew](https://brew.sh/)
+
+### Dependencies
+
 ```bash
 # set permissions for scripts
 chmod 755 scripts
 
-# if you have nvm installed
-npm run init
+# install correct version of node
+yarn nvm
 
 # install dependencies
-npm install
+yarn
+
+# build packages
+yarn build
+
+# test packages
+yarn test
+
+# apply prettier and eslint
+yarn lint
 
 ```
+
+---

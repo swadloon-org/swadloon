@@ -1,5 +1,6 @@
 {
   "typescript.preferences.importModuleSpecifier": "relative",
+  "editor.formatOnSave": true,
   "[yaml]": {
     "editor.formatOnSave": false
   },
