@@ -1,0 +1,18 @@
+{
+  "name": "core-webpack-config",
+  "version": "1.0.0",
+  "description": "Reusable webpack configuration files",
+  "main": "./lib/index.js",
+  "module": "./lib/index.js",
+  "typings": "./lib/index.d.ts",
+  "files": [
+    "./lib/**/*"
+  ],
+  "scripts": {
+    "start": "tsc --build tsconfig.json --watch",
+    "build": "tsc --build tsconfig.json",
+    "prebuild": "yarn clean",
+    "test": "echo ok",
+    "clean": "rimraf -r lib/**"
+  }
+}
