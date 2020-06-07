@@ -15,7 +15,7 @@
 - [nvm](https://github.com/nvm-sh/nvm)
 - [brew](https://brew.sh/)
 
-### Dependencies
+### Get Started
 
 ```bash
 # set permissions for scripts

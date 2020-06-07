@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "fabiospampinato.vscode-terminals",
+    "esbenp.prettier-vscode",
+    "jasonnutter.search-node-modules",
+    "msjsdiag.debugger-for-chrome",
+    "DigitalBrainstem.javascript-ejs-support",
+    "mikestead.dotenv"
+  ]
+}
