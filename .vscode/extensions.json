@@ -1,10 +1,13 @@
 {
   "recommendations": [
     "fabiospampinato.vscode-terminals",
-    "esbenp.prettier-vscode",
+    "fabiospampinato.vscode-open-in-node-modules",
     "jasonnutter.search-node-modules",
+    "esbenp.prettier-vscode",
     "msjsdiag.debugger-for-chrome",
     "DigitalBrainstem.javascript-ejs-support",
-    "mikestead.dotenv"
+    "mikestead.dotenv",
+    "silvenon.mdx",
+    "ms-vscode-remote.vscode-remote-extensionpack"
   ]
 }

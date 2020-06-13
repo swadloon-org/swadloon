@@ -9,11 +9,15 @@ loadDotEnv();
 scriptLog(`node js version for this project: ${dotEnvProcess.NVM_NODE_VERSION}`);
 scriptLog(`installing node with nvm...`);
 
+const os = require('os');
+
+scriptLog(`os is ${os.type()}`);
+
 const cwd = spawn(
   `unset npm_config_prefix PREFIX && \
-  source ~/.nvm/nvm.sh && \
+  . ~/.nvm/nvm.sh && \
   nvm install ${dotEnvProcess.NVM_NODE_VERSION} && \
-  nvm alias default ${dotEnvProcess.NVM_NODE_VERSION}`,
+  nvm unalias default`,
   {
     cwd: '..',
     shell: true,
