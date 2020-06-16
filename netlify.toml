@@ -5,3 +5,5 @@
   base = "."
   command = "cd packages/newrade-website && yarn build && yarn export"
   publish = "packages/newrade-website/dist"
+  environment = { YARN_VERSION = "1.22.4", NODE_VERSION = "14" }
+  
