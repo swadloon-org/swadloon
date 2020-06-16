@@ -2,6 +2,6 @@
 
 [build]
   # This is where we will look for package.json/.nvmrc/etc.
-  base = "packages/newrade-website"
-  command = "yarn build && yarn export"
-  publish = "dist"
+  base = "."
+  command = "cd packages/newrade-website && yarn build && yarn export"
+  publish = "packages/newrade-website/dist"
