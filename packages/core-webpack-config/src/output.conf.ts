@@ -1,7 +1,8 @@
 import { OutputOptions } from 'webpack/declarations/WebpackOptions';
+import { ENVIRONMENT } from './environments';
 
-export const outputConf: { [key: string]: OutputOptions } = {
-  dev: {
+export const defaultOuputConf: { [key in ENVIRONMENT]: OutputOptions } = {
+  [ENVIRONMENT.DEV]: {
     filename: '[name].bundle.js',
     publicPath: '/',
     pathinfo: true,
@@ -9,16 +10,12 @@ export const outputConf: { [key: string]: OutputOptions } = {
     sourceMapFilename: '[file].map',
     globalObject: 'this',
   },
-  prod: {
+  [ENVIRONMENT.PROD]: {
     filename: '[name].bundle.[contenthash].js',
     publicPath: '/',
     pathinfo: true,
     chunkFilename: '[id].[contenthash].chunk.js',
     sourceMapFilename: '[file].map',
     globalObject: 'this',
-  },
-  sw: {
-    filename: '[name].js',
-    pathinfo: true,
   },
 };

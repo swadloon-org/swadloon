@@ -2,6 +2,7 @@
   "name": "core-webpack-config",
   "version": "1.1.0",
   "description": "Reusable webpack configuration files",
+  "license": "MIT",
   "main": "./lib/index.js",
   "module": "./lib/index.js",
   "typings": "./lib/index.d.ts",
@@ -12,7 +13,8 @@
     "start": "tsc --build tsconfig.json --watch",
     "build": "tsc --build tsconfig.json",
     "prebuild": "yarn clean",
-    "test": "echo ok",
+    "webpack": "webpack --config webpack.dev.config.ts",
+    "test": "webpack --config webpack.test.config.ts",
     "clean": "rimraf -r lib/**"
   }
 }

@@ -55,6 +55,9 @@ packages/**/public/
 .cache
 static/admin/*.bundle.*
 
+# nextjs
+.next
+
 # others
 lib-cov
 /tsd_typings/
@@ -62,3 +65,5 @@ lib-cov
 # env
 .env*
 !.env.test
+
+.vercel

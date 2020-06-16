@@ -1,0 +1,7 @@
+# Docs https://docs.netlify.com/configure-builds/file-based-configuration/#sample-file
+
+[build]
+  # This is where we will look for package.json/.nvmrc/etc.
+  base = "packages/newrade-website"
+  command = "yarn build && yarn export"
+  publish = "dist"

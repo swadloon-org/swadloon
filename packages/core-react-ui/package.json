@@ -3,6 +3,7 @@
   "version": "1.1.0",
   "type": "module",
   "description": "UI library",
+  "license": "MIT",
   "main": "./lib/index.js",
   "module": "./lib/index.js",
   "typings": "./lib/index.d.ts",
