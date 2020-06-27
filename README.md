@@ -19,7 +19,8 @@
 
 ```bash
 # set permissions for scripts
-chmod 755 scripts
+chmod a+x scripts/*
+chmod a+x node_modules/.bin/nr-core-cli
 
 # install correct version of node
 yarn nvm

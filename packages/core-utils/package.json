@@ -9,18 +9,24 @@
     "url": "https://github.com/newrade/newrade"
   },
   "license": "MIT",
+  "type": "module",
   "bin": {
-    "newrade-cli-clear": "./dist/console-clear.js",
-    "newrade-cli-newline": "./dist/console-newline.js"
+    "newrade-cli-clear": "./lib/console-clear.js",
+    "newrade-cli-newline": "./lib/console-newline.js"
   },
+  "module": "./lib/index.js",
+  "main": "./lib/index.js",
+  "typings": "./lib/index.d.ts",
+  "files": [
+    "./lib/**/*",
+    "./src/**/*"
+  ],
   "scripts": {
-    "start": "npm run tsc -- --watch",
-    "build": "npm run tsc",
+    "start": "tsc --build --watch",
+    "build": "tsc --build",
+    "pretest": "yarn build",
     "test": "echo test",
-    "prebuild": "npm run clean",
-    "clean": "rimraf -r dist/**",
-    "tsc": "tsc --build --preserveWatchOutput",
-    "exec": "node --experimental-modules --es-module-specifier-resolution=node  ./dist/index.js"
+    "clean": "rimraf -r lib/**"
   },
   "dependencies": {}
 }

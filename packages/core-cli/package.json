@@ -8,22 +8,22 @@
     "email": "philippe.leger@newrade.ca",
     "url": "https://github.com/newrade/newrade"
   },
+  "type": "module",
   "license": "MIT",
   "bin": {
-    "nr-core-cli": "./lib/index.js"
+    "nr-core-cli": "./lib/src/index.js"
   },
   "scripts": {
     "postinstall": "yarn build",
-    "start": "npm run tsc -- --watch",
-    "build": "npm run tsc",
-    "test": "echo ok",
+    "start": "tsc --build --watch --preserveWatchOutput",
+    "test": "nr-core-cli version",
     "prebuild": "npm run clean",
+    "build": "tsc --build",
     "clean": "rimraf -r lib/**",
-    "tsc": "tsc --build --preserveWatchOutput",
-    "cli": "node ./lib/index.js",
-    "cli-ts": "ts-node --script-mode ./src/index.ts"
+    "cli": "node --no-warnings --es-module-specifier-resolution=node --experimental-json-modules ./lib/src/index.js"
   },
   "dependencies": {
-    "commander": "^5.1.0"
+    "commander": "^5.1.0",
+    "core-utils": "file:../core-utils"
   }
 }

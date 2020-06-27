@@ -1,10 +1,14 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "module": "CommonJS",
+    "module": "esnext",
     "types": ["node", "commander"],
     "outDir": "./lib",
-    "rootDir": "./src"
+    "rootDir": "./",
+    "paths": {
+      "core-utils": ["../core-utils"],
+      "core-utils/*": ["../core-utils/*"]
+    }
   },
   "include": ["./**/*"],
   "exclude": ["./dist/", "./node_modules/"]

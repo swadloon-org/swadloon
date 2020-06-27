@@ -1,0 +1,17 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug yarn cli2",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["--no-warnings", "--es-module-specifier-resolution=node", "--experimental-json-modules"],
+      "program": "${workspaceFolder}/lib/src/index.js",
+      "args": ["version"]
+    }
+  ]
+}

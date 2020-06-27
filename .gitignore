@@ -31,6 +31,7 @@ packages/**/package-lock.json
 packages/**/bin/
 packages/**/lib/
 packages/**/charts/
+packages/test-*
 
 # jest
 _reports
