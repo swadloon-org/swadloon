@@ -16,6 +16,7 @@
     "postinstall": "yarn build",
     "start": "npm run tsc -- --watch",
     "build": "npm run tsc",
+    "test": "echo ok",
     "prebuild": "npm run clean",
     "clean": "rimraf -r dist/**",
     "tsc": "tsc --build --preserveWatchOutput",
