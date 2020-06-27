@@ -27,7 +27,6 @@
   "scripts": {
     "nvm": "ts-node --script-mode scripts/install-node-nvm.ts",
     "fork": "ts-node --script-mode scripts/fork-repo.ts",
-    "postinstall": "yarn set-permissions && yarn cli check-dev-reqs",
     "start": "lerna exec --parallel -- yarn start",
     "clean": "lerna exec -- yarn clean",
     "build": "lerna exec --concurrency 1 -- yarn build",
