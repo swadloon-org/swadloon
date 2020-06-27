@@ -16,6 +16,7 @@
   "scripts": {
     "start": "npm run tsc -- --watch",
     "build": "npm run tsc",
+    "test": "echo test",
     "prebuild": "npm run clean",
     "clean": "rimraf -r dist/**",
     "tsc": "tsc --build --preserveWatchOutput",

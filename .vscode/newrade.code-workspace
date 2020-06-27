@@ -19,6 +19,9 @@
       "path": "../packages/core-react-ui"
     },
     {
+      "path": "../packages/core-utils"
+    },
+    {
       "path": "../packages/core-webpack-config"
     },
     {

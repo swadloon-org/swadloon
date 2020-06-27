@@ -39,6 +39,12 @@
       "focus": false
     },
     {
+      "name": "core-utils",
+      "cwd": "[workspaceFolder]/packages/core-utils",
+      "open": true,
+      "focus": false
+    },
+    {
       "name": "core-webpack-config",
       "cwd": "[workspaceFolder]/packages/core-webpack-config",
       "open": true,
