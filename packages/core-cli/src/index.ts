@@ -17,6 +17,12 @@ program.command('version').action(() => {
   });
 });
 
+program.command('check-dev-reqs').action(() => {
+  log('1.0.0', {
+    toolName: 'core-cli',
+  });
+});
+
 program.parse(process.argv);
 
 if (program.debug) {

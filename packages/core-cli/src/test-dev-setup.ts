@@ -1,11 +1,9 @@
-#!/usr/bin/env ts-node-script
-
 import * as path from 'path';
 import * as chalk from 'chalk';
 import * as dotenv from 'dotenv';
 import { spawn } from 'child_process';
 
-import { log, scriptLog, LOG_LEVEL } from './log';
+import { log, scriptLog, LOG_LEVEL } from 'core-utils';
 import { devTools, DevTool } from './dev-tools';
 
 /**

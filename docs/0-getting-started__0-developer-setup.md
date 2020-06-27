@@ -74,10 +74,9 @@ And that's it, you should be able to run other commands like `yarn build` and `y
 
 ### Permissions issues with /scripts
 
-Set permissions for the repo's scripts and CLI:
+Set permissions for the repo CLI:
 
 ```bash
-chmod a+x scripts/*
 chmod a+x node_modules/.bin/nr-core-cli
 ```
 

@@ -1,6 +1,6 @@
 dist
 es
-lib
+**/lib/**/*
 ts
 coverage
 node_modules

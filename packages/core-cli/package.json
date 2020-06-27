@@ -24,6 +24,6 @@
   },
   "dependencies": {
     "commander": "^5.1.0",
-    "core-utils": "file:../core-utils"
+    "core-utils": "^v1.0.0"
   }
 }

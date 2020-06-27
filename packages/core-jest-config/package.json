@@ -15,7 +15,7 @@
     "./lib/**/*"
   ],
   "scripts": {
-    "start": "tsc --build tsconfig.json --watch",
+    "start": "tsc --build tsconfig.json --watch --preserveWatchOutput",
     "build": "tsc --build tsconfig.json",
     "pretest": "yarn build",
     "test": "jest",

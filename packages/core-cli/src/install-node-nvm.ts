@@ -1,15 +1,12 @@
-#!/usr/bin/env ts-node-script
-
 import { spawn } from 'child_process';
-import { log, scriptLog } from './log';
+import { log, scriptLog } from 'core-utils';
 import { loadDotEnv, dotEnvProcess } from './utils';
+import * as os from 'os';
 
 loadDotEnv();
 
 scriptLog(`node js version for this project: ${dotEnvProcess.NVM_NODE_VERSION}`);
 scriptLog(`installing node with nvm...`);
-
-const os = require('os');
 
 scriptLog(`os is ${os.type()}`);
 

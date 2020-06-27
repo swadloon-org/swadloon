@@ -18,11 +18,11 @@
   "main": "./lib/index.js",
   "typings": "./lib/index.d.ts",
   "files": [
-    "./lib/**/*",
-    "./src/**/*"
+    "./lib/**/*"
   ],
   "scripts": {
-    "start": "tsc --build --watch",
+    "start": "tsc --build --watch --preserveWatchOutput",
+    "postinstall": "yarn build",
     "build": "tsc --build",
     "pretest": "yarn build",
     "test": "echo test",

@@ -18,8 +18,7 @@
 ### Get Started
 
 ```bash
-# set permissions for scripts
-chmod a+x scripts/*
+# set permissions for cli
 chmod a+x node_modules/.bin/nr-core-cli
 
 # install correct version of node

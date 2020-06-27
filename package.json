@@ -27,12 +27,12 @@
   "scripts": {
     "nvm": "ts-node --script-mode scripts/install-node-nvm.ts",
     "fork": "ts-node --script-mode scripts/fork-repo.ts",
-    "postinstall": "yarn test:dev-setup && yarn set-permissions",
+    "postinstall": "yarn set-permissions && yarn cli check-dev-reqs",
     "start": "lerna exec --parallel -- yarn start",
     "clean": "lerna exec -- yarn clean",
     "build": "lerna exec --concurrency 1 -- yarn build",
+    "postbuild": "yarn set-permissions",
     "test": "lerna exec --concurrency 1 -- yarn test",
-    "test:dev-setup": "ts-node --script-mode scripts/test-dev-setup.ts",
     "yo": "nr-core-yo-generator",
     "cli": "nr-core-cli",
     "format:changelog": "prettier --write packages/**/CHANGELOG.md --loglevel silent && git add packages/**/CHANGELOG.md",
@@ -42,9 +42,9 @@
     "changelog": "lerna version --conventional-commits --no-push",
     "push": "git push --follow-tags",
     "commit": "lint-staged && git-cz",
-    "reinstall": "yarn reset && yarn && yarn build && yarn set-permissions && yarn test",
-    "set-permissions": "chmod a+x scripts/* && chmod a+x node_modules/.bin/nr-core-cli",
-    "reset": "rimraf -r ./node_modules packages/**/node_modules **/package-lock.json"
+    "reinstall": "yarn reset && yarn && yarn build && yarn test",
+    "set-permissions": "chmod a+x node_modules/.bin/nr-core-cli",
+    "reset": "npm i -g rimraf && rimraf -r ./node_modules packages/**/node_modules **/package-lock.json"
   },
   "dependencies": {
     "react": "^16.13.1",

@@ -11,7 +11,7 @@
     "./lib/**/*"
   ],
   "scripts": {
-    "start": "tsc --build tsconfig.json --watch",
+    "start": "tsc --build tsconfig.json --watch --preserveWatchOutput",
     "build": "tsc --build tsconfig.json",
     "prebuild": "yarn clean",
     "test": "echo ok",
