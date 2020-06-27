@@ -1,0 +1,27 @@
+{
+  "name": "core-cli",
+  "version": "1.0.0",
+  "description": "CLI for various purposes, automate actions, etc.",
+  "repository": "https://github.com/newrade/newrade/tree/master/packages/core-cli",
+  "author": {
+    "name": "Philippe Leger",
+    "email": "philippe.leger@newrade.ca",
+    "url": "https://github.com/newrade/newrade"
+  },
+  "license": "MIT",
+  "bin": {
+    "nr-core-cli": "./lib/src/index.js"
+  },
+  "scripts": {
+    "postinstall": "yarn build",
+    "start": "npm run tsc -- --watch",
+    "build": "npm run tsc",
+    "prebuild": "npm run clean",
+    "clean": "rimraf -r dist/**",
+    "tsc": "tsc --build --preserveWatchOutput",
+    "exec": "node --experimental-modules --es-module-specifier-resolution=node  ./dist/index.js"
+  },
+  "dependencies": {
+    "commander": "^5.1.0"
+  }
+}

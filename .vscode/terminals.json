@@ -9,6 +9,12 @@
       "focus": true
     },
     {
+      "name": "core-cli",
+      "cwd": "[workspaceFolder]/packages/core-cli",
+      "open": true,
+      "focus": false
+    },
+    {
       "name": "core-design-system",
       "cwd": "[workspaceFolder]/packages/core-design-system",
       "open": true,

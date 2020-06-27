@@ -4,6 +4,9 @@
       "path": "../"
     },
     {
+      "path": "../packages/core-cli"
+    },
+    {
       "path": "../packages/core-design-system"
     },
     {

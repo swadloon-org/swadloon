@@ -1,0 +1,25 @@
+{
+  "name": "core-utils",
+  "version": "1.0.0",
+  "description": "Core utilities shared across packages.",
+  "repository": "https://github.com/newrade/newrade/tree/master/packages/core-cli",
+  "author": {
+    "name": "Philippe Leger",
+    "email": "philippe.leger@newrade.ca",
+    "url": "https://github.com/newrade/newrade"
+  },
+  "license": "MIT",
+  "bin": {
+    "newrade-cli-clear": "./dist/console-clear.js",
+    "newrade-cli-newline": "./dist/console-newline.js"
+  },
+  "scripts": {
+    "start": "npm run tsc -- --watch",
+    "build": "npm run tsc",
+    "prebuild": "npm run clean",
+    "clean": "rimraf -r dist/**",
+    "tsc": "tsc --build --preserveWatchOutput",
+    "exec": "node --experimental-modules --es-module-specifier-resolution=node  ./dist/index.js"
+  },
+  "dependencies": {}
+}

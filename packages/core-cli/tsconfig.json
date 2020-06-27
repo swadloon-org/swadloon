@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "types": ["node", "commander"],
+    "outDir": "./lib",
+    "rootDir": "./"
+  },
+  "include": ["./**/*"],
+  "exclude": ["./dist/", "./node_modules/"]
+}

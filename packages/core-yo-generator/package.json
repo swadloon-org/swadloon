@@ -11,15 +11,14 @@
   "license": "MIT",
   "main": "lib/index.js",
   "bin": {
-    "core-yo-generator": "./lib/src/cli.js"
+    "nr-core-yo-generator": "./lib/src/cli.js"
   },
   "scripts": {
     "postinstall": "yarn build",
     "start": "tsc --build tsconfig.json --watch",
-    "generator": "yo ./lib/src/ -- --no-insight --no-update-notifier",
+    "yo": "yo ./lib/src/ -- --no-insight --no-update-notifier",
     "build": "tsc --build tsconfig.json",
     "clean": "rimraf -r lib/**",
-    "yo": "npm-run-all yo:tsc yo:start",
     "pretest": "yarn build",
     "test": "mocha lib/test/generator.test.js"
   },
