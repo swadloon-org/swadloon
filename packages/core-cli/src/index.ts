@@ -1,10 +1,10 @@
-#!/usr/bin/env node
+#!/usr/bin/env ts-node-script
 
-import packagejson from '../package.json';
+// import packagejson from '../package.json';
 import commander from 'commander';
 
 const program = new commander.Command();
-program.version(packagejson.version);
+// program.version(packagejson.version);
 program
   .option('-d, --debug', 'output extra debugging')
   .option('-s, --small', 'small pizza size')
@@ -22,3 +22,5 @@ if (program.small) {
 if (program.pizzaType) {
   console.log(`- ${program.pizzaType}`);
 }
+
+export default program;

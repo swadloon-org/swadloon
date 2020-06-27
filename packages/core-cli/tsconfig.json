@@ -1,9 +1,10 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
+    "module": "CommonJS",
     "types": ["node", "commander"],
     "outDir": "./lib",
-    "rootDir": "./"
+    "rootDir": "./src"
   },
   "include": ["./**/*"],
   "exclude": ["./dist/", "./node_modules/"]

@@ -74,10 +74,11 @@ And that's it, you should be able to run other commands like `yarn build` and `y
 
 ### Permissions issues with /scripts
 
-Set the permissions for the repo's scripts:
+Set permissions for the repo's scripts and CLI:
 
 ```bash
-chmod 755 scripts/*
+chmod a+x scripts/*
+chmod a+x node_modules/.bin/nr-core-cli
 ```
 
 ### NVM Warning Message About Unsupported Prefix

@@ -9,7 +9,6 @@
     "url": "https://github.com/newrade/newrade"
   },
   "license": "MIT",
-  "main": "lib/index.js",
   "bin": {
     "nr-core-yo-generator": "./lib/src/cli.js"
   },

@@ -10,7 +10,7 @@
   },
   "license": "MIT",
   "bin": {
-    "nr-core-cli": "./lib/src/index.js"
+    "nr-core-cli": "./lib/index.js"
   },
   "scripts": {
     "postinstall": "yarn build",
@@ -18,9 +18,10 @@
     "build": "npm run tsc",
     "test": "echo ok",
     "prebuild": "npm run clean",
-    "clean": "rimraf -r dist/**",
+    "clean": "rimraf -r lib/**",
     "tsc": "tsc --build --preserveWatchOutput",
-    "exec": "node --experimental-modules --es-module-specifier-resolution=node  ./dist/index.js"
+    "cli": "node ./lib/index.js",
+    "cli-ts": "ts-node --script-mode ./src/index.ts"
   },
   "dependencies": {
     "commander": "^5.1.0"
