@@ -16,7 +16,7 @@
   "scripts": {
     "postinstall": "yarn build",
     "start": "tsc --build --watch --preserveWatchOutput",
-    "test": "nr-core-cli version",
+    "test": "yarn cli version",
     "prebuild": "npm run clean",
     "build": "tsc --build",
     "clean": "rimraf -r lib/**",

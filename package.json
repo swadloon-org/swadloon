@@ -30,7 +30,6 @@
     "start": "lerna exec --parallel -- yarn start",
     "clean": "lerna exec -- yarn clean",
     "build": "lerna exec --concurrency 1 -- yarn build",
-    "postbuild": "yarn set-permissions",
     "test": "lerna exec --concurrency 1 -- yarn test",
     "yo": "nr-core-yo-generator",
     "cli": "nr-core-cli",
