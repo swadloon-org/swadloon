@@ -3,9 +3,10 @@
 import commander from 'commander';
 
 import { log } from 'core-utils';
+import { checkDevSetup } from './test-dev-setup';
 
 const program = new commander.Command();
-// program.version(packagejson.version);
+
 program
   .option('-d, --debug', 'output extra debugging')
   .option('-s, --small', 'small pizza size')
@@ -17,10 +18,11 @@ program.command('version').action(() => {
   });
 });
 
-program.command('check-dev-reqs').action(() => {
+program.command('check-dev-setup').action(() => {
   log('1.0.0', {
     toolName: 'core-cli',
   });
+  checkDevSetup();
 });
 
 program.parse(process.argv);

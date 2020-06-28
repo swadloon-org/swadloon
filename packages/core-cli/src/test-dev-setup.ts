@@ -1,29 +1,32 @@
-import * as path from 'path';
-import * as chalk from 'chalk';
-import * as dotenv from 'dotenv';
+import path from 'path';
+import chalk from 'chalk';
+import dotenv from 'dotenv';
 import { spawn } from 'child_process';
 
 import { log, scriptLog, LOG_LEVEL } from 'core-utils';
 import { devTools, DevTool } from './dev-tools';
 
-/**
- * Test for required env variables
- */
-scriptLog(`loading test env variables from .env.test...`);
-dotenv.config({ path: path.resolve(process.cwd(), '.env.test') });
-scriptLog(`checking for required env variable...`);
-if (process.env['NVM_NODE_VERSION']) {
-  log(`NVM_NODE_VERSION: ${chalk.green('ok')}`, {
-    toolName: 'env',
-  });
-}
-
-/**
- * Dependencies Tests
- */
-scriptLog(`checking for required dependencies...`);
 const failedDevTools: DevTool[] = [];
-checkDevTools();
+
+export function checkDevSetup() {
+  /**
+   * Test for required env variables
+   */
+  scriptLog(`loading test env variables from .env.test...`);
+  dotenv.config({ path: path.resolve(process.cwd(), '.env.test') });
+  scriptLog(`checking for required env variable...`);
+  if (process.env['NVM_NODE_VERSION']) {
+    log(`NVM_NODE_VERSION: ${chalk.green('ok')}`, {
+      toolName: 'env',
+    });
+  }
+
+  /**
+   * Dependencies Tests
+   */
+  scriptLog(`checking for required dependencies...`);
+  checkDevTools();
+}
 
 function checkDevTools() {
   devTools.forEach((tool, index) => {

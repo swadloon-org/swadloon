@@ -30,8 +30,8 @@ PROJECT_REPO_NAME=newrade
 Clone the starter and `cd` in the directory:
 
 ```bash
-git clone --bare git@github.com:noveo-io/infra-starter.git
-cd infra-starter.git
+git clone --bare git@github.com:newrade/newrade-core.git
+cd newrade-core.git
 ```
 
 Push the starter repo to your `<repository-name>`, then delete the clone if you don't plan on commiting to the starter project:
@@ -52,10 +52,10 @@ To pull new update from the starter project:
 
 ```bash
 # add this repository as a new remote
-git remote add starter git@github.com:noveo-io/infra-starter.git
+git remote add upstream git@github.com:newrade/newrade-core.git
 
 # creates a merge commit from the release branch
-git pull starter release
+git pull upstream release
 ```
 
 ---

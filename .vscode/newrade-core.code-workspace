@@ -26,9 +26,6 @@
     },
     {
       "path": "../packages/core-yo-generator"
-    },
-    {
-      "path": "../packages/newrade-website"
     }
   ],
   "settings": {
