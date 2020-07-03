@@ -2,7 +2,7 @@
   "name": "core-utils",
   "version": "1.0.0",
   "description": "Core utilities shared across packages.",
-  "repository": "https://github.com/newrade/newrade/tree/master/packages/core-cli",
+  "repository": "https://github.com/newrade/newrade-core/tree/master/packages/core-cli",
   "author": {
     "name": "Philippe Leger",
     "email": "philippe.leger@newrade.ca",

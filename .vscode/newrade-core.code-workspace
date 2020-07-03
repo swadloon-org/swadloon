@@ -13,6 +13,9 @@
       "path": "../packages/core-docs-generator"
     },
     {
+      "path": "../packages/core-gatsby-config"
+    },
+    {
       "path": "../packages/core-jest-config"
     },
     {

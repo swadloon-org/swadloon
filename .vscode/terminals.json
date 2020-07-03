@@ -27,6 +27,12 @@
       "focus": false
     },
     {
+      "name": "core-gatsby-config",
+      "cwd": "[workspaceFolder]/packages/core-gatsby-config",
+      "open": true,
+      "focus": false
+    },
+    {
       "name": "core-jest-config",
       "cwd": "[workspaceFolder]/packages/core-jest-config",
       "open": true,
