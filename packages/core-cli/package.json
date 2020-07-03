@@ -2,7 +2,7 @@
   "name": "core-cli",
   "version": "1.0.0",
   "description": "CLI for various purposes, automate actions, etc.",
-  "repository": "https://github.com/newrade/newrade/tree/master/packages/core-cli",
+  "repository": "https://github.com/newrade/newrade-core/tree/master/packages/core-cli",
   "author": {
     "name": "Philippe Leger",
     "email": "philippe.leger@newrade.ca",

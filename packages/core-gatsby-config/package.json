@@ -1,0 +1,20 @@
+{
+  "name": "core-gatsby-config",
+  "version": "1.1.0",
+  "description": "Reusable gatsby configuration files",
+  "license": "MIT",
+  "main": "./lib/index.js",
+  "module": "./lib/index.js",
+  "typings": "./lib/index.d.ts",
+  "files": [
+    "./lib/**/*"
+  ],
+  "scripts": {
+    "start": "tsc --build tsconfig.json --watch --preserveWatchOutput",
+    "build": "echo ok",
+    "prebuild": "yarn clean",
+    "webpack": "webpack --config webpack.dev.config.ts",
+    "test": "echo ok",
+    "clean": "rimraf -r lib/**"
+  }
+}

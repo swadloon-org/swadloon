@@ -33,7 +33,10 @@ export default class extends Generator {
     this.questions = [];
     this.answers = [];
     this.generators = [NEW_PACKAGE_GENERATOR];
-    this.generatorsMap = { [CHOICES.NEW_PACKAGE]: NEW_PACKAGE_GENERATOR };
+    this.generatorsMap = {
+      [CHOICES.NEW_PACKAGE]: NEW_PACKAGE_GENERATOR,
+      [CHOICES.GATSBY_PACKAGE]: NEW_PACKAGE_GENERATOR,
+    };
   }
 
   prompting() {
