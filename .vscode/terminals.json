@@ -61,12 +61,6 @@
       "cwd": "[workspaceFolder]/packages/core-yo-generator",
       "open": true,
       "focus": false
-    },
-    {
-      "name": "newrade-website",
-      "cwd": "[workspaceFolder]/packages/newrade-website",
-      "open": true,
-      "focus": false
     }
   ]
 }
