@@ -1,9 +1,12 @@
 dist
 es
 **/lib/**/*
+lib
+**/build/**/*
 ts
 coverage
 node_modules
 public
 .cache
 !.storybook
+.figma.*

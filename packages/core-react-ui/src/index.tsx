@@ -1,1 +1,1 @@
-export { Button } from './components/primary-button';
+export { Heading } from './components/heading.component';

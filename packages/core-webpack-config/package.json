@@ -9,6 +9,9 @@
   "files": [
     "./lib/**/*"
   ],
+  "dependencies": {
+    "core-jest-config": "link:../core-jest-config"
+  },
   "scripts": {
     "start": "tsc --build tsconfig.json --watch --preserveWatchOutput",
     "build": "tsc --build tsconfig.json",

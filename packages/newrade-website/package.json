@@ -25,5 +25,8 @@
   },
   "dependencies": {
     "gatsby": "^2.17.11"
+  },
+  "devDependencies": {
+    "gatsby-source-graphql": "^2.6.1"
   }
 }

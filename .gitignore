@@ -56,8 +56,9 @@ packages/**/public/
 .cache
 static/admin/*.bundle.*
 
-# nextjs
+# nextjs & vercel
 .next
+.vercel
 
 # others
 lib-cov
@@ -67,4 +68,7 @@ lib-cov
 .env*
 !.env.test
 
-.vercel
+# diez
+tsconfig.tsbuildinfo
+build/
+.diez

@@ -1,0 +1,42 @@
+{
+  "name": "newrade-diez-app",
+  "version": "1.0.0",
+  "description": "Reference React web app",
+  "repository": "https://github.com/newrade/newrade/tree/master/packages/newrade-app",
+  "author": {
+    "name": "Philippe Leger",
+    "email": "philippe.leger@newrade.ca",
+    "url": "https://github.com/newrade/newrade"
+  },
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack-dev-server",
+    "build": "webpack --mode production"
+  },
+  "peerDependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-treat": "^1.4.1"
+  },
+  "dependencies": {
+    "diez-newrade-diez": "link:../newrade-diez/build/diez-newrade-diez-web"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.6",
+    "copy-webpack-plugin": "^5.0.5",
+    "css-loader": "^2.1.1",
+    "diez-webpack-plugin": "^10.6.0",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.5",
+    "webpack-dev-server": "^3.7.2"
+  }
+}

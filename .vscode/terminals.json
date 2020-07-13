@@ -63,6 +63,18 @@
       "focus": false
     },
     {
+      "name": "newrade-app",
+      "cwd": "[workspaceFolder]/packages/newrade-app",
+      "open": true,
+      "focus": false
+    },
+    {
+      "name": "newrade-diez",
+      "cwd": "[workspaceFolder]/packages/newrade-diez",
+      "open": true,
+      "focus": false
+    },
+    {
       "name": "newrade-website",
       "cwd": "[workspaceFolder]/packages/newrade-website",
       "open": true,

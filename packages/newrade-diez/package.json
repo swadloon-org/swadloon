@@ -1,0 +1,21 @@
+{
+  "name": "newrade-diez",
+  "main": "lib/index.js",
+  "version": "0.1.0",
+  "dependencies": {
+    "@diez/engine": "^10.6.0",
+    "@diez/prefabs": "^10.6.0",
+    "core-design-system": "link:../core-design-system"
+  },
+  "devDependencies": {
+    "@diez/compiler-core": "^10.6.0",
+    "@diez/extractors": "^10.6.0",
+    "@diez/start": "^10.6.0",
+    "@diez/stdlib": "^10.6.0",
+    "diez": "^10.6.0"
+  },
+  "scripts": {
+    "start": "diez compile -t web",
+    "build": "diez compile -t web"
+  }
+}

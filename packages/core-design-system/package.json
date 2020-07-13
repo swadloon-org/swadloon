@@ -1,0 +1,28 @@
+{
+  "name": "core-design-system",
+  "version": "1.0.0",
+  "description": "Theme API to style entire application",
+  "repository": "https://github.com/newrade/newrade-core/tree/master/packages/core-design-system",
+  "author": {
+    "name": "Philippe Leger",
+    "email": "philippe.leger@newrade.ca",
+    "url": "https://github.com/newrade/newrade"
+  },
+  "license": "MIT",
+  "module": "./lib/index.js",
+  "main": "./lib/index.js",
+  "typings": "./lib/index.d.ts",
+  "files": [
+    "./lib/**/*"
+  ],
+  "scripts": {
+    "prestart": "yarn clean",
+    "start": "tsc --build --watch --preserveWatchOutput",
+    "postinstall": "yarn build",
+    "build": "tsc --build",
+    "pretest": "yarn build",
+    "test": "tsc --project tsconfig.test.json",
+    "clean": "rimraf -r lib/**"
+  },
+  "dependencies": {}
+}

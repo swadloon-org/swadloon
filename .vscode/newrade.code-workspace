@@ -28,6 +28,12 @@
       "path": "../packages/core-yo-generator"
     },
     {
+      "path": "../packages/newrade-app"
+    },
+    {
+      "path": "../packages/newrade-diez"
+    },
+    {
       "path": "../packages/newrade-website"
     }
   ],
