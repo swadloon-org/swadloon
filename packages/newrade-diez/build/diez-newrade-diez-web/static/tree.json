@@ -1,0 +1,144 @@
+{
+  "DesignLanguage": {
+    "palette": {
+      "contentBackground": {
+        "h": 0,
+        "s": 0,
+        "l": 1,
+        "a": 1
+      },
+      "text": {
+        "h": 0.6666666666666666,
+        "s": 1,
+        "l": 0.03137254901960784,
+        "a": 1
+      },
+      "caption": {
+        "h": 0.7085385878489326,
+        "s": 0.8565400843881857,
+        "l": 0.5352941176470588,
+        "a": 1
+      },
+      "headerBackground": {
+        "stops": [
+          {
+            "position": 0,
+            "color": {
+              "h": 0.7093023255813953,
+              "s": 0.6615384615384616,
+              "l": 0.12745098039215685,
+              "a": 1
+            }
+          },
+          {
+            "position": 1,
+            "color": {
+              "h": 0.6666666666666666,
+              "s": 1,
+              "l": 0.03137254901960784,
+              "a": 1
+            }
+          }
+        ],
+        "start": {
+          "x": 0.5,
+          "y": 0
+        },
+        "end": {
+          "x": 0.5,
+          "y": 1
+        }
+      }
+    },
+    "colors": {
+      "white": {
+        "h": 0,
+        "s": 0,
+        "l": 1,
+        "a": 1
+      },
+      "black": {
+        "h": 0.6666666666666666,
+        "s": 1,
+        "l": 0.03137254901960784,
+        "a": 1
+      },
+      "purple": {
+        "h": 0.7085385878489326,
+        "s": 0.8565400843881857,
+        "l": 0.5352941176470588,
+        "a": 1
+      },
+      "darkPurple": {
+        "h": 0.7093023255813953,
+        "s": 0.6615384615384616,
+        "l": 0.12745098039215685,
+        "a": 1
+      }
+    },
+    "typography": {
+      "headings": {
+        "headings": {
+          "heading1": {
+            "font": {
+              "file": {
+                "src": "assets/NrDesignSystem.figma.contents/fonts/Gilroy-Regular.otf",
+                "type": "font"
+              },
+              "name": "Gilroy-Regular",
+              "fallbacks": [
+                "sans-serif"
+              ],
+              "weight": 400,
+              "style": "normal"
+            },
+            "fontSize": 24,
+            "color": {
+              "h": 0.6666666666666666,
+              "s": 1,
+              "l": 0.03137254901960784,
+              "a": 1
+            },
+            "iosTextStyle": "body",
+            "shouldScale": false,
+            "lineHeight": -1,
+            "letterSpacing": 0,
+            "alignment": "natural",
+            "decoration": []
+          }
+        }
+      }
+    },
+    "layoutValues": {
+      "spacingSmall": 5,
+      "spacingMedium": 25,
+      "spacingLarge": 40,
+      "contentMargin": {
+        "top": 40,
+        "bottom": 10,
+        "left": 10,
+        "right": 10
+      }
+    },
+    "strings": {
+      "title": "Diez",
+      "caption": "Keep your designs in sync with code",
+      "helper": "Modify the contents of “src/DesignLanguage.ts” (relative to the root of the Diez project) to see changes to the design language in real time."
+    },
+    "shadows": {
+      "logo": {
+        "offset": {
+          "x": 0,
+          "y": 1
+        },
+        "radius": 16,
+        "color": {
+          "h": 0.6666666666666666,
+          "s": 1,
+          "l": 0.03137254901960784,
+          "a": 0.41000000000000003
+        }
+      }
+    }
+  }
+}

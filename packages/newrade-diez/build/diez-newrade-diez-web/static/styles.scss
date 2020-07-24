@@ -1,0 +1,144 @@
+
+@font-face {
+  font-family: "Gilroy-Regular";
+  font-weight: 400;
+  font-style: normal;
+  src: local("Gilroy-Regular"), url("/diez/assets/NrDesignSystem.figma.contents/fonts/Gilroy-Regular.otf");
+}
+
+$palette-content-background: hsla(0, 0%, 100%, 1);
+$palette-text: hsla(240, 100%, 3.1372549019607843%, 1);
+$palette-caption: hsla(255.07389162561574, 85.65400843881858%, 53.529411764705884%, 1);
+$palette-header-background: linear-gradient(180deg, hsla(255.3488372093023, 66.15384615384616%, 12.745098039215685%, 1) 0%, hsla(240, 100%, 3.1372549019607843%, 1) 100%);
+$colors-white: hsla(0, 0%, 100%, 1);
+$colors-black: hsla(240, 100%, 3.1372549019607843%, 1);
+$colors-purple: hsla(255.07389162561574, 85.65400843881858%, 53.529411764705884%, 1);
+$colors-dark-purple: hsla(255.3488372093023, 66.15384615384616%, 12.745098039215685%, 1);
+$shadows-logo: 0px 1px 16px hsla(240, 100%, 3.1372549019607843%, 0.41000000000000003);
+$shadows-logo-filter: drop-shadow(0px 1px 8px hsla(240, 100%, 3.1372549019607843%, 0.41000000000000003));
+$margin-top: 40;
+$margin-top-px: 40px;
+$margin-top-pt: 40pt;
+$margin-top-em: 40em;
+$margin-top-rem: 40rem;
+$margin-bottom: 10;
+$margin-bottom-px: 10px;
+$margin-bottom-pt: 10pt;
+$margin-bottom-em: 10em;
+$margin-bottom-rem: 10rem;
+$margin-left: 10;
+$margin-left-px: 10px;
+$margin-left-pt: 10pt;
+$margin-left-em: 10em;
+$margin-left-rem: 10rem;
+$margin-right: 10;
+$margin-right-px: 10px;
+$margin-right-pt: 10pt;
+$margin-right-em: 10em;
+$margin-right-rem: 10rem;
+$layout-values-spacing-small: 5;
+$layout-values-spacing-small-px: 5px;
+$layout-values-spacing-small-pt: 5pt;
+$layout-values-spacing-small-em: 5em;
+$layout-values-spacing-small-rem: 5rem;
+$layout-values-spacing-medium: 25;
+$layout-values-spacing-medium-px: 25px;
+$layout-values-spacing-medium-pt: 25pt;
+$layout-values-spacing-medium-em: 25em;
+$layout-values-spacing-medium-rem: 25rem;
+$layout-values-spacing-large: 40;
+$layout-values-spacing-large-px: 40px;
+$layout-values-spacing-large-pt: 40pt;
+$layout-values-spacing-large-em: 40em;
+$layout-values-spacing-large-rem: 40rem;
+$strings-title: "Diez";
+$strings-caption: "Keep your designs in sync with code";
+$strings-helper: "Modify the contents of “src/DesignLanguage.ts” (relative to the root of the Diez project) to see changes to the design language in real time.";
+
+@mixin palette-content-background-background-color {
+  background-color: hsla(0, 0%, 100%, 1);
+}
+
+@mixin palette-content-background-color {
+  color: hsla(0, 0%, 100%, 1);
+}
+
+@mixin palette-text-background-color {
+  background-color: hsla(240, 100%, 3.1372549019607843%, 1);
+}
+
+@mixin palette-text-color {
+  color: hsla(240, 100%, 3.1372549019607843%, 1);
+}
+
+@mixin palette-caption-background-color {
+  background-color: hsla(255.07389162561574, 85.65400843881858%, 53.529411764705884%, 1);
+}
+
+@mixin palette-caption-color {
+  color: hsla(255.07389162561574, 85.65400843881858%, 53.529411764705884%, 1);
+}
+
+@mixin palette-header-background-background {
+  background: linear-gradient(180deg, hsla(255.3488372093023, 66.15384615384616%, 12.745098039215685%, 1) 0%, hsla(240, 100%, 3.1372549019607843%, 1) 100%);
+}
+
+@mixin palette-header-background-background-image {
+  background-image: linear-gradient(180deg, hsla(255.3488372093023, 66.15384615384616%, 12.745098039215685%, 1) 0%, hsla(240, 100%, 3.1372549019607843%, 1) 100%);
+}
+
+@mixin colors-white-background-color {
+  background-color: hsla(0, 0%, 100%, 1);
+}
+
+@mixin colors-white-color {
+  color: hsla(0, 0%, 100%, 1);
+}
+
+@mixin colors-black-background-color {
+  background-color: hsla(240, 100%, 3.1372549019607843%, 1);
+}
+
+@mixin colors-black-color {
+  color: hsla(240, 100%, 3.1372549019607843%, 1);
+}
+
+@mixin colors-purple-background-color {
+  background-color: hsla(255.07389162561574, 85.65400843881858%, 53.529411764705884%, 1);
+}
+
+@mixin colors-purple-color {
+  color: hsla(255.07389162561574, 85.65400843881858%, 53.529411764705884%, 1);
+}
+
+@mixin colors-dark-purple-background-color {
+  background-color: hsla(255.3488372093023, 66.15384615384616%, 12.745098039215685%, 1);
+}
+
+@mixin colors-dark-purple-color {
+  color: hsla(255.3488372093023, 66.15384615384616%, 12.745098039215685%, 1);
+}
+
+@mixin headings-heading1 {
+  font-family: "Gilroy-Regular",sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 24px;
+  color: hsla(240, 100%, 3.1372549019607843%, 1);
+  letter-spacing: 0px;
+  text-align: start;
+  text-decoration: none;
+}
+
+@mixin shadows-logo-box-shadow {
+  box-shadow: 0px 1px 16px hsla(240, 100%, 3.1372549019607843%, 0.41000000000000003);
+}
+
+@mixin shadows-logo-text-shadow {
+  text-shadow: 0px 1px 16px hsla(240, 100%, 3.1372549019607843%, 0.41000000000000003);
+}
+
+@mixin shadows-logo-filter {
+  filter: drop-shadow(0px 1px 8px hsla(240, 100%, 3.1372549019607843%, 0.41000000000000003));
+}
+

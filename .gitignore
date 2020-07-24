@@ -70,5 +70,4 @@ lib-cov
 
 # diez
 tsconfig.tsbuildinfo
-build/
 .diez
