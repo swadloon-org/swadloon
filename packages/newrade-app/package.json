@@ -11,7 +11,8 @@
   "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "test": "echo ok"
   },
   "peerDependencies": {
     "react": "^16.13.1",

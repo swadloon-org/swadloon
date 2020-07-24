@@ -65,21 +65,21 @@ const gilroyTypographicScale: TypographicScale = {
   },
 };
 
-export const testThemeLight: DesignSystem = {
-  name: 'test design system',
-  variant: 'light',
-  sizingScale: testThemeSizingScale,
-  typography: {
-    [TYPOGRAPHIC_STYLE.SANS]: {
-      headings: {
-        [HEADING_NAME.H1]: {
-          fontFamily: `Gilroy, ${CSS_SYSTEM_SANS_FONTS}`,
-          fontSize: gilroyTypographicScale.steps.X5.size,
-          lineHeight: 125 / 100,
-          letterSpacing: 0,
-          paragraphSpacing: 29.94,
-        },
-      },
-    },
-  },
-};
+// export const testThemeLight: DesignSystem = {
+//   name: 'test design system',
+//   variant: 'light',
+//   sizingScale: testThemeSizingScale,
+//   typography: {
+//     [TYPOGRAPHIC_STYLE.SANS]: {
+//       headings: {
+//         [HEADING_NAME.H1]: {
+//           fontFamily: `Gilroy, ${CSS_SYSTEM_SANS_FONTS}`,
+//           fontSize: gilroyTypographicScale.steps.X5.size,
+//           lineHeight: 125 / 100,
+//           letterSpacing: 0,
+//           paragraphSpacing: 29.94,
+//         },
+//       },
+//     },
+//   },
+// };

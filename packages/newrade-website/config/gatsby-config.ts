@@ -12,8 +12,6 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-console.log(process.env.GRAPH_CMS_AUTH_TOKEN);
-
 function getGatsbySourceGraphQLPlugin({
   typeName,
   fieldName,
