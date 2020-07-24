@@ -113,23 +113,13 @@ const gilroyTypographicScale: TypographicScale = {
 
 interface TestTypographyProps {
   prop: number;
-  headings: TestTypography2;
+  headings: Typograph;
 }
 
 export class TestTypography extends prefab<TestTypographyProps>() {
   defaults = {
     prop: 2,
-    headings: new TestTypography2(),
-  };
-}
-
-interface TestTypographyProps2 {
-  heading1: Typograph;
-}
-
-export class TestTypography2 extends prefab<TestTypographyProps2>() {
-  defaults = {
-    heading1: new Typograph({
+    headings: new Typograph({
       font: nrDesignSystemFonts.Gilroy.Regular,
       fontSize: 24,
       color: palette.text,
@@ -137,11 +127,25 @@ export class TestTypography2 extends prefab<TestTypographyProps2>() {
   };
 }
 
+const headings = {
+  heading1: new Typograph({
+    font: nrDesignSystemFonts.Gilroy.Regular,
+    fontSize: 24,
+    color: palette.text,
+  }),
+};
+
+const test = {
+  headings,
+};
+
 /**
  * Typographs encapsulate type styles with support for a specific font, font size,
  * and color. More typograph properties are coming soon.
  */
-const typography = new TestTypography();
+const typography = {
+  headings: test,
+};
 // heading2: {
 //   name: 'test design system',
 //   variant: 'light',

@@ -32,9 +32,9 @@ export interface Typograph {
  * The main typographic styles defined in a design system.
  */
 export enum TYPOGRAPHIC_STYLE {
-  SANS,
-  SERIF,
-  MONOSPACE,
+  SANS = 'SANS',
+  SERIF = 'SERIF',
+  MONOSPACE = 'MONOSPACE',
 }
 
 /**
@@ -62,9 +62,9 @@ export enum TYPE_SIZE {
 export interface Typography {
   headings: {
     [HEADING_NAME.H1]: Typograph;
-    // [HEADING_NAME.H2]: Typograph;
-    // [HEADING_NAME.H3]: Typograph;
-    // [HEADING_NAME.H4]: Typograph;
+    [HEADING_NAME.H2]: Typograph;
+    [HEADING_NAME.H3]: Typograph;
+    [HEADING_NAME.H4]: Typograph;
   };
   // paragraphs: {
   //   large: Typograph;

@@ -34,17 +34,17 @@ export const config: Gatsby.GatsbyConfig = {
     description: `An example site.`,
   },
   plugins: [
-    {
-      resolve: `gatsby-source-graphql`,
-      options: {
-        typeName: `GraphCMS`,
-        fieldName: `gcms`,
-        url: process.env.GRAPH_CMS_API_URL,
-        headers: {
-          Authorization: `bearer ${process.env.GRAPH_CMS_AUTH_TOKEN}`,
-        },
-      },
-    },
+    // {
+    //   resolve: `gatsby-source-graphql`,
+    //   options: {
+    //     typeName: `GraphCMS`,
+    //     fieldName: `gcms`,
+    //     url: process.env.GRAPH_CMS_API_URL,
+    //     headers: {
+    //       Authorization: `bearer ${process.env.GRAPH_CMS_AUTH_TOKEN}`,
+    //     },
+    //   },
+    // },
   ],
 };
 
