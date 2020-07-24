@@ -46,12 +46,18 @@ jobs:
 
     - name: Install dependencies
       run: yarn
+      env:
+        GRAPH_CMS_AUTH_TOKEN: ${{ secrets.GRAPH_CMS_AUTH_TOKEN }}
+        GRAPH_CMS_API_URL: ${{ secrets.GRAPH_CMS_API_URL }}
 
     - name: Lint
       run: yarn lint
 
     - name: Build
       run: yarn build
+      env:
+        GRAPH_CMS_AUTH_TOKEN: ${{ secrets.GRAPH_CMS_AUTH_TOKEN }}
+        GRAPH_CMS_API_URL: ${{ secrets.GRAPH_CMS_API_URL }}
 
     - name: Test
       run: yarn test
