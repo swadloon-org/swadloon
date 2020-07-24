@@ -1,3 +1,4 @@
+import path from 'path';
 import Gatsby from 'gatsby';
 
 /**
@@ -7,7 +8,11 @@ import Gatsby from 'gatsby';
  */
 export const plugins = ['gatsby-plugin-typescript', 'gatsby-plugin-postcss'];
 
-require('dotenv').config();
+import dotenv from 'dotenv';
+
+dotenv.config();
+
+console.log(process.env.GRAPH_CMS_AUTH_TOKEN);
 
 function getGatsbySourceGraphQLPlugin({
   typeName,
@@ -34,17 +39,17 @@ export const config: Gatsby.GatsbyConfig = {
     description: `An example site.`,
   },
   plugins: [
-    // {
-    //   resolve: `gatsby-source-graphql`,
-    //   options: {
-    //     typeName: `GraphCMS`,
-    //     fieldName: `gcms`,
-    //     url: process.env.GRAPH_CMS_API_URL,
-    //     headers: {
-    //       Authorization: `bearer ${process.env.GRAPH_CMS_AUTH_TOKEN}`,
-    //     },
-    //   },
-    // },
+    {
+      resolve: `gatsby-source-graphql`,
+      options: {
+        typeName: `GraphCMS`,
+        fieldName: `gcms`,
+        url: process.env.GRAPH_CMS_API_URL,
+        headers: {
+          Authorization: `bearer ${process.env.GRAPH_CMS_AUTH_TOKEN}`,
+        },
+      },
+    },
   ],
 };
 
