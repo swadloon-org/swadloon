@@ -52,7 +52,6 @@ credentials
 *secrets.yaml
 
 # gatsby
-packages/**/public/
 .cache
 static/admin/*.bundle.*
 
