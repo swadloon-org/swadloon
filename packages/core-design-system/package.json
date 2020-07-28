@@ -15,6 +15,10 @@
   "files": [
     "./lib/**/*"
   ],
+  "dependencies": {
+    "@diez/engine": "^10.6.0",
+    "@diez/prefabs": "^10.6.0"
+  },
   "scripts": {
     "prestart": "yarn clean",
     "start": "tsc --build --watch --preserveWatchOutput",
@@ -23,6 +27,5 @@
     "pretest": "yarn build",
     "test": "tsc --project tsconfig.test.json",
     "clean": "rimraf -r lib/**"
-  },
-  "dependencies": {}
+  }
 }

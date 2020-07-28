@@ -7209,6 +7209,9 @@ copyfiles@^2.3.0:
 
 "core-design-system@link:packages/core-design-system":
   version "1.0.0"
+  dependencies:
+    "@diez/engine" "^10.6.0"
+    "@diez/prefabs" "^10.6.0"
 
 "core-jest-config@file:packages/core-jest-config", "core-jest-config@link:packages/core-jest-config":
   version "1.1.0"
@@ -8129,6 +8132,11 @@ dfa@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/dfa/-/dfa-1.2.0.tgz#96ac3204e2d29c49ea5b57af8d92c2ae12790657"
   integrity sha512-ED3jP8saaweFTjeGX8HQPjeC1YYyZs98jGNZx6IiBvxW7JG5v492kamAQB3m2wop07CvU/RQmzcKr6bgcC5D/Q==
+
+"diez-newrade-diez@file:packages/newrade-diez/build/diez-newrade-diez-web":
+  version "0.1.0"
+  dependencies:
+    "@diez/web-sdk-common" "^10.6.0"
 
 "diez-newrade-diez@link:packages/newrade-diez/build/diez-newrade-diez-web":
   version "0.0.0"

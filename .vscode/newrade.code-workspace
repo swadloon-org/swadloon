@@ -35,6 +35,18 @@
     },
     {
       "path": "../packages/newrade-website"
+    },
+    {
+      "path": "../packages/lakhos-diez"
+    },
+    {
+      "path": "../packages/lakhos-website"
+    },
+    {
+      "path": "../packages/mir-diez"
+    },
+    {
+      "path": "../packages/mir-website"
     }
   ],
   "settings": {

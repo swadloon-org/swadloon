@@ -79,6 +79,30 @@
       "cwd": "[workspaceFolder]/packages/newrade-website",
       "open": true,
       "focus": false
+    },
+    {
+      "name": "lakhos-diez",
+      "cwd": "[workspaceFolder]/packages/lakhos-diez",
+      "open": true,
+      "focus": false
+    },
+    {
+      "name": "lakhos-website",
+      "cwd": "[workspaceFolder]/packages/lakhos-website",
+      "open": true,
+      "focus": false
+    },
+    {
+      "name": "mir-diez",
+      "cwd": "[workspaceFolder]/packages/mir-diez",
+      "open": true,
+      "focus": false
+    },
+    {
+      "name": "mir-website",
+      "cwd": "[workspaceFolder]/packages/mir-website",
+      "open": true,
+      "focus": false
     }
   ]
 }

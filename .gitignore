@@ -52,7 +52,7 @@ credentials
 *secrets.yaml
 
 # gatsby
-packages/**/newrade-website/public/
+packages/**/public/
 .cache
 static/admin/*.bundle.*
 

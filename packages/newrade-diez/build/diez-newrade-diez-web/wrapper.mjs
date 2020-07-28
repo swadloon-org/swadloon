@@ -3,22 +3,10 @@
 
 import DiezModule from './index.js';
 export const Color = DiezModule.Color;
-export const GradientStop = DiezModule.GradientStop;
-export const Point2D = DiezModule.Point2D;
-export const LinearGradient = DiezModule.LinearGradient;
-export const Palette = DiezModule.Palette;
 export const Colors = DiezModule.Colors;
-export const File = DiezModule.File;
-export const Font = DiezModule.Font;
-export const Typograph = DiezModule.Typograph;
-export const Headings = DiezModule.Headings;
-export const Test = DiezModule.Test;
-export const Typography = DiezModule.Typography;
-export const Margin = DiezModule.Margin;
-export const LayoutValues = DiezModule.LayoutValues;
-export const Strings = DiezModule.Strings;
-export const DropShadow = DiezModule.DropShadow;
-export const Shadows = DiezModule.Shadows;
+export const DesignSystemTheme = DiezModule.DesignSystemTheme;
+export const DesignSystemThemes = DiezModule.DesignSystemThemes;
+export const DesignSystem = DiezModule.DesignSystem;
 export const DesignLanguage = DiezModule.DesignLanguage;
 export const Diez = DiezModule.Diez;
 export default DiezModule;

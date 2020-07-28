@@ -34,364 +34,65 @@ export declare class Color {
 }
 
 /**
- * Provides a gradient stop.
- *
- */
-export declare class GradientStop {
-  /**
-   * GradientStop data.
-   *
-   * 1
-   */
-  position: number;
-  /**
-   * GradientStop data.
-   *
-   * hsla(0.67, 1, 0.03, 1)
-   */
-  color: Color;
-}
-
-/**
- * Provides a two dimensional point.
- * 
- * Taken alone, points are designated in an abstract space with no inherit dimensions or directionality. In the
- * context of other prefabs like [[LinearGradient]], points typically should use the standard two dimensional graphics
- * space, often normalized in the unit square, where x increases from left to right and y increases from top to bottom.
- * 
- * Usage: `point = Point2D.make(0.5, 0.5);`.
- *
- */
-export declare class Point2D {
-  /**
-   * Point data.
-   *
-   * 0.5
-   */
-  x: number;
-  /**
-   * Point data.
-   *
-   * 0
-   */
-  y: number;
-}
-
-export declare class LinearGradient {
-  /**
-   * The CSS linear-gradient representation of the `LinearGradient`.
-   * @example
-   * linear-gradient(45deg, hsla(0, 0%, 100%, 1) 0%, hsla(0, 0%, 0%, 1) 100%)
-   */
-  linearGradient: string;
-  /**
-   * CSS declarations for the `background-image` CSS property.
-   */
-  backgroundImageStyle: {backgroundImage: string};
-  /**
-   * CSS declarations for the `background` CSS property.
-   */
-  backgroundStyle: {background: string};
-}
-
-/**
- * You can reference properties from other components.
- *
- */
-export declare class Palette {
-  /**
-   * `Colors.white` ( hsla(0, 0, 1, 1) )
-   */
-  contentBackground: Color;
-  /**
-   * `Colors.black` ( hsla(0.67, 1, 0.03, 1) )
-   */
-  text: Color;
-  /**
-   * `Colors.purple` ( hsla(0.71, 0.86, 0.54, 1) )
-   */
-  caption: Color;
-  /**
-   * start [0.5, 0], end [0.5, 1], stops: [hsla(0.71, 0.66, 0.13, 1) at 0,hsla(0.67, 1, 0.03, 1) at 1]
-   */
-  headerBackground: LinearGradient;
-}
-
-/**
- * You can collect anything inside a Diez component. Design tokens specified as
- * properties will be made available in the SDKs transpiled with Diez.
+ * Representation of all colors used in a ColorTheme
  *
  */
 export declare class Colors {
   /**
-   * hsla(0, 0, 1, 1)
+   * Importing prebuilt diez prefab
+   *
+   * hsla(0.67, 0.96, 0.62, 1)
    */
-  white: Color;
-  /**
-   * hsla(0.67, 1, 0.03, 1)
-   */
-  black: Color;
-  /**
-   * hsla(0.71, 0.86, 0.54, 1)
-   */
-  purple: Color;
-  /**
-   * hsla(0.71, 0.66, 0.13, 1)
-   */
-  darkPurple: Color;
-}
-
-export declare class File {
-  /**
-   * The URL of the `File`
-   */
-  url: string;
+  primary: Color;
 }
 
 /**
- * A representation of a font resource, with a reference to a [[File]] containing a TTF or OTF font file.
+ * Representation of a color theme.
  *
  */
-export declare class Font {
+export declare class DesignSystemTheme {
   /**
-   * Font data.
-   *
-   * assets/NrDesignSystem.figma.contents/fonts/Gilroy-Regular.otf
+   * - primary: `hsla(0.67, 0.96, 0.62, 1)`
    */
-  file: File;
+  colors: Colors;
+}
+
+/**
+ * Available themes for a design system.
+ *
+ */
+export declare class DesignSystemThemes {
   /**
-   * Font data.
-   *
-   * Gilroy-Regular
+   * - colors: ``
+   */
+  light: DesignSystemTheme;
+  /**
+   * - colors: ``
+   */
+  dark: DesignSystemTheme;
+}
+
+/**
+ * Complete representation of a design system.
+ *
+ */
+export declare class DesignSystem {
+  /**
+   * - light: ``
+   * - dark: ``
+   */
+  themes: DesignSystemThemes;
+}
+
+export declare class DesignLanguage extends RootComponent {
+  /**
+   * newrade
    */
   name: string;
   /**
-   * Font data.
-   *
-   * [sans-serif]
+   * - name: `Design System Name`
+   * - themes: ``
    */
-  fallbacks: string[];
-  /**
-   * Font data.
-   *
-   * 400
-   */
-  weight: number;
-  /**
-   * Font data.
-   *
-   * normal
-   */
-  style: string;
-}
-
-export declare class Typograph {
-  /**
-   * An `Object` with CSS values for this `Typograph`.
-   */
-  style: {
-    color: string,
-    fontSize: string,
-    fontFamily: string,
-    fontWeight: number,
-    fontStyle: string,
-    lineHeight?: string,
-    letterSpacing: number,
-    textAlign: "start" | "left" | "right" | "center",
-    textDecoration: string,
-  };
-  /**
-   * Applies the `Typograph` CSS styles to the given HTMLElement.
-   */
-  applyStyle(ref: HTMLElement): void;
-}
-
-declare global {
-  interface HTMLElement {
-    /**
-     * Applies a Diez Typograph definition to the element.
-     *
-     * You *must* have called `Diez.applyHTMLExtensions()` at least once to use this method.
-     */
-    applyTypograph(typograph: Typograph): void;
-  }
-}
-
-export declare class Headings {
-  /**
-   * - font: `Gilroy-Regular, 400, normal`
-   * - fontSize: `24`
-   * - color: `hsla(0.67, 1, 0.03, 1)`
-   * - iosTextStyle: `body`
-   * - shouldScale: `false`
-   * - lineHeight: `-1`
-   * - letterSpacing: `0`
-   * - alignment: `natural`
-   * - decoration: `[]`
-   */
-  heading1: Typograph;
-}
-
-export declare class Test {
-  headings: Headings;
-}
-
-/**
- * Typographs encapsulate type styles with support for a specific font, font size,
- * and color. More typograph properties are coming soon.
- *
- */
-export declare class Typography {
-  headings: Test;
-}
-
-/**
- * Here we create a custom reusable component for describing layout margins.
- *
- */
-export declare class Margin {
-  /**
-   * Defining the interface of your component's data enables you to instantiate your own
-   * reusable components.
-   *
-   * 40
-   */
-  top: number;
-  /**
-   * Defining the interface of your component's data enables you to instantiate your own
-   * reusable components.
-   *
-   * 10
-   */
-  bottom: number;
-  /**
-   * Defining the interface of your component's data enables you to instantiate your own
-   * reusable components.
-   *
-   * 10
-   */
-  left: number;
-  /**
-   * Defining the interface of your component's data enables you to instantiate your own
-   * reusable components.
-   *
-   * 10
-   */
-  right: number;
-}
-
-/**
- * In addition to colors and typography, you can also collect other types of
- * design language primitives in components as well — such as images, icons &
- * animations.
- *
- */
-export declare class LayoutValues {
-  /**
-   * 5
-   */
-  spacingSmall: number;
-  /**
-   * 25
-   */
-  spacingMedium: number;
-  /**
-   * 40
-   */
-  spacingLarge: number;
-  /**
-   * - top: `40`
-   * - bottom: `10`
-   * - left: `10`
-   * - right: `10`
-   */
-  contentMargin: Margin;
-}
-
-/**
- * You can also define strings.
- *
- */
-export declare class Strings {
-  /**
-   * Diez
-   */
-  title: string;
-  /**
-   * Keep your designs in sync with code
-   */
-  caption: string;
-  /**
-   * Modify the contents of “src/DesignLanguage.ts” (relative to the root of the Diez project) to see changes to the design language in real time.
-   */
-  helper: string;
-}
-
-export declare class DropShadow {
-  /**
-   * The CSS box-shadow representation of the `DropShadow`.
-   * @example
-   * 0px 1px 16px rgba(0, 0, 16, .4)
-   */
-  boxShadow: string;
-  /**
-   * The CSS text-shadow representation of the `DropShadow`.
-   * @example
-   * 0px 1px 16px rgba(0, 0, 16, .4)
-   */
-  textShadow: string;
-  /**
-   * The CSS filter representation of the `DropShadow`.
-   * @example
-   * drop-shadow(0px 1px 16px rgba(0, 0, 16, .4))
-   */
-  filter: string;
-  /**
-   * CSS declarations for the `box-shadow` CSS property.
-   */
-  boxShadowStyle: {boxShadow: string};
-  /**
-   * CSS declarations for the `text-shadow` CSS property.
-   */
-  textShadowStyle: {textShadow: string};
-  /**
-   * CSS declarations for the `filter` CSS property.
-   */
-  filterStyle: {filter: string};
-}
-
-export declare class Shadows {
-  /**
-   * - offset: `[0, 1]`
-   * - radius: `16`
-   * - color: `hsla(0.67, 1, 0.03, 0.41)`
-   */
-  logo: DropShadow;
-}
-
-/**
- * Note how this component is exported from `index.ts`. Diez compiles these
- * exported components for your apps' codebases.
- * 
- * For example:
- *    - If you run `yarn start web` or `npm run start web`, Diez will create a Node package called
- *      `diez-newrade-diez-web`. Look for `App.jsx` inside `examples/web` to see
- *      how you can use Diez in a web codebase.
- *    - If you run `yarn start ios` or `npm run start ios`, Diez will create a CocoaPods dependency
- *      called `DiezNewradeDiez`. Look for `ViewController.swift` inside
- *      `examples/ios` to see how you can use Diez in an iOS codebase.
- *    - If you run `yarn start android` or `npm run start android`, Diez will create an Android library.
- *      Look for `MainActivity.kt` inside `examples/android` to see how you can
- *      use Diez in an Android codebase.
- *   - If you run `yarn start web` or `npm run start web`, Diez will create a Web App with your tokens.
- *
- */
-export declare class DesignLanguage extends RootComponent {
-  palette: Palette;
-  colors: Colors;
-  typography: Typography;
-  layoutValues: LayoutValues;
-  strings: Strings;
-  shadows: Shadows;
+  ds: DesignSystem;
 }
 

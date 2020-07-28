@@ -94,19 +94,19 @@ class Color {
     /**
      * Provides simple hue-saturation-lightness-alpha color data.
      *
-     * 0
+     * 0.673873873873874
      */
     this.h = h;
     /**
      * Provides simple hue-saturation-lightness-alpha color data.
      *
-     * 0
+     * 0.9585492227979273
      */
     this.s = s;
     /**
      * Provides simple hue-saturation-lightness-alpha color data.
      *
-     * 1
+     * 0.6215686274509804
      */
     this.l = l;
     /**
@@ -165,179 +165,19 @@ Object.defineProperties(Color.prototype, {
 });
 
 /**
- * Provides a gradient stop.
- *
- */
-class GradientStop {
-  constructor({
-    position,
-    color
-  }) {
-    /**
-     * GradientStop data.
-     *
-     * 1
-     */
-    this.position = position;
-    /**
-     * GradientStop data.
-     *
-     * hsla(0.67, 1, 0.03, 1)
-     */
-    this.color = new Color(color);
-  }
-}
-
-
-module.exports.GradientStop = GradientStop;
-
-/**
- * Provides a two dimensional point.
- * 
- * Taken alone, points are designated in an abstract space with no inherit dimensions or directionality. In the
- * context of other prefabs like [[LinearGradient]], points typically should use the standard two dimensional graphics
- * space, often normalized in the unit square, where x increases from left to right and y increases from top to bottom.
- * 
- * Usage: `point = Point2D.make(0.5, 0.5);`.
- *
- */
-class Point2D {
-  constructor({
-    x,
-    y
-  }) {
-    /**
-     * Point data.
-     *
-     * 0.5
-     */
-    this.x = x;
-    /**
-     * Point data.
-     *
-     * 0
-     */
-    this.y = y;
-  }
-}
-
-
-module.exports.Point2D = Point2D;
-
-/**
- * Provides a linear gradient.
- *
- */
-class LinearGradient {
-  constructor({
-    stops,
-    start,
-    end
-  }) {
-    this.stops = stops.map((value1) => new GradientStop(value1));
-    /**
-     * LinearGradient data.
-     *
-     * [0.5, 0]
-     */
-    this.start = new Point2D(start);
-    /**
-     * LinearGradient data.
-     *
-     * [0.5, 1]
-     */
-    this.end = new Point2D(end);
-  }
-}
-
-
-module.exports.LinearGradient = LinearGradient;
-
-const {linearGradientToCss} = require('@diez/web-sdk-common');
-
-Object.defineProperties(LinearGradient.prototype, {
-  linearGradient: {
-    get () {
-      return linearGradientToCss(this);
-    },
-  },
-  backgroundImageStyle: {
-    get () {
-      return {
-        backgroundImage: this.linearGradient,
-      };
-    },
-  },
-  backgroundStyle: {
-    get () {
-      return {
-        background: this.linearGradient,
-      };
-    },
-  },
-});
-
-/**
- * You can reference properties from other components.
- *
- */
-class Palette {
-  constructor({
-    contentBackground = {h: 0, s: 0, l: 1, a: 1},
-    text = {h: 0.6666666666666666, s: 1, l: 0.03137254901960784, a: 1},
-    caption = {h: 0.7085385878489326, s: 0.8565400843881857, l: 0.5352941176470588, a: 1},
-    headerBackground = {stops: [{position: 0, color: {h: 0.7093023255813953, s: 0.6615384615384616, l: 0.12745098039215685, a: 1}}, {position: 1, color: {h: 0.6666666666666666, s: 1, l: 0.03137254901960784, a: 1}}], start: {x: 0.5, y: 0}, end: {x: 0.5, y: 1}}
-  } = {}) {
-    /**
-     * `Colors.white` ( hsla(0, 0, 1, 1) )
-     */
-    this.contentBackground = new Color(contentBackground);
-    /**
-     * `Colors.black` ( hsla(0.67, 1, 0.03, 1) )
-     */
-    this.text = new Color(text);
-    /**
-     * `Colors.purple` ( hsla(0.71, 0.86, 0.54, 1) )
-     */
-    this.caption = new Color(caption);
-    /**
-     * start [0.5, 0], end [0.5, 1], stops: [hsla(0.71, 0.66, 0.13, 1) at 0,hsla(0.67, 1, 0.03, 1) at 1]
-     */
-    this.headerBackground = new LinearGradient(headerBackground);
-  }
-}
-
-
-module.exports.Palette = Palette;
-
-/**
- * You can collect anything inside a Diez component. Design tokens specified as
- * properties will be made available in the SDKs transpiled with Diez.
+ * Representation of all colors used in a ColorTheme
  *
  */
 class Colors {
   constructor({
-    white = {h: 0, s: 0, l: 1, a: 1},
-    black = {h: 0.6666666666666666, s: 1, l: 0.03137254901960784, a: 1},
-    purple = {h: 0.7085385878489326, s: 0.8565400843881857, l: 0.5352941176470588, a: 1},
-    darkPurple = {h: 0.7093023255813953, s: 0.6615384615384616, l: 0.12745098039215685, a: 1}
-  } = {}) {
+    primary
+  }) {
     /**
-     * hsla(0, 0, 1, 1)
+     * Importing prebuilt diez prefab
+     *
+     * hsla(0.67, 0.96, 0.62, 1)
      */
-    this.white = new Color(white);
-    /**
-     * hsla(0.67, 1, 0.03, 1)
-     */
-    this.black = new Color(black);
-    /**
-     * hsla(0.71, 0.86, 0.54, 1)
-     */
-    this.purple = new Color(purple);
-    /**
-     * hsla(0.71, 0.66, 0.13, 1)
-     */
-    this.darkPurple = new Color(darkPurple);
+    this.primary = new Color(primary);
   }
 }
 
@@ -345,521 +185,79 @@ class Colors {
 module.exports.Colors = Colors;
 
 /**
- * Provides a container for referencing local assets, which can be bridged by compilers to embed images, SVGs,
- * and more. This component is used internally by [[Image]] and [[Font]].
- * 
- * The compiler may enforce certain restrictions on the `type` of a `File` instance.
- * 
- * Usage: `file = new File({src: 'assets/images/file.jpg', type: FileType.Image});`.
+ * Representation of a color theme.
  *
  */
-class File {
+class DesignSystemTheme {
   constructor({
-    src,
-    type
+    colors
   }) {
     /**
-     * File data.
-     *
-     * assets/NrDesignSystem.figma.contents/fonts/Gilroy-Regular.otf
+     * - primary: `hsla(0.67, 0.96, 0.62, 1)`
      */
-    this.src = src;
-    /**
-     * File data.
-     *
-     * font
-     */
-    this.type = type;
+    this.colors = new Colors(colors);
   }
 }
 
 
-module.exports.File = File;
-
-Object.defineProperties(File.prototype, {
-  url: {
-    get () {
-      return `${Environment.serverUrl}/${this.src}`;
-    },
-  },
-});
+module.exports.DesignSystemTheme = DesignSystemTheme;
 
 /**
- * A representation of a font resource, with a reference to a [[File]] containing a TTF or OTF font file.
+ * Available themes for a design system.
  *
  */
-class Font {
+class DesignSystemThemes {
   constructor({
-    file,
-    name,
-    fallbacks,
-    weight,
-    style
+    light,
+    dark
   }) {
     /**
-     * Font data.
-     *
-     * assets/NrDesignSystem.figma.contents/fonts/Gilroy-Regular.otf
+     * - colors: ``
      */
-    this.file = new File(file);
+    this.light = new DesignSystemTheme(light);
     /**
-     * Font data.
-     *
-     * Gilroy-Regular
+     * - colors: ``
+     */
+    this.dark = new DesignSystemTheme(dark);
+  }
+}
+
+
+module.exports.DesignSystemThemes = DesignSystemThemes;
+
+/**
+ * Complete representation of a design system.
+ *
+ */
+class DesignSystem {
+  constructor({
+    themes
+  }) {
+    /**
+     * - light: ``
+     * - dark: ``
+     */
+    this.themes = new DesignSystemThemes(themes);
+  }
+}
+
+
+module.exports.DesignSystem = DesignSystem;
+
+class DesignLanguage {
+  constructor({
+    name = "newrade",
+    ds = {themes: {light: {colors: {primary: {h: 0.673873873873874, s: 0.9585492227979273, l: 0.6215686274509804, a: 1}}}, dark: {colors: {primary: {h: 0.673873873873874, s: 0.9585492227979273, l: 0.6215686274509804, a: 1}}}}}
+  } = {}) {
+    /**
+     * newrade
      */
     this.name = name;
     /**
-     * Font data.
-     *
-     * [sans-serif]
+     * - name: `Design System Name`
+     * - themes: ``
      */
-    this.fallbacks = fallbacks;
-    /**
-     * Font data.
-     *
-     * 400
-     */
-    this.weight = weight;
-    /**
-     * Font data.
-     *
-     * normal
-     */
-    this.style = style;
-  }
-}
-
-
-module.exports.Font = Font;
-
-/**
- * Describes a typograph including specification of a font name (understood to specify both a font face and a font
- * weight) as well as a font size in device-local units and a font color.
- *
- */
-class Typograph {
-  constructor({
-    font,
-    fontSize,
-    color,
-    lineHeight,
-    letterSpacing,
-    alignment,
-    decoration
-  }) {
-    /**
-     * Typograph data.
-     *
-     * Gilroy-Regular, 400, normal
-     */
-    this.font = new Font(font);
-    /**
-     * Typograph data.
-     *
-     * 24
-     */
-    this.fontSize = fontSize;
-    /**
-     * Typograph data.
-     *
-     * hsla(0.67, 1, 0.03, 1)
-     */
-    this.color = new Color(color);
-    /**
-     * Typograph data.
-     *
-     * -1
-     */
-    this.lineHeight = lineHeight;
-    /**
-     * Typograph data.
-     *
-     * 0
-     */
-    this.letterSpacing = letterSpacing;
-    /**
-     * Typograph data.
-     *
-     * natural
-     */
-    this.alignment = alignment;
-    /**
-     * Typograph data.
-     *
-     * []
-     */
-    this.decoration = decoration;
-  }
-}
-
-
-module.exports.Typograph = Typograph;
-
-const {fontToCss, FontFormats, textAlignmentToCss, textDecorationsToCss, GoogleFontCollection, GoogleFont} = require('@diez/web-sdk-common');
-
-let styleSheet;
-let cache;
-const googleFontCollection = new GoogleFontCollection();
-
-const registerFont = (font) => {
-  if (!styleSheet || !cache) {
-    const styleEl = document.createElement('style');
-    document.head.appendChild(styleEl);
-    styleSheet = styleEl.sheet;
-    cache = new Set();
-  }
-
-  if (cache.has(font.file.src)) {
-    return;
-  }
-
-  if (GoogleFont.isGoogleFont(font)) {
-    googleFontCollection.set(font.name, {weight: font.weight, style: font.style});
-    styleSheet.insertRule(`@import url(${collection.url})`);
-    cache.add(font.file.src);
-    return;
-  }
-
-  const format = font.file.src.split('.').pop();
-  const rule = `
-@font-face {
-  font-family: '${font.name}';
-  font-weight: ${font.weight};
-  font-style: ${font.style};
-  src: local('${font.name}'), url(${font.file.url}) format('${FontFormats[format] || format}');
-}`;
-  styleSheet.insertRule(rule);
-  cache.add(font.file.src);
-};
-
-Object.defineProperties(Typograph.prototype, {
-  fontFamily: {
-    get () {
-      registerFont(this.font);
-      return fontToCss(this.font);
-    },
-  },
-  style: {
-    get () {
-      const style = {
-        fontFamily: this.fontFamily,
-        fontWeight: this.font.fontWeight,
-        fontStyle: this.font.fontStyle,
-        fontSize: `${this.fontSize}px`,
-        color: this.color.color,
-        letterSpacing: `${this.letterSpacing}px`,
-        textAlign: textAlignmentToCss(this.alignment),
-        textDecoration: textDecorationsToCss(this.decoration),
-      };
-      if (this.lineHeight !== -1) {
-        style.lineHeight = `${this.lineHeight}px`;
-      }
-      return style;
-    },
-  },
-});
-
-Typograph.prototype.applyStyle = function (ref) {
-  const style = this.style;
-  ref.style.fontFamily = style.fontFamily;
-  ref.style.fontWeight = style.fontWeight;
-  ref.style.fontStyle = style.fontStyle;
-  ref.style.fontSize = style.fontSize;
-  ref.style.color = style.color;
-  ref.style.lineHeight = style.lineHeight;
-  ref.style.letterSpacing = style.letterSpacing;
-  ref.style.textAlign = style.textAlign;
-};
-
-diezHTMLExtensions.push(() => {
-  HTMLElement.prototype.applyTypograph = (typograph) => {
-    typograph.applyStyle(this);
-  };
-});
-
-class Headings {
-  constructor({
-    heading1 = {font: {file: {src: "assets/NrDesignSystem.figma.contents/fonts/Gilroy-Regular.otf", type: "font"}, name: "Gilroy-Regular", fallbacks: ["sans-serif"], weight: 400, style: "normal"}, fontSize: 24, color: {h: 0.6666666666666666, s: 1, l: 0.03137254901960784, a: 1}, lineHeight: -1, letterSpacing: 0, alignment: "natural", decoration: []}
-  } = {}) {
-    /**
-     * - font: `Gilroy-Regular, 400, normal`
-     * - fontSize: `24`
-     * - color: `hsla(0.67, 1, 0.03, 1)`
-     * - iosTextStyle: `body`
-     * - shouldScale: `false`
-     * - lineHeight: `-1`
-     * - letterSpacing: `0`
-     * - alignment: `natural`
-     * - decoration: `[]`
-     */
-    this.heading1 = new Typograph(heading1);
-  }
-}
-
-
-module.exports.Headings = Headings;
-
-class Test {
-  constructor({
-    headings = {}
-  } = {}) {
-    this.headings = new Headings(headings);
-  }
-}
-
-
-module.exports.Test = Test;
-
-/**
- * Typographs encapsulate type styles with support for a specific font, font size,
- * and color. More typograph properties are coming soon.
- *
- */
-class Typography {
-  constructor({
-    headings = {}
-  } = {}) {
-    this.headings = new Test(headings);
-  }
-}
-
-
-module.exports.Typography = Typography;
-
-/**
- * Here we create a custom reusable component for describing layout margins.
- *
- */
-class Margin {
-  constructor({
-    top,
-    bottom,
-    left,
-    right
-  }) {
-    /**
-     * Defining the interface of your component's data enables you to instantiate your own
-     * reusable components.
-     *
-     * 40
-     */
-    this.top = top;
-    /**
-     * Defining the interface of your component's data enables you to instantiate your own
-     * reusable components.
-     *
-     * 10
-     */
-    this.bottom = bottom;
-    /**
-     * Defining the interface of your component's data enables you to instantiate your own
-     * reusable components.
-     *
-     * 10
-     */
-    this.left = left;
-    /**
-     * Defining the interface of your component's data enables you to instantiate your own
-     * reusable components.
-     *
-     * 10
-     */
-    this.right = right;
-  }
-}
-
-
-module.exports.Margin = Margin;
-
-/**
- * In addition to colors and typography, you can also collect other types of
- * design language primitives in components as well — such as images, icons &
- * animations.
- *
- */
-class LayoutValues {
-  constructor({
-    spacingSmall = 5,
-    spacingMedium = 25,
-    spacingLarge = 40,
-    contentMargin = {top: 40, bottom: 10, left: 10, right: 10}
-  } = {}) {
-    /**
-     * 5
-     */
-    this.spacingSmall = spacingSmall;
-    /**
-     * 25
-     */
-    this.spacingMedium = spacingMedium;
-    /**
-     * 40
-     */
-    this.spacingLarge = spacingLarge;
-    /**
-     * - top: `40`
-     * - bottom: `10`
-     * - left: `10`
-     * - right: `10`
-     */
-    this.contentMargin = new Margin(contentMargin);
-  }
-}
-
-
-module.exports.LayoutValues = LayoutValues;
-
-/**
- * You can also define strings.
- *
- */
-class Strings {
-  constructor({
-    title = "Diez",
-    caption = "Keep your designs in sync with code",
-    helper = "Modify the contents of “src/DesignLanguage.ts” (relative to the root of the Diez project) to see changes to the design language in real time."
-  } = {}) {
-    /**
-     * Diez
-     */
-    this.title = title;
-    /**
-     * Keep your designs in sync with code
-     */
-    this.caption = caption;
-    /**
-     * Modify the contents of “src/DesignLanguage.ts” (relative to the root of the Diez project) to see changes to the design language in real time.
-     */
-    this.helper = helper;
-  }
-}
-
-
-module.exports.Strings = Strings;
-
-/**
- * Provides a drop shadow.
- *
- */
-class DropShadow {
-  constructor({
-    offset,
-    radius,
-    color
-  }) {
-    /**
-     * DropShadow data.
-     *
-     * [0, 1]
-     */
-    this.offset = new Point2D(offset);
-    /**
-     * DropShadow data.
-     *
-     * 16
-     */
-    this.radius = radius;
-    /**
-     * DropShadow data.
-     *
-     * hsla(0.67, 1, 0.03, 0.41)
-     */
-    this.color = new Color(color);
-  }
-}
-
-
-module.exports.DropShadow = DropShadow;
-
-const {dropShadowToCss, dropShadowToFilterCss} = require('@diez/web-sdk-common');
-
-Object.defineProperties(DropShadow.prototype, {
-  boxShadow: {
-    get () {
-      return dropShadowToCss(this);
-    },
-  },
-  textShadow: {
-    get () {
-      return dropShadowToCss(this);
-    },
-  },
-  filter: {
-    get () {
-      return dropShadowToFilterCss(this);
-    },
-  },
-  boxShadowStyle: {
-    get () {
-      return {
-        boxShadow: this.boxShadow,
-      };
-    },
-  },
-  textShadowStyle: {
-    get () {
-      return {
-        textShadow: this.textShadow,
-      };
-    },
-  },
-  filterStyle: {
-    get () {
-      return {
-        filter: this.filter,
-      };
-    },
-  },
-});
-
-class Shadows {
-  constructor({
-    logo = {offset: {x: 0, y: 1}, radius: 16, color: {h: 0.6666666666666666, s: 1, l: 0.03137254901960784, a: 0.41000000000000003}}
-  } = {}) {
-    /**
-     * - offset: `[0, 1]`
-     * - radius: `16`
-     * - color: `hsla(0.67, 1, 0.03, 0.41)`
-     */
-    this.logo = new DropShadow(logo);
-  }
-}
-
-
-module.exports.Shadows = Shadows;
-
-/**
- * Note how this component is exported from `index.ts`. Diez compiles these
- * exported components for your apps' codebases.
- * 
- * For example:
- *    - If you run `yarn start web` or `npm run start web`, Diez will create a Node package called
- *      `diez-newrade-diez-web`. Look for `App.jsx` inside `examples/web` to see
- *      how you can use Diez in a web codebase.
- *    - If you run `yarn start ios` or `npm run start ios`, Diez will create a CocoaPods dependency
- *      called `DiezNewradeDiez`. Look for `ViewController.swift` inside
- *      `examples/ios` to see how you can use Diez in an iOS codebase.
- *    - If you run `yarn start android` or `npm run start android`, Diez will create an Android library.
- *      Look for `MainActivity.kt` inside `examples/android` to see how you can
- *      use Diez in an Android codebase.
- *   - If you run `yarn start web` or `npm run start web`, Diez will create a Web App with your tokens.
- *
- */
-class DesignLanguage {
-  constructor({
-    palette = {},
-    colors = {},
-    typography = {},
-    layoutValues = {},
-    strings = {},
-    shadows = {}
-  } = {}) {
-    this.palette = new Palette(palette);
-    this.colors = new Colors(colors);
-    this.typography = new Typography(typography);
-    this.layoutValues = new LayoutValues(layoutValues);
-    this.strings = new Strings(strings);
-    this.shadows = new Shadows(shadows);
+    this.ds = new DesignSystem(ds);
   }
 }
 
