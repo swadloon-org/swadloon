@@ -1,0 +1,32 @@
+{
+  "name": "newrade-mir-website",
+  "version": "1.0.0",
+  "description": "Gatsby website for newrade's main website",
+  "repository": "https://github.com/newrade/newrade/tree/master/packages/newrade-website",
+  "author": {
+    "name": "Elliot Pellerin",
+    "email": "elliot@newrade.ca",
+    "url": "https://github.com/newrade/newrade"
+  },
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+  },
+  "peerDependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-treat": "^1.4.1"
+  },
+  "dependencies": {
+    "gatsby": "^2.17.11"
+  },
+  "devDependencies": {
+    "gatsby-source-graphql": "^2.6.1"
+  }
+}

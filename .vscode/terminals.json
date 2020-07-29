@@ -79,6 +79,12 @@
       "cwd": "[workspaceFolder]/packages/newrade-website",
       "open": true,
       "focus": false
+    },
+    {
+      "name": "newrade-mir-website",
+      "cwd": "[workspaceFolder]/packages/mir-website",
+      "open": true,
+      "focus": false
     }
   ]
 }
