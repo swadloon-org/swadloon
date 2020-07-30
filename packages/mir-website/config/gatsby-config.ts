@@ -39,9 +39,9 @@ export const config: Gatsby.GatsbyConfig = {
       options: {
         typeName: `GraphCMS`,
         fieldName: `gcms`,
-        url: process.env.GRAPH_CMS_API_URL,
+        url: process.env.GRAPH_CMS_API_URL_MIR,
         headers: {
-          Authorization: `bearer ${process.env.GRAPH_CMS_AUTH_TOKEN}`,
+          Authorization: `bearer ${process.env.GRAPH_CMS_AUTH_TOKEN_MIR}`,
         },
       },
     },
