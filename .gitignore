@@ -53,6 +53,7 @@ credentials
 
 # gatsby
 packages/**/newrade-website/public/
+packages/**/mir-website/public/
 .cache
 static/admin/*.bundle.*
 

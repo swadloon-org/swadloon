@@ -21,6 +21,7 @@ const IndexPage = () => {
 
   console.log(pageQuery);
   console.log(assets);
+  console.log("assets");
   console.log(assets[0].fileName);
 
   return <img src={assets[0].url} />;
