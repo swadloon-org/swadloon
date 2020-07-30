@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 
+//keep query here
 const pageQuery = graphql`
   {
     gcms {
@@ -21,7 +22,7 @@ const IndexPage = () => {
 
   console.log(pageQuery);
   console.log(assets);
-  console.log("assets");
+  console.log('assets');
   console.log(assets[0].fileName);
 
   return <img src={assets[0].url} />;
