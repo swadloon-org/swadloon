@@ -1,0 +1,11 @@
+.small {
+  @include mir-design-system-typography-paragraph-small;
+}
+
+.medium {
+  @include mir-design-system-typography-paragraph-medium;
+}
+
+.large {
+  @include mir-design-system-typography-paragraph-large;
+}

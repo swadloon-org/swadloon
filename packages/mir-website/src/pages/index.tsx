@@ -1,7 +1,10 @@
 import React from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql } from 'gatsby';
 import { IndexPageQuery } from '../../types/graphql-types';
-import { Header } from '../components/header/header';
+import { TopBar } from '../components/top-bar';
+
+import styles from './index.module.scss';
+import { Paragraph } from '../components/paragraph';
 
 export const query = graphql`
   query indexPage {
@@ -25,11 +28,23 @@ interface IndexPageProps {
 
 const IndexPage: React.FC<IndexPageProps> = ({ data, location }) => {
   return (
-    <Header>
-      <div style={{ background: 'black' }}>
+    <div className={styles.wrapper}>
+      <TopBar>
         <img src={data.gcms.companyMedias[0].logo.url} />
-      </div>
-    </Header>
+      </TopBar>{' '}
+      <Paragraph variant="small">
+        MIR a pour objectif de répondre rapidement et efficacement aux besoins des employeurs dans leur recherche de
+        travailleurs qualifiés.
+      </Paragraph>
+      <Paragraph variant="medium">
+        MIR a pour objectif de répondre rapidement et efficacement aux besoins des employeurs dans leur recherche de
+        travailleurs qualifiés.
+      </Paragraph>
+      <Paragraph variant="large">
+        MIR a pour objectif de répondre rapidement et efficacement aux besoins des employeurs dans leur recherche de
+        travailleurs qualifiés.
+      </Paragraph>
+    </div>
   );
 };
 

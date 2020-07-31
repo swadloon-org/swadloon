@@ -8,7 +8,6 @@ const name = 'mir';
 
 const typography = mirDesignSystemTokens.typography;
 const shadows = mirDesignSystemTokens.shadows;
-
 const colors = mirDesignSystemTokens.colors;
 
 const lightThemeColors = new coreDesignSystem.Colors({

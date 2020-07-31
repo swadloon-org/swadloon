@@ -1,7 +1,7 @@
 import React from 'react';
 
-import styles from './header.module.scss';
+import styles from './top-bar.module.scss';
 
-export const Header: React.FC<{}> = (props) => {
+export const TopBar: React.FC<{}> = (props) => {
   return <div className={styles.wrapper}>{props.children}</div>;
 };
