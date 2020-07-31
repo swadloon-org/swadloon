@@ -18,6 +18,7 @@
     "clean": "rimraf -r dist/**"
   },
   "dependencies": {
-    "core-jest-config": "file:../core-jest-config"
+    "core-jest-config": "link:../core-jest-config",
+    "core-design-system": "link:../core-design-system"
   }
 }

@@ -36,7 +36,7 @@ const webpackConfig = {
   performance: { hints: false },
   devServer: {
     stats: 'errors-only',
-    open: true,
+    open: false,
     hot: true,
     watchOptions: {
       poll: 500,

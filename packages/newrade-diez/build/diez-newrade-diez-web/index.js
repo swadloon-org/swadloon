@@ -94,19 +94,19 @@ class Color {
     /**
      * Provides simple hue-saturation-lightness-alpha color data.
      *
-     * 0.673873873873874
+     * 0
      */
     this.h = h;
     /**
      * Provides simple hue-saturation-lightness-alpha color data.
      *
-     * 0.9585492227979273
+     * 0
      */
     this.s = s;
     /**
      * Provides simple hue-saturation-lightness-alpha color data.
      *
-     * 0.6215686274509804
+     * 1
      */
     this.l = l;
     /**
@@ -175,7 +175,7 @@ class Colors {
     /**
      * Importing prebuilt diez prefab
      *
-     * hsla(0.67, 0.96, 0.62, 1)
+     * hsla(0, 0, 1, 1)
      */
     this.primary = new Color(primary);
   }
@@ -193,7 +193,7 @@ class DesignSystemTheme {
     colors
   }) {
     /**
-     * - primary: `hsla(0.67, 0.96, 0.62, 1)`
+     * - primary: `hsla(0, 0, 1, 1)`
      */
     this.colors = new Colors(colors);
   }
@@ -247,7 +247,7 @@ module.exports.DesignSystem = DesignSystem;
 class DesignLanguage {
   constructor({
     name = "newrade",
-    ds = {themes: {light: {colors: {primary: {h: 0.673873873873874, s: 0.9585492227979273, l: 0.6215686274509804, a: 1}}}, dark: {colors: {primary: {h: 0.673873873873874, s: 0.9585492227979273, l: 0.6215686274509804, a: 1}}}}}
+    ds = {themes: {light: {colors: {primary: {h: 0, s: 0, l: 1, a: 1}}}, dark: {colors: {primary: {h: 0.673873873873874, s: 0.9585492227979273, l: 0.6215686274509804, a: 1}}}}}
   } = {}) {
     /**
      * newrade

@@ -41,7 +41,7 @@ export declare class Colors {
   /**
    * Importing prebuilt diez prefab
    *
-   * hsla(0.67, 0.96, 0.62, 1)
+   * hsla(0, 0, 1, 1)
    */
   primary: Color;
 }
@@ -52,7 +52,7 @@ export declare class Colors {
  */
 export declare class DesignSystemTheme {
   /**
-   * - primary: `hsla(0.67, 0.96, 0.62, 1)`
+   * - primary: `hsla(0, 0, 1, 1)`
    */
   colors: Colors;
 }

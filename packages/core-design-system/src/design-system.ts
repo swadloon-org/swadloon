@@ -50,7 +50,7 @@ export interface DesignSystemProps {
   // typography: TypographySystem;
 
   /**
-   * Lists every theme available in a design system.
+   * Lists every theme available in the design system.
    */
   themes: DesignSystemThemes;
 }
@@ -65,6 +65,10 @@ export class DesignSystem extends prefab<DesignSystemProps>() {
   };
 }
 
+/**
+ * Diez Design Language interface so that all diez packages conform to the
+ * same export format.
+ */
 export interface DiezDesignLanguage {
   /**
    * The design system's name.

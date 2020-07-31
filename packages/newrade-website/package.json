@@ -25,7 +25,8 @@
   },
   "dependencies": {
     "gatsby": "^2.17.11",
-    "diez-newrade-diez": "file:../newrade-diez/build/diez-newrade-diez-web"
+    "diez-newrade-diez": "link:../newrade-diez/build/diez-newrade-diez-web",
+    "core-react-ui": "link:../core-react-ui-web"
   },
   "devDependencies": {
     "gatsby-source-graphql": "^2.6.1"
