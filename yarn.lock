@@ -6501,9 +6501,11 @@ core-js@^3.6.5:
   version "0.0.0"
   uid ""
 
-"core-react-ui@link:packages/core-react-ui-web":
-  version "0.0.0"
-  uid ""
+"core-react-ui@link:packages/core-react-ui":
+  version "1.1.0"
+  dependencies:
+    core-design-system "link:packages/core-design-system"
+    core-jest-config "link:packages/core-jest-config"
 
 core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"

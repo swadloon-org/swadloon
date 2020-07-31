@@ -4,6 +4,8 @@ import { Diez, DesignLanguage } from 'diez-newrade-diez';
 import { Button } from 'core-react-ui';
 import { TreatProvider } from 'react-treat';
 
+import { lightTheme } from '../themes/light-theme.treat';
+
 export default function Home() {
   const [ds, setDs] = useState();
   const diez = new Diez(DesignLanguage);
