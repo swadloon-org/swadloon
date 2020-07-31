@@ -5,121 +5,129 @@
 import { Color, DropShadow, File, Font, GradientStop, Image, LinearGradient, Point2D, Typograph } from '@diez/prefabs';
 
 const nrDesignSystemColors = {
-  darkPrimary500: Color.rgba(99, 92, 245, 1),
-  lightGreyscaleTransparent: Color.rgba(255, 255, 255, 1),
-  darkGreyscale100: Color.rgba(33, 33, 38, 1),
-  darkGreyscale1000: Color.rgba(255, 255, 255, 1),
-  darkGreyscale700: Color.rgba(190, 190, 198, 1),
-  lightGreyscale100: Color.rgba(241, 241, 243, 1),
-  lightGreyscale1000: Color.rgba(19, 19, 22, 1),
-  lightGreyscale700: Color.rgba(90, 90, 103, 1),
-  lightPrimary500: Color.rgba(74, 66, 251, 1),
-  lightGreyscale0: Color.rgba(255, 255, 255, 1),
-  lightAccent1500: Color.rgba(250, 25, 129, 1),
-  lightPrimary300: Color.rgba(146, 142, 253, 1),
-  lightPrimary1000: Color.rgba(8, 3, 124, 1),
-  lightGreyscale200: Color.rgba(216, 216, 220, 1),
-  lightGreyscale300: Color.rgba(190, 190, 198, 1),
-  lightGreyscale800: Color.rgba(50, 50, 57, 1),
-  lightGreyscaleInverted: Color.rgba(255, 255, 255, 1),
-  lightUtilityGreen1000: Color.rgba(10, 89, 8, 1),
-  lightUtilityYellow1000: Color.rgba(106, 84, 6, 1),
-  lightUtilityRed1000: Color.rgba(110, 16, 7, 1),
-  lightPrimary700: Color.rgba(15, 8, 182, 1),
-  lightPrimary100: Color.rgba(219, 217, 254, 1),
-  lightAccent11000: Color.rgba(90, 2, 42, 1),
-  lightAccent1700: Color.rgba(180, 4, 85, 1),
-  lightAccent1300: Color.rgba(252, 115, 178, 1),
-  lightAccent1100: Color.rgba(254, 205, 228, 1),
-  lightAccent21000: Color.rgba(108, 53, 2, 1),
-  lightAccent2700: Color.rgba(215, 106, 5, 1),
-  lightAccent2500: Color.rgba(250, 133, 25, 1),
-  lightAccent2300: Color.rgba(251, 157, 71, 1),
-  lightAccent3100: Color.rgba(253, 206, 163, 1),
-  lightAccent31000: Color.rgba(1, 91, 49, 1),
-  lightAccent3700: Color.rgba(22, 156, 94, 1),
-  lightAccent3500: Color.rgba(26, 252, 147, 1),
-  lightAccent3300: Color.rgba(117, 253, 190, 1),
-  lightAccent31001: Color.rgba(209, 254, 233, 1),
-  utilityLightGreyscaleGrey: Color.rgba(69, 69, 69, 1),
+  nrDarkPrimary500: Color.rgba(99, 92, 245, 1),
+  nrLightGreyscaleTransparent: Color.rgba(255, 255, 255, 1),
+  nrDarkGreyscale100: Color.rgba(33, 33, 38, 1),
+  nrDarkGreyscale1000: Color.rgba(255, 255, 255, 1),
+  nrDarkGreyscale700: Color.rgba(190, 190, 198, 1),
+  nrLightGreyscale100: Color.rgba(241, 241, 243, 1),
+  nrLightGreyscale1000: Color.rgba(19, 19, 22, 1),
+  nrLightGreyscale700: Color.rgba(90, 90, 103, 1),
+  nrLightPrimary500: Color.rgba(74, 66, 251, 1),
+  nrLightGreyscale0: Color.rgba(255, 255, 255, 1),
+  nrLightAccent1500: Color.rgba(250, 25, 129, 1),
+  nrLightPrimary300: Color.rgba(146, 142, 253, 1),
+  nrLightPrimary1000: Color.rgba(8, 3, 124, 1),
+  nrLightGreyscale200: Color.rgba(216, 216, 220, 1),
+  nrLightGreyscale300: Color.rgba(190, 190, 198, 1),
+  nrLightGreyscale800: Color.rgba(50, 50, 57, 1),
+  nrLightGreyscaleInverted: Color.rgba(255, 255, 255, 1),
+  nrLightUtilityGreen1000: Color.rgba(10, 89, 8, 1),
+  nrLightUtilityYellow1000: Color.rgba(106, 84, 6, 1),
+  nrLightUtilityRed1000: Color.rgba(110, 16, 7, 1),
+  nrLightPrimary700: Color.rgba(15, 8, 182, 1),
+  nrLightPrimary100: Color.rgba(219, 217, 254, 1),
+  nrLightAccent11000: Color.rgba(90, 2, 42, 1),
+  nrLightAccent1700: Color.rgba(180, 4, 85, 1),
+  nrLightAccent1300: Color.rgba(252, 115, 178, 1),
+  nrLightAccent1100: Color.rgba(254, 205, 228, 1),
+  nrLightAccent21000: Color.rgba(108, 53, 2, 1),
+  nrLightAccent2700: Color.rgba(215, 106, 5, 1),
+  nrLightAccent2500: Color.rgba(250, 133, 25, 1),
+  nrLightAccent2300: Color.rgba(251, 157, 71, 1),
+  nrLightAccent3100: Color.rgba(253, 206, 163, 1),
+  nrLightAccent31000: Color.rgba(1, 91, 49, 1),
+  nrLightAccent3700: Color.rgba(22, 156, 94, 1),
+  nrLightAccent3500: Color.rgba(26, 252, 147, 1),
+  nrLightAccent3300: Color.rgba(117, 253, 190, 1),
+  nrLightAccent31001: Color.rgba(209, 254, 233, 1),
+  utilityLightGreyscaleGreyMedium: Color.rgba(69, 69, 69, 1),
   utilityLightGreyscaleTransparent: Color.rgba(255, 255, 255, 1),
-  lightGreyscale100White: Color.rgba(255, 255, 255, 1),
-  lightGreyscale150: Color.rgba(230, 230, 234, 1),
-  lightGreyscale200White: Color.rgba(255, 255, 255, 1),
-  lightGreyscale400: Color.rgba(163, 163, 174, 1),
-  lightGreyscale500: Color.rgba(138, 138, 153, 1),
-  lightGreyscale600: Color.rgba(113, 113, 129, 1),
-  lightGreyscale900: Color.rgba(33, 33, 38, 1),
-  darkGreyscaleInverted: Color.rgba(255, 255, 255, 1),
-  darkGreyscale0: Color.rgba(17, 17, 19, 1),
-  darkGreyscale100White: Color.rgba(33, 33, 38, 1),
-  darkGreyscale150: Color.rgba(24, 24, 27, 1),
-  darkGreyscale200: Color.rgba(50, 50, 57, 1),
-  darkGreyscale200White: Color.rgba(50, 50, 57, 1),
-  darkGreyscale300: Color.rgba(90, 90, 103, 1),
-  darkGreyscale400: Color.rgba(113, 113, 129, 1),
-  darkGreyscale500: Color.rgba(138, 138, 153, 1),
-  darkGreyscale600: Color.rgba(164, 164, 175, 1),
-  darkGreyscale800: Color.rgba(216, 216, 220, 1),
-  darkGreyscale900: Color.rgba(241, 241, 243, 1),
-  lightUtilityGreen700: Color.rgba(20, 177, 17, 1),
-  lightUtilityGreen500: Color.rgba(42, 232, 38, 1),
-  lightUtilityGreen300: Color.rgba(145, 245, 143, 1),
-  lightUtilityGreen100: Color.rgba(232, 253, 232, 1),
-  lightUtilityYellow700: Color.rgba(223, 177, 12, 1),
-  lightUtilityYellow500: Color.rgba(243, 197, 32, 1),
-  lightUtilityYellow300: Color.rgba(248, 220, 119, 1),
-  lightUtilityYellow100: Color.rgba(253, 244, 211, 1),
-  lightUtilityRed700: Color.rgba(175, 26, 13, 1),
-  lightUtilityRed500: Color.rgba(243, 36, 18, 1),
-  lightUtilityRed300: Color.rgba(246, 139, 129, 1),
-  lightUtilityRed100: Color.rgba(252, 220, 217, 1),
-  darkGreyscaleTransparent: Color.rgba(255, 255, 255, 1),
-  darkAccent1500: Color.rgba(233, 42, 130, 1),
-  darkPrimary300: Color.rgba(48, 44, 146, 1),
-  darkPrimary1000: Color.rgba(221, 219, 252, 1),
-  darkUtilityGreen1000: Color.rgba(232, 252, 232, 1),
-  darkUtilityYellow1000: Color.rgba(251, 243, 213, 1),
-  darkUtilityRed1000: Color.rgba(253, 229, 227, 1),
-  darkPrimary700: Color.rgba(151, 147, 248, 1),
-  darkPrimary100: Color.rgba(37, 35, 92, 1),
-  darkAccent11000: Color.rgba(251, 213, 231, 1),
-  darkAccent1700: Color.rgba(242, 125, 179, 1),
-  darkAccent1300: Color.rgba(166, 18, 86, 1),
-  darkAccent1100: Color.rgba(83, 9, 43, 1),
-  darkUtilityGreen700: Color.rgba(150, 239, 149, 1),
-  darkUtilityGreen500: Color.rgba(68, 206, 64, 1),
-  darkUtilityGreen300: Color.rgba(30, 167, 27, 1),
-  darkUtilityGreen100: Color.rgba(8, 49, 7, 0.30000001192092896),
-  darkUtilityYellow700: Color.rgba(247, 220, 120, 1),
-  darkUtilityYellow500: Color.rgba(243, 197, 32, 1),
-  darkUtilityYellow300: Color.rgba(207, 167, 23, 1),
-  darkUtilityYellow100: Color.rgba(73, 59, 9, 0.33000001311302185),
-  darkUtilityRed700: Color.rgba(244, 143, 133, 1),
-  darkUtilityRed500: Color.rgba(230, 46, 30, 1),
-  darkUtilityRed300: Color.rgba(175, 26, 13, 1),
-  darkUtilityRed100: Color.rgba(76, 11, 5, 0.6299999952316284),
-  utilityLightGreyscaleWhiteTransparent: Color.rgba(255, 255, 255, 0.0010000000474974513),
-  utilityLightGreyscaleWhiteTransparent1: Color.rgba(255, 255, 255, 0.0010000000474974513),
+  nrLightGreyscale100White: Color.rgba(255, 255, 255, 1),
+  nrLightGreyscale150: Color.rgba(230, 230, 234, 1),
+  nrLightGreyscale200White: Color.rgba(255, 255, 255, 1),
+  nrLightGreyscale400: Color.rgba(163, 163, 174, 1),
+  nrLightGreyscale500: Color.rgba(138, 138, 153, 1),
+  nrLightGreyscale600: Color.rgba(113, 113, 129, 1),
+  nrLightGreyscale900: Color.rgba(33, 33, 38, 1),
+  nrDarkGreyscaleInverted: Color.rgba(255, 255, 255, 1),
+  nrDarkGreyscale0: Color.rgba(17, 17, 19, 1),
+  nrDarkGreyscale100White: Color.rgba(33, 33, 38, 1),
+  nrDarkGreyscale150: Color.rgba(24, 24, 27, 1),
+  nrDarkGreyscale200: Color.rgba(50, 50, 57, 1),
+  nrDarkGreyscale200White: Color.rgba(50, 50, 57, 1),
+  nrDarkGreyscale300: Color.rgba(90, 90, 103, 1),
+  nrDarkGreyscale400: Color.rgba(113, 113, 129, 1),
+  nrDarkGreyscale500: Color.rgba(138, 138, 153, 1),
+  nrDarkGreyscale600: Color.rgba(164, 164, 175, 1),
+  nrDarkGreyscale800: Color.rgba(216, 216, 220, 1),
+  nrDarkGreyscale900: Color.rgba(241, 241, 243, 1),
+  nrLightUtilityGreen700: Color.rgba(20, 177, 17, 1),
+  nrLightUtilityGreen500: Color.rgba(42, 232, 38, 1),
+  nrLightUtilityGreen300: Color.rgba(145, 245, 143, 1),
+  nrLightUtilityGreen100: Color.rgba(232, 253, 232, 1),
+  nrLightUtilityYellow700: Color.rgba(223, 177, 12, 1),
+  nrLightUtilityYellow500: Color.rgba(243, 197, 32, 1),
+  nrLightUtilityYellow300: Color.rgba(248, 220, 119, 1),
+  nrLightUtilityYellow100: Color.rgba(253, 244, 211, 1),
+  nrLightUtilityRed700: Color.rgba(175, 26, 13, 1),
+  nrLightUtilityRed500: Color.rgba(243, 36, 18, 1),
+  nrLightUtilityRed300: Color.rgba(246, 139, 129, 1),
+  nrLightUtilityRed100: Color.rgba(252, 220, 217, 1),
+  nrDarkGreyscaleTransparent: Color.rgba(255, 255, 255, 1),
+  nrDarkAccent1500: Color.rgba(233, 42, 130, 1),
+  nrDarkPrimary300: Color.rgba(48, 44, 146, 1),
+  nrDarkPrimary1000: Color.rgba(221, 219, 252, 1),
+  nrDarkUtilityGreen1000: Color.rgba(232, 252, 232, 1),
+  nrDarkUtilityYellow1000: Color.rgba(251, 243, 213, 1),
+  nrDarkUtilityRed1000: Color.rgba(253, 229, 227, 1),
+  nrDarkPrimary700: Color.rgba(151, 147, 248, 1),
+  nrDarkPrimary100: Color.rgba(37, 35, 92, 1),
+  nrDarkAccent11000: Color.rgba(251, 213, 231, 1),
+  nrDarkAccent1700: Color.rgba(242, 125, 179, 1),
+  nrDarkAccent1300: Color.rgba(166, 18, 86, 1),
+  nrDarkAccent1100: Color.rgba(83, 9, 43, 1),
+  nrDarkUtilityGreen700: Color.rgba(150, 239, 149, 1),
+  nrDarkUtilityGreen500: Color.rgba(68, 206, 64, 1),
+  nrDarkUtilityGreen300: Color.rgba(30, 167, 27, 1),
+  nrDarkUtilityGreen100: Color.rgba(8, 49, 7, 0.30000001192092896),
+  nrDarkUtilityYellow700: Color.rgba(247, 220, 120, 1),
+  nrDarkUtilityYellow500: Color.rgba(243, 197, 32, 1),
+  nrDarkUtilityYellow300: Color.rgba(207, 167, 23, 1),
+  nrDarkUtilityYellow100: Color.rgba(73, 59, 9, 0.33000001311302185),
+  nrDarkUtilityRed700: Color.rgba(244, 143, 133, 1),
+  nrDarkUtilityRed500: Color.rgba(230, 46, 30, 1),
+  nrDarkUtilityRed300: Color.rgba(175, 26, 13, 1),
+  nrDarkUtilityRed100: Color.rgba(76, 11, 5, 0.6299999952316284),
+  utilityLightGreyscaleAlmostTransparent: Color.rgba(255, 255, 255, 0.00009999999747378752),
+  utilityLightGreyscaleAlmostTransparent1: Color.rgba(255, 255, 255, 0.00009999999747378752),
+  utilityDarkGreyscaleAlmostTransparent: Color.rgba(255, 255, 255, 0.00009999999747378752),
   lightGreyElementSecondary: Color.rgba(62, 62, 62, 1),
-  utilityLightGreyscaleWhiteTransparent2: Color.rgba(255, 255, 255, 0.0010000000474974513),
-  utilityLightGreyscaleWhiteTransparent3: Color.rgba(255, 255, 255, 0.0010000000474974513),
-  utilityLightGreyscaleWhiteTransparent4: Color.rgba(255, 255, 255, 0.0010000000474974513),
-  utilityLightGreyscaleWhiteTransparent5: Color.rgba(255, 255, 255, 0.0010000000474974513),
-  utilityLightGreyscaleWhiteTransparent6: Color.rgba(255, 255, 255, 0.0010000000474974513),
-  utilityLightGreyscaleWhiteTransparent7: Color.rgba(255, 255, 255, 0.0010000000474974513),
-  utilityLightGreyscaleWhiteTransparent8: Color.rgba(255, 255, 255, 0.0010000000474974513),
-  utilityLightGreyscaleWhiteTransparent9: Color.rgba(255, 255, 255, 0.0010000000474974513),
-  utilityLightGreyscaleWhiteTransparent10: Color.rgba(255, 255, 255, 0.0010000000474974513),
-  utilityLightGreyscaleWhiteTransparent11: Color.rgba(255, 255, 255, 0.0010000000474974513),
-  utilityLightGreyscaleWhiteTransparent12: Color.rgba(255, 255, 255, 0.0010000000474974513),
-  utilityLightGreyscaleWhiteTransparent13: Color.rgba(255, 255, 255, 0.0010000000474974513),
-  utilityLightGreyscaleWhiteTransparent14: Color.rgba(255, 255, 255, 0.0010000000474974513),
-  utilityLightGreyscaleWhiteTransparent15: Color.rgba(255, 255, 255, 0.0010000000474974513),
+  utilityDarkGreyscaleTransparent: Color.rgba(255, 255, 255, 1),
+  utilityLightGreyscaleAlmostTransparent2: Color.rgba(255, 255, 255, 0.00009999999747378752),
+  utilityLightGreyscaleAlmostTransparent3: Color.rgba(255, 255, 255, 0.00009999999747378752),
+  nrLightPrimary5001: Color.rgba(74, 66, 251, 1),
+  nrLightGreyscale10001: Color.rgba(19, 19, 22, 1),
+  utilityLightGreyscaleAlmostTransparent4: Color.rgba(255, 255, 255, 0.00009999999747378752),
+  nrLightGreyscale2001: Color.rgba(216, 216, 220, 1),
+  utilityLightGreyscaleAlmostTransparent5: Color.rgba(255, 255, 255, 0.00009999999747378752),
+  utilityLightGreyscaleAlmostTransparent6: Color.rgba(255, 255, 255, 0.00009999999747378752),
+  nrLightGreyscale5001: Color.rgba(138, 138, 153, 1),
+  greyBlack: Color.rgba(29, 31, 33, 1),
+  greyBlack1: Color.rgba(29, 31, 33, 1),
+  greyMediumDark: Color.rgba(108, 118, 122, 1),
+  greyBlack2: Color.rgba(29, 31, 33, 1),
+  utilityLightGreyscaleAlmostTransparent7: Color.rgba(255, 255, 255, 0.00009999999747378752),
+  utilityLightGreyscaleAlmostTransparent8: Color.rgba(255, 255, 255, 0.00009999999747378752),
+  utilityLightGreyscaleAlmostTransparent9: Color.rgba(255, 255, 255, 0.00009999999747378752),
+  darkGreyscale0: Color.rgba(17, 17, 19, 1),
+  darkGreyscale1000: Color.rgba(255, 255, 255, 1),
+  utilityLightGreyscaleAlmostTransparent10: Color.rgba(255, 255, 255, 0.00009999999747378752),
+  utilityLightGreyscaleAlmostTransparent11: Color.rgba(255, 255, 255, 0.00009999999747378752),
 };
 
 const nrDesignSystemGradients = {
-  lightGradient3: new LinearGradient({
+  nrLightGradient3: new LinearGradient({
     stops: [
       GradientStop.make(0.134301513433456, Color.rgba(81, 74, 253, 1)),
       GradientStop.make(0.634450256824493, Color.rgba(142, 56, 255, 1)),
@@ -128,7 +136,7 @@ const nrDesignSystemGradients = {
     start: Point2D.make(2.830238541387689, 0.449602030612019),
     end: Point2D.make(-1.083550956275253, 0.44960203061202),
   }),
-  lightGradient2: new LinearGradient({
+  nrLightGradient2: new LinearGradient({
     stops: [
       GradientStop.make(0.010416666977108, Color.rgba(142, 56, 255, 1)),
       GradientStop.make(0.817708313465118, Color.rgba(250, 25, 129, 1)),
@@ -136,6 +144,11 @@ const nrDesignSystemGradients = {
     ],
     start: Point2D.make(2.15384618794668, 1.018670715662988),
     end: Point2D.make(-1.306366008994752, 1.018670715662987),
+  }),
+  nrLightGradient1: new LinearGradient({
+    stops: [GradientStop.make(0, Color.rgba(74, 66, 251, 1)), GradientStop.make(1, Color.rgba(117, 253, 190, 1))],
+    start: Point2D.make(1.884615431778562, 1.018682606826737),
+    end: Point2D.make(-1.054376698018216, 1.018682606826737),
   }),
   lightGradient1: new LinearGradient({
     stops: [GradientStop.make(0, Color.rgba(74, 66, 251, 1)), GradientStop.make(1, Color.rgba(117, 253, 190, 1))],
@@ -150,37 +163,37 @@ const nrDesignSystemShadows = {
     radius: 6,
     color: Color.rgba(0, 0, 0, 0.11999999731779099),
   }),
-  colorSwatchShadow: new DropShadow({
+  utilityLightColorSwatchShadow: new DropShadow({
     offset: Point2D.make(0, 2),
     radius: 5,
     color: Color.rgba(0, 0, 0, 0.2800000011920929),
   }),
-  colorSwatchShadow1: new DropShadow({
+  utilityLightColorSwatchShadow1: new DropShadow({
     offset: Point2D.make(0, 2),
     radius: 5,
     color: Color.rgba(0, 0, 0, 0.2800000011920929),
   }),
-  colorSwatchShadow2: new DropShadow({
+  utilityLightColorSwatchShadow2: new DropShadow({
     offset: Point2D.make(0, 2),
     radius: 5,
     color: Color.rgba(0, 0, 0, 0.2800000011920929),
   }),
-  darkShadowLevel1: new DropShadow({
+  nrDarkShadowLevel1: new DropShadow({
     offset: Point2D.make(0, 1),
     radius: 8,
     color: Color.rgba(0, 0, 0, 0.12999999523162842),
   }),
-  darkShadowLevel2: new DropShadow({
+  nrDarkShadowLevel2: new DropShadow({
     offset: Point2D.make(0, 9),
     radius: 24,
     color: Color.rgba(0, 0, 0, 0.2199999988079071),
   }),
-  darkShadowLevel3: new DropShadow({
+  nrDarkShadowLevel3: new DropShadow({
     offset: Point2D.make(0, 7),
     radius: 19,
     color: Color.rgba(0, 0, 0, 0.4000000059604645),
   }),
-  darkShadowTextLevel1: new DropShadow({
+  nrDarkShadowTextLevel1: new DropShadow({
     offset: Point2D.make(0, 1),
     radius: 3,
     color: Color.rgba(0, 0, 0, 0.10999999940395355),
@@ -201,6 +214,10 @@ export const nrDesignSystemFonts = {
   },
   Georgia: {
     Regular: Font.fromFile('assets/NrDesignSystem.figma.contents/fonts/Georgia.ttf'),
+  },
+  NeueHaasGroteskText: {
+    Medium: Font.fromFile('assets/NrDesignSystem.figma.contents/fonts/Neue_Haas_Grotesk_Text_Medium.ttf'),
+    Regular: Font.fromFile('assets/NrDesignSystem.figma.contents/fonts/Neue_Haas_Grotesk_Text_Regular.ttf'),
   },
 };
 
@@ -261,13 +278,6 @@ const nrDesignSystemTypography = {
     color: Color.rgba(90, 90, 103, 1),
     font: nrDesignSystemFonts.Gilroy.SemiBold,
   }),
-  headingH1Serif: new Typograph({
-    letterSpacing: 0,
-    fontSize: 76.23999786376953,
-    lineHeight: 87.67599487304688,
-    color: Color.rgba(255, 255, 255, 1),
-    font: nrDesignSystemFonts.PlayfairDisplay.Regular,
-  }),
   headingH1: new Typograph({
     letterSpacing: 0,
     fontSize: 76.23999786376953,
@@ -316,6 +326,13 @@ const nrDesignSystemTypography = {
     lineHeight: 21.690000534057617,
     color: Color.rgba(255, 255, 255, 1),
     font: nrDesignSystemFonts.Gilroy.SemiBold,
+  }),
+  headingH1Serif: new Typograph({
+    letterSpacing: 0,
+    fontSize: 76.23999786376953,
+    lineHeight: 87.67599487304688,
+    color: Color.rgba(255, 255, 255, 1),
+    font: nrDesignSystemFonts.PlayfairDisplay.Regular,
   }),
   headingH2Serif: new Typograph({
     letterSpacing: 0.9487999725341797,
@@ -379,6 +396,34 @@ const nrDesignSystemTypography = {
     lineHeight: 27,
     color: Color.rgba(255, 255, 255, 1),
     font: nrDesignSystemFonts.Roboto.Medium,
+  }),
+  headingH21: new Typograph({
+    letterSpacing: -0.64,
+    fontSize: 32,
+    lineHeight: 24,
+    color: Color.rgba(29, 31, 33, 1),
+    font: nrDesignSystemFonts.NeueHaasGroteskText.Medium,
+  }),
+  paragraphMedium1: new Typograph({
+    letterSpacing: 0,
+    fontSize: 18,
+    lineHeight: 32,
+    color: Color.rgba(108, 118, 122, 1),
+    font: nrDesignSystemFonts.NeueHaasGroteskText.Regular,
+  }),
+  labelSmallBoldUppercase1: new Typograph({
+    letterSpacing: 1.2000000000000002,
+    fontSize: 12,
+    lineHeight: 9,
+    color: undefined,
+    font: nrDesignSystemFonts.Gilroy.SemiBold,
+  }),
+  labelMediumBold1: new Typograph({
+    letterSpacing: 0.6300000000000001,
+    fontSize: 18,
+    lineHeight: 13,
+    color: Color.rgba(255, 255, 255, 1),
+    font: nrDesignSystemFonts.Gilroy.SemiBold,
   }),
 };
 
@@ -689,10 +734,6 @@ export const nrDesignSystemImagesFiles = {
   artboardSpacingHorizontalX54x: new File({
     src: 'assets/NrDesignSystem.figma.contents/images/ArtboardSpacingHorizontalX5@4x.png',
   }),
-  headingH1Serif: new File({ src: 'assets/NrDesignSystem.figma.contents/images/HeadingH1Serif.png' }),
-  headingH1Serif2x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/HeadingH1Serif@2x.png' }),
-  headingH1Serif3x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/HeadingH1Serif@3x.png' }),
-  headingH1Serif4x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/HeadingH1Serif@4x.png' }),
   headingH1: new File({ src: 'assets/NrDesignSystem.figma.contents/images/HeadingH1.png' }),
   headingH12x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/HeadingH1@2x.png' }),
   headingH13x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/HeadingH1@3x.png' }),
@@ -757,22 +798,42 @@ export const nrDesignSystemImagesFiles = {
   headingH42x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/HeadingH4@2x.png' }),
   headingH43x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/HeadingH4@3x.png' }),
   headingH44x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/HeadingH4@4x.png' }),
+  headingH1Serif: new File({ src: 'assets/NrDesignSystem.figma.contents/images/HeadingH1Serif.png' }),
+  headingH1Serif2x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/HeadingH1Serif@2x.png' }),
+  headingH1Serif3x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/HeadingH1Serif@3x.png' }),
+  headingH1Serif4x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/HeadingH1Serif@4x.png' }),
   headingH2Serif: new File({ src: 'assets/NrDesignSystem.figma.contents/images/HeadingH2Serif.png' }),
   headingH2Serif2x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/HeadingH2Serif@2x.png' }),
   headingH2Serif3x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/HeadingH2Serif@3x.png' }),
   headingH2Serif4x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/HeadingH2Serif@4x.png' }),
+  headingH3Serif: new File({ src: 'assets/NrDesignSystem.figma.contents/images/HeadingH3Serif.png' }),
+  headingH3Serif2x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/HeadingH3Serif@2x.png' }),
+  headingH3Serif3x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/HeadingH3Serif@3x.png' }),
+  headingH3Serif4x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/HeadingH3Serif@4x.png' }),
   paragraphLargeSerif: new File({ src: 'assets/NrDesignSystem.figma.contents/images/ParagraphLargeSerif.png' }),
   paragraphLargeSerif2x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/ParagraphLargeSerif@2x.png' }),
   paragraphLargeSerif3x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/ParagraphLargeSerif@3x.png' }),
   paragraphLargeSerif4x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/ParagraphLargeSerif@4x.png' }),
+  paragraphLargeArial: new File({ src: 'assets/NrDesignSystem.figma.contents/images/ParagraphLargeArial.png' }),
+  paragraphLargeArial2x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/ParagraphLargeArial@2x.png' }),
+  paragraphLargeArial3x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/ParagraphLargeArial@3x.png' }),
+  paragraphLargeArial4x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/ParagraphLargeArial@4x.png' }),
   paragraphMediumSerif: new File({ src: 'assets/NrDesignSystem.figma.contents/images/ParagraphMediumSerif.png' }),
   paragraphMediumSerif2x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/ParagraphMediumSerif@2x.png' }),
   paragraphMediumSerif3x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/ParagraphMediumSerif@3x.png' }),
   paragraphMediumSerif4x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/ParagraphMediumSerif@4x.png' }),
+  paragraphMediumArial: new File({ src: 'assets/NrDesignSystem.figma.contents/images/ParagraphMediumArial.png' }),
+  paragraphMediumArial2x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/ParagraphMediumArial@2x.png' }),
+  paragraphMediumArial3x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/ParagraphMediumArial@3x.png' }),
+  paragraphMediumArial4x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/ParagraphMediumArial@4x.png' }),
   paragraphSmallSerif: new File({ src: 'assets/NrDesignSystem.figma.contents/images/ParagraphSmallSerif.png' }),
   paragraphSmallSerif2x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/ParagraphSmallSerif@2x.png' }),
   paragraphSmallSerif3x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/ParagraphSmallSerif@3x.png' }),
   paragraphSmallSerif4x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/ParagraphSmallSerif@4x.png' }),
+  paragraphSmallArial: new File({ src: 'assets/NrDesignSystem.figma.contents/images/ParagraphSmallArial.png' }),
+  paragraphSmallArial2x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/ParagraphSmallArial@2x.png' }),
+  paragraphSmallArial3x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/ParagraphSmallArial@3x.png' }),
+  paragraphSmallArial4x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/ParagraphSmallArial@4x.png' }),
   paragraphs: new File({ src: 'assets/NrDesignSystem.figma.contents/images/Paragraphs.png' }),
   paragraphs2x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/Paragraphs@2x.png' }),
   paragraphs3x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/Paragraphs@3x.png' }),
@@ -833,6 +894,14 @@ export const nrDesignSystemImagesFiles = {
   artboardSubSubSectionTitle4x: new File({
     src: 'assets/NrDesignSystem.figma.contents/images/ArtboardSubSubSectionTitle@4x.png',
   }),
+  iconMedium: new File({ src: 'assets/NrDesignSystem.figma.contents/images/IconMedium.png' }),
+  iconMedium2x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/IconMedium@2x.png' }),
+  iconMedium3x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/IconMedium@3x.png' }),
+  iconMedium4x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/IconMedium@4x.png' }),
+  iconSmall: new File({ src: 'assets/NrDesignSystem.figma.contents/images/IconSmall.png' }),
+  iconSmall2x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/IconSmall@2x.png' }),
+  iconSmall3x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/IconSmall@3x.png' }),
+  iconSmall4x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/IconSmall@4x.png' }),
   iconAngleDown: new File({ src: 'assets/NrDesignSystem.figma.contents/images/IconAngleDown.png' }),
   iconAngleDown2x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/IconAngleDown@2x.png' }),
   iconAngleDown3x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/IconAngleDown@3x.png' }),
@@ -869,6 +938,10 @@ export const nrDesignSystemImagesFiles = {
   iconSearch2x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/IconSearch@2x.png' }),
   iconSearch3x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/IconSearch@3x.png' }),
   iconSearch4x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/IconSearch@4x.png' }),
+  iconTimes: new File({ src: 'assets/NrDesignSystem.figma.contents/images/IconTimes.png' }),
+  iconTimes2x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/IconTimes@2x.png' }),
+  iconTimes3x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/IconTimes@3x.png' }),
+  iconTimes4x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/IconTimes@4x.png' }),
   iconMoon: new File({ src: 'assets/NrDesignSystem.figma.contents/images/IconMoon.png' }),
   iconMoon2x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/IconMoon@2x.png' }),
   iconMoon3x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/IconMoon@3x.png' }),
@@ -1245,17 +1318,51 @@ export const nrDesignSystemImagesFiles = {
   inputMediumTextPlaceholder4x: new File({
     src: 'assets/NrDesignSystem.figma.contents/images/InputMediumTextPlaceholder@4x.png',
   }),
-  inputMediumTextPlaceholder1: new File({
-    src: 'assets/NrDesignSystem.figma.contents/images/InputMediumTextPlaceholder1.png',
+  inputMediumTextDisabled: new File({ src: 'assets/NrDesignSystem.figma.contents/images/InputMediumTextDisabled.png' }),
+  inputMediumTextDisabled2x: new File({
+    src: 'assets/NrDesignSystem.figma.contents/images/InputMediumTextDisabled@2x.png',
   }),
-  inputMediumTextPlaceholder12x: new File({
-    src: 'assets/NrDesignSystem.figma.contents/images/InputMediumTextPlaceholder1@2x.png',
+  inputMediumTextDisabled3x: new File({
+    src: 'assets/NrDesignSystem.figma.contents/images/InputMediumTextDisabled@3x.png',
   }),
-  inputMediumTextPlaceholder13x: new File({
-    src: 'assets/NrDesignSystem.figma.contents/images/InputMediumTextPlaceholder1@3x.png',
+  inputMediumTextDisabled4x: new File({
+    src: 'assets/NrDesignSystem.figma.contents/images/InputMediumTextDisabled@4x.png',
   }),
-  inputMediumTextPlaceholder14x: new File({
-    src: 'assets/NrDesignSystem.figma.contents/images/InputMediumTextPlaceholder1@4x.png',
+  inputMediumIconTextDefault: new File({
+    src: 'assets/NrDesignSystem.figma.contents/images/InputMediumIconTextDefault.png',
+  }),
+  inputMediumIconTextDefault2x: new File({
+    src: 'assets/NrDesignSystem.figma.contents/images/InputMediumIconTextDefault@2x.png',
+  }),
+  inputMediumIconTextDefault3x: new File({
+    src: 'assets/NrDesignSystem.figma.contents/images/InputMediumIconTextDefault@3x.png',
+  }),
+  inputMediumIconTextDefault4x: new File({
+    src: 'assets/NrDesignSystem.figma.contents/images/InputMediumIconTextDefault@4x.png',
+  }),
+  inputMediumIconTextPlaceholder: new File({
+    src: 'assets/NrDesignSystem.figma.contents/images/InputMediumIconTextPlaceholder.png',
+  }),
+  inputMediumIconTextPlaceholder2x: new File({
+    src: 'assets/NrDesignSystem.figma.contents/images/InputMediumIconTextPlaceholder@2x.png',
+  }),
+  inputMediumIconTextPlaceholder3x: new File({
+    src: 'assets/NrDesignSystem.figma.contents/images/InputMediumIconTextPlaceholder@3x.png',
+  }),
+  inputMediumIconTextPlaceholder4x: new File({
+    src: 'assets/NrDesignSystem.figma.contents/images/InputMediumIconTextPlaceholder@4x.png',
+  }),
+  inputMediumIconTextDisabled: new File({
+    src: 'assets/NrDesignSystem.figma.contents/images/InputMediumIconTextDisabled.png',
+  }),
+  inputMediumIconTextDisabled2x: new File({
+    src: 'assets/NrDesignSystem.figma.contents/images/InputMediumIconTextDisabled@2x.png',
+  }),
+  inputMediumIconTextDisabled3x: new File({
+    src: 'assets/NrDesignSystem.figma.contents/images/InputMediumIconTextDisabled@3x.png',
+  }),
+  inputMediumIconTextDisabled4x: new File({
+    src: 'assets/NrDesignSystem.figma.contents/images/InputMediumIconTextDisabled@4x.png',
   }),
   inputSmallTextDefault: new File({ src: 'assets/NrDesignSystem.figma.contents/images/InputSmallTextDefault.png' }),
   inputSmallTextDefault2x: new File({
@@ -1279,15 +1386,15 @@ export const nrDesignSystemImagesFiles = {
   inputSmallTextPlaceholder4x: new File({
     src: 'assets/NrDesignSystem.figma.contents/images/InputSmallTextPlaceholder@4x.png',
   }),
-  inputMediumTextDisabled: new File({ src: 'assets/NrDesignSystem.figma.contents/images/InputMediumTextDisabled.png' }),
-  inputMediumTextDisabled2x: new File({
-    src: 'assets/NrDesignSystem.figma.contents/images/InputMediumTextDisabled@2x.png',
+  inputSmallTextDisabled: new File({ src: 'assets/NrDesignSystem.figma.contents/images/InputSmallTextDisabled.png' }),
+  inputSmallTextDisabled2x: new File({
+    src: 'assets/NrDesignSystem.figma.contents/images/InputSmallTextDisabled@2x.png',
   }),
-  inputMediumTextDisabled3x: new File({
-    src: 'assets/NrDesignSystem.figma.contents/images/InputMediumTextDisabled@3x.png',
+  inputSmallTextDisabled3x: new File({
+    src: 'assets/NrDesignSystem.figma.contents/images/InputSmallTextDisabled@3x.png',
   }),
-  inputMediumTextDisabled4x: new File({
-    src: 'assets/NrDesignSystem.figma.contents/images/InputMediumTextDisabled@4x.png',
+  inputSmallTextDisabled4x: new File({
+    src: 'assets/NrDesignSystem.figma.contents/images/InputSmallTextDisabled@4x.png',
   }),
   tagXSmallLabelColor: new File({ src: 'assets/NrDesignSystem.figma.contents/images/TagXSmallLabelColor.png' }),
   tagXSmallLabelColor2x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/TagXSmallLabelColor@2x.png' }),
@@ -1345,18 +1452,10 @@ export const nrDesignSystemImagesFiles = {
   cardVerticalTitle2x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/CardVerticalTitle@2x.png' }),
   cardVerticalTitle3x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/CardVerticalTitle@3x.png' }),
   cardVerticalTitle4x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/CardVerticalTitle@4x.png' }),
-  artboardSpacingHorizontalX4: new File({
-    src: 'assets/NrDesignSystem.figma.contents/images/ArtboardSpacingHorizontalX4.png',
-  }),
-  artboardSpacingHorizontalX42x: new File({
-    src: 'assets/NrDesignSystem.figma.contents/images/ArtboardSpacingHorizontalX4@2x.png',
-  }),
-  artboardSpacingHorizontalX43x: new File({
-    src: 'assets/NrDesignSystem.figma.contents/images/ArtboardSpacingHorizontalX4@3x.png',
-  }),
-  artboardSpacingHorizontalX44x: new File({
-    src: 'assets/NrDesignSystem.figma.contents/images/ArtboardSpacingHorizontalX4@4x.png',
-  }),
+  cardHorizontalFull: new File({ src: 'assets/NrDesignSystem.figma.contents/images/CardHorizontalFull.png' }),
+  cardHorizontalFull2x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/CardHorizontalFull@2x.png' }),
+  cardHorizontalFull3x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/CardHorizontalFull@3x.png' }),
+  cardHorizontalFull4x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/CardHorizontalFull@4x.png' }),
   menuItemDropdownClosed: new File({ src: 'assets/NrDesignSystem.figma.contents/images/MenuItemDropdownClosed.png' }),
   menuItemDropdownClosed2x: new File({
     src: 'assets/NrDesignSystem.figma.contents/images/MenuItemDropdownClosed@2x.png',
@@ -1501,22 +1600,98 @@ export const nrDesignSystemImagesFiles = {
   footerDesktop2x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/FooterDesktop@2x.png' }),
   footerDesktop3x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/FooterDesktop@3x.png' }),
   footerDesktop4x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/FooterDesktop@4x.png' }),
-  footerMobile: new File({ src: 'assets/NrDesignSystem.figma.contents/images/FooterMobile.png' }),
-  footerMobile2x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/FooterMobile@2x.png' }),
-  footerMobile3x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/FooterMobile@3x.png' }),
-  footerMobile4x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/FooterMobile@4x.png' }),
   sitemapMobile: new File({ src: 'assets/NrDesignSystem.figma.contents/images/SitemapMobile.png' }),
   sitemapMobile2x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/SitemapMobile@2x.png' }),
   sitemapMobile3x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/SitemapMobile@3x.png' }),
   sitemapMobile4x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/SitemapMobile@4x.png' }),
+  footerMobile: new File({ src: 'assets/NrDesignSystem.figma.contents/images/FooterMobile.png' }),
+  footerMobile2x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/FooterMobile@2x.png' }),
+  footerMobile3x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/FooterMobile@3x.png' }),
+  footerMobile4x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/FooterMobile@4x.png' }),
   switchCircleOff: new File({ src: 'assets/NrDesignSystem.figma.contents/images/SwitchCircleOff.png' }),
   switchCircleOff2x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/SwitchCircleOff@2x.png' }),
   switchCircleOff3x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/SwitchCircleOff@3x.png' }),
   switchCircleOff4x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/SwitchCircleOff@4x.png' }),
-  desktopNavigation: new File({ src: 'assets/NrDesignSystem.figma.contents/images/DesktopNavigation.png' }),
-  desktopNavigation2x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/DesktopNavigation@2x.png' }),
-  desktopNavigation3x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/DesktopNavigation@3x.png' }),
-  desktopNavigation4x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/DesktopNavigation@4x.png' }),
+  printHeader: new File({ src: 'assets/NrDesignSystem.figma.contents/images/PrintHeader.png' }),
+  printHeader2x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/PrintHeader@2x.png' }),
+  printHeader3x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/PrintHeader@3x.png' }),
+  printHeader4x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/PrintHeader@4x.png' }),
+  presentationParagraphMedium: new File({
+    src: 'assets/NrDesignSystem.figma.contents/images/PresentationParagraphMedium.png',
+  }),
+  presentationParagraphMedium2x: new File({
+    src: 'assets/NrDesignSystem.figma.contents/images/PresentationParagraphMedium@2x.png',
+  }),
+  presentationParagraphMedium3x: new File({
+    src: 'assets/NrDesignSystem.figma.contents/images/PresentationParagraphMedium@3x.png',
+  }),
+  presentationParagraphMedium4x: new File({
+    src: 'assets/NrDesignSystem.figma.contents/images/PresentationParagraphMedium@4x.png',
+  }),
+  printTitleDateClientAddress: new File({
+    src: 'assets/NrDesignSystem.figma.contents/images/PrintTitleDateClientAddress.png',
+  }),
+  printTitleDateClientAddress2x: new File({
+    src: 'assets/NrDesignSystem.figma.contents/images/PrintTitleDateClientAddress@2x.png',
+  }),
+  printTitleDateClientAddress3x: new File({
+    src: 'assets/NrDesignSystem.figma.contents/images/PrintTitleDateClientAddress@3x.png',
+  }),
+  printTitleDateClientAddress4x: new File({
+    src: 'assets/NrDesignSystem.figma.contents/images/PrintTitleDateClientAddress@4x.png',
+  }),
+  printSection: new File({ src: 'assets/NrDesignSystem.figma.contents/images/PrintSection.png' }),
+  printSection2x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/PrintSection@2x.png' }),
+  printSection3x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/PrintSection@3x.png' }),
+  printSection4x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/PrintSection@4x.png' }),
+  printItemHours: new File({ src: 'assets/NrDesignSystem.figma.contents/images/PrintItemHours.png' }),
+  printItemHours2x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/PrintItemHours@2x.png' }),
+  printItemHours3x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/PrintItemHours@3x.png' }),
+  printItemHours4x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/PrintItemHours@4x.png' }),
+  printTotalSection: new File({ src: 'assets/NrDesignSystem.figma.contents/images/PrintTotalSection.png' }),
+  printTotalSection2x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/PrintTotalSection@2x.png' }),
+  printTotalSection3x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/PrintTotalSection@3x.png' }),
+  printTotalSection4x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/PrintTotalSection@4x.png' }),
+  priceItem: new File({ src: 'assets/NrDesignSystem.figma.contents/images/PriceItem.png' }),
+  priceItem2x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/PriceItem@2x.png' }),
+  priceItem3x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/PriceItem@3x.png' }),
+  priceItem4x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/PriceItem@4x.png' }),
+  printTotalsTaxes: new File({ src: 'assets/NrDesignSystem.figma.contents/images/PrintTotalsTaxes.png' }),
+  printTotalsTaxes2x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/PrintTotalsTaxes@2x.png' }),
+  printTotalsTaxes3x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/PrintTotalsTaxes@3x.png' }),
+  printTotalsTaxes4x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/PrintTotalsTaxes@4x.png' }),
+  templatesInvoice: new File({ src: 'assets/NrDesignSystem.figma.contents/images/TemplatesInvoice.png' }),
+  templatesInvoice2x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/TemplatesInvoice@2x.png' }),
+  templatesInvoice3x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/TemplatesInvoice@3x.png' }),
+  templatesInvoice4x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/TemplatesInvoice@4x.png' }),
+  templatesTitlePage: new File({ src: 'assets/NrDesignSystem.figma.contents/images/TemplatesTitlePage.png' }),
+  templatesTitlePage2x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/TemplatesTitlePage@2x.png' }),
+  templatesTitlePage3x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/TemplatesTitlePage@3x.png' }),
+  templatesTitlePage4x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/TemplatesTitlePage@4x.png' }),
+  templatesQuote: new File({ src: 'assets/NrDesignSystem.figma.contents/images/TemplatesQuote.png' }),
+  templatesQuote2x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/TemplatesQuote@2x.png' }),
+  templatesQuote3x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/TemplatesQuote@3x.png' }),
+  templatesQuote4x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/TemplatesQuote@4x.png' }),
+  h2: new File({ src: 'assets/NrDesignSystem.figma.contents/images/H2.png' }),
+  h22x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/H2@2x.png' }),
+  h23x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/H2@3x.png' }),
+  h24x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/H2@4x.png' }),
+  title: new File({ src: 'assets/NrDesignSystem.figma.contents/images/Title.png' }),
+  title2x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/Title@2x.png' }),
+  title3x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/Title@3x.png' }),
+  title4x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/Title@4x.png' }),
+  artboardSpacingVerticalX7: new File({
+    src: 'assets/NrDesignSystem.figma.contents/images/ArtboardSpacingVerticalX7.png',
+  }),
+  artboardSpacingVerticalX72x: new File({
+    src: 'assets/NrDesignSystem.figma.contents/images/ArtboardSpacingVerticalX7@2x.png',
+  }),
+  artboardSpacingVerticalX73x: new File({
+    src: 'assets/NrDesignSystem.figma.contents/images/ArtboardSpacingVerticalX7@3x.png',
+  }),
+  artboardSpacingVerticalX74x: new File({
+    src: 'assets/NrDesignSystem.figma.contents/images/ArtboardSpacingVerticalX7@4x.png',
+  }),
   artboardSpacingVerticalX8: new File({
     src: 'assets/NrDesignSystem.figma.contents/images/ArtboardSpacingVerticalX8.png',
   }),
@@ -1529,6 +1704,38 @@ export const nrDesignSystemImagesFiles = {
   artboardSpacingVerticalX84x: new File({
     src: 'assets/NrDesignSystem.figma.contents/images/ArtboardSpacingVerticalX8@4x.png',
   }),
+  navigationBarMobileDefault: new File({
+    src: 'assets/NrDesignSystem.figma.contents/images/NavigationBarMobileDefault.png',
+  }),
+  navigationBarMobileDefault2x: new File({
+    src: 'assets/NrDesignSystem.figma.contents/images/NavigationBarMobileDefault@2x.png',
+  }),
+  navigationBarMobileDefault3x: new File({
+    src: 'assets/NrDesignSystem.figma.contents/images/NavigationBarMobileDefault@3x.png',
+  }),
+  navigationBarMobileDefault4x: new File({
+    src: 'assets/NrDesignSystem.figma.contents/images/NavigationBarMobileDefault@4x.png',
+  }),
+  component7: new File({ src: 'assets/NrDesignSystem.figma.contents/images/Component7.png' }),
+  component72x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/Component7@2x.png' }),
+  component73x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/Component7@3x.png' }),
+  component74x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/Component7@4x.png' }),
+  contentDefault: new File({ src: 'assets/NrDesignSystem.figma.contents/images/ContentDefault.png' }),
+  contentDefault2x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/ContentDefault@2x.png' }),
+  contentDefault3x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/ContentDefault@3x.png' }),
+  contentDefault4x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/ContentDefault@4x.png' }),
+  contentSelected: new File({ src: 'assets/NrDesignSystem.figma.contents/images/ContentSelected.png' }),
+  contentSelected2x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/ContentSelected@2x.png' }),
+  contentSelected3x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/ContentSelected@3x.png' }),
+  contentSelected4x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/ContentSelected@4x.png' }),
+  frame54Default: new File({ src: 'assets/NrDesignSystem.figma.contents/images/Frame54Default.png' }),
+  frame54Default2x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/Frame54Default@2x.png' }),
+  frame54Default3x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/Frame54Default@3x.png' }),
+  frame54Default4x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/Frame54Default@4x.png' }),
+  desktopNavigation: new File({ src: 'assets/NrDesignSystem.figma.contents/images/DesktopNavigation.png' }),
+  desktopNavigation2x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/DesktopNavigation@2x.png' }),
+  desktopNavigation3x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/DesktopNavigation@3x.png' }),
+  desktopNavigation4x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/DesktopNavigation@4x.png' }),
   websiteLandingPage: new File({ src: 'assets/NrDesignSystem.figma.contents/images/WebsiteLandingPage.png' }),
   websiteLandingPage2x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/WebsiteLandingPage@2x.png' }),
   websiteLandingPage3x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/WebsiteLandingPage@3x.png' }),
@@ -1557,10 +1764,6 @@ export const nrDesignSystemImagesFiles = {
   breadcrumbsServicesBySubjects4x: new File({
     src: 'assets/NrDesignSystem.figma.contents/images/BreadcrumbsServicesBySubjects@4x.png',
   }),
-  cardHorizontalFull: new File({ src: 'assets/NrDesignSystem.figma.contents/images/CardHorizontalFull.png' }),
-  cardHorizontalFull2x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/CardHorizontalFull@2x.png' }),
-  cardHorizontalFull3x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/CardHorizontalFull@3x.png' }),
-  cardHorizontalFull4x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/CardHorizontalFull@4x.png' }),
   breadcrumbsAbout: new File({ src: 'assets/NrDesignSystem.figma.contents/images/BreadcrumbsAbout.png' }),
   breadcrumbsAbout2x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/BreadcrumbsAbout@2x.png' }),
   breadcrumbsAbout3x: new File({ src: 'assets/NrDesignSystem.figma.contents/images/BreadcrumbsAbout@3x.png' }),
@@ -1671,7 +1874,7 @@ export const nrDesignSystemImages = {
   ),
   artboardSpacingVerticalX62: Image.responsive(
     'assets/NrDesignSystem.figma.contents/images/ArtboardSpacingVerticalX62.png',
-    642,
+    640.1431274414062,
     89
   ),
   colorSwatchX3: Image.responsive('assets/NrDesignSystem.figma.contents/images/ColorSwatchX3.png', 144, 144),
@@ -1680,24 +1883,24 @@ export const nrDesignSystemImages = {
   colorSwatchX9: Image.responsive('assets/NrDesignSystem.figma.contents/images/ColorSwatchX9.png', 377, 377),
   colorSwatchX32: Image.responsive('assets/NrDesignSystem.figma.contents/images/ColorSwatchX32.png', 233, 233),
   colorSwatchX8: Image.responsive('assets/NrDesignSystem.figma.contents/images/ColorSwatchX8.png', 233, 233),
-  heading3: Image.responsive('assets/NrDesignSystem.figma.contents/images/Heading3.png', 1800, 21),
+  heading3: Image.responsive('assets/NrDesignSystem.figma.contents/images/Heading3.png', 1805, 21),
   artboardSpacingVerticalX52: Image.responsive(
     'assets/NrDesignSystem.figma.contents/images/ArtboardSpacingVerticalX52.png',
-    1800,
+    1805,
     55
   ),
   artboardSubSectionTitle: Image.responsive(
     'assets/NrDesignSystem.figma.contents/images/ArtboardSubSectionTitle.png',
-    1800,
+    1805,
     92
   ),
-  colors: Image.responsive('assets/NrDesignSystem.figma.contents/images/Colors.png', 1800, 144),
+  colors: Image.responsive('assets/NrDesignSystem.figma.contents/images/Colors.png', 1805, 144),
   artboardSpacingVerticalX4: Image.responsive(
     'assets/NrDesignSystem.figma.contents/images/ArtboardSpacingVerticalX4.png',
-    1800,
+    1805,
     34
   ),
-  brand: Image.responsive('assets/NrDesignSystem.figma.contents/images/Brand.png', 1978, 4606),
+  brand: Image.responsive('assets/NrDesignSystem.figma.contents/images/Brand.png', 1983, 4606),
   profilePictureLinkedIn: Image.responsive(
     'assets/NrDesignSystem.figma.contents/images/ProfilePictureLinkedIn.png',
     538,
@@ -1743,7 +1946,6 @@ export const nrDesignSystemImages = {
     55,
     227
   ),
-  headingH1Serif: Image.responsive('assets/NrDesignSystem.figma.contents/images/HeadingH1Serif.png', 1742, 55),
   headingH1: Image.responsive('assets/NrDesignSystem.figma.contents/images/HeadingH1.png', 900, 55),
   paragraphSmall: Image.responsive('assets/NrDesignSystem.figma.contents/images/ParagraphSmall.png', 900, 9),
   artboardSpacingVerticalX2: Image.responsive(
@@ -1758,7 +1960,7 @@ export const nrDesignSystemImages = {
   ),
   paragraphLarge: Image.responsive('assets/NrDesignSystem.figma.contents/images/ParagraphLarge.png', 900, 65),
   headingH2: Image.responsive('assets/NrDesignSystem.figma.contents/images/HeadingH2.png', 900, 93),
-  paragraphMedium: Image.responsive('assets/NrDesignSystem.figma.contents/images/ParagraphMedium.png', 900, 314),
+  paragraphMedium: Image.responsive('assets/NrDesignSystem.figma.contents/images/ParagraphMedium.png', 900, 269),
   headingH3: Image.responsive('assets/NrDesignSystem.figma.contents/images/HeadingH3.png', 900, 21),
   artboardSpacingVerticalX31: Image.responsive(
     'assets/NrDesignSystem.figma.contents/images/ArtboardSpacingVerticalX31.png',
@@ -1766,9 +1968,28 @@ export const nrDesignSystemImages = {
     21
   ),
   headingH4: Image.responsive('assets/NrDesignSystem.figma.contents/images/HeadingH4.png', 900, 13),
-  headingH2Serif: Image.responsive('assets/NrDesignSystem.figma.contents/images/HeadingH2Serif.png', 1742, 34),
+  headingH1Serif: Image.responsive(
+    'assets/NrDesignSystem.figma.contents/images/HeadingH1Serif.png',
+    521.3300170898438,
+    55
+  ),
+  headingH2Serif: Image.responsive(
+    'assets/NrDesignSystem.figma.contents/images/HeadingH2Serif.png',
+    521.3300170898438,
+    34
+  ),
+  headingH3Serif: Image.responsive(
+    'assets/NrDesignSystem.figma.contents/images/HeadingH3Serif.png',
+    521.3300170898438,
+    21
+  ),
   paragraphLargeSerif: Image.responsive(
     'assets/NrDesignSystem.figma.contents/images/ParagraphLargeSerif.png',
+    521.3300170898438,
+    241
+  ),
+  paragraphLargeArial: Image.responsive(
+    'assets/NrDesignSystem.figma.contents/images/ParagraphLargeArial.png',
     521.3300170898438,
     241
   ),
@@ -1777,12 +1998,22 @@ export const nrDesignSystemImages = {
     521,
     92
   ),
+  paragraphMediumArial: Image.responsive(
+    'assets/NrDesignSystem.figma.contents/images/ParagraphMediumArial.png',
+    521,
+    94
+  ),
   paragraphSmallSerif: Image.responsive(
     'assets/NrDesignSystem.figma.contents/images/ParagraphSmallSerif.png',
     521.3300170898438,
     45
   ),
-  paragraphs: Image.responsive('assets/NrDesignSystem.figma.contents/images/Paragraphs.png', 521.3300170898438, 1033),
+  paragraphSmallArial: Image.responsive(
+    'assets/NrDesignSystem.figma.contents/images/ParagraphSmallArial.png',
+    521.3300170898438,
+    45
+  ),
+  paragraphs: Image.responsive('assets/NrDesignSystem.figma.contents/images/Paragraphs.png', 521.3300170898438, 1073),
   heading31: Image.responsive('assets/NrDesignSystem.figma.contents/images/Heading31.png', 521.3300170898438, 21),
   artboardSpacingVerticalX53: Image.responsive(
     'assets/NrDesignSystem.figma.contents/images/ArtboardSpacingVerticalX53.png',
@@ -1805,6 +2036,8 @@ export const nrDesignSystemImages = {
     1284.25,
     56
   ),
+  iconMedium: Image.responsive('assets/NrDesignSystem.figma.contents/images/IconMedium.png', 21, 21),
+  iconSmall: Image.responsive('assets/NrDesignSystem.figma.contents/images/IconSmall.png', 13, 13),
   iconAngleDown: Image.responsive('assets/NrDesignSystem.figma.contents/images/IconAngleDown.png', 16, 9),
   iconAngleRight: Image.responsive(
     'assets/NrDesignSystem.figma.contents/images/IconAngleRight.png',
@@ -1826,6 +2059,7 @@ export const nrDesignSystemImages = {
   iconSettings: Image.responsive('assets/NrDesignSystem.figma.contents/images/IconSettings.png', 21, 21),
   iconHomeAlt: Image.responsive('assets/NrDesignSystem.figma.contents/images/IconHomeAlt.png', 21, 21),
   iconSearch: Image.responsive('assets/NrDesignSystem.figma.contents/images/IconSearch.png', 21, 21),
+  iconTimes: Image.responsive('assets/NrDesignSystem.figma.contents/images/IconTimes.png', 21, 21),
   iconMoon: Image.responsive('assets/NrDesignSystem.figma.contents/images/IconMoon.png', 21, 21),
   iconSun: Image.responsive('assets/NrDesignSystem.figma.contents/images/IconSun.png', 21, 21),
   linkSmallDefault: Image.responsive('assets/NrDesignSystem.figma.contents/images/LinkSmallDefault.png', 30, 9),
@@ -1986,8 +2220,23 @@ export const nrDesignSystemImages = {
     214,
     55
   ),
-  inputMediumTextPlaceholder1: Image.responsive(
-    'assets/NrDesignSystem.figma.contents/images/InputMediumTextPlaceholder1.png',
+  inputMediumTextDisabled: Image.responsive(
+    'assets/NrDesignSystem.figma.contents/images/InputMediumTextDisabled.png',
+    214,
+    55
+  ),
+  inputMediumIconTextDefault: Image.responsive(
+    'assets/NrDesignSystem.figma.contents/images/InputMediumIconTextDefault.png',
+    214,
+    55
+  ),
+  inputMediumIconTextPlaceholder: Image.responsive(
+    'assets/NrDesignSystem.figma.contents/images/InputMediumIconTextPlaceholder.png',
+    214,
+    55
+  ),
+  inputMediumIconTextDisabled: Image.responsive(
+    'assets/NrDesignSystem.figma.contents/images/InputMediumIconTextDisabled.png',
     214,
     55
   ),
@@ -2001,8 +2250,8 @@ export const nrDesignSystemImages = {
     214,
     35
   ),
-  inputMediumTextDisabled: Image.responsive(
-    'assets/NrDesignSystem.figma.contents/images/InputMediumTextDisabled.png',
+  inputSmallTextDisabled: Image.responsive(
+    'assets/NrDesignSystem.figma.contents/images/InputSmallTextDisabled.png',
     214,
     35
   ),
@@ -2047,10 +2296,10 @@ export const nrDesignSystemImages = {
     363.3299865722656,
     272
   ),
-  artboardSpacingHorizontalX4: Image.responsive(
-    'assets/NrDesignSystem.figma.contents/images/ArtboardSpacingHorizontalX4.png',
-    34,
-    209
+  cardHorizontalFull: Image.responsive(
+    'assets/NrDesignSystem.figma.contents/images/CardHorizontalFull.png',
+    1135,
+    311.49566650390625
   ),
   menuItemDropdownClosed: Image.responsive(
     'assets/NrDesignSystem.figma.contents/images/MenuItemDropdownClosed.png',
@@ -2108,15 +2357,62 @@ export const nrDesignSystemImages = {
   sitemapLinks: Image.responsive('assets/NrDesignSystem.figma.contents/images/SitemapLinks.png', 258.75, 143),
   sitemapDesktop: Image.responsive('assets/NrDesignSystem.figma.contents/images/SitemapDesktop.png', 1200, 228),
   footerDesktop: Image.responsive('assets/NrDesignSystem.figma.contents/images/FooterDesktop.png', 1920, 442),
-  footerMobile: Image.responsive('assets/NrDesignSystem.figma.contents/images/FooterMobile.png', 320, 153),
-  sitemapMobile: Image.responsive('assets/NrDesignSystem.figma.contents/images/SitemapMobile.png', 345, 911),
+  sitemapMobile: Image.responsive('assets/NrDesignSystem.figma.contents/images/SitemapMobile.png', 278, 929),
+  footerMobile: Image.responsive('assets/NrDesignSystem.figma.contents/images/FooterMobile.png', 320, 1260),
   switchCircleOff: Image.responsive('assets/NrDesignSystem.figma.contents/images/SwitchCircleOff.png', 54, 29),
-  desktopNavigation: Image.responsive('assets/NrDesignSystem.figma.contents/images/DesktopNavigation.png', 1920, 89),
+  printHeader: Image.responsive('assets/NrDesignSystem.figma.contents/images/PrintHeader.png', 1228, 295),
+  presentationParagraphMedium: Image.responsive(
+    'assets/NrDesignSystem.figma.contents/images/PresentationParagraphMedium.png',
+    350,
+    8
+  ),
+  printTitleDateClientAddress: Image.responsive(
+    'assets/NrDesignSystem.figma.contents/images/PrintTitleDateClientAddress.png',
+    1228,
+    293
+  ),
+  printSection: Image.responsive('assets/NrDesignSystem.figma.contents/images/PrintSection.png', 1228, 61),
+  printItemHours: Image.responsive('assets/NrDesignSystem.figma.contents/images/PrintItemHours.png', 1228, 127),
+  printTotalSection: Image.responsive('assets/NrDesignSystem.figma.contents/images/PrintTotalSection.png', 1228, 77),
+  priceItem: Image.responsive('assets/NrDesignSystem.figma.contents/images/PriceItem.png', 281, 13),
+  printTotalsTaxes: Image.responsive('assets/NrDesignSystem.figma.contents/images/PrintTotalsTaxes.png', 281, 121),
+  templatesInvoice: Image.responsive(
+    'assets/NrDesignSystem.figma.contents/images/TemplatesInvoice.png',
+    1425.5999755859375,
+    1844.8941650390625
+  ),
+  templatesTitlePage: Image.responsive(
+    'assets/NrDesignSystem.figma.contents/images/TemplatesTitlePage.png',
+    1425.5999755859375,
+    1844.8941650390625
+  ),
+  templatesQuote: Image.responsive(
+    'assets/NrDesignSystem.figma.contents/images/TemplatesQuote.png',
+    1425.5999755859375,
+    1844.8941650390625
+  ),
+  h2: Image.responsive('assets/NrDesignSystem.figma.contents/images/H2.png', 878, 24),
+  title: Image.responsive('assets/NrDesignSystem.figma.contents/images/Title.png', 878, 249),
+  artboardSpacingVerticalX7: Image.responsive(
+    'assets/NrDesignSystem.figma.contents/images/ArtboardSpacingVerticalX7.png',
+    375,
+    144
+  ),
   artboardSpacingVerticalX8: Image.responsive(
     'assets/NrDesignSystem.figma.contents/images/ArtboardSpacingVerticalX8.png',
-    1920,
+    375,
     233
   ),
+  navigationBarMobileDefault: Image.responsive(
+    'assets/NrDesignSystem.figma.contents/images/NavigationBarMobileDefault.png',
+    375,
+    63
+  ),
+  component7: Image.responsive('assets/NrDesignSystem.figma.contents/images/Component7.png', 333, 13),
+  contentDefault: Image.responsive('assets/NrDesignSystem.figma.contents/images/ContentDefault.png', 375, 63),
+  contentSelected: Image.responsive('assets/NrDesignSystem.figma.contents/images/ContentSelected.png', 375, 63),
+  frame54Default: Image.responsive('assets/NrDesignSystem.figma.contents/images/Frame54Default.png', 375, 39),
+  desktopNavigation: Image.responsive('assets/NrDesignSystem.figma.contents/images/DesktopNavigation.png', 1920, 89),
   websiteLandingPage: Image.responsive(
     'assets/NrDesignSystem.figma.contents/images/WebsiteLandingPage.png',
     1920,
@@ -2131,11 +2427,6 @@ export const nrDesignSystemImages = {
     'assets/NrDesignSystem.figma.contents/images/BreadcrumbsServicesBySubjects.png',
     156,
     9
-  ),
-  cardHorizontalFull: Image.responsive(
-    'assets/NrDesignSystem.figma.contents/images/CardHorizontalFull.png',
-    1135,
-    311.49566650390625
   ),
   breadcrumbsAbout: Image.responsive('assets/NrDesignSystem.figma.contents/images/BreadcrumbsAbout.png', 112, 9),
   breadcrumbsBlog: Image.responsive('assets/NrDesignSystem.figma.contents/images/BreadcrumbsBlog.png', 225, 9),

@@ -1,15 +1,6 @@
 
 
 :root {
-  --colors-primary: hsla(242.59459459459464, 95.85492227979273%, 62.15686274509804%, 1);
   --design-language-name: "newrade";
-}
-
-.colors-primary-background-color {
-  background-color: hsla(242.59459459459464, 95.85492227979273%, 62.15686274509804%, 1);
-}
-
-.colors-primary-color {
-  color: hsla(242.59459459459464, 95.85492227979273%, 62.15686274509804%, 1);
 }
 

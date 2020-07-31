@@ -3,10 +3,14 @@
 
 import DiezModule from './index.js';
 export const Color = DiezModule.Color;
-export const Colors = DiezModule.Colors;
-export const DesignSystemTheme = DiezModule.DesignSystemTheme;
-export const DesignSystemThemes = DiezModule.DesignSystemThemes;
-export const DesignSystem = DiezModule.DesignSystem;
+export const MirDesignSystemColors = DiezModule.MirDesignSystemColors;
+export const File = DiezModule.File;
+export const Font = DiezModule.Font;
+export const Typograph = DiezModule.Typograph;
+export const MirDesignSystemTypography = DiezModule.MirDesignSystemTypography;
+export const Point2D = DiezModule.Point2D;
+export const DropShadow = DiezModule.DropShadow;
+export const MirDesignSystemShadows = DiezModule.MirDesignSystemShadows;
 export const DesignLanguage = DiezModule.DesignLanguage;
 export const Diez = DiezModule.Diez;
 export default DiezModule;

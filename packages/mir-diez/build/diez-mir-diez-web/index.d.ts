@@ -33,66 +33,650 @@ export declare class Color {
   outlineColorStyle: {outlineColor: string};
 }
 
-/**
- * Representation of all colors used in a ColorTheme
- *
- */
-export declare class Colors {
+export declare class MirDesignSystemColors {
   /**
-   * Importing prebuilt diez prefab
-   *
    * hsla(0, 0, 1, 1)
    */
-  primary: Color;
+  mirLightGreyscaleInverted: Color;
+  /**
+   * hsla(0, 0, 1, 0)
+   */
+  utilityLightGreyscaleAlmostTransparent: Color;
+  /**
+   * hsla(0, 0, 0.88, 1)
+   */
+  utilityLightGreyscaleGreyLight: Color;
+  /**
+   * hsla(0, 0, 0.17, 1)
+   */
+  utilityLightGreyscaleBlack: Color;
+  /**
+   * hsla(0, 0, 1, 0)
+   */
+  utilityLightGreyscaleAlmostTransparent1: Color;
+  /**
+   * hsla(0, 0, 0.27, 1)
+   */
+  utilityLightGreyscaleGreyMedium: Color;
+  /**
+   * hsla(0, 0, 1, 0)
+   */
+  utilityLightGreyscaleAlmostTransparent2: Color;
+  /**
+   * hsla(0, 0, 1, 0)
+   */
+  utilityLightGreyscaleAlmostTransparent3: Color;
+  /**
+   * hsla(0, 0, 0.27, 1)
+   */
+  utilityLightGreyscaleGreyMedium1: Color;
+  /**
+   * hsla(0, 0, 1, 1)
+   */
+  utilityLightGreyscaleTransparent: Color;
+  /**
+   * hsla(0, 0, 1, 1)
+   */
+  mirLightGreyscale0: Color;
+  /**
+   * hsla(0.11, 0.95, 0.58, 1)
+   */
+  mirLightAccent1500: Color;
+  /**
+   * hsla(0.63, 0.86, 0.58, 1)
+   */
+  mirLightPrimary500: Color;
+  /**
+   * hsla(0.63, 0.87, 0.74, 1)
+   */
+  mirLightPrimary300: Color;
+  /**
+   * hsla(0.63, 0.86, 0.43, 1)
+   */
+  mirLightPrimary700: Color;
+  /**
+   * hsla(0.61, 0.25, 0.95, 1)
+   */
+  mirLightGreyscale100: Color;
+  /**
+   * hsla(0.6, 0.28, 0.93, 1)
+   */
+  mirLightGreyscale200: Color;
+  /**
+   * hsla(0.59, 0.15, 0.86, 1)
+   */
+  mirLightGreyscale300: Color;
+  /**
+   * hsla(0.33, 0.76, 0.2, 1)
+   */
+  mirLightUtilityGreen1000: Color;
+  /**
+   * hsla(0.15, 0.85, 0.13, 1)
+   */
+  mirLightUtilityYellow1000: Color;
+  /**
+   * hsla(0, 0.76, 0.2, 1)
+   */
+  mirLightUtilityRed1000: Color;
+  /**
+   * hsla(0.64, 0.86, 0.15, 1)
+   */
+  mirLightPrimary1000: Color;
+  /**
+   * hsla(0.63, 0.85, 0.89, 1)
+   */
+  mirLightPrimary100: Color;
+  /**
+   * hsla(0.11, 0.95, 0.22, 1)
+   */
+  mirLightAccent11000: Color;
+  /**
+   * hsla(0.11, 0.96, 0.36, 1)
+   */
+  mirLightAccent1700: Color;
+  /**
+   * hsla(0.11, 0.95, 0.84, 1)
+   */
+  mirLightAccent1300: Color;
+  /**
+   * hsla(0.11, 0.93, 0.95, 1)
+   */
+  mirLightAccent1100: Color;
+  /**
+   * hsla(0, 0, 0.27, 1)
+   */
+  utilityLightGreyscaleGreyMedium2: Color;
+  /**
+   * hsla(0, 0, 1, 1)
+   */
+  mirLightGreyscale100White: Color;
+  /**
+   * hsla(0.6, 0.17, 0.91, 1)
+   */
+  mirLightGreyscale150: Color;
+  /**
+   * hsla(0, 0, 1, 1)
+   */
+  mirLightGreyscale200White: Color;
+  /**
+   * hsla(0.59, 0.15, 0.76, 1)
+   */
+  mirLightGreyscale400: Color;
+  /**
+   * hsla(0.59, 0.15, 0.64, 1)
+   */
+  mirLightGreyscale500: Color;
+  /**
+   * hsla(0.65, 0.1, 0.53, 1)
+   */
+  mirLightGreyscale600: Color;
+  /**
+   * hsla(0.65, 0.1, 0.41, 1)
+   */
+  mirLightGreyscale700: Color;
+  /**
+   * hsla(0.65, 0.09, 0.29, 1)
+   */
+  mirLightGreyscale800: Color;
+  /**
+   * hsla(0.65, 0.1, 0.17, 1)
+   */
+  mirLightGreyscale900: Color;
+  /**
+   * hsla(0.67, 0.1, 0.06, 1)
+   */
+  mirLightGreyscale1000: Color;
+  /**
+   * hsla(0.33, 0.77, 0.4, 1)
+   */
+  mirLightUtilityGreen700: Color;
+  /**
+   * hsla(0.33, 0.77, 0.53, 1)
+   */
+  mirLightUtilityGreen500: Color;
+  /**
+   * hsla(0.33, 0.77, 0.76, 1)
+   */
+  mirLightUtilityGreen300: Color;
+  /**
+   * hsla(0.33, 0.8, 0.94, 1)
+   */
+  mirLightUtilityGreen100: Color;
+  /**
+   * hsla(0.15, 0.83, 0.33, 1)
+   */
+  mirLightUtilityYellow700: Color;
+  /**
+   * hsla(0.14, 0.84, 0.53, 1)
+   */
+  mirLightUtilityYellow500: Color;
+  /**
+   * hsla(0.14, 0.84, 0.71, 1)
+   */
+  mirLightUtilityYellow300: Color;
+  /**
+   * hsla(0.14, 0.87, 0.94, 1)
+   */
+  mirLightUtilityYellow100: Color;
+  /**
+   * hsla(0, 0.78, 0.33, 1)
+   */
+  mirLightUtilityRed700: Color;
+  /**
+   * hsla(0, 0.77, 0.53, 1)
+   */
+  mirLightUtilityRed500: Color;
+  /**
+   * hsla(0, 0.77, 0.76, 1)
+   */
+  mirLightUtilityRed300: Color;
+  /**
+   * hsla(0, 0.8, 0.96, 1)
+   */
+  mirLightUtilityRed100: Color;
+  /**
+   * hsla(0, 0, 1, 1)
+   */
+  mirLightGreyscaleTransparent: Color;
+  /**
+   * hsla(0, 0, 0.27, 1)
+   */
+  utilityLightGreyscaleGreyMedium3: Color;
+  /**
+   * hsla(0, 0, 1, 0)
+   */
+  utilityLightGreyscaleAlmostTransparent4: Color;
+  /**
+   * hsla(0, 0, 1, 0)
+   */
+  utilityLightGreyscaleAlmostTransparent5: Color;
+  /**
+   * hsla(0, 0, 1, 0)
+   */
+  utilityLightGreyscaleAlmostTransparent6: Color;
+  /**
+   * hsla(0, 0, 1, 0)
+   */
+  utilityLightGreyscaleAlmostTransparent7: Color;
+  /**
+   * hsla(0, 0, 1, 0)
+   */
+  utilityLightGreyscaleAlmostTransparent8: Color;
+  /**
+   * hsla(0, 0, 1, 0)
+   */
+  utilityLightGreyscaleAlmostTransparent9: Color;
+  /**
+   * hsla(0, 0, 1, 0)
+   */
+  utilityLightGreyscaleAlmostTransparent10: Color;
+}
+
+export declare class File {
+  /**
+   * The URL of the `File`
+   */
+  url: string;
 }
 
 /**
- * Representation of a color theme.
+ * A representation of a font resource, with a reference to a [[File]] containing a TTF or OTF font file.
  *
  */
-export declare class DesignSystemTheme {
+export declare class Font {
   /**
-   * - primary: `hsla(0, 0, 1, 1)`
+   * Font data.
+   *
+   * assets/MirDesignSystem.figma.contents/fonts/Roboto-Medium.ttf
    */
-  colors: Colors;
+  file: File;
+  /**
+   * Font data.
+   *
+   * Roboto-Medium
+   */
+  name: string;
+  /**
+   * Font data.
+   *
+   * [sans-serif]
+   */
+  fallbacks: string[];
+  /**
+   * Font data.
+   *
+   * 400
+   */
+  weight: number;
+  /**
+   * Font data.
+   *
+   * normal
+   */
+  style: string;
+}
+
+export declare class Typograph {
+  /**
+   * An `Object` with CSS values for this `Typograph`.
+   */
+  style: {
+    color: string,
+    fontSize: string,
+    fontFamily: string,
+    fontWeight: number,
+    fontStyle: string,
+    lineHeight?: string,
+    letterSpacing: number,
+    textAlign: "start" | "left" | "right" | "center",
+    textDecoration: string,
+  };
+  /**
+   * Applies the `Typograph` CSS styles to the given HTMLElement.
+   */
+  applyStyle(ref: HTMLElement): void;
+}
+
+declare global {
+  interface HTMLElement {
+    /**
+     * Applies a Diez Typograph definition to the element.
+     *
+     * You *must* have called `Diez.applyHTMLExtensions()` at least once to use this method.
+     */
+    applyTypograph(typograph: Typograph): void;
+  }
+}
+
+export declare class MirDesignSystemTypography {
+  /**
+   * - font: `Roboto-Medium, 400, normal`
+   * - fontSize: `76.23999786376953`
+   * - color: `hsla(0, 0, 0.17, 1)`
+   * - iosTextStyle: `body`
+   * - shouldScale: `false`
+   * - lineHeight: `95.29999542236328`
+   * - letterSpacing: `4.574399871826172`
+   * - alignment: `natural`
+   * - decoration: `[]`
+   */
+  headingXxLarge: Typograph;
+  /**
+   * - font: `Roboto-Medium, 400, normal`
+   * - fontSize: `47.439998626708984`
+   * - color: `hsla(0, 0, 0.27, 1)`
+   * - iosTextStyle: `body`
+   * - shouldScale: `false`
+   * - lineHeight: `59.29999923706055`
+   * - letterSpacing: `2.8463999176025387`
+   * - alignment: `natural`
+   * - decoration: `[]`
+   */
+  headingXLarge: Typograph;
+  /**
+   * - font: `Gilroy-SemiBold, 400, normal`
+   * - fontSize: `18`
+   * - color: `hsla(0, 0, 1, 1)`
+   * - iosTextStyle: `body`
+   * - shouldScale: `false`
+   * - lineHeight: `13`
+   * - letterSpacing: `0.6300000000000001`
+   * - alignment: `natural`
+   * - decoration: `[]`
+   */
+  labelMediumBold: Typograph;
+  /**
+   * - font: `Roboto-Medium, 400, normal`
+   * - fontSize: `29.31999969482422`
+   * - color: `hsla(0, 0, 0.27, 1)`
+   * - iosTextStyle: `body`
+   * - shouldScale: `false`
+   * - lineHeight: `36.650001525878906`
+   * - letterSpacing: `1.759199981689453`
+   * - alignment: `natural`
+   * - decoration: `[]`
+   */
+  headingLarge: Typograph;
+  /**
+   * - font: `Montserrat-Bold, 400, normal`
+   * - fontSize: `60`
+   * - color: `hsla(0.65, 0.1, 0.17, 1)`
+   * - iosTextStyle: `body`
+   * - shouldScale: `false`
+   * - lineHeight: `72`
+   * - letterSpacing: `1`
+   * - alignment: `natural`
+   * - decoration: `[]`
+   */
+  headingH1: Typograph;
+  /**
+   * - font: `OpenSans-Regular, 400, normal`
+   * - fontSize: `12.5`
+   * - color: `hsla(0.65, 0.1, 0.17, 1)`
+   * - iosTextStyle: `body`
+   * - shouldScale: `false`
+   * - lineHeight: `22`
+   * - letterSpacing: `0.5`
+   * - alignment: `natural`
+   * - decoration: `[]`
+   */
+  paragraphSmall: Typograph;
+  /**
+   * - font: `OpenSans-Regular, 400, normal`
+   * - fontSize: `29`
+   * - color: `hsla(0.65, 0.1, 0.17, 1)`
+   * - iosTextStyle: `body`
+   * - shouldScale: `false`
+   * - lineHeight: `43.5`
+   * - letterSpacing: `0.5`
+   * - alignment: `natural`
+   * - decoration: `[]`
+   */
+  paragraphLarge: Typograph;
+  /**
+   * - font: `Montserrat-Bold, 400, normal`
+   * - fontSize: `37.08281707763672`
+   * - color: `hsla(0.65, 0.1, 0.17, 1)`
+   * - iosTextStyle: `body`
+   * - shouldScale: `false`
+   * - lineHeight: `48.94932174682617`
+   * - letterSpacing: `0`
+   * - alignment: `natural`
+   * - decoration: `[]`
+   */
+  headingH2: Typograph;
+  /**
+   * - font: `OpenSans-Regular, 400, normal`
+   * - fontSize: `16`
+   * - color: `hsla(0.65, 0.1, 0.17, 1)`
+   * - iosTextStyle: `body`
+   * - shouldScale: `false`
+   * - lineHeight: `28`
+   * - letterSpacing: `0.5`
+   * - alignment: `natural`
+   * - decoration: `[]`
+   */
+  paragraphMedium: Typograph;
+  /**
+   * - font: `Montserrat-Bold, 400, normal`
+   * - fontSize: `22.91718101501465`
+   * - color: `hsla(0.65, 0.1, 0.17, 1)`
+   * - iosTextStyle: `body`
+   * - shouldScale: `false`
+   * - lineHeight: `34.375770568847656`
+   * - letterSpacing: `0`
+   * - alignment: `natural`
+   * - decoration: `[]`
+   */
+  headingH3: Typograph;
+  /**
+   * - font: `Montserrat-Bold, 400, normal`
+   * - fontSize: `16`
+   * - color: `hsla(0.65, 0.1, 0.17, 1)`
+   * - iosTextStyle: `body`
+   * - shouldScale: `false`
+   * - lineHeight: `24`
+   * - letterSpacing: `0`
+   * - alignment: `natural`
+   * - decoration: `[]`
+   */
+  headingH4: Typograph;
+  /**
+   * - font: `Roboto-Medium, 400, normal`
+   * - fontSize: `12`
+   * - color: `hsla(0, 0, 0.27, 1)`
+   * - iosTextStyle: `body`
+   * - shouldScale: `false`
+   * - lineHeight: `9`
+   * - letterSpacing: `1.2000000000000002`
+   * - alignment: `natural`
+   * - decoration: `[]`
+   */
+  labelSmallUppercase: Typograph;
+  /**
+   * - font: `Montserrat-Bold, 400, normal`
+   * - fontSize: `16`
+   * - color: `hsla(0.67, 0.1, 0.06, 1)`
+   * - iosTextStyle: `body`
+   * - shouldScale: `false`
+   * - lineHeight: `13`
+   * - letterSpacing: `2`
+   * - alignment: `natural`
+   * - decoration: `[]`
+   */
+  labelSingleMediumUppercaseBold: Typograph;
+  /**
+   * - font: `Montserrat-Bold, 400, normal`
+   * - fontSize: `16`
+   * - color: `hsla(0.67, 0.1, 0.06, 1)`
+   * - iosTextStyle: `body`
+   * - shouldScale: `false`
+   * - lineHeight: `13`
+   * - letterSpacing: `1`
+   * - alignment: `natural`
+   * - decoration: `[]`
+   */
+  labelSingleMediumBold: Typograph;
+  /**
+   * - font: `Montserrat-Regular, 400, normal`
+   * - fontSize: `16`
+   * - color: `hsla(0.67, 0.1, 0.06, 1)`
+   * - iosTextStyle: `body`
+   * - shouldScale: `false`
+   * - lineHeight: `13`
+   * - letterSpacing: `1`
+   * - alignment: `natural`
+   * - decoration: `[]`
+   */
+  labelSingleMediumRegular: Typograph;
+  /**
+   * - font: `Montserrat-Bold, 400, normal`
+   * - fontSize: `11`
+   * - color: `hsla(0.67, 0.1, 0.06, 1)`
+   * - iosTextStyle: `body`
+   * - shouldScale: `false`
+   * - lineHeight: `9`
+   * - letterSpacing: `2`
+   * - alignment: `natural`
+   * - decoration: `[]`
+   */
+  labelSingleSmallUppercaseBold: Typograph;
+  /**
+   * - font: `Montserrat-Bold, 400, normal`
+   * - fontSize: `12`
+   * - color: `hsla(0.67, 0.1, 0.06, 1)`
+   * - iosTextStyle: `body`
+   * - shouldScale: `false`
+   * - lineHeight: `9`
+   * - letterSpacing: `1`
+   * - alignment: `natural`
+   * - decoration: `[]`
+   */
+  labelSingleSmallBold: Typograph;
+  /**
+   * - font: `Montserrat-Regular, 400, normal`
+   * - fontSize: `12`
+   * - color: `hsla(0.67, 0.1, 0.06, 1)`
+   * - iosTextStyle: `body`
+   * - shouldScale: `false`
+   * - lineHeight: `9`
+   * - letterSpacing: `0.36`
+   * - alignment: `natural`
+   * - decoration: `[]`
+   */
+  labelSingleSmallRegular: Typograph;
+  /**
+   * - font: `Roboto-Bold, 400, normal`
+   * - fontSize: `12`
+   * - color: `hsla(0.67, 0.1, 0.06, 1)`
+   * - iosTextStyle: `body`
+   * - shouldScale: `false`
+   * - lineHeight: `9`
+   * - letterSpacing: `0.42000000000000004`
+   * - alignment: `natural`
+   * - decoration: `[]`
+   */
+  labelSmall: Typograph;
 }
 
 /**
- * Available themes for a design system.
+ * Provides a two dimensional point.
+ * 
+ * Taken alone, points are designated in an abstract space with no inherit dimensions or directionality. In the
+ * context of other prefabs like [[LinearGradient]], points typically should use the standard two dimensional graphics
+ * space, often normalized in the unit square, where x increases from left to right and y increases from top to bottom.
+ * 
+ * Usage: `point = Point2D.make(0.5, 0.5);`.
  *
  */
-export declare class DesignSystemThemes {
+export declare class Point2D {
   /**
-   * - colors: ``
+   * Point data.
+   *
+   * 0
    */
-  light: DesignSystemTheme;
+  x: number;
   /**
-   * - colors: ``
+   * Point data.
+   *
+   * 3
    */
-  dark: DesignSystemTheme;
+  y: number;
 }
 
-/**
- * Complete representation of a design system.
- *
- */
-export declare class DesignSystem {
+export declare class DropShadow {
   /**
-   * - light: ``
-   * - dark: ``
+   * The CSS box-shadow representation of the `DropShadow`.
+   * @example
+   * 0px 1px 16px rgba(0, 0, 16, .4)
    */
-  themes: DesignSystemThemes;
+  boxShadow: string;
+  /**
+   * The CSS text-shadow representation of the `DropShadow`.
+   * @example
+   * 0px 1px 16px rgba(0, 0, 16, .4)
+   */
+  textShadow: string;
+  /**
+   * The CSS filter representation of the `DropShadow`.
+   * @example
+   * drop-shadow(0px 1px 16px rgba(0, 0, 16, .4))
+   */
+  filter: string;
+  /**
+   * CSS declarations for the `box-shadow` CSS property.
+   */
+  boxShadowStyle: {boxShadow: string};
+  /**
+   * CSS declarations for the `text-shadow` CSS property.
+   */
+  textShadowStyle: {textShadow: string};
+  /**
+   * CSS declarations for the `filter` CSS property.
+   */
+  filterStyle: {filter: string};
+}
+
+export declare class MirDesignSystemShadows {
+  /**
+   * - offset: `[0, 3]`
+   * - radius: `6`
+   * - color: `hsla(0, 0, 0, 0.12)`
+   */
+  utilityLightArtboardShadow: DropShadow;
+  /**
+   * - offset: `[0, 2]`
+   * - radius: `5`
+   * - color: `hsla(0, 0, 0, 0.28)`
+   */
+  utilityLightColorSwatchShadow: DropShadow;
+  /**
+   * - offset: `[0, 2]`
+   * - radius: `5`
+   * - color: `hsla(0, 0, 0, 0.28)`
+   */
+  utilityLightColorSwatchShadow1: DropShadow;
+  /**
+   * - offset: `[0, 2]`
+   * - radius: `5`
+   * - color: `hsla(0, 0, 0, 0.28)`
+   */
+  utilityLightColorSwatchShadow2: DropShadow;
+  /**
+   * - offset: `[0, 2]`
+   * - radius: `34`
+   * - color: `hsla(0, 0, 0.61, 0.5)`
+   */
+  mirLightShadowLarge: DropShadow;
 }
 
 export declare class DesignLanguage extends RootComponent {
   /**
-   * newrade
+   * mir
    */
   name: string;
-  /**
-   * - name: `Design System Name`
-   * - themes: ``
-   */
-  ds: DesignSystem;
+  colors: MirDesignSystemColors;
+  typography: MirDesignSystemTypography;
+  shadows: MirDesignSystemShadows;
 }
 

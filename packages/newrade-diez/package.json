@@ -17,6 +17,7 @@
   "scripts": {
     "start": "diez compile -t web",
     "build": "diez compile -t web",
+    "extract": "diez extract",
     "test": "echo ok"
   }
 }

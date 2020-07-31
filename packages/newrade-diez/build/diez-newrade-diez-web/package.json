@@ -8,6 +8,5 @@
     "import": "./wrapper.mjs"
   },
   "dependencies": {
-    "@diez/web-sdk-common": "^10.6.0"
   }
 }
