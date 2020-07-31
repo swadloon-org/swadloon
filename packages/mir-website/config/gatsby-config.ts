@@ -1,4 +1,3 @@
-import path from 'path';
 import Gatsby from 'gatsby';
 
 /**
@@ -8,9 +7,7 @@ import Gatsby from 'gatsby';
  */
 export const plugins = ['gatsby-plugin-typescript', 'gatsby-plugin-postcss'];
 
-import dotenv from 'dotenv';
-
-dotenv.config();
+require('dotenv').config();
 
 function getGatsbySourceGraphQLPlugin({
   typeName,
@@ -42,9 +39,9 @@ export const config: Gatsby.GatsbyConfig = {
       options: {
         typeName: `GraphCMS`,
         fieldName: `gcms`,
-        url: process.env.GRAPH_CMS_API_URL_NEWRADE,
+        url: process.env.GRAPH_CMS_API_URL_MIR,
         headers: {
-          Authorization: `bearer ${process.env.GRAPH_CMS_AUTH_TOKEN_NEWRADE}`,
+          Authorization: `bearer ${process.env.GRAPH_CMS_AUTH_TOKEN_MIR}`,
         },
       },
     },
