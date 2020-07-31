@@ -17,7 +17,12 @@ export const query = graphql`
   }
 `;
 
-const IndexPage = ({ data }: { data: IndexPageQuery }) => {
+interface IndexPageProps {
+  data: IndexPageQuery;
+  location: Location;
+}
+
+const IndexPage: React.FC<IndexPageProps> = ({ data, location }) => {
   return (
     <div style={{ background: 'black' }}>
       <img src={data.gcms.companyMedias[0].logo.url} />
