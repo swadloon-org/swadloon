@@ -54,6 +54,7 @@ jobs:
         GRAPH_CMS_API_URL_MIR: ${{ secrets.GRAPH_CMS_API_URL_MIR }}
         GRAPH_CMS_AUTH_TOKEN_NEWRADE: ${{ secrets.GRAPH_CMS_AUTH_TOKEN_NEWRADE }}
         GRAPH_CMS_API_URL_NEWRADE: ${{ secrets.GRAPH_CMS_API_URL_NEWRADE }}
+
     - name: Lint
       run: yarn lint
 
@@ -66,18 +67,18 @@ jobs:
         GRAPH_CMS_API_URL_NEWRADE: ${{ secrets.GRAPH_CMS_API_URL_NEWRADE }}
 
     - uses: jsmrcaga/action-netlify-deploy@master
-        with:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID_NEWRADE }}
-          NETLIFY_DEPLOY_MESSAGE: "Prod deploy v${{ github.ref }}"
-          NETLIFY_DEPLOY_TO_PROD: true
+      with:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID_NEWRADE }}
+        NETLIFY_DEPLOY_MESSAGE: "Prod deploy v${{ github.ref }}"
+        NETLIFY_DEPLOY_TO_PROD: true
 
     - uses: jsmrcaga/action-netlify-deploy@master
-        with:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID_MIR }}
-          NETLIFY_DEPLOY_MESSAGE: "Prod deploy v${{ github.ref }}"
-          NETLIFY_DEPLOY_TO_PROD: true
+      with:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID_MIR }}
+        NETLIFY_DEPLOY_MESSAGE: "Prod deploy v${{ github.ref }}"
+        NETLIFY_DEPLOY_TO_PROD: true
 
     - name: Test
       run: yarn test
