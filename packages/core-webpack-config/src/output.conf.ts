@@ -10,6 +10,14 @@ export const defaultOuputConf: { [key in ENVIRONMENT]: OutputOptions } = {
     sourceMapFilename: '[file].map',
     globalObject: 'this',
   },
+  [ENVIRONMENT.PREPROD]: {
+    filename: '[name].bundle.[contenthash].js',
+    publicPath: '/',
+    pathinfo: true,
+    chunkFilename: '[id].[contenthash].chunk.js',
+    sourceMapFilename: '[file].map',
+    globalObject: 'this',
+  },
   [ENVIRONMENT.PROD]: {
     filename: '[name].bundle.[contenthash].js',
     publicPath: '/',

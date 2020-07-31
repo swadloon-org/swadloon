@@ -102,5 +102,9 @@
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
     "yo": "^3.1.1"
+  },
+  "resolutions": {
+    "**/packages/core-design-system": "link:./packages/core-design-system",
+    "**/packages/core-react-ui": "link:./packages/core-react-ui"
   }
 }
