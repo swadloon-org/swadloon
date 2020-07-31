@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { IndexPageQuery } from '../../types/graphql-types';
+import { Header } from '../components/header/header';
 
 export const query = graphql`
   query indexPage {
@@ -24,9 +25,11 @@ interface IndexPageProps {
 
 const IndexPage: React.FC<IndexPageProps> = ({ data, location }) => {
   return (
-    <div style={{ background: 'black' }}>
-      <img src={data.gcms.companyMedias[0].logo.url} />
-    </div>
+    <Header>
+      <div style={{ background: 'black' }}>
+        <img src={data.gcms.companyMedias[0].logo.url} />
+      </div>
+    </Header>
   );
 };
 

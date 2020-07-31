@@ -5,7 +5,6 @@ import Gatsby from 'gatsby';
  *
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
-// export const plugins = ['gatsby-plugin-typescript', 'gatsby-plugin-postcss'];
 
 require('dotenv').config();
 
@@ -34,6 +33,15 @@ export const config: Gatsby.GatsbyConfig = {
     description: `An example site.`,
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        data: `@import 'mir-diez/build/diez-mir-diez-web/static/styles.scss';`,
+        cssLoaderOptions: {
+          localIdentName: '[name]_[local]_[hash:base64:5]',
+        },
+      },
+    },
     {
       resolve: `gatsby-plugin-ts`,
       options: {

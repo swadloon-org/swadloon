@@ -28,6 +28,8 @@
   },
   "devDependencies": {
     "gatsby-source-graphql": "^2.6.1",
-    "gatsby-plugin-ts": "^2.7.1"
+    "gatsby-plugin-sass": "^2.3.12",
+    "gatsby-plugin-ts": "^2.7.1",
+    "node-sass": "^4.14.1"
   }
 }
