@@ -1,31 +1,28 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
+import { IndexPageQuery } from '../../types/graphql-types';
 
-//keep query here
-const pageQuery = graphql`
-  {
+export const query = graphql`
+  query indexPage {
     gcms {
-      assets {
-        id
-        size
-        fileName
-        url
+      companyMedias {
+        logoFooter {
+          url
+        }
+        logo {
+          url
+        }
       }
     }
   }
 `;
 
-const IndexPage = () => {
-  const {
-    gcms: { assets },
-  } = useStaticQuery(pageQuery);
-
-  console.log(pageQuery);
-  console.log(assets);
-  console.log('assets');
-  console.log(assets[0].fileName);
-
-  return <img src={assets[0].url} />;
+const IndexPage = ({ data }: { data: IndexPageQuery }) => {
+  return (
+    <div style={{ background: 'black' }}>
+      <img src={data.gcms.companyMedias[0].logo.url} />
+    </div>
+  );
 };
 
 export default IndexPage;

@@ -6,12 +6,10 @@
     "outDir": "./lib/",
     "rootDir": ".",
     "strict": false,
-    "target": "ESNext",
-    "module": "ESNext",
-    "lib": ["dom"],
-    "types": ["node"],
-    "jsx": "preserve"
+    "target": "es6",
+    "module": "commonjs",
+    "types": ["node"]
   },
   "typeRoots": ["../../node_modules/@types", "./src/typings"],
-  "include": ["./src/", "./types/"]
+  "include": ["./config/"]
 }

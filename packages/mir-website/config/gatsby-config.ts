@@ -5,7 +5,7 @@ import Gatsby from 'gatsby';
  *
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
-export const plugins = ['gatsby-plugin-typescript', 'gatsby-plugin-postcss'];
+// export const plugins = ['gatsby-plugin-typescript', 'gatsby-plugin-postcss'];
 
 require('dotenv').config();
 
@@ -34,6 +34,12 @@ export const config: Gatsby.GatsbyConfig = {
     description: `An example site.`,
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-ts`,
+      options: {
+        fileName: `types/graphql-types.ts`,
+      },
+    },
     {
       resolve: `gatsby-source-graphql`,
       options: {
