@@ -100,7 +100,6 @@
     },
     {
       "name": "mir-website",
-      "name": "newrade-mir-website",
       "cwd": "[workspaceFolder]/packages/mir-website",
       "open": true,
       "focus": false
