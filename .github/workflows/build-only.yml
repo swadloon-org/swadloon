@@ -1,6 +1,9 @@
 name: build-only
 
-on: [push]
+on:
+  push:
+    branches:
+      - '!master'
 
 jobs:
   build_only:
