@@ -1,9 +1,9 @@
-name: build
+name: build-only
 
 on: [push]
 
 jobs:
-  build:
+  build_only:
     runs-on: ubuntu-latest
 
     strategy:
@@ -47,23 +47,24 @@ jobs:
     - name: Install dependencies
       run: yarn
       env:
-        GRAPH_CMS_AUTH_TOKEN_MIR: ${{ secrets.GRAPH_CMS_AUTH_TOKEN_MIR }} 
+        GRAPH_CMS_AUTH_TOKEN_MIR: ${{ secrets.GRAPH_CMS_AUTH_TOKEN_MIR }}
         GRAPH_CMS_API_URL_MIR: ${{ secrets.GRAPH_CMS_API_URL_MIR }}
         GRAPH_CMS_AUTH_TOKEN_NEWRADE: ${{ secrets.GRAPH_CMS_AUTH_TOKEN_NEWRADE }}
         GRAPH_CMS_API_URL_NEWRADE: ${{ secrets.GRAPH_CMS_API_URL_NEWRADE }}
+
     - name: Lint
       run: yarn lint
 
     - name: Build
       run: yarn build
       env:
-        GRAPH_CMS_AUTH_TOKEN_MIR: ${{ secrets.GRAPH_CMS_AUTH_TOKEN_MIR }} 
+        GRAPH_CMS_AUTH_TOKEN_MIR: ${{ secrets.GRAPH_CMS_AUTH_TOKEN_MIR }}
         GRAPH_CMS_API_URL_MIR: ${{ secrets.GRAPH_CMS_API_URL_MIR }}
         GRAPH_CMS_AUTH_TOKEN_NEWRADE: ${{ secrets.GRAPH_CMS_AUTH_TOKEN_NEWRADE }}
         GRAPH_CMS_API_URL_NEWRADE: ${{ secrets.GRAPH_CMS_API_URL_NEWRADE }}
 
     - name: Test
       run: yarn test
-        
+
       env:
         CI: true

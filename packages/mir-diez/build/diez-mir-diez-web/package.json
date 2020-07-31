@@ -1,0 +1,13 @@
+{
+  "name": "diez-mir-diez",
+  "version": "0.1.0",
+  "license": "MIT",
+  "main": "./index.js",
+  "exports": {
+    "require": "./index.js",
+    "import": "./wrapper.mjs"
+  },
+  "dependencies": {
+    "@diez/web-sdk-common": "^10.6.0"
+  }
+}

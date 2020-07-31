@@ -1,0 +1,30 @@
+{
+  "DesignLanguage": {
+    "name": "newrade",
+    "ds": {
+      "name": "Design System Name",
+      "themes": {
+        "light": {
+          "colors": {
+            "primary": {
+              "h": 0,
+              "s": 0,
+              "l": 1,
+              "a": 1
+            }
+          }
+        },
+        "dark": {
+          "colors": {
+            "primary": {
+              "h": 0.673873873873874,
+              "s": 0.9585492227979273,
+              "l": 0.6215686274509804,
+              "a": 1
+            }
+          }
+        }
+      }
+    }
+  }
+}
