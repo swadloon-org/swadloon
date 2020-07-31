@@ -72,6 +72,7 @@ jobs:
         NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID_NEWRADE }}
         NETLIFY_DEPLOY_MESSAGE: "Prod deploy v${{ github.ref }}"
         NETLIFY_DEPLOY_TO_PROD: true
+        build_directory: packages/newrade-website/public
 
     - uses: jsmrcaga/action-netlify-deploy@master
       with:
@@ -79,6 +80,7 @@ jobs:
         NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID_MIR }}
         NETLIFY_DEPLOY_MESSAGE: "Prod deploy v${{ github.ref }}"
         NETLIFY_DEPLOY_TO_PROD: true
+        build_directory: packages/mir-website/public
 
     - name: Test
       run: yarn test
