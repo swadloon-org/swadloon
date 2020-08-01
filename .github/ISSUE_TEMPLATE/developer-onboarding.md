@@ -19,9 +19,14 @@ assignees: ''
 ## Accounts
 
 - [ ] @newrade email
+- [ ] setup google auth application
+- [ ] enable 2FA for gmail
 - [ ] Slack account
+- [ ] enable 2FA for slack
 - [ ] Github account in Newrade's Dev team
+- [ ] enable 2FA for Github
 - [ ] 1Password account
+- [ ] enable 2FA for 1Password
 - [ ] GraphCMS account
 - [ ] Netlify account
 
