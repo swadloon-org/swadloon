@@ -2,7 +2,4 @@
 
 [build]
   # This is where we will look for package.json/.nvmrc/etc.
-  base = "."
-  command = "cd packages/mir-website && yarn build"
-  publish = "packages/mir-website/public"
   environment = { YARN_VERSION = "1.22.4", NODE_VERSION = "14" }
