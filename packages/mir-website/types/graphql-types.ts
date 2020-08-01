@@ -39,23 +39,12 @@ export type Scalars = {
   JSON: any;
 };
 
-
-
-
-
-
-
-
-
-
-
 export type BooleanQueryOperatorInput = {
   eq?: Maybe<Scalars['Boolean']>;
   ne?: Maybe<Scalars['Boolean']>;
   in?: Maybe<Array<Maybe<Scalars['Boolean']>>>;
   nin?: Maybe<Array<Maybe<Scalars['Boolean']>>>;
 };
-
 
 export type DateQueryOperatorInput = {
   eq?: Maybe<Scalars['Date']>;
@@ -108,14 +97,12 @@ export type Directory = Node & {
   internal: Internal;
 };
 
-
 export type DirectoryModifiedTimeArgs = {
   formatString?: Maybe<Scalars['String']>;
   fromNow?: Maybe<Scalars['Boolean']>;
   difference?: Maybe<Scalars['String']>;
   locale?: Maybe<Scalars['String']>;
 };
-
 
 export type DirectoryAccessTimeArgs = {
   formatString?: Maybe<Scalars['String']>;
@@ -124,14 +111,12 @@ export type DirectoryAccessTimeArgs = {
   locale?: Maybe<Scalars['String']>;
 };
 
-
 export type DirectoryChangeTimeArgs = {
   formatString?: Maybe<Scalars['String']>;
   fromNow?: Maybe<Scalars['Boolean']>;
   difference?: Maybe<Scalars['String']>;
   locale?: Maybe<Scalars['String']>;
 };
-
 
 export type DirectoryBirthTimeArgs = {
   formatString?: Maybe<Scalars['String']>;
@@ -140,7 +125,6 @@ export type DirectoryBirthTimeArgs = {
   locale?: Maybe<Scalars['String']>;
 };
 
-
 export type DirectoryAtimeArgs = {
   formatString?: Maybe<Scalars['String']>;
   fromNow?: Maybe<Scalars['Boolean']>;
@@ -148,14 +132,12 @@ export type DirectoryAtimeArgs = {
   locale?: Maybe<Scalars['String']>;
 };
 
-
 export type DirectoryMtimeArgs = {
   formatString?: Maybe<Scalars['String']>;
   fromNow?: Maybe<Scalars['Boolean']>;
   difference?: Maybe<Scalars['String']>;
   locale?: Maybe<Scalars['String']>;
 };
-
 
 export type DirectoryCtimeArgs = {
   formatString?: Maybe<Scalars['String']>;
@@ -173,11 +155,9 @@ export type DirectoryConnection = {
   group: Array<DirectoryGroupConnection>;
 };
 
-
 export type DirectoryConnectionDistinctArgs = {
   field: DirectoryFieldsEnum;
 };
-
 
 export type DirectoryConnectionGroupArgs = {
   skip?: Maybe<Scalars['Int']>;
@@ -191,7 +171,7 @@ export type DirectoryEdge = {
   previous?: Maybe<Directory>;
 };
 
-export type DirectoryFieldsEnum = 
+export type DirectoryFieldsEnum =
   | 'sourceInstanceName'
   | 'absolutePath'
   | 'relativePath'
@@ -402,14 +382,12 @@ export type File = Node & {
   internal: Internal;
 };
 
-
 export type FileModifiedTimeArgs = {
   formatString?: Maybe<Scalars['String']>;
   fromNow?: Maybe<Scalars['Boolean']>;
   difference?: Maybe<Scalars['String']>;
   locale?: Maybe<Scalars['String']>;
 };
-
 
 export type FileAccessTimeArgs = {
   formatString?: Maybe<Scalars['String']>;
@@ -418,14 +396,12 @@ export type FileAccessTimeArgs = {
   locale?: Maybe<Scalars['String']>;
 };
 
-
 export type FileChangeTimeArgs = {
   formatString?: Maybe<Scalars['String']>;
   fromNow?: Maybe<Scalars['Boolean']>;
   difference?: Maybe<Scalars['String']>;
   locale?: Maybe<Scalars['String']>;
 };
-
 
 export type FileBirthTimeArgs = {
   formatString?: Maybe<Scalars['String']>;
@@ -434,7 +410,6 @@ export type FileBirthTimeArgs = {
   locale?: Maybe<Scalars['String']>;
 };
 
-
 export type FileAtimeArgs = {
   formatString?: Maybe<Scalars['String']>;
   fromNow?: Maybe<Scalars['Boolean']>;
@@ -442,14 +417,12 @@ export type FileAtimeArgs = {
   locale?: Maybe<Scalars['String']>;
 };
 
-
 export type FileMtimeArgs = {
   formatString?: Maybe<Scalars['String']>;
   fromNow?: Maybe<Scalars['Boolean']>;
   difference?: Maybe<Scalars['String']>;
   locale?: Maybe<Scalars['String']>;
 };
-
 
 export type FileCtimeArgs = {
   formatString?: Maybe<Scalars['String']>;
@@ -467,11 +440,9 @@ export type FileConnection = {
   group: Array<FileGroupConnection>;
 };
 
-
 export type FileConnectionDistinctArgs = {
   field: FileFieldsEnum;
 };
-
 
 export type FileConnectionGroupArgs = {
   skip?: Maybe<Scalars['Int']>;
@@ -485,7 +456,7 @@ export type FileEdge = {
   previous?: Maybe<File>;
 };
 
-export type FileFieldsEnum = 
+export type FileFieldsEnum =
   | 'sourceInstanceName'
   | 'absolutePath'
   | 'relativePath'
@@ -688,13 +659,11 @@ export type GraphCms = {
   companyMediaVersion?: Maybe<GraphCms_DocumentVersion>;
 };
 
-
 export type GraphCmsNodeArgs = {
   id: Scalars['ID'];
   stage?: GraphCms_Stage;
   locales?: Array<GraphCms_Locale>;
 };
-
 
 export type GraphCmsAssetsArgs = {
   where?: Maybe<GraphCms_AssetWhereInput>;
@@ -708,13 +677,11 @@ export type GraphCmsAssetsArgs = {
   locales?: Array<GraphCms_Locale>;
 };
 
-
 export type GraphCmsAssetArgs = {
   where: GraphCms_AssetWhereUniqueInput;
   stage?: GraphCms_Stage;
   locales?: Array<GraphCms_Locale>;
 };
-
 
 export type GraphCmsAssetsConnectionArgs = {
   where?: Maybe<GraphCms_AssetWhereInput>;
@@ -728,11 +695,9 @@ export type GraphCmsAssetsConnectionArgs = {
   locales?: Array<GraphCms_Locale>;
 };
 
-
 export type GraphCmsAssetVersionArgs = {
   where: GraphCms_VersionWhereInput;
 };
-
 
 export type GraphCmsCompanyMediasArgs = {
   where?: Maybe<GraphCms_CompanyMediaWhereInput>;
@@ -745,12 +710,10 @@ export type GraphCmsCompanyMediasArgs = {
   stage?: GraphCms_Stage;
 };
 
-
 export type GraphCmsCompanyMediaArgs = {
   where: GraphCms_CompanyMediaWhereUniqueInput;
   stage?: GraphCms_Stage;
 };
-
 
 export type GraphCmsCompanyMediasConnectionArgs = {
   where?: Maybe<GraphCms_CompanyMediaWhereInput>;
@@ -763,12 +726,11 @@ export type GraphCmsCompanyMediasConnectionArgs = {
   stage?: GraphCms_Stage;
 };
 
-
 export type GraphCmsCompanyMediaVersionArgs = {
   where: GraphCms_VersionWhereInput;
 };
 
-export type GraphCms__FilterKind = 
+export type GraphCms__FilterKind =
   | 'search'
   | 'AND'
   | 'OR'
@@ -795,15 +757,9 @@ export type GraphCms__FilterKind =
   | 'relational_some'
   | 'relational_none';
 
-export type GraphCms__MutationInputFieldKind = 
-  | 'scalar'
-  | 'richText'
-  | 'enum'
-  | 'relation'
-  | 'union'
-  | 'virtual';
+export type GraphCms__MutationInputFieldKind = 'scalar' | 'richText' | 'enum' | 'relation' | 'union' | 'virtual';
 
-export type GraphCms__MutationKind = 
+export type GraphCms__MutationKind =
   | 'create'
   | 'publish'
   | 'unpublish'
@@ -815,26 +771,15 @@ export type GraphCms__MutationKind =
   | 'unpublishMany'
   | 'deleteMany';
 
-export type GraphCms__OrderDirection = 
-  | 'asc'
-  | 'desc';
+export type GraphCms__OrderDirection = 'asc' | 'desc';
 
-export type GraphCms__RelationInputCardinality = 
-  | 'one'
-  | 'many';
+export type GraphCms__RelationInputCardinality = 'one' | 'many';
 
-export type GraphCms__RelationInputKind = 
-  | 'create'
-  | 'update';
+export type GraphCms__RelationInputKind = 'create' | 'update';
 
-export type GraphCms__RelationKind = 
-  | 'regular'
-  | 'union';
+export type GraphCms__RelationKind = 'regular' | 'union';
 
-export type GraphCms__SystemDateTimeFieldVariation = 
-  | 'base'
-  | 'localization'
-  | 'combined';
+export type GraphCms__SystemDateTimeFieldVariation = 'base' | 'localization' | 'combined';
 
 export type GraphCms_Aggregate = {
   count: Scalars['Int'];
@@ -878,13 +823,11 @@ export type GraphCms_Asset = GraphCms_Node & {
   url: Scalars['String'];
 };
 
-
 /** Asset system model */
 export type GraphCms_AssetLocalizationsArgs = {
   locales?: Array<GraphCms_Locale>;
   includeCurrent?: Scalars['Boolean'];
 };
-
 
 /** Asset system model */
 export type GraphCms_AssetDocumentInStagesArgs = {
@@ -893,24 +836,20 @@ export type GraphCms_AssetDocumentInStagesArgs = {
   inheritLocale?: Scalars['Boolean'];
 };
 
-
 /** Asset system model */
 export type GraphCms_AssetCreatedAtArgs = {
   variation?: GraphCms_SystemDateTimeFieldVariation;
 };
-
 
 /** Asset system model */
 export type GraphCms_AssetUpdatedAtArgs = {
   variation?: GraphCms_SystemDateTimeFieldVariation;
 };
 
-
 /** Asset system model */
 export type GraphCms_AssetPublishedAtArgs = {
   variation?: GraphCms_SystemDateTimeFieldVariation;
 };
-
 
 /** Asset system model */
 export type GraphCms_AssetCompanyMediaLogoFooterArgs = {
@@ -923,7 +862,6 @@ export type GraphCms_AssetCompanyMediaLogoFooterArgs = {
   last?: Maybe<Scalars['Int']>;
 };
 
-
 /** Asset system model */
 export type GraphCms_AssetCompanyMediaLogoArgs = {
   where?: Maybe<GraphCms_CompanyMediaWhereInput>;
@@ -935,14 +873,12 @@ export type GraphCms_AssetCompanyMediaLogoArgs = {
   last?: Maybe<Scalars['Int']>;
 };
 
-
 /** Asset system model */
 export type GraphCms_AssetHistoryArgs = {
   limit?: Scalars['Int'];
   skip?: Scalars['Int'];
   stageOverride?: Maybe<GraphCms_Stage>;
 };
-
 
 /** Asset system model */
 export type GraphCms_AssetUrlArgs = {
@@ -1106,7 +1042,7 @@ export type GraphCms_AssetManyWhereInput = {
   companyMediaLogo_none?: Maybe<GraphCms_CompanyMediaWhereInput>;
 };
 
-export type GraphCms_AssetOrderByInput = 
+export type GraphCms_AssetOrderByInput =
   | 'id_ASC'
   | 'id_DESC'
   | 'createdAt_ASC'
@@ -1480,13 +1416,11 @@ export type GraphCms_CompanyMedia = GraphCms_Node & {
   history: Array<GraphCms_Version>;
 };
 
-
 export type GraphCms_CompanyMediaDocumentInStagesArgs = {
   stages?: Array<GraphCms_Stage>;
   includeCurrent?: Scalars['Boolean'];
   inheritLocale?: Scalars['Boolean'];
 };
-
 
 export type GraphCms_CompanyMediaHistoryArgs = {
   limit?: Scalars['Int'];
@@ -1617,7 +1551,7 @@ export type GraphCms_CompanyMediaManyWhereInput = {
   logo?: Maybe<GraphCms_AssetWhereInput>;
 };
 
-export type GraphCms_CompanyMediaOrderByInput = 
+export type GraphCms_CompanyMediaOrderByInput =
   | 'id_ASC'
   | 'id_DESC'
   | 'createdAt_ASC'
@@ -1791,9 +1725,7 @@ export type GraphCms_ConnectPositionInput = {
   end?: Maybe<Scalars['Boolean']>;
 };
 
-
-
-export type GraphCms_DocumentFileTypes = 
+export type GraphCms_DocumentFileTypes =
   | 'jpg'
   | 'odp'
   | 'ods'
@@ -1815,7 +1747,7 @@ export type GraphCms_DocumentOutputInput = {
   /**
    * Transforms a document into a desired file type.
    * See this matrix for format support:
-   * 
+   *
    * PDF:	jpg, odp, ods, odt, png, svg, txt, and webp
    * DOC:	docx, html, jpg, odt, pdf, png, svg, txt, and webp
    * DOCX:	doc, html, jpg, odt, pdf, png, svg, txt, and webp
@@ -1855,8 +1787,7 @@ export type GraphCms_DocumentVersion = {
   data?: Maybe<Scalars['GraphCMS_Json']>;
 };
 
-
-export type GraphCms_ImageFit = 
+export type GraphCms_ImageFit =
   /** Resizes the image to fit within the specified parameters without distorting, cropping, or changing the aspect ratio. */
   | 'clip'
   /**
@@ -1891,11 +1822,10 @@ export type GraphCms_ImageTransformationInput = {
   resize?: Maybe<GraphCms_ImageResizeInput>;
 };
 
-
 /** Locale system enumeration */
-export type GraphCms_Locale = 
+export type GraphCms_Locale =
   /** System locale */
-  | 'en';
+  'en';
 
 /** Representing a geolocation point with latitude and longitude */
 export type GraphCms_Location = {
@@ -1903,7 +1833,6 @@ export type GraphCms_Location = {
   longitude: Scalars['Float'];
   distance: Scalars['Float'];
 };
-
 
 /** Representing a geolocation point with latitude and longitude */
 export type GraphCms_LocationDistanceArgs = {
@@ -1915,7 +1844,6 @@ export type GraphCms_LocationInput = {
   latitude: Scalars['Float'];
   longitude: Scalars['Float'];
 };
-
 
 /** An object with an ID */
 export type GraphCms_Node = {
@@ -1952,7 +1880,6 @@ export type GraphCms_Rgba = {
   a: Scalars['GraphCMS_RGBATransparency'];
 };
 
-
 /** Input type representing a RGBA color value: https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#rgb()_and_rgba() */
 export type GraphCms_RgbaInput = {
   r: Scalars['GraphCMS_RGBAHue'];
@@ -1960,7 +1887,6 @@ export type GraphCms_RgbaInput = {
   b: Scalars['GraphCMS_RGBAHue'];
   a: Scalars['GraphCMS_RGBATransparency'];
 };
-
 
 /** Custom type representing a rich text value comprising of raw rich text ast, html, markdown and text values */
 export type GraphCms_RichText = {
@@ -1974,18 +1900,14 @@ export type GraphCms_RichText = {
   text: Scalars['String'];
 };
 
-
 /** Stage system enumeration */
-export type GraphCms_Stage = 
+export type GraphCms_Stage =
   /** System Published Stage */
   | 'PUBLISHED'
   /** System Draft Stage */
   | 'DRAFT';
 
-export type GraphCms_SystemDateTimeFieldVariation = 
-  | 'BASE'
-  | 'LOCALIZATION'
-  | 'COMBINED';
+export type GraphCms_SystemDateTimeFieldVariation = 'BASE' | 'LOCALIZATION' | 'COMBINED';
 
 export type GraphCms_UnpublishLocaleInput = {
   /** Locales to unpublish */
@@ -2025,11 +1947,9 @@ export type GraphQlSourceConnection = {
   group: Array<GraphQlSourceGroupConnection>;
 };
 
-
 export type GraphQlSourceConnectionDistinctArgs = {
   field: GraphQlSourceFieldsEnum;
 };
-
 
 export type GraphQlSourceConnectionGroupArgs = {
   skip?: Maybe<Scalars['Int']>;
@@ -2043,7 +1963,7 @@ export type GraphQlSourceEdge = {
   previous?: Maybe<GraphQlSource>;
 };
 
-export type GraphQlSourceFieldsEnum = 
+export type GraphQlSourceFieldsEnum =
   | 'id'
   | 'parent___id'
   | 'parent___parent___id'
@@ -2189,7 +2109,6 @@ export type IntQueryOperatorInput = {
   nin?: Maybe<Array<Maybe<Scalars['Int']>>>;
 };
 
-
 /** Node Interface */
 export type Node = {
   id: Scalars['ID'];
@@ -2237,7 +2156,6 @@ export type Query = {
   gcms: GraphCms;
 };
 
-
 export type QueryFileArgs = {
   sourceInstanceName?: Maybe<StringQueryOperatorInput>;
   absolutePath?: Maybe<StringQueryOperatorInput>;
@@ -2276,14 +2194,12 @@ export type QueryFileArgs = {
   internal?: Maybe<InternalFilterInput>;
 };
 
-
 export type QueryAllFileArgs = {
   filter?: Maybe<FileFilterInput>;
   sort?: Maybe<FileSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
-
 
 export type QueryDirectoryArgs = {
   sourceInstanceName?: Maybe<StringQueryOperatorInput>;
@@ -2323,14 +2239,12 @@ export type QueryDirectoryArgs = {
   internal?: Maybe<InternalFilterInput>;
 };
 
-
 export type QueryAllDirectoryArgs = {
   filter?: Maybe<DirectoryFilterInput>;
   sort?: Maybe<DirectorySortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
-
 
 export type QuerySitePageArgs = {
   path?: Maybe<StringQueryOperatorInput>;
@@ -2348,14 +2262,12 @@ export type QuerySitePageArgs = {
   componentPath?: Maybe<StringQueryOperatorInput>;
 };
 
-
 export type QueryAllSitePageArgs = {
   filter?: Maybe<SitePageFilterInput>;
   sort?: Maybe<SitePageSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
-
 
 export type QuerySiteArgs = {
   buildTime?: Maybe<DateQueryOperatorInput>;
@@ -2370,14 +2282,12 @@ export type QuerySiteArgs = {
   internal?: Maybe<InternalFilterInput>;
 };
 
-
 export type QueryAllSiteArgs = {
   filter?: Maybe<SiteFilterInput>;
   sort?: Maybe<SiteSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
-
 
 export type QueryGraphQlSourceArgs = {
   id?: Maybe<StringQueryOperatorInput>;
@@ -2388,14 +2298,12 @@ export type QueryGraphQlSourceArgs = {
   fieldName?: Maybe<StringQueryOperatorInput>;
 };
 
-
 export type QueryAllGraphQlSourceArgs = {
   filter?: Maybe<GraphQlSourceFilterInput>;
   sort?: Maybe<GraphQlSourceSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
-
 
 export type QuerySiteBuildMetadataArgs = {
   id?: Maybe<StringQueryOperatorInput>;
@@ -2405,14 +2313,12 @@ export type QuerySiteBuildMetadataArgs = {
   buildTime?: Maybe<DateQueryOperatorInput>;
 };
 
-
 export type QueryAllSiteBuildMetadataArgs = {
   filter?: Maybe<SiteBuildMetadataFilterInput>;
   sort?: Maybe<SiteBuildMetadataSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
-
 
 export type QuerySitePluginArgs = {
   id?: Maybe<StringQueryOperatorInput>;
@@ -2427,7 +2333,6 @@ export type QuerySitePluginArgs = {
   pluginFilepath?: Maybe<StringQueryOperatorInput>;
   packageJson?: Maybe<SitePluginPackageJsonFilterInput>;
 };
-
 
 export type QueryAllSitePluginArgs = {
   filter?: Maybe<SitePluginFilterInput>;
@@ -2449,7 +2354,6 @@ export type Site = Node & {
   internal: Internal;
 };
 
-
 export type SiteBuildTimeArgs = {
   formatString?: Maybe<Scalars['String']>;
   fromNow?: Maybe<Scalars['Boolean']>;
@@ -2464,7 +2368,6 @@ export type SiteBuildMetadata = Node & {
   internal: Internal;
   buildTime?: Maybe<Scalars['Date']>;
 };
-
 
 export type SiteBuildMetadataBuildTimeArgs = {
   formatString?: Maybe<Scalars['String']>;
@@ -2482,11 +2385,9 @@ export type SiteBuildMetadataConnection = {
   group: Array<SiteBuildMetadataGroupConnection>;
 };
 
-
 export type SiteBuildMetadataConnectionDistinctArgs = {
   field: SiteBuildMetadataFieldsEnum;
 };
-
 
 export type SiteBuildMetadataConnectionGroupArgs = {
   skip?: Maybe<Scalars['Int']>;
@@ -2500,7 +2401,7 @@ export type SiteBuildMetadataEdge = {
   previous?: Maybe<SiteBuildMetadata>;
 };
 
-export type SiteBuildMetadataFieldsEnum = 
+export type SiteBuildMetadataFieldsEnum =
   | 'id'
   | 'parent___id'
   | 'parent___parent___id'
@@ -2620,11 +2521,9 @@ export type SiteConnection = {
   group: Array<SiteGroupConnection>;
 };
 
-
 export type SiteConnectionDistinctArgs = {
   field: SiteFieldsEnum;
 };
-
 
 export type SiteConnectionGroupArgs = {
   skip?: Maybe<Scalars['Int']>;
@@ -2638,7 +2537,7 @@ export type SiteEdge = {
   previous?: Maybe<Site>;
 };
 
-export type SiteFieldsEnum = 
+export type SiteFieldsEnum =
   | 'buildTime'
   | 'siteMetadata___title'
   | 'siteMetadata___description'
@@ -2780,11 +2679,9 @@ export type SitePageConnection = {
   group: Array<SitePageGroupConnection>;
 };
 
-
 export type SitePageConnectionDistinctArgs = {
   field: SitePageFieldsEnum;
 };
-
 
 export type SitePageConnectionGroupArgs = {
   skip?: Maybe<Scalars['Int']>;
@@ -2798,7 +2695,7 @@ export type SitePageEdge = {
   previous?: Maybe<SitePage>;
 };
 
-export type SitePageFieldsEnum = 
+export type SitePageFieldsEnum =
   | 'path'
   | 'component'
   | 'internalComponentName'
@@ -3013,11 +2910,9 @@ export type SitePluginConnection = {
   group: Array<SitePluginGroupConnection>;
 };
 
-
 export type SitePluginConnectionDistinctArgs = {
   field: SitePluginFieldsEnum;
 };
-
 
 export type SitePluginConnectionGroupArgs = {
   skip?: Maybe<Scalars['Int']>;
@@ -3031,7 +2926,7 @@ export type SitePluginEdge = {
   previous?: Maybe<SitePlugin>;
 };
 
-export type SitePluginFieldsEnum = 
+export type SitePluginFieldsEnum =
   | 'id'
   | 'parent___id'
   | 'parent___parent___id'
@@ -3294,9 +3189,7 @@ export type SiteSortInput = {
   order?: Maybe<Array<Maybe<SortOrderEnum>>>;
 };
 
-export type SortOrderEnum = 
-  | 'ASC'
-  | 'DESC';
+export type SortOrderEnum = 'ASC' | 'DESC';
 
 export type StringQueryOperatorInput = {
   eq?: Maybe<Scalars['String']>;
@@ -3307,7 +3200,13 @@ export type StringQueryOperatorInput = {
   glob?: Maybe<Scalars['String']>;
 };
 
-export type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
+export type IndexPageQueryVariables = Exact<{ [key: string]: never }>;
 
-
-export type IndexPageQuery = { gcms: { companyMedias: Array<{ logoFooter?: Maybe<Pick<GraphCms_Asset, 'url'>>, logo?: Maybe<Pick<GraphCms_Asset, 'url'>> }> } };
+export type IndexPageQuery = {
+  gcms: {
+    companyMedias: Array<{
+      logoFooter?: Maybe<Pick<GraphCms_Asset, 'url'>>;
+      logo?: Maybe<Pick<GraphCms_Asset, 'url'>>;
+    }>;
+  };
+};
