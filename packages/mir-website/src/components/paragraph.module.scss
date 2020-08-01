@@ -1,11 +1,14 @@
+@import '../styles/fonts';
+@import '../styles/typography';
+
 .small {
-  @include mir-design-system-typography-paragraph-small;
+  @include typography-paragraph-small;
 }
 
 .medium {
-  @include mir-design-system-typography-paragraph-medium;
+  @include typography-paragraph-medium;
 }
 
 .large {
-  @include mir-design-system-typography-paragraph-large;
+  @include typography-paragraph-large;
 }

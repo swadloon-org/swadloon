@@ -11,6 +11,9 @@ export interface ScaleStep {
   size: number;
 }
 
+/**
+ * Can't use this because diez does not support enum yet: https://github.com/diez/diez/issues/132
+ */
 export enum SCALE_STEP_NAME {
   X1 = 'X1',
   X2 = 'X2',

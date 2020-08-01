@@ -36,7 +36,6 @@ export const config: Gatsby.GatsbyConfig = {
     {
       resolve: `gatsby-plugin-sass`,
       options: {
-        data: `@import 'mir-diez/build/diez-mir-diez-web/static/styles.scss';`,
         cssLoaderOptions: {
           localIdentName: '[name]_[local]_[hash:base64:5]',
         },

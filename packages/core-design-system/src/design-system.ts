@@ -16,6 +16,9 @@ export class DesignSystemTheme extends prefab<DesignSystemThemeProps>() {
   defaults = {
     colors: new Colors(),
   };
+  constructor(overrides: Partial<DesignSystemThemeProps> = {}) {
+    super(overrides);
+  }
 }
 
 export interface DesignSystemThemesProps {
@@ -31,6 +34,9 @@ export class DesignSystemThemes extends prefab<DesignSystemThemesProps>() {
     light: new DesignSystemTheme(),
     dark: new DesignSystemTheme(),
   };
+  constructor(overrides: Partial<DesignSystemThemesProps> = {}) {
+    super(overrides);
+  }
 }
 
 export interface DesignSystemProps {
@@ -63,6 +69,9 @@ export class DesignSystem extends prefab<DesignSystemProps>() {
     name: 'Design System Name',
     themes: new DesignSystemThemes(),
   };
+  constructor(overrides: Partial<DesignSystemProps> = {}) {
+    super(overrides);
+  }
 }
 
 /**

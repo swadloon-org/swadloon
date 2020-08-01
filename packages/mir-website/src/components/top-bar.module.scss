@@ -1,4 +1,6 @@
+@import '../styles/colors.scss';
+
 .wrapper {
-  background-color: $mir-design-system-colors-mir-light-primary500;
+  background-color: $primary500;
   display: flex;
 }

@@ -1,33 +1,32 @@
-
 @font-face {
-  font-family: "Roboto-Medium";
+  font-family: 'Roboto-Medium';
   font-weight: 400;
   font-style: normal;
-  src: local("Roboto-Medium"), url("/diez/assets/MirDesignSystem.figma.contents/fonts/Roboto-Medium.ttf");
+  src: local('Roboto-Medium'), url('/diez/assets/MirDesignSystem.figma.contents/fonts/Roboto-Medium.ttf');
 }
 @font-face {
-  font-family: "Gilroy-SemiBold";
+  font-family: 'Gilroy-SemiBold';
   font-weight: 400;
   font-style: normal;
-  src: local("Gilroy-SemiBold"), url("/diez/assets/MirDesignSystem.figma.contents/fonts/Gilroy-SemiBold.otf");
+  src: local('Gilroy-SemiBold'), url('/diez/assets/MirDesignSystem.figma.contents/fonts/Gilroy-SemiBold.otf');
 }
 @font-face {
-  font-family: "Montserrat-Bold";
+  font-family: 'Montserrat-Bold';
   font-weight: 400;
   font-style: normal;
-  src: local("Montserrat-Bold"), url("/diez/assets/MirDesignSystem.figma.contents/fonts/Montserrat-Bold.ttf");
+  src: local('Montserrat-Bold'), url('/diez/assets/MirDesignSystem.figma.contents/fonts/Montserrat-Bold.ttf');
 }
 @font-face {
-  font-family: "Montserrat-Regular";
+  font-family: 'Montserrat-Regular';
   font-weight: 400;
   font-style: normal;
-  src: local("Montserrat-Regular"), url("/diez/assets/MirDesignSystem.figma.contents/fonts/Montserrat-Regular.ttf");
+  src: local('Montserrat-Regular'), url('/diez/assets/MirDesignSystem.figma.contents/fonts/Montserrat-Regular.ttf');
 }
 @font-face {
-  font-family: "Roboto-Bold";
+  font-family: 'Roboto-Bold';
   font-weight: 400;
   font-style: normal;
-  src: local("Roboto-Bold"), url("/diez/assets/MirDesignSystem.figma.contents/fonts/Roboto-Bold.ttf");
+  src: local('Roboto-Bold'), url('/diez/assets/MirDesignSystem.figma.contents/fonts/Roboto-Bold.ttf');
 }
 
 $mir-design-system-colors-mir-light-greyscale-inverted: hsla(0, 0%, 100%, 1);
@@ -49,7 +48,12 @@ $mir-design-system-colors-mir-light-greyscale100: hsla(220.00000000000009, 25.00
 $mir-design-system-colors-mir-light-greyscale200: hsla(215.99999999999991, 27.777777777777747%, 92.94117647058823%, 1);
 $mir-design-system-colors-mir-light-greyscale300: hsla(212.7272727272728, 15.492957746478858%, 86.07843137254902%, 1);
 $mir-design-system-colors-mir-light-utility-green1000: hsla(120, 76.47058823529413%, 20%, 1);
-$mir-design-system-colors-mir-light-utility-yellow1000: hsla(52.631578947368425, 85.07462686567163%, 13.137254901960786%, 1);
+$mir-design-system-colors-mir-light-utility-yellow1000: hsla(
+  52.631578947368425,
+  85.07462686567163%,
+  13.137254901960786%,
+  1
+);
 $mir-design-system-colors-mir-light-utility-red1000: hsla(0, 76.47058823529413%, 20%, 1);
 $mir-design-system-colors-mir-light-primary1000: hsla(228.75, 86.48648648648648%, 14.509803921568626%, 1);
 $mir-design-system-colors-mir-light-primary100: hsla(228.2608695652174, 85.18518518518518%, 89.41176470588235%, 1);
@@ -72,10 +76,30 @@ $mir-design-system-colors-mir-light-utility-green700: hsla(120, 77.2277227722772
 $mir-design-system-colors-mir-light-utility-green500: hsla(120, 76.66666666666664%, 52.94117647058824%, 1);
 $mir-design-system-colors-mir-light-utility-green300: hsla(120, 76.66666666666664%, 76.47058823529412%, 1);
 $mir-design-system-colors-mir-light-utility-green100: hsla(120, 80.00000000000006%, 94.11764705882352%, 1);
-$mir-design-system-colors-mir-light-utility-yellow700: hsla(52.340425531914896, 83.43195266272188%, 33.13725490196078%, 1);
-$mir-design-system-colors-mir-light-utility-yellow500: hsla(51.98019801980197, 84.16666666666669%, 52.94117647058824%, 1);
-$mir-design-system-colors-mir-light-utility-yellow300: hsla(51.904761904761905, 83.99999999999997%, 70.58823529411764%, 1);
-$mir-design-system-colors-mir-light-utility-yellow100: hsla(50.76923076923074, 86.66666666666671%, 94.11764705882352%, 1);
+$mir-design-system-colors-mir-light-utility-yellow700: hsla(
+  52.340425531914896,
+  83.43195266272188%,
+  33.13725490196078%,
+  1
+);
+$mir-design-system-colors-mir-light-utility-yellow500: hsla(
+  51.98019801980197,
+  84.16666666666669%,
+  52.94117647058824%,
+  1
+);
+$mir-design-system-colors-mir-light-utility-yellow300: hsla(
+  51.904761904761905,
+  83.99999999999997%,
+  70.58823529411764%,
+  1
+);
+$mir-design-system-colors-mir-light-utility-yellow100: hsla(
+  50.76923076923074,
+  86.66666666666671%,
+  94.11764705882352%,
+  1
+);
 $mir-design-system-colors-mir-light-utility-red700: hsla(0, 77.51479289940829%, 33.13725490196078%, 1);
 $mir-design-system-colors-mir-light-utility-red500: hsla(0, 76.66666666666664%, 52.94117647058824%, 1);
 $mir-design-system-colors-mir-light-utility-red300: hsla(0, 76.66666666666664%, 76.47058823529412%, 1);
@@ -90,16 +114,26 @@ $mir-design-system-colors-utility-light-greyscale-almost-transparent8: hsla(0, 0
 $mir-design-system-colors-utility-light-greyscale-almost-transparent9: hsla(0, 0%, 100%, 0.00009999999747378752);
 $mir-design-system-colors-utility-light-greyscale-almost-transparent10: hsla(0, 0%, 100%, 0.00009999999747378752);
 $mir-design-system-shadows-utility-light-artboard-shadow: 0px 3px 6px hsla(0, 0%, 0%, 0.11999999731779099);
-$mir-design-system-shadows-utility-light-artboard-shadow-filter: drop-shadow(0px 3px 3px hsla(0, 0%, 0%, 0.11999999731779099));
+$mir-design-system-shadows-utility-light-artboard-shadow-filter: drop-shadow(
+  0px 3px 3px hsla(0, 0%, 0%, 0.11999999731779099)
+);
 $mir-design-system-shadows-utility-light-color-swatch-shadow: 0px 2px 5px hsla(0, 0%, 0%, 0.2800000011920929);
-$mir-design-system-shadows-utility-light-color-swatch-shadow-filter: drop-shadow(0px 2px 2.5px hsla(0, 0%, 0%, 0.2800000011920929));
+$mir-design-system-shadows-utility-light-color-swatch-shadow-filter: drop-shadow(
+  0px 2px 2.5px hsla(0, 0%, 0%, 0.2800000011920929)
+);
 $mir-design-system-shadows-utility-light-color-swatch-shadow1: 0px 2px 5px hsla(0, 0%, 0%, 0.2800000011920929);
-$mir-design-system-shadows-utility-light-color-swatch-shadow1-filter: drop-shadow(0px 2px 2.5px hsla(0, 0%, 0%, 0.2800000011920929));
+$mir-design-system-shadows-utility-light-color-swatch-shadow1-filter: drop-shadow(
+  0px 2px 2.5px hsla(0, 0%, 0%, 0.2800000011920929)
+);
 $mir-design-system-shadows-utility-light-color-swatch-shadow2: 0px 2px 5px hsla(0, 0%, 0%, 0.2800000011920929);
-$mir-design-system-shadows-utility-light-color-swatch-shadow2-filter: drop-shadow(0px 2px 2.5px hsla(0, 0%, 0%, 0.2800000011920929));
+$mir-design-system-shadows-utility-light-color-swatch-shadow2-filter: drop-shadow(
+  0px 2px 2.5px hsla(0, 0%, 0%, 0.2800000011920929)
+);
 $mir-design-system-shadows-mir-light-shadow-large: 0px 2px 34px hsla(0, 0%, 60.78431372549019%, 0.5);
-$mir-design-system-shadows-mir-light-shadow-large-filter: drop-shadow(0px 2px 17px hsla(0, 0%, 60.78431372549019%, 0.5));
-$design-language-name: "mir";
+$mir-design-system-shadows-mir-light-shadow-large-filter: drop-shadow(
+  0px 2px 17px hsla(0, 0%, 60.78431372549019%, 0.5)
+);
+$design-language-name: 'mir';
 
 @mixin mir-design-system-colors-mir-light-greyscale-inverted-background-color {
   background-color: hsla(0, 0%, 100%, 1);
@@ -574,7 +608,7 @@ $design-language-name: "mir";
 }
 
 @mixin mir-design-system-typography-heading-xx-large {
-  font-family: "Roboto-Medium",sans-serif;
+  font-family: 'Roboto-Medium', sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 76.23999786376953px;
@@ -586,7 +620,7 @@ $design-language-name: "mir";
 }
 
 @mixin mir-design-system-typography-heading-x-large {
-  font-family: "Roboto-Medium",sans-serif;
+  font-family: 'Roboto-Medium', sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 47.439998626708984px;
@@ -598,7 +632,7 @@ $design-language-name: "mir";
 }
 
 @mixin mir-design-system-typography-label-medium-bold {
-  font-family: "Gilroy-SemiBold",sans-serif;
+  font-family: 'Gilroy-SemiBold', sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 18px;
@@ -610,7 +644,7 @@ $design-language-name: "mir";
 }
 
 @mixin mir-design-system-typography-heading-large {
-  font-family: "Roboto-Medium",sans-serif;
+  font-family: 'Roboto-Medium', sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 29.31999969482422px;
@@ -622,7 +656,7 @@ $design-language-name: "mir";
 }
 
 @mixin mir-design-system-typography-heading-h1 {
-  font-family: "Montserrat-Bold",sans-serif;
+  font-family: 'Montserrat-Bold', sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 60px;
@@ -634,7 +668,7 @@ $design-language-name: "mir";
 }
 
 @mixin mir-design-system-typography-paragraph-small {
-  font-family: "OpenSans-Regular",sans-serif;
+  font-family: 'OpenSans-Regular', sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 12.5px;
@@ -646,7 +680,7 @@ $design-language-name: "mir";
 }
 
 @mixin mir-design-system-typography-paragraph-large {
-  font-family: "OpenSans-Regular",sans-serif;
+  font-family: 'OpenSans-Regular', sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 29px;
@@ -658,7 +692,7 @@ $design-language-name: "mir";
 }
 
 @mixin mir-design-system-typography-heading-h2 {
-  font-family: "Montserrat-Bold",sans-serif;
+  font-family: 'Montserrat-Bold', sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 37.08281707763672px;
@@ -670,7 +704,7 @@ $design-language-name: "mir";
 }
 
 @mixin mir-design-system-typography-paragraph-medium {
-  font-family: "OpenSans-Regular",sans-serif;
+  font-family: 'OpenSans-Regular', sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 16px;
@@ -682,7 +716,7 @@ $design-language-name: "mir";
 }
 
 @mixin mir-design-system-typography-heading-h3 {
-  font-family: "Montserrat-Bold",sans-serif;
+  font-family: 'Montserrat-Bold', sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 22.91718101501465px;
@@ -694,7 +728,7 @@ $design-language-name: "mir";
 }
 
 @mixin mir-design-system-typography-heading-h4 {
-  font-family: "Montserrat-Bold",sans-serif;
+  font-family: 'Montserrat-Bold', sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 16px;
@@ -706,7 +740,7 @@ $design-language-name: "mir";
 }
 
 @mixin mir-design-system-typography-label-small-uppercase {
-  font-family: "Roboto-Medium",sans-serif;
+  font-family: 'Roboto-Medium', sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 12px;
@@ -718,7 +752,7 @@ $design-language-name: "mir";
 }
 
 @mixin mir-design-system-typography-label-single-medium-uppercase-bold {
-  font-family: "Montserrat-Bold",sans-serif;
+  font-family: 'Montserrat-Bold', sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 16px;
@@ -730,7 +764,7 @@ $design-language-name: "mir";
 }
 
 @mixin mir-design-system-typography-label-single-medium-bold {
-  font-family: "Montserrat-Bold",sans-serif;
+  font-family: 'Montserrat-Bold', sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 16px;
@@ -742,7 +776,7 @@ $design-language-name: "mir";
 }
 
 @mixin mir-design-system-typography-label-single-medium-regular {
-  font-family: "Montserrat-Regular",sans-serif;
+  font-family: 'Montserrat-Regular', sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 16px;
@@ -754,7 +788,7 @@ $design-language-name: "mir";
 }
 
 @mixin mir-design-system-typography-label-single-small-uppercase-bold {
-  font-family: "Montserrat-Bold",sans-serif;
+  font-family: 'Montserrat-Bold', sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 11px;
@@ -766,7 +800,7 @@ $design-language-name: "mir";
 }
 
 @mixin mir-design-system-typography-label-single-small-bold {
-  font-family: "Montserrat-Bold",sans-serif;
+  font-family: 'Montserrat-Bold', sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 12px;
@@ -778,7 +812,7 @@ $design-language-name: "mir";
 }
 
 @mixin mir-design-system-typography-label-single-small-regular {
-  font-family: "Montserrat-Regular",sans-serif;
+  font-family: 'Montserrat-Regular', sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 12px;
@@ -790,7 +824,7 @@ $design-language-name: "mir";
 }
 
 @mixin mir-design-system-typography-label-small {
-  font-family: "Roboto-Bold",sans-serif;
+  font-family: 'Roboto-Bold', sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 12px;
@@ -860,4 +894,3 @@ $design-language-name: "mir";
 @mixin mir-design-system-shadows-mir-light-shadow-large-filter {
   filter: drop-shadow(0px 2px 17px hsla(0, 0%, 60.78431372549019%, 0.5));
 }
-

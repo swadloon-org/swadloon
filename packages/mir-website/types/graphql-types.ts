@@ -2836,7 +2836,6 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___headers___Authorization'
   | 'pluginCreator___pluginOptions___path'
   | 'pluginCreator___pluginOptions___pathCheck'
-  | 'pluginCreator___pluginOptions___data'
   | 'pluginCreator___pluginOptions___cssLoaderOptions___localIdentName'
   | 'pluginCreator___nodeAPIs'
   | 'pluginCreator___pluginFilepath'
@@ -3024,7 +3023,6 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___headers___Authorization'
   | 'pluginOptions___path'
   | 'pluginOptions___pathCheck'
-  | 'pluginOptions___data'
   | 'pluginOptions___cssLoaderOptions___localIdentName'
   | 'nodeAPIs'
   | 'pluginFilepath'
@@ -3141,7 +3139,6 @@ export type SitePluginPluginOptions = {
   headers?: Maybe<SitePluginPluginOptionsHeaders>;
   path?: Maybe<Scalars['String']>;
   pathCheck?: Maybe<Scalars['Boolean']>;
-  data?: Maybe<Scalars['String']>;
   cssLoaderOptions?: Maybe<SitePluginPluginOptionsCssLoaderOptions>;
 };
 
@@ -3161,7 +3158,6 @@ export type SitePluginPluginOptionsFilterInput = {
   headers?: Maybe<SitePluginPluginOptionsHeadersFilterInput>;
   path?: Maybe<StringQueryOperatorInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;
-  data?: Maybe<StringQueryOperatorInput>;
   cssLoaderOptions?: Maybe<SitePluginPluginOptionsCssLoaderOptionsFilterInput>;
 };
 
