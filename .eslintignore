@@ -10,3 +10,4 @@ public
 .cache
 !.storybook
 .figma.*
+graphql-types.ts
