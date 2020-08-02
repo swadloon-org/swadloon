@@ -4276,8 +4276,7 @@ export type BannerQuery = { gcms: { pageIndices: Array<(
 export type FooterQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type FooterQuery = { gcms: { companyMedias: Array<{ logoFooter?: Maybe<Pick<GraphCms_Asset, 'url'>> }> , { footerInformations: Array<(
-  Pick<GraphCms_FooterInformation, 'subTitleF' | 'paragraphInformationF'>} };
+export type FooterQuery = { gcms: { companyMedias: Array<{ logoFooter?: Maybe<Pick<GraphCms_Asset, 'url'>> }> } };
 
 export type TopBarQueryVariables = Exact<{ [key: string]: never; }>;
 

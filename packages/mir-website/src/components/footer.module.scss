@@ -2,10 +2,15 @@
 @import '../styles/sizing.scss';
 @import '../styles/layout.scss';
 
-.footer_default {
+.wrapper {
+  display: grid;
+  grid-row-gap: $sizing-x5;
+  padding: $sizing-x5 $margin-content;
+
   background-color: $greyscale1000;
+  color: $greyscale0;
 
   .title {
-    margin-top: $sizing-x5;
+    margin-bottom: $sizing-x3;
   }
 }
