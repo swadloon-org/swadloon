@@ -1,0 +1,10 @@
+@import '../styles/colors.scss';
+
+.wrapper {
+  color: $greyscale0;
+  text-decoration: underline;
+
+  &:visited {
+    color: $greyscale0;
+  }
+}
