@@ -4265,6 +4265,14 @@ export type StringQueryOperatorInput = {
   glob?: Maybe<Scalars['String']>;
 };
 
+export type BannerQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type BannerQuery = { gcms: { pageIndices: Array<(
+      Pick<GraphCms_PageIndex, 'bannerTitle' | 'bannerSubTitle'>
+      & { bannerImage: Array<Pick<GraphCms_Asset, 'url'>> }
+    )> } };
+
 export type TopBarQueryVariables = Exact<{ [key: string]: never; }>;
 
 

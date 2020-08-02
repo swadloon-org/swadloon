@@ -1,17 +1,16 @@
-import React from 'react';
 import { graphql } from 'gatsby';
-import { IndexPageQuery } from '../../types/graphql-types';
-import { TopBar } from '../components/top-bar';
-
-import '../styles/fonts.scss';
 import 'normalize.css';
-import styles from './index.module.scss';
-import { Paragraph } from '../components/paragraph';
-import { Heading } from '../components/heading';
-import { Label } from '../components/label';
-import { InfoTile } from '../components/info-tile';
+import React from 'react';
+import { IndexPageQuery } from '../../types/graphql-types';
 import { Button } from '../components/button';
-import { Footer } from '../components/footer';
+import { Heading } from '../components/heading';
+import { InfoTile } from '../components/info-tile';
+import { Label } from '../components/label';
+import { Paragraph } from '../components/paragraph';
+import { TopBar } from '../components/top-bar';
+import '../styles/fonts.scss';
+import styles from './index.module.scss';
+import { Banner } from '../components/banner';
 
 export const query = graphql`
   query indexPage {
@@ -37,6 +36,8 @@ const IndexPage: React.FC<IndexPageProps> = ({ data, location }) => {
   return (
     <div className={styles.wrapper}>
       <TopBar></TopBar>
+
+      <Banner></Banner>
 
       <div className={styles.content}>
         <Heading variant="h1">Heading 1</Heading>

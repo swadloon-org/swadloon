@@ -1,0 +1,25 @@
+@import '../styles/layout.scss';
+@import '../styles/sizing.scss';
+@import '../styles/colors.scss';
+
+.wrapper {
+  padding: $sizing-x6 $margin-content;
+  background-size: cover;
+}
+
+.subtitle {
+  margin-bottom: $sizing-x3;
+  color: $greyscale0;
+}
+
+.title {
+  margin: $sizing-x3 0;
+  color: $greyscale0;
+}
+
+.bottom-bar {
+  width: 100%;
+  rect {
+    width: 100%;
+  }
+}
