@@ -11,6 +11,7 @@ import { Heading } from '../components/heading';
 import { Label } from '../components/label';
 import { InfoTile } from '../components/info-tile';
 import { Button } from '../components/button';
+import { Footer } from '../components/footer';
 
 export const query = graphql`
   query indexPage {
