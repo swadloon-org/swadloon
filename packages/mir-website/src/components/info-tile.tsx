@@ -1,11 +1,16 @@
 import React from 'react';
 import styles from './info-tile.module.scss';
 
+import Illustration from './illustration';
+
 interface OwnProps {
-  name: 'tile';
-  state: 'default' | 'admin' | 'construction' | 'industrial';
+  state: 'default' | 'reverse';
 }
 
 export const InfoTile: React.FC<OwnProps> = (props) => {
-  return <div className={`${styles[props.name]} ${styles[props.state]}`}>{props.children}</div>;
+  return (
+    <div className={`${styles.wrapper} ${styles[props.state]}`}>
+      <Illustration></Illustration>
+    </div>
+  );
 };

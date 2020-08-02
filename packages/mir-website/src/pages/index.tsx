@@ -12,6 +12,7 @@ import '../styles/fonts.scss';
 import styles from './index.module.scss';
 import { Banner } from '../components/banner';
 import { Footer } from '../components/footer';
+import { Illustration } from '../components/illustration';
 
 export const query = graphql`
   query indexPage {
@@ -75,9 +76,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data, location }) => {
         <Label size="small" variant="regular">
           Label small regular
         </Label>
-        <InfoTile name="tile" state="default">
-          test
-        </InfoTile>
+        <InfoTile state="default"></InfoTile>
         <Button size="large" type="secondary" variant="default">
           bonj
         </Button>
@@ -86,6 +85,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data, location }) => {
         </Label>
       </div>
 
+      <Illustration name="Desktop"></Illustration>
       <Footer></Footer>
     </div>
   );
