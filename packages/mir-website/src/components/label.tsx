@@ -8,5 +8,9 @@ interface OwnProps {
 }
 
 export const Label: React.FC<LabelHTMLAttributes<any> & OwnProps> = (props) => {
-  return <label className={`${styles[props.size]} ${styles[props.variant]}`}>{props.children}</label>;
+  return (
+    <label className={`${props.className || ''} ${styles[props.size]} ${styles[props.variant]}`}>
+      {props.children}
+    </label>
+  );
 };

@@ -10,10 +10,9 @@
   },
   "license": "MIT",
   "scripts": {
+    "start": "gatsby develop",
     "build": "gatsby build",
-    "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
@@ -30,6 +29,8 @@
   "devDependencies": {
     "gatsby-source-graphql": "^2.6.1",
     "gatsby-plugin-sass": "^2.3.12",
+    "gatsby-plugin-react-svg": "^3.0.0",
+    "gatsby-source-filesystem": "^2.3.23",
     "gatsby-plugin-ts": "^2.7.1",
     "node-sass": "^4.14.1"
   }

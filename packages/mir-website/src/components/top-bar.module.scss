@@ -1,6 +1,28 @@
 @import '../styles/colors.scss';
+@import '../styles/sizing.scss';
+@import '../styles/layout.scss';
 
 .wrapper {
-  background-color: $primary500;
+  height: $sizing-x5;
+
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 $margin-content;
+
+  background-color: $primary500;
+}
+
+.logo {
+  height: $sizing-x4;
+}
+
+.icon {
+  path {
+    fill: $greyscale0;
+  }
+}
+
+.language {
+  color: $greyscale0;
 }

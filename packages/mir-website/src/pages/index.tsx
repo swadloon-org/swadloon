@@ -36,10 +36,9 @@ interface IndexPageProps {
 const IndexPage: React.FC<IndexPageProps> = ({ data, location }) => {
   return (
     <div className={styles.wrapper}>
-      <TopBar>
-        <img src={data.gcms.companyMedias[0].logo.url} />
-      </TopBar>{' '}
-      <div style={{ display: 'grid', gridGap: '1em' }}>
+      <TopBar></TopBar>
+
+      <div className={styles.content}>
         <Heading variant="h1">Heading 1</Heading>
         <Heading variant="h2">Heading 2</Heading>
         <Heading variant="h3">Heading 3</Heading>

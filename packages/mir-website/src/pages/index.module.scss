@@ -1,4 +1,10 @@
+@import '../styles/layout.scss';
+
 .wrapper {
   display: grid;
   grid-template-rows: 55px 1fr 200px;
+}
+
+.content {
+  padding: $margin-content;
 }

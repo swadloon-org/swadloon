@@ -34,6 +34,21 @@ export const config: Gatsby.GatsbyConfig = {
   },
   plugins: [
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `icons`,
+        path: `src/illustrations/Icon`,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /\.svg$/,
+        },
+      },
+    },
+    {
       resolve: `gatsby-plugin-sass`,
       options: {
         cssLoaderOptions: {
