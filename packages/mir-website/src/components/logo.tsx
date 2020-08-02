@@ -4,8 +4,13 @@ import styles from './logo.module.scss';
 interface OwnProps {
   type: 'framed' | 'text' | 'framed-text';
   variant: 'reversed' | 'default';
+  src: string;
 }
 
-export const InfoTile: React.FC<OwnProps> = (props) => {
-  return <div className={`${styles[props.type]} ${styles[props.variant]}`}>{props.children}</div>;
+export const Logo: React.FC<OwnProps> = (props) => {
+  return (
+    <img src={`${[props.src]}`} className={`${styles.logo} ${styles[props.type]} ${styles[props.variant]}`}>
+      {props.children}
+    </img>
+  );
 };
