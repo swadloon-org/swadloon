@@ -9,8 +9,18 @@
 
   background-color: $greyscale1000;
   color: $greyscale0;
+}
 
-  .title {
-    margin-bottom: $sizing-x3;
+.title {
+  margin-bottom: $sizing-x4;
+}
+
+.info-text {
+  &:not(:last-child) {
+    margin-bottom: 22px;
+  }
+
+  a {
+    margin-left: 3px;
   }
 }

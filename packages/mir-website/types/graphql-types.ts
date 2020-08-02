@@ -694,6 +694,30 @@ export type GraphCms = {
   assetsConnection: GraphCms_AssetConnection;
   /** Retrieve document version */
   assetVersion?: Maybe<GraphCms_DocumentVersion>;
+  /** Retrieve multiple blogPosts */
+  blogPosts: Array<GraphCms_BlogPost>;
+  /** Retrieve a single blogPost */
+  blogPost?: Maybe<GraphCms_BlogPost>;
+  /** Retrieve multiple blogPosts using the Relay connection interface */
+  blogPostsConnection: GraphCms_BlogPostConnection;
+  /** Retrieve document version */
+  blogPostVersion?: Maybe<GraphCms_DocumentVersion>;
+  /** Retrieve multiple blogSections */
+  blogSections: Array<GraphCms_BlogSection>;
+  /** Retrieve a single blogSection */
+  blogSection?: Maybe<GraphCms_BlogSection>;
+  /** Retrieve multiple blogSections using the Relay connection interface */
+  blogSectionsConnection: GraphCms_BlogSectionConnection;
+  /** Retrieve document version */
+  blogSectionVersion?: Maybe<GraphCms_DocumentVersion>;
+  /** Retrieve multiple companyAddresses */
+  companyAddresses: Array<GraphCms_CompanyAddress>;
+  /** Retrieve a single companyAddress */
+  companyAddress?: Maybe<GraphCms_CompanyAddress>;
+  /** Retrieve multiple companyAddresses using the Relay connection interface */
+  companyAddressesConnection: GraphCms_CompanyAddressConnection;
+  /** Retrieve document version */
+  companyAddressVersion?: Maybe<GraphCms_DocumentVersion>;
   /** Retrieve multiple companyMedias */
   companyMedias: Array<GraphCms_CompanyMedia>;
   /** Retrieve a single companyMedia */
@@ -702,6 +726,14 @@ export type GraphCms = {
   companyMediasConnection: GraphCms_CompanyMediaConnection;
   /** Retrieve document version */
   companyMediaVersion?: Maybe<GraphCms_DocumentVersion>;
+  /** Retrieve multiple footerInformations */
+  footerInformations: Array<GraphCms_FooterInformation>;
+  /** Retrieve a single footerInformation */
+  footerInformation?: Maybe<GraphCms_FooterInformation>;
+  /** Retrieve multiple footerInformations using the Relay connection interface */
+  footerInformationsConnection: GraphCms_FooterInformationConnection;
+  /** Retrieve document version */
+  footerInformationVersion?: Maybe<GraphCms_DocumentVersion>;
   /** Retrieve multiple infoSections */
   infoSections: Array<GraphCms_InfoSection>;
   /** Retrieve a single infoSection */
@@ -766,6 +798,117 @@ export type GraphCmsAssetVersionArgs = {
 };
 
 
+export type GraphCmsBlogPostsArgs = {
+  where?: Maybe<GraphCms_BlogPostWhereInput>;
+  orderBy?: Maybe<GraphCms_BlogPostOrderByInput>;
+  skip?: Maybe<Scalars['Int']>;
+  after?: Maybe<Scalars['String']>;
+  before?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  stage?: GraphCms_Stage;
+  locales?: Array<GraphCms_Locale>;
+};
+
+
+export type GraphCmsBlogPostArgs = {
+  where: GraphCms_BlogPostWhereUniqueInput;
+  stage?: GraphCms_Stage;
+  locales?: Array<GraphCms_Locale>;
+};
+
+
+export type GraphCmsBlogPostsConnectionArgs = {
+  where?: Maybe<GraphCms_BlogPostWhereInput>;
+  orderBy?: Maybe<GraphCms_BlogPostOrderByInput>;
+  skip?: Maybe<Scalars['Int']>;
+  after?: Maybe<Scalars['String']>;
+  before?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  stage?: GraphCms_Stage;
+  locales?: Array<GraphCms_Locale>;
+};
+
+
+export type GraphCmsBlogPostVersionArgs = {
+  where: GraphCms_VersionWhereInput;
+};
+
+
+export type GraphCmsBlogSectionsArgs = {
+  where?: Maybe<GraphCms_BlogSectionWhereInput>;
+  orderBy?: Maybe<GraphCms_BlogSectionOrderByInput>;
+  skip?: Maybe<Scalars['Int']>;
+  after?: Maybe<Scalars['String']>;
+  before?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  stage?: GraphCms_Stage;
+  locales?: Array<GraphCms_Locale>;
+};
+
+
+export type GraphCmsBlogSectionArgs = {
+  where: GraphCms_BlogSectionWhereUniqueInput;
+  stage?: GraphCms_Stage;
+  locales?: Array<GraphCms_Locale>;
+};
+
+
+export type GraphCmsBlogSectionsConnectionArgs = {
+  where?: Maybe<GraphCms_BlogSectionWhereInput>;
+  orderBy?: Maybe<GraphCms_BlogSectionOrderByInput>;
+  skip?: Maybe<Scalars['Int']>;
+  after?: Maybe<Scalars['String']>;
+  before?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  stage?: GraphCms_Stage;
+  locales?: Array<GraphCms_Locale>;
+};
+
+
+export type GraphCmsBlogSectionVersionArgs = {
+  where: GraphCms_VersionWhereInput;
+};
+
+
+export type GraphCmsCompanyAddressesArgs = {
+  where?: Maybe<GraphCms_CompanyAddressWhereInput>;
+  orderBy?: Maybe<GraphCms_CompanyAddressOrderByInput>;
+  skip?: Maybe<Scalars['Int']>;
+  after?: Maybe<Scalars['String']>;
+  before?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  stage?: GraphCms_Stage;
+};
+
+
+export type GraphCmsCompanyAddressArgs = {
+  where: GraphCms_CompanyAddressWhereUniqueInput;
+  stage?: GraphCms_Stage;
+};
+
+
+export type GraphCmsCompanyAddressesConnectionArgs = {
+  where?: Maybe<GraphCms_CompanyAddressWhereInput>;
+  orderBy?: Maybe<GraphCms_CompanyAddressOrderByInput>;
+  skip?: Maybe<Scalars['Int']>;
+  after?: Maybe<Scalars['String']>;
+  before?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  stage?: GraphCms_Stage;
+};
+
+
+export type GraphCmsCompanyAddressVersionArgs = {
+  where: GraphCms_VersionWhereInput;
+};
+
+
 export type GraphCmsCompanyMediasArgs = {
   where?: Maybe<GraphCms_CompanyMediaWhereInput>;
   orderBy?: Maybe<GraphCms_CompanyMediaOrderByInput>;
@@ -797,6 +940,41 @@ export type GraphCmsCompanyMediasConnectionArgs = {
 
 
 export type GraphCmsCompanyMediaVersionArgs = {
+  where: GraphCms_VersionWhereInput;
+};
+
+
+export type GraphCmsFooterInformationsArgs = {
+  where?: Maybe<GraphCms_FooterInformationWhereInput>;
+  orderBy?: Maybe<GraphCms_FooterInformationOrderByInput>;
+  skip?: Maybe<Scalars['Int']>;
+  after?: Maybe<Scalars['String']>;
+  before?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  stage?: GraphCms_Stage;
+};
+
+
+export type GraphCmsFooterInformationArgs = {
+  where: GraphCms_FooterInformationWhereUniqueInput;
+  stage?: GraphCms_Stage;
+};
+
+
+export type GraphCmsFooterInformationsConnectionArgs = {
+  where?: Maybe<GraphCms_FooterInformationWhereInput>;
+  orderBy?: Maybe<GraphCms_FooterInformationOrderByInput>;
+  skip?: Maybe<Scalars['Int']>;
+  after?: Maybe<Scalars['String']>;
+  before?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  stage?: GraphCms_Stage;
+};
+
+
+export type GraphCmsFooterInformationVersionArgs = {
   where: GraphCms_VersionWhereInput;
 };
 
@@ -981,6 +1159,8 @@ export type GraphCms_Asset = GraphCms_Node & {
   companyMediaLogoFooter: Array<GraphCms_CompanyMedia>;
   companyMediaLogo: Array<GraphCms_CompanyMedia>;
   pageIndexBannerImage: Array<GraphCms_PageIndex>;
+  infoSectionImage: Array<GraphCms_InfoSection>;
+  blogPostImage: Array<GraphCms_BlogPost>;
   /** List of Asset versions */
   history: Array<GraphCms_Version>;
   /** Get the url for the asset with provided transformations applied. */
@@ -1058,6 +1238,30 @@ export type GraphCms_AssetPageIndexBannerImageArgs = {
 
 
 /** Asset system model */
+export type GraphCms_AssetInfoSectionImageArgs = {
+  where?: Maybe<GraphCms_InfoSectionWhereInput>;
+  orderBy?: Maybe<GraphCms_InfoSectionOrderByInput>;
+  skip?: Maybe<Scalars['Int']>;
+  after?: Maybe<Scalars['String']>;
+  before?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+};
+
+
+/** Asset system model */
+export type GraphCms_AssetBlogPostImageArgs = {
+  where?: Maybe<GraphCms_BlogPostWhereInput>;
+  orderBy?: Maybe<GraphCms_BlogPostOrderByInput>;
+  skip?: Maybe<Scalars['Int']>;
+  after?: Maybe<Scalars['String']>;
+  before?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+};
+
+
+/** Asset system model */
 export type GraphCms_AssetHistoryArgs = {
   limit?: Scalars['Int'];
   skip?: Scalars['Int'];
@@ -1098,6 +1302,8 @@ export type GraphCms_AssetCreateInput = {
   companyMediaLogoFooter?: Maybe<GraphCms_CompanyMediaCreateManyInlineInput>;
   companyMediaLogo?: Maybe<GraphCms_CompanyMediaCreateManyInlineInput>;
   pageIndexBannerImage?: Maybe<GraphCms_PageIndexCreateManyInlineInput>;
+  infoSectionImage?: Maybe<GraphCms_InfoSectionCreateManyInlineInput>;
+  blogPostImage?: Maybe<GraphCms_BlogPostCreateManyInlineInput>;
   /** Inline mutations for managing document localizations excluding the default locale */
   localizations?: Maybe<GraphCms_AssetCreateLocalizationsInput>;
 };
@@ -1229,6 +1435,12 @@ export type GraphCms_AssetManyWhereInput = {
   pageIndexBannerImage_every?: Maybe<GraphCms_PageIndexWhereInput>;
   pageIndexBannerImage_some?: Maybe<GraphCms_PageIndexWhereInput>;
   pageIndexBannerImage_none?: Maybe<GraphCms_PageIndexWhereInput>;
+  infoSectionImage_every?: Maybe<GraphCms_InfoSectionWhereInput>;
+  infoSectionImage_some?: Maybe<GraphCms_InfoSectionWhereInput>;
+  infoSectionImage_none?: Maybe<GraphCms_InfoSectionWhereInput>;
+  blogPostImage_every?: Maybe<GraphCms_BlogPostWhereInput>;
+  blogPostImage_some?: Maybe<GraphCms_BlogPostWhereInput>;
+  blogPostImage_none?: Maybe<GraphCms_BlogPostWhereInput>;
 };
 
 export type GraphCms_AssetOrderByInput = 
@@ -1271,6 +1483,8 @@ export type GraphCms_AssetUpdateInput = {
   companyMediaLogoFooter?: Maybe<GraphCms_CompanyMediaUpdateManyInlineInput>;
   companyMediaLogo?: Maybe<GraphCms_CompanyMediaUpdateManyInlineInput>;
   pageIndexBannerImage?: Maybe<GraphCms_PageIndexUpdateManyInlineInput>;
+  infoSectionImage?: Maybe<GraphCms_InfoSectionUpdateManyInlineInput>;
+  blogPostImage?: Maybe<GraphCms_BlogPostUpdateManyInlineInput>;
   /** Manage document localizations */
   localizations?: Maybe<GraphCms_AssetUpdateLocalizationsInput>;
 };
@@ -1565,6 +1779,12 @@ export type GraphCms_AssetWhereInput = {
   pageIndexBannerImage_every?: Maybe<GraphCms_PageIndexWhereInput>;
   pageIndexBannerImage_some?: Maybe<GraphCms_PageIndexWhereInput>;
   pageIndexBannerImage_none?: Maybe<GraphCms_PageIndexWhereInput>;
+  infoSectionImage_every?: Maybe<GraphCms_InfoSectionWhereInput>;
+  infoSectionImage_some?: Maybe<GraphCms_InfoSectionWhereInput>;
+  infoSectionImage_none?: Maybe<GraphCms_InfoSectionWhereInput>;
+  blogPostImage_every?: Maybe<GraphCms_BlogPostWhereInput>;
+  blogPostImage_some?: Maybe<GraphCms_BlogPostWhereInput>;
+  blogPostImage_none?: Maybe<GraphCms_BlogPostWhereInput>;
 };
 
 /** References Asset record uniquely */
@@ -1575,6 +1795,947 @@ export type GraphCms_AssetWhereUniqueInput = {
 export type GraphCms_BatchPayload = {
   /** The number of nodes that have been affected by the Batch operation. */
   count: Scalars['GraphCMS_Long'];
+};
+
+export type GraphCms_BlogPost = GraphCms_Node & {
+  /** System stage field */
+  stage: GraphCms_Stage;
+  /** System Locale field */
+  locale: GraphCms_Locale;
+  /** Get the other localizations for this document */
+  localizations: Array<GraphCms_BlogPost>;
+  /** Get the document in other stages */
+  documentInStages: Array<GraphCms_BlogPost>;
+  /** The unique identifier */
+  id: Scalars['ID'];
+  /** The time the document was created */
+  createdAt: Scalars['GraphCMS_DateTime'];
+  /** The time the document was updated */
+  updatedAt: Scalars['GraphCMS_DateTime'];
+  /** The time the document was published. Null on documents in draft stage. */
+  publishedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  title?: Maybe<Scalars['String']>;
+  image?: Maybe<GraphCms_Asset>;
+  content?: Maybe<Scalars['String']>;
+  blogSection?: Maybe<GraphCms_BlogSection>;
+  /** List of BlogPost versions */
+  history: Array<GraphCms_Version>;
+};
+
+
+export type GraphCms_BlogPostLocalizationsArgs = {
+  locales?: Array<GraphCms_Locale>;
+  includeCurrent?: Scalars['Boolean'];
+};
+
+
+export type GraphCms_BlogPostDocumentInStagesArgs = {
+  stages?: Array<GraphCms_Stage>;
+  includeCurrent?: Scalars['Boolean'];
+  inheritLocale?: Scalars['Boolean'];
+};
+
+
+export type GraphCms_BlogPostCreatedAtArgs = {
+  variation?: GraphCms_SystemDateTimeFieldVariation;
+};
+
+
+export type GraphCms_BlogPostUpdatedAtArgs = {
+  variation?: GraphCms_SystemDateTimeFieldVariation;
+};
+
+
+export type GraphCms_BlogPostPublishedAtArgs = {
+  variation?: GraphCms_SystemDateTimeFieldVariation;
+};
+
+
+export type GraphCms_BlogPostHistoryArgs = {
+  limit?: Scalars['Int'];
+  skip?: Scalars['Int'];
+  stageOverride?: Maybe<GraphCms_Stage>;
+};
+
+export type GraphCms_BlogPostConnectInput = {
+  /** Document to connect */
+  where: GraphCms_BlogPostWhereUniqueInput;
+  /** Allow to specify document position in list of connected documents, will default to appending at end of list */
+  position?: Maybe<GraphCms_ConnectPositionInput>;
+};
+
+/** A connection to a list of items. */
+export type GraphCms_BlogPostConnection = {
+  /** Information to aid in pagination. */
+  pageInfo: GraphCms_PageInfo;
+  /** A list of edges. */
+  edges: Array<GraphCms_BlogPostEdge>;
+  aggregate: GraphCms_Aggregate;
+};
+
+export type GraphCms_BlogPostCreateInput = {
+  createdAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  updatedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** title input for default locale (en) */
+  title?: Maybe<Scalars['String']>;
+  image?: Maybe<GraphCms_AssetCreateOneInlineInput>;
+  /** content input for default locale (en) */
+  content?: Maybe<Scalars['String']>;
+  blogSection?: Maybe<GraphCms_BlogSectionCreateOneInlineInput>;
+  /** Inline mutations for managing document localizations excluding the default locale */
+  localizations?: Maybe<GraphCms_BlogPostCreateLocalizationsInput>;
+};
+
+export type GraphCms_BlogPostCreateLocalizationDataInput = {
+  createdAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  updatedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  title?: Maybe<Scalars['String']>;
+  content?: Maybe<Scalars['String']>;
+};
+
+export type GraphCms_BlogPostCreateLocalizationInput = {
+  /** Localization input */
+  data: GraphCms_BlogPostCreateLocalizationDataInput;
+  locale: GraphCms_Locale;
+};
+
+export type GraphCms_BlogPostCreateLocalizationsInput = {
+  /** Create localizations for the newly-created document */
+  create?: Maybe<Array<GraphCms_BlogPostCreateLocalizationInput>>;
+};
+
+export type GraphCms_BlogPostCreateManyInlineInput = {
+  /** Create and connect multiple existing BlogPost documents */
+  create?: Maybe<Array<GraphCms_BlogPostCreateInput>>;
+  /** Connect multiple existing BlogPost documents */
+  connect?: Maybe<Array<GraphCms_BlogPostWhereUniqueInput>>;
+};
+
+export type GraphCms_BlogPostCreateOneInlineInput = {
+  /** Create and connect one BlogPost document */
+  create?: Maybe<GraphCms_BlogPostCreateInput>;
+  /** Connect one existing BlogPost document */
+  connect?: Maybe<GraphCms_BlogPostWhereUniqueInput>;
+};
+
+/** An edge in a connection. */
+export type GraphCms_BlogPostEdge = {
+  /** The item at the end of the edge. */
+  node: GraphCms_BlogPost;
+  /** A cursor for use in pagination. */
+  cursor: Scalars['String'];
+};
+
+/** Identifies documents */
+export type GraphCms_BlogPostManyWhereInput = {
+  /** Contains search across all appropriate fields. */
+  _search?: Maybe<Scalars['String']>;
+  /** Logical AND on all given filters. */
+  AND?: Maybe<Array<GraphCms_BlogPostWhereInput>>;
+  /** Logical OR on all given filters. */
+  OR?: Maybe<Array<GraphCms_BlogPostWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: Maybe<Array<GraphCms_BlogPostWhereInput>>;
+  id?: Maybe<Scalars['ID']>;
+  /** All values that are not equal to given value. */
+  id_not?: Maybe<Scalars['ID']>;
+  /** All values that are contained in given list. */
+  id_in?: Maybe<Array<Scalars['ID']>>;
+  /** All values that are not contained in given list. */
+  id_not_in?: Maybe<Array<Scalars['ID']>>;
+  /** All values containing the given string. */
+  id_contains?: Maybe<Scalars['ID']>;
+  /** All values not containing the given string. */
+  id_not_contains?: Maybe<Scalars['ID']>;
+  /** All values starting with the given string. */
+  id_starts_with?: Maybe<Scalars['ID']>;
+  /** All values not starting with the given string. */
+  id_not_starts_with?: Maybe<Scalars['ID']>;
+  /** All values ending with the given string. */
+  id_ends_with?: Maybe<Scalars['ID']>;
+  /** All values not ending with the given string */
+  id_not_ends_with?: Maybe<Scalars['ID']>;
+  createdAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are not equal to given value. */
+  createdAt_not?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are contained in given list. */
+  createdAt_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values that are not contained in given list. */
+  createdAt_not_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values less than the given value. */
+  createdAt_lt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values less than or equal the given value. */
+  createdAt_lte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than the given value. */
+  createdAt_gt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than or equal the given value. */
+  createdAt_gte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  updatedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are not equal to given value. */
+  updatedAt_not?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are contained in given list. */
+  updatedAt_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values that are not contained in given list. */
+  updatedAt_not_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values less than the given value. */
+  updatedAt_lt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values less than or equal the given value. */
+  updatedAt_lte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than the given value. */
+  updatedAt_gt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than or equal the given value. */
+  updatedAt_gte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  publishedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are not equal to given value. */
+  publishedAt_not?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are contained in given list. */
+  publishedAt_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values that are not contained in given list. */
+  publishedAt_not_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values less than the given value. */
+  publishedAt_lt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values less than or equal the given value. */
+  publishedAt_lte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than the given value. */
+  publishedAt_gt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than or equal the given value. */
+  publishedAt_gte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  image?: Maybe<GraphCms_AssetWhereInput>;
+  blogSection?: Maybe<GraphCms_BlogSectionWhereInput>;
+};
+
+export type GraphCms_BlogPostOrderByInput = 
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  | 'publishedAt_ASC'
+  | 'publishedAt_DESC'
+  | 'title_ASC'
+  | 'title_DESC'
+  | 'content_ASC'
+  | 'content_DESC';
+
+export type GraphCms_BlogPostUpdateInput = {
+  /** title input for default locale (en) */
+  title?: Maybe<Scalars['String']>;
+  image?: Maybe<GraphCms_AssetUpdateOneInlineInput>;
+  /** content input for default locale (en) */
+  content?: Maybe<Scalars['String']>;
+  blogSection?: Maybe<GraphCms_BlogSectionUpdateOneInlineInput>;
+  /** Manage document localizations */
+  localizations?: Maybe<GraphCms_BlogPostUpdateLocalizationsInput>;
+};
+
+export type GraphCms_BlogPostUpdateLocalizationDataInput = {
+  title?: Maybe<Scalars['String']>;
+  content?: Maybe<Scalars['String']>;
+};
+
+export type GraphCms_BlogPostUpdateLocalizationInput = {
+  data: GraphCms_BlogPostUpdateLocalizationDataInput;
+  locale: GraphCms_Locale;
+};
+
+export type GraphCms_BlogPostUpdateLocalizationsInput = {
+  /** Localizations to create */
+  create?: Maybe<Array<GraphCms_BlogPostCreateLocalizationInput>>;
+  /** Localizations to update */
+  update?: Maybe<Array<GraphCms_BlogPostUpdateLocalizationInput>>;
+  upsert?: Maybe<Array<GraphCms_BlogPostUpsertLocalizationInput>>;
+  /** Localizations to delete */
+  delete?: Maybe<Array<GraphCms_Locale>>;
+};
+
+export type GraphCms_BlogPostUpdateManyInlineInput = {
+  /** Create and connect multiple BlogPost documents */
+  create?: Maybe<Array<GraphCms_BlogPostCreateInput>>;
+  /** Connect multiple existing BlogPost documents */
+  connect?: Maybe<Array<GraphCms_BlogPostConnectInput>>;
+  /** Override currently-connected documents with multiple existing BlogPost documents */
+  set?: Maybe<Array<GraphCms_BlogPostWhereUniqueInput>>;
+  /** Update multiple BlogPost documents */
+  update?: Maybe<Array<GraphCms_BlogPostUpdateWithNestedWhereUniqueInput>>;
+  /** Upsert multiple BlogPost documents */
+  upsert?: Maybe<Array<GraphCms_BlogPostUpsertWithNestedWhereUniqueInput>>;
+  /** Disconnect multiple BlogPost documents */
+  disconnect?: Maybe<Array<GraphCms_BlogPostWhereUniqueInput>>;
+  /** Delete multiple BlogPost documents */
+  delete?: Maybe<Array<GraphCms_BlogPostWhereUniqueInput>>;
+};
+
+export type GraphCms_BlogPostUpdateManyInput = {
+  createdAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  updatedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** Optional updates to localizations */
+  localizations?: Maybe<Array<GraphCms_BlogPostUpdateManyLocalizationInput>>;
+};
+
+export type GraphCms_BlogPostUpdateManyLocalizationInput = {
+  title?: Maybe<Scalars['String']>;
+  content?: Maybe<Scalars['String']>;
+};
+
+export type GraphCms_BlogPostUpdateManyWithNestedWhereInput = {
+  /** Document search */
+  where: GraphCms_BlogPostWhereInput;
+  /** Update many input */
+  data: GraphCms_BlogPostUpdateManyInput;
+};
+
+export type GraphCms_BlogPostUpdateOneInlineInput = {
+  /** Create and connect one BlogPost document */
+  create?: Maybe<GraphCms_BlogPostCreateInput>;
+  /** Update single BlogPost document */
+  update?: Maybe<GraphCms_BlogPostUpdateWithNestedWhereUniqueInput>;
+  /** Upsert single BlogPost document */
+  upsert?: Maybe<GraphCms_BlogPostUpsertWithNestedWhereUniqueInput>;
+  /** Connect existing BlogPost document */
+  connect?: Maybe<GraphCms_BlogPostWhereUniqueInput>;
+  /** Disconnect currently connected BlogPost document */
+  disconnect?: Maybe<Scalars['Boolean']>;
+  /** Delete currently connected BlogPost document */
+  delete?: Maybe<Scalars['Boolean']>;
+};
+
+export type GraphCms_BlogPostUpdateWithNestedWhereUniqueInput = {
+  /** Unique document search */
+  where: GraphCms_BlogPostWhereUniqueInput;
+  /** Document to update */
+  data: GraphCms_BlogPostUpdateInput;
+};
+
+export type GraphCms_BlogPostUpsertInput = {
+  /** Create document if it didn't exist */
+  create: GraphCms_BlogPostCreateInput;
+  /** Update document if it exists */
+  update: GraphCms_BlogPostUpdateInput;
+};
+
+export type GraphCms_BlogPostUpsertLocalizationInput = {
+  update: GraphCms_BlogPostUpdateLocalizationDataInput;
+  create: GraphCms_BlogPostCreateLocalizationDataInput;
+  locale: GraphCms_Locale;
+};
+
+export type GraphCms_BlogPostUpsertWithNestedWhereUniqueInput = {
+  /** Unique document search */
+  where: GraphCms_BlogPostWhereUniqueInput;
+  /** Upsert data */
+  data: GraphCms_BlogPostUpsertInput;
+};
+
+/** Identifies documents */
+export type GraphCms_BlogPostWhereInput = {
+  /** Contains search across all appropriate fields. */
+  _search?: Maybe<Scalars['String']>;
+  /** Logical AND on all given filters. */
+  AND?: Maybe<Array<GraphCms_BlogPostWhereInput>>;
+  /** Logical OR on all given filters. */
+  OR?: Maybe<Array<GraphCms_BlogPostWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: Maybe<Array<GraphCms_BlogPostWhereInput>>;
+  id?: Maybe<Scalars['ID']>;
+  /** All values that are not equal to given value. */
+  id_not?: Maybe<Scalars['ID']>;
+  /** All values that are contained in given list. */
+  id_in?: Maybe<Array<Scalars['ID']>>;
+  /** All values that are not contained in given list. */
+  id_not_in?: Maybe<Array<Scalars['ID']>>;
+  /** All values containing the given string. */
+  id_contains?: Maybe<Scalars['ID']>;
+  /** All values not containing the given string. */
+  id_not_contains?: Maybe<Scalars['ID']>;
+  /** All values starting with the given string. */
+  id_starts_with?: Maybe<Scalars['ID']>;
+  /** All values not starting with the given string. */
+  id_not_starts_with?: Maybe<Scalars['ID']>;
+  /** All values ending with the given string. */
+  id_ends_with?: Maybe<Scalars['ID']>;
+  /** All values not ending with the given string */
+  id_not_ends_with?: Maybe<Scalars['ID']>;
+  createdAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are not equal to given value. */
+  createdAt_not?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are contained in given list. */
+  createdAt_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values that are not contained in given list. */
+  createdAt_not_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values less than the given value. */
+  createdAt_lt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values less than or equal the given value. */
+  createdAt_lte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than the given value. */
+  createdAt_gt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than or equal the given value. */
+  createdAt_gte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  updatedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are not equal to given value. */
+  updatedAt_not?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are contained in given list. */
+  updatedAt_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values that are not contained in given list. */
+  updatedAt_not_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values less than the given value. */
+  updatedAt_lt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values less than or equal the given value. */
+  updatedAt_lte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than the given value. */
+  updatedAt_gt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than or equal the given value. */
+  updatedAt_gte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  publishedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are not equal to given value. */
+  publishedAt_not?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are contained in given list. */
+  publishedAt_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values that are not contained in given list. */
+  publishedAt_not_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values less than the given value. */
+  publishedAt_lt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values less than or equal the given value. */
+  publishedAt_lte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than the given value. */
+  publishedAt_gt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than or equal the given value. */
+  publishedAt_gte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  title?: Maybe<Scalars['String']>;
+  /** All values that are not equal to given value. */
+  title_not?: Maybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  title_in?: Maybe<Array<Scalars['String']>>;
+  /** All values that are not contained in given list. */
+  title_not_in?: Maybe<Array<Scalars['String']>>;
+  /** All values containing the given string. */
+  title_contains?: Maybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  title_not_contains?: Maybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  title_starts_with?: Maybe<Scalars['String']>;
+  /** All values not starting with the given string. */
+  title_not_starts_with?: Maybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  title_ends_with?: Maybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  title_not_ends_with?: Maybe<Scalars['String']>;
+  image?: Maybe<GraphCms_AssetWhereInput>;
+  content?: Maybe<Scalars['String']>;
+  /** All values that are not equal to given value. */
+  content_not?: Maybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  content_in?: Maybe<Array<Scalars['String']>>;
+  /** All values that are not contained in given list. */
+  content_not_in?: Maybe<Array<Scalars['String']>>;
+  /** All values containing the given string. */
+  content_contains?: Maybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  content_not_contains?: Maybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  content_starts_with?: Maybe<Scalars['String']>;
+  /** All values not starting with the given string. */
+  content_not_starts_with?: Maybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  content_ends_with?: Maybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  content_not_ends_with?: Maybe<Scalars['String']>;
+  blogSection?: Maybe<GraphCms_BlogSectionWhereInput>;
+};
+
+/** References BlogPost record uniquely */
+export type GraphCms_BlogPostWhereUniqueInput = {
+  id?: Maybe<Scalars['ID']>;
+};
+
+export type GraphCms_BlogSection = GraphCms_Node & {
+  /** System stage field */
+  stage: GraphCms_Stage;
+  /** System Locale field */
+  locale: GraphCms_Locale;
+  /** Get the other localizations for this document */
+  localizations: Array<GraphCms_BlogSection>;
+  /** Get the document in other stages */
+  documentInStages: Array<GraphCms_BlogSection>;
+  /** The unique identifier */
+  id: Scalars['ID'];
+  /** The time the document was created */
+  createdAt: Scalars['GraphCMS_DateTime'];
+  /** The time the document was updated */
+  updatedAt: Scalars['GraphCMS_DateTime'];
+  /** The time the document was published. Null on documents in draft stage. */
+  publishedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  title?: Maybe<Scalars['String']>;
+  text?: Maybe<Scalars['String']>;
+  actionLabel?: Maybe<Scalars['String']>;
+  featuredPosts: Array<GraphCms_BlogPost>;
+  /** List of BlogSection versions */
+  history: Array<GraphCms_Version>;
+};
+
+
+export type GraphCms_BlogSectionLocalizationsArgs = {
+  locales?: Array<GraphCms_Locale>;
+  includeCurrent?: Scalars['Boolean'];
+};
+
+
+export type GraphCms_BlogSectionDocumentInStagesArgs = {
+  stages?: Array<GraphCms_Stage>;
+  includeCurrent?: Scalars['Boolean'];
+  inheritLocale?: Scalars['Boolean'];
+};
+
+
+export type GraphCms_BlogSectionCreatedAtArgs = {
+  variation?: GraphCms_SystemDateTimeFieldVariation;
+};
+
+
+export type GraphCms_BlogSectionUpdatedAtArgs = {
+  variation?: GraphCms_SystemDateTimeFieldVariation;
+};
+
+
+export type GraphCms_BlogSectionPublishedAtArgs = {
+  variation?: GraphCms_SystemDateTimeFieldVariation;
+};
+
+
+export type GraphCms_BlogSectionFeaturedPostsArgs = {
+  where?: Maybe<GraphCms_BlogPostWhereInput>;
+  orderBy?: Maybe<GraphCms_BlogPostOrderByInput>;
+  skip?: Maybe<Scalars['Int']>;
+  after?: Maybe<Scalars['String']>;
+  before?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+};
+
+
+export type GraphCms_BlogSectionHistoryArgs = {
+  limit?: Scalars['Int'];
+  skip?: Scalars['Int'];
+  stageOverride?: Maybe<GraphCms_Stage>;
+};
+
+export type GraphCms_BlogSectionConnectInput = {
+  /** Document to connect */
+  where: GraphCms_BlogSectionWhereUniqueInput;
+  /** Allow to specify document position in list of connected documents, will default to appending at end of list */
+  position?: Maybe<GraphCms_ConnectPositionInput>;
+};
+
+/** A connection to a list of items. */
+export type GraphCms_BlogSectionConnection = {
+  /** Information to aid in pagination. */
+  pageInfo: GraphCms_PageInfo;
+  /** A list of edges. */
+  edges: Array<GraphCms_BlogSectionEdge>;
+  aggregate: GraphCms_Aggregate;
+};
+
+export type GraphCms_BlogSectionCreateInput = {
+  createdAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  updatedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** title input for default locale (en) */
+  title?: Maybe<Scalars['String']>;
+  /** text input for default locale (en) */
+  text?: Maybe<Scalars['String']>;
+  /** actionLabel input for default locale (en) */
+  actionLabel?: Maybe<Scalars['String']>;
+  featuredPosts?: Maybe<GraphCms_BlogPostCreateManyInlineInput>;
+  /** Inline mutations for managing document localizations excluding the default locale */
+  localizations?: Maybe<GraphCms_BlogSectionCreateLocalizationsInput>;
+};
+
+export type GraphCms_BlogSectionCreateLocalizationDataInput = {
+  createdAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  updatedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  title?: Maybe<Scalars['String']>;
+  text?: Maybe<Scalars['String']>;
+  actionLabel?: Maybe<Scalars['String']>;
+};
+
+export type GraphCms_BlogSectionCreateLocalizationInput = {
+  /** Localization input */
+  data: GraphCms_BlogSectionCreateLocalizationDataInput;
+  locale: GraphCms_Locale;
+};
+
+export type GraphCms_BlogSectionCreateLocalizationsInput = {
+  /** Create localizations for the newly-created document */
+  create?: Maybe<Array<GraphCms_BlogSectionCreateLocalizationInput>>;
+};
+
+export type GraphCms_BlogSectionCreateManyInlineInput = {
+  /** Create and connect multiple existing BlogSection documents */
+  create?: Maybe<Array<GraphCms_BlogSectionCreateInput>>;
+  /** Connect multiple existing BlogSection documents */
+  connect?: Maybe<Array<GraphCms_BlogSectionWhereUniqueInput>>;
+};
+
+export type GraphCms_BlogSectionCreateOneInlineInput = {
+  /** Create and connect one BlogSection document */
+  create?: Maybe<GraphCms_BlogSectionCreateInput>;
+  /** Connect one existing BlogSection document */
+  connect?: Maybe<GraphCms_BlogSectionWhereUniqueInput>;
+};
+
+/** An edge in a connection. */
+export type GraphCms_BlogSectionEdge = {
+  /** The item at the end of the edge. */
+  node: GraphCms_BlogSection;
+  /** A cursor for use in pagination. */
+  cursor: Scalars['String'];
+};
+
+/** Identifies documents */
+export type GraphCms_BlogSectionManyWhereInput = {
+  /** Contains search across all appropriate fields. */
+  _search?: Maybe<Scalars['String']>;
+  /** Logical AND on all given filters. */
+  AND?: Maybe<Array<GraphCms_BlogSectionWhereInput>>;
+  /** Logical OR on all given filters. */
+  OR?: Maybe<Array<GraphCms_BlogSectionWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: Maybe<Array<GraphCms_BlogSectionWhereInput>>;
+  id?: Maybe<Scalars['ID']>;
+  /** All values that are not equal to given value. */
+  id_not?: Maybe<Scalars['ID']>;
+  /** All values that are contained in given list. */
+  id_in?: Maybe<Array<Scalars['ID']>>;
+  /** All values that are not contained in given list. */
+  id_not_in?: Maybe<Array<Scalars['ID']>>;
+  /** All values containing the given string. */
+  id_contains?: Maybe<Scalars['ID']>;
+  /** All values not containing the given string. */
+  id_not_contains?: Maybe<Scalars['ID']>;
+  /** All values starting with the given string. */
+  id_starts_with?: Maybe<Scalars['ID']>;
+  /** All values not starting with the given string. */
+  id_not_starts_with?: Maybe<Scalars['ID']>;
+  /** All values ending with the given string. */
+  id_ends_with?: Maybe<Scalars['ID']>;
+  /** All values not ending with the given string */
+  id_not_ends_with?: Maybe<Scalars['ID']>;
+  createdAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are not equal to given value. */
+  createdAt_not?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are contained in given list. */
+  createdAt_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values that are not contained in given list. */
+  createdAt_not_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values less than the given value. */
+  createdAt_lt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values less than or equal the given value. */
+  createdAt_lte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than the given value. */
+  createdAt_gt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than or equal the given value. */
+  createdAt_gte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  updatedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are not equal to given value. */
+  updatedAt_not?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are contained in given list. */
+  updatedAt_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values that are not contained in given list. */
+  updatedAt_not_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values less than the given value. */
+  updatedAt_lt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values less than or equal the given value. */
+  updatedAt_lte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than the given value. */
+  updatedAt_gt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than or equal the given value. */
+  updatedAt_gte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  publishedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are not equal to given value. */
+  publishedAt_not?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are contained in given list. */
+  publishedAt_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values that are not contained in given list. */
+  publishedAt_not_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values less than the given value. */
+  publishedAt_lt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values less than or equal the given value. */
+  publishedAt_lte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than the given value. */
+  publishedAt_gt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than or equal the given value. */
+  publishedAt_gte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  featuredPosts_every?: Maybe<GraphCms_BlogPostWhereInput>;
+  featuredPosts_some?: Maybe<GraphCms_BlogPostWhereInput>;
+  featuredPosts_none?: Maybe<GraphCms_BlogPostWhereInput>;
+};
+
+export type GraphCms_BlogSectionOrderByInput = 
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  | 'publishedAt_ASC'
+  | 'publishedAt_DESC'
+  | 'title_ASC'
+  | 'title_DESC'
+  | 'text_ASC'
+  | 'text_DESC'
+  | 'actionLabel_ASC'
+  | 'actionLabel_DESC';
+
+export type GraphCms_BlogSectionUpdateInput = {
+  /** title input for default locale (en) */
+  title?: Maybe<Scalars['String']>;
+  /** text input for default locale (en) */
+  text?: Maybe<Scalars['String']>;
+  /** actionLabel input for default locale (en) */
+  actionLabel?: Maybe<Scalars['String']>;
+  featuredPosts?: Maybe<GraphCms_BlogPostUpdateManyInlineInput>;
+  /** Manage document localizations */
+  localizations?: Maybe<GraphCms_BlogSectionUpdateLocalizationsInput>;
+};
+
+export type GraphCms_BlogSectionUpdateLocalizationDataInput = {
+  title?: Maybe<Scalars['String']>;
+  text?: Maybe<Scalars['String']>;
+  actionLabel?: Maybe<Scalars['String']>;
+};
+
+export type GraphCms_BlogSectionUpdateLocalizationInput = {
+  data: GraphCms_BlogSectionUpdateLocalizationDataInput;
+  locale: GraphCms_Locale;
+};
+
+export type GraphCms_BlogSectionUpdateLocalizationsInput = {
+  /** Localizations to create */
+  create?: Maybe<Array<GraphCms_BlogSectionCreateLocalizationInput>>;
+  /** Localizations to update */
+  update?: Maybe<Array<GraphCms_BlogSectionUpdateLocalizationInput>>;
+  upsert?: Maybe<Array<GraphCms_BlogSectionUpsertLocalizationInput>>;
+  /** Localizations to delete */
+  delete?: Maybe<Array<GraphCms_Locale>>;
+};
+
+export type GraphCms_BlogSectionUpdateManyInlineInput = {
+  /** Create and connect multiple BlogSection documents */
+  create?: Maybe<Array<GraphCms_BlogSectionCreateInput>>;
+  /** Connect multiple existing BlogSection documents */
+  connect?: Maybe<Array<GraphCms_BlogSectionConnectInput>>;
+  /** Override currently-connected documents with multiple existing BlogSection documents */
+  set?: Maybe<Array<GraphCms_BlogSectionWhereUniqueInput>>;
+  /** Update multiple BlogSection documents */
+  update?: Maybe<Array<GraphCms_BlogSectionUpdateWithNestedWhereUniqueInput>>;
+  /** Upsert multiple BlogSection documents */
+  upsert?: Maybe<Array<GraphCms_BlogSectionUpsertWithNestedWhereUniqueInput>>;
+  /** Disconnect multiple BlogSection documents */
+  disconnect?: Maybe<Array<GraphCms_BlogSectionWhereUniqueInput>>;
+  /** Delete multiple BlogSection documents */
+  delete?: Maybe<Array<GraphCms_BlogSectionWhereUniqueInput>>;
+};
+
+export type GraphCms_BlogSectionUpdateManyInput = {
+  createdAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  updatedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** Optional updates to localizations */
+  localizations?: Maybe<Array<GraphCms_BlogSectionUpdateManyLocalizationInput>>;
+};
+
+export type GraphCms_BlogSectionUpdateManyLocalizationInput = {
+  title?: Maybe<Scalars['String']>;
+  text?: Maybe<Scalars['String']>;
+  actionLabel?: Maybe<Scalars['String']>;
+};
+
+export type GraphCms_BlogSectionUpdateManyWithNestedWhereInput = {
+  /** Document search */
+  where: GraphCms_BlogSectionWhereInput;
+  /** Update many input */
+  data: GraphCms_BlogSectionUpdateManyInput;
+};
+
+export type GraphCms_BlogSectionUpdateOneInlineInput = {
+  /** Create and connect one BlogSection document */
+  create?: Maybe<GraphCms_BlogSectionCreateInput>;
+  /** Update single BlogSection document */
+  update?: Maybe<GraphCms_BlogSectionUpdateWithNestedWhereUniqueInput>;
+  /** Upsert single BlogSection document */
+  upsert?: Maybe<GraphCms_BlogSectionUpsertWithNestedWhereUniqueInput>;
+  /** Connect existing BlogSection document */
+  connect?: Maybe<GraphCms_BlogSectionWhereUniqueInput>;
+  /** Disconnect currently connected BlogSection document */
+  disconnect?: Maybe<Scalars['Boolean']>;
+  /** Delete currently connected BlogSection document */
+  delete?: Maybe<Scalars['Boolean']>;
+};
+
+export type GraphCms_BlogSectionUpdateWithNestedWhereUniqueInput = {
+  /** Unique document search */
+  where: GraphCms_BlogSectionWhereUniqueInput;
+  /** Document to update */
+  data: GraphCms_BlogSectionUpdateInput;
+};
+
+export type GraphCms_BlogSectionUpsertInput = {
+  /** Create document if it didn't exist */
+  create: GraphCms_BlogSectionCreateInput;
+  /** Update document if it exists */
+  update: GraphCms_BlogSectionUpdateInput;
+};
+
+export type GraphCms_BlogSectionUpsertLocalizationInput = {
+  update: GraphCms_BlogSectionUpdateLocalizationDataInput;
+  create: GraphCms_BlogSectionCreateLocalizationDataInput;
+  locale: GraphCms_Locale;
+};
+
+export type GraphCms_BlogSectionUpsertWithNestedWhereUniqueInput = {
+  /** Unique document search */
+  where: GraphCms_BlogSectionWhereUniqueInput;
+  /** Upsert data */
+  data: GraphCms_BlogSectionUpsertInput;
+};
+
+/** Identifies documents */
+export type GraphCms_BlogSectionWhereInput = {
+  /** Contains search across all appropriate fields. */
+  _search?: Maybe<Scalars['String']>;
+  /** Logical AND on all given filters. */
+  AND?: Maybe<Array<GraphCms_BlogSectionWhereInput>>;
+  /** Logical OR on all given filters. */
+  OR?: Maybe<Array<GraphCms_BlogSectionWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: Maybe<Array<GraphCms_BlogSectionWhereInput>>;
+  id?: Maybe<Scalars['ID']>;
+  /** All values that are not equal to given value. */
+  id_not?: Maybe<Scalars['ID']>;
+  /** All values that are contained in given list. */
+  id_in?: Maybe<Array<Scalars['ID']>>;
+  /** All values that are not contained in given list. */
+  id_not_in?: Maybe<Array<Scalars['ID']>>;
+  /** All values containing the given string. */
+  id_contains?: Maybe<Scalars['ID']>;
+  /** All values not containing the given string. */
+  id_not_contains?: Maybe<Scalars['ID']>;
+  /** All values starting with the given string. */
+  id_starts_with?: Maybe<Scalars['ID']>;
+  /** All values not starting with the given string. */
+  id_not_starts_with?: Maybe<Scalars['ID']>;
+  /** All values ending with the given string. */
+  id_ends_with?: Maybe<Scalars['ID']>;
+  /** All values not ending with the given string */
+  id_not_ends_with?: Maybe<Scalars['ID']>;
+  createdAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are not equal to given value. */
+  createdAt_not?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are contained in given list. */
+  createdAt_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values that are not contained in given list. */
+  createdAt_not_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values less than the given value. */
+  createdAt_lt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values less than or equal the given value. */
+  createdAt_lte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than the given value. */
+  createdAt_gt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than or equal the given value. */
+  createdAt_gte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  updatedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are not equal to given value. */
+  updatedAt_not?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are contained in given list. */
+  updatedAt_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values that are not contained in given list. */
+  updatedAt_not_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values less than the given value. */
+  updatedAt_lt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values less than or equal the given value. */
+  updatedAt_lte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than the given value. */
+  updatedAt_gt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than or equal the given value. */
+  updatedAt_gte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  publishedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are not equal to given value. */
+  publishedAt_not?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are contained in given list. */
+  publishedAt_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values that are not contained in given list. */
+  publishedAt_not_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values less than the given value. */
+  publishedAt_lt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values less than or equal the given value. */
+  publishedAt_lte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than the given value. */
+  publishedAt_gt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than or equal the given value. */
+  publishedAt_gte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  title?: Maybe<Scalars['String']>;
+  /** All values that are not equal to given value. */
+  title_not?: Maybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  title_in?: Maybe<Array<Scalars['String']>>;
+  /** All values that are not contained in given list. */
+  title_not_in?: Maybe<Array<Scalars['String']>>;
+  /** All values containing the given string. */
+  title_contains?: Maybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  title_not_contains?: Maybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  title_starts_with?: Maybe<Scalars['String']>;
+  /** All values not starting with the given string. */
+  title_not_starts_with?: Maybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  title_ends_with?: Maybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  title_not_ends_with?: Maybe<Scalars['String']>;
+  text?: Maybe<Scalars['String']>;
+  /** All values that are not equal to given value. */
+  text_not?: Maybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  text_in?: Maybe<Array<Scalars['String']>>;
+  /** All values that are not contained in given list. */
+  text_not_in?: Maybe<Array<Scalars['String']>>;
+  /** All values containing the given string. */
+  text_contains?: Maybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  text_not_contains?: Maybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  text_starts_with?: Maybe<Scalars['String']>;
+  /** All values not starting with the given string. */
+  text_not_starts_with?: Maybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  text_ends_with?: Maybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  text_not_ends_with?: Maybe<Scalars['String']>;
+  actionLabel?: Maybe<Scalars['String']>;
+  /** All values that are not equal to given value. */
+  actionLabel_not?: Maybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  actionLabel_in?: Maybe<Array<Scalars['String']>>;
+  /** All values that are not contained in given list. */
+  actionLabel_not_in?: Maybe<Array<Scalars['String']>>;
+  /** All values containing the given string. */
+  actionLabel_contains?: Maybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  actionLabel_not_contains?: Maybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  actionLabel_starts_with?: Maybe<Scalars['String']>;
+  /** All values not starting with the given string. */
+  actionLabel_not_starts_with?: Maybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  actionLabel_ends_with?: Maybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  actionLabel_not_ends_with?: Maybe<Scalars['String']>;
+  featuredPosts_every?: Maybe<GraphCms_BlogPostWhereInput>;
+  featuredPosts_some?: Maybe<GraphCms_BlogPostWhereInput>;
+  featuredPosts_none?: Maybe<GraphCms_BlogPostWhereInput>;
+};
+
+/** References BlogSection record uniquely */
+export type GraphCms_BlogSectionWhereUniqueInput = {
+  id?: Maybe<Scalars['ID']>;
 };
 
 /** Representing a color value comprising of HEX, RGBA and css color values */
@@ -1588,6 +2749,702 @@ export type GraphCms_Color = {
 export type GraphCms_ColorInput = {
   hex?: Maybe<Scalars['GraphCMS_Hex']>;
   rgba?: Maybe<GraphCms_RgbaInput>;
+};
+
+export type GraphCms_CompanyAddress = GraphCms_Node & {
+  /** System stage field */
+  stage: GraphCms_Stage;
+  /** Get the document in other stages */
+  documentInStages: Array<GraphCms_CompanyAddress>;
+  /** The unique identifier */
+  id: Scalars['ID'];
+  /** The time the document was created */
+  createdAt: Scalars['GraphCMS_DateTime'];
+  /** The time the document was updated */
+  updatedAt: Scalars['GraphCMS_DateTime'];
+  /** The time the document was published. Null on documents in draft stage. */
+  publishedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  addressLine1?: Maybe<Scalars['String']>;
+  addressLine2?: Maybe<Scalars['String']>;
+  city?: Maybe<Scalars['String']>;
+  postalCode?: Maybe<Scalars['String']>;
+  provinceState?: Maybe<Scalars['String']>;
+  country?: Maybe<Scalars['String']>;
+  phone?: Maybe<Scalars['String']>;
+  phoneNoFees?: Maybe<Scalars['String']>;
+  websiteUrl?: Maybe<Scalars['String']>;
+  email?: Maybe<Scalars['String']>;
+  /** List of CompanyAddress versions */
+  history: Array<GraphCms_Version>;
+};
+
+
+export type GraphCms_CompanyAddressDocumentInStagesArgs = {
+  stages?: Array<GraphCms_Stage>;
+  includeCurrent?: Scalars['Boolean'];
+  inheritLocale?: Scalars['Boolean'];
+};
+
+
+export type GraphCms_CompanyAddressHistoryArgs = {
+  limit?: Scalars['Int'];
+  skip?: Scalars['Int'];
+  stageOverride?: Maybe<GraphCms_Stage>;
+};
+
+/** A connection to a list of items. */
+export type GraphCms_CompanyAddressConnection = {
+  /** Information to aid in pagination. */
+  pageInfo: GraphCms_PageInfo;
+  /** A list of edges. */
+  edges: Array<GraphCms_CompanyAddressEdge>;
+  aggregate: GraphCms_Aggregate;
+};
+
+export type GraphCms_CompanyAddressCreateInput = {
+  createdAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  updatedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  addressLine1?: Maybe<Scalars['String']>;
+  addressLine2?: Maybe<Scalars['String']>;
+  city?: Maybe<Scalars['String']>;
+  postalCode?: Maybe<Scalars['String']>;
+  provinceState?: Maybe<Scalars['String']>;
+  country?: Maybe<Scalars['String']>;
+  phone?: Maybe<Scalars['String']>;
+  phoneNoFees?: Maybe<Scalars['String']>;
+  websiteUrl?: Maybe<Scalars['String']>;
+  email?: Maybe<Scalars['String']>;
+};
+
+/** An edge in a connection. */
+export type GraphCms_CompanyAddressEdge = {
+  /** The item at the end of the edge. */
+  node: GraphCms_CompanyAddress;
+  /** A cursor for use in pagination. */
+  cursor: Scalars['String'];
+};
+
+/** Identifies documents */
+export type GraphCms_CompanyAddressManyWhereInput = {
+  /** Contains search across all appropriate fields. */
+  _search?: Maybe<Scalars['String']>;
+  /** Logical AND on all given filters. */
+  AND?: Maybe<Array<GraphCms_CompanyAddressWhereInput>>;
+  /** Logical OR on all given filters. */
+  OR?: Maybe<Array<GraphCms_CompanyAddressWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: Maybe<Array<GraphCms_CompanyAddressWhereInput>>;
+  id?: Maybe<Scalars['ID']>;
+  /** All values that are not equal to given value. */
+  id_not?: Maybe<Scalars['ID']>;
+  /** All values that are contained in given list. */
+  id_in?: Maybe<Array<Scalars['ID']>>;
+  /** All values that are not contained in given list. */
+  id_not_in?: Maybe<Array<Scalars['ID']>>;
+  /** All values containing the given string. */
+  id_contains?: Maybe<Scalars['ID']>;
+  /** All values not containing the given string. */
+  id_not_contains?: Maybe<Scalars['ID']>;
+  /** All values starting with the given string. */
+  id_starts_with?: Maybe<Scalars['ID']>;
+  /** All values not starting with the given string. */
+  id_not_starts_with?: Maybe<Scalars['ID']>;
+  /** All values ending with the given string. */
+  id_ends_with?: Maybe<Scalars['ID']>;
+  /** All values not ending with the given string */
+  id_not_ends_with?: Maybe<Scalars['ID']>;
+  createdAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are not equal to given value. */
+  createdAt_not?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are contained in given list. */
+  createdAt_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values that are not contained in given list. */
+  createdAt_not_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values less than the given value. */
+  createdAt_lt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values less than or equal the given value. */
+  createdAt_lte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than the given value. */
+  createdAt_gt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than or equal the given value. */
+  createdAt_gte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  updatedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are not equal to given value. */
+  updatedAt_not?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are contained in given list. */
+  updatedAt_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values that are not contained in given list. */
+  updatedAt_not_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values less than the given value. */
+  updatedAt_lt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values less than or equal the given value. */
+  updatedAt_lte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than the given value. */
+  updatedAt_gt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than or equal the given value. */
+  updatedAt_gte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  publishedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are not equal to given value. */
+  publishedAt_not?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are contained in given list. */
+  publishedAt_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values that are not contained in given list. */
+  publishedAt_not_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values less than the given value. */
+  publishedAt_lt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values less than or equal the given value. */
+  publishedAt_lte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than the given value. */
+  publishedAt_gt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than or equal the given value. */
+  publishedAt_gte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  addressLine1?: Maybe<Scalars['String']>;
+  /** All values that are not equal to given value. */
+  addressLine1_not?: Maybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  addressLine1_in?: Maybe<Array<Scalars['String']>>;
+  /** All values that are not contained in given list. */
+  addressLine1_not_in?: Maybe<Array<Scalars['String']>>;
+  /** All values containing the given string. */
+  addressLine1_contains?: Maybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  addressLine1_not_contains?: Maybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  addressLine1_starts_with?: Maybe<Scalars['String']>;
+  /** All values not starting with the given string. */
+  addressLine1_not_starts_with?: Maybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  addressLine1_ends_with?: Maybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  addressLine1_not_ends_with?: Maybe<Scalars['String']>;
+  addressLine2?: Maybe<Scalars['String']>;
+  /** All values that are not equal to given value. */
+  addressLine2_not?: Maybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  addressLine2_in?: Maybe<Array<Scalars['String']>>;
+  /** All values that are not contained in given list. */
+  addressLine2_not_in?: Maybe<Array<Scalars['String']>>;
+  /** All values containing the given string. */
+  addressLine2_contains?: Maybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  addressLine2_not_contains?: Maybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  addressLine2_starts_with?: Maybe<Scalars['String']>;
+  /** All values not starting with the given string. */
+  addressLine2_not_starts_with?: Maybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  addressLine2_ends_with?: Maybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  addressLine2_not_ends_with?: Maybe<Scalars['String']>;
+  city?: Maybe<Scalars['String']>;
+  /** All values that are not equal to given value. */
+  city_not?: Maybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  city_in?: Maybe<Array<Scalars['String']>>;
+  /** All values that are not contained in given list. */
+  city_not_in?: Maybe<Array<Scalars['String']>>;
+  /** All values containing the given string. */
+  city_contains?: Maybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  city_not_contains?: Maybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  city_starts_with?: Maybe<Scalars['String']>;
+  /** All values not starting with the given string. */
+  city_not_starts_with?: Maybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  city_ends_with?: Maybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  city_not_ends_with?: Maybe<Scalars['String']>;
+  postalCode?: Maybe<Scalars['String']>;
+  /** All values that are not equal to given value. */
+  postalCode_not?: Maybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  postalCode_in?: Maybe<Array<Scalars['String']>>;
+  /** All values that are not contained in given list. */
+  postalCode_not_in?: Maybe<Array<Scalars['String']>>;
+  /** All values containing the given string. */
+  postalCode_contains?: Maybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  postalCode_not_contains?: Maybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  postalCode_starts_with?: Maybe<Scalars['String']>;
+  /** All values not starting with the given string. */
+  postalCode_not_starts_with?: Maybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  postalCode_ends_with?: Maybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  postalCode_not_ends_with?: Maybe<Scalars['String']>;
+  provinceState?: Maybe<Scalars['String']>;
+  /** All values that are not equal to given value. */
+  provinceState_not?: Maybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  provinceState_in?: Maybe<Array<Scalars['String']>>;
+  /** All values that are not contained in given list. */
+  provinceState_not_in?: Maybe<Array<Scalars['String']>>;
+  /** All values containing the given string. */
+  provinceState_contains?: Maybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  provinceState_not_contains?: Maybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  provinceState_starts_with?: Maybe<Scalars['String']>;
+  /** All values not starting with the given string. */
+  provinceState_not_starts_with?: Maybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  provinceState_ends_with?: Maybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  provinceState_not_ends_with?: Maybe<Scalars['String']>;
+  country?: Maybe<Scalars['String']>;
+  /** All values that are not equal to given value. */
+  country_not?: Maybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  country_in?: Maybe<Array<Scalars['String']>>;
+  /** All values that are not contained in given list. */
+  country_not_in?: Maybe<Array<Scalars['String']>>;
+  /** All values containing the given string. */
+  country_contains?: Maybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  country_not_contains?: Maybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  country_starts_with?: Maybe<Scalars['String']>;
+  /** All values not starting with the given string. */
+  country_not_starts_with?: Maybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  country_ends_with?: Maybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  country_not_ends_with?: Maybe<Scalars['String']>;
+  phone?: Maybe<Scalars['String']>;
+  /** All values that are not equal to given value. */
+  phone_not?: Maybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  phone_in?: Maybe<Array<Scalars['String']>>;
+  /** All values that are not contained in given list. */
+  phone_not_in?: Maybe<Array<Scalars['String']>>;
+  /** All values containing the given string. */
+  phone_contains?: Maybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  phone_not_contains?: Maybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  phone_starts_with?: Maybe<Scalars['String']>;
+  /** All values not starting with the given string. */
+  phone_not_starts_with?: Maybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  phone_ends_with?: Maybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  phone_not_ends_with?: Maybe<Scalars['String']>;
+  phoneNoFees?: Maybe<Scalars['String']>;
+  /** All values that are not equal to given value. */
+  phoneNoFees_not?: Maybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  phoneNoFees_in?: Maybe<Array<Scalars['String']>>;
+  /** All values that are not contained in given list. */
+  phoneNoFees_not_in?: Maybe<Array<Scalars['String']>>;
+  /** All values containing the given string. */
+  phoneNoFees_contains?: Maybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  phoneNoFees_not_contains?: Maybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  phoneNoFees_starts_with?: Maybe<Scalars['String']>;
+  /** All values not starting with the given string. */
+  phoneNoFees_not_starts_with?: Maybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  phoneNoFees_ends_with?: Maybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  phoneNoFees_not_ends_with?: Maybe<Scalars['String']>;
+  websiteUrl?: Maybe<Scalars['String']>;
+  /** All values that are not equal to given value. */
+  websiteUrl_not?: Maybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  websiteUrl_in?: Maybe<Array<Scalars['String']>>;
+  /** All values that are not contained in given list. */
+  websiteUrl_not_in?: Maybe<Array<Scalars['String']>>;
+  /** All values containing the given string. */
+  websiteUrl_contains?: Maybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  websiteUrl_not_contains?: Maybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  websiteUrl_starts_with?: Maybe<Scalars['String']>;
+  /** All values not starting with the given string. */
+  websiteUrl_not_starts_with?: Maybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  websiteUrl_ends_with?: Maybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  websiteUrl_not_ends_with?: Maybe<Scalars['String']>;
+  email?: Maybe<Scalars['String']>;
+  /** All values that are not equal to given value. */
+  email_not?: Maybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  email_in?: Maybe<Array<Scalars['String']>>;
+  /** All values that are not contained in given list. */
+  email_not_in?: Maybe<Array<Scalars['String']>>;
+  /** All values containing the given string. */
+  email_contains?: Maybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  email_not_contains?: Maybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  email_starts_with?: Maybe<Scalars['String']>;
+  /** All values not starting with the given string. */
+  email_not_starts_with?: Maybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  email_ends_with?: Maybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  email_not_ends_with?: Maybe<Scalars['String']>;
+};
+
+export type GraphCms_CompanyAddressOrderByInput = 
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  | 'publishedAt_ASC'
+  | 'publishedAt_DESC'
+  | 'addressLine1_ASC'
+  | 'addressLine1_DESC'
+  | 'addressLine2_ASC'
+  | 'addressLine2_DESC'
+  | 'city_ASC'
+  | 'city_DESC'
+  | 'postalCode_ASC'
+  | 'postalCode_DESC'
+  | 'provinceState_ASC'
+  | 'provinceState_DESC'
+  | 'country_ASC'
+  | 'country_DESC'
+  | 'phone_ASC'
+  | 'phone_DESC'
+  | 'phoneNoFees_ASC'
+  | 'phoneNoFees_DESC'
+  | 'websiteUrl_ASC'
+  | 'websiteUrl_DESC'
+  | 'email_ASC'
+  | 'email_DESC';
+
+export type GraphCms_CompanyAddressUpdateInput = {
+  addressLine1?: Maybe<Scalars['String']>;
+  addressLine2?: Maybe<Scalars['String']>;
+  city?: Maybe<Scalars['String']>;
+  postalCode?: Maybe<Scalars['String']>;
+  provinceState?: Maybe<Scalars['String']>;
+  country?: Maybe<Scalars['String']>;
+  phone?: Maybe<Scalars['String']>;
+  phoneNoFees?: Maybe<Scalars['String']>;
+  websiteUrl?: Maybe<Scalars['String']>;
+  email?: Maybe<Scalars['String']>;
+};
+
+export type GraphCms_CompanyAddressUpdateManyInput = {
+  createdAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  updatedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  addressLine1?: Maybe<Scalars['String']>;
+  addressLine2?: Maybe<Scalars['String']>;
+  city?: Maybe<Scalars['String']>;
+  postalCode?: Maybe<Scalars['String']>;
+  provinceState?: Maybe<Scalars['String']>;
+  country?: Maybe<Scalars['String']>;
+  phone?: Maybe<Scalars['String']>;
+  phoneNoFees?: Maybe<Scalars['String']>;
+  websiteUrl?: Maybe<Scalars['String']>;
+  email?: Maybe<Scalars['String']>;
+};
+
+export type GraphCms_CompanyAddressUpdateManyWithNestedWhereInput = {
+  /** Document search */
+  where: GraphCms_CompanyAddressWhereInput;
+  /** Update many input */
+  data: GraphCms_CompanyAddressUpdateManyInput;
+};
+
+export type GraphCms_CompanyAddressUpdateWithNestedWhereUniqueInput = {
+  /** Unique document search */
+  where: GraphCms_CompanyAddressWhereUniqueInput;
+  /** Document to update */
+  data: GraphCms_CompanyAddressUpdateInput;
+};
+
+export type GraphCms_CompanyAddressUpsertInput = {
+  /** Create document if it didn't exist */
+  create: GraphCms_CompanyAddressCreateInput;
+  /** Update document if it exists */
+  update: GraphCms_CompanyAddressUpdateInput;
+};
+
+export type GraphCms_CompanyAddressUpsertWithNestedWhereUniqueInput = {
+  /** Unique document search */
+  where: GraphCms_CompanyAddressWhereUniqueInput;
+  /** Upsert data */
+  data: GraphCms_CompanyAddressUpsertInput;
+};
+
+/** Identifies documents */
+export type GraphCms_CompanyAddressWhereInput = {
+  /** Contains search across all appropriate fields. */
+  _search?: Maybe<Scalars['String']>;
+  /** Logical AND on all given filters. */
+  AND?: Maybe<Array<GraphCms_CompanyAddressWhereInput>>;
+  /** Logical OR on all given filters. */
+  OR?: Maybe<Array<GraphCms_CompanyAddressWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: Maybe<Array<GraphCms_CompanyAddressWhereInput>>;
+  id?: Maybe<Scalars['ID']>;
+  /** All values that are not equal to given value. */
+  id_not?: Maybe<Scalars['ID']>;
+  /** All values that are contained in given list. */
+  id_in?: Maybe<Array<Scalars['ID']>>;
+  /** All values that are not contained in given list. */
+  id_not_in?: Maybe<Array<Scalars['ID']>>;
+  /** All values containing the given string. */
+  id_contains?: Maybe<Scalars['ID']>;
+  /** All values not containing the given string. */
+  id_not_contains?: Maybe<Scalars['ID']>;
+  /** All values starting with the given string. */
+  id_starts_with?: Maybe<Scalars['ID']>;
+  /** All values not starting with the given string. */
+  id_not_starts_with?: Maybe<Scalars['ID']>;
+  /** All values ending with the given string. */
+  id_ends_with?: Maybe<Scalars['ID']>;
+  /** All values not ending with the given string */
+  id_not_ends_with?: Maybe<Scalars['ID']>;
+  createdAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are not equal to given value. */
+  createdAt_not?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are contained in given list. */
+  createdAt_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values that are not contained in given list. */
+  createdAt_not_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values less than the given value. */
+  createdAt_lt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values less than or equal the given value. */
+  createdAt_lte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than the given value. */
+  createdAt_gt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than or equal the given value. */
+  createdAt_gte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  updatedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are not equal to given value. */
+  updatedAt_not?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are contained in given list. */
+  updatedAt_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values that are not contained in given list. */
+  updatedAt_not_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values less than the given value. */
+  updatedAt_lt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values less than or equal the given value. */
+  updatedAt_lte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than the given value. */
+  updatedAt_gt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than or equal the given value. */
+  updatedAt_gte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  publishedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are not equal to given value. */
+  publishedAt_not?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are contained in given list. */
+  publishedAt_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values that are not contained in given list. */
+  publishedAt_not_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values less than the given value. */
+  publishedAt_lt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values less than or equal the given value. */
+  publishedAt_lte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than the given value. */
+  publishedAt_gt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than or equal the given value. */
+  publishedAt_gte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  addressLine1?: Maybe<Scalars['String']>;
+  /** All values that are not equal to given value. */
+  addressLine1_not?: Maybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  addressLine1_in?: Maybe<Array<Scalars['String']>>;
+  /** All values that are not contained in given list. */
+  addressLine1_not_in?: Maybe<Array<Scalars['String']>>;
+  /** All values containing the given string. */
+  addressLine1_contains?: Maybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  addressLine1_not_contains?: Maybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  addressLine1_starts_with?: Maybe<Scalars['String']>;
+  /** All values not starting with the given string. */
+  addressLine1_not_starts_with?: Maybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  addressLine1_ends_with?: Maybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  addressLine1_not_ends_with?: Maybe<Scalars['String']>;
+  addressLine2?: Maybe<Scalars['String']>;
+  /** All values that are not equal to given value. */
+  addressLine2_not?: Maybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  addressLine2_in?: Maybe<Array<Scalars['String']>>;
+  /** All values that are not contained in given list. */
+  addressLine2_not_in?: Maybe<Array<Scalars['String']>>;
+  /** All values containing the given string. */
+  addressLine2_contains?: Maybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  addressLine2_not_contains?: Maybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  addressLine2_starts_with?: Maybe<Scalars['String']>;
+  /** All values not starting with the given string. */
+  addressLine2_not_starts_with?: Maybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  addressLine2_ends_with?: Maybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  addressLine2_not_ends_with?: Maybe<Scalars['String']>;
+  city?: Maybe<Scalars['String']>;
+  /** All values that are not equal to given value. */
+  city_not?: Maybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  city_in?: Maybe<Array<Scalars['String']>>;
+  /** All values that are not contained in given list. */
+  city_not_in?: Maybe<Array<Scalars['String']>>;
+  /** All values containing the given string. */
+  city_contains?: Maybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  city_not_contains?: Maybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  city_starts_with?: Maybe<Scalars['String']>;
+  /** All values not starting with the given string. */
+  city_not_starts_with?: Maybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  city_ends_with?: Maybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  city_not_ends_with?: Maybe<Scalars['String']>;
+  postalCode?: Maybe<Scalars['String']>;
+  /** All values that are not equal to given value. */
+  postalCode_not?: Maybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  postalCode_in?: Maybe<Array<Scalars['String']>>;
+  /** All values that are not contained in given list. */
+  postalCode_not_in?: Maybe<Array<Scalars['String']>>;
+  /** All values containing the given string. */
+  postalCode_contains?: Maybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  postalCode_not_contains?: Maybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  postalCode_starts_with?: Maybe<Scalars['String']>;
+  /** All values not starting with the given string. */
+  postalCode_not_starts_with?: Maybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  postalCode_ends_with?: Maybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  postalCode_not_ends_with?: Maybe<Scalars['String']>;
+  provinceState?: Maybe<Scalars['String']>;
+  /** All values that are not equal to given value. */
+  provinceState_not?: Maybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  provinceState_in?: Maybe<Array<Scalars['String']>>;
+  /** All values that are not contained in given list. */
+  provinceState_not_in?: Maybe<Array<Scalars['String']>>;
+  /** All values containing the given string. */
+  provinceState_contains?: Maybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  provinceState_not_contains?: Maybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  provinceState_starts_with?: Maybe<Scalars['String']>;
+  /** All values not starting with the given string. */
+  provinceState_not_starts_with?: Maybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  provinceState_ends_with?: Maybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  provinceState_not_ends_with?: Maybe<Scalars['String']>;
+  country?: Maybe<Scalars['String']>;
+  /** All values that are not equal to given value. */
+  country_not?: Maybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  country_in?: Maybe<Array<Scalars['String']>>;
+  /** All values that are not contained in given list. */
+  country_not_in?: Maybe<Array<Scalars['String']>>;
+  /** All values containing the given string. */
+  country_contains?: Maybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  country_not_contains?: Maybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  country_starts_with?: Maybe<Scalars['String']>;
+  /** All values not starting with the given string. */
+  country_not_starts_with?: Maybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  country_ends_with?: Maybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  country_not_ends_with?: Maybe<Scalars['String']>;
+  phone?: Maybe<Scalars['String']>;
+  /** All values that are not equal to given value. */
+  phone_not?: Maybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  phone_in?: Maybe<Array<Scalars['String']>>;
+  /** All values that are not contained in given list. */
+  phone_not_in?: Maybe<Array<Scalars['String']>>;
+  /** All values containing the given string. */
+  phone_contains?: Maybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  phone_not_contains?: Maybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  phone_starts_with?: Maybe<Scalars['String']>;
+  /** All values not starting with the given string. */
+  phone_not_starts_with?: Maybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  phone_ends_with?: Maybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  phone_not_ends_with?: Maybe<Scalars['String']>;
+  phoneNoFees?: Maybe<Scalars['String']>;
+  /** All values that are not equal to given value. */
+  phoneNoFees_not?: Maybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  phoneNoFees_in?: Maybe<Array<Scalars['String']>>;
+  /** All values that are not contained in given list. */
+  phoneNoFees_not_in?: Maybe<Array<Scalars['String']>>;
+  /** All values containing the given string. */
+  phoneNoFees_contains?: Maybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  phoneNoFees_not_contains?: Maybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  phoneNoFees_starts_with?: Maybe<Scalars['String']>;
+  /** All values not starting with the given string. */
+  phoneNoFees_not_starts_with?: Maybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  phoneNoFees_ends_with?: Maybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  phoneNoFees_not_ends_with?: Maybe<Scalars['String']>;
+  websiteUrl?: Maybe<Scalars['String']>;
+  /** All values that are not equal to given value. */
+  websiteUrl_not?: Maybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  websiteUrl_in?: Maybe<Array<Scalars['String']>>;
+  /** All values that are not contained in given list. */
+  websiteUrl_not_in?: Maybe<Array<Scalars['String']>>;
+  /** All values containing the given string. */
+  websiteUrl_contains?: Maybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  websiteUrl_not_contains?: Maybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  websiteUrl_starts_with?: Maybe<Scalars['String']>;
+  /** All values not starting with the given string. */
+  websiteUrl_not_starts_with?: Maybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  websiteUrl_ends_with?: Maybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  websiteUrl_not_ends_with?: Maybe<Scalars['String']>;
+  email?: Maybe<Scalars['String']>;
+  /** All values that are not equal to given value. */
+  email_not?: Maybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  email_in?: Maybe<Array<Scalars['String']>>;
+  /** All values that are not contained in given list. */
+  email_not_in?: Maybe<Array<Scalars['String']>>;
+  /** All values containing the given string. */
+  email_contains?: Maybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  email_not_contains?: Maybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  email_starts_with?: Maybe<Scalars['String']>;
+  /** All values not starting with the given string. */
+  email_not_starts_with?: Maybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  email_ends_with?: Maybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  email_not_ends_with?: Maybe<Scalars['String']>;
+};
+
+/** References CompanyAddress record uniquely */
+export type GraphCms_CompanyAddressWhereUniqueInput = {
+  id?: Maybe<Scalars['ID']>;
 };
 
 export type GraphCms_CompanyMedia = GraphCms_Node & {
@@ -1984,6 +3841,350 @@ export type GraphCms_DocumentVersion = {
   data?: Maybe<Scalars['GraphCMS_Json']>;
 };
 
+export type GraphCms_FooterInformation = GraphCms_Node & {
+  /** System stage field */
+  stage: GraphCms_Stage;
+  /** Get the document in other stages */
+  documentInStages: Array<GraphCms_FooterInformation>;
+  /** The unique identifier */
+  id: Scalars['ID'];
+  /** The time the document was created */
+  createdAt: Scalars['GraphCMS_DateTime'];
+  /** The time the document was updated */
+  updatedAt: Scalars['GraphCMS_DateTime'];
+  /** The time the document was published. Null on documents in draft stage. */
+  publishedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  subTitleF?: Maybe<Scalars['String']>;
+  paragraphInformationF?: Maybe<Scalars['String']>;
+  /** List of FooterInformation versions */
+  history: Array<GraphCms_Version>;
+};
+
+
+export type GraphCms_FooterInformationDocumentInStagesArgs = {
+  stages?: Array<GraphCms_Stage>;
+  includeCurrent?: Scalars['Boolean'];
+  inheritLocale?: Scalars['Boolean'];
+};
+
+
+export type GraphCms_FooterInformationHistoryArgs = {
+  limit?: Scalars['Int'];
+  skip?: Scalars['Int'];
+  stageOverride?: Maybe<GraphCms_Stage>;
+};
+
+/** A connection to a list of items. */
+export type GraphCms_FooterInformationConnection = {
+  /** Information to aid in pagination. */
+  pageInfo: GraphCms_PageInfo;
+  /** A list of edges. */
+  edges: Array<GraphCms_FooterInformationEdge>;
+  aggregate: GraphCms_Aggregate;
+};
+
+export type GraphCms_FooterInformationCreateInput = {
+  createdAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  updatedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  subTitleF?: Maybe<Scalars['String']>;
+  paragraphInformationF?: Maybe<Scalars['String']>;
+};
+
+/** An edge in a connection. */
+export type GraphCms_FooterInformationEdge = {
+  /** The item at the end of the edge. */
+  node: GraphCms_FooterInformation;
+  /** A cursor for use in pagination. */
+  cursor: Scalars['String'];
+};
+
+/** Identifies documents */
+export type GraphCms_FooterInformationManyWhereInput = {
+  /** Contains search across all appropriate fields. */
+  _search?: Maybe<Scalars['String']>;
+  /** Logical AND on all given filters. */
+  AND?: Maybe<Array<GraphCms_FooterInformationWhereInput>>;
+  /** Logical OR on all given filters. */
+  OR?: Maybe<Array<GraphCms_FooterInformationWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: Maybe<Array<GraphCms_FooterInformationWhereInput>>;
+  id?: Maybe<Scalars['ID']>;
+  /** All values that are not equal to given value. */
+  id_not?: Maybe<Scalars['ID']>;
+  /** All values that are contained in given list. */
+  id_in?: Maybe<Array<Scalars['ID']>>;
+  /** All values that are not contained in given list. */
+  id_not_in?: Maybe<Array<Scalars['ID']>>;
+  /** All values containing the given string. */
+  id_contains?: Maybe<Scalars['ID']>;
+  /** All values not containing the given string. */
+  id_not_contains?: Maybe<Scalars['ID']>;
+  /** All values starting with the given string. */
+  id_starts_with?: Maybe<Scalars['ID']>;
+  /** All values not starting with the given string. */
+  id_not_starts_with?: Maybe<Scalars['ID']>;
+  /** All values ending with the given string. */
+  id_ends_with?: Maybe<Scalars['ID']>;
+  /** All values not ending with the given string */
+  id_not_ends_with?: Maybe<Scalars['ID']>;
+  createdAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are not equal to given value. */
+  createdAt_not?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are contained in given list. */
+  createdAt_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values that are not contained in given list. */
+  createdAt_not_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values less than the given value. */
+  createdAt_lt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values less than or equal the given value. */
+  createdAt_lte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than the given value. */
+  createdAt_gt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than or equal the given value. */
+  createdAt_gte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  updatedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are not equal to given value. */
+  updatedAt_not?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are contained in given list. */
+  updatedAt_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values that are not contained in given list. */
+  updatedAt_not_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values less than the given value. */
+  updatedAt_lt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values less than or equal the given value. */
+  updatedAt_lte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than the given value. */
+  updatedAt_gt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than or equal the given value. */
+  updatedAt_gte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  publishedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are not equal to given value. */
+  publishedAt_not?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are contained in given list. */
+  publishedAt_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values that are not contained in given list. */
+  publishedAt_not_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values less than the given value. */
+  publishedAt_lt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values less than or equal the given value. */
+  publishedAt_lte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than the given value. */
+  publishedAt_gt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than or equal the given value. */
+  publishedAt_gte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  subTitleF?: Maybe<Scalars['String']>;
+  /** All values that are not equal to given value. */
+  subTitleF_not?: Maybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  subTitleF_in?: Maybe<Array<Scalars['String']>>;
+  /** All values that are not contained in given list. */
+  subTitleF_not_in?: Maybe<Array<Scalars['String']>>;
+  /** All values containing the given string. */
+  subTitleF_contains?: Maybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  subTitleF_not_contains?: Maybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  subTitleF_starts_with?: Maybe<Scalars['String']>;
+  /** All values not starting with the given string. */
+  subTitleF_not_starts_with?: Maybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  subTitleF_ends_with?: Maybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  subTitleF_not_ends_with?: Maybe<Scalars['String']>;
+  paragraphInformationF?: Maybe<Scalars['String']>;
+  /** All values that are not equal to given value. */
+  paragraphInformationF_not?: Maybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  paragraphInformationF_in?: Maybe<Array<Scalars['String']>>;
+  /** All values that are not contained in given list. */
+  paragraphInformationF_not_in?: Maybe<Array<Scalars['String']>>;
+  /** All values containing the given string. */
+  paragraphInformationF_contains?: Maybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  paragraphInformationF_not_contains?: Maybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  paragraphInformationF_starts_with?: Maybe<Scalars['String']>;
+  /** All values not starting with the given string. */
+  paragraphInformationF_not_starts_with?: Maybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  paragraphInformationF_ends_with?: Maybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  paragraphInformationF_not_ends_with?: Maybe<Scalars['String']>;
+};
+
+export type GraphCms_FooterInformationOrderByInput = 
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  | 'publishedAt_ASC'
+  | 'publishedAt_DESC'
+  | 'subTitleF_ASC'
+  | 'subTitleF_DESC'
+  | 'paragraphInformationF_ASC'
+  | 'paragraphInformationF_DESC';
+
+export type GraphCms_FooterInformationUpdateInput = {
+  subTitleF?: Maybe<Scalars['String']>;
+  paragraphInformationF?: Maybe<Scalars['String']>;
+};
+
+export type GraphCms_FooterInformationUpdateManyInput = {
+  createdAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  updatedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  subTitleF?: Maybe<Scalars['String']>;
+  paragraphInformationF?: Maybe<Scalars['String']>;
+};
+
+export type GraphCms_FooterInformationUpdateManyWithNestedWhereInput = {
+  /** Document search */
+  where: GraphCms_FooterInformationWhereInput;
+  /** Update many input */
+  data: GraphCms_FooterInformationUpdateManyInput;
+};
+
+export type GraphCms_FooterInformationUpdateWithNestedWhereUniqueInput = {
+  /** Unique document search */
+  where: GraphCms_FooterInformationWhereUniqueInput;
+  /** Document to update */
+  data: GraphCms_FooterInformationUpdateInput;
+};
+
+export type GraphCms_FooterInformationUpsertInput = {
+  /** Create document if it didn't exist */
+  create: GraphCms_FooterInformationCreateInput;
+  /** Update document if it exists */
+  update: GraphCms_FooterInformationUpdateInput;
+};
+
+export type GraphCms_FooterInformationUpsertWithNestedWhereUniqueInput = {
+  /** Unique document search */
+  where: GraphCms_FooterInformationWhereUniqueInput;
+  /** Upsert data */
+  data: GraphCms_FooterInformationUpsertInput;
+};
+
+/** Identifies documents */
+export type GraphCms_FooterInformationWhereInput = {
+  /** Contains search across all appropriate fields. */
+  _search?: Maybe<Scalars['String']>;
+  /** Logical AND on all given filters. */
+  AND?: Maybe<Array<GraphCms_FooterInformationWhereInput>>;
+  /** Logical OR on all given filters. */
+  OR?: Maybe<Array<GraphCms_FooterInformationWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: Maybe<Array<GraphCms_FooterInformationWhereInput>>;
+  id?: Maybe<Scalars['ID']>;
+  /** All values that are not equal to given value. */
+  id_not?: Maybe<Scalars['ID']>;
+  /** All values that are contained in given list. */
+  id_in?: Maybe<Array<Scalars['ID']>>;
+  /** All values that are not contained in given list. */
+  id_not_in?: Maybe<Array<Scalars['ID']>>;
+  /** All values containing the given string. */
+  id_contains?: Maybe<Scalars['ID']>;
+  /** All values not containing the given string. */
+  id_not_contains?: Maybe<Scalars['ID']>;
+  /** All values starting with the given string. */
+  id_starts_with?: Maybe<Scalars['ID']>;
+  /** All values not starting with the given string. */
+  id_not_starts_with?: Maybe<Scalars['ID']>;
+  /** All values ending with the given string. */
+  id_ends_with?: Maybe<Scalars['ID']>;
+  /** All values not ending with the given string */
+  id_not_ends_with?: Maybe<Scalars['ID']>;
+  createdAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are not equal to given value. */
+  createdAt_not?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are contained in given list. */
+  createdAt_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values that are not contained in given list. */
+  createdAt_not_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values less than the given value. */
+  createdAt_lt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values less than or equal the given value. */
+  createdAt_lte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than the given value. */
+  createdAt_gt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than or equal the given value. */
+  createdAt_gte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  updatedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are not equal to given value. */
+  updatedAt_not?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are contained in given list. */
+  updatedAt_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values that are not contained in given list. */
+  updatedAt_not_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values less than the given value. */
+  updatedAt_lt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values less than or equal the given value. */
+  updatedAt_lte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than the given value. */
+  updatedAt_gt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than or equal the given value. */
+  updatedAt_gte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  publishedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are not equal to given value. */
+  publishedAt_not?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are contained in given list. */
+  publishedAt_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values that are not contained in given list. */
+  publishedAt_not_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values less than the given value. */
+  publishedAt_lt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values less than or equal the given value. */
+  publishedAt_lte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than the given value. */
+  publishedAt_gt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than or equal the given value. */
+  publishedAt_gte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  subTitleF?: Maybe<Scalars['String']>;
+  /** All values that are not equal to given value. */
+  subTitleF_not?: Maybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  subTitleF_in?: Maybe<Array<Scalars['String']>>;
+  /** All values that are not contained in given list. */
+  subTitleF_not_in?: Maybe<Array<Scalars['String']>>;
+  /** All values containing the given string. */
+  subTitleF_contains?: Maybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  subTitleF_not_contains?: Maybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  subTitleF_starts_with?: Maybe<Scalars['String']>;
+  /** All values not starting with the given string. */
+  subTitleF_not_starts_with?: Maybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  subTitleF_ends_with?: Maybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  subTitleF_not_ends_with?: Maybe<Scalars['String']>;
+  paragraphInformationF?: Maybe<Scalars['String']>;
+  /** All values that are not equal to given value. */
+  paragraphInformationF_not?: Maybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  paragraphInformationF_in?: Maybe<Array<Scalars['String']>>;
+  /** All values that are not contained in given list. */
+  paragraphInformationF_not_in?: Maybe<Array<Scalars['String']>>;
+  /** All values containing the given string. */
+  paragraphInformationF_contains?: Maybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  paragraphInformationF_not_contains?: Maybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  paragraphInformationF_starts_with?: Maybe<Scalars['String']>;
+  /** All values not starting with the given string. */
+  paragraphInformationF_not_starts_with?: Maybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  paragraphInformationF_ends_with?: Maybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  paragraphInformationF_not_ends_with?: Maybe<Scalars['String']>;
+};
+
+/** References FooterInformation record uniquely */
+export type GraphCms_FooterInformationWhereUniqueInput = {
+  id?: Maybe<Scalars['ID']>;
+};
+
 
 export type GraphCms_ImageFit = 
   /** Resizes the image to fit within the specified parameters without distorting, cropping, or changing the aspect ratio. */
@@ -2038,6 +4239,10 @@ export type GraphCms_InfoSection = GraphCms_Node & {
   /** The time the document was published. Null on documents in draft stage. */
   publishedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
   title: Scalars['String'];
+  text?: Maybe<Scalars['String']>;
+  actionText?: Maybe<Scalars['String']>;
+  image?: Maybe<GraphCms_Asset>;
+  style?: Maybe<GraphCms_InfoSectionStyle>;
   /** List of InfoSection versions */
   history: Array<GraphCms_Version>;
 };
@@ -2077,6 +4282,13 @@ export type GraphCms_InfoSectionHistoryArgs = {
   stageOverride?: Maybe<GraphCms_Stage>;
 };
 
+export type GraphCms_InfoSectionConnectInput = {
+  /** Document to connect */
+  where: GraphCms_InfoSectionWhereUniqueInput;
+  /** Allow to specify document position in list of connected documents, will default to appending at end of list */
+  position?: Maybe<GraphCms_ConnectPositionInput>;
+};
+
 /** A connection to a list of items. */
 export type GraphCms_InfoSectionConnection = {
   /** Information to aid in pagination. */
@@ -2091,6 +4303,13 @@ export type GraphCms_InfoSectionCreateInput = {
   updatedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
   /** title input for default locale (en) */
   title: Scalars['String'];
+  /** text input for default locale (en) */
+  text?: Maybe<Scalars['String']>;
+  /** actionText input for default locale (en) */
+  actionText?: Maybe<Scalars['String']>;
+  image?: Maybe<GraphCms_AssetCreateOneInlineInput>;
+  /** style input for default locale (en) */
+  style?: Maybe<GraphCms_InfoSectionStyle>;
   /** Inline mutations for managing document localizations excluding the default locale */
   localizations?: Maybe<GraphCms_InfoSectionCreateLocalizationsInput>;
 };
@@ -2099,6 +4318,9 @@ export type GraphCms_InfoSectionCreateLocalizationDataInput = {
   createdAt?: Maybe<Scalars['GraphCMS_DateTime']>;
   updatedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
   title: Scalars['String'];
+  text?: Maybe<Scalars['String']>;
+  actionText?: Maybe<Scalars['String']>;
+  style?: Maybe<GraphCms_InfoSectionStyle>;
 };
 
 export type GraphCms_InfoSectionCreateLocalizationInput = {
@@ -2110,6 +4332,20 @@ export type GraphCms_InfoSectionCreateLocalizationInput = {
 export type GraphCms_InfoSectionCreateLocalizationsInput = {
   /** Create localizations for the newly-created document */
   create?: Maybe<Array<GraphCms_InfoSectionCreateLocalizationInput>>;
+};
+
+export type GraphCms_InfoSectionCreateManyInlineInput = {
+  /** Create and connect multiple existing InfoSection documents */
+  create?: Maybe<Array<GraphCms_InfoSectionCreateInput>>;
+  /** Connect multiple existing InfoSection documents */
+  connect?: Maybe<Array<GraphCms_InfoSectionWhereUniqueInput>>;
+};
+
+export type GraphCms_InfoSectionCreateOneInlineInput = {
+  /** Create and connect one InfoSection document */
+  create?: Maybe<GraphCms_InfoSectionCreateInput>;
+  /** Connect one existing InfoSection document */
+  connect?: Maybe<GraphCms_InfoSectionWhereUniqueInput>;
 };
 
 /** An edge in a connection. */
@@ -2194,6 +4430,7 @@ export type GraphCms_InfoSectionManyWhereInput = {
   publishedAt_gt?: Maybe<Scalars['GraphCMS_DateTime']>;
   /** All values greater than or equal the given value. */
   publishedAt_gte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  image?: Maybe<GraphCms_AssetWhereInput>;
 };
 
 export type GraphCms_InfoSectionOrderByInput = 
@@ -2206,17 +4443,37 @@ export type GraphCms_InfoSectionOrderByInput =
   | 'publishedAt_ASC'
   | 'publishedAt_DESC'
   | 'title_ASC'
-  | 'title_DESC';
+  | 'title_DESC'
+  | 'text_ASC'
+  | 'text_DESC'
+  | 'actionText_ASC'
+  | 'actionText_DESC'
+  | 'style_ASC'
+  | 'style_DESC';
+
+export type GraphCms_InfoSectionStyle = 
+  | 'DEFAULT'
+  | 'REVERSED';
 
 export type GraphCms_InfoSectionUpdateInput = {
   /** title input for default locale (en) */
   title?: Maybe<Scalars['String']>;
+  /** text input for default locale (en) */
+  text?: Maybe<Scalars['String']>;
+  /** actionText input for default locale (en) */
+  actionText?: Maybe<Scalars['String']>;
+  image?: Maybe<GraphCms_AssetUpdateOneInlineInput>;
+  /** style input for default locale (en) */
+  style?: Maybe<GraphCms_InfoSectionStyle>;
   /** Manage document localizations */
   localizations?: Maybe<GraphCms_InfoSectionUpdateLocalizationsInput>;
 };
 
 export type GraphCms_InfoSectionUpdateLocalizationDataInput = {
   title?: Maybe<Scalars['String']>;
+  text?: Maybe<Scalars['String']>;
+  actionText?: Maybe<Scalars['String']>;
+  style?: Maybe<GraphCms_InfoSectionStyle>;
 };
 
 export type GraphCms_InfoSectionUpdateLocalizationInput = {
@@ -2234,6 +4491,23 @@ export type GraphCms_InfoSectionUpdateLocalizationsInput = {
   delete?: Maybe<Array<GraphCms_Locale>>;
 };
 
+export type GraphCms_InfoSectionUpdateManyInlineInput = {
+  /** Create and connect multiple InfoSection documents */
+  create?: Maybe<Array<GraphCms_InfoSectionCreateInput>>;
+  /** Connect multiple existing InfoSection documents */
+  connect?: Maybe<Array<GraphCms_InfoSectionConnectInput>>;
+  /** Override currently-connected documents with multiple existing InfoSection documents */
+  set?: Maybe<Array<GraphCms_InfoSectionWhereUniqueInput>>;
+  /** Update multiple InfoSection documents */
+  update?: Maybe<Array<GraphCms_InfoSectionUpdateWithNestedWhereUniqueInput>>;
+  /** Upsert multiple InfoSection documents */
+  upsert?: Maybe<Array<GraphCms_InfoSectionUpsertWithNestedWhereUniqueInput>>;
+  /** Disconnect multiple InfoSection documents */
+  disconnect?: Maybe<Array<GraphCms_InfoSectionWhereUniqueInput>>;
+  /** Delete multiple InfoSection documents */
+  delete?: Maybe<Array<GraphCms_InfoSectionWhereUniqueInput>>;
+};
+
 export type GraphCms_InfoSectionUpdateManyInput = {
   createdAt?: Maybe<Scalars['GraphCMS_DateTime']>;
   updatedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
@@ -2243,6 +4517,9 @@ export type GraphCms_InfoSectionUpdateManyInput = {
 
 export type GraphCms_InfoSectionUpdateManyLocalizationInput = {
   title: Scalars['String'];
+  text?: Maybe<Scalars['String']>;
+  actionText?: Maybe<Scalars['String']>;
+  style?: Maybe<GraphCms_InfoSectionStyle>;
 };
 
 export type GraphCms_InfoSectionUpdateManyWithNestedWhereInput = {
@@ -2250,6 +4527,21 @@ export type GraphCms_InfoSectionUpdateManyWithNestedWhereInput = {
   where: GraphCms_InfoSectionWhereInput;
   /** Update many input */
   data: GraphCms_InfoSectionUpdateManyInput;
+};
+
+export type GraphCms_InfoSectionUpdateOneInlineInput = {
+  /** Create and connect one InfoSection document */
+  create?: Maybe<GraphCms_InfoSectionCreateInput>;
+  /** Update single InfoSection document */
+  update?: Maybe<GraphCms_InfoSectionUpdateWithNestedWhereUniqueInput>;
+  /** Upsert single InfoSection document */
+  upsert?: Maybe<GraphCms_InfoSectionUpsertWithNestedWhereUniqueInput>;
+  /** Connect existing InfoSection document */
+  connect?: Maybe<GraphCms_InfoSectionWhereUniqueInput>;
+  /** Disconnect currently connected InfoSection document */
+  disconnect?: Maybe<Scalars['Boolean']>;
+  /** Delete currently connected InfoSection document */
+  delete?: Maybe<Scalars['Boolean']>;
 };
 
 export type GraphCms_InfoSectionUpdateWithNestedWhereUniqueInput = {
@@ -2372,6 +4664,52 @@ export type GraphCms_InfoSectionWhereInput = {
   title_ends_with?: Maybe<Scalars['String']>;
   /** All values not ending with the given string */
   title_not_ends_with?: Maybe<Scalars['String']>;
+  text?: Maybe<Scalars['String']>;
+  /** All values that are not equal to given value. */
+  text_not?: Maybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  text_in?: Maybe<Array<Scalars['String']>>;
+  /** All values that are not contained in given list. */
+  text_not_in?: Maybe<Array<Scalars['String']>>;
+  /** All values containing the given string. */
+  text_contains?: Maybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  text_not_contains?: Maybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  text_starts_with?: Maybe<Scalars['String']>;
+  /** All values not starting with the given string. */
+  text_not_starts_with?: Maybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  text_ends_with?: Maybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  text_not_ends_with?: Maybe<Scalars['String']>;
+  actionText?: Maybe<Scalars['String']>;
+  /** All values that are not equal to given value. */
+  actionText_not?: Maybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  actionText_in?: Maybe<Array<Scalars['String']>>;
+  /** All values that are not contained in given list. */
+  actionText_not_in?: Maybe<Array<Scalars['String']>>;
+  /** All values containing the given string. */
+  actionText_contains?: Maybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  actionText_not_contains?: Maybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  actionText_starts_with?: Maybe<Scalars['String']>;
+  /** All values not starting with the given string. */
+  actionText_not_starts_with?: Maybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  actionText_ends_with?: Maybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  actionText_not_ends_with?: Maybe<Scalars['String']>;
+  image?: Maybe<GraphCms_AssetWhereInput>;
+  style?: Maybe<GraphCms_InfoSectionStyle>;
+  /** All values that are not equal to given value. */
+  style_not?: Maybe<GraphCms_InfoSectionStyle>;
+  /** All values that are contained in given list. */
+  style_in?: Maybe<Array<GraphCms_InfoSectionStyle>>;
+  /** All values that are not contained in given list. */
+  style_not_in?: Maybe<Array<GraphCms_InfoSectionStyle>>;
 };
 
 /** References InfoSection record uniquely */
@@ -4276,7 +6614,7 @@ export type BannerQuery = { gcms: { pageIndices: Array<(
 export type FooterQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type FooterQuery = { gcms: { companyMedias: Array<{ logoFooter?: Maybe<Pick<GraphCms_Asset, 'url'>> }> } };
+export type FooterQuery = { gcms: { companyMedias: Array<{ logoFooter?: Maybe<Pick<GraphCms_Asset, 'url'>> }>, companyAddresses: Array<Pick<GraphCms_CompanyAddress, 'addressLine1' | 'addressLine2' | 'city' | 'provinceState' | 'postalCode' | 'country' | 'websiteUrl' | 'phone' | 'phoneNoFees' | 'email'>> } };
 
 export type TopBarQueryVariables = Exact<{ [key: string]: never; }>;
 

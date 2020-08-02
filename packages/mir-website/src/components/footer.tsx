@@ -4,6 +4,7 @@ import { FooterQuery } from '../../types/graphql-types';
 import { Label } from '../components/label';
 import { Logo } from '../components/logo';
 import { Paragraph } from '../components/paragraph';
+import { AnchorLink } from './anchor-link';
 import styles from './footer.module.scss';
 
 export const query = graphql`
@@ -13,6 +14,18 @@ export const query = graphql`
         logoFooter {
           url
         }
+      }
+      companyAddresses {
+        addressLine1
+        addressLine2
+        city
+        provinceState
+        postalCode
+        country
+        websiteUrl
+        phone
+        phoneNoFees
+        email
       }
     }
   }
@@ -25,18 +38,27 @@ export const Footer: React.FC<OwnProps> = (props) => {
 
   return (
     <footer className={styles.wrapper}>
-      {/* {data.gcms.footerInformations.map((information: object, i: number) => (
-        <Paragraph className={styles.infoText} variant="small">
-          {information[i].paragraphInformationF}
-        </Paragraph>
-      ))} */}
-
       <div>
         <Label className={styles.title} size="small" variant="uppercase">
           Contactez-nous
         </Label>
         <Paragraph className={styles.infoText} variant="small">
-          Téléphone : 514 494-4414 Sans frais : 1 844 994-4414 Courriel : info@mirinc.ca
+          Téléphone :
+          <AnchorLink variant="reversed" href={`tel:${data.gcms.companyAddresses[0].phone}`}>
+            {data.gcms.companyAddresses[0].phone}
+          </AnchorLink>
+        </Paragraph>
+        <Paragraph className={styles.infoText} variant="small">
+          Sans frais :
+          <AnchorLink variant="reversed" href={`tel:${data.gcms.companyAddresses[0].phoneNoFees}`}>
+            {data.gcms.companyAddresses[0].phoneNoFees}
+          </AnchorLink>
+        </Paragraph>
+        <Paragraph className={styles.infoText} variant="small">
+          Courriel :{' '}
+          <AnchorLink variant="reversed" href={`mailto:${data.gcms.companyAddresses[0].email}`}>
+            {data.gcms.companyAddresses[0].email}
+          </AnchorLink>
         </Paragraph>
       </div>
 
@@ -45,13 +67,23 @@ export const Footer: React.FC<OwnProps> = (props) => {
           Visitez-nous
         </Label>
         <Paragraph className={styles.infoText} variant="small">
-          9590, boul. Henri-Bourassa Est, bureau 202 Montréal, QC H1E 2S4 Canada
+          {data.gcms.companyAddresses[0].addressLine1}
+        </Paragraph>
+        <Paragraph className={styles.infoText} variant="small">
+          {data.gcms.companyAddresses[0].addressLine2}
+        </Paragraph>
+        <Paragraph className={styles.infoText} variant="small">
+          {data.gcms.companyAddresses[0].city}, {data.gcms.companyAddresses[0].provinceState},{' '}
+          {data.gcms.companyAddresses[0].postalCode}
+        </Paragraph>
+        <Paragraph className={styles.infoText} variant="small">
+          {data.gcms.companyAddresses[0].country}
         </Paragraph>
       </div>
 
       <Logo type="framed-text" variant="reversed" src={`${data.gcms.companyMedias[0].logoFooter.url}`}></Logo>
 
-      <Paragraph variant="small">© 2020 Tous droits réservés MIR. </Paragraph>
+      <Paragraph variant="small">© {new Date().getFullYear()} Tous droits réservés MIR. </Paragraph>
     </footer>
   );
 };
