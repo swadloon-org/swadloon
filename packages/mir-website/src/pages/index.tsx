@@ -9,6 +9,8 @@ import styles from './index.module.scss';
 import { Paragraph } from '../components/paragraph';
 import { Heading } from '../components/heading';
 import { Label } from '../components/label';
+import { InfoTile } from '../components/info-tile';
+import { Button } from '../components/button';
 
 export const query = graphql`
   query indexPage {
@@ -68,6 +70,15 @@ const IndexPage: React.FC<IndexPageProps> = ({ data, location }) => {
         <Label size="small" variant="bold">
           Label small bold
         </Label>
+        <Label size="small" variant="regular">
+          Label small regular
+        </Label>
+        <InfoTile name="tile" state="default">
+          test
+        </InfoTile>
+        <Button size="large" type="secondary" variant="default">
+          bonj
+        </Button>
         <Label size="small" variant="regular">
           Label small regular
         </Label>
