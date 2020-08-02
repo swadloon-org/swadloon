@@ -84,8 +84,8 @@ const IndexPage: React.FC<IndexPageProps> = ({ data, location }) => {
         <Label size="small" variant="regular">
           Label small regular
         </Label>
-        <Footer></Footer>
       </div>
+      <Footer></Footer>
     </div>
   );
 };

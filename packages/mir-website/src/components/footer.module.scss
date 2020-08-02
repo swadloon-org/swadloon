@@ -3,5 +3,9 @@
 @import '../styles/layout.scss';
 
 .footer_default {
-    background-color: $greyscale1000;
+  background-color: $greyscale1000;
+
+  .title {
+    margin-top: $sizing-x5;
+  }
 }
