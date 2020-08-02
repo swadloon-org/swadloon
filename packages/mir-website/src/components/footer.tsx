@@ -4,8 +4,8 @@ import { FooterQuery } from '../../types/graphql-types';
 import { Label } from '../components/label';
 import { Logo } from '../components/logo';
 import { Paragraph } from '../components/paragraph';
-import styles from './footer.module.scss';
 import { AnchorLink } from './anchor-link';
+import styles from './footer.module.scss';
 
 export const query = graphql`
   query footer {
