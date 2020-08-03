@@ -8,6 +8,7 @@ import { InfoSection } from '../components/info-section';
 import { TopBar } from '../components/top-bar';
 import '../styles/fonts.scss';
 import styles from './index.module.scss';
+import './index.global.scss';
 
 export const query = graphql`
   query indexPage {
