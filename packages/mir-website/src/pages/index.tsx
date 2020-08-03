@@ -11,8 +11,7 @@ import { TopBar } from '../components/top-bar';
 import '../styles/fonts.scss';
 import styles from './index.module.scss';
 import { Banner } from '../components/banner';
-import { Footer } from '../components/footer';
-import { Illustration } from '../components/illustration';
+import { Tab } from '../components/tab';
 
 export const query = graphql`
   query indexPage {
@@ -83,10 +82,10 @@ const IndexPage: React.FC<IndexPageProps> = ({ data, location }) => {
         <Label size="small" variant="regular">
           Label small regular
         </Label>
-      </div>
 
-      <Illustration name="Desktop"></Illustration>
-      <Footer></Footer>
+        <Tab size="small" selected="selected" text="Lorem Ipsum"></Tab>
+        <Tab size="small" selected="default" text="Lorem Ipsum"></Tab>
+      </div>
     </div>
   );
 };

@@ -1,25 +1,18 @@
 import React, { useState } from 'react';
 import styles from './tab.module.scss';
-
+import { Label } from './label';
 interface OwnProps {
-  name: 'tab';
   size: 'small';
-  state: 'default' | 'selected';
+  selected: 'selected' | 'default';
+  text: string;
 }
 
 export const Tab: React.FC<OwnProps> = (props) => {
-  const clicked: boolean = false;
-  const [clicks, setClicks] = useState(props.state);
-
-  // const handleClick (nbclick:Number) => {
-  //     console.log(nbclick);
-  // };
-
   return (
-    <div className={`${styles[props.name]} ${styles[props.size]} ${styles[props.state]}`}>
-      {/* <div onClick={handleClick(+1)}> */}
-      {props.children}
-      {/* </div> */}
+    <div className={`${styles.wrapper} ${styles[props.size]} ${styles[props.selected]}`}>
+      <Label size="small" variant="uppercase">
+        {props.text}
+      </Label>
     </div>
   );
 };

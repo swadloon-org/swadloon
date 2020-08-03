@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './info-tile.module.scss';
 
-import Illustration from './illustration';
+import { Illustration } from './illustration';
 
 interface OwnProps {
   state: 'default' | 'reverse';
@@ -10,7 +10,7 @@ interface OwnProps {
 export const InfoTile: React.FC<OwnProps> = (props) => {
   return (
     <div className={`${styles.wrapper} ${styles[props.state]}`}>
-      <Illustration></Illustration>
+      <Illustration name="Desktop"></Illustration>
     </div>
   );
 };

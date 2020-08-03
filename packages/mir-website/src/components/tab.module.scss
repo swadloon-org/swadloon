@@ -1,0 +1,21 @@
+@import '../styles/colors.scss';
+@import '../styles/sizing.scss';
+@import '../styles/layout.scss';
+
+.wrapper {
+  display: block;
+  width: fit-content;
+}
+.small {
+  padding: $sizing-x2;
+  margin-top: $sizing-x4;
+  margin-bottom: $sizing-x6;
+}
+.selected {
+  color: $greyscale-inverted;
+  background-color: $primary500;
+}
+.default {
+  background-color: $greyscale-transparent;
+  color: $greyscale1000;
+}
