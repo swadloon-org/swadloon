@@ -734,6 +734,14 @@ export type GraphCms = {
   infoSectionsConnection: GraphCms_InfoSectionConnection;
   /** Retrieve document version */
   infoSectionVersion?: Maybe<GraphCms_DocumentVersion>;
+  /** Retrieve multiple infoTiles */
+  infoTiles: Array<GraphCms_InfoTile>;
+  /** Retrieve a single infoTile */
+  infoTile?: Maybe<GraphCms_InfoTile>;
+  /** Retrieve multiple infoTiles using the Relay connection interface */
+  infoTilesConnection: GraphCms_InfoTileConnection;
+  /** Retrieve document version */
+  infoTileVersion?: Maybe<GraphCms_DocumentVersion>;
   /** Retrieve multiple pageIndices */
   pageIndices: Array<GraphCms_PageIndex>;
   /** Retrieve a single pageIndex */
@@ -970,6 +978,44 @@ export type GraphCmsInfoSectionsConnectionArgs = {
 
 
 export type GraphCmsInfoSectionVersionArgs = {
+  where: GraphCms_VersionWhereInput;
+};
+
+
+export type GraphCmsInfoTilesArgs = {
+  where?: Maybe<GraphCms_InfoTileWhereInput>;
+  orderBy?: Maybe<GraphCms_InfoTileOrderByInput>;
+  skip?: Maybe<Scalars['Int']>;
+  after?: Maybe<Scalars['String']>;
+  before?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  stage?: GraphCms_Stage;
+  locales?: Array<GraphCms_Locale>;
+};
+
+
+export type GraphCmsInfoTileArgs = {
+  where: GraphCms_InfoTileWhereUniqueInput;
+  stage?: GraphCms_Stage;
+  locales?: Array<GraphCms_Locale>;
+};
+
+
+export type GraphCmsInfoTilesConnectionArgs = {
+  where?: Maybe<GraphCms_InfoTileWhereInput>;
+  orderBy?: Maybe<GraphCms_InfoTileOrderByInput>;
+  skip?: Maybe<Scalars['Int']>;
+  after?: Maybe<Scalars['String']>;
+  before?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  stage?: GraphCms_Stage;
+  locales?: Array<GraphCms_Locale>;
+};
+
+
+export type GraphCmsInfoTileVersionArgs = {
   where: GraphCms_VersionWhereInput;
 };
 
@@ -3856,6 +3902,8 @@ export type GraphCms_InfoSection = GraphCms_Node & {
   actionText?: Maybe<Scalars['String']>;
   image?: Maybe<GraphCms_Asset>;
   style?: Maybe<GraphCms_InfoSectionStyle>;
+  pageIndex: Array<GraphCms_PageIndex>;
+  infoTiles: Array<GraphCms_InfoTile>;
   /** List of InfoSection versions */
   history: Array<GraphCms_Version>;
 };
@@ -3886,6 +3934,28 @@ export type GraphCms_InfoSectionUpdatedAtArgs = {
 
 export type GraphCms_InfoSectionPublishedAtArgs = {
   variation?: GraphCms_SystemDateTimeFieldVariation;
+};
+
+
+export type GraphCms_InfoSectionPageIndexArgs = {
+  where?: Maybe<GraphCms_PageIndexWhereInput>;
+  orderBy?: Maybe<GraphCms_PageIndexOrderByInput>;
+  skip?: Maybe<Scalars['Int']>;
+  after?: Maybe<Scalars['String']>;
+  before?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+};
+
+
+export type GraphCms_InfoSectionInfoTilesArgs = {
+  where?: Maybe<GraphCms_InfoTileWhereInput>;
+  orderBy?: Maybe<GraphCms_InfoTileOrderByInput>;
+  skip?: Maybe<Scalars['Int']>;
+  after?: Maybe<Scalars['String']>;
+  before?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
 };
 
 
@@ -3923,6 +3993,8 @@ export type GraphCms_InfoSectionCreateInput = {
   image?: Maybe<GraphCms_AssetCreateOneInlineInput>;
   /** style input for default locale (en) */
   style?: Maybe<GraphCms_InfoSectionStyle>;
+  pageIndex?: Maybe<GraphCms_PageIndexCreateManyInlineInput>;
+  infoTiles?: Maybe<GraphCms_InfoTileCreateManyInlineInput>;
   /** Inline mutations for managing document localizations excluding the default locale */
   localizations?: Maybe<GraphCms_InfoSectionCreateLocalizationsInput>;
 };
@@ -4044,6 +4116,12 @@ export type GraphCms_InfoSectionManyWhereInput = {
   /** All values greater than or equal the given value. */
   publishedAt_gte?: Maybe<Scalars['GraphCMS_DateTime']>;
   image?: Maybe<GraphCms_AssetWhereInput>;
+  pageIndex_every?: Maybe<GraphCms_PageIndexWhereInput>;
+  pageIndex_some?: Maybe<GraphCms_PageIndexWhereInput>;
+  pageIndex_none?: Maybe<GraphCms_PageIndexWhereInput>;
+  infoTiles_every?: Maybe<GraphCms_InfoTileWhereInput>;
+  infoTiles_some?: Maybe<GraphCms_InfoTileWhereInput>;
+  infoTiles_none?: Maybe<GraphCms_InfoTileWhereInput>;
 };
 
 export type GraphCms_InfoSectionOrderByInput = 
@@ -4078,6 +4156,8 @@ export type GraphCms_InfoSectionUpdateInput = {
   image?: Maybe<GraphCms_AssetUpdateOneInlineInput>;
   /** style input for default locale (en) */
   style?: Maybe<GraphCms_InfoSectionStyle>;
+  pageIndex?: Maybe<GraphCms_PageIndexUpdateManyInlineInput>;
+  infoTiles?: Maybe<GraphCms_InfoTileUpdateManyInlineInput>;
   /** Manage document localizations */
   localizations?: Maybe<GraphCms_InfoSectionUpdateLocalizationsInput>;
 };
@@ -4323,6 +4403,12 @@ export type GraphCms_InfoSectionWhereInput = {
   style_in?: Maybe<Array<GraphCms_InfoSectionStyle>>;
   /** All values that are not contained in given list. */
   style_not_in?: Maybe<Array<GraphCms_InfoSectionStyle>>;
+  pageIndex_every?: Maybe<GraphCms_PageIndexWhereInput>;
+  pageIndex_some?: Maybe<GraphCms_PageIndexWhereInput>;
+  pageIndex_none?: Maybe<GraphCms_PageIndexWhereInput>;
+  infoTiles_every?: Maybe<GraphCms_InfoTileWhereInput>;
+  infoTiles_some?: Maybe<GraphCms_InfoTileWhereInput>;
+  infoTiles_none?: Maybe<GraphCms_InfoTileWhereInput>;
 };
 
 /** References InfoSection record uniquely */
@@ -4330,11 +4416,517 @@ export type GraphCms_InfoSectionWhereUniqueInput = {
   id?: Maybe<Scalars['ID']>;
 };
 
+export type GraphCms_InfoTile = GraphCms_Node & {
+  /** System stage field */
+  stage: GraphCms_Stage;
+  /** System Locale field */
+  locale: GraphCms_Locale;
+  /** Get the other localizations for this document */
+  localizations: Array<GraphCms_InfoTile>;
+  /** Get the document in other stages */
+  documentInStages: Array<GraphCms_InfoTile>;
+  /** The unique identifier */
+  id: Scalars['ID'];
+  /** The time the document was created */
+  createdAt: Scalars['GraphCMS_DateTime'];
+  /** The time the document was updated */
+  updatedAt: Scalars['GraphCMS_DateTime'];
+  /** The time the document was published. Null on documents in draft stage. */
+  publishedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  icon?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['String']>;
+  text?: Maybe<Scalars['String']>;
+  infoSection: Array<GraphCms_InfoSection>;
+  /** List of InfoTile versions */
+  history: Array<GraphCms_Version>;
+};
+
+
+export type GraphCms_InfoTileLocalizationsArgs = {
+  locales?: Array<GraphCms_Locale>;
+  includeCurrent?: Scalars['Boolean'];
+};
+
+
+export type GraphCms_InfoTileDocumentInStagesArgs = {
+  stages?: Array<GraphCms_Stage>;
+  includeCurrent?: Scalars['Boolean'];
+  inheritLocale?: Scalars['Boolean'];
+};
+
+
+export type GraphCms_InfoTileCreatedAtArgs = {
+  variation?: GraphCms_SystemDateTimeFieldVariation;
+};
+
+
+export type GraphCms_InfoTileUpdatedAtArgs = {
+  variation?: GraphCms_SystemDateTimeFieldVariation;
+};
+
+
+export type GraphCms_InfoTilePublishedAtArgs = {
+  variation?: GraphCms_SystemDateTimeFieldVariation;
+};
+
+
+export type GraphCms_InfoTileInfoSectionArgs = {
+  where?: Maybe<GraphCms_InfoSectionWhereInput>;
+  orderBy?: Maybe<GraphCms_InfoSectionOrderByInput>;
+  skip?: Maybe<Scalars['Int']>;
+  after?: Maybe<Scalars['String']>;
+  before?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+};
+
+
+export type GraphCms_InfoTileHistoryArgs = {
+  limit?: Scalars['Int'];
+  skip?: Scalars['Int'];
+  stageOverride?: Maybe<GraphCms_Stage>;
+};
+
+export type GraphCms_InfoTileConnectInput = {
+  /** Document to connect */
+  where: GraphCms_InfoTileWhereUniqueInput;
+  /** Allow to specify document position in list of connected documents, will default to appending at end of list */
+  position?: Maybe<GraphCms_ConnectPositionInput>;
+};
+
+/** A connection to a list of items. */
+export type GraphCms_InfoTileConnection = {
+  /** Information to aid in pagination. */
+  pageInfo: GraphCms_PageInfo;
+  /** A list of edges. */
+  edges: Array<GraphCms_InfoTileEdge>;
+  aggregate: GraphCms_Aggregate;
+};
+
+export type GraphCms_InfoTileCreateInput = {
+  createdAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  updatedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  icon?: Maybe<Scalars['String']>;
+  /** title input for default locale (en) */
+  title?: Maybe<Scalars['String']>;
+  /** text input for default locale (en) */
+  text?: Maybe<Scalars['String']>;
+  infoSection?: Maybe<GraphCms_InfoSectionCreateManyInlineInput>;
+  /** Inline mutations for managing document localizations excluding the default locale */
+  localizations?: Maybe<GraphCms_InfoTileCreateLocalizationsInput>;
+};
+
+export type GraphCms_InfoTileCreateLocalizationDataInput = {
+  createdAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  updatedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  title?: Maybe<Scalars['String']>;
+  text?: Maybe<Scalars['String']>;
+};
+
+export type GraphCms_InfoTileCreateLocalizationInput = {
+  /** Localization input */
+  data: GraphCms_InfoTileCreateLocalizationDataInput;
+  locale: GraphCms_Locale;
+};
+
+export type GraphCms_InfoTileCreateLocalizationsInput = {
+  /** Create localizations for the newly-created document */
+  create?: Maybe<Array<GraphCms_InfoTileCreateLocalizationInput>>;
+};
+
+export type GraphCms_InfoTileCreateManyInlineInput = {
+  /** Create and connect multiple existing InfoTile documents */
+  create?: Maybe<Array<GraphCms_InfoTileCreateInput>>;
+  /** Connect multiple existing InfoTile documents */
+  connect?: Maybe<Array<GraphCms_InfoTileWhereUniqueInput>>;
+};
+
+export type GraphCms_InfoTileCreateOneInlineInput = {
+  /** Create and connect one InfoTile document */
+  create?: Maybe<GraphCms_InfoTileCreateInput>;
+  /** Connect one existing InfoTile document */
+  connect?: Maybe<GraphCms_InfoTileWhereUniqueInput>;
+};
+
+/** An edge in a connection. */
+export type GraphCms_InfoTileEdge = {
+  /** The item at the end of the edge. */
+  node: GraphCms_InfoTile;
+  /** A cursor for use in pagination. */
+  cursor: Scalars['String'];
+};
+
+/** Identifies documents */
+export type GraphCms_InfoTileManyWhereInput = {
+  /** Contains search across all appropriate fields. */
+  _search?: Maybe<Scalars['String']>;
+  /** Logical AND on all given filters. */
+  AND?: Maybe<Array<GraphCms_InfoTileWhereInput>>;
+  /** Logical OR on all given filters. */
+  OR?: Maybe<Array<GraphCms_InfoTileWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: Maybe<Array<GraphCms_InfoTileWhereInput>>;
+  id?: Maybe<Scalars['ID']>;
+  /** All values that are not equal to given value. */
+  id_not?: Maybe<Scalars['ID']>;
+  /** All values that are contained in given list. */
+  id_in?: Maybe<Array<Scalars['ID']>>;
+  /** All values that are not contained in given list. */
+  id_not_in?: Maybe<Array<Scalars['ID']>>;
+  /** All values containing the given string. */
+  id_contains?: Maybe<Scalars['ID']>;
+  /** All values not containing the given string. */
+  id_not_contains?: Maybe<Scalars['ID']>;
+  /** All values starting with the given string. */
+  id_starts_with?: Maybe<Scalars['ID']>;
+  /** All values not starting with the given string. */
+  id_not_starts_with?: Maybe<Scalars['ID']>;
+  /** All values ending with the given string. */
+  id_ends_with?: Maybe<Scalars['ID']>;
+  /** All values not ending with the given string */
+  id_not_ends_with?: Maybe<Scalars['ID']>;
+  createdAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are not equal to given value. */
+  createdAt_not?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are contained in given list. */
+  createdAt_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values that are not contained in given list. */
+  createdAt_not_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values less than the given value. */
+  createdAt_lt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values less than or equal the given value. */
+  createdAt_lte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than the given value. */
+  createdAt_gt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than or equal the given value. */
+  createdAt_gte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  updatedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are not equal to given value. */
+  updatedAt_not?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are contained in given list. */
+  updatedAt_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values that are not contained in given list. */
+  updatedAt_not_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values less than the given value. */
+  updatedAt_lt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values less than or equal the given value. */
+  updatedAt_lte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than the given value. */
+  updatedAt_gt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than or equal the given value. */
+  updatedAt_gte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  publishedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are not equal to given value. */
+  publishedAt_not?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are contained in given list. */
+  publishedAt_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values that are not contained in given list. */
+  publishedAt_not_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values less than the given value. */
+  publishedAt_lt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values less than or equal the given value. */
+  publishedAt_lte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than the given value. */
+  publishedAt_gt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than or equal the given value. */
+  publishedAt_gte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  icon?: Maybe<Scalars['String']>;
+  /** All values that are not equal to given value. */
+  icon_not?: Maybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  icon_in?: Maybe<Array<Scalars['String']>>;
+  /** All values that are not contained in given list. */
+  icon_not_in?: Maybe<Array<Scalars['String']>>;
+  /** All values containing the given string. */
+  icon_contains?: Maybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  icon_not_contains?: Maybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  icon_starts_with?: Maybe<Scalars['String']>;
+  /** All values not starting with the given string. */
+  icon_not_starts_with?: Maybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  icon_ends_with?: Maybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  icon_not_ends_with?: Maybe<Scalars['String']>;
+  infoSection_every?: Maybe<GraphCms_InfoSectionWhereInput>;
+  infoSection_some?: Maybe<GraphCms_InfoSectionWhereInput>;
+  infoSection_none?: Maybe<GraphCms_InfoSectionWhereInput>;
+};
+
+export type GraphCms_InfoTileOrderByInput = 
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  | 'publishedAt_ASC'
+  | 'publishedAt_DESC'
+  | 'icon_ASC'
+  | 'icon_DESC'
+  | 'title_ASC'
+  | 'title_DESC'
+  | 'text_ASC'
+  | 'text_DESC';
+
+export type GraphCms_InfoTileUpdateInput = {
+  icon?: Maybe<Scalars['String']>;
+  /** title input for default locale (en) */
+  title?: Maybe<Scalars['String']>;
+  /** text input for default locale (en) */
+  text?: Maybe<Scalars['String']>;
+  infoSection?: Maybe<GraphCms_InfoSectionUpdateManyInlineInput>;
+  /** Manage document localizations */
+  localizations?: Maybe<GraphCms_InfoTileUpdateLocalizationsInput>;
+};
+
+export type GraphCms_InfoTileUpdateLocalizationDataInput = {
+  title?: Maybe<Scalars['String']>;
+  text?: Maybe<Scalars['String']>;
+};
+
+export type GraphCms_InfoTileUpdateLocalizationInput = {
+  data: GraphCms_InfoTileUpdateLocalizationDataInput;
+  locale: GraphCms_Locale;
+};
+
+export type GraphCms_InfoTileUpdateLocalizationsInput = {
+  /** Localizations to create */
+  create?: Maybe<Array<GraphCms_InfoTileCreateLocalizationInput>>;
+  /** Localizations to update */
+  update?: Maybe<Array<GraphCms_InfoTileUpdateLocalizationInput>>;
+  upsert?: Maybe<Array<GraphCms_InfoTileUpsertLocalizationInput>>;
+  /** Localizations to delete */
+  delete?: Maybe<Array<GraphCms_Locale>>;
+};
+
+export type GraphCms_InfoTileUpdateManyInlineInput = {
+  /** Create and connect multiple InfoTile documents */
+  create?: Maybe<Array<GraphCms_InfoTileCreateInput>>;
+  /** Connect multiple existing InfoTile documents */
+  connect?: Maybe<Array<GraphCms_InfoTileConnectInput>>;
+  /** Override currently-connected documents with multiple existing InfoTile documents */
+  set?: Maybe<Array<GraphCms_InfoTileWhereUniqueInput>>;
+  /** Update multiple InfoTile documents */
+  update?: Maybe<Array<GraphCms_InfoTileUpdateWithNestedWhereUniqueInput>>;
+  /** Upsert multiple InfoTile documents */
+  upsert?: Maybe<Array<GraphCms_InfoTileUpsertWithNestedWhereUniqueInput>>;
+  /** Disconnect multiple InfoTile documents */
+  disconnect?: Maybe<Array<GraphCms_InfoTileWhereUniqueInput>>;
+  /** Delete multiple InfoTile documents */
+  delete?: Maybe<Array<GraphCms_InfoTileWhereUniqueInput>>;
+};
+
+export type GraphCms_InfoTileUpdateManyInput = {
+  createdAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  updatedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  icon?: Maybe<Scalars['String']>;
+  /** Optional updates to localizations */
+  localizations?: Maybe<Array<GraphCms_InfoTileUpdateManyLocalizationInput>>;
+};
+
+export type GraphCms_InfoTileUpdateManyLocalizationInput = {
+  title?: Maybe<Scalars['String']>;
+  text?: Maybe<Scalars['String']>;
+};
+
+export type GraphCms_InfoTileUpdateManyWithNestedWhereInput = {
+  /** Document search */
+  where: GraphCms_InfoTileWhereInput;
+  /** Update many input */
+  data: GraphCms_InfoTileUpdateManyInput;
+};
+
+export type GraphCms_InfoTileUpdateOneInlineInput = {
+  /** Create and connect one InfoTile document */
+  create?: Maybe<GraphCms_InfoTileCreateInput>;
+  /** Update single InfoTile document */
+  update?: Maybe<GraphCms_InfoTileUpdateWithNestedWhereUniqueInput>;
+  /** Upsert single InfoTile document */
+  upsert?: Maybe<GraphCms_InfoTileUpsertWithNestedWhereUniqueInput>;
+  /** Connect existing InfoTile document */
+  connect?: Maybe<GraphCms_InfoTileWhereUniqueInput>;
+  /** Disconnect currently connected InfoTile document */
+  disconnect?: Maybe<Scalars['Boolean']>;
+  /** Delete currently connected InfoTile document */
+  delete?: Maybe<Scalars['Boolean']>;
+};
+
+export type GraphCms_InfoTileUpdateWithNestedWhereUniqueInput = {
+  /** Unique document search */
+  where: GraphCms_InfoTileWhereUniqueInput;
+  /** Document to update */
+  data: GraphCms_InfoTileUpdateInput;
+};
+
+export type GraphCms_InfoTileUpsertInput = {
+  /** Create document if it didn't exist */
+  create: GraphCms_InfoTileCreateInput;
+  /** Update document if it exists */
+  update: GraphCms_InfoTileUpdateInput;
+};
+
+export type GraphCms_InfoTileUpsertLocalizationInput = {
+  update: GraphCms_InfoTileUpdateLocalizationDataInput;
+  create: GraphCms_InfoTileCreateLocalizationDataInput;
+  locale: GraphCms_Locale;
+};
+
+export type GraphCms_InfoTileUpsertWithNestedWhereUniqueInput = {
+  /** Unique document search */
+  where: GraphCms_InfoTileWhereUniqueInput;
+  /** Upsert data */
+  data: GraphCms_InfoTileUpsertInput;
+};
+
+/** Identifies documents */
+export type GraphCms_InfoTileWhereInput = {
+  /** Contains search across all appropriate fields. */
+  _search?: Maybe<Scalars['String']>;
+  /** Logical AND on all given filters. */
+  AND?: Maybe<Array<GraphCms_InfoTileWhereInput>>;
+  /** Logical OR on all given filters. */
+  OR?: Maybe<Array<GraphCms_InfoTileWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: Maybe<Array<GraphCms_InfoTileWhereInput>>;
+  id?: Maybe<Scalars['ID']>;
+  /** All values that are not equal to given value. */
+  id_not?: Maybe<Scalars['ID']>;
+  /** All values that are contained in given list. */
+  id_in?: Maybe<Array<Scalars['ID']>>;
+  /** All values that are not contained in given list. */
+  id_not_in?: Maybe<Array<Scalars['ID']>>;
+  /** All values containing the given string. */
+  id_contains?: Maybe<Scalars['ID']>;
+  /** All values not containing the given string. */
+  id_not_contains?: Maybe<Scalars['ID']>;
+  /** All values starting with the given string. */
+  id_starts_with?: Maybe<Scalars['ID']>;
+  /** All values not starting with the given string. */
+  id_not_starts_with?: Maybe<Scalars['ID']>;
+  /** All values ending with the given string. */
+  id_ends_with?: Maybe<Scalars['ID']>;
+  /** All values not ending with the given string */
+  id_not_ends_with?: Maybe<Scalars['ID']>;
+  createdAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are not equal to given value. */
+  createdAt_not?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are contained in given list. */
+  createdAt_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values that are not contained in given list. */
+  createdAt_not_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values less than the given value. */
+  createdAt_lt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values less than or equal the given value. */
+  createdAt_lte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than the given value. */
+  createdAt_gt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than or equal the given value. */
+  createdAt_gte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  updatedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are not equal to given value. */
+  updatedAt_not?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are contained in given list. */
+  updatedAt_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values that are not contained in given list. */
+  updatedAt_not_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values less than the given value. */
+  updatedAt_lt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values less than or equal the given value. */
+  updatedAt_lte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than the given value. */
+  updatedAt_gt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than or equal the given value. */
+  updatedAt_gte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  publishedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are not equal to given value. */
+  publishedAt_not?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are contained in given list. */
+  publishedAt_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values that are not contained in given list. */
+  publishedAt_not_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values less than the given value. */
+  publishedAt_lt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values less than or equal the given value. */
+  publishedAt_lte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than the given value. */
+  publishedAt_gt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than or equal the given value. */
+  publishedAt_gte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  icon?: Maybe<Scalars['String']>;
+  /** All values that are not equal to given value. */
+  icon_not?: Maybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  icon_in?: Maybe<Array<Scalars['String']>>;
+  /** All values that are not contained in given list. */
+  icon_not_in?: Maybe<Array<Scalars['String']>>;
+  /** All values containing the given string. */
+  icon_contains?: Maybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  icon_not_contains?: Maybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  icon_starts_with?: Maybe<Scalars['String']>;
+  /** All values not starting with the given string. */
+  icon_not_starts_with?: Maybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  icon_ends_with?: Maybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  icon_not_ends_with?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['String']>;
+  /** All values that are not equal to given value. */
+  title_not?: Maybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  title_in?: Maybe<Array<Scalars['String']>>;
+  /** All values that are not contained in given list. */
+  title_not_in?: Maybe<Array<Scalars['String']>>;
+  /** All values containing the given string. */
+  title_contains?: Maybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  title_not_contains?: Maybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  title_starts_with?: Maybe<Scalars['String']>;
+  /** All values not starting with the given string. */
+  title_not_starts_with?: Maybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  title_ends_with?: Maybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  title_not_ends_with?: Maybe<Scalars['String']>;
+  text?: Maybe<Scalars['String']>;
+  /** All values that are not equal to given value. */
+  text_not?: Maybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  text_in?: Maybe<Array<Scalars['String']>>;
+  /** All values that are not contained in given list. */
+  text_not_in?: Maybe<Array<Scalars['String']>>;
+  /** All values containing the given string. */
+  text_contains?: Maybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  text_not_contains?: Maybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  text_starts_with?: Maybe<Scalars['String']>;
+  /** All values not starting with the given string. */
+  text_not_starts_with?: Maybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  text_ends_with?: Maybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  text_not_ends_with?: Maybe<Scalars['String']>;
+  infoSection_every?: Maybe<GraphCms_InfoSectionWhereInput>;
+  infoSection_some?: Maybe<GraphCms_InfoSectionWhereInput>;
+  infoSection_none?: Maybe<GraphCms_InfoSectionWhereInput>;
+};
+
+/** References InfoTile record uniquely */
+export type GraphCms_InfoTileWhereUniqueInput = {
+  id?: Maybe<Scalars['ID']>;
+};
+
 
 /** Locale system enumeration */
 export type GraphCms_Locale = 
   /** System locale */
-  | 'en';
+  | 'en'
+  | 'fr';
 
 /** Representing a geolocation point with latitude and longitude */
 export type GraphCms_Location = {
@@ -4384,6 +4976,7 @@ export type GraphCms_PageIndex = GraphCms_Node & {
   bannerTitle?: Maybe<Scalars['String']>;
   bannerSubTitle?: Maybe<Scalars['String']>;
   bannerImage: Array<GraphCms_Asset>;
+  employeeEmployerSections: Array<GraphCms_InfoSection>;
   /** List of PageIndex versions */
   history: Array<GraphCms_Version>;
 };
@@ -4428,6 +5021,17 @@ export type GraphCms_PageIndexBannerImageArgs = {
 };
 
 
+export type GraphCms_PageIndexEmployeeEmployerSectionsArgs = {
+  where?: Maybe<GraphCms_InfoSectionWhereInput>;
+  orderBy?: Maybe<GraphCms_InfoSectionOrderByInput>;
+  skip?: Maybe<Scalars['Int']>;
+  after?: Maybe<Scalars['String']>;
+  before?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+};
+
+
 export type GraphCms_PageIndexHistoryArgs = {
   limit?: Scalars['Int'];
   skip?: Scalars['Int'];
@@ -4458,6 +5062,7 @@ export type GraphCms_PageIndexCreateInput = {
   /** bannerSubTitle input for default locale (en) */
   bannerSubTitle?: Maybe<Scalars['String']>;
   bannerImage?: Maybe<GraphCms_AssetCreateManyInlineInput>;
+  employeeEmployerSections?: Maybe<GraphCms_InfoSectionCreateManyInlineInput>;
   /** Inline mutations for managing document localizations excluding the default locale */
   localizations?: Maybe<GraphCms_PageIndexCreateLocalizationsInput>;
 };
@@ -4579,6 +5184,9 @@ export type GraphCms_PageIndexManyWhereInput = {
   bannerImage_every?: Maybe<GraphCms_AssetWhereInput>;
   bannerImage_some?: Maybe<GraphCms_AssetWhereInput>;
   bannerImage_none?: Maybe<GraphCms_AssetWhereInput>;
+  employeeEmployerSections_every?: Maybe<GraphCms_InfoSectionWhereInput>;
+  employeeEmployerSections_some?: Maybe<GraphCms_InfoSectionWhereInput>;
+  employeeEmployerSections_none?: Maybe<GraphCms_InfoSectionWhereInput>;
 };
 
 export type GraphCms_PageIndexOrderByInput = 
@@ -4601,6 +5209,7 @@ export type GraphCms_PageIndexUpdateInput = {
   /** bannerSubTitle input for default locale (en) */
   bannerSubTitle?: Maybe<Scalars['String']>;
   bannerImage?: Maybe<GraphCms_AssetUpdateManyInlineInput>;
+  employeeEmployerSections?: Maybe<GraphCms_InfoSectionUpdateManyInlineInput>;
   /** Manage document localizations */
   localizations?: Maybe<GraphCms_PageIndexUpdateLocalizationsInput>;
 };
@@ -4818,6 +5427,9 @@ export type GraphCms_PageIndexWhereInput = {
   bannerImage_every?: Maybe<GraphCms_AssetWhereInput>;
   bannerImage_some?: Maybe<GraphCms_AssetWhereInput>;
   bannerImage_none?: Maybe<GraphCms_AssetWhereInput>;
+  employeeEmployerSections_every?: Maybe<GraphCms_InfoSectionWhereInput>;
+  employeeEmployerSections_some?: Maybe<GraphCms_InfoSectionWhereInput>;
+  employeeEmployerSections_none?: Maybe<GraphCms_InfoSectionWhereInput>;
 };
 
 /** References PageIndex record uniquely */
@@ -6237,4 +6849,10 @@ export type TopBarQuery = { gcms: { companyMedias: Array<{ logo?: Maybe<Pick<Gra
 export type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type IndexPageQuery = { gcms: { companyMedias: Array<{ logoFooter?: Maybe<Pick<GraphCms_Asset, 'url'>>, logo?: Maybe<Pick<GraphCms_Asset, 'url'>> }>, assets: Array<Pick<GraphCms_Asset, 'url'>> } };
+export type IndexPageQuery = { gcms: { companyMedias: Array<{ logoFooter?: Maybe<Pick<GraphCms_Asset, 'url'>>, logo?: Maybe<Pick<GraphCms_Asset, 'url'>> }>, assets: Array<Pick<GraphCms_Asset, 'url'>>, pageIndices: Array<(
+      Pick<GraphCms_PageIndex, 'id'>
+      & { employeeEmployerSections: Array<(
+        Pick<GraphCms_InfoSection, 'title' | 'text' | 'actionText' | 'style'>
+        & { infoTiles: Array<Pick<GraphCms_InfoTile, 'icon' | 'title' | 'text'>> }
+      )> }
+    )> } };

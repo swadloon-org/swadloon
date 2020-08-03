@@ -2,19 +2,12 @@ import { graphql } from 'gatsby';
 import 'normalize.css';
 import React from 'react';
 import { IndexPageQuery } from '../../types/graphql-types';
-import { Button } from '../components/button';
-import { Heading } from '../components/heading';
-import { InfoTile } from '../components/info-tile';
-import { Label } from '../components/label';
-import { Paragraph } from '../components/paragraph';
+import { Banner } from '../components/banner';
+import { Footer } from '../components/footer';
+import { InfoSection } from '../components/info-section';
 import { TopBar } from '../components/top-bar';
 import '../styles/fonts.scss';
 import styles from './index.module.scss';
-import { Banner } from '../components/banner';
-import { Footer } from '../components/footer';
-import { Illustration } from '../components/illustration';
-import { ImageFrame } from '../components/image-frame';
-import { Tab } from '../components/tab';
 
 export const query = graphql`
   query indexPage {
@@ -29,6 +22,20 @@ export const query = graphql`
       }
       assets(where: { fileName: "Office1.jpg" }) {
         url
+      }
+      pageIndices(first: 1) {
+        id
+        employeeEmployerSections {
+          title
+          text
+          actionText
+          style
+          infoTiles {
+            icon
+            title
+            text
+          }
+        }
       }
     }
   }
@@ -45,6 +52,19 @@ const IndexPage: React.FC<IndexPageProps> = ({ data, location }) => {
       <TopBar></TopBar>
 
       <Banner></Banner>
+
+      {data.gcms.pageIndices[0].employeeEmployerSections.map((section, index) => {
+        return (
+          <InfoSection
+            key={index}
+            title={section.title}
+            text={section.text}
+            actionText={section.actionText}
+            variant={section.style.toLowerCase() as any}
+            infoTiles={section?.infoTiles as any}
+          />
+        );
+      })}
 
       {/* <div className={styles.content}>
         <Heading variant="h1">Heading 1</Heading>
@@ -89,18 +109,6 @@ const IndexPage: React.FC<IndexPageProps> = ({ data, location }) => {
           Label small regular
         </Label>
       </div> */}
-
-      <InfoTile
-        variant={'default'}
-        name={'Desktop'}
-        title={'Construction'}
-        text={'Lorem ipsum dolor sit amet, consectetur adipiscing elit nulla chronocrator.'}
-      />
-
-      <ImageFrame variant={'bottomLeft'} url={data.gcms.assets[0].url} />
-
-      <Tab size="small" selected="selected" text="Lorem Ipsum"></Tab>
-      <Tab size="small" selected="default" text="Lorem Ipsum"></Tab>
 
       <Footer></Footer>
     </div>

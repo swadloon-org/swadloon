@@ -11,6 +11,7 @@
   "license": "MIT",
   "scripts": {
     "start": "gatsby develop",
+    "prestart": "yarn clean",
     "build": "gatsby build",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "serve": "gatsby serve",

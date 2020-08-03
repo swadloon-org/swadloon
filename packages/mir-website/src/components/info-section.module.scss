@@ -1,0 +1,41 @@
+@import '../styles/colors.scss';
+@import '../styles/sizing.scss';
+@import '../styles/layout.scss';
+
+.wrapper {
+  display: grid;
+  justify-items: center;
+  padding: $sizing-x5 $margin-content;
+
+  background-color: $greyscale0;
+  color: $greyscale900;
+}
+
+.extra-padding {
+  padding: $sizing-x6 $margin-content;
+}
+
+.default {
+}
+
+.reversed {
+  background-color: $primary500;
+  color: $greyscale-inverted;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: $sizing-x3 * 2;
+}
+
+.text {
+  text-align: center;
+  margin-bottom: $sizing-x5;
+}
+
+.info-tiles-wrapper {
+  display: grid;
+  grid-row-gap: $sizing-x4;
+
+  margin-bottom: $sizing-x5;
+}
