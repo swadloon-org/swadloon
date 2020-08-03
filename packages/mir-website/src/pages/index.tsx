@@ -14,6 +14,7 @@ import { Banner } from '../components/banner';
 import { Footer } from '../components/footer';
 import { Illustration } from '../components/illustration';
 import { ImageFrame } from '../components/image-frame';
+import { Tab } from '../components/tab';
 
 export const query = graphql`
   query indexPage {
@@ -97,6 +98,9 @@ const IndexPage: React.FC<IndexPageProps> = ({ data, location }) => {
       />
 
       <ImageFrame variant={'bottomLeft'} url={data.gcms.assets[0].url} />
+
+      <Tab size="small" selected="selected" text="Lorem Ipsum"></Tab>
+      <Tab size="small" selected="default" text="Lorem Ipsum"></Tab>
 
       <Footer></Footer>
     </div>
