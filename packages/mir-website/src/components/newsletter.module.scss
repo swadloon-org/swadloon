@@ -1,0 +1,28 @@
+@import '../styles/colors.scss';
+@import '../styles/sizing.scss';
+@import '../styles/fonts';
+@import '../styles/typography';
+@import '../styles/layout';
+
+.wrapper {
+  background-color: $primary500;
+}
+.container {
+  margin: $margin-content;
+}
+.formulaire {
+  display: grid;
+  padding-bottom: $sizing-x6;
+}
+
+.subtitle {
+  text-align: center !important;
+  padding-top: $sizing-x5 !important;
+  color: $greyscale-inverted;
+}
+
+.title {
+  padding: $sizing-x5 0;
+  text-align: center;
+  color: $greyscale-inverted;
+}

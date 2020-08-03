@@ -6,6 +6,8 @@ import { Banner } from '../components/banner';
 import { Footer } from '../components/footer';
 import { InfoSection } from '../components/info-section';
 import { TopBar } from '../components/top-bar';
+import { Newsletter } from '../components/newsletter';
+
 import '../styles/fonts.scss';
 import styles from './index.module.scss';
 import './index.global.scss';
@@ -69,6 +71,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data, location }) => {
       {data.gcms.pageIndices[0].employeeEmployerSections.map((section, index) => {
         return <InfoSection key={index} {...section} />;
       })}
+      <Newsletter></Newsletter>
 
       <Footer></Footer>
     </div>

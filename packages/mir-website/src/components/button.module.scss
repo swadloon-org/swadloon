@@ -54,6 +54,18 @@
 .secondary {
   background-color: $primary500;
   color: $greyscale-inverted;
+  padding: $sizing-x2;
+  border: 0;
+
+  label {
+    text-align: center !important;
+  }
+
+  &.reversed {
+    color: $primary500;
+    background-color: $greyscale-inverted;
+    // border: 3px solid $greyscale-inverted;
+  }
 }
 
 .small {
