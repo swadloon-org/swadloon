@@ -13,6 +13,7 @@ import styles from './index.module.scss';
 import { Banner } from '../components/banner';
 import { Footer } from '../components/footer';
 import { Illustration } from '../components/illustration';
+import { ImageFrame } from '../components/image-frame';
 
 export const query = graphql`
   query indexPage {
@@ -24,6 +25,9 @@ export const query = graphql`
         logo {
           url
         }
+      }
+      assets(where: { fileName: "Office1.jpg" }) {
+        url
       }
     }
   }
@@ -41,7 +45,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data, location }) => {
 
       <Banner></Banner>
 
-      <div className={styles.content}>
+      {/* <div className={styles.content}>
         <Heading variant="h1">Heading 1</Heading>
         <Heading variant="h2">Heading 2</Heading>
         <Heading variant="h3">Heading 3</Heading>
@@ -83,9 +87,17 @@ const IndexPage: React.FC<IndexPageProps> = ({ data, location }) => {
         <Label size="small" variant="regular">
           Label small regular
         </Label>
-      </div>
+      </div> */}
 
-      <Illustration name="Desktop"></Illustration>
+      <InfoTile
+        variant={'default'}
+        name={'Desktop'}
+        title={'Construction'}
+        text={'Lorem ipsum dolor sit amet, consectetur adipiscing elit nulla chronocrator.'}
+      />
+
+      <ImageFrame variant={'bottomLeft'} url={data.gcms.assets[0].url} />
+
       <Footer></Footer>
     </div>
   );

@@ -1,20 +1,35 @@
-import React from 'react';
-import styles from './illustartion.module.scss';
+import React, { useState, useEffect, useRef, SVGAttributes } from 'react';
+import styles from './illustration.module.scss';
 
-import Desktop from '../illustrations/Illustration/Desktop.svg';
-import Factory from '../illustrations/Illustration/Factory.svg';
-import RoundedRectangle from '../illustrations/Illustration/RoundedRectangle.svg';
-import Square from '../illustrations/Illustration/Square.svg';
-import Tools from '../illustrations/Illustration/Tools.svg';
-
-type ThisProps = {
-  name: 'Desktop' | 'Factory' | 'RoundedRectangle' | 'Square' | 'Tools';
+type OwnProps = {
+  name: string;
+  width: number | string;
+  height: number | string;
 };
 
-export const Illustration: React.FC<ThisProps> = (props) => {
-  return (
-    <div>
-      <img src="../illustrations/Illustration/Tools.svg" alt="props.name" />
-    </div>
-  );
+export const Illustration: React.FC<OwnProps & SVGAttributes<any>> = ({ name, height, width, ...props }) => {
+  const ImportedIconRef = useRef(null);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    const importIcon = async () => {
+      try {
+        const { default: namedImport } = await import(`../illustrations/Illustration/${name}.svg`);
+        ImportedIconRef.current = namedImport;
+      } catch (err) {
+        throw err;
+      } finally {
+        setLoading(false);
+      }
+    };
+    importIcon();
+  }, [name]);
+
+  if (!loading && ImportedIconRef.current) {
+    const { current: ImportedIcon } = ImportedIconRef;
+    return <ImportedIcon {...props} width={width} height={height} />;
+  }
+
+  return null;
 };

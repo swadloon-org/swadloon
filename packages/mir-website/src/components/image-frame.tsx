@@ -1,10 +1,27 @@
 import React from 'react';
-import styles from './info-tile.module.scss';
+import { Illustration } from './illustration';
+import styles from './image-frame.module.scss';
 
 interface OwnProps {
-  position: 'bottom-left' | 'bottom-right';
+  url: string;
+  variant: 'bottomRight' | 'bottomLeft';
 }
 
-export const InfoTile: React.FC<OwnProps> = (props) => {
-  return <div className={`${styles.framed} ${styles[props.position]}`}>{props.children}</div>;
+export const ImageFrame: React.FC<OwnProps> = (props) => {
+  return (
+    <div className={`${styles.wrapper} ${styles[props.variant]}`}>
+      <Illustration
+        name={'Square'}
+        className={`${styles.backgroundIllustration}`}
+        viewBox={null}
+        preserveAspectRatio=""
+        width={''}
+        height={''}
+      />
+
+      <div className={styles.content}>
+        <div className={`${styles.image}`} style={{ backgroundImage: `url(${props.url})` }} />
+      </div>
+    </div>
+  );
 };
