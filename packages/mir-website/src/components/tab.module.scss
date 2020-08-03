@@ -9,6 +9,7 @@
   background-color: $greyscale-transparent;
   color: $greyscale1000;
 
+  touch-action: manipulation;
   cursor: pointer;
   * {
     cursor: pointer;
