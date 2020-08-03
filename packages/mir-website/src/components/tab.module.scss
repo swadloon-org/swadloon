@@ -5,17 +5,22 @@
 .wrapper {
   display: block;
   width: fit-content;
+
+  background-color: $greyscale-transparent;
+  color: $greyscale1000;
+
+  cursor: pointer;
+  * {
+    cursor: pointer;
+    user-select: none;
+  }
 }
+
 .small {
   padding: $sizing-x2;
-  margin-top: $sizing-x4;
-  margin-bottom: $sizing-x6;
 }
+
 .selected {
   color: $greyscale-inverted;
   background-color: $primary500;
-}
-.default {
-  background-color: $greyscale-transparent;
-  color: $greyscale1000;
 }

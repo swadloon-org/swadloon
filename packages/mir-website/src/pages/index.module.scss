@@ -1,8 +1,9 @@
 @import '../styles/layout.scss';
 
 .wrapper {
+  max-width: 414px; // TODO: remove
+
   display: grid;
-  max-width: 375px; // TODO: remove
 }
 
 .content {

@@ -3898,6 +3898,7 @@ export type GraphCms_InfoSection = GraphCms_Node & {
   /** The time the document was published. Null on documents in draft stage. */
   publishedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
   image?: Maybe<GraphCms_Asset>;
+  titleTab?: Maybe<Scalars['String']>;
   title: Scalars['String'];
   titleHighlight?: Maybe<Scalars['String']>;
   text?: Maybe<Scalars['String']>;
@@ -3905,6 +3906,8 @@ export type GraphCms_InfoSection = GraphCms_Node & {
   style?: Maybe<GraphCms_InfoSectionStyle>;
   pageIndex: Array<GraphCms_PageIndex>;
   infoTiles: Array<GraphCms_InfoTile>;
+  infoTabs: Array<GraphCms_InfoSection>;
+  infoSection: Array<GraphCms_InfoSection>;
   /** List of InfoSection versions */
   history: Array<GraphCms_Version>;
 };
@@ -3960,6 +3963,28 @@ export type GraphCms_InfoSectionInfoTilesArgs = {
 };
 
 
+export type GraphCms_InfoSectionInfoTabsArgs = {
+  where?: Maybe<GraphCms_InfoSectionWhereInput>;
+  orderBy?: Maybe<GraphCms_InfoSectionOrderByInput>;
+  skip?: Maybe<Scalars['Int']>;
+  after?: Maybe<Scalars['String']>;
+  before?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+};
+
+
+export type GraphCms_InfoSectionInfoSectionArgs = {
+  where?: Maybe<GraphCms_InfoSectionWhereInput>;
+  orderBy?: Maybe<GraphCms_InfoSectionOrderByInput>;
+  skip?: Maybe<Scalars['Int']>;
+  after?: Maybe<Scalars['String']>;
+  before?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+};
+
+
 export type GraphCms_InfoSectionHistoryArgs = {
   limit?: Scalars['Int'];
   skip?: Scalars['Int'];
@@ -3986,6 +4011,8 @@ export type GraphCms_InfoSectionCreateInput = {
   createdAt?: Maybe<Scalars['GraphCMS_DateTime']>;
   updatedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
   image?: Maybe<GraphCms_AssetCreateOneInlineInput>;
+  /** titleTab input for default locale (en) */
+  titleTab?: Maybe<Scalars['String']>;
   /** title input for default locale (en) */
   title: Scalars['String'];
   /** titleHighlight input for default locale (en) */
@@ -3998,6 +4025,8 @@ export type GraphCms_InfoSectionCreateInput = {
   style?: Maybe<GraphCms_InfoSectionStyle>;
   pageIndex?: Maybe<GraphCms_PageIndexCreateManyInlineInput>;
   infoTiles?: Maybe<GraphCms_InfoTileCreateManyInlineInput>;
+  infoTabs?: Maybe<GraphCms_InfoSectionCreateManyInlineInput>;
+  infoSection?: Maybe<GraphCms_InfoSectionCreateManyInlineInput>;
   /** Inline mutations for managing document localizations excluding the default locale */
   localizations?: Maybe<GraphCms_InfoSectionCreateLocalizationsInput>;
 };
@@ -4005,6 +4034,7 @@ export type GraphCms_InfoSectionCreateInput = {
 export type GraphCms_InfoSectionCreateLocalizationDataInput = {
   createdAt?: Maybe<Scalars['GraphCMS_DateTime']>;
   updatedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  titleTab?: Maybe<Scalars['String']>;
   title: Scalars['String'];
   titleHighlight?: Maybe<Scalars['String']>;
   text?: Maybe<Scalars['String']>;
@@ -4126,6 +4156,12 @@ export type GraphCms_InfoSectionManyWhereInput = {
   infoTiles_every?: Maybe<GraphCms_InfoTileWhereInput>;
   infoTiles_some?: Maybe<GraphCms_InfoTileWhereInput>;
   infoTiles_none?: Maybe<GraphCms_InfoTileWhereInput>;
+  infoTabs_every?: Maybe<GraphCms_InfoSectionWhereInput>;
+  infoTabs_some?: Maybe<GraphCms_InfoSectionWhereInput>;
+  infoTabs_none?: Maybe<GraphCms_InfoSectionWhereInput>;
+  infoSection_every?: Maybe<GraphCms_InfoSectionWhereInput>;
+  infoSection_some?: Maybe<GraphCms_InfoSectionWhereInput>;
+  infoSection_none?: Maybe<GraphCms_InfoSectionWhereInput>;
 };
 
 export type GraphCms_InfoSectionOrderByInput = 
@@ -4137,6 +4173,8 @@ export type GraphCms_InfoSectionOrderByInput =
   | 'updatedAt_DESC'
   | 'publishedAt_ASC'
   | 'publishedAt_DESC'
+  | 'titleTab_ASC'
+  | 'titleTab_DESC'
   | 'title_ASC'
   | 'title_DESC'
   | 'titleHighlight_ASC'
@@ -4149,11 +4187,15 @@ export type GraphCms_InfoSectionOrderByInput =
   | 'style_DESC';
 
 export type GraphCms_InfoSectionStyle = 
-  | 'DEFAULT'
-  | 'REVERSED';
+  | 'default'
+  | 'defaultShadow'
+  | 'reversed'
+  | 'reversedShadow';
 
 export type GraphCms_InfoSectionUpdateInput = {
   image?: Maybe<GraphCms_AssetUpdateOneInlineInput>;
+  /** titleTab input for default locale (en) */
+  titleTab?: Maybe<Scalars['String']>;
   /** title input for default locale (en) */
   title?: Maybe<Scalars['String']>;
   /** titleHighlight input for default locale (en) */
@@ -4166,11 +4208,14 @@ export type GraphCms_InfoSectionUpdateInput = {
   style?: Maybe<GraphCms_InfoSectionStyle>;
   pageIndex?: Maybe<GraphCms_PageIndexUpdateManyInlineInput>;
   infoTiles?: Maybe<GraphCms_InfoTileUpdateManyInlineInput>;
+  infoTabs?: Maybe<GraphCms_InfoSectionUpdateManyInlineInput>;
+  infoSection?: Maybe<GraphCms_InfoSectionUpdateManyInlineInput>;
   /** Manage document localizations */
   localizations?: Maybe<GraphCms_InfoSectionUpdateLocalizationsInput>;
 };
 
 export type GraphCms_InfoSectionUpdateLocalizationDataInput = {
+  titleTab?: Maybe<Scalars['String']>;
   title?: Maybe<Scalars['String']>;
   titleHighlight?: Maybe<Scalars['String']>;
   text?: Maybe<Scalars['String']>;
@@ -4218,6 +4263,7 @@ export type GraphCms_InfoSectionUpdateManyInput = {
 };
 
 export type GraphCms_InfoSectionUpdateManyLocalizationInput = {
+  titleTab?: Maybe<Scalars['String']>;
   title: Scalars['String'];
   titleHighlight?: Maybe<Scalars['String']>;
   text?: Maybe<Scalars['String']>;
@@ -4349,6 +4395,25 @@ export type GraphCms_InfoSectionWhereInput = {
   /** All values greater than or equal the given value. */
   publishedAt_gte?: Maybe<Scalars['GraphCMS_DateTime']>;
   image?: Maybe<GraphCms_AssetWhereInput>;
+  titleTab?: Maybe<Scalars['String']>;
+  /** All values that are not equal to given value. */
+  titleTab_not?: Maybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  titleTab_in?: Maybe<Array<Scalars['String']>>;
+  /** All values that are not contained in given list. */
+  titleTab_not_in?: Maybe<Array<Scalars['String']>>;
+  /** All values containing the given string. */
+  titleTab_contains?: Maybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  titleTab_not_contains?: Maybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  titleTab_starts_with?: Maybe<Scalars['String']>;
+  /** All values not starting with the given string. */
+  titleTab_not_starts_with?: Maybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  titleTab_ends_with?: Maybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  titleTab_not_ends_with?: Maybe<Scalars['String']>;
   title?: Maybe<Scalars['String']>;
   /** All values that are not equal to given value. */
   title_not?: Maybe<Scalars['String']>;
@@ -4438,6 +4503,12 @@ export type GraphCms_InfoSectionWhereInput = {
   infoTiles_every?: Maybe<GraphCms_InfoTileWhereInput>;
   infoTiles_some?: Maybe<GraphCms_InfoTileWhereInput>;
   infoTiles_none?: Maybe<GraphCms_InfoTileWhereInput>;
+  infoTabs_every?: Maybe<GraphCms_InfoSectionWhereInput>;
+  infoTabs_some?: Maybe<GraphCms_InfoSectionWhereInput>;
+  infoTabs_none?: Maybe<GraphCms_InfoSectionWhereInput>;
+  infoSection_every?: Maybe<GraphCms_InfoSectionWhereInput>;
+  infoSection_some?: Maybe<GraphCms_InfoSectionWhereInput>;
+  infoSection_none?: Maybe<GraphCms_InfoSectionWhereInput>;
 };
 
 /** References InfoSection record uniquely */
@@ -6882,6 +6953,6 @@ export type IndexPageQuery = { gcms: { companyMedias: Array<{ logoFooter?: Maybe
       Pick<GraphCms_PageIndex, 'id'>
       & { employeeEmployerSections: Array<(
         Pick<GraphCms_InfoSection, 'title' | 'titleHighlight' | 'text' | 'actionText' | 'style'>
-        & { image?: Maybe<Pick<GraphCms_Asset, 'url'>>, infoTiles: Array<Pick<GraphCms_InfoTile, 'icon' | 'title' | 'text'>> }
+        & { image?: Maybe<Pick<GraphCms_Asset, 'url'>>, infoTabs: Array<Pick<GraphCms_InfoSection, 'titleTab' | 'title' | 'titleHighlight' | 'text' | 'actionText' | 'style'>>, infoTiles: Array<Pick<GraphCms_InfoTile, 'icon' | 'title' | 'text'>> }
       )> }
     )> } };

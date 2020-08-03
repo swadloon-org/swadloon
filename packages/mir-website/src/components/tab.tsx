@@ -1,17 +1,20 @@
-import React, { useState } from 'react';
-import styles from './tab.module.scss';
+import React, { HtmlHTMLAttributes, AllHTMLAttributes } from 'react';
 import { Label } from './label';
+import styles from './tab.module.scss';
+
 interface OwnProps {
   size: 'small';
-  selected: 'selected' | 'default';
-  text: string;
+  selected: boolean;
 }
 
-export const Tab: React.FC<OwnProps> = (props) => {
+export const Tab: React.FC<OwnProps & { onClick: (e: React.MouseEvent<HTMLDivElement>) => void }> = (props) => {
   return (
-    <div className={`${styles.wrapper} ${styles[props.size]} ${styles[props.selected]}`}>
+    <div
+      className={`${styles.wrapper} ${styles[props.size]} ${styles[props.selected ? 'selected' : '']}`}
+      onClick={props.onClick}
+    >
       <Label size="small" variant="uppercase">
-        {props.text}
+        {props.children}
       </Label>
     </div>
   );

@@ -1,6 +1,7 @@
 @import '../styles/colors.scss';
 @import '../styles/sizing.scss';
 @import '../styles/layout.scss';
+@import '../styles/shadows.scss';
 
 .wrapper {
   display: grid;
@@ -12,10 +13,20 @@
 }
 
 .extra-padding {
-  padding: $sizing-x6 $margin-content;
+  padding: $sizing-x7 $margin-content;
+
+  & + .extra-padding:not(.reversed) {
+    padding: 0 $margin-content $sizing-x7;
+  }
 }
 
 .default {
+  color: $greyscale1000;
+}
+
+.default-shadow {
+  @include drop-shadow-large;
+  z-index: 1;
 }
 
 .reversed {
@@ -25,6 +36,10 @@
 
 .image {
   margin-bottom: $sizing-x5;
+}
+
+.image-tabs {
+  margin-bottom: $sizing-x3 * 2;
 }
 
 .title {
@@ -40,6 +55,7 @@
   text-align: center;
   white-space: pre-wrap; // handle mutli-line text
   margin-bottom: $sizing-x5;
+  color: currentColor;
 }
 
 .info-tiles-wrapper {
@@ -47,4 +63,11 @@
   grid-row-gap: $sizing-x4;
 
   margin-bottom: $sizing-x5;
+}
+
+.tabs-wrapper {
+  display: grid;
+  justify-items: center;
+  row-gap: $sizing-x1;
+  margin-bottom: $sizing-x3 * 2;
 }
