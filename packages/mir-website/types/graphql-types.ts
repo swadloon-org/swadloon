@@ -3897,10 +3897,11 @@ export type GraphCms_InfoSection = GraphCms_Node & {
   updatedAt: Scalars['GraphCMS_DateTime'];
   /** The time the document was published. Null on documents in draft stage. */
   publishedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  image?: Maybe<GraphCms_Asset>;
   title: Scalars['String'];
+  titleHighlight?: Maybe<Scalars['String']>;
   text?: Maybe<Scalars['String']>;
   actionText?: Maybe<Scalars['String']>;
-  image?: Maybe<GraphCms_Asset>;
   style?: Maybe<GraphCms_InfoSectionStyle>;
   pageIndex: Array<GraphCms_PageIndex>;
   infoTiles: Array<GraphCms_InfoTile>;
@@ -3984,13 +3985,15 @@ export type GraphCms_InfoSectionConnection = {
 export type GraphCms_InfoSectionCreateInput = {
   createdAt?: Maybe<Scalars['GraphCMS_DateTime']>;
   updatedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  image?: Maybe<GraphCms_AssetCreateOneInlineInput>;
   /** title input for default locale (en) */
   title: Scalars['String'];
+  /** titleHighlight input for default locale (en) */
+  titleHighlight?: Maybe<Scalars['String']>;
   /** text input for default locale (en) */
   text?: Maybe<Scalars['String']>;
   /** actionText input for default locale (en) */
   actionText?: Maybe<Scalars['String']>;
-  image?: Maybe<GraphCms_AssetCreateOneInlineInput>;
   /** style input for default locale (en) */
   style?: Maybe<GraphCms_InfoSectionStyle>;
   pageIndex?: Maybe<GraphCms_PageIndexCreateManyInlineInput>;
@@ -4003,6 +4006,7 @@ export type GraphCms_InfoSectionCreateLocalizationDataInput = {
   createdAt?: Maybe<Scalars['GraphCMS_DateTime']>;
   updatedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
   title: Scalars['String'];
+  titleHighlight?: Maybe<Scalars['String']>;
   text?: Maybe<Scalars['String']>;
   actionText?: Maybe<Scalars['String']>;
   style?: Maybe<GraphCms_InfoSectionStyle>;
@@ -4135,6 +4139,8 @@ export type GraphCms_InfoSectionOrderByInput =
   | 'publishedAt_DESC'
   | 'title_ASC'
   | 'title_DESC'
+  | 'titleHighlight_ASC'
+  | 'titleHighlight_DESC'
   | 'text_ASC'
   | 'text_DESC'
   | 'actionText_ASC'
@@ -4147,13 +4153,15 @@ export type GraphCms_InfoSectionStyle =
   | 'REVERSED';
 
 export type GraphCms_InfoSectionUpdateInput = {
+  image?: Maybe<GraphCms_AssetUpdateOneInlineInput>;
   /** title input for default locale (en) */
   title?: Maybe<Scalars['String']>;
+  /** titleHighlight input for default locale (en) */
+  titleHighlight?: Maybe<Scalars['String']>;
   /** text input for default locale (en) */
   text?: Maybe<Scalars['String']>;
   /** actionText input for default locale (en) */
   actionText?: Maybe<Scalars['String']>;
-  image?: Maybe<GraphCms_AssetUpdateOneInlineInput>;
   /** style input for default locale (en) */
   style?: Maybe<GraphCms_InfoSectionStyle>;
   pageIndex?: Maybe<GraphCms_PageIndexUpdateManyInlineInput>;
@@ -4164,6 +4172,7 @@ export type GraphCms_InfoSectionUpdateInput = {
 
 export type GraphCms_InfoSectionUpdateLocalizationDataInput = {
   title?: Maybe<Scalars['String']>;
+  titleHighlight?: Maybe<Scalars['String']>;
   text?: Maybe<Scalars['String']>;
   actionText?: Maybe<Scalars['String']>;
   style?: Maybe<GraphCms_InfoSectionStyle>;
@@ -4210,6 +4219,7 @@ export type GraphCms_InfoSectionUpdateManyInput = {
 
 export type GraphCms_InfoSectionUpdateManyLocalizationInput = {
   title: Scalars['String'];
+  titleHighlight?: Maybe<Scalars['String']>;
   text?: Maybe<Scalars['String']>;
   actionText?: Maybe<Scalars['String']>;
   style?: Maybe<GraphCms_InfoSectionStyle>;
@@ -4338,6 +4348,7 @@ export type GraphCms_InfoSectionWhereInput = {
   publishedAt_gt?: Maybe<Scalars['GraphCMS_DateTime']>;
   /** All values greater than or equal the given value. */
   publishedAt_gte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  image?: Maybe<GraphCms_AssetWhereInput>;
   title?: Maybe<Scalars['String']>;
   /** All values that are not equal to given value. */
   title_not?: Maybe<Scalars['String']>;
@@ -4357,6 +4368,25 @@ export type GraphCms_InfoSectionWhereInput = {
   title_ends_with?: Maybe<Scalars['String']>;
   /** All values not ending with the given string */
   title_not_ends_with?: Maybe<Scalars['String']>;
+  titleHighlight?: Maybe<Scalars['String']>;
+  /** All values that are not equal to given value. */
+  titleHighlight_not?: Maybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  titleHighlight_in?: Maybe<Array<Scalars['String']>>;
+  /** All values that are not contained in given list. */
+  titleHighlight_not_in?: Maybe<Array<Scalars['String']>>;
+  /** All values containing the given string. */
+  titleHighlight_contains?: Maybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  titleHighlight_not_contains?: Maybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  titleHighlight_starts_with?: Maybe<Scalars['String']>;
+  /** All values not starting with the given string. */
+  titleHighlight_not_starts_with?: Maybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  titleHighlight_ends_with?: Maybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  titleHighlight_not_ends_with?: Maybe<Scalars['String']>;
   text?: Maybe<Scalars['String']>;
   /** All values that are not equal to given value. */
   text_not?: Maybe<Scalars['String']>;
@@ -4395,7 +4425,6 @@ export type GraphCms_InfoSectionWhereInput = {
   actionText_ends_with?: Maybe<Scalars['String']>;
   /** All values not ending with the given string */
   actionText_not_ends_with?: Maybe<Scalars['String']>;
-  image?: Maybe<GraphCms_AssetWhereInput>;
   style?: Maybe<GraphCms_InfoSectionStyle>;
   /** All values that are not equal to given value. */
   style_not?: Maybe<GraphCms_InfoSectionStyle>;
@@ -6852,7 +6881,7 @@ export type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
 export type IndexPageQuery = { gcms: { companyMedias: Array<{ logoFooter?: Maybe<Pick<GraphCms_Asset, 'url'>>, logo?: Maybe<Pick<GraphCms_Asset, 'url'>> }>, assets: Array<Pick<GraphCms_Asset, 'url'>>, pageIndices: Array<(
       Pick<GraphCms_PageIndex, 'id'>
       & { employeeEmployerSections: Array<(
-        Pick<GraphCms_InfoSection, 'title' | 'text' | 'actionText' | 'style'>
-        & { infoTiles: Array<Pick<GraphCms_InfoTile, 'icon' | 'title' | 'text'>> }
+        Pick<GraphCms_InfoSection, 'title' | 'titleHighlight' | 'text' | 'actionText' | 'style'>
+        & { image?: Maybe<Pick<GraphCms_Asset, 'url'>>, infoTiles: Array<Pick<GraphCms_InfoTile, 'icon' | 'title' | 'text'>> }
       )> }
     )> } };

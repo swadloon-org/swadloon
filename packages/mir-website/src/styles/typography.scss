@@ -1,6 +1,6 @@
 @mixin typography-heading-h1 {
-  font-family: 'Montserrat-Bold', sans-serif;
-  font-weight: 400;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
   font-style: normal;
   font-size: 60px;
   letter-spacing: 1px;
@@ -30,8 +30,8 @@
 }
 
 @mixin typography-heading-h2 {
-  font-family: 'Montserrat-Bold', sans-serif;
-  font-weight: 400;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
   font-style: normal;
   font-size: 37.08281707763672px;
   letter-spacing: 0px;
@@ -61,8 +61,8 @@
 }
 
 @mixin typography-heading-h3 {
-  font-family: 'Montserrat-Bold', sans-serif;
-  font-weight: 400;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
   font-style: normal;
   font-size: 22.91718101501465px;
   letter-spacing: 0px;
@@ -92,8 +92,8 @@
 }
 
 @mixin typography-heading-h4 {
-  font-family: 'Montserrat-Bold', sans-serif;
-  font-weight: 400;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
   font-style: normal;
   font-size: 16px;
   letter-spacing: 0px;
@@ -216,8 +216,8 @@
 }
 
 @mixin typography-label-medium-uppercase-bold {
-  font-family: 'Montserrat-Bold', sans-serif;
-  font-weight: 400;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
   font-style: normal;
   font-size: 16px;
   letter-spacing: 2px;
@@ -248,8 +248,8 @@
 }
 
 @mixin typography-label-medium-bold {
-  font-family: 'Montserrat-Bold', sans-serif;
-  font-weight: 400;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
   font-style: normal;
   font-size: 16px;
   letter-spacing: 1px;
@@ -279,7 +279,7 @@
 }
 
 @mixin typography-label-medium-regular {
-  font-family: 'Montserrat-Regular', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 16px;
@@ -310,8 +310,8 @@
 }
 
 @mixin typography-label-small-uppercase-bold {
-  font-family: 'Montserrat-Bold', sans-serif;
-  font-weight: 400;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
   font-style: normal;
   font-size: 11px;
   letter-spacing: 2px;
@@ -342,8 +342,8 @@
 }
 
 @mixin typography-label-small-bold {
-  font-family: 'Montserrat-Bold', sans-serif;
-  font-weight: 400;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
   font-style: normal;
   font-size: 12px;
   letter-spacing: 1px;
@@ -373,7 +373,7 @@
 }
 
 @mixin typography-label-small-regular {
-  font-family: 'Montserrat-Regular', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 12px;

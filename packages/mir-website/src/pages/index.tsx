@@ -26,7 +26,11 @@ export const query = graphql`
       pageIndices(first: 1) {
         id
         employeeEmployerSections {
+          image {
+            url
+          }
           title
+          titleHighlight
           text
           actionText
           style
@@ -57,7 +61,9 @@ const IndexPage: React.FC<IndexPageProps> = ({ data, location }) => {
         return (
           <InfoSection
             key={index}
+            imageUrl={section?.image?.url ? section?.image?.url : undefined}
             title={section.title}
+            titleHighlight={section.titleHighlight}
             text={section.text}
             actionText={section.actionText}
             variant={section.style.toLowerCase() as any}

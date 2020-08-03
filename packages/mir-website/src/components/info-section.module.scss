@@ -23,13 +23,22 @@
   color: $greyscale-inverted;
 }
 
+.image {
+  margin-bottom: $sizing-x5;
+}
+
 .title {
   text-align: center;
   margin-bottom: $sizing-x3 * 2;
 }
 
+.title-highlight {
+  color: $primary500;
+}
+
 .text {
   text-align: center;
+  white-space: pre-wrap; // handle mutli-line text
   margin-bottom: $sizing-x5;
 }
 
