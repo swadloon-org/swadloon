@@ -1,0 +1,68 @@
+@import '../styles/colors.scss';
+@import '../styles/sizing.scss';
+
+@mixin reset-button {
+  position: relative;
+  appearance: none;
+  -webkit-appearance: none;
+  border-radius: 0;
+
+  background: none;
+  border: none;
+
+  user-select: none;
+  cursor: pointer;
+  * {
+    user-select: none;
+    cursor: pointer;
+  }
+}
+
+.primary {
+  @include reset-button;
+  padding: 18px 21px;
+
+  color: $primary500;
+  // border: 3px solid $primary500;
+
+  &.reversed {
+    color: $greyscale-inverted;
+    // border: 3px solid $greyscale-inverted;
+  }
+}
+
+.corner-top-left {
+  position: absolute;
+  top: -1.5px;
+  left: -1.5px;
+
+  path {
+    stroke: currentColor;
+  }
+}
+
+.corner-bottom-right {
+  position: absolute;
+  bottom: -1.5px;
+  right: -1.5px;
+  path {
+    stroke: currentColor;
+  }
+}
+
+.secondary {
+  background-color: $primary500;
+  color: $greyscale-inverted;
+}
+
+.small {
+}
+
+.medium {
+}
+
+.text {
+}
+
+.default {
+}

@@ -100,7 +100,12 @@ export const InfoSection: React.FC<OwnProps> = (props) => {
         ) : null}
 
         {hasTabs ? null : (
-          <Button type="secondary" variant="default" size="medium">
+          <Button
+            type={'primary'}
+            variant={'text'}
+            size={'medium'}
+            variantStyle={props.style === 'default' || props.style === 'defaultShadow' ? 'default' : 'reversed'}
+          >
             {props.actionText}
           </Button>
         )}
@@ -133,7 +138,7 @@ export const InfoSection: React.FC<OwnProps> = (props) => {
           {props.text}
         </Paragraph>
 
-        <Button type="secondary" variant="default" size="medium">
+        <Button type={'primary'} variant={'text'} size={'medium'} variantStyle={'default'}>
           {props.actionText}
         </Button>
       </React.Fragment>
