@@ -52,6 +52,8 @@
 }
 
 .secondary {
+  @include reset-button;
+
   background-color: $primary500;
   color: $greyscale-inverted;
   padding: $sizing-x2;

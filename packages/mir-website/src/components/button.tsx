@@ -18,13 +18,16 @@ export const Button: React.FC<ThisProps> = (props) => {
       type="button"
       className={`${styles[props.type]} ${styles[props.size]} ${styles[props.variant]} ${styles[props.variantStyle]}`}
     >
-      <CornerTopLeft className={styles.cornerTopLeft} preserveAspectRatio="xMinYMin meet" />
+      {props.type === 'primary' ? (
+        <>
+          <CornerTopLeft className={styles.cornerTopLeft} preserveAspectRatio="xMinYMin meet" />
+          <CornerBottomRight className={styles.cornerBottomRight} preserveAspectRatio="xMinYMax meet" />
+        </>
+      ) : null}
 
       <Label variant="bold" size="small">
         {props.children}
       </Label>
-
-      <CornerBottomRight className={styles.cornerBottomRight} preserveAspectRatio="xMinYMax meet" />
     </button>
   );
 };

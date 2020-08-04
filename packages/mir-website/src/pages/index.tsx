@@ -71,7 +71,8 @@ const IndexPage: React.FC<IndexPageProps> = ({ data, location }) => {
       {data.gcms.pageIndices[0].employeeEmployerSections.map((section, index) => {
         return <InfoSection key={index} {...section} />;
       })}
-      <Newsletter></Newsletter>
+
+      <Newsletter id="newsletter"></Newsletter>
 
       <Footer></Footer>
     </div>
