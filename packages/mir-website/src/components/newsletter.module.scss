@@ -44,18 +44,23 @@
     display: flex;
     padding: $sizing-x6 0;
     margin: 24px auto;
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-areas: 'content content content content content content content . form form form form';
+    grid-template-rows: auto;
+    column-gap: 20px;
   }
 
   .content {
-    width: 50%;
+    grid-area: content;
   }
 
   .containerForm {
-    width: 50%;
+    grid-area: form;
   }
 
   .formulaire {
-    width: 50%;
     display: grid;
 
     input {
@@ -73,5 +78,11 @@
     padding-top: $sizing-x3;
     text-align: left;
     color: $greyscale-inverted;
+  }
+}
+
+@media only screen and (min-width: $breakpoint-desktop-medium) {
+  .container {
+    grid-template-areas: 'content content content content content . form form form . . .';
   }
 }
