@@ -5,39 +5,38 @@
 @import '../styles/layout';
 @import '../styles/breakpoints.scss';
 
-@media only screen and (min-width: $breakpoint-mobile-large) {
-  .wrapper {
-    background-color: $primary500;
-  }
+.wrapper {
+  background-color: $primary500;
+}
 
-  .container {
-    margin: $margin-content;
-  }
+.container {
+  margin: $margin-content;
+}
 
-  .formulaire {
-    display: grid;
-    padding-bottom: $sizing-x6;
-    input {
-      margin-bottom: $sizing-x3;
-    }
+.formulaire {
+  display: grid;
+  padding-bottom: $sizing-x6;
+  input {
+    margin-bottom: $sizing-x3;
   }
+}
 
-  .subtitle {
-    text-align: center;
-    padding-top: $sizing-x5;
-    color: $greyscale-inverted;
-  }
+.subtitle {
+  text-align: center;
+  padding-top: $sizing-x5;
+  color: $greyscale-inverted;
+}
 
-  .title {
-    padding: $sizing-x5 0;
-    text-align: center;
-    color: $greyscale-inverted;
-  }
+.title {
+  padding: $sizing-x5 0;
+  text-align: center;
+  color: $greyscale-inverted;
 }
 
 @media only screen and (min-width: $breakpoint-desktop-small) {
   .wrapper {
     background-color: $primary500;
+    padding: 0 $margin-content;
   }
 
   .container {
