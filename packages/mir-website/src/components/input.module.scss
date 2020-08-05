@@ -6,7 +6,6 @@
 .wrapper {
   @include typography-paragraph-small;
   padding: $sizing-x1 $sizing-x2;
-  margin-bottom: $sizing-x4;
 
   &:focus {
     outline: none;

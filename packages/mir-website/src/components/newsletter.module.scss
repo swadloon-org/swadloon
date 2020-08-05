@@ -3,28 +3,67 @@
 @import '../styles/fonts';
 @import '../styles/typography';
 @import '../styles/layout';
+@import '../styles/breakpoints.scss';
 
-.wrapper {
-  background-color: $primary500;
+@media only screen and (max-width: $breakpoint-mobile-large) {
+  .wrapper {
+    background-color: $primary500;
+  }
+  .container {
+    margin: $margin-content;
+  }
+  .formulaire {
+    display: grid;
+    padding-bottom: $sizing-x6;
+    input {
+      margin-bottom: $sizing-x3;
+    }
+  }
+  .subtitle {
+    text-align: center;
+    padding-top: $sizing-x5;
+    color: $greyscale-inverted;
+  }
+  .title {
+    padding: $sizing-x5 0;
+    text-align: center;
+    color: $greyscale-inverted;
+  }
 }
 
-.container {
-  margin: $margin-content;
-}
+@media only screen and (min-width: $breakpoint-desktop-small) {
+  .wrapper {
+    background-color: $primary500;
+  }
+  .container {
+    max-width: 1200px;
+    display: flex;
+    padding: $sizing-x6 0;
+    margin: 24px auto;
+  }
+  .content {
+    width: 50%;
+  }
 
-.formulaire {
-  display: grid;
-  padding-bottom: $sizing-x6;
-}
+  .containerForm {
+    width: 50%;
+  }
+  .formulaire {
+    width: 50%;
+    display: grid;
 
-.subtitle {
-  text-align: center !important;
-  padding-top: $sizing-x5 !important;
-  color: $greyscale-inverted;
-}
-
-.title {
-  padding: $sizing-x5 0;
-  text-align: center;
-  color: $greyscale-inverted;
+    input {
+      margin-bottom: $sizing-x3;
+    }
+  }
+  .subtitle {
+    text-align: left;
+    padding-bottom: $sizing-x3;
+    color: $greyscale-inverted;
+  }
+  .title {
+    padding-top: $sizing-x3;
+    text-align: left;
+    color: $greyscale-inverted;
+  }
 }

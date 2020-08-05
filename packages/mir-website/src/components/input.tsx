@@ -1,4 +1,4 @@
-import React, { HtmlHTMLAttributes, AllHTMLAttributes } from 'react';
+import React, { HTMLAttributes } from 'react';
 import styles from './input.module.scss';
 
 interface OwnProps {
@@ -6,7 +6,7 @@ interface OwnProps {
   placeholder: string;
 }
 
-export const Input: React.FC<OwnProps> = (props) => {
+export const Input: React.FC<OwnProps & HTMLAttributes<any>> = (props) => {
   return (
     <input className={`${styles.wrapper} ${styles[props.variant]}`} type="text" placeholder={`${props.placeholder}`} />
   );
