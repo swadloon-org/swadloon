@@ -12,5 +12,9 @@ interface OwnProps {
  *
  */
 export const AnchorLink: React.FC<AnchorHTMLAttributes<any> & OwnProps> = (props) => {
-  return <a className={`${props.className || ''} ${styles.wrapper}`}>{props.children}</a>;
+  return (
+    <a className={`${props.className || ''} ${styles.wrapper}`} {...props}>
+      {props.children}
+    </a>
+  );
 };
