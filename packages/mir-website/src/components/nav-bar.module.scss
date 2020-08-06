@@ -70,7 +70,7 @@
   display: flex;
 }
 
-@media only screen and (min-device-width: $breakpoint-tablet-portrait) and (max-width: $breakpoint-tablet-landscape) and (orientation: portrait) {
+@media only screen and (min-device-width: $breakpoint-tablet-portrait) {
   .wrapper {
     height: 73px;
     padding: 0 $margin-content-tablet;
