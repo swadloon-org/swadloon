@@ -1,14 +1,18 @@
 @import '../styles/colors.scss';
 @import '../styles/sizing.scss';
 @import '../styles/layout.scss';
+@import '../styles/breakpoints.scss';
 
 .wrapper {
-  display: grid;
-  grid-row-gap: $sizing-x5;
   padding: $sizing-x5 $margin-content;
 
   background-color: $greyscale1000;
   color: $greyscale0;
+}
+
+.gridwrapper {
+  display: grid;
+  grid-row-gap: $sizing-x5;
 }
 
 .title {
@@ -22,5 +26,29 @@
 
   a {
     margin-left: 3px;
+  }
+}
+
+@media only screen and (min-width: $breakpoint-desktop-small) {
+  .gridwrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-row-gap: $sizing-x5;
+    padding: $sizing-x5 0;
+    grid-template-columns: 25% 25% 25%;
+  }
+
+  .firm {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .contact {
+    grid-column: 2;
+  }
+
+  .location {
+    grid-column: 3;
   }
 }

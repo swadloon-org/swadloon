@@ -38,52 +38,57 @@ export const Footer: React.FC<OwnProps> = (props) => {
 
   return (
     <footer className={styles.wrapper}>
-      <div>
-        <Label className={styles.title} size="small" variant="uppercase">
-          Contactez-nous
-        </Label>
-        <Paragraph className={styles.infoText} variant="small">
-          Téléphone :
-          <AnchorLink variant="reversed" href={`tel:${data.gcms.companyAddresses[0].phone}`}>
-            {data.gcms.companyAddresses[0].phone}
-          </AnchorLink>
-        </Paragraph>
-        <Paragraph className={styles.infoText} variant="small">
-          Sans frais :
-          <AnchorLink variant="reversed" href={`tel:${data.gcms.companyAddresses[0].phoneNoFees}`}>
-            {data.gcms.companyAddresses[0].phoneNoFees}
-          </AnchorLink>
-        </Paragraph>
-        <Paragraph className={styles.infoText} variant="small">
-          Courriel :{' '}
-          <AnchorLink variant="reversed" href={`mailto:${data.gcms.companyAddresses[0].email}`}>
-            {data.gcms.companyAddresses[0].email}
-          </AnchorLink>
+      <div className={styles.gridwrapper}>
+        <div className={styles.contact}>
+          <Label className={styles.title} size="small" variant="uppercase">
+            Contactez-nous
+          </Label>
+          <Paragraph className={styles.infoText} variant="small">
+            Téléphone :
+            <AnchorLink variant="reversed" href={`tel:${data.gcms.companyAddresses[0].phone}`}>
+              {data.gcms.companyAddresses[0].phone}
+            </AnchorLink>
+          </Paragraph>
+          <Paragraph className={styles.infoText} variant="small">
+            Sans frais :
+            <AnchorLink variant="reversed" href={`tel:${data.gcms.companyAddresses[0].phoneNoFees}`}>
+              {data.gcms.companyAddresses[0].phoneNoFees}
+            </AnchorLink>
+          </Paragraph>
+          <Paragraph className={styles.infoText} variant="small">
+            Courriel :{' '}
+            <AnchorLink variant="reversed" href={`mailto:${data.gcms.companyAddresses[0].email}`}>
+              {data.gcms.companyAddresses[0].email}
+            </AnchorLink>
+          </Paragraph>
+        </div>
+
+        <div className={styles.location}>
+          <Label className={styles.title} size="small" variant="uppercase">
+            Visitez-nous
+          </Label>
+          <Paragraph className={styles.infoText} variant="small">
+            {data.gcms.companyAddresses[0].addressLine1}
+          </Paragraph>
+          <Paragraph className={styles.infoText} variant="small">
+            {data.gcms.companyAddresses[0].addressLine2}
+          </Paragraph>
+          <Paragraph className={styles.infoText} variant="small">
+            {data.gcms.companyAddresses[0].city}, {data.gcms.companyAddresses[0].provinceState},{' '}
+            {data.gcms.companyAddresses[0].postalCode}
+          </Paragraph>
+          <Paragraph className={styles.infoText} variant="small">
+            {data.gcms.companyAddresses[0].country}
+          </Paragraph>
+        </div>
+        <div className={styles.firm}>
+          <Logo type="framed-text" variant="reversed" src={`${data.gcms.companyMedias[0].logoFooter.url}`}></Logo>
+        </div>
+
+        <Paragraph className={styles.copyright} variant="small">
+          © {new Date().getFullYear()} Tous droits réservés MIR.{' '}
         </Paragraph>
       </div>
-
-      <div>
-        <Label className={styles.title} size="small" variant="uppercase">
-          Visitez-nous
-        </Label>
-        <Paragraph className={styles.infoText} variant="small">
-          {data.gcms.companyAddresses[0].addressLine1}
-        </Paragraph>
-        <Paragraph className={styles.infoText} variant="small">
-          {data.gcms.companyAddresses[0].addressLine2}
-        </Paragraph>
-        <Paragraph className={styles.infoText} variant="small">
-          {data.gcms.companyAddresses[0].city}, {data.gcms.companyAddresses[0].provinceState},{' '}
-          {data.gcms.companyAddresses[0].postalCode}
-        </Paragraph>
-        <Paragraph className={styles.infoText} variant="small">
-          {data.gcms.companyAddresses[0].country}
-        </Paragraph>
-      </div>
-
-      <Logo type="framed-text" variant="reversed" src={`${data.gcms.companyMedias[0].logoFooter.url}`}></Logo>
-
-      <Paragraph variant="small">© {new Date().getFullYear()} Tous droits réservés MIR. </Paragraph>
     </footer>
   );
 };

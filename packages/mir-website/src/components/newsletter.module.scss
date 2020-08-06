@@ -5,6 +5,7 @@
 @import '../styles/layout';
 @import '../styles/breakpoints.scss';
 
+// for mobile only
 .wrapper {
   background-color: $primary500;
 }
@@ -33,17 +34,57 @@
   color: $greyscale-inverted;
 }
 
-@media only screen and (min-width: $breakpoint-desktop-small) {
+@media only screen and (min-device-width: $breakpoint-tablet-portrait) and (max-width: $breakpoint-tablet-landscape) and (orientation: portrait) {
+  // for portrait layouts only
   .wrapper {
-    background-color: $primary500;
+    padding: 0 $margin-content-tablet;
+  }
+  .container {
+    padding: $sizing-x6 0;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-areas: 'content content content content content content . form form form form .';
+    grid-template-rows: auto;
+    column-gap: 20px;
+  }
+  .content {
+    grid-area: content;
+  }
+
+  .containerForm {
+    grid-area: form;
+  }
+
+  .formulaire {
+    display: grid;
+
+    input {
+      margin-bottom: $sizing-x3;
+    }
+  }
+  .subtitle {
+    text-align: left;
+    padding-bottom: $sizing-x3;
+  }
+
+  .title {
+    padding-top: $sizing-x3;
+    text-align: left;
+  }
+}
+
+@media only screen and (min-width: $breakpoint-desktop-small) {
+  // for desktop layouts
+  .wrapper {
     padding: 0 $margin-content;
   }
 
   .container {
     max-width: 1200px;
-    display: flex;
     padding: $sizing-x6 0;
-    margin: 24px auto;
+    margin: 0 auto;
 
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -71,13 +112,11 @@
   .subtitle {
     text-align: left;
     padding-bottom: $sizing-x3;
-    color: $greyscale-inverted;
   }
 
   .title {
     padding-top: $sizing-x3;
     text-align: left;
-    color: $greyscale-inverted;
   }
 }
 
