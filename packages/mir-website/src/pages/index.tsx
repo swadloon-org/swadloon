@@ -12,6 +12,7 @@ import '../styles/fonts.scss';
 import './index.global.scss';
 import styles from './index.module.scss';
 import { BlogPreviewTile } from '../components/blog-preview/blog-preview-tile';
+import { BlogPreviewTileImage } from '../components/blog-preview/blog-preview-tile-image';
 
 export const query = graphql`
   query indexPage {
@@ -79,6 +80,15 @@ const IndexPage: React.FC<IndexPageProps> = ({ data, location }) => {
           subtitle="4 JUILLET 2020"
           actionLabel="Lire l’article"
         ></BlogPreviewTile>
+      </div>
+
+      <div style={{ backgroundColor: 'white', padding: '2em' }}>
+        <BlogPreviewTileImage
+          imageUrl={data.gcms.assets[0].url}
+          title="Conseils pour faire passer vos employés vers le travail à distance"
+          subtitle="4 JUILLET 2020"
+          actionLabel="Lire l’article"
+        ></BlogPreviewTileImage>
       </div>
 
       <Newsletter id="newsletter"></Newsletter>
