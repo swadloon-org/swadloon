@@ -60,7 +60,7 @@
   border: 0;
 
   label {
-    text-align: center !important;
+    text-align: center;
   }
 
   &.reversed {
@@ -70,7 +70,43 @@
   }
 }
 
+.tertiary {
+  @include reset-button;
+
+  background-color: $greyscale-transparent;
+  color: $primary500;
+  padding: $sizing-x2;
+  border: 0;
+
+  label {
+    text-align: center;
+  }
+
+  &.reversed {
+    color: $greyscale-inverted;
+    background-color: $greyscale-transparent;
+  }
+}
+
+.icon {
+  padding: calc((#{$sizing-x4} - 24px) / 2);
+
+  svg {
+    path,
+    rect {
+      fill: $greyscale-inverted;
+    }
+  }
+}
+
+.illustration {
+  height: 24px;
+  width: 24px;
+}
+
 .small {
+  line-height: $sizing-x4;
+  height: $sizing-x4;
 }
 
 .medium {

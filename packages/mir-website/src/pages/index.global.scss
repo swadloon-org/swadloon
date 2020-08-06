@@ -4,4 +4,11 @@ body {
   display: flex;
   justify-content: center;
   background-color: #272727;
+
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+* {
+  box-sizing: border-box;
 }

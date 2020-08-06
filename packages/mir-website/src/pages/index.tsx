@@ -5,7 +5,7 @@ import { IndexPageQuery } from '../../types/graphql-types';
 import { Banner } from '../components/banner';
 import { Footer } from '../components/footer';
 import { InfoSection } from '../components/info-section';
-import { TopBar } from '../components/top-bar';
+import { NavBar } from '../components/nav-bar';
 import { Newsletter } from '../components/newsletter';
 
 import '../styles/fonts.scss';
@@ -64,13 +64,15 @@ interface IndexPageProps {
 const IndexPage: React.FC<IndexPageProps> = ({ data, location }) => {
   return (
     <div className={styles.wrapper}>
-      <TopBar></TopBar>
+      <NavBar></NavBar>
 
       <Banner></Banner>
 
       {data.gcms.pageIndices[0].employeeEmployerSections.map((section, index) => {
         return <InfoSection key={index} {...section} />;
       })}
+
+      <div style={{ height: '200px' }}></div>
 
       <Newsletter id="newsletter"></Newsletter>
 
