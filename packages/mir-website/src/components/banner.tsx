@@ -36,7 +36,7 @@ export const Banner: React.FC<OwnProps> = () => {
         style={{ backgroundImage: `url(${data.gcms.pageIndices[0].bannerImage[0].url})` }}
       >
         <div className={styles.content}>
-          <Label size="medium" variant="uppercase" className={styles.subtitle}>
+          <Label size="small" variant="uppercase" className={styles.subtitle}>
             {data.gcms.pageIndices[0].bannerSubTitle}
           </Label>
           <BarSVG />

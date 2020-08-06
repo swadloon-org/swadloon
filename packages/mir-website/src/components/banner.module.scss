@@ -93,3 +93,39 @@
     @include typography-heading-h1;
   }
 }
+
+@media only screen and (min-device-width: $breakpoint-tablet-portrait) and (max-width: $breakpoint-tablet-landscape) and (orientation: landscape) {
+  .containerBox {
+    position: relative;
+  }
+
+  .wrapper {
+    z-index: 1;
+    margin: 0 40px $sizing-x5 40px;
+  }
+
+  .content {
+    width: 60%;
+  }
+
+  .blackbox {
+    position: absolute;
+    bottom: 0;
+    z-index: -1;
+    height: 55%;
+    width: 100%;
+
+    background-color: $greyscale1000;
+  }
+  .bluebox {
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    width: 100%;
+    height: 45%;
+    background-color: $primary500;
+  }
+  .title {
+    @include typography-heading-h2;
+  }
+}
