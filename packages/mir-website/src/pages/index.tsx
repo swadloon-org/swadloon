@@ -73,24 +73,36 @@ const IndexPage: React.FC<IndexPageProps> = ({ data, location }) => {
       {data.gcms.pageIndices[0].employeeEmployerSections.map((section, index) => {
         return <InfoSection key={index} {...section} />;
       })}
+      <div>
+        <div style={{ backgroundColor: 'white', padding: '2em' }}>
+          <BlogPreviewTile
+            title="Conseils pour faire passer vos employés vers le travail à distance"
+            subtitle="4 JUILLET 2020"
+            actionLabel="Lire l’article"
+          ></BlogPreviewTile>
+        </div>
 
-      <div style={{ backgroundColor: 'white', padding: '2em' }}>
-        <BlogPreviewTile
-          title="Conseils pour faire passer vos employés vers le travail à distance"
-          subtitle="4 JUILLET 2020"
-          actionLabel="Lire l’article"
-        ></BlogPreviewTile>
+        <div style={{ backgroundColor: 'white', padding: '2em' }} className={styles.container}>
+          <BlogPreviewTileImage
+            imageUrl={data.gcms.assets[0].url}
+            title="Conseils pour faire passer vos employés vers le travail à distance"
+            subtitle="4 JUILLET 2020"
+            actionLabel="Lire l’article"
+          ></BlogPreviewTileImage>
+          <BlogPreviewTileImage
+            imageUrl={data.gcms.assets[0].url}
+            title="Conseils pour faire passer vos employés vers le travail à distance"
+            subtitle="4 JUILLET 2020"
+            actionLabel="Lire l’article"
+          ></BlogPreviewTileImage>
+          <BlogPreviewTileImage
+            imageUrl={data.gcms.assets[0].url}
+            title="Conseils pour faire passer vos employés vers le travail à distance"
+            subtitle="4 JUILLET 2020"
+            actionLabel="Lire l’article"
+          ></BlogPreviewTileImage>
+        </div>
       </div>
-
-      <div style={{ backgroundColor: 'white', padding: '2em' }}>
-        <BlogPreviewTileImage
-          imageUrl={data.gcms.assets[0].url}
-          title="Conseils pour faire passer vos employés vers le travail à distance"
-          subtitle="4 JUILLET 2020"
-          actionLabel="Lire l’article"
-        ></BlogPreviewTileImage>
-      </div>
-
       <Newsletter id="newsletter"></Newsletter>
 
       <Footer></Footer>

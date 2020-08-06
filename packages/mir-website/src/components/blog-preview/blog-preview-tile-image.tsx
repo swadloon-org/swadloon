@@ -12,9 +12,9 @@ type OwnProps = {
 export const BlogPreviewTileImage: React.FC<HTMLAttributes<any> & OwnProps> = (props) => {
   return (
     <div className={styles.wrapper}>
-      <img src={props.imageUrl} />
+      <img src={props.imageUrl} className={styles.imgPreview} />
 
-      <BlogPreviewTile {...props} />
+      <BlogPreviewTile {...props} className={styles.tilePreview} />
     </div>
   );
 };

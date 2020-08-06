@@ -1,3 +1,20 @@
 .wrapper {
+  position: relative;
   display: flex;
+  z-index: 0;
+  padding: 55px 0 0 55px;
+}
+
+.imgPreview {
+  width: 270px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.tilePreview {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
 }
