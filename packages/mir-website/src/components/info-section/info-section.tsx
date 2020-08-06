@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { Heading } from './heading';
-import styles from './info-section.module.scss';
-import { Paragraph } from './paragraph';
-import { Button } from './button';
+import { GraphCms_Asset, GraphCms_InfoSection, GraphCms_InfoTile, Maybe } from '../../../types/graphql-types';
+import { Button } from '../button';
+import { Heading } from '../heading';
+import { ImageFrame } from '../image-frame';
+import { Paragraph } from '../paragraph';
+import { Tab } from '../tab';
 import { InfoTile } from './info-tile';
-import { ImageFrame } from './image-frame';
-import { GraphCms_InfoSection, Maybe, GraphCms_Asset, GraphCms_InfoTile } from '../../types/graphql-types';
-import { Tab } from './tab';
+import styles from './info-section.module.scss';
 
 type InfoSectionWithTabs = Pick<GraphCms_InfoSection, 'title' | 'titleHighlight' | 'text' | 'actionText' | 'style'> & {
   image?: Maybe<Pick<GraphCms_Asset, 'url'>>;

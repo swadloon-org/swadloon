@@ -1,9 +1,9 @@
 import React, { AllHTMLAttributes } from 'react';
 import styles from './newsletter.module.scss';
-import { Input } from './input';
-import { Label } from './label';
-import { Heading } from './heading';
-import { Button } from './button';
+import { Input } from '../input';
+import { Label } from '../label';
+import { Heading } from '../heading';
+import { Button } from '../button';
 
 type OwnProps = AllHTMLAttributes<any>;
 

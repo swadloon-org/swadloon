@@ -1,16 +1,17 @@
 import { graphql } from 'gatsby';
-import 'normalize.css';
 import React from 'react';
 import { IndexPageQuery } from '../../types/graphql-types';
 import { Banner } from '../components/banner';
 import { Footer } from '../components/footer';
-import { InfoSection } from '../components/info-section';
+import { InfoSection } from '../components/info-section/info-section';
 import { NavBar } from '../components/nav-bar';
-import { Newsletter } from '../components/newsletter';
+import { Newsletter } from '../components/newsletter/newsletter';
 
+import 'normalize.css';
 import '../styles/fonts.scss';
-import styles from './index.module.scss';
 import './index.global.scss';
+import styles from './index.module.scss';
+import { BlogPreviewTile } from '../components/blog-preview/blog-preview-tile';
 
 export const query = graphql`
   query indexPage {
@@ -72,7 +73,13 @@ const IndexPage: React.FC<IndexPageProps> = ({ data, location }) => {
         return <InfoSection key={index} {...section} />;
       })}
 
-      <div style={{ height: '200px' }}></div>
+      <div style={{ backgroundColor: 'white', padding: '2em' }}>
+        <BlogPreviewTile
+          title="Conseils pour faire passer vos employés vers le travail à distance"
+          subtitle="4 JUILLET 2020"
+          actionLabel="Lire l’article"
+        ></BlogPreviewTile>
+      </div>
 
       <Newsletter id="newsletter"></Newsletter>
 

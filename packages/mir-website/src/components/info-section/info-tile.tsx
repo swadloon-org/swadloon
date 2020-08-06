@@ -1,9 +1,9 @@
 import React from 'react';
-import { Heading } from './heading';
-import { Illustration } from './illustration';
+import { Heading } from '../heading';
+import { Illustration } from '../illustration';
 import styles from './info-tile.module.scss';
-import { Paragraph } from './paragraph';
-import { GraphCms_InfoTile, Maybe, GraphCms_InfoSectionStyle } from '../../types/graphql-types';
+import { Paragraph } from '../paragraph';
+import { GraphCms_InfoTile, Maybe, GraphCms_InfoSectionStyle } from '../../../types/graphql-types';
 
 type OwnProps = { variant: Maybe<GraphCms_InfoSectionStyle> } & Pick<GraphCms_InfoTile, 'title' | 'text' | 'icon'>;
 
