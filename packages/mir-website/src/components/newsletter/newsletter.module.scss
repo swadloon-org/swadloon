@@ -9,6 +9,8 @@
 
 .wrapper {
   background-color: $primary500;
+  padding-top: $sizing-x6;
+  padding-bottom: $sizing-x6;
 }
 
 .container {
@@ -17,7 +19,6 @@
 
 .formulaire {
   display: grid;
-  padding-bottom: $sizing-x6;
   input {
     margin-bottom: $sizing-x3;
   }
@@ -37,11 +38,12 @@
 
 // TABLET CHANGE
 
-@media only screen and (min-device-width: $breakpoint-tablet-portrait) and (max-width: $breakpoint-tablet-landscape) and (orientation: portrait) {
+@media only screen and (min-device-width: $breakpoint-tablet-portrait) {
   // for portrait layouts only
   .wrapper {
     padding: 0 $margin-content-tablet;
   }
+
   .container {
     padding: $sizing-x6 0;
     margin: 0 auto;
@@ -69,12 +71,11 @@
   }
   .subtitle {
     text-align: left;
-    padding-bottom: $sizing-x3;
   }
 
   .title {
-    padding-top: $sizing-x3;
     text-align: left;
+    padding: $sizing-x3 0;
   }
 }
 
@@ -83,7 +84,7 @@
 @media only screen and (min-width: $breakpoint-desktop-small) {
   // for desktop layouts
   .wrapper {
-    padding: 0 $margin-content;
+    padding: 0 $margin-content-desktop;
   }
 
   .container {
@@ -116,12 +117,11 @@
 
   .subtitle {
     text-align: left;
-    padding-bottom: $sizing-x3;
   }
 
   .title {
-    padding-top: $sizing-x3;
     text-align: left;
+    padding: $sizing-x3 0;
   }
 }
 

@@ -34,7 +34,7 @@
 
 // TABLET CHANGE
 
-@media only screen and (min-device-width: $breakpoint-tablet-portrait) and (max-width: $breakpoint-tablet-landscape) and (orientation: portrait) {
+@media only screen and (min-device-width: $breakpoint-tablet-portrait) {
   .wrapper {
     padding: $sizing-x5 $margin-content-tablet;
     color: $greyscale0;
