@@ -3,6 +3,8 @@
 @import '../styles/layout.scss';
 @import '../styles/breakpoints.scss';
 
+// MOBILE CHANGE
+
 .wrapper {
   padding: $sizing-x5 $margin-content;
 
@@ -29,26 +31,68 @@
   }
 }
 
+// TABLET CHANGE
+
+@media only screen and (min-device-width: $breakpoint-tablet-portrait) and (max-width: $breakpoint-tablet-landscape) and (orientation: portrait) {
+  .wrapper {
+    color: $greyscale0;
+    padding: $sizing-x5 $margin-content-tablet;
+  }
+  .gridwrapper {
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-areas:
+      'firm firm . . contact contact contact . location location location .'
+      'copyright copyright copyright copyright copyright copyright copyright copyright copyright copyright copyright copyright';
+    grid-template-rows: auto;
+
+    column-gap: 20px;
+  }
+  .contact {
+    grid-area: contact;
+  }
+  .location {
+    grid-area: location;
+  }
+  .firm {
+    grid-area: firm;
+    img {
+      width: 141px;
+    }
+  }
+  .copyright {
+    grid-area: copyright;
+  }
+}
+
+// DESKTOP CHANGE
+
 @media only screen and (min-width: $breakpoint-desktop-small) {
   .gridwrapper {
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-row-gap: $sizing-x5;
+    column-gap: 20px;
     padding: $sizing-x5 0;
-    grid-template-columns: 25% 25% 25%;
-  }
-
-  .firm {
-    grid-column: 1;
-    grid-row: 1;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-areas:
+      'firm firm . contact contact . location location . . . .'
+      'copyright copyright copyright . . . . . . . . .';
+    grid-template-rows: auto;
   }
 
   .contact {
-    grid-column: 2;
+    grid-area: contact;
   }
-
   .location {
-    grid-column: 3;
+    grid-area: location;
+  }
+  .firm {
+    grid-area: firm;
+  }
+  .copyright {
+    grid-area: copyright;
   }
 }

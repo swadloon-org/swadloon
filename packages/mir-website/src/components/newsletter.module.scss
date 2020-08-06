@@ -5,7 +5,8 @@
 @import '../styles/layout';
 @import '../styles/breakpoints.scss';
 
-// for mobile only
+// MOBILE CHANGE
+
 .wrapper {
   background-color: $primary500;
 }
@@ -33,6 +34,8 @@
   text-align: center;
   color: $greyscale-inverted;
 }
+
+// TABLET CHANGE
 
 @media only screen and (min-device-width: $breakpoint-tablet-portrait) and (max-width: $breakpoint-tablet-landscape) and (orientation: portrait) {
   // for portrait layouts only
@@ -74,6 +77,8 @@
     text-align: left;
   }
 }
+
+// DESKTOP CHANGE
 
 @media only screen and (min-width: $breakpoint-desktop-small) {
   // for desktop layouts
