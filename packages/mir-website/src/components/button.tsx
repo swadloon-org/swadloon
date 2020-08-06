@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ButtonHTMLAttributes } from 'react';
 import styles from './button.module.scss';
 import { Label } from './label';
 
@@ -6,19 +6,21 @@ import CornerTopLeft from '../illustrations/Illustration/CornerTopLeft.svg';
 import CornerBottomRight from '../illustrations/Illustration/CornerBottomRight.svg';
 import { Illustration } from './illustration';
 
-interface ThisProps {
+type OwnProps = {
   type: 'primary' | 'secondary' | 'tertiary';
   size: 'small' | 'medium' | 'large';
   variant: 'icon' | 'text';
   icon?: string;
   variantStyle: 'default' | 'reversed';
-}
+} & Pick<ButtonHTMLAttributes<any>, 'className'>;
 
-export const Button: React.FC<ThisProps> = (props) => {
+export const Button: React.FC<OwnProps> = (props) => {
   return (
     <button
       type="button"
-      className={`${styles[props.type]} ${styles[props.size]} ${styles[props.variant]} ${styles[props.variantStyle]}`}
+      className={`${props.className || ''} ${styles[props.type]} ${styles[props.size]} ${styles[props.variant]} ${
+        styles[props.variantStyle]
+      }`}
     >
       {props.type === 'primary' ? (
         <>

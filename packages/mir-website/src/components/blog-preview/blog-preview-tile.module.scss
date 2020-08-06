@@ -1,0 +1,27 @@
+@import '../../styles/colors.scss';
+@import '../../styles/sizing.scss';
+@import '../../styles/layout.scss';
+@import '../../styles/shadows.scss';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 256px;
+  padding: $sizing-x3 $sizing-x3 $sizing-x1;
+
+  background-color: $primary500;
+  color: $greyscale-inverted;
+}
+
+.title {
+  margin: $sizing-x3 0 $sizing-x2;
+}
+
+.subtitle {
+}
+
+.button {
+  align-self: flex-end;
+  padding-right: 0;
+}
