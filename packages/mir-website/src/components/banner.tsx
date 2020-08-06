@@ -28,18 +28,25 @@ export const Banner: React.FC<OwnProps> = () => {
   const data = useStaticQuery<BannerQuery>(query);
 
   return (
-    <div className={styles.wrapper} style={{ backgroundImage: `url(${data.gcms.pageIndices[0].bannerImage[0].url})` }}>
-      <Label size="medium" variant="uppercase" className={styles.subtitle}>
-        {data.gcms.pageIndices[0].bannerSubTitle}
-      </Label>
+    <div className={styles.containerBox}>
+      <div className={styles.bluebox}></div>
 
-      <BarSVG />
-
-      <Heading variant="h2" className={styles.title}>
-        {data.gcms.pageIndices[0].bannerTitle}
-      </Heading>
-
-      <BarSVG viewBox={null} className={styles.bottomBar} />
+      <div
+        className={styles.wrapper}
+        style={{ backgroundImage: `url(${data.gcms.pageIndices[0].bannerImage[0].url})` }}
+      >
+        <div className={styles.content}>
+          <Label size="medium" variant="uppercase" className={styles.subtitle}>
+            {data.gcms.pageIndices[0].bannerSubTitle}
+          </Label>
+          <BarSVG />
+          <Heading variant="h2" className={styles.title}>
+            {data.gcms.pageIndices[0].bannerTitle}
+          </Heading>
+          <BarSVG viewBox={null} className={styles.bottomBar} />
+        </div>
+      </div>
+      <div className={styles.blackbox}></div>
     </div>
   );
 };

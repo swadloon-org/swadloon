@@ -1,6 +1,8 @@
 @import '../styles/layout.scss';
 @import '../styles/sizing.scss';
 @import '../styles/colors.scss';
+@import '../styles/typography.scss';
+@import '../styles/breakpoints.scss';
 
 .wrapper {
   padding: $sizing-x6 $margin-content;
@@ -21,5 +23,73 @@
   width: 100%;
   rect {
     width: 100%;
+  }
+}
+
+// TABLET CHANGE
+
+@media only screen and (min-device-width: $breakpoint-tablet-portrait) and (max-width: $breakpoint-tablet-landscape) and (orientation: portrait) {
+  .containerBox {
+    position: relative;
+  }
+
+  .wrapper {
+    z-index: 1;
+    margin: 0 40px $sizing-x5 40px;
+  }
+
+  .content {
+    width: 60%;
+  }
+
+  .blackbox {
+    position: absolute;
+    bottom: 0;
+    z-index: -1;
+    height: 55%;
+    width: 100%;
+
+    background-color: $greyscale1000;
+  }
+  .bluebox {
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    width: 100%;
+    height: 45%;
+    background-color: $primary500;
+  }
+}
+
+// DESKTOP CHANGE
+
+@media only screen and (min-width: $breakpoint-desktop-small) {
+  .containerBox {
+    position: relative;
+  }
+
+  .wrapper {
+    z-index: 1;
+    margin: 0 $sizing-x6 $sizing-x6 $sizing-x6;
+  }
+  .blackbox {
+    position: absolute;
+    bottom: 0;
+    z-index: -1;
+    height: 55%;
+    width: 100%;
+    background-color: $greyscale1000;
+  }
+  .bluebox {
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    width: 100%;
+    height: 45%;
+    background-color: $primary500;
+  }
+
+  .title {
+    @include typography-heading-h1;
   }
 }
