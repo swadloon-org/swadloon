@@ -24,29 +24,34 @@ export const BlogPreviewSection: React.FC<HTMLAttributes<any> & OwnProps> = (pro
           {props.paragraphContent}
         </Paragraph>
         <div className={styles.content}>
-          <BlogPreviewTileImage
-            className={styles.item}
-            imageUrl={props.imageUrl}
-            title="Conseils pour faire passer vos employés vers le travail à distance"
-            subtitle="4 JUILLET 2020"
-            actionLabel="Lire l’article"
-          ></BlogPreviewTileImage>
+          <div className={styles.item}>
+            <BlogPreviewTileImage
+              imageUrl={props.imageUrl}
+              title="Conseils pour faire passer vos employés vers le travail à distance"
+              subtitle="4 JUILLET 2020"
+              actionLabel="Lire l’article"
+              className={styles.item}
+            ></BlogPreviewTileImage>
+          </div>
 
-          <BlogPreviewTileImage
-            className={styles.item}
-            imageUrl={props.imageUrl}
-            title="Conseils pour faire passer vos employés vers le travail à distance"
-            subtitle="4 JUILLET 2020"
-            actionLabel="Lire l’article"
-          ></BlogPreviewTileImage>
+          <div className={styles.item}>
+            <BlogPreviewTileImage
+              imageUrl={props.imageUrl}
+              title="Conseils pour faire passer vos employés vers le travail à distance"
+              subtitle="4 JUILLET 2020"
+              actionLabel="Lire l’article"
+              className={styles.item}
+            ></BlogPreviewTileImage>
+          </div>
 
-          <BlogPreviewTileImage
-            className={styles.item}
-            imageUrl={props.imageUrl}
-            title="Conseils pour faire passer vos employés vers le travail à distance"
-            subtitle="4 JUILLET 2020"
-            actionLabel="Lire l’article"
-          ></BlogPreviewTileImage>
+          <div className={styles.item}>
+            <BlogPreviewTileImage
+              imageUrl={props.imageUrl}
+              title="Conseils pour faire passer vos employés vers le travail à distance"
+              subtitle="4 JUILLET 2020"
+              actionLabel="Lire l’article"
+            ></BlogPreviewTileImage>
+          </div>
         </div>
         <Button type="primary" size="medium" variant="text" variantStyle="default" className={styles.button}>
           Toutes les nouvelles
