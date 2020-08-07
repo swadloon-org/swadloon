@@ -1,20 +1,19 @@
 import { graphql } from 'gatsby';
+import 'normalize.css';
 import React from 'react';
 import { IndexPageQuery } from '../../types/graphql-types';
 import { Banner } from '../components/banner';
+import { BlogPreviewSection } from '../components/blog-preview/blog-preview-section';
 import { Footer } from '../components/footer';
-import { SectionModelQuery } from '../components/info-section/info-section';
+import { InfoSectionType1Group } from '../components/info-section/info-section-type-1-group';
+import { InfoSectionType2 } from '../components/info-section/info-section-type-2';
+import { InfoSectionType3 } from '../components/info-section/info-section-type-3';
+import { InfoSectionType4 } from '../components/info-section/info-section-type-4';
 import { NavBar } from '../components/nav-bar';
 import { Newsletter } from '../components/newsletter/newsletter';
-
-import 'normalize.css';
 import '../styles/fonts.scss';
 import './index.global.scss';
 import styles from './index.module.scss';
-import { BlogPreviewTile } from '../components/blog-preview/blog-preview-tile';
-import { BlogPreviewTileImage } from '../components/blog-preview/blog-preview-tile-image';
-import { BlogPreviewSection } from '../components/blog-preview/blog-preview-section';
-import { InfoSectionType2 } from '../components/info-section/info-section-type-2';
 
 export const query = graphql`
   query indexPage {
@@ -77,18 +76,22 @@ const IndexPage: React.FC<IndexPageProps> = ({ data, location }) => {
 
       {data.gcms.pageIndices[0].employeeEmployerSections.map((section, index) => {
         switch (section.type) {
-          // case 'type1group': {
-          //   return <InfoSectionType1Group />;
-          // }
+          case 'type1group': {
+            return <InfoSectionType1Group key={index} {...section} />;
+          }
           case 'type2': {
-            return <InfoSectionType2 {...section} />;
+            return <InfoSectionType2 key={index} {...section} />;
+          }
+          case 'type3': {
+            return <InfoSectionType3 key={index} {...section} />;
+          }
+          case 'type4': {
+            return <InfoSectionType4 key={index} {...section} />;
           }
           default: {
             return null;
           }
         }
-
-        // return <InfoSection key={index} {...section} />;
       })}
 
       <BlogPreviewSection

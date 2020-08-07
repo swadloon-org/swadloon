@@ -3,10 +3,6 @@
 .wrapper {
   display: grid;
   width: 100vw;
-
-  > * {
-    max-width: 100vw;
-  }
 }
 
 .content {

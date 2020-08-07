@@ -4,52 +4,51 @@
 @import '../../styles/breakpoints.scss';
 
 .wrapper {
-  background-color: white;
-  padding: 2em;
+  display: grid;
+  justify-items: center;
   width: 100%;
+  padding: $sizing-x7 0 $sizing-x7 0;
 }
 
 .container {
+  display: grid;
+  justify-items: center;
   max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
 }
 
 .content {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: auto;
-  justify-items: center;
-  justify-content: center;
+  grid-column-gap: $sizing-x4;
 
-  padding-bottom: $sizing-x4;
+  margin: $sizing-x5 0;
+  padding: 0 $margin-content;
+  max-width: 100%;
+  overflow-x: auto;
 }
 
-.headingh {
+.title {
   text-align: center;
-  padding: $sizing-x7 0 $sizing-x3 0;
+  margin: 0 0 $sizing-x3 0;
+  max-width: 460px;
 }
+
 .paragraph {
   text-align: center;
   padding: $sizing-x3 0 $sizing-x5 0;
-}
-.item {
-  margin: $margin-content;
+  max-width: 460px;
 }
 
-.item:nth-child(1) {
-  visibility: hidden;
-}
-.item:nth-child(3) {
-  visibility: hidden;
-}
-
-// TABLET CHANGE
-
-@media only screen and (min-device-width: $breakpoint-tablet-portrait) {
-  .item:nth-child(1) {
-    visibility: visible;
+@media only screen and (min-width: $breakpoint-tablet-portrait) {
+  .content {
+    padding: 0 $margin-content-tablet;
   }
-  .item:nth-child(3) {
-    visibility: visible;
+}
+
+@media only screen and (min-width: $breakpoint-desktop-small) {
+  .content {
+    padding: 0 $margin-content-desktop;
   }
 }

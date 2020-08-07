@@ -1,0 +1,22 @@
+@import '../../styles/colors.scss';
+@import '../../styles/sizing.scss';
+@import '../../styles/layout.scss';
+@import '../../styles/shadows.scss';
+@import '../../styles/breakpoints.scss';
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media only screen and (min-width: $breakpoint-tablet-portrait) {
+  .wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (min-width: $breakpoint-desktop-small) {
+  .wrapper {
+    $layout-desktop-max-width: 2000px;
+  }
+}

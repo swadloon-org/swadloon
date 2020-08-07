@@ -26,11 +26,11 @@ $breakpoint-desktop-x-large: 1920px;
 
 // tablet
 
-@media only screen and (min-device-width: $breakpoint-tablet-portrait) {
+@media only screen and (min-width: $breakpoint-tablet-portrait) {
   // for portrait layouts only
 }
 
-@media only screen and (min-device-width: $breakpoint-tablet-portrait) and (max-width: $breakpoint-tablet-landscape) and (orientation: landscape) {
+@media only screen and (min-width: $breakpoint-tablet-portrait) and (max-width: $breakpoint-tablet-landscape) and (orientation: landscape) {
   // for landscape layouts only
 }
 

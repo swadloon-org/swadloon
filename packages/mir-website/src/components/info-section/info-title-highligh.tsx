@@ -5,11 +5,12 @@ import styles from './info-section.module.scss';
 type OwnProps = {
   title?: string;
   titleHighlight?: string;
+  className?: string;
 };
 
-export const RenderTitleHighlight: React.FC<OwnProps> = ({ title, titleHighlight }) => {
+export const RenderTitleHighlight: React.FC<OwnProps> = ({ title, titleHighlight, className }) => {
   return (
-    <Heading variant={'h3'} className={styles.title}>
+    <Heading variant={'h3'} className={`${styles.title} ${className || ''}`}>
       {titleHighlight
         ? title.split(' ').map((word, index) =>
             word === titleHighlight ? (

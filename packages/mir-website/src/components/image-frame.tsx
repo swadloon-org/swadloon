@@ -13,8 +13,7 @@ export const ImageFrame: React.FC<OwnProps & HTMLAttributes<any>> = (props) => {
       <Illustration
         name={'Illustration/Square'}
         className={`${styles.backgroundIllustration}`}
-        viewBox={null}
-        preserveAspectRatio=""
+        preserveAspectRatio="none"
         width={null}
         height={null}
       />

@@ -38,7 +38,7 @@
 
 // TABLET CHANGE
 
-@media only screen and (min-device-width: $breakpoint-tablet-portrait) {
+@media only screen and (min-width: $breakpoint-tablet-portrait) {
   // for portrait layouts only
   .wrapper {
     padding: 0 $margin-content-tablet;

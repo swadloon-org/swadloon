@@ -24,39 +24,41 @@ export const InfoSectionType3: React.FC<OwnProps> = (props) => {
         />
       ) : null}
 
-      {hasTabs ? (
-        <div className={styles.tabsWrapper}>
-          {props?.childs.map((infoSecTab, index) => {
-            return (
-              <Tab
-                key={index}
-                size="small"
-                selected={index === selectedTabIndex}
-                onClick={() => {
-                  setSelectedTabIndex(index);
-                }}
-              >
-                {infoSecTab.titleTab}
-              </Tab>
-            );
-          })}
-        </div>
-      ) : null}
+      <div className={styles.content}>
+        {hasTabs ? (
+          <div className={styles.tabsWrapper}>
+            {props?.childs.map((infoSecTab, index) => {
+              return (
+                <Tab
+                  key={index}
+                  size="small"
+                  selected={index === selectedTabIndex}
+                  onClick={() => {
+                    setSelectedTabIndex(index);
+                  }}
+                >
+                  {infoSecTab.titleTab}
+                </Tab>
+              );
+            })}
+          </div>
+        ) : null}
 
-      {props.childs.map((info, index) => (selectedTabIndex === index ? renderTabbedInfoSection(info, index) : null))}
+        {props.childs.map((info, index) => (selectedTabIndex === index ? renderTabbedInfoSection(info, index) : null))}
+      </div>
     </div>
   );
 
   function renderTabbedInfoSection(props: Partial<SectionModelQuery>, sectionIndex: number) {
     return (
       <React.Fragment key={`${sectionIndex}`}>
-        <Paragraph variant={'small'} className={styles.text}>
+        <RenderTitleHighlight title={props.title} titleHighlight={props.titleHighlight} />
+
+        <Paragraph variant={'medium'} className={styles.text}>
           {props.text}
         </Paragraph>
 
-        <RenderTitleHighlight title={props.title} titleHighlight={props.titleHighlight} />
-
-        <Button type={'primary'} variant={'text'} size={'medium'} variantStyle={'default'}>
+        <Button type={'primary'} variant={'text'} size={'medium'} variantStyle={'default'} className={styles.button}>
           {props.actionText}
         </Button>
       </React.Fragment>

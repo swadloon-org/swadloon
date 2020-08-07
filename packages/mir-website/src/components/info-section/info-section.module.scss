@@ -2,6 +2,8 @@
 @import '../../styles/sizing.scss';
 @import '../../styles/layout.scss';
 @import '../../styles/shadows.scss';
+@import '../../styles/breakpoints.scss';
+@import '../../styles/typography.scss';
 
 .wrapper {
   display: grid;
@@ -15,15 +17,40 @@
 // types
 
 .type1reversed {
-  color: $greyscale1000;
+  color: $greyscale-inverted;
+  background-color: $primary500;
+
+  > * {
+    max-width: 343px;
+  }
 }
 
 .type1default {
   @include drop-shadow-large;
   z-index: 1;
+
+  > * {
+    max-width: 343px;
+  }
 }
 
 .type2 {
+  padding: $sizing-x7 $margin-content;
+
+  ~ .type3 {
+    padding-top: $sizing-x5;
+  }
+}
+
+.type3 {
+  padding: $sizing-x6 $margin-content;
+}
+
+.type4 {
+  padding: $sizing-x7 $margin-content;
+
+  color: $greyscale-inverted;
+  background-color: $primary500;
 }
 
 .image {
@@ -37,6 +64,7 @@
 .title {
   text-align: center;
   margin-bottom: $sizing-x3 * 2;
+  max-width: 400px;
 }
 
 .title-highlight {
@@ -48,11 +76,25 @@
   white-space: pre-wrap; // handle mutli-line text
   margin-bottom: $sizing-x5;
   color: currentColor;
+  max-width: 400px;
+}
+
+.button {
+  align-self: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }
 
 .info-tiles-wrapper {
   display: grid;
   grid-row-gap: $sizing-x4;
+  grid-column-gap: $sizing-x5;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
 
   margin-bottom: $sizing-x6;
 }
@@ -62,4 +104,92 @@
   justify-items: center;
   row-gap: $sizing-x1;
   margin-bottom: $sizing-x3 * 2;
+}
+
+@media only screen and (min-width: $breakpoint-tablet-portrait) {
+  .image {
+    width: 366px;
+    height: 366px;
+  }
+}
+
+@media only screen and (min-width: $breakpoint-desktop-small) {
+  .title {
+    @include typography-heading-h2;
+    max-width: 460px;
+  }
+
+  .text {
+    max-width: 460px;
+  }
+
+  .info-tiles-wrapper {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .image {
+    width: 540px;
+    height: 540px;
+  }
+
+  .type2,
+  .type3 {
+    .title {
+      text-align: left;
+    }
+    .text {
+      text-align: left;
+    }
+  }
+
+  .type2 {
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 0 auto;
+    max-width: $layout-desktop-max-width;
+    width: 100%;
+    padding: $sizing-x7 0;
+
+    .button {
+      align-self: flex-start;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      margin: auto auto auto 0;
+    }
+  }
+
+  .type3 {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    max-width: $layout-desktop-max-width;
+    width: 100%;
+    padding: $sizing-x7 0;
+
+    .image {
+      width: 500px;
+      height: 500px;
+    }
+
+    .button {
+      align-self: flex-start;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      margin: auto 0 auto auto;
+    }
+
+    .tabs-wrapper {
+      display: flex;
+      margin-bottom: $sizing-x5;
+      max-width: 610px;
+    }
+  }
 }

@@ -40,7 +40,7 @@
 
 // TABLET CHANGE
 
-@media only screen and (min-device-width: $breakpoint-tablet-portrait) {
+@media only screen and (min-width: $breakpoint-tablet-portrait) {
   .containerBox {
     position: relative;
     grid-template-columns: $margin-content-tablet 1fr $margin-content-tablet;
