@@ -12,26 +12,18 @@
   color: $greyscale900;
 }
 
-.extra-padding {
-  padding: $sizing-x7 $margin-content;
+// types
 
-  & + .extra-padding:not(.reversed) {
-    padding: 0 $margin-content $sizing-x7;
-  }
-}
-
-.default {
+.type1reversed {
   color: $greyscale1000;
 }
 
-.default-shadow {
+.type1default {
   @include drop-shadow-large;
   z-index: 1;
 }
 
-.reversed {
-  background-color: $primary500;
-  color: $greyscale-inverted;
+.type2 {
 }
 
 .image {

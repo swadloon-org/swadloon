@@ -91,16 +91,6 @@ const IndexPage: React.FC<IndexPageProps> = ({ data, location }) => {
         // return <InfoSection key={index} {...section} />;
       })}
 
-      <div>
-        <div style={{ backgroundColor: 'white', padding: '2em' }}>
-          <BlogPreviewTile
-            title="Conseils pour faire passer vos employés vers le travail à distance"
-            subtitle="4 JUILLET 2020"
-            actionLabel="Lire l’article"
-          ></BlogPreviewTile>
-        </div>
-      </div>
-
       <BlogPreviewSection
         imageUrl={data.gcms.assets[0].url}
         paragraphContent="Lorem ipsum dolor sit amet, consectetur adipiscing elit Nulla chronocrator accumsan, metus ultrices eleifend gravi."
