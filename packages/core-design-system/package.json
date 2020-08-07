@@ -15,10 +15,7 @@
   "files": [
     "./lib/**/*"
   ],
-  "dependencies": {
-    "@diez/engine": "^10.6.0",
-    "@diez/prefabs": "^10.6.0"
-  },
+  "dependencies": {},
   "scripts": {
     "prestart": "yarn clean",
     "start": "tsc --build --watch --preserveWatchOutput",
