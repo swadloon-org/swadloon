@@ -8,24 +8,27 @@ import { Tab } from '../tab';
 import { InfoTile } from './info-tile';
 import styles from './info-section.module.scss';
 
-type InfoSectionWithTabs = Pick<GraphCms_InfoSection, 'title' | 'titleHighlight' | 'text' | 'actionText' | 'style'> & {
-  image?: Maybe<Pick<GraphCms_Asset, 'url'>>;
-  infoTabs: Array<
-    Pick<GraphCms_InfoSection, 'titleTab' | 'title' | 'titleHighlight' | 'text' | 'actionText' | 'style'>
-  >;
+export type SectionModelQuery = Pick<
+  GraphCms_InfoSection,
+  'title' | 'titleHighlight' | 'titleTab' | 'type' | 'text' | 'showTabs' | 'actionText'
+> & {
   infoTiles: Array<Pick<GraphCms_InfoTile, 'icon' | 'title' | 'text'>>;
+  childs: Array<
+    Pick<GraphCms_InfoSection, 'showTabs' | 'title' | 'titleHighlight' | 'titleTab' | 'type' | 'text' | 'actionText'>
+  >;
+  image?: Maybe<Pick<GraphCms_Asset, 'url'>>;
 };
 
-type OwnProps = InfoSectionWithTabs;
+type OwnProps = SectionModelQuery;
 
 export const InfoSection: React.FC<OwnProps> = (props) => {
   const [selectedTabIndex, setSelectedTabIndex] = useState<number>(0);
   const hasImage = !!props?.image;
   const hasInfoTiles = !!props?.infoTiles?.length;
-  const hasTabs = !!props?.infoTabs.length;
+  const hasTabs = !!props?.childs.length && props.showTabs;
 
   return (
-    <div className={`${styles.wrapper} ${styles[props.style]} ${hasImage || hasInfoTiles ? styles.extraPadding : ''}`}>
+    <div className={`${styles.wrapper} ${styles[props.type]} ${hasImage || hasInfoTiles ? styles.extraPadding : ''}`}>
       {props.image?.url ? (
         <ImageFrame
           variant={'bottomLeft'}
@@ -36,7 +39,7 @@ export const InfoSection: React.FC<OwnProps> = (props) => {
 
       {hasTabs ? (
         <div className={styles.tabsWrapper}>
-          {props?.infoTabs.map((infoSecTab, index) => {
+          {props?.childs.map((child, index) => {
             return (
               <Tab
                 key={index}
@@ -46,7 +49,7 @@ export const InfoSection: React.FC<OwnProps> = (props) => {
                   setSelectedTabIndex(index);
                 }}
               >
-                {infoSecTab.titleTab}
+                {child.titleTab}
               </Tab>
             );
           })}
@@ -54,16 +57,14 @@ export const InfoSection: React.FC<OwnProps> = (props) => {
       ) : null}
 
       {hasTabs
-        ? props.infoTabs.map((info, index) =>
-            selectedTabIndex === index ? renderTabbedInfoSection(info, index) : null
-          )
+        ? props.childs.map((info, index) => (selectedTabIndex === index ? renderTabbedInfoSection(info, index) : null))
         : renderInfoSection(props)}
     </div>
   );
 
-  function renderInfoSection(props: InfoSectionWithTabs) {
+  function renderInfoSection(props: SectionModelQuery) {
     const hasInfoTiles = !!props?.infoTiles?.length;
-    const hasTabs = !!props?.infoTabs.length;
+    const hasTabs = !!props?.childs.length;
 
     return (
       <React.Fragment>
@@ -92,9 +93,7 @@ export const InfoSection: React.FC<OwnProps> = (props) => {
         {hasInfoTiles ? (
           <div className={styles.infoTilesWrapper}>
             {props.infoTiles.map((info, index) => {
-              return (
-                <InfoTile key={index} icon={info.icon} title={info.title} text={info.text} variant={props.style} />
-              );
+              return <InfoTile key={index} icon={info.icon} title={info.title} text={info.text} variant={props.type} />;
             })}
           </div>
         ) : null}
@@ -104,7 +103,7 @@ export const InfoSection: React.FC<OwnProps> = (props) => {
             type={'primary'}
             variant={'text'}
             size={'medium'}
-            variantStyle={props.style === 'default' || props.style === 'defaultShadow' ? 'default' : 'reversed'}
+            variantStyle={props.type === 'default' || props.type === 'defaultShadow' ? 'default' : 'reversed'}
           >
             {props.actionText}
           </Button>
@@ -113,7 +112,7 @@ export const InfoSection: React.FC<OwnProps> = (props) => {
     );
   }
 
-  function renderTabbedInfoSection(props: Partial<InfoSectionWithTabs>, sectionIndex: number) {
+  function renderTabbedInfoSection(props: Partial<SectionModelQuery>, sectionIndex: number) {
     return (
       <React.Fragment key={`${sectionIndex}`}>
         <Heading variant={'h3'} className={styles.title}>

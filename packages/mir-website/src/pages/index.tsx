@@ -3,7 +3,7 @@ import React from 'react';
 import { IndexPageQuery } from '../../types/graphql-types';
 import { Banner } from '../components/banner';
 import { Footer } from '../components/footer';
-import { InfoSection } from '../components/info-section/info-section';
+import { SectionModelQuery } from '../components/info-section/info-section';
 import { NavBar } from '../components/nav-bar';
 import { Newsletter } from '../components/newsletter/newsletter';
 
@@ -14,6 +14,7 @@ import styles from './index.module.scss';
 import { BlogPreviewTile } from '../components/blog-preview/blog-preview-tile';
 import { BlogPreviewTileImage } from '../components/blog-preview/blog-preview-tile-image';
 import { BlogPreviewSection } from '../components/blog-preview/blog-preview-section';
+import { InfoSectionType2 } from '../components/info-section/info-section-type-2';
 
 export const query = graphql`
   query indexPage {
@@ -32,26 +33,29 @@ export const query = graphql`
       pageIndices(first: 1) {
         id
         employeeEmployerSections {
-          image {
-            url
-          }
           title
-          infoTabs {
-            titleTab
-            title
-            titleHighlight
-            text
-            actionText
-            style
-          }
           titleHighlight
+          titleTab
+          type
           text
+          showTabs
           actionText
-          style
           infoTiles {
             icon
             title
             text
+          }
+          childs {
+            showTabs
+            title
+            titleHighlight
+            titleTab
+            type
+            text
+            actionText
+          }
+          image {
+            url
           }
         }
       }
@@ -72,8 +76,30 @@ const IndexPage: React.FC<IndexPageProps> = ({ data, location }) => {
       <Banner></Banner>
 
       {data.gcms.pageIndices[0].employeeEmployerSections.map((section, index) => {
-        return <InfoSection key={index} {...section} />;
+        switch (section.type) {
+          // case 'type1group': {
+          //   return <InfoSectionType1Group />;
+          // }
+          case 'type2': {
+            return <InfoSectionType2 {...section} />;
+          }
+          default: {
+            return null;
+          }
+        }
+
+        // return <InfoSection key={index} {...section} />;
       })}
+
+      <div>
+        <div style={{ backgroundColor: 'white', padding: '2em' }}>
+          <BlogPreviewTile
+            title="Conseils pour faire passer vos employés vers le travail à distance"
+            subtitle="4 JUILLET 2020"
+            actionLabel="Lire l’article"
+          ></BlogPreviewTile>
+        </div>
+      </div>
 
       <BlogPreviewSection
         imageUrl={data.gcms.assets[0].url}
