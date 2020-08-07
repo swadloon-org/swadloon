@@ -32,7 +32,24 @@
   text-align: center;
   padding: $sizing-x3 0 $sizing-x5 0;
 }
+.item {
+  margin: $margin-content;
+}
 
-.button {
-  margin: 0 auto;
+.item:nth-child(1) {
+  visibility: hidden;
+}
+.item:nth-child(3) {
+  visibility: hidden;
+}
+
+// TABLET CHANGE
+
+@media only screen and (min-device-width: $breakpoint-tablet-portrait) {
+  .item:nth-child(1) {
+    visibility: visible;
+  }
+  .item:nth-child(3) {
+    visibility: visible;
+  }
 }
