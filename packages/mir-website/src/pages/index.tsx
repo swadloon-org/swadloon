@@ -13,6 +13,7 @@ import './index.global.scss';
 import styles from './index.module.scss';
 import { BlogPreviewTile } from '../components/blog-preview/blog-preview-tile';
 import { BlogPreviewTileImage } from '../components/blog-preview/blog-preview-tile-image';
+import { BlogPreviewSection } from '../components/blog-preview/blog-preview-section';
 
 export const query = graphql`
   query indexPage {
@@ -73,36 +74,13 @@ const IndexPage: React.FC<IndexPageProps> = ({ data, location }) => {
       {data.gcms.pageIndices[0].employeeEmployerSections.map((section, index) => {
         return <InfoSection key={index} {...section} />;
       })}
-      <div>
-        <div style={{ backgroundColor: 'white', padding: '2em' }}>
-          <BlogPreviewTile
-            title="Conseils pour faire passer vos employés vers le travail à distance"
-            subtitle="4 JUILLET 2020"
-            actionLabel="Lire l’article"
-          ></BlogPreviewTile>
-        </div>
 
-        <div style={{ backgroundColor: 'white', padding: '2em' }} className={styles.container}>
-          <BlogPreviewTileImage
-            imageUrl={data.gcms.assets[0].url}
-            title="Conseils pour faire passer vos employés vers le travail à distance"
-            subtitle="4 JUILLET 2020"
-            actionLabel="Lire l’article"
-          ></BlogPreviewTileImage>
-          <BlogPreviewTileImage
-            imageUrl={data.gcms.assets[0].url}
-            title="Conseils pour faire passer vos employés vers le travail à distance"
-            subtitle="4 JUILLET 2020"
-            actionLabel="Lire l’article"
-          ></BlogPreviewTileImage>
-          <BlogPreviewTileImage
-            imageUrl={data.gcms.assets[0].url}
-            title="Conseils pour faire passer vos employés vers le travail à distance"
-            subtitle="4 JUILLET 2020"
-            actionLabel="Lire l’article"
-          ></BlogPreviewTileImage>
-        </div>
-      </div>
+      <BlogPreviewSection
+        imageUrl={data.gcms.assets[0].url}
+        paragraphContent="Lorem ipsum dolor sit amet, consectetur adipiscing elit Nulla chronocrator accumsan, metus ultrices eleifend gravi."
+        headingContent="Les dernières nouvelles"
+      ></BlogPreviewSection>
+
       <Newsletter id="newsletter"></Newsletter>
 
       <Footer></Footer>

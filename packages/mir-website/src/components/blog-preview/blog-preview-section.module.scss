@@ -1,0 +1,38 @@
+@import '../../styles/colors.scss';
+@import '../../styles/sizing.scss';
+@import '../../styles/layout.scss';
+@import '../../styles/breakpoints.scss';
+
+.wrapper {
+  background-color: white;
+  padding: 2em;
+  width: 100%;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  justify-items: center;
+  justify-content: center;
+
+  padding-bottom: $sizing-x4;
+}
+
+.headingh {
+  text-align: center;
+  padding: $sizing-x7 0 $sizing-x3 0;
+}
+.paragraph {
+  text-align: center;
+  padding: $sizing-x3 0 $sizing-x5 0;
+}
+
+.button {
+  margin: 0 auto;
+}
