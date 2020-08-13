@@ -1,0 +1,17 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "declaration": true,
+    "sourceMap": true,
+    "outDir": "./lib/",
+    "rootDir": ".",
+    "strict": false,
+    "target": "ESNext",
+    "module": "ESNext",
+    "lib": ["dom"],
+    "types": ["node"],
+    "jsx": "preserve"
+  },
+  "typeRoots": ["../../node_modules/@types", "./src/types"],
+  "include": ["./src/", "./types/", "indexback.tsx"]
+}
