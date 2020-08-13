@@ -10,7 +10,7 @@
   },
   "license": "MIT",
   "scripts": {
-    "start": "gatsby develop",
+    "start": "gatsby develop -p 9000",
     "prestart": "yarn clean",
     "build": "gatsby build",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
