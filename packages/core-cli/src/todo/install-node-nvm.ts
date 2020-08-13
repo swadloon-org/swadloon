@@ -1,6 +1,6 @@
 import { spawn } from 'child_process';
 import { log, scriptLog } from 'core-utils';
-import { loadDotEnv, dotEnvProcess } from './utils';
+import { loadDotEnv, dotEnvProcess } from '../utilities/utils';
 import * as os from 'os';
 
 loadDotEnv();

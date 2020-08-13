@@ -40,7 +40,7 @@
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "@oclif/plugin-help": "^3",
-    "core-utils": "^v1.0.0",
+    "core-utils": "link:../core-utils",
     "tslib": "^1"
   },
   "devDependencies": {

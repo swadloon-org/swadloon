@@ -13,5 +13,5 @@
       "core-utils/*": ["../core-utils/*"]
     }
   },
-  "include": ["./src/**/*"]
+  "include": ["./src/**/*", "./types/**/*"]
 }
