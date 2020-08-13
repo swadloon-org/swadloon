@@ -1,5 +1,7 @@
 import { Command, flags } from '@oclif/command';
 
+import { log } from 'core-utils';
+
 export default class Hello extends Command {
   static description = 'describe the command here';
 
@@ -22,8 +24,12 @@ export default class Hello extends Command {
   async run() {
     const { args, flags } = this.parse(Hello);
 
+    log('1.0.0', {
+      toolName: 'core-cli',
+    });
+
     const name = flags.name ?? 'world';
-    this.log(`hello ${name} from ./src/commands/hello.ts`);
+    this.log(`hello 1 ${name} from ./src/commands/hello.ts`);
     if (args.file && flags.force) {
       this.log(`you input --force and --file: ${args.file}`);
     }

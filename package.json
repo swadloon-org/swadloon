@@ -16,9 +16,9 @@
   },
   "scripts": {
     "autorelease": "lerna version --conventional-commits --create-release github",
-    "build": "lerna exec --concurrency 1 -- yarn build",
+    "build": "lerna run --concurrency=1 build",
     "changelog": "lerna version --conventional-commits --no-push",
-    "clean": "lerna exec -- yarn clean",
+    "clean": "lerna run --concurrency=1 clean",
     "cli": "nr",
     "commit": "lint-staged && git-cz",
     "fork": "ts-node --script-mode scripts/fork-repo.ts",
@@ -30,8 +30,8 @@
     "reinstall": "yarn reset && yarn && yarn build && yarn test",
     "reset": "npm i -g rimraf && rimraf -r ./node_modules packages/**/node_modules **/package-lock.json",
     "set-permissions": "chmod a+x node_modules/.bin/nr-core-cli",
-    "start": "lerna exec --parallel -- yarn start",
-    "test": "lerna exec --concurrency 1 -- yarn test",
+    "start": "lerna run --parallel start",
+    "test": "lerna run --concurrency=1 test",
     "yo": "nr-core-yo-generator"
   },
   "husky": {

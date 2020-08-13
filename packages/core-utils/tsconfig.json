@@ -1,12 +1,12 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "module": "esnext",
     "declaration": true,
     "sourceMap": true,
     "types": ["node"],
     "outDir": "./lib",
     "rootDir": "./src",
+    "module": "commonjs",
     "target": "es6"
   },
   "include": ["./src/**/*"],
