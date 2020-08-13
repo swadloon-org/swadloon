@@ -9,11 +9,13 @@
   "files": [
     "./lib/**/*"
   ],
+  "dependencies": {
+    "gatsby": "^2.24.47"
+  },
   "scripts": {
     "start": "tsc --build tsconfig.json --watch --preserveWatchOutput",
-    "build": "echo ok",
+    "build": "tsc --build tsconfig.json",
     "prebuild": "yarn clean",
-    "webpack": "webpack --config webpack.dev.config.ts",
     "test": "echo ok",
     "clean": "rimraf -r lib/**"
   }

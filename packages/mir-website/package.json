@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "gatsby": "^2.17.11",
+    "core-gatsby-config": "link:../core-gatsby-config",
     "normalize.css": "^8.0.1"
   },
   "devDependencies": {

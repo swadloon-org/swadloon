@@ -1,5 +1,7 @@
 import Gatsby from 'gatsby';
 
+import { defaultPlugins } from 'core-gatsby-config';
+
 /**
  * Configure your Gatsby site with this file.
  *
@@ -8,60 +10,13 @@ import Gatsby from 'gatsby';
 
 require('dotenv').config();
 
-function getGatsbySourceGraphQLPlugin({
-  typeName,
-  fieldName,
-  url,
-}: {
-  typeName: string;
-  fieldName: string;
-  url: string;
-}): Gatsby.PluginRef {
-  return {
-    resolve: `gatsby-source-graphql`,
-    options: {
-      typeName,
-      fieldName,
-      url,
-    },
-  };
-}
-
 export const config: Gatsby.GatsbyConfig = {
   siteMetadata: {
     title: `My Gatsby Site`,
     description: `An example site.`,
   },
   plugins: [
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `icons`,
-        path: `src/illustrations/Icon`,
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-react-svg',
-      options: {
-        rule: {
-          include: /\.svg$/,
-        },
-      },
-    },
-    {
-      resolve: `gatsby-plugin-sass`,
-      options: {
-        cssLoaderOptions: {
-          localIdentName: '[name]_[local]_[hash:base64:5]',
-        },
-      },
-    },
-    {
-      resolve: `gatsby-plugin-ts`,
-      options: {
-        fileName: `types/graphql-types.ts`,
-      },
-    },
+    ...defaultPlugins,
     {
       resolve: `gatsby-source-graphql`,
       options: {
