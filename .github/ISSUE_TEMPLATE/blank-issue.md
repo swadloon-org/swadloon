@@ -1,11 +1,7 @@
 ---
 name: Blank Issue
 about: General issue template
-title: ""
-labels: ""
+title: ''
+labels: ''
 assignees: ''
-
----
-
-
 ---
