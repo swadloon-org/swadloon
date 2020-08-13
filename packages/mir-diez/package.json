@@ -1,7 +1,14 @@
 {
   "name": "mir-diez",
-  "main": "lib/index.js",
   "version": "0.1.0",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "diez compile -t web",
+    "extract": "diez extract",
+    "start": "diez compile -t web",
+    "test": "echo ok"
+  },
   "dependencies": {
     "@diez/engine": "^10.6.0",
     "@diez/prefabs": "^10.6.0",
@@ -13,11 +20,5 @@
     "@diez/start": "^10.6.0",
     "@diez/stdlib": "^10.6.0",
     "diez": "^10.6.0"
-  },
-  "scripts": {
-    "start": "diez compile -t web",
-    "build": "diez compile -t web",
-    "extract": "diez extract",
-    "test": "echo ok"
   }
 }

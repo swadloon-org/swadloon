@@ -1,48 +1,55 @@
 {
-  "private": true,
   "license": "MIT",
+  "private": true,
   "engines": {
     "node": "14"
-  },
-  "config": {
-    "commitizen": {
-      "path": "node_modules/cz-conventional-changelog"
-    }
-  },
-  "lint-staged": {
-    "*.{js,ts,tsx}": [
-      "yarn lint:fix"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn format:changelog"
-    }
   },
   "workspaces": {
     "packages": [
       "packages/*"
     ]
   },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
+  },
   "scripts": {
-    "nvm": "ts-node --script-mode scripts/install-node-nvm.ts",
-    "fork": "ts-node --script-mode scripts/fork-repo.ts",
-    "start": "lerna exec --parallel -- yarn start",
-    "clean": "lerna exec -- yarn clean",
+    "autorelease": "lerna version --conventional-commits --create-release github",
     "build": "lerna exec --concurrency 1 -- yarn build",
-    "test": "lerna exec --concurrency 1 -- yarn test",
-    "yo": "nr-core-yo-generator",
-    "cli": "nr-core-cli",
+    "changelog": "lerna version --conventional-commits --no-push",
+    "clean": "lerna exec -- yarn clean",
+    "cli": "nr",
+    "commit": "lint-staged && git-cz",
+    "fork": "ts-node --script-mode scripts/fork-repo.ts",
     "format:changelog": "prettier --write packages/**/CHANGELOG.md --loglevel silent && git add packages/**/CHANGELOG.md",
     "lint": "eslint . --ext js,ts,tsx",
     "lint:fix": "eslint . --ext js,ts,tsx --fix",
-    "autorelease": "lerna version --conventional-commits --create-release github",
-    "changelog": "lerna version --conventional-commits --no-push",
+    "nvm": "ts-node --script-mode scripts/install-node-nvm.ts",
     "push": "git push --follow-tags",
-    "commit": "lint-staged && git-cz",
     "reinstall": "yarn reset && yarn && yarn build && yarn test",
+    "reset": "npm i -g rimraf && rimraf -r ./node_modules packages/**/node_modules **/package-lock.json",
     "set-permissions": "chmod a+x node_modules/.bin/nr-core-cli",
-    "reset": "npm i -g rimraf && rimraf -r ./node_modules packages/**/node_modules **/package-lock.json"
+    "start": "lerna exec --parallel -- yarn start",
+    "test": "lerna exec --concurrency 1 -- yarn test",
+    "yo": "nr-core-yo-generator"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn format:changelog"
+    }
+  },
+  "lint-staged": {
+    "**/package.json": [
+      "format-package -w"
+    ],
+    "*.{js,ts,tsx}": [
+      "yarn lint:fix"
+    ]
+  },
+  "resolutions": {
+    "**/packages/core-design-system": "link:./packages/core-design-system",
+    "**/packages/core-react-ui": "link:./packages/core-react-ui"
   },
   "dependencies": {
     "react": "^16.13.1",
@@ -83,6 +90,7 @@
     "eslint-plugin-react": "7.x",
     "eslint-plugin-react-hooks": "4.0.4",
     "expect-puppeteer": "^4.4.0",
+    "format-package": "latest",
     "gatsby-image": "^2.4.14",
     "gatsby-plugin-manifest": "^2.4.21",
     "husky": "^4.2.5",
@@ -104,9 +112,5 @@
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
     "yo": "^3.1.1"
-  },
-  "resolutions": {
-    "**/packages/core-design-system": "link:./packages/core-design-system",
-    "**/packages/core-react-ui": "link:./packages/core-react-ui"
   }
 }

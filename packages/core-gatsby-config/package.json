@@ -4,19 +4,18 @@
   "description": "Reusable gatsby configuration files",
   "license": "MIT",
   "main": "./lib/index.js",
-  "module": "./lib/index.js",
-  "typings": "./lib/index.d.ts",
   "files": [
     "./lib/**/*"
   ],
+  "scripts": {
+    "prebuild": "yarn clean",
+    "build": "tsc --build tsconfig.json",
+    "clean": "rimraf -r lib/**",
+    "start": "tsc --build tsconfig.json --watch --preserveWatchOutput",
+    "test": "echo ok"
+  },
+  "typings": "./lib/index.d.ts",
   "dependencies": {
     "gatsby": "^2.24.47"
-  },
-  "scripts": {
-    "start": "tsc --build tsconfig.json --watch --preserveWatchOutput",
-    "build": "tsc --build tsconfig.json",
-    "prebuild": "yarn clean",
-    "test": "echo ok",
-    "clean": "rimraf -r lib/**"
   }
 }
