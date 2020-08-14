@@ -1,5 +1,5 @@
 export type Maybe<T> = T | null;
-export type Exact<T extends { [key: string]: any }> = { [K in keyof T]: T[K] };
+export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -6543,6 +6543,7 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___version'
   | 'pluginCreator___pluginOptions___cssLoaderOptions___localIdentName'
   | 'pluginCreator___pluginOptions___fileName'
+  | 'pluginCreator___pluginOptions___failOnError'
   | 'pluginCreator___pluginOptions___typeName'
   | 'pluginCreator___pluginOptions___fieldName'
   | 'pluginCreator___pluginOptions___url'
@@ -6748,6 +6749,7 @@ export type SitePluginFieldsEnum =
   | 'version'
   | 'pluginOptions___cssLoaderOptions___localIdentName'
   | 'pluginOptions___fileName'
+  | 'pluginOptions___failOnError'
   | 'pluginOptions___typeName'
   | 'pluginOptions___fieldName'
   | 'pluginOptions___url'
@@ -6880,6 +6882,7 @@ export type SitePluginPackageJsonPeerDependenciesFilterListInput = {
 export type SitePluginPluginOptions = {
   cssLoaderOptions?: Maybe<SitePluginPluginOptionsCssLoaderOptions>;
   fileName?: Maybe<Scalars['String']>;
+  failOnError?: Maybe<Scalars['Boolean']>;
   typeName?: Maybe<Scalars['String']>;
   fieldName?: Maybe<Scalars['String']>;
   url?: Maybe<Scalars['String']>;
@@ -6911,6 +6914,7 @@ export type SitePluginPluginOptionsCssLoaderOptionsFilterInput = {
 export type SitePluginPluginOptionsFilterInput = {
   cssLoaderOptions?: Maybe<SitePluginPluginOptionsCssLoaderOptionsFilterInput>;
   fileName?: Maybe<StringQueryOperatorInput>;
+  failOnError?: Maybe<BooleanQueryOperatorInput>;
   typeName?: Maybe<StringQueryOperatorInput>;
   fieldName?: Maybe<StringQueryOperatorInput>;
   url?: Maybe<StringQueryOperatorInput>;

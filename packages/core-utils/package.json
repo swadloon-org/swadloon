@@ -9,7 +9,6 @@
     "url": "https://github.com/newrade/newrade"
   },
   "license": "MIT",
-  "type": "module",
   "bin": {
     "newrade-cli-clear": "./lib/console-clear.js",
     "newrade-cli-newline": "./lib/console-newline.js"

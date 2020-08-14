@@ -15,7 +15,11 @@
     "test": "echo ok"
   },
   "typings": "./lib/index.d.ts",
-  "dependencies": {
-    "gatsby": "^2.24.47"
+  "dependencies": {},
+  "peerDependencies": {
+    "gatsby": "^2.24.47",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-treat": "^1.4.1"
   }
 }

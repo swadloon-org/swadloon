@@ -2,32 +2,33 @@
   "name": "newrade-website",
   "version": "1.0.0",
   "description": "Gatsby website for newrade's main website",
-  "repository": "https://github.com/newrade/newrade/tree/master/packages/newrade-website",
   "author": {
-    "name": "Philippe Leger",
     "email": "philippe.leger@newrade.ca",
+    "name": "Philippe Leger",
     "url": "https://github.com/newrade/newrade"
   },
+  "repository": "https://github.com/newrade/newrade/tree/master/packages/newrade-website",
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "start": "gatsby develop -p 9003",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "serve": "gatsby serve",
     "clean": "gatsby clean",
+    "serve": "gatsby serve",
+    "prestart": "yarn clean",
+    "start": "gatsby develop -p 9003",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+  },
+  "dependencies": {
+    "core-react-ui": "link:../core-react-ui",
+    "gatsby": "^2.17.11",
+    "normalize.css": "^8.0.1"
   },
   "peerDependencies": {
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-treat": "^1.4.1"
   },
-  "dependencies": {
-    "gatsby": "^2.17.11",
-    "diez-newrade-diez": "link:../newrade-diez/build/diez-newrade-diez-web",
-    "core-react-ui": "link:../core-react-ui"
-  },
   "devDependencies": {
+    "core-gatsby-config": "link:../core-gatsby-config",
     "gatsby-source-graphql": "^2.6.1"
   }
 }

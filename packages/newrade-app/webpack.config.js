@@ -38,6 +38,7 @@ const webpackConfig = {
     stats: 'errors-only',
     open: false,
     hot: true,
+    port: 9004,
     watchOptions: {
       poll: 500,
       ignored: ['node_modules/**', '.git/**'],
