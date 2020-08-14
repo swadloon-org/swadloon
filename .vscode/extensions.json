@@ -8,6 +8,7 @@
     "DigitalBrainstem.javascript-ejs-support",
     "mikestead.dotenv",
     "silvenon.mdx",
-    "ms-vscode-remote.vscode-remote-extensionpack"
+    "ms-vscode-remote.vscode-remote-extensionpack",
+    "eg2.vscode-npm-script"
   ]
 }

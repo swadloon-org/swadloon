@@ -4002,7 +4002,6 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___resolve'
   | 'pluginCreator___name'
   | 'pluginCreator___version'
-  | 'pluginCreator___pluginOptions___cssLoaderOptions___localIdentName'
   | 'pluginCreator___pluginOptions___fileName'
   | 'pluginCreator___pluginOptions___failOnError'
   | 'pluginCreator___pluginOptions___typeName'
@@ -4192,7 +4191,6 @@ export type SitePluginFieldsEnum =
   | 'resolve'
   | 'name'
   | 'version'
-  | 'pluginOptions___cssLoaderOptions___localIdentName'
   | 'pluginOptions___fileName'
   | 'pluginOptions___failOnError'
   | 'pluginOptions___typeName'
@@ -4309,7 +4307,6 @@ export type SitePluginPackageJsonPeerDependenciesFilterListInput = {
 };
 
 export type SitePluginPluginOptions = {
-  cssLoaderOptions?: Maybe<SitePluginPluginOptionsCssLoaderOptions>;
   fileName?: Maybe<Scalars['String']>;
   failOnError?: Maybe<Scalars['Boolean']>;
   typeName?: Maybe<Scalars['String']>;
@@ -4320,16 +4317,7 @@ export type SitePluginPluginOptions = {
   pathCheck?: Maybe<Scalars['Boolean']>;
 };
 
-export type SitePluginPluginOptionsCssLoaderOptions = {
-  localIdentName?: Maybe<Scalars['String']>;
-};
-
-export type SitePluginPluginOptionsCssLoaderOptionsFilterInput = {
-  localIdentName?: Maybe<StringQueryOperatorInput>;
-};
-
 export type SitePluginPluginOptionsFilterInput = {
-  cssLoaderOptions?: Maybe<SitePluginPluginOptionsCssLoaderOptionsFilterInput>;
   fileName?: Maybe<StringQueryOperatorInput>;
   failOnError?: Maybe<BooleanQueryOperatorInput>;
   typeName?: Maybe<StringQueryOperatorInput>;

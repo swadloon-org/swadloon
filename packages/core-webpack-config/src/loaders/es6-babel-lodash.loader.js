@@ -1,6 +1,6 @@
 const path = require('path');
-const babelEnvPresetConfig = require('../../babel-env-preset.conf');
-const babelPluginsConf = require('../../babel-plugins.conf');
+const babelEnvPresetConfig = require('../babel-env-preset.conf');
+const babelPluginsConf = require('../babel-plugins.conf');
 
 const configPaths = require('../../../config-paths');
 

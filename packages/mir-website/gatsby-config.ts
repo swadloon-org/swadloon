@@ -10,7 +10,7 @@ import { defaultPlugins } from 'core-gatsby-config';
 
 require('dotenv').config();
 
-export const config: Gatsby.GatsbyConfig = {
+const config: Gatsby.GatsbyConfig = {
   siteMetadata: {
     title: `My Gatsby Site`,
     description: `An example site.`,

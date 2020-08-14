@@ -1,7 +1,7 @@
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 const postcssPresetEnv = require('postcss-preset-env');
-const cssNanoConfig = require('../css-nano.config');
+const cssNanoConfig = require('./css-nano.config');
 
 module.exports = {
   loader: 'postcss-loader',

@@ -4,7 +4,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { BannerQuery } from '../../types/graphql-types';
 import { Heading } from './heading';
 import { Label } from './label';
-import styles from './banner.module.scss';
+import styles from './banner.scss';
 
 import BarSVG from '../illustrations/Illustration/Bar.svg';
 

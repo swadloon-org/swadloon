@@ -8,7 +8,7 @@ function getOptions(context: { options: { ejsLoader: any } }) {
   return {};
 }
 
-export default function ejsLoader(source: string) {
+export function ejsLoader(source: string) {
   if (this.cacheable) {
     this.cacheable();
   }

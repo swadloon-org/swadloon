@@ -14,6 +14,10 @@ import { Newsletter } from '../components/newsletter/newsletter';
 import '../styles/fonts.scss';
 import './index.global.scss';
 import styles from './index.module.scss';
+import { TreatProvider } from 'react-treat';
+import { mirTheme } from '../themes/mir-theme.treat';
+import { Button } from 'core-react-ui';
+import { TestTreat } from '../components/test-treat';
 
 export const query = graphql`
   query indexPage {
@@ -73,6 +77,12 @@ const IndexPage: React.FC<IndexPageProps> = ({ data, location }) => {
       <NavBar></NavBar>
 
       <Banner></Banner>
+
+      <div>
+        <TreatProvider theme={mirTheme}>
+          <TestTreat />
+        </TreatProvider>
+      </div>
 
       {data.gcms.pageIndices[0].employeeEmployerSections.map((section, index) => {
         switch (section.type) {

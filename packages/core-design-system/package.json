@@ -20,7 +20,6 @@
     "postinstall": "yarn build",
     "prestart": "yarn clean",
     "start": "tsc --build --watch --preserveWatchOutput",
-    "pretest": "yarn build",
     "test": "tsc --project tsconfig.test.json"
   },
   "typings": "./lib/index.d.ts",

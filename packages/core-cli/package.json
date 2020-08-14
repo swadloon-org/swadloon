@@ -21,7 +21,6 @@
     "/oclif.manifest.json"
   ],
   "scripts": {
-    "build": "echo ok",
     "postpack": "rm -f oclif.manifest.json",
     "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
     "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
