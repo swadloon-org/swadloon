@@ -46,13 +46,7 @@ jobs:
 
     - name: Install dependencies
       run: yarn
-      env:
-        GRAPH_CMS_AUTH_TOKEN_MIR: ${{ secrets.GRAPH_CMS_AUTH_TOKEN_MIR }}
-        GRAPH_CMS_API_URL_MIR: ${{ secrets.GRAPH_CMS_API_URL_MIR }}
-        GRAPH_CMS_AUTH_TOKEN_NEWRADE: ${{ secrets.GRAPH_CMS_AUTH_TOKEN_NEWRADE }}
-        GRAPH_CMS_API_URL_NEWRADE: ${{ secrets.GRAPH_CMS_API_URL_NEWRADE }}
-        GRAPH_CMS_AUTH_TOKEN_LAKHOS: ${{ secrets.GRAPH_CMS_AUTH_TOKEN_LAKHOS }}
-        GRAPH_CMS_API_URL_LAKHOS: ${{ secrets.GRAPH_CMS_API_URL_LAKHOS }}
+
     - name: Lint
       run: yarn lint
 
@@ -65,6 +59,7 @@ jobs:
         GRAPH_CMS_API_URL_NEWRADE: ${{ secrets.GRAPH_CMS_API_URL_NEWRADE }}
         GRAPH_CMS_AUTH_TOKEN_LAKHOS: ${{ secrets.GRAPH_CMS_AUTH_TOKEN_LAKHOS }}
         GRAPH_CMS_API_URL_LAKHOS: ${{ secrets.GRAPH_CMS_API_URL_LAKHOS }}
+
     - name: Test
       run: yarn test
 
