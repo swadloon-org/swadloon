@@ -45,11 +45,17 @@ yarn autorelease
 
 ### Prettier and ESLint (JS, TS, CSS, HTML files)
 
+TODO add setup for prettier and eslint in vscode
+
 ### Format Package (package.json)
 
 https://www.npmjs.com/package/format-package
 
-## Packages
+## Package Management
+
+TODO document how to manage dependencies in the mono repo
+
+TODO
 
 https://yarnpkg.com/features/protocols#table
 

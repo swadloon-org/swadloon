@@ -19,6 +19,10 @@ export function createGatsbyWebpackConfig({
   if (stage === 'develop-html') return {};
 
   const commonPlugins = [
+    /**
+     * TreatCSS Webpack Plugin
+     * @see https://seek-oss.github.io/treat/webpack-options/
+     */
     new TreatPlugin({
       localIdentName: '[name]-[local]',
       themeIdentName: '_[name]-[local]_',

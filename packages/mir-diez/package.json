@@ -4,7 +4,7 @@
   "license": "MIT",
   "main": "lib/index.js",
   "scripts": {
-    "build": "diez compile -t web",
+    "build1": "diez compile -t web",
     "extract": "diez extract",
     "start": "diez compile -t web",
     "test": "echo ok"

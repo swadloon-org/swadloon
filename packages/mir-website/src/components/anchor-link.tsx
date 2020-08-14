@@ -1,6 +1,6 @@
-import React, { HTMLAttributes, AnchorHTMLAttributes } from 'react';
-
-import styles from './anchor-link.module.scss';
+import React, { AnchorHTMLAttributes } from 'react';
+import { useStyles } from 'react-treat';
+import * as styleRefs from './anchor-link.treat';
 
 interface OwnProps {
   variant: 'default' | 'reversed';
@@ -12,9 +12,11 @@ interface OwnProps {
  *
  */
 export const AnchorLink: React.FC<AnchorHTMLAttributes<any> & OwnProps> = (props) => {
+  const styles = useStyles(styleRefs);
+
   return (
     <a className={`${props.className || ''} ${styles.wrapper}`} {...props}>
-      {props.children}
+      <div className={styles.child}>{props.children}</div>
     </a>
   );
 };

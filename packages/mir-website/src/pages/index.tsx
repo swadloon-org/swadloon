@@ -73,47 +73,43 @@ interface IndexPageProps {
 
 const IndexPage: React.FC<IndexPageProps> = ({ data, location }) => {
   return (
-    <div className={styles.wrapper}>
-      <NavBar></NavBar>
+    <TreatProvider theme={mirTheme}>
+      <div className={styles.wrapper}>
+        <NavBar></NavBar>
 
-      <Banner></Banner>
+        <Banner></Banner>
 
-      <div>
-        <TreatProvider theme={mirTheme}>
-          <TestTreat />
-        </TreatProvider>
+        {data.gcms.pageIndices[0].employeeEmployerSections.map((section, index) => {
+          switch (section.type) {
+            case 'type1group': {
+              return <InfoSectionType1Group key={index} {...section} />;
+            }
+            case 'type2': {
+              return <InfoSectionType2 key={index} {...section} />;
+            }
+            case 'type3': {
+              return <InfoSectionType3 key={index} {...section} />;
+            }
+            case 'type4': {
+              return <InfoSectionType4 key={index} {...section} />;
+            }
+            default: {
+              return null;
+            }
+          }
+        })}
+
+        <BlogPreviewSection
+          imageUrl={data.gcms.assets[0].url}
+          paragraphContent="Lorem ipsum dolor sit amet, consectetur adipiscing elit Nulla chronocrator accumsan, metus ultrices eleifend gravi."
+          headingContent="Les dernières nouvelles"
+        ></BlogPreviewSection>
+
+        <Newsletter id="newsletter"></Newsletter>
+
+        <Footer></Footer>
       </div>
-
-      {data.gcms.pageIndices[0].employeeEmployerSections.map((section, index) => {
-        switch (section.type) {
-          case 'type1group': {
-            return <InfoSectionType1Group key={index} {...section} />;
-          }
-          case 'type2': {
-            return <InfoSectionType2 key={index} {...section} />;
-          }
-          case 'type3': {
-            return <InfoSectionType3 key={index} {...section} />;
-          }
-          case 'type4': {
-            return <InfoSectionType4 key={index} {...section} />;
-          }
-          default: {
-            return null;
-          }
-        }
-      })}
-
-      <BlogPreviewSection
-        imageUrl={data.gcms.assets[0].url}
-        paragraphContent="Lorem ipsum dolor sit amet, consectetur adipiscing elit Nulla chronocrator accumsan, metus ultrices eleifend gravi."
-        headingContent="Les dernières nouvelles"
-      ></BlogPreviewSection>
-
-      <Newsletter id="newsletter"></Newsletter>
-
-      <Footer></Footer>
-    </div>
+    </TreatProvider>
   );
 };
 

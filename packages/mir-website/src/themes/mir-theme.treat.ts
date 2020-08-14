@@ -1,16 +1,36 @@
 import { createTheme } from 'treat';
+import { Theme } from 'treat/theme';
+import { DesignSystem } from 'core-design-system';
 
-export const mirTheme = createTheme(
-  {
-    name: 'mir',
-    colors: {
-      primary: {
-        0: 'blue',
-        100: 'blue',
-        500: 'blue',
-        1000: 'blue',
-      },
+const theme: DesignSystem = {
+  name: 'mir',
+  colors: {
+    primary: {
+      0: 'red',
+      100: 'red',
+      500: 'red',
+      1000: 'red',
+    },
+    greyscale: {
+      0: 'white',
+      100: 'white',
+      150: 'white',
+      200: 'white',
+      300: 'white',
+      400: 'white',
+      500: 'white',
+      600: 'white',
+      700: 'white',
+      800: 'white',
+      900: 'white',
+      1000: 'white',
     },
   },
-  'mir-theme'
-);
+  breakpoints: {
+    mobileSmall: 'screen and (min-width: 768px)',
+  },
+  typography: {},
+  scaling: {},
+};
+
+export const mirTheme = createTheme(theme, 'mir-theme');
