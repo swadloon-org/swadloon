@@ -1,42 +1,21 @@
-import path from 'path';
+import { defaultPlugins } from 'core-gatsby-config';
+import dotenv from 'dotenv';
 import Gatsby from 'gatsby';
+
+dotenv.config();
 
 /**
  * Configure your Gatsby site with this file.
  *
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
-export const plugins = ['gatsby-plugin-typescript', 'gatsby-plugin-postcss'];
-
-import dotenv from 'dotenv';
-
-dotenv.config();
-
-function getGatsbySourceGraphQLPlugin({
-  typeName,
-  fieldName,
-  url,
-}: {
-  typeName: string;
-  fieldName: string;
-  url: string;
-}): Gatsby.PluginRef {
-  return {
-    resolve: `gatsby-source-graphql`,
-    options: {
-      typeName,
-      fieldName,
-      url,
-    },
-  };
-}
-
 export const config: Gatsby.GatsbyConfig = {
   siteMetadata: {
     title: `My Gatsby Site`,
     description: `An example site.`,
   },
   plugins: [
+    ...defaultPlugins,
     {
       resolve: `gatsby-source-graphql`,
       options: {

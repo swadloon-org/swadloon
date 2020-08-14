@@ -24,9 +24,6 @@
     "test": "tsc --project tsconfig.test.json"
   },
   "typings": "./lib/index.d.ts",
-  "dependencies": {
-    "@diez/engine": "^10.6.0",
-    "@diez/prefabs": "^10.6.0"
-  },
+  "dependencies": {},
   "devDependencies": {}
 }
