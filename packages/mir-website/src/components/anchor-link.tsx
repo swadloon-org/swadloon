@@ -16,7 +16,7 @@ export const AnchorLink: React.FC<AnchorHTMLAttributes<any> & OwnProps> = (props
 
   return (
     <a className={`${props.className || ''} ${styles.wrapper}`} {...props}>
-      <div className={styles.child}>{props.children}</div>
+      {props.children}
     </a>
   );
 };

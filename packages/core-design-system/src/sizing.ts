@@ -49,7 +49,7 @@ export interface SizingStep {
 /**
  * Definition of the sizing steps for each viewport.
  */
-export type SizingSteps = { [key in keyof typeof VIEWPORT]: SizingStep };
+export type SizingSteps = { [key in keyof typeof VIEWPORT]: { [key in SIZING]: SizingStep } };
 
 /**
  * A set of predefined sizes from `X1` to `X10`.
@@ -63,6 +63,7 @@ export interface Sizing {
    * This defines what `1 rem` is.
    */
   baseFontSize: number;
+  baseFontSizePx: string;
   /**
    * The ratio by which we multiply to calculate the next size step.
    * E.g. 1.618 (Golden Ratio)
@@ -77,5 +78,5 @@ export interface Sizing {
   /**
    * Size values for each step.
    */
-  sizingSteps: { [key in SIZING]: SizingSteps };
+  sizingSteps: SizingSteps;
 }

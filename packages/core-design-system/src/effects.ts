@@ -13,6 +13,14 @@ export type BoxShadow = {
    */
   spread: number;
   /**
+   * TODO
+   */
+  offsetX: number;
+  /**
+   * TODO
+   */
+  offsetY: number;
+  /**
    * The box shadow's color.
    */
   color: Color;

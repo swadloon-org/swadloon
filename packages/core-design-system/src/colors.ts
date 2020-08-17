@@ -9,17 +9,20 @@ export interface Colors {
   primary500: Color;
   primary700: Color;
   primary1000: Color;
+
   accent100: Color;
   accent300: Color;
   accent500: Color;
   accent700: Color;
   accent1000: Color;
+
+  greyscaleTransparent: Color;
   greyscale0: Color;
-  greyscale0Reversed: Color;
   greyscale100: Color;
   greyscale100Reversed: Color;
   greyscale150: Color;
   greyscale200: Color;
+  greyscale200Reversed: Color;
   greyscale300: Color;
   greyscale400: Color;
   greyscale500: Color;
@@ -28,9 +31,11 @@ export interface Colors {
   greyscale800: Color;
   greyscale900: Color;
   greyscale1000: Color;
+
   effectTransparentLight: Color;
   effectTransparentMedium: Color;
   effectTransparentHeavy: Color;
+
   utilityGreen100: Color;
   utilityGreen300: Color;
   utilityGreen500: Color;

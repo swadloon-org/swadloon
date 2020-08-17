@@ -1,3 +1,5 @@
+import { Value } from './value';
+
 /**
  * Viewport names.
  */
@@ -23,24 +25,39 @@ export enum BREAKPOINT {
 }
 
 /**
+ * Representation of a breakpoint, including its value
+ * in pixel, and a default media query to activate it
+ */
+export interface Breakpoint {
+  /**
+   * @example 999
+   */
+  value: number;
+  /**
+   * @example `999px`
+   */
+  valuePx: string;
+  /**
+   * @example `@media screen and (min-width: 999px)`
+   */
+  mediaQuery?: string;
+}
+
+/**
  * Breakpoints values in pixel.
  */
-export type Breakpoints = { [key in keyof typeof BREAKPOINT]: number };
+export type Breakpoints = { [key in keyof typeof BREAKPOINT]: Breakpoint };
 
 /**
  * Content margins for different device formats.
  */
-export interface ContentMargins {
-  mobile: number;
-  tablet: number;
-  desktop: number;
-}
+export type ContentMargins = { [key in keyof typeof VIEWPORT]: Value };
 
 /**
  * Content max width for larger viewports.
  */
 export interface ContentWidths {
-  desktopMaxWidth: number;
+  desktopMaxWidth: Value;
 }
 
 /**

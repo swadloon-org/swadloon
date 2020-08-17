@@ -1,5 +1,5 @@
 import { CapsizeStyles, FontMetrics } from 'capsize';
-import { FontWeightProperty } from 'csstype';
+import { FontWeightProperty, TextTransformProperty } from 'csstype';
 import { VIEWPORT } from './layout';
 import { SizingStep } from './sizing';
 
@@ -8,6 +8,7 @@ import { SizingStep } from './sizing';
  */
 export enum TYPOGRAPHIC_STYLE {
   SANS = 'SANS',
+  SANS_ALTERNATE = 'SANS_ALTERNATE',
   SERIF = 'SERIF',
   MONOSPACE = 'MONOSPACE',
 }
@@ -50,17 +51,40 @@ export interface Font {
   name: string;
   vendor?: string;
   link?: string;
+  /**
+   * Font-specific metric for capsize.
+   */
+  fontMetrics: FontMetrics;
 }
 
 /**
  * Available fonts in the design system.
  */
-export type Fonts = { [key in keyof typeof TYPOGRAPHIC_STYLE]: Font };
+export type Fonts = { [key in keyof typeof TYPOGRAPHIC_STYLE]?: Font };
 
 export interface TextStyle {
+  /**
+   * Font object that contains information about the typeface.
+   */
   font: Font;
+  /**
+   * Font family which will be rendered in CSS files.
+   *
+   * @example 'Montserrat-Bold'
+   */
   fontFamily: string;
+  /**
+   * Specify the font weight in number.
+   *
+   * @example 500
+   */
   fontWeight: FontWeightProperty;
+  /**
+   * Optional property to set `text-transform`.
+   *
+   * @example 'uppercase'
+   */
+  textTransform?: TextTransformProperty;
 
   /**
    * Desired capital letter height in pixels. (which is usually the height of the letter 'X')
@@ -71,10 +95,6 @@ export interface TextStyle {
    * Desired line gap in pixels.
    */
   lineGap: number;
-  /**
-   * Font-specific metric for capsize.
-   */
-  fontMetrics: FontMetrics; // depends on font, capital height and line gap
   /**
    * Direct output of capsize (values are in px).
    */

@@ -2,6 +2,7 @@ import capsize, { CapsizeStyles } from 'capsize';
 import { DesignSystem } from './design-system';
 import { TextStyle } from './typography';
 import { Colors, ColorIntents } from './colors';
+import { SizingStep } from './sizing';
 
 /**
  * Create a DesignSystem object with sensible defaults.
@@ -33,15 +34,15 @@ export function createDesignSystem({
 export function createDefaultColorIntents(colors: Colors): ColorIntents {
   return {
     primary: colors.primary500,
-    primaryReversed: colors.greyscale0Reversed,
+    primaryReversed: colors.greyscale0,
     secondary: colors.primary500,
-    secondaryReversed: colors.greyscale0Reversed,
+    secondaryReversed: colors.greyscale0,
     primaryText: colors.greyscale900,
-    primaryTextReversed: colors.greyscale0Reversed,
+    primaryTextReversed: colors.greyscale0,
     secondaryText: colors.greyscale700,
-    secondaryTextReversed: colors.greyscale0Reversed,
+    secondaryTextReversed: colors.greyscale0,
     tertiaryText: colors.greyscale600,
-    tertiaryTextReversed: colors.greyscale0Reversed,
+    tertiaryTextReversed: colors.greyscale0,
     successText: colors.utilityGreen1000,
     successAction: colors.utilityGreen500,
     successBackground: colors.utilityGreen100,
@@ -57,6 +58,17 @@ export function createDefaultColorIntents(colors: Colors): ColorIntents {
   };
 }
 
+export function createSizingStep({
+  value,
+  baseFontSize,
+}: Pick<SizingStep, 'value'> & Pick<DesignSystem['sizing'], 'baseFontSize'>): SizingStep {
+  return {
+    value,
+    valuePx: `${value}px`,
+    valueRem: `${value / baseFontSize}rem`,
+  };
+}
+
 /**
  * Create a TextStyle using the Capsize utility.
  *
@@ -67,21 +79,22 @@ export function createTextStyle({
   font,
   fontFamily,
   fontWeight,
-  fontMetrics,
+  textTransform,
   capHeight,
   lineGap,
 }: { baseFontSize: number } & Pick<
   TextStyle,
-  'font' | 'fontFamily' | 'fontWeight' | 'fontMetrics' | 'capHeight' | 'lineGap'
+  'font' | 'fontFamily' | 'fontWeight' | 'textTransform' | 'capHeight' | 'lineGap'
 >): TextStyle {
   const compatibleCapHeight: number = typeof capHeight === 'number' ? capHeight : capHeight.value;
+  const { fontMetrics } = font;
 
   const capsizePx = capsize({ capHeight: compatibleCapHeight, lineGap, fontMetrics });
   return {
     font,
     fontFamily,
     fontWeight,
-    fontMetrics,
+    textTransform,
     capHeight,
     lineGap,
     capsizePx,
