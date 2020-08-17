@@ -5,21 +5,21 @@ const baseWidth100 = {
   width: `100%`,
 };
 
-export const containerBox = style((theme: DesignSystem) => ({
+export const containerBox = style(({ layout }: DesignSystem) => ({
   position: `relative`,
   display: `grid`,
   gridTemplateColumns: `1fr`,
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
-      position: `relative`,
-      gridTemplateColumns: `${theme.layout.contentMargins.TABLET.valuePx} 1fr `,
-      // gridTemplateAreas: `. mid .` ,
+    [`screen and (min-width: ${layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+      position: 'relative',
+      gridTemplateColumns: `${layout.contentMargins.TABLET.valuePx} 1fr ${layout.contentMargins.TABLET.valuePx}`,
+      gridTemplateAreas: "'. mid .'",
     },
   },
 }));
 
 export const wrapper = style((theme: DesignSystem) => ({
-  //   padding: `$sizing-x6 $margin-content`,
+  padding: `var(${theme.sizing.sizeCSSVarNames.X6}) ${theme.layout.contentMargins.TABLET.valuePx}`,
   minHeight: `416px`,
   display: `flex`,
   alignItems: `center`,
@@ -28,22 +28,22 @@ export const wrapper = style((theme: DesignSystem) => ({
 
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
-      gridArea: `mid`,
+      gridArea: 'mid',
       zIndex: 1,
       minHeight: `477px`,
-      padding: `${theme.sizing.sizeCSSVarNames.X6} ${theme.sizing.sizeCSSVarNames.X5}`,
+      padding: `var(${theme.sizing.sizeCSSVarNames.X6}) var(${theme.sizing.sizeCSSVarNames.X5})`,
       margin: `0 0 ${theme.layout.contentMargins.TABLET.valuePx}`,
     },
   },
 }));
 
 export const subtitle = style((theme: DesignSystem) => ({
-  //   marginBottom: `$sizing-x3`,
+  marginBottom: `var(${theme.sizing.sizeCSSVarNames.X3})`,
   color: theme.colors.greyscale0,
 }));
 
 export const title = style((theme: DesignSystem) => ({
-  //   margin: `$sizing-x3 0`,
+  margin: `var(${theme.sizing.sizeCSSVarNames.X3}) 0`,
   color: theme.colors.greyscale0,
 }));
 
