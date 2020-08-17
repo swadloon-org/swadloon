@@ -1,11 +1,10 @@
 import { globalStyle } from 'treat';
 import { DesignSystem } from 'core-design-system';
 import { getGlobalSizeVariables } from './global-sizes-variables.styles';
+import { globalReset } from './global-reset.styles';
 
 export function applyReset(themeClass: string) {
-  return globalStyle(`${themeClass}, *`, (theme: DesignSystem) => ({
-    boxSizing: 'border-box',
-  }));
+  return globalStyle(`${themeClass}, *`, (theme: DesignSystem) => globalReset);
 }
 
 export function applyStylesToHtmlElement(themeClass: string) {
@@ -28,5 +27,9 @@ export function applyStylesToBodyElement(themeClass: string) {
     justifyContent: 'center',
     maxWidth: '100vw',
     overflow: 'hidden',
+    /**
+     * Remove the margin in all browsers.
+     */
+    margin: 0,
   }));
 }

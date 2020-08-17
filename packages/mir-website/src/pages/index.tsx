@@ -16,7 +16,6 @@ import { mirTheme } from '../themes/mir-theme.treat';
 import * as stylesRef from './index.treat';
 
 import '../styles/font-faces.styles.css';
-import '../styles/normalize.styles.css';
 
 export const query = graphql`
   query indexPage {
