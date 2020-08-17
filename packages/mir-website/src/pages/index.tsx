@@ -1,6 +1,6 @@
 import { graphql } from 'gatsby';
-import 'normalize.css';
 import React from 'react';
+import { TreatProvider, useStyles } from 'react-treat';
 import { IndexPageQuery } from '../../types/graphql-types';
 import { Banner } from '../components/banner';
 import { BlogPreviewSection } from '../components/blog-preview/blog-preview-section';
@@ -11,13 +11,12 @@ import { InfoSectionType3 } from '../components/info-section/info-section-type-3
 import { InfoSectionType4 } from '../components/info-section/info-section-type-4';
 import { NavBar } from '../components/nav-bar';
 import { Newsletter } from '../components/newsletter/newsletter';
-import '../styles/fonts.scss';
-import './index.global.scss';
-import styles from './index.module.scss';
-import { TreatProvider } from 'react-treat';
+
 import { mirTheme } from '../themes/mir-theme.treat';
-import { Button } from 'core-react-ui';
-import { TestTreat } from '../components/test-treat';
+import * as stylesRef from './index.treat';
+
+import '../styles/font-faces.styles.css';
+import '../styles/normalize.styles.css';
 
 export const query = graphql`
   query indexPage {
@@ -71,45 +70,53 @@ interface IndexPageProps {
   location: Location;
 }
 
-const IndexPage: React.FC<IndexPageProps> = ({ data, location }) => {
+const IndexPage: React.FC<IndexPageProps> = (props) => {
   return (
     <TreatProvider theme={mirTheme}>
-      <div className={styles.wrapper}>
-        <NavBar></NavBar>
-
-        <Banner></Banner>
-
-        {data.gcms.pageIndices[0].employeeEmployerSections.map((section, index) => {
-          switch (section.type) {
-            case 'type1group': {
-              return <InfoSectionType1Group key={index} {...section} />;
-            }
-            case 'type2': {
-              return <InfoSectionType2 key={index} {...section} />;
-            }
-            case 'type3': {
-              return <InfoSectionType3 key={index} {...section} />;
-            }
-            case 'type4': {
-              return <InfoSectionType4 key={index} {...section} />;
-            }
-            default: {
-              return null;
-            }
-          }
-        })}
-
-        <BlogPreviewSection
-          imageUrl={data.gcms.assets[0].url}
-          paragraphContent="Lorem ipsum dolor sit amet, consectetur adipiscing elit Nulla chronocrator accumsan, metus ultrices eleifend gravi."
-          headingContent="Les dernières nouvelles"
-        ></BlogPreviewSection>
-
-        <Newsletter id="newsletter"></Newsletter>
-
-        <Footer></Footer>
-      </div>
+      <App {...props} />
     </TreatProvider>
+  );
+};
+
+const App: React.FC<IndexPageProps> = ({ data, location }) => {
+  const styles = useStyles(stylesRef);
+
+  return (
+    <div className={`${styles.wrapper}`}>
+      <NavBar></NavBar>
+
+      <Banner></Banner>
+
+      {data.gcms.pageIndices[0].employeeEmployerSections.map((section, index) => {
+        switch (section.type) {
+          case 'type1group': {
+            return <InfoSectionType1Group key={index} {...section} />;
+          }
+          case 'type2': {
+            return <InfoSectionType2 key={index} {...section} />;
+          }
+          case 'type3': {
+            return <InfoSectionType3 key={index} {...section} />;
+          }
+          case 'type4': {
+            return <InfoSectionType4 key={index} {...section} />;
+          }
+          default: {
+            return null;
+          }
+        }
+      })}
+
+      <BlogPreviewSection
+        imageUrl={data.gcms.assets[0].url}
+        paragraphContent="Lorem ipsum dolor sit amet, consectetur adipiscing elit Nulla chronocrator accumsan, metus ultrices eleifend gravi."
+        headingContent="Les dernières nouvelles"
+      ></BlogPreviewSection>
+
+      <Newsletter id="newsletter"></Newsletter>
+
+      <Footer></Footer>
+    </div>
   );
 };
 
