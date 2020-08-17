@@ -31,7 +31,8 @@ export const wrapper = style((theme: DesignSystem) => ({
       gridArea: `mid`,
       zIndex: 1,
       minHeight: `477px`,
-      margin: `0 0 0 ${theme.layout.contentMargins.TABLET.valuePx}`,
+      padding: `${theme.sizing.sizeCSSVarNames.X6} ${theme.sizing.sizeCSSVarNames.X5}`,
+      margin: `0 0 ${theme.layout.contentMargins.TABLET.valuePx}`,
     },
   },
 }));
@@ -51,8 +52,10 @@ export const bottomBar = style((theme: DesignSystem) => ({
 }));
 
 export const rect = style((theme: DesignSystem) => ({
-  [`${bottomBar} &`]: {
-    ...baseWidth100,
+  selectors: {
+    [` ${bottomBar} &`]: {
+      ...baseWidth100,
+    },
   },
 }));
 
