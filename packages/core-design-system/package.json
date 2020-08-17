@@ -19,8 +19,7 @@
     "clean": "rimraf -r lib/**",
     "postinstall": "yarn build",
     "prestart": "yarn clean",
-    "start": "tsc --build --watch --preserveWatchOutput",
-    "test": "tsc --project tsconfig.test.json"
+    "start": "tsc --build --watch --preserveWatchOutput"
   },
   "typings": "./lib/index.d.ts",
   "dependencies": {},
