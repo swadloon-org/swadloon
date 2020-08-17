@@ -1,7 +1,7 @@
 import { style } from 'treat';
-import { Theme } from 'treat/theme';
+import { DesignSystem } from 'core-design-system';
 
-export const baseButton = style((theme: Theme) => ({
+export const baseButton = style((theme: DesignSystem) => ({
   backgroundColor: theme.colors.primary500,
 }));
 
