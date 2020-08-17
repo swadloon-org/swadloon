@@ -41,13 +41,17 @@ export const Banner: React.FC<OwnProps> = () => {
           <Label size="small" variant="uppercase" className={styles.subtitle}>
             {data.gcms.pageIndices[0].bannerSubTitle}
           </Label>
+
           <BarSVG />
+
           <Heading variant="h1" className={styles.title}>
             {data.gcms.pageIndices[0].bannerTitle}
           </Heading>
+
           <BarSVG viewBox={null} className={styles.bottomBar} />
         </div>
       </div>
+
       <div className={styles.blackbox}></div>
     </div>
   );

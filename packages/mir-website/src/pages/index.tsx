@@ -13,7 +13,7 @@ import { NavBar } from '../components/nav-bar';
 import { Newsletter } from '../components/newsletter/newsletter';
 
 import { mirTheme } from '../themes/mir-theme.treat';
-import * as stylesRef from './index.treat';
+import * as stylesRef from '../styles/index.treat';
 
 import '../styles/font-faces.styles.css';
 
