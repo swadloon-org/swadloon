@@ -31,22 +31,10 @@
       "path": "../packages/core-yo-generator"
     },
     {
-      "path": "../packages/newrade-app"
-    },
-    {
-      "path": "../packages/newrade-diez"
-    },
-    {
       "path": "../packages/newrade-website"
     },
     {
-      "path": "../packages/lakhos-diez"
-    },
-    {
       "path": "../packages/lakhos-website"
-    },
-    {
-      "path": "../packages/mir-diez"
     },
     {
       "path": "../packages/mir-website"

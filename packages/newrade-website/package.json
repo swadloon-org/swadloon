@@ -19,8 +19,7 @@
   },
   "dependencies": {
     "core-react-ui": "link:../core-react-ui",
-    "gatsby": "^2.17.11",
-    "normalize.css": "^8.0.1"
+    "gatsby": "^2.17.11"
   },
   "peerDependencies": {
     "react": "^16.13.1",
