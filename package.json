@@ -80,6 +80,7 @@
     "babel-loader": "^8.0.6",
     "babel-plugin-module-resolver": "^4.0.0",
     "babel-plugin-treat": "^1.1.0",
+    "capsize": "^1.1.0",
     "chalk": "^4.0.0",
     "conventional-changelog-cli": "^2.0.34",
     "copy-webpack-plugin": "^5.0.5",

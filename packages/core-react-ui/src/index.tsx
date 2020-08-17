@@ -1,1 +1,3 @@
-export { Button } from './button.component';
+export { Button } from './components/button/button.component';
+
+export * from './defaults/default-sizing';

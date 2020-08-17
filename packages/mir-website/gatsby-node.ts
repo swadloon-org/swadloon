@@ -23,6 +23,5 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
 }) => {
   const isProduction = stage !== `develop`;
   const isSSR = stage.includes(`html`);
-  console.log(isSSR);
   actions.setWebpackConfig(createGatsbyWebpackConfig({ isProduction, stage, isSSR, loaders, plugins }));
 };

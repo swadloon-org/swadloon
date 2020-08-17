@@ -23,6 +23,9 @@
     "test": "tsc --project tsconfig.test.json"
   },
   "typings": "./lib/index.d.ts",
-  "dependencies": {},
+  "dependencies": {
+    "capsize": "^1.1.0",
+    "csstype": "^3.0.2"
+  },
   "devDependencies": {}
 }

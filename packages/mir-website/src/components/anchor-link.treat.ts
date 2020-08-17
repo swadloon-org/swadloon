@@ -11,7 +11,7 @@ function pxToRem(px: number, baseUnitPx: number): string {
 
 export const wrapper = style((theme: DesignSystem) => ({
   color: theme.colors.greyscale[0],
-  textDecoration: 'underline',
+  textDecoration: `underline`,
   ...baseLinkStyles,
   '--my-var': `eval(1vw + 42px)`,
   ':visited': {

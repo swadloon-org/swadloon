@@ -9,6 +9,7 @@
     "mikestead.dotenv",
     "silvenon.mdx",
     "ms-vscode-remote.vscode-remote-extensionpack",
-    "eg2.vscode-npm-script"
+    "eg2.vscode-npm-script",
+    "wmaurer.change-case"
   ]
 }

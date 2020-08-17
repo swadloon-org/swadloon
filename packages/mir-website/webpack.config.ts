@@ -24,7 +24,7 @@ export function createGatsbyWebpackConfig({
      * @see https://seek-oss.github.io/treat/webpack-options/
      */
     new TreatPlugin({
-      localIdentName: '[name]-[local]',
+      localIdentName: '[name]_[local]_[hash:base64:5]',
       themeIdentName: '_[name]-[local]_',
       outputCSS: isSSR ? false : true, // https://seek-oss.github.io/treat/setup#server-side-rendering
       outputLoaders: [loaders.miniCssExtract()],
@@ -33,23 +33,33 @@ export function createGatsbyWebpackConfig({
 
   const productionPlugins = [bundleVisualizerPlugin];
 
+  const sassRule = {
+    test: /\.s(a|c)ss$/,
+    use: isSSR
+      ? [loaders.null()]
+      : [
+          loaders.miniCssExtract(),
+          loaders.css({ ...(cssLoader as any).query, importLoaders: 2 }),
+          loaders.postcss(),
+          scssLoader,
+        ],
+  };
+
+  const sassRuleModules = {
+    test: /\.module\.s(a|c)ss$/,
+    use: [
+      !isSSR && loaders.miniCssExtract({ hmr: false }),
+      loaders.css({ ...(cssLoader as any).query, modules: true, importLoaders: 2 }),
+      loaders.postcss(),
+      scssLoader,
+    ].filter(Boolean),
+  };
+
   return {
     module: {
       rules: [
         {
-          oneOf: [
-            {
-              test: /\.s(a|c)ss$/,
-              use: isSSR
-                ? [loaders.null()]
-                : [
-                    loaders.miniCssExtract(),
-                    loaders.css({ ...(cssLoader as any).query, importLoaders: 1 }),
-                    // loaders.postcss(postCssLoader.options),
-                    scssLoader,
-                  ],
-            },
-          ],
+          oneOf: [sassRuleModules, sassRule],
         },
       ],
     },

@@ -1,40 +1,54 @@
-import { Properties, Color } from 'csstype';
-
-type BasicCSSProperties = Properties<string | number>;
+import { Color } from 'csstype';
+import { ColorIntents, Colors } from './colors';
+import { Buttons } from './components/buttons';
+import { Effects } from './effects';
+import { Layout } from './layout';
+import { Typography } from './typography';
+import { Sizing } from './sizing';
 
 export interface DesignSystem {
+  /**
+   * Name of the project or brand's name.
+   */
   name: string;
-  colors: {
-    primary: {
-      0: Color;
-      100: Color;
-      500: Color;
-      1000: Color;
-    };
-    greyscale: {
-      '0': Color;
-      100: Color;
-      150: Color;
-      200: Color;
-      300: Color;
-      400: Color;
-      500: Color;
-      600: Color;
-      700: Color;
-      800: Color;
-      900: Color;
-      1000: Color;
-    };
-  };
-  typography: any;
-  scaling: any;
-  breakpoints: {
-    mobileSmall: string;
-  };
+  /**
+   * Theme variation's name.
+   * @default 'light'
+   */
+  variation: 'light' | 'dark' | string;
+  /**
+   * Every color defined in the system.
+   */
+  colors: Colors;
+  /**
+   * Contextual use of certain colors (text, action, state, etc).
+   */
+  colorIntents: ColorIntents;
+  /**
+   * Shadows, elevation, blurs and other visual effects.
+   */
+  effects?: Effects;
+  /**
+   * Defines the system's sizing values.
+   */
+  sizing: Sizing;
+  /**
+   * Defines every text styles.
+   */
+  typography: Typography;
+  /**
+   * TODO
+   */
+  animations?: any;
+  /**
+   * Breakpoints, common content margins for different viewports.
+   */
+  layout: Layout;
+  /**
+   * Components' specific settings.
+   */
   components?: {
-    button: {
-      borderColor: Color;
-    };
+    buttons: Buttons;
     link: {
       color: Color;
       visited: Color;

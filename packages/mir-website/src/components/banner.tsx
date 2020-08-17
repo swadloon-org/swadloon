@@ -4,7 +4,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { BannerQuery } from '../../types/graphql-types';
 import { Heading } from './heading';
 import { Label } from './label';
-import styles from './banner.scss';
+import styles from './banner.module.scss';
 
 import BarSVG from '../illustrations/Illustration/Bar.svg';
 
@@ -40,7 +40,7 @@ export const Banner: React.FC<OwnProps> = () => {
             {data.gcms.pageIndices[0].bannerSubTitle}
           </Label>
           <BarSVG />
-          <Heading variant="h2" className={styles.title}>
+          <Heading variant="h1" className={styles.title}>
             {data.gcms.pageIndices[0].bannerTitle}
           </Heading>
           <BarSVG viewBox={null} className={styles.bottomBar} />
