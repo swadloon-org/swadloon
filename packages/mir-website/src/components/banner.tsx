@@ -1,10 +1,11 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
+import { useStyles } from 'react-treat';
 
 import { BannerQuery } from '../../types/graphql-types';
 import { Heading } from './heading';
 import { Label } from './label';
-import styles from './banner.module.scss';
+import * as styleRefs from './banner.treat';
 
 import BarSVG from '../illustrations/Illustration/Bar.svg';
 
@@ -26,6 +27,7 @@ interface OwnProps {}
 
 export const Banner: React.FC<OwnProps> = () => {
   const data = useStaticQuery<BannerQuery>(query);
+  const styles = useStyles(styleRefs);
 
   return (
     <div className={styles.containerBox}>
