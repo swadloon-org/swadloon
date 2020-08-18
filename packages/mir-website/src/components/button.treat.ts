@@ -40,7 +40,7 @@ export const primaryReversed = style((theme: DesignSystem) => ({
 export const secondaryDefault = style((theme: DesignSystem) => ({
   ...resetButton,
 
-  padding: theme.sizing.sizeCSSVarNames.X2,
+  padding: `var(${theme.sizing.sizeCSSVarNames.X2})`,
   border: 0,
 
   backgroundColor: theme.colors.primary500,
@@ -48,7 +48,7 @@ export const secondaryDefault = style((theme: DesignSystem) => ({
 }));
 
 const baseSecondaryTertiary = (theme) => ({
-  padding: theme.sizing.sizeCSSVarNames.X2,
+  padding: `var(${theme.sizing.sizeCSSVarNames.X2})`,
   border: 0,
 });
 
@@ -122,8 +122,8 @@ export const medium = style((theme: DesignSystem) => ({
 }));
 
 export const small = style((theme: DesignSystem) => ({
-  lineHeight: theme.sizing.sizeCSSVarNames.X4,
-  height: theme.sizing.sizeCSSVarNames.X4,
+  lineHeight: `var(${theme.sizing.sizeCSSVarNames.X4})`,
+  height: `var(${theme.sizing.sizeCSSVarNames.X4})`,
 }));
 
 // export const reversed = style((theme: DesignSystem) => ({
