@@ -15,6 +15,7 @@ export const colors: Colors = {
 
   greyscaleTransparent: `rgba(255, 255, 255, 0)`,
   greyscale0: `rgba(255, 255, 255, 1)`,
+  greyscale0Reversed: `rgba(255, 255, 255, 1)`,
   greyscale100Reversed: `rgba(255, 255, 255, 1)`,
   greyscale100: `rgba(240, 242, 246, 1)`,
   greyscale150: `rgba(228, 231, 236, 1)`,

@@ -15,4 +15,4 @@ const theme: DesignSystem = {
   layout: DEFAULT_LAYOUT,
 };
 
-export const mirTheme = createTheme(theme, 'mir-theme');
+export const light = createTheme(theme);

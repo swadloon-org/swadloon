@@ -21,7 +21,6 @@ type OwnProps = {
   size: 'small' | 'medium' | 'large';
   variant: 'icon' | 'text';
   icon?: string;
-  // variantStyle: 'default' | 'reversed';
 } & Pick<ButtonHTMLAttributes<any>, 'className'>;
 
 export const Button: React.FC<OwnProps> = (props) => {
@@ -30,9 +29,11 @@ export const Button: React.FC<OwnProps> = (props) => {
   return (
     <button
       type="button"
-      className={`${props.className || ''} ${styles[props.type]} ${styles[props.size]} ${styles[props.variant]} `}
+      className={`${props.className || ''} ${styles.base} ${styles[props.type]} ${styles[props.size]} ${
+        styles[props.variant]
+      }`}
     >
-      {props.type === 'primaryDefault' || 'primaryReversed' ? (
+      {props.type === 'primaryDefault' || props.type === 'primaryReversed' ? (
         <>
           <CornerTopLeft className={`${styles.cornerTopLeft} ${styles.corner}`} preserveAspectRatio="xMinYMin meet" />
           <CornerBottomRight
@@ -45,7 +46,7 @@ export const Button: React.FC<OwnProps> = (props) => {
       {props.variant === 'icon' && props.icon ? (
         <Illustration className={`${styles.illustration}`} name={`Icon/${props.icon}`} width={42} height={42} />
       ) : (
-        <Label className={`${styles.labelContent}`} variant="bold" size="small">
+        <Label className={`${styles.label}`} variant="bold" size="small">
           {props.children}
         </Label>
       )}
