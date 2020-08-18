@@ -53,7 +53,7 @@ export const BlogPreviewSection: React.FC<HTMLAttributes<any> & OwnProps> = (pro
           ></BlogPreviewTileImage>
         </div>
 
-        <Button type="primary" size="medium" variant="text" variantStyle="default" className={styles.button}>
+        <Button type="primaryDefault" size="medium" variant="text" className={styles.button}>
           Toutes les nouvelles
         </Button>
       </div>

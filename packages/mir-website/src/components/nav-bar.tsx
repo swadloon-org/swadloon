@@ -33,16 +33,16 @@ export const NavBar: React.FC<OwnProps> = () => {
         </div>
 
         <div className={styles.desktopLeftToolbar}>
-          <Button type="tertiary" variant="text" size="small" variantStyle="reversed">
+          <Button type="tertiaryReversed" variant="text" size="small">
             Candidats
           </Button>
-          <Button type="tertiary" variant="text" size="small" variantStyle="reversed">
+          <Button type="tertiaryReversed" variant="text" size="small">
             Employeurs
           </Button>
-          <Button type="tertiary" variant="text" size="small" variantStyle="reversed">
+          <Button type="tertiaryReversed" variant="text" size="small">
             Nouvelles
           </Button>
-          <Button type="tertiary" variant="text" size="small" variantStyle="reversed">
+          <Button type="tertiaryReversed" variant="text" size="small">
             À propos
           </Button>
         </div>
@@ -57,15 +57,15 @@ export const NavBar: React.FC<OwnProps> = () => {
 
         <div className={styles.desktopRightToolbar}>
           <div className={styles.desktopSocialButtons}>
-            <Button type="tertiary" variant="icon" icon="Facebook" size="small" variantStyle="reversed"></Button>
-            <Button type="tertiary" variant="icon" icon="Instagram" size="small" variantStyle="reversed"></Button>
-            <Button type="tertiary" variant="icon" icon="Linkedin" size="small" variantStyle="reversed"></Button>
+            <Button type="tertiaryReversed" variant="icon" icon="Facebook" size="small"></Button>
+            <Button type="tertiaryReversed" variant="icon" icon="Instagram" size="small"></Button>
+            <Button type="tertiaryReversed" variant="icon" icon="Linkedin" size="small"></Button>
           </div>
 
-          <Button type="tertiary" variant="text" size="small" variantStyle="reversed">
+          <Button type="tertiaryReversed" variant="text" size="small">
             EN
           </Button>
-          <Button type="secondary" variant="text" size="small" variantStyle="reversed">
+          <Button type="secondaryReversed" variant="text" size="small">
             Nous joindre
           </Button>
         </div>

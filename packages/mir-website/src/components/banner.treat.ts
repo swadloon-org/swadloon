@@ -15,6 +15,10 @@ export const containerBox = style(({ layout }: DesignSystem) => ({
       gridTemplateColumns: `${layout.contentMargins.TABLET.valuePx} 1fr ${layout.contentMargins.TABLET.valuePx}`,
       gridTemplateAreas: "'. mid .'",
     },
+    [`screen and (min-width: ${layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+      justifyContent: 'center',
+      justifyItems: 'center',
+    },
   },
 }));
 
@@ -33,6 +37,24 @@ export const wrapper = style((theme: DesignSystem) => ({
       minHeight: `477px`,
       padding: `var(${theme.sizing.sizeCSSVarNames.X6}) var(${theme.sizing.sizeCSSVarNames.X5})`,
       margin: `0 0 ${theme.layout.contentMargins.TABLET.valuePx}`,
+    },
+    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+      minHeight: '645px',
+      maxWidth: '1600px',
+      margin: `0 0 var(${theme.sizing.sizeCSSVarNames.X6})`,
+      justifySelf: 'center',
+      width: '100%',
+    },
+  },
+}));
+
+export const content = style((theme: DesignSystem) => ({
+  '@media': {
+    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+      width: `60%`,
+    },
+    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+      maxWidth: `462px`,
     },
   },
 }));
@@ -59,14 +81,6 @@ export const rect = style((theme: DesignSystem) => ({
   },
 }));
 
-export const content = style((theme: DesignSystem) => ({
-  '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
-      width: `60%`,
-    },
-  },
-}));
-
 export const blackbox = style((theme: DesignSystem) => ({
   position: `absolute`,
   display: `none`,
@@ -78,7 +92,7 @@ export const blackbox = style((theme: DesignSystem) => ({
       zIndex: -1,
       height: `55%`,
       width: `100%`,
-      backgroundColor: theme.colors.greyscale100,
+      backgroundColor: theme.colors.greyscale1000,
     },
   },
 }));
