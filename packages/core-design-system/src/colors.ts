@@ -1,72 +1,82 @@
-import { prefab } from '@diez/engine';
+import { Color } from 'csstype';
 
 /**
- * Importing prebuilt diez prefab
+ * Every color defined in the system.
  */
-import * as prefabs from '@diez/prefabs';
+export interface Colors {
+  primary100: Color;
+  primary300: Color;
+  primary500: Color;
+  primary700: Color;
+  primary1000: Color;
 
-/**
- * Importing prebuilt diez prefab
- */
-export interface ColorsProps {
-  primary100: prefabs.Color;
-  primary300: prefabs.Color;
-  primary500: prefabs.Color;
-  primary700: prefabs.Color;
-  primary1000: prefabs.Color;
-  accent100: prefabs.Color;
-  accent300: prefabs.Color;
-  accent500: prefabs.Color;
-  accent700: prefabs.Color;
-  accent1000: prefabs.Color;
-  greyscaleTransparent: prefabs.Color;
-  greyscaleInverted: prefabs.Color;
-  greyscale0: prefabs.Color;
-  greyscale100: prefabs.Color;
-  greyscale100White: prefabs.Color;
-  greyscale150: prefabs.Color;
-  greyscale200: prefabs.Color;
-  greyscale200White: prefabs.Color;
-  greyscale300: prefabs.Color;
-  greyscale400: prefabs.Color;
-  greyscale500: prefabs.Color;
-  greyscale600: prefabs.Color;
-  greyscale700: prefabs.Color;
-  greyscale800: prefabs.Color;
-  greyscale900: prefabs.Color;
-  greyscale1000: prefabs.Color;
+  accent100: Color;
+  accent300: Color;
+  accent500: Color;
+  accent700: Color;
+  accent1000: Color;
+
+  greyscaleTransparent: Color;
+  greyscale0: Color;
+  greyscale100: Color;
+  greyscale100Reversed: Color;
+  greyscale150: Color;
+  greyscale200: Color;
+  greyscale200Reversed: Color;
+  greyscale300: Color;
+  greyscale400: Color;
+  greyscale500: Color;
+  greyscale600: Color;
+  greyscale700: Color;
+  greyscale800: Color;
+  greyscale900: Color;
+  greyscale1000: Color;
+
+  effectTransparentLight: Color;
+  effectTransparentMedium: Color;
+  effectTransparentHeavy: Color;
+
+  utilityGreen100: Color;
+  utilityGreen300: Color;
+  utilityGreen500: Color;
+  utilityGreen700: Color;
+  utilityGreen1000: Color;
+  utilityYellow100: Color;
+  utilityYellow300: Color;
+  utilityYellow500: Color;
+  utilityYellow700: Color;
+  utilityYellow1000: Color;
+  utilityRed100: Color;
+  utilityRed300: Color;
+  utilityRed500: Color;
+  utilityRed700: Color;
+  utilityRed1000: Color;
 }
 
 /**
- * Representation of all colors used in a ColorTheme
+ * Contextual use of certain colors (text, action, state, etc).
  */
-export class Colors extends prefab<ColorsProps>() {
-  defaults = {
-    primary100: prefabs.Color.hex('#fff'),
-    primary300: prefabs.Color.hex('#fff'),
-    primary500: prefabs.Color.hex('#fff'),
-    primary700: prefabs.Color.hex('#fff'),
-    primary1000: prefabs.Color.hex('#fff'),
-    accent100: prefabs.Color.hex('#fff'),
-    accent300: prefabs.Color.hex('#fff'),
-    accent500: prefabs.Color.hex('#fff'),
-    accent700: prefabs.Color.hex('#fff'),
-    accent1000: prefabs.Color.hex('#fff'),
-    greyscaleTransparent: prefabs.Color.hex('#fff'),
-    greyscaleInverted: prefabs.Color.hex('#fff'),
-    greyscale0: prefabs.Color.hex('#fff'),
-    greyscale100: prefabs.Color.hex('#fff'),
-    greyscale100White: prefabs.Color.hex('#fff'),
-    greyscale150: prefabs.Color.hex('#fff'),
-    greyscale200: prefabs.Color.hex('#fff'),
-    greyscale200White: prefabs.Color.hex('#fff'),
-    greyscale300: prefabs.Color.hex('#fff'),
-    greyscale400: prefabs.Color.hex('#fff'),
-    greyscale500: prefabs.Color.hex('#fff'),
-    greyscale600: prefabs.Color.hex('#fff'),
-    greyscale700: prefabs.Color.hex('#fff'),
-    greyscale800: prefabs.Color.hex('#fff'),
-    greyscale900: prefabs.Color.hex('#fff'),
-    greyscale1000: prefabs.Color.hex('#fff'),
-  };
+export interface ColorIntents {
+  primary: Color;
+  primaryReversed: Color;
+  secondary: Color;
+  secondaryReversed: Color;
+  primaryText: Color;
+  primaryTextReversed: Color;
+  secondaryText: Color;
+  secondaryTextReversed: Color;
+  tertiaryText: Color;
+  tertiaryTextReversed: Color;
+  successText: Color;
+  successAction: Color;
+  successBackground: Color;
+  warningText: Color;
+  warningAction: Color;
+  warningBackground: Color;
+  dangerText: Color;
+  dangerAction: Color;
+  dangerBackground: Color;
+  background0: Color;
+  background1: Color;
+  background2: Color;
 }

@@ -77,7 +77,7 @@
     padding: $sizing-x5 0;
     grid-template-columns: repeat(12, 1fr);
     grid-template-areas:
-      'firm firm . contact contact . location location location . . .'
+      'firm firm . contact contact contact location location location . . .'
       'copyright copyright copyright . . . . . . . . .';
     grid-template-rows: auto;
   }

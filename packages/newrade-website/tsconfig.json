@@ -1,15 +1,8 @@
 {
-  "extends": "../../tsconfig.base.json",
+  "extends": "../core-gatsby-config/tsconfig.ts-plugin.json",
   "compilerOptions": {
-    "declaration": true,
-    "sourceMap": true,
-    "outDir": "./lib/",
-    "rootDir": "./src/",
-    "strict": false,
-    "target": "es6",
-    "module": "commonjs",
-    "types": ["node"]
+    "rootDir": "."
   },
-  "typeRoots": ["../../node_modules/@types", "./src/typings"],
-  "include": ["./src/**/*"]
+  "typeRoots": ["../../node_modules/@types", "./src/types"],
+  "include": ["src/**/*", "types/**/*"]
 }

@@ -1,10 +1,9 @@
 ---
 name: Developer Onboarding
 about: Cover all the steps to onboard a new developer in the team.
-title: "<NAME> Onboarding"
+title: '<NAME> Onboarding'
 labels: "admin \U0001F4BC"
 assignees: ''
-
 ---
 
 ## Admin / HR
@@ -37,6 +36,28 @@ assignees: ''
 - [ ] brew https://brew.sh/
 - [ ] VS Code https://code.visualstudio.com/
 - [ ] configure Settings Sync https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync
+- [ ] setup minimal .gitconfig
+
+  ```conf
+  # optional: keep aliases that makes sense
+  [alias]
+    c = commit
+    ck = checkout
+    a = add --all
+    p = push
+    s = status
+    up = pull upstream master
+    tree-stat = log --graph --all --decorate --stat --date=iso
+    tree = log --graph --all --decorate=short --date=iso --oneline
+    ca = commit --amend --no-edit
+  # mandatory
+  [user]
+    name = <github-username>
+    email = <github-email>
+  # mandatory
+  [fetch]
+    prune = true
+  ```
 
 ## Design Resources
 

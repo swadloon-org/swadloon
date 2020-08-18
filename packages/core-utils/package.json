@@ -2,31 +2,29 @@
   "name": "core-utils",
   "version": "1.0.0",
   "description": "Core utilities shared across packages.",
-  "repository": "https://github.com/newrade/newrade-core/tree/master/packages/core-utils",
   "author": {
-    "name": "Philippe Leger",
     "email": "philippe.leger@newrade.ca",
+    "name": "Philippe Leger",
     "url": "https://github.com/newrade/newrade"
   },
+  "repository": "https://github.com/newrade/newrade-core/tree/master/packages/core-utils",
   "license": "MIT",
-  "type": "module",
   "bin": {
     "newrade-cli-clear": "./lib/console-clear.js",
     "newrade-cli-newline": "./lib/console-newline.js"
   },
-  "module": "./lib/index.js",
   "main": "./lib/index.js",
-  "typings": "./lib/index.d.ts",
+  "module": "./lib/index.js",
   "files": [
     "./lib/**/*"
   ],
   "scripts": {
-    "start": "tsc --build --watch --preserveWatchOutput",
-    "postinstall": "yarn build",
     "build": "tsc --build",
-    "pretest": "yarn build",
-    "test": "echo test",
-    "clean": "rimraf -r lib/**"
+    "clean": "rimraf -r lib/**",
+    "postinstall": "yarn build",
+    "start": "tsc --build --watch --preserveWatchOutput",
+    "test": "echo test"
   },
+  "typings": "./lib/index.d.ts",
   "dependencies": {}
 }

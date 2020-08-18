@@ -1,4 +1,3 @@
-import ejsLoader from './custom-loaders/ejs-loader';
 import { defaultOuputConf } from './output.conf';
 import { webpackStatsConf } from './stats.conf';
 import { sourceMaps } from './source-map.conf';
@@ -12,9 +11,14 @@ export { defaultOuputConf };
 /**
  * Preconfigured loaders
  */
-export const loaders = {
-  ejsLoader,
-};
+export { cssLoader } from './loaders/css-loader';
+export { ejsLoader } from './loaders/ejs-loader';
+export { scssLoader } from './loaders/scss-loader';
+
+/**
+ * Preconfigured plugins
+ */
+export { bundleVisualizerPlugin } from './plugins/bundle-visualizer-plugin';
 
 /**
  * Other webpack configs

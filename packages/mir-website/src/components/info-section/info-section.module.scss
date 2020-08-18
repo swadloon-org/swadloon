@@ -115,7 +115,6 @@
 
 @media only screen and (min-width: $breakpoint-desktop-small) {
   .title {
-    @include typography-heading-h2;
     max-width: 460px;
   }
 

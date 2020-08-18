@@ -1,95 +1,140 @@
-import { Properties } from 'csstype';
-// import { ScaleStep, TypographicScale } from './modular-scale';
+import { CapsizeStyles, FontMetrics } from 'capsize';
+import { FontWeightProperty, TextTransformProperty } from 'csstype';
+import { VIEWPORT } from './layout';
+import { SizingStep } from './sizing';
 
-type BasicCSSProperties = Properties<string | number>;
-
-// /**
-//  * Represent a text style.
-//  */
-// export interface Typograph {
-//   fontFamily: string;
-//   /**
-//    * In px
-//    */
-//   fontSize: ScaleStep['size'];
-//   /**
-//    * In % of fontSize
-//    */
-//   lineHeight: number;
-//   /**
-//    * In % of fontSize
-//    */
-//   letterSpacing: number;
-//   /**
-//    * The distance (in px) between block of text when a <br> or return is encountered.
-//    */
-//   paragraphSpacing: number;
-//   // alignment: BasicCSSProperties; // TODO
-//   // decoration: never[]; // TODO
-// }
-
-// /**
-//  * The main typographic styles defined in a design system.
-//  */
+/**
+ * The main typographic styles.
+ */
 export enum TYPOGRAPHIC_STYLE {
   SANS = 'SANS',
+  SANS_ALTERNATE = 'SANS_ALTERNATE',
   SERIF = 'SERIF',
   MONOSPACE = 'MONOSPACE',
 }
 
-// /**
-//  * Built-in headings.
-//  */
-// export enum HEADING_NAME {
-//   H1,
-//   H2,
-//   H3,
-//   H4,
-// }
+/**
+ * The headings (e.g. <h1/>, <h2/>...) levels.
+ */
+export enum HEADING_LEVEL {
+  H1 = 'H1',
+  H2 = 'H2',
+  H3 = 'H3',
+  H4 = 'H4',
+}
 
-// /**
-//  * Sizes name for paragraphs, links, labels.
-//  */
-// export enum TYPE_SIZE {
-//   LARGE,
-//   MEDIUM,
-//   SMALL,
-// }
+/**
+ * The paragraph sizes.
+ */
+export enum PARAGRAPH {
+  LARGE = 'LARGE',
+  MEDIUM = 'MEDIUM',
+  SMALL = 'SMALL',
+}
 
-// /**
-//  * The design system typography configuration object.
-//  */
-// export interface Typography {
-//   headings: {
-//     [HEADING_NAME.H1]: Typograph;
-//     [HEADING_NAME.H2]: Typograph;
-//     [HEADING_NAME.H3]: Typograph;
-//     [HEADING_NAME.H4]: Typograph;
-//   };
-//   // paragraphs: {
-//   //   large: Typograph;
-//   //   medium: Typograph;
-//   //   small: Typograph;
-//   // };
-//   // links: {
-//   //   large: Typograph;
-//   //   medium: Typograph;
-//   //   small: Typograph;
-//   // };
-//   // labels: {
-//   //   large: Typograph;
-//   //   medium: Typograph;
-//   //   small: Typograph;
-//   // };
-// }
+/**
+ * The label sizes.
+ */
+export enum LABEL {
+  MEDIUM_BOLD_UPPERCASE = 'MEDIUM_BOLD_UPPERCASE',
+  MEDIUM_UPPERCASE = 'MEDIUM_UPPERCASE',
+  MEDIUM = 'MEDIUM',
+  SMALL_BOLD_UPPERCASE = 'SMALL_BOLD_UPPERCASE',
+  SMALL_UPPERCASE = 'SMALL_UPPERCASE',
+  SMALL = 'SMALL',
+}
 
-// export interface TypographySystem {
-//   [TYPOGRAPHIC_STYLE.SANS]: Typography;
-//   [TYPOGRAPHIC_STYLE.SERIF]?: Typography;
-//   [TYPOGRAPHIC_STYLE.MONOSPACE]?: Typography;
-// }
+export interface Font {
+  /**
+   * Name of the font / font familily
+   */
+  name: string;
+  vendor?: string;
+  link?: string;
+  /**
+   * Font-specific metric for capsize.
+   */
+  fontMetrics: FontMetrics;
+}
 
-// /**
-//  * CSS style to set the `font-family` property to use the user's default system sans-serif font.
-//  */
-// export const CSS_SYSTEM_SANS_FONTS = `-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif`;
+/**
+ * Available fonts in the design system.
+ */
+export type Fonts = { [key in keyof typeof TYPOGRAPHIC_STYLE]?: Font };
+
+export interface TextStyle {
+  /**
+   * Font object that contains information about the typeface.
+   */
+  font: Font;
+  /**
+   * Font family which will be rendered in CSS files.
+   *
+   * @example 'Montserrat-Bold'
+   */
+  fontFamily: string;
+  /**
+   * Specify the font weight in number.
+   *
+   * @example 500
+   */
+  fontWeight: FontWeightProperty;
+  /**
+   * Optional property to set `text-transform`.
+   *
+   * @example 'uppercase'
+   */
+  textTransform?: TextTransformProperty;
+
+  /**
+   * Desired capital letter height in pixels. (which is usually the height of the letter 'X')
+   * @see https://seek-oss.github.io/capsize/
+   */
+  capHeight: SizingStep | number;
+  /**
+   * Desired line gap in pixels.
+   */
+  lineGap: number;
+  /**
+   * Direct output of capsize (values are in px).
+   */
+  capsizePx: CapsizeStyles;
+  /**
+   * Converted capsize values in `rem` unit.
+   */
+  capsizeRem: CapsizeStyles;
+}
+
+/**
+ * TODO
+ */
+export type Headings = { [key in keyof typeof HEADING_LEVEL]: TextStyle };
+
+/**
+ * TODO
+ */
+export type Paragraphs = { [key in keyof typeof PARAGRAPH]: TextStyle };
+
+/**
+ * TODO
+ */
+export type Labels = { [key in keyof typeof LABEL]: TextStyle };
+
+export interface Typography {
+  /**
+   * Available fonts in the design system.
+   */
+  fonts: Fonts;
+  /**
+   * TODO
+   */
+  headings: { [key in keyof typeof VIEWPORT]: Headings };
+  /**
+   * TODO
+   */
+  paragraphs: { [key in keyof typeof VIEWPORT]: Paragraphs };
+  /**
+   * TODO
+   */
+  labels: { [key in keyof typeof VIEWPORT]: Labels };
+}

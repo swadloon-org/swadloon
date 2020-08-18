@@ -1,90 +1,59 @@
-import { prefab } from '@diez/engine';
+import { Color } from 'csstype';
+import { ColorIntents, Colors } from './colors';
+import { Buttons } from './components/buttons';
+import { Effects } from './effects';
+import { Layout } from './layout';
+import { Typography } from './typography';
+import { Sizing } from './sizing';
 
-import { SizingScale } from './modular-scale';
-import { Colors } from './colors';
-
-export type THEME_NAME = 'light' | 'dark';
-
-export interface DesignSystemThemeProps {
-  colors: Colors;
-}
-
-/**
- * Representation of a color theme.
- */
-export class DesignSystemTheme extends prefab<DesignSystemThemeProps>() {
-  defaults = {
-    colors: new Colors(),
-  };
-  constructor(overrides: Partial<DesignSystemThemeProps> = {}) {
-    super(overrides);
-  }
-}
-
-export interface DesignSystemThemesProps {
-  light: DesignSystemTheme;
-  dark: DesignSystemTheme;
-}
-
-/**
- * Available themes for a design system.
- */
-export class DesignSystemThemes extends prefab<DesignSystemThemesProps>() {
-  defaults = {
-    light: new DesignSystemTheme(),
-    dark: new DesignSystemTheme(),
-  };
-  constructor(overrides: Partial<DesignSystemThemesProps> = {}) {
-    super(overrides);
-  }
-}
-
-export interface DesignSystemProps {
+export interface DesignSystem {
   /**
-   * Sizing scale defining scale steps from X1 to X10.
-   *
-   * The scale defines sizes for text styles (height), components height
-   * and spacing in the system.
-   */
-  // sizingScale: SizingScale;
-  /**
-   * Defines typography for sans-serif, serif and monospaced fonts.
-   *
-   * Each typographic style (e.g. H1, H2, H3...) is sized to match one of the size in
-   * the sizingScale.
-   */
-  // typography: TypographySystem;
-
-  /**
-   * Lists every theme available in the design system.
-   */
-  themes: DesignSystemThemes;
-}
-
-/**
- * Complete representation of a design system.
- */
-export class DesignSystem extends prefab<DesignSystemProps>() {
-  defaults = {
-    name: 'Design System Name',
-    themes: new DesignSystemThemes(),
-  };
-  constructor(overrides: Partial<DesignSystemProps> = {}) {
-    super(overrides);
-  }
-}
-
-/**
- * Diez Design Language interface so that all diez packages conform to the
- * same export format.
- */
-export interface DiezDesignLanguage {
-  /**
-   * The design system's name.
+   * Name of the project or brand's name.
    */
   name: string;
   /**
-   * The design system prefab object.
+   * Theme variation's name.
+   * @default 'light'
    */
-  ds: DesignSystem;
+  variation: 'light' | 'dark' | string;
+  /**
+   * Every color defined in the system.
+   */
+  colors: Colors;
+  /**
+   * Contextual use of certain colors (text, action, state, etc).
+   */
+  colorIntents: ColorIntents;
+  /**
+   * Shadows, elevation, blurs and other visual effects.
+   */
+  effects?: Effects;
+  /**
+   * Defines the system's sizing values.
+   */
+  sizing: Sizing;
+  /**
+   * Defines every text styles.
+   */
+  typography: Typography;
+  /**
+   * TODO
+   */
+  animations?: any;
+  /**
+   * Breakpoints, common content margins for different viewports.
+   */
+  layout: Layout;
+  /**
+   * Components' specific settings.
+   */
+  components?: {
+    buttons: Buttons;
+    link: {
+      color: Color;
+      visited: Color;
+      hover: Color;
+      active: Color;
+    };
+  };
 }

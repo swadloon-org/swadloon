@@ -1,6 +1,6 @@
 import { graphql } from 'gatsby';
-import 'normalize.css';
 import React from 'react';
+import { TreatProvider, useStyles } from 'react-treat';
 import { IndexPageQuery } from '../../types/graphql-types';
 import { Banner } from '../components/banner';
 import { BlogPreviewSection } from '../components/blog-preview/blog-preview-section';
@@ -11,9 +11,11 @@ import { InfoSectionType3 } from '../components/info-section/info-section-type-3
 import { InfoSectionType4 } from '../components/info-section/info-section-type-4';
 import { NavBar } from '../components/nav-bar';
 import { Newsletter } from '../components/newsletter/newsletter';
-import '../styles/fonts.scss';
-import './index.global.scss';
-import styles from './index.module.scss';
+
+import { mirTheme } from '../themes/mir-theme.treat';
+import * as stylesRef from '../styles/index.treat';
+
+import '../styles/font-faces.styles.css';
 
 export const query = graphql`
   query indexPage {
@@ -67,9 +69,19 @@ interface IndexPageProps {
   location: Location;
 }
 
-const IndexPage: React.FC<IndexPageProps> = ({ data, location }) => {
+const IndexPage: React.FC<IndexPageProps> = (props) => {
   return (
-    <div className={styles.wrapper}>
+    <TreatProvider theme={mirTheme}>
+      <App {...props} />
+    </TreatProvider>
+  );
+};
+
+const App: React.FC<IndexPageProps> = ({ data, location }) => {
+  const styles = useStyles(stylesRef);
+
+  return (
+    <div className={`${styles.wrapper}`}>
       <NavBar></NavBar>
 
       <Banner></Banner>

@@ -2,28 +2,59 @@
   "name": "core-cli",
   "version": "1.0.0",
   "description": "CLI for various purposes, automate actions, etc.",
-  "repository": "https://github.com/newrade/newrade-core/tree/master/packages/core-cli",
   "author": {
-    "name": "Philippe Leger",
     "email": "philippe.leger@newrade.ca",
+    "name": "Philippe Leger",
     "url": "https://github.com/newrade/newrade"
   },
-  "type": "module",
+  "homepage": "https://github.com/https://github.com/newrade/newrade-core/tree/master/packages/core-cli",
+  "repository": "https://github.com/newrade/newrade-core/tree/master/packages/core-design-system",
   "license": "MIT",
+  "bugs": "https://github.com/https://github.com/newrade/newrade-core/issues",
   "bin": {
-    "nr-core-cli": "./lib/src/index.js"
+    "nr": "./bin/run"
   },
+  "main": "lib/index.js",
+  "files": [
+    "/bin",
+    "/lib",
+    "/oclif.manifest.json"
+  ],
   "scripts": {
-    "postinstall": "yarn build",
-    "start": "tsc --build --watch --preserveWatchOutput",
-    "test": "yarn cli version",
-    "prebuild": "npm run clean",
-    "build": "tsc --build",
-    "clean": "rimraf -r lib/**",
-    "cli": "node --no-warnings --es-module-specifier-resolution=node --experimental-json-modules ./lib/src/index.js"
+    "postpack": "rm -f oclif.manifest.json",
+    "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
+    "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
+    "version": "oclif-dev readme && git add README.md"
   },
+  "oclif": {
+    "bin": "nr",
+    "commands": "./lib/commands",
+    "plugins": [
+      "@oclif/plugin-help"
+    ]
+  },
+  "types": "lib/index.d.ts",
   "dependencies": {
-    "commander": "^5.1.0",
-    "core-utils": "^v1.0.0"
+    "@oclif/command": "^1",
+    "@oclif/config": "^1",
+    "@oclif/plugin-help": "^3",
+    "core-utils": "link:../core-utils",
+    "tslib": "^1"
+  },
+  "devDependencies": {
+    "@oclif/dev-cli": "^1",
+    "@oclif/test": "^1",
+    "@types/chai": "^4",
+    "@types/mocha": "^5",
+    "@types/node": "^10",
+    "chai": "^4",
+    "eslint": "^5.13",
+    "eslint-config-oclif": "^3.1",
+    "eslint-config-oclif-typescript": "^0.1",
+    "globby": "^10",
+    "mocha": "^5",
+    "nyc": "^14",
+    "ts-node": "^8",
+    "typescript": "^3.3"
   }
 }

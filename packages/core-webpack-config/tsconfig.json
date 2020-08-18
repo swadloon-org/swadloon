@@ -6,10 +6,10 @@
     "outDir": "./lib/",
     "rootDir": "./src/",
     "strict": false,
-    "target": "es6",
+    "target": "esnext",
     "module": "commonjs",
     "types": ["node"]
   },
   "typeRoots": ["../../node_modules/@types", "./src/typings"],
-  "include": ["./src/"]
+  "include": ["./src/", "types"]
 }

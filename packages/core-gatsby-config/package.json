@@ -4,17 +4,22 @@
   "description": "Reusable gatsby configuration files",
   "license": "MIT",
   "main": "./lib/index.js",
-  "module": "./lib/index.js",
-  "typings": "./lib/index.d.ts",
   "files": [
     "./lib/**/*"
   ],
   "scripts": {
-    "start": "tsc --build tsconfig.json --watch --preserveWatchOutput",
-    "build": "echo ok",
     "prebuild": "yarn clean",
-    "webpack": "webpack --config webpack.dev.config.ts",
-    "test": "echo ok",
-    "clean": "rimraf -r lib/**"
+    "build": "tsc --build tsconfig.json",
+    "clean": "rimraf -r lib/**",
+    "start": "tsc --build tsconfig.json --watch --preserveWatchOutput",
+    "test": "echo ok"
+  },
+  "typings": "./lib/index.d.ts",
+  "dependencies": {},
+  "peerDependencies": {
+    "gatsby": "^2.24.47",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-treat": "^1.4.1"
   }
 }

@@ -1,15 +1,17 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "module": "esnext",
-    "types": ["node", "commander"],
+    "declaration": true,
+    "importHelpers": true,
+    "module": "commonjs",
+    "target": "es2017",
+    "types": ["node"],
     "outDir": "./lib",
-    "rootDir": "./",
+    "rootDir": "./src",
     "paths": {
       "core-utils": ["../core-utils"],
       "core-utils/*": ["../core-utils/*"]
     }
   },
-  "include": ["./**/*"],
-  "exclude": ["./dist/", "./node_modules/"]
+  "include": ["./src/**/*", "./types/**/*"]
 }

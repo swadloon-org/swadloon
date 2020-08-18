@@ -4,6 +4,11 @@
 @import '../styles/typography.scss';
 @import '../styles/breakpoints.scss';
 
+.subtitle {
+  margin-bottom: $sizing-x3;
+  color: $greyscale0;
+}
+
 .containerBox {
   position: relative;
   display: grid;
@@ -17,13 +22,12 @@
   display: flex;
   align-items: center;
 
+  background-position: 50% 50%;
   background-size: cover;
-  background-position-y: center;
-}
 
-.subtitle {
-  margin-bottom: $sizing-x3;
-  color: $greyscale0;
+  // for background-cover bug showing a white line
+  margin-bottom: -1px;
+  z-index: -1;
 }
 
 .title {
@@ -36,6 +40,15 @@
   rect {
     width: 100%;
   }
+}
+
+.blackbox {
+  position: absolute;
+  display: none;
+}
+.bluebox {
+  position: absolute;
+  display: none;
 }
 
 // TABLET CHANGE
@@ -61,6 +74,7 @@
 
   .blackbox {
     position: absolute;
+    display: block;
     bottom: 0;
     z-index: -1;
     height: 55%;
@@ -70,6 +84,7 @@
   }
   .bluebox {
     position: absolute;
+    display: block;
     top: 0;
     z-index: -1;
     width: 100%;
@@ -121,9 +136,5 @@
     width: 100%;
     height: 45%;
     background-color: $primary500;
-  }
-
-  .title {
-    @include typography-heading-h1;
   }
 }

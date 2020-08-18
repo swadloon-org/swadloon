@@ -10,7 +10,7 @@ type OwnProps = {
 
 export const RenderTitleHighlight: React.FC<OwnProps> = ({ title, titleHighlight, className }) => {
   return (
-    <Heading variant={'h3'} className={`${styles.title} ${className || ''}`}>
+    <Heading variant={'h2'} className={`${styles.title} ${className || ''}`}>
       {titleHighlight
         ? title.split(' ').map((word, index) =>
             word === titleHighlight ? (
