@@ -58,7 +58,7 @@ export const InfoSectionType3: React.FC<OwnProps> = (props) => {
           {props.text}
         </Paragraph>
 
-        <Button type={'primary'} variant={'text'} size={'medium'} variantStyle={'default'} className={styles.button}>
+        <Button type={'primaryDefault'} variant={'text'} size={'medium'} className={styles.button}>
           {props.actionText}
         </Button>
       </React.Fragment>

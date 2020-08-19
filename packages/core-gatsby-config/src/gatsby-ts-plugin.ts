@@ -13,6 +13,7 @@ export function getGatsbyTsPluginConfig(
     options: {
       fileName,
       failOnError: false,
+      documentPaths: ['./src/**/*.{ts,tsx}'],
     },
   };
 }

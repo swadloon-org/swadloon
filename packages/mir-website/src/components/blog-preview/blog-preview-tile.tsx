@@ -20,7 +20,7 @@ export const BlogPreviewTile: React.FC<HTMLAttributes<any> & OwnProps> = (props)
         {props.title}
       </Heading>
 
-      <Button size="small" type="tertiary" variantStyle="reversed" variant="text" className={styles.button}>
+      <Button size="small" type="tertiaryReversed" variant="text" className={styles.button}>
         {props.actionLabel}
       </Button>
     </div>

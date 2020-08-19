@@ -18,6 +18,7 @@ export interface Colors {
 
   greyscaleTransparent: Color;
   greyscale0: Color;
+  greyscale0Reversed: Color;
   greyscale100: Color;
   greyscale100Reversed: Color;
   greyscale150: Color;

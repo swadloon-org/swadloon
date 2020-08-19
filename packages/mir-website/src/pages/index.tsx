@@ -12,7 +12,7 @@ import { InfoSectionType4 } from '../components/info-section/info-section-type-4
 import { NavBar } from '../components/nav-bar';
 import { Newsletter } from '../components/newsletter/newsletter';
 
-import { mirTheme } from '../themes/mir-theme.treat';
+import { light } from '../themes/mir-theme.treat';
 import * as stylesRef from '../styles/index.treat';
 
 import '../styles/font-faces.styles.css';
@@ -71,7 +71,7 @@ interface IndexPageProps {
 
 const IndexPage: React.FC<IndexPageProps> = (props) => {
   return (
-    <TreatProvider theme={mirTheme}>
+    <TreatProvider theme={light}>
       <App {...props} />
     </TreatProvider>
   );

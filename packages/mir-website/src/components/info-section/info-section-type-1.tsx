@@ -17,10 +17,9 @@ export const InfoSectionType1: React.FC<OwnProps> = (props) => {
       </Paragraph>
 
       <Button
-        type={'primary'}
         variant={'text'}
         size={'medium'}
-        variantStyle={props.type === 'type1default' ? 'default' : 'reversed'}
+        type={props.type === 'type1default' ? 'primaryDefault' : 'primaryReversed'}
       >
         {props.actionText}
       </Button>

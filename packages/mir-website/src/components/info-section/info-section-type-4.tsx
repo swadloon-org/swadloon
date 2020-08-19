@@ -32,7 +32,7 @@ export const InfoSectionType4: React.FC<OwnProps> = (props) => {
         </div>
       ) : null}
 
-      <Button type={'primary'} variant={'text'} size={'medium'} variantStyle={'reversed'}>
+      <Button type={'primaryReversed'} variant={'text'} size={'medium'}>
         {props.actionText}
       </Button>
     </div>
