@@ -1,6 +1,7 @@
 import React, { HTMLAttributes } from 'react';
 import { Illustration } from './illustration';
-import styles from './image-frame.module.scss';
+import { useStyles } from 'react-treat';
+import * as styleRefs from './image-frame.treat';
 
 interface OwnProps {
   url: string;
@@ -8,6 +9,8 @@ interface OwnProps {
 }
 
 export const ImageFrame: React.FC<OwnProps & HTMLAttributes<any>> = (props) => {
+  const styles = useStyles(styleRefs);
+
   return (
     <div className={`${props.className || ''} ${styles.wrapper} ${styles[props.variant]}`}>
       <Illustration
