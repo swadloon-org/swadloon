@@ -5,7 +5,9 @@ import { Label } from '../components/label';
 import { Logo } from '../components/logo';
 import { Paragraph } from '../components/paragraph';
 import { AnchorLink } from './anchor-link';
-import styles from './footer.module.scss';
+
+import { useStyles } from 'react-treat';
+import * as styleRefs from './footer.treat';
 
 export const query = graphql`
   query footer {
@@ -35,6 +37,7 @@ type OwnProps = {};
 
 export const Footer: React.FC<OwnProps> = (props) => {
   const data = useStaticQuery<FooterQuery>(query);
+  const styles = useStyles(styleRefs);
 
   return (
     <footer className={styles.wrapper}>
@@ -45,19 +48,27 @@ export const Footer: React.FC<OwnProps> = (props) => {
           </Label>
           <Paragraph className={styles.infoText} variant="small">
             Téléphone :
-            <AnchorLink variant="reversed" href={`tel:${data.gcms.companyAddresses[0].phone}`}>
+            <AnchorLink className={styles.link} variant="reversed" href={`tel:${data.gcms.companyAddresses[0].phone}`}>
               {data.gcms.companyAddresses[0].phone}
             </AnchorLink>
           </Paragraph>
           <Paragraph className={styles.infoText} variant="small">
             Sans frais :
-            <AnchorLink variant="reversed" href={`tel:${data.gcms.companyAddresses[0].phoneNoFees}`}>
+            <AnchorLink
+              className={styles.link}
+              variant="reversed"
+              href={`tel:${data.gcms.companyAddresses[0].phoneNoFees}`}
+            >
               {data.gcms.companyAddresses[0].phoneNoFees}
             </AnchorLink>
           </Paragraph>
           <Paragraph className={styles.infoText} variant="small">
             Courriel :{' '}
-            <AnchorLink variant="reversed" href={`mailto:${data.gcms.companyAddresses[0].email}`}>
+            <AnchorLink
+              className={styles.link}
+              variant="reversed"
+              href={`mailto:${data.gcms.companyAddresses[0].email}`}
+            >
               {data.gcms.companyAddresses[0].email}
             </AnchorLink>
           </Paragraph>
