@@ -94,10 +94,10 @@ export const copyright = style((theme: DesignSystem) => ({
   },
 }));
 
-globalStyle(`${firm} img`, {
-  //   '@media': {
-  //     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
-  width: '141px',
-  //     },
-  //   },
-});
+globalStyle(`${firm} img`, (theme: DesignSystem) => ({
+  '@media': {
+    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+      width: '141px',
+    },
+  },
+}));
