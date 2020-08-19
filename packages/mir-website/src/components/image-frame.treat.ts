@@ -8,7 +8,7 @@ export const wrapper = style((theme: DesignSystem) => ({
 
 export const backgroundIllustration = style((theme: DesignSystem) => ({
   position: 'absolute',
-  transform: 'translate(-15%, 15%)',
+  transform: 'translate(-15%, -15%)',
   zIndex: 0,
   top: '0',
   left: '0',
