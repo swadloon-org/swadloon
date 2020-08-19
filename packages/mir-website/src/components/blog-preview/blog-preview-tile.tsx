@@ -1,7 +1,10 @@
 import React, { HTMLAttributes } from 'react';
+import { useStyles } from 'react-treat';
+import * as styleRefs from './blog-preview-tile.treat';
+
 import { Heading } from '../heading';
 import { Label } from '../label';
-import styles from './blog-preview-tile.module.scss';
+// import styles from './blog-preview-tile.module.scss';
 import { Button } from '../button';
 
 type OwnProps = {
@@ -11,6 +14,7 @@ type OwnProps = {
 };
 
 export const BlogPreviewTile: React.FC<HTMLAttributes<any> & OwnProps> = (props) => {
+  const styles = useStyles(styleRefs);
   return (
     <div className={styles.wrapper}>
       <Label size="smallUppercase">{props.subtitle}</Label>

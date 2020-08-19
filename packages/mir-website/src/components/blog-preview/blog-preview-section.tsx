@@ -1,6 +1,8 @@
 import React, { HTMLAttributes } from 'react';
+import { useStyles } from 'react-treat';
+import * as styleRefs from './blog-preview-section.treat';
 
-import styles from './blog-preview-section.module.scss';
+// import styles from './blog-preview-section.module.scss';
 import { BlogPreviewTile } from './blog-preview-tile';
 import { BlogPreviewTileImage } from './/blog-preview-tile-image';
 import { Heading } from '../heading';
@@ -15,6 +17,8 @@ type OwnProps = {
 };
 
 export const BlogPreviewSection: React.FC<HTMLAttributes<any> & OwnProps> = (props) => {
+  const styles = useStyles(styleRefs);
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
@@ -34,7 +38,7 @@ export const BlogPreviewSection: React.FC<HTMLAttributes<any> & OwnProps> = (pro
             title="Conseils pour faire passer vos employés vers le travail à distance"
             subtitle="4 JUILLET 2020"
             actionLabel="Lire l’article"
-            className={styles.item}
+            // className={styles.item}
           ></BlogPreviewTileImage>
 
           <BlogPreviewTileImage
@@ -42,7 +46,7 @@ export const BlogPreviewSection: React.FC<HTMLAttributes<any> & OwnProps> = (pro
             title="Conseils pour faire passer vos employés vers le travail à distance"
             subtitle="4 JUILLET 2020"
             actionLabel="Lire l’article"
-            className={styles.item}
+            // className={styles.item}
           ></BlogPreviewTileImage>
 
           <BlogPreviewTileImage
@@ -53,7 +57,12 @@ export const BlogPreviewSection: React.FC<HTMLAttributes<any> & OwnProps> = (pro
           ></BlogPreviewTileImage>
         </div>
 
-        <Button type="primaryDefault" size="medium" variant="text" className={styles.button}>
+        <Button
+          type="primaryDefault"
+          size="medium"
+          variant="text"
+          // className={styles.button}
+        >
           Toutes les nouvelles
         </Button>
       </div>
