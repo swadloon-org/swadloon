@@ -23,7 +23,7 @@ export const containerBox = style(({ layout }: DesignSystem) => ({
 }));
 
 export const wrapper = style((theme: DesignSystem) => ({
-  padding: `var(${theme.sizing.sizeCSSVarNames.X6}) ${theme.layout.contentMargins.TABLET.valuePx}`,
+  padding: `var(${theme.sizing.sizeCSSVarNames.X6}) ${theme.layout.contentMargins.MOBILE.valuePx}`,
   minHeight: `416px`,
   display: `flex`,
   alignItems: `center`,
