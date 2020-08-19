@@ -28,7 +28,7 @@ export const content = style((theme: DesignSystem) => ({
 }));
 
 export const image = style((theme: DesignSystem) => ({
-  backgroundSize: '215px',
+  backgroundSize: 'cover',
   minHeight: '215px',
   minWidth: '215px',
   height: '100%',
