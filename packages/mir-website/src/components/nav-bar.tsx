@@ -50,7 +50,7 @@ export const NavBar: React.FC<OwnProps> = () => {
         <img className={styles.logo} src={data.gcms.companyMedias[0].logo.url} />
 
         <div className={styles.mobileRightToolbar}>
-          <Label size="small" variant="uppercase" className={styles.language}>
+          <Label size="smallUppercase" className={styles.language}>
             EN
           </Label>
         </div>

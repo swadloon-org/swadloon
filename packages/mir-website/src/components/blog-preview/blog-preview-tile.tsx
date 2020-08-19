@@ -13,9 +13,7 @@ type OwnProps = {
 export const BlogPreviewTile: React.FC<HTMLAttributes<any> & OwnProps> = (props) => {
   return (
     <div className={styles.wrapper}>
-      <Label size="small" variant="uppercase">
-        {props.subtitle}
-      </Label>
+      <Label size="smallUppercase">{props.subtitle}</Label>
       <Heading variant="h4" className={styles.title}>
         {props.title}
       </Heading>

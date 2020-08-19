@@ -43,7 +43,7 @@ export const Footer: React.FC<OwnProps> = (props) => {
     <footer className={styles.wrapper}>
       <div className={styles.gridwrapper}>
         <div className={styles.contact}>
-          <Label className={styles.title} size="small" variant="uppercase">
+          <Label className={styles.title} size="smallUppercase">
             Contactez-nous
           </Label>
           <Paragraph className={styles.infoText} variant="small">
@@ -75,7 +75,7 @@ export const Footer: React.FC<OwnProps> = (props) => {
         </div>
 
         <div className={styles.location}>
-          <Label className={styles.title} size="small" variant="uppercase">
+          <Label className={styles.title} size="smallUppercase">
             Visitez-nous
           </Label>
           <Paragraph className={styles.infoText} variant="small">

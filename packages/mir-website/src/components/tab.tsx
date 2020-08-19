@@ -15,9 +15,7 @@ export const Tab: React.FC<OwnProps & { onClick: (e: React.MouseEvent<HTMLDivEle
       className={`${styles.wrapper} ${styles[props.size]} ${styles[props.selected ? 'selected' : '']}`}
       onClick={props.onClick}
     >
-      <Label size="small" variant="uppercase">
-        {props.children}
-      </Label>
+      <Label size="smallUppercase">{props.children}</Label>
     </div>
   );
 };

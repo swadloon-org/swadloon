@@ -38,7 +38,7 @@ export const Banner: React.FC<OwnProps> = () => {
         style={{ backgroundImage: `url(${data.gcms.pageIndices[0].bannerImage[0].url})` }}
       >
         <div className={styles.content}>
-          <Label size="small" variant="uppercase" className={styles.subtitle}>
+          <Label size="smallUppercase" className={styles.subtitle}>
             {data.gcms.pageIndices[0].bannerSubTitle}
           </Label>
 
