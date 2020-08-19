@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, SVGAttributes } from 'react';
-import styles from './illustration.module.scss';
+// import styles from './illustration.module.scss';
 
 type OwnProps = {
   name: string;

@@ -1,5 +1,7 @@
 import React, { HTMLAttributes } from 'react';
-import styles from './input.module.scss';
+import { useStyles } from 'react-treat';
+import * as styleRefs from './input.treat';
+// import styles from './input.module.scss';
 
 interface OwnProps {
   variant: 'default' | 'reversed';
@@ -7,6 +9,8 @@ interface OwnProps {
 }
 
 export const Input: React.FC<OwnProps & HTMLAttributes<any>> = (props) => {
+  const styles = useStyles(styleRefs);
+
   return (
     <input className={`${styles.wrapper} ${styles[props.variant]}`} type="text" placeholder={`${props.placeholder}`} />
   );
