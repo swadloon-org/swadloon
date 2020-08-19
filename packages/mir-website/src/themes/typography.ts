@@ -19,6 +19,41 @@ const mobileHeadings: Headings = {
     font: fonts.SANS,
     fontFamily: 'Montserrat',
     fontWeight: 700,
+    capHeight: sizing.sizingSteps.MOBILE.X4,
+    lineGap: 16,
+  }),
+  [HEADING_LEVEL.H2]: createTextStyle({
+    baseFontSize: DEFAULT_BASE_FONT_SIZE,
+    font: fonts.SANS,
+    fontFamily: 'Montserrat',
+    fontWeight: 700,
+    capHeight: sizing.sizingSteps.MOBILE.X3,
+    lineGap: 12,
+  }),
+  [HEADING_LEVEL.H3]: createTextStyle({
+    baseFontSize: DEFAULT_BASE_FONT_SIZE,
+    font: fonts.SANS,
+    fontFamily: 'Montserrat',
+    fontWeight: 700,
+    capHeight: sizing.sizingSteps.MOBILE.X2,
+    lineGap: 10,
+  }),
+  [HEADING_LEVEL.H4]: createTextStyle({
+    baseFontSize: DEFAULT_BASE_FONT_SIZE,
+    font: fonts.SANS,
+    fontFamily: 'Montserrat',
+    fontWeight: 700,
+    capHeight: sizing.sizingSteps.MOBILE.X1,
+    lineGap: 8,
+  }),
+};
+
+const tabletHeadings: Headings = {
+  [HEADING_LEVEL.H1]: createTextStyle({
+    baseFontSize: DEFAULT_BASE_FONT_SIZE,
+    font: fonts.SANS,
+    fontFamily: 'Montserrat',
+    fontWeight: 700,
     capHeight: sizing.sizingSteps.MOBILE.X5,
     lineGap: 16,
   }),
@@ -134,8 +169,8 @@ export const typography: Typography = {
   fonts,
   headings: {
     [VIEWPORT.MOBILE]: mobileHeadings,
-    [VIEWPORT.TABLET]: mobileHeadings,
-    [VIEWPORT.DESKTOP]: mobileHeadings,
+    [VIEWPORT.TABLET]: tabletHeadings,
+    [VIEWPORT.DESKTOP]: tabletHeadings,
   },
   paragraphs: {
     [VIEWPORT.MOBILE]: mobileParagraphs,
