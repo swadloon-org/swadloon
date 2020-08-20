@@ -1,5 +1,8 @@
 import React, { AllHTMLAttributes } from 'react';
-import styles from './newsletter.module.scss';
+import { useStyles } from 'react-treat';
+import * as styleRefs from './newsletter.treat';
+
+// import styles from './newsletter.module.scss';
 import { Input } from '../input';
 import { Label } from '../label';
 import { Heading } from '../heading';
@@ -8,6 +11,8 @@ import { Button } from '../button';
 type OwnProps = AllHTMLAttributes<any>;
 
 export const Newsletter: React.FC<OwnProps> = (props) => {
+  const styles = useStyles(styleRefs);
+
   return (
     <div className={`${styles.wrapper}`} {...props}>
       <div className={`${styles.container}`}>
