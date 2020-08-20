@@ -1,7 +1,7 @@
 /**
  * typed representation of the .env files
  */
-export type DotEnv = { [key: string]: string } & {
+export type ENV = { [key: string]: string } & {
   NVM_NODE_VERSION: string;
 
   MASTER_GIT_HOST: string;
@@ -11,4 +11,6 @@ export type DotEnv = { [key: string]: string } & {
   PROJECT_GIT_HOST: string;
   PROJECT_REPO_ORG: string;
   PROJECT_REPO_NAME: string;
+
+  FIGMA_TOKEN: string;
 };

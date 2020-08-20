@@ -15,6 +15,7 @@
     "serve": "gatsby serve",
     "prestart": "yarn clean",
     "start": "gatsby develop -p 9001",
+    "sync-figma": "core-cli sync-figma ",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "dependencies": {

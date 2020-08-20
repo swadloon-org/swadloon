@@ -1,8 +1,14 @@
 import * as dotenv from 'dotenv';
-import { DotEnv } from './dot-env';
+import { ENV } from './dot-env';
+import * as path from 'path';
 
 export function loadDotEnv() {
-  dotenv.config(); // add env variables from .env
+  // add env variables from .env file
+  dotenv.config({
+    path: path.resolve(__dirname, '../../.env'),
+  });
+
+  return process.env as ENV;
 }
 
-export const dotEnvProcess: DotEnv = process.env as DotEnv;
+export const dotEnvProcess: ENV = process.env as ENV;

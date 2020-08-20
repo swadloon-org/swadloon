@@ -7,11 +7,14 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Debug yarn cli2",
+      "name": "Debug cli (command figma-sync)",
       "runtimeExecutable": "node",
-      "runtimeArgs": ["--no-warnings", "--es-module-specifier-resolution=node", "--experimental-json-modules"],
-      "program": "${workspaceFolder}/lib/src/index.js",
-      "args": ["version"]
+      "runtimeArgs": [],
+      "program": "${workspaceFolder}/bin/run",
+      "args": ["figma-sync", "QQUzBnIyDCi2sTK75CwnvL"],
+      "env": {
+        "DEBUG": "*"
+      }
     }
   ]
 }

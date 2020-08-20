@@ -4,20 +4,12 @@ import { log } from 'core-utils';
 import { spawnSync } from 'child_process';
 
 export default class ResetBranches extends Command {
-  static description = 'describe the command here';
+  static description = 'delete local branches that are merged on the origin';
 
-  static examples = [
-    `$ nr hello
-  hello world from ./src/hello.ts!
-  `,
-  ];
+  static examples = [`$ nr resetbranches`];
 
   static flags = {
     help: flags.help({ char: 'h' }),
-    // flag with a value (-n, --name=VALUE)
-    name: flags.string({ char: 'n', description: 'name to print' }),
-    // flag with no value (-f, --force)
-    force: flags.boolean({ char: 'f' }),
   };
 
   static args = [{ name: 'file' }];
