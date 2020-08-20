@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
+import { useStyles } from 'react-treat';
+import * as styleRefs from './info-section.treat';
+
 import { Button } from '../button';
 import { ImageFrame } from '../image-frame';
 import { Paragraph } from '../paragraph';
 import { Tab } from '../tab';
 import { SectionModelQuery } from './info-section';
-import styles from './info-section.module.scss';
+// import styles from './info-section.module.scss';
 import { RenderTitleHighlight } from './info-title-highligh';
 
 type OwnProps = SectionModelQuery;
@@ -13,6 +16,7 @@ export const InfoSectionType3: React.FC<OwnProps> = (props) => {
   const [selectedTabIndex, setSelectedTabIndex] = useState<number>(0);
   const hasImage = !!props?.image;
   const hasTabs = !!props?.childs.length;
+  const styles = useStyles(styleRefs);
 
   return (
     <div className={`${styles.wrapper} ${styles[props.type]}`}>
@@ -50,6 +54,8 @@ export const InfoSectionType3: React.FC<OwnProps> = (props) => {
   );
 
   function renderTabbedInfoSection(props: Partial<SectionModelQuery>, sectionIndex: number) {
+    const styles = useStyles(styleRefs);
+
     return (
       <React.Fragment key={`${sectionIndex}`}>
         <RenderTitleHighlight title={props.title} titleHighlight={props.titleHighlight} />

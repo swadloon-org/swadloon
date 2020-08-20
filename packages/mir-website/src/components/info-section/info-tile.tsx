@@ -1,13 +1,18 @@
 import React from 'react';
+import { useStyles } from 'react-treat';
+import * as styleRefs from './info-tile.treat';
+
 import { Heading } from '../heading';
 import { Illustration } from '../illustration';
-import styles from './info-tile.module.scss';
+// import styles from './info-tile.module.scss';
 import { Paragraph } from '../paragraph';
 import { GraphCms_InfoTile, Maybe, GraphCms_InfoSectionType } from '../../../types/graphql-types';
 
 type OwnProps = { variant: Maybe<GraphCms_InfoSectionType> } & Pick<GraphCms_InfoTile, 'title' | 'text' | 'icon'>;
 
 export const InfoTile: React.FC<OwnProps> = (props) => {
+  const styles = useStyles(styleRefs);
+
   return (
     <div className={`${styles.wrapper} ${styles[props.variant]}`}>
       <Illustration

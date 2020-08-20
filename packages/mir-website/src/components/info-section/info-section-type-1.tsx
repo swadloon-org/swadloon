@@ -1,13 +1,18 @@
 import React from 'react';
+import { useStyles } from 'react-treat';
+import * as styleRefs from './info-section.treat';
+
 import { Button } from '../button';
 import { Paragraph } from '../paragraph';
 import { SectionModelQuery } from './info-section';
 import { RenderTitleHighlight } from './info-title-highligh';
-import styles from './info-section.module.scss';
+// import styles from './info-section.module.scss';
 
 type OwnProps = Partial<SectionModelQuery>;
 
 export const InfoSectionType1: React.FC<OwnProps> = (props) => {
+  const styles = useStyles(styleRefs);
+
   return (
     <div className={`${styles.wrapper} ${styles[props.type]}`}>
       <RenderTitleHighlight title={props.title} titleHighlight={props.titleHighlight} />
