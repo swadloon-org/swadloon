@@ -1518,18 +1518,31 @@ export type GraphCms_AssetUpdateManyInlineInput = {
 };
 
 export type GraphCms_AssetUpdateManyInput = {
-  createdAt?: Maybe<Scalars['GraphCMS_DateTime']>;
-  updatedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
-  /** Optional updates to localizations */
-  localizations?: Maybe<Array<GraphCms_AssetUpdateManyLocalizationInput>>;
-};
-
-export type GraphCms_AssetUpdateManyLocalizationInput = {
   fileName: Scalars['String'];
   height?: Maybe<Scalars['Float']>;
   width?: Maybe<Scalars['Float']>;
   size?: Maybe<Scalars['Float']>;
   mimeType?: Maybe<Scalars['String']>;
+  /** Optional updates to localizations */
+  localizations?: Maybe<GraphCms_AssetUpdateManyLocalizationsInput>;
+};
+
+export type GraphCms_AssetUpdateManyLocalizationDataInput = {
+  fileName?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['Float']>;
+  width?: Maybe<Scalars['Float']>;
+  size?: Maybe<Scalars['Float']>;
+  mimeType?: Maybe<Scalars['String']>;
+};
+
+export type GraphCms_AssetUpdateManyLocalizationInput = {
+  data: GraphCms_AssetUpdateManyLocalizationDataInput;
+  locale: GraphCms_Locale;
+};
+
+export type GraphCms_AssetUpdateManyLocalizationsInput = {
+  /** Localizations to update */
+  update?: Maybe<Array<GraphCms_AssetUpdateManyLocalizationInput>>;
 };
 
 export type GraphCms_AssetUpdateManyWithNestedWhereInput = {
@@ -2054,15 +2067,27 @@ export type GraphCms_BlogPostUpdateManyInlineInput = {
 };
 
 export type GraphCms_BlogPostUpdateManyInput = {
-  createdAt?: Maybe<Scalars['GraphCMS_DateTime']>;
-  updatedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** title input for default locale (en) */
+  title?: Maybe<Scalars['String']>;
+  /** content input for default locale (en) */
+  content?: Maybe<Scalars['String']>;
   /** Optional updates to localizations */
-  localizations?: Maybe<Array<GraphCms_BlogPostUpdateManyLocalizationInput>>;
+  localizations?: Maybe<GraphCms_BlogPostUpdateManyLocalizationsInput>;
+};
+
+export type GraphCms_BlogPostUpdateManyLocalizationDataInput = {
+  title?: Maybe<Scalars['String']>;
+  content?: Maybe<Scalars['String']>;
 };
 
 export type GraphCms_BlogPostUpdateManyLocalizationInput = {
-  title?: Maybe<Scalars['String']>;
-  content?: Maybe<Scalars['String']>;
+  data: GraphCms_BlogPostUpdateManyLocalizationDataInput;
+  locale: GraphCms_Locale;
+};
+
+export type GraphCms_BlogPostUpdateManyLocalizationsInput = {
+  /** Localizations to update */
+  update?: Maybe<Array<GraphCms_BlogPostUpdateManyLocalizationInput>>;
 };
 
 export type GraphCms_BlogPostUpdateManyWithNestedWhereInput = {
@@ -2523,16 +2548,30 @@ export type GraphCms_BlogSectionUpdateManyInlineInput = {
 };
 
 export type GraphCms_BlogSectionUpdateManyInput = {
-  createdAt?: Maybe<Scalars['GraphCMS_DateTime']>;
-  updatedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** title input for default locale (en) */
+  title?: Maybe<Scalars['String']>;
+  /** text input for default locale (en) */
+  text?: Maybe<Scalars['String']>;
+  /** actionLabel input for default locale (en) */
+  actionLabel?: Maybe<Scalars['String']>;
   /** Optional updates to localizations */
-  localizations?: Maybe<Array<GraphCms_BlogSectionUpdateManyLocalizationInput>>;
+  localizations?: Maybe<GraphCms_BlogSectionUpdateManyLocalizationsInput>;
 };
 
-export type GraphCms_BlogSectionUpdateManyLocalizationInput = {
+export type GraphCms_BlogSectionUpdateManyLocalizationDataInput = {
   title?: Maybe<Scalars['String']>;
   text?: Maybe<Scalars['String']>;
   actionLabel?: Maybe<Scalars['String']>;
+};
+
+export type GraphCms_BlogSectionUpdateManyLocalizationInput = {
+  data: GraphCms_BlogSectionUpdateManyLocalizationDataInput;
+  locale: GraphCms_Locale;
+};
+
+export type GraphCms_BlogSectionUpdateManyLocalizationsInput = {
+  /** Localizations to update */
+  update?: Maybe<Array<GraphCms_BlogSectionUpdateManyLocalizationInput>>;
 };
 
 export type GraphCms_BlogSectionUpdateManyWithNestedWhereInput = {
@@ -3121,8 +3160,6 @@ export type GraphCms_CompanyAddressUpdateInput = {
 };
 
 export type GraphCms_CompanyAddressUpdateManyInput = {
-  createdAt?: Maybe<Scalars['GraphCMS_DateTime']>;
-  updatedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
   addressLine1?: Maybe<Scalars['String']>;
   addressLine2?: Maybe<Scalars['String']>;
   city?: Maybe<Scalars['String']>;
@@ -3623,8 +3660,8 @@ export type GraphCms_CompanyMediaUpdateManyInlineInput = {
 };
 
 export type GraphCms_CompanyMediaUpdateManyInput = {
-  createdAt?: Maybe<Scalars['GraphCMS_DateTime']>;
-  updatedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** No fields in updateMany data input */
+  _?: Maybe<Scalars['String']>;
 };
 
 export type GraphCms_CompanyMediaUpdateManyWithNestedWhereInput = {
@@ -4255,20 +4292,40 @@ export type GraphCms_InfoSectionUpdateManyInlineInput = {
 };
 
 export type GraphCms_InfoSectionUpdateManyInput = {
-  createdAt?: Maybe<Scalars['GraphCMS_DateTime']>;
-  updatedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** title input for default locale (en) */
+  title?: Maybe<Scalars['String']>;
+  /** titleHighlight input for default locale (en) */
+  titleHighlight?: Maybe<Scalars['String']>;
+  /** text input for default locale (en) */
+  text?: Maybe<Scalars['String']>;
+  /** actionText input for default locale (en) */
+  actionText?: Maybe<Scalars['String']>;
+  /** type input for default locale (en) */
+  type?: Maybe<GraphCms_InfoSectionType>;
   showTabs?: Maybe<Scalars['Boolean']>;
+  /** titleTab input for default locale (en) */
+  titleTab?: Maybe<Scalars['String']>;
   /** Optional updates to localizations */
-  localizations?: Maybe<Array<GraphCms_InfoSectionUpdateManyLocalizationInput>>;
+  localizations?: Maybe<GraphCms_InfoSectionUpdateManyLocalizationsInput>;
 };
 
-export type GraphCms_InfoSectionUpdateManyLocalizationInput = {
+export type GraphCms_InfoSectionUpdateManyLocalizationDataInput = {
   title?: Maybe<Scalars['String']>;
   titleHighlight?: Maybe<Scalars['String']>;
   text?: Maybe<Scalars['String']>;
   actionText?: Maybe<Scalars['String']>;
   type?: Maybe<GraphCms_InfoSectionType>;
   titleTab?: Maybe<Scalars['String']>;
+};
+
+export type GraphCms_InfoSectionUpdateManyLocalizationInput = {
+  data: GraphCms_InfoSectionUpdateManyLocalizationDataInput;
+  locale: GraphCms_Locale;
+};
+
+export type GraphCms_InfoSectionUpdateManyLocalizationsInput = {
+  /** Localizations to update */
+  update?: Maybe<Array<GraphCms_InfoSectionUpdateManyLocalizationInput>>;
 };
 
 export type GraphCms_InfoSectionUpdateManyWithNestedWhereInput = {
@@ -4822,16 +4879,28 @@ export type GraphCms_InfoTileUpdateManyInlineInput = {
 };
 
 export type GraphCms_InfoTileUpdateManyInput = {
-  createdAt?: Maybe<Scalars['GraphCMS_DateTime']>;
-  updatedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
   icon?: Maybe<Scalars['String']>;
+  /** title input for default locale (en) */
+  title?: Maybe<Scalars['String']>;
+  /** text input for default locale (en) */
+  text?: Maybe<Scalars['String']>;
   /** Optional updates to localizations */
-  localizations?: Maybe<Array<GraphCms_InfoTileUpdateManyLocalizationInput>>;
+  localizations?: Maybe<GraphCms_InfoTileUpdateManyLocalizationsInput>;
+};
+
+export type GraphCms_InfoTileUpdateManyLocalizationDataInput = {
+  title?: Maybe<Scalars['String']>;
+  text?: Maybe<Scalars['String']>;
 };
 
 export type GraphCms_InfoTileUpdateManyLocalizationInput = {
-  title?: Maybe<Scalars['String']>;
-  text?: Maybe<Scalars['String']>;
+  data: GraphCms_InfoTileUpdateManyLocalizationDataInput;
+  locale: GraphCms_Locale;
+};
+
+export type GraphCms_InfoTileUpdateManyLocalizationsInput = {
+  /** Localizations to update */
+  update?: Maybe<Array<GraphCms_InfoTileUpdateManyLocalizationInput>>;
 };
 
 export type GraphCms_InfoTileUpdateManyWithNestedWhereInput = {
@@ -5355,15 +5424,27 @@ export type GraphCms_PageIndexUpdateManyInlineInput = {
 };
 
 export type GraphCms_PageIndexUpdateManyInput = {
-  createdAt?: Maybe<Scalars['GraphCMS_DateTime']>;
-  updatedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** bannerTitle input for default locale (en) */
+  bannerTitle?: Maybe<Scalars['String']>;
+  /** bannerSubTitle input for default locale (en) */
+  bannerSubTitle?: Maybe<Scalars['String']>;
   /** Optional updates to localizations */
-  localizations?: Maybe<Array<GraphCms_PageIndexUpdateManyLocalizationInput>>;
+  localizations?: Maybe<GraphCms_PageIndexUpdateManyLocalizationsInput>;
+};
+
+export type GraphCms_PageIndexUpdateManyLocalizationDataInput = {
+  bannerTitle?: Maybe<Scalars['String']>;
+  bannerSubTitle?: Maybe<Scalars['String']>;
 };
 
 export type GraphCms_PageIndexUpdateManyLocalizationInput = {
-  bannerTitle?: Maybe<Scalars['String']>;
-  bannerSubTitle?: Maybe<Scalars['String']>;
+  data: GraphCms_PageIndexUpdateManyLocalizationDataInput;
+  locale: GraphCms_Locale;
+};
+
+export type GraphCms_PageIndexUpdateManyLocalizationsInput = {
+  /** Localizations to update */
+  update?: Maybe<Array<GraphCms_PageIndexUpdateManyLocalizationInput>>;
 };
 
 export type GraphCms_PageIndexUpdateManyWithNestedWhereInput = {
@@ -5550,6 +5631,8 @@ export type GraphCms_PageInfo = {
   startCursor?: Maybe<Scalars['String']>;
   /** When paginating forwards, the cursor to continue. */
   endCursor?: Maybe<Scalars['String']>;
+  /** Number of items in the current page. */
+  pageSize?: Maybe<Scalars['Int']>;
 };
 
 export type GraphCms_PublishLocaleInput = {
