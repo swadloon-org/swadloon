@@ -1,11 +1,16 @@
 import { DesignSystem } from 'core-design-system';
 import { style } from 'treat';
 
+const baseDisplay = {
+  display: 'block',
+};
+
 export const small = style((theme: DesignSystem) => ({
   ...theme.typography.labels.MOBILE.SMALL.capsizeRem,
   fontFamily: theme.typography.labels.MOBILE.SMALL.fontFamily,
   fontWeight: theme.typography.labels.MOBILE.SMALL.fontWeight,
   textTransform: theme.typography.labels.MOBILE.SMALL.textTransform,
+  ...baseDisplay,
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
       ...theme.typography.labels.TABLET.SMALL.capsizeRem,
@@ -21,6 +26,8 @@ export const medium = style((theme: DesignSystem) => ({
   fontFamily: theme.typography.labels.MOBILE.MEDIUM.fontFamily,
   fontWeight: theme.typography.labels.MOBILE.MEDIUM.fontWeight,
   textTransform: theme.typography.labels.MOBILE.MEDIUM.textTransform,
+  ...baseDisplay,
+
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
       ...theme.typography.labels.TABLET.MEDIUM.capsizeRem,
@@ -31,11 +38,13 @@ export const medium = style((theme: DesignSystem) => ({
   },
 }));
 
-export const smallBold = style((theme: DesignSystem) => ({
+export const smallUppercase = style((theme: DesignSystem) => ({
   ...theme.typography.labels.MOBILE.SMALL_BOLD_UPPERCASE.capsizeRem,
   fontFamily: theme.typography.labels.MOBILE.SMALL_BOLD_UPPERCASE.fontFamily,
   fontWeight: theme.typography.labels.MOBILE.SMALL_BOLD_UPPERCASE.fontWeight,
   textTransform: theme.typography.labels.MOBILE.SMALL_BOLD_UPPERCASE.textTransform,
+  ...baseDisplay,
+
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
       ...theme.typography.labels.TABLET.SMALL_BOLD_UPPERCASE.capsizeRem,
@@ -46,11 +55,12 @@ export const smallBold = style((theme: DesignSystem) => ({
   },
 }));
 
-export const mediumBold = style((theme: DesignSystem) => ({
+export const mediumUppercase = style((theme: DesignSystem) => ({
   ...theme.typography.labels.MOBILE.MEDIUM_BOLD_UPPERCASE.capsizeRem,
   fontFamily: theme.typography.labels.MOBILE.MEDIUM_BOLD_UPPERCASE.fontFamily,
   fontWeight: theme.typography.labels.MOBILE.MEDIUM_BOLD_UPPERCASE.fontWeight,
   textTransform: theme.typography.labels.MOBILE.MEDIUM_BOLD_UPPERCASE.textTransform,
+  ...baseDisplay,
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
       ...theme.typography.labels.TABLET.MEDIUM_BOLD_UPPERCASE.capsizeRem,
@@ -61,11 +71,12 @@ export const mediumBold = style((theme: DesignSystem) => ({
   },
 }));
 
-export const smallUppercase = style((theme: DesignSystem) => ({
+export const smallBold = style((theme: DesignSystem) => ({
   ...theme.typography.labels.MOBILE.SMALL_UPPERCASE.capsizeRem,
   fontFamily: theme.typography.labels.MOBILE.SMALL_UPPERCASE.fontFamily,
   fontWeight: theme.typography.labels.MOBILE.SMALL_UPPERCASE.fontWeight,
   textTransform: theme.typography.labels.MOBILE.SMALL_UPPERCASE.textTransform,
+  ...baseDisplay,
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
       ...theme.typography.labels.TABLET.SMALL_UPPERCASE.capsizeRem,
@@ -76,11 +87,12 @@ export const smallUppercase = style((theme: DesignSystem) => ({
   },
 }));
 
-export const mediumUppercase = style((theme: DesignSystem) => ({
+export const mediumBold = style((theme: DesignSystem) => ({
   ...theme.typography.labels.MOBILE.MEDIUM_UPPERCASE.capsizeRem,
   fontFamily: theme.typography.labels.MOBILE.MEDIUM_UPPERCASE.fontFamily,
   fontWeight: theme.typography.labels.MOBILE.MEDIUM_UPPERCASE.fontWeight,
   textTransform: theme.typography.labels.MOBILE.MEDIUM_UPPERCASE.textTransform,
+  ...baseDisplay,
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
       ...theme.typography.labels.TABLET.MEDIUM_UPPERCASE.capsizeRem,
