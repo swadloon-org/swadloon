@@ -63,6 +63,13 @@ export const image = style((theme: DesignSystem) => ({
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
       width: '540px',
       height: '540px',
+
+      selectors: {
+        [`${type3} &`]: {
+          width: '500px',
+          height: '500px',
+        },
+      },
     },
   },
 }));
@@ -78,6 +85,13 @@ export const title = style((theme: DesignSystem) => ({
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
       maxWidth: '460px',
+      textAlign: 'left',
+
+      selectors: {
+        [`${type2} &`]: {
+          textAlign: 'left',
+        },
+      },
     },
   },
 }));
@@ -96,12 +110,31 @@ export const text = style((theme: DesignSystem) => ({
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
       maxWidth: '460px',
+
+      selectors: {
+        [`${type2} &`]: {
+          textAlign: 'left',
+        },
+      },
     },
   },
 }));
 
 export const button = style((theme: DesignSystem) => ({
   alignSelf: 'center',
+
+  '@media': {
+    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+      selectors: {
+        [`${type2} &`]: {
+          alignSelf: 'flex-start',
+        },
+        [`${type3} &`]: {
+          alignSelf: 'flex-start',
+        },
+      },
+    },
+  },
 }));
 
 export const content = style((theme: DesignSystem) => ({
@@ -116,6 +149,12 @@ export const content = style((theme: DesignSystem) => ({
           flexDirection: 'column',
           aligntems: 'stretch',
           margin: 'auto auto auto 0',
+        },
+        [`${type3} &`]: {
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'stretch',
+          margin: 'auto 0 auto auto',
         },
       },
     },
@@ -143,6 +182,18 @@ export const tabsWrapper = style((theme: DesignSystem) => ({
   justifyItems: 'center',
   rowGap: `var(${theme.sizing.sizeCSSVarNames.X1})`,
   marginBottom: `var(${theme.sizing.sizeCSSVarNames.X3} * 2)`,
+
+  '@media': {
+    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+      selectors: {
+        [`${type3} &`]: {
+          display: 'flex',
+          marginBottom: `var(${theme.sizing.sizeCSSVarNames.X5})`,
+          maxWidth: '610px',
+        },
+      },
+    },
+  },
 }));
 
 export const extraPadding = style((theme: DesignSystem) => ({}));
@@ -159,67 +210,59 @@ globalStyle(`${type1default} > *`, (theme: DesignSystem) => ({
   maxWidth: '343px',
 }));
 
-globalStyle(`${type2} ${button}`, (theme: DesignSystem) => ({
-  '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
-      alignSelf: 'flex-start',
-    },
-  },
-}));
+// globalStyle(`${type2} ${button}`, (theme: DesignSystem) => ({
+//   '@media': {
+//     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+//       alignSelf: 'flex-start',
+//     },
+//   },
+// }));
 
-globalStyle(`${type2} ${content}`, (theme: DesignSystem) => ({
-  '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'stretch',
-      margin: 'auto auto auto 0',
-    },
-  },
-}));
+// globalStyle(`${type2} ${content}`, (theme: DesignSystem) => ({
+//   '@media': {
+//     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+//       display: 'flex',
+//       flexDirection: 'column',
+//       alignItems: 'stretch',
+//       margin: 'auto auto auto 0',
+//     },
+//   },
+// }));
 
-globalStyle(`${type2},${type3} ${title} ${text}`, (theme: DesignSystem) => ({
-  '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
-      textAlign: 'left',
-    },
-  },
-}));
+// globalStyle(`${type3} ${image}`, (theme: DesignSystem) => ({
+//   '@media': {
+//     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+//       width: '500px',
+//       height: '500px',
+//     },
+//   },
+// }));
 
-globalStyle(`${type3} ${image}`, (theme: DesignSystem) => ({
-  '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
-      width: '500px',
-      height: '500px',
-    },
-  },
-}));
+// globalStyle(`${type3} ${button}`, (theme: DesignSystem) => ({
+//   '@media': {
+//     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+//       alignSelf: 'flex-start',
+//     },
+//   },
+// }));
 
-globalStyle(`${type3} ${button}`, (theme: DesignSystem) => ({
-  '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
-      alignSelf: 'flex-start',
-    },
-  },
-}));
+// globalStyle(`${type3} ${content}`, (theme: DesignSystem) => ({
+//   '@media': {
+//     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+//       display: 'flex',
+//       flexDirection: 'column',
+//       alignItems: 'stretch',
+//       margin: 'auto 0 auto auto',
+//     },
+//   },
+// }));
 
-globalStyle(`${type3} ${content}`, (theme: DesignSystem) => ({
-  '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'stretch',
-      margin: 'auto 0 auto auto',
-    },
-  },
-}));
-
-globalStyle(`${type3} ${tabsWrapper}`, (theme: DesignSystem) => ({
-  '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
-      display: 'flex',
-      marginBottom: `var(${theme.sizing.sizeCSSVarNames.X5})`,
-      maxWidth: '610px',
-    },
-  },
-}));
+// globalStyle(`${type3} ${tabsWrapper}`, (theme: DesignSystem) => ({
+//   '@media': {
+//     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+//       display: 'flex',
+//       marginBottom: `var(${theme.sizing.sizeCSSVarNames.X5})`,
+//       maxWidth: '610px',
+//     },
+//   },
+// }));
