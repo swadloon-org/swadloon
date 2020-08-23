@@ -27,20 +27,30 @@ export default class FigmaSync extends Command {
 
     log(`Querying Figma API\t\t ${args.file}...`);
 
-    client.file(args.file).then(({ data }) => {
-      log(`Querying Figma API:\t\t ${chalk.green('ok')}`);
+    client.fileStyles(args.file).then(({ data }) => {
+      log(`${JSON.stringify(data.meta.styles[0], null, 2)}`);
 
-      log(`Figma filename:\t\t ${chalk.blue(data.name)}`);
+      const key = data.meta.styles[0].key;
 
-      log(`Extracting colors:\t\t ${chalk.green('done')}`);
+      client.style(key).then(({ data }) => {
+        log(`${JSON.stringify(data, null, 2)}`);
+      });
 
-      log(`${JSON.stringify(data.styles, null, 2)}`);
+      client.file(args.file).then(({ data }) => {
+        log(`Querying Figma API:\t\t ${chalk.green('ok')}`);
 
-      // function parseFigmaColors(data: any): Colors {}
+        log(`Figma filename:\t\t ${chalk.blue(data.name)}`);
 
-      log(`Extracting text styles:\t ${chalk.green('done')}`);
+        log(`Extracting colors:\t\t ${chalk.green('done')}`);
 
-      log(`Extracting exports:\t\t ${chalk.green('done')}`);
+        log(`${JSON.stringify(data.styles, null, 2)}`);
+
+        // function parseFigmaColors(data: any): Colors {}
+
+        log(`Extracting text styles:\t ${chalk.green('done')}`);
+
+        log(`Extracting exports:\t\t ${chalk.green('done')}`);
+      });
     });
   }
 }

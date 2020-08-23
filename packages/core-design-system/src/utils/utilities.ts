@@ -1,8 +1,8 @@
 import capsize, { CapsizeStyles } from 'capsize';
-import { DesignSystem } from './design-system';
-import { TextStyle } from './typography';
-import { Colors, ColorIntents } from './colors';
-import { SizingStep } from './sizing';
+import { DesignSystem } from '../design-system';
+import { TextStyle } from '../foundations/typography';
+import { Colors, ColorIntents } from '../foundations/colors';
+import { SizingStep } from '../foundations/sizing';
 
 /**
  * Create a DesignSystem object with sensible defaults.

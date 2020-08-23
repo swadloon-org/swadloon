@@ -13,9 +13,7 @@ enum LABEL_SIZE {
 }
 
 interface OwnProps {
-  size2: LABEL;
   size: 'small' | 'medium' | 'smallBold' | 'mediumBold' | 'smallUppercase' | 'mediumUppercase';
-  // variant: 'regular' | 'bold' | 'uppercase';
 }
 
 export const Label: React.FC<LabelHTMLAttributes<any> & OwnProps> = (props) => {

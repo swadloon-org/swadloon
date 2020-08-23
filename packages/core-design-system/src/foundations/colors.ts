@@ -58,6 +58,11 @@ export interface Colors {
  * Contextual use of certain colors (text, action, state, etc).
  */
 export interface ColorIntents {
+  /**
+   * TODO
+   */
+  accessibilityColor?: Color;
+
   primary: Color;
   primaryReversed: Color;
   secondary: Color;

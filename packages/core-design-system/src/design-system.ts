@@ -1,10 +1,13 @@
 import { Color } from 'csstype';
-import { ColorIntents, Colors } from './colors';
+
 import { Buttons } from './components/buttons';
-import { Effects } from './effects';
-import { Layout } from './layout';
-import { Typography } from './typography';
-import { Sizing } from './sizing';
+
+import { ColorIntents, Colors } from './foundations/colors';
+import { Effects } from './foundations/effects';
+import { Iconography } from './foundations/iconography';
+import { Layout } from './foundations/layout';
+import { Sizing } from './foundations/sizing';
+import { Typography } from './foundations/typography';
 
 export interface DesignSystem {
   /**
@@ -33,13 +36,19 @@ export interface DesignSystem {
    */
   sizing: Sizing;
   /**
+   * TODO
+   */
+  iconography?: Iconography;
+  /**
    * Defines every text styles.
    */
   typography: Typography;
   /**
    * TODO
    */
-  animations?: any;
+  animations?: {
+    defaultDelay: number;
+  };
   /**
    * Breakpoints, common content margins for different viewports.
    */

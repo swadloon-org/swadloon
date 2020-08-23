@@ -1,4 +1,4 @@
-import { Value } from './value';
+import { Value } from '../utils/value';
 
 /**
  * Viewport names.
@@ -64,6 +64,7 @@ export interface ContentWidths {
  * Breakpoints, commonly used content margins and max widths.
  */
 export interface Layout {
+  layouts?: any;
   breakpoints: Breakpoints;
   contentMargins: ContentMargins;
   contentWidth: ContentWidths;
