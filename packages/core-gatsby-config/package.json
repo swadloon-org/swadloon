@@ -1,6 +1,6 @@
 {
   "name": "core-gatsby-config",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Reusable gatsby configuration files",
   "license": "MIT",
   "main": "./lib/index.js",
@@ -15,7 +15,6 @@
     "test": "echo ok"
   },
   "typings": "./lib/index.d.ts",
-  "dependencies": {},
   "peerDependencies": {
     "gatsby": "^2.24.47",
     "react": "^16.13.1",

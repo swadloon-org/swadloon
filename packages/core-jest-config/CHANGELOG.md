@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/compare/core-jest-config@1.1.0...core-jest-config@1.2.0) (2020-08-24)
+
+### Bug Fixes
+
+- **core-cli:** fix build order ([2a808cf](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/2a808cff54bf9eb5af44a4cf7153eb43211069c6))
+
+### Features
+
+- **core-gatsby-config:** init package ([0bd1e36](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/0bd1e368093067c80011e8f9d9e0ecd295dc2766))
+- **core-webpack-config:** refactor config to be used in gatsby packages ([3a9f06f](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/3a9f06fa246ab8b5b2b595295f02aaac5b2da86e))
+
 # 1.1.0 (2020-06-07)
 
 ### Bug Fixes

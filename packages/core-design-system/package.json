@@ -1,6 +1,6 @@
 {
   "name": "core-design-system",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Theme API to style entire application",
   "author": {
     "email": "philippe.leger@newrade.ca",
@@ -20,7 +20,5 @@
     "postinstall": "yarn build",
     "start": "tsc --build --watch --preserveWatchOutput"
   },
-  "typings": "./lib/index.d.ts",
-  "dependencies": {},
-  "devDependencies": {}
+  "typings": "./lib/index.d.ts"
 }

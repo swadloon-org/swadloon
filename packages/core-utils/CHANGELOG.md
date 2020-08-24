@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.1.0 (2020-08-24)
+
+### Bug Fixes
+
+- **core-cli:** fix build order ([2a808cf](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/commit/2a808cff54bf9eb5af44a4cf7153eb43211069c6))
+- **core-utils:** add test command ([90414d9](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/commit/90414d9c6129e662f7c7846c9a1d5d0d4414d38c))
+
+### Features
+
+- **core-cli:** add basic cli setup ([57ae78e](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/commit/57ae78e22860cf8116964220c5f5a47ed0488fcf))
+- **core-cli:** add typescript setup ([11c38b5](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/commit/11c38b54837aaa0a8fc9f4bdca0e0ae59b32e6d0))
+- **core-cli:** clean up core-cli project files ([09fe51e](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/commit/09fe51e5db9f6a6de5d9e9da18236780fea8d9cb))
+- **core-gatsby-config:** init package ([0bd1e36](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/commit/0bd1e368093067c80011e8f9d9e0ecd295dc2766))
+- **core-webpack-config:** refactor config to be used in gatsby packages ([3a9f06f](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/commit/3a9f06fa246ab8b5b2b595295f02aaac5b2da86e))
+- **mir-diez:** init package ([29f9e3b](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/commit/29f9e3b3c2214c1ca6dbb34b10244539ccf5160c))
+
 ## [1.2.3](https://github.com/noveo-io/infra-starter/compare/@infra-starter/core-utils@1.2.2...@infra-starter/core-utils@1.2.3) (2019-11-08)
 
 **Note:** Version bump only for package @infra-starter/core-utils
