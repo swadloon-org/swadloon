@@ -16,7 +16,7 @@ export const wrapper = style((theme: DesignSystem) => ({
   },
 }));
 export const container = style((theme: DesignSystem) => ({
-  margin: theme.layout.contentMargins.MOBILE.valuePx,
+  margin: `var(${theme.layout.contentMargins.MOBILE.valuePx}) 0 `,
 
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
@@ -74,7 +74,7 @@ export const formulaire = style((theme: DesignSystem) => ({
 }));
 export const subtitle = style((theme: DesignSystem) => ({
   textAlign: 'center',
-  paddingTop: `var(${theme.sizing.sizeCSSVarNames.X5})`,
+  // paddingTop: `var(${theme.sizing.sizeCSSVarNames.X5})`,
   color: theme.colors.greyscale0Reversed,
 
   '@media': {
@@ -84,7 +84,7 @@ export const subtitle = style((theme: DesignSystem) => ({
   },
 }));
 export const title = style((theme: DesignSystem) => ({
-  padding: `var(${theme.sizing.sizeCSSVarNames.X6}) 0`,
+  padding: `var(${theme.sizing.sizeCSSVarNames.X5}) 0`,
   textAlign: 'center',
   color: theme.colors.greyscale0Reversed,
 

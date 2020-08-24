@@ -92,10 +92,10 @@ const App: React.FC<IndexPageProps> = ({ data, location }) => {
             return <InfoSectionType1Group key={index} {...section} />;
           }
           case 'type2': {
-            return <InfoSectionType2 key={index} {...section} />;
+            return <InfoSectionType2 key={index} align="AlignContentLeft" {...section} />;
           }
           case 'type3': {
-            return <InfoSectionType3 key={index} {...section} />;
+            return <InfoSectionType3 key={index} align="AlignContentRight" {...section} />;
           }
           case 'type4': {
             return <InfoSectionType4 key={index} {...section} />;

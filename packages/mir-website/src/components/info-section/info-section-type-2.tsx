@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStyles } from 'react-treat';
-import * as styleRefs from './info-section.treat';
+import * as styleRefsBase from './info-section.treat';
 
 import { Button } from '../button';
 import { ImageFrame } from '../image-frame';
@@ -15,26 +15,31 @@ export const InfoSectionType2: React.FC<OwnProps> = (props) => {
   const hasImage = !!props?.image;
   const hasInfoTiles = !!props?.infoTiles?.length;
   const hasTabs = !!props?.childs.length && props.showTabs;
-  const styles = useStyles(styleRefs);
+
+  const stylesBase = useStyles(styleRefsBase);
 
   return (
-    <div className={`${styles.wrapper} ${styles[props.type]} ${hasImage || hasInfoTiles ? styles.extraPadding : ''}`}>
+    <div
+      className={`${stylesBase.wrapper} ${stylesBase[props.type]} ${
+        hasImage || hasInfoTiles ? stylesBase.extraPadding : ''
+      }  ${stylesBase[props.align]}`}
+    >
       {props.image?.url ? (
         <ImageFrame
           variant={'bottomLeft'}
           url={props.image?.url}
-          className={`${styles.image} ${hasTabs ? styles.imageTabs : ''}`}
+          className={`${stylesBase.image} ${hasTabs ? stylesBase.imageTabs : ''}`}
         />
       ) : null}
 
-      <div className={styles.content}>
+      <div className={stylesBase.content}>
         <RenderTitleHighlight title={props.title} titleHighlight={props.titleHighlight} />
 
-        <Paragraph variant={'medium'} className={styles.text}>
+        <Paragraph variant={'medium'} className={stylesBase.text}>
           {props.text}
         </Paragraph>
 
-        <Button type={'primaryDefault'} variant={'text'} size={'medium'} className={styles.button}>
+        <Button type={'primaryDefault'} variant={'text'} size={'medium'} className={stylesBase.button}>
           {props.actionText}
         </Button>
       </div>

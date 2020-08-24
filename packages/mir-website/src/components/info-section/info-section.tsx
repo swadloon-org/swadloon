@@ -9,4 +9,5 @@ export type SectionModelQuery = Pick<
     Pick<GraphCms_InfoSection, 'showTabs' | 'title' | 'titleHighlight' | 'titleTab' | 'type' | 'text' | 'actionText'>
   >;
   image?: Maybe<Pick<GraphCms_Asset, 'url'>>;
+  align?: 'AlignContentLeft' | 'AlignContentRight';
 };

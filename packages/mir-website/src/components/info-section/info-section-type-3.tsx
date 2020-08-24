@@ -19,7 +19,7 @@ export const InfoSectionType3: React.FC<OwnProps> = (props) => {
   const styles = useStyles(styleRefs);
 
   return (
-    <div className={`${styles.wrapper} ${styles[props.type]}`}>
+    <div className={`${styles.wrapper} ${styles[props.type]} ${styles[props.align]}`}>
       {props.image?.url ? (
         <ImageFrame
           variant={'bottomLeft'}

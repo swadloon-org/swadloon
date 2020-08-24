@@ -23,9 +23,6 @@ export const type2 = style((theme: DesignSystem) => ({
 
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
-      display: 'flex',
-      flexDirection: 'row-reverse',
-      margin: '0 auto',
       maxWidth: '1200px',
       width: '100%',
       padding: `var(${theme.sizing.sizeCSSVarNames.X7}) 0`,
@@ -37,12 +34,29 @@ export const type3 = style((theme: DesignSystem) => ({
   padding: `var(${theme.sizing.sizeCSSVarNames.X6}) ${theme.layout.contentMargins.MOBILE.valuePx}`,
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
-      display: 'flex',
-      flexDirection: 'row',
-      margin: '0 auto',
       maxWidth: '1200px',
       width: '100%',
       padding: `var(${theme.sizing.sizeCSSVarNames.X7}) 0`,
+    },
+  },
+}));
+
+export const AlignContentLeft = style((theme: DesignSystem) => ({
+  '@media': {
+    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+      display: 'flex',
+      flexDirection: 'row-reverse',
+      margin: '0 auto',
+    },
+  },
+}));
+
+export const AlignContentRight = style((theme: DesignSystem) => ({
+  '@media': {
+    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+      display: 'flex',
+      flexDirection: 'row',
+      margin: '0 auto',
     },
   },
 }));
@@ -66,6 +80,10 @@ export const image = style((theme: DesignSystem) => ({
 
       selectors: {
         [`${type3} &`]: {
+          width: '500px',
+          height: '500px',
+        },
+        [`${type2} &`]: {
           width: '500px',
           height: '500px',
         },
