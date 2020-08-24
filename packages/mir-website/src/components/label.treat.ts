@@ -43,6 +43,7 @@ export const smallUppercase = style((theme: DesignSystem) => ({
   fontFamily: theme.typography.labels.MOBILE.SMALL_BOLD_UPPERCASE.fontFamily,
   fontWeight: theme.typography.labels.MOBILE.SMALL_BOLD_UPPERCASE.fontWeight,
   textTransform: theme.typography.labels.MOBILE.SMALL_BOLD_UPPERCASE.textTransform,
+  letterSpacing: '2px',
   ...baseDisplay,
 
   '@media': {

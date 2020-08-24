@@ -19,9 +19,5 @@ interface OwnProps {
 export const Label: React.FC<LabelHTMLAttributes<any> & OwnProps> = (props) => {
   const styles = useStyles(styleRefs);
 
-  const reg = /Bold/g;
-
-  console.log(reg.exec(props.size));
-
   return <label className={`${props.className || ''} ${styles[props.size]}`}>{props.children}</label>;
 };

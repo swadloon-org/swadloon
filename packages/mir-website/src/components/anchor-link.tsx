@@ -11,11 +11,11 @@ interface OwnProps {
  * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a
  *
  */
-export const AnchorLink: React.FC<AnchorHTMLAttributes<any> & OwnProps> = (props) => {
+export const AnchorLink: React.FC<AnchorHTMLAttributes<any> & OwnProps> = ({ className, ...props }) => {
   const styles = useStyles(styleRefs);
 
   return (
-    <a className={`${props.className || ''} ${styles.wrapper}`} {...props}>
+    <a className={`${className || ''} ${styles.wrapper}`} {...props}>
       {props.children}
     </a>
   );
