@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/mir-website@1.1.0...mir-website@1.1.1) (2020-08-24)
+
+### Bug Fixes
+
+- **mir-website:** fixes for link and footer ([d40ed6d](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/d40ed6d08f5a426e339dd90a04184680c8440fa2))
+
 # 1.1.0 (2020-08-24)
 
 ### Bug Fixes
