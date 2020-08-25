@@ -31,6 +31,9 @@
     "reset": "npm i -g rimraf && rimraf -r ./node_modules packages/**/node_modules && yarn",
     "set-permissions": "chmod a+x node_modules/.bin/nr-core-cli",
     "start": "lerna run --parallel start",
+    "start:lakhos": "yarn start --scope '{core-*,lakhos-website}'",
+    "start:mir": "yarn start --scope '{core-*,mir-website}'",
+    "start:newrade": "yarn start --scope '{core-*,newrade-website}'",
     "test": "lerna run --concurrency=1 test",
     "yo": "nr-core-yo-generator"
   },
