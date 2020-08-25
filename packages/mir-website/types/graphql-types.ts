@@ -6058,6 +6058,8 @@ export type QueryAllSitePageArgs = {
 export type QuerySiteArgs = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  port?: Maybe<IntQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -6137,6 +6139,8 @@ export type QueryAllSitePluginArgs = {
 export type Site = Node & {
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
+  port?: Maybe<Scalars['Int']>;
+  host?: Maybe<Scalars['String']>;
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
@@ -6338,6 +6342,8 @@ export type SiteFieldsEnum =
   | 'buildTime'
   | 'siteMetadata___title'
   | 'siteMetadata___description'
+  | 'port'
+  | 'host'
   | 'polyfill'
   | 'pathPrefix'
   | 'id'
@@ -6430,6 +6436,8 @@ export type SiteFieldsEnum =
 export type SiteFilterInput = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  port?: Maybe<IntQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -7068,6 +7076,50 @@ export type TopBarQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type TopBarQuery = { gcms: { companyMedias: Array<{ logo?: Maybe<Pick<GraphCms_Asset, 'url'>> }> } };
+
+export type AboutPageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type AboutPageQuery = { gcms: { pageIndices: Array<(
+      Pick<GraphCms_PageIndex, 'id'>
+      & { employeeEmployerSections: Array<(
+        Pick<GraphCms_InfoSection, 'title' | 'titleHighlight' | 'titleTab' | 'type' | 'text' | 'showTabs' | 'actionText'>
+        & { infoTiles: Array<Pick<GraphCms_InfoTile, 'icon' | 'title' | 'text'>>, childs: Array<Pick<GraphCms_InfoSection, 'showTabs' | 'title' | 'titleHighlight' | 'titleTab' | 'type' | 'text' | 'actionText'>>, image?: Maybe<Pick<GraphCms_Asset, 'url'>> }
+      )> }
+    )> } };
+
+export type CandidatePageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type CandidatePageQuery = { gcms: { pageIndices: Array<(
+      Pick<GraphCms_PageIndex, 'id'>
+      & { employeeEmployerSections: Array<(
+        Pick<GraphCms_InfoSection, 'title' | 'titleHighlight' | 'titleTab' | 'type' | 'text' | 'showTabs' | 'actionText'>
+        & { infoTiles: Array<Pick<GraphCms_InfoTile, 'icon' | 'title' | 'text'>>, childs: Array<Pick<GraphCms_InfoSection, 'showTabs' | 'title' | 'titleHighlight' | 'titleTab' | 'type' | 'text' | 'actionText'>>, image?: Maybe<Pick<GraphCms_Asset, 'url'>> }
+      )> }
+    )> } };
+
+export type ContactPageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type ContactPageQuery = { gcms: { pageIndices: Array<(
+      Pick<GraphCms_PageIndex, 'id'>
+      & { employeeEmployerSections: Array<(
+        Pick<GraphCms_InfoSection, 'title' | 'titleHighlight' | 'titleTab' | 'type' | 'text' | 'showTabs' | 'actionText'>
+        & { infoTiles: Array<Pick<GraphCms_InfoTile, 'icon' | 'title' | 'text'>>, childs: Array<Pick<GraphCms_InfoSection, 'showTabs' | 'title' | 'titleHighlight' | 'titleTab' | 'type' | 'text' | 'actionText'>>, image?: Maybe<Pick<GraphCms_Asset, 'url'>> }
+      )> }
+    )> } };
+
+export type EmployerPageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type EmployerPageQuery = { gcms: { pageIndices: Array<(
+      Pick<GraphCms_PageIndex, 'id'>
+      & { employeeEmployerSections: Array<(
+        Pick<GraphCms_InfoSection, 'title' | 'titleHighlight' | 'titleTab' | 'type' | 'text' | 'showTabs' | 'actionText'>
+        & { infoTiles: Array<Pick<GraphCms_InfoTile, 'icon' | 'title' | 'text'>>, childs: Array<Pick<GraphCms_InfoSection, 'showTabs' | 'title' | 'titleHighlight' | 'titleTab' | 'type' | 'text' | 'actionText'>>, image?: Maybe<Pick<GraphCms_Asset, 'url'>> }
+      )> }
+    )> } };
 
 export type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
 

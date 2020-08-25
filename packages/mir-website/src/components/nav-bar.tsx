@@ -1,7 +1,8 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-
-import styles from './nav-bar.module.scss';
+import * as stylesRef from './nav-bar.treat';
+import { useStyles } from 'react-treat';
+// import styles from './nav-bar.module.scss';
 
 import { TopBarQuery } from '../../types/graphql-types';
 import Icon from '../illustrations/Icon/Bars.svg';
@@ -24,6 +25,7 @@ export const query = graphql`
 
 export const NavBar: React.FC<OwnProps> = () => {
   const data = useStaticQuery<TopBarQuery>(query);
+  const styles = useStyles(stylesRef);
 
   return (
     <div className={styles.wrapper}>
