@@ -1,6 +1,10 @@
 import { DesignSystem } from 'core-design-system';
 import { globalStyle, style } from 'treat';
 
+//
+// Wrapper
+//
+
 export const wrapper = style((theme: DesignSystem) => ({
   backgroundColor: theme.colors.primary500,
   paddingTop: `var(${theme.sizing.sizeCSSVarNames.X6})`,
@@ -15,20 +19,25 @@ export const wrapper = style((theme: DesignSystem) => ({
     },
   },
 }));
+
+//
+// Container
+//
+
 export const container = style((theme: DesignSystem) => ({
-  margin: `var(${theme.layout.contentMargins.MOBILE.valuePx}) 0 `,
+  margin: `0 ${theme.layout.contentMargins.MOBILE.valuePx}`,
 
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
       padding: `var(${theme.sizing.sizeCSSVarNames.X6}) 0`,
       margin: '0 auto',
-
       display: 'grid',
       gridTemplateColumns: 'repeat(12, 1fr)',
       gridTemplateAreas: "'content content content content content content . form form form form .'",
       gridTemplateRows: 'auto',
       columnGap: '20px',
     },
+
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
       maxWidth: '1200px',
       padding: `var(${theme.sizing.sizeCSSVarNames.X6}) 0`,
@@ -44,6 +53,11 @@ export const container = style((theme: DesignSystem) => ({
     },
   },
 }));
+
+//
+// Content
+//
+
 export const content = style((theme: DesignSystem) => ({
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
@@ -54,6 +68,11 @@ export const content = style((theme: DesignSystem) => ({
     },
   },
 }));
+
+//
+// Container Form
+//
+
 export const containerForm = style((theme: DesignSystem) => ({
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
@@ -64,6 +83,11 @@ export const containerForm = style((theme: DesignSystem) => ({
     },
   },
 }));
+
+//
+// Formulaire
+//
+
 export const formulaire = style((theme: DesignSystem) => ({
   display: 'grid',
 
@@ -72,6 +96,11 @@ export const formulaire = style((theme: DesignSystem) => ({
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {},
   },
 }));
+
+//
+// Subtitle
+//
+
 export const subtitle = style((theme: DesignSystem) => ({
   textAlign: 'center',
   // paddingTop: `var(${theme.sizing.sizeCSSVarNames.X5})`,
@@ -83,6 +112,11 @@ export const subtitle = style((theme: DesignSystem) => ({
     },
   },
 }));
+
+//
+// Title
+//
+
 export const title = style((theme: DesignSystem) => ({
   padding: `var(${theme.sizing.sizeCSSVarNames.X5}) 0`,
   textAlign: 'center',
@@ -96,11 +130,10 @@ export const title = style((theme: DesignSystem) => ({
   },
 }));
 
+//
+// Size of the input inside of the form - Deprecated
+//
+
 globalStyle(`${formulaire} input`, (theme: DesignSystem) => ({
   marginBottom: `var(${theme.sizing.sizeCSSVarNames.X3})`,
-
-  '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {},
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {},
-  },
 }));

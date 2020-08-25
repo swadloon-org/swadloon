@@ -1,6 +1,7 @@
 import React from 'react';
 import { Heading } from '../heading';
-import styles from './info-section.module.scss';
+import { useStyles } from 'react-treat';
+import * as styleRefs from './info-section.treat';
 
 type OwnProps = {
   title?: string;
@@ -9,6 +10,8 @@ type OwnProps = {
 };
 
 export const RenderTitleHighlight: React.FC<OwnProps> = ({ title, titleHighlight, className }) => {
+  const styles = useStyles(styleRefs);
+
   return (
     <Heading variant={'h2'} className={`${styles.title} ${className || ''}`}>
       {titleHighlight

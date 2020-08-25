@@ -19,15 +19,14 @@ export const type1default = style((theme: DesignSystem) => ({
 }));
 
 export const type2 = style((theme: DesignSystem) => ({
-  padding: `var(${theme.sizing.sizeCSSVarNames.X7}) ${theme.layout.contentMargins.MOBILE.valuePx}`,
-
-  '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
-      maxWidth: '1200px',
-      width: '100%',
-      padding: `var(${theme.sizing.sizeCSSVarNames.X7}) 0`,
-    },
-  },
+  // padding: `var(${theme.sizing.sizeCSSVarNames.X7}) ${theme.layout.contentMargins.MOBILE.valuePx}`,
+  // '@media': {
+  //   [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+  //     maxWidth: '1200px',
+  //     width: '100%',
+  //     padding: `var(${theme.sizing.sizeCSSVarNames.X7}) 0`,
+  //   },
+  // },
 }));
 
 export const type3 = style((theme: DesignSystem) => ({
@@ -70,25 +69,40 @@ export const type4 = style((theme: DesignSystem) => ({
 export const image = style((theme: DesignSystem) => ({
   marginBottom: `var(${theme.sizing.sizeCSSVarNames.X5})`,
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
-      width: '366px',
-      height: '366px',
-    },
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
       width: '540px',
       height: '540px',
 
-      selectors: {
-        [`${type3} &`]: {
-          width: '500px',
-          height: '500px',
-        },
-        [`${type2} &`]: {
-          width: '500px',
-          height: '500px',
-        },
-      },
+      // selectors: {
+      //   [`${type3} &`]: {
+      //     width: '500px',
+      //     height: '500px',
+      //   },
+      //   // [`${type2} &`]: {
+      //   //   width: '500px',
+      //   //   height: '500px',
+      //   // },
+      // },
     },
+    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+      width: '366px',
+      height: '366px',
+    },
+    // [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+    //   width: '540px',
+    //   height: '540px',
+
+    //   // selectors: {
+    //   //   [`${type3} &`]: {
+    //   //     width: '500px',
+    //   //     height: '500px',
+    //   //   },
+    //   //   // [`${type2} &`]: {
+    //   //   //   width: '500px',
+    //   //   //   height: '500px',
+    //   //   // },
+    //   // },
+    // },
   },
 }));
 
@@ -98,16 +112,15 @@ export const imageTabs = style((theme: DesignSystem) => ({
 
 export const title = style((theme: DesignSystem) => ({
   textAlign: 'center',
-  marginBottom: `var(${theme.sizing.sizeCSSVarNames.X3} * 2)`,
+  marginBottom: `calc(var(${theme.sizing.sizeCSSVarNames.X3}) *2)`,
   maxWidth: '400px',
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
       maxWidth: '460px',
       textAlign: 'left',
-
       selectors: {
-        [`${type2} &`]: {
-          textAlign: 'left',
+        [`${type4} &`]: {
+          textAlign: 'center',
         },
       },
     },
@@ -128,10 +141,11 @@ export const text = style((theme: DesignSystem) => ({
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
       maxWidth: '460px',
+      textAlign: 'left',
 
       selectors: {
-        [`${type2} &`]: {
-          textAlign: 'left',
+        [`${type4} &`]: {
+          textAlign: 'center',
         },
       },
     },
@@ -143,6 +157,8 @@ export const button = style((theme: DesignSystem) => ({
 
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+      alignSelf: 'flex-start',
+
       selectors: {
         [`${type2} &`]: {
           alignSelf: 'flex-start',
