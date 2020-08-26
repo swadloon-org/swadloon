@@ -6,8 +6,7 @@ import * as styleRefs from './image-frame.treat';
 interface OwnProps {
   url: string;
 
-  imagePosition: 'bottomRight' | 'bottomLeft' | 'topLeft' | 'topRight';
-  framePosition: 'bottomRight' | 'bottomLeft' | 'topLeft' | 'topRight';
+  variant: 'bottomRight' | 'bottomLeft' | 'topLeft' | 'topRight';
 }
 
 export const ImageFrame: React.FC<OwnProps & HTMLAttributes<any>> = (props) => {
@@ -17,16 +16,36 @@ export const ImageFrame: React.FC<OwnProps & HTMLAttributes<any>> = (props) => {
     <div className={`${props.className || ''} ${styles.wrapper} `}>
       <Illustration
         name={'Illustration/Square'}
-        className={`${styles.backgroundIllustration} ${styles[props.framePosition]}`}
+        className={`${styles.backgroundIllustration} ${variantResolver(props.variant)}`}
         preserveAspectRatio="none"
         width={null}
         height={null}
       />
 
-      <div className={`${styles.content} ${styles[props.imagePosition]}`}>
+      <div className={`${styles.content} ${styles[props.variant]}`}>
         <div className={`${styles.image}`} style={{ backgroundImage: `url(${props.url})` }} />
       </div>
     </div>
   );
+
+  function variantResolver(value: string) {
+    switch (value) {
+      case 'bottomRight': {
+        return styles.topLeft;
+      }
+      case 'bottomLeft': {
+        return styles.topRight;
+      }
+      case 'topLeft': {
+        return styles.bottomRight;
+      }
+      case 'topRight': {
+        return styles.bottomLeft;
+      }
+      default: {
+        return null;
+      }
+    }
+  }
 };
 // ${styles[props.variant]}

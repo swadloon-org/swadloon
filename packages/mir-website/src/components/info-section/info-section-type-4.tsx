@@ -19,12 +19,7 @@ export const InfoSectionType4: React.FC<OwnProps> = (props) => {
   return (
     <div className={`${styles.wrapper} ${styles[props.type]} ${hasInfoTiles ? styles.extraPadding : ''}`}>
       {props.image?.url ? (
-        <ImageFrame
-          imagePosition={'bottomRight'}
-          framePosition={'topLeft'}
-          url={props.image?.url}
-          className={`${styles.image} `}
-        />
+        <ImageFrame variant={'bottomRight'} url={props.image?.url} className={`${styles.image} `} />
       ) : null}
 
       <RenderTitleHighlight title={props.title} titleHighlight={props.titleHighlight} />
