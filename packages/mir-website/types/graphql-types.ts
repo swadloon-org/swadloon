@@ -7088,6 +7088,17 @@ export type AboutPageQuery = { gcms: { pageIndices: Array<(
       )> }
     )> } };
 
+export type BlogPageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type BlogPageQuery = { gcms: { pageIndices: Array<(
+      Pick<GraphCms_PageIndex, 'id'>
+      & { employeeEmployerSections: Array<(
+        Pick<GraphCms_InfoSection, 'title' | 'titleHighlight' | 'titleTab' | 'type' | 'text' | 'showTabs' | 'actionText'>
+        & { infoTiles: Array<Pick<GraphCms_InfoTile, 'icon' | 'title' | 'text'>>, childs: Array<Pick<GraphCms_InfoSection, 'showTabs' | 'title' | 'titleHighlight' | 'titleTab' | 'type' | 'text' | 'actionText'>>, image?: Maybe<Pick<GraphCms_Asset, 'url'>> }
+      )> }
+    )> } };
+
 export type CandidatePageQueryVariables = Exact<{ [key: string]: never; }>;
 
 

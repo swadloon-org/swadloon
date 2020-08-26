@@ -18,7 +18,7 @@ import * as stylesRef from '../styles/blog.treat';
 import '../styles/font-faces.styles.css';
 
 export const query = graphql`
-  query aboutPage {
+  query BlogPage {
     gcms {
       pageIndices(first: 1) {
         id
