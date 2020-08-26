@@ -29,7 +29,8 @@ export const InfoSectionType2: React.FC<OwnProps> = (props) => {
     >
       {props.image?.url ? (
         <ImageFrame
-          variant={'bottomLeft'}
+          imagePosition={'bottomRight'}
+          framePosition={'topLeft'}
           url={props.image?.url}
           className={`${stylesBase.image} ${hasTabs ? stylesBase.imageTabs : ''}`}
         />

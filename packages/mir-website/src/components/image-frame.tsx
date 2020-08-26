@@ -5,25 +5,28 @@ import * as styleRefs from './image-frame.treat';
 
 interface OwnProps {
   url: string;
-  variant: 'bottomRight' | 'bottomLeft';
+
+  imagePosition: 'bottomRight' | 'bottomLeft' | 'topLeft' | 'topRight';
+  framePosition: 'bottomRight' | 'bottomLeft' | 'topLeft' | 'topRight';
 }
 
 export const ImageFrame: React.FC<OwnProps & HTMLAttributes<any>> = (props) => {
   const styles = useStyles(styleRefs);
 
   return (
-    <div className={`${props.className || ''} ${styles.wrapper} ${styles[props.variant]}`}>
+    <div className={`${props.className || ''} ${styles.wrapper} `}>
       <Illustration
         name={'Illustration/Square'}
-        className={`${styles.backgroundIllustration}`}
+        className={`${styles.backgroundIllustration} ${styles[props.framePosition]}`}
         preserveAspectRatio="none"
         width={null}
         height={null}
       />
 
-      <div className={styles.content}>
+      <div className={`${styles.content} ${styles[props.imagePosition]}`}>
         <div className={`${styles.image}`} style={{ backgroundImage: `url(${props.url})` }} />
       </div>
     </div>
   );
 };
+// ${styles[props.variant]}

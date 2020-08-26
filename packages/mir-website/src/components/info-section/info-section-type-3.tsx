@@ -22,7 +22,8 @@ export const InfoSectionType3: React.FC<OwnProps> = (props) => {
     <div className={`${styles.wrapper} ${styles[props.type]} ${styles[props.align]}`}>
       {props.image?.url ? (
         <ImageFrame
-          variant={'bottomLeft'}
+          imagePosition={'bottomRight'}
+          framePosition={'topLeft'}
           url={props.image?.url}
           className={`${styles.image} ${hasTabs ? styles.imageTabs : ''}`}
         />
