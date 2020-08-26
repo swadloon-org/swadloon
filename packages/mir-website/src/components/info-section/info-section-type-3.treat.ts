@@ -67,7 +67,7 @@ export const tabsWrapper = style((theme: DesignSystem) => ({
   display: 'grid',
   justifyItems: 'center',
   rowGap: `var(${theme.sizing.sizeCSSVarNames.X1})`,
-  marginBottom: `var(${theme.sizing.sizeCSSVarNames.X3} * 2)`,
+  marginBottom: `calc(var(${theme.sizing.sizeCSSVarNames.X3}) * 2)`,
 
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
