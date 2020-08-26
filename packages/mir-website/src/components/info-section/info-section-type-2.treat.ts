@@ -53,3 +53,13 @@ export const text = style((theme: DesignSystem) => ({
     },
   },
 }));
+
+export const button = style((theme: DesignSystem) => ({
+  alignSelf: 'center',
+
+  '@media': {
+    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+      alignSelf: 'flex-start',
+    },
+  },
+}));

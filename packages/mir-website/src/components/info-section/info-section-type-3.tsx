@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useStyles } from 'react-treat';
-import * as styleRefs from './info-section.treat';
+import * as styleRefsBase from './info-section.treat';
+import * as styleRefsType3 from './info-section-type-3.treat';
 
 import { Button } from '../button';
 import { ImageFrame } from '../image-frame';
@@ -16,21 +17,22 @@ export const InfoSectionType3: React.FC<OwnProps> = (props) => {
   const [selectedTabIndex, setSelectedTabIndex] = useState<number>(0);
   const hasImage = !!props?.image;
   const hasTabs = !!props?.childs.length;
-  const styles = useStyles(styleRefs);
+  const styleRefs = useStyles(styleRefsType3);
+  const styleBase = useStyles(styleRefsBase);
 
   return (
-    <div className={`${styles.wrapper} ${styles[props.type]} ${styles[props.align]}`}>
+    <div className={`${styleBase.wrapper} ${styleRefs[props.type]} ${styleBase[props.align]}`}>
       {props.image?.url ? (
         <ImageFrame
           variant={'bottomRight'}
           url={props.image?.url}
-          className={`${styles.image} ${hasTabs ? styles.imageTabs : ''}`}
+          className={`${styleBase.image} ${hasTabs ? styleBase.imageTabs : ''}`}
         />
       ) : null}
 
-      <div className={styles.content}>
+      <div className={styleRefs.content}>
         {hasTabs ? (
-          <div className={styles.tabsWrapper}>
+          <div className={styleRefs.tabsWrapper}>
             {props?.childs.map((infoSecTab, index) => {
               return (
                 <Tab
@@ -54,17 +56,17 @@ export const InfoSectionType3: React.FC<OwnProps> = (props) => {
   );
 
   function renderTabbedInfoSection(props: Partial<SectionModelQuery>, sectionIndex: number) {
-    const styles = useStyles(styleRefs);
+    const styleRefs = useStyles(styleRefsType3);
 
     return (
       <React.Fragment key={`${sectionIndex}`}>
-        <RenderTitleHighlight title={props.title} titleHighlight={props.titleHighlight} />
+        <RenderTitleHighlight className={styleRefs.title} title={props.title} titleHighlight={props.titleHighlight} />
 
-        <Paragraph variant={'medium'} className={styles.text}>
+        <Paragraph variant={'medium'} className={styleRefs.text}>
           {props.text}
         </Paragraph>
 
-        <Button type={'primaryDefault'} variant={'text'} size={'medium'} className={styles.button}>
+        <Button type={'primaryDefault'} variant={'text'} size={'medium'} className={styleRefs.button}>
           {props.actionText}
         </Button>
       </React.Fragment>
