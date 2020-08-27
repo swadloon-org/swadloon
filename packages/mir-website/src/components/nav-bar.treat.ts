@@ -7,7 +7,7 @@ export const wrapper = style((theme: DesignSystem) => ({
   alignItems: 'center',
   justifyContent: 'center',
 
-  padding: `0 ${theme.layout.contentMargins.MOBILE.valueRem}`,
+  padding: `0 ${theme.layout.contentMargins.MOBILE.valuePx}`,
   height: `var(${theme.sizing.sizeCSSVarNames.X5})`,
 
   backgroundColor: theme.colors.primary500,
@@ -16,7 +16,7 @@ export const wrapper = style((theme: DesignSystem) => ({
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
       height: '73px',
-      padding: `0 ${theme.layout.contentMargins.TABLET.valueRem}`,
+      padding: `0 ${theme.layout.contentMargins.TABLET.valuePx}`,
     },
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
       height: `var(${theme.sizing.sizeCSSVarNames.X6})`,
