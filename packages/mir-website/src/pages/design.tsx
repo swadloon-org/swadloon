@@ -1,6 +1,7 @@
 import { Heading } from '../components/heading';
 import React from 'react';
 import { Paragraph } from '../components/paragraph';
+
 import { TreatProvider } from 'react-treat';
 import { light } from '../themes/mir-theme.treat';
 

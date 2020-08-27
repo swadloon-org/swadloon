@@ -11,6 +11,7 @@ import { InfoSectionType3 } from '../components/info-section/info-section-type-3
 import { InfoSectionType4 } from '../components/info-section/info-section-type-4';
 import { NavBar } from '../components/nav-bar';
 import { Newsletter } from '../components/newsletter/newsletter';
+import { Tags } from '../components/tags';
 
 import { light } from '../themes/mir-theme.treat';
 import * as stylesRef from '../styles/contact.treat';
@@ -73,7 +74,7 @@ const Contact: React.FC<IndexPageProps> = ({ data, location }) => {
     <div className={`${styles.wrapper}`}>
       <NavBar></NavBar>
 
-      <Banner></Banner>
+      <Banner variant="secondary"></Banner>
 
       {data.gcms.pageIndices[0].employeeEmployerSections.map((section, index) => {
         switch (section.type) {
@@ -85,7 +86,9 @@ const Contact: React.FC<IndexPageProps> = ({ data, location }) => {
           }
         }
       })}
-
+      <div>
+        <Tags>Label</Tags>
+      </div>
       <Newsletter id="newsletter"></Newsletter>
 
       <Footer></Footer>

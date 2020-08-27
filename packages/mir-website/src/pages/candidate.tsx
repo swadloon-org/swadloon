@@ -73,7 +73,7 @@ const Candidate: React.FC<IndexPageProps> = ({ data, location }) => {
     <div className={`${styles.wrapper}`}>
       <NavBar></NavBar>
 
-      <Banner></Banner>
+      <Banner variant="secondary"></Banner>
 
       {data.gcms.pageIndices[0].employeeEmployerSections.map((section, index) => {
         switch (section.type) {

@@ -48,39 +48,6 @@ export const wrapper = style((theme: DesignSystem) => ({
   },
 }));
 
-export const content = style((theme: DesignSystem) => ({
-  '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
-      width: `60%`,
-    },
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
-      maxWidth: `462px`,
-    },
-  },
-}));
-
-export const subtitle = style((theme: DesignSystem) => ({
-  marginBottom: `var(${theme.sizing.sizeCSSVarNames.X3})`,
-  color: theme.colors.greyscale0,
-}));
-
-export const title = style((theme: DesignSystem) => ({
-  margin: `var(${theme.sizing.sizeCSSVarNames.X3}) 0`,
-  color: theme.colors.greyscale0,
-}));
-
-export const bottomBar = style((theme: DesignSystem) => ({
-  ...baseWidth100,
-}));
-
-export const rect = style((theme: DesignSystem) => ({
-  selectors: {
-    [` ${bottomBar} &`]: {
-      ...baseWidth100,
-    },
-  },
-}));
-
 export const blackbox = style((theme: DesignSystem) => ({
   position: `absolute`,
   display: `none`,
@@ -109,6 +76,50 @@ export const bluebox = style((theme: DesignSystem) => ({
       width: `100%`,
       height: `45%`,
       backgroundColor: theme.colors.primary500,
+    },
+  },
+}));
+
+export const content = style((theme: DesignSystem) => ({
+  '@media': {
+    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+      width: `60%`,
+    },
+    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+      maxWidth: `462px`,
+    },
+  },
+}));
+
+export const containerBar = style((theme: DesignSystem) => ({
+  '@media': {
+    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+      display: 'flex',
+    },
+  },
+}));
+
+export const topBarPrimary = style((theme: DesignSystem) => ({}));
+export const topBarSecondary = style((theme: DesignSystem) => ({}));
+
+export const subtitle = style((theme: DesignSystem) => ({
+  marginBottom: `var(${theme.sizing.sizeCSSVarNames.X3})`,
+  color: theme.colors.greyscale0,
+}));
+
+export const title = style((theme: DesignSystem) => ({
+  margin: `var(${theme.sizing.sizeCSSVarNames.X3}) 0`,
+  color: theme.colors.greyscale0,
+}));
+
+export const bottomBar = style((theme: DesignSystem) => ({
+  ...baseWidth100,
+}));
+
+export const rect = style((theme: DesignSystem) => ({
+  selectors: {
+    [` ${bottomBar} &`]: {
+      ...baseWidth100,
     },
   },
 }));
