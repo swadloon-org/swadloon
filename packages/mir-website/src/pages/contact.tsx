@@ -11,7 +11,6 @@ import { InfoSectionType3 } from '../components/info-section/info-section-type-3
 import { InfoSectionType4 } from '../components/info-section/info-section-type-4';
 import { NavBar } from '../components/nav-bar';
 import { Newsletter } from '../components/newsletter/newsletter';
-import { Tags } from '../components/tags';
 
 import { light } from '../themes/mir-theme.treat';
 import * as stylesRef from '../styles/contact.treat';
@@ -86,9 +85,7 @@ const Contact: React.FC<IndexPageProps> = ({ data, location }) => {
           }
         }
       })}
-      <div>
-        <Tags>Label LabelLabel LabelLabel Label </Tags>
-      </div>
+
       <Newsletter id="newsletter"></Newsletter>
 
       <Footer></Footer>

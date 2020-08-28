@@ -1,9 +1,13 @@
 import { DesignSystem } from 'core-design-system';
-import { style } from 'treat';
+import { style, globalStyle } from 'treat';
 
 const baseWidth100 = {
   width: `100%`,
 };
+
+//
+// Container for the blue & black boxes
+//
 
 export const containerBox = style(({ layout }: DesignSystem) => ({
   position: `relative`,
@@ -21,6 +25,10 @@ export const containerBox = style(({ layout }: DesignSystem) => ({
     },
   },
 }));
+
+//
+// Wrapper for the content inside the containerBox
+//
 
 export const wrapper = style((theme: DesignSystem) => ({
   padding: `var(${theme.sizing.sizeCSSVarNames.X6}) ${theme.layout.contentMargins.MOBILE.valuePx}`,
@@ -48,6 +56,10 @@ export const wrapper = style((theme: DesignSystem) => ({
   },
 }));
 
+//
+// Box black inside the containerBox
+//
+
 export const blackbox = style((theme: DesignSystem) => ({
   position: `absolute`,
   display: `none`,
@@ -63,6 +75,10 @@ export const blackbox = style((theme: DesignSystem) => ({
     },
   },
 }));
+
+//
+// Blue box inside the containerBox
+//
 
 export const bluebox = style((theme: DesignSystem) => ({
   position: `absolute`,
@@ -80,18 +96,34 @@ export const bluebox = style((theme: DesignSystem) => ({
   },
 }));
 
+//
+// content of the wrapper
+//
+
 export const content = style((theme: DesignSystem) => ({
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
-      width: `60%`,
+      width: 'fit-content',
+      maxWidth: `462px`,
     },
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
-      maxWidth: `462px`,
+      width: 'fit-content',
+      maxWidth: `771px`,
     },
   },
 }));
 
-export const containerBar = style((theme: DesignSystem) => ({
+// **********************************************
+//
+// Primary variant for the bars top and bottom
+//
+// **********************************************
+
+//
+// top
+//
+
+export const containerBarTopPrimary = style((theme: DesignSystem) => ({
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
       display: 'flex',
@@ -99,27 +131,120 @@ export const containerBar = style((theme: DesignSystem) => ({
   },
 }));
 
-export const topBarPrimary = style((theme: DesignSystem) => ({}));
-export const topBarSecondary = style((theme: DesignSystem) => ({}));
+export const topBarPrimary = style((theme: DesignSystem) => ({
+  '@media': {
+    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+      paddingLeft: `var(${theme.sizing.sizeCSSVarNames.X1})`,
+    },
+  },
+}));
+
+//
+// bottom
+//
+
+export const containerBarBottomPrimary = style((theme: DesignSystem) => ({
+  '@media': {
+    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+      display: 'flex',
+    },
+  },
+}));
+
+export const bottomBarPrimary = style((theme: DesignSystem) => ({}));
+
+// **********************************************
+//
+// Secondary variant for the bars top and bottom
+//
+// **********************************************
+
+//
+// top
+//
+
+export const containerBarTopSecondary = style((theme: DesignSystem) => ({
+  display: 'flex',
+  justifyContent: 'flex-start',
+}));
+
+export const topBarSecondary = style((theme: DesignSystem) => ({
+  width: '214px',
+  '@media': {
+    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {},
+    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {},
+  },
+}));
+
+globalStyle(`${topBarSecondary} rect`, (theme: DesignSystem) => ({
+  width: '214px',
+
+  '@media': {
+    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+      width: '97px',
+    },
+    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {},
+  },
+}));
+
+//
+// bottom
+//
+
+export const containerBarBottomSecondary = style((theme: DesignSystem) => ({
+  display: 'flex',
+  '@media': {
+    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+      justifyContent: 'flex-end',
+    },
+    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {},
+  },
+}));
+
+export const bottomBarSecondary = style((theme: DesignSystem) => ({
+  width: '237px',
+  '@media': {
+    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+      width: '291px',
+    },
+    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {},
+  },
+}));
+
+globalStyle(`${bottomBarSecondary} rect`, (theme: DesignSystem) => ({
+  width: '237px',
+
+  '@media': {
+    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+      width: '291px',
+    },
+    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {},
+  },
+}));
+
+//
+// subtitle
+//
 
 export const subtitle = style((theme: DesignSystem) => ({
   marginBottom: `var(${theme.sizing.sizeCSSVarNames.X3})`,
   color: theme.colors.greyscale0,
 }));
 
+//
+// title
+//
+
 export const title = style((theme: DesignSystem) => ({
   margin: `var(${theme.sizing.sizeCSSVarNames.X3}) 0`,
   color: theme.colors.greyscale0,
 }));
 
-export const bottomBar = style((theme: DesignSystem) => ({
-  ...baseWidth100,
-}));
-
-export const rect = style((theme: DesignSystem) => ({
-  selectors: {
-    [` ${bottomBar} &`]: {
-      ...baseWidth100,
-    },
-  },
-}));
+// export const rect = style((theme: DesignSystem) => ({
+//   ...baseWidth100,
+//   selectors: {
+//     [` ${bottomBarPrimary} &`]: {
+//       ...baseWidth100,
+//     },
+//   },
+// }));

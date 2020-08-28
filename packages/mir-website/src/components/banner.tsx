@@ -40,25 +40,42 @@ export const Banner: React.FC<OwnProps> = (props) => {
         style={{ backgroundImage: `url(${data.gcms.pageIndices[0].bannerImage[0].url})` }}
       >
         <div className={styles.content}>
-          {variantResolver(props.variant)}
+          {variantTopBar(props.variant)}
 
           <Heading variant="h1" className={styles.title}>
             {data.gcms.pageIndices[0].bannerTitle}
           </Heading>
 
-          <BarSVG viewBox={null} className={styles.bottomBar} />
+          {variantBottomBar(props.variant)}
         </div>
       </div>
 
       <div className={styles.blackbox}></div>
     </div>
   );
-
-  function variantResolver(value: string) {
+  function variantBottomBar(value: string) {
     switch (value) {
       case 'primary': {
         return (
-          <div className={styles.containerBar}>
+          <div className={styles.containerBarBottomPrimary}>
+            <BarSVG viewBox={null} className={styles.bottomBarPrimary} />{' '}
+          </div>
+        );
+      }
+      case 'secondary': {
+        return (
+          <div className={styles.containerBarBottomSecondary}>
+            <BarSVG viewBox={null} className={styles.bottomBarSecondary} />{' '}
+          </div>
+        );
+      }
+    }
+  }
+  function variantTopBar(value: string) {
+    switch (value) {
+      case 'primary': {
+        return (
+          <div className={styles.containerBarTopPrimary}>
             <Label size="smallUppercase" className={styles.subtitle}>
               {data.gcms.pageIndices[0].bannerSubTitle}
             </Label>
@@ -71,7 +88,7 @@ export const Banner: React.FC<OwnProps> = (props) => {
       }
       default: {
         return (
-          <div className={styles.containerBar}>
+          <div className={styles.containerBarTopSecondary}>
             <BarSVG className={styles.topBarSecondary} />
           </div>
         );

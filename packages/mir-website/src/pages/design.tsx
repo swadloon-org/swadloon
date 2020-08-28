@@ -2,6 +2,7 @@ import { Heading } from '../components/heading';
 import React from 'react';
 import { Paragraph } from '../components/paragraph';
 import { Accordions } from '../components/accordions';
+import { Tags } from '../components/tags';
 
 import { TreatProvider } from 'react-treat';
 import { light } from '../themes/mir-theme.treat';
@@ -41,6 +42,10 @@ export const DesignPage: React.FC = () => {
         <Accordions icon="PlusCircle" onClick={helloworld}>
           test
         </Accordions>
+
+        <div>
+          <Tags>Label LabelLabel LabelLabel Label </Tags>
+        </div>
       </div>
     </TreatProvider>
   );
