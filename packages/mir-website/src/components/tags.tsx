@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
 
 // import styles from './button.module.scss';
@@ -13,7 +13,7 @@ type OwnProps = {
   icon?: string;
 };
 
-export const Tags: React.FC<OwnProps> = (props) => {
+export const Tags: React.FC<HTMLAttributes<any> & OwnProps> = (props) => {
   const styles = useStyles(styleRefs);
 
   return (

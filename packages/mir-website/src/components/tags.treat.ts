@@ -3,7 +3,7 @@ import { style } from 'treat';
 
 export const wrapper = style((theme: DesignSystem) => ({
   display: 'flex',
-  width: '200px',
+  width: '100%',
   borderRadius: '23px',
   boxShadow: '0px 2px 10px rgba(155, 155, 155, 0.5)',
 }));

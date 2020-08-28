@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
 
 // import styles from './button.module.scss';
@@ -13,13 +13,18 @@ import { Illustration } from './illustration';
 type OwnProps = {
   icon?: string;
   selected?: boolean;
+  variant: 'Default' | 'reversed';
 };
-
-export const Accordions: React.FC<OwnProps & { onClick: (e: React.MouseEvent<HTMLDivElement>) => void }> = (props) => {
+export const Accordions: React.FC<
+  HTMLAttributes<any> & OwnProps & { onClick: (e: React.MouseEvent<HTMLDivElement>) => void }
+> = (props) => {
   const styles = useStyles(styleRefs);
 
   return (
-    <div className={`${styles.wrapper} ${styles[props.selected ? 'selected' : 'unselected']}`} onClick={props.onClick}>
+    <div
+      className={`${styles.wrapper} ${styles[props.variant]} ${styles[props.selected ? 'selected' : 'unselected']}`}
+      onClick={props.onClick}
+    >
       <div className={styles.container}>
         <Heading className={`${styles.label}`} variant="h4">
           {props.children}
@@ -28,8 +33,8 @@ export const Accordions: React.FC<OwnProps & { onClick: (e: React.MouseEvent<HTM
         <Illustration
           className={`${styles.illustration}`}
           name={`Icon/${props.selected ? 'MinusCircle' : 'PlusCircle'}`}
-          width={42}
-          height={42}
+          width={24}
+          height={24}
         ></Illustration>
       </div>
     </div>
