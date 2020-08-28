@@ -24,3 +24,4 @@ export const selected = style((theme: DesignSystem) => ({
   color: theme.colors.greyscale0Reversed,
   backgroundColor: theme.colors.primary500,
 }));
+export const unselected = style((theme: DesignSystem) => ({}));

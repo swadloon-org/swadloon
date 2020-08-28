@@ -87,7 +87,7 @@ const Contact: React.FC<IndexPageProps> = ({ data, location }) => {
         }
       })}
       <div>
-        <Tags>Label</Tags>
+        <Tags>Label LabelLabel LabelLabel Label </Tags>
       </div>
       <Newsletter id="newsletter"></Newsletter>
 

@@ -18,12 +18,17 @@ export const number = style((theme: DesignSystem) => ({
   position: 'absolute',
   color: theme.colors.greyscale0,
 }));
-export const illustration = style((theme: DesignSystem) => ({}));
+export const illustration = style((theme: DesignSystem) => ({
+  height: `calc(var(${theme.sizing.sizeCSSVarNames.X1}) * 5)`,
+  width: `calc(var(${theme.sizing.sizeCSSVarNames.X1}) * 5)`,
+}));
 
 export const content = style((theme: DesignSystem) => ({
-  padding: `var(${theme.sizing.sizeCSSVarNames.X1}) var(${theme.sizing.sizeCSSVarNames.X2})`,
+  padding: `0 var(${theme.sizing.sizeCSSVarNames.X2})`,
 }));
 export const label = style((theme: DesignSystem) => ({
-  paddingTop: `var(${theme.sizing.sizeCSSVarNames.X1})`,
-  paddingBottom: `var(${theme.sizing.sizeCSSVarNames.X1})`,
+  height: `calc(var(${theme.sizing.sizeCSSVarNames.X1}) * 5)`,
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
 }));

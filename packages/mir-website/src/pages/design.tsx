@@ -1,6 +1,7 @@
 import { Heading } from '../components/heading';
 import React from 'react';
 import { Paragraph } from '../components/paragraph';
+import { Accordions } from '../components/accordions';
 
 import { TreatProvider } from 'react-treat';
 import { light } from '../themes/mir-theme.treat';
@@ -35,8 +36,17 @@ export const DesignPage: React.FC = () => {
           est laborum.
         </Paragraph>
       </div>
+
+      <div>
+        <Accordions icon="PlusCircle" onClick={helloworld}>
+          test
+        </Accordions>
+      </div>
     </TreatProvider>
   );
+  function helloworld(value: any) {
+    console.log(value.target.name);
+  }
 };
 
 export default DesignPage;
