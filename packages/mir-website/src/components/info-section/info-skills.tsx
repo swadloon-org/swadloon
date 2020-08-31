@@ -20,25 +20,54 @@ export const InfoSkills: React.FC<OwnProps> = (props) => {
       <RenderTitleHighlight title={props.title} titleHighlight={props.titleHighlight} />
 
       <div className={styles.container}>
-        <Accordions className={styles.accordions1} variant="Default" icon="PlusCircle" onClick={helloworld}>
-          Postes administratifs
-        </Accordions>
-        <Accordions className={styles.accordions1} variant="reversed" icon="PlusCircle" onClick={helloworld}>
-          Postes techniques
-        </Accordions>
+        <div className={styles.accordions}>
+          <Accordions variant="Default" icon="PlusCircle" onClick={helloworld}>
+            Postes administratifs
+          </Accordions>
+        </div>
+        <div className={styles.accordions}>
+          <Accordions variant="reversed" icon="PlusCircle" onClick={helloworld}>
+            Postes techniques
+          </Accordions>{' '}
+        </div>
+
         <div className={styles.content}>
-          <Tags className={styles.tagsUnique}>Label LabelLabel LabelLabel Label </Tags>
-          <Tags className={styles.tagsUnique}>Label LabelLabel LabelLabel Label </Tags>
-          <Tags className={styles.tagsUnique}>Label LabelLabel LabelLabel Label </Tags>
-          <Tags className={styles.tagsUnique}>Label LabelLabel LabelLabel Label </Tags>
-          <Tags className={styles.tagsUnique}>Label LabelLabel LabelLabel Label </Tags>
-          <Tags className={styles.tagsUnique}>Label LabelLabel LabelLabel Label </Tags>
-          <Tags className={styles.tagsUnique}>Label LabelLabel LabelLabel Label </Tags>
-          <Tags className={styles.tagsUnique}>Label LabelLabel LabelLabel Label </Tags>
-          <Tags className={styles.tagsUnique}>Label LabelLabel LabelLabel Label </Tags>
-          <Tags className={styles.tagsUnique}>Label LabelLabel LabelLabel Label </Tags>
-          <Tags className={styles.tagsUnique}>Label LabelLabel LabelLabel Label </Tags>
-          <Tags className={styles.tagsUnique}>Label LabelLabel LabelLabel Label </Tags>
+          <div className={styles.tagsUnique}>
+            <Tags>Label LabelLabel LabelLabel Label </Tags>
+          </div>
+          <div className={styles.tagsUnique}>
+            <Tags>Label LabelLabel LabelLabel Label </Tags>
+          </div>{' '}
+          <div className={styles.tagsUnique}>
+            <Tags>Label LabelLabel LabelLabel Label </Tags>
+          </div>{' '}
+          <div className={styles.tagsUnique}>
+            <Tags>Label LabelLabel LabelLabel Label </Tags>
+          </div>{' '}
+          <div className={styles.tagsUnique}>
+            <Tags>Label LabelLabel LabelLabel Label </Tags>
+          </div>{' '}
+          <div className={styles.tagsUnique}>
+            <Tags>Label LabelLabel LabelLabel Label </Tags>
+          </div>{' '}
+          <div className={styles.tagsUnique}>
+            <Tags>Label LabelLabel LabelLabel Label </Tags>
+          </div>{' '}
+          <div className={styles.tagsUnique}>
+            <Tags>Label LabelLabel LabelLabel Label </Tags>
+          </div>{' '}
+          <div className={styles.tagsUnique}>
+            <Tags>Label LabelLabel LabelLabel Label </Tags>
+          </div>{' '}
+          <div className={styles.tagsUnique}>
+            <Tags>Label LabelLabel LabelLabel Label </Tags>
+          </div>{' '}
+          <div className={styles.tagsUnique}>
+            <Tags>Label LabelLabel LabelLabel Label </Tags>
+          </div>{' '}
+          <div className={styles.tagsUnique}>
+            <Tags>Label LabelLabel LabelLabel Label </Tags>
+          </div>
         </div>
       </div>
     </div>

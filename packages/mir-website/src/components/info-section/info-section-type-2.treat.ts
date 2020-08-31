@@ -22,7 +22,9 @@ export const content = style((theme: DesignSystem) => ({
       display: 'flex',
       flexDirection: 'column',
       aligntems: 'stretch',
-      margin: 'auto auto auto 0',
+      // margin: 'auto auto auto 0',
+      marginRight: `var(${theme.sizing.sizeCSSVarNames.X6})`,
+      marginBottom: 'auto',
     },
   },
 }));
