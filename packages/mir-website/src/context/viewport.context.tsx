@@ -12,18 +12,24 @@ type ViewportProviderProps = {
 };
 
 export const ViewportProvider: React.FC<ViewportProviderProps> = ({ children, context }) => {
-  const [width, setWidth] = React.useState<ViewportContext['width']>(window.innerWidth);
-  const [height, setHeight] = React.useState<ViewportContext['height']>(window.innerHeight);
+  const [width, setWidth] = React.useState<ViewportContext['width']>(window ? window.innerWidth : 320);
+  const [height, setHeight] = React.useState<ViewportContext['height']>(window ? window.innerHeight : 600);
 
-  const handleWindowResize = () => {
-    setWidth(window.innerWidth);
-    setHeight(window.innerHeight);
-  };
+  function handleWindowResize() {
+    setWidth(window ? window.innerWidth : 320);
+    setHeight(window ? window.innerHeight : 600);
+  }
 
   // TODO throttle this
   React.useEffect(() => {
-    window.addEventListener('resize', handleWindowResize);
-    return () => window.removeEventListener('resize', handleWindowResize);
+    if (window) {
+      window.addEventListener('resize', handleWindowResize);
+    }
+    return () => {
+      if (window) {
+        window.removeEventListener('resize', handleWindowResize);
+      }
+    };
   }, []);
 
   return <context.Provider value={{ width, height }}>{children}</context.Provider>;
