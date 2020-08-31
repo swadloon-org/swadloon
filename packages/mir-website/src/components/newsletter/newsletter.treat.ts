@@ -118,14 +118,16 @@ export const subtitle = style((theme: DesignSystem) => ({
 //
 
 export const title = style((theme: DesignSystem) => ({
-  padding: `var(${theme.sizing.sizeCSSVarNames.X5}) 0`,
+  marginTop: `var(${theme.sizing.sizeCSSVarNames.X5})`,
+  marginBottom: `var(${theme.sizing.sizeCSSVarNames.X5})`,
   textAlign: 'center',
   color: theme.colors.greyscale0Reversed,
 
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
       textAlign: 'left',
-      padding: `var(${theme.sizing.sizeCSSVarNames.X3}) 0`,
+      marginTop: `var(${theme.sizing.sizeCSSVarNames.X3})`,
+      marginBottom: `var(${theme.sizing.sizeCSSVarNames.X3})`,
     },
   },
 }));

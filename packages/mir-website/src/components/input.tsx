@@ -1,7 +1,6 @@
 import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './input.treat';
-// import styles from './input.module.scss';
 
 interface OwnProps {
   variant: 'default' | 'reversed';
