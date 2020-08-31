@@ -12,10 +12,11 @@ import { InfoSectionType4 } from '../components/info-section/info-section-type-4
 import { NavBar } from '../components/nav-bar';
 import { Newsletter } from '../components/newsletter/newsletter';
 
-import { light } from '../themes/mir-theme.treat';
-import * as stylesRef from '../styles/index.treat';
-
 import '../styles/font-faces.styles.css';
+import * as stylesRef from '../styles/index.treat';
+import { light } from '../themes/mir-theme.treat';
+import { useViewportValues, viewportContext, useViewportBreakpoint } from '../hooks/use-viewport.hook';
+import { ViewportProvider } from '../context/viewport.context';
 
 export const query = graphql`
   query indexPage {
@@ -70,7 +71,11 @@ interface IndexPageProps {
 }
 
 export const Root: React.FC<{}> = (props) => {
-  return <TreatProvider theme={light}>{props.children}</TreatProvider>;
+  return (
+    <ViewportProvider context={viewportContext}>
+      <TreatProvider theme={light}>{props.children}</TreatProvider>
+    </ViewportProvider>
+  );
 };
 
 const IndexPage: React.FC<IndexPageProps> = (props) => {
@@ -83,6 +88,11 @@ const IndexPage: React.FC<IndexPageProps> = (props) => {
 
 const Index: React.FC<IndexPageProps> = ({ data, location }) => {
   const styles = useStyles(stylesRef);
+  const { width } = useViewportValues();
+  const { viewport } = useViewportBreakpoint();
+
+  console.log(width);
+  console.log(viewport);
 
   return (
     <div className={`${styles.wrapper}`}>

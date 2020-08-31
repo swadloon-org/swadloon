@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { AllHTMLAttributes, RefAttributes } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import * as stylesRef from './nav-bar.treat';
 import { useStyles } from 'react-treat';
@@ -23,7 +23,7 @@ export const query = graphql`
   }
 `;
 
-export const NavBar: React.FC<OwnProps> = () => {
+export const NavBar: React.FC<OwnProps> = (props) => {
   const data = useStaticQuery<TopBarQuery>(query);
   const styles = useStyles(stylesRef);
 
