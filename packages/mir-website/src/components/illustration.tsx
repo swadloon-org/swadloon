@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useRef, SVGAttributes } from 'react';
-// import styles from './illustration.module.scss';
 
 type OwnProps = {
   name: string;
-  width: number | string;
-  height: number | string;
+  width?: number | string;
+  height?: number | string;
 };
 
 export const Illustration: React.FC<OwnProps & SVGAttributes<any>> = ({ name, height, width, ...props }) => {

@@ -1276,18 +1276,31 @@ export type GraphCms_AssetUpdateManyInlineInput = {
 };
 
 export type GraphCms_AssetUpdateManyInput = {
-  createdAt?: Maybe<Scalars['GraphCMS_DateTime']>;
-  updatedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
-  /** Optional updates to localizations */
-  localizations?: Maybe<Array<GraphCms_AssetUpdateManyLocalizationInput>>;
-};
-
-export type GraphCms_AssetUpdateManyLocalizationInput = {
   fileName: Scalars['String'];
   height?: Maybe<Scalars['Float']>;
   width?: Maybe<Scalars['Float']>;
   size?: Maybe<Scalars['Float']>;
   mimeType?: Maybe<Scalars['String']>;
+  /** Optional updates to localizations */
+  localizations?: Maybe<GraphCms_AssetUpdateManyLocalizationsInput>;
+};
+
+export type GraphCms_AssetUpdateManyLocalizationDataInput = {
+  fileName?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['Float']>;
+  width?: Maybe<Scalars['Float']>;
+  size?: Maybe<Scalars['Float']>;
+  mimeType?: Maybe<Scalars['String']>;
+};
+
+export type GraphCms_AssetUpdateManyLocalizationInput = {
+  data: GraphCms_AssetUpdateManyLocalizationDataInput;
+  locale: GraphCms_Locale;
+};
+
+export type GraphCms_AssetUpdateManyLocalizationsInput = {
+  /** Localizations to update */
+  update?: Maybe<Array<GraphCms_AssetUpdateManyLocalizationInput>>;
 };
 
 export type GraphCms_AssetUpdateManyWithNestedWhereInput = {
@@ -1913,17 +1926,27 @@ export type GraphCms_AuthorUpdateManyInlineInput = {
 };
 
 export type GraphCms_AuthorUpdateManyInput = {
-  createdAt?: Maybe<Scalars['GraphCMS_DateTime']>;
-  updatedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** bio input for default locale (en) */
+  bio?: Maybe<Scalars['String']>;
   facebookProfile?: Maybe<Scalars['String']>;
   twitterProfile?: Maybe<Scalars['String']>;
   linkedInProfile?: Maybe<Scalars['String']>;
   /** Optional updates to localizations */
-  localizations?: Maybe<Array<GraphCms_AuthorUpdateManyLocalizationInput>>;
+  localizations?: Maybe<GraphCms_AuthorUpdateManyLocalizationsInput>;
+};
+
+export type GraphCms_AuthorUpdateManyLocalizationDataInput = {
+  bio?: Maybe<Scalars['String']>;
 };
 
 export type GraphCms_AuthorUpdateManyLocalizationInput = {
-  bio?: Maybe<Scalars['String']>;
+  data: GraphCms_AuthorUpdateManyLocalizationDataInput;
+  locale: GraphCms_Locale;
+};
+
+export type GraphCms_AuthorUpdateManyLocalizationsInput = {
+  /** Localizations to update */
+  update?: Maybe<Array<GraphCms_AuthorUpdateManyLocalizationInput>>;
 };
 
 export type GraphCms_AuthorUpdateManyWithNestedWhereInput = {
@@ -2541,22 +2564,46 @@ export type GraphCms_BlogPostUpdateManyInlineInput = {
 };
 
 export type GraphCms_BlogPostUpdateManyInput = {
-  createdAt?: Maybe<Scalars['GraphCMS_DateTime']>;
-  updatedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** title input for default locale (en) */
+  title: Scalars['String'];
+  /** excerpt input for default locale (en) */
+  excerpt?: Maybe<Scalars['String']>;
+  /** url input for default locale (en) */
+  url?: Maybe<Scalars['String']>;
+  /** mainImageAltText input for default locale (en) */
+  mainImageAltText?: Maybe<Scalars['String']>;
   featured: Scalars['Boolean'];
+  /** tag input for default locale (en) */
+  tag?: Maybe<Array<GraphCms_BlogTag>>;
+  /** metaDataTwitterDescription input for default locale (en) */
+  metaDataTwitterDescription?: Maybe<Scalars['String']>;
+  /** metaDataFacebookDescription input for default locale (en) */
+  metaDataFacebookDescription?: Maybe<Scalars['String']>;
+  /** content input for default locale (en) */
+  content: Scalars['String'];
   /** Optional updates to localizations */
-  localizations?: Maybe<Array<GraphCms_BlogPostUpdateManyLocalizationInput>>;
+  localizations?: Maybe<GraphCms_BlogPostUpdateManyLocalizationsInput>;
 };
 
-export type GraphCms_BlogPostUpdateManyLocalizationInput = {
-  title: Scalars['String'];
+export type GraphCms_BlogPostUpdateManyLocalizationDataInput = {
+  title?: Maybe<Scalars['String']>;
   excerpt?: Maybe<Scalars['String']>;
   url?: Maybe<Scalars['String']>;
   mainImageAltText?: Maybe<Scalars['String']>;
   tag?: Maybe<Array<GraphCms_BlogTag>>;
   metaDataTwitterDescription?: Maybe<Scalars['String']>;
   metaDataFacebookDescription?: Maybe<Scalars['String']>;
-  content: Scalars['String'];
+  content?: Maybe<Scalars['String']>;
+};
+
+export type GraphCms_BlogPostUpdateManyLocalizationInput = {
+  data: GraphCms_BlogPostUpdateManyLocalizationDataInput;
+  locale: GraphCms_Locale;
+};
+
+export type GraphCms_BlogPostUpdateManyLocalizationsInput = {
+  /** Localizations to update */
+  update?: Maybe<Array<GraphCms_BlogPostUpdateManyLocalizationInput>>;
 };
 
 export type GraphCms_BlogPostUpdateManyWithNestedWhereInput = {
@@ -3013,6 +3060,8 @@ export type GraphCms_PageInfo = {
   startCursor?: Maybe<Scalars['String']>;
   /** When paginating forwards, the cursor to continue. */
   endCursor?: Maybe<Scalars['String']>;
+  /** Number of items in the current page. */
+  pageSize?: Maybe<Scalars['Int']>;
 };
 
 export type GraphCms_PublishLocaleInput = {
@@ -3438,8 +3487,6 @@ export type QueryAllSitePageArgs = {
 export type QuerySiteArgs = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
-  port?: Maybe<IntQueryOperatorInput>;
-  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -3517,8 +3564,6 @@ export type QueryAllSitePluginArgs = {
 export type Site = Node & {
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
-  port?: Maybe<Scalars['Int']>;
-  host?: Maybe<Scalars['String']>;
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
@@ -3720,8 +3765,6 @@ export type SiteFieldsEnum =
   | 'buildTime'
   | 'siteMetadata___title'
   | 'siteMetadata___description'
-  | 'port'
-  | 'host'
   | 'polyfill'
   | 'pathPrefix'
   | 'id'
@@ -3814,8 +3857,6 @@ export type SiteFieldsEnum =
 export type SiteFilterInput = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
-  port?: Maybe<IntQueryOperatorInput>;
-  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;

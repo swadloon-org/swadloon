@@ -66,7 +66,7 @@ export const query = graphql`
   }
 `;
 
-interface IndexPageProps {
+export interface PageProps {
   data: IndexPageQuery;
   location: Location;
 }
@@ -79,7 +79,7 @@ export const Root: React.FC<{}> = (props) => {
   );
 };
 
-const IndexPage: React.FC<IndexPageProps> = (props) => {
+const IndexPage: React.FC<PageProps> = (props) => {
   return (
     <Root>
       <Index {...props} />
@@ -87,7 +87,7 @@ const IndexPage: React.FC<IndexPageProps> = (props) => {
   );
 };
 
-const Index: React.FC<IndexPageProps> = ({ data, location }) => {
+const Index: React.FC<PageProps> = ({ data, location }) => {
   const styles = useStyles(stylesRef);
   const { width } = useViewportValues();
   const { viewport } = useViewportBreakpoint();

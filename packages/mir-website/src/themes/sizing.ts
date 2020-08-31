@@ -4,7 +4,7 @@ import { DEFAULT_BASE_FONT_SIZE, DEFAULT_SCALING_RATIO, DEFAULT_SIZES_CSS_VAR_NA
 export const BASE_FONT_SIZE = 9;
 export const BASE_FONT_SIZE_PX = `${DEFAULT_BASE_FONT_SIZE}px`;
 
-const sizingStepMobile = {
+export const sizingStepMobile = {
   [SIZING.X0]: createSizingStep({
     value: 6,
     baseFontSize: BASE_FONT_SIZE,
@@ -51,7 +51,7 @@ const sizingStepMobile = {
   }),
 };
 
-const sizingStepDesktop = {
+export const sizingStepDesktop = {
   [SIZING.X0]: createSizingStep({
     value: 7,
     baseFontSize: BASE_FONT_SIZE,

@@ -20,6 +20,7 @@ export const ViewportProvider: React.FC<ViewportProviderProps> = ({ children, co
     setHeight(window.innerHeight);
   };
 
+  // TODO throttle this
   React.useEffect(() => {
     window.addEventListener('resize', handleWindowResize);
     return () => window.removeEventListener('resize', handleWindowResize);

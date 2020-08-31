@@ -4,6 +4,7 @@ import { createTheme } from 'treat';
 import { colorIntents, colors } from './colors';
 import { sizing } from './sizing';
 import { typography } from './typography';
+import { iconography } from './iconography';
 
 const theme: DesignSystem = {
   name: 'mir',
@@ -12,6 +13,7 @@ const theme: DesignSystem = {
   colorIntents,
   sizing: sizing,
   typography,
+  iconography,
   layout: DEFAULT_LAYOUT,
 };
 

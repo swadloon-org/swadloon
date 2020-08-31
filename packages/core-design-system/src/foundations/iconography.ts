@@ -17,20 +17,26 @@ export interface Icon {
   weight?: string;
 }
 
-export type Icons = { [key in keyof typeof ICON_NAME]: Icon } & { [key: string]: Icon };
+export enum ICON_SIZE {
+  large = 'large',
+  medium = 'medium',
+  small = 'small',
+}
+
+export type IconSizes = { [key in keyof typeof ICON_SIZE]: SizingStep };
+
+// export type Icons = { [key in keyof typeof ICON_NAME]: Icon } & { [key: string]: Icon };
 
 export interface Iconography {
   /**
    * Icon size for each viewport.
    */
-  iconSize: {
-    [key in keyof typeof VIEWPORT]: {
-      size: number | SizingStep;
-    };
+  sizes: {
+    [key in keyof typeof VIEWPORT]: IconSizes;
   };
   /**
    * Default icon infos (name and optionally weight) along with
    * extra icons.
    */
-  icons: Icons;
+  // icons: Icons;
 }

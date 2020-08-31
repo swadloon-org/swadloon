@@ -1,20 +1,32 @@
-import { Heading } from '../components/heading';
+import { ICON_SIZE } from 'core-design-system';
 import React from 'react';
-import { Paragraph } from '../components/paragraph';
-import { Accordions } from '../components/accordions';
-import { Tags } from '../components/tags';
-import { InfoSkills } from '../components/info-section/info-skills';
 import { TreatProvider } from 'react-treat';
+import { Icon } from '../components-ui/icon';
+import { Heading } from '../components/heading';
+import { InfoSkills } from '../components/info-section/info-skills';
+import { Paragraph } from '../components/paragraph';
 import { light } from '../themes/mir-theme.treat';
+import { Root, PageProps } from './index';
 
-export const DesignPage: React.FC = () => {
+const DesignPage: React.FC<PageProps> = (props) => {
   return (
-    <TreatProvider theme={light}>
-      <div>
+    <Root>
+      <Design {...props} />
+    </Root>
+  );
+};
+
+export const Design: React.FC = () => {
+  return (
+    <>
+      <div style={{ padding: '2rem' }}>
         <Heading variant="h1">Heading 1</Heading>
         <Heading variant="h2">Heading 2</Heading>
         <Heading variant="h3">Heading 3</Heading>
         <Heading variant="h4">Heading 4</Heading>
+        <Icon size={ICON_SIZE.large} icon={'ArrowRight'} />
+        <Icon size={ICON_SIZE.medium} icon={'ArrowRight'} />
+        <Icon size={ICON_SIZE.small} icon={'ArrowRight'} />
         <Paragraph variant="large">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
           magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -39,7 +51,7 @@ export const DesignPage: React.FC = () => {
       </div>
 
       <InfoSkills>test</InfoSkills>
-    </TreatProvider>
+    </>
   );
 };
 
