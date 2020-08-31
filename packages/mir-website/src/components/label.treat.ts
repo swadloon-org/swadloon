@@ -1,7 +1,7 @@
 import { DesignSystem, LABEL } from 'core-design-system';
-import { style } from 'treat';
+import { style, CSSProperties } from 'treat';
 
-const baseDisplay = {
+const base: CSSProperties = {
   display: 'block',
 };
 
@@ -13,7 +13,7 @@ export const mediumBoldUppercase = style((theme: DesignSystem) => ({
   fontWeight: theme.typography.labels.MOBILE.mediumBoldUppercase.fontWeight,
   letterSpacing: theme.typography.labels.MOBILE.mediumBoldUppercase.letterSpacing,
   textTransform: theme.typography.labels.MOBILE.mediumBoldUppercase.textTransform,
-  ...baseDisplay,
+  ...base,
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
       ...theme.typography.labels.TABLET.mediumBoldUppercase.capsizeRem,
@@ -30,7 +30,7 @@ export const mediumUppercase = style((theme: DesignSystem) => ({
   fontWeight: theme.typography.labels.MOBILE.mediumUppercase.fontWeight,
   letterSpacing: theme.typography.labels.MOBILE.mediumUppercase.letterSpacing,
   textTransform: theme.typography.labels.MOBILE.mediumUppercase.textTransform,
-  ...baseDisplay,
+  ...base,
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
       ...theme.typography.labels.TABLET.mediumUppercase.capsizeRem,
@@ -47,7 +47,7 @@ export const mediumBold = style((theme: DesignSystem) => ({
   fontWeight: theme.typography.labels.MOBILE.mediumBold.fontWeight,
   letterSpacing: theme.typography.labels.MOBILE.mediumBold.letterSpacing,
   textTransform: theme.typography.labels.MOBILE.mediumBold.textTransform,
-  ...baseDisplay,
+  ...base,
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
       ...theme.typography.labels.TABLET.mediumBold.capsizeRem,
@@ -64,7 +64,7 @@ export const mediumRegular = style((theme: DesignSystem) => ({
   fontWeight: theme.typography.labels.MOBILE.mediumRegular.fontWeight,
   letterSpacing: theme.typography.labels.MOBILE.mediumRegular.letterSpacing,
   textTransform: theme.typography.labels.MOBILE.mediumRegular.textTransform,
-  ...baseDisplay,
+  ...base,
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
       ...theme.typography.labels.TABLET.mediumRegular.capsizeRem,
@@ -81,7 +81,7 @@ export const smallBoldUppercase = style((theme: DesignSystem) => ({
   fontWeight: theme.typography.labels.MOBILE.smallBoldUppercase.fontWeight,
   letterSpacing: theme.typography.labels.MOBILE.smallBoldUppercase.letterSpacing,
   textTransform: theme.typography.labels.MOBILE.smallBoldUppercase.textTransform,
-  ...baseDisplay,
+  ...base,
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
       ...theme.typography.labels.TABLET.smallBoldUppercase.capsizeRem,
@@ -98,7 +98,7 @@ export const smallUppercase = style((theme: DesignSystem) => ({
   fontWeight: theme.typography.labels.MOBILE.smallUppercase.fontWeight,
   letterSpacing: theme.typography.labels.MOBILE.smallUppercase.letterSpacing,
   textTransform: theme.typography.labels.MOBILE.smallUppercase.textTransform,
-  ...baseDisplay,
+  ...base,
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
       ...theme.typography.labels.TABLET.smallUppercase.capsizeRem,
@@ -115,7 +115,7 @@ export const smallBold = style((theme: DesignSystem) => ({
   fontWeight: theme.typography.labels.MOBILE.smallBold.fontWeight,
   letterSpacing: theme.typography.labels.MOBILE.smallBold.letterSpacing,
   textTransform: theme.typography.labels.MOBILE.smallBold.textTransform,
-  ...baseDisplay,
+  ...base,
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
       ...theme.typography.labels.TABLET.smallBold.capsizeRem,
@@ -132,7 +132,7 @@ export const smallRegular = style((theme: DesignSystem) => ({
   fontWeight: theme.typography.labels.MOBILE.smallRegular.fontWeight,
   letterSpacing: theme.typography.labels.MOBILE.smallRegular.letterSpacing,
   textTransform: theme.typography.labels.MOBILE.smallRegular.textTransform,
-  ...baseDisplay,
+  ...base,
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
       ...theme.typography.labels.TABLET.smallRegular.capsizeRem,
@@ -149,7 +149,7 @@ export const xSmallBoldUppercase = style((theme: DesignSystem) => ({
   fontWeight: theme.typography.labels.MOBILE.xSmallBoldUppercase.fontWeight,
   letterSpacing: theme.typography.labels.MOBILE.xSmallBoldUppercase.letterSpacing,
   textTransform: theme.typography.labels.MOBILE.xSmallBoldUppercase.textTransform,
-  ...baseDisplay,
+  ...base,
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
       ...theme.typography.labels.TABLET.xSmallBoldUppercase.capsizeRem,
@@ -166,7 +166,7 @@ export const xSmallUppercase = style((theme: DesignSystem) => ({
   fontWeight: theme.typography.labels.MOBILE.xSmallUppercase.fontWeight,
   letterSpacing: theme.typography.labels.MOBILE.xSmallUppercase.letterSpacing,
   textTransform: theme.typography.labels.MOBILE.xSmallUppercase.textTransform,
-  ...baseDisplay,
+  ...base,
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
       ...theme.typography.labels.TABLET.xSmallUppercase.capsizeRem,
@@ -183,7 +183,7 @@ export const xSmallBold = style((theme: DesignSystem) => ({
   fontWeight: theme.typography.labels.MOBILE.xSmallBold.fontWeight,
   letterSpacing: theme.typography.labels.MOBILE.xSmallBold.letterSpacing,
   textTransform: theme.typography.labels.MOBILE.xSmallBold.textTransform,
-  ...baseDisplay,
+  ...base,
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
       ...theme.typography.labels.TABLET.xSmallBold.capsizeRem,
@@ -200,7 +200,7 @@ export const xSmallRegular = style((theme: DesignSystem) => ({
   fontWeight: theme.typography.labels.MOBILE.xSmallRegular.fontWeight,
   letterSpacing: theme.typography.labels.MOBILE.xSmallRegular.letterSpacing,
   textTransform: theme.typography.labels.MOBILE.xSmallRegular.textTransform,
-  ...baseDisplay,
+  ...base,
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
       ...theme.typography.labels.TABLET.xSmallRegular.capsizeRem,
