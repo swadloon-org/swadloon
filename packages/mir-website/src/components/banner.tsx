@@ -8,6 +8,7 @@ import { Label } from './label';
 import * as styleRefs from './banner.treat';
 
 import BarSVG from '../illustrations/Illustration/Bar.svg';
+import { VIEWPORT } from 'core-design-system';
 
 export const query = graphql`
   query banner {

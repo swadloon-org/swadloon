@@ -16,6 +16,7 @@ import { light } from '../themes/mir-theme.treat';
 import * as stylesRef from '../styles/about.treat';
 
 import '../styles/font-faces.styles.css';
+import { Root } from '.';
 
 export const query = graphql`
   query aboutPage {
@@ -60,9 +61,9 @@ interface IndexPageProps {
 
 const AboutPage: React.FC<IndexPageProps> = (props) => {
   return (
-    <TreatProvider theme={light}>
+    <Root>
       <About {...props} />
-    </TreatProvider>
+    </Root>
   );
 };
 

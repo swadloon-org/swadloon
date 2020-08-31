@@ -9,12 +9,12 @@ export const wrapper = style((theme: DesignSystem) => ({
   width: '237px',
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
-      width: '366px',
+      width: '370px',
       height: '370px',
     },
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
-      width: '600px',
-      height: '606px',
+      width: '500px',
+      height: '500px',
     },
   },
 }));

@@ -1,5 +1,5 @@
 import { CapsizeStyles, FontMetrics } from 'capsize';
-import { FontWeightProperty, TextTransformProperty } from 'csstype';
+import { FontWeightProperty, TextTransformProperty, LetterSpacingProperty } from 'csstype';
 import { VIEWPORT } from './layout';
 import { SizingStep } from './sizing';
 
@@ -30,6 +30,7 @@ export enum PARAGRAPH {
   LARGE = 'LARGE',
   MEDIUM = 'MEDIUM',
   SMALL = 'SMALL',
+  X_SMALL = 'X_SMALL',
 }
 
 /**
@@ -38,10 +39,16 @@ export enum PARAGRAPH {
 export enum LABEL {
   MEDIUM_BOLD_UPPERCASE = 'MEDIUM_BOLD_UPPERCASE',
   MEDIUM_UPPERCASE = 'MEDIUM_UPPERCASE',
-  MEDIUM = 'MEDIUM',
+  MEDIUM_BOLD = 'MEDIUM_BOLD',
+  MEDIUM_REGULAR = 'MEDIUM_REGULAR',
   SMALL_BOLD_UPPERCASE = 'SMALL_BOLD_UPPERCASE',
   SMALL_UPPERCASE = 'SMALL_UPPERCASE',
-  SMALL = 'SMALL',
+  SMALL_BOLD = 'SMALL_BOLD',
+  SMALL_REGULAR = 'SMALL_REGULAR',
+  X_SMALL_BOLD_UPPERCASE = 'X_SMALL_BOLD_UPPERCASE',
+  X_SMALL_UPPERCASE = 'X_SMALL_UPPERCASE',
+  X_SMALL_BOLD = 'X_SMALL_BOLD',
+  X_SMALL_REGULAR = 'X_SMALL_REGULAR',
 }
 
 export interface Font {
@@ -80,12 +87,18 @@ export interface TextStyle {
    */
   fontWeight: FontWeightProperty;
   /**
+   * Optional property to set `letter-spacing`.
+   * Note that only percentage (x%) values are allowed right now.
+   *
+   * @example '3%' becomes '0.48em'
+   */
+  letterSpacing?: LetterSpacingProperty<any>;
+  /**
    * Optional property to set `text-transform`.
    *
    * @example 'uppercase'
    */
   textTransform?: TextTransformProperty;
-
   /**
    * Desired capital letter height in pixels. (which is usually the height of the letter 'X')
    * @see https://seek-oss.github.io/capsize/

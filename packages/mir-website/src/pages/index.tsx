@@ -69,15 +69,19 @@ interface IndexPageProps {
   location: Location;
 }
 
+export const Root: React.FC<{}> = (props) => {
+  return <TreatProvider theme={light}>{props.children}</TreatProvider>;
+};
+
 const IndexPage: React.FC<IndexPageProps> = (props) => {
   return (
-    <TreatProvider theme={light}>
-      <App {...props} />
-    </TreatProvider>
+    <Root>
+      <Index {...props} />
+    </Root>
   );
 };
 
-const App: React.FC<IndexPageProps> = ({ data, location }) => {
+const Index: React.FC<IndexPageProps> = ({ data, location }) => {
   const styles = useStyles(stylesRef);
 
   return (

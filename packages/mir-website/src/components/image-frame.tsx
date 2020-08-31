@@ -5,7 +5,6 @@ import * as styleRefs from './image-frame.treat';
 
 interface OwnProps {
   url: string;
-
   variant: 'bottomRight' | 'bottomLeft' | 'topLeft' | 'topRight';
 }
 
