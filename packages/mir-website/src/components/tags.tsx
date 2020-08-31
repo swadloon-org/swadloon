@@ -9,7 +9,7 @@ import { Illustration } from './illustration';
 import { LABEL } from 'core-design-system';
 
 type OwnProps = {
-  icon?: string;
+  numberIndex: string;
 };
 
 export const Tags: React.FC<HTMLAttributes<any> & OwnProps> = (props) => {
@@ -25,7 +25,7 @@ export const Tags: React.FC<HTMLAttributes<any> & OwnProps> = (props) => {
           height={42}
         ></Illustration>
         <Label className={`${styles.number}`} variant={LABEL.smallBoldUppercase}>
-          01
+          {props.numberIndex}
         </Label>
       </div>
       <div className={styles.content}>
