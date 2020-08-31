@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './info-skills.treat';
 
@@ -14,6 +14,7 @@ type OwnProps = Partial<SectionModelQuery>;
 
 export const InfoSkills: React.FC<OwnProps> = (props) => {
   const styles = useStyles(styleRefs);
+  const [selectedAccordionsIndex, setSelectedAccordionsIndex] = useState<number>(1);
 
   return (
     <div className={`${styles.wrapper}`}>
@@ -21,58 +22,69 @@ export const InfoSkills: React.FC<OwnProps> = (props) => {
 
       <div className={styles.container}>
         <div className={styles.accordions}>
-          <Accordions variant="Default" icon="PlusCircle" onClick={helloworld}>
+          <Accordions
+            variant="Default"
+            icon="PlusCircle"
+            selected={1 === selectedAccordionsIndex}
+            onClick={() => {
+              setSelectedAccordionsIndex(1);
+            }}
+          >
             Postes administratifs
           </Accordions>
         </div>
         <div className={styles.accordions}>
-          <Accordions variant="reversed" icon="PlusCircle" onClick={helloworld}>
+          <Accordions
+            variant="reversed"
+            icon="PlusCircle"
+            selected={2 === selectedAccordionsIndex}
+            onClick={() => {
+              setSelectedAccordionsIndex(2);
+            }}
+          >
             Postes techniques
-          </Accordions>{' '}
+          </Accordions>
         </div>
 
         <div className={styles.content}>
           <div className={styles.tagsUnique}>
-            <Tags>Label LabelLabel LabelLabel Label </Tags>
+            <Tags numberIndex="01">Label LabelLabel LabelLabel Label </Tags>
           </div>
           <div className={styles.tagsUnique}>
-            <Tags>Label LabelLabel LabelLabel Label </Tags>
-          </div>{' '}
+            <Tags numberIndex="02">Label LabelLabel LabelLabel Label </Tags>
+          </div>
           <div className={styles.tagsUnique}>
-            <Tags>Label LabelLabel LabelLabel Label </Tags>
-          </div>{' '}
+            <Tags numberIndex="03">Label LabelLabel LabelLabel Label </Tags>
+          </div>
           <div className={styles.tagsUnique}>
-            <Tags>Label LabelLabel LabelLabel Label </Tags>
-          </div>{' '}
+            <Tags numberIndex="04">Label LabelLabel LabelLabel Label </Tags>
+          </div>
           <div className={styles.tagsUnique}>
-            <Tags>Label LabelLabel LabelLabel Label </Tags>
-          </div>{' '}
+            <Tags numberIndex="05">Label LabelLabel LabelLabel Label </Tags>
+          </div>
           <div className={styles.tagsUnique}>
-            <Tags>Label LabelLabel LabelLabel Label </Tags>
-          </div>{' '}
+            <Tags numberIndex="06">Label LabelLabel LabelLabel Label </Tags>
+          </div>
           <div className={styles.tagsUnique}>
-            <Tags>Label LabelLabel LabelLabel Label </Tags>
-          </div>{' '}
+            <Tags numberIndex="07">Label LabelLabel LabelLabel Label </Tags>
+          </div>
           <div className={styles.tagsUnique}>
-            <Tags>Label LabelLabel LabelLabel Label </Tags>
-          </div>{' '}
+            <Tags numberIndex="08">Label LabelLabel LabelLabel Label </Tags>
+          </div>
           <div className={styles.tagsUnique}>
-            <Tags>Label LabelLabel LabelLabel Label </Tags>
-          </div>{' '}
+            <Tags numberIndex="09">Label LabelLabel LabelLabel Label </Tags>
+          </div>
           <div className={styles.tagsUnique}>
-            <Tags>Label LabelLabel LabelLabel Label </Tags>
-          </div>{' '}
+            <Tags numberIndex="10">Label LabelLabel LabelLabel Label </Tags>
+          </div>
           <div className={styles.tagsUnique}>
-            <Tags>Label LabelLabel LabelLabel Label </Tags>
-          </div>{' '}
+            <Tags numberIndex="11">Label LabelLabel LabelLabel Label </Tags>
+          </div>
           <div className={styles.tagsUnique}>
-            <Tags>Label LabelLabel LabelLabel Label </Tags>
+            <Tags numberIndex="12">Label LabelLabel LabelLabel Label </Tags>
           </div>
         </div>
       </div>
     </div>
   );
-  function helloworld(value: any) {
-    console.log(value.target.name);
-  }
 };
