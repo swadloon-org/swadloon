@@ -127,6 +127,8 @@ export const containerBarTopPrimary = style((theme: DesignSystem) => ({
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
       display: 'flex',
+      justifyContent: 'flex-start',
+      alignItems: 'center',
     },
   },
 }));
@@ -166,6 +168,7 @@ export const bottomBarPrimary = style((theme: DesignSystem) => ({}));
 export const containerBarTopSecondary = style((theme: DesignSystem) => ({
   display: 'flex',
   justifyContent: 'flex-start',
+  alignItems: 'center',
 }));
 
 export const topBarSecondary = style((theme: DesignSystem) => ({
@@ -227,7 +230,7 @@ globalStyle(`${bottomBarSecondary} rect`, (theme: DesignSystem) => ({
 //
 
 export const subtitle = style((theme: DesignSystem) => ({
-  marginBottom: `var(${theme.sizing.sizeCSSVarNames.X3})`,
+  marginRight: `var(${theme.sizing.sizeCSSVarNames.X3})`,
   color: theme.colors.greyscale0,
 }));
 
@@ -236,7 +239,7 @@ export const subtitle = style((theme: DesignSystem) => ({
 //
 
 export const title = style((theme: DesignSystem) => ({
-  margin: `var(${theme.sizing.sizeCSSVarNames.X3}) 0`,
+  margin: `var(${theme.sizing.sizeCSSVarNames.X5}) 0`,
   color: theme.colors.greyscale0,
 }));
 

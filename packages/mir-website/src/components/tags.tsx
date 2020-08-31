@@ -1,13 +1,12 @@
 import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
 
-// import styles from './button.module.scss';
 import * as styleRefs from './tags.treat';
 
 import { Label } from './label';
 
-import OvalSquare from './illustrations/Illustration/OvalSquare.svg';
 import { Illustration } from './illustration';
+import { LABEL } from 'core-design-system';
 
 type OwnProps = {
   icon?: string;
@@ -25,12 +24,12 @@ export const Tags: React.FC<HTMLAttributes<any> & OwnProps> = (props) => {
           width={42}
           height={42}
         ></Illustration>
-        <Label className={`${styles.number}`} size="smallUppercase">
+        <Label className={`${styles.number}`} variant={LABEL.smallBoldUppercase}>
           01
         </Label>
       </div>
       <div className={styles.content}>
-        <Label className={`${styles.label}`} size="small">
+        <Label className={`${styles.label}`} variant={LABEL.smallRegular}>
           {props.children}
         </Label>
       </div>

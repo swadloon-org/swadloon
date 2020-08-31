@@ -8,7 +8,7 @@ import { Label } from './label';
 import * as styleRefs from './banner.treat';
 
 import BarSVG from '../illustrations/Illustration/Bar.svg';
-import { VIEWPORT } from 'core-design-system';
+import { VIEWPORT, LABEL } from 'core-design-system';
 
 export const query = graphql`
   query banner {
@@ -72,12 +72,13 @@ export const Banner: React.FC<OwnProps> = (props) => {
       }
     }
   }
+
   function variantTopBar(value: string) {
     switch (value) {
       case 'primary': {
         return (
           <div className={styles.containerBarTopPrimary}>
-            <Label size="smallUppercase" className={styles.subtitle}>
+            <Label variant={LABEL.smallBoldUppercase} className={styles.subtitle}>
               {data.gcms.pageIndices[0].bannerSubTitle}
             </Label>
 

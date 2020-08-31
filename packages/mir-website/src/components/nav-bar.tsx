@@ -2,12 +2,12 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import * as stylesRef from './nav-bar.treat';
 import { useStyles } from 'react-treat';
-// import styles from './nav-bar.module.scss';
 
 import { TopBarQuery } from '../../types/graphql-types';
 import Icon from '../illustrations/Icon/Bars.svg';
 import { Label } from './label';
 import { Button } from './button';
+import { LABEL } from 'core-design-system';
 
 type OwnProps = {};
 
@@ -52,7 +52,7 @@ export const NavBar: React.FC<OwnProps> = () => {
         <img className={styles.logo} src={data.gcms.companyMedias[0].logo.url} />
 
         <div className={styles.mobileRightToolbar}>
-          <Label size="smallUppercase" className={styles.language}>
+          <Label variant={LABEL.smallBoldUppercase} className={styles.language}>
             EN
           </Label>
         </div>

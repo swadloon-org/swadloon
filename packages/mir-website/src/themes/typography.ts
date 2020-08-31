@@ -13,7 +13,7 @@ import { fonts } from './fonts';
 import { sizing, BASE_FONT_SIZE } from './sizing';
 
 const mobileHeadings: Headings = {
-  [HEADING_LEVEL.H1]: createTextStyle({
+  [HEADING_LEVEL.h1]: createTextStyle({
     baseFontSize: BASE_FONT_SIZE,
     font: fonts.SANS,
     fontFamily: 'Montserrat',
@@ -21,7 +21,7 @@ const mobileHeadings: Headings = {
     capHeight: sizing.sizingSteps.MOBILE.X5,
     lineGap: 28,
   }),
-  [HEADING_LEVEL.H2]: createTextStyle({
+  [HEADING_LEVEL.h2]: createTextStyle({
     baseFontSize: BASE_FONT_SIZE,
     font: fonts.SANS,
     fontFamily: 'Montserrat',
@@ -29,7 +29,7 @@ const mobileHeadings: Headings = {
     capHeight: sizing.sizingSteps.MOBILE.X4,
     lineGap: 19,
   }),
-  [HEADING_LEVEL.H3]: createTextStyle({
+  [HEADING_LEVEL.h3]: createTextStyle({
     baseFontSize: BASE_FONT_SIZE,
     font: fonts.SANS,
     fontFamily: 'Montserrat',
@@ -37,7 +37,7 @@ const mobileHeadings: Headings = {
     capHeight: sizing.sizingSteps.MOBILE.X3,
     lineGap: 14,
   }),
-  [HEADING_LEVEL.H4]: createTextStyle({
+  [HEADING_LEVEL.h4]: createTextStyle({
     baseFontSize: BASE_FONT_SIZE,
     font: fonts.SANS,
     fontFamily: 'Montserrat',
@@ -48,7 +48,7 @@ const mobileHeadings: Headings = {
 };
 
 const mobileParagraphs: Paragraphs = {
-  [PARAGRAPH.LARGE]: createTextStyle({
+  [PARAGRAPH.large]: createTextStyle({
     baseFontSize: BASE_FONT_SIZE,
     font: fonts.SANS_ALTERNATE,
     fontFamily: 'Open Sans',
@@ -57,7 +57,7 @@ const mobileParagraphs: Paragraphs = {
     capHeight: sizing.sizingSteps.MOBILE.X3,
     lineGap: 19,
   }),
-  [PARAGRAPH.MEDIUM]: createTextStyle({
+  [PARAGRAPH.medium]: createTextStyle({
     baseFontSize: BASE_FONT_SIZE,
     font: fonts.SANS_ALTERNATE,
     fontFamily: 'Open Sans',
@@ -66,7 +66,7 @@ const mobileParagraphs: Paragraphs = {
     capHeight: sizing.sizingSteps.MOBILE.X2,
     lineGap: 16,
   }),
-  [PARAGRAPH.SMALL]: createTextStyle({
+  [PARAGRAPH.small]: createTextStyle({
     baseFontSize: BASE_FONT_SIZE,
     font: fonts.SANS_ALTERNATE,
     fontFamily: 'Open Sans',
@@ -75,7 +75,7 @@ const mobileParagraphs: Paragraphs = {
     capHeight: sizing.sizingSteps.MOBILE.X1,
     lineGap: 12,
   }),
-  [PARAGRAPH.X_SMALL]: createTextStyle({
+  [PARAGRAPH.xSmall]: createTextStyle({
     baseFontSize: BASE_FONT_SIZE,
     font: fonts.SANS_ALTERNATE,
     fontFamily: 'Open Sans',
@@ -87,7 +87,7 @@ const mobileParagraphs: Paragraphs = {
 };
 
 const mobileLabels: Labels = {
-  [LABEL.MEDIUM_BOLD_UPPERCASE]: createTextStyle({
+  [LABEL.mediumBoldUppercase]: createTextStyle({
     baseFontSize: BASE_FONT_SIZE,
     font: fonts.SANS,
     fontFamily: 'Montserrat',
@@ -97,7 +97,7 @@ const mobileLabels: Labels = {
     capHeight: sizing.sizingSteps.MOBILE.X2,
     lineGap: 12,
   }),
-  [LABEL.MEDIUM_UPPERCASE]: createTextStyle({
+  [LABEL.mediumUppercase]: createTextStyle({
     baseFontSize: BASE_FONT_SIZE,
     font: fonts.SANS,
     fontFamily: 'Montserrat',
@@ -107,7 +107,7 @@ const mobileLabels: Labels = {
     capHeight: sizing.sizingSteps.MOBILE.X2,
     lineGap: 12,
   }),
-  [LABEL.MEDIUM_BOLD]: createTextStyle({
+  [LABEL.mediumBold]: createTextStyle({
     baseFontSize: BASE_FONT_SIZE,
     font: fonts.SANS,
     letterSpacing: '6%',
@@ -116,7 +116,7 @@ const mobileLabels: Labels = {
     capHeight: sizing.sizingSteps.MOBILE.X2,
     lineGap: 12,
   }),
-  [LABEL.MEDIUM_REGULAR]: createTextStyle({
+  [LABEL.mediumRegular]: createTextStyle({
     baseFontSize: BASE_FONT_SIZE,
     font: fonts.SANS,
     letterSpacing: '6%',
@@ -125,7 +125,7 @@ const mobileLabels: Labels = {
     capHeight: sizing.sizingSteps.MOBILE.X2,
     lineGap: 12,
   }),
-  [LABEL.SMALL_BOLD_UPPERCASE]: createTextStyle({
+  [LABEL.smallBoldUppercase]: createTextStyle({
     baseFontSize: BASE_FONT_SIZE,
     font: fonts.SANS,
     fontFamily: 'Montserrat',
@@ -135,7 +135,7 @@ const mobileLabels: Labels = {
     capHeight: sizing.sizingSteps.MOBILE.X1,
     lineGap: 8,
   }),
-  [LABEL.SMALL_UPPERCASE]: createTextStyle({
+  [LABEL.smallUppercase]: createTextStyle({
     baseFontSize: BASE_FONT_SIZE,
     font: fonts.SANS,
     fontFamily: 'Montserrat',
@@ -145,7 +145,7 @@ const mobileLabels: Labels = {
     capHeight: sizing.sizingSteps.MOBILE.X1,
     lineGap: 8,
   }),
-  [LABEL.SMALL_BOLD]: createTextStyle({
+  [LABEL.smallBold]: createTextStyle({
     baseFontSize: BASE_FONT_SIZE,
     font: fonts.SANS,
     fontFamily: 'Montserrat',
@@ -153,7 +153,7 @@ const mobileLabels: Labels = {
     capHeight: sizing.sizingSteps.MOBILE.X1,
     lineGap: 8,
   }),
-  [LABEL.SMALL_REGULAR]: createTextStyle({
+  [LABEL.smallRegular]: createTextStyle({
     baseFontSize: BASE_FONT_SIZE,
     font: fonts.SANS,
     fontFamily: 'Montserrat',
@@ -162,7 +162,7 @@ const mobileLabels: Labels = {
     capHeight: sizing.sizingSteps.MOBILE.X1,
     lineGap: 8,
   }),
-  [LABEL.X_SMALL_BOLD_UPPERCASE]: createTextStyle({
+  [LABEL.xSmallBoldUppercase]: createTextStyle({
     baseFontSize: BASE_FONT_SIZE,
     font: fonts.SANS,
     fontFamily: 'Montserrat',
@@ -172,7 +172,7 @@ const mobileLabels: Labels = {
     capHeight: sizing.sizingSteps.MOBILE.X0,
     lineGap: 8,
   }),
-  [LABEL.X_SMALL_UPPERCASE]: createTextStyle({
+  [LABEL.xSmallUppercase]: createTextStyle({
     baseFontSize: BASE_FONT_SIZE,
     font: fonts.SANS,
     fontFamily: 'Montserrat',
@@ -182,7 +182,7 @@ const mobileLabels: Labels = {
     capHeight: sizing.sizingSteps.MOBILE.X0,
     lineGap: 8,
   }),
-  [LABEL.X_SMALL_BOLD]: createTextStyle({
+  [LABEL.xSmallBold]: createTextStyle({
     baseFontSize: BASE_FONT_SIZE,
     font: fonts.SANS,
     fontFamily: 'Montserrat',
@@ -191,7 +191,7 @@ const mobileLabels: Labels = {
     capHeight: sizing.sizingSteps.MOBILE.X0,
     lineGap: 8,
   }),
-  [LABEL.X_SMALL_REGULAR]: createTextStyle({
+  [LABEL.xSmallRegular]: createTextStyle({
     baseFontSize: BASE_FONT_SIZE,
     font: fonts.SANS,
     fontFamily: 'Montserrat',
@@ -203,7 +203,7 @@ const mobileLabels: Labels = {
 };
 
 const desktopHeadings: Headings = {
-  [HEADING_LEVEL.H1]: createTextStyle({
+  [HEADING_LEVEL.h1]: createTextStyle({
     baseFontSize: BASE_FONT_SIZE,
     font: fonts.SANS,
     fontFamily: 'Montserrat',
@@ -211,7 +211,7 @@ const desktopHeadings: Headings = {
     capHeight: sizing.sizingSteps.DESKTOP.X5,
     lineGap: 46,
   }),
-  [HEADING_LEVEL.H2]: createTextStyle({
+  [HEADING_LEVEL.h2]: createTextStyle({
     baseFontSize: BASE_FONT_SIZE,
     font: fonts.SANS,
     fontFamily: 'Montserrat',
@@ -219,7 +219,7 @@ const desktopHeadings: Headings = {
     capHeight: sizing.sizingSteps.DESKTOP.X4,
     lineGap: 30,
   }),
-  [HEADING_LEVEL.H3]: createTextStyle({
+  [HEADING_LEVEL.h3]: createTextStyle({
     baseFontSize: BASE_FONT_SIZE,
     font: fonts.SANS,
     fontFamily: 'Montserrat',
@@ -227,18 +227,18 @@ const desktopHeadings: Headings = {
     capHeight: sizing.sizingSteps.DESKTOP.X3,
     lineGap: 10,
   }),
-  [HEADING_LEVEL.H4]: createTextStyle({
+  [HEADING_LEVEL.h4]: createTextStyle({
     baseFontSize: BASE_FONT_SIZE,
     font: fonts.SANS,
     fontFamily: 'Montserrat',
     fontWeight: 700,
-    capHeight: sizing.sizingSteps.MOBILE.X1,
+    capHeight: sizing.sizingSteps.DESKTOP.X1,
     lineGap: 18,
   }),
 };
 
 const desktopParagraphs: Paragraphs = {
-  [PARAGRAPH.LARGE]: createTextStyle({
+  [PARAGRAPH.large]: createTextStyle({
     baseFontSize: BASE_FONT_SIZE,
     font: fonts.SANS_ALTERNATE,
     fontFamily: 'Open Sans',
@@ -247,7 +247,7 @@ const desktopParagraphs: Paragraphs = {
     capHeight: sizing.sizingSteps.DESKTOP.X3,
     lineGap: 25,
   }),
-  [PARAGRAPH.MEDIUM]: createTextStyle({
+  [PARAGRAPH.medium]: createTextStyle({
     baseFontSize: BASE_FONT_SIZE,
     font: fonts.SANS_ALTERNATE,
     fontFamily: 'Open Sans',
@@ -256,7 +256,7 @@ const desktopParagraphs: Paragraphs = {
     capHeight: sizing.sizingSteps.DESKTOP.X2,
     lineGap: 14,
   }),
-  [PARAGRAPH.SMALL]: createTextStyle({
+  [PARAGRAPH.small]: createTextStyle({
     baseFontSize: BASE_FONT_SIZE,
     font: fonts.SANS_ALTERNATE,
     fontFamily: 'Open Sans',
@@ -265,7 +265,7 @@ const desktopParagraphs: Paragraphs = {
     capHeight: sizing.sizingSteps.DESKTOP.X1,
     lineGap: 11,
   }),
-  [PARAGRAPH.X_SMALL]: createTextStyle({
+  [PARAGRAPH.xSmall]: createTextStyle({
     baseFontSize: BASE_FONT_SIZE,
     font: fonts.SANS_ALTERNATE,
     fontFamily: 'Open Sans',
@@ -277,106 +277,106 @@ const desktopParagraphs: Paragraphs = {
 };
 
 const desktopLabels: Labels = {
-  [LABEL.MEDIUM_BOLD_UPPERCASE]: createTextStyle({
+  [LABEL.mediumBoldUppercase]: createTextStyle({
     baseFontSize: BASE_FONT_SIZE,
     font: fonts.SANS,
     fontFamily: 'Montserrat',
     fontWeight: 700,
     textTransform: 'uppercase',
-    capHeight: sizing.sizingSteps.MOBILE.X2,
+    capHeight: sizing.sizingSteps.DESKTOP.X2,
     lineGap: 12,
   }),
-  [LABEL.MEDIUM_UPPERCASE]: createTextStyle({
+  [LABEL.mediumUppercase]: createTextStyle({
     baseFontSize: BASE_FONT_SIZE,
     font: fonts.SANS,
     fontFamily: 'Montserrat',
     fontWeight: 400,
     textTransform: 'uppercase',
-    capHeight: sizing.sizingSteps.MOBILE.X2,
+    capHeight: sizing.sizingSteps.DESKTOP.X2,
     lineGap: 12,
   }),
-  [LABEL.MEDIUM_BOLD]: createTextStyle({
+  [LABEL.mediumBold]: createTextStyle({
     baseFontSize: BASE_FONT_SIZE,
     font: fonts.SANS,
     fontFamily: 'Montserrat',
     fontWeight: 700,
-    capHeight: sizing.sizingSteps.MOBILE.X2,
+    capHeight: sizing.sizingSteps.DESKTOP.X2,
     lineGap: 12,
   }),
-  [LABEL.MEDIUM_REGULAR]: createTextStyle({
+  [LABEL.mediumRegular]: createTextStyle({
     baseFontSize: BASE_FONT_SIZE,
     font: fonts.SANS,
     fontFamily: 'Montserrat',
     fontWeight: 400,
-    capHeight: sizing.sizingSteps.MOBILE.X2,
+    capHeight: sizing.sizingSteps.DESKTOP.X2,
     lineGap: 12,
   }),
-  [LABEL.SMALL_BOLD_UPPERCASE]: createTextStyle({
+  [LABEL.smallBoldUppercase]: createTextStyle({
     baseFontSize: BASE_FONT_SIZE,
     font: fonts.SANS,
     fontFamily: 'Montserrat',
     fontWeight: 700,
     textTransform: 'uppercase',
-    capHeight: sizing.sizingSteps.MOBILE.X1,
+    capHeight: sizing.sizingSteps.DESKTOP.X1,
     lineGap: 8,
   }),
-  [LABEL.SMALL_UPPERCASE]: createTextStyle({
+  [LABEL.smallUppercase]: createTextStyle({
     baseFontSize: BASE_FONT_SIZE,
     font: fonts.SANS,
     fontFamily: 'Montserrat',
     fontWeight: 400,
     textTransform: 'uppercase',
-    capHeight: sizing.sizingSteps.MOBILE.X1,
+    capHeight: sizing.sizingSteps.DESKTOP.X1,
     lineGap: 8,
   }),
-  [LABEL.SMALL_BOLD]: createTextStyle({
+  [LABEL.smallBold]: createTextStyle({
     baseFontSize: BASE_FONT_SIZE,
     font: fonts.SANS,
     fontFamily: 'Montserrat',
     fontWeight: 700,
-    capHeight: sizing.sizingSteps.MOBILE.X1,
+    capHeight: sizing.sizingSteps.DESKTOP.X1,
     lineGap: 8,
   }),
-  [LABEL.SMALL_REGULAR]: createTextStyle({
+  [LABEL.smallRegular]: createTextStyle({
     baseFontSize: BASE_FONT_SIZE,
     font: fonts.SANS,
     fontFamily: 'Montserrat',
     fontWeight: 400,
-    capHeight: sizing.sizingSteps.MOBILE.X1,
+    capHeight: sizing.sizingSteps.DESKTOP.X1,
     lineGap: 8,
   }),
-  [LABEL.X_SMALL_BOLD_UPPERCASE]: createTextStyle({
+  [LABEL.xSmallBoldUppercase]: createTextStyle({
     baseFontSize: BASE_FONT_SIZE,
     font: fonts.SANS,
     fontFamily: 'Montserrat',
     fontWeight: 700,
     textTransform: 'uppercase',
-    capHeight: sizing.sizingSteps.MOBILE.X0,
+    capHeight: sizing.sizingSteps.DESKTOP.X0,
     lineGap: 8,
   }),
-  [LABEL.X_SMALL_UPPERCASE]: createTextStyle({
+  [LABEL.xSmallUppercase]: createTextStyle({
     baseFontSize: BASE_FONT_SIZE,
     font: fonts.SANS,
     fontFamily: 'Montserrat',
     fontWeight: 400,
     textTransform: 'uppercase',
-    capHeight: sizing.sizingSteps.MOBILE.X0,
+    capHeight: sizing.sizingSteps.DESKTOP.X0,
     lineGap: 8,
   }),
-  [LABEL.X_SMALL_BOLD]: createTextStyle({
+  [LABEL.xSmallBold]: createTextStyle({
     baseFontSize: BASE_FONT_SIZE,
     font: fonts.SANS,
     fontFamily: 'Montserrat',
     fontWeight: 700,
-    capHeight: sizing.sizingSteps.MOBILE.X0,
+    capHeight: sizing.sizingSteps.DESKTOP.X0,
     lineGap: 8,
   }),
-  [LABEL.X_SMALL_REGULAR]: createTextStyle({
+  [LABEL.xSmallRegular]: createTextStyle({
     baseFontSize: BASE_FONT_SIZE,
     font: fonts.SANS,
     fontFamily: 'Montserrat',
     fontWeight: 400,
-    capHeight: sizing.sizingSteps.MOBILE.X0,
+    capHeight: sizing.sizingSteps.DESKTOP.X0,
     lineGap: 8,
   }),
 };

@@ -1,105 +1,227 @@
-import { DesignSystem } from 'core-design-system';
+import { DesignSystem, LABEL } from 'core-design-system';
 import { style } from 'treat';
 
 const baseDisplay = {
   display: 'block',
 };
 
-export const small = style((theme: DesignSystem) => ({
-  ...theme.typography.labels.MOBILE.SMALL.capsizeRem,
-  fontFamily: theme.typography.labels.MOBILE.SMALL.fontFamily,
-  fontWeight: theme.typography.labels.MOBILE.SMALL.fontWeight,
-  textTransform: theme.typography.labels.MOBILE.SMALL.textTransform,
+type Styles = { [key in keyof typeof LABEL]: string };
+
+export const mediumBoldUppercase = style((theme: DesignSystem) => ({
+  ...theme.typography.labels.MOBILE.mediumBoldUppercase.capsizeRem,
+  fontFamily: theme.typography.labels.MOBILE.mediumBoldUppercase.fontFamily,
+  fontWeight: theme.typography.labels.MOBILE.mediumBoldUppercase.fontWeight,
+  letterSpacing: theme.typography.labels.MOBILE.mediumBoldUppercase.letterSpacing,
+  textTransform: theme.typography.labels.MOBILE.mediumBoldUppercase.textTransform,
   ...baseDisplay,
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
-      ...theme.typography.labels.TABLET.SMALL.capsizeRem,
+      ...theme.typography.labels.TABLET.mediumBoldUppercase.capsizeRem,
     },
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
-      ...theme.typography.labels.DESKTOP.SMALL.capsizeRem,
-    },
-  },
-}));
-
-export const medium = style((theme: DesignSystem) => ({
-  ...theme.typography.labels.MOBILE.MEDIUM.capsizeRem,
-  fontFamily: theme.typography.labels.MOBILE.MEDIUM.fontFamily,
-  fontWeight: theme.typography.labels.MOBILE.MEDIUM.fontWeight,
-  textTransform: theme.typography.labels.MOBILE.MEDIUM.textTransform,
-  ...baseDisplay,
-
-  '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
-      ...theme.typography.labels.TABLET.MEDIUM.capsizeRem,
-    },
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
-      ...theme.typography.labels.DESKTOP.MEDIUM.capsizeRem,
-    },
-  },
-}));
-
-export const smallUppercase = style((theme: DesignSystem) => ({
-  ...theme.typography.labels.MOBILE.SMALL_BOLD_UPPERCASE.capsizeRem,
-  fontFamily: theme.typography.labels.MOBILE.SMALL_BOLD_UPPERCASE.fontFamily,
-  fontWeight: theme.typography.labels.MOBILE.SMALL_BOLD_UPPERCASE.fontWeight,
-  textTransform: theme.typography.labels.MOBILE.SMALL_BOLD_UPPERCASE.textTransform,
-  letterSpacing: '2px',
-  ...baseDisplay,
-
-  '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
-      ...theme.typography.labels.TABLET.SMALL_BOLD_UPPERCASE.capsizeRem,
-    },
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
-      ...theme.typography.labels.DESKTOP.SMALL_BOLD_UPPERCASE.capsizeRem,
+      ...theme.typography.labels.DESKTOP.mediumBoldUppercase.capsizeRem,
     },
   },
 }));
 
 export const mediumUppercase = style((theme: DesignSystem) => ({
-  ...theme.typography.labels.MOBILE.MEDIUM_BOLD_UPPERCASE.capsizeRem,
-  fontFamily: theme.typography.labels.MOBILE.MEDIUM_BOLD_UPPERCASE.fontFamily,
-  fontWeight: theme.typography.labels.MOBILE.MEDIUM_BOLD_UPPERCASE.fontWeight,
-  textTransform: theme.typography.labels.MOBILE.MEDIUM_BOLD_UPPERCASE.textTransform,
+  ...theme.typography.labels.MOBILE.mediumUppercase.capsizeRem,
+  fontFamily: theme.typography.labels.MOBILE.mediumUppercase.fontFamily,
+  fontWeight: theme.typography.labels.MOBILE.mediumUppercase.fontWeight,
+  letterSpacing: theme.typography.labels.MOBILE.mediumUppercase.letterSpacing,
+  textTransform: theme.typography.labels.MOBILE.mediumUppercase.textTransform,
   ...baseDisplay,
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
-      ...theme.typography.labels.TABLET.MEDIUM_BOLD_UPPERCASE.capsizeRem,
+      ...theme.typography.labels.TABLET.mediumUppercase.capsizeRem,
     },
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
-      ...theme.typography.labels.DESKTOP.MEDIUM_BOLD_UPPERCASE.capsizeRem,
-    },
-  },
-}));
-
-export const smallBold = style((theme: DesignSystem) => ({
-  ...theme.typography.labels.MOBILE.SMALL_UPPERCASE.capsizeRem,
-  fontFamily: theme.typography.labels.MOBILE.SMALL_UPPERCASE.fontFamily,
-  fontWeight: theme.typography.labels.MOBILE.SMALL_UPPERCASE.fontWeight,
-  textTransform: theme.typography.labels.MOBILE.SMALL_UPPERCASE.textTransform,
-  ...baseDisplay,
-  '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
-      ...theme.typography.labels.TABLET.SMALL_UPPERCASE.capsizeRem,
-    },
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
-      ...theme.typography.labels.DESKTOP.SMALL_UPPERCASE.capsizeRem,
+      ...theme.typography.labels.DESKTOP.mediumUppercase.capsizeRem,
     },
   },
 }));
 
 export const mediumBold = style((theme: DesignSystem) => ({
-  ...theme.typography.labels.MOBILE.MEDIUM_UPPERCASE.capsizeRem,
-  fontFamily: theme.typography.labels.MOBILE.MEDIUM_UPPERCASE.fontFamily,
-  fontWeight: theme.typography.labels.MOBILE.MEDIUM_UPPERCASE.fontWeight,
-  textTransform: theme.typography.labels.MOBILE.MEDIUM_UPPERCASE.textTransform,
+  ...theme.typography.labels.MOBILE.mediumBold.capsizeRem,
+  fontFamily: theme.typography.labels.MOBILE.mediumBold.fontFamily,
+  fontWeight: theme.typography.labels.MOBILE.mediumBold.fontWeight,
+  letterSpacing: theme.typography.labels.MOBILE.mediumBold.letterSpacing,
+  textTransform: theme.typography.labels.MOBILE.mediumBold.textTransform,
   ...baseDisplay,
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
-      ...theme.typography.labels.TABLET.MEDIUM_UPPERCASE.capsizeRem,
+      ...theme.typography.labels.TABLET.mediumBold.capsizeRem,
     },
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
-      ...theme.typography.labels.DESKTOP.MEDIUM_UPPERCASE.capsizeRem,
+      ...theme.typography.labels.DESKTOP.mediumBold.capsizeRem,
     },
   },
 }));
+
+export const mediumRegular = style((theme: DesignSystem) => ({
+  ...theme.typography.labels.MOBILE.mediumRegular.capsizeRem,
+  fontFamily: theme.typography.labels.MOBILE.mediumRegular.fontFamily,
+  fontWeight: theme.typography.labels.MOBILE.mediumRegular.fontWeight,
+  letterSpacing: theme.typography.labels.MOBILE.mediumRegular.letterSpacing,
+  textTransform: theme.typography.labels.MOBILE.mediumRegular.textTransform,
+  ...baseDisplay,
+  '@media': {
+    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+      ...theme.typography.labels.TABLET.mediumRegular.capsizeRem,
+    },
+    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+      ...theme.typography.labels.DESKTOP.mediumRegular.capsizeRem,
+    },
+  },
+}));
+
+export const smallBoldUppercase = style((theme: DesignSystem) => ({
+  ...theme.typography.labels.MOBILE.smallBoldUppercase.capsizeRem,
+  fontFamily: theme.typography.labels.MOBILE.smallBoldUppercase.fontFamily,
+  fontWeight: theme.typography.labels.MOBILE.smallBoldUppercase.fontWeight,
+  letterSpacing: theme.typography.labels.MOBILE.smallBoldUppercase.letterSpacing,
+  textTransform: theme.typography.labels.MOBILE.smallBoldUppercase.textTransform,
+  ...baseDisplay,
+  '@media': {
+    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+      ...theme.typography.labels.TABLET.smallBoldUppercase.capsizeRem,
+    },
+    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+      ...theme.typography.labels.DESKTOP.smallBoldUppercase.capsizePx,
+    },
+  },
+}));
+
+export const smallUppercase = style((theme: DesignSystem) => ({
+  ...theme.typography.labels.MOBILE.smallUppercase.capsizeRem,
+  fontFamily: theme.typography.labels.MOBILE.smallUppercase.fontFamily,
+  fontWeight: theme.typography.labels.MOBILE.smallUppercase.fontWeight,
+  letterSpacing: theme.typography.labels.MOBILE.smallUppercase.letterSpacing,
+  textTransform: theme.typography.labels.MOBILE.smallUppercase.textTransform,
+  ...baseDisplay,
+  '@media': {
+    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+      ...theme.typography.labels.TABLET.smallUppercase.capsizeRem,
+    },
+    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+      ...theme.typography.labels.DESKTOP.smallUppercase.capsizeRem,
+    },
+  },
+}));
+
+export const smallBold = style((theme: DesignSystem) => ({
+  ...theme.typography.labels.MOBILE.smallBold.capsizeRem,
+  fontFamily: theme.typography.labels.MOBILE.smallBold.fontFamily,
+  fontWeight: theme.typography.labels.MOBILE.smallBold.fontWeight,
+  letterSpacing: theme.typography.labels.MOBILE.smallBold.letterSpacing,
+  textTransform: theme.typography.labels.MOBILE.smallBold.textTransform,
+  ...baseDisplay,
+  '@media': {
+    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+      ...theme.typography.labels.TABLET.smallBold.capsizeRem,
+    },
+    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+      ...theme.typography.labels.DESKTOP.smallBold.capsizeRem,
+    },
+  },
+}));
+
+export const smallRegular = style((theme: DesignSystem) => ({
+  ...theme.typography.labels.MOBILE.smallRegular.capsizeRem,
+  fontFamily: theme.typography.labels.MOBILE.smallRegular.fontFamily,
+  fontWeight: theme.typography.labels.MOBILE.smallRegular.fontWeight,
+  letterSpacing: theme.typography.labels.MOBILE.smallRegular.letterSpacing,
+  textTransform: theme.typography.labels.MOBILE.smallRegular.textTransform,
+  ...baseDisplay,
+  '@media': {
+    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+      ...theme.typography.labels.TABLET.smallRegular.capsizeRem,
+    },
+    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+      ...theme.typography.labels.DESKTOP.smallRegular.capsizeRem,
+    },
+  },
+}));
+
+export const xSmallBoldUppercase = style((theme: DesignSystem) => ({
+  ...theme.typography.labels.MOBILE.xSmallBoldUppercase.capsizeRem,
+  fontFamily: theme.typography.labels.MOBILE.xSmallBoldUppercase.fontFamily,
+  fontWeight: theme.typography.labels.MOBILE.xSmallBoldUppercase.fontWeight,
+  letterSpacing: theme.typography.labels.MOBILE.xSmallBoldUppercase.letterSpacing,
+  textTransform: theme.typography.labels.MOBILE.xSmallBoldUppercase.textTransform,
+  ...baseDisplay,
+  '@media': {
+    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+      ...theme.typography.labels.TABLET.xSmallBoldUppercase.capsizeRem,
+    },
+    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+      ...theme.typography.labels.DESKTOP.xSmallBoldUppercase.capsizeRem,
+    },
+  },
+}));
+
+export const xSmallUppercase = style((theme: DesignSystem) => ({
+  ...theme.typography.labels.MOBILE.xSmallUppercase.capsizeRem,
+  fontFamily: theme.typography.labels.MOBILE.xSmallUppercase.fontFamily,
+  fontWeight: theme.typography.labels.MOBILE.xSmallUppercase.fontWeight,
+  letterSpacing: theme.typography.labels.MOBILE.xSmallUppercase.letterSpacing,
+  textTransform: theme.typography.labels.MOBILE.xSmallUppercase.textTransform,
+  ...baseDisplay,
+  '@media': {
+    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+      ...theme.typography.labels.TABLET.xSmallUppercase.capsizeRem,
+    },
+    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+      ...theme.typography.labels.DESKTOP.xSmallUppercase.capsizeRem,
+    },
+  },
+}));
+
+export const xSmallBold = style((theme: DesignSystem) => ({
+  ...theme.typography.labels.MOBILE.xSmallBold.capsizeRem,
+  fontFamily: theme.typography.labels.MOBILE.xSmallBold.fontFamily,
+  fontWeight: theme.typography.labels.MOBILE.xSmallBold.fontWeight,
+  letterSpacing: theme.typography.labels.MOBILE.xSmallBold.letterSpacing,
+  textTransform: theme.typography.labels.MOBILE.xSmallBold.textTransform,
+  ...baseDisplay,
+  '@media': {
+    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+      ...theme.typography.labels.TABLET.xSmallBold.capsizeRem,
+    },
+    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+      ...theme.typography.labels.DESKTOP.xSmallBold.capsizeRem,
+    },
+  },
+}));
+
+export const xSmallRegular = style((theme: DesignSystem) => ({
+  ...theme.typography.labels.MOBILE.xSmallRegular.capsizeRem,
+  fontFamily: theme.typography.labels.MOBILE.xSmallRegular.fontFamily,
+  fontWeight: theme.typography.labels.MOBILE.xSmallRegular.fontWeight,
+  letterSpacing: theme.typography.labels.MOBILE.xSmallRegular.letterSpacing,
+  textTransform: theme.typography.labels.MOBILE.xSmallRegular.textTransform,
+  ...baseDisplay,
+  '@media': {
+    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+      ...theme.typography.labels.TABLET.xSmallRegular.capsizeRem,
+    },
+    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+      ...theme.typography.labels.DESKTOP.xSmallRegular.capsizeRem,
+    },
+  },
+}));
+
+const styles: Styles = {
+  mediumBoldUppercase,
+  mediumUppercase,
+  mediumBold,
+  mediumRegular,
+  smallBoldUppercase,
+  smallUppercase,
+  smallBold,
+  smallRegular,
+  xSmallBoldUppercase,
+  xSmallUppercase,
+  xSmallBold,
+  xSmallRegular,
+};

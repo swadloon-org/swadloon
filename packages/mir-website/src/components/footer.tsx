@@ -8,6 +8,7 @@ import { AnchorLink } from './anchor-link';
 
 import { useStyles } from 'react-treat';
 import * as styleRefs from './footer.treat';
+import { LABEL } from 'core-design-system';
 
 export const query = graphql`
   query footer {
@@ -43,7 +44,7 @@ export const Footer: React.FC<OwnProps> = (props) => {
     <footer className={styles.wrapper}>
       <div className={styles.gridwrapper}>
         <div className={styles.contact}>
-          <Label className={styles.title} size="smallUppercase">
+          <Label className={styles.title} variant={LABEL.smallBoldUppercase}>
             Contactez-nous
           </Label>
           <Paragraph className={styles.infoText} variant="small">
@@ -75,7 +76,7 @@ export const Footer: React.FC<OwnProps> = (props) => {
         </div>
 
         <div className={styles.location}>
-          <Label className={styles.title} size="smallUppercase">
+          <Label className={styles.title} variant={LABEL.smallBoldUppercase}>
             Visitez-nous
           </Label>
           <Paragraph className={styles.infoText} variant="small">

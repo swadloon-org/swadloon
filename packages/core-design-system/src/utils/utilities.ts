@@ -151,10 +151,7 @@ export function convertLetterSpacingToEM({ value, fontSize }: { value: string; f
     return undefined;
   }
 
-  return pxToEm({
-    fontSize: numericFontSize,
-    value: convertedValue,
-  });
+  return `${convertedValue / 100}em`;
 }
 
 /**

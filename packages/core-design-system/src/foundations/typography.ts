@@ -17,38 +17,38 @@ export enum TYPOGRAPHIC_STYLE {
  * The headings (e.g. <h1/>, <h2/>...) levels.
  */
 export enum HEADING_LEVEL {
-  H1 = 'H1',
-  H2 = 'H2',
-  H3 = 'H3',
-  H4 = 'H4',
+  h1 = 'h1',
+  h2 = 'h2',
+  h3 = 'h3',
+  h4 = 'h4',
 }
 
 /**
  * The paragraph sizes.
  */
 export enum PARAGRAPH {
-  LARGE = 'LARGE',
-  MEDIUM = 'MEDIUM',
-  SMALL = 'SMALL',
-  X_SMALL = 'X_SMALL',
+  large = 'large',
+  medium = 'medium',
+  small = 'small',
+  xSmall = 'xSmall',
 }
 
 /**
  * The label sizes.
  */
 export enum LABEL {
-  MEDIUM_BOLD_UPPERCASE = 'MEDIUM_BOLD_UPPERCASE',
-  MEDIUM_UPPERCASE = 'MEDIUM_UPPERCASE',
-  MEDIUM_BOLD = 'MEDIUM_BOLD',
-  MEDIUM_REGULAR = 'MEDIUM_REGULAR',
-  SMALL_BOLD_UPPERCASE = 'SMALL_BOLD_UPPERCASE',
-  SMALL_UPPERCASE = 'SMALL_UPPERCASE',
-  SMALL_BOLD = 'SMALL_BOLD',
-  SMALL_REGULAR = 'SMALL_REGULAR',
-  X_SMALL_BOLD_UPPERCASE = 'X_SMALL_BOLD_UPPERCASE',
-  X_SMALL_UPPERCASE = 'X_SMALL_UPPERCASE',
-  X_SMALL_BOLD = 'X_SMALL_BOLD',
-  X_SMALL_REGULAR = 'X_SMALL_REGULAR',
+  mediumBoldUppercase = 'mediumBoldUppercase',
+  mediumUppercase = 'mediumUppercase',
+  mediumBold = 'mediumBold',
+  mediumRegular = 'mediumRegular',
+  smallBoldUppercase = 'smallBoldUppercase',
+  smallUppercase = 'smallUppercase',
+  smallBold = 'smallBold',
+  smallRegular = 'smallRegular',
+  xSmallBoldUppercase = 'xSmallBoldUppercase',
+  xSmallUppercase = 'xSmallUppercase',
+  xSmallBold = 'xSmallBold',
+  xSmallRegular = 'xSmallRegular',
 }
 
 export interface Font {

@@ -2,8 +2,6 @@ import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './paragraph.treat';
 
-import styles from './paragraph.module.scss';
-
 interface OwnProps {
   variant: 'small' | 'medium' | 'large';
 }
