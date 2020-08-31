@@ -1,9 +1,14 @@
 import { DesignSystem, PARAGRAPH } from 'core-design-system';
-import { style } from 'treat';
+import { style, CSSProperties } from 'treat';
 
 type Styles = { [key in keyof typeof PARAGRAPH]: string };
 
+const base: CSSProperties = {
+  display: 'block',
+};
+
 export const large = style((theme: DesignSystem) => ({
+  ...base,
   ...theme.typography.paragraphs.MOBILE.large.capsizeRem,
   fontFamily: theme.typography.paragraphs.MOBILE.large.fontFamily,
   fontWeight: theme.typography.paragraphs.MOBILE.large.fontWeight,
@@ -19,6 +24,7 @@ export const large = style((theme: DesignSystem) => ({
 }));
 
 export const medium = style((theme: DesignSystem) => ({
+  ...base,
   ...theme.typography.paragraphs.MOBILE.medium.capsizeRem,
   fontFamily: theme.typography.paragraphs.MOBILE.medium.fontFamily,
   fontWeight: theme.typography.paragraphs.MOBILE.medium.fontWeight,
@@ -34,6 +40,7 @@ export const medium = style((theme: DesignSystem) => ({
 }));
 
 export const small = style((theme: DesignSystem) => ({
+  ...base,
   ...theme.typography.paragraphs.MOBILE.small.capsizeRem,
   fontFamily: theme.typography.paragraphs.MOBILE.small.fontFamily,
   fontWeight: theme.typography.paragraphs.MOBILE.small.fontWeight,
@@ -49,6 +56,7 @@ export const small = style((theme: DesignSystem) => ({
 }));
 
 export const xSmall = style((theme: DesignSystem) => ({
+  ...base,
   ...theme.typography.paragraphs.MOBILE.xSmall.capsizeRem,
   fontFamily: theme.typography.paragraphs.MOBILE.xSmall.fontFamily,
   fontWeight: theme.typography.paragraphs.MOBILE.xSmall.fontWeight,

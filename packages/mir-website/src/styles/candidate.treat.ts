@@ -14,7 +14,3 @@ export const wrapper = style((theme: DesignSystem) => ({
 export const content = style((theme: DesignSystem) => ({
   padding: theme.layout.contentMargins.MOBILE.valuePx,
 }));
-
-applyReset(globalStyle);
-applyStylesToHtmlElement(globalStyle);
-applyStylesToBodyElement(globalStyle);

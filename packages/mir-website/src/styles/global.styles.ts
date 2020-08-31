@@ -1,10 +1,14 @@
 import { globalStyle } from 'treat';
 import { DesignSystem } from 'core-design-system';
 import { getGlobalSizeVariables } from './global-sizes-variables.styles';
-import { globalReset } from './global-reset.styles';
 
 export function applyReset(themeClass: string) {
-  return globalStyle(`${themeClass}, *`, (theme: DesignSystem) => globalReset);
+  globalStyle(`*`, {
+    boxSizing: 'border-box',
+  });
+  globalStyle(`p`, {
+    margin: 0,
+  });
 }
 
 export function applyStylesToHtmlElement(themeClass: string) {

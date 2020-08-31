@@ -123,6 +123,6 @@ globalStyle(`${illustration} path`, (theme: DesignSystem) => ({
 //
 
 export const small = style((theme: DesignSystem) => ({
-  lineHeight: `var(${theme.sizing.sizeCSSVarNames.X4})`,
-  height: `var(${theme.sizing.sizeCSSVarNames.X4})`,
+  // lineHeight: `var(${theme.sizing.sizeCSSVarNames.X4})`,
+  // height: `var(${theme.sizing.sizeCSSVarNames.X4})`,
 }));
