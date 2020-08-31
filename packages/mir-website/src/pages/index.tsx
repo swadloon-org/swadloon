@@ -17,6 +17,7 @@ import * as stylesRef from '../styles/index.treat';
 import { light } from '../themes/mir-theme.treat';
 import { useViewportValues, viewportContext, useViewportBreakpoint } from '../hooks/use-viewport.hook';
 import { ViewportProvider } from '../context/viewport.context';
+import { VIEWPORT } from 'core-design-system';
 
 export const query = graphql`
   query indexPage {

@@ -1,5 +1,7 @@
 import React from 'react';
 
+declare var window: Window;
+
 export type ViewportContext = {
   width?: number;
   height?: number;
