@@ -10,6 +10,8 @@
     "silvenon.mdx",
     "ms-vscode-remote.vscode-remote-extensionpack",
     "eg2.vscode-npm-script",
-    "wmaurer.change-case"
+    "wmaurer.change-case",
+    "GitHub.vscode-pull-request-github",
+    "cschleiden.vscode-github-actions"
   ]
 }
