@@ -6,7 +6,7 @@ import { globalStyle, style } from 'treat';
 //
 
 export const base = style((theme: DesignSystem) => ({
-  padding: `var(${theme.sizing.sizeCSSVarNames.X2})`,
+  padding: `18px`,
   position: 'relative',
   border: 'none',
   appearance: 'none',
@@ -36,7 +36,7 @@ export const label = style((theme: DesignSystem) => ({
 //
 
 const basePrimary = (theme: DesignSystem) => ({
-  padding: `calc(var(${theme.sizing.sizeCSSVarNames.X3}) - 3px) var(${theme.sizing.sizeCSSVarNames.X3})`,
+  padding: `19px 24px`,
 });
 
 export const primaryDefault = style((theme: DesignSystem) => ({
@@ -55,6 +55,7 @@ export const corner = style(() => ({
 
 globalStyle(`${corner} path`, {
   stroke: 'currentColor',
+  fill: `currentColor`,
 });
 
 export const cornerTopLeft = style((theme: DesignSystem) => ({
@@ -105,8 +106,8 @@ export const icon = style((theme: DesignSystem) => ({
 }));
 
 export const illustration = style((theme: DesignSystem) => ({
-  height: `calc(var(${theme.sizing.sizeCSSVarNames.X3}) * 24 / 21)`,
-  width: `calc(var(${theme.sizing.sizeCSSVarNames.X3}) * 24 / 21)`,
+  height: `24px`,
+  width: `24px`,
   verticalAlign: 'middle',
 }));
 
@@ -115,6 +116,10 @@ globalStyle(`${illustration} rect`, (theme: DesignSystem) => ({
 }));
 
 globalStyle(`${illustration} path`, (theme: DesignSystem) => ({
+  fill: theme.colors.greyscale0Reversed,
+}));
+
+globalStyle(`${illustration} fill`, (theme: DesignSystem) => ({
   fill: theme.colors.greyscale0Reversed,
 }));
 

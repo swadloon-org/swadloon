@@ -67,10 +67,7 @@ export const content = style((theme: DesignSystem) => ({
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
       display: 'flex',
       flexDirection: 'column',
-      aligntems: 'stretch',
-      // margin: 'auto auto auto 0',
       marginRight: `var(${theme.sizing.sizeCSSVarNames.X6})`,
-      marginBottom: 'auto',
     },
   },
 }));
@@ -81,7 +78,7 @@ export const title = style((theme: DesignSystem) => ({
   maxWidth: '400px',
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
-      maxWidth: '460px',
+      maxWidth: '500px',
       textAlign: 'left',
     },
   },
@@ -96,7 +93,7 @@ export const text = style((theme: DesignSystem) => ({
 
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
-      maxWidth: '460px',
+      maxWidth: '500px',
       textAlign: 'left',
     },
   },

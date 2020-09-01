@@ -26,7 +26,7 @@ export const InfoTile: React.FC<OwnProps> = (props) => {
       <div className={`${styles.content}`}>
         <Illustration className={`${styles.illustration}`} name={`Illustration/${props.icon}`} width={42} height={42} />
         <Heading variant={'h3'}>{props.title}</Heading>
-        <Paragraph variant={'small'} className={styles.text}>
+        <Paragraph variant={'medium'} className={styles.text}>
           {props.text}
         </Paragraph>
       </div>

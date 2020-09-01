@@ -6,6 +6,7 @@ import * as styleRefs from './button.treat';
 import { Label } from './label';
 
 import CornerTopLeft from '../illustrations/Illustration/CornerTopLeft.svg';
+
 import CornerBottomRight from '../illustrations/Illustration/CornerBottomRight.svg';
 import { Illustration } from './illustration';
 import { LABEL } from 'core-design-system';

@@ -16,7 +16,7 @@ export const fonts: Fonts = {
     name: 'Open Sans',
     link: 'https://fonts.google.com/specimen/Open+Sans?query=open+sans',
     fontMetrics: {
-      capHeight: 1462,
+      capHeight: 1600,
       ascent: 2189,
       descent: -600,
       lineGap: 0,

@@ -8,19 +8,17 @@ export const wrapper = style((theme: DesignSystem) => ({
   justifyContent: 'center',
 
   padding: `0 ${theme.layout.contentMargins.MOBILE.valuePx}`,
-  height: `var(${theme.sizing.sizeCSSVarNames.X5})`,
+  height: `55px`,
 
   backgroundColor: theme.colors.primary500,
   color: theme.colors.greyscale0Reversed,
 
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
-      height: '73px',
       padding: `0 ${theme.layout.contentMargins.TABLET.valuePx}`,
-    },
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
       height: `var(${theme.sizing.sizeCSSVarNames.X6})`,
     },
+    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {},
   },
 }));
 
@@ -39,11 +37,17 @@ export const content = style((theme: DesignSystem) => ({
       justifyItems: 'center',
       maxWidth: '1200px',
     },
+    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_MEDIUM.valuePx})`]: {
+      gridTemplateColumns: '1fr 100px 1fr',
+      justifyContent: 'center',
+      justifyItems: 'center',
+      maxWidth: '1600px',
+    },
   },
 }));
 
 export const logo = style((theme: DesignSystem) => ({
-  height: `var(${theme.sizing.sizeCSSVarNames.X4})`,
+  height: `var(${theme.sizing.sizeCSSVarNames.X5})`,
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
       height: '40px',
@@ -82,7 +86,7 @@ export const mobileRightToolbar = style((theme: DesignSystem) => ({
 export const desktopLeftToolbar = style((theme: DesignSystem) => ({
   display: 'none',
   justifySelf: 'start',
-  marginLeft: `var(${theme.sizing.sizeCSSVarNames.X2})`,
+  marginLeft: `-var(${theme.sizing.sizeCSSVarNames.X2})`,
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
       display: 'flex',

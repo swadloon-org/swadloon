@@ -94,7 +94,7 @@ export const title = style((theme: DesignSystem) => ({
   maxWidth: '400px',
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
-      maxWidth: '460px',
+      maxWidth: '500px',
       textAlign: 'left',
     },
   },
@@ -109,7 +109,7 @@ export const text = style((theme: DesignSystem) => ({
 
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
-      maxWidth: '460px',
+      maxWidth: '500px',
       textAlign: 'left',
     },
   },
