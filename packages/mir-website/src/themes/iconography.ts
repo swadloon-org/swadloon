@@ -10,14 +10,14 @@ export const iconography: Iconography = {
       [ICON_SIZE.small]: sizingStepMobile.X2,
     },
     [VIEWPORT.TABLET]: {
-      [ICON_SIZE.large]: sizingStepDesktop.X4,
-      [ICON_SIZE.medium]: sizingStepDesktop.X3,
-      [ICON_SIZE.small]: sizingStepDesktop.X2,
+      [ICON_SIZE.large]: sizingStepDesktop.X3,
+      [ICON_SIZE.medium]: sizingStepDesktop.X2,
+      [ICON_SIZE.small]: sizingStepDesktop.X1,
     },
     [VIEWPORT.DESKTOP]: {
-      [ICON_SIZE.large]: sizingStepDesktop.X4,
-      [ICON_SIZE.medium]: sizingStepDesktop.X3,
-      [ICON_SIZE.small]: sizingStepDesktop.X2,
+      [ICON_SIZE.large]: sizingStepDesktop.X3,
+      [ICON_SIZE.medium]: sizingStepDesktop.X2,
+      [ICON_SIZE.small]: sizingStepDesktop.X1,
     },
   },
 };
