@@ -6,7 +6,6 @@ import { Button } from '../button';
 import { Paragraph } from '../paragraph';
 import { SectionModelQuery } from './info-section';
 import { RenderTitleHighlight } from './info-title-highligh';
-// import styles from './info-section.module.scss';
 
 type OwnProps = Partial<SectionModelQuery>;
 

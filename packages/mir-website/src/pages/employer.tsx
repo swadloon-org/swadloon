@@ -15,8 +15,6 @@ import { Newsletter } from '../components/newsletter/newsletter';
 import { light } from '../themes/mir-theme.treat';
 import * as stylesRef from '../styles/employer.treat';
 
-import '../styles/font-faces.styles.css';
-
 export const query = graphql`
   query employerPage {
     gcms {

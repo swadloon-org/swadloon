@@ -11,14 +11,11 @@ import { InfoSectionType3 } from '../components/info-section/info-section-type-3
 import { InfoSectionType4 } from '../components/info-section/info-section-type-4';
 import { NavBar } from '../components/nav-bar';
 import { Newsletter } from '../components/newsletter/newsletter';
-
+import { ViewportProvider } from '../context/viewport.context';
+import { useViewportBreakpoint, useViewportValues, viewportContext } from '../hooks/use-viewport.hook';
 import '../styles/font-faces.styles.css';
 import * as stylesRef from '../styles/index.treat';
 import { light } from '../themes/mir-theme.treat';
-import { useViewportValues, viewportContext, useViewportBreakpoint } from '../hooks/use-viewport.hook';
-import { ViewportProvider } from '../context/viewport.context';
-import { VIEWPORT } from 'core-design-system';
-import { InfoSectionType5 } from '../components/info-section/info-section-type-5';
 
 export const query = graphql`
   query indexPage {
@@ -92,9 +89,6 @@ const Index: React.FC<PageProps> = ({ data, location }) => {
   const styles = useStyles(stylesRef);
   const { width } = useViewportValues();
   const { viewport } = useViewportBreakpoint();
-
-  console.log(width);
-  console.log(viewport);
 
   return (
     <div className={`${styles.wrapper}`}>

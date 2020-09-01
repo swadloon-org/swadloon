@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useStyles } from 'react-treat';
-import * as styleRefsBase from './info-section.treat';
 import * as styleRefsType3 from './info-section-type-3.treat';
 
 import { Button } from '../button';
@@ -17,26 +16,25 @@ export const InfoSectionType3: React.FC<OwnProps> = (props) => {
   const [selectedTabIndex, setSelectedTabIndex] = useState<number>(0);
   const hasImage = !!props?.image;
   const hasTabs = !!props?.childs.length;
-  const styleRefs = useStyles(styleRefsType3);
-  const styleBase = useStyles(styleRefsBase);
+  const styles = useStyles(styleRefsType3);
 
   return (
-    <div className={`${styleBase.wrapper} ${styleRefs[props.type]} ${styleBase[props.align]}`}>
+    <div className={`${styles.wrapper} ${styles[props.type]} ${styles[props.align]}`}>
       {props.image?.url ? (
         <ImageFrame
           variant={'bottomRight'}
           url={props.image?.url}
-          className={`${styleBase.image} ${hasTabs ? styleBase.imageTabs : ''}`}
+          className={`${styles.image} ${hasTabs ? styles.imageTabs : ''}`}
         />
       ) : null}
 
       <div
-        className={`${styleRefs.content} ${
-          props.align === 'AlignContentLeft' ? styleRefs.alignContentLeft : styleRefs.alignContentRight
+        className={`${styles.content} ${
+          props.align === 'AlignContentLeft' ? styles.alignContentLeft : styles.alignContentRight
         }  `}
       >
         {hasTabs ? (
-          <div className={styleRefs.tabsWrapper}>
+          <div className={styles.tabsWrapper}>
             {props?.childs.map((infoSecTab, index) => {
               return (
                 <Tab

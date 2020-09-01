@@ -12,13 +12,13 @@ export const ImageFrame: React.FC<OwnProps & HTMLAttributes<any>> = (props) => {
   const styles = useStyles(styleRefs);
 
   return (
-    <div className={`${props.className || ''} ${styles.wrapper} `}>
+    <div className={`${props.className || ''} ${styles.wrapper}`}>
       <Illustration
         name={'Illustration/Square'}
-        className={`${styles.backgroundIllustration} ${variantResolver(props.variant)}`}
+        className={`${styles.backgroundIllustration} ${getVariantStyle(props.variant)}`}
         preserveAspectRatio="none"
-        width={null}
-        height={null}
+        width={200}
+        height={200}
       />
 
       <div className={`${styles.content} ${styles[props.variant]}`}>
@@ -27,7 +27,7 @@ export const ImageFrame: React.FC<OwnProps & HTMLAttributes<any>> = (props) => {
     </div>
   );
 
-  function variantResolver(value: string) {
+  function getVariantStyle(value: string) {
     switch (value) {
       case 'bottomRight': {
         return styles.topLeft;
@@ -42,9 +42,8 @@ export const ImageFrame: React.FC<OwnProps & HTMLAttributes<any>> = (props) => {
         return styles.bottomLeft;
       }
       default: {
-        return null;
+        return '';
       }
     }
   }
 };
-// ${styles[props.variant]}

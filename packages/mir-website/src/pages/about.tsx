@@ -15,7 +15,6 @@ import { Newsletter } from '../components/newsletter/newsletter';
 import { light } from '../themes/mir-theme.treat';
 import * as stylesRef from '../styles/about.treat';
 
-import '../styles/font-faces.styles.css';
 import { Root } from '.';
 
 export const query = graphql`

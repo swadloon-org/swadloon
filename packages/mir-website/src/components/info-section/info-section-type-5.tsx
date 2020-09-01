@@ -1,36 +1,29 @@
 import React from 'react';
 import { useStyles } from 'react-treat';
-import * as styleRefsBase from './info-section.treat';
-import * as styleRefsType5 from './info-section-type-5.treat';
-
 import { ImageFrame } from '../image-frame';
+import { InfoSectionCheckLabel } from '../InfoSectionCheckLabel';
 import { Paragraph } from '../paragraph';
 import { SectionModelQuery } from './info-section';
+import * as styleRefsType5 from './info-section-type-5.treat';
 import { RenderTitleHighlight } from './info-title-highligh';
-import { InfoSectionCheckLabel } from '../InfoSectionCheckLabel';
 
 type OwnProps = SectionModelQuery;
 
 export const InfoSectionType5: React.FC<OwnProps> = (props) => {
   const hasImage = !!props?.image;
   const hasInfoTiles = !!props?.infoTiles?.length;
-  const stylesRef = useStyles(styleRefsType5);
-  const stylesBase = useStyles(styleRefsBase);
+  const styles = useStyles(styleRefsType5);
 
   return (
-    <div
-      className={`${stylesBase.wrapper} ${stylesRef.type5} ${
-        hasImage || hasInfoTiles ? stylesBase.extraPadding : ''
-      }  ${stylesBase[props.align]}`}
-    >
+    <div className={`${styles.wrapper} ${styles.type5} ${styles[props.align]}`}>
       {props.image?.url ? (
-        <ImageFrame variant={'bottomRight'} url={props.image?.url} className={`${stylesBase.image}}`} />
+        <ImageFrame variant={'bottomRight'} url={props.image?.url} className={`${styles.image}}`} />
       ) : null}
 
-      <div className={stylesRef.content}>
-        <RenderTitleHighlight className={stylesRef.title} title={props.title} titleHighlight={props.titleHighlight} />
+      <div className={styles.content}>
+        <RenderTitleHighlight className={styles.title} title={props.title} titleHighlight={props.titleHighlight} />
 
-        <Paragraph variant={'medium'} className={stylesRef.text}>
+        <Paragraph variant={'medium'} className={styles.text}>
           {props.text}
         </Paragraph>
 

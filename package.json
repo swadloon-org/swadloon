@@ -17,6 +17,7 @@
   "scripts": {
     "autorelease": "lerna version --conventional-commits --create-release github",
     "build": "lerna run --concurrency=1 build",
+    "build:mir": "yarn build --scope '{core-*,mir-website}'",
     "changelog": "lerna version --conventional-commits --no-push",
     "clean": "lerna run --concurrency=1 clean",
     "cli": "nr",

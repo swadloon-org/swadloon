@@ -12,6 +12,7 @@
     "prebuild": "yarn clean",
     "build": "tsc --build tsconfig.json",
     "clean": "rimraf -r dist/**",
+    "postinstall": "yarn build",
     "start": "tsc --build tsconfig.json --watch --preserveWatchOutput",
     "test": "echo ok"
   },

@@ -161,8 +161,6 @@ export const tabsWrapper = style((theme: DesignSystem) => ({
   },
 }));
 
-export const extraPadding = style((theme: DesignSystem) => ({}));
-
 globalStyle(`${type2} ~ ${type3} `, (theme: DesignSystem) => ({
   paddingTop: `var(${theme.sizing.sizeCSSVarNames.X5})`,
 }));
