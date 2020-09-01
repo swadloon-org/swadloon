@@ -128,7 +128,12 @@ globalStyle(`${illustration} fill`, (theme: DesignSystem) => ({
 // button sizes
 //
 
-export const small = style((theme: DesignSystem) => ({
+export const small = style((theme: DesignSystem) => ({}));
+export const medium = style((theme: DesignSystem) => ({
+  padding: `var(${theme.sizing.sizeCSSVarNames.X4})`,
+}));
+export const large = style((theme: DesignSystem) => ({
   // lineHeight: `var(${theme.sizing.sizeCSSVarNames.X4})`,
   // height: `var(${theme.sizing.sizeCSSVarNames.X4})`,
 }));
+export const text = style((theme: DesignSystem) => ({}));

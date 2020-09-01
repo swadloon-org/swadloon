@@ -12,6 +12,7 @@ import { InfoTile } from '../components/info-section/info-tile';
 import { InfoSectionType6 } from '../components/info-section/info-section-type-6';
 import { InfoSectionType1Group } from '../components/info-section/info-section-type-1-group';
 import { InfoSectionType6Group } from '../components/info-section/info-section-type-6-group';
+
 const DesignPage: React.FC<PageProps> = (props) => {
   return (
     <Root>
