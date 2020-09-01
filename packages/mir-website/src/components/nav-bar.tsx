@@ -8,6 +8,7 @@ import Icon from '../illustrations/Icon/Bars.svg';
 import { Label } from './label';
 import { Button } from './button';
 import { LABEL } from 'core-design-system';
+import { Link } from '../components-ui/link';
 
 type OwnProps = {};
 
@@ -35,6 +36,10 @@ export const NavBar: React.FC<OwnProps> = (props) => {
         </div>
 
         <div className={styles.desktopLeftToolbar}>
+          <Link to="/candidates">Candidats</Link>
+          <Link to="/employer">Employeurs</Link>
+          <Link to="/employer">Employeurs</Link>
+
           <Button type="tertiaryReversed" variant="text" size="small">
             Candidats
           </Button>

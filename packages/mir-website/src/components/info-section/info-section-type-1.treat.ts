@@ -4,7 +4,7 @@ import { style, globalStyle } from 'treat';
 export const wrapper = style((theme: DesignSystem) => ({
   display: 'grid',
   justifyItems: 'center',
-  padding: `var(${theme.sizing.sizeCSSVarNames.X5}) ${theme.layout.contentMargins.MOBILE.valuePx}`,
+  padding: `var(${theme.sizing.sizeCSSVarNames.X6}) ${theme.layout.contentMargins.MOBILE.valuePx}`,
   backgroundColor: theme.colors.greyscale0,
   color: theme.colors.greyscale900,
 }));
@@ -12,10 +12,12 @@ export const wrapper = style((theme: DesignSystem) => ({
 export const type1reversed = style((theme: DesignSystem) => ({
   color: theme.colors.greyscale0Reversed,
   backgroundColor: theme.colors.primary500,
+  boxShadow: '0px 2px 10px rgba(155, 155, 155, 0.5)',
 }));
 
 export const type1default = style((theme: DesignSystem) => ({
   zIndex: 1,
+  boxShadow: '0px 2px 10px rgba(155, 155, 155, 0.5)',
 }));
 
 globalStyle(`${type1reversed} > *`, (theme: DesignSystem) => ({
@@ -35,7 +37,7 @@ export const text = style((theme: DesignSystem) => ({
 
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
-      maxWidth: '460px',
+      maxWidth: '500px',
       textAlign: 'center',
     },
   },

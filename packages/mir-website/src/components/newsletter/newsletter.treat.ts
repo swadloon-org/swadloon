@@ -103,7 +103,6 @@ export const formulaire = style((theme: DesignSystem) => ({
 
 export const subtitle = style((theme: DesignSystem) => ({
   textAlign: 'center',
-  // paddingTop: `var(${theme.sizing.sizeCSSVarNames.X5})`,
   color: theme.colors.greyscale0Reversed,
 
   '@media': {
@@ -126,8 +125,8 @@ export const title = style((theme: DesignSystem) => ({
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
       textAlign: 'left',
-      marginTop: `var(${theme.sizing.sizeCSSVarNames.X3})`,
-      marginBottom: `var(${theme.sizing.sizeCSSVarNames.X3})`,
+      marginTop: `var(${theme.sizing.sizeCSSVarNames.X4})`,
+      marginBottom: `var(${theme.sizing.sizeCSSVarNames.X4})`,
     },
   },
 }));

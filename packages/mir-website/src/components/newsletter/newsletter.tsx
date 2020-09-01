@@ -18,7 +18,7 @@ export const Newsletter: React.FC<OwnProps> = (props) => {
     <div className={`${styles.wrapper}`} {...props}>
       <div className={`${styles.container}`}>
         <div className={`${styles.content}`}>
-          <Label variant={LABEL.smallBoldUppercase} className={`${styles.subtitle}`}>
+          <Label variant={LABEL.xSmallBoldUppercase} className={`${styles.subtitle}`}>
             Vous désirez recevoir nos offres d’emploi?
           </Label>
           <Heading variant="h3" className={`${styles.title}`}>

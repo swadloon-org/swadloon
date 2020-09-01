@@ -16,7 +16,7 @@ export const InfoSectionType1: React.FC<OwnProps> = (props) => {
     <div className={`${stylesRef.wrapper} ${stylesRef[props.type]}`}>
       <RenderTitleHighlight title={props.title} titleHighlight={props.titleHighlight} />
 
-      <Paragraph variant={'small'} className={stylesRef.text}>
+      <Paragraph variant={'medium'} className={stylesRef.text}>
         {props.text}
       </Paragraph>
 

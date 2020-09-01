@@ -4,7 +4,7 @@ import { style } from 'treat';
 export const wrapper = style((theme: DesignSystem) => ({
   display: 'grid',
   justifyItems: 'center',
-  padding: `var(${theme.sizing.sizeCSSVarNames.X5}) ${theme.layout.contentMargins.MOBILE.valuePx}`,
+  padding: `var(${theme.sizing.sizeCSSVarNames.X6}) ${theme.layout.contentMargins.MOBILE.valuePx}`,
   backgroundColor: theme.colors.greyscale0,
   color: theme.colors.greyscale900,
 }));
@@ -34,15 +34,18 @@ export const imageTabs = style((theme: DesignSystem) => ({
 }));
 
 export const image = style((theme: DesignSystem) => ({
-  marginBottom: `var(${theme.sizing.sizeCSSVarNames.X5})`,
+  marginBottom: `var(${theme.sizing.sizeCSSVarNames.X6})`,
+  width: '250px',
+  height: '250px',
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
-      width: '540px',
-      height: '540px',
-    },
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx}) and (max-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
       width: '366px',
       height: '366px',
+    },
+    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+      width: '535px',
+      height: '535px',
+      marginLeft: `auto`,
     },
   },
 }));
@@ -62,14 +65,11 @@ export const type2 = style((theme: DesignSystem) => ({
 export const content = style((theme: DesignSystem) => ({
   display: 'flex',
   flexDirection: 'column',
-  alignItems: 'stretch',
+  alignItems: 'center',
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
       display: 'flex',
       flexDirection: 'column',
-      aligntems: 'stretch',
-      // marginRight: `var(${theme.sizing.sizeCSSVarNames.X6})`,
-      marginBottom: 'auto',
     },
   },
 }));
@@ -91,12 +91,16 @@ export const alignContentLeft = style((theme: DesignSystem) => ({
 }));
 
 export const title = style((theme: DesignSystem) => ({
-  textAlign: 'center',
-  marginBottom: `calc(var(${theme.sizing.sizeCSSVarNames.X3}) *2)`,
+  marginBottom: `var(${theme.sizing.sizeCSSVarNames.X6})`,
   maxWidth: '400px',
+  textAlign: 'center',
   '@media': {
+    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+      marginBottom: `var(${theme.sizing.sizeCSSVarNames.X5})`,
+      maxWidth: '500px',
+    },
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
-      maxWidth: '460px',
+      maxWidth: '500px',
       textAlign: 'left',
     },
   },
@@ -111,7 +115,7 @@ export const text = style((theme: DesignSystem) => ({
 
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
-      maxWidth: '460px',
+      maxWidth: '500px',
       textAlign: 'left',
     },
   },

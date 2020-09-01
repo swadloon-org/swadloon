@@ -85,6 +85,7 @@ export const firm = style((theme: DesignSystem) => ({
     },
   },
 }));
+
 export const copyright = style((theme: DesignSystem) => ({
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
@@ -96,7 +97,7 @@ export const copyright = style((theme: DesignSystem) => ({
 globalStyle(`${firm} img`, (theme: DesignSystem) => ({
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
-      width: '141px',
+      width: '150px',
     },
   },
 }));

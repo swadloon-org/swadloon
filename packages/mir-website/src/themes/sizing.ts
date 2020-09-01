@@ -6,11 +6,11 @@ export const BASE_FONT_SIZE_PX = `${DEFAULT_BASE_FONT_SIZE}px`;
 
 export const sizingStepMobile = {
   [SIZING.X0]: createSizingStep({
-    value: 6,
+    value: 7,
     baseFontSize: BASE_FONT_SIZE,
   }),
   [SIZING.X1]: createSizingStep({
-    value: 8,
+    value: 9,
     baseFontSize: BASE_FONT_SIZE,
   }),
   [SIZING.X2]: createSizingStep({
@@ -22,11 +22,11 @@ export const sizingStepMobile = {
     baseFontSize: BASE_FONT_SIZE,
   }),
   [SIZING.X4]: createSizingStep({
-    value: 23,
+    value: 21,
     baseFontSize: BASE_FONT_SIZE,
   }),
   [SIZING.X5]: createSizingStep({
-    value: 32,
+    value: 30,
     baseFontSize: BASE_FONT_SIZE,
   }),
   [SIZING.X6]: createSizingStep({
@@ -53,15 +53,15 @@ export const sizingStepMobile = {
 
 export const sizingStepDesktop = {
   [SIZING.X0]: createSizingStep({
-    value: 7,
+    value: 8,
     baseFontSize: BASE_FONT_SIZE,
   }),
   [SIZING.X1]: createSizingStep({
-    value: 9,
+    value: 12,
     baseFontSize: BASE_FONT_SIZE,
   }),
   [SIZING.X2]: createSizingStep({
-    value: 13,
+    value: 16,
     baseFontSize: BASE_FONT_SIZE,
   }),
   [SIZING.X3]: createSizingStep({
@@ -69,11 +69,11 @@ export const sizingStepDesktop = {
     baseFontSize: BASE_FONT_SIZE,
   }),
   [SIZING.X4]: createSizingStep({
-    value: 34,
+    value: 30,
     baseFontSize: BASE_FONT_SIZE,
   }),
   [SIZING.X5]: createSizingStep({
-    value: 55,
+    value: 50,
     baseFontSize: BASE_FONT_SIZE,
   }),
   [SIZING.X6]: createSizingStep({

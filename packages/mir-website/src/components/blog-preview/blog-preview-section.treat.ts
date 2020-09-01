@@ -34,7 +34,7 @@ export const content = style((theme: DesignSystem) => ({
 export const title = style((theme: DesignSystem) => ({
   textAlign: 'center',
   margin: `0 0 var(${theme.sizing.sizeCSSVarNames.X3}) 0`,
-  maxWidth: '460px',
+  maxWidth: '500px',
 }));
 export const paragraph = style((theme: DesignSystem) => ({
   textAlign: 'center',
