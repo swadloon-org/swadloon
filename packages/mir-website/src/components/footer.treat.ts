@@ -2,7 +2,7 @@ import { DesignSystem } from 'core-design-system';
 import { globalStyle, style } from 'treat';
 
 export const wrapper = style((theme: DesignSystem) => ({
-  padding: `var(${theme.sizing.sizeCSSVarNames.X5}) ${theme.layout.contentMargins.MOBILE.valuePx}`,
+  padding: `var(${theme.sizing.sizeCSSVarNames.X6}) ${theme.layout.contentMargins.MOBILE.valuePx}`,
 
   backgroundColor: theme.colors.greyscale1000,
   color: theme.colors.greyscale0,
@@ -17,7 +17,7 @@ export const wrapper = style((theme: DesignSystem) => ({
 
 export const gridwrapper = style((theme: DesignSystem) => ({
   display: 'grid',
-  gridRowGap: `var(${theme.sizing.sizeCSSVarNames.X5})`,
+  gridRowGap: `var(${theme.sizing.sizeCSSVarNames.X6})`,
 
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
@@ -31,7 +31,6 @@ export const gridwrapper = style((theme: DesignSystem) => ({
     },
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
       maxWidth: '1200px',
-      padding: `var(${theme.sizing.sizeCSSVarNames.X5}) 0`,
       gridTemplateAreas:
         "'firm firm . contact contact contact location location location . . .''copyright copyright copyright . . . . . . . . .'",
     },
