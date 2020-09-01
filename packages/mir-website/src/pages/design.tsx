@@ -8,7 +8,7 @@ import { Paragraph } from '../components/paragraph';
 import { light } from '../themes/mir-theme.treat';
 import { Root, PageProps } from './index';
 import { InfoSectionCheckLabel } from '../components/InfoSectionCheckLabel';
-
+import { InfoTile } from '../components/info-section/info-tile';
 const DesignPage: React.FC<PageProps> = (props) => {
   return (
     <Root>
@@ -68,6 +68,13 @@ export const Design: React.FC = () => {
         Test
       </InfoSectionCheckLabel>
       <InfoSkills>test</InfoSkills>
+
+      <InfoTile
+        variant="borderWhite"
+        title="Diversite"
+        icon="Factory"
+        text="Un large bassin de candidats qualifiés qui respectent vos critères de choix"
+      ></InfoTile>
     </>
   );
 };
