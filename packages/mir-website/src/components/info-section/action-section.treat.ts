@@ -6,7 +6,7 @@ import { globalStyle, style } from 'treat';
 //
 
 export const wrapper = style((theme: DesignSystem) => ({
-  backgroundColor: theme.colors.greyscale0,
+  // backgroundColor: theme.colors.greyscale0,
   paddingTop: `var(${theme.sizing.sizeCSSVarNames.X6})`,
   paddingBottom: `var(${theme.sizing.sizeCSSVarNames.X6})`,
 
@@ -18,6 +18,16 @@ export const wrapper = style((theme: DesignSystem) => ({
       padding: `0 ${theme.layout.contentMargins.DESKTOP.valuePx}`,
     },
   },
+}));
+
+export const Default = style((theme: DesignSystem) => ({
+  backgroundColor: theme.colors.greyscale0,
+  color: theme.colors.greyscale1000,
+}));
+
+export const reversed = style((theme: DesignSystem) => ({
+  backgroundColor: theme.colors.primary500,
+  color: theme.colors.greyscale0Reversed,
 }));
 
 //
@@ -96,11 +106,11 @@ export const button = style((theme: DesignSystem) => ({
   margin: '0 auto',
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
-      alignSelf: 'center',
+      alignSelf: 'flex-end',
       width: '100%',
     },
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
-      alignSelf: 'center',
+      alignSelf: 'flex-end',
       width: '100%',
     },
   },
@@ -112,7 +122,7 @@ export const button = style((theme: DesignSystem) => ({
 
 export const subtitle = style((theme: DesignSystem) => ({
   textAlign: 'center',
-  color: theme.colors.greyscale1000,
+  color: 'currentColor',
 
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
@@ -129,7 +139,7 @@ export const title = style((theme: DesignSystem) => ({
   marginTop: `var(${theme.sizing.sizeCSSVarNames.X5})`,
   marginBottom: `var(${theme.sizing.sizeCSSVarNames.X5})`,
   textAlign: 'center',
-  color: theme.colors.greyscale1000,
+  color: 'currentColor',
   marginRight: 'auto',
   marginLeft: 'auto',
   maxWidth: '500px',
@@ -139,7 +149,7 @@ export const title = style((theme: DesignSystem) => ({
       maxWidth: '700px',
       textAlign: 'left',
       marginTop: `var(${theme.sizing.sizeCSSVarNames.X4})`,
-      marginBottom: `var(${theme.sizing.sizeCSSVarNames.X4})`,
+      marginBottom: `0`,
     },
   },
 }));

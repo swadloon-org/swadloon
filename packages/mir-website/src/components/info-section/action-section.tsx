@@ -1,19 +1,21 @@
 import React, { AllHTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
-import * as styleRefs from './action-section';
+import * as styleRefs from './action-section.treat';
 
 import { Label } from '../label';
 import { Button } from '../button';
 import { LABEL } from 'core-design-system';
 import { RenderTitleHighlight } from './info-title-highligh';
 
-type OwnProps = AllHTMLAttributes<any>;
+type OwnProps = {
+  variants: 'Default' | 'reversed';
+};
 
-export const ActionSection: React.FC<OwnProps> = (props) => {
+export const ActionSection: React.FC<OwnProps & AllHTMLAttributes<any>> = (props) => {
   const styles = useStyles(styleRefs);
 
   return (
-    <div className={`${styles.wrapper}`} {...props}>
+    <div className={`${styles.wrapper} ${props.variants}`}>
       <div className={`${styles.container}`}>
         <div className={`${styles.content}`}>
           <Label variant={LABEL.xSmallBoldUppercase} className={`${styles.subtitle}`}>
@@ -27,7 +29,12 @@ export const ActionSection: React.FC<OwnProps> = (props) => {
           ></RenderTitleHighlight>
         </div>
         <div className={`${styles.buttonContainer}`}>
-          <Button className={`${styles.button}`} type="primaryDefault" size="medium" variant="text">
+          <Button
+            className={`${styles.button}`}
+            type={props.variants === 'Default' ? 'primaryDefault' : 'primaryReversed'}
+            size="medium"
+            variant="text"
+          >
             Soumettre mon CV
           </Button>
         </div>

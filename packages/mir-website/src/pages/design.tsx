@@ -12,6 +12,7 @@ import { InfoTile } from '../components/info-section/info-tile';
 import { InfoSectionType6 } from '../components/info-section/info-section-type-6';
 import { InfoSectionType1Group } from '../components/info-section/info-section-type-1-group';
 import { InfoSectionType6Group } from '../components/info-section/info-section-type-6-group';
+import { ActionSection } from '../components/info-section/action-section';
 
 const DesignPage: React.FC<PageProps> = (props) => {
   return (
@@ -72,6 +73,7 @@ export const Design: React.FC = () => {
       <InfoSkills>test</InfoSkills>
 
       <InfoSectionType6Group></InfoSectionType6Group>
+      <ActionSection variants="Default"></ActionSection>
     </>
   );
 };
