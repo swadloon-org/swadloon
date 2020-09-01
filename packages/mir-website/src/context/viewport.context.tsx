@@ -1,6 +1,6 @@
 import React from 'react';
 
-declare var window: Window;
+declare var window: Window | undefined;
 
 export type ViewportContext = {
   width?: number;
@@ -12,22 +12,24 @@ type ViewportProviderProps = {
 };
 
 export const ViewportProvider: React.FC<ViewportProviderProps> = ({ children, context }) => {
-  const [width, setWidth] = React.useState<ViewportContext['width']>(window ? window.innerWidth : 320);
-  const [height, setHeight] = React.useState<ViewportContext['height']>(window ? window.innerHeight : 600);
+  const windowGlobal = typeof window !== 'undefined' && window;
+
+  const [width, setWidth] = React.useState<ViewportContext['width']>(windowGlobal ? windowGlobal.innerWidth : 320);
+  const [height, setHeight] = React.useState<ViewportContext['height']>(windowGlobal ? windowGlobal.innerHeight : 600);
 
   function handleWindowResize() {
-    setWidth(window ? window.innerWidth : 320);
-    setHeight(window ? window.innerHeight : 600);
+    setWidth(windowGlobal ? windowGlobal.innerWidth : 320);
+    setHeight(windowGlobal ? windowGlobal.innerHeight : 600);
   }
 
   // TODO throttle this
   React.useEffect(() => {
-    if (window) {
-      window.addEventListener('resize', handleWindowResize);
+    if (windowGlobal) {
+      windowGlobal.addEventListener('resize', handleWindowResize);
     }
     return () => {
-      if (window) {
-        window.removeEventListener('resize', handleWindowResize);
+      if (windowGlobal) {
+        windowGlobal.removeEventListener('resize', handleWindowResize);
       }
     };
   }, []);
