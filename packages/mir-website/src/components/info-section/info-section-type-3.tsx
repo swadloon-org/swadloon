@@ -30,7 +30,11 @@ export const InfoSectionType3: React.FC<OwnProps> = (props) => {
         />
       ) : null}
 
-      <div className={styleRefs.content}>
+      <div
+        className={`${styleRefs.content} ${
+          props.align === 'AlignContentLeft' ? styleRefs.alignContentLeft : styleRefs.alignContentRight
+        }  `}
+      >
         {hasTabs ? (
           <div className={styleRefs.tabsWrapper}>
             {props?.childs.map((infoSecTab, index) => {

@@ -34,7 +34,11 @@ export const InfoSectionType2: React.FC<OwnProps> = (props) => {
         />
       ) : null}
 
-      <div className={stylesRef.content}>
+      <div
+        className={`${stylesRef.content} ${
+          props.align === 'AlignContentLeft' ? stylesRef.alignContentLeft : stylesRef.alignContentRight
+        }  `}
+      >
         <RenderTitleHighlight className={stylesRef.title} title={props.title} titleHighlight={props.titleHighlight} />
 
         <Paragraph variant={'medium'} className={stylesRef.text}>

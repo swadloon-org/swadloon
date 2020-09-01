@@ -21,7 +21,23 @@ export const content = style((theme: DesignSystem) => ({
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'stretch',
-      margin: 'auto 0 auto auto',
+      // margin: 'auto 0 auto auto',
+    },
+  },
+}));
+
+export const alignContentRight = style((theme: DesignSystem) => ({
+  '@media': {
+    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+      marginLeft: `var(${theme.sizing.sizeCSSVarNames.X6})`,
+    },
+  },
+}));
+
+export const alignContentLeft = style((theme: DesignSystem) => ({
+  '@media': {
+    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+      marginRight: `var(${theme.sizing.sizeCSSVarNames.X6})`,
     },
   },
 }));

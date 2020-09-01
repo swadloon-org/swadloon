@@ -22,9 +22,24 @@ export const content = style((theme: DesignSystem) => ({
       display: 'flex',
       flexDirection: 'column',
       aligntems: 'stretch',
-      // margin: 'auto auto auto 0',
-      marginRight: `var(${theme.sizing.sizeCSSVarNames.X6})`,
+      // marginRight: `var(${theme.sizing.sizeCSSVarNames.X6})`,
       marginBottom: 'auto',
+    },
+  },
+}));
+
+export const alignContentRight = style((theme: DesignSystem) => ({
+  '@media': {
+    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+      marginLeft: `var(${theme.sizing.sizeCSSVarNames.X6})`,
+    },
+  },
+}));
+
+export const alignContentLeft = style((theme: DesignSystem) => ({
+  '@media': {
+    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+      marginRight: `var(${theme.sizing.sizeCSSVarNames.X6})`,
     },
   },
 }));

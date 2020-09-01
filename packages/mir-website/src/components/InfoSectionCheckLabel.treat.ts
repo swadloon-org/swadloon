@@ -11,6 +11,7 @@ export const wrapper = style((theme: DesignSystem) => ({
 
 export const label = style((theme: DesignSystem) => ({
   alignItems: 'left',
+  marginTop: '6px',
 }));
 
 export const iconCheck = style((theme: DesignSystem) => ({
