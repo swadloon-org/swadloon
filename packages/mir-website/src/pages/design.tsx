@@ -9,6 +9,9 @@ import { light } from '../themes/mir-theme.treat';
 import { Root, PageProps } from './index';
 import { InfoSectionCheckLabel } from '../components/InfoSectionCheckLabel';
 import { InfoTile } from '../components/info-section/info-tile';
+import { InfoSectionType6 } from '../components/info-section/info-section-type-6';
+import { InfoSectionType1Group } from '../components/info-section/info-section-type-1-group';
+import { InfoSectionType6Group } from '../components/info-section/info-section-type-6-group';
 const DesignPage: React.FC<PageProps> = (props) => {
   return (
     <Root>
@@ -64,17 +67,10 @@ export const Design: React.FC = () => {
         <Icon size={ICON_SIZE.medium} icon={'ArrowRight'} />
         <Icon size={ICON_SIZE.small} icon={'ArrowRight'} />
       </div>
-      <InfoSectionCheckLabel icon="Check" size="large">
-        Test
-      </InfoSectionCheckLabel>
+
       <InfoSkills>test</InfoSkills>
 
-      <InfoTile
-        variant="borderWhite"
-        title="Diversite"
-        icon="Factory"
-        text="Un large bassin de candidats qualifiés qui respectent vos critères de choix"
-      ></InfoTile>
+      <InfoSectionType6Group></InfoSectionType6Group>
     </>
   );
 };
