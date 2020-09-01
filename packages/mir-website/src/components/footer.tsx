@@ -46,7 +46,10 @@ export const Footer: React.FC<OwnProps> = (props) => {
     <footer className={styles.wrapper}>
       <div className={styles.gridwrapper}>
         <div className={styles.contact}>
-          <Label className={styles.title} variant={LABEL.smallBoldUppercase}>
+          <Label
+            className={styles.title}
+            variant={viewport === VIEWPORT.MOBILE ? LABEL.smallBoldUppercase : LABEL.xSmallBoldUppercase}
+          >
             Contactez-nous
           </Label>
           <Paragraph className={styles.infoText} variant={viewport === VIEWPORT.MOBILE ? 'medium' : 'small'}>
@@ -78,7 +81,10 @@ export const Footer: React.FC<OwnProps> = (props) => {
         </div>
 
         <div className={styles.location}>
-          <Label className={styles.title} variant={LABEL.smallBoldUppercase}>
+          <Label
+            className={styles.title}
+            variant={viewport === VIEWPORT.MOBILE ? LABEL.smallBoldUppercase : LABEL.xSmallBoldUppercase}
+          >
             Visitez-nous
           </Label>
           <Paragraph className={styles.infoText} variant={viewport === VIEWPORT.MOBILE ? 'medium' : 'small'}>

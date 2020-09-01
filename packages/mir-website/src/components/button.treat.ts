@@ -16,6 +16,7 @@ export const base = style((theme: DesignSystem) => ({
   userSelect: 'none',
   touchAction: 'manipulation',
   cursor: 'pointer',
+  outline: `none`,
 }));
 
 globalStyle(`${base} *`, {
