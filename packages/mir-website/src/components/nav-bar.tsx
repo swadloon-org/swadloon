@@ -2,6 +2,7 @@ import React, { AllHTMLAttributes, RefAttributes } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import * as stylesRef from './nav-bar.treat';
 import { useStyles } from 'react-treat';
+import { Link as GatsbyLink } from 'gatsby';
 
 import { TopBarQuery } from '../../types/graphql-types';
 import Icon from '../illustrations/Icon/Bars.svg';
@@ -36,11 +37,13 @@ export const NavBar: React.FC<OwnProps> = (props) => {
         </div>
 
         <div className={styles.desktopLeftToolbar}>
+          <Link to="/">Accueil</Link>
           <Link to="/candidates">Candidats</Link>
           <Link to="/employer">Employeurs</Link>
-          <Link to="/employer">Employeurs</Link>
+          <Link to="/blog">Nouvelles</Link>
+          <Link to="/about">À propos</Link>
 
-          <Button type="tertiaryReversed" variant="text" size="small">
+          {/* <Button type="tertiaryReversed" variant="text" size="small">
             Candidats
           </Button>
           <Button type="tertiaryReversed" variant="text" size="small">
@@ -51,7 +54,7 @@ export const NavBar: React.FC<OwnProps> = (props) => {
           </Button>
           <Button type="tertiaryReversed" variant="text" size="small">
             À propos
-          </Button>
+          </Button> */}
         </div>
 
         <img className={styles.logo} src={data.gcms.companyMedias[0].logo.url} />
@@ -72,9 +75,12 @@ export const NavBar: React.FC<OwnProps> = (props) => {
           <Button type="tertiaryReversed" variant="text" size="small">
             EN
           </Button>
-          <Button type="secondaryReversed" variant="text" size="small">
-            Nous joindre
-          </Button>
+
+          <GatsbyLink to="/contact">
+            <Button type="secondaryReversed" variant="text" size="small">
+              Nous joindre
+            </Button>
+          </GatsbyLink>
         </div>
       </div>
     </div>

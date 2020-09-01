@@ -86,7 +86,8 @@ export const mobileRightToolbar = style((theme: DesignSystem) => ({
 export const desktopLeftToolbar = style((theme: DesignSystem) => ({
   display: 'none',
   justifySelf: 'start',
-  marginLeft: `-var(${theme.sizing.sizeCSSVarNames.X2})`,
+  alignItems: 'center',
+  height: '100%',
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
       display: 'flex',
@@ -95,7 +96,7 @@ export const desktopLeftToolbar = style((theme: DesignSystem) => ({
 }));
 
 globalStyle(`${desktopLeftToolbar} > *`, (theme: DesignSystem) => ({
-  marginRight: `var(${theme.sizing.sizeCSSVarNames.X2})`,
+  marginRight: `var(${theme.sizing.sizeCSSVarNames.X4})`,
 }));
 
 export const desktopRightToolbar = style((theme: DesignSystem) => ({
@@ -109,7 +110,7 @@ export const desktopRightToolbar = style((theme: DesignSystem) => ({
 }));
 
 globalStyle(`${desktopRightToolbar} > *`, (theme: DesignSystem) => ({
-  marginLeft: `var(${theme.sizing.sizeCSSVarNames.X3})`,
+  marginLeft: `var(${theme.sizing.sizeCSSVarNames.X4})`,
 }));
 
 export const desktopSocialButtons = style((theme: DesignSystem) => ({

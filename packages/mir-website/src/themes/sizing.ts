@@ -57,11 +57,11 @@ export const sizingStepDesktop = {
     baseFontSize: BASE_FONT_SIZE,
   }),
   [SIZING.X1]: createSizingStep({
-    value: 12,
+    value: 10,
     baseFontSize: BASE_FONT_SIZE,
   }),
   [SIZING.X2]: createSizingStep({
-    value: 16,
+    value: 13,
     baseFontSize: BASE_FONT_SIZE,
   }),
   [SIZING.X3]: createSizingStep({
