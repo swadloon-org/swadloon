@@ -18,6 +18,7 @@ import { light } from '../themes/mir-theme.treat';
 import { useViewportValues, viewportContext, useViewportBreakpoint } from '../hooks/use-viewport.hook';
 import { ViewportProvider } from '../context/viewport.context';
 import { VIEWPORT } from 'core-design-system';
+import { InfoSectionType5 } from '../components/info-section/info-section-type-5';
 
 export const query = graphql`
   query indexPage {
@@ -107,7 +108,8 @@ const Index: React.FC<PageProps> = ({ data, location }) => {
             return <InfoSectionType1Group key={index} {...section} />;
           }
           case 'type2': {
-            return <InfoSectionType2 key={index} align="AlignContentLeft" {...section} />;
+            // return <InfoSectionType2 key={index} align="AlignContentLeft" {...section} />;
+            return <InfoSectionType5 key={index} align="AlignContentLeft" {...section} />;
           }
           case 'type3': {
             return <InfoSectionType3 key={index} align="AlignContentRight" {...section} />;

@@ -7,6 +7,7 @@ import { InfoSkills } from '../components/info-section/info-skills';
 import { Paragraph } from '../components/paragraph';
 import { light } from '../themes/mir-theme.treat';
 import { Root, PageProps } from './index';
+import { InfoSectionCheckLabel } from '../components/InfoSectionCheckLabel';
 
 const DesignPage: React.FC<PageProps> = (props) => {
   return (
@@ -49,7 +50,9 @@ export const Design: React.FC = () => {
           est laborum.
         </Paragraph>
       </div>
-
+      <InfoSectionCheckLabel icon="Check" size="large">
+        Test
+      </InfoSectionCheckLabel>
       <InfoSkills>test</InfoSkills>
     </>
   );
