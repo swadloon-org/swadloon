@@ -1,8 +1,8 @@
 import { DesignSystem } from 'core-design-system';
-import { globalStyle, style } from 'treat';
+import { style } from 'treat';
 
 export const wrapper = style((theme: DesignSystem) => ({
-  padding: `var(${theme.sizing.sizeCSSVarNames.X1}) var(${theme.sizing.sizeCSSVarNames.X2})`,
+  padding: `var(${theme.sizing.sizeCSSVarNames.X2}) var(${theme.sizing.sizeCSSVarNames.X2})`,
   ':focus': {
     outline: 'none',
   },

@@ -19,7 +19,7 @@ export function applyStylesToHtmlElement(themeClass: string) {
     WebkitTextSizeAdjust: '100%',
 
     fontSize: theme.sizing.baseFontSizePx,
-    backgroundColor: theme.colorIntents.background0,
+    backgroundColor: theme.colors.greyscale1000,
 
     ...getGlobalSizeVariables(theme),
   }));
@@ -30,6 +30,7 @@ export function applyStylesToBodyElement(themeClass: string) {
     display: 'flex',
     justifyContent: 'center',
     maxWidth: '100vw',
+    minHeight: '100vh',
     overflow: 'hidden',
     /**
      * Remove the margin in all browsers.

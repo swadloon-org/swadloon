@@ -14,7 +14,7 @@ import { Newsletter } from '../components/newsletter/newsletter';
 import { ViewportProvider } from '../context/viewport.context';
 import { useViewportBreakpoint, useViewportValues, viewportContext } from '../hooks/use-viewport.hook';
 import '../styles/font-faces.styles.css';
-import * as stylesRef from '../styles/index.treat';
+import * as stylesRef from '../styles/page.treat';
 import { light } from '../themes/mir-theme.treat';
 
 export const query = graphql`
