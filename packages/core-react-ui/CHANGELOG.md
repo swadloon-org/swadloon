@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/newrade/newrade/compare/core-react-ui@1.2.0...core-react-ui@1.3.0) (2020-09-02)
+
+### Bug Fixes
+
+- **mir-website:** fix obscure bug with treat, remove double usage of useStyle() ([59b043a](https://github.com/newrade/newrade/commit/59b043a8163318a32ea28c5b280d446ab7d291ab))
+- **repo:** add missing prebuild commands ([aeebd40](https://github.com/newrade/newrade/commit/aeebd4009243fbbd1ce1473a31dcb26299b41121))
+
+### Features
+
+- **core-design-system:** add letter spacing to the typography api ([0115e79](https://github.com/newrade/newrade/commit/0115e79761e9ef54e27cfd61cc03ff67950ab706))
+
 # [1.2.0](https://github.com/newrade/newrade/compare/core-react-ui@1.1.0...core-react-ui@1.2.0) (2020-08-24)
 
 ### Bug Fixes

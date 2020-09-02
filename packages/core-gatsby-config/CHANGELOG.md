@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/newrade/newrade/compare/core-gatsby-config@1.2.0...core-gatsby-config@1.2.1) (2020-09-02)
+
+### Bug Fixes
+
+- **mir-website:** fix obscure bug with treat, remove double usage of useStyle() ([59b043a](https://github.com/newrade/newrade/commit/59b043a8163318a32ea28c5b280d446ab7d291ab))
+- **repo:** add missing prebuild commands ([aeebd40](https://github.com/newrade/newrade/commit/aeebd4009243fbbd1ce1473a31dcb26299b41121))
+
 # 1.2.0 (2020-08-24)
 
 ### Bug Fixes

@@ -3,6 +3,52 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/mir-website@1.1.1...mir-website@1.2.0) (2020-09-02)
+
+### Bug Fixes
+
+- **blog page:** wrong name in the query of gcms ([94f3db4](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/94f3db47faf080146cec4882ba0e5465ab578fce))
+- **info type3:** fix of the calc css error ([1df1792](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/1df1792379f5d2e6469b9a6bea30ec778438d2d6))
+- **info-skills & info-type-2:** fix of the margin in type 2 and refactor in the info-skills ([14a5ab2](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/14a5ab2251d4c31a740b28d36d1b29bd124b6263))
+- **mir-website:** add icon component ([222a468](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/222a468ff5169e532704912a4b9147e387ed989b))
+- **mir-website:** adjustment for iconography ([aace167](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/aace16740a08a907817195962ad4e38112529a40))
+- **mir-website:** cont implementation ([1536097](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/15360977ffa58a684d48a88ad8266bfa43f01f75))
+- **mir-website:** finis homepage ([167226e](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/167226e4ae1849d27b84bfb4a15137b3668a4fbd))
+- **mir-website:** fix for footer ([2efd7ed](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/2efd7ed43f9950f92cc4f4e0c50cb0cd2933003c))
+- **mir-website:** fix for info section 1 group ([74fd313](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/74fd313e4c72627c28f444077036d18ccd14af70))
+- **mir-website:** fix icons and bug in viewport context ([0aba750](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/0aba750829fa9a621365eff0178d97bf1ea90554))
+- **mir-website:** fix illustration square (remove svg shadow) ([eaf2629](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/eaf2629725e53ce5bc4a72253d21dba6aa37b8ca))
+- **mir-website:** fix obscure bug with treat, remove double usage of useStyle() ([59b043a](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/59b043a8163318a32ea28c5b280d446ab7d291ab))
+- **mir-website:** fix page styles ([4c1754b](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/4c1754b85d8a42b54e3cc68acfca482c1f25d522))
+- **mir-website:** fix small css ([c3f4b87](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/c3f4b87f29d942ae7712d052b1268b46d9c801ea))
+- **mir-website:** fix window bug ([3b7c14a](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/3b7c14a0b2d132a5b08e1266a3bd2274727ef8f8))
+- **mir-website:** fix window declaration ([05e595c](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/05e595cc9daae049aa01e3ab1217292009472aae))
+- **mir-website:** fixes for footer ([f0a63dc](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/f0a63dc2180d56791aa97266c0316e040e8e612a))
+- **mir-website:** fixes for new pages ([33011c1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/33011c11a80a0b6297231b3ed40b52a8eee8ba1c))
+- **mir-website:** padding fixes ([3ad99e6](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/3ad99e6392e31770054d76dd99e6f88ae87f9375))
+- **mir-website:** refactor headings, paragraphs and labels ([4a290e6](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/4a290e689894a639944d99528c6b691204bd0708))
+- **mir-website:** refactor queries ([3c59d80](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/3c59d808cc35f5231b8827a15e8754a42ddb316a))
+- **mir-website:** remove all scss files ([81b4285](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/81b4285076d5511a71fca145bb50f5f32220577d))
+- **mir-website:** typographic adjustments ([703931a](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/703931a43ea666915233ca5a7fec8d2494e48e3e))
+- **mir-website:** various fixes ([c1fac6e](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/c1fac6eafb562c4d31ae051c969dec4985061d05))
+- **nav-bar:** padding undefined ([811add1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/811add14ce8bbbd4cb379b395e71cfd214f0b6b7))
+- **repo:** add missing prebuild commands ([aeebd40](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/aeebd4009243fbbd1ce1473a31dcb26299b41121))
+
+### Features
+
+- **accordions and tags:** adding the beginning of the accordions with the tags ([3aebb79](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/3aebb7975c6b42a3cd7ab7a4e6afe10ec1803ef2))
+- **action section:** adding the view resonsive ([b0985ad](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/b0985ad8f953e041a480eea27fb3c7479e853d42))
+- **core-design-system:** add letter spacing to the typography api ([0115e79](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/0115e79761e9ef54e27cfd61cc03ff67950ab706))
+- **info-section type 7:** adding the group of info-tile called info-section-type-7 ([0647ccb](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/0647ccb58709e4fb14bd45670486450113afd3cd))
+- **info-tile:** adding a new variant to the info-tile named borderWhite ([abda128](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/abda128fff6f9a0562bfe1e797846f04bda14b42))
+- **mir-website:** add new icons and illustrations ([3152337](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/31523379391311df108d29e89c66e43e2712aa19))
+- **mir-website:** add useViewportBreakpoint and useViewportValues hooks ([8bd70b8](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/8bd70b826ef8dfba8c1f714654832cd4d32e6786))
+- **mir-website:** adding links ([f1ccc5a](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/f1ccc5a69518fba37ebeb1a48dbabb516deb38bc))
+- **mir-website:** adding new images and tweaks ([1d07b95](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/1d07b95d2f75ad870927bb2279983211cd18f55b))
+- **mir-website:** fix for banners ([74dcd0c](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/74dcd0c8ed42f44b9974b280da6cec11764e4d0d))
+- **mir-website:** working on candidate page ([aef5d92](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/aef5d920ad77241c968bc948e8fbd96a572b9102))
+- **new page blog:** adding treat and the basic component to the page blog ([5ecf33a](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/5ecf33aa859a1fc8a2b5f38372ff5fb1a84fbe21))
+
 ## [1.1.1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/mir-website@1.1.0...mir-website@1.1.1) (2020-08-24)
 
 ### Bug Fixes

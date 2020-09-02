@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/newrade-website@1.1.0...newrade-website@1.1.1) (2020-09-02)
+
+### Bug Fixes
+
+- **mir-website:** add icon component ([222a468](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/222a468ff5169e532704912a4b9147e387ed989b))
+
 # 1.1.0 (2020-08-24)
 
 ### Bug Fixes
