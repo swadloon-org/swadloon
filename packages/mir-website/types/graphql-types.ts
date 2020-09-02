@@ -4158,6 +4158,7 @@ export type GraphCms_BlogPost = GraphCms_Node & {
   /** The time the document was published. Null on documents in draft stage. */
   publishedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
   title?: Maybe<Scalars['String']>;
+  subTitle?: Maybe<Scalars['String']>;
   image?: Maybe<GraphCms_Asset>;
   content?: Maybe<Scalars['String']>;
   blogSection?: Maybe<GraphCms_BlogSection>;
@@ -4221,6 +4222,8 @@ export type GraphCms_BlogPostCreateInput = {
   updatedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
   /** title input for default locale (fr) */
   title?: Maybe<Scalars['String']>;
+  /** subTitle input for default locale (fr) */
+  subTitle?: Maybe<Scalars['String']>;
   image?: Maybe<GraphCms_AssetCreateOneInlineInput>;
   /** content input for default locale (fr) */
   content?: Maybe<Scalars['String']>;
@@ -4233,6 +4236,7 @@ export type GraphCms_BlogPostCreateLocalizationDataInput = {
   createdAt?: Maybe<Scalars['GraphCMS_DateTime']>;
   updatedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
   title?: Maybe<Scalars['String']>;
+  subTitle?: Maybe<Scalars['String']>;
   content?: Maybe<Scalars['String']>;
 };
 
@@ -4358,12 +4362,16 @@ export type GraphCms_BlogPostOrderByInput =
   | 'publishedAt_DESC'
   | 'title_ASC'
   | 'title_DESC'
+  | 'subTitle_ASC'
+  | 'subTitle_DESC'
   | 'content_ASC'
   | 'content_DESC';
 
 export type GraphCms_BlogPostUpdateInput = {
   /** title input for default locale (fr) */
   title?: Maybe<Scalars['String']>;
+  /** subTitle input for default locale (fr) */
+  subTitle?: Maybe<Scalars['String']>;
   image?: Maybe<GraphCms_AssetUpdateOneInlineInput>;
   /** content input for default locale (fr) */
   content?: Maybe<Scalars['String']>;
@@ -4374,6 +4382,7 @@ export type GraphCms_BlogPostUpdateInput = {
 
 export type GraphCms_BlogPostUpdateLocalizationDataInput = {
   title?: Maybe<Scalars['String']>;
+  subTitle?: Maybe<Scalars['String']>;
   content?: Maybe<Scalars['String']>;
 };
 
@@ -4412,6 +4421,8 @@ export type GraphCms_BlogPostUpdateManyInlineInput = {
 export type GraphCms_BlogPostUpdateManyInput = {
   /** title input for default locale (fr) */
   title?: Maybe<Scalars['String']>;
+  /** subTitle input for default locale (fr) */
+  subTitle?: Maybe<Scalars['String']>;
   /** content input for default locale (fr) */
   content?: Maybe<Scalars['String']>;
   /** Optional updates to localizations */
@@ -4420,6 +4431,7 @@ export type GraphCms_BlogPostUpdateManyInput = {
 
 export type GraphCms_BlogPostUpdateManyLocalizationDataInput = {
   title?: Maybe<Scalars['String']>;
+  subTitle?: Maybe<Scalars['String']>;
   content?: Maybe<Scalars['String']>;
 };
 
@@ -4575,6 +4587,25 @@ export type GraphCms_BlogPostWhereInput = {
   title_ends_with?: Maybe<Scalars['String']>;
   /** All values not ending with the given string */
   title_not_ends_with?: Maybe<Scalars['String']>;
+  subTitle?: Maybe<Scalars['String']>;
+  /** All values that are not equal to given value. */
+  subTitle_not?: Maybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  subTitle_in?: Maybe<Array<Scalars['String']>>;
+  /** All values that are not contained in given list. */
+  subTitle_not_in?: Maybe<Array<Scalars['String']>>;
+  /** All values containing the given string. */
+  subTitle_contains?: Maybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  subTitle_not_contains?: Maybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  subTitle_starts_with?: Maybe<Scalars['String']>;
+  /** All values not starting with the given string. */
+  subTitle_not_starts_with?: Maybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  subTitle_ends_with?: Maybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  subTitle_not_ends_with?: Maybe<Scalars['String']>;
   image?: Maybe<GraphCms_AssetWhereInput>;
   content?: Maybe<Scalars['String']>;
   /** All values that are not equal to given value. */
@@ -4621,9 +4652,11 @@ export type GraphCms_BlogSection = GraphCms_Node & {
   /** The time the document was published. Null on documents in draft stage. */
   publishedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
   title?: Maybe<Scalars['String']>;
+  titleHighlight?: Maybe<Scalars['String']>;
   text?: Maybe<Scalars['String']>;
   actionLabel?: Maybe<Scalars['String']>;
   posts: Array<GraphCms_BlogPost>;
+  indexPage: Array<GraphCms_IndexPage>;
   /** List of BlogSection versions */
   history: Array<GraphCms_Version>;
 };
@@ -4668,6 +4701,17 @@ export type GraphCms_BlogSectionPostsArgs = {
 };
 
 
+export type GraphCms_BlogSectionIndexPageArgs = {
+  where?: Maybe<GraphCms_IndexPageWhereInput>;
+  orderBy?: Maybe<GraphCms_IndexPageOrderByInput>;
+  skip?: Maybe<Scalars['Int']>;
+  after?: Maybe<Scalars['String']>;
+  before?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+};
+
+
 export type GraphCms_BlogSectionHistoryArgs = {
   limit?: Scalars['Int'];
   skip?: Scalars['Int'];
@@ -4695,11 +4739,14 @@ export type GraphCms_BlogSectionCreateInput = {
   updatedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
   /** title input for default locale (fr) */
   title?: Maybe<Scalars['String']>;
+  /** titleHighlight input for default locale (fr) */
+  titleHighlight?: Maybe<Scalars['String']>;
   /** text input for default locale (fr) */
   text?: Maybe<Scalars['String']>;
   /** actionLabel input for default locale (fr) */
   actionLabel?: Maybe<Scalars['String']>;
   posts?: Maybe<GraphCms_BlogPostCreateManyInlineInput>;
+  indexPage?: Maybe<GraphCms_IndexPageCreateManyInlineInput>;
   /** Inline mutations for managing document localizations excluding the default locale */
   localizations?: Maybe<GraphCms_BlogSectionCreateLocalizationsInput>;
 };
@@ -4708,6 +4755,7 @@ export type GraphCms_BlogSectionCreateLocalizationDataInput = {
   createdAt?: Maybe<Scalars['GraphCMS_DateTime']>;
   updatedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
   title?: Maybe<Scalars['String']>;
+  titleHighlight?: Maybe<Scalars['String']>;
   text?: Maybe<Scalars['String']>;
   actionLabel?: Maybe<Scalars['String']>;
 };
@@ -4822,6 +4870,9 @@ export type GraphCms_BlogSectionManyWhereInput = {
   posts_every?: Maybe<GraphCms_BlogPostWhereInput>;
   posts_some?: Maybe<GraphCms_BlogPostWhereInput>;
   posts_none?: Maybe<GraphCms_BlogPostWhereInput>;
+  indexPage_every?: Maybe<GraphCms_IndexPageWhereInput>;
+  indexPage_some?: Maybe<GraphCms_IndexPageWhereInput>;
+  indexPage_none?: Maybe<GraphCms_IndexPageWhereInput>;
 };
 
 export type GraphCms_BlogSectionOrderByInput = 
@@ -4835,6 +4886,8 @@ export type GraphCms_BlogSectionOrderByInput =
   | 'publishedAt_DESC'
   | 'title_ASC'
   | 'title_DESC'
+  | 'titleHighlight_ASC'
+  | 'titleHighlight_DESC'
   | 'text_ASC'
   | 'text_DESC'
   | 'actionLabel_ASC'
@@ -4843,17 +4896,21 @@ export type GraphCms_BlogSectionOrderByInput =
 export type GraphCms_BlogSectionUpdateInput = {
   /** title input for default locale (fr) */
   title?: Maybe<Scalars['String']>;
+  /** titleHighlight input for default locale (fr) */
+  titleHighlight?: Maybe<Scalars['String']>;
   /** text input for default locale (fr) */
   text?: Maybe<Scalars['String']>;
   /** actionLabel input for default locale (fr) */
   actionLabel?: Maybe<Scalars['String']>;
   posts?: Maybe<GraphCms_BlogPostUpdateManyInlineInput>;
+  indexPage?: Maybe<GraphCms_IndexPageUpdateManyInlineInput>;
   /** Manage document localizations */
   localizations?: Maybe<GraphCms_BlogSectionUpdateLocalizationsInput>;
 };
 
 export type GraphCms_BlogSectionUpdateLocalizationDataInput = {
   title?: Maybe<Scalars['String']>;
+  titleHighlight?: Maybe<Scalars['String']>;
   text?: Maybe<Scalars['String']>;
   actionLabel?: Maybe<Scalars['String']>;
 };
@@ -4893,6 +4950,8 @@ export type GraphCms_BlogSectionUpdateManyInlineInput = {
 export type GraphCms_BlogSectionUpdateManyInput = {
   /** title input for default locale (fr) */
   title?: Maybe<Scalars['String']>;
+  /** titleHighlight input for default locale (fr) */
+  titleHighlight?: Maybe<Scalars['String']>;
   /** text input for default locale (fr) */
   text?: Maybe<Scalars['String']>;
   /** actionLabel input for default locale (fr) */
@@ -4903,6 +4962,7 @@ export type GraphCms_BlogSectionUpdateManyInput = {
 
 export type GraphCms_BlogSectionUpdateManyLocalizationDataInput = {
   title?: Maybe<Scalars['String']>;
+  titleHighlight?: Maybe<Scalars['String']>;
   text?: Maybe<Scalars['String']>;
   actionLabel?: Maybe<Scalars['String']>;
 };
@@ -5059,6 +5119,25 @@ export type GraphCms_BlogSectionWhereInput = {
   title_ends_with?: Maybe<Scalars['String']>;
   /** All values not ending with the given string */
   title_not_ends_with?: Maybe<Scalars['String']>;
+  titleHighlight?: Maybe<Scalars['String']>;
+  /** All values that are not equal to given value. */
+  titleHighlight_not?: Maybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  titleHighlight_in?: Maybe<Array<Scalars['String']>>;
+  /** All values that are not contained in given list. */
+  titleHighlight_not_in?: Maybe<Array<Scalars['String']>>;
+  /** All values containing the given string. */
+  titleHighlight_contains?: Maybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  titleHighlight_not_contains?: Maybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  titleHighlight_starts_with?: Maybe<Scalars['String']>;
+  /** All values not starting with the given string. */
+  titleHighlight_not_starts_with?: Maybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  titleHighlight_ends_with?: Maybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  titleHighlight_not_ends_with?: Maybe<Scalars['String']>;
   text?: Maybe<Scalars['String']>;
   /** All values that are not equal to given value. */
   text_not?: Maybe<Scalars['String']>;
@@ -5100,6 +5179,9 @@ export type GraphCms_BlogSectionWhereInput = {
   posts_every?: Maybe<GraphCms_BlogPostWhereInput>;
   posts_some?: Maybe<GraphCms_BlogPostWhereInput>;
   posts_none?: Maybe<GraphCms_BlogPostWhereInput>;
+  indexPage_every?: Maybe<GraphCms_IndexPageWhereInput>;
+  indexPage_some?: Maybe<GraphCms_IndexPageWhereInput>;
+  indexPage_none?: Maybe<GraphCms_IndexPageWhereInput>;
 };
 
 /** References BlogSection record uniquely */
@@ -8099,6 +8181,7 @@ export type GraphCms_IndexPage = GraphCms_Node & {
   bannerSubTitle?: Maybe<Scalars['String']>;
   bannerImage: Array<GraphCms_Asset>;
   infoSections: Array<GraphCms_InfoSection>;
+  blogSection?: Maybe<GraphCms_BlogSection>;
   /** List of IndexPage versions */
   history: Array<GraphCms_Version>;
 };
@@ -8185,6 +8268,7 @@ export type GraphCms_IndexPageCreateInput = {
   bannerSubTitle?: Maybe<Scalars['String']>;
   bannerImage?: Maybe<GraphCms_AssetCreateManyInlineInput>;
   infoSections?: Maybe<GraphCms_InfoSectionCreateManyInlineInput>;
+  blogSection?: Maybe<GraphCms_BlogSectionCreateOneInlineInput>;
   /** Inline mutations for managing document localizations excluding the default locale */
   localizations?: Maybe<GraphCms_IndexPageCreateLocalizationsInput>;
 };
@@ -8309,6 +8393,7 @@ export type GraphCms_IndexPageManyWhereInput = {
   infoSections_every?: Maybe<GraphCms_InfoSectionWhereInput>;
   infoSections_some?: Maybe<GraphCms_InfoSectionWhereInput>;
   infoSections_none?: Maybe<GraphCms_InfoSectionWhereInput>;
+  blogSection?: Maybe<GraphCms_BlogSectionWhereInput>;
 };
 
 export type GraphCms_IndexPageOrderByInput = 
@@ -8332,6 +8417,7 @@ export type GraphCms_IndexPageUpdateInput = {
   bannerSubTitle?: Maybe<Scalars['String']>;
   bannerImage?: Maybe<GraphCms_AssetUpdateManyInlineInput>;
   infoSections?: Maybe<GraphCms_InfoSectionUpdateManyInlineInput>;
+  blogSection?: Maybe<GraphCms_BlogSectionUpdateOneInlineInput>;
   /** Manage document localizations */
   localizations?: Maybe<GraphCms_IndexPageUpdateLocalizationsInput>;
 };
@@ -8564,6 +8650,7 @@ export type GraphCms_IndexPageWhereInput = {
   infoSections_every?: Maybe<GraphCms_InfoSectionWhereInput>;
   infoSections_some?: Maybe<GraphCms_InfoSectionWhereInput>;
   infoSections_none?: Maybe<GraphCms_InfoSectionWhereInput>;
+  blogSection?: Maybe<GraphCms_BlogSectionWhereInput>;
 };
 
 /** References IndexPage record uniquely */
@@ -8589,17 +8676,18 @@ export type GraphCms_InfoSection = GraphCms_Node & {
   /** The time the document was published. Null on documents in draft stage. */
   publishedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
   image?: Maybe<GraphCms_Asset>;
+  imagePosition?: Maybe<GraphCms_InfoSectionImagePosition>;
   title?: Maybe<Scalars['String']>;
   titleHighlight?: Maybe<Scalars['String']>;
   text?: Maybe<Scalars['String']>;
   actionText?: Maybe<Scalars['String']>;
   type?: Maybe<GraphCms_InfoSectionType>;
   infoTiles: Array<GraphCms_InfoTile>;
+  titleTab?: Maybe<Scalars['String']>;
   showTabs?: Maybe<Scalars['Boolean']>;
   childs: Array<GraphCms_InfoSection>;
   infoSection: Array<GraphCms_InfoSection>;
   pageIndex: Array<GraphCms_IndexPage>;
-  titleTab?: Maybe<Scalars['String']>;
   pageEmployer: Array<GraphCms_EmployerPage>;
   contactUsPage: Array<GraphCms_ContactUsPage>;
   aboutPage: Array<GraphCms_AboutPage>;
@@ -8751,6 +8839,7 @@ export type GraphCms_InfoSectionCreateInput = {
   createdAt?: Maybe<Scalars['GraphCMS_DateTime']>;
   updatedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
   image?: Maybe<GraphCms_AssetCreateOneInlineInput>;
+  imagePosition?: Maybe<GraphCms_InfoSectionImagePosition>;
   /** title input for default locale (fr) */
   title?: Maybe<Scalars['String']>;
   /** titleHighlight input for default locale (fr) */
@@ -8762,12 +8851,12 @@ export type GraphCms_InfoSectionCreateInput = {
   /** type input for default locale (fr) */
   type?: Maybe<GraphCms_InfoSectionType>;
   infoTiles?: Maybe<GraphCms_InfoTileCreateManyInlineInput>;
+  /** titleTab input for default locale (fr) */
+  titleTab?: Maybe<Scalars['String']>;
   showTabs?: Maybe<Scalars['Boolean']>;
   childs?: Maybe<GraphCms_InfoSectionCreateManyInlineInput>;
   infoSection?: Maybe<GraphCms_InfoSectionCreateManyInlineInput>;
   pageIndex?: Maybe<GraphCms_IndexPageCreateManyInlineInput>;
-  /** titleTab input for default locale (fr) */
-  titleTab?: Maybe<Scalars['String']>;
   pageEmployer?: Maybe<GraphCms_EmployerPageCreateManyInlineInput>;
   contactUsPage?: Maybe<GraphCms_ContactUsPageCreateManyInlineInput>;
   aboutPage?: Maybe<GraphCms_AboutPageCreateManyInlineInput>;
@@ -8819,6 +8908,10 @@ export type GraphCms_InfoSectionEdge = {
   /** A cursor for use in pagination. */
   cursor: Scalars['String'];
 };
+
+export type GraphCms_InfoSectionImagePosition = 
+  | 'imageLeft'
+  | 'imageRight';
 
 /** Identifies documents */
 export type GraphCms_InfoSectionManyWhereInput = {
@@ -8895,6 +8988,13 @@ export type GraphCms_InfoSectionManyWhereInput = {
   /** All values greater than or equal the given value. */
   publishedAt_gte?: Maybe<Scalars['GraphCMS_DateTime']>;
   image?: Maybe<GraphCms_AssetWhereInput>;
+  imagePosition?: Maybe<GraphCms_InfoSectionImagePosition>;
+  /** All values that are not equal to given value. */
+  imagePosition_not?: Maybe<GraphCms_InfoSectionImagePosition>;
+  /** All values that are contained in given list. */
+  imagePosition_in?: Maybe<Array<GraphCms_InfoSectionImagePosition>>;
+  /** All values that are not contained in given list. */
+  imagePosition_not_in?: Maybe<Array<GraphCms_InfoSectionImagePosition>>;
   infoTiles_every?: Maybe<GraphCms_InfoTileWhereInput>;
   infoTiles_some?: Maybe<GraphCms_InfoTileWhereInput>;
   infoTiles_none?: Maybe<GraphCms_InfoTileWhereInput>;
@@ -8933,6 +9033,8 @@ export type GraphCms_InfoSectionOrderByInput =
   | 'updatedAt_DESC'
   | 'publishedAt_ASC'
   | 'publishedAt_DESC'
+  | 'imagePosition_ASC'
+  | 'imagePosition_DESC'
   | 'title_ASC'
   | 'title_DESC'
   | 'titleHighlight_ASC'
@@ -8943,10 +9045,10 @@ export type GraphCms_InfoSectionOrderByInput =
   | 'actionText_DESC'
   | 'type_ASC'
   | 'type_DESC'
-  | 'showTabs_ASC'
-  | 'showTabs_DESC'
   | 'titleTab_ASC'
-  | 'titleTab_DESC';
+  | 'titleTab_DESC'
+  | 'showTabs_ASC'
+  | 'showTabs_DESC';
 
 export type GraphCms_InfoSectionType = 
   | 'default'
@@ -8966,6 +9068,7 @@ export type GraphCms_InfoSectionType =
 
 export type GraphCms_InfoSectionUpdateInput = {
   image?: Maybe<GraphCms_AssetUpdateOneInlineInput>;
+  imagePosition?: Maybe<GraphCms_InfoSectionImagePosition>;
   /** title input for default locale (fr) */
   title?: Maybe<Scalars['String']>;
   /** titleHighlight input for default locale (fr) */
@@ -8977,12 +9080,12 @@ export type GraphCms_InfoSectionUpdateInput = {
   /** type input for default locale (fr) */
   type?: Maybe<GraphCms_InfoSectionType>;
   infoTiles?: Maybe<GraphCms_InfoTileUpdateManyInlineInput>;
+  /** titleTab input for default locale (fr) */
+  titleTab?: Maybe<Scalars['String']>;
   showTabs?: Maybe<Scalars['Boolean']>;
   childs?: Maybe<GraphCms_InfoSectionUpdateManyInlineInput>;
   infoSection?: Maybe<GraphCms_InfoSectionUpdateManyInlineInput>;
   pageIndex?: Maybe<GraphCms_IndexPageUpdateManyInlineInput>;
-  /** titleTab input for default locale (fr) */
-  titleTab?: Maybe<Scalars['String']>;
   pageEmployer?: Maybe<GraphCms_EmployerPageUpdateManyInlineInput>;
   contactUsPage?: Maybe<GraphCms_ContactUsPageUpdateManyInlineInput>;
   aboutPage?: Maybe<GraphCms_AboutPageUpdateManyInlineInput>;
@@ -9033,6 +9136,7 @@ export type GraphCms_InfoSectionUpdateManyInlineInput = {
 };
 
 export type GraphCms_InfoSectionUpdateManyInput = {
+  imagePosition?: Maybe<GraphCms_InfoSectionImagePosition>;
   /** title input for default locale (fr) */
   title?: Maybe<Scalars['String']>;
   /** titleHighlight input for default locale (fr) */
@@ -9043,9 +9147,9 @@ export type GraphCms_InfoSectionUpdateManyInput = {
   actionText?: Maybe<Scalars['String']>;
   /** type input for default locale (fr) */
   type?: Maybe<GraphCms_InfoSectionType>;
-  showTabs?: Maybe<Scalars['Boolean']>;
   /** titleTab input for default locale (fr) */
   titleTab?: Maybe<Scalars['String']>;
+  showTabs?: Maybe<Scalars['Boolean']>;
   /** Optional updates to localizations */
   localizations?: Maybe<GraphCms_InfoSectionUpdateManyLocalizationsInput>;
 };
@@ -9193,6 +9297,13 @@ export type GraphCms_InfoSectionWhereInput = {
   /** All values greater than or equal the given value. */
   publishedAt_gte?: Maybe<Scalars['GraphCMS_DateTime']>;
   image?: Maybe<GraphCms_AssetWhereInput>;
+  imagePosition?: Maybe<GraphCms_InfoSectionImagePosition>;
+  /** All values that are not equal to given value. */
+  imagePosition_not?: Maybe<GraphCms_InfoSectionImagePosition>;
+  /** All values that are contained in given list. */
+  imagePosition_in?: Maybe<Array<GraphCms_InfoSectionImagePosition>>;
+  /** All values that are not contained in given list. */
+  imagePosition_not_in?: Maybe<Array<GraphCms_InfoSectionImagePosition>>;
   title?: Maybe<Scalars['String']>;
   /** All values that are not equal to given value. */
   title_not?: Maybe<Scalars['String']>;
@@ -9279,18 +9390,6 @@ export type GraphCms_InfoSectionWhereInput = {
   infoTiles_every?: Maybe<GraphCms_InfoTileWhereInput>;
   infoTiles_some?: Maybe<GraphCms_InfoTileWhereInput>;
   infoTiles_none?: Maybe<GraphCms_InfoTileWhereInput>;
-  showTabs?: Maybe<Scalars['Boolean']>;
-  /** All values that are not equal to given value. */
-  showTabs_not?: Maybe<Scalars['Boolean']>;
-  childs_every?: Maybe<GraphCms_InfoSectionWhereInput>;
-  childs_some?: Maybe<GraphCms_InfoSectionWhereInput>;
-  childs_none?: Maybe<GraphCms_InfoSectionWhereInput>;
-  infoSection_every?: Maybe<GraphCms_InfoSectionWhereInput>;
-  infoSection_some?: Maybe<GraphCms_InfoSectionWhereInput>;
-  infoSection_none?: Maybe<GraphCms_InfoSectionWhereInput>;
-  pageIndex_every?: Maybe<GraphCms_IndexPageWhereInput>;
-  pageIndex_some?: Maybe<GraphCms_IndexPageWhereInput>;
-  pageIndex_none?: Maybe<GraphCms_IndexPageWhereInput>;
   titleTab?: Maybe<Scalars['String']>;
   /** All values that are not equal to given value. */
   titleTab_not?: Maybe<Scalars['String']>;
@@ -9310,6 +9409,18 @@ export type GraphCms_InfoSectionWhereInput = {
   titleTab_ends_with?: Maybe<Scalars['String']>;
   /** All values not ending with the given string */
   titleTab_not_ends_with?: Maybe<Scalars['String']>;
+  showTabs?: Maybe<Scalars['Boolean']>;
+  /** All values that are not equal to given value. */
+  showTabs_not?: Maybe<Scalars['Boolean']>;
+  childs_every?: Maybe<GraphCms_InfoSectionWhereInput>;
+  childs_some?: Maybe<GraphCms_InfoSectionWhereInput>;
+  childs_none?: Maybe<GraphCms_InfoSectionWhereInput>;
+  infoSection_every?: Maybe<GraphCms_InfoSectionWhereInput>;
+  infoSection_some?: Maybe<GraphCms_InfoSectionWhereInput>;
+  infoSection_none?: Maybe<GraphCms_InfoSectionWhereInput>;
+  pageIndex_every?: Maybe<GraphCms_IndexPageWhereInput>;
+  pageIndex_some?: Maybe<GraphCms_IndexPageWhereInput>;
+  pageIndex_none?: Maybe<GraphCms_IndexPageWhereInput>;
   pageEmployer_every?: Maybe<GraphCms_EmployerPageWhereInput>;
   pageEmployer_some?: Maybe<GraphCms_EmployerPageWhereInput>;
   pageEmployer_none?: Maybe<GraphCms_EmployerPageWhereInput>;
@@ -16457,7 +16568,10 @@ export type EmployerPageQuery = { bannerImage?: Maybe<(
 export type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type IndexPageQuery = { bannerImage?: Maybe<(
+export type IndexPageQuery = { bannerImageMobile?: Maybe<(
+    Pick<File, 'id'>
+    & { childImageSharp?: Maybe<{ fluid?: Maybe<Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>> }> }
+  )>, bannerImageDesktop?: Maybe<(
     Pick<File, 'id'>
     & { childImageSharp?: Maybe<{ fluid?: Maybe<Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>> }> }
   )>, gcms: { indexPages: Array<(
@@ -16465,5 +16579,11 @@ export type IndexPageQuery = { bannerImage?: Maybe<(
       & { infoSections: Array<(
         Pick<GraphCms_InfoSection, 'title' | 'titleHighlight' | 'titleTab' | 'type' | 'text' | 'showTabs' | 'actionText'>
         & { infoTiles: Array<Pick<GraphCms_InfoTile, 'illustration' | 'title' | 'text'>>, childs: Array<Pick<GraphCms_InfoSection, 'showTabs' | 'title' | 'titleHighlight' | 'titleTab' | 'type' | 'text' | 'actionText'>>, image?: Maybe<Pick<GraphCms_Asset, 'url'>> }
+      )>, blogSection?: Maybe<(
+        Pick<GraphCms_BlogSection, 'id' | 'title' | 'titleHighlight' | 'text' | 'actionLabel'>
+        & { posts: Array<(
+          Pick<GraphCms_BlogPost, 'id' | 'createdAt' | 'title'>
+          & { image?: Maybe<Pick<GraphCms_Asset, 'url'>> }
+        )> }
       )> }
     )> } };

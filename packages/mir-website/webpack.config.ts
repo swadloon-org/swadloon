@@ -31,7 +31,8 @@ export function createGatsbyWebpackConfig({
     }),
   ];
 
-  const productionPlugins = [bundleVisualizerPlugin];
+  // const productionPlugins = [bundleVisualizerPlugin];
+  const productionPlugins = [];
 
   const sassRule = {
     test: /\.s(a|c)ss$/,

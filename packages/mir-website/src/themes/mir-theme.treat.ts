@@ -6,7 +6,7 @@ import { sizing } from './sizing';
 import { typography } from './typography';
 import { iconography } from './iconography';
 
-const theme: DesignSystem = {
+export const theme: DesignSystem = {
   name: 'mir',
   variation: 'light',
   colors,

@@ -2,16 +2,15 @@ import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './blog-preview-tile-image.treat';
 import { BlogPreviewTile } from './blog-preview-tile';
-// import styles from './blog-preview-tile-image.module.scss';
 
 type OwnProps = {
-  imageUrl?: string;
-  subtitle: string;
-  title: string;
-  actionLabel: string;
+  imageUrl?: string | null;
+  subtitle?: string | null;
+  title?: string | null;
+  actionLabel?: string | null;
 };
 
-export const BlogPreviewTileImage: React.FC<HTMLAttributes<any> & OwnProps> = (props) => {
+export const BlogPreviewTileImage: React.FC<OwnProps> = (props) => {
   const styles = useStyles(styleRefs);
 
   return (

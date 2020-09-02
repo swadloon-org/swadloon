@@ -15,15 +15,30 @@ import { ViewportProvider } from '../context/viewport.context';
 import { viewportContext } from '../hooks/use-viewport.hook';
 import '../styles/font-faces.styles.css';
 import * as stylesRef from '../styles/page.treat';
-import { light } from '../themes/mir-theme.treat';
+import { light, theme } from '../themes/mir-theme.treat';
 
 export const query = graphql`
   query indexPage {
-    bannerImage: file(name: { eq: "ImageOffice05" }) {
+    bannerImageMobile: file(name: { eq: "ImageOffice05" }) {
       id
       childImageSharp {
         # https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-transformer-sharp/src/fragments.js
-        fluid(quality: 90, maxWidth: 1920) {
+        fluid(quality: 80, maxWidth: 1920) {
+          base64
+          aspectRatio
+          src
+          srcSet
+          srcWebp
+          srcSetWebp
+          sizes
+        }
+      }
+    }
+    bannerImageDesktop: file(name: { eq: "ImageOffice05" }) {
+      id
+      childImageSharp {
+        # https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-transformer-sharp/src/fragments.js
+        fluid(quality: 80, maxWidth: 1920) {
           base64
           aspectRatio
           src
@@ -64,6 +79,21 @@ export const query = graphql`
             url(transformation: { image: { resize: { width: 900, fit: max } } })
           }
         }
+        blogSection {
+          id
+          title
+          titleHighlight
+          text
+          actionLabel
+          posts {
+            id
+            createdAt
+            title
+            image {
+              url(transformation: { image: { resize: { width: 300, fit: max } } })
+            }
+          }
+        }
       }
     }
   }
@@ -93,12 +123,20 @@ const IndexPage: React.FC<PageProps> = (props) => {
 const Index: React.FC<PageProps> = ({ data, location }) => {
   const styles = useStyles(stylesRef);
 
+  const sources = [
+    data?.bannerImageMobile?.childImageSharp?.fluid,
+    {
+      ...data?.bannerImageDesktop?.childImageSharp?.fluid,
+      media: `(min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`,
+    },
+  ];
+
   return (
     <div className={`${styles.wrapper}`}>
       <NavBar></NavBar>
 
       <BannerPrimary
-        imageData={data.bannerImage?.childImageSharp?.fluid}
+        imageData={sources}
         title={data?.gcms?.indexPages[0]?.bannerTitle}
         subTitle={data?.gcms?.indexPages[0]?.bannerSubTitle}
       ></BannerPrimary>
@@ -125,9 +163,9 @@ const Index: React.FC<PageProps> = ({ data, location }) => {
       })}
 
       <BlogPreviewSection
-        imageUrl={data.bannerImage?.childImageSharp?.fluid?.src}
-        paragraphContent="Lorem ipsum dolor sit amet, consectetur adipiscing elit Nulla chronocrator accumsan, metus ultrices eleifend gravi."
-        headingContent="Les dernières nouvelles"
+        posts={data?.gcms?.indexPages[0]?.blogSection?.posts}
+        text={data?.gcms?.indexPages[0]?.blogSection?.text}
+        title={data?.gcms?.indexPages[0]?.blogSection?.title}
       ></BlogPreviewSection>
 
       <Newsletter id="newsletter"></Newsletter>

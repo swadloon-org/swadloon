@@ -65,9 +65,9 @@ export const Design: React.FC = () => {
         <Label variant={LABEL.xSmallBold}>Label</Label>
         <Label variant={LABEL.xSmallRegular}>Label</Label>
 
-        <Icon size={ICON_SIZE.large} icon={'ArrowRight'} />
-        <Icon size={ICON_SIZE.medium} icon={'ArrowRight'} />
-        <Icon size={ICON_SIZE.small} icon={'ArrowRight'} />
+        <Icon size={ICON_SIZE.large} icon={'IconArrowRight'} />
+        <Icon size={ICON_SIZE.medium} icon={'IconArrowRight'} />
+        <Icon size={ICON_SIZE.small} icon={'IconArrowRight'} />
       </div>
 
       <InfoSkills>test</InfoSkills>

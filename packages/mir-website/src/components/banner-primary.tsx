@@ -11,10 +11,7 @@ import { Label } from './label';
 interface OwnProps {
   title?: string | null;
   subTitle?: string | null;
-  imageData?:
-    | Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>
-    | null
-    | undefined;
+  imageData?: any;
 }
 
 export const BannerPrimary: React.FC<OwnProps> = ({ title, subTitle, imageData }) => {

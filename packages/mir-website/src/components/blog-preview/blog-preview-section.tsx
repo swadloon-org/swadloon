@@ -1,59 +1,52 @@
-import React, { HTMLAttributes } from 'react';
+import React from 'react';
 import { useStyles } from 'react-treat';
-import * as styleRefs from './blog-preview-section.treat';
-
-import { BlogPreviewTile } from './blog-preview-tile';
-import { BlogPreviewTileImage } from './/blog-preview-tile-image';
-import { Heading } from '../heading';
-import { Paragraph } from '../paragraph';
 import { Button } from '../button';
 import { RenderTitleHighlight } from '../info-section/info-title-highligh';
+import { Paragraph } from '../paragraph';
+import { BlogPreviewTileImage } from './/blog-preview-tile-image';
+import * as styleRefs from './blog-preview-section.treat';
+import { GraphCms_BlogPost, GraphCms_Asset } from '../../../types/graphql-types';
 
 type OwnProps = {
-  imageUrl?: string;
-  paragraphContent: string;
-  headingContent: string;
+  posts:
+    | (Pick<GraphCms_BlogPost, 'id' | 'title' | 'createdAt'> & {
+        image?: Pick<GraphCms_Asset, 'url'> | null | undefined;
+      })[]
+    | undefined;
+  text?: string | null;
+  title?: string | null;
 };
 
-export const BlogPreviewSection: React.FC<HTMLAttributes<any> & OwnProps> = (props) => {
+export const BlogPreviewSection: React.FC<OwnProps> = (props) => {
   const styles = useStyles(styleRefs);
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
-        <RenderTitleHighlight title={props.headingContent} titleHighlight={'nouvelles'} className={styles.title} />
+        <RenderTitleHighlight title={props.title} titleHighlight={'nouvelles'} className={styles.title} />
 
         {/* <Heading variant="h3" className={styles.title}>
           {props.headingContent}
         </RenderTitleHighlight> */}
 
         <Paragraph variant="medium" className={styles.paragraph}>
-          {props.paragraphContent}
+          {props.text}
         </Paragraph>
 
         <div className={styles.content}>
-          <BlogPreviewTileImage
-            imageUrl={props.imageUrl}
-            title="Conseils pour faire passer vos employés vers le travail à distance"
-            subtitle="4 JUILLET 2020"
-            actionLabel="Lire l’article"
-            // className={styles.item}
-          ></BlogPreviewTileImage>
-
-          <BlogPreviewTileImage
-            imageUrl={props.imageUrl}
-            title="Conseils pour faire passer vos employés vers le travail à distance"
-            subtitle="4 JUILLET 2020"
-            actionLabel="Lire l’article"
-            // className={styles.item}
-          ></BlogPreviewTileImage>
-
-          <BlogPreviewTileImage
-            imageUrl={props.imageUrl}
-            title="Conseils pour faire passer vos employés vers le travail à distance"
-            subtitle="4 JUILLET 2020"
-            actionLabel="Lire l’article"
-          ></BlogPreviewTileImage>
+          {props.posts
+            ? props.posts.map((post) => {
+                return (
+                  <BlogPreviewTileImage
+                    key={post.id}
+                    imageUrl={post.image?.url}
+                    title={post.title}
+                    actionLabel="Lire l’article"
+                    // className={styles.item}
+                  ></BlogPreviewTileImage>
+                );
+              })
+            : null}
         </div>
 
         <Button
