@@ -16,17 +16,27 @@ export const type4 = style((theme: DesignSystem) => ({
 }));
 
 export const infoTilesWrapper = style((theme: DesignSystem) => ({
-  display: 'grid',
-  gridRowGap: `var(${theme.sizing.sizeCSSVarNames.X4})`,
-  gridColumnGap: `var(${theme.sizing.sizeCSSVarNames.X5})`,
-  gridTemplateColumns: '1fr',
-  gridTemplateRows: 'auto',
-
+  display: 'flex',
+  flexDirection: 'column',
   marginBottom: `var(${theme.sizing.sizeCSSVarNames.X6})`,
 
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
-      gridTemplateColumns: '1fr 1fr 1fr',
+      flexDirection: 'row',
+    },
+  },
+}));
+
+export const infoTile = style((theme: DesignSystem) => ({
+  marginRight: 0,
+  marginBottom: `var(${theme.sizing.sizeCSSVarNames.X4})`,
+  '@media': {
+    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+      marginRight: `var(${theme.sizing.sizeCSSVarNames.X4})`,
+      marginBottom: 0,
+      ':last-child': {
+        marginRight: 0,
+      },
     },
   },
 }));

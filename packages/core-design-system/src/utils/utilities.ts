@@ -7,26 +7,26 @@ import { SizingStep } from '../foundations/sizing';
 /**
  * Create a DesignSystem object with sensible defaults.
  */
-export function createDesignSystem({
-  name,
-  variation,
-  colors,
-  colorIntents,
-  sizing,
-  typography,
-  layout,
-}: Partial<DesignSystem> &
-  Pick<DesignSystem, 'name' | 'variation' | 'colors' | 'sizing' | 'typography' | 'layout'>): DesignSystem {
-  return {
-    name,
-    variation,
-    colors,
-    colorIntents: colorIntents ? colorIntents : createDefaultColorIntents(colors),
-    sizing,
-    typography,
-    layout,
-  };
-}
+// export function createDesignSystem({
+//   name,
+//   variation,
+//   colors,
+//   colorIntents,
+//   sizing,
+//   typography,
+//   layout,
+// }: Partial<DesignSystem> &
+//   Pick<DesignSystem, 'name' | 'variation' | 'colors' | 'sizing' | 'typography' | 'layout'>): DesignSystem {
+//   return {
+//     name,
+//     variation,
+//     colors,
+//     colorIntents: colorIntents ? colorIntents : createDefaultColorIntents(colors),
+//     sizing,
+//     typography,
+//     layout,
+//   };
+// }
 
 /**
  * Create default color intents.

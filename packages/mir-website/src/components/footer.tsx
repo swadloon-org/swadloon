@@ -102,7 +102,7 @@ export const Footer: React.FC<OwnProps> = (props) => {
           </Paragraph>
         </div>
         <div className={styles.firm}>
-          <Logo type="framed-text" variant="reversed" src={`${data.gcms.companyMedias[0].logoFooter.url}`}></Logo>
+          <Logo type="framed-text" variant="reversed" src={`${data?.gcms?.companyMedias[0]?.logoFooter?.url}`}></Logo>
         </div>
 
         <Paragraph className={styles.copyright} variant="small">

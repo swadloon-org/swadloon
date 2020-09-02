@@ -38,7 +38,7 @@ export interface DesignSystem {
   /**
    * TODO
    */
-  iconography?: Iconography;
+  iconography: Iconography;
   /**
    * Defines every text styles.
    */

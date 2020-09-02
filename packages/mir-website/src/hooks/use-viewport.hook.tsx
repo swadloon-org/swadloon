@@ -17,11 +17,11 @@ export function useViewportBreakpoint(): { viewport: VIEWPORT } {
   const tabletBreakpoint = DEFAULT_LAYOUT.breakpoints.TABLET_PORTRAIT.value;
   const desktopBreakpoint = DEFAULT_LAYOUT.breakpoints.DESKTOP_SMALL.value;
 
-  if (width < tabletBreakpoint) {
+  if (width !== undefined && width < tabletBreakpoint) {
     return { viewport: VIEWPORT.MOBILE };
   }
 
-  if (width < desktopBreakpoint) {
+  if (width !== undefined && width < desktopBreakpoint) {
     return { viewport: VIEWPORT.TABLET };
   }
 

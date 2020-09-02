@@ -15,7 +15,7 @@ export const InfoSectionType5: React.FC<OwnProps> = (props) => {
   const styles = useStyles(styleRefsType5);
 
   return (
-    <div className={`${styles.wrapper} ${styles.type5} ${styles[props.align]}`}>
+    <div className={`${styles.wrapper} ${styles.type5} ${props.align ? styles[props.align] : ''}`}>
       {props.image?.url ? (
         <ImageFrame variant={'bottomRight'} url={props.image?.url} className={`${styles.image}}`} />
       ) : null}

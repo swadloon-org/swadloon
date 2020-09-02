@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { useStyles } from 'react-treat';
 import { Button } from '../button';
 import { ImageFrame } from '../image-frame';
@@ -17,13 +18,17 @@ export const InfoSectionType2: React.FC<OwnProps> = (props) => {
   const styles = useStyles(styleRefsType2);
 
   return (
-    <div className={`${styles.wrapper} ${styles[props.type]} ${styles[props.align]}`}>
+    <div
+      className={`${styles.wrapper} ${props.type ? styles[props.type] : ''} ${props.align ? styles[props.align] : ''}`}
+    >
       {props.image?.url ? (
-        <ImageFrame
-          variant={'bottomRight'}
-          url={props.image?.url}
-          className={`${styles.image} ${hasTabs ? styles.imageTabs : ''}`}
-        />
+        <motion.div animate={{ x: 100 }}>
+          <ImageFrame
+            variant={'bottomRight'}
+            url={props.image?.url}
+            className={`${styles.image} ${hasTabs ? styles.imageTabs : ''}`}
+          />
+        </motion.div>
       ) : null}
 
       <div

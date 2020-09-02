@@ -1,15 +1,11 @@
+import { LABEL } from 'core-design-system';
 import React, { ButtonHTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
-
+import CornerBottomRight from '../illustrations/Illustration/IllustrationCornerBottomRight.svg';
+import CornerTopLeft from '../illustrations/Illustration/IllustrationCornerTopLeft.svg';
 import * as styleRefs from './button.treat';
-
-import { Label } from './label';
-
-import CornerTopLeft from '../illustrations/Illustration/CornerTopLeft.svg';
-
-import CornerBottomRight from '../illustrations/Illustration/CornerBottomRight.svg';
 import { Illustration } from './illustration';
-import { LABEL } from 'core-design-system';
+import { Label } from './label';
 
 type OwnProps = {
   type:

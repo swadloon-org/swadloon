@@ -1,14 +1,10 @@
 import React, { useState } from 'react';
 import { useStyles } from 'react-treat';
-import * as styleRefs from './info-skills.treat';
-
-import { Tags } from '../tags';
 import { Accordions } from '../accordions';
-
-import { Heading } from '../heading';
+import { Tags } from '../tags';
 import { SectionModelQuery } from './info-section';
+import * as styleRefs from './info-skills.treat';
 import { RenderTitleHighlight } from './info-title-highligh';
-// import styles from './info-section.module.scss';
 
 type OwnProps = Partial<SectionModelQuery>;
 

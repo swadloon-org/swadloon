@@ -4,7 +4,7 @@ export type SectionModelQuery = Pick<
   GraphCms_InfoSection,
   'title' | 'titleHighlight' | 'titleTab' | 'type' | 'text' | 'showTabs' | 'actionText'
 > & {
-  infoTiles: Array<Pick<GraphCms_InfoTile, 'icon' | 'title' | 'text'>>;
+  infoTiles: Array<Pick<GraphCms_InfoTile, 'illustration' | 'title' | 'text'>>;
   childs: Array<
     Pick<GraphCms_InfoSection, 'showTabs' | 'title' | 'titleHighlight' | 'titleTab' | 'type' | 'text' | 'actionText'>
   >;

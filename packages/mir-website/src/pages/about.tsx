@@ -20,33 +20,12 @@ import { Root } from '.';
 export const query = graphql`
   query aboutPage {
     gcms {
-      pageIndices(first: 1) {
-        id
-        employeeEmployerSections {
-          title
-          titleHighlight
-          titleTab
-          type
-          text
-          showTabs
-          actionText
-          infoTiles {
-            icon
-            title
-            text
-          }
-          childs {
-            showTabs
-            title
-            titleHighlight
-            titleTab
-            type
-            text
-            actionText
-          }
-          image {
-            url
-          }
+      companyMedias {
+        logoFooter {
+          url
+        }
+        logo {
+          url
         }
       }
     }
@@ -75,13 +54,13 @@ const About: React.FC<IndexPageProps> = ({ data, location }) => {
 
       <Banner variant="secondary"></Banner>
 
-      {data.gcms.pageIndices[0].employeeEmployerSections.map((section, index) => {
+      {/* {data.gcms.pageIndices[0].employeeEmployerSections.map((section, index) => {
         switch (section.type) {
           default: {
             return null;
           }
         }
-      })}
+      })} */}
 
       <Newsletter id="newsletter"></Newsletter>
 

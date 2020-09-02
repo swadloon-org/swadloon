@@ -13,10 +13,10 @@ export const InfoSectionType7: React.FC<OwnProps> = (props) => {
 
   return (
     <div className={styles.wrapper}>
-      <InfoTile variant="borderWhite" title="Salut" icon="Factory" text="Lorem Ipsum ect blablba"></InfoTile>
-      <InfoTile variant="borderWhite" title="Salut" icon="Factory" text="Lorem Ipsum ect blablba"></InfoTile>
-      <InfoTile variant="borderWhite" title="Salut" icon="Factory" text="Lorem Ipsum ect blablba"></InfoTile>
-      <InfoTile variant="borderWhite" title="Salut" icon="Factory" text="Lorem Ipsum ect blablba"></InfoTile>
+      <InfoTile variant="borderWhite" title="Salut" illustration="Factory" text="Lorem Ipsum ect blablba"></InfoTile>
+      <InfoTile variant="borderWhite" title="Salut" illustration="Factory" text="Lorem Ipsum ect blablba"></InfoTile>
+      <InfoTile variant="borderWhite" title="Salut" illustration="Factory" text="Lorem Ipsum ect blablba"></InfoTile>
+      <InfoTile variant="borderWhite" title="Salut" illustration="Factory" text="Lorem Ipsum ect blablba"></InfoTile>
     </div>
   );
 };

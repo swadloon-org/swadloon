@@ -12,33 +12,12 @@ import { light } from '../themes/mir-theme.treat';
 export const query = graphql`
   query candidatePage {
     gcms {
-      pageIndices(first: 1) {
-        id
-        employeeEmployerSections {
-          title
-          titleHighlight
-          titleTab
-          type
-          text
-          showTabs
-          actionText
-          infoTiles {
-            icon
-            title
-            text
-          }
-          childs {
-            showTabs
-            title
-            titleHighlight
-            titleTab
-            type
-            text
-            actionText
-          }
-          image {
-            url
-          }
+      companyMedias {
+        logoFooter {
+          url
+        }
+        logo {
+          url
         }
       }
     }
@@ -66,14 +45,6 @@ const Candidate: React.FC<IndexPageProps> = ({ data, location }) => {
       <NavBar></NavBar>
 
       <Banner variant="secondary"></Banner>
-
-      {data.gcms.pageIndices[0].employeeEmployerSections.map((section, index) => {
-        switch (section.type) {
-          default: {
-            return null;
-          }
-        }
-      })}
 
       <Newsletter id="newsletter"></Newsletter>
 

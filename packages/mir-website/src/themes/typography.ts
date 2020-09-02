@@ -12,6 +12,14 @@ import {
 import { fonts } from './fonts';
 import { sizing, BASE_FONT_SIZE } from './sizing';
 
+if (!fonts.SANS) {
+  throw new Error('Missing font SANS');
+}
+
+if (!fonts.SANS_ALTERNATE) {
+  throw new Error('Missing font SANS');
+}
+
 const mobileHeadings: Headings = {
   [HEADING_LEVEL.h1]: createTextStyle({
     baseFontSize: BASE_FONT_SIZE,

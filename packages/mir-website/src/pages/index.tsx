@@ -28,38 +28,38 @@ export const query = graphql`
           url
         }
       }
-      assets(where: { fileName: "Office1.jpg" }) {
-        url
-      }
-      pageIndices(first: 1) {
-        id
-        employeeEmployerSections {
-          title
-          titleHighlight
-          titleTab
-          type
-          text
-          showTabs
-          actionText
-          infoTiles {
-            icon
-            title
-            text
-          }
-          childs {
-            showTabs
-            title
-            titleHighlight
-            titleTab
-            type
-            text
-            actionText
-          }
-          image {
-            url
-          }
-        }
-      }
+      # assets(where: { fileName: "Office1.jpg" }) {
+      #   url
+      # }
+      # pageIndices(first: 1) {
+      #   id
+      #   employeeEmployerSections {
+      #     title
+      #     titleHighlight
+      #     titleTab
+      #     type
+      #     text
+      #     showTabs
+      #     actionText
+      #     infoTiles {
+      #       icon
+      #       title
+      #       text
+      #     }
+      #     childs {
+      #       showTabs
+      #       title
+      #       titleHighlight
+      #       titleTab
+      #       type
+      #       text
+      #       actionText
+      #     }
+      #     image {
+      #       url
+      #     }
+      #   }
+      # }
     }
   }
 `;
@@ -96,7 +96,7 @@ const Index: React.FC<PageProps> = ({ data, location }) => {
 
       <Banner variant="primary"></Banner>
 
-      {data.gcms.pageIndices[0].employeeEmployerSections.map((section, index) => {
+      {/* {data.gcms.pageIndices[0].employeeEmployerSections.map((section, index) => {
         switch (section.type) {
           case 'type1group': {
             return <InfoSectionType1Group key={index} {...section} />;
@@ -125,7 +125,7 @@ const Index: React.FC<PageProps> = ({ data, location }) => {
 
       <Newsletter id="newsletter"></Newsletter>
 
-      <Footer></Footer>
+      <Footer></Footer> */}
     </div>
   );
 };

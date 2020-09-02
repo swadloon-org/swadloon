@@ -27,7 +27,7 @@ export const Illustration: React.FC<OwnProps & SVGAttributes<any>> = ({ name, he
   }, [name]);
 
   if (!loading && ImportedIconRef.current) {
-    const { current: ImportedIcon } = ImportedIconRef;
+    const { current: ImportedIcon } = ImportedIconRef as any;
     return <ImportedIcon {...props} width={width} height={height} />;
   }
 

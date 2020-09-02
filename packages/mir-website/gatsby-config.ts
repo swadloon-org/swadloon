@@ -37,7 +37,7 @@ const config: Gatsby.GatsbyConfig = {
         background_color: `#f7f0eb`,
         theme_color: `#a2466c`,
         display: `standalone`,
-        icon: `src/illustrations/Logo/Square/Default.png`,
+        icon: `src/illustrations/Logo/LogoFavicon.png`,
       },
     },
   ],

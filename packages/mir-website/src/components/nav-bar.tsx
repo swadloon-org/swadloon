@@ -5,7 +5,7 @@ import { useStyles } from 'react-treat';
 import { Link as GatsbyLink } from 'gatsby';
 
 import { TopBarQuery } from '../../types/graphql-types';
-import Icon from '../illustrations/Icon/Bars.svg';
+import Icon from '../illustrations/Icon/IconBars.svg';
 import { Label } from './label';
 import { Button } from './button';
 import { LABEL } from 'core-design-system';
@@ -57,7 +57,7 @@ export const NavBar: React.FC<OwnProps> = (props) => {
           </Button> */}
         </div>
 
-        <img className={styles.logo} src={data.gcms.companyMedias[0].logo.url} />
+        <img className={styles.logo} src={data?.gcms?.companyMedias[0]?.logo?.url} />
 
         <div className={styles.mobileRightToolbar}>
           <Label variant={LABEL.smallBoldUppercase} className={styles.language}>
@@ -67,9 +67,9 @@ export const NavBar: React.FC<OwnProps> = (props) => {
 
         <div className={styles.desktopRightToolbar}>
           <div className={styles.desktopSocialButtons}>
-            <Button type="tertiaryReversed" variant="icon" icon="Facebook" size="small"></Button>
-            <Button type="tertiaryReversed" variant="icon" icon="Instagram" size="small"></Button>
-            <Button type="tertiaryReversed" variant="icon" icon="Linkedin" size="small"></Button>
+            <Button type="tertiaryReversed" variant="icon" icon="IconFacebook" size="small"></Button>
+            <Button type="tertiaryReversed" variant="icon" icon="IconInstagram" size="small"></Button>
+            <Button type="tertiaryReversed" variant="icon" icon="IconLinkedin" size="small"></Button>
           </div>
 
           <Button type="tertiaryReversed" variant="text" size="small">

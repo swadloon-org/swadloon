@@ -2,7 +2,6 @@ import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './blog-preview-section.treat';
 
-// import styles from './blog-preview-section.module.scss';
 import { BlogPreviewTile } from './blog-preview-tile';
 import { BlogPreviewTileImage } from './/blog-preview-tile-image';
 import { Heading } from '../heading';

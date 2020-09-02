@@ -1,61 +1,45 @@
+import { LABEL } from 'core-design-system';
 import React from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
 import { useStyles } from 'react-treat';
-
-import { BannerQuery } from '../../types/graphql-types';
+import BarSVG from '../illustrations/Illustration/IllustrationBar.svg';
+import * as styleRefs from './banner.treat';
 import { Heading } from './heading';
 import { Label } from './label';
-import * as styleRefs from './banner.treat';
 
-import BarSVG from '../illustrations/Illustration/Bar.svg';
-import { VIEWPORT, LABEL } from 'core-design-system';
-
-export const query = graphql`
-  query banner {
-    gcms {
-      pageIndices {
-        bannerTitle
-        bannerSubTitle
-        bannerImage {
-          url
-        }
-      }
-    }
-  }
-`;
+type BannerVariants = 'primary' | 'secondary';
 
 interface OwnProps {
-  variant: 'primary' | 'secondary';
+  title?: string;
+  subTitle?: string;
+  imageUrl?: string;
+  variant: BannerVariants;
 }
 
-export const Banner: React.FC<OwnProps> = (props) => {
-  const data = useStaticQuery<BannerQuery>(query);
+export const Banner: React.FC<OwnProps> = ({ title, subTitle, imageUrl, variant }) => {
   const styles = useStyles(styleRefs);
 
   return (
     <div className={styles.containerBox}>
       <div className={styles.bluebox}></div>
 
-      <div
-        className={styles.wrapper}
-        style={{ backgroundImage: `url(${data.gcms.pageIndices[0].bannerImage[0].url})` }}
-      >
+      <div className={styles.wrapper} style={{ backgroundImage: `url(${imageUrl})` }}>
         <div className={styles.content}>
-          {variantTopBar(props.variant)}
+          {getVariantTopBar({ variant, subTitle })}
 
           <Heading variant="h1" className={styles.title}>
-            {data.gcms.pageIndices[0].bannerTitle}
+            {title || 'Title'}
           </Heading>
 
-          {variantBottomBar(props.variant)}
+          {getVariantBottomBar({ variant })}
         </div>
       </div>
 
       <div className={styles.blackbox}></div>
     </div>
   );
-  function variantBottomBar(value: string) {
-    switch (value) {
+
+  function getVariantBottomBar({ variant }: { variant: BannerVariants }) {
+    switch (variant) {
       case 'primary': {
         return (
           <div className={styles.containerBarBottomPrimary}>
@@ -63,7 +47,8 @@ export const Banner: React.FC<OwnProps> = (props) => {
           </div>
         );
       }
-      case 'secondary': {
+      case 'secondary':
+      default: {
         return (
           <div className={styles.containerBarBottomSecondary}>
             <BarSVG viewBox={null} className={styles.bottomBarSecondary} />{' '}
@@ -73,21 +58,20 @@ export const Banner: React.FC<OwnProps> = (props) => {
     }
   }
 
-  function variantTopBar(value: string) {
-    switch (value) {
+  function getVariantTopBar({ variant, subTitle }: { variant: BannerVariants; subTitle?: string }) {
+    switch (variant) {
       case 'primary': {
         return (
           <div className={styles.containerBarTopPrimary}>
             <Label variant={LABEL.smallBoldUppercase} className={styles.subtitle}>
-              {data.gcms.pageIndices[0].bannerSubTitle}
+              {subTitle || 'SubTitle'}
             </Label>
 
             <BarSVG className={styles.topBarPrimary} />
           </div>
         );
       }
-      case 'secondary': {
-      }
+      case 'secondary':
       default: {
         return (
           <div className={styles.containerBarTopSecondary}>

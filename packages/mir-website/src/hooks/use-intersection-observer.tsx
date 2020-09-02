@@ -10,9 +10,9 @@ export function useIntersectionObserver({
   root = null,
   rootMargin,
   threshold = [0],
-}: OwnProps): [React.Dispatch<any>, IntersectionObserverEntry] {
+}: OwnProps): [React.Dispatch<any>, IntersectionObserverEntry | undefined] {
   const [entry, updateEntry] = useState<IntersectionObserverEntry | undefined>();
-  const [node, setNode] = useState(null);
+  const [node, setNode] = useState<null | Element>(null);
 
   const observer = useRef(
     new window.IntersectionObserver(([entry]) => updateEntry(entry), {

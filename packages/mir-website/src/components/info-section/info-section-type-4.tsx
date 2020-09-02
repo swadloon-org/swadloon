@@ -13,24 +13,35 @@ type OwnProps = SectionModelQuery;
 
 export const InfoSectionType4: React.FC<OwnProps> = (props) => {
   const hasInfoTiles = !!props?.infoTiles?.length;
-  const stylesRefs = useStyles(styleRefsType4);
+  const styles = useStyles(styleRefsType4);
 
   return (
-    <div className={`${stylesRefs.wrapper} ${stylesRefs[props.type]} ${hasInfoTiles ? stylesRefs.extraPadding : ''}`}>
+    <div
+      className={`${styles.wrapper} ${props.type ? styles[props.type] : ''} ${hasInfoTiles ? styles.extraPadding : ''}`}
+    >
       {props.image?.url ? (
-        <ImageFrame variant={'bottomRight'} url={props.image?.url} className={`${stylesRefs.image} `} />
+        <ImageFrame variant={'bottomRight'} url={props.image?.url} className={`${styles.image} `} />
       ) : null}
 
-      <RenderTitleHighlight className={stylesRefs.title} title={props.title} titleHighlight={props.titleHighlight} />
+      <RenderTitleHighlight className={styles.title} title={props.title} titleHighlight={props.titleHighlight} />
 
-      <Paragraph variant={'medium'} className={stylesRefs.text}>
+      <Paragraph variant={'medium'} className={styles.text}>
         {props.text}
       </Paragraph>
 
       {hasInfoTiles ? (
-        <div className={stylesRefs.infoTilesWrapper}>
+        <div className={styles.infoTilesWrapper}>
           {props.infoTiles.map((info, index) => {
-            return <InfoTile key={index} icon={info.icon} title={info.title} text={info.text} variant={props.type} />;
+            return (
+              <InfoTile
+                key={index}
+                className={styles.infoTile}
+                illustration={info.illustration?.url}
+                title={info.title}
+                text={info.text}
+                variant={props.type}
+              />
+            );
           })}
         </div>
       ) : null}
