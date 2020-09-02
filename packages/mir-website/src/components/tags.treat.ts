@@ -7,6 +7,7 @@ export const wrapper = style((theme: DesignSystem) => ({
   borderRadius: '23px',
   boxShadow: '0px 2px 10px rgba(155, 155, 155, 0.5)',
 }));
+
 export const container = style((theme: DesignSystem) => ({
   width: 'fit-content',
   position: 'relative',

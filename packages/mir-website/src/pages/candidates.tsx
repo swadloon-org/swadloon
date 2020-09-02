@@ -10,7 +10,8 @@ import * as stylesRef from '../styles/page.treat';
 import { light } from '../themes/mir-theme.treat';
 import { InfoSectionType5 } from '../components/info-section/info-section-type-5';
 import { InfoSectionType2 } from '../components/info-section/info-section-type-2';
-import { ActionSection } from '../components/info-section/action-section';
+import { ActionSection } from '../components/action-section/action-section';
+import { JobSection } from '../components/job-section/job-section';
 
 export const query = graphql`
   query candidatePage {
@@ -32,7 +33,7 @@ export const query = graphql`
     gcms {
       candidatePages(first: 1) {
         bannerTitle
-        actionSection {
+        actionSections {
           title
           subtitle
           actionText
@@ -101,7 +102,8 @@ const CandidatePage: React.FC<IndexPageProps> = (props) => {
 const Candidate: React.FC<IndexPageProps> = ({ data, location }) => {
   const styles = useStyles(stylesRef);
 
-  const actionSection = data.gcms.candidatePages[0].actionSection;
+  const actionSection1 = data.gcms.candidatePages[0].actionSections[0];
+  const actionSection2 = data.gcms.candidatePages[0].actionSections[1];
   const section1 = data.gcms?.candidatePages[0]?.infoSections[0];
   const section2 = data.gcms?.candidatePages[0]?.infoSections[1];
   const jobSection = data.gcms?.candidatePages[0]?.jobSection;
@@ -115,15 +117,15 @@ const Candidate: React.FC<IndexPageProps> = ({ data, location }) => {
         title={data?.gcms?.candidatePages[0]?.bannerTitle}
       ></BannerSecondary>
 
-      {actionSection ? <ActionSection variant={'Default'} /> : null}
+      {actionSection1 ? <ActionSection variant={'Default'} /> : null}
 
       {section1 && section1.type === 'type5' ? <InfoSectionType5 align="AlignContentLeft" {...section1} /> : null}
 
+      {jobSection ? <JobSection title={jobSection.title} variant={'candidate'} /> : null}
+
       {section2 && section2.type === 'type2' ? <InfoSectionType2 align="AlignContentRight" {...section2} /> : null}
 
-      {JSON.stringify(jobSection, null, 2)}
-
-      <Newsletter id="newsletter"></Newsletter>
+      {actionSection2 ? <ActionSection variant={'reversed'} /> : null}
 
       <Footer></Footer>
     </div>

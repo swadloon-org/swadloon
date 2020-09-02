@@ -8,6 +8,7 @@ import { Footer } from '../components/footer';
 import { NavBar } from '../components/nav-bar';
 import { Newsletter } from '../components/newsletter/newsletter';
 import * as stylesRef from '../styles/page.treat';
+import { InfoSectionType2 } from '../components/info-section/info-section-type-2';
 
 export const query = graphql`
   query aboutPage {
@@ -29,6 +30,11 @@ export const query = graphql`
     gcms {
       aboutPages(first: 1) {
         bannerTitle
+        actionSections {
+          title
+          subtitle
+          actionText
+        }
         infoSections {
           title
           titleHighlight
@@ -76,6 +82,10 @@ const AboutPage: React.FC<OwnProps> = (props) => {
 const About: React.FC<OwnProps> = ({ data, location }) => {
   const styles = useStyles(stylesRef);
 
+  const actionSection1 = data.gcms.aboutPages[0].actionSections[0];
+  const section1 = data.gcms?.aboutPages[0]?.infoSections[0];
+  const section2 = data.gcms?.aboutPages[0]?.infoSections[1];
+
   return (
     <div className={`${styles.wrapper}`}>
       <NavBar></NavBar>
@@ -85,13 +95,9 @@ const About: React.FC<OwnProps> = ({ data, location }) => {
         title={data?.gcms?.aboutPages[0]?.bannerTitle}
       ></BannerSecondary>
 
-      {/* {data.gcms.pageIndices[0].employeeEmployerSections.map((section, index) => {
-        switch (section.type) {
-          default: {
-            return null;
-          }
-        }
-      })} */}
+      {section1 && section1.type === 'type2' ? <InfoSectionType2 align="AlignContentLeft" {...section1} /> : null}
+
+      {section2 && section2.type === 'type2' ? <InfoSectionType2 align="AlignContentRight" {...section2} /> : null}
 
       <Newsletter id="newsletter"></Newsletter>
 

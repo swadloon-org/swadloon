@@ -2,7 +2,7 @@ import { ICON_SIZE, LABEL } from 'core-design-system';
 import React from 'react';
 import { Icon } from '../components-ui/icon';
 import { Heading } from '../components/heading';
-import { InfoSkills } from '../components/info-section/info-skills';
+import { JobSection } from '../components/job-section/job-section';
 import { Label } from '../components/label';
 import { Paragraph } from '../components/paragraph';
 import { light } from '../themes/mir-theme.treat';
@@ -12,7 +12,7 @@ import { InfoTile } from '../components/info-section/info-tile';
 import { InfoSectionType6 } from '../components/info-section/info-section-type-6';
 import { InfoSectionType1Group } from '../components/info-section/info-section-type-1-group';
 import { InfoSectionType6Group } from '../components/info-section/info-section-type-6-group';
-import { ActionSection } from '../components/info-section/action-section';
+import { ActionSection } from '../components/action-section/action-section';
 
 const DesignPage: React.FC<PageProps> = (props) => {
   return (
@@ -70,9 +70,6 @@ export const Design: React.FC = () => {
         <Icon size={ICON_SIZE.small} icon={'IconArrowRight'} />
       </div>
 
-      <InfoSkills>test</InfoSkills>
-
-      <InfoSectionType6Group></InfoSectionType6Group>
       <ActionSection variant="Default"></ActionSection>
     </>
   );

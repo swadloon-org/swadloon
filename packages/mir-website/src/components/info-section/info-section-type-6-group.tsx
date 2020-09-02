@@ -22,19 +22,21 @@ export const InfoSectionType6Group: React.FC<OwnProps> = (props) => {
 
       <InfoSectionType6
         type="type6Primary"
-        illustration="Factory"
+        illustration="IllustrationFactory"
         title="Placement permanent"
         text="Cette solution s’adresse aux entreprises qui recherchent des employés de talents sur une base permanente qui assureront la croissance de leur organisation."
       ></InfoSectionType6>
+
       <InfoSectionType6
         type="type6Secondary"
-        illustration="Factory"
+        illustration="IllustrationFactory"
         title="Placement permanent"
         text="Cette solution s’adresse aux entreprises qui recherchent des employés de talents sur une base permanente qui assureront la croissance de leur organisation."
       ></InfoSectionType6>
+
       <InfoSectionType6
         type="type6Tertiary"
-        illustration="Factory"
+        illustration="IllustrationFactory"
         title="Placement permanent"
         text="Cette solution s’adresse aux entreprises qui recherchent des employés de talents sur une base permanente qui assureront la croissance de leur organisation."
       ></InfoSectionType6>

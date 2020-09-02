@@ -2,25 +2,27 @@ import React, { useState } from 'react';
 import { useStyles } from 'react-treat';
 import { Accordions } from '../accordions';
 import { Tags } from '../tags';
-import { InfoSectionModelQuery } from './info-section';
-import * as styleRefs from './info-skills.treat';
-import { RenderTitleHighlight } from './info-title-highligh';
+import * as styleRefs from './job-section.treat';
+import { RenderTitleHighlight } from '../info-section/info-title-highligh';
 
-type OwnProps = Partial<InfoSectionModelQuery>;
+type OwnProps = {
+  variant: 'candidate' | 'employer';
+  title?: string | null;
+  titleHighlight?: string | null;
+};
 
-export const InfoSkills: React.FC<OwnProps> = (props) => {
+export const JobSection: React.FC<OwnProps> = (props) => {
   const styles = useStyles(styleRefs);
   const [selectedAccordionsIndex, setSelectedAccordionsIndex] = useState<number>(1);
 
   return (
     <div className={`${styles.wrapper}`}>
-      <RenderTitleHighlight title={props.title} titleHighlight={props.titleHighlight} />
+      <RenderTitleHighlight className={styles.title} title={props.title} titleHighlight={props.titleHighlight} />
 
       <div className={styles.container}>
         <div className={styles.accordions}>
           <Accordions
             variant="Default"
-            icon="PlusCircle"
             selected={1 === selectedAccordionsIndex}
             onClick={() => {
               setSelectedAccordionsIndex(1);
@@ -32,7 +34,6 @@ export const InfoSkills: React.FC<OwnProps> = (props) => {
         <div className={styles.accordions}>
           <Accordions
             variant="reversed"
-            icon="PlusCircle"
             selected={2 === selectedAccordionsIndex}
             onClick={() => {
               setSelectedAccordionsIndex(2);

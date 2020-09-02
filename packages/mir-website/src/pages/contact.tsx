@@ -8,6 +8,7 @@ import { Footer } from '../components/footer';
 import { NavBar } from '../components/nav-bar';
 import { Newsletter } from '../components/newsletter/newsletter';
 import * as stylesRef from '../styles/page.treat';
+import { InfoSectionType6Group } from '../components/info-section/info-section-type-6-group';
 
 export const query = graphql`
   query contactPage {
@@ -84,6 +85,8 @@ const Contact: React.FC<OwnProps> = ({ data, location }) => {
         imageData={data.bannerImage?.childImageSharp?.fluid}
         title={data?.gcms?.contactUsPages[0]?.bannerTitle}
       ></BannerSecondary>
+
+      <InfoSectionType6Group></InfoSectionType6Group>
 
       <Newsletter id="newsletter"></Newsletter>
 

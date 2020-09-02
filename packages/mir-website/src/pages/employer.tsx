@@ -8,6 +8,10 @@ import { Footer } from '../components/footer';
 import { NavBar } from '../components/nav-bar';
 import { Newsletter } from '../components/newsletter/newsletter';
 import * as stylesRef from '../styles/page.treat';
+import { InfoSectionType2 } from '../components/info-section/info-section-type-2';
+import { ActionSection } from '../components/action-section/action-section';
+import { JobSection } from '../components/job-section/job-section';
+import { InfoSectionType6Group } from '../components/info-section/info-section-type-6-group';
 
 export const query = graphql`
   query employerPage {
@@ -29,6 +33,25 @@ export const query = graphql`
     gcms {
       employerPages(first: 1) {
         bannerTitle
+        actionSections {
+          title
+          subtitle
+          actionText
+        }
+        jobSection {
+          type {
+            id
+            title
+          }
+          title
+          jobs {
+            id
+            type {
+              id
+            }
+            title
+          }
+        }
         infoSections {
           title
           titleHighlight
@@ -76,6 +99,11 @@ const EmployerPage: React.FC<OwnProps> = (props) => {
 const Employer: React.FC<OwnProps> = ({ data, location }) => {
   const styles = useStyles(stylesRef);
 
+  const actionSection1 = data.gcms.employerPages[0].actionSections[0];
+  const section1 = data.gcms?.employerPages[0]?.infoSections[0];
+  const section2 = data.gcms?.employerPages[0]?.infoSections[1];
+  const jobSection = data.gcms?.employerPages[0]?.jobSection;
+
   return (
     <div className={`${styles.wrapper}`}>
       <NavBar></NavBar>
@@ -85,18 +113,15 @@ const Employer: React.FC<OwnProps> = ({ data, location }) => {
         title={data?.gcms?.employerPages[0]?.bannerTitle}
       ></BannerSecondary>
 
-      {/* {data.gcms.pageIndices[0].employeeEmployerSections.map((section, index) => {
-        switch (section.type) {
-          case 'type1group': {
-            return <InfoSectionType1Group key={index} {...section} />;
-          }
-          default: {
-            return null;
-          }
-        }
-      })} */}
+      <InfoSectionType6Group></InfoSectionType6Group>
 
-      <Newsletter id="newsletter"></Newsletter>
+      {section1 && section1.type === 'type2' ? <InfoSectionType2 align="AlignContentLeft" {...section1} /> : null}
+
+      {jobSection ? <JobSection title={jobSection.title} variant={'candidate'} /> : null}
+
+      {section2 && section2.type === 'type2' ? <InfoSectionType2 align="AlignContentRight" {...section2} /> : null}
+
+      {actionSection1 ? <ActionSection variant={'reversed'} /> : null}
 
       <Footer></Footer>
     </div>

@@ -5,7 +5,7 @@ import * as styleRefs from './action-section.treat';
 import { Label } from '../label';
 import { Button } from '../button';
 import { LABEL } from 'core-design-system';
-import { RenderTitleHighlight } from './info-title-highligh';
+import { RenderTitleHighlight } from '../info-section/info-title-highligh';
 
 type OwnProps = {
   variant: 'Default' | 'reversed';
