@@ -11,7 +11,7 @@ import { light } from '../themes/mir-theme.treat';
 
 export const query = graphql`
   query candidatePage {
-    bannerImage: file(name: { eq: "ImageOffice04" }) {
+    bannerImage: file(name: { eq: "ImageOffice02" }) {
       id
       childImageSharp {
         # https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-transformer-sharp/src/fragments.js

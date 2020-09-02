@@ -154,7 +154,7 @@ globalStyle(`${topBarSecondary} rect`, (theme: DesignSystem) => ({
 
 export const containerBarBottomSecondary = style((theme: DesignSystem) => ({
   display: 'flex',
-  width: '60%',
+  width: '100%',
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
       justifyContent: 'flex-end',
@@ -164,13 +164,13 @@ export const containerBarBottomSecondary = style((theme: DesignSystem) => ({
 }));
 
 export const bottomBarSecondary = style((theme: DesignSystem) => ({
-  width: '100%',
-  '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
-      width: '60%',
-    },
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {},
-  },
+  width: '60%',
+  // '@media': {
+  //   [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+  //     width: '60%',
+  //   },
+  //   [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {},
+  // },
 }));
 
 globalStyle(`${bottomBarSecondary} rect`, (theme: DesignSystem) => ({
@@ -183,10 +183,5 @@ globalStyle(`${bottomBarSecondary} rect`, (theme: DesignSystem) => ({
 
 export const title = style((theme: DesignSystem) => ({
   color: theme.colors.greyscale0,
-  margin: `var(${theme.sizing.sizeCSSVarNames.X4}) 0`,
-  '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
-      margin: `var(${theme.sizing.sizeCSSVarNames.X5}) 0`,
-    },
-  },
+  margin: `var(${theme.sizing.sizeCSSVarNames.X5}) 0`,
 }));

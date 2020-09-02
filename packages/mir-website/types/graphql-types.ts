@@ -1935,6 +1935,7 @@ export type GraphCms_AboutPage = GraphCms_Node & {
   /** The time the document was published. Null on documents in draft stage. */
   publishedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
   bannerTitle?: Maybe<Scalars['String']>;
+  bannerImage?: Maybe<GraphCms_Asset>;
   infoSections: Array<GraphCms_InfoSection>;
   /** List of AboutPage versions */
   history: Array<GraphCms_Version>;
@@ -2007,6 +2008,7 @@ export type GraphCms_AboutPageCreateInput = {
   updatedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
   /** bannerTitle input for default locale (fr) */
   bannerTitle?: Maybe<Scalars['String']>;
+  bannerImage?: Maybe<GraphCms_AssetCreateOneInlineInput>;
   infoSections?: Maybe<GraphCms_InfoSectionCreateManyInlineInput>;
   /** Inline mutations for managing document localizations excluding the default locale */
   localizations?: Maybe<GraphCms_AboutPageCreateLocalizationsInput>;
@@ -2125,6 +2127,7 @@ export type GraphCms_AboutPageManyWhereInput = {
   publishedAt_gt?: Maybe<Scalars['GraphCMS_DateTime']>;
   /** All values greater than or equal the given value. */
   publishedAt_gte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  bannerImage?: Maybe<GraphCms_AssetWhereInput>;
   infoSections_every?: Maybe<GraphCms_InfoSectionWhereInput>;
   infoSections_some?: Maybe<GraphCms_InfoSectionWhereInput>;
   infoSections_none?: Maybe<GraphCms_InfoSectionWhereInput>;
@@ -2145,6 +2148,7 @@ export type GraphCms_AboutPageOrderByInput =
 export type GraphCms_AboutPageUpdateInput = {
   /** bannerTitle input for default locale (fr) */
   bannerTitle?: Maybe<Scalars['String']>;
+  bannerImage?: Maybe<GraphCms_AssetUpdateOneInlineInput>;
   infoSections?: Maybe<GraphCms_InfoSectionUpdateManyInlineInput>;
   /** Manage document localizations */
   localizations?: Maybe<GraphCms_AboutPageUpdateLocalizationsInput>;
@@ -2349,6 +2353,7 @@ export type GraphCms_AboutPageWhereInput = {
   bannerTitle_ends_with?: Maybe<Scalars['String']>;
   /** All values not ending with the given string */
   bannerTitle_not_ends_with?: Maybe<Scalars['String']>;
+  bannerImage?: Maybe<GraphCms_AssetWhereInput>;
   infoSections_every?: Maybe<GraphCms_InfoSectionWhereInput>;
   infoSections_some?: Maybe<GraphCms_InfoSectionWhereInput>;
   infoSections_none?: Maybe<GraphCms_InfoSectionWhereInput>;
@@ -2890,6 +2895,8 @@ export type GraphCms_Asset = GraphCms_Node & {
   bannerImageEmployerPage: Array<GraphCms_EmployerPage>;
   bannerImageCandidatePage: Array<GraphCms_CandidatePage>;
   companyMediaFavicon: Array<GraphCms_CompanyMedia>;
+  aboutPageBannerImage: Array<GraphCms_AboutPage>;
+  contactUsPageBannerImage: Array<GraphCms_ContactUsPage>;
   /** List of Asset versions */
   history: Array<GraphCms_Version>;
   /** Get the url for the asset with provided transformations applied. */
@@ -3027,6 +3034,30 @@ export type GraphCms_AssetCompanyMediaFaviconArgs = {
 
 
 /** Asset system model */
+export type GraphCms_AssetAboutPageBannerImageArgs = {
+  where?: Maybe<GraphCms_AboutPageWhereInput>;
+  orderBy?: Maybe<GraphCms_AboutPageOrderByInput>;
+  skip?: Maybe<Scalars['Int']>;
+  after?: Maybe<Scalars['String']>;
+  before?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+};
+
+
+/** Asset system model */
+export type GraphCms_AssetContactUsPageBannerImageArgs = {
+  where?: Maybe<GraphCms_ContactUsPageWhereInput>;
+  orderBy?: Maybe<GraphCms_ContactUsPageOrderByInput>;
+  skip?: Maybe<Scalars['Int']>;
+  after?: Maybe<Scalars['String']>;
+  before?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+};
+
+
+/** Asset system model */
 export type GraphCms_AssetHistoryArgs = {
   limit?: Scalars['Int'];
   skip?: Scalars['Int'];
@@ -3072,6 +3103,8 @@ export type GraphCms_AssetCreateInput = {
   bannerImageEmployerPage?: Maybe<GraphCms_EmployerPageCreateManyInlineInput>;
   bannerImageCandidatePage?: Maybe<GraphCms_CandidatePageCreateManyInlineInput>;
   companyMediaFavicon?: Maybe<GraphCms_CompanyMediaCreateManyInlineInput>;
+  aboutPageBannerImage?: Maybe<GraphCms_AboutPageCreateManyInlineInput>;
+  contactUsPageBannerImage?: Maybe<GraphCms_ContactUsPageCreateManyInlineInput>;
   /** Inline mutations for managing document localizations excluding the default locale */
   localizations?: Maybe<GraphCms_AssetCreateLocalizationsInput>;
 };
@@ -3218,6 +3251,12 @@ export type GraphCms_AssetManyWhereInput = {
   companyMediaFavicon_every?: Maybe<GraphCms_CompanyMediaWhereInput>;
   companyMediaFavicon_some?: Maybe<GraphCms_CompanyMediaWhereInput>;
   companyMediaFavicon_none?: Maybe<GraphCms_CompanyMediaWhereInput>;
+  aboutPageBannerImage_every?: Maybe<GraphCms_AboutPageWhereInput>;
+  aboutPageBannerImage_some?: Maybe<GraphCms_AboutPageWhereInput>;
+  aboutPageBannerImage_none?: Maybe<GraphCms_AboutPageWhereInput>;
+  contactUsPageBannerImage_every?: Maybe<GraphCms_ContactUsPageWhereInput>;
+  contactUsPageBannerImage_some?: Maybe<GraphCms_ContactUsPageWhereInput>;
+  contactUsPageBannerImage_none?: Maybe<GraphCms_ContactUsPageWhereInput>;
 };
 
 export type GraphCms_AssetOrderByInput = 
@@ -3265,6 +3304,8 @@ export type GraphCms_AssetUpdateInput = {
   bannerImageEmployerPage?: Maybe<GraphCms_EmployerPageUpdateManyInlineInput>;
   bannerImageCandidatePage?: Maybe<GraphCms_CandidatePageUpdateManyInlineInput>;
   companyMediaFavicon?: Maybe<GraphCms_CompanyMediaUpdateManyInlineInput>;
+  aboutPageBannerImage?: Maybe<GraphCms_AboutPageUpdateManyInlineInput>;
+  contactUsPageBannerImage?: Maybe<GraphCms_ContactUsPageUpdateManyInlineInput>;
   /** Manage document localizations */
   localizations?: Maybe<GraphCms_AssetUpdateLocalizationsInput>;
 };
@@ -3587,6 +3628,12 @@ export type GraphCms_AssetWhereInput = {
   companyMediaFavicon_every?: Maybe<GraphCms_CompanyMediaWhereInput>;
   companyMediaFavicon_some?: Maybe<GraphCms_CompanyMediaWhereInput>;
   companyMediaFavicon_none?: Maybe<GraphCms_CompanyMediaWhereInput>;
+  aboutPageBannerImage_every?: Maybe<GraphCms_AboutPageWhereInput>;
+  aboutPageBannerImage_some?: Maybe<GraphCms_AboutPageWhereInput>;
+  aboutPageBannerImage_none?: Maybe<GraphCms_AboutPageWhereInput>;
+  contactUsPageBannerImage_every?: Maybe<GraphCms_ContactUsPageWhereInput>;
+  contactUsPageBannerImage_some?: Maybe<GraphCms_ContactUsPageWhereInput>;
+  contactUsPageBannerImage_none?: Maybe<GraphCms_ContactUsPageWhereInput>;
 };
 
 /** References Asset record uniquely */
@@ -6546,6 +6593,7 @@ export type GraphCms_ContactUsPage = GraphCms_Node & {
   /** The time the document was published. Null on documents in draft stage. */
   publishedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
   bannerTitle?: Maybe<Scalars['String']>;
+  bannerImage?: Maybe<GraphCms_Asset>;
   infoSections: Array<GraphCms_InfoSection>;
   form?: Maybe<GraphCms_ContactUsForm>;
   /** List of ContactUsPage versions */
@@ -6619,6 +6667,7 @@ export type GraphCms_ContactUsPageCreateInput = {
   updatedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
   /** bannerTitle input for default locale (fr) */
   bannerTitle?: Maybe<Scalars['String']>;
+  bannerImage?: Maybe<GraphCms_AssetCreateOneInlineInput>;
   infoSections?: Maybe<GraphCms_InfoSectionCreateManyInlineInput>;
   form?: Maybe<GraphCms_ContactUsFormCreateOneInlineInput>;
   /** Inline mutations for managing document localizations excluding the default locale */
@@ -6738,6 +6787,7 @@ export type GraphCms_ContactUsPageManyWhereInput = {
   publishedAt_gt?: Maybe<Scalars['GraphCMS_DateTime']>;
   /** All values greater than or equal the given value. */
   publishedAt_gte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  bannerImage?: Maybe<GraphCms_AssetWhereInput>;
   infoSections_every?: Maybe<GraphCms_InfoSectionWhereInput>;
   infoSections_some?: Maybe<GraphCms_InfoSectionWhereInput>;
   infoSections_none?: Maybe<GraphCms_InfoSectionWhereInput>;
@@ -6759,6 +6809,7 @@ export type GraphCms_ContactUsPageOrderByInput =
 export type GraphCms_ContactUsPageUpdateInput = {
   /** bannerTitle input for default locale (fr) */
   bannerTitle?: Maybe<Scalars['String']>;
+  bannerImage?: Maybe<GraphCms_AssetUpdateOneInlineInput>;
   infoSections?: Maybe<GraphCms_InfoSectionUpdateManyInlineInput>;
   form?: Maybe<GraphCms_ContactUsFormUpdateOneInlineInput>;
   /** Manage document localizations */
@@ -6964,6 +7015,7 @@ export type GraphCms_ContactUsPageWhereInput = {
   bannerTitle_ends_with?: Maybe<Scalars['String']>;
   /** All values not ending with the given string */
   bannerTitle_not_ends_with?: Maybe<Scalars['String']>;
+  bannerImage?: Maybe<GraphCms_AssetWhereInput>;
   infoSections_every?: Maybe<GraphCms_InfoSectionWhereInput>;
   infoSections_some?: Maybe<GraphCms_InfoSectionWhereInput>;
   infoSections_none?: Maybe<GraphCms_InfoSectionWhereInput>;
@@ -15847,7 +15899,16 @@ export type TopBarQuery = { gcms: { companyMedias: Array<{ logo?: Maybe<Pick<Gra
 export type AboutPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type AboutPageQuery = { gcms: { companyMedias: Array<{ logoFooter?: Maybe<Pick<GraphCms_Asset, 'url'>>, logo?: Maybe<Pick<GraphCms_Asset, 'url'>> }> } };
+export type AboutPageQuery = { bannerImage?: Maybe<(
+    Pick<File, 'id'>
+    & { childImageSharp?: Maybe<{ fluid?: Maybe<Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>> }> }
+  )>, gcms: { aboutPages: Array<(
+      Pick<GraphCms_AboutPage, 'bannerTitle'>
+      & { infoSections: Array<(
+        Pick<GraphCms_InfoSection, 'title' | 'titleHighlight' | 'titleTab' | 'type' | 'text' | 'showTabs' | 'actionText'>
+        & { infoTiles: Array<Pick<GraphCms_InfoTile, 'illustration' | 'title' | 'text'>>, childs: Array<Pick<GraphCms_InfoSection, 'showTabs' | 'title' | 'titleHighlight' | 'titleTab' | 'type' | 'text' | 'actionText'>>, image?: Maybe<Pick<GraphCms_Asset, 'url'>> }
+      )> }
+    )> } };
 
 export type BlogPageQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -15871,12 +15932,30 @@ export type CandidatePageQuery = { bannerImage?: Maybe<(
 export type ContactPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ContactPageQuery = { gcms: { companyMedias: Array<{ logoFooter?: Maybe<Pick<GraphCms_Asset, 'url'>>, logo?: Maybe<Pick<GraphCms_Asset, 'url'>> }> } };
+export type ContactPageQuery = { bannerImage?: Maybe<(
+    Pick<File, 'id'>
+    & { childImageSharp?: Maybe<{ fluid?: Maybe<Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>> }> }
+  )>, gcms: { contactUsPages: Array<(
+      Pick<GraphCms_ContactUsPage, 'bannerTitle'>
+      & { infoSections: Array<(
+        Pick<GraphCms_InfoSection, 'title' | 'titleHighlight' | 'titleTab' | 'type' | 'text' | 'showTabs' | 'actionText'>
+        & { infoTiles: Array<Pick<GraphCms_InfoTile, 'illustration' | 'title' | 'text'>>, childs: Array<Pick<GraphCms_InfoSection, 'showTabs' | 'title' | 'titleHighlight' | 'titleTab' | 'type' | 'text' | 'actionText'>>, image?: Maybe<Pick<GraphCms_Asset, 'url'>> }
+      )> }
+    )> } };
 
 export type EmployerPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type EmployerPageQuery = { gcms: { companyMedias: Array<{ logoFooter?: Maybe<Pick<GraphCms_Asset, 'url'>>, logo?: Maybe<Pick<GraphCms_Asset, 'url'>> }> } };
+export type EmployerPageQuery = { bannerImage?: Maybe<(
+    Pick<File, 'id'>
+    & { childImageSharp?: Maybe<{ fluid?: Maybe<Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>> }> }
+  )>, gcms: { candidatePages: Array<(
+      Pick<GraphCms_CandidatePage, 'bannerTitle'>
+      & { infoSections: Array<(
+        Pick<GraphCms_InfoSection, 'title' | 'titleHighlight' | 'titleTab' | 'type' | 'text' | 'showTabs' | 'actionText'>
+        & { infoTiles: Array<Pick<GraphCms_InfoTile, 'illustration' | 'title' | 'text'>>, childs: Array<Pick<GraphCms_InfoSection, 'showTabs' | 'title' | 'titleHighlight' | 'titleTab' | 'type' | 'text' | 'actionText'>>, image?: Maybe<Pick<GraphCms_Asset, 'url'>> }
+      )> }
+    )> } };
 
 export type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
 

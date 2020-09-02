@@ -1,4 +1,4 @@
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql } from 'gatsby';
 import React from 'react';
 import { TreatProvider, useStyles } from 'react-treat';
 import { IndexPageQuery } from '../../types/graphql-types';
@@ -12,7 +12,7 @@ import { InfoSectionType4 } from '../components/info-section/info-section-type-4
 import { NavBar } from '../components/nav-bar';
 import { Newsletter } from '../components/newsletter/newsletter';
 import { ViewportProvider } from '../context/viewport.context';
-import { useViewportBreakpoint, useViewportValues, viewportContext } from '../hooks/use-viewport.hook';
+import { viewportContext } from '../hooks/use-viewport.hook';
 import '../styles/font-faces.styles.css';
 import * as stylesRef from '../styles/page.treat';
 import { light } from '../themes/mir-theme.treat';

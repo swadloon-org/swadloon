@@ -2,7 +2,7 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { Root } from '.';
-import { IndexPageQuery } from '../../types/graphql-types';
+import { AboutPageQuery } from '../../types/graphql-types';
 import { BannerSecondary } from '../components/banner-secondary';
 import { Footer } from '../components/footer';
 import { NavBar } from '../components/nav-bar';
@@ -11,25 +11,61 @@ import * as stylesRef from '../styles/page.treat';
 
 export const query = graphql`
   query aboutPage {
-    gcms {
-      companyMedias {
-        logoFooter {
-          url
+    bannerImage: file(name: { eq: "ImageOffice01" }) {
+      id
+      childImageSharp {
+        # https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-transformer-sharp/src/fragments.js
+        fluid(quality: 90, maxWidth: 1920) {
+          base64
+          aspectRatio
+          src
+          srcSet
+          srcWebp
+          srcSetWebp
+          sizes
         }
-        logo {
-          url
+      }
+    }
+    gcms {
+      aboutPages(first: 1) {
+        bannerTitle
+        infoSections {
+          title
+          titleHighlight
+          titleTab
+          type
+          text
+          showTabs
+          actionText
+          infoTiles {
+            illustration
+            title
+            text
+          }
+          childs {
+            showTabs
+            title
+            titleHighlight
+            titleTab
+            type
+            text
+            actionText
+          }
+          image {
+            url(transformation: { image: { resize: { width: 900, fit: max } } })
+          }
         }
       }
     }
   }
 `;
 
-interface IndexPageProps {
-  data: IndexPageQuery;
+interface OwnProps {
+  data: AboutPageQuery;
   location: Location;
 }
 
-const AboutPage: React.FC<IndexPageProps> = (props) => {
+const AboutPage: React.FC<OwnProps> = (props) => {
   return (
     <Root>
       <About {...props} />
@@ -37,14 +73,17 @@ const AboutPage: React.FC<IndexPageProps> = (props) => {
   );
 };
 
-const About: React.FC<IndexPageProps> = ({ data, location }) => {
+const About: React.FC<OwnProps> = ({ data, location }) => {
   const styles = useStyles(stylesRef);
 
   return (
     <div className={`${styles.wrapper}`}>
       <NavBar></NavBar>
 
-      <BannerSecondary></BannerSecondary>
+      <BannerSecondary
+        imageData={data.bannerImage?.childImageSharp?.fluid}
+        title={data?.gcms?.aboutPages[0]?.bannerTitle}
+      ></BannerSecondary>
 
       {/* {data.gcms.pageIndices[0].employeeEmployerSections.map((section, index) => {
         switch (section.type) {
