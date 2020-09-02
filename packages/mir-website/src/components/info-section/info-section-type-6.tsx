@@ -11,7 +11,7 @@ import { Heading } from '../heading';
 
 type OwnProps = {
   type: 'type6Primary' | 'type6Secondary' | 'type6Tertiary';
-  icon: string;
+  illustration: string;
   title: string;
   text: string;
 };
@@ -21,7 +21,7 @@ export const InfoSectionType6: React.FC<OwnProps> = (props) => {
 
   return (
     <div className={`${styles.wrapper} ${styles[props.type]}`}>
-      <Illustration className={`${styles.illustration}`} name={`Illustration/${props.icon}`} />
+      <Illustration className={`${styles.illustration}`} name={`Illustration/${props.illustration}`} />
 
       <Heading variant="h4" className={styles.title}>
         {props.title}

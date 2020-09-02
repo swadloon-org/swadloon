@@ -2,7 +2,7 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import { TreatProvider, useStyles } from 'react-treat';
 import { IndexPageQuery } from '../../types/graphql-types';
-import { Banner } from '../components/banner';
+import { BannerSecondary } from '../components/banner-secondary';
 import { Footer } from '../components/footer';
 import { NavBar } from '../components/nav-bar';
 import { Newsletter } from '../components/newsletter/newsletter';
@@ -44,7 +44,7 @@ const Employer: React.FC<IndexPageProps> = ({ data, location }) => {
     <div className={`${styles.wrapper}`}>
       <NavBar></NavBar>
 
-      <Banner variant="secondary"></Banner>
+      <BannerSecondary></BannerSecondary>
 
       {/* {data.gcms.pageIndices[0].employeeEmployerSections.map((section, index) => {
         switch (section.type) {

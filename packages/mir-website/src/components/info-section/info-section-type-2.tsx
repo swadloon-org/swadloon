@@ -21,15 +21,15 @@ export const InfoSectionType2: React.FC<OwnProps> = (props) => {
     <div
       className={`${styles.wrapper} ${props.type ? styles[props.type] : ''} ${props.align ? styles[props.align] : ''}`}
     >
-      {props.image?.url ? (
-        <motion.div animate={{ x: 100 }}>
+      <motion.div variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }} animate="visible" initial="hidden">
+        {props.image?.url ? (
           <ImageFrame
             variant={'bottomRight'}
             url={props.image?.url}
             className={`${styles.image} ${hasTabs ? styles.imageTabs : ''}`}
           />
-        </motion.div>
-      ) : null}
+        ) : null}
+      </motion.div>
 
       <div
         className={`${styles.content} ${

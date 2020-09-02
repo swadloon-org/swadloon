@@ -1,8 +1,8 @@
-import { graphql } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { TreatProvider, useStyles } from 'react-treat';
 import { IndexPageQuery } from '../../types/graphql-types';
-import { Banner } from '../components/banner';
+import { BannerPrimary } from '../components/banner-primary';
 import { BlogPreviewSection } from '../components/blog-preview/blog-preview-section';
 import { Footer } from '../components/footer';
 import { InfoSectionType1Group } from '../components/info-section/info-section-type-1-group';
@@ -19,47 +19,52 @@ import { light } from '../themes/mir-theme.treat';
 
 export const query = graphql`
   query indexPage {
-    gcms {
-      companyMedias {
-        logoFooter {
-          url
-        }
-        logo {
-          url
+    bannerImage: file(name: { eq: "ImageOffice05" }) {
+      id
+      childImageSharp {
+        # https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-transformer-sharp/src/fragments.js
+        fluid(quality: 90, maxWidth: 1920) {
+          base64
+          aspectRatio
+          src
+          srcSet
+          srcWebp
+          srcSetWebp
+          sizes
         }
       }
-      # assets(where: { fileName: "Office1.jpg" }) {
-      #   url
-      # }
-      # pageIndices(first: 1) {
-      #   id
-      #   employeeEmployerSections {
-      #     title
-      #     titleHighlight
-      #     titleTab
-      #     type
-      #     text
-      #     showTabs
-      #     actionText
-      #     infoTiles {
-      #       icon
-      #       title
-      #       text
-      #     }
-      #     childs {
-      #       showTabs
-      #       title
-      #       titleHighlight
-      #       titleTab
-      #       type
-      #       text
-      #       actionText
-      #     }
-      #     image {
-      #       url
-      #     }
-      #   }
-      # }
+    }
+    gcms {
+      indexPages(first: 1) {
+        bannerTitle
+        bannerSubTitle
+        infoSections {
+          title
+          titleHighlight
+          titleTab
+          type
+          text
+          showTabs
+          actionText
+          infoTiles {
+            illustration
+            title
+            text
+          }
+          childs {
+            showTabs
+            title
+            titleHighlight
+            titleTab
+            type
+            text
+            actionText
+          }
+          image {
+            url(transformation: { image: { resize: { width: 900, fit: max } } })
+          }
+        }
+      }
     }
   }
 `;
@@ -87,16 +92,18 @@ const IndexPage: React.FC<PageProps> = (props) => {
 
 const Index: React.FC<PageProps> = ({ data, location }) => {
   const styles = useStyles(stylesRef);
-  const { width } = useViewportValues();
-  const { viewport } = useViewportBreakpoint();
 
   return (
     <div className={`${styles.wrapper}`}>
       <NavBar></NavBar>
 
-      <Banner variant="primary"></Banner>
+      <BannerPrimary
+        imageData={data.bannerImage?.childImageSharp?.fluid}
+        title={data?.gcms?.indexPages[0]?.bannerTitle}
+        subTitle={data?.gcms?.indexPages[0]?.bannerSubTitle}
+      ></BannerPrimary>
 
-      {/* {data.gcms.pageIndices[0].employeeEmployerSections.map((section, index) => {
+      {data?.gcms?.indexPages[0]?.infoSections.map((section, index) => {
         switch (section.type) {
           case 'type1group': {
             return <InfoSectionType1Group key={index} {...section} />;
@@ -118,10 +125,10 @@ const Index: React.FC<PageProps> = ({ data, location }) => {
       })}
 
       <BlogPreviewSection
-        imageUrl={data.gcms.assets[0].url}
+        imageUrl={data.bannerImage?.childImageSharp?.fluid?.src}
         paragraphContent="Lorem ipsum dolor sit amet, consectetur adipiscing elit Nulla chronocrator accumsan, metus ultrices eleifend gravi."
         headingContent="Les dernières nouvelles"
-      ></BlogPreviewSection> */}
+      ></BlogPreviewSection>
 
       <Newsletter id="newsletter"></Newsletter>
 

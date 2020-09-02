@@ -8,10 +8,10 @@ import { Paragraph } from '../paragraph';
 import { GraphCms_InfoTile, Maybe, GraphCms_InfoSectionType } from '../../../types/graphql-types';
 
 type OwnProps = {
-  illustration?: string;
+  illustration?: string | null;
   className?: string;
   variant?: Maybe<GraphCms_InfoSectionType | 'borderWhite'>;
-} & Pick<GraphCms_InfoTile, 'title' | 'text'>;
+} & Pick<GraphCms_InfoTile, 'title' | 'text' | 'illustration'>;
 
 export const InfoTile: React.FC<OwnProps> = (props) => {
   const styles = useStyles(styleRefs);
@@ -19,7 +19,7 @@ export const InfoTile: React.FC<OwnProps> = (props) => {
   return (
     <div className={`${props.className || ''} ${styles.wrapper} ${props.variant ? styles[props.variant] : ''}`}>
       <Illustration
-        name={'Illustration/RoundedRectangle'}
+        name={'Illustration/IllustrationRoundedRectangle'}
         className={`${styles.backgroundIllustration}`}
         preserveAspectRatio="xMidYMid meet"
         width={'100%'}
@@ -27,8 +27,14 @@ export const InfoTile: React.FC<OwnProps> = (props) => {
       />
 
       <div className={`${styles.content}`}>
-        // TODO
-        {/* <Illustration className={`${styles.illustration}`} name={`Illustration/${props.icon}`} width={42} height={42} /> */}
+        {props.illustration ? (
+          <Illustration
+            className={`${styles.illustration}`}
+            name={`Illustration/${props.illustration}`}
+            width={42}
+            height={42}
+          />
+        ) : null}
         <Heading variant={'h3'}>{props.title}</Heading>
         <Paragraph variant={'small'} className={styles.text}>
           {props.text}

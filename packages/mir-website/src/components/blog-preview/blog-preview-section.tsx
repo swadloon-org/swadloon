@@ -10,7 +10,7 @@ import { Button } from '../button';
 import { RenderTitleHighlight } from '../info-section/info-title-highligh';
 
 type OwnProps = {
-  imageUrl: string;
+  imageUrl?: string;
   paragraphContent: string;
   headingContent: string;
 };

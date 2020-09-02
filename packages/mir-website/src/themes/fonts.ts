@@ -5,9 +5,9 @@ export const fonts: Fonts = {
     name: 'Montserrat',
     link: 'https://fonts.google.com/specimen/Montserrat',
     fontMetrics: {
-      capHeight: 760,
-      ascent: 880,
-      descent: -230,
+      capHeight: 780,
+      ascent: 890,
+      descent: -120,
       lineGap: 0,
       unitsPerEm: 1000,
     },

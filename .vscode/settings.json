@@ -6,6 +6,7 @@
   },
   "search.exclude": {
     "**/node_modules": true,
-    "**/lib": true
+    "**/lib": true,
+    "**/.cache": true
   }
 }

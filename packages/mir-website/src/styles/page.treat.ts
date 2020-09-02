@@ -9,6 +9,7 @@ export const globalStyle = style((theme: DesignSystem) => ({
 export const wrapper = style((theme: DesignSystem) => ({
   display: 'grid',
   width: '100vw',
+  backgroundColor: theme.colors.greyscale0,
 }));
 
 applyReset(globalStyle);

@@ -14,7 +14,7 @@ export const ImageFrame: React.FC<OwnProps & HTMLAttributes<any>> = (props) => {
   return (
     <div className={`${props.className || ''} ${styles.wrapper}`}>
       <Illustration
-        name={'Illustration/Square'}
+        name={'Illustration/IllustrationSquare'}
         className={`${styles.backgroundIllustration} ${getVariantStyle(props.variant)}`}
         preserveAspectRatio="none"
         width={200}

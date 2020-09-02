@@ -36,7 +36,7 @@ export const InfoSectionType4: React.FC<OwnProps> = (props) => {
               <InfoTile
                 key={index}
                 className={styles.infoTile}
-                illustration={info.illustration?.url}
+                illustration={info.illustration}
                 title={info.title}
                 text={info.text}
                 variant={props.type}

@@ -1,6 +1,7 @@
 import Gatsby from 'gatsby';
 
 import { defaultPlugins } from 'core-gatsby-config';
+import path from 'path';
 
 /**
  * Configure your Gatsby site with this file.
@@ -28,6 +29,15 @@ const config: Gatsby.GatsbyConfig = {
         },
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: path.join(__dirname, `src`, `images`),
+      },
+    },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

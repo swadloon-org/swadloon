@@ -4,9 +4,16 @@ import { style } from 'treat';
 export const wrapper = style((theme: DesignSystem) => ({
   display: 'grid',
   justifyItems: 'center',
-  padding: `var(${theme.sizing.sizeCSSVarNames.X6}) ${theme.layout.contentMargins.MOBILE.valuePx}`,
+  padding: `var(${theme.sizing.sizeCSSVarNames.X7}) ${theme.layout.contentMargins.MOBILE.valuePx}`,
   backgroundColor: theme.colors.greyscale0,
   color: theme.colors.greyscale900,
+  '@media': {
+    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+      maxWidth: '1200px',
+      width: '100%',
+      padding: `var(${theme.sizing.sizeCSSVarNames.X7}) 0`,
+    },
+  },
 }));
 
 export const AlignContentLeft = style((theme: DesignSystem) => ({
@@ -46,18 +53,6 @@ export const image = style((theme: DesignSystem) => ({
       width: '535px',
       height: '535px',
       marginLeft: `auto`,
-    },
-  },
-}));
-
-export const type2 = style((theme: DesignSystem) => ({
-  padding: `var(${theme.sizing.sizeCSSVarNames.X7}) ${theme.layout.contentMargins.MOBILE.valuePx}`,
-
-  '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
-      maxWidth: '1200px',
-      width: '100%',
-      padding: `var(${theme.sizing.sizeCSSVarNames.X7}) 0`,
     },
   },
 }));

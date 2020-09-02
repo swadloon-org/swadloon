@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import { useStyles } from 'react-treat';
-import * as styleRefsType3 from './info-section-type-3.treat';
-
 import { Button } from '../button';
 import { ImageFrame } from '../image-frame';
 import { Paragraph } from '../paragraph';
 import { Tab } from '../tab';
 import { SectionModelQuery } from './info-section';
-// import styles from './info-section.module.scss';
+import * as styleRefsType3 from './info-section-type-3.treat';
 import { RenderTitleHighlight } from './info-title-highligh';
 
 type OwnProps = SectionModelQuery;

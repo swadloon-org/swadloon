@@ -5,7 +5,7 @@ import { BlogPreviewTile } from './blog-preview-tile';
 // import styles from './blog-preview-tile-image.module.scss';
 
 type OwnProps = {
-  imageUrl: string;
+  imageUrl?: string;
   subtitle: string;
   title: string;
   actionLabel: string;
@@ -16,7 +16,11 @@ export const BlogPreviewTileImage: React.FC<HTMLAttributes<any> & OwnProps> = (p
 
   return (
     <div className={styles.wrapper}>
-      <img src={props.imageUrl} className={styles.imgPreview} />
+      {props.imageUrl ? (
+        <img src={props.imageUrl} className={styles.imgPreview} />
+      ) : (
+        <div className={styles.imgPreview}></div>
+      )}
 
       <BlogPreviewTile {...props} className={styles.tilePreview} />
     </div>

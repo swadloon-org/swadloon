@@ -13,6 +13,7 @@ export const imgPreview = style((theme: DesignSystem) => ({
   top: '0',
   left: '0',
   zIndex: -1,
+  backgroundColor: theme.colors.greyscale100,
 }));
 export const tilePreview = style((theme: DesignSystem) => ({
   position: 'absolute',

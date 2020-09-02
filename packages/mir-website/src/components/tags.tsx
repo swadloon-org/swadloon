@@ -20,7 +20,7 @@ export const Tags: React.FC<HTMLAttributes<any> & OwnProps> = (props) => {
       <div className={styles.container}>
         <Illustration
           className={`${styles.illustration}`}
-          name={`Illustration/OvalSquare`}
+          name={`Illustration/IllustrationOvalSquare`}
           width={42}
           height={42}
         ></Illustration>

@@ -130,7 +130,7 @@ globalStyle(`${illustration} fill`, (theme: DesignSystem) => ({
 
 export const small = style((theme: DesignSystem) => ({}));
 export const medium = style((theme: DesignSystem) => ({
-  padding: `var(${theme.sizing.sizeCSSVarNames.X4})`,
+  padding: `var(${theme.sizing.sizeCSSVarNames.X3})`,
 }));
 export const large = style((theme: DesignSystem) => ({
   // lineHeight: `var(${theme.sizing.sizeCSSVarNames.X4})`,
