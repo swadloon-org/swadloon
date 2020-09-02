@@ -65,6 +65,7 @@ export interface ContentWidths {
  */
 export interface Layout {
   layouts?: any;
+  media?: any;
   breakpoints: Breakpoints;
   contentMargins: ContentMargins;
   contentWidth: ContentWidths;
