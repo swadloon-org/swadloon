@@ -5,11 +5,11 @@ import * as styleRefsType4 from './info-section-type-4.treat';
 import { Button } from '../button';
 import { ImageFrame } from '../image-frame';
 import { Paragraph } from '../paragraph';
-import { SectionModelQuery } from './info-section';
+import { InfoSectionModelQuery } from './info-section';
 import { InfoTile } from './info-tile';
 import { RenderTitleHighlight } from './info-title-highligh';
 
-type OwnProps = SectionModelQuery;
+type OwnProps = InfoSectionModelQuery;
 
 export const InfoSectionType4: React.FC<OwnProps> = (props) => {
   const hasInfoTiles = !!props?.infoTiles?.length;

@@ -8,14 +8,14 @@ import { LABEL } from 'core-design-system';
 import { RenderTitleHighlight } from './info-title-highligh';
 
 type OwnProps = {
-  variants: 'Default' | 'reversed';
+  variant: 'Default' | 'reversed';
 };
 
 export const ActionSection: React.FC<OwnProps & AllHTMLAttributes<any>> = (props) => {
   const styles = useStyles(styleRefs);
 
   return (
-    <div className={`${styles.wrapper} ${props.variants}`}>
+    <div className={`${styles.wrapper} ${props.variant}`}>
       <div className={`${styles.container}`}>
         <div className={`${styles.content}`}>
           <Label variant={LABEL.xSmallBoldUppercase} className={`${styles.subtitle}`}>
@@ -31,7 +31,7 @@ export const ActionSection: React.FC<OwnProps & AllHTMLAttributes<any>> = (props
         <div className={`${styles.buttonContainer}`}>
           <Button
             className={`${styles.button}`}
-            type={props.variants === 'Default' ? 'primaryDefault' : 'primaryReversed'}
+            type={props.variant === 'Default' ? 'primaryDefault' : 'primaryReversed'}
             size="medium"
             variant="text"
           >

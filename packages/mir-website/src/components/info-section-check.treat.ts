@@ -4,13 +4,12 @@ import { style, globalStyle } from 'treat';
 export const wrapper = style((theme: DesignSystem) => ({
   display: 'flex',
   width: '100%',
-  alignItems: 'center',
-  maxWidth: '400px',
-  marginBottom: `var(${theme.sizing.sizeCSSVarNames.X4})`,
+  alignItems: 'flex-start',
+  marginBottom: `var(${theme.sizing.sizeCSSVarNames.X2})`,
 }));
 
 export const label = style((theme: DesignSystem) => ({
-  alignItems: 'left',
+  alignItems: 'flex-start',
   marginTop: '6px',
 }));
 

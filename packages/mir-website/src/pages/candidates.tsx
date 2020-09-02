@@ -8,6 +8,9 @@ import { NavBar } from '../components/nav-bar';
 import { Newsletter } from '../components/newsletter/newsletter';
 import * as stylesRef from '../styles/page.treat';
 import { light } from '../themes/mir-theme.treat';
+import { InfoSectionType5 } from '../components/info-section/info-section-type-5';
+import { InfoSectionType2 } from '../components/info-section/info-section-type-2';
+import { ActionSection } from '../components/info-section/action-section';
 
 export const query = graphql`
   query candidatePage {
@@ -29,6 +32,25 @@ export const query = graphql`
     gcms {
       candidatePages(first: 1) {
         bannerTitle
+        actionSection {
+          title
+          subtitle
+          actionText
+        }
+        jobSection {
+          type {
+            id
+            title
+          }
+          title
+          jobs {
+            id
+            type {
+              id
+            }
+            title
+          }
+        }
         infoSections {
           title
           titleHighlight
@@ -37,6 +59,9 @@ export const query = graphql`
           text
           showTabs
           actionText
+          infoChecks {
+            text
+          }
           infoTiles {
             illustration
             title
@@ -76,6 +101,11 @@ const CandidatePage: React.FC<IndexPageProps> = (props) => {
 const Candidate: React.FC<IndexPageProps> = ({ data, location }) => {
   const styles = useStyles(stylesRef);
 
+  const actionSection = data.gcms.candidatePages[0].actionSection;
+  const section1 = data.gcms?.candidatePages[0]?.infoSections[0];
+  const section2 = data.gcms?.candidatePages[0]?.infoSections[1];
+  const jobSection = data.gcms?.candidatePages[0]?.jobSection;
+
   return (
     <div className={`${styles.wrapper}`}>
       <NavBar></NavBar>
@@ -84,6 +114,14 @@ const Candidate: React.FC<IndexPageProps> = ({ data, location }) => {
         imageData={data.bannerImage?.childImageSharp?.fluid}
         title={data?.gcms?.candidatePages[0]?.bannerTitle}
       ></BannerSecondary>
+
+      {actionSection ? <ActionSection variant={'Default'} /> : null}
+
+      {section1 && section1.type === 'type5' ? <InfoSectionType5 align="AlignContentLeft" {...section1} /> : null}
+
+      {section2 && section2.type === 'type2' ? <InfoSectionType2 align="AlignContentRight" {...section2} /> : null}
+
+      {JSON.stringify(jobSection, null, 2)}
 
       <Newsletter id="newsletter"></Newsletter>
 

@@ -18,7 +18,6 @@ export const Illustration: React.FC<OwnProps & SVGAttributes<any>> = ({ name, he
         ImportedIconRef.current = namedImport;
       } catch (err) {
         console.log(err);
-        throw err;
       } finally {
         setLoading(false);
       }

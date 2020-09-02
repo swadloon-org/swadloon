@@ -4,10 +4,10 @@ import * as styleRefs from './info-section-type-1.treat';
 
 import { Button } from '../button';
 import { Paragraph } from '../paragraph';
-import { SectionModelQuery } from './info-section';
+import { InfoSectionModelQuery } from './info-section';
 import { RenderTitleHighlight } from './info-title-highligh';
 
-type OwnProps = Partial<SectionModelQuery>;
+type OwnProps = Partial<InfoSectionModelQuery>;
 
 export const InfoSectionType1: React.FC<OwnProps> = (props) => {
   const styles = useStyles(styleRefs);

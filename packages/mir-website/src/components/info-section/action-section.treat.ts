@@ -6,16 +6,17 @@ import { globalStyle, style } from 'treat';
 //
 
 export const wrapper = style((theme: DesignSystem) => ({
-  // backgroundColor: theme.colors.greyscale0,
   paddingTop: `var(${theme.sizing.sizeCSSVarNames.X6})`,
-  paddingBottom: `var(${theme.sizing.sizeCSSVarNames.X6})`,
+  paddingBottom: `var(${theme.sizing.sizeCSSVarNames.X7})`,
+
+  backgroundColor: theme.colors.greyscale100,
 
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
-      padding: `0 ${theme.layout.contentMargins.TABLET.valuePx}`,
+      padding: `var(${theme.sizing.sizeCSSVarNames.X5}) ${theme.layout.contentMargins.TABLET.valuePx}`,
     },
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
-      padding: `0 ${theme.layout.contentMargins.DESKTOP.valuePx}`,
+      padding: `var(${theme.sizing.sizeCSSVarNames.X5}) ${theme.layout.contentMargins.DESKTOP.valuePx}`,
     },
   },
 }));

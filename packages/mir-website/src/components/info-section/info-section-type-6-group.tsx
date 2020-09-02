@@ -3,7 +3,7 @@ import React from 'react';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './info-section-type-6-group.treat';
 
-import { SectionModelQuery } from './info-section';
+import { InfoSectionModelQuery } from './info-section';
 import { InfoSectionType6 } from './info-section-type-6';
 
 type OwnProps = {};

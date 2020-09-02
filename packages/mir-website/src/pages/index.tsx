@@ -148,7 +148,6 @@ const Index: React.FC<PageProps> = ({ data, location }) => {
           }
           case 'type2': {
             return <InfoSectionType2 key={index} align="AlignContentLeft" {...section} />;
-            // return <InfoSectionType5 key={index} align="AlignContentLeft" {...section} />;
           }
           case 'type3': {
             return <InfoSectionType3 key={index} align="AlignContentRight" {...section} />;

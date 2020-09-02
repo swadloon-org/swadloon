@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { useStyles } from 'react-treat';
 import { Accordions } from '../accordions';
 import { Tags } from '../tags';
-import { SectionModelQuery } from './info-section';
+import { InfoSectionModelQuery } from './info-section';
 import * as styleRefs from './info-skills.treat';
 import { RenderTitleHighlight } from './info-title-highligh';
 
-type OwnProps = Partial<SectionModelQuery>;
+type OwnProps = Partial<InfoSectionModelQuery>;
 
 export const InfoSkills: React.FC<OwnProps> = (props) => {
   const styles = useStyles(styleRefs);

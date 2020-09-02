@@ -4,11 +4,11 @@ import { Button } from '../button';
 import { ImageFrame } from '../image-frame';
 import { Paragraph } from '../paragraph';
 import { Tab } from '../tab';
-import { SectionModelQuery } from './info-section';
+import { InfoSectionModelQuery } from './info-section';
 import * as styleRefsType3 from './info-section-type-3.treat';
 import { RenderTitleHighlight } from './info-title-highligh';
 
-type OwnProps = SectionModelQuery;
+type OwnProps = InfoSectionModelQuery;
 
 export const InfoSectionType3: React.FC<OwnProps> = (props) => {
   const [selectedTabIndex, setSelectedTabIndex] = useState<number>(0);
@@ -57,7 +57,7 @@ export const InfoSectionType3: React.FC<OwnProps> = (props) => {
     </div>
   );
 
-  function renderTabbedInfoSection(props: Partial<SectionModelQuery>, sectionIndex: number) {
+  function renderTabbedInfoSection(props: Partial<InfoSectionModelQuery>, sectionIndex: number) {
     const styleRefs = useStyles(styleRefsType3);
 
     return (

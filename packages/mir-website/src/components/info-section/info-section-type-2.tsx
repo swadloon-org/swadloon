@@ -4,11 +4,11 @@ import { useStyles } from 'react-treat';
 import { Button } from '../button';
 import { ImageFrame } from '../image-frame';
 import { Paragraph } from '../paragraph';
-import { SectionModelQuery } from './info-section';
+import { InfoSectionModelQuery } from './info-section';
 import * as styleRefsType2 from './info-section-type-2.treat';
 import { RenderTitleHighlight } from './info-title-highligh';
 
-type OwnProps = SectionModelQuery;
+type OwnProps = InfoSectionModelQuery;
 
 export const InfoSectionType2: React.FC<OwnProps> = (props) => {
   const hasImage = !!props?.image;

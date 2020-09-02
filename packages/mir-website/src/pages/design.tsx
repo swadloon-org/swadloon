@@ -7,7 +7,7 @@ import { Label } from '../components/label';
 import { Paragraph } from '../components/paragraph';
 import { light } from '../themes/mir-theme.treat';
 import { Root, PageProps } from './index';
-import { InfoSectionCheckLabel } from '../components/InfoSectionCheckLabel';
+import { InfoSectionCheckLabel } from '../components/info-section-check';
 import { InfoTile } from '../components/info-section/info-tile';
 import { InfoSectionType6 } from '../components/info-section/info-section-type-6';
 import { InfoSectionType1Group } from '../components/info-section/info-section-type-1-group';
@@ -73,7 +73,7 @@ export const Design: React.FC = () => {
       <InfoSkills>test</InfoSkills>
 
       <InfoSectionType6Group></InfoSectionType6Group>
-      <ActionSection variants="Default"></ActionSection>
+      <ActionSection variant="Default"></ActionSection>
     </>
   );
 };

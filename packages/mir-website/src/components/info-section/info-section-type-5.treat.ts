@@ -4,6 +4,9 @@ import { style } from 'treat';
 export const wrapper = style((theme: DesignSystem) => ({
   display: 'grid',
   justifyItems: 'center',
+
+  justifyContent: 'space-between',
+
   padding: `var(${theme.sizing.sizeCSSVarNames.X5}) ${theme.layout.contentMargins.MOBILE.valuePx}`,
   backgroundColor: theme.colors.greyscale0,
   color: theme.colors.greyscale900,
@@ -63,6 +66,7 @@ export const content = style((theme: DesignSystem) => ({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'stretch',
+  maxWidth: '500px',
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
       display: 'flex',
@@ -87,10 +91,9 @@ export const title = style((theme: DesignSystem) => ({
 export const text = style((theme: DesignSystem) => ({
   textAlign: 'center',
   whiteSpace: 'pre-wrap', // handle mutli-line text
-  marginBottom: `var(${theme.sizing.sizeCSSVarNames.X5})`,
+  marginBottom: `var(${theme.sizing.sizeCSSVarNames.X4})`,
   color: 'currentColor',
-  maxWidth: '400px',
-
+  maxWidth: '450px',
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
       maxWidth: '500px',

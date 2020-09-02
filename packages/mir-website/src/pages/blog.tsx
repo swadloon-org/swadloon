@@ -8,6 +8,7 @@ import { Footer } from '../components/footer';
 import { NavBar } from '../components/nav-bar';
 import { Newsletter } from '../components/newsletter/newsletter';
 import * as stylesRef from '../styles/page.treat';
+import { BlogPreviewSection } from '../components/blog-preview/blog-preview-section';
 
 export const query = graphql`
   query blogPage {
@@ -29,6 +30,21 @@ export const query = graphql`
     gcms {
       blogPages(first: 1) {
         bannerTitle
+        blogSection {
+          id
+          title
+          titleHighlight
+          text
+          actionLabel
+          posts {
+            id
+            createdAt
+            title
+            image {
+              url(transformation: { image: { resize: { width: 300, fit: max } } })
+            }
+          }
+        }
       }
     }
   }
@@ -58,6 +74,12 @@ const Blog: React.FC<OwnProps> = ({ data, location }) => {
         imageData={data.bannerImage?.childImageSharp?.fluid}
         title={data?.gcms?.blogPages[0]?.bannerTitle}
       ></BannerSecondary>
+
+      <BlogPreviewSection
+        posts={data?.gcms?.blogPages[0]?.blogSection?.posts}
+        text={data?.gcms?.blogPages[0]?.blogSection?.text}
+        title={data?.gcms?.blogPages[0]?.blogSection?.title}
+      ></BlogPreviewSection>
 
       <Newsletter id="newsletter"></Newsletter>
 

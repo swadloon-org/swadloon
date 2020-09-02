@@ -4,6 +4,7 @@ import { style } from 'treat';
 export const wrapper = style((theme: DesignSystem) => ({
   display: 'grid',
   justifyItems: 'center',
+  justifyContent: 'space-between',
   backgroundColor: theme.colors.greyscale0,
   color: theme.colors.greyscale900,
 }));
@@ -15,6 +16,7 @@ export const type3 = style((theme: DesignSystem) => ({
       maxWidth: '1200px',
       width: '100%',
       padding: `var(${theme.sizing.sizeCSSVarNames.X7}) 0`,
+      paddingTop: `0`,
     },
   },
 }));
