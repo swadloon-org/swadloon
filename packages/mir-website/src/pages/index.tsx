@@ -121,11 +121,11 @@ const Index: React.FC<PageProps> = ({ data, location }) => {
         imageUrl={data.gcms.assets[0].url}
         paragraphContent="Lorem ipsum dolor sit amet, consectetur adipiscing elit Nulla chronocrator accumsan, metus ultrices eleifend gravi."
         headingContent="Les dernières nouvelles"
-      ></BlogPreviewSection>
+      ></BlogPreviewSection> */}
 
       <Newsletter id="newsletter"></Newsletter>
 
-      <Footer></Footer> */}
+      <Footer></Footer>
     </div>
   );
 };

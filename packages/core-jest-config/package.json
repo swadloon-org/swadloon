@@ -14,7 +14,8 @@
     "./lib/**/*"
   ],
   "scripts": {
-    "build": "tsc --build tsconfig.json",
+    "prebuild": "yarn clean",
+    "build": "tsc --build",
     "clean": "rimraf -r lib/**",
     "postinstall": "yarn build",
     "start": "tsc --build tsconfig.json --watch --preserveWatchOutput",
