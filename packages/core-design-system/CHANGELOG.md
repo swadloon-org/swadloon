@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/core-design-system@1.1.0...core-design-system@1.2.0) (2020-09-02)
+
+### Bug Fixes
+
+- **mir-website:** add icon component ([222a468](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/222a468ff5169e532704912a4b9147e387ed989b))
+- **mir-website:** refactor headings, paragraphs and labels ([4a290e6](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/4a290e689894a639944d99528c6b691204bd0708))
+- **mir-website:** refactor queries ([3c59d80](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/3c59d808cc35f5231b8827a15e8754a42ddb316a))
+- **repo:** add missing prebuild commands ([aeebd40](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/aeebd4009243fbbd1ce1473a31dcb26299b41121))
+
+### Features
+
+- **core-design-system:** add letter spacing to the typography api ([0115e79](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/0115e79761e9ef54e27cfd61cc03ff67950ab706))
+
 # 1.1.0 (2020-08-24)
 
 ### Bug Fixes

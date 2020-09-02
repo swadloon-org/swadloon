@@ -1,6 +1,6 @@
 {
   "name": "core-gatsby-config",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Reusable gatsby configuration files",
   "license": "MIT",
   "main": "./lib/index.js",
@@ -9,8 +9,9 @@
   ],
   "scripts": {
     "prebuild": "yarn clean",
-    "build": "tsc --build tsconfig.json",
+    "build": "tsc --build",
     "clean": "rimraf -r lib/**",
+    "postinstall": "yarn build",
     "start": "tsc --build tsconfig.json --watch --preserveWatchOutput",
     "test": "echo ok"
   },

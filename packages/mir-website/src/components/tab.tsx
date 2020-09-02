@@ -2,6 +2,7 @@ import React, { HtmlHTMLAttributes, AllHTMLAttributes } from 'react';
 import { Label } from './label';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './tab.treat';
+import { LABEL } from 'core-design-system';
 interface OwnProps {
   size: 'small';
   selected: boolean;
@@ -12,10 +13,10 @@ export const Tab: React.FC<OwnProps & { onClick: (e: React.MouseEvent<HTMLDivEle
 
   return (
     <div
-      className={`${styles.wrapper} ${styles[props.size]} ${styles[props.selected ? 'selected' : '']}`}
+      className={`${styles.wrapper} ${styles[props.size]} ${styles[props.selected ? 'selected' : 'unselected']}`}
       onClick={props.onClick}
     >
-      <Label size="smallUppercase">{props.children}</Label>
+      <Label variant={LABEL.smallBoldUppercase}>{props.children}</Label>
     </div>
   );
 };

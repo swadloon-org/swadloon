@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useRef, SVGAttributes } from 'react';
-// import styles from './illustration.module.scss';
 
 type OwnProps = {
   name: string;
-  width: number | string;
-  height: number | string;
+  width?: number | string;
+  height?: number | string;
 };
 
 export const Illustration: React.FC<OwnProps & SVGAttributes<any>> = ({ name, height, width, ...props }) => {
@@ -18,7 +17,7 @@ export const Illustration: React.FC<OwnProps & SVGAttributes<any>> = ({ name, he
         const { default: namedImport } = await import(`../illustrations/${name}.svg`);
         ImportedIconRef.current = namedImport;
       } catch (err) {
-        throw err;
+        console.log(err);
       } finally {
         setLoading(false);
       }
@@ -27,7 +26,7 @@ export const Illustration: React.FC<OwnProps & SVGAttributes<any>> = ({ name, he
   }, [name]);
 
   if (!loading && ImportedIconRef.current) {
-    const { current: ImportedIcon } = ImportedIconRef;
+    const { current: ImportedIcon } = ImportedIconRef as any;
     return <ImportedIcon {...props} width={width} height={height} />;
   }
 

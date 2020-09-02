@@ -2,8 +2,6 @@ import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './paragraph.treat';
 
-import styles from './paragraph.module.scss';
-
 interface OwnProps {
   variant: 'small' | 'medium' | 'large';
 }
@@ -11,5 +9,5 @@ interface OwnProps {
 export const Paragraph: React.FC<HTMLAttributes<any> & OwnProps> = (props) => {
   const styles = useStyles(styleRefs);
 
-  return <div className={`${props.className || ''} ${styles[props.variant]}`}>{props.children}</div>;
+  return <p className={`${props.className || ''} ${styles[props.variant]}`}>{props.children}</p>;
 };

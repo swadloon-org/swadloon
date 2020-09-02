@@ -6,6 +6,7 @@ export const DEFAULT_BASE_FONT_SIZE_PX = `${DEFAULT_BASE_FONT_SIZE}px`;
 export const DEFAULT_SCALING_RATIO = 1.618;
 
 export const DEFAULT_SIZES_CSS_VAR_NAMES: SizeCSSVarNames = {
+  [SIZING.X0]: '--sizing-x0',
   [SIZING.X1]: '--sizing-x1',
   [SIZING.X2]: '--sizing-x2',
   [SIZING.X3]: '--sizing-x3',
@@ -19,6 +20,10 @@ export const DEFAULT_SIZES_CSS_VAR_NAMES: SizeCSSVarNames = {
 };
 
 const sizingStepMobile = {
+  [SIZING.X0]: createSizingStep({
+    value: 9,
+    baseFontSize: DEFAULT_BASE_FONT_SIZE,
+  }),
   [SIZING.X1]: createSizingStep({
     value: 9,
     baseFontSize: DEFAULT_BASE_FONT_SIZE,

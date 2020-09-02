@@ -1,5 +1,5 @@
 import { CapsizeStyles, FontMetrics } from 'capsize';
-import { FontWeightProperty, TextTransformProperty } from 'csstype';
+import { FontWeightProperty, TextTransformProperty, LetterSpacingProperty } from 'csstype';
 import { VIEWPORT } from './layout';
 import { SizingStep } from './sizing';
 
@@ -17,31 +17,38 @@ export enum TYPOGRAPHIC_STYLE {
  * The headings (e.g. <h1/>, <h2/>...) levels.
  */
 export enum HEADING_LEVEL {
-  H1 = 'H1',
-  H2 = 'H2',
-  H3 = 'H3',
-  H4 = 'H4',
+  h1 = 'h1',
+  h2 = 'h2',
+  h3 = 'h3',
+  h4 = 'h4',
 }
 
 /**
  * The paragraph sizes.
  */
 export enum PARAGRAPH {
-  LARGE = 'LARGE',
-  MEDIUM = 'MEDIUM',
-  SMALL = 'SMALL',
+  large = 'large',
+  medium = 'medium',
+  small = 'small',
+  xSmall = 'xSmall',
 }
 
 /**
  * The label sizes.
  */
 export enum LABEL {
-  MEDIUM_BOLD_UPPERCASE = 'MEDIUM_BOLD_UPPERCASE',
-  MEDIUM_UPPERCASE = 'MEDIUM_UPPERCASE',
-  MEDIUM = 'MEDIUM',
-  SMALL_BOLD_UPPERCASE = 'SMALL_BOLD_UPPERCASE',
-  SMALL_UPPERCASE = 'SMALL_UPPERCASE',
-  SMALL = 'SMALL',
+  mediumBoldUppercase = 'mediumBoldUppercase',
+  mediumUppercase = 'mediumUppercase',
+  mediumBold = 'mediumBold',
+  mediumRegular = 'mediumRegular',
+  smallBoldUppercase = 'smallBoldUppercase',
+  smallUppercase = 'smallUppercase',
+  smallBold = 'smallBold',
+  smallRegular = 'smallRegular',
+  xSmallBoldUppercase = 'xSmallBoldUppercase',
+  xSmallUppercase = 'xSmallUppercase',
+  xSmallBold = 'xSmallBold',
+  xSmallRegular = 'xSmallRegular',
 }
 
 export interface Font {
@@ -80,12 +87,18 @@ export interface TextStyle {
    */
   fontWeight: FontWeightProperty;
   /**
+   * Optional property to set `letter-spacing`.
+   * Note that only percentage (x%) values are allowed right now.
+   *
+   * @example '3%' becomes '0.48em'
+   */
+  letterSpacing?: LetterSpacingProperty<any>;
+  /**
    * Optional property to set `text-transform`.
    *
    * @example 'uppercase'
    */
   textTransform?: TextTransformProperty;
-
   /**
    * Desired capital letter height in pixels. (which is usually the height of the letter 'X')
    * @see https://seek-oss.github.io/capsize/

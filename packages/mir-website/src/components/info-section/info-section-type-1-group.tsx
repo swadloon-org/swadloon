@@ -3,11 +3,10 @@ import React from 'react';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './info-section-type-1-group.treat';
 
-import { SectionModelQuery } from './info-section';
+import { InfoSectionModelQuery } from './info-section';
 import { InfoSectionType1 } from './info-section-type-1';
-// import styles from './info-section-type-1-group.module.scss';
 
-type OwnProps = SectionModelQuery;
+type OwnProps = InfoSectionModelQuery;
 
 export const InfoSectionType1Group: React.FC<OwnProps> = (props) => {
   const hasChilds = !!props?.childs.length;

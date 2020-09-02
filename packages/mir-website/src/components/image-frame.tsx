@@ -5,25 +5,45 @@ import * as styleRefs from './image-frame.treat';
 
 interface OwnProps {
   url: string;
-  variant: 'bottomRight' | 'bottomLeft';
+  variant: 'bottomRight' | 'bottomLeft' | 'topLeft' | 'topRight';
 }
 
 export const ImageFrame: React.FC<OwnProps & HTMLAttributes<any>> = (props) => {
   const styles = useStyles(styleRefs);
 
   return (
-    <div className={`${props.className || ''} ${styles.wrapper} ${styles[props.variant]}`}>
+    <div className={`${props.className || ''} ${styles.wrapper}`}>
       <Illustration
-        name={'Illustration/Square'}
-        className={`${styles.backgroundIllustration}`}
+        name={'Illustration/IllustrationSquare'}
+        className={`${styles.backgroundIllustration} ${getVariantStyle(props.variant)}`}
         preserveAspectRatio="none"
-        width={null}
-        height={null}
+        width={200}
+        height={200}
       />
 
-      <div className={styles.content}>
+      <div className={`${styles.content} ${styles[props.variant]}`}>
         <div className={`${styles.image}`} style={{ backgroundImage: `url(${props.url})` }} />
       </div>
     </div>
   );
+
+  function getVariantStyle(value: string) {
+    switch (value) {
+      case 'bottomRight': {
+        return styles.topLeft;
+      }
+      case 'bottomLeft': {
+        return styles.topRight;
+      }
+      case 'topLeft': {
+        return styles.bottomRight;
+      }
+      case 'topRight': {
+        return styles.bottomLeft;
+      }
+      default: {
+        return '';
+      }
+    }
+  }
 };

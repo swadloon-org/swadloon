@@ -1,10 +1,14 @@
 import { globalStyle } from 'treat';
 import { DesignSystem } from 'core-design-system';
 import { getGlobalSizeVariables } from './global-sizes-variables.styles';
-import { globalReset } from './global-reset.styles';
 
 export function applyReset(themeClass: string) {
-  return globalStyle(`${themeClass}, *`, (theme: DesignSystem) => globalReset);
+  globalStyle(`*`, {
+    boxSizing: 'border-box',
+  });
+  globalStyle(`p`, {
+    margin: 0,
+  });
 }
 
 export function applyStylesToHtmlElement(themeClass: string) {
@@ -13,9 +17,10 @@ export function applyStylesToHtmlElement(themeClass: string) {
     overflowX: 'hidden',
     overflowY: 'scroll',
     WebkitTextSizeAdjust: '100%',
+    scrollBehavior: 'smooth',
 
     fontSize: theme.sizing.baseFontSizePx,
-    backgroundColor: theme.colorIntents.background0,
+    backgroundColor: theme.colors.greyscale1000,
 
     ...getGlobalSizeVariables(theme),
   }));
@@ -26,6 +31,7 @@ export function applyStylesToBodyElement(themeClass: string) {
     display: 'flex',
     justifyContent: 'center',
     maxWidth: '100vw',
+    minHeight: '100vh',
     overflow: 'hidden',
     /**
      * Remove the margin in all browsers.

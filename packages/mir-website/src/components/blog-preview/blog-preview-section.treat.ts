@@ -19,22 +19,22 @@ export const content = style((theme: DesignSystem) => ({
   gridTemplateColumns: 'repeat(3, 1fr)',
   gridColumnGap: `var(${theme.sizing.sizeCSSVarNames.X4})`,
   margin: `var(${theme.sizing.sizeCSSVarNames.X5}) 0`,
-  padding: `0 var(${theme.layout.contentMargins})`,
+  padding: `0 ${theme.layout.contentMargins.MOBILE.valuePx}`,
   maxWidth: '100%',
   overflowX: 'auto',
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
-      padding: `0 var(${theme.layout.contentMargins.TABLET})`,
+      padding: `0 ${theme.layout.contentMargins.TABLET.valuePx}`,
     },
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
-      padding: `0 var(${theme.layout.contentMargins.DESKTOP})`,
+      padding: `0 ${theme.layout.contentMargins.DESKTOP.valuePx}`,
     },
   },
 }));
 export const title = style((theme: DesignSystem) => ({
   textAlign: 'center',
   margin: `0 0 var(${theme.sizing.sizeCSSVarNames.X3}) 0`,
-  maxWidth: '460px',
+  maxWidth: '500px',
 }));
 export const paragraph = style((theme: DesignSystem) => ({
   textAlign: 'center',

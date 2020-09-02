@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/lakhos-website@1.1.0...lakhos-website@1.1.1) (2020-09-02)
+
+### Bug Fixes
+
+- **mir-website:** fix window declaration ([05e595c](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/05e595cc9daae049aa01e3ab1217292009472aae))
+
 # 1.1.0 (2020-08-24)
 
 ### Bug Fixes

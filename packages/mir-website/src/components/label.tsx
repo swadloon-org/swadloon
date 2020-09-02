@@ -3,21 +3,16 @@ import { useStyles } from 'react-treat';
 import * as styleRefs from './label.treat';
 import { LABEL } from 'core-design-system';
 
-enum LABEL_SIZE {
-  SMALL = 'small',
-  MEDIUM = 'medium',
-  SMALL_BOLD = 'smallBold',
-  MEDIUM_BOLD = 'mediumBold',
-  SMALL_UPPERCASE = 'smallUppercase',
-  MEDIUM_UPPERCASE = 'mediumUppercase',
-}
-
 interface OwnProps {
-  size: 'small' | 'medium' | 'smallBold' | 'mediumBold' | 'smallUppercase' | 'mediumUppercase';
+  variant: LABEL;
 }
 
-export const Label: React.FC<LabelHTMLAttributes<any> & OwnProps> = (props) => {
+export const Label: React.FC<LabelHTMLAttributes<any> & OwnProps> = ({ className, variant, children, htmlFor }) => {
   const styles = useStyles(styleRefs);
 
-  return <label className={`${props.className || ''} ${styles[props.size]}`}>{props.children}</label>;
+  return (
+    <label className={`${className || ''} ${styles[variant]}`} htmlFor={htmlFor}>
+      {children}
+    </label>
+  );
 };

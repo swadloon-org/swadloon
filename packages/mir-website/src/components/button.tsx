@@ -1,14 +1,11 @@
+import { LABEL } from 'core-design-system';
 import React, { ButtonHTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
-
-// import styles from './button.module.scss';
+import CornerBottomRight from '../illustrations/Illustration/IllustrationCornerBottomRight.svg';
+import CornerTopLeft from '../illustrations/Illustration/IllustrationCornerTopLeft.svg';
 import * as styleRefs from './button.treat';
-
-import { Label } from './label';
-
-import CornerTopLeft from '../illustrations/Illustration/CornerTopLeft.svg';
-import CornerBottomRight from '../illustrations/Illustration/CornerBottomRight.svg';
 import { Illustration } from './illustration';
+import { Label } from './label';
 
 type OwnProps = {
   type:
@@ -46,7 +43,7 @@ export const Button: React.FC<OwnProps> = (props) => {
       {props.variant === 'icon' && props.icon ? (
         <Illustration className={`${styles.illustration}`} name={`Icon/${props.icon}`} width={42} height={42} />
       ) : (
-        <Label className={`${styles.label}`} size="smallUppercase">
+        <Label className={`${styles.label}`} variant={LABEL.smallBold}>
           {props.children}
         </Label>
       )}

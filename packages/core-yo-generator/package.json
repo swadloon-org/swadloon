@@ -1,6 +1,6 @@
 {
   "name": "core-yo-generator",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "Yeoman generator to scafold libraries, apps, components and more.",
   "author": {
     "email": "philippe.leger@newrade.ca",
@@ -13,7 +13,8 @@
     "nr-core-yo-generator": "./lib/src/cli.js"
   },
   "scripts": {
-    "build": "tsc --build tsconfig.json",
+    "prebuild": "yarn clean",
+    "build": "tsc --build",
     "clean": "rimraf -r lib/**",
     "postinstall": "yarn build",
     "start": "tsc --build --watch --preserveWatchOutput",

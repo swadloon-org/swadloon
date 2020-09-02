@@ -2,7 +2,7 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import { TreatProvider, useStyles } from 'react-treat';
 import { IndexPageQuery } from '../../types/graphql-types';
-import { Banner } from '../components/banner';
+import { BannerPrimary } from '../components/banner-primary';
 import { BlogPreviewSection } from '../components/blog-preview/blog-preview-section';
 import { Footer } from '../components/footer';
 import { InfoSectionType1Group } from '../components/info-section/info-section-type-1-group';
@@ -11,29 +11,49 @@ import { InfoSectionType3 } from '../components/info-section/info-section-type-3
 import { InfoSectionType4 } from '../components/info-section/info-section-type-4';
 import { NavBar } from '../components/nav-bar';
 import { Newsletter } from '../components/newsletter/newsletter';
-
-import { light } from '../themes/mir-theme.treat';
-import * as stylesRef from '../styles/index.treat';
-
+import { ViewportProvider } from '../context/viewport.context';
+import { viewportContext } from '../hooks/use-viewport.hook';
 import '../styles/font-faces.styles.css';
+import * as stylesRef from '../styles/page.treat';
+import { light, theme } from '../themes/mir-theme.treat';
 
 export const query = graphql`
   query indexPage {
+    bannerImageMobile: file(name: { eq: "ImageOffice05" }) {
+      id
+      childImageSharp {
+        # https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-transformer-sharp/src/fragments.js
+        fluid(quality: 80, maxWidth: 1920) {
+          base64
+          aspectRatio
+          src
+          srcSet
+          srcWebp
+          srcSetWebp
+          sizes
+        }
+      }
+    }
+    bannerImageDesktop: file(name: { eq: "ImageOffice05" }) {
+      id
+      childImageSharp {
+        # https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-transformer-sharp/src/fragments.js
+        fluid(quality: 80, maxWidth: 1920) {
+          base64
+          aspectRatio
+          src
+          srcSet
+          srcWebp
+          srcSetWebp
+          sizes
+        }
+      }
+    }
     gcms {
-      companyMedias {
-        logoFooter {
-          url
-        }
-        logo {
-          url
-        }
-      }
-      assets(where: { fileName: "Office1.jpg" }) {
-        url
-      }
-      pageIndices(first: 1) {
-        id
-        employeeEmployerSections {
+      indexPages(first: 1) {
+        bannerTitle
+        bannerSubTitle
+        infoSections {
           title
           titleHighlight
           titleTab
@@ -42,7 +62,7 @@ export const query = graphql`
           showTabs
           actionText
           infoTiles {
-            icon
+            illustration
             title
             text
           }
@@ -56,7 +76,22 @@ export const query = graphql`
             actionText
           }
           image {
-            url
+            url(transformation: { image: { resize: { width: 900, fit: max } } })
+          }
+        }
+        blogSection {
+          id
+          title
+          titleHighlight
+          text
+          actionLabel
+          posts {
+            id
+            createdAt
+            title
+            image {
+              url(transformation: { image: { resize: { width: 300, fit: max } } })
+            }
           }
         }
       }
@@ -64,38 +99,58 @@ export const query = graphql`
   }
 `;
 
-interface IndexPageProps {
+export interface PageProps {
   data: IndexPageQuery;
   location: Location;
 }
 
-const IndexPage: React.FC<IndexPageProps> = (props) => {
+export const Root: React.FC<{}> = (props) => {
   return (
-    <TreatProvider theme={light}>
-      <App {...props} />
-    </TreatProvider>
+    <ViewportProvider context={viewportContext}>
+      <TreatProvider theme={light}>{props.children}</TreatProvider>
+    </ViewportProvider>
   );
 };
 
-const App: React.FC<IndexPageProps> = ({ data, location }) => {
+const IndexPage: React.FC<PageProps> = (props) => {
+  return (
+    <Root>
+      <Index {...props} />
+    </Root>
+  );
+};
+
+const Index: React.FC<PageProps> = ({ data, location }) => {
   const styles = useStyles(stylesRef);
+
+  const sources = [
+    data?.bannerImageMobile?.childImageSharp?.fluid,
+    {
+      ...data?.bannerImageDesktop?.childImageSharp?.fluid,
+      media: `(min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`,
+    },
+  ];
 
   return (
     <div className={`${styles.wrapper}`}>
       <NavBar></NavBar>
 
-      <Banner></Banner>
+      <BannerPrimary
+        imageData={sources}
+        title={data?.gcms?.indexPages[0]?.bannerTitle}
+        subTitle={data?.gcms?.indexPages[0]?.bannerSubTitle}
+      ></BannerPrimary>
 
-      {data.gcms.pageIndices[0].employeeEmployerSections.map((section, index) => {
+      {data?.gcms?.indexPages[0]?.infoSections.map((section, index) => {
         switch (section.type) {
           case 'type1group': {
             return <InfoSectionType1Group key={index} {...section} />;
           }
           case 'type2': {
-            return <InfoSectionType2 key={index} {...section} />;
+            return <InfoSectionType2 key={index} align="AlignContentLeft" {...section} />;
           }
           case 'type3': {
-            return <InfoSectionType3 key={index} {...section} />;
+            return <InfoSectionType3 key={index} align="AlignContentRight" {...section} />;
           }
           case 'type4': {
             return <InfoSectionType4 key={index} {...section} />;
@@ -107,9 +162,9 @@ const App: React.FC<IndexPageProps> = ({ data, location }) => {
       })}
 
       <BlogPreviewSection
-        imageUrl={data.gcms.assets[0].url}
-        paragraphContent="Lorem ipsum dolor sit amet, consectetur adipiscing elit Nulla chronocrator accumsan, metus ultrices eleifend gravi."
-        headingContent="Les dernières nouvelles"
+        posts={data?.gcms?.indexPages[0]?.blogSection?.posts}
+        text={data?.gcms?.indexPages[0]?.blogSection?.text}
+        title={data?.gcms?.indexPages[0]?.blogSection?.title}
       ></BlogPreviewSection>
 
       <Newsletter id="newsletter"></Newsletter>

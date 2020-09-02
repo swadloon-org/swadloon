@@ -1,23 +1,24 @@
 {
   "name": "core-webpack-config",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Reusable webpack configuration files",
   "license": "MIT",
   "main": "./lib/index.js",
   "module": "./lib/index.js",
-  "typings": "./lib/index.d.ts",
   "files": [
     "./lib/**/*"
   ],
+  "scripts": {
+    "prebuild": "yarn clean",
+    "build": "tsc --build",
+    "clean": "rimraf -r lib/**",
+    "postinstall": "yarn build",
+    "start": "tsc --build tsconfig.json --watch --preserveWatchOutput",
+    "test": "webpack --config webpack.test.config.ts",
+    "webpack": "webpack --config webpack.dev.config.ts"
+  },
+  "typings": "./lib/index.d.ts",
   "dependencies": {
     "core-jest-config": "link:../core-jest-config"
-  },
-  "scripts": {
-    "start": "tsc --build tsconfig.json --watch --preserveWatchOutput",
-    "build": "tsc --build tsconfig.json",
-    "prebuild": "yarn clean",
-    "webpack": "webpack --config webpack.dev.config.ts",
-    "test": "webpack --config webpack.test.config.ts",
-    "clean": "rimraf -r lib/**"
   }
 }

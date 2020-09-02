@@ -57,6 +57,12 @@ module.exports = {
     'react/destructuring-assignment': 'off',
     'react/button-has-type': 'off',
     'react/state-in-constructor': 'off',
+    'prettier/prettier': [
+      'error',
+      {
+        endOfLine: 'auto',
+      },
+    ],
     'jest/consistent-test-it': [
       'error',
       {

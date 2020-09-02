@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/compare/core-utils@1.1.0...core-utils@1.1.1) (2020-09-02)
+
+### Bug Fixes
+
+- **repo:** add missing prebuild commands ([aeebd40](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/commit/aeebd4009243fbbd1ce1473a31dcb26299b41121))
+
 # 1.1.0 (2020-08-24)
 
 ### Bug Fixes

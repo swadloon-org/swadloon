@@ -4,6 +4,7 @@ import { VIEWPORT } from './layout';
  * Unique names for each sizing step.
  */
 export enum SIZING {
+  X0 = 'X0',
   X1 = 'X1',
   X2 = 'X2',
   X3 = 'X3',
