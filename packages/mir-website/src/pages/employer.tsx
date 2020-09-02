@@ -27,7 +27,7 @@ export const query = graphql`
       }
     }
     gcms {
-      candidatePages(first: 1) {
+      employerPages(first: 1) {
         bannerTitle
         infoSections {
           title
@@ -82,7 +82,7 @@ const Employer: React.FC<OwnProps> = ({ data, location }) => {
 
       <BannerSecondary
         imageData={data.bannerImage?.childImageSharp?.fluid}
-        title={data?.gcms?.candidatePages[0]?.bannerTitle}
+        title={data?.gcms?.employerPages[0]?.bannerTitle}
       ></BannerSecondary>
 
       {/* {data.gcms.pageIndices[0].employeeEmployerSections.map((section, index) => {

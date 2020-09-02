@@ -68,7 +68,7 @@ interface OwnProps {
 const ContactPage: React.FC<OwnProps> = (props) => {
   return (
     <Root>
-      <ContactPage {...props} />
+      <Contact {...props} />
     </Root>
   );
 };
