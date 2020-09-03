@@ -2,86 +2,171 @@ import React, { useState } from 'react';
 import { useStyles } from 'react-treat';
 import { Accordions } from '../accordions';
 import { Tags } from '../tags';
+import { CheckLabel } from '../info-section-check';
 import * as styleRefs from './job-section.treat';
 import { RenderTitleHighlight } from '../info-section/info-title-highligh';
+import { BoxIcon } from '../box-icon';
+import { useViewportValues, useViewportBreakpoint } from '../../hooks/use-viewport.hook';
+import { VIEWPORT } from 'core-design-system';
+
+export type JobSection = {
+  // variant: 'candidate' | 'employer';
+  title?: string | null;
+  titleHighlight?: string | null;
+  jobsGroups: JobGroup[];
+};
+
+export type JobGroup = {
+  title?: string | null;
+  jobs: Job[];
+};
+
+export type Job = {
+  title?: string | null;
+};
 
 type OwnProps = {
   variant: 'candidate' | 'employer';
-  title?: string | null;
-  titleHighlight?: string | null;
+  jobSection: JobSection;
 };
 
 export const JobSection: React.FC<OwnProps> = (props) => {
   const styles = useStyles(styleRefs);
+  const { width } = useViewportValues();
+  const { viewport } = useViewportBreakpoint();
+
   const [selectedAccordionsIndex, setSelectedAccordionsIndex] = useState<number>(1);
+  const [selectedBoxIcon, setSelectedBoxIconIndex] = useState<number>(1);
 
   return (
-    <div className={`${styles.wrapper}`}>
-      <RenderTitleHighlight className={styles.title} title={props.title} titleHighlight={props.titleHighlight} />
-
-      <div className={styles.container}>
-        <div className={styles.accordions}>
-          <Accordions
-            variant="Default"
-            selected={1 === selectedAccordionsIndex}
-            onClick={() => {
-              setSelectedAccordionsIndex(1);
-            }}
-          >
-            Postes administratifs
-          </Accordions>
-        </div>
-        <div className={styles.accordions}>
-          <Accordions
-            variant="reversed"
-            selected={2 === selectedAccordionsIndex}
-            onClick={() => {
-              setSelectedAccordionsIndex(2);
-            }}
-          >
-            Postes techniques
-          </Accordions>
-        </div>
-
-        <div className={styles.content}>
-          <div className={styles.tagsUnique}>
-            <Tags numberIndex="01">Label LabelLabel LabelLabel Label </Tags>
-          </div>
-          <div className={styles.tagsUnique}>
-            <Tags numberIndex="02">Label LabelLabel LabelLabel Label </Tags>
-          </div>
-          <div className={styles.tagsUnique}>
-            <Tags numberIndex="03">Label LabelLabel LabelLabel Label </Tags>
-          </div>
-          <div className={styles.tagsUnique}>
-            <Tags numberIndex="04">Label LabelLabel LabelLabel Label </Tags>
-          </div>
-          <div className={styles.tagsUnique}>
-            <Tags numberIndex="05">Label LabelLabel LabelLabel Label </Tags>
-          </div>
-          <div className={styles.tagsUnique}>
-            <Tags numberIndex="06">Label LabelLabel LabelLabel Label </Tags>
-          </div>
-          <div className={styles.tagsUnique}>
-            <Tags numberIndex="07">Label LabelLabel LabelLabel Label </Tags>
-          </div>
-          <div className={styles.tagsUnique}>
-            <Tags numberIndex="08">Label LabelLabel LabelLabel Label </Tags>
-          </div>
-          <div className={styles.tagsUnique}>
-            <Tags numberIndex="09">Label LabelLabel LabelLabel Label </Tags>
-          </div>
-          <div className={styles.tagsUnique}>
-            <Tags numberIndex="10">Label LabelLabel LabelLabel Label </Tags>
-          </div>
-          <div className={styles.tagsUnique}>
-            <Tags numberIndex="11">Label LabelLabel LabelLabel Label </Tags>
-          </div>
-          <div className={styles.tagsUnique}>
-            <Tags numberIndex="12">Label LabelLabel LabelLabel Label </Tags>
-          </div>
-        </div>
-      </div>
+    <div className={`${styles.wrapper} `}>
+      <RenderTitleHighlight
+        className={styles.title}
+        title={props.jobSection.title}
+        titleHighlight={props.jobSection.titleHighlight}
+      />
+      {getVariantModifier(props.variant)}
     </div>
   );
+
+  function getVariantModifier(value: string) {
+    switch (value) {
+      case 'candidate': {
+        //
+        // Desktop Case
+        //
+
+        if (viewport === VIEWPORT.DESKTOP) {
+          return (
+            <div className={styles.container}>
+              <div className={styles.containerBox}>
+                {props?.jobSection.jobsGroups.map((jobType, index) => {
+                  return (
+                    <div className={styles.boxIcon}>
+                      <BoxIcon
+                        key={index}
+                        icon="IllustrationFactory"
+                        selected={index === selectedBoxIcon}
+                        onClick={() => {
+                          setSelectedBoxIconIndex(index);
+                        }}
+                      >
+                        {jobType.title}
+                      </BoxIcon>
+                    </div>
+                  );
+                })}
+              </div>
+              <div className={styles.content}>
+                {props?.jobSection.jobsGroups[selectedBoxIcon].jobs.map((job, index) => {
+                  return (
+                    <div key={index} className={`${index / 2 == 0 ? styles.even : styles.unenven}`}>
+                      <CheckLabel illustration="Check" size="medium">
+                        {job.title}
+                      </CheckLabel>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          );
+        }
+
+        //
+        // Mobile & tablet Case
+        //
+        else {
+          return (
+            <div className={styles.container}>
+              {props?.jobSection.jobsGroups.map((jobType, index) => {
+                return (
+                  <div className={styles.containerBox}>
+                    <div className={styles.boxIcon}>
+                      <BoxIcon
+                        key={index}
+                        icon="IllustrationFactory"
+                        selected={index === selectedBoxIcon}
+                        onClick={() => {
+                          setSelectedBoxIconIndex(index);
+                        }}
+                      >
+                        {jobType.title}
+                      </BoxIcon>
+                    </div>
+                    <div className={styles.content}>
+                      {props?.jobSection.jobsGroups[selectedBoxIcon].jobs.map((job, index) => {
+                        return (
+                          <div key={index} className={`${index / 2 == 0 ? styles.even : styles.unenven}`}>
+                            <CheckLabel illustration="Check" size="medium">
+                              {job.title}
+                            </CheckLabel>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          );
+        }
+      }
+      case 'employer': {
+        return (
+          <div className={styles.container}>
+            {props?.jobSection.jobsGroups.map((jobType, index) => {
+              return (
+                <div className={styles.accordions}>
+                  <Accordions
+                    key={index}
+                    variant="Default"
+                    selected={index === selectedAccordionsIndex}
+                    onClick={() => {
+                      setSelectedAccordionsIndex(index);
+                    }}
+                  >
+                    {jobType.title}
+                  </Accordions>
+                </div>
+              );
+            })}
+
+            <div className={styles.content}>
+              {props?.jobSection.jobsGroups[selectedBoxIcon].jobs.map((job, index) => {
+                return (
+                  <div key={index} className={styles.tagsUnique}>
+                    <Tags numberIndex={`${index < 9 ? '0' : ''}${index + 1}`}> {job.title}</Tags>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        );
+      }
+
+      default: {
+        return '';
+      }
+    }
+  }
 };
