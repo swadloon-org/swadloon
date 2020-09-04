@@ -16,6 +16,7 @@ import { ActionSection } from '../components/action-section/action-section';
 import { BoxIcon } from '../components/box-icon';
 import { useStyles } from 'react-treat';
 import * as styleRefs from '../styles/page.treat';
+import { Testimonial } from '../components/testimonial-section/testimonial-section';
 
 const DesignPage: React.FC<PageProps> = (props) => {
   return (
@@ -77,6 +78,8 @@ export const Design: React.FC = () => {
       <ActionSection variant="Default"></ActionSection>
       {/* <JobSection variant="employer"></JobSection>
       <JobSection variant="candidate"></JobSection> */}
+
+      <Testimonial title="Lorem ipsum dolor sit amet, consectetur adipiscing elit Nulla chronocrator accumsan, metus ultrices eleifend gravi."></Testimonial>
     </div>
   );
 };
