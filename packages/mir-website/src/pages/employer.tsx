@@ -39,17 +39,20 @@ export const query = graphql`
           actionText
         }
         jobSection {
-          type {
-            id
-            title
-          }
           title
-          jobs {
-            id
-            type {
-              id
-            }
+          titleHighlight
+          type {
             title
+            jobSection {
+              id
+              title
+              groups {
+                jobs {
+                  id
+                  title
+                }
+              }
+            }
           }
         }
         infoSections {

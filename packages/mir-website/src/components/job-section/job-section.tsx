@@ -13,20 +13,21 @@ export type JobSection = {
   // variant: 'candidate' | 'employer';
   title?: string | null;
   titleHighlight?: string | null;
-  jobsGroups: JobGroup[];
+  groups: group[];
 };
 
-export type JobGroup = {
+export type group = {
   title?: string | null;
   jobs: Job[];
 };
 
 export type Job = {
+  id?: string | null;
   title?: string | null;
 };
 
 type OwnProps = {
-  variant: 'candidate' | 'employer';
+  variant: string;
   jobSection: JobSection;
 };
 
@@ -60,7 +61,7 @@ export const JobSection: React.FC<OwnProps> = (props) => {
           return (
             <div className={styles.container}>
               <div className={styles.containerBox}>
-                {props?.jobSection.jobsGroups.map((jobType, index) => {
+                {props?.jobSection.groups.map((jobType, index) => {
                   return (
                     <div className={styles.boxIcon}>
                       <BoxIcon
@@ -78,7 +79,7 @@ export const JobSection: React.FC<OwnProps> = (props) => {
                 })}
               </div>
               <div className={styles.content}>
-                {props?.jobSection.jobsGroups[selectedBoxIcon].jobs.map((job, index) => {
+                {props?.jobSection.groups[selectedBoxIcon].jobs.map((job, index) => {
                   return (
                     <div key={index} className={`${index / 2 == 0 ? styles.even : styles.unenven}`}>
                       <CheckLabel illustration="Check" size="medium">
@@ -98,7 +99,7 @@ export const JobSection: React.FC<OwnProps> = (props) => {
         else {
           return (
             <div className={styles.container}>
-              {props?.jobSection.jobsGroups.map((jobType, index) => {
+              {props?.jobSection.groups.map((jobType, index) => {
                 return (
                   <div className={styles.containerBox}>
                     <div className={styles.boxIcon}>
@@ -114,7 +115,7 @@ export const JobSection: React.FC<OwnProps> = (props) => {
                       </BoxIcon>
                     </div>
                     <div className={styles.content}>
-                      {props?.jobSection.jobsGroups[selectedBoxIcon].jobs.map((job, index) => {
+                      {props?.jobSection.groups[selectedBoxIcon].jobs.map((job, index) => {
                         return (
                           <div key={index} className={`${index / 2 == 0 ? styles.even : styles.unenven}`}>
                             <CheckLabel illustration="Check" size="medium">
@@ -134,7 +135,7 @@ export const JobSection: React.FC<OwnProps> = (props) => {
       case 'employer': {
         return (
           <div className={styles.container}>
-            {props?.jobSection.jobsGroups.map((jobType, index) => {
+            {props?.jobSection.groups.map((jobType, index) => {
               return (
                 <div className={styles.accordions}>
                   <Accordions
@@ -152,7 +153,7 @@ export const JobSection: React.FC<OwnProps> = (props) => {
             })}
 
             <div className={styles.content}>
-              {props?.jobSection.jobsGroups[selectedBoxIcon].jobs.map((job, index) => {
+              {props?.jobSection.groups[selectedBoxIcon].jobs.map((job, index) => {
                 return (
                   <div key={index} className={styles.tagsUnique}>
                     <Tags numberIndex={`${index < 9 ? '0' : ''}${index + 1}`}> {job.title}</Tags>
