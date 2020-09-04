@@ -17,6 +17,7 @@ import { BoxIcon } from '../components/box-icon';
 import { useStyles } from 'react-treat';
 import * as styleRefs from '../styles/page.treat';
 import { Testimonial } from '../components/testimonial-section/testimonial-section';
+import { Process } from '../components/process-section/process-section';
 
 const DesignPage: React.FC<PageProps> = (props) => {
   return (
@@ -80,6 +81,7 @@ export const Design: React.FC = () => {
       <JobSection variant="candidate"></JobSection> */}
 
       <Testimonial title="Lorem ipsum dolor sit amet, consectetur adipiscing elit Nulla chronocrator accumsan, metus ultrices eleifend gravi."></Testimonial>
+      <Process title="Notre processus de recrutement" titleHighlight="processus"></Process>
     </div>
   );
 };
