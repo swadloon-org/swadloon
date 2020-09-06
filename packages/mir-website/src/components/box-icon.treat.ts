@@ -2,7 +2,7 @@ import { DesignSystem } from 'core-design-system';
 import { globalStyle, style } from 'treat';
 
 export const wrapper = style((theme: DesignSystem) => ({
-  padding: `var(${theme.sizing.sizeCSSVarNames.X4})`,
+  padding: `var(${theme.sizing.sizeCSSVarNames.x4})`,
   borderRadius: '0px 30px 30px 30px',
   boxShadow: '6px 6px 24px #D7D7D7',
 }));

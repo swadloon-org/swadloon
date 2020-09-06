@@ -13,11 +13,11 @@ export const container = style((theme: DesignSystem) => ({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
-  padding: `0 var(${theme.sizing.sizeCSSVarNames.X4})`,
+  padding: `0 var(${theme.sizing.sizeCSSVarNames.x4})`,
 }));
 
 export const label = style((theme: DesignSystem) => ({
-  height: `calc(var(${theme.sizing.sizeCSSVarNames.X2}) * 5)`,
+  height: `calc(var(${theme.sizing.sizeCSSVarNames.x2}) * 5)`,
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',

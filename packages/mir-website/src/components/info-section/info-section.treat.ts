@@ -4,7 +4,7 @@ import { globalStyle, style } from 'treat';
 export const wrapper = style((theme: DesignSystem) => ({
   display: 'grid',
   justifyItems: 'center',
-  padding: `var(${theme.sizing.sizeCSSVarNames.X5}) ${theme.layout.contentMargins.MOBILE.valuePx}`,
+  padding: `var(${theme.sizing.sizeCSSVarNames.x5}) ${theme.layout.contentMargins.MOBILE.valuePx}`,
   backgroundColor: theme.colors.greyscale0,
   color: theme.colors.greyscale900,
 }));
@@ -39,7 +39,7 @@ export const AlignContentRight = style((theme: DesignSystem) => ({
 }));
 
 export const image = style((theme: DesignSystem) => ({
-  marginBottom: `var(${theme.sizing.sizeCSSVarNames.X5})`,
+  marginBottom: `var(${theme.sizing.sizeCSSVarNames.x5})`,
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
       width: '540px',
@@ -53,12 +53,12 @@ export const image = style((theme: DesignSystem) => ({
 }));
 
 export const imageTabs = style((theme: DesignSystem) => ({
-  marginBottom: `calc(var(${theme.sizing.sizeCSSVarNames.X3}) * 2)`,
+  marginBottom: `calc(var(${theme.sizing.sizeCSSVarNames.x3}) * 2)`,
 }));
 
 export const title = style((theme: DesignSystem) => ({
   textAlign: 'center',
-  marginBottom: `calc(var(${theme.sizing.sizeCSSVarNames.X3}) *2)`,
+  marginBottom: `calc(var(${theme.sizing.sizeCSSVarNames.x3}) *2)`,
   maxWidth: '400px',
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
@@ -80,7 +80,7 @@ export const titleHighlight = style((theme: DesignSystem) => ({
 export const text = style((theme: DesignSystem) => ({
   textAlign: 'center',
   whiteSpace: 'pre-wrap', // handle mutli-line text
-  marginBottom: `var(${theme.sizing.sizeCSSVarNames.X5})`,
+  marginBottom: `var(${theme.sizing.sizeCSSVarNames.x5})`,
   color: 'currentColor',
   maxWidth: '400px',
 
@@ -128,12 +128,12 @@ export const content = style((theme: DesignSystem) => ({
 
 export const infoTilesWrapper = style((theme: DesignSystem) => ({
   display: 'grid',
-  gridRowGap: `var(${theme.sizing.sizeCSSVarNames.X4})`,
-  gridColumnGap: `var(${theme.sizing.sizeCSSVarNames.X5})`,
+  gridRowGap: `var(${theme.sizing.sizeCSSVarNames.x4})`,
+  gridColumnGap: `var(${theme.sizing.sizeCSSVarNames.x5})`,
   gridTemplateColumns: '1fr',
   gridTemplateRows: 'auto',
 
-  marginBottom: `var(${theme.sizing.sizeCSSVarNames.X6})`,
+  marginBottom: `var(${theme.sizing.sizeCSSVarNames.x6})`,
 
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
@@ -145,15 +145,15 @@ export const infoTilesWrapper = style((theme: DesignSystem) => ({
 export const tabsWrapper = style((theme: DesignSystem) => ({
   display: 'grid',
   justifyItems: 'center',
-  rowGap: `var(${theme.sizing.sizeCSSVarNames.X1})`,
-  marginBottom: `calc(var(${theme.sizing.sizeCSSVarNames.X3}) * 2)`,
+  rowGap: `var(${theme.sizing.sizeCSSVarNames.x1})`,
+  marginBottom: `calc(var(${theme.sizing.sizeCSSVarNames.x3}) * 2)`,
 
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
       // selectors: {
       //   [`${type3} &`]: {
       //     display: 'flex',
-      //     marginBottom: `var(${theme.sizing.sizeCSSVarNames.X5})`,
+      //     marginBottom: `var(${theme.sizing.sizeCSSVarNames.x5})`,
       //     maxWidth: '610px',
       //   },
       // },
@@ -162,7 +162,7 @@ export const tabsWrapper = style((theme: DesignSystem) => ({
 }));
 
 globalStyle(`${type2} ~ ${type3} `, (theme: DesignSystem) => ({
-  paddingTop: `var(${theme.sizing.sizeCSSVarNames.X5})`,
+  paddingTop: `var(${theme.sizing.sizeCSSVarNames.x5})`,
 }));
 
 // globalStyle(`${type1reversed} > *`, (theme: DesignSystem) => ({
@@ -224,7 +224,7 @@ globalStyle(`${type2} ~ ${type3} `, (theme: DesignSystem) => ({
 //   '@media': {
 //     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
 //       display: 'flex',
-//       marginBottom: `var(${theme.sizing.sizeCSSVarNames.X5})`,
+//       marginBottom: `var(${theme.sizing.sizeCSSVarNames.x5})`,
 //       maxWidth: '610px',
 //     },
 //   },

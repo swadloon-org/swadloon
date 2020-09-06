@@ -16,7 +16,7 @@ export const wrapper = style((theme: DesignSystem) => ({
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
       padding: `0 ${theme.layout.contentMargins.TABLET.valuePx}`,
-      height: `var(${theme.sizing.sizeCSSVarNames.X6})`,
+      height: `var(${theme.sizing.sizeCSSVarNames.x6})`,
     },
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {},
   },
@@ -47,13 +47,13 @@ export const content = style((theme: DesignSystem) => ({
 }));
 
 export const logo = style((theme: DesignSystem) => ({
-  height: `var(${theme.sizing.sizeCSSVarNames.X5})`,
+  height: `var(${theme.sizing.sizeCSSVarNames.x5})`,
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
       height: '40px',
     },
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
-      height: `var(${theme.sizing.sizeCSSVarNames.X5})`,
+      height: `var(${theme.sizing.sizeCSSVarNames.x5})`,
     },
   },
 }));
@@ -96,7 +96,7 @@ export const desktopLeftToolbar = style((theme: DesignSystem) => ({
 }));
 
 globalStyle(`${desktopLeftToolbar} > *`, (theme: DesignSystem) => ({
-  marginRight: `var(${theme.sizing.sizeCSSVarNames.X4})`,
+  marginRight: `var(${theme.sizing.sizeCSSVarNames.x4})`,
 }));
 
 export const desktopRightToolbar = style((theme: DesignSystem) => ({
@@ -110,7 +110,7 @@ export const desktopRightToolbar = style((theme: DesignSystem) => ({
 }));
 
 globalStyle(`${desktopRightToolbar} > *`, (theme: DesignSystem) => ({
-  marginLeft: `var(${theme.sizing.sizeCSSVarNames.X4})`,
+  marginLeft: `var(${theme.sizing.sizeCSSVarNames.x4})`,
 }));
 
 export const desktopSocialButtons = style((theme: DesignSystem) => ({

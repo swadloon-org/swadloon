@@ -8,7 +8,7 @@ export const wrapper = style((theme: DesignSystem) => ({
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
       gridTemplateColumns: '1fr 1fr 1fr 1fr',
-      gridColumnGap: `var(${theme.sizing.sizeCSSVarNames.X2})`,
+      gridColumnGap: `var(${theme.sizing.sizeCSSVarNames.x2})`,
     },
     // [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
     //   maxWidth: '2000px',

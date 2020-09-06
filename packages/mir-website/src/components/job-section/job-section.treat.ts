@@ -6,7 +6,7 @@ export const wrapper = style((theme: DesignSystem) => ({
   flexDirection: 'column',
   justifyContent: 'stretch',
   margin: `0 ${theme.layout.contentMargins.MOBILE.valuePx}`,
-  padding: `var(${theme.sizing.sizeCSSVarNames.X7}) ${theme.layout.contentMargins.MOBILE.valuePx}`,
+  padding: `var(${theme.sizing.sizeCSSVarNames.x7}) ${theme.layout.contentMargins.MOBILE.valuePx}`,
 
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
@@ -28,7 +28,7 @@ export const content = style((theme: DesignSystem) => ({
       display: 'grid',
       gridColumn: '1',
       gridTemplateColumns: '1fr 1fr 1fr',
-      gridGap: `0 var(${theme.sizing.sizeCSSVarNames.X4})`,
+      gridGap: `0 var(${theme.sizing.sizeCSSVarNames.x4})`,
     },
 
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {},
@@ -36,7 +36,7 @@ export const content = style((theme: DesignSystem) => ({
 }));
 
 export const accordions = style((theme: DesignSystem) => ({
-  paddingBottom: `var(${theme.sizing.sizeCSSVarNames.X4})`,
+  paddingBottom: `var(${theme.sizing.sizeCSSVarNames.x4})`,
 }));
 
 //
@@ -44,17 +44,17 @@ export const accordions = style((theme: DesignSystem) => ({
 //
 
 export const tagsUnique = style((theme: DesignSystem) => ({
-  paddingBottom: `var(${theme.sizing.sizeCSSVarNames.X3})`,
+  paddingBottom: `var(${theme.sizing.sizeCSSVarNames.x3})`,
 }));
 
 export const title = style((theme: DesignSystem) => ({
   alignSelf: 'center',
-  marginBottom: `var(${theme.sizing.sizeCSSVarNames.X6})`,
+  marginBottom: `var(${theme.sizing.sizeCSSVarNames.x6})`,
   maxWidth: '400px',
   textAlign: 'center',
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
-      marginBottom: `var(${theme.sizing.sizeCSSVarNames.X5})`,
+      marginBottom: `var(${theme.sizing.sizeCSSVarNames.x5})`,
       maxWidth: '500px',
     },
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
@@ -66,7 +66,7 @@ export const title = style((theme: DesignSystem) => ({
 export const containerBox = style((theme: DesignSystem) => ({
   display: 'grid',
   gridTemplateColumns: '1fr 1fr',
-  gridColumnGap: `var(${theme.sizing.sizeCSSVarNames.X5})`,
+  gridColumnGap: `var(${theme.sizing.sizeCSSVarNames.x5})`,
 }));
 
 export const boxIcon = style((theme: DesignSystem) => ({}));

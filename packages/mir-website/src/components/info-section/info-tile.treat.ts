@@ -23,7 +23,7 @@ export const wrapper = style((theme: DesignSystem) => ({
 
 export const content = style((theme: DesignSystem) => ({
   display: 'grid',
-  gridRowGap: `var(${theme.sizing.sizeCSSVarNames.X3})`,
+  gridRowGap: `var(${theme.sizing.sizeCSSVarNames.x3})`,
   justifyItems: 'center',
 }));
 

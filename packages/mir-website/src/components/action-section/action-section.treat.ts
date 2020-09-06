@@ -6,17 +6,17 @@ import { globalStyle, style } from 'treat';
 //
 
 export const wrapper = style((theme: DesignSystem) => ({
-  paddingTop: `var(${theme.sizing.sizeCSSVarNames.X6})`,
-  paddingBottom: `var(${theme.sizing.sizeCSSVarNames.X7})`,
+  paddingTop: `var(${theme.sizing.sizeCSSVarNames.x6})`,
+  paddingBottom: `var(${theme.sizing.sizeCSSVarNames.x7})`,
 
   backgroundColor: theme.colors.greyscale100,
 
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
-      padding: `var(${theme.sizing.sizeCSSVarNames.X5}) ${theme.layout.contentMargins.TABLET.valuePx}`,
+      padding: `var(${theme.sizing.sizeCSSVarNames.x5}) ${theme.layout.contentMargins.TABLET.valuePx}`,
     },
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
-      padding: `var(${theme.sizing.sizeCSSVarNames.X5}) ${theme.layout.contentMargins.DESKTOP.valuePx}`,
+      padding: `var(${theme.sizing.sizeCSSVarNames.x5}) ${theme.layout.contentMargins.DESKTOP.valuePx}`,
     },
   },
 }));
@@ -40,7 +40,7 @@ export const container = style((theme: DesignSystem) => ({
 
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
-      padding: `var(${theme.sizing.sizeCSSVarNames.X6}) 0`,
+      padding: `var(${theme.sizing.sizeCSSVarNames.x6}) 0`,
       margin: '0 auto',
       display: 'grid',
       gridTemplateColumns: 'repeat(12, 1fr)',
@@ -51,7 +51,7 @@ export const container = style((theme: DesignSystem) => ({
 
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
       maxWidth: '1200px',
-      padding: `var(${theme.sizing.sizeCSSVarNames.X6}) 0`,
+      padding: `var(${theme.sizing.sizeCSSVarNames.x6}) 0`,
       margin: '0 auto',
       display: 'grid',
       gridTemplateColumns: 'repeat(12, 1fr)',
@@ -137,8 +137,8 @@ export const subtitle = style((theme: DesignSystem) => ({
 //
 
 export const title = style((theme: DesignSystem) => ({
-  marginTop: `var(${theme.sizing.sizeCSSVarNames.X5})`,
-  marginBottom: `var(${theme.sizing.sizeCSSVarNames.X5})`,
+  marginTop: `var(${theme.sizing.sizeCSSVarNames.x5})`,
+  marginBottom: `var(${theme.sizing.sizeCSSVarNames.x5})`,
   textAlign: 'center',
   color: 'currentColor',
   marginRight: 'auto',
@@ -149,7 +149,7 @@ export const title = style((theme: DesignSystem) => ({
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
       maxWidth: '700px',
       textAlign: 'left',
-      marginTop: `var(${theme.sizing.sizeCSSVarNames.X4})`,
+      marginTop: `var(${theme.sizing.sizeCSSVarNames.x4})`,
       marginBottom: `0`,
     },
   },

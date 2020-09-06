@@ -6,14 +6,14 @@ export const wrapper = style((theme: DesignSystem) => ({
   flexDirection: 'column',
   alignItems: 'stretch',
   width: '256px',
-  padding: `var(${theme.sizing.sizeCSSVarNames.X3}) var(${theme.sizing.sizeCSSVarNames.X3}) var(${theme.sizing.sizeCSSVarNames.X1})`,
+  padding: `var(${theme.sizing.sizeCSSVarNames.x3}) var(${theme.sizing.sizeCSSVarNames.x3}) var(${theme.sizing.sizeCSSVarNames.x1})`,
 
   backgroundColor: theme.colors.primary500,
   color: theme.colors.greyscale0Reversed,
 }));
 
 export const title = style((theme: DesignSystem) => ({
-  margin: `var(${theme.sizing.sizeCSSVarNames.X3}) 0 var(${theme.sizing.sizeCSSVarNames.X2})`,
+  margin: `var(${theme.sizing.sizeCSSVarNames.x3}) 0 var(${theme.sizing.sizeCSSVarNames.x2})`,
 }));
 
 export const button = style((theme: DesignSystem) => ({
