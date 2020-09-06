@@ -1,7 +1,7 @@
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { ImageFrame } from '../image-frame';
-import { InfoSectionCheckLabel } from '../info-section-check';
+import { CheckLabel } from '../info-section-check';
 import { Paragraph } from '../paragraph';
 import { InfoSectionModelQuery } from './info-section';
 import * as styleRefsType5 from './info-section-type-5.treat';
@@ -27,19 +27,19 @@ export const InfoSectionType5: React.FC<OwnProps> = (props) => {
           {props.text}
         </Paragraph>
 
-        <InfoSectionCheckLabel illustration="Illustration/IllustrationCheck" size="medium">
+        <CheckLabel illustration="Illustration/IllustrationCheck" size="medium">
           25 ans d’expertise
-        </InfoSectionCheckLabel>
-        <InfoSectionCheckLabel illustration="Illustration/IllustrationCheck" size="medium">
+        </CheckLabel>
+        <CheckLabel illustration="Illustration/IllustrationCheck" size="medium">
           10 000 emplois disponibles
-        </InfoSectionCheckLabel>
-        <InfoSectionCheckLabel illustration="Illustration/IllustrationCheck" size="medium">
+        </CheckLabel>
+        <CheckLabel illustration="Illustration/IllustrationCheck" size="medium">
           1 processus de recrutement efficace
-        </InfoSectionCheckLabel>
-        <InfoSectionCheckLabel illustration="Illustration/IllustrationCheck" size="medium">
+        </CheckLabel>
+        <CheckLabel illustration="Illustration/IllustrationCheck" size="medium">
           25 ans d’expertise 10 000 emplois disponibles 1 processus de recrutement efficace Un partenariat d’affaires
           humain
-        </InfoSectionCheckLabel>
+        </CheckLabel>
       </div>
     </div>
   );

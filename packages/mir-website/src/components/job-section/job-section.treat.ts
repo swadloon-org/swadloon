@@ -62,3 +62,13 @@ export const title = style((theme: DesignSystem) => ({
     },
   },
 }));
+
+export const containerBox = style((theme: DesignSystem) => ({
+  display: 'grid',
+  gridTemplateColumns: '1fr 1fr',
+  gridColumnGap: `var(${theme.sizing.sizeCSSVarNames.X5})`,
+}));
+
+export const boxIcon = style((theme: DesignSystem) => ({}));
+export const even = style((theme: DesignSystem) => ({}));
+export const unenven = style((theme: DesignSystem) => ({}));

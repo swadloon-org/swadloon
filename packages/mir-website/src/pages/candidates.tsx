@@ -39,17 +39,20 @@ export const query = graphql`
           actionText
         }
         jobSection {
-          type {
-            id
-            title
-          }
           title
-          jobs {
-            id
-            type {
-              id
-            }
+          titleHighlight
+          type {
             title
+            jobSection {
+              id
+              title
+              groups {
+                jobs {
+                  id
+                  title
+                }
+              }
+            }
           }
         }
         infoSections {
@@ -107,7 +110,7 @@ const Candidate: React.FC<IndexPageProps> = ({ data, location }) => {
   const section1 = data.gcms?.candidatePages[0]?.infoSections[0];
   const section2 = data.gcms?.candidatePages[0]?.infoSections[1];
   const jobSection = data.gcms?.candidatePages[0]?.jobSection;
-
+  console.log(data.gcms?.candidatePages[0]?.jobSection);
   return (
     <div className={`${styles.wrapper}`}>
       <NavBar></NavBar>
@@ -121,7 +124,7 @@ const Candidate: React.FC<IndexPageProps> = ({ data, location }) => {
 
       {section1 && section1.type === 'type5' ? <InfoSectionType5 align="AlignContentLeft" {...section1} /> : null}
 
-      {jobSection ? <JobSection title={jobSection.title} variant={'candidate'} /> : null}
+      {/* {jobSection ? <JobSection jobSection={jobSection} variant={`${jobSection.type}`} /> : null} */}
 
       {section2 && section2.type === 'type2' ? <InfoSectionType2 align="AlignContentRight" {...section2} /> : null}
 

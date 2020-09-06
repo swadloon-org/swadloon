@@ -10,7 +10,7 @@ type OwnProps = {
   size: 'small' | 'medium' | 'large';
 };
 
-export const InfoSectionCheckLabel: React.FC<HTMLAttributes<any> & OwnProps> = (props) => {
+export const CheckLabel: React.FC<HTMLAttributes<any> & OwnProps> = (props) => {
   const styles = useStyles(styleRefs);
 
   return (

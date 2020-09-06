@@ -924,6 +924,14 @@ export type GraphCms = {
   jobsConnection: GraphCms_JobConnection;
   /** Retrieve document version */
   jobVersion?: Maybe<GraphCms_DocumentVersion>;
+  /** Retrieve multiple jobGroups */
+  jobGroups: Array<GraphCms_JobGroup>;
+  /** Retrieve a single jobGroup */
+  jobGroup?: Maybe<GraphCms_JobGroup>;
+  /** Retrieve multiple jobGroups using the Relay connection interface */
+  jobGroupsConnection: GraphCms_JobGroupConnection;
+  /** Retrieve document version */
+  jobGroupVersion?: Maybe<GraphCms_DocumentVersion>;
   /** Retrieve multiple jobSections */
   jobSections: Array<GraphCms_JobSection>;
   /** Retrieve a single jobSection */
@@ -1634,6 +1642,41 @@ export type GraphCmsJobsConnectionArgs = {
 
 
 export type GraphCmsJobVersionArgs = {
+  where: GraphCms_VersionWhereInput;
+};
+
+
+export type GraphCmsJobGroupsArgs = {
+  where?: Maybe<GraphCms_JobGroupWhereInput>;
+  orderBy?: Maybe<GraphCms_JobGroupOrderByInput>;
+  skip?: Maybe<Scalars['Int']>;
+  after?: Maybe<Scalars['String']>;
+  before?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  stage?: GraphCms_Stage;
+};
+
+
+export type GraphCmsJobGroupArgs = {
+  where: GraphCms_JobGroupWhereUniqueInput;
+  stage?: GraphCms_Stage;
+};
+
+
+export type GraphCmsJobGroupsConnectionArgs = {
+  where?: Maybe<GraphCms_JobGroupWhereInput>;
+  orderBy?: Maybe<GraphCms_JobGroupOrderByInput>;
+  skip?: Maybe<Scalars['Int']>;
+  after?: Maybe<Scalars['String']>;
+  before?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  stage?: GraphCms_Stage;
+};
+
+
+export type GraphCmsJobGroupVersionArgs = {
   where: GraphCms_VersionWhereInput;
 };
 
@@ -10676,6 +10719,7 @@ export type GraphCms_Job = GraphCms_Node & {
   description?: Maybe<Scalars['String']>;
   type?: Maybe<GraphCms_JobType>;
   jobSection: Array<GraphCms_JobSection>;
+  jobGroup: Array<GraphCms_JobGroup>;
   /** List of Job versions */
   history: Array<GraphCms_Version>;
 };
@@ -10720,6 +10764,17 @@ export type GraphCms_JobJobSectionArgs = {
 };
 
 
+export type GraphCms_JobJobGroupArgs = {
+  where?: Maybe<GraphCms_JobGroupWhereInput>;
+  orderBy?: Maybe<GraphCms_JobGroupOrderByInput>;
+  skip?: Maybe<Scalars['Int']>;
+  after?: Maybe<Scalars['String']>;
+  before?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+};
+
+
 export type GraphCms_JobHistoryArgs = {
   limit?: Scalars['Int'];
   skip?: Scalars['Int'];
@@ -10751,6 +10806,7 @@ export type GraphCms_JobCreateInput = {
   description?: Maybe<Scalars['String']>;
   type?: Maybe<GraphCms_JobTypeCreateOneInlineInput>;
   jobSection?: Maybe<GraphCms_JobSectionCreateManyInlineInput>;
+  jobGroup?: Maybe<GraphCms_JobGroupCreateManyInlineInput>;
   /** Inline mutations for managing document localizations excluding the default locale */
   localizations?: Maybe<GraphCms_JobCreateLocalizationsInput>;
 };
@@ -10793,6 +10849,360 @@ export type GraphCms_JobEdge = {
   node: GraphCms_Job;
   /** A cursor for use in pagination. */
   cursor: Scalars['String'];
+};
+
+export type GraphCms_JobGroup = GraphCms_Node & {
+  /** System stage field */
+  stage: GraphCms_Stage;
+  /** Get the document in other stages */
+  documentInStages: Array<GraphCms_JobGroup>;
+  /** The unique identifier */
+  id: Scalars['ID'];
+  /** The time the document was created */
+  createdAt: Scalars['GraphCMS_DateTime'];
+  /** The time the document was updated */
+  updatedAt: Scalars['GraphCMS_DateTime'];
+  /** The time the document was published. Null on documents in draft stage. */
+  publishedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  jobs: Array<GraphCms_Job>;
+  typeName?: Maybe<GraphCms_JobType>;
+  jobSection: Array<GraphCms_JobSection>;
+  /** List of JobGroup versions */
+  history: Array<GraphCms_Version>;
+};
+
+
+export type GraphCms_JobGroupDocumentInStagesArgs = {
+  stages?: Array<GraphCms_Stage>;
+  includeCurrent?: Scalars['Boolean'];
+  inheritLocale?: Scalars['Boolean'];
+};
+
+
+export type GraphCms_JobGroupJobsArgs = {
+  where?: Maybe<GraphCms_JobWhereInput>;
+  orderBy?: Maybe<GraphCms_JobOrderByInput>;
+  skip?: Maybe<Scalars['Int']>;
+  after?: Maybe<Scalars['String']>;
+  before?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+};
+
+
+export type GraphCms_JobGroupJobSectionArgs = {
+  where?: Maybe<GraphCms_JobSectionWhereInput>;
+  orderBy?: Maybe<GraphCms_JobSectionOrderByInput>;
+  skip?: Maybe<Scalars['Int']>;
+  after?: Maybe<Scalars['String']>;
+  before?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+};
+
+
+export type GraphCms_JobGroupHistoryArgs = {
+  limit?: Scalars['Int'];
+  skip?: Scalars['Int'];
+  stageOverride?: Maybe<GraphCms_Stage>;
+};
+
+export type GraphCms_JobGroupConnectInput = {
+  /** Document to connect */
+  where: GraphCms_JobGroupWhereUniqueInput;
+  /** Allow to specify document position in list of connected documents, will default to appending at end of list */
+  position?: Maybe<GraphCms_ConnectPositionInput>;
+};
+
+/** A connection to a list of items. */
+export type GraphCms_JobGroupConnection = {
+  /** Information to aid in pagination. */
+  pageInfo: GraphCms_PageInfo;
+  /** A list of edges. */
+  edges: Array<GraphCms_JobGroupEdge>;
+  aggregate: GraphCms_Aggregate;
+};
+
+export type GraphCms_JobGroupCreateInput = {
+  createdAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  updatedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  jobs?: Maybe<GraphCms_JobCreateManyInlineInput>;
+  typeName?: Maybe<GraphCms_JobTypeCreateOneInlineInput>;
+  jobSection?: Maybe<GraphCms_JobSectionCreateManyInlineInput>;
+};
+
+export type GraphCms_JobGroupCreateManyInlineInput = {
+  /** Create and connect multiple existing JobGroup documents */
+  create?: Maybe<Array<GraphCms_JobGroupCreateInput>>;
+  /** Connect multiple existing JobGroup documents */
+  connect?: Maybe<Array<GraphCms_JobGroupWhereUniqueInput>>;
+};
+
+export type GraphCms_JobGroupCreateOneInlineInput = {
+  /** Create and connect one JobGroup document */
+  create?: Maybe<GraphCms_JobGroupCreateInput>;
+  /** Connect one existing JobGroup document */
+  connect?: Maybe<GraphCms_JobGroupWhereUniqueInput>;
+};
+
+/** An edge in a connection. */
+export type GraphCms_JobGroupEdge = {
+  /** The item at the end of the edge. */
+  node: GraphCms_JobGroup;
+  /** A cursor for use in pagination. */
+  cursor: Scalars['String'];
+};
+
+/** Identifies documents */
+export type GraphCms_JobGroupManyWhereInput = {
+  /** Contains search across all appropriate fields. */
+  _search?: Maybe<Scalars['String']>;
+  /** Logical AND on all given filters. */
+  AND?: Maybe<Array<GraphCms_JobGroupWhereInput>>;
+  /** Logical OR on all given filters. */
+  OR?: Maybe<Array<GraphCms_JobGroupWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: Maybe<Array<GraphCms_JobGroupWhereInput>>;
+  id?: Maybe<Scalars['ID']>;
+  /** All values that are not equal to given value. */
+  id_not?: Maybe<Scalars['ID']>;
+  /** All values that are contained in given list. */
+  id_in?: Maybe<Array<Scalars['ID']>>;
+  /** All values that are not contained in given list. */
+  id_not_in?: Maybe<Array<Scalars['ID']>>;
+  /** All values containing the given string. */
+  id_contains?: Maybe<Scalars['ID']>;
+  /** All values not containing the given string. */
+  id_not_contains?: Maybe<Scalars['ID']>;
+  /** All values starting with the given string. */
+  id_starts_with?: Maybe<Scalars['ID']>;
+  /** All values not starting with the given string. */
+  id_not_starts_with?: Maybe<Scalars['ID']>;
+  /** All values ending with the given string. */
+  id_ends_with?: Maybe<Scalars['ID']>;
+  /** All values not ending with the given string */
+  id_not_ends_with?: Maybe<Scalars['ID']>;
+  createdAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are not equal to given value. */
+  createdAt_not?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are contained in given list. */
+  createdAt_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values that are not contained in given list. */
+  createdAt_not_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values less than the given value. */
+  createdAt_lt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values less than or equal the given value. */
+  createdAt_lte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than the given value. */
+  createdAt_gt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than or equal the given value. */
+  createdAt_gte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  updatedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are not equal to given value. */
+  updatedAt_not?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are contained in given list. */
+  updatedAt_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values that are not contained in given list. */
+  updatedAt_not_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values less than the given value. */
+  updatedAt_lt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values less than or equal the given value. */
+  updatedAt_lte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than the given value. */
+  updatedAt_gt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than or equal the given value. */
+  updatedAt_gte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  publishedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are not equal to given value. */
+  publishedAt_not?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are contained in given list. */
+  publishedAt_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values that are not contained in given list. */
+  publishedAt_not_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values less than the given value. */
+  publishedAt_lt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values less than or equal the given value. */
+  publishedAt_lte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than the given value. */
+  publishedAt_gt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than or equal the given value. */
+  publishedAt_gte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  jobs_every?: Maybe<GraphCms_JobWhereInput>;
+  jobs_some?: Maybe<GraphCms_JobWhereInput>;
+  jobs_none?: Maybe<GraphCms_JobWhereInput>;
+  typeName?: Maybe<GraphCms_JobTypeWhereInput>;
+  jobSection_every?: Maybe<GraphCms_JobSectionWhereInput>;
+  jobSection_some?: Maybe<GraphCms_JobSectionWhereInput>;
+  jobSection_none?: Maybe<GraphCms_JobSectionWhereInput>;
+};
+
+export type GraphCms_JobGroupOrderByInput = 
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  | 'publishedAt_ASC'
+  | 'publishedAt_DESC';
+
+export type GraphCms_JobGroupUpdateInput = {
+  jobs?: Maybe<GraphCms_JobUpdateManyInlineInput>;
+  typeName?: Maybe<GraphCms_JobTypeUpdateOneInlineInput>;
+  jobSection?: Maybe<GraphCms_JobSectionUpdateManyInlineInput>;
+};
+
+export type GraphCms_JobGroupUpdateManyInlineInput = {
+  /** Create and connect multiple JobGroup documents */
+  create?: Maybe<Array<GraphCms_JobGroupCreateInput>>;
+  /** Connect multiple existing JobGroup documents */
+  connect?: Maybe<Array<GraphCms_JobGroupConnectInput>>;
+  /** Override currently-connected documents with multiple existing JobGroup documents */
+  set?: Maybe<Array<GraphCms_JobGroupWhereUniqueInput>>;
+  /** Update multiple JobGroup documents */
+  update?: Maybe<Array<GraphCms_JobGroupUpdateWithNestedWhereUniqueInput>>;
+  /** Upsert multiple JobGroup documents */
+  upsert?: Maybe<Array<GraphCms_JobGroupUpsertWithNestedWhereUniqueInput>>;
+  /** Disconnect multiple JobGroup documents */
+  disconnect?: Maybe<Array<GraphCms_JobGroupWhereUniqueInput>>;
+  /** Delete multiple JobGroup documents */
+  delete?: Maybe<Array<GraphCms_JobGroupWhereUniqueInput>>;
+};
+
+export type GraphCms_JobGroupUpdateManyInput = {
+  /** No fields in updateMany data input */
+  _?: Maybe<Scalars['String']>;
+};
+
+export type GraphCms_JobGroupUpdateManyWithNestedWhereInput = {
+  /** Document search */
+  where: GraphCms_JobGroupWhereInput;
+  /** Update many input */
+  data: GraphCms_JobGroupUpdateManyInput;
+};
+
+export type GraphCms_JobGroupUpdateOneInlineInput = {
+  /** Create and connect one JobGroup document */
+  create?: Maybe<GraphCms_JobGroupCreateInput>;
+  /** Update single JobGroup document */
+  update?: Maybe<GraphCms_JobGroupUpdateWithNestedWhereUniqueInput>;
+  /** Upsert single JobGroup document */
+  upsert?: Maybe<GraphCms_JobGroupUpsertWithNestedWhereUniqueInput>;
+  /** Connect existing JobGroup document */
+  connect?: Maybe<GraphCms_JobGroupWhereUniqueInput>;
+  /** Disconnect currently connected JobGroup document */
+  disconnect?: Maybe<Scalars['Boolean']>;
+  /** Delete currently connected JobGroup document */
+  delete?: Maybe<Scalars['Boolean']>;
+};
+
+export type GraphCms_JobGroupUpdateWithNestedWhereUniqueInput = {
+  /** Unique document search */
+  where: GraphCms_JobGroupWhereUniqueInput;
+  /** Document to update */
+  data: GraphCms_JobGroupUpdateInput;
+};
+
+export type GraphCms_JobGroupUpsertInput = {
+  /** Create document if it didn't exist */
+  create: GraphCms_JobGroupCreateInput;
+  /** Update document if it exists */
+  update: GraphCms_JobGroupUpdateInput;
+};
+
+export type GraphCms_JobGroupUpsertWithNestedWhereUniqueInput = {
+  /** Unique document search */
+  where: GraphCms_JobGroupWhereUniqueInput;
+  /** Upsert data */
+  data: GraphCms_JobGroupUpsertInput;
+};
+
+/** Identifies documents */
+export type GraphCms_JobGroupWhereInput = {
+  /** Contains search across all appropriate fields. */
+  _search?: Maybe<Scalars['String']>;
+  /** Logical AND on all given filters. */
+  AND?: Maybe<Array<GraphCms_JobGroupWhereInput>>;
+  /** Logical OR on all given filters. */
+  OR?: Maybe<Array<GraphCms_JobGroupWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: Maybe<Array<GraphCms_JobGroupWhereInput>>;
+  id?: Maybe<Scalars['ID']>;
+  /** All values that are not equal to given value. */
+  id_not?: Maybe<Scalars['ID']>;
+  /** All values that are contained in given list. */
+  id_in?: Maybe<Array<Scalars['ID']>>;
+  /** All values that are not contained in given list. */
+  id_not_in?: Maybe<Array<Scalars['ID']>>;
+  /** All values containing the given string. */
+  id_contains?: Maybe<Scalars['ID']>;
+  /** All values not containing the given string. */
+  id_not_contains?: Maybe<Scalars['ID']>;
+  /** All values starting with the given string. */
+  id_starts_with?: Maybe<Scalars['ID']>;
+  /** All values not starting with the given string. */
+  id_not_starts_with?: Maybe<Scalars['ID']>;
+  /** All values ending with the given string. */
+  id_ends_with?: Maybe<Scalars['ID']>;
+  /** All values not ending with the given string */
+  id_not_ends_with?: Maybe<Scalars['ID']>;
+  createdAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are not equal to given value. */
+  createdAt_not?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are contained in given list. */
+  createdAt_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values that are not contained in given list. */
+  createdAt_not_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values less than the given value. */
+  createdAt_lt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values less than or equal the given value. */
+  createdAt_lte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than the given value. */
+  createdAt_gt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than or equal the given value. */
+  createdAt_gte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  updatedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are not equal to given value. */
+  updatedAt_not?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are contained in given list. */
+  updatedAt_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values that are not contained in given list. */
+  updatedAt_not_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values less than the given value. */
+  updatedAt_lt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values less than or equal the given value. */
+  updatedAt_lte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than the given value. */
+  updatedAt_gt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than or equal the given value. */
+  updatedAt_gte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  publishedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are not equal to given value. */
+  publishedAt_not?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values that are contained in given list. */
+  publishedAt_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values that are not contained in given list. */
+  publishedAt_not_in?: Maybe<Array<Scalars['GraphCMS_DateTime']>>;
+  /** All values less than the given value. */
+  publishedAt_lt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values less than or equal the given value. */
+  publishedAt_lte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than the given value. */
+  publishedAt_gt?: Maybe<Scalars['GraphCMS_DateTime']>;
+  /** All values greater than or equal the given value. */
+  publishedAt_gte?: Maybe<Scalars['GraphCMS_DateTime']>;
+  jobs_every?: Maybe<GraphCms_JobWhereInput>;
+  jobs_some?: Maybe<GraphCms_JobWhereInput>;
+  jobs_none?: Maybe<GraphCms_JobWhereInput>;
+  typeName?: Maybe<GraphCms_JobTypeWhereInput>;
+  jobSection_every?: Maybe<GraphCms_JobSectionWhereInput>;
+  jobSection_some?: Maybe<GraphCms_JobSectionWhereInput>;
+  jobSection_none?: Maybe<GraphCms_JobSectionWhereInput>;
+};
+
+/** References JobGroup record uniquely */
+export type GraphCms_JobGroupWhereUniqueInput = {
+  id?: Maybe<Scalars['ID']>;
 };
 
 /** Identifies documents */
@@ -10873,6 +11283,9 @@ export type GraphCms_JobManyWhereInput = {
   jobSection_every?: Maybe<GraphCms_JobSectionWhereInput>;
   jobSection_some?: Maybe<GraphCms_JobSectionWhereInput>;
   jobSection_none?: Maybe<GraphCms_JobSectionWhereInput>;
+  jobGroup_every?: Maybe<GraphCms_JobGroupWhereInput>;
+  jobGroup_some?: Maybe<GraphCms_JobGroupWhereInput>;
+  jobGroup_none?: Maybe<GraphCms_JobGroupWhereInput>;
 };
 
 export type GraphCms_JobOrderByInput = 
@@ -10909,9 +11322,10 @@ export type GraphCms_JobSection = GraphCms_Node & {
   title?: Maybe<Scalars['String']>;
   titleHighlight?: Maybe<Scalars['String']>;
   type?: Maybe<GraphCms_JobSectionType>;
-  jobs: Array<GraphCms_Job>;
+  groups: Array<GraphCms_JobGroup>;
   employerPage: Array<GraphCms_EmployerPage>;
   candidatePage: Array<GraphCms_CandidatePage>;
+  jobs: Array<GraphCms_Job>;
   /** List of JobSection versions */
   history: Array<GraphCms_Version>;
 };
@@ -10945,9 +11359,9 @@ export type GraphCms_JobSectionPublishedAtArgs = {
 };
 
 
-export type GraphCms_JobSectionJobsArgs = {
-  where?: Maybe<GraphCms_JobWhereInput>;
-  orderBy?: Maybe<GraphCms_JobOrderByInput>;
+export type GraphCms_JobSectionGroupsArgs = {
+  where?: Maybe<GraphCms_JobGroupWhereInput>;
+  orderBy?: Maybe<GraphCms_JobGroupOrderByInput>;
   skip?: Maybe<Scalars['Int']>;
   after?: Maybe<Scalars['String']>;
   before?: Maybe<Scalars['String']>;
@@ -10970,6 +11384,17 @@ export type GraphCms_JobSectionEmployerPageArgs = {
 export type GraphCms_JobSectionCandidatePageArgs = {
   where?: Maybe<GraphCms_CandidatePageWhereInput>;
   orderBy?: Maybe<GraphCms_CandidatePageOrderByInput>;
+  skip?: Maybe<Scalars['Int']>;
+  after?: Maybe<Scalars['String']>;
+  before?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+};
+
+
+export type GraphCms_JobSectionJobsArgs = {
+  where?: Maybe<GraphCms_JobWhereInput>;
+  orderBy?: Maybe<GraphCms_JobOrderByInput>;
   skip?: Maybe<Scalars['Int']>;
   after?: Maybe<Scalars['String']>;
   before?: Maybe<Scalars['String']>;
@@ -11008,9 +11433,10 @@ export type GraphCms_JobSectionCreateInput = {
   /** titleHighlight input for default locale (fr) */
   titleHighlight?: Maybe<Scalars['String']>;
   type?: Maybe<GraphCms_JobSectionTypeCreateOneInlineInput>;
-  jobs?: Maybe<GraphCms_JobCreateManyInlineInput>;
+  groups?: Maybe<GraphCms_JobGroupCreateManyInlineInput>;
   employerPage?: Maybe<GraphCms_EmployerPageCreateManyInlineInput>;
   candidatePage?: Maybe<GraphCms_CandidatePageCreateManyInlineInput>;
+  jobs?: Maybe<GraphCms_JobCreateManyInlineInput>;
   /** Inline mutations for managing document localizations excluding the default locale */
   localizations?: Maybe<GraphCms_JobSectionCreateLocalizationsInput>;
 };
@@ -11130,15 +11556,18 @@ export type GraphCms_JobSectionManyWhereInput = {
   /** All values greater than or equal the given value. */
   publishedAt_gte?: Maybe<Scalars['GraphCMS_DateTime']>;
   type?: Maybe<GraphCms_JobSectionTypeWhereInput>;
-  jobs_every?: Maybe<GraphCms_JobWhereInput>;
-  jobs_some?: Maybe<GraphCms_JobWhereInput>;
-  jobs_none?: Maybe<GraphCms_JobWhereInput>;
+  groups_every?: Maybe<GraphCms_JobGroupWhereInput>;
+  groups_some?: Maybe<GraphCms_JobGroupWhereInput>;
+  groups_none?: Maybe<GraphCms_JobGroupWhereInput>;
   employerPage_every?: Maybe<GraphCms_EmployerPageWhereInput>;
   employerPage_some?: Maybe<GraphCms_EmployerPageWhereInput>;
   employerPage_none?: Maybe<GraphCms_EmployerPageWhereInput>;
   candidatePage_every?: Maybe<GraphCms_CandidatePageWhereInput>;
   candidatePage_some?: Maybe<GraphCms_CandidatePageWhereInput>;
   candidatePage_none?: Maybe<GraphCms_CandidatePageWhereInput>;
+  jobs_every?: Maybe<GraphCms_JobWhereInput>;
+  jobs_some?: Maybe<GraphCms_JobWhereInput>;
+  jobs_none?: Maybe<GraphCms_JobWhereInput>;
 };
 
 export type GraphCms_JobSectionOrderByInput = 
@@ -11603,9 +12032,10 @@ export type GraphCms_JobSectionUpdateInput = {
   /** titleHighlight input for default locale (fr) */
   titleHighlight?: Maybe<Scalars['String']>;
   type?: Maybe<GraphCms_JobSectionTypeUpdateOneInlineInput>;
-  jobs?: Maybe<GraphCms_JobUpdateManyInlineInput>;
+  groups?: Maybe<GraphCms_JobGroupUpdateManyInlineInput>;
   employerPage?: Maybe<GraphCms_EmployerPageUpdateManyInlineInput>;
   candidatePage?: Maybe<GraphCms_CandidatePageUpdateManyInlineInput>;
+  jobs?: Maybe<GraphCms_JobUpdateManyInlineInput>;
   /** Manage document localizations */
   localizations?: Maybe<GraphCms_JobSectionUpdateLocalizationsInput>;
 };
@@ -11833,15 +12263,18 @@ export type GraphCms_JobSectionWhereInput = {
   /** All values not ending with the given string */
   titleHighlight_not_ends_with?: Maybe<Scalars['String']>;
   type?: Maybe<GraphCms_JobSectionTypeWhereInput>;
-  jobs_every?: Maybe<GraphCms_JobWhereInput>;
-  jobs_some?: Maybe<GraphCms_JobWhereInput>;
-  jobs_none?: Maybe<GraphCms_JobWhereInput>;
+  groups_every?: Maybe<GraphCms_JobGroupWhereInput>;
+  groups_some?: Maybe<GraphCms_JobGroupWhereInput>;
+  groups_none?: Maybe<GraphCms_JobGroupWhereInput>;
   employerPage_every?: Maybe<GraphCms_EmployerPageWhereInput>;
   employerPage_some?: Maybe<GraphCms_EmployerPageWhereInput>;
   employerPage_none?: Maybe<GraphCms_EmployerPageWhereInput>;
   candidatePage_every?: Maybe<GraphCms_CandidatePageWhereInput>;
   candidatePage_some?: Maybe<GraphCms_CandidatePageWhereInput>;
   candidatePage_none?: Maybe<GraphCms_CandidatePageWhereInput>;
+  jobs_every?: Maybe<GraphCms_JobWhereInput>;
+  jobs_some?: Maybe<GraphCms_JobWhereInput>;
+  jobs_none?: Maybe<GraphCms_JobWhereInput>;
 };
 
 /** References JobSection record uniquely */
@@ -11868,6 +12301,7 @@ export type GraphCms_JobType = GraphCms_Node & {
   publishedAt?: Maybe<Scalars['GraphCMS_DateTime']>;
   title?: Maybe<Scalars['String']>;
   job: Array<GraphCms_Job>;
+  jobGroup: Array<GraphCms_JobGroup>;
   /** List of JobType versions */
   history: Array<GraphCms_Version>;
 };
@@ -11912,6 +12346,17 @@ export type GraphCms_JobTypeJobArgs = {
 };
 
 
+export type GraphCms_JobTypeJobGroupArgs = {
+  where?: Maybe<GraphCms_JobGroupWhereInput>;
+  orderBy?: Maybe<GraphCms_JobGroupOrderByInput>;
+  skip?: Maybe<Scalars['Int']>;
+  after?: Maybe<Scalars['String']>;
+  before?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+};
+
+
 export type GraphCms_JobTypeHistoryArgs = {
   limit?: Scalars['Int'];
   skip?: Scalars['Int'];
@@ -11940,6 +12385,7 @@ export type GraphCms_JobTypeCreateInput = {
   /** title input for default locale (fr) */
   title?: Maybe<Scalars['String']>;
   job?: Maybe<GraphCms_JobCreateManyInlineInput>;
+  jobGroup?: Maybe<GraphCms_JobGroupCreateManyInlineInput>;
   /** Inline mutations for managing document localizations excluding the default locale */
   localizations?: Maybe<GraphCms_JobTypeCreateLocalizationsInput>;
 };
@@ -12060,6 +12506,9 @@ export type GraphCms_JobTypeManyWhereInput = {
   job_every?: Maybe<GraphCms_JobWhereInput>;
   job_some?: Maybe<GraphCms_JobWhereInput>;
   job_none?: Maybe<GraphCms_JobWhereInput>;
+  jobGroup_every?: Maybe<GraphCms_JobGroupWhereInput>;
+  jobGroup_some?: Maybe<GraphCms_JobGroupWhereInput>;
+  jobGroup_none?: Maybe<GraphCms_JobGroupWhereInput>;
 };
 
 export type GraphCms_JobTypeOrderByInput = 
@@ -12078,6 +12527,7 @@ export type GraphCms_JobTypeUpdateInput = {
   /** title input for default locale (fr) */
   title?: Maybe<Scalars['String']>;
   job?: Maybe<GraphCms_JobUpdateManyInlineInput>;
+  jobGroup?: Maybe<GraphCms_JobGroupUpdateManyInlineInput>;
   /** Manage document localizations */
   localizations?: Maybe<GraphCms_JobTypeUpdateLocalizationsInput>;
 };
@@ -12284,6 +12734,9 @@ export type GraphCms_JobTypeWhereInput = {
   job_every?: Maybe<GraphCms_JobWhereInput>;
   job_some?: Maybe<GraphCms_JobWhereInput>;
   job_none?: Maybe<GraphCms_JobWhereInput>;
+  jobGroup_every?: Maybe<GraphCms_JobGroupWhereInput>;
+  jobGroup_some?: Maybe<GraphCms_JobGroupWhereInput>;
+  jobGroup_none?: Maybe<GraphCms_JobGroupWhereInput>;
 };
 
 /** References JobType record uniquely */
@@ -12298,6 +12751,7 @@ export type GraphCms_JobUpdateInput = {
   description?: Maybe<Scalars['String']>;
   type?: Maybe<GraphCms_JobTypeUpdateOneInlineInput>;
   jobSection?: Maybe<GraphCms_JobSectionUpdateManyInlineInput>;
+  jobGroup?: Maybe<GraphCms_JobGroupUpdateManyInlineInput>;
   /** Manage document localizations */
   localizations?: Maybe<GraphCms_JobUpdateLocalizationsInput>;
 };
@@ -12528,6 +12982,9 @@ export type GraphCms_JobWhereInput = {
   jobSection_every?: Maybe<GraphCms_JobSectionWhereInput>;
   jobSection_some?: Maybe<GraphCms_JobSectionWhereInput>;
   jobSection_none?: Maybe<GraphCms_JobSectionWhereInput>;
+  jobGroup_every?: Maybe<GraphCms_JobGroupWhereInput>;
+  jobGroup_some?: Maybe<GraphCms_JobGroupWhereInput>;
+  jobGroup_none?: Maybe<GraphCms_JobGroupWhereInput>;
 };
 
 /** References Job record uniquely */
@@ -17234,7 +17691,7 @@ export type CandidatePageQuery = { bannerImage?: Maybe<(
         Pick<GraphCms_JobSection, 'title'>
         & { type?: Maybe<Pick<GraphCms_JobSectionType, 'id' | 'title'>>, jobs: Array<(
           Pick<GraphCms_Job, 'id' | 'title'>
-          & { type?: Maybe<Pick<GraphCms_JobType, 'id'>> }
+          & { type?: Maybe<Pick<GraphCms_JobType, 'id' | 'title'>> }
         )> }
       )>, infoSections: Array<(
         Pick<GraphCms_InfoSection, 'title' | 'titleHighlight' | 'titleTab' | 'type' | 'text' | 'showTabs' | 'actionText'>
