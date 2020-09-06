@@ -104,9 +104,9 @@ export const sizingStepDesktop = {
 };
 
 export const sizingSteps: SizingSteps = {
-  [VIEWPORT.MOBILE]: sizingStepMobile,
-  [VIEWPORT.TABLET]: sizingStepDesktop,
-  [VIEWPORT.DESKTOP]: sizingStepDesktop,
+  [VIEWPORT.mobile]: sizingStepMobile,
+  [VIEWPORT.tablet]: sizingStepDesktop,
+  [VIEWPORT.desktop]: sizingStepDesktop,
 };
 
 export const sizing: Sizing = {

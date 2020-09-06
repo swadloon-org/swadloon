@@ -11,11 +11,11 @@ export const wrapper = style((theme: DesignSystem) => ({
   paddingBottom: `${theme.sizing.sizes.x6}`,
 
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
-      padding: `0 ${theme.layout.contentMargins.TABLET.valuePx}`,
+    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
+      padding: `0 ${theme.layout.contentMargins.tablet.px}`,
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
-      padding: `0 ${theme.layout.contentMargins.DESKTOP.valuePx}`,
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
+      padding: `0 ${theme.layout.contentMargins.desktop.px}`,
     },
   },
 }));
@@ -25,10 +25,10 @@ export const wrapper = style((theme: DesignSystem) => ({
 //
 
 export const container = style((theme: DesignSystem) => ({
-  margin: `0 ${theme.layout.contentMargins.MOBILE.valuePx}`,
+  margin: `0 ${theme.layout.contentMargins.mobile.px}`,
 
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
       padding: `${theme.sizing.sizes.x6} 0`,
       margin: '0 auto',
       display: 'grid',
@@ -38,7 +38,7 @@ export const container = style((theme: DesignSystem) => ({
       columnGap: '20px',
     },
 
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
       maxWidth: '1200px',
       padding: `${theme.sizing.sizes.x6} 0`,
       margin: '0 auto',
@@ -48,7 +48,7 @@ export const container = style((theme: DesignSystem) => ({
       gridTemplateRows: 'auto',
       columnGap: '20px',
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_MEDIUM.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopMedium})`]: {
       gridTemplateAreas: "'content content content content content . form form form . . .'",
     },
   },
@@ -60,10 +60,10 @@ export const container = style((theme: DesignSystem) => ({
 
 export const content = style((theme: DesignSystem) => ({
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
       gridArea: 'content',
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
       gridArea: 'content',
     },
   },
@@ -75,10 +75,10 @@ export const content = style((theme: DesignSystem) => ({
 
 export const containerForm = style((theme: DesignSystem) => ({
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
       gridArea: 'form',
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
       gridArea: 'form',
     },
   },
@@ -92,8 +92,8 @@ export const formulaire = style((theme: DesignSystem) => ({
   display: 'grid',
 
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {},
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {},
+    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {},
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {},
   },
 }));
 
@@ -106,7 +106,7 @@ export const subtitle = style((theme: DesignSystem) => ({
   color: theme.colors.greyscale0Reversed,
 
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
       textAlign: 'left',
     },
   },
@@ -123,7 +123,7 @@ export const title = style((theme: DesignSystem) => ({
   color: theme.colors.greyscale0Reversed,
 
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
       textAlign: 'left',
       marginTop: `${theme.sizing.sizes.x4}`,
       marginBottom: `${theme.sizing.sizes.x4}`,

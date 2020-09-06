@@ -5,14 +5,14 @@ export const wrapper = style((theme: DesignSystem) => ({
   display: 'grid',
   justifyItems: 'center',
   justifyContent: 'space-between',
-  padding: `${theme.sizing.sizes.x5} ${theme.layout.contentMargins.MOBILE.valuePx}`,
+  padding: `${theme.sizing.sizes.x5} ${theme.layout.contentMargins.mobile.px}`,
   backgroundColor: theme.colors.greyscale0,
   color: theme.colors.greyscale900,
 }));
 
 export const AlignContentLeft = style((theme: DesignSystem) => ({
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
       display: 'flex',
       flexDirection: 'row-reverse',
       margin: '0 auto',
@@ -22,7 +22,7 @@ export const AlignContentLeft = style((theme: DesignSystem) => ({
 
 export const AlignContentRight = style((theme: DesignSystem) => ({
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
       display: 'flex',
       flexDirection: 'row',
       margin: '0 auto',
@@ -37,11 +37,11 @@ export const imageTabs = style((theme: DesignSystem) => ({
 export const image = style((theme: DesignSystem) => ({
   marginBottom: `${theme.sizing.sizes.x5}`,
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
       width: '540px',
       height: '540px',
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
       width: '366px',
       height: '366px',
     },
@@ -49,10 +49,10 @@ export const image = style((theme: DesignSystem) => ({
 }));
 
 export const type5 = style((theme: DesignSystem) => ({
-  padding: `${theme.sizing.sizes.x7} ${theme.layout.contentMargins.MOBILE.valuePx}`,
+  padding: `${theme.sizing.sizes.x7} ${theme.layout.contentMargins.mobile.px}`,
 
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
       maxWidth: '1200px',
       width: '100%',
       padding: `${theme.sizing.sizes.x7} 0`,
@@ -66,7 +66,7 @@ export const content = style((theme: DesignSystem) => ({
   alignItems: 'stretch',
   maxWidth: '500px',
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
       display: 'flex',
       flexDirection: 'column',
       marginRight: `${theme.sizing.sizes.x6}`,
@@ -79,7 +79,7 @@ export const title = style((theme: DesignSystem) => ({
   marginBottom: `calc(${theme.sizing.sizes.x3} *2)`,
   maxWidth: '400px',
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
       maxWidth: '500px',
       textAlign: 'left',
     },
@@ -93,7 +93,7 @@ export const text = style((theme: DesignSystem) => ({
   color: 'currentColor',
   maxWidth: '450px',
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
       maxWidth: '500px',
       textAlign: 'left',
     },

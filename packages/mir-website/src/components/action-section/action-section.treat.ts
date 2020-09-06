@@ -12,11 +12,11 @@ export const wrapper = style((theme: DesignSystem) => ({
   backgroundColor: theme.colors.greyscale100,
 
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
-      padding: `${theme.sizing.sizes.x5} ${theme.layout.contentMargins.TABLET.valuePx}`,
+    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
+      padding: `${theme.sizing.sizes.x5} ${theme.layout.contentMargins.tablet.px}`,
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
-      padding: `${theme.sizing.sizes.x5} ${theme.layout.contentMargins.DESKTOP.valuePx}`,
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
+      padding: `${theme.sizing.sizes.x5} ${theme.layout.contentMargins.desktop.px}`,
     },
   },
 }));
@@ -36,10 +36,10 @@ export const reversed = style((theme: DesignSystem) => ({
 //
 
 export const container = style((theme: DesignSystem) => ({
-  margin: `0 ${theme.layout.contentMargins.MOBILE.valuePx}`,
+  margin: `0 ${theme.layout.contentMargins.mobile.px}`,
 
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
       padding: `${theme.sizing.sizes.x6} 0`,
       margin: '0 auto',
       display: 'grid',
@@ -49,7 +49,7 @@ export const container = style((theme: DesignSystem) => ({
       columnGap: '20px',
     },
 
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
       maxWidth: '1200px',
       padding: `${theme.sizing.sizes.x6} 0`,
       margin: '0 auto',
@@ -59,7 +59,7 @@ export const container = style((theme: DesignSystem) => ({
       gridTemplateRows: 'auto',
       columnGap: '20px',
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_MEDIUM.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopMedium})`]: {
       gridTemplateAreas: "'content content content content content . btn btn btn . . .'",
     },
   },
@@ -71,10 +71,10 @@ export const container = style((theme: DesignSystem) => ({
 
 export const content = style((theme: DesignSystem) => ({
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
       gridArea: 'content',
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
       gridArea: 'content',
     },
   },
@@ -87,11 +87,11 @@ export const content = style((theme: DesignSystem) => ({
 export const buttonContainer = style((theme: DesignSystem) => ({
   display: 'flex',
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
       gridArea: 'btn',
       display: 'grid',
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
       gridArea: 'btn',
       display: 'grid',
     },
@@ -106,11 +106,11 @@ export const button = style((theme: DesignSystem) => ({
   alignSelf: 'center',
   margin: '0 auto',
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
       alignSelf: 'flex-end',
       width: '100%',
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
       alignSelf: 'flex-end',
       width: '100%',
     },
@@ -126,7 +126,7 @@ export const subtitle = style((theme: DesignSystem) => ({
   color: 'currentColor',
 
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
       textAlign: 'left',
     },
   },
@@ -146,7 +146,7 @@ export const title = style((theme: DesignSystem) => ({
   maxWidth: '500px',
 
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
       maxWidth: '700px',
       textAlign: 'left',
       marginTop: `${theme.sizing.sizes.x4}`,

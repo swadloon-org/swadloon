@@ -7,18 +7,18 @@ export const wrapper = style((theme: DesignSystem) => ({
   alignItems: 'center',
   justifyContent: 'center',
 
-  padding: `0 ${theme.layout.contentMargins.MOBILE.valuePx}`,
+  padding: `0 ${theme.layout.contentMargins.mobile.px}`,
   height: `55px`,
 
   backgroundColor: theme.colors.primary500,
   color: theme.colors.greyscale0Reversed,
 
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
-      padding: `0 ${theme.layout.contentMargins.TABLET.valuePx}`,
+    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
+      padding: `0 ${theme.layout.contentMargins.tablet.px}`,
       height: `${theme.sizing.sizes.x6}`,
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {},
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {},
   },
 }));
 
@@ -31,13 +31,13 @@ export const content = style((theme: DesignSystem) => ({
   width: '100%',
 
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
       gridTemplateColumns: '1fr 100px 1fr',
       justifyContent: 'center',
       justifyItems: 'center',
       maxWidth: '1200px',
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_MEDIUM.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopMedium})`]: {
       gridTemplateColumns: '1fr 100px 1fr',
       justifyContent: 'center',
       justifyItems: 'center',
@@ -49,10 +49,10 @@ export const content = style((theme: DesignSystem) => ({
 export const logo = style((theme: DesignSystem) => ({
   height: `${theme.sizing.sizes.x5}`,
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
       height: '40px',
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
       height: `${theme.sizing.sizes.x5}`,
     },
   },
@@ -68,7 +68,7 @@ export const mobileLeftToolbar = style((theme: DesignSystem) => ({
   display: 'flex',
   justifySelf: 'start',
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
       display: 'none',
     },
   },
@@ -77,7 +77,7 @@ export const mobileRightToolbar = style((theme: DesignSystem) => ({
   display: 'flex',
   justifySelf: 'end',
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
       display: 'none',
     },
   },
@@ -89,7 +89,7 @@ export const desktopLeftToolbar = style((theme: DesignSystem) => ({
   alignItems: 'center',
   height: '100%',
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
       display: 'flex',
     },
   },
@@ -103,7 +103,7 @@ export const desktopRightToolbar = style((theme: DesignSystem) => ({
   display: 'none',
   justifySelf: 'end',
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
       display: 'flex',
     },
   },
@@ -117,14 +117,14 @@ export const desktopSocialButtons = style((theme: DesignSystem) => ({
   display: 'flex',
 
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {},
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {},
+    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {},
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {},
   },
 }));
 
 export const language = style((theme: DesignSystem) => ({
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {},
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {},
+    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {},
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {},
   },
 }));

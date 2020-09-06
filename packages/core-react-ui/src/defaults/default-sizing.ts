@@ -1,4 +1,4 @@
-import { SIZING, SizingSteps, VIEWPORT, createSizingStep, SizeCSSVarNames, Sizing } from 'core-design-system';
+import { SIZING, SizingSteps, createSizingStep, SizeCSSVarNames, Sizing, VIEWPORT } from 'core-design-system';
 
 export const DEFAULT_BASE_FONT_SIZE = 9;
 export const DEFAULT_BASE_FONT_SIZE_PX = `${DEFAULT_BASE_FONT_SIZE}px`;
@@ -81,9 +81,9 @@ const sizingStepMobile = {
 };
 
 export const DEFAULT_SIZING_STEPS: SizingSteps = {
-  [VIEWPORT.MOBILE]: sizingStepMobile,
-  [VIEWPORT.TABLET]: sizingStepMobile,
-  [VIEWPORT.DESKTOP]: sizingStepMobile,
+  [VIEWPORT.mobile]: sizingStepMobile,
+  [VIEWPORT.tablet]: sizingStepMobile,
+  [VIEWPORT.desktop]: sizingStepMobile,
 };
 
 export const DEFAULT_SIZING: Sizing = {

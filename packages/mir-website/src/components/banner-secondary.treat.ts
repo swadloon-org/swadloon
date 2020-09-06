@@ -11,12 +11,12 @@ export const wrapper = style(({ layout }: DesignSystem) => ({
   display: `grid`,
   gridTemplateColumns: `1fr`,
   '@media': {
-    [`screen and (min-width: ${layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+    [`screen and (min-width: ${layout.breakpoints.tabletPortrait})`]: {
       position: 'relative',
-      gridTemplateColumns: `${layout.contentMargins.TABLET.valuePx} 1fr ${layout.contentMargins.TABLET.valuePx}`,
+      gridTemplateColumns: `${layout.contentMargins.tablet.px} 1fr ${layout.contentMargins.tablet.px}`,
       gridTemplateAreas: "'. mid .'",
     },
-    [`screen and (min-width: ${layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+    [`screen and (min-width: ${layout.breakpoints.desktopSmall})`]: {
       justifyContent: 'center',
       justifyItems: 'center',
     },
@@ -28,7 +28,7 @@ export const wrapper = style(({ layout }: DesignSystem) => ({
 //
 
 export const container = style((theme: DesignSystem) => ({
-  padding: `${theme.sizing.sizes.x6} ${theme.layout.contentMargins.MOBILE.valuePx}`,
+  padding: `${theme.sizing.sizes.x6} ${theme.layout.contentMargins.mobile.px}`,
   minHeight: `300px`,
   display: `flex`,
   alignItems: `center`,
@@ -37,21 +37,21 @@ export const container = style((theme: DesignSystem) => ({
   backgroundColor: theme.colors.greyscale1000,
 
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
       gridArea: 'mid',
       zIndex: 1,
       minHeight: `400px`,
       padding: `${theme.sizing.sizes.x6} ${theme.sizing.sizes.x5}`,
-      margin: `0 0 ${theme.layout.contentMargins.TABLET.valuePx}`,
+      margin: `0 0 ${theme.layout.contentMargins.tablet.px}`,
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
       minHeight: `479px`,
       maxWidth: '1200px',
       margin: `0 0 ${theme.sizing.sizes.x6}`,
       justifySelf: 'center',
       width: '100%',
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_MEDIUM.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopMedium})`]: {
       maxWidth: '1600px',
     },
   },
@@ -65,7 +65,7 @@ export const blackbox = style((theme: DesignSystem) => ({
   position: `absolute`,
   display: `none`,
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
       position: `absolute`,
       display: `block`,
       bottom: `0`,
@@ -85,7 +85,7 @@ export const bluebox = style((theme: DesignSystem) => ({
   position: `absolute`,
   display: `none`,
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
       position: `absolute`,
       display: `block`,
       top: `0`,
@@ -103,11 +103,11 @@ export const bluebox = style((theme: DesignSystem) => ({
 
 export const content = style((theme: DesignSystem) => ({
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
       width: 'fit-content',
       maxWidth: `462px`,
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
       width: 'fit-content',
       maxWidth: `771px`,
     },
@@ -133,8 +133,8 @@ export const containerBarTopSecondary = style((theme: DesignSystem) => ({
 export const topBarSecondary = style((theme: DesignSystem) => ({
   width: '214px',
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {},
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {},
+    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {},
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {},
   },
 }));
 
@@ -142,10 +142,10 @@ globalStyle(`${topBarSecondary} rect`, (theme: DesignSystem) => ({
   width: '214px',
 
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
       width: '97px',
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {},
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {},
   },
 }));
 
@@ -157,20 +157,20 @@ export const containerBarBottomSecondary = style((theme: DesignSystem) => ({
   display: 'flex',
   width: '100%',
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
       justifyContent: 'flex-end',
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {},
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {},
   },
 }));
 
 export const bottomBarSecondary = style((theme: DesignSystem) => ({
   width: '60%',
   // '@media': {
-  //   [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+  //   [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
   //     width: '60%',
   //   },
-  //   [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {},
+  //   [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {},
   // },
 }));
 

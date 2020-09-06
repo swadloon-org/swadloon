@@ -9,64 +9,64 @@ const base: CSSProperties = {
 
 export const large = style((theme: DesignSystem) => ({
   ...base,
-  ...theme.typography.paragraphs.MOBILE.large.capsizeRem,
-  fontFamily: theme.typography.paragraphs.MOBILE.large.fontFamily,
-  fontWeight: theme.typography.paragraphs.MOBILE.large.fontWeight,
-  textTransform: theme.typography.paragraphs.MOBILE.large.textTransform,
+  ...theme.typography.paragraphs.mobile.large.capsizeRem,
+  fontFamily: theme.typography.paragraphs.mobile.large.fontFamily,
+  fontWeight: theme.typography.paragraphs.mobile.large.fontWeight,
+  textTransform: theme.typography.paragraphs.mobile.large.textTransform,
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
-      ...theme.typography.paragraphs.TABLET.large.capsizeRem,
+    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
+      ...theme.typography.paragraphs.tablet.large.capsizeRem,
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
-      ...theme.typography.paragraphs.DESKTOP.large.capsizeRem,
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
+      ...theme.typography.paragraphs.desktop.large.capsizeRem,
     },
   },
 }));
 
 export const medium = style((theme: DesignSystem) => ({
   ...base,
-  ...theme.typography.paragraphs.MOBILE.medium.capsizeRem,
-  fontFamily: theme.typography.paragraphs.MOBILE.medium.fontFamily,
-  fontWeight: theme.typography.paragraphs.MOBILE.medium.fontWeight,
-  textTransform: theme.typography.paragraphs.MOBILE.medium.textTransform,
+  ...theme.typography.paragraphs.mobile.medium.capsizeRem,
+  fontFamily: theme.typography.paragraphs.mobile.medium.fontFamily,
+  fontWeight: theme.typography.paragraphs.mobile.medium.fontWeight,
+  textTransform: theme.typography.paragraphs.mobile.medium.textTransform,
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
-      ...theme.typography.paragraphs.TABLET.medium.capsizeRem,
+    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
+      ...theme.typography.paragraphs.tablet.medium.capsizeRem,
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
-      ...theme.typography.paragraphs.DESKTOP.medium.capsizeRem,
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
+      ...theme.typography.paragraphs.desktop.medium.capsizeRem,
     },
   },
 }));
 
 export const small = style((theme: DesignSystem) => ({
   ...base,
-  ...theme.typography.paragraphs.MOBILE.small.capsizeRem,
-  fontFamily: theme.typography.paragraphs.MOBILE.small.fontFamily,
-  fontWeight: theme.typography.paragraphs.MOBILE.small.fontWeight,
-  textTransform: theme.typography.paragraphs.MOBILE.small.textTransform,
+  ...theme.typography.paragraphs.mobile.small.capsizeRem,
+  fontFamily: theme.typography.paragraphs.mobile.small.fontFamily,
+  fontWeight: theme.typography.paragraphs.mobile.small.fontWeight,
+  textTransform: theme.typography.paragraphs.mobile.small.textTransform,
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
-      ...theme.typography.paragraphs.TABLET.small.capsizeRem,
+    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
+      ...theme.typography.paragraphs.tablet.small.capsizeRem,
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
-      ...theme.typography.paragraphs.DESKTOP.small.capsizeRem,
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
+      ...theme.typography.paragraphs.desktop.small.capsizeRem,
     },
   },
 }));
 
 export const xSmall = style((theme: DesignSystem) => ({
   ...base,
-  ...theme.typography.paragraphs.MOBILE.xSmall.capsizeRem,
-  fontFamily: theme.typography.paragraphs.MOBILE.xSmall.fontFamily,
-  fontWeight: theme.typography.paragraphs.MOBILE.xSmall.fontWeight,
-  textTransform: theme.typography.paragraphs.MOBILE.xSmall.textTransform,
+  ...theme.typography.paragraphs.mobile.xSmall.capsizeRem,
+  fontFamily: theme.typography.paragraphs.mobile.xSmall.fontFamily,
+  fontWeight: theme.typography.paragraphs.mobile.xSmall.fontWeight,
+  textTransform: theme.typography.paragraphs.mobile.xSmall.textTransform,
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
-      ...theme.typography.paragraphs.TABLET.xSmall.capsizeRem,
+    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
+      ...theme.typography.paragraphs.tablet.xSmall.capsizeRem,
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
-      ...theme.typography.paragraphs.DESKTOP.xSmall.capsizeRem,
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
+      ...theme.typography.paragraphs.desktop.xSmall.capsizeRem,
     },
   },
 }));

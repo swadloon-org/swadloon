@@ -4,7 +4,7 @@ import { globalStyle, style } from 'treat';
 export const wrapper = style((theme: DesignSystem) => ({
   display: 'grid',
   justifyItems: 'center',
-  padding: `${theme.sizing.sizes.x5} ${theme.layout.contentMargins.MOBILE.valuePx}`,
+  padding: `${theme.sizing.sizes.x5} ${theme.layout.contentMargins.mobile.px}`,
   backgroundColor: theme.colors.greyscale0,
   color: theme.colors.greyscale900,
 }));
@@ -20,7 +20,7 @@ export const type3 = style((theme: DesignSystem) => ({}));
 export const type4 = style((theme: DesignSystem) => ({}));
 export const AlignContentLeft = style((theme: DesignSystem) => ({
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
       display: 'flex',
       flexDirection: 'row-reverse',
       margin: '0 auto',
@@ -30,7 +30,7 @@ export const AlignContentLeft = style((theme: DesignSystem) => ({
 
 export const AlignContentRight = style((theme: DesignSystem) => ({
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
       display: 'flex',
       flexDirection: 'row',
       margin: '0 auto',
@@ -41,11 +41,11 @@ export const AlignContentRight = style((theme: DesignSystem) => ({
 export const image = style((theme: DesignSystem) => ({
   marginBottom: `${theme.sizing.sizes.x5}`,
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
       width: '540px',
       height: '540px',
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
       width: '366px',
       height: '366px',
     },
@@ -61,7 +61,7 @@ export const title = style((theme: DesignSystem) => ({
   marginBottom: `calc(${theme.sizing.sizes.x3} *2)`,
   maxWidth: '400px',
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
       maxWidth: '500px',
       textAlign: 'left',
       selectors: {
@@ -85,7 +85,7 @@ export const text = style((theme: DesignSystem) => ({
   maxWidth: '400px',
 
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
       maxWidth: '500px',
       textAlign: 'left',
 
@@ -102,7 +102,7 @@ export const button = style((theme: DesignSystem) => ({
   alignSelf: 'center',
 
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
       alignSelf: 'flex-start',
 
       // selectors: {
@@ -122,7 +122,7 @@ export const content = style((theme: DesignSystem) => ({
   flexDirection: 'column',
   alignItems: 'stretch',
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {},
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {},
   },
 }));
 
@@ -136,7 +136,7 @@ export const infoTilesWrapper = style((theme: DesignSystem) => ({
   marginBottom: `${theme.sizing.sizes.x6}`,
 
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
       gridTemplateColumns: '1fr 1fr 1fr',
     },
   },
@@ -149,7 +149,7 @@ export const tabsWrapper = style((theme: DesignSystem) => ({
   marginBottom: `calc(${theme.sizing.sizes.x3} * 2)`,
 
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
       // selectors: {
       //   [`${type3} &`]: {
       //     display: 'flex',
@@ -175,7 +175,7 @@ globalStyle(`${type2} ~ ${type3} `, (theme: DesignSystem) => ({
 
 // globalStyle(`${type2} ${button}`, (theme: DesignSystem) => ({
 //   '@media': {
-//     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+//     [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
 //       alignSelf: 'flex-start',
 //     },
 //   },
@@ -183,7 +183,7 @@ globalStyle(`${type2} ~ ${type3} `, (theme: DesignSystem) => ({
 
 // globalStyle(`${type2} ${content}`, (theme: DesignSystem) => ({
 //   '@media': {
-//     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+//     [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
 //       display: 'flex',
 //       flexDirection: 'column',
 //       alignItems: 'stretch',
@@ -194,7 +194,7 @@ globalStyle(`${type2} ~ ${type3} `, (theme: DesignSystem) => ({
 
 // globalStyle(`${type3} ${image}`, (theme: DesignSystem) => ({
 //   '@media': {
-//     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+//     [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
 //       width: '500px',
 //       height: '500px',
 //     },
@@ -203,7 +203,7 @@ globalStyle(`${type2} ~ ${type3} `, (theme: DesignSystem) => ({
 
 // globalStyle(`${type3} ${button}`, (theme: DesignSystem) => ({
 //   '@media': {
-//     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+//     [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
 //       alignSelf: 'flex-start',
 //     },
 //   },
@@ -211,7 +211,7 @@ globalStyle(`${type2} ~ ${type3} `, (theme: DesignSystem) => ({
 
 // globalStyle(`${type3} ${content}`, (theme: DesignSystem) => ({
 //   '@media': {
-//     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+//     [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
 //       display: 'flex',
 //       flexDirection: 'column',
 //       alignItems: 'stretch',
@@ -222,7 +222,7 @@ globalStyle(`${type2} ~ ${type3} `, (theme: DesignSystem) => ({
 
 // globalStyle(`${type3} ${tabsWrapper}`, (theme: DesignSystem) => ({
 //   '@media': {
-//     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+//     [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
 //       display: 'flex',
 //       marginBottom: `${theme.sizing.sizes.x5}`,
 //       maxWidth: '610px',

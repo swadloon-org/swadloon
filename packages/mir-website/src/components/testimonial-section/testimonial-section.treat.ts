@@ -10,9 +10,9 @@ export const container = style((theme: DesignSystem) => ({
   padding: `${theme.sizing.sizes.x5}`,
 
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {},
+    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {},
 
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {},
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {},
   },
 }));
 export const title = style((theme: DesignSystem) => ({
@@ -23,9 +23,9 @@ export const title = style((theme: DesignSystem) => ({
   padding: ` ${theme.sizing.sizes.x5} 0`,
 
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {},
+    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {},
 
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {},
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {},
   },
 }));
 export const content = style((theme: DesignSystem) => ({
@@ -35,9 +35,9 @@ export const content = style((theme: DesignSystem) => ({
   gridGap: `0 ${theme.sizing.sizes.x4}`,
 
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {},
+    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {},
 
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
       gridColumn: '1',
       gridTemplateColumns: '1fr 1fr 1fr',
       gridGap: `0 ${theme.sizing.sizes.x4}`,
@@ -50,9 +50,9 @@ export const tileComment = style((theme: DesignSystem) => ({
   paddingBottom: `${theme.sizing.sizes.x4}`,
 
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: { maxWidth: '450px' },
+    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: { maxWidth: '450px' },
 
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {},
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {},
   },
 }));
 export const blocContent = style((theme: DesignSystem) => ({
@@ -65,9 +65,9 @@ export const blocContent = style((theme: DesignSystem) => ({
   backgroundColor: theme.colors.greyscale0,
 
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {},
+    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {},
 
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {},
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {},
   },
 }));
 export const triangle = style((theme: DesignSystem) => ({

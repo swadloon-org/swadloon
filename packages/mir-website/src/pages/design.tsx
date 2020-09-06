@@ -5,7 +5,7 @@ import { Heading } from '../components/heading';
 import { JobSection } from '../components/job-section/job-section';
 import { Label } from '../components/label';
 import { Paragraph } from '../components/paragraph';
-import { light } from '../themes/mir-theme.treat';
+import { light } from '../design-system/mir-theme.treat';
 import { Root, PageProps } from './index';
 import { CheckLabel } from '../components/info-section-check';
 import { InfoTile } from '../components/info-section/info-tile';

@@ -14,16 +14,16 @@ export function useViewportValues(): ViewportContext {
 export function useViewportBreakpoint(): { viewport: VIEWPORT } {
   const { width } = React.useContext(viewportContext);
 
-  const tabletBreakpoint = DEFAULT_LAYOUT.breakpoints.TABLET_PORTRAIT.value;
-  const desktopBreakpoint = DEFAULT_LAYOUT.breakpoints.DESKTOP_SMALL.value;
+  const tabletBreakpoint = DEFAULT_LAYOUT.breakpoints.tabletPortrait.value;
+  const desktopBreakpoint = DEFAULT_LAYOUT.breakpoints.desktopSmall.value;
 
   if (width !== undefined && width < tabletBreakpoint) {
-    return { viewport: VIEWPORT.MOBILE };
+    return { viewport: VIEWPORT.mobile };
   }
 
   if (width !== undefined && width < desktopBreakpoint) {
-    return { viewport: VIEWPORT.TABLET };
+    return { viewport: VIEWPORT.tablet };
   }
 
-  return { viewport: VIEWPORT.DESKTOP };
+  return { viewport: VIEWPORT.desktop };
 }

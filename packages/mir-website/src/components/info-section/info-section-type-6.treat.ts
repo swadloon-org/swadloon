@@ -8,7 +8,7 @@ import { style, globalStyle } from 'treat';
 export const wrapper = style((theme: DesignSystem) => ({
   display: 'grid',
   justifyItems: 'center',
-  padding: `${theme.sizing.sizes.x6} ${theme.layout.contentMargins.MOBILE.valuePx}`,
+  padding: `${theme.sizing.sizes.x6} ${theme.layout.contentMargins.mobile.px}`,
 }));
 
 //
@@ -76,7 +76,7 @@ export const text = style((theme: DesignSystem) => ({
   maxWidth: '400px',
 
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
       textAlign: 'center',
       maxWidth: '500px',
     },

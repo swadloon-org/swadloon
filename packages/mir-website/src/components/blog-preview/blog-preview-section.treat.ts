@@ -19,15 +19,15 @@ export const content = style((theme: DesignSystem) => ({
   gridTemplateColumns: 'repeat(3, 1fr)',
   gridColumnGap: `${theme.sizing.sizes.x4}`,
   margin: `${theme.sizing.sizes.x5} 0`,
-  padding: `0 ${theme.layout.contentMargins.MOBILE.valuePx}`,
+  padding: `0 ${theme.layout.contentMargins.mobile.px}`,
   maxWidth: '100%',
   overflowX: 'auto',
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
-      padding: `0 ${theme.layout.contentMargins.TABLET.valuePx}`,
+    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
+      padding: `0 ${theme.layout.contentMargins.tablet.px}`,
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
-      padding: `0 ${theme.layout.contentMargins.DESKTOP.valuePx}`,
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
+      padding: `0 ${theme.layout.contentMargins.desktop.px}`,
     },
   },
 }));

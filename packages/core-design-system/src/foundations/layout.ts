@@ -1,52 +1,50 @@
-import { Value } from '../utils/value';
+import { Value, ValueString } from '../utils/value';
 
 /**
  * Viewport names.
  */
 export enum VIEWPORT {
-  MOBILE = 'MOBILE',
-  TABLET = 'TABLET',
-  DESKTOP = 'DESKTOP',
+  mobile = 'mobile',
+  tablet = 'tablet',
+  desktop = 'desktop',
 }
 
 /**
  * Breakpoint names.
  */
 export enum BREAKPOINT {
-  MOBILE_X_SMALL = 'MOBILE_X_SMALL', // mobile
-  MOBILE_SMALL = 'MOBILE_SMALL',
-  MOBILE_MEDIUM = 'MOBILE_MEDIUM',
-  TABLET_PORTRAIT = 'TABLET_PORTRAIT', // tablet
-  TABLET_LANDSCAPE = 'TABLET_LANDSCAPE',
-  DESKTOP_SMALL = 'DESKTOP_SMALL',
-  DESKTOP_MEDIUM = 'DESKTOP_MEDIUM', // desktop
-  DESKTOP_LARGE = 'DESKTOP_LARGE',
-  DESKTOP_X_LARGE = 'DESKTOP_X_LARGE',
+  mobileXSmall = 'mobileXSmall', // mobile
+  mobileSmall = 'mobileSmall',
+  mobileMedium = 'mobileMedium',
+  tabletPortrait = 'tabletPortrait', // tablet
+  tabletLandscape = 'tabletLandscape',
+  desktopSmall = 'desktopSmall',
+  desktopMedium = 'desktopMedium', // desktop
+  desktopLarge = 'desktopLarge',
+  desktopXLarge = 'desktopXLarge',
 }
 
 /**
  * Representation of a breakpoint, including its value
- * in pixel, and a default media query to activate it
+ * in pixel
  */
-export interface Breakpoint {
-  /**
-   * @example 999
-   */
-  value: number;
-  /**
-   * @example `999px`
-   */
-  valuePx: string;
-  /**
-   * @example `@media screen and (min-width: 999px)`
-   */
-  mediaQuery?: string;
-}
+export type Breakpoint = Value;
 
 /**
  * Breakpoints values in pixel.
  */
 export type Breakpoints = { [key in keyof typeof BREAKPOINT]: Breakpoint };
+
+/**
+ * Representation of a media query.
+ * @example `screen and (min-width: ... and (max-width: ...)`
+ */
+export type MediaQuery = string;
+
+/**
+ * Breakpoints values in pixel.
+ */
+export type MediaQueries = { [key in keyof typeof VIEWPORT]: MediaQuery };
 
 /**
  * Content margins for different device formats.
@@ -64,9 +62,8 @@ export interface ContentWidths {
  * Breakpoints, commonly used content margins and max widths.
  */
 export interface Layout {
-  layouts?: any;
-  media?: any;
   breakpoints: Breakpoints;
+  media: MediaQueries;
   contentMargins: ContentMargins;
   contentWidth: ContentWidths;
 }

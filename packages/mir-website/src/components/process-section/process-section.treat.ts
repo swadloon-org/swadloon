@@ -21,7 +21,7 @@ export const content = style((theme: DesignSystem) => ({
   gridColumn: '1',
   gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr 1fr',
   gridGap: `0 ${theme.sizing.sizes.x2}`,
-  margin: `${theme.layout.contentMargins.TABLET.valuePx} 0`,
+  margin: `${theme.layout.contentMargins.tablet.px} 0`,
 }));
 export const tileProcess = style((theme: DesignSystem) => ({}));
 export const blocNumber = style((theme: DesignSystem) => ({

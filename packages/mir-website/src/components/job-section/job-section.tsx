@@ -57,7 +57,7 @@ export const JobSection: React.FC<OwnProps> = (props) => {
         // Desktop Case
         //
 
-        if (viewport === VIEWPORT.DESKTOP) {
+        if (viewport === VIEWPORT.desktop) {
           return (
             <div className={styles.container}>
               <div className={styles.containerBox}>

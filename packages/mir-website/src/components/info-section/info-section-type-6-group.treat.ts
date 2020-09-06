@@ -6,10 +6,10 @@ export const wrapper = style((theme: DesignSystem) => ({
   gridTemplateColumns: '1fr',
 
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
       gridTemplateColumns: '1fr 1fr 1fr',
     },
-    // [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+    // [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
     //   maxWidth: '2000px',
     // },
   },
