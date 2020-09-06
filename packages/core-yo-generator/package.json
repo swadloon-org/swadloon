@@ -13,7 +13,6 @@
     "nr-core-yo-generator": "./lib/src/cli.js"
   },
   "scripts": {
-    "prebuild": "yarn clean",
     "build": "tsc --build",
     "clean": "rimraf -r lib/**",
     "postinstall": "yarn build",

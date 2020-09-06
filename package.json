@@ -16,10 +16,10 @@
   },
   "scripts": {
     "autorelease": "lerna version --conventional-commits --create-release github",
-    "build": "lerna run --concurrency=1 build",
+    "build": "lerna run build",
     "build:mir": "yarn build --scope '{core-*,mir-website}'",
     "changelog": "lerna version --conventional-commits --no-push",
-    "clean": "lerna run --concurrency=1 clean",
+    "clean": "lerna run clean",
     "cli": "nr",
     "commit": "lint-staged && git-cz",
     "fork": "ts-node --script-mode scripts/fork-repo.ts",

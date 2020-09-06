@@ -9,7 +9,6 @@
     "./lib/**/*"
   ],
   "scripts": {
-    "prebuild": "yarn clean",
     "build": "tsc --build",
     "clean": "rimraf -r dist/**",
     "postinstall": "yarn build",
