@@ -2,7 +2,7 @@ import { DesignSystem } from 'core-design-system';
 import { style } from 'treat';
 
 export const wrapper = style((theme: DesignSystem) => ({
-  padding: `var(${theme.sizing.sizeCSSVarNames.x5}) 0`,
+  padding: `${theme.sizing.sizes.x5} 0`,
   backgroundColor: theme.colors.greyscale100,
 }));
 export const container = style((theme: DesignSystem) => ({
@@ -12,7 +12,7 @@ export const container = style((theme: DesignSystem) => ({
 export const title = style((theme: DesignSystem) => ({
   textAlign: 'center',
   margin: '0 auto',
-  paddingBottom: `var(${theme.sizing.sizeCSSVarNames.x5})`,
+  paddingBottom: `${theme.sizing.sizes.x5}`,
 }));
 export const content = style((theme: DesignSystem) => ({
   position: 'relative',
@@ -20,14 +20,14 @@ export const content = style((theme: DesignSystem) => ({
   display: 'grid',
   gridColumn: '1',
   gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr 1fr',
-  gridGap: `0 var(${theme.sizing.sizeCSSVarNames.x2})`,
+  gridGap: `0 ${theme.sizing.sizes.x2}`,
   margin: `${theme.layout.contentMargins.TABLET.valuePx} 0`,
 }));
 export const tileProcess = style((theme: DesignSystem) => ({}));
 export const blocNumber = style((theme: DesignSystem) => ({
   display: 'grid',
   justifyContent: 'center',
-  paddingBottom: `var(${theme.sizing.sizeCSSVarNames.x4})`,
+  paddingBottom: `${theme.sizing.sizes.x4}`,
 }));
 export const circle = style((theme: DesignSystem) => ({
   display: 'grid',
@@ -47,7 +47,7 @@ export const number = style((theme: DesignSystem) => ({
 export const blocContent = style((theme: DesignSystem) => ({
   textAlign: 'center',
   display: 'grid',
-  gridGap: `var(${theme.sizing.sizeCSSVarNames.x3})`,
+  gridGap: `${theme.sizing.sizes.x3}`,
   gridColumn: '1',
 }));
 

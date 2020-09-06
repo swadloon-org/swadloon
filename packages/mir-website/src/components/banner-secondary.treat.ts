@@ -28,7 +28,7 @@ export const wrapper = style(({ layout }: DesignSystem) => ({
 //
 
 export const container = style((theme: DesignSystem) => ({
-  padding: `var(${theme.sizing.sizeCSSVarNames.x6}) ${theme.layout.contentMargins.MOBILE.valuePx}`,
+  padding: `${theme.sizing.sizes.x6} ${theme.layout.contentMargins.MOBILE.valuePx}`,
   minHeight: `300px`,
   display: `flex`,
   alignItems: `center`,
@@ -41,13 +41,13 @@ export const container = style((theme: DesignSystem) => ({
       gridArea: 'mid',
       zIndex: 1,
       minHeight: `400px`,
-      padding: `var(${theme.sizing.sizeCSSVarNames.x6}) var(${theme.sizing.sizeCSSVarNames.x5})`,
+      padding: `${theme.sizing.sizes.x6} ${theme.sizing.sizes.x5}`,
       margin: `0 0 ${theme.layout.contentMargins.TABLET.valuePx}`,
     },
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
       minHeight: `479px`,
       maxWidth: '1200px',
-      margin: `0 0 var(${theme.sizing.sizeCSSVarNames.x6})`,
+      margin: `0 0 ${theme.sizing.sizes.x6}`,
       justifySelf: 'center',
       width: '100%',
     },
@@ -184,5 +184,5 @@ globalStyle(`${bottomBarSecondary} rect`, (theme: DesignSystem) => ({
 
 export const title = style((theme: DesignSystem) => ({
   color: theme.colors.greyscale0,
-  margin: `var(${theme.sizing.sizeCSSVarNames.x5}) 0`,
+  margin: `${theme.sizing.sizes.x5} 0`,
 }));

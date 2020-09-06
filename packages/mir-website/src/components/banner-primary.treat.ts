@@ -29,7 +29,7 @@ export const wrapper = style(({ layout }: DesignSystem) => ({
 //
 
 export const container = style((theme: DesignSystem) => ({
-  padding: `var(${theme.sizing.sizeCSSVarNames.x6}) ${theme.layout.contentMargins.MOBILE.valuePx}`,
+  padding: `${theme.sizing.sizes.x6} ${theme.layout.contentMargins.MOBILE.valuePx}`,
   minHeight: `416px`,
   display: `flex`,
   alignItems: `center`,
@@ -42,13 +42,13 @@ export const container = style((theme: DesignSystem) => ({
       gridArea: 'mid',
       zIndex: 1,
       minHeight: `477px`,
-      padding: `var(${theme.sizing.sizeCSSVarNames.x6}) var(${theme.sizing.sizeCSSVarNames.x5})`,
+      padding: `${theme.sizing.sizes.x6} ${theme.sizing.sizes.x5}`,
       margin: `0 0 ${theme.layout.contentMargins.TABLET.valuePx}`,
     },
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
       minHeight: '645px',
       maxWidth: '1200px',
-      margin: `0 0 var(${theme.sizing.sizeCSSVarNames.x6})`,
+      margin: `0 0 ${theme.sizing.sizes.x6}`,
       justifySelf: 'center',
       width: '100%',
     },
@@ -138,7 +138,7 @@ export const containerBarTopPrimary = style((theme: DesignSystem) => ({
 export const topBarPrimary = style((theme: DesignSystem) => ({
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
-      paddingLeft: `var(${theme.sizing.sizeCSSVarNames.x1})`,
+      paddingLeft: `${theme.sizing.sizes.x1}`,
     },
   },
 }));
@@ -174,8 +174,8 @@ globalStyle(`${bottomBarPrimary} rect`, (theme: DesignSystem) => ({
 //
 
 export const subtitle = style((theme: DesignSystem) => ({
-  marginRight: `var(${theme.sizing.sizeCSSVarNames.x3})`,
-  marginBottom: `var(${theme.sizing.sizeCSSVarNames.x3})`,
+  marginRight: `${theme.sizing.sizes.x3}`,
+  marginBottom: `${theme.sizing.sizes.x3}`,
   color: theme.colors.greyscale0,
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
@@ -190,10 +190,10 @@ export const subtitle = style((theme: DesignSystem) => ({
 
 export const title = style((theme: DesignSystem) => ({
   color: theme.colors.greyscale0,
-  margin: `var(${theme.sizing.sizeCSSVarNames.x4}) 0`,
+  margin: `${theme.sizing.sizes.x4} 0`,
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
-      margin: `var(${theme.sizing.sizeCSSVarNames.x5}) 0`,
+      margin: `${theme.sizing.sizes.x5} 0`,
     },
   },
 }));

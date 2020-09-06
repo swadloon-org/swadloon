@@ -5,14 +5,14 @@ export const wrapper = style((theme: DesignSystem) => ({
   display: 'grid',
   justifyItems: 'center',
   justifyContent: 'space-between',
-  padding: `var(${theme.sizing.sizeCSSVarNames.x7}) ${theme.layout.contentMargins.MOBILE.valuePx}`,
+  padding: `${theme.sizing.sizes.x7} ${theme.layout.contentMargins.MOBILE.valuePx}`,
   backgroundColor: theme.colors.greyscale0,
   color: theme.colors.greyscale900,
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
       maxWidth: '1200px',
       width: '100%',
-      padding: `var(${theme.sizing.sizeCSSVarNames.x7}) 0`,
+      padding: `${theme.sizing.sizes.x7} 0`,
     },
   },
 }));
@@ -38,11 +38,11 @@ export const AlignContentRight = style((theme: DesignSystem) => ({
 }));
 
 export const imageTabs = style((theme: DesignSystem) => ({
-  marginBottom: `calc(var(${theme.sizing.sizeCSSVarNames.x3}) * 2)`,
+  marginBottom: `calc(${theme.sizing.sizes.x3} * 2)`,
 }));
 
 export const image = style((theme: DesignSystem) => ({
-  marginBottom: `var(${theme.sizing.sizeCSSVarNames.x6})`,
+  marginBottom: `${theme.sizing.sizes.x6}`,
   width: '250px',
   height: '250px',
   '@media': {
@@ -73,7 +73,7 @@ export const content = style((theme: DesignSystem) => ({
 export const alignContentRight = style((theme: DesignSystem) => ({
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
-      marginLeft: `var(${theme.sizing.sizeCSSVarNames.x6})`,
+      marginLeft: `${theme.sizing.sizes.x6}`,
     },
   },
 }));
@@ -81,18 +81,18 @@ export const alignContentRight = style((theme: DesignSystem) => ({
 export const alignContentLeft = style((theme: DesignSystem) => ({
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
-      marginRight: `var(${theme.sizing.sizeCSSVarNames.x6})`,
+      marginRight: `${theme.sizing.sizes.x6}`,
     },
   },
 }));
 
 export const title = style((theme: DesignSystem) => ({
-  marginBottom: `var(${theme.sizing.sizeCSSVarNames.x6})`,
+  marginBottom: `${theme.sizing.sizes.x6}`,
   maxWidth: '400px',
   textAlign: 'center',
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
-      marginBottom: `var(${theme.sizing.sizeCSSVarNames.x5})`,
+      marginBottom: `${theme.sizing.sizes.x5}`,
       maxWidth: '500px',
     },
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
@@ -105,7 +105,7 @@ export const title = style((theme: DesignSystem) => ({
 export const text = style((theme: DesignSystem) => ({
   textAlign: 'center',
   whiteSpace: 'pre-wrap', // handle mutli-line text
-  marginBottom: `var(${theme.sizing.sizeCSSVarNames.x5})`,
+  marginBottom: `${theme.sizing.sizes.x5}`,
   color: 'currentColor',
   maxWidth: '400px',
 

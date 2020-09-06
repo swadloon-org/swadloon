@@ -5,7 +5,7 @@ export const wrapper = style((theme: DesignSystem) => ({
   display: 'grid',
   justifyItems: 'center',
   width: '100%',
-  padding: `var(${theme.sizing.sizeCSSVarNames.x7}) 0 var(${theme.sizing.sizeCSSVarNames.x7}) 0`,
+  padding: `${theme.sizing.sizes.x7} 0 ${theme.sizing.sizes.x7} 0`,
 }));
 export const container = style((theme: DesignSystem) => ({
   display: 'grid',
@@ -17,8 +17,8 @@ export const container = style((theme: DesignSystem) => ({
 export const content = style((theme: DesignSystem) => ({
   display: 'grid',
   gridTemplateColumns: 'repeat(3, 1fr)',
-  gridColumnGap: `var(${theme.sizing.sizeCSSVarNames.x4})`,
-  margin: `var(${theme.sizing.sizeCSSVarNames.x5}) 0`,
+  gridColumnGap: `${theme.sizing.sizes.x4}`,
+  margin: `${theme.sizing.sizes.x5} 0`,
   padding: `0 ${theme.layout.contentMargins.MOBILE.valuePx}`,
   maxWidth: '100%',
   overflowX: 'auto',
@@ -34,11 +34,11 @@ export const content = style((theme: DesignSystem) => ({
 
 export const title = style((theme: DesignSystem) => ({
   textAlign: 'center',
-  margin: `0 0 var(${theme.sizing.sizeCSSVarNames.x5}) 0`,
+  margin: `0 0 ${theme.sizing.sizes.x5} 0`,
   maxWidth: '500px',
 }));
 
 export const paragraph = style((theme: DesignSystem) => ({
   textAlign: 'center',
-  padding: `var(${theme.sizing.sizeCSSVarNames.x3}) 0 var(${theme.sizing.sizeCSSVarNames.x5}) 0)`,
+  padding: `${theme.sizing.sizes.x3} 0 ${theme.sizing.sizes.x5} 0)`,
 }));

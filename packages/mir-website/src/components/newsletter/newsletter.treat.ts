@@ -7,8 +7,8 @@ import { globalStyle, style } from 'treat';
 
 export const wrapper = style((theme: DesignSystem) => ({
   backgroundColor: theme.colors.primary500,
-  paddingTop: `var(${theme.sizing.sizeCSSVarNames.x6})`,
-  paddingBottom: `var(${theme.sizing.sizeCSSVarNames.x6})`,
+  paddingTop: `${theme.sizing.sizes.x6}`,
+  paddingBottom: `${theme.sizing.sizes.x6}`,
 
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
@@ -29,7 +29,7 @@ export const container = style((theme: DesignSystem) => ({
 
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
-      padding: `var(${theme.sizing.sizeCSSVarNames.x6}) 0`,
+      padding: `${theme.sizing.sizes.x6} 0`,
       margin: '0 auto',
       display: 'grid',
       gridTemplateColumns: 'repeat(12, 1fr)',
@@ -40,7 +40,7 @@ export const container = style((theme: DesignSystem) => ({
 
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
       maxWidth: '1200px',
-      padding: `var(${theme.sizing.sizeCSSVarNames.x6}) 0`,
+      padding: `${theme.sizing.sizes.x6} 0`,
       margin: '0 auto',
       display: 'grid',
       gridTemplateColumns: 'repeat(12, 1fr)',
@@ -117,16 +117,16 @@ export const subtitle = style((theme: DesignSystem) => ({
 //
 
 export const title = style((theme: DesignSystem) => ({
-  marginTop: `var(${theme.sizing.sizeCSSVarNames.x5})`,
-  marginBottom: `var(${theme.sizing.sizeCSSVarNames.x5})`,
+  marginTop: `${theme.sizing.sizes.x5}`,
+  marginBottom: `${theme.sizing.sizes.x5}`,
   textAlign: 'center',
   color: theme.colors.greyscale0Reversed,
 
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
       textAlign: 'left',
-      marginTop: `var(${theme.sizing.sizeCSSVarNames.x4})`,
-      marginBottom: `var(${theme.sizing.sizeCSSVarNames.x4})`,
+      marginTop: `${theme.sizing.sizes.x4}`,
+      marginBottom: `${theme.sizing.sizes.x4}`,
     },
   },
 }));
@@ -136,5 +136,5 @@ export const title = style((theme: DesignSystem) => ({
 //
 
 globalStyle(`${formulaire} input`, (theme: DesignSystem) => ({
-  marginBottom: `var(${theme.sizing.sizeCSSVarNames.x3})`,
+  marginBottom: `${theme.sizing.sizes.x3}`,
 }));

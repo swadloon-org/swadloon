@@ -20,15 +20,15 @@ export const number = style((theme: DesignSystem) => ({
   color: theme.colors.greyscale0,
 }));
 export const illustration = style((theme: DesignSystem) => ({
-  height: `calc(var(${theme.sizing.sizeCSSVarNames.x1}) * 5)`,
-  width: `calc(var(${theme.sizing.sizeCSSVarNames.x1}) * 5)`,
+  height: `calc(${theme.sizing.sizes.x1} * 5)`,
+  width: `calc(${theme.sizing.sizes.x1} * 5)`,
 }));
 
 export const content = style((theme: DesignSystem) => ({
-  padding: `0 var(${theme.sizing.sizeCSSVarNames.x2})`,
+  padding: `0 ${theme.sizing.sizes.x2}`,
 }));
 export const label = style((theme: DesignSystem) => ({
-  height: `calc(var(${theme.sizing.sizeCSSVarNames.x1}) * 5)`,
+  height: `calc(${theme.sizing.sizes.x1} * 5)`,
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',

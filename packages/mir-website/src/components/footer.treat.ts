@@ -2,14 +2,14 @@ import { DesignSystem } from 'core-design-system';
 import { globalStyle, style } from 'treat';
 
 export const wrapper = style((theme: DesignSystem) => ({
-  padding: `var(${theme.sizing.sizeCSSVarNames.x6}) ${theme.layout.contentMargins.MOBILE.valuePx}`,
+  padding: `${theme.sizing.sizes.x6} ${theme.layout.contentMargins.MOBILE.valuePx}`,
 
   backgroundColor: theme.colors.greyscale1000,
   color: theme.colors.greyscale0,
 
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
-      padding: `var(${theme.sizing.sizeCSSVarNames.x5}) ${theme.layout.contentMargins.TABLET.valuePx}`,
+      padding: `${theme.sizing.sizes.x5} ${theme.layout.contentMargins.TABLET.valuePx}`,
     },
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {},
   },
@@ -17,7 +17,7 @@ export const wrapper = style((theme: DesignSystem) => ({
 
 export const gridwrapper = style((theme: DesignSystem) => ({
   display: 'grid',
-  gridRowGap: `var(${theme.sizing.sizeCSSVarNames.x6})`,
+  gridRowGap: `${theme.sizing.sizes.x6}`,
 
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
@@ -38,7 +38,7 @@ export const gridwrapper = style((theme: DesignSystem) => ({
 }));
 
 export const title = style((theme: DesignSystem) => ({
-  marginBottom: `var(${theme.sizing.sizeCSSVarNames.x4})`,
+  marginBottom: `${theme.sizing.sizes.x4}`,
 }));
 
 export const infoText = style((theme: DesignSystem) => ({
