@@ -25,20 +25,10 @@ npm-debug.log
 # lerna
 lerna-debug.log
 
-# packages
-packages/**/dist/
-packages/**/package-lock.json
-packages/**/bin/
-packages/**/lib/
-packages/**/charts/
-packages/test-*
-
 # jest
 _reports
 __metrics__
 junit.xml
-
-# server
 
 # docker
 .docker
@@ -50,15 +40,6 @@ credentials-velero
 credentials
 *.secret.yaml
 *secrets.yaml
-
-# gatsby
-packages/**/public/
-.cache
-static/admin/*.bundle.*
-
-# nextjs & vercel
-.next
-.vercel
 
 # others
 lib-cov
@@ -72,5 +53,22 @@ lib-cov
 tsconfig.tsbuildinfo
 .diez
 
-# Local Netlify folder
+# netlify
 .netlify
+
+# nextjs & vercel
+.next
+.vercel
+
+# gatsby
+packages/**/public/
+.cache
+static/admin/*.bundle.*
+
+# packages
+packages/**/dist/
+packages/**/package-lock.json
+packages/**/bin/
+packages/**/lib/
+packages/**/charts/
+packages/test-*
