@@ -19,6 +19,8 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "dependencies": {
+    "core-design-system": "link:../core-design-system",
+    "core-react-ui": "link:../core-react-ui",
     "gatsby": "^2.17.11"
   },
   "peerDependencies": {
@@ -35,7 +37,6 @@
     "gatsby-plugin-ts": "^2.7.1",
     "gatsby-source-filesystem": "^2.3.23",
     "gatsby-source-graphql": "^2.6.1",
-    "graphql": "^14.6.0",
-    "node-sass": "^4.14.1"
+    "graphql": "^14.6.0"
   }
 }

@@ -22,7 +22,7 @@ export const BannerPrimary: React.FC<OwnProps> = ({ title, subTitle, imageData }
       <div className={styles.bluebox}></div>
 
       {imageData ? (
-        <BackgroundImage Tag="div" fluid={imageData as any} className={`${styles.container}`}>
+        <BackgroundImage Tag="div" fluid={imageData as any} className={`${styles.container}`} fadeIn={false}>
           <div className={styles.content}>
             <div className={styles.containerBarTopPrimary}>
               <Label variant={LABEL.smallBoldUppercase} className={styles.subtitle}>

@@ -34,6 +34,7 @@ export const container = style((theme: DesignSystem) => ({
   alignItems: `center`,
   backgroundSize: `cover`,
   backgroundPositionY: `center`,
+  backgroundColor: theme.colors.greyscale1000,
 
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {

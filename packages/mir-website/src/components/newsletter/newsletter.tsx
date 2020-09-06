@@ -2,7 +2,6 @@ import React, { AllHTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './newsletter.treat';
 
-// import styles from './newsletter.module.scss';
 import { Input } from '../input';
 import { Label } from '../label';
 import { Heading } from '../heading';

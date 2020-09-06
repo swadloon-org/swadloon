@@ -23,7 +23,7 @@ export const query = graphql`
       id
       childImageSharp {
         # https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-transformer-sharp/src/fragments.js
-        fluid(quality: 80, maxWidth: 1920) {
+        fluid(quality: 90, maxWidth: 800) {
           base64
           aspectRatio
           src
@@ -38,7 +38,7 @@ export const query = graphql`
       id
       childImageSharp {
         # https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-transformer-sharp/src/fragments.js
-        fluid(quality: 80, maxWidth: 1920) {
+        fluid(quality: 90, maxWidth: 1920) {
           base64
           aspectRatio
           src
