@@ -15,11 +15,24 @@ export default class ResetBranches extends Command {
   static args = [{ name: 'file' }];
 
   async run() {
-    spawnSync(`git branch --merged master | grep -v '^[ *]*master$' | xargs git branch -d`, {
-      cwd: '.',
-      shell: true,
-      stdio: 'inherit',
-      env: process.env,
+    const spawn = require('child_process').spawn;
+    const lsChild = spawn('ls', ['-l', '-a']);
+
+    let savedOutput = '';
+
+    lsChild.stdout.on('data', (data) => {
+      const strData = data.toString();
+      console.log(strData);
+      savedOutput += strData;
+    });
+
+    lsChild.stderr.on('data', (data) => {
+      assert(false, 'Not sure what you want with stderr');
+    });
+
+    lsChild.on('close', (code) => {
+      console.log('Child exited with', code, 'and stdout has been saved');
+      // at this point 'savedOutput' contains all your data.
     });
   }
 }

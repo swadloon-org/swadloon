@@ -39,17 +39,20 @@ export const query = graphql`
           actionText
         }
         jobSection {
-          type {
-            id
-            title
-          }
           title
-          jobs {
-            id
-            type {
-              id
-            }
+          titleHighlight
+          type {
             title
+            jobSection {
+              id
+              title
+              groups {
+                jobs {
+                  id
+                  title
+                }
+              }
+            }
           }
         }
         infoSections {
@@ -117,7 +120,7 @@ const Employer: React.FC<OwnProps> = ({ data, location }) => {
 
       {section1 && section1.type === 'type2' ? <InfoSectionType2 align="AlignContentLeft" {...section1} /> : null}
 
-      {jobSection ? <JobSection title={jobSection.title} variant={'candidate'} /> : null}
+      {/* {jobSection ? <JobSection jobSection={jobSection} variant={'candidate'} /> : null} */}
 
       {section2 && section2.type === 'type2' ? <InfoSectionType2 align="AlignContentRight" {...section2} /> : null}
 

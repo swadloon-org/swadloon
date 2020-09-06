@@ -23,7 +23,7 @@ export const BannerSecondary: React.FC<OwnProps> = ({ title, imageData }) => {
       <div className={styles.bluebox}></div>
 
       {imageData ? (
-        <BackgroundImage Tag="div" fluid={imageData as any} className={`${styles.container}`}>
+        <BackgroundImage Tag="div" fluid={imageData as any} className={`${styles.container}`} fadeIn={false}>
           <div className={styles.content}>
             <div className={styles.containerBarTopSecondary}>
               <BarSVG className={styles.topBarSecondary} />

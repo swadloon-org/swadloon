@@ -7,12 +7,17 @@ import { Label } from '../components/label';
 import { Paragraph } from '../components/paragraph';
 import { light } from '../themes/mir-theme.treat';
 import { Root, PageProps } from './index';
-import { InfoSectionCheckLabel } from '../components/info-section-check';
+import { CheckLabel } from '../components/info-section-check';
 import { InfoTile } from '../components/info-section/info-tile';
 import { InfoSectionType6 } from '../components/info-section/info-section-type-6';
 import { InfoSectionType1Group } from '../components/info-section/info-section-type-1-group';
 import { InfoSectionType6Group } from '../components/info-section/info-section-type-6-group';
 import { ActionSection } from '../components/action-section/action-section';
+import { BoxIcon } from '../components/box-icon';
+import { useStyles } from 'react-treat';
+import * as styleRefs from '../styles/page.treat';
+import { Testimonial } from '../components/testimonial-section/testimonial-section';
+import { Process } from '../components/process-section/process-section';
 
 const DesignPage: React.FC<PageProps> = (props) => {
   return (
@@ -23,8 +28,10 @@ const DesignPage: React.FC<PageProps> = (props) => {
 };
 
 export const Design: React.FC = () => {
+  const style = useStyles(styleRefs);
+
   return (
-    <>
+    <div className={style.wrapper}>
       <div style={{ padding: '2rem', display: 'grid', gridGap: '2rem' }}>
         <Heading variant="h1">Heading 1</Heading>
         <Heading variant="h2">Heading 2</Heading>
@@ -69,9 +76,13 @@ export const Design: React.FC = () => {
         <Icon size={ICON_SIZE.medium} icon={'IconArrowRight'} />
         <Icon size={ICON_SIZE.small} icon={'IconArrowRight'} />
       </div>
-
       <ActionSection variant="Default"></ActionSection>
-    </>
+      {/* <JobSection variant="employer"></JobSection>
+      <JobSection variant="candidate"></JobSection> */}
+
+      <Testimonial title="Lorem ipsum dolor sit amet, consectetur adipiscing elit Nulla chronocrator accumsan, metus ultrices eleifend gravi."></Testimonial>
+      <Process title="Notre processus de recrutement" titleHighlight="processus"></Process>
+    </div>
   );
 };
 

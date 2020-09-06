@@ -2,6 +2,7 @@ import React, { HTMLAttributes } from 'react';
 import { Illustration } from './illustration';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './image-frame.treat';
+import LazyLoad from 'react-lazyload';
 
 interface OwnProps {
   url: string;
@@ -21,9 +22,11 @@ export const ImageFrame: React.FC<OwnProps & HTMLAttributes<any>> = (props) => {
         height={200}
       />
 
-      <div className={`${styles.content} ${styles[props.variant]}`}>
-        <div className={`${styles.image}`} style={{ backgroundImage: `url(${props.url})` }} />
-      </div>
+      <LazyLoad>
+        <div className={`${styles.content} ${styles[props.variant]}`}>
+          <div className={`${styles.image}`} style={{ backgroundImage: `url(${props.url})` }} />
+        </div>
+      </LazyLoad>
     </div>
   );
 

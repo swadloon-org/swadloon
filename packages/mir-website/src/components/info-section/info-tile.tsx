@@ -35,7 +35,9 @@ export const InfoTile: React.FC<OwnProps> = (props) => {
             height={42}
           />
         ) : null}
+
         <Heading variant={'h3'}>{props.title}</Heading>
+
         <Paragraph variant={'small'} className={styles.text}>
           {props.text}
         </Paragraph>

@@ -25,10 +25,6 @@ export const BlogPreviewSection: React.FC<OwnProps> = (props) => {
       <div className={styles.container}>
         <RenderTitleHighlight title={props.title} titleHighlight={'nouvelles'} className={styles.title} />
 
-        {/* <Heading variant="h3" className={styles.title}>
-          {props.headingContent}
-        </RenderTitleHighlight> */}
-
         <Paragraph variant="medium" className={styles.paragraph}>
           {props.text}
         </Paragraph>
@@ -42,7 +38,6 @@ export const BlogPreviewSection: React.FC<OwnProps> = (props) => {
                     imageUrl={post.image?.url}
                     title={post.title}
                     actionLabel="Lire l’article"
-                    // className={styles.item}
                   ></BlogPreviewTileImage>
                 );
               })
