@@ -174,6 +174,7 @@ export const onPreBootstrap: GatsbyNode['onPreBootstrap'] = (args, options, call
       toolName: 'mir-website',
       level: LOG_LEVEL.ERROR,
     });
+    callback(data);
   });
 
   cwd.on('close', (code) => {
