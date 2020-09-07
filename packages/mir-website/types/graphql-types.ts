@@ -17698,13 +17698,10 @@ export type CandidatePageQuery = { bannerImage?: Maybe<(
       Pick<GraphCms_CandidatePage, 'bannerTitle'>
       & { actionSections: Array<Pick<GraphCms_ActionSection, 'title' | 'subtitle' | 'actionText'>>, jobSection?: Maybe<(
         Pick<GraphCms_JobSection, 'title' | 'titleHighlight'>
-        & { type?: Maybe<(
-          Pick<GraphCms_JobSectionType, 'title'>
-          & { jobSection: Array<(
-            Pick<GraphCms_JobSection, 'id' | 'title'>
-            & { groups: Array<{ jobs: Array<Pick<GraphCms_Job, 'id' | 'title'>> }> }
-          )> }
-        )> }
+        & { type?: Maybe<Pick<GraphCms_JobSectionType, 'title'>>, groups: Array<{ typeName?: Maybe<(
+            Pick<GraphCms_JobType, 'id' | 'title'>
+            & { jobGroup: Array<{ jobs: Array<Pick<GraphCms_Job, 'id' | 'title'>> }> }
+          )> }> }
       )>, infoSections: Array<(
         Pick<GraphCms_InfoSection, 'title' | 'titleHighlight' | 'titleTab' | 'type' | 'text' | 'showTabs' | 'actionText'>
         & { infoChecks: Array<Pick<GraphCms_InfoCheck, 'text'>>, infoTiles: Array<Pick<GraphCms_InfoTile, 'illustration' | 'title' | 'text'>>, childs: Array<Pick<GraphCms_InfoSection, 'showTabs' | 'title' | 'titleHighlight' | 'titleTab' | 'type' | 'text' | 'actionText'>>, image?: Maybe<Pick<GraphCms_Asset, 'url'>> }
