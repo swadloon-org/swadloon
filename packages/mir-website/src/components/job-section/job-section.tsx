@@ -8,30 +8,30 @@ import { RenderTitleHighlight } from '../info-section/info-title-highligh';
 import { BoxIcon } from '../box-icon';
 import { useViewportValues, useViewportBreakpoint } from '../../hooks/use-viewport.hook';
 import { VIEWPORT } from 'core-design-system';
-
-export type JobSection = {
-  // variant: 'candidate' | 'employer';
-  title?: string | null;
-  titleHighlight?: string | null;
-  groups: Group[];
-};
-
-export type Group = {
-  title?: string | null;
-  jobs: Job[];
-};
-
-export type Job = {
-  id?: string | null;
-  title?: string | null;
-};
+import {
+  Maybe,
+  GraphCms_JobSection,
+  GraphCms_JobSectionType,
+  GraphCms_JobType,
+  GraphCms_Job,
+} from '../../../types/graphql-types';
 
 type OwnProps = {
-  variant: string;
-  jobSection: JobSection;
+  jobSection: Maybe<
+    Pick<GraphCms_JobSection, 'title' | 'titleHighlight'> & {
+      type?: Maybe<Pick<GraphCms_JobSectionType, 'title'>>;
+      groups: Array<{
+        typeName?: Maybe<
+          Pick<GraphCms_JobType, 'id' | 'title'> & {
+            jobGroup: Array<{ jobs: Array<Pick<GraphCms_Job, 'id' | 'title'>> }>;
+          }
+        >;
+      }>;
+    }
+  >;
 };
 
-export const JobSection: React.FC<OwnProps> = (props) => {
+export function JobSection(props: OwnProps) {
   const styles = useStyles(styleRefs);
   const { width } = useViewportValues();
   const { viewport } = useViewportBreakpoint();
@@ -43,14 +43,14 @@ export const JobSection: React.FC<OwnProps> = (props) => {
     <div className={`${styles.wrapper} `}>
       <RenderTitleHighlight
         className={styles.title}
-        title={props.jobSection.title}
-        titleHighlight={props.jobSection.titleHighlight}
+        title={props?.jobSection?.title}
+        titleHighlight={props?.jobSection?.titleHighlight}
       />
-      {getVariantModifier(props.variant)}
+      {getVariantModifier(props?.jobSection?.type)}
     </div>
   );
 
-  function getVariantModifier(value: string) {
+  function getVariantModifier(value: Pick<GraphCms_JobSectionType, 'title'> | null | undefined) {
     switch (value) {
       case 'candidate': {
         //
@@ -61,7 +61,7 @@ export const JobSection: React.FC<OwnProps> = (props) => {
           return (
             <div className={styles.container}>
               <div className={styles.containerBox}>
-                {props?.jobSection.groups.map((jobType, index) => {
+                {props?.jobSection?.groups.map((jobType, index) => {
                   return (
                     <div className={styles.boxIcon}>
                       <BoxIcon
@@ -72,14 +72,14 @@ export const JobSection: React.FC<OwnProps> = (props) => {
                           setSelectedBoxIconIndex(index);
                         }}
                       >
-                        {jobType.title}
+                        {jobType?.typeName?.title}
                       </BoxIcon>
                     </div>
                   );
                 })}
               </div>
-              <div className={styles.content}>
-                {props?.jobSection.groups[selectedBoxIcon].jobs.map((job, index) => {
+              {/* <div className={styles.content}>
+                {props?.jobSection?.groups[selectedBoxIcon].?.map((job, index) => {
                   return (
                     <div key={index} className={`${index / 2 == 0 ? styles.even : styles.unenven}`}>
                       <CheckLabel illustration="Check" size="medium">
@@ -88,7 +88,7 @@ export const JobSection: React.FC<OwnProps> = (props) => {
                     </div>
                   );
                 })}
-              </div>
+              </div> */}
             </div>
           );
         }
@@ -170,4 +170,4 @@ export const JobSection: React.FC<OwnProps> = (props) => {
       }
     }
   }
-};
+}

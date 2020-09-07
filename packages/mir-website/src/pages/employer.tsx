@@ -43,10 +43,12 @@ export const query = graphql`
           titleHighlight
           type {
             title
-            jobSection {
+          }
+          groups {
+            typeName {
               id
               title
-              groups {
+              jobGroup {
                 jobs {
                   id
                   title
@@ -120,7 +122,7 @@ const Employer: React.FC<OwnProps> = ({ data, location }) => {
 
       {section1 && section1.type === 'type2' ? <InfoSectionType2 align="AlignContentLeft" {...section1} /> : null}
 
-      {jobSection ? <JobSection jobSection={jobSection} variant={'candidate'} /> : null}
+      {jobSection ? <JobSection jobSection={jobSection} /> : null}
 
       {section2 && section2.type === 'type2' ? <InfoSectionType2 align="AlignContentRight" {...section2} /> : null}
 
