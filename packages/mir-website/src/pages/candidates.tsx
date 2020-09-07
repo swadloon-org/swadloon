@@ -12,6 +12,7 @@ import { InfoSectionType5 } from '../components/info-section/info-section-type-5
 import { InfoSectionType2 } from '../components/info-section/info-section-type-2';
 import { ActionSection } from '../components/action-section/action-section';
 import { JobSection } from '../components/job-section/job-section';
+import { Root } from '.';
 
 export const query = graphql`
   query candidatePage {
@@ -43,6 +44,7 @@ export const query = graphql`
           titleHighlight
           type {
             title
+            type
           }
           groups {
             typeName {
@@ -98,9 +100,9 @@ interface IndexPageProps {
 
 const CandidatePage: React.FC<IndexPageProps> = (props) => {
   return (
-    <TreatProvider theme={light}>
+    <Root>
       <Candidate {...props} />
-    </TreatProvider>
+    </Root>
   );
 };
 
@@ -112,7 +114,7 @@ const Candidate: React.FC<IndexPageProps> = ({ data, location }) => {
   const section1 = data.gcms?.candidatePages[0]?.infoSections[0];
   const section2 = data.gcms?.candidatePages[0]?.infoSections[1];
   const jobSection = data.gcms?.candidatePages[0]?.jobSection;
-  console.log(data.gcms?.candidatePages[0]?.jobSection);
+
   return (
     <div className={`${styles.wrapper}`}>
       <NavBar></NavBar>

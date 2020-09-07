@@ -43,6 +43,7 @@ export const query = graphql`
           titleHighlight
           type {
             title
+            type
           }
           groups {
             typeName {

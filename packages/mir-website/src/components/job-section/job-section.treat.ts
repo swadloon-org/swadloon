@@ -85,3 +85,6 @@ export const even = style((theme: DesignSystem) => ({
 export const unenven = style((theme: DesignSystem) => ({
   backgroundColor: theme.colors.greyscale0,
 }));
+export const containerMobile = style((theme: DesignSystem) => ({
+  backgroundColor: theme.colors.greyscale0,
+}));

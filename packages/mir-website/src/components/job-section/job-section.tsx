@@ -15,12 +15,11 @@ import {
   GraphCms_JobType,
   GraphCms_Job,
 } from '../../../types/graphql-types';
-import { title } from 'process';
 
 type OwnProps = {
   jobSection: Maybe<
     Pick<GraphCms_JobSection, 'title' | 'titleHighlight'> & {
-      type?: Maybe<Pick<GraphCms_JobSectionType, 'title'>>;
+      type?: Maybe<Pick<GraphCms_JobSectionType, 'title' | 'type'>>;
       groups: Array<{
         typeName?: Maybe<
           Pick<GraphCms_JobType, 'id' | 'title'> & {
@@ -47,28 +46,26 @@ export function JobSection(props: OwnProps) {
         title={props?.jobSection?.title}
         titleHighlight={props?.jobSection?.titleHighlight}
       />
-      {getVariantModifier(props?.jobSection?.type?.title)}
+      {getVariantModifier(props?.jobSection?.type?.type)}
     </div>
   );
 
-  function getVariantModifier(value: any) {
+  function getVariantModifier(value: GraphCms_JobSectionType['type']) {
     console.log(value);
 
     switch (value) {
-      case 'Candidats': {
+      case 'candidates': {
         //
         // Desktop Case
         //
-
         if (viewport === VIEWPORT.DESKTOP) {
           return (
             <div className={styles.container}>
               <div className={styles.containerBox}>
                 {props?.jobSection?.groups.map((jobType, index) => {
                   return (
-                    <div className={styles.boxIcon}>
+                    <div key={index} className={styles.boxIcon}>
                       <BoxIcon
-                        key={index}
                         icon="IllustrationFactory"
                         selected={index === selectedBoxIcon}
                         onClick={() => {
@@ -82,10 +79,8 @@ export function JobSection(props: OwnProps) {
                 })}
               </div>
               {props?.jobSection?.groups[selectedBoxIcon].typeName?.jobGroup.map((jobG, index) => {
-                console.log(index);
-
                 return (
-                  <div className={styles.content}>
+                  <div key={index} className={styles.content}>
                     {jobG.jobs.map((job, index) => {
                       return (
                         <div key={index} className={`${index % 2 == 0 ? styles.even : styles.unenven}`}>
@@ -110,26 +105,31 @@ export function JobSection(props: OwnProps) {
             <div className={styles.container}>
               {props?.jobSection?.groups.map((jobType, index) => {
                 return (
-                  <div className={styles.containerBox}>
-                    <div className={styles.boxIcon}>
-                      <BoxIcon
-                        key={index}
-                        icon="IllustrationFactory"
-                        selected={index === selectedBoxIcon}
-                        onClick={() => {
-                          setSelectedBoxIconIndex(index);
-                        }}
-                      >
-                        {jobType.typeName?.title}
-                      </BoxIcon>
-                    </div>
-                    <div className={styles.content}>
-                      {props?.jobSection?.groups[selectedBoxIcon].typeName?.jobGroup.map((job, index) => {
+                  <div className={styles.containerMobile} key={index}>
+                    <div className={styles.containerBox}>
+                      <div className={styles.boxIcon}>
+                        <BoxIcon
+                          icon="IllustrationFactory"
+                          selected={index === selectedBoxIcon}
+                          onClick={() => {
+                            setSelectedBoxIconIndex(index);
+                          }}
+                        >
+                          {jobType.typeName?.title}
+                        </BoxIcon>
+                      </div>
+                      {props?.jobSection?.groups[selectedBoxIcon].typeName?.jobGroup.map((jobG, index) => {
                         return (
-                          <div key={index} className={`${index / 2 == 0 ? styles.even : styles.unenven}`}>
-                            <CheckLabel illustration="Check" size="medium">
-                              {job.jobs[index].title}
-                            </CheckLabel>
+                          <div className={styles.content} key={index}>
+                            {jobG.jobs.map((job, index) => {
+                              return (
+                                <div className={`${index % 2 == 0 ? styles.even : styles.unenven}`}>
+                                  <CheckLabel illustration="IllustrationCheck" size="medium">
+                                    {job.title}
+                                  </CheckLabel>
+                                </div>
+                              );
+                            })}
                           </div>
                         );
                       })}
@@ -141,14 +141,13 @@ export function JobSection(props: OwnProps) {
           );
         }
       }
-      case 'Employeur': {
+      case 'employer': {
         return (
           <div className={styles.container}>
             {props.jobSection?.groups.map((jobType, index) => {
               return (
-                <div className={styles.accordions}>
+                <div className={styles.accordions} key={index}>
                   <Accordions
-                    key={index}
                     variant="Default"
                     selected={index === selectedAccordionsIndex}
                     onClick={() => {
@@ -161,15 +160,19 @@ export function JobSection(props: OwnProps) {
               );
             })}
 
-            <div className={styles.content}>
-              {props.jobSection?.groups[selectedBoxIcon].typeName?.jobGroup.map((job, index) => {
-                return (
-                  <div key={index} className={styles.tagsUnique}>
-                    <Tags numberIndex={`${index < 9 ? '0' : ''}${index + 1}`}> {job.jobs[index].title}</Tags>
-                  </div>
-                );
-              })}
-            </div>
+            {props.jobSection?.groups[selectedAccordionsIndex].typeName?.jobGroup.map((jobG, index) => {
+              return (
+                <div className={styles.content} key={index}>
+                  {jobG.jobs.map((job, index) => {
+                    return (
+                      <div className={styles.tagsUnique} key={index}>
+                        <Tags numberIndex={`${index < 9 ? '0' : ''}${index + 1}`}> {job.title}</Tags>
+                      </div>
+                    );
+                  })}
+                </div>
+              );
+            })}
           </div>
         );
       }
