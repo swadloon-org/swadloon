@@ -15,6 +15,7 @@ import {
   GraphCms_JobType,
   GraphCms_Job,
 } from '../../../types/graphql-types';
+import { title } from 'process';
 
 type OwnProps = {
   jobSection: Maybe<
@@ -46,13 +47,15 @@ export function JobSection(props: OwnProps) {
         title={props?.jobSection?.title}
         titleHighlight={props?.jobSection?.titleHighlight}
       />
-      {getVariantModifier(props?.jobSection?.type)}
+      {getVariantModifier(props?.jobSection?.type?.title)}
     </div>
   );
 
-  function getVariantModifier(value: Pick<GraphCms_JobSectionType, 'title'> | null | undefined) {
+  function getVariantModifier(value: any) {
+    console.log(value);
+
     switch (value) {
-      case 'candidate': {
+      case 'Candidats': {
         //
         // Desktop Case
         //
@@ -78,17 +81,23 @@ export function JobSection(props: OwnProps) {
                   );
                 })}
               </div>
-              {/* <div className={styles.content}>
-                {props?.jobSection?.groups[selectedBoxIcon].?.map((job, index) => {
-                  return (
-                    <div key={index} className={`${index / 2 == 0 ? styles.even : styles.unenven}`}>
-                      <CheckLabel illustration="Check" size="medium">
-                        {job.title}
-                      </CheckLabel>
-                    </div>
-                  );
-                })}
-              </div> */}
+              {props?.jobSection?.groups[selectedBoxIcon].typeName?.jobGroup.map((jobG, index) => {
+                console.log(index);
+
+                return (
+                  <div className={styles.content}>
+                    {jobG.jobs.map((job, index) => {
+                      return (
+                        <div key={index} className={`${index % 2 == 0 ? styles.even : styles.unenven}`}>
+                          <CheckLabel illustration="IllustrationCheck" size="medium">
+                            {job.title}
+                          </CheckLabel>
+                        </div>
+                      );
+                    })}
+                  </div>
+                );
+              })}
             </div>
           );
         }
@@ -99,7 +108,7 @@ export function JobSection(props: OwnProps) {
         else {
           return (
             <div className={styles.container}>
-              {props?.jobSection.groups.map((jobType, index) => {
+              {props?.jobSection?.groups.map((jobType, index) => {
                 return (
                   <div className={styles.containerBox}>
                     <div className={styles.boxIcon}>
@@ -111,15 +120,15 @@ export function JobSection(props: OwnProps) {
                           setSelectedBoxIconIndex(index);
                         }}
                       >
-                        {jobType.title}
+                        {jobType.typeName?.title}
                       </BoxIcon>
                     </div>
                     <div className={styles.content}>
-                      {props?.jobSection.groups[selectedBoxIcon].jobs.map((job, index) => {
+                      {props?.jobSection?.groups[selectedBoxIcon].typeName?.jobGroup.map((job, index) => {
                         return (
                           <div key={index} className={`${index / 2 == 0 ? styles.even : styles.unenven}`}>
                             <CheckLabel illustration="Check" size="medium">
-                              {job.title}
+                              {job.jobs[index].title}
                             </CheckLabel>
                           </div>
                         );
@@ -132,10 +141,10 @@ export function JobSection(props: OwnProps) {
           );
         }
       }
-      case 'employer': {
+      case 'Employeur': {
         return (
           <div className={styles.container}>
-            {props?.jobSection.groups.map((jobType, index) => {
+            {props.jobSection?.groups.map((jobType, index) => {
               return (
                 <div className={styles.accordions}>
                   <Accordions
@@ -146,17 +155,17 @@ export function JobSection(props: OwnProps) {
                       setSelectedAccordionsIndex(index);
                     }}
                   >
-                    {jobType.title}
+                    {jobType.typeName?.title}
                   </Accordions>
                 </div>
               );
             })}
 
             <div className={styles.content}>
-              {props?.jobSection.groups[selectedBoxIcon].jobs.map((job, index) => {
+              {props.jobSection?.groups[selectedBoxIcon].typeName?.jobGroup.map((job, index) => {
                 return (
                   <div key={index} className={styles.tagsUnique}>
-                    <Tags numberIndex={`${index < 9 ? '0' : ''}${index + 1}`}> {job.title}</Tags>
+                    <Tags numberIndex={`${index < 9 ? '0' : ''}${index + 1}`}> {job.jobs[index].title}</Tags>
                   </div>
                 );
               })}

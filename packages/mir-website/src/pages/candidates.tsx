@@ -43,10 +43,12 @@ export const query = graphql`
           titleHighlight
           type {
             title
-            jobSection {
+          }
+          groups {
+            typeName {
               id
               title
-              groups {
+              jobGroup {
                 jobs {
                   id
                   title
@@ -114,22 +116,15 @@ const Candidate: React.FC<IndexPageProps> = ({ data, location }) => {
   return (
     <div className={`${styles.wrapper}`}>
       <NavBar></NavBar>
-
       <BannerSecondary
         imageData={data.bannerImage?.childImageSharp?.fluid}
         title={data?.gcms?.candidatePages[0]?.bannerTitle}
       ></BannerSecondary>
-
       {actionSection1 ? <ActionSection variant={'Default'} /> : null}
-
       {section1 && section1.type === 'type5' ? <InfoSectionType5 align="AlignContentLeft" {...section1} /> : null}
-
-      {/* {jobSection ? <JobSection jobSection={jobSection} variant={`${jobSection.type}`} /> : null} */}
-
+      {jobSection ? <JobSection jobSection={jobSection} /> : null}
       {section2 && section2.type === 'type2' ? <InfoSectionType2 align="AlignContentRight" {...section2} /> : null}
-
       {actionSection2 ? <ActionSection variant={'reversed'} /> : null}
-
       <Footer></Footer>
     </div>
   );

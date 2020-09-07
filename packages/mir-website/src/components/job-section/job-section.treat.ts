@@ -5,9 +5,15 @@ export const wrapper = style((theme: DesignSystem) => ({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'stretch',
+  // margin: `0 ${theme.layout.contentMargins.MOBILE.valuePx}`,
+  // padding: `var(${theme.sizing.sizeCSSVarNames.X7}) ${theme.layout.contentMargins.MOBILE.valuePx}`,
+
+  backgroundColor: theme.colors.greyscale100,
+}));
+
+export const container = style((theme: DesignSystem) => ({
   margin: `0 ${theme.layout.contentMargins.MOBILE.valuePx}`,
   padding: `var(${theme.sizing.sizeCSSVarNames.X7}) ${theme.layout.contentMargins.MOBILE.valuePx}`,
-
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
       margin: `0 ${theme.layout.contentMargins.TABLET.valuePx}`,
@@ -20,15 +26,18 @@ export const wrapper = style((theme: DesignSystem) => ({
   },
 }));
 
-export const container = style((theme: DesignSystem) => ({}));
-
 export const content = style((theme: DesignSystem) => ({
   '@media': {
     [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+      paddingTop: `var(${theme.sizing.sizeCSSVarNames.X5})`,
       display: 'grid',
       gridColumn: '1',
       gridTemplateColumns: '1fr 1fr 1fr',
+      gridTemplateRows: '1fr 1fr 1fr 1fr',
+
       gridGap: `0 var(${theme.sizing.sizeCSSVarNames.X4})`,
+
+      gridAutoFlow: 'column',
     },
 
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {},
@@ -58,7 +67,7 @@ export const title = style((theme: DesignSystem) => ({
       maxWidth: '500px',
     },
     [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
-      maxWidth: '500px',
+      maxWidth: '600px',
     },
   },
 }));
@@ -70,5 +79,9 @@ export const containerBox = style((theme: DesignSystem) => ({
 }));
 
 export const boxIcon = style((theme: DesignSystem) => ({}));
-export const even = style((theme: DesignSystem) => ({}));
-export const unenven = style((theme: DesignSystem) => ({}));
+export const even = style((theme: DesignSystem) => ({
+  backgroundColor: 'none',
+}));
+export const unenven = style((theme: DesignSystem) => ({
+  backgroundColor: theme.colors.greyscale0,
+}));
