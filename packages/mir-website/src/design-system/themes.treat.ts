@@ -5,12 +5,14 @@ import { colorIntents, colors } from './colors';
 import { sizing } from './sizing';
 import { typography } from './typography';
 import { iconography } from './iconography';
+import { effects } from './effects';
 
 export const theme: DesignSystem = {
   name: 'mir',
   variation: 'light',
   colors,
   colorIntents,
+  effects,
   sizing: sizing,
   typography,
   iconography,

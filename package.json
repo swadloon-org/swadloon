@@ -17,7 +17,9 @@
   "scripts": {
     "autorelease": "lerna version --conventional-commits --create-release github",
     "build": "lerna run build",
-    "build:mir": "yarn build --scope '{core-*,mir-website}'",
+    "build:core": "yarn build --scope core-*",
+    "build:mir": "yarn build --scope '{core-*,mir-*}'",
+    "build:newrade": "yarn build --scope '{core-*,newrade-*}'",
     "changelog": "lerna version --conventional-commits --no-push",
     "clean": "lerna run clean",
     "cli": "nr",
@@ -32,24 +34,12 @@
     "reset": "npm i -g rimraf && rimraf -r ./node_modules packages/**/node_modules && yarn",
     "set-permissions": "chmod a+x node_modules/.bin/nr-core-cli",
     "start": "lerna run --parallel start",
+    "start:core": "yarn start --scope core-*",
     "start:lakhos": "yarn start --scope '{core-*,lakhos-website}'",
-    "start:mir": "yarn start --scope '{core-*,mir-website}'",
-    "start:newrade": "yarn start --scope '{core-*,newrade-website}'",
+    "start:mir": "yarn start --scope '{core-*,mir-*}'",
+    "start:newrade": "yarn start --scope '{core-*,newrade-*}'",
     "test": "lerna run --concurrency=1 test",
     "yo": "nr-core-yo-generator"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn format:changelog"
-    }
-  },
-  "lint-staged": {
-    "**/package.json": [
-      "format-package -w"
-    ],
-    "*.{js,ts,tsx}": [
-      "yarn lint:fix"
-    ]
   },
   "resolutions": {
     "**/packages/core-design-system": "link:./packages/core-design-system",
@@ -128,6 +118,7 @@
     "mocha": "^7.2.0",
     "next": "^9.4.4",
     "node-sass": "^4.12.0",
+    "polished": "^3.6.6",
     "prettier": "^2.0.5",
     "puppeteer": "^3.3.0",
     "rimraf": "^3.0.2",

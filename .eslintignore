@@ -1,13 +1,16 @@
-dist
-es
-**/lib/**/*
+# npm
+node_modules
+
+# libs
 lib
-**/build/**/*
-ts
-coverage
+dist
+bin
+
+# gatsby
+.cache
 node_modules
 public
-.cache
-!.storybook
-.figma.*
 graphql-types.ts
+
+# react apps
+dist

@@ -34,11 +34,33 @@ export function createGatsbyWebpackConfig({
   // const productionPlugins = [bundleVisualizerPlugin];
   const productionPlugins = [];
 
+  const sassRule = {
+    test: /\.s(a|c)ss$/,
+    use: isSSR
+      ? [loaders.null()]
+      : [
+          loaders.miniCssExtract(),
+          loaders.css({ ...(cssLoader as any).query, importLoaders: 2 }),
+          loaders.postcss(),
+          scssLoader,
+        ],
+  };
+
+  const sassRuleModules = {
+    test: /\.module\.s(a|c)ss$/,
+    use: [
+      !isSSR && loaders.miniCssExtract({ hmr: false }),
+      loaders.css({ ...(cssLoader as any).query, modules: true, importLoaders: 2 }),
+      loaders.postcss(),
+      scssLoader,
+    ].filter(Boolean),
+  };
+
   return {
     module: {
       rules: [
         {
-          oneOf: [],
+          oneOf: [sassRuleModules, sassRule],
         },
       ],
     },

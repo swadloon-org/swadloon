@@ -2,43 +2,50 @@ import { DesignSystem } from 'core-design-system';
 import { globalStyle, style } from 'treat';
 
 export const wrapper = style((theme: DesignSystem) => ({
-  padding: `var(${theme.sizing.sizeCSSVarNames.X6}) ${theme.layout.contentMargins.MOBILE.valuePx}`,
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  padding: `${theme.sizing.sizes.x6} ${theme.layout.contentMargins.mobile.px}`,
 
   backgroundColor: theme.colors.greyscale1000,
   color: theme.colors.greyscale0,
 
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
-      padding: `var(${theme.sizing.sizeCSSVarNames.X5}) ${theme.layout.contentMargins.TABLET.valuePx}`,
+    [theme.layout.media.tabletPlus]: {
+      padding: `${theme.sizing.sizes.x5} ${theme.layout.contentMargins.tablet.px}`,
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {},
   },
 }));
 
 export const gridwrapper = style((theme: DesignSystem) => ({
   display: 'grid',
-  gridRowGap: `var(${theme.sizing.sizeCSSVarNames.X6})`,
+  width: '100%',
+  gridRowGap: `${theme.sizing.sizes.x6}`,
 
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+    [theme.layout.media.tablet]: {
       display: 'grid',
       gridTemplateColumns: 'repeat(12, 1fr)',
-      gridTemplateAreas:
-        "'firm firm . . contact contact contact . location location location .''copyright copyright copyright copyright copyright copyright copyright copyright copyright copyright copyright copyright'",
+      gridTemplateAreas: `
+        "firm firm . . contact contact contact . location location location ."
+        "copyright copyright copyright copyright copyright copyright copyright copyright copyright copyright copyright copyright"
+        `,
       gridTemplateRows: 'auto',
       columnGap: '20px',
       margin: '0 auto',
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+    [theme.layout.media.desktop]: {
       maxWidth: '1200px',
-      gridTemplateAreas:
-        "'firm firm . contact contact contact location location location . . .''copyright copyright copyright . . . . . . . . .'",
+      gridTemplateAreas: `
+      "firm firm . contact contact contact location location location . . ."
+      "copyright copyright copyright . . . . . . . . ."
+      `,
     },
   },
 }));
 
 export const title = style((theme: DesignSystem) => ({
-  marginBottom: `var(${theme.sizing.sizeCSSVarNames.X4})`,
+  marginBottom: `${theme.sizing.sizes.x4}`,
 }));
 
 export const infoText = style((theme: DesignSystem) => ({
@@ -48,8 +55,8 @@ export const infoText = style((theme: DesignSystem) => ({
     },
   },
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {},
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {},
+    [theme.layout.media.tablet]: {},
+    [theme.layout.media.desktop]: {},
   },
 }));
 
@@ -63,7 +70,7 @@ export const link = style((theme: DesignSystem) => ({
 
 export const contact = style((theme: DesignSystem) => ({
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+    [theme.layout.media.tabletPlus]: {
       gridArea: 'contact',
     },
   },
@@ -71,16 +78,16 @@ export const contact = style((theme: DesignSystem) => ({
 
 export const location = style((theme: DesignSystem) => ({
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+    [theme.layout.media.tabletPlus]: {
       gridArea: 'location',
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {},
+    [theme.layout.media.desktop]: {},
   },
 }));
 
 export const firm = style((theme: DesignSystem) => ({
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+    [theme.layout.media.tabletPlus]: {
       gridArea: 'firm',
     },
   },
@@ -88,7 +95,7 @@ export const firm = style((theme: DesignSystem) => ({
 
 export const copyright = style((theme: DesignSystem) => ({
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+    [theme.layout.media.tabletPlus]: {
       gridArea: 'copyright',
     },
   },
@@ -96,7 +103,7 @@ export const copyright = style((theme: DesignSystem) => ({
 
 globalStyle(`${firm} img`, (theme: DesignSystem) => ({
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+    [theme.layout.media.tabletPlus]: {
       width: '150px',
     },
   },

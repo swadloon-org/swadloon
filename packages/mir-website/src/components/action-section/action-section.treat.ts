@@ -1,22 +1,22 @@
 import { DesignSystem } from 'core-design-system';
-import { globalStyle, style } from 'treat';
+import { style } from 'treat';
 
 //
 // Wrapper
 //
 
 export const wrapper = style((theme: DesignSystem) => ({
-  paddingTop: `var(${theme.sizing.sizeCSSVarNames.X6})`,
-  paddingBottom: `var(${theme.sizing.sizeCSSVarNames.X7})`,
+  paddingTop: `${theme.sizing.sizes.x6}`,
+  paddingBottom: `${theme.sizing.sizes.x7}`,
 
   backgroundColor: theme.colors.greyscale100,
 
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
-      padding: `var(${theme.sizing.sizeCSSVarNames.X5}) ${theme.layout.contentMargins.TABLET.valuePx}`,
+    [theme.layout.media.tablet]: {
+      padding: `${theme.sizing.sizes.x5} ${theme.layout.contentMargins.tablet.px}`,
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
-      padding: `var(${theme.sizing.sizeCSSVarNames.X5}) ${theme.layout.contentMargins.DESKTOP.valuePx}`,
+    [theme.layout.media.desktop]: {
+      padding: `${theme.sizing.sizes.x5} ${theme.layout.contentMargins.desktop.px}`,
     },
   },
 }));
@@ -36,11 +36,11 @@ export const reversed = style((theme: DesignSystem) => ({
 //
 
 export const container = style((theme: DesignSystem) => ({
-  margin: `0 ${theme.layout.contentMargins.MOBILE.valuePx}`,
+  margin: `0 ${theme.layout.contentMargins.mobile.px}`,
 
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
-      padding: `var(${theme.sizing.sizeCSSVarNames.X6}) 0`,
+    [theme.layout.media.tablet]: {
+      padding: `${theme.sizing.sizes.x6} 0`,
       margin: '0 auto',
       display: 'grid',
       gridTemplateColumns: 'repeat(12, 1fr)',
@@ -48,10 +48,9 @@ export const container = style((theme: DesignSystem) => ({
       gridTemplateRows: 'auto',
       columnGap: '20px',
     },
-
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+    [theme.layout.media.desktop]: {
       maxWidth: '1200px',
-      padding: `var(${theme.sizing.sizeCSSVarNames.X6}) 0`,
+      padding: `${theme.sizing.sizes.x6} 0`,
       margin: '0 auto',
       display: 'grid',
       gridTemplateColumns: 'repeat(12, 1fr)',
@@ -59,7 +58,7 @@ export const container = style((theme: DesignSystem) => ({
       gridTemplateRows: 'auto',
       columnGap: '20px',
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_MEDIUM.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopMedium.px})`]: {
       gridTemplateAreas: "'content content content content content . btn btn btn . . .'",
     },
   },
@@ -71,10 +70,7 @@ export const container = style((theme: DesignSystem) => ({
 
 export const content = style((theme: DesignSystem) => ({
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
-      gridArea: 'content',
-    },
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+    [theme.layout.media.tabletPlus]: {
       gridArea: 'content',
     },
   },
@@ -87,11 +83,11 @@ export const content = style((theme: DesignSystem) => ({
 export const buttonContainer = style((theme: DesignSystem) => ({
   display: 'flex',
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+    [theme.layout.media.tablet]: {
       gridArea: 'btn',
       display: 'grid',
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+    [theme.layout.media.desktop]: {
       gridArea: 'btn',
       display: 'grid',
     },
@@ -106,11 +102,11 @@ export const button = style((theme: DesignSystem) => ({
   alignSelf: 'center',
   margin: '0 auto',
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+    [theme.layout.media.tablet]: {
       alignSelf: 'flex-end',
       width: '100%',
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+    [theme.layout.media.desktop]: {
       alignSelf: 'flex-end',
       width: '100%',
     },
@@ -126,7 +122,7 @@ export const subtitle = style((theme: DesignSystem) => ({
   color: 'currentColor',
 
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+    [theme.layout.media.tabletPlus]: {
       textAlign: 'left',
     },
   },
@@ -137,8 +133,8 @@ export const subtitle = style((theme: DesignSystem) => ({
 //
 
 export const title = style((theme: DesignSystem) => ({
-  marginTop: `var(${theme.sizing.sizeCSSVarNames.X5})`,
-  marginBottom: `var(${theme.sizing.sizeCSSVarNames.X5})`,
+  marginTop: `${theme.sizing.sizes.x5}`,
+  marginBottom: `${theme.sizing.sizes.x5}`,
   textAlign: 'center',
   color: 'currentColor',
   marginRight: 'auto',
@@ -146,10 +142,10 @@ export const title = style((theme: DesignSystem) => ({
   maxWidth: '500px',
 
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+    [theme.layout.media.tabletPlus]: {
       maxWidth: '700px',
       textAlign: 'left',
-      marginTop: `var(${theme.sizing.sizeCSSVarNames.X4})`,
+      marginTop: `${theme.sizing.sizes.x4}`,
       marginBottom: `0`,
     },
   },
