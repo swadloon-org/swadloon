@@ -17,7 +17,7 @@ globalStyle(`${wrapper} *`, {
 });
 
 export const small = style((theme: DesignSystem) => ({
-  padding: `var(${theme.sizing.sizeCSSVarNames.X2})`,
+  padding: `${theme.sizing.sizes.x2}`,
 }));
 
 export const selected = style((theme: DesignSystem) => ({

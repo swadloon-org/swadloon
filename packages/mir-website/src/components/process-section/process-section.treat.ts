@@ -1,8 +1,8 @@
-import { DesignSystem } from 'core-design-system';
+import { DesignSystem, createShadow } from 'core-design-system';
 import { style } from 'treat';
 
 export const wrapper = style((theme: DesignSystem) => ({
-  padding: `var(${theme.sizing.sizeCSSVarNames.X5}) 0`,
+  padding: `${theme.sizing.sizes.x5} 0`,
   backgroundColor: theme.colors.greyscale100,
 }));
 export const container = style((theme: DesignSystem) => ({
@@ -12,7 +12,7 @@ export const container = style((theme: DesignSystem) => ({
 export const title = style((theme: DesignSystem) => ({
   textAlign: 'center',
   margin: '0 auto',
-  paddingBottom: `var(${theme.sizing.sizeCSSVarNames.X5})`,
+  paddingBottom: `${theme.sizing.sizes.x5}`,
 }));
 export const content = style((theme: DesignSystem) => ({
   position: 'relative',
@@ -20,14 +20,14 @@ export const content = style((theme: DesignSystem) => ({
   display: 'grid',
   gridColumn: '1',
   gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr 1fr',
-  gridGap: `0 var(${theme.sizing.sizeCSSVarNames.X2})`,
-  margin: `${theme.layout.contentMargins.TABLET.valuePx} 0`,
+  gridGap: `0 ${theme.sizing.sizes.x2}`,
+  margin: `${theme.layout.contentMargins.tablet.px} 0`,
 }));
 export const tileProcess = style((theme: DesignSystem) => ({}));
 export const blocNumber = style((theme: DesignSystem) => ({
   display: 'grid',
   justifyContent: 'center',
-  paddingBottom: `var(${theme.sizing.sizeCSSVarNames.X4})`,
+  paddingBottom: `${theme.sizing.sizes.x4}`,
 }));
 export const circle = style((theme: DesignSystem) => ({
   display: 'grid',
@@ -36,7 +36,11 @@ export const circle = style((theme: DesignSystem) => ({
   height: '50px',
   borderRadius: '50%',
 
-  boxShadow: '3px 3px 12px rgba(217, 217, 217, 0.5)',
+  boxShadow: createShadow({
+    ...theme.effects.shadows.medium,
+    offsetX: 3,
+    offsetY: 3,
+  }).css,
   backgroundColor: theme.colors.greyscale0,
   color: theme.colors.primary500,
 }));
@@ -47,7 +51,7 @@ export const number = style((theme: DesignSystem) => ({
 export const blocContent = style((theme: DesignSystem) => ({
   textAlign: 'center',
   display: 'grid',
-  gridGap: `var(${theme.sizing.sizeCSSVarNames.X3})`,
+  gridGap: `${theme.sizing.sizes.x3}`,
   gridColumn: '1',
 }));
 

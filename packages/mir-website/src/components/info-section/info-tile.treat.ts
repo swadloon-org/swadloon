@@ -23,7 +23,7 @@ export const wrapper = style((theme: DesignSystem) => ({
 
 export const content = style((theme: DesignSystem) => ({
   display: 'grid',
-  gridRowGap: `var(${theme.sizing.sizeCSSVarNames.X3})`,
+  gridRowGap: `${theme.sizing.sizes.x3}`,
   justifyItems: 'center',
 }));
 
@@ -54,7 +54,7 @@ export const illustration = style((theme: DesignSystem) => ({}));
 //
 
 export const borderWhite = style((theme: DesignSystem) => ({
-  boxShadow: '0px 2px 34px rgba(155, 155, 155, 0.5)',
+  boxShadow: theme.effects.shadows.heavy.css,
   borderRadius: '0px 48px 48px 48px',
 }));
 

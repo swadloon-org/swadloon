@@ -4,20 +4,30 @@ import { VIEWPORT } from './layout';
  * Unique names for each sizing step.
  */
 export enum SIZING {
-  X0 = 'X0',
-  X1 = 'X1',
-  X2 = 'X2',
-  X3 = 'X3',
-  X4 = 'X4',
-  X5 = 'X5',
-  X6 = 'X6',
-  X7 = 'X7',
-  X8 = 'X8',
-  X9 = 'X9',
-  X10 = 'X10',
+  x0 = 'x0',
+  x1 = 'x1',
+  x2 = 'x2',
+  x3 = 'x3',
+  x4 = 'x4',
+  x5 = 'x5',
+  x6 = 'x6',
+  x7 = 'x7',
+  x8 = 'x8',
+  x9 = 'x9',
+  x10 = 'x10',
 }
 
+/**
+ * Contains CSS variable names for each sizing step
+ * @example `--sizing-x1`
+ */
 export type SizeCSSVarNames = { [key in keyof typeof SIZING]: string };
+
+/**
+ * Contains CSS statement to access CSS variables
+ * @example `var(--sizing-x1)`
+ */
+export type SizeCSSVar = { [key in keyof typeof SIZING]: string };
 
 /**
  * Defines in px, rem what a sizing step is.
@@ -53,10 +63,10 @@ export interface SizingStep {
 export type SizingSteps = { [key in keyof typeof VIEWPORT]: { [key in SIZING]: SizingStep } };
 
 /**
- * A set of predefined sizes from `X1` to `X10`.
- * `X1` usually defines the smallest spacing size to be used and the smallest cap height (text height) (e.g. small label).
+ * A set of predefined sizes from `x1` to `x10`.
+ * `x1` usually defines the smallest spacing size to be used and the smallest cap height (text height) (e.g. small label).
  *
- * To optain the next size (e.g. from `X1` -> `X2`), the sizes are multipled by the ratio (e.g. `1.618` the Golden Ratio).
+ * To optain the next size (e.g. from `x1` -> `x2`), the sizes are multipled by the ratio (e.g. `1.618` the Golden Ratio).
  */
 export interface Sizing {
   /**
@@ -76,6 +86,10 @@ export interface Sizing {
    * CSS variable name for each step.
    */
   sizeCSSVarNames: SizeCSSVarNames;
+  /**
+   * CSS statement to access CSS variables
+   */
+  sizes: SizeCSSVar;
   /**
    * Size values for each step.
    */

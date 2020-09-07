@@ -5,5 +5,6 @@ export * from './foundations/layout';
 export * from './foundations/sizing';
 export * from './foundations/typography';
 export * from './foundations/iconography';
-export * from './utils/types';
-export * from './utils/utilities';
+export * from './utilities/types';
+export * from './utilities/utilities';
+export * from './utilities/shadows';

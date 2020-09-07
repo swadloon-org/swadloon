@@ -1,14 +1,18 @@
-import { GatsbyNode, GatsbyConfig } from 'gatsby';
-import { createGatsbyWebpackConfig } from './webpack.config';
-import { createRemoteFileNode } from 'gatsby-source-filesystem';
-
+import { spawnSync, spawn } from 'child_process';
 import crypto from 'crypto';
+import { GatsbyNode } from 'gatsby';
+import { createRemoteFileNode } from 'gatsby-source-filesystem';
+import { log, LOG_LEVEL } from 'core-utils';
+import { createGatsbyWebpackConfig } from './webpack.config';
+import chalk from 'chalk';
 
 /**
  * Gatsby Node Configuration
  *
  * @see https://www.gatsbyjs.com/docs/node-apis/
  */
+
+require('dotenv').config();
 
 export const onCreateBabelConfig: GatsbyNode['onCreateBabelConfig'] = ({ actions }) => {
   actions.setBabelPlugin({
@@ -138,4 +142,49 @@ export const onCreateNode: GatsbyNode['onCreateNode'] = async ({
       (node as any).image___NODE = fileNode.id;
     }
   }
+};
+
+export const onPreBootstrap: GatsbyNode['onPreBootstrap'] = (args, options, callback) => {
+  log(`GATSBY_ENABLE_INCREMENTAL_BUILD is set to "${process.env.GATSBY_ENABLE_INCREMENTAL_BUILD}"`, {
+    toolName: 'mir-website',
+  });
+
+  if (process.env.GATSBY_ENABLE_INCREMENTAL_BUILD !== 'true') {
+    callback(null);
+  }
+
+  log(`rebuilding core-* packages for gatsby cloud's incremental build`, {
+    toolName: 'mir-website',
+  });
+
+  const cwd = spawn(`yarn build --scope core-*`, {
+    cwd: '../..',
+    shell: true,
+    env: process.env,
+  });
+
+  cwd.stdout.on('data', (data) => {
+    log(`${data}`, {
+      toolName: 'mir-website',
+    });
+  });
+
+  cwd.stdout.on('error', (data) => {
+    log(`rebuilding core-* packages: ${chalk.green('error')}`, {
+      toolName: 'mir-website',
+      level: LOG_LEVEL.ERROR,
+    });
+    log(data?.message, {
+      toolName: 'mir-website',
+      level: LOG_LEVEL.ERROR,
+    });
+    callback(data);
+  });
+
+  cwd.on('close', (code) => {
+    log(`rebuilding core-* packages: ${chalk.green('done')}`, {
+      toolName: 'mir-website',
+    });
+    callback(null);
+  });
 };

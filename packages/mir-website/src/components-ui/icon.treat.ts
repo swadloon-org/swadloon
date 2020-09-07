@@ -6,46 +6,46 @@ export const icon = style((theme: DesignSystem) => ({}));
 type Styles = { [key in keyof typeof ICON_SIZE]: string };
 
 export const large = style((theme: DesignSystem) => ({
-  width: theme.iconography.sizes.MOBILE.large.valueRem,
-  height: theme.iconography.sizes.MOBILE.large.valueRem,
+  width: theme.iconography.sizes.mobile.large.valueRem,
+  height: theme.iconography.sizes.mobile.large.valueRem,
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
-      width: theme.iconography.sizes.TABLET.large.valueRem,
-      height: theme.iconography.sizes.TABLET.large.valueRem,
+    [theme.layout.media.tablet]: {
+      width: theme.iconography.sizes.tablet.large.valueRem,
+      height: theme.iconography.sizes.tablet.large.valueRem,
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
-      width: theme.iconography.sizes.DESKTOP.large.valueRem,
-      height: theme.iconography.sizes.DESKTOP.large.valueRem,
+    [theme.layout.media.desktop]: {
+      width: theme.iconography.sizes.desktop.large.valueRem,
+      height: theme.iconography.sizes.desktop.large.valueRem,
     },
   },
 }));
 
 export const medium = style((theme: DesignSystem) => ({
-  width: theme.iconography.sizes.MOBILE.medium.valueRem,
-  height: theme.iconography.sizes.MOBILE.medium.valueRem,
+  width: theme.iconography.sizes.mobile.medium.valueRem,
+  height: theme.iconography.sizes.mobile.medium.valueRem,
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
-      width: theme.iconography.sizes.TABLET.medium.valueRem,
-      height: theme.iconography.sizes.TABLET.medium.valueRem,
+    [theme.layout.media.tablet]: {
+      width: theme.iconography.sizes.tablet.medium.valueRem,
+      height: theme.iconography.sizes.tablet.medium.valueRem,
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
-      width: theme.iconography.sizes.DESKTOP.medium.valueRem,
-      height: theme.iconography.sizes.DESKTOP.medium.valueRem,
+    [theme.layout.media.desktop]: {
+      width: theme.iconography.sizes.desktop.medium.valueRem,
+      height: theme.iconography.sizes.desktop.medium.valueRem,
     },
   },
 }));
 
 export const small = style((theme: DesignSystem) => ({
-  width: theme.iconography.sizes.MOBILE.small.valueRem,
-  height: theme.iconography.sizes.MOBILE.small.valueRem,
+  width: theme.iconography.sizes.mobile.small.valueRem,
+  height: theme.iconography.sizes.mobile.small.valueRem,
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
-      width: theme.iconography.sizes.TABLET.small.valueRem,
-      height: theme.iconography.sizes.TABLET.small.valueRem,
+    [theme.layout.media.tablet]: {
+      width: theme.iconography.sizes.tablet.small.valueRem,
+      height: theme.iconography.sizes.tablet.small.valueRem,
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
-      width: theme.iconography.sizes.DESKTOP.small.valueRem,
-      height: theme.iconography.sizes.DESKTOP.small.valueRem,
+    [theme.layout.media.desktop]: {
+      width: theme.iconography.sizes.desktop.small.valueRem,
+      height: theme.iconography.sizes.desktop.small.valueRem,
     },
   },
 }));

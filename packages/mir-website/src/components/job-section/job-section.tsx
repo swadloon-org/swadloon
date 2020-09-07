@@ -58,7 +58,12 @@ export function JobSection(props: OwnProps) {
         //
         // Desktop Case
         //
+<<<<<<< HEAD
         if (viewport === VIEWPORT.DESKTOP) {
+=======
+
+        if (viewport === VIEWPORT.desktop) {
+>>>>>>> fa0b697767214bca0155005a32dfc9ee5e72b7f6
           return (
             <div className={styles.container}>
               <div className={styles.containerBox}>

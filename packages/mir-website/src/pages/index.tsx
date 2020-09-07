@@ -15,7 +15,7 @@ import { ViewportProvider } from '../context/viewport.context';
 import { viewportContext } from '../hooks/use-viewport.hook';
 import '../styles/font-faces.styles.css';
 import * as stylesRef from '../styles/page.treat';
-import { light, theme } from '../themes/mir-theme.treat';
+import { light, theme } from '../design-system/themes.treat';
 
 export const query = graphql`
   query indexPage {
@@ -23,7 +23,7 @@ export const query = graphql`
       id
       childImageSharp {
         # https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-transformer-sharp/src/fragments.js
-        fluid(quality: 80, maxWidth: 1920) {
+        fluid(quality: 90, maxWidth: 800) {
           base64
           aspectRatio
           src
@@ -38,7 +38,7 @@ export const query = graphql`
       id
       childImageSharp {
         # https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-transformer-sharp/src/fragments.js
-        fluid(quality: 80, maxWidth: 1920) {
+        fluid(quality: 90, maxWidth: 1920) {
           base64
           aspectRatio
           src
@@ -127,7 +127,7 @@ const Index: React.FC<PageProps> = ({ data, location }) => {
     data?.bannerImageMobile?.childImageSharp?.fluid,
     {
       ...data?.bannerImageDesktop?.childImageSharp?.fluid,
-      media: `(min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`,
+      media: `(min-width: ${theme.layout.breakpoints.desktopSmall.px})`,
     },
   ];
 

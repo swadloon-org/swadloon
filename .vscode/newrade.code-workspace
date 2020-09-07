@@ -4,6 +4,9 @@
       "path": "../"
     },
     {
+      "path": "../docs"
+    },
+    {
       "path": "../packages/core-cli"
     },
     {
@@ -32,6 +35,9 @@
     },
     {
       "path": "../packages/newrade-website"
+    },
+    {
+      "path": "../packages/newrade-app"
     },
     {
       "path": "../packages/lakhos-website"
