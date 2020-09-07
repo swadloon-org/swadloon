@@ -101,12 +101,13 @@ export const Footer: React.FC<OwnProps> = (props) => {
             {data.gcms.companyAddresses[0].country}
           </Paragraph>
         </div>
+
         <div className={styles.firm}>
           <Logo type="framed-text" variant="reversed" src={`${data?.gcms?.companyMedias[0]?.logoFooter?.url}`}></Logo>
         </div>
 
         <Paragraph className={styles.copyright} variant="small">
-          © {new Date().getFullYear()} Tous droits réservés MIR.{' '}
+          © {new Date().getFullYear()} Tous droits réservés MIR Inc.
         </Paragraph>
       </div>
     </footer>
