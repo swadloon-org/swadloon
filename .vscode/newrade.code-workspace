@@ -37,6 +37,9 @@
       "path": "../packages/newrade-website"
     },
     {
+      "path": "../packages/newrade-app"
+    },
+    {
       "path": "../packages/lakhos-website"
     },
     {

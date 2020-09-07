@@ -1,14 +1,29 @@
-// import { Effects, Shadows, Overlays } from 'core-design-system';
+import { Effects, Shadows, Overlays, createShadow } from 'core-design-system';
 
-// export const shadows: Shadows = {
-//   light:
-// };
+export const shadows: Shadows = {
+  light: createShadow({
+    offsetX: 0,
+    offsetY: 2,
+    blur: 10,
+    spread: 0,
+    color: `rgba(155, 155, 155, 0.5)`,
+  }),
+  medium: createShadow({
+    offsetX: 0,
+    offsetY: 2,
+    blur: 34,
+    spread: 0,
+    color: `rgba(155, 155, 155, 0.5)`,
+  }),
+  heavy: createShadow({
+    offsetX: 0,
+    offsetY: 2,
+    blur: 18,
+    spread: 0,
+    color: `rgba(155, 155, 155, 0.5)`,
+  }),
+};
 
-// export const overlays: Overlays = {
-//   light:
-// };
-
-// export const effects: Effects = {
-//   shadows,
-//   overlays,
-// };
+export const effects: Effects = {
+  shadows,
+};

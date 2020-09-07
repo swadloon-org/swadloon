@@ -5,7 +5,7 @@ export const wrapper = style((theme: DesignSystem) => ({
   display: 'flex',
   width: '100%',
   borderRadius: '23px',
-  boxShadow: '0px 2px 10px rgba(155, 155, 155, 0.5)',
+  boxShadow: theme.effects.shadows.light.css,
 }));
 
 export const container = style((theme: DesignSystem) => ({

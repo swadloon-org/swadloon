@@ -1,4 +1,4 @@
-import { DesignSystem } from 'core-design-system';
+import { DesignSystem, createShadow } from 'core-design-system';
 import { style } from 'treat';
 
 export const wrapper = style((theme: DesignSystem) => ({
@@ -36,7 +36,11 @@ export const circle = style((theme: DesignSystem) => ({
   height: '50px',
   borderRadius: '50%',
 
-  boxShadow: '3px 3px 12px rgba(217, 217, 217, 0.5)',
+  boxShadow: createShadow({
+    ...theme.effects.shadows.medium,
+    offsetX: 3,
+    offsetY: 3,
+  }).css,
   backgroundColor: theme.colors.greyscale0,
   color: theme.colors.primary500,
 }));

@@ -24,6 +24,10 @@ export type BoxShadow = {
    * The box shadow's color.
    */
   color: Color;
+  /**
+   * The box-shadow property
+   */
+  css: string;
 };
 
 /**
@@ -58,5 +62,5 @@ export type Overlays = {
  */
 export interface Effects {
   shadows: Shadows;
-  overlays: Overlays;
+  // overlays: Overlays;
 }

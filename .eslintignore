@@ -1,10 +1,16 @@
-# for libraries
+# npm
 node_modules
+
+# libs
 lib
+dist
 bin
 
-# for gatsby websites
+# gatsby
 .cache
 node_modules
 public
 graphql-types.ts
+
+# react apps
+dist

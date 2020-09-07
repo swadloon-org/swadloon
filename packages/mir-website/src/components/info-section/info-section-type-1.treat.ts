@@ -12,12 +12,12 @@ export const wrapper = style((theme: DesignSystem) => ({
 export const type1reversed = style((theme: DesignSystem) => ({
   color: theme.colors.greyscale0Reversed,
   backgroundColor: theme.colors.primary500,
-  boxShadow: '0px 2px 10px rgba(155, 155, 155, 0.5)',
+  boxShadow: theme.effects.shadows.light.css,
 }));
 
 export const type1default = style((theme: DesignSystem) => ({
   zIndex: 1,
-  boxShadow: '0px 2px 10px rgba(155, 155, 155, 0.5)',
+  boxShadow: theme.effects.shadows.light.css,
 }));
 
 globalStyle(`${type1reversed} > *`, (theme: DesignSystem) => ({

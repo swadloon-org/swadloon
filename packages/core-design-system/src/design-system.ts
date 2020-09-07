@@ -30,7 +30,7 @@ export interface DesignSystem {
   /**
    * Shadows, elevation, blurs and other visual effects.
    */
-  effects?: Effects;
+  effects: Effects;
   /**
    * Defines the system's sizing values.
    */
@@ -58,7 +58,8 @@ export interface DesignSystem {
    */
   components?: {
     buttons: Buttons;
-    link: {
+    inputs: any;
+    links: {
       color: Color;
       visited: Color;
       hover: Color;

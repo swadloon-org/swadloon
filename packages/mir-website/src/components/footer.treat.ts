@@ -5,7 +5,6 @@ export const wrapper = style((theme: DesignSystem) => ({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-
   padding: `${theme.sizing.sizes.x6} ${theme.layout.contentMargins.mobile.px}`,
 
   backgroundColor: theme.colors.greyscale1000,

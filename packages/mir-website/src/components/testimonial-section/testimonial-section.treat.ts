@@ -1,4 +1,4 @@
-import { DesignSystem } from 'core-design-system';
+import { DesignSystem, createShadow } from 'core-design-system';
 import { globalStyle, style } from 'treat';
 
 export const wrapper = style((theme: DesignSystem) => ({
@@ -58,7 +58,11 @@ export const tileComment = style((theme: DesignSystem) => ({
 export const blocContent = style((theme: DesignSystem) => ({
   position: 'relative',
   padding: `${theme.sizing.sizes.x4}`,
-  boxShadow: '6px 6px 24px #D7D7D7',
+  boxShadow: createShadow({
+    ...theme.effects.shadows.medium,
+    offsetX: 6,
+    offsetY: 6,
+  }).css,
   borderRadius: '30px 30px 30px 0px',
   marginBottom: '25px',
 

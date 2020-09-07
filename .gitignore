@@ -15,12 +15,16 @@ pids
 *.iml
 .lock-wscript
 
+# logs
+*-debug.log
+*-error.log
+
 # certificates
 *.pem
 
 # npm
 node_modules
-npm-debug.log
+packages/**/package-lock.json
 
 # lerna
 lerna-debug.log
@@ -48,27 +52,3 @@ lib-cov
 # env
 .env*
 !.env.test
-
-# diez
-tsconfig.tsbuildinfo
-.diez
-
-# netlify
-.netlify
-
-# nextjs & vercel
-.next
-.vercel
-
-# gatsby
-packages/**/public/
-.cache
-static/admin/*.bundle.*
-
-# packages
-packages/**/dist/
-packages/**/package-lock.json
-packages/**/bin/
-packages/**/lib/
-packages/**/charts/
-packages/test-*

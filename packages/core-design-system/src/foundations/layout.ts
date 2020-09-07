@@ -1,4 +1,4 @@
-import { Value } from '../utils/value';
+import { Value } from '../utilities/value';
 
 /**
  * Viewport names.
