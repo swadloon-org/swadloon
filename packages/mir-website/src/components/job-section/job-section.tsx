@@ -13,10 +13,10 @@ export type JobSection = {
   // variant: 'candidate' | 'employer';
   title?: string | null;
   titleHighlight?: string | null;
-  groups: group[];
+  groups: Group[];
 };
 
-export type group = {
+export type Group = {
   title?: string | null;
   jobs: Job[];
 };
