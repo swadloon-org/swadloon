@@ -7,7 +7,7 @@ import { Footer } from '../components/footer';
 import { NavBar } from '../components/nav-bar';
 import { Newsletter } from '../components/newsletter/newsletter';
 import * as stylesRef from '../styles/page.treat';
-import { light } from '../design-system/mir-theme.treat';
+import { light } from '../design-system/themes.treat';
 import { InfoSectionType5 } from '../components/info-section/info-section-type-5';
 import { InfoSectionType2 } from '../components/info-section/info-section-type-2';
 import { ActionSection } from '../components/action-section/action-section';

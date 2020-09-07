@@ -36,7 +36,7 @@ export const text = style((theme: DesignSystem) => ({
   maxWidth: '400px',
 
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
+    [theme.layout.media.desktop]: {
       maxWidth: '500px',
       textAlign: 'center',
     },

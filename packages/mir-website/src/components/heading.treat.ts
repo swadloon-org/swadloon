@@ -8,10 +8,10 @@ export const h1 = style((theme: DesignSystem) => ({
   letterSpacing: theme.typography.headings.mobile.h1.letterSpacing,
   textTransform: theme.typography.headings.mobile.h1.textTransform,
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
+    [theme.layout.media.tablet]: {
       ...theme.typography.headings.tablet.h1.capsizeRem,
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
+    [theme.layout.media.desktop]: {
       ...theme.typography.headings.desktop.h1.capsizeRem,
     },
   },
@@ -24,10 +24,10 @@ export const h2 = style((theme: DesignSystem) => ({
   letterSpacing: theme.typography.headings.mobile.h2.letterSpacing,
   textTransform: theme.typography.headings.mobile.h2.textTransform,
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
+    [theme.layout.media.tablet]: {
       ...theme.typography.headings.tablet.h2.capsizeRem,
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
+    [theme.layout.media.desktop]: {
       ...theme.typography.headings.desktop.h2.capsizeRem,
     },
   },
@@ -40,10 +40,10 @@ export const h3 = style((theme: DesignSystem) => ({
   letterSpacing: theme.typography.headings.mobile.h3.letterSpacing,
   textTransform: theme.typography.headings.mobile.h3.textTransform,
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
+    [theme.layout.media.tablet]: {
       ...theme.typography.headings.tablet.h3.capsizeRem,
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
+    [theme.layout.media.desktop]: {
       ...theme.typography.headings.desktop.h3.capsizeRem,
     },
   },
@@ -56,10 +56,10 @@ export const h4 = style((theme: DesignSystem) => ({
   letterSpacing: theme.typography.headings.mobile.h4.letterSpacing,
   textTransform: theme.typography.headings.mobile.h4.textTransform,
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
+    [theme.layout.media.tablet]: {
       ...theme.typography.headings.tablet.h4.capsizeRem,
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
+    [theme.layout.media.desktop]: {
       ...theme.typography.headings.desktop.h4.capsizeRem,
     },
   },

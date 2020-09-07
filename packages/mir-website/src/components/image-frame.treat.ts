@@ -8,11 +8,11 @@ export const wrapper = style((theme: DesignSystem) => ({
   height: '237px',
   width: '237px',
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
+    [theme.layout.media.tablet]: {
       width: '370px',
       height: '370px',
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
+    [theme.layout.media.desktop]: {
       width: '500px',
       height: '500px',
     },

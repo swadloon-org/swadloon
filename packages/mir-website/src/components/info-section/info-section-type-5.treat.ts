@@ -12,7 +12,7 @@ export const wrapper = style((theme: DesignSystem) => ({
 
 export const AlignContentLeft = style((theme: DesignSystem) => ({
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
+    [theme.layout.media.desktop]: {
       display: 'flex',
       flexDirection: 'row-reverse',
       margin: '0 auto',
@@ -22,7 +22,7 @@ export const AlignContentLeft = style((theme: DesignSystem) => ({
 
 export const AlignContentRight = style((theme: DesignSystem) => ({
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
+    [theme.layout.media.desktop]: {
       display: 'flex',
       flexDirection: 'row',
       margin: '0 auto',
@@ -37,13 +37,13 @@ export const imageTabs = style((theme: DesignSystem) => ({
 export const image = style((theme: DesignSystem) => ({
   marginBottom: `${theme.sizing.sizes.x5}`,
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
-      width: '540px',
-      height: '540px',
-    },
-    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
+    [theme.layout.media.tablet]: {
       width: '366px',
       height: '366px',
+    },
+    [theme.layout.media.desktop]: {
+      width: '540px',
+      height: '540px',
     },
   },
 }));
@@ -52,7 +52,7 @@ export const type5 = style((theme: DesignSystem) => ({
   padding: `${theme.sizing.sizes.x7} ${theme.layout.contentMargins.mobile.px}`,
 
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
+    [theme.layout.media.desktop]: {
       maxWidth: '1200px',
       width: '100%',
       padding: `${theme.sizing.sizes.x7} 0`,
@@ -66,7 +66,7 @@ export const content = style((theme: DesignSystem) => ({
   alignItems: 'stretch',
   maxWidth: '500px',
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
+    [theme.layout.media.desktop]: {
       display: 'flex',
       flexDirection: 'column',
       marginRight: `${theme.sizing.sizes.x6}`,
@@ -79,7 +79,7 @@ export const title = style((theme: DesignSystem) => ({
   marginBottom: `calc(${theme.sizing.sizes.x3} *2)`,
   maxWidth: '400px',
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
+    [theme.layout.media.desktop]: {
       maxWidth: '500px',
       textAlign: 'left',
     },
@@ -93,7 +93,7 @@ export const text = style((theme: DesignSystem) => ({
   color: 'currentColor',
   maxWidth: '450px',
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
+    [theme.layout.media.desktop]: {
       maxWidth: '500px',
       textAlign: 'left',
     },

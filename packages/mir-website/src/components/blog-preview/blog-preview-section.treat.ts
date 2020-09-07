@@ -14,6 +14,7 @@ export const container = style((theme: DesignSystem) => ({
   width: '100%',
   margin: '0 auto',
 }));
+
 export const content = style((theme: DesignSystem) => ({
   display: 'grid',
   gridTemplateColumns: 'repeat(3, 1fr)',
@@ -23,11 +24,8 @@ export const content = style((theme: DesignSystem) => ({
   maxWidth: '100%',
   overflowX: 'auto',
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
+    [theme.layout.media.tabletPlus]: {
       padding: `0 ${theme.layout.contentMargins.tablet.px}`,
-    },
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
-      padding: `0 ${theme.layout.contentMargins.desktop.px}`,
     },
   },
 }));

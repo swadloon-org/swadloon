@@ -13,7 +13,7 @@ export function getGlobalSizeVariables(theme: DesignSystem) {
     [theme.sizing.sizeCSSVarNames.x9]: theme.sizing.sizingSteps.mobile.x9.valuePx,
     [theme.sizing.sizeCSSVarNames.x10]: theme.sizing.sizingSteps.mobile.x10.valuePx,
     '@media': {
-      [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
+      [theme.layout.media.tablet]: {
         [theme.sizing.sizeCSSVarNames.x1]: theme.sizing.sizingSteps.tablet.x1.valuePx,
         [theme.sizing.sizeCSSVarNames.x2]: theme.sizing.sizingSteps.tablet.x2.valuePx,
         [theme.sizing.sizeCSSVarNames.x3]: theme.sizing.sizingSteps.tablet.x3.valuePx,
@@ -25,7 +25,7 @@ export function getGlobalSizeVariables(theme: DesignSystem) {
         [theme.sizing.sizeCSSVarNames.x9]: theme.sizing.sizingSteps.tablet.x9.valuePx,
         [theme.sizing.sizeCSSVarNames.x10]: theme.sizing.sizingSteps.tablet.x10.valuePx,
       },
-      [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
+      [theme.layout.media.desktop]: {
         [theme.sizing.sizeCSSVarNames.x1]: theme.sizing.sizingSteps.desktop.x1.valuePx,
         [theme.sizing.sizeCSSVarNames.x2]: theme.sizing.sizingSteps.desktop.x2.valuePx,
         [theme.sizing.sizeCSSVarNames.x3]: theme.sizing.sizingSteps.desktop.x3.valuePx,

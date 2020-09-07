@@ -1,4 +1,4 @@
-import { Value, ValueString } from '../utils/value';
+import { Value } from '../utils/value';
 
 /**
  * Viewport names.
@@ -36,6 +36,21 @@ export type Breakpoint = Value;
 export type Breakpoints = { [key in keyof typeof BREAKPOINT]: Breakpoint };
 
 /**
+ * Breakpoint names.
+ */
+export enum MEDIA_QUERIES {
+  mobileXSmall = 'mobileXSmall', // mobile
+  mobileSmall = 'mobileSmall',
+  mobileMedium = 'mobileMedium',
+  tabletPortrait = 'tabletPortrait', // tablet
+  tabletLandscape = 'tabletLandscape',
+  desktopSmall = 'desktopSmall',
+  desktopMedium = 'desktopMedium', // desktop
+  desktopLarge = 'desktopLarge',
+  desktopXLarge = 'desktopXLarge',
+}
+
+/**
  * Representation of a media query.
  * @example `screen and (min-width: ... and (max-width: ...)`
  */
@@ -44,7 +59,7 @@ export type MediaQuery = string;
 /**
  * Breakpoints values in pixel.
  */
-export type MediaQueries = { [key in keyof typeof VIEWPORT]: MediaQuery };
+export type MediaQueries = { [key in keyof typeof VIEWPORT]: MediaQuery } & { tabletPlus: MediaQuery };
 
 /**
  * Content margins for different device formats.

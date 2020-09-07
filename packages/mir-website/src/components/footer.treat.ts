@@ -8,10 +8,9 @@ export const wrapper = style((theme: DesignSystem) => ({
   color: theme.colors.greyscale0,
 
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
+    [theme.layout.media.tabletPlus]: {
       padding: `${theme.sizing.sizes.x5} ${theme.layout.contentMargins.tablet.px}`,
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {},
   },
 }));
 
@@ -20,7 +19,7 @@ export const gridwrapper = style((theme: DesignSystem) => ({
   gridRowGap: `${theme.sizing.sizes.x6}`,
 
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
+    [theme.layout.media.tablet]: {
       display: 'grid',
       gridTemplateColumns: 'repeat(12, 1fr)',
       gridTemplateAreas:
@@ -29,7 +28,7 @@ export const gridwrapper = style((theme: DesignSystem) => ({
       columnGap: '20px',
       margin: '0 auto',
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
+    [theme.layout.media.desktop]: {
       maxWidth: '1200px',
       gridTemplateAreas:
         "'firm firm . contact contact contact location location location . . .''copyright copyright copyright . . . . . . . . .'",
@@ -48,8 +47,8 @@ export const infoText = style((theme: DesignSystem) => ({
     },
   },
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {},
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {},
+    [theme.layout.media.tablet]: {},
+    [theme.layout.media.desktop]: {},
   },
 }));
 
@@ -63,7 +62,7 @@ export const link = style((theme: DesignSystem) => ({
 
 export const contact = style((theme: DesignSystem) => ({
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
+    [theme.layout.media.tablet]: {
       gridArea: 'contact',
     },
   },
@@ -71,16 +70,16 @@ export const contact = style((theme: DesignSystem) => ({
 
 export const location = style((theme: DesignSystem) => ({
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
+    [theme.layout.media.tablet]: {
       gridArea: 'location',
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {},
+    [theme.layout.media.desktop]: {},
   },
 }));
 
 export const firm = style((theme: DesignSystem) => ({
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
+    [theme.layout.media.tablet]: {
       gridArea: 'firm',
     },
   },
@@ -88,7 +87,7 @@ export const firm = style((theme: DesignSystem) => ({
 
 export const copyright = style((theme: DesignSystem) => ({
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
+    [theme.layout.media.tablet]: {
       gridArea: 'copyright',
     },
   },
@@ -96,7 +95,7 @@ export const copyright = style((theme: DesignSystem) => ({
 
 globalStyle(`${firm} img`, (theme: DesignSystem) => ({
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
+    [theme.layout.media.tablet]: {
       width: '150px',
     },
   },

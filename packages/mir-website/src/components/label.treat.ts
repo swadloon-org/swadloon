@@ -15,10 +15,10 @@ export const mediumBoldUppercase = style((theme: DesignSystem) => ({
   textTransform: theme.typography.labels.mobile.mediumBoldUppercase.textTransform,
   ...base,
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
+    [theme.layout.media.tablet]: {
       ...theme.typography.labels.tablet.mediumBoldUppercase.capsizeRem,
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
+    [theme.layout.media.desktop]: {
       ...theme.typography.labels.desktop.mediumBoldUppercase.capsizeRem,
     },
   },
@@ -32,10 +32,10 @@ export const mediumUppercase = style((theme: DesignSystem) => ({
   textTransform: theme.typography.labels.mobile.mediumUppercase.textTransform,
   ...base,
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
+    [theme.layout.media.tablet]: {
       ...theme.typography.labels.tablet.mediumUppercase.capsizeRem,
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
+    [theme.layout.media.desktop]: {
       ...theme.typography.labels.desktop.mediumUppercase.capsizeRem,
     },
   },
@@ -49,10 +49,10 @@ export const mediumBold = style((theme: DesignSystem) => ({
   textTransform: theme.typography.labels.mobile.mediumBold.textTransform,
   ...base,
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
+    [theme.layout.media.tablet]: {
       ...theme.typography.labels.tablet.mediumBold.capsizeRem,
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
+    [theme.layout.media.desktop]: {
       ...theme.typography.labels.desktop.mediumBold.capsizeRem,
     },
   },
@@ -66,10 +66,10 @@ export const mediumRegular = style((theme: DesignSystem) => ({
   textTransform: theme.typography.labels.mobile.mediumRegular.textTransform,
   ...base,
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
+    [theme.layout.media.tablet]: {
       ...theme.typography.labels.tablet.mediumRegular.capsizeRem,
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
+    [theme.layout.media.desktop]: {
       ...theme.typography.labels.desktop.mediumRegular.capsizeRem,
     },
   },
@@ -83,10 +83,10 @@ export const smallBoldUppercase = style((theme: DesignSystem) => ({
   textTransform: theme.typography.labels.mobile.smallBoldUppercase.textTransform,
   ...base,
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
+    [theme.layout.media.tablet]: {
       ...theme.typography.labels.tablet.smallBoldUppercase.capsizeRem,
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
+    [theme.layout.media.desktop]: {
       ...theme.typography.labels.desktop.smallBoldUppercase.capsizePx,
     },
   },
@@ -100,10 +100,10 @@ export const smallUppercase = style((theme: DesignSystem) => ({
   textTransform: theme.typography.labels.mobile.smallUppercase.textTransform,
   ...base,
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
+    [theme.layout.media.tablet]: {
       ...theme.typography.labels.tablet.smallUppercase.capsizeRem,
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
+    [theme.layout.media.desktop]: {
       ...theme.typography.labels.desktop.smallUppercase.capsizeRem,
     },
   },
@@ -117,10 +117,10 @@ export const smallBold = style((theme: DesignSystem) => ({
   textTransform: theme.typography.labels.mobile.smallBold.textTransform,
   ...base,
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
+    [theme.layout.media.tablet]: {
       ...theme.typography.labels.tablet.smallBold.capsizeRem,
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
+    [theme.layout.media.desktop]: {
       ...theme.typography.labels.desktop.smallBold.capsizeRem,
     },
   },
@@ -134,10 +134,10 @@ export const smallRegular = style((theme: DesignSystem) => ({
   textTransform: theme.typography.labels.mobile.smallRegular.textTransform,
   ...base,
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
+    [theme.layout.media.tablet]: {
       ...theme.typography.labels.tablet.smallRegular.capsizeRem,
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
+    [theme.layout.media.desktop]: {
       ...theme.typography.labels.desktop.smallRegular.capsizeRem,
     },
   },
@@ -151,10 +151,10 @@ export const xSmallBoldUppercase = style((theme: DesignSystem) => ({
   textTransform: theme.typography.labels.mobile.xSmallBoldUppercase.textTransform,
   ...base,
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
+    [theme.layout.media.tablet]: {
       ...theme.typography.labels.tablet.xSmallBoldUppercase.capsizeRem,
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
+    [theme.layout.media.desktop]: {
       ...theme.typography.labels.desktop.xSmallBoldUppercase.capsizeRem,
     },
   },
@@ -168,10 +168,10 @@ export const xSmallUppercase = style((theme: DesignSystem) => ({
   textTransform: theme.typography.labels.mobile.xSmallUppercase.textTransform,
   ...base,
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
+    [theme.layout.media.tablet]: {
       ...theme.typography.labels.tablet.xSmallUppercase.capsizeRem,
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
+    [theme.layout.media.desktop]: {
       ...theme.typography.labels.desktop.xSmallUppercase.capsizeRem,
     },
   },
@@ -185,10 +185,10 @@ export const xSmallBold = style((theme: DesignSystem) => ({
   textTransform: theme.typography.labels.mobile.xSmallBold.textTransform,
   ...base,
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
+    [theme.layout.media.tablet]: {
       ...theme.typography.labels.tablet.xSmallBold.capsizeRem,
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
+    [theme.layout.media.desktop]: {
       ...theme.typography.labels.desktop.xSmallBold.capsizeRem,
     },
   },
@@ -202,10 +202,10 @@ export const xSmallRegular = style((theme: DesignSystem) => ({
   textTransform: theme.typography.labels.mobile.xSmallRegular.textTransform,
   ...base,
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
+    [theme.layout.media.tablet]: {
       ...theme.typography.labels.tablet.xSmallRegular.capsizeRem,
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
+    [theme.layout.media.desktop]: {
       ...theme.typography.labels.desktop.xSmallRegular.capsizeRem,
     },
   },

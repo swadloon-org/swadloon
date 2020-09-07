@@ -1,13 +1,10 @@
-dist
-es
-**/lib/**/*
+# for libraries
+node_modules
 lib
-**/build/**/*
-ts
-coverage
+bin
+
+# for gatsby websites
+.cache
 node_modules
 public
-.cache
-!.storybook
-.figma.*
 graphql-types.ts

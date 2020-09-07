@@ -42,9 +42,10 @@ const breakpoints: Breakpoints = {
 export const DEFAULT_LAYOUT: Layout = {
   breakpoints,
   media: {
-    [VIEWPORT.mobile]: `screen and (max-width: ${breakpoints.tabletPortrait})`,
-    [VIEWPORT.tablet]: `screen and (min-width: ${breakpoints.tabletPortrait}) and (max-width: ${breakpoints.desktopSmall})`,
-    [VIEWPORT.desktop]: `screen and (min-width: ${breakpoints.desktopSmall})`,
+    [VIEWPORT.mobile]: `screen and (max-width: ${breakpoints.tabletPortrait.px})`,
+    [VIEWPORT.tablet]: `screen and (min-width: ${breakpoints.tabletPortrait.px}) and (max-width: ${breakpoints.desktopSmall.px})`,
+    tabletPlus: `screen and (min-width: ${breakpoints.tabletPortrait.px}) `,
+    [VIEWPORT.desktop]: `screen and (min-width: ${breakpoints.desktopSmall.px})`,
   },
   contentMargins: {
     [VIEWPORT.mobile]: {

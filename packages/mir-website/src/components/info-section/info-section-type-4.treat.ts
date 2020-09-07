@@ -21,7 +21,7 @@ export const infoTilesWrapper = style((theme: DesignSystem) => ({
   marginBottom: `${theme.sizing.sizes.x6}`,
 
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
+    [theme.layout.media.desktop]: {
       flexDirection: 'row',
     },
   },
@@ -31,7 +31,7 @@ export const infoTile = style((theme: DesignSystem) => ({
   marginRight: 0,
   marginBottom: `${theme.sizing.sizes.x4}`,
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
+    [theme.layout.media.desktop]: {
       marginRight: `${theme.sizing.sizes.x4}`,
       marginBottom: 0,
       ':last-child': {
@@ -49,7 +49,7 @@ export const text = style((theme: DesignSystem) => ({
   maxWidth: '400px',
 
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
+    [theme.layout.media.desktop]: {
       maxWidth: '500px',
       textAlign: 'center',
     },
@@ -61,7 +61,7 @@ export const title = style((theme: DesignSystem) => ({
   marginBottom: `calc(${theme.sizing.sizes.x3} *2)`,
   maxWidth: '400px',
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
+    [theme.layout.media.desktop]: {
       maxWidth: '500px',
       textAlign: 'center',
     },
@@ -73,15 +73,11 @@ export const extraPadding = style((theme: DesignSystem) => ({}));
 export const image = style((theme: DesignSystem) => ({
   marginBottom: `${theme.sizing.sizes.x5}`,
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
-      width: '540px',
-      height: '540px',
-    },
-    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
+    [theme.layout.media.tablet]: {
       width: '366px',
       height: '366px',
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
+    [theme.layout.media.desktop]: {
       width: '540px',
       height: '540px',
     },

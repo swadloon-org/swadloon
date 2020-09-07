@@ -14,11 +14,10 @@ export const wrapper = style((theme: DesignSystem) => ({
   color: theme.colors.greyscale0Reversed,
 
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
+    [theme.layout.media.tabletPlus]: {
       padding: `0 ${theme.layout.contentMargins.tablet.px}`,
       height: `${theme.sizing.sizes.x6}`,
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {},
   },
 }));
 
@@ -31,13 +30,13 @@ export const content = style((theme: DesignSystem) => ({
   width: '100%',
 
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
+    [theme.layout.media.desktop]: {
       gridTemplateColumns: '1fr 100px 1fr',
       justifyContent: 'center',
       justifyItems: 'center',
       maxWidth: '1200px',
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopMedium})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopMedium.px})`]: {
       gridTemplateColumns: '1fr 100px 1fr',
       justifyContent: 'center',
       justifyItems: 'center',
@@ -49,10 +48,10 @@ export const content = style((theme: DesignSystem) => ({
 export const logo = style((theme: DesignSystem) => ({
   height: `${theme.sizing.sizes.x5}`,
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
+    [theme.layout.media.tablet]: {
       height: '40px',
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
+    [theme.layout.media.desktop]: {
       height: `${theme.sizing.sizes.x5}`,
     },
   },
@@ -68,7 +67,7 @@ export const mobileLeftToolbar = style((theme: DesignSystem) => ({
   display: 'flex',
   justifySelf: 'start',
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
+    [theme.layout.media.desktop]: {
       display: 'none',
     },
   },
@@ -77,7 +76,7 @@ export const mobileRightToolbar = style((theme: DesignSystem) => ({
   display: 'flex',
   justifySelf: 'end',
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
+    [theme.layout.media.desktop]: {
       display: 'none',
     },
   },
@@ -89,7 +88,7 @@ export const desktopLeftToolbar = style((theme: DesignSystem) => ({
   alignItems: 'center',
   height: '100%',
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
+    [theme.layout.media.desktop]: {
       display: 'flex',
     },
   },
@@ -103,7 +102,7 @@ export const desktopRightToolbar = style((theme: DesignSystem) => ({
   display: 'none',
   justifySelf: 'end',
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
+    [theme.layout.media.desktop]: {
       display: 'flex',
     },
   },
@@ -117,14 +116,14 @@ export const desktopSocialButtons = style((theme: DesignSystem) => ({
   display: 'flex',
 
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {},
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {},
+    [theme.layout.media.tablet]: {},
+    [theme.layout.media.desktop]: {},
   },
 }));
 
 export const language = style((theme: DesignSystem) => ({
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {},
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {},
+    [theme.layout.media.tablet]: {},
+    [theme.layout.media.desktop]: {},
   },
 }));

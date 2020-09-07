@@ -9,11 +9,10 @@ export const wrapper = style((theme: DesignSystem) => ({
   padding: `${theme.sizing.sizes.x7} ${theme.layout.contentMargins.mobile.px}`,
 
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
+    [theme.layout.media.tablet]: {
       margin: `0 ${theme.layout.contentMargins.tablet.px}`,
     },
-
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
+    [theme.layout.media.desktop]: {
       maxWidth: '1200px',
       margin: '0 auto',
     },
@@ -24,14 +23,13 @@ export const container = style((theme: DesignSystem) => ({}));
 
 export const content = style((theme: DesignSystem) => ({
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
+    [theme.layout.media.tabletPlus]: {
       display: 'grid',
       gridColumn: '1',
       gridTemplateColumns: '1fr 1fr 1fr',
       gridGap: `0 ${theme.sizing.sizes.x4}`,
     },
-
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {},
+    [theme.layout.media.desktop]: {},
   },
 }));
 
@@ -53,11 +51,8 @@ export const title = style((theme: DesignSystem) => ({
   maxWidth: '400px',
   textAlign: 'center',
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
+    [theme.layout.media.tabletPlus]: {
       marginBottom: `${theme.sizing.sizes.x5}`,
-      maxWidth: '500px',
-    },
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
       maxWidth: '500px',
     },
   },

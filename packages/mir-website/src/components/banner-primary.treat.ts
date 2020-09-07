@@ -5,19 +5,19 @@ import { style, globalStyle } from 'treat';
 // Container for the blue & black boxes
 //
 
-export const wrapper = style(({ layout }: DesignSystem) => ({
+export const wrapper = style((theme: DesignSystem) => ({
   position: `relative`,
   zIndex: 1,
   display: `grid`,
   gridTemplateColumns: `1fr`,
 
   '@media': {
-    [`screen and (min-width: ${layout.breakpoints.tabletPortrait})`]: {
+    [theme.layout.media.tablet]: {
       position: 'relative',
-      gridTemplateColumns: `${layout.contentMargins.tablet.px} 1fr ${layout.contentMargins.tablet.px}`,
+      gridTemplateColumns: `${theme.layout.contentMargins.tablet.px} 1fr ${theme.layout.contentMargins.tablet.px}`,
       gridTemplateAreas: "'. mid .'",
     },
-    [`screen and (min-width: ${layout.breakpoints.desktopSmall})`]: {
+    [theme.layout.media.desktop]: {
       justifyContent: 'center',
       justifyItems: 'center',
     },
@@ -38,21 +38,21 @@ export const container = style((theme: DesignSystem) => ({
   backgroundColor: theme.colors.greyscale1000,
 
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
+    [theme.layout.media.tablet]: {
       gridArea: 'mid',
       zIndex: 1,
       minHeight: `477px`,
       padding: `${theme.sizing.sizes.x6} ${theme.sizing.sizes.x5}`,
       margin: `0 0 ${theme.layout.contentMargins.tablet.px}`,
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
+    [theme.layout.media.desktop]: {
       minHeight: '645px',
       maxWidth: '1200px',
       margin: `0 0 ${theme.sizing.sizes.x6}`,
       justifySelf: 'center',
       width: '100%',
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopMedium})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopMedium.px})`]: {
       maxWidth: '1600px',
     },
   },
@@ -66,7 +66,7 @@ export const blackbox = style((theme: DesignSystem) => ({
   position: `absolute`,
   display: `none`,
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
+    [theme.layout.media.tabletPlus]: {
       position: `absolute`,
       display: `block`,
       bottom: `0`,
@@ -86,7 +86,7 @@ export const bluebox = style((theme: DesignSystem) => ({
   position: `absolute`,
   display: `none`,
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
+    [theme.layout.media.tabletPlus]: {
       position: `absolute`,
       display: `block`,
       top: `0`,
@@ -104,11 +104,11 @@ export const bluebox = style((theme: DesignSystem) => ({
 
 export const content = style((theme: DesignSystem) => ({
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.tabletPortrait})`]: {
+    [theme.layout.media.tablet]: {
       width: 'fit-content',
       maxWidth: `462px`,
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
+    [theme.layout.media.desktop]: {
       width: 'fit-content',
       maxWidth: `771px`,
     },
@@ -127,7 +127,7 @@ export const content = style((theme: DesignSystem) => ({
 
 export const containerBarTopPrimary = style((theme: DesignSystem) => ({
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
+    [theme.layout.media.desktop]: {
       display: 'flex',
       justifyContent: 'flex-start',
       alignItems: 'center',
@@ -137,7 +137,7 @@ export const containerBarTopPrimary = style((theme: DesignSystem) => ({
 
 export const topBarPrimary = style((theme: DesignSystem) => ({
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
+    [theme.layout.media.desktop]: {
       paddingLeft: `${theme.sizing.sizes.x1}`,
     },
   },
@@ -149,7 +149,7 @@ export const topBarPrimary = style((theme: DesignSystem) => ({
 
 export const containerBarBottomPrimary = style((theme: DesignSystem) => ({
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
+    [theme.layout.media.desktop]: {
       display: 'flex',
     },
   },
@@ -163,7 +163,7 @@ globalStyle(`${bottomBarPrimary} rect`, (theme: DesignSystem) => ({
   width: '100%',
 
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
+    [theme.layout.media.desktop]: {
       width: '30%',
     },
   },
@@ -178,7 +178,7 @@ export const subtitle = style((theme: DesignSystem) => ({
   marginBottom: `${theme.sizing.sizes.x3}`,
   color: theme.colors.greyscale0,
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
+    [theme.layout.media.desktop]: {
       marginBottom: 0,
     },
   },
@@ -192,7 +192,7 @@ export const title = style((theme: DesignSystem) => ({
   color: theme.colors.greyscale0,
   margin: `${theme.sizing.sizes.x4} 0`,
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall})`]: {
+    [theme.layout.media.desktop]: {
       margin: `${theme.sizing.sizes.x5} 0`,
     },
   },

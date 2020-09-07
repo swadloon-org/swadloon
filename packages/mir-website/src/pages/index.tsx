@@ -15,7 +15,7 @@ import { ViewportProvider } from '../context/viewport.context';
 import { viewportContext } from '../hooks/use-viewport.hook';
 import '../styles/font-faces.styles.css';
 import * as stylesRef from '../styles/page.treat';
-import { light, theme } from '../design-system/mir-theme.treat';
+import { light, theme } from '../design-system/themes.treat';
 
 export const query = graphql`
   query indexPage {
@@ -127,7 +127,7 @@ const Index: React.FC<PageProps> = ({ data, location }) => {
     data?.bannerImageMobile?.childImageSharp?.fluid,
     {
       ...data?.bannerImageDesktop?.childImageSharp?.fluid,
-      media: `(min-width: ${theme.layout.breakpoints.desktopSmall})`,
+      media: `(min-width: ${theme.layout.breakpoints.desktopSmall.px})`,
     },
   ];
 
