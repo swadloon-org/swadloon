@@ -11,7 +11,6 @@ export const container = style((theme: DesignSystem) => ({
   width: '100%',
   position: 'relative',
   display: 'flex',
-  justifyContent: 'space-between',
   alignItems: 'center',
   padding: `0 ${theme.sizing.sizes.x4}`,
 }));

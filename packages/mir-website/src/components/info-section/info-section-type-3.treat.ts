@@ -4,9 +4,14 @@ import { style } from 'treat';
 export const wrapper = style((theme: DesignSystem) => ({
   display: 'grid',
   justifyItems: 'center',
-  justifyContent: 'space-between',
   backgroundColor: theme.colors.greyscale0,
   color: theme.colors.greyscale900,
+
+  '@media': {
+    [theme.layout.media.desktop]: {
+      justifyContent: 'space-between',
+    },
+  },
 }));
 
 export const type3 = style((theme: DesignSystem) => ({
