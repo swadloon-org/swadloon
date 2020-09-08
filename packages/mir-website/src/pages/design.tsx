@@ -1,12 +1,12 @@
 import { ICON_SIZE, LABEL } from 'core-design-system';
 import React from 'react';
-import { Icon } from '../components-ui/icon';
+import { Icon } from '../ui/icon';
 import { Heading } from '../components/heading';
 import { JobSection } from '../components/job-section/job-section';
 import { Label } from '../components/label';
 import { Paragraph } from '../components/paragraph';
 import { light } from '../design-system/themes.treat';
-import { Root, PageProps } from './index';
+import { Root, PageProps } from './index.fr';
 import { CheckLabel } from '../components/info-section-check';
 import { InfoTile } from '../components/info-section/info-tile';
 import { InfoSectionType6 } from '../components/info-section/info-section-type-6';

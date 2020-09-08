@@ -9,7 +9,7 @@ import Icon from '../illustrations/Icon/IconBars.svg';
 import { Label } from './label';
 import { Button } from './button';
 import { LABEL } from 'core-design-system';
-import { Link } from '../components-ui/link';
+import { Link } from '../ui/link';
 
 type OwnProps = {};
 

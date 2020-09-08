@@ -50,11 +50,17 @@ const config: Gatsby.GatsbyConfig = {
         icon: `src/illustrations/Logo/LogoFavicon.png`,
       },
     },
+    /**
+     * gatsby-plugin-i18n
+     * @see https://github.com/angeloocana/gatsby-plugin-i18n#readme
+     */
     {
       resolve: 'gatsby-plugin-i18n',
       options: {
         langKeyDefault: 'fr',
+        langKeyForNull: 'fr',
         useLangKeyLayout: false,
+        prefixDefault: false,
       },
     },
     /**

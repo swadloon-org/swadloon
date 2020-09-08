@@ -2,7 +2,7 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { useStyles } from 'react-treat';
-import { Root } from '.';
+import { Root } from './index.fr';
 import { EmployerPageQuery } from '../../types/graphql-types';
 import { BannerSecondary } from '../components/banner-secondary';
 import { Footer } from '../components/footer';
