@@ -12,7 +12,7 @@ import { InfoSectionType5 } from '../components/info-section/info-section-type-5
 import { InfoSectionType2 } from '../components/info-section/info-section-type-2';
 import { ActionSection } from '../components/action-section/action-section';
 import { JobSection } from '../components/job-section/job-section';
-import { Root } from '.';
+import { Root } from '../components/root';
 
 export const query = graphql`
   query candidatePage {

@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { Root } from '.';
+import { Root } from '../components/root';
 import { EmployerPageQuery } from '../../types/graphql-types';
 import { BannerSecondary } from '../components/banner-secondary';
 import { Footer } from '../components/footer';
