@@ -13,6 +13,7 @@ export const container = style((theme: DesignSystem) => ({
   display: 'flex',
   alignItems: 'center',
   padding: `0 ${theme.sizing.sizes.x4}`,
+  justifyContent: 'space-between',
 }));
 
 export const label = style((theme: DesignSystem) => ({

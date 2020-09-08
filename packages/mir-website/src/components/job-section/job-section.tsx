@@ -56,17 +56,13 @@ export function JobSection(props: OwnProps) {
   function getVariantModifier(value: GraphCms_JobSectionType['type']) {
     switch (value) {
       case 'candidates': {
-        //
-        // Desktop Case
-        //
-
-        if (viewport === VIEWPORT.desktop) {
-          return (
-            <div className={styles.container}>
-              <div className={styles.containerBox}>
-                {props?.jobSection?.groups.map((jobType, index) => {
-                  return (
-                    <div key={index} className={styles.boxIcon}>
+        return (
+          <div className={styles.container}>
+            {props?.jobSection?.groups.map((jobType, index) => {
+              return (
+                <div className={styles.containerMobile} key={index}>
+                  <div className={styles.containerBox}>
+                    <div className={styles.boxIcon}>
                       <BoxIcon
                         icon="IllustrationFactory"
                         selected={index === selectedBoxIcon}
@@ -74,69 +70,25 @@ export function JobSection(props: OwnProps) {
                           setSelectedBoxIconIndex(index);
                         }}
                       >
-                        {jobType?.typeName?.title}
+                        {jobType.typeName?.title}
                       </BoxIcon>
                     </div>
-                  );
-                })}
-              </div>
-              {props?.jobSection?.groups[selectedBoxIcon].typeName?.jobGroup.map((jobG, index) => {
-                return (
-                  <div key={index} className={styles.content}>
-                    {jobG.jobs.map((job, index) => {
-                      return (
-                        <div key={index} className={`${index % 2 == 0 ? styles.even : styles.unenven}`}>
-                          <CheckLabel illustration="IllustrationCheck" size="medium">
-                            {job.title}
-                          </CheckLabel>
-                        </div>
-                      );
-                    })}
-                  </div>
-                );
-              })}
-            </div>
-          );
-        }
 
-        //
-        // Mobile & tablet Case
-        //
-        else {
-          return (
-            <div className={styles.container}>
-              {props?.jobSection?.groups.map((jobType, index) => {
-                return (
-                  <div className={styles.containerMobile} key={index}>
-                    <div className={styles.containerBox}>
-                      <div className={styles.boxIcon}>
-                        <BoxIcon
-                          icon="IllustrationFactory"
-                          selected={index === selectedBoxIcon}
-                          onClick={() => {
-                            setSelectedBoxIconIndex(index);
-                          }}
-                        >
-                          {jobType.typeName?.title}
-                        </BoxIcon>
-                      </div>
-
-                      {selectedBoxIcon === index ? getMediaModifier(true, value) : getMediaModifier(false, value)}
-                    </div>
+                    {selectedBoxIcon === index ? getMediaModifier(true, value) : getMediaModifier(false, value)}
                   </div>
-                );
-              })}
-            </div>
-          );
-        }
+                </div>
+              );
+            })}
+          </div>
+        );
       }
 
       case 'employer': {
-        if (viewport === VIEWPORT.desktop) {
-          return (
-            <div className={styles.container}>
-              {props.jobSection?.groups.map((jobType, index) => {
-                return (
+        return (
+          <div className={styles.container}>
+            {props.jobSection?.groups.map((jobType, index) => {
+              return (
+                <div>
                   <div className={styles.accordions} key={index}>
                     <Accordions
                       variant="reversed"
@@ -148,48 +100,12 @@ export function JobSection(props: OwnProps) {
                       {jobType.typeName?.title}
                     </Accordions>
                   </div>
-                );
-              })}
-
-              {props.jobSection?.groups[selectedAccordionsIndex].typeName?.jobGroup.map((jobG, index) => {
-                return (
-                  <div className={styles.content} key={index}>
-                    {jobG.jobs.map((job, index) => {
-                      return (
-                        <div className={styles.tagsUnique} key={index}>
-                          <Tags numberIndex={`${index < 9 ? '0' : ''}${index + 1}`}> {job.title}</Tags>
-                        </div>
-                      );
-                    })}
-                  </div>
-                );
-              })}
-            </div>
-          );
-        } else {
-          return (
-            <div className={styles.container}>
-              {props.jobSection?.groups.map((jobType, index) => {
-                return (
-                  <div>
-                    <div className={styles.accordions} key={index}>
-                      <Accordions
-                        variant="reversed"
-                        selected={index === selectedAccordionsIndex}
-                        onClick={() => {
-                          setSelectedAccordionsIndex(index);
-                        }}
-                      >
-                        {jobType.typeName?.title}
-                      </Accordions>
-                    </div>
-                    {selectedAccordionsIndex === index ? getMediaModifier(true, value) : getMediaModifier(false, value)}
-                  </div>
-                );
-              })}
-            </div>
-          );
-        }
+                  {selectedAccordionsIndex === index ? getMediaModifier(true, value) : getMediaModifier(false, value)}
+                </div>
+              );
+            })}
+          </div>
+        );
       }
       default: {
         return '';
