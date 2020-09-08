@@ -50,6 +50,21 @@ const config: Gatsby.GatsbyConfig = {
         icon: `src/illustrations/Logo/LogoFavicon.png`,
       },
     },
+    {
+      resolve: 'gatsby-plugin-i18n',
+      options: {
+        langKeyDefault: 'fr',
+        useLangKeyLayout: false,
+      },
+    },
+    /**
+     * gatsby-plugin-react-helmet
+     * @see https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-react-helmet
+     * @see https://github.com/nfl/react-helmet
+     */
+    {
+      resolve: 'gatsby-plugin-react-helmet',
+    },
   ],
 };
 

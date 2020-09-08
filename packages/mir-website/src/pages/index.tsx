@@ -1,5 +1,6 @@
 import { graphql } from 'gatsby';
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { TreatProvider, useStyles } from 'react-treat';
 import { IndexPageQuery } from '../../types/graphql-types';
 import { BannerPrimary } from '../components/banner-primary';
@@ -115,6 +116,11 @@ export const Root: React.FC<{}> = (props) => {
 const IndexPage: React.FC<PageProps> = (props) => {
   return (
     <Root>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>MIR - Recrutement technique - Accueil</title>
+        <link rel="canonical" href="https://mir-website-master.netlify.com" />
+      </Helmet>
       <Index {...props} />
     </Root>
   );

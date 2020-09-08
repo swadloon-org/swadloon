@@ -1,5 +1,6 @@
 import { graphql } from 'gatsby';
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { useStyles } from 'react-treat';
 import { Root } from '.';
 import { EmployerPageQuery } from '../../types/graphql-types';
@@ -94,6 +95,11 @@ interface OwnProps {
 const EmployerPage: React.FC<OwnProps> = (props) => {
   return (
     <Root>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>MIR - Recrutement technique - Employeurs</title>
+        <link rel="canonical" href="https://mir-website-master.netlify.com" />
+      </Helmet>
       <Employer {...props} />
     </Root>
   );
