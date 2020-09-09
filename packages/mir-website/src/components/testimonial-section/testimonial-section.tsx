@@ -8,6 +8,8 @@ import { Paragraph } from '../paragraph';
 import { Label } from '../label';
 import { LABEL } from 'core-design-system';
 import { style } from 'treat/lib/types';
+import { Maybe, GraphCms_TestimonialSection, GraphCms_Testimonial } from '../../../types/graphql-types';
+import { RenderTitleHighlight } from '../info-section/info-title-highligh';
 
 // type Post = {
 //   contentText: string;
@@ -16,90 +18,48 @@ import { style } from 'treat/lib/types';
 // };
 
 type OwnProps = {
-  title: string;
-  // posts: Post[];
+  testimonialSections: Array<
+    Pick<GraphCms_TestimonialSection, 'title' | 'titleHighlight' | 'description'> & {
+      testomonials: Array<Pick<GraphCms_Testimonial, 'authorName' | 'authorTitle' | 'message' | 'id'>>;
+    }
+  >;
 };
-
-export const Testimonial: React.FC<OwnProps> = (props) => {
+export function Testimonial(props: OwnProps) {
   const styles = useStyles(styleRefs);
 
   return (
     <div className={`${styles.wrapper}`}>
       <div className={`${styles.container}`}>
-        <Paragraph className={styles.title} variant="medium">
-          {props.title}
+        <RenderTitleHighlight
+          title={props?.testimonialSections[0].title}
+          titleHighlight={props?.testimonialSections[0].titleHighlight}
+          className={styles.title}
+        ></RenderTitleHighlight>
+
+        <Paragraph className={styles.subTitle} variant="medium">
+          {props?.testimonialSections[0].description}
         </Paragraph>
         <div className={styles.content}>
-          {/* {props?.posts.map((post, index) => {
-          return (
-            <div className={styles.tileComment}>
-              <div className={styles.blocContent}>
-                <Paragraph variant="medium">{post.contentText}</Paragraph>
-                <div className={styles.triangle}></div>
+          {props?.testimonialSections[0].testomonials.map((post, index) => {
+            return (
+              <div className={styles.tileComment} key={post?.id}>
+                <div className={styles.blocContent}>
+                  <Paragraph variant="medium">{post?.message}</Paragraph>
+                  <div className={styles.triangle}></div>
+                </div>
+                <div className={styles.author}>
+                  <Label className={styles.name} variant={LABEL.mediumBold}>
+                    {post?.authorName}
+                  </Label>
+                  <Label className={styles.job} variant={LABEL.mediumRegular}>
+                    {post?.authorTitle}
+                  </Label>
+                </div>
               </div>
-              <div className={styles.author}>
-                <Label className={styles.name} variant={LABEL.mediumBold}>{post.name}</Label>
-                <Label className={styles.job} variant={LABEL.mediumRegular}>{post.job}</Label>
-              </div>
-            </div>
-          );
-        })} */}
-
-          <div className={styles.tileComment}>
-            <div className={styles.blocContent}>
-              <Paragraph variant="medium">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eu ornare dui. Nunc ultricies non
-                elit a porta. Donec tincidunt eu augue eu consectetur. Pellentesque.
-              </Paragraph>
-              <div className={styles.triangle}></div>
-            </div>
-            <div className={styles.author}>
-              <Label className={styles.name} variant={LABEL.mediumBold}>
-                Test
-              </Label>
-              <Label className={styles.job} variant={LABEL.mediumRegular}>
-                Test
-              </Label>
-            </div>
-          </div>
-
-          <div className={styles.tileComment}>
-            <div className={styles.blocContent}>
-              <Paragraph variant="medium">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eu ornare dui. Nunc ultricies non
-                elit a porta. Donec tincidunt eu augue eu consectetur. Pellentesque.
-              </Paragraph>
-              <div className={styles.triangle}></div>
-            </div>
-            <div className={styles.author}>
-              <Label className={styles.name} variant={LABEL.mediumBold}>
-                Test
-              </Label>
-              <Label className={styles.job} variant={LABEL.mediumRegular}>
-                Test
-              </Label>
-            </div>
-          </div>
-
-          <div className={styles.tileComment}>
-            <div className={styles.blocContent}>
-              <Paragraph variant="medium">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eu ornare dui. Nunc ultricies non
-                elit a porta. Donec tincidunt eu augue eu consectetur. Pellentesque.
-              </Paragraph>
-              <div className={styles.triangle}></div>
-            </div>
-            <div className={styles.author}>
-              <Label className={styles.name} variant={LABEL.mediumBold}>
-                Test
-              </Label>
-              <Label className={styles.job} variant={LABEL.mediumRegular}>
-                Test
-              </Label>
-            </div>
-          </div>
+            );
+          })}
         </div>
       </div>
     </div>
   );
-};
+}

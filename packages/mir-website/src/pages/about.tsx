@@ -9,6 +9,7 @@ import { NavBar } from '../components/nav-bar';
 import { Newsletter } from '../components/newsletter/newsletter';
 import * as stylesRef from '../styles/page.treat';
 import { InfoSectionType2 } from '../components/info-section/info-section-type-2';
+import { Testimonial } from '../components/testimonial-section/testimonial-section';
 
 export const query = graphql`
   query aboutPage {
@@ -30,11 +31,13 @@ export const query = graphql`
     gcms {
       aboutPages(first: 1) {
         bannerTitle
+
         actionSections {
           title
           subtitle
           actionText
         }
+
         infoSections {
           title
           titleHighlight
@@ -61,6 +64,17 @@ export const query = graphql`
             url(transformation: { image: { resize: { width: 900, fit: max } } })
           }
         }
+        testimonialSections {
+          title
+          titleHighlight
+          description
+          testomonials {
+            authorName
+            authorTitle
+            message
+            id
+          }
+        }
       }
     }
   }
@@ -85,7 +99,9 @@ const About: React.FC<OwnProps> = ({ data, location }) => {
   const actionSection1 = data.gcms.aboutPages[0].actionSections[0];
   const section1 = data.gcms?.aboutPages[0]?.infoSections[0];
   const section2 = data.gcms?.aboutPages[0]?.infoSections[1];
+  const testimonialSections = data.gcms?.aboutPages[0]?.testimonialSections;
 
+  console.log(testimonialSections);
   return (
     <div className={`${styles.wrapper}`}>
       <NavBar></NavBar>
@@ -98,6 +114,7 @@ const About: React.FC<OwnProps> = ({ data, location }) => {
       {section1 && section1.type === 'type2' ? <InfoSectionType2 align="AlignContentLeft" {...section1} /> : null}
 
       {section2 && section2.type === 'type2' ? <InfoSectionType2 align="AlignContentRight" {...section2} /> : null}
+      {testimonialSections ? <Testimonial testimonialSections={testimonialSections} /> : null}
 
       <Newsletter id="newsletter"></Newsletter>
 

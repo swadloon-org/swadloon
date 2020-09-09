@@ -78,10 +78,6 @@ export const Design: React.FC = () => {
         <Icon size={ICON_SIZE.small} icon={'IconArrowRight'} />
       </div>
       <ActionSection variant="Default"></ActionSection>
-      {/* <JobSection variant="employer"></JobSection>
-      <JobSection variant="candidate"></JobSection> */}
-
-      <Testimonial title="Lorem ipsum dolor sit amet, consectetur adipiscing elit Nulla chronocrator accumsan, metus ultrices eleifend gravi."></Testimonial>
       <Process title="Notre processus de recrutement" titleHighlight="processus"></Process>
     </div>
   );
