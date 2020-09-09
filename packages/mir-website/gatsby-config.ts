@@ -59,7 +59,7 @@ const config: Gatsby.GatsbyConfig = {
       options: {
         langKeyDefault: 'fr',
         langKeyForNull: 'fr',
-        useLangKeyLayout: false,
+        useLangKeyLayout: true,
         prefixDefault: false,
       },
     },
