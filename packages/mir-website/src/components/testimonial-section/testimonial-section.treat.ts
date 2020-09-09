@@ -21,6 +21,20 @@ export const title = style((theme: DesignSystem) => ({
   marginLeft: 'auto',
   maxWidth: '474px',
   padding: ` ${theme.sizing.sizes.x5} 0`,
+  marginBottom: '0',
+
+  '@media': {
+    [theme.layout.media.tablet]: {},
+
+    [theme.layout.media.desktop]: {},
+  },
+}));
+export const subTitle = style((theme: DesignSystem) => ({
+  textAlign: 'center',
+  marginRight: 'auto',
+  marginLeft: 'auto',
+  maxWidth: '474px',
+  padding: ` ${theme.sizing.sizes.x5} 0`,
 
   '@media': {
     [theme.layout.media.tablet]: {},

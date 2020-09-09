@@ -27,16 +27,16 @@ export const InfoSectionType5: React.FC<OwnProps> = (props) => {
           {props.text}
         </Paragraph>
 
-        <CheckLabel illustration="Illustration/IllustrationCheck" size="medium">
+        <CheckLabel illustration="IllustrationCheck" size="medium">
           25 ans d’expertise
         </CheckLabel>
-        <CheckLabel illustration="Illustration/IllustrationCheck" size="medium">
+        <CheckLabel illustration="IllustrationCheck" size="medium">
           10 000 emplois disponibles
         </CheckLabel>
-        <CheckLabel illustration="Illustration/IllustrationCheck" size="medium">
+        <CheckLabel illustration="IllustrationCheck" size="medium">
           1 processus de recrutement efficace
         </CheckLabel>
-        <CheckLabel illustration="Illustration/IllustrationCheck" size="medium">
+        <CheckLabel illustration="IllustrationCheck" size="medium">
           25 ans d’expertise 10 000 emplois disponibles 1 processus de recrutement efficace Un partenariat d’affaires
           humain
         </CheckLabel>

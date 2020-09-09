@@ -4,12 +4,13 @@ import { style } from 'treat';
 export const wrapper = style((theme: DesignSystem) => ({
   display: 'grid',
   justifyItems: 'center',
-  justifyContent: 'space-between',
   padding: `${theme.sizing.sizes.x7} ${theme.layout.contentMargins.mobile.px}`,
   backgroundColor: theme.colors.greyscale0,
   color: theme.colors.greyscale900,
+
   '@media': {
     [theme.layout.media.desktop]: {
+      justifyContent: 'space-between',
       maxWidth: '1200px',
       width: '100%',
       padding: `${theme.sizing.sizes.x7} 0`,

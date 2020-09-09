@@ -6,6 +6,7 @@ export const wrapper = style((theme: DesignSystem) => ({
   width: '100%',
   borderRadius: '23px',
   boxShadow: theme.effects.shadows.light.css,
+  backgroundColor: theme.colors.greyscale0,
 }));
 
 export const container = style((theme: DesignSystem) => ({

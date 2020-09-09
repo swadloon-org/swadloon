@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby';
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { TreatProvider, useStyles } from 'react-treat';
+import { useStyles } from 'react-treat';
 import { IndexPageQuery } from '../../types/graphql-types';
 import { BannerPrimary } from '../components/banner-primary';
 import { BlogPreviewSection } from '../components/blog-preview/blog-preview-section';
@@ -12,11 +12,10 @@ import { InfoSectionType3 } from '../components/info-section/info-section-type-3
 import { InfoSectionType4 } from '../components/info-section/info-section-type-4';
 import { NavBar } from '../components/nav-bar';
 import { Newsletter } from '../components/newsletter/newsletter';
-import { ViewportProvider } from '../context/viewport.context';
-import { viewportContext } from '../hooks/use-viewport.hook';
 import '../styles/font-faces.styles.css';
 import * as stylesRef from '../styles/page.treat';
-import { light, theme } from '../design-system/themes.treat';
+import { theme } from '../design-system/themes.treat';
+import { Root } from '../components/root';
 
 export const query = graphql`
   query indexPage {
@@ -104,14 +103,6 @@ export interface PageProps {
   data: IndexPageQuery;
   location: Location;
 }
-
-export const Root: React.FC<{}> = (props) => {
-  return (
-    <ViewportProvider context={viewportContext}>
-      <TreatProvider theme={light}>{props.children}</TreatProvider>
-    </ViewportProvider>
-  );
-};
 
 const IndexPage: React.FC<PageProps> = (props) => {
   return (

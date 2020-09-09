@@ -16,7 +16,7 @@ export const CheckLabel: React.FC<HTMLAttributes<any> & OwnProps> = (props) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.iconCheck}>
-        <Illustration name={props.illustration}></Illustration>
+        <Illustration name={`Illustration/${props.illustration}`}></Illustration>
       </div>
       <Label className={`${styles.label}`} variant={LABEL.mediumRegular}>
         {props.children}

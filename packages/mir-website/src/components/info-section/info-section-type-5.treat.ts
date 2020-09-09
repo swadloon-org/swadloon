@@ -4,10 +4,15 @@ import { style } from 'treat';
 export const wrapper = style((theme: DesignSystem) => ({
   display: 'grid',
   justifyItems: 'center',
-  justifyContent: 'space-between',
   padding: `${theme.sizing.sizes.x5} ${theme.layout.contentMargins.mobile.px}`,
   backgroundColor: theme.colors.greyscale0,
   color: theme.colors.greyscale900,
+
+  '@media': {
+    [theme.layout.media.desktop]: {
+      justifyContent: 'space-between',
+    },
+  },
 }));
 
 export const AlignContentLeft = style((theme: DesignSystem) => ({

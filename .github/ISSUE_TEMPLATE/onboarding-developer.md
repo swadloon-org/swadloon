@@ -26,12 +26,14 @@ assignees: ''
 - [ ] enable 2FA for Github
 - [ ] 1Password account
 - [ ] enable 2FA for 1Password
+- [ ] Figma account
 - [ ] GraphCMS account
 - [ ] Netlify account
 
 ## Tools
 
 - [ ] Chrome browser https://www.google.com/intl/en_ca/chrome/
+- [ ] Figma https://www.figma.com/downloads/
 - [ ] nvm https://github.com/nvm-sh/nvm
 - [ ] brew https://brew.sh/
 - [ ] VS Code https://code.visualstudio.com/

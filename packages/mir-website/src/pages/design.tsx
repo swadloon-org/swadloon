@@ -6,7 +6,7 @@ import { JobSection } from '../components/job-section/job-section';
 import { Label } from '../components/label';
 import { Paragraph } from '../components/paragraph';
 import { light } from '../design-system/themes.treat';
-import { Root, PageProps } from './index.fr';
+import { Root } from '../components/root';
 import { CheckLabel } from '../components/info-section-check';
 import { InfoTile } from '../components/info-section/info-tile';
 import { InfoSectionType6 } from '../components/info-section/info-section-type-6';
@@ -18,6 +18,7 @@ import { useStyles } from 'react-treat';
 import * as styleRefs from '../styles/page.treat';
 import { Testimonial } from '../components/testimonial-section/testimonial-section';
 import { Process } from '../components/process-section/process-section';
+import { PageProps } from './index.fr';
 
 const DesignPage: React.FC<PageProps> = (props) => {
   return (
@@ -77,10 +78,6 @@ export const Design: React.FC = () => {
         <Icon size={ICON_SIZE.small} icon={'IconArrowRight'} />
       </div>
       <ActionSection variant="Default"></ActionSection>
-      {/* <JobSection variant="employer"></JobSection>
-      <JobSection variant="candidate"></JobSection> */}
-
-      <Testimonial title="Lorem ipsum dolor sit amet, consectetur adipiscing elit Nulla chronocrator accumsan, metus ultrices eleifend gravi."></Testimonial>
       <Process title="Notre processus de recrutement" titleHighlight="processus"></Process>
     </div>
   );

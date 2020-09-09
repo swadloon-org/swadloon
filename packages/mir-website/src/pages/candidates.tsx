@@ -12,6 +12,7 @@ import { InfoSectionType5 } from '../components/info-section/info-section-type-5
 import { InfoSectionType2 } from '../components/info-section/info-section-type-2';
 import { ActionSection } from '../components/action-section/action-section';
 import { JobSection } from '../components/job-section/job-section';
+import { Root } from '../components/root';
 
 export const query = graphql`
   query candidatePage {
@@ -43,10 +44,13 @@ export const query = graphql`
           titleHighlight
           type {
             title
-            jobSection {
+            type
+          }
+          groups {
+            typeName {
               id
               title
-              groups {
+              jobGroup {
                 jobs {
                   id
                   title
@@ -96,9 +100,9 @@ interface IndexPageProps {
 
 const CandidatePage: React.FC<IndexPageProps> = (props) => {
   return (
-    <TreatProvider theme={light}>
+    <Root>
       <Candidate {...props} />
-    </TreatProvider>
+    </Root>
   );
 };
 
@@ -110,26 +114,19 @@ const Candidate: React.FC<IndexPageProps> = ({ data, location }) => {
   const section1 = data.gcms?.candidatePages[0]?.infoSections[0];
   const section2 = data.gcms?.candidatePages[0]?.infoSections[1];
   const jobSection = data.gcms?.candidatePages[0]?.jobSection;
-  console.log(data.gcms?.candidatePages[0]?.jobSection);
+
   return (
     <div className={`${styles.wrapper}`}>
       <NavBar></NavBar>
-
       <BannerSecondary
         imageData={data.bannerImage?.childImageSharp?.fluid}
         title={data?.gcms?.candidatePages[0]?.bannerTitle}
       ></BannerSecondary>
-
       {actionSection1 ? <ActionSection variant={'Default'} /> : null}
-
       {section1 && section1.type === 'type5' ? <InfoSectionType5 align="AlignContentLeft" {...section1} /> : null}
-
-      {/* {jobSection ? <JobSection jobSection={jobSection} variant={`${jobSection.type}`} /> : null} */}
-
+      {jobSection ? <JobSection jobSection={jobSection} /> : null}
       {section2 && section2.type === 'type2' ? <InfoSectionType2 align="AlignContentRight" {...section2} /> : null}
-
       {actionSection2 ? <ActionSection variant={'reversed'} /> : null}
-
       <Footer></Footer>
     </div>
   );
