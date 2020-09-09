@@ -8,30 +8,31 @@ import { RenderTitleHighlight } from '../info-section/info-title-highligh';
 import { BoxIcon } from '../box-icon';
 import { useViewportValues, useViewportBreakpoint } from '../../hooks/use-viewport.hook';
 import { VIEWPORT } from 'core-design-system';
-
-export type JobSection = {
-  // variant: 'candidate' | 'employer';
-  title?: string | null;
-  titleHighlight?: string | null;
-  groups: group[];
-};
-
-export type group = {
-  title?: string | null;
-  jobs: Job[];
-};
-
-export type Job = {
-  id?: string | null;
-  title?: string | null;
-};
+import {
+  Maybe,
+  GraphCms_JobSection,
+  GraphCms_JobSectionType,
+  GraphCms_JobType,
+  GraphCms_Job,
+} from '../../../types/graphql-types';
+import { style } from 'treat/lib/types';
 
 type OwnProps = {
-  variant: string;
-  jobSection: JobSection;
+  jobSection: Maybe<
+    Pick<GraphCms_JobSection, 'title' | 'titleHighlight'> & {
+      type?: Maybe<Pick<GraphCms_JobSectionType, 'title' | 'type'>>;
+      groups: Array<{
+        typeName?: Maybe<
+          Pick<GraphCms_JobType, 'id' | 'title'> & {
+            jobGroup: Array<{ jobs: Array<Pick<GraphCms_Job, 'id' | 'title'>> }>;
+          }
+        >;
+      }>;
+    }
+  >;
 };
 
-export const JobSection: React.FC<OwnProps> = (props) => {
+export function JobSection(props: OwnProps) {
   const styles = useStyles(styleRefs);
   const { width } = useViewportValues();
   const { viewport } = useViewportBreakpoint();
@@ -41,133 +42,110 @@ export const JobSection: React.FC<OwnProps> = (props) => {
 
   return (
     <div className={`${styles.wrapper} `}>
-      <RenderTitleHighlight
-        className={styles.title}
-        title={props.jobSection.title}
-        titleHighlight={props.jobSection.titleHighlight}
-      />
-      {getVariantModifier(props.variant)}
+      <div className={styles.containerWrapper}>
+        <RenderTitleHighlight
+          className={styles.title}
+          title={props?.jobSection?.title}
+          titleHighlight={props?.jobSection?.titleHighlight}
+        />
+        {getVariantModifier(props?.jobSection?.type?.type)}
+      </div>
     </div>
   );
 
-  function getVariantModifier(value: string) {
+  function getVariantModifier(value: GraphCms_JobSectionType['type']) {
     switch (value) {
-      case 'candidate': {
-        //
-        // Desktop Case
-        //
-
-        if (viewport === VIEWPORT.desktop) {
-          return (
-            <div className={styles.container}>
-              <div className={styles.containerBox}>
-                {props?.jobSection.groups.map((jobType, index) => {
-                  return (
-                    <div className={styles.boxIcon}>
-                      <BoxIcon
-                        key={index}
-                        icon="IllustrationFactory"
-                        selected={index === selectedBoxIcon}
-                        onClick={() => {
-                          setSelectedBoxIconIndex(index);
-                        }}
-                      >
-                        {jobType.title}
-                      </BoxIcon>
-                    </div>
-                  );
-                })}
-              </div>
-              <div className={styles.content}>
-                {props?.jobSection.groups[selectedBoxIcon].jobs.map((job, index) => {
-                  return (
-                    <div key={index} className={`${index / 2 == 0 ? styles.even : styles.unenven}`}>
-                      <CheckLabel illustration="Check" size="medium">
-                        {job.title}
-                      </CheckLabel>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          );
-        }
-
-        //
-        // Mobile & tablet Case
-        //
-        else {
-          return (
-            <div className={styles.container}>
-              {props?.jobSection.groups.map((jobType, index) => {
-                return (
+      case 'candidates': {
+        return (
+          <div className={styles.container}>
+            {props?.jobSection?.groups.map((jobType, index) => {
+              return (
+                <div className={styles.containerMobile} key={index}>
                   <div className={styles.containerBox}>
                     <div className={styles.boxIcon}>
                       <BoxIcon
-                        key={index}
                         icon="IllustrationFactory"
                         selected={index === selectedBoxIcon}
                         onClick={() => {
                           setSelectedBoxIconIndex(index);
                         }}
                       >
-                        {jobType.title}
+                        {jobType.typeName?.title}
                       </BoxIcon>
                     </div>
-                    <div className={styles.content}>
-                      {props?.jobSection.groups[selectedBoxIcon].jobs.map((job, index) => {
-                        return (
-                          <div key={index} className={`${index / 2 == 0 ? styles.even : styles.unenven}`}>
-                            <CheckLabel illustration="Check" size="medium">
-                              {job.title}
-                            </CheckLabel>
-                          </div>
-                        );
-                      })}
-                    </div>
+
+                    {selectedBoxIcon === index ? getMediaModifier(true, value) : getMediaModifier(false, value)}
                   </div>
-                );
-              })}
-            </div>
-          );
-        }
-      }
-      case 'employer': {
-        return (
-          <div className={styles.container}>
-            {props?.jobSection.groups.map((jobType, index) => {
-              return (
-                <div className={styles.accordions}>
-                  <Accordions
-                    key={index}
-                    variant="Default"
-                    selected={index === selectedAccordionsIndex}
-                    onClick={() => {
-                      setSelectedAccordionsIndex(index);
-                    }}
-                  >
-                    {jobType.title}
-                  </Accordions>
                 </div>
               );
             })}
-
-            <div className={styles.content}>
-              {props?.jobSection.groups[selectedBoxIcon].jobs.map((job, index) => {
-                return (
-                  <div key={index} className={styles.tagsUnique}>
-                    <Tags numberIndex={`${index < 9 ? '0' : ''}${index + 1}`}> {job.title}</Tags>
-                  </div>
-                );
-              })}
-            </div>
           </div>
         );
       }
 
+      case 'employer': {
+        return (
+          <div className={styles.container}>
+            {props.jobSection?.groups.map((jobType, index) => {
+              return (
+                <div>
+                  <div className={styles.accordions} key={index}>
+                    <Accordions
+                      variant="reversed"
+                      selected={index === selectedAccordionsIndex}
+                      onClick={() => {
+                        setSelectedAccordionsIndex(index);
+                      }}
+                    >
+                      {jobType.typeName?.title}
+                    </Accordions>
+                  </div>
+                  {selectedAccordionsIndex === index ? getMediaModifier(true, value) : getMediaModifier(false, value)}
+                </div>
+              );
+            })}
+          </div>
+        );
+      }
       default: {
         return '';
       }
     }
   }
-};
+  function getMediaModifier(value: boolean, type: any) {
+    if (value === true) {
+      switch (type) {
+        case 'candidates': {
+          return (
+            <div className={`${styles.content}`}>
+              {props?.jobSection?.groups[selectedBoxIcon].typeName?.jobGroup[0].jobs.map((job, index) => {
+                return (
+                  <div className={`${index % 2 == 0 ? styles.even : styles.unenven}`} key={index}>
+                    <CheckLabel illustration="IllustrationCheck" size="medium">
+                      {job.title}
+                    </CheckLabel>
+                  </div>
+                );
+              })}
+            </div>
+          );
+        }
+        case 'employer': {
+          return (
+            <div className={styles.content}>
+              {props?.jobSection?.groups[selectedAccordionsIndex].typeName?.jobGroup[0].jobs.map((job, index) => {
+                return (
+                  <div className={styles.tagsUnique} key={index}>
+                    <Tags numberIndex={`${index < 9 ? '0' : ''}${index + 1}`}> {job.title}</Tags>
+                  </div>
+                );
+              })}
+            </div>
+          );
+        }
+      }
+    } else {
+      return <div className={`${styles.content}`}></div>;
+    }
+  }
+}

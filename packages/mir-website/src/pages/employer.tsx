@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { Root } from '.';
+import { Root } from '../components/root';
 import { EmployerPageQuery } from '../../types/graphql-types';
 import { BannerSecondary } from '../components/banner-secondary';
 import { Footer } from '../components/footer';
@@ -43,10 +43,13 @@ export const query = graphql`
           titleHighlight
           type {
             title
-            jobSection {
+            type
+          }
+          groups {
+            typeName {
               id
               title
-              groups {
+              jobGroup {
                 jobs {
                   id
                   title
@@ -120,7 +123,7 @@ const Employer: React.FC<OwnProps> = ({ data, location }) => {
 
       {section1 && section1.type === 'type2' ? <InfoSectionType2 align="AlignContentLeft" {...section1} /> : null}
 
-      {/* {jobSection ? <JobSection jobSection={jobSection} variant={'candidate'} /> : null} */}
+      {jobSection ? <JobSection jobSection={jobSection} /> : null}
 
       {section2 && section2.type === 'type2' ? <InfoSectionType2 align="AlignContentRight" {...section2} /> : null}
 
