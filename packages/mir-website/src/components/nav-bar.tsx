@@ -73,7 +73,10 @@ export const NavBar: React.FC<OwnProps> = (props) => {
           </div>
 
           <Button type="tertiaryReversed" variant="text" size="small">
-            EN
+            <Link to="/en">EN</Link>
+          </Button>
+          <Button type="tertiaryReversed" variant="text" size="small">
+            <Link to="/">FR</Link>
           </Button>
 
           <GatsbyLink to="/contact">

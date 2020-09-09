@@ -1,6 +1,6 @@
 import Gatsby from 'gatsby';
 
-import { defaultPlugins } from 'core-gatsby-config';
+import { getGatsbyTsPluginConfig, getGatsbyReactSvgConfig } from 'core-gatsby-config';
 
 /**
  * Configure your Gatsby site with this file.
@@ -16,7 +16,8 @@ export const config: Gatsby.GatsbyConfig = {
     description: `An example site.`,
   },
   plugins: [
-    ...defaultPlugins,
+    getGatsbyTsPluginConfig(),
+    getGatsbyReactSvgConfig(),
     {
       resolve: `gatsby-source-graphql`,
       options: {

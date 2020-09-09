@@ -1,175 +1,70 @@
 import { graphql } from 'gatsby';
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { useStyles } from 'react-treat';
-import { IndexPageQuery } from '../../types/graphql-types';
-import { BannerPrimary } from '../components/banner-primary';
-import { BlogPreviewSection } from '../components/blog-preview/blog-preview-section';
-import { Footer } from '../components/footer';
-import { InfoSectionType1Group } from '../components/info-section/info-section-type-1-group';
-import { InfoSectionType2 } from '../components/info-section/info-section-type-2';
-import { InfoSectionType3 } from '../components/info-section/info-section-type-3';
-import { InfoSectionType4 } from '../components/info-section/info-section-type-4';
-import { NavBar } from '../components/nav-bar';
-import { Newsletter } from '../components/newsletter/newsletter';
+import { IndexPageFrQuery } from '../../types/graphql-types';
+import { LayoutFR } from '../layouts/fr';
 import '../styles/font-faces.styles.css';
-import * as stylesRef from '../styles/page.treat';
-import { theme } from '../design-system/themes.treat';
-import { Root } from '../components/root';
+import { Index } from '../templates/index-page.template';
 
 export const query = graphql`
-  query indexPage {
+  query indexPageFR {
     bannerImageMobile: file(name: { eq: "ImageOffice05" }) {
-      id
-      childImageSharp {
-        # https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-transformer-sharp/src/fragments.js
-        fluid(quality: 90, maxWidth: 800) {
-          base64
-          aspectRatio
-          src
-          srcSet
-          srcWebp
-          srcSetWebp
-          sizes
-        }
-      }
+      ...MobileFluidImage
     }
     bannerImageDesktop: file(name: { eq: "ImageOffice05" }) {
-      id
-      childImageSharp {
-        # https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-transformer-sharp/src/fragments.js
-        fluid(quality: 90, maxWidth: 1920) {
-          base64
-          aspectRatio
-          src
-          srcSet
-          srcWebp
-          srcSetWebp
-          sizes
-        }
-      }
+      ...DesktopFluidImage
     }
     gcms {
-      indexPages(first: 1) {
-        bannerTitle
-        bannerSubTitle
-        infoSections {
-          title
-          titleHighlight
-          titleTab
-          type
-          text
-          showTabs
-          actionText
-          infoTiles {
-            illustration
-            title
-            text
-          }
-          childs {
-            showTabs
-            title
-            titleHighlight
-            titleTab
-            type
-            text
-            actionText
-          }
-          image {
-            url(transformation: { image: { resize: { width: 900, fit: max } } })
-          }
-        }
-        blogSection {
-          id
-          title
-          titleHighlight
-          text
-          actionLabel
-          posts {
-            id
-            createdAt
-            title
-            image {
-              url(transformation: { image: { resize: { width: 300, fit: max } } })
-            }
-          }
-        }
+      indexPages(first: 1, locales: fr) {
+        ...IndexPage
       }
     }
   }
 `;
 
 export interface PageProps {
-  data: IndexPageQuery;
+  data: IndexPageFrQuery;
   location: Location;
 }
 
 const IndexPage: React.FC<PageProps> = (props) => {
   return (
-    <Root>
+    <LayoutFR>
       <Helmet>
-        <meta charSet="utf-8" />
         <html lang="fr" />
-        <meta name="description" content="Helmet application" />
+
+        <link rel="canonical" href="https://mir-website.netlify.com" />
+
+        {/* 50-60 characters long */}
         <title>MIR - Recrutement technique - Accueil</title>
-        <link rel="canonical" href="https://mir-website-master.netlify.com" />
+
+        {/* 150-160 characters long */}
+        <meta name="description" content="Description de la page d'accueil" />
+
+        {/* Twitter Card data */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@publisher_handle" />
+        <meta name="twitter:title" content="Page Title" />
+        <meta name="twitter:description" content="Page description less than 200 characters" />
+        <meta name="twitter:creator" content="@author_handle" />
+        {/* Twitter summary card with large image must be at least 280x150px */}
+        <meta name="twitter:image:src" content="http://www.example.com/image.jpg" />
+
+        {/* Open Graph data */}
+        <meta property="og:title" content="Title Here" />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="http://www.example.com/" />
+        <meta property="og:image" content="http://example.com/image.jpg" />
+        <meta property="og:description" content="Description Here" />
+        <meta property="og:site_name" content="Site Name, i.e. Moz" />
+        <meta property="article:published_time" content="2013-09-17T05:59:00+01:00" />
+        <meta property="article:modified_time" content="2013-09-16T19:08:47+01:00" />
+        <meta property="article:section" content="Article Section" />
+        <meta property="article:tag" content="Article Tag" />
+        <meta property="fb:admins" content="Facebook numberic ID" />
       </Helmet>
       <Index {...props} />
-    </Root>
-  );
-};
-
-const Index: React.FC<PageProps> = ({ data, location }) => {
-  const styles = useStyles(stylesRef);
-
-  const sources = [
-    data?.bannerImageMobile?.childImageSharp?.fluid,
-    {
-      ...data?.bannerImageDesktop?.childImageSharp?.fluid,
-      media: `(min-width: ${theme.layout.breakpoints.desktopSmall.px})`,
-    },
-  ];
-
-  return (
-    <div className={`${styles.wrapper}`}>
-      <NavBar></NavBar>
-
-      <BannerPrimary
-        imageData={sources}
-        title={data?.gcms?.indexPages[0]?.bannerTitle}
-        subTitle={data?.gcms?.indexPages[0]?.bannerSubTitle}
-      ></BannerPrimary>
-
-      {data?.gcms?.indexPages[0]?.infoSections.map((section, index) => {
-        switch (section.type) {
-          case 'type1group': {
-            return <InfoSectionType1Group key={index} {...section} />;
-          }
-          case 'type2': {
-            return <InfoSectionType2 key={index} align="AlignContentLeft" {...section} />;
-          }
-          case 'type3': {
-            return <InfoSectionType3 key={index} align="AlignContentRight" {...section} />;
-          }
-          case 'type4': {
-            return <InfoSectionType4 key={index} {...section} />;
-          }
-          default: {
-            return null;
-          }
-        }
-      })}
-
-      <BlogPreviewSection
-        posts={data?.gcms?.indexPages[0]?.blogSection?.posts}
-        text={data?.gcms?.indexPages[0]?.blogSection?.text}
-        title={data?.gcms?.indexPages[0]?.blogSection?.title}
-      ></BlogPreviewSection>
-
-      <Newsletter id="newsletter"></Newsletter>
-
-      <Footer></Footer>
-    </div>
+    </LayoutFR>
   );
 };
 
