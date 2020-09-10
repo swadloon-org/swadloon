@@ -18,6 +18,9 @@ export function loadDotEnv() {
 log(`SITE_ENV is ${env.SITE_ENV}`, {
   toolName: 'mir-website',
 });
+log(`SITE_URL is ${env.SITE_URL}`, {
+  toolName: 'mir-website',
+});
 
 /**
  * Configure your Gatsby site with this file.
@@ -115,7 +118,7 @@ const config: GastbySiteConfig = {
         /**
          * Whether to populate the <head> of your site with a link to the sitemap.
          */
-        createLinkInHead: false,
+        createLinkInHead: true,
       },
     },
     /**
@@ -130,12 +133,12 @@ const config: GastbySiteConfig = {
          * Host of your site
          * @default ${siteMetadata.siteUrl}
          */
-        host: '${siteMetadata.siteUrl}',
+        host: `${env.SITE_URL}`,
         /**
          * Path(s) to sitemap.xml
          * @default ${siteMetadata.siteUrl}/sitemap.xml
          */
-        sitemap: '${siteMetadata.siteUrl}/sitemap.xml',
+        sitemap: `${env.SITE_URL}/sitemap.xml`,
         /**
          * Path where to create the robots.txt
          * @default /robots.txt

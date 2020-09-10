@@ -25,13 +25,7 @@ export const Layout: React.FC<{}> = (props) => {
   return (
     <ViewportProvider context={viewportContext}>
       <TreatProvider theme={light}>
-        <Helmet>
-          <meta charSet="utf-8" />
-          <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-          <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
-          <meta name="description" content="Helmet application" />
-          <title>MIR - Recrutement technique</title>
-        </Helmet>
+        <Helmet></Helmet>
         {props.children}
       </TreatProvider>
     </ViewportProvider>
