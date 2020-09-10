@@ -10,7 +10,7 @@ export const wrapper = style((theme: DesignSystem) => ({
 
   '@media': {
     [theme.layout.media.desktop]: {
-      justifyContent: 'space-between',
+      // justifyContent: 'space-between',
       maxWidth: '1200px',
       width: '100%',
       padding: `${theme.sizing.sizes.x7} 0`,

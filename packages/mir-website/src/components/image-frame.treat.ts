@@ -1,5 +1,5 @@
 import { DesignSystem } from 'core-design-system';
-import { globalStyle, style } from 'treat';
+import { style, globalStyle } from 'treat';
 
 export const wrapper = style((theme: DesignSystem) => ({
   position: 'relative',
@@ -28,7 +28,7 @@ export const backgroundIllustration = style((theme: DesignSystem) => ({
   overflow: 'visible',
 }));
 
-globalStyle(`${backgroundIllustration} path`, {
+globalStyle(`${backgroundIllustration} path &`, {
   width: '100%',
 });
 
@@ -65,4 +65,21 @@ export const topLeft = style((theme: DesignSystem) => ({
 export const topRight = style((theme: DesignSystem) => ({
   top: '0',
   right: '0',
+}));
+
+export const carrouselButton = style((theme: DesignSystem) => ({
+  position: 'absolute',
+  top: '0',
+  left: '0',
+  display: 'flex',
+  padding: '20px 7px',
+}));
+
+export const iconCarrousel = style((theme: DesignSystem) => ({
+  paddingLeft: '7px',
+  paddingRight: '7px',
+}));
+
+globalStyle(`${iconCarrousel} path`, (theme: DesignSystem) => ({
+  fill: 'white',
 }));

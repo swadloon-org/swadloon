@@ -47,6 +47,7 @@
     "webpack": "^4.43.0"
   },
   "dependencies": {
+    "@popmotion/popcorn": "^0.4.4",
     "framer-motion": "^2.6.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

@@ -19,6 +19,7 @@ import { useStyles } from 'react-treat';
 import * as styleRefs from '../styles/page.treat';
 import { Testimonial } from '../components/testimonial-section/testimonial-section';
 import { Process } from '../components/process-section/process-section';
+import { ImageFrame } from '../components/image-frame';
 
 const DesignPage: React.FC<PageProps> = (props) => {
   return (
@@ -79,6 +80,9 @@ export const Design: React.FC = () => {
       </div>
       <ActionSection variant="Default"></ActionSection>
       <Process title="Notre processus de recrutement" titleHighlight="processus"></Process>
+      <div>
+        <ImageFrame variant="bottomRight" type="caroussel"></ImageFrame>
+      </div>
     </div>
   );
 };
