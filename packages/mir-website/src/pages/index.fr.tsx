@@ -26,6 +26,14 @@ export const query = graphql`
       indexPages(first: 1, locales: fr) {
         ...IndexPage
       }
+      metadataWebsites(first: 1) {
+        siteName
+        siteUrl
+      }
+      metadataTwitters(first: 1) {
+        creator
+        site
+      }
     }
   }
 `;
