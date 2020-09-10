@@ -1,14 +1,19 @@
-import { MetaBasic, MetadataOpenGraphWebsite, MetadataTwitter, OPEN_GRAPH_TYPE } from 'core-react-ui';
+import {
+  getMetadataTwitterTags,
+  getMetadataOpenGraphWebsiteTags,
+  getMetaBasicTags,
+  OPEN_GRAPH_TYPE,
+} from 'core-react-ui';
 import { graphql } from 'gatsby';
 import React from 'react';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import { IndexPageFrQuery } from '../../types/graphql-types';
 import { LayoutFR } from '../layouts/fr';
-import '../styles/font-faces.styles.css';
 import { Index } from '../templates/index-page.template';
 
 export const query = graphql`
   query indexPageFR {
+    ...SiteMetadata
     bannerImageMobile: file(name: { eq: "ImageOffice05" }) {
       ...MobileFluidImage
     }
@@ -32,9 +37,19 @@ const IndexPage: React.FC<PageProps> = (props) => {
   return (
     <LayoutFR>
       <Helmet>
-        <MetaBasic />
-        <MetadataOpenGraphWebsite type={OPEN_GRAPH_TYPE.WEBSITE} />
-        <MetadataTwitter card={'summary'} />
+        {getMetaBasicTags()}
+        {getMetadataOpenGraphWebsiteTags({
+          type: OPEN_GRAPH_TYPE.WEBSITE,
+          title: 'test',
+          url: 'test',
+          description: 'test',
+          site_name: 'test',
+          locale: 'test',
+          localeAlternate: 'test',
+        })}
+        {getMetadataTwitterTags({
+          card: 'summary',
+        })}
       </Helmet>
       <Index {...props} />
     </LayoutFR>

@@ -1,6 +1,5 @@
 // import { graphql } from 'gatsby';
 // import React from 'react';
-// import { Helmet } from 'react-helmet';
 // import { useStyles } from 'react-treat';
 // import { Layout } from '../layouts';
 // import { EmployerPageQuery } from '../../types/graphql-types';

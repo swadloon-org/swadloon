@@ -54,6 +54,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
+    "react-helmet-async": "^1.0.6",
     "react-i18next": "^11.7.2",
     "react-lazyload": "^3.0.0",
     "react-treat": "^1.4.1"
