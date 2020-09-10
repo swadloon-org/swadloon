@@ -12,11 +12,9 @@ export const MetaBasicTags: React.FC<Props> = () => {
 };
 
 export function getMetaBasicTags() {
-  return [
-    <meta charSet="utf-8" />,
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />,
-    <meta name="viewport" content="width=device-width, initial-scale=1" />,
-  ].map((tag, index) => {
-    return <meta key={index} {...tag.props} />;
-  });
+  return [<meta charSet="utf-8" />, <meta name="viewport" content="width=device-width, initial-scale=1" />].map(
+    (tag, index) => {
+      return <meta key={index} {...tag.props} />;
+    }
+  );
 }

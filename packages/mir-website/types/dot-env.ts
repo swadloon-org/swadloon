@@ -1,8 +1,8 @@
 export enum SITE_ENV {
-  LOCAL = 'LOCAL',
-  DEV = 'DEV',
-  STAGING = 'STAGING',
-  PRODUCTION = 'PRODUCTION',
+  LOCAL = 'local',
+  DEV = 'dev',
+  STAGING = 'staging',
+  PRODUCTION = 'production',
 }
 
 /**

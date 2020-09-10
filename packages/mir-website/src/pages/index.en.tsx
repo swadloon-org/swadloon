@@ -6,14 +6,16 @@ import {
 } from 'core-react-ui';
 import { graphql } from 'gatsby';
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import Helmet from 'react-helmet';
 import { IndexPageEnQuery } from '../../types/graphql-types';
 import { LayoutEN } from '../layouts/en';
 import { Index } from '../templates/index-page.template';
 
 export const query = graphql`
   query indexPageEN {
-    ...SiteMetadata
+    site {
+      ...SiteMetadata
+    }
     bannerImageMobile: file(name: { eq: "ImageOffice05" }) {
       ...MobileFluidImage
     }

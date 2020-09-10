@@ -1,19 +1,21 @@
 import {
-  getMetadataTwitterTags,
-  getMetadataOpenGraphWebsiteTags,
   getMetaBasicTags,
+  getMetadataOpenGraphWebsiteTags,
+  getMetadataTwitterTags,
   OPEN_GRAPH_TYPE,
 } from 'core-react-ui';
 import { graphql } from 'gatsby';
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import Helmet from 'react-helmet';
 import { IndexPageFrQuery } from '../../types/graphql-types';
 import { LayoutFR } from '../layouts/fr';
 import { Index } from '../templates/index-page.template';
 
 export const query = graphql`
   query indexPageFR {
-    ...SiteMetadata
+    site {
+      ...SiteMetadata
+    }
     bannerImageMobile: file(name: { eq: "ImageOffice05" }) {
       ...MobileFluidImage
     }

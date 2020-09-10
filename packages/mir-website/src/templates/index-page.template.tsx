@@ -9,7 +9,7 @@ import { InfoSectionType3 } from '../components/info-section/info-section-type-3
 import { InfoSectionType4 } from '../components/info-section/info-section-type-4';
 import { NavBar } from '../components/nav-bar';
 import { Newsletter } from '../components/newsletter/newsletter';
-import { theme } from '../design-system/themes.treat';
+import { theme } from '../design-system/index';
 import * as stylesRef from '../styles/page.treat';
 import { PageProps } from '../pages/index.en';
 

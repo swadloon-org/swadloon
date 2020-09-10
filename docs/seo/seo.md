@@ -11,6 +11,7 @@
 - [ ] Schema Markup
 - [ ] Social Media Meta Tags
 - [ ] Viewport Meta Tag
+- [ ] Sitemap.xml
 
 ## Robot.txt Reference
 

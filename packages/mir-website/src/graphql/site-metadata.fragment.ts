@@ -1,13 +1,11 @@
 import { graphql } from 'gatsby';
 
 export const siteMetadataQuery = graphql`
-  fragment SiteMetadata on Query {
-    site {
-      siteMetadata {
-        languages {
-          defaultLangKey
-          langs
-        }
+  fragment SiteMetadata on Site {
+    siteMetadata {
+      languages {
+        defaultLangKey
+        langs
       }
     }
   }

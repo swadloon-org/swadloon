@@ -35,8 +35,6 @@ export function getMetadataOpenGraphWebsiteTags({
     locale ? <meta property="og:locale" content={locale} /> : null,
     localeAlternate ? <meta property="og:locale:alternate" content={localeAlternate} /> : null,
   ].map((tag, index) => {
-    console.log(tag?.type);
-
     if (tag?.type === 'html') {
       return tag ? <html key={index} {...tag.props} /> : null;
     }
