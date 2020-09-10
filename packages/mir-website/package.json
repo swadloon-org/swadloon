@@ -12,9 +12,10 @@
   "scripts": {
     "build": "gatsby build",
     "clean": "gatsby clean",
+    "refresh": "curl -X POST http://localhost:9001/__refresh",
     "serve": "gatsby serve",
     "prestart": "gatsby clean",
-    "start": "gatsby develop -p 9001 -H 0.0.0.0",
+    "start": "ENABLE_GATSBY_REFRESH_ENDPOINT=true gatsby develop -p 9001 -H 0.0.0.0",
     "sync-figma": "core-cli sync-figma ",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },

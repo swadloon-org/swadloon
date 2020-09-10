@@ -26,6 +26,14 @@ export const query = graphql`
       indexPages(first: 1, locales: en) {
         ...IndexPage
       }
+      metadataWebsites(first: 1) {
+        siteName
+        siteUrl
+      }
+      metadataTwitters(first: 1) {
+        creator
+        site
+      }
     }
   }
 `;
@@ -42,15 +50,17 @@ const IndexPage: React.FC<PageProps> = (props) => {
         {getMetaBasicTags()}
         {getMetadataOpenGraphWebsiteTags({
           type: OPEN_GRAPH_TYPE.WEBSITE,
-          title: 'test',
-          url: 'test',
-          description: 'test',
-          site_name: 'test',
-          locale: 'test',
-          localeAlternate: 'test',
+          title: `${props.data.gcms.indexPages[0].metadata?.title}`,
+          url: `${props.data.gcms.metadataWebsites[0].siteUrl}${props.data.gcms.indexPages[0].metadata?.route}`,
+          description: `${props.data.gcms.indexPages[0].metadata?.description}`,
+          site_name: `${props.data.gcms.metadataWebsites[0].siteName}`,
+          locale: 'en_CA',
+          localeAlternate: 'fr_CA',
         })}
         {getMetadataTwitterTags({
           card: 'summary',
+          creator: `${props.data.gcms.metadataTwitters[0].creator}`,
+          site: `${props.data.gcms.metadataTwitters[0].site}`,
         })}
       </Helmet>
       <Index {...props} />

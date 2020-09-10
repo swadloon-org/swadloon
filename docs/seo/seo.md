@@ -19,14 +19,14 @@ https://developers.google.com/search/reference/robots_txt
 
 ## Testing Tools
 
-Twitter: https://cards-dev.twitter.com/validator
-Google Rich Result Test: https://search.google.com/test/rich-results
+- Twitter: https://cards-dev.twitter.com/validator
+- Google Rich Result Test: https://search.google.com/test/rich-results
 
 ## Specs
 
-Schema and microdata: https://schema.org/docs/gs.html
-Open Graph: https://ogp.me/
-Google Rich Data: https://developers.google.com/search/docs/data-types/article
+- Schema and microdata: https://schema.org/docs/gs.html
+- Open Graph: https://ogp.me/
+- Google Rich Data: https://developers.google.com/search/docs/data-types/article
 
 ## Formats
 
@@ -37,8 +37,8 @@ Source:https://en.wikipedia.org/wiki/ISO_8601
 
 ## Blogs
 
-https://moz.com/blog/meta-data-templates-123
-https://neilpatel.com/blog/open-graph-meta-tags/
+- https://moz.com/blog/meta-data-templates-123
+- https://neilpatel.com/blog/open-graph-meta-tags/
 
 ## Glossary
 
