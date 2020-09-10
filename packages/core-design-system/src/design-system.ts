@@ -59,11 +59,20 @@ export interface DesignSystem {
   components?: {
     buttons: Buttons;
     inputs: any;
+    // TOOD
     links: {
-      color: Color;
-      visited: Color;
-      hover: Color;
-      active: Color;
+      small: {
+        color: Color;
+        visited: Color;
+        hover: Color;
+        active: Color;
+      };
+      medium: {
+        color: Color;
+        visited: Color;
+        hover: Color;
+        active: Color;
+      };
     };
   };
 }

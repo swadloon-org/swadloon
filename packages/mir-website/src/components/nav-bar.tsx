@@ -9,12 +9,15 @@ import Icon from '../illustrations/Icon/IconBars.svg';
 import { Label } from './label';
 import { Button } from './button';
 import { LABEL } from 'core-design-system';
-import { Link } from '../components-ui/link';
+import { Link } from '../ui/link';
 
 type OwnProps = {};
 
 export const query = graphql`
   query topBar {
+    site {
+      ...SiteMetadata
+    }
     gcms {
       companyMedias {
         logo {
@@ -42,19 +45,6 @@ export const NavBar: React.FC<OwnProps> = (props) => {
           <Link to="/employer">Employeurs</Link>
           <Link to="/blog">Nouvelles</Link>
           <Link to="/about">À propos</Link>
-
-          {/* <Button type="tertiaryReversed" variant="text" size="small">
-            Candidats
-          </Button>
-          <Button type="tertiaryReversed" variant="text" size="small">
-            Employeurs
-          </Button>
-          <Button type="tertiaryReversed" variant="text" size="small">
-            Nouvelles
-          </Button>
-          <Button type="tertiaryReversed" variant="text" size="small">
-            À propos
-          </Button> */}
         </div>
 
         <img className={styles.logo} src={data?.gcms?.companyMedias[0]?.logo?.url} />
@@ -73,7 +63,10 @@ export const NavBar: React.FC<OwnProps> = (props) => {
           </div>
 
           <Button type="tertiaryReversed" variant="text" size="small">
-            EN
+            <Link to="/en">EN</Link>
+          </Button>
+          <Button type="tertiaryReversed" variant="text" size="small">
+            <Link to="/">FR</Link>
           </Button>
 
           <GatsbyLink to="/contact">
