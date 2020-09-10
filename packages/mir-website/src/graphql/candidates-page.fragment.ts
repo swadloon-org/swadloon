@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby';
 
 export const query = graphql`
-  fragment EmployerPage on GraphCMS_EmployerPage {
+  fragment CandidatePage on GraphCMS_CandidatePage {
     metadata {
       title
       description

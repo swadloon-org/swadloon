@@ -1,17 +1,13 @@
 import { graphql } from 'gatsby';
 
 export const query = graphql`
-  fragment IndexPage on GraphCMS_IndexPage {
+  fragment BlogPage on GraphCMS_BlogPage {
     metadata {
       title
       description
       route
     }
     bannerTitle
-    bannerSubTitle
-    infoSections {
-      ...InfoSections
-    }
     blogSection {
       ...BlogSections
     }

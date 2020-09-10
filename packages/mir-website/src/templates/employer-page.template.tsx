@@ -1,62 +1,19 @@
-import { graphql } from 'gatsby';
+// import { graphql } from 'gatsby';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { Layout } from '../layouts';
-import { EmployerPageQuery } from '../../types/graphql-types';
 import { BannerSecondary } from '../components/banner-secondary';
 import { Footer } from '../components/footer';
 import { NavBar } from '../components/nav-bar';
 import { Newsletter } from '../components/newsletter/newsletter';
-import * as stylesRef from '../templates/index-page.treat';
 import { InfoSectionType2 } from '../components/info-section/info-section-type-2';
 import { ActionSection } from '../components/action-section/action-section';
 import { JobSection } from '../components/job-section/job-section';
 import { InfoSectionType6Group } from '../components/info-section/info-section-type-6-group';
+import { theme } from '../design-system/index';
+import * as stylesRef from '../templates/employer-page.treat';
+import { EmployerProps } from '../pages/employer.en';
 
-export const query = graphql`
-  query EmployerPageFR {
-    bannerImage: file(name: { eq: "ImageOffice04" }) {
-      id
-      childImageSharp {
-        # https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-transformer-sharp/src/fragments.js
-        fluid(quality: 90, maxWidth: 1920) {
-          base64
-          aspectRatio
-          src
-          srcSet
-          srcWebp
-          srcSetWebp
-          sizes
-        }
-      }
-    }
-    gcms {
-      employerPages(first: 1, locales: fr) {
-        ...EmployerPage
-      }
-    }
-  }
-`;
-
-interface OwnProps {
-  data: EmployerPageFrQuery;
-  location: Location;
-}
-
-const EmployerPage: React.FC<OwnProps> = (props) => {
-  return (
-    <Layout>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>MIR - Recrutement technique - Employeurs</title>
-        <link rel="canonical" href="https://mir-website-master.netlify.com" />
-      </Helmet>
-      <Employer {...props} />
-    </Layout>
-  );
-};
-
-const Employer: React.FC<OwnProps> = ({ data, location }) => {
+export const Employer: React.FC<EmployerProps> = ({ data, location }) => {
   const styles = useStyles(stylesRef);
 
   const actionSection1 = data.gcms.employerPages[0].actionSections[0];
@@ -87,5 +44,3 @@ const Employer: React.FC<OwnProps> = ({ data, location }) => {
     </div>
   );
 };
-
-export default EmployerPage;

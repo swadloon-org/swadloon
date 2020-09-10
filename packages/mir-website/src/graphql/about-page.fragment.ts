@@ -1,24 +1,31 @@
 import { graphql } from 'gatsby';
 
 export const query = graphql`
-  fragment EmployerPage on GraphCMS_EmployerPage {
+  fragment AboutPage on GraphCMS_AboutPage {
     metadata {
       title
       description
       route
     }
-
     bannerTitle
     actionSections {
       title
       subtitle
       actionText
     }
-    jobSection {
-      ...JobSections
-    }
     infoSections {
       ...InfoSections
+    }
+    testimonialSections {
+      title
+      titleHighlight
+      description
+      testomonials {
+        authorName
+        authorTitle
+        message
+        id
+      }
     }
   }
 `;

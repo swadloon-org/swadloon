@@ -1,22 +1,13 @@
 import { graphql } from 'gatsby';
 
 export const query = graphql`
-  fragment EmployerPage on GraphCMS_EmployerPage {
+  fragment ContactPage on GraphCMS_ContactUsPage {
     metadata {
       title
       description
       route
     }
-
     bannerTitle
-    actionSections {
-      title
-      subtitle
-      actionText
-    }
-    jobSection {
-      ...JobSections
-    }
     infoSections {
       ...InfoSections
     }
