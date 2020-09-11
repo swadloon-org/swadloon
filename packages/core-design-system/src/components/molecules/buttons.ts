@@ -51,8 +51,11 @@ export interface ButtonStyle {
 }
 
 export interface ButtonSizeStyle {
+  width?: String | undefined;
   height?: SIZING;
-  padding?: SizingStep | string;
+  padding?: SIZING;
+  paddingV?: SIZING;
+  paddingH?: SIZING;
   borderStyle?: CSSBorder;
   borderWidth?: CSSBorder;
   borderRadius?: CSSBorder;

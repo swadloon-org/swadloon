@@ -9,19 +9,33 @@ type Styles = ButtonSizeStyles;
 type AllStyles = ButtonVariantStyles | ButtonSizeStyles | ButtonIconStyles | ButtonStateStyles;
 
 export const large = style((theme: DesignSystem) => ({
-  height: theme.components.buttons.sizes.large.height
-    ? theme.sizing.sizes[theme.components.buttons.sizes.large.height]
-    : theme.sizing.sizes.x6,
+  width: `${theme.components.buttons.sizes.small.width}`,
+  padding:
+    theme.components.buttons.sizes.large.paddingH && theme.components.buttons.sizes.large.paddingV
+      ? `${theme.sizing.sizes[theme.components.buttons.sizes.large.paddingV]} ${
+          theme.sizing.sizes[theme.components.buttons.sizes.large.paddingH]
+        }`
+      : 0,
 }));
 
 export const medium = style((theme: DesignSystem) => ({
-  height: theme.components.buttons.sizes.medium.height
-    ? theme.sizing.sizes[theme.components.buttons.sizes.medium.height]
-    : theme.sizing.sizes.x6,
+  width: `${theme.components.buttons.sizes.small.width}`,
+  padding:
+    theme.components.buttons.sizes.medium.paddingH && theme.components.buttons.sizes.medium.paddingV
+      ? `${theme.sizing.sizes[theme.components.buttons.sizes.medium.paddingV]} ${
+          theme.sizing.sizes[theme.components.buttons.sizes.medium.paddingH]
+        }`
+      : 0,
 }));
 
 export const small = style((theme: DesignSystem) => ({
-  // ...theme.components?.buttons.sizes.small,
+  width: `${theme.components.buttons.sizes.small.width}`,
+  padding:
+    theme.components.buttons.sizes.small.paddingH && theme.components.buttons.sizes.small.paddingV
+      ? `${theme.sizing.sizes[theme.components.buttons.sizes.small.paddingV]} ${
+          theme.sizing.sizes[theme.components.buttons.sizes.small.paddingH]
+        }`
+      : 0,
 }));
 
 const styles: Styles = {

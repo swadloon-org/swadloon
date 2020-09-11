@@ -20,13 +20,22 @@ export const theme: DesignSystem = {
     buttons: {
       sizes: {
         [ButtonSize.large]: {
-          height: SIZING.x5,
+          width: 'fit-content',
+          padding: SIZING.x5,
+          paddingV: SIZING.x3,
+          paddingH: SIZING.x5,
         },
         [ButtonSize.medium]: {
-          height: SIZING.x4,
+          width: 'fit-content',
+          padding: SIZING.x4,
+          paddingV: SIZING.x2,
+          paddingH: SIZING.x4,
         },
         [ButtonSize.small]: {
-          height: SIZING.x3,
+          width: 'fit-content',
+          padding: SIZING.x3,
+          paddingV: SIZING.x1,
+          paddingH: SIZING.x3,
         },
       },
       variants: {
