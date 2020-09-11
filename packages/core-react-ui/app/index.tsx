@@ -5,4 +5,4 @@ export function RootComponent() {
   return <div> Hello React</div>;
 }
 
-ReactDOM.hydrate(<RootComponent />, document.getElementById('app'));
+ReactDOM.render(<RootComponent />, document.getElementById('app'));
