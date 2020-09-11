@@ -1,18 +1,16 @@
 import { graphql } from 'gatsby';
 
 export const query = graphql`
-  fragment ProcessSection on GraphCMS_ProcessSection {
-    processSection {
+  fragment ProcessSections on GraphCMS_ProcessSection {
+    title
+    titleHighlight
+    type {
       title
-      titleHighlight
-      type {
-        title
-      }
-      steps {
-        title
-        description
-        id
-      }
+    }
+    steps {
+      title
+      description
+      id
     }
   }
 `;

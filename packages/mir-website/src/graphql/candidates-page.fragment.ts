@@ -23,7 +23,7 @@ export const query = graphql`
     }
 
     processSection {
-      ...ProcessSection
+      ...ProcessSections
     }
   }
 `;
