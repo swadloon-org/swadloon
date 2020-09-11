@@ -54,23 +54,23 @@ export interface DesignSystem {
   /**
    * Components' specific settings.
    */
-  components?: {
+  components: {
     buttons: Buttons;
-    inputs: any;
-    // TOOD
-    links: {
-      small: {
-        color: Color;
-        visited: Color;
-        hover: Color;
-        active: Color;
-      };
-      medium: {
-        color: Color;
-        visited: Color;
-        hover: Color;
-        active: Color;
-      };
-    };
+    // inputs: any;
+    // // TOOD
+    // links: {
+    //   small: {
+    //     color: Color;
+    //     visited: Color;
+    //     hover: Color;
+    //     active: Color;
+    //   };
+    //   medium: {
+    //     color: Color;
+    //     visited: Color;
+    //     hover: Color;
+    //     active: Color;
+    //   };
+    // };
   };
 }
