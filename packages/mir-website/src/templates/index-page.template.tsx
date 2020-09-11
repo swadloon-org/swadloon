@@ -10,7 +10,7 @@ import { InfoSectionType4 } from '../components/info-section/info-section-type-4
 import { NavBar } from '../components/nav-bar';
 import { Newsletter } from '../components/newsletter/newsletter';
 import { theme } from '../design-system/index';
-import * as stylesRef from '../styles/page.treat';
+import * as stylesRef from './index-page.treat';
 import { PageProps } from '../pages/index.en';
 
 export const Index: React.FC<PageProps> = ({ data, location }) => {

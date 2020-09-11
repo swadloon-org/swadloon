@@ -7,24 +7,30 @@ import {
 import { graphql } from 'gatsby';
 import React from 'react';
 import Helmet from 'react-helmet';
-import { IndexPageEnQuery } from '../../types/graphql-types';
+import { ContactPageEnQuery } from '../../types/graphql-types';
 import { LayoutEN } from '../layouts/en';
-import { Index } from '../templates/index-page.template';
+import { Contact } from '../templates/contact-page.template';
 
 export const query = graphql`
-  query indexPageEN {
-    site {
-      ...SiteMetadata
-    }
-    bannerImageMobile: file(name: { eq: "ImageOffice05" }) {
-      ...MobileFluidImage
-    }
-    bannerImageDesktop: file(name: { eq: "ImageOffice05" }) {
-      ...DesktopFluidImage
+  query contactPageEN {
+    bannerImage: file(name: { eq: "ImageOffice03" }) {
+      id
+      childImageSharp {
+        # https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-transformer-sharp/src/fragments.js
+        fluid(quality: 90, maxWidth: 1920) {
+          base64
+          aspectRatio
+          src
+          srcSet
+          srcWebp
+          srcSetWebp
+          sizes
+        }
+      }
     }
     gcms {
-      indexPages(first: 1, locales: en) {
-        ...IndexPage
+      contactUsPages(first: 1, locales: en) {
+        ...ContactPage
       }
       metadataWebsites(first: 1) {
         siteName
@@ -38,21 +44,21 @@ export const query = graphql`
   }
 `;
 
-export interface PageProps {
-  data: IndexPageEnQuery;
+export interface ContactProps {
+  data: ContactPageEnQuery;
   location: Location;
 }
 
-const IndexPage: React.FC<PageProps> = (props) => {
+const ContactPage: React.FC<ContactProps> = (props) => {
   return (
     <LayoutEN>
       <Helmet>
         {getMetaBasicTags()}
         {getMetadataOpenGraphWebsiteTags({
           type: OPEN_GRAPH_TYPE.WEBSITE,
-          title: `${props.data.gcms.indexPages[0].metadata?.title}`,
-          url: `${props.data.gcms.metadataWebsites[0].siteUrl}${props.data.gcms.indexPages[0].metadata?.route}`,
-          description: `${props.data.gcms.indexPages[0].metadata?.description}`,
+          title: `${props.data.gcms.contactUsPages[0].metadata?.title}`,
+          url: `${props.data.gcms.metadataWebsites[0].siteUrl}${props.data.gcms.contactUsPages[0].metadata?.route}`,
+          description: `${props.data.gcms.contactUsPages[0].metadata?.description}`,
           site_name: `${props.data.gcms.metadataWebsites[0].siteName}`,
           locale: 'en_CA',
           localeAlternate: 'fr_CA',
@@ -63,9 +69,9 @@ const IndexPage: React.FC<PageProps> = (props) => {
           site: `${props.data.gcms.metadataTwitters[0].site}`,
         })}
       </Helmet>
-      <Index {...props} />
+      <Contact {...props} />
     </LayoutEN>
   );
 };
 
-export default IndexPage;
+export default ContactPage;

@@ -1,15 +1,13 @@
-import React, { AllHTMLAttributes, RefAttributes } from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
-import * as stylesRef from './nav-bar.treat';
+import { LABEL } from 'core-design-system';
+import { graphql, Link as GatsbyLink, useStaticQuery } from 'gatsby';
+import React from 'react';
 import { useStyles } from 'react-treat';
-import { Link as GatsbyLink } from 'gatsby';
-
 import { TopBarQuery } from '../../types/graphql-types';
 import Icon from '../illustrations/Icon/IconBars.svg';
-import { Label } from './label';
-import { Button } from './button';
-import { LABEL } from 'core-design-system';
 import { Link } from '../ui/link';
+import { Button } from './button';
+import { Label } from './label';
+import * as stylesRef from './nav-bar.treat';
 
 type OwnProps = {};
 
@@ -64,9 +62,6 @@ export const NavBar: React.FC<OwnProps> = (props) => {
 
           <Button type="tertiaryReversed" variant="text" size="small">
             <Link to="/en">EN</Link>
-          </Button>
-          <Button type="tertiaryReversed" variant="text" size="small">
-            <Link to="/">FR</Link>
           </Button>
 
           <GatsbyLink to="/contact">
