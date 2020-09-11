@@ -1,7 +1,5 @@
 import { Color } from 'csstype';
-
-import { Buttons } from './components/buttons';
-
+import { Buttons } from './components/molecules/buttons';
 import { ColorIntents, Colors } from './foundations/colors';
 import { Effects } from './foundations/effects';
 import { Iconography } from './foundations/iconography';

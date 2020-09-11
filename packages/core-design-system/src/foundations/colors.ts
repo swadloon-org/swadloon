@@ -65,14 +65,17 @@ export interface ColorIntents {
 
   primary: Color;
   primaryReversed: Color;
+
   secondary: Color;
   secondaryReversed: Color;
+
   primaryText: Color;
   primaryTextReversed: Color;
   secondaryText: Color;
   secondaryTextReversed: Color;
   tertiaryText: Color;
   tertiaryTextReversed: Color;
+
   successText: Color;
   successAction: Color;
   successBackground: Color;
@@ -82,6 +85,7 @@ export interface ColorIntents {
   dangerText: Color;
   dangerAction: Color;
   dangerBackground: Color;
+
   background0: Color;
   background1: Color;
   background2: Color;
