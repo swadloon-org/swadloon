@@ -1,0 +1,7 @@
+{
+  "react": {
+    "prefix": ["react"],
+    "body": ["import React from 'react';"],
+    "description": "Insert the default React import statement."
+  }
+}

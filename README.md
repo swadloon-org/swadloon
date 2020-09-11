@@ -35,7 +35,6 @@ yarn test
 
 # apply prettier and eslint
 yarn lint
-
 ```
 
 ---
