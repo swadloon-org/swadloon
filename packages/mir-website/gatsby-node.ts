@@ -151,6 +151,7 @@ export const onPreBootstrap: GatsbyNode['onPreBootstrap'] = (args, options, call
 
   if (process.env.GATSBY_ENABLE_INCREMENTAL_BUILD !== 'true') {
     callback(null);
+    return;
   }
 
   log(`rebuilding core-* packages for gatsby cloud's incremental build`, {

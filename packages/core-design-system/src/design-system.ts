@@ -1,7 +1,5 @@
 import { Color } from 'csstype';
-
-import { Buttons } from './components/buttons';
-
+import { Buttons } from './components/molecules/buttons';
 import { ColorIntents, Colors } from './foundations/colors';
 import { Effects } from './foundations/effects';
 import { Iconography } from './foundations/iconography';
@@ -59,11 +57,20 @@ export interface DesignSystem {
   components?: {
     buttons: Buttons;
     inputs: any;
+    // TOOD
     links: {
-      color: Color;
-      visited: Color;
-      hover: Color;
-      active: Color;
+      small: {
+        color: Color;
+        visited: Color;
+        hover: Color;
+        active: Color;
+      };
+      medium: {
+        color: Color;
+        visited: Color;
+        hover: Color;
+        active: Color;
+      };
     };
   };
 }

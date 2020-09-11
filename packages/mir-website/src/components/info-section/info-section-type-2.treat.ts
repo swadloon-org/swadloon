@@ -10,7 +10,6 @@ export const wrapper = style((theme: DesignSystem) => ({
 
   '@media': {
     [theme.layout.media.desktop]: {
-      // justifyContent: 'space-between',
       maxWidth: '1200px',
       width: '100%',
       padding: `${theme.sizing.sizes.x7} 0`,
@@ -99,6 +98,7 @@ export const title = style((theme: DesignSystem) => ({
     [theme.layout.media.desktop]: {
       maxWidth: '500px',
       textAlign: 'left',
+      alignSelf: 'flex-start',
     },
   },
 }));
@@ -114,10 +114,10 @@ export const text = style((theme: DesignSystem) => ({
     [theme.layout.media.desktop]: {
       maxWidth: '500px',
       textAlign: 'left',
+      alignSelf: 'flex-start',
     },
   },
 }));
-
 export const button = style((theme: DesignSystem) => ({
   alignSelf: 'center',
 

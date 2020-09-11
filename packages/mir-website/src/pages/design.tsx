@@ -1,31 +1,21 @@
 import { ICON_SIZE, LABEL } from 'core-design-system';
 import React from 'react';
-import { Icon } from '../components-ui/icon';
+import { useStyles } from 'react-treat';
+import { ActionSection } from '../components/action-section/action-section';
 import { Heading } from '../components/heading';
-import { JobSection } from '../components/job-section/job-section';
+import { ImageFrame } from '../components/image-frame';
 import { Label } from '../components/label';
 import { Paragraph } from '../components/paragraph';
-import { light } from '../design-system/themes.treat';
-import { PageProps } from './index';
-import { Root } from '../components/root';
-import { CheckLabel } from '../components/info-section-check';
-import { InfoTile } from '../components/info-section/info-tile';
-import { InfoSectionType6 } from '../components/info-section/info-section-type-6';
-import { InfoSectionType1Group } from '../components/info-section/info-section-type-1-group';
-import { InfoSectionType6Group } from '../components/info-section/info-section-type-6-group';
-import { ActionSection } from '../components/action-section/action-section';
-import { BoxIcon } from '../components/box-icon';
-import { useStyles } from 'react-treat';
-import * as styleRefs from '../styles/page.treat';
-import { Testimonial } from '../components/testimonial-section/testimonial-section';
-import { Process } from '../components/process-section/process-section';
-import { ImageFrame } from '../components/image-frame';
+import { Layout } from '../layouts';
+import * as styleRefs from '../templates/index-page.treat';
+import { Icon } from '../ui/icon';
+import { PageProps } from './index.fr';
 
 const DesignPage: React.FC<PageProps> = (props) => {
   return (
-    <Root>
+    <Layout>
       <Design {...props} />
-    </Root>
+    </Layout>
   );
 };
 
@@ -79,7 +69,6 @@ export const Design: React.FC = () => {
         <Icon size={ICON_SIZE.small} icon={'IconArrowRight'} />
       </div>
       <ActionSection variant="Default"></ActionSection>
-      <Process title="Notre processus de recrutement" titleHighlight="processus"></Process>
       <div>
         <ImageFrame variant="bottomRight" type="caroussel"></ImageFrame>
       </div>

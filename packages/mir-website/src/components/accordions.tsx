@@ -1,7 +1,7 @@
 import { ICON_SIZE } from 'core-design-system';
 import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
-import { Icon } from '../components-ui/icon';
+import { Icon } from '../ui/icon';
 import * as styleRefs from './accordions.treat';
 import { Heading } from './heading';
 

@@ -1,20 +1,21 @@
-import React, { AllHTMLAttributes, RefAttributes } from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
-import * as stylesRef from './nav-bar.treat';
+import { LABEL } from 'core-design-system';
+import { graphql, Link as GatsbyLink, useStaticQuery } from 'gatsby';
+import React from 'react';
 import { useStyles } from 'react-treat';
-import { Link as GatsbyLink } from 'gatsby';
-
 import { TopBarQuery } from '../../types/graphql-types';
 import Icon from '../illustrations/Icon/IconBars.svg';
-import { Label } from './label';
+import { Link } from '../ui/link';
 import { Button } from './button';
-import { LABEL } from 'core-design-system';
-import { Link } from '../components-ui/link';
+import { Label } from './label';
+import * as stylesRef from './nav-bar.treat';
 
 type OwnProps = {};
 
 export const query = graphql`
   query topBar {
+    site {
+      ...SiteMetadata
+    }
     gcms {
       companyMedias {
         logo {
@@ -42,19 +43,6 @@ export const NavBar: React.FC<OwnProps> = (props) => {
           <Link to="/employer">Employeurs</Link>
           <Link to="/blog">Nouvelles</Link>
           <Link to="/about">À propos</Link>
-
-          {/* <Button type="tertiaryReversed" variant="text" size="small">
-            Candidats
-          </Button>
-          <Button type="tertiaryReversed" variant="text" size="small">
-            Employeurs
-          </Button>
-          <Button type="tertiaryReversed" variant="text" size="small">
-            Nouvelles
-          </Button>
-          <Button type="tertiaryReversed" variant="text" size="small">
-            À propos
-          </Button> */}
         </div>
 
         <img className={styles.logo} src={data?.gcms?.companyMedias[0]?.logo?.url} />
@@ -73,7 +61,7 @@ export const NavBar: React.FC<OwnProps> = (props) => {
           </div>
 
           <Button type="tertiaryReversed" variant="text" size="small">
-            EN
+            <Link to="/en">EN</Link>
           </Button>
 
           <GatsbyLink to="/contact">
