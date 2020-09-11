@@ -13,6 +13,11 @@ export const container = style((theme: DesignSystem) => ({
     [theme.layout.media.desktop]: {},
   },
 }));
+
+export const Default = style((theme: DesignSystem) => ({}));
+
+export const blue = style((theme: DesignSystem) => ({}));
+
 export const title = style((theme: DesignSystem) => ({
   textAlign: 'center',
   margin: '0 auto',
@@ -107,6 +112,11 @@ export const blocContent = style((theme: DesignSystem) => ({
     [theme.layout.media.desktop]: {
       gridGap: `${theme.sizing.sizes.x3}`,
       textAlign: 'center',
+    },
+  },
+  selectors: {
+    [`${blue} &`]: {
+      color: theme.colors.primary500,
     },
   },
 }));

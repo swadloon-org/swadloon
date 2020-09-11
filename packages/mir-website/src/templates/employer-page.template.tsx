@@ -8,6 +8,7 @@ import { Newsletter } from '../components/newsletter/newsletter';
 import { InfoSectionType2 } from '../components/info-section/info-section-type-2';
 import { ActionSection } from '../components/action-section/action-section';
 import { JobSection } from '../components/job-section/job-section';
+import { Process } from '../components/process-section/process-section';
 import { InfoSectionType6Group } from '../components/info-section/info-section-type-6-group';
 import { theme } from '../design-system/index';
 import * as stylesRef from '../templates/employer-page.treat';
@@ -20,6 +21,7 @@ export const Employer: React.FC<EmployerProps> = ({ data, location }) => {
   const section1 = data.gcms?.employerPages[0]?.infoSections[0];
   const section2 = data.gcms?.employerPages[0]?.infoSections[1];
   const jobSection = data.gcms?.employerPages[0]?.jobSection;
+  const processSection = data.gcms?.employerPages[0]?.processSection;
 
   return (
     <div className={`${styles.wrapper}`}>
@@ -37,6 +39,8 @@ export const Employer: React.FC<EmployerProps> = ({ data, location }) => {
       {jobSection ? <JobSection jobSection={jobSection} /> : null}
 
       {section2 && section2.type === 'type2' ? <InfoSectionType2 align="AlignContentRight" {...section2} /> : null}
+
+      {processSection ? <Process processSection={processSection} /> : null}
 
       {actionSection1 ? <ActionSection variant={'reversed'} /> : null}
 

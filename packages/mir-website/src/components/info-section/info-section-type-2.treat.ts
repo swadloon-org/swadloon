@@ -98,6 +98,7 @@ export const title = style((theme: DesignSystem) => ({
     [theme.layout.media.desktop]: {
       maxWidth: '500px',
       textAlign: 'left',
+      alignSelf: 'flex-start',
     },
   },
 }));
@@ -113,10 +114,10 @@ export const text = style((theme: DesignSystem) => ({
     [theme.layout.media.desktop]: {
       maxWidth: '500px',
       textAlign: 'left',
+      alignSelf: 'flex-start',
     },
   },
 }));
-
 export const button = style((theme: DesignSystem) => ({
   alignSelf: 'center',
 

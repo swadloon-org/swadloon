@@ -20,5 +20,8 @@ export const query = graphql`
     infoSections {
       ...InfoSections
     }
+    processSection {
+      ...ProcessSection
+    }
   }
 `;

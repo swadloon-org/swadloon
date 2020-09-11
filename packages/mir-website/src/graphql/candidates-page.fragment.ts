@@ -17,8 +17,13 @@ export const query = graphql`
     jobSection {
       ...JobSections
     }
+
     infoSections {
       ...InfoSections
+    }
+
+    processSection {
+      ...ProcessSection
     }
   }
 `;

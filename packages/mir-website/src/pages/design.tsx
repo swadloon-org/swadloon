@@ -69,7 +69,6 @@ export const Design: React.FC = () => {
         <Icon size={ICON_SIZE.small} icon={'IconArrowRight'} />
       </div>
       <ActionSection variant="Default"></ActionSection>
-      <Process title="Notre processus de recrutement" titleHighlight="processus"></Process>
     </div>
   );
 };

@@ -9,6 +9,7 @@ import { InfoSectionType5 } from '../components/info-section/info-section-type-5
 import { InfoSectionType2 } from '../components/info-section/info-section-type-2';
 import { ActionSection } from '../components/action-section/action-section';
 import { JobSection } from '../components/job-section/job-section';
+import { Process } from '../components/process-section/process-section';
 import { CandidatesPageProps } from '../pages/candidates.en';
 
 export const Candidate: React.FC<CandidatesPageProps> = ({ data, location }) => {
@@ -19,6 +20,7 @@ export const Candidate: React.FC<CandidatesPageProps> = ({ data, location }) => 
   const section1 = data.gcms?.candidatePages[0]?.infoSections[0];
   const section2 = data.gcms?.candidatePages[0]?.infoSections[1];
   const jobSection = data.gcms?.candidatePages[0]?.jobSection;
+  const processSection = data.gcms?.candidatePages[0]?.processSection;
 
   return (
     <div className={`${styles.wrapper}`}>
@@ -31,6 +33,7 @@ export const Candidate: React.FC<CandidatesPageProps> = ({ data, location }) => 
       {section1 && section1.type === 'type5' ? <InfoSectionType5 align="AlignContentLeft" {...section1} /> : null}
       {jobSection ? <JobSection jobSection={jobSection} /> : null}
       {section2 && section2.type === 'type2' ? <InfoSectionType2 align="AlignContentRight" {...section2} /> : null}
+      {processSection ? <Process processSection={processSection} /> : null}
       {actionSection2 ? <ActionSection variant={'reversed'} /> : null}
       <Footer></Footer>
     </div>
