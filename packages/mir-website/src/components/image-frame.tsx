@@ -5,8 +5,8 @@ import * as styleRefs from './image-frame.treat';
 import LazyLoad from 'react-lazyload';
 import { motion, AnimatePresence } from 'framer-motion';
 import { wrap } from '@popmotion/popcorn';
-import { Icon } from '../components-ui/icon';
 import { ICON_SIZE } from 'core-design-system';
+import { Icon } from '../ui/icon';
 
 enum MOTION_STATE {
   ENTER = 'ENTER',
