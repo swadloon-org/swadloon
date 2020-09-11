@@ -11,12 +11,12 @@
   "scripts": {
     "build": "yarn build:lib && yarn build:app",
     "build:app": "webpack --config webpack.dev.config.cjs",
-    "build:lib": "tsc --build",
+    "build:lib": "tsc --build --project tsconfig-lib.json",
     "clean": "rimraf -r dist/**",
     "postinstall": "yarn build",
     "start": "concurrently \"yarn start:lib\" \"yarn start:app\"",
     "start:app": "webpack-dev-server --config webpack.dev.config.cjs",
-    "start:lib": "tsc --build tsconfig.json --watch --preserveWatchOutput",
+    "start:lib": "tsc --build tsconfig-lib.json --watch --preserveWatchOutput",
     "test": "echo ok"
   },
   "type": "module",

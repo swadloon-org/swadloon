@@ -17,6 +17,12 @@ const config: webpack.WebpackOptions = {
         test: /\.tsx?$/,
         use: [
           {
+            loader: 'babel-loader',
+            options: {
+              cacheDirectory: true,
+            },
+          },
+          {
             loader: 'ts-loader',
             options: {
               configFile: 'tsconfig-app.json',
@@ -29,6 +35,9 @@ const config: webpack.WebpackOptions = {
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
+    alias: {
+      'core-react-ui': path.resolve(__dirname, 'src'),
+    },
   },
   output: {
     filename: 'bundle.js',
