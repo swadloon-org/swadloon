@@ -46,7 +46,11 @@ export const Process: React.FC<OwnProps> = (props) => {
                     </Label>
                   </div>
                 </div>
-                <div className={styles.blocContent}>
+                <div
+                  className={`${styles.blocContent}  ${
+                    props.processSection?.type?.title == 'Blue' ? styles.contentBlue : ''
+                  }`}
+                >
                   <Heading variant="h4">{tile.title}</Heading>
                   {props.processSection?.type?.title == 'Default' ? (
                     <Paragraph variant="small">{tile.description}</Paragraph>

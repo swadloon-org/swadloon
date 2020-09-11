@@ -1,5 +1,6 @@
 import { DesignSystem, createShadow } from 'core-design-system';
 import { style } from 'treat';
+import { theme } from '../../design-system';
 
 export const wrapper = style((theme: DesignSystem) => ({
   padding: `${theme.sizing.sizes.x5} 0`,
@@ -16,7 +17,7 @@ export const container = style((theme: DesignSystem) => ({
 
 export const Default = style((theme: DesignSystem) => ({}));
 
-export const blue = style((theme: DesignSystem) => ({}));
+export const Blue = style((theme: DesignSystem) => ({}));
 
 export const title = style((theme: DesignSystem) => ({
   textAlign: 'center',
@@ -108,15 +109,19 @@ export const blocContent = style((theme: DesignSystem) => ({
   justifyContent: 'flex-start',
   minWidth: '150px',
   maxWidth: '250px',
+  alignItems: 'center',
+
   '@media': {
     [theme.layout.media.desktop]: {
       gridGap: `${theme.sizing.sizes.x3}`,
       textAlign: 'center',
-    },
-  },
-  selectors: {
-    [`${blue} &`]: {
-      color: theme.colors.primary500,
+      justifyContent: 'center',
+
+      selectors: {
+        [`${Blue} &`]: {
+          color: theme.colors.primary500,
+        },
+      },
     },
   },
 }));
@@ -144,4 +149,8 @@ export const line = style((theme: DesignSystem) => ({
       alignSelf: 'center',
     },
   },
+}));
+
+export const contentBlue = style((theme: DesignSystem) => ({
+  color: theme.colors.primary500,
 }));
