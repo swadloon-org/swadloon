@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useStyles } from 'react-treat';
 import * as stylesRef from '../templates/candidates-page.treat';
 import { BannerSecondary } from '../components/banner-secondary';
@@ -11,6 +11,7 @@ import { ActionSection } from '../components/action-section/action-section';
 import { JobSection } from '../components/job-section/job-section';
 import { Process } from '../components/process-section/process-section';
 import { CandidatesPageProps } from '../pages/candidates.en';
+import { SideBar } from '../components/side-bar';
 
 export const Candidate: React.FC<CandidatesPageProps> = ({ data, location }) => {
   const styles = useStyles(stylesRef);
@@ -22,9 +23,17 @@ export const Candidate: React.FC<CandidatesPageProps> = ({ data, location }) => 
   const jobSection = data.gcms?.candidatePages[0]?.jobSection;
   const processSection = data.gcms?.candidatePages[0]?.processSection;
 
+  const [sideMenuState, setSideMenuState] = useState<'openend' | 'closed'>('closed');
+
+  function onOpenSideMenu() {
+    setSideMenuState(sideMenuState === 'openend' ? 'closed' : 'openend');
+  }
+
   return (
     <div className={`${styles.wrapper}`}>
-      <NavBar></NavBar>
+      <NavBar onOpenSideMenu={onOpenSideMenu}></NavBar>
+      <SideBar state={sideMenuState} onOpenSideMenu={onOpenSideMenu}></SideBar>
+
       <BannerSecondary
         imageData={data.bannerImage?.childImageSharp?.fluid}
         title={data?.gcms?.candidatePages[0]?.bannerTitle}

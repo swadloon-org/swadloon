@@ -1,5 +1,5 @@
 // import { graphql } from 'gatsby';
-import React from 'react';
+import React, { useState } from 'react';
 import { useStyles } from 'react-treat';
 import { BannerSecondary } from '../components/banner-secondary';
 import { Footer } from '../components/footer';
@@ -13,6 +13,7 @@ import { InfoSectionType6Group } from '../components/info-section/info-section-t
 import { theme } from '../design-system/index';
 import * as stylesRef from '../templates/employer-page.treat';
 import { EmployerProps } from '../pages/employer.en';
+import { SideBar } from '../components/side-bar';
 
 export const Employer: React.FC<EmployerProps> = ({ data, location }) => {
   const styles = useStyles(stylesRef);
@@ -23,9 +24,16 @@ export const Employer: React.FC<EmployerProps> = ({ data, location }) => {
   const jobSection = data.gcms?.employerPages[0]?.jobSection;
   const processSection = data.gcms?.employerPages[0]?.processSection;
 
+  const [sideMenuState, setSideMenuState] = useState<'openend' | 'closed'>('closed');
+
+  function onOpenSideMenu() {
+    setSideMenuState(sideMenuState === 'openend' ? 'closed' : 'openend');
+  }
+
   return (
     <div className={`${styles.wrapper}`}>
-      <NavBar></NavBar>
+      <NavBar onOpenSideMenu={onOpenSideMenu}></NavBar>
+      <SideBar state={sideMenuState} onOpenSideMenu={onOpenSideMenu}></SideBar>
 
       <BannerSecondary
         imageData={data.bannerImage?.childImageSharp?.fluid}

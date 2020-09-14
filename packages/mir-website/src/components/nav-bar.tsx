@@ -9,7 +9,9 @@ import { Button } from './button';
 import { Label } from './label';
 import * as stylesRef from './nav-bar.treat';
 
-type OwnProps = {};
+type OwnProps = {
+  onOpenSideMenu: () => void;
+};
 
 export const query = graphql`
   query topBar {
@@ -33,7 +35,7 @@ export const NavBar: React.FC<OwnProps> = (props) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.content}>
-        <div className={styles.mobileLeftToolbar}>
+        <div className={styles.mobileLeftToolbar} onClick={(e) => props.onOpenSideMenu()}>
           <Icon className={styles.icon} />
         </div>
 
