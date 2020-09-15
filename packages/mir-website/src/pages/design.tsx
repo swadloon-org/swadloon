@@ -3,6 +3,7 @@ import React from 'react';
 import { useStyles } from 'react-treat';
 import { ActionSection } from '../components/action-section/action-section';
 import { Heading } from '../components/heading';
+import { ImageFrame } from '../components/image-frame';
 import { Label } from '../components/label';
 import { Paragraph } from '../components/paragraph';
 import { Button } from '../core-react-ui/core-button';
@@ -71,6 +72,10 @@ export const Design: React.FC = () => {
         <Icon size={ICON_SIZE.medium} icon={'IconArrowRight'} />
         <Icon size={ICON_SIZE.small} icon={'IconArrowRight'} />
         <ActionSection variant="Default"></ActionSection>
+      </div>
+      <ActionSection variant="Default"></ActionSection>
+      <div>
+        <ImageFrame variant="bottomRight" type="caroussel"></ImageFrame>
       </div>
     </div>
   );
