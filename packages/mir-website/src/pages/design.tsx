@@ -10,6 +10,8 @@ import { Layout } from '../layouts';
 import * as styleRefs from '../templates/index-page.treat';
 import { Icon } from '../ui/icon';
 import { PageProps } from './index.fr';
+import { Accordions } from '../components/accordions';
+import { InfoSectionVideo } from '../components/info-section/info-section-video';
 
 const DesignPage: React.FC<PageProps> = (props) => {
   return (
@@ -70,6 +72,28 @@ export const Design: React.FC = () => {
         <Icon size={ICON_SIZE.large} icon={'IconArrowRight'} />
         <Icon size={ICON_SIZE.medium} icon={'IconArrowRight'} />
         <Icon size={ICON_SIZE.small} icon={'IconArrowRight'} />
+        <Accordions
+          type="candidates"
+          variant="Default"
+          icon="IllustrationFactory"
+          onClick={() => {
+            console.log('test');
+          }}
+        >
+          Test
+        </Accordions>
+        <Accordions
+          type="employer"
+          variant="reversed"
+          icon="IllustrationFactory"
+          onClick={() => {
+            console.log('test');
+          }}
+        >
+          Test
+        </Accordions>
+        <InfoSectionVideo></InfoSectionVideo>
+
         <ActionSection variant="Default"></ActionSection>
       </div>
     </div>
