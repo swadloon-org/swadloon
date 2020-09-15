@@ -11,6 +11,7 @@ import { Label } from './label';
 import { LABEL } from 'core-design-system';
 import { Illustration } from './illustration';
 import { Heading } from './heading';
+import { Button } from './button';
 
 type OwnProps = {
   state: string;
@@ -102,7 +103,11 @@ export const SideBar: React.FC<OwnProps> = (props) => {
               ></Illustration>
               <Label variant={LABEL.smallUppercase}>SOCIAL</Label>
             </div>
-            <div className={styles.listSocial}></div>
+            <div className={styles.listSocial}>
+              <Button type="secondaryReversed" size="medium" variant="icon" icon="IconArrowRight"></Button>
+              <Button type="secondaryReversed" size="medium" variant="icon" icon="IconFacebook"></Button>
+              <Button type="secondaryReversed" size="medium" variant="icon" icon="IconInstagram"></Button>
+            </div>
           </div>
         </div>
       </div>
