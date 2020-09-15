@@ -31,6 +31,7 @@ export const containerTitle = style((theme: DesignSystem) => ({
   margin: '0 auto',
   zIndex: 2,
   paddingTop: theme.sizing.sizes.x6,
+  color: theme.colors.greyscale0Reversed,
 }));
 
 //
@@ -46,14 +47,14 @@ export const title = style((theme: DesignSystem) => ({
 
 export const content = style((theme: DesignSystem) => ({
   display: 'flex',
-  paddingTop: theme.sizing.sizes.x5,
+  paddingTop: theme.sizing.sizes.x6,
   paddingBottom: theme.sizing.sizes.x5,
   justifyContent: 'center',
   width: '100%',
 }));
 
 export const video = style((theme: DesignSystem) => ({
-  width: '50%',
+  width: '60%',
 }));
 
 //
@@ -62,9 +63,9 @@ export const video = style((theme: DesignSystem) => ({
 
 export const blue = style((theme: DesignSystem) => ({
   position: 'absolute',
-  backgroundColor: 'red',
+  backgroundColor: theme.colors.primary500,
   width: '100%',
-  height: '65%',
+  height: '60%',
   top: 0,
   zIndex: -1,
 }));

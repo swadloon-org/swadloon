@@ -13,6 +13,8 @@ import {
   GraphCms_Job,
 } from '../../../types/graphql-types';
 import { style } from 'treat/lib/types';
+import { useViewportBreakpoint } from '../../hooks/use-viewport.hook';
+import { VIEWPORT } from 'core-design-system';
 
 type OwnProps = {
   jobSection: Maybe<
@@ -32,6 +34,7 @@ type OwnProps = {
 export function JobSection(props: OwnProps) {
   const styles = useStyles(styleRefs);
   const [selectedAccordionsIndex, setSelectedAccordionsIndex] = useState<number>(1);
+  const { viewport } = useViewportBreakpoint();
 
   return (
     <div className={`${styles.wrapper} `}>
@@ -47,17 +50,17 @@ export function JobSection(props: OwnProps) {
   );
 
   function getVariantModifier(value: GraphCms_JobSectionType['type']) {
-    console.log(selectedAccordionsIndex);
-
     switch (value) {
       case 'candidates': {
         return (
           <div className={styles.container}>
             {props.jobSection?.groups.map((jobType, index) => {
+              let lengthJobs: any = props.jobSection?.groups[index].typeName?.jobGroup[0].jobs.length;
+              let RowNumber: number =
+                viewport === VIEWPORT.desktop ? Math.ceil(lengthJobs / 3) : Math.ceil(lengthJobs / 1);
               return (
-                <div>
-                  {console.log(`${index} what`)}
-                  <div className={styles.accordions} key={index}>
+                <div className={styles.containerBloc} key={index}>
+                  <div className={styles.accordions}>
                     <Accordions
                       type="candidates"
                       icon="IllustrationFactory"
@@ -70,7 +73,24 @@ export function JobSection(props: OwnProps) {
                       {jobType.typeName?.title}
                     </Accordions>
                   </div>
-                  {selectedAccordionsIndex === index ? getMediaModifier(true, value) : getMediaModifier(false, value)}
+
+                  <div
+                    className={`${styles.content} ${styles.contentCheck} ${
+                      index === selectedAccordionsIndex ? styles.selected : styles.unselected
+                    } `}
+                    style={{ gridTemplateRows: `repeat(${RowNumber}, 1fr)` }}
+                  >
+                    {props?.jobSection?.groups[index].typeName?.jobGroup[0].jobs.map((job, index) => {
+                      return (
+                        <div className={`${index % 2 == 0 ? styles.even : styles.unenven}`} key={index}>
+                          <CheckLabel illustration="IllustrationCheck" size="medium">
+                            {job.title}
+                          </CheckLabel>
+                        </div>
+                      );
+                    })}
+                  </div>
+                  {/* {selectedAccordionsIndex === index ? getMediaModifier(true, value) : getMediaModifier(false, value)} */}
                 </div>
               );
             })}
@@ -82,9 +102,13 @@ export function JobSection(props: OwnProps) {
         return (
           <div className={styles.container}>
             {props.jobSection?.groups.map((jobType, index) => {
+              let lengthJobs: any = props.jobSection?.groups[index].typeName?.jobGroup[0].jobs.length;
+              let RowNumber: number =
+                viewport === VIEWPORT.desktop ? Math.ceil(lengthJobs / 3) : Math.ceil(lengthJobs / 1);
+
               return (
-                <div>
-                  <div className={styles.accordions} key={index}>
+                <div className={styles.containerBloc} key={index}>
+                  <div className={styles.accordions}>
                     <Accordions
                       type="employer"
                       variant="reversed"
@@ -96,7 +120,21 @@ export function JobSection(props: OwnProps) {
                       {jobType.typeName?.title}
                     </Accordions>
                   </div>
-                  {selectedAccordionsIndex === index ? getMediaModifier(true, value) : getMediaModifier(false, value)}
+                  <div
+                    className={`${styles.content} ${styles.contentTag} ${
+                      index === selectedAccordionsIndex ? styles.selected : styles.unselected
+                    }`}
+                    style={{ gridTemplateRows: `repeat(${RowNumber}, 1fr)` }}
+                  >
+                    {props?.jobSection?.groups[index].typeName?.jobGroup[0].jobs.map((job, index) => {
+                      return (
+                        <div className={styles.tagsUnique} key={index}>
+                          <Tags numberIndex={`${index < 9 ? '0' : ''}${index + 1}`}> {job.title}</Tags>
+                        </div>
+                      );
+                    })}
+                  </div>
+                  {/* {selectedAccordionsIndex === index ? getMediaModifier(true, value) : getMediaModifier(false, value)} */}
                 </div>
               );
             })}
@@ -106,42 +144,6 @@ export function JobSection(props: OwnProps) {
       default: {
         return '';
       }
-    }
-  }
-  function getMediaModifier(value: boolean, type: any) {
-    if (value === true) {
-      switch (type) {
-        case 'candidates': {
-          return (
-            <div className={`${styles.content}`}>
-              {props?.jobSection?.groups[selectedAccordionsIndex].typeName?.jobGroup[0].jobs.map((job, index) => {
-                return (
-                  <div className={`${index % 2 == 0 ? styles.even : styles.unenven}`} key={index}>
-                    <CheckLabel illustration="IllustrationCheck" size="medium">
-                      {job.title}
-                    </CheckLabel>
-                  </div>
-                );
-              })}
-            </div>
-          );
-        }
-        case 'employer': {
-          return (
-            <div className={styles.content}>
-              {props?.jobSection?.groups[selectedAccordionsIndex].typeName?.jobGroup[0].jobs.map((job, index) => {
-                return (
-                  <div className={styles.tagsUnique} key={index}>
-                    <Tags numberIndex={`${index < 9 ? '0' : ''}${index + 1}`}> {job.title}</Tags>
-                  </div>
-                );
-              })}
-            </div>
-          );
-        }
-      }
-    } else {
-      return <div className={`${styles.content}`}></div>;
     }
   }
 }

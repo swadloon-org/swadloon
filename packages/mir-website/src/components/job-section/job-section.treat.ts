@@ -41,32 +41,15 @@ export const containerWrapper = style((theme: DesignSystem) => ({
     },
   },
 }));
-
+//
+// container
+//
 export const container = style((theme: DesignSystem) => ({}));
 
 //
-// containerBox
+// container
 //
-export const containerBox = style((theme: DesignSystem) => ({
-  display: 'grid',
-  gridTemplateColumns: '1fr',
-  gridColumnGap: `${theme.sizing.sizes.x5}`,
-
-  '@media': {
-    [theme.layout.media.desktop]: {
-      gridTemplateColumns: '1fr 1fr',
-    },
-  },
-}));
-
-export const unselected = style((theme: DesignSystem) => ({}));
-
-//
-// boxIcon
-//
-export const boxIcon = style((theme: DesignSystem) => ({
-  paddingBottom: `${theme.sizing.sizes.x4}`,
-}));
+export const containerBloc = style((theme: DesignSystem) => ({}));
 
 //
 // content
@@ -76,17 +59,54 @@ export const content = style((theme: DesignSystem) => ({
     [theme.layout.media.tabletPlus]: {
       display: 'grid',
       gridColumn: '1',
-      gridGap: `0 ${theme.sizing.sizes.x4}`,
+      // gridGap: `0 ${theme.sizing.sizes.x4}`,
     },
     [theme.layout.media.desktop]: {
       display: 'grid',
       gridColumn: '1',
-      gridTemplateColumns: '1fr 1fr 1fr',
-      gridGap: `0 ${theme.sizing.sizes.x4}`,
-      gridTemplateRows: '1fr 1fr 1fr 1fr',
+      gridTemplateColumns: 'repeat(3, 1fr)',
+      // gridGap: `0 ${theme.sizing.sizes.x4}`,
+      gridTemplateRows: 'repeat(4, 1fr)',
       gridAutoFlow: 'column',
     },
   },
+}));
+
+export const contentTag = style((theme: DesignSystem) => ({
+  '@media': {
+    [theme.layout.media.tabletPlus]: {
+      gridGap: `${theme.sizing.sizes.x3} ${theme.sizing.sizes.x4}`,
+    },
+    [theme.layout.media.desktop]: {
+      gridGap: `${theme.sizing.sizes.x3} ${theme.sizing.sizes.x4}`,
+    },
+  },
+}));
+
+export const contentCheck = style((theme: DesignSystem) => ({
+  '@media': {
+    [theme.layout.media.tabletPlus]: {
+      gridGap: `0 ${theme.sizing.sizes.x4}`,
+    },
+    [theme.layout.media.desktop]: {
+      gridGap: `0 ${theme.sizing.sizes.x4}`,
+    },
+  },
+}));
+
+//
+// unselected
+//
+export const unselected = style((theme: DesignSystem) => ({
+  height: '0px',
+  visibility: 'hidden',
+}));
+//
+// selected
+//
+export const selected = style((theme: DesignSystem) => ({
+  visibility: 'visible',
+  paddingBottom: theme.sizing.sizes.x4,
 }));
 
 //
@@ -103,7 +123,7 @@ export const accordions = style((theme: DesignSystem) => ({
 // tagsUnique
 //
 export const tagsUnique = style((theme: DesignSystem) => ({
-  paddingBottom: `${theme.sizing.sizes.x3}`,
+  // paddingBottom: `${theme.sizing.sizes.x3}`,
 }));
 
 //
@@ -135,5 +155,3 @@ export const even = style((theme: DesignSystem) => ({
 export const unenven = style((theme: DesignSystem) => ({
   backgroundColor: theme.colors.greyscale0,
 }));
-export const containerMobile = style((theme: DesignSystem) => ({}));
-export const selected = style((theme: DesignSystem) => ({}));
