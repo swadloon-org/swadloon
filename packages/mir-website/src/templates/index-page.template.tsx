@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useStyles } from 'react-treat';
 import { BannerPrimary } from '../components/banner-primary';
 import { BlogPreviewSection } from '../components/blog-preview/blog-preview-section';
@@ -12,9 +12,15 @@ import { Newsletter } from '../components/newsletter/newsletter';
 import { theme } from '../design-system/index';
 import * as stylesRef from './index-page.treat';
 import { PageProps } from '../pages/index.en';
+import { SideBar } from '../components/side-bar';
 
 export const Index: React.FC<PageProps> = ({ data, location }) => {
   const styles = useStyles(stylesRef);
+  const [sideMenuState, setSideMenuState] = useState<'openend' | 'closed'>('closed');
+
+  function onOpenSideMenu() {
+    setSideMenuState(sideMenuState === 'openend' ? 'closed' : 'openend');
+  }
 
   const sources = [
     data?.bannerImageMobile?.childImageSharp?.fluid,
@@ -26,8 +32,8 @@ export const Index: React.FC<PageProps> = ({ data, location }) => {
 
   return (
     <div className={`${styles.wrapper}`}>
-      <NavBar></NavBar>
-
+      <NavBar onOpenSideMenu={onOpenSideMenu}></NavBar>
+      <SideBar state={sideMenuState} onOpenSideMenu={onOpenSideMenu}></SideBar>
       <BannerPrimary
         imageData={sources}
         title={data?.gcms?.indexPages[0]?.bannerTitle}

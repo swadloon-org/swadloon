@@ -1,0 +1,12 @@
+{
+  "react": {
+    "prefix": ["react"],
+    "body": ["import React from 'react';"],
+    "description": "Insert the default React import statement."
+  },
+  "styleRefs": {
+    "prefix": ["styleRefs"],
+    "body": ["import * as styleRefs from '$1';"],
+    "description": "Import styleRefs for TreatCSS."
+  }
+}

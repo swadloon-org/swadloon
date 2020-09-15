@@ -3,12 +3,12 @@
   "compilerOptions": {
     "declaration": true,
     "sourceMap": true,
-    "outDir": "./dist/",
-    "rootDir": "./",
+    "outDir": "./lib/",
+    "rootDir": "./src/",
     "target": "ESNext",
     "module": "ESNext",
-    "types": ["react", "react-dom"]
+    "types": ["react"]
   },
   "typeRoots": ["../../node_modules/@types", "src/types"],
-  "include": ["app/**/*", "src/**/*", "types/**/*"]
+  "include": ["src/**/*", "types/**/*"]
 }

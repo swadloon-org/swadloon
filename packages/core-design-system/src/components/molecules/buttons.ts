@@ -1,24 +1,27 @@
 import { CSSBorder } from '../../css/border';
 import { BasicCSSProperties } from '../../utilities/types';
-import { SizingStep } from '../../foundations/sizing';
+import { SizeCSSVar, SIZING, Sizing, SizingStep } from '../../foundations/sizing';
 
 export enum ButtonVariant {
   primary = 'primary',
+  primaryReversed = 'primaryReversed',
   secondary = 'secondary',
+  secondaryReversed = 'secondaryReversed',
   tertiary = 'tertiary',
-}
-
-export enum ButtonIcon {
-  none = 'none',
-  icon = 'icon',
-  left = 'left',
-  right = 'right',
+  tertiaryReversed = 'tertiaryReversed',
 }
 
 export enum ButtonSize {
   large = 'large',
   medium = 'medium',
   small = 'small',
+}
+
+export enum ButtonIcon {
+  none = 'none', // default
+  icon = 'icon',
+  left = 'left',
+  right = 'right',
 }
 
 export enum ButtonState {
@@ -31,24 +34,34 @@ export enum ButtonState {
 
 export interface ButtonProps {
   variant?: ButtonVariant;
-  icon?: ButtonIcon;
   size?: ButtonSize;
+  icon?: ButtonIcon;
   state?: ButtonState;
 }
 
-export type ButtonSizes = { [key in keyof typeof ButtonSize]: ButtonVariants };
-
+export type ButtonSizes = { [key in keyof typeof ButtonSize]: ButtonSizeStyle };
 export type ButtonVariants = { [key in keyof typeof ButtonVariant]: ButtonStyle };
 
 export interface ButtonStyle {
-  height?: SizingStep;
-  padding?: SizingStep;
-  border?: CSSBorder;
+  color?: string;
+  colorIcon?: string;
+  borderColor?: string;
+  background?: string;
+  backgroundColor?: string;
+}
 
-  background?: Pick<BasicCSSProperties, 'background'>;
-  backgroundColor?: Pick<BasicCSSProperties, 'backgroundColor'>;
+export interface ButtonSizeStyle {
+  width?: String | undefined;
+  height?: SIZING;
+  padding?: SIZING;
+  paddingV?: SIZING;
+  paddingH?: SIZING;
+  borderStyle?: CSSBorder;
+  borderWidth?: CSSBorder;
+  borderRadius?: CSSBorder;
 }
 
 export interface Buttons {
+  variants: ButtonVariants;
   sizes: ButtonSizes;
 }

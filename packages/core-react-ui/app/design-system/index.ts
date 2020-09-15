@@ -7,7 +7,7 @@ import { sizing } from './sizing';
 import { typography } from './typography';
 
 export const theme: DesignSystem = {
-  name: 'mir',
+  name: 'core-react-ui',
   variation: 'light',
   colors,
   colorIntents,

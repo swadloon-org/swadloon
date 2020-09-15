@@ -1,6 +1,5 @@
-import { cssLoader, scssLoader, bundleVisualizerPlugin } from 'core-webpack-config';
-import { WebpackLoaders, WebpackPlugins, CreateBabelConfigArgs } from 'gatsby';
-import TreatPlugin from 'treat/webpack-plugin';
+import { cssLoader, getTreatCSSPlugin, scssLoader } from 'core-webpack-config';
+import { CreateBabelConfigArgs, WebpackLoaders, WebpackPlugins } from 'gatsby';
 import { WebpackOptions } from 'webpack/declarations/WebpackOptions';
 
 export function createGatsbyWebpackConfig({
@@ -19,14 +18,8 @@ export function createGatsbyWebpackConfig({
   if (stage === 'develop-html') return {};
 
   const commonPlugins = [
-    /**
-     * TreatCSS Webpack Plugin
-     * @see https://seek-oss.github.io/treat/webpack-options/
-     */
-    new TreatPlugin({
-      localIdentName: '[name]_[local]_[hash:base64:5]',
-      themeIdentName: '_[name]-[local]_',
-      outputCSS: isSSR ? false : true, // https://seek-oss.github.io/treat/setup#server-side-rendering
+    getTreatCSSPlugin({
+      isSSR,
       outputLoaders: [loaders.miniCssExtract()],
     }),
   ];

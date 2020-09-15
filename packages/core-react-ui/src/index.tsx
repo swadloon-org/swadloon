@@ -1,4 +1,4 @@
-export * from './components/button/button.component';
+export * from './components/button/button';
 
 export * from './components/seo/meta-basic';
 export * from './components/seo/metadata-website';

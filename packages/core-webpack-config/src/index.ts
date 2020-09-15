@@ -18,7 +18,8 @@ export { scssLoader } from './loaders/scss-loader';
 /**
  * Preconfigured plugins
  */
-export { bundleVisualizerPlugin } from './plugins/bundle-visualizer-plugin';
+export * from './plugins/bundle-visualizer-plugin';
+export * from './plugins/treat-css-plugin';
 
 /**
  * Other webpack configs
