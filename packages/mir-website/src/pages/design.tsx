@@ -5,7 +5,6 @@ import { ActionSection } from '../components/action-section/action-section';
 import { Heading } from '../components/heading';
 import { Label } from '../components/label';
 import { Paragraph } from '../components/paragraph';
-import { Process } from '../components/process-section/process-section';
 import { Button } from '../core-react-ui/core-button';
 import { Layout } from '../layouts';
 import * as styleRefs from '../templates/index-page.treat';

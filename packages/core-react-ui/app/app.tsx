@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from 'core-react-ui';
+import { Button } from '../src/components/button/button';
 
 import * as styleRefs from './app.treat';
 import { useStyles } from 'react-treat';
