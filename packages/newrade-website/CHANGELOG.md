@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/newrade-website@1.1.1...newrade-website@1.2.0) (2020-09-16)
+
+### Bug Fixes
+
+- **lakhos-website:** fix wrong import ([6bb9d36](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/6bb9d361e830c4a19a6cfc3fb59c72adfb95c4cc))
+- **repo:** rework .gitignore and eslint config files ([f8f584e](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/f8f584e5fbdcfa87e79a2b3d53780e40b51ea8c0))
+
+### Features
+
+- **core-design-system:** add Sizing.sizes to access CSS variables more easily (var()) ([3db4195](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/3db41956b5a91b05f0f2651472a0cbbd4dd826cc))
+- **mir-website:** add gatsby config for seo ([5a68bce](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/5a68bce2df6ac71f533850e91f5686e3b7d352ec))
+- **mir-website:** some fixes ([254280a](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/254280a3c72c579d6a6f7689e7ad602291638dee))
+
 ## [1.1.1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/newrade-website@1.1.0...newrade-website@1.1.1) (2020-09-02)
 
 ### Bug Fixes

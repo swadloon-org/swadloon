@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/core-cli@1.1.1...core-cli@1.2.0) (2020-09-16)
+
+### Bug Fixes
+
+- **core-cli:** revert bad change ([bde6146](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/bde6146922385b342b96ab600046cd32daf0d474))
+- **repo:** rework .gitignore and eslint config files ([f8f584e](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/f8f584e5fbdcfa87e79a2b3d53780e40b51ea8c0))
+
+### Features
+
+- **core-design-system:** add Sizing.sizes to access CSS variables more easily (var()) ([3db4195](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/3db41956b5a91b05f0f2651472a0cbbd4dd826cc))
+- **mir-website:** some fixes ([254280a](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/254280a3c72c579d6a6f7689e7ad602291638dee))
+
 ## [1.1.1](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/core-cli@1.1.0...core-cli@1.1.1) (2020-09-02)
 
 **Note:** Version bump only for package core-cli

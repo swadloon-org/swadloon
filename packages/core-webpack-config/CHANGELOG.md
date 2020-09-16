@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.2](https://github.com/newrade/newrade/compare/core-webpack-config@1.2.1...core-webpack-config@1.2.2) (2020-09-16)
+
+### Bug Fixes
+
+- **mir-website:** remove yarn clean before each yarn build ([e201a90](https://github.com/newrade/newrade/commit/e201a90373e98a1efd21f26e977a479e755f5c07))
+- **repo:** rework .gitignore and eslint config files ([f8f584e](https://github.com/newrade/newrade/commit/f8f584e5fbdcfa87e79a2b3d53780e40b51ea8c0))
+
 ## [1.2.1](https://github.com/newrade/newrade/compare/core-webpack-config@1.2.0...core-webpack-config@1.2.1) (2020-09-02)
 
 ### Bug Fixes
