@@ -14,11 +14,11 @@ export const MetadataTwitterTags: React.FC<Props> = (props) => {
 
 export function getMetadataTwitterTags({ card, site, creator, image, imageAlt }: Props) {
   return [
-    card ? <meta property="twitter:card" content={card} /> : null,
-    site ? <meta property="twitter:site" content={site} /> : null,
-    creator ? <meta property="twitter:creator" content={creator} /> : null,
-    image ? <meta property="twitter:image" content={image} /> : null,
-    imageAlt ? <meta property="twitter:imageAlt" content={imageAlt} /> : null,
+    card ? <meta name="twitter:card" content={card} /> : null,
+    site ? <meta name="twitter:site" content={site} /> : null,
+    creator ? <meta name="twitter:creator" content={creator} /> : null,
+    image ? <meta name="twitter:image" content={image} /> : null,
+    imageAlt ? <meta name="twitter:imageAlt" content={imageAlt} /> : null,
   ].map((tag, index) => {
     return tag ? <meta key={index} {...tag.props} /> : null;
   });

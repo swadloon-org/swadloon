@@ -6,7 +6,7 @@ import {
 } from 'core-react-ui';
 import { graphql } from 'gatsby';
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from 'react-helmet';
 import { ContactPageEnQuery } from '../../types/graphql-types';
 import { LayoutEN } from '../layouts/en';
 import { Contact } from '../templates/contact-page.template';

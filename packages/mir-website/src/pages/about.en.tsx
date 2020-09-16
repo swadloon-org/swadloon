@@ -6,7 +6,7 @@ import {
 } from 'core-react-ui';
 import { graphql } from 'gatsby';
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from 'react-helmet';
 import { LayoutEN } from '../layouts/en';
 import { AboutPageEnQuery } from '../../types/graphql-types';
 import { About } from '../templates/about-page.template';

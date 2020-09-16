@@ -6,7 +6,7 @@ import {
 } from 'core-react-ui';
 import { graphql } from 'gatsby';
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from 'react-helmet';
 import { NotFoundPageFrQuery } from '../../types/graphql-types';
 import Layout from '../layouts';
 

@@ -6,7 +6,7 @@ import {
 } from 'core-react-ui';
 import { graphql } from 'gatsby';
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from 'react-helmet';
 import { BlogPageFrQuery } from '../../types/graphql-types';
 import { LayoutFR } from '../layouts/fr';
 import { Blog } from '../templates/blog-page.template';

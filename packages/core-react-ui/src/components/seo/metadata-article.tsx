@@ -15,13 +15,13 @@ export const MetadataOpenGraphArticle: React.FC<Props> = ({
 }) => {
   return (
     <>
-      <html lang={locale ? locale : 'en_US'} />
+      <html lang={locale ? locale : 'en_US'} prefix="og: https://ogp.me/ns#" />
 
-      {title ? <meta property="og:title" content={title} /> : null}
-      {type ? <meta property="og:type" content={type} /> : null}
       {url ? <meta property="og:url" content={url} /> : null}
-      {image ? <meta property="og:image" content={image} /> : null}
+      {type ? <meta property="og:type" content={type} /> : null}
+      {title ? <meta property="og:title" content={title} /> : null}
       {description ? <meta property="og:description" content={description} /> : null}
+      {image ? <meta property="og:image" content={image} /> : null}
       {site_name ? <meta property="og:site_name" content={site_name} /> : null}
       {locale ? <meta property="og:locale" content={locale} /> : null}
       {localeAlternate ? <meta property="og:locale:alternate" content={localeAlternate} /> : null}

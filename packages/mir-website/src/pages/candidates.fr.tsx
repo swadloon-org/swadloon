@@ -6,7 +6,7 @@ import {
 } from 'core-react-ui';
 import { graphql } from 'gatsby';
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from 'react-helmet';
 import { CandidatePageFrQuery } from '../../types/graphql-types';
 import { LayoutFR } from '../layouts/fr';
 import { Candidate } from '../templates/candidates-page.template';
