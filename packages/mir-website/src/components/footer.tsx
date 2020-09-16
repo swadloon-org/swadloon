@@ -11,7 +11,7 @@ import * as styleRefs from './footer.treat';
 import { LABEL, VIEWPORT } from 'core-design-system';
 import { useViewportBreakpoint } from '../hooks/use-viewport.hook';
 
-export const query = graphql`
+export const footerQuery = graphql`
   query footer {
     gcms {
       companyInfos {
@@ -38,7 +38,7 @@ export const query = graphql`
 type OwnProps = {};
 
 export const Footer: React.FC<OwnProps> = (props) => {
-  const data = useStaticQuery<FooterQuery>(query);
+  const data = useStaticQuery<FooterQuery>(footerQuery);
   const styles = useStyles(styleRefs);
   const { viewport } = useViewportBreakpoint();
 
@@ -103,7 +103,7 @@ export const Footer: React.FC<OwnProps> = (props) => {
         </div>
 
         <div className={styles.firm}>
-          <Logo type="framed-text" variant="reversed" src={`${data?.gcms?.companyMedias[0]?.logoFooter?.url}`}></Logo>
+          <Logo type="framed-text" variant="reversed" src={`${data?.gcms?.companyInfos[0]?.logoFooter?.url}`}></Logo>
         </div>
 
         <Paragraph className={styles.copyright} variant="small">

@@ -60,10 +60,6 @@ const EmployerPage: React.FC<PageProps> = (props) => {
           creator: `${props.data.gcms.metadataTwitters[0].creator}`,
           site: `${props.data.gcms.metadataTwitters[0].site}`,
         })}
-
-        <meta charSet="utf-8" />
-        <title>MIR - Recrutement technique - Employeurs</title>
-        <link rel="canonical" href="https://mir-website-master.netlify.com" />
       </Helmet>
       <Employer {...props} />
     </LayoutEN>

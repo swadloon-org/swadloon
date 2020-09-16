@@ -15,13 +15,13 @@ type OwnProps = {
   onOpenSideMenu: () => void;
 } & HTMLAttributes<any>;
 
-export const query = graphql`
+export const sideBarQuery = graphql`
   query mobileBar {
     site {
       ...SiteMetadata
     }
     gcms {
-      companyMedias {
+      companyInfos {
         logo {
           url
         }
@@ -32,12 +32,12 @@ export const query = graphql`
 
 export const SideBar: React.FC<OwnProps> = (props) => {
   const styles = useStyles(stylesRef);
-  const data = useStaticQuery<MobileBarQuery>(query);
+  const data = useStaticQuery<MobileBarQuery>(sideBarQuery);
 
   return (
     <div className={`${props.className || ''} ${styles.wrapper} ${styles[props.state]}`}>
       <div className={styles.topContainer}>
-        <img className={styles.logo} src={data?.gcms?.companyMedias[0]?.logo?.url} />
+        <img className={styles.logo} src={data?.gcms?.companyInfos[0]?.logo?.url} />
         <div className={styles.icon} onClick={(e) => props.onOpenSideMenu()}>
           <Icon icon="IconClose" size={ICON_SIZE.large}></Icon>
         </div>

@@ -1,6 +1,6 @@
 import { graphql } from 'gatsby';
 
-export const query = graphql`
+export const blogSectionsQuery = graphql`
   fragment BlogSections on GraphCMS_BlogSection {
     id
     title

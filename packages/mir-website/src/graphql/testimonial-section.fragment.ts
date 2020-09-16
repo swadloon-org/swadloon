@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby';
 
-export const query = graphql`
-  fragment TestimoialSection on GraphCMS_TestimoialSection {
+export const testimonialSectionQuery = graphql`
+  fragment TestimonialSection on GraphCMS_TestimonialSection {
     title
     titleHighlight
     description

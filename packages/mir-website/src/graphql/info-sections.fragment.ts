@@ -1,6 +1,6 @@
 import { graphql } from 'gatsby';
 
-export const query = graphql`
+export const infoSectionsQuery = graphql`
   fragment InfoSections on GraphCMS_InfoSection {
     title
     titleHighlight

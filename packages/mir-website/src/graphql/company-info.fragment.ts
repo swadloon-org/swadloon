@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby';
 
-export const siteMetadataQuery = graphql`
-  fragment CompanyInfo on GraphCMS_CompanyInfos {
+export const companyInfoQuery = graphql`
+  fragment CompanyInfo on GraphCMS_CompanyInfo {
     companyName
     linkedinPageUrl
     facebookPageUrl

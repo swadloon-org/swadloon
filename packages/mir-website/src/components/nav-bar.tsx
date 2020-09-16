@@ -13,13 +13,13 @@ type OwnProps = {
   onOpenSideMenu: () => void;
 };
 
-export const query = graphql`
+export const navBarQuery = graphql`
   query topBar {
     site {
       ...SiteMetadata
     }
     gcms {
-      companyMedias {
+      companyInfos {
         logo {
           url
         }
@@ -29,7 +29,7 @@ export const query = graphql`
 `;
 
 export const NavBar: React.FC<OwnProps> = (props) => {
-  const data = useStaticQuery<TopBarQuery>(query);
+  const data = useStaticQuery<TopBarQuery>(navBarQuery);
   const styles = useStyles(stylesRef);
 
   return (
@@ -47,7 +47,7 @@ export const NavBar: React.FC<OwnProps> = (props) => {
           <Link to="/about">À propos</Link>
         </div>
 
-        <img className={styles.logo} src={data?.gcms?.companyMedias[0]?.logo?.url} />
+        <img className={styles.logo} src={data?.gcms?.companyInfos[0]?.logo?.url} />
 
         <div className={styles.mobileRightToolbar}>
           <Label variant={LABEL.smallBoldUppercase} className={styles.language}>

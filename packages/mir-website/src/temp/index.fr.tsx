@@ -14,22 +14,27 @@ import { Index } from '../templates/index-page.template';
 export const query = graphql`
   query IndexPageFR {
     site {
-      ...SiteMetadata
-    }
-    gcms {
-      companyInfos(first: 1) {
-        ...CompanyInfo
-      }
-      pages(where: { name: "Home" }, locales: fr) {
-        ...Page
+      siteMetadata {
+        siteUrl
       }
     }
-    bannerImageMobile: file(name: { eq: "ImageOffice05" }) {
-      ...MobileFluidImage
-    }
-    bannerImageDesktop: file(name: { eq: "ImageOffice05" }) {
-      ...DesktopFluidImage
-    }
+    # site {
+    #   ...SiteMetadata
+    # }
+    # gcms {
+    #   companyInfos(first: 1) {
+    #     ...CompanyInfo
+    #   }
+    #   pages(where: { name: "Home" }, locales: fr) {
+    #     ...Page
+    #   }
+    # }
+    # bannerImageMobile: file(name: { eq: "ImageOffice05" }) {
+    #   ...MobileFluidImage
+    # }
+    # bannerImageDesktop: file(name: { eq: "ImageOffice05" }) {
+    #   ...DesktopFluidImage
+    # }
   }
 `;
 
@@ -42,7 +47,7 @@ const IndexPage: React.FC<PageProps> = (props) => {
   return (
     <LayoutFR>
       <Helmet>
-        {getMetaBasicTags()}
+        {/* {getMetaBasicTags()}
         {getMetadataOpenGraphWebsiteTags({
           type: OPEN_GRAPH_TYPE.WEBSITE,
           title: `${props.data.gcms.pages[0].metadata?.title}`,
@@ -56,9 +61,9 @@ const IndexPage: React.FC<PageProps> = (props) => {
           card: 'summary',
           creator: `${props.data.gcms.metadataTwitters[0].creator}`,
           site: `${props.data.gcms.metadataTwitters[0].site}`,
-        })}
+        })} */}
       </Helmet>
-      <Index {...props} />
+      {/* <Index {...props} /> */}
     </LayoutFR>
   );
 };

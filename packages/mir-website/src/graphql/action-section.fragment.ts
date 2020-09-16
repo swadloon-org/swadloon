@@ -1,6 +1,6 @@
 import { graphql } from 'gatsby';
 
-export const query = graphql`
+export const actionSectionQuery = graphql`
   fragment ActionSection on GraphCMS_ActionSection {
     type
     title

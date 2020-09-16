@@ -11,8 +11,12 @@ import { NavBar } from '../components/nav-bar';
 import { Newsletter } from '../components/newsletter/newsletter';
 import { theme } from '../design-system/index';
 import * as stylesRef from './index-page.treat';
-import { PageProps } from '../pages/index.en';
 import { SideBar } from '../components/side-bar';
+
+interface PageProps {
+  data: IndexPageFrQuery;
+  location: Location;
+}
 
 export const Index: React.FC<PageProps> = ({ data, location }) => {
   const styles = useStyles(stylesRef);

@@ -1,6 +1,6 @@
 import { graphql } from 'gatsby';
 
-export const query = graphql`
+export const pageQuery = graphql`
   fragment Page on GraphCMS_Page {
     name
     title
@@ -27,7 +27,7 @@ export const query = graphql`
       ...ProcessSections
     }
     testimonialSections {
-      ...TestimoialSection
+      ...TestimonialSection
     }
   }
 `;
