@@ -1,6 +1,7 @@
 import { CSSBorder } from '../../css/border';
 import { BasicCSSProperties } from '../../utilities/types';
 import { SizeCSSVar, SIZING, Sizing, SizingStep } from '../../foundations/sizing';
+import { BoxStyle } from './box';
 
 export enum ButtonVariant {
   primary = 'primary',
@@ -9,6 +10,11 @@ export enum ButtonVariant {
   secondaryReversed = 'secondaryReversed',
   tertiary = 'tertiary',
   tertiaryReversed = 'tertiaryReversed',
+}
+
+export enum ButtonAs {
+  button = 'button',
+  a = 'a',
 }
 
 export enum ButtonSize {
@@ -33,6 +39,10 @@ export enum ButtonState {
 }
 
 export interface ButtonProps {
+  /**
+   * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/button_role
+   */
+  role: string;
   variant?: ButtonVariant;
   size?: ButtonSize;
   icon?: ButtonIcon;
@@ -50,15 +60,9 @@ export interface ButtonStyle {
   backgroundColor?: string;
 }
 
-export interface ButtonSizeStyle {
+export interface ButtonSizeStyle extends BoxStyle {
   width?: String | undefined;
   height?: SIZING;
-  padding?: SIZING;
-  paddingV?: SIZING;
-  paddingH?: SIZING;
-  borderStyle?: CSSBorder;
-  borderWidth?: CSSBorder;
-  borderRadius?: CSSBorder;
 }
 
 export interface Buttons {
