@@ -13,33 +13,22 @@ import { About } from '../templates/about-page.template';
 
 export const query = graphql`
   query AboutPageFR {
-    bannerImage: file(name: { eq: "ImageOffice01" }) {
-      id
-      childImageSharp {
-        # https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-transformer-sharp/src/fragments.js
-        fluid(quality: 90, maxWidth: 1920) {
-          base64
-          aspectRatio
-          src
-          srcSet
-          srcWebp
-          srcSetWebp
-          sizes
-        }
-      }
+    site {
+      ...SiteMetadata
     }
     gcms {
-      aboutPages(first: 1, locales: fr) {
-        ...AboutPage
+      companyInfos(first: 1) {
+        ...CompanyInfo
       }
-      metadataWebsites(first: 1) {
-        siteName
-        siteUrl
+      pages(where: { name: "About" }, locales: fr) {
+        ...Page
       }
-      metadataTwitters(first: 1) {
-        creator
-        site
-      }
+    }
+    bannerImageMobile: file(name: { eq: "ImageOffice01" }) {
+      ...MobileFluidImage
+    }
+    bannerImageDesktop: file(name: { eq: "ImageOffice01" }) {
+      ...DesktopFluidImage
     }
   }
 `;

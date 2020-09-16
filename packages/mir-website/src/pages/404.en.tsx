@@ -11,7 +11,7 @@ import { NotFoundPageFrQuery } from '../../types/graphql-types';
 import Layout from '../layouts';
 
 export const query = graphql`
-  query NotFoundPageFR {
+  query NotFoundPageEN {
     site {
       ...SiteMetadata
     }
@@ -19,7 +19,7 @@ export const query = graphql`
       companyInfos(first: 1) {
         ...CompanyInfo
       }
-      pages(where: { name: "Not Found" }, locales: fr) {
+      pages(where: { name: "Not Found" }, locales: en) {
         ...Page
       }
     }

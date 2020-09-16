@@ -12,34 +12,23 @@ import { LayoutEN } from '../layouts/en';
 import { Blog } from '../templates/blog-page.template';
 
 export const query = graphql`
-  query blogPageEN {
-    bannerImage: file(name: { eq: "ImageOffice03" }) {
-      id
-      childImageSharp {
-        # https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-transformer-sharp/src/fragments.js
-        fluid(quality: 90, maxWidth: 1920) {
-          base64
-          aspectRatio
-          src
-          srcSet
-          srcWebp
-          srcSetWebp
-          sizes
-        }
-      }
+  query BlogPageEN {
+    site {
+      ...SiteMetadata
     }
     gcms {
-      blogPages(first: 1, locales: en) {
-        ...BlogPage
+      companyInfos(first: 1) {
+        ...CompanyInfo
       }
-      metadataWebsites(first: 1) {
-        siteName
-        siteUrl
+      pages(where: { name: "Blog" }, locales: en) {
+        ...Page
       }
-      metadataTwitters(first: 1) {
-        creator
-        site
-      }
+    }
+    bannerImageMobile: file(name: { eq: "ImageOffice03" }) {
+      ...MobileFluidImage
+    }
+    bannerImageDesktop: file(name: { eq: "ImageOffice03" }) {
+      ...DesktopFluidImage
     }
   }
 `;

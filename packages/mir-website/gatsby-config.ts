@@ -29,8 +29,8 @@ log(`SITE_URL is ${env.SITE_URL}`, {
  */
 const config: GastbySiteConfig = {
   siteMetadata: {
-    title: `My Gatsby Site`,
-    description: `An example site.`,
+    title: `MIR Website`,
+    description: `Gatsby powered MIR website`,
     siteUrl: env.SITE_URL,
     languages: {
       langs: [SITE_LANGUAGES.FR, SITE_LANGUAGES.EN],
@@ -70,6 +70,17 @@ const config: GastbySiteConfig = {
         theme_color: `#a2466c`,
         display: `standalone`,
         icon: `src/illustrations/Logo/LogoFavicon.png`,
+      },
+    },
+    /**
+     * gatsby-source-graphcms
+     * @see https://github.com/GraphCMS/gatsby-source-graphcms/tree/next/gatsby-source-graphcms
+     */
+    {
+      resolve: 'gatsby-source-graphcms',
+      options: {
+        endpoint: env.GRAPH_CMS_API_URL_MIR,
+        token: env.GRAPH_CMS_AUTH_TOKEN_MIR,
       },
     },
     /**

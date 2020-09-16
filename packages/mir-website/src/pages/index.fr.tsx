@@ -12,28 +12,23 @@ import { LayoutFR } from '../layouts/fr';
 import { Index } from '../templates/index-page.template';
 
 export const query = graphql`
-  query indexPageFR {
+  query IndexPageFR {
     site {
       ...SiteMetadata
+    }
+    gcms {
+      companyInfos(first: 1) {
+        ...CompanyInfo
+      }
+      pages(where: { name: "Home" }, locales: fr) {
+        ...Page
+      }
     }
     bannerImageMobile: file(name: { eq: "ImageOffice05" }) {
       ...MobileFluidImage
     }
     bannerImageDesktop: file(name: { eq: "ImageOffice05" }) {
       ...DesktopFluidImage
-    }
-    gcms {
-      indexPages(first: 1, locales: fr) {
-        ...IndexPage
-      }
-      metadataWebsites(first: 1) {
-        siteName
-        siteUrl
-      }
-      metadataTwitters(first: 1) {
-        creator
-        site
-      }
     }
   }
 `;
@@ -50,9 +45,9 @@ const IndexPage: React.FC<PageProps> = (props) => {
         {getMetaBasicTags()}
         {getMetadataOpenGraphWebsiteTags({
           type: OPEN_GRAPH_TYPE.WEBSITE,
-          title: `${props.data.gcms.indexPages[0].metadata?.title}`,
-          url: `${props.data.gcms.metadataWebsites[0].siteUrl}${props.data.gcms.indexPages[0].metadata?.route}`,
-          description: `${props.data.gcms.indexPages[0].metadata?.description}`,
+          title: `${props.data.gcms.pages[0].metadata?.title}`,
+          url: `${props.data.gcms.metadataWebsites[0].siteUrl}${props.data.gcms.pages[0].metadata?.route}`,
+          description: `${props.data.gcms.pages[0].metadata?.description}`,
           site_name: `${props.data.gcms.metadataWebsites[0].siteName}`,
           locale: 'fr_CA',
           localeAlternate: 'en_CA',

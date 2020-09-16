@@ -14,6 +14,10 @@ export const query = graphql`
       title
       text
     }
+    infoChecks {
+      id
+      text
+    }
     childs {
       showTabs
       title

@@ -12,39 +12,23 @@ import { LayoutEN } from '../layouts/en';
 import { Candidate } from '../templates/candidates-page.template';
 
 export const query = graphql`
-  query CandidatePageEn {
+  query CandidatePageEN {
     site {
       ...SiteMetadata
     }
-
-    bannerImage: file(name: { eq: "ImageOffice02" }) {
-      id
-      childImageSharp {
-        # https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-transformer-sharp/src/fragments.js
-        fluid(quality: 90, maxWidth: 1920) {
-          base64
-          aspectRatio
-          src
-          srcSet
-          srcWebp
-          srcSetWebp
-          sizes
-        }
+    gcms {
+      companyInfos(first: 1) {
+        ...CompanyInfo
+      }
+      pages(where: { name: "Candidates" }, locales: en) {
+        ...Page
       }
     }
-
-    gcms {
-      candidatePages(first: 1, locales: en) {
-        ...CandidatePage
-      }
-      metadataWebsites(first: 1) {
-        siteName
-        siteUrl
-      }
-      metadataTwitters(first: 1) {
-        creator
-        site
-      }
+    bannerImageMobile: file(name: { eq: "ImageOffice02" }) {
+      ...MobileFluidImage
+    }
+    bannerImageDesktop: file(name: { eq: "ImageOffice02" }) {
+      ...DesktopFluidImage
     }
   }
 `;
@@ -73,10 +57,6 @@ const CandidatePage: React.FC<CandidatesPageProps> = (props) => {
           creator: `${props.data.gcms.metadataTwitters[0].creator}`,
           site: `${props.data.gcms.metadataTwitters[0].site}`,
         })}
-
-        <meta charSet="utf-8" />
-        <title>MIR - Recrutement technique - Employeurs</title>
-        <link rel="canonical" href="https://mir-website-master.netlify.com" />
       </Helmet>
       <Candidate {...props} />
     </LayoutEN>

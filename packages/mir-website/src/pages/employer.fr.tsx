@@ -11,63 +11,24 @@ import { LayoutFR } from '../layouts/fr';
 import { EmployerPageFrQuery } from '../../types/graphql-types';
 import { Employer } from '../templates/employer-page.template';
 
-// bannerImage: file(name: { eq: "ImageOffice04" }) {
-//     id
-//     childImageSharp {
-//       # https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-transformer-sharp/src/fragments.js
-//       fluid(quality: 90, maxWidth: 1920) {
-//         base64
-//         aspectRatio
-//         src
-//         srcSet
-//         srcWebp
-//         srcSetWebp
-//         sizes
-//       }
-//     }
-//   }
-
-// bannerImageMobile: file(name: { eq: "ImageOffice04" }) {
-//     ...MobileFluidImage
-//   }
-//   bannerImageDesktop: file(name: { eq: "ImageOffice04" }) {
-//     ...DesktopFluidImage
-//   }
-
 export const query = graphql`
   query EmployerPageFR {
     site {
       ...SiteMetadata
     }
-
-    bannerImage: file(name: { eq: "ImageOffice04" }) {
-      id
-      childImageSharp {
-        # https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-transformer-sharp/src/fragments.js
-        fluid(quality: 90, maxWidth: 1920) {
-          base64
-          aspectRatio
-          src
-          srcSet
-          srcWebp
-          srcSetWebp
-          sizes
-        }
+    gcms {
+      companyInfos(first: 1) {
+        ...CompanyInfo
+      }
+      pages(where: { name: "Employers" }, locales: fr) {
+        ...Page
       }
     }
-
-    gcms {
-      employerPages(first: 1, locales: fr) {
-        ...EmployerPage
-      }
-      metadataWebsites(first: 1) {
-        siteName
-        siteUrl
-      }
-      metadataTwitters(first: 1) {
-        creator
-        site
-      }
+    bannerImageMobile: file(name: { eq: "ImageOffice04" }) {
+      ...MobileFluidImage
+    }
+    bannerImageDesktop: file(name: { eq: "ImageOffice04" }) {
+      ...DesktopFluidImage
     }
   }
 `;

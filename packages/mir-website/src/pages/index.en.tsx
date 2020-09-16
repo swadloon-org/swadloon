@@ -12,28 +12,23 @@ import { LayoutEN } from '../layouts/en';
 import { Index } from '../templates/index-page.template';
 
 export const query = graphql`
-  query indexPageEN {
+  query IndexPageEN {
     site {
       ...SiteMetadata
+    }
+    gcms {
+      companyInfos(first: 1) {
+        ...CompanyInfo
+      }
+      pages(where: { name: "Home" }, locales: en) {
+        ...Page
+      }
     }
     bannerImageMobile: file(name: { eq: "ImageOffice05" }) {
       ...MobileFluidImage
     }
     bannerImageDesktop: file(name: { eq: "ImageOffice05" }) {
       ...DesktopFluidImage
-    }
-    gcms {
-      indexPages(first: 1, locales: en) {
-        ...IndexPage
-      }
-      metadataWebsites(first: 1) {
-        siteName
-        siteUrl
-      }
-      metadataTwitters(first: 1) {
-        creator
-        site
-      }
     }
   }
 `;
