@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/compare/core-jest-config@1.2.1...core-jest-config@1.3.0) (2020-09-16)
+
+### Bug Fixes
+
+- **mir-website:** remove yarn clean before each yarn build ([e201a90](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/e201a90373e98a1efd21f26e977a479e755f5c07))
+- **repo:** rework .gitignore and eslint config files ([f8f584e](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/f8f584e5fbdcfa87e79a2b3d53780e40b51ea8c0))
+
+### Features
+
+- **core-design-system:** add Sizing.sizes to access CSS variables more easily (var()) ([3db4195](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/3db41956b5a91b05f0f2651472a0cbbd4dd826cc))
+
 ## [1.2.1](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/compare/core-jest-config@1.2.0...core-jest-config@1.2.1) (2020-09-02)
 
 ### Bug Fixes

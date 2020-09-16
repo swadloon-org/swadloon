@@ -1,6 +1,6 @@
 {
   "name": "mir-website",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Gatsby website for newrade's main website",
   "author": {
     "email": "elliot@newrade.ca",
@@ -12,9 +12,10 @@
   "scripts": {
     "build": "gatsby build",
     "clean": "gatsby clean",
+    "refresh": "curl -X POST http://localhost:9001/__refresh",
     "serve": "gatsby serve",
-    "prestart": "yarn clean",
-    "start": "gatsby develop -p 9001 -H 0.0.0.0",
+    "prestart": "gatsby clean",
+    "start": "cross-env ENABLE_GATSBY_REFRESH_ENDPOINT=true gatsby develop -p 9001 -H 0.0.0.0",
     "sync-figma": "core-cli sync-figma ",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },

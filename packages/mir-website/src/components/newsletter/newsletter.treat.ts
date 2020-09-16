@@ -7,15 +7,15 @@ import { globalStyle, style } from 'treat';
 
 export const wrapper = style((theme: DesignSystem) => ({
   backgroundColor: theme.colors.primary500,
-  paddingTop: `var(${theme.sizing.sizeCSSVarNames.X6})`,
-  paddingBottom: `var(${theme.sizing.sizeCSSVarNames.X6})`,
+  paddingTop: `${theme.sizing.sizes.x6}`,
+  paddingBottom: `${theme.sizing.sizes.x6}`,
 
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
-      padding: `0 ${theme.layout.contentMargins.TABLET.valuePx}`,
+    [theme.layout.media.tablet]: {
+      padding: `0 ${theme.layout.contentMargins.tablet.px}`,
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
-      padding: `0 ${theme.layout.contentMargins.DESKTOP.valuePx}`,
+    [theme.layout.media.desktop]: {
+      padding: `0 ${theme.layout.contentMargins.desktop.px}`,
     },
   },
 }));
@@ -25,11 +25,11 @@ export const wrapper = style((theme: DesignSystem) => ({
 //
 
 export const container = style((theme: DesignSystem) => ({
-  margin: `0 ${theme.layout.contentMargins.MOBILE.valuePx}`,
+  margin: `0 ${theme.layout.contentMargins.mobile.px}`,
 
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
-      padding: `var(${theme.sizing.sizeCSSVarNames.X6}) 0`,
+    [theme.layout.media.tablet]: {
+      padding: `${theme.sizing.sizes.x6} 0`,
       margin: '0 auto',
       display: 'grid',
       gridTemplateColumns: 'repeat(12, 1fr)',
@@ -37,10 +37,9 @@ export const container = style((theme: DesignSystem) => ({
       gridTemplateRows: 'auto',
       columnGap: '20px',
     },
-
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+    [theme.layout.media.desktop]: {
       maxWidth: '1200px',
-      padding: `var(${theme.sizing.sizeCSSVarNames.X6}) 0`,
+      padding: `${theme.sizing.sizes.x6} 0`,
       margin: '0 auto',
       display: 'grid',
       gridTemplateColumns: 'repeat(12, 1fr)',
@@ -48,7 +47,7 @@ export const container = style((theme: DesignSystem) => ({
       gridTemplateRows: 'auto',
       columnGap: '20px',
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_MEDIUM.valuePx})`]: {
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopMedium.px})`]: {
       gridTemplateAreas: "'content content content content content . form form form . . .'",
     },
   },
@@ -60,10 +59,7 @@ export const container = style((theme: DesignSystem) => ({
 
 export const content = style((theme: DesignSystem) => ({
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
-      gridArea: 'content',
-    },
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+    [theme.layout.media.tabletPlus]: {
       gridArea: 'content',
     },
   },
@@ -75,10 +71,10 @@ export const content = style((theme: DesignSystem) => ({
 
 export const containerForm = style((theme: DesignSystem) => ({
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+    [theme.layout.media.tabletPlus]: {
       gridArea: 'form',
     },
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+    [theme.layout.media.desktop]: {
       gridArea: 'form',
     },
   },
@@ -92,8 +88,7 @@ export const formulaire = style((theme: DesignSystem) => ({
   display: 'grid',
 
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {},
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {},
+    [theme.layout.media.tabletPlus]: {},
   },
 }));
 
@@ -106,7 +101,7 @@ export const subtitle = style((theme: DesignSystem) => ({
   color: theme.colors.greyscale0Reversed,
 
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+    [theme.layout.media.tabletPlus]: {
       textAlign: 'left',
     },
   },
@@ -117,16 +112,16 @@ export const subtitle = style((theme: DesignSystem) => ({
 //
 
 export const title = style((theme: DesignSystem) => ({
-  marginTop: `var(${theme.sizing.sizeCSSVarNames.X5})`,
-  marginBottom: `var(${theme.sizing.sizeCSSVarNames.X5})`,
+  marginTop: `${theme.sizing.sizes.x5}`,
+  marginBottom: `${theme.sizing.sizes.x5}`,
   textAlign: 'center',
   color: theme.colors.greyscale0Reversed,
 
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.TABLET_PORTRAIT.valuePx})`]: {
+    [theme.layout.media.tabletPlus]: {
       textAlign: 'left',
-      marginTop: `var(${theme.sizing.sizeCSSVarNames.X4})`,
-      marginBottom: `var(${theme.sizing.sizeCSSVarNames.X4})`,
+      marginTop: `${theme.sizing.sizes.x4}`,
+      marginBottom: `${theme.sizing.sizes.x4}`,
     },
   },
 }));
@@ -136,5 +131,5 @@ export const title = style((theme: DesignSystem) => ({
 //
 
 globalStyle(`${formulaire} input`, (theme: DesignSystem) => ({
-  marginBottom: `var(${theme.sizing.sizeCSSVarNames.X3})`,
+  marginBottom: `${theme.sizing.sizes.x3}`,
 }));

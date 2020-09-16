@@ -1,62 +1,70 @@
-import { Layout, BREAKPOINT, VIEWPORT } from 'core-design-system';
+import { Layout, BREAKPOINT, Breakpoints, VIEWPORT } from 'core-design-system';
+
+const breakpoints: Breakpoints = {
+  [BREAKPOINT.mobileXSmall]: {
+    value: 320,
+    px: `320px`,
+  },
+  [BREAKPOINT.mobileSmall]: {
+    value: 375,
+    px: `375px`,
+  },
+  [BREAKPOINT.mobileMedium]: {
+    value: 414,
+    px: `414px`,
+  },
+  [BREAKPOINT.tabletPortrait]: {
+    value: 768,
+    px: `768px`,
+  },
+  [BREAKPOINT.tabletLandscape]: {
+    value: 1024,
+    px: `1024px`,
+  },
+  [BREAKPOINT.desktopSmall]: {
+    value: 1280,
+    px: `1280px`,
+  },
+  [BREAKPOINT.desktopMedium]: {
+    value: 1440,
+    px: `1440px`,
+  },
+  [BREAKPOINT.desktopLarge]: {
+    value: 1600,
+    px: `1600px`,
+  },
+  [BREAKPOINT.desktopXLarge]: {
+    value: 1920,
+    px: `1920px`,
+  },
+};
 
 export const DEFAULT_LAYOUT: Layout = {
-  breakpoints: {
-    [BREAKPOINT.MOBILE_X_SMALL]: {
-      value: 320,
-      valuePx: `320px`,
-    },
-    [BREAKPOINT.MOBILE_SMALL]: {
-      value: 375,
-      valuePx: `375px`,
-    },
-    [BREAKPOINT.MOBILE_MEDIUM]: {
-      value: 414,
-      valuePx: `414px`,
-    },
-    [BREAKPOINT.TABLET_PORTRAIT]: {
-      value: 768,
-      valuePx: `768px`,
-    },
-    [BREAKPOINT.TABLET_LANDSCAPE]: {
-      value: 1024,
-      valuePx: `1024px`,
-    },
-    [BREAKPOINT.DESKTOP_SMALL]: {
-      value: 1280,
-      valuePx: `1280px`,
-    },
-    [BREAKPOINT.DESKTOP_MEDIUM]: {
-      value: 1440,
-      valuePx: `1440px`,
-    },
-    [BREAKPOINT.DESKTOP_LARGE]: {
-      value: 1600,
-      valuePx: `1600px`,
-    },
-    [BREAKPOINT.DESKTOP_X_LARGE]: {
-      value: 1920,
-      valuePx: `1920px`,
-    },
+  breakpoints,
+  media: {
+    [VIEWPORT.mobile]: `screen and (max-width: ${breakpoints.tabletPortrait.px})`,
+    [VIEWPORT.tablet]: `screen and (min-width: ${breakpoints.tabletPortrait.px}) and (max-width: ${breakpoints.desktopSmall.px})`,
+    tabletPlus: `screen and (min-width: ${breakpoints.tabletPortrait.px}) `,
+    [VIEWPORT.desktop]: `screen and (min-width: ${breakpoints.desktopSmall.px})`,
   },
   contentMargins: {
-    [VIEWPORT.MOBILE]: {
+    [VIEWPORT.mobile]: {
       value: 24,
-      valuePx: `24px`,
+      px: `24px`,
     },
-    [VIEWPORT.TABLET]: {
+    [VIEWPORT.tablet]: {
       value: 40,
-      valuePx: `40px`,
+      px: `40px`,
     },
-    [VIEWPORT.DESKTOP]: {
+    [VIEWPORT.desktop]: {
       value: 40,
-      valuePx: `40px`,
+      px: `40px`,
     },
   },
   contentWidth: {
     desktopMaxWidth: {
       value: 1200,
-      valuePx: `1200px`,
+      px: `1200px`,
     },
   },
 };

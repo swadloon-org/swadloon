@@ -24,6 +24,10 @@ export type BoxShadow = {
    * The box shadow's color.
    */
   color: Color;
+  /**
+   * The box-shadow property
+   */
+  css: string;
 };
 
 /**
@@ -39,7 +43,7 @@ export type Shadows = {
  * Representation of a background, either a plain background with a color
  * or a transparent background with a blurring effect.
  */
-export type Background = {
+export type OverlayBackground = {
   color: Color;
   blur?: number;
 };
@@ -48,9 +52,9 @@ export type Background = {
  * Levels of overlays in the system.
  */
 export type Overlays = {
-  light: Background;
-  medium: Background;
-  heavy: Background;
+  light: OverlayBackground;
+  medium: OverlayBackground;
+  heavy: OverlayBackground;
 } & { [key: string]: string };
 
 /**
@@ -58,5 +62,5 @@ export type Overlays = {
  */
 export interface Effects {
   shadows: Shadows;
-  overlays: Overlays;
+  // overlays: Overlays;
 }

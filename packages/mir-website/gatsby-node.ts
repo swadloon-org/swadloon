@@ -145,8 +145,13 @@ export const onCreateNode: GatsbyNode['onCreateNode'] = async ({
 };
 
 export const onPreBootstrap: GatsbyNode['onPreBootstrap'] = (args, options, callback) => {
+  log(`GATSBY_ENABLE_INCREMENTAL_BUILD is set to "${process.env.GATSBY_ENABLE_INCREMENTAL_BUILD}"`, {
+    toolName: 'mir-website',
+  });
+
   if (process.env.GATSBY_ENABLE_INCREMENTAL_BUILD !== 'true') {
     callback(null);
+    return;
   }
 
   log(`rebuilding core-* packages for gatsby cloud's incremental build`, {

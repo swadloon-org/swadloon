@@ -1,0 +1,21 @@
+[alias]
+	c = commit
+	ck = checkout
+	a = add --all
+	p = push
+	s = status
+	up = pull upstream master
+	tree-stat = log --graph --all --decorate --stat --date=iso
+	tree = log --graph --all --decorate=short --date=iso --oneline
+	ca = commit --amend --no-edit
+
+[user]
+	name = <github-username>
+	email = <github-email>
+
+[merge "npm-merge-driver"]
+	name = automatically merge npm lockfiles
+	driver = npx npm-merge-driver merge %A %O %B %P
+
+[fetch]
+	prune = true

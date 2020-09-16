@@ -10,6 +10,7 @@ export enum ICON_NAME {
   ARROW_RIGHT = 'arrow-right',
   ARROW_BOTTOM = 'arrow-bottom',
   ARROW_LEFT = 'arrow-left',
+  CARET = 'CARET',
 }
 
 export interface Icon {

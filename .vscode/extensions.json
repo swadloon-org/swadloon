@@ -12,6 +12,7 @@
     "eg2.vscode-npm-script",
     "wmaurer.change-case",
     "GitHub.vscode-pull-request-github",
-    "cschleiden.vscode-github-actions"
+    "cschleiden.vscode-github-actions",
+    "yzhang.markdown-all-in-one"
   ]
 }

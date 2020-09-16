@@ -16,10 +16,12 @@
   },
   "scripts": {
     "autorelease": "lerna version --conventional-commits --create-release github",
-    "build": "lerna run --concurrency=1 build",
-    "build:mir": "yarn build --scope '{core-*,mir-website}'",
+    "build": "lerna run build",
+    "build:core": "yarn build --scope core-*",
+    "build:mir": "yarn build --scope '{core-*,mir-*}'",
+    "build:newrade": "yarn build --scope '{core-*,newrade-*}'",
     "changelog": "lerna version --conventional-commits --no-push",
-    "clean": "lerna run --concurrency=1 clean",
+    "clean": "lerna run clean",
     "cli": "nr",
     "commit": "lint-staged && git-cz",
     "fork": "ts-node --script-mode scripts/fork-repo.ts",
@@ -32,24 +34,12 @@
     "reset": "npm i -g rimraf && rimraf -r ./node_modules packages/**/node_modules && yarn",
     "set-permissions": "chmod a+x node_modules/.bin/nr-core-cli",
     "start": "lerna run --parallel start",
+    "start:core": "yarn start --scope core-*",
     "start:lakhos": "yarn start --scope '{core-*,lakhos-website}'",
-    "start:mir": "yarn start --scope '{core-*,mir-website}'",
-    "start:newrade": "yarn start --scope '{core-*,newrade-website}'",
+    "start:mir": "yarn start --scope '{core-*,mir-*}'",
+    "start:newrade": "yarn start --scope '{core-*,newrade-*}'",
     "test": "lerna run --concurrency=1 test",
     "yo": "nr-core-yo-generator"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn format:changelog"
-    }
-  },
-  "lint-staged": {
-    "**/package.json": [
-      "format-package -w"
-    ],
-    "*.{js,ts,tsx}": [
-      "yarn lint:fix"
-    ]
   },
   "resolutions": {
     "**/packages/core-design-system": "link:./packages/core-design-system",
@@ -57,9 +47,16 @@
     "webpack": "^4.43.0"
   },
   "dependencies": {
+    "@popmotion/popcorn": "^0.4.4",
     "framer-motion": "^2.6.5",
+    "i18next": "^19.7.0",
+    "i18next-browser-languagedetector": "^6.0.1",
+    "i18next-fetch-backend": "^3.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-helmet": "^6.1.0",
+    "react-helmet-async": "^1.0.6",
+    "react-i18next": "^11.7.2",
     "react-lazyload": "^3.0.0",
     "react-treat": "^1.4.1"
   },
@@ -77,6 +74,7 @@
     "@types/node": "^14.0.11",
     "@types/puppeteer": "^3.0.0",
     "@types/react": "^16.9.35",
+    "@types/react-dom": "^16.9.8",
     "@types/yeoman-assert": "^3.1.1",
     "@types/yeoman-generator": "^3.1.4",
     "@types/yeoman-test": "^2.0.4",
@@ -88,8 +86,10 @@
     "babel-plugin-treat": "^1.1.0",
     "capsize": "^1.1.0",
     "chalk": "^4.0.0",
+    "concurrently": "^5.3.0",
     "conventional-changelog-cli": "^2.0.34",
     "copy-webpack-plugin": "^5.0.5",
+    "cross-env": "^7.0.2",
     "css-loader": "^2.1.1",
     "csstype": "^2.6.3",
     "cz-conventional-changelog": "^3.2.0",
@@ -110,9 +110,13 @@
     "gatsby": "^2.19.5",
     "gatsby-background-image": "^1.1.2",
     "gatsby-image": "^2.4.14",
+    "gatsby-plugin-i18n": "^1.0.1",
     "gatsby-plugin-manifest": "^2.4.21",
+    "gatsby-plugin-react-helmet": "^3.3.10",
     "gatsby-plugin-remote-images": "^2.2.0",
+    "gatsby-plugin-robots-txt": "^1.5.1",
     "gatsby-plugin-sharp": "^2.4.0",
+    "gatsby-plugin-sitemap": "^2.4.12",
     "gatsby-transformer-sharp": "^2.5.14",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
@@ -128,6 +132,7 @@
     "mocha": "^7.2.0",
     "next": "^9.4.4",
     "node-sass": "^4.12.0",
+    "polished": "^3.6.6",
     "prettier": "^2.0.5",
     "puppeteer": "^3.3.0",
     "rimraf": "^3.0.2",

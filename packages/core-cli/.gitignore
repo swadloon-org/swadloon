@@ -1,9 +1,6 @@
-*-debug.log
-*-error.log
+# specific to oclif
 /.nyc_output
 /dist
 /lib
-/package-lock.json
 /tmp
-node_modules
 !/bin

@@ -1,7 +1,5 @@
 import { Color } from 'csstype';
-
-import { Buttons } from './components/buttons';
-
+import { Buttons } from './components/molecules/buttons';
 import { ColorIntents, Colors } from './foundations/colors';
 import { Effects } from './foundations/effects';
 import { Iconography } from './foundations/iconography';
@@ -30,7 +28,7 @@ export interface DesignSystem {
   /**
    * Shadows, elevation, blurs and other visual effects.
    */
-  effects?: Effects;
+  effects: Effects;
   /**
    * Defines the system's sizing values.
    */
@@ -56,13 +54,23 @@ export interface DesignSystem {
   /**
    * Components' specific settings.
    */
-  components?: {
+  components: {
     buttons: Buttons;
-    link: {
-      color: Color;
-      visited: Color;
-      hover: Color;
-      active: Color;
-    };
+    // inputs: any;
+    // // TOOD
+    // links: {
+    //   small: {
+    //     color: Color;
+    //     visited: Color;
+    //     hover: Color;
+    //     active: Color;
+    //   };
+    //   medium: {
+    //     color: Color;
+    //     visited: Color;
+    //     hover: Color;
+    //     active: Color;
+    //   };
+    // };
   };
 }

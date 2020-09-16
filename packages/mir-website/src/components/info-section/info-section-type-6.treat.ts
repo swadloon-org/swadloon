@@ -8,7 +8,7 @@ import { style, globalStyle } from 'treat';
 export const wrapper = style((theme: DesignSystem) => ({
   display: 'grid',
   justifyItems: 'center',
-  padding: `var(${theme.sizing.sizeCSSVarNames.X6}) ${theme.layout.contentMargins.MOBILE.valuePx}`,
+  padding: `${theme.sizing.sizes.x6} ${theme.layout.contentMargins.mobile.px}`,
 }));
 
 //
@@ -44,7 +44,7 @@ export const type6Tertiary = style((theme: DesignSystem) => ({
 //
 
 export const illustration = style((theme: DesignSystem) => ({
-  marginBottom: `var(${theme.sizing.sizeCSSVarNames.X5})`,
+  marginBottom: `${theme.sizing.sizes.x5}`,
 }));
 
 globalStyle(`${type6Primary} ${illustration} path`, (theme: DesignSystem) => ({
@@ -60,7 +60,7 @@ globalStyle(` ${illustration} path`, (theme: DesignSystem) => ({
 //
 
 export const title = style((theme: DesignSystem) => ({
-  marginBottom: `var(${theme.sizing.sizeCSSVarNames.X5})`,
+  marginBottom: `${theme.sizing.sizes.x5}`,
 }));
 
 //
@@ -70,13 +70,13 @@ export const title = style((theme: DesignSystem) => ({
 export const text = style((theme: DesignSystem) => ({
   textAlign: 'center',
   whiteSpace: 'pre-wrap', // handle mutli-line text
-  marginBottom: `var(${theme.sizing.sizeCSSVarNames.X5})`,
+  marginBottom: `${theme.sizing.sizes.x5}`,
   color: 'currentColor',
 
   maxWidth: '400px',
 
   '@media': {
-    [`screen and (min-width: ${theme.layout.breakpoints.DESKTOP_SMALL.valuePx})`]: {
+    [theme.layout.media.desktop]: {
       textAlign: 'center',
       maxWidth: '500px',
     },

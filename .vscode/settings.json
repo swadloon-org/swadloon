@@ -5,8 +5,11 @@
     "editor.formatOnSave": false
   },
   "search.exclude": {
+    "**/*.js.map": true,
     "**/node_modules": true,
     "**/lib": true,
-    "**/.cache": true
+    "**/.cache/**/*": true,
+    "**/yarn.lock": true,
+    "**/public/**/*": true
   }
 }

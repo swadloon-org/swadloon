@@ -1,43 +1,64 @@
 {
   "folders": [
     {
-      "path": "../"
+      "name": "newrade",
+      "path": ".."
     },
     {
-      "path": "../packages/core-cli"
+      "name": "docs",
+      "path": "..\\docs"
     },
     {
-      "path": "../packages/core-design-system"
+      "name": "core-cli",
+      "path": "..\\packages\\core-cli"
     },
     {
-      "path": "../packages/core-docs-generator"
+      "name": "core-design-system",
+      "path": "..\\packages\\core-design-system"
     },
     {
-      "path": "../packages/core-gatsby-config"
+      "name": "core-docs-generator",
+      "path": "..\\packages\\core-docs-generator"
     },
     {
-      "path": "../packages/core-jest-config"
+      "name": "core-gatsby-config",
+      "path": "..\\packages\\core-gatsby-config"
     },
     {
-      "path": "../packages/core-react-ui"
+      "name": "core-jest-config",
+      "path": "..\\packages\\core-jest-config"
     },
     {
-      "path": "../packages/core-utils"
+      "name": "core-react-ui",
+      "path": "..\\packages\\core-react-ui"
     },
     {
-      "path": "../packages/core-webpack-config"
+      "name": "core-utils",
+      "path": "..\\packages\\core-utils"
     },
     {
-      "path": "../packages/core-yo-generator"
+      "name": "core-webpack-config",
+      "path": "..\\packages\\core-webpack-config"
     },
     {
-      "path": "../packages/newrade-website"
+      "name": "core-yo-generator",
+      "path": "..\\packages\\core-yo-generator"
     },
     {
-      "path": "../packages/lakhos-website"
+      "name": "newrade-website",
+      "path": "..\\packages\\newrade-website"
     },
     {
-      "path": "../packages/mir-website"
+      "name": "newrade-app",
+      "path": "..\\packages\\newrade-app"
+    },
+    {
+      "name": "lakhos-website",
+      "path": "..\\packages\\lakhos-website"
+    },
+    {
+      "name": "mir-website",
+      "path": "..\\packages\\mir-website"
     }
   ],
   "settings": {
