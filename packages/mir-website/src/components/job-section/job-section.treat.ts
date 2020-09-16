@@ -56,6 +56,8 @@ export const containerBloc = style((theme: DesignSystem) => ({}));
 //
 export const content = style((theme: DesignSystem) => ({
   paddingBottom: theme.sizing.sizes.x4,
+  display: 'grid',
+  gridColumn: '1',
 
   '@media': {
     [theme.layout.media.tabletPlus]: {
@@ -74,7 +76,9 @@ export const content = style((theme: DesignSystem) => ({
   },
 }));
 
-export const contentTag = style((theme: DesignSystem) => ({
+export const withTags = style((theme: DesignSystem) => ({
+  gridGap: `${theme.sizing.sizes.x3} 0`,
+
   '@media': {
     [theme.layout.media.tabletPlus]: {
       gridGap: `${theme.sizing.sizes.x3} ${theme.sizing.sizes.x4}`,
@@ -85,7 +89,7 @@ export const contentTag = style((theme: DesignSystem) => ({
   },
 }));
 
-export const contentCheck = style((theme: DesignSystem) => ({
+export const withCheck = style((theme: DesignSystem) => ({
   '@media': {
     [theme.layout.media.tabletPlus]: {
       gridGap: `0 ${theme.sizing.sizes.x4}`,
@@ -99,17 +103,11 @@ export const contentCheck = style((theme: DesignSystem) => ({
 //
 // unselected
 //
-export const unselected = style((theme: DesignSystem) => ({
-  // height: '0px',
-  // visibility: 'hidden',
-}));
+export const unselected = style((theme: DesignSystem) => ({}));
 //
 // selected
 //
-export const selected = style((theme: DesignSystem) => ({
-  // visibility: 'visible',
-  // paddingBottom: theme.sizing.sizes.x4,
-}));
+export const selected = style((theme: DesignSystem) => ({}));
 
 //
 // accordions

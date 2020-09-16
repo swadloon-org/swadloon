@@ -79,7 +79,7 @@ export function JobSection(props: OwnProps) {
                   <AnimatePresence>
                     {index === selectedAccordionsIndex && (
                       <motion.div
-                        className={`${styles.content} ${styles.contentCheck} ${
+                        className={`${styles.content} ${styles.withCheck} ${
                           index === selectedAccordionsIndex ? styles.selected : styles.unselected
                         } `}
                         style={{ gridTemplateRows: `repeat(${RowNumber}, 1fr)` }}
@@ -138,9 +138,7 @@ export function JobSection(props: OwnProps) {
                   <AnimatePresence>
                     {index === selectedAccordionsIndex && (
                       <motion.div
-                        className={`${styles.content} ${styles.contentTag} ${
-                          index === selectedAccordionsIndex ? styles.selected : styles.unselected
-                        }`}
+                        className={`${styles.content} ${styles.withTags} `}
                         style={{ gridTemplateRows: `repeat(${RowNumber}, 1fr)` }}
                         key="content"
                         initial="collapsed"
