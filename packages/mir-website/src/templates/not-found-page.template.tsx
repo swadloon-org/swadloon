@@ -1,7 +1,7 @@
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { Heading } from '../src/components/heading';
-import { Paragraph } from '../src/components/paragraph';
+import { Heading } from '../components/heading';
+import { Paragraph } from '../components/paragraph';
 import * as stylesRef from './not-found-page.treat';
 
 interface PageProps {

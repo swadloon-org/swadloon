@@ -7,13 +7,12 @@ import {
 import { graphql } from 'gatsby';
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { NotFoundPageFrQuery } from '../types/graphql-types';
-import Layout from '../src/layouts';
-import LayoutEN from '../src/layouts/en';
+import { NotFoundPageFrQuery } from '../../types/graphql-types';
+import LayoutFR from '../layouts/fr';
 import { NotFoundPageTemplate } from '../templates/not-found-page.template';
 
 export const query = graphql`
-  query NotFoundPageEN {
+  query NotFoundPageFR {
     site {
       ...SiteMetadata
     }
@@ -21,7 +20,7 @@ export const query = graphql`
       companyInfos(first: 1) {
         ...CompanyInfo
       }
-      pages(where: { name: "Not Found" }, locales: [en, fr]) {
+      pages(where: { name: "Not Found" }, locales: [fr, en]) {
         ...Page
       }
     }
@@ -35,7 +34,7 @@ interface PageProps {
 
 const NotFoundPage: React.FC<PageProps> = (props) => {
   return (
-    <LayoutEN>
+    <LayoutFR {...props}>
       <Helmet>
         {getMetaBasicTags()}
         {getMetadataOpenGraphWebsiteTags({
@@ -55,7 +54,7 @@ const NotFoundPage: React.FC<PageProps> = (props) => {
         })}
       </Helmet>
       <NotFoundPageTemplate {...props} />
-    </LayoutEN>
+    </LayoutFR>
   );
 };
 

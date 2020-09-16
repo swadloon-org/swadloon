@@ -8,12 +8,11 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { NotFoundPageFrQuery } from '../../types/graphql-types';
-import Layout from '../layouts';
-import LayoutFR from '../layouts/fr';
+import LayoutEN from '../layouts/en';
 import { NotFoundPageTemplate } from '../templates/not-found-page.template';
 
 export const query = graphql`
-  query NotFoundPageFR {
+  query NotFoundPageEN {
     site {
       ...SiteMetadata
     }
@@ -21,7 +20,7 @@ export const query = graphql`
       companyInfos(first: 1) {
         ...CompanyInfo
       }
-      pages(where: { name: "Not Found" }, locales: [fr, en]) {
+      pages(where: { name: "Not Found" }, locales: [en, fr]) {
         ...Page
       }
     }
@@ -35,7 +34,7 @@ interface PageProps {
 
 const NotFoundPage: React.FC<PageProps> = (props) => {
   return (
-    <LayoutFR>
+    <LayoutEN {...props}>
       <Helmet>
         {getMetaBasicTags()}
         {getMetadataOpenGraphWebsiteTags({
@@ -45,8 +44,8 @@ const NotFoundPage: React.FC<PageProps> = (props) => {
           description: `${props.data.gcms.pages[0]?.description}`,
           image: `${props.data.gcms.pages[0]?.bannerImages[0]?.url}`,
           site_name: `${props.data.gcms.companyInfos[0].metadataSiteName}`,
-          locale: 'fr_CA',
-          localeAlternate: 'en_CA',
+          locale: 'en_CA',
+          localeAlternate: 'fr_CA',
         })}
         {getMetadataTwitterTags({
           card: 'summary',
@@ -55,7 +54,7 @@ const NotFoundPage: React.FC<PageProps> = (props) => {
         })}
       </Helmet>
       <NotFoundPageTemplate {...props} />
-    </LayoutFR>
+    </LayoutEN>
   );
 };
 
