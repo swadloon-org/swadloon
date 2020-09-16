@@ -1,5 +1,3 @@
-export * from './components/button/button';
-
 export * from './components/seo/meta-basic';
 export * from './components/seo/metadata-website';
 export * from './components/seo/metadata-twitter';

@@ -25,7 +25,6 @@ export const About: React.FC<AboutProps> = ({ data, location }) => {
     setSideMenuState(sideMenuState === 'openend' ? 'closed' : 'openend');
   }
 
-  console.log(testimonialSections);
   return (
     <div className={`${styles.wrapper}`}>
       <NavBar onOpenSideMenu={onOpenSideMenu}></NavBar>

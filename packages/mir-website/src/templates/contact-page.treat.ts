@@ -1,5 +1,4 @@
 import { DesignSystem } from 'core-design-system';
-import { applyStylesToHtmlElement, applyStylesToBodyElement, applyReset } from '../styles/global.styles';
 import { style } from 'treat';
 
 export const globalStyle = style((theme: DesignSystem) => ({
@@ -11,7 +10,3 @@ export const wrapper = style((theme: DesignSystem) => ({
   width: '100vw',
   backgroundColor: theme.colors.greyscale0,
 }));
-
-applyReset(globalStyle);
-applyStylesToHtmlElement(globalStyle);
-applyStylesToBodyElement(globalStyle);

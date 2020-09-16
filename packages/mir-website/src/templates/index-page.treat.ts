@@ -12,6 +12,14 @@ export const wrapper = style((theme: DesignSystem) => ({
   backgroundColor: theme.colors.greyscale0,
 }));
 
+export const sidebar = style((theme: DesignSystem) => ({
+  '@media': {
+    [theme.layout.media.desktop]: {
+      display: 'none',
+    },
+  },
+}));
+
 applyReset(globalStyle);
 applyStylesToHtmlElement(globalStyle);
 applyStylesToBodyElement(globalStyle);

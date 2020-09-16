@@ -33,7 +33,7 @@ export const Index: React.FC<PageProps> = ({ data, location }) => {
   return (
     <div className={`${styles.wrapper}`}>
       <NavBar onOpenSideMenu={onOpenSideMenu}></NavBar>
-      <SideBar state={sideMenuState} onOpenSideMenu={onOpenSideMenu}></SideBar>
+      <SideBar className={`${styles.sidebar}`} state={sideMenuState} onOpenSideMenu={onOpenSideMenu}></SideBar>
       <BannerPrimary
         imageData={sources}
         title={data?.gcms?.indexPages[0]?.bannerTitle}

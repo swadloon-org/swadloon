@@ -55,7 +55,6 @@ export const ImageFrame: React.FC<OwnProps & HTMLAttributes<any>> = (props) => {
   ];
 
   const arrayIndex = wrap(0, props.indexChildren, page);
-  console.log(arrayIndex);
 
   return (
     <div className={`${props.className || ''} ${styles.wrapper}`}>
