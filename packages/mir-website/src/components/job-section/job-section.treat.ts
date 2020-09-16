@@ -55,6 +55,8 @@ export const containerBloc = style((theme: DesignSystem) => ({}));
 // content
 //
 export const content = style((theme: DesignSystem) => ({
+  paddingBottom: theme.sizing.sizes.x4,
+
   '@media': {
     [theme.layout.media.tabletPlus]: {
       display: 'grid',
@@ -98,15 +100,15 @@ export const contentCheck = style((theme: DesignSystem) => ({
 // unselected
 //
 export const unselected = style((theme: DesignSystem) => ({
-  height: '0px',
-  visibility: 'hidden',
+  // height: '0px',
+  // visibility: 'hidden',
 }));
 //
 // selected
 //
 export const selected = style((theme: DesignSystem) => ({
-  visibility: 'visible',
-  paddingBottom: theme.sizing.sizes.x4,
+  // visibility: 'visible',
+  // paddingBottom: theme.sizing.sizes.x4,
 }));
 
 //

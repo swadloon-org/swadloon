@@ -4,6 +4,8 @@ import { Accordions } from '../accordions';
 import { Tags } from '../tags';
 import { CheckLabel } from '../info-section-check';
 import * as styleRefs from './job-section.treat';
+import { motion, AnimatePresence } from 'framer-motion';
+
 import { RenderTitleHighlight } from '../info-section/info-title-highligh';
 import {
   Maybe,
@@ -74,23 +76,35 @@ export function JobSection(props: OwnProps) {
                     </Accordions>
                   </div>
 
-                  <div
-                    className={`${styles.content} ${styles.contentCheck} ${
-                      index === selectedAccordionsIndex ? styles.selected : styles.unselected
-                    } `}
-                    style={{ gridTemplateRows: `repeat(${RowNumber}, 1fr)` }}
-                  >
-                    {props?.jobSection?.groups[index].typeName?.jobGroup[0].jobs.map((job, index) => {
-                      return (
-                        <div className={`${index % 2 == 0 ? styles.even : styles.unenven}`} key={index}>
-                          <CheckLabel illustration="IllustrationCheck" size="medium">
-                            {job.title}
-                          </CheckLabel>
-                        </div>
-                      );
-                    })}
-                  </div>
-                  {/* {selectedAccordionsIndex === index ? getMediaModifier(true, value) : getMediaModifier(false, value)} */}
+                  <AnimatePresence>
+                    {index === selectedAccordionsIndex && (
+                      <motion.div
+                        className={`${styles.content} ${styles.contentCheck} ${
+                          index === selectedAccordionsIndex ? styles.selected : styles.unselected
+                        } `}
+                        style={{ gridTemplateRows: `repeat(${RowNumber}, 1fr)` }}
+                        key="content"
+                        initial="collapsed"
+                        animate="open"
+                        exit="collapsed"
+                        variants={{
+                          open: { opacity: 1, height: 'auto' },
+                          collapsed: { opacity: 0, height: 0 },
+                        }}
+                        transition={{ duration: 0.8, ease: [0.2, 0.62, 0.23, 0.98] }}
+                      >
+                        {props?.jobSection?.groups[index].typeName?.jobGroup[0].jobs.map((job, index) => {
+                          return (
+                            <div className={`${index % 2 == 0 ? styles.even : styles.unenven}`} key={index}>
+                              <CheckLabel illustration="IllustrationCheck" size="medium">
+                                {job.title}
+                              </CheckLabel>
+                            </div>
+                          );
+                        })}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
               );
             })}
@@ -120,21 +134,34 @@ export function JobSection(props: OwnProps) {
                       {jobType.typeName?.title}
                     </Accordions>
                   </div>
-                  <div
-                    className={`${styles.content} ${styles.contentTag} ${
-                      index === selectedAccordionsIndex ? styles.selected : styles.unselected
-                    }`}
-                    style={{ gridTemplateRows: `repeat(${RowNumber}, 1fr)` }}
-                  >
-                    {props?.jobSection?.groups[index].typeName?.jobGroup[0].jobs.map((job, index) => {
-                      return (
-                        <div className={styles.tagsUnique} key={index}>
-                          <Tags numberIndex={`${index < 9 ? '0' : ''}${index + 1}`}> {job.title}</Tags>
-                        </div>
-                      );
-                    })}
-                  </div>
-                  {/* {selectedAccordionsIndex === index ? getMediaModifier(true, value) : getMediaModifier(false, value)} */}
+
+                  <AnimatePresence>
+                    {index === selectedAccordionsIndex && (
+                      <motion.div
+                        className={`${styles.content} ${styles.contentTag} ${
+                          index === selectedAccordionsIndex ? styles.selected : styles.unselected
+                        }`}
+                        style={{ gridTemplateRows: `repeat(${RowNumber}, 1fr)` }}
+                        key="content"
+                        initial="collapsed"
+                        animate="open"
+                        exit="collapsed"
+                        variants={{
+                          open: { opacity: 1, height: 'auto' },
+                          collapsed: { opacity: 0, height: 0 },
+                        }}
+                        transition={{ duration: 0.8, ease: [0.2, 0.62, 0.23, 0.98] }}
+                      >
+                        {props?.jobSection?.groups[index].typeName?.jobGroup[0].jobs.map((job, index) => {
+                          return (
+                            <div className={styles.tagsUnique} key={index}>
+                              <Tags numberIndex={`${index < 9 ? '0' : ''}${index + 1}`}> {job.title}</Tags>
+                            </div>
+                          );
+                        })}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
               );
             })}
