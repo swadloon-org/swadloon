@@ -76,13 +76,13 @@ const config: GastbySiteConfig = {
      * gatsby-source-graphcms
      * @see https://github.com/GraphCMS/gatsby-source-graphcms/tree/next/gatsby-source-graphcms
      */
-    {
-      resolve: 'gatsby-source-graphcms',
-      options: {
-        endpoint: env.GRAPH_CMS_API_URL_MIR,
-        token: env.GRAPH_CMS_AUTH_TOKEN_MIR,
-      },
-    },
+    // {
+    //   resolve: 'gatsby-source-graphcms',
+    //   options: {
+    //     endpoint: env.GRAPH_CMS_API_URL_MIR,
+    //     token: env.GRAPH_CMS_AUTH_TOKEN_MIR,
+    //   },
+    // },
     /**
      * gatsby-plugin-react-helmet
      * @see https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-react-helmet
