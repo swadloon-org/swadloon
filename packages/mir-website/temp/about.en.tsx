@@ -7,12 +7,12 @@ import {
 import { graphql } from 'gatsby';
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { LayoutFR } from '../layouts/fr';
-import { AboutPageFrQuery } from '../../types/graphql-types';
-import { About } from '../templates/about-page.template';
+import { LayoutEN } from '../src/layouts/en';
+import { AboutPageEnQuery } from '../../types/graphql-types';
+import { About } from '../src/templates/about-page.template';
 
 export const query = graphql`
-  query AboutPageFR {
+  query AboutPageEN {
     site {
       ...SiteMetadata
     }
@@ -20,7 +20,7 @@ export const query = graphql`
       companyInfos(first: 1) {
         ...CompanyInfo
       }
-      pages(where: { name: "About" }, locales: fr) {
+      pages(where: { name: "About" }, locales: en) {
         ...Page
       }
     }
@@ -34,13 +34,13 @@ export const query = graphql`
 `;
 
 interface PageProps {
-  data: AboutPageFrQuery;
+  data: AboutPageEnQuery;
   location: Location;
 }
 
 const AboutPage: React.FC<PageProps> = (props) => {
   return (
-    <LayoutFR>
+    <LayoutEN>
       <Helmet>
         {getMetaBasicTags()}
         {getMetadataOpenGraphWebsiteTags({
@@ -49,8 +49,8 @@ const AboutPage: React.FC<PageProps> = (props) => {
           url: `${props.data.gcms.metadataWebsites[0].siteUrl}${props.data.gcms.aboutPages[0].metadata?.route}`,
           description: `${props.data.gcms.aboutPages[0].metadata?.description}`,
           site_name: `${props.data.gcms.metadataWebsites[0].siteName}`,
-          locale: 'fr_CA',
-          localeAlternate: 'en_CA',
+          locale: 'en_CA',
+          localeAlternate: 'fr_CA',
         })}
         {getMetadataTwitterTags({
           card: 'summary',
@@ -63,7 +63,7 @@ const AboutPage: React.FC<PageProps> = (props) => {
         <link rel="canonical" href="https://mir-website-master.netlify.com" />
       </Helmet>
       <About {...props} />
-    </LayoutFR>
+    </LayoutEN>
   );
 };
 

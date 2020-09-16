@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { useStyles } from 'react-treat';
 import * as stylesRef from './about-page.treat';
 
-import { BannerSecondary } from '../components/banner-secondary';
-import { Footer } from '../components/footer';
-import { NavBar } from '../components/nav-bar';
-import { Newsletter } from '../components/newsletter/newsletter';
-import { InfoSectionType2 } from '../components/info-section/info-section-type-2';
-import { Testimonial } from '../components/testimonial-section/testimonial-section';
+import { BannerSecondary } from '../src/components/banner-secondary';
+import { Footer } from '../src/components/footer';
+import { NavBar } from '../src/components/nav-bar';
+import { Newsletter } from '../src/components/newsletter/newsletter';
+import { InfoSectionType2 } from '../src/components/info-section/info-section-type-2';
+import { Testimonial } from '../src/components/testimonial-section/testimonial-section';
 import { AboutProps } from '../pages/about.en';
-import { SideBar } from '../components/side-bar';
+import { SideBar } from '../src/components/side-bar';
 
 export const About: React.FC<AboutProps> = ({ data, location }) => {
   const styles = useStyles(stylesRef);

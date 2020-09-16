@@ -12,6 +12,7 @@ import { Newsletter } from '../components/newsletter/newsletter';
 import { theme } from '../design-system/index';
 import * as stylesRef from './index-page.treat';
 import { SideBar } from '../components/side-bar';
+import { IndexPageFrQuery } from '../../types/graphql-types';
 
 interface PageProps {
   data: IndexPageFrQuery;
@@ -40,11 +41,11 @@ export const Index: React.FC<PageProps> = ({ data, location }) => {
       <SideBar className={`${styles.sidebar}`} state={sideMenuState} onOpenSideMenu={onOpenSideMenu}></SideBar>
       <BannerPrimary
         imageData={sources}
-        title={data?.gcms?.indexPages[0]?.bannerTitle}
-        subTitle={data?.gcms?.indexPages[0]?.bannerSubTitle}
+        title={data?.gcms?.pages[0]?.bannerTitle}
+        subTitle={data?.gcms?.pages[0]?.bannerSubTitle}
       ></BannerPrimary>
 
-      {data?.gcms?.indexPages[0]?.infoSections.map((section, index) => {
+      {data?.gcms?.pages[0]?.infoSections.map((section, index) => {
         switch (section.type) {
           case 'type1group': {
             return <InfoSectionType1Group key={index} {...section} />;
@@ -65,9 +66,9 @@ export const Index: React.FC<PageProps> = ({ data, location }) => {
       })}
 
       <BlogPreviewSection
-        posts={data?.gcms?.indexPages[0]?.blogSection?.posts}
-        text={data?.gcms?.indexPages[0]?.blogSection?.text}
-        title={data?.gcms?.indexPages[0]?.blogSection?.title}
+        posts={data?.gcms?.pages[0]?.blogSections[0]?.posts}
+        text={data?.gcms?.pages[0]?.blogSections[0]?.text}
+        title={data?.gcms?.pages[0]?.blogSections[0]?.title}
       ></BlogPreviewSection>
 
       <Newsletter id="newsletter"></Newsletter>

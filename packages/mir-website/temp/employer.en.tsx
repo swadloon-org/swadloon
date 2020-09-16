@@ -7,9 +7,9 @@ import {
 import { graphql } from 'gatsby';
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { LayoutEN } from '../layouts/en';
-import { EmployerPageEnQuery } from '../../types/graphql-types';
-import { Employer } from '../templates/employer-page.template';
+import { LayoutEN } from '../src/layouts/en';
+import { EmployerPageEnQuery } from '../types/graphql-types';
+import { Employer } from '../src/templates/employer-page.template';
 
 export const query = graphql`
   query EmployerPageEN {
