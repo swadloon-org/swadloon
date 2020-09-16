@@ -14,7 +14,7 @@ import { useViewportBreakpoint } from '../hooks/use-viewport.hook';
 export const query = graphql`
   query footer {
     gcms {
-      companyMedias {
+      companyInfos {
         logoFooter {
           url
         }
