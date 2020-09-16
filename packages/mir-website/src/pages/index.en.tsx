@@ -20,7 +20,7 @@ export const indexPageENQuery = graphql`
       companyInfos(first: 1) {
         ...CompanyInfo
       }
-      pages(where: { name: "Home" }, locales: en) {
+      pages(where: { name: "Home" }, locales: [en, fr]) {
         ...Page
       }
     }
@@ -40,7 +40,7 @@ interface PageProps {
 
 const IndexPage: React.FC<PageProps> = (props) => {
   return (
-    <LayoutEN>
+    <LayoutEN {...props}>
       <Helmet>
         {getMetaBasicTags()}
         {getMetadataOpenGraphWebsiteTags({

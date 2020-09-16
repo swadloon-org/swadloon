@@ -8,7 +8,9 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { NotFoundPageFrQuery } from '../../types/graphql-types';
-import Layout from '../src/layouts';
+import Layout from '../layouts';
+import LayoutFR from '../layouts/fr';
+import { NotFoundPageTemplate } from '../templates/not-found-page.template';
 
 export const query = graphql`
   query NotFoundPageFR {
@@ -19,7 +21,7 @@ export const query = graphql`
       companyInfos(first: 1) {
         ...CompanyInfo
       }
-      pages(where: { name: "Not Found" }, locales: fr) {
+      pages(where: { name: "Not Found" }, locales: [fr, en]) {
         ...Page
       }
     }
@@ -33,25 +35,27 @@ interface PageProps {
 
 const NotFoundPage: React.FC<PageProps> = (props) => {
   return (
-    <Layout>
+    <LayoutFR>
       <Helmet>
-        <title>test</title>
         {getMetaBasicTags()}
         {getMetadataOpenGraphWebsiteTags({
           type: OPEN_GRAPH_TYPE.WEBSITE,
-          title: 'test',
-          url: 'test',
-          description: 'test',
-          site_name: 'test',
-          locale: 'test',
-          localeAlternate: 'test',
+          title: `${props.data.gcms.pages[0]?.title}`,
+          url: `${props.data.site?.siteMetadata?.siteUrl}${props.data.gcms.pages[0]?.route}`,
+          description: `${props.data.gcms.pages[0]?.description}`,
+          image: `${props.data.gcms.pages[0]?.bannerImages[0]?.url}`,
+          site_name: `${props.data.gcms.companyInfos[0].metadataSiteName}`,
+          locale: 'fr_CA',
+          localeAlternate: 'en_CA',
         })}
         {getMetadataTwitterTags({
           card: 'summary',
+          creator: `${props.data.gcms.companyInfos[0].metadataTwitterCreator}`,
+          site: `${props.data.gcms.companyInfos[0].metadataTwitter}`,
         })}
       </Helmet>
-      <div>Not Found</div>
-    </Layout>
+      <NotFoundPageTemplate {...props} />
+    </LayoutFR>
   );
 };
 

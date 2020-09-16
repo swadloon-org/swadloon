@@ -1,18 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useStyles } from 'react-treat';
+import { IndexPageFrQuery } from '../../types/graphql-types';
 import { BannerPrimary } from '../components/banner-primary';
 import { BlogPreviewSection } from '../components/blog-preview/blog-preview-section';
-import { Footer } from '../components/footer';
 import { InfoSectionType1Group } from '../components/info-section/info-section-type-1-group';
 import { InfoSectionType2 } from '../components/info-section/info-section-type-2';
 import { InfoSectionType3 } from '../components/info-section/info-section-type-3';
 import { InfoSectionType4 } from '../components/info-section/info-section-type-4';
-import { NavBar } from '../components/nav-bar';
 import { Newsletter } from '../components/newsletter/newsletter';
 import { theme } from '../design-system/index';
 import * as stylesRef from './index-page.treat';
-import { SideBar } from '../components/side-bar';
-import { IndexPageFrQuery } from '../../types/graphql-types';
 
 interface PageProps {
   data: IndexPageFrQuery;
@@ -21,11 +18,6 @@ interface PageProps {
 
 export const Index: React.FC<PageProps> = ({ data, location }) => {
   const styles = useStyles(stylesRef);
-  const [sideMenuState, setSideMenuState] = useState<'openend' | 'closed'>('closed');
-
-  function onOpenSideMenu() {
-    setSideMenuState(sideMenuState === 'openend' ? 'closed' : 'openend');
-  }
 
   const sources = [
     data?.bannerImageMobile?.childImageSharp?.fluid,
@@ -37,8 +29,6 @@ export const Index: React.FC<PageProps> = ({ data, location }) => {
 
   return (
     <div className={`${styles.wrapper}`}>
-      <NavBar onOpenSideMenu={onOpenSideMenu}></NavBar>
-      <SideBar className={`${styles.sidebar}`} state={sideMenuState} onOpenSideMenu={onOpenSideMenu}></SideBar>
       <BannerPrimary
         imageData={sources}
         title={data?.gcms?.pages[0]?.bannerTitle}
@@ -72,8 +62,6 @@ export const Index: React.FC<PageProps> = ({ data, location }) => {
       ></BlogPreviewSection>
 
       <Newsletter id="newsletter"></Newsletter>
-
-      <Footer></Footer>
     </div>
   );
 };

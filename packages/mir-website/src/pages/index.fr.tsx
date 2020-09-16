@@ -1,12 +1,12 @@
 import {
   getMetaBasicTags,
   getMetadataOpenGraphWebsiteTags,
-  getMetadataTwitterTags,
   OPEN_GRAPH_TYPE,
+  getMetadataTwitterTags,
 } from 'core-react-ui';
+import { Helmet } from 'react-helmet';
 import { graphql } from 'gatsby';
 import React from 'react';
-import { Helmet } from 'react-helmet';
 import { IndexPageFrQuery } from '../../types/graphql-types';
 import { LayoutFR } from '../layouts/fr';
 import { Index } from '../templates/index-page.template';
@@ -20,7 +20,7 @@ export const indexPageFRQuery = graphql`
       companyInfos(first: 1) {
         ...CompanyInfo
       }
-      pages(where: { name: "Home" }, locales: fr) {
+      pages(where: { name: "Home" }, locales: [fr, en]) {
         ...Page
       }
     }
@@ -40,7 +40,7 @@ interface PageProps {
 
 const IndexPage: React.FC<PageProps> = (props) => {
   return (
-    <LayoutFR>
+    <LayoutFR {...props}>
       <Helmet>
         {getMetaBasicTags()}
         {getMetadataOpenGraphWebsiteTags({
