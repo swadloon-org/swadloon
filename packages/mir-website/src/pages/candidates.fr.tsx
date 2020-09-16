@@ -33,12 +33,12 @@ export const query = graphql`
   }
 `;
 
-export interface CandidatesPageProps {
+interface PageProps {
   data: CandidatePageFrQuery;
   location: Location;
 }
 
-const CandidatePage: React.FC<CandidatesPageProps> = (props) => {
+const CandidatePage: React.FC<PageProps> = (props) => {
   return (
     <LayoutFR>
       <Helmet>

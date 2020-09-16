@@ -33,12 +33,12 @@ export const query = graphql`
   }
 `;
 
-export interface ContactProps {
+interface PageProps {
   data: ContactPageEnQuery;
   location: Location;
 }
 
-const ContactPage: React.FC<ContactProps> = (props) => {
+const ContactPage: React.FC<PageProps> = (props) => {
   return (
     <LayoutEN>
       <Helmet>

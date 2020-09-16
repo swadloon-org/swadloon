@@ -9,9 +9,8 @@ import { Paragraph } from '../components/paragraph';
 import { Layout } from '../layouts';
 import * as styleRefs from '../templates/index-page.treat';
 import { Icon } from '../ui/icon';
-import { PageProps } from './index.fr';
 
-const DesignPage: React.FC<PageProps> = (props) => {
+const DesignPage: React.FC<{}> = (props) => {
   return (
     <Layout>
       <Design {...props} />

@@ -26,7 +26,7 @@ export const query = graphql`
   }
 `;
 
-export interface PageProps {
+interface PageProps {
   data: NotFoundPageFrQuery;
   location: Location;
 }

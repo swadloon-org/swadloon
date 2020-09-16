@@ -33,12 +33,12 @@ export const query = graphql`
   }
 `;
 
-export interface BlogProps {
+interface PageProps {
   data: BlogPageEnQuery;
   location: Location;
 }
 
-const BlogPage: React.FC<BlogProps> = (props) => {
+const BlogPage: React.FC<PageProps> = (props) => {
   return (
     <LayoutEN>
       <Helmet>
