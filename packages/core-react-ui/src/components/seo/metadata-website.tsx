@@ -23,7 +23,7 @@ export function getMetadataOpenGraphWebsiteTags({
   localeAlternate,
 }: Props) {
   return [
-    <html lang={locale ? locale : 'en_US'} prefix="og: https://ogp.me/ns#" />,
+    <html lang={locale ? locale : 'en_US'} />,
     title ? <title>{title}</title> : null,
     url ? <link rel="canonical" href={url} /> : null,
     description ? <meta name="description" content={description} /> : null,

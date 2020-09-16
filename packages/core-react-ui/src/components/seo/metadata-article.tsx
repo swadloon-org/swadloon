@@ -15,7 +15,7 @@ export const MetadataOpenGraphArticle: React.FC<Props> = ({
 }) => {
   return (
     <>
-      <html lang={locale ? locale : 'en_US'} prefix="og: https://ogp.me/ns#" />
+      <html lang={locale ? locale : 'en_US'} />
 
       {title ? <meta property="og:title" content={title} /> : null}
       {type ? <meta property="og:type" content={type} /> : null}
