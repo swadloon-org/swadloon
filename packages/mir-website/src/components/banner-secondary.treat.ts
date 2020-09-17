@@ -167,6 +167,7 @@ export const containerBarBottomSecondary = style((theme: DesignSystem) => ({
 
 export const bottomBarSecondary = style((theme: DesignSystem) => ({
   width: '60%',
+  marginLeft: 'auto',
   // '@media': {
   //   [theme.layout.media.tablet]: {
   //     width: '60%',

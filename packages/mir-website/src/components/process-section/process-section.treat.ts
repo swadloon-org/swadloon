@@ -1,5 +1,5 @@
 import { DesignSystem, createShadow } from 'core-design-system';
-import { style } from 'treat';
+import { globalStyle, style } from 'treat';
 import { theme } from '../../design-system';
 
 export const wrapper = style((theme: DesignSystem) => ({
@@ -31,21 +31,23 @@ export const title = style((theme: DesignSystem) => ({
 export const content = style((theme: DesignSystem) => ({
   position: 'relative',
   zIndex: 2,
-  display: 'grid',
+  display: 'flex',
   gridColumn: '1',
-  gridTemplateColumns: '1fr',
   gridGap: `${theme.sizing.sizes.x4}`,
   margin: '0 auto',
+  flexDirection: 'column',
   width: 'fit-content',
+
   '@media': {
     [theme.layout.media.desktop]: {
       justifyContent: 'center',
-      gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr 1fr',
+      flexDirection: 'row',
       gridGap: `0 ${theme.sizing.sizes.x2}`,
-      margin: `${theme.layout.contentMargins.tablet.px} 0`,
+      margin: `${theme.layout.contentMargins.tablet.px} auto`,
     },
   },
 }));
+
 export const tileProcess = style((theme: DesignSystem) => ({
   '@media': {
     [theme.layout.media.mobile]: {
@@ -58,8 +60,17 @@ export const tileProcess = style((theme: DesignSystem) => ({
       display: 'grid',
       gridTemplateAreas: `'circle text'`,
     },
+    [theme.layout.media.desktop]: {
+      marginRight: theme.sizing.sizes.x2,
+      selectors: {
+        '&:last-child': {
+          marginRight: 0,
+        },
+      },
+    },
   },
 }));
+
 export const blocNumber = style((theme: DesignSystem) => ({
   display: 'grid',
   justifyContent: 'flex-start',
@@ -75,7 +86,9 @@ export const blocNumber = style((theme: DesignSystem) => ({
     },
   },
 }));
+
 export const circle = style((theme: DesignSystem) => ({
+  position: 'relative',
   display: 'grid',
   textAlign: 'center',
   width: '50px',
@@ -91,9 +104,28 @@ export const circle = style((theme: DesignSystem) => ({
   color: theme.colors.primary500,
 
   '@media': {
-    [theme.layout.media.desktop]: {},
+    [theme.layout.media.desktop]: {
+      selectors: {
+        [`&:before`]: {
+          position: 'absolute',
+          content: `' '`,
+          top: '25px',
+          left: '100%',
+          right: 'auto',
+          borderRight: '1px solid black',
+          width: `${250 - 50}px`,
+          height: '3px',
+          backgroundColor: 'white',
+        },
+      },
+    },
   },
 }));
+
+globalStyle(`${tileProcess}:last-child ${circle}:before`, (theme: DesignSystem) => ({
+  visibility: 'hidden',
+}));
+
 export const number = style((theme: DesignSystem) => ({
   alignSelf: 'center',
   '@media': {
@@ -126,30 +158,31 @@ export const blocContent = style((theme: DesignSystem) => ({
   },
 }));
 
-export const line = style((theme: DesignSystem) => ({
-  position: 'absolute',
-  zIndex: -1,
-  border: `3px solid ${theme.colors.greyscale0}`,
-  backgroundColor: theme.colors.greyscale0,
-  width: '0',
-  top: '25px',
-  left: '22px',
-  height: '90%',
+// export const line = style((theme: DesignSystem) => ({
+//   position: 'absolute',
+//   zIndex: -1,
+//   border: `3px solid ${theme.colors.greyscale0}`,
+//   backgroundColor: theme.colors.greyscale0,
+//   width: '0',
+//   top: '25px',
+//   left: '22px',
+//   height: '90%',
 
-  '@media': {
-    [theme.layout.media.desktop]: {
-      width: '80%',
-      left: '10%',
-      height: '0',
-    },
-  },
+//   '@media': {
+//     [theme.layout.media.desktop]: {
+//       width: `calc(100% - 100px - (${theme.sizing.sizes.x2}*2))`,
+//       height: '0',
+//       left: 'auto',
+//       right: 'auto',
+//     },
+//   },
 
-  selectors: {
-    [`${blocContent} &`]: {
-      alignSelf: 'center',
-    },
-  },
-}));
+//   selectors: {
+//     [`${blocContent} &`]: {
+//       alignSelf: 'center',
+//     },
+//   },
+// }));
 
 export const contentBlue = style((theme: DesignSystem) => ({
   color: theme.colors.primary500,

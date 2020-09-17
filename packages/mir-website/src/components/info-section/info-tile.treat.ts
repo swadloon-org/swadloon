@@ -15,6 +15,8 @@ export const wrapper = style((theme: DesignSystem) => ({
   minHeight: '248px',
   height: '248px',
   width: '248px',
+
+  backgroundColor: theme.colors.greyscale0,
 }));
 
 //

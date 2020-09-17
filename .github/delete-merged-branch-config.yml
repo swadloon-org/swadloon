@@ -1,3 +1,7 @@
+#
+# Delete merged branch
+# see https://github.com/SvanBoxel/delete-merged-branch#how-it-works
+#
 exclude:
   - dev
   - master

@@ -9,8 +9,6 @@ export const wrapper = style((theme: DesignSystem) => ({
   paddingTop: `${theme.sizing.sizes.x6}`,
   paddingBottom: `${theme.sizing.sizes.x7}`,
 
-  backgroundColor: theme.colors.greyscale100,
-
   '@media': {
     [theme.layout.media.tablet]: {
       padding: `${theme.sizing.sizes.x5} ${theme.layout.contentMargins.tablet.px}`,

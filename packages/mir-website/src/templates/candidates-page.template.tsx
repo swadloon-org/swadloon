@@ -37,12 +37,12 @@ export const Candidate: React.FC<PageProps> = ({ data, location }) => {
   return (
     <main className={`${styles.wrapper}`}>
       <BannerSecondary imageData={sources} title={data?.gcms?.pages[0]?.bannerTitle}></BannerSecondary>
-      {actionSection1 ? <ActionSection variant={'Default'} /> : null}
+      {actionSection1 ? <ActionSection ActionSection={actionSection1} /> : null}
       {section1 && section1.type === 'type5' ? <InfoSectionType5 align="AlignContentLeft" {...section1} /> : null}
       {jobSection ? <JobSection jobSection={jobSection} /> : null}
       {section2 && section2.type === 'type2' ? <InfoSectionType2 align="AlignContentRight" {...section2} /> : null}
       {processSection ? <Process processSection={processSection} /> : null}
-      {actionSection2 ? <ActionSection variant={'reversed'} /> : null}
+      {actionSection2 ? <ActionSection ActionSection={actionSection2} /> : null}
     </main>
   );
 };
