@@ -1,9 +1,9 @@
 import { LABEL } from 'core-design-system';
-import { graphql, Link as GatsbyLink, useStaticQuery } from 'gatsby';
+import { Link as GatsbyLink } from 'gatsby';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { TopBarQuery } from '../../types/graphql-types';
 import Icon from '../illustrations/Icon/IconBars.svg';
+import { NavigationProps } from '../layouts';
 import { Link } from '../ui/link';
 import { Button } from './button';
 import { Label } from './label';
@@ -11,26 +11,20 @@ import * as stylesRef from './nav-bar.treat';
 
 type OwnProps = {
   onOpenSideMenu: () => void;
-};
-
-export const navBarQuery = graphql`
-  query topBar {
-    site {
-      ...SiteMetadata
-    }
-    gcms {
-      companyInfos {
-        logo {
-          url
-        }
-      }
-    }
-  }
-`;
+} & NavigationProps;
 
 export const NavBar: React.FC<OwnProps> = (props) => {
-  const data = useStaticQuery<TopBarQuery>(navBarQuery);
   const styles = useStyles(stylesRef);
+
+  const leftToolbarPageNames = ['Home', 'Candidates', 'Employers', 'Blog', 'About'];
+  const leftToolbarPages = props.pages
+    ?.filter((page) => leftToolbarPageNames.includes(page.name))
+    .sort((pageA, pageB) => {
+      const indexA = leftToolbarPageNames.indexOf(pageA.name);
+      const indexB = leftToolbarPageNames.indexOf(pageB.name);
+      return indexA > indexB ? 1 : -1;
+    });
+  const contactUsPage = props.pages?.filter((page) => page.name === 'Contact');
 
   return (
     <div className={styles.wrapper}>
@@ -40,14 +34,16 @@ export const NavBar: React.FC<OwnProps> = (props) => {
         </div>
 
         <div className={styles.desktopLeftToolbar}>
-          <Link to="/">Accueil</Link>
-          <Link to="/candidates">Candidats</Link>
-          <Link to="/employer">Employeurs</Link>
-          <Link to="/blog">Nouvelles</Link>
-          <Link to="/about">À propos</Link>
+          {leftToolbarPages?.map((page) => {
+            return (
+              <Link key={page.name} to={page.route}>
+                {page.title}
+              </Link>
+            );
+          })}
         </div>
 
-        <img className={styles.logo} src={data?.gcms?.companyInfos[0]?.logo?.url} />
+        {props.logoURL ? <img className={styles.logo} src={props.logoURL} /> : null}
 
         <div className={styles.mobileRightToolbar}>
           <Label variant={LABEL.smallBoldUppercase} className={styles.language}>
@@ -57,20 +53,36 @@ export const NavBar: React.FC<OwnProps> = (props) => {
 
         <div className={styles.desktopRightToolbar}>
           <div className={styles.desktopSocialButtons}>
-            <Button type="tertiaryReversed" variant="icon" icon="IconFacebook" size="small"></Button>
-            <Button type="tertiaryReversed" variant="icon" icon="IconInstagram" size="small"></Button>
-            <Button type="tertiaryReversed" variant="icon" icon="IconLinkedin" size="small"></Button>
+            {props.facebookPageURL ? (
+              <GatsbyLink to={props.facebookPageURL} target={'_blank'}>
+                <Button type="tertiaryReversed" variant="icon" icon="IconFacebook" size="small"></Button>
+              </GatsbyLink>
+            ) : null}
+            {props.linkedinPageURL ? (
+              <GatsbyLink to={props.linkedinPageURL} target={'_blank'}>
+                <Button type="tertiaryReversed" variant="icon" icon="IconLinkedin" size="small"></Button>
+              </GatsbyLink>
+            ) : null}
+            {props.instagramPageURL ? (
+              <GatsbyLink to={props.instagramPageURL} target={'_blank'}>
+                <Button type="tertiaryReversed" variant="icon" icon="IconInstagram" size="small"></Button>
+              </GatsbyLink>
+            ) : null}
           </div>
 
-          <Button type="tertiaryReversed" variant="text" size="small">
-            <Link to="/en/">EN</Link>
-          </Button>
-
-          <GatsbyLink to="/contact">
-            <Button type="secondaryReversed" variant="text" size="small">
-              Nous joindre
+          <GatsbyLink to={props.location?.pathname.includes('/en/') ? '/' : '/en/'}>
+            <Button type="tertiaryReversed" variant="text" size="small">
+              {props.location?.pathname.includes('/en/') ? 'FR' : 'EN'}
             </Button>
           </GatsbyLink>
+
+          {contactUsPage && contactUsPage[0] ? (
+            <GatsbyLink to={contactUsPage[0].route}>
+              <Button type="secondaryReversed" variant="text" size="small">
+                {contactUsPage[0].title}
+              </Button>
+            </GatsbyLink>
+          ) : null}
         </div>
       </div>
     </div>

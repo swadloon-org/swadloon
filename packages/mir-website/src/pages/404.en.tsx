@@ -8,7 +8,7 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { NotFoundPageFrQuery } from '../../types/graphql-types';
-import LayoutEN from '../layouts/en';
+import { Layout } from '../layouts';
 import { NotFoundPageTemplate } from '../templates/not-found-page.template';
 
 export const query = graphql`
@@ -23,6 +23,11 @@ export const query = graphql`
       pages(where: { name: "Not Found" }, locales: [en, fr]) {
         ...Page
       }
+      routes: pages(where: { NOT: { name: "Not Found" } }, locales: [en, fr]) {
+        name
+        title
+        route
+      }
     }
   }
 `;
@@ -34,7 +39,15 @@ interface PageProps {
 
 const NotFoundPage: React.FC<PageProps> = (props) => {
   return (
-    <LayoutEN {...props}>
+    <Layout
+      location={props.location}
+      logoURL={props.data.gcms.companyInfos[0].logo?.url}
+      linkedinPageURL={props.data.gcms.companyInfos[0].linkedinPageUrl}
+      facebookPageURL={props.data.gcms.companyInfos[0].facebookPageUrl}
+      instagramPageURL={props.data.gcms.companyInfos[0].instagramPageUrl}
+      twitterPageURL={props.data.gcms.companyInfos[0].twitterPageUrl}
+      pages={props.data.gcms.routes}
+    >
       <Helmet>
         {getMetaBasicTags()}
         {getMetadataOpenGraphWebsiteTags({
@@ -54,7 +67,7 @@ const NotFoundPage: React.FC<PageProps> = (props) => {
         })}
       </Helmet>
       <NotFoundPageTemplate {...props} />
-    </LayoutEN>
+    </Layout>
   );
 };
 

@@ -114,11 +114,14 @@ globalStyle(`${desktopRightToolbar} > *`, (theme: DesignSystem) => ({
 
 export const desktopSocialButtons = style((theme: DesignSystem) => ({
   display: 'flex',
-
   '@media': {
     [theme.layout.media.tablet]: {},
     [theme.layout.media.desktop]: {},
   },
+}));
+
+globalStyle(`${desktopSocialButtons} button`, (theme: DesignSystem) => ({
+  height: '100%',
 }));
 
 export const language = style((theme: DesignSystem) => ({

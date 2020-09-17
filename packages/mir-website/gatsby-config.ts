@@ -110,7 +110,7 @@ const config: GastbySiteConfig = {
          * true: use a different layout for each langKey (src/layouts/en.js, src/layouts/pt.js, ...)
          * false: use default layout (src/layouts/index.js)
          */
-        useLangKeyLayout: true,
+        useLangKeyLayout: false,
         /**
          * true: add langKey on all pages, including default
          * false: omit langKey in url when page lang is the default

@@ -9,7 +9,7 @@
     "./lib/**/*"
   ],
   "scripts": {
-    "build": "yarn build:lib && yarn build:app",
+    "build": "yarn build:lib",
     "build:app": "webpack --config webpack.dev.config.cjs",
     "build:lib": "tsc --build tsconfig-lib.json",
     "clean": "rimraf -r dist/**",

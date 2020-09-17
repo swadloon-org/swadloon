@@ -8,7 +8,7 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { CandidatePageEnQuery } from '../../types/graphql-types';
-import { LayoutEN } from '../layouts/en';
+import { Layout } from '../layouts';
 import { Candidate } from '../templates/candidates-page.template';
 
 export const CandidatePageENQuery = graphql`
@@ -22,6 +22,11 @@ export const CandidatePageENQuery = graphql`
       }
       pages(where: { name: "Candidates" }, locales: [en, fr]) {
         ...Page
+      }
+      routes: pages(where: { NOT: { name: "Not Found" } }, locales: [en, fr]) {
+        name
+        title
+        route
       }
     }
     bannerImageMobile: file(name: { eq: "ImageOffice02" }) {
@@ -40,7 +45,15 @@ interface PageProps {
 
 const CandidatePage: React.FC<PageProps> = (props) => {
   return (
-    <LayoutEN {...props}>
+    <Layout
+      location={props.location}
+      logoURL={props.data.gcms.companyInfos[0].logo?.url}
+      linkedinPageURL={props.data.gcms.companyInfos[0].linkedinPageUrl}
+      facebookPageURL={props.data.gcms.companyInfos[0].facebookPageUrl}
+      instagramPageURL={props.data.gcms.companyInfos[0].instagramPageUrl}
+      twitterPageURL={props.data.gcms.companyInfos[0].twitterPageUrl}
+      pages={props.data.gcms.routes}
+    >
       <Helmet>
         {getMetaBasicTags()}
         {getMetadataOpenGraphWebsiteTags({
@@ -60,7 +73,7 @@ const CandidatePage: React.FC<PageProps> = (props) => {
         })}
       </Helmet>
       <Candidate {...props} />
-    </LayoutEN>
+    </Layout>
   );
 };
 

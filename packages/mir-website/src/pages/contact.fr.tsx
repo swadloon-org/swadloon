@@ -8,7 +8,7 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { ContactPageFrQuery } from '../../types/graphql-types';
-import { LayoutFR } from '../layouts/fr';
+import { Layout } from '../layouts';
 import { Contact } from '../templates/contact-page.template';
 
 export const ContactPageFRQuery = graphql`
@@ -22,6 +22,11 @@ export const ContactPageFRQuery = graphql`
       }
       pages(where: { name: "Contact" }, locales: [fr, en]) {
         ...Page
+      }
+      routes: pages(where: { NOT: { name: "Not Found" } }, locales: [fr, en]) {
+        name
+        title
+        route
       }
     }
     bannerImageMobile: file(name: { eq: "ImageOffice03" }) {
@@ -40,7 +45,15 @@ interface PageProps {
 
 const ContactPage: React.FC<PageProps> = (props) => {
   return (
-    <LayoutFR {...props}>
+    <Layout
+      location={props.location}
+      logoURL={props.data.gcms.companyInfos[0].logo?.url}
+      linkedinPageURL={props.data.gcms.companyInfos[0].linkedinPageUrl}
+      facebookPageURL={props.data.gcms.companyInfos[0].facebookPageUrl}
+      instagramPageURL={props.data.gcms.companyInfos[0].instagramPageUrl}
+      twitterPageURL={props.data.gcms.companyInfos[0].twitterPageUrl}
+      pages={props.data.gcms.routes}
+    >
       <Helmet>
         {getMetaBasicTags()}
         {getMetadataOpenGraphWebsiteTags({
@@ -60,7 +73,7 @@ const ContactPage: React.FC<PageProps> = (props) => {
         })}
       </Helmet>
       <Contact {...props} />
-    </LayoutFR>
+    </Layout>
   );
 };
 
