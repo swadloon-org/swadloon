@@ -13,13 +13,13 @@ export const NotFoundPageTemplate: React.FC<PageProps> = ({ data, location }) =>
   const styles = useStyles(stylesRef);
 
   return (
-    <div className={`${styles.wrapper}`}>
+    <main className={`${styles.wrapper}`}>
       <Heading variant={'h3'} className={`${styles.text}`}>
         Not Found
       </Heading>
       <Paragraph variant="medium" className={`${styles.text}`}>
         This page does not exist.
       </Paragraph>
-    </div>
+    </main>
   );
 };

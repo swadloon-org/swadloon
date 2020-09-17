@@ -31,7 +31,7 @@ export const About: React.FC<PageProps> = ({ data, location }) => {
   ];
 
   return (
-    <div className={`${styles.wrapper}`}>
+    <main className={`${styles.wrapper}`}>
       <BannerSecondary imageData={sources} title={data?.gcms?.pages[0]?.bannerTitle}></BannerSecondary>
 
       {section1 && section1.type === 'type2' ? <InfoSectionType2 align="AlignContentLeft" {...section1} /> : null}
@@ -40,6 +40,6 @@ export const About: React.FC<PageProps> = ({ data, location }) => {
       {testimonials ? <Testimonial testimonialSections={testimonials} /> : null}
 
       <Newsletter id="newsletter"></Newsletter>
-    </div>
+    </main>
   );
 };

@@ -28,7 +28,7 @@ export const Index: React.FC<PageProps> = ({ data, location }) => {
   ];
 
   return (
-    <div className={`${styles.wrapper}`}>
+    <main className={`${styles.wrapper}`}>
       <BannerPrimary
         imageData={sources}
         title={data?.gcms?.pages[0]?.bannerTitle}
@@ -62,6 +62,6 @@ export const Index: React.FC<PageProps> = ({ data, location }) => {
       ></BlogPreviewSection>
 
       <Newsletter id="newsletter"></Newsletter>
-    </div>
+    </main>
   );
 };

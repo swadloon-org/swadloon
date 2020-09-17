@@ -63,6 +63,7 @@ const EmployerPage: React.FC<PageProps> = (props) => {
           description: `${props.data.gcms.pages[0]?.description}`,
           image: `${props.data.gcms.pages[0]?.bannerImages[0]?.url}`,
           site_name: `${props.data.gcms.companyInfos[0].metadataSiteName}`,
+          lang: 'en',
           locale: 'en_CA',
           localeAlternate: 'fr_CA',
         })}

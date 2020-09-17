@@ -27,12 +27,12 @@ export const Contact: React.FC<PageProps> = ({ data, location }) => {
   ];
 
   return (
-    <div className={`${styles.wrapper}`}>
+    <main className={`${styles.wrapper}`}>
       <BannerSecondary imageData={sources} title={data?.gcms?.pages[0]?.bannerTitle}></BannerSecondary>
 
       <InfoSectionType6Group></InfoSectionType6Group>
 
       <Newsletter id="newsletter"></Newsletter>
-    </div>
+    </main>
   );
 };

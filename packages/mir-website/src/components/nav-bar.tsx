@@ -27,13 +27,13 @@ export const NavBar: React.FC<OwnProps> = (props) => {
   const contactUsPage = props.pages?.filter((page) => page.name === 'Contact');
 
   return (
-    <div className={styles.wrapper}>
-      <nav className={styles.content}>
+    <header className={styles.wrapper}>
+      <div className={styles.content}>
         <div className={styles.mobileLeftToolbar} onClick={(e) => props.onOpenSideMenu()}>
           <Icon className={styles.icon} />
         </div>
 
-        <div className={styles.desktopLeftToolbar}>
+        <nav className={styles.desktopLeftToolbar}>
           {leftToolbarPages?.map((page) => {
             return (
               <Link key={page.name} to={page.route}>
@@ -41,15 +41,17 @@ export const NavBar: React.FC<OwnProps> = (props) => {
               </Link>
             );
           })}
-        </div>
+        </nav>
 
         {props.logoURL ? <img className={styles.logo} src={props.logoURL} alt="MIR Logo" /> : null}
 
-        <div className={styles.mobileRightToolbar}>
-          <Label variant={LABEL.smallBoldUppercase} className={styles.language}>
-            EN
-          </Label>
-        </div>
+        <nav className={styles.mobileRightToolbar}>
+          <GatsbyLink to={props.location?.pathname.includes('/en/') ? '/' : '/en/'}>
+            <Button variantType="tertiaryReversed" variant="text" size="small">
+              {props.location?.pathname.includes('/en/') ? 'FR' : 'EN'}
+            </Button>
+          </GatsbyLink>
+        </nav>
 
         <div className={styles.desktopRightToolbar}>
           <div className={styles.desktopSocialButtons}>
@@ -99,21 +101,23 @@ export const NavBar: React.FC<OwnProps> = (props) => {
             ) : null}
           </div>
 
-          <GatsbyLink to={props.location?.pathname.includes('/en/') ? '/' : '/en/'}>
-            <Button variantType="tertiaryReversed" variant="text" size="small">
-              {props.location?.pathname.includes('/en/') ? 'FR' : 'EN'}
-            </Button>
-          </GatsbyLink>
-
-          {contactUsPage && contactUsPage[0] ? (
-            <GatsbyLink to={contactUsPage[0].route}>
-              <Button variantType="secondaryReversed" variant="text" size="small">
-                {contactUsPage[0].title}
+          <nav>
+            <GatsbyLink to={props.location?.pathname.includes('/en/') ? '/' : '/en/'}>
+              <Button variantType="tertiaryReversed" variant="text" size="small">
+                {props.location?.pathname.includes('/en/') ? 'FR' : 'EN'}
               </Button>
             </GatsbyLink>
-          ) : null}
+
+            {contactUsPage && contactUsPage[0] ? (
+              <GatsbyLink to={contactUsPage[0].route}>
+                <Button variantType="secondaryReversed" variant="text" size="small">
+                  {contactUsPage[0].title}
+                </Button>
+              </GatsbyLink>
+            ) : null}
+          </nav>
         </div>
-      </nav>
-    </div>
+      </div>
+    </header>
   );
 };

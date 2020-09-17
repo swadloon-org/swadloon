@@ -108,7 +108,7 @@ export const desktopRightToolbar = style((theme: DesignSystem) => ({
   },
 }));
 
-globalStyle(`${desktopRightToolbar} > *`, (theme: DesignSystem) => ({
+globalStyle(`${desktopRightToolbar} > nav > *`, (theme: DesignSystem) => ({
   marginLeft: `${theme.sizing.sizes.x4}`,
 }));
 

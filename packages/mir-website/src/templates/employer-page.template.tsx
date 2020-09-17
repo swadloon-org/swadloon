@@ -38,7 +38,7 @@ export const EmployerPageTemplate: React.FC<PageProps> = ({ data, location }) =>
   ];
 
   return (
-    <div className={`${styles.wrapper}`}>
+    <main className={`${styles.wrapper}`}>
       <BannerSecondary imageData={sources} title={data?.gcms?.pages[0]?.bannerTitle}></BannerSecondary>
 
       <InfoSectionType6Group></InfoSectionType6Group>
@@ -52,6 +52,6 @@ export const EmployerPageTemplate: React.FC<PageProps> = ({ data, location }) =>
       {processSection ? <Process processSection={processSection} /> : null}
 
       {actionSection1 ? <ActionSection variant={'reversed'} /> : null}
-    </div>
+    </main>
   );
 };

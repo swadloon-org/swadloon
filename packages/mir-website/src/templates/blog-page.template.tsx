@@ -24,7 +24,7 @@ export const Blog: React.FC<PageProps> = ({ data, location }) => {
     },
   ];
   return (
-    <div className={`${styles.wrapper}`}>
+    <main className={`${styles.wrapper}`}>
       <BannerSecondary imageData={sources} title={data?.gcms?.pages[0]?.bannerTitle}></BannerSecondary>
 
       <BlogPreviewSection
@@ -34,6 +34,6 @@ export const Blog: React.FC<PageProps> = ({ data, location }) => {
       ></BlogPreviewSection>
 
       <Newsletter id="newsletter"></Newsletter>
-    </div>
+    </main>
   );
 };

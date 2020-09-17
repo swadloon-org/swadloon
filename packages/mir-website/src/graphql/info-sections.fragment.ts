@@ -28,7 +28,7 @@ export const infoSectionsQuery = graphql`
       actionText
     }
     image {
-      url(transformation: { image: { resize: { width: 900, fit: max } } })
+      url(transformation: { image: { resize: { width: 500, fit: max } } })
     }
   }
 `;
