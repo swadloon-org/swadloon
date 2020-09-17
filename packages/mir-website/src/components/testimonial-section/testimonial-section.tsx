@@ -8,21 +8,13 @@ import { Paragraph } from '../paragraph';
 import { Label } from '../label';
 import { LABEL } from 'core-design-system';
 import { style } from 'treat/lib/types';
-import { Maybe, GraphCms_TestimonialSection, GraphCms_Testimonial } from '../../../types/graphql-types';
 import { RenderTitleHighlight } from '../info-section/info-title-highligh';
-
-// type Post = {
-//   contentText: string;
-//   name: string;
-//   job: string;
-// };
+import { GraphCms_TestimonialSection, GraphCms_Testimonial } from 'packages/mir-website/types/graphql-types';
 
 type OwnProps = {
-  testimonialSections: Array<
-    Pick<GraphCms_TestimonialSection, 'title' | 'titleHighlight' | 'description'> & {
-      testomonials: Array<Pick<GraphCms_Testimonial, 'authorName' | 'authorTitle' | 'message' | 'id'>>;
-    }
-  >;
+  testimonialSections: Pick<GraphCms_TestimonialSection, 'title' | 'titleHighlight' | 'description'> & {
+    testomonials: Array<Pick<GraphCms_Testimonial, 'message' | 'authorName' | 'authorTitle'>>;
+  };
 };
 export function Testimonial(props: OwnProps) {
   const styles = useStyles(styleRefs);
@@ -31,18 +23,18 @@ export function Testimonial(props: OwnProps) {
     <div className={`${styles.wrapper}`}>
       <div className={`${styles.container}`}>
         <RenderTitleHighlight
-          title={props?.testimonialSections[0].title}
-          titleHighlight={props?.testimonialSections[0].titleHighlight}
+          title={props?.testimonialSections.title}
+          titleHighlight={props?.testimonialSections.titleHighlight}
           className={styles.title}
         ></RenderTitleHighlight>
 
         <Paragraph className={styles.subTitle} variant="medium">
-          {props?.testimonialSections[0].description}
+          {props?.testimonialSections.description}
         </Paragraph>
         <div className={styles.content}>
-          {props?.testimonialSections[0].testomonials.map((post, index) => {
+          {props?.testimonialSections.testomonials.map((post, index) => {
             return (
-              <div className={styles.tileComment} key={post?.id}>
+              <div className={styles.tileComment} key={index}>
                 <div className={styles.blocContent}>
                   <Paragraph variant="medium">{post?.message}</Paragraph>
                   <div className={styles.triangle}></div>

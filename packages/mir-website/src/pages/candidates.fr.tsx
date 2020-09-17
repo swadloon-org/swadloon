@@ -11,7 +11,7 @@ import { CandidatePageFrQuery } from '../../types/graphql-types';
 import { LayoutFR } from '../layouts/fr';
 import { Candidate } from '../templates/candidates-page.template';
 
-export const query = graphql`
+export const CandidatePageFRQuery = graphql`
   query CandidatePageFR {
     site {
       ...SiteMetadata
@@ -20,7 +20,7 @@ export const query = graphql`
       companyInfos(first: 1) {
         ...CompanyInfo
       }
-      pages(where: { name: "Candidates" }, locales: fr) {
+      pages(where: { name: "Candidates" }, locales: [fr, en]) {
         ...Page
       }
     }
@@ -40,22 +40,23 @@ interface PageProps {
 
 const CandidatePage: React.FC<PageProps> = (props) => {
   return (
-    <LayoutFR>
+    <LayoutFR {...props}>
       <Helmet>
         {getMetaBasicTags()}
         {getMetadataOpenGraphWebsiteTags({
           type: OPEN_GRAPH_TYPE.WEBSITE,
-          title: `${props.data.gcms.candidatePages[0].metadata?.title}`,
-          url: `${props.data.gcms.metadataWebsites[0].siteUrl}${props.data.gcms.candidatePages[0].metadata?.route}`,
-          description: `${props.data.gcms.candidatePages[0].metadata?.description}`,
-          site_name: `${props.data.gcms.metadataWebsites[0].siteName}`,
+          title: `${props.data.gcms.pages[0]?.title}`,
+          url: `${props.data.site?.siteMetadata?.siteUrl}${props.data.gcms.pages[0]?.route}`,
+          description: `${props.data.gcms.pages[0]?.description}`,
+          image: `${props.data.gcms.pages[0]?.bannerImages[0]?.url}`,
+          site_name: `${props.data.gcms.companyInfos[0].metadataSiteName}`,
           locale: 'fr_CA',
           localeAlternate: 'en_CA',
         })}
         {getMetadataTwitterTags({
           card: 'summary',
-          creator: `${props.data.gcms.metadataTwitters[0].creator}`,
-          site: `${props.data.gcms.metadataTwitters[0].site}`,
+          creator: `${props.data.gcms.companyInfos[0].metadataTwitterCreator}`,
+          site: `${props.data.gcms.companyInfos[0].metadataTwitter}`,
         })}
       </Helmet>
       <Candidate {...props} />

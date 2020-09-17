@@ -9,9 +9,9 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { LayoutFR } from '../layouts/fr';
 import { EmployerPageFrQuery } from '../../types/graphql-types';
-import { Employer } from '../templates/employer-page.template';
+import { EmployerPageTemplate } from '../templates/employer-page.template';
 
-export const query = graphql`
+export const employerPageFRQuery = graphql`
   query EmployerPageFR {
     site {
       ...SiteMetadata
@@ -20,7 +20,7 @@ export const query = graphql`
       companyInfos(first: 1) {
         ...CompanyInfo
       }
-      pages(where: { name: "Employers" }, locales: fr) {
+      pages(where: { name: "Employers" }, locales: [fr, en]) {
         ...Page
       }
     }
@@ -40,29 +40,26 @@ interface PageProps {
 
 const EmployerPage: React.FC<PageProps> = (props) => {
   return (
-    <LayoutFR>
+    <LayoutFR {...props}>
       <Helmet>
         {getMetaBasicTags()}
         {getMetadataOpenGraphWebsiteTags({
           type: OPEN_GRAPH_TYPE.WEBSITE,
-          title: `${props.data.gcms.employerPages[0].metadata?.title}`,
-          url: `${props.data.gcms.metadataWebsites[0].siteUrl}${props.data.gcms.employerPages[0].metadata?.route}`,
-          description: `${props.data.gcms.employerPages[0].metadata?.description}`,
-          site_name: `${props.data.gcms.metadataWebsites[0].siteName}`,
+          title: `${props.data.gcms.pages[0]?.title}`,
+          url: `${props.data.site?.siteMetadata?.siteUrl}${props.data.gcms.pages[0]?.route}`,
+          description: `${props.data.gcms.pages[0]?.description}`,
+          image: `${props.data.gcms.pages[0]?.bannerImages[0]?.url}`,
+          site_name: `${props.data.gcms.companyInfos[0].metadataSiteName}`,
           locale: 'fr_CA',
           localeAlternate: 'en_CA',
         })}
         {getMetadataTwitterTags({
           card: 'summary',
-          creator: `${props.data.gcms.metadataTwitters[0].creator}`,
-          site: `${props.data.gcms.metadataTwitters[0].site}`,
+          creator: `${props.data.gcms.companyInfos[0].metadataTwitterCreator}`,
+          site: `${props.data.gcms.companyInfos[0].metadataTwitter}`,
         })}
-
-        <meta charSet="utf-8" />
-        <title>MIR - Recrutement technique - Employeurs</title>
-        <link rel="canonical" href="https://mir-website-master.netlify.com" />
       </Helmet>
-      <Employer {...props} />
+      <EmployerPageTemplate {...props} />
     </LayoutFR>
   );
 };

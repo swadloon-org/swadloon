@@ -7,12 +7,12 @@ import {
 import { graphql } from 'gatsby';
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { BlogPageEnQuery } from '../../types/graphql-types';
+import { ContactPageEnQuery } from '../../types/graphql-types';
 import { LayoutEN } from '../layouts/en';
-import { Blog } from '../templates/blog-page.template';
+import { Contact } from '../templates/contact-page.template';
 
-export const query = graphql`
-  query BlogPageEN {
+export const ContactPageENQuery = graphql`
+  query ContactPageEN {
     site {
       ...SiteMetadata
     }
@@ -20,7 +20,7 @@ export const query = graphql`
       companyInfos(first: 1) {
         ...CompanyInfo
       }
-      pages(where: { name: "Blog" }, locales: en) {
+      pages(where: { name: "Contact" }, locales: [en, fr]) {
         ...Page
       }
     }
@@ -34,33 +34,34 @@ export const query = graphql`
 `;
 
 interface PageProps {
-  data: BlogPageEnQuery;
+  data: ContactPageEnQuery;
   location: Location;
 }
 
-const BlogPage: React.FC<PageProps> = (props) => {
+const ContactPage: React.FC<PageProps> = (props) => {
   return (
-    <LayoutEN>
+    <LayoutEN {...props}>
       <Helmet>
         {getMetaBasicTags()}
         {getMetadataOpenGraphWebsiteTags({
           type: OPEN_GRAPH_TYPE.WEBSITE,
-          title: `${props.data.gcms.blogPages[0].metadata?.title}`,
-          url: `${props.data.gcms.metadataWebsites[0].siteUrl}${props.data.gcms.blogPages[0].metadata?.route}`,
-          description: `${props.data.gcms.blogPages[0].metadata?.description}`,
-          site_name: `${props.data.gcms.metadataWebsites[0].siteName}`,
+          title: `${props.data.gcms.pages[0]?.title}`,
+          url: `${props.data.site?.siteMetadata?.siteUrl}${props.data.gcms.pages[0]?.route}`,
+          description: `${props.data.gcms.pages[0]?.description}`,
+          image: `${props.data.gcms.pages[0]?.bannerImages[0]?.url}`,
+          site_name: `${props.data.gcms.companyInfos[0].metadataSiteName}`,
           locale: 'en_CA',
           localeAlternate: 'fr_CA',
         })}
         {getMetadataTwitterTags({
           card: 'summary',
-          creator: `${props.data.gcms.metadataTwitters[0].creator}`,
-          site: `${props.data.gcms.metadataTwitters[0].site}`,
+          creator: `${props.data.gcms.companyInfos[0].metadataTwitterCreator}`,
+          site: `${props.data.gcms.companyInfos[0].metadataTwitter}`,
         })}
       </Helmet>
-      <Blog {...props} />
+      <Contact {...props} />
     </LayoutEN>
   );
 };
 
-export default BlogPage;
+export default ContactPage;

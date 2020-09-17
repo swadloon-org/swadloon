@@ -69,9 +69,7 @@ export const Design: React.FC = () => {
         <ActionSection variant="Default"></ActionSection>
       </div>
       <ActionSection variant="Default"></ActionSection>
-      <div>
-        <ImageFrame variant="bottomRight" type="caroussel"></ImageFrame>
-      </div>
+      <div>{/* <ImageFrame variant="bottomRight" type="caroussel"></ImageFrame> */}</div>
     </div>
   );
 };
