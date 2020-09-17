@@ -27,19 +27,13 @@ export const InfoSectionType5: React.FC<OwnProps> = (props) => {
           {props.text}
         </Paragraph>
 
-        <CheckLabel illustration="IllustrationCheck" size="medium">
-          25 ans d’expertise
-        </CheckLabel>
-        <CheckLabel illustration="IllustrationCheck" size="medium">
-          10 000 emplois disponibles
-        </CheckLabel>
-        <CheckLabel illustration="IllustrationCheck" size="medium">
-          1 processus de recrutement efficace
-        </CheckLabel>
-        <CheckLabel illustration="IllustrationCheck" size="medium">
-          25 ans d’expertise 10 000 emplois disponibles 1 processus de recrutement efficace Un partenariat d’affaires
-          humain
-        </CheckLabel>
+        {props.infoChecks.map((check, index) => {
+          return (
+            <CheckLabel illustration="IllustrationCheck" size="medium" key={check.id}>
+              {check.text}
+            </CheckLabel>
+          );
+        })}
       </div>
     </div>
   );
