@@ -29,8 +29,8 @@ log(`SITE_URL is ${env.SITE_URL}`, {
  */
 const config: GastbySiteConfig = {
   siteMetadata: {
-    title: `My Gatsby Site`,
-    description: `An example site.`,
+    title: `MIR Website`,
+    description: `Gatsby powered MIR website`,
     siteUrl: env.SITE_URL,
     languages: {
       langs: [SITE_LANGUAGES.FR, SITE_LANGUAGES.EN],
@@ -73,6 +73,17 @@ const config: GastbySiteConfig = {
       },
     },
     /**
+     * gatsby-source-graphcms
+     * @see https://github.com/GraphCMS/gatsby-source-graphcms/tree/next/gatsby-source-graphcms
+     */
+    // {
+    //   resolve: 'gatsby-source-graphcms',
+    //   options: {
+    //     endpoint: env.GRAPH_CMS_API_URL_MIR,
+    //     token: env.GRAPH_CMS_AUTH_TOKEN_MIR,
+    //   },
+    // },
+    /**
      * gatsby-plugin-react-helmet
      * @see https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-react-helmet
      * @see https://github.com/nfl/react-helmet
@@ -99,7 +110,7 @@ const config: GastbySiteConfig = {
          * true: use a different layout for each langKey (src/layouts/en.js, src/layouts/pt.js, ...)
          * false: use default layout (src/layouts/index.js)
          */
-        useLangKeyLayout: true,
+        useLangKeyLayout: false,
         /**
          * true: add langKey on all pages, including default
          * false: omit langKey in url when page lang is the default

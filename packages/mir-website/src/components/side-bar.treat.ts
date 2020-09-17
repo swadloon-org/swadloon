@@ -18,6 +18,7 @@ export const topContainer = style((theme: DesignSystem) => ({
 
   backgroundColor: theme.colors.greyscale900,
 }));
+
 export const logo = style((theme: DesignSystem) => ({
   width: '100px',
   height: '59px',

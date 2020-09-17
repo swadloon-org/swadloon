@@ -12,33 +12,34 @@ import { Process } from '../components/process-section/process-section';
 import { InfoSectionType6Group } from '../components/info-section/info-section-type-6-group';
 import { theme } from '../design-system/index';
 import * as stylesRef from '../templates/employer-page.treat';
-import { EmployerProps } from '../pages/employer.en';
 import { SideBar } from '../components/side-bar';
+import { EmployerPageFrQuery } from '../../types/graphql-types';
 
-export const Employer: React.FC<EmployerProps> = ({ data, location }) => {
+interface PageProps {
+  data: EmployerPageFrQuery;
+  location: Location;
+}
+
+export const EmployerPageTemplate: React.FC<PageProps> = ({ data, location }) => {
   const styles = useStyles(stylesRef);
 
-  const actionSection1 = data.gcms.employerPages[0].actionSections[0];
-  const section1 = data.gcms?.employerPages[0]?.infoSections[0];
-  const section2 = data.gcms?.employerPages[0]?.infoSections[1];
-  const jobSection = data.gcms?.employerPages[0]?.jobSection;
-  const processSection = data.gcms?.employerPages[0]?.processSection;
+  const actionSection1 = data.gcms.pages[0].actionSections[0];
+  const section1 = data.gcms?.pages[0]?.infoSections[0];
+  const section2 = data.gcms?.pages[0]?.infoSections[1];
+  const jobSection = data.gcms?.pages[0]?.jobSections[0];
+  const processSection = data.gcms?.pages[0]?.processSections[0];
 
-  const [sideMenuState, setSideMenuState] = useState<'openend' | 'closed'>('closed');
-
-  function onOpenSideMenu() {
-    setSideMenuState(sideMenuState === 'openend' ? 'closed' : 'openend');
-  }
+  const sources = [
+    data?.bannerImageMobile?.childImageSharp?.fluid,
+    {
+      ...data?.bannerImageDesktop?.childImageSharp?.fluid,
+      media: `(min-width: ${theme.layout.breakpoints.desktopSmall.px})`,
+    },
+  ];
 
   return (
-    <div className={`${styles.wrapper}`}>
-      <NavBar onOpenSideMenu={onOpenSideMenu}></NavBar>
-      <SideBar state={sideMenuState} onOpenSideMenu={onOpenSideMenu}></SideBar>
-
-      <BannerSecondary
-        imageData={data.bannerImage?.childImageSharp?.fluid}
-        title={data?.gcms?.employerPages[0]?.bannerTitle}
-      ></BannerSecondary>
+    <main className={`${styles.wrapper}`}>
+      <BannerSecondary imageData={sources} title={data?.gcms?.pages[0]?.bannerTitle}></BannerSecondary>
 
       <InfoSectionType6Group></InfoSectionType6Group>
 
@@ -51,8 +52,6 @@ export const Employer: React.FC<EmployerProps> = ({ data, location }) => {
       {processSection ? <Process processSection={processSection} /> : null}
 
       {actionSection1 ? <ActionSection variant={'reversed'} /> : null}
-
-      <Footer></Footer>
-    </div>
+    </main>
   );
 };

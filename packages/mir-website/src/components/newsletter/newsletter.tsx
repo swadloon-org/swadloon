@@ -26,8 +26,8 @@ export const Newsletter: React.FC<OwnProps> = (props) => {
         </div>
         <div className={`${styles.containerForm}`}>
           <form className={`${styles.formulaire}`} action="">
-            <Input variant="reversed" placeholder="Votre courriel"></Input>
-            <Button type="secondaryReversed" size="small" variant="text">
+            <Input variant="reversed" placeholder="Votre courriel" aria-labelledby="SubmitButton"></Input>
+            <Button variantType="secondaryReversed" size="small" variant="text" id="SubmitButton">
               Soumettre
             </Button>
           </form>

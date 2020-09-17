@@ -6,33 +6,33 @@ import { Footer } from '../components/footer';
 import { NavBar } from '../components/nav-bar';
 import { Newsletter } from '../components/newsletter/newsletter';
 import { InfoSectionType6Group } from '../components/info-section/info-section-type-6-group';
-import { ContactProps } from '../pages/contact.en';
 import { SideBar } from '../components/side-bar';
+import { ContactPageFrQuery } from '../../types/graphql-types';
+import { theme } from '../design-system';
 
-export const Contact: React.FC<ContactProps> = ({ data, location }) => {
+interface PageProps {
+  data: ContactPageFrQuery;
+  location: Location;
+}
+
+export const Contact: React.FC<PageProps> = ({ data, location }) => {
   const styles = useStyles(stylesRef);
 
-  const [sideMenuState, setSideMenuState] = useState<'openend' | 'closed'>('closed');
-
-  function onOpenSideMenu() {
-    setSideMenuState(sideMenuState === 'openend' ? 'closed' : 'openend');
-  }
+  const sources = [
+    data?.bannerImageMobile?.childImageSharp?.fluid,
+    {
+      ...data?.bannerImageDesktop?.childImageSharp?.fluid,
+      media: `(min-width: ${theme.layout.breakpoints.desktopSmall.px})`,
+    },
+  ];
 
   return (
-    <div className={`${styles.wrapper}`}>
-      <NavBar onOpenSideMenu={onOpenSideMenu}></NavBar>
-      <SideBar state={sideMenuState} onOpenSideMenu={onOpenSideMenu}></SideBar>
-
-      <BannerSecondary
-        imageData={data.bannerImage?.childImageSharp?.fluid}
-        title={data?.gcms?.contactUsPages[0]?.bannerTitle}
-      ></BannerSecondary>
+    <main className={`${styles.wrapper}`}>
+      <BannerSecondary imageData={sources} title={data?.gcms?.pages[0]?.bannerTitle}></BannerSecondary>
 
       <InfoSectionType6Group></InfoSectionType6Group>
 
       <Newsletter id="newsletter"></Newsletter>
-
-      <Footer></Footer>
-    </div>
+    </main>
   );
 };

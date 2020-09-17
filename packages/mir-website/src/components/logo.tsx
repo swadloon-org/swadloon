@@ -7,5 +7,9 @@ interface OwnProps {
 }
 
 export const Logo: React.FC<OwnProps> = (props) => {
-  return <img src={`${[props.src]}`}>{props.children}</img>;
+  return (
+    <img src={`${[props.src]}`} alt="MIR Logo">
+      {props.children}
+    </img>
+  );
 };
