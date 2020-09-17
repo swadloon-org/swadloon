@@ -34,7 +34,7 @@ export const Process: React.FC<OwnProps> = (props) => {
           titleHighlight={props.processSection?.titleHighlight}
         />
         <div className={styles.content}>
-          <div className={styles.line}></div>
+          {/* <div className={styles.line}></div> */}
 
           {props.processSection?.steps.map((tile: any, index: number) => {
             return (

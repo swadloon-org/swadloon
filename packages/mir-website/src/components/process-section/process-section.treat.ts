@@ -31,18 +31,19 @@ export const title = style((theme: DesignSystem) => ({
 export const content = style((theme: DesignSystem) => ({
   position: 'relative',
   zIndex: 2,
-  display: 'grid',
+  display: 'flex',
   gridColumn: '1',
-  gridTemplateColumns: '1fr',
   gridGap: `${theme.sizing.sizes.x4}`,
   margin: '0 auto',
+  flexDirection: 'column',
   width: 'fit-content',
+
   '@media': {
     [theme.layout.media.desktop]: {
       justifyContent: 'center',
-      gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr 1fr',
+      flexDirection: 'row',
       gridGap: `0 ${theme.sizing.sizes.x2}`,
-      margin: `${theme.layout.contentMargins.tablet.px} 0`,
+      margin: `${theme.layout.contentMargins.tablet.px} auto`,
     },
   },
 }));
@@ -57,6 +58,14 @@ export const tileProcess = style((theme: DesignSystem) => ({
       maxWidth: ' 450px',
       display: 'grid',
       gridTemplateAreas: `'circle text'`,
+    },
+    [theme.layout.media.desktop]: {
+      marginRight: theme.sizing.sizes.x2,
+      selectors: {
+        '&:last-child': {
+          marginRight: 0,
+        },
+      },
     },
   },
 }));
@@ -91,7 +100,31 @@ export const circle = style((theme: DesignSystem) => ({
   color: theme.colors.primary500,
 
   '@media': {
-    [theme.layout.media.desktop]: {},
+    [theme.layout.media.desktop]: {
+      selectors: {
+        [`&:after`]: {
+          position: 'absolute',
+          content: `''`,
+          top: '25px',
+          left: 'auto',
+          right: 'auto',
+          borderRight: '1px solid black',
+          width: '250px',
+          height: '3px',
+          backgroundColor: 'red',
+        },
+
+        [`&:last-child:after`]: {
+          position: 'absolute',
+          top: '25px',
+          left: 'auto',
+          borderRight: '1px solid black',
+          width: '0px',
+          height: '3px',
+          backgroundColor: 'blue',
+        },
+      },
+    },
   },
 }));
 export const number = style((theme: DesignSystem) => ({
@@ -126,30 +159,31 @@ export const blocContent = style((theme: DesignSystem) => ({
   },
 }));
 
-export const line = style((theme: DesignSystem) => ({
-  position: 'absolute',
-  zIndex: -1,
-  border: `3px solid ${theme.colors.greyscale0}`,
-  backgroundColor: theme.colors.greyscale0,
-  width: '0',
-  top: '25px',
-  left: '22px',
-  height: '90%',
+// export const line = style((theme: DesignSystem) => ({
+//   position: 'absolute',
+//   zIndex: -1,
+//   border: `3px solid ${theme.colors.greyscale0}`,
+//   backgroundColor: theme.colors.greyscale0,
+//   width: '0',
+//   top: '25px',
+//   left: '22px',
+//   height: '90%',
 
-  '@media': {
-    [theme.layout.media.desktop]: {
-      width: '80%',
-      left: '10%',
-      height: '0',
-    },
-  },
+//   '@media': {
+//     [theme.layout.media.desktop]: {
+//       width: `calc(100% - 100px - (${theme.sizing.sizes.x2}*2))`,
+//       height: '0',
+//       left: 'auto',
+//       right: 'auto',
+//     },
+//   },
 
-  selectors: {
-    [`${blocContent} &`]: {
-      alignSelf: 'center',
-    },
-  },
-}));
+//   selectors: {
+//     [`${blocContent} &`]: {
+//       alignSelf: 'center',
+//     },
+//   },
+// }));
 
 export const contentBlue = style((theme: DesignSystem) => ({
   color: theme.colors.primary500,
