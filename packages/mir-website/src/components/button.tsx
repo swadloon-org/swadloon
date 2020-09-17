@@ -8,7 +8,7 @@ import { Illustration } from './illustration';
 import { Label } from './label';
 
 type OwnProps = {
-  type:
+  variantType:
     | 'primaryDefault'
     | 'primaryReversed'
     | 'secondaryDefault'
@@ -18,19 +18,18 @@ type OwnProps = {
   size: 'small' | 'medium' | 'large';
   variant: 'icon' | 'text';
   icon?: string;
-} & Pick<ButtonHTMLAttributes<any>, 'className'>;
+} & ButtonHTMLAttributes<any>;
 
-export const Button: React.FC<OwnProps> = (props) => {
+export const Button: React.FC<OwnProps> = ({ className, variantType, size, variant, icon, ...props }) => {
   const styles = useStyles(styleRefs);
 
   return (
     <button
-      type="button"
-      className={`${props.className || ''} ${styles.base} ${styles[props.type]} ${styles[props.size]} ${
-        styles[props.variant]
-      }`}
+      type={props.type ? props.type : 'button'}
+      className={`${className || ''} ${styles.base} ${styles[variantType]} ${styles[size]} ${styles[variant]}`}
+      {...props}
     >
-      {props.type === 'primaryDefault' || props.type === 'primaryReversed' ? (
+      {variantType === 'primaryDefault' || variantType === 'primaryReversed' ? (
         <>
           <CornerTopLeft className={`${styles.cornerTopLeft} ${styles.corner}`} preserveAspectRatio="xMinYMin meet" />
           <CornerBottomRight
@@ -40,8 +39,8 @@ export const Button: React.FC<OwnProps> = (props) => {
         </>
       ) : null}
 
-      {props.variant === 'icon' && props.icon ? (
-        <Illustration className={`${styles.illustration}`} name={`Icon/${props.icon}`} width={42} height={42} />
+      {variant === 'icon' && icon ? (
+        <Illustration className={`${styles.illustration}`} name={`Icon/${icon}`} width={42} height={42} />
       ) : (
         <Label className={`${styles.label}`} variant={LABEL.smallBold}>
           {props.children}

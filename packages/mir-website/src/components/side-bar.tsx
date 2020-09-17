@@ -98,9 +98,9 @@ export const SideBar: React.FC<OwnProps> = (props) => {
             <Label variant={LABEL.smallUppercase}>SOCIAL</Label>
           </div>
           <div className={styles.listSocial}>
-            <Button type="secondaryReversed" size="medium" variant="icon" icon="IconArrowRight"></Button>
-            <Button type="secondaryReversed" size="medium" variant="icon" icon="IconFacebook"></Button>
-            <Button type="secondaryReversed" size="medium" variant="icon" icon="IconInstagram"></Button>
+            <Button variantType="secondaryReversed" size="medium" variant="icon" icon="IconArrowRight"></Button>
+            <Button variantType="secondaryReversed" size="medium" variant="icon" icon="IconFacebook"></Button>
+            <Button variantType="secondaryReversed" size="medium" variant="icon" icon="IconInstagram"></Button>
           </div>
         </div>
       </div>

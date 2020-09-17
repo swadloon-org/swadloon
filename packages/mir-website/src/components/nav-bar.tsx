@@ -28,7 +28,7 @@ export const NavBar: React.FC<OwnProps> = (props) => {
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.content}>
+      <nav className={styles.content}>
         <div className={styles.mobileLeftToolbar} onClick={(e) => props.onOpenSideMenu()}>
           <Icon className={styles.icon} />
         </div>
@@ -43,7 +43,7 @@ export const NavBar: React.FC<OwnProps> = (props) => {
           })}
         </div>
 
-        {props.logoURL ? <img className={styles.logo} src={props.logoURL} /> : null}
+        {props.logoURL ? <img className={styles.logo} src={props.logoURL} alt="MIR Logo" /> : null}
 
         <div className={styles.mobileRightToolbar}>
           <Label variant={LABEL.smallBoldUppercase} className={styles.language}>
@@ -54,37 +54,66 @@ export const NavBar: React.FC<OwnProps> = (props) => {
         <div className={styles.desktopRightToolbar}>
           <div className={styles.desktopSocialButtons}>
             {props.facebookPageURL ? (
-              <GatsbyLink to={props.facebookPageURL} target={'_blank'}>
-                <Button type="tertiaryReversed" variant="icon" icon="IconFacebook" size="small"></Button>
-              </GatsbyLink>
+              <a href={props.facebookPageURL} target={'_blank'} aria-label="Facebook Page">
+                <Button
+                  variantType="tertiaryReversed"
+                  variant="icon"
+                  icon="IconFacebook"
+                  size="small"
+                  aria-label="Facebook Page"
+                ></Button>
+              </a>
             ) : null}
             {props.linkedinPageURL ? (
-              <GatsbyLink to={props.linkedinPageURL} target={'_blank'}>
-                <Button type="tertiaryReversed" variant="icon" icon="IconLinkedin" size="small"></Button>
-              </GatsbyLink>
+              <a href={props.linkedinPageURL} target={'_blank'} aria-label="LinkedIn Page">
+                <Button
+                  variantType="tertiaryReversed"
+                  variant="icon"
+                  icon="IconLinkedin"
+                  size="small"
+                  aria-label="LinkedIn Page"
+                ></Button>
+              </a>
+            ) : null}
+            {props.twitterPageURL ? (
+              <a href={props.twitterPageURL} target={'_blank'} aria-label="Twitter Page">
+                <Button
+                  variantType="tertiaryReversed"
+                  variant="icon"
+                  icon="IconTwitter"
+                  size="small"
+                  aria-label="Twitter Page"
+                ></Button>
+              </a>
             ) : null}
             {props.instagramPageURL ? (
-              <GatsbyLink to={props.instagramPageURL} target={'_blank'}>
-                <Button type="tertiaryReversed" variant="icon" icon="IconInstagram" size="small"></Button>
-              </GatsbyLink>
+              <a href={props.instagramPageURL} target={'_blank'} aria-label="Instagram Page">
+                <Button
+                  variantType="tertiaryReversed"
+                  variant="icon"
+                  icon="IconInstagram"
+                  size="small"
+                  aria-label="Instagram Page"
+                ></Button>
+              </a>
             ) : null}
           </div>
 
           <GatsbyLink to={props.location?.pathname.includes('/en/') ? '/' : '/en/'}>
-            <Button type="tertiaryReversed" variant="text" size="small">
+            <Button variantType="tertiaryReversed" variant="text" size="small">
               {props.location?.pathname.includes('/en/') ? 'FR' : 'EN'}
             </Button>
           </GatsbyLink>
 
           {contactUsPage && contactUsPage[0] ? (
             <GatsbyLink to={contactUsPage[0].route}>
-              <Button type="secondaryReversed" variant="text" size="small">
+              <Button variantType="secondaryReversed" variant="text" size="small">
                 {contactUsPage[0].title}
               </Button>
             </GatsbyLink>
           ) : null}
         </div>
-      </div>
+      </nav>
     </div>
   );
 };
