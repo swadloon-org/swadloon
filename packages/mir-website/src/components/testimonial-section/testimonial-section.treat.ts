@@ -2,8 +2,9 @@ import { DesignSystem, createShadow } from 'core-design-system';
 import { globalStyle, style } from 'treat';
 
 export const wrapper = style((theme: DesignSystem) => ({
-  backgroundColor: theme.colors.greyscale100,
+  backgroundColor: theme.colors.greyscale0,
 }));
+
 export const container = style((theme: DesignSystem) => ({
   margin: '0 auto',
   maxWidth: '1200px',

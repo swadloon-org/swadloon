@@ -15,8 +15,6 @@ export const wrapper = style((theme: DesignSystem) => ({
   minHeight: '248px',
   height: '248px',
   width: '248px',
-
-  backgroundColor: theme.colors.greyscale0,
 }));
 
 //
@@ -27,14 +25,6 @@ export const content = style((theme: DesignSystem) => ({
   display: 'grid',
   gridRowGap: `${theme.sizing.sizes.x3}`,
   justifyItems: 'center',
-}));
-
-//
-// Default
-//
-
-export const Default = style((theme: DesignSystem) => ({
-  color: theme.colors.greyscale1000,
 }));
 
 //
@@ -58,6 +48,7 @@ export const illustration = style((theme: DesignSystem) => ({}));
 export const borderWhite = style((theme: DesignSystem) => ({
   boxShadow: theme.effects.shadows.heavy.css,
   borderRadius: '0px 48px 48px 48px',
+  backgroundColor: theme.colors.greyscale0,
 }));
 
 //

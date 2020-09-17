@@ -1,4 +1,3 @@
-import { LABEL } from 'core-design-system';
 import { Link as GatsbyLink } from 'gatsby';
 import React from 'react';
 import { useStyles } from 'react-treat';
@@ -6,7 +5,6 @@ import Icon from '../illustrations/Icon/IconBars.svg';
 import { NavigationProps } from '../layouts';
 import { Link } from '../ui/link';
 import { Button } from './button';
-import { Label } from './label';
 import * as stylesRef from './nav-bar.treat';
 
 type OwnProps = {

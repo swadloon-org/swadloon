@@ -1,4 +1,4 @@
-import { DesignSystem } from 'core-design-system';
+import { createShadow, DesignSystem } from 'core-design-system';
 import { style } from 'treat';
 
 //
@@ -9,6 +9,13 @@ export const wrapper = style((theme: DesignSystem) => ({
   paddingTop: `${theme.sizing.sizes.x6}`,
   paddingBottom: `${theme.sizing.sizes.x7}`,
 
+  backgroundColor: theme.colors.greyscale100,
+  color: theme.colors.greyscale1000,
+
+  boxShadow: createShadow({
+    ...theme.effects.shadows.medium,
+  }).css,
+
   '@media': {
     [theme.layout.media.tablet]: {
       padding: `${theme.sizing.sizes.x5} ${theme.layout.contentMargins.tablet.px}`,
@@ -17,11 +24,6 @@ export const wrapper = style((theme: DesignSystem) => ({
       padding: `${theme.sizing.sizes.x5} ${theme.layout.contentMargins.desktop.px}`,
     },
   },
-}));
-
-export const Default = style((theme: DesignSystem) => ({
-  backgroundColor: theme.colors.greyscale0,
-  color: theme.colors.greyscale1000,
 }));
 
 export const reversed = style((theme: DesignSystem) => ({

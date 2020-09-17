@@ -1,4 +1,4 @@
-import { DesignSystem } from 'core-design-system';
+import { createShadow, DesignSystem } from 'core-design-system';
 import { globalStyle, style } from 'treat';
 
 //
@@ -55,6 +55,9 @@ export const content = style((theme: DesignSystem) => ({
 
 export const video = style((theme: DesignSystem) => ({
   width: '60%',
+  boxShadow: createShadow({
+    ...theme.effects.shadows.medium,
+  }).css,
 }));
 
 //

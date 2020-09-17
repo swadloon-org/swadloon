@@ -16,7 +16,7 @@ export const InfoSectionVideo: React.FC<OwnProps> = (props) => {
     <div className={styles.wrapper}>
       <div className={styles.container}>
         <div className={styles.containerTitle}>
-          <Heading className={styles.title} variant="h3">
+          <Heading className={styles.title} variant="h2">
             Rencontrez notre équipe
           </Heading>
           <Paragraph variant="medium">
