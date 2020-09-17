@@ -31,7 +31,7 @@ export const ActionSection: React.FC<OwnProps & AllHTMLAttributes<any>> = (props
         <div className={`${styles.buttonContainer}`}>
           <Button
             className={`${styles.button}`}
-            variantType={props.variant === 'Default' ? 'primaryDefault' : 'primaryReversed'}
+            variantType={props.variant === 'Default' ? 'primaryReversed' : 'primaryDefault'}
             size="medium"
             variant="text"
           >
