@@ -23,7 +23,7 @@ export const InfoSectionType1: React.FC<OwnProps> = (props) => {
       <Button
         variant={'text'}
         size={'medium'}
-        type={props.type === 'type1default' ? 'primaryDefault' : 'primaryReversed'}
+        variantType={props.type === 'type1default' ? 'primaryDefault' : 'primaryReversed'}
       >
         {props.actionText}
       </Button>

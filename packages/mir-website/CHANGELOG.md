@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/mir-website@1.3.0...mir-website@1.3.1) (2020-09-17)
+
+### Bug Fixes
+
+- **mir-website:** accessibility fixes ([f2a002e](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/f2a002ef3126f7e7ba19f813a475509cdf0eb87e))
+- **mir-website:** disable graph cms plugin ([153e6dc](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/153e6dc994078fee69026d584b7d0ab43741e286))
+- **mir-website:** fix missing noopener attribute ([a3d631f](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/a3d631fa14e9c4725f595a8a7eb2607699ae0338))
+- **mir-website:** fixes for 404 page ([9103fc8](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/9103fc8513316d62b33f71160f8ad049a27fa12d))
+- **mir-website:** index page working ([b59c840](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/b59c840810acaeb9e8d74cd6e83796a2d9ec3988))
+- **mir-website:** more accessibility fixes ([cdbcb8e](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/cdbcb8e358b147ea0b31952b8c94eb18d896af4e))
+- **mir-website:** refactor en fr layout components ([606edd1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/606edd127fa66961584a898857dbac7691313314))
+- **mir-website:** remove react-helmet-async ([c1b278d](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/c1b278d537c084ff99b6babe028bbb137d006aeb))
+
 # [1.3.0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/mir-website@1.2.0...mir-website@1.3.0) (2020-09-16)
 
 ### Bug Fixes

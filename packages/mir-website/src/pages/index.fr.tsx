@@ -1,20 +1,33 @@
 import {
   getMetaBasicTags,
   getMetadataOpenGraphWebsiteTags,
-  getMetadataTwitterTags,
   OPEN_GRAPH_TYPE,
+  getMetadataTwitterTags,
 } from 'core-react-ui';
+import { Helmet } from 'react-helmet';
 import { graphql } from 'gatsby';
 import React from 'react';
-import { Helmet } from 'react-helmet';
 import { IndexPageFrQuery } from '../../types/graphql-types';
-import { LayoutFR } from '../layouts/fr';
 import { Index } from '../templates/index-page.template';
+import { Layout } from '../layouts';
 
-export const query = graphql`
-  query indexPageFR {
+export const indexPageFRQuery = graphql`
+  query IndexPageFR {
     site {
       ...SiteMetadata
+    }
+    gcms {
+      companyInfos(first: 1) {
+        ...CompanyInfo
+      }
+      pages(where: { name: "Home" }, locales: [fr, en]) {
+        ...Page
+      }
+      routes: pages(where: { NOT: { name: "Not Found" } }, locales: [fr, en]) {
+        name
+        title
+        route
+      }
     }
     bannerImageMobile: file(name: { eq: "ImageOffice05" }) {
       ...MobileFluidImage
@@ -22,49 +35,46 @@ export const query = graphql`
     bannerImageDesktop: file(name: { eq: "ImageOffice05" }) {
       ...DesktopFluidImage
     }
-    gcms {
-      indexPages(first: 1, locales: fr) {
-        ...IndexPage
-      }
-      metadataWebsites(first: 1) {
-        siteName
-        siteUrl
-      }
-      metadataTwitters(first: 1) {
-        creator
-        site
-      }
-    }
   }
 `;
 
-export interface PageProps {
+interface PageProps {
   data: IndexPageFrQuery;
   location: Location;
 }
 
 const IndexPage: React.FC<PageProps> = (props) => {
   return (
-    <LayoutFR>
+    <Layout
+      location={props.location}
+      logoURL={props.data.gcms.companyInfos[0].logo?.url}
+      linkedinPageURL={props.data.gcms.companyInfos[0].linkedinPageUrl}
+      facebookPageURL={props.data.gcms.companyInfos[0].facebookPageUrl}
+      instagramPageURL={props.data.gcms.companyInfos[0].instagramPageUrl}
+      twitterPageURL={props.data.gcms.companyInfos[0].twitterPageUrl}
+      pages={props.data.gcms.routes}
+    >
       <Helmet>
         {getMetaBasicTags()}
         {getMetadataOpenGraphWebsiteTags({
           type: OPEN_GRAPH_TYPE.WEBSITE,
-          title: `${props.data.gcms.indexPages[0].metadata?.title}`,
-          url: `${props.data.gcms.metadataWebsites[0].siteUrl}${props.data.gcms.indexPages[0].metadata?.route}`,
-          description: `${props.data.gcms.indexPages[0].metadata?.description}`,
-          site_name: `${props.data.gcms.metadataWebsites[0].siteName}`,
+          title: `${props.data.gcms.pages[0]?.title}`,
+          url: `${props.data.site?.siteMetadata?.siteUrl}${props.data.gcms.pages[0]?.route}`,
+          description: `${props.data.gcms.pages[0]?.description}`,
+          image: `${props.data.gcms.pages[0]?.bannerImages[0]?.url}`,
+          site_name: `${props.data.gcms.companyInfos[0].metadataSiteName}`,
+          lang: 'fr',
           locale: 'fr_CA',
           localeAlternate: 'en_CA',
         })}
         {getMetadataTwitterTags({
           card: 'summary',
-          creator: `${props.data.gcms.metadataTwitters[0].creator}`,
-          site: `${props.data.gcms.metadataTwitters[0].site}`,
+          creator: `${props.data.gcms.companyInfos[0].metadataTwitterCreator}`,
+          site: `${props.data.gcms.companyInfos[0].metadataTwitter}`,
         })}
       </Helmet>
       <Index {...props} />
-    </LayoutFR>
+    </Layout>
   );
 };
 

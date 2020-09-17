@@ -8,78 +8,73 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { CandidatePageEnQuery } from '../../types/graphql-types';
-import { LayoutEN } from '../layouts/en';
+import { Layout } from '../layouts';
 import { Candidate } from '../templates/candidates-page.template';
 
-export const query = graphql`
-  query CandidatePageEn {
+export const CandidatePageENQuery = graphql`
+  query CandidatePageEN {
     site {
       ...SiteMetadata
     }
-
-    bannerImage: file(name: { eq: "ImageOffice02" }) {
-      id
-      childImageSharp {
-        # https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-transformer-sharp/src/fragments.js
-        fluid(quality: 90, maxWidth: 1920) {
-          base64
-          aspectRatio
-          src
-          srcSet
-          srcWebp
-          srcSetWebp
-          sizes
-        }
+    gcms {
+      companyInfos(first: 1) {
+        ...CompanyInfo
+      }
+      pages(where: { name: "Candidates" }, locales: [en, fr]) {
+        ...Page
+      }
+      routes: pages(where: { NOT: { name: "Not Found" } }, locales: [en, fr]) {
+        name
+        title
+        route
       }
     }
-
-    gcms {
-      candidatePages(first: 1, locales: en) {
-        ...CandidatePage
-      }
-      metadataWebsites(first: 1) {
-        siteName
-        siteUrl
-      }
-      metadataTwitters(first: 1) {
-        creator
-        site
-      }
+    bannerImageMobile: file(name: { eq: "ImageOffice02" }) {
+      ...MobileFluidImage
+    }
+    bannerImageDesktop: file(name: { eq: "ImageOffice02" }) {
+      ...DesktopFluidImage
     }
   }
 `;
 
-export interface CandidatesPageProps {
+interface PageProps {
   data: CandidatePageEnQuery;
   location: Location;
 }
 
-const CandidatePage: React.FC<CandidatesPageProps> = (props) => {
+const CandidatePage: React.FC<PageProps> = (props) => {
   return (
-    <LayoutEN>
+    <Layout
+      location={props.location}
+      logoURL={props.data.gcms.companyInfos[0].logo?.url}
+      linkedinPageURL={props.data.gcms.companyInfos[0].linkedinPageUrl}
+      facebookPageURL={props.data.gcms.companyInfos[0].facebookPageUrl}
+      instagramPageURL={props.data.gcms.companyInfos[0].instagramPageUrl}
+      twitterPageURL={props.data.gcms.companyInfos[0].twitterPageUrl}
+      pages={props.data.gcms.routes}
+    >
       <Helmet>
         {getMetaBasicTags()}
         {getMetadataOpenGraphWebsiteTags({
           type: OPEN_GRAPH_TYPE.WEBSITE,
-          title: `${props.data.gcms.candidatePages[0].metadata?.title}`,
-          url: `${props.data.gcms.metadataWebsites[0].siteUrl}${props.data.gcms.candidatePages[0].metadata?.route}`,
-          description: `${props.data.gcms.candidatePages[0].metadata?.description}`,
-          site_name: `${props.data.gcms.metadataWebsites[0].siteName}`,
+          title: `${props.data.gcms.pages[0]?.title}`,
+          url: `${props.data.site?.siteMetadata?.siteUrl}${props.data.gcms.pages[0]?.route}`,
+          description: `${props.data.gcms.pages[0]?.description}`,
+          image: `${props.data.gcms.pages[0]?.bannerImages[0]?.url}`,
+          site_name: `${props.data.gcms.companyInfos[0].metadataSiteName}`,
+          lang: 'en',
           locale: 'en_CA',
           localeAlternate: 'fr_CA',
         })}
         {getMetadataTwitterTags({
           card: 'summary',
-          creator: `${props.data.gcms.metadataTwitters[0].creator}`,
-          site: `${props.data.gcms.metadataTwitters[0].site}`,
+          creator: `${props.data.gcms.companyInfos[0].metadataTwitterCreator}`,
+          site: `${props.data.gcms.companyInfos[0].metadataTwitter}`,
         })}
-
-        <meta charSet="utf-8" />
-        <title>MIR - Recrutement technique - Employeurs</title>
-        <link rel="canonical" href="https://mir-website-master.netlify.com" />
       </Helmet>
       <Candidate {...props} />
-    </LayoutEN>
+    </Layout>
   );
 };
 

@@ -41,11 +41,18 @@ export type OpenGraphMetadataBasic = {
    */
   site_name: string;
   /**
+   * The html lang attribute according to https://www.w3.org/International/articles/language-tags/
+   * @example fr-CA or fr
+   */
+  lang: string;
+  /**
    * The locale these tags are marked up in. Of the format language_TERRITORY. Default is en_US
+   * @example fr_CA
    */
   locale: string;
   /**
    * An array of other locales this page is available in.
+   * @example en_CA
    */
   localeAlternate: string;
 };

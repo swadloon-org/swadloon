@@ -9,10 +9,7 @@ import { Heading } from './heading';
 interface OwnProps {
   title?: string | null;
   subTitle?: string | null;
-  imageData?:
-    | Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>
-    | null
-    | undefined;
+  imageData?: any;
 }
 
 export const BannerSecondary: React.FC<OwnProps> = ({ title, imageData }) => {

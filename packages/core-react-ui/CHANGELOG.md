@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.1](https://github.com/newrade/newrade/compare/core-react-ui@1.4.0...core-react-ui@1.4.1) (2020-09-17)
+
+### Bug Fixes
+
+- **core-react-ui:** remove prefix for meta tag ([5659760](https://github.com/newrade/newrade/commit/5659760db4654155ffdaa05e047a0251f35ab1db))
+- **mir-website:** disable graph cms plugin ([153e6dc](https://github.com/newrade/newrade/commit/153e6dc994078fee69026d584b7d0ab43741e286))
+- **mir-website:** more accessibility fixes ([cdbcb8e](https://github.com/newrade/newrade/commit/cdbcb8e358b147ea0b31952b8c94eb18d896af4e))
+- **mir-website:** remove react-helmet-async ([c1b278d](https://github.com/newrade/newrade/commit/c1b278d537c084ff99b6babe028bbb137d006aeb))
+
 # [1.4.0](https://github.com/newrade/newrade/compare/core-react-ui@1.3.0...core-react-ui@1.4.0) (2020-09-16)
 
 ### Bug Fixes

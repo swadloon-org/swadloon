@@ -13,6 +13,7 @@ export const MetadataOpenGraphWebsiteTags: React.FC<Props> = (props) => {
 };
 
 export function getMetadataOpenGraphWebsiteTags({
+  lang,
   locale,
   title,
   url,
@@ -23,7 +24,7 @@ export function getMetadataOpenGraphWebsiteTags({
   localeAlternate,
 }: Props) {
   return [
-    <html lang={locale ? locale : 'en_US'} prefix="og: https://ogp.me/ns#" />,
+    <html lang={lang ? lang : 'en'} prefix="og: https://ogp.me/ns#" />,
     title ? <title>{title}</title> : null,
     url ? <link rel="canonical" href={url} /> : null,
     url ? <meta property="og:url" content={url} /> : null,
