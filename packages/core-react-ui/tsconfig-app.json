@@ -9,7 +9,7 @@
     "module": "ESNext",
     "types": ["react", "react-dom"],
     "paths": {
-      "core-react-ui": ["./src"]
+      "core-react-ui/$1": ["./src/$1"]
     }
   },
   "typeRoots": ["../../node_modules/@types", "src/types"],

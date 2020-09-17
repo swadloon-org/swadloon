@@ -34,6 +34,7 @@ export const container = style((theme: DesignSystem) => ({
   alignItems: `center`,
   backgroundSize: `cover`,
   backgroundPositionY: `center`,
+  backgroundPositionX: `center`,
   backgroundColor: theme.colors.greyscale1000,
 
   '@media': {

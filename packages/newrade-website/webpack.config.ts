@@ -1,4 +1,4 @@
-import { cssLoader, scssLoader, bundleVisualizerPlugin } from 'core-webpack-config';
+import { cssLoader, scssLoader } from 'core-webpack-config';
 import { WebpackLoaders, WebpackPlugins, CreateBabelConfigArgs } from 'gatsby';
 import TreatPlugin from 'treat/webpack-plugin';
 import { WebpackOptions } from 'webpack/declarations/WebpackOptions';
@@ -31,7 +31,7 @@ export function createGatsbyWebpackConfig({
     }),
   ];
 
-  const productionPlugins = [bundleVisualizerPlugin];
+  const productionPlugins = [];
 
   const sassRule = {
     test: /\.s(a|c)ss$/,

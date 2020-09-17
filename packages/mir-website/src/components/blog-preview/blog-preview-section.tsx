@@ -44,12 +44,7 @@ export const BlogPreviewSection: React.FC<OwnProps> = (props) => {
             : null}
         </div>
 
-        <Button
-          type="primaryDefault"
-          size="medium"
-          variant="text"
-          // className={styles.button}
-        >
+        <Button variantType="primaryDefault" size="medium" variant="text">
           Toutes les nouvelles
         </Button>
       </div>

@@ -1,6 +1,6 @@
 import { graphql } from 'gatsby';
 
-export const query = graphql`
+export const fluidImageQuery = graphql`
   fragment MobileFluidImage on File {
     id
     childImageSharp {

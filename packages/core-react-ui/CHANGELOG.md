@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.1](https://github.com/newrade/newrade/compare/core-react-ui@1.4.0...core-react-ui@1.4.1) (2020-09-17)
+
+### Bug Fixes
+
+- **core-react-ui:** remove prefix for meta tag ([5659760](https://github.com/newrade/newrade/commit/5659760db4654155ffdaa05e047a0251f35ab1db))
+- **mir-website:** disable graph cms plugin ([153e6dc](https://github.com/newrade/newrade/commit/153e6dc994078fee69026d584b7d0ab43741e286))
+- **mir-website:** more accessibility fixes ([cdbcb8e](https://github.com/newrade/newrade/commit/cdbcb8e358b147ea0b31952b8c94eb18d896af4e))
+- **mir-website:** remove react-helmet-async ([c1b278d](https://github.com/newrade/newrade/commit/c1b278d537c084ff99b6babe028bbb137d006aeb))
+
+# [1.4.0](https://github.com/newrade/newrade/compare/core-react-ui@1.3.0...core-react-ui@1.4.0) (2020-09-16)
+
+### Bug Fixes
+
+- **core-react-ui:** find workaround for react helmet limitation ([ee017ce](https://github.com/newrade/newrade/commit/ee017ce85a7b77b5ec322642cb556279ae8c6f60))
+- **core-react-ui:** fix build command ([cf35338](https://github.com/newrade/newrade/commit/cf353387abd62565efdae16afb77884728c783db))
+- **core-react-ui:** fix render of root element ([38ede6a](https://github.com/newrade/newrade/commit/38ede6a99392fd18f849e1e5c96a74f427e0d44a))
+- **core-react-ui:** fix the build script ([b210e1d](https://github.com/newrade/newrade/commit/b210e1dec97a8bcc315003faadb94b337fe97c98))
+- **core-react-ui:** working webpack setup for development ([a7d9000](https://github.com/newrade/newrade/commit/a7d90008ee74bc279b1717553938d0b3219e7a1b))
+- **lakhos-website:** fix wrong import ([6bb9d36](https://github.com/newrade/newrade/commit/6bb9d361e830c4a19a6cfc3fb59c72adfb95c4cc))
+- **mir-website:** fix a problem with the treat theme crashing the production build ([555807a](https://github.com/newrade/newrade/commit/555807aeaad540e5a5d4ee51863e726315cbcd27))
+- **mir-website:** fix SSR issue caused by side-menu ([d53d386](https://github.com/newrade/newrade/commit/d53d38675475032a619a726f4a183d15a2850441))
+- **mir-website:** remove yarn clean before each yarn build ([e201a90](https://github.com/newrade/newrade/commit/e201a90373e98a1efd21f26e977a479e755f5c07))
+- **repo:** rework .gitignore and eslint config files ([f8f584e](https://github.com/newrade/newrade/commit/f8f584e5fbdcfa87e79a2b3d53780e40b51ea8c0))
+
+### Features
+
+- **core-design-system:** add Sizing.sizes to access CSS variables more easily (var()) ([3db4195](https://github.com/newrade/newrade/commit/3db41956b5a91b05f0f2651472a0cbbd4dd826cc))
+- **core-react-ui:** add seo models and components ([4861d62](https://github.com/newrade/newrade/commit/4861d626c4c25b96f1d3f22bf5a958d3417d2ad9))
+- **core-react-ui:** add webpack setup ([982ae2c](https://github.com/newrade/newrade/commit/982ae2c5b1701f25ad9f50a35cf9b81bdc722d1a))
+- **mir-website:** add gatsby config for seo ([5a68bce](https://github.com/newrade/newrade/commit/5a68bce2df6ac71f533850e91f5686e3b7d352ec))
+
 # [1.3.0](https://github.com/newrade/newrade/compare/core-react-ui@1.2.0...core-react-ui@1.3.0) (2020-09-02)
 
 ### Bug Fixes

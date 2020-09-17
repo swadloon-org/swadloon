@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.3](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/compare/core-utils@1.1.2...core-utils@1.1.3) (2020-09-17)
+
+**Note:** Version bump only for package core-utils
+
+## [1.1.2](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/compare/core-utils@1.1.1...core-utils@1.1.2) (2020-09-16)
+
+### Bug Fixes
+
+- **mir-website:** remove yarn clean before each yarn build ([e201a90](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/commit/e201a90373e98a1efd21f26e977a479e755f5c07))
+- **repo:** rework .gitignore and eslint config files ([f8f584e](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/commit/f8f584e5fbdcfa87e79a2b3d53780e40b51ea8c0))
+
 ## [1.1.1](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/compare/core-utils@1.1.0...core-utils@1.1.1) (2020-09-02)
 
 ### Bug Fixes

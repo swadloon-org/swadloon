@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.3](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/compare/core-yo-generator@1.3.2...core-yo-generator@1.3.3) (2020-09-17)
+
+**Note:** Version bump only for package core-yo-generator
+
+## [1.3.2](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/compare/core-yo-generator@1.3.1...core-yo-generator@1.3.2) (2020-09-16)
+
+### Bug Fixes
+
+- **mir-website:** remove yarn clean before each yarn build ([e201a90](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/e201a90373e98a1efd21f26e977a479e755f5c07))
+- **repo:** rework .gitignore and eslint config files ([f8f584e](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/f8f584e5fbdcfa87e79a2b3d53780e40b51ea8c0))
+
 ## [1.3.1](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/compare/core-yo-generator@1.3.0...core-yo-generator@1.3.1) (2020-09-02)
 
 ### Bug Fixes

@@ -3,16 +3,14 @@ import React from 'react';
 import { useStyles } from 'react-treat';
 import { ActionSection } from '../components/action-section/action-section';
 import { Heading } from '../components/heading';
+import { ImageFrame } from '../components/image-frame';
 import { Label } from '../components/label';
 import { Paragraph } from '../components/paragraph';
-import { Process } from '../components/process-section/process-section';
-import { Button } from '../core-react-ui/core-button';
 import { Layout } from '../layouts';
 import * as styleRefs from '../templates/index-page.treat';
 import { Icon } from '../ui/icon';
-import { PageProps } from './index.fr';
 
-const DesignPage: React.FC<PageProps> = (props) => {
+const DesignPage: React.FC<{}> = (props) => {
   return (
     <Layout>
       <Design {...props} />
@@ -26,9 +24,6 @@ export const Design: React.FC = () => {
   return (
     <div className={style.wrapper}>
       <div style={{ padding: '2rem', display: 'grid', gridGap: '2rem' }}>
-        <Button size={ButtonSize.large}>test</Button>
-        <Button size={ButtonSize.medium}>test</Button>
-
         <Heading variant="h1">Heading 1</Heading>
         <Heading variant="h2">Heading 2</Heading>
         <Heading variant="h3">Heading 3</Heading>
@@ -73,6 +68,8 @@ export const Design: React.FC = () => {
         <Icon size={ICON_SIZE.small} icon={'IconArrowRight'} />
         <ActionSection variant="Default"></ActionSection>
       </div>
+      <ActionSection variant="Default"></ActionSection>
+      <div>{/* <ImageFrame variant="bottomRight" type="caroussel"></ImageFrame> */}</div>
     </div>
   );
 };

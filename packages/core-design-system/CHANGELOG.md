@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.1](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/core-design-system@1.3.0...core-design-system@1.3.1) (2020-09-17)
+
+**Note:** Version bump only for package core-design-system
+
+# [1.3.0](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/core-design-system@1.2.0...core-design-system@1.3.0) (2020-09-16)
+
+### Bug Fixes
+
+- **mir-website:** optimizations ([4b86a44](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/4b86a442b2e646a294cc15a05297a1ca767760c3))
+- **mir-website:** remove yarn clean before each yarn build ([e201a90](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/e201a90373e98a1efd21f26e977a479e755f5c07))
+- **repo:** rework .gitignore and eslint config files ([f8f584e](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/f8f584e5fbdcfa87e79a2b3d53780e40b51ea8c0))
+
+### Features
+
+- **core-design-system:** add base for core-react-ui button ([ec0b0c7](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/ec0b0c78731f4291cbc12e2c04300268ae613c93))
+- **core-design-system:** add components specs ([a6423bc](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/a6423bcb72a9e8632ef7a350092413aaaf9c2c2a))
+- **core-design-system:** add Sizing.sizes to access CSS variables more easily (var()) ([3db4195](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/3db41956b5a91b05f0f2651472a0cbbd4dd826cc))
+- **core-react-ui:** adding the type of padding and width ([fe4c969](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/fe4c9694e03302d193a49c990536277051ad5bc6))
+- **mir-website:** working on i18n solution ([3c60568](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/3c6056872e16ab3c04694d7970f8c75b1a1e91ea))
+
 # [1.2.0](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/core-design-system@1.1.0...core-design-system@1.2.0) (2020-09-02)
 
 ### Bug Fixes
