@@ -19,6 +19,8 @@ https://developers.google.com/search/reference/robots_txt
 
 ## Testing Tools
 
+- Facebook: https://developers.facebook.com/tools/debug/
+- iFramely: http://debug.iframely.com/
 - Twitter: https://cards-dev.twitter.com/validator
 - Google Rich Result Test: https://search.google.com/test/rich-results
 

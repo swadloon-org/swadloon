@@ -1,0 +1,4 @@
+exclude:
+  - dev
+  - master
+  - release

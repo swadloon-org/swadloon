@@ -26,6 +26,7 @@ export function getMetadataOpenGraphWebsiteTags({
     <html lang={locale ? locale : 'en_US'} prefix="og: https://ogp.me/ns#" />,
     title ? <title>{title}</title> : null,
     url ? <link rel="canonical" href={url} /> : null,
+    url ? <meta property="og:url" content={url} /> : null,
     description ? <meta name="description" content={description} /> : null,
     title ? <meta property="og:title" content={title} /> : null,
     type ? <meta property="og:type" content={type} /> : null,
