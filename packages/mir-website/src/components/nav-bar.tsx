@@ -56,7 +56,7 @@ export const NavBar: React.FC<OwnProps> = (props) => {
         <div className={styles.desktopRightToolbar}>
           <div className={styles.desktopSocialButtons}>
             {props.facebookPageURL ? (
-              <a href={props.facebookPageURL} target={'_blank'} aria-label="Facebook Page">
+              <a href={props.facebookPageURL} target={'_blank'} aria-label="Facebook Page" rel="noopener">
                 <Button
                   variantType="tertiaryReversed"
                   variant="icon"
@@ -67,7 +67,7 @@ export const NavBar: React.FC<OwnProps> = (props) => {
               </a>
             ) : null}
             {props.linkedinPageURL ? (
-              <a href={props.linkedinPageURL} target={'_blank'} aria-label="LinkedIn Page">
+              <a href={props.linkedinPageURL} target={'_blank'} aria-label="LinkedIn Page" rel="noopener">
                 <Button
                   variantType="tertiaryReversed"
                   variant="icon"
@@ -78,7 +78,7 @@ export const NavBar: React.FC<OwnProps> = (props) => {
               </a>
             ) : null}
             {props.twitterPageURL ? (
-              <a href={props.twitterPageURL} target={'_blank'} aria-label="Twitter Page">
+              <a href={props.twitterPageURL} target={'_blank'} aria-label="Twitter Page" rel="noopener">
                 <Button
                   variantType="tertiaryReversed"
                   variant="icon"
@@ -89,7 +89,7 @@ export const NavBar: React.FC<OwnProps> = (props) => {
               </a>
             ) : null}
             {props.instagramPageURL ? (
-              <a href={props.instagramPageURL} target={'_blank'} aria-label="Instagram Page">
+              <a href={props.instagramPageURL} target={'_blank'} aria-label="Instagram Page" rel="noopener">
                 <Button
                   variantType="tertiaryReversed"
                   variant="icon"
