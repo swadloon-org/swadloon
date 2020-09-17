@@ -22,7 +22,6 @@ interface PageProps {
 
 export const EmployerPageTemplate: React.FC<PageProps> = ({ data, location }) => {
   const styles = useStyles(stylesRef);
-  console.log(data.gcms?.pages[0]?.infoSections);
   const actionSection1 = data.gcms.pages[0].actionSections[0];
   const section1 = data.gcms?.pages[0]?.infoSections[0];
   const section2 = data.gcms?.pages[0]?.infoSections[1];
@@ -53,7 +52,7 @@ export const EmployerPageTemplate: React.FC<PageProps> = ({ data, location }) =>
 
       {processSection ? <Process processSection={processSection} /> : null}
 
-      {actionSection1 ? <ActionSection variant={'reversed'} /> : null}
+      {actionSection1 ? <ActionSection ActionSection={actionSection1} /> : null}
     </main>
   );
 };

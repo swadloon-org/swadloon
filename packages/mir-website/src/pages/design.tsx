@@ -89,10 +89,7 @@ export const Design: React.FC = () => {
           Test
         </Accordions>
         <InfoSectionVideo></InfoSectionVideo>
-
-        <ActionSection variant="Default"></ActionSection>
       </div>
-      <ActionSection variant="Default"></ActionSection>
     </div>
   );
 };
