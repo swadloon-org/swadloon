@@ -17,6 +17,7 @@ interface PageProps {
 
 export const Contact: React.FC<PageProps> = ({ data, location }) => {
   const styles = useStyles(stylesRef);
+  const section1 = data.gcms?.pages[0]?.infoSections[0];
 
   const sources = [
     data?.bannerImageMobile?.childImageSharp?.fluid,
@@ -29,8 +30,7 @@ export const Contact: React.FC<PageProps> = ({ data, location }) => {
   return (
     <main className={`${styles.wrapper}`}>
       <BannerSecondary imageData={sources} title={data?.gcms?.pages[0]?.bannerTitle}></BannerSecondary>
-
-      <InfoSectionType6Group></InfoSectionType6Group>
+      {section1 && section1.type === 'type6' ? <InfoSectionType6Group {...section1} /> : null}
 
       <Newsletter id="newsletter"></Newsletter>
     </main>

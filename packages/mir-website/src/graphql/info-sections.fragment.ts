@@ -7,6 +7,7 @@ export const infoSectionsQuery = graphql`
     titleTab
     type
     text
+    illustration
     showTabs
     actionText
     infoTiles {
@@ -26,6 +27,7 @@ export const infoSectionsQuery = graphql`
       type
       text
       actionText
+      illustration
     }
     image {
       url(transformation: { image: { resize: { width: 500, fit: max } } })
