@@ -36,6 +36,7 @@ type OwnProps = {
 export function JobSection(props: OwnProps) {
   const styles = useStyles(styleRefs);
   const [selectedAccordionsIndex, setSelectedAccordionsIndex] = useState<number>(1);
+  // const [accordion1State, setSelectedAccordionsIndex] = useState<'opened' | 'closed'>('opened');
   const { viewport } = useViewportBreakpoint();
 
   return (

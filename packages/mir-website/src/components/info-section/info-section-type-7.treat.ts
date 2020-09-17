@@ -3,6 +3,11 @@ import { style } from 'treat';
 
 export const wrapper = style((theme: DesignSystem) => ({
   display: 'grid',
+  backgroundColor: theme.colors.greyscale100,
+}));
+
+export const container = style((theme: DesignSystem) => ({
+  display: 'grid',
   gridTemplateColumns: '1fr',
   gridGap: `${theme.sizing.sizes.x4} 0`,
   margin: '0 auto',

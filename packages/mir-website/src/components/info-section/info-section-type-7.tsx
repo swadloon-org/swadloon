@@ -13,17 +13,19 @@ export const InfoSectionType7: React.FC<OwnProps> = (props) => {
 
   return (
     <div className={`${styles.wrapper}`}>
-      {props.infoTiles.map((infoTile, index) => {
-        return (
-          <InfoTile
-            key={index}
-            variant="borderWhite"
-            title={infoTile.title}
-            illustration={infoTile.illustration}
-            text={infoTile.text}
-          ></InfoTile>
-        );
-      })}
+      <div className={`${styles.container}`}>
+        {props.infoTiles.map((infoTile, index) => {
+          return (
+            <InfoTile
+              key={index}
+              variant="borderWhite"
+              title={infoTile.title}
+              illustration={infoTile.illustration}
+              text={infoTile.text}
+            ></InfoTile>
+          );
+        })}
+      </div>
     </div>
   );
 };

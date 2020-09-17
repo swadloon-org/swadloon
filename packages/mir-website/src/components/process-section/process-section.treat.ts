@@ -1,5 +1,5 @@
 import { DesignSystem, createShadow } from 'core-design-system';
-import { style } from 'treat';
+import { globalStyle, style } from 'treat';
 import { theme } from '../../design-system';
 
 export const wrapper = style((theme: DesignSystem) => ({
@@ -47,6 +47,7 @@ export const content = style((theme: DesignSystem) => ({
     },
   },
 }));
+
 export const tileProcess = style((theme: DesignSystem) => ({
   '@media': {
     [theme.layout.media.mobile]: {
@@ -69,6 +70,7 @@ export const tileProcess = style((theme: DesignSystem) => ({
     },
   },
 }));
+
 export const blocNumber = style((theme: DesignSystem) => ({
   display: 'grid',
   justifyContent: 'flex-start',
@@ -84,7 +86,9 @@ export const blocNumber = style((theme: DesignSystem) => ({
     },
   },
 }));
+
 export const circle = style((theme: DesignSystem) => ({
+  position: 'relative',
   display: 'grid',
   textAlign: 'center',
   width: '50px',
@@ -102,31 +106,26 @@ export const circle = style((theme: DesignSystem) => ({
   '@media': {
     [theme.layout.media.desktop]: {
       selectors: {
-        [`&:after`]: {
+        [`&:before`]: {
           position: 'absolute',
-          content: `''`,
+          content: `' '`,
           top: '25px',
-          left: 'auto',
+          left: '100%',
           right: 'auto',
           borderRight: '1px solid black',
-          width: '250px',
+          width: `${250 - 50}px`,
           height: '3px',
-          backgroundColor: 'red',
-        },
-
-        [`&:last-child:after`]: {
-          position: 'absolute',
-          top: '25px',
-          left: 'auto',
-          borderRight: '1px solid black',
-          width: '0px',
-          height: '3px',
-          backgroundColor: 'blue',
+          backgroundColor: 'white',
         },
       },
     },
   },
 }));
+
+globalStyle(`${tileProcess}:last-child ${circle}:before`, (theme: DesignSystem) => ({
+  visibility: 'hidden',
+}));
+
 export const number = style((theme: DesignSystem) => ({
   alignSelf: 'center',
   '@media': {

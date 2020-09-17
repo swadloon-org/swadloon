@@ -9,6 +9,7 @@ import { Testimonial } from '../components/testimonial-section/testimonial-secti
 import { AboutPageFrQuery } from '../../types/graphql-types';
 import { theme } from '../design-system';
 import { InfoSectionType7 } from '../components/info-section/info-section-type-7';
+import { InfoSectionVideo } from '../components/info-section/info-section-video';
 
 interface PageProps {
   data: AboutPageFrQuery;
@@ -40,6 +41,9 @@ export const About: React.FC<PageProps> = ({ data, location }) => {
       {section1 && section1.type === 'type2' ? <InfoSectionType2 align="AlignContentLeft" {...section1} /> : null}
       {section2 && section2.type === 'type7' ? <InfoSectionType7 {...section2} /> : null}
       {section3 && section3.type === 'type2' ? <InfoSectionType2 align="AlignContentRight" {...section3} /> : null}
+
+      <InfoSectionVideo></InfoSectionVideo>
+
       {testimonials ? <Testimonial testimonialSections={testimonials} /> : null}
 
       <Newsletter id="newsletter"></Newsletter>
