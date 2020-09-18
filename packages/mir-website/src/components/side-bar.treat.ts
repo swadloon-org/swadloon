@@ -3,6 +3,7 @@ import { style, globalStyle } from 'treat';
 
 export const wrapper = style((theme: DesignSystem) => ({
   position: 'fixed',
+  top: '0',
   height: '100%',
   backgroundColor: theme.colors.greyscale0,
   zIndex: 10,

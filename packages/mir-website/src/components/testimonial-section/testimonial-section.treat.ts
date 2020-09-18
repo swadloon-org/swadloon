@@ -21,13 +21,20 @@ export const title = style((theme: DesignSystem) => ({
   marginRight: 'auto',
   marginLeft: 'auto',
   maxWidth: '474px',
-  padding: ` ${theme.sizing.sizes.x5} 0`,
+  paddingBottom: theme.sizing.sizes.x6,
+  paddingTop: theme.sizing.sizes.x6,
   marginBottom: '0',
 
   '@media': {
-    [theme.layout.media.tablet]: {},
+    [theme.layout.media.tablet]: {
+      paddingBottom: theme.sizing.sizes.x5,
+      paddingTop: theme.sizing.sizes.x5,
+    },
 
-    [theme.layout.media.desktop]: {},
+    [theme.layout.media.desktop]: {
+      paddingBottom: theme.sizing.sizes.x5,
+      paddingTop: theme.sizing.sizes.x5,
+    },
   },
 }));
 export const subTitle = style((theme: DesignSystem) => ({
@@ -35,19 +42,21 @@ export const subTitle = style((theme: DesignSystem) => ({
   marginRight: 'auto',
   marginLeft: 'auto',
   maxWidth: '474px',
-  padding: ` ${theme.sizing.sizes.x5} 0`,
+  paddingBottom: theme.sizing.sizes.x6,
 
   '@media': {
     [theme.layout.media.tablet]: {},
 
-    [theme.layout.media.desktop]: {},
+    [theme.layout.media.desktop]: {
+      paddingBottom: theme.sizing.sizes.x5,
+    },
   },
 }));
 export const content = style((theme: DesignSystem) => ({
   display: 'grid',
   gridColumn: '1',
   gridTemplateColumns: '1fr',
-  gridGap: `0 ${theme.sizing.sizes.x4}`,
+  gridGap: `${theme.sizing.sizes.x4} 0 `,
 
   '@media': {
     [theme.layout.media.tablet]: {},

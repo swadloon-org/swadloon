@@ -35,8 +35,7 @@ type OwnProps = {
 
 export function JobSection(props: OwnProps) {
   const styles = useStyles(styleRefs);
-  const [selectedAccordionsIndex, setSelectedAccordionsIndex] = useState<number>(1);
-  const [accordionOpenState, setSelectedAccordionsOpenState] = useState<'opened' | 'closed'>();
+  const [accordionOpenState, setAccordionsOpenState] = useState(['opened', 'closed']);
 
   const { viewport } = useViewportBreakpoint();
 
@@ -69,44 +68,33 @@ export function JobSection(props: OwnProps) {
                       type="candidates"
                       icon="IllustrationFactory"
                       variant="none"
+                      selected={accordionOpenState[index] === 'opened'}
                       onClick={() => {
-                        setSelectedAccordionsIndex(index);
+                        accordionOpenState[index] === 'closed'
+                          ? setAccordionsOpenState(['opened'])
+                          : setAccordionsOpenState(['closed']);
                       }}
-                      selected={index === selectedAccordionsIndex}
                     >
                       {jobType.typeName?.title}
                     </Accordions>
                   </div>
-
-                  <AnimatePresence>
-                    {index === selectedAccordionsIndex && (
-                      <motion.div
-                        className={`${styles.content} ${styles.withCheck} ${
-                          index === selectedAccordionsIndex ? styles.selected : styles.unselected
-                        } `}
-                        style={{ gridTemplateRows: `repeat(${RowNumber}, 1fr)` }}
-                        key="content"
-                        initial="collapsed"
-                        // animate="open"
-                        exit="collapsed"
-                        // variants={{
-                        //   open: { opacity: 1, height: 'auto' },
-                        //   collapsed: { opacity: 0, height: 0 },
-                        // }}
-                        // transition={{ duration: 0.8, ease: [0.2, 0.62, 0.23, 0.98] }}
-                      >
-                        {props?.jobSection?.groups[index].typeName?.jobGroup[0].jobs.map((job, index) => {
-                          return (
-                            <div className={`${index % 2 == 0 ? styles.even : styles.unenven}`} key={index}>
-                              <CheckLabel illustration="IllustrationCheck" size="medium">
-                                {job.title}
-                              </CheckLabel>
-                            </div>
-                          );
-                        })}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                  {console.log(accordionOpenState[index])}
+                  <div
+                    className={`${styles.content} ${styles.withCheck}  ${
+                      accordionOpenState[index] === 'opened' ? styles.selected : styles.unselected
+                    }`}
+                    style={{ gridTemplateRows: `repeat(${RowNumber}, 1fr)` }}
+                  >
+                    {props?.jobSection?.groups[index].typeName?.jobGroup[0].jobs.map((job, index) => {
+                      return (
+                        <div className={`${index % 2 == 0 ? styles.even : styles.unenven}`} key={index}>
+                          <CheckLabel illustration="IllustrationCheck" size="medium">
+                            {job.title}
+                          </CheckLabel>
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
               );
             })}
@@ -128,40 +116,31 @@ export function JobSection(props: OwnProps) {
                     <Accordions
                       type="employer"
                       variant="reversed"
-                      selected={index === selectedAccordionsIndex}
+                      selected={accordionOpenState[index] === 'opened'}
                       onClick={() => {
-                        setSelectedAccordionsIndex(index);
+                        accordionOpenState[index] === 'closed'
+                          ? setAccordionsOpenState(['opened'])
+                          : setAccordionsOpenState(['closed']);
                       }}
                     >
                       {jobType.typeName?.title}
                     </Accordions>
                   </div>
 
-                  <AnimatePresence>
-                    {index === selectedAccordionsIndex && (
-                      <motion.div
-                        className={`${styles.content} ${styles.withTags} `}
-                        style={{ gridTemplateRows: `repeat(${RowNumber}, 1fr)` }}
-                        key="content"
-                        initial="collapsed"
-                        animate="open"
-                        exit="collapsed"
-                        variants={{
-                          open: { opacity: 1, height: 'auto' },
-                          collapsed: { opacity: 0, height: 0 },
-                        }}
-                        transition={{ duration: 0.8, ease: [0.2, 0.62, 0.23, 0.98] }}
-                      >
-                        {props?.jobSection?.groups[index].typeName?.jobGroup[0].jobs.map((job, index) => {
-                          return (
-                            <div className={styles.tagsUnique} key={index}>
-                              <Tags numberIndex={`${index < 9 ? '0' : ''}${index + 1}`}> {job.title}</Tags>
-                            </div>
-                          );
-                        })}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                  <div
+                    className={`${styles.content} ${styles.withTags} ${
+                      accordionOpenState[index] === 'opened' ? styles.selected : styles.unselected
+                    }`}
+                    style={{ gridTemplateRows: `repeat(${RowNumber}, 1fr)` }}
+                  >
+                    {props?.jobSection?.groups[index].typeName?.jobGroup[0].jobs.map((job, index) => {
+                      return (
+                        <div className={styles.tagsUnique} key={index}>
+                          <Tags numberIndex={`${index < 9 ? '0' : ''}${index + 1}`}> {job.title}</Tags>
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
               );
             })}
@@ -172,5 +151,13 @@ export function JobSection(props: OwnProps) {
         return '';
       }
     }
+  }
+
+  function getIndexState(index: number) {
+    console.log(accordionOpenState[0]);
+    accordionOpenState[index] === 'closed'
+      ? setAccordionsOpenState([index['opened']])
+      : setAccordionsOpenState([index['closed']]);
+    accordionOpenState[index] === 'opened' ? setAccordionsOpenState([index['closed']]) : '';
   }
 }

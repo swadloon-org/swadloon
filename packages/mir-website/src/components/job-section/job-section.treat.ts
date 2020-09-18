@@ -103,11 +103,17 @@ export const withCheck = style((theme: DesignSystem) => ({
 //
 // unselected
 //
-export const unselected = style((theme: DesignSystem) => ({}));
+export const unselected = style((theme: DesignSystem) => ({
+  visibility: 'hidden',
+  height: '0',
+  paddingBottom: '0',
+}));
 //
 // selected
 //
-export const selected = style((theme: DesignSystem) => ({}));
+export const selected = style((theme: DesignSystem) => ({
+  display: 'block',
+}));
 
 //
 // accordions
