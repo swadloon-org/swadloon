@@ -47,7 +47,7 @@ export const SideBar: React.FC<OwnProps> = (props) => {
 
   const data = useStaticQuery<MobileBarQuery>(sideBarQuery);
   const pageActual = props.location?.pathname;
-  console.log(pageActual);
+
   return (
     <div className={`${props.className || ''} ${styles.wrapper} ${styles[props.state]}`}>
       <div className={styles.topContainer}>

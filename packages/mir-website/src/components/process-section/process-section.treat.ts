@@ -3,9 +3,10 @@ import { globalStyle, style } from 'treat';
 import { theme } from '../../design-system';
 
 export const wrapper = style((theme: DesignSystem) => ({
-  padding: `${theme.sizing.sizes.x5} 0`,
+  padding: `${theme.sizing.sizes.x6} 0`,
   backgroundColor: theme.colors.greyscale100,
 }));
+
 export const container = style((theme: DesignSystem) => ({
   maxWidth: '1200px',
   display: 'flex',
@@ -28,6 +29,7 @@ export const title = style((theme: DesignSystem) => ({
   margin: '0 auto',
   paddingBottom: `${theme.sizing.sizes.x5}`,
 }));
+
 export const content = style((theme: DesignSystem) => ({
   position: 'relative',
   zIndex: 2,

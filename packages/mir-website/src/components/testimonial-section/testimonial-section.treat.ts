@@ -8,7 +8,7 @@ export const wrapper = style((theme: DesignSystem) => ({
 export const container = style((theme: DesignSystem) => ({
   margin: '0 auto',
   maxWidth: '1200px',
-  padding: `${theme.sizing.sizes.x5}`,
+  padding: `${theme.sizing.sizes.x6}`,
 
   '@media': {
     [theme.layout.media.tablet]: {},

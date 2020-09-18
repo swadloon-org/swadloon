@@ -3,6 +3,8 @@ import { style, globalStyle } from 'treat';
 import { theme } from '../design-system';
 
 export const wrapper = style((theme: DesignSystem) => ({
+  userSelect: `none`,
+  cursor: `pointer`,
   boxShadow: theme.effects.shadows.light.css,
 }));
 

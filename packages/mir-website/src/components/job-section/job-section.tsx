@@ -1,36 +1,16 @@
+import { VIEWPORT } from 'core-design-system';
 import React, { useState } from 'react';
 import { useStyles } from 'react-treat';
-import { Accordions } from '../accordions';
-import { Tags } from '../tags';
-import { CheckLabel } from '../info-section-check';
-import * as styleRefs from './job-section.treat';
-import { motion, AnimatePresence } from 'framer-motion';
-
-import { RenderTitleHighlight } from '../info-section/info-title-highligh';
-import {
-  Maybe,
-  GraphCms_JobSection,
-  GraphCms_JobSectionType,
-  GraphCms_JobType,
-  GraphCms_Job,
-} from '../../../types/graphql-types';
-import { style } from 'treat/lib/types';
+import { GraphCms_JobSectionType, JobSectionsFragment } from '../../../types/graphql-types';
 import { useViewportBreakpoint } from '../../hooks/use-viewport.hook';
-import { VIEWPORT } from 'core-design-system';
+import { Accordions } from '../accordions';
+import { CheckLabel } from '../info-section-check';
+import { RenderTitleHighlight } from '../info-section/info-title-highligh';
+import { Tags } from '../tags';
+import * as styleRefs from './job-section.treat';
 
 type OwnProps = {
-  jobSection: Maybe<
-    Pick<GraphCms_JobSection, 'title' | 'titleHighlight'> & {
-      type?: Maybe<Pick<GraphCms_JobSectionType, 'title' | 'type'>>;
-      groups: Array<{
-        typeName?: Maybe<
-          Pick<GraphCms_JobType, 'id' | 'title'> & {
-            jobGroup: Array<{ jobs: Array<Pick<GraphCms_Job, 'id' | 'title'>> }>;
-          }
-        >;
-      }>;
-    }
-  >;
+  jobSection: JobSectionsFragment;
 };
 
 export function JobSection(props: OwnProps) {
@@ -57,8 +37,8 @@ export function JobSection(props: OwnProps) {
       case 'candidates': {
         return (
           <div className={styles.container}>
-            {props.jobSection?.groups.map((jobType, index) => {
-              let lengthJobs: any = props.jobSection?.groups[index].typeName?.jobGroup[0].jobs.length;
+            {props.jobSection?.groups.map((group, index) => {
+              let lengthJobs: any = props.jobSection?.groups[index].jobs.length;
               let RowNumber: number =
                 viewport === VIEWPORT.desktop ? Math.ceil(lengthJobs / 3) : Math.ceil(lengthJobs / 1);
               return (
@@ -66,24 +46,23 @@ export function JobSection(props: OwnProps) {
                   <div className={styles.accordions}>
                     <Accordions
                       type="candidates"
-                      icon="IllustrationFactory"
+                      icon={group.illustration ? group.illustration : 'IllustrationSettings'}
                       variant="none"
                       selected={accordionOpenState[index].state === 'opened'}
                       onClick={() => {
                         getIndexState(index);
                       }}
                     >
-                      {jobType.typeName?.title}
+                      {group.typeName?.title}
                     </Accordions>
                   </div>
-                  {console.log(accordionOpenState[index])}
                   <div
                     className={`${styles.content} ${styles.withCheck}  ${
                       accordionOpenState[index].state === 'opened' ? styles.selected : styles.unselected
                     }`}
                     style={{ gridTemplateRows: `repeat(${RowNumber}, 1fr)` }}
                   >
-                    {props?.jobSection?.groups[index].typeName?.jobGroup[0].jobs.map((job, index) => {
+                    {props?.jobSection?.groups[index].jobs.map((job, index) => {
                       return (
                         <div className={`${index % 2 == 0 ? styles.even : styles.unenven}`} key={index}>
                           <CheckLabel illustration="IllustrationCheck" size="medium">
@@ -104,7 +83,7 @@ export function JobSection(props: OwnProps) {
         return (
           <div className={styles.container}>
             {props.jobSection?.groups.map((jobType, index) => {
-              let lengthJobs: any = props.jobSection?.groups[index].typeName?.jobGroup[0].jobs.length;
+              let lengthJobs: any = props.jobSection?.groups[index].jobs.length;
               let RowNumber: number =
                 viewport === VIEWPORT.desktop ? Math.ceil(lengthJobs / 3) : Math.ceil(lengthJobs / 1);
 
@@ -129,7 +108,7 @@ export function JobSection(props: OwnProps) {
                     }`}
                     style={{ gridTemplateRows: `repeat(${RowNumber}, 1fr)` }}
                   >
-                    {props?.jobSection?.groups[index].typeName?.jobGroup[0].jobs.map((job, index) => {
+                    {props?.jobSection?.groups[index].jobs.map((job, index) => {
                       return (
                         <div className={styles.tagsUnique} key={index}>
                           <Tags numberIndex={`${index < 9 ? '0' : ''}${index + 1}`}> {job.title}</Tags>

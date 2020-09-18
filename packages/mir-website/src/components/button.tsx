@@ -42,10 +42,24 @@ export const Button: React.FC<OwnProps> = ({ className, variantType, size, varia
       {variant === 'icon' && icon ? (
         <Illustration className={`${styles.illustration}`} name={`Icon/${icon}`} width={42} height={42} />
       ) : (
-        <Label className={`${styles.label}`} variant={LABEL.smallBold}>
+        <Label className={`${styles.label}`} variant={getLabelSize(size)}>
           {props.children}
         </Label>
       )}
     </button>
   );
+
+  function getLabelSize(size: OwnProps['size']): LABEL {
+    switch (size) {
+      case 'large': {
+        return LABEL.mediumBold;
+      }
+      case 'medium': {
+        return LABEL.smallBold;
+      }
+      case 'small': {
+        return LABEL.smallBold;
+      }
+    }
+  }
 };

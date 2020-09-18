@@ -37,25 +37,17 @@ export const label = style((theme: DesignSystem) => ({
 //
 
 const basePrimary = (theme: DesignSystem) => ({
-  padding: `19px 24px`,
+  padding: `24px 30px`,
 });
 
 export const primaryDefault = style((theme: DesignSystem) => ({
   ...basePrimary(theme),
   color: theme.colors.primary500,
-  //
-  // Added by Elliot for resolving the issue with the icon and text medium
-  //
-  minWidth: '150px',
 }));
 
 export const primaryReversed = style((theme: DesignSystem) => ({
   ...basePrimary(theme),
   color: theme.colors.greyscale0Reversed,
-  //
-  // Added by Elliot for resolving the issue with the icon and text medium
-  //
-  minWidth: '150px',
 }));
 
 export const corner = style(() => ({
@@ -138,19 +130,11 @@ globalStyle(`${illustration} fill`, (theme: DesignSystem) => ({
 
 export const small = style((theme: DesignSystem) => ({}));
 export const medium = style((theme: DesignSystem) => ({
-  padding: `${theme.sizing.sizes.x3}`,
+  padding: `24px 24px`,
+  minWidth: '260px',
 }));
 export const large = style((theme: DesignSystem) => ({
-  // lineHeight: `${theme.sizing.sizes.x4}`,
-  // height: `${theme.sizing.sizes.x4}`,
+  padding: `27px 20px`,
+  minWidth: '260px',
 }));
 export const text = style((theme: DesignSystem) => ({}));
-
-// globalStyle(`${medium}`, (theme: DesignSystem) => ({
-//   minWidth: '150px',
-//   selectors: {
-//     [`${icon} &`]: {
-//       minWidth: '0px',
-//     },
-//   },
-// }));

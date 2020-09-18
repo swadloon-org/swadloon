@@ -9,15 +9,14 @@ export const jobSectionsQuery = graphql`
       type
     }
     groups {
+      illustration
       typeName {
         id
         title
-        jobGroup {
-          jobs {
-            id
-            title
-          }
-        }
+      }
+      jobs {
+        id
+        title
       }
     }
   }
