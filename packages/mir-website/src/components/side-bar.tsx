@@ -70,7 +70,6 @@ export const SideBar: React.FC<OwnProps> = (props) => {
             ></Illustration>
             <Label variant={LABEL.smallUppercase}>Menu</Label>
           </div>
-          {console.log(window.location.pathname)}
 
           <nav className={styles.listMenu}>
             {leftToolbarPages?.map((page) => {
