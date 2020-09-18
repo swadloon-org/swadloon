@@ -52,7 +52,7 @@ export const ActionSection: React.FC<OwnProps> = ({ section, ...props }) => {
             <a href={section?.link.url} className={`${styles.button}`}>
               <Button
                 className={`${styles.button}`}
-                variantType={section?.type === 'default' ? 'primaryDefault' : 'primaryReversed'}
+                variantType={props?.type === 'default' ? 'primaryDefault' : 'primaryReversed'}
                 size="medium"
                 variant="text"
               >
