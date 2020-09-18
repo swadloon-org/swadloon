@@ -37,9 +37,6 @@ export const SideBar: React.FC<OwnProps> = (props) => {
   const styles = useStyles(stylesRef);
 
   const leftToolbarPageNames = ['Home', 'Candidates', 'Employers', 'Blog', 'About', 'Contact'];
-
-  console.log(props.pages);
-
   const leftToolbarPages = props.pages
     ?.filter((page) => leftToolbarPageNames.includes(page.name))
     .sort((pageA, pageB) => {
@@ -49,7 +46,8 @@ export const SideBar: React.FC<OwnProps> = (props) => {
     });
 
   const data = useStaticQuery<MobileBarQuery>(sideBarQuery);
-
+  const pageActual = props.location?.pathname;
+  console.log(pageActual);
   return (
     <div className={`${props.className || ''} ${styles.wrapper} ${styles[props.state]}`}>
       <div className={styles.topContainer}>
@@ -73,7 +71,6 @@ export const SideBar: React.FC<OwnProps> = (props) => {
 
           <nav className={styles.listMenu}>
             {leftToolbarPages?.map((page) => {
-              console.log(page.route);
               return (
                 <GatsbyLink
                   className={styles.titleItem}
@@ -81,9 +78,7 @@ export const SideBar: React.FC<OwnProps> = (props) => {
                   key={page.name}
                   activeClassName={`${styles.activeItem}`}
                 >
-                  <div
-                    className={`${styles.itemMenu} ${window.location.pathname === page.route ? styles.activeItem : ''}`}
-                  >
+                  <div className={`${styles.itemMenu} ${pageActual == page.route ? styles.activeItem : ''}`}>
                     <Heading variant="h4">{page.title}</Heading>
                   </div>
                 </GatsbyLink>
