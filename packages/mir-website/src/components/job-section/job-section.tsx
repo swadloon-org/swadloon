@@ -35,7 +35,7 @@ type OwnProps = {
 
 export function JobSection(props: OwnProps) {
   const styles = useStyles(styleRefs);
-  const [accordionOpenState, setAccordionsOpenState] = useState(['opened', 'closed']);
+  const [accordionOpenState, setAccordionsOpenState] = useState([{ state: 'opened' }, { state: 'closed' }]);
 
   const { viewport } = useViewportBreakpoint();
 
@@ -68,11 +68,9 @@ export function JobSection(props: OwnProps) {
                       type="candidates"
                       icon="IllustrationFactory"
                       variant="none"
-                      selected={accordionOpenState[index] === 'opened'}
+                      selected={accordionOpenState[index].state === 'opened'}
                       onClick={() => {
-                        accordionOpenState[index] === 'closed'
-                          ? setAccordionsOpenState(['opened'])
-                          : setAccordionsOpenState(['closed']);
+                        getIndexState(index);
                       }}
                     >
                       {jobType.typeName?.title}
@@ -81,7 +79,7 @@ export function JobSection(props: OwnProps) {
                   {console.log(accordionOpenState[index])}
                   <div
                     className={`${styles.content} ${styles.withCheck}  ${
-                      accordionOpenState[index] === 'opened' ? styles.selected : styles.unselected
+                      accordionOpenState[index].state === 'opened' ? styles.selected : styles.unselected
                     }`}
                     style={{ gridTemplateRows: `repeat(${RowNumber}, 1fr)` }}
                   >
@@ -116,11 +114,9 @@ export function JobSection(props: OwnProps) {
                     <Accordions
                       type="employer"
                       variant="reversed"
-                      selected={accordionOpenState[index] === 'opened'}
+                      selected={accordionOpenState[index].state === 'opened'}
                       onClick={() => {
-                        accordionOpenState[index] === 'closed'
-                          ? setAccordionsOpenState(['opened'])
-                          : setAccordionsOpenState(['closed']);
+                        getIndexState(index);
                       }}
                     >
                       {jobType.typeName?.title}
@@ -129,7 +125,7 @@ export function JobSection(props: OwnProps) {
 
                   <div
                     className={`${styles.content} ${styles.withTags} ${
-                      accordionOpenState[index] === 'opened' ? styles.selected : styles.unselected
+                      accordionOpenState[index].state === 'opened' ? styles.selected : styles.unselected
                     }`}
                     style={{ gridTemplateRows: `repeat(${RowNumber}, 1fr)` }}
                   >
@@ -154,10 +150,8 @@ export function JobSection(props: OwnProps) {
   }
 
   function getIndexState(index: number) {
-    console.log(accordionOpenState[0]);
-    accordionOpenState[index] === 'closed'
-      ? setAccordionsOpenState([index['opened']])
-      : setAccordionsOpenState([index['closed']]);
-    accordionOpenState[index] === 'opened' ? setAccordionsOpenState([index['closed']]) : '';
+    let newArr = [...accordionOpenState];
+    accordionOpenState[index].state === 'opened' ? (newArr[index].state = 'closed') : (newArr[index].state = 'opened');
+    setAccordionsOpenState(newArr);
   }
 }
