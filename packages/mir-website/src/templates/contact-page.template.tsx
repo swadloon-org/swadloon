@@ -52,7 +52,7 @@ export const Contact: React.FC<PageProps> = ({ data, location }) => {
 
           <TextArea variant="default" placeholder="Message" className={`${styles.textArea}`}></TextArea>
 
-          <a href={''}>
+          <a href={'https://share.hsforms.com/1aDGFNPc5TxSryc7q4tOtSw51twu'}>
             <Button variantType="secondaryDefault" size="small" variant="text" id="SubmitButton">
               Soumettre
             </Button>
