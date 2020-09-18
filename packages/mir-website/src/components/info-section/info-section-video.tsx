@@ -1,12 +1,9 @@
 import React from 'react';
-
 import { useStyles } from 'react-treat';
-import * as styleRefs from './info-section-video.treat';
 import { Heading } from '../heading';
 import { Paragraph } from '../paragraph';
-import { Video } from '../video';
-import { video } from '../video.treat';
-import { style } from 'treat/lib/types';
+import * as styleRefs from './info-section-video.treat';
+
 type OwnProps = {};
 
 export const InfoSectionVideo: React.FC<OwnProps> = (props) => {
