@@ -17,7 +17,7 @@ export const ActionSection: React.FC<OwnProps & AllHTMLAttributes<any>> = (props
   const styles = useStyles(styleRefs);
 
   return (
-    <div className={`${styles.wrapper} ${props.ActionSection?.type ? styles[props.ActionSection.type] : null}`}>
+    <div className={`${styles.wrapper} ${props.ActionSection?.type === 'default' ? styles.Default : styles.reversed}`}>
       <div className={`${styles.container}`}>
         <div className={`${styles.content}`}>
           <Label variant={LABEL.xSmallBoldUppercase} className={`${styles.subtitle}`}>

@@ -35,7 +35,6 @@ export const Process: React.FC<OwnProps> = (props) => {
         />
         <div className={styles.content}>
           {/* <div className={styles.line}></div> */}
-
           {props.processSection?.steps.map((tile: any, index: number) => {
             return (
               <div className={`${styles.tileProcess}`} key={tile.id}>

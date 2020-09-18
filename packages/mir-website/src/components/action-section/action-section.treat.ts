@@ -9,13 +9,6 @@ export const wrapper = style((theme: DesignSystem) => ({
   paddingTop: `${theme.sizing.sizes.x6}`,
   paddingBottom: `${theme.sizing.sizes.x7}`,
 
-  backgroundColor: theme.colors.greyscale100,
-  color: theme.colors.greyscale1000,
-
-  boxShadow: createShadow({
-    ...theme.effects.shadows.medium,
-  }).css,
-
   '@media': {
     [theme.layout.media.tablet]: {
       padding: `${theme.sizing.sizes.x5} ${theme.layout.contentMargins.tablet.px}`,
@@ -25,6 +18,23 @@ export const wrapper = style((theme: DesignSystem) => ({
     },
   },
 }));
+
+//
+// Default
+//
+
+export const Default = style((theme: DesignSystem) => ({
+  backgroundColor: theme.colors.greyscale100,
+  color: theme.colors.greyscale1000,
+  boxShadow: createShadow({
+    ...theme.effects.shadows.medium,
+  }).css,
+  zIndex: 2,
+}));
+
+//
+// Reversed
+//
 
 export const reversed = style((theme: DesignSystem) => ({
   backgroundColor: theme.colors.primary500,

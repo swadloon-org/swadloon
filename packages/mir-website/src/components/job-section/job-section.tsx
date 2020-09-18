@@ -36,7 +36,8 @@ type OwnProps = {
 export function JobSection(props: OwnProps) {
   const styles = useStyles(styleRefs);
   const [selectedAccordionsIndex, setSelectedAccordionsIndex] = useState<number>(1);
-  // const [accordion1State, setSelectedAccordionsIndex] = useState<'opened' | 'closed'>('opened');
+  const [accordionOpenState, setSelectedAccordionsOpenState] = useState<'opened' | 'closed'>();
+
   const { viewport } = useViewportBreakpoint();
 
   return (
@@ -86,13 +87,13 @@ export function JobSection(props: OwnProps) {
                         style={{ gridTemplateRows: `repeat(${RowNumber}, 1fr)` }}
                         key="content"
                         initial="collapsed"
-                        animate="open"
+                        // animate="open"
                         exit="collapsed"
-                        variants={{
-                          open: { opacity: 1, height: 'auto' },
-                          collapsed: { opacity: 0, height: 0 },
-                        }}
-                        transition={{ duration: 0.8, ease: [0.2, 0.62, 0.23, 0.98] }}
+                        // variants={{
+                        //   open: { opacity: 1, height: 'auto' },
+                        //   collapsed: { opacity: 0, height: 0 },
+                        // }}
+                        // transition={{ duration: 0.8, ease: [0.2, 0.62, 0.23, 0.98] }}
                       >
                         {props?.jobSection?.groups[index].typeName?.jobGroup[0].jobs.map((job, index) => {
                           return (
