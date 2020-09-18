@@ -4,7 +4,7 @@ import { useStyles } from 'react-treat';
 import { BannerSecondary } from '../components/banner-secondary';
 import { Footer } from '../components/footer';
 import { NavBar } from '../components/nav-bar';
-import { Newsletter } from '../components/newsletter/newsletter';
+import { Newsletter } from '../components/action-section/newsletter';
 import { InfoSectionType2 } from '../components/info-section/info-section-type-2';
 import { ActionSection } from '../components/action-section/action-section';
 import { JobSection } from '../components/job-section/job-section';
@@ -22,10 +22,11 @@ interface PageProps {
 
 export const EmployerPageTemplate: React.FC<PageProps> = ({ data, location }) => {
   const styles = useStyles(stylesRef);
-
   const actionSection1 = data.gcms.pages[0].actionSections[0];
   const section1 = data.gcms?.pages[0]?.infoSections[0];
   const section2 = data.gcms?.pages[0]?.infoSections[1];
+  const section6 = data.gcms?.pages[0]?.infoSections[2];
+
   const jobSection = data.gcms?.pages[0]?.jobSections[0];
   const processSection = data.gcms?.pages[0]?.processSections[0];
 
@@ -41,7 +42,7 @@ export const EmployerPageTemplate: React.FC<PageProps> = ({ data, location }) =>
     <main className={`${styles.wrapper}`}>
       <BannerSecondary imageData={sources} title={data?.gcms?.pages[0]?.bannerTitle}></BannerSecondary>
 
-      <InfoSectionType6Group></InfoSectionType6Group>
+      {section6 && section6.type === 'type6' ? <InfoSectionType6Group {...section6} /> : null}
 
       {section1 && section1.type === 'type2' ? <InfoSectionType2 align="AlignContentLeft" {...section1} /> : null}
 
@@ -51,7 +52,7 @@ export const EmployerPageTemplate: React.FC<PageProps> = ({ data, location }) =>
 
       {processSection ? <Process processSection={processSection} /> : null}
 
-      {actionSection1 ? <ActionSection variant={'reversed'} /> : null}
+      {actionSection1 ? <ActionSection section={actionSection1} /> : null}
     </main>
   );
 };

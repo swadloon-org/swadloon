@@ -66,6 +66,7 @@ export const content = style((theme: DesignSystem) => ({
     [theme.layout.media.desktop]: {
       display: 'flex',
       flexDirection: 'column',
+      alignItems: 'flex-start',
     },
   },
 }));
@@ -87,7 +88,7 @@ export const alignContentLeft = style((theme: DesignSystem) => ({
 }));
 
 export const title = style((theme: DesignSystem) => ({
-  marginBottom: `${theme.sizing.sizes.x6}`,
+  marginBottom: `${theme.sizing.sizes.x5}`,
   maxWidth: '400px',
   textAlign: 'center',
   '@media': {

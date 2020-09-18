@@ -6,6 +6,15 @@ export const actionSectionQuery = graphql`
     title
     titleHighlight
     subtitle
-    actionText
+    actionText # to remove
+    link {
+      name
+      label
+      type
+      url
+      page {
+        route
+      }
+    }
   }
 `;

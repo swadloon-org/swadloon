@@ -7,10 +7,11 @@ export const wrapper = style((theme: DesignSystem) => ({
   padding: `${theme.sizing.sizes.x5} ${theme.layout.contentMargins.mobile.px}`,
   backgroundColor: theme.colors.greyscale0,
   color: theme.colors.greyscale900,
-
+  gridRowGap: theme.sizing.sizes.x6,
   '@media': {
     [theme.layout.media.desktop]: {
       justifyContent: 'space-between',
+      gridRowGap: '0',
     },
   },
 }));
@@ -39,20 +40,6 @@ export const imageTabs = style((theme: DesignSystem) => ({
   marginBottom: `calc(${theme.sizing.sizes.x3} * 2)`,
 }));
 
-export const image = style((theme: DesignSystem) => ({
-  marginBottom: `${theme.sizing.sizes.x5}`,
-  '@media': {
-    [theme.layout.media.tablet]: {
-      width: '366px',
-      height: '366px',
-    },
-    [theme.layout.media.desktop]: {
-      width: '540px',
-      height: '540px',
-    },
-  },
-}));
-
 export const type5 = style((theme: DesignSystem) => ({
   padding: `${theme.sizing.sizes.x7} ${theme.layout.contentMargins.mobile.px}`,
 
@@ -61,6 +48,20 @@ export const type5 = style((theme: DesignSystem) => ({
       maxWidth: '1200px',
       width: '100%',
       padding: `${theme.sizing.sizes.x7} 0`,
+    },
+  },
+}));
+
+export const image = style((theme: DesignSystem) => ({
+  marginBottom: theme.sizing.sizes.x5,
+  '@media': {
+    [theme.layout.media.tablet]: {
+      width: '366px',
+      height: '366px',
+    },
+    [theme.layout.media.desktop]: {
+      width: '540px',
+      height: '540px',
     },
   },
 }));

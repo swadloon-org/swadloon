@@ -1,5 +1,7 @@
 import React from 'react';
 import { useStyles } from 'react-treat';
+import { Link as GatsbyLink } from 'gatsby';
+
 import * as styleRefsType4 from './info-section-type-4.treat';
 
 import { Button } from '../button';
@@ -46,9 +48,19 @@ export const InfoSectionType4: React.FC<OwnProps> = (props) => {
         </div>
       ) : null}
 
-      <Button variantType={'primaryReversed'} variant={'text'} size={'medium'}>
-        {props.actionText}
-      </Button>
+      {props.link && props.link.type === 'INTERNAL_PAGE' && props.link.page?.route ? (
+        <GatsbyLink to={props.link.page?.route}>
+          <Button variantType={'primaryReversed'} variant={'text'} size={'medium'}>
+            {props.link.label}
+          </Button>
+        </GatsbyLink>
+      ) : props.link && props.link.type === 'EXTERNAL_URL' && props.link.url ? (
+        <a href={props.link.url}>
+          <Button variantType={'primaryReversed'} variant={'text'} size={'medium'}>
+            {props.link.label}
+          </Button>
+        </a>
+      ) : null}
     </div>
   );
 };

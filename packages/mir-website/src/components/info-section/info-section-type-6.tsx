@@ -1,29 +1,21 @@
 import React from 'react';
 import { useStyles } from 'react-treat';
-import * as styleRefsType1 from './info-section-type-6.treat';
-
-import { Button } from '../button';
+import { Heading } from '../heading';
+import { Illustration } from '../illustration';
 import { Paragraph } from '../paragraph';
 import { InfoSectionModelQuery } from './info-section';
-import { RenderTitleHighlight } from './info-title-highligh';
-import { Illustration } from '../illustration';
-import { Heading } from '../heading';
+import * as styleRefs from './info-section-type-6.treat';
 
-type OwnProps = {
-  type: 'type6Primary' | 'type6Secondary' | 'type6Tertiary';
-  illustration: string;
-  title: string;
-  text: string;
-};
+type OwnProps = Partial<InfoSectionModelQuery>;
 
 export const InfoSectionType6: React.FC<OwnProps> = (props) => {
-  const styles = useStyles(styleRefsType1);
+  const styles = useStyles(styleRefs);
 
   return (
-    <div className={`${styles.wrapper} ${styles[props.type]}`}>
+    <div className={`${styles.wrapper} ${props.type ? styles[props.type] : ''}`} key={props.title}>
       <Illustration className={`${styles.illustration}`} name={`Illustration/${props.illustration}`} />
 
-      <Heading variant="h4" className={styles.title}>
+      <Heading variant="h3" className={styles.title}>
         {props.title}
       </Heading>
       <Paragraph variant={'small'} className={styles.text}>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useStyles } from 'react-treat';
+import { Link as GatsbyLink } from 'gatsby';
 import { Button } from '../button';
 import { ImageFrame } from '../image-frame';
 import { Paragraph } from '../paragraph';
@@ -68,9 +69,23 @@ export const InfoSectionType3: React.FC<OwnProps> = (props) => {
           {props.text}
         </Paragraph>
 
-        <Button variantType={'primaryDefault'} variant={'text'} size={'medium'} className={styleRefs.button}>
+        {/* <Button variantType={'primaryDefault'} variant={'text'} size={'medium'} className={styleRefs.button}>
           {props.actionText}
-        </Button>
+        </Button> */}
+
+        {props.link && props.link.type === 'INTERNAL_PAGE' && props.link.page?.route ? (
+          <GatsbyLink to={props.link.page?.route} className={styleRefs.button}>
+            <Button variantType={'primaryDefault'} variant={'text'} size={'medium'}>
+              {props.link.label}
+            </Button>
+          </GatsbyLink>
+        ) : props.link && props.link.type === 'EXTERNAL_URL' && props.link.url ? (
+          <a href={props.link.url} className={styleRefs.button}>
+            <Button variantType={'primaryDefault'} variant={'text'} size={'medium'}>
+              {props.link.label}
+            </Button>
+          </a>
+        ) : null}
       </React.Fragment>
     );
   }

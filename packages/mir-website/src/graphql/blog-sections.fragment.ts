@@ -6,7 +6,16 @@ export const blogSectionsQuery = graphql`
     title
     titleHighlight
     text
-    actionLabel
+    actionLabel # to remove
+    link {
+      name
+      label
+      type
+      url
+      page {
+        route
+      }
+    }
     posts {
       id
       createdAt

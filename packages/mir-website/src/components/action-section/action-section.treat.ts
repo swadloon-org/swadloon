@@ -1,4 +1,4 @@
-import { DesignSystem } from 'core-design-system';
+import { createShadow, DesignSystem } from 'core-design-system';
 import { style } from 'treat';
 
 //
@@ -8,8 +8,6 @@ import { style } from 'treat';
 export const wrapper = style((theme: DesignSystem) => ({
   paddingTop: `${theme.sizing.sizes.x6}`,
   paddingBottom: `${theme.sizing.sizes.x7}`,
-
-  backgroundColor: theme.colors.greyscale100,
 
   '@media': {
     [theme.layout.media.tablet]: {
@@ -21,10 +19,22 @@ export const wrapper = style((theme: DesignSystem) => ({
   },
 }));
 
+//
+// Default
+//
+
 export const Default = style((theme: DesignSystem) => ({
-  backgroundColor: theme.colors.greyscale0,
+  backgroundColor: theme.colors.greyscale100,
   color: theme.colors.greyscale1000,
+  boxShadow: createShadow({
+    ...theme.effects.shadows.medium,
+  }).css,
+  zIndex: 2,
 }));
+
+//
+// Reversed
+//
 
 export const reversed = style((theme: DesignSystem) => ({
   backgroundColor: theme.colors.primary500,
@@ -54,12 +64,12 @@ export const container = style((theme: DesignSystem) => ({
       margin: '0 auto',
       display: 'grid',
       gridTemplateColumns: 'repeat(12, 1fr)',
-      gridTemplateAreas: "'content content content content content . btn btn btn . . .'",
+      gridTemplateAreas: "'content content content content content content . btn btn btn . .'",
       gridTemplateRows: 'auto',
       columnGap: '20px',
     },
     [`screen and (min-width: ${theme.layout.breakpoints.desktopMedium.px})`]: {
-      gridTemplateAreas: "'content content content content content . btn btn btn . . .'",
+      gridTemplateAreas: "'content content content content content content . btn btn btn . .'",
     },
   },
 }));

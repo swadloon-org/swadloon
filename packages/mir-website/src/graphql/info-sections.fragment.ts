@@ -7,8 +7,18 @@ export const infoSectionsQuery = graphql`
     titleTab
     type
     text
+    illustration
     showTabs
-    actionText
+    actionText # to remove
+    link {
+      name
+      label
+      type
+      url
+      page {
+        route
+      }
+    }
     infoTiles {
       illustration
       title
@@ -25,7 +35,17 @@ export const infoSectionsQuery = graphql`
       titleTab
       type
       text
-      actionText
+      actionText # to remove
+      link {
+        name
+        label
+        type
+        url
+        page {
+          route
+        }
+      }
+      illustration
     }
     image {
       url(transformation: { image: { resize: { width: 500, fit: max } } })

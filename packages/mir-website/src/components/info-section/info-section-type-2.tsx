@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link as GatsbyLink } from 'gatsby';
 import { useStyles } from 'react-treat';
 import { Button } from '../button';
 import { ImageFrame } from '../image-frame';
@@ -42,9 +43,19 @@ export const InfoSectionType2: React.FC<OwnProps> = (props) => {
           {props.text}
         </Paragraph>
 
-        <Button variantType={'primaryDefault'} variant={'text'} size={'medium'} className={styles.button}>
-          {props.actionText}
-        </Button>
+        {props.link && props.link.type === 'INTERNAL_PAGE' && props.link.page?.route ? (
+          <GatsbyLink to={props.link.page?.route}>
+            <Button variantType={'primaryDefault'} variant={'text'} size={'medium'} className={styles.button}>
+              {props.link.label}
+            </Button>
+          </GatsbyLink>
+        ) : props.link && props.link.type === 'EXTERNAL_URL' && props.link.url ? (
+          <a href={props.link.url}>
+            <Button variantType={'primaryDefault'} variant={'text'} size={'medium'} className={styles.button}>
+              {props.link.label}
+            </Button>
+          </a>
+        ) : null}
       </div>
     </div>
   );

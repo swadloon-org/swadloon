@@ -37,7 +37,7 @@ export const label = style((theme: DesignSystem) => ({
 //
 
 const basePrimary = (theme: DesignSystem) => ({
-  padding: `19px 24px`,
+  padding: `24px 30px`,
 });
 
 export const primaryDefault = style((theme: DesignSystem) => ({
@@ -130,10 +130,11 @@ globalStyle(`${illustration} fill`, (theme: DesignSystem) => ({
 
 export const small = style((theme: DesignSystem) => ({}));
 export const medium = style((theme: DesignSystem) => ({
-  padding: `${theme.sizing.sizes.x3}`,
+  padding: `24px 24px`,
+  minWidth: '200px',
 }));
 export const large = style((theme: DesignSystem) => ({
-  // lineHeight: `${theme.sizing.sizes.x4}`,
-  // height: `${theme.sizing.sizes.x4}`,
+  padding: `27px 20px`,
+  minWidth: '260px',
 }));
 export const text = style((theme: DesignSystem) => ({}));

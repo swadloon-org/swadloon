@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useStyles } from 'react-treat';
-import * as stylesRef from './about-page.treat';
-
-import { BannerSecondary } from '../components/banner-secondary';
-import { Newsletter } from '../components/newsletter/newsletter';
-import { InfoSectionType2 } from '../components/info-section/info-section-type-2';
-import { Testimonial } from '../components/testimonial-section/testimonial-section';
 import { AboutPageFrQuery } from '../../types/graphql-types';
+import { BannerSecondary } from '../components/banner-secondary';
+import { InfoSectionType2 } from '../components/info-section/info-section-type-2';
+import { InfoSectionType7 } from '../components/info-section/info-section-type-7';
+import { InfoSectionVideo } from '../components/info-section/info-section-video';
+import { Newsletter } from '../components/action-section/newsletter';
+import { Testimonial } from '../components/testimonial-section/testimonial-section';
 import { theme } from '../design-system';
+import * as stylesRef from './about-page.treat';
 
 interface PageProps {
   data: AboutPageFrQuery;
@@ -20,6 +21,7 @@ export const About: React.FC<PageProps> = ({ data, location }) => {
   const actionSection1 = data.gcms.pages[0].actionSections[0];
   const section1 = data.gcms?.pages[0]?.infoSections[0];
   const section2 = data.gcms?.pages[0]?.infoSections[1];
+  const section3 = data.gcms?.pages[0]?.infoSections[2];
   const testimonials = data.gcms?.pages[0]?.testimonialSections[0];
 
   const sources = [
@@ -35,11 +37,14 @@ export const About: React.FC<PageProps> = ({ data, location }) => {
       <BannerSecondary imageData={sources} title={data?.gcms?.pages[0]?.bannerTitle}></BannerSecondary>
 
       {section1 && section1.type === 'type2' ? <InfoSectionType2 align="AlignContentLeft" {...section1} /> : null}
+      {section2 && section2.type === 'type7' ? <InfoSectionType7 {...section2} /> : null}
+      {section3 && section3.type === 'type2' ? <InfoSectionType2 align="AlignContentRight" {...section3} /> : null}
 
-      {section2 && section2.type === 'type2' ? <InfoSectionType2 align="AlignContentRight" {...section2} /> : null}
+      <InfoSectionVideo></InfoSectionVideo>
+
       {testimonials ? <Testimonial testimonialSections={testimonials} /> : null}
 
-      <Newsletter id="newsletter"></Newsletter>
+      <Newsletter id="newsletter" section={actionSection1}></Newsletter>
     </main>
   );
 };

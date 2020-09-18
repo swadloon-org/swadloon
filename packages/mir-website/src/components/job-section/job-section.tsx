@@ -1,44 +1,23 @@
+import { VIEWPORT } from 'core-design-system';
 import React, { useState } from 'react';
 import { useStyles } from 'react-treat';
+import { GraphCms_JobSectionType, JobSectionsFragment } from '../../../types/graphql-types';
+import { useViewportBreakpoint } from '../../hooks/use-viewport.hook';
 import { Accordions } from '../accordions';
-import { Tags } from '../tags';
 import { CheckLabel } from '../info-section-check';
-import * as styleRefs from './job-section.treat';
 import { RenderTitleHighlight } from '../info-section/info-title-highligh';
-import { BoxIcon } from '../box-icon';
-import { useViewportValues, useViewportBreakpoint } from '../../hooks/use-viewport.hook';
-import { VIEWPORT } from 'core-design-system';
-import {
-  Maybe,
-  GraphCms_JobSection,
-  GraphCms_JobSectionType,
-  GraphCms_JobType,
-  GraphCms_Job,
-} from '../../../types/graphql-types';
-import { style } from 'treat/lib/types';
+import { Tags } from '../tags';
+import * as styleRefs from './job-section.treat';
 
 type OwnProps = {
-  jobSection: Maybe<
-    Pick<GraphCms_JobSection, 'title' | 'titleHighlight'> & {
-      type?: Maybe<Pick<GraphCms_JobSectionType, 'title' | 'type'>>;
-      groups: Array<{
-        typeName?: Maybe<
-          Pick<GraphCms_JobType, 'id' | 'title'> & {
-            jobGroup: Array<{ jobs: Array<Pick<GraphCms_Job, 'id' | 'title'>> }>;
-          }
-        >;
-      }>;
-    }
-  >;
+  jobSection: JobSectionsFragment;
 };
 
 export function JobSection(props: OwnProps) {
   const styles = useStyles(styleRefs);
-  const { width } = useViewportValues();
-  const { viewport } = useViewportBreakpoint();
+  const [accordionOpenState, setAccordionsOpenState] = useState([{ state: 'opened' }, { state: 'closed' }]);
 
-  const [selectedAccordionsIndex, setSelectedAccordionsIndex] = useState<number>(1);
-  const [selectedBoxIcon, setSelectedBoxIconIndex] = useState<number>(1);
+  const { viewport } = useViewportBreakpoint();
 
   return (
     <div className={`${styles.wrapper} `}>
@@ -58,23 +37,40 @@ export function JobSection(props: OwnProps) {
       case 'candidates': {
         return (
           <div className={styles.container}>
-            {props?.jobSection?.groups.map((jobType, index) => {
+            {props.jobSection?.groups.map((group, index) => {
+              let lengthJobs: any = props.jobSection?.groups[index].jobs.length;
+              let RowNumber: number =
+                viewport === VIEWPORT.desktop ? Math.ceil(lengthJobs / 3) : Math.ceil(lengthJobs / 1);
               return (
-                <div className={styles.containerMobile} key={index}>
-                  <div className={styles.containerBox}>
-                    <div className={styles.boxIcon}>
-                      <BoxIcon
-                        icon="IllustrationFactory"
-                        selected={index === selectedBoxIcon}
-                        onClick={() => {
-                          setSelectedBoxIconIndex(index);
-                        }}
-                      >
-                        {jobType.typeName?.title}
-                      </BoxIcon>
-                    </div>
-
-                    {selectedBoxIcon === index ? getMediaModifier(true, value) : getMediaModifier(false, value)}
+                <div className={styles.containerBloc} key={index}>
+                  <div className={styles.accordions}>
+                    <Accordions
+                      type="candidates"
+                      icon={group.illustration ? group.illustration : 'IllustrationSettings'}
+                      variant="none"
+                      selected={accordionOpenState[index].state === 'opened'}
+                      onClick={() => {
+                        getIndexState(index);
+                      }}
+                    >
+                      {group.typeName?.title}
+                    </Accordions>
+                  </div>
+                  <div
+                    className={`${styles.content} ${styles.withCheck}  ${
+                      accordionOpenState[index].state === 'opened' ? styles.selected : styles.unselected
+                    }`}
+                    style={{ gridTemplateRows: `repeat(${RowNumber}, 1fr)` }}
+                  >
+                    {props?.jobSection?.groups[index].jobs.map((job, index) => {
+                      return (
+                        <div className={`${index % 2 == 0 ? styles.even : styles.unenven}`} key={index}>
+                          <CheckLabel illustration="IllustrationCheck" size="medium">
+                            {job.title}
+                          </CheckLabel>
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
               );
@@ -87,20 +83,39 @@ export function JobSection(props: OwnProps) {
         return (
           <div className={styles.container}>
             {props.jobSection?.groups.map((jobType, index) => {
+              let lengthJobs: any = props.jobSection?.groups[index].jobs.length;
+              let RowNumber: number =
+                viewport === VIEWPORT.desktop ? Math.ceil(lengthJobs / 3) : Math.ceil(lengthJobs / 1);
+
               return (
-                <div>
-                  <div className={styles.accordions} key={index}>
+                <div className={styles.containerBloc} key={index}>
+                  <div className={styles.accordions}>
                     <Accordions
+                      type="employer"
                       variant="reversed"
-                      selected={index === selectedAccordionsIndex}
+                      selected={accordionOpenState[index].state === 'opened'}
                       onClick={() => {
-                        setSelectedAccordionsIndex(index);
+                        getIndexState(index);
                       }}
                     >
                       {jobType.typeName?.title}
                     </Accordions>
                   </div>
-                  {selectedAccordionsIndex === index ? getMediaModifier(true, value) : getMediaModifier(false, value)}
+
+                  <div
+                    className={`${styles.content} ${styles.withTags} ${
+                      accordionOpenState[index].state === 'opened' ? styles.selected : styles.unselected
+                    }`}
+                    style={{ gridTemplateRows: `repeat(${RowNumber}, 1fr)` }}
+                  >
+                    {props?.jobSection?.groups[index].jobs.map((job, index) => {
+                      return (
+                        <div className={styles.tagsUnique} key={index}>
+                          <Tags numberIndex={`${index < 9 ? '0' : ''}${index + 1}`}> {job.title}</Tags>
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
               );
             })}
@@ -112,40 +127,10 @@ export function JobSection(props: OwnProps) {
       }
     }
   }
-  function getMediaModifier(value: boolean, type: any) {
-    if (value === true) {
-      switch (type) {
-        case 'candidates': {
-          return (
-            <div className={`${styles.content}`}>
-              {props?.jobSection?.groups[selectedBoxIcon].typeName?.jobGroup[0].jobs.map((job, index) => {
-                return (
-                  <div className={`${index % 2 == 0 ? styles.even : styles.unenven}`} key={index}>
-                    <CheckLabel illustration="IllustrationCheck" size="medium">
-                      {job.title}
-                    </CheckLabel>
-                  </div>
-                );
-              })}
-            </div>
-          );
-        }
-        case 'employer': {
-          return (
-            <div className={styles.content}>
-              {props?.jobSection?.groups[selectedAccordionsIndex].typeName?.jobGroup[0].jobs.map((job, index) => {
-                return (
-                  <div className={styles.tagsUnique} key={index}>
-                    <Tags numberIndex={`${index < 9 ? '0' : ''}${index + 1}`}> {job.title}</Tags>
-                  </div>
-                );
-              })}
-            </div>
-          );
-        }
-      }
-    } else {
-      return <div className={`${styles.content}`}></div>;
-    }
+
+  function getIndexState(index: number) {
+    let newArr = [...accordionOpenState];
+    accordionOpenState[index].state === 'opened' ? (newArr[index].state = 'closed') : (newArr[index].state = 'opened');
+    setAccordionsOpenState(newArr);
   }
 }
