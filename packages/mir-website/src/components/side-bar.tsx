@@ -9,11 +9,14 @@ import { Heading } from './heading';
 import { Illustration } from './illustration';
 import { Label } from './label';
 import * as stylesRef from './side-bar.treat';
+import { NavigationProps } from '../layouts';
+import { Link as GatsbyLink } from 'gatsby';
 
 type OwnProps = {
   state: string;
   onOpenSideMenu: () => void;
-} & HTMLAttributes<any>;
+} & NavigationProps &
+  HTMLAttributes<any>;
 
 export const sideBarQuery = graphql`
   query mobileBar {
@@ -32,6 +35,19 @@ export const sideBarQuery = graphql`
 
 export const SideBar: React.FC<OwnProps> = (props) => {
   const styles = useStyles(stylesRef);
+
+  const leftToolbarPageNames = ['Home', 'Candidates', 'Employers', 'Blog', 'About', 'Contact'];
+
+  console.log(props.pages);
+
+  const leftToolbarPages = props.pages
+    ?.filter((page) => leftToolbarPageNames.includes(page.name))
+    .sort((pageA, pageB) => {
+      const indexA = leftToolbarPageNames.indexOf(pageA.name);
+      const indexB = leftToolbarPageNames.indexOf(pageB.name);
+      return indexA > indexB ? 1 : -1;
+    });
+
   const data = useStaticQuery<MobileBarQuery>(sideBarQuery);
 
   return (
@@ -54,38 +70,27 @@ export const SideBar: React.FC<OwnProps> = (props) => {
             ></Illustration>
             <Label variant={LABEL.smallUppercase}>Menu</Label>
           </div>
-          <div className={styles.listMenu}>
-            <div className={styles.itemMenu}>
-              <Heading className={styles.titleItem} variant="h4">
-                Accueil
-              </Heading>
-            </div>
-            <div className={`${styles.itemMenu} ${styles.activeItem}`}>
-              <Heading className={styles.titleItem} variant="h4">
-                Candidats
-              </Heading>
-            </div>
-            <div className={styles.itemMenu}>
-              <Heading className={styles.titleItem} variant="h4">
-                Employeurs
-              </Heading>
-            </div>
-            <div className={styles.itemMenu}>
-              <Heading className={styles.titleItem} variant="h4">
-                Nouvelles
-              </Heading>
-            </div>
-            <div className={styles.itemMenu}>
-              <Heading className={styles.titleItem} variant="h4">
-                À propos
-              </Heading>
-            </div>
-            <div className={styles.itemMenu}>
-              <Heading className={styles.titleItem} variant="h4">
-                Contact
-              </Heading>
-            </div>
-          </div>
+          {console.log(window.location.pathname)}
+
+          <nav className={styles.listMenu}>
+            {leftToolbarPages?.map((page) => {
+              console.log(page.route);
+              return (
+                <GatsbyLink
+                  className={styles.titleItem}
+                  to={page.route}
+                  key={page.name}
+                  activeClassName={`${styles.activeItem}`}
+                >
+                  <div
+                    className={`${styles.itemMenu} ${window.location.pathname === page.route ? styles.activeItem : ''}`}
+                  >
+                    <Heading variant="h4">{page.title}</Heading>
+                  </div>
+                </GatsbyLink>
+              );
+            })}
+          </nav>
         </div>
         <div className={styles.containerList}>
           <div className={styles.separation}>
@@ -98,9 +103,54 @@ export const SideBar: React.FC<OwnProps> = (props) => {
             <Label variant={LABEL.smallUppercase}>SOCIAL</Label>
           </div>
           <div className={styles.listSocial}>
-            <Button variantType="secondaryReversed" size="medium" variant="icon" icon="IconArrowRight"></Button>
-            <Button variantType="secondaryReversed" size="medium" variant="icon" icon="IconFacebook"></Button>
-            <Button variantType="secondaryReversed" size="medium" variant="icon" icon="IconInstagram"></Button>
+            {props.facebookPageURL ? (
+              <a href={props.facebookPageURL} target={'_blank'} aria-label="Facebook Page" rel="noopener">
+                <Button
+                  className={styles.btnSocial}
+                  variantType="secondaryReversed"
+                  size="medium"
+                  variant="icon"
+                  icon="IconFacebook"
+                  aria-label="Facebook Page"
+                ></Button>
+              </a>
+            ) : null}
+            {props.linkedinPageURL ? (
+              <a href={props.linkedinPageURL} target={'_blank'} aria-label="LinkedIn Page" rel="noopener">
+                <Button
+                  className={styles.btnSocial}
+                  variantType="secondaryReversed"
+                  size="medium"
+                  variant="icon"
+                  icon="IconLinkedin"
+                  aria-label="LinkedIn Page"
+                ></Button>
+              </a>
+            ) : null}
+            {props.twitterPageURL ? (
+              <a href={props.twitterPageURL} target={'_blank'} aria-label="Twitter Page" rel="noopener">
+                <Button
+                  className={styles.btnSocial}
+                  variantType="secondaryReversed"
+                  size="medium"
+                  variant="icon"
+                  icon="IconTwitter"
+                  aria-label="Twitter Page"
+                ></Button>
+              </a>
+            ) : null}
+            {props.instagramPageURL ? (
+              <a href={props.instagramPageURL} target={'_blank'} aria-label="Instagram Page" rel="noopener">
+                <Button
+                  className={styles.btnSocial}
+                  variantType="secondaryReversed"
+                  size="medium"
+                  variant="icon"
+                  icon="IconInstagram"
+                  aria-label="Instagram Page"
+                ></Button>
+              </a>
+            ) : null}
           </div>
         </div>
       </div>

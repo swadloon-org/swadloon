@@ -40,7 +40,12 @@ const LayoutComponent: React.FC<NavigationProps> = (props) => {
   return (
     <>
       <NavBar onOpenSideMenu={onOpenSideMenu} {...props}></NavBar>
-      <SideBar className={`${styles.sidebar}`} state={sideMenuState} onOpenSideMenu={onOpenSideMenu}></SideBar>
+      <SideBar
+        className={`${styles.sidebar}`}
+        state={sideMenuState}
+        onOpenSideMenu={onOpenSideMenu}
+        {...props}
+      ></SideBar>
       {props.children}
       <Footer></Footer>
     </>

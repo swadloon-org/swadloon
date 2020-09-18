@@ -42,10 +42,12 @@ export const subTitle = style((theme: DesignSystem) => ({
   marginRight: 'auto',
   marginLeft: 'auto',
   maxWidth: '474px',
-  paddingBottom: theme.sizing.sizes.x6,
+  paddingBottom: theme.sizing.sizes.x7,
 
   '@media': {
-    [theme.layout.media.tablet]: {},
+    [theme.layout.media.tablet]: {
+      paddingBottom: theme.sizing.sizes.x6,
+    },
 
     [theme.layout.media.desktop]: {
       paddingBottom: theme.sizing.sizes.x5,
@@ -56,7 +58,7 @@ export const content = style((theme: DesignSystem) => ({
   display: 'grid',
   gridColumn: '1',
   gridTemplateColumns: '1fr',
-  gridGap: `${theme.sizing.sizes.x4} 0 `,
+  gridGap: `${theme.sizing.sizes.x5} 0 `,
 
   '@media': {
     [theme.layout.media.tablet]: {},

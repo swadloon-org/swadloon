@@ -64,6 +64,7 @@ export const itemMenu = style((theme: DesignSystem) => ({
   paddingBottom: theme.sizing.sizes.x4,
   paddingRight: theme.sizing.sizes.x5,
   paddingLeft: theme.sizing.sizes.x6,
+  cursor: 'pointer',
 }));
 
 export const activeItem = style((theme: DesignSystem) => ({
@@ -73,9 +74,13 @@ export const activeItem = style((theme: DesignSystem) => ({
 
 export const titleItem = style((theme: DesignSystem) => ({
   maxWidth: '250px',
+  color: 'currentColor',
+  textDecoration: 'none',
 }));
 
-export const listSocial = style((theme: DesignSystem) => ({}));
+export const listSocial = style((theme: DesignSystem) => ({
+  paddingLeft: theme.sizing.sizes.x6,
+}));
 
 export const bar = style((theme: DesignSystem) => ({
   marginRight: '17px',
@@ -85,4 +90,17 @@ globalStyle(`${bar} rect`, (theme: DesignSystem) => ({
   fill: theme.colors.primary500,
   width: '100%',
   height: '10px',
+}));
+
+export const btnSocial = style((theme: DesignSystem) => ({
+  border: `1px ${theme.colors.primary500} solid`,
+  marginRight: theme.sizing.sizes.x3,
+  marginBottom: theme.sizing.sizes.x3,
+}));
+
+globalStyle(`${btnSocial} path`, (theme: DesignSystem) => ({
+  fill: theme.colors.primary500,
+}));
+globalStyle(`${btnSocial} rect`, (theme: DesignSystem) => ({
+  fill: theme.colors.primary500,
 }));
