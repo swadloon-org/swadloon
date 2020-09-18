@@ -43,11 +43,19 @@ const basePrimary = (theme: DesignSystem) => ({
 export const primaryDefault = style((theme: DesignSystem) => ({
   ...basePrimary(theme),
   color: theme.colors.primary500,
+  //
+  // Added by Elliot for resolving the issue with the icon and text medium
+  //
+  minWidth: '150px',
 }));
 
 export const primaryReversed = style((theme: DesignSystem) => ({
   ...basePrimary(theme),
   color: theme.colors.greyscale0Reversed,
+  //
+  // Added by Elliot for resolving the issue with the icon and text medium
+  //
+  minWidth: '150px',
 }));
 
 export const corner = style(() => ({
@@ -138,6 +146,11 @@ export const large = style((theme: DesignSystem) => ({
 }));
 export const text = style((theme: DesignSystem) => ({}));
 
-globalStyle(`${medium} ${text}`, (theme: DesignSystem) => ({
-  minWidth: '150px',
-}));
+// globalStyle(`${medium}`, (theme: DesignSystem) => ({
+//   minWidth: '150px',
+//   selectors: {
+//     [`${icon} &`]: {
+//       minWidth: '0px',
+//     },
+//   },
+// }));
