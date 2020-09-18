@@ -6,6 +6,8 @@ import { InfoSectionType6Group } from '../components/info-section/info-section-t
 import { Newsletter } from '../components/action-section/newsletter';
 import { theme } from '../design-system';
 import * as stylesRef from '../templates/contact-page.treat';
+import { Input } from '../components/input';
+import { Button } from '../components/button';
 
 interface PageProps {
   data: ContactPageFrQuery;
@@ -31,7 +33,17 @@ export const Contact: React.FC<PageProps> = ({ data, location }) => {
 
       {section1 && section1.type === 'type6' ? <InfoSectionType6Group {...section1} /> : null}
 
-      <div>form</div>
+      <div className={styles.formWrapper}>
+        <div>
+          <form className={`${styles.form}`} action="">
+            <Input variant="reversed" placeholder="Votre courriel" aria-labelledby="SubmitButton"></Input>
+            <Input variant="reversed" placeholder="Votre courriel" aria-labelledby="SubmitButton"></Input>
+            <Button variantType="secondaryReversed" size="small" variant="text" id="SubmitButton">
+              Soumettre
+            </Button>
+          </form>
+        </div>
+      </div>
 
       <Newsletter id="newsletter" section={actionSection1}></Newsletter>
     </main>

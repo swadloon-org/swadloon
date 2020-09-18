@@ -14,6 +14,7 @@ export const InfoSectionType6Group: React.FC<OwnProps> = (props) => {
 
   return (
     <div className={styles.wrapper}>
+      {props.children}
       {hasChilds
         ? props.childs.map((section, index) => {
             return <InfoSectionType6 key={index} {...section} />;
