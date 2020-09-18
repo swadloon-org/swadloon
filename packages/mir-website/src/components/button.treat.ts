@@ -131,7 +131,7 @@ globalStyle(`${illustration} fill`, (theme: DesignSystem) => ({
 export const small = style((theme: DesignSystem) => ({}));
 export const medium = style((theme: DesignSystem) => ({
   padding: `24px 24px`,
-  minWidth: '260px',
+  minWidth: '200px',
 }));
 export const large = style((theme: DesignSystem) => ({
   padding: `27px 20px`,

@@ -7,7 +7,7 @@ import { InfoSectionType1Group } from '../components/info-section/info-section-t
 import { InfoSectionType2 } from '../components/info-section/info-section-type-2';
 import { InfoSectionType3 } from '../components/info-section/info-section-type-3';
 import { InfoSectionType4 } from '../components/info-section/info-section-type-4';
-import { Newsletter } from '../components/newsletter/newsletter';
+import { Newsletter } from '../components/action-section/newsletter';
 import { theme } from '../design-system/index';
 import * as stylesRef from './index-page.treat';
 
@@ -19,6 +19,7 @@ interface PageProps {
 export const Index: React.FC<PageProps> = ({ data, location }) => {
   const styles = useStyles(stylesRef);
 
+  const actionSection1 = data.gcms.pages[0].actionSections[0];
   const sources = [
     data?.bannerImageMobile?.childImageSharp?.fluid,
     {
@@ -55,13 +56,9 @@ export const Index: React.FC<PageProps> = ({ data, location }) => {
         }
       })}
 
-      <BlogPreviewSection
-        posts={data?.gcms?.pages[0]?.blogSections[0]?.posts}
-        text={data?.gcms?.pages[0]?.blogSections[0]?.text}
-        title={data?.gcms?.pages[0]?.blogSections[0]?.title}
-      ></BlogPreviewSection>
+      <BlogPreviewSection showButton={true} {...data?.gcms?.pages[0]?.blogSections[0]}></BlogPreviewSection>
 
-      <Newsletter id="newsletter"></Newsletter>
+      <Newsletter id="newsletter" section={actionSection1}></Newsletter>
     </main>
   );
 };

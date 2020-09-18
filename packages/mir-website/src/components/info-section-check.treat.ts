@@ -10,7 +10,7 @@ export const wrapper = style((theme: DesignSystem) => ({
 
 export const label = style((theme: DesignSystem) => ({
   alignItems: 'flex-start',
-  marginTop: '6px',
+  marginTop: '7px',
 }));
 
 export const iconCheck = style((theme: DesignSystem) => ({

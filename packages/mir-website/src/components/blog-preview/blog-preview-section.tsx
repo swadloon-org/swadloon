@@ -1,21 +1,14 @@
 import React from 'react';
 import { useStyles } from 'react-treat';
+import { Link as GatsbyLink } from 'gatsby';
+import { BlogSectionsFragment } from '../../../types/graphql-types';
 import { Button } from '../button';
 import { RenderTitleHighlight } from '../info-section/info-title-highligh';
 import { Paragraph } from '../paragraph';
 import { BlogPreviewTileImage } from './/blog-preview-tile-image';
 import * as styleRefs from './blog-preview-section.treat';
-import { GraphCms_BlogPost, GraphCms_Asset } from '../../../types/graphql-types';
 
-type OwnProps = {
-  posts:
-    | (Pick<GraphCms_BlogPost, 'id' | 'title' | 'createdAt'> & {
-        image?: Pick<GraphCms_Asset, 'url'> | null | undefined;
-      })[]
-    | undefined;
-  text?: string | null;
-  title?: string | null;
-};
+type OwnProps = BlogSectionsFragment & { showButton: boolean };
 
 export const BlogPreviewSection: React.FC<OwnProps> = (props) => {
   const styles = useStyles(styleRefs);
@@ -44,9 +37,13 @@ export const BlogPreviewSection: React.FC<OwnProps> = (props) => {
             : null}
         </div>
 
-        <Button variantType="primaryDefault" size="medium" variant="text">
-          Toutes les nouvelles
-        </Button>
+        {props.showButton && props.link?.page?.route ? (
+          <GatsbyLink to={props.link.page?.route}>
+            <Button variantType="primaryDefault" size="medium" variant="text">
+              {props.link.label}
+            </Button>
+          </GatsbyLink>
+        ) : null}
       </div>
     </div>
   );

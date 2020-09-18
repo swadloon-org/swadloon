@@ -3,7 +3,7 @@ import { useStyles } from 'react-treat';
 import { ContactPageFrQuery } from '../../types/graphql-types';
 import { BannerSecondary } from '../components/banner-secondary';
 import { InfoSectionType6Group } from '../components/info-section/info-section-type-6-group';
-import { Newsletter } from '../components/newsletter/newsletter';
+import { Newsletter } from '../components/action-section/newsletter';
 import { theme } from '../design-system';
 import * as stylesRef from '../templates/contact-page.treat';
 
@@ -14,8 +14,9 @@ interface PageProps {
 
 export const Contact: React.FC<PageProps> = ({ data, location }) => {
   const styles = useStyles(stylesRef);
-  const section1 = data.gcms?.pages[0]?.infoSections[0];
 
+  const section1 = data.gcms?.pages[0]?.infoSections[0];
+  const actionSection1 = data.gcms.pages[0].actionSections[0];
   const sources = [
     data?.bannerImageMobile?.childImageSharp?.fluid,
     {
@@ -32,7 +33,7 @@ export const Contact: React.FC<PageProps> = ({ data, location }) => {
 
       <div>form</div>
 
-      <Newsletter id="newsletter"></Newsletter>
+      <Newsletter id="newsletter" section={actionSection1}></Newsletter>
     </main>
   );
 };

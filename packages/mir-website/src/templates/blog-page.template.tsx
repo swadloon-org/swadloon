@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useStyles } from 'react-treat';
-import * as stylesRef from '../templates/blog-page.treat';
-import { BannerSecondary } from '../components/banner-secondary';
-import { Footer } from '../components/footer';
 import { BlogPageFrQuery } from '../../types/graphql-types';
-import { Newsletter } from '../components/newsletter/newsletter';
+import { BannerSecondary } from '../components/banner-secondary';
 import { BlogPreviewSection } from '../components/blog-preview/blog-preview-section';
+import { Newsletter } from '../components/action-section/newsletter';
 import { theme } from '../design-system';
+import * as stylesRef from '../templates/blog-page.treat';
 
 interface PageProps {
   data: BlogPageFrQuery;
@@ -15,6 +14,8 @@ interface PageProps {
 
 export const Blog: React.FC<PageProps> = ({ data, location }) => {
   const styles = useStyles(stylesRef);
+
+  const actionSection1 = data.gcms.pages[0].actionSections[0];
 
   const sources = [
     data?.bannerImageMobile?.childImageSharp?.fluid,
@@ -27,13 +28,9 @@ export const Blog: React.FC<PageProps> = ({ data, location }) => {
     <main className={`${styles.wrapper}`}>
       <BannerSecondary imageData={sources} title={data?.gcms?.pages[0]?.bannerTitle}></BannerSecondary>
 
-      <BlogPreviewSection
-        posts={data?.gcms?.pages[0]?.blogSections[0]?.posts}
-        text={data?.gcms?.pages[0]?.blogSections[0]?.text}
-        title={data?.gcms?.pages[0]?.blogSections[0]?.title}
-      ></BlogPreviewSection>
+      <BlogPreviewSection showButton={false} {...data?.gcms?.pages[0]?.blogSections[0]}></BlogPreviewSection>
 
-      <Newsletter id="newsletter"></Newsletter>
+      <Newsletter id="newsletter" section={actionSection1}></Newsletter>
     </main>
   );
 };

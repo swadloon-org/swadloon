@@ -1,15 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useStyles } from 'react-treat';
-import * as stylesRef from './about-page.treat';
-
-import { BannerSecondary } from '../components/banner-secondary';
-import { Newsletter } from '../components/newsletter/newsletter';
-import { InfoSectionType2 } from '../components/info-section/info-section-type-2';
-import { Testimonial } from '../components/testimonial-section/testimonial-section';
 import { AboutPageFrQuery } from '../../types/graphql-types';
-import { theme } from '../design-system';
+import { BannerSecondary } from '../components/banner-secondary';
+import { InfoSectionType2 } from '../components/info-section/info-section-type-2';
 import { InfoSectionType7 } from '../components/info-section/info-section-type-7';
 import { InfoSectionVideo } from '../components/info-section/info-section-video';
+import { Newsletter } from '../components/action-section/newsletter';
+import { Testimonial } from '../components/testimonial-section/testimonial-section';
+import { theme } from '../design-system';
+import * as stylesRef from './about-page.treat';
 
 interface PageProps {
   data: AboutPageFrQuery;
@@ -23,7 +22,6 @@ export const About: React.FC<PageProps> = ({ data, location }) => {
   const section1 = data.gcms?.pages[0]?.infoSections[0];
   const section2 = data.gcms?.pages[0]?.infoSections[1];
   const section3 = data.gcms?.pages[0]?.infoSections[2];
-  console.log(data.gcms?.pages[0]?.infoSections);
   const testimonials = data.gcms?.pages[0]?.testimonialSections[0];
 
   const sources = [
@@ -46,7 +44,7 @@ export const About: React.FC<PageProps> = ({ data, location }) => {
 
       {testimonials ? <Testimonial testimonialSections={testimonials} /> : null}
 
-      <Newsletter id="newsletter"></Newsletter>
+      <Newsletter id="newsletter" section={actionSection1}></Newsletter>
     </main>
   );
 };

@@ -1,20 +1,23 @@
-import { LABEL } from 'core-design-system';
-import { Link as GatsbyLink } from 'gatsby';
-import { ActionSectionFragment } from 'packages/mir-website/types/graphql-types';
 import React, { AllHTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
-import { Button } from '../button';
-import { RenderTitleHighlight } from '../info-section/info-title-highligh';
+import { Link as GatsbyLink } from 'gatsby';
+import * as styleRefs from './newsletter.treat';
+
+import { Input } from '../input';
 import { Label } from '../label';
-import * as styleRefs from './action-section.treat';
+import { Heading } from '../heading';
+import { Button } from '../button';
+import { LABEL } from 'core-design-system';
+import { ActionSectionFragment } from '../../../types/graphql-types';
+import { RenderTitleHighlight } from '../info-section/info-title-highligh';
 
 type OwnProps = { section?: ActionSectionFragment } & AllHTMLAttributes<any>;
 
-export const ActionSection: React.FC<OwnProps> = ({ section, ...props }) => {
+export const Newsletter: React.FC<OwnProps> = ({ section, ...props }) => {
   const styles = useStyles(styleRefs);
 
   return (
-    <div className={`${styles.wrapper} ${props.type === 'default' ? styles.Default : styles.reversed}`}>
+    <div className={`${styles.wrapper}`} {...props}>
       <div className={`${styles.container}`}>
         <div className={`${styles.content}`}>
           <Label variant={LABEL.xSmallBoldUppercase} className={`${styles.subtitle}`}>
@@ -27,20 +30,16 @@ export const ActionSection: React.FC<OwnProps> = ({ section, ...props }) => {
             title={section?.title}
           ></RenderTitleHighlight>
         </div>
-        <div className={`${styles.buttonContainer}`}>
-          {/* <Button
-            className={`${styles.button}`}
-            variantType={props.type === 'default' ? 'primaryDefault' : 'primaryReversed'}
-            size="medium"
-            variant="text"
-          >
-            {props.actionText}
+
+        <div className={`${styles.containerForm}`}>
+          {/* <Button variantType="primaryReversed" size="large" variant="text" id="SubmitButton">
+            S'inscrire
           </Button> */}
 
           {section?.link && section?.link.type === 'INTERNAL_PAGE' && section?.link.page?.route ? (
-            <GatsbyLink to={section?.link.page?.route} className={`${styles.button}`}>
+            <GatsbyLink to={section?.link.page?.route}>
               <Button
-                className={`${styles.button}`}
+                id="SubmitButton"
                 variantType={section?.type === 'default' ? 'primaryDefault' : 'primaryReversed'}
                 size="medium"
                 variant="text"
@@ -49,9 +48,9 @@ export const ActionSection: React.FC<OwnProps> = ({ section, ...props }) => {
               </Button>
             </GatsbyLink>
           ) : section?.link && section?.link.type === 'EXTERNAL_URL' && section?.link.url ? (
-            <a href={section?.link.url} className={`${styles.button}`}>
+            <a href={section?.link.url}>
               <Button
-                className={`${styles.button}`}
+                id="SubmitButton"
                 variantType={section?.type === 'default' ? 'primaryDefault' : 'primaryReversed'}
                 size="medium"
                 variant="text"
@@ -60,6 +59,13 @@ export const ActionSection: React.FC<OwnProps> = ({ section, ...props }) => {
               </Button>
             </a>
           ) : null}
+
+          {/* <form className={`${styles.formulaire}`} action="">
+            <Input variant="reversed" placeholder="Votre courriel" aria-labelledby="SubmitButton"></Input>
+            <Button variantType="secondaryReversed" size="small" variant="text" id="SubmitButton">
+              Soumettre
+            </Button>
+          </form> */}
         </div>
       </div>
     </div>

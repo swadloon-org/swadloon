@@ -1,13 +1,10 @@
 import React from 'react';
 import { useStyles } from 'react-treat';
-import * as styleRefs from './info-section-type-6.treat';
-
-import { Button } from '../button';
+import { Heading } from '../heading';
+import { Illustration } from '../illustration';
 import { Paragraph } from '../paragraph';
 import { InfoSectionModelQuery } from './info-section';
-import { RenderTitleHighlight } from './info-title-highligh';
-import { Illustration } from '../illustration';
-import { Heading } from '../heading';
+import * as styleRefs from './info-section-type-6.treat';
 
 type OwnProps = Partial<InfoSectionModelQuery>;
 

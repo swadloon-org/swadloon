@@ -4,7 +4,7 @@ import { useStyles } from 'react-treat';
 import { BannerSecondary } from '../components/banner-secondary';
 import { Footer } from '../components/footer';
 import { NavBar } from '../components/nav-bar';
-import { Newsletter } from '../components/newsletter/newsletter';
+import { Newsletter } from '../components/action-section/newsletter';
 import { InfoSectionType2 } from '../components/info-section/info-section-type-2';
 import { ActionSection } from '../components/action-section/action-section';
 import { JobSection } from '../components/job-section/job-section';
@@ -52,7 +52,7 @@ export const EmployerPageTemplate: React.FC<PageProps> = ({ data, location }) =>
 
       {processSection ? <Process processSection={processSection} /> : null}
 
-      {actionSection1 ? <ActionSection ActionSection={actionSection1} /> : null}
+      {actionSection1 ? <ActionSection section={actionSection1} /> : null}
     </main>
   );
 };
