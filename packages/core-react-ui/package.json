@@ -14,7 +14,7 @@
     "build:lib": "tsc --build tsconfig-lib.json",
     "clean": "rimraf -r dist/**",
     "postinstall": "yarn build",
-    "start": "concurrently \"yarn start:lib\"",
+    "start": "concurrently \"yarn start:lib\" \"yarn start:app\"",
     "start:app": "webpack-dev-server --config webpack.dev.config.cjs",
     "start:lib": "tsc --build tsconfig-lib.json --watch --preserveWatchOutput",
     "test": "echo ok"

@@ -3,6 +3,7 @@ import TreatPlugin from 'treat/webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import * as webpack from 'webpack/declarations/WebpackOptions';
+import { extractCssLoader, getTreatCSSPlugin, scssLoader } from 'core-webpack-config';
 
 const config: webpack.WebpackOptions = {
   mode: 'development',
@@ -13,6 +14,7 @@ const config: webpack.WebpackOptions = {
   },
   module: {
     rules: [
+      extractCssLoader,
       {
         test: /\.tsx?$/,
         use: [
@@ -29,11 +31,11 @@ const config: webpack.WebpackOptions = {
             },
           },
         ],
-        exclude: /node_modules/,
       },
     ],
   },
   resolve: {
+    mainFields: ['browser', 'main', 'module'],
     extensions: ['.tsx', '.ts', '.js'],
     alias: {
       'core-react-ui': path.resolve(__dirname, 'src'),
@@ -44,6 +46,10 @@ const config: webpack.WebpackOptions = {
     path: path.resolve(__dirname, 'dist'),
   },
   plugins: [
+    new (webpack as any).DefinePlugin({
+      NODE_ENV: process.env.NODE_ENV ? JSON.stringify(process.env.NODE_ENV) : JSON.stringify('development'),
+      NODE_VERSION: process.env.version ? JSON.stringify(process.env.version) : JSON.stringify('unknown'),
+    }),
     new HtmlWebpackPlugin({
       template: './app/index.html',
     }),

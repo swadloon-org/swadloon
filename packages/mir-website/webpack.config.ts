@@ -2,7 +2,7 @@ import { cssLoader, getTreatCSSPlugin, scssLoader } from 'core-webpack-config';
 import { CreateBabelConfigArgs, WebpackLoaders, WebpackPlugins } from 'gatsby';
 import { WebpackOptions } from 'webpack/declarations/WebpackOptions';
 import TreatPlugin from 'treat/webpack-plugin';
-import CspHtmlWebpackPlugin from 'csp-html-webpack-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 
 export function createGatsbyWebpackConfig({
   isProduction,
@@ -33,14 +33,22 @@ export function createGatsbyWebpackConfig({
   ];
 
   // const productionPlugins = [bundleVisualizerPlugin];
+  const devPlugins = [new CopyWebpackPlugin([{ from: '../../node_modules/graphql-voyager/dist/voyager.worker.js' }])];
   const productionPlugins = [];
+
+  const cssRule = {
+    test: /\.css$/,
+    use: isSSR
+      ? [loaders.null()]
+      : [loaders.miniCssExtract({ hmr: false }), loaders.css({ ...(cssLoader as any).query, modules: false })],
+  };
 
   const sassRule = {
     test: /\.s(a|c)ss$/,
     use: isSSR
       ? [loaders.null()]
       : [
-          loaders.miniCssExtract(),
+          loaders.miniCssExtract({ hmr: true }),
           loaders.css({ ...(cssLoader as any).query, importLoaders: 2 }),
           loaders.postcss(),
           scssLoader,
@@ -58,13 +66,14 @@ export function createGatsbyWebpackConfig({
   };
 
   return {
+    devtool: 'source-map',
     module: {
       rules: [
         {
-          oneOf: [sassRuleModules, sassRule],
+          oneOf: [sassRuleModules, sassRule, cssRule],
         },
       ],
     },
-    plugins: isProduction ? [...commonPlugins, ...productionPlugins] : [...commonPlugins],
+    plugins: isProduction ? [...commonPlugins, ...productionPlugins] : [...commonPlugins, ...devPlugins],
   };
 }
