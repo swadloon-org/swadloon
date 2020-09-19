@@ -178,6 +178,70 @@ const config: GastbySiteConfig = {
         },
       },
     },
+    /**
+     * gatsby-plugin-csp
+     *
+     * @see https://www.gatsbyjs.com/plugins/gatsby-plugin-csp/
+     */
+    {
+      resolve: `gatsby-plugin-csp`,
+      options: {
+        disableOnDev: true,
+        reportOnly: false,
+        mergeScriptHashes: true,
+        mergeStyleHashes: false,
+        mergeDefaultDirectives: true,
+        directives: {
+          'script-src': "'self'",
+          'style-src': "'self' 'unsafe-inline'",
+          'img-src': "'self' data: https://media.graphcms.com https://images.unsplash.com",
+          'font-src': "'self' data: https://fonts.gstatic.com",
+        },
+      },
+    },
+    /**
+     * gatsby-plugin-netlify
+     *
+     * @see https://www.gatsbyjs.com/plugins/gatsby-plugin-netlify/
+     */
+    {
+      resolve: `gatsby-plugin-netlify`,
+      options: {
+        /**
+         * option to add more headers. `Link` headers are transformed by the below criteria
+         */
+        headers: {
+          '/*': ['X-Frame-Option: DENY', 'X-Content-Type-Options: nosniff'],
+        },
+        /**
+         * option to add headers for all pages. `Link` headers are transformed by the below criteria
+         */
+        allPageHeaders: [],
+        /**
+         * boolean to turn off the default security headers
+         */
+        mergeSecurityHeaders: true,
+        /**
+         * boolean to turn off the default gatsby js headers
+         */
+        mergeLinkHeaders: true,
+        /**
+         * boolean to turn off the default gatsby js headers
+         */
+        mergeCachingHeaders: true,
+        /**
+         * boolean to turn off the default caching headers
+         */
+        transformHeaders: (headers, path) => headers,
+        /**
+         * optional transform for manipulating headers under each path (e.g.sorting), etc.
+         */
+        generateMatchPathRewrites: true,
+        /**
+         * boolean to turn off automatic creation of redirect rules for client only paths
+         */
+      },
+    },
   ],
 };
 
