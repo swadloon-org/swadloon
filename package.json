@@ -114,6 +114,7 @@
     "gatsby-plugin-i18n": "^1.0.1",
     "gatsby-plugin-manifest": "^2.4.21",
     "gatsby-plugin-netlify": "^2.3.15",
+    "gatsby-plugin-preload-fonts": "^1.2.25",
     "gatsby-plugin-react-helmet": "^3.3.10",
     "gatsby-plugin-remote-images": "^2.2.0",
     "gatsby-plugin-robots-txt": "^1.5.1",

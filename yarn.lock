@@ -10787,7 +10787,7 @@ gatsby-cli@^2.12.87:
     yargs "^15.3.1"
     yurnalist "^1.1.2"
 
-gatsby-core-utils@^1.3.11:
+gatsby-core-utils@^1.3.11, gatsby-core-utils@^1.3.20:
   version "1.3.20"
   resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-1.3.20.tgz#3fee11634ec457f01d1327da885a9f8fe50c6823"
   integrity sha512-tTry2Iz7QKfMEkYiqXOEbMhR96hpttkKeUCQAj7syC9tQwFGd1nkGlpbD4n8lBa22cXKLlL9J2edhDo1xwnfGQ==
@@ -10977,6 +10977,19 @@ gatsby-plugin-page-creator@^2.3.22:
     graphql "^14.6.0"
     lodash "^4.17.15"
     slugify "^1.4.4"
+
+gatsby-plugin-preload-fonts@^1.2.25:
+  version "1.2.25"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-preload-fonts/-/gatsby-plugin-preload-fonts-1.2.25.tgz#36e29a5ff304c29c725b6c688b29915511dc9273"
+  integrity sha512-uuAmS2piQdRSWAH0uiMsQBV9jgBw1hrlQJ2cU2Igx7b/pUDZTUjksOLB+fpaB3Hq6nWn1u/HoTOwOO82+SOMOw==
+  dependencies:
+    chalk "^2.4.2"
+    date-fns "^2.14.0"
+    fs-extra "^8.1.0"
+    gatsby-core-utils "^1.3.20"
+    graphql-request "^1.8.2"
+    progress "^2.0.3"
+    puppeteer "^3.3.0"
 
 gatsby-plugin-react-helmet@^3.3.10:
   version "3.3.10"
@@ -12108,7 +12121,7 @@ graphql-playground-middleware-express@^1.7.18:
   dependencies:
     graphql-playground-html "1.6.25"
 
-graphql-request@^1.5.0:
+graphql-request@^1.5.0, graphql-request@^1.8.2:
   version "1.8.2"
   resolved "https://registry.yarnpkg.com/graphql-request/-/graphql-request-1.8.2.tgz#398d10ae15c585676741bde3fc01d5ca948f8fbe"
   integrity sha512-dDX2M+VMsxXFCmUX0Vo0TopIZIX4ggzOtiCsThgtrKR4niiaagsGTDIHj3fsOMFETpa064vzovI+4YV4QnMbcg==

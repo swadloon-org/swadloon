@@ -242,6 +242,16 @@ const config: GastbySiteConfig = {
          */
       },
     },
+    /**
+     * gatsby-plugin-preload-fonts
+     *
+     * note: refresh font by running the preload-fonts script
+     * @see https://www.gatsbyjs.com/plugins/gatsby-plugin-preload-fonts
+     */
+    {
+      resolve: `gatsby-plugin-preload-fonts`,
+      options: {},
+    },
   ],
 };
 
