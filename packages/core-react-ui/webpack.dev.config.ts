@@ -1,11 +1,16 @@
+import CopyWebpackPlugin from 'copy-webpack-plugin';
+import { extractCssLoader } from 'core-webpack-config';
+import dotenv from 'dotenv';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import path from 'path';
 import TreatPlugin from 'treat/webpack-plugin';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import * as webpack from 'webpack/declarations/WebpackOptions';
-import { extractCssLoader, getTreatCSSPlugin, scssLoader } from 'core-webpack-config';
+import webpack from 'webpack';
+import WebpackOptions from 'webpack/declarations/WebpackOptions';
 
-const config: webpack.WebpackOptions = {
+dotenv.config();
+
+const config: WebpackOptions.WebpackOptions = {
   mode: 'development',
   entry: './app/index.tsx',
   devtool: 'inline-source-map',
@@ -46,9 +51,12 @@ const config: webpack.WebpackOptions = {
     path: path.resolve(__dirname, 'dist'),
   },
   plugins: [
+    new CopyWebpackPlugin([{ from: '../../node_modules/graphql-voyager/dist/voyager.worker.js' }]),
     new (webpack as any).DefinePlugin({
       NODE_ENV: process.env.NODE_ENV ? JSON.stringify(process.env.NODE_ENV) : JSON.stringify('development'),
       NODE_VERSION: process.env.version ? JSON.stringify(process.env.version) : JSON.stringify('unknown'),
+      GRAPH_CMS_API_URL_MIR: JSON.stringify(process.env.GRAPH_CMS_API_URL_MIR),
+      GRAPH_CMS_AUTH_TOKEN_MIR: JSON.stringify(process.env.GRAPH_CMS_AUTH_TOKEN_MIR),
     }),
     new HtmlWebpackPlugin({
       template: './app/index.html',

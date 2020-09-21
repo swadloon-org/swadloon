@@ -33,7 +33,7 @@ export function createGatsbyWebpackConfig({
   ];
 
   // const productionPlugins = [bundleVisualizerPlugin];
-  const devPlugins = [new CopyWebpackPlugin([{ from: '../../node_modules/graphql-voyager/dist/voyager.worker.js' }])];
+  const devPlugins = [];
   const productionPlugins = [];
 
   const cssRule = {
