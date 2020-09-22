@@ -1,0 +1,7 @@
+fragment BlogPost on BlogPost {
+  stage
+  locale
+  remoteId: id
+  title
+  content
+}

@@ -1,0 +1,7 @@
+fragment CompanyInfo on CompanyInfo {
+  stage
+  remoteId: id
+  createdAt
+  updatedAt
+  publishedAt
+}

@@ -15,13 +15,6 @@ export function loadDotEnv() {
   return process.env as ENV;
 }
 
-log(`SITE_ENV is ${env.SITE_ENV}`, {
-  toolName: 'core-gatsby-website',
-});
-log(`SITE_URL is ${env.SITE_URL}`, {
-  toolName: 'core-gatsby-website',
-});
-
 /**
  * Configure your Gatsby site with this file.
  *
@@ -40,18 +33,7 @@ const config: GastbySiteConfig = {
   plugins: [
     getGatsbyTsPluginConfig(),
     getGatsbyReactSvgConfig(),
-    {
-      resolve: `gatsby-source-graphql`,
-      options: {
-        typeName: `GraphCMS`,
-        fieldName: `gcms`,
-        url: env.GRAPH_CMS_API_URL_MIR,
-        headers: {
-          Authorization: `bearer ${env.GRAPH_CMS_AUTH_TOKEN_MIR}`,
-        },
-      },
-    },
-    `gatsby-plugin-mdx`,
+
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -60,30 +42,24 @@ const config: GastbySiteConfig = {
       },
     },
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `MIR`,
-        short_name: `MIR`,
-        start_url: `/`,
-        background_color: `#f7f0eb`,
-        theme_color: `#a2466c`,
-        display: `standalone`,
-        icon: `src/illustrations/Logo/LogoFavicon.png`,
-      },
-    },
+    `gatsby-plugin-mdx`,
+
     /**
      * gatsby-source-graphcms
      * @see https://github.com/GraphCMS/gatsby-source-graphcms/tree/next/gatsby-source-graphcms
      */
-    // {
-    //   resolve: 'gatsby-source-graphcms',
-    //   options: {
-    //     endpoint: env.GRAPH_CMS_API_URL_MIR,
-    //     token: env.GRAPH_CMS_AUTH_TOKEN_MIR,
-    //   },
-    // },
+
+    {
+      resolve: 'gatsby-source-graphcms',
+      options: {
+        buildMarkdownNodes: true,
+
+        endpoint: env.GRAPH_CMS_API_URL,
+        token: env.GRAPH_CMS_AUTH_TOKEN,
+      },
+    },
+    `gatsby-plugin-sharp`,
+
     /**
      * gatsby-plugin-react-helmet
      * @see https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-react-helmet

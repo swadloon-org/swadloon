@@ -3,5 +3,5 @@
 import React from 'react';
 
 export const BlogPost: React.FC<any> = () => {
-  return <div>{/* <Markdown> here </Markdown> */}</div>;
+  return <div></div>;
 };

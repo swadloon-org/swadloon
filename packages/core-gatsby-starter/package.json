@@ -36,7 +36,6 @@
     "gatsby-plugin-react-svg": "^3.0.0",
     "gatsby-plugin-ts": "^2.7.1",
     "gatsby-source-filesystem": "^2.3.23",
-    "gatsby-source-graphql": "^2.6.1",
     "graphql": "^14.6.0"
   }
 }
