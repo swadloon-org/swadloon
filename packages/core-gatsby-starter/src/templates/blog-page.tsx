@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 // import { MDXRenderer } from 'gatsby-plugin-mdx';
 
-// const ProductPage = ({ pageContext: { content } }) => {
+// const BlogPage = ({ pageContext: { content } }) => {
 //   return (
 //     <div>
 //       <h2>{content.name}</h2>
@@ -11,4 +11,4 @@ import { graphql } from 'gatsby';
 //   );
 // };
 
-// export default ProductPage;
+// export default BlogPage;
