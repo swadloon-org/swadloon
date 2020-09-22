@@ -16,10 +16,10 @@ export function loadDotEnv() {
 }
 
 log(`SITE_ENV is ${env.SITE_ENV}`, {
-  toolName: 'mir-website',
+  toolName: 'core-gatsby-website',
 });
 log(`SITE_URL is ${env.SITE_URL}`, {
-  toolName: 'mir-website',
+  toolName: 'core-gatsby-website',
 });
 
 /**
@@ -29,7 +29,7 @@ log(`SITE_URL is ${env.SITE_URL}`, {
  */
 const config: GastbySiteConfig = {
   siteMetadata: {
-    title: `MIR Website`,
+    title: `core-gatsby-website`,
     description: `Gatsby powered MIR website`,
     siteUrl: env.SITE_URL,
     languages: {
@@ -51,6 +51,7 @@ const config: GastbySiteConfig = {
         },
       },
     },
+    `gatsby-plugin-mdx`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {

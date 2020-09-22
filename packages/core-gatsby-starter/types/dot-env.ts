@@ -29,6 +29,6 @@ export type ENV = { [key: string]: string } & {
   /**
    * GraphCMS
    */
-  GRAPH_CMS_AUTH_TOKEN_MIR: string;
-  GRAPH_CMS_API_URL_MIR: string;
+  GRAPH_CMS_AUTH_TOKEN: string;
+  GRAPH_CMS_API_URL: string;
 };

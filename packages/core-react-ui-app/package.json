@@ -4,6 +4,7 @@
   "description": "UI App library",
   "license": "MIT",
   "scripts": {
+    "build": "echo ok1",
     "build1": "webpack --config webpack.dev.config.cjs",
     "clean": "rimraf -r dist/**",
     "postinstall": "yarn build",
