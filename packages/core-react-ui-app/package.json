@@ -1,0 +1,20 @@
+{
+  "name": "core-react-ui-app",
+  "version": "1.4.1",
+  "description": "UI App library",
+  "license": "MIT",
+  "scripts": {
+    "build1": "webpack --config webpack.dev.config.cjs",
+    "clean": "rimraf -r dist/**",
+    "postinstall": "yarn build",
+    "start1": "webpack-dev-server --config webpack.dev.config.cjs",
+    "test": "echo ok"
+  },
+  "type": "module",
+  "typings": "./lib/index.d.ts",
+  "dependencies": {
+    "core-design-system": "link:../core-design-system",
+    "core-jest-config": "link:../core-jest-config",
+    "treat": "^1.5.1"
+  }
+}

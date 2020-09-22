@@ -5,59 +5,51 @@
       "path": ".."
     },
     {
-      "name": "docs",
       "path": "../docs"
     },
     {
-      "name": "core-cli",
       "path": "../packages/core-cli"
     },
     {
-      "name": "core-design-system",
       "path": "../packages/core-design-system"
     },
     {
-      "name": "core-docs-generator",
       "path": "../packages/core-docs-generator"
     },
     {
-      "name": "core-gatsby-config",
       "path": "../packages/core-gatsby-config"
     },
     {
-      "name": "core-jest-config",
+      "path": "../packages/core-gatsby-starter"
+    },
+    {
       "path": "../packages/core-jest-config"
     },
     {
-      "name": "core-react-ui",
       "path": "../packages/core-react-ui"
     },
     {
-      "name": "core-utils",
+      "path": "../packages/core-react-ui-app"
+    },
+    {
       "path": "../packages/core-utils"
     },
     {
-      "name": "core-webpack-config",
       "path": "../packages/core-webpack-config"
     },
     {
-      "name": "core-yo-generator",
       "path": "../packages/core-yo-generator"
     },
     {
-      "name": "newrade-website",
       "path": "../packages/newrade-website"
     },
     {
-      "name": "newrade-app",
       "path": "../packages/newrade-app"
     },
     {
-      "name": "lakhos-website",
       "path": "../packages/lakhos-website"
     },
     {
-      "name": "mir-website",
       "path": "../packages/mir-website"
     }
   ],
