@@ -4,8 +4,8 @@
     "rootDir": "src",
     "outDir": "lib",
     "strict": true,
-    "types": ["jest", "node", "expect-puppeteer", "jest-environment-puppeteer", "puppeteer"]
+    "types": ["jest", "node", "expect-puppeteer", "jest-environment-puppeteer", "puppeteer"],
+    "typeRoots": ["../../node_modules/@types", "types"]
   },
-  "typeRoots": ["../../node_modules/@types", "types"],
   "include": ["src", "types"]
 }

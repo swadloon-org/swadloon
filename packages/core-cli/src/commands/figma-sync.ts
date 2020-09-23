@@ -3,7 +3,6 @@ import chalk from 'chalk';
 import * as Figma from 'figma-js';
 import { log } from '../utilities/log';
 import { loadDotEnv } from '../utilities/utils';
-import { Colors } from 'core-design-system';
 
 const env = loadDotEnv();
 

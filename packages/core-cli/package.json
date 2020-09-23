@@ -22,7 +22,7 @@
   ],
   "scripts": {
     "postpack": "rm -f oclif.manifest.json",
-    "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
+    "prepack": "rm -rf lib && tsc -b tsconfig.build.json && oclif-dev manifest && oclif-dev readme",
     "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
     "version": "oclif-dev readme && git add README.md"
   },
@@ -35,10 +35,10 @@
   },
   "types": "lib/index.d.ts",
   "dependencies": {
+    "@newrade/core-utils": "^1",
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "@oclif/plugin-help": "^3",
-    "core-utils": "link:../core-utils",
     "figma-js": "^1.11.0",
     "tslib": "^1"
   },

@@ -9,10 +9,10 @@
     "./lib/**/*"
   ],
   "scripts": {
-    "build": "tsc --build",
+    "build": "tsc --build tsconfig.build.json",
     "clean": "rimraf -r lib/**",
     "postinstall": "yarn build",
-    "start": "tsc --build tsconfig.json --watch --preserveWatchOutput",
+    "start": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
     "test": "webpack --config webpack.test.config.ts",
     "webpack": "webpack --config webpack.dev.config.ts"
   },

@@ -21,8 +21,5 @@
     "start": "tsc --build --watch --preserveWatchOutput tsconfig.build.json"
   },
   "typings": "./lib/index.d.ts",
-  "dependencies": {
-    "csstype": "^3.0.3",
-    "polished": "^3.6.7"
-  }
+  "dependencies": {}
 }

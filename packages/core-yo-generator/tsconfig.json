@@ -1,12 +1,6 @@
 {
-  "extends": "../../tsconfig.base.json",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "typeRoots": ["../../node_modules/@types", "node_modules/@types"],
-    "module": "CommonJS",
-    "types": ["node", "yeoman-generator", "mocha"],
-    "outDir": "lib",
-    "rootDirs": ["src", "test"]
-  },
-  "include": ["src", "test", "typings"],
-  "exclude": ["dist", "node_modules"]
+    "types": ["node", "yeoman-generator", "mocha"]
+  }
 }

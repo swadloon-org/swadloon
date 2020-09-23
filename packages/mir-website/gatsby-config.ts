@@ -3,7 +3,7 @@ import {
   getGatsbyTsPluginConfig,
   SITE_LANGUAGES,
   getGatsbyReactSvgConfig,
-} from '@newrade-core/core-gatsby-config';
+} from '@newrade/core-gatsby-config';
 import * as dotenv from 'dotenv';
 import path from 'path';
 import { ENV, SITE_ENV } from './types/dot-env';

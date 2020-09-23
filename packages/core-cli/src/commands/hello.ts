@@ -1,6 +1,5 @@
+import { log } from '@newrade/core-utils';
 import { Command, flags } from '@oclif/command';
-
-import { log } from 'core-utils';
 
 export default class Hello extends Command {
   static description = 'describe the command here';

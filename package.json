@@ -29,12 +29,12 @@
     "lint": "eslint . --ext js,ts,tsx",
     "lint:fix": "eslint . --ext js,ts,tsx --fix",
     "nvm": "ts-node --script-mode scripts/install-node-nvm.ts",
-    "postinstall1": "yarn build --scope '{core-*,!core-gatsby-starter}'",
+    "postinstall": "yarn build --scope @newrade/core-* --ignore @newrade/core-gatsby-*",
     "push": "git push --follow-tags",
     "reset": "npm i -g rimraf && rimraf -r ./node_modules packages/**/node_modules && yarn",
     "set-permissions": "chmod a+x node_modules/.bin/nr-core-cli",
     "start": "lerna run --parallel start",
-    "start:core": "yarn start --scope core-*",
+    "start:core": "yarn start --scope @newrade/core-*",
     "start:lakhos": "yarn start --scope '{core-*,lakhos-website}'",
     "start:mir": "yarn start --scope '{core-*,mir-*}'",
     "start:newrade": "yarn start --scope '{core-*,newrade-*}'",
@@ -42,8 +42,6 @@
     "yo": "nr-core-yo-generator"
   },
   "resolutions": {
-    "**/packages/core-design-system": "link:./packages/core-design-system",
-    "**/packages/core-react-ui": "link:./packages/core-react-ui",
     "webpack": "^4.43.0"
   },
   "dependencies": {

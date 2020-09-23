@@ -10,8 +10,8 @@
     "types": ["react", "react-dom"],
     "paths": {
       "core-react-ui/$1": ["src/$1"]
-    }
+    },
+    "typeRoots": ["../../node_modules/@types", "src/types"]
   },
-  "typeRoots": ["../../node_modules/@types", "src/types"],
   "include": ["src", "app", "types", "test"]
 }
