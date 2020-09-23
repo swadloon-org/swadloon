@@ -3,7 +3,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@newrade/*": ["packages/core-*/src", "packages/newrade-*/src"],
+      "@newrade-core/*": ["packages/core-*/src"],
+      "@newrade/*": ["packages/newrade-*/src"],
+      "@lakhos/*": ["packages/lakhos-*/src"],
       "@mir/*": ["packages/mir-*/src"]
     },
     "skipLibCheck": true,
