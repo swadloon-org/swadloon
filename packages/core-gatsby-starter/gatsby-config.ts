@@ -57,7 +57,6 @@ const config: GastbySiteConfig = {
     {
       resolve: 'gatsby-source-graphcms',
       options: {
-        buildMarkdownNodes: true,
         endpoint: env.GRAPH_CMS_API_URL,
         token: env.GRAPH_CMS_AUTH_TOKEN,
       },
