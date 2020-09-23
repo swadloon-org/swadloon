@@ -6,12 +6,12 @@
     "module": "commonjs",
     "target": "es2017",
     "types": ["node"],
-    "outDir": "./lib",
-    "rootDir": "./src",
+    "outDir": "lib",
+    "rootDir": "src",
     "paths": {
       "core-utils": ["../core-utils"],
       "core-utils/*": ["../core-utils/*"]
     }
   },
-  "include": ["./src/**/*", "./types/**/*"]
+  "include": ["src", "types"]
 }

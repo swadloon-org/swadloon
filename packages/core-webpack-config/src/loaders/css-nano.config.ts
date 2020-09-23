@@ -5,7 +5,7 @@
  * see http://cssnano.co/guides/optimisations/ for all options' definition
  *
  */
-module.exports = {
+export const cssNanoConfig = {
   autoprefixer: false,
   'cssnano-util-raw-cache': true,
   'postcss-calc': true,

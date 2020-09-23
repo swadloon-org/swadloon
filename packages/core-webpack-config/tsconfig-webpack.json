@@ -3,13 +3,13 @@
   "compilerOptions": {
     "declaration": true,
     "sourceMap": true,
-    "outDir": "./test/",
-    "rootDir": "./test/",
+    "outDir": "test",
+    "rootDir": "test",
     "strict": false,
     "target": "es6",
     "module": "commonjs",
     "types": ["node"]
   },
-  "typeRoots": ["../../node_modules/@types", "./types"],
-  "include": ["./src/", "./types/", "./test/"]
+  "typeRoots": ["../../node_modules/@types", "types"],
+  "include": ["src", "types", "test"]
 }

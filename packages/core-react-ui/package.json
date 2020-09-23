@@ -1,5 +1,5 @@
 {
-  "name": "core-react-ui",
+  "name": "@newrade/core-react-ui",
   "version": "1.4.1",
   "description": "UI library",
   "license": "MIT",
@@ -9,14 +9,10 @@
     "./lib/**/*"
   ],
   "scripts": {
-    "build": "yarn build:lib",
-    "build:app": "webpack --config webpack.dev.config.cjs",
-    "build:lib": "tsc --build tsconfig-lib.json",
+    "build": "tsc --build tsconfig.build.json",
     "clean": "rimraf -r dist/**",
     "postinstall": "yarn build",
-    "start": "concurrently \"yarn start:lib\"",
-    "start:app": "webpack-dev-server --config webpack.dev.config.cjs",
-    "start:lib": "tsc --build tsconfig-lib.json --watch --preserveWatchOutput",
+    "start": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
     "test": "echo ok"
   },
   "type": "module",

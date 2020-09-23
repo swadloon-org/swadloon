@@ -3,6 +3,6 @@
   "compilerOptions": {
     "rootDir": "."
   },
-  "typeRoots": ["../../node_modules/@types", "./src/types"],
-  "include": ["src/**/*", "types/**/*"]
+  "typeRoots": ["../../node_modules/@types", "src/types"],
+  "include": ["src", "types"]
 }

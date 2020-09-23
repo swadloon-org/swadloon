@@ -3,13 +3,13 @@
   "compilerOptions": {
     "declaration": true,
     "sourceMap": true,
-    "outDir": "./lib/",
+    "outDir": "lib",
     "rootDir": ".",
     "strict": false,
     "target": "es6",
     "module": "commonjs",
     "types": ["node"]
   },
-  "typeRoots": ["../../node_modules/@types", "./src/typings"],
-  "include": ["./gatsby-*.ts"]
+  "typeRoots": ["../../node_modules/@types", "src/typings"],
+  "include": ["gatsby-*.ts"]
 }

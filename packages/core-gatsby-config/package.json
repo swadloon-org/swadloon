@@ -1,5 +1,5 @@
 {
-  "name": "core-gatsby-config",
+  "name": "@newrade/core-gatsby-config",
   "version": "1.3.1",
   "description": "Reusable gatsby configuration files",
   "license": "MIT",
@@ -10,8 +10,8 @@
   "scripts": {
     "build": "tsc --build",
     "clean": "rimraf -r lib/**",
-    "postinstall": "yarn build",
-    "start": "tsc --build tsconfig.json --watch --preserveWatchOutput",
+    "postinstall": "yarn build tsconfig.build.json",
+    "start": "tsc --buildtsconfig.build.json --watch --preserveWatchOutput",
     "test": "echo ok"
   },
   "typings": "./lib/index.d.ts",

@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "declaration": true,
+    "module": "commonjs",
+    "sourceMap": true,
+    "target": "es6",
+    "types": ["node"]
+  },
+  "exclude": ["dist", "lib", "node_modules"]
+}

@@ -3,13 +3,13 @@
   "compilerOptions": {
     "declaration": true,
     "sourceMap": true,
-    "outDir": "./dist/",
+    "outDir": "dist",
     "rootDir": ".",
     "strict": false,
     "target": "es6",
     "module": "commonjs",
     "types": ["node"]
   },
-  "typeRoots": ["../../node_modules/@types", "./types"],
+  "typeRoots": ["../../node_modules/@types", "types"],
   "include": ["webpack.*.config.ts"]
 }

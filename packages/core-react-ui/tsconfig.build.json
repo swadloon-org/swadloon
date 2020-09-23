@@ -1,6 +1,10 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "../../tsconfig.build.json",
   "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "lib",
+    "target": "ESNext",
+    "module": "ESNext",
     "types": ["react", "react-dom"]
   },
   "typeRoots": ["../../node_modules/@types", "src/types"],

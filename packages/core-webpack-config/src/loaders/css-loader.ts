@@ -1,11 +1,11 @@
-import { RuleSetUse } from 'webpack/declarations/WebpackOptions';
+import { RuleSetUseItemObject } from '../webpack-config-types';
 
 /**
  * @see https://webpack.js.org/loaders/css-loader/
  */
-export const cssLoader: RuleSetUse = {
+export const cssLoader: RuleSetUseItemObject = {
   loader: 'css-loader',
-  query: {
+  options: {
     modules: true,
     sourceMap: true,
     localIdentName: '[name]_[local]_[hash:base64:5]',

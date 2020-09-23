@@ -3,15 +3,15 @@
   "compilerOptions": {
     "declaration": true,
     "sourceMap": true,
-    "outDir": "./dist/",
-    "rootDir": "./",
+    "outDir": "dist",
+    "rootDir": "",
     "target": "es6",
     "module": "ESNext",
     "types": ["react", "react-dom"],
     "paths": {
-      "core-react-ui/$1": ["./src/$1"]
+      "core-react-ui/$1": ["src/$1"]
     }
   },
   "typeRoots": ["../../node_modules/@types", "src/types"],
-  "include": ["src/**/*", "app/**/*", "types/**/*", "test/**/*"]
+  "include": ["src", "app", "types", "test"]
 }
