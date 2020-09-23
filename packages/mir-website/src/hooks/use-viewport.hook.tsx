@@ -1,7 +1,7 @@
 import React from 'react';
 import { ViewportContext } from '../context/viewport.context';
-import { VIEWPORT } from 'core-design-system';
-import { DEFAULT_LAYOUT } from 'core-react-ui';
+import { VIEWPORT } from '@newrade/core-design-system';
+import { DEFAULT_LAYOUT } from '@newrade/core-react-ui';
 
 // singleton
 export const viewportContext = React.createContext<ViewportContext>({});

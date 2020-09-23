@@ -1,4 +1,4 @@
-import { DesignSystem, PARAGRAPH } from 'core-design-system';
+import { DesignSystem, PARAGRAPH } from '@newrade/core-design-system';
 import { style, CSSProperties } from 'treat';
 
 type Styles = { [key in keyof typeof PARAGRAPH]: string };

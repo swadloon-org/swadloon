@@ -17,7 +17,7 @@
     "serve": "gatsby serve",
     "prestart": "gatsby clean",
     "start": "cross-env ENABLE_GATSBY_REFRESH_ENDPOINT=true gatsby develop -p 9003 -H 0.0.0.0",
-    "sync-figma": "core-cli sync-figma ",
+    "sync-figma": "@newrade/core-cli sync-figma ",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "dependencies": {
@@ -29,8 +29,8 @@
     "react-treat": "^1.4.1"
   },
   "devDependencies": {
-    "core-gatsby-config": "link:../core-gatsby-config",
-    "core-webpack-config": "link:../core-webpack-config",
+    "@newrade/core-gatsby-config": "^1",
+    "@newrade/core-webpack-config": "^1",
     "gatsby-image": "^2.4.14",
     "gatsby-plugin-manifest": "^2.4.21",
     "gatsby-plugin-react-svg": "^3.0.0",

@@ -1,4 +1,4 @@
-import { ButtonProps } from 'core-design-system';
+import { ButtonProps } from '@newrade/core-design-system';
 import React, { ButtonHTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './button.treat';

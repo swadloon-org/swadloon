@@ -2,7 +2,7 @@ import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
 import { Illustration } from '../components/illustration';
 import * as styleRefs from './icon.treat';
-import { ICON_SIZE } from 'core-design-system';
+import { ICON_SIZE } from '@newrade/core-design-system';
 
 type OwnProps = {
   icon: string;

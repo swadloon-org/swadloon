@@ -1,8 +1,13 @@
-import { GastbySiteConfig, getGatsbyTsPluginConfig, SITE_LANGUAGES, getGatsbyReactSvgConfig } from 'core-gatsby-config';
+import {
+  GastbySiteConfig,
+  getGatsbyTsPluginConfig,
+  SITE_LANGUAGES,
+  getGatsbyReactSvgConfig,
+} from '@newrade/core-gatsby-config';
 import * as dotenv from 'dotenv';
 import path from 'path';
 import { ENV, SITE_ENV } from './types/dot-env';
-import { log } from 'core-utils';
+import { log } from '@newrade/core-utils';
 
 // TODO move to a different file
 const env = loadDotEnv();

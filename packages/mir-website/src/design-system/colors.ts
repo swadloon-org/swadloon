@@ -1,4 +1,4 @@
-import { Colors, ColorIntents, createDefaultColorIntents } from 'core-design-system';
+import { Colors, ColorIntents, createDefaultColorIntents } from '@newrade/core-design-system';
 
 export const colors: Colors = {
   primary100: `rgba(205, 214, 251, 1)`,

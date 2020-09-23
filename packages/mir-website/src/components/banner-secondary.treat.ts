@@ -1,4 +1,4 @@
-import { DesignSystem } from 'core-design-system';
+import { DesignSystem } from '@newrade/core-design-system';
 import { style, globalStyle } from 'treat';
 
 //

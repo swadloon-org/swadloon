@@ -1,4 +1,4 @@
-import { Iconography, VIEWPORT, ICON_SIZE } from 'core-design-system';
+import { Iconography, VIEWPORT, ICON_SIZE } from '@newrade/core-design-system';
 
 import { sizingStepMobile, sizingStepDesktop } from './sizing';
 

@@ -1,4 +1,4 @@
-import { DesignSystem, createShadow } from 'core-design-system';
+import { DesignSystem, createShadow } from '@newrade/core-design-system';
 import { globalStyle, style } from 'treat';
 import { theme } from '../../design-system';
 

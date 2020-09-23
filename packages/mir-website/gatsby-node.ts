@@ -2,7 +2,7 @@ import { spawnSync, spawn } from 'child_process';
 import crypto from 'crypto';
 import { GatsbyNode } from 'gatsby';
 import { createRemoteFileNode } from 'gatsby-source-filesystem';
-import { log, LOG_LEVEL } from 'core-utils';
+import { log, LOG_LEVEL } from '@newrade/core-utils';
 import { createGatsbyWebpackConfig } from './webpack.config';
 import chalk from 'chalk';
 

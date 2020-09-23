@@ -18,6 +18,6 @@
   },
   "typings": "./lib/index.d.ts",
   "dependencies": {
-    "core-jest-config": "link:../core-jest-config"
+    "@newrade/core-jest-config": "^1"
   }
 }

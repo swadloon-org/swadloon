@@ -6,7 +6,7 @@ import * as styleRefs from './tags.treat';
 import { Label } from './label';
 
 import { Illustration } from './illustration';
-import { LABEL } from 'core-design-system';
+import { LABEL } from '@newrade/core-design-system';
 
 type OwnProps = {
   numberIndex: string;

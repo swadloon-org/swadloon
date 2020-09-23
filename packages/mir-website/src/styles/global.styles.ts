@@ -1,5 +1,5 @@
 import { globalStyle } from 'treat';
-import { DesignSystem } from 'core-design-system';
+import { DesignSystem } from '@newrade/core-design-system';
 import { getGlobalSizeVariables } from './global-sizes-variables.styles';
 
 export function applyReset(themeClass: string) {

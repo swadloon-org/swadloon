@@ -7,7 +7,7 @@ import {
 import * as dotenv from 'dotenv';
 import path from 'path';
 import { ENV, SITE_ENV } from './types/dot-env';
-import { log } from 'core-utils';
+import { log } from '@newrade/core-utils';
 import { icon } from './src/components/accordions.treat';
 
 // TODO move to a different file

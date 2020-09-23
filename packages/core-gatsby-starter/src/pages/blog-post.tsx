@@ -5,3 +5,5 @@ import React from 'react';
 export const BlogPost: React.FC<any> = () => {
   return <div></div>;
 };
+
+export default BlogPost;

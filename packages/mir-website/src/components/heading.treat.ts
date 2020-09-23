@@ -1,4 +1,4 @@
-import { DesignSystem } from 'core-design-system';
+import { DesignSystem } from '@newrade/core-design-system';
 import { style } from 'treat';
 
 export const h1 = style((theme: DesignSystem) => ({

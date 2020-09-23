@@ -4,7 +4,7 @@ import * as styleRefs from './process-section.treat';
 import { Heading } from '../heading';
 import { Paragraph } from '../paragraph';
 import { Label } from '../label';
-import { LABEL } from 'core-design-system';
+import { LABEL } from '@newrade/core-design-system';
 import { RenderTitleHighlight } from '../info-section/info-title-highligh';
 import {
   Maybe,

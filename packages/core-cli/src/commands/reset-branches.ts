@@ -1,6 +1,6 @@
 import { Command, flags } from '@oclif/command';
 
-import { log } from 'core-utils';
+import { log } from '@newrade/core-utils';
 import { spawnSync } from 'child_process';
 
 export default class ResetBranches extends Command {

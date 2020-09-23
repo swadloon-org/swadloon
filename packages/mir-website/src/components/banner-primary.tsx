@@ -1,4 +1,4 @@
-import { LABEL } from 'core-design-system';
+import { LABEL } from '@newrade/core-design-system';
 import BackgroundImage from 'gatsby-background-image';
 import React from 'react';
 import { useStyles } from 'react-treat';

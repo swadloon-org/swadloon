@@ -1,4 +1,4 @@
-import { cssLoader, getTreatCSSPlugin, scssLoader } from 'core-webpack-config';
+import { cssLoader, getTreatCSSPlugin, scssLoader } from '@newrade/core-webpack-config';
 import { CreateBabelConfigArgs, WebpackLoaders, WebpackPlugins } from 'gatsby';
 import { WebpackOptions } from 'webpack/declarations/WebpackOptions';
 import TreatPlugin from 'treat/webpack-plugin';

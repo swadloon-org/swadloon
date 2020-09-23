@@ -1,4 +1,4 @@
-import { DesignSystem } from 'core-design-system';
+import { DesignSystem } from '@newrade/core-design-system';
 import { applyStylesToHtmlElement, applyStylesToBodyElement, applyReset } from '../styles/global.styles';
 import { style } from 'treat';
 

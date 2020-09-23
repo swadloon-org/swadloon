@@ -1,5 +1,5 @@
 import CopyWebpackPlugin from 'copy-webpack-plugin';
-import { extractCssLoader } from 'core-webpack-config';
+import { extractCssLoader } from '@newrade/core-webpack-config';
 import dotenv from 'dotenv';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';

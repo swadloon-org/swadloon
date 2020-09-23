@@ -1,4 +1,4 @@
-import { DesignSystem, createShadow } from 'core-design-system';
+import { DesignSystem, createShadow } from '@newrade/core-design-system';
 import { style } from 'treat';
 
 export const globalStyle = style((theme: DesignSystem) => ({

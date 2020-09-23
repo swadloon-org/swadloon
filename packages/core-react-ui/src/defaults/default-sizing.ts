@@ -1,4 +1,4 @@
-import { SIZING, SizingSteps, createSizingStep, SizeCSSVarNames, Sizing, VIEWPORT } from 'core-design-system';
+import { SIZING, SizingSteps, createSizingStep, SizeCSSVarNames, Sizing, VIEWPORT } from '@newrade/core-design-system';
 
 export const DEFAULT_BASE_FONT_SIZE = 9;
 export const DEFAULT_BASE_FONT_SIZE_PX = `${DEFAULT_BASE_FONT_SIZE}px`;

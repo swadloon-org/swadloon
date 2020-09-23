@@ -1,4 +1,4 @@
-import { Layout, BREAKPOINT, Breakpoints, VIEWPORT } from 'core-design-system';
+import { Layout, BREAKPOINT, Breakpoints, VIEWPORT } from '@newrade/core-design-system';
 
 const breakpoints: Breakpoints = {
   [BREAKPOINT.mobileXSmall]: {

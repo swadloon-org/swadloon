@@ -1,4 +1,4 @@
-import { VIEWPORT } from 'core-design-system';
+import { VIEWPORT } from '@newrade/core-design-system';
 import React, { useState } from 'react';
 import { useStyles } from 'react-treat';
 import { GraphCms_JobSectionType, JobSectionsFragment } from '../../../types/graphql-types';

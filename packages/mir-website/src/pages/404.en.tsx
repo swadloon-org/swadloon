@@ -3,7 +3,7 @@ import {
   getMetadataOpenGraphWebsiteTags,
   getMetadataTwitterTags,
   OPEN_GRAPH_TYPE,
-} from 'core-react-ui';
+} from '@newrade/core-react-ui';
 import { graphql } from 'gatsby';
 import React from 'react';
 import { Helmet } from 'react-helmet';

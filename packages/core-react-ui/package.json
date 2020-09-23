@@ -18,8 +18,8 @@
   "type": "module",
   "typings": "./lib/index.d.ts",
   "dependencies": {
-    "core-design-system": "link:../core-design-system",
-    "core-jest-config": "link:../core-jest-config",
+    "@newrade/core-design-system": "^1",
+    "@newrade/core-jest-config": "^1",
     "treat": "^1.5.1"
   }
 }

@@ -1,4 +1,4 @@
-import { DesignSystem } from 'core-design-system';
+import { DesignSystem } from '@newrade/core-design-system';
 import { globalStyle } from 'treat';
 import { getGlobalSizeVariables } from './styles/global-sizes-variables.styles';
 

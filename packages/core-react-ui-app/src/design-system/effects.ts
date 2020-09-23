@@ -1,4 +1,4 @@
-import { Effects, Shadows, Overlays, createShadow } from 'core-design-system';
+import { Effects, Shadows, Overlays, createShadow } from '@newrade/core-design-system';
 
 export const shadows: Shadows = {
   light: createShadow({

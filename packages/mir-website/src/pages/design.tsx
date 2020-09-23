@@ -1,4 +1,4 @@
-import { ButtonSize, ICON_SIZE, LABEL } from 'core-design-system';
+import { ButtonSize, ICON_SIZE, LABEL } from '@newrade/core-design-system';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { ActionSection } from '../components/action-section/action-section';

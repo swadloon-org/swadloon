@@ -2,7 +2,7 @@ import React from 'react';
 
 import * as styleRefs from './app.treat';
 import { useStyles } from 'react-treat';
-import { ButtonSize } from 'core-design-system';
+import { ButtonSize } from '@newrade/core-design-system';
 
 export function App() {
   const styles = useStyles(styleRefs);
