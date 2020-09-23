@@ -1,4 +1,4 @@
-import { getGatsbyTsPluginConfig, getGatsbyReactSvgConfig } from '@newrade/core-gatsby-config';
+import { getGatsbyTsPluginConfig, getGatsbyReactSvgConfig } from '@newrade-core/core-gatsby-config';
 
 import dotenv from 'dotenv';
 import Gatsby from 'gatsby';

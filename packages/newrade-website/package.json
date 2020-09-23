@@ -27,7 +27,7 @@
     "react-treat": "^1.4.1"
   },
   "devDependencies": {
-    "core-gatsby-config": "link:../core-gatsby-config",
+    "@newrade-core/core-gatsby-config": "link:../core-gatsby-config",
     "gatsby-source-graphql": "^2.6.1"
   }
 }
