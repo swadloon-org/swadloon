@@ -53,12 +53,11 @@ const config: GastbySiteConfig = {
      * gatsby-source-graphcms
      * @see https://github.com/GraphCMS/gatsby-source-graphcms/tree/next/gatsby-source-graphcms
      */
-
     {
       resolve: 'gatsby-source-graphcms',
       options: {
-        endpoint: env.GRAPH_CMS_API_URL,
-        token: env.GRAPH_CMS_AUTH_TOKEN,
+        endpoint: env.GRAPH_CMS_API_URL_CORE,
+        token: env.GRAPH_CMS_AUTH_TOKEN_CORE,
       },
     },
     `gatsby-plugin-sharp`,

@@ -35,9 +35,9 @@
     "set-permissions": "chmod a+x node_modules/.bin/nr-core-cli",
     "start": "lerna run --parallel start",
     "start:core": "yarn start --scope @newrade/core-*",
-    "start:lakhos": "yarn start --scope '{@newrade/core-*,@newrade/lakhos-website}'",
-    "start:mir": "yarn start --scope '{@newrade/core-*,@newrade/mir-*}'",
-    "start:newrade": "yarn start --scope '{@newrade/core-*,@newrade/newrade-*}'",
+    "start:lakhos": "yarn start --scope '{@newrade/core-*,@newrade/lakhos-website}' --ignore @newrade/core-gatsby-*",
+    "start:mir": "yarn start --scope '{@newrade/core-*,@newrade/mir-*}' --ignore @newrade/core-gatsby-*",
+    "start:newrade": "yarn start --scope '{@newrade/core-*,@newrade/newrade-*}' --ignore @newrade/core-gatsby-*",
     "test": "lerna run --concurrency=1 test",
     "yo": "nr-core-yo-generator"
   },
