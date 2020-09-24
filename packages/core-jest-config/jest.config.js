@@ -1,4 +1,4 @@
-const { baseJestConfig } = require('core-jest-config');
+const { baseJestConfig } = require('@newrade/core-jest-config');
 
 /** @type {jest.InitialOptions} */
 module.exports = {

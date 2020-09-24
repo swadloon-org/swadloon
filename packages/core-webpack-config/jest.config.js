@@ -1,7 +1,7 @@
 // @ts-check
 // tslint:disable:readonly-array
-const puppeteerPreset = require('core-jest-config/puppeteer-jest.base.config').puppeteerPreset;
-const baseJestConfig = require('core-jest-config/jest.base.config').baseJestConfig;
+const puppeteerPreset = require('@newrade/core-jest-config/puppeteer-jest.base.config').puppeteerPreset;
+const baseJestConfig = require('@newrade/core-jest-config/jest.base.config').baseJestConfig;
 
 /** @type {jest.InitialOptions} */
 module.exports = {

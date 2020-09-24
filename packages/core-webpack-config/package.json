@@ -13,8 +13,7 @@
     "clean": "rimraf -r lib/**",
     "postinstall": "yarn build",
     "start": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
-    "test": "webpack --config webpack.test.config.ts",
-    "webpack": "webpack --config webpack.dev.config.ts"
+    "test": "TS_NODE_PROJECT=tsconfig.webpack.json node -r ts-node/register ../../node_modules/webpack/bin/webpack.js --config webpack.test.config.ts"
   },
   "typings": "./lib/index.d.ts",
   "dependencies": {

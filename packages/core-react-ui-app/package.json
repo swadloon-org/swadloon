@@ -4,11 +4,10 @@
   "description": "UI App library",
   "license": "MIT",
   "scripts": {
-    "build": "echo ok1",
-    "build1": "webpack --config webpack.dev.config.cjs",
+    "build": "TS_NODE_PROJECT=tsconfig.webpack.json node -r ts-node/register ../../node_modules/webpack/bin/webpack --config webpack.dev.config.ts",
     "clean": "rimraf -r dist/**",
     "postinstall": "yarn build",
-    "start1": "webpack-dev-server --config webpack.dev.config.cjs",
+    "start": "TS_NODE_PROJECT=tsconfig.webpack.json node -r ts-node/register ../../node_modules/webpack-dev-server/bin/webpack-dev-server --config webpack.dev.config.ts",
     "test": "echo ok"
   },
   "type": "module",
@@ -16,6 +15,7 @@
   "dependencies": {
     "@newrade/core-design-system": "^1",
     "@newrade/core-jest-config": "^1",
+    "@newrade/core-react-ui": "^1",
     "treat": "^1.5.1"
   }
 }

@@ -3,7 +3,7 @@
   "compilerOptions": {
     "declaration": true,
     "sourceMap": true,
-    "outDir": "test",
+    "outDir": "dist",
     "rootDir": "test",
     "strict": false,
     "target": "es6",

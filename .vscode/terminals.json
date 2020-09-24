@@ -51,6 +51,12 @@
       "focus": false
     },
     {
+      "name": "core-react-ui-app",
+      "cwd": "[workspaceFolder]/packages/core-react-ui-app",
+      "open": true,
+      "focus": false
+    },
+    {
       "name": "core-utils",
       "cwd": "[workspaceFolder]/packages/core-utils",
       "open": true,

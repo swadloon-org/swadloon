@@ -3,7 +3,7 @@
   "compilerOptions": {
     "rootDir": "src",
     "outDir": "lib",
-    "target": "ESNext",
+    "target": "es6",
     "module": "ESNext",
     "types": ["react", "react-dom"],
     "typeRoots": ["../../node_modules/@types", "src/types"]

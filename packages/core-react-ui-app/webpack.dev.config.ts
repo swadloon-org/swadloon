@@ -12,7 +12,7 @@ dotenv.config();
 
 const config: WebpackOptions.WebpackOptions = {
   mode: 'development',
-  entry: './app/index.tsx',
+  entry: './src/index.tsx',
   devtool: 'inline-source-map',
   devServer: {
     port: '8001',
@@ -32,7 +32,7 @@ const config: WebpackOptions.WebpackOptions = {
           {
             loader: 'ts-loader',
             options: {
-              configFile: 'tsconfig-app.json',
+              configFile: 'tsconfig.app.json',
             },
           },
         ],
@@ -42,9 +42,6 @@ const config: WebpackOptions.WebpackOptions = {
   resolve: {
     mainFields: ['browser', 'main', 'module'],
     extensions: ['.tsx', '.ts', '.js'],
-    alias: {
-      'core-react-ui': path.resolve(__dirname, 'src'),
-    },
   },
   output: {
     filename: 'bundle.js',
@@ -59,7 +56,7 @@ const config: WebpackOptions.WebpackOptions = {
       GRAPH_CMS_AUTH_TOKEN_MIR: JSON.stringify(process.env.GRAPH_CMS_AUTH_TOKEN_MIR),
     }),
     new HtmlWebpackPlugin({
-      template: './app/index.html',
+      template: './src/index.html',
     }),
     new TreatPlugin({
       outputLoaders: [MiniCssExtractPlugin.loader],
