@@ -43,7 +43,7 @@ export const BlogPostLayout: React.FC<Props> = (props) => {
       <Helmet>
         {getMetaBasicTags()}
         {getMetadataOpenGraphWebsiteTags({
-          type: OPEN_GRAPH_TYPE.WEBSITE,
+          type: OPEN_GRAPH_TYPE.ARTICLE,
           title: `${data.gcms.pages[0]?.title}`,
           url: `${data.site?.siteMetadata?.siteUrl}${data.gcms.pages[0]?.route}`,
           description: `Lancement du nouveau site web de MIR !`,
