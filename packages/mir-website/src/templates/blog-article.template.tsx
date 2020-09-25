@@ -84,7 +84,7 @@ export const BlogPostTemplate: React.FC<Props> = ({ location, pageContext }) => 
       <div className={styles.articleWrapper}>
         <Label variant={LABEL.smallBoldUppercase}>COMMUNIQUÉ</Label>
         <Heading variant="h1" className={styles.title}>
-          Lancement du nouveau site web mirtalents.com
+          Lancement du nouveau site web mirtalents.ca
         </Heading>
 
         <Paragraph variant="medium">
