@@ -68,7 +68,7 @@ export const Blog: React.FC<PageProps> = ({ data, location }) => {
             >
               <BlogPreviewTile
                 actionLabel={location?.pathname.includes('/en/') ? 'Read now' : 'Lire'}
-                title="Lancement du nouveau site web mirtalents.ca"
+                title="Lancement du nouveau site web mirinc.ca"
                 className={styles.previewTitle}
               ></BlogPreviewTile>
             </GatsbyLink>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link as GatsbyLink } from 'gatsby';
-
+import { Helmet } from 'react-helmet';
 import BackgroundImage from 'gatsby-background-image';
 import { useStyles } from 'react-treat';
 import { BlogPageFrQuery } from '../../types/graphql-types';
@@ -15,11 +15,17 @@ import { Paragraph } from '../components/paragraph';
 import { Label } from '../components/label';
 import { LABEL } from 'core-design-system';
 import { Button } from '../components/button';
+import {
+  getMetaBasicTags,
+  getMetadataOpenGraphWebsiteTags,
+  OPEN_GRAPH_TYPE,
+  getMetadataTwitterTags,
+} from 'core-react-ui';
 
 type Props = {
   data: BlogPageFrQuery;
   location: Location;
-} & PageProps<any, { data: BlogPageFrQuery }>;
+} & PageProps<any, { data: BlogPageFrQuery; lang: 'en' | 'fr' }>;
 
 export const BlogPostLayout: React.FC<Props> = (props) => {
   const data = props.pageContext.data;
@@ -34,6 +40,24 @@ export const BlogPostLayout: React.FC<Props> = (props) => {
       twitterPageURL={data.gcms.companyInfos[0]?.twitterPageUrl}
       pages={data.gcms.routes}
     >
+      <Helmet>
+        {getMetaBasicTags()}
+        {getMetadataOpenGraphWebsiteTags({
+          type: OPEN_GRAPH_TYPE.ARTICLE,
+          title: `${data.gcms.pages[0]?.title}`,
+          url: `${data.site?.siteMetadata?.siteUrl}${data.gcms.pages[0]?.route}`,
+          description: `Lancement du nouveau site web de MIR !`,
+          site_name: `${data.gcms.companyInfos[0].metadataSiteName}`,
+          lang: props.pageContext.lang,
+          locale: props.pageContext.lang,
+          localeAlternate: props.pageContext.lang === 'en' ? 'fr' : 'en',
+        })}
+        {getMetadataTwitterTags({
+          card: 'summary',
+          creator: `${data.gcms.companyInfos[0].metadataTwitterCreator}`,
+          site: `${data.gcms.companyInfos[0].metadataTwitter}`,
+        })}
+      </Helmet>
       <BlogPostTemplate {...props} />
     </Layout>
   );
@@ -84,7 +108,7 @@ export const BlogPostTemplate: React.FC<Props> = ({ location, pageContext }) => 
       <div className={styles.articleWrapper}>
         <Label variant={LABEL.smallBoldUppercase}>COMMUNIQUÉ</Label>
         <Heading variant="h1" className={styles.title}>
-          Lancement du nouveau site web mirtalents.ca
+          Lancement du nouveau site web mirinc.ca
         </Heading>
 
         <Paragraph variant="medium">
