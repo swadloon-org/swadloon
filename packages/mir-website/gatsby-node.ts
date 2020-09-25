@@ -134,6 +134,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
     name: string;
     templatePath: string;
     path: string;
+    lang: 'en' | 'fr';
   };
 
   const pagesConfig: PageConfig[] = [
@@ -141,17 +142,19 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
       name: 'post',
       path: `/nouvelles/individu-au-coeur-de-notre-travail`,
       templatePath: 'src/templates/blog-article.template.tsx',
+      lang: 'fr',
     },
     {
       name: 'post en',
       path: `/en/news/individu-au-coeur-de-notre-travail`,
       templatePath: 'src/templates/blog-article.template.tsx',
+      lang: 'en',
     },
   ];
 
   pagesConfig.forEach((page) => {
     createPage({
-      context: { name: page.name, data: blogPageQuery.data },
+      context: { name: page.name, data: blogPageQuery.data, lang: page.lang },
       component: path.resolve(page.templatePath),
       path: page.path,
     });
