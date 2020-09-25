@@ -111,9 +111,7 @@ export const unselected = style((theme: DesignSystem) => ({
 //
 // selected
 //
-export const selected = style((theme: DesignSystem) => ({
-  display: 'block',
-}));
+export const selected = style((theme: DesignSystem) => ({}));
 
 //
 // accordions
@@ -128,9 +126,7 @@ export const accordions = style((theme: DesignSystem) => ({
 //
 // tagsUnique
 //
-export const tagsUnique = style((theme: DesignSystem) => ({
-  // paddingBottom: `${theme.sizing.sizes.x3}`,
-}));
+export const tagsUnique = style((theme: DesignSystem) => ({}));
 
 //
 // title
