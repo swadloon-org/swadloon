@@ -18,10 +18,15 @@ export const blogSectionsQuery = graphql`
     }
     posts {
       id
-      createdAt
+      # createdAt
       title
       image {
-        url(transformation: { image: { resize: { width: 300, fit: max } } })
+        bannerImageMobile: localFile {
+          ...MobileFluidImage
+        }
+        bannerImageDesktop: localFile {
+          ...DesktopFluidImage
+        }
       }
     }
   }
