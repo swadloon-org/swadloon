@@ -13,7 +13,12 @@ export const Link: React.FC<HTMLAttributes<any> & OwnProps> = (props) => {
   const styles = useStyles(styleRefs);
 
   return (
-    <GatsbyLink to={props.to} className={`${styles.link}`} activeClassName={`${styles.linkActive}`}>
+    <GatsbyLink
+      to={props.to}
+      className={`${styles.link}`}
+      activeClassName={`${styles.linkActive}`}
+      partiallyActive={props.children === 'Nouvelles' ? true : props.children === 'News' ? true : false}
+    >
       <Label className={`${styles.label}`} variant={LABEL.smallBold}>
         {props.children}
       </Label>

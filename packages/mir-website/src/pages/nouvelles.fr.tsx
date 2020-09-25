@@ -35,6 +35,12 @@ export const BlogPageFRQuery = graphql`
     bannerImageDesktop: file(name: { eq: "ImageOffice03" }) {
       ...DesktopFluidImage
     }
+    articleImageMobile: file(name: { eq: "Banner-NewWebsite" }) {
+      ...MobileFluidImage
+    }
+    articleImageDesktop: file(name: { eq: "Banner-NewWebsite" }) {
+      ...DesktopFluidImage
+    }
   }
 `;
 

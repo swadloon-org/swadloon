@@ -22,9 +22,18 @@ export const BlogPreviewTile: React.FC<OwnProps> = (props) => {
         {props.title}
       </Heading>
 
-      <Button size="small" variantType="tertiaryReversed" variant="text" className={styles.button}>
-        {props.actionLabel}
-      </Button>
+      <div className={styles.buttonGroup}>
+        <Button size="small" variantType="tertiaryReversed" variant="text" className={styles.button}>
+          {props.actionLabel}
+        </Button>
+        <Button
+          size="small"
+          variantType="tertiaryReversed"
+          variant="icon"
+          className={styles.button}
+          icon="IconArrowRight"
+        ></Button>
+      </div>
     </div>
   );
 };
