@@ -59,6 +59,10 @@ export const container = style((theme: DesignSystem) => ({
 
 export const content = style((theme: DesignSystem) => ({
   '@media': {
+    [theme.layout.media.mobile]: {
+      display: 'grid',
+      justifyContent: 'center',
+    },
     [theme.layout.media.tabletPlus]: {
       gridArea: 'content',
     },
@@ -71,6 +75,10 @@ export const content = style((theme: DesignSystem) => ({
 
 export const containerForm = style((theme: DesignSystem) => ({
   '@media': {
+    [theme.layout.media.mobile]: {
+      display: 'grid',
+      justifyContent: 'center',
+    },
     [theme.layout.media.tabletPlus]: {
       gridArea: 'form',
     },

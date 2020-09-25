@@ -3,7 +3,7 @@ import { style, globalStyle } from 'treat';
 
 export const wrapper = style((theme: DesignSystem) => ({
   display: 'flex',
-  flexDirection: 'column',
+  // flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
 

@@ -9,6 +9,7 @@ export const wrapper = style((theme: DesignSystem) => ({
   display: 'grid',
   justifyItems: 'center',
   padding: `${theme.sizing.sizes.x6} ${theme.layout.contentMargins.mobile.px}`,
+  textAlign: 'center',
 }));
 
 //
