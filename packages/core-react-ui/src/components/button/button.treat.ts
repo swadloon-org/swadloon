@@ -9,7 +9,8 @@ type Styles = ButtonSizeStyles;
 type AllStyles = ButtonVariantStyles | ButtonSizeStyles | ButtonIconStyles | ButtonStateStyles;
 
 export const large = style((theme: DesignSystem) => ({
-  width: `${theme.components.buttons.sizes.small.width}`,
+  boxShadow: getCSSShadow({ ...theme.effects.shadows.heavy, color: 'red' }),
+  height: theme.components.buttons.sizes.large.height.css,
   padding:
     theme.components.buttons.sizes.large.paddingH && theme.components.buttons.sizes.large.paddingV
       ? `${theme.sizing.sizes[theme.components.buttons.sizes.large.paddingV]} ${

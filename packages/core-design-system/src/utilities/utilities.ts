@@ -74,6 +74,11 @@ export function createSizingStep({
  *
  * @see https://seek-oss.github.io/capsize/
  */
+type TextStyleOptions = { baseFontSize: number } & Pick<
+  TextStyle,
+  'font' | 'fontFamily' | 'fontWeight' | 'letterSpacing' | 'textTransform' | 'capHeight' | 'lineGap'
+>;
+
 export function createTextStyle({
   baseFontSize,
   font,
@@ -83,10 +88,7 @@ export function createTextStyle({
   textTransform,
   capHeight,
   lineGap,
-}: { baseFontSize: number } & Pick<
-  TextStyle,
-  'font' | 'fontFamily' | 'fontWeight' | 'letterSpacing' | 'textTransform' | 'capHeight' | 'lineGap'
->): TextStyle {
+}: TextStyleOptions): TextStyle {
   const compatibleCapHeight: number = typeof capHeight === 'number' ? capHeight : capHeight.value;
   const { fontMetrics } = font;
 

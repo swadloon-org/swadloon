@@ -1,4 +1,4 @@
-import { Color } from 'csstype';
+import { Color } from './color';
 
 /**
  * Representation of a box shadow.
@@ -24,10 +24,6 @@ export type BoxShadow = {
    * The box shadow's color.
    */
   color: Color;
-  /**
-   * The box-shadow property
-   */
-  css: string;
 };
 
 /**
