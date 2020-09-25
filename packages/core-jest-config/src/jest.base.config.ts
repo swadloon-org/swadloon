@@ -1,5 +1,8 @@
-// tslint:disable:readonly-array
+import { pathsToModuleNameMapper } from 'ts-jest/utils';
 
+// const { compilerOptions } = require('../../../tsconfig.json');
+
+// tslint:disable:readonly-array
 export const baseJestConfig: jest.InitialOptions = {
   modulePaths: ['../../<rootDir>/node_modules', '<rootDir>/node_modules'],
   rootDir: '.',
@@ -13,6 +16,8 @@ export const baseJestConfig: jest.InitialOptions = {
   transformIgnorePatterns: ['node_modules/(?!(idlize)/)'],
   moduleNameMapper: {
     '\\.(css|less|sass|scss)$': 'identity-obj-proxy',
+    '^@newrade/(.*)$': '../$1/lib',
+    // ...pathsToModuleNameMapper(compilerOptions.paths /*, { prefix: '<rootDir>/' } */),
   },
   testRegex: '.+\\.test\\.tsx?',
   testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/dist/', '(\\.js\\.map)$', '<rootDir>/package.json'],

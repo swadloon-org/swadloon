@@ -1,4 +1,4 @@
-import { Color } from 'csstype';
+import { Color } from './color';
 
 /**
  * Every color defined in the system.

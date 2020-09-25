@@ -4,7 +4,7 @@
     "rootDir": "src",
     "outDir": "lib",
     "target": "es6",
-    "module": "ESNext",
+    "module": "commonjs",
     "types": ["react", "react-dom"],
     "typeRoots": ["../../node_modules/@types", "src/types"]
   },

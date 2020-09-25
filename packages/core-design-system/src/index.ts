@@ -2,6 +2,7 @@ export * from './components/molecules/buttons';
 
 export * from './design-system';
 
+export * from './foundations/color';
 export * from './foundations/colors';
 export * from './foundations/effects';
 export * from './foundations/iconography';

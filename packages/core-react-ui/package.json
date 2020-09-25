@@ -13,9 +13,8 @@
     "clean": "rimraf -r dist/**",
     "postinstall": "yarn build",
     "start": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
-    "test": "echo ok"
+    "test": "jest"
   },
-  "type": "module",
   "typings": "./lib/index.d.ts",
   "dependencies": {
     "@newrade/core-design-system": "^1",

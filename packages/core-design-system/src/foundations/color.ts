@@ -13,9 +13,3 @@ export interface Color {
 
   css: string;
 }
-
-export function createColor(options: Partial<Color>) {}
-
-export function lightenColor(color: Color, amount: number) {}
-
-export function darkenColor(color: Color, amount: number) {}
