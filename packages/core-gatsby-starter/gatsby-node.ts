@@ -34,14 +34,14 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
     }
   `);
 
-  data.contents.nodes.forEach((content) => {
+  data.contents.nodes.forEach((node) => {
     createPage({
       component: path.resolve(`src/templates/blog-page.tsx`),
       context: {
-        id: content.id,
-        content: content.contentRich,
+        id: node.id,
+        content: node.contentRich,
       } as BlogPostContext,
-      path: `/blog-post/${content.title}`,
+      path: `/blog-post/${node.title}`,
     });
   });
 };

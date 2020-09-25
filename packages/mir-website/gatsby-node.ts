@@ -1,10 +1,11 @@
 import { spawnSync, spawn } from 'child_process';
 import crypto from 'crypto';
-import { GatsbyNode } from 'gatsby';
+import { GatsbyNode, graphql } from 'gatsby';
 import { createRemoteFileNode } from 'gatsby-source-filesystem';
 import { log, LOG_LEVEL } from '@newrade/core-utils';
 import { createGatsbyWebpackConfig } from './webpack.config';
 import chalk from 'chalk';
+import path from 'path';
 
 /**
  * Gatsby Node Configuration
@@ -31,16 +32,136 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
 }) => {
   const config = getConfig();
 
-  config.module.rules = [
-    ...config.module.rules.filter((rule) => {
-      const areCssRules = rule.oneOf && rule.oneOf.some((r) => r.test.test('style.css'));
-      return !areCssRules;
-    }),
-  ];
-
   const isProduction = stage !== `develop`;
   const isSSR = stage.includes(`html`);
   actions.setWebpackConfig(createGatsbyWebpackConfig({ isProduction, stage, isSSR, loaders, plugins }));
+};
+
+export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions }) => {
+  const { createPage } = actions;
+
+  const blogPageQuery = await graphql(`
+    query BlogPostPage {
+      site {
+        siteMetadata {
+          siteUrl
+          languages {
+            defaultLangKey
+            langs
+          }
+        }
+      }
+      gcms {
+        companyInfos(first: 1) {
+          companyName
+          linkedinPageUrl
+          facebookPageUrl
+          instagramPageUrl
+          twitterPageUrl
+          logo {
+            fileName
+            url
+          }
+          logoFooter {
+            fileName
+            url
+          }
+          metadataTwitter
+          metadataTwitterCreator
+          metadataSiteName
+        }
+        pages(where: { name: "Blog" }, locales: [fr, en]) {
+          actionSections {
+            type
+            title
+            titleHighlight
+            subtitle
+            actionText # to remove
+            link {
+              name
+              label
+              type
+              url
+              page {
+                route
+              }
+            }
+          }
+        }
+        blogPosts {
+          id
+          title
+        }
+        routes: pages(where: { NOT: { name: "Not Found" } }, locales: [fr, en]) {
+          name
+          title
+          route
+        }
+      }
+      bannerImageMobile: file(name: { eq: "Banner-NewWebsite" }) {
+        id
+        childImageSharp {
+          # https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-transformer-sharp/src/fragments.js
+          fluid(quality: 90, maxWidth: 800) {
+            base64
+            aspectRatio
+            src
+            srcSet
+            srcWebp
+            srcSetWebp
+            sizes
+          }
+        }
+      }
+      bannerImageDesktop: file(name: { eq: "Banner-NewWebsite" }) {
+        id
+        childImageSharp {
+          # https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-transformer-sharp/src/fragments.js
+          fluid(quality: 90, maxWidth: 1920) {
+            base64
+            aspectRatio
+            src
+            srcSet
+            srcWebp
+            srcSetWebp
+            sizes
+          }
+        }
+      }
+    }
+  `);
+
+  console.log(blogPageQuery);
+
+  type PageConfig = {
+    name: string;
+    templatePath: string;
+    path: string;
+    lang: 'en' | 'fr';
+  };
+
+  const pagesConfig: PageConfig[] = [
+    {
+      name: 'post',
+      path: `/nouvelles/individu-au-coeur-de-notre-travail`,
+      templatePath: 'src/templates/blog-article.template.tsx',
+      lang: 'fr',
+    },
+    {
+      name: 'post en',
+      path: `/en/news/individu-au-coeur-de-notre-travail`,
+      templatePath: 'src/templates/blog-article.template.tsx',
+      lang: 'en',
+    },
+  ];
+
+  pagesConfig.forEach((page) => {
+    createPage({
+      context: { name: page.name, data: blogPageQuery.data, lang: page.lang },
+      component: path.resolve(page.templatePath),
+      path: page.path,
+    });
+  });
 };
 
 // // from https://mcro.tech/gatsby-image-sharp/

@@ -11,7 +11,7 @@ type Props = PageProps & {
 const BlogPage: React.FC<Props> = ({ pageContext }) => {
   return (
     <div>
-      <MDXRenderer>{pageContext.content.markdownNode.childMdx.body}</MDXRenderer>
+      <MDXRenderer>{pageContext?.content?.markdownNode?.childMdx?.body}</MDXRenderer>
     </div>
   );
 };

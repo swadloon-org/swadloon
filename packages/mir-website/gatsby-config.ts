@@ -46,30 +46,30 @@ const config: GastbySiteConfig = {
   plugins: [
     getGatsbyTsPluginConfig(),
     getGatsbyReactSvgConfig(),
-    // {
-    //   resolve: `gatsby-source-graphql`,
-    //   options: {
-    //     typeName: `GraphCMS`,
-    //     fieldName: `gcms`,
-    //     url: env.GRAPH_CMS_API_URL_MIR,
-    //     headers: {
-    //       Authorization: `bearer ${env.GRAPH_CMS_AUTH_TOKEN_MIR}`,
-    //     },
-    //   },
-    // },
+    {
+      resolve: `gatsby-source-graphql`,
+      options: {
+        typeName: `GraphCMS`,
+        fieldName: `gcms`,
+        url: env.GRAPH_CMS_API_URL_MIR,
+        headers: {
+          Authorization: `bearer ${env.GRAPH_CMS_AUTH_TOKEN_MIR}`,
+        },
+      },
+    },
     /**
      * gatsby-source-graphcms
      * @see https://github.com/GraphCMS/gatsby-source-graphcms/tree/next/gatsby-source-graphcms
      */
-    {
-      resolve: 'gatsby-source-graphcms',
-      options: {
-        downloadLocalImages: true,
-        buildMarkdownNodes: true,
-        endpoint: env.GRAPH_CMS_API_URL_MIR,
-        token: env.GRAPH_CMS_AUTH_TOKEN_MIR,
-      },
-    },
+    // {
+    //   resolve: 'gatsby-source-graphcms',
+    //   options: {
+    //     downloadLocalImages: true,
+    //     buildMarkdownNodes: true,
+    //     endpoint: env.GRAPH_CMS_API_URL_MIR,
+    //     token: env.GRAPH_CMS_AUTH_TOKEN_MIR,
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-mdx`,
       options: {

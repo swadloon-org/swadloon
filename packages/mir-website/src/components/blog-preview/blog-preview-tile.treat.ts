@@ -16,7 +16,12 @@ export const title = style((theme: DesignSystem) => ({
   margin: `${theme.sizing.sizes.x3} 0 ${theme.sizing.sizes.x2}`,
 }));
 
-export const button = style((theme: DesignSystem) => ({
+export const buttonGroup = style((theme: DesignSystem) => ({
+  display: 'flex',
   alignSelf: 'flex-end',
+  paddingRight: '0',
+}));
+
+export const button = style((theme: DesignSystem) => ({
   paddingRight: '0',
 }));
