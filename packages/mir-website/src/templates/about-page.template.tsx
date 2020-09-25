@@ -22,12 +22,23 @@ export const About: React.FC<PageProps> = ({ data, location }) => {
   const section1 = data.gcms?.pages[0]?.infoSections[0];
   const section2 = data.gcms?.pages[0]?.infoSections[1];
   const section3 = data.gcms?.pages[0]?.infoSections[2];
+  const section4 = data.gcms?.pages[0]?.infoSections[3];
   const testimonials = data.gcms?.pages[0]?.testimonialSections[0];
 
   const sources = [
     data?.bannerImageMobile?.childImageSharp?.fluid,
     {
       ...data?.bannerImageDesktop?.childImageSharp?.fluid,
+      media: `(min-width: ${theme.layout.breakpoints.desktopSmall.px})`,
+    },
+  ];
+
+  console.log(data);
+
+  const sourcesVideo = [
+    data?.bannerImageAboutMobile?.childImageSharp?.fluid,
+    {
+      ...data?.bannerImageAboutDesktop?.childImageSharp?.fluid,
       media: `(min-width: ${theme.layout.breakpoints.desktopSmall.px})`,
     },
   ];
@@ -39,8 +50,14 @@ export const About: React.FC<PageProps> = ({ data, location }) => {
       {section1 && section1.type === 'type2' ? <InfoSectionType2 align="AlignContentLeft" {...section1} /> : null}
       {section2 && section2.type === 'type7' ? <InfoSectionType7 {...section2} /> : null}
       {section3 && section3.type === 'type2' ? <InfoSectionType2 align="AlignContentRight" {...section3} /> : null}
-
-      <InfoSectionVideo></InfoSectionVideo>
+      {section4 && section4.type === 'typeVideo' ? (
+        <InfoSectionVideo
+          imageData={sourcesVideo}
+          heading={section4.title}
+          paragraph={section4.text}
+        ></InfoSectionVideo>
+      ) : null}
+      {/* <InfoSectionVideo imageData={sourcesVideo}></InfoSectionVideo> */}
 
       {testimonials ? <Testimonial testimonialSections={testimonials} /> : null}
 

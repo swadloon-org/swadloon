@@ -46,7 +46,7 @@ export const content = style((theme: DesignSystem) => ({
       justifyContent: 'center',
       flexDirection: 'row',
       gridGap: `0 ${theme.sizing.sizes.x2}`,
-      margin: `${theme.layout.contentMargins.tablet.px} auto`,
+      margin: `${theme.layout.contentMargins.tablet.px} 0`,
     },
   },
 }));
@@ -65,6 +65,7 @@ export const tileProcess = style((theme: DesignSystem) => ({
     },
     [theme.layout.media.desktop]: {
       marginRight: theme.sizing.sizes.x2,
+      width: '160px',
       selectors: {
         '&:last-child': {
           marginRight: 0,
@@ -129,7 +130,7 @@ export const circle = style((theme: DesignSystem) => ({
           top: '25px',
           left: '100%',
           right: 'auto',
-          width: `${250 - 50}px`,
+          width: `${160 - theme.sizing.sizingSteps.desktop.x2.value}px`,
           height: '3px',
           backgroundColor: 'white',
         },

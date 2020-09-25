@@ -35,6 +35,13 @@ export const query = graphql`
     bannerImageDesktop: file(name: { eq: "ImageOffice01" }) {
       ...DesktopFluidImage
     }
+
+    bannerImageAboutMobile: file(name: { eq: "Banner-A-propos" }) {
+      ...MobileFluidImage
+    }
+    bannerImageAboutDesktop: file(name: { eq: "Banner-A-propos" }) {
+      ...DesktopFluidImage
+    }
   }
 `;
 
