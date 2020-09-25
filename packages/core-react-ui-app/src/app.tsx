@@ -3,13 +3,15 @@ import React from 'react';
 import * as styleRefs from './app.treat';
 import { useStyles } from 'react-treat';
 import { ButtonSize } from '@newrade/core-design-system';
+import { Button } from '@newrade/core-react-ui';
 
 export function App() {
   const styles = useStyles(styleRefs);
 
   return (
     <div>
-      <GraphQLVoyagerPage />
+      <Button>hello</Button>
+      {/* <GraphQLVoyagerPage /> */}
     </div>
   );
 }
