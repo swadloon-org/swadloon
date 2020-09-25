@@ -13,24 +13,22 @@ import { useViewportBreakpoint } from '../hooks/use-viewport.hook';
 
 export const footerQuery = graphql`
   query footer {
-    gcms {
-      companyInfos {
-        logoFooter {
-          url
-        }
+    graphCmsCompanyInfo {
+      logoFooter {
+        url
       }
-      companyAddresses {
-        addressLine1
-        addressLine2
-        city
-        provinceState
-        postalCode
-        country
-        websiteUrl
-        phone
-        phoneNoFees
-        email
-      }
+    }
+    graphCmsCompanyAddress {
+      addressLine1
+      addressLine2
+      city
+      provinceState
+      postalCode
+      country
+      websiteUrl
+      phone
+      phoneNoFees
+      email
     }
   }
 `;
@@ -103,7 +101,11 @@ export const Footer: React.FC<OwnProps> = (props) => {
         </div>
 
         <div className={styles.firm}>
-          <Logo type="framed-text" variant="reversed" src={`${data?.gcms?.companyInfos[0]?.logoFooter?.url}`}></Logo>
+          <Logo
+            type="framed-text"
+            variant="reversed"
+            src={`${data?.gcms?.graphCmsCompanyInfo[0]?.logoFooter?.url}`}
+          ></Logo>
         </div>
 
         <Paragraph className={styles.copyright} variant="small">

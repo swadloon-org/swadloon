@@ -23,11 +23,9 @@ export const sideBarQuery = graphql`
     site {
       ...SiteMetadata
     }
-    gcms {
-      companyInfos {
-        logo {
-          url
-        }
+    graphCmsCompanyInfo {
+      logo {
+        url
       }
     }
   }
@@ -51,7 +49,7 @@ export const SideBar: React.FC<OwnProps> = (props) => {
   return (
     <div className={`${props.className || ''} ${styles.wrapper} ${styles[props.state]}`}>
       <div className={styles.topContainer}>
-        <img className={styles.logo} src={data?.gcms?.companyInfos[0]?.logo?.url} />
+        <img className={styles.logo} src={data?.gcms?.graphCmsCompanyInfo[0]?.logo?.url} />
         <div className={styles.icon} onClick={(e) => props.onOpenSideMenu()}>
           <Icon icon="IconClose" size={ICON_SIZE.large}></Icon>
         </div>

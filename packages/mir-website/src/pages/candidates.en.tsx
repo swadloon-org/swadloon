@@ -16,18 +16,16 @@ export const CandidatePageENQuery = graphql`
     site {
       ...SiteMetadata
     }
-    gcms {
-      companyInfos(first: 1) {
-        ...CompanyInfo
-      }
-      pages(where: { name: "Candidates" }, locales: [en, fr]) {
-        ...Page
-      }
-      routes: pages(where: { NOT: { name: "Not Found" } }, locales: [en, fr]) {
-        name
-        title
-        route
-      }
+    graphCmsCompanyInfo {
+      ...CompanyInfo
+    }
+    graphCmsPage(name: { eq: "Candidates" }, locale: { in: [en, fr] }) {
+      ...Page
+    }
+    routes: graphCmsPage(name: { ne: "Not Found" }, locale: { in: [en, fr] }) {
+      name
+      title
+      route
     }
     bannerImageMobile: file(name: { eq: "ImageOffice02" }) {
       ...MobileFluidImage
@@ -47,11 +45,11 @@ const CandidatePage: React.FC<PageProps> = (props) => {
   return (
     <Layout
       location={props.location}
-      logoURL={props.data.gcms.companyInfos[0].logo?.url}
-      linkedinPageURL={props.data.gcms.companyInfos[0].linkedinPageUrl}
-      facebookPageURL={props.data.gcms.companyInfos[0].facebookPageUrl}
-      instagramPageURL={props.data.gcms.companyInfos[0].instagramPageUrl}
-      twitterPageURL={props.data.gcms.companyInfos[0].twitterPageUrl}
+      logoURL={props.data.graphCmsCompanyInfo[0].logo?.url}
+      linkedinPageURL={props.data.graphCmsCompanyInfo[0].linkedinPageUrl}
+      facebookPageURL={props.data.graphCmsCompanyInfo[0].facebookPageUrl}
+      instagramPageURL={props.data.graphCmsCompanyInfo[0].instagramPageUrl}
+      twitterPageURL={props.data.graphCmsCompanyInfo[0].twitterPageUrl}
       pages={props.data.gcms.routes}
     >
       <Helmet>
@@ -62,15 +60,15 @@ const CandidatePage: React.FC<PageProps> = (props) => {
           url: `${props.data.site?.siteMetadata?.siteUrl}${props.data.gcms.pages[0]?.route}`,
           description: `${props.data.gcms.pages[0]?.description}`,
           image: `${props.data.gcms.pages[0]?.bannerImages[0]?.url}`,
-          site_name: `${props.data.gcms.companyInfos[0].metadataSiteName}`,
+          site_name: `${props.data.graphCmsCompanyInfo[0].metadataSiteName}`,
           lang: 'en',
           locale: 'en_CA',
           localeAlternate: 'fr_CA',
         })}
         {getMetadataTwitterTags({
           card: 'summary',
-          creator: `${props.data.gcms.companyInfos[0].metadataTwitterCreator}`,
-          site: `${props.data.gcms.companyInfos[0].metadataTwitter}`,
+          creator: `${props.data.graphCmsCompanyInfo[0].metadataTwitterCreator}`,
+          site: `${props.data.graphCmsCompanyInfo[0].metadataTwitter}`,
         })}
       </Helmet>
       <Candidate {...props} />
