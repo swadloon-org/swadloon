@@ -21,7 +21,7 @@ interface PageProps {
 export const Blog: React.FC<PageProps> = ({ data, location }) => {
   const styles = useStyles(stylesRef);
 
-  const actionSection1 = data.gcms.pages[0].actionSections[0];
+  const actionSection1 = data.allGraphCmsPage[0].actionSections[0];
 
   const sources = [
     data?.bannerImageMobile?.childImageSharp?.fluid,
@@ -41,7 +41,7 @@ export const Blog: React.FC<PageProps> = ({ data, location }) => {
 
   return (
     <main className={`${styles.wrapper}`}>
-      <BannerSecondary imageData={sources} title={data?.gcms?.pages[0]?.bannerTitle}></BannerSecondary>
+      <BannerSecondary imageData={sources} title={data?.allGraphCmsPage[0]?.bannerTitle}></BannerSecondary>
 
       <div className={styles.container}>
         <div className={styles.content}>

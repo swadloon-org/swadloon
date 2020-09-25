@@ -19,12 +19,12 @@ interface PageProps {
 export const Candidate: React.FC<PageProps> = ({ data, location }) => {
   const styles = useStyles(stylesRef);
 
-  const actionSection1 = data.gcms.pages[0].actionSections[0];
-  const actionSection2 = data.gcms.pages[0].actionSections[1];
-  const section1 = data.gcms?.pages[0]?.infoSections[0];
-  const section2 = data.gcms?.pages[0]?.infoSections[1];
-  const jobSection = data.gcms?.pages[0]?.jobSections[0];
-  const processSection = data.gcms?.pages[0]?.processSections[0];
+  const actionSection1 = data.allGraphCmsPage[0].actionSections[0];
+  const actionSection2 = data.allGraphCmsPage[0].actionSections[1];
+  const section1 = data.allGraphCmsPage[0]?.infoSections[0];
+  const section2 = data.allGraphCmsPage[0]?.infoSections[1];
+  const jobSection = data.allGraphCmsPage[0]?.jobSections[0];
+  const processSection = data.allGraphCmsPage[0]?.processSections[0];
 
   const sources = [
     data?.bannerImageMobile?.childImageSharp?.fluid,
@@ -36,7 +36,7 @@ export const Candidate: React.FC<PageProps> = ({ data, location }) => {
 
   return (
     <main className={`${styles.wrapper}`}>
-      <BannerSecondary imageData={sources} title={data?.gcms?.pages[0]?.bannerTitle}></BannerSecondary>
+      <BannerSecondary imageData={sources} title={data?.allGraphCmsPage[0]?.bannerTitle}></BannerSecondary>
       {actionSection1 ? <ActionSection section={actionSection1} /> : null}
       {section1 && section1.type === 'type5' ? <InfoSectionType5 align="AlignContentLeft" {...section1} /> : null}
       {jobSection ? <JobSection jobSection={jobSection} /> : null}

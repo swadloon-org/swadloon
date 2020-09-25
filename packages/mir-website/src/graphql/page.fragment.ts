@@ -1,6 +1,6 @@
 import { graphql } from 'gatsby';
 
-export const pageQuery = graphql`
+export const fullPageFragment = graphql`
   fragment Page on GraphCMS_Page {
     name
     title
@@ -9,7 +9,12 @@ export const pageQuery = graphql`
     bannerTitle
     bannerSubTitle
     bannerImages {
-      url
+      bannerImageMobile: localFile {
+        ...MobileFluidImage
+      }
+      bannerImageDesktop: localFile {
+        ...DesktopFluidImage
+      }
     }
     actionSections {
       ...ActionSection
@@ -29,5 +34,13 @@ export const pageQuery = graphql`
     testimonialSections {
       ...TestimonialSection
     }
+  }
+`;
+
+export const pageRouteFragment = graphql`
+  fragment PageRoute on GraphCMS_Page {
+    name
+    title
+    route
   }
 `;

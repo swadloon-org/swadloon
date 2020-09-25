@@ -18,11 +18,11 @@ interface PageProps {
 export const About: React.FC<PageProps> = ({ data, location }) => {
   const styles = useStyles(stylesRef);
 
-  const actionSection1 = data.gcms.pages[0].actionSections[0];
-  const section1 = data.gcms?.pages[0]?.infoSections[0];
-  const section2 = data.gcms?.pages[0]?.infoSections[1];
-  const section3 = data.gcms?.pages[0]?.infoSections[2];
-  const testimonials = data.gcms?.pages[0]?.testimonialSections[0];
+  const actionSection1 = data.allGraphCmsPage[0].actionSections[0];
+  const section1 = data.allGraphCmsPage[0]?.infoSections[0];
+  const section2 = data.allGraphCmsPage[0]?.infoSections[1];
+  const section3 = data.allGraphCmsPage[0]?.infoSections[2];
+  const testimonials = data.allGraphCmsPage[0]?.testimonialSections[0];
 
   const sources = [
     data?.bannerImageMobile?.childImageSharp?.fluid,
@@ -34,7 +34,7 @@ export const About: React.FC<PageProps> = ({ data, location }) => {
 
   return (
     <main className={`${styles.wrapper}`}>
-      <BannerSecondary imageData={sources} title={data?.gcms?.pages[0]?.bannerTitle}></BannerSecondary>
+      <BannerSecondary imageData={sources} title={data?.allGraphCmsPage[0]?.bannerTitle}></BannerSecondary>
 
       {section1 && section1.type === 'type2' ? <InfoSectionType2 align="AlignContentLeft" {...section1} /> : null}
       {section2 && section2.type === 'type7' ? <InfoSectionType7 {...section2} /> : null}

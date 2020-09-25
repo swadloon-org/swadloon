@@ -26,14 +26,22 @@
     },
     {
       "name": "Gatsby build",
-      "type": "node",
+      "type": "pwa-node",
       "request": "launch",
-      "protocol": "inspector",
-      "program": "${workspaceFolder}/../../node_modules/.bin/gatsby",
+      "program": "${workspaceRoot}/../../node_modules/.bin/gatsby",
       "args": ["build"],
-      "stopOnEntry": false,
       "runtimeArgs": ["--nolazy"],
-      "sourceMaps": false
+      "internalConsoleOptions": "neverOpen",
+      "stopOnEntry": false,
+      "env": {
+        "NODE_ENV": "development",
+        "DEBUG": "gatsby:*"
+      },
+      "sourceMaps": true,
+      "autoAttachChildProcesses": false,
+      "console": "integratedTerminal",
+      "preLaunchTask": "clean",
+      "skipFiles": ["<node_internals>/**"]
     }
   ]
 }
