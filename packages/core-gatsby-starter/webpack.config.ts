@@ -58,6 +58,7 @@ export function createGatsbyWebpackConfig({
   };
 
   return {
+    devtool: 'eval-source-map',
     module: {
       rules: [
         {

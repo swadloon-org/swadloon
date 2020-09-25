@@ -59,6 +59,7 @@
   "settings": {
     "typescript.surveys.enabled": false,
     "terminals.sortTerminals": true,
-    "terminals.env": {}
+    "terminals.env": {},
+    "debug.node.autoAttach": "off"
   }
 }

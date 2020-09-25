@@ -1,3 +1,9 @@
+/**
+ * This module provides source map support for stack traces in node via the V8 stack trace API.
+ * It uses the source-map module to replace the paths and line numbers of
+ * source-mapped files with their original paths and line numbers.
+ */
+require('source-map-support').install();
 // We register the TypeScript evaluator in gatsby-config so we don't need to do
 // it in any other .js file. It automatically reads TypeScript config from
 // tsconfig.json.

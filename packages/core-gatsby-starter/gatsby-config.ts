@@ -38,7 +38,6 @@ const config: GastbySiteConfig = {
   plugins: [
     getGatsbyTsPluginConfig(),
     getGatsbyReactSvgConfig(),
-
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -47,8 +46,7 @@ const config: GastbySiteConfig = {
       },
     },
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-mdx`,
-
+    `gatsby-plugin-sharp`,
     /**
      * gatsby-source-graphcms
      * @see https://github.com/GraphCMS/gatsby-source-graphcms/tree/next/gatsby-source-graphcms
@@ -56,12 +54,19 @@ const config: GastbySiteConfig = {
     {
       resolve: 'gatsby-source-graphcms',
       options: {
+        downloadLocalImages: true,
+        buildMarkdownNodes: true,
         endpoint: env.GRAPH_CMS_API_URL_CORE,
         token: env.GRAPH_CMS_AUTH_TOKEN_CORE,
       },
     },
-    `gatsby-plugin-sharp`,
-
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        remarkPlugins: [],
+        rehypePlugins: [],
+      },
+    },
     /**
      * gatsby-plugin-react-helmet
      * @see https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-react-helmet

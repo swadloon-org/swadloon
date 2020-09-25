@@ -1,17 +1,15 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "outDir": "./",
-    "noEmit": false,
     "declaration": true,
     "sourceMap": true,
+    "outDir": "lib",
     "rootDir": ".",
     "strict": false,
-    "target": "esnext",
+    "target": "es6",
     "module": "commonjs",
     "types": ["node"],
     "typeRoots": ["../../node_modules/@types", "src/typings"]
   },
-  "exclude": ["./node_modules", "./public", "./.cache", "./src/**/*"],
-  "include": ["./gatsby-config.ts", "./gatsby-node.ts", "./gatsby-browser.tsx", "./gatsby-ssr.tsx"]
+  "include": ["**/*"]
 }

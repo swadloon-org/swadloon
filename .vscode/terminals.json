@@ -33,7 +33,7 @@
       "focus": false
     },
     {
-      "name": "core-gatsby-stater",
+      "name": "core-gatsby-starter",
       "cwd": "[workspaceFolder]/packages/core-gatsby-starter",
       "open": true,
       "focus": false

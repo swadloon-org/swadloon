@@ -1,14 +1,19 @@
 import React from 'react';
-import { graphql } from 'gatsby';
-// import { MDXRenderer } from 'gatsby-plugin-mdx';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
+import { SitePageContext } from '../../types/graphql-types';
+import { PageProps } from 'gatsby';
 
-// const BlogPage = ({ pageContext: { content } }) => {
-//   return (
-//     <div>
-//       <h2>{content.name}</h2>
-//       {/* <MDXRenderer>{content.description.markdownNode.childMdx.body}</MDXRenderer> */}
-//     </div>
-//   );
-// };
+type Props = PageProps & {
+  data: any;
+  pageContext: any;
+};
 
-// export default BlogPage;
+const BlogPage: React.FC<Props> = ({ pageContext }) => {
+  return (
+    <div>
+      <MDXRenderer>{pageContext.content.markdownNode.childMdx.body}</MDXRenderer>
+    </div>
+  );
+};
+
+export default BlogPage;
