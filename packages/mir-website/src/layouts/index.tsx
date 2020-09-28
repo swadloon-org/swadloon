@@ -8,6 +8,9 @@ import { light } from '../design-system/themes.treat';
 import { viewportContext } from '../hooks/use-viewport.hook';
 import '../styles/font-faces.styles.css';
 import * as styleRefs from './index.treat';
+import { motion, AnimatePresence } from 'framer-motion';
+import { CSSProperties, style } from 'treat/lib/types';
+import { relative } from 'path';
 
 export type NavigationProps = {
   location?: Location;
@@ -39,15 +42,17 @@ const LayoutComponent: React.FC<NavigationProps> = (props) => {
 
   return (
     <>
-      <NavBar onOpenSideMenu={onOpenSideMenu} {...props}></NavBar>
       <SideBar
         className={`${styles.sidebar}`}
         state={sideMenuState}
         onOpenSideMenu={onOpenSideMenu}
         {...props}
       ></SideBar>
-      {props.children}
-      <Footer></Footer>
+      <div className={`${sideMenuState === 'openend' ? styles.open : styles.close}`}>
+        <NavBar onOpenSideMenu={onOpenSideMenu} {...props}></NavBar>
+        {props.children}
+        <Footer></Footer>
+      </div>
     </>
   );
 };
