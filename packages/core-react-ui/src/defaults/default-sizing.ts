@@ -1,5 +1,5 @@
 import { SizeCSSVarNames, SIZING, Sizing, SizingSteps, VIEWPORT } from '@newrade/core-design-system';
-import { createSizingStep } from '../utilities';
+import { createSizingStep } from '../utilities/sizing.utilities';
 
 export const DEFAULT_BASE_FONT_SIZE = 9;
 export const DEFAULT_BASE_FONT_SIZE_PX = `${DEFAULT_BASE_FONT_SIZE}px`;

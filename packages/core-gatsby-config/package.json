@@ -10,7 +10,6 @@
   "scripts": {
     "build": "tsc --build tsconfig.build.json",
     "clean": "rimraf -r lib/**",
-    "postinstall": "yarn build tsconfig.build.json",
     "start": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
     "test": "echo ok"
   },

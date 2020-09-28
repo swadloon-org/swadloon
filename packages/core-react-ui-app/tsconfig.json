@@ -2,5 +2,6 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "types": ["node", "react", "react-dom"]
-  }
+  },
+  "exclude": ["webpack.*.config.ts"]
 }

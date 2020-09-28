@@ -15,7 +15,6 @@
   "scripts": {
     "build": "tsc --build tsconfig.build.json",
     "clean": "rimraf -r lib/**",
-    "postinstall": "yarn build",
     "start": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
     "test": "mocha lib/test/generator.test.js",
     "yo": "yo ./lib/src/ -- --no-insight --no-update-notifier"

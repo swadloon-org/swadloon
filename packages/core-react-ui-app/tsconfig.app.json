@@ -3,11 +3,14 @@
   "compilerOptions": {
     "sourceMap": true,
     "outDir": "dist",
-    "rootDir": "src",
+    "baseUrl": ".",
     "target": "es6",
     "module": "ESNext",
     "types": ["react", "react-dom"],
-    "typeRoots": ["../../node_modules/@types", "src/types"]
+    "typeRoots": ["../../node_modules/@types", "src/types"],
+    "paths": {
+      "@newrade/*": ["../*"]
+    }
   },
-  "include": ["src", "types"]
+  "include": ["src/**/*", "types/**/*"]
 }

@@ -1,10 +1,13 @@
-import CopyWebpackPlugin from 'copy-webpack-plugin';
+delete process.env.TS_NODE_PROJECT; // see https://github.com/dividab/tsconfig-paths-webpack-plugin/issues/32
+
 import { extractCssLoader } from '@newrade/core-webpack-config';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 import dotenv from 'dotenv';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import path from 'path';
 import TreatPlugin from 'treat/webpack-plugin';
+import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
 import webpack from 'webpack';
 import WebpackOptions from 'webpack/declarations/WebpackOptions';
 
@@ -33,6 +36,7 @@ const config: WebpackOptions.WebpackOptions = {
             loader: 'ts-loader',
             options: {
               configFile: 'tsconfig.app.json',
+              logLevel: 'info',
             },
           },
         ],
@@ -42,6 +46,12 @@ const config: WebpackOptions.WebpackOptions = {
   resolve: {
     mainFields: ['browser', 'main', 'module'],
     extensions: ['.tsx', '.ts', '.js'],
+    plugins: [
+      new TsconfigPathsPlugin({
+        configFile: 'tsconfig.app.json',
+        logLevel: 'INFO',
+      }),
+    ],
   },
   output: {
     filename: 'bundle.js',

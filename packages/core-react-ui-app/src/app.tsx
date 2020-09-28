@@ -2,15 +2,21 @@ import React from 'react';
 
 import * as styleRefs from './app.treat';
 import { useStyles } from 'react-treat';
-import { ButtonSize } from '@newrade/core-design-system';
-import { Button } from '@newrade/core-react-ui';
+import { ColorSwatch } from './components/color-swatch';
 
 export function App() {
   const styles = useStyles(styleRefs);
 
   return (
     <div>
-      <Button>hello</Button>
+      <ColorSwatch
+        color={{
+          h: 33,
+          s: 100,
+          l: 50,
+          a: 80,
+        }}
+      ></ColorSwatch>
       {/* <GraphQLVoyagerPage /> */}
     </div>
   );

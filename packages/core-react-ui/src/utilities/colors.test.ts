@@ -1,4 +1,4 @@
-import { getHSLColor } from './colors';
+import { getHSLColor } from './colors.utilities';
 
 describe('in colors utilities', () => {
   describe(`${getHSLColor.name}`, () => {

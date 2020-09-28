@@ -1,6 +1,9 @@
 export * from './models/open-graph-metadata.model';
 export * from './models/twitter-metadata.model';
 
+export * from './utilities/sizing.utilities';
+export * from './utilities/colors.utilities';
+
 // export * from './components/button/button';
 
 export * from './components/seo/meta-basic';

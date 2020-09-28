@@ -1,8 +1,7 @@
-import { DesignSystem } from '@newrade/core-design-system';
-import { applyStylesToHtmlElement } from './app.styles';
 import { style } from 'treat';
+import { applyStylesToHtmlElement } from './app.styles';
 
-export const globalStyle = style((theme: DesignSystem) => ({
+export const globalStyle = style((theme: any) => ({
   display: 'inherit',
 }));
 

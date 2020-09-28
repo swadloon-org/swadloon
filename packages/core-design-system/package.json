@@ -17,7 +17,6 @@
   "scripts": {
     "build": "tsc --build tsconfig.build.json",
     "clean": "rimraf -r lib/**",
-    "postinstall": "yarn build",
     "start": "tsc --build --watch --preserveWatchOutput tsconfig.build.json"
   },
   "typings": "./lib/index.d.ts",

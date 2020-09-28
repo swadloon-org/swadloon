@@ -1,6 +1,4 @@
-import { DesignSystem } from '@newrade/core-design-system';
-
-export function getGlobalSizeVariables(theme: DesignSystem) {
+export function getGlobalSizeVariables(theme: any) {
   return {
     [theme.sizing.sizeCSSVarNames.x1]: theme.sizing.sizingSteps.mobile.x1.valuePx,
     [theme.sizing.sizeCSSVarNames.x2]: theme.sizing.sizingSteps.mobile.x2.valuePx,

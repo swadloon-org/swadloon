@@ -152,6 +152,7 @@
     "treat": "^1.4.1",
     "ts-jest": "^26.1.0",
     "ts-node": "^8.6.2",
+    "tsconfig-paths-webpack-plugin": "^3.3.0",
     "typescript": "^3.7.5",
     "webpack": "^4.43.0",
     "webpack-bundle-analyzer": "^3.8.0",

@@ -6,7 +6,6 @@
   "scripts": {
     "build": "cross-env TS_NODE_PROJECT=tsconfig.webpack.json node -r ts-node/register ../../node_modules/webpack/bin/webpack --config webpack.dev.config.ts",
     "clean": "rimraf -r dist/**",
-    "postinstall": "yarn build",
     "start": "cross-env TS_NODE_PROJECT=tsconfig.webpack.json node -r ts-node/register ../../node_modules/webpack-dev-server/bin/webpack-dev-server --config webpack.dev.config.ts",
     "test": "echo ok"
   },
@@ -16,6 +15,7 @@
     "@newrade/core-design-system": "^1",
     "@newrade/core-jest-config": "^1",
     "@newrade/core-react-ui": "^1",
+    "@newrade/core-webpack-config": "^1",
     "treat": "^1.5.1"
   }
 }

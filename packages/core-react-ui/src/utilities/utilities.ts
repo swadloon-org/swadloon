@@ -1,5 +1,5 @@
+import { ColorIntents, Colors, TextStyle } from '@newrade/core-design-system';
 import capsize, { CapsizeStyles } from 'capsize';
-import { Colors, SizingStep, DesignSystem, TextStyle, ColorIntents } from '@newrade/core-design-system';
 
 /**
  * Create a DesignSystem object with sensible defaults.
@@ -52,17 +52,6 @@ export function createDefaultColorIntents(colors: Colors): ColorIntents {
     background0: colors.greyscale0,
     background1: colors.greyscale100,
     background2: colors.greyscale200,
-  };
-}
-
-export function createSizingStep({
-  value,
-  baseFontSize,
-}: Pick<SizingStep, 'value'> & Pick<DesignSystem['sizing'], 'baseFontSize'>): SizingStep {
-  return {
-    value,
-    valuePx: `${value}px`,
-    valueRem: `${value / baseFontSize}rem`,
   };
 }
 
