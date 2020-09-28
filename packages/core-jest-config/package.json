@@ -1,6 +1,6 @@
 {
   "name": "core-jest-config",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "description": "Default jest config and transformers",
   "author": {
     "email": "philippe.leger@newrade.ca",

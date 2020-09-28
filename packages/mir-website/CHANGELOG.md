@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/mir-website@1.3.1...mir-website@1.4.0) (2020-09-28)
+
+### Bug Fixes
+
+- **lakhos-website:** fix wrong import ([22affce](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/22affce5573caa2af3ce3ee7f4ca24439d0e08c8))
+- **mir-website:** add Helmet ([b359f03](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/b359f0353ee6f22e3dea9f97970b60e9277944a5))
+- **mir-website:** bacon ipsum ([86134bb](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/86134bb535e90607481c3031253949992b7c23a9))
+- **mir-website:** build failure because of console.log with the window prop ([61fbb20](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/61fbb201a70093ab8133651ca6d481ce6ecfe799))
+- **mir-website:** correcting the style of the button ([d1f9946](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/d1f99464947a5c36b9008e65a59350ea01e85aa9))
+- **mir-website:** correction of the video component and process section ([6a68425](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/6a684253b7d361253acb487d1842c72030b4658e))
+- **mir-website:** custom primary button min-width instead of anything else ([e6ee762](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/e6ee762f824c0be4150d72f36f8f2304cc315c18))
+- **mir-website:** fix button in action section ([4704938](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/470493874e0d23791719b694e23ca42762a5d48c))
+- **mir-website:** fix contact form url ([aedd5a5](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/aedd5a52bcbbde530b57aeb10c1f4aa43ad37b64))
+- **mir-website:** fix grid of the accordions ([875bc0c](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/875bc0ca2bc298e3cb6f8096ba5898c99f072308))
+- **mir-website:** fixes ([3da9316](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/3da9316b843bf675c0e7630348e65f91b3aba400))
+- **mir-website:** fixes ([182ef07](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/182ef07118b42c912534b0a20d3de9f0445dc590))
+- **mir-website:** fixes ([28c1a5e](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/28c1a5e8aa923ac3559963ed079cf119be00515f))
+- **mir-website:** fixes for various sections ([f8b7c36](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/f8b7c366d4cdf5d4f6e5f88e68b49dc7a2892b5d))
+- **mir-website:** fixing the location of the current page with the already props.location ([094a0e9](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/094a0e9f187ba1fdcdd13c7d651f568351310c72))
+- **mir-website:** safari fixed style and various correction ([4bd6442](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/4bd6442c9657c5b1e1a701628679cfe9b9570f80))
+
+### Features
+
+- **mir-website:** add csp and headers for netlify ([02961ad](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/02961ad5b0cffe0f1137c8c8bd4b1290e3102976))
+- **mir-website:** add links ([af5e09b](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/af5e09bbe64bc1bfa2e2b43872096a3e89549e50))
+- **mir-website:** adding preloading for fonts ([6230e4a](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/6230e4a91d52eeeb56b9b1802247a8c27ed17dbc))
+- **mir-website:** contact form ([9fddb92](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/9fddb928f863db5b73ddbbade7d6c5a53be0f45a))
+- **mir-website:** fixing the accordions and adding the info-section-video component ([5e81947](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/5e81947644cb26c24f87c07515762651a5cdc0ab))
+- **mir-website:** temporary page for blog post ([fd4fbf5](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/fd4fbf5d0cf71714cfe6459c555f191d604ea5d8))
+- **mir-website:** wip on links ([3f7c92d](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/3f7c92d319abedd146eb5779ef31b1d7eaac0d3c))
+
 ## [1.3.1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/mir-website@1.3.0...mir-website@1.3.1) (2020-09-17)
 
 ### Bug Fixes

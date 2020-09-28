@@ -1,6 +1,6 @@
 {
   "name": "core-webpack-config",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "Reusable webpack configuration files",
   "license": "MIT",
   "main": "./lib/index.js",

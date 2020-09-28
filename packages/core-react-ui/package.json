@@ -1,6 +1,6 @@
 {
   "name": "core-react-ui",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "UI library",
   "license": "MIT",
   "main": "./lib/index.js",
