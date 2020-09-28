@@ -48,6 +48,7 @@ export const BlogPostLayout: React.FC<Props> = (props) => {
           url: `${data.site?.siteMetadata?.siteUrl}${data.gcms.pages[0]?.route}`,
           description: `Lancement du nouveau site web de MIR !`,
           site_name: `${data.gcms.companyInfos[0].metadataSiteName}`,
+          // image: props.pageContext.lang,
           lang: props.pageContext.lang,
           locale: props.pageContext.lang,
           localeAlternate: props.pageContext.lang === 'en' ? 'fr' : 'en',

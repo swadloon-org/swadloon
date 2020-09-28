@@ -33,10 +33,10 @@ export const Layout: React.FC<NavigationProps> = (props) => {
 
 const LayoutComponent: React.FC<NavigationProps> = (props) => {
   const styles = useStyles(styleRefs);
-  const [sideMenuState, setSideMenuState] = useState<'openend' | 'closed'>('closed');
+  const [sideMenuState, setSideMenuState] = useState<'opened' | 'closed'>('closed');
 
   function onOpenSideMenu() {
-    setSideMenuState(sideMenuState === 'openend' ? 'closed' : 'openend');
+    setSideMenuState(sideMenuState === 'opened' ? 'closed' : 'opened');
   }
 
   return (
@@ -47,7 +47,7 @@ const LayoutComponent: React.FC<NavigationProps> = (props) => {
         onOpenSideMenu={onOpenSideMenu}
         {...props}
       ></SideBar>
-      <div className={`${sideMenuState === 'openend' ? styles.open : styles.close}`}>
+      <div className={`${sideMenuState === 'opened' ? styles.open : styles.close}`}>
         <NavBar onOpenSideMenu={onOpenSideMenu} {...props}></NavBar>
         {props.children}
         <Footer></Footer>

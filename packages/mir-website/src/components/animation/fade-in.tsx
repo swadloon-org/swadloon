@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+
 type OwnProps = {
   time: number;
 };
@@ -22,11 +23,9 @@ export const FadeIn: React.FC<OwnProps> = (props) => {
       initial="hidden"
       variants={{
         hidden: {
-          scale: 0.8,
           opacity: 0,
         },
         visible: {
-          scale: 1,
           opacity: 1,
           transition: {
             delay: props.time,
