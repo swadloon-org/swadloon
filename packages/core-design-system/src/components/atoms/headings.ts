@@ -1,7 +1,3 @@
-import { CSSBorder } from '../../css/border';
-import { BasicCSSProperties } from '../../utilities/types';
-import { SizeCSSVar, SIZING, Sizing, SizingStep } from '../../foundations/sizing';
-
 export enum HeadingVariant {
   h0 = 'h0',
   h1 = 'h1',

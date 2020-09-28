@@ -1,41 +1,45 @@
-import { Color } from 'csstype';
-import { SIZING } from '../..';
-import { CSSBorder } from '../../css/border';
-import { Value } from '../../utilities/value';
+import { Color } from '../../primitives/color';
+import { LengthValue } from '../../primitives/value';
 
-export type BorderStyle = {
+export type Padding = {
+  default?: LengthValue;
+  top?: LengthValue;
+  right?: LengthValue;
+  bottom?: LengthValue;
+  left?: LengthValue;
+};
+
+export type Border = {
   borderColor?: Color;
-  borderStyle?: CSSBorder;
-  borderWidth?: number | string;
-  borderRadius?: CSSBorder;
+  borderStyle?: 'solid' | 'dotted';
+  borderWidth?: LengthValue;
+  borderRadius?: LengthValue;
+};
+
+export type Outline = {
+  outlineColor?: Color;
+  outlineStyle?: 'solid' | 'dotted';
+  outlineWidth?: LengthValue;
+  outlineRadius?: LengthValue;
 };
 
 export type BoxStyle = {
-  width?: Value;
-  /**
-   * number === px (22 => 22px => 11rem)
-   * string === css (var(--sizing-x2), '22px') height: multiplySize(theme.si...x2, 2)
-   */
-  height?: number | string;
-  padding?: {
-    default: BorderStyle;
-    top: BorderStyle;
-    right: BorderStyle;
-    bottom: BorderStyle;
-    left: BorderStyle;
-  };
+  width?: LengthValue;
+  height?: LengthValue;
+  padding?: Padding;
   border?: {
-    default: BorderStyle;
-    top: BorderStyle;
-    right: BorderStyle;
-    bottom: BorderStyle;
-    left: BorderStyle;
+    default?: Border;
+    top?: Border;
+    right?: Border;
+    bottom?: Border;
+    left?: Border;
   };
   outline?: {
-    default: BorderStyle;
-    top: BorderStyle;
-    right: BorderStyle;
-    bottom: BorderStyle;
-    left: BorderStyle;
+    default?: Outline;
+    top?: Outline;
+    right?: Outline;
+    bottom?: Outline;
+    left?: Outline;
   };
+  backgroundColor?: Color;
 };

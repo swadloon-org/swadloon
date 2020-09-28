@@ -1,4 +1,4 @@
-import { Color } from './color';
+import { Color } from '../primitives/color';
 
 /**
  * Representation of a box shadow.
@@ -7,23 +7,23 @@ export type BoxShadow = {
   /**
    * Blur value in px.
    */
-  blur: number;
+  blur?: number;
   /**
    * Spread value in px.
    */
-  spread: number;
+  spread?: number;
   /**
    * TODO
    */
-  offsetX: number;
+  offsetX?: number;
   /**
    * TODO
    */
-  offsetY: number;
+  offsetY?: number;
   /**
    * The box shadow's color.
    */
-  color: Color;
+  color?: Color;
 };
 
 /**

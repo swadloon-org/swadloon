@@ -1,7 +1,10 @@
-import { CSSBorder } from '../../css/border';
-import { BasicCSSProperties } from '../../utilities/types';
-import { SizeCSSVar, SIZING, Sizing, SizingStep } from '../../foundations/sizing';
-import { BoxStyle } from './box';
+import { Color } from '../../primitives/color';
+import { BoxStyle } from '../atoms/box';
+
+export enum ButtonAs {
+  button = 'button',
+  a = 'a',
+}
 
 export enum ButtonVariant {
   primary = 'primary',
@@ -10,11 +13,6 @@ export enum ButtonVariant {
   secondaryReversed = 'secondaryReversed',
   tertiary = 'tertiary',
   tertiaryReversed = 'tertiaryReversed',
-}
-
-export enum ButtonAs {
-  button = 'button',
-  a = 'a',
 }
 
 export enum ButtonSize {
@@ -42,28 +40,23 @@ export interface ButtonProps {
   /**
    * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/button_role
    */
-  role: string;
+  role?: string;
   variant?: ButtonVariant;
-  size?: ButtonSize;
   icon?: ButtonIcon;
+  size?: ButtonSize;
   state?: ButtonState;
 }
 
-export type ButtonSizes = { [key in keyof typeof ButtonSize]: ButtonSizeStyle };
+export type ButtonStyle = {
+  textColor?: Color;
+  iconColor?: Color;
+};
+
+export type ButtonBoxStyle = BoxStyle & {};
+
 export type ButtonVariants = { [key in keyof typeof ButtonVariant]: ButtonStyle };
 
-export interface ButtonStyle {
-  color?: string;
-  colorIcon?: string;
-  borderColor?: string;
-  background?: string;
-  backgroundColor?: string;
-}
-
-export interface ButtonSizeStyle extends BoxStyle {
-  width?: String | undefined;
-  height?: SIZING;
-}
+export type ButtonSizes = { [key in keyof typeof ButtonSize]: ButtonBoxStyle };
 
 export interface Buttons {
   variants: ButtonVariants;

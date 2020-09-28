@@ -1,8 +1,5 @@
 import capsize, { CapsizeStyles } from 'capsize';
-import { DesignSystem } from '../design-system';
-import { TextStyle } from '../foundations/typography';
-import { Colors, ColorIntents } from '../foundations/colors';
-import { SizingStep } from '../foundations/sizing';
+import { Colors, SizingStep, DesignSystem, TextStyle, ColorIntents } from '@newrade/core-design-system';
 
 /**
  * Create a DesignSystem object with sensible defaults.

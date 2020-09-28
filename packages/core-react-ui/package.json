@@ -13,7 +13,8 @@
     "clean": "rimraf -r dist/**",
     "postinstall": "yarn build",
     "start": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "typings": "./lib/index.d.ts",
   "dependencies": {

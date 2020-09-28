@@ -2,7 +2,7 @@ import { VIEWPORT } from './layout';
 import { SizingStep } from './sizing';
 
 /**
- * Default included icons.
+ * Default icons
  */
 export enum ICON_NAME {
   MENU = 'menu',
@@ -10,11 +10,10 @@ export enum ICON_NAME {
   ARROW_RIGHT = 'arrow-right',
   ARROW_BOTTOM = 'arrow-bottom',
   ARROW_LEFT = 'arrow-left',
-  CARET = 'CARET',
 }
 
 export interface Icon {
-  name: string;
+  name: string; // filename of the icon's svg
   weight?: string;
 }
 
@@ -26,7 +25,7 @@ export enum ICON_SIZE {
 
 export type IconSizes = { [key in keyof typeof ICON_SIZE]: SizingStep };
 
-// export type Icons = { [key in keyof typeof ICON_NAME]: Icon } & { [key: string]: Icon };
+export type Icons = { [key in keyof typeof ICON_NAME]: Icon } & { [key: string]: Icon };
 
 export interface Iconography {
   /**

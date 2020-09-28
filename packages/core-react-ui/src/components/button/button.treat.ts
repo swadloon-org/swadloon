@@ -1,46 +1,47 @@
-import { ButtonSize, DesignSystem } from '@newrade/core-design-system';
-import { style } from 'treat';
+// import { ButtonSize, DesignSystem } from '@newrade/core-design-system';
+// import { style } from 'treat';
+// import { getCSSShadow } from '../../utilities/shadows';
 
-type ButtonVariantStyles = { [key in keyof typeof ButtonSize]: string };
-type ButtonSizeStyles = { [key in keyof typeof ButtonSize]: string };
-type ButtonIconStyles = { [key in keyof typeof ButtonSize]: string };
-type ButtonStateStyles = { [key in keyof typeof ButtonSize]: string };
-type Styles = ButtonSizeStyles;
-type AllStyles = ButtonVariantStyles | ButtonSizeStyles | ButtonIconStyles | ButtonStateStyles;
+// type ButtonVariantStyles = { [key in keyof typeof ButtonSize]: string };
+// type ButtonSizeStyles = { [key in keyof typeof ButtonSize]: string };
+// type ButtonIconStyles = { [key in keyof typeof ButtonSize]: string };
+// type ButtonStateStyles = { [key in keyof typeof ButtonSize]: string };
+// type Styles = ButtonSizeStyles;
+// type AllStyles = ButtonVariantStyles | ButtonSizeStyles | ButtonIconStyles | ButtonStateStyles;
 
-export const large = style((theme: DesignSystem) => ({
-  boxShadow: getCSSShadow({ ...theme.effects.shadows.heavy, color: 'red' }),
-  height: theme.components.buttons.sizes.large.height.css,
-  padding:
-    theme.components.buttons.sizes.large.paddingH && theme.components.buttons.sizes.large.paddingV
-      ? `${theme.sizing.sizes[theme.components.buttons.sizes.large.paddingV]} ${
-          theme.sizing.sizes[theme.components.buttons.sizes.large.paddingH]
-        }`
-      : 0,
-}));
+// export const large = style((theme: DesignSystem) => ({
+//   boxShadow: getCSSShadow({ ...theme.effects.shadows.heavy, color: 'red' }),
+//   height: theme.components.buttons.sizes.large.height.css,
+//   padding:
+//     theme.components.buttons.sizes.large.paddingH && theme.components.buttons.sizes.large.paddingV
+//       ? `${theme.sizing.sizes[theme.components.buttons.sizes.large.paddingV]} ${
+//           theme.sizing.sizes[theme.components.buttons.sizes.large.paddingH]
+//         }`
+//       : 0,
+// }));
 
-export const medium = style((theme: DesignSystem) => ({
-  width: `${theme.components.buttons.sizes.small.width}`,
-  padding:
-    theme.components.buttons.sizes.medium.paddingH && theme.components.buttons.sizes.medium.paddingV
-      ? `${theme.sizing.sizes[theme.components.buttons.sizes.medium.paddingV]} ${
-          theme.sizing.sizes[theme.components.buttons.sizes.medium.paddingH]
-        }`
-      : 0,
-}));
+// export const medium = style((theme: DesignSystem) => ({
+//   width: `${theme.components.buttons.sizes.small.width}`,
+//   padding:
+//     theme.components.buttons.sizes.medium.paddingH && theme.components.buttons.sizes.medium.paddingV
+//       ? `${theme.sizing.sizes[theme.components.buttons.sizes.medium.paddingV]} ${
+//           theme.sizing.sizes[theme.components.buttons.sizes.medium.paddingH]
+//         }`
+//       : 0,
+// }));
 
-export const small = style((theme: DesignSystem) => ({
-  width: `${theme.components.buttons.sizes.small.width}`,
-  padding:
-    theme.components.buttons.sizes.small.paddingH && theme.components.buttons.sizes.small.paddingV
-      ? `${theme.sizing.sizes[theme.components.buttons.sizes.small.paddingV]} ${
-          theme.sizing.sizes[theme.components.buttons.sizes.small.paddingH]
-        }`
-      : 0,
-}));
+// export const small = style((theme: DesignSystem) => ({
+//   width: `${theme.components.buttons.sizes.small.width}`,
+//   padding:
+//     theme.components.buttons.sizes.small.paddingH && theme.components.buttons.sizes.small.paddingV
+//       ? `${theme.sizing.sizes[theme.components.buttons.sizes.small.paddingV]} ${
+//           theme.sizing.sizes[theme.components.buttons.sizes.small.paddingH]
+//         }`
+//       : 0,
+// }));
 
-const styles: Styles = {
-  large,
-  medium,
-  small,
-};
+// const styles: Styles = {
+//   large,
+//   medium,
+//   small,
+// };

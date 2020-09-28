@@ -1,4 +1,4 @@
-import { Value } from '../utilities/value';
+import { LengthValue } from '../primitives/value';
 
 /**
  * Viewport names.
@@ -10,16 +10,19 @@ export enum VIEWPORT {
 }
 
 /**
- * Breakpoint names.
+ * Breakpoint names
  */
 export enum BREAKPOINT {
-  mobileXSmall = 'mobileXSmall', // mobile
+  // mobile
+  mobileXSmall = 'mobileXSmall',
   mobileSmall = 'mobileSmall',
   mobileMedium = 'mobileMedium',
-  tabletPortrait = 'tabletPortrait', // tablet
+  // tablet
+  tabletPortrait = 'tabletPortrait',
   tabletLandscape = 'tabletLandscape',
+  // desktop
   desktopSmall = 'desktopSmall',
-  desktopMedium = 'desktopMedium', // desktop
+  desktopMedium = 'desktopMedium',
   desktopLarge = 'desktopLarge',
   desktopXLarge = 'desktopXLarge',
 }
@@ -28,10 +31,10 @@ export enum BREAKPOINT {
  * Representation of a breakpoint, including its value
  * in pixel
  */
-export type Breakpoint = Value;
+export type Breakpoint = LengthValue;
 
 /**
- * Breakpoints values in pixel.
+ * Breakpoints values in pixel
  */
 export type Breakpoints = { [key in keyof typeof BREAKPOINT]: Breakpoint };
 
@@ -64,13 +67,13 @@ export type MediaQueries = { [key in keyof typeof VIEWPORT]: MediaQuery } & { ta
 /**
  * Content margins for different device formats.
  */
-export type ContentMargins = { [key in keyof typeof VIEWPORT]: Value };
+export type ContentMargins = { [key in keyof typeof VIEWPORT]: LengthValue };
 
 /**
  * Content max width for larger viewports.
  */
 export interface ContentWidths {
-  desktopMaxWidth: Value;
+  desktopMaxWidth: LengthValue;
 }
 
 /**

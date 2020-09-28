@@ -1,15 +1,15 @@
-export * from './components/molecules/buttons';
+export * from './utilities/types';
 
-export * from './design-system';
+export * from './primitives/color';
 
-export * from './foundations/color';
 export * from './foundations/colors';
+export * from './foundations/color-intents';
 export * from './foundations/effects';
 export * from './foundations/iconography';
 export * from './foundations/layout';
 export * from './foundations/sizing';
 export * from './foundations/typography';
 
-export * from './utilities/shadows';
-export * from './utilities/types';
-export * from './utilities/utilities';
+export * from './components/molecules/buttons';
+
+export * from './design-system';

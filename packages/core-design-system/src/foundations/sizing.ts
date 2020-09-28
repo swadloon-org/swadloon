@@ -1,3 +1,4 @@
+import { LengthValue } from '../primitives/value';
 import { VIEWPORT } from './layout';
 
 /**
@@ -46,7 +47,7 @@ export interface SizingStep {
   /**
    * @example 9
    */
-  value: number;
+  value: LengthValue;
   /**
    * @example `9px`
    */
