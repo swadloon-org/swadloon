@@ -47,7 +47,11 @@ export const BlogPostLayout: React.FC<Props> = (props) => {
         {getMetadataOpenGraphWebsiteTags({
           type: OPEN_GRAPH_TYPE.ARTICLE,
           title: `Lancement du nouveau site web de MIR !`,
-          url: `${data.site?.siteMetadata?.siteUrl}${data.gcms.pages[0]?.route}`,
+          url: `${data.site?.siteMetadata?.siteUrl}${
+            props.location?.pathname.includes('/en/')
+              ? '/en/individu-au-coeur-de-notre-travail'
+              : '/individu-au-coeur-de-notre-travail'
+          }`,
           description: `Lancement du nouveau site web de MIR !`,
           site_name: `${data.gcms.companyInfos[0].metadataSiteName}`,
           image: (data as any)?.linkedInBanner?.childImageSharp?.fixed.src,

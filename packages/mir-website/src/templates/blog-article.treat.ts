@@ -18,16 +18,23 @@ export const banner = style((theme: DesignSystem) => ({
 export const breadcrumb = style((theme: DesignSystem) => ({
   justifySelf: 'center',
   display: 'flex',
-  maxWidth: '1200px',
-  margin: `0 ${theme.layout.contentMargins.mobile.px}`,
+  // maxWidth: '1200px',
   width: '100%',
-
+  alignItems: 'center',
+  justifyContent: 'flex-start',
   '@media': {
-    [theme.layout.media.tabletPlus]: {
-      margin: `0 ${theme.layout.contentMargins.tablet.px}`,
+    [theme.layout.media.mobile]: {
+      padding: `0 ${theme.layout.contentMargins.mobile.px}`,
+    },
+    [theme.layout.media.tablet]: {
+      padding: `0 ${theme.layout.contentMargins.tablet.px}`,
     },
     [theme.layout.media.desktop]: {
+      maxWidth: '1200px',
+    },
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopMedium.px})`]: {
       maxWidth: '1600px',
+      padding: `0 ${theme.layout.contentMargins.tablet.px}`,
     },
   },
 }));
@@ -67,6 +74,12 @@ export const articleWrapper = style((theme: DesignSystem) => ({
   gridGap: '3rem',
   maxWidth: '680px',
   backgroundColor: theme.colors.greyscale0,
+  margin: `0 ${theme.layout.contentMargins.mobile.px}`,
+  '@media': {
+    [theme.layout.media.tabletPlus]: {
+      margin: `0 ${theme.layout.contentMargins.tablet.px}`,
+    },
+  },
 }));
 
 export const label = style((theme: DesignSystem) => ({

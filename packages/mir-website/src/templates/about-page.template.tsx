@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useStyles } from 'react-treat';
 import { AboutPageFrQuery } from '../../types/graphql-types';
 import { BannerSecondary } from '../components/banner-secondary';
@@ -9,7 +9,8 @@ import { Newsletter } from '../components/action-section/newsletter';
 import { Testimonial } from '../components/testimonial-section/testimonial-section';
 import { theme } from '../design-system';
 import * as stylesRef from './about-page.treat';
-
+import { motion, useAnimation } from 'framer-motion';
+import { FadeIn } from '../components/animation/fade-in';
 interface PageProps {
   data: AboutPageFrQuery;
   location: Location;
@@ -46,19 +47,31 @@ export const About: React.FC<PageProps> = ({ data, location }) => {
   return (
     <main className={`${styles.wrapper}`}>
       <BannerSecondary imageData={sources} title={data?.gcms?.pages[0]?.bannerTitle}></BannerSecondary>
-
-      {section1 && section1.type === 'type2' ? <InfoSectionType2 align="AlignContentLeft" {...section1} /> : null}
-      {section2 && section2.type === 'type7' ? <InfoSectionType7 {...section2} /> : null}
-      {section3 && section3.type === 'type2' ? <InfoSectionType2 align="AlignContentRight" {...section3} /> : null}
+      {section1 && section1.type === 'type2' ? (
+        <FadeIn time={0.2}>
+          <InfoSectionType2 align="AlignContentLeft" {...section1} />{' '}
+        </FadeIn>
+      ) : null}
+      {section2 && section2.type === 'type7' ? (
+        <FadeIn time={0.2}>
+          <InfoSectionType7 {...section2} />{' '}
+        </FadeIn>
+      ) : null}
+      {section3 && section3.type === 'type2' ? (
+        <FadeIn time={0.2}>
+          <InfoSectionType2 align="AlignContentRight" {...section3} />{' '}
+        </FadeIn>
+      ) : null}
       {section4 && section4.type === 'typeVideo' ? (
-        <InfoSectionVideo
-          imageData={sourcesVideo}
-          heading={section4.title}
-          paragraph={section4.text}
-        ></InfoSectionVideo>
+        <FadeIn time={0.2}>
+          <InfoSectionVideo
+            imageData={sourcesVideo}
+            heading={section4.title}
+            paragraph={section4.text}
+          ></InfoSectionVideo>{' '}
+        </FadeIn>
       ) : null}
       {/* <InfoSectionVideo imageData={sourcesVideo}></InfoSectionVideo> */}
-
       {testimonials ? <Testimonial testimonialSections={testimonials} /> : null}
 
       <Newsletter id="newsletter" section={actionSection1}></Newsletter>
