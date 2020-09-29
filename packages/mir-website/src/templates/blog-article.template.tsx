@@ -30,6 +30,8 @@ type Props = {
 export const BlogPostLayout: React.FC<Props> = (props) => {
   const data = props.pageContext.data;
 
+  console.log((data as any)?.linkedInBanner?.childImageSharp?.fixed);
+
   return (
     <Layout
       location={props.location}
@@ -44,10 +46,11 @@ export const BlogPostLayout: React.FC<Props> = (props) => {
         {getMetaBasicTags()}
         {getMetadataOpenGraphWebsiteTags({
           type: OPEN_GRAPH_TYPE.ARTICLE,
-          title: `${data.gcms.pages[0]?.title}`,
+          title: `Lancement du nouveau site web de MIR !`,
           url: `${data.site?.siteMetadata?.siteUrl}${data.gcms.pages[0]?.route}`,
           description: `Lancement du nouveau site web de MIR !`,
           site_name: `${data.gcms.companyInfos[0].metadataSiteName}`,
+          image: (data as any)?.linkedInBanner?.childImageSharp?.fixed.src,
           lang: props.pageContext.lang,
           locale: props.pageContext.lang,
           localeAlternate: props.pageContext.lang === 'en' ? 'fr' : 'en',
@@ -106,7 +109,9 @@ export const BlogPostTemplate: React.FC<Props> = ({ location, pageContext }) => 
       ) : null}
 
       <div className={styles.articleWrapper}>
-        <Label variant={LABEL.smallBoldUppercase}>COMMUNIQUÉ</Label>
+        <Label variant={LABEL.smallBoldUppercase} className={styles.label}>
+          COMMUNIQUÉ
+        </Label>
         <Heading variant="h1" className={styles.title}>
           Lancement du nouveau site web mirinc.ca
         </Heading>

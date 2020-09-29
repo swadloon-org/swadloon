@@ -125,10 +125,16 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
           }
         }
       }
+      linkedInBanner: file(name: { eq: "Banner-NewWebsite" }) {
+        id
+        childImageSharp {
+          fixed(width: 1200, height: 628) {
+            src
+          }
+        }
+      }
     }
   `);
-
-  console.log(blogPageQuery);
 
   type PageConfig = {
     name: string;
