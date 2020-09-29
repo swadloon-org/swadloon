@@ -2,13 +2,22 @@ import { DesignSystem } from 'core-design-system';
 import { style, globalStyle } from 'treat';
 
 export const wrapper = style((theme: DesignSystem) => ({
-  position: 'fixed',
+  position: 'absolute',
+  left: '0',
   top: '0',
-  height: '100%',
   backgroundColor: theme.colors.greyscale0,
   zIndex: 10,
+  height: '100%',
   boxShadow: theme.effects.shadows.medium.css,
   display: 'block',
+  '@media': {
+    [theme.layout.media.mobile]: {
+      width: '90%',
+    },
+    [theme.layout.media.tablet]: {
+      width: '40%',
+    },
+  },
 }));
 
 export const topContainer = style((theme: DesignSystem) => ({
@@ -33,20 +42,6 @@ globalStyle(`${icon} path`, (theme: DesignSystem) => ({
 
 export const content = style((theme: DesignSystem) => ({
   paddingTop: theme.sizing.sizes.x2,
-}));
-
-export const openend = style((theme: DesignSystem) => ({
-  width: '90%',
-  '@media': {
-    [theme.layout.media.tablet]: {
-      width: '40%',
-    },
-  },
-}));
-
-export const closed = style((theme: DesignSystem) => ({
-  width: '0',
-  display: 'none',
 }));
 
 export const separation = style((theme: DesignSystem) => ({
@@ -80,6 +75,7 @@ export const titleItem = style((theme: DesignSystem) => ({
 
 export const listSocial = style((theme: DesignSystem) => ({
   paddingLeft: theme.sizing.sizes.x6,
+  backgroundColor: theme.colors.greyscale0Reversed,
 }));
 
 export const bar = style((theme: DesignSystem) => ({

@@ -15,18 +15,34 @@ export const banner = style((theme: DesignSystem) => ({
   width: '100vw',
 }));
 
+export const containerBreadcrumb = style((theme: DesignSystem) => ({
+  justifySelf: 'center',
+  display: 'flex',
+  width: '100%',
+  alignItems: 'center',
+  justifyContent: 'center',
+  '@media': {
+    [theme.layout.media.mobile]: {
+      padding: `0 ${theme.layout.contentMargins.mobile.px}`,
+    },
+    [theme.layout.media.tabletPlus]: {
+      padding: `0 ${theme.layout.contentMargins.tablet.px}`,
+    },
+  },
+}));
+
 export const breadcrumb = style((theme: DesignSystem) => ({
   justifySelf: 'center',
   display: 'flex',
-  maxWidth: '1200px',
-  margin: `0 ${theme.layout.contentMargins.mobile.px}`,
+  // maxWidth: '1200px',
   width: '100%',
-
+  alignItems: 'center',
+  justifyContent: 'flex-start',
   '@media': {
-    [theme.layout.media.tabletPlus]: {
-      margin: `0 ${theme.layout.contentMargins.tablet.px}`,
-    },
     [theme.layout.media.desktop]: {
+      maxWidth: '1200px',
+    },
+    [`screen and (min-width: ${theme.layout.breakpoints.desktopMedium.px})`]: {
       maxWidth: '1600px',
     },
   },
@@ -48,14 +64,15 @@ export const link2 = style((theme: DesignSystem) => ({
 
 export const bannerContainer = style((theme: DesignSystem) => ({
   width: '100vw',
-  height: `400px`,
+  height: `auto`,
+  justifySelf: 'center',
 
   '@media': {
     [theme.layout.media.tabletPlus]: {
-      height: `600px`,
+      width: '1200px',
     },
-    [theme.layout.media.desktop]: {
-      height: `900px`,
+    [`min-width(${theme.layout.breakpoints.desktopMedium.px})`]: {
+      width: '1600px',
     },
   },
 }));
@@ -67,6 +84,12 @@ export const articleWrapper = style((theme: DesignSystem) => ({
   gridGap: '3rem',
   maxWidth: '680px',
   backgroundColor: theme.colors.greyscale0,
+  margin: `0 ${theme.layout.contentMargins.mobile.px}`,
+  '@media': {
+    [theme.layout.media.tabletPlus]: {
+      margin: `0 ${theme.layout.contentMargins.tablet.px}`,
+    },
+  },
 }));
 
 export const label = style((theme: DesignSystem) => ({

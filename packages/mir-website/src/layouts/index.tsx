@@ -8,6 +8,8 @@ import { light } from '../design-system/themes.treat';
 import { viewportContext } from '../hooks/use-viewport.hook';
 import '../styles/font-faces.styles.css';
 import * as styleRefs from './index.treat';
+import { CSSProperties, style } from 'treat/lib/types';
+import { relative } from 'path';
 
 export type NavigationProps = {
   location?: Location;
@@ -31,23 +33,25 @@ export const Layout: React.FC<NavigationProps> = (props) => {
 
 const LayoutComponent: React.FC<NavigationProps> = (props) => {
   const styles = useStyles(styleRefs);
-  const [sideMenuState, setSideMenuState] = useState<'openend' | 'closed'>('closed');
+  const [sideMenuState, setSideMenuState] = useState<'opened' | 'closed'>('closed');
 
   function onOpenSideMenu() {
-    setSideMenuState(sideMenuState === 'openend' ? 'closed' : 'openend');
+    setSideMenuState(sideMenuState === 'opened' ? 'closed' : 'opened');
   }
 
   return (
     <>
-      <NavBar onOpenSideMenu={onOpenSideMenu} {...props}></NavBar>
       <SideBar
         className={`${styles.sidebar}`}
         state={sideMenuState}
         onOpenSideMenu={onOpenSideMenu}
         {...props}
       ></SideBar>
-      {props.children}
-      <Footer></Footer>
+      <div className={`${sideMenuState === 'opened' ? styles.open : styles.close}`}>
+        <NavBar onOpenSideMenu={onOpenSideMenu} {...props}></NavBar>
+        {props.children}
+        <Footer></Footer>
+      </div>
     </>
   );
 };
