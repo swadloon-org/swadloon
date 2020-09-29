@@ -39,8 +39,10 @@ export function JobSection(props: OwnProps) {
           <div className={styles.container}>
             {props.jobSection?.groups.map((group, index) => {
               let lengthJobs: any = props.jobSection?.groups[index].jobs.length;
+
               let RowNumber: number =
-                viewport === VIEWPORT.desktop ? Math.ceil(lengthJobs / 3) : Math.ceil(lengthJobs / 1);
+                viewport >= VIEWPORT.desktop ? Math.ceil(lengthJobs / 3) : Math.ceil(lengthJobs / 1);
+
               return (
                 <div className={styles.containerBloc} key={index}>
                   <div className={styles.accordions}>
@@ -84,8 +86,9 @@ export function JobSection(props: OwnProps) {
           <div className={styles.container}>
             {props.jobSection?.groups.map((jobType, index) => {
               let lengthJobs: any = props.jobSection?.groups[index].jobs.length;
+
               let RowNumber: number =
-                viewport === VIEWPORT.desktop ? Math.ceil(lengthJobs / 3) : Math.ceil(lengthJobs / 1);
+                viewport >= VIEWPORT.desktop ? Math.ceil(lengthJobs / 3) : Math.ceil(lengthJobs / 1);
 
               return (
                 <div className={styles.containerBloc} key={index}>

@@ -15,6 +15,22 @@ export const banner = style((theme: DesignSystem) => ({
   width: '100vw',
 }));
 
+export const containerBreadcrumb = style((theme: DesignSystem) => ({
+  justifySelf: 'center',
+  display: 'flex',
+  width: '100%',
+  alignItems: 'center',
+  justifyContent: 'center',
+  '@media': {
+    [theme.layout.media.mobile]: {
+      padding: `0 ${theme.layout.contentMargins.mobile.px}`,
+    },
+    [theme.layout.media.tabletPlus]: {
+      padding: `0 ${theme.layout.contentMargins.tablet.px}`,
+    },
+  },
+}));
+
 export const breadcrumb = style((theme: DesignSystem) => ({
   justifySelf: 'center',
   display: 'flex',
@@ -23,18 +39,11 @@ export const breadcrumb = style((theme: DesignSystem) => ({
   alignItems: 'center',
   justifyContent: 'flex-start',
   '@media': {
-    [theme.layout.media.mobile]: {
-      padding: `0 ${theme.layout.contentMargins.mobile.px}`,
-    },
-    [theme.layout.media.tablet]: {
-      padding: `0 ${theme.layout.contentMargins.tablet.px}`,
-    },
     [theme.layout.media.desktop]: {
       maxWidth: '1200px',
     },
     [`screen and (min-width: ${theme.layout.breakpoints.desktopMedium.px})`]: {
       maxWidth: '1600px',
-      padding: `0 ${theme.layout.contentMargins.tablet.px}`,
     },
   },
 }));

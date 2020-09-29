@@ -49,8 +49,8 @@ export const BlogPostLayout: React.FC<Props> = (props) => {
           title: `Lancement du nouveau site web de MIR !`,
           url: `${data.site?.siteMetadata?.siteUrl}${
             props.location?.pathname.includes('/en/')
-              ? '/en/individu-au-coeur-de-notre-travail'
-              : '/individu-au-coeur-de-notre-travail'
+              ? '/en/nouvelles/individu-au-coeur-de-notre-travail'
+              : '/nouvelles/individu-au-coeur-de-notre-travail'
           }`,
           description: `Lancement du nouveau site web de MIR !`,
           site_name: `${data.gcms.companyInfos[0].metadataSiteName}`,
@@ -89,21 +89,22 @@ export const BlogPostTemplate: React.FC<Props> = ({ location, pageContext }) => 
       {/* <code>
         <pre>{JSON.stringify(data, null, 2)}</pre>
       </code> */}
-
-      <div className={styles.breadcrumb}>
-        <GatsbyLink to={location?.pathname.includes('/en/') ? '/en/' : '/'}>
-          <Button variant="text" variantType="tertiaryDefault" size="medium" className={styles.link1}>
-            {location?.pathname.includes('/en/') ? 'Home' : 'Accueil'}
+      <div className={styles.containerBreadcrumb}>
+        <div className={styles.breadcrumb}>
+          <GatsbyLink to={location?.pathname.includes('/en/') ? '/en/' : '/'}>
+            <Button variant="text" variantType="tertiaryDefault" size="medium" className={styles.link1}>
+              {location?.pathname.includes('/en/') ? 'Home' : 'Accueil'}
+            </Button>
+          </GatsbyLink>
+          <Button variant="text" variantType="tertiaryDefault" size="medium" className={styles.separator}>
+            /
           </Button>
-        </GatsbyLink>
-        <Button variant="text" variantType="tertiaryDefault" size="medium" className={styles.separator}>
-          /
-        </Button>
-        <GatsbyLink to={location?.pathname.includes('/en/') ? '/en/news/' : '/nouvelles/'}>
-          <Button variant="text" variantType="tertiaryDefault" size="medium" className={styles.link2}>
-            {location?.pathname.includes('/en/') ? 'News' : 'Nouvelles'}
-          </Button>
-        </GatsbyLink>
+          <GatsbyLink to={location?.pathname.includes('/en/') ? '/en/news/' : '/nouvelles/'}>
+            <Button variant="text" variantType="tertiaryDefault" size="medium" className={styles.link2}>
+              {location?.pathname.includes('/en/') ? 'News' : 'Nouvelles'}
+            </Button>
+          </GatsbyLink>
+        </div>
       </div>
 
       {sources ? (
