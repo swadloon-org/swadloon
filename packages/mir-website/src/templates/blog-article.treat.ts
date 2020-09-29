@@ -55,14 +55,15 @@ export const link2 = style((theme: DesignSystem) => ({
 
 export const bannerContainer = style((theme: DesignSystem) => ({
   width: '100vw',
-  height: `400px`,
+  height: `auto`,
+  justifySelf: 'center',
 
   '@media': {
     [theme.layout.media.tabletPlus]: {
-      height: `600px`,
+      width: '1200px',
     },
-    [theme.layout.media.desktop]: {
-      height: `900px`,
+    [`min-width(${theme.layout.breakpoints.desktopMedium.px})`]: {
+      width: '1600px',
     },
   },
 }));

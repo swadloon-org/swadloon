@@ -48,22 +48,22 @@ export const About: React.FC<PageProps> = ({ data, location }) => {
     <main className={`${styles.wrapper}`}>
       <BannerSecondary imageData={sources} title={data?.gcms?.pages[0]?.bannerTitle}></BannerSecondary>
       {section1 && section1.type === 'type2' ? (
-        <FadeIn time={0.2}>
+        <FadeIn time={0.4}>
           <InfoSectionType2 align="AlignContentLeft" {...section1} />{' '}
         </FadeIn>
       ) : null}
       {section2 && section2.type === 'type7' ? (
-        <FadeIn time={0.2}>
+        <FadeIn time={0.4}>
           <InfoSectionType7 {...section2} />{' '}
         </FadeIn>
       ) : null}
       {section3 && section3.type === 'type2' ? (
-        <FadeIn time={0.2}>
+        <FadeIn time={0.4}>
           <InfoSectionType2 align="AlignContentRight" {...section3} />{' '}
         </FadeIn>
       ) : null}
       {section4 && section4.type === 'typeVideo' ? (
-        <FadeIn time={0.2}>
+        <FadeIn time={0.4}>
           <InfoSectionVideo
             imageData={sourcesVideo}
             heading={section4.title}

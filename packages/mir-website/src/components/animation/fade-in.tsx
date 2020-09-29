@@ -13,6 +13,7 @@ export const FadeIn: React.FC<OwnProps> = (props) => {
   useEffect(() => {
     if (inView) {
       controls.start('visible');
+      return;
     }
   }, [controls, inView]);
 
@@ -24,8 +25,10 @@ export const FadeIn: React.FC<OwnProps> = (props) => {
       variants={{
         hidden: {
           opacity: 0,
+          y: 10,
         },
         visible: {
+          y: 0,
           opacity: 1,
           transition: {
             delay: props.time,

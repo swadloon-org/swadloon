@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link as GatsbyLink } from 'gatsby';
 import { Helmet } from 'react-helmet';
-import BackgroundImage from 'gatsby-background-image';
+import Img from 'gatsby-image';
 import { useStyles } from 'react-treat';
 import { BlogPageFrQuery } from '../../types/graphql-types';
 import { BlogPreviewSection } from '../components/blog-preview/blog-preview-section';
@@ -54,7 +54,7 @@ export const BlogPostLayout: React.FC<Props> = (props) => {
           }`,
           description: `Lancement du nouveau site web de MIR !`,
           site_name: `${data.gcms.companyInfos[0].metadataSiteName}`,
-          image: (data as any)?.linkedInBanner?.childImageSharp?.fixed.src,
+          image: `${data.site?.siteMetadata?.siteUrl}${(data as any)?.linkedInBanner?.childImageSharp?.fixed.src}`,
           lang: props.pageContext.lang,
           locale: props.pageContext.lang,
           localeAlternate: props.pageContext.lang === 'en' ? 'fr' : 'en',
@@ -107,15 +107,16 @@ export const BlogPostTemplate: React.FC<Props> = ({ location, pageContext }) => 
       </div>
 
       {sources ? (
-        <BackgroundImage Tag="div" fluid={sources as any} className={`${styles.bannerContainer}`} fadeIn={false}>
+        <Img fluid={sources as any} className={`${styles.bannerContainer}`}>
           <div className={styles.banner}></div>
-        </BackgroundImage>
+        </Img>
       ) : null}
 
       <div className={styles.articleWrapper}>
         <Label variant={LABEL.smallBoldUppercase} className={styles.label}>
           COMMUNIQUÉ
         </Label>
+
         <Heading variant="h1" className={styles.title}>
           Lancement du nouveau site web mirinc.ca
         </Heading>
