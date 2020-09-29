@@ -69,8 +69,14 @@ export const articleWrapper = style((theme: DesignSystem) => ({
   backgroundColor: theme.colors.greyscale0,
 }));
 
+export const label = style((theme: DesignSystem) => ({
+  color: theme.colors.greyscale500,
+}));
+
 export const title = style((theme: DesignSystem) => ({
   margin: `${theme.sizing.sizes.x3} 0 ${theme.sizing.sizes.x4}`,
+  fontFamily: 'Georgia',
+  fontWeight: 400,
 
   '@media': {
     [theme.layout.media.tabletPlus]: {

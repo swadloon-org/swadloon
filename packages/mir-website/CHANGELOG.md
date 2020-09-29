@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/mir-website@1.4.0...mir-website@1.4.1) (2020-09-29)
+
+### Bug Fixes
+
+- **mir-website:** fix blog post og:title and og:image ([b1ac07b](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/b1ac07b7bf802bcd2ef8bf035d824ce79bb1c171))
+
 # [1.4.0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/mir-website@1.3.1...mir-website@1.4.0) (2020-09-28)
 
 ### Bug Fixes
