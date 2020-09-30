@@ -7,7 +7,9 @@ import { light } from './design-system/themes.treat';
 export function RootComponent() {
   return (
     <TreatProvider theme={light}>
+      {/* <ThemeProvider theme={{}}> */}
       <App />
+      {/* </ThemeProvider> */}
     </TreatProvider>
   );
 }
