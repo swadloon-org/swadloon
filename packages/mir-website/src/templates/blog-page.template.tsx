@@ -55,7 +55,9 @@ export const Blog: React.FC<PageProps> = ({ data, location }) => {
             Restez informez sur nos dernières actualités et découvrez de trucs et conseils pour mieux gérer vos RH.
           </Paragraph>
 
-          <Heading variant="h3">En vedette</Heading>
+          <Heading className={styles.headingPreview} variant="h3">
+            En vedette
+          </Heading>
 
           <div className={styles.previewArticle}>
             <Img fluid={sourcesArticle as any} className={styles.previewArticleImage}></Img>
