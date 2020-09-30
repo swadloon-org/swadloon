@@ -7,6 +7,7 @@ export const wrapper = style((theme: DesignSystem) => ({
   padding: `${theme.sizing.sizes.x6} ${theme.layout.contentMargins.mobile.px}`,
   backgroundColor: theme.colors.greyscale0,
   color: theme.colors.greyscale900,
+  zIndex: 2,
 }));
 
 export const type1reversed = style((theme: DesignSystem) => ({
