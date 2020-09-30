@@ -35,7 +35,22 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
 };
 
 export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions }) => {
-  const { createPage } = actions;
+  const { createPage, createRedirect } = actions;
+
+  createRedirect({ fromPath: '/employeur-en-personnel-specialise/', toPath: '/employeurs/', isPermanent: true });
+  createRedirect({ fromPath: '/division-secteur-industriel/', toPath: '/employeurs/', isPermanent: true });
+  createRedirect({ fromPath: '/division-entreprises-de-services/', toPath: '/employeurs/', isPermanent: true });
+  createRedirect({ fromPath: '/division-construction/', toPath: '/employeurs/', isPermanent: true });
+  createRedirect({
+    fromPath: '/candidats-recrutement-personnel-specialise/',
+    toPath: '/candidats/',
+    isPermanent: true,
+  });
+  createRedirect({
+    fromPath: '/coordonnees/',
+    toPath: '/nous-joindre/',
+    isPermanent: true,
+  });
 
   const blogPageQuery = await graphql(`
     query BlogPostPage {
