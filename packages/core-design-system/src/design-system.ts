@@ -1,14 +1,24 @@
-import { Color } from 'csstype';
 import { Buttons } from './components/molecules/buttons';
-import { Colors } from './foundations/colors';
 import { ColorIntents } from './foundations/color-intents';
-import { Effects } from './foundations/effects';
+import { Colors } from './foundations/colors';
+import { BoxShadow, Effects } from './foundations/effects';
 import { Iconography } from './foundations/iconography';
 import { Layout } from './foundations/layout';
 import { Sizing } from './foundations/sizing';
 import { Typography } from './foundations/typography';
+import { Color } from './primitives/color';
 
-export interface DesignSystem {
+export type DesignSystemTypes = {
+  color: any;
+  shadow: any;
+};
+
+export type DefaultDesignSystemTypes = {
+  color: Color;
+  shadow: BoxShadow;
+};
+
+export interface DesignSystem<Types extends DesignSystemTypes = DefaultDesignSystemTypes> {
   /**
    * Name of the project or brand's name.
    */
@@ -21,7 +31,7 @@ export interface DesignSystem {
   /**
    * Every color defined in the system.
    */
-  colors: Colors;
+  colors: Colors<Types['color']>;
   /**
    * Contextual use of certain colors (text, action, state, etc).
    */
@@ -29,7 +39,7 @@ export interface DesignSystem {
   /**
    * Shadows, elevation, blurs and other visual effects.
    */
-  effects: Effects;
+  effects: Effects<Types['shadow']>;
   /**
    * Defines the system's sizing values.
    */

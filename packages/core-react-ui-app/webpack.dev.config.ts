@@ -35,8 +35,9 @@ const config: WebpackOptions.WebpackOptions = {
           {
             loader: 'ts-loader',
             options: {
-              configFile: 'tsconfig.app.json',
+              configFile: 'tsconfig.build.json',
               logLevel: 'info',
+              projectReferences: true,
             },
           },
         ],
@@ -48,7 +49,7 @@ const config: WebpackOptions.WebpackOptions = {
     extensions: ['.tsx', '.ts', '.js'],
     plugins: [
       new TsconfigPathsPlugin({
-        configFile: 'tsconfig.app.json',
+        configFile: 'tsconfig.build.json',
         logLevel: 'INFO',
       }),
     ],

@@ -29,11 +29,11 @@ export type BoxShadow = {
 /**
  * Levels of shadows in the system.
  */
-export type Shadows = {
-  light: BoxShadow;
-  medium: BoxShadow;
-  heavy: BoxShadow;
-} & { [key: string]: BoxShadow };
+export type Shadows<T = BoxShadow> = {
+  light: T;
+  medium: T;
+  heavy: T;
+} & { [key: string]: T };
 
 /**
  * Representation of a background, either a plain background with a color
@@ -56,7 +56,7 @@ export type Overlays = {
 /**
  * Shadows, elevation, blurs and other visual effects.
  */
-export interface Effects {
-  shadows: Shadows;
+export interface Effects<ShadowType = BoxShadow> {
+  shadows: Shadows<ShadowType>;
   // overlays: Overlays;
 }

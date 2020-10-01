@@ -49,6 +49,9 @@ credentials
 lib-cov
 /tsd_typings/
 
+# typescript
+*.tsbuildinfo
+
 # env
 .env*
 !.env.test

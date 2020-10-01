@@ -30,3 +30,17 @@
 //     </Button>
 //   );
 // };
+
+// export const Button = createComponent<ButtonProps>(
+//   (props: ButtonProps) => {
+//     const buttonProps = useProps(props);
+//     return createElement({ children: props.children, component: ReakitButton, use: props.use, htmlProps: buttonProps });
+//   },
+//   {
+//     attach: {
+//       useProps,
+//       displayName: 'Button',
+//     },
+//     themeKey: 'Button',
+//   }
+// );
