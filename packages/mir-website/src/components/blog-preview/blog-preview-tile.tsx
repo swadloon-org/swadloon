@@ -27,7 +27,7 @@ export const BlogPreviewTile: React.FC<OwnProps> = (props) => {
       <div className={styles.buttonGroup}>
         <GatsbyLink
           to={
-            location?.pathname.includes('/en/')
+            props.location?.pathname.includes('/en/')
               ? '/en/news/individu-au-coeur-de-notre-travail/'
               : '/nouvelles/individu-au-coeur-de-notre-travail/'
           }
