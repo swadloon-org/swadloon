@@ -29,6 +29,11 @@ export const Contact: React.FC<PageProps> = ({ data, location }) => {
     },
   ];
 
+  const [hasMounted, setHasMounted] = React.useState(false);
+  React.useEffect(() => {
+    setHasMounted(true);
+  }, []);
+
   const recaptchaRef = React.createRef<any>();
 
   return (
@@ -37,8 +42,12 @@ export const Contact: React.FC<PageProps> = ({ data, location }) => {
 
       {section1 && section1.type === 'type6' ? <InfoSectionType6Group {...section1} /> : null}
 
-      {location.search.includes('success') ? (
-        <div id="info" className={styles.info}>
+      {hasMounted ? (
+        <div
+          id="info"
+          className={styles.info}
+          style={{ display: location?.search.includes('success') ? 'block' : 'none' }}
+        >
           <Heading variant="h3">Merci! Votre message a été transmis!</Heading>
         </div>
       ) : null}
