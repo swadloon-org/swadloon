@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/mir-website@1.4.1...mir-website@1.5.0) (2020-10-01)
+
+### Bug Fixes
+
+- **mir-website:** add google tag manager, fix some typo for launch ([e9198e1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/e9198e175fbf07a3ff2e703bcd0bbd06aff71886))
+- **mir-website:** fixing layout margin in the blog article ([822c208](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/822c208ce49328ef88b9106a8f62796a29f8eb98))
+- **mir-website:** fixing the breadcrumb with the new container ([6e7175b](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/6e7175bba6620995dad5c12cf2c980ff4ddf6a4e))
+- **mir-website:** fixing the padding of the paragraph in the blog page ([70856a6](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/70856a6e51a81ee145946701816ad3c9961386a4))
+- **mir-website:** job section bug in large desktop fixed with the good operator >= ([46a8b4e](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/46a8b4e7c96babaf91e888aec131084ba63be5cc))
+- **mir-website:** responsive form and fixing border shadows bugs on the infosection type 1 ([5df11db](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/5df11db31607ea4bde8840a7e7635611b5a9be07))
+- **mir-website:** small adjustment to animations ([f940a60](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/f940a60335baa012a5900c7fb829b9bb0faa21af))
+- **mir-website:** some design tweaks and fix path for og: image ([9c87ae4](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/9c87ae4f9037f5706a851e41cbb0bc0835e9090f))
+
+### Features
+
+- **mir-website:** add redirect from old pages to new ones ([9a03e74](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/9a03e74a85e81c26fd1b340892c45eff194fa081))
+- **mir-website:** animation component fade in ([8f01000](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/8f010009c9296d82372f15cd40231ed478291b53))
+- **mir-website:** author with picture ([b713f58](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/b713f585b50cd3ca0da677b932d3e358081c32d0))
+- **mir-website:** mobile menu animation ([63e7f9e](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/63e7f9e2434120123e7cc4589dcd5517dc1fb791))
+
 ## [1.4.1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/mir-website@1.4.0...mir-website@1.4.1) (2020-09-29)
 
 ### Bug Fixes

@@ -118,6 +118,12 @@ const config: GastbySiteConfig = {
         prefixDefault: false,
       },
     },
+    {
+      resolve: 'gatsby-plugin-google-tagmanager',
+      options: {
+        id: 'GTM-T4LK3QF',
+      },
+    },
     /**
      * gatsby-plugin-sitemap
      *
@@ -183,22 +189,22 @@ const config: GastbySiteConfig = {
      *
      * @see https://www.gatsbyjs.com/plugins/gatsby-plugin-csp/
      */
-    {
-      resolve: `gatsby-plugin-csp`,
-      options: {
-        disableOnDev: true,
-        reportOnly: false,
-        mergeScriptHashes: true,
-        mergeStyleHashes: false,
-        mergeDefaultDirectives: true,
-        directives: {
-          'script-src': "'self'",
-          'style-src': "'self' 'unsafe-inline'",
-          'img-src': "'self' data: https://media.graphcms.com https://images.unsplash.com",
-          'font-src': "'self' data: https://fonts.gstatic.com",
-        },
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-csp`,
+    //   options: {
+    //     disableOnDev: true,
+    //     reportOnly: false,
+    //     mergeScriptHashes: true,
+    //     mergeStyleHashes: false,
+    //     mergeDefaultDirectives: true,
+    //     directives: {
+    //       'script-src': "'self'",
+    //       'style-src': "'self' 'unsafe-inline'",
+    //       'img-src': "'self' data: https://media.graphcms.com https://images.unsplash.com",
+    //       'font-src': "'self' data: https://fonts.gstatic.com",
+    //     },
+    //   },
+    // },
     /**
      * gatsby-plugin-netlify
      *

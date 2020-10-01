@@ -1,5 +1,7 @@
 import { DesignSystem } from 'core-design-system';
 import { style } from 'treat';
+import { theme } from '../design-system';
+import { Design } from '../pages/design';
 
 export const globalStyle = style((theme: DesignSystem) => ({
   display: 'inherit',
@@ -34,7 +36,7 @@ export const title = style((theme: DesignSystem) => ({
 
 export const paragraph = style((theme: DesignSystem) => ({
   textAlign: 'center',
-  padding: `${theme.sizing.sizes.x3} 0 ${theme.sizing.sizes.x5} 0`,
+  padding: `${theme.sizing.sizes.x3} ${theme.layout.contentMargins.mobile.px} ${theme.sizing.sizes.x5} ${theme.layout.contentMargins.mobile.px}`,
   marginBottom: `${theme.sizing.sizes.x5}`,
 }));
 
@@ -51,4 +53,8 @@ export const previewTitle = style((theme: DesignSystem) => ({
   position: 'absolute',
   top: '20px',
   left: '20px',
+}));
+
+export const headingPreview = style((theme: DesignSystem) => ({
+  textAlign: 'center',
 }));

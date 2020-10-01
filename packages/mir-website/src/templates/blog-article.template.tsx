@@ -132,12 +132,12 @@ export const BlogPostTemplate: React.FC<Props> = ({ location, pageContext }) => 
         <Paragraph variant="medium">
           MIR est une firme de recrutement technique qui se positionne comme chef de file dans le recrutement de postes
           spécialisés dans le domaine industriel. L’approche très humaine de MIR peut vous aider à combler les postes
-          vacants au sein de votre entreprise et ce tant pour des emplois issus industriel qu’administratif.
+          vacants au sein de votre entreprise et ce, tant pour des emplois issus industriel qu’administratif.
         </Paragraph>
 
         <Paragraph variant="medium">
           L’objectif derrière la nouvelle image de marque de MIR et de sa vitrine web, est d’offrir aux employeurs ainsi
-          qu’aux futurs candidats, un plateforme numérique répondant à leurs besoins, à atteindre leurs attentes et à
+          qu’aux futurs candidats, une plateforme numérique répondant à leurs besoins, à atteindre leurs attentes et à
           faire rayonner le positionnement de MIR. Pour ce faire, la navigation du site en ligne a été optimisée
           permettant une meilleure expérience utilisateur, et ce, grâce au positionnement adéquat de l’information, mais
           aussi à la performance de l’infrastructure web.

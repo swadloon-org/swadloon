@@ -20,12 +20,20 @@ export const container = style((theme: DesignSystem) => ({
 
 export const formWrapper = style((theme: DesignSystem) => ({
   position: 'relative',
-  padding: theme.sizing.sizes.x7,
+  padding: theme.layout.contentMargins.mobile.px,
   display: `flex`,
   flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center',
   backgroundColor: theme.colors.greyscale100,
+  '@media': {
+    [theme.layout.media.tablet]: {
+      padding: theme.sizing.sizes.x6,
+    },
+    [theme.layout.media.desktop]: {
+      padding: theme.sizing.sizes.x7,
+    },
+  },
 }));
 
 export const form = style((theme: DesignSystem) => ({
@@ -34,19 +42,31 @@ export const form = style((theme: DesignSystem) => ({
   gridGap: theme.sizing.sizes.x3,
   padding: theme.sizing.sizes.x5,
   width: '100%',
-  maxWidth: `900px`,
+  maxWidth: `450px`,
 
   backgroundColor: theme.colors.greyscale0,
   boxShadow: createShadow({
     ...theme.effects.shadows.heavy,
   }).css,
+
+  '@media': {
+    [theme.layout.media.tabletPlus]: {
+      maxWidth: `900px`,
+    },
+  },
 }));
 
 export const formRow = style((theme: DesignSystem) => ({
   display: `grid`,
-  gridTemplateColumns: `1fr 1fr`,
+  gridTemplateColumns: `1fr`,
   gridGap: theme.sizing.sizes.x3,
   width: '100%',
+
+  '@media': {
+    [theme.layout.media.tabletPlus]: {
+      gridTemplateColumns: `1fr 1fr`,
+    },
+  },
 }));
 
 export const textArea = style((theme: DesignSystem) => ({
