@@ -77,3 +77,10 @@ export const title = style((theme: DesignSystem) => ({
   marginBottom: theme.sizing.sizes.x4,
   textAlign: 'center',
 }));
+
+export const info = style((theme: DesignSystem) => ({
+  padding: theme.sizing.sizes.x6,
+  margin: theme.sizing.sizes.x6,
+  textAlign: 'center',
+  backgroundColor: theme.colors.utilityGreen100,
+}));
