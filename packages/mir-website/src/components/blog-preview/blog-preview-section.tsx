@@ -8,7 +8,7 @@ import { Paragraph } from '../paragraph';
 import { BlogPreviewTileImage } from './/blog-preview-tile-image';
 import * as styleRefs from './blog-preview-section.treat';
 
-type OwnProps = BlogSectionsFragment & { showButton: boolean };
+type OwnProps = BlogSectionsFragment & { showButton: boolean; location: Location };
 
 export const BlogPreviewSection: React.FC<OwnProps> = (props) => {
   const styles = useStyles(styleRefs);
@@ -27,6 +27,7 @@ export const BlogPreviewSection: React.FC<OwnProps> = (props) => {
             ? props.posts.map((post) => {
                 return (
                   <BlogPreviewTileImage
+                    location={props.location}
                     key={post.id}
                     imageUrl={post.image?.url}
                     title={post.title}

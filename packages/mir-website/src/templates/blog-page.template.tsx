@@ -69,6 +69,7 @@ export const Blog: React.FC<PageProps> = ({ data, location }) => {
               }
             >
               <BlogPreviewTile
+                location={location}
                 actionLabel={location?.pathname.includes('/en/') ? 'Read now' : 'Lire'}
                 title="Lancement du nouveau site web mirinc.ca"
                 className={styles.previewTitle}

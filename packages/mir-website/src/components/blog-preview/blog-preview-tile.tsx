@@ -9,6 +9,7 @@ import * as styleRefs from './blog-preview-tile.treat';
 
 type OwnProps = {
   className?: string;
+  location: Location;
   subtitle?: string | null;
   title?: string | null;
   actionLabel?: string | null;
