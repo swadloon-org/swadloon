@@ -1,10 +1,14 @@
 import { MotionProps, Variant } from 'framer-motion';
 
-// transition
-// feedback and status
 export enum ANIMATION_TYPE {
+  /**
+   * transitions
+   */
   fadeIn = 'fadeIn',
   fadeOut = 'fadeOut',
+  /**
+   * feedback
+   */
 }
 
 export enum ANIMATION_DURATION {
@@ -85,6 +89,7 @@ export type Variants = {
   [key: string]: Variant;
 };
 
+// TODO see if possible to type the Variants
 // export type Variants<VariantName> = VariantName extends null | undefined
 //   ? {
 //       [key: string]: Variant;

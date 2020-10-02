@@ -13,14 +13,20 @@ export enum VIEWPORT {
  * Breakpoint names
  */
 export enum BREAKPOINT {
+  //
   // mobile
+  //
   mobileXSmall = 'mobileXSmall',
   mobileSmall = 'mobileSmall',
   mobileMedium = 'mobileMedium',
+  //
   // tablet
+  //
   tabletPortrait = 'tabletPortrait',
   tabletLandscape = 'tabletLandscape',
+  //
   // desktop
+  //
   desktopSmall = 'desktopSmall',
   desktopMedium = 'desktopMedium',
   desktopLarge = 'desktopLarge',

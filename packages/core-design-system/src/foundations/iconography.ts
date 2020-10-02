@@ -4,7 +4,7 @@ import { SizingStep } from './sizing';
 /**
  * Default icons
  */
-export enum ICON_NAME {
+export enum ICON {
   MENU = 'menu',
   ARROW_TOP = 'arrow-top',
   ARROW_RIGHT = 'arrow-right',
@@ -13,7 +13,13 @@ export enum ICON_NAME {
 }
 
 export interface Icon {
-  name: string; // filename of the icon's svg
+  /**
+   * filename of the icon's svg
+   */
+  name: string;
+  /**
+   * to control the stroke width on svg icons that supports it
+   */
   weight?: string;
 }
 
@@ -25,7 +31,7 @@ export enum ICON_SIZE {
 
 export type IconSizes = { [key in keyof typeof ICON_SIZE]: SizingStep };
 
-export type Icons = { [key in keyof typeof ICON_NAME]: Icon } & { [key: string]: Icon };
+export type Icons = { [key in keyof typeof ICON]: Icon } & { [key: string]: Icon };
 
 export interface Iconography {
   /**
@@ -38,5 +44,5 @@ export interface Iconography {
    * Default icon infos (name and optionally weight) along with
    * extra icons.
    */
-  // icons: Icons;
+  icons: Icons;
 }
