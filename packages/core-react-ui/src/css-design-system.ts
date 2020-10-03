@@ -1,5 +1,5 @@
+import { DesignSystem } from '@newrade/core-design-system';
 import CSSTypes from 'csstype';
-import { DesignSystem } from '../../core-design-system/src';
 
 export type CSSDesignSystemTypes = {
   color: CSSTypes.Color;

@@ -8,10 +8,11 @@
     "types": ["node"],
     "outDir": "lib",
     "rootDir": "src",
+    // there is no easy way to provide a tsconfig for build and one to
+    // enable normal navigation in VSCode so we add the paths here
     "paths": {
-      "core-utils": ["../core-utils"],
-      "core-utils/*": ["../core-utils/*"]
+      "@newrade/*": ["packages/*/src"]
     }
   },
-  "include": ["src", "types"]
+  "include": ["src", "types", "test"]
 }

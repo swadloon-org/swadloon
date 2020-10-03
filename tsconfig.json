@@ -6,6 +6,6 @@
       "@newrade/*": ["packages/*/src"]
     },
     "skipLibCheck": true,
-    "types": []
+    "types": [] // will be set by each package
   }
 }
