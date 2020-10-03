@@ -1,12 +1,24 @@
-import { DesignSystem } from '@newrade/core-design-system';
+import { DesignSystem, DesignSystemTypes } from '@newrade/core-design-system';
 import CSSTypes from 'csstype';
 
-export type CSSDesignSystemTypes = {
+export interface CSSDesignSystemTypes extends DesignSystemTypes {
+  themes: 'light';
   color: CSSTypes.Color;
   shadow: CSSTypes.BoxShadowProperty;
-};
+  sizing: number;
+}
 
 export type CSSDesignSystem = DesignSystem<CSSDesignSystemTypes>;
+
+const defaultTheme: Partial<DesignSystem> = {
+  name: 'core-react-ui',
+  themes: 'light',
+};
+
+const defaultCSSTheme: Partial<CSSDesignSystem> = {
+  name: 'core-react-ui',
+  themes: 'light',
+};
 
 // theme.typography.headings.h1 => {}
 // themeCss.typography.headings.h1 => ... ?

@@ -1,8 +1,6 @@
-import { cssLoader, getTreatCSSPlugin, scssLoader } from '@newrade/core-webpack-config';
 import { CreateBabelConfigArgs, WebpackLoaders, WebpackPlugins } from 'gatsby';
-import { WebpackOptions } from 'webpack/declarations/WebpackOptions';
 import TreatPlugin from 'treat/webpack-plugin';
-import CspHtmlWebpackPlugin from 'csp-html-webpack-plugin';
+import { WebpackOptions } from 'webpack/declarations/WebpackOptions';
 
 export function createGatsbyWebpackConfig({
   isProduction,
@@ -35,34 +33,34 @@ export function createGatsbyWebpackConfig({
   // const productionPlugins = [bundleVisualizerPlugin];
   const productionPlugins = [];
 
-  const sassRule = {
-    test: /\.s(a|c)ss$/,
-    use: isSSR
-      ? [loaders.null()]
-      : [
-          loaders.miniCssExtract(),
-          loaders.css({ ...(cssLoader as any).query, importLoaders: 2 }),
-          loaders.postcss(),
-          scssLoader,
-        ],
-  };
+  // const sassRule = {
+  //   test: /\.s(a|c)ss$/,
+  //   use: isSSR
+  //     ? [loaders.null()]
+  //     : [
+  //         loaders.miniCssExtract(),
+  //         loaders.css({ ...(cssLoader as any).query, importLoaders: 2 }),
+  //         loaders.postcss(),
+  //         scssLoader,
+  //       ],
+  // };
 
-  const sassRuleModules = {
-    test: /\.module\.s(a|c)ss$/,
-    use: [
-      !isSSR && loaders.miniCssExtract({ hmr: false }),
-      loaders.css({ ...(cssLoader as any).query, modules: true, importLoaders: 2 }),
-      loaders.postcss(),
-      scssLoader,
-    ].filter(Boolean),
-  };
+  // const sassRuleModules = {
+  //   test: /\.module\.s(a|c)ss$/,
+  //   use: [
+  //     !isSSR && loaders.miniCssExtract({ hmr: false }),
+  //     loaders.css({ ...(cssLoader as any).query, modules: true, importLoaders: 2 }),
+  //     loaders.postcss(),
+  //     scssLoader,
+  //   ].filter(Boolean),
+  // };
 
   return {
     devtool: 'eval-source-map',
     module: {
       rules: [
         {
-          oneOf: [sassRuleModules, sassRule],
+          oneOf: [],
         },
       ],
     },

@@ -11,6 +11,12 @@
   "references": [
     {
       "path": "../core-design-system/tsconfig.build.json"
+    },
+    {
+      "path": "../core-utils/tsconfig.build.json"
+    },
+    {
+      "path": "../core-jest-config/tsconfig.build.json"
     }
   ],
   "include": ["src/**/*", "types/**/*"]

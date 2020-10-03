@@ -20,7 +20,7 @@
   ],
   "scripts": {
     "build": "tsc --build tsconfig.build.json",
-    "clean": "rimraf -r lib/**",
+    "clean": "rimraf -r lib/** && rm tsconfig.build.tsbuildinfo",
     "start": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
     "test": "echo test"
   },

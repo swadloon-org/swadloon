@@ -8,17 +8,21 @@ import { Sizing } from './foundations/sizing';
 import { Typography } from './foundations/typography';
 import { Color } from './primitives/color';
 
-export type DesignSystemTypes = {
-  color: any;
-  shadow: any;
-};
+// export type DesignSystemTypes = {
+//   themes: any;
+//   color: any;
+//   shadow: any;
+//   sizing: any;
+// };
 
-export type DefaultDesignSystemTypes = {
-  color: Color;
-  shadow: BoxShadow;
-};
+export interface DesignSystemTypes {
+  themes: 'light' | 'dark';
+  color: Color | string;
+  shadow: BoxShadow | string;
+  sizing: Sizing | number;
+}
 
-export interface DesignSystem<Types extends DesignSystemTypes = DefaultDesignSystemTypes> {
+export interface DesignSystem<Types extends DesignSystemTypes = DesignSystemTypes> {
   /**
    * Name of the project or brand's name.
    */
@@ -27,7 +31,7 @@ export interface DesignSystem<Types extends DesignSystemTypes = DefaultDesignSys
    * Theme variation's name.
    * @default 'light'
    */
-  variation: 'light' | 'dark' | string;
+  themes: Types['themes'];
   /**
    * Every color defined in the system.
    */
@@ -35,7 +39,7 @@ export interface DesignSystem<Types extends DesignSystemTypes = DefaultDesignSys
   /**
    * Contextual use of certain colors (text, action, state, etc).
    */
-  colorIntents: ColorIntents;
+  colorIntents: ColorIntents<Types['color']>;
   /**
    * Shadows, elevation, blurs and other visual effects.
    */
@@ -43,7 +47,7 @@ export interface DesignSystem<Types extends DesignSystemTypes = DefaultDesignSys
   /**
    * Defines the system's sizing values.
    */
-  sizing: Sizing;
+  sizing: Sizing<Types['sizing']>;
   /**
    * TODO
    */

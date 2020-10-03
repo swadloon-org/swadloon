@@ -1,5 +1,5 @@
 {
-  "extends": "../core-gatsby-config/tsconfig.ts-plugin.json",
+  "extends": "../core-gatsby-config/src/tsconfig/tsconfig.ts-plugin.json",
   "compilerOptions": {
     "rootDir": ".",
     "typeRoots": ["../../node_modules/@types", "src/types"]

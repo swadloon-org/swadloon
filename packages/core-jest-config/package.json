@@ -15,7 +15,7 @@
   ],
   "scripts": {
     "build": "tsc --build tsconfig.build.json",
-    "clean": "rimraf -r lib/**",
+    "clean": "rimraf -r lib/** && rm tsconfig.build.tsbuildinfo",
     "start": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
     "test": "jest"
   },
@@ -23,5 +23,8 @@
   "peerDependencies": {
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
+  },
+  "dependencies": {
+    "@newrade/core-utils": "^1"
   }
 }

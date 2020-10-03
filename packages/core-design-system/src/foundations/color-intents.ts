@@ -3,40 +3,40 @@ import { Color } from '../primitives/color';
 /**
  * Contextual use of certain colors (text, action, state, etc).
  */
-export interface ColorIntents {
+export interface ColorIntents<T = Color> {
   /**
    * TODO
    */
-  accessibilityColor?: Color;
+  accessibilityColor?: T;
 
-  primary: Color;
-  primaryReversed: Color;
+  primary: T;
+  primaryReversed: T;
 
-  secondary: Color;
-  secondaryReversed: Color;
+  secondary: T;
+  secondaryReversed: T;
 
-  primaryText: Color;
-  primaryTextReversed: Color;
+  primaryText: T;
+  primaryTextReversed: T;
 
-  secondaryText: Color;
-  secondaryTextReversed: Color;
+  secondaryText: T;
+  secondaryTextReversed: T;
 
-  tertiaryText: Color;
-  tertiaryTextReversed: Color;
+  tertiaryText: T;
+  tertiaryTextReversed: T;
 
-  successText: Color;
-  successAction: Color;
-  successBackground: Color;
+  successText: T;
+  successAction: T;
+  successBackground: T;
 
-  warningText: Color;
-  warningAction: Color;
-  warningBackground: Color;
+  warningText: T;
+  warningAction: T;
+  warningBackground: T;
 
-  dangerText: Color;
-  dangerAction: Color;
-  dangerBackground: Color;
+  dangerText: T;
+  dangerAction: T;
+  dangerBackground: T;
 
-  background0: Color;
-  background1: Color;
-  background2: Color;
+  background0: T;
+  background1: T;
+  background2: T;
 }

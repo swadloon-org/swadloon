@@ -7,5 +7,10 @@
     "types": ["jest", "node", "expect-puppeteer", "jest-environment-puppeteer", "puppeteer"],
     "typeRoots": ["../../node_modules/@types", "types"]
   },
+  "references": [
+    {
+      "path": "../core-utils/tsconfig.build.json"
+    }
+  ],
   "include": ["src", "types"]
 }

@@ -10,12 +10,13 @@
   ],
   "scripts": {
     "build": "tsc --build tsconfig.build.json",
-    "clean": "rimraf -r lib/**",
+    "clean": "rimraf -r lib/** && rm tsconfig.build.tsbuildinfo",
     "start": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
     "test": "TS_NODE_PROJECT=tsconfig.webpack.json node -r ts-node/register ../../node_modules/webpack/bin/webpack.js --config webpack.test.config.ts"
   },
   "typings": "./lib/index.d.ts",
   "dependencies": {
-    "@newrade/core-jest-config": "^1"
+    "@newrade/core-jest-config": "^1",
+    "@newrade/core-utils": "^1"
   }
 }

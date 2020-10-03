@@ -1,3 +1,4 @@
+import { ButtonHTMLAttributes } from 'react';
 import { Color } from '../../primitives/color';
 import { BoxStyle } from '../atoms/box';
 
@@ -36,7 +37,7 @@ export enum ButtonState {
   disabled = 'disabled',
 }
 
-export interface ButtonProps {
+export interface ButtonProps extends ButtonHTMLAttributes<any> {
   /**
    * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/button_role
    */

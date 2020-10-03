@@ -1,7 +1,7 @@
 {
   "name": "@newrade/core-yo-generator",
   "version": "1.3.3",
-  "description": "Yeoman generator to scafold libraries, apps, components and more.",
+  "description": "Yeoman generators to scafold libraries, apps, components and more.",
   "author": {
     "email": "philippe.leger@newrade.ca",
     "name": "Philippe Leger",
@@ -14,7 +14,7 @@
   },
   "scripts": {
     "build": "tsc --build tsconfig.build.json",
-    "clean": "rimraf -r lib/**",
+    "clean": "rimraf -r lib/** && rm tsconfig.build.tsbuildinfo",
     "start": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
     "test": "mocha lib/test/generator.test.js",
     "yo": "yo ./lib/src/ -- --no-insight --no-update-notifier"
@@ -24,6 +24,7 @@
     "inquirer": "^7.0.0",
     "yeoman-assert": "^3.1.1",
     "yeoman-generator": "^4.2.0",
-    "yeoman-test": "^2.0.0"
+    "yeoman-test": "^2.0.0",
+    "@newrade/core-utils": "^1"
   }
 }
