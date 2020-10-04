@@ -1,3 +1,10 @@
 {
-  "extends": "../../tsconfig.json"
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@newrade/*": ["../*/src"]
+    }
+  },
+  "include": ["src", "types"]
 }

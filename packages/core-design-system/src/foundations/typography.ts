@@ -1,22 +1,29 @@
-import { CapsizeStyles, FontMetrics } from 'capsize';
-import { FontWeightProperty, TextTransformProperty, LetterSpacingProperty } from 'csstype';
+import { Font } from './font';
 import { VIEWPORT } from './layout';
-import { SizingStep } from './sizing';
+import { TextStyle, TEXT_TRANSFORM } from './text';
 
 /**
  * The main typographic styles.
  */
 export enum TYPOGRAPHIC_STYLE {
-  SANS = 'SANS',
-  SANS_ALTERNATE = 'SANS_ALTERNATE',
-  SERIF = 'SERIF',
-  MONOSPACE = 'MONOSPACE',
+  sans = 'sans',
+  sansAlternate = 'sansAlternate',
+  serif = 'serif',
+  monospace = 'monospace',
+}
+
+/**
+ * Levels for bigger titles, ususally for landing pages.
+ */
+export enum TITLE {
+  h1 = 'h1',
+  h2 = 'h2',
 }
 
 /**
  * The headings (e.g. <h1/>, <h2/>...) levels.
  */
-export enum HEADING_LEVEL {
+export enum HEADING {
   h1 = 'h1',
   h2 = 'h2',
   h3 = 'h3',
@@ -51,103 +58,66 @@ export enum LABEL {
   xSmallRegular = 'xSmallRegular',
 }
 
-export interface Font {
-  /**
-   * Name of the font / font familily
-   */
-  name: string;
-  vendor?: string;
-  link?: string;
-  /**
-   * Font-specific metric for capsize.
-   */
-  fontMetrics: FontMetrics;
-}
-
 /**
  * Available fonts in the design system.
  */
 export type Fonts = { [key in keyof typeof TYPOGRAPHIC_STYLE]?: Font };
 
-export interface TextStyle {
-  /**
-   * Font object that contains information about the typeface.
-   */
-  font: Font;
-  /**
-   * Font family which will be rendered in CSS files.
-   *
-   * @example 'Montserrat-Bold'
-   */
-  fontFamily: string;
-  /**
-   * Specify the font weight in number.
-   *
-   * @example 500
-   */
-  fontWeight: FontWeightProperty;
-  /**
-   * Optional property to set `letter-spacing`.
-   * Note that only percentage (x%) values are allowed right now.
-   *
-   * @example '3%' becomes '0.48em'
-   */
-  letterSpacing?: LetterSpacingProperty<any>;
-  /**
-   * Optional property to set `text-transform`.
-   *
-   * @example 'uppercase'
-   */
-  textTransform?: TextTransformProperty;
-  /**
-   * Desired capital letter height in pixels. (which is usually the height of the letter 'X')
-   * @see https://seek-oss.github.io/capsize/
-   */
-  capHeight: SizingStep | number;
-  /**
-   * Desired line gap in pixels.
-   */
-  lineGap: number;
-  /**
-   * Direct output of capsize (values are in px).
-   */
-  capsizePx: CapsizeStyles;
-  /**
-   * Converted capsize values in `rem` unit.
-   */
-  capsizeRem: CapsizeStyles;
-}
+/**
+ * TODO
+ */
+export type Titles<FontWeightType = number, LetterSpacingType = number, TextTransformType = TEXT_TRANSFORM> = {
+  [key in keyof typeof TITLE]: {
+    [key in keyof typeof TYPOGRAPHIC_STYLE]?: TextStyle<FontWeightType, LetterSpacingType, TextTransformType>;
+  };
+};
 
 /**
  * TODO
  */
-export type Headings = { [key in keyof typeof HEADING_LEVEL]: TextStyle };
+export type Headings<FontWeightType = number, LetterSpacingType = number, TextTransformType = TEXT_TRANSFORM> = {
+  [key in keyof typeof HEADING]: {
+    [key in keyof typeof TYPOGRAPHIC_STYLE]?: TextStyle<FontWeightType, LetterSpacingType, TextTransformType>;
+  };
+};
 
 /**
  * TODO
  */
-export type Paragraphs = { [key in keyof typeof PARAGRAPH]: TextStyle };
+export type Paragraphs<FontWeightType = number, LetterSpacingType = number, TextTransformType = TEXT_TRANSFORM> = {
+  [key in keyof typeof PARAGRAPH]: {
+    [key in keyof typeof TYPOGRAPHIC_STYLE]?: TextStyle<FontWeightType, LetterSpacingType, TextTransformType>;
+  };
+};
 
 /**
  * TODO
  */
-export type Labels = { [key in keyof typeof LABEL]: TextStyle };
+export type Labels<FontWeightType = number, LetterSpacingType = number, TextTransformType = TEXT_TRANSFORM> = {
+  [key in keyof typeof LABEL]: {
+    [key in keyof typeof TYPOGRAPHIC_STYLE]?: TextStyle<FontWeightType, LetterSpacingType, TextTransformType>;
+  };
+};
 
-export interface Typography {
+export interface Typography<FontWeightType = number, LetterSpacingType = number, TextTransformType = TEXT_TRANSFORM> {
   /**
    * Available fonts in the design system.
    */
   fonts: Fonts;
   /**
-   * TODO
+   *
    */
-  headings: { [key in keyof typeof VIEWPORT]: Headings };
+  titles: { [key in keyof typeof VIEWPORT]: Titles<FontWeightType, LetterSpacingType, TextTransformType> };
   /**
    * TODO
    */
-  paragraphs: { [key in keyof typeof VIEWPORT]: Paragraphs };
+  headings: { [key in keyof typeof VIEWPORT]: Headings<FontWeightType, LetterSpacingType, TextTransformType> };
   /**
    * TODO
    */
-  labels: { [key in keyof typeof VIEWPORT]: Labels };
+  paragraphs: { [key in keyof typeof VIEWPORT]: Paragraphs<FontWeightType, LetterSpacingType, TextTransformType> };
+  /**
+   * TODO
+   */
+  labels: { [key in keyof typeof VIEWPORT]: Labels<FontWeightType, LetterSpacingType, TextTransformType> };
 }

@@ -1,31 +1,30 @@
 import { Color } from '../../primitives/color';
-import { LengthValue } from '../../primitives/value';
 
 export type Padding = {
-  default?: LengthValue;
-  top?: LengthValue;
-  right?: LengthValue;
-  bottom?: LengthValue;
-  left?: LengthValue;
+  default?: number;
+  top?: number;
+  right?: number;
+  bottom?: number;
+  left?: number;
 };
 
 export type Border = {
   borderColor?: Color;
   borderStyle?: 'solid' | 'dotted';
-  borderWidth?: LengthValue;
-  borderRadius?: LengthValue;
+  borderWidth?: number;
+  borderRadius?: number;
 };
 
 export type Outline = {
   outlineColor?: Color;
   outlineStyle?: 'solid' | 'dotted';
-  outlineWidth?: LengthValue;
-  outlineRadius?: LengthValue;
+  outlineWidth?: number;
+  outlineRadius?: number;
 };
 
 export type BoxStyle = {
-  width?: LengthValue;
-  height?: LengthValue;
+  width?: number;
+  height?: number;
   padding?: Padding;
   border?: {
     default?: Border;

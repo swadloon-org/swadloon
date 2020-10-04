@@ -5,21 +5,23 @@ import { BoxShadow, Effects } from './foundations/effects';
 import { Iconography } from './foundations/iconography';
 import { Layout } from './foundations/layout';
 import { Sizing } from './foundations/sizing';
+import { TEXT_TRANSFORM } from './foundations/text';
 import { Typography } from './foundations/typography';
 import { Color } from './primitives/color';
-
-// export type DesignSystemTypes = {
-//   themes: any;
-//   color: any;
-//   shadow: any;
-//   sizing: any;
-// };
 
 export interface DesignSystemTypes {
   themes: 'light' | 'dark';
   color: Color | string;
   shadow: BoxShadow | string;
   sizing: Sizing | number;
+  typography: {
+    fontWeight: number | string;
+    letterSpacing: number;
+    textTransform: TEXT_TRANSFORM | string;
+  };
+  layout: {
+    breakpointType: number;
+  };
 }
 
 export interface DesignSystem<Types extends DesignSystemTypes = DesignSystemTypes> {
@@ -51,11 +53,15 @@ export interface DesignSystem<Types extends DesignSystemTypes = DesignSystemType
   /**
    * TODO
    */
-  iconography: Iconography;
+  iconography: Iconography<Types['sizing']>;
   /**
    * Defines every text styles.
    */
-  typography: Typography;
+  typography: Typography<
+    Types['typography']['fontWeight'],
+    Types['typography']['letterSpacing'],
+    Types['typography']['textTransform']
+  >;
   /**
    * TODO
    */
@@ -65,7 +71,7 @@ export interface DesignSystem<Types extends DesignSystemTypes = DesignSystemType
   /**
    * Breakpoints, common content margins for different viewports.
    */
-  layout: Layout;
+  layout: Layout<Types['layout']['breakpointType']>;
   /**
    * Components' specific settings.
    */

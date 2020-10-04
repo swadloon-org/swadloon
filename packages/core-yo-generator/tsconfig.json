@@ -1,6 +1,10 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "types": ["node", "yeoman-generator", "mocha"]
+    "types": ["node", "yeoman-generator", "mocha"],
+    "baseUrl": ".",
+    "paths": {
+      "@newrade/*": ["../*/src"]
+    }
   }
 }

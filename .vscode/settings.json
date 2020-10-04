@@ -2,7 +2,7 @@
   //
   // TypeScript Settings
   //
-  "typescript.preferences.importModuleSpecifier": "relative",
+  "typescript.preferences.importModuleSpecifier": "non-relative",
   "[typescript]": {
     "editor.codeActionsOnSave": {
       "source.organizeImports": true

@@ -2,7 +2,9 @@ import { VIEWPORT } from './layout';
 import { SizingStep } from './sizing';
 
 /**
- * Default icons
+ * Default icons and their filenames.
+ * @example
+ *    MENU = 'menu' would mean that a menu.svg icon exists in src/icons/
  */
 export enum ICON {
   MENU = 'menu',
@@ -29,16 +31,16 @@ export enum ICON_SIZE {
   small = 'small',
 }
 
-export type IconSizes = { [key in keyof typeof ICON_SIZE]: SizingStep };
+export type IconSizes<SizingType = SizingStep> = { [key in keyof typeof ICON_SIZE]: SizingType };
 
 export type Icons = { [key in keyof typeof ICON]: Icon } & { [key: string]: Icon };
 
-export interface Iconography {
+export interface Iconography<SizingType = SizingStep> {
   /**
    * Icon size for each viewport.
    */
   sizes: {
-    [key in keyof typeof VIEWPORT]: IconSizes;
+    [key in keyof typeof VIEWPORT]: IconSizes<SizingType>;
   };
   /**
    * Default icon infos (name and optionally weight) along with
