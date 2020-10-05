@@ -13,14 +13,14 @@ import { PageProps } from 'gatsby';
 import { Heading } from '../components/heading';
 import { Paragraph } from '../components/paragraph';
 import { Label } from '../components/label';
-import { LABEL } from 'core-design-system';
+import { LABEL } from 'core-design-system-old';
 import { Button } from '../components/button';
 import {
   getMetaBasicTags,
   getMetadataOpenGraphWebsiteTags,
   OPEN_GRAPH_TYPE,
   getMetadataTwitterTags,
-} from 'core-react-ui';
+} from 'core-react-ui-old';
 
 type Props = {
   data: BlogPageFrQuery;

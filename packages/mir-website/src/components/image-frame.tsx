@@ -5,7 +5,7 @@ import * as styleRefs from './image-frame.treat';
 import LazyLoad from 'react-lazyload';
 import { motion, AnimatePresence } from 'framer-motion';
 import { wrap } from '@popmotion/popcorn';
-import { ICON_SIZE } from 'core-design-system';
+import { ICON_SIZE } from 'core-design-system-old';
 import { Icon } from '../ui/icon';
 
 enum MOTION_STATE {

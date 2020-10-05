@@ -17,6 +17,10 @@
       "path": "../packages/core-design-system"
     },
     {
+      "name": "core-design-system-old",
+      "path": "../packages/core-design-system-old"
+    },
+    {
       "name": "core-docs-generator",
       "path": "../packages/core-docs-generator"
     },
@@ -31,6 +35,10 @@
     {
       "name": "core-react-ui",
       "path": "../packages/core-react-ui"
+    },
+    {
+      "name": "core-react-ui-old",
+      "path": "../packages/core-react-ui-old"
     },
     {
       "name": "core-utils",

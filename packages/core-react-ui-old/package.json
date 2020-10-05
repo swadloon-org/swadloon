@@ -1,0 +1,29 @@
+{
+  "name": "core-react-ui-old",
+  "version": "1.4.2",
+  "description": "UI library",
+  "license": "MIT",
+  "main": "./lib/index.js",
+  "module": "./lib/index.js",
+  "files": [
+    "./lib/**/*"
+  ],
+  "scripts": {
+    "build": "yarn build:lib",
+    "build:app": "webpack --config webpack.dev.config.cjs",
+    "build:lib": "tsc --build tsconfig-lib.json",
+    "clean": "rimraf -r dist/**",
+    "postinstall": "yarn build",
+    "start": "concurrently \"yarn start:lib\"",
+    "start:app": "webpack-dev-server --config webpack.dev.config.cjs",
+    "start:lib": "tsc --build tsconfig-lib.json --watch --preserveWatchOutput",
+    "test": "echo ok"
+  },
+  "type": "module",
+  "typings": "./lib/index.d.ts",
+  "dependencies": {
+    "core-design-system-old": "link:../core-design-system-old",
+    "core-jest-config": "link:../core-jest-config",
+    "treat": "^1.5.1"
+  }
+}

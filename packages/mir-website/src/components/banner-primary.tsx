@@ -1,4 +1,4 @@
-import { LABEL } from 'core-design-system';
+import { LABEL } from 'core-design-system-old';
 import BackgroundImage from 'gatsby-background-image';
 import React from 'react';
 import { useStyles } from 'react-treat';

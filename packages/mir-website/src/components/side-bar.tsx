@@ -1,4 +1,4 @@
-import { ICON_SIZE, LABEL } from 'core-design-system';
+import { ICON_SIZE, LABEL } from 'core-design-system-old';
 import { graphql, useStaticQuery } from 'gatsby';
 import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';

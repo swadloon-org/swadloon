@@ -1,4 +1,4 @@
-import { DesignSystem, createShadow } from 'core-design-system';
+import { DesignSystem, createShadow } from 'core-design-system-old';
 import { style, globalStyle } from 'treat';
 import { theme } from '../design-system';
 

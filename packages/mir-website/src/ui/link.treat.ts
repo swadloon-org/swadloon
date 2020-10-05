@@ -1,4 +1,4 @@
-import { DesignSystem } from 'core-design-system';
+import { DesignSystem } from 'core-design-system-old';
 import { style, globalStyle } from 'treat';
 
 export const link = style((theme: DesignSystem) => ({

@@ -1,4 +1,4 @@
-import { DesignSystem, PARAGRAPH } from 'core-design-system';
+import { DesignSystem, PARAGRAPH } from 'core-design-system-old';
 import { style, CSSProperties } from 'treat';
 
 type Styles = { [key in keyof typeof PARAGRAPH]: string };

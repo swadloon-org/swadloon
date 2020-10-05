@@ -3,7 +3,7 @@ import { useStyles } from 'react-treat';
 import * as styleRefs from './author.treat';
 import LazyLoad from 'react-lazyload';
 import { Label } from '../label';
-import { LABEL } from 'core-design-system';
+import { LABEL } from 'core-design-system-old';
 
 interface OwnProps {}
 

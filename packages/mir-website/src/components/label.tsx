@@ -1,7 +1,7 @@
 import React, { LabelHTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './label.treat';
-import { LABEL } from 'core-design-system';
+import { LABEL } from 'core-design-system-old';
 
 interface OwnProps {
   variant: LABEL;

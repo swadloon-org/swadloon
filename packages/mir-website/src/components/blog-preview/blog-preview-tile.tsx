@@ -1,4 +1,4 @@
-import { LABEL } from 'core-design-system';
+import { LABEL } from 'core-design-system-old';
 import React from 'react';
 import { Link as GatsbyLink } from 'gatsby';
 import { useStyles } from 'react-treat';

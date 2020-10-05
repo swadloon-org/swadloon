@@ -1,0 +1,15 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "declaration": true,
+    "sourceMap": true,
+    "outDir": "./dist/",
+    "rootDir": ".",
+    "strict": false,
+    "target": "es6",
+    "module": "commonjs",
+    "types": ["node"]
+  },
+  "typeRoots": ["../../node_modules/@types", "./types"],
+  "include": ["webpack.*.config.ts"]
+}

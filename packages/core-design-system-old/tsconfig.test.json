@@ -1,0 +1,17 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "module": "esnext",
+    "declaration": true,
+    "sourceMap": true,
+    "types": ["node"],
+    "outDir": "./lib",
+    "rootDir": "./test",
+    "target": "es6",
+    "paths": {
+      "core-design-system": ["./lib"]
+    }
+  },
+  "include": ["./test/**/*"],
+  "exclude": ["./dist/", "./node_modules/"]
+}

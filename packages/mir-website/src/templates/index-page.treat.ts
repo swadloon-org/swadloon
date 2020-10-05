@@ -1,4 +1,4 @@
-import { DesignSystem } from 'core-design-system';
+import { DesignSystem } from 'core-design-system-old';
 import { applyStylesToHtmlElement, applyStylesToBodyElement, applyReset } from '../styles/global.styles';
 import { style } from 'treat';
 

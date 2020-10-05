@@ -21,8 +21,8 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "dependencies": {
-    "core-design-system": "link:../core-design-system",
-    "core-react-ui": "link:../core-react-ui",
+    "core-design-system-old": "link:../core-design-system-old",
+    "core-react-ui-old": "link:../core-react-ui-old",
     "gatsby": "^2.17.11"
   },
   "peerDependencies": {

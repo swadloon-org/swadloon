@@ -1,4 +1,4 @@
-import { LABEL } from 'core-design-system';
+import { LABEL } from 'core-design-system-old';
 import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
 import { Illustration } from './illustration';

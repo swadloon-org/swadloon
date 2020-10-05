@@ -1,4 +1,4 @@
-import { DesignSystem, LABEL } from 'core-design-system';
+import { DesignSystem, LABEL } from 'core-design-system-old';
 import { style, CSSProperties } from 'treat';
 
 const base: CSSProperties = {

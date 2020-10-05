@@ -1,4 +1,4 @@
-import { DesignSystem } from 'core-design-system';
+import { DesignSystem } from 'core-design-system-old';
 import { style } from 'treat';
 
 export const h1 = style((theme: DesignSystem) => ({
