@@ -12,7 +12,7 @@ assignees: ''
 
 ## Tooling
 
-- [ ] Learn How VSCode is made`
+- [ ] Learn How VSCode is made
 
 ## Language
 
