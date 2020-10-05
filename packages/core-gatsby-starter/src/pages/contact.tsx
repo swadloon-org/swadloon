@@ -9,7 +9,9 @@ export const ContactQuery = graphql`
       name
       formFields {
         name
+        id
         type
+        placeholder
         validations {
           name
           pattern
