@@ -1,6 +1,6 @@
 import { GatsbyNode } from 'gatsby';
-import { createGatsbyWebpackConfig } from './webpack.config';
 import path from 'path';
+import { createGatsbyWebpackConfig } from './webpack.config';
 
 /**
  * Gatsby Node Configuration
@@ -41,7 +41,7 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
         id: node.id,
         content: node.contentRich,
       } as BlogPostContext,
-      path: `/blog-post/${node.title}`,
+      path: `/blog-post/_${node.title}`,
     });
   });
 };

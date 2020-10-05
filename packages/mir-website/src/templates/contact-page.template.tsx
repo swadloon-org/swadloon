@@ -25,7 +25,7 @@ export const Contact: React.FC<PageProps> = ({ data, location }) => {
     data?.bannerImageMobile?.childImageSharp?.fluid,
     {
       ...data?.bannerImageDesktop?.childImageSharp?.fluid,
-      media: `(min-width: ${theme.layout.breakpoints.desktopSmall.px})`,
+      media: `(min-width: ${theme.layout.breakpoints.desktopSmall})`,
     },
   ];
 
