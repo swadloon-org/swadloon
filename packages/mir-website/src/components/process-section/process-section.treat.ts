@@ -33,7 +33,7 @@ export const title = style((theme: DesignSystem) => ({
 export const content = style((theme: DesignSystem) => ({
   position: 'relative',
   zIndex: 2,
-  display: 'grid',
+  display: 'flex',
   gridColumn: '1',
   gridGap: `${theme.sizing.sizes.x4}`,
   margin: `0 ${theme.layout.contentMargins.mobile.px}`,
@@ -42,7 +42,6 @@ export const content = style((theme: DesignSystem) => ({
 
   '@media': {
     [theme.layout.media.desktop]: {
-      display: 'flex',
       justifyContent: 'center',
       flexDirection: 'row',
       gridGap: `0 ${theme.sizing.sizes.x2}`,
@@ -174,13 +173,32 @@ export const blocContent = style((theme: DesignSystem) => ({
   },
 }));
 
+// export const line = style((theme: DesignSystem) => ({
+//   position: 'absolute',
+//   zIndex: -1,
+//   border: `3px solid ${theme.colors.greyscale0}`,
+//   backgroundColor: theme.colors.greyscale0,
+//   width: '0',
+//   top: '25px',
+//   left: '22px',
+//   height: '90%',
+
+//   '@media': {
+//     [theme.layout.media.desktop]: {
+//       width: `calc(100% - 100px - (${theme.sizing.sizes.x2}*2))`,
+//       height: '0',
+//       left: 'auto',
+//       right: 'auto',
+//     },
+//   },
+
+//   selectors: {
+//     [`${blocContent} &`]: {
+//       alignSelf: 'center',
+//     },
+//   },
+// }));
+
 export const contentBlue = style((theme: DesignSystem) => ({
   color: theme.colors.primary500,
-}));
-export const textBloc = style((theme: DesignSystem) => ({
-  '@media': {
-    [theme.layout.media.mobile]: {
-      marginTop: '10px',
-    },
-  },
 }));

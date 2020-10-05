@@ -9,39 +9,28 @@
       "type": "node",
       "request": "launch",
       "protocol": "inspector",
-      "program": "${workspaceFolder}/../../node_modules/.bin/gatsby",
+      "program": "${workspaceFolder}/node_modules/.bin/gatsby",
       "args": ["develop", "--inspect-brk"],
       "env": {
         "NODE_ENV": "development",
-        "DEBUG": "gatsby:*",
-        // see https://gist.github.com/cecilemuller/2963155d0f249c1544289b78a1cdd695
-        "TS_NODE_PROJECT": "${workspaceFolder}/../core-gatsby-config/src/tsconfig/tsconfig.gatsby-config.json"
+        "DEBUG": "gatsby:*"
       },
       "stopOnEntry": false,
       "runtimeArgs": ["--nolazy", "-r", "ts-node/register"],
       "internalConsoleOptions": "neverOpen",
       "sourceMaps": true,
-      "preLaunchTask": "clean",
-      "skipFiles": ["<node_internals>/**", "node_modules/**"]
+      "preLaunchTask": "clean"
     },
     {
       "name": "Gatsby build",
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
-      "program": "${workspaceRoot}/../../node_modules/.bin/gatsby",
+      "protocol": "inspector",
+      "program": "${workspaceFolder}/../../node_modules/.bin/gatsby",
       "args": ["build"],
-      "runtimeArgs": ["--nolazy"],
-      "internalConsoleOptions": "neverOpen",
       "stopOnEntry": false,
-      "env": {
-        "NODE_ENV": "development",
-        "DEBUG": "gatsby:*"
-      },
-      "sourceMaps": true,
-      "autoAttachChildProcesses": false,
-      "console": "integratedTerminal",
-      "preLaunchTask": "clean",
-      "skipFiles": ["<node_internals>/**"]
+      "runtimeArgs": ["--nolazy"],
+      "sourceMaps": false
     }
   ]
 }

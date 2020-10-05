@@ -22,13 +22,13 @@ interface PageProps {
 
 export const EmployerPageTemplate: React.FC<PageProps> = ({ data, location }) => {
   const styles = useStyles(stylesRef);
-  const actionSection1 = data.allGraphCmsPage[0].actionSections[0];
-  const section1 = data.allGraphCmsPage[0]?.infoSections[0];
-  const section2 = data.allGraphCmsPage[0]?.infoSections[1];
-  const section6 = data.allGraphCmsPage[0]?.infoSections[2];
+  const actionSection1 = data.gcms.pages[0].actionSections[0];
+  const section1 = data.gcms?.pages[0]?.infoSections[0];
+  const section2 = data.gcms?.pages[0]?.infoSections[1];
+  const section6 = data.gcms?.pages[0]?.infoSections[2];
 
-  const jobSection = data.allGraphCmsPage[0]?.jobSections[0];
-  const processSection = data.allGraphCmsPage[0]?.processSections[0];
+  const jobSection = data.gcms?.pages[0]?.jobSections[0];
+  const processSection = data.gcms?.pages[0]?.processSections[0];
 
   const sources = [
     data?.bannerImageMobile?.childImageSharp?.fluid,
@@ -40,7 +40,7 @@ export const EmployerPageTemplate: React.FC<PageProps> = ({ data, location }) =>
 
   return (
     <main className={`${styles.wrapper}`}>
-      <BannerSecondary imageData={sources} title={data?.allGraphCmsPage[0]?.bannerTitle}></BannerSecondary>
+      <BannerSecondary imageData={sources} title={data?.gcms?.pages[0]?.bannerTitle}></BannerSecondary>
 
       {section6 && section6.type === 'type6' ? <InfoSectionType6Group {...section6} /> : null}
 

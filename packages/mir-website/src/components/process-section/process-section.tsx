@@ -52,9 +52,7 @@ export const Process: React.FC<OwnProps> = (props) => {
                 >
                   <Heading variant="h4">{tile.title}</Heading>
                   {props.processSection?.type?.title == 'Default' ? (
-                    <Paragraph className={styles.textBloc} variant="small">
-                      {tile.description}
-                    </Paragraph>
+                    <Paragraph variant="small">{tile.description}</Paragraph>
                   ) : null}
                 </div>
               </div>

@@ -1,7 +1,7 @@
-import { cssLoader } from '@newrade/core-webpack-config';
+import { cssLoader, getTreatCSSPlugin, scssLoader } from '@newrade/core-webpack-config';
 import { CreateBabelConfigArgs, WebpackLoaders, WebpackPlugins } from 'gatsby';
-import TreatPlugin from 'treat/webpack-plugin';
 import { WebpackOptions } from 'webpack/declarations/WebpackOptions';
+import TreatPlugin from 'treat/webpack-plugin';
 
 export function createGatsbyWebpackConfig({
   isProduction,
@@ -32,47 +32,38 @@ export function createGatsbyWebpackConfig({
   ];
 
   // const productionPlugins = [bundleVisualizerPlugin];
-  const devPlugins = [];
   const productionPlugins = [];
 
-  const cssRule = {
-    test: /\.css$/,
+  const sassRule = {
+    test: /\.s(a|c)ss$/,
     use: isSSR
       ? [loaders.null()]
-      : [loaders.miniCssExtract({ hmr: false }), loaders.css({ ...(cssLoader as any).query, modules: false })],
+      : [
+          loaders.miniCssExtract(),
+          loaders.css({ ...(cssLoader as any).query, importLoaders: 2 }),
+          loaders.postcss(),
+          scssLoader,
+        ],
   };
 
-  // const sassRule = {
-  //   test: /\.s(a|c)ss$/,
-  //   use: isSSR
-  //     ? [loaders.null()]
-  //     : [
-  //         loaders.miniCssExtract({ hmr: true }),
-  //         loaders.css({ ...(cssLoader as any).query, importLoaders: 2 }),
-  //         loaders.postcss(),
-  //         scssLoader,
-  //       ],
-  // };
-
-  // const sassRuleModules = {
-  //   test: /\.module\.s(a|c)ss$/,
-  //   use: [
-  //     !isSSR && loaders.miniCssExtract({ hmr: false }),
-  //     loaders.css({ ...(cssLoader as any).query, modules: true, importLoaders: 2 }),
-  //     loaders.postcss(),
-  //     scssLoader,
-  //   ].filter(Boolean),
-  // };
+  const sassRuleModules = {
+    test: /\.module\.s(a|c)ss$/,
+    use: [
+      !isSSR && loaders.miniCssExtract({ hmr: false }),
+      loaders.css({ ...(cssLoader as any).query, modules: true, importLoaders: 2 }),
+      loaders.postcss(),
+      scssLoader,
+    ].filter(Boolean),
+  };
 
   return {
-    devtool: 'source-map',
     module: {
       rules: [
         {
-          oneOf: [cssRule],
+          oneOf: [sassRuleModules, sassRule],
         },
       ],
     },
-    plugins: isProduction ? [...commonPlugins, ...productionPlugins] : [...commonPlugins, ...devPlugins],
+    plugins: isProduction ? [...commonPlugins, ...productionPlugins] : [...commonPlugins],
   };
 }

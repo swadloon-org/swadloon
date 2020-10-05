@@ -48,12 +48,7 @@ export const infoSectionsQuery = graphql`
       illustration
     }
     image {
-      bannerImageMobile: localFile {
-        ...MobileFluidImage
-      }
-      bannerImageDesktop: localFile {
-        ...DesktopFluidImage
-      }
+      url(transformation: { image: { resize: { width: 500, fit: max } } })
     }
   }
 `;

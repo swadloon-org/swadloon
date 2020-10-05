@@ -69,20 +69,16 @@ export const content = style((theme: DesignSystem) => ({
 
 export const video = style((theme: DesignSystem) => ({
   width: '80%',
-  height: '100%',
-
   boxShadow: createShadow({
     ...theme.effects.shadows.heavy,
   }).css,
   '@media': {
     [theme.layout.media.tablet]: {
       width: '65%',
-      height: '100%',
     },
 
     [theme.layout.media.desktop]: {
       width: '50%',
-      height: '100%',
     },
   },
 }));

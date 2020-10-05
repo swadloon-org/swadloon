@@ -8,7 +8,6 @@ import * as dotenv from 'dotenv';
 import path from 'path';
 import { ENV, SITE_ENV } from './types/dot-env';
 import { log } from '@newrade/core-utils';
-import { icon } from './src/components/accordions.treat';
 
 // TODO move to a different file
 const env = loadDotEnv();
@@ -55,26 +54,6 @@ const config: GastbySiteConfig = {
         headers: {
           Authorization: `bearer ${env.GRAPH_CMS_AUTH_TOKEN_MIR}`,
         },
-      },
-    },
-    /**
-     * gatsby-source-graphcms
-     * @see https://github.com/GraphCMS/gatsby-source-graphcms/tree/next/gatsby-source-graphcms
-     */
-    // {
-    //   resolve: 'gatsby-source-graphcms',
-    //   options: {
-    //     downloadLocalImages: true,
-    //     buildMarkdownNodes: true,
-    //     endpoint: env.GRAPH_CMS_API_URL_MIR,
-    //     token: env.GRAPH_CMS_AUTH_TOKEN_MIR,
-    //   },
-    // },
-    {
-      resolve: `gatsby-plugin-mdx`,
-      options: {
-        remarkPlugins: [],
-        rehypePlugins: [],
       },
     },
     {
@@ -203,80 +182,6 @@ const config: GastbySiteConfig = {
           },
         },
       },
-    },
-    /**
-     * gatsby-plugin-csp
-     *
-     * @see https://www.gatsbyjs.com/plugins/gatsby-plugin-csp/
-     */
-    {
-      resolve: `gatsby-plugin-csp`,
-      options: {
-        disableOnDev: true,
-        reportOnly: false,
-        mergeScriptHashes: true,
-        mergeStyleHashes: false,
-        mergeDefaultDirectives: true,
-        directives: {
-          'script-src': "'self'",
-          'style-src': "'self' 'unsafe-inline'",
-          'img-src': "'self' data: https://media.graphcms.com https://images.unsplash.com",
-          'font-src': "'self' data: https://fonts.gstatic.com",
-        },
-      },
-    },
-    /**
-     * gatsby-plugin-netlify
-     *
-     * @see https://www.gatsbyjs.com/plugins/gatsby-plugin-netlify/
-     */
-    {
-      resolve: `gatsby-plugin-netlify`,
-      options: {
-        /**
-         * option to add more headers. `Link` headers are transformed by the below criteria
-         */
-        headers: {
-          '/*': ['X-Frame-Option: DENY', 'X-Content-Type-Options: nosniff'],
-        },
-        /**
-         * option to add headers for all pages. `Link` headers are transformed by the below criteria
-         */
-        allPageHeaders: [],
-        /**
-         * boolean to turn off the default security headers
-         */
-        mergeSecurityHeaders: true,
-        /**
-         * boolean to turn off the default gatsby js headers
-         */
-        mergeLinkHeaders: true,
-        /**
-         * boolean to turn off the default gatsby js headers
-         */
-        mergeCachingHeaders: true,
-        /**
-         * boolean to turn off the default caching headers
-         */
-        transformHeaders: (headers, path) => headers,
-        /**
-         * optional transform for manipulating headers under each path (e.g.sorting), etc.
-         */
-        generateMatchPathRewrites: true,
-        /**
-         * boolean to turn off automatic creation of redirect rules for client only paths
-         */
-      },
-    },
-    /**
-     * gatsby-plugin-preload-fonts
-     *
-     * note: refresh font by running the preload-fonts script
-     * @see https://www.gatsbyjs.com/plugins/gatsby-plugin-preload-fonts
-     */
-    {
-      resolve: `gatsby-plugin-preload-fonts`,
-      options: {},
     },
   ],
 };

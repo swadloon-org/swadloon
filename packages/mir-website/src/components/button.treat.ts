@@ -43,17 +43,11 @@ const basePrimary = (theme: DesignSystem) => ({
 export const primaryDefault = style((theme: DesignSystem) => ({
   ...basePrimary(theme),
   color: theme.colors.primary500,
-
-  // Elliot - working with all the medium button needing a minWidth
-  minWidth: '200px',
 }));
 
 export const primaryReversed = style((theme: DesignSystem) => ({
   ...basePrimary(theme),
   color: theme.colors.greyscale0Reversed,
-
-  // Elliot - working with all the medium button needing a minWidth
-  minWidth: '200px',
 }));
 
 export const corner = style(() => ({
@@ -137,7 +131,7 @@ globalStyle(`${illustration} fill`, (theme: DesignSystem) => ({
 export const small = style((theme: DesignSystem) => ({}));
 export const medium = style((theme: DesignSystem) => ({
   padding: `24px 24px`,
-  // minWidth: '200px',
+  minWidth: '200px',
 }));
 export const large = style((theme: DesignSystem) => ({
   padding: `27px 20px`,

@@ -13,22 +13,24 @@ import { useViewportBreakpoint } from '../hooks/use-viewport.hook';
 
 export const footerQuery = graphql`
   query footer {
-    graphCmsCompanyInfo {
-      logoFooter {
-        url
+    gcms {
+      companyInfos {
+        logoFooter {
+          url
+        }
       }
-    }
-    graphCmsCompanyAddress {
-      addressLine1
-      addressLine2
-      city
-      provinceState
-      postalCode
-      country
-      websiteUrl
-      phone
-      phoneNoFees
-      email
+      companyAddresses {
+        addressLine1
+        addressLine2
+        city
+        provinceState
+        postalCode
+        country
+        websiteUrl
+        phone
+        phoneNoFees
+        email
+      }
     }
   }
 `;
@@ -52,8 +54,8 @@ export const Footer: React.FC<OwnProps> = (props) => {
           </Label>
           <Paragraph className={styles.infoText} variant={viewport === VIEWPORT.mobile ? 'medium' : 'small'}>
             Téléphone :
-            <AnchorLink className={styles.link} variant="reversed" href={`tel:${data.graphCmsCompanyAddress[0].phone}`}>
-              {data.graphCmsCompanyAddress[0].phone}
+            <AnchorLink className={styles.link} variant="reversed" href={`tel:${data.gcms.companyAddresses[0].phone}`}>
+              {data.gcms.companyAddresses[0].phone}
             </AnchorLink>
           </Paragraph>
           <Paragraph className={styles.infoText} variant={viewport === VIEWPORT.mobile ? 'medium' : 'small'}>
@@ -61,9 +63,9 @@ export const Footer: React.FC<OwnProps> = (props) => {
             <AnchorLink
               className={styles.link}
               variant="reversed"
-              href={`tel:${data.graphCmsCompanyAddress[0].phoneNoFees}`}
+              href={`tel:${data.gcms.companyAddresses[0].phoneNoFees}`}
             >
-              {data.graphCmsCompanyAddress[0].phoneNoFees}
+              {data.gcms.companyAddresses[0].phoneNoFees}
             </AnchorLink>
           </Paragraph>
           <Paragraph className={styles.infoText} variant={viewport === VIEWPORT.mobile ? 'medium' : 'small'}>
@@ -71,9 +73,9 @@ export const Footer: React.FC<OwnProps> = (props) => {
             <AnchorLink
               className={styles.link}
               variant="reversed"
-              href={`mailto:${data.graphCmsCompanyAddress[0].email}`}
+              href={`mailto:${data.gcms.companyAddresses[0].email}`}
             >
-              {data.graphCmsCompanyAddress[0].email}
+              {data.gcms.companyAddresses[0].email}
             </AnchorLink>
           </Paragraph>
         </div>
@@ -86,22 +88,22 @@ export const Footer: React.FC<OwnProps> = (props) => {
             Visitez-nous
           </Label>
           <Paragraph className={styles.infoText} variant={viewport === VIEWPORT.mobile ? 'medium' : 'small'}>
-            {data.graphCmsCompanyAddress[0].addressLine1}
+            {data.gcms.companyAddresses[0].addressLine1}
           </Paragraph>
           <Paragraph className={styles.infoText} variant={viewport === VIEWPORT.mobile ? 'medium' : 'small'}>
-            {data.graphCmsCompanyAddress[0].addressLine2}
+            {data.gcms.companyAddresses[0].addressLine2}
           </Paragraph>
           <Paragraph className={styles.infoText} variant={viewport === VIEWPORT.mobile ? 'medium' : 'small'}>
-            {data.graphCmsCompanyAddress[0].city}, {data.graphCmsCompanyAddress[0].provinceState},{' '}
-            {data.graphCmsCompanyAddress[0].postalCode}
+            {data.gcms.companyAddresses[0].city}, {data.gcms.companyAddresses[0].provinceState},{' '}
+            {data.gcms.companyAddresses[0].postalCode}
           </Paragraph>
           <Paragraph className={styles.infoText} variant={viewport === VIEWPORT.mobile ? 'medium' : 'small'}>
-            {data.graphCmsCompanyAddress[0].country}
+            {data.gcms.companyAddresses[0].country}
           </Paragraph>
         </div>
 
         <div className={styles.firm}>
-          <Logo type="framed-text" variant="reversed" src={`${data?.graphCmsCompanyInfo[0]?.logoFooter?.url}`}></Logo>
+          <Logo type="framed-text" variant="reversed" src={`${data?.gcms?.companyInfos[0]?.logoFooter?.url}`}></Logo>
         </div>
 
         <Paragraph className={styles.copyright} variant="small">

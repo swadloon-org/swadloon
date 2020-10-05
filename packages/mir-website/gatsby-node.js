@@ -2,7 +2,7 @@
 // it in any other .js file. It automatically reads TypeScript config from
 // tsconfig.json.
 require('ts-node').register({
-  project: '../core-gatsby-config/src/tsconfig/tsconfig.gatsby-config.json',
+  project: '../core-gatsby-config/tsconfig.gatsby-config.json',
 });
 
 /**

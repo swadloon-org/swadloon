@@ -7,7 +7,6 @@ export const wrapper = style((theme: DesignSystem) => ({
   width: '100%',
   padding: `${theme.sizing.sizes.x7} 0 ${theme.sizing.sizes.x7} 0`,
 }));
-
 export const container = style((theme: DesignSystem) => ({
   display: 'grid',
   justifyItems: 'center',

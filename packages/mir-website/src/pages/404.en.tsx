@@ -16,17 +16,17 @@ export const query = graphql`
     site {
       ...SiteMetadata
     }
-    graphCmsCompanyInfo {
-      ...CompanyInfo
-    }
-    allGraphCmsPage(name: { ne: "Not Found" }, filter: { locale: { in: [en, fr] } }) {
-      nodes {
+    gcms {
+      companyInfos(first: 1) {
+        ...CompanyInfo
+      }
+      pages(where: { name: "Not Found" }, locales: [en, fr]) {
         ...Page
       }
-    }
-    routes: allGraphCmsPage(name: { ne: "Not Found" }, filter: { locale: { in: [en, fr] } }) {
-      nodes {
-        ...PageRoute
+      routes: pages(where: { NOT: { name: "Not Found" } }, locales: [en, fr]) {
+        name
+        title
+        route
       }
     }
   }
@@ -41,30 +41,30 @@ const NotFoundPage: React.FC<PageProps> = (props) => {
   return (
     <Layout
       location={props.location}
-      logoURL={props.data.graphCmsCompanyInfo[0].logo?.url}
-      linkedinPageURL={props.data.graphCmsCompanyInfo[0].linkedinPageUrl}
-      facebookPageURL={props.data.graphCmsCompanyInfo[0].facebookPageUrl}
-      instagramPageURL={props.data.graphCmsCompanyInfo[0].instagramPageUrl}
-      twitterPageURL={props.data.graphCmsCompanyInfo[0].twitterPageUrl}
-      pages={props.data.routes}
+      logoURL={props.data.gcms.companyInfos[0].logo?.url}
+      linkedinPageURL={props.data.gcms.companyInfos[0].linkedinPageUrl}
+      facebookPageURL={props.data.gcms.companyInfos[0].facebookPageUrl}
+      instagramPageURL={props.data.gcms.companyInfos[0].instagramPageUrl}
+      twitterPageURL={props.data.gcms.companyInfos[0].twitterPageUrl}
+      pages={props.data.gcms.routes}
     >
       <Helmet>
         {getMetaBasicTags()}
         {getMetadataOpenGraphWebsiteTags({
           type: OPEN_GRAPH_TYPE.WEBSITE,
-          title: `${props.data.allGraphCmsPage[0]?.title}`,
-          url: `${props.data.site?.siteMetadata?.siteUrl}${props.data.allGraphCmsPage[0]?.route}`,
-          description: `${props.data.allGraphCmsPage[0]?.description}`,
-          image: `${props.data.allGraphCmsPage[0]?.bannerImages[0]?.url}`,
-          site_name: `${props.data.graphCmsCompanyInfo[0].metadataSiteName}`,
+          title: `${props.data.gcms.pages[0]?.title}`,
+          url: `${props.data.site?.siteMetadata?.siteUrl}${props.data.gcms.pages[0]?.route}`,
+          description: `${props.data.gcms.pages[0]?.description}`,
+          image: `${props.data.gcms.pages[0]?.bannerImages[0]?.url}`,
+          site_name: `${props.data.gcms.companyInfos[0].metadataSiteName}`,
           lang: 'en',
           locale: 'en_CA',
           localeAlternate: 'fr_CA',
         })}
         {getMetadataTwitterTags({
           card: 'summary',
-          creator: `${props.data.graphCmsCompanyInfo[0].metadataTwitterCreator}`,
-          site: `${props.data.graphCmsCompanyInfo[0].metadataTwitter}`,
+          creator: `${props.data.gcms.companyInfos[0].metadataTwitterCreator}`,
+          site: `${props.data.gcms.companyInfos[0].metadataTwitter}`,
         })}
       </Helmet>
       <NotFoundPageTemplate {...props} />
