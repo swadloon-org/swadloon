@@ -11,7 +11,6 @@
   "scripts": {
     "build": "tsc --build",
     "clean": "rimraf -r lib/**",
-    "postinstall": "yarn build",
     "start": "tsc --build tsconfig.json --watch --preserveWatchOutput",
     "test": "webpack --config webpack.test.config.ts",
     "webpack": "webpack --config webpack.dev.config.ts"
