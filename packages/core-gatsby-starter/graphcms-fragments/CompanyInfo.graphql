@@ -1,9 +1,0 @@
-fragment CompanyInfo on CompanyInfo {
-  stage
-  locale
-  remoteId: id
-  createdAt(variation: COMBINED)
-  updatedAt(variation: COMBINED)
-  publishedAt(variation: COMBINED)
-  name
-}

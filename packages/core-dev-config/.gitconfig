@@ -4,7 +4,7 @@
 	a = add --all
 	p = push
 	s = status
-  amend = commit --amend --no-edit
+  	amend = commit --amend --no-edit
 	up = pull upstream master
 	tree-stat = log --graph --all --decorate --stat --date=iso
 	tree = log --graph --all --decorate=short --date=iso --oneline

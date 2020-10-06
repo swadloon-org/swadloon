@@ -4,27 +4,13 @@ import { Form } from '../components/form';
 
 export const ContactQuery = graphql`
   query Contact {
-    graphCmsForm {
-      id
-      name
-      formFields {
-        ... on GraphCMS_FormField {
-          name
-          placeholder
-          id
-          type
-          validations {
-            errorMessage
-            matchPattern
-            name
-            pattern
-            required
-            unique
-          }
-        }
-        ... on GraphCMS_FormFieldGroup {
-          id
-          formFields {
+    gcms {
+      forms {
+        id
+
+        name
+        formFields {
+          ... on GraphCMS_FormField {
             name
             placeholder
             id
@@ -36,6 +22,23 @@ export const ContactQuery = graphql`
               pattern
               required
               unique
+            }
+          }
+          ... on GraphCMS_FormFieldGroup {
+            id
+            formFields {
+              name
+              placeholder
+              id
+              type
+              validations {
+                errorMessage
+                matchPattern
+                name
+                pattern
+                required
+                unique
+              }
             }
           }
         }
