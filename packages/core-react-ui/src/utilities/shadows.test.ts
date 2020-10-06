@@ -16,7 +16,7 @@ describe('shadows utilities', () => {
             a: 0.7,
           },
         })
-      ).toBe('0px 0px 1px 0px hsla(222, 90%, 90%, 0.7)');
+      ).toBe('0px 0px 1px 0px hsl(222deg 90% 90% / 0.7%)');
     });
   });
 });
