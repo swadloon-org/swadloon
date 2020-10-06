@@ -89,7 +89,7 @@ export const Design: React.FC = () => {
         >
           Test
         </Accordions>
-        <InfoSectionVideo></InfoSectionVideo>
+        {/* <InfoSectionVideo></InfoSectionVideo> */}
         <Author></Author>
       </div>
     </div>

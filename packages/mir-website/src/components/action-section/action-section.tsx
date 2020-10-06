@@ -1,8 +1,8 @@
 import { LABEL } from '@newrade/core-design-system-old';
 import { Link as GatsbyLink } from 'gatsby';
-import { ActionSectionFragment } from 'packages/mir-website/types/graphql-types';
 import React, { AllHTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
+import { ActionSectionFragment } from '../../../types/graphql-types';
 import { Button } from '../button';
 import { RenderTitleHighlight } from '../info-section/info-title-highligh';
 import { Label } from '../label';
