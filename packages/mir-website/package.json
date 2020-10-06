@@ -1,16 +1,17 @@
 {
-  "name": "mir-website",
+  "name": "@newrade/mir-website",
   "version": "1.5.0",
   "description": "Gatsby website for newrade's main website",
   "author": {
-    "email": "elliot@newrade.ca",
-    "name": "Elliot Pellerin",
+    "email": "info@newrade.ca",
+    "name": "Newrade",
     "url": "https://github.com/newrade/newrade"
   },
   "repository": "https://github.com/newrade/newrade/tree/master/packages/newrade-website",
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
+    "prebuild": "tsc --build ../core-gatsby-config/tsconfig.build.json",
+    "build": "cross-env DEBUG=gastby:* gatsby build",
     "clean": "gatsby clean",
     "refresh": "curl -X POST http://localhost:9001/__refresh",
     "serve": "gatsby serve",
@@ -22,22 +23,10 @@
   "dependencies": {
     "@newrade/core-design-system-old": "^1",
     "@newrade/core-react-ui-old": "^1",
-    "gatsby": "^2.17.11"
-  },
-  "peerDependencies": {
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-treat": "^1.4.1"
+    "gatsby": "^2"
   },
   "devDependencies": {
     "@newrade/core-gatsby-config": "^1",
-    "@newrade/core-webpack-config": "^1",
-    "gatsby-image": "^2.4.14",
-    "gatsby-plugin-manifest": "^2.4.21",
-    "gatsby-plugin-react-svg": "^3.0.0",
-    "gatsby-plugin-ts": "^2.7.1",
-    "gatsby-source-filesystem": "^2.3.23",
-    "gatsby-source-graphql": "^2.6.1",
-    "graphql": "^14.6.0"
+    "@newrade/core-webpack-config": "^1"
   }
 }

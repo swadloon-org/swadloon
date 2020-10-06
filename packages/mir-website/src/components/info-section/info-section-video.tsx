@@ -2,6 +2,7 @@ import React from 'react';
 
 import { useStyles } from 'react-treat';
 import * as styleRefs from './info-section-video.treat';
+import Img from 'gatsby-image';
 import { Heading } from '../heading';
 import { Paragraph } from '../paragraph';
 import { Video } from '../video';

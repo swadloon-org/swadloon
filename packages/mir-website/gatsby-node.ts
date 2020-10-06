@@ -51,104 +51,109 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
     isPermanent: true,
   });
 
-  const blogPageQuery = await graphql(`
-    query BlogPostPage {
-      site {
-        siteMetadata {
-          siteUrl
-          languages {
-            defaultLangKey
-            langs
-          }
-        }
-      }
-      gcms {
-        companyInfos(first: 1) {
-          companyName
-          linkedinPageUrl
-          facebookPageUrl
-          instagramPageUrl
-          twitterPageUrl
-          logo {
-            fileName
-            url
-          }
-          logoFooter {
-            fileName
-            url
-          }
-          metadataTwitter
-          metadataTwitterCreator
-          metadataSiteName
-        }
-        pages(where: { name: "Blog" }, locales: [fr, en]) {
-          actionSections {
-            type
-            title
-            titleHighlight
-            subtitle
-            actionText # to remove
-            link {
-              name
-              label
-              type
-              url
-              page {
-                route
-              }
-            }
-          }
-        }
-        blogPosts {
-          id
-          title
-        }
-        routes: pages(where: { NOT: { name: "Not Found" } }, locales: [fr, en]) {
-          name
-          title
-          route
-        }
-      }
-      bannerImageMobile: file(name: { eq: "Banner-NewWebsite" }) {
-        id
-        childImageSharp {
-          # https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-transformer-sharp/src/fragments.js
-          fluid(quality: 90, maxWidth: 800) {
-            base64
-            aspectRatio
-            src
-            srcSet
-            srcWebp
-            srcSetWebp
-            sizes
-          }
-        }
-      }
-      bannerImageDesktop: file(name: { eq: "Banner-NewWebsite" }) {
-        id
-        childImageSharp {
-          # https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-transformer-sharp/src/fragments.js
-          fluid(quality: 90, maxWidth: 1920) {
-            base64
-            aspectRatio
-            src
-            srcSet
-            srcWebp
-            srcSetWebp
-            sizes
-          }
-        }
-      }
-      linkedInBanner: file(name: { eq: "Banner-NewWebsite" }) {
-        id
-        childImageSharp {
-          fixed(width: 1200, height: 628) {
-            src
-          }
-        }
-      }
-    }
-  `);
+  // const blogPageQuery = await graphql(`
+  //   query BlogPostPage {
+  //     site {
+  //       siteMetadata {
+  //         siteUrl
+  //         languages {
+  //           defaultLangKey
+  //           langs
+  //         }
+  //       }
+  //     }
+  //     gcms {
+  //       companyInfos(first: 1) {
+  //         companyName
+  //         linkedinPageUrl
+  //         facebookPageUrl
+  //         instagramPageUrl
+  //         twitterPageUrl
+  //         logo {
+  //           fileName
+  //           url
+  //         }
+  //         logoFooter {
+  //           fileName
+  //           url
+  //         }
+  //         metadataTwitter
+  //         metadataTwitterCreator
+  //         metadataSiteName
+  //       }
+  //       pages(where: { name: "Blog" }, locales: [fr, en]) {
+  //         actionSections {
+  //           type
+  //           title
+  //           titleHighlight
+  //           subtitle
+  //           actionText # to remove
+  //           link {
+  //             name
+  //             label
+  //             type
+  //             url
+  //             page {
+  //               route
+  //             }
+  //           }
+  //         }
+  //       }
+  //       blogPosts {
+  //         id
+  //         title
+  //       }
+  //       routes: pages(where: { NOT: { name: "Not Found" } }, locales: [fr, en]) {
+  //         name
+  //         title
+  //         route
+  //       }
+  //     }
+  //     bannerImageMobile: file(name: { eq: "Banner-NewWebsite" }) {
+  //       id
+  //       childImageSharp {
+  //         # https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-transformer-sharp/src/fragments.js
+  //         fluid(quality: 90, maxWidth: 800) {
+  //           base64
+  //           aspectRatio
+  //           src
+  //           srcSet
+  //           srcWebp
+  //           srcSetWebp
+  //           sizes
+  //         }
+  //       }
+  //     }
+  //     bannerImageDesktop: file(name: { eq: "Banner-NewWebsite" }) {
+  //       id
+  //       childImageSharp {
+  //         # https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-transformer-sharp/src/fragments.js
+  //         fluid(quality: 90, maxWidth: 1920) {
+  //           base64
+  //           aspectRatio
+  //           src
+  //           srcSet
+  //           srcWebp
+  //           srcSetWebp
+  //           sizes
+  //         }
+  //       }
+  //     }
+  //     linkedInBanner: file(name: { eq: "Banner-NewWebsite" }) {
+  //       id
+  //       childImageSharp {
+  //         fixed(width: 1200, height: 628) {
+  //           base64
+  //           aspectRatio
+  //           src
+  //           srcSet
+  //           srcWebp
+  //           srcSetWebp
+  //         }
+  //       }
+  //     }
+  //   }
+  // `);
 
   type PageConfig = {
     name: string;
@@ -158,35 +163,35 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
   };
 };
 
-export const onCreateNode: GatsbyNode['onCreateNode'] = async ({
-  node,
-  actions,
-  store,
-  cache,
-  reporter,
-  createNodeId,
-}) => {
-  if (node.internal.type === 'Image') {
-    const { createNode } = actions;
+// export const onCreateNode: GatsbyNode['onCreateNode'] = async ({
+//   node,
+//   actions,
+//   store,
+//   cache,
+//   reporter,
+//   createNodeId,
+// }) => {
+//   if (node.internal.type === 'Image') {
+//     const { createNode } = actions;
 
-    /* Download the image and create the File node. Using gatsby-plugin-sharp and gatsby-transformer-sharp the node will become an ImageSharp. */
+//     /* Download the image and create the File node. Using gatsby-plugin-sharp and gatsby-transformer-sharp the node will become an ImageSharp. */
 
-    const fileNode = await createRemoteFileNode({
-      url: (node as any).url, // string that points to the URL of the image
-      parentNodeId: node.id, // id of the parent node of the fileNode you are going to create
-      store, // Gatsby's redux store
-      cache, // get Gatsby's cache
-      reporter,
-      createNode, // helper function in gatsby-node to generate the node
-      createNodeId, // helper function in gatsby-node to generate the node id
-    });
+//     const fileNode = await createRemoteFileNode({
+//       url: (node as any).url, // string that points to the URL of the image
+//       parentNodeId: node.id, // id of the parent node of the fileNode you are going to create
+//       store, // Gatsby's redux store
+//       cache, // get Gatsby's cache
+//       reporter,
+//       createNode, // helper function in gatsby-node to generate the node
+//       createNodeId, // helper function in gatsby-node to generate the node id
+//     });
 
-    if (fileNode) {
-      // link the File node to Image node at field image
-      (node as any).image___NODE = fileNode.id;
-    }
-  }
-};
+//     if (fileNode) {
+//       // link the File node to Image node at field image
+//       (node as any).image___NODE = fileNode.id;
+//     }
+//   }
+// };
 
 export const onPreBootstrap: GatsbyNode['onPreBootstrap'] = (args, options, callback) => {
   log(`GATSBY_ENABLE_INCREMENTAL_BUILD is set to "${process.env.GATSBY_ENABLE_INCREMENTAL_BUILD}"`, {
@@ -202,7 +207,7 @@ export const onPreBootstrap: GatsbyNode['onPreBootstrap'] = (args, options, call
     toolName: 'mir-website',
   });
 
-  const cwd = spawn(`yarn build --scope core-*`, {
+  const cwd = spawn(`yarn build:core`, {
     cwd: '../..',
     shell: true,
     env: process.env,

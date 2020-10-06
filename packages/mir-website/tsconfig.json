@@ -1,13 +1,11 @@
 {
-  "extends": "../core-gatsby-config/src/tsconfig/tsconfig.ts-plugin.json",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "rootDir": ".",
-    "strictNullChecks": true,
+    "strict": false,
+    "types": ["node"],
     "baseUrl": ".",
     "paths": {
       "@newrade/*": ["../*/src"]
     }
-  },
-  "typeRoots": ["../../node_modules/@types", "./src/types"],
-  "include": ["src/**/*", "types/**/*"]
+  }
 }

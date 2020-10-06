@@ -1,13 +1,11 @@
 {
-  "extends": "../../tsconfig.base.json",
+  "extends": "../../tsconfig.build.json",
   "compilerOptions": {
-    "declaration": true,
-    "sourceMap": true,
-    "outDir": "lib",
     "rootDir": "src",
+    "outDir": "lib",
     "strict": false,
-    "target": "esnext",
-    "module": "commonjs",
+    "strictNullChecks": true,
+    "skipLibCheck": true,
     "types": ["node"]
   },
   "typeRoots": ["../../node_modules/@types", "src/typings"],

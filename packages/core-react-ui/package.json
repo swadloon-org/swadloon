@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "build": "tsc --build tsconfig.build.json",
-    "clean": "rimraf -r dist/** && rm tsconfig.build.tsbuildinfo",
+    "clean": "rimraf -r dist/** && rm -f tsconfig.build.tsbuildinfo",
     "start": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
     "test": "jest",
     "test:watch": "jest --watch"
@@ -18,7 +18,7 @@
   "typings": "./lib/index.d.ts",
   "dependencies": {
     "@newrade/core-design-system": "^1",
-    "@newrade/core-utils": "^1",
-    "@newrade/core-jest-config": "^1"
+    "@newrade/core-jest-config": "^1",
+    "@newrade/core-utils": "^1"
   }
 }
