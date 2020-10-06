@@ -9,6 +9,7 @@ import { theme } from '../design-system';
 import * as stylesRef from '../templates/contact-page.treat';
 import { Input } from '../components/input';
 import { Button } from '../components/button';
+import { Heading } from '../components/heading';
 
 interface PageProps {
   data: ContactPageFrQuery;

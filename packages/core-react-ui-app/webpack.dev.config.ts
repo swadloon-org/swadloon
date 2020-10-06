@@ -7,6 +7,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import path from 'path';
 import TreatPlugin from 'treat/webpack-plugin';
+import * as tsloader from 'ts-loader';
 import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
 import webpack from 'webpack';
 import WebpackOptions from 'webpack/declarations/WebpackOptions';
@@ -36,9 +37,9 @@ const config: WebpackOptions.WebpackOptions = {
             loader: 'ts-loader',
             options: {
               configFile: 'tsconfig.build.json',
-              logLevel: 'info',
+              logLevel: 'WARN',
               projectReferences: true,
-            },
+            } as Partial<tsloader.Options>,
           },
         ],
       },
@@ -50,7 +51,7 @@ const config: WebpackOptions.WebpackOptions = {
     plugins: [
       new TsconfigPathsPlugin({
         configFile: 'tsconfig.build.json',
-        logLevel: 'INFO',
+        logLevel: 'WARN',
       }),
     ],
   },

@@ -1,5 +1,6 @@
-import { cssLoader, getTreatCSSPlugin, scssLoader } from '@newrade/core-webpack-config';
 import { CreateBabelConfigArgs, WebpackLoaders, WebpackPlugins } from 'gatsby';
+import { ForkTsCheckerWebpackPlugin } from 'fork-ts-checker-webpack-plugin/lib/ForkTsCheckerWebpackPlugin';
+
 import { WebpackOptions } from 'webpack/declarations/WebpackOptions';
 import TreatPlugin from 'treat/webpack-plugin';
 
@@ -19,6 +20,7 @@ export function createGatsbyWebpackConfig({
   if (stage === 'develop-html') return {};
 
   const commonPlugins = [
+    new ForkTsCheckerWebpackPlugin(),
     new TreatPlugin({
       localIdentName: '[name]_[local]_[hash:base64:5]',
       themeIdentName: '_[name]-[local]_',
@@ -58,6 +60,7 @@ export function createGatsbyWebpackConfig({
 
   return {
     mode: isProduction ? 'development' : 'production',
+    devtool: 'eval-source-map',
     module: {
       rules: [
         {

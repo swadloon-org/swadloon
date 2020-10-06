@@ -9,12 +9,10 @@ import { Label } from '../label';
 import { LABEL } from '@newrade/core-design-system-old';
 import { style } from 'treat/lib/types';
 import { RenderTitleHighlight } from '../info-section/info-title-highligh';
-import { GraphCms_TestimonialSection, GraphCms_Testimonial } from 'packages/mir-website/types/graphql-types';
+import { TestimonialSectionFragment } from '../../../types/graphql-types';
 
 type OwnProps = {
-  testimonialSections: Pick<GraphCms_TestimonialSection, 'title' | 'titleHighlight' | 'description'> & {
-    testomonials: Array<Pick<GraphCms_Testimonial, 'message' | 'authorName' | 'authorTitle'>>;
-  };
+  testimonialSections: TestimonialSectionFragment;
 };
 export function Testimonial(props: OwnProps) {
   const styles = useStyles(styleRefs);

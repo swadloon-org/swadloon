@@ -8,7 +8,12 @@ import { Paragraph } from '../paragraph';
 import { Video } from '../video';
 import { video } from '../video.treat';
 import { style } from 'treat/lib/types';
-type OwnProps = {};
+
+type OwnProps = {
+  heading: string;
+  paragraph: string;
+  imageData: any;
+};
 
 export const InfoSectionVideo: React.FC<OwnProps> = (props) => {
   const styles = useStyles(styleRefs);

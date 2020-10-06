@@ -207,7 +207,7 @@ export const onPreBootstrap: GatsbyNode['onPreBootstrap'] = (args, options, call
     toolName: 'mir-website',
   });
 
-  const cwd = spawn(`yarn build:core`, {
+  const cwd = spawn(`yarn postinstall`, {
     cwd: '../..',
     shell: true,
     env: process.env,
