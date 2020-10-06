@@ -1,5 +1,5 @@
 import { style } from 'treat';
-import { DesignSystem, ICON_SIZE } from 'core-design-system-old';
+import { DesignSystem, ICON_SIZE } from '@newrade/core-design-system-old';
 
 export const icon = style((theme: DesignSystem) => ({}));
 

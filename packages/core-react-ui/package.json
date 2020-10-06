@@ -1,6 +1,6 @@
 {
-  "name": "core-react-ui",
-  "version": "1.4.2",
+  "name": "@newrade/core-react-ui",
+  "version": "1.4.1",
   "description": "UI library",
   "license": "MIT",
   "main": "./lib/index.js",
@@ -9,20 +9,16 @@
     "./lib/**/*"
   ],
   "scripts": {
-    "build": "yarn build:lib",
-    "build:app": "webpack --config webpack.dev.config.cjs",
-    "build:lib": "tsc --build tsconfig-lib.json",
-    "clean": "rimraf -r dist/**",
-    "start": "concurrently \"yarn start:lib\"",
-    "start:app": "webpack-dev-server --config webpack.dev.config.cjs",
-    "start:lib": "tsc --build tsconfig-lib.json --watch --preserveWatchOutput",
-    "test": "echo ok"
+    "build": "tsc --build tsconfig.build.json",
+    "clean": "rimraf -r dist/** && rm -f tsconfig.build.tsbuildinfo",
+    "start": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
-  "type": "module",
   "typings": "./lib/index.d.ts",
   "dependencies": {
-    "core-design-system": "link:../core-design-system",
-    "core-jest-config": "link:../core-jest-config",
-    "treat": "^1.5.1"
+    "@newrade/core-design-system": "^1",
+    "@newrade/core-jest-config": "^1",
+    "@newrade/core-utils": "^1"
   }
 }

@@ -1,6 +1,11 @@
-import { CSSBorder } from '../../css/border';
-import { BasicCSSProperties } from '../../utilities/types';
-import { SizeCSSVar, SIZING, Sizing, SizingStep } from '../../foundations/sizing';
+import { ButtonHTMLAttributes } from 'react';
+import { Color } from '../../primitives/color';
+import { BoxStyle } from '../atoms/box';
+
+export enum ButtonAs {
+  button = 'button',
+  a = 'a',
+}
 
 export enum ButtonVariant {
   primary = 'primary',
@@ -32,34 +37,27 @@ export enum ButtonState {
   disabled = 'disabled',
 }
 
-export interface ButtonProps {
+export interface ButtonProps extends ButtonHTMLAttributes<any> {
+  /**
+   * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/button_role
+   */
+  role?: string;
   variant?: ButtonVariant;
-  size?: ButtonSize;
   icon?: ButtonIcon;
+  size?: ButtonSize;
   state?: ButtonState;
 }
 
-export type ButtonSizes = { [key in keyof typeof ButtonSize]: ButtonSizeStyle };
+export type ButtonStyle = {
+  textColor?: Color;
+  iconColor?: Color;
+};
+
+export type ButtonBoxStyle = BoxStyle & {};
+
 export type ButtonVariants = { [key in keyof typeof ButtonVariant]: ButtonStyle };
 
-export interface ButtonStyle {
-  color?: string;
-  colorIcon?: string;
-  borderColor?: string;
-  background?: string;
-  backgroundColor?: string;
-}
-
-export interface ButtonSizeStyle {
-  width?: String | undefined;
-  height?: SIZING;
-  padding?: SIZING;
-  paddingV?: SIZING;
-  paddingH?: SIZING;
-  borderStyle?: CSSBorder;
-  borderWidth?: CSSBorder;
-  borderRadius?: CSSBorder;
-}
+export type ButtonSizes = { [key in keyof typeof ButtonSize]: ButtonBoxStyle };
 
 export interface Buttons {
   variants: ButtonVariants;

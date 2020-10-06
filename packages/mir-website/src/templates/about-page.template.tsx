@@ -34,8 +34,6 @@ export const About: React.FC<PageProps> = ({ data, location }) => {
     },
   ];
 
-  console.log(data);
-
   const sourcesVideo = [
     data?.bannerImageAboutMobile?.childImageSharp?.fluid,
     {

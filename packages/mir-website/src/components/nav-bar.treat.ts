@@ -1,9 +1,9 @@
-import { DesignSystem } from 'core-design-system-old';
+import { DesignSystem } from '@newrade/core-design-system-old';
 import { style, globalStyle } from 'treat';
 
 export const wrapper = style((theme: DesignSystem) => ({
   display: 'flex',
-  // flexDirection: 'column',
+  flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
 

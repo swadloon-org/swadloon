@@ -1,0 +1,26 @@
+{
+  "extends": "../../../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "./",
+    "noEmit": false,
+    "declaration": true,
+    "sourceMap": true,
+    "composite": true,
+    "rootDir": ".",
+    "strict": false,
+    "target": "esnext",
+    "module": "commonjs",
+    "types": ["node"],
+    "typeRoots": ["../../node_modules/@types", "src/typings"]
+  },
+  "references": [
+    {
+      "path": "../../../core-utils/tsconfig.build.json"
+    },
+    {
+      "path": "../../tsconfig.build.json"
+    }
+  ],
+  "exclude": ["./node_modules", "./public", "./.cache", "./src/**/*"],
+  "include": ["./gatsby-config.ts", "./gatsby-node.ts", "./gatsby-browser.tsx", "./gatsby-ssr.tsx"]
+}

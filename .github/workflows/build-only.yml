@@ -61,6 +61,8 @@ jobs:
         GRAPH_CMS_API_URL_NEWRADE: ${{ secrets.GRAPH_CMS_API_URL_NEWRADE }}
         GRAPH_CMS_AUTH_TOKEN_LAKHOS: ${{ secrets.GRAPH_CMS_AUTH_TOKEN_LAKHOS }}
         GRAPH_CMS_API_URL_LAKHOS: ${{ secrets.GRAPH_CMS_API_URL_LAKHOS }}
+        GRAPH_CMS_AUTH_TOKEN_CORE: ${{ secrets.GRAPH_CMS_AUTH_TOKEN_CORE }}
+        GRAPH_CMS_API_URL_CORE: ${{ secrets.GRAPH_CMS_API_URL_CORE }}
 
     - name: Test
       run: yarn test

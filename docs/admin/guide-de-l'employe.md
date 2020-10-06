@@ -1,22 +1,46 @@
 # Guide de l'employé
 
-## Horaire de travail
+## Message du directeur
 
-Une journée de travail est d'environ 7.5 heures, incluant les pauses et l'heure de dîner.
+## Historique de l'entreprise
 
-Une semaine normale de travail est donc de 37.5 heures.
+## Mission
 
-Il n'y a pas d'heure de début obligatoire, mais il est important d'adapter son horaire aux rencontres d'équipes.
+## Philosophie et valeurs
 
-Il n'y a pas de rencontres d'équipe avant 9h30 et pas après 16h.
+## Attentes de la direction
 
-Il n'y a également pas de rencontres d'équipe sur l'heure du lunch donc de midi à 13h.
+## Organigramme
 
-## Évaluation et suivi de la satisfaction des employés
+## Rémunération
 
-Une discussion sur la progression et la satisfaction de l'employé se tiendra une fois par mois.
+## Conditions de travail
 
-## Absences
+### Heures de travail
+
+Une journée de travail normale (soit 7.5 heures rémunérées, ou 37.5 heures) n'a pas besoin d'être à la minute près, par exemple une journée qui commence à 9h30 peut se terminer à 16h30 voire 16h sans problème (avec une heure off le midi).
+
+L'important est de donner des efforts et de bien travailler en équipe pour faire avancer les projets; en d'autres mots, Newrade fait confiance à ses employés et ne pratique aucune forme de vérification des heures travaillées.
+
+- Une journée de travail est d'environ 7.5 heures, incluant les pauses et l'heure de dîner.
+- Une semaine normale de travail est donc de 37.5 heures.
+- Il n'y a pas d'heure de début obligatoire, mais il est important d'adapter son horaire aux rencontres d'équipes.
+- Il n'y a pas de rencontres d'équipe avant 9h30 et pas après 16h.
+- Il n'y a également pas de rencontres d'équipe sur l'heure du lunch donc de midi à 13h.
+
+### Heures supplémentatires
+
+### Jours fériés, chômés et payés
+
+TODO
+
+### Vacances et absences
+
+#### Congés
+
+- 2 semaines
+
+#### Absences
 
 Il suffit de signaler à l'équipe (par Slack ou email), que vous ne serez pas disponible.
 
@@ -30,9 +54,32 @@ Simplement se limiter à :
 
 > Je ne serais pas là vendredi avant midi, j'ai un empêchement personel.
 
-## Congés
+#### Évaluation et suivi de la satisfaction des employés
 
-TODO
+Une discussion sur la progression et la satisfaction de l'employé se tiendra une fois par trimestre.
+
+## Formation
+
+- La politique est de consacrer de 2 à 4 heures par semaines à la formation (donc heures payées)
+- Newrade fournit également les accès pour les cours en ligne (e.g. cours professionnels pour apprendre le développement web)
+
+## Politiques internes
+
+- TODO expliquer usage de 1password
+- autres
+
+## Politique contre le harcèlement
+
+## Confidentialité et clause de non-concurrence
+
+Selon les contrats d'emplois
+
+## Santé et sécurité au travail
+
+## Communication
+
+- Slack et email pour les communications officielles
+- Texto et iMessages sont réservés pour urgences seulement, donc à éviter pour les communications normales d'affaires
 
 ## Projets hors travail
 

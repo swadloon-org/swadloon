@@ -1,5 +1,5 @@
-import { ButtonSize, ButtonVariant, DesignSystem, SIZING } from 'core-design-system-old';
-import { DEFAULT_LAYOUT } from 'core-react-ui-old';
+import { ButtonSize, ButtonVariant, DesignSystem, SIZING } from '@newrade/core-design-system-old';
+import { DEFAULT_LAYOUT } from '@newrade/core-react-ui-old';
 import { colorIntents, colors } from './colors';
 import { effects } from './effects';
 import { iconography } from './iconography';

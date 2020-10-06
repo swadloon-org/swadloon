@@ -1,0 +1,21 @@
+fragment FormFieldValidation on FormFieldValidation {
+  stage
+  locale
+  remoteId: id
+  createdAt(variation: COMBINED)
+  updatedAt(variation: COMBINED)
+  publishedAt(variation: COMBINED)
+  name
+  errorMessage
+  required
+  unique
+  matchPattern
+  pattern
+  formField {
+    ... on FormField {
+      remoteTypeName: __typename
+      remoteId: id
+      locale
+    }
+  }
+}

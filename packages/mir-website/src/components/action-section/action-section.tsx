@@ -1,4 +1,4 @@
-import { LABEL } from 'core-design-system-old';
+import { LABEL } from '@newrade/core-design-system-old';
 import { Link as GatsbyLink } from 'gatsby';
 import { ActionSectionFragment } from 'packages/mir-website/types/graphql-types';
 import React, { AllHTMLAttributes } from 'react';
@@ -52,7 +52,7 @@ export const ActionSection: React.FC<OwnProps> = ({ section, ...props }) => {
             <a href={section?.link.url} className={`${styles.button}`}>
               <Button
                 className={`${styles.button}`}
-                variantType={props?.type === 'default' ? 'primaryDefault' : 'primaryReversed'}
+                variantType={section?.type === 'default' ? 'primaryDefault' : 'primaryReversed'}
                 size="medium"
                 variant="text"
               >

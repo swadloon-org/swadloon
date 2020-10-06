@@ -1,7 +1,7 @@
 #!/usr/bin/env ts-node-script
 
 import { spawn } from 'child_process';
-import { scriptLog } from 'core-utils';
+import { scriptLog } from '@newrade/core-utils';
 import { dotEnvProcess, loadDotEnv } from './utils';
 
 loadDotEnv();

@@ -1,92 +1,57 @@
-import { Color } from 'csstype';
+import { Color } from '../primitives/color';
 
 /**
  * Every color defined in the system.
  */
-export interface Colors {
-  primary100: Color;
-  primary300: Color;
-  primary500: Color;
-  primary700: Color;
-  primary1000: Color;
+export interface Colors<T = Color> {
+  primary100: T;
+  primary300: T;
+  primary500: T;
+  primary700: T;
+  primary1000: T;
 
-  accent100: Color;
-  accent300: Color;
-  accent500: Color;
-  accent700: Color;
-  accent1000: Color;
+  accent100: T;
+  accent300: T;
+  accent500: T;
+  accent700: T;
+  accent1000: T;
 
-  greyscaleTransparent: Color;
-  greyscale0: Color;
-  greyscale0Reversed: Color;
-  greyscale100: Color;
-  greyscale100Reversed: Color;
-  greyscale150: Color;
-  greyscale200: Color;
-  greyscale200Reversed: Color;
-  greyscale300: Color;
-  greyscale400: Color;
-  greyscale500: Color;
-  greyscale600: Color;
-  greyscale700: Color;
-  greyscale800: Color;
-  greyscale900: Color;
-  greyscale1000: Color;
+  greyscaleTransparent: T;
+  greyscale0: T;
+  greyscale0Reversed: T;
+  greyscale100: T;
+  greyscale100Reversed: T;
+  greyscale150: T;
+  greyscale200: T;
+  greyscale200Reversed: T;
+  greyscale300: T;
+  greyscale400: T;
+  greyscale500: T;
+  greyscale600: T;
+  greyscale700: T;
+  greyscale800: T;
+  greyscale900: T;
+  greyscale1000: T;
 
-  effectTransparentLight: Color;
-  effectTransparentMedium: Color;
-  effectTransparentHeavy: Color;
+  effectTransparentLight: T;
+  effectTransparentMedium: T;
+  effectTransparentHeavy: T;
 
-  utilityGreen100: Color;
-  utilityGreen300: Color;
-  utilityGreen500: Color;
-  utilityGreen700: Color;
-  utilityGreen1000: Color;
-  utilityYellow100: Color;
-  utilityYellow300: Color;
-  utilityYellow500: Color;
-  utilityYellow700: Color;
-  utilityYellow1000: Color;
-  utilityRed100: Color;
-  utilityRed300: Color;
-  utilityRed500: Color;
-  utilityRed700: Color;
-  utilityRed1000: Color;
-}
+  utilityGreen100: T;
+  utilityGreen300: T;
+  utilityGreen500: T;
+  utilityGreen700: T;
+  utilityGreen1000: T;
 
-/**
- * Contextual use of certain colors (text, action, state, etc).
- */
-export interface ColorIntents {
-  /**
-   * TODO
-   */
-  accessibilityColor?: Color;
+  utilityYellow100: T;
+  utilityYellow300: T;
+  utilityYellow500: T;
+  utilityYellow700: T;
+  utilityYellow1000: T;
 
-  primary: Color;
-  primaryReversed: Color;
-
-  secondary: Color;
-  secondaryReversed: Color;
-
-  primaryText: Color;
-  primaryTextReversed: Color;
-  secondaryText: Color;
-  secondaryTextReversed: Color;
-  tertiaryText: Color;
-  tertiaryTextReversed: Color;
-
-  successText: Color;
-  successAction: Color;
-  successBackground: Color;
-  warningText: Color;
-  warningAction: Color;
-  warningBackground: Color;
-  dangerText: Color;
-  dangerAction: Color;
-  dangerBackground: Color;
-
-  background0: Color;
-  background1: Color;
-  background2: Color;
+  utilityRed100: T;
+  utilityRed300: T;
+  utilityRed500: T;
+  utilityRed700: T;
+  utilityRed1000: T;
 }

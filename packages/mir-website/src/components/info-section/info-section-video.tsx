@@ -1,15 +1,14 @@
 import React from 'react';
+
 import { useStyles } from 'react-treat';
-import { Heading } from '../heading';
-import { Paragraph } from '../paragraph';
 import * as styleRefs from './info-section-video.treat';
 import Img from 'gatsby-image';
-
-type OwnProps = {
-  paragraph?: string | null;
-  heading?: string | null;
-  imageData?: any;
-};
+import { Heading } from '../heading';
+import { Paragraph } from '../paragraph';
+import { Video } from '../video';
+import { video } from '../video.treat';
+import { style } from 'treat/lib/types';
+type OwnProps = {};
 
 export const InfoSectionVideo: React.FC<OwnProps> = (props) => {
   const styles = useStyles(styleRefs);

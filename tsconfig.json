@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@newrade/*": ["packages/*/src"]
+    },
+    "skipLibCheck": true,
+    "types": [] // will be set by each package
+  }
+}

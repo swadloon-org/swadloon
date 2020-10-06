@@ -1,43 +1,39 @@
-import { Color } from 'csstype';
+import { Color } from '../primitives/color';
 
 /**
  * Representation of a box shadow.
  */
-export type BoxShadow = {
+export type BoxShadow<ColorType = Color> = {
   /**
    * Blur value in px.
    */
-  blur: number;
+  blur?: number;
   /**
    * Spread value in px.
    */
-  spread: number;
+  spread?: number;
   /**
    * TODO
    */
-  offsetX: number;
+  offsetX?: number;
   /**
    * TODO
    */
-  offsetY: number;
+  offsetY?: number;
   /**
    * The box shadow's color.
    */
-  color: Color;
-  /**
-   * The box-shadow property
-   */
-  css: string;
+  color?: ColorType;
 };
 
 /**
  * Levels of shadows in the system.
  */
-export type Shadows = {
-  light: BoxShadow;
-  medium: BoxShadow;
-  heavy: BoxShadow;
-} & { [key: string]: BoxShadow };
+export type Shadows<ShadowType = BoxShadow, ColorType = Color> = {
+  light: ShadowType extends BoxShadow ? BoxShadow<ColorType> : ShadowType;
+  medium: ShadowType extends BoxShadow ? BoxShadow<ColorType> : ShadowType;
+  heavy: ShadowType extends BoxShadow ? BoxShadow<ColorType> : ShadowType;
+} & { [key: string]: ShadowType extends BoxShadow ? BoxShadow<ColorType> : ShadowType };
 
 /**
  * Representation of a background, either a plain background with a color
@@ -60,7 +56,8 @@ export type Overlays = {
 /**
  * Shadows, elevation, blurs and other visual effects.
  */
-export interface Effects {
-  shadows: Shadows;
+export interface Effects<ShadowType = BoxShadow, ColorType = Color> {
+  shadows: Shadows<ShadowType, ColorType>;
+  // TOOD
   // overlays: Overlays;
 }

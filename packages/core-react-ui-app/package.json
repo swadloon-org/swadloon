@@ -1,0 +1,22 @@
+{
+  "name": "@newrade/core-react-ui-app",
+  "version": "1.4.1",
+  "description": "UI App library",
+  "license": "MIT",
+  "scripts": {
+    "build": "cross-env TS_NODE_PROJECT=tsconfig.webpack.json node -r ts-node/register ../../node_modules/webpack/bin/webpack --config webpack.dev.config.ts",
+    "clean": "rimraf -r dist/** && rm -f tsconfig.build.tsbuildinfo",
+    "start": "cross-env TS_NODE_PROJECT=tsconfig.webpack.json node -r ts-node/register ../../node_modules/webpack-dev-server/bin/webpack-dev-server --config webpack.dev.config.ts",
+    "test": "echo ok"
+  },
+  "type": "module",
+  "typings": "./lib/index.d.ts",
+  "dependencies": {
+    "@newrade/core-design-system": "^1",
+    "@newrade/core-jest-config": "^1",
+    "@newrade/core-react-ui": "^1",
+    "@newrade/core-utils": "^1",
+    "@newrade/core-webpack-config": "^1",
+    "treat": "^1.5.1"
+  }
+}

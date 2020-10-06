@@ -1,4 +1,4 @@
-import { ButtonSize, DesignSystem } from 'core-design-system-old';
+import { ButtonSize, DesignSystem } from '@newrade/core-design-system-old';
 import { style } from 'treat';
 
 type ButtonVariantStyles = { [key in keyof typeof ButtonSize]: string };

@@ -11,6 +11,7 @@ export { defaultOuputConf };
 /**
  * Preconfigured loaders
  */
+export * from './loaders/extract-css.loader';
 export { cssLoader } from './loaders/css-loader';
 export { ejsLoader } from './loaders/ejs-loader';
 export { scssLoader } from './loaders/scss-loader';

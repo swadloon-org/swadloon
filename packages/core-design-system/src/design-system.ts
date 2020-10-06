@@ -1,13 +1,30 @@
-import { Color } from 'csstype';
 import { Buttons } from './components/molecules/buttons';
-import { ColorIntents, Colors } from './foundations/colors';
-import { Effects } from './foundations/effects';
+import { ColorIntents } from './foundations/color-intents';
+import { Colors } from './foundations/colors';
+import { BoxShadow, Effects } from './foundations/effects';
 import { Iconography } from './foundations/iconography';
 import { Layout } from './foundations/layout';
 import { Sizing } from './foundations/sizing';
+import { TEXT_TRANSFORM } from './foundations/text';
 import { Typography } from './foundations/typography';
+import { Color } from './primitives/color';
 
-export interface DesignSystem {
+export interface DesignSystemTypes {
+  themes: 'light' | 'dark';
+  color: Color | string;
+  shadow: BoxShadow | string;
+  sizing: Sizing | number;
+  typography: {
+    fontWeight: number | string;
+    letterSpacing: number;
+    textTransform: TEXT_TRANSFORM | string;
+  };
+  layout: {
+    breakpointType: number;
+  };
+}
+
+export interface DesignSystem<Types extends DesignSystemTypes = DesignSystemTypes> {
   /**
    * Name of the project or brand's name.
    */
@@ -16,31 +33,35 @@ export interface DesignSystem {
    * Theme variation's name.
    * @default 'light'
    */
-  variation: 'light' | 'dark' | string;
+  themes: Types['themes'];
   /**
    * Every color defined in the system.
    */
-  colors: Colors;
+  colors: Colors<Types['color']>;
   /**
    * Contextual use of certain colors (text, action, state, etc).
    */
-  colorIntents: ColorIntents;
+  colorIntents: ColorIntents<Types['color']>;
   /**
    * Shadows, elevation, blurs and other visual effects.
    */
-  effects: Effects;
+  effects: Effects<Types['shadow']>;
   /**
    * Defines the system's sizing values.
    */
-  sizing: Sizing;
+  sizing: Sizing<Types['sizing']>;
   /**
    * TODO
    */
-  iconography: Iconography;
+  iconography: Iconography<Types['sizing']>;
   /**
    * Defines every text styles.
    */
-  typography: Typography;
+  typography: Typography<
+    Types['typography']['fontWeight'],
+    Types['typography']['letterSpacing'],
+    Types['typography']['textTransform']
+  >;
   /**
    * TODO
    */
@@ -50,7 +71,7 @@ export interface DesignSystem {
   /**
    * Breakpoints, common content margins for different viewports.
    */
-  layout: Layout;
+  layout: Layout<Types['layout']['breakpointType']>;
   /**
    * Components' specific settings.
    */

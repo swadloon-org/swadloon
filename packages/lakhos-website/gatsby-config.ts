@@ -1,6 +1,6 @@
 import Gatsby from 'gatsby';
 
-import { getGatsbyTsPluginConfig, getGatsbyReactSvgConfig } from 'core-gatsby-config';
+import { getGatsbyTsPluginConfig, getGatsbyReactSvgConfig } from '@newrade/core-gatsby-config';
 
 /**
  * Configure your Gatsby site with this file.

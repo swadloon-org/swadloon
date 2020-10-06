@@ -1,14 +1,10 @@
 {
-  "extends": "../../tsconfig.base.json",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "module": "commonjs",
-    "declaration": true,
-    "sourceMap": true,
-    "types": ["node"],
-    "outDir": "./lib",
-    "rootDir": "./src",
-    "target": "es6"
+    "baseUrl": ".",
+    "paths": {
+      "@newrade/*": ["../*/src"]
+    }
   },
-  "include": ["./src/**/*"],
-  "exclude": ["./dist/", "./node_modules/"]
+  "include": ["src", "types"]
 }

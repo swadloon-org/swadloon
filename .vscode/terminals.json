@@ -21,6 +21,12 @@
       "focus": false
     },
     {
+      "name": "core-design-system-old",
+      "cwd": "[workspaceFolder]/packages/core-design-system-old",
+      "open": true,
+      "focus": false
+    },
+    {
       "name": "core-docs-generator",
       "cwd": "[workspaceFolder]/packages/core-docs-generator",
       "open": true,
@@ -33,6 +39,12 @@
       "focus": false
     },
     {
+      "name": "core-gatsby-starter",
+      "cwd": "[workspaceFolder]/packages/core-gatsby-starter",
+      "open": true,
+      "focus": false
+    },
+    {
       "name": "core-jest-config",
       "cwd": "[workspaceFolder]/packages/core-jest-config",
       "open": true,
@@ -41,6 +53,18 @@
     {
       "name": "core-react-ui",
       "cwd": "[workspaceFolder]/packages/core-react-ui",
+      "open": true,
+      "focus": false
+    },
+    {
+      "name": "core-react-ui-old",
+      "cwd": "[workspaceFolder]/packages/core-react-ui-old",
+      "open": true,
+      "focus": false
+    },
+    {
+      "name": "core-react-ui-app",
+      "cwd": "[workspaceFolder]/packages/core-react-ui-app",
       "open": true,
       "focus": false
     },

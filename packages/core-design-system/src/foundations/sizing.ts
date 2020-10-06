@@ -3,7 +3,7 @@ import { VIEWPORT } from './layout';
 /**
  * Unique names for each sizing step.
  */
-export enum SIZING {
+export enum SIZE {
   x0 = 'x0',
   x1 = 'x1',
   x2 = 'x2',
@@ -21,46 +21,24 @@ export enum SIZING {
  * Contains CSS variable names for each sizing step
  * @example `--sizing-x1`
  */
-export type SizeCSSVarNames = { [key in keyof typeof SIZING]: string };
+export type SizeCSSVarNames = { [key in keyof typeof SIZE]: string };
 
 /**
  * Contains CSS statement to access CSS variables
  * @example `var(--sizing-x1)`
  */
-export type SizeCSSVar = { [key in keyof typeof SIZING]: string };
+export type SizeCSSVars = { [key in keyof typeof SIZE]: string };
 
 /**
  * Defines in px, rem what a sizing step is.
- *
- * Note: `valueRem` should be used to set CSS variables.
- * Note: variable names should be set according to SizeCSSVarNames.
- *
- * @example
- *  ```css
- *  :root {
- *    --sizing-x1: 9rem
- *  }
- *  ```
+ * @example 9
  */
-export interface SizingStep {
-  /**
-   * @example 9
-   */
-  value: number;
-  /**
-   * @example `9px`
-   */
-  valuePx: string;
-  /**
-   * @example `1rem`
-   */
-  valueRem: string;
-}
+export type SizingStep = number;
 
 /**
  * Definition of the sizing steps for each viewport.
  */
-export type SizingSteps = { [key in keyof typeof VIEWPORT]: { [key in SIZING]: SizingStep } };
+export type SizingSteps<SizingType = SizingStep> = { [key in keyof typeof VIEWPORT]: { [key in SIZE]: SizingType } };
 
 /**
  * A set of predefined sizes from `x1` to `x10`.
@@ -68,13 +46,12 @@ export type SizingSteps = { [key in keyof typeof VIEWPORT]: { [key in SIZING]: S
  *
  * To optain the next size (e.g. from `x1` -> `x2`), the sizes are multipled by the ratio (e.g. `1.618` the Golden Ratio).
  */
-export interface Sizing {
+export interface Sizing<SizingType = SizingStep> {
   /**
    * Base font size (in px) to set on the page <html/> element.
    * This defines what `1 rem` is.
    */
-  baseFontSize: number;
-  baseFontSizePx: string;
+  baseFontSize: SizingType;
   /**
    * The ratio by which we multiply to calculate the next size step.
    * E.g. 1.618 (Golden Ratio)
@@ -89,9 +66,9 @@ export interface Sizing {
   /**
    * CSS statement to access CSS variables
    */
-  sizes: SizeCSSVar;
+  sizes: SizeCSSVars;
   /**
    * Size values for each step.
    */
-  sizingSteps: SizingSteps;
+  sizingSteps: SizingSteps<SizingType>;
 }

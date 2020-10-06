@@ -1,4 +1,4 @@
-import { LABEL } from 'core-design-system-old';
+import { LABEL } from '@newrade/core-design-system-old';
 import React from 'react';
 import { Link as GatsbyLink } from 'gatsby';
 import { useStyles } from 'react-treat';
@@ -24,26 +24,9 @@ export const BlogPreviewTile: React.FC<OwnProps> = (props) => {
         {props.title}
       </Heading>
 
-      <div className={styles.buttonGroup}>
-        <GatsbyLink
-          to={
-            props.location?.pathname.includes('/en/')
-              ? '/en/news/individu-au-coeur-de-notre-travail/'
-              : '/nouvelles/individu-au-coeur-de-notre-travail/'
-          }
-        >
-          <Button size="small" variantType="tertiaryReversed" variant="text" className={styles.button}>
-            {props.actionLabel}
-          </Button>
-          <Button
-            size="small"
-            variantType="tertiaryReversed"
-            variant="icon"
-            className={styles.button}
-            icon="IconArrowRight"
-          ></Button>
-        </GatsbyLink>
-      </div>
+      <Button size="small" variantType="tertiaryReversed" variant="text" className={styles.button}>
+        {props.actionLabel}
+      </Button>
     </div>
   );
 };

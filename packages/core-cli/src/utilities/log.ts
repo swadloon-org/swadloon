@@ -1,4 +1,4 @@
-import { log as logCli, LOG_LEVEL } from 'core-utils';
+import { log as logCli, LOG_LEVEL } from '@newrade/core-utils';
 
 export function log(
   message: string,

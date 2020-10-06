@@ -1,10 +1,10 @@
 {
-  "name": "core-cli",
-  "version": "1.2.2",
+  "name": "@newrade/core-cli",
+  "version": "1.2.1",
   "description": "CLI for various purposes, automate actions, etc.",
   "author": {
-    "email": "philippe.leger@newrade.ca",
-    "name": "Philippe Leger",
+    "email": "info@newrade.ca",
+    "name": "Newrade",
     "url": "https://github.com/newrade/newrade"
   },
   "homepage": "https://github.com/https://github.com/newrade/newrade-core/tree/master/packages/core-cli",
@@ -22,7 +22,7 @@
   ],
   "scripts": {
     "postpack": "rm -f oclif.manifest.json",
-    "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
+    "prepack": "rm -rf lib && tsc -b tsconfig.build.json && oclif-dev manifest && oclif-dev readme",
     "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
     "version": "oclif-dev readme && git add README.md"
   },
@@ -35,10 +35,10 @@
   },
   "types": "lib/index.d.ts",
   "dependencies": {
+    "@newrade/core-utils": "^1",
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "@oclif/plugin-help": "^3",
-    "core-utils": "link:../core-utils",
     "figma-js": "^1.11.0",
     "tslib": "^1"
   },

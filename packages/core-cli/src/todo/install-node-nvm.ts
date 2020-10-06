@@ -1,5 +1,5 @@
 import { spawn } from 'child_process';
-import { log, scriptLog } from 'core-utils';
+import { log, scriptLog } from '@newrade/core-utils';
 import { loadDotEnv, dotEnvProcess } from '../utilities/utils';
 import * as os from 'os';
 

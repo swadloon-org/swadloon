@@ -1,5 +1,5 @@
 {
-  "name": "core-react-ui-old",
+  "name": "@newrade/core-react-ui-old",
   "version": "1.4.2",
   "description": "UI library",
   "license": "MIT",
@@ -9,20 +9,16 @@
     "./lib/**/*"
   ],
   "scripts": {
-    "build": "yarn build:lib",
-    "build:app": "webpack --config webpack.dev.config.cjs",
-    "build:lib": "tsc --build tsconfig-lib.json",
-    "clean": "rimraf -r dist/**",
-    "start": "concurrently \"yarn start:lib\"",
-    "start:app": "webpack-dev-server --config webpack.dev.config.cjs",
-    "start:lib": "tsc --build tsconfig-lib.json --watch --preserveWatchOutput",
+    "build": "tsc --build tsconfig.build.json",
+    "clean": "rimraf -r dist/** && rm -f tsconfig.build.tsbuildinfo",
+    "start": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
     "test": "echo ok"
   },
   "type": "module",
   "typings": "./lib/index.d.ts",
   "dependencies": {
-    "core-design-system-old": "link:../core-design-system-old",
-    "core-jest-config": "link:../core-jest-config",
-    "treat": "^1.5.1"
+    "@newrade/core-design-system-old": "^1",
+    "@newrade/core-jest-config": "^1",
+    "@newrade/core-utils": "^1"
   }
 }

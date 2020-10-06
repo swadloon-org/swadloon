@@ -1,4 +1,4 @@
-import { DesignSystem } from 'core-design-system-old';
+import { DesignSystem } from '@newrade/core-design-system-old';
 import { style } from 'treat';
 import { theme } from '../design-system';
 

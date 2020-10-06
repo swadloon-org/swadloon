@@ -3,7 +3,7 @@ import chalk from 'chalk';
 import dotenv from 'dotenv';
 import { spawn } from 'child_process';
 
-import { log, scriptLog, LOG_LEVEL } from 'core-utils';
+import { log, scriptLog, LOG_LEVEL } from '@newrade/core-utils';
 import { devTools, DevTool } from './dev-tools';
 
 const failedDevTools: DevTool[] = [];

@@ -1,4 +1,4 @@
-const { puppeteerPreset } = require('core-jest-config');
+const { puppeteerPreset } = require('@newrade/core-jest-config');
 
 const jestConfig = require('./jest.config.js');
 

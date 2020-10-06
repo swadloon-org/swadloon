@@ -3,7 +3,7 @@ import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './link.treat';
 import { Label } from '../components/label';
-import { LABEL } from 'core-design-system-old';
+import { LABEL } from '@newrade/core-design-system-old';
 
 type OwnProps = {
   to: string;
@@ -13,12 +13,7 @@ export const Link: React.FC<HTMLAttributes<any> & OwnProps> = (props) => {
   const styles = useStyles(styleRefs);
 
   return (
-    <GatsbyLink
-      to={props.to}
-      className={`${styles.link}`}
-      activeClassName={`${styles.linkActive}`}
-      partiallyActive={props.children === 'Nouvelles' ? true : props.children === 'News' ? true : false}
-    >
+    <GatsbyLink to={props.to} className={`${styles.link}`} activeClassName={`${styles.linkActive}`}>
       <Label className={`${styles.label}`} variant={LABEL.smallBold}>
         {props.children}
       </Label>

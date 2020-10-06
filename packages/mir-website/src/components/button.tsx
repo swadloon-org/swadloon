@@ -1,4 +1,4 @@
-import { LABEL } from 'core-design-system-old';
+import { LABEL } from '@newrade/core-design-system-old';
 import React, { ButtonHTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
 import CornerBottomRight from '../illustrations/Illustration/IllustrationCornerBottomRight.svg';

@@ -1,4 +1,4 @@
-import { DesignSystem } from 'core-design-system-old';
+import { DesignSystem } from '@newrade/core-design-system-old';
 import { style, globalStyle } from 'treat';
 
 //
@@ -9,7 +9,6 @@ export const wrapper = style((theme: DesignSystem) => ({
   display: 'grid',
   justifyItems: 'center',
   padding: `${theme.sizing.sizes.x6} ${theme.layout.contentMargins.mobile.px}`,
-  textAlign: 'center',
 }));
 
 //

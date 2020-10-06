@@ -1,9 +1,21 @@
 {
-  "typescript.preferences.importModuleSpecifier": "relative",
+  //
+  // TypeScript Settings
+  //
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "[typescript]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "editor.formatOnSave": true,
   "[yaml]": {
     "editor.formatOnSave": false
   },
+  //
+  // Search
+  //
   "search.exclude": {
     "**/*.js.map": true,
     "**/node_modules": true,

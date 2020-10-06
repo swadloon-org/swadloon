@@ -1,0 +1,37 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "composite": true,
+    "declaration": true,
+    "incremental": true,
+    "sourceMap": true,
+    "outDir": "dist",
+    "baseUrl": ".",
+    "target": "es6",
+    "module": "ESNext",
+    "rootDir": "./src",
+    "types": ["react", "react-dom"],
+    "typeRoots": ["../../node_modules/@types", "src/types"],
+    "paths": {
+      "@newrade/*": ["../*"]
+    }
+  },
+  "references": [
+    {
+      "path": "../core-design-system/tsconfig.build.json"
+    },
+    {
+      "path": "../core-react-ui/tsconfig.build.json"
+    },
+    {
+      "path": "../core-utils/tsconfig.build.json"
+    },
+    {
+      "path": "../core-webpack-config/tsconfig.build.json"
+    },
+    {
+      "path": "../core-jest-config/tsconfig.build.json"
+    }
+  ],
+  "include": ["src/**/*", "types/**/*"]
+}

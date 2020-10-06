@@ -1,5 +1,4 @@
-import path from 'path';
-import * as webpack from 'webpack/declarations/WebpackOptions';
+import webpack from 'webpack/declarations/WebpackOptions';
 
 import { defaultOuputConf } from './src/index';
 import { ENVIRONMENT } from './src/environments';

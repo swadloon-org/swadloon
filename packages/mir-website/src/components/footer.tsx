@@ -8,7 +8,7 @@ import { AnchorLink } from './anchor-link';
 
 import { useStyles } from 'react-treat';
 import * as styleRefs from './footer.treat';
-import { LABEL, VIEWPORT } from 'core-design-system-old';
+import { LABEL, VIEWPORT } from '@newrade/core-design-system-old';
 import { useViewportBreakpoint } from '../hooks/use-viewport.hook';
 
 export const footerQuery = graphql`

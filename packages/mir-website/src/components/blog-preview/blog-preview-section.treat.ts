@@ -1,4 +1,4 @@
-import { DesignSystem } from 'core-design-system-old';
+import { DesignSystem } from '@newrade/core-design-system-old';
 import { style } from 'treat';
 
 export const wrapper = style((theme: DesignSystem) => ({
@@ -7,7 +7,6 @@ export const wrapper = style((theme: DesignSystem) => ({
   width: '100%',
   padding: `${theme.sizing.sizes.x7} 0 ${theme.sizing.sizes.x7} 0`,
 }));
-
 export const container = style((theme: DesignSystem) => ({
   display: 'grid',
   justifyItems: 'center',

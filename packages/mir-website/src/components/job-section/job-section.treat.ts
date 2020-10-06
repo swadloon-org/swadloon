@@ -1,4 +1,4 @@
-import { DesignSystem } from 'core-design-system-old';
+import { DesignSystem } from '@newrade/core-design-system-old';
 import { style } from 'treat';
 
 //
@@ -111,7 +111,9 @@ export const unselected = style((theme: DesignSystem) => ({
 //
 // selected
 //
-export const selected = style((theme: DesignSystem) => ({}));
+export const selected = style((theme: DesignSystem) => ({
+  display: 'block',
+}));
 
 //
 // accordions
@@ -126,7 +128,9 @@ export const accordions = style((theme: DesignSystem) => ({
 //
 // tagsUnique
 //
-export const tagsUnique = style((theme: DesignSystem) => ({}));
+export const tagsUnique = style((theme: DesignSystem) => ({
+  // paddingBottom: `${theme.sizing.sizes.x3}`,
+}));
 
 //
 // title

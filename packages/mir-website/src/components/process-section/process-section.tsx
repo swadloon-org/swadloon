@@ -4,7 +4,7 @@ import * as styleRefs from './process-section.treat';
 import { Heading } from '../heading';
 import { Paragraph } from '../paragraph';
 import { Label } from '../label';
-import { LABEL } from 'core-design-system-old';
+import { LABEL } from '@newrade/core-design-system-old';
 import { RenderTitleHighlight } from '../info-section/info-title-highligh';
 import {
   Maybe,
@@ -52,9 +52,7 @@ export const Process: React.FC<OwnProps> = (props) => {
                 >
                   <Heading variant="h4">{tile.title}</Heading>
                   {props.processSection?.type?.title == 'Default' ? (
-                    <Paragraph className={styles.textBloc} variant="small">
-                      {tile.description}
-                    </Paragraph>
+                    <Paragraph variant="small">{tile.description}</Paragraph>
                   ) : null}
                 </div>
               </div>

@@ -1,4 +1,4 @@
-import { Fonts, TYPOGRAPHIC_STYLE } from 'core-design-system-old';
+import { Fonts, TYPOGRAPHIC_STYLE } from '@newrade/core-design-system-old';
 
 export const fonts: Fonts = {
   [TYPOGRAPHIC_STYLE.SANS]: {

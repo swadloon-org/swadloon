@@ -1,4 +1,5 @@
-import { Value } from '../utilities/value';
+import { ContentMargins, ContentWidths } from './content-width';
+import { MediaQueries } from './media-queries';
 
 /**
  * Viewport names.
@@ -10,74 +11,44 @@ export enum VIEWPORT {
 }
 
 /**
- * Breakpoint names.
+ * Breakpoint names
  */
 export enum BREAKPOINT {
-  mobileXSmall = 'mobileXSmall', // mobile
+  //
+  // mobile
+  //
+  mobileXSmall = 'mobileXSmall',
   mobileSmall = 'mobileSmall',
   mobileMedium = 'mobileMedium',
-  tabletPortrait = 'tabletPortrait', // tablet
+  //
+  // tablet
+  //
+  tabletPortrait = 'tabletPortrait',
   tabletLandscape = 'tabletLandscape',
+  //
+  // desktop
+  //
   desktopSmall = 'desktopSmall',
-  desktopMedium = 'desktopMedium', // desktop
+  desktopMedium = 'desktopMedium',
   desktopLarge = 'desktopLarge',
   desktopXLarge = 'desktopXLarge',
 }
 
 /**
- * Representation of a breakpoint, including its value
- * in pixel
+ * Representation of a breakpoint in px
  */
-export type Breakpoint = Value;
+export type Breakpoint = number;
 
 /**
- * Breakpoints values in pixel.
+ * Breakpoints values in pixel
  */
-export type Breakpoints = { [key in keyof typeof BREAKPOINT]: Breakpoint };
-
-/**
- * Breakpoint names.
- */
-export enum MEDIA_QUERIES {
-  mobileXSmall = 'mobileXSmall', // mobile
-  mobileSmall = 'mobileSmall',
-  mobileMedium = 'mobileMedium',
-  tabletPortrait = 'tabletPortrait', // tablet
-  tabletLandscape = 'tabletLandscape',
-  desktopSmall = 'desktopSmall',
-  desktopMedium = 'desktopMedium', // desktop
-  desktopLarge = 'desktopLarge',
-  desktopXLarge = 'desktopXLarge',
-}
-
-/**
- * Representation of a media query.
- * @example `screen and (min-width: ... and (max-width: ...)`
- */
-export type MediaQuery = string;
-
-/**
- * Breakpoints values in pixel.
- */
-export type MediaQueries = { [key in keyof typeof VIEWPORT]: MediaQuery } & { tabletPlus: MediaQuery };
-
-/**
- * Content margins for different device formats.
- */
-export type ContentMargins = { [key in keyof typeof VIEWPORT]: Value };
-
-/**
- * Content max width for larger viewports.
- */
-export interface ContentWidths {
-  desktopMaxWidth: Value;
-}
+export type Breakpoints<BreakpointType = number> = { [key in keyof typeof BREAKPOINT]: BreakpointType };
 
 /**
  * Breakpoints, commonly used content margins and max widths.
  */
-export interface Layout {
-  breakpoints: Breakpoints;
+export interface Layout<BreakpointType> {
+  breakpoints: Breakpoints<BreakpointType>;
   media: MediaQueries;
   contentMargins: ContentMargins;
   contentWidth: ContentWidths;
