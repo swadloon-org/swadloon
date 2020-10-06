@@ -1,5 +1,5 @@
 import { globalStyle } from 'treat';
-import { DesignSystem } from '@newrade/core-design-system';
+import { DesignSystem } from '@newrade/core-design-system-old';
 import { getGlobalSizeVariables } from './global-sizes-variables.styles';
 
 export function applyReset(themeClass: string) {
@@ -17,7 +17,6 @@ export function applyStylesToHtmlElement(themeClass: string) {
     overflowX: 'hidden',
     overflowY: 'scroll',
     WebkitTextSizeAdjust: '100%',
-    scrollBehavior: 'smooth',
 
     fontSize: theme.sizing.baseFontSizePx,
     backgroundColor: theme.colors.greyscale1000,

@@ -1,4 +1,4 @@
-import { DesignSystem } from '@newrade/core-design-system';
+import { DesignSystem } from '@newrade/core-design-system-old';
 
 export function getGlobalSizeVariables(theme: DesignSystem) {
   return {

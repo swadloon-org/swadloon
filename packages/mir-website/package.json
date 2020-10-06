@@ -1,6 +1,6 @@
 {
   "name": "mir-website",
-  "version": "1.3.1",
+  "version": "1.5.0",
   "description": "Gatsby website for newrade's main website",
   "author": {
     "email": "elliot@newrade.ca",
@@ -20,8 +20,8 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "dependencies": {
-    "core-design-system": "link:../core-design-system",
-    "core-react-ui": "link:../core-react-ui",
+    "@newrade/core-design-system-old": "^1",
+    "@newrade/core-react-ui-old": "^1",
     "gatsby": "^2.17.11"
   },
   "peerDependencies": {
@@ -30,8 +30,8 @@
     "react-treat": "^1.4.1"
   },
   "devDependencies": {
-    "core-gatsby-config": "link:../core-gatsby-config",
-    "core-webpack-config": "link:../core-webpack-config",
+    "@newrade/core-gatsby-config": "^1",
+    "@newrade/core-webpack-config": "^1",
     "gatsby-image": "^2.4.14",
     "gatsby-plugin-manifest": "^2.4.21",
     "gatsby-plugin-react-svg": "^3.0.0",

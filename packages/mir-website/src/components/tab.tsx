@@ -2,7 +2,7 @@ import React, { HtmlHTMLAttributes, AllHTMLAttributes } from 'react';
 import { Label } from './label';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './tab.treat';
-import { LABEL } from '@newrade/core-design-system';
+import { LABEL } from '@newrade/core-design-system-old';
 interface OwnProps {
   size: 'small';
   selected: boolean;

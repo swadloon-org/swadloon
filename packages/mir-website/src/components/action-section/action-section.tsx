@@ -1,4 +1,4 @@
-import { LABEL } from '@newrade/core-design-system';
+import { LABEL } from '@newrade/core-design-system-old';
 import { Link as GatsbyLink } from 'gatsby';
 import { ActionSectionFragment } from 'packages/mir-website/types/graphql-types';
 import React, { AllHTMLAttributes } from 'react';

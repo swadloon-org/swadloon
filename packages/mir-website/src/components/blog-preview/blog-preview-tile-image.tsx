@@ -5,6 +5,7 @@ import { BlogPreviewTile } from './blog-preview-tile';
 import LazyLoad from 'react-lazyload';
 
 type OwnProps = {
+  location: Location;
   imageUrl?: string | null;
   subtitle?: string | null;
   title?: string | null;

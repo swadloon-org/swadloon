@@ -3,7 +3,7 @@ import {
   getMetadataOpenGraphWebsiteTags,
   getMetadataTwitterTags,
   OPEN_GRAPH_TYPE,
-} from '@newrade/core-react-ui';
+} from '@newrade/core-react-ui-old';
 import { graphql } from 'gatsby';
 import React from 'react';
 import { Helmet } from 'react-helmet';
@@ -33,6 +33,13 @@ export const query = graphql`
       ...MobileFluidImage
     }
     bannerImageDesktop: file(name: { eq: "ImageOffice01" }) {
+      ...DesktopFluidImage
+    }
+
+    bannerImageAboutMobile: file(name: { eq: "Banner-A-propos" }) {
+      ...MobileFluidImage
+    }
+    bannerImageAboutDesktop: file(name: { eq: "Banner-A-propos" }) {
       ...DesktopFluidImage
     }
   }

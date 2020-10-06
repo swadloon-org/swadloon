@@ -1,4 +1,4 @@
-import { ButtonSize, ICON_SIZE, LABEL } from '@newrade/core-design-system';
+import { ButtonSize, ICON_SIZE, LABEL } from '@newrade/core-design-system-old';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { ActionSection } from '../components/action-section/action-section';
@@ -11,6 +11,7 @@ import * as styleRefs from '../templates/index-page.treat';
 import { Icon } from '../ui/icon';
 import { Accordions } from '../components/accordions';
 import { InfoSectionVideo } from '../components/info-section/info-section-video';
+import { Author } from '../components/blog-preview/author';
 
 const DesignPage: React.FC<{}> = (props) => {
   return (
@@ -89,6 +90,7 @@ export const Design: React.FC = () => {
           Test
         </Accordions>
         <InfoSectionVideo></InfoSectionVideo>
+        <Author></Author>
       </div>
     </div>
   );

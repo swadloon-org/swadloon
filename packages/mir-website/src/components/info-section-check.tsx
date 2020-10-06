@@ -1,4 +1,4 @@
-import { LABEL } from '@newrade/core-design-system';
+import { LABEL } from '@newrade/core-design-system-old';
 import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
 import { Illustration } from './illustration';

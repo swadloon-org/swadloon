@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.4](https://github.com/newrade/newrade/compare/core-webpack-config@1.2.3...core-webpack-config@1.2.4) (2020-09-28)
+
+**Note:** Version bump only for package core-webpack-config
+
 ## [1.2.3](https://github.com/newrade/newrade/compare/core-webpack-config@1.2.2...core-webpack-config@1.2.3) (2020-09-17)
 
 **Note:** Version bump only for package core-webpack-config

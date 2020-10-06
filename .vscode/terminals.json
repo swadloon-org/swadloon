@@ -21,6 +21,12 @@
       "focus": false
     },
     {
+      "name": "core-design-system-old",
+      "cwd": "[workspaceFolder]/packages/core-design-system-old",
+      "open": true,
+      "focus": false
+    },
+    {
       "name": "core-docs-generator",
       "cwd": "[workspaceFolder]/packages/core-docs-generator",
       "open": true,
@@ -47,6 +53,12 @@
     {
       "name": "core-react-ui",
       "cwd": "[workspaceFolder]/packages/core-react-ui",
+      "open": true,
+      "focus": false
+    },
+    {
+      "name": "core-react-ui-old",
+      "cwd": "[workspaceFolder]/packages/core-react-ui-old",
       "open": true,
       "focus": false
     },

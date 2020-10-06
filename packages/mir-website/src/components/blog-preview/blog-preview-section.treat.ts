@@ -1,4 +1,4 @@
-import { DesignSystem } from '@newrade/core-design-system';
+import { DesignSystem } from '@newrade/core-design-system-old';
 import { style } from 'treat';
 
 export const wrapper = style((theme: DesignSystem) => ({
@@ -16,9 +16,7 @@ export const container = style((theme: DesignSystem) => ({
 }));
 
 export const content = style((theme: DesignSystem) => ({
-  display: 'grid',
-  gridTemplateColumns: 'repeat(3, 1fr)',
-  gridColumnGap: `${theme.sizing.sizes.x4}`,
+  display: 'flex',
   margin: `${theme.sizing.sizes.x5} 0`,
   padding: `0 ${theme.layout.contentMargins.mobile.px}`,
   maxWidth: '100%',
@@ -33,10 +31,11 @@ export const content = style((theme: DesignSystem) => ({
 export const title = style((theme: DesignSystem) => ({
   textAlign: 'center',
   margin: `0 0 ${theme.sizing.sizes.x5} 0`,
+  padding: `0 ${theme.layout.contentMargins.mobile.px}`,
   maxWidth: '500px',
 }));
 
 export const paragraph = style((theme: DesignSystem) => ({
   textAlign: 'center',
-  padding: `${theme.sizing.sizes.x3} 0 ${theme.sizing.sizes.x5} 0)`,
+  padding: `${theme.sizing.sizes.x3} ${theme.layout.contentMargins.mobile.px} ${theme.sizing.sizes.x5}`,
 }));

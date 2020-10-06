@@ -1,0 +1,24 @@
+{
+  "name": "@newrade/core-react-ui-old",
+  "version": "1.4.2",
+  "description": "UI library",
+  "license": "MIT",
+  "main": "./lib/index.js",
+  "module": "./lib/index.js",
+  "files": [
+    "./lib/**/*"
+  ],
+  "scripts": {
+    "build": "tsc --build tsconfig.build.json",
+    "clean": "rimraf -r dist/** && rm tsconfig.build.tsbuildinfo",
+    "start": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
+    "test": "echo ok"
+  },
+  "type": "module",
+  "typings": "./lib/index.d.ts",
+  "dependencies": {
+    "@newrade/core-design-system-old": "^1",
+    "@newrade/core-jest-config": "^1",
+    "@newrade/core-utils": "^1"
+  }
+}

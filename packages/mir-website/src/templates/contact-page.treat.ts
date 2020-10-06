@@ -1,4 +1,4 @@
-import { DesignSystem } from '@newrade/core-design-system';
+import { DesignSystem } from '@newrade/core-design-system-old';
 import { style } from 'treat';
 
 export const globalStyle = style((theme: DesignSystem) => ({
@@ -26,4 +26,11 @@ export const formWrapper = style((theme: DesignSystem) => ({
 
 export const form = style((theme: DesignSystem) => ({
   position: 'relative',
+}));
+
+export const info = style((theme: DesignSystem) => ({
+  padding: theme.sizing.sizes.x6,
+  margin: theme.sizing.sizes.x6,
+  textAlign: 'center',
+  backgroundColor: theme.colors.utilityGreen100,
 }));

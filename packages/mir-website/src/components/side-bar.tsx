@@ -1,4 +1,4 @@
-import { ICON_SIZE, LABEL } from '@newrade/core-design-system';
+import { ICON_SIZE, LABEL } from '@newrade/core-design-system-old';
 import { graphql, useStaticQuery } from 'gatsby';
 import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
@@ -11,9 +11,10 @@ import { Label } from './label';
 import * as stylesRef from './side-bar.treat';
 import { NavigationProps } from '../layouts';
 import { Link as GatsbyLink } from 'gatsby';
+import { motion, AnimatePresence } from 'framer-motion';
 
 type OwnProps = {
-  state: string;
+  state: 'opened' | 'closed';
   onOpenSideMenu: () => void;
 } & NavigationProps &
   HTMLAttributes<any>;
@@ -49,15 +50,46 @@ export const SideBar: React.FC<OwnProps> = (props) => {
   const pageActual = props.location?.pathname;
 
   return (
-    <div className={`${props.className || ''} ${styles.wrapper} ${styles[props.state]}`}>
-      <div className={styles.topContainer}>
+    <motion.div
+      className={`${props.className || ''} ${styles.wrapper} `}
+      key="sidebar"
+      initial="closed"
+      animate={props.state}
+      exit="closed"
+      variants={{
+        opened: { opacity: 1, x: 0 },
+        closed: { opacity: 0.8, x: '-100%' },
+      }}
+      transition={{ x: { duration: 0.3, ease: 'easeOut' } }}
+    >
+      <div
+        className={styles.topContainer}
+        // variants={{
+        //   open: {
+        //     transition: { staggerChildren: 0.07, delayChildren: 0.2 },
+        //   },
+        //   closed: {
+        //     transition: { staggerChildren: 0.05, staggerDirection: -1 },
+        //   },
+        // }}
+      >
         <img className={styles.logo} src={data?.gcms?.companyInfos[0]?.logo?.url} />
         <div className={styles.icon} onClick={(e) => props.onOpenSideMenu()}>
           <Icon icon="IconClose" size={ICON_SIZE.large}></Icon>
         </div>
       </div>
 
-      <div className={styles.content}>
+      <div
+        className={styles.content}
+        // variants={{
+        //   open: {
+        //     transition: { staggerChildren: 0.07, delayChildren: 0.2 },
+        //   },
+        //   closed: {
+        //     transition: { staggerChildren: 0.05, staggerDirection: -1 },
+        //   },
+        // }}
+      >
         <div className={styles.containerList}>
           <div className={styles.separation}>
             <Illustration
@@ -148,6 +180,6 @@ export const SideBar: React.FC<OwnProps> = (props) => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };

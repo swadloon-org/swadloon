@@ -19,6 +19,7 @@ https://developers.google.com/search/reference/robots_txt
 
 ## Testing Tools
 
+- Redirects: https://play.netlify.com/redirects
 - Facebook: https://developers.facebook.com/tools/debug/
 - iFramely: http://debug.iframely.com/
 - Twitter: https://cards-dev.twitter.com/validator

@@ -1,5 +1,6 @@
-import { DesignSystem } from '@newrade/core-design-system';
+import { DesignSystem } from '@newrade/core-design-system-old';
 import { style } from 'treat';
+import { theme } from '../design-system';
 
 export const sidebar = style((theme: DesignSystem) => ({
   '@media': {
@@ -7,4 +8,13 @@ export const sidebar = style((theme: DesignSystem) => ({
       display: 'none',
     },
   },
+}));
+
+export const close = style((theme: DesignSystem) => ({
+  position: 'initial',
+}));
+export const open = style((theme: DesignSystem) => ({
+  position: 'fixed',
+  top: '0',
+  left: '0',
 }));

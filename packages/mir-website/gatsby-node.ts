@@ -33,85 +33,129 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
   actions.setWebpackConfig(createGatsbyWebpackConfig({ isProduction, stage, isSSR, loaders, plugins }));
 };
 
-// from https://mcro.tech/gatsby-image-sharp/
-export const sourceNodes: GatsbyNode['sourceNodes'] = async ({ actions, createNodeId }) => {
-  const turnImageObjectIntoGatsbyNode = (image: ImageObject, project: Project) => {
-    const content = {
-      content: project.title,
-      ['image___NODE']: createNodeId(`project-image-{${project.id}}`),
-    };
-    const nodeId = createNodeId(`image-{${image.id}}`);
-    const nodeContent = JSON.stringify(image);
-    const nodeContentDigest = crypto.createHash('md5').update(nodeContent).digest('hex');
+export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions }) => {
+  const { createPage, createRedirect } = actions;
 
-    const nodeData = {
-      ...image,
-      ...content,
-      id: nodeId,
-      parent: null,
-      children: [],
-      internal: {
-        type: 'Image',
-        content: nodeContent,
-        contentDigest: nodeContentDigest,
-      },
-    };
-    return nodeData;
-  };
-
-  const createImageObjectFromURL = ({ source, fileName }: Image): ImageObject => {
-    const lastIndexOfSlash = source.lastIndexOf('/');
-    const id = source.slice(lastIndexOfSlash + 1, source.lastIndexOf('.'));
-    return { id, image: id, url: source, fileName };
-  };
-
-  type Image = {
-    id: number;
-    fileName: string;
-    source: string;
-  };
-
-  type ImageObject = {
-    id: string;
-    image: string;
-    fileName: string;
-    url: string;
-  };
-
-  type Project = {
-    id: number;
-    title: string;
-    images: Image[];
-  };
-
-  const { createNode } = actions;
-  const projects = [
-    {
-      id: 1,
-      title: 'First Project',
-      images: [
-        {
-          id: 1,
-          fileName: 'one',
-          source: 'https://media.graphcms.com/rBJ6mgb6QCfOv25Rboww',
-        },
-        {
-          id: 2,
-          fileName: 'two',
-          source: 'https://media.graphcms.com/rBJ6mgb6QCfOv25Rboww',
-        },
-      ],
-    },
-  ];
-  // const projects = await service.getProjects();
-
-  projects.forEach((project: Project) => {
-    project.images.map((image: Image) => {
-      const imgObj = createImageObjectFromURL(image);
-      const nodeData = turnImageObjectIntoGatsbyNode(imgObj, project);
-      createNode(nodeData);
-    });
+  createRedirect({ fromPath: '/employeur-en-personnel-specialise/', toPath: '/employeurs/', isPermanent: true });
+  createRedirect({ fromPath: '/division-secteur-industriel/', toPath: '/employeurs/', isPermanent: true });
+  createRedirect({ fromPath: '/division-entreprises-de-services/', toPath: '/employeurs/', isPermanent: true });
+  createRedirect({ fromPath: '/division-construction/', toPath: '/employeurs/', isPermanent: true });
+  createRedirect({
+    fromPath: '/candidats-recrutement-personnel-specialise/',
+    toPath: '/candidats/',
+    isPermanent: true,
   });
+  createRedirect({
+    fromPath: '/coordonnees/',
+    toPath: '/nous-joindre/',
+    isPermanent: true,
+  });
+
+  const blogPageQuery = await graphql(`
+    query BlogPostPage {
+      site {
+        siteMetadata {
+          siteUrl
+          languages {
+            defaultLangKey
+            langs
+          }
+        }
+      }
+      gcms {
+        companyInfos(first: 1) {
+          companyName
+          linkedinPageUrl
+          facebookPageUrl
+          instagramPageUrl
+          twitterPageUrl
+          logo {
+            fileName
+            url
+          }
+          logoFooter {
+            fileName
+            url
+          }
+          metadataTwitter
+          metadataTwitterCreator
+          metadataSiteName
+        }
+        pages(where: { name: "Blog" }, locales: [fr, en]) {
+          actionSections {
+            type
+            title
+            titleHighlight
+            subtitle
+            actionText # to remove
+            link {
+              name
+              label
+              type
+              url
+              page {
+                route
+              }
+            }
+          }
+        }
+        blogPosts {
+          id
+          title
+        }
+        routes: pages(where: { NOT: { name: "Not Found" } }, locales: [fr, en]) {
+          name
+          title
+          route
+        }
+      }
+      bannerImageMobile: file(name: { eq: "Banner-NewWebsite" }) {
+        id
+        childImageSharp {
+          # https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-transformer-sharp/src/fragments.js
+          fluid(quality: 90, maxWidth: 800) {
+            base64
+            aspectRatio
+            src
+            srcSet
+            srcWebp
+            srcSetWebp
+            sizes
+          }
+        }
+      }
+      bannerImageDesktop: file(name: { eq: "Banner-NewWebsite" }) {
+        id
+        childImageSharp {
+          # https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-transformer-sharp/src/fragments.js
+          fluid(quality: 90, maxWidth: 1920) {
+            base64
+            aspectRatio
+            src
+            srcSet
+            srcWebp
+            srcSetWebp
+            sizes
+          }
+        }
+      }
+      linkedInBanner: file(name: { eq: "Banner-NewWebsite" }) {
+        id
+        childImageSharp {
+          fixed(width: 1200, height: 628) {
+            src
+          }
+        }
+      }
+    }
+  `);
+
+  type PageConfig = {
+    name: string;
+    templatePath: string;
+    path: string;
+    lang: 'en' | 'fr';
+  };
 };
 
 export const onCreateNode: GatsbyNode['onCreateNode'] = async ({

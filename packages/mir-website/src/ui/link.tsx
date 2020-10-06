@@ -3,7 +3,7 @@ import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './link.treat';
 import { Label } from '../components/label';
-import { LABEL } from '@newrade/core-design-system';
+import { LABEL } from '@newrade/core-design-system-old';
 
 type OwnProps = {
   to: string;

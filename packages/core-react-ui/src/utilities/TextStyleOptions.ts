@@ -21,7 +21,7 @@ export function createTextStyle({
   capHeight,
   lineGap,
 }: TextStyleOptions): TextStyle {
-  const compatibleCapHeight: number = typeof capHeight === 'number' ? capHeight : capHeight.value;
+  const compatibleCapHeight: number = capHeight;
   const { fontMetrics } = font;
 
   const capsizePx = capsize({ capHeight: compatibleCapHeight, lineGap, fontMetrics });
@@ -29,15 +29,15 @@ export function createTextStyle({
     font,
     fontFamily,
     fontWeight,
-    letterSpacing: convertLetterSpacingToEM({
-      value: letterSpacing,
-      fontSize: capsizePx.fontSize,
-    }),
+    // letterSpacing: convertLetterSpacingToEM({
+    //   value: letterSpacing as any, // todo convert to %
+    //   fontSize: capsizePx.fontSize,
+    // }),
     textTransform,
     capHeight,
     lineGap,
-    capsizePx,
-    capsizeRem: convertCapsizeValuesToRem({ baseFontSize, capsizePx }),
+    // capsizePx,
+    // capsizeRem: convertCapsizeValuesToRem({ baseFontSize, capsizePx }),
   };
 }
 

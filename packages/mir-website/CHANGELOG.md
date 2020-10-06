@@ -3,6 +3,63 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/mir-website@1.4.1...mir-website@1.5.0) (2020-10-01)
+
+### Bug Fixes
+
+- **mir-website:** add google tag manager, fix some typo for launch ([e9198e1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/e9198e175fbf07a3ff2e703bcd0bbd06aff71886))
+- **mir-website:** fixing layout margin in the blog article ([822c208](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/822c208ce49328ef88b9106a8f62796a29f8eb98))
+- **mir-website:** fixing the breadcrumb with the new container ([6e7175b](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/6e7175bba6620995dad5c12cf2c980ff4ddf6a4e))
+- **mir-website:** fixing the padding of the paragraph in the blog page ([70856a6](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/70856a6e51a81ee145946701816ad3c9961386a4))
+- **mir-website:** job section bug in large desktop fixed with the good operator >= ([46a8b4e](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/46a8b4e7c96babaf91e888aec131084ba63be5cc))
+- **mir-website:** responsive form and fixing border shadows bugs on the infosection type 1 ([5df11db](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/5df11db31607ea4bde8840a7e7635611b5a9be07))
+- **mir-website:** small adjustment to animations ([f940a60](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/f940a60335baa012a5900c7fb829b9bb0faa21af))
+- **mir-website:** some design tweaks and fix path for og: image ([9c87ae4](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/9c87ae4f9037f5706a851e41cbb0bc0835e9090f))
+
+### Features
+
+- **mir-website:** add redirect from old pages to new ones ([9a03e74](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/9a03e74a85e81c26fd1b340892c45eff194fa081))
+- **mir-website:** animation component fade in ([8f01000](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/8f010009c9296d82372f15cd40231ed478291b53))
+- **mir-website:** author with picture ([b713f58](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/b713f585b50cd3ca0da677b932d3e358081c32d0))
+- **mir-website:** mobile menu animation ([63e7f9e](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/63e7f9e2434120123e7cc4589dcd5517dc1fb791))
+
+## [1.4.1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/mir-website@1.4.0...mir-website@1.4.1) (2020-09-29)
+
+### Bug Fixes
+
+- **mir-website:** fix blog post og:title and og:image ([b1ac07b](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/b1ac07b7bf802bcd2ef8bf035d824ce79bb1c171))
+
+# [1.4.0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/mir-website@1.3.1...mir-website@1.4.0) (2020-09-28)
+
+### Bug Fixes
+
+- **lakhos-website:** fix wrong import ([22affce](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/22affce5573caa2af3ce3ee7f4ca24439d0e08c8))
+- **mir-website:** add Helmet ([b359f03](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/b359f0353ee6f22e3dea9f97970b60e9277944a5))
+- **mir-website:** bacon ipsum ([86134bb](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/86134bb535e90607481c3031253949992b7c23a9))
+- **mir-website:** build failure because of console.log with the window prop ([61fbb20](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/61fbb201a70093ab8133651ca6d481ce6ecfe799))
+- **mir-website:** correcting the style of the button ([d1f9946](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/d1f99464947a5c36b9008e65a59350ea01e85aa9))
+- **mir-website:** correction of the video component and process section ([6a68425](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/6a684253b7d361253acb487d1842c72030b4658e))
+- **mir-website:** custom primary button min-width instead of anything else ([e6ee762](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/e6ee762f824c0be4150d72f36f8f2304cc315c18))
+- **mir-website:** fix button in action section ([4704938](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/470493874e0d23791719b694e23ca42762a5d48c))
+- **mir-website:** fix contact form url ([aedd5a5](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/aedd5a52bcbbde530b57aeb10c1f4aa43ad37b64))
+- **mir-website:** fix grid of the accordions ([875bc0c](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/875bc0ca2bc298e3cb6f8096ba5898c99f072308))
+- **mir-website:** fixes ([3da9316](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/3da9316b843bf675c0e7630348e65f91b3aba400))
+- **mir-website:** fixes ([182ef07](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/182ef07118b42c912534b0a20d3de9f0445dc590))
+- **mir-website:** fixes ([28c1a5e](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/28c1a5e8aa923ac3559963ed079cf119be00515f))
+- **mir-website:** fixes for various sections ([f8b7c36](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/f8b7c366d4cdf5d4f6e5f88e68b49dc7a2892b5d))
+- **mir-website:** fixing the location of the current page with the already props.location ([094a0e9](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/094a0e9f187ba1fdcdd13c7d651f568351310c72))
+- **mir-website:** safari fixed style and various correction ([4bd6442](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/4bd6442c9657c5b1e1a701628679cfe9b9570f80))
+
+### Features
+
+- **mir-website:** add csp and headers for netlify ([02961ad](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/02961ad5b0cffe0f1137c8c8bd4b1290e3102976))
+- **mir-website:** add links ([af5e09b](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/af5e09bbe64bc1bfa2e2b43872096a3e89549e50))
+- **mir-website:** adding preloading for fonts ([6230e4a](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/6230e4a91d52eeeb56b9b1802247a8c27ed17dbc))
+- **mir-website:** contact form ([9fddb92](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/9fddb928f863db5b73ddbbade7d6c5a53be0f45a))
+- **mir-website:** fixing the accordions and adding the info-section-video component ([5e81947](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/5e81947644cb26c24f87c07515762651a5cdc0ab))
+- **mir-website:** temporary page for blog post ([fd4fbf5](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/fd4fbf5d0cf71714cfe6459c555f191d604ea5d8))
+- **mir-website:** wip on links ([3f7c92d](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/3f7c92d319abedd146eb5779ef31b1d7eaac0d3c))
+
 ## [1.3.1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/mir-website@1.3.0...mir-website@1.3.1) (2020-09-17)
 
 ### Bug Fixes
@@ -43,8 +100,8 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - **cdpq-design-system:** init ([bdf74c5](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/bdf74c5a996e05bf3644a43e3d2e53476e80efeb))
 - **check label, box-icon, job-section:** adding new ui component and refactor job-section ([a7da053](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/a7da0534a4c78f7d9c6cf8b1a5e4545b135791cc))
-- **core-design-system:** add base for core-react-ui button ([ec0b0c7](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ec0b0c78731f4291cbc12e2c04300268ae613c93))
-- **core-design-system:** add Sizing.sizes to access CSS variables more easily (var()) ([3db4195](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/3db41956b5a91b05f0f2651472a0cbbd4dd826cc))
+- **core-design-system-old:** add base for core-react-ui button ([ec0b0c7](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ec0b0c78731f4291cbc12e2c04300268ae613c93))
+- **core-design-system-old:** add Sizing.sizes to access CSS variables more easily (var()) ([3db4195](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/3db41956b5a91b05f0f2651472a0cbbd4dd826cc))
 - **core-react-ui:** add seo models and components ([4861d62](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/4861d626c4c25b96f1d3f22bf5a958d3417d2ad9))
 - **core-react-ui:** adding the type of padding and width ([fe4c969](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/fe4c9694e03302d193a49c990536277051ad5bc6))
 - **jobsection:** testing the new component with graph cms ([2ad19dd](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/2ad19dd9104603b5f84570b8a30b38bdf0ba5d8a))
@@ -97,7 +154,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - **accordions and tags:** adding the beginning of the accordions with the tags ([3aebb79](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/3aebb7975c6b42a3cd7ab7a4e6afe10ec1803ef2))
 - **action section:** adding the view resonsive ([b0985ad](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/b0985ad8f953e041a480eea27fb3c7479e853d42))
-- **core-design-system:** add letter spacing to the typography api ([0115e79](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/0115e79761e9ef54e27cfd61cc03ff67950ab706))
+- **core-design-system-old:** add letter spacing to the typography api ([0115e79](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/0115e79761e9ef54e27cfd61cc03ff67950ab706))
 - **info-section type 7:** adding the group of info-tile called info-section-type-7 ([0647ccb](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/0647ccb58709e4fb14bd45670486450113afd3cd))
 - **info-tile:** adding a new variant to the info-tile named borderWhite ([abda128](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/abda128fff6f9a0562bfe1e797846f04bda14b42))
 - **mir-website:** add new icons and illustrations ([3152337](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/31523379391311df108d29e89c66e43e2712aa19))
@@ -122,7 +179,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - **button:** ajustement of the padding with the good syntaxe ([a3a33f1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/a3a33f1ed97d9d6a00ecd4ecb2308c5ccd932369))
 - **component:** fix of the image-frame to convert the background to cover ([6780c18](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/6780c18340fb56dce5d947cddd9acc835c940415))
 - **core-cli:** commit bin folder ([7d640ec](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/7d640ec8441b600cb96d9209da5ee3c697835370))
-- **core-design-system:** small refactoring and additions ([a2a2af3](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/a2a2af348dfeb1a0c70a7a8d8948442d6ff22c99))
+- **core-design-system-old:** small refactoring and additions ([a2a2af3](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/a2a2af348dfeb1a0c70a7a8d8948442d6ff22c99))
 - **gatsby:** use shared config for gatsby ([0c29387](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/0c29387167b20f890241e92297939276dd64ba43))
 - **label:** fix the display bug with the labels ([8e407dd](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/8e407dd54135c7e9843bb5549bc212770fa2da29)), closes [#50](https://github.com/newrade/newrade/tree/master/packages/newrade-website/issues/50)
 - **mir-website:** add props types to index ([973268a](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/973268a07c7a8ae9af39639c22051ab132174268))
@@ -157,8 +214,8 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - **core-cli:** add oclif ([e3b89a1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/e3b89a1e19e6f1db94492983bc50f83f1f17681f))
 - **core-cli:** add the figma-sync command ([c53788f](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/c53788f7a03b989954328c6b41227f3dae9c20bf))
 - **core-cli:** clean up core-cli project files ([09fe51e](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/09fe51e5db9f6a6de5d9e9da18236780fea8d9cb))
-- **core-design-system:** some progress with TreatCSS usage ([7ddf932](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/7ddf93296f0083473d23d4d3c56046b010100bdc))
-- **core-design-system:** version 1.0.0 of the DesignSystem interfaces ([f348e22](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/f348e226d61d5df706ae3228f435e74292c40838))
+- **core-design-system-old:** some progress with TreatCSS usage ([7ddf932](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/7ddf93296f0083473d23d4d3c56046b010100bdc))
+- **core-design-system-old:** version 1.0.0 of the DesignSystem interfaces ([f348e22](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/f348e226d61d5df706ae3228f435e74292c40838))
 - **core-gatsby-config:** add shared config ([7d49add](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/7d49adde7eb14b678c123933abdc12e7a76691e2))
 - **core-webpack-config:** refactor config to be used in gatsby packages ([3a9f06f](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/3a9f06fa246ab8b5b2b595295f02aaac5b2da86e))
 - **mir-diez:** add generated tokens from diez design system ([d9adc69](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/d9adc699f1b25f4cb661f8f444a3d5debd54140b))

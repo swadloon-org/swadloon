@@ -1,4 +1,4 @@
-import { DesignSystem } from '@newrade/core-design-system';
+import { DesignSystem } from '@newrade/core-design-system-old';
 import { style, globalStyle } from 'treat';
 
 export const wrapper = style((theme: DesignSystem) => ({

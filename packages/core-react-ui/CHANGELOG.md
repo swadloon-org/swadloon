@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.2](https://github.com/newrade/newrade/compare/core-react-ui@1.4.1...core-react-ui@1.4.2) (2020-09-28)
+
+### Bug Fixes
+
+- **repo:** fix delete-merge-branch configuration ([e85816a](https://github.com/newrade/newrade/commit/e85816a79cc7291432754e75139c3068c6716d80))
+
 ## [1.4.1](https://github.com/newrade/newrade/compare/core-react-ui@1.4.0...core-react-ui@1.4.1) (2020-09-17)
 
 ### Bug Fixes

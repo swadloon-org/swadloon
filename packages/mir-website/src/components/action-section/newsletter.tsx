@@ -7,7 +7,7 @@ import { Input } from '../input';
 import { Label } from '../label';
 import { Heading } from '../heading';
 import { Button } from '../button';
-import { LABEL } from '@newrade/core-design-system';
+import { LABEL } from '@newrade/core-design-system-old';
 import { ActionSectionFragment } from '../../../types/graphql-types';
 import { RenderTitleHighlight } from '../info-section/info-title-highligh';
 

@@ -8,7 +8,7 @@ import {
   Paragraphs,
   Typography,
   VIEWPORT,
-} from '@newrade/core-design-system';
+} from '@newrade/core-design-system-old';
 import { fonts } from './fonts';
 import { sizing, BASE_FONT_SIZE } from './sizing';
 

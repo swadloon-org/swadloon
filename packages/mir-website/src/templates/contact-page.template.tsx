@@ -1,4 +1,5 @@
 import React from 'react';
+import ReCAPTCHA from 'react-google-recaptcha';
 import { useStyles } from 'react-treat';
 import { ContactPageFrQuery } from '../../types/graphql-types';
 import { BannerSecondary } from '../components/banner-secondary';
@@ -27,11 +28,28 @@ export const Contact: React.FC<PageProps> = ({ data, location }) => {
     },
   ];
 
+  const [hasMounted, setHasMounted] = React.useState(false);
+  React.useEffect(() => {
+    setHasMounted(true);
+  }, []);
+
+  const recaptchaRef = React.createRef<any>();
+
   return (
     <main className={`${styles.wrapper}`}>
       <BannerSecondary imageData={sources} title={data?.gcms?.pages[0]?.bannerTitle}></BannerSecondary>
 
       {section1 && section1.type === 'type6' ? <InfoSectionType6Group {...section1} /> : null}
+
+      {hasMounted ? (
+        <div
+          id="info"
+          className={styles.info}
+          style={{ display: location?.search.includes('success') ? 'block' : 'none' }}
+        >
+          <Heading variant="h3">Merci! Votre message a été transmis!</Heading>
+        </div>
+      ) : null}
 
       <div className={styles.formWrapper}>
         <div>
