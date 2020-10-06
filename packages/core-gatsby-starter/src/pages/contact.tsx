@@ -8,14 +8,36 @@ export const ContactQuery = graphql`
       id
       name
       formFields {
-        name
-        id
-        type
-        placeholder
-        validations {
+        ... on GraphCMS_FormField {
           name
-          pattern
-          required
+          placeholder
+          id
+          type
+          validations {
+            errorMessage
+            matchPattern
+            name
+            pattern
+            required
+            unique
+          }
+        }
+        ... on GraphCMS_FormFieldGroup {
+          id
+          formFields {
+            name
+            placeholder
+            id
+            type
+            validations {
+              errorMessage
+              matchPattern
+              name
+              pattern
+              required
+              unique
+            }
+          }
         }
       }
     }
@@ -26,11 +48,11 @@ interface Props {
   data: any;
 }
 
-export const Contact: React.FC<Props> = (props) => {
+export const Contact: React.FC<Props> = ({ data }) => {
   return (
     <div>
       <div>
-        <Form form={props.data.graphCmsForm}></Form>
+        <Form form={data.graphCmsForm}></Form>
       </div>
     </div>
   );

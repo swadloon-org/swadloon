@@ -5,7 +5,13 @@ export const formQuery = graphql`
     id
     name
     formFields {
-      ...FormField
+      ... on GraphCMS_FormField {
+        ...FormField
+      }
+
+      ... on GraphCMS_FormFieldGroup {
+        ...FormFieldGroup
+      }
     }
   }
 `;

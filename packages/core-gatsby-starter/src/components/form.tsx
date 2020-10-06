@@ -16,10 +16,9 @@ export const Form: React.FC<OwnProps> = ({ form }) => {
   return (
     <div className="wrapper">
       <h1>{form.name}</h1>
-
       <form onSubmit={handleSubmit(onSubmit)}>
         {form.formFields.map((field, i) => {
-          return <Field key={i} field={field}></Field>;
+          return <Field key={i}>test</Field>;
         })}
         <input type="submit" />
       </form>
