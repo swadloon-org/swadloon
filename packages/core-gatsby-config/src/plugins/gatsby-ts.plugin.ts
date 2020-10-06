@@ -1,4 +1,4 @@
-import { Options as ForkTsPluginOptions } from 'fork-ts-checker-webpack-plugin';
+import { ForkTsCheckerWebpackPluginOptions } from 'fork-ts-checker-webpack-plugin/lib/ForkTsCheckerWebpackPluginOptions';
 import Gatsby from 'gatsby';
 import * as tsloader from 'ts-loader';
 
@@ -7,7 +7,7 @@ export interface TsOptions {
   tsLoader?: Partial<tsloader.Options>;
   typeCheck?: boolean;
   alwaysCheck?: boolean;
-  forkTsCheckerPlugin?: ForkTsPluginOptions;
+  forkTsCheckerPlugin?: ForkTsCheckerWebpackPluginOptions;
 }
 
 /**
@@ -20,6 +20,7 @@ export function getGatsbyTsPluginConfig(
     tsLoader: {
       configFile: 'tsconfig.build.json',
       logLevel: 'WARN',
+      transpileOnly: true, // typechecking will be done by ForkTsCheckerWebpackPlugin
       projectReferences: false, // todo check if it works for development
     },
   }
