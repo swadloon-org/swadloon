@@ -18,21 +18,45 @@ export function createGatsbyWebpackConfig({
   if (stage === 'develop-html') return {};
 
   const commonPlugins = [
-    /**
-     * TreatCSS Webpack Plugin
-     * @see https://seek-oss.github.io/treat/webpack-options/
-     */
     new TreatPlugin({
       localIdentName: '[name]_[local]_[hash:base64:5]',
       themeIdentName: '_[name]-[local]_',
       outputCSS: isSSR ? false : true, // https://seek-oss.github.io/treat/setup#server-side-rendering
       outputLoaders: [loaders.miniCssExtract()],
     }),
+    // getTreatCSSPlugin({
+    //   isSSR,
+    //   outputLoaders: [loaders.miniCssExtract()],
+    // }),
   ];
 
-  const productionPlugins = [];
+  // const productionPlugins = [bundleVisualizerPlugin];
+  const productionPlugins: WebpackOptions['plugins'] = [];
+
+  // const sassRule = {
+  //   test: /\.s(a|c)ss$/,
+  //   use: isSSR
+  //     ? [loaders.null()]
+  //     : [
+  //         loaders.miniCssExtract(),
+  //         loaders.css({ ...(cssLoader as any).query, importLoaders: 2 }),
+  //         loaders.postcss(),
+  //         scssLoader,
+  //       ],
+  // };
+
+  // const sassRuleModules = {
+  //   test: /\.module\.s(a|c)ss$/,
+  //   use: [
+  //     !isSSR && loaders.miniCssExtract({ hmr: false }),
+  //     loaders.css({ ...(cssLoader as any).query, modules: true, importLoaders: 2 }),
+  //     loaders.postcss(),
+  //     scssLoader,
+  //   ].filter(Boolean),
+  // };
 
   return {
+    devtool: 'eval-source-map',
     module: {
       rules: [
         {

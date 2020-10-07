@@ -1,5 +1,5 @@
+import { createGatsbyWebpackConfig } from '@newrade/core-gatsby-config';
 import { GatsbyNode } from 'gatsby';
-import { createGatsbyWebpackConfig } from './webpack.config';
 
 /**
  * Gatsby Node Configuration

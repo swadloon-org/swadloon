@@ -1,7 +1,7 @@
+import { createGatsbyWebpackConfig } from '@newrade/core-gatsby-config';
 import crypto from 'crypto';
 import { GatsbyNode } from 'gatsby';
 import path from 'path';
-import { createGatsbyWebpackConfig } from './webpack.config';
 
 /**
  * Gatsby Node Configuration
@@ -38,7 +38,7 @@ exports.createPages = async ({ actions, graphql }) => {
 export const onCreateNode: GatsbyNode['onCreateNode'] = async ({ node, actions }) => {
   const { createNode, createNodeField } = actions;
 
-  console.log(node.id);
+  // console.log(node.id);
 
   // Releases Nodes
   if (node.remoteTypeName === `String`) {

@@ -5,36 +5,21 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Gatsby develop",
-      "type": "node",
-      "request": "launch",
-      "protocol": "inspector",
-      "program": "${workspaceFolder}/node_modules/.bin/gatsby",
-      "args": ["develop", "--inspect-brk"],
-      "env": {
-        "NODE_ENV": "development",
-        "DEBUG": "gatsby:*"
-      },
-      "stopOnEntry": false,
-      "runtimeArgs": ["--nolazy", "-r", "ts-node/register"],
-      "internalConsoleOptions": "neverOpen",
-      "sourceMaps": true,
-      "preLaunchTask": "clean"
-    },
-    {
       "name": "Gatsby build",
-      "type": "node",
+      "type": "pwa-node",
       "request": "launch",
-      "protocol": "inspector",
-      "program": "${workspaceFolder}/../../node_modules/.bin/gatsby",
-      "args": ["build"],
+      "program": "${workspaceFolder}/node_modules/.bin/gatsby",
+      "args": ["build", "--no-uglify"],
       "env": {
         "NODE_ENV": "development",
         "DEBUG": "gatsby:*"
       },
-      "stopOnEntry": false,
-      "runtimeArgs": ["--nolazy"],
-      "sourceMaps": false
+      "console": "internalConsole",
+      "internalConsoleOptions": "openOnSessionStart",
+      "runtimeArgs": ["--lazy"],
+      "preLaunchTask": "compile",
+      "autoAttachChildProcesses": true,
+      "sourceMaps": true
     }
   ]
 }
