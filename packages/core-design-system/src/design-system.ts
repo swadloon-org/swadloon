@@ -1,4 +1,6 @@
+import { Border, Outline, Padding } from './components/atoms/box';
 import { Buttons } from './components/molecules/buttons';
+import { Animations } from './foundations/animations';
 import { ColorIntents } from './foundations/color-intents';
 import { Colors } from './foundations/colors';
 import { BoxShadow, Effects } from './foundations/effects';
@@ -21,6 +23,14 @@ export interface DesignSystemTypes {
   };
   layout: {
     breakpointType: number;
+  };
+  components: {
+    button: {
+      color: Color | string;
+      padding: Padding | string;
+      border: Border | string;
+      outline: Outline | string;
+    };
   };
 }
 
@@ -65,9 +75,7 @@ export interface DesignSystem<Types extends DesignSystemTypes = DesignSystemType
   /**
    * TODO
    */
-  animations?: {
-    defaultDelay: number;
-  };
+  animations?: Animations;
   /**
    * Breakpoints, common content margins for different viewports.
    */
@@ -75,8 +83,13 @@ export interface DesignSystem<Types extends DesignSystemTypes = DesignSystemType
   /**
    * Components' specific settings.
    */
-  components: {
-    buttons: Buttons;
+  components?: {
+    buttons: Buttons<
+      Types['components']['button']['color'],
+      Types['components']['button']['padding'],
+      Types['components']['button']['border'],
+      Types['components']['button']['outline']
+    >;
     // inputs: any;
     // // TOOD
     // links: {

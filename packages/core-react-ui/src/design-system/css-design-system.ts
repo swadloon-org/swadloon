@@ -1,5 +1,5 @@
 import { DesignSystem, DesignSystemTypes } from '@newrade/core-design-system';
-import CSSTypes, { FontWeightProperty, LetterSpacingProperty, TextTransformProperty } from 'csstype';
+import CSSTypes from 'csstype';
 
 export interface CSSDesignSystemTypes extends DesignSystemTypes {
   themes: 'light';
@@ -7,9 +7,17 @@ export interface CSSDesignSystemTypes extends DesignSystemTypes {
   shadow: CSSTypes.BoxShadowProperty;
   sizing: number;
   typography: {
-    fontWeight: FontWeightProperty;
-    letterSpacing: LetterSpacingProperty<any>;
-    textTransform: TextTransformProperty;
+    fontWeight: CSSTypes.FontWeightProperty;
+    letterSpacing: CSSTypes.LetterSpacingProperty<any>;
+    textTransform: CSSTypes.TextTransformProperty;
+  };
+  components: {
+    button: {
+      color: CSSTypes.Color;
+      padding: CSSTypes.PaddingProperty<any>;
+      border: CSSTypes.BorderProperty<any>;
+      outline: CSSTypes.OutlineProperty<any>;
+    };
   };
 }
 

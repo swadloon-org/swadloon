@@ -1,6 +1,6 @@
 import { ButtonHTMLAttributes } from 'react';
 import { Color } from '../../primitives/color';
-import { BoxStyle } from '../atoms/box';
+import { Border, BoxStyle, Outline, Padding } from '../atoms/box';
 
 export enum ButtonAs {
   button = 'button',
@@ -48,18 +48,28 @@ export interface ButtonProps extends ButtonHTMLAttributes<any> {
   state?: ButtonState;
 }
 
-export type ButtonStyle = {
-  textColor?: Color;
-  iconColor?: Color;
+export type ButtonStyle<ColorType> = {
+  textColor?: ColorType;
+  iconColor?: ColorType;
+  backgroundColor?: ColorType;
+  borderColor?: ColorType;
+  outlineColor?: ColorType;
 };
 
-export type ButtonBoxStyle = BoxStyle & {};
+export type ButtonBoxStyle<ColorType, PaddingType, BorderType, OutlineType> = BoxStyle<
+  ColorType,
+  PaddingType,
+  BorderType,
+  OutlineType
+> & {};
 
-export type ButtonVariants = { [key in keyof typeof ButtonVariant]: ButtonStyle };
+export type ButtonVariants<ColorType> = { [key in keyof typeof ButtonVariant]: ButtonStyle<ColorType> };
 
-export type ButtonSizes = { [key in keyof typeof ButtonSize]: ButtonBoxStyle };
+export type ButtonSizes<ColorType, PaddingType, BorderType, OutlineType> = {
+  [key in keyof typeof ButtonSize]: ButtonBoxStyle<ColorType, PaddingType, BorderType, OutlineType>;
+};
 
-export interface Buttons {
-  variants: ButtonVariants;
-  sizes: ButtonSizes;
+export interface Buttons<ColorType = Color, PaddingType = Padding, BorderType = Border, OutlineType = Outline> {
+  variants: ButtonVariants<ColorType>;
+  sizes: ButtonSizes<ColorType, PaddingType, BorderType, OutlineType>;
 }

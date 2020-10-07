@@ -1,6 +1,6 @@
 import { Color } from '../../primitives/color';
 
-export type Padding = {
+export type Padding<PaddingType = number> = {
   default?: number;
   top?: number;
   right?: number;
@@ -22,23 +22,23 @@ export type Outline = {
   outlineRadius?: number;
 };
 
-export type BoxStyle = {
+export type BoxStyle<ColorType = Color, PaddingType = number, BorderType = Border, OutlineType = Outline> = {
   width?: number;
   height?: number;
-  padding?: Padding;
+  padding?: Padding<PaddingType>;
   border?: {
-    default?: Border;
-    top?: Border;
-    right?: Border;
-    bottom?: Border;
-    left?: Border;
+    default?: BorderType;
+    top?: BorderType;
+    right?: BorderType;
+    bottom?: BorderType;
+    left?: BorderType;
   };
   outline?: {
-    default?: Outline;
-    top?: Outline;
-    right?: Outline;
-    bottom?: Outline;
-    left?: Outline;
+    default?: OutlineType;
+    top?: OutlineType;
+    right?: OutlineType;
+    bottom?: OutlineType;
+    left?: OutlineType;
   };
-  backgroundColor?: Color;
+  backgroundColor?: ColorType;
 };

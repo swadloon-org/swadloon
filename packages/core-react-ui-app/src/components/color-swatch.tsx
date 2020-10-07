@@ -3,7 +3,7 @@ import { useStyles } from 'react-treat';
 import { Color } from '@newrade/core-design-system';
 
 import * as styleRefs from './color-swatch.treat';
-import { getHSLColor } from '../../../core-react-ui/src';
+import { getHSLColor } from '@newrade/core-react-ui';
 
 type Props = {
   color: Color;
