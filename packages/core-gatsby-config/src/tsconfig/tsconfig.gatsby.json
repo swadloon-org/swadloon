@@ -1,0 +1,15 @@
+{
+  "extends": "../../../../tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "declaration": false,
+    "sourceMap": false,
+    "inlineSources": true,
+    "inlineSourceMap": true,
+    "composite": false,
+    "strict": false,
+    "target": "esnext",
+    "module": "commonjs",
+    "types": ["node"]
+  }
+}

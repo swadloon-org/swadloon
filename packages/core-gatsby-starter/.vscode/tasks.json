@@ -9,6 +9,13 @@
       "command": "yarn",
       "args": ["clean"],
       "problemMatcher": []
+    },
+    {
+      "label": "compile",
+      "type": "shell",
+      "command": "yarn",
+      "args": ["compile"],
+      "problemMatcher": []
     }
   ]
 }
