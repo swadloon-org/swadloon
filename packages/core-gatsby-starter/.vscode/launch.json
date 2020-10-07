@@ -8,20 +8,18 @@
       "name": "Gatsby build",
       "type": "pwa-node",
       "request": "launch",
-      "program": "${workspaceRoot}/../../node_modules/.bin/gatsby",
-      "args": ["build"],
-      "runtimeArgs": ["--nolazy"],
-      "internalConsoleOptions": "neverOpen",
-      "stopOnEntry": false,
+      "program": "${workspaceFolder}/node_modules/.bin/gatsby",
+      "args": ["build", "--no-uglify"],
       "env": {
         "NODE_ENV": "development",
         "DEBUG": "gatsby:*"
       },
-      "sourceMaps": true,
-      "autoAttachChildProcesses": false,
-      "console": "integratedTerminal",
-      "preLaunchTask": "clean",
-      "skipFiles": ["<node_internals>/**"]
+      "console": "internalConsole",
+      "internalConsoleOptions": "openOnSessionStart",
+      "runtimeArgs": ["--lazy"],
+      "preLaunchTask": "compile",
+      "autoAttachChildProcesses": true,
+      "sourceMaps": true
     }
   ]
 }

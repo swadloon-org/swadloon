@@ -1,5 +1,6 @@
+import { createGatsbyWebpackConfig } from '@newrade/core-gatsby-config';
+import crypto from 'crypto';
 import { GatsbyNode } from 'gatsby';
-import { createGatsbyWebpackConfig } from './webpack.config';
 import path from 'path';
 
 /**
@@ -15,67 +16,57 @@ export type BlogPostContext = {
   content: any;
 };
 
-exports.createPages = async ({ actions: { createPage }, graphql }) => {
-  const { data } = await graphql(`
-    {
-      contents: allGraphCmsBlogPost {
-        nodes {
-          id
-          title
-          contentRich {
-            markdownNode {
-              childMdx {
-                body
-              }
-            }
-          }
-        }
-      }
-    }
-  `);
-
-  data.contents.nodes.forEach((node) => {
-    createPage({
-      component: path.resolve(`src/templates/blog-page.tsx`),
-      context: {
-        id: node.id,
-        content: node.contentRich,
-      } as BlogPostContext,
-      path: `/blog-post/${node.title}`,
-    });
-  });
+exports.createPages = async ({ actions, graphql }) => {
+  // const { data } = await graphql(`
+  //   {
+  //     gcms
+  //   }
+  // `);
+  // console.log(data);
+  // data.contents.nodes.forEach((node) => {
+  //   createPage({
+  //     component: path.resolve(`src/templates/blog-page.tsx`),
+  //     context: {
+  //       id: node.id,
+  //       content: node.contentRich,
+  //     } as BlogPostContext,
+  //     path: `/blog-post/_${node.title}`,
+  //   });
+  // });
 };
 
-// export const onCreateNode: GatsbyNode['onCreateNode'] = async ({ node, actions }) => {
-//   const { createNode, createNodeField } = actions;
+export const onCreateNode: GatsbyNode['onCreateNode'] = async ({ node, actions }) => {
+  const { createNode, createNodeField } = actions;
 
-//   // Releases Nodes
-//   if (node.remoteTypeName === `String`) {
-//     // Add text/markdown node children to Release node
-//     const textNode = {
-//       id: `${node.id}-MarkdownBody`,
-//       parent: node.id,
-//       dir: path.resolve('./'),
-//       internal: {
-//         type: `${node.internal.type}MarkdownBody`,
-//         mediaType: 'text/markdown',
-//         content: node.body,
-//         contentDigest: crypto
-//           .createHash(`md5`)
-//           .update(node.body as any)
-//           .digest(`hex`),
-//       },
-//     };
-//     createNode(textNode as any);
+  // console.log(node.id);
 
-//     // Create markdownBody___NODE field
-//     createNodeField({
-//       node,
-//       name: 'markdownBody___NODE',
-//       value: textNode.id,
-//     });
-//   }
-// };
+  // Releases Nodes
+  if (node.remoteTypeName === `String`) {
+    // Add text/markdown node children to Release node
+    const textNode = {
+      id: `${node.id}-MarkdownBody`,
+      parent: node.id,
+      dir: path.resolve('./'),
+      internal: {
+        type: `${node.internal.type}MarkdownBody`,
+        mediaType: 'text/markdown',
+        content: node.body,
+        contentDigest: crypto
+          .createHash(`md5`)
+          .update(node.body as any)
+          .digest(`hex`),
+      },
+    };
+    createNode(textNode as any);
+
+    // Create markdownBody___NODE field
+    createNodeField({
+      node,
+      name: 'markdownBody___NODE',
+      value: textNode.id,
+    });
+  }
+};
 
 export const onCreateBabelConfig: GatsbyNode['onCreateBabelConfig'] = ({ actions }) => {
   actions.setBabelPlugin({
