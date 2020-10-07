@@ -4,10 +4,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.onPreBootstrap = exports.createPages = exports.onCreateWebpackConfig = exports.onCreateBabelConfig = void 0;
-const child_process_1 = require("child_process");
+const core_gatsby_config_1 = require("@newrade/core-gatsby-config");
 const core_utils_1 = require("@newrade/core-utils");
-const webpack_config_1 = require("./webpack.config");
 const chalk_1 = __importDefault(require("chalk"));
+const child_process_1 = require("child_process");
 /**
  * Gatsby Node Configuration
  *
@@ -23,7 +23,7 @@ exports.onCreateBabelConfig = ({ actions }) => {
 exports.onCreateWebpackConfig = ({ stage, rules, loaders, plugins, actions, }) => {
     const isProduction = stage !== `develop`;
     const isSSR = stage.includes(`html`);
-    actions.setWebpackConfig(webpack_config_1.createGatsbyWebpackConfig({ isProduction, stage, isSSR, loaders, plugins }));
+    actions.setWebpackConfig(core_gatsby_config_1.createGatsbyWebpackConfig({ isProduction, stage, isSSR, loaders, plugins }));
 };
 exports.createPages = async ({ graphql, actions }) => {
     const { createPage, createRedirect } = actions;
