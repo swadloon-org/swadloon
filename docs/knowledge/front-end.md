@@ -74,6 +74,21 @@ https://developers.google.com/web/fundamentals/design-and-ux/animations/animatio
 * https://hpbn.co/
 * https://developers.google.com/web/tools/chrome-devtools/network/reference
 
+## Tooling
+
+### Git
+
+- [ ] git config
+- [ ] git rebase
+
+### Webpack
+
+### Babel
+
+### TypeScript Compiler
+
+### PostCSS
+
 ## Resources, books and links
 
 | Name                               | Link                              | Subjects             |

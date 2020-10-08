@@ -14,11 +14,16 @@ export interface CSSDesignSystemTypes extends DesignSystemTypes {
   components: {
     button: {
       color: CSSTypes.Color;
-      padding: CSSTypes.PaddingProperty<any>;
-      border: CSSTypes.BorderProperty<any>;
-      outline: CSSTypes.OutlineProperty<any>;
+      padding: CSSTypes.PaddingProperty<string>;
+      border: CSSTypes.BorderProperty<string>;
+      outline: CSSTypes.OutlineProperty<string>;
     };
   };
 }
 
 export type CSSDesignSystem = DesignSystem<CSSDesignSystemTypes>;
+
+export interface Theme {
+  theme: DesignSystem;
+  cssTheme: CSSDesignSystem;
+}

@@ -1,11 +1,11 @@
 import { Color } from '../../primitives/color';
 
 export type Padding<PaddingType = number> = {
-  default?: number;
-  top?: number;
-  right?: number;
-  bottom?: number;
-  left?: number;
+  default?: PaddingType;
+  top?: PaddingType;
+  right?: PaddingType;
+  bottom?: PaddingType;
+  left?: PaddingType;
 };
 
 export type Border = {

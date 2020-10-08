@@ -19,9 +19,9 @@ export function getGatsbyTsPluginConfig(
     fileName: `types/graphql-types.ts`,
     tsLoader: {
       configFile: 'tsconfig.build.json',
-      logLevel: 'WARN',
+      logLevel: 'INFO',
       transpileOnly: true, // typechecking will be done by ForkTsCheckerWebpackPlugin
-      projectReferences: false, // todo check if it works for development
+      projectReferences: true, // todo check if it works for development
     },
   }
 ): Gatsby.PluginRef {

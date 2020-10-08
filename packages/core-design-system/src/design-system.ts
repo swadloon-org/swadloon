@@ -1,4 +1,4 @@
-import { Border, Outline, Padding } from './components/atoms/box';
+import { Border, Outline } from './components/atoms/box';
 import { Buttons } from './components/molecules/buttons';
 import { Animations } from './foundations/animations';
 import { ColorIntents } from './foundations/color-intents';
@@ -27,7 +27,7 @@ export interface DesignSystemTypes {
   components: {
     button: {
       color: Color | string;
-      padding: Padding | string;
+      padding: number | string;
       border: Border | string;
       outline: Outline | string;
     };

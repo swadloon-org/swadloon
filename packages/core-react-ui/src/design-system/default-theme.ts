@@ -3,7 +3,7 @@ import { getCSSColor } from '../utilities/colors.utilities';
 import { CSSDesignSystem } from './css-design-system';
 import { defaultColors } from './default-colors';
 
-const defaultTheme: Partial<DesignSystem> = {
+export const defaultTheme: Partial<DesignSystem> = {
   name: 'core-react-ui',
   themes: 'light',
   // typography: {
@@ -135,7 +135,7 @@ const defaultTheme: Partial<DesignSystem> = {
   },
 };
 
-const defaultCSSTheme: Partial<CSSDesignSystem> = {
+export const defaultCSSTheme: Partial<CSSDesignSystem> = {
   name: 'core-react-ui',
   themes: 'light',
   components: {
@@ -143,59 +143,53 @@ const defaultCSSTheme: Partial<CSSDesignSystem> = {
       variants: {
         primary: {
           textColor: getCSSColor(defaultColors.greyscale0Reversed),
-          iconColor: defaultColors.greyscale0Reversed,
-          backgroundColor: defaultColors.primary500,
+          iconColor: getCSSColor(defaultColors.greyscale0Reversed),
+          backgroundColor: getCSSColor(defaultColors.primary500),
         },
         primaryReversed: {
-          textColor: defaultColors.greyscale0,
-          iconColor: defaultColors.greyscale0,
+          textColor: getCSSColor(defaultColors.greyscale0),
+          iconColor: getCSSColor(defaultColors.greyscale0),
         },
         secondary: {
-          textColor: defaultColors.greyscale0,
-          iconColor: defaultColors.greyscale0,
+          textColor: getCSSColor(defaultColors.greyscale0),
+          iconColor: getCSSColor(defaultColors.greyscale0),
         },
         secondaryReversed: {
-          textColor: defaultColors.greyscale0,
-          iconColor: defaultColors.greyscale0,
+          textColor: getCSSColor(defaultColors.greyscale0),
+          iconColor: getCSSColor(defaultColors.greyscale0),
         },
         tertiary: {
-          textColor: defaultColors.greyscale0,
-          iconColor: defaultColors.greyscale0,
+          textColor: getCSSColor(defaultColors.greyscale0),
+          iconColor: getCSSColor(defaultColors.greyscale0),
         },
         tertiaryReversed: {
-          textColor: defaultColors.greyscale0,
-          iconColor: defaultColors.greyscale0,
+          textColor: getCSSColor(defaultColors.greyscale0),
+          iconColor: getCSSColor(defaultColors.greyscale0),
         },
       },
       sizes: {
         large: {
           padding: {
-            default: 10,
+            default: `10px`,
           },
           border: {
-            default: {
-              borderWidth: 1,
-            },
+            default: `1px solid red`,
           },
         },
         medium: {
           padding: {
-            default: 10,
+            default: `10px`,
           },
           border: {
-            default: {
-              borderWidth: 1,
-            },
+            default: `1px solid red`,
           },
         },
         small: {
           padding: {
-            default: 10,
+            default: `10px`,
           },
           border: {
-            default: {
-              borderWidth: 1,
-            },
+            default: `1px solid red`,
           },
         },
       },
