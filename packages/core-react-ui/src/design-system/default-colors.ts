@@ -1,57 +1,50 @@
 import { ColorIntents, Colors } from '@newrade/core-design-system';
+import { generateColorGreyPalette, generateColorPalette5 } from '../utilities/colors.utilities';
 import { createDefaultColorIntents } from '../utilities/utilities';
 
 export const defaultColors: Colors = {
-  primary100: { h: 222, s: 50, l: 50 },
-  primary300: { h: 222, s: 50, l: 50 },
-  primary500: { h: 222, s: 50, l: 50 },
-  primary700: { h: 222, s: 50, l: 50 },
-  primary1000: { h: 222, s: 50, l: 50 },
-
-  accent100: { h: 222, s: 50, l: 50 },
-  accent300: { h: 222, s: 50, l: 50 },
-  accent500: { h: 222, s: 50, l: 50 },
-  accent700: { h: 222, s: 50, l: 50 },
-  accent1000: { h: 222, s: 50, l: 50 },
-
-  greyscaleTransparent: { h: 222, s: 50, l: 50 },
-  greyscale0: { h: 222, s: 50, l: 50 },
-  greyscale0Reversed: { h: 222, s: 50, l: 50 },
-  greyscale100: { h: 222, s: 50, l: 50 },
-  greyscale100Reversed: { h: 222, s: 50, l: 50 },
-  greyscale150: { h: 222, s: 50, l: 50 },
-  greyscale200: { h: 222, s: 50, l: 50 },
-  greyscale200Reversed: { h: 222, s: 50, l: 50 },
-  greyscale300: { h: 222, s: 50, l: 50 },
-  greyscale400: { h: 222, s: 50, l: 50 },
-  greyscale500: { h: 222, s: 50, l: 50 },
-  greyscale600: { h: 222, s: 50, l: 50 },
-  greyscale700: { h: 222, s: 50, l: 50 },
-  greyscale800: { h: 222, s: 50, l: 50 },
-  greyscale900: { h: 222, s: 50, l: 50 },
-  greyscale1000: { h: 222, s: 50, l: 50 },
-
+  primary: generateColorPalette5({
+    color: { h: 222, s: 50, l: 50 },
+    light: 20,
+    dark: 90,
+  }),
+  accent1: generateColorPalette5({
+    color: { h: 200, s: 50, l: 50 },
+    light: 20,
+    dark: 90,
+  }),
+  accent2: generateColorPalette5({
+    color: { h: 200, s: 50, l: 50 },
+    light: 20,
+    dark: 90,
+  }),
+  accent3: generateColorPalette5({
+    color: { h: 200, s: 50, l: 50 },
+    light: 20,
+    dark: 90,
+  }),
+  transparent: { h: 222, s: 50, l: 50, a: 0 },
+  grey: generateColorGreyPalette({
+    hue: 10,
+  }),
   effectTransparentLight: { h: 222, s: 50, l: 50 },
   effectTransparentMedium: { h: 222, s: 50, l: 50 },
   effectTransparentHeavy: { h: 222, s: 50, l: 50 },
-
-  utilityGreen100: { h: 222, s: 50, l: 50 },
-  utilityGreen300: { h: 222, s: 50, l: 50 },
-  utilityGreen500: { h: 222, s: 50, l: 50 },
-  utilityGreen700: { h: 222, s: 50, l: 50 },
-  utilityGreen1000: { h: 222, s: 50, l: 50 },
-
-  utilityYellow100: { h: 222, s: 50, l: 50 },
-  utilityYellow300: { h: 222, s: 50, l: 50 },
-  utilityYellow500: { h: 222, s: 50, l: 50 },
-  utilityYellow700: { h: 222, s: 50, l: 50 },
-  utilityYellow1000: { h: 222, s: 50, l: 50 },
-
-  utilityRed100: { h: 222, s: 50, l: 50 },
-  utilityRed300: { h: 222, s: 50, l: 50 },
-  utilityRed500: { h: 222, s: 50, l: 50 },
-  utilityRed700: { h: 222, s: 50, l: 50 },
-  utilityRed1000: { h: 222, s: 50, l: 50 },
+  utilityGreen: generateColorPalette5({
+    color: { h: 200, s: 50, l: 50 },
+    light: 20,
+    dark: 90,
+  }),
+  utilityYellow: generateColorPalette5({
+    color: { h: 200, s: 50, l: 50 },
+    light: 20,
+    dark: 90,
+  }),
+  utilityRed: generateColorPalette5({
+    color: { h: 200, s: 50, l: 50 },
+    light: 20,
+    dark: 90,
+  }),
 };
 
 export const defaultColorIntents: ColorIntents = createDefaultColorIntents(defaultColors);

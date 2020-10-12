@@ -74,29 +74,29 @@ export const defaultTheme: Partial<DesignSystem> = {
     buttons: {
       variants: {
         primary: {
-          textColor: defaultColors.greyscale0Reversed,
-          iconColor: defaultColors.greyscale0Reversed,
-          backgroundColor: defaultColors.primary500,
+          textColor: defaultColors.grey['500'],
+          iconColor: defaultColors.grey['500'],
+          backgroundColor: defaultColors.grey['500'],
         },
         primaryReversed: {
-          textColor: defaultColors.greyscale0,
-          iconColor: defaultColors.greyscale0,
+          textColor: defaultColors.grey['500'],
+          iconColor: defaultColors.grey['500'],
         },
         secondary: {
-          textColor: defaultColors.greyscale0,
-          iconColor: defaultColors.greyscale0,
+          textColor: defaultColors.grey['500'],
+          iconColor: defaultColors.grey['500'],
         },
         secondaryReversed: {
-          textColor: defaultColors.greyscale0,
-          iconColor: defaultColors.greyscale0,
+          textColor: defaultColors.grey['500'],
+          iconColor: defaultColors.grey['500'],
         },
         tertiary: {
-          textColor: defaultColors.greyscale0,
-          iconColor: defaultColors.greyscale0,
+          textColor: defaultColors.grey['500'],
+          iconColor: defaultColors.grey['500'],
         },
         tertiaryReversed: {
-          textColor: defaultColors.greyscale0,
-          iconColor: defaultColors.greyscale0,
+          textColor: defaultColors.grey['500'],
+          iconColor: defaultColors.grey['500'],
         },
       },
       sizes: {
@@ -142,29 +142,29 @@ export const defaultCSSTheme: Partial<CSSDesignSystem> = {
     buttons: {
       variants: {
         primary: {
-          textColor: getCSSColor(defaultColors.greyscale0Reversed),
-          iconColor: getCSSColor(defaultColors.greyscale0Reversed),
-          backgroundColor: getCSSColor(defaultColors.primary500),
+          textColor: getCSSColor(defaultColors.grey['500']),
+          iconColor: getCSSColor(defaultColors.grey['500']),
+          backgroundColor: getCSSColor(defaultColors.grey['500']),
         },
         primaryReversed: {
-          textColor: getCSSColor(defaultColors.greyscale0),
-          iconColor: getCSSColor(defaultColors.greyscale0),
+          textColor: getCSSColor(defaultColors.grey['500']),
+          iconColor: getCSSColor(defaultColors.grey['500']),
         },
         secondary: {
-          textColor: getCSSColor(defaultColors.greyscale0),
-          iconColor: getCSSColor(defaultColors.greyscale0),
+          textColor: getCSSColor(defaultColors.grey['500']),
+          iconColor: getCSSColor(defaultColors.grey['500']),
         },
         secondaryReversed: {
-          textColor: getCSSColor(defaultColors.greyscale0),
-          iconColor: getCSSColor(defaultColors.greyscale0),
+          textColor: getCSSColor(defaultColors.grey['500']),
+          iconColor: getCSSColor(defaultColors.grey['500']),
         },
         tertiary: {
-          textColor: getCSSColor(defaultColors.greyscale0),
-          iconColor: getCSSColor(defaultColors.greyscale0),
+          textColor: getCSSColor(defaultColors.grey['500']),
+          iconColor: getCSSColor(defaultColors.grey['500']),
         },
         tertiaryReversed: {
-          textColor: getCSSColor(defaultColors.greyscale0),
-          iconColor: getCSSColor(defaultColors.greyscale0),
+          textColor: getCSSColor(defaultColors.grey['500']),
+          iconColor: getCSSColor(defaultColors.grey['500']),
         },
       },
       sizes: {

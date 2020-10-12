@@ -1,57 +1,25 @@
 import { Color } from '../primitives/color';
+import { ColorPalette, ColorShades5 } from '../primitives/color-palette';
+import { ColorShadesGrey } from './../primitives/color-palette';
 
 /**
  * Every color defined in the system.
  */
-export interface Colors<T = Color> {
-  primary100: T;
-  primary300: T;
-  primary500: T;
-  primary700: T;
-  primary1000: T;
+export interface Colors<ColorType = Color> {
+  primary: ColorPalette<ColorShades5, ColorType>;
 
-  accent100: T;
-  accent300: T;
-  accent500: T;
-  accent700: T;
-  accent1000: T;
+  accent1: ColorPalette<ColorShades5, ColorType>;
+  accent2: ColorPalette<ColorShades5, ColorType>;
+  accent3: ColorPalette<ColorShades5, ColorType>;
 
-  greyscaleTransparent: T;
-  greyscale0: T;
-  greyscale0Reversed: T;
-  greyscale100: T;
-  greyscale100Reversed: T;
-  greyscale150: T;
-  greyscale200: T;
-  greyscale200Reversed: T;
-  greyscale300: T;
-  greyscale400: T;
-  greyscale500: T;
-  greyscale600: T;
-  greyscale700: T;
-  greyscale800: T;
-  greyscale900: T;
-  greyscale1000: T;
+  transparent: ColorType;
+  grey: ColorPalette<ColorShadesGrey, ColorType>;
 
-  effectTransparentLight: T;
-  effectTransparentMedium: T;
-  effectTransparentHeavy: T;
+  effectTransparentLight: ColorType;
+  effectTransparentMedium: ColorType;
+  effectTransparentHeavy: ColorType;
 
-  utilityGreen100: T;
-  utilityGreen300: T;
-  utilityGreen500: T;
-  utilityGreen700: T;
-  utilityGreen1000: T;
-
-  utilityYellow100: T;
-  utilityYellow300: T;
-  utilityYellow500: T;
-  utilityYellow700: T;
-  utilityYellow1000: T;
-
-  utilityRed100: T;
-  utilityRed300: T;
-  utilityRed500: T;
-  utilityRed700: T;
-  utilityRed1000: T;
+  utilityGreen: ColorPalette<ColorShades5, ColorType>;
+  utilityYellow: ColorPalette<ColorShades5, ColorType>;
+  utilityRed: ColorPalette<ColorShades5, ColorType>;
 }
