@@ -21,7 +21,7 @@ export function getGatsbyTsPluginConfig(
       configFile: 'tsconfig.build.json',
       logLevel: 'INFO',
       transpileOnly: true, // typechecking will be done by ForkTsCheckerWebpackPlugin
-      projectReferences: true, // todo check if it works for development
+      projectReferences: false, // todo check if it works for development
     },
   }
 ): Gatsby.PluginRef {
