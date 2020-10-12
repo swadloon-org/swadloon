@@ -1,5 +1,3 @@
-import { pathsToModuleNameMapper } from 'ts-jest/utils';
-
 // const { compilerOptions } = require('../../../tsconfig.json');
 
 // tslint:disable:readonly-array
@@ -20,8 +18,20 @@ export const baseJestConfig: jest.InitialOptions = {
     // ...pathsToModuleNameMapper(compilerOptions.paths /*, { prefix: '<rootDir>/' } */),
   },
   testRegex: '.+\\.test\\.tsx?',
-  testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/dist/', '(\\.js\\.map)$', '<rootDir>/package.json'],
-  watchPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/dist/', '(\\.js\\.map)$', '<rootDir>/package.json'],
+  testPathIgnorePatterns: [
+    '<rootDir>/node_modules/',
+    '<rootDir>/dist/',
+    '(\\.js\\.map)$',
+    '.snap',
+    '<rootDir>/package.json',
+  ],
+  watchPathIgnorePatterns: [
+    '<rootDir>/node_modules/',
+    '<rootDir>/dist/',
+    '(\\.js\\.map)$',
+    '.snap',
+    '<rootDir>/package.json',
+  ],
   moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'node', 'mjs'],
   reporters: ['default', 'jest-junit'],
   coverageDirectory: '<rootDir>/_reports/',

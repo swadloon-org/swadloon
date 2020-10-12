@@ -5,6 +5,7 @@ export type ColorShadesGrey =
   | '0-reversed'
   | '25'
   | '50'
+  | '100'
   | '100-reversed'
   | '200'
   | '200-reversed'
