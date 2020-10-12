@@ -1,36 +1,34 @@
-import { defaultOuputConf } from './output.conf';
-import { webpackStatsConf } from './stats.conf';
-import { sourceMaps } from './source-map.conf';
 import { isWebpackDevServer } from './utilities';
 
 /**
+ * Babel configuration
+ */
+export * from './babel-env-preset.conf';
+export * from './babel-plugins.conf';
+/**
  * Preconfigured output configuration
  */
-export { defaultOuputConf };
-
+export * from './loaders/css-loader';
+export * from './loaders/ejs-loader';
 /**
  * Preconfigured loaders
  */
 export * from './loaders/extract-css.loader';
-export { cssLoader } from './loaders/css-loader';
-export { ejsLoader } from './loaders/ejs-loader';
-export { scssLoader } from './loaders/scss-loader';
-
+export * from './loaders/scss-loader';
+export * from './output.conf';
 /**
  * Preconfigured plugins
  */
 export * from './plugins/bundle-visualizer-plugin';
 export * from './plugins/treat-css-plugin';
-
-/**
- * Other webpack configs
- */
-export { webpackStatsConf };
-
 /**
  * Dev server
  */
-export { sourceMaps };
+export * from './source-map.conf';
+/**
+ * Other webpack configs
+ */
+export * from './stats.conf';
 
 /**
  * Other utilities

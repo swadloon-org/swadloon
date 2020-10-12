@@ -4,7 +4,7 @@
  *
  * Documentation: https://github.com/babel/babel/tree/master/packages/babel-preset-env
  */
-module.exports = [
+export const babelEnvPresetConf = [
   [
     '@babel/preset-env',
     {
@@ -16,3 +16,5 @@ module.exports = [
     },
   ],
 ];
+
+export default babelEnvPresetConf;

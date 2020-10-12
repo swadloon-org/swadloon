@@ -1,4 +1,4 @@
-export * from './animations/animations';
+export * from './design-system/default-animations';
 export * from './components/button/button';
 export * from './components/seo/meta-basic';
 export * from './components/seo/metadata-twitter';

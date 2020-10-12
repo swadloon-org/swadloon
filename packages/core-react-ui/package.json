@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "build": "tsc --build tsconfig.build.json",
-    "clean": "rimraf -r dist/** && rm -f tsconfig.build.tsbuildinfo",
+    "clean": "rimraf -r lib/** && rm -f tsconfig.build.tsbuildinfo",
     "start": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
     "test": "jest",
     "test:watch": "jest --watch"

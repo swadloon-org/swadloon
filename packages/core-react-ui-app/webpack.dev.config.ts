@@ -1,6 +1,6 @@
 delete process.env.TS_NODE_PROJECT; // see https://github.com/dividab/tsconfig-paths-webpack-plugin/issues/32
 
-import { extractCssLoader } from '@newrade/core-webpack-config';
+import { babelEnvPresetConf, babelPluginConf, extractCssLoader } from '@newrade/core-webpack-config';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import dotenv from 'dotenv';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
@@ -31,6 +31,8 @@ const config: WebpackOptions.WebpackOptions = {
             loader: 'babel-loader',
             options: {
               cacheDirectory: true,
+              presets: babelEnvPresetConf,
+              plugins: babelPluginConf,
             },
           },
           {
@@ -43,12 +45,27 @@ const config: WebpackOptions.WebpackOptions = {
           },
         ],
       },
+      {
+        test: /\.jsx?$/,
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              cacheDirectory: true,
+              presets: babelEnvPresetConf,
+              plugins: babelPluginConf,
+            },
+          },
+        ],
+        include: [path.resolve('src/**/*'), path.resolve('../**/*')],
+      },
     ],
   },
   resolve: {
     mainFields: ['browser', 'main', 'module'],
     extensions: ['.tsx', '.ts', '.js'],
     plugins: [
+      // @ts-ignore
       new TsconfigPathsPlugin({
         configFile: 'tsconfig.build.json',
         logLevel: 'WARN',

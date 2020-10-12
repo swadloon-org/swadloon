@@ -1,5 +1,8 @@
-// babel plugins for every babel loader
-module.exports = [
+/**
+ * babel plugins
+ */
+export const babelPluginConf = [
+  '@babel/plugin-proposal-optional-chaining',
   '@babel/plugin-syntax-dynamic-import',
   [
     '@babel/plugin-transform-runtime',
@@ -12,3 +15,5 @@ module.exports = [
   ],
   ['@babel/plugin-proposal-object-rest-spread'],
 ];
+
+export default babelPluginConf;
