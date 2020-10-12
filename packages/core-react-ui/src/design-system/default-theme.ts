@@ -1,11 +1,13 @@
 import { DesignSystem } from '@newrade/core-design-system';
 import { getCSSColor } from '../utilities/colors.utilities';
 import { CSSDesignSystem } from './css-design-system';
-import { defaultColors } from './default-colors';
+import { defaultColorIntents, defaultColors } from './default-colors';
 
 export const defaultTheme: Partial<DesignSystem> = {
   name: 'core-react-ui',
   themes: 'light',
+  colors: defaultColors,
+  colorIntents: defaultColorIntents,
   // typography: {
   //   fonts: {
   //     serif: defaultSerifFont,

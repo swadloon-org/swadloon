@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, getCSSColor } from '@newrade/core-react-ui';
+import { Button, defaultTheme, getCSSColor } from '@newrade/core-react-ui';
 import { Provider, Button as ReakitButton } from 'reakit';
 import { TreatProvider } from 'react-treat';
 import { light } from '../design-system/theme.treat';
@@ -15,6 +15,9 @@ const DesignPage: React.FC<Props> = (props) => {
       </Provider>
       <TreatProvider theme={light}>
         <Button>hey</Button>
+        <code>
+          <pre>{JSON.stringify(defaultTheme.colors.primary, null, 2)}</pre>
+        </code>
       </TreatProvider>
       <code>
         <pre>
