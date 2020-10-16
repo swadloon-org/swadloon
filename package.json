@@ -134,6 +134,7 @@
     "gatsby-plugin-sharp": "^2.4.0",
     "gatsby-plugin-sitemap": "^2.4.12",
     "gatsby-plugin-ts": "^2.7.1",
+    "gatsby-source-contentful": "^2.3.55",
     "gatsby-source-filesystem": "^2.3.23",
     "gatsby-source-graphcms": "2.0.0-next.8",
     "gatsby-source-graphql": "^2.6.1",
