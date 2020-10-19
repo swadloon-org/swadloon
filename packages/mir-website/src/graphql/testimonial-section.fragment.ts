@@ -1,12 +1,20 @@
 import { graphql } from 'gatsby';
 
 export const testimonialSectionQuery = graphql`
-  fragment TestimonialSection on GraphCMS_TestimonialSection {
+  fragment TestimonialSection on ContentfulTestimonialSection {
     title
     titleHighlight
-    description
+    description{
+      childMdx {
+        body
+      }
+    }
     testomonials {
-      message
+      message{
+        childMdx {
+          body
+        }
+      }
       authorName
       authorTitle
     }

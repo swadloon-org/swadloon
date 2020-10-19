@@ -1,21 +1,23 @@
 import { graphql } from 'gatsby';
 
 export const companyInfoQuery = graphql`
-  fragment CompanyInfo on GraphCMS_CompanyInfo {
+  fragment CompanyInfo on ContentfulCompanyInfo {
     companyName
     linkedinPageUrl
     facebookPageUrl
     instagramPageUrl
     twitterPageUrl
     logo {
-      fileName
-      url
+      file {
+        url
+      }
     }
     logoFooter {
-      fileName
-      url
+      file {
+        url
+      }
     }
-    metadataTwitter
+    metadataTwitterSite
     metadataTwitterCreator
     metadataSiteName
   }

@@ -1,32 +1,37 @@
 import { graphql } from 'gatsby';
 
 export const infoSectionsQuery = graphql`
-  fragment InfoSections on GraphCMS_InfoSection {
+  fragment InfoSections on ContentfulInfoSection {
     title
     titleHighlight
     titleTab
     type
-    text
-    illustration
-    showTabs
-    actionText # to remove
-    link {
-      name
-      label
-      type
-      url
-      page {
-        route
+    text{
+      childMdx {
+        body
       }
     }
-    infoTiles {
+    illustration
+    showTabs
+    link {
+      type
+      name
+      label
+      url
+    }
+    infoTile {
       illustration
       title
-      text
+      text{
+        childMdx {
+          body
+        }
+      }
     }
     infoChecks {
       id
       text
+      }
     }
     childs {
       showTabs
@@ -34,16 +39,16 @@ export const infoSectionsQuery = graphql`
       titleHighlight
       titleTab
       type
-      text
-      actionText # to remove
+      text{
+        childMdx {
+          body
+        }
+      }
       link {
+        type
         name
         label
-        type
         url
-        page {
-          route
-        }
       }
       illustration
     }

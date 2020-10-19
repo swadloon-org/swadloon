@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby';
 
 export const pageQuery = graphql`
-  fragment Page on GraphCMS_Page {
+  fragment Page on ContentfulPage {
     name
     title
     description

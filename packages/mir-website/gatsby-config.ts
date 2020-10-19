@@ -45,25 +45,25 @@ const config: GastbySiteConfig = {
   plugins: [
     getGatsbyTsPluginConfig(),
     getGatsbyReactSvgConfig(),
-    // {
-    //   resolve: `gatsby-source-contentful`,
-    //   options: {
-    //     spaceId:  `${env.CONTENTFUL_ACCESS_SPACEID_MIR}`,
-    //     // Learn about environment variables: https://gatsby.dev/env-vars
-    //     accessToken: env.CONTENTFUL_ACCESS_TOKEN_MIR,
-    //   },
-    // },
     {
-      resolve: `gatsby-source-graphql`,
+      resolve: `gatsby-source-contentful`,
       options: {
-        typeName: `GraphCMS`,
-        fieldName: `gcms`,
-        url: env.GRAPH_CMS_API_URL_MIR,
-        headers: {
-          Authorization: `bearer ${env.GRAPH_CMS_AUTH_TOKEN_MIR}`,
-        },
+        spaceId:  `${env.CONTENTFUL_ACCESS_SPACEID_MIR}`,
+        // Learn about environment variables: https://gatsby.dev/env-vars
+        accessToken: env.CONTENTFUL_ACCESS_TOKEN_MIR,
       },
     },
+    // {
+    //   resolve: `gatsby-source-graphql`,
+    //   options: {
+    //     typeName: `GraphCMS`,
+    //     fieldName: `gcms`,
+    //     url: env.GRAPH_CMS_API_URL_MIR,
+    //     headers: {
+    //       Authorization: `bearer ${env.GRAPH_CMS_AUTH_TOKEN_MIR}`,
+    //     },
+    //   },
+    // },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -71,6 +71,8 @@ const config: GastbySiteConfig = {
         path: path.join(__dirname, `src`, `images`),
       },
     },
+    `gatsby-plugin-mdx`,
+
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {

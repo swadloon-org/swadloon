@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby';
 
 export const processSectionsQuery = graphql`
-  fragment ProcessSections on GraphCMS_ProcessSection {
+  fragment ProcessSections on ContentfulProcessSection {
     title
     titleHighlight
     type {
@@ -9,7 +9,11 @@ export const processSectionsQuery = graphql`
     }
     steps {
       title
-      description
+      description{
+        childMdx {
+          body
+        }
+      }
       id
     }
   }

@@ -1,12 +1,11 @@
 import { graphql } from 'gatsby';
 
 export const actionSectionQuery = graphql`
-  fragment ActionSection on GraphCMS_ActionSection {
+  fragment ActionSection on ContentfulActionSection {
     type
     title
     titleHighlight
     subtitle
-    actionText # to remove
     link {
       name
       label
