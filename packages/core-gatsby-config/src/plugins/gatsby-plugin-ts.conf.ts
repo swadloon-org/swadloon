@@ -19,7 +19,7 @@ export function getGatsbyTsPluginConfig(
     fileName: `types/graphql-types.ts`,
     tsLoader: {
       configFile: 'tsconfig.build.json',
-      logLevel: 'INFO',
+      logLevel: 'WARN',
       transpileOnly: true, // typechecking will be done by ForkTsCheckerWebpackPlugin
       projectReferences: false, // todo check if it works for development
     },

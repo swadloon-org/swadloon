@@ -84,4 +84,3 @@ exports.createPages = async ({ graphql, actions }) => {
         }
     }
 };
-exports.onPreBootstrap = onPreBootstrap;

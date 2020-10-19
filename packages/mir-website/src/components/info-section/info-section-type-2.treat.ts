@@ -1,6 +1,20 @@
 import { DesignSystem } from '@newrade/core-design-system-old';
 import { style } from 'treat';
 
+export const block = style((theme: DesignSystem) => ({
+  display: 'grid',
+  gridTemplateColumns: '1fr',
+  gridTemplateRows: 'min-content',
+  alignContent: 'flex-start',
+  justifyItems: 'center',
+
+  '@media': {
+    [theme.layout.media.desktop]: {
+      justifyItems: 'flex-start',
+    },
+  },
+}));
+
 export const alignContentRight = style((theme: DesignSystem) => ({
   '@media': {
     [theme.layout.media.desktop]: {

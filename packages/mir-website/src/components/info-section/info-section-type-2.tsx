@@ -32,7 +32,7 @@ export const InfoSectionType2: React.FC<OwnProps> = (props) => {
         ) : null}
       </FadeIn>
 
-      <div>
+      <div className={styles.block}>
         <RenderTitleHighlight className={styles.title} title={props.title} titleHighlight={props.titleHighlight} />
 
         <Paragraph variant={'medium'} className={styles.text}>

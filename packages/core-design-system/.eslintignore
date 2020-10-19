@@ -1,5 +1,4 @@
 node_modules
 lib
 bin
-grammar.ts
-typed-template-string.ts
+
