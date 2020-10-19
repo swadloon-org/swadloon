@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 // flow's Maybe type https://flow.org/en/docs/types/primitives/#toc-maybe-types
 type Maybe<T> = void | null | undefined | T; // tslint:disable-line:void-return
 

@@ -47,8 +47,9 @@ jobs:
     - name: Install dependencies
       run: yarn
 
-    - name: Lint
-      run: yarn lint
+    # - name: Lint
+    #   run: yarn lint
+    # disabled see https://github.com/newrade/newrade/issues/157
 
     - name: Build
       run: yarn build

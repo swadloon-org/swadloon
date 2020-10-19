@@ -30,7 +30,7 @@ export enum ButtonIcon {
 }
 
 export enum ButtonState {
-  default = 'default',
+  normal = 'normal',
   pressed = 'pressed',
   focused = 'focused',
   loading = 'loading',
@@ -63,9 +63,9 @@ export type ButtonBoxStyle<ColorType, PaddingType, BorderType, OutlineType> = Bo
   OutlineType
 > & {};
 
-export type ButtonVariants<ColorType> = { [key in keyof typeof ButtonVariant]: ButtonStyle<ColorType> };
+export type ButtonVariants<ColorType = Color> = { [key in keyof typeof ButtonVariant]: ButtonStyle<ColorType> };
 
-export type ButtonSizes<ColorType, PaddingType, BorderType, OutlineType> = {
+export type ButtonSizes<ColorType = Color, PaddingType = Padding, BorderType = Border, OutlineType = Outline> = {
   [key in keyof typeof ButtonSize]: ButtonBoxStyle<ColorType, PaddingType, BorderType, OutlineType>;
 };
 

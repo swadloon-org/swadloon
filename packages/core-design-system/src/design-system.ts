@@ -1,8 +1,8 @@
 import { Border, Outline } from './components/atoms/box';
-import { Buttons } from './components/molecules/buttons';
 import { Animations } from './foundations/animations';
 import { ColorIntents } from './foundations/color-intents';
 import { Colors } from './foundations/colors';
+import { Components } from './foundations/components';
 import { BoxShadow, Effects } from './foundations/effects';
 import { Iconography } from './foundations/iconography';
 import { Layout } from './foundations/layout';
@@ -83,28 +83,5 @@ export interface DesignSystem<Types extends DesignSystemTypes = DesignSystemType
   /**
    * Components' specific settings.
    */
-  components?: {
-    buttons: Buttons<
-      Types['components']['button']['color'],
-      Types['components']['button']['padding'],
-      Types['components']['button']['border'],
-      Types['components']['button']['outline']
-    >;
-    // inputs: any;
-    // // TOOD
-    // links: {
-    //   small: {
-    //     color: Color;
-    //     visited: Color;
-    //     hover: Color;
-    //     active: Color;
-    //   };
-    //   medium: {
-    //     color: Color;
-    //     visited: Color;
-    //     hover: Color;
-    //     active: Color;
-    //   };
-    // };
-  };
+  components: Components<Types>;
 }
