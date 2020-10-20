@@ -4,13 +4,13 @@ export const testimonialSectionQuery = graphql`
   fragment TestimonialSection on ContentfulTestimonialSection {
     title
     titleHighlight
-    description{
+    description {
       childMdx {
         body
       }
     }
     testomonials {
-      message{
+      message {
         childMdx {
           body
         }

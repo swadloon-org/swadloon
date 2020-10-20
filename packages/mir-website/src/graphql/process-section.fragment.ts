@@ -9,7 +9,7 @@ export const processSectionsQuery = graphql`
     }
     steps {
       title
-      description{
+      description {
         childMdx {
           body
         }

@@ -30,7 +30,7 @@ export const blogSectionsQuery = graphql`
           url
         }
       }
-      authors{
+      authors {
         fullName
         jobTitle
         profilePicture {

@@ -48,7 +48,7 @@ const config: GastbySiteConfig = {
     {
       resolve: `gatsby-source-contentful`,
       options: {
-        spaceId:  `${env.CONTENTFUL_ACCESS_SPACEID_MIR}`,
+        spaceId: `${env.CONTENTFUL_ACCESS_SPACEID_MIR}`,
         // Learn about environment variables: https://gatsby.dev/env-vars
         accessToken: env.CONTENTFUL_ACCESS_TOKEN_MIR,
       },
