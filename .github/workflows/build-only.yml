@@ -63,7 +63,8 @@ jobs:
         GRAPH_CMS_API_URL_LAKHOS: ${{ secrets.GRAPH_CMS_API_URL_LAKHOS }}
         GRAPH_CMS_AUTH_TOKEN_CORE: ${{ secrets.GRAPH_CMS_AUTH_TOKEN_CORE }}
         GRAPH_CMS_API_URL_CORE: ${{ secrets.GRAPH_CMS_API_URL_CORE }}
-
+        CONTENTFUL_ACCESS_SPACEID_MIR: ${{ secrets.CONTENTFUL_ACCESS_SPACEID_MIR }}
+        CONTENTFUL_ACCESS_TOKEN_MIR: ${{ secrets.CONTENTFUL_ACCESS_TOKEN_MIR }}
     - name: Test
       run: yarn test
 
