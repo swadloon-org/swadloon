@@ -33,7 +33,7 @@ export const infoSectionsQuery = graphql`
       text
       }
     }
-    childs {
+    child {
       showTabs
       title
       titleHighlight

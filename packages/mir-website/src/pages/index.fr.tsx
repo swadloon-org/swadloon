@@ -16,18 +16,11 @@ export const indexPageFRQuery = graphql`
     site {
       ...SiteMetadata
     }
-    gcms {
-      companyInfos(first: 1) {
-        ...CompanyInfo
-      }
-      pages(where: { name: "Home" }, locales: [fr, en]) {
-        ...Page
-      }
-      routes: pages(where: { NOT: { name: "Not Found" } }, locales: [fr, en]) {
-        name
-        title
-        route
-      }
+    allContentfulCompanyInfo(filter: { name: { eq: "Home" }, node_locale: { eq: "fr-CA" } }) {
+      ...CompanyInfo
+    }
+    allContentfulPage(filter: { name: { eq: "Home" }, node_locale: { eq: "fr-CA" } }) {
+      ...Page
     }
     bannerImageMobile: file(name: { eq: "ImageOffice05" }) {
       ...MobileFluidImage

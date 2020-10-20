@@ -16,18 +16,11 @@ export const AboutPageFRQuery = graphql`
     site {
       ...SiteMetadata
     }
-    gcms {
-      companyInfos(first: 1) {
-        ...CompanyInfo
-      }
-      pages(where: { name: "About" }, locales: [fr, en]) {
-        ...Page
-      }
-      routes: pages(where: { NOT: { name: "Not Found" } }, locales: [fr, en]) {
-        name
-        title
-        route
-      }
+    allContentfulCompanyInfo(filter: { name: { eq: "Home" }, node_locale: { eq: "fr-CA" } }) {
+      ...CompanyInfo
+    }
+    allContentfulPage(filter: { name: { eq: "Home" }, node_locale: { eq: "fr-CA" } }) {
+      ...Page
     }
     bannerImageMobile: file(name: { eq: "ImageOffice01" }) {
       ...MobileFluidImage
@@ -53,30 +46,30 @@ const AboutPage: React.FC<PageProps> = (props) => {
   return (
     <Layout
       location={props.location}
-      logoURL={props.data.gcms.companyInfos[0].logo?.url}
-      linkedinPageURL={props.data.gcms.companyInfos[0].linkedinPageUrl}
-      facebookPageURL={props.data.gcms.companyInfos[0].facebookPageUrl}
-      instagramPageURL={props.data.gcms.companyInfos[0].instagramPageUrl}
-      twitterPageURL={props.data.gcms.companyInfos[0].twitterPageUrl}
-      pages={props.data.gcms.routes}
+      logoURL={props.data.allContentfulCompanyInfo[0].logo?.url}
+      linkedinPageURL={props.data.allContentfulCompanyInfo[0].linkedinPageUrl}
+      facebookPageURL={props.data.allContentfulCompanyInfo[0].facebookPageUrl}
+      instagramPageURL={props.data.allContentfulCompanyInfo[0].instagramPageUrl}
+      twitterPageURL={props.data.allContentfulCompanyInfo[0].twitterPageUrl}
+      // pages={props.data.gcms.routes}
     >
       <Helmet>
         {getMetaBasicTags()}
         {getMetadataOpenGraphWebsiteTags({
           type: OPEN_GRAPH_TYPE.WEBSITE,
-          title: `${props.data.gcms.pages[0]?.title}`,
-          url: `${props.data.site?.siteMetadata?.siteUrl}${props.data.gcms.pages[0]?.route}`,
-          description: `${props.data.gcms.pages[0]?.description}`,
-          image: `${props.data.gcms.pages[0]?.bannerImages[0]?.url}`,
-          site_name: `${props.data.gcms.companyInfos[0].metadataSiteName}`,
+          title: `${props.data.allContentfulPage[0]?.title}`,
+          url: `${props.data.site?.siteMetadata?.siteUrl}${props.data.allContentfulPage[0]?.route}`,
+          description: `${props.data.allContentfulPage[0]?.description}`,
+          image: `${props.data.allContentfulPage[0]?.bannerImages[0]?.url}`,
+          site_name: `${props.data.allContentfulCompanyInfos[0].metadataSiteName}`,
           lang: 'fr',
           locale: 'fr_CA',
           localeAlternate: 'en_CA',
         })}
         {getMetadataTwitterTags({
           card: 'summary',
-          creator: `${props.data.gcms.companyInfos[0].metadataTwitterCreator}`,
-          site: `${props.data.gcms.companyInfos[0].metadataTwitter}`,
+          creator: `${props.data.allContentfulCompanyInfo[0].metadataTwitterCreator}`,
+          site: `${props.data.allContentfulCompanyInfo[0].metadataTwitter}`,
         })}
       </Helmet>
       <About {...props} />

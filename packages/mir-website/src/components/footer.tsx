@@ -13,13 +13,16 @@ import { useViewportBreakpoint } from '../hooks/use-viewport.hook';
 
 export const footerQuery = graphql`
   query footer {
-    gcms {
-      companyInfos {
+    allContentfulCompanyInfo {
+      contentfulCompanyInfo {
         logoFooter {
           url
         }
       }
-      companyAddresses {
+    }
+
+    allContentfulCompanyAddress {
+      contentfulCompanyAddress {
         addressLine1
         addressLine2
         city
