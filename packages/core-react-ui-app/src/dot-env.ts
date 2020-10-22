@@ -1,14 +1,9 @@
-export enum SITE_ENV {
-  LOCAL = 'local',
-  DEV = 'dev',
-  STAGING = 'staging',
-  PRODUCTION = 'production',
-}
+import { COMMON_ENV } from '@newrade/core-utils';
 
 /**
- * typed representation of the .env files
+ * Local, typed representation of the .env file.
  */
-export type ENV = { [key: string]: string } & {
+export type ENV = COMMON_ENV & {
   /**
    * GraphCMS
    */

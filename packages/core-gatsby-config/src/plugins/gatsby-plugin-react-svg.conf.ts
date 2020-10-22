@@ -1,5 +1,4 @@
 import Gatsby from 'gatsby';
-import path from 'path';
 
 /**
  * Return a `gatsby-plugin-react-svg` configuration object.

@@ -1,21 +1,27 @@
-import { CreateBabelConfigArgs, WebpackLoaders, WebpackPlugins } from 'gatsby';
+import { GatsbyNode } from 'gatsby';
 import TreatPlugin from 'treat/webpack-plugin';
 import { WebpackOptions } from 'webpack/declarations/WebpackOptions';
 
-export function createGatsbyWebpackConfig({
-  isProduction,
+export const onCreateBabelConfig: GatsbyNode['onCreateBabelConfig'] = ({ actions }) => {
+  actions.setBabelPlugin({
+    name: 'babel-plugin-treat',
+    options: {},
+  });
+};
+
+export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
   stage,
-  isSSR,
+  rules,
   loaders,
   plugins,
-}: {
-  isProduction: boolean;
-  stage: CreateBabelConfigArgs['stage'];
-  isSSR: boolean;
-  loaders: WebpackLoaders;
-  plugins: WebpackPlugins;
-}): WebpackOptions {
-  if (stage === 'develop-html') return {};
+  actions,
+}) => {
+  const isProduction = stage !== `develop`;
+  const isSSR = stage.includes(`html`);
+
+  if (stage === 'develop-html') {
+    return {};
+  }
 
   const commonPlugins = [
     new TreatPlugin({
@@ -55,7 +61,7 @@ export function createGatsbyWebpackConfig({
   //   ].filter(Boolean),
   // };
 
-  return {
+  const config = {
     devtool: 'eval-source-map',
     module: {
       rules: [
@@ -66,4 +72,6 @@ export function createGatsbyWebpackConfig({
     },
     plugins: isProduction ? [...commonPlugins, ...productionPlugins] : [...commonPlugins],
   };
-}
+
+  actions.setWebpackConfig(config);
+};

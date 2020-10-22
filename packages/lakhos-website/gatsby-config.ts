@@ -1,6 +1,5 @@
+import * as core from '@newrade/core-gatsby-config';
 import Gatsby from 'gatsby';
-
-import { getGatsbyTsPluginConfig, getGatsbyReactSvgConfig } from '@newrade/core-gatsby-config';
 
 /**
  * Configure your Gatsby site with this file.
@@ -16,8 +15,9 @@ export const config: Gatsby.GatsbyConfig = {
     description: `An example site.`,
   },
   plugins: [
-    getGatsbyTsPluginConfig(),
-    getGatsbyReactSvgConfig(),
+    core.getGatsbyTsPluginConfig(),
+    core.getGatsbyReactSvgConfig(),
+    core.getGastbyPluginTreatConfig(),
     {
       resolve: `gatsby-source-graphql`,
       options: {

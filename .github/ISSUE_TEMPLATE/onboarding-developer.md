@@ -18,15 +18,20 @@ assignees: ''
 ## Accounts
 
 - [ ] @newrade email
+- [ ] install Gmail app on personal phone
 - [ ] setup google auth application
 - [ ] enable 2FA for gmail
 - [ ] Slack account
+- [ ] install Slack app on personal phone
+- [ ] configure snooze for Slack (Settings > Notification schedule)
 - [ ] enable 2FA for slack
 - [ ] Github account in Newrade's Dev team
 - [ ] enable 2FA for Github
 - [ ] 1Password account
+- [ ] install 1Password app on personal phone
 - [ ] enable 2FA for 1Password
 - [ ] Figma account
+- [ ] install Figma mirror app on personal phone
 - [ ] GraphCMS account
 - [ ] Netlify account
 

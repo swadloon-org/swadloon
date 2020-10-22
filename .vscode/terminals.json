@@ -103,6 +103,12 @@
       "cwd": "[workspaceFolder]/packages/mir-website",
       "open": true,
       "focus": false
+    },
+    {
+      "name": "vsb-website",
+      "cwd": "[workspaceFolder]/packages/vsb-website",
+      "open": true,
+      "focus": false
     }
   ]
 }

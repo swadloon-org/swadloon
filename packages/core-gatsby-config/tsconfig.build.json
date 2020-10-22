@@ -12,5 +12,5 @@
       "path": "../core-utils/tsconfig.build.json"
     }
   ],
-  "include": ["src", "types"]
+  "include": ["src/**/*", "types"]
 }
