@@ -1,42 +1,33 @@
-import {
-  GastbySiteConfig,
-  getGatsbyReactSvgConfig,
-  getGatsbyTsPluginConfig,
-  SITE_LANGUAGES,
-} from '@newrade/core-gatsby-config';
-import * as dotenv from 'dotenv';
+import * as core from '@newrade/core-gatsby-config';
+import { loadDotEnv, logEnvVariables } from '@newrade/core-utils';
 import path from 'path';
+import packageJson from './package.json';
 import { ENV } from './types/dot-env';
 
-// TODO move to a different file
-const env = loadDotEnv();
-export function loadDotEnv() {
-  // add env variables from .env file
-  dotenv.config({
-    path: path.resolve(__dirname, '.env'),
-  });
-
-  return process.env as ENV;
-}
+const env = loadDotEnv<ENV>(path.resolve(__dirname, '.env'));
+logEnvVariables<ENV>({ packageName: packageJson.name, env });
 
 /**
  * Configure your Gatsby site with this file.
  *
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
-const config: GastbySiteConfig = {
+const config: core.GastbySiteConfig = {
   siteMetadata: {
     title: `core-gatsby-website`,
     description: `Gatsby powered MIR website`,
-    siteUrl: env.SITE_URL,
+    siteEnv: env.APP_ENV,
+    siteUrl: env.APP_URL,
     languages: {
-      langs: [SITE_LANGUAGES.FR, SITE_LANGUAGES.EN],
-      defaultLangKey: SITE_LANGUAGES.FR,
+      langs: [core.SITE_LANGUAGES.FR, core.SITE_LANGUAGES.EN],
+      defaultLangKey: core.SITE_LANGUAGES.FR,
     },
   },
   plugins: [
-    getGatsbyTsPluginConfig(),
-    getGatsbyReactSvgConfig(),
+    core.getGatsbyTsPluginConfig(),
+    core.getGatsbyReactSvgConfig(),
+    core.getGastbyCorePluginConfig(),
+    core.getGastbyPluginTreatConfig(),
     {
       resolve: `gatsby-source-filesystem`,
       options: {

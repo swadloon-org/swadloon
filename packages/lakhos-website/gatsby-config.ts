@@ -1,5 +1,9 @@
 import * as core from '@newrade/core-gatsby-config';
+import { loadDotEnv, logEnvVariables } from '@newrade/core-utils';
 import Gatsby from 'gatsby';
+import path from 'path';
+import packageJson from './package.json';
+import { ENV } from './types/dot-env';
 
 /**
  * Configure your Gatsby site with this file.
@@ -7,7 +11,8 @@ import Gatsby from 'gatsby';
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
 
-require('dotenv').config();
+const env = loadDotEnv<ENV>(path.resolve(__dirname, '.env'));
+logEnvVariables<ENV>({ packageName: packageJson.name, env });
 
 export const config: Gatsby.GatsbyConfig = {
   siteMetadata: {

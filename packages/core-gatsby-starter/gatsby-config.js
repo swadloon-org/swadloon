@@ -45,7 +45,7 @@ const config = {
     siteMetadata: {
         title: `core-gatsby-website`,
         description: `Gatsby powered MIR website`,
-        siteUrl: env.SITE_URL,
+        siteUrl: env.APP_URL,
         languages: {
             langs: [core_gatsby_config_1.SITE_LANGUAGES.FR, core_gatsby_config_1.SITE_LANGUAGES.EN],
             defaultLangKey: core_gatsby_config_1.SITE_LANGUAGES.FR,
