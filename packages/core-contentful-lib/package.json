@@ -12,6 +12,7 @@
     "execute": "cross-env TS_NODE_PROJECT=tsconfig.build.json node -r ts-node/register src/index.ts"
   },
   "dependencies": {
-    "contentful-migration": "^2"
+    "contentful-migration": "^2.0.4",
+    "dotenv": "^8.2.0"
   }
 }

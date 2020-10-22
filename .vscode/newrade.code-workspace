@@ -11,6 +11,9 @@
       "path": "../packages/core-cli"
     },
     {
+      "path": "../packages/core-contentful-lib"
+    },
+    {
       "path": "../packages/core-design-system"
     },
     {
@@ -69,6 +72,7 @@
     "typescript.surveys.enabled": false,
     "terminals.sortTerminals": true,
     "terminals.env": {},
-    "debug.node.autoAttach": "off"
+    "debug.node.autoAttach": "off",
+    "typescript.tsdk": "newrade/node_modules/typescript/lib"
   }
 }

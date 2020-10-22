@@ -15,6 +15,12 @@
       "focus": false
     },
     {
+      "name": "core-contentful-lib",
+      "cwd": "[workspaceFolder]/packages/core-contentful-lib",
+      "open": true,
+      "focus": false
+    },
+    {
       "name": "core-design-system",
       "cwd": "[workspaceFolder]/packages/core-design-system",
       "open": true,

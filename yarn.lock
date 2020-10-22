@@ -7738,7 +7738,7 @@ contentful-management@^6.1.1:
     lodash "^4.17.20"
     type-fest "0.16.0"
 
-contentful-migration@^2:
+contentful-migration@^2.0.4:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/contentful-migration/-/contentful-migration-2.0.5.tgz#e50373b97b3db4ad522c088e0c1766d295fb2a4f"
   integrity sha512-vk+xBKpisgyV2C7yxSP0MreU0u2PrPGYd1LBcbeWmpcIRXOmwLcEihtqI7IAUua96C1lThqQEj5kav+Qz735sg==
