@@ -11,7 +11,7 @@
     "module": "ESNext",
     "rootDir": "./src",
     "types": ["react", "react-dom"],
-    "typeRoots": ["../../node_modules/@types", "src/types"],
+
     "paths": {
       "@newrade/*": ["../*"]
     }

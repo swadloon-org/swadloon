@@ -1,8 +1,0 @@
-{
-  "extends": "../core-gatsby-config/src/tsconfig/tsconfig.ts-plugin.json",
-  "compilerOptions": {
-    "rootDir": ".",
-    "typeRoots": ["../../node_modules/@types", "src/types"]
-  },
-  "include": ["src", "types"]
-}

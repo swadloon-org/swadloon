@@ -3,7 +3,7 @@ import { COMMON_ENV } from '@newrade/core-utils';
 /**
  * Local, typed representation of the .env file.
  */
-export type ENV = COMMON_ENV & {
+export type ENV = Partial<COMMON_ENV> & {
   /**
    * GraphCMS
    */

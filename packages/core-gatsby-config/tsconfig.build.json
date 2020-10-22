@@ -4,8 +4,7 @@
     "rootDir": "src",
     "outDir": "lib",
     "strict": false,
-    "types": ["gatsby", "node"],
-    "typeRoots": ["../../node_modules/@types", "types"]
+    "types": ["gatsby", "node"]
   },
   "references": [
     {
