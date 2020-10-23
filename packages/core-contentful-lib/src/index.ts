@@ -1,13 +1,20 @@
 import { runMigration } from 'contentful-migration';
+import { loadDotEnv, logEnvVariables } from '@newrade/core-utils';
+import packageJson from '../package.json';
 
+import path from 'path';
+import { ENV } from '../types/dot-env';
+
+const env = loadDotEnv<ENV>(path.resolve(__dirname, '.env'));
+logEnvVariables<ENV>({ packageName: packageJson.name, env });
 /**
  * @see https://github.com/contentful/contentful-migration
  */
 
 const options = {
-  filePath: '/Users/elliot/Documents/nrRepo/newrade/packages/core-contentful-lib/src/doggo.ts',
-  spaceId: process.env.CONTENTFUL_ACCESS_SPACEID,
-  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+  filePath: path.resolve(__dirname, 'doggo.ts'),
+  spaceId: `${env.CONTENTFUL_ACCESS_SPACEID}`,
+  accessToken: `${env.CONTENTFUL_ACCESS_TOKEN}`,
 };
 
 runMigration(options)
