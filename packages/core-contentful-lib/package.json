@@ -11,7 +11,7 @@
   "scripts": {
     "build": "tsc --build tsconfig.build.json",
     "clean": "rimraf -r lib/** && rm -f tsconfig.build.tsbuildinfo",
-    "execute": "cross-env TS_NODE_PROJECT=tsconfig.build.json node -r ts-node/register src/index.ts"
+    "execute": "cross-env TS_NODE_PROJECT=tsconfig.build.json node -r ts-node/register src/migrations/index.ts"
   },
   "dependencies": {
     "contentful-migration": "^2.0.4"
