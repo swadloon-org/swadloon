@@ -15,8 +15,20 @@ assignees: ''
 
 ## Design System
 
+### Colors
+
+### Atoms
+
+- [ ] Logos
+- [ ] Icons
+- [ ] Illustrations
+
+### Molecules
+
 - [ ] Buttons
 - [ ] Inputs
+
+### Organisms
 - [ ] Forms
 
 ## UX Design

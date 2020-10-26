@@ -1,5 +1,5 @@
 {
-  "name": "@newrade/core-contentful-lib",
+  "name": "@newrade/core-figma-plugins",
   "version": "1.0.0",
   "description": "",
   "author": "",
@@ -14,10 +14,6 @@
     "execute": "cross-env TS_NODE_PROJECT=tsconfig.build.json node -r ts-node/register src/index.ts"
   },
   "dependencies": {
-    "contentful-migration": "^2.0.4"
-  },
-  "devDependencies": {
-    "@newrade/core-gatsby-config": "^1",
-    "@newrade/core-webpack-config": "^1"
+    "@figma/plugin-typings": "^1"
   }
 }

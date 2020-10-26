@@ -26,6 +26,9 @@
       "path": "../packages/core-docs-generator"
     },
     {
+      "path": "../packages/core-figma-plugins"
+    },
+    {
       "path": "../packages/core-gatsby-config"
     },
     {

@@ -1730,6 +1730,11 @@
   dependencies:
     "@f/map-obj" "^1.2.2"
 
+"@figma/plugin-typings@^1", "@figma/plugin-typings@^1.17.1":
+  version "1.17.1"
+  resolved "https://registry.yarnpkg.com/@figma/plugin-typings/-/plugin-typings-1.17.1.tgz#c69b8ccc461d70552b381adefccaf0fee56c8342"
+  integrity sha512-333pYcJJVI2Wk1VTJq0ShvsqzwLJ9c1kNDzptcXdoGcDlAlljUV7B5rzEOIC9GkRFl1Kl/DsLOb9WzFRc+n2og==
+
 "@graphql-codegen/core@^1.13.1":
   version "1.17.8"
   resolved "https://registry.yarnpkg.com/@graphql-codegen/core/-/core-1.17.8.tgz#d70281bcf9f4b7b560ab5b16f7fc7a2853c49a8a"
