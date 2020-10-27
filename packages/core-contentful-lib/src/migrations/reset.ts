@@ -11,7 +11,7 @@ logEnvVariables<ENV>({ packageName: packageJson.name, env });
  */
 
 const options = {
-  filePath: path.resolve(__dirname, 'indexModel.ts'),
+  filePath: path.resolve(__dirname, 'delete.ts'),
   spaceId: `de6as4xv7gj7`,
   accessToken: `CFPAT-t2oB7HM8an6BR1yDa97ZlpT55uAOSviNF9bm0xqbbtU`,
 };

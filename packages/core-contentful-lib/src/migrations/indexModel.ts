@@ -1,111 +1,87 @@
 import * as Migration from 'contentful-migration';
-import { PageExport } from '../content-types/page';
-import { sectionExport } from '../content-types/section';
 import { BlogExport } from '../content-types/blog';
-import { BlogPostExport } from '../content-types/blog-post';
 import { BlogAuthorExport } from '../content-types/blog-author';
-import { LinkExport } from '../content-types/link';
-import { ImageCollectionExport } from '../content-types/image-collection';
+import { BlogPostExport } from '../content-types/blog-post';
 import { CompanyAddressExport } from '../content-types/company-address';
 import { CompanyInfoExport } from '../content-types/company-info';
 import { ContactUsFormExport } from '../content-types/contact-form';
 import { FormFieldExport } from '../content-types/form-field';
-import { JobGroupExport } from '../content-types/job-groupe';
+import { ImageCollectionExport } from '../content-types/image-collection';
+import { InfoCheckExport } from '../content-types/info-check';
+import { InfoTileExport } from '../content-types/info-tile';
 import { JobExport } from '../content-types/job';
-import { exec } from 'child_process';
+import { JobGroupExport } from '../content-types/job-groupe';
+import { LinkExport } from '../content-types/link';
+import { PageExport } from '../content-types/page';
+import { ProcessStepExport } from '../content-types/process-step';
+import { sectionExport } from '../content-types/section';
 const MurmurHash3 = require('imurmurhash');
 
 const execute: Migration.MigrationFunction = function IndexModel(migration) {
-  /***
-  Page
-  ***/
-
+  /**
+   * Page
+   */
   PageExport(migration);
-  /***
-  Section
-  ***/
+  /**
+   * Section
+   */
   sectionExport(migration);
-  /*
-  Blog
-  */
+  /**
+   * Blog
+   */
   BlogExport(migration);
-  /*
-  BlogPost
+  /**
+   * BlogPost
    */
   BlogPostExport(migration);
-  /*
-  BlogAuthor
-  */
+  /**
+   * BlogAuthor
+   */
   BlogAuthorExport(migration);
-  /*
-  Link
-  */
+  /**
+   * Link
+   */
   LinkExport(migration);
-  /*
-  'ImageCollection'
-  */
+  /**
+   * ImageCollection
+   */
   ImageCollectionExport(migration);
-  /*
-  'CompanyAddress'
-  */
+  /**
+   * CompanyAddress
+   */
   CompanyAddressExport(migration);
   /**
-   *'CompanyInfo'
+   * CompanyInfo
    */
   CompanyInfoExport(migration);
   /*
-  'ContactUsForm'
-  */
+   * ContactUsForm
+   */
   ContactUsFormExport(migration);
   /**
-  'FormField'
-  */
+   * FormField
+   */
   FormFieldExport(migration);
   /**
-  'JobGroup'
-  */
+   * JobGroup
+   */
   JobGroupExport(migration);
   /**
-  'Job'
-  */
+   * Job
+   */
   JobExport(migration);
   /**
-  'InfoCheck'
-  */
-  const infoCheck = migration.createContentType('InfoCheck', {
-    name: 'InfoCheck',
-  });
-  const textCheck = infoCheck.createField('Text');
-  textCheck.name('Text').type('Symbol').localized(true);
-
-  /*
-  'InfoTile'
-  */
-  const infoTile = migration.createContentType('InfoTile', {
-    name: 'InfoTile',
-  });
-  const illustrationTile = infoTile.createField('Illustration');
-  illustrationTile.name('Illustration').type('Symbol');
-
-  const titleTile = infoTile.createField('title');
-  titleTile.name('Title').type('Symbol').localized(true);
-
-  const textTile = infoTile.createField('Text');
-  textTile.name('Text').type('Text').localized(true);
-
-  /*
-  'ProcessStep
-  */
-  const processStep = migration.createContentType('ProcessStep', {
-    name: 'ProcessStep',
-  });
-
-  const titleStep = processStep.createField('title');
-  titleStep.name('Title').type('Symbol').localized(true);
-
-  const descriptionStep = processStep.createField('description');
-  descriptionStep.name('Description').type('Text').localized(true);
+   * InfoCheck
+   */
+  InfoCheckExport(migration);
+  /**
+   * InfoTile
+   */
+  InfoTileExport(migration);
+  /**
+   * ProcessStep
+   */
+  ProcessStepExport(migration);
 };
-
 // @ts-ignore
 export = execute;

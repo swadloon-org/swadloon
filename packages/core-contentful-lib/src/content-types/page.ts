@@ -1,5 +1,6 @@
 import * as Migration from 'contentful-migration';
-import { COMMON_TYPE } from '../common/types.constants';
+import { COMMON_CONTENT_TYPE } from '../common/types.constants';
+import { titleFields } from '../common/types.models';
 
 export const PageExport: Migration.MigrationFunction = function (migration) {
   const Page = migration.createContentType('Page', {
@@ -10,8 +11,7 @@ export const PageExport: Migration.MigrationFunction = function (migration) {
   const namePage = Page.createField('name');
   namePage.name('Name').type('Symbol');
 
-  const titlePage = Page.createField('title');
-  titlePage.name('Title').type('Symbol').localized(true);
+  const titlePage = Page.createField('title', { ...titleFields });
 
   const descriptionPage = Page.createField('description');
   descriptionPage.name('Description').type('Text').localized(true);
@@ -33,5 +33,5 @@ export const PageExport: Migration.MigrationFunction = function (migration) {
   sections
     .name('Sections')
     .type('Array')
-    .items({ type: 'Link', linkType: 'Entry', validations: [{ linkContentType: [COMMON_TYPE.SECTION] }] });
+    .items({ type: 'Link', linkType: 'Entry', validations: [{ linkContentType: [COMMON_CONTENT_TYPE.SECTION] }] });
 };
