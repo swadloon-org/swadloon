@@ -7,7 +7,6 @@ export const sectionExport: Migration.MigrationFunction = function (migration) {
     name: 'Section',
     description: 'To Do',
   });
-
   const type = Section.createField('type', {
     ...commonFields,
     validations: [
@@ -28,7 +27,6 @@ export const sectionExport: Migration.MigrationFunction = function (migration) {
       },
     ],
   });
-
   const variant = Section.createField('variant', {
     name: 'Variant',
     type: 'Symbol',
@@ -39,14 +37,21 @@ export const sectionExport: Migration.MigrationFunction = function (migration) {
       },
     ],
   });
-
   const titleSection = Section.createField('title', { ...titleFields, required: true });
-
   const titleHighlightSection = Section.createField('titleHighlight', {
     name: 'TitleHighlight',
     type: 'Symbol',
     localized: true,
   });
-
   const descriptionSection = Section.createField('description', { name: 'Description', type: 'Text', localized: true });
+
+  const imageCollection = Section.createField('imageCollection', {
+    name: 'imageCollection',
+    type: 'Array',
+    items: {
+      type: 'Link',
+      linkType: 'Entry',
+      validations: [{ linkContentType: [COMMON_CONTENT_TYPE.IMAGE_COLLECTION] }],
+    },
+  });
 };

@@ -31,7 +31,9 @@ export const PageExport: Migration.MigrationFunction = function (migration) {
     items: { type: 'Link', linkType: 'Asset' },
   });
 
-  // Reference to the section
+  /**
+   * Reference to the section
+   */
   const sections = Page.createField('sections', {
     name: 'Sections',
     type: 'Array',
