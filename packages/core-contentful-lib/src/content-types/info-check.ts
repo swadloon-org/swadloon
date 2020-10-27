@@ -4,6 +4,5 @@ export const InfoCheckExport: Migration.MigrationFunction = function (migration)
   const infoCheck = migration.createContentType('InfoCheck', {
     name: 'InfoCheck',
   });
-  const textCheck = infoCheck.createField('Text');
-  textCheck.name('Text').type('Symbol').localized(true);
+  const textCheck = infoCheck.createField('Text', { name: 'Text', type: 'Symbol', localized: true });
 };

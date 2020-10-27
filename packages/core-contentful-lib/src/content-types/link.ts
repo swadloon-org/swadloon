@@ -1,5 +1,5 @@
 import * as Migration from 'contentful-migration';
-import { commonFields, labelFields, nameFields } from '../common/types.models';
+import { commonFields, labelFields, nameFields, urlFields } from '../common/types.models';
 
 export const LinkExport: Migration.MigrationFunction = function (migration) {
   const link = migration.createContentType('Link', {
@@ -19,6 +19,5 @@ export const LinkExport: Migration.MigrationFunction = function (migration) {
 
   const labelLink = link.createField('Label', { ...labelFields });
 
-  const urlLink = link.createField('URL');
-  urlLink.name('URL').type('Symbol');
+  const urlLink = link.createField('URL', { ...urlFields });
 };

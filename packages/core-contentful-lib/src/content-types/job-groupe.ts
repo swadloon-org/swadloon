@@ -5,13 +5,12 @@ export const JobGroupExport: Migration.MigrationFunction = function (migration) 
     name: 'JobGroup',
   });
 
-  const illustrationJobGroupe = jobGroup.createField('illustration');
-  illustrationJobGroupe.name('illustration').type('Symbol');
+  const illustrationJobGroupe = jobGroup.createField('Illustration', { name: 'Illustration', type: 'Symbol' });
 
   // Reference to the jobs
-  const jobs = jobGroup.createField('Jobs');
-  jobs
-    .name('Jobs')
-    .type('Array')
-    .items({ type: 'Link', linkType: 'Entry', validations: [{ linkContentType: ['Job'] }] });
+  const jobs = jobGroup.createField('Jobs', {
+    name: 'Jobs',
+    type: 'Array',
+    items: { type: 'Link', linkType: 'Entry', validations: [{ linkContentType: ['Job'] }] },
+  });
 };

@@ -1,5 +1,5 @@
 import * as Migration from 'contentful-migration';
-import { titleFields } from '../common/types.models';
+import { descriptionFields, titleFields } from '../common/types.models';
 
 export const JobExport: Migration.MigrationFunction = function (migration) {
   const job = migration.createContentType('Job', {
@@ -8,6 +8,5 @@ export const JobExport: Migration.MigrationFunction = function (migration) {
 
   const titleJob = job.createField('title', { ...titleFields });
 
-  const descriptionJob = job.createField('Description');
-  descriptionJob.name('Description').type('Text').localized(true);
+  const descriptionJob = job.createField('Description', { ...descriptionFields });
 };
