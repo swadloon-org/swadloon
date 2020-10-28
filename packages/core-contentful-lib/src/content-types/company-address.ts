@@ -1,18 +1,20 @@
+import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
+import { COMMON_CONTENT_TYPE } from '../constants/content-types';
 
-export const CompanyAddressExport: Migration.MigrationFunction = function (migration) {
-  const companyAddress = migration.createContentType('CompanyAddress', {
-    name: 'CompanyAddress',
+export const createCompanyAdress: Migration.MigrationFunction = function (migration) {
+  const content = migration.createContentType(COMMON_CONTENT_TYPE.COMPANY_ADDRESS, {
+    name: pascal(COMMON_CONTENT_TYPE.COMPANY_ADDRESS),
   });
 
-  const AddressLine1 = companyAddress.createField('AddressLine1', { name: 'AddressLine1', type: 'Symbol' });
-  const AddressLine2 = companyAddress.createField('AddressLine2', { name: 'AddressLine2', type: 'Symbol' });
-  const City = companyAddress.createField('City', { name: 'City', type: 'Symbol' });
-  const PostalCode = companyAddress.createField('PostalCode', { name: 'PostalCode', type: 'Symbol' });
-  const ProvinceState = companyAddress.createField('ProvinceState', { name: 'ProvinceState', type: 'Symbol' });
-  const Country = companyAddress.createField('Country', { name: 'Country', type: 'Symbol' });
-  const Phone = companyAddress.createField('Phone', { name: 'Phone', type: 'Symbol' });
-  const PhoneNoFees = companyAddress.createField('PhoneNoFees', { name: 'PhoneNoFees', type: 'Symbol' });
-  const WebsiteURL = companyAddress.createField('WebsiteURL', { name: 'WebsiteURL', type: 'Symbol' });
-  const Email = companyAddress.createField('Email', { name: 'Email', type: 'Symbol' });
+  content.createField('addressLine1', { name: 'AddressLine1', type: 'Symbol' });
+  content.createField('addressLine2', { name: 'AddressLine2', type: 'Symbol' });
+  content.createField('city', { name: 'City', type: 'Symbol' });
+  content.createField('postalCode', { name: 'PostalCode', type: 'Symbol' });
+  content.createField('provinceState', { name: 'ProvinceState', type: 'Symbol' });
+  content.createField('country', { name: 'Country', type: 'Symbol' });
+  content.createField('phone', { name: 'Phone', type: 'Symbol' });
+  content.createField('phoneNoFees', { name: 'PhoneNoFees', type: 'Symbol' });
+  content.createField('websiteURL', { name: 'WebsiteURL', type: 'Symbol' });
+  content.createField('email', { name: 'Email', type: 'Symbol' });
 };

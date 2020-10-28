@@ -1,12 +1,12 @@
 import * as Migration from 'contentful-migration';
 
-export const FormFieldExport: Migration.MigrationFunction = function (migration) {
-  const formField = migration.createContentType('FormField', {
+export const createFormField: Migration.MigrationFunction = function (migration) {
+  const content = migration.createContentType('FormField', {
     name: 'FormField',
   });
-  const isRequiredField = formField.createField('isRequired', { name: 'isRequired', type: 'Boolean', required: true });
+  content.createField('isRequired', { name: 'IsRequired', type: 'Boolean', required: true });
 
-  const typeField = formField.createField('type', {
+  content.createField('type', {
     name: 'Type',
     type: 'Symbol',
     required: true,
@@ -17,19 +17,19 @@ export const FormFieldExport: Migration.MigrationFunction = function (migration)
     ],
   });
 
-  const placeholderField = formField.createField('Placeholder', {
+  content.createField('placeholder', {
     name: 'Placeholder',
     type: 'Symbol',
     localized: true,
   });
 
-  const errorRquiredField = formField.createField('ErrorRequired', {
+  content.createField('errorRequired', {
     name: 'ErrorRequired',
     type: 'Symbol',
     localized: true,
   });
 
-  const errorInvalidField = formField.createField('ErrorInvalid', {
+  content.createField('errorInvalid', {
     name: 'ErrorInvalid',
     type: 'Symbol',
     localized: true,

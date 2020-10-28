@@ -1,41 +1,48 @@
+import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
+import { COMMON_CONTENT_TYPE } from '../constants/content-types';
+import { COMMON_FIELD } from '../constants/fields';
 
-export const CompanyInfoExport: Migration.MigrationFunction = function (migration) {
-  const companyInfo = migration.createContentType('CompanyInfo', {
-    name: 'CompanyInfo',
+export const createCompanyInfo: Migration.MigrationFunction = function (migration) {
+  const content = migration.createContentType(COMMON_CONTENT_TYPE.COMPANY_INFO, {
+    name: pascal(COMMON_CONTENT_TYPE.COMPANY_INFO),
   });
 
-  const CompanyName = companyInfo.createField('CompanyName', { name: 'CompanyName', type: 'Symbol' });
+  content.createField(COMMON_FIELD.COMPANY_NAME, {
+    name: pascal(COMMON_FIELD.COMPANY_NAME),
+    type: 'Symbol',
+    required: true,
+  });
 
-  const Logo = companyInfo.createField('Logo', {
-    name: 'Logo',
+  content.createField(COMMON_FIELD.LOGO, {
+    name: pascal(COMMON_FIELD.LOGO),
     type: 'Link',
     linkType: 'Asset',
   });
 
-  const LogoFooter = companyInfo.createField('LogoFooter', {
-    name: 'LogoFooter',
+  content.createField(COMMON_FIELD.LOGO_FOOTER, {
+    name: pascal(COMMON_FIELD.LOGO),
     type: 'Link',
     linkType: 'Asset',
   });
 
-  const Favicon = companyInfo.createField('Favicon', {
-    name: 'Favicon',
+  content.createField(COMMON_FIELD.FAVICON, {
+    name: pascal(COMMON_FIELD.FAVICON),
     type: 'Link',
     linkType: 'Asset',
   });
 
-  const LinkedinPageURL = companyInfo.createField('LinkedinPageURL', { name: 'LinkedinPageURL', type: 'Symbol' });
-  const FacebookPageURL = companyInfo.createField('FacebookPageURL', { name: 'FacebookPageURL', type: 'Symbol' });
-  const InstagramPageURL = companyInfo.createField('InstagramPageURL', { name: 'InstagramPageURL', type: 'Symbol' });
-  const TwitterPageURL = companyInfo.createField('TwitterPageURL', { name: 'TwitterPageURL', type: 'Symbol' });
-  const MetadataTwitterSite = companyInfo.createField('MetadataTwitterSite', {
+  content.createField('linkedinPageURL', { name: 'LinkedinPageURL', type: 'Symbol' });
+  content.createField('facebookPageURL', { name: 'FacebookPageURL', type: 'Symbol' });
+  content.createField('instagramPageURL', { name: 'InstagramPageURL', type: 'Symbol' });
+  content.createField('twitterPageURL', { name: 'TwitterPageURL', type: 'Symbol' });
+  content.createField('metadataTwitterSite', {
     name: 'MetadataTwitterSite',
     type: 'Symbol',
   });
-  const MetadataTwitterCreator = companyInfo.createField('MetadataTwitterCreator', {
+  content.createField('metadataTwitterCreator', {
     name: 'MetadataTwitterCreator',
     type: 'Symbol',
   });
-  const MetadataSiteName = companyInfo.createField('MetadataSiteName', { name: 'MetadataSiteName', type: 'Symbol' });
+  content.createField('metadataSiteName', { name: 'MetadataSiteName', type: 'Symbol' });
 };

@@ -1,7 +1,7 @@
 {
   "extends": "../../tsconfig.build.json",
   "compilerOptions": {
-    "rootDir": "src",
+    "rootDir": ".",
     "outDir": "lib",
     "strict": false,
     "types": ["node"]
@@ -11,5 +11,5 @@
       "path": "../core-utils/tsconfig.build.json"
     }
   ],
-  "include": ["src/**/*", "types"]
+  "include": ["src/**/*", "types", "package.json"]
 }

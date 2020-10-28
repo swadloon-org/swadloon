@@ -11,8 +11,9 @@
   "scripts": {
     "build": "tsc --build tsconfig.build.json",
     "clean": "rimraf -r lib/** && rm -f tsconfig.build.tsbuildinfo",
-    "execute": "cross-env TS_NODE_PROJECT=tsconfig.build.json node -r ts-node/register src/migrations/index.ts",
-    "reset": "cross-env TS_NODE_PROJECT=tsconfig.build.json node -r ts-node/register src/migrations/reset.ts"
+    "create-space": "cross-env TS_NODE_PROJECT=tsconfig.build.json node -r ts-node/register src/create-space.ts",
+    "delete-space": "cross-env TS_NODE_PROJECT=tsconfig.build.json node -r ts-node/register src/delete-space.ts",
+    "start": "tsc --build --watch --preserveWatchOutput tsconfig.build.json"
   },
   "dependencies": {
     "contentful-migration": "^2.0.4"

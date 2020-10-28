@@ -96,6 +96,7 @@
     "babel-plugin-module-resolver": "^4.0.0",
     "babel-plugin-treat": "^1.1.0",
     "capsize": "^1.1.0",
+    "case": "^1.6.3",
     "chalk": "^4.0.0",
     "concurrently": "^5.3.0",
     "conventional-changelog-cli": "^2.0.34",
