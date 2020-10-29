@@ -6,6 +6,7 @@ import { COMMON_FIELD } from '../constants/fields';
 export const createBlogAuthor: Migration.MigrationFunction = function (migration) {
   const content = migration.createContentType(COMMON_CONTENT_TYPE.BLOG_AUTHOR, {
     name: pascal(COMMON_CONTENT_TYPE.BLOG_AUTHOR),
+    displayField: COMMON_FIELD.FIRST_NAME,
   });
 
   content.createField(COMMON_FIELD.FIRST_NAME, {
@@ -17,7 +18,6 @@ export const createBlogAuthor: Migration.MigrationFunction = function (migration
   content.createField(COMMON_FIELD.LAST_NAME, {
     name: pascal(COMMON_FIELD.LAST_NAME),
     type: 'Symbol',
-    required: true,
   });
 
   content.createField(COMMON_FIELD.JOB_TITLE, {

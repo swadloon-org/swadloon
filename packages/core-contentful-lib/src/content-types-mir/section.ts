@@ -22,6 +22,7 @@ export enum SECTION_TYPE {
   JOB_CANDIDATES,
   PROCESS_PRIMARY,
   PROCESS_SECONDARY,
+  TESTIMONIAL,
 }
 
 export enum SECTION_IMAGE_POSITION {
@@ -32,10 +33,11 @@ export enum SECTION_IMAGE_POSITION {
 export const createSectionType: Migration.MigrationFunction = function (migration) {
   const content = migration.createContentType(COMMON_CONTENT_TYPE.SECTION_TYPE, {
     name: COMMON_CONTENT_TYPE.SECTION_TYPE,
+    displayField: COMMON_FIELD.NAME,
     description: 'Each section has a type to select the look and feel.',
   });
 
-  content.createField(COMMON_FIELD.NAME, { name: pascal(COMMON_FIELD.NAME), type: 'Symbol', localized: true });
+  content.createField(COMMON_FIELD.NAME, { name: pascal(COMMON_FIELD.NAME), type: 'Symbol' });
 
   content.createField(COMMON_FIELD.DESCRIPTION, {
     name: pascal(COMMON_FIELD.DESCRIPTION),

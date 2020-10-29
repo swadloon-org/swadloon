@@ -6,6 +6,7 @@ export const createInfoTile: Migration.MigrationFunction = function (migration) 
   const content = migration.createContentType('infoTile', {
     name: 'InfoTile',
   });
+
   content.createField('illustration', { name: 'Illustration', type: 'Symbol' });
 
   content.createField('title', {

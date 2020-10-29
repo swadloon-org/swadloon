@@ -42,9 +42,9 @@ export enum MEDIA_COLLECTION {
 }
 
 export enum COMMON_SIZE {
-  X_SMALL,
-  SMALL,
-  MEDIUM,
-  LARGE,
-  X_LARGE,
+  X_SMALL = 'XSmall',
+  SMALL = 'Small',
+  MEDIUM = 'Medium',
+  LARGE = 'Large',
+  X_LARGE = 'XLarge',
 }

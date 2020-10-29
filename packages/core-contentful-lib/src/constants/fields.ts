@@ -77,48 +77,6 @@ export enum COMMON_FIELD {
 }
 
 /**
- * Commonly used fields
- */
-export const nameField: IFieldOptions = {
-  name: pascal(COMMON_FIELD.NAME),
-  type: 'Symbol',
-  localized: true,
-};
-
-export const descriptionField: IFieldOptions = {
-  name: pascal(COMMON_FIELD.NAME),
-  type: 'Text',
-  localized: true,
-};
-
-export const typeField: IFieldOptions = {
-  name: pascal(COMMON_FIELD.TYPE),
-  type: 'Symbol',
-  required: true,
-};
-
-export const variantField: IFieldOptions = {
-  name: pascal(COMMON_FIELD.VARIANT),
-  type: 'Symbol',
-  required: true,
-};
-
-export const sizeField: IFieldOptions = {
-  name: pascal(COMMON_FIELD.SIZE),
-  type: 'Symbol',
-  required: true,
-};
-
-/**
- * Used to hold markdown formatted text
- */
-export const markdownField: IFieldOptions = {
-  name: pascal(COMMON_FIELD.CONTENT),
-  type: 'Text',
-  localized: true,
-};
-
-/**
  * Reusable field for URLs
  */
 export const urlField: IFieldOptions = {

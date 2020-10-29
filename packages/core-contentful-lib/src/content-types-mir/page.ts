@@ -2,7 +2,7 @@ import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
 import { COMMON_CONTENT_TYPE } from '../constants/content-types';
 import { CONTENTFUL_WIDGET } from '../constants/contentful-widget-ids';
-import { COMMON_FIELD, descriptionField, mediaField, nameField } from '../constants/fields';
+import { COMMON_FIELD, mediaField } from '../constants/fields';
 
 export const createPage: Migration.MigrationFunction = function (migration) {
   const content = migration.createContentType(COMMON_CONTENT_TYPE.PAGE, {
@@ -10,7 +10,10 @@ export const createPage: Migration.MigrationFunction = function (migration) {
     description: 'Model to hold informations for pages',
   });
 
-  content.createField(COMMON_FIELD.NAME, { ...nameField });
+  content.createField(COMMON_FIELD.NAME, {
+    name: pascal(COMMON_FIELD.NAME),
+    type: 'Symbol',
+  });
   content.createField(COMMON_FIELD.DESCRIPTION, { ...descriptionField });
   content.changeFieldControl(COMMON_FIELD.DESCRIPTION, 'builtin', CONTENTFUL_WIDGET.MULTI_LINE, {
     helpText: 'Enter the page description, it will be used for SEO purposes',
