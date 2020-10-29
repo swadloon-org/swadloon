@@ -65,7 +65,9 @@ const config = {
         core.getGatsbyNetlifyPlugin(),
         core.getGatsbyTransformerSharp(),
         core.getGatsbyPluginSharp(),
+        core.getGastbyPluginTreatConfig(),
         core.getGatsbyPluginMdx(),
+        core.getGatsbyPluginPreloadFonts(),
         core.getGatsbyPluginReactHelmet(),
         core.getGatsbyPluginGoogleTagmanager({
             googleTagId: 'GTM-T4LK3QF',
@@ -76,40 +78,8 @@ const config = {
             resolve: `gatsby-source-contentful`,
             options: {
                 spaceId: `${env.CONTENTFUL_ACCESS_SPACEID_MIR}`,
-                // Learn about environment variables: https://gatsby.dev/env-vars
                 accessToken: env.CONTENTFUL_ACCESS_TOKEN_MIR,
             },
-        },
-        /**
-         * gatsby-plugin-csp
-         *
-         * @see https://www.gatsbyjs.com/plugins/gatsby-plugin-csp/
-         */
-        // {
-        //   resolve: `gatsby-plugin-csp`,
-        //   options: {
-        //     disableOnDev: true,
-        //     reportOnly: false,
-        //     mergeScriptHashes: true,
-        //     mergeStyleHashes: false,
-        //     mergeDefaultDirectives: true,
-        //     directives: {
-        //       'script-src': "'self'",
-        //       'style-src': "'self' 'unsafe-inline'",
-        //       'img-src': "'self' data: https://media.graphcms.com https://images.unsplash.com",
-        //       'font-src': "'self' data: https://fonts.gstatic.com",
-        //     },
-        //   },
-        // },
-        /**
-         * gatsby-plugin-preload-fonts
-         *
-         * note: refresh font by running the preload-fonts script
-         * @see https://www.gatsbyjs.com/plugins/gatsby-plugin-preload-fonts
-         */
-        {
-            resolve: `gatsby-plugin-preload-fonts`,
-            options: {},
         },
     ],
 };
