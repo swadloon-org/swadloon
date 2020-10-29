@@ -1,21 +1,20 @@
 ---
-name: Project Checklist - Branding + Design + Implementation
+name: Design System - Level 1
 about: TODO
-title: '<project-name>: Checklist'
-labels: "admin \U0001F4BC"
+title: '<project-name>: Design System - Level 1'
+labels: ''
 assignees: ''
 ---
 
-## Branding
+# Design System - Level 1 - Figma Checklist
 
-- [ ] Colors
-- [ ] Logo
-- [ ] Typography
-- [ ] Iconography
+## Text Styles
 
-## Design System
+- [ ] Titles (T1 & T2) for mobile & desktop
 
-### Colors
+## Colors Styles
+
+## Components
 
 ### Atoms
 
@@ -29,26 +28,7 @@ assignees: ''
 - [ ] Inputs
 
 ### Organisms
+
 - [ ] Forms
-
-## UX Design
-
-- [ ] Main goals identified
-- [ ] Tasks are listed for each goal
-- [ ] Modeling of each object to support the design
-
-## UI Design
-
-- [ ] Creation of the prototype's Figma file
-
-## Implementation
-
-- [ ] Theme created with the design specifications
-- [ ] Custom components
-
-## Deployment
-
-- [ ] CI is setup and tests are running on PRs and the master branch
-- [ ] DEV, STAGING and PRODUCTION environment configured and deployed
 
 ---
