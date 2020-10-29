@@ -14,7 +14,10 @@ export const createPage: Migration.MigrationFunction = function (migration) {
     name: pascal(COMMON_FIELD.NAME),
     type: 'Symbol',
   });
-  content.createField(COMMON_FIELD.DESCRIPTION, { ...descriptionField });
+  content.createField(COMMON_FIELD.DESCRIPTION, {
+    name: COMMON_FIELD.NAME,
+    type: 'Symbol',
+  });
   content.changeFieldControl(COMMON_FIELD.DESCRIPTION, 'builtin', CONTENTFUL_WIDGET.MULTI_LINE, {
     helpText: 'Enter the page description, it will be used for SEO purposes',
   });

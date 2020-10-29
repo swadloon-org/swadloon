@@ -40,107 +40,35 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions:
     lang: 'en' | 'fr';
   };
 
-  // const blogPageQuery = await graphql(`
-  //   query BlogPostPage {
-  //     site {
-  //       siteMetadata {
-  //         siteUrl
-  //         languages {
-  //           defaultLangKey
-  //           langs
-  //         }
-  //       }
-  //     }
-  //     gcms {
-  //       companyInfos(first: 1) {
-  //         companyName
-  //         linkedinPageUrl
-  //         facebookPageUrl
-  //         instagramPageUrl
-  //         twitterPageUrl
-  //         logo {
-  //           fileName
-  //           url
-  //         }
-  //         logoFooter {
-  //           fileName
-  //           url
-  //         }
-  //         metadataTwitter
-  //         metadataTwitterCreator
-  //         metadataSiteName
-  //       }
-  //       pages(where: { name: "Blog" }, locales: [fr, en]) {
-  //         actionSections {
-  //           type
-  //           title
-  //           titleHighlight
-  //           subtitle
-  //           actionText # to remove
-  //           link {
-  //             name
-  //             label
-  //             type
-  //             url
-  //             page {
-  //               route
-  //             }
-  //           }
-  //         }
-  //       }
-  //       blogPosts {
-  //         id
-  //         title
-  //       }
-  //       routes: pages(where: { NOT: { name: "Not Found" } }, locales: [fr, en]) {
-  //         name
-  //         title
-  //         route
-  //       }
-  //     }
-  //     bannerImageMobile: file(name: { eq: "Banner-NewWebsite" }) {
-  //       id
-  //       childImageSharp {
-  //         # https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-transformer-sharp/src/fragments.js
-  //         fluid(quality: 90, maxWidth: 800) {
-  //           base64
-  //           aspectRatio
-  //           src
-  //           srcSet
-  //           srcWebp
-  //           srcSetWebp
-  //           sizes
-  //         }
-  //       }
-  //     }
-  //     bannerImageDesktop: file(name: { eq: "Banner-NewWebsite" }) {
-  //       id
-  //       childImageSharp {
-  //         # https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-transformer-sharp/src/fragments.js
-  //         fluid(quality: 90, maxWidth: 1920) {
-  //           base64
-  //           aspectRatio
-  //           src
-  //           srcSet
-  //           srcWebp
-  //           srcSetWebp
-  //           sizes
-  //         }
-  //       }
-  //     }
-  //     linkedInBanner: file(name: { eq: "Banner-NewWebsite" }) {
-  //       id
-  //       childImageSharp {
-  //         fixed(width: 1200, height: 628) {
-  //           base64
-  //           aspectRatio
-  //           src
-  //           srcSet
-  //           srcWebp
-  //           srcSetWebp
-  //         }
-  //       }
-  //     }
-  //   }
-  // `);
+  const pages = await graphql<[]>(`
+    query PageQuery {
+      pageCollection {
+        items {
+          sys {
+            id
+          }
+          name
+          route
+        }
+      }
+    }
+  `);
+
+  if (!(pages && pages.data && pages.data.length)) {
+    throw new Error('No page could be fetched from the GraphQL API');
+  }
+
+  pages.data.forEach((page) => {
+    console.log(page);
+  });
+
+  // createPage({
+  //   path: `/my-sweet-new-page/`,
+  //   component: path.resolve(`./src/templates/my-sweet-new-page.js`),
+  //   // The context is passed as props to the component as well
+  //   // as into the component's GraphQL query.
+  //   context: {
+  //     id: `123456`,
+  //   },
+  // });
 };

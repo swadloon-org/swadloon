@@ -2,7 +2,7 @@ import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
 import { COMMON_CONTENT_TYPE } from '../constants/content-types';
 import { CONTENTFUL_WIDGET } from '../constants/contentful-widget-ids';
-import { COMMON_FIELD, nameField, urlField } from '../constants/fields';
+import { COMMON_FIELD, urlField } from '../constants/fields';
 
 export const createLink: Migration.MigrationFunction = function (migration) {
   const content = migration.createContentType(COMMON_CONTENT_TYPE.LINK, {
@@ -20,7 +20,7 @@ export const createLink: Migration.MigrationFunction = function (migration) {
     ],
   });
 
-  content.createField(COMMON_FIELD.NAME, { ...nameField, required: true });
+  content.createField(COMMON_FIELD.NAME, { name: pascal(COMMON_FIELD.NAME), type: 'Symbol', required: true });
 
   content.createField(COMMON_FIELD.LABEL, {
     name: pascal(COMMON_FIELD.LABEL),

@@ -1,23 +1,23 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
-import { COMMON_CONTENT_TYPE, COMMON_SIZE, MEDIA_COLLECTION } from '../constants/content-types';
+import { COMMON_CONTENT_TYPE } from '../constants/content-types';
 import { CONTENTFUL_WIDGET } from '../constants/contentful-widget-ids';
-import { COMMON_FIELD, sizeField, typeField, variantField } from '../constants/fields';
+import { COMMON_FIELD } from '../constants/fields';
 
 export const createMediaCollection: Migration.MigrationFunction = function (migration) {
   const content = migration.createContentType(COMMON_CONTENT_TYPE.MEDIA_COLLECTION, {
     name: pascal(COMMON_CONTENT_TYPE.MEDIA_COLLECTION),
   });
 
-  content.createField(COMMON_FIELD.TYPE, {
-    ...typeField,
-    validations: [{ in: [MEDIA_COLLECTION.CAROUSEL_HORIZONTAL, MEDIA_COLLECTION.CAROUSEL_VERTICAL] }],
-  });
-  content.createField(COMMON_FIELD.VARIANT, { ...variantField, validations: [{ in: ['carousel'] }] });
-  content.createField(COMMON_FIELD.SIZE, {
-    ...sizeField,
-    validations: [{ in: [COMMON_SIZE.LARGE, COMMON_SIZE.LARGE] }],
-  });
+  // content.createField(COMMON_FIELD.TYPE, {
+  //   ...typeField,
+  //   validations: [{ in: [MEDIA_COLLECTION.CAROUSEL_HORIZONTAL, MEDIA_COLLECTION.CAROUSEL_VERTICAL] }],
+  // });
+  // content.createField(COMMON_FIELD.VARIANT, { ...variantField, validations: [{ in: ['carousel'] }] });
+  // content.createField(COMMON_FIELD.SIZE, {
+  //   ...sizeField,
+  //   validations: [{ in: [COMMON_SIZE.LARGE, COMMON_SIZE.LARGE] }],
+  // });
 
   content.createField(COMMON_FIELD.MEDIAS, {
     name: pascal(COMMON_FIELD.MEDIAS),

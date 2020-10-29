@@ -2,7 +2,7 @@ import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
 import { COMMON_CONTENT_TYPE } from '../constants/content-types';
 import { CONTENTFUL_WIDGET } from '../constants/contentful-widget-ids';
-import { COMMON_FIELD, markdownField } from '../constants/fields';
+import { COMMON_FIELD } from '../constants/fields';
 
 export const createBlogPost: Migration.MigrationFunction = function (migration) {
   const content = migration.createContentType(COMMON_CONTENT_TYPE.BLOG_POST, {
@@ -67,5 +67,5 @@ export const createBlogPost: Migration.MigrationFunction = function (migration) 
     items: { type: 'Link', linkType: 'Entry', validations: [{ linkContentType: [COMMON_FIELD.BLOG_AUTHOR] }] },
   });
 
-  content.createField(COMMON_FIELD.CONTENT, { ...markdownField });
+  // content.createField(COMMON_FIELD.CONTENT, {});
 };
