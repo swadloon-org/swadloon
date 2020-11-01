@@ -1,6 +1,6 @@
 import { graphql } from 'gatsby';
 
-export const sectionsQuery = graphql`
+export const sectionQuery = graphql`
   fragment Section on ContentfulSection {
     name
     description

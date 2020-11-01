@@ -1,33 +1,22 @@
-// import { graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 
-// export const pageQuery = graphql`
-//   fragment Page on ContentfulPage {
-//     name
-//     title
-//     description
-//     route
-//     bannerTitle
-//     bannerSubTitle
-//     bannerImages {
-//       url
-//     }
-//     actionSections {
-//       ...ActionSection
-//     }
-//     infoSections {
-//       ...InfoSections
-//     }
-//     blogSections {
-//       ...BlogSections
-//     }
-//     jobSections {
-//       ...JobSections
-//     }
-//     processSections {
-//       ...ProcessSections
-//     }
-//     testimonialSections {
-//       ...TestimonialSection
-//     }
-//   }
-// `;
+export const pageQuery = graphql`
+  fragment Page on ContentfulPage {
+    name
+    description {
+      childMdx {
+        body
+      }
+    }
+    title
+    Route
+    BannerTitle
+    BannerSubTitle
+    medias {
+      ...MediaCollection
+    }
+    sections {
+      ...Section
+    }
+  }
+`;

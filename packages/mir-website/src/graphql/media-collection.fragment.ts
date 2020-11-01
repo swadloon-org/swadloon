@@ -1,7 +1,16 @@
 import { graphql } from 'gatsby';
 
-export const companyInfoQuery = graphql`
-  fragment CompanyInfo on ContentfulCompanyInfo {
-
+export const mediaCollectionQuery = graphql`
+  fragment MediaCollection on ContentfulMediaCollection {
+    name
+    type
+    variant
+    size
+    medias {
+      file {
+        url
+      }
+    }
+    title
   }
 `;
