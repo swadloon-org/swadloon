@@ -19,41 +19,31 @@ export const InfoSectionType5: React.FC<OwnProps> = (props) => {
   const hasImage = !!props?.medias.medias?.length;
   const imageUrl = props.medias?.medias[0]?.file?.url;
 
-
-  
   return (
     <div className={`${styles.wrapper} ${styles.type5} }`}>
+      <LayoutCentered reverseOrder={imagePosition === SECTION_IMAGE_POSITION.RIGHT}>
+        <FadeIn>
+          {hasImage && imageUrl ? (
+            <ImageFrame variant={'bottomRight'} url={imageUrl} className={`${styles.image}}`} />
+          ) : null}
+        </FadeIn>
 
-  <LayoutCentered reverseOrder={imagePosition === SECTION_IMAGE_POSITION.RIGHT}>
+        <div className={styles.content}>
+          <RenderTitleHighlight className={styles.title} title={props.title} titleHighlight={props.titleHighlight} />
 
-      <FadeIn>
+          <Paragraph variant={'medium'} className={styles.text}>
+            {props.text.text}
+          </Paragraph>
 
-        {hasImage && imageUrl ? (
-          <ImageFrame variant={'bottomRight'} url={imageUrl} className={`${styles.image}}`} />
-        ) : null}
-
-
-      </FadeIn>
-
-
-      <div className={styles.content}>
-        <RenderTitleHighlight className={styles.title} title={props.title} titleHighlight={props.titleHighlight} />
-
-        <Paragraph variant={'medium'} className={styles.text}>
-          {props.text.text}
-        </Paragraph>
-
-        {props.infoChecks.map((check, index) => {
-          return (
-            <CheckLabel illustration="IllustrationCheck" size="medium" key={check.id}>
-              {check.text}
-            </CheckLabel>
-          );
-        })}
-      </div>
-  </LayoutCentered>
-  </div>
-
-
+          {props.infoChecks.map((check, index) => {
+            return (
+              <CheckLabel illustration="IllustrationCheck" size="medium" key={check.id}>
+                {check.text}
+              </CheckLabel>
+            );
+          })}
+        </div>
+      </LayoutCentered>
+    </div>
   );
 };

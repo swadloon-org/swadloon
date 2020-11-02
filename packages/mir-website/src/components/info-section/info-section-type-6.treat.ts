@@ -1,5 +1,5 @@
 import { DesignSystem } from '@newrade/core-design-system-old';
-import { style, globalStyle } from 'treat';
+import { globalStyle, style } from 'treat';
 
 //
 // wrapper
@@ -51,7 +51,10 @@ globalStyle(`${type6Primary} ${illustration} path`, (theme: DesignSystem) => ({
   fill: 'currentColor',
 }));
 
-globalStyle(` ${illustration} path`, (theme: DesignSystem) => ({
+globalStyle(`${type6Secondary}  ${illustration} path`, (theme: DesignSystem) => ({
+  background: theme.colors.primary500,
+}));
+globalStyle(`${type6Tertiary}  ${illustration} path`, (theme: DesignSystem) => ({
   fill: theme.colors.primary500,
 }));
 
