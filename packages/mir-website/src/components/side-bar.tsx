@@ -9,9 +9,9 @@ import { Heading } from './heading';
 import { Illustration } from './illustration';
 import { Label } from './label';
 import * as stylesRef from './side-bar.treat';
-import { NavigationProps } from '../templates/page.template';
 import { Link as GatsbyLink } from 'gatsby';
 import { motion, AnimatePresence } from 'framer-motion';
+import { NavigationProps } from '../layouts/page.layout';
 
 type OwnProps = {
   state: 'opened' | 'closed';

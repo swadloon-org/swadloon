@@ -2,59 +2,81 @@ import { Link as GatsbyLink } from 'gatsby';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import Icon from '../illustrations/Icon/IconBars.svg';
-import { NavigationProps } from '../templates/page.template';
 import { Link } from '../ui/link';
 import { Button } from './button';
 import * as stylesRef from './nav-bar.treat';
+import { NavigationProps } from '../layouts/page.layout';
 
 type OwnProps = {
   onOpenSideMenu: () => void;
 } & NavigationProps;
 
-export const NavBar: React.FC<OwnProps> = (props) => {
+export const NavBar: React.FC<OwnProps> = ({
+  currentPageName,
+  location,
+  pages,
+  onOpenSideMenu,
+  facebookPageURL,
+  linkedinPageURL,
+  instagramPageURL,
+  twitterPageURL,
+  logoURL,
+}) => {
   const styles = useStyles(stylesRef);
 
-  const leftToolbarPageNames = ['Home', 'Candidates', 'Employers', 'Blog', 'About'];
-  const leftToolbarPages = props.pages
+  const currentLocale = location?.pathname.includes('/en/') ? 'en-CA' : 'fr-CA';
+  const currentLocaleIsEN = currentLocale === 'en-CA';
+  const currentLocaleIsFR = !currentLocaleIsEN;
+  const currentPage = pages.filter((page) => page.name === currentPageName && page.locale === currentLocale);
+  const currentAlternateLocalePage = pages.filter(
+    (page) => page.name === currentPageName && page.locale !== currentLocale
+  );
+  const pagesEN = pages.filter((page) => (currentLocaleIsEN ? page.locale === 'en-CA' : page));
+  const pagesFR = pages.filter((page) => (currentLocaleIsFR ? page.locale === 'fr-CA' : page));
+  // const alternateLocalePage = localENActive ? pages.includes({name: currentPageName, route: })
+
+  const leftToolbarPageNames = ['Accueil', 'Candidats', 'Employeur', 'Blogue', 'À propos'];
+  const leftToolbarPages = (currentLocaleIsEN ? pagesEN : pagesFR)
     ?.filter((page) => leftToolbarPageNames.includes(page.name))
     .sort((pageA, pageB) => {
       const indexA = leftToolbarPageNames.indexOf(pageA.name);
       const indexB = leftToolbarPageNames.indexOf(pageB.name);
       return indexA > indexB ? 1 : -1;
     });
-  const contactUsPage = props.pages?.filter((page) => page.name === 'Contact');
+  const contactUsPage = pages?.filter((page) => page.name === 'Contact');
 
   return (
     <header className={styles.wrapper}>
       <div className={styles.content}>
-        <div className={styles.mobileLeftToolbar} onClick={(e) => props.onOpenSideMenu()}>
+        <div className={styles.mobileLeftToolbar} onClick={(e) => onOpenSideMenu()}>
           <Icon className={styles.icon} />
         </div>
 
         <nav className={styles.desktopLeftToolbar}>
           {leftToolbarPages?.map((page) => {
             return (
-              <Link key={page.name} to={page.route}>
+              <Link key={`${page.name}-${currentLocale}`} to={page.route}>
                 {page.title}
               </Link>
             );
           })}
         </nav>
 
-        {props.logoURL ? <img className={styles.logo} src={props.logoURL} alt="MIR Logo" /> : null}
+        {/* TODO Gatsby Image */}
+        {logoURL ? <img className={styles.logo} src={logoURL} alt="MIR Logo" /> : null}
 
         <nav className={styles.mobileRightToolbar}>
-          <GatsbyLink to={props.location?.pathname.includes('/en/') ? '/' : '/en/'}>
+          <GatsbyLink to={currentLocaleIsEN ? '/' : '/en/'}>
             <Button variantType="tertiaryReversed" variant="text" size="small">
-              {props.location?.pathname.includes('/en/') ? 'FR' : 'EN'}
+              {currentLocaleIsEN ? 'FR' : 'EN'}
             </Button>
           </GatsbyLink>
         </nav>
 
         <div className={styles.desktopRightToolbar}>
           <div className={styles.desktopSocialButtons}>
-            {props.facebookPageURL ? (
-              <a href={props.facebookPageURL} target={'_blank'} aria-label="Facebook Page" rel="noopener">
+            {facebookPageURL ? (
+              <a href={facebookPageURL} target={'_blank'} aria-label="Facebook Page" rel="noopener">
                 <Button
                   variantType="tertiaryReversed"
                   variant="icon"
@@ -64,8 +86,8 @@ export const NavBar: React.FC<OwnProps> = (props) => {
                 ></Button>
               </a>
             ) : null}
-            {props.linkedinPageURL ? (
-              <a href={props.linkedinPageURL} target={'_blank'} aria-label="LinkedIn Page" rel="noopener">
+            {linkedinPageURL ? (
+              <a href={linkedinPageURL} target={'_blank'} aria-label="LinkedIn Page" rel="noopener">
                 <Button
                   variantType="tertiaryReversed"
                   variant="icon"
@@ -75,8 +97,8 @@ export const NavBar: React.FC<OwnProps> = (props) => {
                 ></Button>
               </a>
             ) : null}
-            {props.twitterPageURL ? (
-              <a href={props.twitterPageURL} target={'_blank'} aria-label="Twitter Page" rel="noopener">
+            {twitterPageURL ? (
+              <a href={twitterPageURL} target={'_blank'} aria-label="Twitter Page" rel="noopener">
                 <Button
                   variantType="tertiaryReversed"
                   variant="icon"
@@ -86,8 +108,8 @@ export const NavBar: React.FC<OwnProps> = (props) => {
                 ></Button>
               </a>
             ) : null}
-            {props.instagramPageURL ? (
-              <a href={props.instagramPageURL} target={'_blank'} aria-label="Instagram Page" rel="noopener">
+            {instagramPageURL ? (
+              <a href={instagramPageURL} target={'_blank'} aria-label="Instagram Page" rel="noopener">
                 <Button
                   variantType="tertiaryReversed"
                   variant="icon"
@@ -100,9 +122,17 @@ export const NavBar: React.FC<OwnProps> = (props) => {
           </div>
 
           <nav>
-            <GatsbyLink to={props.location?.pathname.includes('/en/') ? '/' : '/en/'}>
+            <GatsbyLink
+              to={
+                currentAlternateLocalePage?.length
+                  ? currentAlternateLocalePage[0].route
+                  : currentLocaleIsEN
+                  ? '/'
+                  : '/en/'
+              }
+            >
               <Button variantType="tertiaryReversed" variant="text" size="small">
-                {props.location?.pathname.includes('/en/') ? 'FR' : 'EN'}
+                {currentLocale === 'en-CA' ? 'FR' : 'EN'}
               </Button>
             </GatsbyLink>
 

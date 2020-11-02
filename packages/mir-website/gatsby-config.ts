@@ -84,6 +84,4 @@ const config: core.GastbySiteConfig = {
   ],
 };
 
-console.log(config.plugins);
-
 export default config;

@@ -83,5 +83,4 @@ const config = {
         },
     ],
 };
-console.log(config.plugins);
 exports.default = config;

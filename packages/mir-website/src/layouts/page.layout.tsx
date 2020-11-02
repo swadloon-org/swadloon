@@ -3,8 +3,18 @@ import { useStyles } from 'react-treat';
 import { Footer } from '../components/footer';
 import { NavBar } from '../components/nav-bar';
 import { SideBar } from '../components/side-bar';
-import { NavigationProps } from '../templates/page.template';
 import * as styleRefs from './page.treat';
+
+export type NavigationProps = {
+  currentPageName: string;
+  location: Location;
+  logoURL: string | null;
+  linkedinPageURL: string | null;
+  facebookPageURL: string | null;
+  instagramPageURL: string | null;
+  twitterPageURL: string | null;
+  pages: { title?: string; route?: string; name?: string; locale?: string }[];
+};
 
 export const Layout: React.FC<NavigationProps> = (props) => {
   const styles = useStyles(styleRefs);

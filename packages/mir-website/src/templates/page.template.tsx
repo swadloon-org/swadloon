@@ -8,13 +8,13 @@ import {
 import { graphql, PageProps } from 'gatsby';
 import React from 'react';
 import Helmet from 'react-helmet';
-import { TreatProvider, useStyles } from 'react-treat';
+import { TreatProvider } from 'react-treat';
 import { PageQuery } from '../../types/graphql-types';
 import { ViewportProvider } from '../context/viewport.context';
 import { light } from '../design-system/themes.treat';
 import { viewportContext } from '../hooks/use-viewport.hook';
-import '../styles/font-faces.styles.css';
 import { Layout } from '../layouts/page.layout';
+import '../styles/font-faces.styles.css';
 
 export type ProjectPageProps = PageProps<PageQuery, GatsbyPageContext>;
 
@@ -43,9 +43,24 @@ export const pageQuery = graphql`
       metadataTwitterCreator
       metadataSiteName
     }
-    contentfulPage(id: { eq: $pageId }, node_locale: { eq: "fr-CA" }) {
+    allContentfulPage {
+      edges {
+        node {
+          id
+          name
+          node_locale
+          title
+          description {
+            description
+          }
+          route
+        }
+      }
+    }
+    contentfulPage(id: { eq: $pageId }) {
       id
       name
+      node_locale
       description {
         description
         childMdx {
@@ -114,17 +129,7 @@ export const pageQuery = graphql`
   }
 `;
 
-export type NavigationProps = {
-  location?: Location;
-  logoURL?: string | null;
-  linkedinPageURL?: string | null;
-  facebookPageURL?: string | null;
-  instagramPageURL?: string | null;
-  twitterPageURL?: string | null;
-  pages?: { title: string; route: string; name: string }[];
-};
-
-export const PageTemplate: React.FC<ProjectPageProps> = (props) => {
+export const PageTemplate: React.FC<ProjectPageProps> = ({ data, location }) => {
   return (
     <TreatProvider theme={light}>
       <ViewportProvider context={viewportContext}>
@@ -132,23 +137,35 @@ export const PageTemplate: React.FC<ProjectPageProps> = (props) => {
           {getMetaBasicTags()}
           {getMetadataOpenGraphWebsiteTags({
             type: OPEN_GRAPH_TYPE.WEBSITE,
-            title: `${props.data.contentfulPage.title}`,
-            url: `${props.data.site?.siteMetadata?.siteUrl}${props.data.contentfulPage?.route}`,
-            description: `${props.data.contentfulPage?.description}`,
-            image: `${props.data.contentfulPage?.bannerImages[0]?.url}`,
-            site_name: `${props.data.contentfulCompanyInfo.metadataSiteName}`,
+            title: `${data.contentfulPage.title}`,
+            url: `${data.site?.siteMetadata?.siteUrl}${data.contentfulPage?.route}`,
+            description: `${data.contentfulPage?.description}`,
+            image: `${data.contentfulPage?.bannerImages[0]?.url}`,
+            site_name: `${data.contentfulCompanyInfo.metadataSiteName}`,
             lang: 'fr',
             locale: 'fr_CA',
             localeAlternate: 'en_CA',
           })}
           {getMetadataTwitterTags({
             card: 'summary_large_image',
-            image: `${props.data.contentfulPage?.bannerImages[0]?.url}`,
-            creator: `${props.data.contentfulCompanyInfo.metadataTwitterCreator}`,
-            site: `${props.data.contentfulCompanyInfo.metadataTwitterSite}`,
+            image: `${data.contentfulPage?.bannerImages[0]?.url}`,
+            creator: `${data.contentfulCompanyInfo.metadataTwitterCreator}`,
+            site: `${data.contentfulCompanyInfo.metadataTwitterSite}`,
           })}
         </Helmet>
-        <Layout {...props}>
+        <Layout
+          currentPageName={data.contentfulPage.name}
+          location={location}
+          logoURL={data.contentfulCompanyInfo.logo.file.url}
+          linkedinPageURL={data.contentfulCompanyInfo.linkedinPageURL}
+          facebookPageURL={data.contentfulCompanyInfo.facebookPageURL}
+          instagramPageURL={data.contentfulCompanyInfo.instagramPageURL}
+          twitterPageURL={data.contentfulCompanyInfo.twitterPageURL}
+          pages={data.allContentfulPage.edges.map((edge) => ({
+            ...edge.node,
+            locale: edge.node.node_locale,
+          }))}
+        >
           <div>hello</div>
         </Layout>
       </ViewportProvider>
