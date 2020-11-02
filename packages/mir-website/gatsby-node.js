@@ -52,7 +52,7 @@ exports.createPages = async ({ graphql, actions }) => {
             throw new Error('Error while retrieving pages');
         }
         // Create pages for each page
-        const pageTemplate = path_1.default.resolve(`src/layouts/page.layout.tsx`);
+        const pageTemplate = path_1.default.resolve(`src/templates/page.template.tsx`);
         result.data.allContentfulPage.edges.forEach((edge, index) => {
             createPage({
                 path: edge.node.route,

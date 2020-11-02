@@ -1,5 +1,7 @@
+import path from 'path';
+
 export function getGastbyPluginTreatConfig(options?: any) {
   return {
-    resolve: require.resolve(`../../lib/plugins/gatsby-plugin-treat`),
+    resolve: path.resolve(__dirname, `../../lib/plugins/gatsby-plugin-treat`),
   };
 }

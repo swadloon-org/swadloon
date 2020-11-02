@@ -12,7 +12,7 @@ import { LABEL, VIEWPORT } from '@newrade/core-design-system-old';
 import { useViewportBreakpoint } from '../hooks/use-viewport.hook';
 
 export const footerQuery = graphql`
-  query footer {
+  query Footer {
     contentfulCompanyInfo {
       logoFooter {
         file {
@@ -20,7 +20,6 @@ export const footerQuery = graphql`
         }
       }
     }
-
     contentfulCompanyAddress {
       addressLine1
       addressLine2
@@ -36,7 +35,9 @@ export const footerQuery = graphql`
   }
 `;
 
-type OwnProps = {};
+type OwnProps = {
+  className?: string;
+};
 
 export const Footer: React.FC<OwnProps> = (props) => {
   const data = useStaticQuery<FooterQuery>(footerQuery);
@@ -44,7 +45,7 @@ export const Footer: React.FC<OwnProps> = (props) => {
   const { viewport } = useViewportBreakpoint();
 
   return (
-    <footer className={styles.wrapper}>
+    <footer className={`${props.className || ''} ${styles.wrapper}`}>
       <div className={styles.gridwrapper}>
         <div className={styles.contact}>
           <Label

@@ -60,7 +60,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
     }
 
     // Create pages for each page
-    const pageTemplate = path.resolve(`src/layouts/page.layout.tsx`);
+    const pageTemplate = path.resolve(`src/templates/page.template.tsx`);
     result.data.allContentfulPage.edges.forEach((edge, index) => {
       createPage<GatsbyPageContext>({
         path: edge.node.route,

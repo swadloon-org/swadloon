@@ -1,5 +1,7 @@
+import path from 'path';
+
 export function getGastbyCorePluginConfig(options?: any) {
   return {
-    resolve: require.resolve(`../../lib/plugins/gatsby-plugin-core`),
+    resolve: path.resolve(__dirname, `../../lib/plugins/gatsby-plugin-core`),
   };
 }
