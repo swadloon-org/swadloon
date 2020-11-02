@@ -6,6 +6,7 @@ import { Link } from '../ui/link';
 import { Button } from './button';
 import * as stylesRef from './nav-bar.treat';
 import { NavigationProps } from '../layouts/page.layout';
+import { PAGE_NAME } from '../templates/page.template';
 
 type OwnProps = {
   onOpenSideMenu: () => void;
@@ -35,7 +36,13 @@ export const NavBar: React.FC<OwnProps> = ({
   const pagesFR = pages.filter((page) => (currentLocaleIsFR ? page.locale === 'fr-CA' : page));
   // const alternateLocalePage = localENActive ? pages.includes({name: currentPageName, route: })
 
-  const leftToolbarPageNames = ['Accueil', 'Candidats', 'Employeur', 'Blogue', 'À propos'];
+  const leftToolbarPageNames: (string | PAGE_NAME)[] = [
+    PAGE_NAME.ACCUEIL,
+    PAGE_NAME.CANDIDATS,
+    PAGE_NAME.EMPLOYEURS,
+    PAGE_NAME.BLOGUE,
+    PAGE_NAME.A_PROPOS,
+  ];
   const leftToolbarPages = (currentLocaleIsEN ? pagesEN : pagesFR)
     ?.filter((page) => leftToolbarPageNames.includes(page.name))
     .sort((pageA, pageB) => {
@@ -43,7 +50,7 @@ export const NavBar: React.FC<OwnProps> = ({
       const indexB = leftToolbarPageNames.indexOf(pageB.name);
       return indexA > indexB ? 1 : -1;
     });
-  const contactUsPage = pages?.filter((page) => page.name === 'Contact');
+  const contactUsPage = (currentLocaleIsEN ? pagesEN : pagesFR)?.filter((page) => page.name === 'Contact');
 
   return (
     <header className={styles.wrapper}>
@@ -55,7 +62,7 @@ export const NavBar: React.FC<OwnProps> = ({
         <nav className={styles.desktopLeftToolbar}>
           {leftToolbarPages?.map((page) => {
             return (
-              <Link key={`${page.name}-${currentLocale}`} to={page.route}>
+              <Link key={`${page.name}-${page.locale}`} to={page.route}>
                 {page.title}
               </Link>
             );
@@ -132,7 +139,7 @@ export const NavBar: React.FC<OwnProps> = ({
               }
             >
               <Button variantType="tertiaryReversed" variant="text" size="small">
-                {currentLocale === 'en-CA' ? 'FR' : 'EN'}
+                {currentLocaleIsEN ? 'FR' : 'EN'}
               </Button>
             </GatsbyLink>
 

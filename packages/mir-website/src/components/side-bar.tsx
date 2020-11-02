@@ -1,17 +1,16 @@
 import { ICON_SIZE, LABEL } from '@newrade/core-design-system-old';
-import { graphql, useStaticQuery } from 'gatsby';
+import { motion } from 'framer-motion';
+import { graphql, Link as GatsbyLink, useStaticQuery } from 'gatsby';
 import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
 import { MobileBarQuery } from '../../types/graphql-types';
+import { NavigationProps } from '../layouts/page.layout';
 import { Icon } from '../ui/icon';
 import { Button } from './button';
 import { Heading } from './heading';
 import { Illustration } from './illustration';
 import { Label } from './label';
 import * as stylesRef from './side-bar.treat';
-import { Link as GatsbyLink } from 'gatsby';
-import { motion, AnimatePresence } from 'framer-motion';
-import { NavigationProps } from '../layouts/page.layout';
 
 type OwnProps = {
   state: 'opened' | 'closed';
@@ -67,34 +66,14 @@ export const SideBar: React.FC<OwnProps> = (props) => {
       }}
       transition={{ x: { duration: 0.3, ease: 'easeOut' } }}
     >
-      <div
-        className={styles.topContainer}
-        // variants={{
-        //   open: {
-        //     transition: { staggerChildren: 0.07, delayChildren: 0.2 },
-        //   },
-        //   closed: {
-        //     transition: { staggerChildren: 0.05, staggerDirection: -1 },
-        //   },
-        // }}
-      >
+      <div className={styles.topContainer}>
         <img className={styles.logo} src={data?.contentfulCompanyInfo.logo.file.url} />
         <div className={styles.icon} onClick={(e) => props.onOpenSideMenu()}>
           <Icon icon="IconClose" size={ICON_SIZE.large}></Icon>
         </div>
       </div>
 
-      <div
-        className={styles.content}
-        // variants={{
-        //   open: {
-        //     transition: { staggerChildren: 0.07, delayChildren: 0.2 },
-        //   },
-        //   closed: {
-        //     transition: { staggerChildren: 0.05, staggerDirection: -1 },
-        //   },
-        // }}
-      >
+      <div className={styles.content}>
         <div className={styles.containerList}>
           <div className={styles.separation}>
             <Illustration
@@ -112,7 +91,7 @@ export const SideBar: React.FC<OwnProps> = (props) => {
                 <GatsbyLink
                   className={styles.titleItem}
                   to={page.route}
-                  key={page.name}
+                  key={`${page.name}-${page.locale}`}
                   activeClassName={`${styles.activeItem}`}
                 >
                   <div className={`${styles.itemMenu} ${pageActual == page.route ? styles.activeItem : ''}`}>

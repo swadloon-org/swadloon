@@ -15,6 +15,7 @@ import { light } from '../design-system/themes.treat';
 import { viewportContext } from '../hooks/use-viewport.hook';
 import { Layout } from '../layouts/page.layout';
 import '../styles/font-faces.styles.css';
+import { HomeTemplate } from './home.template';
 
 export type ProjectPageProps = PageProps<PageQuery, GatsbyPageContext>;
 
@@ -113,23 +114,26 @@ export const pageQuery = graphql`
         }
       }
     }
-
-    # allContentfulCompanyInfo(filter: { name: { eq: "Home" }, node_locale: { eq: "fr-CA" } }) {
-    #   ...CompanyInfo
-    # }
-    # allContentfulPage(filter: { name: { eq: "Home" }, node_locale: { eq: "fr-CA" } }) {
-    #   ...Page
-    # }
-    # bannerImageMobile: file(name: { eq: "ImageOffice05" }) {
-    #   ...MobileFluidImage
-    # }
-    # bannerImageDesktop: file(name: { eq: "ImageOffice05" }) {
-    #   ...DesktopFluidImage
-    # }
+    bannerImageMobile: file(name: { eq: "ImageOffice05" }) {
+      ...MobileFluidImage
+    }
+    bannerImageDesktop: file(name: { eq: "ImageOffice05" }) {
+      ...DesktopFluidImage
+    }
   }
 `;
 
-export const PageTemplate: React.FC<ProjectPageProps> = ({ data, location }) => {
+export enum PAGE_NAME {
+  ACCUEIL = 'Accueil',
+  CANDIDATS = 'Candidats',
+  EMPLOYEURS = 'Employeurs',
+  BLOGUE = 'Blogue',
+  A_PROPOS = 'À Propos',
+  CONTACT = 'Contact',
+  NON_TROUVE = 'Non trouvée',
+}
+
+export const PageTemplate: React.FC<ProjectPageProps> = ({ data, location, ...props }) => {
   return (
     <TreatProvider theme={light}>
       <ViewportProvider context={viewportContext}>
@@ -166,11 +170,19 @@ export const PageTemplate: React.FC<ProjectPageProps> = ({ data, location }) => 
             locale: edge.node.node_locale,
           }))}
         >
-          <div>hello</div>
+          {getPageTemplateComponent({ pageName: data.contentfulPage.name, props: { data, location, ...props } })}
         </Layout>
       </ViewportProvider>
     </TreatProvider>
   );
 };
+
+function getPageTemplateComponent({ pageName, props }: { pageName: string; props: ProjectPageProps }) {
+  switch (pageName) {
+    case PAGE_NAME.ACCUEIL: {
+      return <HomeTemplate {...props} />;
+    }
+  }
+}
 
 export default PageTemplate;

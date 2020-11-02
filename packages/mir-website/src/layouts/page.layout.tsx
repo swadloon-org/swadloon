@@ -4,16 +4,17 @@ import { Footer } from '../components/footer';
 import { NavBar } from '../components/nav-bar';
 import { SideBar } from '../components/side-bar';
 import * as styleRefs from './page.treat';
+import { PAGE_NAME } from '../templates/page.template';
 
 export type NavigationProps = {
-  currentPageName: string;
+  currentPageName: string | PAGE_NAME;
   location: Location;
   logoURL: string | null;
   linkedinPageURL: string | null;
   facebookPageURL: string | null;
   instagramPageURL: string | null;
   twitterPageURL: string | null;
-  pages: { title?: string; route?: string; name?: string; locale?: string }[];
+  pages: { title?: string; route?: string; name?: string | PAGE_NAME; locale?: string }[];
 };
 
 export const Layout: React.FC<NavigationProps> = (props) => {

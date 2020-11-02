@@ -10,11 +10,12 @@ import { InfoSectionType4 } from '../components/info-section/info-section-type-4
 import { theme } from '../design-system/index';
 import { ProjectPageProps } from './page.template';
 import * as stylesRef from './home.treat';
+import { SectionTemplate } from './section.template';
 
-export const Index: React.FC<ProjectPageProps> = ({ data, location }) => {
+export const HomeTemplate: React.FC<ProjectPageProps> = (props) => {
   const styles = useStyles(stylesRef);
 
-  const actionSection1 = data.gcms.pages[0].actionSections[0];
+  // const actionSection1 = data.gcms.pages[0].actionSections[0];
   const sources = [
     data?.bannerImageMobile?.childImageSharp?.fluid,
     {
@@ -31,25 +32,7 @@ export const Index: React.FC<ProjectPageProps> = ({ data, location }) => {
         subTitle={data?.gcms?.pages[0]?.bannerSubTitle}
       ></BannerPrimary>
 
-      {data?.gcms?.pages[0]?.infoSections.map((section, index) => {
-        switch (section.type) {
-          case 'type1group': {
-            return <InfoSectionType1Group key={index} {...section} />;
-          }
-          case 'type2': {
-            return <InfoSectionType2 key={index} align="AlignContentLeft" {...section} />;
-          }
-          case 'type3': {
-            return <InfoSectionType3 key={index} align="AlignContentRight" {...section} />;
-          }
-          case 'type4': {
-            return <InfoSectionType4 key={index} {...section} />;
-          }
-          default: {
-            return null;
-          }
-        }
-      })}
+      <SectionTemplate {...props} />
 
       <BlogPreviewSection
         location={location}
