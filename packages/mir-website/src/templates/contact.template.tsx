@@ -80,6 +80,7 @@ export const ContactTemplate: React.FC<ProjectPageProps> = (props) => {
               type="text"
               id="firstName"
               name="firstName"
+              required={true}
               autoComplete="given-name"
             ></Input>
             <Input
@@ -88,6 +89,7 @@ export const ContactTemplate: React.FC<ProjectPageProps> = (props) => {
               type="text"
               id="lastName"
               name="lastName"
+              required={true}
               autoComplete="family-name"
             ></Input>
           </div>
@@ -99,6 +101,7 @@ export const ContactTemplate: React.FC<ProjectPageProps> = (props) => {
               type="text"
               id="phone"
               name="phone"
+              required={true}
               autoComplete="phone"
             ></Input>
             <Input
@@ -107,6 +110,7 @@ export const ContactTemplate: React.FC<ProjectPageProps> = (props) => {
               type="text"
               id="email"
               name="email"
+              required={true}
               autoComplete="email"
             ></Input>
           </div>

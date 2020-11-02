@@ -1,42 +1,39 @@
 import React, { useState } from 'react';
 import { useStyles } from 'react-treat';
-import { Link as GatsbyLink } from 'gatsby';
-import { Button } from '../button';
-import { ImageFrame } from '../image-frame';
-import { Paragraph } from '../paragraph';
-import { Tab } from './tab';
-
+import { SectionFragment } from '../../../types/graphql-types';
+import { LayoutCentered } from '../../layouts/content-centered';
+import { SECTION_IMAGE_POSITION } from '../../templates/section.template';
+import { FadeIn } from '../animation/fade-in';
+import { ImageFrame } from '../ui/image-frame';
+import { Paragraph } from '../ui/paragraph';
 import * as styleRefsType3 from './info-section-type-3.treat';
 import { RenderTitleHighlight } from './info-title-highligh';
+import { SectionLinkButton } from './section-link-button';
+import { Tab } from './tab';
 
 type OwnProps = SectionFragment;
 
 export const InfoSectionType3: React.FC<OwnProps> = (props) => {
-  const [selectedTabIndex, setSelectedTabIndex] = useState<number>(0);
-  const hasImage = !!props?.image;
-  const hasTabs = !!props?.childs.length;
   const styles = useStyles(styleRefsType3);
+  const [selectedTabIndex, setSelectedTabIndex] = useState<number>(0);
+
+  const imagePosition = props.imagePosition as SECTION_IMAGE_POSITION;
+  const hasTabs = !!props?.subSections.length;
+  const hasImage = !!props?.medias?.medias?.length;
+  const imageUrl = props.medias?.medias[0]?.file?.url;
 
   return (
-    <div
-      className={`${styles.wrapper} ${props.type ? styles[props.type] : ''} ${props.align ? styles[props.align] : ''}`}
-    >
-      {props.image?.url ? (
-        <ImageFrame
-          variant={'bottomRight'}
-          url={props.image?.url}
-          className={`${styles.image} ${hasTabs ? styles.imageTabs : ''}`}
-        />
-      ) : null}
+    <LayoutCentered reverseOrder={imagePosition === SECTION_IMAGE_POSITION.RIGHT}>
+      <FadeIn>
+        {hasImage && imageUrl ? (
+          <ImageFrame variant={'bottomRight'} url={imageUrl} className={`${styles.image}`} />
+        ) : null}
+      </FadeIn>
 
-      <div
-        className={`${styles.content} ${
-          props.align === 'AlignContentLeft' ? styles.alignContentLeft : styles.alignContentRight
-        }  `}
-      >
+      <div>
         {hasTabs ? (
           <div className={styles.tabsWrapper}>
-            {props?.childs.map((infoSecTab, index) => {
+            {props?.subSections.map((infoSecTab, index) => {
               return (
                 <Tab
                   key={index}
@@ -46,16 +43,18 @@ export const InfoSectionType3: React.FC<OwnProps> = (props) => {
                     setSelectedTabIndex(index);
                   }}
                 >
-                  {infoSecTab.titleTab}
+                  {infoSecTab.subTitle}
                 </Tab>
               );
             })}
           </div>
         ) : null}
 
-        {props.childs.map((info, index) => (selectedTabIndex === index ? renderTabbedInfoSection(info, index) : null))}
+        {props.subSections.map((info, index) =>
+          selectedTabIndex === index ? renderTabbedInfoSection(info, index) : null
+        )}
       </div>
-    </div>
+    </LayoutCentered>
   );
 
   function renderTabbedInfoSection(props: SectionFragment, sectionIndex: number) {
@@ -66,26 +65,10 @@ export const InfoSectionType3: React.FC<OwnProps> = (props) => {
         <RenderTitleHighlight className={styleRefs.title} title={props.title} titleHighlight={props.titleHighlight} />
 
         <Paragraph variant={'medium'} className={styleRefs.text}>
-          {props.text}
+          {props.text.text}
         </Paragraph>
 
-        {/* <Button variantType={'primaryDefault'} variant={'text'} size={'medium'} className={styleRefs.button}>
-          {props.actionText}
-        </Button> */}
-
-        {props.link && props.link.type === 'INTERNAL_PAGE' && props.link.page?.route ? (
-          <GatsbyLink to={props.link.page?.route} className={styleRefs.button}>
-            <Button variantType={'primaryDefault'} variant={'text'} size={'medium'}>
-              {props.link.label}
-            </Button>
-          </GatsbyLink>
-        ) : props.link && props.link.type === 'EXTERNAL_URL' && props.link.url ? (
-          <a href={props.link.url} className={styleRefs.button}>
-            <Button variantType={'primaryDefault'} variant={'text'} size={'medium'}>
-              {props.link.label}
-            </Button>
-          </a>
-        ) : null}
+        <SectionLinkButton variant={'primaryDefault'} link={props.link} />
       </React.Fragment>
     );
   }

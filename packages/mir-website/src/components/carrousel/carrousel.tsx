@@ -39,7 +39,7 @@ interface OwnProps {
   indexChildren: number;
 }
 
-export const ImageFrame: React.FC<OwnProps & HTMLAttributes<any>> = (props) => {
+export const ImageFrame2: React.FC<OwnProps & HTMLAttributes<any>> = (props) => {
   const styles = useStyles(styleRefs);
 
   const [[page, direction], setPage] = useState([0, 0]);

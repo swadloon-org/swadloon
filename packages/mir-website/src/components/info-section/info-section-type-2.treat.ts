@@ -5,7 +5,7 @@ export const block = style((theme: DesignSystem) => ({
   display: 'grid',
   gridTemplateColumns: '1fr',
   gridTemplateRows: 'min-content',
-  alignContent: 'flex-start',
+  alignContent: 'center',
   justifyItems: 'center',
 
   '@media': {
@@ -53,19 +53,6 @@ export const image = style((theme: DesignSystem) => ({
   },
 }));
 
-export const content = style((theme: DesignSystem) => ({
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  '@media': {
-    [theme.layout.media.desktop]: {
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'flex-start',
-    },
-  },
-}));
-
 export const title = style((theme: DesignSystem) => ({
   marginBottom: `${theme.sizing.sizes.x5}`,
   maxWidth: '400px',
@@ -94,16 +81,6 @@ export const text = style((theme: DesignSystem) => ({
     [theme.layout.media.desktop]: {
       maxWidth: '500px',
       textAlign: 'left',
-      alignSelf: 'flex-start',
-    },
-  },
-}));
-
-export const button = style((theme: DesignSystem) => ({
-  alignSelf: 'center',
-
-  '@media': {
-    [theme.layout.media.desktop]: {
       alignSelf: 'flex-start',
     },
   },

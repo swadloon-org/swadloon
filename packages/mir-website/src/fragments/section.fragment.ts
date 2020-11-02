@@ -8,6 +8,7 @@ export const sectionFragment = graphql`
     }
     title
     titleHighlight
+    subTitle
     link {
       ...Link
     }
@@ -50,6 +51,7 @@ export const sectionFragment = graphql`
       }
       title
       titleHighlight
+      subTitle
       link {
         ...Link
       }
