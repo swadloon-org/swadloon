@@ -41,15 +41,7 @@ const config: core.GastbySiteConfig = {
      * gatsby-source-graphcms
      * @see https://github.com/GraphCMS/gatsby-source-graphcms/tree/next/gatsby-source-graphcms
      */
-    // {
-    //   resolve: 'gatsby-source-graphcms',
-    //   options: {
-    //     downloadLocalImages: true,
-    //     buildMarkdownNodes: true,
-    //     endpoint: env.GRAPH_CMS_API_URL_CORE,
-    //     token: env.GRAPH_CMS_AUTH_TOKEN_CORE,
-    //   },
-    // },
+
     {
       resolve: `gatsby-source-graphql`,
       options: {
