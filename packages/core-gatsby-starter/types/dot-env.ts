@@ -13,6 +13,6 @@ export type ENV = COMMON_ENV_GATSBY & {
    * GraphCMS
    * @deprecated switching to Contentful
    */
-  GRAPH_CMS_AUTH_TOKEN: string;
-  GRAPH_CMS_API_URL: string;
+  GRAPH_CMS_API_URL_CORE: string;
+  GRAPH_CMS_AUTH_TOKEN_CORE: string;
 };
