@@ -9,13 +9,13 @@ import { InfoSectionType1 } from './info-section-type-1';
 type OwnProps = InfoSectionModelQuery;
 
 export const InfoSectionType1Group: React.FC<OwnProps> = (props) => {
-  const hasChilds = !!props?.childs.length;
+  const hasChilds = !!props?.subSections.length;
   const styles = useStyles(styleRefs);
 
   return (
     <div className={styles.wrapper}>
       {hasChilds
-        ? props.childs.map((section, index) => {
+        ? props.subSections.map((section, index) => {
             return <InfoSectionType1 key={index} {...section} />;
           })
         : null}

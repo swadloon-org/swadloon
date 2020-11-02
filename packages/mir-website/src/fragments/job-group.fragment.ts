@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby';
 
 export const jobGroupQuery = graphql`
-  fragment JobGroup on ContentfulJobGroup {
+  fragment JobGroupFragment on ContentfulJobGroup {
     typeName
     variant
     jobs {

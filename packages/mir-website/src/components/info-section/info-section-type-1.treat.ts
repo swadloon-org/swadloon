@@ -1,5 +1,5 @@
 import { DesignSystem } from '@newrade/core-design-system-old';
-import { style, globalStyle } from 'treat';
+import { globalStyle, style } from 'treat';
 
 export const wrapper = style((theme: DesignSystem) => ({
   display: 'grid',
@@ -10,29 +10,29 @@ export const wrapper = style((theme: DesignSystem) => ({
   zIndex: 2,
 }));
 
-export const type1reversed = style((theme: DesignSystem) => ({
+export const styleNormal = style((theme: DesignSystem) => ({
+  zIndex: 1,
+  boxShadow: theme.effects.shadows.light.css,
+}));
+
+export const styleReversed = style((theme: DesignSystem) => ({
   color: theme.colors.greyscale0Reversed,
   backgroundColor: theme.colors.primary500,
   boxShadow: theme.effects.shadows.light.css,
 }));
 
-export const type1default = style((theme: DesignSystem) => ({
-  zIndex: 1,
-  boxShadow: theme.effects.shadows.light.css,
-}));
-
-globalStyle(`${type1reversed} > *`, (theme: DesignSystem) => ({
+globalStyle(`${styleReversed} > *`, (theme: DesignSystem) => ({
   maxWidth: '343px',
 }));
 
-globalStyle(`${type1default} > *`, (theme: DesignSystem) => ({
+globalStyle(`${styleNormal} > *`, (theme: DesignSystem) => ({
   maxWidth: '343px',
 }));
 
 export const text = style((theme: DesignSystem) => ({
   textAlign: 'center',
   whiteSpace: 'pre-wrap', // handle mutli-line text
-  marginBottom: `${theme.sizing.sizes.x5}`,
+  margin: `${theme.sizing.sizes.x5} 0`,
   color: 'currentColor',
   maxWidth: '400px',
 

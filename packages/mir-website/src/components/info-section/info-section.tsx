@@ -1,5 +1,5 @@
-import { InfoSectionsFragment } from '../../../types/graphql-types';
+import { SectionFragmentFragment } from '../../../types/graphql-types';
 
-export type InfoSectionModelQuery = InfoSectionsFragment & {
+export type InfoSectionModelQuery = SectionFragmentFragment & {
   align?: 'AlignContentLeft' | 'AlignContentRight';
 };

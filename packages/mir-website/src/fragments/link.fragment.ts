@@ -4,6 +4,8 @@ export const linkFragment = graphql`
   fragment LinkFragment on ContentfulLink {
     name
     type
+    label
+    url
     page {
       id
       name

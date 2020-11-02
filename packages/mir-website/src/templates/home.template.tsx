@@ -15,32 +15,30 @@ import { SectionTemplate } from './section.template';
 export const HomeTemplate: React.FC<ProjectPageProps> = (props) => {
   const styles = useStyles(stylesRef);
 
+  const page = props.data.contentfulPage;
+
   // const actionSection1 = data.gcms.pages[0].actionSections[0];
   const sources = [
-    data?.bannerImageMobile?.childImageSharp?.fluid,
+    page.bannerImages.medias[0]?.mobileFluidImage,
     {
-      ...data?.bannerImageDesktop?.childImageSharp?.fluid,
+      ...page.bannerImages.medias[0]?.desktopFluidImage,
       media: `(min-width: ${theme.layout.breakpoints.desktopSmall.px})`,
     },
   ];
 
   return (
     <main className={`${styles.wrapper}`}>
-      <BannerPrimary
-        imageData={sources}
-        title={data?.gcms?.pages[0]?.bannerTitle}
-        subTitle={data?.gcms?.pages[0]?.bannerSubTitle}
-      ></BannerPrimary>
+      <BannerPrimary imageData={sources} title={page.bannerTitle} subTitle={page.bannerSubTitle}></BannerPrimary>
 
       <SectionTemplate {...props} />
 
-      <BlogPreviewSection
+      {/* <BlogPreviewSection
         location={location}
         showButton={true}
         {...data?.gcms?.pages[0]?.blogSections[0]}
-      ></BlogPreviewSection>
+      ></BlogPreviewSection> */}
 
-      <Newsletter id="newsletter" section={actionSection1}></Newsletter>
+      {/* <Newsletter id="newsletter" section={actionSection1}></Newsletter> */}
     </main>
   );
 };

@@ -7,18 +7,22 @@ import { Button } from '../button';
 import { Paragraph } from '../paragraph';
 import { InfoSectionModelQuery } from './info-section';
 import { RenderTitleHighlight } from './info-title-highligh';
+import { SECTION_TYPE } from '../../templates/section.template';
 
 type OwnProps = Partial<InfoSectionModelQuery>;
 
 export const InfoSectionType1: React.FC<OwnProps> = (props) => {
   const styles = useStyles(styleRefs);
 
+  const variant = props.type.name as SECTION_TYPE.TYPE_1_NORMAL | SECTION_TYPE.TYPE_1_REVERSED;
+  const sectionStyle = variant === SECTION_TYPE.TYPE_1_NORMAL ? styles.styleNormal : styles.styleReversed;
+
   return (
-    <div className={`${styles.wrapper} ${props.type ? styles[props.type] : ''}`}>
+    <div className={`${styles.wrapper} ${sectionStyle}`}>
       <RenderTitleHighlight title={props.title} titleHighlight={props.titleHighlight} />
 
       <Paragraph variant={'medium'} className={styles.text}>
-        {props.text}
+        {props.text.text}
       </Paragraph>
 
       {props.link && props.link.type === 'INTERNAL_PAGE' && props.link.page?.route ? (
@@ -26,7 +30,7 @@ export const InfoSectionType1: React.FC<OwnProps> = (props) => {
           <Button
             variant={'text'}
             size={'medium'}
-            variantType={props.type === 'type1default' ? 'primaryDefault' : 'primaryReversed'}
+            variantType={variant === SECTION_TYPE.TYPE_1_NORMAL ? 'primaryDefault' : 'primaryReversed'}
           >
             {props.link.label}
           </Button>
@@ -36,7 +40,7 @@ export const InfoSectionType1: React.FC<OwnProps> = (props) => {
           <Button
             variant={'text'}
             size={'medium'}
-            variantType={props.type === 'type1default' ? 'primaryDefault' : 'primaryReversed'}
+            variantType={variant === SECTION_TYPE.TYPE_1_NORMAL ? 'primaryDefault' : 'primaryReversed'}
           >
             {props.link.label}
           </Button>
