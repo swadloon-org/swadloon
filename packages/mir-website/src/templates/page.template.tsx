@@ -68,7 +68,7 @@ export const PageTemplate: React.FC<ProjectPageProps> = ({ data, location, ...pr
             title: `${data.contentfulPage.title}`,
             url: `${data.site?.siteMetadata?.siteUrl}${data.contentfulPage?.route}`,
             description: `${data.contentfulPage?.description}`,
-            image: `${data.contentfulPage?.bannerImages[0]?.url}`,
+            image: `${data.contentfulPage?.bannerImages?.medias[0]?.file.url}`,
             site_name: `${data.contentfulCompanyInfo.metadataSiteName}`,
             lang: 'fr',
             locale: 'fr_CA',
@@ -76,7 +76,7 @@ export const PageTemplate: React.FC<ProjectPageProps> = ({ data, location, ...pr
           })}
           {getMetadataTwitterTags({
             card: 'summary_large_image',
-            image: `${data.contentfulPage?.bannerImages[0]?.url}`,
+            image: `${data.contentfulPage?.bannerImages?.medias[0]?.file.url}`,
             creator: `${data.contentfulCompanyInfo.metadataTwitterCreator}`,
             site: `${data.contentfulCompanyInfo.metadataTwitterSite}`,
           })}
@@ -104,6 +104,24 @@ export const PageTemplate: React.FC<ProjectPageProps> = ({ data, location, ...pr
 function getPageTemplateComponent({ pageName, props }: { pageName: string; props: ProjectPageProps }) {
   switch (pageName) {
     case PAGE_NAME.ACCUEIL: {
+      return <HomeTemplate {...props} />;
+    }
+    case PAGE_NAME.CANDIDATS: {
+      return <HomeTemplate {...props} />;
+    }
+    case PAGE_NAME.EMPLOYEURS: {
+      return <HomeTemplate {...props} />;
+    }
+    case PAGE_NAME.BLOGUE: {
+      return <HomeTemplate {...props} />;
+    }
+    case PAGE_NAME.A_PROPOS: {
+      return <HomeTemplate {...props} />;
+    }
+    case PAGE_NAME.CONTACT: {
+      return <HomeTemplate {...props} />;
+    }
+    default: {
       return <HomeTemplate {...props} />;
     }
   }

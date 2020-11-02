@@ -19,16 +19,18 @@ export const HomeTemplate: React.FC<ProjectPageProps> = (props) => {
 
   // const actionSection1 = data.gcms.pages[0].actionSections[0];
   const sources = [
-    page.bannerImages.medias[0]?.mobileFluidImage,
+    page.bannerImages?.medias[0]?.mobileFluidImage,
     {
-      ...page.bannerImages.medias[0]?.desktopFluidImage,
+      ...page.bannerImages?.medias[0]?.desktopFluidImage,
       media: `(min-width: ${theme.layout.breakpoints.desktopSmall.px})`,
     },
   ];
 
   return (
     <main className={`${styles.wrapper}`}>
-      <BannerPrimary imageData={sources} title={page.bannerTitle} subTitle={page.bannerSubTitle}></BannerPrimary>
+      {sources?.length && sources[0] && sources[1] ? (
+        <BannerPrimary imageData={sources} title={page.bannerTitle} subTitle={page.bannerSubTitle}></BannerPrimary>
+      ) : null}
 
       <SectionTemplate {...props} />
 

@@ -56,6 +56,13 @@ const config = {
                 icon: `src/illustrations/Logo/LogoFavicon.png`,
             },
         },
+        {
+            resolve: `gatsby-plugin-page-creator`,
+            options: {
+                path: path_1.default.resolve(__dirname, 'src', 'pages'),
+                ignore: [`**/treat.ts`],
+            },
+        },
         core.getGastbyCorePluginConfig(),
         core.getGatsbyTsPluginConfig(),
         core.getGatsbyReactSvgConfig(),
