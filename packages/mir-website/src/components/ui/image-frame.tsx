@@ -1,5 +1,4 @@
 import React, { HTMLAttributes, useState } from 'react';
-import { Illustration } from './ui/illustration';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './image-frame.treat';
 import LazyLoad from 'react-lazyload';
@@ -7,6 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { wrap } from '@popmotion/popcorn';
 import { ICON_SIZE } from '@newrade/core-design-system-old';
 import { Icon } from '../ui/icon';
+import { Illustration } from './illustration';
 
 enum MOTION_STATE {
   ENTER = 'ENTER',

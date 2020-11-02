@@ -1,13 +1,12 @@
 import React from 'react';
-import { Link as GatsbyLink } from 'gatsby';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './info-section-type-1.treat';
 
 import { RenderTitleHighlight } from './info-title-highligh';
 import { SECTION_TYPE, LINK_TYPE } from '../../templates/section.template';
-import { SectionFragment, LinkFragment } from '../../../types/graphql-types';
+import { SectionFragment } from '../../../types/graphql-types';
 import { Paragraph } from '../ui/paragraph';
-import { Button } from '../ui/button';
+import { SectionLinkButton } from './section-link-button';
 
 type OwnProps = SectionFragment;
 
@@ -25,36 +24,10 @@ export const InfoSectionType1: React.FC<OwnProps> = (props) => {
         {props.text.text}
       </Paragraph>
 
-      <RenderSectionLinkButton
+      <SectionLinkButton
         variant={props.type.name === SECTION_TYPE.TYPE_1_NORMAL ? 'primaryDefault' : 'primaryReversed'}
         link={props.link}
       />
     </div>
   );
 };
-
-export function RenderSectionLinkButton({
-  variant,
-  link,
-}: {
-  variant: 'primaryDefault' | 'primaryReversed';
-  link: LinkFragment;
-}) {
-  return (
-    <>
-      {link && link.type === 'INTERNAL_PAGE' && link.page?.route ? (
-        <GatsbyLink to={link.page?.route}>
-          <Button variant={'text'} size={'medium'} variantType={variant}>
-            {link.label}
-          </Button>
-        </GatsbyLink>
-      ) : link && link.type === 'EXTERNAL_URL' && link.url ? (
-        <a href={link.url}>
-          <Button variant={'text'} size={'medium'} variantType={variant}>
-            {link.label}
-          </Button>
-        </a>
-      ) : null}
-    </>
-  );
-}

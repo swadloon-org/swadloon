@@ -3,7 +3,7 @@ import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
 type OwnProps = {
-  time: number;
+  time?: number;
 };
 
 export const FadeIn: React.FC<OwnProps> = (props) => {
@@ -31,7 +31,7 @@ export const FadeIn: React.FC<OwnProps> = (props) => {
           y: 0,
           opacity: 1,
           transition: {
-            delay: props.time,
+            delay: props.time !== undefined ? props.time : 0.4,
           },
         },
       }}

@@ -1,48 +1,29 @@
 import { DesignSystem } from '@newrade/core-design-system-old';
 import { style } from 'treat';
 
-export const wrapper = style((theme: DesignSystem) => ({
-  display: 'grid',
-  justifyItems: 'center',
-  padding: `${theme.sizing.sizes.x7} ${theme.layout.contentMargins.mobile.px}`,
-  backgroundColor: theme.colors.greyscale0,
-  color: theme.colors.greyscale900,
-
-  '@media': {
-    [theme.layout.media.desktop]: {
-      maxWidth: '1200px',
-      width: '100%',
-      padding: `${theme.sizing.sizes.x7} 0`,
-    },
-  },
-}));
-
-export const AlignContentLeft = style((theme: DesignSystem) => ({
-  '@media': {
-    [theme.layout.media.desktop]: {
-      display: 'flex',
-      flexDirection: 'row-reverse',
-      margin: '0 auto',
-    },
-  },
-}));
-
-export const AlignContentRight = style((theme: DesignSystem) => ({
+export const alignContentRight = style((theme: DesignSystem) => ({
   '@media': {
     [theme.layout.media.desktop]: {
       display: 'flex',
       flexDirection: 'row',
       margin: '0 auto',
+      marginLeft: `${theme.sizing.sizes.x6}`,
     },
   },
 }));
 
-export const imageTabs = style((theme: DesignSystem) => ({
-  marginBottom: `calc(${theme.sizing.sizes.x3} * 2)`,
+export const alignContentLeft = style((theme: DesignSystem) => ({
+  '@media': {
+    [theme.layout.media.desktop]: {
+      display: 'flex',
+      flexDirection: 'row-reverse',
+      margin: '0 auto',
+      marginRight: `${theme.sizing.sizes.x6}`,
+    },
+  },
 }));
 
 export const image = style((theme: DesignSystem) => ({
-  marginBottom: `${theme.sizing.sizes.x6}`,
   width: '250px',
   height: '250px',
   '@media': {
@@ -67,22 +48,6 @@ export const content = style((theme: DesignSystem) => ({
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'flex-start',
-    },
-  },
-}));
-
-export const alignContentRight = style((theme: DesignSystem) => ({
-  '@media': {
-    [theme.layout.media.desktop]: {
-      marginLeft: `${theme.sizing.sizes.x6}`,
-    },
-  },
-}));
-
-export const alignContentLeft = style((theme: DesignSystem) => ({
-  '@media': {
-    [theme.layout.media.desktop]: {
-      marginRight: `${theme.sizing.sizes.x6}`,
     },
   },
 }));
@@ -119,6 +84,7 @@ export const text = style((theme: DesignSystem) => ({
     },
   },
 }));
+
 export const button = style((theme: DesignSystem) => ({
   alignSelf: 'center',
 
