@@ -47,13 +47,24 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       `);
-        // Handle errors
         if (result.errors) {
             throw new Error('Error while retrieving pages');
         }
-        // Create pages for each page
+        /**
+         * Automatically create pages based on the Page Collection in Contentful
+         */
         const pageTemplate = path_1.default.resolve(`src/templates/page.template.tsx`);
-        result.data.allContentfulPage.edges.forEach((edge, index) => {
+        result.data.allContentfulPage.edges
+            .filter((edge) => {
+            if (!(edge && edge.node)) {
+                return false;
+            }
+            return true;
+        })
+            .forEach((edge, index) => {
+            core_utils_1.log(`Creating page: ${edge.node.route}`, {
+                toolName: 'mir-website',
+            });
             createPage({
                 path: edge.node.route,
                 component: pageTemplate,

@@ -54,22 +54,33 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
         }
       `
     );
-    // Handle errors
     if (result.errors) {
       throw new Error('Error while retrieving pages');
     }
-
-    // Create pages for each page
+    /**
+     * Automatically create pages based on the Page Collection in Contentful
+     */
     const pageTemplate = path.resolve(`src/templates/page.template.tsx`);
-    result.data.allContentfulPage.edges.forEach((edge, index) => {
-      createPage<GatsbyPageContext>({
-        path: edge.node.route,
-        component: pageTemplate,
-        context: {
-          pageId: edge.node.id,
-        },
+    result.data.allContentfulPage.edges
+      .filter((edge) => {
+        if (!(edge && edge.node)) {
+          return false;
+        }
+
+        return true;
+      })
+      .forEach((edge, index) => {
+        log(`Creating page: ${edge.node.route}`, {
+          toolName: 'mir-website',
+        });
+        createPage<GatsbyPageContext>({
+          path: edge.node.route,
+          component: pageTemplate,
+          context: {
+            pageId: edge.node.id,
+          },
+        });
       });
-    });
   } catch (error) {
     log(`Error occured when generating pages: ${error}`, {
       toolName: 'mir-website',
