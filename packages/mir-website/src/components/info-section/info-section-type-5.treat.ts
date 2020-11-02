@@ -2,6 +2,7 @@ import { DesignSystem } from '@newrade/core-design-system-old';
 import { style } from 'treat';
 
 export const wrapper = style((theme: DesignSystem) => ({
+  margin: '0 auto',
   display: 'grid',
   justifyItems: 'center',
   padding: `${theme.sizing.sizes.x5} ${theme.layout.contentMargins.mobile.px}`,

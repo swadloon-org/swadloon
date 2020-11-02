@@ -2,6 +2,7 @@ import React from 'react';
 import { ProjectPageProps } from './page.template';
 import { InfoSectionType1Group } from '../components/info-section/info-section-type-1-group';
 import { InfoSectionType2 } from '../components/info-section/info-section-type-2';
+import { InfoSectionType5 } from '../components/info-section/info-section-type-5';
 
 export enum SECTION_TYPE {
   TYPE_1_GROUP = 'TYPE_1_GROUP',
@@ -63,6 +64,9 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
           // case 'type4': {
           //   return <InfoSectionType4 key={index} {...section} />;
           // }
+          case SECTION_TYPE.TYPE_5: {
+            return <InfoSectionType5 key={index} {...section} />;
+          }
           default: {
             return null;
           }
