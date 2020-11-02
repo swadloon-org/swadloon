@@ -21,12 +21,13 @@ export const InfoSectionType3: React.FC<OwnProps> = (props) => {
   const hasTabs = !!props?.subSections.length;
   const hasImage = !!props?.medias?.medias?.length;
   const imageUrl = props.medias?.medias[0]?.file?.url;
+  const imageUrlFluid = props.medias?.medias[0]?.desktopFluidImage;
 
   return (
     <LayoutCentered reverseOrder={imagePosition === SECTION_IMAGE_POSITION.RIGHT}>
       <FadeIn>
         {hasImage && imageUrl ? (
-          <ImageFrame variant={'bottomRight'} url={imageUrl} className={`${styles.image}`} />
+          <ImageFrame variant={'bottomRight'} url={imageUrl} fluid={imageUrlFluid} className={`${styles.image}`} />
         ) : null}
       </FadeIn>
 

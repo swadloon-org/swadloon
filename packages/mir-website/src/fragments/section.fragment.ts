@@ -30,6 +30,24 @@ export const sectionFragment = graphql`
         file {
           url
         }
+        desktopFluidImage: fluid(quality: 90, maxWidth: 800) {
+          base64
+          aspectRatio
+          src
+          srcSet
+          srcWebp
+          srcSetWebp
+          sizes
+        }
+        mobileFluidImage: fluid(quality: 90, maxWidth: 400) {
+          base64
+          aspectRatio
+          src
+          srcSet
+          srcWebp
+          srcSetWebp
+          sizes
+        }
       }
     }
     imagePosition
@@ -74,6 +92,24 @@ export const sectionFragment = graphql`
         medias {
           file {
             url
+          }
+          desktopFluidImage: fluid(quality: 90, maxWidth: 800) {
+            base64
+            aspectRatio
+            src
+            srcSet
+            srcWebp
+            srcSetWebp
+            sizes
+          }
+          mobileFluidImage: fluid(quality: 90, maxWidth: 400) {
+            base64
+            aspectRatio
+            src
+            srcSet
+            srcWebp
+            srcSetWebp
+            sizes
           }
         }
       }

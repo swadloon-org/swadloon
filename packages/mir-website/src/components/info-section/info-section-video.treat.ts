@@ -1,5 +1,5 @@
 import { createShadow, DesignSystem } from '@newrade/core-design-system-old';
-import { globalStyle, style } from 'treat';
+import { style } from 'treat';
 
 //
 // wrapper
@@ -56,19 +56,18 @@ export const title = style((theme: DesignSystem) => ({
 export const content = style((theme: DesignSystem) => ({
   display: 'flex',
   paddingTop: theme.sizing.sizes.x6,
-  paddingBottom: theme.sizing.sizes.x5,
+  paddingBottom: theme.sizing.sizes.x6,
   justifyContent: 'center',
   width: '100%',
 
   '@media': {
     [theme.layout.media.tablet]: {},
-
     [theme.layout.media.desktop]: {},
   },
 }));
 
 export const video = style((theme: DesignSystem) => ({
-  width: '80%',
+  width: '70%',
   boxShadow: createShadow({
     ...theme.effects.shadows.heavy,
   }).css,

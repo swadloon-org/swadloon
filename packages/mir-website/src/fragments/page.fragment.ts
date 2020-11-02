@@ -30,7 +30,7 @@ export const pageQuery = graphql`
           srcSetWebp
           sizes
         }
-        mobileFluidImage: fluid(quality: 90, maxWidth: 800) {
+        mobileFluidImage: fluid(quality: 90, maxWidth: 400) {
           base64
           aspectRatio
           src

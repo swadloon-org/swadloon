@@ -23,12 +23,13 @@ export const InfoSectionType2: React.FC<OwnProps> = (props) => {
   const imagePosition = props.imagePosition as SECTION_IMAGE_POSITION;
   const hasImage = !!props?.medias.medias?.length;
   const imageUrl = props.medias?.medias[0]?.file?.url;
+  const imageUrlFluid = props.medias?.medias[0]?.desktopFluidImage;
 
   return (
     <LayoutCentered reverseOrder={imagePosition === SECTION_IMAGE_POSITION.RIGHT}>
       <FadeIn>
         {hasImage && imageUrl ? (
-          <ImageFrame variant={'bottomRight'} url={imageUrl} className={`${styles.image}`} />
+          <ImageFrame variant={'bottomRight'} url={imageUrl} fluid={imageUrlFluid} className={`${styles.image}`} />
         ) : null}
       </FadeIn>
 

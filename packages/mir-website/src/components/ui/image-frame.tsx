@@ -7,6 +7,8 @@ import { wrap } from '@popmotion/popcorn';
 import { ICON_SIZE } from '@newrade/core-design-system-old';
 import { Icon } from '../ui/icon';
 import { Illustration } from './illustration';
+import GatsbyImage, { FixedObject, FluidObject } from 'gatsby-image';
+import { FadeIn } from '../animation/fade-in';
 
 enum MOTION_STATE {
   ENTER = 'ENTER',
@@ -37,6 +39,8 @@ const variants = {
 
 interface OwnProps {
   type?: 'static' | 'caroussel';
+  fluid?: FluidObject;
+  fixed?: FixedObject;
   url?: string;
   variant: 'bottomRight' | 'bottomLeft' | 'topLeft' | 'topRight';
 }
@@ -75,7 +79,11 @@ export const ImageFrame: React.FC<OwnProps & HTMLAttributes<any>> = (props) => {
   function getTypeSwitcher(value: any) {
     switch (value) {
       case 'static': {
-        return (
+        return props.fluid ? (
+          <div className={`${styles.content} ${styles[props.variant]}`}>
+            <GatsbyImage className={`${styles.image}`} fluid={props.fluid}></GatsbyImage>
+          </div>
+        ) : (
           <LazyLoad>
             <div className={`${styles.content} ${styles[props.variant]}`}>
               <div className={`${styles.image}`} style={{ backgroundImage: `url(${props.url})` }} />
