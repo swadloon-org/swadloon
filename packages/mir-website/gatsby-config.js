@@ -60,7 +60,7 @@ const config = {
             resolve: `gatsby-plugin-page-creator`,
             options: {
                 path: path_1.default.resolve(__dirname, 'src', 'pages'),
-                ignore: [`**/treat.ts`],
+                ignore: [`**/*.treat.ts`],
             },
         },
         core.getGastbyCorePluginConfig(),

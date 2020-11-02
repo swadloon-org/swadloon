@@ -17,8 +17,7 @@ export const HomeTemplate: React.FC<ProjectPageProps> = (props) => {
 
   const page = props.data.contentfulPage;
 
-  // const actionSection1 = data.gcms.pages[0].actionSections[0];
-  const sources = [
+  const bannerImagesSource = [
     page.bannerImages?.medias[0]?.mobileFluidImage,
     {
       ...page.bannerImages?.medias[0]?.desktopFluidImage,
@@ -28,8 +27,12 @@ export const HomeTemplate: React.FC<ProjectPageProps> = (props) => {
 
   return (
     <main className={`${styles.wrapper}`}>
-      {sources?.length && sources[0] && sources[1] ? (
-        <BannerPrimary imageData={sources} title={page.bannerTitle} subTitle={page.bannerSubTitle}></BannerPrimary>
+      {bannerImagesSource?.length && bannerImagesSource[0] && bannerImagesSource[1] ? (
+        <BannerPrimary
+          imageData={bannerImagesSource}
+          title={page.bannerTitle}
+          subTitle={page.bannerSubTitle}
+        ></BannerPrimary>
       ) : null}
 
       <SectionTemplate {...props} />

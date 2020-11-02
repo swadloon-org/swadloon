@@ -1,25 +1,24 @@
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { Newsletter } from '../components/action-section/newsletter';
 import { BannerSecondary } from '../components/banner-secondary';
 import { Button } from '../components/button';
 import { Heading } from '../components/heading';
-import { InfoSectionType6Group } from '../components/info-section/info-section-type-6-group';
 import { Input } from '../components/input';
 import { theme } from '../design-system';
 import * as stylesRef from '../templates/contact-page.treat';
 import { ProjectPageProps } from './page.template';
+import { SectionTemplate } from './section.template';
 
-export const Contact: React.FC<ProjectPageProps> = ({ data, location }) => {
+export const Contact: React.FC<ProjectPageProps> = (props) => {
   const styles = useStyles(stylesRef);
 
-  const section1 = data.gcms?.pages[0]?.infoSections[0];
-  const actionSection1 = data.gcms.pages[0].actionSections[0];
-  const sources = [
-    data?.bannerImageMobile?.childImageSharp?.fluid,
+  const page = props.data.contentfulPage;
+
+  const bannerImagesSource = [
+    page.bannerImages?.medias[0]?.mobileFluidImage,
     {
-      ...data?.bannerImageDesktop?.childImageSharp?.fluid,
-      media: `(min-width: ${theme.layout.breakpoints.desktopSmall})`,
+      ...page.bannerImages?.medias[0]?.desktopFluidImage,
+      media: `(min-width: ${theme.layout.breakpoints.desktopSmall.px})`,
     },
   ];
 
@@ -32,9 +31,9 @@ export const Contact: React.FC<ProjectPageProps> = ({ data, location }) => {
 
   return (
     <main className={`${styles.wrapper}`}>
-      <BannerSecondary imageData={sources} title={data?.gcms?.pages[0]?.bannerTitle}></BannerSecondary>
+      <BannerSecondary imageData={bannerImagesSource} title={props.data?.contentfulPage?.bannerTitle}></BannerSecondary>
 
-      {section1 && section1.type === 'type6' ? <InfoSectionType6Group {...section1} /> : null}
+      <SectionTemplate {...props} />
 
       {hasMounted ? (
         <div
@@ -49,8 +48,8 @@ export const Contact: React.FC<ProjectPageProps> = ({ data, location }) => {
       <div className={styles.formWrapper}>
         <div>
           <form className={`${styles.form}`} action="">
-            <Input variant="reversed" placeholder="Votre courriel" aria-labelledby="SubmitButton"></Input>
-            <Input variant="reversed" placeholder="Votre courriel" aria-labelledby="SubmitButton"></Input>
+            <Input variant="reversed" placeholder="Votre courriel" aria-labelledby="SubmitButton" required></Input>
+            <Input variant="reversed" placeholder="Votre courriel" aria-labelledby="SubmitButton" required></Input>
             <Button variantType="secondaryReversed" size="small" variant="text" id="SubmitButton">
               Soumettre
             </Button>
@@ -58,7 +57,7 @@ export const Contact: React.FC<ProjectPageProps> = ({ data, location }) => {
         </div>
       </div>
 
-      <Newsletter id="newsletter" section={actionSection1}></Newsletter>
+      {/* <Newsletter id="newsletter" section={actionSection1}></Newsletter> */}
     </main>
   );
 };
