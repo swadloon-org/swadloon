@@ -21,6 +21,11 @@ export const pageQuery = graphql`
         file {
           url
         }
+        socialMediaImage: resize(width: 1200) {
+          src
+          width
+          height
+        }
         desktopFluidImage: fluid(quality: 90, maxWidth: 800) {
           base64
           aspectRatio

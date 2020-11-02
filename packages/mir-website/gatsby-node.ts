@@ -36,7 +36,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
    * Page creations
    */
   try {
-    const result = await graphql<{
+    const pages = await graphql<{
       allContentfulPage: {
         edges: { node: { id: string; route: string } }[];
       };
@@ -54,14 +54,61 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
         }
       `
     );
-    if (result.errors) {
+    if (pages.errors) {
       throw new Error('Error while retrieving pages');
     }
     /**
      * Automatically create pages based on the Page Collection in Contentful
      */
     const pageTemplate = path.resolve(`src/templates/page.template.tsx`);
-    result.data.allContentfulPage.edges
+    pages.data.allContentfulPage.edges
+      .filter((edge) => {
+        if (!(edge && edge.node)) {
+          return false;
+        }
+
+        return true;
+      })
+      .forEach((edge, index) => {
+        log(`Creating page: ${edge.node.route}`, {
+          toolName: 'mir-website',
+        });
+        createPage<GatsbyPageContext>({
+          path: edge.node.route,
+          component: pageTemplate,
+          context: {
+            pageId: edge.node.id,
+          },
+        });
+      });
+
+    /**
+     * Automatically create blog post pages
+     */
+    const blogPosts = await graphql<{
+      allContentfulBlogPost: {
+        edges: { node: { id: string; blogSlug: string } }[];
+      };
+    }>(
+      `
+        query GatsbyNodeBlogPosts {
+          allContentfulBlogPost {
+            edges {
+              node {
+                id
+                blogSlug
+              }
+            }
+          }
+        }
+      `
+    );
+    if (blogPosts.errors) {
+      throw new Error('Error while retrieving pages');
+    }
+
+    const blogPostTemplate = path.resolve(`src/templates/page.template.tsx`);
+    pages.data.allContentfulPage.edges
       .filter((edge) => {
         if (!(edge && edge.node)) {
           return false;

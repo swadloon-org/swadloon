@@ -71,16 +71,16 @@ export const PageTemplate: React.FC<ProjectPageProps> = ({ data, location, ...pr
             type: OPEN_GRAPH_TYPE.WEBSITE,
             title: `${data.contentfulPage.title}`,
             url: `${data.site?.siteMetadata?.siteUrl}${data.contentfulPage?.route}`,
-            description: `${data.contentfulPage?.description}`,
-            image: `${data.contentfulPage?.bannerImages?.medias[0]?.file.url}`,
+            description: `${data.contentfulPage?.description.description}`,
+            image: `${data.contentfulPage?.bannerImages?.medias[0]?.socialMediaImage.src}`,
             site_name: `${data.contentfulCompanyInfo.metadataSiteName}`,
-            lang: 'fr',
-            locale: 'fr_CA',
-            localeAlternate: 'en_CA',
+            lang: data.contentfulPage.node_locale.includes('fr') ? 'fr' : 'en',
+            locale: data.contentfulPage.node_locale.includes('fr') ? 'fr_CA' : 'en_CA',
+            localeAlternate: data.contentfulPage.node_locale.includes('en') ? 'fr_CA' : 'en_CA',
           })}
           {getMetadataTwitterTags({
             card: 'summary_large_image',
-            image: `${data.contentfulPage?.bannerImages?.medias[0]?.file.url}`,
+            image: `${data.contentfulPage?.bannerImages?.medias[0]?.socialMediaImage.src}`,
             creator: `${data.contentfulCompanyInfo.metadataTwitterCreator}`,
             site: `${data.contentfulCompanyInfo.metadataTwitterSite}`,
           })}

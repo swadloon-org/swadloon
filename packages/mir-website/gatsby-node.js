@@ -35,7 +35,7 @@ exports.createPages = async ({ graphql, actions }) => {
      * Page creations
      */
     try {
-        const result = await graphql(`
+        const pages = await graphql(`
         query GatsbyNodePages {
           allContentfulPage {
             edges {
@@ -47,14 +47,52 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       `);
-        if (result.errors) {
+        if (pages.errors) {
             throw new Error('Error while retrieving pages');
         }
         /**
          * Automatically create pages based on the Page Collection in Contentful
          */
         const pageTemplate = path_1.default.resolve(`src/templates/page.template.tsx`);
-        result.data.allContentfulPage.edges
+        pages.data.allContentfulPage.edges
+            .filter((edge) => {
+            if (!(edge && edge.node)) {
+                return false;
+            }
+            return true;
+        })
+            .forEach((edge, index) => {
+            core_utils_1.log(`Creating page: ${edge.node.route}`, {
+                toolName: 'mir-website',
+            });
+            createPage({
+                path: edge.node.route,
+                component: pageTemplate,
+                context: {
+                    pageId: edge.node.id,
+                },
+            });
+        });
+        /**
+         * Automatically create blog post pages
+         */
+        const blogPosts = await graphql(`
+        query GatsbyNodeBlogPosts {
+          allContentfulBlogPost {
+            edges {
+              node {
+                id
+                blogSlug
+              }
+            }
+          }
+        }
+      `);
+        if (blogPosts.errors) {
+            throw new Error('Error while retrieving pages');
+        }
+        const blogPostTemplate = path_1.default.resolve(`src/templates/page.template.tsx`);
+        pages.data.allContentfulPage.edges
             .filter((edge) => {
             if (!(edge && edge.node)) {
                 return false;
