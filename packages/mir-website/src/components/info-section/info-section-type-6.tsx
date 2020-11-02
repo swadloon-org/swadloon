@@ -17,6 +17,7 @@ export const InfoSectionType6: React.FC<OwnProps> = (props) => {
     | SECTION_TYPE.TYPE_6_PRIMARY
     | SECTION_TYPE.TYPE_6_SECONDARY
     | SECTION_TYPE.TYPE_6_TERTIARY;
+
   function sectionStyle() {
     switch (variant) {
       case SECTION_TYPE.TYPE_6_PRIMARY: {

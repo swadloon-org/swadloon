@@ -8,6 +8,7 @@ export const infoTileFragment = graphql`
       file {
         url
       }
+      title
     }
     text {
       text

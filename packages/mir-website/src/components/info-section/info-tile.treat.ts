@@ -31,7 +31,7 @@ export const content = style((theme: DesignSystem) => ({
 // reversed
 //
 
-export const reversed = style((theme: DesignSystem) => ({
+export const type4Primary = style((theme: DesignSystem) => ({
   color: theme.colors.greyscale0Reversed,
 }));
 
@@ -45,10 +45,11 @@ export const illustration = style((theme: DesignSystem) => ({}));
 // variant with the section type6
 //
 
-export const borderWhite = style((theme: DesignSystem) => ({
+export const type4Secondary = style((theme: DesignSystem) => ({
   boxShadow: theme.effects.shadows.heavy.css,
   borderRadius: '0px 48px 48px 48px',
   backgroundColor: theme.colors.greyscale0,
+  color: theme.colors.greyscale1000,
 }));
 
 //
@@ -77,12 +78,12 @@ globalStyle(`${illustration} path`, (theme: DesignSystem) => ({
   fill: 'currentColor',
 }));
 
-globalStyle(`${borderWhite} ${backgroundIllustration} path`, (theme: DesignSystem) => ({
+globalStyle(`${type4Secondary} ${backgroundIllustration} path`, (theme: DesignSystem) => ({
   fill: 'inherit',
   stroke: 'none',
   width: '100%',
 }));
 
-globalStyle(`${borderWhite} ${illustration} path`, (theme: DesignSystem) => ({
+globalStyle(`${type4Secondary} ${illustration} path`, (theme: DesignSystem) => ({
   fill: theme.colors.primary500,
 }));

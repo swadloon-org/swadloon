@@ -1,5 +1,5 @@
 import { DesignSystem } from '@newrade/core-design-system-old';
-import { globalStyle, style } from 'treat';
+import { style } from 'treat';
 
 export const wrapper = style((theme: DesignSystem) => ({
   display: 'grid',
@@ -9,7 +9,13 @@ export const wrapper = style((theme: DesignSystem) => ({
   color: theme.colors.greyscale900,
 }));
 
-export const type4 = style((theme: DesignSystem) => ({
+export const type4Primary = style((theme: DesignSystem) => ({
+  padding: `${theme.sizing.sizes.x7} ${theme.layout.contentMargins.mobile.px}`,
+  color: theme.colors.greyscale0Reversed,
+  backgroundColor: theme.colors.primary500,
+}));
+
+export const type4Secondary = style((theme: DesignSystem) => ({
   padding: `${theme.sizing.sizes.x7} ${theme.layout.contentMargins.mobile.px}`,
   color: theme.colors.greyscale0Reversed,
   backgroundColor: theme.colors.primary500,
@@ -19,10 +25,12 @@ export const infoTilesWrapper = style((theme: DesignSystem) => ({
   display: 'flex',
   flexDirection: 'column',
   marginBottom: `${theme.sizing.sizes.x6}`,
+  gridGap: ` ${theme.sizing.sizes.x4} 0`,
 
   '@media': {
     [theme.layout.media.desktop]: {
       flexDirection: 'row',
+      gridGap: `0 ${theme.sizing.sizes.x4}`,
     },
   },
 }));
@@ -82,4 +90,26 @@ export const image = style((theme: DesignSystem) => ({
       height: '540px',
     },
   },
+}));
+
+export const container = style((theme: DesignSystem) => ({
+  display: 'grid',
+  gridTemplateColumns: '1fr',
+  gridGap: `${theme.sizing.sizes.x4} 0`,
+  margin: '0 auto',
+  paddingBottom: theme.sizing.sizes.x7,
+  paddingTop: theme.sizing.sizes.x7,
+
+  '@media': {
+    [theme.layout.media.desktop]: {
+      gridTemplateColumns: '1fr 1fr 1fr 1fr',
+      gridGap: `0 ${theme.sizing.sizes.x4} `,
+      maxWidth: '1200px',
+    },
+  },
+}));
+export const wrapper2 = style((theme: DesignSystem) => ({
+  display: 'grid',
+  backgroundColor: theme.colors.greyscale100,
+  padding: 0,
 }));

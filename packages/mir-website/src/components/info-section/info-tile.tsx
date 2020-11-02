@@ -2,22 +2,25 @@ import React from 'react';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './info-tile.treat';
 
-import { Heading } from '../heading';
+import { Heading } from '../ui/heading';
 import { Illustration } from '../ui/illustration';
-import { Paragraph } from '../paragraph';
-import { GraphCms_InfoTile, Maybe, GraphCms_InfoSectionType } from '../../../types/graphql-types';
+import { Paragraph } from '../ui/paragraph';
+import { SectionFragment } from '../../../types/graphql-types';
+import { SECTION_TYPE } from '../../templates/section.template';
+import { Variant } from 'framer-motion';
 
-type OwnProps = {
-  illustration?: string | null;
-  className?: string;
-  variant?: Maybe<GraphCms_InfoSectionType | 'borderWhite'>;
-} & Pick<GraphCms_InfoTile, 'title' | 'text' | 'illustration'>;
+type OwnProps = SectionFragment;
+type PassProps = { Variants: SECTION_TYPE };
 
-export const InfoTile: React.FC<OwnProps> = (props) => {
+export const InfoTile: React.FC<OwnProps & PassProps> = (props) => {
   const styles = useStyles(styleRefs);
 
   return (
-    <div className={`${props.className || ''} ${styles.wrapper} ${props.variant ? styles[props.variant] : ''}`}>
+    <div
+      className={`${styles.wrapper} ${
+        props.Variants === SECTION_TYPE.TYPE_4_PRIMARY ? styles.type4Primary : styles.type4Secondary
+      }`}
+    >
       <Illustration
         name={'Illustration/IllustrationRoundedRectangle'}
         className={`${styles.backgroundIllustration}`}
@@ -30,7 +33,7 @@ export const InfoTile: React.FC<OwnProps> = (props) => {
         {props.illustration ? (
           <Illustration
             className={`${styles.illustration}`}
-            name={`Illustration/${props.illustration}`}
+            name={`Illustration/${props.illustration.title}`}
             width={42}
             height={42}
           />
@@ -39,7 +42,7 @@ export const InfoTile: React.FC<OwnProps> = (props) => {
         <Heading variant={'h3'}>{props.title}</Heading>
 
         <Paragraph variant={'small'} className={styles.text}>
-          {props.text}
+          {props.text.text}
         </Paragraph>
       </div>
     </div>
