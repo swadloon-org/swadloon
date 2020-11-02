@@ -1,22 +1,17 @@
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { IndexPageFrQuery } from '../../types/graphql-types';
+import { Newsletter } from '../components/action-section/newsletter';
 import { BannerPrimary } from '../components/banner-primary';
 import { BlogPreviewSection } from '../components/blog-preview/blog-preview-section';
 import { InfoSectionType1Group } from '../components/info-section/info-section-type-1-group';
 import { InfoSectionType2 } from '../components/info-section/info-section-type-2';
 import { InfoSectionType3 } from '../components/info-section/info-section-type-3';
 import { InfoSectionType4 } from '../components/info-section/info-section-type-4';
-import { Newsletter } from '../components/action-section/newsletter';
 import { theme } from '../design-system/index';
+import { ProjectPageProps } from '../layouts/page.layout';
 import * as stylesRef from './index-page.treat';
 
-interface PageProps {
-  data: IndexPageFrQuery;
-  location: Location;
-}
-
-export const Index: React.FC<PageProps> = ({ data, location }) => {
+export const Index: React.FC<ProjectPageProps> = ({ data, location }) => {
   const styles = useStyles(stylesRef);
 
   const actionSection1 = data.gcms.pages[0].actionSections[0];

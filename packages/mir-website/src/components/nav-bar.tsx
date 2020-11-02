@@ -2,7 +2,7 @@ import { Link as GatsbyLink } from 'gatsby';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import Icon from '../illustrations/Icon/IconBars.svg';
-import { NavigationProps } from '../layouts';
+import { NavigationProps } from '../layouts/page.layout';
 import { Link } from '../ui/link';
 import { Button } from './button';
 import * as stylesRef from './nav-bar.treat';

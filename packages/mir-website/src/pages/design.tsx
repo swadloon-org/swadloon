@@ -6,7 +6,7 @@ import { Heading } from '../components/heading';
 import { ImageFrame } from '../components/image-frame';
 import { Label } from '../components/label';
 import { Paragraph } from '../components/paragraph';
-import { Layout } from '../layouts';
+import { PageLayout } from '../layouts/page.layout';
 import * as styleRefs from '../templates/index-page.treat';
 import { Icon } from '../ui/icon';
 import { Accordions } from '../components/accordions';
@@ -15,9 +15,9 @@ import { Author } from '../components/blog-preview/author';
 
 const DesignPage: React.FC<{}> = (props) => {
   return (
-    <Layout>
+    <PageLayout>
       <Design {...props} />
-    </Layout>
+    </PageLayout>
   );
 };
 

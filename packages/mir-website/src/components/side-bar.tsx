@@ -9,7 +9,7 @@ import { Heading } from './heading';
 import { Illustration } from './illustration';
 import { Label } from './label';
 import * as stylesRef from './side-bar.treat';
-import { NavigationProps } from '../layouts';
+import { NavigationProps } from '../layouts/page.layout';
 import { Link as GatsbyLink } from 'gatsby';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -24,12 +24,17 @@ export const sideBarQuery = graphql`
     site {
       ...SiteMetadata
     }
-    gcms {
-      companyInfos {
-        logo {
+    contentfulCompanyInfo {
+      logo {
+        file {
           url
         }
+        fluid {
+          srcSet
+        }
       }
+      twitterPageURL
+      id
     }
   }
 `;
@@ -73,7 +78,7 @@ export const SideBar: React.FC<OwnProps> = (props) => {
         //   },
         // }}
       >
-        <img className={styles.logo} src={data?.gcms?.companyInfos[0]?.logo?.url} />
+        <img className={styles.logo} src={data?.contentfulCompanyInfo.logo.file.url} />
         <div className={styles.icon} onClick={(e) => props.onOpenSideMenu()}>
           <Icon icon="IconClose" size={ICON_SIZE.large}></Icon>
         </div>

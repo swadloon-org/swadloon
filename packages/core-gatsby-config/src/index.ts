@@ -1,4 +1,5 @@
 export * from './config/create-gatsby-webpack-config';
+export * from './config/page-config';
 export * from './config/site-config';
 export * from './config/site-languages';
 export * from './config/site-metadata';

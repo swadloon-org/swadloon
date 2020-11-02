@@ -11,6 +11,7 @@ import { theme } from '../design-system';
 import * as stylesRef from './about-page.treat';
 import { motion, useAnimation } from 'framer-motion';
 import { FadeIn } from '../components/animation/fade-in';
+
 interface PageProps {
   data: AboutPageFrQuery;
   location: Location;

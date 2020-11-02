@@ -15,7 +15,7 @@ const env = core_utils_1.loadDotEnv(path_1.default.resolve(__dirname, '.env'));
 exports.createPages = async ({ graphql, actions }) => {
     const { createPage, createRedirect } = actions;
     /**
-     * Page redirection
+     * Page rdirection
      */
     createRedirect({ fromPath: '/employeur-en-personnel-specialise/', toPath: '/employeurs/', isPermanent: true });
     createRedirect({ fromPath: '/division-secteur-industriel/', toPath: '/employeurs/', isPermanent: true });
@@ -34,32 +34,42 @@ exports.createPages = async ({ graphql, actions }) => {
     /**
      * Page creations
      */
-    const result = await graphql(`
-      {
-        allContentfulPage {
-          edges {
-            node {
-              id
-              Route
+    try {
+        const result = await graphql(`
+        query GatsbyNodePages {
+          allContentfulPage {
+            edges {
+              node {
+                id
+                route
+              }
             }
           }
         }
-      }
-    `);
-    // Handle errors
-    if (result.errors) {
-        console.log('Oh booi this is not good');
-        return;
-    }
-    // Create pages for each page
-    const pageTemplate = path_1.default.resolve(`src/templates/index-page.template.tsx`);
-    result.data.allContentfulPage.edges.forEach((page, index) => {
-        createPage({
-            path: page.node.Route,
-            component: pageTemplate,
-            context: {
-                id: page.node.id,
-            },
+      `);
+        // Handle errors
+        if (result.errors) {
+            throw new Error('Error while retrieving pages');
+        }
+        // Create pages for each page
+        const pageTemplate = path_1.default.resolve(`src/layouts/page.layout.tsx`);
+        result.data.allContentfulPage.edges.forEach((edge, index) => {
+            createPage({
+                path: edge.node.route,
+                component: pageTemplate,
+                context: {
+                    pageId: edge.node.id,
+                },
+            });
         });
-    });
+    }
+    catch (error) {
+        core_utils_1.log(`Error occured when generating pages: ${error}`, {
+            toolName: 'mir-website',
+            level: core_utils_1.LOG_LEVEL.ERROR,
+        });
+        if (error) {
+            throw new Error('Error while retrieving pages');
+        }
+    }
 };
