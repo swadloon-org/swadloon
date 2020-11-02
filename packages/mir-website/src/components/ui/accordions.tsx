@@ -1,7 +1,7 @@
 import { ICON_SIZE } from '@newrade/core-design-system-old';
 import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
-import { Icon } from '../ui/icon';
+import { Icon } from './icon';
 import * as styleRefs from './accordions.treat';
 import { Heading } from './heading';
 import { Illustration } from './illustration';

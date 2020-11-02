@@ -3,9 +3,9 @@ import { useStyles } from 'react-treat';
 
 import * as styleRefs from './tags.treat';
 
-import { Label } from './label';
+import { Label } from '../ui/label';
 
-import { Illustration } from './ui/illustration';
+import { Illustration } from '../ui/illustration';
 import { LABEL } from '@newrade/core-design-system-old';
 
 type OwnProps = {
