@@ -22,11 +22,13 @@ export const sectionFragment = graphql`
         url
       }
     }
-    # medias{
-    #     image {
-    #         url(transformation: { image: { resize: { width: 500, fit: max } } })
-    #       }
-    # }
+    medias {
+      medias {
+        file {
+          url
+        }
+      }
+    }
     imagePosition
     infoTiles {
       ...InfoTile
@@ -62,11 +64,13 @@ export const sectionFragment = graphql`
           url
         }
       }
-      # medias{
-      #     image {
-      #         url(transformation: { image: { resize: { width: 500, fit: max } } })
-      #       }
-      # }
+      medias {
+        medias {
+          file {
+            url
+          }
+        }
+      }
       imagePosition
       infoTiles {
         ...InfoTile

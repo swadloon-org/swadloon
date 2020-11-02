@@ -1,15 +1,15 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
-import { FooterQuery } from '../../types/graphql-types';
-import { Label } from '../components/label';
-import { Logo } from '../components/logo';
-import { Paragraph } from '../components/paragraph';
-import { AnchorLink } from './anchor-link';
 
 import { useStyles } from 'react-treat';
 import * as styleRefs from './footer.treat';
 import { LABEL, VIEWPORT } from '@newrade/core-design-system-old';
-import { useViewportBreakpoint } from '../hooks/use-viewport.hook';
+import { FooterQuery } from '../../../types/graphql-types';
+import { useViewportBreakpoint } from '../../hooks/use-viewport.hook';
+import { Label } from '../ui/label';
+import { Paragraph } from '../ui/paragraph';
+import { AnchorLink } from '../ui/anchor-link';
+import { Logo } from '../ui/logo';
 
 export const footerQuery = graphql`
   query Footer {

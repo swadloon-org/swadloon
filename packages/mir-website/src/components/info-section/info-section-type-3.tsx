@@ -4,12 +4,12 @@ import { Link as GatsbyLink } from 'gatsby';
 import { Button } from '../button';
 import { ImageFrame } from '../image-frame';
 import { Paragraph } from '../paragraph';
-import { Tab } from '../tab';
-import { InfoSectionModelQuery } from './info-section';
+import { Tab } from './tab';
+
 import * as styleRefsType3 from './info-section-type-3.treat';
 import { RenderTitleHighlight } from './info-title-highligh';
 
-type OwnProps = InfoSectionModelQuery;
+type OwnProps = SectionFragment;
 
 export const InfoSectionType3: React.FC<OwnProps> = (props) => {
   const [selectedTabIndex, setSelectedTabIndex] = useState<number>(0);
@@ -58,7 +58,7 @@ export const InfoSectionType3: React.FC<OwnProps> = (props) => {
     </div>
   );
 
-  function renderTabbedInfoSection(props: Partial<InfoSectionModelQuery>, sectionIndex: number) {
+  function renderTabbedInfoSection(props: SectionFragment, sectionIndex: number) {
     const styleRefs = useStyles(styleRefsType3);
 
     return (

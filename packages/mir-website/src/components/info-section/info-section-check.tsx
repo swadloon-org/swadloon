@@ -1,9 +1,9 @@
 import { LABEL } from '@newrade/core-design-system-old';
 import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
-import { Illustration } from './illustration';
 import * as styleRefs from './info-section-check.treat';
-import { Label } from './label';
+import { Illustration } from '../ui/illustration';
+import { Label } from '../ui/label';
 
 type OwnProps = {
   illustration: string;

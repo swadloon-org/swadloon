@@ -1,5 +1,5 @@
 import React, { HTMLAttributes, useState } from 'react';
-import { Illustration } from './illustration';
+import { Illustration } from './ui/illustration';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './image-frame.treat';
 import LazyLoad from 'react-lazyload';

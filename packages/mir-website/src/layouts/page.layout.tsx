@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { useStyles } from 'react-treat';
-import { Footer } from '../components/footer';
-import { NavBar } from '../components/nav-bar';
-import { SideBar } from '../components/side-bar';
+
 import * as styleRefs from './page.treat';
 import { PAGE_NAME } from '../templates/page.template';
+import { SideBar } from '../components/navigation/side-bar';
+import { NavBar } from '../components/navigation/nav-bar';
+import { Footer } from '../components/navigation/footer';
 
 export type NavigationProps = {
   currentPageName: string | PAGE_NAME;

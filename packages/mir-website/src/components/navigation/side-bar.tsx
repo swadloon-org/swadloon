@@ -3,14 +3,15 @@ import { motion } from 'framer-motion';
 import { graphql, Link as GatsbyLink, useStaticQuery } from 'gatsby';
 import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
-import { MobileBarQuery } from '../../types/graphql-types';
-import { NavigationProps } from '../layouts/page.layout';
-import { Icon } from '../ui/icon';
-import { Button } from './button';
-import { Heading } from './heading';
-import { Illustration } from './illustration';
-import { Label } from './label';
+
 import * as stylesRef from './side-bar.treat';
+import { NavigationProps } from '../../layouts/page.layout';
+import { MobileBarQuery } from '../../../types/graphql-types';
+import { Icon } from '../ui/icon';
+import { Illustration } from '../ui/illustration';
+import { Label } from '../ui/label';
+import { Heading } from '../ui/heading';
+import { Button } from '../ui/button';
 
 type OwnProps = {
   state: 'opened' | 'closed';

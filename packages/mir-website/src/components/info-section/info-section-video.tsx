@@ -6,7 +6,7 @@ import Img from 'gatsby-image';
 import { Heading } from '../heading';
 import { Paragraph } from '../paragraph';
 import { Video } from '../video';
-import { video } from '../video.treat';
+import { video } from './video.treat';
 import { style } from 'treat/lib/types';
 
 type OwnProps = {

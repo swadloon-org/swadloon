@@ -3,11 +3,11 @@ import { useStyles } from 'react-treat';
 import { ImageFrame } from '../image-frame';
 import { CheckLabel } from '../info-section-check';
 import { Paragraph } from '../paragraph';
-import { InfoSectionModelQuery } from './info-section';
+
 import * as styleRefs from './info-section-type-5.treat';
 import { RenderTitleHighlight } from './info-title-highligh';
 
-type OwnProps = InfoSectionModelQuery;
+type OwnProps = SectionFragment;
 
 export const InfoSectionType5: React.FC<OwnProps> = (props) => {
   const hasImage = !!props?.image;

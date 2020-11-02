@@ -1,8 +1,8 @@
 import { LABEL } from '@newrade/core-design-system-old';
 import React, { ButtonHTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
-import CornerBottomRight from '../illustrations/Illustration/IllustrationCornerBottomRight.svg';
-import CornerTopLeft from '../illustrations/Illustration/IllustrationCornerTopLeft.svg';
+import CornerBottomRight from '../../illustrations/Illustration/IllustrationCornerBottomRight.svg';
+import CornerTopLeft from '../../illustrations/Illustration/IllustrationCornerTopLeft.svg';
 import * as styleRefs from './button.treat';
 import { Illustration } from './illustration';
 import { Label } from './label';

@@ -1,6 +1,5 @@
-import { DesignSystem, createShadow } from '@newrade/core-design-system-old';
-import { style, globalStyle } from 'treat';
-import { theme } from '../design-system';
+import { createShadow, DesignSystem } from '@newrade/core-design-system-old';
+import { globalStyle, style } from 'treat';
 
 export const wrapper = style((theme: DesignSystem) => ({
   userSelect: `none`,

@@ -30,6 +30,16 @@ export enum SECTION_TYPE {
   ACTION_SECONDARY = 'ACTION_SECONDARY',
 }
 
+export enum SECTION_IMAGE_POSITION {
+  RIGHT = 'RIGHT',
+  LEFT = 'LEFT',
+}
+
+export enum LINK_TYPE {
+  INTERNAL_PAGE = 'INTERNAL_PAGE',
+  EXTERNAL_URL = 'EXTERNAL_URL',
+}
+
 export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
   return (
     <>

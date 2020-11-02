@@ -1,15 +1,14 @@
 import { ICON_SIZE, LABEL } from '@newrade/core-design-system-old';
 import React from 'react';
-import { useStyles, TreatProvider } from 'react-treat';
-import { Accordions } from '../components/accordions';
+import { TreatProvider, useStyles } from 'react-treat';
 import { Author } from '../components/blog-preview/author';
-import { Heading } from '../components/heading';
-import { Label } from '../components/label';
-import { Paragraph } from '../components/paragraph';
-import { Layout } from '../layouts/page.layout';
-import * as styleRefs from './design.treat';
-import { Icon } from '../ui/icon';
 import { light } from '../design-system/themes.treat';
+import * as styleRefs from './design.treat';
+import { Heading } from '../components/ui/heading';
+import { Paragraph } from '../components/ui/paragraph';
+import { Label } from '../components/ui/label';
+import { Icon } from '../components/ui/icon';
+import { Accordions } from '../components/ui/accordions';
 
 const DesignPage: React.FC<{}> = (props) => {
   return (

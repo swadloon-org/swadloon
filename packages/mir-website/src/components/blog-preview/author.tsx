@@ -2,8 +2,8 @@ import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './author.treat';
 import LazyLoad from 'react-lazyload';
-import { Label } from '../label';
 import { LABEL } from '@newrade/core-design-system-old';
+import { Label } from '../ui/label';
 
 interface OwnProps {}
 

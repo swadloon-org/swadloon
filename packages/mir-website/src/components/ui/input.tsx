@@ -14,3 +14,16 @@ export const Input: React.FC<OwnProps> = ({ className, variant, placeholder, ...
     <input className={`${styles.wrapper} ${styles[variant]}`} type="text" placeholder={`${placeholder}`} {...props} />
   );
 };
+
+export const TextArea: React.FC<OwnProps> = ({ className, variant, placeholder, ...props }) => {
+  const styles = useStyles(styleRefs);
+
+  return (
+    <textarea
+      className={`${styles.wrapper} ${styles[variant]}`}
+      type="text"
+      placeholder={`${placeholder}`}
+      {...props}
+    />
+  );
+};

@@ -1,12 +1,12 @@
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { Heading } from '../heading';
-import { Illustration } from '../illustration';
+import { Illustration } from '../ui/illustration';
 import { Paragraph } from '../paragraph';
-import { InfoSectionModelQuery } from './info-section';
+
 import * as styleRefs from './info-section-type-6.treat';
 
-type OwnProps = Partial<InfoSectionModelQuery>;
+type OwnProps = SectionFragment;
 
 export const InfoSectionType6: React.FC<OwnProps> = (props) => {
   const styles = useStyles(styleRefs);

@@ -1,7 +1,7 @@
 import React from 'react';
-import { Heading } from '../heading';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './info-section.treat';
+import { Heading } from '../ui/heading';
 
 type OwnProps = {
   title?: string | null;
@@ -15,10 +15,9 @@ export const RenderTitleHighlight: React.FC<OwnProps> = ({ title, titleHighlight
   return (
     <Heading variant={'h2'} className={`${styles.title} ${className || ''}`}>
       {titleHighlight && title
-        ? title.split(' ').map((word, index) =>
-            // TODO handle spaces in titleHighlight
-            // curriculum vitae
-            word === titleHighlight ? (
+        ? title.split(' ').map((word, index) => {
+            const pattern = new RegExp('');
+            return word === titleHighlight ? (
               <span key={`${index}`} className={styles.titleHighlight}>
                 {index > 0 ? ' ' : ''}
                 {word}
@@ -28,8 +27,8 @@ export const RenderTitleHighlight: React.FC<OwnProps> = ({ title, titleHighlight
                 {index > 0 ? ' ' : ''}
                 {word}
               </span>
-            )
-          )
+            );
+          })
         : title}
     </Heading>
   );

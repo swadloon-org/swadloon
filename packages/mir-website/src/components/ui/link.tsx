@@ -2,8 +2,8 @@ import { Link as GatsbyLink } from 'gatsby';
 import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './link.treat';
-import { Label } from '../components/label';
 import { LABEL } from '@newrade/core-design-system-old';
+import { Label } from './label';
 
 type OwnProps = {
   to: string;

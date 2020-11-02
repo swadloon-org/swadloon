@@ -2,21 +2,23 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link as GatsbyLink } from 'gatsby';
 import { useStyles } from 'react-treat';
-import { Button } from '../button';
-import { ImageFrame } from '../image-frame';
-import { Paragraph } from '../paragraph';
-import { InfoSectionModelQuery } from './info-section';
-import * as styleRefsType2 from './info-section-type-2.treat';
-import { RenderTitleHighlight } from './info-title-highligh';
 
-type OwnProps = InfoSectionModelQuery;
+import * as styleRefs from './info-section-type-2.treat';
+import { RenderTitleHighlight } from './info-title-highligh';
+import { SectionFragment } from '../../../types/graphql-types';
+import { SECTION_TYPE, SECTION_IMAGE_POSITION } from '../../templates/section.template';
+import { ImageFrame } from '../carrousel/carrousel';
+import { Paragraph } from '../ui/paragraph';
+import { Button } from '../ui/button';
+
+type OwnProps = SectionFragment;
 
 export const InfoSectionType2: React.FC<OwnProps> = (props) => {
-  const hasImage = !!props?.image;
-  const hasInfoTiles = !!props?.infoTiles?.length;
-  const hasTabs = !!props?.childs.length && props.showTabs;
+  const styles = useStyles(styleRefs);
 
-  const styles = useStyles(styleRefsType2);
+  const variant = props.type.name as SECTION_TYPE;
+  const imagePosition = props.imagePosition as SECTION_IMAGE_POSITION;
+  const hasImage = !!props?.medias.medias?.length;
 
   return (
     <div
@@ -24,11 +26,7 @@ export const InfoSectionType2: React.FC<OwnProps> = (props) => {
     >
       <motion.div variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }} animate="visible" initial="hidden">
         {props.image?.url ? (
-          <ImageFrame
-            variant={'bottomRight'}
-            url={props.image?.url}
-            className={`${styles.image} ${hasTabs ? styles.imageTabs : ''}`}
-          />
+          <ImageFrame variant={'bottomRight'} url={props.image?.url} className={`${styles.image}`} />
         ) : null}
       </motion.div>
 
@@ -40,7 +38,7 @@ export const InfoSectionType2: React.FC<OwnProps> = (props) => {
         <RenderTitleHighlight className={styles.title} title={props.title} titleHighlight={props.titleHighlight} />
 
         <Paragraph variant={'medium'} className={styles.text}>
-          {props.text}
+          {props.text.text}
         </Paragraph>
 
         {props.link && props.link.type === 'INTERNAL_PAGE' && props.link.page?.route ? (

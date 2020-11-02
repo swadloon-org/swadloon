@@ -1,15 +1,16 @@
 import React from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { useStyles } from 'react-treat';
-import { BannerPrimary } from '../components/banner-primary';
-import { BannerSecondary } from '../components/banner-secondary';
-import { Button } from '../components/button';
-import { Heading } from '../components/heading';
-import { Input } from '../components/input';
+
 import { theme } from '../design-system';
 import * as stylesRef from './contact.treat';
 import { ProjectPageProps } from './page.template';
 import { SectionTemplate } from './section.template';
+import { BannerPrimary } from '../components/banners/banner-primary';
+import { BannerSecondary } from '../components/banners/banner-secondary';
+import { Heading } from '../components/ui/heading';
+import { Input, TextArea } from '../components/ui/input';
+import { Button } from '../components/ui/button';
 
 export const ContactTemplate: React.FC<ProjectPageProps> = (props) => {
   const styles = useStyles(stylesRef);

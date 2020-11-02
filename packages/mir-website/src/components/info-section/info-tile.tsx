@@ -3,7 +3,7 @@ import { useStyles } from 'react-treat';
 import * as styleRefs from './info-tile.treat';
 
 import { Heading } from '../heading';
-import { Illustration } from '../illustration';
+import { Illustration } from '../ui/illustration';
 import { Paragraph } from '../paragraph';
 import { GraphCms_InfoTile, Maybe, GraphCms_InfoSectionType } from '../../../types/graphql-types';
 

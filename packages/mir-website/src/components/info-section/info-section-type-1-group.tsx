@@ -3,10 +3,9 @@ import React from 'react';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './info-section-type-1-group.treat';
 
-import { InfoSectionModelQuery } from './info-section';
 import { InfoSectionType1 } from './info-section-type-1';
 
-type OwnProps = InfoSectionModelQuery;
+type OwnProps = SectionFragment;
 
 export const InfoSectionType1Group: React.FC<OwnProps> = (props) => {
   const hasChilds = !!props?.subSections.length;

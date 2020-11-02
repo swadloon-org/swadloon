@@ -3,13 +3,13 @@ import { Link as GatsbyLink } from 'gatsby';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './info-section-type-1.treat';
 
-import { Button } from '../button';
-import { Paragraph } from '../paragraph';
-import { InfoSectionModelQuery } from './info-section';
 import { RenderTitleHighlight } from './info-title-highligh';
-import { SECTION_TYPE } from '../../templates/section.template';
+import { SECTION_TYPE, LINK_TYPE } from '../../templates/section.template';
+import { SectionFragment, LinkFragment } from '../../../types/graphql-types';
+import { Paragraph } from '../ui/paragraph';
+import { Button } from '../ui/button';
 
-type OwnProps = Partial<InfoSectionModelQuery>;
+type OwnProps = SectionFragment;
 
 export const InfoSectionType1: React.FC<OwnProps> = (props) => {
   const styles = useStyles(styleRefs);
@@ -25,27 +25,36 @@ export const InfoSectionType1: React.FC<OwnProps> = (props) => {
         {props.text.text}
       </Paragraph>
 
-      {props.link && props.link.type === 'INTERNAL_PAGE' && props.link.page?.route ? (
-        <GatsbyLink to={props.link.page?.route}>
-          <Button
-            variant={'text'}
-            size={'medium'}
-            variantType={variant === SECTION_TYPE.TYPE_1_NORMAL ? 'primaryDefault' : 'primaryReversed'}
-          >
-            {props.link.label}
-          </Button>
-        </GatsbyLink>
-      ) : props.link && props.link.type === 'EXTERNAL_URL' && props.link.url ? (
-        <a href={props.link.url}>
-          <Button
-            variant={'text'}
-            size={'medium'}
-            variantType={variant === SECTION_TYPE.TYPE_1_NORMAL ? 'primaryDefault' : 'primaryReversed'}
-          >
-            {props.link.label}
-          </Button>
-        </a>
-      ) : null}
+      <RenderSectionLinkButton
+        variant={props.type.name === SECTION_TYPE.TYPE_1_NORMAL ? 'primaryDefault' : 'primaryReversed'}
+        link={props.link}
+      />
     </div>
   );
 };
+
+export function RenderSectionLinkButton({
+  variant,
+  link,
+}: {
+  variant: 'primaryDefault' | 'primaryReversed';
+  link: LinkFragment;
+}) {
+  return (
+    <>
+      {link && link.type === 'INTERNAL_PAGE' && link.page?.route ? (
+        <GatsbyLink to={link.page?.route}>
+          <Button variant={'text'} size={'medium'} variantType={variant}>
+            {link.label}
+          </Button>
+        </GatsbyLink>
+      ) : link && link.type === 'EXTERNAL_URL' && link.url ? (
+        <a href={link.url}>
+          <Button variant={'text'} size={'medium'} variantType={variant}>
+            {link.label}
+          </Button>
+        </a>
+      ) : null}
+    </>
+  );
+}

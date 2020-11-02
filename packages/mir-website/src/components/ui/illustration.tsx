@@ -14,7 +14,7 @@ export const Illustration: React.FC<OwnProps & SVGAttributes<any>> = ({ name, he
     setLoading(true);
     const importIcon = async () => {
       try {
-        const { default: namedImport } = await import(`../illustrations/${name}.svg`);
+        const { default: namedImport } = await import(`../../illustrations/${name}.svg`);
         ImportedIconRef.current = namedImport;
       } catch (err) {
         console.log(err);
