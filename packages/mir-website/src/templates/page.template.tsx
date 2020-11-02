@@ -56,7 +56,7 @@ export enum PAGE_NAME {
   CANDIDATS = 'Candidats',
   EMPLOYEURS = 'Employeurs',
   BLOGUE = 'Blogue',
-  A_PROPOS = 'À Propos',
+  A_PROPOS = 'À propos',
   CONTACT = 'Contact',
   NON_TROUVE = 'Non trouvée',
 }

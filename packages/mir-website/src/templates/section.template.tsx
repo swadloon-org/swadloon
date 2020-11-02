@@ -58,15 +58,6 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
           case SECTION_TYPE.TYPE_3_GROUP: {
             return <InfoSectionType3 key={index} {...section} />;
           }
-          // case 'type1group': {
-          //   return <InfoSectionType1Group key={index} {...section} />;
-          // }
-          // case 'type2': {
-          //   return <InfoSectionType2 key={index} align="AlignContentLeft" {...section} />;
-          // }
-          // case 'type3': {
-          //   return <InfoSectionType3 key={index} align="AlignContentRight" {...section} />;
-          // }
           // case 'type4': {
           //   return <InfoSectionType4 key={index} {...section} />;
           // }
@@ -76,9 +67,9 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
           case SECTION_TYPE.TYPE_6_GROUP: {
             return <InfoSectionType6Group key={index} {...section} />;
           }
-          // case SECTION_TYPE.VIDEO: {
-          //   return <InfoSectionVideo key={index} {...section} />;
-          // }
+          case SECTION_TYPE.VIDEO: {
+            return <InfoSectionVideo key={index} {...section} />;
+          }
           default: {
             return null;
           }

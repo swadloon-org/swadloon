@@ -21,7 +21,9 @@ export const sectionFragment = graphql`
     illustration {
       file {
         url
+        fileName
       }
+      title
     }
     medias {
       medias {
@@ -64,7 +66,9 @@ export const sectionFragment = graphql`
       illustration {
         file {
           url
+          fileName
         }
+        title
       }
       medias {
         medias {

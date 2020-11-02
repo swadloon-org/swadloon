@@ -51,10 +51,7 @@ globalStyle(`${type6Primary} ${illustration} path`, (theme: DesignSystem) => ({
   fill: 'currentColor',
 }));
 
-globalStyle(`${type6Secondary}  ${illustration} path`, (theme: DesignSystem) => ({
-  background: theme.colors.primary500,
-}));
-globalStyle(`${type6Tertiary}  ${illustration} path`, (theme: DesignSystem) => ({
+globalStyle(` ${illustration} path`, (theme: DesignSystem) => ({
   fill: theme.colors.primary500,
 }));
 
