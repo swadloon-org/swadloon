@@ -1,16 +1,17 @@
 import { graphql } from 'gatsby';
 
-export const mediaCollectionQuery = graphql`
-  fragment MediaCollection on ContentfulMediaCollection {
+export const mediaCollectionFragment = graphql`
+  fragment MediaCollectionFragment on ContentfulMediaCollection {
     name
-    type
-    variant
-    size
+    # title
+    # type
+    # variant
+    # size
     medias {
       file {
         url
       }
+      ...MobileFluidImage
     }
-    title
   }
 `;

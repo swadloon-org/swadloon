@@ -25,24 +25,7 @@ export const pageQuery = graphql`
       ...SiteMetadata
     }
     contentfulCompanyInfo {
-      companyName
-      linkedinPageURL
-      facebookPageURL
-      instagramPageURL
-      twitterPageURL
-      logo {
-        file {
-          url
-        }
-      }
-      logoFooter {
-        file {
-          url
-        }
-      }
-      metadataTwitterSite
-      metadataTwitterCreator
-      metadataSiteName
+      ...CompanyInfoFragment
     }
     allContentfulPage {
       edges {
@@ -59,66 +42,7 @@ export const pageQuery = graphql`
       }
     }
     contentfulPage(id: { eq: $pageId }) {
-      id
-      name
-      node_locale
-      description {
-        description
-        childMdx {
-          body
-        }
-      }
-      title
-      route
-      bannerTitle
-      bannerSubTitle
-      bannerImages {
-        name
-        medias {
-          file {
-            url
-          }
-        }
-      }
-      sections {
-        id
-        name
-        description {
-          description
-          childMdx {
-            body
-          }
-        }
-        title
-        titleHighlight
-        titleTab
-        type {
-          id
-          name
-        }
-        illustration {
-          id
-          title
-          description
-          file {
-            url
-          }
-        }
-        imagePosition
-        infoTiles {
-          title
-        }
-        processStep {
-          id
-          title
-        }
-      }
-    }
-    bannerImageMobile: file(name: { eq: "ImageOffice05" }) {
-      ...MobileFluidImage
-    }
-    bannerImageDesktop: file(name: { eq: "ImageOffice05" }) {
-      ...DesktopFluidImage
+      ...PageFragment
     }
   }
 `;

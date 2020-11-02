@@ -5,7 +5,7 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
   return (
     <>
       {data.contentfulPage?.sections.map((section, index) => {
-        return <div>{JSON.stringify(section, null, 2)}</div>;
+        return <div id={section.id}>{JSON.stringify(section, null, 2)}</div>;
 
         switch (section.type.id) {
           // case 'type1group': {

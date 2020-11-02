@@ -14,9 +14,7 @@ import { light } from '../design-system/themes.treat';
 const DesignPage: React.FC<{}> = (props) => {
   return (
     <TreatProvider theme={light}>
-      <Layout>
-        <Design {...props} />
-      </Layout>
+      <Design {...props} />
     </TreatProvider>
   );
 };
