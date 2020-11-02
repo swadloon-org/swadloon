@@ -16,8 +16,8 @@ const config: core.GastbySiteConfig = {
   siteMetadata: {
     title: `core-gatsby-website`,
     description: `Gatsby powered MIR website`,
-    siteEnv: env.APP_ENV,
     siteUrl: env.APP_URL,
+    siteEnv: env.APP_ENV,
     languages: {
       langs: [core.SITE_LANGUAGES.FR, core.SITE_LANGUAGES.EN],
       defaultLangKey: core.SITE_LANGUAGES.FR,
@@ -40,16 +40,9 @@ const config: core.GastbySiteConfig = {
     /**
      * gatsby-source-graphcms
      * @see https://github.com/GraphCMS/gatsby-source-graphcms/tree/next/gatsby-source-graphcms
+     * Test
      */
-    // {
-    //   resolve: 'gatsby-source-graphcms',
-    //   options: {
-    //     downloadLocalImages: true,
-    //     buildMarkdownNodes: true,
-    //     endpoint: env.GRAPH_CMS_API_URL_CORE,
-    //     token: env.GRAPH_CMS_AUTH_TOKEN_CORE,
-    //   },
-    // },
+
     {
       resolve: `gatsby-source-graphql`,
       options: {
