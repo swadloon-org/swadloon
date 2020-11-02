@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.3.3 (2020-11-02)
+
+### Bug Fixes
+
+- **mir-website:** fix build ([ab6b04b](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/ab6b04b26868fa94741c9a28de7c9ff0b1981ec4))
+- **repo:** remove postinstall command for packages ([7e8bd73](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/7e8bd73bcec5877233de0770becf757d8cb7787a))
+
 ## [1.3.2](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/core-design-system@1.3.1...core-design-system@1.3.2) (2020-09-28)
 
 **Note:** Version bump only for package core-design-system

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.5.0 (2020-11-02)
+
+### Bug Fixes
+
+- **mir-website:** fix build ([ab6b04b](https://github.com/newrade/newrade/commit/ab6b04b26868fa94741c9a28de7c9ff0b1981ec4))
+- **repo:** remove postinstall command for packages ([7e8bd73](https://github.com/newrade/newrade/commit/7e8bd73bcec5877233de0770becf757d8cb7787a))
+- **typescript:** remove typeRoots which is almost a deprecated feature ([edfab31](https://github.com/newrade/newrade/commit/edfab31f34f518881c56fea74aa83331957ddcaf))
+
+### Features
+
+- **core-react-ui-app:** fix the app version ([b028a82](https://github.com/newrade/newrade/commit/b028a82707c60d9274210513d64d201a59c37f5d))
+
 ## [1.4.2](https://github.com/newrade/newrade/compare/core-react-ui@1.4.1...core-react-ui@1.4.2) (2020-09-28)
 
 ### Bug Fixes
