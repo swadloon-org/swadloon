@@ -153,12 +153,12 @@ If you would like to disable crawlers for [deploy-previews](https://www.netlify.
 ```js
 const {
   NODE_ENV,
-  URL: NETLIFY_SITE_URL = 'https://www.example.com',
-  DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
+  URL: NETLIFY_APP_URL = 'https://www.example.com',
+  DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_APP_URL,
   CONTEXT: NETLIFY_ENV = NODE_ENV
 } = process.env;
 const isNetlifyProduction = NETLIFY_ENV === 'production';
-const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL;
+const siteUrl = isNetlifyProduction ? NETLIFY_APP_URL : NETLIFY_DEPLOY_URL;
 
 module.exports = {
   siteMetadata: {

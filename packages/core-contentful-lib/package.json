@@ -1,0 +1,25 @@
+{
+  "name": "@newrade/core-contentful-lib",
+  "version": "1.0.0",
+  "description": "",
+  "author": "",
+  "license": "MIT",
+  "main": "./lib/index.js",
+  "files": [
+    "./lib/**/*"
+  ],
+  "scripts": {
+    "build": "tsc --build tsconfig.build.json",
+    "clean": "rimraf -r lib/** && rm -f tsconfig.build.tsbuildinfo",
+    "create-space": "cross-env TS_NODE_PROJECT=tsconfig.build.json node -r ts-node/register src/create-space.ts",
+    "delete-space": "cross-env TS_NODE_PROJECT=tsconfig.build.json node -r ts-node/register src/delete-space.ts",
+    "start": "tsc --build --watch --preserveWatchOutput tsconfig.build.json"
+  },
+  "dependencies": {
+    "contentful-migration": "^2.0.4"
+  },
+  "devDependencies": {
+    "@newrade/core-gatsby-config": "^1",
+    "@newrade/core-webpack-config": "^1"
+  }
+}

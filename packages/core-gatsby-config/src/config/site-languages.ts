@@ -6,6 +6,11 @@ export enum SITE_LANGUAGES {
   FR = 'fr_CA',
 }
 
+export enum SITE_LANGUAGES_HYPHEN {
+  EN = 'en-CA',
+  FR = 'fr-CA',
+}
+
 export interface GatsbySiteLanguages {
   langs: SITE_LANGUAGES[];
   defaultLangKey: SITE_LANGUAGES;

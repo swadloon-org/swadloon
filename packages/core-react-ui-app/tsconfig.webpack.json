@@ -8,8 +8,7 @@
     "strict": false,
     "target": "es6",
     "module": "commonjs",
-    "types": ["node"],
-    "typeRoots": ["../../node_modules/@types", "types"]
+    "types": ["node"]
   },
   "include": ["webpack.*.config.ts"]
 }

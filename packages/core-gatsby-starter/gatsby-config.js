@@ -22,20 +22,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.loadDotEnv = void 0;
-const core_gatsby_config_1 = require("@newrade/core-gatsby-config");
-const dotenv = __importStar(require("dotenv"));
+const core = __importStar(require("@newrade/core-gatsby-config"));
+const core_utils_1 = require("@newrade/core-utils");
 const path_1 = __importDefault(require("path"));
-// TODO move to a different file
-const env = loadDotEnv();
-function loadDotEnv() {
-    // add env variables from .env file
-    dotenv.config({
-        path: path_1.default.resolve(__dirname, '.env'),
-    });
-    return process.env;
-}
-exports.loadDotEnv = loadDotEnv;
+const package_json_1 = __importDefault(require("./package.json"));
+const env = core_utils_1.loadDotEnv(path_1.default.resolve(__dirname, '.env'));
+core_utils_1.logEnvVariables({ packageName: package_json_1.default.name, env });
 /**
  * Configure your Gatsby site with this file.
  *
@@ -45,15 +37,18 @@ const config = {
     siteMetadata: {
         title: `core-gatsby-website`,
         description: `Gatsby powered MIR website`,
-        siteUrl: env.SITE_URL,
+        siteUrl: env.APP_URL,
+        siteEnv: env.APP_ENV,
         languages: {
-            langs: [core_gatsby_config_1.SITE_LANGUAGES.FR, core_gatsby_config_1.SITE_LANGUAGES.EN],
-            defaultLangKey: core_gatsby_config_1.SITE_LANGUAGES.FR,
+            langs: [core.SITE_LANGUAGES.FR, core.SITE_LANGUAGES.EN],
+            defaultLangKey: core.SITE_LANGUAGES.FR,
         },
     },
     plugins: [
-        core_gatsby_config_1.getGatsbyTsPluginConfig(),
-        core_gatsby_config_1.getGatsbyReactSvgConfig(),
+        core.getGatsbyTsPluginConfig(),
+        core.getGatsbyReactSvgConfig(),
+        core.getGastbyCorePluginConfig(),
+        core.getGastbyPluginTreatConfig(),
         {
             resolve: `gatsby-source-filesystem`,
             options: {
@@ -66,16 +61,8 @@ const config = {
         /**
          * gatsby-source-graphcms
          * @see https://github.com/GraphCMS/gatsby-source-graphcms/tree/next/gatsby-source-graphcms
+         * Test
          */
-        // {
-        //   resolve: 'gatsby-source-graphcms',
-        //   options: {
-        //     downloadLocalImages: true,
-        //     buildMarkdownNodes: true,
-        //     endpoint: env.GRAPH_CMS_API_URL_CORE,
-        //     token: env.GRAPH_CMS_AUTH_TOKEN_CORE,
-        //   },
-        // },
         {
             resolve: `gatsby-source-graphql`,
             options: {

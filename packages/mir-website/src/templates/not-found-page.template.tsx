@@ -3,22 +3,18 @@ import { useStyles } from 'react-treat';
 import { Heading } from '../components/heading';
 import { Paragraph } from '../components/paragraph';
 import * as stylesRef from './not-found-page.treat';
+import { ProjectPageProps } from './page.template';
 
-interface PageProps {
-  data: any;
-  location: Location;
-}
-
-export const NotFoundPageTemplate: React.FC<PageProps> = ({ data, location }) => {
+export const NotFoundPageTemplate: React.FC<ProjectPageProps> = ({ data, location }) => {
   const styles = useStyles(stylesRef);
 
   return (
     <main className={`${styles.wrapper}`}>
       <Heading variant={'h3'} className={`${styles.text}`}>
-        Not Found
+        Page non trouvée
       </Heading>
       <Paragraph variant="medium" className={`${styles.text}`}>
-        This page does not exist.
+        Cette page n'existe plus!
       </Paragraph>
     </main>
   );

@@ -10,15 +10,15 @@
   "repository": "https://github.com/newrade/newrade/tree/master/packages/newrade-website",
   "license": "MIT",
   "scripts": {
-    "prebuild": "yarn compile",
-    "build": "gatsby build",
+    "build1": "gatsby build",
     "clean": "gatsby clean",
     "compile": "tsc --project tsconfig.gatsby.json",
+    "prebuild": "yarn compile",
     "preload-fonts": "cross-env PORT=9003 gatsby-preload-fonts --no-sandbox",
+    "prestart": "yarn compile",
     "refresh": "curl -X POST http://localhost:9003/__refresh",
     "serve": "gatsby serve",
-    "prestart": "yarn compile",
-    "start": "cross-env ENABLE_GATSBY_REFRESH_ENDPOINT=true gatsby develop -p 9003 -H 0.0.0.0",
+    "start1": "cross-env ENABLE_GATSBY_REFRESH_ENDPOINT=true gatsby develop -p 9003 -H 0.0.0.0",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "dependencies": {

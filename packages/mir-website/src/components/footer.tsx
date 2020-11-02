@@ -12,30 +12,32 @@ import { LABEL, VIEWPORT } from '@newrade/core-design-system-old';
 import { useViewportBreakpoint } from '../hooks/use-viewport.hook';
 
 export const footerQuery = graphql`
-  query footer {
-    gcms {
-      companyInfos {
-        logoFooter {
+  query Footer {
+    contentfulCompanyInfo {
+      logoFooter {
+        file {
           url
         }
       }
-      companyAddresses {
-        addressLine1
-        addressLine2
-        city
-        provinceState
-        postalCode
-        country
-        websiteUrl
-        phone
-        phoneNoFees
-        email
-      }
+    }
+    contentfulCompanyAddress {
+      addressLine1
+      addressLine2
+      city
+      provinceState
+      postalCode
+      country
+      websiteURL
+      phone
+      phoneNoFees
+      email
     }
   }
 `;
 
-type OwnProps = {};
+type OwnProps = {
+  className?: string;
+};
 
 export const Footer: React.FC<OwnProps> = (props) => {
   const data = useStaticQuery<FooterQuery>(footerQuery);
@@ -43,7 +45,7 @@ export const Footer: React.FC<OwnProps> = (props) => {
   const { viewport } = useViewportBreakpoint();
 
   return (
-    <footer className={styles.wrapper}>
+    <footer className={`${props.className || ''} ${styles.wrapper}`}>
       <div className={styles.gridwrapper}>
         <div className={styles.contact}>
           <Label
@@ -54,8 +56,8 @@ export const Footer: React.FC<OwnProps> = (props) => {
           </Label>
           <Paragraph className={styles.infoText} variant={viewport === VIEWPORT.mobile ? 'medium' : 'small'}>
             Téléphone :
-            <AnchorLink className={styles.link} variant="reversed" href={`tel:${data.gcms.companyAddresses[0].phone}`}>
-              {data.gcms.companyAddresses[0].phone}
+            <AnchorLink className={styles.link} variant="reversed" href={`tel:${data.contentfulCompanyAddress.phone}`}>
+              {data.contentfulCompanyAddress.phone}
             </AnchorLink>
           </Paragraph>
           <Paragraph className={styles.infoText} variant={viewport === VIEWPORT.mobile ? 'medium' : 'small'}>
@@ -63,9 +65,9 @@ export const Footer: React.FC<OwnProps> = (props) => {
             <AnchorLink
               className={styles.link}
               variant="reversed"
-              href={`tel:${data.gcms.companyAddresses[0].phoneNoFees}`}
+              href={`tel:${data.contentfulCompanyAddress.phoneNoFees}`}
             >
-              {data.gcms.companyAddresses[0].phoneNoFees}
+              {data.contentfulCompanyAddress.phoneNoFees}
             </AnchorLink>
           </Paragraph>
           <Paragraph className={styles.infoText} variant={viewport === VIEWPORT.mobile ? 'medium' : 'small'}>
@@ -73,9 +75,9 @@ export const Footer: React.FC<OwnProps> = (props) => {
             <AnchorLink
               className={styles.link}
               variant="reversed"
-              href={`mailto:${data.gcms.companyAddresses[0].email}`}
+              href={`mailto:${data.contentfulCompanyAddress.email}`}
             >
-              {data.gcms.companyAddresses[0].email}
+              {data.contentfulCompanyAddress.email}
             </AnchorLink>
           </Paragraph>
         </div>
@@ -88,22 +90,26 @@ export const Footer: React.FC<OwnProps> = (props) => {
             Visitez-nous
           </Label>
           <Paragraph className={styles.infoText} variant={viewport === VIEWPORT.mobile ? 'medium' : 'small'}>
-            {data.gcms.companyAddresses[0].addressLine1}
+            {data.contentfulCompanyAddress.addressLine1}
           </Paragraph>
           <Paragraph className={styles.infoText} variant={viewport === VIEWPORT.mobile ? 'medium' : 'small'}>
-            {data.gcms.companyAddresses[0].addressLine2}
+            {data.contentfulCompanyAddress.addressLine2}
           </Paragraph>
           <Paragraph className={styles.infoText} variant={viewport === VIEWPORT.mobile ? 'medium' : 'small'}>
-            {data.gcms.companyAddresses[0].city}, {data.gcms.companyAddresses[0].provinceState},{' '}
-            {data.gcms.companyAddresses[0].postalCode}
+            {data.contentfulCompanyAddress.city}, {data.contentfulCompanyAddress.provinceState},{' '}
+            {data.contentfulCompanyAddress.postalCode}
           </Paragraph>
           <Paragraph className={styles.infoText} variant={viewport === VIEWPORT.mobile ? 'medium' : 'small'}>
-            {data.gcms.companyAddresses[0].country}
+            {data.contentfulCompanyAddress.country}
           </Paragraph>
         </div>
 
         <div className={styles.firm}>
-          <Logo type="framed-text" variant="reversed" src={`${data?.gcms?.companyInfos[0]?.logoFooter?.url}`}></Logo>
+          <Logo
+            type="framed-text"
+            variant="reversed"
+            src={`${data?.contentfulCompanyInfo?.logoFooter?.file.url}`}
+          ></Logo>
         </div>
 
         <Paragraph className={styles.copyright} variant="small">

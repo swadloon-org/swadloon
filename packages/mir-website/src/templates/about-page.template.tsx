@@ -1,22 +1,17 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useStyles } from 'react-treat';
-import { AboutPageFrQuery } from '../../types/graphql-types';
+import { Newsletter } from '../components/action-section/newsletter';
+import { FadeIn } from '../components/animation/fade-in';
 import { BannerSecondary } from '../components/banner-secondary';
 import { InfoSectionType2 } from '../components/info-section/info-section-type-2';
 import { InfoSectionType7 } from '../components/info-section/info-section-type-7';
 import { InfoSectionVideo } from '../components/info-section/info-section-video';
-import { Newsletter } from '../components/action-section/newsletter';
 import { Testimonial } from '../components/testimonial-section/testimonial-section';
 import { theme } from '../design-system';
 import * as stylesRef from './about-page.treat';
-import { motion, useAnimation } from 'framer-motion';
-import { FadeIn } from '../components/animation/fade-in';
-interface PageProps {
-  data: AboutPageFrQuery;
-  location: Location;
-}
+import { ProjectPageProps } from './page.template';
 
-export const About: React.FC<PageProps> = ({ data, location }) => {
+export const About: React.FC<ProjectPageProps> = ({ data, location }) => {
   const styles = useStyles(stylesRef);
 
   const actionSection1 = data.gcms.pages[0].actionSections[0];

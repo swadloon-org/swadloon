@@ -8,8 +8,12 @@
     "./lib/**/*"
   ],
   "scripts": {
+    "prebuild": "yarn create-package-json-plugin-core & yarn create-package-json-treat",
     "build": "tsc --build tsconfig.build.json",
     "clean": "rimraf -r lib/** && rm -f tsconfig.build.tsbuildinfo",
+    "create-package-json-plugin-core": "mkdir -p lib/plugins/gatsby-plugin-core && cp 'src/plugins/gatsby-plugin-core/package.json' 'lib/plugins/gatsby-plugin-core/package.json'",
+    "create-package-json-treat": "mkdir -p lib/plugins/gatsby-plugin-treat && cp 'src/plugins/gatsby-plugin-treat/package.json' 'lib/plugins/gatsby-plugin-treat/package.json'",
+    "prestart": "yarn create-package-json-plugin-core & yarn create-package-json-treat",
     "start": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
     "test": "echo ok"
   },

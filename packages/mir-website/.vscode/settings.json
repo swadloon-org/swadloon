@@ -1,10 +1,27 @@
 {
+  //
+  // TypeScript Settings
+  //
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "[typescript]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.formatOnSave": true,
+  "[yaml]": {
+    "editor.formatOnSave": false
+  },
+  //
+  // Search
+  //
   "search.exclude": {
+    "**/*.js.map": true,
     "**/node_modules": true,
-    "**/yarn.lock": true,
     "**/lib": true,
     "**/.cache/**/*": true,
-    "**/public/**/*": true,
-    "**/*.js.map": true
+    "**/yarn.lock": true,
+    "**/public/**/*": true
   }
 }

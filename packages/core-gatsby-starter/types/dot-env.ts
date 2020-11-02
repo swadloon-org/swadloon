@@ -1,34 +1,18 @@
-export enum SITE_ENV {
-  LOCAL = 'local',
-  DEV = 'dev',
-  STAGING = 'staging',
-  PRODUCTION = 'production',
-}
+import { COMMON_ENV_GATSBY } from '@newrade/core-utils';
 
 /**
- * typed representation of the .env files
+ * Local, typed representation of the .env file.
  */
-export type ENV = { [key: string]: string } & {
-  /**
-   * Environment
-   */
-  SITE_ENV: SITE_ENV;
-  SITE_URL: string;
-
+export type ENV = COMMON_ENV_GATSBY & {
   /**
    * Figma
    */
   FIGMA_TOKEN?: string;
   FIGMA_FILE?: string;
-
-  /**
-   * Gatsby Cloud
-   */
-  GATSBY_ENABLE_INCREMENTAL_BUILD?: string;
-
   /**
    * GraphCMS
+   * @deprecated switching to Contentful
    */
-  GRAPH_CMS_AUTH_TOKEN: string;
-  GRAPH_CMS_API_URL: string;
+  GRAPH_CMS_API_URL_CORE: string;
+  GRAPH_CMS_AUTH_TOKEN_CORE: string;
 };

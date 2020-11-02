@@ -1,23 +1,23 @@
-import { ButtonSize, ICON_SIZE, LABEL } from '@newrade/core-design-system-old';
+import { ICON_SIZE, LABEL } from '@newrade/core-design-system-old';
 import React from 'react';
-import { useStyles } from 'react-treat';
-import { ActionSection } from '../components/action-section/action-section';
+import { useStyles, TreatProvider } from 'react-treat';
+import { Accordions } from '../components/accordions';
+import { Author } from '../components/blog-preview/author';
 import { Heading } from '../components/heading';
-import { ImageFrame } from '../components/image-frame';
 import { Label } from '../components/label';
 import { Paragraph } from '../components/paragraph';
-import { Layout } from '../layouts';
-import * as styleRefs from '../templates/index-page.treat';
+import { Layout } from '../layouts/page.layout';
+import * as styleRefs from './design.treat';
 import { Icon } from '../ui/icon';
-import { Accordions } from '../components/accordions';
-import { InfoSectionVideo } from '../components/info-section/info-section-video';
-import { Author } from '../components/blog-preview/author';
+import { light } from '../design-system/themes.treat';
 
 const DesignPage: React.FC<{}> = (props) => {
   return (
-    <Layout>
-      <Design {...props} />
-    </Layout>
+    <TreatProvider theme={light}>
+      <Layout>
+        <Design {...props} />
+      </Layout>
+    </TreatProvider>
   );
 };
 

@@ -1,0 +1,19 @@
+{
+  "name": "@newrade/core-figma-plugins",
+  "version": "1.0.0",
+  "description": "",
+  "author": "",
+  "license": "MIT",
+  "main": "./lib/index.js",
+  "files": [
+    "./lib/**/*"
+  ],
+  "scripts": {
+    "build": "tsc --build tsconfig.build.json",
+    "clean": "rimraf -r lib/** && rm -f tsconfig.build.tsbuildinfo",
+    "execute": "cross-env TS_NODE_PROJECT=tsconfig.build.json node -r ts-node/register src/index.ts"
+  },
+  "dependencies": {
+    "@figma/plugin-typings": "^1"
+  }
+}

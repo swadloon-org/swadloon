@@ -12,14 +12,13 @@
       "args": ["build", "--no-uglify"],
       "env": {
         "NODE_ENV": "development",
-        "DEBUG": "gatsby:*"
+        "DEBUG": "gatsby:plugin*"
       },
-      "console": "internalConsole",
-      "internalConsoleOptions": "openOnSessionStart",
+      "console": "integratedTerminal",
       "runtimeArgs": ["--lazy"],
-      "preLaunchTask": "compile",
+      "preLaunchTask": "pre-debug",
       "autoAttachChildProcesses": true,
-      "sourceMaps": true
+      "sourceMaps": false
     }
   ]
 }

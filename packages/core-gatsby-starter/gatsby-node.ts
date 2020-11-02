@@ -1,8 +1,3 @@
-import { createGatsbyWebpackConfig } from '@newrade/core-gatsby-config';
-import crypto from 'crypto';
-import { GatsbyNode } from 'gatsby';
-import path from 'path';
-
 /**
  * Gatsby Node Configuration
  *
@@ -33,56 +28,4 @@ exports.createPages = async ({ actions, graphql }) => {
   //     path: `/blog-post/_${node.title}`,
   //   });
   // });
-};
-
-export const onCreateNode: GatsbyNode['onCreateNode'] = async ({ node, actions }) => {
-  const { createNode, createNodeField } = actions;
-
-  // console.log(node.id);
-
-  // Releases Nodes
-  if (node.remoteTypeName === `String`) {
-    // Add text/markdown node children to Release node
-    const textNode = {
-      id: `${node.id}-MarkdownBody`,
-      parent: node.id,
-      dir: path.resolve('./'),
-      internal: {
-        type: `${node.internal.type}MarkdownBody`,
-        mediaType: 'text/markdown',
-        content: node.body,
-        contentDigest: crypto
-          .createHash(`md5`)
-          .update(node.body as any)
-          .digest(`hex`),
-      },
-    };
-    createNode(textNode as any);
-
-    // Create markdownBody___NODE field
-    createNodeField({
-      node,
-      name: 'markdownBody___NODE',
-      value: textNode.id,
-    });
-  }
-};
-
-export const onCreateBabelConfig: GatsbyNode['onCreateBabelConfig'] = ({ actions }) => {
-  actions.setBabelPlugin({
-    name: 'babel-plugin-treat',
-    options: {},
-  });
-};
-
-export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
-  stage,
-  rules,
-  loaders,
-  plugins,
-  actions,
-}) => {
-  const isProduction = stage !== `develop`;
-  const isSSR = stage.includes(`html`);
-  actions.setWebpackConfig(createGatsbyWebpackConfig({ isProduction, stage, isSSR, loaders, plugins }));
 };

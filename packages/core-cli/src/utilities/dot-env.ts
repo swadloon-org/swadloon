@@ -1,16 +1,8 @@
+import { COMMON_ENV_GATSBY } from '@newrade/core-utils';
+
 /**
- * typed representation of the .env files
+ * Local, typed representation of the .env file.
  */
-export type ENV = { [key: string]: string } & {
-  NVM_NODE_VERSION: string;
-
-  MASTER_GIT_HOST: string;
-  MASTER_REPO_ORG: string;
-  MASTER_REPO_NAME: string;
-
-  PROJECT_GIT_HOST: string;
-  PROJECT_REPO_ORG: string;
-  PROJECT_REPO_NAME: string;
-
+export type ENV = COMMON_ENV_GATSBY & {
   FIGMA_TOKEN: string;
 };

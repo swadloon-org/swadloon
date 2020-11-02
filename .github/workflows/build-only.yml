@@ -53,8 +53,8 @@ jobs:
     - name: Build
       run: yarn build
       env:
-        SITE_ENV: ${{ secrets.SITE_ENV }}
-        SITE_URL: ${{ secrets.SITE_URL }}
+        APP_ENV: ${{ secrets.APP_ENV }}
+        APP_URL: ${{ secrets.APP_URL }}
         GRAPH_CMS_AUTH_TOKEN_MIR: ${{ secrets.GRAPH_CMS_AUTH_TOKEN_MIR }}
         GRAPH_CMS_API_URL_MIR: ${{ secrets.GRAPH_CMS_API_URL_MIR }}
         GRAPH_CMS_AUTH_TOKEN_NEWRADE: ${{ secrets.GRAPH_CMS_AUTH_TOKEN_NEWRADE }}

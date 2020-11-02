@@ -7,8 +7,7 @@
     "rootDir": "",
     "strict": false,
     "target": "es2017",
-    "types": ["jest", "node", "react", "expect-puppeteer", "jest-environment-puppeteer", "puppeteer"],
-    "typeRoots": ["../../node_modules/@types", "src/typings"]
+    "types": ["jest", "node", "react", "expect-puppeteer", "jest-environment-puppeteer", "puppeteer"]
   },
   "include": ["test"]
 }

@@ -4,13 +4,12 @@
     "rootDir": "src",
     "outDir": "lib",
     "strict": false,
-    "types": ["gatsby", "node"],
-    "typeRoots": ["../../node_modules/@types", "types"]
+    "types": ["gatsby", "node"]
   },
   "references": [
     {
       "path": "../core-utils/tsconfig.build.json"
     }
   ],
-  "include": ["src", "types"]
+  "include": ["src/**/*", "types"]
 }

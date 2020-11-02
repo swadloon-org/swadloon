@@ -1,5 +1,5 @@
-import { globalStyle } from 'treat';
 import { DesignSystem } from '@newrade/core-design-system-old';
+import { globalStyle } from 'treat';
 import { getGlobalSizeVariables } from './global-sizes-variables.styles';
 
 export function applyReset(themeClass: string) {
@@ -27,11 +27,11 @@ export function applyStylesToHtmlElement(themeClass: string) {
 
 export function applyStylesToBodyElement(themeClass: string) {
   return globalStyle(`${themeClass}, body`, (theme: DesignSystem) => ({
-    display: 'flex',
-    justifyContent: 'center',
-    maxWidth: '100vw',
-    minHeight: '100vh',
-    overflow: 'hidden',
+    // display: 'flex',
+    // justifyContent: 'center',
+    // maxWidth: '100vw',
+    // minHeight: '100vh',
+    // overflow: 'hidden',
     /**
      * Remove the margin in all browsers.
      */
