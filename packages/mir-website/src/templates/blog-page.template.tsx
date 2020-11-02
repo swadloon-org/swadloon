@@ -6,13 +6,9 @@ import { BlogPreviewSection } from '../components/blog-preview/blog-preview-sect
 import { Newsletter } from '../components/action-section/newsletter';
 import { theme } from '../design-system';
 import * as stylesRef from '../templates/blog-page.treat';
+import { ProjectPageProps } from './page.template';
 
-interface PageProps {
-  data: BlogPageFrQuery;
-  location: Location;
-}
-
-export const Blog: React.FC<PageProps> = ({ data, location }) => {
+export const Blog: React.FC<ProjectPageProps> = ({ data, location }) => {
   const styles = useStyles(stylesRef);
 
   const actionSection1 = data.gcms.pages[0].actionSections[0];

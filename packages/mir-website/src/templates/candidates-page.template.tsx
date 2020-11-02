@@ -1,22 +1,15 @@
 import React from 'react';
 import { useStyles } from 'react-treat';
-import * as stylesRef from '../templates/candidates-page.treat';
-import { BannerSecondary } from '../components/banner-secondary';
-
-import { InfoSectionType5 } from '../components/info-section/info-section-type-5';
-import { InfoSectionType2 } from '../components/info-section/info-section-type-2';
 import { ActionSection } from '../components/action-section/action-section';
+import { BannerSecondary } from '../components/banner-secondary';
+import { InfoSectionType2 } from '../components/info-section/info-section-type-2';
+import { InfoSectionType5 } from '../components/info-section/info-section-type-5';
 import { JobSection } from '../components/job-section/job-section';
 import { Process } from '../components/process-section/process-section';
-import { CandidatePageFrQuery } from '../../types/graphql-types';
 import { theme } from '../design-system';
+import * as stylesRef from '../templates/candidates-page.treat';
 
-interface PageProps {
-  data: CandidatePageFrQuery;
-  location: Location;
-}
-
-export const Candidate: React.FC<PageProps> = ({ data, location }) => {
+export const Candidate: React.FC<ProjectPageProps> = ({ data, location }) => {
   const styles = useStyles(stylesRef);
 
   const actionSection1 = data.gcms.pages[0].actionSections[0];

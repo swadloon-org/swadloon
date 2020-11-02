@@ -9,7 +9,7 @@ import { InfoSectionType3 } from '../components/info-section/info-section-type-3
 import { InfoSectionType4 } from '../components/info-section/info-section-type-4';
 import { theme } from '../design-system/index';
 import { ProjectPageProps } from './page.template';
-import * as stylesRef from './index-page.treat';
+import * as stylesRef from './home.treat';
 
 export const Index: React.FC<ProjectPageProps> = ({ data, location }) => {
   const styles = useStyles(stylesRef);

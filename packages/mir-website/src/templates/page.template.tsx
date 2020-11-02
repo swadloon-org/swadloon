@@ -15,7 +15,6 @@ import { light } from '../design-system/themes.treat';
 import { viewportContext } from '../hooks/use-viewport.hook';
 import '../styles/font-faces.styles.css';
 import { Layout } from '../layouts/page.layout';
-import * as stylesRef from './page.treat';
 
 export type ProjectPageProps = PageProps<PageQuery, GatsbyPageContext>;
 
@@ -48,6 +47,7 @@ export const pageQuery = graphql`
       id
       name
       description {
+        description
         childMdx {
           body
         }
@@ -68,6 +68,7 @@ export const pageQuery = graphql`
         id
         name
         description {
+          description
           childMdx {
             body
           }

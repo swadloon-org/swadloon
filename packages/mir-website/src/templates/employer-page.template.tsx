@@ -1,26 +1,16 @@
-// import { graphql } from 'gatsby';
-import React, { useState } from 'react';
+import React from 'react';
 import { useStyles } from 'react-treat';
-import { BannerSecondary } from '../components/banner-secondary';
-import { Footer } from '../components/footer';
-import { NavBar } from '../components/nav-bar';
-import { Newsletter } from '../components/action-section/newsletter';
-import { InfoSectionType2 } from '../components/info-section/info-section-type-2';
 import { ActionSection } from '../components/action-section/action-section';
+import { BannerSecondary } from '../components/banner-secondary';
+import { InfoSectionType2 } from '../components/info-section/info-section-type-2';
+import { InfoSectionType6Group } from '../components/info-section/info-section-type-6-group';
 import { JobSection } from '../components/job-section/job-section';
 import { Process } from '../components/process-section/process-section';
-import { InfoSectionType6Group } from '../components/info-section/info-section-type-6-group';
 import { theme } from '../design-system/index';
 import * as stylesRef from '../templates/employer-page.treat';
-import { SideBar } from '../components/side-bar';
-import { EmployerPageFrQuery } from '../../types/graphql-types';
+import { ProjectPageProps } from './page.template';
 
-interface PageProps {
-  data: EmployerPageFrQuery;
-  location: Location;
-}
-
-export const EmployerPageTemplate: React.FC<PageProps> = ({ data, location }) => {
+export const EmployerPageTemplate: React.FC<ProjectPageProps> = ({ data, location }) => {
   const styles = useStyles(stylesRef);
   const actionSection1 = data.gcms.pages[0].actionSections[0];
   const section1 = data.gcms?.pages[0]?.infoSections[0];

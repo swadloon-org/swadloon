@@ -1,22 +1,16 @@
 import React from 'react';
-import ReCAPTCHA from 'react-google-recaptcha';
 import { useStyles } from 'react-treat';
-import { ContactPageFrQuery } from '../../types/graphql-types';
-import { BannerSecondary } from '../components/banner-secondary';
-import { InfoSectionType6Group } from '../components/info-section/info-section-type-6-group';
 import { Newsletter } from '../components/action-section/newsletter';
-import { theme } from '../design-system';
-import * as stylesRef from '../templates/contact-page.treat';
-import { Input } from '../components/input';
+import { BannerSecondary } from '../components/banner-secondary';
 import { Button } from '../components/button';
 import { Heading } from '../components/heading';
+import { InfoSectionType6Group } from '../components/info-section/info-section-type-6-group';
+import { Input } from '../components/input';
+import { theme } from '../design-system';
+import * as stylesRef from '../templates/contact-page.treat';
+import { ProjectPageProps } from './page.template';
 
-interface PageProps {
-  data: ContactPageFrQuery;
-  location: Location;
-}
-
-export const Contact: React.FC<PageProps> = ({ data, location }) => {
+export const Contact: React.FC<ProjectPageProps> = ({ data, location }) => {
   const styles = useStyles(stylesRef);
 
   const section1 = data.gcms?.pages[0]?.infoSections[0];
