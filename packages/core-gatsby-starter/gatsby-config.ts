@@ -16,8 +16,8 @@ const config: core.GastbySiteConfig = {
   siteMetadata: {
     title: `core-gatsby-website`,
     description: `Gatsby powered MIR website`,
-    siteEnv: env.APP_ENV,
     siteUrl: env.APP_URL,
+    siteEnv: env.APP_ENV,
     languages: {
       langs: [core.SITE_LANGUAGES.FR, core.SITE_LANGUAGES.EN],
       defaultLangKey: core.SITE_LANGUAGES.FR,
