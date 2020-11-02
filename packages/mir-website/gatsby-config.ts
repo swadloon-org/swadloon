@@ -23,18 +23,18 @@ const config: core.GastbySiteConfig = {
     },
   },
   plugins: [
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `MIR`,
-        short_name: `MIR`,
-        start_url: `/`,
-        background_color: `#f7f0eb`,
-        theme_color: `#a2466c`,
-        display: `standalone`,
-        icon: `src/illustrations/Logo/LogoFavicon.png`,
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-manifest`,
+    //   options: {
+    //     name: `MIR`,
+    //     short_name: `MIR`,
+    //     start_url: `/`,
+    //     background_color: `#f7f0eb`,
+    //     theme_color: `#a2466c`,
+    //     display: `standalone`,
+    //     icon: `src/illustrations/Logo/LogoFavicon.png`,
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-page-creator`,
       options: {
