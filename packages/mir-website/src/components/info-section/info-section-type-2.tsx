@@ -34,7 +34,7 @@ export const InfoSectionType2: React.FC<OwnProps> = (props) => {
 
       <div
         className={`${styles.content} ${
-          props.align === 'AlignContentLeft' ? styles.alignContentLeft : styles.alignContentRight
+          props === 'AlignContentLeft' ? styles.alignContentLeft : styles.alignContentRight
         }  `}
       >
         <RenderTitleHighlight className={styles.title} title={props.title} titleHighlight={props.titleHighlight} />

@@ -32,7 +32,7 @@ globalStyle(`${styleNormal} > *`, (theme: DesignSystem) => ({
 export const text = style((theme: DesignSystem) => ({
   textAlign: 'center',
   whiteSpace: 'pre-wrap', // handle mutli-line text
-  margin: `${theme.sizing.sizes.x5} 0`,
+  margin: `${theme.sizing.sizes.x4} 0 ${theme.sizing.sizes.x5}`,
   color: 'currentColor',
   maxWidth: '400px',
 

@@ -2,10 +2,10 @@ import React from 'react';
 import { useStyles } from 'react-treat';
 import { Heading } from '../components/heading';
 import { Paragraph } from '../components/paragraph';
-import * as stylesRef from './not-found-page.treat';
+import * as stylesRef from './not-found.treat';
 import { ProjectPageProps } from './page.template';
 
-export const NotFoundPageTemplate: React.FC<ProjectPageProps> = ({ data, location }) => {
+export const NotFoundTemplate: React.FC<ProjectPageProps> = ({ data, location }) => {
   const styles = useStyles(stylesRef);
 
   return (

@@ -1,6 +1,6 @@
 import { graphql } from 'gatsby';
 
-export const siteMetadataQuery = graphql`
+export const siteMetadataFragment = graphql`
   fragment SiteMetadata on Site {
     siteMetadata {
       title

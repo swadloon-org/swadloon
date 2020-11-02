@@ -1,6 +1,6 @@
 import { graphql } from 'gatsby';
 
-export const sectionTypeQuery = graphql`
+export const sectionTypeFragment = graphql`
   fragment sectionType on ContentfulSectionType {
     name
     preview {

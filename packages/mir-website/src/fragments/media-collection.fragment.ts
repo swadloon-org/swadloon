@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby';
 
 export const mediaCollectionFragment = graphql`
-  fragment MediaCollectionFragment on ContentfulMediaCollection {
+  fragment MediaCollection on ContentfulMediaCollection {
     name
     # title
     # type

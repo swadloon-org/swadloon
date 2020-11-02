@@ -42,7 +42,7 @@ export const pageQuery = graphql`
       }
     }
     sections {
-      ...SectionFragment
+      ...Section
     }
   }
 `;

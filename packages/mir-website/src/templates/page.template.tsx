@@ -14,8 +14,12 @@ import { ViewportProvider } from '../context/viewport.context';
 import { light } from '../design-system/themes.treat';
 import { viewportContext } from '../hooks/use-viewport.hook';
 import { Layout } from '../layouts/page.layout';
-import '../styles/font-faces.styles.css';
+import { BlogTemplate } from './blog.template';
+import { ContactTemplate } from './contact.template';
 import { HomeTemplate } from './home.template';
+
+import '../styles/font-faces.styles.css';
+import { NotFoundTemplate } from './not-found.template';
 
 export type ProjectPageProps = PageProps<PageQuery, GatsbyPageContext>;
 
@@ -25,7 +29,7 @@ export const pageQuery = graphql`
       ...SiteMetadata
     }
     contentfulCompanyInfo {
-      ...CompanyInfoFragment
+      ...CompanyInfo
     }
     allContentfulPage {
       edges {
@@ -113,13 +117,16 @@ function getPageTemplateComponent({ pageName, props }: { pageName: string; props
       return <HomeTemplate {...props} />;
     }
     case PAGE_NAME.BLOGUE: {
-      return <HomeTemplate {...props} />;
+      return <BlogTemplate {...props} />;
     }
     case PAGE_NAME.A_PROPOS: {
       return <HomeTemplate {...props} />;
     }
     case PAGE_NAME.CONTACT: {
-      return <HomeTemplate {...props} />;
+      return <ContactTemplate {...props} />;
+    }
+    case PAGE_NAME.NON_TROUVE: {
+      return <NotFoundTemplate {...props} />;
     }
     default: {
       return <HomeTemplate {...props} />;

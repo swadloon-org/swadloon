@@ -8,7 +8,6 @@ import { Heading } from './heading';
 
 interface OwnProps {
   title?: string | null;
-  subTitle?: string | null;
   imageData?: any;
 }
 

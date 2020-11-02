@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby';
 
-export const infoTileQuery = graphql`
-  fragment InfoTileFragment on ContentfulInfoTile {
+export const infoTileFragment = graphql`
+  fragment InfoTile on ContentfulInfoTile {
     title
     illustration {
       description

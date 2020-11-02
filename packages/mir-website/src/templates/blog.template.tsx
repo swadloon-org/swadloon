@@ -2,10 +2,10 @@ import React from 'react';
 import { useStyles } from 'react-treat';
 import { BannerSecondary } from '../components/banner-secondary';
 import { theme } from '../design-system';
-import * as stylesRef from '../templates/blog-page.treat';
+import * as stylesRef from './blog.treat';
 import { ProjectPageProps } from './page.template';
 
-export const Blog: React.FC<ProjectPageProps> = (props) => {
+export const BlogTemplate: React.FC<ProjectPageProps> = (props) => {
   const styles = useStyles(stylesRef);
 
   const page = props.data.contentfulPage;

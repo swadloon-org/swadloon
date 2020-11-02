@@ -1,18 +1,15 @@
 import { graphql } from 'gatsby';
 
-export const sectionQuery = graphql`
-  fragment SectionFragment on ContentfulSection {
+export const sectionFragment = graphql`
+  fragment Section on ContentfulSection {
     name
-    description {
-      description
-    }
     type {
       ...sectionType
     }
     title
     titleHighlight
     link {
-      ...LinkFragment
+      ...Link
     }
     text {
       text
@@ -25,7 +22,6 @@ export const sectionQuery = graphql`
         url
       }
     }
-    titleTab
     # medias{
     #     image {
     #         url(transformation: { image: { resize: { width: 500, fit: max } } })
@@ -33,30 +29,27 @@ export const sectionQuery = graphql`
     # }
     imagePosition
     infoTiles {
-      ...InfoTileFragment
+      ...InfoTile
     }
     infoChecks {
       id
       text
     }
     jobGroup {
-      ...JobGroupFragment
+      ...JobGroup
     }
     processStep {
       ...ProcessStepFragment
     }
     subSections {
       name
-      description {
-        description
-      }
       type {
         ...sectionType
       }
       title
       titleHighlight
       link {
-        ...LinkFragment
+        ...Link
       }
       text {
         text
@@ -69,7 +62,6 @@ export const sectionQuery = graphql`
           url
         }
       }
-      titleTab
       # medias{
       #     image {
       #         url(transformation: { image: { resize: { width: 500, fit: max } } })
@@ -77,14 +69,14 @@ export const sectionQuery = graphql`
       # }
       imagePosition
       infoTiles {
-        ...InfoTileFragment
+        ...InfoTile
       }
       infoChecks {
         id
         text
       }
       jobGroup {
-        ...JobGroupFragment
+        ...JobGroup
       }
       processStep {
         ...ProcessStepFragment
