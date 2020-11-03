@@ -5,7 +5,7 @@ import { useStyles } from 'react-treat';
 import { theme } from '../design-system';
 import * as stylesRef from './contact.treat';
 import { ProjectPageProps } from './page.template';
-import { SectionTemplate } from './section.template';
+import { SectionTemplate, SECTION_TYPE } from './section.template';
 import { BannerPrimary } from '../components/banners/banner-primary';
 import { BannerSecondary } from '../components/banners/banner-secondary';
 import { Heading } from '../components/ui/heading';
@@ -33,6 +33,34 @@ export const ContactTemplate: React.FC<ProjectPageProps> = (props) => {
 
   const recaptchaRef = React.createRef<any>();
 
+  const sections1 = props.data.contentfulPage.sections.filter(
+    (section) => section.type.name === SECTION_TYPE.TYPE_6_GROUP
+  );
+  const props1 = {
+    ...props,
+    data: {
+      ...props.data,
+      contentfulPage: {
+        ...props.data.contentfulPage,
+        sections: sections1,
+      },
+    },
+  };
+
+  const sections2 = props.data.contentfulPage.sections.filter(
+    (section) => section.type.name === SECTION_TYPE.NEWSLETTER_PRIMARY
+  );
+  const props2 = {
+    ...props,
+    data: {
+      ...props.data,
+      contentfulPage: {
+        ...props.data.contentfulPage,
+        sections: sections2,
+      },
+    },
+  };
+
   return (
     <main className={`${styles.wrapper}`}>
       {bannerImagesAreValid ? (
@@ -47,7 +75,7 @@ export const ContactTemplate: React.FC<ProjectPageProps> = (props) => {
         )
       ) : null}
 
-      <SectionTemplate {...props} />
+      <SectionTemplate {...props1} />
 
       {hasMounted ? (
         <div
@@ -131,6 +159,8 @@ export const ContactTemplate: React.FC<ProjectPageProps> = (props) => {
           </Button>
         </form>
       </div>
+
+      <SectionTemplate {...props2} />
 
       {/* <Newsletter id="newsletter" section={actionSection1}></Newsletter> */}
     </main>
