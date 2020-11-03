@@ -11,6 +11,7 @@ import { JobSection } from '../components/info-section/job-section';
 import { Process } from '../components/process-section/process-section';
 import { ActionSection } from '../components/action-section/action-section';
 import { Newsletter } from '../components/action-section/newsletter';
+import { BlogPreviewSection } from '../components/blog-preview/blog-preview-section';
 
 export enum SECTION_TYPE {
   TYPE_1_GROUP = 'TYPE_1_GROUP',
@@ -101,6 +102,9 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
           }
           case SECTION_TYPE.NEWSLETTER_SECONDARY: {
             return <Newsletter key={index} {...section} />;
+          }
+          case SECTION_TYPE.BLOG_PREVIEW: {
+            return <BlogPreviewSection key={index} {...section} />;
           }
           default: {
             return null;

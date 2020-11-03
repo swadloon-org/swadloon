@@ -64,6 +64,11 @@ export const sectionFragment = graphql`
     processStep {
       ...ProcessStepFragment
     }
+
+    blogPosts {
+      ...BlogPost
+    }
+
     subSections {
       name
       type {
@@ -126,6 +131,9 @@ export const sectionFragment = graphql`
       }
       processStep {
         ...ProcessStepFragment
+      }
+      blogPosts {
+        ...BlogPost
       }
     }
   }
