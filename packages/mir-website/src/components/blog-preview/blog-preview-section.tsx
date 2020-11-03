@@ -48,23 +48,21 @@ export const BlogPreviewSection: React.FC<OwnProps> = (props) => {
           </Paragraph>
 
           <div className={`${styles.fullPreview}`}>
-            <div className={`${styles.contentFeaturedPost}`}>
-              {postsQuery.featuredPosts.edges
-                .filter((edge) => edge.node.node_locale === props.node_locale)
-                .map((post) => {
-                  const postURL = `${props.pageRoute}${post.node.blogSlug}`;
+            {postsQuery.featuredPosts.edges
+              .filter((edge) => edge.node.node_locale === props.node_locale)
+              .map((post) => {
+                const postURL = `${props.pageRoute}${post.node.blogSlug}`;
 
-                  return (
-                    <BlogPreviewTileImageFeatured
-                      key={post.node.id}
-                      fluid={post.node.blogMainImage.fluid}
-                      title={post.node.title}
-                      actionLabel="Lire l’article"
-                      link={postURL}
-                    ></BlogPreviewTileImageFeatured>
-                  );
-                })}
-            </div>
+                return (
+                  <BlogPreviewTileImageFeatured
+                    key={post.node.id}
+                    fluid={post.node.blogMainImage.fluid}
+                    title={post.node.title}
+                    actionLabel="Lire l’article"
+                    link={postURL}
+                  ></BlogPreviewTileImageFeatured>
+                );
+              })}
 
             <div className={`${styles.contentRecentPost}`}>
               {postsQuery.recentPosts.edges
@@ -124,7 +122,7 @@ export const BlogPreviewSection: React.FC<OwnProps> = (props) => {
         </div>
 
         {props.link?.page?.route ? (
-          <GatsbyLink to={props.link.page?.route}>
+          <GatsbyLink to={props.link.page?.route} style={{ margin: 'auto' }}>
             <Button variantType="primaryDefault" size="medium" variant="text">
               {props.link.label}
             </Button>

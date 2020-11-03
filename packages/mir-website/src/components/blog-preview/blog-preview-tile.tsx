@@ -24,7 +24,7 @@ export const BlogPreviewTile: React.FC<OwnProps> = (props) => {
         {props.title}
       </Heading>
 
-      <GatsbyLink to={props.link}>
+      <GatsbyLink to={props.link} style={{ marginLeft: 'auto' }}>
         <Button variant={'text'} size={'small'} variantType={'tertiaryReversed'} className={styles.button}>
           {props.actionLabel}
         </Button>

@@ -1,10 +1,9 @@
-import React, { HTMLAttributes } from 'react';
-import { useStyles } from 'react-treat';
-import * as styleRefs from './blog-preview-tile-image.treat';
-import { BlogPreviewTile } from './blog-preview-tile';
-import LazyLoad from 'react-lazyload';
-import GatsbyImage, { FluidObject } from 'gatsby-image';
 import BackgroundImage from 'gatsby-background-image';
+import { FluidObject } from 'gatsby-image';
+import React from 'react';
+import { useStyles } from 'react-treat';
+import { BlogPreviewTile } from './blog-preview-tile';
+import * as styleRefs from './blog-preview-tile-image.treat';
 
 type OwnProps = {
   fluid?: FluidObject;
@@ -24,7 +23,6 @@ export const BlogPreviewTileImage: React.FC<OwnProps> = (props) => {
       ) : (
         <div className={styles.imgPreview}></div>
       )}
-
       <BlogPreviewTile {...props} className={styles.tilePreview} />
     </div>
   );
@@ -34,13 +32,12 @@ export const BlogPreviewTileImageFeatured: React.FC<OwnProps> = (props) => {
   const styles = useStyles(styleRefs);
 
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapperBig}>
       {props.fluid ? (
-        <BackgroundImage fluid={props.fluid} className={styles.imgPreview} />
+        <BackgroundImage fluid={props.fluid} className={styles.imgPreviewBig} />
       ) : (
-        <div className={styles.imgPreview}></div>
+        <div className={styles.imgPreviewBig}></div>
       )}
-
       <BlogPreviewTile {...props} className={styles.tilePreview} />
     </div>
   );
