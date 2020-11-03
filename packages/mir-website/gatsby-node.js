@@ -40,7 +40,9 @@ exports.createPages = async ({ graphql, actions }) => {
           allContentfulPage {
             edges {
               node {
+                node_locale
                 id
+                name
                 route
               }
             }
@@ -81,6 +83,7 @@ exports.createPages = async ({ graphql, actions }) => {
           allContentfulBlogPost {
             edges {
               node {
+                node_locale
                 id
                 blogSlug
               }
@@ -89,10 +92,22 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       `);
         if (blogPosts.errors) {
-            throw new Error('Error while retrieving pages');
+            throw new Error('Error while retrieving blog posts');
         }
-        const blogPostTemplate = path_1.default.resolve(`src/templates/page.template.tsx`);
-        pages.data.allContentfulPage.edges
+        const blogPostTemplate = path_1.default.resolve(`src/templates/blog-post.template.tsx`);
+        const blogPageRouteFR = pages.data.allContentfulPage.edges
+            .filter((edge) => edge.node.name.includes('Blogue') && edge.node.node_locale === 'fr-CA')
+            .map((edge) => edge.node);
+        const blogPageRouteEN = pages.data.allContentfulPage.edges
+            .filter((edge) => edge.node.name.includes('Blogue') && edge.node.node_locale === 'en-CA')
+            .map((edge) => edge.node);
+        core_utils_1.log(`Creating blog posts under: ${blogPageRouteEN[0].route}`, {
+            toolName: 'mir-website',
+        });
+        core_utils_1.log(`Creating blog posts under: ${blogPageRouteFR[0].route}`, {
+            toolName: 'mir-website',
+        });
+        blogPosts.data.allContentfulBlogPost.edges
             .filter((edge) => {
             if (!(edge && edge.node)) {
                 return false;
@@ -100,14 +115,22 @@ exports.createPages = async ({ graphql, actions }) => {
             return true;
         })
             .forEach((edge, index) => {
-            core_utils_1.log(`Creating page: ${edge.node.route}`, {
+            const path = edge.node.node_locale === 'fr-CA'
+                ? blogPageRouteFR[0]?.route
+                    ? `${blogPageRouteFR[0]?.route}${edge.node.blogSlug}`
+                    : `${blogPageRouteFR[0]?.route}`
+                : blogPageRouteEN[0]?.route
+                    ? `${blogPageRouteEN[0]?.route}${edge.node.blogSlug}`
+                    : `${blogPageRouteEN[0]?.route}`;
+            core_utils_1.log(`Creating blog post: ${path}`, {
                 toolName: 'mir-website',
             });
             createPage({
-                path: edge.node.route,
-                component: pageTemplate,
+                path: edge.node.blogSlug,
+                component: blogPostTemplate,
                 context: {
-                    pageId: edge.node.id,
+                    blogPostId: edge.node.id,
+                    blogPath: path,
                 },
             });
         });

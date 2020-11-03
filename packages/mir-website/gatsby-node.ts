@@ -1,4 +1,4 @@
-import { GatsbyPageContext } from '@newrade/core-gatsby-config';
+import { GatsbyBlogPostContext, GatsbyPageContext } from '@newrade/core-gatsby-config';
 import { loadDotEnv, log, LOG_LEVEL } from '@newrade/core-utils';
 import { GatsbyNode } from 'gatsby';
 import path from 'path';
@@ -38,7 +38,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
   try {
     const pages = await graphql<{
       allContentfulPage: {
-        edges: { node: { id: string; route: string } }[];
+        edges: { node: { id: string; name: string; route: string; node_locale: string } }[];
       };
     }>(
       `
@@ -46,7 +46,9 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
           allContentfulPage {
             edges {
               node {
+                node_locale
                 id
+                name
                 route
               }
             }
@@ -87,7 +89,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
      */
     const blogPosts = await graphql<{
       allContentfulBlogPost: {
-        edges: { node: { id: string; blogSlug: string } }[];
+        edges: { node: { id: string; blogSlug: string; node_locale: string } }[];
       };
     }>(
       `
@@ -95,6 +97,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
           allContentfulBlogPost {
             edges {
               node {
+                node_locale
                 id
                 blogSlug
               }
@@ -104,27 +107,52 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
       `
     );
     if (blogPosts.errors) {
-      throw new Error('Error while retrieving pages');
+      throw new Error('Error while retrieving blog posts');
     }
 
-    const blogPostTemplate = path.resolve(`src/templates/page.template.tsx`);
-    pages.data.allContentfulPage.edges
+    const blogPostTemplate = path.resolve(`src/templates/blog-post.template.tsx`);
+    const blogPageRouteFR = pages.data.allContentfulPage.edges
+      .filter((edge) => edge.node.name.includes('Blogue') && edge.node.node_locale === 'fr-CA')
+      .map((edge) => edge.node);
+    const blogPageRouteEN = pages.data.allContentfulPage.edges
+      .filter((edge) => edge.node.name.includes('Blogue') && edge.node.node_locale === 'en-CA')
+      .map((edge) => edge.node);
+
+    log(`Creating blog posts under: ${blogPageRouteEN[0].route}`, {
+      toolName: 'mir-website',
+    });
+
+    log(`Creating blog posts under: ${blogPageRouteFR[0].route}`, {
+      toolName: 'mir-website',
+    });
+
+    blogPosts.data.allContentfulBlogPost.edges
       .filter((edge) => {
         if (!(edge && edge.node)) {
           return false;
         }
-
         return true;
       })
       .forEach((edge, index) => {
-        log(`Creating page: ${edge.node.route}`, {
+        const path =
+          edge.node.node_locale === 'fr-CA'
+            ? blogPageRouteFR[0]?.route
+              ? `${blogPageRouteFR[0]?.route}${edge.node.blogSlug}`
+              : `${blogPageRouteFR[0]?.route}`
+            : blogPageRouteEN[0]?.route
+            ? `${blogPageRouteEN[0]?.route}${edge.node.blogSlug}`
+            : `${blogPageRouteEN[0]?.route}`;
+
+        log(`Creating blog post: ${path}`, {
           toolName: 'mir-website',
         });
-        createPage<GatsbyPageContext>({
-          path: edge.node.route,
-          component: pageTemplate,
+
+        createPage<GatsbyBlogPostContext>({
+          path: edge.node.blogSlug,
+          component: blogPostTemplate,
           context: {
-            pageId: edge.node.id,
+            blogPostId: edge.node.id,
+            blogPath: path,
           },
         });
       });
