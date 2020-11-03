@@ -1,3 +1,4 @@
+import { MDXProvider } from '@mdx-js/react';
 import { GatsbyBlogPostContext } from '@newrade/core-gatsby-config';
 import {
   getMetaBasicTags,
@@ -9,16 +10,19 @@ import { graphql, PageProps } from 'gatsby';
 import React from 'react';
 import Helmet from 'react-helmet';
 import { TreatProvider } from 'react-treat';
-import { BlogPostQuery } from '../../types/graphql-types';
+import { BlogPostPageQuery } from '../../types/graphql-types';
+import { markdownComponents } from '../components/markdown/components-markdown';
 import { ViewportProvider } from '../context/viewport.context';
 import { light } from '../design-system/themes.treat';
 import { viewportContext } from '../hooks/use-viewport.hook';
+import { Layout } from '../layouts/page.layout';
 import '../styles/font-faces.styles.css';
+import { BlogPostArticleTemplate } from './blog-post-article.template';
 
-export type ProjectPageProps = PageProps<BlogPostQuery, GatsbyBlogPostContext>;
+export type ProjectPageProps = PageProps<BlogPostPageQuery, GatsbyBlogPostContext>;
 
 export const blogPostQuery = graphql`
-  query BlogPost($blogPostId: String) {
+  query BlogPostPage($blogPostId: String) {
     site {
       ...SiteMetadata
     }
@@ -40,81 +44,54 @@ export const blogPostQuery = graphql`
       }
     }
     contentfulBlogPost(id: { eq: $blogPostId }) {
-      node_locale
-      subtitle
-      title
-      blogSlug
-      blogExcerpt {
-        blogExcerpt
-      }
-      createdAt
-      updatedAt
-      blogMainImage {
-        file {
-          url
-        }
-        socialMediaImage: resize(width: 1200) {
-          src
-          width
-          height
-        }
-        fluid(maxWidth: 1600) {
-          base64
-          aspectRatio
-          src
-          srcSet
-          srcWebp
-          srcSetWebp
-          sizes
-        }
-      }
-      blogAuthor {
-        firstName
-        lastName
-        profilePicture {
-          file {
-            url
-          }
-        }
-      }
-      content {
-        childMdx {
-          tableOfContents
-          slug
-          body
-        }
-      }
+      ...BlogPost
     }
   }
 `;
 
 export const BlogPostTemplate: React.FC<ProjectPageProps> = ({ data, location, ...props }) => {
   return (
-    <TreatProvider theme={light}>
-      <ViewportProvider context={viewportContext}>
-        <Helmet>
-          {getMetaBasicTags()}
-          {getMetadataOpenGraphWebsiteTags({
-            type: OPEN_GRAPH_TYPE.ARTICLE,
-            title: `${data.contentfulBlogPost.title}`,
-            url: `${data.site?.siteMetadata?.siteUrl}${data.contentfulBlogPost?.blogSlug}`,
-            description: `${data.contentfulBlogPost?.blogExcerpt.blogExcerpt}`,
-            image: `${data.contentfulBlogPost?.blogMainImage.socialMediaImage.src}`,
-            site_name: `${data.contentfulCompanyInfo.metadataSiteName}`,
-            lang: data.contentfulBlogPost.node_locale.includes('fr') ? 'fr' : 'en',
-            locale: data.contentfulBlogPost.node_locale.includes('fr') ? 'fr_CA' : 'en_CA',
-            localeAlternate: data.contentfulBlogPost.node_locale.includes('en') ? 'fr_CA' : 'en_CA',
-          })}
-          {getMetadataTwitterTags({
-            card: 'summary_large_image',
-            image: `${data.contentfulBlogPost?.blogMainImage.socialMediaImage.src}`,
-            creator: `${data.contentfulCompanyInfo.metadataTwitterCreator}`,
-            site: `${data.contentfulCompanyInfo.metadataTwitterSite}`,
-          })}
-        </Helmet>
-        <div>{data.contentfulBlogPost.title}</div>
-      </ViewportProvider>
-    </TreatProvider>
+    <MDXProvider components={markdownComponents}>
+      <TreatProvider theme={light}>
+        <ViewportProvider context={viewportContext}>
+          <Helmet>
+            {getMetaBasicTags()}
+            {getMetadataOpenGraphWebsiteTags({
+              type: OPEN_GRAPH_TYPE.ARTICLE,
+              title: `${data.contentfulBlogPost.title}`,
+              url: `${data.site?.siteMetadata?.siteUrl}${data.contentfulBlogPost?.blogSlug}`,
+              description: `${data.contentfulBlogPost?.blogExcerpt.blogExcerpt}`,
+              image: `${data.contentfulBlogPost?.blogMainImage.socialMediaImage.src}`,
+              site_name: `${data.contentfulCompanyInfo.metadataSiteName}`,
+              lang: data.contentfulBlogPost.node_locale.includes('fr') ? 'fr' : 'en',
+              locale: data.contentfulBlogPost.node_locale.includes('fr') ? 'fr_CA' : 'en_CA',
+              localeAlternate: data.contentfulBlogPost.node_locale.includes('en') ? 'fr_CA' : 'en_CA',
+            })}
+            {getMetadataTwitterTags({
+              card: 'summary_large_image',
+              image: `${data.contentfulBlogPost?.blogMainImage.socialMediaImage.src}`,
+              creator: `${data.contentfulCompanyInfo.metadataTwitterCreator}`,
+              site: `${data.contentfulCompanyInfo.metadataTwitterSite}`,
+            })}
+          </Helmet>
+          <Layout
+            currentPageName={data.contentfulBlogPost.title}
+            location={location}
+            logoURL={data.contentfulCompanyInfo.logo.file.url}
+            linkedinPageURL={data.contentfulCompanyInfo.linkedinPageURL}
+            facebookPageURL={data.contentfulCompanyInfo.facebookPageURL}
+            instagramPageURL={data.contentfulCompanyInfo.instagramPageURL}
+            twitterPageURL={data.contentfulCompanyInfo.twitterPageURL}
+            pages={data.allContentfulPage.edges.map((edge) => ({
+              ...edge.node,
+              locale: edge.node.node_locale,
+            }))}
+          >
+            <BlogPostArticleTemplate {...data.contentfulBlogPost} />
+          </Layout>
+        </ViewportProvider>
+      </TreatProvider>
+    </MDXProvider>
   );
 };
 

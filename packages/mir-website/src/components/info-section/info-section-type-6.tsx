@@ -7,6 +7,7 @@ import { Paragraph } from '../ui/paragraph';
 import * as styleRefs from './info-section-type-6.treat';
 import { SectionFragment } from '../../../types/graphql-types';
 import { SECTION_TYPE } from '../../templates/section.template';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
 
 type OwnProps = SectionFragment;
 
@@ -40,7 +41,7 @@ export const InfoSectionType6: React.FC<OwnProps> = (props) => {
         {props.title}
       </Heading>
       <Paragraph variant={'small'} className={styles.text}>
-        {props.text.text}
+        <MDXRenderer>{props.text.childMdx.body}</MDXRenderer>
       </Paragraph>
     </div>
   );

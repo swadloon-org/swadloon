@@ -1,7 +1,11 @@
 import { DesignSystem } from '@newrade/core-design-system-old';
-import { style, globalStyle } from 'treat';
+import { globalStyle, style } from 'treat';
 
 export const wrapper = style((theme: DesignSystem) => ({
+  position: 'sticky',
+  top: 0,
+  zIndex: 100,
+
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
