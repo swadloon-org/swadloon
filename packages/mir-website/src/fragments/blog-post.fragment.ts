@@ -12,12 +12,19 @@ export const blogPostQuery = graphql`
     }
     createdAt
     updatedAt
-
     featured
-
     blogMainImage {
       file {
         url
+      }
+      thumbnail: fluid(maxWidth: 300) {
+        base64
+        aspectRatio
+        src
+        srcSet
+        srcWebp
+        srcSetWebp
+        sizes
       }
       socialMediaImage: resize(width: 1200) {
         src

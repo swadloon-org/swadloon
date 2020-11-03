@@ -1,13 +1,12 @@
+import { graphql, Link as GatsbyLink, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { Link as GatsbyLink, useStaticQuery, graphql } from 'gatsby';
-import { Button } from '../ui/button';
+import { FeaturedPostsQuery, SectionFragment } from '../../../types/graphql-types';
 import { RenderTitleHighlight } from '../info-section/info-title-highligh';
+import { Button } from '../ui/button';
 import { Paragraph } from '../ui/paragraph';
-import { BlogPreviewTileImage } from './/blog-preview-tile-image';
+import { BlogPreviewTileImage, BlogPreviewTileImageFeatured } from './/blog-preview-tile-image';
 import * as styleRefs from './blog-preview-section.treat';
-import { SECTION_TYPE } from '../../templates/section.template';
-import { SectionFragment, FeaturedPostsQuery } from '../../../types/graphql-types';
 
 type OwnProps = SectionFragment & {
   variant: 'preview' | 'full';
@@ -54,12 +53,13 @@ export const BlogPreviewSection: React.FC<OwnProps> = (props) => {
                 .filter((edge) => edge.node.node_locale === props.node_locale)
                 .map((post) => {
                   return (
-                    <BlogPreviewTileImage
+                    <BlogPreviewTileImageFeatured
                       key={post.node.id}
-                      imageUrl={post.node.blogMainImage.file.url}
+                      fluid={post.node.blogMainImage.fluid}
                       title={post.node.title}
                       actionLabel="Lire l’article"
-                    ></BlogPreviewTileImage>
+                      link={''}
+                    ></BlogPreviewTileImageFeatured>
                   );
                 })}
             </div>
@@ -72,9 +72,10 @@ export const BlogPreviewSection: React.FC<OwnProps> = (props) => {
                   return (
                     <BlogPreviewTileImage
                       key={post.node.id}
-                      imageUrl={post.node.blogMainImage.file.url}
+                      fluid={post.node.blogMainImage.fluid}
                       title={post.node.title}
                       actionLabel="Lire l’article"
+                      link={''}
                     ></BlogPreviewTileImage>
                   );
                 })}
