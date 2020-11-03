@@ -2,14 +2,13 @@ import { LABEL } from '@newrade/core-design-system-old';
 import React from 'react';
 import { Link as GatsbyLink } from 'gatsby';
 import { useStyles } from 'react-treat';
-import { Button } from '../button';
-import { Heading } from '../heading';
-import { Label } from '../label';
+import { Button } from '../ui/button';
+import { Heading } from '../ui/heading';
+import { Label } from '../ui/label';
 import * as styleRefs from './blog-preview-tile.treat';
 
 type OwnProps = {
   className?: string;
-  location: Location;
   subtitle?: string | null;
   title?: string | null;
   actionLabel?: string | null;

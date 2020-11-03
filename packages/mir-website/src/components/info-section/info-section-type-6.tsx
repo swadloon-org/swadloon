@@ -40,7 +40,7 @@ export const InfoSectionType6: React.FC<OwnProps> = (props) => {
         {props.title}
       </Heading>
       <Paragraph variant={'small'} className={styles.text}>
-        {props.text.text}
+        {props.text?.text}
       </Paragraph>
     </div>
   );

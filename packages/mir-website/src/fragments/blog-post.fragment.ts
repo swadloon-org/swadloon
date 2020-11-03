@@ -4,6 +4,7 @@ export const blogPostQuery = graphql`
   fragment BlogPost on ContentfulBlogPost {
     node_locale
     subtitle
+    id
     title
     blogSlug
     blogExcerpt {

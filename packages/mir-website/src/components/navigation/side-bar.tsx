@@ -6,7 +6,6 @@ import { useStyles } from 'react-treat';
 
 import * as stylesRef from './side-bar.treat';
 import { NavigationProps } from '../../layouts/page.layout';
-import { MobileBarQuery } from '../../../types/graphql-types';
 import { Icon } from '../ui/icon';
 import { Illustration } from '../ui/illustration';
 import { Label } from '../ui/label';
@@ -14,33 +13,13 @@ import { Heading } from '../ui/heading';
 import { Button } from '../ui/button';
 import { PAGE_NAME } from '../../templates/page.template';
 
-export const sideBarQuery = graphql`
-  query mobileBar {
-    site {
-      ...SiteMetadata
-    }
-    contentfulCompanyInfo {
-      logo {
-        file {
-          url
-        }
-        fluid {
-          srcSet
-        }
-      }
-      twitterPageURL
-      id
-    }
-  }
-`;
-
 type OwnProps = {
   state: 'opened' | 'closed';
   onOpenSideMenu: () => void;
 } & NavigationProps &
   HTMLAttributes<any>;
 
-export const SideBar: React.FC<OwnProps> = (props, contentfulCompanyInfo) => {
+export const SideBar: React.FC<OwnProps> = (props) => {
   const styles = useStyles(stylesRef);
 
   const currentLocale = props.location?.pathname.includes('/en/') ? 'en-CA' : 'fr-CA';
