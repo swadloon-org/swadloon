@@ -4,6 +4,7 @@ import * as styleRefs from './blog-preview-tile-image.treat';
 import { BlogPreviewTile } from './blog-preview-tile';
 import LazyLoad from 'react-lazyload';
 import GatsbyImage, { FluidObject } from 'gatsby-image';
+import BackgroundImage from 'gatsby-background-image';
 
 type OwnProps = {
   fluid?: FluidObject;
@@ -19,7 +20,7 @@ export const BlogPreviewTileImage: React.FC<OwnProps> = (props) => {
   return (
     <div className={styles.wrapper}>
       {props.fluid ? (
-        <GatsbyImage fluid={props.fluid} className={styles.imgPreview} />
+        <BackgroundImage fluid={props.fluid} className={styles.imgPreview} />
       ) : (
         <div className={styles.imgPreview}></div>
       )}
@@ -35,9 +36,8 @@ export const BlogPreviewTileImageFeatured: React.FC<OwnProps> = (props) => {
   return (
     <div className={styles.wrapper}>
       {props.fluid ? (
-        <GatsbyImage fluid={props.fluid} className={styles.imgPreview} />
+        <BackgroundImage fluid={props.fluid} className={styles.imgPreview} />
       ) : (
-        // <img src={props.imageUrl} className={styles.imgPreview} />
         <div className={styles.imgPreview}></div>
       )}
 

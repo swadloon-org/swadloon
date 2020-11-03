@@ -52,13 +52,15 @@ export const BlogPreviewSection: React.FC<OwnProps> = (props) => {
               {postsQuery.featuredPosts.edges
                 .filter((edge) => edge.node.node_locale === props.node_locale)
                 .map((post) => {
+                  const postURL = `${props.pageRoute}${post.node.blogSlug}`;
+
                   return (
                     <BlogPreviewTileImageFeatured
                       key={post.node.id}
                       fluid={post.node.blogMainImage.fluid}
                       title={post.node.title}
                       actionLabel="Lire l’article"
-                      link={''}
+                      link={postURL}
                     ></BlogPreviewTileImageFeatured>
                   );
                 })}
@@ -75,7 +77,7 @@ export const BlogPreviewSection: React.FC<OwnProps> = (props) => {
                       fluid={post.node.blogMainImage.fluid}
                       title={post.node.title}
                       actionLabel="Lire l’article"
-                      link={''}
+                      link={postURL}
                     ></BlogPreviewTileImage>
                   );
                 })}
@@ -107,11 +109,13 @@ export const BlogPreviewSection: React.FC<OwnProps> = (props) => {
             {postsQuery.recentPosts.edges
               .filter((edge) => edge.node.node_locale === props.node_locale)
               .map((post) => {
+                const postURL = `${props.pageRoute}${post.node.blogSlug}`;
                 return (
                   <BlogPreviewTileImage
                     key={post.node.id}
-                    imageUrl={post.node.blogMainImage.file.url}
+                    fluid={post.node.blogMainImage.fluid}
                     title={post.node.title}
+                    link={postURL}
                     actionLabel="Lire l’article"
                   ></BlogPreviewTileImage>
                 );
