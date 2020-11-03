@@ -73,9 +73,13 @@ export const containerForm = style((theme: DesignSystem) => ({
   '@media': {
     [theme.layout.media.tabletPlus]: {
       gridArea: 'form',
+      height: 'fit-content',
+      margin: 'auto 0',
     },
     [theme.layout.media.desktop]: {
       gridArea: 'form',
+      height: 'fit-content',
+      margin: 'auto 0',
     },
   },
 }));

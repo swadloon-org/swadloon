@@ -2,61 +2,56 @@ import { LABEL } from '@newrade/core-design-system-old';
 import { Link as GatsbyLink } from 'gatsby';
 import React, { AllHTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
-import { ActionSectionFragment } from '../../../types/graphql-types';
-import { Button } from '../button';
+import { SectionFragment } from '../../../types/graphql-types';
+import { Button } from '../ui/button';
 import { RenderTitleHighlight } from '../info-section/info-title-highligh';
-import { Label } from '../label';
+import { Label } from '../ui/label';
 import * as styleRefs from './action-section.treat';
+import { SECTION_TYPE } from '../../templates/section.template';
 
-type OwnProps = { section?: ActionSectionFragment } & AllHTMLAttributes<any>;
+type OwnProps = SectionFragment;
 
-export const ActionSection: React.FC<OwnProps> = ({ section, ...props }) => {
+export const ActionSection: React.FC<OwnProps> = (props) => {
   const styles = useStyles(styleRefs);
 
+  const variant = props.type.name as SECTION_TYPE.ACTION_PRIMARY | SECTION_TYPE.ACTION_SECONDARY;
+  const sectionStyle = variant === SECTION_TYPE.ACTION_PRIMARY ? styles.Default : styles.reversed;
+
   return (
-    <div className={`${styles.wrapper} ${props.type === 'default' ? styles.Default : styles.reversed}`}>
+    <div className={`${styles.wrapper} ${sectionStyle}`}>
       <div className={`${styles.container}`}>
         <div className={`${styles.content}`}>
           <Label variant={LABEL.xSmallBoldUppercase} className={`${styles.subtitle}`}>
-            {section?.subtitle}
+            {props?.subTitle}
           </Label>
 
           <RenderTitleHighlight
             className={`${styles.title}`}
-            titleHighlight={section?.titleHighlight}
-            title={section?.title}
+            titleHighlight={props?.titleHighlight}
+            title={props?.title}
           ></RenderTitleHighlight>
         </div>
         <div className={`${styles.buttonContainer}`}>
-          {/* <Button
-            className={`${styles.button}`}
-            variantType={props.type === 'default' ? 'primaryDefault' : 'primaryReversed'}
-            size="medium"
-            variant="text"
-          >
-            {props.actionText}
-          </Button> */}
-
-          {section?.link && section?.link.type === 'INTERNAL_PAGE' && section?.link.page?.route ? (
-            <GatsbyLink to={section?.link.page?.route} className={`${styles.button}`}>
+          {props?.link && props?.link.type === 'INTERNAL_PAGE' && props?.link.page?.route ? (
+            <GatsbyLink to={props?.link.page?.route} className={`${styles.button}`}>
               <Button
                 className={`${styles.button}`}
-                variantType={section?.type === 'default' ? 'primaryDefault' : 'primaryReversed'}
+                variantType={variant === SECTION_TYPE.ACTION_PRIMARY ? 'primaryDefault' : 'primaryReversed'}
                 size="medium"
                 variant="text"
               >
-                {section?.link.label}
+                {props?.link.label}
               </Button>
             </GatsbyLink>
-          ) : section?.link && section?.link.type === 'EXTERNAL_URL' && section?.link.url ? (
-            <a href={section?.link.url} className={`${styles.button}`}>
+          ) : props?.link && props?.link.type === 'EXTERNAL_URL' && props?.link.url ? (
+            <a href={props?.link.url} className={`${styles.button}`}>
               <Button
                 className={`${styles.button}`}
-                variantType={section?.type === 'default' ? 'primaryDefault' : 'primaryReversed'}
+                variantType={variant === SECTION_TYPE.ACTION_PRIMARY ? 'primaryDefault' : 'primaryReversed'}
                 size="medium"
                 variant="text"
               >
-                {section?.link.label}
+                {props?.link.label}
               </Button>
             </a>
           ) : null}

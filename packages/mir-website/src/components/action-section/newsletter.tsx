@@ -3,69 +3,61 @@ import { useStyles } from 'react-treat';
 import { Link as GatsbyLink } from 'gatsby';
 import * as styleRefs from './newsletter.treat';
 
-import { Input } from '../input';
-import { Label } from '../label';
-import { Heading } from '../heading';
-import { Button } from '../button';
+import { Input } from '../ui/input';
+import { Label } from '../ui/label';
+import { Heading } from '../ui/heading';
+import { Button } from '../ui/button';
 import { LABEL } from '@newrade/core-design-system-old';
-import { ActionSectionFragment } from '../../../types/graphql-types';
 import { RenderTitleHighlight } from '../info-section/info-title-highligh';
+import { SectionFragment } from '../../../types/graphql-types';
+import { SECTION_TYPE } from '../../templates/section.template';
 
-type OwnProps = { section?: ActionSectionFragment } & AllHTMLAttributes<any>;
+type OwnProps = SectionFragment;
 
-export const Newsletter: React.FC<OwnProps> = ({ section, ...props }) => {
+export const Newsletter: React.FC<OwnProps> = (props) => {
   const styles = useStyles(styleRefs);
 
+  const variant = props.type.name as SECTION_TYPE.NEWSLETTER_PRIMARY | SECTION_TYPE.NEWSLETTER_SECONDARY;
+
   return (
-    <div className={`${styles.wrapper}`} {...props}>
+    <div className={`${styles.wrapper}`}>
       <div className={`${styles.container}`}>
         <div className={`${styles.content}`}>
           <Label variant={LABEL.xSmallBoldUppercase} className={`${styles.subtitle}`}>
-            {section?.subtitle}
+            {props.subTitle}
           </Label>
 
           <RenderTitleHighlight
             className={`${styles.title}`}
-            titleHighlight={section?.titleHighlight}
-            title={section?.title}
+            title={props.title}
+            titleHighlight={props.titleHighlight}
           ></RenderTitleHighlight>
         </div>
 
         <div className={`${styles.containerForm}`}>
-          {/* <Button variantType="primaryReversed" size="large" variant="text" id="SubmitButton">
-            S'inscrire
-          </Button> */}
-
-          {section?.link && section?.link.type === 'INTERNAL_PAGE' && section?.link.page?.route ? (
-            <GatsbyLink to={section?.link.page?.route}>
+          {props.link && props.link.type === 'INTERNAL_PAGE' && props.link.page.route ? (
+            <GatsbyLink to={props.link.page.route}>
               <Button
                 id="SubmitButton"
-                variantType={section?.type === 'default' ? 'primaryDefault' : 'primaryReversed'}
+                variantType={variant !== SECTION_TYPE.NEWSLETTER_PRIMARY ? 'primaryDefault' : 'primaryReversed'}
                 size="medium"
                 variant="text"
               >
-                {section?.link.label}
+                {props.link.label}
               </Button>
             </GatsbyLink>
-          ) : section?.link && section?.link.type === 'EXTERNAL_URL' && section?.link.url ? (
-            <a href={section?.link.url}>
+          ) : props.link && props.link.type === 'EXTERNAL_URL' && props.link.url ? (
+            <a href={props.link.url}>
               <Button
                 id="SubmitButton"
-                variantType={section?.type === 'default' ? 'primaryDefault' : 'primaryReversed'}
+                variantType={variant !== SECTION_TYPE.NEWSLETTER_PRIMARY ? 'primaryDefault' : 'primaryReversed'}
                 size="medium"
                 variant="text"
               >
-                {section?.link.label}
+                {props.link.label}
               </Button>
             </a>
           ) : null}
-
-          {/* <form className={`${styles.formulaire}`} action="">
-            <Input variant="reversed" placeholder="Votre courriel" aria-labelledby="SubmitButton"></Input>
-            <Button variantType="secondaryReversed" size="small" variant="text" id="SubmitButton">
-              Soumettre
-            </Button>
-          </form> */}
         </div>
       </div>
     </div>
