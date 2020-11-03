@@ -22,14 +22,14 @@ export const type4Secondary = style((theme: DesignSystem) => ({
 }));
 
 export const infoTilesWrapper = style((theme: DesignSystem) => ({
-  display: 'flex',
-  flexDirection: 'column',
+  display: 'grid',
+  gridAutoFlow: 'row',
   marginBottom: `${theme.sizing.sizes.x6}`,
-  gridGap: ` ${theme.sizing.sizes.x4} 0`,
+  gridGap: `${theme.sizing.sizes.x4} 0 `,
 
   '@media': {
-    [theme.layout.media.desktop]: {
-      flexDirection: 'row',
+    [theme.layout.media.tabletPlus]: {
+      gridAutoFlow: 'column',
       gridGap: `0 ${theme.sizing.sizes.x4}`,
     },
   },
@@ -65,10 +65,14 @@ export const text = style((theme: DesignSystem) => ({
 }));
 
 export const title = style((theme: DesignSystem) => ({
-  textAlign: 'center',
   marginBottom: `calc(${theme.sizing.sizes.x3} *2)`,
+  textAlign: 'center',
   maxWidth: '400px',
+
   '@media': {
+    [theme.layout.media.tabletPlus]: {
+      textAlign: 'center',
+    },
     [theme.layout.media.desktop]: {
       maxWidth: '500px',
       textAlign: 'center',
