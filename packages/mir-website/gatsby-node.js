@@ -126,7 +126,7 @@ exports.createPages = async ({ graphql, actions }) => {
                 toolName: 'mir-website',
             });
             createPage({
-                path: edge.node.blogSlug,
+                path,
                 component: blogPostTemplate,
                 context: {
                     blogPostId: edge.node.id,

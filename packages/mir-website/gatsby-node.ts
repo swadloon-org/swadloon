@@ -148,7 +148,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
         });
 
         createPage<GatsbyBlogPostContext>({
-          path: edge.node.blogSlug,
+          path,
           component: blogPostTemplate,
           context: {
             blogPostId: edge.node.id,
