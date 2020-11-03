@@ -43,7 +43,6 @@ type OwnProps = {
 export const SideBar: React.FC<OwnProps> = (props, contentfulCompanyInfo) => {
   const styles = useStyles(stylesRef);
 
-  console.log(props.pages);
   const currentLocale = props.location?.pathname.includes('/en/') ? 'en-CA' : 'fr-CA';
   const currentLocaleIsEN = currentLocale === 'en-CA';
   const currentLocaleIsFR = !currentLocaleIsEN;
@@ -63,6 +62,7 @@ export const SideBar: React.FC<OwnProps> = (props, contentfulCompanyInfo) => {
     PAGE_NAME.EMPLOYEURS,
     PAGE_NAME.BLOGUE,
     PAGE_NAME.A_PROPOS,
+    PAGE_NAME.CONTACT,
   ];
   const leftToolbarPages = (currentLocaleIsEN ? pagesEN : pagesFR)
     ?.filter((page) => leftToolbarPageNames.includes(page.name))
@@ -106,7 +106,6 @@ export const SideBar: React.FC<OwnProps> = (props, contentfulCompanyInfo) => {
           </div>
 
           <nav className={styles.listMenu}>
-            {console.log(leftToolbarPages)}
             {leftToolbarPages?.map((page) => {
               return (
                 <GatsbyLink
@@ -115,7 +114,9 @@ export const SideBar: React.FC<OwnProps> = (props, contentfulCompanyInfo) => {
                   key={`${page.name}-${page.locale}`}
                   activeClassName={`${styles.activeItem}`}
                 >
-                  <div className={`${styles.itemMenu} ${props.currentPageName == page.route ? styles.activeItem : ''}`}>
+                  {console.log(props.currentPageName)}
+                  {console.log(page.route)}
+                  <div className={`${styles.itemMenu} ${props.currentPageName == page.name ? styles.activeItem : ''}`}>
                     <Heading variant="h4">{page.title}</Heading>
                   </div>
                 </GatsbyLink>
