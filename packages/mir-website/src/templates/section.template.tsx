@@ -104,7 +104,9 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
             return <Newsletter key={index} {...section} />;
           }
           case SECTION_TYPE.BLOG_PREVIEW: {
-            return <BlogPreviewSection key={index} {...section} />;
+            return (
+              <BlogPreviewSection pageRoute={data.contentfulPage.route} variant="preview" key={index} {...section} />
+            );
           }
           default: {
             return null;

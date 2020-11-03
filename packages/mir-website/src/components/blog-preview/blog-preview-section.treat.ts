@@ -42,4 +42,8 @@ export const paragraph = style((theme: DesignSystem) => ({
 export const fullPreview = style((theme: DesignSystem) => ({}));
 export const recentPreview = style((theme: DesignSystem) => ({}));
 export const contentFeaturedPost = style((theme: DesignSystem) => ({}));
-export const contentRecentPost = style((theme: DesignSystem) => ({}));
+export const contentRecentPost = style((theme: DesignSystem) => ({
+  display: 'grid',
+  gridGap: `${theme.sizing.sizes.x3}`,
+  gridTemplateColumns: '1fr 1fr 1fr',
+}));

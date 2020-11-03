@@ -11,6 +11,7 @@ import { SectionFragment, FeaturedPostsQuery } from '../../../types/graphql-type
 
 type OwnProps = SectionFragment & {
   variant: 'preview' | 'full';
+  pageRoute: string;
 };
 
 export const featuredPostsQuery = graphql`
@@ -67,6 +68,7 @@ export const BlogPreviewSection: React.FC<OwnProps> = (props) => {
               {postsQuery.recentPosts.edges
                 .filter((edge) => edge.node.node_locale === props.node_locale)
                 .map((post) => {
+                  const postURL = `${props.pageRoute}${post.node.blogSlug}`;
                   return (
                     <BlogPreviewTileImage
                       key={post.node.id}

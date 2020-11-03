@@ -29,7 +29,11 @@ export const BlogTemplate: React.FC<ProjectPageProps> = (props) => {
     <main className={`${styles.wrapper}`}>
       <BannerSecondary imageData={bannerImagesSource} title={props.data?.contentfulPage?.bannerTitle}></BannerSecondary>
 
-      <BlogPreviewSection variant="full" {...blogSection[0]}></BlogPreviewSection>
+      <BlogPreviewSection
+        pageRoute={props.data.contentfulPage.route}
+        variant="full"
+        {...blogSection[0]}
+      ></BlogPreviewSection>
 
       {/* <Newsletter id="newsletter" section={actionSection1}></Newsletter> */}
     </main>
