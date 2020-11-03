@@ -7,6 +7,7 @@ import { Button } from '../ui/button';
 import { Paragraph } from '../ui/paragraph';
 import { BlogPreviewTileImage, BlogPreviewTileImageFeatured } from './/blog-preview-tile-image';
 import * as styleRefs from './blog-preview-section.treat';
+import { isPropertySignature } from 'typescript';
 
 type OwnProps = SectionFragment & {
   variant: 'preview' | 'full';
@@ -107,7 +108,8 @@ export const BlogPreviewSection: React.FC<OwnProps> = (props) => {
             {postsQuery.recentPosts.edges
               .filter((edge) => edge.node.node_locale === props.node_locale)
               .map((post) => {
-                const postURL = `${props.pageRoute}${post.node.blogSlug}`;
+                const postURL =
+                  props.node_locale === 'fr-CA' ? `nouvelles/${post.node.blogSlug}` : `/en/news/${post.node.blogSlug}`;
                 return (
                   <BlogPreviewTileImage
                     key={post.node.id}
