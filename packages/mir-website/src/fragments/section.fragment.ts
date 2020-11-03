@@ -2,7 +2,10 @@ import { graphql } from 'gatsby';
 
 export const sectionFragment = graphql`
   fragment Section on ContentfulSection {
+    node_locale
+
     name
+
     type {
       ...sectionType
     }

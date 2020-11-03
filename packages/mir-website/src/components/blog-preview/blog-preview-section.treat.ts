@@ -39,3 +39,7 @@ export const paragraph = style((theme: DesignSystem) => ({
   textAlign: 'center',
   padding: `${theme.sizing.sizes.x3} ${theme.layout.contentMargins.mobile.px} ${theme.sizing.sizes.x5}`,
 }));
+export const fullPreview = style((theme: DesignSystem) => ({}));
+export const recentPreview = style((theme: DesignSystem) => ({}));
+export const contentFeaturedPost = style((theme: DesignSystem) => ({}));
+export const contentRecentPost = style((theme: DesignSystem) => ({}));

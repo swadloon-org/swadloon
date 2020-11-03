@@ -12,6 +12,9 @@ export const blogPostQuery = graphql`
     }
     createdAt
     updatedAt
+
+    featured
+
     blogMainImage {
       file {
         url
