@@ -70,16 +70,20 @@ export const content = style((theme: DesignSystem) => ({
 //
 
 export const containerForm = style((theme: DesignSystem) => ({
+  display: 'flex',
+  justifyContent: 'center',
   '@media': {
     [theme.layout.media.tabletPlus]: {
       gridArea: 'form',
       height: 'fit-content',
       margin: 'auto 0',
+      justifyContent: 'flex-start',
     },
     [theme.layout.media.desktop]: {
       gridArea: 'form',
       height: 'fit-content',
       margin: 'auto 0',
+      justifyContent: 'flex-start',
     },
   },
 }));
