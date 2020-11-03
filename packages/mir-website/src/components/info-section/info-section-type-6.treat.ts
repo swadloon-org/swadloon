@@ -29,6 +29,9 @@ export const type6Secondary = style((theme: DesignSystem) => ({
   width: '100%',
   backgroundColor: theme.colors.greyscale0,
 }));
+globalStyle(` ${type6Secondary} label`, (theme: DesignSystem) => ({
+  color: theme.colors.greyscale1000,
+}));
 
 //
 // type6Tertiary
@@ -61,6 +64,7 @@ globalStyle(` ${illustration} path`, (theme: DesignSystem) => ({
 
 export const title = style((theme: DesignSystem) => ({
   marginBottom: `${theme.sizing.sizes.x5}`,
+  textAlign: 'center',
 }));
 
 //

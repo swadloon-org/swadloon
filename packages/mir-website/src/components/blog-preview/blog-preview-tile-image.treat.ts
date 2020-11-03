@@ -8,7 +8,7 @@ export const wrapper = style((theme: DesignSystem) => ({
   zIndex: 0,
   '@media': {
     [theme.layout.media.tabletPlus]: {
-      width: '30%',
+      width: '100%',
     },
   },
 }));

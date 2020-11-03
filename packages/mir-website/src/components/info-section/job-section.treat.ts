@@ -63,7 +63,6 @@ export const content = style((theme: DesignSystem) => ({
     [theme.layout.media.tabletPlus]: {
       display: 'grid',
       gridColumn: '1',
-      // gridGap: `0 ${theme.sizing.sizes.x4}`,
     },
     [theme.layout.media.desktop]: {
       display: 'grid',
@@ -77,7 +76,8 @@ export const content = style((theme: DesignSystem) => ({
 }));
 
 export const withTags = style((theme: DesignSystem) => ({
-  gridGap: `${theme.sizing.sizes.x3} 0`,
+  display: 'grid',
+  gridGap: `${theme.sizing.sizes.x3} ${theme.sizing.sizes.x4}`,
 
   '@media': {
     [theme.layout.media.tabletPlus]: {
@@ -111,9 +111,7 @@ export const unselected = style((theme: DesignSystem) => ({
 //
 // selected
 //
-export const selected = style((theme: DesignSystem) => ({
-  display: 'block',
-}));
+export const selected = style((theme: DesignSystem) => ({}));
 
 //
 // accordions
@@ -153,6 +151,7 @@ export const title = style((theme: DesignSystem) => ({
 //
 export const even = style((theme: DesignSystem) => ({
   backgroundColor: 'none',
+  height: 'fit-content',
 }));
 
 //
@@ -160,4 +159,5 @@ export const even = style((theme: DesignSystem) => ({
 //
 export const unenven = style((theme: DesignSystem) => ({
   backgroundColor: theme.colors.greyscale0,
+  height: 'fit-content',
 }));

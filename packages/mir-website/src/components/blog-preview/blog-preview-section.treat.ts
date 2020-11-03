@@ -44,9 +44,8 @@ export const paragraph = style((theme: DesignSystem) => ({
 }));
 
 export const fullPreview = style((theme: DesignSystem) => ({
-  display: 'flex',
+  display: 'grid',
   gridGap: theme.sizing.sizes.x5,
-  flexDirection: 'column',
 }));
 
 export const contentFeaturedPost = style((theme: DesignSystem) => ({
@@ -61,12 +60,12 @@ export const contentFeaturedPost = style((theme: DesignSystem) => ({
 }));
 
 export const contentRecentPost = style((theme: DesignSystem) => ({
-  display: 'flex',
-  flexDirection: 'column',
+  display: 'grid',
+  gridTemplateColumns: '1fr ',
   gridGap: `${theme.sizing.sizes.x5}`,
   '@media': {
     [theme.layout.media.tabletPlus]: {
-      flexDirection: 'row',
+      gridTemplateColumns: '1fr 1fr 1fr',
     },
   },
 }));

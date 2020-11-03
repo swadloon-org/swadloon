@@ -38,7 +38,9 @@ export const Process: React.FC<OwnProps> = (props) => {
                     variants == SECTION_TYPE.PROCESS_SECONDARY ? styles.contentBlue : ''
                   }`}
                 >
-                  <Heading variant="h4">{tile.title}</Heading>
+                  <Heading className={`${styles.blocTitle}`} variant="h4">
+                    {tile.title}
+                  </Heading>
                   {variants == SECTION_TYPE.PROCESS_PRIMARY ? (
                     <Paragraph variant="small">{tile.description.description}</Paragraph>
                   ) : null}

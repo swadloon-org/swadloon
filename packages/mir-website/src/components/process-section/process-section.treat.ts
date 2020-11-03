@@ -1,6 +1,5 @@
-import { DesignSystem, createShadow } from '@newrade/core-design-system-old';
+import { createShadow, DesignSystem } from '@newrade/core-design-system-old';
 import { globalStyle, style } from 'treat';
-import { theme } from '../../design-system';
 
 export const wrapper = style((theme: DesignSystem) => ({
   padding: `${theme.sizing.sizes.x6} 0`,
@@ -33,15 +32,15 @@ export const title = style((theme: DesignSystem) => ({
 export const content = style((theme: DesignSystem) => ({
   position: 'relative',
   zIndex: 2,
-  display: 'flex',
+  display: 'grid',
   gridColumn: '1',
   gridGap: `${theme.sizing.sizes.x4}`,
   margin: `0 ${theme.layout.contentMargins.mobile.px}`,
-  flexDirection: 'column',
   width: 'fit-content',
 
   '@media': {
     [theme.layout.media.desktop]: {
+      display: 'flex',
       justifyContent: 'center',
       flexDirection: 'row',
       gridGap: `0 ${theme.sizing.sizes.x2}`,
@@ -174,32 +173,17 @@ export const blocContent = style((theme: DesignSystem) => ({
   },
 }));
 
-// export const line = style((theme: DesignSystem) => ({
-//   position: 'absolute',
-//   zIndex: -1,
-//   border: `3px solid ${theme.colors.greyscale0}`,
-//   backgroundColor: theme.colors.greyscale0,
-//   width: '0',
-//   top: '25px',
-//   left: '22px',
-//   height: '90%',
-
-//   '@media': {
-//     [theme.layout.media.desktop]: {
-//       width: `calc(100% - 100px - (${theme.sizing.sizes.x2}*2))`,
-//       height: '0',
-//       left: 'auto',
-//       right: 'auto',
-//     },
-//   },
-
-//   selectors: {
-//     [`${blocContent} &`]: {
-//       alignSelf: 'center',
-//     },
-//   },
-// }));
-
 export const contentBlue = style((theme: DesignSystem) => ({
   color: theme.colors.primary500,
+}));
+
+export const blocTitle = style((theme: DesignSystem) => ({
+  '@media': {
+    [theme.layout.media.mobile]: {
+      paddingBottom: '10px',
+    },
+    [theme.layout.media.tablet]: {
+      paddingBottom: '10px',
+    },
+  },
 }));

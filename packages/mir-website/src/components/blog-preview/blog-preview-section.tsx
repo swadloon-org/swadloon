@@ -68,17 +68,19 @@ export const BlogPreviewSection: React.FC<OwnProps> = (props) => {
             <div className={`${styles.contentRecentPost}`}>
               {postsQuery.recentPosts.edges
                 .filter((edge) => edge.node.node_locale === props.node_locale)
-                .map((post) => {
-                  const postURL = `${props.pageRoute}${post.node.blogSlug}`;
-                  return (
-                    <BlogPreviewTileImage
-                      key={post.node.id}
-                      fluid={post.node.blogMainImage.fluid}
-                      title={post.node.title}
-                      actionLabel="Lire l’article"
-                      link={postURL}
-                    ></BlogPreviewTileImage>
-                  );
+                .map((post, index) => {
+                  if (index < 3) {
+                    const postURL = `${props.pageRoute}${post.node.blogSlug}`;
+                    return (
+                      <BlogPreviewTileImage
+                        key={post.node.id}
+                        fluid={post.node.blogMainImage.fluid}
+                        title={post.node.title}
+                        actionLabel="Lire l’article"
+                        link={postURL}
+                      ></BlogPreviewTileImage>
+                    );
+                  }
                 })}
             </div>
           </div>
@@ -107,18 +109,22 @@ export const BlogPreviewSection: React.FC<OwnProps> = (props) => {
           <div className={`${styles.contentRecentPost}`}>
             {postsQuery.recentPosts.edges
               .filter((edge) => edge.node.node_locale === props.node_locale)
-              .map((post) => {
-                const postURL =
-                  props.node_locale === 'fr-CA' ? `nouvelles/${post.node.blogSlug}` : `/en/news/${post.node.blogSlug}`;
-                return (
-                  <BlogPreviewTileImage
-                    key={post.node.id}
-                    fluid={post.node.blogMainImage.fluid}
-                    title={post.node.title}
-                    link={postURL}
-                    actionLabel="Lire l’article"
-                  ></BlogPreviewTileImage>
-                );
+              .map((post, index) => {
+                if (index < 3) {
+                  const postURL =
+                    props.node_locale === 'fr-CA'
+                      ? `nouvelles/${post.node.blogSlug}`
+                      : `/en/news/${post.node.blogSlug}`;
+                  return (
+                    <BlogPreviewTileImage
+                      key={post.node.id}
+                      fluid={post.node.blogMainImage.fluid}
+                      title={post.node.title}
+                      link={postURL}
+                      actionLabel="Lire l’article"
+                    ></BlogPreviewTileImage>
+                  );
+                }
               })}
           </div>
         </div>
