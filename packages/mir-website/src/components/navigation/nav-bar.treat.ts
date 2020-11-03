@@ -32,7 +32,7 @@ export const content = style((theme: DesignSystem) => ({
   justifyItems: 'center',
   alignItems: 'center',
   width: '100%',
-
+  height: 'fit-content',
   '@media': {
     [theme.layout.media.desktop]: {
       gridTemplateColumns: '1fr 100px 1fr',

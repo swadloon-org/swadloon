@@ -26,7 +26,6 @@ export const wrapper = style((theme: DesignSystem) => ({
 
 export const content = style((theme: DesignSystem) => ({
   position: 'relative',
-  gridColumnStart: '2',
 
   display: 'grid',
 
@@ -35,11 +34,12 @@ export const content = style((theme: DesignSystem) => ({
   backgroundColor: theme.colors.greyscale0,
 
   '@media': {
-    // [theme.layout.media.tablet]: {
-    //   padding: theme.sizing.sizes.x6,
-    // },
+    [theme.layout.media.tablet]: {
+      padding: `${theme.layout.contentMargins.tablet.px} ${theme.sizing.sizes.x6}`,
+    },
     [theme.layout.media.desktop]: {
       margin: `${theme.sizing.sizes.x6} ${theme.layout.contentMargins.desktop.px}`,
+      gridColumnStart: '2',
     },
   },
 }));
