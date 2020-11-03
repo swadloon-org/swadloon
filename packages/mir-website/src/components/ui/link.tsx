@@ -4,6 +4,7 @@ import { useStyles } from 'react-treat';
 import * as styleRefs from './link.treat';
 import { LABEL } from '@newrade/core-design-system-old';
 import { Label } from './label';
+import { Paragraph } from './paragraph';
 
 type OwnProps = {
   to: string;
@@ -27,9 +28,7 @@ export const MarkdownLink: React.FC<HTMLAttributes<any> & OwnProps> = (props) =>
 
   return (
     <GatsbyLink to={props.to} className={`${styles.link}`} activeClassName={`${styles.linkActive}`}>
-      <Label className={`${styles.label}`} variant={LABEL.mediumRegular}>
-        {props.children}
-      </Label>
+      <Paragraph>{props.children}</Paragraph>
       <div className={`${styles.active}`}></div>
     </GatsbyLink>
   );

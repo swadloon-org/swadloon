@@ -8,6 +8,8 @@ import { globalStyle, style } from 'treat';
 export const wrapper = style((theme: DesignSystem) => ({
   display: 'grid',
   justifyItems: 'center',
+  alignContent: ' flex-start',
+
   padding: `${theme.sizing.sizes.x6} ${theme.layout.contentMargins.mobile.px}`,
 }));
 
@@ -29,8 +31,11 @@ export const type6Secondary = style((theme: DesignSystem) => ({
   width: '100%',
   backgroundColor: theme.colors.greyscale0,
 }));
-globalStyle(` ${type6Secondary} label`, (theme: DesignSystem) => ({
+globalStyle(` ${type6Secondary} p a`, (theme: DesignSystem) => ({
   color: theme.colors.greyscale1000,
+  display: 'flex',
+  justifyItems: 'center',
+  flexDirection: 'column',
 }));
 
 //
