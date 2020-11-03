@@ -44,7 +44,7 @@ export const SideBar: React.FC<OwnProps> = (props, contentfulCompanyInfo) => {
   const styles = useStyles(stylesRef);
 
   console.log(props.pages);
-  const currentLocale = location?.pathname.includes('/en/') ? 'en-CA' : 'fr-CA';
+  const currentLocale = props.location?.pathname.includes('/en/') ? 'en-CA' : 'fr-CA';
   const currentLocaleIsEN = currentLocale === 'en-CA';
   const currentLocaleIsFR = !currentLocaleIsEN;
   const currentPage = props.pages.filter(
