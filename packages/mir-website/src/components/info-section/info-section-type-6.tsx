@@ -3,11 +3,14 @@ import { useStyles } from 'react-treat';
 import { Heading } from '../ui/heading';
 import { Illustration } from '../ui/illustration';
 import { Paragraph } from '../ui/paragraph';
+import { MDXProvider } from '@mdx-js/react';
 
 import * as styleRefs from './info-section-type-6.treat';
 import { SectionFragment } from '../../../types/graphql-types';
 import { SECTION_TYPE } from '../../templates/section.template';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
+import { markdownComponents } from '../markdown/components-markdown';
+import { MarkdownLink } from '../ui/link';
 
 type OwnProps = SectionFragment;
 
@@ -33,6 +36,14 @@ export const InfoSectionType6: React.FC<OwnProps> = (props) => {
     }
   }
 
+  const componentsLink = {
+    h1: (props) => <Heading variant="h2" {...props}></Heading>,
+    h2: (props) => <Heading variant="h3" {...props}></Heading>,
+    h3: (props) => <Heading variant="h4" {...props}></Heading>,
+    p: (props) => <Paragraph variant="medium" {...props}></Paragraph>,
+    a: MarkdownLink,
+  };
+
   return (
     <div className={`${styles.wrapper} ${sectionStyle()}`} key={props.title}>
       <Illustration className={`${styles.illustration}`} name={`Illustration/${props.illustration.title}`} />
@@ -41,7 +52,9 @@ export const InfoSectionType6: React.FC<OwnProps> = (props) => {
         {props.title}
       </Heading>
       <Paragraph variant={'small'} className={styles.text}>
-        <MDXRenderer>{props.text.childMdx.body}</MDXRenderer>
+        <MDXProvider components={componentsLink}>
+          <MDXRenderer>{props.text.childMdx.body}</MDXRenderer>
+        </MDXProvider>
       </Paragraph>
     </div>
   );

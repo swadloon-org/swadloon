@@ -1,6 +1,6 @@
 import React from 'react';
 import { Heading } from '../ui/heading';
-import { Link } from '../ui/link';
+import { Link, ButtonLink, MarkdownLink } from '../ui/link';
 import { Paragraph } from '../ui/paragraph';
 
 export const markdownComponents = {
