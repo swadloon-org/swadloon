@@ -12,6 +12,7 @@ type OwnProps = {
   subtitle?: string | null;
   title?: string | null;
   actionLabel?: string | null;
+  link: string;
 };
 
 export const BlogPreviewTile: React.FC<OwnProps> = (props) => {
@@ -23,9 +24,11 @@ export const BlogPreviewTile: React.FC<OwnProps> = (props) => {
         {props.title}
       </Heading>
 
-      <Button size="small" variantType="tertiaryReversed" variant="text" className={styles.button}>
-        {props.actionLabel}
-      </Button>
+      <GatsbyLink to={props.link}>
+        <Button variant={'text'} size={'small'} variantType={'tertiaryReversed'} className={styles.button}>
+          {props.actionLabel}
+        </Button>
+      </GatsbyLink>
     </div>
   );
 };
