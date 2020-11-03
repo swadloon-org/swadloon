@@ -33,6 +33,7 @@ export const blogPostQuery = graphql`
     blogAuthor {
       firstName
       lastName
+      jobTitle
       profilePicture {
         file {
           url

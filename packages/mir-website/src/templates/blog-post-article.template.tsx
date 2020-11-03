@@ -32,7 +32,11 @@ export const BlogPostArticleTemplate: React.FC<OwnProps> = (props) => {
           {props.subtitle}
         </Label>
         <Heading variant={'h2'}>{props.title}</Heading>
-        <Author></Author>
+        <Author
+          name={`${props.blogAuthor[0].firstName} ${props.blogAuthor[0].lastName}`}
+          title={props.blogAuthor[0]?.jobTitle}
+          profileImageUrl={props.blogAuthor[0]?.profilePicture.file.url}
+        ></Author>
         <GatsbyImage fluid={props.blogMainImage.fluid}></GatsbyImage>
         <MDXRenderer>{props.content.childMdx.body}</MDXRenderer>
       </div>

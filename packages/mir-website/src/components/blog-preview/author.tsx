@@ -5,7 +5,7 @@ import LazyLoad from 'react-lazyload';
 import { LABEL } from '@newrade/core-design-system-old';
 import { Label } from '../ui/label';
 
-interface OwnProps {}
+type OwnProps = { name: string; title: string; profileImageUrl: string };
 
 export const Author: React.FC<OwnProps> = (props) => {
   const styles = useStyles(styleRefs);
@@ -13,18 +13,17 @@ export const Author: React.FC<OwnProps> = (props) => {
   return (
     <div className={styles.wrapper}>
       <LazyLoad>
-        <div
-          className={styles.imageAuthor}
-          style={{ backgroundImage: `url(https://media.graphcms.com/resize=fit:max,width:300/Jp9hlNc7RViXEuuSNHIw)` }}
-        ></div>
+        <div className={styles.imageAuthor} style={{ backgroundImage: `url(${props.profileImageUrl})` }}></div>
       </LazyLoad>
       <div className={styles.contentText}>
         <Label variant={LABEL.smallBold} className={styles.fullName}>
-          Émilie Clarke
+          {props.name}
         </Label>
-        <Label variant={LABEL.smallRegular} className={styles.title}>
-          Directrice du développement des affaires
-        </Label>
+        {props.title ? (
+          <Label variant={LABEL.smallRegular} className={styles.title}>
+            {props.title}
+          </Label>
+        ) : null}
       </div>
     </div>
   );
