@@ -12,12 +12,7 @@ import { Illustration } from '../ui/illustration';
 import { Label } from '../ui/label';
 import { Heading } from '../ui/heading';
 import { Button } from '../ui/button';
-
-type OwnProps = {
-  state: 'opened' | 'closed';
-  onOpenSideMenu: () => void;
-} & NavigationProps &
-  HTMLAttributes<any>;
+import { PAGE_NAME } from '../../templates/page.template';
 
 export const sideBarQuery = graphql`
   query mobileBar {
@@ -39,20 +34,44 @@ export const sideBarQuery = graphql`
   }
 `;
 
-export const SideBar: React.FC<OwnProps> = (props) => {
+type OwnProps = {
+  state: 'opened' | 'closed';
+  onOpenSideMenu: () => void;
+} & NavigationProps &
+  HTMLAttributes<any>;
+
+export const SideBar: React.FC<OwnProps> = (props, contentfulCompanyInfo) => {
   const styles = useStyles(stylesRef);
 
-  const leftToolbarPageNames = ['Home', 'Candidates', 'Employers', 'Blog', 'About', 'Contact'];
-  const leftToolbarPages = props.pages
+  console.log(props.pages);
+  const currentLocale = location?.pathname.includes('/en/') ? 'en-CA' : 'fr-CA';
+  const currentLocaleIsEN = currentLocale === 'en-CA';
+  const currentLocaleIsFR = !currentLocaleIsEN;
+  const currentPage = props.pages.filter(
+    (page) => page.name === props.currentPageName && page.locale === currentLocale
+  );
+  const currentAlternateLocalePage = props.pages.filter(
+    (page) => page.name === props.currentPageName && page.locale !== currentLocale
+  );
+  const pagesEN = props.pages.filter((page) => (currentLocaleIsEN ? page.locale === 'en-CA' : page));
+  const pagesFR = props.pages.filter((page) => (currentLocaleIsFR ? page.locale === 'fr-CA' : page));
+  // const alternateLocalePage = localENActive ? pages.includes({name: currentPageName, route: })
+
+  const leftToolbarPageNames: (string | PAGE_NAME)[] = [
+    PAGE_NAME.ACCUEIL,
+    PAGE_NAME.CANDIDATS,
+    PAGE_NAME.EMPLOYEURS,
+    PAGE_NAME.BLOGUE,
+    PAGE_NAME.A_PROPOS,
+  ];
+  const leftToolbarPages = (currentLocaleIsEN ? pagesEN : pagesFR)
     ?.filter((page) => leftToolbarPageNames.includes(page.name))
     .sort((pageA, pageB) => {
       const indexA = leftToolbarPageNames.indexOf(pageA.name);
       const indexB = leftToolbarPageNames.indexOf(pageB.name);
       return indexA > indexB ? 1 : -1;
     });
-
-  const data = useStaticQuery<MobileBarQuery>(sideBarQuery);
-  const pageActual = props.location?.pathname;
+  const contactUsPage = (currentLocaleIsEN ? pagesEN : pagesFR)?.filter((page) => page.name === 'Contact');
 
   return (
     <motion.div
@@ -68,7 +87,7 @@ export const SideBar: React.FC<OwnProps> = (props) => {
       transition={{ x: { duration: 0.3, ease: 'easeOut' } }}
     >
       <div className={styles.topContainer}>
-        <img className={styles.logo} src={data?.contentfulCompanyInfo.logo.file.url} />
+        <img className={styles.logo} src={props.logoURL} />
         <div className={styles.icon} onClick={(e) => props.onOpenSideMenu()}>
           <Icon icon="IconClose" size={ICON_SIZE.large}></Icon>
         </div>
@@ -87,6 +106,7 @@ export const SideBar: React.FC<OwnProps> = (props) => {
           </div>
 
           <nav className={styles.listMenu}>
+            {console.log(leftToolbarPages)}
             {leftToolbarPages?.map((page) => {
               return (
                 <GatsbyLink
@@ -95,7 +115,7 @@ export const SideBar: React.FC<OwnProps> = (props) => {
                   key={`${page.name}-${page.locale}`}
                   activeClassName={`${styles.activeItem}`}
                 >
-                  <div className={`${styles.itemMenu} ${pageActual == page.route ? styles.activeItem : ''}`}>
+                  <div className={`${styles.itemMenu} ${props.currentPageName == page.route ? styles.activeItem : ''}`}>
                     <Heading variant="h4">{page.title}</Heading>
                   </div>
                 </GatsbyLink>
