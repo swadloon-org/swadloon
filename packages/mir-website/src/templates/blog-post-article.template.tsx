@@ -28,7 +28,7 @@ export const BlogPostArticleTemplate: React.FC<OwnProps> = (props) => {
         </ul>
       </div> */}
       <div className={styles.content}>
-        <Label variant={LABEL.xSmallBoldUppercase} as="div">
+        <Label variant={LABEL.xSmallBoldUppercase} as="div" className={styles.subtitle}>
           {props.subtitle}
         </Label>
         <Heading variant={'h2'}>{props.title}</Heading>

@@ -44,6 +44,10 @@ export const content = style((theme: DesignSystem) => ({
   },
 }));
 
+export const subtitle = style((theme: DesignSystem) => ({
+  color: theme.colors.greyscale500,
+}));
+
 export const tableContents = style((theme: DesignSystem) => ({
   position: 'fixed',
   top: 200,
