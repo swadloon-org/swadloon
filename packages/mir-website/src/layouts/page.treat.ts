@@ -11,6 +11,8 @@ export const wrapper = style((theme: DesignSystem) => ({
   flexDirection: 'column',
   width: '100%',
   minHeight: '110vh',
+  maxWidth: '100vw',
+  overflowX: 'hidden',
 }));
 
 export const sidebar = style((theme: DesignSystem) => ({

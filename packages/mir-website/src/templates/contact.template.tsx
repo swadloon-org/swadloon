@@ -152,7 +152,7 @@ export const ContactTemplate: React.FC<ProjectPageProps> = (props) => {
             className={`${styles.textArea}`}
           ></TextArea>
 
-          <ReCAPTCHA ref={recaptchaRef} sitekey="6Lf8XNIZAAAAADnLIXoaEsF2b6UZcY2yGryXev2S" />
+          <ReCAPTCHA size={'compact'} ref={recaptchaRef} sitekey="6Lf8XNIZAAAAADnLIXoaEsF2b6UZcY2yGryXev2S" />
 
           <Button variantType="secondaryDefault" size="small" variant="text" id="SubmitButton" type="submit">
             Soumettre
