@@ -34,7 +34,7 @@ export const content = style((theme: DesignSystem) => ({
   zIndex: 2,
   display: 'grid',
   gridColumn: '1',
-  gridGap: `${theme.sizing.sizes.x4}`,
+  gap: `${theme.sizing.sizes.x4}`,
   margin: `0 ${theme.layout.contentMargins.mobile.px}`,
   width: 'fit-content',
 
@@ -43,7 +43,7 @@ export const content = style((theme: DesignSystem) => ({
       display: 'flex',
       justifyContent: 'center',
       flexDirection: 'row',
-      gridGap: `0 ${theme.sizing.sizes.x2}`,
+      gap: `0 ${theme.sizing.sizes.x2}`,
       margin: `${theme.layout.contentMargins.tablet.px} 0`,
     },
   },
@@ -160,7 +160,7 @@ export const blocContent = style((theme: DesignSystem) => ({
 
   '@media': {
     [theme.layout.media.desktop]: {
-      gridGap: `${theme.sizing.sizes.x3}`,
+      gap: `${theme.sizing.sizes.x3}`,
       textAlign: 'center',
       justifyContent: 'center',
 

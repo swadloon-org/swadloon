@@ -23,7 +23,14 @@ export const featuredPostsQuery = graphql`
         }
       }
     }
-    recentPosts: allContentfulBlogPost(filter: { featured: { ne: true } }, sort: { fields: createdAt, order: DESC }) {
+    recentPostsNoFeatured: allContentfulBlogPost(filter: { featured: { ne: true } }, sort: { fields: createdAt, order: DESC }) {
+      edges {
+        node {
+          ...BlogPost
+        }
+      }
+    }
+    recentPosts: allContentfulBlogPost(sort: { fields: createdAt, order: DESC }) {
       edges {
         node {
           ...BlogPost
@@ -66,7 +73,7 @@ export const BlogPreviewSection: React.FC<OwnProps> = (props) => {
               })}
 
             <div className={`${styles.contentRecentPost}`}>
-              {postsQuery.recentPosts.edges
+              {postsQuery.recentPostsNoFeatured.edges
                 .filter((edge) => edge.node.node_locale === props.node_locale)
                 .map((post, index) => {
                   if (index < 3) {
