@@ -23,7 +23,7 @@ export const Design: React.FC = () => {
 
   return (
     <div className={style.wrapper}>
-      <div style={{ padding: '2rem', display: 'grid', gridGap: '2rem' }}>
+      <div style={{ padding: '2rem', display: 'grid', gap: '2rem' }}>
         <Heading variant="h1">Heading 1</Heading>
         <Heading variant="h2">Heading 2</Heading>
         <Heading variant="h3">Heading 3</Heading>

@@ -68,7 +68,7 @@ export const content = style((theme: DesignSystem) => ({
       display: 'grid',
       gridColumn: '1',
       gridTemplateColumns: 'repeat(3, 1fr)',
-      // gridGap: `0 ${theme.sizing.sizes.x4}`,
+      // gap: `0 ${theme.sizing.sizes.x4}`,
       gridTemplateRows: 'repeat(4, 1fr)',
       gridAutoFlow: 'column',
     },
@@ -77,14 +77,14 @@ export const content = style((theme: DesignSystem) => ({
 
 export const withTags = style((theme: DesignSystem) => ({
   display: 'grid',
-  gridGap: `${theme.sizing.sizes.x3} ${theme.sizing.sizes.x4}`,
+  gap: `${theme.sizing.sizes.x3} ${theme.sizing.sizes.x4}`,
 
   '@media': {
     [theme.layout.media.tabletPlus]: {
-      gridGap: `${theme.sizing.sizes.x3} ${theme.sizing.sizes.x4}`,
+      gap: `${theme.sizing.sizes.x3} ${theme.sizing.sizes.x4}`,
     },
     [theme.layout.media.desktop]: {
-      gridGap: `${theme.sizing.sizes.x3} ${theme.sizing.sizes.x4}`,
+      gap: `${theme.sizing.sizes.x3} ${theme.sizing.sizes.x4}`,
     },
   },
 }));
@@ -92,10 +92,10 @@ export const withTags = style((theme: DesignSystem) => ({
 export const withCheck = style((theme: DesignSystem) => ({
   '@media': {
     [theme.layout.media.tabletPlus]: {
-      gridGap: `0 ${theme.sizing.sizes.x4}`,
+      gap: `0 ${theme.sizing.sizes.x4}`,
     },
     [theme.layout.media.desktop]: {
-      gridGap: `0 ${theme.sizing.sizes.x4}`,
+      gap: `0 ${theme.sizing.sizes.x4}`,
     },
   },
 }));

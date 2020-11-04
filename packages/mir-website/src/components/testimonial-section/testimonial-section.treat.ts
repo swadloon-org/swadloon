@@ -1,5 +1,5 @@
-import { DesignSystem, createShadow } from '@newrade/core-design-system-old';
-import { globalStyle, style } from 'treat';
+import { createShadow, DesignSystem } from '@newrade/core-design-system-old';
+import { style } from 'treat';
 
 export const wrapper = style((theme: DesignSystem) => ({
   backgroundColor: theme.colors.greyscale0,
@@ -58,7 +58,7 @@ export const content = style((theme: DesignSystem) => ({
   display: 'grid',
   gridColumn: '1',
   gridTemplateColumns: '1fr',
-  gridGap: `${theme.sizing.sizes.x5} 0 `,
+  gap: `${theme.sizing.sizes.x5} 0 `,
 
   '@media': {
     [theme.layout.media.tablet]: {},
@@ -66,7 +66,7 @@ export const content = style((theme: DesignSystem) => ({
     [theme.layout.media.desktop]: {
       gridColumn: '1',
       gridTemplateColumns: '1fr 1fr 1fr',
-      gridGap: `0 ${theme.sizing.sizes.x4}`,
+      gap: `0 ${theme.sizing.sizes.x4}`,
     },
   },
 }));
@@ -113,7 +113,7 @@ export const triangle = style((theme: DesignSystem) => ({
 export const author = style((theme: DesignSystem) => ({
   paddingTop: `${theme.sizing.sizes.x4}`,
   display: 'grid',
-  gridGap: `${theme.sizing.sizes.x2}`,
+  gap: `${theme.sizing.sizes.x2}`,
 }));
 export const name = style((theme: DesignSystem) => ({}));
 export const job = style((theme: DesignSystem) => ({

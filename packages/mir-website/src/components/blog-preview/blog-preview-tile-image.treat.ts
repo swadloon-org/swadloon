@@ -5,6 +5,8 @@ export const wrapper = style((theme: DesignSystem) => ({
   position: 'relative',
   display: 'flex',
   width: '100%',
+  maxWidth: '340px',
+  justifySelf: 'center',
   zIndex: 0,
   '@media': {
     [theme.layout.media.tabletPlus]: {
@@ -15,7 +17,7 @@ export const wrapper = style((theme: DesignSystem) => ({
 
 export const imgPreview = style((theme: DesignSystem) => ({
   width: '100%',
-  height: '200px',
+  height: '270px',
   position: 'absolute',
   top: '0',
   left: '0',
