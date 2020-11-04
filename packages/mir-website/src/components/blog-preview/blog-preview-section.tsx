@@ -23,7 +23,10 @@ export const featuredPostsQuery = graphql`
         }
       }
     }
-    recentPostsNoFeatured: allContentfulBlogPost(filter: { featured: { ne: true } }, sort: { fields: createdAt, order: DESC }) {
+    recentPostsNoFeatured: allContentfulBlogPost(
+      filter: { featured: { ne: true } }
+      sort: { fields: createdAt, order: DESC }
+    ) {
       edges {
         node {
           ...BlogPost
