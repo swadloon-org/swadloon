@@ -5,7 +5,7 @@ export const wrapper = style((theme: DesignSystem) => ({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'stretch',
-  width: '340px',
+  width: '270px',
 
   padding: `${theme.sizing.sizes.x3} ${theme.sizing.sizes.x3} ${theme.sizing.sizes.x1}`,
 
