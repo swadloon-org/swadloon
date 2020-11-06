@@ -6,9 +6,4 @@
 
 require('dotenv').config();
 
-export type BlogPostContext = {
-  id: string;
-  content: any;
-};
-
 exports.createPages = async ({ actions, graphql }) => {};
