@@ -44,17 +44,6 @@ const config: core.GastbySiteConfig = {
      */
 
     {
-      resolve: `gatsby-source-graphql`,
-      options: {
-        typeName: `GraphCMS`,
-        fieldName: `gcms`,
-        url: env.GRAPH_CMS_API_URL_CORE,
-        headers: {
-          Authorization: `bearer ${env.GRAPH_CMS_AUTH_TOKEN_CORE}`,
-        },
-      },
-    },
-    {
       resolve: `gatsby-plugin-mdx`,
       options: {
         remarkPlugins: [],
