@@ -41,4 +41,9 @@ assignees: ''
 - [ ] have access to the projects' google drive (https://drive.google.com/drive/u/1/folders/1LAAdEZzm5btu1xR6mvw62oL6P7vIgago)
 - [ ] install the desktop figma app https://www.figma.com/downloads/
 
+## Figma Plugins
+
+- [ ] Autoflow
+- [ ] Flowkit (licence key: A7B9-05AB-4F9C-E2DF)
+
 ---
