@@ -11,6 +11,11 @@ export interface CSSDesignSystemTypes extends DesignSystemTypes {
     letterSpacing: CSSTypes.LetterSpacingProperty<any>;
     textTransform: CSSTypes.TextTransformProperty;
   };
+
+  // layout: {
+
+  // };
+
   components: {
     button: {
       color: CSSTypes.Color;

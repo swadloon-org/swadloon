@@ -10,6 +10,6 @@ export type ContentMargins = {
 /**
  * Content max width for larger viewports.
  */
-export interface ContentWidths {
-  desktopMaxWidth: number;
+export interface ContentWidths<WidthType = number> {
+  desktopMaxWidth: WidthType;
 }
