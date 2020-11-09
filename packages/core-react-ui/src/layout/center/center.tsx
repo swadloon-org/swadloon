@@ -1,10 +1,10 @@
 import { ButtonProps, Sizing } from '@newrade/core-design-system';
 import React, { ButtonHTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
-// import * as styleRefs from './center.treat';
+import * as styleRefs from './center.treat';
 
 type OwnProps = {
-  className: 'test';
+  className: string;
   marginVertical?: Sizing | 'auto';
   marginHorizontal?: Sizing | 'auto';
   widthMax?: 'small' | 'medium' | 'large' | 'x-large';
