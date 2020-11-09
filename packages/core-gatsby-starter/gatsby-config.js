@@ -14,7 +14,7 @@ var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (
 var __importStar = (this && this.__importStar) || function (mod) {
     if (mod && mod.__esModule) return mod;
     var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
     __setModuleDefault(result, mod);
     return result;
 };
@@ -63,17 +63,6 @@ const config = {
          * @see https://github.com/GraphCMS/gatsby-source-graphcms/tree/next/gatsby-source-graphcms
          * Test
          */
-        {
-            resolve: `gatsby-source-graphql`,
-            options: {
-                typeName: `GraphCMS`,
-                fieldName: `gcms`,
-                url: env.GRAPH_CMS_API_URL_CORE,
-                headers: {
-                    Authorization: `bearer ${env.GRAPH_CMS_AUTH_TOKEN_CORE}`,
-                },
-            },
-        },
         {
             resolve: `gatsby-plugin-mdx`,
             options: {

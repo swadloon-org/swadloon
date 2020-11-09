@@ -1,7 +1,7 @@
+import { Stack } from '@newrade/core-react-ui';
 import React from 'react';
-import { LayoutCenter } from '@newrade/core-react-ui/';
-import * as styleRefs from './index.treat';
-import { useStyles } from 'react-treat';
+import { TreatProvider } from 'react-treat';
+import { light } from '../design-system/theme.treat';
 
 const IndexPage: React.FC<{}> = (props) => {
   return <Index {...props} />;
@@ -10,9 +10,17 @@ const IndexPage: React.FC<{}> = (props) => {
 export const Index: React.FC = () => {
   return (
     <div>
-      <LayoutCenter className={'test'}>
-        <div>Hello World !</div>
-      </LayoutCenter>
+      <TreatProvider theme={light}>
+        <Stack gap={'20px'} padding={'20px'}>
+          <Stack gap={'20px'} padding={'20px'}>
+            <div>hello</div>
+          </Stack>
+
+          <Stack gap={'20px'} padding={'20px'}>
+            <div>hello</div>
+          </Stack>
+        </Stack>
+      </TreatProvider>
     </div>
   );
 };
