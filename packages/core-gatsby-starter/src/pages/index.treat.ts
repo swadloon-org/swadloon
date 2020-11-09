@@ -1,7 +1,6 @@
-import { DesignSystem } from '@newrade/core-design-system-old';
+import { DesignSystem } from '@newrade/core-design-system';
 import { style } from 'treat';
 
-export const test = style((theme: DesignSystem) => ({
-  marginLeft: 'auto',
-  marginRight: 'auto',
+export const wrapper = style((theme: DesignSystem) => ({
+  boxSizing: 'border-box',
 }));
