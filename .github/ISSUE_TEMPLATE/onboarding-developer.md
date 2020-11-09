@@ -31,6 +31,7 @@ assignees: ''
 - [ ] enable 2FA for slack
 - [ ] Github account in Newrade's Dev team
 - [ ] enable 2FA for Github
+- [ ] Todoist account
 - [ ] 1Password account
 - [ ] install 1Password app on personal phone
 - [ ] enable 2FA for 1Password
