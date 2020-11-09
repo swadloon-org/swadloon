@@ -1,5 +1,5 @@
 import { DesignSystem } from '@newrade/core-design-system-old';
-import { style, globalStyle } from 'treat';
+import { globalStyle, style } from 'treat';
 
 export const wrapper = style((theme: DesignSystem) => ({
   position: 'absolute',
@@ -7,7 +7,7 @@ export const wrapper = style((theme: DesignSystem) => ({
   top: '0',
   backgroundColor: theme.colors.greyscale0,
   zIndex: 10,
-  height: '100%',
+  height: '110%',
   boxShadow: theme.effects.shadows.medium.css,
   display: 'block',
   '@media': {

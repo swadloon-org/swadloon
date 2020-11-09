@@ -10,7 +10,7 @@ export const wrapper = style((theme: DesignSystem) => ({
 
 export const container = style((theme: DesignSystem) => ({
   display: 'grid',
-  gridGap: theme.sizing.sizes.x4,
+  gap: theme.sizing.sizes.x4,
   justifyItems: 'stretch',
   maxWidth: '1200px',
   width: '100%',
@@ -45,13 +45,13 @@ export const paragraph = style((theme: DesignSystem) => ({
 
 export const fullPreview = style((theme: DesignSystem) => ({
   display: 'grid',
-  gridGap: theme.sizing.sizes.x5,
+  gap: theme.sizing.sizes.x5,
 }));
 
 export const contentFeaturedPost = style((theme: DesignSystem) => ({
   display: 'flex',
   flexDirection: 'column',
-  gridGap: `${theme.sizing.sizes.x5}`,
+  gap: `${theme.sizing.sizes.x5}`,
   '@media': {
     [theme.layout.media.tabletPlus]: {
       flexDirection: 'row',
@@ -61,11 +61,11 @@ export const contentFeaturedPost = style((theme: DesignSystem) => ({
 
 export const contentRecentPost = style((theme: DesignSystem) => ({
   display: 'grid',
-  gridTemplateColumns: '1fr ',
-  gridGap: `${theme.sizing.sizes.x5}`,
+  gridTemplateColumns: '1fr',
+  gap: `${theme.sizing.sizes.x5}`,
   '@media': {
     [theme.layout.media.tabletPlus]: {
-      gridTemplateColumns: '1fr 1fr 1fr',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
     },
   },
 }));

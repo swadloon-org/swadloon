@@ -44,8 +44,7 @@ assignees: ''
 
 ## Figma Plugins
 
-
-
-
+- [ ] Autoflow
+- [ ] Flowkit (licence key: A7B9-05AB-4F9C-E2DF)
 
 ---

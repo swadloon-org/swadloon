@@ -25,12 +25,12 @@ export const infoTilesWrapper = style((theme: DesignSystem) => ({
   display: 'grid',
   gridAutoFlow: 'row',
   marginBottom: `${theme.sizing.sizes.x6}`,
-  gridGap: `${theme.sizing.sizes.x4} 0 `,
+  gap: `${theme.sizing.sizes.x4} 0 `,
 
   '@media': {
     [theme.layout.media.tabletPlus]: {
       gridAutoFlow: 'column',
-      gridGap: `0 ${theme.sizing.sizes.x4}`,
+      gap: `0 ${theme.sizing.sizes.x4}`,
     },
   },
 }));
@@ -99,7 +99,7 @@ export const image = style((theme: DesignSystem) => ({
 export const container = style((theme: DesignSystem) => ({
   display: 'grid',
   gridTemplateColumns: '1fr',
-  gridGap: `${theme.sizing.sizes.x4} 0`,
+  gap: `${theme.sizing.sizes.x4} 0`,
   margin: '0 auto',
   paddingBottom: theme.sizing.sizes.x7,
   paddingTop: theme.sizing.sizes.x7,
@@ -107,7 +107,7 @@ export const container = style((theme: DesignSystem) => ({
   '@media': {
     [theme.layout.media.desktop]: {
       gridTemplateColumns: '1fr 1fr 1fr 1fr',
-      gridGap: `0 ${theme.sizing.sizes.x4} `,
+      gap: `0 ${theme.sizing.sizes.x4} `,
       maxWidth: '1200px',
     },
   },

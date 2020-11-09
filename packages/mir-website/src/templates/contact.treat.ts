@@ -39,7 +39,7 @@ export const formWrapper = style((theme: DesignSystem) => ({
 export const form = style((theme: DesignSystem) => ({
   position: 'relative',
   display: `grid`,
-  gridGap: theme.sizing.sizes.x3,
+  gap: theme.sizing.sizes.x3,
   padding: theme.sizing.sizes.x5,
   width: '100%',
   maxWidth: `450px`,
@@ -59,7 +59,7 @@ export const form = style((theme: DesignSystem) => ({
 export const formRow = style((theme: DesignSystem) => ({
   display: `grid`,
   gridTemplateColumns: `1fr`,
-  gridGap: theme.sizing.sizes.x3,
+  gap: theme.sizing.sizes.x3,
   width: '100%',
 
   '@media': {

@@ -2,8 +2,24 @@
 
 ## Pages
 
+Those are the standard pages in Figma. The `---` pages are used as separators.
+
+```
 🏠  Table of Content
+---
 💡  Moodboards
+---
+🎨  Styles / Colors
+🅰  Styles / Typography
+---
+📐  Guidelines / Breakpoints
+📐  Guidelines / Content Margins
+📐  Guidelines / Content Widths
+📐  Guidelines / Layout
+---
+◼  Atoms / Logos
+◼  Atoms / Icons
+```
 
 ## Styles
 
