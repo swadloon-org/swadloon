@@ -1,14 +1,12 @@
-// import React, { HTMLAttributes } from 'react';
-// import { Typography } from '@newrade/core-design-system';
+import React, { HTMLAttributes } from 'react';
+import { useStyles } from 'react-treat';
+import { CommonComponentProps } from '../../props/component-common-props';
+import * as stylesRef from './heading.treat';
 
-// import * as stylesRef from './heading.treat';
-// import { useStyles } from 'react-treat';
+type Props = CommonComponentProps & {};
 
-// interface OwnProps {}
+export const Heading: React.FC<HTMLAttributes<any> & Props> = ({ className, ...props }) => {
+  const styles = useStyles(stylesRef);
 
-// export const Heading: React.FC<HTMLAttributes<any> & OwnProps> = ({ className, variant, ...props }) => {
-//   const styles = useStyles(stylesRef);
-//   const variantClass = `${variant ? styles[variant] : ''}`;
-
-//   return <div className={`${className || ''} ${styles[variant]} `}>{props.children}</div>;
-// };
+  return <h1 className={`${className || ''} ${styles.h1}`}>{props.children}</h1>;
+};

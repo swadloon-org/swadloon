@@ -13,4 +13,6 @@ export * from './layout/center/center';
 export * from './layout/box/box';
 export * from './layout/stack/stack';
 export * from './global/reset';
+export * from './markdown/mdx.provider';
 export * from './global/css-variables';
+export * from './global/default-css';

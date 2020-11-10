@@ -59,9 +59,6 @@ const config = {
         // core.getGatsbyPluginMdx(),
         core.getGatsbyImageFolder(),
         core.getGatsbyPluginReactHelmet(),
-        /**
-         * Project Specific Plugins
-         */
         {
             resolve: `gatsby-plugin-mdx`,
             options: {
@@ -75,12 +72,6 @@ const config = {
             resolve: `gatsby-source-filesystem`,
             options: {
                 name: `docs`,
-                path: `${__dirname}/src/docs/`,
-            },
-        },
-        {
-            resolve: 'gatsby-plugin-page-creator',
-            options: {
                 path: `${__dirname}/src/docs/`,
             },
         },
