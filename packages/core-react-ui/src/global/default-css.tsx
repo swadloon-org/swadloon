@@ -10,5 +10,5 @@ type Props = {};
 export const DefaultCSS: React.FC<Props> = (props) => {
   const styles = useStyles(styleRefs);
 
-  return <>{props.children}</>;
+  return <div className={styles.wrapper}>{props.children}</div>;
 };
