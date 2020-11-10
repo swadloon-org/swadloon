@@ -1,10 +1,10 @@
-import { Sizing, SIZE } from '@newrade/core-design-system';
-import React, { ButtonHTMLAttributes, ReactNode, CSSProperties } from 'react';
+import React, { CSSProperties, ReactNode } from 'react';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './stack.treat';
 
 type CommonComponentProps = Partial<{
   as: 'div' | 'nav';
+  id: string;
   className: string;
   styles: CSSProperties;
   children: ReactNode;

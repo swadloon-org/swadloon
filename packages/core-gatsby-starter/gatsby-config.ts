@@ -24,40 +24,23 @@ const config: core.GastbySiteConfig = {
     },
   },
   plugins: [
+    /**
+     * Core Plugins
+     */
     core.getGatsbyTsPluginConfig(),
     core.getGatsbyReactSvgConfig(),
     core.getGastbyCorePluginConfig(),
+    core.getGastbyPluginPageCreatorConfig(),
     core.getGastbyPluginTreatConfig(),
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: path.join(__dirname, `src`, `images`),
-      },
-    },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    core.getGatsbyTransformerSharp(),
+    core.getGatsbyPluginSharp(),
+    core.getGastbyPluginTreatConfig(),
+    core.getGatsbyPluginMdx(),
+    core.getGatsbyImageFolder(),
+    core.getGatsbyPluginReactHelmet(),
     /**
-     * gatsby-source-graphcms
-     * @see https://github.com/GraphCMS/gatsby-source-graphcms/tree/next/gatsby-source-graphcms
-     * Test
+     * Project Specific Plugins
      */
-
-    {
-      resolve: `gatsby-plugin-mdx`,
-      options: {
-        remarkPlugins: [],
-        rehypePlugins: [],
-      },
-    },
-    /**
-     * gatsby-plugin-react-helmet
-     * @see https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-react-helmet
-     * @see https://github.com/nfl/react-helmet
-     */
-    {
-      resolve: 'gatsby-plugin-react-helmet',
-    },
   ],
 };
 
