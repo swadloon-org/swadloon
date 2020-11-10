@@ -44,31 +44,14 @@ const config = {
         },
     },
     plugins: [
-        {
-            resolve: `gatsby-plugin-manifest`,
-            options: {
-                name: `MIR`,
-                short_name: `MIR`,
-                start_url: `/`,
-                background_color: `#f7f0eb`,
-                theme_color: `#a2466c`,
-                display: `standalone`,
-                icon: `src/illustrations/Logo/LogoFavicon.png`,
-            },
-        },
-        {
-            resolve: `gatsby-plugin-page-creator`,
-            options: {
-                path: path_1.default.resolve(__dirname, 'src', 'pages'),
-                ignore: [`**/*.treat.ts`],
-            },
-        },
+        /**
+         * Core Plugins
+         */
+        core.getGastbyPluginPageCreatorConfig(),
         core.getGastbyCorePluginConfig(),
         core.getGatsbyTsPluginConfig(),
         core.getGatsbyReactSvgConfig(),
-        core.getGatsbyImageFolder({
-            pathImgDir: path_1.default.join(__dirname, `src`, `images`),
-        }),
+        core.getGatsbyImageFolder(),
         core.getGatsbyNetlifyPlugin(),
         core.getGatsbyTransformerSharp(),
         core.getGatsbyPluginSharp(),
@@ -81,11 +64,26 @@ const config = {
         }),
         core.getGatsbyPluginSitemap(),
         core.getGatsbyPluginRobotsTxt({ env }),
+        /**
+         * Project Specific Plugins
+         */
         {
             resolve: `gatsby-source-contentful`,
             options: {
                 spaceId: `${env.CONTENTFUL_ACCESS_SPACEID_MIR}`,
                 accessToken: env.CONTENTFUL_ACCESS_TOKEN_MIR,
+            },
+        },
+        {
+            resolve: `gatsby-plugin-manifest`,
+            options: {
+                name: `MIR`,
+                short_name: `MIR`,
+                start_url: `/`,
+                background_color: `#f7f0eb`,
+                theme_color: `#a2466c`,
+                display: `standalone`,
+                icon: `src/illustrations/Logo/LogoFavicon.png`,
             },
         },
     ],
