@@ -44,32 +44,25 @@ globalStyle(`h1,h2,h3,h4,h5,h6`, {
 });
 
 /**
- * Resets pre, code, kdb, samp, elements
+ * Resets the hr element
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
  */
-globalStyle(`pre,code,kbd,samp`, {
-  // Correct the inheritance and scaling of font size in all browsers.
-  fontFamily: 'monospace, monospace',
-  // Correct the odd `em` font sizing in all browsers.
-  fontSize: '1em',
+globalStyle(`hr`, {
+  boxSizing: 'content-box' /* 1 */,
+  height: '0' /* 1 */,
+  overflow: 'visible' /* 2 */,
+  width: '100%',
 });
 
 /**
- * Styles kbd
+ * Resets pre, code, kdb, samp, elements
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
  */
-globalStyle(`kbd`, {
-  display: 'inline-block',
-  margin: '0 .1em',
-  padding: '.1em .6em',
-  fontFamily: 'Arial,"Helvetica Neue",Helvetica,sans-serif',
-  fontSize: '11px',
-  lineHeight: '1.5',
-  color: '#424242',
-  textShadow: '0 1px 0 #fff',
-  backgroundColor: '#f3f3f3',
-  border: '1px solid grey',
-  borderRadius: '3px',
-  boxShadow: '0 1px 1px rgba(12,13,14,0.15), inset 0 1px 0 0 #fff',
-  overflowWrap: 'break-word',
+globalStyle(`pre,code,kbd,samp`, {
+  fontFamily: 'monospace, monospace' /* 1 */,
+  fontSize: '1em' /* 2 */,
 });
 
 /**
@@ -80,7 +73,108 @@ globalStyle(`img`, {
 });
 
 /**
- * Resets the details tag
+ *  Change the font styles in all browsers.
+ *  Remove the margin in Firefox and Safari.
+ */
+globalStyle(`button, input, optgroup, select, textarea`, {
+  fontFamily: 'inherit' /* 1 */,
+  fontSize: '100% ' /* 1 */,
+  lineHeight: '1.15 ' /* 1 */,
+  margin: '0' /* 2 */,
+});
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox.
+ * Remove the inheritance of text transform in Firefox.
+ */
+globalStyle(
+  `button,
+  select,`,
+  {
+    textTransform: 'none',
+  }
+);
+
+/**
+ * Correct the inability to style clickable types in iOS and Safari.
+ */
+globalStyle(
+  `button,
+  [type='button'],
+  [type='reset'],
+  [type='submit']`,
+  {
+    WebkitAppearance: 'button',
+  }
+);
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+globalStyle(
+  `button::-moz-focus-inner,
+  [type='button']::-moz-focus-inner,
+  [type='reset']::-moz-focus-inner,
+  [type='submit']::-moz-focus-inner`,
+  {
+    borderStyle: 'none',
+    padding: '0',
+  }
+);
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+globalStyle(
+  `button:-moz-focusring,
+  [type='button']:-moz-focusring,
+  [type='reset']:-moz-focusring,
+  [type='submit']:-moz-focusring`,
+  {
+    outline: '1px dotted ButtonText',
+  }
+);
+
+/**
+ * Correct the padding in Firefox.
+ */
+globalStyle(`fieldset`, {
+  padding: '0.35em 0.75em 0.625em',
+});
+
+/**
+ * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+globalStyle(`progress`, {
+  verticalAlign: 'baseline',
+});
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+globalStyle(`[type='number']::-webkit-inner-spin-button,[type='number']::-webkit-outer-spin-button`, {
+  height: 'auto',
+});
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+
+globalStyle(`[type='search']`, {
+  WebkitAppearance: 'textfield' /* 1 */,
+  outlineOffset: '-2px' /* 2 */,
+});
+
+/**
+ * Remove the inner padding in Chrome and Safari on macOS.
+ */
+globalStyle(`[type='search']::-webkit-search-decoration`, {
+  WebkitAppearance: 'none',
+});
+
+/**
+ * Resets the file upload button style in Safari
  */
 globalStyle(`::-webkit-file-upload-button`, {
   // Correct the inability to style clickable types in iOS and Safari.

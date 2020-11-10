@@ -1,14 +1,7 @@
-import React, { CSSProperties, ReactNode } from 'react';
+import React from 'react';
 import { useStyles } from 'react-treat';
+import { CommonComponentProps } from '../../props/component-common-props';
 import * as styleRefs from './stack.treat';
-
-type CommonComponentProps = Partial<{
-  as: 'div' | 'nav';
-  id: string;
-  className: string;
-  styles: CSSProperties;
-  children: ReactNode;
-}>;
 
 type OwnProps = CommonComponentProps &
   Partial<{

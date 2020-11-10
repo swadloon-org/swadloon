@@ -149,6 +149,8 @@ img {
   border-style: none;
 }
 
+/* ST∆RT */
+
 /* Forms
    ========================================================================== */
 
@@ -293,6 +295,8 @@ textarea {
   -webkit-appearance: textfield; /* 1 */
   outline-offset: -2px; /* 2 */
 }
+
+/* END */
 
 /**
  * Remove the inner padding in Chrome and Safari on macOS.
