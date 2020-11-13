@@ -3,12 +3,13 @@ import { Button, Stack } from '@newrade/core-react-ui';
 import { PageProps } from 'gatsby';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { Layout } from '../layouts/page.layout';
+import { Layout } from '../layouts/layout';
+import { Providers } from '../layouts/providers';
 import * as styleRefs from './index.treat';
 
 export type ProjectPageProps = PageProps<{}, GatsbyPageContext>;
 
-export const Index: React.FC<ProjectPageProps> = (props) => {
+const PageComponent: React.FC<ProjectPageProps> = (props) => {
   const styles = useStyles(styleRefs);
   return (
     <Stack gap={'20px'} padding={'20px'}>
@@ -24,12 +25,14 @@ export const Index: React.FC<ProjectPageProps> = (props) => {
   );
 };
 
-export const IndexPage: React.FC<ProjectPageProps> = (props) => {
+const Page: React.FC<ProjectPageProps> = (props) => {
   return (
-    <Layout>
-      <Index {...props}></Index>
-    </Layout>
+    <Providers>
+      <Layout>
+        <PageComponent {...props}></PageComponent>
+      </Layout>
+    </Providers>
   );
 };
 
-export default IndexPage;
+export default Page;

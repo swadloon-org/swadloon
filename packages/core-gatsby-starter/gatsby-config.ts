@@ -45,8 +45,8 @@ const config: core.GastbySiteConfig = {
       resolve: `gatsby-plugin-mdx`,
       options: {
         defaultLayouts: {
-          docs: require.resolve('./src/layouts/page.layout.tsx'),
-          default: require.resolve('./src/layouts/page.layout.tsx'),
+          docs: require.resolve('./src/templates/markdown.template.tsx'),
+          default: require.resolve('./src/templates/markdown.template.tsx'),
         },
       },
     },
