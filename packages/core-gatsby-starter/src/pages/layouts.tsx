@@ -1,4 +1,4 @@
-import { Button, Stack } from '@newrade/core-react-ui';
+import { Button, Stack, Grid, Box, Center } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { ProjectPageProps } from '.';
@@ -18,6 +18,40 @@ const PageComponent: React.FC<ProjectPageProps> = (props) => {
         <h1>Buttons</h1>
         <Button>Button</Button>
       </Stack>
+      <h3>Grid</h3>
+      <Grid>
+        <Box>
+          <h1>Hello</h1>
+          <p>World!</p>
+        </Box>
+        <Box>
+          <h1>Hello</h1>
+          <p>World!</p>
+        </Box>
+        <Box>
+          <h1>Hello</h1>
+          <p>World!</p>
+        </Box>
+        <Box>
+          <h1>Hello</h1>
+          <p>World!</p>
+        </Box>
+        <Box>
+          <h1>Hello</h1>
+          <p>World!</p>
+        </Box>
+        <Box>
+          <h1>Hello</h1>
+          <p>World!</p>
+        </Box>
+      </Grid>
+
+      <h1>Center</h1>
+      <Center>
+        <Box>
+          <h1>Center Box</h1>
+        </Box>
+      </Center>
     </Stack>
   );
 };
