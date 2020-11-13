@@ -1,14 +1,12 @@
-import { GatsbyPageContext } from '@newrade/core-gatsby-config';
 import { Button, Stack } from '@newrade/core-react-ui';
-import { PageProps } from 'gatsby';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { Layout } from '../layouts/page.layout';
+import { ProjectPageProps } from '.';
+import { Layout } from '../layouts/layout';
+import { Providers } from '../layouts/providers';
 import * as styleRefs from './index.treat';
 
-export type ProjectPageProps = PageProps<{}, GatsbyPageContext>;
-
-export const Layouts: React.FC<ProjectPageProps> = (props) => {
+const PageComponent: React.FC<ProjectPageProps> = (props) => {
   const styles = useStyles(styleRefs);
   return (
     <Stack gap={'20px'} padding={'20px'}>
@@ -24,12 +22,14 @@ export const Layouts: React.FC<ProjectPageProps> = (props) => {
   );
 };
 
-export const LayoutPage: React.FC<ProjectPageProps> = (props) => {
+const Page: React.FC<ProjectPageProps> = (props) => {
   return (
-    <Layout>
-      <Layouts {...props}></Layouts>
-    </Layout>
+    <Providers>
+      <Layout>
+        <PageComponent {...props}></PageComponent>
+      </Layout>
+    </Providers>
   );
 };
 
-export default LayoutPage;
+export default Page;

@@ -1,15 +1,12 @@
-import { GatsbyPageContext } from '@newrade/core-gatsby-config';
 import { Stack } from '@newrade/core-react-ui';
-import { PageProps } from 'gatsby';
 import React from 'react';
-
-export type ProjectPageProps = PageProps<{}, GatsbyPageContext>;
 import { useStyles } from 'react-treat';
-import { Layout } from '../layouts/page.layout';
-
+import { ProjectPageProps } from '.';
+import { Layout } from '../layouts/layout';
+import { Providers } from '../layouts/providers';
 import * as styleRefs from './index.treat';
 
-export const HtmlElements: React.FC<ProjectPageProps> = (props) => {
+const PageComponent: React.FC<ProjectPageProps> = (props) => {
   const lorenipsum = `Lorem ipsum dolor sit amet.`;
   const styles = useStyles(styleRefs);
 
@@ -912,12 +909,14 @@ export const HtmlElements: React.FC<ProjectPageProps> = (props) => {
   );
 };
 
-export const HtmlElementsPage: React.FC<ProjectPageProps> = (props) => {
+const Page: React.FC<ProjectPageProps> = (props) => {
   return (
-    <Layout>
-      <HtmlElements {...props}></HtmlElements>
-    </Layout>
+    <Providers>
+      <Layout>
+        <PageComponent {...props}></PageComponent>
+      </Layout>
+    </Providers>
   );
 };
 
-export default HtmlElementsPage;
+export default Page;
