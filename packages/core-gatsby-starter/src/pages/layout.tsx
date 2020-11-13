@@ -8,7 +8,7 @@ import * as styleRefs from './index.treat';
 
 export type ProjectPageProps = PageProps<{}, GatsbyPageContext>;
 
-export const Index: React.FC<ProjectPageProps> = (props) => {
+export const Layouts: React.FC<ProjectPageProps> = (props) => {
   const styles = useStyles(styleRefs);
   return (
     <Stack gap={'20px'} padding={'20px'}>
@@ -24,12 +24,12 @@ export const Index: React.FC<ProjectPageProps> = (props) => {
   );
 };
 
-export const IndexPage: React.FC<ProjectPageProps> = (props) => {
+export const LayoutPage: React.FC<ProjectPageProps> = (props) => {
   return (
     <Layout>
-      <Index {...props}></Index>
+      <Layouts {...props}></Layouts>
     </Layout>
   );
 };
 
-export default IndexPage;
+export default LayoutPage;
