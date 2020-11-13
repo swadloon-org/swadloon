@@ -6,15 +6,19 @@ import { Layout } from '../layouts/page.layout';
 import { BackgroundColor } from 'chalk';
 
 export type ProjectPageProps = PageProps<{}, GatsbyPageContext>;
+import { useStyles } from 'react-treat';
+
+import * as styleRefs from './index.treat';
 
 export const HtmlElements: React.FC<ProjectPageProps> = (props) => {
   const lorenipsum = `Lorem ipsum dolor sit amet.`;
+  const styles = useStyles(styleRefs);
 
   return (
     <Layout>
       <Stack id={'HTML Elements'} gap={'55px'} padding={'55px'}>
         <h1>HTML Elements</h1>
-
+        {/* 
         <Stack id={'Content sectioning'} gap={'21px'} padding={'20px'}>
           <h2>Content sectioning</h2>
 
@@ -369,8 +373,8 @@ export const HtmlElements: React.FC<ProjectPageProps> = (props) => {
             <rt>ji</rt>
             <rp>)</rp>
           </ruby>
-          {/* xml:lang="en" */}
-          {/* <h3>rtc</h3>
+          { xml:lang="en" 
+           <h3>rtc</h3>
           <ruby style={{ rubyPosition: 'under' }}>
             <rbc>
               <rb>馬</rb>
@@ -395,7 +399,7 @@ export const HtmlElements: React.FC<ProjectPageProps> = (props) => {
               <rt>Malaysia</rt>
               <rp>)</rp>
             </rtc>
-          </ruby> */}
+          </ruby> 
 
           <h3>ruby</h3>
           <ruby>
@@ -578,8 +582,8 @@ export const HtmlElements: React.FC<ProjectPageProps> = (props) => {
             height={200}
           ></object>
 
-          {/* <h3>param</h3>
-          <object type="application/pdf" data="/media/examples/In-CC0.pdf" width={250} height={200}></object> */}
+           <h3>param</h3>
+          <object type="application/pdf" data="/media/examples/In-CC0.pdf" width={250} height={200}></object> 
 
           <h3>picture</h3>
           <picture>
@@ -607,7 +611,7 @@ export const HtmlElements: React.FC<ProjectPageProps> = (props) => {
           </video>
         </Stack>
 
-        {/* <Stack id={'Table content'} gap={'21px'} padding={'20px'}>
+        <Stack className="wrapper" id={'Table content'} gap={'21px'} padding={'20px'}>
           <h3>Table and Caption</h3>
           <table>
             <tbody>
@@ -711,7 +715,7 @@ export const HtmlElements: React.FC<ProjectPageProps> = (props) => {
               </tr>
             </tfoot>
           </table>
-        </Stack> */}
+        </Stack>
         <Stack id={'Forms'} gap={'21px'} padding={'20px'}>
           <h2>Forms</h2>
           <Stack id={'content-form'} gap={'21px'} padding={'20px'}>
@@ -838,13 +842,13 @@ export const HtmlElements: React.FC<ProjectPageProps> = (props) => {
             </select>
 
             <h3>output</h3>
-            {/* <form>
+             <form>
               <input type="range" id="b" name="b" value="50" /> +
               <input type="number" id="a" name="a" value="10" /> =
               <output name="result" htmlFor="a b">
                 60
               </output> 
-            </form> */}
+            </form> 
             <h3>progress</h3>
             <label htmlFor="file">File progress:</label>
 
@@ -892,14 +896,14 @@ export const HtmlElements: React.FC<ProjectPageProps> = (props) => {
               </dialog>
             </div>
             <h3>menu</h3>
-            {/* <div contextMenu="popup-menu">Right-click to see the adjusted context menu</div>
+            <div contextMenu="popup-menu">Right-click to see the adjusted context menu</div>
 
             <menu type="context" id="popup-menu">
               <menuitem>Action</menuitem>
               <menuitem>Another action</menuitem>
               <hr />
               <menuitem>Separated action</menuitem>
-            </menu> */}
+            </menu> 
 
             <h3>Summary</h3>
             <details>
@@ -951,8 +955,8 @@ export const HtmlElements: React.FC<ProjectPageProps> = (props) => {
                 <td></td>
               </tr>
             </template>
-          </Stack>
-        </Stack>
+          </Stack> 
+        </Stack>*/}
       </Stack>
     </Layout>
   );
