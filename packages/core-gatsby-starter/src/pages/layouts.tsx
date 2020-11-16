@@ -19,35 +19,35 @@ const PageComponent: React.FC<ProjectPageProps> = (props) => {
         <Button>Button</Button>
       </Stack>
       <h3>Grid</h3>
-      <Grid>
-        <Box>
+      <Grid columns={3} cellWidth={'1fr'} gap={'50px'}>
+        <Box maxWidthPx={'300px'}>
           <h1>Hello</h1>
           <p>World!</p>
         </Box>
-        <Box>
+        <Box maxWidthPx={'300px'}>
           <h1>Hello</h1>
           <p>World!</p>
         </Box>
-        <Box>
+        <Box maxWidthPx={'300px'}>
           <h1>Hello</h1>
           <p>World!</p>
         </Box>
-        <Box>
+        <Box maxWidthPx={'300px'}>
           <h1>Hello</h1>
           <p>World!</p>
         </Box>
-        <Box>
+        <Box maxWidthPx={'300px'}>
           <h1>Hello</h1>
           <p>World!</p>
         </Box>
-        <Box>
+        <Box maxWidthPx={'300px'}>
           <h1>Hello</h1>
           <p>World!</p>
         </Box>
       </Grid>
 
       <h1>Center</h1>
-      <Center>
+      <Center marginHorizontal={'auto'}>
         <Box>
           <h1>Center Box</h1>
         </Box>

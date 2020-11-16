@@ -1,7 +1,7 @@
 import React from 'react';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './center.treat';
-import { CommonComponentProps } from 'src/props/component-common-props';
+import { CommonComponentProps } from '../../props/component-common-props';
 
 type OwnProps = CommonComponentProps &
   Partial<{
@@ -11,14 +11,18 @@ type OwnProps = CommonComponentProps &
     marginHorizontal?: number | 'auto';
   }>;
 
-export const LayoutBox: React.FC<OwnProps> = (
-  { as, className, marginVerticalTop, marginVerticalBottom, maxWidthPx, marginHorizontal, ...props } = { as: 'div' }
-) => {
+export const Center: React.FC<OwnProps> = ({
+  as,
+  className,
+  marginVerticalTop,
+  marginVerticalBottom,
+  maxWidthPx,
+  marginHorizontal,
+  ...props
+} = {}) => {
   const styles = useStyles(styleRefs);
 
-  return React.createElement(
-    as || 'div',
-    { className, ...props },
+  return (
     <div
       className={`${className || ''} ${styles.wrapper}`}
       style={{
