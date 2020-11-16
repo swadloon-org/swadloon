@@ -7,16 +7,14 @@ const core_gatsby_config_1 = require("@newrade/core-gatsby-config");
  *
  * @see https://www.gatsbyjs.com/docs/node-apis/
  */
-const onCreateBabelConfig = ({ actions }) => {
+exports.onCreateBabelConfig = ({ actions }) => {
     actions.setBabelPlugin({
         name: 'babel-plugin-treat',
         options: {},
     });
 };
-exports.onCreateBabelConfig = onCreateBabelConfig;
-const onCreateWebpackConfig = ({ stage, rules, loaders, plugins, actions, }) => {
+exports.onCreateWebpackConfig = ({ stage, rules, loaders, plugins, actions, }) => {
     const isProduction = stage !== `develop`;
     const isSSR = stage.includes(`html`);
     actions.setWebpackConfig(core_gatsby_config_1.createGatsbyWebpackConfig({ isProduction, stage, isSSR, loaders, plugins }));
 };
-exports.onCreateWebpackConfig = onCreateWebpackConfig;
