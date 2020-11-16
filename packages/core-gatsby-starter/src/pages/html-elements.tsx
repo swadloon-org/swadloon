@@ -425,7 +425,6 @@ const PageComponent: React.FC<ProjectPageProps> = (props) => {
           <p>Fernstraßen&shy;bau&shy;privat&shy;finanzierungs&shy;gesetz</p>
         </div>
       </Stack>
-
       <Stack id={'Demarcating edits'}>
         <blockquote>
           There is <del>nothing</del> <ins>no code</ins> either good or bad, but <del>thinking</del>
@@ -447,7 +446,7 @@ const PageComponent: React.FC<ProjectPageProps> = (props) => {
         <h3>audio</h3>
         <figure>
           <figcaption>Listen to the T-Rex:</figcaption>
-          <audio controls src="/media/cc0-audio/t-rex-roar.mp3">
+          <audio controls src="https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3">
             Your browser does not support the
             <code>audio</code> element.
           </audio>
@@ -507,7 +506,7 @@ const PageComponent: React.FC<ProjectPageProps> = (props) => {
           Sorry, your browser doesn't support embedded videos.
         </video>
       </Stack>
-
+      {/* 
       <Stack id={'Table content'} gap={'21px'} padding={'20px'}>
         <h3>embed</h3>
         <embed
@@ -561,11 +560,11 @@ const PageComponent: React.FC<ProjectPageProps> = (props) => {
           ></source>
           This browser does not support the HTML5 video element.
         </video>
-      </Stack>
-
+      </Stack> */}
+ 
       <Stack className="wrapper" id={'Table content'} gap={'21px'} padding={'20px'}>
         <h3>Table and Caption</h3>
-
+         
         <caption>He-Man and Skeletor facts</caption>
 
         <table>
@@ -669,9 +668,11 @@ const PageComponent: React.FC<ProjectPageProps> = (props) => {
             </tr>
           </tfoot>
         </table>
-      </Stack>
+      </Stack> 
+
       <Stack id={'Forms'} gap={'21px'} padding={'20px'}>
         <h2>Forms</h2>
+       
         <Stack id={'content-form'} gap={'21px'} padding={'20px'}>
           <h3>Button</h3>
           <button className="favorite styled" type="button">
@@ -794,11 +795,11 @@ const PageComponent: React.FC<ProjectPageProps> = (props) => {
             <option value="spider">Spider</option>
             <option value="goldfish">Goldfish</option>
           </select>
-
+ 
           <h3>output</h3>
-          <form>
-            <input type="range" id="b" name="b" value="50" /> +
-            <input type="number" id="a" name="a" value="10" /> =
+          <form> 
+            <input type="range" id="b" name="b" defaultValue={"50" }/> +
+            <input type="number" id="a" name="a" defaultValue={"10"} /> =
             <output name="result" htmlFor="a b">
               60
             </output>
@@ -847,10 +848,9 @@ const PageComponent: React.FC<ProjectPageProps> = (props) => {
           <div contextMenu="popup-menu">Right-click to see the adjusted context menu</div>
 
           <menu type="context" id="popup-menu">
-            <menuitem>Action</menuitem>
+            {/* <menuitem>Action</menuitem>
             <menuitem>Another action</menuitem>
-            <hr />
-            <menuitem>Separated action</menuitem>
+            <menuitem>Separated action</menuitem>  */}
           </menu>
 
           <h3>Summary</h3>
@@ -860,7 +860,7 @@ const PageComponent: React.FC<ProjectPageProps> = (props) => {
             </summary>
             A keyboard.
           </details>
-        </Stack>
+        </Stack> */}
 
         <Stack id={'Forms'} gap={'21px'} padding={'20px'}>
           <h2>Web Components</h2>
@@ -894,15 +894,11 @@ const PageComponent: React.FC<ProjectPageProps> = (props) => {
                 <td>Product_Name</td>
               </tr>
             </thead>
+
             <tbody></tbody>
           </table>
 
-          <template id="productrow">
-            <tr>
-              <td className="record"></td>
-              <td></td>
-            </tr>
-          </template>
+          <template id="productrow"></template>
         </Stack>
       </Stack>
     </Stack>
