@@ -52,6 +52,16 @@ const PageComponent: React.FC<ProjectPageProps> = (props) => {
           <h1>Center Box</h1>
         </Box>
       </Center>
+
+      <h1>Stack</h1>
+      <Center marginHorizontal={'auto'} maxWidthPx={'500px'}>
+        <Stack padding={'20px'} gap={'15px'}>
+          <h2>Title</h2>
+          <input placeholder="name"></input>
+          <input placeholder="last Name"></input>
+          <input placeholder="email" type={'email'}></input>
+        </Stack>
+      </Center>
     </Stack>
   );
 };
