@@ -16,7 +16,7 @@ const PageComponent: React.FC<ProjectPageProps> = (props) => {
       <h1>Layouts</h1>
 
       <h2>Grid</h2>
-      <Grid columns={3} cellWidth={'1fr'} gap={'50px'}>
+      <Grid columns={[1, 1, 3]} cellWidth={'1fr'} gap={'50px'}>
         <Content />
         <Content />
         <Content />
@@ -31,7 +31,7 @@ const PageComponent: React.FC<ProjectPageProps> = (props) => {
       </Center>
 
       <h2>Stack</h2>
-      <Center marginHorizontal={'auto'} maxWidthPx={'500px'}>
+      <Center maxWidth={'500px'}>
         <Stack padding={'20px'} gap={'15px'}>
           <Content />
           <Content />

@@ -29,20 +29,18 @@ export const Grid: React.FC<OwnProps> = ({
 
   return React.createElement(
     as,
-    { className, style, ...props },
-    <div
-      className={`${className || ''} ${styles.wrapper}`}
-      style={{
+    {
+      className: `${className || ''} ${styles.wrapper}`,
+      style: {
         gap,
         maxWidth: maxWidthPx,
         // @ts-ignore
         '--mobileCol': mobileCol,
         '--tabletCol': tabletCol,
-        '--desktopCol': desktopCol, 
-      }}
-      {...props}
-    >
-      {props.children}
-    </div>
+        '--desktopCol': desktopCol,
+      },
+      ...props,
+    },
+    <>{props.children}</>
   );
 };

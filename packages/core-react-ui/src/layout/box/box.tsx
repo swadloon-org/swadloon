@@ -3,12 +3,13 @@ import { useStyles } from 'react-treat';
 import * as styleRefs from './box.treat';
 import { CommonComponentProps } from '../../props/component-common-props';
 import { TextAlignProperty } from 'csstype';
+import { SIZE } from '@newrade/core-design-system';
 
 type OwnProps = CommonComponentProps &
   Partial<{
-    maxWidthPx: string;
-    padding: string;
-    gap: string;
+    maxWidth: string;
+    padding: string | [string | SIZE, string, string, string];
+    gap: string | SIZE;
     textAlign: [TextAlignProperty, TextAlignProperty, TextAlignProperty];
   }>;
 
@@ -16,33 +17,34 @@ export const Box: React.FC<OwnProps> = ({
   as = 'div',
   className = '',
   style = {},
-  padding = '10px',
+  padding = '',
   gap = '',
-  maxWidthPx = '100px',
+  maxWidth = '',
   textAlign = ['justify', 'justify', 'justify'],
   ...props
 }) => {
   const { styles } = useStyles(styleRefs);
 
   const [mobileTextAlign, tabletTextAlign, desktopTextAlign] = textAlign;
+  const [paddingTop, paddingRight, paddingBottom, paddingLeft] = padding;
+  const paddingDefault = typeof padding === 'string' ? padding : undefined;
 
   return React.createElement(
     as,
-    { className, style, ...props },
-    <div
-      className={`${className || ''} ${styles.wrapper}`}
-      style={{
-        gap: gap,
-        padding: padding,
-        maxWidth: maxWidthPx,
+    {
+      className: `${className || ''} ${styles.wrapper}`,
+      style: {
+        ...style,
+        gap,
+        padding: paddingDefault ? `${paddingDefault}` : `${paddingTop} ${paddingRight} ${paddingBottom} ${paddingLeft}`,
+        maxWidth,
         // @ts-ignore
         '--mobileTextAlign': mobileTextAlign,
         '--tabletTextAlign': tabletTextAlign,
         '--desktopTextAlign': desktopTextAlign,
-      }}
-      {...props}
-    >
-      {props.children}
-    </div>
+      },
+      ...props,
+    },
+    <>{props.children}</>
   );
 };
