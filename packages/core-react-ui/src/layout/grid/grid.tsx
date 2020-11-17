@@ -2,38 +2,43 @@ import React from 'react';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './grid.treat';
 import { CommonComponentProps } from '../../props/component-common-props';
+import { VIEWPORT } from '@newrade/core-design-system';
 
 type OwnProps = CommonComponentProps &
   Partial<{
-    maxWidthPx?: string;
-    gap?: string;
-    columns?: number;
-    rows?: number;
-    cellWidth?: string;
+    maxWidthPx: string;
+    gap: string;
+    columns: [number, number, number];
+    rows: number;
+    cellWidth: string;
   }>;
 
 export const Grid: React.FC<OwnProps> = ({
-  as,
   className = '',
+  style = {},
+  as = 'div',
   cellWidth = '1fr',
-  columns = 1,
+  columns = [1, 1, 1],
   maxWidthPx = '',
   gap = '0px',
   ...props
 }) => {
-  const styles = useStyles(styleRefs);
+  const { styles } = useStyles(styleRefs);
 
-  console.log(`repeat(${columns}, ${cellWidth} [col-start])`);
+  const [mobileCol, tabletCol, desktopCol] = columns;
 
   return React.createElement(
-    as || 'div',
-    { className },
+    as,
+    { className, style, ...props },
     <div
       className={`${className || ''} ${styles.wrapper}`}
       style={{
         gap,
         maxWidth: maxWidthPx,
-        gridTemplateColumns: `repeat(${columns}, ${cellWidth})`,
+        // @ts-ignore
+        '--mobileCol': mobileCol,
+        '--tabletCol': tabletCol,
+        '--desktopCol': desktopCol,
       }}
       {...props}
     >

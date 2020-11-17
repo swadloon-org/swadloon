@@ -12,7 +12,7 @@ const PageComponent: React.FC<ProjectPageProps> = (props) => {
   const Content = (props) => <div className={styles.content}>{props.children || 'Content'}</div>;
 
   return (
-    <Grid columns={3}>
+    <Grid columns={[1, 3, 3]}>
       <Stack>
         <Content>Sidemenu</Content>
       </Stack>
@@ -23,6 +23,18 @@ const PageComponent: React.FC<ProjectPageProps> = (props) => {
       <Stack>
         <Content>Rightmenu</Content>
       </Stack>
+      <Grid columns={[1, 2, 3]}>
+        <Stack>
+          <Content>Sidemenu</Content>
+        </Stack>
+        <Stack>
+          <Content>Topbar</Content>
+          <Content>Main</Content>
+        </Stack>
+        <Stack>
+          <Content>Rightmenu</Content>
+        </Stack>
+      </Grid>
     </Grid>
   );
 };
