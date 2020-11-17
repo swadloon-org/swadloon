@@ -60,3 +60,12 @@ globalStyle(`${wrapper}  th`, (theme: DesignSystem) => ({
   color: 'rgba(107, 114, 128, 0.4)',
   textAlign: 'left',
 }));
+
+globalStyle(`${wrapper}  pre`, (theme: DesignSystem) => ({
+  backgroundColor: '#282a36',
+  color: '#f8f8f2',
+  border: 'none',
+  borderRadius: '0.25em',
+  height: 'auto',
+  padding: '20px',
+}));
