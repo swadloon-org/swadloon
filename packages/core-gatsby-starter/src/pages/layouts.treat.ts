@@ -6,6 +6,6 @@ export const styles = styleMap((theme: DesignSystem) => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'grey',
+    backgroundColor: 'hsl(0deg 0% 0% / 6%)',
   },
 }));
