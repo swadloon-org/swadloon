@@ -23,17 +23,17 @@ export const config: Gatsby.GatsbyConfig = {
     core.getGatsbyTsPluginConfig(),
     core.getGatsbyReactSvgConfig(),
     core.getGastbyPluginTreatConfig(),
-    {
-      resolve: `gatsby-source-graphql`,
-      options: {
-        typeName: `GraphCMS`,
-        fieldName: `gcms`,
-        url: process.env.GRAPH_CMS_API_URL_LAKHOS,
-        headers: {
-          Authorization: `bearer ${process.env.GRAPH_CMS_AUTH_TOKEN_LAKHOS}`,
-        },
-      },
-    },
+    // {
+    //   resolve: `gatsby-source-graphql`,
+    //   options: {
+    //     typeName: `GraphCMS`,
+    //     fieldName: `gcms`,
+    //     url: process.env.GRAPH_CMS_API_URL_LAKHOS,
+    //     headers: {
+    //       Authorization: `bearer ${process.env.GRAPH_CMS_AUTH_TOKEN_LAKHOS}`,
+    //     },
+    //   },
+    // },
   ],
 };
 
