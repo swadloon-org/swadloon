@@ -9,12 +9,12 @@ type OwnProps = CommonComponentProps &
     gap: string;
   }>;
 
-export const Stack: React.FC<OwnProps> = (
-  { as, className, padding, gap, ...props } = { padding: '20px', gap: '0' }
-) => {
+export const Stack: React.FC<OwnProps> = ({ as, className = '', padding = '', gap = '', ...props } = {}) => {
   const styles = useStyles(styleRefs);
 
-  return (
+  return React.createElement(
+    as || 'div',
+    { className },
     <div className={`${className || ''} ${styles.wrapper}`} style={{ gap: gap, padding }} {...props}>
       {props.children}
     </div>

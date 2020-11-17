@@ -13,16 +13,18 @@ type OwnProps = CommonComponentProps &
 
 export const Center: React.FC<OwnProps> = ({
   as,
-  className,
-  marginVerticalTop,
-  marginVerticalBottom,
-  maxWidthPx,
-  marginHorizontal,
+  className = '',
+  marginVerticalTop = '',
+  marginVerticalBottom = '',
+  maxWidthPx = '',
+  marginHorizontal = '',
   ...props
 } = {}) => {
   const styles = useStyles(styleRefs);
 
-  return (
+  return React.createElement(
+    as || 'div',
+    { className },
     <div
       className={`${className || ''} ${styles.wrapper}`}
       style={{
