@@ -5,17 +5,24 @@ import { CommonComponentProps } from '../../props/component-common-props';
 
 type OwnProps = CommonComponentProps &
   Partial<{
-    maxWidthPx?: string;
-    padding?: string;
-    gap?: string;
+    maxWidthPx: string;
+    padding: string;
+    gap: string;
   }>;
 
-export const Box: React.FC<OwnProps> = (
-  { as, className, padding, gap, maxWidthPx, ...props } = { padding: '20px', gap: '0' }
-) => {
+export const Box: React.FC<OwnProps> = ({
+  as,
+  className = '',
+  padding = '10px',
+  gap = '',
+  maxWidthPx = '100px',
+  ...props
+} = {}) => {
   const styles = useStyles(styleRefs);
 
-  return (
+  return React.createElement(
+    as || 'div',
+    { className },
     <div
       className={`${className || ''} ${styles.wrapper}`}
       style={{ gap: gap, padding: padding, maxWidth: maxWidthPx }}
