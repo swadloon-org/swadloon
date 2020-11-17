@@ -119,7 +119,7 @@ export const SideBar: React.FC<OwnProps> = (props) => {
                 <Button
                   className={styles.btnSocial}
                   variantType="secondaryReversed"
-                  size="medium"
+                  size="social"
                   variant="icon"
                   icon="IconFacebook"
                   aria-label="Facebook Page"
@@ -131,7 +131,7 @@ export const SideBar: React.FC<OwnProps> = (props) => {
                 <Button
                   className={styles.btnSocial}
                   variantType="secondaryReversed"
-                  size="medium"
+                  size="social"
                   variant="icon"
                   icon="IconLinkedin"
                   aria-label="LinkedIn Page"
@@ -143,7 +143,7 @@ export const SideBar: React.FC<OwnProps> = (props) => {
                 <Button
                   className={styles.btnSocial}
                   variantType="secondaryReversed"
-                  size="medium"
+                  size="social"
                   variant="icon"
                   icon="IconTwitter"
                   aria-label="Twitter Page"
@@ -155,7 +155,7 @@ export const SideBar: React.FC<OwnProps> = (props) => {
                 <Button
                   className={styles.btnSocial}
                   variantType="secondaryReversed"
-                  size="medium"
+                  size="social"
                   variant="icon"
                   icon="IconInstagram"
                   aria-label="Instagram Page"

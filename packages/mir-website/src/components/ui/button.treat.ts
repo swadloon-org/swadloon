@@ -129,12 +129,29 @@ globalStyle(`${illustration} fill`, (theme: DesignSystem) => ({
 //
 
 export const small = style((theme: DesignSystem) => ({}));
+
 export const medium = style((theme: DesignSystem) => ({
   padding: `24px 24px`,
   minWidth: '200px',
 }));
+
+export const social = style((theme: DesignSystem) => ({
+  padding: `24px 24px`,
+  border: `1px ${theme.colors.primary500} solid`,
+  marginRight: theme.sizing.sizes.x3,
+  marginBottom: theme.sizing.sizes.x3,
+}));
+
+globalStyle(`${social} path`, (theme: DesignSystem) => ({
+  fill: theme.colors.primary500,
+}));
+globalStyle(`${social} rect`, (theme: DesignSystem) => ({
+  fill: theme.colors.primary500,
+}));
+
 export const large = style((theme: DesignSystem) => ({
   padding: `27px 20px`,
   minWidth: '260px',
 }));
+
 export const text = style((theme: DesignSystem) => ({}));
