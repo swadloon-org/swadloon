@@ -38,7 +38,7 @@ export const Grid: React.FC<OwnProps> = ({
         // @ts-ignore
         '--mobileCol': mobileCol,
         '--tabletCol': tabletCol,
-        '--desktopCol': desktopCol,
+        '--desktopCol': desktopCol, 
       }}
       {...props}
     >
