@@ -15,7 +15,7 @@ const PageComponent: React.FC<ProjectPageProps> = (props) => {
   );
 
   return (
-    <div className="wrapper">
+    <Stack>
       <Center maxWidth="1200px">
         <a href={'#'}>Link</a>
         <a href={'#'}>Link</a>
@@ -59,7 +59,7 @@ const PageComponent: React.FC<ProjectPageProps> = (props) => {
           </Box>
         </Grid>
       </Center>
-    </div>
+    </Stack>
   );
 };
 
