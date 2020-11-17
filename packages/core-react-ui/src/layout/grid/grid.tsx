@@ -12,20 +12,28 @@ type OwnProps = CommonComponentProps &
     cellWidth?: string;
   }>;
 
-export const Grid: React.FC<OwnProps> = (
-  { as, className, cellWidth, columns, maxWidthPx, gap, ...props } = { as: 'div' }
-) => {
+export const Grid: React.FC<OwnProps> = ({
+  as,
+  className = '',
+  cellWidth = '1fr',
+  columns = 1,
+  maxWidthPx = '',
+  gap = '0px',
+  ...props
+}) => {
   const styles = useStyles(styleRefs);
+
+  console.log(`repeat(${columns}, ${cellWidth} [col-start])`);
 
   return React.createElement(
     as || 'div',
-    { className, columns, cellWidth, ...props },
+    { className },
     <div
       className={`${className || ''} ${styles.wrapper}`}
       style={{
-        gap: gap,
+        gap,
         maxWidth: maxWidthPx,
-        gridTemplateColumns: `repeat(${columns}, ${cellWidth} [col-start])`,
+        gridTemplateColumns: `repeat(${columns}, ${cellWidth})`,
       }}
       {...props}
     >
