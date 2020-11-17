@@ -4,62 +4,38 @@ import { useStyles } from 'react-treat';
 import { ProjectPageProps } from '.';
 import { Layout } from '../layouts/layout';
 import { Providers } from '../layouts/providers';
-import * as styleRefs from './index.treat';
+import * as styleRefs from './layouts.treat';
 
 const PageComponent: React.FC<ProjectPageProps> = (props) => {
-  const styles = useStyles(styleRefs);
+  const { styles } = useStyles(styleRefs);
+
+  const Content = () => <div className={styles.content}>Content</div>;
+
   return (
     <Stack gap={'20px'} padding={'20px'}>
-      <Stack gap={'20px'} padding={'20px'}>
-        <div>hello</div>
-      </Stack>
+      <h1>Layouts</h1>
 
-      <Stack gap={'13px'} padding={'20px'}>
-        <h1>Buttons</h1>
-        <Button>Button</Button>
-      </Stack>
-      <h3>Grid</h3>
+      <h2>Grid</h2>
       <Grid columns={3} cellWidth={'1fr'} gap={'50px'}>
-        <Box maxWidthPx={'300px'}>
-          <h1>Hello</h1>
-          <p>World!</p>
-        </Box>
-        <Box maxWidthPx={'300px'}>
-          <h1>Hello</h1>
-          <p>World!</p>
-        </Box>
-        <Box maxWidthPx={'300px'}>
-          <h1>Hello</h1>
-          <p>World!</p>
-        </Box>
-        <Box maxWidthPx={'300px'}>
-          <h1>Hello</h1>
-          <p>World!</p>
-        </Box>
-        <Box maxWidthPx={'300px'}>
-          <h1>Hello</h1>
-          <p>World!</p>
-        </Box>
-        <Box maxWidthPx={'300px'}>
-          <h1>Hello</h1>
-          <p>World!</p>
-        </Box>
+        <Content />
+        <Content />
+        <Content />
+        <Content />
+        <Content />
+        <Content />
       </Grid>
 
-      <h1>Center</h1>
+      <h2>Center</h2>
       <Center marginHorizontal={'auto'}>
-        <Box>
-          <h1>Center Box</h1>
-        </Box>
+        <Content />
       </Center>
 
-      <h1>Stack</h1>
+      <h2>Stack</h2>
       <Center marginHorizontal={'auto'} maxWidthPx={'500px'}>
         <Stack padding={'20px'} gap={'15px'}>
-          <h2>Title</h2>
-          <input placeholder="name"></input>
-          <input placeholder="last Name"></input>
-          <input placeholder="email" type={'email'}></input>
+          <Content />
+          <Content />
+          <Content />
         </Stack>
       </Center>
     </Stack>

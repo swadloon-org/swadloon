@@ -15,6 +15,17 @@ export type CommonComponentProps = Partial<{
    *  ````
    */
   className: string;
-  styles: CSSProperties;
+  /**
+   * Inline styles that will be applied to the component's outer containing element.
+   * @example
+   *  ```jsx
+   *  <Component styles={{display: 'none'}} />
+   *  ```
+   *  will results in:
+   *  ```html
+   *  <div style="display: 'none'">...</div>
+   *  ````
+   */
+  style: CSSProperties;
   children: ReactNode;
 }>;
