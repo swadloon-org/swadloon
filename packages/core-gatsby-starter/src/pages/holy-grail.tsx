@@ -1,9 +1,10 @@
-import { Box, Center, Grid, Stack } from '@newrade/core-react-ui';
+import { Box, Center, Grid, Stack, Cluster } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { ProjectPageProps } from '.';
 import { Providers } from '../layouts/providers';
 import * as styleRefs from './layouts.treat';
+import { Layout } from '../layouts/layout';
 
 const PageComponent: React.FC<ProjectPageProps> = (props) => {
   const { styles } = useStyles(styleRefs);
@@ -16,13 +17,6 @@ const PageComponent: React.FC<ProjectPageProps> = (props) => {
 
   return (
     <Stack>
-      <Center maxWidth="1200px">
-        <a href={'#'}>Link</a>
-        <a href={'#'}>Link</a>
-        <a href={'#'}>Link</a>
-        <a href={'#'}>Link</a>
-      </Center>
-
       <Grid columns={[1, 3, 3]}>
         <Stack>
           <Content>Sidemenu</Content>
@@ -63,10 +57,50 @@ const PageComponent: React.FC<ProjectPageProps> = (props) => {
   );
 };
 
+const HeaderComponent: React.FC<ProjectPageProps> = (props) => {
+  const { styles } = useStyles(styleRefs);
+
+  return (
+    <Box padding={'1em'}>
+      <Cluster justifyContent={['Box', 'center', 'space-between']} minWidth={'100%'}>
+        <Box>
+          <h1>Hello World</h1>
+        </Box>
+        <Cluster justifyItems={'center'}>
+          <Box>
+            <a href={'#'}>Link</a>
+          </Box>
+          <Box>
+            <a href={'#'}>Link</a>
+          </Box>
+          <Box>
+            <a href={'#'}>Link</a>
+          </Box>
+          <Box>
+            <a href={'#'}>Link</a>
+          </Box>
+          <Box>
+            <a href={'#'}>Link</a>
+          </Box>
+          <Box>
+            <a href={'#'}>Link</a>
+          </Box>
+          <Box>
+            <a href={'#'}>Link</a>
+          </Box>
+        </Cluster>
+      </Cluster>
+    </Box>
+  );
+};
+
 const Page: React.FC<ProjectPageProps> = (props) => {
   return (
     <Providers>
-      <PageComponent {...props}></PageComponent>
+      <HeaderComponent></HeaderComponent>
+      <Layout>
+        <PageComponent {...props}></PageComponent>
+      </Layout>
     </Providers>
   );
 };
