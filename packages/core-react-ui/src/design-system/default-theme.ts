@@ -1,12 +1,12 @@
 import { DesignSystem } from '@newrade/core-design-system';
-import { getCSSColor } from '../utilities/colors.utilities';
+import { getCSSColor, getCSSColorPalette } from '../utilities/colors.utilities';
 import { CSSDesignSystem } from './css-design-system';
 import { defaultColorIntents, defaultColors } from './default-colors';
 import { DEFAULT_SIZING } from './default-sizing';
 
-export const defaultTheme: Partial<DesignSystem> = {
+export const defaultTheme: DesignSystem = {
   name: 'core-react-ui',
-  themes: 'light',
+  variation: 'light',
   colors: defaultColors,
   colorIntents: defaultColorIntents,
   sizing: DEFAULT_SIZING,
@@ -139,9 +139,12 @@ export const defaultTheme: Partial<DesignSystem> = {
   },
 };
 
-export const defaultCSSTheme: Partial<CSSDesignSystem> = {
+export const defaultCSSTheme: CSSDesignSystem = {
   name: 'core-react-ui',
-  themes: 'light',
+  variation: 'light',
+  colors: {
+    primary: getCSSColorPalette(defaultTheme.colors.primary),
+  },
   sizing: DEFAULT_SIZING,
   components: {
     buttons: {

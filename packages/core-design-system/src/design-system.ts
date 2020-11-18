@@ -11,9 +11,9 @@ import { TEXT_TRANSFORM } from './foundations/text';
 import { Typography } from './foundations/typography';
 import { Color } from './primitives/color';
 
-export interface DesignSystemTypes {
-  themes: 'light' | 'dark';
-  color: Color | string;
+export interface DesignSystemTypes<ColorType = Color> {
+  variation: 'light' | 'dark';
+  color: ColorType;
   shadow: BoxShadow | string;
   sizing: Sizing | number;
   typography: {
@@ -34,7 +34,7 @@ export interface DesignSystemTypes {
   };
 }
 
-export interface DesignSystem<Types extends DesignSystemTypes = DesignSystemTypes> {
+export interface DesignSystem<ThemeType = undefined> {
   /**
    * Name of the project or brand's name.
    */
@@ -43,11 +43,11 @@ export interface DesignSystem<Types extends DesignSystemTypes = DesignSystemType
    * Theme variation's name.
    * @default 'light'
    */
-  themes: Types['themes'];
+  variation: ThemeType extends string ? ThemeType : 'light' | 'dark';
   /**
    * Every color defined in the system.
    */
-  colors: Colors<Types['color']>;
+  colors: ThemeType extends string ? Colors<ThemeType> : Colors<Color>;
   /**
    * Contextual use of certain colors (text, action, state, etc).
    */
