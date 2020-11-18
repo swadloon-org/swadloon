@@ -11,7 +11,7 @@ type OwnProps = CommonComponentProps &
     padding: string | [string | SIZE, string, string, string];
     gap: string | SIZE;
     textAlign: [TextAlignProperty, TextAlignProperty, TextAlignProperty];
-    widthBox: WidthProperty;
+    widthBox: WidthProperty<string>;
   }>;
 
 export const Box: React.FC<OwnProps> = ({
