@@ -12,12 +12,12 @@ export type ProjectPageProps = PageProps<{}, GatsbyPageContext>;
 const PageComponent: React.FC<ProjectPageProps> = (props) => {
   const styles = useStyles(styleRefs);
   return (
-    <Stack gap={'20px'} padding={'20px'}>
-      <Stack gap={'20px'} padding={'20px'}>
+    <Stack gap={'20px'}>
+      <Stack gap={'20px'}>
         <div>hello</div>
       </Stack>
 
-      <Stack gap={'13px'} padding={'20px'}>
+      <Stack gap={'13px'}>
         <h1>Buttons</h1>
         <Button>Button</Button>
       </Stack>

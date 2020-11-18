@@ -5,8 +5,21 @@ import { ProjectPageProps } from '.';
 import { Providers } from '../layouts/providers';
 import * as styleRefs from './layouts.treat';
 import { Layout } from '../layouts/layout';
+import { graphql, Link, useStaticQuery } from 'gatsby';
+
+export const query = graphql`
+  {
+    allSitePage {
+      nodes {
+        id
+        path
+      }
+    }
+  }
+`;
 
 const PageComponent: React.FC<ProjectPageProps> = (props) => {
+  const data = useStaticQuery(query);
   const { styles } = useStyles(styleRefs);
 
   const Content = (props) => (
@@ -17,7 +30,18 @@ const PageComponent: React.FC<ProjectPageProps> = (props) => {
 
   return (
     <Stack>
-      <Grid columns={[1, 3, 3]}>
+      <nav>
+        {data.allSitePage.nodes
+          .map((node) => node.path)
+          .map((path, index) => {
+            return (
+              <li key={index}>
+                <Link to={path}>{path}</Link>
+              </li>
+            );
+          })}
+      </nav>
+      <Grid columns={[1, 2, 3]} containerQuery={[0, 700, 1200]}>
         <Stack>
           <Content>Sidemenu</Content>
         </Stack>
@@ -67,47 +91,9 @@ const PageComponent: React.FC<ProjectPageProps> = (props) => {
   );
 };
 
-const HeaderComponent: React.FC<ProjectPageProps> = (props) => {
-  const { styles } = useStyles(styleRefs);
-
-  return (
-    <Box padding={'1em'}>
-      <Cluster justifyContent={['Box', 'center', 'space-between']} minWidth={'100%'}>
-        <Box>
-          <h1>Hello World</h1>
-        </Box>
-        <Cluster justifyItems={'center'}>
-          <Box>
-            <a href={'#'}>Link</a>
-          </Box>
-          <Box>
-            <a href={'#'}>Link</a>
-          </Box>
-          <Box>
-            <a href={'#'}>Link</a>
-          </Box>
-          <Box>
-            <a href={'#'}>Link</a>
-          </Box>
-          <Box>
-            <a href={'#'}>Link</a>
-          </Box>
-          <Box>
-            <a href={'#'}>Link</a>
-          </Box>
-          <Box>
-            <a href={'#'}>Link</a>
-          </Box>
-        </Cluster>
-      </Cluster>
-    </Box>
-  );
-};
-
 const Page: React.FC<ProjectPageProps> = (props) => {
   return (
     <Providers>
-      <HeaderComponent></HeaderComponent>
       <Layout>
         <PageComponent {...props}></PageComponent>
       </Layout>

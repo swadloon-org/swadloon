@@ -61,6 +61,7 @@
     "i18next-browser-languagedetector": "^6.0.1",
     "i18next-fetch-backend": "^3.0.0",
     "io-ts": "^2.2.11",
+    "lodash-es": "^4.17.15",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-google-recaptcha": "^2.1.0",
@@ -69,7 +70,8 @@
     "react-i18next": "^11.7.2",
     "react-lazyload": "^3.0.0",
     "react-treat": "^1.6.1",
-    "reakit": "^1.2.5"
+    "reakit": "^1.2.5",
+    "use-resize-observer": "^7.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",

@@ -12,9 +12,9 @@ type OwnProps = CommonComponentProps &
 export const Stack: React.FC<OwnProps> = ({ as, className = '', gap = '', ...props } = {}) => {
   const styles = useStyles(styleRefs);
 
-  return React.createElement(
-    as || 'div',
-    { className: `${className || ''} ${styles.wrapper}`, style: { ...style, gap }, ...props },
-    <>{props.children}</>
-  );
+  return React.createElement(as || 'div', {
+    className: `${className || ''} ${styles.wrapper}`,
+    style: { ...style, gap },
+    ...props,
+  });
 };
