@@ -2,7 +2,7 @@ import React from 'react';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './box.treat';
 import { CommonComponentProps } from '../../props/component-common-props';
-import { TextAlignProperty } from 'csstype';
+import { TextAlignProperty, WidthProperty } from 'csstype';
 import { SIZE } from '@newrade/core-design-system';
 
 type OwnProps = CommonComponentProps &
@@ -11,6 +11,7 @@ type OwnProps = CommonComponentProps &
     padding: string | [string | SIZE, string, string, string];
     gap: string | SIZE;
     textAlign: [TextAlignProperty, TextAlignProperty, TextAlignProperty];
+    widthBox: WidthProperty;
   }>;
 
 export const Box: React.FC<OwnProps> = ({

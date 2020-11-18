@@ -31,16 +31,26 @@ const PageComponent: React.FC<ProjectPageProps> = (props) => {
       </Grid>
 
       <Center marginHorizontal="auto">
-        <Box maxWidth="500px" textAlign={['center', 'center', 'left']} padding="2em">
-          <Stack gap={'1em'}>
-            <h1>Hello world</h1>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam sequi ratione quam, atque vero
-              exercitationem eaque ex animi reiciendis consequatur iste tempora dolore. Temporibus perspiciatis quis, ut
-              similique culpa optio.
-            </p>
-          </Stack>
-        </Box>
+        <Grid columns={[1, 1, 2]}>
+          <Box>
+            <img
+              width="360px"
+              height="240px"
+              src="https://interactive-examples.mdn.mozilla.net/media/cc0-images/elephant-660-480.jpg"
+              alt=""
+            />
+          </Box>
+          <Box maxWidth="500px" textAlign={['center', 'center', 'left']} padding="2em">
+            <Stack gap={'1em'}>
+              <h1>Hello world</h1>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam sequi ratione quam, atque vero
+                exercitationem eaque ex animi reiciendis consequatur iste tempora dolore. Temporibus perspiciatis quis,
+                ut similique culpa optio.
+              </p>
+            </Stack>
+          </Box>
+        </Grid>
       </Center>
 
       <Center maxWidth="1200px">
