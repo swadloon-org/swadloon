@@ -1,6 +1,6 @@
 import { Font } from './font';
 import { VIEWPORT } from './layout';
-import { TextStyle, TEXT_TRANSFORM } from './text';
+import { TextDecoration, TextStyle, TEXT_TRANSFORM } from './text';
 
 /**
  * The main typographic styles.
@@ -16,8 +16,8 @@ export enum TYPOGRAPHIC_STYLE {
  * Levels for bigger titles, ususally for landing pages.
  */
 export enum TITLE {
-  h1 = 'h1',
-  h2 = 'h2',
+  t1 = 't1',
+  t2 = 't2',
 }
 
 /**
@@ -61,45 +61,101 @@ export enum LABEL {
 /**
  * Available fonts in the design system.
  */
-export type Fonts = { [key in keyof typeof TYPOGRAPHIC_STYLE]?: Font };
+export type Fonts = { [key in keyof typeof TYPOGRAPHIC_STYLE]?: Font } & {
+  /**
+   * CSS variable name for font famility.
+   * @example `--font-sans-alternate`
+   */
+  varNames: { [key in keyof typeof TYPOGRAPHIC_STYLE]?: string };
+  /**
+   * CSS statement to access font CSS variables
+   * @example `var(--font-sans-alternate)`
+   */
+  var: { [key in keyof typeof TYPOGRAPHIC_STYLE]?: string };
+};
 
 /**
  * TODO
  */
-export type Titles<FontWeightType = number, LetterSpacingType = number, TextTransformType = TEXT_TRANSFORM> = {
+export type Titles<
+  FontWeightType = number,
+  LetterSpacingType = number,
+  TextTransformType = TEXT_TRANSFORM,
+  TextDecorationType = TextDecoration
+> = {
   [key in keyof typeof TITLE]: {
-    [key in keyof typeof TYPOGRAPHIC_STYLE]?: TextStyle<FontWeightType, LetterSpacingType, TextTransformType>;
+    [key in keyof typeof TYPOGRAPHIC_STYLE]?: TextStyle<
+      FontWeightType,
+      LetterSpacingType,
+      TextTransformType,
+      TextDecorationType
+    >;
   };
 };
 
 /**
  * TODO
  */
-export type Headings<FontWeightType = number, LetterSpacingType = number, TextTransformType = TEXT_TRANSFORM> = {
+export type Headings<
+  FontWeightType = number,
+  LetterSpacingType = number,
+  TextTransformType = TEXT_TRANSFORM,
+  TextDecorationType = TextDecoration
+> = {
   [key in keyof typeof HEADING]: {
-    [key in keyof typeof TYPOGRAPHIC_STYLE]?: TextStyle<FontWeightType, LetterSpacingType, TextTransformType>;
+    [key in keyof typeof TYPOGRAPHIC_STYLE]?: TextStyle<
+      FontWeightType,
+      LetterSpacingType,
+      TextTransformType,
+      TextDecorationType
+    >;
   };
 };
 
 /**
  * TODO
  */
-export type Paragraphs<FontWeightType = number, LetterSpacingType = number, TextTransformType = TEXT_TRANSFORM> = {
+export type Paragraphs<
+  FontWeightType = number,
+  LetterSpacingType = number,
+  TextTransformType = TEXT_TRANSFORM,
+  TextDecorationType = TextDecoration
+> = {
   [key in keyof typeof PARAGRAPH]: {
-    [key in keyof typeof TYPOGRAPHIC_STYLE]?: TextStyle<FontWeightType, LetterSpacingType, TextTransformType>;
+    [key in keyof typeof TYPOGRAPHIC_STYLE]?: TextStyle<
+      FontWeightType,
+      LetterSpacingType,
+      TextTransformType,
+      TextDecorationType
+    >;
   };
 };
 
 /**
  * TODO
  */
-export type Labels<FontWeightType = number, LetterSpacingType = number, TextTransformType = TEXT_TRANSFORM> = {
+export type Labels<
+  FontWeightType = number,
+  LetterSpacingType = number,
+  TextTransformType = TEXT_TRANSFORM,
+  TextDecorationType = TextDecoration
+> = {
   [key in keyof typeof LABEL]: {
-    [key in keyof typeof TYPOGRAPHIC_STYLE]?: TextStyle<FontWeightType, LetterSpacingType, TextTransformType>;
+    [key in keyof typeof TYPOGRAPHIC_STYLE]?: TextStyle<
+      FontWeightType,
+      LetterSpacingType,
+      TextTransformType,
+      TextDecorationType
+    >;
   };
 };
 
-export interface Typography<FontWeightType = number, LetterSpacingType = number, TextTransformType = TEXT_TRANSFORM> {
+export interface Typography<
+  FontWeightType = number,
+  LetterSpacingType = number,
+  TextTransformType = TEXT_TRANSFORM,
+  TextDecorationType = TextDecoration
+> {
   /**
    * Available fonts in the design system.
    */
@@ -107,17 +163,30 @@ export interface Typography<FontWeightType = number, LetterSpacingType = number,
   /**
    *
    */
-  titles: { [key in keyof typeof VIEWPORT]: Titles<FontWeightType, LetterSpacingType, TextTransformType> };
+  titles: {
+    [key in keyof typeof VIEWPORT]: Titles<FontWeightType, LetterSpacingType, TextTransformType, TextDecorationType>;
+  };
   /**
    * TODO
    */
-  headings: { [key in keyof typeof VIEWPORT]: Headings<FontWeightType, LetterSpacingType, TextTransformType> };
+  headings: {
+    [key in keyof typeof VIEWPORT]: Headings<FontWeightType, LetterSpacingType, TextTransformType, TextDecorationType>;
+  };
   /**
    * TODO
    */
-  paragraphs: { [key in keyof typeof VIEWPORT]: Paragraphs<FontWeightType, LetterSpacingType, TextTransformType> };
+  paragraphs: {
+    [key in keyof typeof VIEWPORT]: Paragraphs<
+      FontWeightType,
+      LetterSpacingType,
+      TextTransformType,
+      TextDecorationType
+    >;
+  };
   /**
    * TODO
    */
-  labels: { [key in keyof typeof VIEWPORT]: Labels<FontWeightType, LetterSpacingType, TextTransformType> };
+  labels: {
+    [key in keyof typeof VIEWPORT]: Labels<FontWeightType, LetterSpacingType, TextTransformType, TextDecorationType>;
+  };
 }

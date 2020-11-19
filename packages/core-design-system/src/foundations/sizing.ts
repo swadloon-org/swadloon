@@ -21,13 +21,13 @@ export enum SIZE {
  * Contains CSS variable names for each sizing step
  * @example `--sizing-x1`
  */
-export type SizeCSSVarNames = { [key in keyof typeof SIZE]: string };
+export type SizingVarNames = { [key in keyof typeof SIZE]: string };
 
 /**
  * Contains CSS statement to access CSS variables
  * @example `var(--sizing-x1)`
  */
-export type SizeCSSVars = { [key in keyof typeof SIZE]: string };
+export type SizingVars = { [key in keyof typeof SIZE]: string };
 
 /**
  * Defines in px, rem what a sizing step is.
@@ -53,6 +53,16 @@ export interface Sizing<SizingType = SizingStep> {
    */
   baseFontSize: SizingType;
   /**
+   * CSS variable name for each step.
+   * @example `--sizing-x1`
+   */
+  varNames: SizingVarNames;
+  /**
+   * CSS statement to access CSS variables
+   * @example `var(--sizing-x1)`
+   */
+  var: SizingVars;
+  /**
    * The ratio by which we multiply to calculate the next size step.
    * E.g. 1.618 (Golden Ratio)
    * @see https://alistapart.com/article/more-meaningful-typography/
@@ -60,15 +70,7 @@ export interface Sizing<SizingType = SizingStep> {
    */
   ratio: number;
   /**
-   * CSS variable name for each step.
-   */
-  sizeCSSVarNames: SizeCSSVarNames;
-  /**
-   * CSS statement to access CSS variables
-   */
-  sizes: SizeCSSVars;
-  /**
    * Size values for each step.
    */
-  sizingSteps: SizingSteps<SizingType>;
+  sizes: SizingSteps<SizingType>;
 }

@@ -49,5 +49,5 @@ export type MediaQueryGroup = {
 export type MediaQueries<MediaQueryType = MediaQueryGroup> = {
   [key in keyof typeof VIEWPORT]: MediaQueryType;
 } & {
-  tabletPlus: MediaQuery;
+  tabletPlus: MediaQueryType;
 };

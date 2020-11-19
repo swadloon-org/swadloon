@@ -1,34 +1,4 @@
-import { ColorIntents, Colors } from '@newrade/core-design-system';
-
-/**
- * Create default color intents.
- */
-export function createDefaultColorIntents(colors: Colors): ColorIntents {
-  return {
-    primary: colors.primary['500'],
-    primaryReversed: colors.grey['0-reversed'],
-    secondary: colors.accent1['500'],
-    secondaryReversed: colors.grey['0-reversed'],
-    primaryText: colors.grey['900'],
-    primaryTextReversed: colors.grey['0-reversed'],
-    secondaryText: colors.grey['800'],
-    secondaryTextReversed: colors.grey['0-reversed'],
-    tertiaryText: colors.grey['700'],
-    tertiaryTextReversed: colors.grey['0-reversed'],
-    successText: colors.utilityGreen['900'],
-    successAction: colors.utilityGreen['500'],
-    successBackground: colors.utilityGreen['100'],
-    warningText: colors.utilityYellow['900'],
-    warningAction: colors.utilityYellow['500'],
-    warningBackground: colors.utilityYellow['100'],
-    dangerText: colors.utilityRed['900'],
-    dangerAction: colors.utilityRed['500'],
-    dangerBackground: colors.utilityRed['100'],
-    background0: colors.grey['0'],
-    background1: colors.grey['25'],
-    background2: colors.grey['50'],
-  };
-}
+// primary { 500: ''} => color.primary.500
 
 /**
  * Convert a number (in px) into a rem value.

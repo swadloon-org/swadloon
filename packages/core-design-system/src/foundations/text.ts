@@ -1,3 +1,4 @@
+import { Color } from '../primitives/color';
 import { Font } from './font';
 
 export enum TEXT_TRANSFORM {
@@ -7,7 +8,34 @@ export enum TEXT_TRANSFORM {
   uppercase = 'uppercase',
 }
 
-export interface TextStyle<FontWeightType = number, LetterSpacingType = number, TextTransformType = TEXT_TRANSFORM> {
+export enum TEXT_DECORATION_LINE {
+  none = 'none',
+  underline = 'underline',
+  overline = 'overline',
+  lineThrough = 'line-through',
+  blink = 'blink',
+}
+
+export enum TEXT_DECORATION_STYLE {
+  solid = 'solid',
+  double = 'double',
+  dotted = 'dotted',
+  dashed = 'dashed',
+  wavy = 'wavy',
+}
+
+export type TextDecoration<ColorType = Color> = {
+  color: ColorType;
+  line: [TEXT_DECORATION_LINE];
+  style: TEXT_DECORATION_STYLE;
+};
+
+export interface TextStyle<
+  FontWeightType = number,
+  LetterSpacingType = number,
+  TextTransformType = TEXT_TRANSFORM,
+  TextDecorationType = TextDecoration
+> {
   /**
    * Font object that contains information about the typeface.
    */
@@ -36,6 +64,11 @@ export interface TextStyle<FontWeightType = number, LetterSpacingType = number, 
    * @example 'uppercase'
    */
   textTransform?: TextTransformType;
+  /**
+   * Optional property to set `text-decoration`.
+   * @example { color: red, line: underline, style'underline'}
+   */
+  textDecoration?: TextDecorationType;
   /**
    * Desired capital letter height in pixels. (which is usually the height of the capital letter 'X')
    * @see https://seek-oss.github.io/capsize/

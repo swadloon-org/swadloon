@@ -1,12 +1,11 @@
-import { SIZE, SizeCSSVarNames, Sizing, SizingSteps, VIEWPORT } from '@newrade/core-design-system';
-// import { createSizingStep } from '../utilities/sizing.utilities';
+import { SIZE, Sizing, SizingSteps, SizingVarNames, VIEWPORT } from '@newrade/core-design-system';
 
 export const DEFAULT_BASE_FONT_SIZE = 9;
 export const DEFAULT_BASE_FONT_SIZE_PX = `${DEFAULT_BASE_FONT_SIZE}px`;
 
 export const DEFAULT_SCALING_RATIO = 1.618;
 
-export const DEFAULT_SIZES_CSS_VAR_NAMES: SizeCSSVarNames = {
+export const DEFAULT_SIZES_CSS_VAR_NAMES: SizingVarNames = {
   [SIZE.x0]: '--sizing-x0',
   [SIZE.x1]: '--sizing-x1',
   [SIZE.x2]: '--sizing-x2',
@@ -20,7 +19,7 @@ export const DEFAULT_SIZES_CSS_VAR_NAMES: SizeCSSVarNames = {
   [SIZE.x10]: '--sizing-x10',
 };
 
-export const DEFAULT_SIZES_CSS_VAR: SizeCSSVarNames = {
+export const DEFAULT_SIZES_CSS_VAR: SizingVarNames = {
   [SIZE.x0]: `var(${DEFAULT_SIZES_CSS_VAR_NAMES.x0})`,
   [SIZE.x1]: `var(${DEFAULT_SIZES_CSS_VAR_NAMES.x1})`,
   [SIZE.x2]: `var(${DEFAULT_SIZES_CSS_VAR_NAMES.x2})`,
@@ -57,7 +56,7 @@ export const DEFAULT_SIZING_STEPS: SizingSteps = {
 export const DEFAULT_SIZING: Sizing = {
   baseFontSize: DEFAULT_BASE_FONT_SIZE,
   ratio: DEFAULT_SCALING_RATIO,
-  sizeCSSVarNames: DEFAULT_SIZES_CSS_VAR_NAMES,
-  sizes: DEFAULT_SIZES_CSS_VAR,
-  sizingSteps: DEFAULT_SIZING_STEPS,
+  varNames: DEFAULT_SIZES_CSS_VAR_NAMES,
+  var: DEFAULT_SIZES_CSS_VAR,
+  sizes: DEFAULT_SIZING_STEPS,
 };

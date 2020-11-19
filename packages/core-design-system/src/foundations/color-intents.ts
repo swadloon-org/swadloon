@@ -3,40 +3,43 @@ import { Color } from '../primitives/color';
 /**
  * Contextual use of certain colors (text, action, state, etc).
  */
-export interface ColorIntents<T = Color> {
+export interface ColorIntents<ColorType = Color> {
   /**
    * TODO
    */
-  accessibilityColor?: T;
+  accessibilityColor: ColorType;
 
-  primary: T;
-  primaryReversed: T;
+  current: string;
+  transparent: ColorType;
 
-  secondary: T;
-  secondaryReversed: T;
+  primary: ColorType;
+  primaryReversed: ColorType;
 
-  primaryText: T;
-  primaryTextReversed: T;
+  secondary: ColorType;
+  secondaryReversed: ColorType;
 
-  secondaryText: T;
-  secondaryTextReversed: T;
+  primaryText: ColorType;
+  primaryTextReversed: ColorType;
 
-  tertiaryText: T;
-  tertiaryTextReversed: T;
+  secondaryText: ColorType;
+  secondaryTextReversed: ColorType;
 
-  successText: T;
-  successAction: T;
-  successBackground: T;
+  tertiaryText: ColorType;
+  tertiaryTextReversed: ColorType;
 
-  warningText: T;
-  warningAction: T;
-  warningBackground: T;
+  successText: ColorType;
+  successAction: ColorType;
+  successBackground: ColorType;
 
-  dangerText: T;
-  dangerAction: T;
-  dangerBackground: T;
+  warningText: ColorType;
+  warningAction: ColorType;
+  warningBackground: ColorType;
 
-  background0: T;
-  background1: T;
-  background2: T;
+  dangerText: ColorType;
+  dangerAction: ColorType;
+  dangerBackground: ColorType;
+
+  background0: ColorType;
+  background1: ColorType;
+  background2: ColorType;
 }

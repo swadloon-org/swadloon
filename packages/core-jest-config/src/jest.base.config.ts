@@ -38,7 +38,7 @@ export const baseJestConfig: jest.InitialOptions = {
   roots: ['<rootDir>/src', '<rootDir>/test'],
   globals: {
     'ts-jest': {
-      tsConfig: '<rootDir>/tsconfig.jest.json',
+      tsconfig: '<rootDir>/tsconfig.jest.json',
     },
   },
 };

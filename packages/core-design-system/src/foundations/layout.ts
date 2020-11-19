@@ -1,5 +1,5 @@
 import { ContentMargins, ContentWidths } from './content-width';
-import { MediaQueries } from './media-queries';
+import { MediaQueries, MediaQueryGroup } from './media-queries';
 
 /**
  * Viewport names.
@@ -47,9 +47,9 @@ export type Breakpoints<BreakpointType = number> = { [key in keyof typeof BREAKP
 /**
  * Breakpoints, commonly used content margins and max widths.
  */
-export interface Layout<BreakpointType> {
+export interface Layout<BreakpointType = number, MediaQueryType = MediaQueryGroup> {
   breakpoints: Breakpoints<BreakpointType>;
-  media: MediaQueries;
+  media: MediaQueries<MediaQueryType>;
   contentMargins: ContentMargins;
   contentWidth: ContentWidths;
 }

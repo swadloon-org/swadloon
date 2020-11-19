@@ -11,3 +11,4 @@ export * from './foundations/sizing';
 export * from './foundations/text';
 export * from './foundations/typography';
 export * from './primitives/color';
+export * from './primitives/color-palette';

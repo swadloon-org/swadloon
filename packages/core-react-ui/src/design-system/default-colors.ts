@@ -1,8 +1,20 @@
-import { ColorIntents, Colors } from '@newrade/core-design-system';
-import { generateColorGreyPalette, generateColorPalette5 } from '../utilities/colors.utilities';
-import { createDefaultColorIntents } from '../utilities/utilities';
+import { ColorIntents, Colors, ColorsVarNames, ColorsVars } from '@newrade/core-design-system';
+import {
+  createDefaultColorIntents,
+  generateColorGreyPalette,
+  generateColorPalette5,
+  getCSSVarForColors,
+  getCSSVarNamesForColors,
+} from '../utilities/colors.utilities';
 
-export const defaultColors: Colors = {
+export const defaultColorsColors: Colors['colors'] = {
+  current: 'currentColor',
+  transparent: {
+    h: 0,
+    s: 0,
+    l: 0,
+    a: 0,
+  },
   primary: generateColorPalette5({
     color: { h: 222, s: 50, l: 50 },
     light: 20,
@@ -23,7 +35,6 @@ export const defaultColors: Colors = {
     light: 20,
     dark: 90,
   }),
-  transparent: { h: 222, s: 50, l: 50, a: 0 },
   grey: generateColorGreyPalette({
     hue: 10,
   }),
@@ -47,4 +58,21 @@ export const defaultColors: Colors = {
   }),
 };
 
-export const defaultColorIntents: ColorIntents = createDefaultColorIntents(defaultColors);
+export const defaultColorIntents: ColorIntents = createDefaultColorIntents(defaultColorsColors);
+
+export const DEFAULT_COLORS_VAR_NAMES: ColorsVarNames = getCSSVarNamesForColors({
+  colors: defaultColorsColors,
+  colorIntents: defaultColorIntents,
+});
+
+export const DEFAULT_COLORS_VAR: ColorsVars = getCSSVarForColors({
+  colors: defaultColorsColors,
+  colorIntents: defaultColorIntents,
+});
+
+export const defaultColors: Colors = {
+  varNames: DEFAULT_COLORS_VAR_NAMES,
+  var: DEFAULT_COLORS_VAR,
+  colors: defaultColorsColors,
+  colorIntents: defaultColorIntents,
+};

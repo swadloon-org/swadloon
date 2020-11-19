@@ -1,38 +1,15 @@
-import { Border, Outline } from './components/atoms/box';
+import { Border, Outline, Padding } from './components/atoms/box';
+import { Buttons } from './components/molecules/buttons';
 import { Animations } from './foundations/animations';
-import { ColorIntents } from './foundations/color-intents';
 import { Colors } from './foundations/colors';
-import { Components } from './foundations/components';
 import { BoxShadow, Effects } from './foundations/effects';
 import { Iconography } from './foundations/iconography';
 import { Layout } from './foundations/layout';
-import { Sizing } from './foundations/sizing';
+import { MediaQueryGroup } from './foundations/media-queries';
+import { Sizing, SizingStep } from './foundations/sizing';
 import { TEXT_TRANSFORM } from './foundations/text';
 import { Typography } from './foundations/typography';
 import { Color } from './primitives/color';
-
-export interface DesignSystemTypes<ColorType = Color> {
-  variation: 'light' | 'dark';
-  color: ColorType;
-  shadow: BoxShadow | string;
-  sizing: Sizing | number;
-  typography: {
-    fontWeight: number | string;
-    letterSpacing: number;
-    textTransform: TEXT_TRANSFORM | string;
-  };
-  layout: {
-    breakpointType: number;
-  };
-  components: {
-    button: {
-      color: Color | string;
-      padding: number | string;
-      border: Border | string;
-      outline: Outline | string;
-    };
-  };
-}
 
 export interface DesignSystem<ThemeType = undefined> {
   /**
@@ -49,28 +26,24 @@ export interface DesignSystem<ThemeType = undefined> {
    */
   colors: ThemeType extends string ? Colors<ThemeType> : Colors<Color>;
   /**
-   * Contextual use of certain colors (text, action, state, etc).
-   */
-  colorIntents: ColorIntents<Types['color']>;
-  /**
    * Shadows, elevation, blurs and other visual effects.
    */
-  effects: Effects<Types['shadow']>;
+  effects: Effects<ThemeType extends string ? ThemeType : BoxShadow, ThemeType extends string ? ThemeType : Color>;
   /**
    * Defines the system's sizing values.
    */
-  sizing: Sizing<Types['sizing']>;
+  sizing: Sizing<ThemeType extends string ? ThemeType : SizingStep>;
   /**
    * TODO
    */
-  iconography: Iconography<Types['sizing']>;
+  iconography: Iconography<ThemeType extends string ? ThemeType : SizingStep>;
   /**
    * Defines every text styles.
    */
   typography: Typography<
-    Types['typography']['fontWeight'],
-    Types['typography']['letterSpacing'],
-    Types['typography']['textTransform']
+    ThemeType extends string ? ThemeType : number,
+    ThemeType extends string ? ThemeType : number,
+    ThemeType extends string ? ThemeType : TEXT_TRANSFORM
   >;
   /**
    * TODO
@@ -79,9 +52,28 @@ export interface DesignSystem<ThemeType = undefined> {
   /**
    * Breakpoints, common content margins for different viewports.
    */
-  layout: Layout<Types['layout']['breakpointType']>;
+  layout: Layout<ThemeType extends string ? ThemeType : number, ThemeType extends string ? ThemeType : MediaQueryGroup>;
   /**
    * Components' specific settings.
    */
-  components: Components<Types>;
+  components: {
+    buttons: Buttons<
+      ThemeType extends string ? ThemeType : Colors<ThemeType extends string ? ThemeType : Color>,
+      ThemeType extends string ? ThemeType : Padding<ThemeType extends string ? ThemeType : number>,
+      ThemeType extends string
+        ? ThemeType
+        : Border<
+            ThemeType extends string ? ThemeType : Colors<ThemeType extends string ? ThemeType : Color>,
+            ThemeType extends string ? ThemeType : number,
+            ThemeType extends string ? ThemeType : number
+          >,
+      ThemeType extends string
+        ? ThemeType
+        : Outline<
+            ThemeType extends string ? ThemeType : Colors<ThemeType extends string ? ThemeType : Color>,
+            ThemeType extends string ? ThemeType : number,
+            ThemeType extends string ? ThemeType : number
+          >
+    >;
+  };
 }
