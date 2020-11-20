@@ -1,5 +1,4 @@
-import { BoxShadow, Shadows } from '@newrade/core-design-system';
-import { defaultShadowsShadows } from '../design-system/default-effects';
+import { BoxShadow } from '@newrade/core-design-system';
 import { getCSSColor } from './colors.utilities';
 
 export function getCSSShadow(options: BoxShadow): string {
@@ -14,15 +13,3 @@ export function getCSSShadow(options: BoxShadow): string {
         }
   )}`;
 }
-
-export function createDefaultShadows({ shadows }: { shadows: Shadows }) {
-  // const shadowsArray: Shadows = [];
-
-  // Object.keys(shadows).forEach((current) => {
-  //   return current;
-  // });
-
-  return defaultShadowsShadows;
-}
-
-createDefaultShadows({ shadows: defaultShadowsShadows });

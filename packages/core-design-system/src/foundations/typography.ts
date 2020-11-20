@@ -66,13 +66,25 @@ export type Fonts = { [key in keyof typeof TYPOGRAPHIC_STYLE]?: Font } & {
    * CSS variable name for font famility.
    * @example `--font-sans-alternate`
    */
-  varNames: { [key in keyof typeof TYPOGRAPHIC_STYLE]?: string };
+  varNames: FontVarNames;
   /**
    * CSS statement to access font CSS variables
    * @example `var(--font-sans-alternate)`
    */
-  var: { [key in keyof typeof TYPOGRAPHIC_STYLE]?: string };
+  var: FontVars;
 };
+
+/**
+ * Contains CSS variable names to set font-family
+ * @example `--font-monospace`
+ */
+export type FontVarNames = string[];
+
+/**
+ * Contains CSS statement to access CSS variables
+ * @example `var(--font-monospace)`
+ */
+export type FontVars = string[];
 
 /**
  * TODO

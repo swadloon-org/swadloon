@@ -60,6 +60,9 @@ export function getCSSColorPalette<ColorShades extends string>(palette: ColorPal
   }, {} as ColorPalette<ColorShades, CSSTypes.Color>);
 }
 
+/**
+ *
+ */
 export function getCSSColor({ h, s, l, a }: Partial<Color>): CSSTypes.Color {
   return `hsl(${h}deg ${s}% ${l}% / ${a === undefined ? 100 : a}%)`;
 }

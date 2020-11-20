@@ -60,19 +60,19 @@ export const defaultColorsColors: Colors['colors'] = {
 
 export const defaultColorIntents: ColorIntents = createDefaultColorIntents(defaultColorsColors);
 
-export const DEFAULT_COLORS_VAR_NAMES: ColorsVarNames = getCSSVarNamesForColors({
+export const defaultColorsVarNames: ColorsVarNames = getCSSVarNamesForColors({
   colors: defaultColorsColors,
   colorIntents: defaultColorIntents,
 });
 
-export const DEFAULT_COLORS_VAR: ColorsVars = getCSSVarForColors({
+export const defaultColorsVar: ColorsVars = getCSSVarForColors({
   colors: defaultColorsColors,
   colorIntents: defaultColorIntents,
 });
 
 export const defaultColors: Colors = {
-  varNames: DEFAULT_COLORS_VAR_NAMES,
-  var: DEFAULT_COLORS_VAR,
+  varNames: defaultColorsVarNames,
+  var: defaultColorsVar,
   colors: defaultColorsColors,
   colorIntents: defaultColorIntents,
 };

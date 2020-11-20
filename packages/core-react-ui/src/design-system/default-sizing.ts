@@ -53,7 +53,7 @@ export const DEFAULT_SIZING_STEPS: SizingSteps = {
   [VIEWPORT.desktop]: sizingStepMobile,
 };
 
-export const DEFAULT_SIZING: Sizing = {
+export const defaultSizizng: Sizing = {
   baseFontSize: DEFAULT_BASE_FONT_SIZE,
   ratio: DEFAULT_SCALING_RATIO,
   varNames: DEFAULT_SIZES_CSS_VAR_NAMES,

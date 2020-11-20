@@ -1,5 +1,4 @@
-import { defaultShadowsShadows } from '../design-system/default-effects';
-import { createDefaultShadows, getCSSShadow } from './shadows.utilities';
+import { getCSSShadow } from './shadows.utilities';
 
 describe('shadows utilities', () => {
   describe(`${getCSSShadow.name}`, () => {
@@ -20,5 +19,4 @@ describe('shadows utilities', () => {
       ).toBe('0px 0px 1px 0px hsl(222deg 90% 90% / 0.7%)');
     });
   });
-  console.log(createDefaultShadows({ shadows: defaultShadowsShadows }));
 });
