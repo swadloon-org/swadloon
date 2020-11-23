@@ -1,5 +1,12 @@
 import { DesignSystem } from '@newrade/core-design-system';
 import { style } from 'treat';
+import { Theme } from '../../design-system/css-design-system';
+
+//  Todo - transform to style Map
+
+export const t1 = style(({theme, cssTheme}: Theme) => ({
+  fontSize: cssTheme.typography.titles.mobile.t1.sans?.,
+}));
 
 export const h1 = style((theme: DesignSystem) => ({
   fontSize: '33px',

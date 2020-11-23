@@ -67,6 +67,10 @@ export function getCSSColor({ h, s, l, a }: Partial<Color>): CSSTypes.Color {
   return `hsl(${h}deg ${s}% ${l}% / ${a === undefined ? 100 : a}%)`;
 }
 
+/**
+ *  TODO - move to design system
+ */
+
 export function lightenColor(color: Color, amount: number): Color {
   return {
     ...color,
