@@ -11,7 +11,7 @@ import { TEXT_TRANSFORM } from './foundations/text';
 import { Typography } from './foundations/typography';
 import { Color } from './primitives/color';
 
-export interface DesignSystem<ThemeType = undefined> {
+export interface DesignSystem<ThemeType extends undefined | string = undefined> {
   /**
    * Name of the project or brand's name.
    */
@@ -20,7 +20,7 @@ export interface DesignSystem<ThemeType = undefined> {
    * Theme variation's name.
    * @default 'light'
    */
-  variation: ThemeType extends string ? ThemeType : 'light' | 'dark';
+  variation: 'light' | 'dark';
   /**
    * Every color defined in the system.
    */
