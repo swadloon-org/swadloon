@@ -5,6 +5,6 @@ import { Theme } from '../../design-system/css-design-system';
 
 export const styles = styleMap(({ theme, cssTheme }: Theme) => ({
   t1: {
-    fontFamily: cssTheme.typography.titles.mobile.t1.fontFamily,
+    // fontFamily: cssTheme.typography.titles.mobile.t1.fontFamily,
   },
 }));

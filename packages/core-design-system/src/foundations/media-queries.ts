@@ -29,8 +29,8 @@ export enum MEDIA_OPERATOR {
  */
 export type MediaQuery = {
   type?: MEDIA_TYPE;
-  feature: MEDIA_FEATURE;
-  value: string;
+  feature?: MEDIA_FEATURE;
+  value?: number;
 };
 
 /**
@@ -40,7 +40,7 @@ export type MediaQuery = {
 export type MediaQueryGroup = {
   queryA: MediaQuery;
   operator?: MEDIA_OPERATOR;
-  queryB?: MediaQuery;
+  queryB?: MediaQuery | MediaQueryGroup;
 };
 /**
  * Breakpoints values in pixel.

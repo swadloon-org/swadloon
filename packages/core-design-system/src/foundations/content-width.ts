@@ -3,8 +3,8 @@ import { VIEWPORT } from './layout';
 /**
  * Content margins for each viewport formats.
  */
-export type ContentMargins = {
-  [key in keyof typeof VIEWPORT]: number;
+export type ContentMargins<BreakpointType = number> = {
+  [key in keyof typeof VIEWPORT]: BreakpointType;
 };
 
 /**

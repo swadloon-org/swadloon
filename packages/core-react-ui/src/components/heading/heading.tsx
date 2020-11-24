@@ -5,7 +5,7 @@ import { CommonComponentProps } from '../../props/component-common-props';
 import * as stylesRef from './heading.treat';
 
 type Props = CommonComponentProps & {
-  variant: HEADING & TITLE;
+  variant?: HEADING & TITLE;
 };
 
 export const Heading: React.FC<HTMLAttributes<any> & Props> = ({ className, ...props }) => {

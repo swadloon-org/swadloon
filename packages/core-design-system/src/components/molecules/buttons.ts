@@ -69,7 +69,7 @@ export type ButtonSizes<ColorType = Color, PaddingType = Padding, BorderType = B
   [key in keyof typeof ButtonSize]: ButtonBoxStyle<ColorType, PaddingType, BorderType, OutlineType>;
 };
 
-export interface Buttons<ColorType = Color, PaddingType = Padding, BorderType = Border, OutlineType = Outline> {
+export interface Buttons<ColorType = Color, PaddingType = number, BorderType = Border, OutlineType = Outline> {
   variants: ButtonVariants<ColorType>;
   sizes: ButtonSizes<ColorType, PaddingType, BorderType, OutlineType>;
 }

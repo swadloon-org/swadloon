@@ -50,6 +50,6 @@ export type Breakpoints<BreakpointType = number> = { [key in keyof typeof BREAKP
 export interface Layout<BreakpointType = number, MediaQueryType = MediaQueryGroup> {
   breakpoints: Breakpoints<BreakpointType>;
   media: MediaQueries<MediaQueryType>;
-  contentMargins: ContentMargins;
+  contentMargins: ContentMargins<BreakpointType>;
   contentWidth: ContentWidths;
 }

@@ -5,7 +5,8 @@
     "outDir": "lib",
     "target": "es6",
     "module": "commonjs",
-    "types": ["react", "react-dom", "jest"]
+    "types": ["react", "react-dom", "jest"],
+    "lib": ["es6", "dom", "es2017"]
   },
   "references": [
     {

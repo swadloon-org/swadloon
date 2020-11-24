@@ -1,4 +1,5 @@
 import { TextStyle } from '@newrade/core-design-system';
+import { AppError, ERROR_TYPE } from '@newrade/core-utils';
 import capsize, { CapsizeStyles } from 'capsize';
 import { pxStringToNumber, pxStringToRem } from './utilities';
 
@@ -22,6 +23,12 @@ export function createTextStyle({
   lineGap,
 }: TextStyleOptions): TextStyle {
   const compatibleCapHeight: number = capHeight;
+  if (!font) {
+    throw new AppError({
+      name: ERROR_TYPE.LIB_ERROR,
+      message: 'a text style requires a font to be set',
+    });
+  }
   const { fontMetrics } = font;
 
   const capsizePx = capsize({ capHeight: compatibleCapHeight, lineGap, fontMetrics });

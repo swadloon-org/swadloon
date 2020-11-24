@@ -1,4 +1,4 @@
-import { Border, Outline, Padding } from './components/atoms/box';
+import { Border, Outline } from './components/atoms/box';
 import { Buttons } from './components/molecules/buttons';
 import { Animations } from './foundations/animations';
 import { Colors } from './foundations/colors';
@@ -46,31 +46,35 @@ export interface DesignSystem<ThemeType = undefined> {
     ThemeType extends string ? ThemeType : TEXT_TRANSFORM
   >;
   /**
-   * TODO
-   */
-  animations?: Animations;
-  /**
    * Breakpoints, common content margins for different viewports.
    */
   layout: Layout<ThemeType extends string ? ThemeType : number, ThemeType extends string ? ThemeType : MediaQueryGroup>;
+  /**
+   * Curves, delays and other defaults for animations.
+   */
+  animations: Animations;
   /**
    * Components' specific settings.
    */
   components: {
     buttons: Buttons<
-      ThemeType extends string ? ThemeType : Colors<ThemeType extends string ? ThemeType : Color>,
-      ThemeType extends string ? ThemeType : Padding<ThemeType extends string ? ThemeType : number>,
+      // Color Type
+      ThemeType extends string ? ThemeType : Color,
+      // Padding Type
+      ThemeType extends string ? ThemeType : ThemeType extends string ? ThemeType : number,
+      // Border Type
       ThemeType extends string
         ? ThemeType
         : Border<
-            ThemeType extends string ? ThemeType : Colors<ThemeType extends string ? ThemeType : Color>,
+            ThemeType extends string ? ThemeType : Color,
             ThemeType extends string ? ThemeType : number,
             ThemeType extends string ? ThemeType : number
           >,
+      // Outline Type
       ThemeType extends string
         ? ThemeType
         : Outline<
-            ThemeType extends string ? ThemeType : Colors<ThemeType extends string ? ThemeType : Color>,
+            ThemeType extends string ? ThemeType : Color,
             ThemeType extends string ? ThemeType : number,
             ThemeType extends string ? ThemeType : number
           >

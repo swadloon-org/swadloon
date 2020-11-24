@@ -7,6 +7,7 @@ export * from './foundations/effects';
 export * from './foundations/font';
 export * from './foundations/iconography';
 export * from './foundations/layout';
+export * from './foundations/media-queries';
 export * from './foundations/sizing';
 export * from './foundations/text';
 export * from './foundations/typography';
