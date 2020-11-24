@@ -39,7 +39,7 @@ export interface TextStyle<
   /**
    * Font object that contains information about the typeface.
    */
-  font: Font;
+  font?: Font;
   /**
    * Font family which will be rendered in CSS files.
    *
@@ -52,7 +52,13 @@ export interface TextStyle<
    *
    * @example 500
    */
-  fontWeight: FontWeightType;
+  fontWeight?: FontWeightType;
+  /**
+   * Todo
+   *
+   * @example 'italic'
+   */
+  fontStyle?: 'normal' | 'italic';
   /**
    * Optional property to set `letter-spacing`.
    * @example '3' becomes '3%'

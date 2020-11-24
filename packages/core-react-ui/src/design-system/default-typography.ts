@@ -1,4 +1,4 @@
-import { Typography } from '../../../core-design-system/src';
+import { TEXT_TRANSFORM, Typography } from '../../../core-design-system/src';
 import { defaultMonospaceFont, defaultSansAlternateFont, defaultSansFont, defaultSerifFont } from './default-fonts';
 
 export const defaultTypography: Typography = {
@@ -10,613 +10,224 @@ export const defaultTypography: Typography = {
     var: ['--font-family-monospace', '--font-family-sans', '--font-family-sans-alternate', '--font-family-serif'],
     varNames: ['--font-family-monospace', '--font-family-sans', '--font-family-sans-alternate', '--font-family-serif'],
   },
-  // TODO: complete
   titles: {
+    font: defaultSerifFont,
+    fontWeight: 400,
+    letterSpacing: 6,
     mobile: {
       t1: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
+        capHeight: 55,
+        lineGap: 19,
       },
       t2: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
+        capHeight: 55,
+        lineGap: 19,
       },
     },
     tablet: {
       t1: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
+        capHeight: 55,
+        lineGap: 19,
       },
       t2: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
+        capHeight: 55,
+        lineGap: 19,
       },
     },
     desktop: {
       t1: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
+        fontWeight: 400,
+        capHeight: 55,
+        lineGap: 19,
       },
       t2: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
+        capHeight: 55,
+        lineGap: 19,
       },
     },
   },
-  // TODO: complete
   headings: {
+    font: defaultSerifFont,
+    fontWeight: 400,
+    letterSpacing: 6,
     mobile: {
       h1: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
+        capHeight: 55,
+        lineGap: 19,
       },
       h2: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
+        capHeight: 55,
+        lineGap: 19,
       },
       h3: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
+        capHeight: 55,
+        lineGap: 19,
       },
       h4: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
-      },
-      h5: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
-      },
-      h6: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
+        capHeight: 55,
+        lineGap: 19,
       },
     },
     tablet: {
       h1: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
+        capHeight: 55,
+        lineGap: 19,
       },
       h2: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
+        capHeight: 55,
+        lineGap: 19,
       },
       h3: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
+        capHeight: 55,
+        lineGap: 19,
       },
       h4: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
-      },
-      h5: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
-      },
-      h6: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
+        capHeight: 55,
+        lineGap: 19,
       },
     },
     desktop: {
       h1: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
+        capHeight: 55,
+        lineGap: 19,
       },
       h2: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
+        capHeight: 55,
+        lineGap: 19,
       },
       h3: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
+        capHeight: 55,
+        lineGap: 19,
       },
       h4: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
-      },
-      h5: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
-      },
-      h6: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
+        capHeight: 55,
+        lineGap: 19,
       },
     },
   },
   paragraphs: {
-    mobile: {
-      large: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
+    font: defaultSerifFont,
+    fontWeight: 400,
+    styles: {
+      bold: {
+        fontWeight: 500,
       },
-      medium: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
-      },
-      small: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
-      },
-      xSmall: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
-      },
-    },
-    tablet: {
-      large: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
-      },
-      medium: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
-      },
-      small: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
-      },
-      xSmall: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
+      italic: {
+        fontWeight: 400,
+        fontStyle: 'italic',
       },
     },
     desktop: {
       large: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
+        capHeight: 55,
+        lineGap: 19,
       },
       medium: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
+        capHeight: 55,
+        lineGap: 19,
       },
       small: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
+        capHeight: 55,
+        lineGap: 19,
       },
       xSmall: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
+        capHeight: 55,
+        lineGap: 19,
+      },
+    },
+    tablet: {
+      large: {
+        capHeight: 55,
+        lineGap: 19,
+      },
+      medium: {
+        capHeight: 55,
+        lineGap: 19,
+      },
+      small: {
+        capHeight: 55,
+        lineGap: 19,
+      },
+      xSmall: {
+        capHeight: 55,
+        lineGap: 19,
+      },
+    },
+    mobile: {
+      large: {
+        capHeight: 55,
+        lineGap: 19,
+      },
+      medium: {
+        capHeight: 55,
+        lineGap: 19,
+      },
+      small: {
+        capHeight: 55,
+        lineGap: 19,
+      },
+      xSmall: {
+        capHeight: 55,
+        lineGap: 19,
       },
     },
   },
   labels: {
-    mobile: {
-      mediumBoldUppercase: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
+    font: defaultSerifFont,
+    fontWeight: 400,
+    styles: {
+      bold: {
+        fontWeight: 500,
       },
-      mediumUppercase: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
+      boldUppercase: {
+        fontWeight: 500,
+        textTransform: TEXT_TRANSFORM.uppercase,
       },
-      mediumBold: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
-      },
-      mediumRegular: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
-      },
-      smallBoldUppercase: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
-      },
-      smallUppercase: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
-      },
-      smallBold: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
-      },
-      smallRegular: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
-      },
-      xSmallBoldUppercase: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
-      },
-      xSmallUppercase: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
-      },
-      xSmallBold: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
-      },
-      xSmallRegular: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
-      },
-    },
-    tablet: {
-      mediumBoldUppercase: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
-      },
-      mediumUppercase: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
-      },
-      mediumBold: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
-      },
-      mediumRegular: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
-      },
-      smallBoldUppercase: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
-      },
-      smallUppercase: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
-      },
-      smallBold: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
-      },
-      smallRegular: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
-      },
-      xSmallBoldUppercase: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
-      },
-      xSmallUppercase: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
-      },
-      xSmallBold: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
-      },
-      xSmallRegular: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
+      uppercase: {
+        fontWeight: 400,
+        textTransform: TEXT_TRANSFORM.uppercase,
       },
     },
     desktop: {
-      mediumBoldUppercase: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
+      medium: {
+        capHeight: 55,
+        lineGap: 19,
       },
-      mediumUppercase: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
+      small: {
+        capHeight: 55,
+        lineGap: 19,
       },
-      mediumBold: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
+      xSmall: {
+        capHeight: 55,
+        lineGap: 19,
       },
-      mediumRegular: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
+    },
+    tablet: {
+      medium: {
+        capHeight: 55,
+        lineGap: 19,
       },
-      smallBoldUppercase: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
+      small: {
+        capHeight: 55,
+        lineGap: 19,
       },
-      smallUppercase: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
+      xSmall: {
+        capHeight: 55,
+        lineGap: 19,
       },
-      smallBold: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
+    },
+    mobile: {
+      medium: {
+        capHeight: 55,
+        lineGap: 19,
       },
-      smallRegular: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
+      small: {
+        capHeight: 55,
+        lineGap: 19,
       },
-      xSmallBoldUppercase: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
-      },
-      xSmallUppercase: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
-      },
-      xSmallBold: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
-      },
-      xSmallRegular: {
-        serif: {
-          font: defaultSerifFont,
-          fontWeight: 400,
-          capHeight: 55,
-          lineGap: 19,
-        },
+      xSmall: {
+        capHeight: 55,
+        lineGap: 19,
       },
     },
   },

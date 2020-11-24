@@ -28,14 +28,14 @@ export enum HEADING {
   h2 = 'h2',
   h3 = 'h3',
   h4 = 'h4',
-  h5 = 'h5',
-  h6 = 'h6',
+  // h5 = 'h5',
+  // h6 = 'h6',
 }
 
 /**
  * The paragraph sizes.
  */
-export enum PARAGRAPH {
+export enum PARAGRAPH_SIZE {
   large = 'large',
   medium = 'medium',
   small = 'small',
@@ -45,19 +45,21 @@ export enum PARAGRAPH {
 /**
  * The label sizes.
  */
-export enum LABEL {
-  mediumBoldUppercase = 'mediumBoldUppercase',
-  mediumUppercase = 'mediumUppercase',
-  mediumBold = 'mediumBold',
-  mediumRegular = 'mediumRegular',
-  smallBoldUppercase = 'smallBoldUppercase',
-  smallUppercase = 'smallUppercase',
-  smallBold = 'smallBold',
-  smallRegular = 'smallRegular',
-  xSmallBoldUppercase = 'xSmallBoldUppercase',
-  xSmallUppercase = 'xSmallUppercase',
-  xSmallBold = 'xSmallBold',
-  xSmallRegular = 'xSmallRegular',
+export enum LABEL_SIZE {
+  medium = 'medium',
+  small = 'small',
+  xSmall = 'xSmall',
+}
+
+/**
+ * The text styles.
+ */
+export enum TEXT_STYLE {
+  italic = 'italic',
+  bold = 'bold',
+  uppercase = 'uppercase',
+  boldUppercase = 'boldUppercase',
+  italicBold = 'italicBold',
 }
 
 /**
@@ -88,6 +90,11 @@ export type FontVarNames = string[];
  */
 export type FontVars = string[];
 
+type PartialTextStyle<FontWeightType, LetterSpacingType, TextTransformType, TextDecorationType> = Omit<
+  TextStyle<FontWeightType, LetterSpacingType, TextTransformType, TextDecorationType>,
+  'capHeight' | 'lineGap'
+>;
+
 /**
  * TODO
  */
@@ -97,14 +104,7 @@ export type Titles<
   TextTransformType = TEXT_TRANSFORM,
   TextDecorationType = TextDecoration
 > = {
-  [key in keyof typeof TITLE]: {
-    [key in keyof typeof TYPOGRAPHIC_STYLE]?: TextStyle<
-      FontWeightType,
-      LetterSpacingType,
-      TextTransformType,
-      TextDecorationType
-    >;
-  };
+  [key in keyof typeof TITLE]: TextStyle<FontWeightType, LetterSpacingType, TextTransformType, TextDecorationType>;
 };
 
 /**
@@ -116,14 +116,7 @@ export type Headings<
   TextTransformType = TEXT_TRANSFORM,
   TextDecorationType = TextDecoration
 > = {
-  [key in keyof typeof HEADING]: {
-    [key in keyof typeof TYPOGRAPHIC_STYLE]?: TextStyle<
-      FontWeightType,
-      LetterSpacingType,
-      TextTransformType,
-      TextDecorationType
-    >;
-  };
+  [key in keyof typeof HEADING]: TextStyle<FontWeightType, LetterSpacingType, TextTransformType, TextDecorationType>;
 };
 
 /**
@@ -135,14 +128,12 @@ export type Paragraphs<
   TextTransformType = TEXT_TRANSFORM,
   TextDecorationType = TextDecoration
 > = {
-  [key in keyof typeof PARAGRAPH]: {
-    [key in keyof typeof TYPOGRAPHIC_STYLE]?: TextStyle<
-      FontWeightType,
-      LetterSpacingType,
-      TextTransformType,
-      TextDecorationType
-    >;
-  };
+  [key in keyof typeof PARAGRAPH_SIZE]: TextStyle<
+    FontWeightType,
+    LetterSpacingType,
+    TextTransformType,
+    TextDecorationType
+  >;
 };
 
 /**
@@ -154,14 +145,7 @@ export type Labels<
   TextTransformType = TEXT_TRANSFORM,
   TextDecorationType = TextDecoration
 > = {
-  [key in keyof typeof LABEL]: {
-    [key in keyof typeof TYPOGRAPHIC_STYLE]?: TextStyle<
-      FontWeightType,
-      LetterSpacingType,
-      TextTransformType,
-      TextDecorationType
-    >;
-  };
+  [key in keyof typeof LABEL_SIZE]: TextStyle<FontWeightType, LetterSpacingType, TextTransformType, TextDecorationType>;
 };
 
 export interface Typography<
@@ -179,13 +163,15 @@ export interface Typography<
    */
   titles: {
     [key in keyof typeof VIEWPORT]: Titles<FontWeightType, LetterSpacingType, TextTransformType, TextDecorationType>;
-  };
+  } &
+    PartialTextStyle<FontWeightType, LetterSpacingType, TextTransformType, TextDecorationType>;
   /**
    * TODO
    */
   headings: {
     [key in keyof typeof VIEWPORT]: Headings<FontWeightType, LetterSpacingType, TextTransformType, TextDecorationType>;
-  };
+  } &
+    PartialTextStyle<FontWeightType, LetterSpacingType, TextTransformType, TextDecorationType>;
   /**
    * TODO
    */
@@ -196,11 +182,34 @@ export interface Typography<
       TextTransformType,
       TextDecorationType
     >;
-  };
+  } &
+    PartialTextStyle<FontWeightType, LetterSpacingType, TextTransformType, TextDecorationType> & {
+      styles: {
+        [TEXT_STYLE.bold]: PartialTextStyle<FontWeightType, LetterSpacingType, TextTransformType, TextDecorationType>;
+        [TEXT_STYLE.italic]: PartialTextStyle<FontWeightType, LetterSpacingType, TextTransformType, TextDecorationType>;
+      };
+    };
   /**
    * TODO
    */
   labels: {
     [key in keyof typeof VIEWPORT]: Labels<FontWeightType, LetterSpacingType, TextTransformType, TextDecorationType>;
-  };
+  } &
+    PartialTextStyle<FontWeightType, LetterSpacingType, TextTransformType, TextDecorationType> & {
+      styles: {
+        [TEXT_STYLE.bold]: PartialTextStyle<FontWeightType, LetterSpacingType, TextTransformType, TextDecorationType>;
+        [TEXT_STYLE.uppercase]: PartialTextStyle<
+          FontWeightType,
+          LetterSpacingType,
+          TextTransformType,
+          TextDecorationType
+        >;
+        [TEXT_STYLE.boldUppercase]: PartialTextStyle<
+          FontWeightType,
+          LetterSpacingType,
+          TextTransformType,
+          TextDecorationType
+        >;
+      };
+    };
 }
