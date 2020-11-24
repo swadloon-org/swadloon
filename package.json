@@ -106,6 +106,7 @@
     "case": "^1.6.3",
     "chalk": "^4.0.0",
     "concurrently": "^5.3.0",
+    "contentful-cli": "^1.4.58",
     "conventional-changelog-cli": "^2.0.34",
     "copy-webpack-plugin": "^5.0.5",
     "cross-env": "^7.0.2",

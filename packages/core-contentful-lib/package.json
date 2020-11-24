@@ -13,6 +13,8 @@
     "clean": "rimraf -r lib/** && rm -f tsconfig.build.tsbuildinfo",
     "create-space": "cross-env TS_NODE_PROJECT=tsconfig.build.json node -r ts-node/register src/create-space.ts",
     "delete-space": "cross-env TS_NODE_PROJECT=tsconfig.build.json node -r ts-node/register src/delete-space.ts",
+    "exportcontent": "contentful space export --config contentful-export-config.json",
+    "importcontent": "contentful space import --config contentful-import-config.json",
     "start": "tsc --build --watch --preserveWatchOutput tsconfig.build.json"
   },
   "dependencies": {
