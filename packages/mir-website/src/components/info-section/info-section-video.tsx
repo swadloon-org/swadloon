@@ -17,7 +17,6 @@ type OwnProps = SectionFragment;
 
 export const InfoSectionVideo: React.FC<OwnProps> = (props) => {
   const styles = useStyles(styleRefs);
-  const imageUrl = props.medias?.medias[0]?.file?.url;
 
   return (
     <div className={styles.wrapper}>
@@ -29,8 +28,7 @@ export const InfoSectionVideo: React.FC<OwnProps> = (props) => {
           <Paragraph variant="medium">{props.text.text}</Paragraph>
         </div>
         <div className={styles.content}>
-          <GatsbyImage className={`${styles.video}`} fluid={props.medias.medias[0].desktopFluidImage}></GatsbyImage>
-          {/* <img className={`${styles.video}`} src={props.medias.medias[0].file.url}></img> */}
+          <GatsbyImage className={`${styles.video}`} fluid={props.medias?.medias[0]?.desktopFluidImage}></GatsbyImage>
         </div>
       </div>
       <div className={styles.blue}></div>
