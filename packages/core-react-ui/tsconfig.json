@@ -8,5 +8,5 @@
       "@newrade/*": ["../*/src"]
     }
   },
-  "include": ["src", "types", "../core-utils/src/errors"]
+  "include": ["src", "types"]
 }

@@ -1,9 +1,9 @@
 import { Color } from '@newrade/core-design-system';
 import { cleanup, render } from '@testing-library/react';
 import React from 'react';
-import { defaultColorIntents, defaultColorsColors } from '../design-system/default-colors';
-import { generatedColorCSSVarNames } from './colors.mock';
-import { getCSSColor, getCSSVarForColors, getCSSVarNamesForColors } from './colors.utilities';
+import { defaultColorIntents, defaultColors, defaultColorsColors } from '../design-system/default-colors';
+import { generatedColorCSSVarNames, generatedCSSColors } from './colors.mock';
+import { getCSSColor, getCSSColors, getCSSVarForColors, getCSSVarNamesForColors } from './colors.utilities';
 
 describe('colors utilities', () => {
   describe(`${getCSSColor.name}`, () => {
@@ -67,6 +67,12 @@ describe('colors utilities', () => {
       expect(getCSSVarForColors({ colors: defaultColorsColors, colorIntents: defaultColorIntents })).toEqual(
         generatedColorCSSVarNames.map((cssVar) => `var(${cssVar})`)
       );
+    });
+  });
+
+  describe(`${getCSSColors.name}`, () => {
+    it(`should generate a CSS colors from a Colors object`, () => {
+      expect(getCSSColors(defaultColors)).toEqual(generatedCSSColors);
     });
   });
 });

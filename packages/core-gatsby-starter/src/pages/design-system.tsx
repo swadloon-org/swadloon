@@ -23,11 +23,25 @@ const PageComponent: React.FC<ProjectPageProps> = (props) => {
 
           <Stack gap="1em">
             <h3>Typography</h3>
-            {JSON.stringify(cssTheme.typography.fonts)}
+            {/* {JSON.stringify(cssTheme)} */}
           </Stack>
 
           <Stack gap="1em">
             <h3>Colors</h3>
+            <h4>All Colors</h4>
+            {cssTheme.colors?.colors &&
+              Object.keys(cssTheme.colors?.colors).map((color) => {
+                return (
+                  <div key={color} style={{ backgroundColor: (cssTheme.colors?.colors as any)[color] }}>
+                    {color}
+                  </div>
+                );
+              })}
+            <h4>Colors Intents</h4>
+            {cssTheme.colors?.colorIntents &&
+              Object.keys(cssTheme.colors?.colorIntents).map((color) => {
+                return <div key={color}>{color}</div>;
+              })}
           </Stack>
         </Stack>
 
