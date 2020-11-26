@@ -12,5 +12,5 @@ export const Heading: React.FC<HTMLAttributes<any> & OwnProps> = (props) => {
 
   // TODO return <h1/> elements instead of divs
 
-  return <div className={`${props.className || ''} ${styles[props.variant]}`}>{props.children}</div>;
+  return <div className={`${props?.className || ''} ${styles[props?.variant]}`}>{props?.children}</div>;
 };

@@ -18,6 +18,7 @@ import { viewportContext } from '../hooks/use-viewport.hook';
 import { Layout } from '../layouts/page.layout';
 import '../styles/font-faces.styles.css';
 import { BlogPostArticleTemplate } from './blog-post-article.template';
+import { PAGE_NAME } from './page.template';
 
 export type ProjectPageProps = PageProps<BlogPostPageQuery, GatsbyBlogPostContext>;
 
@@ -58,36 +59,36 @@ export const BlogPostTemplate: React.FC<ProjectPageProps> = ({ data, location, .
             {getMetaBasicTags()}
             {getMetadataOpenGraphWebsiteTags({
               type: OPEN_GRAPH_TYPE.ARTICLE,
-              title: `${data.contentfulBlogPost.title}`,
-              url: `${data.site?.siteMetadata?.siteUrl}${data.contentfulBlogPost?.blogSlug}`,
-              description: `${data.contentfulBlogPost?.blogExcerpt.blogExcerpt}`,
-              image: `${data.contentfulBlogPost?.blogMainImage.socialMediaImage.src}`,
-              site_name: `${data.contentfulCompanyInfo.metadataSiteName}`,
-              lang: data.contentfulBlogPost.node_locale.includes('fr') ? 'fr' : 'en',
-              locale: data.contentfulBlogPost.node_locale.includes('fr') ? 'fr_CA' : 'en_CA',
-              localeAlternate: data.contentfulBlogPost.node_locale.includes('en') ? 'fr_CA' : 'en_CA',
+              title: `${data?.contentfulBlogPost?.title}`,
+              url: `${data?.site?.siteMetadata?.siteUrl}${data?.contentfulBlogPost?.blogSlug}`,
+              description: `${data?.contentfulBlogPost?.blogExcerpt?.blogExcerpt}`,
+              image: `${data?.contentfulBlogPost?.blogMainImage?.socialMediaImage?.src}`,
+              site_name: `${data?.contentfulCompanyInfo?.metadataSiteName}`,
+              lang: data?.contentfulBlogPost?.node_locale?.includes('fr') ? 'fr' : 'en',
+              locale: data?.contentfulBlogPost?.node_locale?.includes('fr') ? 'fr_CA' : 'en_CA',
+              localeAlternate: data?.contentfulBlogPost?.node_locale?.includes('en') ? 'fr_CA' : 'en_CA',
             })}
             {getMetadataTwitterTags({
               card: 'summary_large_image',
-              image: `${data.contentfulBlogPost?.blogMainImage.socialMediaImage.src}`,
-              creator: `${data.contentfulCompanyInfo.metadataTwitterCreator}`,
-              site: `${data.contentfulCompanyInfo.metadataTwitterSite}`,
+              image: `${data?.contentfulBlogPost?.blogMainImage?.socialMediaImage?.src}`,
+              creator: `${data?.contentfulCompanyInfo?.metadataTwitterCreator}`,
+              site: `${data?.contentfulCompanyInfo?.metadataTwitterSite}`,
             })}
           </Helmet>
           <Layout
-            currentPageName={data.contentfulBlogPost.title}
+            currentPageName={data?.contentfulBlogPost?.title as string | PAGE_NAME}
             location={location}
-            logoURL={data.contentfulCompanyInfo.logo.file.url}
-            linkedinPageURL={data.contentfulCompanyInfo.linkedinPageURL}
-            facebookPageURL={data.contentfulCompanyInfo.facebookPageURL}
-            instagramPageURL={data.contentfulCompanyInfo.instagramPageURL}
-            twitterPageURL={data.contentfulCompanyInfo.twitterPageURL}
-            pages={data.allContentfulPage.edges.map((edge) => ({
-              ...edge.node,
-              locale: edge.node.node_locale,
+            logoURL={data?.contentfulCompanyInfo?.logo?.file?.url as string | null}
+            linkedinPageURL={data?.contentfulCompanyInfo?.linkedinPageURL as string | null}
+            facebookPageURL={data?.contentfulCompanyInfo?.facebookPageURL as string | null}
+            instagramPageURL={data?.contentfulCompanyInfo?.instagramPageURL as string | null}
+            twitterPageURL={data?.contentfulCompanyInfo?.twitterPageURL as string | null}
+            pages={data?.allContentfulPage?.edges?.map((edge) => ({
+              ...edge?.node,
+              locale: edge?.node?.node_locale,
             }))}
           >
-            <BlogPostArticleTemplate {...data.contentfulBlogPost} />
+            <BlogPostArticleTemplate {...data?.contentfulBlogPost} />
           </Layout>
         </ViewportProvider>
       </TreatProvider>

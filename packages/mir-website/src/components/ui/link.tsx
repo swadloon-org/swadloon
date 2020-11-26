@@ -7,7 +7,7 @@ import { Label } from './label';
 import { Paragraph } from './paragraph';
 
 type OwnProps = {
-  to: string;
+  to: string | null;
 };
 
 export const Link: React.FC<HTMLAttributes<any> & OwnProps> = (props) => {

@@ -25,39 +25,39 @@ export const SideBar: React.FC<OwnProps> = (props) => {
   const currentLocale = props.location?.pathname.includes('/en/') ? 'en-CA' : 'fr-CA';
   const currentLocaleIsEN = currentLocale === 'en-CA';
   const currentLocaleIsFR = !currentLocaleIsEN;
-  const currentPage = props.pages.filter(
-    (page) => page.name === props.currentPageName && page.locale === currentLocale
+  const currentPage = props?.pages.filter(
+    (page) => page?.name === props?.currentPageName && page?.locale === currentLocale
   );
-  const currentAlternateLocalePage = props.pages.filter(
-    (page) => page.name === props.currentPageName && page.locale !== currentLocale
+  const currentAlternateLocalePage = props?.pages.filter(
+    (page) => page?.name === props?.currentPageName && page?.locale !== currentLocale
   );
-  const pagesEN = props.pages.filter((page) => (currentLocaleIsEN ? page.locale === 'en-CA' : page));
-  const pagesFR = props.pages.filter((page) => (currentLocaleIsFR ? page.locale === 'fr-CA' : page));
+  const pagesEN = props?.pages?.filter((page) => (currentLocaleIsEN ? page?.locale === 'en-CA' : page));
+  const pagesFR = props?.pages?.filter((page) => (currentLocaleIsFR ? page?.locale === 'fr-CA' : page));
   // const alternateLocalePage = localENActive ? pages.includes({name: currentPageName, route: })
 
   const leftToolbarPageNames: (string | PAGE_NAME)[] = [
-    PAGE_NAME.ACCUEIL,
-    PAGE_NAME.CANDIDATS,
-    PAGE_NAME.EMPLOYEURS,
-    PAGE_NAME.BLOGUE,
-    PAGE_NAME.A_PROPOS,
-    PAGE_NAME.CONTACT,
+    PAGE_NAME?.ACCUEIL,
+    PAGE_NAME?.CANDIDATS,
+    PAGE_NAME?.EMPLOYEURS,
+    PAGE_NAME?.BLOGUE,
+    PAGE_NAME?.A_PROPOS,
+    PAGE_NAME?.CONTACT,
   ];
   const leftToolbarPages = (currentLocaleIsEN ? pagesEN : pagesFR)
-    ?.filter((page) => leftToolbarPageNames.includes(page.name))
+    ?.filter((page) => leftToolbarPageNames.includes(page?.name))
     .sort((pageA, pageB) => {
-      const indexA = leftToolbarPageNames.indexOf(pageA.name);
-      const indexB = leftToolbarPageNames.indexOf(pageB.name);
+      const indexA = leftToolbarPageNames?.indexOf(pageA?.name);
+      const indexB = leftToolbarPageNames?.indexOf(pageB?.name);
       return indexA > indexB ? 1 : -1;
     });
-  const contactUsPage = (currentLocaleIsEN ? pagesEN : pagesFR)?.filter((page) => page.name === 'Contact');
+  const contactUsPage = (currentLocaleIsEN ? pagesEN : pagesFR)?.filter((page) => page?.name === 'Contact');
 
   return (
     <motion.div
-      className={`${props.className || ''} ${styles.wrapper} `}
+      className={`${props?.className || ''} ${styles.wrapper} `}
       key="sidebar"
       initial="closed"
-      animate={props.state}
+      animate={props?.state}
       exit="closed"
       variants={{
         opened: { opacity: 1, x: 0 },
@@ -66,8 +66,8 @@ export const SideBar: React.FC<OwnProps> = (props) => {
       transition={{ x: { duration: 0.3, ease: 'easeOut' } }}
     >
       <div className={styles.topContainer}>
-        <img className={styles.logo} src={props.logoURL} />
-        <div className={styles.icon} onClick={(e) => props.onOpenSideMenu()}>
+        <img className={styles.logo} src={props?.logoURL} />
+        <div className={styles.icon} onClick={(e) => props?.onOpenSideMenu()}>
           <Icon icon="IconClose" size={ICON_SIZE.large}></Icon>
         </div>
       </div>
@@ -89,14 +89,16 @@ export const SideBar: React.FC<OwnProps> = (props) => {
               return (
                 <GatsbyLink
                   className={styles.titleItem}
-                  to={page.route}
-                  key={`${page.name}-${page.locale}`}
+                  to={page?.route}
+                  key={`${page?.name}-${page?.locale}`}
                   activeClassName={`${styles.activeItem}`}
                 >
-                  {console.log(props.currentPageName)}
-                  {console.log(page.route)}
-                  <div className={`${styles.itemMenu} ${props.currentPageName == page.name ? styles.activeItem : ''}`}>
-                    <Heading variant="h4">{page.title}</Heading>
+                  {console.log(props?.currentPageName)}
+                  {console.log(page?.route)}
+                  <div
+                    className={`${styles.itemMenu} ${props?.currentPageName == page?.name ? styles.activeItem : ''}`}
+                  >
+                    <Heading variant="h4">{page?.title}</Heading>
                   </div>
                 </GatsbyLink>
               );
@@ -114,8 +116,8 @@ export const SideBar: React.FC<OwnProps> = (props) => {
             <Label variant={LABEL.smallUppercase}>SOCIAL</Label>
           </div>
           <div className={styles.listSocial}>
-            {props.facebookPageURL ? (
-              <a href={props.facebookPageURL} target={'_blank'} aria-label="Facebook Page" rel="noopener">
+            {props?.facebookPageURL ? (
+              <a href={props?.facebookPageURL} target={'_blank'} aria-label="Facebook Page" rel="noopener">
                 <Button
                   className={styles.btnSocial}
                   variantType="secondaryReversed"
@@ -126,8 +128,8 @@ export const SideBar: React.FC<OwnProps> = (props) => {
                 ></Button>
               </a>
             ) : null}
-            {props.linkedinPageURL ? (
-              <a href={props.linkedinPageURL} target={'_blank'} aria-label="LinkedIn Page" rel="noopener">
+            {props?.linkedinPageURL ? (
+              <a href={props?.linkedinPageURL} target={'_blank'} aria-label="LinkedIn Page" rel="noopener">
                 <Button
                   className={styles.btnSocial}
                   variantType="secondaryReversed"
@@ -138,8 +140,8 @@ export const SideBar: React.FC<OwnProps> = (props) => {
                 ></Button>
               </a>
             ) : null}
-            {props.twitterPageURL ? (
-              <a href={props.twitterPageURL} target={'_blank'} aria-label="Twitter Page" rel="noopener">
+            {props?.twitterPageURL ? (
+              <a href={props?.twitterPageURL} target={'_blank'} aria-label="Twitter Page" rel="noopener">
                 <Button
                   className={styles.btnSocial}
                   variantType="secondaryReversed"
@@ -150,8 +152,8 @@ export const SideBar: React.FC<OwnProps> = (props) => {
                 ></Button>
               </a>
             ) : null}
-            {props.instagramPageURL ? (
-              <a href={props.instagramPageURL} target={'_blank'} aria-label="Instagram Page" rel="noopener">
+            {props?.instagramPageURL ? (
+              <a href={props?.instagramPageURL} target={'_blank'} aria-label="Instagram Page" rel="noopener">
                 <Button
                   className={styles.btnSocial}
                   variantType="secondaryReversed"

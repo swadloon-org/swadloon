@@ -9,14 +9,14 @@ import { SectionFragment } from '../../../types/graphql-types';
 type OwnProps = SectionFragment;
 
 export const InfoSectionType6Group: React.FC<OwnProps> = (props) => {
-  const hasChilds = !!props?.subSections.length;
+  const hasChilds = !!props?.subSections?.length;
   const styles = useStyles(styleRefs);
 
   return (
     <div className={styles.wrapper}>
-      {props.children}
+      {props?.children}
       {hasChilds
-        ? props.subSections.map((section, index) => {
+        ? props?.subSections?.map((section, index) => {
             return <InfoSectionType6 key={index} {...section} />;
           })
         : null}

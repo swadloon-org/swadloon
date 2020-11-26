@@ -18,7 +18,7 @@ export const InfoTile: React.FC<OwnProps & PassProps> = (props) => {
   return (
     <div
       className={`${styles.wrapper} ${
-        props.Variants === SECTION_TYPE.TYPE_4_PRIMARY ? styles.type4Primary : styles.type4Secondary
+        props?.Variants === SECTION_TYPE.TYPE_4_PRIMARY ? styles.type4Primary : styles.type4Secondary
       }`}
     >
       <Illustration
@@ -30,19 +30,19 @@ export const InfoTile: React.FC<OwnProps & PassProps> = (props) => {
       />
 
       <div className={`${styles.content}`}>
-        {props.illustration ? (
+        {props?.illustration ? (
           <Illustration
             className={`${styles.illustration}`}
-            name={`Illustration/${props.illustration.title}`}
+            name={`Illustration/${props?.illustration?.title}`}
             width={42}
             height={42}
           />
         ) : null}
 
-        <Heading variant={'h3'}>{props.title}</Heading>
+        <Heading variant={'h3'}>{props?.title}</Heading>
 
         <Paragraph variant={'small'} className={styles.text}>
-          {props.text.text}
+          {props?.text?.text}
         </Paragraph>
       </div>
     </div>
