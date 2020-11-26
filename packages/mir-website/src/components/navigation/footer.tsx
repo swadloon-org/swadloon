@@ -45,7 +45,7 @@ export const Footer: React.FC<OwnProps> = (props) => {
   const { viewport } = useViewportBreakpoint();
 
   return (
-    <footer className={`${props.className || ''} ${styles.wrapper}`}>
+    <footer className={`${props?.className || ''} ${styles.wrapper}`}>
       <div className={styles.gridwrapper}>
         <div className={styles.contact}>
           <Label
@@ -56,8 +56,12 @@ export const Footer: React.FC<OwnProps> = (props) => {
           </Label>
           <Paragraph className={styles.infoText} variant={viewport === VIEWPORT.mobile ? 'medium' : 'small'}>
             Téléphone :
-            <AnchorLink className={styles.link} variant="reversed" href={`tel:${data.contentfulCompanyAddress.phone}`}>
-              {data.contentfulCompanyAddress.phone}
+            <AnchorLink
+              className={styles.link}
+              variant="reversed"
+              href={`tel:${data?.contentfulCompanyAddress?.phone}`}
+            >
+              {data?.contentfulCompanyAddress?.phone}
             </AnchorLink>
           </Paragraph>
           <Paragraph className={styles.infoText} variant={viewport === VIEWPORT.mobile ? 'medium' : 'small'}>
@@ -65,9 +69,9 @@ export const Footer: React.FC<OwnProps> = (props) => {
             <AnchorLink
               className={styles.link}
               variant="reversed"
-              href={`tel:${data.contentfulCompanyAddress.phoneNoFees}`}
+              href={`tel:${data?.contentfulCompanyAddress?.phoneNoFees}`}
             >
-              {data.contentfulCompanyAddress.phoneNoFees}
+              {data?.contentfulCompanyAddress?.phoneNoFees}
             </AnchorLink>
           </Paragraph>
           <Paragraph className={styles.infoText} variant={viewport === VIEWPORT.mobile ? 'medium' : 'small'}>
@@ -75,9 +79,9 @@ export const Footer: React.FC<OwnProps> = (props) => {
             <AnchorLink
               className={styles.link}
               variant="reversed"
-              href={`mailto:${data.contentfulCompanyAddress.email}`}
+              href={`mailto:${data?.contentfulCompanyAddress?.email}`}
             >
-              {data.contentfulCompanyAddress.email}
+              {data?.contentfulCompanyAddress?.email}
             </AnchorLink>
           </Paragraph>
         </div>
@@ -90,17 +94,17 @@ export const Footer: React.FC<OwnProps> = (props) => {
             Visitez-nous
           </Label>
           <Paragraph className={styles.infoText} variant={viewport === VIEWPORT.mobile ? 'medium' : 'small'}>
-            {data.contentfulCompanyAddress.addressLine1}
+            {data?.contentfulCompanyAddress?.addressLine1}
           </Paragraph>
           <Paragraph className={styles.infoText} variant={viewport === VIEWPORT.mobile ? 'medium' : 'small'}>
-            {data.contentfulCompanyAddress.addressLine2}
+            {data?.contentfulCompanyAddress?.addressLine2}
           </Paragraph>
           <Paragraph className={styles.infoText} variant={viewport === VIEWPORT.mobile ? 'medium' : 'small'}>
-            {data.contentfulCompanyAddress.city}, {data.contentfulCompanyAddress.provinceState},{' '}
-            {data.contentfulCompanyAddress.postalCode}
+            {data?.contentfulCompanyAddress?.city}, {data?.contentfulCompanyAddress?.provinceState},{' '}
+            {data?.contentfulCompanyAddress?.postalCode}
           </Paragraph>
           <Paragraph className={styles.infoText} variant={viewport === VIEWPORT.mobile ? 'medium' : 'small'}>
-            {data.contentfulCompanyAddress.country}
+            {data?.contentfulCompanyAddress?.country}
           </Paragraph>
         </div>
 
@@ -108,7 +112,7 @@ export const Footer: React.FC<OwnProps> = (props) => {
           <Logo
             type="framed-text"
             variant="reversed"
-            src={`${data?.contentfulCompanyInfo?.logoFooter?.file.url}`}
+            src={`${data?.contentfulCompanyInfo?.logoFooter?.file?.url}`}
           ></Logo>
         </div>
 

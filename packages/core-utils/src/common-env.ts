@@ -14,10 +14,22 @@ export enum DEPLOY_ENV {
 }
 
 /**
+ * Standard NodeJS Environments
+ */
+export enum NODE_ENV {
+  DEVELOPMENT = 'development',
+  PRODUCTION = 'production',
+}
+
+/**
  * Typed representation of the .env files. All apps and sites should
  * use this type as a base for their .env file.
  */
 export type COMMON_ENV = {
+  /**
+   * The NodeJS environment
+   */
+  NODE_ENV: string;
   /**
    * The NodeJS version installed by `nvm`
    */

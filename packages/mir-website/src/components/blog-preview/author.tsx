@@ -1,11 +1,11 @@
-import React, { HTMLAttributes } from 'react';
-import { useStyles } from 'react-treat';
-import * as styleRefs from './author.treat';
-import LazyLoad from 'react-lazyload';
 import { LABEL } from '@newrade/core-design-system-old';
+import React from 'react';
+import LazyLoad from 'react-lazyload';
+import { useStyles } from 'react-treat';
 import { Label } from '../ui/label';
+import * as styleRefs from './author.treat';
 
-type OwnProps = { name: string; title: string; profileImageUrl: string };
+type OwnProps = { name?: string | null; title?: string | null; profileImageUrl?: string | null };
 
 export const Author: React.FC<OwnProps> = (props) => {
   const styles = useStyles(styleRefs);
@@ -13,15 +13,15 @@ export const Author: React.FC<OwnProps> = (props) => {
   return (
     <div className={styles.wrapper}>
       <LazyLoad>
-        <div className={styles.imageAuthor} style={{ backgroundImage: `url(${props.profileImageUrl})` }}></div>
+        <div className={styles.imageAuthor} style={{ backgroundImage: `url(${props?.profileImageUrl})` }}></div>
       </LazyLoad>
       <div className={styles.contentText}>
         <Label variant={LABEL.smallBold} className={styles.fullName}>
-          {props.name}
+          {props?.name}
         </Label>
-        {props.title ? (
+        {props?.title ? (
           <Label variant={LABEL.smallRegular} className={styles.title}>
-            {props.title}
+            {props?.title}
           </Label>
         ) : null}
       </div>

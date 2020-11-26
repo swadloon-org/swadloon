@@ -17,7 +17,7 @@ type OwnProps = SectionFragment;
 export const InfoSectionType6: React.FC<OwnProps> = (props) => {
   const styles = useStyles(styleRefs);
 
-  const variant = props.type.name as
+  const variant = props?.type?.name as
     | SECTION_TYPE.TYPE_6_PRIMARY
     | SECTION_TYPE.TYPE_6_SECONDARY
     | SECTION_TYPE.TYPE_6_TERTIARY;
@@ -37,23 +37,23 @@ export const InfoSectionType6: React.FC<OwnProps> = (props) => {
   }
 
   const components = {
-    h1: (props) => <Heading variant="h2" {...props}></Heading>,
-    h2: (props) => <Heading variant="h3" {...props}></Heading>,
-    h3: (props) => <Heading variant="h4" {...props}></Heading>,
-    p: (props) => <Paragraph variant="medium" {...props}></Paragraph>,
+    h1: (props: any) => <Heading variant="h2" {...props}></Heading>,
+    h2: (props: any) => <Heading variant="h3" {...props}></Heading>,
+    h3: (props: any) => <Heading variant="h4" {...props}></Heading>,
+    p: (props: any) => <Paragraph variant="medium" {...props}></Paragraph>,
     a: MarkdownLink,
   };
 
   return (
-    <div className={`${styles.wrapper} ${sectionStyle()}`} key={props.title}>
-      <Illustration className={`${styles.illustration}`} name={`Illustration/${props.illustration.title}`} />
+    <div className={`${styles.wrapper} ${sectionStyle()}`} key={props?.title}>
+      <Illustration className={`${styles.illustration}`} name={`Illustration/${props?.illustration?.title}`} />
 
       <Heading variant="h3" className={styles.title}>
-        {props.title}
+        {props?.title}
       </Heading>
       <Paragraph variant={'small'} className={styles.text}>
         <MDXProvider components={components}>
-          <MDXRenderer>{props.text.childMdx.body}</MDXRenderer>
+          <MDXRenderer>{props?.text?.childMdx?.body as any}</MDXRenderer>
         </MDXProvider>
       </Paragraph>
     </div>
