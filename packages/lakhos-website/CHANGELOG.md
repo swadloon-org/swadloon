@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/lakhos-website@1.3.0...@newrade/lakhos-website@1.3.1) (2020-11-26)
+
+### Bug Fixes
+
+- **lakhos-website:** remove graphcms plugin ([d490441](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/d4904418b72d066da75657bc062402b94e255561))
+- **repo:** enable more strict configs ([8438cbe](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/8438cbe33c8d159e015f965e0cb28916d23ba5e3))
+- **repo:** fix typings ([4299ed3](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/4299ed3367c15cee98dd6aeb22cebc2714b1c750))
+
 # 1.3.0 (2020-11-02)
 
 ### Bug Fixes

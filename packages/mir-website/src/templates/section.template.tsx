@@ -54,7 +54,7 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
   return (
     <>
       {data.contentfulPage?.sections?.map((section, index) => {
-        switch (section.type.name) {
+        switch (section?.type?.name) {
           case SECTION_TYPE.TYPE_1_GROUP: {
             return <InfoSectionType1Group key={index} {...section} />;
           }
@@ -104,9 +104,9 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
             return <Newsletter key={index} {...section} />;
           }
           case SECTION_TYPE.BLOG_PREVIEW: {
-            return (
-              <BlogPreviewSection pageRoute={data.contentfulPage.route} variant="preview" key={index} {...section} />
-            );
+            return data?.contentfulPage?.route ? (
+              <BlogPreviewSection pageRoute={data?.contentfulPage?.route} variant="preview" key={index} {...section} />
+            ) : null;
           }
           default: {
             return null;

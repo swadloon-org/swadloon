@@ -15,7 +15,7 @@ type OwnProps = {
     | 'secondaryReversed'
     | 'tertiaryDefault'
     | 'tertiaryReversed';
-  size: 'small' | 'medium' | 'large';
+  size: 'small' | 'medium' | 'large' | 'social';
   variant: 'icon' | 'text';
   icon?: string;
 } & ButtonHTMLAttributes<any>;
@@ -25,8 +25,8 @@ export const Button: React.FC<OwnProps> = ({ className, variantType, size, varia
 
   return (
     <button
-      type={props.type ? props.type : 'button'}
-      className={`${className || ''} ${styles.base} ${styles[variantType]} ${styles[size]} ${styles[variant]}`}
+      type={props?.type ? props?.type : 'button'}
+      className={`${className || ''}  ${styles[variantType]} ${styles[size]} ${styles[variant]} ${styles.base}`}
       {...props}
     >
       {variantType === 'primaryDefault' || variantType === 'primaryReversed' ? (
@@ -43,7 +43,7 @@ export const Button: React.FC<OwnProps> = ({ className, variantType, size, varia
         <Illustration className={`${styles.illustration}`} name={`Icon/${icon}`} width={42} height={42} />
       ) : (
         <Label as="div" className={`${styles.label}`} variant={getLabelSize(size)}>
-          {props.children}
+          {props?.children}
         </Label>
       )}
     </button>
@@ -58,6 +58,9 @@ export const Button: React.FC<OwnProps> = ({ className, variantType, size, varia
         return LABEL.smallBold;
       }
       case 'small': {
+        return LABEL.smallBold;
+      }
+      default: {
         return LABEL.smallBold;
       }
     }

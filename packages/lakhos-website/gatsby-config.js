@@ -18,15 +18,22 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.config = void 0;
 const core = __importStar(require("@newrade/core-gatsby-config"));
+const core_utils_1 = require("@newrade/core-utils");
+const path_1 = __importDefault(require("path"));
+const package_json_1 = __importDefault(require("./package.json"));
 /**
  * Configure your Gatsby site with this file.
  *
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
-require('dotenv').config();
+const env = core_utils_1.loadDotEnv(path_1.default.resolve(__dirname, '.env'));
+core_utils_1.logEnvVariables({ packageName: package_json_1.default.name, env });
 exports.config = {
     siteMetadata: {
         title: `My Gatsby Site`,
@@ -36,17 +43,6 @@ exports.config = {
         core.getGatsbyTsPluginConfig(),
         core.getGatsbyReactSvgConfig(),
         core.getGastbyPluginTreatConfig(),
-        {
-            resolve: `gatsby-source-graphql`,
-            options: {
-                typeName: `GraphCMS`,
-                fieldName: `gcms`,
-                url: process.env.GRAPH_CMS_API_URL_LAKHOS,
-                headers: {
-                    Authorization: `bearer ${process.env.GRAPH_CMS_AUTH_TOKEN_LAKHOS}`,
-                },
-            },
-        },
     ],
 };
 exports.default = exports.config;

@@ -64,29 +64,29 @@ export const ImageFrame: React.FC<OwnProps & HTMLAttributes<any>> = (props) => {
   const imageIndex = wrap(0, arrayImg.length, page);
 
   return (
-    <div className={`${props.className || ''} ${styles.wrapper}`}>
+    <div className={`${props?.className || ''} ${styles.wrapper}`}>
       <Illustration
         name={'Illustration/IllustrationSquare'}
-        className={`${styles.backgroundIllustration} ${getVariantStyle(props.variant)}`}
+        className={`${styles.backgroundIllustration} ${getVariantStyle(props?.variant)}`}
         preserveAspectRatio="none"
         width={200}
         height={200}
       />
-      {getTypeSwitcher(props.type)}
+      {getTypeSwitcher(props?.type)}
     </div>
   );
 
   function getTypeSwitcher(value: any) {
     switch (value) {
       case 'static': {
-        return props.fluid ? (
-          <div className={`${styles.content} ${styles[props.variant]}`}>
-            <GatsbyImage className={`${styles.image}`} fluid={props.fluid}></GatsbyImage>
+        return props?.fluid ? (
+          <div className={`${styles.content} ${styles[props?.variant]}`}>
+            <GatsbyImage className={`${styles.image}`} fluid={props?.fluid}></GatsbyImage>
           </div>
         ) : (
           <LazyLoad>
-            <div className={`${styles.content} ${styles[props.variant]}`}>
-              <div className={`${styles.image}`} style={{ backgroundImage: `url(${props.url})` }} />
+            <div className={`${styles.content} ${styles[props?.variant]}`}>
+              <div className={`${styles.image}`} style={{ backgroundImage: `url(${props?.url})` }} />
             </div>
           </LazyLoad>
         );
@@ -94,7 +94,7 @@ export const ImageFrame: React.FC<OwnProps & HTMLAttributes<any>> = (props) => {
       case 'caroussel': {
         return (
           <LazyLoad>
-            <div className={`${styles.content} ${styles[props.variant]}`}>
+            <div className={`${styles.content} ${styles[props?.variant]}`}>
               <AnimatePresence initial={false} custom={direction}>
                 <motion.div
                   className={`${styles.image}`}
@@ -143,8 +143,8 @@ export const ImageFrame: React.FC<OwnProps & HTMLAttributes<any>> = (props) => {
       default: {
         return (
           <LazyLoad>
-            <div className={`${styles.content} ${styles[props.variant]}`}>
-              <div className={`${styles.image}`} style={{ backgroundImage: `url(${props.url})` }} />
+            <div className={`${styles.content} ${styles[props?.variant]}`}>
+              <div className={`${styles.image}`} style={{ backgroundImage: `url(${props?.url})` }} />
             </div>
           </LazyLoad>
         );

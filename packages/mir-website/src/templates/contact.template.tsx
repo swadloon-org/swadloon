@@ -11,6 +11,7 @@ import { BannerSecondary } from '../components/banners/banner-secondary';
 import { Heading } from '../components/ui/heading';
 import { Input, TextArea } from '../components/ui/input';
 import { Button } from '../components/ui/button';
+import { PageFragmentFragment } from '../../types/graphql-types';
 
 export const ContactTemplate: React.FC<ProjectPageProps> = (props) => {
   const styles = useStyles(stylesRef);
@@ -18,9 +19,9 @@ export const ContactTemplate: React.FC<ProjectPageProps> = (props) => {
   const page = props.data.contentfulPage;
 
   const bannerImagesSource = [
-    page.bannerImages?.medias[0]?.mobileFluidImage,
+    page?.bannerImages?.medias?.[0]?.mobileFluidImage,
     {
-      ...page.bannerImages?.medias[0]?.desktopFluidImage,
+      ...page?.bannerImages?.medias?.[0]?.desktopFluidImage,
       media: `(min-width: ${theme.layout.breakpoints.desktopSmall.px})`,
     },
   ];
@@ -33,45 +34,45 @@ export const ContactTemplate: React.FC<ProjectPageProps> = (props) => {
 
   const recaptchaRef = React.createRef<any>();
 
-  const sections1 = props.data.contentfulPage.sections.filter(
-    (section) => section.type.name === SECTION_TYPE.TYPE_6_GROUP
+  const sections1 = props?.data?.contentfulPage?.sections?.filter(
+    (section) => section?.type?.name === SECTION_TYPE.TYPE_6_GROUP
   );
-  const props1 = {
+  const props1: ProjectPageProps = {
     ...props,
     data: {
-      ...props.data,
+      ...props?.data,
       contentfulPage: {
-        ...props.data.contentfulPage,
+        ...props?.data?.contentfulPage,
         sections: sections1,
-      },
+      } as PageFragmentFragment,
     },
   };
 
-  const sections2 = props.data.contentfulPage.sections.filter(
-    (section) => section.type.name === SECTION_TYPE.NEWSLETTER_PRIMARY
+  const sections2 = props?.data?.contentfulPage?.sections?.filter(
+    (section) => section?.type?.name === SECTION_TYPE.NEWSLETTER_PRIMARY
   );
-  const props2 = {
+  const props2: ProjectPageProps = {
     ...props,
     data: {
-      ...props.data,
+      ...props?.data,
       contentfulPage: {
-        ...props.data.contentfulPage,
+        ...props?.data.contentfulPage,
         sections: sections2,
-      },
+      } as PageFragmentFragment,
     },
   };
 
   return (
     <main className={`${styles.wrapper}`}>
       {bannerImagesAreValid ? (
-        page.bannerSubTitle?.length ? (
+        page?.bannerSubTitle?.length ? (
           <BannerPrimary
             imageData={bannerImagesSource}
-            title={page.bannerTitle}
-            subTitle={page.bannerSubTitle}
+            title={page?.bannerTitle}
+            subTitle={page?.bannerSubTitle}
           ></BannerPrimary>
         ) : (
-          <BannerSecondary imageData={bannerImagesSource} title={page.bannerTitle}></BannerSecondary>
+          <BannerSecondary imageData={bannerImagesSource} title={page?.bannerTitle}></BannerSecondary>
         )
       ) : null}
 
@@ -81,7 +82,7 @@ export const ContactTemplate: React.FC<ProjectPageProps> = (props) => {
         <div
           id="info"
           className={styles.info}
-          style={{ display: location?.search.includes('success') ? 'block' : 'none' }}
+          style={{ display: location?.search?.includes('success') ? 'block' : 'none' }}
         >
           <Heading variant="h3">Merci! Votre message a été transmis!</Heading>
         </div>
@@ -103,7 +104,7 @@ export const ContactTemplate: React.FC<ProjectPageProps> = (props) => {
 
           <div className={`${styles.formRow}`}>
             <Input
-              variant="default"
+              variant="normal"
               placeholder="Prénom"
               type="text"
               id="firstName"
@@ -112,7 +113,7 @@ export const ContactTemplate: React.FC<ProjectPageProps> = (props) => {
               autoComplete="given-name"
             ></Input>
             <Input
-              variant="default"
+              variant="normal"
               placeholder="Nom de famille"
               type="text"
               id="lastName"
@@ -124,7 +125,7 @@ export const ContactTemplate: React.FC<ProjectPageProps> = (props) => {
 
           <div className={`${styles.formRow}`}>
             <Input
-              variant="default"
+              variant="normal"
               placeholder="Téléphone"
               type="text"
               id="phone"
@@ -133,7 +134,7 @@ export const ContactTemplate: React.FC<ProjectPageProps> = (props) => {
               autoComplete="phone"
             ></Input>
             <Input
-              variant="default"
+              variant="normal"
               placeholder="Courriel"
               type="text"
               id="email"
@@ -144,7 +145,7 @@ export const ContactTemplate: React.FC<ProjectPageProps> = (props) => {
           </div>
 
           <TextArea
-            variant="default"
+            variant="normal"
             placeholder="Message"
             type="text"
             id="message"

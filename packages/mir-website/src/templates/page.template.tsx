@@ -69,36 +69,39 @@ export const PageTemplate: React.FC<ProjectPageProps> = ({ data, location, ...pr
           {getMetaBasicTags()}
           {getMetadataOpenGraphWebsiteTags({
             type: OPEN_GRAPH_TYPE.WEBSITE,
-            title: `${data.contentfulPage.title}`,
-            url: `${data.site?.siteMetadata?.siteUrl}${data.contentfulPage?.route}`,
-            description: `${data.contentfulPage?.description.description}`,
-            image: `${data.contentfulPage?.bannerImages?.medias[0]?.socialMediaImage.src}`,
-            site_name: `${data.contentfulCompanyInfo.metadataSiteName}`,
-            lang: data.contentfulPage.node_locale.includes('fr') ? 'fr' : 'en',
-            locale: data.contentfulPage.node_locale.includes('fr') ? 'fr_CA' : 'en_CA',
-            localeAlternate: data.contentfulPage.node_locale.includes('en') ? 'fr_CA' : 'en_CA',
+            title: `${data?.contentfulPage?.title}`,
+            url: `${data?.site?.siteMetadata?.siteUrl}${data?.contentfulPage?.route}`,
+            description: `${data?.contentfulPage?.description?.description}`,
+            image: `${data?.contentfulPage?.bannerImages?.medias?.[0]?.socialMediaImage?.src}`,
+            site_name: `${data?.contentfulCompanyInfo?.metadataSiteName}`,
+            lang: data?.contentfulPage?.node_locale?.includes('fr') ? 'fr' : 'en',
+            locale: data?.contentfulPage?.node_locale?.includes('fr') ? 'fr_CA' : 'en_CA',
+            localeAlternate: data?.contentfulPage?.node_locale?.includes('en') ? 'fr_CA' : 'en_CA',
           })}
           {getMetadataTwitterTags({
             card: 'summary_large_image',
-            image: `${data.contentfulPage?.bannerImages?.medias[0]?.socialMediaImage.src}`,
-            creator: `${data.contentfulCompanyInfo.metadataTwitterCreator}`,
-            site: `${data.contentfulCompanyInfo.metadataTwitterSite}`,
+            image: `${data?.contentfulPage?.bannerImages?.medias?.[0]?.socialMediaImage?.src}`,
+            creator: `${data?.contentfulCompanyInfo?.metadataTwitterCreator}`,
+            site: `${data?.contentfulCompanyInfo?.metadataTwitterSite}`,
           })}
         </Helmet>
         <Layout
-          currentPageName={data.contentfulPage.name}
+          currentPageName={data?.contentfulPage?.name as string | PAGE_NAME}
           location={location}
-          logoURL={data.contentfulCompanyInfo.logo.file.url}
-          linkedinPageURL={data.contentfulCompanyInfo.linkedinPageURL}
-          facebookPageURL={data.contentfulCompanyInfo.facebookPageURL}
-          instagramPageURL={data.contentfulCompanyInfo.instagramPageURL}
-          twitterPageURL={data.contentfulCompanyInfo.twitterPageURL}
-          pages={data.allContentfulPage.edges.map((edge) => ({
-            ...edge.node,
-            locale: edge.node.node_locale,
+          logoURL={data?.contentfulCompanyInfo?.logo?.file?.url as string | null}
+          linkedinPageURL={data?.contentfulCompanyInfo?.linkedinPageURL as string | null}
+          facebookPageURL={data?.contentfulCompanyInfo?.facebookPageURL as string | null}
+          instagramPageURL={data?.contentfulCompanyInfo?.instagramPageURL as string | null}
+          twitterPageURL={data?.contentfulCompanyInfo?.twitterPageURL as string | null}
+          pages={data?.allContentfulPage?.edges?.map((edge) => ({
+            ...edge?.node,
+            locale: edge?.node?.node_locale,
           }))}
         >
-          {getPageTemplateComponent({ pageName: data.contentfulPage.name, props: { data, location, ...props } })}
+          {getPageTemplateComponent({
+            pageName: data?.contentfulPage?.name as any,
+            props: { data, location, ...props },
+          })}
         </Layout>
       </ViewportProvider>
     </TreatProvider>
