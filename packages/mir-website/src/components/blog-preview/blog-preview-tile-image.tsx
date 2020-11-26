@@ -6,7 +6,7 @@ import { BlogPreviewTile } from './blog-preview-tile';
 import * as styleRefs from './blog-preview-tile-image.treat';
 
 type OwnProps = {
-  fluid?: FluidObject;
+  fluid?: FluidObject | null;
   subtitle?: string | null;
   title?: string | null;
   actionLabel?: string | null;

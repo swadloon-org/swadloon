@@ -18,7 +18,7 @@ export function JobSection(props: OwnProps) {
 
   const { viewport } = useViewportBreakpoint();
 
-  const variant = props.type.name as SECTION_TYPE.JOB_CANDIDATES | SECTION_TYPE.JOB_EMPLOYER;
+  const variant = props?.type?.name as SECTION_TYPE.JOB_CANDIDATES | SECTION_TYPE.JOB_EMPLOYER;
 
   return (
     <div className={`${styles.wrapper} `}>
@@ -34,8 +34,8 @@ export function JobSection(props: OwnProps) {
       case SECTION_TYPE.JOB_CANDIDATES: {
         return (
           <div className={styles.container}>
-            {props?.jobGroup.map((group, index) => {
-              let lengthJobs: any = props?.jobGroup[index].jobs.length;
+            {props?.jobGroup?.map((group, index) => {
+              let lengthJobs: any = props?.jobGroup?.[index]?.jobs?.length;
 
               let RowNumber: number =
                 viewport >= VIEWPORT.desktop ? Math.ceil(lengthJobs / 3) : Math.ceil(lengthJobs / 1);
@@ -45,14 +45,14 @@ export function JobSection(props: OwnProps) {
                   <div className={styles.accordions}>
                     <Accordions
                       type="candidates"
-                      icon={group.illustration.title}
+                      icon={group?.illustration?.title}
                       variant="none"
                       selected={accordionOpenState[index].state === 'opened'}
                       onClick={() => {
                         getIndexState(index);
                       }}
                     >
-                      {group.typeName}
+                      {group?.typeName}
                     </Accordions>
                   </div>
                   <div
@@ -61,11 +61,11 @@ export function JobSection(props: OwnProps) {
                     }`}
                     style={{ gridTemplateRows: `repeat(${RowNumber}, 1fr)` }}
                   >
-                    {props?.jobGroup[index].jobs.map((job, index) => {
+                    {props?.jobGroup?.[index]?.jobs?.map((job, index) => {
                       return (
                         <div className={`${index % 2 == 0 ? styles.even : styles.unenven}`} key={index}>
                           <CheckLabel illustration="IllustrationCheck" size="medium">
-                            {job.title}
+                            {job?.title}
                           </CheckLabel>
                         </div>
                       );
@@ -81,8 +81,8 @@ export function JobSection(props: OwnProps) {
       case SECTION_TYPE.JOB_EMPLOYER: {
         return (
           <div className={styles.container}>
-            {props.jobGroup.map((jobType, index) => {
-              let lengthJobs: any = props.jobGroup[index].jobs.length;
+            {props?.jobGroup?.map((jobType, index) => {
+              let lengthJobs: any = props?.jobGroup?.[index]?.jobs?.length;
 
               let RowNumber: number =
                 viewport >= VIEWPORT.desktop ? Math.ceil(lengthJobs / 3) : Math.ceil(lengthJobs / 1);
@@ -98,7 +98,7 @@ export function JobSection(props: OwnProps) {
                         getIndexState(index);
                       }}
                     >
-                      {jobType.typeName}
+                      {jobType?.typeName}
                     </Accordions>
                   </div>
 
@@ -108,10 +108,10 @@ export function JobSection(props: OwnProps) {
                     }`}
                     style={{ gridTemplateRows: `repeat(${RowNumber}, 1fr)` }}
                   >
-                    {props?.jobGroup[index].jobs.map((job, index) => {
+                    {props?.jobGroup?.[index]?.jobs?.map((job, index) => {
                       return (
                         <div className={styles.tagsUnique} key={index}>
-                          <Tags numberIndex={`${index < 9 ? '0' : ''}${index + 1}`}> {job.title}</Tags>
+                          <Tags numberIndex={`${index < 9 ? '0' : ''}${index + 1}`}> {job?.title}</Tags>
                         </div>
                       );
                     })}

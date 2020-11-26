@@ -13,7 +13,7 @@ type OwnProps = SectionFragment;
 export const InfoSectionType1: React.FC<OwnProps> = (props) => {
   const styles = useStyles(styleRefs);
 
-  const variant = props.type.name as SECTION_TYPE.TYPE_1_NORMAL | SECTION_TYPE.TYPE_1_REVERSED;
+  const variant = props?.type?.name as SECTION_TYPE.TYPE_1_NORMAL | SECTION_TYPE.TYPE_1_REVERSED;
   const sectionStyle = variant === SECTION_TYPE.TYPE_1_NORMAL ? styles.styleNormal : styles.styleReversed;
 
   return (
@@ -21,13 +21,15 @@ export const InfoSectionType1: React.FC<OwnProps> = (props) => {
       <RenderTitleHighlight title={props.title} titleHighlight={props.titleHighlight} />
 
       <Paragraph variant={'medium'} className={styles.text}>
-        {props.text.text}
+        {props?.text?.text}
       </Paragraph>
 
-      <SectionLinkButton
-        variant={props.type.name === SECTION_TYPE.TYPE_1_NORMAL ? 'primaryDefault' : 'primaryReversed'}
-        link={props.link}
-      />
+      {props.link ? (
+        <SectionLinkButton
+          variant={props?.type?.name === SECTION_TYPE.TYPE_1_NORMAL ? 'primaryDefault' : 'primaryReversed'}
+          link={props.link}
+        />
+      ) : null}
     </div>
   );
 };

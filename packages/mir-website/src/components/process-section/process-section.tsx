@@ -14,18 +14,18 @@ type OwnProps = SectionFragment;
 export const Process: React.FC<OwnProps> = (props) => {
   const styles = useStyles(styleRefs);
 
-  const variants = props.type.name as SECTION_TYPE.PROCESS_PRIMARY | SECTION_TYPE.PROCESS_SECONDARY;
+  const variants = props?.type?.name as SECTION_TYPE.PROCESS_PRIMARY | SECTION_TYPE.PROCESS_SECONDARY;
   const sectionStyle = variants === SECTION_TYPE.PROCESS_PRIMARY ? styles.Default : styles.Blue;
 
   return (
     <div className={`${styles.wrapper} ${sectionStyle}`}>
       <div className={`${styles.container}`}>
-        <RenderTitleHighlight className={styles.title} title={props.title} titleHighlight={props.titleHighlight} />
+        <RenderTitleHighlight className={styles.title} title={props?.title} titleHighlight={props?.titleHighlight} />
         <div className={styles.content}>
           {/* <div className={styles.line}></div> */}
-          {props.processStep.map((tile: any, index: number) => {
+          {props?.processStep?.map((tile: any, index: number) => {
             return (
-              <div className={`${styles.tileProcess}`} key={tile.id}>
+              <div className={`${styles.tileProcess}`} key={tile?.id}>
                 <div className={styles.blocNumber}>
                   <div className={styles.circle}>
                     <Label className={styles.number} variant={LABEL.mediumBoldUppercase}>
@@ -39,10 +39,10 @@ export const Process: React.FC<OwnProps> = (props) => {
                   }`}
                 >
                   <Heading className={`${styles.blocTitle}`} variant="h4">
-                    {tile.title}
+                    {tile?.title}
                   </Heading>
                   {variants == SECTION_TYPE.PROCESS_PRIMARY ? (
-                    <Paragraph variant="small">{tile.description.description}</Paragraph>
+                    <Paragraph variant="small">{tile?.description?.description}</Paragraph>
                   ) : null}
                 </div>
               </div>

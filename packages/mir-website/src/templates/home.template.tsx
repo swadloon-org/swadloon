@@ -13,9 +13,9 @@ export const HomeTemplate: React.FC<ProjectPageProps> = (props) => {
   const page = props.data.contentfulPage;
 
   const bannerImagesSource = [
-    page.bannerImages?.medias[0]?.mobileFluidImage,
+    page?.bannerImages?.medias?.[0]?.mobileFluidImage,
     {
-      ...page.bannerImages?.medias[0]?.desktopFluidImage,
+      ...page?.bannerImages?.medias?.[0]?.desktopFluidImage,
       media: `(min-width: ${theme.layout.breakpoints.desktopSmall.px})`,
     },
   ];
@@ -24,14 +24,14 @@ export const HomeTemplate: React.FC<ProjectPageProps> = (props) => {
   return (
     <main className={`${styles.wrapper}`}>
       {bannerImagesAreValid ? (
-        page.bannerSubTitle?.length ? (
+        page?.bannerSubTitle?.length ? (
           <BannerPrimary
             imageData={bannerImagesSource}
             title={page.bannerTitle}
             subTitle={page.bannerSubTitle}
           ></BannerPrimary>
         ) : (
-          <BannerSecondary imageData={bannerImagesSource} title={page.bannerTitle}></BannerSecondary>
+          <BannerSecondary imageData={bannerImagesSource} title={page?.bannerTitle}></BannerSecondary>
         )
       ) : null}
 
