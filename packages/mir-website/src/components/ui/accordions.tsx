@@ -8,7 +8,7 @@ import { Illustration } from './illustration';
 
 type OwnProps = {
   type: 'candidates' | 'employer';
-  icon?: string;
+  icon?: string | null;
   selected?: boolean;
   variant: 'Default' | 'reversed' | 'none'; // only use none on candidates types
 };

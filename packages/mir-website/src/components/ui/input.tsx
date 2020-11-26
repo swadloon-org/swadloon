@@ -3,7 +3,7 @@ import { useStyles } from 'react-treat';
 import * as styleRefs from './input.treat';
 
 type OwnProps = {
-  variant: 'default' | 'reversed';
+  variant: 'normal' | 'reversed';
   placeholder: string;
 } & InputHTMLAttributes<any>;
 

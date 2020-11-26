@@ -14,7 +14,7 @@ type OwnProps = SectionFragment;
 export const ActionSection: React.FC<OwnProps> = (props) => {
   const styles = useStyles(styleRefs);
 
-  const variant = props.type.name as SECTION_TYPE.ACTION_PRIMARY | SECTION_TYPE.ACTION_SECONDARY;
+  const variant = props?.type?.name as SECTION_TYPE.ACTION_PRIMARY | SECTION_TYPE.ACTION_SECONDARY;
   const sectionStyle = variant === SECTION_TYPE.ACTION_PRIMARY ? styles.Default : styles.reversed;
 
   return (

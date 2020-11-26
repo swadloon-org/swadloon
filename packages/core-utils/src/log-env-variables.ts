@@ -2,6 +2,10 @@ import { COMMON_ENV } from './common-env';
 import { log } from './log';
 
 export function logEnvVariables<ENV extends COMMON_ENV>({ packageName, env }: { packageName: string; env: ENV }) {
+  log(`NODE_ENV is ${env.NODE_ENV}`, {
+    toolName: 'mir-website',
+  });
+
   log(`APP_ENV is ${env.APP_ENV}`, {
     toolName: 'mir-website',
   });

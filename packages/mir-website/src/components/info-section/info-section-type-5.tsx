@@ -15,9 +15,9 @@ type OwnProps = SectionFragment;
 
 export const InfoSectionType5: React.FC<OwnProps> = (props) => {
   const styles = useStyles(styleRefs);
-  const imagePosition = props.imagePosition as SECTION_IMAGE_POSITION;
-  const hasImage = !!props?.medias.medias?.length;
-  const imageUrl = props.medias?.medias[0]?.file?.url;
+  const imagePosition = props?.imagePosition as SECTION_IMAGE_POSITION;
+  const hasImage = !!props?.medias?.medias?.length;
+  const imageUrl = props?.medias?.medias?.[0]?.file?.url;
 
   return (
     <div className={`${styles.wrapper} ${styles.type5} }`}>
@@ -29,16 +29,16 @@ export const InfoSectionType5: React.FC<OwnProps> = (props) => {
         </FadeIn>
 
         <div className={styles.content}>
-          <RenderTitleHighlight className={styles.title} title={props.title} titleHighlight={props.titleHighlight} />
+          <RenderTitleHighlight className={styles.title} title={props?.title} titleHighlight={props?.titleHighlight} />
 
           <Paragraph variant={'medium'} className={styles.text}>
-            {props.text.text}
+            {props?.text?.text}
           </Paragraph>
 
-          {props.infoChecks.map((check, index) => {
+          {props?.infoChecks?.map((check, index) => {
             return (
-              <CheckLabel illustration="IllustrationCheck" size="medium" key={check.id}>
-                {check.text}
+              <CheckLabel illustration="IllustrationCheck" size="medium" key={check?.id}>
+                {check?.text}
               </CheckLabel>
             );
           })}
