@@ -16,17 +16,6 @@ export const BlogPostArticleTemplate: React.FC<OwnProps> = (props) => {
 
   return (
     <div className={styles.wrapper}>
-      {/* <div className={styles.tableContents}>
-        <ul>
-          {props.content.childMdx.tableOfContents?.items.map((item, index) => {
-            return (
-              <a key={index} href={item.url}>
-                item.title
-              </a>
-            );
-          })}
-        </ul>
-      </div> */}
       <div className={styles.content}>
         <Label variant={LABEL.xSmallBoldUppercase} as="div" className={styles.subtitle}>
           {props.subtitle}
@@ -38,7 +27,7 @@ export const BlogPostArticleTemplate: React.FC<OwnProps> = (props) => {
           profileImageUrl={props?.blogAuthor?.[0]?.profilePicture?.file?.url}
         ></Author>
         <GatsbyImage fluid={props?.blogMainImage?.fluid as FluidObject}></GatsbyImage>
-        <MDXRenderer>{props?.content?.childMdx?.body}</MDXRenderer>
+        <MDXRenderer>{props?.content?.childMdx?.body as any}</MDXRenderer>
       </div>
     </div>
   );

@@ -8,7 +8,7 @@ export const wrapper = style((theme: DesignSystem) => ({
   },
 }));
 
-export const Default = style((theme: DesignSystem) => ({
+export const normal = style((theme: DesignSystem) => ({
   border: '0px',
   borderRadius: 0,
   borderBottom: `solid 1px ${theme.colors.greyscale1000}`,

@@ -1,11 +1,11 @@
-import React, { HTMLAttributes } from 'react';
-import { useStyles } from 'react-treat';
-import * as styleRefs from './author.treat';
-import LazyLoad from 'react-lazyload';
 import { LABEL } from '@newrade/core-design-system-old';
+import React from 'react';
+import LazyLoad from 'react-lazyload';
+import { useStyles } from 'react-treat';
 import { Label } from '../ui/label';
+import * as styleRefs from './author.treat';
 
-type OwnProps = { name: string | null; title: string | null; profileImageUrl: string | null };
+type OwnProps = { name?: string | null; title?: string | null; profileImageUrl?: string | null };
 
 export const Author: React.FC<OwnProps> = (props) => {
   const styles = useStyles(styleRefs);

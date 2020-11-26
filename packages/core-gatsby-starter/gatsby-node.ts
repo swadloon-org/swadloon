@@ -11,7 +11,7 @@ export type BlogPostContext = {
   content: any;
 };
 
-exports.createPages = async ({ actions, graphql }) => {
+exports.createPages = async ({}) => {
   // const { data } = await graphql(`
   //   {
   //     gcms

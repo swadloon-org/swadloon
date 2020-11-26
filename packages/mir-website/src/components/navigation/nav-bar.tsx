@@ -44,10 +44,10 @@ export const NavBar: React.FC<OwnProps> = ({
     PAGE_NAME.A_PROPOS,
   ];
   const leftToolbarPages = (currentLocaleIsEN ? pagesEN : pagesFR)
-    ?.filter((page) => leftToolbarPageNames?.includes(page?.name))
+    ?.filter((page) => page.name && leftToolbarPageNames?.includes(page?.name))
     .sort((pageA, pageB) => {
-      const indexA = leftToolbarPageNames?.indexOf(pageA?.name);
-      const indexB = leftToolbarPageNames?.indexOf(pageB?.name);
+      const indexA = pageA && pageA.name ? leftToolbarPageNames?.indexOf(pageA?.name) : 1;
+      const indexB = pageB && pageB.name ? leftToolbarPageNames?.indexOf(pageB?.name) : 1;
       return indexA > indexB ? 1 : -1;
     });
   const contactUsPage = (currentLocaleIsEN ? pagesEN : pagesFR)?.filter((page) => page?.name === 'Contact');
@@ -61,11 +61,11 @@ export const NavBar: React.FC<OwnProps> = ({
 
         <nav className={styles.desktopLeftToolbar}>
           {leftToolbarPages?.map((page) => {
-            return (
+            return page?.route ? (
               <Link key={`${page?.name}-${page?.locale}`} to={page?.route}>
                 {page?.title}
               </Link>
-            );
+            ) : null;
           })}
         </nav>
 
@@ -129,21 +129,23 @@ export const NavBar: React.FC<OwnProps> = ({
           </div>
 
           <nav>
-            <GatsbyLink
-              to={
-                currentAlternateLocalePage?.length
-                  ? currentAlternateLocalePage?.[0]?.route
-                  : currentLocaleIsEN
-                  ? '/'
-                  : '/en/'
-              }
-            >
-              <Button variantType="tertiaryReversed" variant="text" size="small">
-                {currentLocaleIsEN ? 'FR' : 'EN'}
-              </Button>
-            </GatsbyLink>
+            {currentAlternateLocalePage?.[0]?.route ? (
+              <GatsbyLink
+                to={
+                  currentAlternateLocalePage?.length
+                    ? currentAlternateLocalePage?.[0]?.route
+                    : currentLocaleIsEN
+                    ? '/'
+                    : '/en/'
+                }
+              >
+                <Button variantType="tertiaryReversed" variant="text" size="small">
+                  {currentLocaleIsEN ? 'FR' : 'EN'}
+                </Button>
+              </GatsbyLink>
+            ) : null}
 
-            {contactUsPage && contactUsPage?.[0] ? (
+            {contactUsPage?.[0]?.route ? (
               <GatsbyLink to={contactUsPage?.[0]?.route}>
                 <Button variantType="secondaryReversed" variant="text" size="small">
                   {contactUsPage[0]?.title}

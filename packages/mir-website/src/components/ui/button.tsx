@@ -60,6 +60,9 @@ export const Button: React.FC<OwnProps> = ({ className, variantType, size, varia
       case 'small': {
         return LABEL.smallBold;
       }
+      default: {
+        return LABEL.smallBold;
+      }
     }
   }
 };

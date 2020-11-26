@@ -1,17 +1,13 @@
+import { Link as GatsbyLink } from 'gatsby';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { Link as GatsbyLink } from 'gatsby';
-
-import * as styleRefsType4 from './info-section-type-4.treat';
-
-import { Button } from '../ui/button';
-import { ImageFrame } from '../ui/image-frame';
-import { Paragraph } from '../ui/paragraph';
-
-import { InfoTile } from './info-tile';
-import { RenderTitleHighlight } from './info-title-highligh';
 import { SectionFragment } from '../../../types/graphql-types';
 import { SECTION_TYPE } from '../../templates/section.template';
+import { Button } from '../ui/button';
+import { Paragraph } from '../ui/paragraph';
+import * as styleRefsType4 from './info-section-type-4.treat';
+import { InfoTile } from './info-tile';
+import { RenderTitleHighlight } from './info-title-highligh';
 
 type OwnProps = SectionFragment;
 
@@ -51,7 +47,7 @@ export const InfoSectionType4: React.FC<OwnProps> = (props) => {
                   illustration={info?.illustration}
                   title={info?.title}
                   text={info?.text}
-                  Variants={variant}
+                  variants={variant}
                 />
               );
             })}
@@ -81,7 +77,7 @@ export const InfoSectionType4: React.FC<OwnProps> = (props) => {
             return (
               <InfoTile
                 key={index}
-                Variants={variant}
+                variants={variant}
                 title={infoTile?.title}
                 illustration={infoTile?.illustration}
                 text={infoTile?.text}
@@ -92,4 +88,6 @@ export const InfoSectionType4: React.FC<OwnProps> = (props) => {
       </div>
     );
   }
+
+  return null;
 };

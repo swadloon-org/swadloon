@@ -88,7 +88,7 @@ export const BlogPostTemplate: React.FC<ProjectPageProps> = ({ data, location, .
               locale: edge?.node?.node_locale,
             }))}
           >
-            <BlogPostArticleTemplate {...data?.contentfulBlogPost} />
+            {data.contentfulBlogPost ? <BlogPostArticleTemplate {...data.contentfulBlogPost} /> : null}
           </Layout>
         </ViewportProvider>
       </TreatProvider>

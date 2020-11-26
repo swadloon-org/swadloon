@@ -1,4 +1,4 @@
-declare module 'react-lazyload' {
+declare module 'react-google-recaptcha' {
   const value: any;
   export default value;
 }

@@ -52,7 +52,7 @@ export const InfoSectionType3: React.FC<OwnProps> = (props) => {
         ) : null}
 
         {props?.subSections?.map((info, index) =>
-          selectedTabIndex === index ? renderTabbedInfoSection(info, index) : null
+          selectedTabIndex === index && info ? renderTabbedInfoSection(info, index) : null
         )}
       </div>
       ``

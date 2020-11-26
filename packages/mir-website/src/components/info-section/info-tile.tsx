@@ -1,16 +1,14 @@
 import React from 'react';
 import { useStyles } from 'react-treat';
-import * as styleRefs from './info-tile.treat';
-
+import { SectionFragment } from '../../../types/graphql-types';
+import { SECTION_TYPE } from '../../templates/section.template';
 import { Heading } from '../ui/heading';
 import { Illustration } from '../ui/illustration';
 import { Paragraph } from '../ui/paragraph';
-import { SectionFragment } from '../../../types/graphql-types';
-import { SECTION_TYPE } from '../../templates/section.template';
-import { Variant } from 'framer-motion';
+import * as styleRefs from './info-tile.treat';
 
-type OwnProps = SectionFragment;
-type PassProps = { Variants: SECTION_TYPE };
+type OwnProps = SectionFragment & { className?: string };
+type PassProps = { variants: SECTION_TYPE };
 
 export const InfoTile: React.FC<OwnProps & PassProps> = (props) => {
   const styles = useStyles(styleRefs);
@@ -18,7 +16,7 @@ export const InfoTile: React.FC<OwnProps & PassProps> = (props) => {
   return (
     <div
       className={`${styles.wrapper} ${
-        props?.Variants === SECTION_TYPE.TYPE_4_PRIMARY ? styles.type4Primary : styles.type4Secondary
+        props?.variants === SECTION_TYPE.TYPE_4_PRIMARY ? styles.type4Primary : styles.type4Secondary
       }`}
     >
       <Illustration
