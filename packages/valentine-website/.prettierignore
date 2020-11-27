@@ -1,0 +1,13 @@
+# IDEs
+.idea
+
+# npm
+node_modules
+package-lock.json
+
+# files
+*.html
+*.yml
+*.yaml
+
+gatsby-*.js

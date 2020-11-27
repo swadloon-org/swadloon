@@ -1,0 +1,15 @@
+# nextjs & vercel
+.next
+.vercel
+
+# netlify
+.netlify
+
+# gatsby
+dist/
+public/
+.cache/
+graphql-types.ts
+gatsby-config.js
+gatsby-config.js
+gatsby-node.js
