@@ -1,0 +1,24 @@
+{
+  "extends": "../core-gatsby-config/src/tsconfig/tsconfig.ts-plugin.json",
+  "compilerOptions": {
+    "rootDir": "."
+  },
+  "references": [
+    {
+      "path": "../core-utils/tsconfig.build.json"
+    },
+    {
+      "path": "../core-gatsby-config/tsconfig.build.json"
+    },
+    {
+      "path": "../core-react-ui-old/tsconfig.build.json"
+    },
+    {
+      "path": "../core-design-system-old/tsconfig.build.json"
+    },
+    {
+      "path": "../core-webpack-config/tsconfig.build.json"
+    }
+  ],
+  "include": ["src", "types"]
+}
