@@ -40,4 +40,4 @@ CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
 
 ## Gatsby Cloud
 
-- Go on the newrade organisation and "Add a Site+"
+- Go on the newrade organisation and "Add a Site+".

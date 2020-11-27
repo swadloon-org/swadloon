@@ -31,6 +31,15 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
   //   toPath: '/nous-joindre/',
   //   isPermanent: true,
   // });
+  /**
+   * /
+   * /a-propos
+   * /services
+   * /portfolio
+   * /clients
+   * /partenaires
+   * /contact
+   */
 
   /**
    * Page creations

@@ -53,11 +53,11 @@ const config: core.GastbySiteConfig = {
     core.getGatsbyPluginSharp(),
     core.getGastbyPluginTreatConfig(),
     core.getGatsbyPluginMdx(),
-    core.getGatsbyPluginPreloadFonts(),
-    core.getGatsbyPluginReactHelmet(),
-    core.getGatsbyPluginGoogleTagmanager({
-      googleTagId: 'GTM-T4LK3QF',
-    }),
+    // core.getGatsbyPluginPreloadFonts(),
+    // core.getGatsbyPluginReactHelmet(),
+    // core.getGatsbyPluginGoogleTagmanager({
+    //   googleTagId: 'GTM-T4LK3QF',
+    // }),
     core.getGatsbyPluginSitemap(),
     core.getGatsbyPluginRobotsTxt({ env }),
     {
