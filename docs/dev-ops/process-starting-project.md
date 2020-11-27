@@ -16,6 +16,9 @@
 - Switch the current language for the default one in the website.
 - Add the second language and make it a fallback to the main one.
 
+## Contenful flow - Blue & Green
+
+
 ## 1Password
 - Add in a password template the  `space id` and the `Content Delivery API - access token` values.
 
@@ -41,3 +44,4 @@ CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
 ## Gatsby Cloud
 
 - Go on the newrade organisation and "Add a Site+".
+
