@@ -32,6 +32,15 @@ exports.createPages = async ({ graphql, actions }) => {
     //   isPermanent: true,
     // });
     /**
+     * /
+     * /a-propos
+     * /services
+     * /portfolio
+     * /clients
+     * /partenaires
+     * /contact
+     */
+    /**
      * Page creations
      */
     try {

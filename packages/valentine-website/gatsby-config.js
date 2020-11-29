@@ -74,18 +74,19 @@ const config = {
         core.getGatsbyPluginSharp(),
         core.getGastbyPluginTreatConfig(),
         core.getGatsbyPluginMdx(),
-        core.getGatsbyPluginPreloadFonts(),
-        core.getGatsbyPluginReactHelmet(),
-        core.getGatsbyPluginGoogleTagmanager({
-            googleTagId: 'GTM-T4LK3QF',
-        }),
+        // core.getGatsbyPluginPreloadFonts(),
+        // core.getGatsbyPluginReactHelmet(),
+        // core.getGatsbyPluginGoogleTagmanager({
+        //   googleTagId: 'GTM-T4LK3QF',
+        // }),
         core.getGatsbyPluginSitemap(),
         core.getGatsbyPluginRobotsTxt({ env }),
         {
             resolve: `gatsby-source-contentful`,
             options: {
-                spaceId: `${env.CONTENTFUL_ACCESS_SPACEID_VALENTINE}`,
-                accessToken: env.CONTENTFUL_ACCESS_TOKEN_VALENTINE,
+                spaceId: `${env.CONTENTFUL_SPACEID_VALENTINE}`,
+                accessToken: env.CONTENTFUL_DELIVERY_TOKEN_VALENTINE,
+                environment: 'master',
             },
         },
     ],

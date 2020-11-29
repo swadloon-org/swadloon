@@ -63,9 +63,9 @@ const config: core.GastbySiteConfig = {
     {
       resolve: `gatsby-source-contentful`,
       options: {
-        spaceId: `${env.CONTENTFUL_ACCESS_SPACEID_MIR}`,
-        accessToken: env.CONTENTFUL_ACCESS_TOKEN_MIR,
-        environment: env.
+        spaceId: env.CONTENTFUL_SPACEID_MIR,
+        accessToken: env.CONTENTFUL_DELIVERY_TOKEN_MIR,
+        environment: 'master',
       },
     },
     /**

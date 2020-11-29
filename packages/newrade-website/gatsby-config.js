@@ -24,8 +24,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.config = void 0;
 const core = __importStar(require("@newrade/core-gatsby-config"));
-const dotenv_1 = __importDefault(require("dotenv"));
-dotenv_1.default.config();
+const core_utils_1 = require("@newrade/core-utils");
+const path_1 = __importDefault(require("path"));
+const package_json_1 = __importDefault(require("./package.json"));
+const env = core_utils_1.loadDotEnv(path_1.default.resolve(__dirname, '.env'));
+core_utils_1.logEnvVariables({ packageName: package_json_1.default.name, env });
 /**
  * Configure your Gatsby site with this file.
  *
@@ -41,6 +44,14 @@ exports.config = {
         core.getGatsbyReactSvgConfig(),
         core.getGastbyCorePluginConfig(),
         core.getGastbyPluginTreatConfig(),
+        {
+            resolve: `gatsby-source-contentful`,
+            options: {
+                spaceId: env.CONTENTFUL_SPACEID_NEWRADE,
+                accessToken: env.CONTENTFUL_DELIVERY_TOKEN_NEWRADE,
+                environment: 'master',
+            },
+        },
     ],
 };
 exports.default = exports.config;

@@ -1,8 +1,12 @@
 import * as core from '@newrade/core-gatsby-config';
-import dotenv from 'dotenv';
+import { loadDotEnv, logEnvVariables } from '@newrade/core-utils';
 import Gatsby from 'gatsby';
+import path from 'path';
+import packageJson from './package.json';
+import { ENV } from './types/dot-env';
 
-dotenv.config();
+const env = loadDotEnv<ENV>(path.resolve(__dirname, '.env'));
+logEnvVariables<ENV>({ packageName: packageJson.name, env });
 
 /**
  * Configure your Gatsby site with this file.
@@ -19,6 +23,14 @@ export const config: Gatsby.GatsbyConfig = {
     core.getGatsbyReactSvgConfig(),
     core.getGastbyCorePluginConfig(),
     core.getGastbyPluginTreatConfig(),
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: env.CONTENTFUL_SPACEID_NEWRADE,
+        accessToken: env.CONTENTFUL_DELIVERY_TOKEN_NEWRADE,
+        environment: 'master',
+      },
+    },
     // {
     //   resolve: `gatsby-source-graphql`,
     //   options: {
