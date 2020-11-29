@@ -62,9 +62,6 @@
       "path": "../packages/newrade-app"
     },
     {
-      "path": "../packages/lakhos-website"
-    },
-    {
       "path": "../packages/mir-website"
     },
     {
@@ -78,7 +75,6 @@
     "typescript.surveys.enabled": false,
     "terminals.sortTerminals": true,
     "terminals.env": {},
-    "debug.node.autoAttach": "off",
     "typescript.tsdk": "newrade/node_modules/typescript/lib"
   }
 }
