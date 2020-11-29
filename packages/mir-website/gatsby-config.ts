@@ -65,6 +65,7 @@ const config: core.GastbySiteConfig = {
       options: {
         spaceId: `${env.CONTENTFUL_ACCESS_SPACEID_MIR}`,
         accessToken: env.CONTENTFUL_ACCESS_TOKEN_MIR,
+        environment: env.
       },
     },
     /**
