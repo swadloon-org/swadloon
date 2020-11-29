@@ -15,7 +15,7 @@
     "clean": "gatsby clean",
     "compile": "tsc --project tsconfig.gatsby.json",
     "preload-fonts": "cross-env PORT=9003 gatsby-preload-fonts --no-sandbox",
-    "refresh": "curl -X POST http://localhost:9003/__refresh",
+    "refresh": "curl -X POST http://localhost:9004/__refresh",
     "serve": "gatsby serve",
     "prestart": "yarn clean && yarn compile",
     "start": "cross-env ENABLE_GATSBY_REFRESH_ENDPOINT=true gatsby develop -p 9004 -H 0.0.0.0",

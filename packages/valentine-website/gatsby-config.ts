@@ -1,5 +1,5 @@
 import * as core from '@newrade/core-gatsby-config';
-import { loadDotEnv, logEnvVariables } from '@newrade/core-utils';
+import { DEPLOY_ENV, loadDotEnv, logEnvVariables } from '@newrade/core-utils';
 import path from 'path';
 import packageJson from './package.json';
 import { ENV } from './types/dot-env';
@@ -15,8 +15,8 @@ const config: core.GastbySiteConfig = {
   siteMetadata: {
     title: `Valentine Website`,
     description: `Gatsby powered MIR website`,
-    siteUrl: env.APP_URL,
-    siteEnv: env.APP_ENV,
+    siteUrl: env.APP_URL || 'http://localhost:9005',
+    siteEnv: env.APP_ENV || DEPLOY_ENV.DEV,
     languages: {
       langs: [core.SITE_LANGUAGES.FR, core.SITE_LANGUAGES.EN],
       defaultLangKey: core.SITE_LANGUAGES.FR,
