@@ -72,33 +72,34 @@ jobs:
 
     - name: Test
       run: yarn test
+      env:
+        CI: true
 
     - name: Build mir-website
       run: yarn build --scope @newrade/mir-website
       env:
+        APP_URL: 'http://local.mirinc.ca'
         CONTENTFUL_SPACEID_MIR: ${{ secrets.CONTENTFUL_SPACEID_MIR }}
         CONTENTFUL_DELIVERY_TOKEN_MIR: ${{ secrets.CONTENTFUL_DELIVERY_TOKEN_MIR }}
 
     - name: Build newrade-website
       run: yarn build --scope @newrade/newrade-website
       env:
+        APP_URL: 'http://local.newrade.ca'
         CONTENTFUL_SPACEID_NEWRADE: ${{ secrets.CONTENTFUL_SPACEID_NEWRADE }}
         CONTENTFUL_DELIVERY_TOKEN_NEWRADE: ${{ secrets.CONTENTFUL_DELIVERY_TOKEN_NEWRADE }}
 
     - name: Build valentine-website
       run: yarn build --scope @newrade/valentine-website
       env:
+        APP_URL: 'http://local.valentinebv.com'
         CONTENTFUL_SPACEID_VALENTINE: ${{ secrets.CONTENTFUL_SPACEID_VALENTINE }}
         CONTENTFUL_DELIVERY_TOKEN_VALENTINE : ${{ secrets.CONTENTFUL_DELIVERY_TOKEN_VALENTINE }}
 
     - name: Build vsb-website
       run: yarn build --scope @newrade/vsb-website
       env:
+        APP_URL: 'http://local.vasectomie-pierre-boucher.ca'
         CONTENTFUL_SPACEID_VSB: ${{ secrets.CONTENTFUL_SPACEID_VSB }}
         CONTENTFUL_DELIVERY_TOKEN_VSB: ${{ secrets.CONTENTFUL_DELIVERY_TOKEN_VSB }}
 
-    - name: Test
-      run: yarn test
-
-      env:
-        CI: true
