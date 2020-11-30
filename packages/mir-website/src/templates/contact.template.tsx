@@ -100,7 +100,6 @@ export const ContactTemplate: React.FC<ProjectPageProps> = (props) => {
           </Heading>
 
           <input type="hidden" value="https://mirinc.ca/nous-joindre/?status=success#info" name="_redirect" />
-          {/* <input type="hidden" value="http://localhost:9001/nous-joindre/?status=success#info" name="_redirect" /> */}
 
           <div className={`${styles.formRow}`}>
             <Input
