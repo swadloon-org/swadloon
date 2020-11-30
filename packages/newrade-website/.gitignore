@@ -10,8 +10,4 @@ dist/
 public/
 .cache/
 graphql-types.ts
-gatsby-config.js
-gatsby-node.js
-gatsby-browser.js
-types/*.js
 
