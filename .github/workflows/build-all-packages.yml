@@ -75,12 +75,12 @@ jobs:
       env:
         CI: true
 
-    - name: Build mir-website
-      run: yarn build --scope @newrade/mir-website
+    - name: Build core-gatsby-starter
+      run: yarn build --scope @newrade/core-gatsby-starter
       env:
-        APP_URL: 'http://local.mirinc.ca'
-        CONTENTFUL_SPACEID_MIR: ${{ secrets.CONTENTFUL_SPACEID_MIR }}
-        CONTENTFUL_DELIVERY_TOKEN_MIR: ${{ secrets.CONTENTFUL_DELIVERY_TOKEN_MIR }}
+        APP_URL: 'http://local.newrade.ca'
+        CONTENTFUL_SPACEID_NEWRADE: ${{ secrets.CONTENTFUL_SPACEID_NEWRADE }}
+        CONTENTFUL_DELIVERY_TOKEN_NEWRADE: ${{ secrets.CONTENTFUL_DELIVERY_TOKEN_NEWRADE }}
 
     - name: Build newrade-website
       run: yarn build --scope @newrade/newrade-website
@@ -88,6 +88,13 @@ jobs:
         APP_URL: 'http://local.newrade.ca'
         CONTENTFUL_SPACEID_NEWRADE: ${{ secrets.CONTENTFUL_SPACEID_NEWRADE }}
         CONTENTFUL_DELIVERY_TOKEN_NEWRADE: ${{ secrets.CONTENTFUL_DELIVERY_TOKEN_NEWRADE }}
+
+    - name: Build mir-website
+      run: yarn build --scope @newrade/mir-website
+      env:
+        APP_URL: 'http://local.mirinc.ca'
+        CONTENTFUL_SPACEID_MIR: ${{ secrets.CONTENTFUL_SPACEID_MIR }}
+        CONTENTFUL_DELIVERY_TOKEN_MIR: ${{ secrets.CONTENTFUL_DELIVERY_TOKEN_MIR }}
 
     - name: Build valentine-website
       run: yarn build --scope @newrade/valentine-website
