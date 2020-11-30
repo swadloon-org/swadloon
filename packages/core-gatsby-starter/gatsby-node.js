@@ -6,7 +6,7 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 require('dotenv').config();
-exports.createPages = async ({ actions, graphql }) => {
+exports.createPages = async ({}) => {
     // const { data } = await graphql(`
     //   {
     //     gcms

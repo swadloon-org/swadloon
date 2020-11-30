@@ -35,6 +35,9 @@
       "path": "../packages/core-gatsby-starter"
     },
     {
+      "path": "../packages/core-github-actions"
+    },
+    {
       "path": "../packages/core-jest-config"
     },
     {
@@ -62,20 +65,19 @@
       "path": "../packages/newrade-app"
     },
     {
-      "path": "../packages/lakhos-website"
-    },
-    {
       "path": "../packages/mir-website"
     },
     {
       "path": "../packages/vsb-website"
+    },
+    {
+      "path": "../packages/valentine-website"
     }
   ],
   "settings": {
     "typescript.surveys.enabled": false,
     "terminals.sortTerminals": true,
     "terminals.env": {},
-    "debug.node.autoAttach": "off",
     "typescript.tsdk": "newrade/node_modules/typescript/lib"
   }
 }

@@ -14,7 +14,7 @@ var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (
 var __importStar = (this && this.__importStar) || function (mod) {
     if (mod && mod.__esModule) return mod;
     var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
     __setModuleDefault(result, mod);
     return result;
 };
@@ -35,7 +35,7 @@ core_utils_1.logEnvVariables({ packageName: package_json_1.default.name, env });
  */
 const config = {
     siteMetadata: {
-        title: `core-gatsby-website`,
+        title: `Core Gatsby Website`,
         description: `Gatsby powered MIR website`,
         siteUrl: env.APP_URL,
         siteEnv: env.APP_ENV,
@@ -45,49 +45,36 @@ const config = {
         },
     },
     plugins: [
+        {
+            resolve: `gatsby-plugin-page-creator`,
+            options: {
+                path: path_1.default.resolve(__dirname, 'src', 'pages'),
+                ignore: [`**/*.treat.ts`],
+            },
+        },
+        core.getGastbyCorePluginConfig(),
         core.getGatsbyTsPluginConfig(),
         core.getGatsbyReactSvgConfig(),
-        core.getGastbyCorePluginConfig(),
         core.getGastbyPluginTreatConfig(),
+        core.getGatsbyImageFolder({
+            pathImgDir: path_1.default.join(__dirname, `src`, `images`),
+        }),
+        core.getGatsbyNetlifyPlugin(),
+        core.getGatsbyTransformerSharp(),
+        core.getGatsbyPluginSharp(),
+        core.getGastbyPluginTreatConfig(),
+        core.getGatsbyPluginMdx(),
+        core.getGatsbyPluginPreloadFonts(),
+        core.getGatsbyPluginReactHelmet(),
+        core.getGatsbyPluginSitemap(),
+        core.getGatsbyPluginRobotsTxt({ env }),
         {
-            resolve: `gatsby-source-filesystem`,
+            resolve: `gatsby-source-contentful`,
             options: {
-                name: `images`,
-                path: path_1.default.join(__dirname, `src`, `images`),
+                spaceId: env.CONTENTFUL_SPACEID_NEWRADE,
+                accessToken: env.CONTENTFUL_DELIVERY_TOKEN_NEWRADE,
+                environment: 'master',
             },
-        },
-        `gatsby-transformer-sharp`,
-        `gatsby-plugin-sharp`,
-        /**
-         * gatsby-source-graphcms
-         * @see https://github.com/GraphCMS/gatsby-source-graphcms/tree/next/gatsby-source-graphcms
-         * Test
-         */
-        {
-            resolve: `gatsby-source-graphql`,
-            options: {
-                typeName: `GraphCMS`,
-                fieldName: `gcms`,
-                url: env.GRAPH_CMS_API_URL_CORE,
-                headers: {
-                    Authorization: `bearer ${env.GRAPH_CMS_AUTH_TOKEN_CORE}`,
-                },
-            },
-        },
-        {
-            resolve: `gatsby-plugin-mdx`,
-            options: {
-                remarkPlugins: [],
-                rehypePlugins: [],
-            },
-        },
-        /**
-         * gatsby-plugin-react-helmet
-         * @see https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-react-helmet
-         * @see https://github.com/nfl/react-helmet
-         */
-        {
-            resolve: 'gatsby-plugin-react-helmet',
         },
     ],
 };

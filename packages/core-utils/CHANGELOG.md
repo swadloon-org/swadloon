@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.2](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/compare/@newrade/core-utils@1.2.1...@newrade/core-utils@1.2.2) (2020-11-30)
+
+### Bug Fixes
+
+- **core-gatsby-starter:** remove generated .js files ([8a5aa2e](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/commit/8a5aa2ee3cf2cd461a12801f826dc4b134771680))
+
 ## [1.2.1](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/compare/@newrade/core-utils@1.2.0...@newrade/core-utils@1.2.1) (2020-11-26)
 
 ### Bug Fixes

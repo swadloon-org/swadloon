@@ -16,7 +16,7 @@ const DesignPage: React.FC<Props> = (props) => {
       <TreatProvider theme={light}>
         <Button>hey</Button>
         <code>
-          <pre>{JSON.stringify(defaultTheme.colors.primary, null, 2)}</pre>
+          <pre>{JSON.stringify(defaultTheme?.colors?.primary, null, 2)}</pre>
         </code>
       </TreatProvider>
       <code>
