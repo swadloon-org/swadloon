@@ -10,10 +10,10 @@
   "repository": "https://github.com/newrade/newrade/tree/master/packages/newrade-website",
   "license": "MIT",
   "scripts": {
-    "build1": "gatsby build",
+    "prebuild": "yarn compile",
+    "build": "gatsby build",
     "clean": "gatsby clean",
     "compile": "tsc --project tsconfig.gatsby.json",
-    "prebuild": "yarn compile",
     "preload-fonts": ". ./.env && PORT=$APP_PORT gatsby-preload-fonts --no-sandbox",
     "refresh": ". ./.env && curl -X POST http://localhost:$APP_PORT/__refresh",
     "serve": "gatsby serve",

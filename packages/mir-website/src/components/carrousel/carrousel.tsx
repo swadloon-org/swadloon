@@ -48,11 +48,7 @@ export const ImageFrame2: React.FC<OwnProps & HTMLAttributes<any>> = (props) => 
     setPage([page + newDirection, newDirection]);
   };
 
-  const arrayImg = [
-    'https://media.graphcms.com/resize=fit:max,width:900/5iKlzUXmQNSdwU2KZ1EL',
-    'https://media.graphcms.com/resize=fit:max,width:900/5iKlzUXmQNSdwU2KZ1EL',
-    'https://media.graphcms.com/resize=fit:max,width:900/QfmLEvNQSGkypJ7xmhgC',
-  ];
+  const arrayImg: string[] = [];
 
   const arrayIndex = wrap(0, props.indexChildren, page);
 
