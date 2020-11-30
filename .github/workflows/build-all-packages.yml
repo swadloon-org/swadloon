@@ -1,0 +1,112 @@
+name: build-all-packages
+
+on: [push]
+
+jobs:
+  build_all_packages:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    # - name: Set environment for branch
+    #   run: |
+    #     if [[ $GITHUB_REF == 'refs/heads/master' ]]; then
+    #         echo "::set-env name=GLCOUD_PROJECT::my-project-stg"
+    #         echo "::set-env name=VERCEL_TARGET::staging"
+    #     else
+    #         echo "::set-env name=GLCOUD_PROJECT::my-project-prd"
+    #         echo "::set-env name=VERCEL_TARGET::production"
+    #     fi
+
+    - name: Set up Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    #
+    # Cache yarn dependencies
+    # https://github.com/actions/cache/blob/master/examples.md#node---yarn
+    #
+    # - name: Yarn cache directory
+    #   id: yarn-cache-dir
+    #   run: echo "::set-output name=dir::$(yarn cache dir)"
+
+    # - name: Yarn cache
+    #   uses: actions/cache@v1
+    #   id: yarn-cache
+    #   with:
+    #     path: ${{ steps.yarn-cache-dir.outputs.dir }}
+    #     key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+    #     restore-keys: |
+    #       ${{ runner.os }}-yarn-
+
+    #
+    # Fix for build issues with Gatsby or other tools that uses
+    # many file watchers
+    #
+    - name: Increase system limit for number of file watchers
+      if: ${{ !env.ACT }}
+      run: |
+        echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+
+    - name: Install dependencies
+      run: yarn
+
+    - name: Set the env variable depending on the branch
+      uses: ./packages/core-github-actions/lib/build-all-packages
+
+    - name: Lint
+      run: yarn lint
+
+    - name: Build Libs
+      run: yarn build:core:lib
+
+    - name: Set the APP_URL variable
+      uses: ./packages/core-github-actions/lib/build-all-packages
+
+    - name: Test
+      run: yarn test
+      env:
+        CI: true
+
+    - name: Build core-gatsby-starter
+      run: yarn build --scope @newrade/core-gatsby-starter
+      env:
+        APP_URL: 'http://local.newrade.ca'
+        CONTENTFUL_SPACEID_NEWRADE: ${{ secrets.CONTENTFUL_SPACEID_NEWRADE }}
+        CONTENTFUL_DELIVERY_TOKEN_NEWRADE: ${{ secrets.CONTENTFUL_DELIVERY_TOKEN_NEWRADE }}
+
+    - name: Build newrade-website
+      run: yarn build --scope @newrade/newrade-website
+      env:
+        APP_URL: 'http://local.newrade.ca'
+        CONTENTFUL_SPACEID_NEWRADE: ${{ secrets.CONTENTFUL_SPACEID_NEWRADE }}
+        CONTENTFUL_DELIVERY_TOKEN_NEWRADE: ${{ secrets.CONTENTFUL_DELIVERY_TOKEN_NEWRADE }}
+
+    - name: Build mir-website
+      run: yarn build --scope @newrade/mir-website
+      env:
+        APP_URL: 'http://local.mirinc.ca'
+        CONTENTFUL_SPACEID_MIR: ${{ secrets.CONTENTFUL_SPACEID_MIR }}
+        CONTENTFUL_DELIVERY_TOKEN_MIR: ${{ secrets.CONTENTFUL_DELIVERY_TOKEN_MIR }}
+
+    - name: Build valentine-website
+      run: yarn build --scope @newrade/valentine-website
+      env:
+        APP_URL: 'http://local.valentinebv.com'
+        CONTENTFUL_SPACEID_VALENTINE: ${{ secrets.CONTENTFUL_SPACEID_VALENTINE }}
+        CONTENTFUL_DELIVERY_TOKEN_VALENTINE : ${{ secrets.CONTENTFUL_DELIVERY_TOKEN_VALENTINE }}
+
+    - name: Build vsb-website
+      run: yarn build --scope @newrade/vsb-website
+      env:
+        APP_URL: 'http://local.vasectomie-pierre-boucher.ca'
+        CONTENTFUL_SPACEID_VSB: ${{ secrets.CONTENTFUL_SPACEID_VSB }}
+        CONTENTFUL_DELIVERY_TOKEN_VSB: ${{ secrets.CONTENTFUL_DELIVERY_TOKEN_VSB }}
+

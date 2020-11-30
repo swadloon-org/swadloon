@@ -1,0 +1,34 @@
+{
+  "name": "@newrade/vsb-website",
+  "version": "1.3.1",
+  "description": "Gatsby website for vsb a medical website",
+  "author": {
+    "email": "info@newrade.ca",
+    "name": "VSB",
+    "url": "https://github.com/newrade/newrade"
+  },
+  "repository": "https://github.com/newrade/newrade/tree/master/packages/newrade-website",
+  "license": "MIT",
+  "scripts": {
+    "prebuild": "yarn compile",
+    "build": "gatsby build",
+    "clean": "gatsby clean",
+    "compile": "tsc --project tsconfig.gatsby.json",
+    "preload-fonts": ". ./.env && PORT=$APP_PORT gatsby-preload-fonts --no-sandbox",
+    "refresh": ". ./.env && curl -X POST http://localhost:$APP_PORT/__refresh",
+    "serve": "gatsby serve",
+    "prestart": "yarn clean && yarn compile",
+    "start": ". ./.env && gatsby develop -p $APP_PORT -H 0.0.0.0",
+    "test": "echo \"Wrtps://gatsby.dev/unit-testing\""
+  },
+  "dependencies": {
+    "@newrade/core-design-system": "^1.4.0",
+    "@newrade/core-react-ui": "^1.5.1",
+    "gatsby": "^2.24"
+  },
+  "devDependencies": {
+    "@newrade/core-gatsby-config": "^1.4.1",
+    "@newrade/core-utils": "^1.2.1",
+    "@newrade/core-webpack-config": "^1.3.1"
+  }
+}
