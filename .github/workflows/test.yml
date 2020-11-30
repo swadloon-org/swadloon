@@ -1,0 +1,47 @@
+name: test
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    #
+    # Cache yarn dependencies
+    # https://github.com/actions/cache/blob/master/examples.md#node---yarn
+    #
+    # - name: Yarn cache directory
+    #   id: yarn-cache-dir
+    #   run: echo "::set-output name=dir::$(yarn cache dir)"
+
+    # - name: Yarn cache
+    #   uses: actions/cache@v1
+    #   id: yarn-cache
+    #   with:
+    #     path: ${{ steps.yarn-cache-dir.outputs.dir }}
+    #     key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+    #     restore-keys: |
+    #       ${{ runner.os }}-yarn-
+
+    - name: Install dependencies
+      run: yarn
+
+    - name: Set the env variable depending on the branch
+      uses: ./packages/core-github-actions/lib/build-all-packages
+
+    - name: Echo APP_ENV
+      run: echo $APP_ENV
+

@@ -23,18 +23,18 @@ const config: core.GastbySiteConfig = {
     },
   },
   plugins: [
-    // {
-    //   resolve: `gatsby-plugin-manifest`,
-    //   options: {
-    //     name: `VSB`,
-    //     short_name: `VSB`,
-    //     start_url: `/`,
-    //     background_color: `#f7f0eb`,
-    //     theme_color: `#a2466c`,
-    //     display: `standalone`,
-    //     icon: `src/illustrations/Logo/LogoFavicon.png`,
-    //   },
-    // },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Clinique Dr. Pierre Jr. Boucher`,
+        short_name: `VSB`,
+        start_url: `/`,
+        background_color: `#f7f0eb`,
+        theme_color: `#a2466c`,
+        display: `standalone`,
+        icon: `src/images/favicon/favicon.png`,
+      },
+    },
     {
       resolve: `gatsby-plugin-page-creator`,
       options: {
@@ -54,7 +54,7 @@ const config: core.GastbySiteConfig = {
     core.getGastbyPluginTreatConfig(),
     core.getGatsbyPluginMdx(),
     // core.getGatsbyPluginPreloadFonts(),
-    // core.getGatsbyPluginReactHelmet(),
+    core.getGatsbyPluginReactHelmet(),
     // core.getGatsbyPluginGoogleTagmanager({
     //   googleTagId: 'GTM-T4LK3QF',
     // }),

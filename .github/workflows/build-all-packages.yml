@@ -1,9 +1,9 @@
-name: build-only
+name: build-all-packages
 
 on: [push]
 
 jobs:
-  build_only:
+  build_all_packages:
     runs-on: ubuntu-latest
 
     strategy:
@@ -13,6 +13,16 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
+
+    # - name: Set environment for branch
+    #   run: |
+    #     if [[ $GITHUB_REF == 'refs/heads/master' ]]; then
+    #         echo "::set-env name=GLCOUD_PROJECT::my-project-stg"
+    #         echo "::set-env name=VERCEL_TARGET::staging"
+    #     else
+    #         echo "::set-env name=GLCOUD_PROJECT::my-project-prd"
+    #         echo "::set-env name=VERCEL_TARGET::production"
+    #     fi
 
     - name: Set up Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
@@ -41,14 +51,24 @@ jobs:
     # many file watchers
     #
     - name: Increase system limit for number of file watchers
+      if: ${{ !env.ACT }}
       run: |
         echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 
     - name: Install dependencies
       run: yarn
 
+    - name: Set the env variable depending on the branch
+      uses: ./packages/core-github-actions/lib/build-all-packages
+
     - name: Lint
       run: yarn lint
+
+    - name: Build Libs
+      run: yarn build:core:lib
+
+    - name: Set the APP_URL variable
+      uses: ./packages/core-github-actions/lib/build-all-packages
 
     - name: Build
       run: yarn build
@@ -61,6 +81,7 @@ jobs:
         CONTENTFUL_DELIVERY_TOKEN_VALENTINE : ${{ secrets.CONTENTFUL_DELIVERY_TOKEN_VALENTINE }}
         CONTENTFUL_SPACEID_VSB: ${{ secrets.CONTENTFUL_SPACEID_VSB }}
         CONTENTFUL_DELIVERY_TOKEN_VSB: ${{ secrets.CONTENTFUL_DELIVERY_TOKEN_VSB }}
+
     - name: Test
       run: yarn test
 

@@ -35,6 +35,9 @@
       "path": "../packages/core-gatsby-starter"
     },
     {
+      "path": "../packages/core-github-actions"
+    },
+    {
       "path": "../packages/core-jest-config"
     },
     {

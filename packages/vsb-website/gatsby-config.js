@@ -36,8 +36,8 @@ const config = {
     siteMetadata: {
         title: `VSB Website`,
         description: `Gatsby powered MIR website`,
-        siteUrl: env.APP_URL,
-        siteEnv: env.APP_ENV,
+        siteUrl: env.APP_URL || 'http://localhost:9004',
+        siteEnv: env.APP_ENV || core_utils_1.DEPLOY_ENV.DEV,
         languages: {
             langs: [core.SITE_LANGUAGES.FR, core.SITE_LANGUAGES.EN],
             defaultLangKey: core.SITE_LANGUAGES.FR,
