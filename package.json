@@ -15,7 +15,7 @@
     }
   },
   "scripts": {
-    "autorelease": "env-cmd lerna version --conventional-commits --create-release github",
+    "autorelease": ". ./.env && lerna version --conventional-commits --create-release github",
     "build": "lerna run build",
     "build:core": "yarn build --scope @newrade/core-*",
     "build:core:lib": "yarn build --scope @newrade/core-* --ignore @newrade/core-gatsby-starter --ignore @newrade/core-react-ui-app",
@@ -118,7 +118,6 @@
     "csstype": "^2.6.3",
     "cz-conventional-changelog": "^3.2.0",
     "dotenv": "^8.2.0",
-    "env-cmd": "^10.1.0",
     "eslint": "6.x",
     "eslint-config-prettier": "6.11.0",
     "eslint-import-resolver-babel-module": "5.1.2",
