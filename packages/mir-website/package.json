@@ -20,7 +20,10 @@
     "serve": "gatsby serve",
     "prestart": "yarn clean && yarn compile",
     "start": ". ./.env && gatsby develop -p $APP_PORT -H 0.0.0.0",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
+    "test3": "contentful-tools generate --config=contentful.json --token=$CONTENTFUL_MANAGEMENT_ACCESS_TOKEN --environment=$CONTENTFUL_ENVIRONMENT --space=$CONTENTFUL_SPACE_ID",
+    "test4": "contentful-tools sync --config=contentful.json --token=$CONTENTFUL_MANAGEMENT_ACCESS_TOKEN --environment=$CONTENTFUL_ENVIRONMENT --space=$CONTENTFUL_SPACE_ID",
+    "test5": "contentful-tools sync --config=contentful.json"
   },
   "dependencies": {
     "@newrade/core-design-system-old": "^1.3.3",

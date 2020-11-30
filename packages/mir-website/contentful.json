@@ -1,0 +1,15 @@
+{
+    "sync": true,
+
+    "outDir": "./store",
+
+    "space": "y3i4u0hwkf35",
+
+    "locales": {
+        "base": "fr_CA",
+        "extra": ["en_CA"]
+    },
+    
+    "storeClass": "ContentStore"
+ 
+}
