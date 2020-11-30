@@ -10,9 +10,9 @@ export type ENV = COMMON_ENV_GATSBY & {
   FIGMA_TOKEN?: string;
   FIGMA_FILE?: string;
   /**
-   * GraphCMS
-   * @deprecated switching to Contentful
+   * Contentful variables
    */
-  GRAPH_CMS_API_URL_CORE: string;
-  GRAPH_CMS_AUTH_TOKEN_CORE: string;
+  CONTENTFUL_SPACEID_NEWRADE: string;
+  CONTENTFUL_DELIVERY_TOKEN_NEWRADE: string;
+  CONTENTFUL_MANAGEMENT_TOKEN_NEWRADE: string;
 };

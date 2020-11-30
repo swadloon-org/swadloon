@@ -22,7 +22,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.config = void 0;
 const core = __importStar(require("@newrade/core-gatsby-config"));
 const core_utils_1 = require("@newrade/core-utils");
 const path_1 = __importDefault(require("path"));
@@ -31,12 +30,11 @@ const env = core_utils_1.loadDotEnv(path_1.default.resolve(__dirname, '.env'));
 core_utils_1.logEnvVariables({ packageName: package_json_1.default.name, env });
 /**
  * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.org/docs/gatsby-config/
+ * @see https://www.gatsbyjs.org/docs/gatsby-config/
  */
-exports.config = {
+const config = {
     siteMetadata: {
-        title: `Newrade Website`,
+        title: `VSB Website`,
         description: `Gatsby powered MIR website`,
         siteUrl: env.APP_URL,
         siteEnv: env.APP_ENV,
@@ -47,6 +45,18 @@ exports.config = {
     },
     plugins: [
         {
+            resolve: `gatsby-plugin-manifest`,
+            options: {
+                name: `Clinique Dr. Pierre Jr. Boucher`,
+                short_name: `VSB`,
+                start_url: `/`,
+                background_color: `#f7f0eb`,
+                theme_color: `#a2466c`,
+                display: `standalone`,
+                icon: `src/images/favicon/favicon.png`,
+            },
+        },
+        {
             resolve: `gatsby-plugin-page-creator`,
             options: {
                 path: path_1.default.resolve(__dirname, 'src', 'pages'),
@@ -56,7 +66,6 @@ exports.config = {
         core.getGastbyCorePluginConfig(),
         core.getGatsbyTsPluginConfig(),
         core.getGatsbyReactSvgConfig(),
-        core.getGastbyPluginTreatConfig(),
         core.getGatsbyImageFolder({
             pathImgDir: path_1.default.join(__dirname, `src`, `images`),
         }),
@@ -65,18 +74,21 @@ exports.config = {
         core.getGatsbyPluginSharp(),
         core.getGastbyPluginTreatConfig(),
         core.getGatsbyPluginMdx(),
-        core.getGatsbyPluginPreloadFonts(),
+        // core.getGatsbyPluginPreloadFonts(),
         core.getGatsbyPluginReactHelmet(),
+        // core.getGatsbyPluginGoogleTagmanager({
+        //   googleTagId: 'GTM-T4LK3QF',
+        // }),
         core.getGatsbyPluginSitemap(),
         core.getGatsbyPluginRobotsTxt({ env }),
         {
             resolve: `gatsby-source-contentful`,
             options: {
-                spaceId: env.CONTENTFUL_SPACEID_NEWRADE,
-                accessToken: env.CONTENTFUL_DELIVERY_TOKEN_NEWRADE,
+                spaceId: `${env.CONTENTFUL_SPACEID_VSB}`,
+                accessToken: env.CONTENTFUL_DELIVERY_TOKEN_VSB,
                 environment: 'master',
             },
         },
     ],
 };
-exports.default = exports.config;
+exports.default = config;

@@ -25,10 +25,29 @@ export const config: Gatsby.GatsbyConfig = {
     },
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-page-creator`,
+      options: {
+        path: path.resolve(__dirname, 'src', 'pages'),
+        ignore: [`**/*.treat.ts`],
+      },
+    },
+    core.getGastbyCorePluginConfig(),
     core.getGatsbyTsPluginConfig(),
     core.getGatsbyReactSvgConfig(),
-    core.getGastbyCorePluginConfig(),
     core.getGastbyPluginTreatConfig(),
+    core.getGatsbyImageFolder({
+      pathImgDir: path.join(__dirname, `src`, `images`),
+    }),
+    core.getGatsbyNetlifyPlugin(),
+    core.getGatsbyTransformerSharp(),
+    core.getGatsbyPluginSharp(),
+    core.getGastbyPluginTreatConfig(),
+    core.getGatsbyPluginMdx(),
+    core.getGatsbyPluginPreloadFonts(),
+    core.getGatsbyPluginReactHelmet(),
+    core.getGatsbyPluginSitemap(),
+    core.getGatsbyPluginRobotsTxt({ env }),
     {
       resolve: `gatsby-source-contentful`,
       options: {
@@ -37,17 +56,6 @@ export const config: Gatsby.GatsbyConfig = {
         environment: 'master',
       },
     },
-    // {
-    //   resolve: `gatsby-source-graphql`,
-    //   options: {
-    //     typeName: `GraphCMS`,
-    //     fieldName: `gcms`,
-    //     url: process.env.GRAPH_CMS_API_URL_NEWRADE,
-    //     headers: {
-    //       Authorization: `bearer ${process.env.GRAPH_CMS_AUTH_TOKEN_NEWRADE}`,
-    //     },
-    //   },
-    // },
   ],
 };
 

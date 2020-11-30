@@ -22,7 +22,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.config = void 0;
 const core = __importStar(require("@newrade/core-gatsby-config"));
 const core_utils_1 = require("@newrade/core-utils");
 const path_1 = __importDefault(require("path"));
@@ -34,9 +33,9 @@ core_utils_1.logEnvVariables({ packageName: package_json_1.default.name, env });
  *
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
-exports.config = {
+const config = {
     siteMetadata: {
-        title: `Newrade Website`,
+        title: `Core Gatsby Website`,
         description: `Gatsby powered MIR website`,
         siteUrl: env.APP_URL,
         siteEnv: env.APP_ENV,
@@ -79,4 +78,4 @@ exports.config = {
         },
     ],
 };
-exports.default = exports.config;
+exports.default = config;
