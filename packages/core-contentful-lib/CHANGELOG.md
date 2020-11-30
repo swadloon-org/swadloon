@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/newrade/newrade/compare/@newrade/core-contentful-lib@1.2.0...@newrade/core-contentful-lib@1.2.1) (2020-11-30)
+
+### Bug Fixes
+
+- **core-contentful-lib:** add import / export to .gitignore ([fca34fc](https://github.com/newrade/newrade/commit/fca34fcfe301bdc907cd1131507380136236eef3))
+- **mir-website:** fix typo ([9c92e25](https://github.com/newrade/newrade/commit/9c92e25a4e7fc8b712504e0bde2c4789f62554c2))
+
 # [1.2.0](https://github.com/newrade/newrade/compare/@newrade/core-contentful-lib@1.1.0...@newrade/core-contentful-lib@1.2.0) (2020-11-26)
 
 ### Bug Fixes

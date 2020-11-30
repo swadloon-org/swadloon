@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.2](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/core-gatsby-starter@1.4.1...@newrade/core-gatsby-starter@1.4.2) (2020-11-30)
+
+### Bug Fixes
+
+- **core-gatsby-starter:** remove generated .js files ([8a5aa2e](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/8a5aa2ee3cf2cd461a12801f826dc4b134771680))
+- **gatsby:** re-commit generated .js files ([946585f](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/946585f41f64f6bb06af4e4de7a6463e2fc9c1bd))
+- **repo:** adds APP_PORT ([cc85693](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/cc85693eb834e4e68129c447ab3351561a9a3c3b))
+
 ## [1.4.1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/core-gatsby-starter@1.4.0...@newrade/core-gatsby-starter@1.4.1) (2020-11-26)
 
 ### Bug Fixes
