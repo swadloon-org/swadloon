@@ -1,0 +1,27 @@
+{
+    "clean": true,
+    
+    "sync": true,
+    "outDir": "./store.d.ts",
+
+    "space": "y3i4u0hwkf35",
+    
+    "locales": {
+        "base": "fr_CA",
+        "extra": ["en_CA"]
+    },
+    
+    "namespace": "Content",
+    
+    "storeClass": "ContentStore",
+    
+    "localeOptional": true,
+    
+    "fieldGetters": [
+        "id"
+    ],
+    
+    "idField": "id",
+ 
+    "whitelist": true
+}
