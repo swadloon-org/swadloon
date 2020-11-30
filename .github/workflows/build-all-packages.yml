@@ -70,15 +70,30 @@ jobs:
     - name: Set the APP_URL variable
       uses: ./packages/core-github-actions/lib/build-all-packages
 
-    - name: Build
-      run: yarn build
+    - name: Test
+      run: yarn test
+
+    - name: Build mir-website
+      run: yarn build --scope @newrade/mir-website
+      env:
+        CONTENTFUL_SPACEID_MIR: ${{ secrets.CONTENTFUL_SPACEID_MIR }}
+        CONTENTFUL_DELIVERY_TOKEN_MIR: ${{ secrets.CONTENTFUL_DELIVERY_TOKEN_MIR }}
+
+    - name: Build newrade-website
+      run: yarn build --scope @newrade/newrade-website
       env:
         CONTENTFUL_SPACEID_NEWRADE: ${{ secrets.CONTENTFUL_SPACEID_NEWRADE }}
         CONTENTFUL_DELIVERY_TOKEN_NEWRADE: ${{ secrets.CONTENTFUL_DELIVERY_TOKEN_NEWRADE }}
-        CONTENTFUL_SPACEID_MIR: ${{ secrets.CONTENTFUL_SPACEID_MIR }}
-        CONTENTFUL_DELIVERY_TOKEN_MIR: ${{ secrets.CONTENTFUL_DELIVERY_TOKEN_MIR }}
+
+    - name: Build valentine-website
+      run: yarn build --scope @newrade/valentine-website
+      env:
         CONTENTFUL_SPACEID_VALENTINE: ${{ secrets.CONTENTFUL_SPACEID_VALENTINE }}
         CONTENTFUL_DELIVERY_TOKEN_VALENTINE : ${{ secrets.CONTENTFUL_DELIVERY_TOKEN_VALENTINE }}
+
+    - name: Build vsb-website
+      run: yarn build --scope @newrade/vsb-website
+      env:
         CONTENTFUL_SPACEID_VSB: ${{ secrets.CONTENTFUL_SPACEID_VSB }}
         CONTENTFUL_DELIVERY_TOKEN_VSB: ${{ secrets.CONTENTFUL_DELIVERY_TOKEN_VSB }}
 
