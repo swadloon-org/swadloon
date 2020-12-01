@@ -14,7 +14,7 @@
     "build": "gatsby build",
     "clean": "gatsby clean",
     "compile": "tsc --project tsconfig.gatsby.json",
-    "contentful-types": "contentful-tools generate --config=./contentful-tools.json --token=$CONTENTFUL_MANAGEMENT_ACCESS_TOKEN --environment=$CONTENTFUL_ENVIRONMENT",
+    "contentful-types": ". ./.env && contentful-tools generate --config=contentful-tools.js --token=$CONTENTFUL_MANAGEMENT_TOKEN_MIR",
     "pre-debug": "yarn clean && yarn compile",
     "preload-fonts": ". ./.env && PORT=$APP_PORT gatsby-preload-fonts --no-sandbox",
     "refresh": ". ./.env && curl -X POST http://localhost:$APP_PORT/__refresh",
