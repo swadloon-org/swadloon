@@ -11,3 +11,5 @@ public/
 .cache/
 graphql-types.ts
 
+Content.ts
+ContentStore.ts
