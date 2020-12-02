@@ -20,6 +20,12 @@ export enum COMMON_FIELD {
   PAGE = 'page',
   SECTION = 'section',
   SECTIONS = 'sections',
+  ROUTE = 'route'
+  /**
+   * Banner fields
+   */
+  BANNER = 'banner',
+  BANNER_IMAGES = 'bannerImages',
   /**
    * Commonly used fields
    */

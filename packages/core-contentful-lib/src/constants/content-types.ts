@@ -3,8 +3,13 @@ export enum COMMON_CONTENT_TYPE {
    * Page / section / layout content types
    */
   PAGE = 'Page',
+  PAGE_TYPE = 'PageType',
   SECTION = 'Section',
   SECTION_TYPE = 'SectionType',
+  /**
+   * Banner content types
+   */
+  BANNER = 'Banner',
   /**
    * Navigation related types
    */
@@ -25,6 +30,15 @@ export enum COMMON_CONTENT_TYPE {
    * Assets related types
    */
   MEDIA_COLLECTION = 'MediaCollection',
+  /**
+   * Form content types
+   */
+  FORM = 'Form',
+  FIELD = 'Field',
+  /**
+   * Step Tile content types
+   */
+  Tile = 'Tile',
 }
 
 export enum COMMON_VARIANT {

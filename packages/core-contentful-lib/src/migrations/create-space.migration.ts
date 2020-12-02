@@ -1,5 +1,5 @@
 import * as Migration from 'contentful-migration';
-import { createSectionType } from './../content-types-mir/section';
+import { createPage } from '../content-types-default/page';
 
 const program: Migration.MigrationFunction = function IndexModel(migration) {
   /**
@@ -23,7 +23,9 @@ const program: Migration.MigrationFunction = function IndexModel(migration) {
 
   // createPage(migration);
   // createSection(migration);
-  createSectionType(migration);
+  // createBanner(migration);
+  createPage(migration);
+  // createSectionType(migration);
 };
 
 // @ts-ignore

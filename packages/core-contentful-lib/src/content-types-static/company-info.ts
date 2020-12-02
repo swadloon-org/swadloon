@@ -1,8 +1,8 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
 import { COMMON_CONTENT_TYPE } from '../constants/content-types';
+import { CONTENTFUL_WIDGET } from '../constants/contentful-widget-ids';
 import { COMMON_FIELD } from '../constants/fields';
-import { CONTENTFUL_WIDGET } from './../constants/contentful-widget-ids';
 
 export const createCompanyInfo: Migration.MigrationFunction = function (migration) {
   const content = migration.createContentType(COMMON_CONTENT_TYPE.COMPANY_INFO, {

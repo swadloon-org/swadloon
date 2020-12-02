@@ -13,8 +13,8 @@ logEnvVariables<ENV>({ packageName: packageJson.name, env });
 runMigration({
   // filePath: path.resolve(__dirname, 'migrations', 'create-space.migration.ts'),
   filePath: path.resolve(__dirname, 'migrations', 'create-space.migration.ts'),
-  spaceId: env.CONTENTFUL_SPACEID,
-  accessToken: env.CONTENTFUL_TOKEN,
+  spaceId: env.CONTENTFUL_SPACEID_CLI,
+  accessToken: env.CONTENTFUL_MANAGEMENT_TOKEN_CLI,
 })
   .then(() => console.log('Migration Done!'))
   .catch((e) => console.error(e));
