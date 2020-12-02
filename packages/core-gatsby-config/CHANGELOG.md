@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.2](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-config@1.4.1...@newrade/core-gatsby-config@1.4.2) (2020-11-30)
+
+**Note:** Version bump only for package @newrade/core-gatsby-config
+
+## [1.4.1](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-config@1.4.0...@newrade/core-gatsby-config@1.4.1) (2020-11-26)
+
+### Bug Fixes
+
+- **core-gatsby-config:** enable strict checks for gastby projects ([4cb9ee0](https://github.com/newrade/newrade/commit/4cb9ee0d6e34d93ced821f7187a7cb0a14504c7a))
+- **mir-website:** implement mdx based blog posts ([4fca42d](https://github.com/newrade/newrade/commit/4fca42db2a278de3047fb72e77332115579e84e5))
+- **repo:** fix typings ([4299ed3](https://github.com/newrade/newrade/commit/4299ed3367c15cee98dd6aeb22cebc2714b1c750))
+
 # 1.4.0 (2020-11-02)
 
 ### Bug Fixes

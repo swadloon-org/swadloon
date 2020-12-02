@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/newrade/newrade/compare/@newrade/core-contentful-lib@1.2.0...@newrade/core-contentful-lib@1.2.1) (2020-11-30)
+
+### Bug Fixes
+
+- **core-contentful-lib:** add import / export to .gitignore ([fca34fc](https://github.com/newrade/newrade/commit/fca34fcfe301bdc907cd1131507380136236eef3))
+- **mir-website:** fix typo ([9c92e25](https://github.com/newrade/newrade/commit/9c92e25a4e7fc8b712504e0bde2c4789f62554c2))
+
+# [1.2.0](https://github.com/newrade/newrade/compare/@newrade/core-contentful-lib@1.1.0...@newrade/core-contentful-lib@1.2.0) (2020-11-26)
+
+### Bug Fixes
+
+- **core-gatsby-config:** enable strict checks for gastby projects ([4cb9ee0](https://github.com/newrade/newrade/commit/4cb9ee0d6e34d93ced821f7187a7cb0a14504c7a))
+- **repo:** enable more strict configs ([8438cbe](https://github.com/newrade/newrade/commit/8438cbe33c8d159e015f965e0cb28916d23ba5e3))
+
+### Features
+
+- **cli-contentful:** adding the contentful cli tools ([f24f81e](https://github.com/newrade/newrade/commit/f24f81e57f1061096817c964d9ccc4d418ea92ad))
+- **contentful:** adding the cli and import and export config in the contentful lib ([10a4f3d](https://github.com/newrade/newrade/commit/10a4f3d7ae0b2ece3f50efd93cd50830d7e9fa97))
+
 # 1.1.0 (2020-11-02)
 
 ### Bug Fixes

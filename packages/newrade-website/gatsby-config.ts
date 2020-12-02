@@ -1,8 +1,12 @@
 import * as core from '@newrade/core-gatsby-config';
-import dotenv from 'dotenv';
+import { loadDotEnv, logEnvVariables } from '@newrade/core-utils';
 import Gatsby from 'gatsby';
+import path from 'path';
+import packageJson from './package.json';
+import { ENV } from './types/dot-env';
 
-dotenv.config();
+const env = loadDotEnv<ENV>(path.resolve(__dirname, '.env'));
+logEnvVariables<ENV>({ packageName: packageJson.name, env });
 
 /**
  * Configure your Gatsby site with this file.
@@ -11,25 +15,47 @@ dotenv.config();
  */
 export const config: Gatsby.GatsbyConfig = {
   siteMetadata: {
-    title: `My Gatsby Site`,
-    description: `An example site.`,
+    title: `Newrade Website`,
+    description: `Gatsby powered MIR website`,
+    siteUrl: env.APP_URL,
+    siteEnv: env.APP_ENV,
+    languages: {
+      langs: [core.SITE_LANGUAGES.FR, core.SITE_LANGUAGES.EN],
+      defaultLangKey: core.SITE_LANGUAGES.FR,
+    },
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-page-creator`,
+      options: {
+        path: path.resolve(__dirname, 'src', 'pages'),
+        ignore: [`**/*.treat.ts`],
+      },
+    },
+    core.getGastbyCorePluginConfig(),
     core.getGatsbyTsPluginConfig(),
     core.getGatsbyReactSvgConfig(),
-    core.getGastbyCorePluginConfig(),
     core.getGastbyPluginTreatConfig(),
-    // {
-    //   resolve: `gatsby-source-graphql`,
-    //   options: {
-    //     typeName: `GraphCMS`,
-    //     fieldName: `gcms`,
-    //     url: process.env.GRAPH_CMS_API_URL_NEWRADE,
-    //     headers: {
-    //       Authorization: `bearer ${process.env.GRAPH_CMS_AUTH_TOKEN_NEWRADE}`,
-    //     },
-    //   },
-    // },
+    core.getGatsbyImageFolder({
+      pathImgDir: path.join(__dirname, `src`, `images`),
+    }),
+    core.getGatsbyNetlifyPlugin(),
+    core.getGatsbyTransformerSharp(),
+    core.getGatsbyPluginSharp(),
+    core.getGastbyPluginTreatConfig(),
+    core.getGatsbyPluginMdx(),
+    core.getGatsbyPluginPreloadFonts(),
+    core.getGatsbyPluginReactHelmet(),
+    core.getGatsbyPluginSitemap(),
+    core.getGatsbyPluginRobotsTxt({ env }),
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: env.CONTENTFUL_SPACEID_NEWRADE,
+        accessToken: env.CONTENTFUL_DELIVERY_TOKEN_NEWRADE,
+        environment: 'master',
+      },
+    },
   ],
 };
 

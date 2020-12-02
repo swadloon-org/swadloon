@@ -3,6 +3,59 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/mir-website@1.7.0...@newrade/mir-website@1.7.1) (2020-11-30)
+
+### Bug Fixes
+
+- **core-gatsby-starter:** remove generated .js files ([8a5aa2e](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/8a5aa2ee3cf2cd461a12801f826dc4b134771680))
+- **gatsby:** re-commit generated .js files ([946585f](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/946585f41f64f6bb06af4e4de7a6463e2fc9c1bd))
+- **mir-website:** fix gatsby version ([7019027](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/70190271cda01ba791b791e5f9fff4375e8c4d79))
+- **mir-website:** fix typo ([9c92e25](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/9c92e25a4e7fc8b712504e0bde2c4789f62554c2))
+- **repo:** add generated gatsby config file to .gitintore ([7bbfe95](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/7bbfe95e3d02959d1cae3c4f18d22cab2ffb611f))
+- **repo:** adds APP_PORT ([cc85693](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/cc85693eb834e4e68129c447ab3351561a9a3c3b))
+- **repo:** fixes for gatsby plugin close [#101](https://github.com/newrade/newrade/tree/master/packages/newrade-website/issues/101) ([5dfd08d](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/5dfd08df9e799d1fbedfa3023be87f559fa28aeb))
+- **repo:** put default values for APP_ENV and APP_URL ([e1a7315](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/e1a7315bc1bc52cbe2840dfd904126e61d5e2121))
+- **repo:** update .env environment ([6b917bd](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/6b917bd27f634c209969e1bb3fd532c250f34509))
+
+# [1.7.0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/mir-website@1.6.0...@newrade/mir-website@1.7.0) (2020-11-26)
+
+### Bug Fixes
+
+- **contentful-cli:** fixing the build problem ([b3fb1a4](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/b3fb1a46b7fa33c5f9f4bad926b46c4cf097e719))
+- **core-gatsby-config:** enable strict checks for gastby projects ([4cb9ee0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/4cb9ee0d6e34d93ced821f7187a7cb0a14504c7a))
+- **mir:** added link for markdown and fixe of contact form ([61d5061](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/61d50617f93c91b807aa7cbe933c2f7ef126683d))
+- **mir:** adding new link component for the type 6 markdown part ([5e86d7e](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/5e86d7e33677edf9f146aafb4f6845ceb49ef594))
+- **mir:** blog article and preview and the nav bar ([e16147d](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/e16147d5c6bfb8ccf4137bfa4a94b55528d009e8))
+- **mir:** fixing button ([5edc3c0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/5edc3c0f539d3b1eec764bf55d472d810556a123))
+- **mir:** fixing button align left in mobile view ([784ec0a](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/784ec0a79cc4ba8601ce7cf667b7a722095dcad9))
+- **mir:** job section correction on some display block ([c3559ce](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/c3559cefb7485cb70eecceb14fe69d0aded5ca6f))
+- **mir:** mobile menu fix ([0b68569](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/0b685695e87c4d50922faa52b52446b17c654e0b))
+- **mir:** process steps on safiri ([4be2c87](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/4be2c878329562107389498f2e49758695d6f048))
+- **mir:** type 4 fixed in safari ([db4edc0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/db4edc01c53818b9f31cb4f7b5f421c3799c4551))
+- **mir-website:** add gatsby image to blog preview tile ([bc00897](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/bc008979693843bb142f9dba23d1f3f4c2218fba))
+- **mir-website:** add google search console validation ([a8f7064](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/a8f706406e287f4ce7705842a747a425483a63a4))
+- **mir-website:** fix bug for blog preview on mobile ([7c745f9](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/7c745f9a9e058239746a0d50acd51c9bec6c7e03))
+- **mir-website:** fix contact page ([379d486](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/379d48673695dcf14d61e95067b153922c78254d))
+- **mir-website:** fix eslint ([30c5142](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/30c5142137067fe1337633f44ac8acedd7a0292e))
+- **mir-website:** fix fix ([b723e4a](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/b723e4af79b0c410fb346ee7b6907d6f36c05f81))
+- **mir-website:** fix layout for blog entries ([0f01e59](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/0f01e59fbb602646755df60ab0a3b2a986b8ca38))
+- **mir-website:** fix location usage in sidebar ([b19da0d](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/b19da0d0cefda5c2265b4c871a69a7149b9100bf))
+- **mir-website:** fix typing errors ([3f9d4d3](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/3f9d4d3a367dfd13d6471548dc64fe210c7e8546))
+- **mir-website:** implement mdx based blog posts ([4fca42d](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/4fca42db2a278de3047fb72e77332115579e84e5))
+- **strict-ts:** fixing a lot of problems ([b9ef283](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/b9ef283185159537c3b3426edea17409fe1f9f6b))
+
+### Features
+
+- **mir:** added newsletter and action section with containerForm center ([f55cc6d](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/f55cc6d27efd04dfaea2e786a27f8768dcd2ae6b))
+- **mir:** adding the preview section of the blog ([cc19430](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/cc19430e39230ae5165c7ccba05092e31cefa1df))
+- **mir:** blog preview god ([4951d94](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/4951d942faf2171a25b2a155cf34ff6bc4928e0d))
+- **mir:** fixing link in post ([d4bf20d](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/d4bf20deb697238c88d57ac2bc2c7989e5ed09c2))
+- **mir:** menu mobile ([ea21d70](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ea21d70f791c2df755476bb6b1a0ea729126cc3d))
+- **mir:** preview section queries dones ([0ae04df](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/0ae04dfb6dcb7f734043f42ca80d6711e75be31c))
+- **mir:** side-bar active menu and added contact in side bar ([2d591b3](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/2d591b34e1b45a26c61c6a5b60e98f5915459179))
+- **mir-website:** add blog author ([c15c849](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/c15c8498810c545828e8cea3a921a090c8e3fa18))
+- **mir-website:** implement blog page ([9c86bf5](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/9c86bf5442bce96312de65d5ff55c67e59e80890))
+
 # 1.6.0 (2020-11-02)
 
 ### Bug Fixes

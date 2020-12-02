@@ -35,7 +35,7 @@ core_utils_1.logEnvVariables({ packageName: package_json_1.default.name, env });
  */
 const config = {
     siteMetadata: {
-        title: `core-gatsby-website`,
+        title: `Core Gatsby Website`,
         description: `Gatsby powered MIR website`,
         siteUrl: env.APP_URL,
         siteEnv: env.APP_ENV,
@@ -45,6 +45,7 @@ const config = {
         },
     },
     plugins: [
+<<<<<<< HEAD
         /**
          * Core Plugins
          */
@@ -69,9 +70,33 @@ const config = {
                     docs: require.resolve('./src/templates/markdown.template.tsx'),
                     default: require.resolve('./src/templates/markdown.template.tsx'),
                 },
+=======
+        {
+            resolve: `gatsby-plugin-page-creator`,
+            options: {
+                path: path_1.default.resolve(__dirname, 'src', 'pages'),
+                ignore: [`**/*.treat.ts`],
+>>>>>>> 8c473aa86be932d95ea8726dea57622447a5f874
             },
         },
+        core.getGastbyCorePluginConfig(),
+        core.getGatsbyTsPluginConfig(),
+        core.getGatsbyReactSvgConfig(),
+        core.getGastbyPluginTreatConfig(),
+        core.getGatsbyImageFolder({
+            pathImgDir: path_1.default.join(__dirname, `src`, `images`),
+        }),
+        core.getGatsbyNetlifyPlugin(),
+        core.getGatsbyTransformerSharp(),
+        core.getGatsbyPluginSharp(),
+        core.getGastbyPluginTreatConfig(),
+        core.getGatsbyPluginMdx(),
+        core.getGatsbyPluginPreloadFonts(),
+        core.getGatsbyPluginReactHelmet(),
+        core.getGatsbyPluginSitemap(),
+        core.getGatsbyPluginRobotsTxt({ env }),
         {
+<<<<<<< HEAD
             resolve: `gatsby-source-filesystem`,
             options: {
                 name: `docs`,
@@ -84,6 +109,15 @@ const config = {
                 path: `${__dirname}/src/docs/`,
             },
         },
+=======
+            resolve: `gatsby-source-contentful`,
+            options: {
+                spaceId: env.CONTENTFUL_SPACEID_NEWRADE,
+                accessToken: env.CONTENTFUL_DELIVERY_TOKEN_NEWRADE,
+                environment: 'master',
+            },
+        },
+>>>>>>> 8c473aa86be932d95ea8726dea57622447a5f874
     ],
 };
 exports.default = config;

@@ -54,12 +54,7 @@ export const ImageFrame: React.FC<OwnProps & HTMLAttributes<any>> = (props) => {
     setPage([page + newDirection, newDirection]);
   };
 
-  const arrayImg = [
-    'https://media.graphcms.com/resize=fit:max,width:900/5iKlzUXmQNSdwU2KZ1EL',
-    'https://media.graphcms.com/resize=fit:max,width:900/5iKlzUXmQNSdwU2KZ1EL',
-    'https://media.graphcms.com/resize=fit:max,width:900/QfmLEvNQSGkypJ7xmhgC',
-    'https://media.graphcms.com/resize=fit:max,width:900/QfmLEvNQSGkypJ7xmhgC',
-  ];
+  const arrayImg: string[] = [];
 
   const imageIndex = wrap(0, arrayImg.length, page);
 

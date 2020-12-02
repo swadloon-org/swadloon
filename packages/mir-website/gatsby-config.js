@@ -70,8 +70,9 @@ const config = {
         {
             resolve: `gatsby-source-contentful`,
             options: {
-                spaceId: `${env.CONTENTFUL_ACCESS_SPACEID_MIR}`,
-                accessToken: env.CONTENTFUL_ACCESS_TOKEN_MIR,
+                spaceId: env.CONTENTFUL_SPACEID_MIR,
+                accessToken: env.CONTENTFUL_DELIVERY_TOKEN_MIR,
+                environment: 'master',
             },
         },
         {

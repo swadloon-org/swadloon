@@ -18,7 +18,7 @@ $ npm install -g @newrade/core-cli
 $ nr COMMAND
 running command...
 $ nr (-v|--version|version)
-@newrade/core-cli/1.3.0 darwin-x64 node-v14.5.0
+@newrade/core-cli/1.3.2 darwin-x64 node-v14.5.0
 $ nr --help [COMMAND]
 USAGE
   $ nr COMMAND
@@ -52,7 +52,7 @@ EXAMPLE
   $ nr figma-sync
 ```
 
-_See code: [src/commands/figma-sync.ts](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/blob/v1.3.0/src/commands/figma-sync.ts)_
+_See code: [src/commands/figma-sync.ts](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/blob/v1.3.2/src/commands/figma-sync.ts)_
 
 ## `nr hello [FILE]`
 
@@ -72,7 +72,7 @@ EXAMPLE
      hello world from ./src/hello.ts!
 ```
 
-_See code: [src/commands/hello.ts](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/blob/v1.3.0/src/commands/hello.ts)_
+_See code: [src/commands/hello.ts](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/blob/v1.3.2/src/commands/hello.ts)_
 
 ## `nr help [COMMAND]`
 
@@ -106,5 +106,5 @@ EXAMPLE
   $ nr resetbranches
 ```
 
-_See code: [src/commands/reset-branches.ts](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/blob/v1.3.0/src/commands/reset-branches.ts)_
+_See code: [src/commands/reset-branches.ts](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/blob/v1.3.2/src/commands/reset-branches.ts)_
 <!-- commandsstop -->

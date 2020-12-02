@@ -74,6 +74,10 @@ export type COMMON_ENV = {
    * The app or site public URL
    */
   APP_URL: string;
+  /**
+   * Local port
+   */
+  APP_PORT: string;
 };
 
 /**

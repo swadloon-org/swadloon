@@ -2,4 +2,7 @@
 dist/
 bin/
 lib/
+# contentful
+import/
+export/
 

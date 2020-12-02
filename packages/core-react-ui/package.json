@@ -1,6 +1,6 @@
 {
   "name": "@newrade/core-react-ui",
-  "version": "1.5.0",
+  "version": "1.5.2",
   "description": "UI library",
   "license": "MIT",
   "main": "./lib/index.js",
@@ -18,7 +18,7 @@
   "typings": "./lib/index.d.ts",
   "dependencies": {
     "@newrade/core-design-system": "^1.4.0",
-    "@newrade/core-jest-config": "^1.4.0",
-    "@newrade/core-utils": "^1.2.0"
+    "@newrade/core-jest-config": "^1.4.2",
+    "@newrade/core-utils": "^1.2.2"
   }
 }

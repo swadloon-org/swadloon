@@ -14,7 +14,7 @@ logEnvVariables<ENV>({ packageName: packageJson.name, env });
  */
 const config: core.GastbySiteConfig = {
   siteMetadata: {
-    title: `core-gatsby-website`,
+    title: `Core Gatsby Website`,
     description: `Gatsby powered MIR website`,
     siteUrl: env.APP_URL,
     siteEnv: env.APP_ENV,
@@ -50,6 +50,22 @@ const config: core.GastbySiteConfig = {
         },
       },
     },
+    core.getGastbyCorePluginConfig(),
+    core.getGatsbyTsPluginConfig(),
+    core.getGatsbyReactSvgConfig(),
+    core.getGastbyPluginTreatConfig(),
+    core.getGatsbyImageFolder({
+      pathImgDir: path.join(__dirname, `src`, `images`),
+    }),
+    core.getGatsbyNetlifyPlugin(),
+    core.getGatsbyTransformerSharp(),
+    core.getGatsbyPluginSharp(),
+    core.getGastbyPluginTreatConfig(),
+    core.getGatsbyPluginMdx(),
+    core.getGatsbyPluginPreloadFonts(),
+    core.getGatsbyPluginReactHelmet(),
+    core.getGatsbyPluginSitemap(),
+    core.getGatsbyPluginRobotsTxt({ env }),
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -61,6 +77,14 @@ const config: core.GastbySiteConfig = {
       resolve: 'gatsby-plugin-page-creator',
       options: {
         path: `${__dirname}/src/docs/`,
+      },
+    },
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: env.CONTENTFUL_SPACEID_NEWRADE,
+        accessToken: env.CONTENTFUL_DELIVERY_TOKEN_NEWRADE,
+        environment: 'master',
       },
     },
   ],

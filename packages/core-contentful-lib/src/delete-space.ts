@@ -12,8 +12,8 @@ logEnvVariables<ENV>({ packageName: packageJson.name, env });
  */
 runMigration({
   filePath: path.resolve(__dirname, 'migrations', 'delete-space.migration.ts'),
-  spaceId: env.CONTENTFUL_ACCESS_SPACEID,
-  accessToken: env.CONTENTFUL_ACCESS_TOKEN,
+  spaceId: env.CONTENTFUL_SPACEID,
+  accessToken: env.CONTENTFUL_TOKEN,
 })
   .then(() => console.log('Migration Done!'))
   .catch((e) => console.error(e));

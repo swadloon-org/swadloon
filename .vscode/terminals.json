@@ -105,12 +105,6 @@
       "focus": false
     },
     {
-      "name": "lakhos-website",
-      "cwd": "[workspaceFolder]/packages/lakhos-website",
-      "open": true,
-      "focus": false
-    },
-    {
       "name": "mir-website",
       "cwd": "[workspaceFolder]/packages/mir-website",
       "open": true,
@@ -119,6 +113,12 @@
     {
       "name": "vsb-website",
       "cwd": "[workspaceFolder]/packages/vsb-website",
+      "open": true,
+      "focus": false
+    },
+    {
+      "name": "valentine-website",
+      "cwd": "[workspaceFolder]/packages/valentine-website",
       "open": true,
       "focus": false
     }

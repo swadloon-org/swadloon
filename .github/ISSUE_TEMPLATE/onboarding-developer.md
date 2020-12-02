@@ -82,8 +82,6 @@ assignees: ''
 - [ ] Create a .ssh key ([instructions](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent))
 - [ ] Checkout from the repos you need
 
-### Bash
-
 - [ ] Change the terminal to bash:
 
   ```bash
@@ -91,6 +89,16 @@ assignees: ''
   ```
 
   Then restart VSCode
+
+#### Github Actions
+
+Use `act` to run Github Actions locally.
+
+https://github.com/nektos/act
+
+```bash
+brew install act
+```
 
 ### NVM
 

@@ -1,0 +1,30 @@
+{
+  "name": "@newrade/core-github-actions",
+  "version": "1.0.1",
+  "description": "Custom Github actions",
+  "author": {
+    "email": "info@newrade.ca",
+    "name": "Newrade",
+    "url": "https://github.com/newrade/newrade"
+  },
+  "repository": "https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions",
+  "license": "MIT",
+  "main": "./lib/index.js",
+  "module": "./lib/index.js",
+  "files": [
+    "./lib/**/*"
+  ],
+  "scripts": {
+    "prebuild": "yarn create-action-file",
+    "build": "tsc --build tsconfig.build.json",
+    "clean": "rimraf -r lib/** && rm -f tsconfig.build.tsbuildinfo",
+    "create-action-file": "mkdir -p lib/build-all-packages && cp 'src/build-all-packages/action.yml' 'lib/build-all-packages/action.yml'",
+    "start": "tsc --build --watch --preserveWatchOutput tsconfig.build.json"
+  },
+  "typings": "./lib/index.d.ts",
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@actions/github": "^4.0.0",
+    "@newrade/core-utils": "^1.2.2"
+  }
+}
