@@ -45,7 +45,6 @@ const config = {
         },
     },
     plugins: [
-<<<<<<< HEAD
         /**
          * Core Plugins
          */
@@ -70,13 +69,6 @@ const config = {
                     docs: require.resolve('./src/templates/markdown.template.tsx'),
                     default: require.resolve('./src/templates/markdown.template.tsx'),
                 },
-=======
-        {
-            resolve: `gatsby-plugin-page-creator`,
-            options: {
-                path: path_1.default.resolve(__dirname, 'src', 'pages'),
-                ignore: [`**/*.treat.ts`],
->>>>>>> 8c473aa86be932d95ea8726dea57622447a5f874
             },
         },
         core.getGastbyCorePluginConfig(),
@@ -96,20 +88,19 @@ const config = {
         core.getGatsbyPluginSitemap(),
         core.getGatsbyPluginRobotsTxt({ env }),
         {
-<<<<<<< HEAD
             resolve: `gatsby-source-filesystem`,
             options: {
                 name: `docs`,
                 path: `${__dirname}/src/docs/`,
             },
         },
+        // {
+        //   resolve: 'gatsby-plugin-page-creator',
+        //   options: {
+        //     path: `${__dirname}/src/docs/`,
+        //   },
+        // },
         {
-            resolve: 'gatsby-plugin-page-creator',
-            options: {
-                path: `${__dirname}/src/docs/`,
-            },
-        },
-=======
             resolve: `gatsby-source-contentful`,
             options: {
                 spaceId: env.CONTENTFUL_SPACEID_NEWRADE,
@@ -117,7 +108,6 @@ const config = {
                 environment: 'master',
             },
         },
->>>>>>> 8c473aa86be932d95ea8726dea57622447a5f874
     ],
 };
 exports.default = config;

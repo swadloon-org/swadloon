@@ -73,12 +73,12 @@ const config: core.GastbySiteConfig = {
         path: `${__dirname}/src/docs/`,
       },
     },
-    {
-      resolve: 'gatsby-plugin-page-creator',
-      options: {
-        path: `${__dirname}/src/docs/`,
-      },
-    },
+    // {
+    //   resolve: 'gatsby-plugin-page-creator',
+    //   options: {
+    //     path: `${__dirname}/src/docs/`,
+    //   },
+    // },
     {
       resolve: `gatsby-source-contentful`,
       options: {
