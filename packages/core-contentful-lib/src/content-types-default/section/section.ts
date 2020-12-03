@@ -86,7 +86,7 @@ export const createSection: Migration.MigrationFunction = function (migration) {
       ],
     },
   });
-  content.changeFieldControl(COMMON_FIELD.TYPE, 'builtin', CONTENTFUL_WIDGET.LIST, {
+  content.changeFieldControl(COMMON_FIELD.VARIANT, 'builtin', CONTENTFUL_WIDGET.LIST, {
     helpText: 'Provide Text',
   });
 

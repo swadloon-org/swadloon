@@ -2,9 +2,9 @@ export enum VALENTINE_CONTENT_TYPE {
   /**
    * Project
    */
-  PROJECT = 'project',
+  PROJECT = 'Project',
   /**
    * Tags
    */
-  TAG = 'tag',
+  TAG = 'Tag',
 }

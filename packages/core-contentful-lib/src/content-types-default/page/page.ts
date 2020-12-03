@@ -4,6 +4,13 @@ import { COMMON_CONTENT_TYPE } from '../../constants/content-types';
 import { CONTENTFUL_WIDGET } from '../../constants/contentful-widget-ids';
 import { COMMON_FIELD, mediaField } from '../../constants/fields';
 
+export enum PAGE_TYPE {
+  HOME,
+  CONTENT,
+  CONTACT,
+  BLOG,
+}
+
 export const createPage: Migration.MigrationFunction = function (migration) {
   const content = migration.createContentType(COMMON_CONTENT_TYPE.PAGE, {
     name: COMMON_CONTENT_TYPE.PAGE,
@@ -21,7 +28,7 @@ export const createPage: Migration.MigrationFunction = function (migration) {
   });
   content.createField(COMMON_FIELD.DESCRIPTION, {
     name: pascal(COMMON_FIELD.DESCRIPTION),
-    type: 'Symbol',
+    type: 'Text',
     localized: true,
   });
 
@@ -32,14 +39,19 @@ export const createPage: Migration.MigrationFunction = function (migration) {
   //  Types
   content.createField(COMMON_FIELD.TYPE, {
     name: pascal(COMMON_FIELD.TYPE),
-    type: 'Link',
-    linkType: 'Entry',
-    required: true,
-    validations: [
-      {
-        linkContentType: [COMMON_CONTENT_TYPE.SECTION_TYPE],
-      },
-    ],
+    type: 'Array',
+    validations: [{ size: { max: 1 } }],
+    items: {
+      type: 'Symbol',
+      validations: [
+        {
+          in: [PAGE_TYPE.HOME, PAGE_TYPE.CONTENT, PAGE_TYPE.CONTACT, PAGE_TYPE.BLOG],
+        },
+      ],
+    },
+  });
+  content.changeFieldControl(COMMON_FIELD.TYPE, 'builtin', CONTENTFUL_WIDGET.LIST, {
+    helpText: 'Provide Text',
   });
 
   content.createField(COMMON_FIELD.ROUTE, { name: pascal(COMMON_FIELD.ROUTE), type: 'Symbol', localized: true });

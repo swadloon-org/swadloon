@@ -19,7 +19,7 @@ export const createTag: Migration.MigrationFunction = function (migration) {
       type: 'Symbol',
       validations: [
         {
-          in: [],
+          in: ['test'],
         },
       ],
     },
@@ -35,7 +35,7 @@ export const createTag: Migration.MigrationFunction = function (migration) {
       type: 'Symbol',
       validations: [
         {
-          in: [],
+          in: ['test'],
         },
       ],
     },
@@ -51,7 +51,7 @@ export const createTag: Migration.MigrationFunction = function (migration) {
       type: 'Symbol',
       validations: [
         {
-          in: [],
+          in: ['test'],
         },
       ],
     },

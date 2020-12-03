@@ -35,7 +35,7 @@ export enum VARIANT_TYPE {
   TIERNARY,
 }
 
-export const createSection: Migration.MigrationFunction = function (migration) {
+export const createSectionProject: Migration.MigrationFunction = function (migration) {
   const content = migration.createContentType(COMMON_CONTENT_TYPE.SECTION, {
     name: COMMON_CONTENT_TYPE.SECTION,
     description: 'Configurable object for sections in a page.',
@@ -88,7 +88,7 @@ export const createSection: Migration.MigrationFunction = function (migration) {
       ],
     },
   });
-  content.changeFieldControl(COMMON_FIELD.TYPE, 'builtin', CONTENTFUL_WIDGET.LIST, {
+  content.changeFieldControl(COMMON_FIELD.VARIANT, 'builtin', CONTENTFUL_WIDGET.LIST, {
     helpText: 'Provide Text',
   });
 
@@ -169,8 +169,5 @@ export const createSection: Migration.MigrationFunction = function (migration) {
     name: pascal(VALENTINE_FIELD.PROJECTS),
     type: 'Array',
     items: { type: 'Link', linkType: 'Entry', validations: [{ linkContentType: [VALENTINE_CONTENT_TYPE.PROJECT] }] },
-  });
-  content.changeFieldControl(VALENTINE_FIELD.PROJECTS, 'builtin', CONTENTFUL_WIDGET.ENTRY_CARD_EDITOR, {
-    helpText: 'Select one or many projects on the section.',
   });
 };
