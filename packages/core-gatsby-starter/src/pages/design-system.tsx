@@ -6,50 +6,91 @@ import { Layout } from '../layouts/layout';
 import { Providers } from '../layouts/providers';
 import * as styleRefs from './index.treat';
 import { useTreatTheme } from '../hooks/treat-theme';
-import { Stack } from '@newrade/core-react-ui';
-import { Effects, Shadows } from '../../../core-design-system/src';
+import { Cluster, Stack, keys, getCSSColor, lightenColor } from '@newrade/core-react-ui';
 
 export type ProjectPageProps = PageProps<{}, GatsbyPageContext>;
 
 const PageComponent: React.FC<ProjectPageProps> = (props) => {
   const styles = useStyles(styleRefs);
-  const { cssTheme } = useTreatTheme();
+  const { cssTheme, theme } = useTreatTheme();
   return (
     <div className={styles.wrapper}>
-      <Stack gap="2em">
+      <Stack id={'Design System'} gap="2em">
         <h1>Design System - {cssTheme.name}</h1>
 
-        <Stack gap="1.5em">
+        <Stack id={'Foundations'} gap="1.5em">
           <h2>Foundations</h2>
 
           <Stack gap="1em">
             <h3>Typography</h3>
-            {/* {JSON.stringify(cssTheme)} */}
           </Stack>
 
-          <Stack gap="1em">
+          <Stack id={'Colors'} gap="1em">
             <h3>Colors</h3>
             <h4>All Colors</h4>
-            {cssTheme.colors?.colors &&
-              Object.keys(cssTheme.colors?.colors).map((color) => {
-                return (
-                  <div key={color} style={{ backgroundColor: (cssTheme.colors?.colors as any)[color] }}>
-                    {color}
-                  </div>
-                );
-              })}
+
+            {getCSSColor(lightenColor(theme.colors.colors.primary[100], 20))}
+
+            <Stack gap={'1em'}>
+              {cssTheme.colors?.colors
+                ? keys(cssTheme.colors?.colors).map((color) => {
+                    if (cssTheme.colors?.colors[color] && typeof cssTheme.colors?.colors[color] !== 'object') {
+                      return (
+                        <div>
+                          <div
+                            style={{
+                              backgroundColor: cssTheme.colors.colors[color] as string,
+                              height: cssTheme.sizing?.sizes.desktop.x5,
+                              boxShadow: cssTheme.effects?.shadows.light,
+                            }}
+                          ></div>
+                          {color}
+                        </div>
+                      );
+                    }
+
+                    const palettes = cssTheme.colors?.colors[color] as Record<string, string>;
+
+                    return (
+                      <Stack>
+                        <Cluster>
+                          {palettes
+                            ? keys(palettes).map((shade) => {
+                                return palettes[shade] ? (
+                                  <div>
+                                    <div
+                                      style={{
+                                        backgroundColor: palettes[shade] as string,
+                                        height: cssTheme.sizing?.sizes.desktop.x5,
+                                        boxShadow: cssTheme.effects?.shadows.light,
+                                      }}
+                                    ></div>
+                                    {shade}
+                                  </div>
+                                ) : null;
+                              })
+                            : null}
+                        </Cluster>
+                        <div>{color}</div>
+                      </Stack>
+                    );
+                  })
+                : null}
+            </Stack>
+
             <h4>Colors Intents</h4>
             {cssTheme.colors?.colorIntents &&
-              Object.keys(cssTheme.colors?.colorIntents).map((color) => {
+              keys(cssTheme.colors?.colorIntents).map((color) => {
                 return <div key={color}>{color}</div>;
               })}
           </Stack>
-          <Stack gap="1em">
+
+          <Stack id={'Effects'} gap="1em">
             <h3>Effects</h3>
 
             <h4>Shadows</h4>
             {cssTheme.effects?.shadows &&
-              (Object.keys(cssTheme.effects.shadows) as (keyof Effects['shadows'])[]).map((shadow) => {
+              keys(cssTheme.effects.shadows).map((shadow) => {
                 return (
                   <div key={shadow} style={{ boxShadow: cssTheme?.effects?.shadows?.[shadow] }}>
                     {shadow}
@@ -57,9 +98,35 @@ const PageComponent: React.FC<ProjectPageProps> = (props) => {
                 );
               })}
           </Stack>
+
+          <Stack id={'Sizing'} gap="1em">
+            <h3>Sizing</h3>
+
+            <h4>Sizes</h4>
+            {cssTheme.sizing?.sizes &&
+              keys(cssTheme.sizing.sizes).map((size) => {
+                return cssTheme?.sizing?.sizes[size] ? (
+                  <div key={size}>
+                    <label>{size}</label>
+                    <Stack gap="1em">
+                      {keys(cssTheme?.sizing?.sizes[size]).map((step) => {
+                        return (
+                          <div
+                            id={step}
+                            style={{ height: cssTheme?.sizing?.sizes[size][step], backgroundColor: 'grey' }}
+                          >
+                            {step}
+                          </div>
+                        );
+                      })}
+                    </Stack>
+                  </div>
+                ) : null;
+              })}
+          </Stack>
         </Stack>
 
-        <Stack gap="1.5em">
+        <Stack id={'Components'} gap="1.5em">
           <h2>Components</h2>
         </Stack>
       </Stack>

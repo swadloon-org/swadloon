@@ -1,4 +1,17 @@
-// primary { 500: ''} => color.primary.500
+/**
+ * Wrapper for Objects.keys
+ */
+export function keys<T extends object>(object: T) {
+  return Object.keys(object) as (keyof T)[];
+}
+
+/**
+ * Convert a number into a px string.
+ * @param px value in pixel
+ */
+export function px({ value }: { value: number }): string {
+  return `${value}px`;
+}
 
 /**
  * Convert a number (in px) into a rem value.

@@ -1,6 +1,9 @@
-import { BoxShadow, Effects, Shadows } from '@newrade/core-design-system';
+import { BoxShadow, Color, Effects, Shadows } from '@newrade/core-design-system';
 import { getCSSColor } from './colors.utilities';
 
+/**
+ * Transform the Effects object into a CSS compatible one.
+ */
 export function getCSSEffects(options: Effects): Effects<string, string> {
   const keys = Object.keys(options) as (keyof Effects)[];
   return keys.reduce((previous, current) => {
@@ -15,7 +18,10 @@ export function getCSSEffects(options: Effects): Effects<string, string> {
   }, {} as Effects<string, string>);
 }
 
-export function getCSSShadow(options: BoxShadow): string {
+/**
+ * Returns a CSS BoxShadow string with HSL color.
+ */
+export function getCSSShadow(options: BoxShadow<Color>): string {
   return `${options.offsetX}px ${options.offsetY}px ${options.blur}px ${options.spread}px ${getCSSColor(
     options.color
       ? options.color

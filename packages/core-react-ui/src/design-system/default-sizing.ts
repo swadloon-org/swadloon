@@ -2,10 +2,9 @@ import { SIZE, Sizing, SizingSteps, SizingVarNames, VIEWPORT } from '@newrade/co
 
 export const DEFAULT_BASE_FONT_SIZE = 9;
 export const DEFAULT_BASE_FONT_SIZE_PX = `${DEFAULT_BASE_FONT_SIZE}px`;
-
 export const DEFAULT_SCALING_RATIO = 1.618;
 
-export const DEFAULT_SIZES_CSS_VAR_NAMES: SizingVarNames = {
+export const defaultSizesCSSVarNames: SizingVarNames = {
   [SIZE.x0]: '--sizing-x0',
   [SIZE.x1]: '--sizing-x1',
   [SIZE.x2]: '--sizing-x2',
@@ -19,21 +18,21 @@ export const DEFAULT_SIZES_CSS_VAR_NAMES: SizingVarNames = {
   [SIZE.x10]: '--sizing-x10',
 };
 
-export const DEFAULT_SIZES_CSS_VAR: SizingVarNames = {
-  [SIZE.x0]: `var(${DEFAULT_SIZES_CSS_VAR_NAMES.x0})`,
-  [SIZE.x1]: `var(${DEFAULT_SIZES_CSS_VAR_NAMES.x1})`,
-  [SIZE.x2]: `var(${DEFAULT_SIZES_CSS_VAR_NAMES.x2})`,
-  [SIZE.x3]: `var(${DEFAULT_SIZES_CSS_VAR_NAMES.x3})`,
-  [SIZE.x4]: `var(${DEFAULT_SIZES_CSS_VAR_NAMES.x4})`,
-  [SIZE.x5]: `var(${DEFAULT_SIZES_CSS_VAR_NAMES.x5})`,
-  [SIZE.x6]: `var(${DEFAULT_SIZES_CSS_VAR_NAMES.x6})`,
-  [SIZE.x7]: `var(${DEFAULT_SIZES_CSS_VAR_NAMES.x7})`,
-  [SIZE.x8]: `var(${DEFAULT_SIZES_CSS_VAR_NAMES.x8})`,
-  [SIZE.x9]: `var(${DEFAULT_SIZES_CSS_VAR_NAMES.x9})`,
-  [SIZE.x10]: `var(${DEFAULT_SIZES_CSS_VAR_NAMES.x10})`,
+export const defaultSizesCSSVar: SizingVarNames = {
+  [SIZE.x0]: `var(${defaultSizesCSSVarNames.x0})`,
+  [SIZE.x1]: `var(${defaultSizesCSSVarNames.x1})`,
+  [SIZE.x2]: `var(${defaultSizesCSSVarNames.x2})`,
+  [SIZE.x3]: `var(${defaultSizesCSSVarNames.x3})`,
+  [SIZE.x4]: `var(${defaultSizesCSSVarNames.x4})`,
+  [SIZE.x5]: `var(${defaultSizesCSSVarNames.x5})`,
+  [SIZE.x6]: `var(${defaultSizesCSSVarNames.x6})`,
+  [SIZE.x7]: `var(${defaultSizesCSSVarNames.x7})`,
+  [SIZE.x8]: `var(${defaultSizesCSSVarNames.x8})`,
+  [SIZE.x9]: `var(${defaultSizesCSSVarNames.x9})`,
+  [SIZE.x10]: `var(${defaultSizesCSSVarNames.x10})`,
 };
 
-const sizingStepMobile = {
+export const defaultSizingStepsMobile = {
   [SIZE.x0]: 9,
   [SIZE.x1]: 9,
   [SIZE.x2]: 13,
@@ -41,22 +40,22 @@ const sizingStepMobile = {
   [SIZE.x4]: 34,
   [SIZE.x5]: 55,
   [SIZE.x6]: 89,
-  [SIZE.x7]: 44,
-  [SIZE.x8]: 33,
-  [SIZE.x9]: 77,
-  [SIZE.x10]: 10,
+  [SIZE.x7]: 144,
+  [SIZE.x8]: 233,
+  [SIZE.x9]: 376,
+  [SIZE.x10]: 683,
 };
 
-export const DEFAULT_SIZING_STEPS: SizingSteps = {
-  [VIEWPORT.mobile]: sizingStepMobile,
-  [VIEWPORT.tablet]: sizingStepMobile,
-  [VIEWPORT.desktop]: sizingStepMobile,
+export const defaultSizingSteps: SizingSteps = {
+  [VIEWPORT.mobile]: defaultSizingStepsMobile,
+  [VIEWPORT.tablet]: defaultSizingStepsMobile,
+  [VIEWPORT.desktop]: defaultSizingStepsMobile,
 };
 
-export const defaultSizizng: Sizing = {
+export const defaultSizing: Sizing = {
   baseFontSize: DEFAULT_BASE_FONT_SIZE,
   ratio: DEFAULT_SCALING_RATIO,
-  varNames: DEFAULT_SIZES_CSS_VAR_NAMES,
-  var: DEFAULT_SIZES_CSS_VAR,
-  sizes: DEFAULT_SIZING_STEPS,
+  varNames: defaultSizesCSSVarNames,
+  var: defaultSizesCSSVar,
+  sizes: defaultSizingSteps,
 };

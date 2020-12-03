@@ -10,6 +10,7 @@ export const Layout: React.FC<Props> = React.memo((props) => {
 
   return (
     <div className={styles.wrapper}>
+      <div>sidebar</div>
       <div className={styles.content}>{props.children}</div>
     </div>
   );
