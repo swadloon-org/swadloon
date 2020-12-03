@@ -1,4 +1,4 @@
-import { getCSSShadow } from './shadows.utilities';
+import { getCSSShadow } from './effects.utilities';
 
 describe('shadows utilities', () => {
   describe(`${getCSSShadow.name}`, () => {

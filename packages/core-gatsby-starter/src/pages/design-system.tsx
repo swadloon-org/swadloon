@@ -7,6 +7,7 @@ import { Providers } from '../layouts/providers';
 import * as styleRefs from './index.treat';
 import { useTreatTheme } from '../hooks/treat-theme';
 import { Stack } from '@newrade/core-react-ui';
+import { Effects, Shadows } from '../../../core-design-system/src';
 
 export type ProjectPageProps = PageProps<{}, GatsbyPageContext>;
 
@@ -41,6 +42,19 @@ const PageComponent: React.FC<ProjectPageProps> = (props) => {
             {cssTheme.colors?.colorIntents &&
               Object.keys(cssTheme.colors?.colorIntents).map((color) => {
                 return <div key={color}>{color}</div>;
+              })}
+          </Stack>
+          <Stack gap="1em">
+            <h3>Effects</h3>
+
+            <h4>Shadows</h4>
+            {cssTheme.effects?.shadows &&
+              (Object.keys(cssTheme.effects.shadows) as (keyof Effects['shadows'])[]).map((shadow) => {
+                return (
+                  <div key={shadow} style={{ boxShadow: cssTheme?.effects?.shadows?.[shadow] }}>
+                    {shadow}
+                  </div>
+                );
               })}
           </Stack>
         </Stack>

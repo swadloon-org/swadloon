@@ -6,11 +6,10 @@ import { createCSSTheme } from './theme.utilities';
 describe('theme utilities', () => {
   describe(`${createCSSTheme.name}`, () => {
     it('should create a valid CSS theme', () => {
-      expect(createCSSTheme(defaultTheme)).toEqual({
-        name: defaultTheme.name,
-        variation: defaultTheme.variation,
-        colors: generatedCSSColors,
-      } as CSSDesignSystem);
+      const defaultCSSTheme = createCSSTheme(defaultTheme);
+      expect(defaultCSSTheme.name).toEqual(defaultTheme.name);
+      expect(defaultCSSTheme.variation).toEqual(defaultTheme.variation);
+      expect(defaultCSSTheme.colors).toEqual(generatedCSSColors);
     });
   });
 });
