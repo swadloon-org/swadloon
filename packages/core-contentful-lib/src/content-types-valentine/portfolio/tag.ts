@@ -41,7 +41,7 @@ export const createTag: Migration.MigrationFunction = function (migration) {
     },
   });
   /**
-   * For First Level
+   * For Third Level
    */
   content.createField(VALENTINE_FIELD.THIRD_LEVEL, {
     name: pascal(VALENTINE_FIELD.THIRD_LEVEL),
