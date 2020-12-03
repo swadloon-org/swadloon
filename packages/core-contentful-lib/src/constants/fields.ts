@@ -20,7 +20,7 @@ export enum COMMON_FIELD {
   PAGE = 'page',
   SECTION = 'section',
   SECTIONS = 'sections',
-  ROUTE = 'route'
+  ROUTE = 'route',
   /**
    * Banner fields
    */
@@ -80,6 +80,18 @@ export enum COMMON_FIELD {
   BLOG_SLUG = 'blogSlug',
   BLOG_EXCERPT = 'blogExcerpt',
   BLOG_MAIN_IMAGE = 'blogMainImage',
+  /**
+   * Blog fields
+   */
+  FIELD_TRANSLATE = 'fieldTranslate',
+  /**
+   * Tiles
+   */
+  TILES = 'tiles',
+  /**
+   * SubSection
+   */
+  SUB_SECTIONS = 'subSections',
 }
 
 /**

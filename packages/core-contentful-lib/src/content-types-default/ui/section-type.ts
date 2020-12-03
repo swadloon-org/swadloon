@@ -1,8 +1,8 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
-import { COMMON_CONTENT_TYPE } from '../constants/content-types';
-import { CONTENTFUL_WIDGET } from '../constants/contentful-widget-ids';
-import { COMMON_FIELD } from '../constants/fields';
+import { COMMON_CONTENT_TYPE } from '../../constants/content-types';
+import { CONTENTFUL_WIDGET } from '../../constants/contentful-widget-ids';
+import { COMMON_FIELD } from '../../constants/fields';
 
 export enum SECTION_TYPE {
   TYPE_1_GROUP,
@@ -30,7 +30,14 @@ export const createSectionType: Migration.MigrationFunction = function (migratio
     displayField: COMMON_FIELD.NAME,
     description: 'Each section has a type to select the look and feel.',
   });
+  /**
+   * For Title
+   */
+  content.createField(COMMON_FIELD.TITLE, { name: pascal(COMMON_FIELD.TITLE), type: 'Symbol' });
 
+  /**
+   * For Name
+   */
   content.createField(COMMON_FIELD.NAME, { name: pascal(COMMON_FIELD.NAME), type: 'Symbol' });
 
   content.createField(COMMON_FIELD.DESCRIPTION, {

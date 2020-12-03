@@ -38,7 +38,11 @@ export enum COMMON_CONTENT_TYPE {
   /**
    * Step Tile content types
    */
-  Tile = 'Tile',
+  TILE = 'Tile',
+  /**
+   * Field Translation content types
+   */
+  FIELD_TRANSLATION = 'FieldTranslation',
 }
 
 export enum COMMON_VARIANT {
