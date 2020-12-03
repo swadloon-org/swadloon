@@ -2,7 +2,7 @@ import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
 import { COMMON_CONTENT_TYPE } from '../../constants/content-types';
 import { CONTENTFUL_WIDGET } from '../../constants/contentful-widget-ids';
-import { COMMON_FIELD } from '../../constants/fields';
+import { COMMON_FIELD, mediaField } from '../../constants/fields';
 
 export const createBlogPost: Migration.MigrationFunction = function (migration) {
   const content = migration.createContentType(COMMON_CONTENT_TYPE.BLOG_POST, {
@@ -52,20 +52,16 @@ export const createBlogPost: Migration.MigrationFunction = function (migration) 
   /**
    * MediaCollection the article main image
    */
-  content.createField(COMMON_FIELD.BLOG_MAIN_IMAGE, {
-    name: pascal(COMMON_FIELD.BLOG_MAIN_IMAGE),
-    type: 'Link',
-    linkType: 'Asset',
+  content.createField(COMMON_FIELD.MEDIAS, { ...mediaField });
+  content.changeFieldControl(COMMON_FIELD.MEDIAS, 'builtin', CONTENTFUL_WIDGET.ENTRY_CARD_EDITOR, {
+    helpText: 'Select a media collection to set images on the section.',
   });
-  content.changeFieldControl(COMMON_FIELD.BLOG_MAIN_IMAGE, 'builtin', CONTENTFUL_WIDGET.ASSET_LINK_EDITOR, {
-    helpText: 'The article main image.',
-  });
+
+  content.createField(COMMON_FIELD.TEXT, { name: pascal(COMMON_FIELD.TEXT), type: 'Text', localized: true });
 
   content.createField(COMMON_FIELD.BLOG_AUTHOR, {
     name: pascal(COMMON_FIELD.BLOG_AUTHOR),
     type: 'Array',
     items: { type: 'Link', linkType: 'Entry', validations: [{ linkContentType: [COMMON_FIELD.BLOG_AUTHOR] }] },
   });
-
-  // content.createField(COMMON_FIELD.CONTENT, {});
 };

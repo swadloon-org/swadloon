@@ -1,11 +1,17 @@
 export enum VALENTINE_FIELD {
   /**
-   * Contentful defaults
+   * Contentful defaults Tags level
    */
   FIRST_LEVEL = 'firstLevel',
   SECOND_LEVEL = 'secondLevel',
   THIRD_LEVEL = 'thirdLevel',
   /**
-   * Custom fields
+   * Slug Project
    */
+  PROJECT_SLUG = 'projectSlug',
+  /**
+   * Project
+   */
+  PROJECTS = 'projects',
+  PROJECT_EXCERPT = 'projectExcerpt',
 }

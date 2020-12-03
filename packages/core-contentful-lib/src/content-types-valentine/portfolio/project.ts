@@ -1,12 +1,13 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
-import { COMMON_CONTENT_TYPE } from '../../constants/content-types';
+import { VALENTINE_CONTENT_TYPE } from '../../constant-valentine/content-types';
+import { VALENTINE_FIELD } from '../../constant-valentine/fields';
 import { CONTENTFUL_WIDGET } from '../../constants/contentful-widget-ids';
-import { COMMON_FIELD } from '../../constants/fields';
+import { COMMON_FIELD, mediaField } from '../../constants/fields';
 
-export const createBlogPost: Migration.MigrationFunction = function (migration) {
-  const content = migration.createContentType(COMMON_CONTENT_TYPE.BLOG_POST, {
-    name: COMMON_CONTENT_TYPE.BLOG_POST,
+export const createProject: Migration.MigrationFunction = function (migration) {
+  const content = migration.createContentType(VALENTINE_CONTENT_TYPE.PROJECT, {
+    name: VALENTINE_CONTENT_TYPE.PROJECT,
   });
 
   content.createField(COMMON_FIELD.TITLE, {
@@ -16,8 +17,8 @@ export const createBlogPost: Migration.MigrationFunction = function (migration) 
     required: true,
   });
 
-  content.createField(COMMON_FIELD.BLOG_SLUG, {
-    name: pascal(COMMON_FIELD.BLOG_SLUG),
+  content.createField(VALENTINE_FIELD.PROJECT_SLUG, {
+    name: pascal(VALENTINE_FIELD.PROJECT_SLUG),
     type: 'Symbol',
     localized: true,
     required: true,
@@ -30,7 +31,7 @@ export const createBlogPost: Migration.MigrationFunction = function (migration) 
       },
     ],
   });
-  content.changeFieldControl(COMMON_FIELD.BLOG_SLUG, 'builtin', CONTENTFUL_WIDGET.SINGLE_LINE, {
+  content.changeFieldControl(VALENTINE_FIELD.PROJECT_SLUG, 'builtin', CONTENTFUL_WIDGET.SINGLE_LINE, {
     helpText: 'Short version of the title formatted with dashes, e.g. a-new-blog-post',
   });
 
@@ -40,32 +41,23 @@ export const createBlogPost: Migration.MigrationFunction = function (migration) 
     localized: true,
   });
 
-  content.createField(COMMON_FIELD.BLOG_EXCERPT, {
-    name: pascal(COMMON_FIELD.BLOG_EXCERPT),
+  content.createField(VALENTINE_FIELD.PROJECT_EXCERPT, {
+    name: pascal(VALENTINE_FIELD.PROJECT_EXCERPT),
     type: 'Text',
     localized: true,
   });
-  content.changeFieldControl(COMMON_FIELD.BLOG_EXCERPT, 'builtin', CONTENTFUL_WIDGET.MULTI_LINE, {
+  content.changeFieldControl(VALENTINE_FIELD.PROJECT_EXCERPT, 'builtin', CONTENTFUL_WIDGET.MULTI_LINE, {
     helpText: 'Short summary of the article, will default to the first lines of content if not set.',
   });
 
   /**
    * MediaCollection the article main image
    */
-  content.createField(COMMON_FIELD.BLOG_MAIN_IMAGE, {
-    name: pascal(COMMON_FIELD.BLOG_MAIN_IMAGE),
-    type: 'Link',
-    linkType: 'Asset',
-  });
-  content.changeFieldControl(COMMON_FIELD.BLOG_MAIN_IMAGE, 'builtin', CONTENTFUL_WIDGET.ASSET_LINK_EDITOR, {
-    helpText: 'The article main image.',
+
+  content.createField(COMMON_FIELD.MEDIAS, { ...mediaField });
+  content.changeFieldControl(COMMON_FIELD.MEDIAS, 'builtin', CONTENTFUL_WIDGET.ENTRY_CARD_EDITOR, {
+    helpText: 'Select a media collection to set images on the section.',
   });
 
-  content.createField(COMMON_FIELD.BLOG_AUTHOR, {
-    name: pascal(COMMON_FIELD.BLOG_AUTHOR),
-    type: 'Array',
-    items: { type: 'Link', linkType: 'Entry', validations: [{ linkContentType: [COMMON_FIELD.BLOG_AUTHOR] }] },
-  });
-
-  // content.createField(COMMON_FIELD.CONTENT, {});
+  content.createField(COMMON_FIELD.TEXT, { name: pascal(COMMON_FIELD.TEXT), type: 'Text', localized: true });
 };
