@@ -1,7 +1,7 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
-import { VALENTINE_CONTENT_TYPE } from 'src/constant-valentine/content-types';
-import { VALENTINE_FIELD } from 'src/constant-valentine/fields';
+import { VALENTINE_CONTENT_TYPE } from '../../constant-valentine/content-types';
+import { VALENTINE_FIELD } from '../../constant-valentine/fields';
 import { COMMON_CONTENT_TYPE } from '../../constants/content-types';
 import { CONTENTFUL_WIDGET } from '../../constants/contentful-widget-ids';
 import { COMMON_FIELD, mediaField } from '../../constants/fields';
