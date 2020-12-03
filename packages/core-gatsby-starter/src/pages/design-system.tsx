@@ -29,7 +29,7 @@ const PageComponent: React.FC<ProjectPageProps> = (props) => {
             <h3>Colors</h3>
             <h4>All Colors</h4>
 
-            {getCSSColor(lightenColor(theme.colors.colors.primary[100], 20))}
+            <pre>{getCSSColor(lightenColor(theme.colors.colors.primary[100], 20))}</pre>
 
             <Stack gap={'1em'}>
               {cssTheme.colors?.colors

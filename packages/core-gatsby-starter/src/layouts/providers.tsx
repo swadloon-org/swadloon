@@ -11,6 +11,7 @@ export const Providers: React.FC<Props> = (props) => {
     <TreatProvider theme={light}>
       <TreatThemeProvider theme={{ theme, cssTheme }}>
         <MDXProvider components={mdxComponents}>
+          {/* <CSSVariables>{props.children}</CSSVariables> */}
           <ResetCSS>
             <DefaultCSS>{props.children}</DefaultCSS>
           </ResetCSS>

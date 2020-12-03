@@ -34,7 +34,7 @@ export function generateColorPalette5({
 export function generateColorGreyPalette({ hue }: { hue: number }) {
   return {
     '0': { h: hue, s: 10, l: 0 },
-    '0-reversed': { h: hue, s: 10, l: 0 },
+    '0-reversed': { h: hue, s: 10, l: 100 },
     '25': { h: hue, s: 10, l: 6 },
     '50': { h: hue, s: 10, l: 9 },
     '100': { h: hue, s: 10, l: 10 },

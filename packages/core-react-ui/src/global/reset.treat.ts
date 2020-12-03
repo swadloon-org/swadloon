@@ -1,8 +1,13 @@
-import { globalStyle } from 'treat';
+import { globalStyle, style } from 'treat';
+import { Theme } from '../design-system/css-design-system';
 
 /**
  * Inspired from Normalize, but targeting modern browsers only.
  */
+
+export const local = style((theme: Theme) => ({
+  display: 'block',
+}));
 
 /**
  * Border-box everywhere
@@ -14,13 +19,14 @@ globalStyle(`*`, {
 /**
  * Resets the html element
  */
-globalStyle(`html`, {
+globalStyle(`${local}, html`, ({ theme, cssTheme }: Theme) => ({
   margin: 0,
   // Correct the line height in all browsers.
+  height: cssTheme.sizing?.sizes.mobile.x0,
   lineHeight: '1.15',
   // Prevent adjustments of font size after orientation changes in iOS.
   WebkitTextSizeAdjust: '100%',
-});
+}));
 
 /**
  * Resets the body element

@@ -14,5 +14,9 @@ export function createCSSTheme(theme: DesignSystem): Partial<CSSDesignSystem> {
     // iconography,
     // typography,
     // layout
+    // animations
+    // components: {
+    //   buttons: defaultButtons,
+    // },
   };
 }
