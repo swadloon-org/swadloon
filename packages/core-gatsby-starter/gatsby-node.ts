@@ -13,56 +13,78 @@ const env = loadDotEnv<ENV>(path.resolve(__dirname, '.env'));
 
 export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql }) => {
   const { createPage } = actions;
-
   /**
    * Page creations
    */
   try {
     /**
-     * Automatically create pages for each markdown file in /docs
+     * Automatically create pages
      */
-    // const mdxFiles = await graphql<{
-    //   allContentfulBlogPost: {
-    //     edges: { node: { id: string; blogSlug: string; node_locale: string } }[];
-    //   };
-    // }>(
-    //   `
-    //     query GatsbyNodeBlogPosts {
-    //       allContentfulBlogPost {
-    //         edges {
-    //           node {
-    //             node_locale
-    //             id
-    //             blogSlug
-    //           }
-    //         }
-    //       }
-    //     }
-    //   `
-    // );
-    // if (blogPosts.errors) {
-    //   throw new Error('Error while retrieving blog posts');
-    // }
+    const allFiles = await graphql<{
+      allSite: {
+        nodes: { id: string; blogSlug: string; node_locale: string }[];
+      };
+      allFile: {
+        nodes: {
+          id: string;
+          name: string;
+          absolutePath: string;
+          ext: string;
+          dir: string;
+          size: string;
+          sourceInstanceName: string;
+        }[];
+      };
+    }>(
+      `
+        {
+          allSite {
+            nodes {
+              siteMetadata {
+                languages {
+                  langs
+                  defaultLangKey
+                }
+                description
+                siteEnv
+                siteUrl
+                title
+              }
+            }
+          }
+          allFile {
+            nodes {
+              id
+              name
+              base
+              ext
+              dir
+              absolutePath
+              publicURL
+              size
+              sourceInstanceName
+              childMdx {
+                slug
+                excerpt
+                frontmatter {
+                  name
+                  tags
+                  title
+                }
+              }
+            }
+          }
+        }
+      `
+    );
+
     // const markdownTemplate = path.resolve(`src/templates/page.template.tsx`);
-    // mdxFiles.data.allContentfulPage.edges
-    //   .filter((edge) => {
-    //     if (!(edge && edge.node)) {
-    //       return false;
-    //     }
-    //     return true;
-    //   })
-    //   .forEach((edge, index) => {
-    //     log(`Creating page: ${edge.node.route}`, {
-    //       toolName: 'mir-website',
-    //     });
-    //     createPage<GatsbyPageContext>({
-    //       path: edge.node.route,
-    //       component: markdownTemplate,
-    //       context: {
-    //         pageId: edge.node.id,
-    //       },
-    //     });
-    //   });
+    // const markdownTemplate = path.resolve(`src/templates/page.template.tsx`);
+    allFiles.data?.allFile.nodes.forEach((node, index) => {
+      log(`Creating page: ${node.name}`, {
+        toolName: 'mir-website',
+      });
+    });
   } catch (error) {
     log(`Error occured when generating pages: ${error}`, {
       toolName: 'mir-website',

@@ -13,7 +13,7 @@
     "prebuild": "yarn compile",
     "build": "gatsby build",
     "clean": "gatsby clean",
-    "compile": "tsc --project tsconfig.gatsby.json",
+    "compile": "tsc --build tsconfig.gatsby.json",
     "contentful-types": ". ./.env && contentful-tools generate --config=contentful-tools.js --token=$CONTENTFUL_MANAGEMENT_TOKEN_VSB",
     "preload-fonts": ". ./.env && PORT=$APP_PORT gatsby-preload-fonts --no-sandbox",
     "refresh": ". ./.env && curl -X POST http://localhost:$APP_PORT/__refresh",

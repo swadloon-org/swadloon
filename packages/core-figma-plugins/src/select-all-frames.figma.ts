@@ -13,13 +13,11 @@ if (!(figma.currentPage.selection && figma.currentPage.selection.length)) {
 figma.notify(`Selecting all frames with the name: '${name}'`);
 
 const nodes = figma.currentPage.findAll((node) => {
-  if (node.type !== 'INSTANCE') {
+  if (node.type !== 'FRAME') {
     return false;
   }
   console.log(node.name);
   return node.name === name;
-}) as readonly InstanceNode[];
+}) as readonly SceneNode[];
 
-figma.notify(`Found ${nodes.length} instance nodes`);
-
-figma.currentPage.selection = nodes;
+figma.notify(`Found ${nodes.length} frame nodes`);

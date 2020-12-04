@@ -13,7 +13,7 @@
     "prebuild": "yarn compile",
     "build": "gatsby build",
     "clean": "gatsby clean",
-    "compile": "tsc --project tsconfig.gatsby.json",
+    "compile": "tsc --build tsconfig.gatsby.json",
     "preload-fonts": ". ./.env && PORT=$APP_PORT gatsby-preload-fonts --no-sandbox",
     "refresh": ". ./.env && curl -X POST http://localhost:$APP_PORT/__refresh",
     "serve": "gatsby serve",
@@ -24,7 +24,7 @@
   "dependencies": {
     "@newrade/core-design-system": "^1.4.0",
     "@newrade/core-react-ui": "^1.5.2",
-    "gatsby": "^2"
+    "gatsby": "^2.28"
   },
   "devDependencies": {
     "@newrade/core-gatsby-config": "^1.4.2",

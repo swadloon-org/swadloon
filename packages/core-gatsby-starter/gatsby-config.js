@@ -48,9 +48,9 @@ const config = {
         /**
          * Core Plugins
          */
+        core.getGastbyCorePluginConfig(),
         core.getGatsbyTsPluginConfig(),
         core.getGatsbyReactSvgConfig(),
-        core.getGastbyCorePluginConfig(),
         core.getGastbyPluginPageCreatorConfig(),
         core.getGastbyPluginTreatConfig(),
         core.getGatsbyTransformerSharp(),
@@ -59,39 +59,28 @@ const config = {
         // core.getGatsbyPluginMdx(),
         core.getGatsbyImageFolder(),
         core.getGatsbyPluginReactHelmet(),
+        core.getGatsbyPluginSitemap(),
+        core.getGatsbyPluginRobotsTxt({ env }),
+        core.getGatsbyNetlifyPlugin(),
+        // core.getGatsbyPluginPreloadFonts(),
         /**
          * Project Specific Plugins
          */
-        {
-            resolve: `gatsby-plugin-mdx`,
-            options: {
-                defaultLayouts: {
-                    docs: require.resolve('./src/templates/markdown.template.tsx'),
-                    default: require.resolve('./src/templates/markdown.template.tsx'),
-                },
-            },
-        },
-        core.getGastbyCorePluginConfig(),
-        core.getGatsbyTsPluginConfig(),
-        core.getGatsbyReactSvgConfig(),
-        core.getGastbyPluginTreatConfig(),
         core.getGatsbyImageFolder({
             pathImgDir: path_1.default.join(__dirname, `src`, `images`),
         }),
-        core.getGatsbyNetlifyPlugin(),
-        core.getGatsbyTransformerSharp(),
-        core.getGatsbyPluginSharp(),
-        core.getGastbyPluginTreatConfig(),
-        core.getGatsbyPluginMdx(),
-        core.getGatsbyPluginPreloadFonts(),
-        core.getGatsbyPluginReactHelmet(),
-        core.getGatsbyPluginSitemap(),
-        core.getGatsbyPluginRobotsTxt({ env }),
+        {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+                name: `packageDocs`,
+                path: `${__dirname}/src/docs/`,
+            },
+        },
         {
             resolve: `gatsby-source-filesystem`,
             options: {
                 name: `docs`,
-                path: `${__dirname}/src/docs/`,
+                path: `${__dirname}/../../docs/`,
             },
         },
         // {
@@ -100,12 +89,29 @@ const config = {
         //     path: `${__dirname}/src/docs/`,
         //   },
         // },
+        // {
+        //   resolve: 'gatsby-plugin-page-creator',
+        //   options: {
+        //     path: `${__dirname}/../../docs/`,
+        //   },
+        // },
         {
             resolve: `gatsby-source-contentful`,
             options: {
                 spaceId: env.CONTENTFUL_SPACEID_NEWRADE,
                 accessToken: env.CONTENTFUL_DELIVERY_TOKEN_NEWRADE,
                 environment: 'master',
+            },
+        },
+        {
+            resolve: `gatsby-plugin-mdx`,
+            options: {
+                extensions: ['.md', '.mdx'],
+                defaultLayouts: {
+                    packageDocs: require.resolve('./src/templates/markdown.template.tsx'),
+                    docs: require.resolve('./src/templates/markdown.template.tsx'),
+                    default: require.resolve('./src/templates/markdown.template.tsx'),
+                },
             },
         },
     ],

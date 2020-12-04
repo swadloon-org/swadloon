@@ -19,50 +19,44 @@ exports.createPages = async ({ actions, graphql }) => {
      */
     try {
         /**
-         * Automatically create pages for each markdown file in /docs
+         * Automatically create pages
          */
-        // const mdxFiles = await graphql<{
-        //   allContentfulBlogPost: {
-        //     edges: { node: { id: string; blogSlug: string; node_locale: string } }[];
-        //   };
-        // }>(
-        //   `
-        //     query GatsbyNodeBlogPosts {
-        //       allContentfulBlogPost {
-        //         edges {
-        //           node {
-        //             node_locale
-        //             id
-        //             blogSlug
-        //           }
-        //         }
-        //       }
-        //     }
-        //   `
-        // );
-        // if (blogPosts.errors) {
-        //   throw new Error('Error while retrieving blog posts');
-        // }
+        const allFiles = await graphql(`
+        {
+          allSite {
+            nodes {
+              siteMetadata {
+                languages {
+                  langs
+                  defaultLangKey
+                }
+                description
+                siteEnv
+                siteUrl
+                title
+              }
+            }
+          }
+          allFile {
+            nodes {
+              id
+              name
+              absolutePath
+              ext
+              dir
+              size
+              sourceInstanceName
+            }
+          }
+        }
+      `);
         // const markdownTemplate = path.resolve(`src/templates/page.template.tsx`);
-        // mdxFiles.data.allContentfulPage.edges
-        //   .filter((edge) => {
-        //     if (!(edge && edge.node)) {
-        //       return false;
-        //     }
-        //     return true;
-        //   })
-        //   .forEach((edge, index) => {
-        //     log(`Creating page: ${edge.node.route}`, {
-        //       toolName: 'mir-website',
-        //     });
-        //     createPage<GatsbyPageContext>({
-        //       path: edge.node.route,
-        //       component: markdownTemplate,
-        //       context: {
-        //         pageId: edge.node.id,
-        //       },
-        //     });
-        //   });
+        // const markdownTemplate = path.resolve(`src/templates/page.template.tsx`);
+        allFiles.data?.allFile.nodes.forEach((node, index) => {
+            core_utils_1.log(`Creating page: ${node.name}`, {
+                toolName: 'mir-website',
+            });
+        });
     }
     catch (error) {
         core_utils_1.log(`Error occured when generating pages: ${error}`, {

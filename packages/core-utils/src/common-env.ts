@@ -89,4 +89,8 @@ export type COMMON_ENV_GATSBY = COMMON_ENV & {
    * @see https://www.gatsbyjs.com/blog/2020-04-22-announcing-incremental-builds/
    */
   GATSBY_ENABLE_INCREMENTAL_BUILD?: 'true' | 'false';
+  /**
+   * @see https://github.com/gatsbyjs/gatsby/blob/master/docs/reference/release-notes/v2.27/index.md
+   */
+  GATSBY_EXPERIMENTAL_FAST_DEV: 'true' | 'false';
 };

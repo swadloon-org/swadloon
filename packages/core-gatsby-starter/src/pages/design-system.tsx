@@ -1,14 +1,9 @@
-import { GatsbyPageContext } from '@newrade/core-gatsby-config';
-import { PageProps } from 'gatsby';
+import { Cluster, getCSSColor, keys, lightenColor, Stack } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { Layout } from '../layouts/layout';
-import { Providers } from '../layouts/providers';
-import * as styleRefs from './index.treat';
 import { useTreatTheme } from '../hooks/treat-theme';
-import { Cluster, Stack, keys, getCSSColor, lightenColor } from '@newrade/core-react-ui';
-
-export type ProjectPageProps = PageProps<{}, GatsbyPageContext>;
+import { ProjectPageProps } from '../props/page.props';
+import * as styleRefs from './index.treat';
 
 const PageComponent: React.FC<ProjectPageProps> = (props) => {
   const styles = useStyles(styleRefs);
@@ -135,13 +130,11 @@ const PageComponent: React.FC<ProjectPageProps> = (props) => {
 };
 
 const Page: React.FC<ProjectPageProps> = (props) => {
-  return (
-    <Providers>
-      <Layout>
-        <PageComponent {...props}></PageComponent>
-      </Layout>
-    </Providers>
-  );
+  return <PageComponent {...props}></PageComponent>;
+};
+
+export const context = {
+  test: 1,
 };
 
 export default Page;
