@@ -1,9 +1,10 @@
-import { Cluster, getCSSColor, keys, lightenColor, Stack } from '@newrade/core-react-ui';
+import { Cluster, getCSSColor, keys, lightenColor, Stack, ColorSwatch } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { useTreatTheme } from '../hooks/treat-theme';
 import { ProjectPageProps } from '../props/page.props';
 import * as styleRefs from './index.treat';
+import { Color, ColorShades5 } from '@newrade/core-design-system';
 
 const PageComponent: React.FC<ProjectPageProps> = (props) => {
   const styles = useStyles(styleRefs);
@@ -119,6 +120,30 @@ const PageComponent: React.FC<ProjectPageProps> = (props) => {
                 ) : null;
               })}
           </Stack>
+        </Stack>
+
+        <Stack gap="1em">
+          {keys(theme.colors.colors).map((colorName, index) => {
+            const colorOrPalette = theme.colors.colors[colorName];
+
+            if (typeof colorOrPalette === 'string') {
+              return <ColorSwatch key={index} name={colorName} color={colorOrPalette}></ColorSwatch>;
+            }
+            if (typeof colorOrPalette === 'object' && (colorOrPalette as Color)['h'] !== undefined) {
+              return <ColorSwatch key={index} name={colorName} color={colorOrPalette as Color}></ColorSwatch>;
+            }
+
+            if (typeof colorOrPalette === 'object') {
+              const palette = colorOrPalette as Record<ColorShades5, Color>;
+              const shades = keys(palette);
+
+              return shades.map((shadeName, index) => {
+                const color = palette[shadeName];
+                return <ColorSwatch key={index} shadeNumber={shadeName} name={colorName} color={color}></ColorSwatch>;
+              });
+            }
+            return null;
+          })}
         </Stack>
 
         <Stack id={'Components'} gap="1.5em">
