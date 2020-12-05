@@ -40,6 +40,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
   /**
    * Page creations
    */
+
   try {
     const pages = await graphql<{
       allContentfulPage: {

@@ -62,6 +62,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
         }
       `
     );
+
     if (pages.errors) {
       throw new Error('Error while retrieving pages');
     }
