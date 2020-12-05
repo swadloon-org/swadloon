@@ -5,11 +5,12 @@ import { CommonComponentProps } from '../../props/component-common-props';
 
 import { useState, useMemo } from 'react';
 import useResizeObserver from 'use-resize-observer';
-import _ from 'lodash-es';
+import debounce from 'lodash/debounce';
+import throttle from 'lodash/throttle';
 
 export function useDebouncedResizeObserver(wait: number) {
   const [size, setSize] = useState<{ width?: number; height?: number }>({});
-  const onResize = useMemo(() => _.debounce(setSize, wait, { leading: true }), [wait]);
+  const onResize = useMemo(() => debounce(setSize, wait, { leading: true }), [wait]);
   const { ref, width = 100, height = 50 } = useResizeObserver({ onResize });
 
   return { ref, ...size };
@@ -17,7 +18,7 @@ export function useDebouncedResizeObserver(wait: number) {
 
 export function useThrottledResizeObserver(wait: number) {
   const [size, setSize] = useState<{ width?: number; height?: number }>({ width: 1, height: 1 });
-  const onResize = useMemo(() => _.throttle(setSize, wait), [wait, size.width]);
+  const onResize = useMemo(() => throttle(setSize, wait), [wait, size.width]);
   const { ref } = useResizeObserver({
     onResize,
   });

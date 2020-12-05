@@ -1,12 +1,12 @@
 import { Stack } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { ProjectPageProps } from '../props/page.props';
+import { FilePageProps } from '../props/page.props';
 import { Layout } from '../layouts/layout';
 import { Providers } from '../layouts/providers';
 import * as styleRefs from './index.treat';
 
-const PageComponent: React.FC<ProjectPageProps> = (props) => {
+const PageComponent: React.FC<FilePageProps> = (props) => {
   const lorenipsum = `Lorem ipsum dolor sit amet.`;
   const styles = useStyles(styleRefs);
 
@@ -905,7 +905,7 @@ const PageComponent: React.FC<ProjectPageProps> = (props) => {
   );
 };
 
-const Page: React.FC<ProjectPageProps> = (props) => {
+const Page: React.FC<FilePageProps> = (props) => {
   return (
     <Providers>
       <Layout>

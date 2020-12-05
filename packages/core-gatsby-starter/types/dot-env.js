@@ -27,12 +27,14 @@ const t = __importStar(require("io-ts"));
  */
 exports.Env = t.intersection([
     core_utils_1.CommonEnvGatsby,
-    t.type({
+    t.partial({
         /**
          * Figma
          */
         FIGMA_TOKEN: t.string,
         FIGMA_FILE: t.string,
+    }),
+    t.type({
         /**
          * Contentful variables
          */

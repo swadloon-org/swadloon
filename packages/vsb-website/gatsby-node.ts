@@ -1,16 +1,13 @@
 import { GatsbyPageContext } from '@newrade/core-gatsby-config';
-import { loadDotEnv, log, LOG_LEVEL } from '@newrade/core-utils';
+import { log, LOG_LEVEL } from '@newrade/core-utils';
 import { GatsbyNode } from 'gatsby';
 import path from 'path';
-import { ENV } from './types/dot-env';
 
 /**
  * Gatsby Node Configuration
  *
  * @see https://www.gatsbyjs.com/docs/node-apis/
  */
-
-const env = loadDotEnv<ENV>(path.resolve(__dirname, '.env'));
 
 export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions;
@@ -87,6 +84,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
           path: edge.node.route,
           component: pageTemplate,
           context: {
+            siteMetadata:
             pageId: edge.node.id,
           },
         });

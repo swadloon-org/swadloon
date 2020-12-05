@@ -27,7 +27,12 @@ const core = __importStar(require("@newrade/core-gatsby-config"));
 const core_utils_1 = require("@newrade/core-utils");
 const path_1 = __importDefault(require("path"));
 const package_json_1 = __importDefault(require("./package.json"));
-const env = core_utils_1.loadDotEnv(path_1.default.resolve(__dirname, '.env'));
+const dot_env_1 = require("./types/dot-env");
+const env = core_utils_1.loadDotEnv({
+    schema: dot_env_1.Env,
+    dotEnvPath: path_1.default.resolve(__dirname, '..', '.env'),
+    packageName: package_json_1.default.name,
+});
 core_utils_1.logEnvVariables({ packageName: package_json_1.default.name, env });
 /**
  * Configure your Gatsby site with this file.

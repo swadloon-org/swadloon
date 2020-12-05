@@ -4,9 +4,9 @@ import { useStyles } from 'react-treat';
 import { useTreatTheme } from '../hooks/treat-theme';
 import { Layout } from '../layouts/layout';
 import { Providers } from '../layouts/providers';
-import { ProjectPageProps } from '../props/page.props';
 import * as styleRefs from './index.treat';
 import { Color, ColorShades5 } from '@newrade/core-design-system';
+import { FilePageProps } from '../props/page.props';
 
 const PageComponent: React.FC<FilePageProps> = (props) => {
   const styles = useStyles(styleRefs);
@@ -156,7 +156,7 @@ const PageComponent: React.FC<FilePageProps> = (props) => {
   );
 };
 
-const Page: React.FC<ProjectPageProps> = (props) => {
+const Page: React.FC<FilePageProps> = (props) => {
   return (
     <Providers>
       <Layout>

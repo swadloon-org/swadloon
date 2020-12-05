@@ -5,7 +5,7 @@ import { Providers } from '../layouts/providers';
 import * as styleRefs from './layouts.treat';
 import { Layout } from '../layouts/layout';
 import { graphql, Link, useStaticQuery } from 'gatsby';
-import { ProjectPageProps } from '../props/page.props';
+import { FilePageProps } from '../props/page.props';
 
 export const query = graphql`
   {
@@ -18,7 +18,7 @@ export const query = graphql`
   }
 `;
 
-const PageComponent: React.FC<ProjectPageProps> = (props) => {
+const PageComponent: React.FC<FilePageProps> = (props) => {
   const data = useStaticQuery(query);
   const { styles } = useStyles(styleRefs);
 
@@ -91,7 +91,7 @@ const PageComponent: React.FC<ProjectPageProps> = (props) => {
   );
 };
 
-const Page: React.FC<ProjectPageProps> = (props) => {
+const Page: React.FC<FilePageProps> = (props) => {
   return (
     <Providers>
       <Layout>

@@ -1,11 +1,8 @@
+import { Color } from '@newrade/core-design-system/src';
 import React from 'react';
-import { Colors, ColorPalette, Color, ColorShadesGrey, ColorShades5 } from '@newrade/core-design-system/src';
-import { keys } from '../../utilities/utilities';
 import { useStyles } from 'react-treat';
-import * as stylesRef from './color-swatch.treat';
-import { type } from 'case';
-import { min } from 'lodash';
 import { getCSSColor } from '../../utilities/colors.utilities';
+import * as stylesRef from './color-swatch.treat';
 
 type OwnProps = {
   color: Color | string;
@@ -19,7 +16,6 @@ export const ColorSwatch: React.FC<OwnProps> = (props) => {
   const colorObject = typeof props.color === 'object' ? (props.color as Color) : null;
   const colorString = typeof props.color === 'string' ? (props.color as string) : null;
 
-  console.log(colorString);
   return (
     <div className={styles.wrapper}>
       <div style={{ backgroundColor: `${getCSSColor({ ...colorObject })}` }} className={styles.squareColor}></div>

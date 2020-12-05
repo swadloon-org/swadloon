@@ -4,14 +4,16 @@ import * as t from 'io-ts';
 /**
  * Local, typed representation of the .env file.
  */
-export const Env = t.union([
+export const Env = t.intersection([
   CommonEnvGatsby,
-  t.type({
+  t.partial({
     /**
      * Figma
      */
     FIGMA_TOKEN: t.string,
     FIGMA_FILE: t.string,
+  }),
+  t.type({
     /**
      * Contentful variables
      */

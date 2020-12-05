@@ -14,7 +14,7 @@ export type MarkdownPageProps = PageProps<{}, GatsbyPageContext>;
 const Page: React.FC<MarkdownPageProps> = (props) => {
   return (
     <div>
-      <Helmet>
+      {/* <Helmet>
         {getMetaBasicTags()}
         {getMetadataOpenGraphWebsiteTags({
           type: OPEN_GRAPH_TYPE.ARTICLE,
@@ -33,12 +33,12 @@ const Page: React.FC<MarkdownPageProps> = (props) => {
           creator: `${data?.contentfulCompanyInfo?.metadataTwitterCreator}`,
           site: `${data?.contentfulCompanyInfo?.metadataTwitterSite}`,
         })}
-      </Helmet>
+      </Helmet> */}
       <pre>{JSON.stringify(props.params)}</pre>
       <pre>{JSON.stringify(props.location)}</pre>
       <pre>{JSON.stringify(props.data)}</pre>
       <pre>{JSON.stringify(props.pageContext)}</pre>
-      <MDXRenderer></MDXRenderer>
+      <MDXRenderer>{'dd'}</MDXRenderer>
     </div>
   );
 };

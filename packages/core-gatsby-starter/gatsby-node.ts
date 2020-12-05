@@ -5,9 +5,7 @@
  */
 
 import { log, LOG_LEVEL } from '@newrade/core-utils';
-import { kebab } from 'case';
 import { GatsbyNode } from 'gatsby';
-import path from 'path';
 import packageJson from './package.json';
 // @ts-ignore
 import { GatsbyNodeAllSiteQuery, GatsbyNodeMarkdownFilesQuery } from './types/graphql-types';
@@ -65,29 +63,34 @@ export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql 
       }
     `);
 
-    const pageTemplate = path.resolve(`src/templates/page.template.tsx`);
-    const markdownTemplate = path.resolve(`src/templates/markdown.template.tsx`);
+    // const pageTemplate = path.resolve(`src/templates/page.template.tsx`);
+    // const markdownTemplate = path.resolve(`src/templates/markdown.template.tsx`);
 
-    /**
-     * Organise files to create pages and paths
-     */
-    const mdxPages = markdownFilesData?.data?.allFile.nodes.filter((node, index) => /mdx?/.test(node.ext));
-    const docsPages = mdxPages?.filter((node) => node.sourceInstanceName === 'docs');
-    const packageDocsPages = mdxPages?.filter((node) => node.sourceInstanceName === 'packagesDocs');
+    // /**
+    //  * Organise files to create pages and paths
+    //  */
+    // const mdxPages = markdownFilesData?.data?.allFile.nodes.filter((node, index) => /mdx?/.test(node.ext));
+    // const docsPages = mdxPages?.filter((node) => node.sourceInstanceName === 'docs');
+    // const packageDocsPages = mdxPages?.filter((node) => node.sourceInstanceName === 'packagesDocs');
 
-    docsPages?.forEach((node, index) => {
-      const path = `${node.sourceInstanceName ? `${kebab(node.sourceInstanceName)}/` : ''}${node.childMdx?.slug}`;
+    // /**
+    //  * Create package's docs pages
+    //  */
+    // docsPages?.forEach((node, index) => {
+    //   const path = `${node.sourceInstanceName ? `${kebab(node.sourceInstanceName)}/` : ''}${node.childMdx?.slug}`;
 
-      log(`Creating page: ${path}`, {
-        toolName: packageJson.name,
-      });
+    //   log(`Creating page: ${path}`, {
+    //     toolName: packageJson.name,
+    //   });
 
-      createPage<MarkdownPageContext>({
-        path,
-        context: data?.allSite,
-        component: markdownTemplate,
-      });
-    });
+    //   createPage<GatsbyMarkdownFilePageContext>({
+    //     path,
+    //     context: {
+    //       siteMetadata: allSiteData.data.
+    //     },
+    //     component: markdownTemplate,
+    //   });
+    // });
   } catch (error) {
     log(`Error occured when generating pages: ${error}`, {
       toolName: packageJson.name,

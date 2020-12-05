@@ -15,6 +15,7 @@
     "**/lib": true,
     "**/.cache/**/*": true,
     "**/public/**/*": true,
-    "**/*.js.map": true
+    "**/*.js.map": true,
+    "**/*.tsbuildinfo": true
   }
 }

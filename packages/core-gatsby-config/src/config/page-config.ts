@@ -24,9 +24,10 @@ export type GatsbyPageContext = {
 };
 
 /**
- * For pages that will receive an id and then run a full query to receive all data.
- * This is usually the case with pages created with external CMSes.
- * All page ids are retrieved in gatsby-node.js and then for each page, the pageId is passed in
+ * For markdown pages that will receive an id and then run a full query to receive all data.
+ * This is usually the case with pages created with MDX (.md and .mdx files).
+ *
+ * All file ids are retrieved in gatsby-node.js and then for each page, the pageId is passed in
  * the context.
  */
 export type GatsbyMarkdownFilePageContext = {

@@ -3,9 +3,13 @@ import { loadDotEnv, logEnvVariables } from '@newrade/core-utils';
 import Gatsby from 'gatsby';
 import path from 'path';
 import packageJson from './package.json';
-import { ENV } from './types/dot-env';
+import { Env, ENV } from './types/dot-env';
 
-const env = loadDotEnv<ENV>(path.resolve(__dirname, '.env'));
+const env = loadDotEnv<ENV>({
+  schema: Env,
+  dotEnvPath: path.resolve(__dirname, '..', '.env'),
+  packageName: packageJson.name,
+});
 logEnvVariables<ENV>({ packageName: packageJson.name, env });
 
 /**

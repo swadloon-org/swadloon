@@ -1,6 +1,6 @@
 import { log } from './log';
 
-export function logEnvVariables<ENV extends Record<string, string>>({
+export function logEnvVariables<ENV extends Record<string, string | undefined>>({
   packageName,
   env,
 }: {
