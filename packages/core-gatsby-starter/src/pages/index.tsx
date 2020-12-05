@@ -6,7 +6,7 @@ import { Providers } from '../layouts/providers';
 import { ProjectPageProps } from '../props/page.props';
 import * as styleRefs from './index.treat';
 
-const PageComponent: React.FC<ProjectPageProps> = (props) => {
+const PageComponent: React.FC<FilePageProps> = (props) => {
   const styles = useStyles(styleRefs);
   return (
     <Stack gap={'20px'}>

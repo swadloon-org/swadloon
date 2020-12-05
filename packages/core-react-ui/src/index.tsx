@@ -20,3 +20,4 @@ export * from './models/open-graph-metadata.model';
 export * from './models/twitter-metadata.model';
 export * from './utilities/colors.utilities';
 export * from './utilities/utilities';
+export * from './components/color/color-swatch';
