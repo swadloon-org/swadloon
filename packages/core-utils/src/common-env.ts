@@ -1,3 +1,5 @@
+import * as t from 'io-ts';
+
 /**
  * Standard deploy environments
  *
@@ -13,6 +15,15 @@ export enum DEPLOY_ENV {
   PRODUCTION = 'production',
 }
 
+const DeployEnv = t.keyof({
+  [DEPLOY_ENV.LOCAL]: DEPLOY_ENV.LOCAL,
+  [DEPLOY_ENV.DEV]: DEPLOY_ENV.DEV,
+  [DEPLOY_ENV.STAGING]: DEPLOY_ENV.STAGING,
+  [DEPLOY_ENV.PRODUCTION]: DEPLOY_ENV.PRODUCTION,
+});
+
+export type DeployEnv = t.TypeOf<typeof DeployEnv>;
+
 /**
  * Standard NodeJS Environments
  */
@@ -21,76 +32,93 @@ export enum NODE_ENV {
   PRODUCTION = 'production',
 }
 
+const NodeEnv = t.keyof({
+  [NODE_ENV.DEVELOPMENT]: NODE_ENV.DEVELOPMENT,
+  [NODE_ENV.PRODUCTION]: NODE_ENV.PRODUCTION,
+});
+
+const TextBoolean = t.keyof({
+  true: 'true',
+  false: 'false',
+});
+
 /**
  * Typed representation of the .env files. All apps and sites should
  * use this type as a base for their .env file.
  */
-export type COMMON_ENV = {
+export const CommonEnv = t.type({
   /**
    * The NodeJS environment
    */
-  NODE_ENV: string;
+  NODE_ENV: NodeEnv,
   /**
    * The NodeJS version installed by `nvm`
    */
-  NVM_NODE_VERSION: string;
+  NVM_NODE_VERSION: t.string,
   /**
    * The master repository's git host
    * @default 'github.com'
    */
-  MASTER_GIT_HOST: string;
+  MASTER_GIT_HOST: t.string,
   /**
    * The master repository's organization
    * @example '@newrade'
    */
-  MASTER_REPO_ORG: string;
+  MASTER_REPO_ORG: t.string,
   /**
    * The master repository's name
    * @example 'repo-name' in @<org>/<repo-name>
    */
-  MASTER_REPO_NAME: string;
+  MASTER_REPO_NAME: t.string,
 
   /**
    * The repository git host
    * @default 'github.com'
    */
-  PROJECT_GIT_HOST: string;
+  PROJECT_GIT_HOST: t.string,
   /**
    * The repository's organization
    * @example '@newrade'
    */
-  PROJECT_REPO_ORG: string;
+  PROJECT_REPO_ORG: t.string,
   /**
    * The repository name
    * @example 'repo-name' in @<org>/<repo-name>
    */
-  PROJECT_REPO_NAME: string;
+  PROJECT_REPO_NAME: t.string,
 
   /**
    * Deploy environment
    */
-  APP_ENV: DEPLOY_ENV;
+  APP_ENV: DeployEnv,
   /**
    * The app or site public URL
    */
-  APP_URL: string;
+  APP_URL: t.string,
   /**
    * Local port
    */
-  APP_PORT: string;
-};
+  APP_PORT: t.string,
+});
+
+export type COMMON_ENV = t.TypeOf<typeof CommonEnv>;
 
 /**
  * Typed representation of the .env file for Gatsby sites.
  */
-export type COMMON_ENV_GATSBY = COMMON_ENV & {
-  /**
-   * Custom variable to enable Gatsby Cloud's incremental build.
-   * @see https://www.gatsbyjs.com/blog/2020-04-22-announcing-incremental-builds/
-   */
-  GATSBY_ENABLE_INCREMENTAL_BUILD?: 'true' | 'false';
-  /**
-   * @see https://github.com/gatsbyjs/gatsby/blob/master/docs/reference/release-notes/v2.27/index.md
-   */
-  GATSBY_EXPERIMENTAL_FAST_DEV: 'true' | 'false';
-};
+export const CommonEnvGatsby = t.intersection([
+  CommonEnv,
+  t.type({
+    /**
+     * Custom variable to enable Gatsby Cloud's incremental build.
+     * @see https://www.gatsbyjs.com/blog/2020-04-22-announcing-incremental-builds/
+     */
+    GATSBY_ENABLE_INCREMENTAL_BUILD: TextBoolean,
+    /**
+     * @see https://github.com/gatsbyjs/gatsby/blob/master/docs/reference/release-notes/v2.27/index.md
+     */
+    GATSBY_EXPERIMENTAL_FAST_DEV: TextBoolean,
+  }),
+]);
+
+export type COMMON_ENV_GATSBY = t.TypeOf<typeof CommonEnvGatsby>;

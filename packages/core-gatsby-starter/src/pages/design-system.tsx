@@ -2,6 +2,8 @@ import { Cluster, getCSSColor, keys, lightenColor, Stack } from '@newrade/core-r
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { useTreatTheme } from '../hooks/treat-theme';
+import { Layout } from '../layouts/layout';
+import { Providers } from '../layouts/providers';
 import { ProjectPageProps } from '../props/page.props';
 import * as styleRefs from './index.treat';
 
@@ -130,11 +132,13 @@ const PageComponent: React.FC<ProjectPageProps> = (props) => {
 };
 
 const Page: React.FC<ProjectPageProps> = (props) => {
-  return <PageComponent {...props}></PageComponent>;
-};
-
-export const context = {
-  test: 1,
+  return (
+    <Providers>
+      <Layout>
+        <PageComponent {...props}></PageComponent>
+      </Layout>
+    </Providers>
+  );
 };
 
 export default Page;

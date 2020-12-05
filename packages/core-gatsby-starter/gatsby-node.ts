@@ -3,13 +3,9 @@
  *
  * @see https://www.gatsbyjs.com/docs/node-apis/
  */
-
-import { loadDotEnv, log, LOG_LEVEL } from '@newrade/core-utils';
+import { log, LOG_LEVEL } from '@newrade/core-utils';
 import { GatsbyNode } from 'gatsby';
-import path from 'path';
-import { ENV } from './types/dot-env';
-
-const env = loadDotEnv<ENV>(path.resolve(__dirname, '.env'));
+import packageJson from './package.json';
 
 export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql }) => {
   const { createPage } = actions;
@@ -82,12 +78,12 @@ export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql 
     // const markdownTemplate = path.resolve(`src/templates/page.template.tsx`);
     allFiles.data?.allFile.nodes.forEach((node, index) => {
       log(`Creating page: ${node.name}`, {
-        toolName: 'mir-website',
+        toolName: packageJson.name,
       });
     });
   } catch (error) {
     log(`Error occured when generating pages: ${error}`, {
-      toolName: 'mir-website',
+      toolName: packageJson.name,
       level: LOG_LEVEL.ERROR,
     });
     if (error) {

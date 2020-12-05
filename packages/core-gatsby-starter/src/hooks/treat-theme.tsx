@@ -4,7 +4,7 @@ import { Theme } from '@newrade/core-react-ui';
 /**
  * Context to hold the theme's tokens
  */
-export const TreatThemeContext = React.createContext<Theme>(null);
+export const TreatThemeContext = React.createContext<Theme | null>(null);
 
 /**
  * Threat theme provider to pass the tokens value to children

@@ -1,18 +1,17 @@
 import { Button, Stack, Grid, Box, Center, Cluster } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { ProjectPageProps } from '.';
 import { Layout } from '../layouts/layout';
 import { Providers } from '../layouts/providers';
 import * as styleRefs from './layouts.treat';
 
-const PageComponent: React.FC<ProjectPageProps> = (props) => {
+const PageComponent: React.FC<{}> = (props) => {
   const { styles } = useStyles(styleRefs);
 
   const Content = () => <div className={styles.content}>Content</div>;
 
   return (
-    <Stack gap={'30px'} padding={'20px'}>
+    <Stack gap={'30px'}>
       <h1>Layouts</h1>
 
       <h2>Grid</h2>
@@ -32,7 +31,7 @@ const PageComponent: React.FC<ProjectPageProps> = (props) => {
 
       <h2>Stack</h2>
       <Center maxWidth={'500px'}>
-        <Stack padding={'20px'} gap={'15px'}>
+        <Stack gap={'15px'}>
           <Content />
           <Content />
           <Content />
@@ -65,7 +64,7 @@ const PageComponent: React.FC<ProjectPageProps> = (props) => {
   );
 };
 
-const Page: React.FC<ProjectPageProps> = (props) => {
+const Page: React.FC<{}> = (props) => {
   return (
     <Providers>
       <Layout>

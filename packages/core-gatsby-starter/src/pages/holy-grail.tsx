@@ -1,11 +1,11 @@
 import { Box, Center, Grid, Stack, Cluster } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { ProjectPageProps } from '.';
 import { Providers } from '../layouts/providers';
 import * as styleRefs from './layouts.treat';
 import { Layout } from '../layouts/layout';
 import { graphql, Link, useStaticQuery } from 'gatsby';
+import { ProjectPageProps } from '../props/page.props';
 
 export const query = graphql`
   {
@@ -22,7 +22,7 @@ const PageComponent: React.FC<ProjectPageProps> = (props) => {
   const data = useStaticQuery(query);
   const { styles } = useStyles(styleRefs);
 
-  const Content = (props) => (
+  const Content = (props: any) => (
     <div style={{ height: '100px', width: '200px' }} className={styles.content}>
       {props.children || 'Content'}
     </div>
@@ -32,8 +32,8 @@ const PageComponent: React.FC<ProjectPageProps> = (props) => {
     <Stack>
       <nav>
         {data.allSitePage.nodes
-          .map((node) => node.path)
-          .map((path, index) => {
+          .map((node: any) => node.path)
+          .map((path: any, index: any) => {
             return (
               <li key={index}>
                 <Link to={path}>{path}</Link>

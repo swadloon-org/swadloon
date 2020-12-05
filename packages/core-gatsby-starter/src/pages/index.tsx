@@ -1,6 +1,8 @@
 import { Button, Stack } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
+import { Layout } from '../layouts/layout';
+import { Providers } from '../layouts/providers';
 import { ProjectPageProps } from '../props/page.props';
 import * as styleRefs from './index.treat';
 
@@ -21,7 +23,13 @@ const PageComponent: React.FC<ProjectPageProps> = (props) => {
 };
 
 const Page: React.FC<ProjectPageProps> = (props) => {
-  return <PageComponent {...props}></PageComponent>;
+  return (
+    <Providers>
+      <Layout>
+        <PageComponent {...props}></PageComponent>
+      </Layout>
+    </Providers>
+  );
 };
 
 export default Page;

@@ -1,7 +1,7 @@
 import { Stack } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { ProjectPageProps } from '.';
+import { ProjectPageProps } from '../props/page.props';
 import { Layout } from '../layouts/layout';
 import { Providers } from '../layouts/providers';
 import * as styleRefs from './index.treat';
@@ -11,13 +11,13 @@ const PageComponent: React.FC<ProjectPageProps> = (props) => {
   const styles = useStyles(styleRefs);
 
   return (
-    <Stack id={'HTML Elements'} gap={'55px'} padding={'55px'}>
+    <Stack id={'HTML Elements'} gap={'55px'}>
       <h1>HTML Elements</h1>
 
-      <Stack id={'Content sectioning'} gap={'21px'} padding={'20px'}>
+      <Stack id={'Content sectioning'} gap={'21px'}>
         <h2>Content sectioning</h2>
 
-        <Stack id={'Header'} gap={'13px'} padding={'20px'}>
+        <Stack id={'Header'} gap={'13px'}>
           <h3>Header</h3>
 
           <header>
@@ -25,7 +25,7 @@ const PageComponent: React.FC<ProjectPageProps> = (props) => {
           </header>
         </Stack>
 
-        <Stack id={'Headings'} gap={'13px'} padding={'20px'}>
+        <Stack id={'Headings'} gap={'13px'}>
           <h3>Headings</h3>
 
           <h1>Heading H1</h1>
@@ -45,7 +45,7 @@ const PageComponent: React.FC<ProjectPageProps> = (props) => {
           </hgroup>
         </Stack>
 
-        <Stack id={'Main'} gap={'13px'} padding={'20px'}>
+        <Stack id={'Main'} gap={'13px'}>
           <h3>Main</h3>
 
           <main role="main">
@@ -58,7 +58,7 @@ const PageComponent: React.FC<ProjectPageProps> = (props) => {
           </main>
         </Stack>
 
-        <Stack id={'Nav'} gap={'13px'} padding={'20px'}>
+        <Stack id={'Nav'} gap={'13px'}>
           <h3>Nav</h3>
 
           <nav className="crumbs">
@@ -74,7 +74,7 @@ const PageComponent: React.FC<ProjectPageProps> = (props) => {
           </nav>
         </Stack>
 
-        <Stack id={'Address'} gap={'13px'} padding={'20px'}>
+        <Stack id={'Address'} gap={'13px'}>
           <h3>Address</h3>
 
           <address>
@@ -84,7 +84,7 @@ const PageComponent: React.FC<ProjectPageProps> = (props) => {
           </address>
         </Stack>
 
-        <Stack id={'Article'} gap={'13px'} padding={'20px'}>
+        <Stack id={'Article'} gap={'13px'}>
           <h3>Article</h3>
 
           <article>
@@ -96,7 +96,7 @@ const PageComponent: React.FC<ProjectPageProps> = (props) => {
           </article>
         </Stack>
 
-        <Stack id={'Aside'} gap={'13px'} padding={'20px'}>
+        <Stack id={'Aside'} gap={'13px'}>
           <h3>aside</h3>
           <p>
             Salamanders are a group of amphibians with a lizard-like appearance, including short legs and a tail in both
@@ -114,7 +114,7 @@ const PageComponent: React.FC<ProjectPageProps> = (props) => {
           </p>
         </Stack>
 
-        <Stack id={'Section'} gap={'13px'} padding={'20px'}>
+        <Stack id={'Section'} gap={'13px'}>
           <h3>section</h3>
 
           <section>
@@ -126,7 +126,7 @@ const PageComponent: React.FC<ProjectPageProps> = (props) => {
           </section>
         </Stack>
 
-        <Stack id={'Footer'} gap={'13px'} padding={'20px'}>
+        <Stack id={'Footer'} gap={'13px'}>
           <h3>Footer</h3>
 
           <footer>
@@ -135,14 +135,14 @@ const PageComponent: React.FC<ProjectPageProps> = (props) => {
         </Stack>
       </Stack>
 
-      <Stack id={'Text content'} gap={'21px'} padding={'20px'}>
+      <Stack id={'Text content'} gap={'21px'}>
         <h2>Text content</h2>
 
-        <Stack id={'Blockquotes'} gap={'21px'} padding={'20px'}>
+        <Stack id={'Blockquotes'} gap={'21px'}>
           <h3>Blockquotes</h3>
           <blockquote>{lorenipsum}</blockquote>
         </Stack>
-        <Stack id={'Dl'} gap={'21px'} padding={'20px'}>
+        <Stack id={'Dl'} gap={'21px'}>
           <h3>dl & dd & dt</h3>
           <dl>
             <dt>Beast of Bodmin</dt>
@@ -181,7 +181,7 @@ const PageComponent: React.FC<ProjectPageProps> = (props) => {
         </pre>
       </Stack>
 
-      <Stack id={'Inline text semantics'} gap={'21px'} padding={'20px'}>
+      <Stack id={'Inline text semantics'} gap={'21px'}>
         <h2>Inline text semantics</h2>
 
         <h3>a</h3>
@@ -432,7 +432,7 @@ const PageComponent: React.FC<ProjectPageProps> = (props) => {
         </blockquote>
       </Stack>
 
-      <Stack id={'Image and multimedia'} gap={'21px'} padding={'20px'}>
+      <Stack id={'Image and multimedia'} gap={'21px'}>
         <h2>Image and multimedia</h2>
 
         <h3>area</h3>
@@ -506,8 +506,8 @@ const PageComponent: React.FC<ProjectPageProps> = (props) => {
           Sorry, your browser doesn't support embedded videos.
         </video>
       </Stack>
-      {/* 
-      <Stack id={'Table content'} gap={'21px'} padding={'20px'}>
+      {/*
+      <Stack id={'Table content'} gap={'21px'}>
         <h3>embed</h3>
         <embed
           type="video/webm"
@@ -562,7 +562,7 @@ const PageComponent: React.FC<ProjectPageProps> = (props) => {
         </video>
       </Stack> */}
 
-      <Stack className="wrapper" id={'Table content'} gap={'21px'} padding={'20px'}>
+      <Stack className="wrapper" id={'Table content'} gap={'21px'}>
         <h3>Table and Caption</h3>
 
         <caption>He-Man and Skeletor facts</caption>
@@ -670,10 +670,10 @@ const PageComponent: React.FC<ProjectPageProps> = (props) => {
         </table>
       </Stack>
 
-      <Stack id={'Forms'} gap={'21px'} padding={'20px'}>
+      <Stack id={'Forms'} gap={'21px'}>
         <h2>Forms</h2>
 
-        <Stack id={'content-form'} gap={'21px'} padding={'20px'}>
+        <Stack id={'content-form'} gap={'21px'}>
           <h3>Button</h3>
           <button className="favorite styled" type="button">
             Add to favorites
@@ -829,7 +829,7 @@ const PageComponent: React.FC<ProjectPageProps> = (props) => {
 
           <textarea defaultValue="was a dark and stormy night..." id="story" name="story" rows={5} cols={33}></textarea>
         </Stack>
-        <Stack id={'Forms'} gap={'21px'} padding={'20px'}>
+        <Stack id={'Forms'} gap={'21px'}>
           <h2>Interactive elements</h2>
 
           <h3>details</h3>
@@ -862,7 +862,7 @@ const PageComponent: React.FC<ProjectPageProps> = (props) => {
           </details>
         </Stack>
 
-        <Stack id={'Forms'} gap={'21px'} padding={'20px'}>
+        <Stack id={'Forms'} gap={'21px'}>
           <h2>Web Components</h2>
 
           <h3>slot</h3>
