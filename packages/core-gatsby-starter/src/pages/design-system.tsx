@@ -2,11 +2,11 @@ import { Cluster, getCSSColor, keys, lightenColor, Stack, ColorSwatch } from '@n
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { useTreatTheme } from '../hooks/treat-theme';
-import { ProjectPageProps } from '../props/page.props';
+import { FilePageProps } from '../props/page.props';
 import * as styleRefs from './index.treat';
 import { Color, ColorShades5 } from '@newrade/core-design-system';
 
-const PageComponent: React.FC<ProjectPageProps> = (props) => {
+const PageComponent: React.FC<FilePageProps> = (props) => {
   const styles = useStyles(styleRefs);
   const { cssTheme, theme } = useTreatTheme();
   return (
@@ -154,7 +154,7 @@ const PageComponent: React.FC<ProjectPageProps> = (props) => {
   );
 };
 
-const Page: React.FC<ProjectPageProps> = (props) => {
+const Page: React.FC<FilePageProps> = (props) => {
   return <PageComponent {...props}></PageComponent>;
 };
 
