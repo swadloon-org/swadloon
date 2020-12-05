@@ -906,13 +906,7 @@ const PageComponent: React.FC<FilePageProps> = (props) => {
 };
 
 const Page: React.FC<FilePageProps> = (props) => {
-  return (
-    <Providers>
-      <Layout>
-        <PageComponent {...props}></PageComponent>
-      </Layout>
-    </Providers>
-  );
+  return <PageComponent {...props}></PageComponent>;
 };
 
 export default Page;

@@ -65,13 +65,7 @@ const PageComponent: React.FC<{}> = (props) => {
 };
 
 const Page: React.FC<{}> = (props) => {
-  return (
-    <Providers>
-      <Layout>
-        <PageComponent {...props}></PageComponent>
-      </Layout>
-    </Providers>
-  );
+  return <PageComponent {...props}></PageComponent>;
 };
 
 export default Page;

@@ -4,7 +4,7 @@
     "rootDir": "src",
     "outDir": "lib",
     "target": "es6",
-    "module": "commonjs",
+    "module": "es6",
     "types": ["react", "react-dom", "jest"],
     "lib": ["es6", "dom", "es2017"]
   },
