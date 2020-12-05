@@ -39,7 +39,7 @@ export type GatsbyMarkdownFilePageContext = {
    *
    * @example
    *  ```ts
-   *    `query Page($pageId: String) {...}`
+   *    `query Page($fileId: String) {...}`
    *  ```
    */
   fileId: string;
