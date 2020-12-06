@@ -65,10 +65,6 @@ In the corresponding package (e.g. packages/`<PACKAGE_NAME>`), create a `.in the
 
 ```bash
 #
-# See types/dot-env.ts
-#
-
-#
 # App
 #
 APP_ENV=local

@@ -21,3 +21,4 @@ export * from './models/twitter-metadata.model';
 export * from './utilities/colors.utilities';
 export * from './utilities/utilities';
 export * from './components/color/color-swatch';
+export * from './hooks/use-treat-theme';

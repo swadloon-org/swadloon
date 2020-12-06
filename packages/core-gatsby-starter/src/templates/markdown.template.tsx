@@ -1,19 +1,60 @@
-import { GatsbyPageContext } from '@newrade/core-gatsby-config';
-import { getMetaBasicTags, getMetadataOpenGraphWebsiteTags } from '@newrade/core-react-ui-old';
+import { GatsbySrcPageContext, GatsbyMarkdownFilePageContext } from '@newrade/core-gatsby-config';
 import { PageProps } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
 import Helmet from 'react-helmet';
+import { GatsbyNodeSiteMetadataFragment, MarkdownTemplateQuery } from '../../types/graphql-types';
+import { graphql } from 'gatsby';
+import { DEPLOY_ENV } from '@newrade/core-env';
+import { DebugGasbyPage } from '../components/debug-gatsby-page';
 
-export type MarkdownPageProps = PageProps<{}, GatsbyPageContext>;
+export type MarkdownTemplateProps = PageProps<
+  MarkdownTemplateQuery,
+  GatsbyMarkdownFilePageContext<GatsbyNodeSiteMetadataFragment>
+>;
 
 /**
- * Markdown template to render documentation
- * @param props
+ * Query to retrieve all markdown content for the markdown file
  */
-const Page: React.FC<MarkdownPageProps> = (props) => {
+export const markdownTemplateQuery = graphql`
+  query MarkdownTemplate($fileId: String) {
+    file(id: { eq: $fileId }, ext: { in: [".md", ".mdx"] }) {
+      id
+      name
+      base
+      ext
+      dir
+      absolutePath
+      publicURL
+      size
+      sourceInstanceName
+      childMdx {
+        slug
+        excerpt(pruneLength: 160)
+        frontmatter {
+          title
+          name
+          tags
+        }
+        timeToRead
+        headings {
+          value
+          depth
+        }
+        tableOfContents(maxDepth: 3)
+        body
+      }
+    }
+  }
+`;
+
+/**
+ * Markdown template to render .mdx? files (e.g. documentation)
+ */
+const Page: React.FC<MarkdownTemplateProps> = (props) => {
   return (
     <div>
+      {props.pageContext.siteMetadata?.siteEnv === DEPLOY_ENV.LOCAL ? <DebugGasbyPage {...props} /> : null}
       {/* <Helmet>
         {getMetaBasicTags()}
         {getMetadataOpenGraphWebsiteTags({
@@ -34,11 +75,7 @@ const Page: React.FC<MarkdownPageProps> = (props) => {
           site: `${data?.contentfulCompanyInfo?.metadataTwitterSite}`,
         })}
       </Helmet> */}
-      <pre>{JSON.stringify(props.params)}</pre>
-      <pre>{JSON.stringify(props.location)}</pre>
-      <pre>{JSON.stringify(props.data)}</pre>
-      <pre>{JSON.stringify(props.pageContext)}</pre>
-      <MDXRenderer>{'dd'}</MDXRenderer>
+      <MDXRenderer>{props.data.file?.childMdx?.body as string}</MDXRenderer>
     </div>
   );
 };

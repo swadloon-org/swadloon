@@ -1,0 +1,21 @@
+{
+  "[typescript]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.formatOnSave": true,
+  "[yaml]": {
+    "editor.formatOnSave": false
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/yarn.lock": true,
+    "**/lib": true,
+    "**/.cache/**/*": true,
+    "**/public/**/*": true,
+    "**/*.js.map": true,
+    "**/*.tsbuildinfo": true
+  }
+}

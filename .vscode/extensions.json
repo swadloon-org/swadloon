@@ -14,6 +14,7 @@
     "GitHub.vscode-pull-request-github",
     "cschleiden.vscode-github-actions",
     "yzhang.markdown-all-in-one",
-    "paulmolluzzo.convert-css-in-js"
+    "paulmolluzzo.convert-css-in-js",
+    "formulahendry.auto-rename-tag"
   ]
 }

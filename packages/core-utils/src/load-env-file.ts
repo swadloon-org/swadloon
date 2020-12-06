@@ -11,9 +11,10 @@ import { log, LOG_LEVEL } from './log';
 /**
  * Utility function to load the .env files in the monorepository.
  *
- * By default it loads the package's .env file (e.g. in packages/<package-name>/.env) and the parent .env file
- * (<root>/.env) which contains variables for the whole repository. It also validates if the passed schema fits
- * what the .env files contain.
+ * By default it loads the package's .env file (e.g. in `packages/<package-name>/.env`) and the parent .env file
+ * (`<root>/.env`) which contains variables for the whole repository.
+ *
+ * It also validates .env files according to a io-ts schema.
  *
  * @see https://github.com/motdotla/dotenv#readme
  * @see https://github.com/gcanti/io-ts/blob/master/index.md

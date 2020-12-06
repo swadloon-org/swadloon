@@ -1,11 +1,10 @@
-import { Button, Stack, Grid, Box, Center, Cluster } from '@newrade/core-react-ui';
+import { Box, Center, Cluster, Grid, Stack } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { Layout } from '../layouts/layout';
-import { Providers } from '../layouts/providers';
+import { SrcPageTemplate, SrcPageTemplateProps } from '../templates/src-page.template';
 import * as styleRefs from './layouts.treat';
 
-const PageComponent: React.FC<{}> = (props) => {
+const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
   const { styles } = useStyles(styleRefs);
 
   const Content = () => <div className={styles.content}>Content</div>;
@@ -64,8 +63,12 @@ const PageComponent: React.FC<{}> = (props) => {
   );
 };
 
-const Page: React.FC<{}> = (props) => {
-  return <PageComponent {...props}></PageComponent>;
+const Page: React.FC<SrcPageTemplateProps> = (props) => {
+  return (
+    <SrcPageTemplate {...props}>
+      <PageComponent {...props}></PageComponent>
+    </SrcPageTemplate>
+  );
 };
 
 export default Page;

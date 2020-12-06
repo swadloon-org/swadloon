@@ -4,6 +4,13 @@ import path from 'path';
 import packageJson from './package.json';
 import { Env, ENV } from './types/dot-env';
 
+/**
+ * Gatsby Config API
+ *
+ * @see https://www.gatsbyjs.org/docs/gatsby-config/
+ * @see https://www.gatsbyjs.com/docs/api-files-gatsby-config/
+ */
+
 const env = loadDotEnv<ENV>({
   schema: Env,
   dotEnvPath: path.resolve(__dirname, '.env'),
@@ -11,11 +18,6 @@ const env = loadDotEnv<ENV>({
 });
 logEnvVariables({ packageName: packageJson.name, env });
 
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.org/docs/gatsby-config/
- */
 const config: core.GastbySiteConfig = {
   siteMetadata: {
     title: `Core Gatsby Website`,
@@ -34,7 +36,7 @@ const config: core.GastbySiteConfig = {
     core.getGastbyCorePluginConfig(),
     core.getGatsbyTsPluginConfig(),
     core.getGatsbyReactSvgConfig(),
-    core.getGastbyPluginPageCreatorConfig(),
+    // core.getGastbyPluginPageCreatorConfig(),
     core.getGastbyPluginTreatConfig(),
     core.getGatsbyTransformerSharp(),
     core.getGatsbyPluginSharp(),
@@ -46,12 +48,26 @@ const config: core.GastbySiteConfig = {
     core.getGatsbyPluginRobotsTxt({ env }),
     core.getGatsbyNetlifyPlugin(),
     // core.getGatsbyPluginPreloadFonts(),
-    /**
-     * Project Specific Plugins
-     */
     core.getGatsbyImageFolder({
       pathImgDir: path.join(__dirname, `src`, `images`),
     }),
+    /**
+     * Project Specific Plugins
+     */
+    {
+      resolve: `gatsby-plugin-page-creator`,
+      options: {
+        path: `${__dirname}/src/pages`,
+        ignore: [`**/*`],
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `srcPages`,
+        path: `${__dirname}/src/pages/`,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -66,18 +82,6 @@ const config: core.GastbySiteConfig = {
         path: `${__dirname}/../../docs/`,
       },
     },
-    // {
-    //   resolve: 'gatsby-plugin-page-creator',
-    //   options: {
-    //     path: `${__dirname}/src/docs/`,
-    //   },
-    // },
-    // {
-    //   resolve: 'gatsby-plugin-page-creator',
-    //   options: {
-    //     path: `${__dirname}/../../docs/`,
-    //   },
-    // },
     {
       resolve: `gatsby-source-contentful`,
       options: {

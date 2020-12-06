@@ -1,4 +1,4 @@
-import { Color } from '@newrade/core-design-system/src';
+import { Color } from '@newrade/core-design-system';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { getCSSColor } from '../../utilities/colors.utilities';

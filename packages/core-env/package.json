@@ -1,18 +1,14 @@
 {
-  "name": "@newrade/core-utils",
-  "version": "1.2.2",
-  "description": "@newrade/core utilities shared across packages.",
+  "name": "@newrade/core-env",
+  "version": "1.0.0",
+  "description": "env utilities shared across packages.",
   "author": {
     "email": "info@newrade.ca",
     "name": "Newrade",
     "url": "https://github.com/newrade/newrade"
   },
-  "repository": "https://github.com/newrade/newrade-core/tree/master/packages/core-utils",
+  "repository": "https://github.com/newrade/newrade-core/tree/master/packages/core-env",
   "license": "MIT",
-  "bin": {
-    "newrade-cli-clear": "./lib/console-clear.js",
-    "newrade-cli-newline": "./lib/console-newline.js"
-  },
   "main": "./lib/index.js",
   "module": "./lib/index.js",
   "files": [
@@ -24,8 +20,5 @@
     "start": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
     "test": "echo test"
   },
-  "typings": "./lib/index.d.ts",
-  "dependencies": {
-    "@newrade/core-env": "^1"
-  }
+  "typings": "./lib/index.d.ts"
 }

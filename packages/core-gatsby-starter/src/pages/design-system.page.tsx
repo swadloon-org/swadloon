@@ -1,14 +1,11 @@
-import { Cluster, getCSSColor, keys, lightenColor, Stack, ColorSwatch } from '@newrade/core-react-ui';
+import { Color, ColorShades5 } from '@newrade/core-design-system';
+import { Cluster, ColorSwatch, getCSSColor, keys, lightenColor, Stack, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { useTreatTheme } from '../hooks/treat-theme';
-import { Layout } from '../layouts/layout';
-import { Providers } from '../layouts/providers';
+import { SrcPageTemplateProps, SrcPageTemplate } from '../templates/src-page.template';
 import * as styleRefs from './index.treat';
-import { Color, ColorShades5 } from '@newrade/core-design-system';
-import { FilePageProps } from '../props/page.props';
 
-const PageComponent: React.FC<FilePageProps> = (props) => {
+const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
   const styles = useStyles(styleRefs);
   const { cssTheme, theme } = useTreatTheme();
   return (
@@ -156,8 +153,12 @@ const PageComponent: React.FC<FilePageProps> = (props) => {
   );
 };
 
-const Page: React.FC<FilePageProps> = (props) => {
-  return <PageComponent {...props}></PageComponent>;
+const Page: React.FC<SrcPageTemplateProps> = (props) => {
+  return (
+    <SrcPageTemplate {...props}>
+      <PageComponent {...props}></PageComponent>
+    </SrcPageTemplate>
+  );
 };
 
 export default Page;

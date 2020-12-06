@@ -1,4 +1,4 @@
-import { TEXT_TRANSFORM, Typography } from '../../../core-design-system/src';
+import { TEXT_TRANSFORM, Typography } from '@newrade/core-design-system';
 import { defaultMonospaceFont, defaultSansAlternateFont, defaultSansFont, defaultSerifFont } from './default-fonts';
 
 export const defaultTypography: Typography = {

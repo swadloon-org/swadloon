@@ -1,4 +1,4 @@
-import { NODE_ENV } from '@newrade/core-utils';
+import { NODE_ENV } from '@newrade/core-env';
 import { ForkTsCheckerWebpackPluginOptions } from 'fork-ts-checker-webpack-plugin/lib/ForkTsCheckerWebpackPluginOptions';
 import Gatsby from 'gatsby';
 import * as TSLoader from 'ts-loader';

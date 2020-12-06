@@ -1,6 +1,6 @@
 import * as core from '@actions/core';
 import * as github from '@actions/github';
-import { DEPLOY_ENV } from '@newrade/core-utils';
+import { DEPLOY_ENV } from '@newrade/core-env';
 
 try {
   console.info(`github.context.ref`, github.context.ref);

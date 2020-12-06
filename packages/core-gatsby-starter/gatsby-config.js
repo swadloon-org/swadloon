@@ -27,17 +27,18 @@ const core_utils_1 = require("@newrade/core-utils");
 const path_1 = __importDefault(require("path"));
 const package_json_1 = __importDefault(require("./package.json"));
 const dot_env_1 = require("./types/dot-env");
+/**
+ * Gatsby Config API
+ *
+ * @see https://www.gatsbyjs.org/docs/gatsby-config/
+ * @see https://www.gatsbyjs.com/docs/api-files-gatsby-config/
+ */
 const env = core_utils_1.loadDotEnv({
     schema: dot_env_1.Env,
     dotEnvPath: path_1.default.resolve(__dirname, '.env'),
     packageName: package_json_1.default.name,
 });
 core_utils_1.logEnvVariables({ packageName: package_json_1.default.name, env });
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.org/docs/gatsby-config/
- */
 const config = {
     siteMetadata: {
         title: `Core Gatsby Website`,
@@ -56,7 +57,7 @@ const config = {
         core.getGastbyCorePluginConfig(),
         core.getGatsbyTsPluginConfig(),
         core.getGatsbyReactSvgConfig(),
-        core.getGastbyPluginPageCreatorConfig(),
+        // core.getGastbyPluginPageCreatorConfig(),
         core.getGastbyPluginTreatConfig(),
         core.getGatsbyTransformerSharp(),
         core.getGatsbyPluginSharp(),
@@ -68,12 +69,26 @@ const config = {
         core.getGatsbyPluginRobotsTxt({ env }),
         core.getGatsbyNetlifyPlugin(),
         // core.getGatsbyPluginPreloadFonts(),
-        /**
-         * Project Specific Plugins
-         */
         core.getGatsbyImageFolder({
             pathImgDir: path_1.default.join(__dirname, `src`, `images`),
         }),
+        /**
+         * Project Specific Plugins
+         */
+        {
+            resolve: `gatsby-plugin-page-creator`,
+            options: {
+                path: `${__dirname}/src/pages`,
+                ignore: [`**/*`],
+            },
+        },
+        {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+                name: `srcPages`,
+                path: `${__dirname}/src/pages/`,
+            },
+        },
         {
             resolve: `gatsby-source-filesystem`,
             options: {
@@ -88,18 +103,6 @@ const config = {
                 path: `${__dirname}/../../docs/`,
             },
         },
-        // {
-        //   resolve: 'gatsby-plugin-page-creator',
-        //   options: {
-        //     path: `${__dirname}/src/docs/`,
-        //   },
-        // },
-        // {
-        //   resolve: 'gatsby-plugin-page-creator',
-        //   options: {
-        //     path: `${__dirname}/../../docs/`,
-        //   },
-        // },
         {
             resolve: `gatsby-source-contentful`,
             options: {

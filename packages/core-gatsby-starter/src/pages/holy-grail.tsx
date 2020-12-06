@@ -1,11 +1,9 @@
-import { Box, Center, Grid, Stack, Cluster } from '@newrade/core-react-ui';
+import { Box, Center, Grid, Stack } from '@newrade/core-react-ui';
+import { graphql, Link, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { Providers } from '../layouts/providers';
+import { SrcPageTemplate, SrcPageTemplateProps } from '../templates/src-page.template';
 import * as styleRefs from './layouts.treat';
-import { Layout } from '../layouts/layout';
-import { graphql, Link, useStaticQuery } from 'gatsby';
-import { FilePageProps } from '../props/page.props';
 
 export const query = graphql`
   {
@@ -18,7 +16,7 @@ export const query = graphql`
   }
 `;
 
-const PageComponent: React.FC<FilePageProps> = (props) => {
+const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
   const data = useStaticQuery(query);
   const { styles } = useStyles(styleRefs);
 
@@ -91,8 +89,12 @@ const PageComponent: React.FC<FilePageProps> = (props) => {
   );
 };
 
-const Page: React.FC<FilePageProps> = (props) => {
-  return <PageComponent {...props}></PageComponent>;
+const Page: React.FC<SrcPageTemplateProps> = (props) => {
+  return (
+    <SrcPageTemplate {...props}>
+      <PageComponent {...props}></PageComponent>
+    </SrcPageTemplate>
+  );
 };
 
 export default Page;

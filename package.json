@@ -92,6 +92,7 @@
     "@babel/preset-react": "^7.0.0",
     "@contentful-tools/cli": "^0.7.3",
     "@contentful-tools/store": "^0.7.3",
+    "@dream-bit-de/gatsby-plugin-better-page-tree": "^1.6.0",
     "@figma/plugin-typings": "^1.17.1",
     "@mdx-js/mdx": "^1.6.18",
     "@mdx-js/react": "^1.6.18",

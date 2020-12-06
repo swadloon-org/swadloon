@@ -20,6 +20,7 @@
     "yo": "yo ./lib/src/ -- --no-insight --no-update-notifier"
   },
   "dependencies": {
+    "@newrade/core-env": "^1",
     "@newrade/core-utils": "^1",
     "case": "^1.6.2",
     "inquirer": "^7.0.0",

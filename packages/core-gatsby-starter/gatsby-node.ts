@@ -1,41 +1,94 @@
+// @ts- nocheck
+
 /**
- * Gatsby Node Configuration
+ * Gatsby Node APIs
  *
  * @see https://www.gatsbyjs.com/docs/node-apis/
+ * @see https://www.gatsbyjs.com/docs/api-files-gatsby-node/
  */
 
-import { log, LOG_LEVEL } from '@newrade/core-utils';
+import { GatsbyMarkdownFilePageContext, GatsbySrcPageContext } from '@newrade/core-gatsby-config';
+import { AppError, ERROR_TYPE, log, LOG_LEVEL } from '@newrade/core-utils';
+import { kebab } from 'case';
 import { GatsbyNode } from 'gatsby';
+import path from 'path';
 import packageJson from './package.json';
-// @ts-ignore
-import { GatsbyNodeAllSiteQuery, GatsbyNodeMarkdownFilesQuery } from './types/graphql-types';
+/**
+ * GraphQL Types for gatsby-node.js queries since they don't exist at first, they can
+ * be ignored by the compiler with // @ts-ignore
+ */
+import {
+  GatsbyNodeAllSiteQuery,
+  GatsbyNodeMarkdownFilesQuery,
+  GatsbyNodeSiteMetadataFragment,
+  GatsbyNodeSrcPageFilesQuery,
+} from './types/graphql-types';
 
 export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql }) => {
   const { createPage } = actions;
 
   try {
     /**
-     * Retrieve site information and all files infos in order to create pages.
+     * Query for site metadata
      */
     const allSiteData = await graphql<GatsbyNodeAllSiteQuery>(`
       query GatsbyNodeAllSite {
-        allSite {
+        site {
+          siteMetadata {
+            ...GatsbyNodeSiteMetadata
+          }
+        }
+      }
+
+      fragment GatsbyNodeSiteMetadata on SiteSiteMetadata {
+        title
+        description
+        siteEnv
+        siteUrl
+        languages {
+          langs
+          defaultLangKey
+        }
+      }
+    `);
+
+    if (!allSiteData.data?.site?.siteMetadata) {
+      throw new AppError({
+        name: ERROR_TYPE.GATSBY_ERROR,
+        message: `Could not retrieve siteMetadata`,
+      });
+    }
+
+    const siteMetadata: GatsbyNodeSiteMetadataFragment = allSiteData.data.site.siteMetadata;
+
+    /**
+     * Query for pages found in /src/pages
+     */
+    const srcPagesFilesData = await graphql<GatsbyNodeSrcPageFilesQuery>(`
+      query GatsbyNodeSrcPageFiles {
+        allFile(filter: { ext: { in: [".tsx"] }, sourceInstanceName: { eq: "srcPages" } }) {
           nodes {
-            siteMetadata {
-              title
-              description
-              siteEnv
-              siteUrl
-              languages {
-                langs
-                defaultLangKey
-              }
-            }
+            id
+            name
+            base
+            ext
+            dir
+            absolutePath
+            publicURL
+            size
+            sourceInstanceName
           }
         }
       }
     `);
 
+    log(`Got ${srcPagesFilesData?.data?.allFile?.nodes?.length} files for src pages`, {
+      toolName: packageJson.name,
+    });
+
+    /**
+     * Query for all `.md?x` files
+     */
     const markdownFilesData = await graphql<GatsbyNodeMarkdownFilesQuery>(`
       query GatsbyNodeMarkdownFiles {
         allFile(filter: { ext: { in: [".md", ".mdx"] } }) {
@@ -63,41 +116,66 @@ export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql 
       }
     `);
 
-    // const pageTemplate = path.resolve(`src/templates/page.template.tsx`);
-    // const markdownTemplate = path.resolve(`src/templates/markdown.template.tsx`);
+    log(`Got ${markdownFilesData?.data?.allFile?.nodes?.length} files for markdown pages`, {
+      toolName: packageJson.name,
+    });
 
-    // /**
-    //  * Organise files to create pages and paths
-    //  */
-    // const mdxPages = markdownFilesData?.data?.allFile.nodes.filter((node, index) => /mdx?/.test(node.ext));
-    // const docsPages = mdxPages?.filter((node) => node.sourceInstanceName === 'docs');
-    // const packageDocsPages = mdxPages?.filter((node) => node.sourceInstanceName === 'packagesDocs');
+    /**
+     * Organise files to create pages and paths
+     */
+    const srcPageTemplate = path.resolve(`src/templates/src-page.template.tsx`);
+    const markdownTemplate = path.resolve(`src/templates/markdown.template.tsx`);
 
-    // /**
-    //  * Create package's docs pages
-    //  */
-    // docsPages?.forEach((node, index) => {
-    //   const path = `${node.sourceInstanceName ? `${kebab(node.sourceInstanceName)}/` : ''}${node.childMdx?.slug}`;
+    /**
+     * Create src pages
+     */
+    srcPagesFilesData?.data?.allFile.nodes.forEach((node, index) => {
+      const nodeName = node.name.replace('page', '');
+      const path = nodeName === 'index' ? `/` : `${kebab(nodeName)}/`;
 
-    //   log(`Creating page: ${path}`, {
-    //     toolName: packageJson.name,
-    //   });
+      log(`Creating src page: ${path}`, {
+        toolName: packageJson.name,
+      });
 
-    //   createPage<GatsbyMarkdownFilePageContext>({
-    //     path,
-    //     context: {
-    //       siteMetadata: allSiteData.data.
-    //     },
-    //     component: markdownTemplate,
-    //   });
-    // });
+      createPage<GatsbySrcPageContext<GatsbyNodeSiteMetadataFragment>>({
+        path,
+        context: {
+          siteMetadata,
+          fileId: node.id,
+        },
+        component: node.absolutePath,
+      });
+    });
+
+    /**
+     * Create Markdown pages
+     */
+    markdownFilesData?.data?.allFile.nodes.forEach((node, index) => {
+      const path = `${node.sourceInstanceName ? `${kebab(node.sourceInstanceName)}/` : ''}${node.childMdx?.slug}`;
+
+      log(`Creating markdown page: ${path}`, {
+        toolName: packageJson.name,
+      });
+
+      createPage<GatsbyMarkdownFilePageContext<GatsbyNodeSiteMetadataFragment>>({
+        path,
+        context: {
+          siteMetadata,
+          fileId: node.id,
+        },
+        component: markdownTemplate,
+      });
+    });
   } catch (error) {
     log(`Error occured when generating pages: ${error}`, {
       toolName: packageJson.name,
       level: LOG_LEVEL.ERROR,
     });
     if (error) {
-      throw new Error('Error while retrieving pages');
+      throw new AppError({
+        name: ERROR_TYPE.GATSBY_ERROR,
+        message: error,
+      });
     }
   }
 };

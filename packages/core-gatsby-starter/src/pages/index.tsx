@@ -3,10 +3,10 @@ import React from 'react';
 import { useStyles } from 'react-treat';
 import { Layout } from '../layouts/layout';
 import { Providers } from '../layouts/providers';
-import { FilePageProps } from '../props/page.props';
+import { SrcPageTemplateProps } from '../templates/src-page.template';
 import * as styleRefs from './index.treat';
 
-const PageComponent: React.FC<FilePageProps> = (props) => {
+const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
   const styles = useStyles(styleRefs);
   return (
     <Stack gap={'20px'}>
@@ -22,7 +22,7 @@ const PageComponent: React.FC<FilePageProps> = (props) => {
   );
 };
 
-const Page: React.FC<FilePageProps> = (props) => {
+const Page: React.FC<SrcPageTemplateProps> = (props) => {
   return <PageComponent {...props}></PageComponent>;
 };
 
