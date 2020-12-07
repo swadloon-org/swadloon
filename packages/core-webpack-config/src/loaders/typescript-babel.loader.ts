@@ -20,6 +20,4 @@ export const typescriptBabelLoader: RuleSetRule = {
       },
     },
   ],
-  // exclude: [configPaths.nodeModules, configPaths.clientPolyfills, configPaths.dist],
-  // include: [configPaths.clientDir, configPaths.clientApp, configPaths.uiLibSrcFiles],
 };

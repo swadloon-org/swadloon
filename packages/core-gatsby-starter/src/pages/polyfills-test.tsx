@@ -1,17 +1,21 @@
-import { Button, Stack } from '@newrade/core-react-ui';
+import { Stack } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { Layout } from '../layouts/layout';
-import { Providers } from '../layouts/providers';
 import { SrcPageTemplateProps } from '../templates/src-page.template';
 import * as styleRefs from './index.treat';
 
 const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
   const arr = ['kk', 'yeah'];
 
-  const sym = Symbol();
+  // const sym = Symbol();
 
-  const promise = Promise.resolve();
+  // const promise = Promise.resolve();
+  // const promiseAny = Promise.any([fetch(''), fetch('')]);
+
+  // class CustomDate {
+  //   // ...
+  //   static epoch = new CustomDate();
+  // }
 
   const check = arr.includes('yeah!');
 

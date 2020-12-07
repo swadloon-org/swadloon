@@ -1,5 +1,3 @@
-// @ts- nocheck
-
 /**
  * Gatsby Node APIs
  *
@@ -62,6 +60,14 @@ export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql 
     const siteMetadata: GatsbyNodeSiteMetadataFragment = allSiteData.data.site.siteMetadata;
 
     /**
+     * *** NOT WORKING CURRENTLY sources pages from gatsby-source-filesystem cause a crash during build ***
+     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `srcPages`,
+        path: `${__dirname}/src/pages/`,
+      },
+    },
      * Query for pages found in /src/pages
      */
     const srcPagesFilesData = await graphql<GatsbyNodeSrcPageFilesQuery>(`
@@ -127,6 +133,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql 
     const markdownTemplate = path.resolve(`src/templates/markdown.template.tsx`);
 
     /**
+     * *** NOT WORKING CURRENTLY ***
      * Create src pages
      */
     srcPagesFilesData?.data?.allFile.nodes.forEach((node, index) => {

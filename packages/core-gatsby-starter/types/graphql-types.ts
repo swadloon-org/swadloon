@@ -3212,6 +3212,17 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___resolve'
   | 'pluginCreator___name'
   | 'pluginCreator___version'
+  | 'pluginCreator___pluginOptions___path'
+  | 'pluginCreator___pluginOptions___ignore'
+  | 'pluginCreator___pluginOptions___name'
+  | 'pluginCreator___pluginOptions___spaceId'
+  | 'pluginCreator___pluginOptions___accessToken'
+  | 'pluginCreator___pluginOptions___environment'
+  | 'pluginCreator___pluginOptions___extensions'
+  | 'pluginCreator___pluginOptions___defaultLayouts___packageDocs'
+  | 'pluginCreator___pluginOptions___defaultLayouts___docs'
+  | 'pluginCreator___pluginOptions___defaultLayouts___default'
+  | 'pluginCreator___pluginOptions___mediaTypes'
   | 'pluginCreator___pluginOptions___fileName'
   | 'pluginCreator___pluginOptions___tsLoader___configFile'
   | 'pluginCreator___pluginOptions___tsLoader___logLevel'
@@ -3223,8 +3234,6 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___base64Width'
   | 'pluginCreator___pluginOptions___stripMetadata'
   | 'pluginCreator___pluginOptions___defaultQuality'
-  | 'pluginCreator___pluginOptions___name'
-  | 'pluginCreator___pluginOptions___path'
   | 'pluginCreator___pluginOptions___createLinkInHead'
   | 'pluginCreator___pluginOptions___output'
   | 'pluginCreator___pluginOptions___host'
@@ -3234,15 +3243,6 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___mergeLinkHeaders'
   | 'pluginCreator___pluginOptions___mergeCachingHeaders'
   | 'pluginCreator___pluginOptions___generateMatchPathRewrites'
-  | 'pluginCreator___pluginOptions___ignore'
-  | 'pluginCreator___pluginOptions___spaceId'
-  | 'pluginCreator___pluginOptions___accessToken'
-  | 'pluginCreator___pluginOptions___environment'
-  | 'pluginCreator___pluginOptions___extensions'
-  | 'pluginCreator___pluginOptions___defaultLayouts___packageDocs'
-  | 'pluginCreator___pluginOptions___defaultLayouts___docs'
-  | 'pluginCreator___pluginOptions___defaultLayouts___default'
-  | 'pluginCreator___pluginOptions___mediaTypes'
   | 'pluginCreator___pluginOptions___pathCheck'
   | 'pluginCreator___pluginOptions___allExtensions'
   | 'pluginCreator___pluginOptions___isTSX'
@@ -3433,6 +3433,17 @@ export type SitePluginFieldsEnum =
   | 'resolve'
   | 'name'
   | 'version'
+  | 'pluginOptions___path'
+  | 'pluginOptions___ignore'
+  | 'pluginOptions___name'
+  | 'pluginOptions___spaceId'
+  | 'pluginOptions___accessToken'
+  | 'pluginOptions___environment'
+  | 'pluginOptions___extensions'
+  | 'pluginOptions___defaultLayouts___packageDocs'
+  | 'pluginOptions___defaultLayouts___docs'
+  | 'pluginOptions___defaultLayouts___default'
+  | 'pluginOptions___mediaTypes'
   | 'pluginOptions___fileName'
   | 'pluginOptions___tsLoader___configFile'
   | 'pluginOptions___tsLoader___logLevel'
@@ -3444,8 +3455,6 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___base64Width'
   | 'pluginOptions___stripMetadata'
   | 'pluginOptions___defaultQuality'
-  | 'pluginOptions___name'
-  | 'pluginOptions___path'
   | 'pluginOptions___createLinkInHead'
   | 'pluginOptions___output'
   | 'pluginOptions___host'
@@ -3459,15 +3468,6 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___mergeLinkHeaders'
   | 'pluginOptions___mergeCachingHeaders'
   | 'pluginOptions___generateMatchPathRewrites'
-  | 'pluginOptions___ignore'
-  | 'pluginOptions___spaceId'
-  | 'pluginOptions___accessToken'
-  | 'pluginOptions___environment'
-  | 'pluginOptions___extensions'
-  | 'pluginOptions___defaultLayouts___packageDocs'
-  | 'pluginOptions___defaultLayouts___docs'
-  | 'pluginOptions___defaultLayouts___default'
-  | 'pluginOptions___mediaTypes'
   | 'pluginOptions___pathCheck'
   | 'pluginOptions___allExtensions'
   | 'pluginOptions___isTSX'
@@ -3584,6 +3584,15 @@ export type SitePluginPackageJsonPeerDependenciesFilterListInput = {
 };
 
 export type SitePluginPluginOptions = {
+  path?: Maybe<Scalars['String']>;
+  ignore?: Maybe<Array<Maybe<Scalars['String']>>>;
+  name?: Maybe<Scalars['String']>;
+  spaceId?: Maybe<Scalars['String']>;
+  accessToken?: Maybe<Scalars['String']>;
+  environment?: Maybe<Scalars['String']>;
+  extensions?: Maybe<Array<Maybe<Scalars['String']>>>;
+  defaultLayouts?: Maybe<SitePluginPluginOptionsDefaultLayouts>;
+  mediaTypes?: Maybe<Array<Maybe<Scalars['String']>>>;
   fileName?: Maybe<Scalars['String']>;
   tsLoader?: Maybe<SitePluginPluginOptionsTsLoader>;
   typeCheck?: Maybe<Scalars['Boolean']>;
@@ -3592,8 +3601,6 @@ export type SitePluginPluginOptions = {
   base64Width?: Maybe<Scalars['Int']>;
   stripMetadata?: Maybe<Scalars['Boolean']>;
   defaultQuality?: Maybe<Scalars['Int']>;
-  name?: Maybe<Scalars['String']>;
-  path?: Maybe<Scalars['String']>;
   createLinkInHead?: Maybe<Scalars['Boolean']>;
   output?: Maybe<Scalars['String']>;
   host?: Maybe<Scalars['String']>;
@@ -3604,13 +3611,6 @@ export type SitePluginPluginOptions = {
   mergeLinkHeaders?: Maybe<Scalars['Boolean']>;
   mergeCachingHeaders?: Maybe<Scalars['Boolean']>;
   generateMatchPathRewrites?: Maybe<Scalars['Boolean']>;
-  ignore?: Maybe<Array<Maybe<Scalars['String']>>>;
-  spaceId?: Maybe<Scalars['String']>;
-  accessToken?: Maybe<Scalars['String']>;
-  environment?: Maybe<Scalars['String']>;
-  extensions?: Maybe<Array<Maybe<Scalars['String']>>>;
-  defaultLayouts?: Maybe<SitePluginPluginOptionsDefaultLayouts>;
-  mediaTypes?: Maybe<Array<Maybe<Scalars['String']>>>;
   pathCheck?: Maybe<Scalars['Boolean']>;
   allExtensions?: Maybe<Scalars['Boolean']>;
   isTSX?: Maybe<Scalars['Boolean']>;
@@ -3732,6 +3732,15 @@ export type SitePluginPluginOptionsEnvStagingPolicyFilterListInput = {
 };
 
 export type SitePluginPluginOptionsFilterInput = {
+  path?: Maybe<StringQueryOperatorInput>;
+  ignore?: Maybe<StringQueryOperatorInput>;
+  name?: Maybe<StringQueryOperatorInput>;
+  spaceId?: Maybe<StringQueryOperatorInput>;
+  accessToken?: Maybe<StringQueryOperatorInput>;
+  environment?: Maybe<StringQueryOperatorInput>;
+  extensions?: Maybe<StringQueryOperatorInput>;
+  defaultLayouts?: Maybe<SitePluginPluginOptionsDefaultLayoutsFilterInput>;
+  mediaTypes?: Maybe<StringQueryOperatorInput>;
   fileName?: Maybe<StringQueryOperatorInput>;
   tsLoader?: Maybe<SitePluginPluginOptionsTsLoaderFilterInput>;
   typeCheck?: Maybe<BooleanQueryOperatorInput>;
@@ -3740,8 +3749,6 @@ export type SitePluginPluginOptionsFilterInput = {
   base64Width?: Maybe<IntQueryOperatorInput>;
   stripMetadata?: Maybe<BooleanQueryOperatorInput>;
   defaultQuality?: Maybe<IntQueryOperatorInput>;
-  name?: Maybe<StringQueryOperatorInput>;
-  path?: Maybe<StringQueryOperatorInput>;
   createLinkInHead?: Maybe<BooleanQueryOperatorInput>;
   output?: Maybe<StringQueryOperatorInput>;
   host?: Maybe<StringQueryOperatorInput>;
@@ -3752,13 +3759,6 @@ export type SitePluginPluginOptionsFilterInput = {
   mergeLinkHeaders?: Maybe<BooleanQueryOperatorInput>;
   mergeCachingHeaders?: Maybe<BooleanQueryOperatorInput>;
   generateMatchPathRewrites?: Maybe<BooleanQueryOperatorInput>;
-  ignore?: Maybe<StringQueryOperatorInput>;
-  spaceId?: Maybe<StringQueryOperatorInput>;
-  accessToken?: Maybe<StringQueryOperatorInput>;
-  environment?: Maybe<StringQueryOperatorInput>;
-  extensions?: Maybe<StringQueryOperatorInput>;
-  defaultLayouts?: Maybe<SitePluginPluginOptionsDefaultLayoutsFilterInput>;
-  mediaTypes?: Maybe<StringQueryOperatorInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;
   allExtensions?: Maybe<BooleanQueryOperatorInput>;
   isTSX?: Maybe<BooleanQueryOperatorInput>;

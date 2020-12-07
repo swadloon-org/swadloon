@@ -31,41 +31,13 @@ const config: core.GastbySiteConfig = {
   },
   plugins: [
     /**
-     * Core Plugins
-     */
-    core.getGastbyCorePluginConfig(),
-    core.getGatsbyTsPluginConfig(),
-    core.getGatsbyReactSvgConfig(),
-    // core.getGastbyPluginPageCreatorConfig(),
-    core.getGastbyPluginTreatConfig(),
-    core.getGatsbyTransformerSharp(),
-    core.getGatsbyPluginSharp(),
-    core.getGastbyPluginTreatConfig(),
-    // core.getGatsbyPluginMdx(),
-    core.getGatsbyImageFolder(),
-    core.getGatsbyPluginReactHelmet(),
-    core.getGatsbyPluginSitemap(),
-    core.getGatsbyPluginRobotsTxt({ env }),
-    core.getGatsbyNetlifyPlugin(),
-    // core.getGatsbyPluginPreloadFonts(),
-    core.getGatsbyImageFolder({
-      pathImgDir: path.join(__dirname, `src`, `images`),
-    }),
-    /**
      * Project Specific Plugins
      */
     {
       resolve: `gatsby-plugin-page-creator`,
       options: {
         path: `${__dirname}/src/pages`,
-        ignore: [`**/*`],
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `srcPages`,
-        path: `${__dirname}/src/pages/`,
+        ignore: [`**/*.treat.ts`],
       },
     },
     {
@@ -101,6 +73,27 @@ const config: core.GastbySiteConfig = {
         },
       },
     },
+    /**
+     * Core Plugins
+     */
+    core.getGatsbyTsPluginConfig(),
+    core.getGatsbyReactSvgConfig(),
+    core.getGastbyPluginPageCreatorConfig(),
+    core.getGastbyPluginTreatConfig(),
+    core.getGatsbyTransformerSharp(),
+    core.getGatsbyPluginSharp(),
+    core.getGastbyPluginTreatConfig(),
+    // core.getGatsbyPluginMdx(),
+    core.getGatsbyImageFolder(),
+    core.getGatsbyPluginReactHelmet(),
+    core.getGatsbyPluginSitemap(),
+    core.getGatsbyPluginRobotsTxt({ env }),
+    core.getGatsbyNetlifyPlugin(),
+    // core.getGatsbyPluginPreloadFonts(),
+    core.getGatsbyImageFolder({
+      pathImgDir: path.join(__dirname, `src`, `images`),
+    }),
+    core.getGastbyCorePluginConfig(), // needs to be after ts-plugin
   ],
 };
 

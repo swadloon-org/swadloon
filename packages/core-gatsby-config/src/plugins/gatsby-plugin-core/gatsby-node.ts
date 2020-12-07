@@ -4,7 +4,7 @@ import { es6BabelLoader, getBundleVisualizerPlugin } from '@newrade/core-webpack
 import chalk from 'chalk';
 import { spawn } from 'child_process';
 import { GatsbyNode } from 'gatsby';
-import { WebpackOptions } from 'webpack/declarations/WebpackOptions';
+import { RuleSetRule, RuleSetRules, RuleSetUseItem, WebpackOptions } from 'webpack/declarations/WebpackOptions';
 
 export const onPreBootstrap: GatsbyNode['onPreBootstrap'] = (args, options, callback) => {
   // TODO: find a way to get the package name
@@ -122,13 +122,16 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
    *
    * @see https://github.com/gatsbyjs/gatsby/blob/master/packages/babel-preset-gatsby/src/dependencies.ts
    */
+  const babelLoaderPredicate = (rule: RuleSetRule) =>
+    String(rule.test) === '/\\.(js|mjs|jsx)$/' || String(rule.test) === '/\\.(js|mjs)$/';
+  const negateBabelLoaderPredicate = (rule: RuleSetRule) => !babelLoaderPredicate(rule);
+  const tsLoaderPredicate = (rule: RuleSetRule) => String(rule.test) === '/\\.tsx?$/';
+  const negateTsLoaderPredicate = (rule: RuleSetRule) => !tsLoaderPredicate(rule);
   if (config.module?.rules) {
-    const [gatsbyBabelLoaderConf] = config.module.rules.filter((rule) => String(rule.test) === '/\\.(js|mjs|jsx)$/');
-
-    // console.log(JSON.stringify(gatsbyBabelLoaderConf, null, 2));
+    const [gatsbyBabelLoaderConf] = config.module.rules.filter(babelLoaderPredicate);
 
     config.module.rules = [
-      ...config.module.rules.filter((rule) => String(rule.test) !== '/\\.(js|mjs|jsx)$/'),
+      ...config.module.rules.filter(negateBabelLoaderPredicate),
       {
         ...gatsbyBabelLoaderConf,
         use: [
@@ -137,15 +140,32 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
             options: { ...(gatsbyBabelLoaderConf.use as any)[0].options, ...(es6BabelLoader.use as any)[0].options },
           },
         ],
-        exclude: /static/,
       },
     ];
 
-    const [modifiedGatsbyBabelLoaderConf] = config.module.rules.filter(
-      (rule) => String(rule.test) === '/\\.(js|mjs|jsx)$/'
+    const [modifiedGatsbyBabelLoaderConf] = config.module.rules.filter(babelLoaderPredicate);
+  }
+
+  /**
+   * Replace gatsby-ts-plugin options
+   */
+  if (config.module?.rules) {
+    const [tsLoaderConf] = config.module.rules.filter(tsLoaderPredicate);
+    const [gatsbyBabelLoaderConf] = config.module.rules.filter(babelLoaderPredicate);
+    const [tsLoaderUseConf] = (tsLoaderConf.use as RuleSetUseItem[]).filter(
+      (use: any) => !/babel-loader/.test(use.loader)
     );
 
-    // console.log(JSON.stringify(modifiedGatsbyBabelLoaderConf, null, 2));
+    config.module.rules = [
+      ...config.module.rules.filter(negateTsLoaderPredicate),
+      {
+        ...tsLoaderConf,
+        use: [(gatsbyBabelLoaderConf as any).use[0], tsLoaderUseConf] as RuleSetRule[],
+        exclude: /public|static/,
+      },
+    ] as RuleSetRules;
+
+    const [modifiedTsLoaderConf] = config.module.rules.filter(tsLoaderPredicate);
   }
 
   /**

@@ -1,5 +1,10 @@
 "use strict";
-// @ts- nocheck
+/**
+ * Gatsby Node APIs
+ *
+ * @see https://www.gatsbyjs.com/docs/node-apis/
+ * @see https://www.gatsbyjs.com/docs/api-files-gatsby-node/
+ */
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -43,6 +48,14 @@ exports.createPages = async ({ actions, graphql }) => {
         }
         const siteMetadata = allSiteData.data.site.siteMetadata;
         /**
+         * *** NOT WORKING CURRENTLY sources pages from gatsby-source-filesystem cause a crash during build ***
+         {
+          resolve: `gatsby-source-filesystem`,
+          options: {
+            name: `srcPages`,
+            path: `${__dirname}/src/pages/`,
+          },
+        },
          * Query for pages found in /src/pages
          */
         const srcPagesFilesData = await graphql(`
@@ -103,6 +116,7 @@ exports.createPages = async ({ actions, graphql }) => {
         const srcPageTemplate = path_1.default.resolve(`src/templates/src-page.template.tsx`);
         const markdownTemplate = path_1.default.resolve(`src/templates/markdown.template.tsx`);
         /**
+         * *** NOT WORKING CURRENTLY ***
          * Create src pages
          */
         srcPagesFilesData?.data?.allFile.nodes.forEach((node, index) => {
