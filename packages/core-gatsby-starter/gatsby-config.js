@@ -23,6 +23,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const core = __importStar(require("@newrade/core-gatsby-config"));
+const core_gatsby_config_1 = require("@newrade/core-gatsby-config");
 const core_utils_1 = require("@newrade/core-utils");
 const path_1 = __importDefault(require("path"));
 const package_json_1 = __importDefault(require("./package.json"));
@@ -55,43 +56,40 @@ const config = {
          * Project Specific Plugins
          */
         {
-            resolve: `gatsby-plugin-page-creator`,
+            resolve: `gatsby-source-filesystem`,
             options: {
-                path: `${__dirname}/src/pages`,
-                ignore: [`**/*.treat.ts`],
+                name: core_gatsby_config_1.SOURCE_INSTANCE_NAME.MDX_PAGES,
+                path: `${__dirname}/src/pages/`,
+                ignore: [`**/*.ts?x`],
             },
         },
         {
             resolve: `gatsby-source-filesystem`,
             options: {
-                name: `packageDocs`,
+                name: core_gatsby_config_1.SOURCE_INSTANCE_NAME.PACKAGE_DOCS,
                 path: `${__dirname}/src/docs/`,
             },
         },
         {
             resolve: `gatsby-source-filesystem`,
             options: {
-                name: `docs`,
+                name: core_gatsby_config_1.SOURCE_INSTANCE_NAME.DOCS,
                 path: `${__dirname}/../../docs/`,
             },
         },
+        // {
+        //   resolve: `gatsby-plugin-page-creator`,
+        //   options: {
+        //     path: `${__dirname}/src/pages`,
+        //     ignore: [`**/*.treat.ts`],
+        //   },
+        // },
         {
             resolve: `gatsby-source-contentful`,
             options: {
                 spaceId: env.CONTENTFUL_SPACEID_NEWRADE,
                 accessToken: env.CONTENTFUL_DELIVERY_TOKEN_NEWRADE,
                 environment: 'master',
-            },
-        },
-        {
-            resolve: `gatsby-plugin-mdx`,
-            options: {
-                extensions: ['.md', '.mdx'],
-                defaultLayouts: {
-                    packageDocs: require.resolve('./src/templates/markdown.template.tsx'),
-                    docs: require.resolve('./src/templates/markdown.template.tsx'),
-                    default: require.resolve('./src/templates/markdown.template.tsx'),
-                },
             },
         },
         /**
@@ -104,7 +102,7 @@ const config = {
         core.getGatsbyTransformerSharp(),
         core.getGatsbyPluginSharp(),
         core.getGastbyPluginTreatConfig(),
-        // core.getGatsbyPluginMdx(),
+        core.getGatsbyPluginMdx(),
         core.getGatsbyImageFolder(),
         core.getGatsbyPluginReactHelmet(),
         core.getGatsbyPluginSitemap(),

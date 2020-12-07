@@ -1,4 +1,3 @@
-import { GatsbyPageContext } from '@newrade/core-gatsby-config';
 import { log, LOG_LEVEL } from '@newrade/core-utils';
 import { GatsbyNode } from 'gatsby';
 import path from 'path';
@@ -82,7 +81,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
         log(`Creating page: ${edge.node.route}`, {
           toolName: 'valentine-website',
         });
-        createPage<GatsbyPageContext>({
+        createPage({
           path: edge.node.route,
           component: pageTemplate,
           context: {

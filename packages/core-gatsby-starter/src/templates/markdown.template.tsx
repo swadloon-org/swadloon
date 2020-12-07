@@ -78,7 +78,7 @@ const Page: React.FC<MarkdownTemplateProps> = (props) => {
           site: `${data?.contentfulCompanyInfo?.metadataTwitterSite}`,
         })} */}
       </Helmet>
-      <MDXRenderer>{props.data.file?.childMdx?.body as string}</MDXRenderer>
+      <MDXRenderer {...props}>{props.data.file?.childMdx?.body as string}</MDXRenderer>
     </div>
   );
 };

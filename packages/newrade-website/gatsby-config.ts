@@ -7,7 +7,7 @@ import { Env, ENV } from './types/dot-env';
 
 const env = loadDotEnv<ENV>({
   schema: Env,
-  dotEnvPath: path.resolve(__dirname, '..', '.env'),
+  dotEnvPath: path.resolve(__dirname, '.env'),
   packageName: packageJson.name,
 });
 logEnvVariables<ENV>({ packageName: packageJson.name, env });

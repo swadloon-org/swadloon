@@ -5,7 +5,12 @@
  * @see https://www.gatsbyjs.com/docs/api-files-gatsby-node/
  */
 
-import { GatsbyMarkdownFilePageContext, GatsbySrcPageContext } from '@newrade/core-gatsby-config';
+import {
+  GatsbyMarkdownFilePageContext,
+  GatsbyPageContext,
+  GatsbySrcPageContext,
+  SOURCE_INSTANCE_NAME,
+} from '@newrade/core-gatsby-config';
 import { AppError, ERROR_TYPE, log, LOG_LEVEL } from '@newrade/core-utils';
 import { kebab } from 'case';
 import { GatsbyNode } from 'gatsby';
@@ -20,10 +25,13 @@ import {
   GatsbyNodeMarkdownFilesQuery,
   GatsbyNodeSiteMetadataFragment,
   GatsbyNodeSrcPageFilesQuery,
+  GatsbyNodeSrcPagesQuery,
 } from './types/graphql-types';
 
+let siteMetadata: GatsbyNodeSiteMetadataFragment;
+
 export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql }) => {
-  const { createPage } = actions;
+  const { createPage, deletePage } = actions;
 
   try {
     /**
@@ -57,7 +65,23 @@ export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql 
       });
     }
 
-    const siteMetadata: GatsbyNodeSiteMetadataFragment = allSiteData.data.site.siteMetadata;
+    siteMetadata = allSiteData.data.site.siteMetadata;
+
+    const srcPagesData = await graphql<GatsbyNodeSrcPagesQuery>(`
+      query GatsbyNodeSrcPages {
+        allSitePage(filter: { component: { regex: "/src/pages/g" } }) {
+          nodes {
+            id
+            path
+            component
+          }
+        }
+      }
+    `);
+
+    log(`Got ${srcPagesData?.data?.allSitePage?.nodes?.length} files for pages`, {
+      toolName: packageJson.name,
+    });
 
     /**
      * *** NOT WORKING CURRENTLY sources pages from gatsby-source-filesystem cause a crash during build ***
@@ -158,7 +182,11 @@ export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql 
      * Create Markdown pages
      */
     markdownFilesData?.data?.allFile.nodes.forEach((node, index) => {
-      const path = `${node.sourceInstanceName ? `${kebab(node.sourceInstanceName)}/` : ''}${node.childMdx?.slug}`;
+      const dir =
+        node.sourceInstanceName === SOURCE_INSTANCE_NAME.MDX_PAGES
+          ? ``
+          : `${node.sourceInstanceName ? `${kebab(node.sourceInstanceName)}/` : ''}`;
+      const path = `${dir}${node.childMdx?.slug}`;
 
       log(`Creating markdown page: ${path}`, {
         toolName: packageJson.name,
@@ -185,4 +213,21 @@ export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql 
       });
     }
   }
+};
+
+export const onCreatePage: GatsbyNode['onCreatePage'] = ({ page, actions }) => {
+  const { createPage, deletePage } = actions;
+
+  if (!/src\/pages/g.test(page.component)) {
+    return;
+  }
+
+  deletePage(page);
+  createPage<GatsbyPageContext<GatsbyNodeSiteMetadataFragment>>({
+    ...page,
+    context: {
+      siteMetadata,
+      pageId: '',
+    },
+  });
 };

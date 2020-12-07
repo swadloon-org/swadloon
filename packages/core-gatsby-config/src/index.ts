@@ -2,6 +2,7 @@ export * from './config/page-config';
 export * from './config/site-config';
 export * from './config/site-languages';
 export * from './config/site-metadata';
+export * from './config/source-instances';
 export * from './plugins/gatsby-load-image-source.conf';
 export * from './plugins/gatsby-plugin-core.conf';
 export * from './plugins/gatsby-plugin-mdx.conf';

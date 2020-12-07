@@ -30,7 +30,7 @@ const package_json_1 = __importDefault(require("./package.json"));
 const dot_env_1 = require("./types/dot-env");
 const env = core_utils_1.loadDotEnv({
     schema: dot_env_1.Env,
-    dotEnvPath: path_1.default.resolve(__dirname, '..', '.env'),
+    dotEnvPath: path_1.default.resolve(__dirname, '.env'),
     packageName: package_json_1.default.name,
 });
 core_utils_1.logEnvVariables({ packageName: package_json_1.default.name, env });

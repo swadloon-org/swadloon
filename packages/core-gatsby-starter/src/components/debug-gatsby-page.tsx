@@ -1,7 +1,7 @@
 import { PageProps } from 'gatsby';
-import React from 'react';
+import React, { ReactNode } from 'react';
 
-export const DebugGasbyPage: React.FC<PageProps> = (props) => {
+export const DebugGasbyPage: React.FC<any> = (props) => {
   return (
     <div>
       <details>

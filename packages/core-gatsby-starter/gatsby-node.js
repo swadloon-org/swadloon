@@ -9,13 +9,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createPages = void 0;
+exports.onCreatePage = exports.createPages = void 0;
+const core_gatsby_config_1 = require("@newrade/core-gatsby-config");
 const core_utils_1 = require("@newrade/core-utils");
 const case_1 = require("case");
 const path_1 = __importDefault(require("path"));
 const package_json_1 = __importDefault(require("./package.json"));
+let siteMetadata;
 exports.createPages = async ({ actions, graphql }) => {
-    const { createPage } = actions;
+    const { createPage, deletePage } = actions;
     try {
         /**
          * Query for site metadata
@@ -46,7 +48,21 @@ exports.createPages = async ({ actions, graphql }) => {
                 message: `Could not retrieve siteMetadata`,
             });
         }
-        const siteMetadata = allSiteData.data.site.siteMetadata;
+        siteMetadata = allSiteData.data.site.siteMetadata;
+        const srcPagesData = await graphql(`
+      query GatsbyNodeSrcPages {
+        allSitePage(filter: { component: { regex: "/src/pages/g" } }) {
+          nodes {
+            id
+            path
+            component
+          }
+        }
+      }
+    `);
+        core_utils_1.log(`Got ${srcPagesData?.data?.allSitePage?.nodes?.length} files for pages`, {
+            toolName: package_json_1.default.name,
+        });
         /**
          * *** NOT WORKING CURRENTLY sources pages from gatsby-source-filesystem cause a crash during build ***
          {
@@ -138,7 +154,10 @@ exports.createPages = async ({ actions, graphql }) => {
          * Create Markdown pages
          */
         markdownFilesData?.data?.allFile.nodes.forEach((node, index) => {
-            const path = `${node.sourceInstanceName ? `${case_1.kebab(node.sourceInstanceName)}/` : ''}${node.childMdx?.slug}`;
+            const dir = node.sourceInstanceName === core_gatsby_config_1.SOURCE_INSTANCE_NAME.MDX_PAGES
+                ? ``
+                : `${node.sourceInstanceName ? `${case_1.kebab(node.sourceInstanceName)}/` : ''}`;
+            const path = `${dir}${node.childMdx?.slug}`;
             core_utils_1.log(`Creating markdown page: ${path}`, {
                 toolName: package_json_1.default.name,
             });
@@ -164,4 +183,18 @@ exports.createPages = async ({ actions, graphql }) => {
             });
         }
     }
+};
+exports.onCreatePage = ({ page, actions }) => {
+    const { createPage, deletePage } = actions;
+    if (!/src\/pages/g.test(page.component)) {
+        return;
+    }
+    deletePage(page);
+    createPage({
+        ...page,
+        context: {
+            siteMetadata,
+            pageId: '',
+        },
+    });
 };

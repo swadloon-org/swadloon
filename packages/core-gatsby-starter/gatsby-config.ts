@@ -1,4 +1,5 @@
 import * as core from '@newrade/core-gatsby-config';
+import { SOURCE_INSTANCE_NAME } from '@newrade/core-gatsby-config';
 import { loadDotEnv, logEnvVariables } from '@newrade/core-utils';
 import path from 'path';
 import packageJson from './package.json';
@@ -34,43 +35,40 @@ const config: core.GastbySiteConfig = {
      * Project Specific Plugins
      */
     {
-      resolve: `gatsby-plugin-page-creator`,
+      resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/src/pages`,
-        ignore: [`**/*.treat.ts`],
+        name: SOURCE_INSTANCE_NAME.MDX_PAGES,
+        path: `${__dirname}/src/pages/`,
+        ignore: [`**/*.ts?x`],
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `packageDocs`,
+        name: SOURCE_INSTANCE_NAME.PACKAGE_DOCS,
         path: `${__dirname}/src/docs/`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `docs`,
+        name: SOURCE_INSTANCE_NAME.DOCS,
         path: `${__dirname}/../../docs/`,
       },
     },
+    // {
+    //   resolve: `gatsby-plugin-page-creator`,
+    //   options: {
+    //     path: `${__dirname}/src/pages`,
+    //     ignore: [`**/*.treat.ts`],
+    //   },
+    // },
     {
       resolve: `gatsby-source-contentful`,
       options: {
         spaceId: env.CONTENTFUL_SPACEID_NEWRADE,
         accessToken: env.CONTENTFUL_DELIVERY_TOKEN_NEWRADE,
         environment: 'master',
-      },
-    },
-    {
-      resolve: `gatsby-plugin-mdx`,
-      options: {
-        extensions: ['.md', '.mdx'],
-        defaultLayouts: {
-          packageDocs: require.resolve('./src/templates/markdown.template.tsx'),
-          docs: require.resolve('./src/templates/markdown.template.tsx'),
-          default: require.resolve('./src/templates/markdown.template.tsx'),
-        },
       },
     },
     /**
@@ -83,7 +81,7 @@ const config: core.GastbySiteConfig = {
     core.getGatsbyTransformerSharp(),
     core.getGatsbyPluginSharp(),
     core.getGastbyPluginTreatConfig(),
-    // core.getGatsbyPluginMdx(),
+    core.getGatsbyPluginMdx(),
     core.getGatsbyImageFolder(),
     core.getGatsbyPluginReactHelmet(),
     core.getGatsbyPluginSitemap(),
