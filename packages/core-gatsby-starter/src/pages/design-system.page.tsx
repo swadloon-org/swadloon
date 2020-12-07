@@ -31,7 +31,7 @@ const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
                 ? keys(cssTheme.colors?.colors).map((color) => {
                     if (cssTheme.colors?.colors[color] && typeof cssTheme.colors?.colors[color] !== 'object') {
                       return (
-                        <div>
+                        <div key={color}>
                           <div
                             style={{
                               backgroundColor: cssTheme.colors.colors[color] as string,
@@ -47,12 +47,12 @@ const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
                     const palettes = cssTheme.colors?.colors[color] as Record<string, string>;
 
                     return (
-                      <Stack>
+                      <Stack key={color}>
                         <Cluster>
                           {palettes
                             ? keys(palettes).map((shade) => {
                                 return palettes[shade] ? (
-                                  <div>
+                                  <div key={shade}>
                                     <div
                                       style={{
                                         backgroundColor: palettes[shade] as string,
@@ -107,6 +107,7 @@ const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
                       {keys(cssTheme?.sizing?.sizes[size]).map((step) => {
                         return (
                           <div
+                            key={step}
                             id={step}
                             style={{ height: cssTheme?.sizing?.sizes[size][step], backgroundColor: 'grey' }}
                           >

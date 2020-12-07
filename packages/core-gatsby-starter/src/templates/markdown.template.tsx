@@ -7,6 +7,7 @@ import { GatsbyNodeSiteMetadataFragment, MarkdownTemplateQuery } from '../../typ
 import { graphql } from 'gatsby';
 import { DEPLOY_ENV } from '@newrade/core-env';
 import { DebugGasbyPage } from '../components/debug-gatsby-page';
+import { getMetaBasicTags } from '@newrade/core-react-ui';
 
 export type MarkdownTemplateProps = PageProps<
   MarkdownTemplateQuery,
@@ -55,9 +56,11 @@ const Page: React.FC<MarkdownTemplateProps> = (props) => {
   return (
     <div>
       {props.pageContext.siteMetadata?.siteEnv === DEPLOY_ENV.LOCAL ? <DebugGasbyPage {...props} /> : null}
-      {/* <Helmet>
+      <Helmet>
         {getMetaBasicTags()}
-        {getMetadataOpenGraphWebsiteTags({
+        <meta name="title" content={'test'} />
+        <meta name="description" content={'test'} />
+        {/* {getMetadataOpenGraphWebsiteTags({
           type: OPEN_GRAPH_TYPE.ARTICLE,
           title: `${data?.contentfulBlogPost?.title}`,
           url: `${data?.site?.siteMetadata?.siteUrl}${data?.contentfulBlogPost?.blogSlug}`,
@@ -73,8 +76,8 @@ const Page: React.FC<MarkdownTemplateProps> = (props) => {
           image: `${data?.contentfulBlogPost?.blogMainImage?.socialMediaImage?.src}`,
           creator: `${data?.contentfulCompanyInfo?.metadataTwitterCreator}`,
           site: `${data?.contentfulCompanyInfo?.metadataTwitterSite}`,
-        })}
-      </Helmet> */}
+        })} */}
+      </Helmet>
       <MDXRenderer>{props.data.file?.childMdx?.body as string}</MDXRenderer>
     </div>
   );

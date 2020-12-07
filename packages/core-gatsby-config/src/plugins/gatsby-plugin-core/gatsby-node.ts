@@ -137,6 +137,7 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
             options: { ...(gatsbyBabelLoaderConf.use as any)[0].options, ...(es6BabelLoader.use as any)[0].options },
           },
         ],
+        exclude: /static/,
       },
     ];
 
