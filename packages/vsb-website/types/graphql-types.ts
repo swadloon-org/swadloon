@@ -2741,6 +2741,8 @@ export type QueryAllDirectoryArgs = {
 export type QuerySiteArgs = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  port?: Maybe<IntQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -2969,6 +2971,8 @@ export type QueryAllSitePluginArgs = {
 export type Site = Node & {
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
+  port?: Maybe<Scalars['Int']>;
+  host?: Maybe<Scalars['String']>;
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
@@ -3174,6 +3178,8 @@ export type SiteFieldsEnum =
   | 'siteMetadata___siteEnv'
   | 'siteMetadata___languages___langs'
   | 'siteMetadata___languages___defaultLangKey'
+  | 'port'
+  | 'host'
   | 'polyfill'
   | 'pathPrefix'
   | 'id'
@@ -3266,6 +3272,8 @@ export type SiteFieldsEnum =
 export type SiteFilterInput = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  port?: Maybe<IntQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -3322,11 +3330,39 @@ export type SitePageConnectionGroupArgs = {
 };
 
 export type SitePageContext = {
+  siteMetadata?: Maybe<SitePageContextSiteMetadata>;
   pageId?: Maybe<Scalars['String']>;
 };
 
 export type SitePageContextFilterInput = {
+  siteMetadata?: Maybe<SitePageContextSiteMetadataFilterInput>;
   pageId?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePageContextSiteMetadata = {
+  title?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+  siteEnv?: Maybe<Scalars['String']>;
+  siteUrl?: Maybe<Scalars['String']>;
+  languages?: Maybe<SitePageContextSiteMetadataLanguages>;
+};
+
+export type SitePageContextSiteMetadataFilterInput = {
+  title?: Maybe<StringQueryOperatorInput>;
+  description?: Maybe<StringQueryOperatorInput>;
+  siteEnv?: Maybe<StringQueryOperatorInput>;
+  siteUrl?: Maybe<StringQueryOperatorInput>;
+  languages?: Maybe<SitePageContextSiteMetadataLanguagesFilterInput>;
+};
+
+export type SitePageContextSiteMetadataLanguages = {
+  langs?: Maybe<Array<Maybe<Scalars['String']>>>;
+  defaultLangKey?: Maybe<Scalars['String']>;
+};
+
+export type SitePageContextSiteMetadataLanguagesFilterInput = {
+  langs?: Maybe<StringQueryOperatorInput>;
+  defaultLangKey?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePageEdge = {
@@ -3428,6 +3464,12 @@ export type SitePageFieldsEnum =
   | 'internal___owner'
   | 'internal___type'
   | 'isCreatedByStatefulCreatePages'
+  | 'context___siteMetadata___title'
+  | 'context___siteMetadata___description'
+  | 'context___siteMetadata___siteEnv'
+  | 'context___siteMetadata___siteUrl'
+  | 'context___siteMetadata___languages___langs'
+  | 'context___siteMetadata___languages___defaultLangKey'
   | 'context___pageId'
   | 'pluginCreator___id'
   | 'pluginCreator___parent___id'
@@ -4117,3 +4159,18 @@ export type StringQueryOperatorInput = {
   regex?: Maybe<Scalars['String']>;
   glob?: Maybe<Scalars['String']>;
 };
+
+export type GatsbyNodeAllSiteQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GatsbyNodeAllSiteQuery = { site?: Maybe<{ siteMetadata?: Maybe<GatsbyNodeSiteMetadataFragment> }> };
+
+export type GatsbyNodeSiteMetadataFragment = (
+  Pick<SiteSiteMetadata, 'title' | 'description' | 'siteEnv' | 'siteUrl'>
+  & { languages?: Maybe<Pick<SiteSiteMetadataLanguages, 'langs' | 'defaultLangKey'>> }
+);
+
+export type GatsbyNodePagesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GatsbyNodePagesQuery = { allContentfulPage: { edges: Array<{ node: Pick<ContentfulPage, 'node_locale' | 'id' | 'name' | 'route'> }> } };

@@ -1,8 +1,8 @@
 import { GatsbyPageContext } from '@newrade/core-gatsby-config';
-import { log, LOG_LEVEL } from '@newrade/core-utils';
+import { AppError, ERROR_TYPE, log, LOG_LEVEL } from '@newrade/core-utils';
 import { GatsbyNode } from 'gatsby';
 import path from 'path';
-
+import { GatsbyNodeAllSiteQuery, GatsbyNodeSiteMetadataFragment } from './types/graphql-types';
 /**
  * Gatsby Node Configuration
  *
@@ -42,7 +42,37 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
    */
 
   try {
-    const pages = await graphql<{
+    const allSiteData = await graphql<GatsbyNodeAllSiteQuery>(`
+      query GatsbyNodeAllSite {
+        site {
+          siteMetadata {
+            ...GatsbyNodeSiteMetadata
+          }
+        }
+      }
+
+      fragment GatsbyNodeSiteMetadata on SiteSiteMetadata {
+        title
+        description
+        siteEnv
+        siteUrl
+        languages {
+          langs
+          defaultLangKey
+        }
+      }
+    `);
+
+    if (!allSiteData.data?.site?.siteMetadata) {
+      throw new AppError({
+        name: ERROR_TYPE.GATSBY_ERROR,
+        message: `Could not retrieve siteMetadata`,
+      });
+    }
+
+    const siteMetadata: GatsbyNodeSiteMetadataFragment = allSiteData.data.site.siteMetadata;
+
+    const pagesData = await graphql<{
       allContentfulPage: {
         edges: { node: { id: string; name: string; route: string; node_locale: string } }[];
       };
@@ -62,14 +92,15 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
         }
       `
     );
-    if (pages.errors) {
+    if (pagesData.errors) {
       throw new Error('Error while retrieving pages');
     }
     /**
      * Automatically create pages based on the Page Collection in Contentful
      */
     const pageTemplate = path.resolve(`src/templates/page.template.tsx`);
-    pages?.data?.allContentfulPage.edges
+
+    pagesData?.data?.allContentfulPage.edges
       .filter((edge) => {
         if (!(edge && edge.node)) {
           return false;
@@ -81,13 +112,13 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
         log(`Creating page: ${edge.node.route}`, {
           toolName: 'valentine-website',
         });
-        createPage<GatsbyPageContext>({
+        createPage<GatsbyPageContext<GatsbyNodeSiteMetadataFragment>>({
           path: edge.node.route,
-          component: pageTemplate,
           context: {
-            siteMetadata:
+            siteMetadata,
             pageId: edge.node.id,
           },
+          component: pageTemplate,
         });
       });
 
