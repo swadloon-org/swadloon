@@ -1,7 +1,8 @@
 import { GatsbyBlogPostContext, GatsbyPageContext } from '@newrade/core-gatsby-config';
-import { log, LOG_LEVEL } from '@newrade/core-utils';
+import { AppError, ERROR_TYPE, log, LOG_LEVEL } from '@newrade/core-utils';
 import { GatsbyNode } from 'gatsby';
 import path from 'path';
+import { GatsbyNodeAllSiteQuery, GatsbyNodeSiteMetadataFragment } from './types/graphql-types';
 
 /**
  * Gatsby Node Configuration
@@ -30,10 +31,43 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
   });
 
   /**
-   * Page creations
+   * Page creations Site - metadata
    */
   try {
-    const pages = await graphql<{
+    const allSiteData = await graphql<GatsbyNodeAllSiteQuery>(`
+      query GatsbyNodeAllSite {
+        site {
+          siteMetadata {
+            ...GatsbyNodeSiteMetadata
+          }
+        }
+      }
+
+      fragment GatsbyNodeSiteMetadata on SiteSiteMetadata {
+        title
+        description
+        siteEnv
+        siteUrl
+        languages {
+          langs
+          defaultLangKey
+        }
+      }
+    `);
+
+    if (!allSiteData.data?.site?.siteMetadata) {
+      throw new AppError({
+        name: ERROR_TYPE.GATSBY_ERROR,
+        message: `Could not retrieve siteMetadata`,
+      });
+    }
+
+    const siteMetadata: GatsbyNodeSiteMetadataFragment = allSiteData.data.site.siteMetadata;
+
+    /**
+     * Page creations contentful
+     */
+    const pagesData = await graphql<{
       allContentfulPage: {
         edges: { node: { id: string; name: string; route: string; node_locale: string } }[];
       };
@@ -53,14 +87,15 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
         }
       `
     );
-    if (pages.errors) {
+    if (pagesData.errors) {
       throw new Error('Error while retrieving pages');
     }
     /**
      * Automatically create pages based on the Page Collection in Contentful
      */
     const pageTemplate = path.resolve(`src/templates/page.template.tsx`);
-    pages?.data?.allContentfulPage.edges
+
+    pagesData?.data?.allContentfulPage.edges
       .filter((edge) => {
         if (!(edge && edge.node)) {
           return false;
@@ -72,12 +107,13 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
         log(`Creating page: ${edge.node.route}`, {
           toolName: 'mir-website',
         });
-        createPage<GatsbyPageContext>({
+        createPage<GatsbyPageContext<GatsbyNodeSiteMetadataFragment>>({
           path: edge.node.route,
-          component: pageTemplate,
           context: {
+            siteMetadata,
             pageId: edge.node.id,
           },
+          component: pageTemplate,
         });
       });
 
@@ -108,10 +144,10 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
     }
 
     const blogPostTemplate = path.resolve(`src/templates/blog-post.template.tsx`);
-    const blogPageRouteFR = pages?.data?.allContentfulPage.edges
+    const blogPageRouteFR = pagesData?.data?.allContentfulPage.edges
       .filter((edge) => edge.node.name.includes('Blogue') && edge.node.node_locale === 'fr-CA')
       .map((edge) => edge.node);
-    const blogPageRouteEN = pages?.data?.allContentfulPage.edges
+    const blogPageRouteEN = pagesData?.data?.allContentfulPage.edges
       .filter((edge) => edge.node.name.includes('Blogue') && edge.node.node_locale === 'en-CA')
       .map((edge) => edge.node);
 

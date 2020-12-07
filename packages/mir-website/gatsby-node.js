@@ -11,7 +11,6 @@ const path_1 = __importDefault(require("path"));
  *
  * @see https://www.gatsbyjs.com/docs/node-apis/
  */
-const env = core_utils_1.loadDotEnv(path_1.default.resolve(__dirname, '.env'));
 exports.createPages = async ({ graphql, actions }) => {
     const { createPage, createRedirect } = actions;
     /**
@@ -32,10 +31,40 @@ exports.createPages = async ({ graphql, actions }) => {
         isPermanent: true,
     });
     /**
-     * Page creations
+     * Page creations Site - metadata
      */
     try {
-        const pages = await graphql(`
+        const allSiteData = await graphql(`
+      query GatsbyNodeAllSite {
+        site {
+          siteMetadata {
+            ...GatsbyNodeSiteMetadata
+          }
+        }
+      }
+
+      fragment GatsbyNodeSiteMetadata on SiteSiteMetadata {
+        title
+        description
+        siteEnv
+        siteUrl
+        languages {
+          langs
+          defaultLangKey
+        }
+      }
+    `);
+        if (!allSiteData.data?.site?.siteMetadata) {
+            throw new core_utils_1.AppError({
+                name: core_utils_1.ERROR_TYPE.GATSBY_ERROR,
+                message: `Could not retrieve siteMetadata`,
+            });
+        }
+        const siteMetadata = allSiteData.data.site.siteMetadata;
+        /**
+         * Page creations contentful
+         */
+        const pagesData = await graphql(`
         query GatsbyNodePages {
           allContentfulPage {
             edges {
@@ -49,14 +78,14 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       `);
-        if (pages.errors) {
+        if (pagesData.errors) {
             throw new Error('Error while retrieving pages');
         }
         /**
          * Automatically create pages based on the Page Collection in Contentful
          */
         const pageTemplate = path_1.default.resolve(`src/templates/page.template.tsx`);
-        pages?.data?.allContentfulPage.edges
+        pagesData?.data?.allContentfulPage.edges
             .filter((edge) => {
             if (!(edge && edge.node)) {
                 return false;
@@ -69,10 +98,11 @@ exports.createPages = async ({ graphql, actions }) => {
             });
             createPage({
                 path: edge.node.route,
-                component: pageTemplate,
                 context: {
+                    siteMetadata,
                     pageId: edge.node.id,
                 },
+                component: pageTemplate,
             });
         });
         /**
@@ -95,10 +125,10 @@ exports.createPages = async ({ graphql, actions }) => {
             throw new Error('Error while retrieving blog posts');
         }
         const blogPostTemplate = path_1.default.resolve(`src/templates/blog-post.template.tsx`);
-        const blogPageRouteFR = pages?.data?.allContentfulPage.edges
+        const blogPageRouteFR = pagesData?.data?.allContentfulPage.edges
             .filter((edge) => edge.node.name.includes('Blogue') && edge.node.node_locale === 'fr-CA')
             .map((edge) => edge.node);
-        const blogPageRouteEN = pages?.data?.allContentfulPage.edges
+        const blogPageRouteEN = pagesData?.data?.allContentfulPage.edges
             .filter((edge) => edge.node.name.includes('Blogue') && edge.node.node_locale === 'en-CA')
             .map((edge) => edge.node);
         core_utils_1.log(`Creating blog posts under: ${blogPageRouteEN?.[0].route}`, {
