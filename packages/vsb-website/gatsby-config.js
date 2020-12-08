@@ -69,13 +69,6 @@ const config = {
             },
         },
         {
-            resolve: `gatsby-source-filesystem`,
-            options: {
-                name: core_gatsby_config_1.SOURCE_INSTANCE_NAME.DOCS,
-                path: `${__dirname}/../../docs/`,
-            },
-        },
-        {
             resolve: `gatsby-source-contentful`,
             options: {
                 spaceId: env.CONTENTFUL_SPACEID_VSB,
@@ -99,10 +92,6 @@ const config = {
         core.getGatsbyPluginSitemap(),
         core.getGatsbyPluginRobotsTxt({ env }),
         core.getGatsbyNetlifyPlugin(),
-        // core.getGatsbyPluginPreloadFonts(),
-        core.getGatsbyImageFolder({
-            pathImgDir: path_1.default.join(__dirname, `src`, `images`),
-        }),
         core.getGastbyCorePluginConfig(),
     ],
 };

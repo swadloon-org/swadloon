@@ -101,10 +101,6 @@ const config = {
         core.getGatsbyPluginSitemap(),
         core.getGatsbyPluginRobotsTxt({ env }),
         core.getGatsbyNetlifyPlugin(),
-        // core.getGatsbyPluginPreloadFonts(),
-        core.getGatsbyImageFolder({
-            pathImgDir: path_1.default.join(__dirname, `src`, `images`),
-        }),
         core.getGastbyCorePluginConfig(),
     ],
 };
