@@ -3,7 +3,7 @@ import React from 'react';
 import { useStyles } from 'react-treat';
 import { Layout } from '../layouts/layout';
 import { Providers } from '../layouts/providers';
-import { SrcPageTemplateProps } from '../templates/src-page.template';
+import { SrcPageTemplateProps } from '@newrade/core-gatsby-ui';
 import * as styleRefs from './index.treat';
 
 const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
