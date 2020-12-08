@@ -1355,6 +1355,7 @@ export type File = Node & {
   parent?: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
+  childMdx?: Maybe<Mdx>;
 };
 
 
@@ -1652,7 +1653,61 @@ export type FileFieldsEnum =
   | 'internal___ignoreType'
   | 'internal___mediaType'
   | 'internal___owner'
-  | 'internal___type';
+  | 'internal___type'
+  | 'childMdx___rawBody'
+  | 'childMdx___fileAbsolutePath'
+  | 'childMdx___frontmatter___title'
+  | 'childMdx___slug'
+  | 'childMdx___body'
+  | 'childMdx___excerpt'
+  | 'childMdx___headings'
+  | 'childMdx___headings___value'
+  | 'childMdx___headings___depth'
+  | 'childMdx___html'
+  | 'childMdx___mdxAST'
+  | 'childMdx___tableOfContents'
+  | 'childMdx___timeToRead'
+  | 'childMdx___wordCount___paragraphs'
+  | 'childMdx___wordCount___sentences'
+  | 'childMdx___wordCount___words'
+  | 'childMdx___id'
+  | 'childMdx___parent___id'
+  | 'childMdx___parent___parent___id'
+  | 'childMdx___parent___parent___children'
+  | 'childMdx___parent___children'
+  | 'childMdx___parent___children___id'
+  | 'childMdx___parent___children___children'
+  | 'childMdx___parent___internal___content'
+  | 'childMdx___parent___internal___contentDigest'
+  | 'childMdx___parent___internal___description'
+  | 'childMdx___parent___internal___fieldOwners'
+  | 'childMdx___parent___internal___ignoreType'
+  | 'childMdx___parent___internal___mediaType'
+  | 'childMdx___parent___internal___owner'
+  | 'childMdx___parent___internal___type'
+  | 'childMdx___children'
+  | 'childMdx___children___id'
+  | 'childMdx___children___parent___id'
+  | 'childMdx___children___parent___children'
+  | 'childMdx___children___children'
+  | 'childMdx___children___children___id'
+  | 'childMdx___children___children___children'
+  | 'childMdx___children___internal___content'
+  | 'childMdx___children___internal___contentDigest'
+  | 'childMdx___children___internal___description'
+  | 'childMdx___children___internal___fieldOwners'
+  | 'childMdx___children___internal___ignoreType'
+  | 'childMdx___children___internal___mediaType'
+  | 'childMdx___children___internal___owner'
+  | 'childMdx___children___internal___type'
+  | 'childMdx___internal___content'
+  | 'childMdx___internal___contentDigest'
+  | 'childMdx___internal___description'
+  | 'childMdx___internal___fieldOwners'
+  | 'childMdx___internal___ignoreType'
+  | 'childMdx___internal___mediaType'
+  | 'childMdx___internal___owner'
+  | 'childMdx___internal___type';
 
 export type FileFilterInput = {
   sourceInstanceName?: Maybe<StringQueryOperatorInput>;
@@ -1694,6 +1749,7 @@ export type FileFilterInput = {
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
+  childMdx?: Maybe<MdxFilterInput>;
 };
 
 export type FileGroupConnection = {
@@ -2672,6 +2728,7 @@ export type QueryFileArgs = {
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
+  childMdx?: Maybe<MdxFilterInput>;
 };
 
 
@@ -3462,8 +3519,12 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___resolve'
   | 'pluginCreator___name'
   | 'pluginCreator___version'
+  | 'pluginCreator___pluginOptions___name'
   | 'pluginCreator___pluginOptions___path'
   | 'pluginCreator___pluginOptions___ignore'
+  | 'pluginCreator___pluginOptions___spaceId'
+  | 'pluginCreator___pluginOptions___accessToken'
+  | 'pluginCreator___pluginOptions___environment'
   | 'pluginCreator___pluginOptions___fileName'
   | 'pluginCreator___pluginOptions___tsLoader___configFile'
   | 'pluginCreator___pluginOptions___tsLoader___logLevel'
@@ -3472,12 +3533,6 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___typeCheck'
   | 'pluginCreator___pluginOptions___failOnError'
   | 'pluginCreator___pluginOptions___documentPaths'
-  | 'pluginCreator___pluginOptions___name'
-  | 'pluginCreator___pluginOptions___headers____x'
-  | 'pluginCreator___pluginOptions___mergeSecurityHeaders'
-  | 'pluginCreator___pluginOptions___mergeLinkHeaders'
-  | 'pluginCreator___pluginOptions___mergeCachingHeaders'
-  | 'pluginCreator___pluginOptions___generateMatchPathRewrites'
   | 'pluginCreator___pluginOptions___base64Width'
   | 'pluginCreator___pluginOptions___stripMetadata'
   | 'pluginCreator___pluginOptions___defaultQuality'
@@ -3487,9 +3542,11 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___output'
   | 'pluginCreator___pluginOptions___host'
   | 'pluginCreator___pluginOptions___sitemap'
-  | 'pluginCreator___pluginOptions___spaceId'
-  | 'pluginCreator___pluginOptions___accessToken'
-  | 'pluginCreator___pluginOptions___environment'
+  | 'pluginCreator___pluginOptions___headers____x'
+  | 'pluginCreator___pluginOptions___mergeSecurityHeaders'
+  | 'pluginCreator___pluginOptions___mergeLinkHeaders'
+  | 'pluginCreator___pluginOptions___mergeCachingHeaders'
+  | 'pluginCreator___pluginOptions___generateMatchPathRewrites'
   | 'pluginCreator___pluginOptions___pathCheck'
   | 'pluginCreator___pluginOptions___allExtensions'
   | 'pluginCreator___pluginOptions___isTSX'
@@ -3680,8 +3737,12 @@ export type SitePluginFieldsEnum =
   | 'resolve'
   | 'name'
   | 'version'
+  | 'pluginOptions___name'
   | 'pluginOptions___path'
   | 'pluginOptions___ignore'
+  | 'pluginOptions___spaceId'
+  | 'pluginOptions___accessToken'
+  | 'pluginOptions___environment'
   | 'pluginOptions___fileName'
   | 'pluginOptions___tsLoader___configFile'
   | 'pluginOptions___tsLoader___logLevel'
@@ -3690,12 +3751,6 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___typeCheck'
   | 'pluginOptions___failOnError'
   | 'pluginOptions___documentPaths'
-  | 'pluginOptions___name'
-  | 'pluginOptions___headers____x'
-  | 'pluginOptions___mergeSecurityHeaders'
-  | 'pluginOptions___mergeLinkHeaders'
-  | 'pluginOptions___mergeCachingHeaders'
-  | 'pluginOptions___generateMatchPathRewrites'
   | 'pluginOptions___base64Width'
   | 'pluginOptions___stripMetadata'
   | 'pluginOptions___defaultQuality'
@@ -3709,9 +3764,11 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___env___dev___policy'
   | 'pluginOptions___env___staging___policy'
   | 'pluginOptions___env___production___policy'
-  | 'pluginOptions___spaceId'
-  | 'pluginOptions___accessToken'
-  | 'pluginOptions___environment'
+  | 'pluginOptions___headers____x'
+  | 'pluginOptions___mergeSecurityHeaders'
+  | 'pluginOptions___mergeLinkHeaders'
+  | 'pluginOptions___mergeCachingHeaders'
+  | 'pluginOptions___generateMatchPathRewrites'
   | 'pluginOptions___pathCheck'
   | 'pluginOptions___allExtensions'
   | 'pluginOptions___isTSX'
@@ -3828,19 +3885,17 @@ export type SitePluginPackageJsonPeerDependenciesFilterListInput = {
 };
 
 export type SitePluginPluginOptions = {
+  name?: Maybe<Scalars['String']>;
   path?: Maybe<Scalars['String']>;
   ignore?: Maybe<Array<Maybe<Scalars['String']>>>;
+  spaceId?: Maybe<Scalars['String']>;
+  accessToken?: Maybe<Scalars['String']>;
+  environment?: Maybe<Scalars['String']>;
   fileName?: Maybe<Scalars['String']>;
   tsLoader?: Maybe<SitePluginPluginOptionsTsLoader>;
   typeCheck?: Maybe<Scalars['Boolean']>;
   failOnError?: Maybe<Scalars['Boolean']>;
   documentPaths?: Maybe<Array<Maybe<Scalars['String']>>>;
-  name?: Maybe<Scalars['String']>;
-  headers?: Maybe<SitePluginPluginOptionsHeaders>;
-  mergeSecurityHeaders?: Maybe<Scalars['Boolean']>;
-  mergeLinkHeaders?: Maybe<Scalars['Boolean']>;
-  mergeCachingHeaders?: Maybe<Scalars['Boolean']>;
-  generateMatchPathRewrites?: Maybe<Scalars['Boolean']>;
   base64Width?: Maybe<Scalars['Int']>;
   stripMetadata?: Maybe<Scalars['Boolean']>;
   defaultQuality?: Maybe<Scalars['Int']>;
@@ -3851,9 +3906,11 @@ export type SitePluginPluginOptions = {
   host?: Maybe<Scalars['String']>;
   sitemap?: Maybe<Scalars['String']>;
   env?: Maybe<SitePluginPluginOptionsEnv>;
-  spaceId?: Maybe<Scalars['String']>;
-  accessToken?: Maybe<Scalars['String']>;
-  environment?: Maybe<Scalars['String']>;
+  headers?: Maybe<SitePluginPluginOptionsHeaders>;
+  mergeSecurityHeaders?: Maybe<Scalars['Boolean']>;
+  mergeLinkHeaders?: Maybe<Scalars['Boolean']>;
+  mergeCachingHeaders?: Maybe<Scalars['Boolean']>;
+  generateMatchPathRewrites?: Maybe<Scalars['Boolean']>;
   pathCheck?: Maybe<Scalars['Boolean']>;
   allExtensions?: Maybe<Scalars['Boolean']>;
   isTSX?: Maybe<Scalars['Boolean']>;
@@ -3963,19 +4020,17 @@ export type SitePluginPluginOptionsEnvStagingPolicyFilterListInput = {
 };
 
 export type SitePluginPluginOptionsFilterInput = {
+  name?: Maybe<StringQueryOperatorInput>;
   path?: Maybe<StringQueryOperatorInput>;
   ignore?: Maybe<StringQueryOperatorInput>;
+  spaceId?: Maybe<StringQueryOperatorInput>;
+  accessToken?: Maybe<StringQueryOperatorInput>;
+  environment?: Maybe<StringQueryOperatorInput>;
   fileName?: Maybe<StringQueryOperatorInput>;
   tsLoader?: Maybe<SitePluginPluginOptionsTsLoaderFilterInput>;
   typeCheck?: Maybe<BooleanQueryOperatorInput>;
   failOnError?: Maybe<BooleanQueryOperatorInput>;
   documentPaths?: Maybe<StringQueryOperatorInput>;
-  name?: Maybe<StringQueryOperatorInput>;
-  headers?: Maybe<SitePluginPluginOptionsHeadersFilterInput>;
-  mergeSecurityHeaders?: Maybe<BooleanQueryOperatorInput>;
-  mergeLinkHeaders?: Maybe<BooleanQueryOperatorInput>;
-  mergeCachingHeaders?: Maybe<BooleanQueryOperatorInput>;
-  generateMatchPathRewrites?: Maybe<BooleanQueryOperatorInput>;
   base64Width?: Maybe<IntQueryOperatorInput>;
   stripMetadata?: Maybe<BooleanQueryOperatorInput>;
   defaultQuality?: Maybe<IntQueryOperatorInput>;
@@ -3986,9 +4041,11 @@ export type SitePluginPluginOptionsFilterInput = {
   host?: Maybe<StringQueryOperatorInput>;
   sitemap?: Maybe<StringQueryOperatorInput>;
   env?: Maybe<SitePluginPluginOptionsEnvFilterInput>;
-  spaceId?: Maybe<StringQueryOperatorInput>;
-  accessToken?: Maybe<StringQueryOperatorInput>;
-  environment?: Maybe<StringQueryOperatorInput>;
+  headers?: Maybe<SitePluginPluginOptionsHeadersFilterInput>;
+  mergeSecurityHeaders?: Maybe<BooleanQueryOperatorInput>;
+  mergeLinkHeaders?: Maybe<BooleanQueryOperatorInput>;
+  mergeCachingHeaders?: Maybe<BooleanQueryOperatorInput>;
+  generateMatchPathRewrites?: Maybe<BooleanQueryOperatorInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;
   allExtensions?: Maybe<BooleanQueryOperatorInput>;
   isTSX?: Maybe<BooleanQueryOperatorInput>;
@@ -4065,3 +4122,8 @@ export type StringQueryOperatorInput = {
   regex?: Maybe<Scalars['String']>;
   glob?: Maybe<Scalars['String']>;
 };
+
+export type GatsbyNodePagesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GatsbyNodePagesQuery = { allContentfulPage: { edges: Array<{ node: Pick<ContentfulPage, 'node_locale' | 'id' | 'name' | 'route'> }> } };

@@ -14,16 +14,6 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    # - name: Set environment for branch
-    #   run: |
-    #     if [[ $GITHUB_REF == 'refs/heads/master' ]]; then
-    #         echo "::set-env name=GLCOUD_PROJECT::my-project-stg"
-    #         echo "::set-env name=VERCEL_TARGET::staging"
-    #     else
-    #         echo "::set-env name=GLCOUD_PROJECT::my-project-prd"
-    #         echo "::set-env name=VERCEL_TARGET::production"
-    #     fi
-
     - name: Set up Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:

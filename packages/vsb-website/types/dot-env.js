@@ -33,6 +33,10 @@ exports.Env = t.intersection([
          */
         FIGMA_TOKEN: t.string,
         FIGMA_FILE: t.string,
+        /**
+         * Contentful variables
+         */
+        CONTENTFUL_MANAGEMENT_TOKEN_VSB: t.string,
     }),
     t.type({
         /**
@@ -40,6 +44,5 @@ exports.Env = t.intersection([
          */
         CONTENTFUL_SPACEID_VSB: t.string,
         CONTENTFUL_DELIVERY_TOKEN_VSB: t.string,
-        CONTENTFUL_MANAGEMENT_TOKEN_VSB: t.string,
     }),
 ]);

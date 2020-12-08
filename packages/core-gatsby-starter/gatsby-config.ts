@@ -56,13 +56,6 @@ const config: core.GastbySiteConfig = {
         path: `${__dirname}/../../docs/`,
       },
     },
-    // {
-    //   resolve: `gatsby-plugin-page-creator`,
-    //   options: {
-    //     path: `${__dirname}/src/pages`,
-    //     ignore: [`**/*.treat.ts`],
-    //   },
-    // },
     {
       resolve: `gatsby-source-contentful`,
       options: {
@@ -87,11 +80,8 @@ const config: core.GastbySiteConfig = {
     core.getGatsbyPluginSitemap(),
     core.getGatsbyPluginRobotsTxt({ env }),
     core.getGatsbyNetlifyPlugin(),
-    // core.getGatsbyPluginPreloadFonts(),
-    core.getGatsbyImageFolder({
-      pathImgDir: path.join(__dirname, `src`, `images`),
-    }),
     core.getGastbyCorePluginConfig(), // needs to be after ts-plugin
+    // core.getGatsbyPluginPreloadFonts(),
   ],
 };
 

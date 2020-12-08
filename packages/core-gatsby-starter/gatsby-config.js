@@ -77,13 +77,6 @@ const config = {
                 path: `${__dirname}/../../docs/`,
             },
         },
-        // {
-        //   resolve: `gatsby-plugin-page-creator`,
-        //   options: {
-        //     path: `${__dirname}/src/pages`,
-        //     ignore: [`**/*.treat.ts`],
-        //   },
-        // },
         {
             resolve: `gatsby-source-contentful`,
             options: {
