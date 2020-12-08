@@ -1,0 +1,22 @@
+{
+  "extends": "../../tsconfig.build.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "lib",
+    "strict": false,
+    "types": ["gatsby", "node"]
+  },
+  "references": [
+    {
+      "path": "../core-react-ui/tsconfig.build.json"
+    },
+    {
+      "path": "../core-env/tsconfig.build.json"
+    },
+    {
+      "path": "../core-utils/tsconfig.build.json"
+    }
+  ],
+  "include": ["src/**/*", "types"],
+  "exclude": ["public"]
+}

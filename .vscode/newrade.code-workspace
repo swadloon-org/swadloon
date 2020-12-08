@@ -26,6 +26,9 @@
       "path": "../packages/core-docs-generator"
     },
     {
+      "path": "../packages/core-env"
+    },
+    {
       "path": "../packages/core-figma-plugins"
     },
     {
@@ -33,6 +36,9 @@
     },
     {
       "path": "../packages/core-gatsby-starter"
+    },
+    {
+      "path": "../packages/core-gatsby-ui"
     },
     {
       "path": "../packages/core-github-actions"

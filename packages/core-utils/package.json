@@ -24,5 +24,8 @@
     "start": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
     "test": "echo test"
   },
-  "typings": "./lib/index.d.ts"
+  "typings": "./lib/index.d.ts",
+  "dependencies": {
+    "@newrade/core-env": "^1"
+  }
 }

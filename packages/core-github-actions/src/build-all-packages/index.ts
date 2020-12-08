@@ -1,9 +1,13 @@
 import * as core from '@actions/core';
 import * as github from '@actions/github';
-import { DEPLOY_ENV } from '@newrade/core-utils';
+import { DEPLOY_ENV } from '@newrade/core-env';
 
 try {
   console.info(`github.context.ref`, github.context.ref);
+
+  core.exportVariable('APP_URL', 'http://localhost');
+  core.exportVariable('APP_PORT', '9000');
+
   switch (github.context.ref) {
     case 'refs/heads/dev': {
       core.exportVariable('APP_ENV', DEPLOY_ENV.DEV);

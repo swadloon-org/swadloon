@@ -1,5 +1,5 @@
 /**
- * The locale these tags are marked up in. Of the format language_TERRITORY. Default is en_US.
+ * The locale these tags are marked up in. Of the format language_TERRITORY.
  */
 export enum SITE_LANGUAGES {
   EN = 'en_CA',

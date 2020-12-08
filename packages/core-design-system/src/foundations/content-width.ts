@@ -3,13 +3,13 @@ import { VIEWPORT } from './layout';
 /**
  * Content margins for each viewport formats.
  */
-export type ContentMargins = {
-  [key in keyof typeof VIEWPORT]: number;
+export type ContentMargins<BreakpointType = number> = {
+  [key in keyof typeof VIEWPORT]: BreakpointType;
 };
 
 /**
  * Content max width for larger viewports.
  */
-export interface ContentWidths {
-  desktopMaxWidth: number;
+export interface ContentWidths<WidthType = number> {
+  desktopMaxWidth: WidthType;
 }

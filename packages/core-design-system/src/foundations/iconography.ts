@@ -7,11 +7,11 @@ import { SizingStep } from './sizing';
  *    MENU = 'menu' would mean that a menu.svg icon exists in src/icons/
  */
 export enum ICON {
-  MENU = 'menu',
-  ARROW_TOP = 'arrow-top',
-  ARROW_RIGHT = 'arrow-right',
-  ARROW_BOTTOM = 'arrow-bottom',
-  ARROW_LEFT = 'arrow-left',
+  MENU = 'MENU',
+  ARROW_UP = 'ARROW_UP',
+  ARROW_RIGHT = 'ARROW_RIGHT',
+  ARROW_DOWN = 'ARROW_DOWN',
+  ARROW_LEFT = 'ARROW_LEFT',
 }
 
 export interface Icon {
@@ -33,18 +33,23 @@ export enum ICON_SIZE {
 
 export type IconSizes<SizingType = SizingStep> = { [key in keyof typeof ICON_SIZE]: SizingType };
 
-export type Icons = { [key in keyof typeof ICON]: Icon } & { [key: string]: Icon };
+export type Icons = { [key in keyof typeof ICON]: Icon };
 
 export interface Iconography<SizingType = SizingStep> {
+  /**
+   * Name of the icon set.
+   */
+  iconsFamily: string;
+  iconsWebsite: string;
+  /**
+   * Default icon infos (name and optionally weight) along with
+   * extra icons.
+   */
+  icons: Icons;
   /**
    * Icon size for each viewport.
    */
   sizes: {
     [key in keyof typeof VIEWPORT]: IconSizes<SizingType>;
   };
-  /**
-   * Default icon infos (name and optionally weight) along with
-   * extra icons.
-   */
-  icons: Icons;
 }

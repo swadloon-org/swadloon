@@ -23,16 +23,23 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const core = __importStar(require("@newrade/core-gatsby-config"));
+const core_gatsby_config_1 = require("@newrade/core-gatsby-config");
 const core_utils_1 = require("@newrade/core-utils");
 const path_1 = __importDefault(require("path"));
 const package_json_1 = __importDefault(require("./package.json"));
-const env = core_utils_1.loadDotEnv(path_1.default.resolve(__dirname, '.env'));
-core_utils_1.logEnvVariables({ packageName: package_json_1.default.name, env });
+const dot_env_1 = require("./types/dot-env");
 /**
- * Configure your Gatsby site with this file.
+ * Gatsby Config API
  *
- * See: https://www.gatsbyjs.org/docs/gatsby-config/
+ * @see https://www.gatsbyjs.org/docs/gatsby-config/
+ * @see https://www.gatsbyjs.com/docs/api-files-gatsby-config/
  */
+const env = core_utils_1.loadDotEnv({
+    schema: dot_env_1.Env,
+    dotEnvPath: path_1.default.resolve(__dirname, '.env'),
+    packageName: package_json_1.default.name,
+});
+core_utils_1.logEnvVariables({ packageName: package_json_1.default.name, env });
 const config = {
     siteMetadata: {
         title: `Core Gatsby Website`,
@@ -45,29 +52,31 @@ const config = {
         },
     },
     plugins: [
+        /**
+         * Project Specific Plugins
+         */
         {
-            resolve: `gatsby-plugin-page-creator`,
+            resolve: `gatsby-source-filesystem`,
             options: {
-                path: path_1.default.resolve(__dirname, 'src', 'pages'),
-                ignore: [`**/*.treat.ts`],
+                name: core_gatsby_config_1.SOURCE_INSTANCE_NAME.MDX_PAGES,
+                path: `${__dirname}/src/pages/`,
+                ignore: [`**/*.ts?x`],
             },
         },
-        core.getGastbyCorePluginConfig(),
-        core.getGatsbyTsPluginConfig(),
-        core.getGatsbyReactSvgConfig(),
-        core.getGastbyPluginTreatConfig(),
-        core.getGatsbyImageFolder({
-            pathImgDir: path_1.default.join(__dirname, `src`, `images`),
-        }),
-        core.getGatsbyNetlifyPlugin(),
-        core.getGatsbyTransformerSharp(),
-        core.getGatsbyPluginSharp(),
-        core.getGastbyPluginTreatConfig(),
-        core.getGatsbyPluginMdx(),
-        core.getGatsbyPluginPreloadFonts(),
-        core.getGatsbyPluginReactHelmet(),
-        core.getGatsbyPluginSitemap(),
-        core.getGatsbyPluginRobotsTxt({ env }),
+        {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+                name: core_gatsby_config_1.SOURCE_INSTANCE_NAME.PACKAGE_DOCS,
+                path: `${__dirname}/src/docs/`,
+            },
+        },
+        {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+                name: core_gatsby_config_1.SOURCE_INSTANCE_NAME.DOCS,
+                path: `${__dirname}/../../docs/`,
+            },
+        },
         {
             resolve: `gatsby-source-contentful`,
             options: {
@@ -76,6 +85,25 @@ const config = {
                 environment: 'master',
             },
         },
+        /**
+         * Core Plugins
+         */
+        core.getGatsbyTsPluginConfig(),
+        core.getGatsbyReactSvgConfig(),
+        core.getGastbyPluginPageCreatorConfig(),
+        core.getGastbyPluginTreatConfig(),
+        core.getGatsbyTransformerSharp(),
+        core.getGatsbyPluginSharp(),
+        core.getGastbyPluginTreatConfig(),
+        core.getGatsbyPluginMdx(),
+        core.getGatsbyImageFolder(),
+        core.getGatsbyPluginReactHelmet(),
+        core.getGatsbyPluginSitemap(),
+        core.getGatsbyPluginRobotsTxt({ env }),
+        core.getGatsbyNetlifyPlugin(),
+        core.getGastbyCorePluginConfig({
+            packageName: package_json_1.default.name,
+        }),
     ],
 };
 exports.default = config;

@@ -1,0 +1,24 @@
+{
+  "name": "@newrade/core-env",
+  "version": "1.0.0",
+  "description": "env utilities shared across packages.",
+  "author": {
+    "email": "info@newrade.ca",
+    "name": "Newrade",
+    "url": "https://github.com/newrade/newrade"
+  },
+  "repository": "https://github.com/newrade/newrade-core/tree/master/packages/core-env",
+  "license": "MIT",
+  "main": "./lib/index.js",
+  "module": "./lib/index.js",
+  "files": [
+    "./lib/**/*"
+  ],
+  "scripts": {
+    "build": "tsc --build tsconfig.build.json",
+    "clean": "rimraf -r lib/** && rm -f tsconfig.build.tsbuildinfo",
+    "start": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
+    "test": "echo test"
+  },
+  "typings": "./lib/index.d.ts"
+}

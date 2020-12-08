@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "declaration": true,
+    "sourceMap": true,
+    "outDir": "dist",
+    "rootDir": "test",
+    "strict": true,
+    "target": "esnext",
+    "module": "esnext",
+    "types": ["node"]
+  },
+  "include": ["types", "test"]
+}

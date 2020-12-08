@@ -1,1 +1,1 @@
-// noop
+export * from './gatsby-plugin-options';

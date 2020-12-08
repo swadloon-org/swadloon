@@ -1,26 +1,15 @@
 "use strict";
 /**
- * Gatsby Node Configuration
+ * Gatsby Node APIs
  *
  * @see https://www.gatsbyjs.com/docs/node-apis/
+ * @see https://www.gatsbyjs.com/docs/api-files-gatsby-node/
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-require('dotenv').config();
-exports.createPages = async ({}) => {
-    // const { data } = await graphql(`
-    //   {
-    //     gcms
-    //   }
-    // `);
-    // console.log(data);
-    // data.contents.nodes.forEach((node) => {
-    //   createPage({
-    //     component: path.resolve(`src/templates/blog-page.tsx`),
-    //     context: {
-    //       id: node.id,
-    //       content: node.contentRich,
-    //     } as BlogPostContext,
-    //     path: `/blog-post/_${node.title}`,
-    //   });
-    // });
+exports.onCreatePage = exports.createPages = void 0;
+exports.createPages = async ({ actions, graphql }) => {
+    const { createPage, deletePage } = actions;
+};
+exports.onCreatePage = ({ page, actions }) => {
+    const { createPage, deletePage } = actions;
 };

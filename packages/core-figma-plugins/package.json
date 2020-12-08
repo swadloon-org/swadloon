@@ -14,6 +14,8 @@
     "execute": "cross-env TS_NODE_PROJECT=tsconfig.build.json node -r ts-node/register src/index.ts"
   },
   "dependencies": {
-    "@figma/plugin-typings": "^1"
+    "@figma/plugin-typings": "^1",
+    "@newrade/core-env": "^1",
+    "@newrade/core-utils": "^1"
   }
 }

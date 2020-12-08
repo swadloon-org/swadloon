@@ -11,7 +11,6 @@ const path_1 = __importDefault(require("path"));
  *
  * @see https://www.gatsbyjs.com/docs/node-apis/
  */
-const env = core_utils_1.loadDotEnv(path_1.default.resolve(__dirname, '.env'));
 exports.createPages = async ({ graphql, actions }) => {
     const { createPage, createRedirect } = actions;
     /**

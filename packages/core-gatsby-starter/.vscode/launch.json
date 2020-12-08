@@ -14,12 +14,12 @@
         "NODE_ENV": "development",
         "DEBUG": "gatsby:*"
       },
-      "console": "internalConsole",
-      "internalConsoleOptions": "openOnSessionStart",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "openOnFirstSessionStart",
       "runtimeArgs": ["--lazy"],
-      "preLaunchTask": "compile",
+      "preLaunchTask": "pre-debug",
       "autoAttachChildProcesses": true,
-      "sourceMaps": true
+      "sourceMaps": false
     }
   ]
 }

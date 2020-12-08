@@ -35,7 +35,8 @@
   },
   "types": "lib/index.d.ts",
   "dependencies": {
-    "@newrade/core-utils": "^1.2.2",
+    "@newrade/core-env": "^1",
+    "@newrade/core-utils": "^1",
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "@oclif/plugin-help": "^3",

@@ -58,6 +58,7 @@ export type Overlays = {
  */
 export interface Effects<ShadowType = BoxShadow, ColorType = Color> {
   shadows: Shadows<ShadowType, ColorType>;
+  innerShadows: Shadows<ShadowType, ColorType>;
   // TOOD
   // overlays: Overlays;
 }

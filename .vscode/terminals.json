@@ -39,6 +39,12 @@
       "focus": false
     },
     {
+      "name": "core-env",
+      "cwd": "[workspaceFolder]/packages/core-env",
+      "open": true,
+      "focus": false
+    },
+    {
       "name": "core-figma-plugins",
       "cwd": "[workspaceFolder]/packages/core-figma-plugins",
       "open": true,

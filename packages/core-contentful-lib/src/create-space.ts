@@ -2,9 +2,13 @@ import { loadDotEnv, logEnvVariables } from '@newrade/core-utils';
 import { runMigration } from 'contentful-migration';
 import path from 'path';
 import packageJson from '../package.json';
-import { ENV } from '../types/dot-env';
+import { Env, ENV } from '../types/dot-env';
 
-const env = loadDotEnv<ENV>(path.resolve(__dirname, '..', '.env'));
+const env = loadDotEnv<ENV>({
+  schema: Env,
+  dotEnvPath: path.resolve(__dirname, '..', '.env'),
+  packageName: packageJson.name,
+});
 logEnvVariables<ENV>({ packageName: packageJson.name, env });
 
 /**
@@ -14,7 +18,7 @@ runMigration({
   // filePath: path.resolve(__dirname, 'migrations', 'create-space.migration.ts'),
   filePath: path.resolve(__dirname, 'migrations', 'create-space.migration.ts'),
   spaceId: env.CONTENTFUL_SPACEID,
-  accessToken: env.CONTENTFUL_TOKEN,
+  accessToken: env.CONTENTFUL_MANAGEMENT_TOKEN,
 })
   .then(() => console.log('Migration Done!'))
   .catch((e) => console.error(e));

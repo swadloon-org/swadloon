@@ -9,7 +9,7 @@ import { graphql, PageProps } from 'gatsby';
 import React from 'react';
 import Helmet from 'react-helmet';
 import { TreatProvider } from 'react-treat';
-import { PageQuery } from '../../types/graphql-types';
+import { PageQuery, GatsbyNodeSiteMetadataFragment } from '../../types/graphql-types';
 import { ViewportProvider } from '../context/viewport.context';
 import { light } from '../design-system/themes.treat';
 import { viewportContext } from '../hooks/use-viewport.hook';
@@ -21,7 +21,7 @@ import { HomeTemplate } from './home.template';
 import '../styles/font-faces.styles.css';
 import { NotFoundTemplate } from './not-found.template';
 
-export type ProjectPageProps = PageProps<PageQuery, GatsbyPageContext>;
+export type ProjectPageProps = PageProps<PageQuery, GatsbyPageContext<GatsbyNodeSiteMetadataFragment>>;
 
 export const pageQuery = graphql`
   query Page($pageId: String) {

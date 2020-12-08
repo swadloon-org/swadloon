@@ -8,18 +8,18 @@ export type Padding<PaddingType = number> = {
   left?: PaddingType;
 };
 
-export type Border = {
-  borderColor?: Color;
+export type Border<ColorType = Color, BorderWidthType = number, BorderRadiusType = number> = {
+  borderColor?: ColorType;
   borderStyle?: 'solid' | 'dotted';
-  borderWidth?: number;
-  borderRadius?: number;
+  borderWidth?: BorderWidthType;
+  borderRadius?: BorderRadiusType;
 };
 
-export type Outline = {
-  outlineColor?: Color;
+export type Outline<ColorType = Color, OutlineWidthType = number, OutlineRadiusType = number> = {
+  outlineColor?: ColorType;
   outlineStyle?: 'solid' | 'dotted';
-  outlineWidth?: number;
-  outlineRadius?: number;
+  outlineWidth?: OutlineWidthType;
+  outlineRadius?: OutlineRadiusType;
 };
 
 export type BoxStyle<ColorType = Color, PaddingType = number, BorderType = Border, OutlineType = Outline> = {

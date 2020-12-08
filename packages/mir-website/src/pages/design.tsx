@@ -10,14 +10,6 @@ import { Label } from '../components/ui/label';
 import { Icon } from '../components/ui/icon';
 import { Accordions } from '../components/ui/accordions';
 
-const DesignPage: React.FC<{}> = (props) => {
-  return (
-    <TreatProvider theme={light}>
-      <Design {...props} />
-    </TreatProvider>
-  );
-};
-
 export const Design: React.FC = () => {
   const style = useStyles(styleRefs);
 
@@ -90,6 +82,14 @@ export const Design: React.FC = () => {
         <Author></Author>
       </div>
     </div>
+  );
+};
+
+const DesignPage: React.FC<{}> = (props) => {
+  return (
+    <TreatProvider theme={light}>
+      <Design {...props} />
+    </TreatProvider>
   );
 };
 

@@ -2,4 +2,4 @@
 
 ## JSON API
 
-https://api.jsonbin.io/b/<BIN_ID>
+`https://api.jsonbin.io/b/<BIN_ID>`

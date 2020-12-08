@@ -1,8 +1,14 @@
-import { COMMON_ENV_GATSBY } from '@newrade/core-utils';
+import * as t from 'io-ts';
 
 /**
  * Local, typed representation of the .env file.
  */
-export type ENV = COMMON_ENV_GATSBY & {
-  FIGMA_TOKEN: string;
-};
+export const Env = t.partial({
+  /**
+   * Figma
+   */
+  FIGMA_TOKEN: t.string,
+  FIGMA_FILE: t.string,
+});
+
+export type ENV = t.TypeOf<typeof Env>;

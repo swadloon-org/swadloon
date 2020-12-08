@@ -14,16 +14,6 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    # - name: Set environment for branch
-    #   run: |
-    #     if [[ $GITHUB_REF == 'refs/heads/master' ]]; then
-    #         echo "::set-env name=GLCOUD_PROJECT::my-project-stg"
-    #         echo "::set-env name=VERCEL_TARGET::staging"
-    #     else
-    #         echo "::set-env name=GLCOUD_PROJECT::my-project-prd"
-    #         echo "::set-env name=VERCEL_TARGET::production"
-    #     fi
-
     - name: Set up Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
@@ -51,9 +41,9 @@ jobs:
     # many file watchers
     #
     - name: Increase system limit for number of file watchers
-      if: ${{ !env.ACT }}
       run: |
         echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+
 
     - name: Install dependencies
       run: yarn
@@ -76,37 +66,76 @@ jobs:
         CI: true
 
     - name: Build core-gatsby-starter
+      if: always()
       run: yarn build --scope @newrade/core-gatsby-starter
       env:
         APP_URL: 'http://local.newrade.ca'
         CONTENTFUL_SPACEID_NEWRADE: ${{ secrets.CONTENTFUL_SPACEID_NEWRADE }}
         CONTENTFUL_DELIVERY_TOKEN_NEWRADE: ${{ secrets.CONTENTFUL_DELIVERY_TOKEN_NEWRADE }}
+        NVM_NODE_VERSION: ${{ secrets.NVM_NODE_VERSION }}
+        MASTER_GIT_HOST: ${{ secrets.MASTER_GIT_HOST }}
+        MASTER_REPO_ORG: ${{ secrets.MASTER_REPO_ORG }}
+        MASTER_REPO_NAME: ${{ secrets.MASTER_REPO_NAME }}
+        PROJECT_GIT_HOST: ${{ secrets.PROJECT_GIT_HOST }}
+        PROJECT_REPO_ORG: ${{ secrets.PROJECT_REPO_ORG }}
+        PROJECT_REPO_NAME: ${{ secrets.PROJECT_REPO_NAME }}
 
     - name: Build newrade-website
+      if: always()
       run: yarn build --scope @newrade/newrade-website
       env:
         APP_URL: 'http://local.newrade.ca'
         CONTENTFUL_SPACEID_NEWRADE: ${{ secrets.CONTENTFUL_SPACEID_NEWRADE }}
         CONTENTFUL_DELIVERY_TOKEN_NEWRADE: ${{ secrets.CONTENTFUL_DELIVERY_TOKEN_NEWRADE }}
+        NVM_NODE_VERSION: ${{ secrets.NVM_NODE_VERSION }}
+        MASTER_GIT_HOST: ${{ secrets.MASTER_GIT_HOST }}
+        MASTER_REPO_ORG: ${{ secrets.MASTER_REPO_ORG }}
+        MASTER_REPO_NAME: ${{ secrets.MASTER_REPO_NAME }}
+        PROJECT_GIT_HOST: ${{ secrets.PROJECT_GIT_HOST }}
+        PROJECT_REPO_ORG: ${{ secrets.PROJECT_REPO_ORG }}
+        PROJECT_REPO_NAME: ${{ secrets.PROJECT_REPO_NAME }}
 
     - name: Build mir-website
+      if: always()
       run: yarn build --scope @newrade/mir-website
       env:
         APP_URL: 'http://local.mirinc.ca'
         CONTENTFUL_SPACEID_MIR: ${{ secrets.CONTENTFUL_SPACEID_MIR }}
         CONTENTFUL_DELIVERY_TOKEN_MIR: ${{ secrets.CONTENTFUL_DELIVERY_TOKEN_MIR }}
+        NVM_NODE_VERSION: ${{ secrets.NVM_NODE_VERSION }}
+        MASTER_GIT_HOST: ${{ secrets.MASTER_GIT_HOST }}
+        MASTER_REPO_ORG: ${{ secrets.MASTER_REPO_ORG }}
+        MASTER_REPO_NAME: ${{ secrets.MASTER_REPO_NAME }}
+        PROJECT_GIT_HOST: ${{ secrets.PROJECT_GIT_HOST }}
+        PROJECT_REPO_ORG: ${{ secrets.PROJECT_REPO_ORG }}
+        PROJECT_REPO_NAME: ${{ secrets.PROJECT_REPO_NAME }}
 
     - name: Build valentine-website
+      if: always()
       run: yarn build --scope @newrade/valentine-website
       env:
         APP_URL: 'http://local.valentinebv.com'
         CONTENTFUL_SPACEID_VALENTINE: ${{ secrets.CONTENTFUL_SPACEID_VALENTINE }}
         CONTENTFUL_DELIVERY_TOKEN_VALENTINE : ${{ secrets.CONTENTFUL_DELIVERY_TOKEN_VALENTINE }}
+        NVM_NODE_VERSION: ${{ secrets.NVM_NODE_VERSION }}
+        MASTER_GIT_HOST: ${{ secrets.MASTER_GIT_HOST }}
+        MASTER_REPO_ORG: ${{ secrets.MASTER_REPO_ORG }}
+        MASTER_REPO_NAME: ${{ secrets.MASTER_REPO_NAME }}
+        PROJECT_GIT_HOST: ${{ secrets.PROJECT_GIT_HOST }}
+        PROJECT_REPO_ORG: ${{ secrets.PROJECT_REPO_ORG }}
+        PROJECT_REPO_NAME: ${{ secrets.PROJECT_REPO_NAME }}
 
     - name: Build vsb-website
+      if: always()
       run: yarn build --scope @newrade/vsb-website
       env:
         APP_URL: 'http://local.vasectomie-pierre-boucher.ca'
         CONTENTFUL_SPACEID_VSB: ${{ secrets.CONTENTFUL_SPACEID_VSB }}
         CONTENTFUL_DELIVERY_TOKEN_VSB: ${{ secrets.CONTENTFUL_DELIVERY_TOKEN_VSB }}
-
+        NVM_NODE_VERSION: ${{ secrets.NVM_NODE_VERSION }}
+        MASTER_GIT_HOST: ${{ secrets.MASTER_GIT_HOST }}
+        MASTER_REPO_ORG: ${{ secrets.MASTER_REPO_ORG }}
+        MASTER_REPO_NAME: ${{ secrets.MASTER_REPO_NAME }}
+        PROJECT_GIT_HOST: ${{ secrets.PROJECT_GIT_HOST }}
+        PROJECT_REPO_ORG: ${{ secrets.PROJECT_REPO_ORG }}
+        PROJECT_REPO_NAME: ${{ secrets.PROJECT_REPO_NAME }}

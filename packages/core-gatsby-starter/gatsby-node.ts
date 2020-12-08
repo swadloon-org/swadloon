@@ -1,31 +1,16 @@
 /**
- * Gatsby Node Configuration
+ * Gatsby Node APIs
  *
  * @see https://www.gatsbyjs.com/docs/node-apis/
+ * @see https://www.gatsbyjs.com/docs/api-files-gatsby-node/
  */
 
-require('dotenv').config();
+import { GatsbyNode } from 'gatsby';
 
-export type BlogPostContext = {
-  id: string;
-  content: any;
+export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql }) => {
+  const { createPage, deletePage } = actions;
 };
 
-exports.createPages = async ({}) => {
-  // const { data } = await graphql(`
-  //   {
-  //     gcms
-  //   }
-  // `);
-  // console.log(data);
-  // data.contents.nodes.forEach((node) => {
-  //   createPage({
-  //     component: path.resolve(`src/templates/blog-page.tsx`),
-  //     context: {
-  //       id: node.id,
-  //       content: node.contentRich,
-  //     } as BlogPostContext,
-  //     path: `/blog-post/_${node.title}`,
-  //   });
-  // });
+export const onCreatePage: GatsbyNode['onCreatePage'] = ({ page, actions }) => {
+  const { createPage, deletePage } = actions;
 };
