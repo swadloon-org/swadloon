@@ -86,7 +86,7 @@ export type COMMON_ENV = t.TypeOf<typeof CommonEnv>;
  */
 export const CommonEnvGatsby = t.intersection([
   CommonEnv,
-  t.type({
+  t.partial({
     /**
      * Custom variable to enable Gatsby Cloud's incremental build.
      * @see https://www.gatsbyjs.com/blog/2020-04-22-announcing-incremental-builds/

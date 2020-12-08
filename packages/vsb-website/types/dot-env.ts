@@ -12,6 +12,10 @@ export const Env = t.intersection([
      */
     FIGMA_TOKEN: t.string,
     FIGMA_FILE: t.string,
+    /**
+     * Contentful variables
+     */
+    CONTENTFUL_MANAGEMENT_TOKEN_VSB: t.string,
   }),
   t.type({
     /**
@@ -19,7 +23,6 @@ export const Env = t.intersection([
      */
     CONTENTFUL_SPACEID_VSB: t.string,
     CONTENTFUL_DELIVERY_TOKEN_VSB: t.string,
-    CONTENTFUL_MANAGEMENT_TOKEN_VSB: t.string,
   }),
 ]);
 

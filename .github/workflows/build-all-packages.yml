@@ -51,9 +51,9 @@ jobs:
     # many file watchers
     #
     - name: Increase system limit for number of file watchers
-      if: ${{ !env.ACT }}
       run: |
         echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+
 
     - name: Install dependencies
       run: yarn
@@ -74,7 +74,7 @@ jobs:
       run: yarn test
       env:
         CI: true
-        
+
     - name: Build core-gatsby-starter
       run: yarn build --scope @newrade/core-gatsby-starter
       env:

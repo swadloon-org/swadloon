@@ -15,11 +15,11 @@ https://github.com/nektos/act
 Usage:
 
 ```bash
+# list actions
 act -l
-```
 
-```bash
-act
+# simulate push
+act push -j build_all_packages-local  --reuse --env-file .env --env-file packages/core-gatsby-starter/.env
 ```
 
 ---
