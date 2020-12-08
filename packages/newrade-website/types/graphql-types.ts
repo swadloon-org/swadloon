@@ -1334,6 +1334,8 @@ export type FileFieldsEnum =
   | 'childMdx___rawBody'
   | 'childMdx___fileAbsolutePath'
   | 'childMdx___frontmatter___title'
+  | 'childMdx___frontmatter___name'
+  | 'childMdx___frontmatter___tags'
   | 'childMdx___slug'
   | 'childMdx___body'
   | 'childMdx___excerpt'
@@ -2137,6 +2139,8 @@ export type MdxFieldsEnum =
   | 'rawBody'
   | 'fileAbsolutePath'
   | 'frontmatter___title'
+  | 'frontmatter___name'
+  | 'frontmatter___tags'
   | 'slug'
   | 'body'
   | 'excerpt'
@@ -2258,10 +2262,14 @@ export type MdxFilterInput = {
 
 export type MdxFrontmatter = {
   title: Scalars['String'];
+  name?: Maybe<Scalars['String']>;
+  tags?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 export type MdxFrontmatterFilterInput = {
   title?: Maybe<StringQueryOperatorInput>;
+  name?: Maybe<StringQueryOperatorInput>;
+  tags?: Maybe<StringQueryOperatorInput>;
 };
 
 export type MdxGroupConnection = {
@@ -3031,11 +3039,13 @@ export type SitePageConnectionGroupArgs = {
 
 export type SitePageContext = {
   siteMetadata?: Maybe<SitePageContextSiteMetadata>;
+  fileId?: Maybe<Scalars['String']>;
   pageId?: Maybe<Scalars['String']>;
 };
 
 export type SitePageContextFilterInput = {
   siteMetadata?: Maybe<SitePageContextSiteMetadataFilterInput>;
+  fileId?: Maybe<StringQueryOperatorInput>;
   pageId?: Maybe<StringQueryOperatorInput>;
 };
 
@@ -3170,6 +3180,7 @@ export type SitePageFieldsEnum =
   | 'context___siteMetadata___siteUrl'
   | 'context___siteMetadata___languages___langs'
   | 'context___siteMetadata___languages___defaultLangKey'
+  | 'context___fileId'
   | 'context___pageId'
   | 'pluginCreator___id'
   | 'pluginCreator___parent___id'
@@ -3819,3 +3830,16 @@ export type StringQueryOperatorInput = {
   regex?: Maybe<Scalars['String']>;
   glob?: Maybe<Scalars['String']>;
 };
+
+export type MarkdownTemplateQueryVariables = Exact<{
+  fileId?: Maybe<Scalars['String']>;
+}>;
+
+
+export type MarkdownTemplateQuery = { file?: Maybe<(
+    Pick<File, 'id' | 'name' | 'base' | 'ext' | 'dir' | 'absolutePath' | 'publicURL' | 'size' | 'sourceInstanceName'>
+    & { childMdx?: Maybe<(
+      Pick<Mdx, 'slug' | 'excerpt' | 'timeToRead' | 'tableOfContents' | 'body'>
+      & { frontmatter?: Maybe<Pick<MdxFrontmatter, 'title' | 'name' | 'tags'>>, headings?: Maybe<Array<Maybe<Pick<MdxHeadingMdx, 'value' | 'depth'>>>> }
+    )> }
+  )> };
