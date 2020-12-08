@@ -38,9 +38,9 @@ export const defaultColorsColors: Colors['colors'] = {
   grey: generateColorGreyPalette({
     hue: 10,
   }),
-  effectTransparentLight: { h: 0, s: 0, l: 54, a: 30 },
-  effectTransparentMedium: { h: 0, s: 0, l: 54, a: 30 },
-  effectTransparentHeavy: { h: 0, s: 0, l: 54, a: 30 },
+  effectTransparentLight: { h: 222, s: 50, l: 50, a: 100 },
+  effectTransparentMedium: { h: 222, s: 50, l: 50, a: 100 },
+  effectTransparentHeavy: { h: 222, s: 50, l: 50, a: 100 },
   utilityGreen: generateColorPalette5({
     color: { h: 200, s: 50, l: 50 },
     light: 20,

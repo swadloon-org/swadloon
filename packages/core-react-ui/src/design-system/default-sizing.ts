@@ -40,10 +40,10 @@ export const defaultSizingStepsMobile = {
   [SIZE.x4]: 34,
   [SIZE.x5]: 55,
   [SIZE.x6]: 89,
-  [SIZE.x7]: 144,
-  [SIZE.x8]: 233,
-  [SIZE.x9]: 376,
-  [SIZE.x10]: 683,
+  [SIZE.x7]: 44,
+  [SIZE.x8]: 33,
+  [SIZE.x9]: 77,
+  [SIZE.x10]: 144,
 };
 
 export const defaultSizingSteps: SizingSteps = {
