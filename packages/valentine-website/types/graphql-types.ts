@@ -215,6 +215,8 @@ export type ContentfulBlogPostContentTextNodeFieldsEnum =
   | 'childMdx___rawBody'
   | 'childMdx___fileAbsolutePath'
   | 'childMdx___frontmatter___title'
+  | 'childMdx___frontmatter___name'
+  | 'childMdx___frontmatter___tags'
   | 'childMdx___slug'
   | 'childMdx___body'
   | 'childMdx___excerpt'
@@ -436,6 +438,8 @@ export type ContentfulBlogPostFieldsEnum =
   | 'content___childMdx___rawBody'
   | 'content___childMdx___fileAbsolutePath'
   | 'content___childMdx___frontmatter___title'
+  | 'content___childMdx___frontmatter___name'
+  | 'content___childMdx___frontmatter___tags'
   | 'content___childMdx___slug'
   | 'content___childMdx___body'
   | 'content___childMdx___excerpt'
@@ -517,6 +521,8 @@ export type ContentfulBlogPostFieldsEnum =
   | 'childContentfulBlogPostContentTextNode___childMdx___rawBody'
   | 'childContentfulBlogPostContentTextNode___childMdx___fileAbsolutePath'
   | 'childContentfulBlogPostContentTextNode___childMdx___frontmatter___title'
+  | 'childContentfulBlogPostContentTextNode___childMdx___frontmatter___name'
+  | 'childContentfulBlogPostContentTextNode___childMdx___frontmatter___tags'
   | 'childContentfulBlogPostContentTextNode___childMdx___slug'
   | 'childContentfulBlogPostContentTextNode___childMdx___body'
   | 'childContentfulBlogPostContentTextNode___childMdx___excerpt'
@@ -1657,6 +1663,8 @@ export type FileFieldsEnum =
   | 'childMdx___rawBody'
   | 'childMdx___fileAbsolutePath'
   | 'childMdx___frontmatter___title'
+  | 'childMdx___frontmatter___name'
+  | 'childMdx___frontmatter___tags'
   | 'childMdx___slug'
   | 'childMdx___body'
   | 'childMdx___excerpt'
@@ -2444,6 +2452,8 @@ export type MdxFieldsEnum =
   | 'rawBody'
   | 'fileAbsolutePath'
   | 'frontmatter___title'
+  | 'frontmatter___name'
+  | 'frontmatter___tags'
   | 'slug'
   | 'body'
   | 'excerpt'
@@ -2565,10 +2575,14 @@ export type MdxFilterInput = {
 
 export type MdxFrontmatter = {
   title: Scalars['String'];
+  name?: Maybe<Scalars['String']>;
+  tags?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 export type MdxFrontmatterFilterInput = {
   title?: Maybe<StringQueryOperatorInput>;
+  name?: Maybe<StringQueryOperatorInput>;
+  tags?: Maybe<StringQueryOperatorInput>;
 };
 
 export type MdxGroupConnection = {
@@ -2792,8 +2806,6 @@ export type QueryAllDirectoryArgs = {
 export type QuerySiteArgs = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
-  port?: Maybe<IntQueryOperatorInput>;
-  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -3020,8 +3032,6 @@ export type QueryAllSitePluginArgs = {
 export type Site = Node & {
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
-  port?: Maybe<Scalars['Int']>;
-  host?: Maybe<Scalars['String']>;
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
@@ -3227,8 +3237,6 @@ export type SiteFieldsEnum =
   | 'siteMetadata___siteEnv'
   | 'siteMetadata___languages___langs'
   | 'siteMetadata___languages___defaultLangKey'
-  | 'port'
-  | 'host'
   | 'polyfill'
   | 'pathPrefix'
   | 'id'
@@ -3321,8 +3329,6 @@ export type SiteFieldsEnum =
 export type SiteFilterInput = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
-  port?: Maybe<IntQueryOperatorInput>;
-  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -3379,11 +3385,41 @@ export type SitePageConnectionGroupArgs = {
 };
 
 export type SitePageContext = {
+  siteMetadata?: Maybe<SitePageContextSiteMetadata>;
+  fileId?: Maybe<Scalars['String']>;
   pageId?: Maybe<Scalars['String']>;
 };
 
 export type SitePageContextFilterInput = {
+  siteMetadata?: Maybe<SitePageContextSiteMetadataFilterInput>;
+  fileId?: Maybe<StringQueryOperatorInput>;
   pageId?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePageContextSiteMetadata = {
+  title?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+  siteEnv?: Maybe<Scalars['String']>;
+  siteUrl?: Maybe<Scalars['String']>;
+  languages?: Maybe<SitePageContextSiteMetadataLanguages>;
+};
+
+export type SitePageContextSiteMetadataFilterInput = {
+  title?: Maybe<StringQueryOperatorInput>;
+  description?: Maybe<StringQueryOperatorInput>;
+  siteEnv?: Maybe<StringQueryOperatorInput>;
+  siteUrl?: Maybe<StringQueryOperatorInput>;
+  languages?: Maybe<SitePageContextSiteMetadataLanguagesFilterInput>;
+};
+
+export type SitePageContextSiteMetadataLanguages = {
+  langs?: Maybe<Array<Maybe<Scalars['String']>>>;
+  defaultLangKey?: Maybe<Scalars['String']>;
+};
+
+export type SitePageContextSiteMetadataLanguagesFilterInput = {
+  langs?: Maybe<StringQueryOperatorInput>;
+  defaultLangKey?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePageEdge = {
@@ -3485,6 +3521,13 @@ export type SitePageFieldsEnum =
   | 'internal___owner'
   | 'internal___type'
   | 'isCreatedByStatefulCreatePages'
+  | 'context___siteMetadata___title'
+  | 'context___siteMetadata___description'
+  | 'context___siteMetadata___siteEnv'
+  | 'context___siteMetadata___siteUrl'
+  | 'context___siteMetadata___languages___langs'
+  | 'context___siteMetadata___languages___defaultLangKey'
+  | 'context___fileId'
   | 'context___pageId'
   | 'pluginCreator___id'
   | 'pluginCreator___parent___id'
@@ -4134,6 +4177,19 @@ export type StringQueryOperatorInput = {
   regex?: Maybe<Scalars['String']>;
   glob?: Maybe<Scalars['String']>;
 };
+
+export type MarkdownTemplateQueryVariables = Exact<{
+  fileId?: Maybe<Scalars['String']>;
+}>;
+
+
+export type MarkdownTemplateQuery = { file?: Maybe<(
+    Pick<File, 'id' | 'name' | 'base' | 'ext' | 'dir' | 'absolutePath' | 'publicURL' | 'size' | 'sourceInstanceName'>
+    & { childMdx?: Maybe<(
+      Pick<Mdx, 'slug' | 'excerpt' | 'timeToRead' | 'tableOfContents' | 'body'>
+      & { frontmatter?: Maybe<Pick<MdxFrontmatter, 'title' | 'name' | 'tags'>>, headings?: Maybe<Array<Maybe<Pick<MdxHeadingMdx, 'value' | 'depth'>>>> }
+    )> }
+  )> };
 
 export type GatsbyNodePagesQueryVariables = Exact<{ [key: string]: never; }>;
 

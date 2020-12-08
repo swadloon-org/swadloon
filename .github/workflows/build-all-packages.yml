@@ -66,6 +66,7 @@ jobs:
         CI: true
 
     - name: Build core-gatsby-starter
+      if: always()
       run: yarn build --scope @newrade/core-gatsby-starter
       env:
         APP_URL: 'http://local.newrade.ca'
@@ -80,6 +81,7 @@ jobs:
         PROJECT_REPO_NAME: ${{ secrets.PROJECT_REPO_NAME }}
 
     - name: Build newrade-website
+      if: always()
       run: yarn build --scope @newrade/newrade-website
       env:
         APP_URL: 'http://local.newrade.ca'
@@ -94,6 +96,7 @@ jobs:
         PROJECT_REPO_NAME: ${{ secrets.PROJECT_REPO_NAME }}
 
     - name: Build mir-website
+      if: always()
       run: yarn build --scope @newrade/mir-website
       env:
         APP_URL: 'http://local.mirinc.ca'
@@ -108,6 +111,7 @@ jobs:
         PROJECT_REPO_NAME: ${{ secrets.PROJECT_REPO_NAME }}
 
     - name: Build valentine-website
+      if: always()
       run: yarn build --scope @newrade/valentine-website
       env:
         APP_URL: 'http://local.valentinebv.com'
@@ -122,6 +126,7 @@ jobs:
         PROJECT_REPO_NAME: ${{ secrets.PROJECT_REPO_NAME }}
 
     - name: Build vsb-website
+      if: always()
       run: yarn build --scope @newrade/vsb-website
       env:
         APP_URL: 'http://local.vasectomie-pierre-boucher.ca'
