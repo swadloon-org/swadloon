@@ -8,6 +8,9 @@
   },
   "references": [
     {
+      "path": "../core-react-ui/tsconfig.build.json"
+    },
+    {
       "path": "../core-env/tsconfig.build.json"
     },
     {

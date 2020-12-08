@@ -17,6 +17,7 @@
   "dependencies": {
     "@newrade/core-env": "^1",
     "@newrade/core-gatsby-config": "^1",
+    "@newrade/core-react-ui": "^1",
     "@newrade/core-utils": "^1",
     "@newrade/core-webpack-config": "^1"
   }
