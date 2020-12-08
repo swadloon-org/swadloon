@@ -28773,6 +28773,7 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___id'
   | 'pluginCreator___pluginOptions___includeInDevelopment'
   | 'pluginCreator___pluginOptions___routeChangeEventName'
+  | 'pluginCreator___pluginOptions___packageName'
   | 'pluginCreator___pluginOptions___pathCheck'
   | 'pluginCreator___pluginOptions___allExtensions'
   | 'pluginCreator___pluginOptions___isTSX'
@@ -29009,6 +29010,7 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___id'
   | 'pluginOptions___includeInDevelopment'
   | 'pluginOptions___routeChangeEventName'
+  | 'pluginOptions___packageName'
   | 'pluginOptions___pathCheck'
   | 'pluginOptions___allExtensions'
   | 'pluginOptions___isTSX'
@@ -29165,6 +29167,7 @@ export type SitePluginPluginOptions = {
   id?: Maybe<Scalars['String']>;
   includeInDevelopment?: Maybe<Scalars['Boolean']>;
   routeChangeEventName?: Maybe<Scalars['String']>;
+  packageName?: Maybe<Scalars['String']>;
   pathCheck?: Maybe<Scalars['Boolean']>;
   allExtensions?: Maybe<Scalars['Boolean']>;
   isTSX?: Maybe<Scalars['Boolean']>;
@@ -29314,6 +29317,7 @@ export type SitePluginPluginOptionsFilterInput = {
   id?: Maybe<StringQueryOperatorInput>;
   includeInDevelopment?: Maybe<BooleanQueryOperatorInput>;
   routeChangeEventName?: Maybe<StringQueryOperatorInput>;
+  packageName?: Maybe<StringQueryOperatorInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;
   allExtensions?: Maybe<BooleanQueryOperatorInput>;
   isTSX?: Maybe<BooleanQueryOperatorInput>;

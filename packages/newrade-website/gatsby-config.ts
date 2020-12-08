@@ -72,7 +72,9 @@ export const config: Gatsby.GatsbyConfig = {
     core.getGatsbyPluginSitemap(),
     core.getGatsbyPluginRobotsTxt({ env }),
     core.getGatsbyNetlifyPlugin(),
-    core.getGastbyCorePluginConfig(), // needs to be after ts-plugin
+    core.getGastbyCorePluginConfig({
+      packageName: packageJson.name,
+    }),
     // core.getGatsbyPluginPreloadFonts(),
   ],
 };

@@ -2489,6 +2489,8 @@ export type QueryAllDirectoryArgs = {
 export type QuerySiteArgs = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  port?: Maybe<IntQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -2677,6 +2679,8 @@ export type QueryAllSitePluginArgs = {
 export type Site = Node & {
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
+  port?: Maybe<Scalars['Int']>;
+  host?: Maybe<Scalars['String']>;
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
@@ -2882,6 +2886,8 @@ export type SiteFieldsEnum =
   | 'siteMetadata___siteEnv'
   | 'siteMetadata___languages___langs'
   | 'siteMetadata___languages___defaultLangKey'
+  | 'port'
+  | 'host'
   | 'polyfill'
   | 'pathPrefix'
   | 'id'
@@ -2974,6 +2980,8 @@ export type SiteFieldsEnum =
 export type SiteFilterInput = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  port?: Maybe<IntQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -3243,6 +3251,7 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___mergeLinkHeaders'
   | 'pluginCreator___pluginOptions___mergeCachingHeaders'
   | 'pluginCreator___pluginOptions___generateMatchPathRewrites'
+  | 'pluginCreator___pluginOptions___packageName'
   | 'pluginCreator___pluginOptions___pathCheck'
   | 'pluginCreator___pluginOptions___allExtensions'
   | 'pluginCreator___pluginOptions___isTSX'
@@ -3465,6 +3474,7 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___mergeLinkHeaders'
   | 'pluginOptions___mergeCachingHeaders'
   | 'pluginOptions___generateMatchPathRewrites'
+  | 'pluginOptions___packageName'
   | 'pluginOptions___pathCheck'
   | 'pluginOptions___allExtensions'
   | 'pluginOptions___isTSX'
@@ -3607,6 +3617,7 @@ export type SitePluginPluginOptions = {
   mergeLinkHeaders?: Maybe<Scalars['Boolean']>;
   mergeCachingHeaders?: Maybe<Scalars['Boolean']>;
   generateMatchPathRewrites?: Maybe<Scalars['Boolean']>;
+  packageName?: Maybe<Scalars['String']>;
   pathCheck?: Maybe<Scalars['Boolean']>;
   allExtensions?: Maybe<Scalars['Boolean']>;
   isTSX?: Maybe<Scalars['Boolean']>;
@@ -3742,6 +3753,7 @@ export type SitePluginPluginOptionsFilterInput = {
   mergeLinkHeaders?: Maybe<BooleanQueryOperatorInput>;
   mergeCachingHeaders?: Maybe<BooleanQueryOperatorInput>;
   generateMatchPathRewrites?: Maybe<BooleanQueryOperatorInput>;
+  packageName?: Maybe<StringQueryOperatorInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;
   allExtensions?: Maybe<BooleanQueryOperatorInput>;
   isTSX?: Maybe<BooleanQueryOperatorInput>;
@@ -3836,34 +3848,3 @@ export type MarkdownTemplateQuery = { file?: Maybe<(
       & { frontmatter?: Maybe<Pick<MdxFrontmatter, 'title' | 'name' | 'tags'>>, headings?: Maybe<Array<Maybe<Pick<MdxHeadingMdx, 'value' | 'depth'>>>> }
     )> }
   )> };
-
-export type GatsbyNodeAllSiteQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type GatsbyNodeAllSiteQuery = { site?: Maybe<{ siteMetadata?: Maybe<GatsbyNodeSiteMetadataFragment> }> };
-
-export type GatsbyNodeSiteMetadataFragment = (
-  Pick<SiteSiteMetadata, 'title' | 'description' | 'siteEnv' | 'siteUrl'>
-  & { languages?: Maybe<Pick<SiteSiteMetadataLanguages, 'langs' | 'defaultLangKey'>> }
-);
-
-export type GatsbyNodeSrcPagesQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type GatsbyNodeSrcPagesQuery = { allSitePage: { nodes: Array<Pick<SitePage, 'id' | 'path' | 'component'>> } };
-
-export type GatsbyNodeSrcPageFilesQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type GatsbyNodeSrcPageFilesQuery = { allFile: { nodes: Array<Pick<File, 'id' | 'name' | 'base' | 'ext' | 'dir' | 'absolutePath' | 'publicURL' | 'size' | 'sourceInstanceName'>> } };
-
-export type GatsbyNodeMarkdownFilesQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type GatsbyNodeMarkdownFilesQuery = { allFile: { nodes: Array<(
-      Pick<File, 'id' | 'name' | 'base' | 'ext' | 'dir' | 'absolutePath' | 'publicURL' | 'size' | 'sourceInstanceName'>
-      & { childMdx?: Maybe<(
-        Pick<Mdx, 'slug' | 'excerpt'>
-        & { frontmatter?: Maybe<Pick<MdxFrontmatter, 'name' | 'tags' | 'title'>> }
-      )> }
-    )> } };

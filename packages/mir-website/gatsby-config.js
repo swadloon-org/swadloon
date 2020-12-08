@@ -108,7 +108,9 @@ const config = {
         core.getGatsbyPluginGoogleTagmanager({
             googleTagId: 'GTM-T4LK3QF',
         }),
-        core.getGastbyCorePluginConfig(),
+        core.getGastbyCorePluginConfig({
+            packageName: package_json_1.default.name,
+        }),
     ],
 };
 exports.default = config;

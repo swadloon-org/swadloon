@@ -5,6 +5,7 @@ import chalk from 'chalk';
 import { spawn } from 'child_process';
 import { GatsbyNode } from 'gatsby';
 import { RuleSetRule, RuleSetRules, RuleSetUseItem, WebpackOptions } from 'webpack/declarations/WebpackOptions';
+import { createPagesFunction, onCreatePageFunction } from './src/create-pages';
 
 export const onPreBootstrap: GatsbyNode['onPreBootstrap'] = (args, options, callback) => {
   // TODO: find a way to get the package name
@@ -177,3 +178,6 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
 
   actions.replaceWebpackConfig(config); // completely replace the webpack config with the modified object
 };
+
+export const createPages: GatsbyNode['createPages'] = createPagesFunction;
+export const onCreatePage: GatsbyNode['onCreatePage'] = onCreatePageFunction;

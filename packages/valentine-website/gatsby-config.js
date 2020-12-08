@@ -92,7 +92,9 @@ const config = {
         core.getGatsbyPluginSitemap(),
         core.getGatsbyPluginRobotsTxt({ env }),
         core.getGatsbyNetlifyPlugin(),
-        core.getGastbyCorePluginConfig(),
+        core.getGastbyCorePluginConfig({
+            packageName: package_json_1.default.name,
+        }),
     ],
 };
 exports.default = config;
