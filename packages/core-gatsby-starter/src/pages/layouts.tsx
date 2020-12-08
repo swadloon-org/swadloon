@@ -1,7 +1,7 @@
 import { Box, Center, Cluster, Grid, Stack } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { SrcPageTemplate, SrcPageTemplateProps } from '../templates/src-page.template';
+import { SrcPageTemplate, SrcPageTemplateProps } from '@newrade/core-gatsby-ui';
 import * as styleRefs from './layouts.treat';
 
 const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {

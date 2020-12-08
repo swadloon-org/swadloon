@@ -1,9 +1,8 @@
 import React, { ReactNode } from 'react';
 import { PageProps } from 'gatsby';
-import { GatsbySrcPageContext } from '@newrade/core-gatsby-config';
-import { GatsbyNodeSiteMetadataFragment } from '../../types/graphql-types';
 import { DEPLOY_ENV } from '@newrade/core-env';
 import { DebugGasbyPage } from '../components/debug-gatsby-page';
+import { GatsbyNodeSiteMetadataFragment, GatsbySrcPageContext } from '@newrade/core-gatsby-config';
 
 export type SrcPageTemplateProps = PageProps<{}, GatsbySrcPageContext<GatsbyNodeSiteMetadataFragment>>;
 

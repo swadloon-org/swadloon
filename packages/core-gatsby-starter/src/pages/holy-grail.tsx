@@ -2,7 +2,7 @@ import { Box, Center, Grid, Stack } from '@newrade/core-react-ui';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { SrcPageTemplate, SrcPageTemplateProps } from '../templates/src-page.template';
+import { SrcPageTemplate, SrcPageTemplateProps } from '@newrade/core-gatsby-ui';
 import * as styleRefs from './layouts.treat';
 
 export const query = graphql`

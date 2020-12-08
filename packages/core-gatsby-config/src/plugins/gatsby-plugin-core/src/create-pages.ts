@@ -3,13 +3,13 @@ import { kebab } from 'case';
 import { GatsbyNode } from 'gatsby';
 import path from 'path';
 import { GatsbyMarkdownFilePageContext, GatsbyPageContext } from '../../../config/page-config';
-import { SOURCE_INSTANCE_NAME } from '../../../config/source-instances';
-import { GatsbyCorePluginOptions } from '../gatsby-plugin-options';
 import {
   GatsbyNodeAllSiteQuery,
   GatsbyNodeMarkdownFilesQuery,
   GatsbyNodeSiteMetadataFragment,
-} from '../types/gatsby-graphql-types';
+} from '../../../config/site-graphql-types';
+import { SOURCE_INSTANCE_NAME } from '../../../config/source-instances';
+import { GatsbyCorePluginOptions } from '../gatsby-plugin-options';
 
 let siteMetadata: GatsbyNodeSiteMetadataFragment;
 
@@ -88,6 +88,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
     /**
      * Organise files to create pages and paths
      */
+    // const markdownTemplate = path.resolve(`../core-gatsby-ui/lib/templates/markdown.template.js`);
     const markdownTemplate = path.resolve(`src/templates/markdown.template.tsx`);
 
     /**

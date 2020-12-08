@@ -38,6 +38,9 @@
       "path": "../packages/core-gatsby-starter"
     },
     {
+      "path": "../packages/core-gatsby-ui"
+    },
+    {
       "path": "../packages/core-github-actions"
     },
     {

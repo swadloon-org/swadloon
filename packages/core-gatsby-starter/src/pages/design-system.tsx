@@ -2,7 +2,7 @@ import { Color, ColorShades5 } from '@newrade/core-design-system';
 import { Cluster, ColorSwatch, getCSSColor, keys, lightenColor, Stack, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { SrcPageTemplateProps, SrcPageTemplate } from '../templates/src-page.template';
+import { SrcPageTemplate, SrcPageTemplateProps } from '@newrade/core-gatsby-ui';
 import * as styleRefs from './index.treat';
 
 const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {

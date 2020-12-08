@@ -30,6 +30,7 @@
   },
   "devDependencies": {
     "@newrade/core-gatsby-config": "^1",
+    "@newrade/core-gatsby-ui": "^1",
     "@newrade/core-webpack-config": "^1"
   }
 }

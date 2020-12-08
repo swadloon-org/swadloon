@@ -10,7 +10,7 @@ import {
   MarkdownTemplateQuery,
   GatsbyMarkdownFilePageContext,
 } from '@newrade/core-gatsby-config';
-import { DebugGasbyPage } from '@newrade/core-gatsby-ui';
+import { DebugGasbyPage } from '../components/debug-gatsby-page';
 
 export type MarkdownTemplateProps = PageProps<
   MarkdownTemplateQuery,
@@ -21,7 +21,7 @@ export type MarkdownTemplateProps = PageProps<
  * Query to retrieve all markdown content for the markdown file
  */
 export const markdownTemplateQuery = graphql`
-  query MarkdownTemplate($fileId: String) {
+  query MarkdownTemplate1($fileId: String) {
     file(id: { eq: $fileId }, ext: { in: [".md", ".mdx"] }) {
       id
       name
