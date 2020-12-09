@@ -21,8 +21,7 @@ export const styles = styleMap(({ cssTheme, theme }: Theme) => ({
   },
   navItem: {
     display: 'flex',
-
-    padding: '1em',
+    padding: `0.5em 1em`,
     fontWeight: 'bold',
   },
 }));

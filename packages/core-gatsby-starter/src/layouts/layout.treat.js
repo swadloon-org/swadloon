@@ -22,7 +22,7 @@ exports.styles = treat_1.styleMap(({ cssTheme, theme }) => ({
     },
     navItem: {
         display: 'flex',
-        padding: '1em',
+        padding: `0.5em 1em`,
         fontWeight: 'bold',
     },
 }));

@@ -3,7 +3,6 @@ import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
 import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
-import { DEPLOY_ENV } from '@newrade/core-env';
 import { GatsbyMarkdownFilePageContext, GatsbyNodeSiteMetadataFragment } from '@newrade/core-gatsby-config';
 import { MarkdownTemplateQuery } from '../../types/graphql-types';
 

@@ -9,12 +9,46 @@ export const useAllSitePages = () => {
           nodes {
             id
             path
+            context {
+              slug
+              siteMetadata {
+                description
+                languages {
+                  defaultLangKey
+                  langs
+                }
+                siteEnv
+                siteUrl
+                title
+              }
+              frontmatter {
+                name
+                tags
+              }
+            }
           }
         }
         docs: allSitePage(filter: { path: { glob: "/docs/**/*" } }) {
           nodes {
             id
             path
+            context {
+              slug
+              siteMetadata {
+                description
+                languages {
+                  defaultLangKey
+                  langs
+                }
+                siteEnv
+                siteUrl
+                title
+              }
+              frontmatter {
+                name
+                tags
+              }
+            }
           }
         }
       }
