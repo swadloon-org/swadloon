@@ -6,12 +6,12 @@ import { createMediaCollection } from '../content-types-default/basic/media-coll
 import { createTile } from '../content-types-default/basic/tile';
 import { createBanner } from '../content-types-default/page/banner';
 import { createPage } from '../content-types-default/page/page';
+import { createSection, TYPE_OF_SECTION } from '../content-types-default/section/section';
 import { createSectionType } from '../content-types-default/section/section-type';
 import { createCompanyAdress } from '../content-types-default/static/company-address';
 import { createCompanyInfo } from '../content-types-default/static/company-info';
 import { createFieldTranslation } from '../content-types-default/static/field-translation';
 import { createProject } from '../content-types-valentine/portfolio/project';
-import { createSectionProject } from '../content-types-valentine/portfolio/section';
 import { createTag } from '../content-types-valentine/portfolio/tag';
 
 const program: Migration.MigrationFunction = function IndexModel(migration) {
@@ -21,15 +21,24 @@ const program: Migration.MigrationFunction = function IndexModel(migration) {
   createCompanyAdress(migration);
   createCompanyInfo(migration);
   createMediaCollection(migration);
-
   createFieldTranslation(migration);
 
+  /**
+   * Common part
+   */
   createLink(migration);
-
   createTile(migration);
 
+  /**
+   * Section
+   */
+
+  createSection(migration, { type: [TYPE_OF_SECTION.BLOG] });
   createSectionType(migration);
 
+  /**
+   * Page and banner
+   */
   createBanner(migration);
   createPage(migration);
 
@@ -48,7 +57,6 @@ const program: Migration.MigrationFunction = function IndexModel(migration) {
   /**
    * With Project
    */
-  createSectionProject(migration);
   createProject(migration);
   createTag(migration);
 
