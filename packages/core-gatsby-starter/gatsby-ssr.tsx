@@ -1,4 +1,4 @@
-import { GatsbyBrowser } from 'gatsby';
+import { GatsbySSR } from 'gatsby';
 import React from 'react';
 import { Layout } from './src/layouts/layout';
 import { Providers } from './src/layouts/providers';
@@ -10,10 +10,10 @@ import { Providers } from './src/layouts/providers';
  * @see https://www.gatsbyjs.com/docs/api-files-gatsby-ssr/
  */
 
-export const wrapPageElement: GatsbyBrowser['wrapPageElement'] = ({ element, props }) => {
-  return (
-    <Providers>
-      <Layout {...props}>{element}</Layout>
-    </Providers>
-  );
+export const wrapPageElement = ({ element }: any) => {
+  return <Layout>{element}</Layout>;
+};
+
+export const wrapRootElement = ({ element }: any) => {
+  return <Providers>{element}</Providers>;
 };

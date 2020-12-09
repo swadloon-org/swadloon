@@ -11,9 +11,9 @@ import { Providers } from './src/layouts/providers';
  */
 
 export const wrapPageElement: GatsbyBrowser['wrapPageElement'] = ({ element, props }) => {
-  return (
-    <Providers>
-      <Layout {...props}>{element}</Layout>
-    </Providers>
-  );
+  return <Layout {...props}>{element}</Layout>;
+};
+
+export const wrapRootElement: GatsbyBrowser['wrapRootElement'] = ({ element, props }) => {
+  return <Providers>{element}</Providers>;
 };

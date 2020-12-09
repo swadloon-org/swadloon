@@ -1,5 +1,4 @@
 import * as core from '@newrade/core-gatsby-config';
-import { SOURCE_INSTANCE_NAME } from '@newrade/core-gatsby-config';
 import { loadDotEnv, logEnvVariables } from '@newrade/core-utils';
 import Gatsby from 'gatsby';
 import path from 'path';
@@ -34,21 +33,6 @@ export const config: Gatsby.GatsbyConfig = {
      * Project Specific Plugins
      */
     {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: SOURCE_INSTANCE_NAME.MDX_PAGES,
-        path: `${__dirname}/src/pages/`,
-        ignore: [`**/*.ts?x`],
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: SOURCE_INSTANCE_NAME.PACKAGE_DOCS,
-        path: `${__dirname}/src/docs/`,
-      },
-    },
-    {
       resolve: `gatsby-source-contentful`,
       options: {
         spaceId: env.CONTENTFUL_SPACEID_NEWRADE,
@@ -61,7 +45,7 @@ export const config: Gatsby.GatsbyConfig = {
      */
     core.getGatsbyTsPluginConfig(),
     core.getGatsbyReactSvgConfig(),
-    core.getGastbyPluginPageCreatorConfig(),
+    ...core.getGastbyPluginPageCreatorConfig(),
     core.getGastbyPluginTreatConfig(),
     core.getGatsbyTransformerSharp(),
     core.getGatsbyPluginSharp(),

@@ -23,7 +23,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const core = __importStar(require("@newrade/core-gatsby-config"));
-const core_gatsby_config_1 = require("@newrade/core-gatsby-config");
 const core_utils_1 = require("@newrade/core-utils");
 const path_1 = __importDefault(require("path"));
 const package_json_1 = __importDefault(require("./package.json"));
@@ -66,21 +65,6 @@ const config = {
             },
         },
         {
-            resolve: `gatsby-source-filesystem`,
-            options: {
-                name: core_gatsby_config_1.SOURCE_INSTANCE_NAME.MDX_PAGES,
-                path: `${__dirname}/src/pages/`,
-                ignore: [`**/*.ts?x`],
-            },
-        },
-        {
-            resolve: `gatsby-source-filesystem`,
-            options: {
-                name: core_gatsby_config_1.SOURCE_INSTANCE_NAME.PACKAGE_DOCS,
-                path: `${__dirname}/src/docs/`,
-            },
-        },
-        {
             resolve: `gatsby-source-contentful`,
             options: {
                 spaceId: env.CONTENTFUL_SPACEID_MIR,
@@ -93,7 +77,7 @@ const config = {
          */
         core.getGatsbyTsPluginConfig(),
         core.getGatsbyReactSvgConfig(),
-        core.getGastbyPluginPageCreatorConfig(),
+        ...core.getGastbyPluginPageCreatorConfig(),
         core.getGastbyPluginTreatConfig(),
         core.getGatsbyTransformerSharp(),
         core.getGatsbyPluginSharp(),

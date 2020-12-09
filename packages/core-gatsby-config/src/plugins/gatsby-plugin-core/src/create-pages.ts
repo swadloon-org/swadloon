@@ -1,14 +1,8 @@
 import { AppError, ERROR_TYPE, log, LOG_LEVEL } from '@newrade/core-utils';
-import { kebab } from 'case';
 import { GatsbyNode } from 'gatsby';
 import path from 'path';
-import { GatsbyMarkdownFilePageContext, GatsbyPageContext } from '../../../config/page-config';
-import {
-  GatsbyNodeAllSiteQuery,
-  GatsbyNodeMarkdownFilesQuery,
-  GatsbyNodeSiteMetadataFragment,
-} from '../../../config/site-graphql-types';
-import { SOURCE_INSTANCE_NAME } from '../../../config/source-instances';
+import { GatsbyMarkdownFilePageContext } from '../../../config/page-config';
+import { GatsbyNodeAllSiteQuery, GatsbyNodeSiteMetadataFragment } from '../../../config/site-graphql-types';
 import { GatsbyCorePluginOptions } from '../gatsby-plugin-options';
 
 let siteMetadata: GatsbyNodeSiteMetadataFragment;
@@ -54,66 +48,66 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
     /**
      * Query for all `.md?x` files
      */
-    const markdownFilesData = await graphql<GatsbyNodeMarkdownFilesQuery>(`
-      query GatsbyNodeMarkdownFiles {
-        allFile(filter: { ext: { in: [".md", ".mdx"] } }) {
-          nodes {
-            id
-            name
-            base
-            ext
-            dir
-            absolutePath
-            publicURL
-            size
-            sourceInstanceName
-            childMdx {
-              slug
-              excerpt
-              frontmatter {
-                name
-                tags
-                title
-              }
-            }
-          }
-        }
-      }
-    `);
+    // const markdownFilesData = await graphql<GatsbyNodeMarkdownFilesQuery>(`
+    //   query GatsbyNodeMarkdownFiles {
+    //     allFile(filter: { ext: { in: [".md", ".mdx"] } }) {
+    //       nodes {
+    //         id
+    //         name
+    //         base
+    //         ext
+    //         dir
+    //         absolutePath
+    //         publicURL
+    //         size
+    //         sourceInstanceName
+    //         childMdx {
+    //           slug
+    //           excerpt
+    //           frontmatter {
+    //             name
+    //             tags
+    //             title
+    //           }
+    //         }
+    //       }
+    //     }
+    //   }
+    // `);
 
-    log(`Got ${markdownFilesData?.data?.allFile?.nodes?.length} files for markdown pages`, {
-      toolName: pluginOptions.packageName,
-    });
+    // log(`Got ${markdownFilesData?.data?.allFile?.nodes?.length} files for markdown pages`, {
+    //   toolName: pluginOptions.packageName,
+    // });
 
     /**
      * Organise files to create pages and paths
      */
     // const markdownTemplate = path.resolve(`../core-gatsby-ui/lib/templates/markdown.template.js`);
-    const markdownTemplate = path.resolve(`src/templates/markdown.template.tsx`);
+    // const markdownTemplate = path.resolve(`src/templates/markdown.template.tsx`);
 
     /**
      * Create Markdown pages
      */
-    markdownFilesData?.data?.allFile.nodes.forEach((node, index) => {
-      const dir =
-        node.sourceInstanceName === SOURCE_INSTANCE_NAME.MDX_PAGES
-          ? ``
-          : `${node.sourceInstanceName ? `${kebab(node.sourceInstanceName)}/` : ''}`;
-      const path = `${dir}${node.childMdx?.slug}`;
+    // markdownFilesData?.data?.allFile.nodes.forEach((node, index) => {
+    //   const dir =
+    //     node.sourceInstanceName === SOURCE_INSTANCE_NAME.MDX_PAGES
+    //       ? ``
+    //       : `${node.sourceInstanceName ? `${kebab(node.sourceInstanceName)}/` : ''}`;
+    //   const path = `${dir}${node.childMdx?.slug}`;
 
-      log(`Creating markdown page: ${path}`, {
-        toolName: pluginOptions.packageName,
-      });
+    //   log(`Creating markdown page: ${path}`, {
+    //     toolName: pluginOptions.packageName,
+    //   });
 
-      createPage<GatsbyMarkdownFilePageContext<GatsbyNodeSiteMetadataFragment>>({
-        path,
-        context: {
-          siteMetadata,
-          fileId: node.id,
-        },
-        component: markdownTemplate,
-      });
-    });
+    //   createPage<GatsbyMarkdownFilePageContext<GatsbyNodeSiteMetadataFragment>>({
+    //     path,
+    //     context: {
+    //       siteMetadata,
+    //       fileId: node.id,
+    //     },
+    //     component: markdownTemplate,
+    //   });
+    // });
   } catch (error) {
     log(`Error occured when generating pages: ${error}`, {
       toolName: pluginOptions.packageName,
@@ -131,22 +125,53 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
 export const onCreatePageFunction: GatsbyNode['onCreatePage'] = ({ page, actions }, options) => {
   const { createPage, deletePage } = actions;
   const pluginOptions = (options as unknown) as GatsbyCorePluginOptions;
+  let updatedPath = page.path;
+  const { frontmatter } = page.context as any;
+  // const markdownTemplate = path.resolve(`../core-gatsby-ui/lib/templates/markdown.template.js`);
+  const markdownTemplate = path.resolve(`src/templates/markdown.template.tsx`);
 
-  if (!/src\/pages/g.test(page.component)) {
-    return;
+  if (frontmatter) {
+    if (/\/docs/g.test(page.component)) {
+      updatedPath = `docs${page.path}`;
+    }
+
+    const slugWithoutSlash = page.path.replace(/(^\/)/, '');
+    const slug = slugWithoutSlash.replace(/(\/)$/, '');
+
+    log(`Recreating page: ${updatedPath}, slug: ${slug}`, {
+      toolName: pluginOptions.packageName,
+      level: LOG_LEVEL.INFO,
+    });
+
+    deletePage(page);
+
+    createPage<GatsbyMarkdownFilePageContext<GatsbyNodeSiteMetadataFragment>>({
+      path: updatedPath,
+      component: markdownTemplate,
+      context: {
+        ...page.context,
+        siteMetadata,
+        slug,
+      },
+    });
   }
+};
 
-  log(`Recreating page: ${page.path} with new context`, {
-    toolName: pluginOptions.packageName,
-    level: LOG_LEVEL.ERROR,
-  });
+export const onCreateNodeFunction: GatsbyNode['onCreateNode'] = ({ node, actions, getNode }, options) => {
+  const pluginOptions = (options as unknown) as GatsbyCorePluginOptions;
+  const { createNodeField } = actions;
 
-  deletePage(page);
-  createPage<GatsbyPageContext<GatsbyNodeSiteMetadataFragment>>({
-    ...page,
-    context: {
-      siteMetadata,
-      pageId: '',
-    },
-  });
+  if (node && node.context && (node.context as any).frontmatter && (node.context as any).slug) {
+    const slug = (node.context as any).slug;
+    const updatedSlug = slug.replace('docs/', '');
+    log(`Updating node: ${node.id}`, {
+      toolName: pluginOptions.packageName,
+      level: LOG_LEVEL.INFO,
+    });
+    createNodeField({
+      name: 'slug',
+      node,
+      value: updatedSlug,
+    });
+  }
 };
