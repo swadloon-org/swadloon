@@ -3,6 +3,7 @@ import * as Migration from 'contentful-migration';
 import { COMMON_CONTENT_TYPE } from '../constants/content-types';
 import { CONTENTFUL_WIDGET } from '../constants/contentful-widget-ids';
 import { COMMON_FIELD, mediaField } from '../constants/fields';
+import { SPECIFIC_FIELD } from '../constants/specific-fields';
 
 export enum SECTION_TYPE {
   TYPE_1_GROUP,
@@ -190,12 +191,12 @@ export const createSection: Migration.MigrationFunction = function (migration) {
   /**
    * For BLOG_PREVIEW
    */
-  content.createField(COMMON_FIELD.BLOG_POSTS, {
-    name: pascal(COMMON_FIELD.BLOG_POSTS),
+  content.createField(SPECIFIC_FIELD.BLOG_POSTS, {
+    name: pascal(SPECIFIC_FIELD.BLOG_POSTS),
     type: 'Array',
     items: { type: 'Link', linkType: 'Entry', validations: [{ linkContentType: [COMMON_CONTENT_TYPE.BLOG] }] },
   });
-  content.changeFieldControl(COMMON_FIELD.BLOG_POSTS, 'builtin', CONTENTFUL_WIDGET.ENTRY_CARD_EDITOR, {
+  content.changeFieldControl(SPECIFIC_FIELD.BLOG_POSTS, 'builtin', CONTENTFUL_WIDGET.ENTRY_CARD_EDITOR, {
     helpText: 'Select a media collection to set images on the section.',
   });
   /**
