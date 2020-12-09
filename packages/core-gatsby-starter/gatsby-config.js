@@ -23,6 +23,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const core = __importStar(require("@newrade/core-gatsby-config"));
+const core_gatsby_config_1 = require("@newrade/core-gatsby-config");
 const core_utils_1 = require("@newrade/core-utils");
 const path_1 = __importDefault(require("path"));
 const package_json_1 = __importDefault(require("./package.json"));
@@ -55,6 +56,20 @@ const config = {
         /**
          * Project Specific Plugins
          */
+        {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+                name: core_gatsby_config_1.SOURCE_INSTANCE_NAME.DOCS,
+                path: path_1.default.resolve('..', '..', 'docs'),
+            },
+        },
+        {
+            resolve: `gatsby-plugin-page-creator`,
+            options: {
+                path: path_1.default.resolve('..', '..', 'docs'),
+                ignore: [`**/*.treat.ts`, `**/*.tsx`],
+            },
+        },
         {
             resolve: `gatsby-source-contentful`,
             options: {

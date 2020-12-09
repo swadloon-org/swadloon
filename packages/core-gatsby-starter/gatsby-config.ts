@@ -1,4 +1,5 @@
 import * as core from '@newrade/core-gatsby-config';
+import { SOURCE_INSTANCE_NAME } from '@newrade/core-gatsby-config';
 import { loadDotEnv, logEnvVariables } from '@newrade/core-utils';
 import path from 'path';
 import packageJson from './package.json';
@@ -35,7 +36,20 @@ const config: core.GastbySiteConfig = {
     /**
      * Project Specific Plugins
      */
-
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: SOURCE_INSTANCE_NAME.DOCS,
+        path: path.resolve('..', '..', 'docs'),
+      },
+    },
+    {
+      resolve: `gatsby-plugin-page-creator`,
+      options: {
+        path: path.resolve('..', '..', 'docs'),
+        ignore: [`**/*.treat.ts`, `**/*.tsx`],
+      },
+    },
     {
       resolve: `gatsby-source-contentful`,
       options: {

@@ -7,7 +7,6 @@ import { DEPLOY_ENV } from '@newrade/core-env';
 import { getMetaBasicTags } from '@newrade/core-react-ui';
 import { GatsbyMarkdownFilePageContext, GatsbyNodeSiteMetadataFragment } from '@newrade/core-gatsby-config';
 import { MarkdownTemplateQuery } from '../../types/graphql-types';
-import { DebugGasbyPage } from '@newrade/core-gatsby-ui';
 
 export type MarkdownTemplateProps = PageProps<
   MarkdownTemplateQuery,
@@ -44,7 +43,6 @@ export const markdownTemplateQuery = graphql`
 const Page: React.FC<MarkdownTemplateProps> = (props) => {
   return (
     <div>
-      {props.pageContext.siteMetadata?.siteEnv === DEPLOY_ENV.LOCAL ? <DebugGasbyPage {...props} /> : null}
       <Helmet>
         {getMetaBasicTags()}
         {/* {getMetadataOpenGraphWebsiteTags({

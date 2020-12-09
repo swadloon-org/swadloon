@@ -45,19 +45,5 @@ export function getGastbyPluginPageCreatorConfig(options?: any): PluginRef[] {
         ignore: [`**/*.treat.ts`, `**/*.tsx`],
       },
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: SOURCE_INSTANCE_NAME.DOCS,
-        path: path.resolve('..', '..', 'docs'),
-      },
-    },
-    {
-      resolve: `gatsby-plugin-page-creator`,
-      options: {
-        path: path.resolve('..', '..', 'docs'),
-        ignore: [`**/*.treat.ts`, `**/*.tsx`],
-      },
-    },
   ];
 }
