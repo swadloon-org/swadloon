@@ -132,11 +132,11 @@ export const onCreatePageFunction: GatsbyNode['onCreatePage'] = ({ page, actions
 
   if (frontmatter) {
     if (/\/docs/g.test(page.component)) {
-      updatedPath = `docs${page.path}`;
+      updatedPath = `docs${page.path}`.replace('&', 'and');
     }
 
     const slugWithoutSlash = page.path.replace(/(^\/)/, '');
-    const slug = slugWithoutSlash.replace(/(\/)$/, '');
+    const slug = slugWithoutSlash.replace(/(\/)$/, '').replace('&', 'and');
 
     log(`Recreating page: ${updatedPath}, slug: ${slug}`, {
       toolName: pluginOptions.packageName,

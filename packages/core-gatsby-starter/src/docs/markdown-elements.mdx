@@ -6,16 +6,9 @@ tags:
   - markdown
 ---
 
-import { Tag } from './tag';
 export const lorenipsum = `Lorem ipsum dolor sit amet.`;
 
 # Markdown Elements
-
-<div style={{ display: 'flex', gap: '1em' }}>
-  {props.data.file.childMdx.frontmatter.tags.map((tag, index) => (
-    <Tag key={index}>{tag}</Tag>
-  ))}
-</div>
 
 ## Content sectioning
 

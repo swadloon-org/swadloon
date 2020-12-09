@@ -22,5 +22,6 @@
       "path": "../core-webpack-config/tsconfig.build.json"
     }
   ],
-  "include": ["src", "types"]
+  "include": ["src", "types"],
+  "exclude": ["public"]
 }
