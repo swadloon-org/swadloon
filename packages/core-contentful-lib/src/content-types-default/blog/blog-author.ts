@@ -1,11 +1,11 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
-import { COMMON_CONTENT_TYPE } from '../../constants/content-types';
+import { COMMON_CONTENT_TYPE, SPECIFIC_CONTENT_TYPE } from '../../constants/content-types';
 import { COMMON_FIELD } from '../../constants/fields';
 
 export const createBlogAuthor: Migration.MigrationFunction = function (migration) {
   const content = migration.createContentType(COMMON_CONTENT_TYPE.BLOG_AUTHOR, {
-    name: pascal(COMMON_CONTENT_TYPE.BLOG_AUTHOR),
+    name: pascal(SPECIFIC_CONTENT_TYPE.BLOG_AUTHOR),
     displayField: COMMON_FIELD.FIRST_NAME,
   });
 

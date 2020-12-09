@@ -43,6 +43,28 @@ export enum COMMON_CONTENT_TYPE {
    * Field Translation content types
    */
   FIELD_TRANSLATION = 'FieldTranslation',
+
+  PROJECT = 'Project',
+}
+
+export enum SPECIFIC_CONTENT_TYPE {
+  /**
+   * Project
+   */
+  PROJECT = 'Project',
+  TAG = 'Tag',
+  /**
+   * Blog content types
+   */
+  BLOG = 'Blog',
+  BLOG_POST = 'BlogPost',
+  BLOG_AUTHOR = 'BlogAuthor',
+}
+
+export enum SPECIFIC_SECTION_TYPE {
+  NONE = 'None',
+  BLOG = 'Blog',
+  PROJECT = 'Project',
 }
 
 export enum COMMON_VARIANT {

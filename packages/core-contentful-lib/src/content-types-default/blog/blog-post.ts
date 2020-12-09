@@ -3,6 +3,7 @@ import * as Migration from 'contentful-migration';
 import { COMMON_CONTENT_TYPE } from '../../constants/content-types';
 import { CONTENTFUL_WIDGET } from '../../constants/contentful-widget-ids';
 import { COMMON_FIELD, mediaField } from '../../constants/fields';
+import { SPECIFIC_FIELD } from '../../constants/specific-fields';
 
 export const createBlogPost: Migration.MigrationFunction = function (migration) {
   const content = migration.createContentType(COMMON_CONTENT_TYPE.BLOG_POST, {
@@ -16,8 +17,8 @@ export const createBlogPost: Migration.MigrationFunction = function (migration) 
     required: true,
   });
 
-  content.createField(COMMON_FIELD.BLOG_SLUG, {
-    name: pascal(COMMON_FIELD.BLOG_SLUG),
+  content.createField(SPECIFIC_FIELD.BLOG_SLUG, {
+    name: pascal(SPECIFIC_FIELD.BLOG_SLUG),
     type: 'Symbol',
     localized: true,
     required: true,
@@ -30,7 +31,7 @@ export const createBlogPost: Migration.MigrationFunction = function (migration) 
       },
     ],
   });
-  content.changeFieldControl(COMMON_FIELD.BLOG_SLUG, 'builtin', CONTENTFUL_WIDGET.SINGLE_LINE, {
+  content.changeFieldControl(SPECIFIC_FIELD.BLOG_SLUG, 'builtin', CONTENTFUL_WIDGET.SINGLE_LINE, {
     helpText: 'Short version of the title formatted with dashes, e.g. a-new-blog-post',
   });
 
@@ -40,12 +41,12 @@ export const createBlogPost: Migration.MigrationFunction = function (migration) 
     localized: true,
   });
 
-  content.createField(COMMON_FIELD.BLOG_EXCERPT, {
-    name: pascal(COMMON_FIELD.BLOG_EXCERPT),
+  content.createField(SPECIFIC_FIELD.BLOG_EXCERPT, {
+    name: pascal(SPECIFIC_FIELD.BLOG_EXCERPT),
     type: 'Text',
     localized: true,
   });
-  content.changeFieldControl(COMMON_FIELD.BLOG_EXCERPT, 'builtin', CONTENTFUL_WIDGET.MULTI_LINE, {
+  content.changeFieldControl(SPECIFIC_FIELD.BLOG_EXCERPT, 'builtin', CONTENTFUL_WIDGET.MULTI_LINE, {
     helpText: 'Short summary of the article, will default to the first lines of content if not set.',
   });
 
@@ -59,9 +60,9 @@ export const createBlogPost: Migration.MigrationFunction = function (migration) 
 
   content.createField(COMMON_FIELD.TEXT, { name: pascal(COMMON_FIELD.TEXT), type: 'Text', localized: true });
 
-  content.createField(COMMON_FIELD.BLOG_AUTHOR, {
-    name: pascal(COMMON_FIELD.BLOG_AUTHOR),
+  content.createField(SPECIFIC_FIELD.BLOG_AUTHOR, {
+    name: pascal(SPECIFIC_FIELD.BLOG_AUTHOR),
     type: 'Array',
-    items: { type: 'Link', linkType: 'Entry', validations: [{ linkContentType: [COMMON_FIELD.BLOG_AUTHOR] }] },
+    items: { type: 'Link', linkType: 'Entry', validations: [{ linkContentType: [SPECIFIC_FIELD.BLOG_AUTHOR] }] },
   });
 };

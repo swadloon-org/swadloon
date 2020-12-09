@@ -1,47 +1,16 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
-import { VALENTINE_CONTENT_TYPE } from '../../constant-valentine/content-types';
-import { VALENTINE_FIELD } from '../../constant-valentine/fields';
-import { COMMON_CONTENT_TYPE } from '../../constants/content-types';
+import {
+  COMMON_CONTENT_TYPE,
+  COMMON_VARIANT,
+  SPECIFIC_CONTENT_TYPE,
+  SPECIFIC_SECTION_TYPE,
+} from '../../constants/content-types';
 import { CONTENTFUL_WIDGET } from '../../constants/contentful-widget-ids';
 import { COMMON_FIELD, mediaField } from '../../constants/fields';
+import { SPECIFIC_FIELD } from '../../constants/specific-fields';
 
-export enum SECTION_TYPE {
-  TYPE_1_GROUP = 'Type_1Group',
-  TYPE_1_NORMAL = 'Type_1Normal',
-  TYPE_1_REVERSED = 'Type_1Reversed',
-  TYPE_2 = 'Type_2',
-  TYPE_3_GROUP = 'Type_3Group',
-  TYPE_3 = 'Type_3',
-  TYPE_4 = 'Type_4',
-  TYPE_5 = 'Type_5',
-  TYPE_6_GROUP = 'Type_6Group',
-  TYPE_6 = 'Type_6',
-  TYPE_7 = 'Type_7',
-  VIDEO = 'Video',
-  BLOG_PREVIEW = 'BlogPreview',
-  JOB_EMPLOYER = 'JobEmployer',
-  JOB_CANDIDATES = 'JobCandidates',
-  PROCESS_PRIMARY = 'ProcessPrimary',
-  PROCESS_SECONDARY = 'ProcessSecondary',
-  TESTIMONIAL = 'Testimonial',
-}
-
-export enum VARIANT_TYPE {
-  NORMAL = 'Normal',
-  REVERSED = 'Reversed',
-  PRIMARY = 'Primary',
-  SECONDARY = 'Secondary',
-  TIERNARY = 'Tiernary',
-}
-
-export enum TYPE_OF_SECTION {
-  NONE = 'None',
-  BLOG = 'Blog',
-  PROJECT = 'Project',
-}
-
-export function createSection(migration: Migration.default, options: { type: TYPE_OF_SECTION[] }) {
+export function createSection(migration: Migration.default, options: { type: SPECIFIC_SECTION_TYPE[] }) {
   const content = migration.createContentType(COMMON_CONTENT_TYPE.SECTION, {
     name: COMMON_CONTENT_TYPE.SECTION,
     description: 'Configurable object for sections in a page.',
@@ -75,6 +44,11 @@ export function createSection(migration: Migration.default, options: { type: TYP
   /**
    * For Variant
    */
+
+  const allValidationVariant = Object.keys(COMMON_VARIANT).map((element: string) => {
+    return element;
+  });
+
   content.createField(COMMON_FIELD.VARIANT, {
     name: pascal(COMMON_FIELD.VARIANT),
     type: 'Array',
@@ -83,13 +57,7 @@ export function createSection(migration: Migration.default, options: { type: TYP
       type: 'Symbol',
       validations: [
         {
-          in: [
-            VARIANT_TYPE.NORMAL,
-            VARIANT_TYPE.REVERSED,
-            VARIANT_TYPE.PRIMARY,
-            VARIANT_TYPE.SECONDARY,
-            VARIANT_TYPE.TIERNARY,
-          ],
+          in: allValidationVariant,
         },
       ],
     },
@@ -174,31 +142,32 @@ export function createSection(migration: Migration.default, options: { type: TYP
 
   options.type.forEach((type_section) => {
     switch (type_section) {
-      case TYPE_OF_SECTION.BLOG: {
-        content.createField(COMMON_FIELD.BLOG_POSTS, {
-          name: pascal(COMMON_FIELD.BLOG_POSTS),
+      case SPECIFIC_SECTION_TYPE.BLOG: {
+        content.createField(SPECIFIC_FIELD.BLOG_POSTS, {
+          name: pascal(SPECIFIC_FIELD.BLOG_POSTS),
           type: 'Array',
           items: {
             type: 'Link',
             linkType: 'Entry',
-            validations: [{ linkContentType: [COMMON_CONTENT_TYPE.BLOG] }],
+            validations: [{ linkContentType: [SPECIFIC_CONTENT_TYPE.BLOG] }],
           },
         });
         break;
       }
-      case TYPE_OF_SECTION.PROJECT: {
-        content.createField(VALENTINE_FIELD.PROJECTS, {
-          name: pascal(VALENTINE_FIELD.PROJECTS),
+      case SPECIFIC_SECTION_TYPE.PROJECT: {
+        content.createField(SPECIFIC_FIELD.PROJECTS, {
+          name: pascal(SPECIFIC_FIELD.PROJECTS),
           type: 'Array',
           items: {
             type: 'Link',
             linkType: 'Entry',
-            validations: [{ linkContentType: [VALENTINE_CONTENT_TYPE.PROJECT] }],
+            validations: [{ linkContentType: [SPECIFIC_CONTENT_TYPE.PROJECT] }],
           },
         });
+        const projectEnable: boolean = true;
         break;
       }
-      case TYPE_OF_SECTION.NONE: {
+      case SPECIFIC_SECTION_TYPE.NONE: {
         break;
       }
     }
