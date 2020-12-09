@@ -68,18 +68,6 @@ export type MdxHeadingMdx = {
   depth?: Maybe<Scalars['Int']>;
 };
 
-export type MarkdownTemplateQuery = {
-  file?: Pick<
-    File,
-    'id' | 'name' | 'base' | 'ext' | 'dir' | 'absolutePath' | 'publicURL' | 'size' | 'sourceInstanceName'
-  > & {
-    childMdx?: Pick<Mdx, 'slug' | 'excerpt' | 'timeToRead' | 'tableOfContents' | 'body'> & {
-      frontmatter?: Maybe<Pick<MdxFrontmatter, 'title' | 'name' | 'tags'>>;
-      headings?: Maybe<Array<Maybe<Pick<MdxHeadingMdx, 'value' | 'depth'>>>>;
-    };
-  };
-};
-
 export type GatsbyNodeSiteMetadataFragment = Pick<
   GatsbySiteMetadata,
   'title' | 'description' | 'siteEnv' | 'siteUrl'
@@ -105,4 +93,17 @@ export type GatsbyNodeMarkdownFilesQuery = {
       }
     >;
   };
+};
+
+export type MarkdownTemplateQueryVariables = Exact<{
+  slug: Scalars['String'];
+}>;
+
+export type MarkdownTemplateQuery = {
+  mdx?: Maybe<
+    Pick<Mdx, 'slug' | 'excerpt' | 'timeToRead' | 'tableOfContents' | 'body'> & {
+      frontmatter?: Maybe<Pick<MdxFrontmatter, 'title' | 'name' | 'tags'>>;
+      headings?: Maybe<Array<Maybe<Pick<MdxHeadingMdx, 'value' | 'depth'>>>>;
+    }
+  >;
 };

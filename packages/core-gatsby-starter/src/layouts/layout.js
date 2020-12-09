@@ -22,11 +22,24 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Layout = void 0;
+exports.Layout = exports.query = void 0;
+const gatsby_1 = require("gatsby");
+const gatsby_2 = require("gatsby");
 const react_1 = __importDefault(require("react"));
 const react_treat_1 = require("react-treat");
 const styleRefs = __importStar(require("./layout.treat"));
+exports.query = gatsby_2.graphql `
+  query LayoutAllSitePage {
+    allSitePage {
+      nodes {
+        id
+        path
+      }
+    }
+  }
+`;
 exports.Layout = react_1.default.memo((props) => {
+    const data = gatsby_1.useStaticQuery(exports.query);
     const { styles } = react_treat_1.useStyles(styleRefs);
     return (react_1.default.createElement("div", { className: styles.wrapper },
         react_1.default.createElement("div", null, "sidebar"),

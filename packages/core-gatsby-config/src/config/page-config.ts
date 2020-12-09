@@ -43,11 +43,9 @@ export type GatsbySrcPageContext<SiteMetadataType> = {
 };
 
 /**
- * For markdown pages that will receive an id and then run a full query to receive all data.
+ * For markdown pages that will receive a slug and then run a full query to receive all data.
  * This is usually the case with pages created with MDX (.md and .mdx files).
  *
- * All file ids are retrieved in gatsby-node.js and then for each page, the pageId is passed in
- * the context.
  */
 export type GatsbyMarkdownFilePageContext<SiteMetadataType> = {
   /**
@@ -59,10 +57,10 @@ export type GatsbyMarkdownFilePageContext<SiteMetadataType> = {
    *
    * @example
    *  ```ts
-   *    `query Page($fileId: String) {...}`
+   *    `query Page($slug: String) {...}`
    *  ```
    */
-  fileId: string;
+  slug: string;
 };
 
 /**

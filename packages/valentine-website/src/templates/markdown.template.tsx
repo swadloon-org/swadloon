@@ -5,11 +5,8 @@ import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
 import { DEPLOY_ENV } from '@newrade/core-env';
 import { getMetaBasicTags } from '@newrade/core-react-ui';
-import {
-  GatsbyNodeSiteMetadataFragment,
-  MarkdownTemplateQuery,
-  GatsbyMarkdownFilePageContext,
-} from '@newrade/core-gatsby-config';
+import { GatsbyMarkdownFilePageContext, GatsbyNodeSiteMetadataFragment } from '@newrade/core-gatsby-config';
+import { MarkdownTemplateQuery } from '../../types/graphql-types';
 import { DebugGasbyPage } from '@newrade/core-gatsby-ui';
 
 export type MarkdownTemplateProps = PageProps<
@@ -21,33 +18,22 @@ export type MarkdownTemplateProps = PageProps<
  * Query to retrieve all markdown content for the markdown file
  */
 export const markdownTemplateQuery = graphql`
-  query MarkdownTemplate($fileId: String) {
-    file(id: { eq: $fileId }, ext: { in: [".md", ".mdx"] }) {
-      id
-      name
-      base
-      ext
-      dir
-      absolutePath
-      publicURL
-      size
-      sourceInstanceName
-      childMdx {
-        slug
-        excerpt(pruneLength: 160)
-        frontmatter {
-          title
-          name
-          tags
-        }
-        timeToRead
-        headings {
-          value
-          depth
-        }
-        tableOfContents(maxDepth: 3)
-        body
+  query MarkdownTemplate($slug: String!) {
+    mdx(slug: { eq: $slug }) {
+      slug
+      excerpt(pruneLength: 160)
+      frontmatter {
+        title
+        name
+        tags
       }
+      timeToRead
+      headings {
+        value
+        depth
+      }
+      tableOfContents(maxDepth: 3)
+      body
     }
   }
 `;
@@ -79,7 +65,7 @@ const Page: React.FC<MarkdownTemplateProps> = (props) => {
           site: `${data?.contentfulCompanyInfo?.metadataTwitterSite}`,
         })} */}
       </Helmet>
-      <MDXRenderer {...props}>{props.data.file?.childMdx?.body as string}</MDXRenderer>
+      <MDXRenderer {...props}>{props.data.mdx?.body as string}</MDXRenderer>
     </div>
   );
 };
