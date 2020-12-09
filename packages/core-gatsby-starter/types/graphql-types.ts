@@ -3854,11 +3854,6 @@ export type StringQueryOperatorInput = {
   glob?: Maybe<Scalars['String']>;
 };
 
-export type LayoutAllSitePageQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type LayoutAllSitePageQuery = { allSitePage: { nodes: Array<Pick<SitePage, 'id' | 'path'>> } };
-
 export type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
 
 

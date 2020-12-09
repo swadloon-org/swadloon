@@ -1,13 +1,14 @@
 import { Color, ColorShades5 } from '@newrade/core-design-system';
+import { SrcPageTemplate, SrcPageTemplateProps } from '@newrade/core-gatsby-ui';
 import { Cluster, ColorSwatch, getCSSColor, keys, lightenColor, Stack, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { SrcPageTemplate, SrcPageTemplateProps } from '@newrade/core-gatsby-ui';
 import * as styleRefs from './index.treat';
 
 const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
   const styles = useStyles(styleRefs);
   const { cssTheme, theme } = useTreatTheme();
+
   return (
     <div className={styles.wrapper}>
       <Stack id={'Design System'} gap="2em">

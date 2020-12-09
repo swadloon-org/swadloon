@@ -4,6 +4,8 @@ import path from 'path';
 import packageJson from './package.json';
 import { Env, ENV } from './types/dot-env';
 
+// Set options as a parameter, environment variable, or rc file.
+
 /**
  * Gatsby Config API
  *

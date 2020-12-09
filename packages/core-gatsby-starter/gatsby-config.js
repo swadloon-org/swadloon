@@ -27,6 +27,7 @@ const core_utils_1 = require("@newrade/core-utils");
 const path_1 = __importDefault(require("path"));
 const package_json_1 = __importDefault(require("./package.json"));
 const dot_env_1 = require("./types/dot-env");
+// Set options as a parameter, environment variable, or rc file.
 /**
  * Gatsby Config API
  *

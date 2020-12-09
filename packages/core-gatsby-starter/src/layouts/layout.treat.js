@@ -1,8 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.styles = void 0;
-const treat_1 = require("treat");
-exports.styles = treat_1.styleMap(({ cssTheme, theme }) => ({
+import { styleMap } from 'treat';
+export const styles = styleMap(({ cssTheme, theme }) => ({
     wrapper: {
         display: 'grid',
         gridTemplateColumns: '300px 1fr',
