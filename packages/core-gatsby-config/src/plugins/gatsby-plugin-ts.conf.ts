@@ -46,7 +46,7 @@ export function getGatsbyTsPluginConfig({
       typeCheck,
       forkTsCheckerPlugin,
       failOnError,
-      documentPaths: ['./src/**/*.{ts,tsx}', './gatsby-*.{ts,tsx}'],
+      documentPaths: ['./src/**/*.{ts,tsx}', './gatsby-*.{ts,tsx}', './src/**/*.{js,jsx}'],
     },
   };
 }
