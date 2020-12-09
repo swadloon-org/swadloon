@@ -4,7 +4,6 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
 import { DEPLOY_ENV } from '@newrade/core-env';
-import { getMetaBasicTags } from '@newrade/core-react-ui';
 import { GatsbyMarkdownFilePageContext, GatsbyNodeSiteMetadataFragment } from '@newrade/core-gatsby-config';
 import { MarkdownTemplateQuery } from '../../types/graphql-types';
 
@@ -44,7 +43,6 @@ const Page: React.FC<MarkdownTemplateProps> = (props) => {
   return (
     <div>
       <Helmet>
-        {getMetaBasicTags()}
         {/* {getMetadataOpenGraphWebsiteTags({
           type: OPEN_GRAPH_TYPE.ARTICLE,
           title: `${data?.contentfulBlogPost?.title}`,
