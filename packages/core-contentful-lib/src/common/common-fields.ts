@@ -1,6 +1,6 @@
 import { pascal } from 'case';
 import { IFieldOptions } from 'contentful-migration';
-import { COMMON_CONTENT_TYPE } from './content-types';
+import { COMMON_CONTENT_TYPE } from './common-content-types';
 
 export enum COMMON_FIELD {
   /**
@@ -22,6 +22,7 @@ export enum COMMON_FIELD {
   PAGE = 'page',
   SECTION = 'section',
   SECTIONS = 'sections',
+  SUB_SECTIONS = 'subSections',
   ROUTE = 'route',
   /**
    * Banner fields
@@ -74,13 +75,18 @@ export enum COMMON_FIELD {
   FACEBOOK_URL = 'facebookUrl',
   LINKEDIN_URL = 'linkedinUrl',
   /**
-   * Tiles
+   * Blog
    */
-  TILES = 'tiles',
+  BLOG_POSTS = 'blogPosts',
+  BLOG_TYPE = 'blogType',
+  BLOG_AUTHOR = 'blogAuthor',
+  BLOG_SLUG = 'blogSlug',
+  BLOG_EXCERPT = 'blogExcerpt',
+  BLOG_MAIN_IMAGE = 'blogMainImage',
   /**
-   * SubSection
+   * Project
    */
-  SUB_SECTIONS = 'subSections',
+  PORTFOLIOS = 'Portfolios',
 }
 
 /**

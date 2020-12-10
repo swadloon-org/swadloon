@@ -1,6 +1,6 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
-import { COMMON_CONTENT_TYPE } from '../constants/content-types';
+import { COMMON_CONTENT_TYPE } from '../common-content-types';
 import { CONTENTFUL_WIDGET } from '../constants/contentful-widget-ids';
 import { COMMON_FIELD } from '../constants/fields';
 

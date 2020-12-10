@@ -1,7 +1,4 @@
-import { ContentfulProject } from '../../types/contentful-types';
-import { createContentfulProject } from '../utilities/create-project';
-
-export enum PAGE_TYPE {
+export enum PROJECT_PAGE_TYPE {
   HOME,
   CLINIC,
   VASECTOMY_FORM,
@@ -10,10 +7,10 @@ export enum PAGE_TYPE {
   CONTACT,
 }
 
-export enum SECTION_TYPE {
+export enum PROJECT_SECTION_TYPE {
   BANNER = 'Banner',
-  MESSAGES = 'Messages',
-  TILE_LINKS = 'TileLinks',
+  MESSAGE = 'Message',
+  TILE_LINKS = 'TileLink',
   CLINIC_PREVIEW = 'ClinicPreview',
   CONTACT_PREVIEW = 'ContactPreview',
   CLINIC_MISSION = 'ClinicMission',
@@ -27,14 +24,12 @@ export enum SECTION_TYPE {
   VASECTOMY_FORM_VIDEO = 'VasectomyFormVideo',
   VASECTOMY_FORM_FORM = 'VasectomyFormForm',
   PILOT_EXAM_INFO = 'PilotExamInfo',
-  PILOT_EXAM_SERVICES = 'PilotExamServices',
+  PILOT_EXAM_SERVICE = 'PilotExamService',
   PILOT_EXAM_DR_PROFILE = 'PilotExamDrProfile',
   CONTACT_CONTACT = 'ContactContact',
 }
 
-export const project: ContentfulProject = createContentfulProject({
-  name: 'Clinique Dr. Pierre Boucher',
-  dir: 'vsb',
-  pageTypes: PAGE_TYPE,
-  sectionTypes: SECTION_TYPE,
-});
+export enum PROJECT_CONTENT_TYPE {
+  STEP = 'Step',
+  COST_ITEM = 'CostItem',
+}

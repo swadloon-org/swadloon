@@ -1,8 +1,8 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
-import { COMMON_CONTENT_TYPE } from '../constants/content-types';
+import { COMMON_CONTENT_TYPE } from '../common-content-types';
 
-export const createCompanyAdress: Migration.MigrationFunction = function (migration) {
+export const createCompanyAddress: Migration.MigrationFunction = function (migration) {
   const content = migration.createContentType(COMMON_CONTENT_TYPE.COMPANY_ADDRESS, {
     name: pascal(COMMON_CONTENT_TYPE.COMPANY_ADDRESS),
   });

@@ -1,5 +1,5 @@
 import * as Migration from 'contentful-migration';
-import { COMMON_CONTENT_TYPE } from '../common/constants/content-types';
+import { COMMON_CONTENT_TYPE } from '../common/common-content-types';
 
 const program: Migration.MigrationFunction = function IndexModel(migration) {
   const ALL_CONTENT_TYPES = Object.values(COMMON_CONTENT_TYPE);

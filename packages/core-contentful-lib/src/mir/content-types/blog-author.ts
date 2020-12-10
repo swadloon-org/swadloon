@@ -1,6 +1,6 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
-import { COMMON_CONTENT_TYPE } from '../../common/constants/content-types';
+import { COMMON_CONTENT_TYPE } from '../../common/common-content-types';
 import { COMMON_FIELD } from '../../common/constants/fields';
 
 export const createBlogAuthor: Migration.MigrationFunction = function (migration) {

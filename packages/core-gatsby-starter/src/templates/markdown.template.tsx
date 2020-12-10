@@ -65,9 +65,17 @@ const Page: React.FC<MarkdownTemplateProps> = (props) => {
           site: `${data?.contentfulCompanyInfo?.metadataTwitterSite}`,
         })} */}
       </Helmet>
-      <MDXRenderer {...props}>{props.data.mdx?.body as string}</MDXRenderer>
+      <MDX>{props.data.mdx?.body as string}</MDX>
     </div>
   );
 };
 
 export default Page;
+
+function MDX(props: { children: string }) {
+  return (
+    <div className={'test'}>
+      <MDXRenderer {...props}>{props.children}</MDXRenderer>
+    </div>
+  );
+}

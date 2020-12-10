@@ -1,12 +1,11 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
-import { COMMON_CONTENT_TYPE, SPECIFIC_CONTENT_TYPE, SPECIFIC_SECTION_TYPE } from '../constants/content-types';
-import { CONTENTFUL_WIDGET } from '../constants/contentful-widget-ids';
-import { COMMON_FIELD, mediaField } from '../constants/fields';
-import { SPECIFIC_FIELD } from '../constants/specific-fields';
-import { allValidationType } from '../constants/utilities';
+import { CONTENTFUL_WIDGET } from '../../../types/contentful-widget-ids';
+import { keys } from '../../utilities';
+import { COMMON_CONTENT_TYPE, COMMON_VARIANT } from '../common-content-types';
+import { COMMON_FIELD, mediaField } from '../common-fields';
 
-export function createSection(migration: Migration.default, options: { type: SPECIFIC_SECTION_TYPE[] }) {
+export function createSection(migration: Migration.default, options: { sectionTypes: object }) {
   const content = migration.createContentType(COMMON_CONTENT_TYPE.SECTION, {
     name: COMMON_CONTENT_TYPE.SECTION,
     description: 'Configurable object for sections in a page.',
@@ -37,10 +36,6 @@ export function createSection(migration: Migration.default, options: { type: SPE
     ],
   });
 
-  /**
-   * For Variant
-   */
-
   content.createField(COMMON_FIELD.VARIANT, {
     name: pascal(COMMON_FIELD.VARIANT),
     type: 'Array',
@@ -49,13 +44,13 @@ export function createSection(migration: Migration.default, options: { type: SPE
       type: 'Symbol',
       validations: [
         {
-          in: allValidationType(COMMON_FIELD),
+          in: keys(COMMON_VARIANT),
         },
       ],
     },
   });
   content.changeFieldControl(COMMON_FIELD.VARIANT, 'builtin', CONTENTFUL_WIDGET.LIST, {
-    helpText: 'Provide Text',
+    helpText: 'Select section variant',
   });
 
   /**
@@ -104,19 +99,6 @@ export function createSection(migration: Migration.default, options: { type: SPE
   });
 
   /**
-   * For Tiles & steps
-   */
-  content.createField(COMMON_FIELD.TILES, {
-    name: pascal(COMMON_FIELD.TILES),
-    type: 'Array',
-    items: {
-      type: 'Link',
-      linkType: 'Entry',
-      validations: [{ linkContentType: [COMMON_CONTENT_TYPE.TILE] }],
-    },
-  });
-
-  /**
    * For section into a section
    */
   content.createField(COMMON_FIELD.SUB_SECTIONS, {
@@ -130,38 +112,30 @@ export function createSection(migration: Migration.default, options: { type: SPE
   });
 
   /**
-   * For Project_Preview || Blog_Preview || Nothing at all
+   * To present blog posts
    */
-  options.type.forEach((type_section) => {
-    switch (type_section) {
-      case SPECIFIC_SECTION_TYPE.BLOG: {
-        content.createField(SPECIFIC_FIELD.BLOG_POSTS, {
-          name: pascal(SPECIFIC_FIELD.BLOG_POSTS),
-          type: 'Array',
-          items: {
-            type: 'Link',
-            linkType: 'Entry',
-            validations: [{ linkContentType: [SPECIFIC_CONTENT_TYPE.BLOG] }],
-          },
-        });
-        break;
-      }
-      case SPECIFIC_SECTION_TYPE.PROJECT: {
-        content.createField(SPECIFIC_FIELD.PROJECTS, {
-          name: pascal(SPECIFIC_FIELD.PROJECTS),
-          type: 'Array',
-          items: {
-            type: 'Link',
-            linkType: 'Entry',
-            validations: [{ linkContentType: [SPECIFIC_CONTENT_TYPE.PROJECT] }],
-          },
-        });
-        const projectEnable: boolean = true;
-        break;
-      }
-      case SPECIFIC_SECTION_TYPE.NONE: {
-        break;
-      }
-    }
+  content.createField(COMMON_FIELD.BLOG_POSTS, {
+    name: pascal(COMMON_FIELD.BLOG_POSTS),
+    type: 'Array',
+    items: {
+      type: 'Link',
+      linkType: 'Entry',
+      validations: [{ linkContentType: [COMMON_CONTENT_TYPE.BLOG] }],
+    },
   });
+
+  /**
+   * To link portfolio entries
+   */
+  content.createField(COMMON_FIELD.PORTFOLIOS, {
+    name: pascal(COMMON_FIELD.PORTFOLIOS),
+    type: 'Array',
+    items: {
+      type: 'Link',
+      linkType: 'Entry',
+      validations: [{ linkContentType: [COMMON_CONTENT_TYPE.PORTFOLIO] }],
+    },
+  });
+
+  return content;
 }
