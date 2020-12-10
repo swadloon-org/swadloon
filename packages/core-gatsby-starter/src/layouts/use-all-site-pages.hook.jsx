@@ -5,50 +5,45 @@ export const useAllSitePages = () => {
   return useStaticQuery(
     graphql`
       query LayoutAllSitePage {
-        pages: allSitePage(filter: { path: { glob: "!/docs/**/*" } }) {
+        pages: allSitePage(filter: { path: { glob: "!/{docs,design-system}/{**,*}" } }) {
+          totalCount
           nodes {
-            id
-            path
-            context {
-              slug
-              siteMetadata {
-                description
-                languages {
-                  defaultLangKey
-                  langs
-                }
-                siteEnv
-                siteUrl
-                title
-              }
-              frontmatter {
-                name
-                tags
-              }
-            }
+            ...SitePageFragment
           }
         }
-        docs: allSitePage(filter: { path: { glob: "/docs/**/*" } }) {
+        designsystem: allSitePage(filter: { path: { glob: "/design-system/{**,*}" } }) {
+          totalCount
           nodes {
-            id
-            path
-            context {
-              slug
-              siteMetadata {
-                description
-                languages {
-                  defaultLangKey
-                  langs
-                }
-                siteEnv
-                siteUrl
-                title
-              }
-              frontmatter {
-                name
-                tags
-              }
+            ...SitePageFragment
+          }
+          totalCount
+        }
+        docs: allSitePage(filter: { path: { glob: "/docs/{**,*}" } }) {
+          totalCount
+          nodes {
+            ...SitePageFragment
+          }
+        }
+      }
+
+      fragment SitePageFragment on SitePage {
+        id
+        path
+        context {
+          slug
+          siteMetadata {
+            description
+            languages {
+              defaultLangKey
+              langs
             }
+            siteEnv
+            siteUrl
+            title
+          }
+          frontmatter {
+            name
+            tags
           }
         }
       }

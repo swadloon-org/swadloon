@@ -46,8 +46,33 @@ exports.Layout = react_1.default.memo((props) => {
         }
         return case_1.title(path.replace('/docs', '').replaceAll('/', ' '));
     }
-    return (react_1.default.createElement("div", { className: styles.wrapper },
-        react_1.default.createElement("div", { className: styles.sideMenu }, pages.pages.nodes
+    function renderNavigation(path) {
+        if (!path) {
+            return null;
+        }
+        if (/^\/design-system/.test(path)) {
+            return (react_1.default.createElement("div", { className: styles.sideMenu }, pages.designsystem.nodes
+                .filter((node) => !/404/.test(node.path))
+                .map((node) => /^\/design-system\/$/.test(node.path) ? { ...node, context: { frontmatter: { name: 'Home' } } } : node)
+                .map((node) => {
+                return (react_1.default.createElement("div", { key: node.id, className: styles.navItem },
+                    react_1.default.createElement(gatsby_1.Link, { to: node.path }, node.context?.frontmatter?.name
+                        ? parsePathIntoName(node.context?.frontmatter?.name)
+                        : parsePathIntoName(node.path))));
+            })));
+        }
+        if (/^\/docs/.test(path)) {
+            return (react_1.default.createElement("div", { className: styles.sideMenu }, pages.docs.nodes
+                .filter((node) => !/404/.test(node.path))
+                .map((node) => /^\/docs\/$/.test(node.path) ? { ...node, context: { frontmatter: { name: 'Home' } } } : node)
+                .map((node) => {
+                return (react_1.default.createElement("div", { key: node.id, className: styles.navItem },
+                    react_1.default.createElement(gatsby_1.Link, { to: node.path }, node.context?.frontmatter?.name
+                        ? parsePathIntoName(node.context?.frontmatter?.name)
+                        : parsePathIntoName(node.path))));
+            })));
+        }
+        return (react_1.default.createElement("div", { className: styles.sideMenu }, pages.pages.nodes
             .filter((node) => !/404/.test(node.path))
             .map((node) => (/^\/$/.test(node.path) ? { ...node, context: { frontmatter: { name: 'Home' } } } : node))
             .map((node) => {
@@ -55,6 +80,10 @@ exports.Layout = react_1.default.memo((props) => {
                 react_1.default.createElement(gatsby_1.Link, { to: node.path }, node.context?.frontmatter?.name
                     ? parsePathIntoName(node.context?.frontmatter?.name)
                     : parsePathIntoName(node.path))));
-        })),
+        })));
+    }
+    return (react_1.default.createElement("div", { className: styles.wrapper },
+        react_1.default.createElement("header", null),
+        renderNavigation(props.location?.pathname),
         react_1.default.createElement("main", { className: styles.main }, props.children)));
 });

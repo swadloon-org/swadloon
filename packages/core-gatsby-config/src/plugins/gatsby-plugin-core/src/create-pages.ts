@@ -1,7 +1,7 @@
 import { AppError, ERROR_TYPE, log, LOG_LEVEL } from '@newrade/core-utils';
 import { GatsbyNode } from 'gatsby';
 import path from 'path';
-import { GatsbyMarkdownFilePageContext } from '../../../config/page-config';
+import { GatsbyMarkdownFilePageContext, GatsbySrcPageContext } from '../../../config/page-config';
 import { GatsbyNodeAllSiteQuery, GatsbyNodeSiteMetadataFragment } from '../../../config/site-graphql-types';
 import { GatsbyCorePluginOptions } from '../gatsby-plugin-options';
 
@@ -154,7 +154,25 @@ export const onCreatePageFunction: GatsbyNode['onCreatePage'] = ({ page, actions
         slug,
       },
     });
+    return;
   }
+
+  log(`Recreating page: ${updatedPath}`, {
+    toolName: pluginOptions.packageName,
+    level: LOG_LEVEL.INFO,
+  });
+
+  deletePage(page);
+
+  createPage<GatsbySrcPageContext<GatsbyNodeSiteMetadataFragment>>({
+    ...page,
+    path: updatedPath,
+    context: {
+      ...page.context,
+      siteMetadata,
+      fileId: '',
+    },
+  });
 };
 
 export const onCreateNodeFunction: GatsbyNode['onCreateNode'] = ({ node, actions, getNode }, options) => {
