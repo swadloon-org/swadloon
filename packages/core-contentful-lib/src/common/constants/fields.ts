@@ -8,6 +8,8 @@ export enum COMMON_FIELD {
    */
   NAME = 'name',
   DESCRIPTION = 'description',
+  KEY = 'key',
+  VALUE = 'value',
   /**
    * Custom fields
    */
@@ -71,10 +73,6 @@ export enum COMMON_FIELD {
   TWITTER_URL = 'twitterUrl',
   FACEBOOK_URL = 'facebookUrl',
   LINKEDIN_URL = 'linkedinUrl',
-  /**
-   *  fields translate
-   */
-  FIELD_TRANSLATE = 'fieldTranslate',
   /**
    * Tiles
    */

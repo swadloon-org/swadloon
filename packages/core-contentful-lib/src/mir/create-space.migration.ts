@@ -1,10 +1,10 @@
 import * as Migration from 'contentful-migration';
-import { SPECIFIC_SECTION_TYPE } from '../constants/content-types';
-import { createForm } from '../content-types-default/basic/form';
-import { createFormField } from '../content-types-default/basic/form-field';
-import { createLink } from '../content-types-default/basic/link';
-import { createMediaCollection } from '../content-types-default/basic/media-collection';
-import { createTile } from '../content-types-default/basic/tile';
+import { SPECIFIC_SECTION_TYPE } from '../common/constants/content-types';
+import { createForm } from '../common/content-types/basic/form';
+import { createLink } from '../common/content-types/basic/link';
+import { createMediaCollection } from '../common/content-types/basic/media-collection';
+import { createTile } from '../common/content-types/basic/tile';
+import { createFormField } from '../common/content-types/form-field';
 import { createBlogAuthor } from '../content-types-default/blog/blog-author';
 import { createBlogPost } from '../content-types-default/blog/blog-post';
 import { createBanner } from '../content-types-default/page/banner';
@@ -33,7 +33,6 @@ const program: Migration.MigrationFunction = function IndexModel(migration) {
   /**
    * Section
    */
-
   createSection(migration, { type: [SPECIFIC_SECTION_TYPE.NONE] });
   createSectionType(migration);
 
@@ -48,10 +47,10 @@ const program: Migration.MigrationFunction = function IndexModel(migration) {
    */
   createForm(migration);
   createFormField(migration);
+
   /**
    * With blog
    */
-
   createBlogAuthor(migration);
   createBlogPost(migration);
 
@@ -60,19 +59,6 @@ const program: Migration.MigrationFunction = function IndexModel(migration) {
    */
   // createProject(migration);
   // createTag(migration);
-
-  // /**
-  //  * MIR specific
-  //  */
-  // createInfoCheck(migration);
-  // createInfoTile(migration);
-  // createJob(migration);
-  // createJobGroup(migration);
-  // createProcessStep(migration);
-
-  // createBanner(migration);
-  // createPage(migration);
-  // createSectionType(migration);
 };
 
 // @ts-ignore

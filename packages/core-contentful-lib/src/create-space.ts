@@ -15,8 +15,7 @@ logEnvVariables<ENV>({ packageName: packageJson.name, env });
  * @see https://github.com/contentful/contentful-migration
  */
 runMigration({
-  // filePath: path.resolve(__dirname, 'migrations', 'create-space.migration.ts'),
-  filePath: path.resolve(__dirname, 'migrations', 'create-space.migration.ts'),
+  filePath: path.resolve(__dirname, 'migrations', env.CONTENTFUL_PROJECT, 'create-space.migration.ts'),
   spaceId: env.CONTENTFUL_SPACEID,
   accessToken: env.CONTENTFUL_MANAGEMENT_TOKEN,
 })

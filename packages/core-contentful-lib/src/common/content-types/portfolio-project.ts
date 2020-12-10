@@ -1,9 +1,9 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
-import { VALENTINE_CONTENT_TYPE } from '../../constant-valentine/content-types';
-import { VALENTINE_FIELD } from '../../constant-valentine/fields';
-import { CONTENTFUL_WIDGET } from '../../constants/contentful-widget-ids';
-import { COMMON_FIELD, mediaField } from '../../constants/fields';
+import { VALENTINE_CONTENT_TYPE } from '../../valentine/constants/content-types';
+import { VALENTINE_FIELD } from '../../valentine/constants/fields';
+import { CONTENTFUL_WIDGET } from '../constants/contentful-widget-ids';
+import { COMMON_FIELD, mediaField } from '../constants/fields';
 
 export const createProject: Migration.MigrationFunction = function (migration) {
   const content = migration.createContentType(VALENTINE_CONTENT_TYPE.PROJECT, {
