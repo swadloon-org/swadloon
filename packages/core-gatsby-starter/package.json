@@ -14,13 +14,15 @@
     "build": "gatsby build",
     "clean": "gatsby clean",
     "compile": "tsc --project tsconfig.gatsby.json",
+    "compile:watch": "concurrently \"yarn compile --watch\" \"yarn type-check --watch\"",
     "pre-debug": "yarn clean && yarn compile",
     "preload-fonts": ". ./.env && PORT=$APP_PORT gatsby-preload-fonts --no-sandbox",
     "refresh": ". ./.env && curl -X POST http://localhost:$APP_PORT/__refresh",
     "serve": ". ./.env && NODE_ENV=production gatsby serve --port=$APP_PORT",
     "prestart": "yarn compile",
     "start": ". ./.env && gatsby develop -p $APP_PORT -H 0.0.0.0",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "@newrade/core-design-system": "^1",

@@ -9,7 +9,7 @@ export const styles = {
     marginLeft: 'auto',
   })),
   main: style(({ cssTheme, theme }: Theme) => ({
-    padding: '2em',
+    padding: '1em',
     maxWidth: `calc( 1440px - 225px - 300px - 40px * 2 )`,
     margin: `0 auto`,
     width: `100%`,
