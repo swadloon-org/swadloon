@@ -1,0 +1,1 @@
+https://www.contentful.com/developers/docs/concepts/editor-interfaces/

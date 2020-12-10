@@ -20,6 +20,12 @@ export enum COMMON_FIELD {
   PAGE = 'page',
   SECTION = 'section',
   SECTIONS = 'sections',
+  ROUTE = 'route',
+  /**
+   * Banner fields
+   */
+  BANNER = 'banner',
+  BANNER_IMAGES = 'bannerImages',
   /**
    * Commonly used fields
    */
@@ -66,14 +72,17 @@ export enum COMMON_FIELD {
   FACEBOOK_URL = 'facebookUrl',
   LINKEDIN_URL = 'linkedinUrl',
   /**
-   * Blog fields
+   *  fields translate
    */
-  BLOG_POSTS = 'blogPosts',
-  BLOG_TYPE = 'blogType',
-  BLOG_AUTHOR = 'blogAuthor',
-  BLOG_SLUG = 'blogSlug',
-  BLOG_EXCERPT = 'blogExcerpt',
-  BLOG_MAIN_IMAGE = 'blogMainImage',
+  FIELD_TRANSLATE = 'fieldTranslate',
+  /**
+   * Tiles
+   */
+  TILES = 'tiles',
+  /**
+   * SubSection
+   */
+  SUB_SECTIONS = 'subSections',
 }
 
 /**

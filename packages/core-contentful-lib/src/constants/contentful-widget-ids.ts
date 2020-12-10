@@ -13,4 +13,6 @@ export enum CONTENTFUL_WIDGET {
   DROPDOWN = 'dropdown',
   MARKDOWN = 'markdown',
   DATE_PICKER = 'datePicker',
+  CHECK_BOX = 'checkbox',
+  LIST = 'listInput',
 }

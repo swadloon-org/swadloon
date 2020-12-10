@@ -19,6 +19,7 @@ export const Env = t.intersection([
      */
     CONTENTFUL_SPACEID: t.string,
     CONTENTFUL_MANAGEMENT_TOKEN: t.string,
+    CONTENTFUL_ENVIRONMENT: t.string,
   }),
 ]);
 
