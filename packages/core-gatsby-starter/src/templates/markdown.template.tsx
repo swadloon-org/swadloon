@@ -8,6 +8,8 @@ import { getMetaBasicTags } from '@newrade/core-react-ui';
 import { GatsbyMarkdownFilePageContext, GatsbyNodeSiteMetadataFragment } from '@newrade/core-gatsby-config';
 import { MarkdownTemplateQuery } from '../../types/graphql-types';
 import { DebugGasbyPage } from '@newrade/core-gatsby-ui';
+import * as styleRefs from './markdown.treat';
+import { useStyles } from 'react-treat';
 
 export type MarkdownTemplateProps = PageProps<
   MarkdownTemplateQuery,
@@ -42,6 +44,8 @@ export const markdownTemplateQuery = graphql`
  * Markdown template to render .mdx? files (e.g. documentation)
  */
 const Page: React.FC<MarkdownTemplateProps> = (props) => {
+  const { styles } = useStyles(styleRefs);
+
   return (
     <div>
       {props.pageContext.siteMetadata?.siteEnv === DEPLOY_ENV.LOCAL ? <DebugGasbyPage {...props} /> : null}
@@ -66,6 +70,12 @@ const Page: React.FC<MarkdownTemplateProps> = (props) => {
         })} */}
       </Helmet>
       <MDXRenderer {...props}>{props.data.mdx?.body as string}</MDXRenderer>
+
+      <aside className={styles.aside}>
+        {props.data.mdx?.headings?.map((heading) => (
+          <div>{heading?.value}</div>
+        ))}
+      </aside>
     </div>
   );
 };

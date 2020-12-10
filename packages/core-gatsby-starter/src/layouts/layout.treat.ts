@@ -4,13 +4,16 @@ import { styleMap } from 'treat';
 export const styles = styleMap(({ cssTheme, theme }: Theme) => ({
   wrapper: {
     display: 'grid',
-    gridTemplateColumns: '300px 1fr',
-    gridTemplateRows: '100vh',
+    gridTemplateColumns: '1fr',
+    maxWidth: `calc( 1440px - var(--aside-width) - var(--nav-width) - var(--horizontal-gutter) * 2 - (var(--nav-width) - var(--aside-width)) )`,
+    marginRight: 'auto',
+    marginLeft: 'auto',
   },
   content: {
     padding: '2em',
   },
   sideMenu: {
+    position: 'fixed',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'stretch',

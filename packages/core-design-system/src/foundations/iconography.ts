@@ -7,11 +7,15 @@ import { SizingStep } from './sizing';
  *    MENU = 'menu' would mean that a menu.svg icon exists in src/icons/
  */
 export enum ICON {
-  MENU = 'MENU',
   ARROW_UP = 'ARROW_UP',
   ARROW_RIGHT = 'ARROW_RIGHT',
   ARROW_DOWN = 'ARROW_DOWN',
   ARROW_LEFT = 'ARROW_LEFT',
+  MENU = 'MENU',
+  CHECKBOX_BOX = 'CHECKBOX_BOX',
+  CHECK = 'CHECK',
+  RADIO = 'RADIO',
+  CIRCLE = 'CIRCLE',
 }
 
 export interface Icon {

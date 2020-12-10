@@ -27,6 +27,9 @@ export interface ColorIntents<ColorType = Color> {
   tertiaryText: ColorType;
   tertiaryTextReversed: ColorType;
 
+  disabledText: ColorType;
+  disabledTextReversed: ColorType;
+
   successText: ColorType;
   successAction: ColorType;
   successBackground: ColorType;
@@ -42,4 +45,5 @@ export interface ColorIntents<ColorType = Color> {
   background0: ColorType;
   background1: ColorType;
   background2: ColorType;
+  backgroundDisabled: ColorType;
 }

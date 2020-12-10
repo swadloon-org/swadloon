@@ -49,5 +49,5 @@ exports.Layout = react_1.default.memo((props) => {
             return (react_1.default.createElement("div", { key: node.id, className: styles.navItem },
                 react_1.default.createElement(gatsby_1.Link, { to: node.path }, node.context?.frontmatter?.name || node.path)));
         })),
-        react_1.default.createElement("div", { className: styles.content }, props.children)));
+        react_1.default.createElement("main", { className: styles.content }, props.children)));
 });

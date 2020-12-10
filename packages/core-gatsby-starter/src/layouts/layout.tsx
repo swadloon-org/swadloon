@@ -39,7 +39,7 @@ export const Layout = React.memo((props) => {
         })}
       </div>
 
-      <div className={styles.content}>{props.children}</div>
+      <main className={styles.content}>{props.children}</main>
     </div>
   );
 });

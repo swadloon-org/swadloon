@@ -52,4 +52,14 @@ export interface Layout<BreakpointType = number, MediaQueryType = MediaQueryGrou
   media: MediaQueries<MediaQueryType>;
   contentMargins: ContentMargins<BreakpointType>;
   contentWidth: ContentWidths;
+  menubarWidth: {
+    [key in keyof typeof VIEWPORT]: BreakpointType;
+  };
+  topbarHeight: {
+    [key in keyof typeof VIEWPORT]: BreakpointType;
+  };
+  asideWidth: BreakpointType;
+  footerHeight: {
+    [key in keyof typeof VIEWPORT]: BreakpointType;
+  };
 }
