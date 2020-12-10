@@ -5,10 +5,10 @@ import {
   COMMON_VARIANT,
   SPECIFIC_CONTENT_TYPE,
   SPECIFIC_SECTION_TYPE,
-} from '../../constants/content-types';
-import { CONTENTFUL_WIDGET } from '../../constants/contentful-widget-ids';
-import { COMMON_FIELD, mediaField } from '../../constants/fields';
-import { SPECIFIC_FIELD } from '../../constants/specific-fields';
+} from '../constants/content-types';
+import { CONTENTFUL_WIDGET } from '../constants/contentful-widget-ids';
+import { COMMON_FIELD, mediaField } from '../constants/fields';
+import { SPECIFIC_FIELD } from '../constants/specific-fields';
 
 export function createSection(migration: Migration.default, options: { type: SPECIFIC_SECTION_TYPE[] }) {
   const content = migration.createContentType(COMMON_CONTENT_TYPE.SECTION, {
@@ -136,10 +136,10 @@ export function createSection(migration: Migration.default, options: { type: SPE
       validations: [{ linkContentType: [COMMON_CONTENT_TYPE.SECTION] }],
     },
   });
+
   /**
    * For Project_Preview || Blog_Preview || Nothing at all
    */
-
   options.type.forEach((type_section) => {
     switch (type_section) {
       case SPECIFIC_SECTION_TYPE.BLOG: {

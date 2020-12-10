@@ -24,6 +24,7 @@ export enum SECTION_TYPE {
   PROCESS_SECONDARY = 'processSecondary',
   TESTIMONIAL = 'testimonial',
 }
+
 export const createSectionType: Migration.MigrationFunction = function (migration) {
   const content = migration.createContentType(COMMON_CONTENT_TYPE.SECTION_TYPE, {
     name: COMMON_CONTENT_TYPE.SECTION_TYPE,
