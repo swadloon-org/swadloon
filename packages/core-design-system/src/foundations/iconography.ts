@@ -18,6 +18,16 @@ export enum ICON {
   CIRCLE = 'CIRCLE',
 }
 
+export enum ICON_STYLE {
+  SOLID = 'SOLID',
+  LINE = 'LINE',
+}
+
+export enum ICON_WEIGHT {
+  NORMAL = 'NORMAL',
+  LIGHT = 'LIGHT',
+}
+
 export interface Icon {
   /**
    * filename of the icon's svg
@@ -26,7 +36,7 @@ export interface Icon {
   /**
    * to control the stroke width on svg icons that supports it
    */
-  weight?: string;
+  weight?: number;
 }
 
 export enum ICON_SIZE {
@@ -41,10 +51,14 @@ export type Icons = { [key in keyof typeof ICON]: Icon };
 
 export interface Iconography<SizingType = SizingStep> {
   /**
-   * Name of the icon set.
+   * Name of the icon set.  (e.g. 'Ionicons')
    */
-  iconsFamily: string;
-  iconsWebsite: string;
+  family: string;
+  website: string;
+  /**
+   * Variation of the icon set
+   */
+  style?: ICON_STYLE;
   /**
    * Default icon infos (name and optionally weight) along with
    * extra icons.

@@ -5,5 +5,5 @@
     "outDir": "./"
   },
   "exclude": ["src"],
-  "include": ["gatsby-*", "src/layouts/*.ts?x"]
+  "include": ["gatsby-*", "src/layouts/*.tsx", "src/layouts/*.ts"]
 }

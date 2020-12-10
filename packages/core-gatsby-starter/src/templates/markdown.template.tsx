@@ -73,7 +73,9 @@ const Page: React.FC<MarkdownTemplateProps> = (props) => {
 
       <aside className={styles.aside}>
         {props.data.mdx?.headings?.map((heading) => (
-          <div>{heading?.value}</div>
+          <div id={`link-${heading?.value}`} key={heading?.value}>
+            <a href={`#${heading?.value}`}>{heading?.value}</a>
+          </div>
         ))}
       </aside>
     </div>

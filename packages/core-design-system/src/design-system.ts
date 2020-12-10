@@ -60,15 +60,15 @@ export interface DesignSystem<ThemeType extends undefined | string = undefined> 
     /**
      * Atoms
      */
-    titles: {};
-    headings: {};
-    paragraphs: {};
-    labels: {};
-    logos: {};
-    links: {};
-    dividers: {};
-    images: {};
-    illustrations: {};
+    // titles: {};
+    // headings: {};
+    // paragraphs: {};
+    // labels: {};
+    // logos: {};
+    // links: {};
+    // dividers: {};
+    // images: {};
+    // illustrations: {};
     /**
      * Molecules
      */
@@ -94,71 +94,71 @@ export interface DesignSystem<ThemeType extends undefined | string = undefined> 
             ThemeType extends string ? ThemeType : number
           >
     >;
-    inputs: {
-      text: {};
-      switch: {};
-      number: {};
-      dropdown: {};
-      radio: {};
-      checkbox: {};
-      date: {};
-      dateRange: {};
-      time: {};
-      textArea: {};
-    };
-    tags: {};
-    keyboard: {};
-    accordions: {};
-    breadcrumbs: {
-      separatorIcon: {};
-    };
-    progressBar: {};
-    progressCircle: {};
-    statusDot: {};
-    tabs: {};
-    listItems: {
-      info: {};
-      dropdown: {};
-      sidemenu: {};
-      menu: {};
-    };
-    notifications: {};
-    backgrounds: {};
-    steppers: {};
-    tooltips: {};
+    // inputs: {
+    //   text: {};
+    //   switch: {};
+    //   number: {};
+    //   dropdown: {};
+    //   radio: {};
+    //   checkbox: {};
+    //   date: {};
+    //   dateRange: {};
+    //   time: {};
+    //   textArea: {};
+    // };
+    // tags: {};
+    // keyboard: {};
+    // accordions: {};
+    // breadcrumbs: {
+    //   separatorIcon: {};
+    // };
+    // progressBar: {};
+    // progressCircle: {};
+    // statusDot: {};
+    // tabs: {};
+    // listItems: {
+    //   info: {};
+    //   dropdown: {};
+    //   sidemenu: {};
+    //   menu: {};
+    // };
+    // notifications: {};
+    // backgrounds: {};
+    // steppers: {};
+    // tooltips: {};
     /**
      * Organisms
      */
-    avatars: {};
-    tables: {};
-    tabsGroup: {};
-    dialogs: {};
-    carousels: {};
-    plots: {
-      axis: {};
-      lines: {};
-      legend: {};
-    };
-    cards: {};
-    forms: {
-      text: {};
-      switch: {};
-      number: {};
-      dropdown: {};
-      radio: {};
-      checkbox: {};
-      date: {};
-      dateRange: {};
-      time: {};
-      textArea: {};
-    };
-    layout: {
-      topbar: {};
-      sidemenu: {};
-      main: {};
-      aside: {};
-      footer: {};
-    };
-    sections: {};
+    // avatars: {};
+    // tables: {};
+    // tabsGroup: {};
+    // dialogs: {};
+    // carousels: {};
+    // plots: {
+    //   axis: {};
+    //   lines: {};
+    //   legend: {};
+    // };
+    // cards: {};
+    // forms: {
+    //   text: {};
+    //   switch: {};
+    //   number: {};
+    //   dropdown: {};
+    //   radio: {};
+    //   checkbox: {};
+    //   date: {};
+    //   dateRange: {};
+    //   time: {};
+    //   textArea: {};
+    // };
+    // layout: {
+    //   topbar: {};
+    //   sidemenu: {};
+    //   main: {};
+    //   aside: {};
+    //   footer: {};
+    // };
+    // sections: {};
   };
 }

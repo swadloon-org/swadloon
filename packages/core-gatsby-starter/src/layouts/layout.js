@@ -41,13 +41,20 @@ exports.Layout = react_1.default.memo((props) => {
         }, {});
     }
     function parsePathIntoName(path) {
-        return case_1.title(path.replace('/docs', '').replace('/', ' '));
+        if (!path) {
+            return 'No title for page';
+        }
+        return case_1.title(path.replace('/docs', '').replaceAll('/', ' '));
     }
     return (react_1.default.createElement("div", { className: styles.wrapper },
-        react_1.default.createElement("div", { className: styles.sideMenu }, pages.docs.nodes.map((node) => {
-            console.log(parsePathGroupFromName(node.path));
+        react_1.default.createElement("div", { className: styles.sideMenu }, pages.pages.nodes
+            .filter((node) => !/404/.test(node.path))
+            .map((node) => (/^\/$/.test(node.path) ? { ...node, context: { frontmatter: { name: 'Home' } } } : node))
+            .map((node) => {
             return (react_1.default.createElement("div", { key: node.id, className: styles.navItem },
-                react_1.default.createElement(gatsby_1.Link, { to: node.path }, node.context?.frontmatter?.name || node.path)));
+                react_1.default.createElement(gatsby_1.Link, { to: node.path }, node.context?.frontmatter?.name
+                    ? parsePathIntoName(node.context?.frontmatter?.name)
+                    : parsePathIntoName(node.path))));
         })),
-        react_1.default.createElement("main", { className: styles.content }, props.children)));
+        react_1.default.createElement("main", { className: styles.main }, props.children)));
 });

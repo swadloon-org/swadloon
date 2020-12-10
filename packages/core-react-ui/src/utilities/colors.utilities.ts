@@ -143,6 +143,8 @@ export function createDefaultColorIntents(colors: coreDesignSystem.Colors['color
     secondaryTextReversed: colors.grey['0-reversed'],
     tertiaryText: colors.grey['700'],
     tertiaryTextReversed: colors.grey['0-reversed'],
+    disabledText: colors.grey['400'],
+    disabledTextReversed: colors.grey['100'],
     successText: colors.utilityGreen['900'],
     successAction: colors.utilityGreen['500'],
     successBackground: colors.utilityGreen['100'],
@@ -155,6 +157,7 @@ export function createDefaultColorIntents(colors: coreDesignSystem.Colors['color
     background0: colors.grey['0'],
     background1: colors.grey['25'],
     background2: colors.grey['50'],
+    backgroundDisabled: colors.grey['100'],
   };
 }
 

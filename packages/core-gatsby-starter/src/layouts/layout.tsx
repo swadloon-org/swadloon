@@ -21,25 +21,34 @@ export const Layout = React.memo((props) => {
     }, {});
   }
 
-  function parsePathIntoName(path: string) {
-    return title(path.replace('/docs', '').replace('/', ' '));
+  function parsePathIntoName(path?: string | null) {
+    if (!path) {
+      return 'No title for page';
+    }
+
+    return title(path.replace('/docs', '').replaceAll('/', ' '));
   }
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.sideMenu}>
-        {pages.docs.nodes.map((node) => {
-          console.log(parsePathGroupFromName(node.path));
-
-          return (
-            <div key={node.id} className={styles.navItem}>
-              <Link to={node.path}>{node.context?.frontmatter?.name || node.path}</Link>
-            </div>
-          );
-        })}
+        {pages.pages.nodes
+          .filter((node) => !/404/.test(node.path))
+          .map((node) => (/^\/$/.test(node.path) ? { ...node, context: { frontmatter: { name: 'Home' } } } : node))
+          .map((node) => {
+            return (
+              <div key={node.id} className={styles.navItem}>
+                <Link to={node.path}>
+                  {node.context?.frontmatter?.name
+                    ? parsePathIntoName(node.context?.frontmatter?.name)
+                    : parsePathIntoName(node.path)}
+                </Link>
+              </div>
+            );
+          })}
       </div>
 
-      <main className={styles.content}>{props.children}</main>
+      <main className={styles.main}>{props.children}</main>
     </div>
   );
 });
