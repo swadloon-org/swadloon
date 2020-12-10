@@ -1,4 +1,6 @@
 import * as Migration from 'contentful-migration';
+import { INPUT_TYPE } from '../constants/fields';
+import { allValidationType } from '../constants/utilities';
 
 export const createFormField: Migration.MigrationFunction = function (migration) {
   const content = migration.createContentType('FormField', {
@@ -12,7 +14,7 @@ export const createFormField: Migration.MigrationFunction = function (migration)
     required: true,
     validations: [
       {
-        in: ['email', 'phone', 'shortText', 'longText'],
+        in: allValidationType(INPUT_TYPE),
       },
     ],
   });

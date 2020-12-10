@@ -125,3 +125,31 @@ export const mediaField: IFieldOptions = {
   linkType: 'Entry',
   validations: [{ linkContentType: [COMMON_CONTENT_TYPE.MEDIA_COLLECTION] }],
 };
+
+/**
+ * Input type for the from field
+ */
+export enum INPUT_TYPE {
+  BUTTON = 'button',
+  CHECKBOX = 'checkbox',
+  COLOR = 'color',
+  DATE = 'date',
+  DATETIME_LOCAL = 'datetime-local',
+  EMAIL = 'email',
+  FILE = 'file',
+  HIDDEN = 'hidden',
+  IMAGE = 'image',
+  MONTH = 'month',
+  NUMBER = 'number',
+  PASSWORD = 'password',
+  RADIO = 'radio',
+  RANGE = 'range',
+  RESET = 'reset',
+  SEARCH = 'search',
+  SUBMIT = 'submit',
+  TEL = 'tel',
+  TEXT = 'text',
+  TIME = 'time',
+  URL = 'url',
+  WEEK = 'week',
+}

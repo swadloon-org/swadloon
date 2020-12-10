@@ -3,6 +3,7 @@ import * as Migration from 'contentful-migration';
 import { COMMON_CONTENT_TYPE } from '../constants/content-types';
 import { CONTENTFUL_WIDGET } from '../constants/contentful-widget-ids';
 import { COMMON_FIELD } from '../constants/fields';
+import { allValidationType } from '../constants/utilities';
 
 export enum SECTION_TYPE {
   TYPE_1_GROUP = 'type_1Group',
@@ -36,10 +37,6 @@ export const createSectionType: Migration.MigrationFunction = function (migratio
    */
   content.createField(COMMON_FIELD.NAME, { name: pascal(COMMON_FIELD.NAME), type: 'Symbol' });
 
-  const allValidationType = Object.keys(SECTION_TYPE).map((element: string) => {
-    return element;
-  });
-
   content.createField(COMMON_FIELD.TYPE, {
     name: pascal(COMMON_FIELD.TYPE),
     type: 'Link',
@@ -47,7 +44,7 @@ export const createSectionType: Migration.MigrationFunction = function (migratio
     required: true,
     validations: [
       {
-        linkContentType: allValidationType,
+        linkContentType: allValidationType(SECTION_TYPE),
       },
     ],
   });

@@ -1,14 +1,10 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
-import {
-  COMMON_CONTENT_TYPE,
-  COMMON_VARIANT,
-  SPECIFIC_CONTENT_TYPE,
-  SPECIFIC_SECTION_TYPE,
-} from '../constants/content-types';
+import { COMMON_CONTENT_TYPE, SPECIFIC_CONTENT_TYPE, SPECIFIC_SECTION_TYPE } from '../constants/content-types';
 import { CONTENTFUL_WIDGET } from '../constants/contentful-widget-ids';
 import { COMMON_FIELD, mediaField } from '../constants/fields';
 import { SPECIFIC_FIELD } from '../constants/specific-fields';
+import { allValidationType } from '../constants/utilities';
 
 export function createSection(migration: Migration.default, options: { type: SPECIFIC_SECTION_TYPE[] }) {
   const content = migration.createContentType(COMMON_CONTENT_TYPE.SECTION, {
@@ -45,10 +41,6 @@ export function createSection(migration: Migration.default, options: { type: SPE
    * For Variant
    */
 
-  const allValidationVariant = Object.keys(COMMON_VARIANT).map((element: string) => {
-    return element;
-  });
-
   content.createField(COMMON_FIELD.VARIANT, {
     name: pascal(COMMON_FIELD.VARIANT),
     type: 'Array',
@@ -57,7 +49,7 @@ export function createSection(migration: Migration.default, options: { type: SPE
       type: 'Symbol',
       validations: [
         {
-          in: allValidationVariant,
+          in: allValidationType(COMMON_FIELD),
         },
       ],
     },
