@@ -25,12 +25,14 @@ const program: Migration.MigrationFunction = function Program(migration) {
   createPage(migration);
   createBlogAuthor(migration);
   createBlogPost(migration);
+  // TODO createPortfolio
+  // TODO createPortfolioClient
+  // TODO createPortfolioTag
   createSectionType(migration, { sectionTypes: PROJECT_SECTION_TYPE });
   const section = createSection(migration, { sectionTypes: PROJECT_SECTION_TYPE });
   /**
    * Project specific
    */
-
   /**
    * Steps
    */
