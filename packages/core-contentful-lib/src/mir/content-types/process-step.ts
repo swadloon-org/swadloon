@@ -1,6 +1,6 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
-import { COMMON_FIELD } from '../../common/constants/fields';
+import { COMMON_FIELD } from '../../common/common-fields';
 
 export const createProcessStep: Migration.MigrationFunction = function (migration) {
   const content = migration.createContentType('processStep', {

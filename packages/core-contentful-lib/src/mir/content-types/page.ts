@@ -1,8 +1,8 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
+import { CONTENTFUL_WIDGET } from '../../../types/contentful-widget-ids';
 import { COMMON_CONTENT_TYPE } from '../../common/common-content-types';
-import { CONTENTFUL_WIDGET } from '../../common/constants/contentful-widget-ids';
-import { COMMON_FIELD, mediaField } from '../../common/constants/fields';
+import { COMMON_FIELD, mediaField } from '../../common/common-fields';
 
 export const createPage: Migration.MigrationFunction = function (migration) {
   const content = migration.createContentType(COMMON_CONTENT_TYPE.PAGE, {
