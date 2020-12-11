@@ -4,7 +4,7 @@ import { CONTENTFUL_WIDGET } from '../../../types/contentful-widget-ids';
 import { COMMON_CONTENT_TYPE } from '../common-content-types';
 import { COMMON_FIELD, mediaField } from '../common-fields';
 
-export const createProject: Migration.MigrationFunction = function (migration) {
+export const createPortfolioClient: Migration.MigrationFunction = function (migration) {
   const content = migration.createContentType(COMMON_CONTENT_TYPE.PORTFOLIO_CLIENT, {
     name: COMMON_CONTENT_TYPE.PORTFOLIO_CLIENT,
   });

@@ -21,6 +21,11 @@ export enum COMMON_CONTENT_TYPE {
   EMPLOYEE_PROFILE = 'EmployeeProfile',
   COMPANY_ADDRESS = 'CompanyAddress',
   /**
+   * Tag
+   */
+  TAG = 'Tag',
+  TAG_TYPE = 'TagType',
+  /**
    * Blog content types
    */
   BLOG = 'Blog',
@@ -29,7 +34,7 @@ export enum COMMON_CONTENT_TYPE {
   /**
    * Portfolio content types
    */
-  PORTFOLIO = 'Portfolio',
+  PORTFOLIO_PROJECT = 'PortfolioProject',
   PORTFOLIO_CLIENT = 'PortfolioClient',
   PORTFOLIO_TAG = 'PortfolioTag',
   /**

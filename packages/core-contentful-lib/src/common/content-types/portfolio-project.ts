@@ -4,9 +4,9 @@ import { CONTENTFUL_WIDGET } from '../../../types/contentful-widget-ids';
 import { COMMON_CONTENT_TYPE } from '../common-content-types';
 import { COMMON_FIELD, mediaField } from '../common-fields';
 
-export const createProject: Migration.MigrationFunction = function (migration) {
-  const content = migration.createContentType(COMMON_CONTENT_TYPE.PORTFOLIO, {
-    name: COMMON_CONTENT_TYPE.PORTFOLIO,
+export const createPortfolioProject: Migration.MigrationFunction = function (migration) {
+  const content = migration.createContentType(COMMON_CONTENT_TYPE.PORTFOLIO_PROJECT, {
+    name: COMMON_CONTENT_TYPE.PORTFOLIO_PROJECT,
   });
 
   content.createField(COMMON_FIELD.TITLE, {

@@ -134,7 +134,7 @@ export function createSection(migration: Migration.default, options: { sectionTy
     items: {
       type: 'Link',
       linkType: 'Entry',
-      validations: [{ linkContentType: [COMMON_CONTENT_TYPE.PORTFOLIO] }],
+      validations: [{ linkContentType: [COMMON_CONTENT_TYPE.PORTFOLIO_PROJECT] }],
     },
   });
 

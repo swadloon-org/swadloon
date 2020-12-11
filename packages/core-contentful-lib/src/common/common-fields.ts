@@ -16,6 +16,7 @@ export enum COMMON_FIELD {
   TYPE = 'type',
   VARIANT = 'variant',
   SIZE = 'size',
+  TAGS = 'tags',
   /**
    * Section / Layout related fields
    */

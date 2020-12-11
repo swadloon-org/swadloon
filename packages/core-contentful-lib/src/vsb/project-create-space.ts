@@ -9,6 +9,8 @@ import { createFieldTranslation } from '../common/content-types/field-translatio
 import { createLink } from '../common/content-types/link';
 import { createMediaCollection } from '../common/content-types/media-collection';
 import { createPage } from '../common/content-types/page';
+import { createPortfolioClient } from '../common/content-types/portfolio-client';
+import { createPortfolioProject } from '../common/content-types/portfolio-project';
 import { createSection } from '../common/content-types/section';
 import { createSectionType } from '../common/content-types/section-type';
 import { PROJECT_CONTENT_TYPE, PROJECT_SECTION_TYPE } from './project-content-types';
@@ -23,11 +25,11 @@ const program: Migration.MigrationFunction = function Program(migration) {
   createCompanyAddress(migration);
   createCompanyInfo(migration);
   createPage(migration);
+  createTag(migration);
   createBlogAuthor(migration);
   createBlogPost(migration);
-  // TODO createPortfolio
-  // TODO createPortfolioClient
-  // TODO createPortfolioTag
+  createPortfolioProject(migration);
+  createPortfolioClient(migration);
   createSectionType(migration, { sectionTypes: PROJECT_SECTION_TYPE });
   const section = createSection(migration, { sectionTypes: PROJECT_SECTION_TYPE });
   /**

@@ -15,7 +15,7 @@ logEnvVariables<ENV>({ packageName: packageJson.name, env });
  * @see https://github.com/contentful/contentful-migration
  */
 runMigration({
-  filePath: path.resolve(__dirname, 'migrations', env.CONTENTFUL_PROJECT, 'delete-space.migration.ts'),
+  filePath: path.resolve(__dirname, 'migrations', env.CONTENTFUL_PROJECT, 'project-delete-space.ts'),
   spaceId: env.CONTENTFUL_SPACEID,
   accessToken: env.CONTENTFUL_MANAGEMENT_TOKEN,
 })
