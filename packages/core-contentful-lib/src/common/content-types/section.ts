@@ -1,8 +1,9 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
+import { COMMON_VARIANT } from 'types/props-type';
 import { CONTENTFUL_WIDGET } from '../../../types/contentful-widget-ids';
 import { keys } from '../../utilities';
-import { COMMON_CONTENT_TYPE, COMMON_VARIANT } from '../common-content-types';
+import { COMMON_CONTENT_TYPE } from '../common-content-types';
 import { COMMON_FIELD, mediaField } from '../common-fields';
 
 export function createSection(migration: Migration.default, options: { sectionTypes: object }) {
@@ -87,7 +88,7 @@ export function createSection(migration: Migration.default, options: { sectionTy
     validations: [{ linkContentType: [COMMON_CONTENT_TYPE.LINK] }],
   });
   content.changeFieldControl(COMMON_FIELD.LINK, 'builtin', CONTENTFUL_WIDGET.ENTRY_LINK_EDITOR, {
-    helpText: 'Select a media collection to set images on the section.',
+    helpText: 'Select a link in the section.',
   });
 
   /**

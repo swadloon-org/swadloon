@@ -8,7 +8,7 @@ export enum COMMON_VARIANT {
 }
 
 export enum MEDIA_COLLECTION {
-  CAROUSEL_VERTICAL = 'CarouselVertical',
+  CAROUSEL_VERTICAL = 'carouselVertical',
   CAROUSEL_HORIZONTAL = 'CarouselHorizontal',
 }
 

@@ -1,17 +1,18 @@
-export enum VALENTINE_FIELD {
+export enum TagType {
   /**
    * Contentful defaults Tags level
    */
   FIRST_LEVEL = 'firstLevel',
   SECOND_LEVEL = 'secondLevel',
   THIRD_LEVEL = 'thirdLevel',
-  /**
-   * Slug Project
-   */
-  PROJECT_SLUG = 'projectSlug',
-  /**
-   * Project
-   */
-  PROJECTS = 'projects',
-  PROJECT_EXCERPT = 'projectExcerpt',
+}
+
+export enum TAG_LEVEL_1 {
+  TEST = 'Test',
+}
+export enum TAG_LEVEL_2 {
+  TEST = 'Test',
+}
+export enum TAG_LEVEL_3 {
+  TEST = 'Test',
 }

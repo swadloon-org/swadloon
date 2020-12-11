@@ -1,8 +1,10 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
-import { COMMON_CONTENT_TYPE, MEDIA_COLLECTION } from '../common-content-types';
-import { CONTENTFUL_WIDGET } from '../constants/contentful-widget-ids';
-import { COMMON_FIELD } from '../constants/fields';
+import { COMMON_SIZE, MEDIA_COLLECTION } from 'types/props-type';
+import { CONTENTFUL_WIDGET } from '../../../types/contentful-widget-ids';
+import { keys } from '../../utilities';
+import { COMMON_CONTENT_TYPE } from '../common-content-types';
+import { COMMON_FIELD } from '../common-fields';
 
 export const createMediaCollection: Migration.MigrationFunction = function (migration) {
   const content = migration.createContentType(COMMON_CONTENT_TYPE.MEDIA_COLLECTION, {
@@ -10,13 +12,46 @@ export const createMediaCollection: Migration.MigrationFunction = function (migr
   });
 
   content.createField(COMMON_FIELD.TYPE, {
-    ...typeField,
-    validations: [{ in: [MEDIA_COLLECTION.CAROUSEL_HORIZONTAL, MEDIA_COLLECTION.CAROUSEL_VERTICAL] }],
+    name: pascal(COMMON_FIELD.TYPE),
+    type: 'Link',
+    linkType: 'Entry',
+    required: true,
+    validations: [
+      {
+        linkContentType: keys(MEDIA_COLLECTION),
+      },
+    ],
   });
-  content.createField(COMMON_FIELD.VARIANT, { ...variantField, validations: [{ in: ['carousel'] }] });
+  content.changeFieldControl(COMMON_FIELD.TYPE, 'builtin', CONTENTFUL_WIDGET.LIST, {
+    helpText: 'Select media type',
+  });
+
+  MEDIA_COLLECTION;
+
+  content.createField(COMMON_FIELD.VARIANT, {
+    name: pascal(COMMON_FIELD.VARIANT),
+    type: 'Array',
+    validations: [{ size: { max: 1 } }],
+    items: {
+      type: 'Symbol',
+      validations: [{ in: keys(COMMON_SIZE) }],
+    },
+  });
+  content.changeFieldControl(COMMON_FIELD.VARIANT, 'builtin', CONTENTFUL_WIDGET.LIST, {
+    helpText: 'Select media variant',
+  });
+
   content.createField(COMMON_FIELD.SIZE, {
-    ...sizeField,
-    validations: [{ in: [COMMON_SIZE.LARGE, COMMON_SIZE.LARGE] }],
+    name: pascal(COMMON_FIELD.SIZE),
+    type: 'Array',
+    validations: [{ size: { max: 1 } }],
+    items: {
+      type: 'Symbol',
+      validations: [{ in: keys(COMMON_SIZE) }],
+    },
+  });
+  content.changeFieldControl(COMMON_FIELD.SIZE, 'builtin', CONTENTFUL_WIDGET.LIST, {
+    helpText: 'Select media size',
   });
 
   content.createField(COMMON_FIELD.MEDIAS, {

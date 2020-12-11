@@ -86,7 +86,10 @@ export enum COMMON_FIELD {
   /**
    * Project
    */
-  PORTFOLIOS = 'Portfolios',
+  PORTFOLIOS = 'portfolios',
+  PORTFOLIO_PROJECT_SLUG = 'portfolioProjectSlug',
+  PORTFOLIO_PROJECTS = 'portfolioProjects',
+  PORTFOLIO_PROJECT_EXCERPT = 'portfolioProjectExcerpt',
 }
 
 /**
@@ -158,4 +161,23 @@ export enum INPUT_TYPE {
   TIME = 'time',
   URL = 'url',
   WEEK = 'week',
+}
+
+export enum TagType {
+  /**
+   * Contentful defaults Tags level
+   */
+  FIRST_LEVEL = 'firstLevel',
+  SECOND_LEVEL = 'secondLevel',
+  THIRD_LEVEL = 'thirdLevel',
+}
+
+export enum TAG_LEVEL_1 {
+  TEST = 'Sample',
+}
+export enum TAG_LEVEL_2 {
+  TEST = 'Sample',
+}
+export enum TAG_LEVEL_3 {
+  TEST = 'Sample',
 }

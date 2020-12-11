@@ -2,7 +2,7 @@ export enum VALENTINE_CONTENT_TYPE {
   /**
    * Project
    */
-  PROJECT = 'Project',
+  PORTFOLIO = 'Portfolio',
   /**
    * Tags
    */

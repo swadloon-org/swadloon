@@ -1,6 +1,6 @@
 import * as Migration from 'contentful-migration';
-import { INPUT_TYPE } from '../constants/fields';
-import { keys } from '../constants/utilities';
+import { keys } from '../../utilities';
+import { INPUT_TYPE } from '../common-fields';
 
 export const createFormField: Migration.MigrationFunction = function (migration) {
   const content = migration.createContentType('FormField', {

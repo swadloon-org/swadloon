@@ -1,7 +1,7 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
 import { COMMON_CONTENT_TYPE } from '../common-content-types';
-import { COMMON_FIELD } from '../constants/fields';
+import { COMMON_FIELD } from '../common-fields';
 
 export const createFieldTranslation: Migration.MigrationFunction = function (migration) {
   const content = migration.createContentType(COMMON_CONTENT_TYPE.FIELD_TRANSLATION, {

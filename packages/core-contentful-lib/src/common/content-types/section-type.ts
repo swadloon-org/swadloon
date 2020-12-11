@@ -1,9 +1,9 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
+import { CONTENTFUL_WIDGET } from '../../../types/contentful-widget-ids';
+import { keys } from '../../utilities';
 import { COMMON_CONTENT_TYPE } from '../common-content-types';
-import { CONTENTFUL_WIDGET } from '../constants/contentful-widget-ids';
-import { COMMON_FIELD } from '../constants/fields';
-import { keys } from '../constants/utilities';
+import { COMMON_FIELD } from '../common-fields';
 
 export const createSectionType = function (migration: Migration.default, options: { sectionTypes: object }) {
   const content = migration.createContentType(COMMON_CONTENT_TYPE.SECTION_TYPE, {
@@ -26,6 +26,9 @@ export const createSectionType = function (migration: Migration.default, options
         linkContentType: keys(options.sectionTypes),
       },
     ],
+  });
+  content.changeFieldControl(COMMON_FIELD.TYPE, 'builtin', CONTENTFUL_WIDGET.LIST, {
+    helpText: 'Select section type',
   });
 
   content.createField(COMMON_FIELD.DESCRIPTION, {

@@ -1,7 +1,8 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
+import { keys } from '../../utilities';
 import { VALENTINE_CONTENT_TYPE } from '../../valentine/constants/content-types';
-import { VALENTINE_FIELD } from '../../valentine/constants/fields';
+import { TagType, TAG_LEVEL_1, TAG_LEVEL_2, TAG_LEVEL_3 } from '../../valentine/constants/fields';
 
 export const createTag: Migration.MigrationFunction = function (migration) {
   const content = migration.createContentType(VALENTINE_CONTENT_TYPE.TAG, {
@@ -11,15 +12,15 @@ export const createTag: Migration.MigrationFunction = function (migration) {
   /**
    * For First Level
    */
-  content.createField(VALENTINE_FIELD.FIRST_LEVEL, {
-    name: pascal(VALENTINE_FIELD.FIRST_LEVEL),
+  content.createField(TagType.FIRST_LEVEL, {
+    name: pascal(TagType.FIRST_LEVEL),
     type: 'Array',
     validations: [{ size: { max: 5 } }],
     items: {
       type: 'Symbol',
       validations: [
         {
-          in: ['test'],
+          in: keys(TAG_LEVEL_1),
         },
       ],
     },
@@ -27,15 +28,15 @@ export const createTag: Migration.MigrationFunction = function (migration) {
   /**
    * For Second Level
    */
-  content.createField(VALENTINE_FIELD.SECOND_LEVEL, {
-    name: pascal(VALENTINE_FIELD.SECOND_LEVEL),
+  content.createField(TagType.SECOND_LEVEL, {
+    name: pascal(TagType.SECOND_LEVEL),
     type: 'Array',
     validations: [{ size: { max: 5 } }],
     items: {
       type: 'Symbol',
       validations: [
         {
-          in: ['test'],
+          in: keys(TAG_LEVEL_2),
         },
       ],
     },
@@ -43,15 +44,15 @@ export const createTag: Migration.MigrationFunction = function (migration) {
   /**
    * For Third Level
    */
-  content.createField(VALENTINE_FIELD.THIRD_LEVEL, {
-    name: pascal(VALENTINE_FIELD.THIRD_LEVEL),
+  content.createField(TagType.THIRD_LEVEL, {
+    name: pascal(TagType.THIRD_LEVEL),
     type: 'Array',
     validations: [{ size: { max: 5 } }],
     items: {
       type: 'Symbol',
       validations: [
         {
-          in: ['test'],
+          in: keys(TAG_LEVEL_3),
         },
       ],
     },
