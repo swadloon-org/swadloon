@@ -3388,15 +3388,17 @@ export type SitePageConnectionGroupArgs = {
 
 export type SitePageContext = {
   pageId?: Maybe<Scalars['String']>;
-  frontmatter?: Maybe<SitePageContextFrontmatter>;
   siteMetadata?: Maybe<SitePageContextSiteMetadata>;
+  fileId?: Maybe<Scalars['String']>;
+  frontmatter?: Maybe<SitePageContextFrontmatter>;
   slug?: Maybe<Scalars['String']>;
 };
 
 export type SitePageContextFilterInput = {
   pageId?: Maybe<StringQueryOperatorInput>;
-  frontmatter?: Maybe<SitePageContextFrontmatterFilterInput>;
   siteMetadata?: Maybe<SitePageContextSiteMetadataFilterInput>;
+  fileId?: Maybe<StringQueryOperatorInput>;
+  frontmatter?: Maybe<SitePageContextFrontmatterFilterInput>;
   slug?: Maybe<StringQueryOperatorInput>;
 };
 
@@ -3540,14 +3542,15 @@ export type SitePageFieldsEnum =
   | 'internal___type'
   | 'isCreatedByStatefulCreatePages'
   | 'context___pageId'
-  | 'context___frontmatter___name'
-  | 'context___frontmatter___tags'
   | 'context___siteMetadata___title'
   | 'context___siteMetadata___description'
   | 'context___siteMetadata___siteEnv'
   | 'context___siteMetadata___siteUrl'
   | 'context___siteMetadata___languages___langs'
   | 'context___siteMetadata___languages___defaultLangKey'
+  | 'context___fileId'
+  | 'context___frontmatter___name'
+  | 'context___frontmatter___tags'
   | 'context___slug'
   | 'pluginCreator___id'
   | 'pluginCreator___parent___id'

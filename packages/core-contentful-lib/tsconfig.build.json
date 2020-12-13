@@ -7,6 +7,9 @@
   },
   "references": [
     {
+      "path": "../core-env/tsconfig.build.json"
+    },
+    {
       "path": "../core-utils/tsconfig.build.json"
     }
   ],

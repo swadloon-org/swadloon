@@ -1,49 +1,49 @@
-import { Color } from '../primitives/color';
+import { ColorType } from '../types';
 
 /**
  * Contextual use of certain colors (text, action, state, etc).
  */
-export interface ColorIntents<ColorType = Color> {
+export interface ColorIntents<Override extends undefined | string = undefined> {
   /**
    * TODO
    */
-  accessibilityColor: ColorType;
+  accessibilityColor: ColorType<Override>;
 
   current: string;
-  transparent: ColorType;
+  transparent: ColorType<Override>;
 
-  primary: ColorType;
-  primaryReversed: ColorType;
+  primary: ColorType<Override>;
+  primaryReversed: ColorType<Override>;
 
-  secondary: ColorType;
-  secondaryReversed: ColorType;
+  secondary: ColorType<Override>;
+  secondaryReversed: ColorType<Override>;
 
-  primaryText: ColorType;
-  primaryTextReversed: ColorType;
+  primaryText: ColorType<Override>;
+  primaryTextReversed: ColorType<Override>;
 
-  secondaryText: ColorType;
-  secondaryTextReversed: ColorType;
+  secondaryText: ColorType<Override>;
+  secondaryTextReversed: ColorType<Override>;
 
-  tertiaryText: ColorType;
-  tertiaryTextReversed: ColorType;
+  tertiaryText: ColorType<Override>;
+  tertiaryTextReversed: ColorType<Override>;
 
-  disabledText: ColorType;
-  disabledTextReversed: ColorType;
+  disabledText: ColorType<Override>;
+  disabledTextReversed: ColorType<Override>;
 
-  successText: ColorType;
-  successAction: ColorType;
-  successBackground: ColorType;
+  successText: ColorType<Override>;
+  successAction: ColorType<Override>;
+  successBackground: ColorType<Override>;
 
-  warningText: ColorType;
-  warningAction: ColorType;
-  warningBackground: ColorType;
+  warningText: ColorType<Override>;
+  warningAction: ColorType<Override>;
+  warningBackground: ColorType<Override>;
 
-  dangerText: ColorType;
-  dangerAction: ColorType;
-  dangerBackground: ColorType;
+  dangerText: ColorType<Override>;
+  dangerAction: ColorType<Override>;
+  dangerBackground: ColorType<Override>;
 
-  background0: ColorType;
-  background1: ColorType;
-  background2: ColorType;
-  backgroundDisabled: ColorType;
+  background0: ColorType<Override>;
+  background1: ColorType<Override>;
+  background2: ColorType<Override>;
+  backgroundDisabled: ColorType<Override>;
 }

@@ -1,6 +1,6 @@
 import { Font } from './font';
 import { VIEWPORT } from './layout';
-import { TextDecoration, TextStyle, TEXT_TRANSFORM } from './text';
+import { TextStyle } from './text';
 
 /**
  * The main typographic styles.
@@ -90,70 +90,40 @@ export type FontVarNames = string[];
  */
 export type FontVars = string[];
 
-type PartialTextStyle<FontWeightType, LetterSpacingType, TextTransformType, TextDecorationType> = Omit<
-  TextStyle<FontWeightType, LetterSpacingType, TextTransformType, TextDecorationType>,
+type PartialTextStyle<Override extends undefined | string = undefined> = Omit<
+  TextStyle<Override>,
   'capHeight' | 'lineGap'
 >;
 
 /**
  * TODO
  */
-export type Titles<
-  FontWeightType = number,
-  LetterSpacingType = number,
-  TextTransformType = TEXT_TRANSFORM,
-  TextDecorationType = TextDecoration
-> = {
-  [key in keyof typeof TITLE]: TextStyle<FontWeightType, LetterSpacingType, TextTransformType, TextDecorationType>;
+export type Titles<Override extends undefined | string = undefined> = {
+  [key in keyof typeof TITLE]: TextStyle<Override>;
 };
 
 /**
  * TODO
  */
-export type Headings<
-  FontWeightType = number,
-  LetterSpacingType = number,
-  TextTransformType = TEXT_TRANSFORM,
-  TextDecorationType = TextDecoration
-> = {
-  [key in keyof typeof HEADING]: TextStyle<FontWeightType, LetterSpacingType, TextTransformType, TextDecorationType>;
+export type Headings<Override extends undefined | string = undefined> = {
+  [key in keyof typeof HEADING]: TextStyle<Override>;
 };
 
 /**
  * TODO
  */
-export type Paragraphs<
-  FontWeightType = number,
-  LetterSpacingType = number,
-  TextTransformType = TEXT_TRANSFORM,
-  TextDecorationType = TextDecoration
-> = {
-  [key in keyof typeof PARAGRAPH_SIZE]: TextStyle<
-    FontWeightType,
-    LetterSpacingType,
-    TextTransformType,
-    TextDecorationType
-  >;
+export type Paragraphs<Override extends undefined | string = undefined> = {
+  [key in keyof typeof PARAGRAPH_SIZE]: TextStyle<Override>;
 };
 
 /**
  * TODO
  */
-export type Labels<
-  FontWeightType = number,
-  LetterSpacingType = number,
-  TextTransformType = TEXT_TRANSFORM,
-  TextDecorationType = TextDecoration
-> = {
-  [key in keyof typeof LABEL_SIZE]: TextStyle<FontWeightType, LetterSpacingType, TextTransformType, TextDecorationType>;
+export type Labels<Override extends undefined | string = undefined> = {
+  [key in keyof typeof LABEL_SIZE]: TextStyle<Override>;
 };
 
-export interface Typography<
-  FontWeightType = number,
-  LetterSpacingType = number,
-  TextTransformType = TEXT_TRANSFORM,
-  TextDecorationType = TextDecoration
-> {
+export interface Typography<Override extends undefined | string = undefined> {
   /**
    * Available fonts in the design system.
    */
@@ -162,54 +132,39 @@ export interface Typography<
    *
    */
   titles: {
-    [key in keyof typeof VIEWPORT]: Titles<FontWeightType, LetterSpacingType, TextTransformType, TextDecorationType>;
+    [key in keyof typeof VIEWPORT]: Titles<Override>;
   } &
-    PartialTextStyle<FontWeightType, LetterSpacingType, TextTransformType, TextDecorationType>;
+    PartialTextStyle<Override>;
   /**
    * TODO
    */
   headings: {
-    [key in keyof typeof VIEWPORT]: Headings<FontWeightType, LetterSpacingType, TextTransformType, TextDecorationType>;
+    [key in keyof typeof VIEWPORT]: Headings<Override>;
   } &
-    PartialTextStyle<FontWeightType, LetterSpacingType, TextTransformType, TextDecorationType>;
+    PartialTextStyle<Override>;
   /**
    * TODO
    */
   paragraphs: {
-    [key in keyof typeof VIEWPORT]: Paragraphs<
-      FontWeightType,
-      LetterSpacingType,
-      TextTransformType,
-      TextDecorationType
-    >;
+    [key in keyof typeof VIEWPORT]: Paragraphs<Override>;
   } &
-    PartialTextStyle<FontWeightType, LetterSpacingType, TextTransformType, TextDecorationType> & {
+    PartialTextStyle<Override> & {
       styles: {
-        [TEXT_STYLE.bold]: PartialTextStyle<FontWeightType, LetterSpacingType, TextTransformType, TextDecorationType>;
-        [TEXT_STYLE.italic]: PartialTextStyle<FontWeightType, LetterSpacingType, TextTransformType, TextDecorationType>;
+        [TEXT_STYLE.bold]: PartialTextStyle<Override>;
+        [TEXT_STYLE.italic]: PartialTextStyle<Override>;
       };
     };
   /**
    * TODO
    */
   labels: {
-    [key in keyof typeof VIEWPORT]: Labels<FontWeightType, LetterSpacingType, TextTransformType, TextDecorationType>;
+    [key in keyof typeof VIEWPORT]: Labels<Override>;
   } &
-    PartialTextStyle<FontWeightType, LetterSpacingType, TextTransformType, TextDecorationType> & {
+    PartialTextStyle<Override> & {
       styles: {
-        [TEXT_STYLE.bold]: PartialTextStyle<FontWeightType, LetterSpacingType, TextTransformType, TextDecorationType>;
-        [TEXT_STYLE.uppercase]: PartialTextStyle<
-          FontWeightType,
-          LetterSpacingType,
-          TextTransformType,
-          TextDecorationType
-        >;
-        [TEXT_STYLE.boldUppercase]: PartialTextStyle<
-          FontWeightType,
-          LetterSpacingType,
-          TextTransformType,
-          TextDecorationType
-        >;
+        [TEXT_STYLE.bold]: PartialTextStyle<Override>;
+        [TEXT_STYLE.uppercase]: PartialTextStyle<Override>;
+        [TEXT_STYLE.boldUppercase]: PartialTextStyle<Override>;
       };
     };
 }

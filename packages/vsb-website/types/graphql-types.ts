@@ -3397,6 +3397,7 @@ export type SitePageConnectionGroupArgs = {
 export type SitePageContext = {
   siteMetadata?: Maybe<SitePageContextSiteMetadata>;
   pageId?: Maybe<Scalars['String']>;
+  fileId?: Maybe<Scalars['String']>;
   frontmatter?: Maybe<SitePageContextFrontmatter>;
   slug?: Maybe<Scalars['String']>;
 };
@@ -3404,6 +3405,7 @@ export type SitePageContext = {
 export type SitePageContextFilterInput = {
   siteMetadata?: Maybe<SitePageContextSiteMetadataFilterInput>;
   pageId?: Maybe<StringQueryOperatorInput>;
+  fileId?: Maybe<StringQueryOperatorInput>;
   frontmatter?: Maybe<SitePageContextFrontmatterFilterInput>;
   slug?: Maybe<StringQueryOperatorInput>;
 };
@@ -3554,6 +3556,7 @@ export type SitePageFieldsEnum =
   | 'context___siteMetadata___languages___langs'
   | 'context___siteMetadata___languages___defaultLangKey'
   | 'context___pageId'
+  | 'context___fileId'
   | 'context___frontmatter___name'
   | 'context___frontmatter___tags'
   | 'context___slug'

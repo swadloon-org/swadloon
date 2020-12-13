@@ -1,8 +1,7 @@
 import { SIZE, Sizing, SizingSteps, SizingVarNames, VIEWPORT } from '@newrade/core-design-system';
 
-export const DEFAULT_BASE_FONT_SIZE = 9;
-export const DEFAULT_BASE_FONT_SIZE_PX = `${DEFAULT_BASE_FONT_SIZE}px`;
-export const DEFAULT_SCALING_RATIO = 1.618;
+export const defaultBaseFontSize = 9;
+export const defaultScalingRatio = 1.618;
 
 export const defaultSizesCSSVarNames: SizingVarNames = {
   [SIZE.x0]: '--sizing-x0',
@@ -53,8 +52,8 @@ export const defaultSizingSteps: SizingSteps = {
 };
 
 export const defaultSizing: Sizing = {
-  baseFontSize: DEFAULT_BASE_FONT_SIZE,
-  ratio: DEFAULT_SCALING_RATIO,
+  baseFontSize: defaultBaseFontSize,
+  ratio: defaultScalingRatio,
   varNames: defaultSizesCSSVarNames,
   var: defaultSizesCSSVar,
   sizes: defaultSizingSteps,

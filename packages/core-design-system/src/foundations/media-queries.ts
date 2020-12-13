@@ -1,3 +1,4 @@
+import { MediaQueryType } from '../types';
 import { VIEWPORT } from './layout';
 
 export enum MEDIA_TYPE {
@@ -46,8 +47,8 @@ export type MediaQueryGroup = {
  * Breakpoints values in pixel.
  */
 
-export type MediaQueries<MediaQueryType = MediaQueryGroup> = {
-  [key in keyof typeof VIEWPORT]: MediaQueryType;
+export type MediaQueries<Override extends undefined | string = undefined> = {
+  [key in keyof typeof VIEWPORT]: MediaQueryType<Override>;
 } & {
-  tabletPlus: MediaQueryType;
+  tabletPlus: MediaQueryType<Override>;
 };

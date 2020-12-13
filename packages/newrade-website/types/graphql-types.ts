@@ -3035,12 +3035,14 @@ export type SitePageContext = {
   frontmatter?: Maybe<SitePageContextFrontmatter>;
   siteMetadata?: Maybe<SitePageContextSiteMetadata>;
   slug?: Maybe<Scalars['String']>;
+  fileId?: Maybe<Scalars['String']>;
 };
 
 export type SitePageContextFilterInput = {
   frontmatter?: Maybe<SitePageContextFrontmatterFilterInput>;
   siteMetadata?: Maybe<SitePageContextSiteMetadataFilterInput>;
   slug?: Maybe<StringQueryOperatorInput>;
+  fileId?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePageContextFrontmatter = {
@@ -3191,6 +3193,7 @@ export type SitePageFieldsEnum =
   | 'context___siteMetadata___languages___langs'
   | 'context___siteMetadata___languages___defaultLangKey'
   | 'context___slug'
+  | 'context___fileId'
   | 'pluginCreator___id'
   | 'pluginCreator___parent___id'
   | 'pluginCreator___parent___parent___id'

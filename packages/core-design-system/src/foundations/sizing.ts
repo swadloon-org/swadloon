@@ -1,3 +1,4 @@
+import { NumberType } from '../types';
 import { VIEWPORT } from './layout';
 
 /**
@@ -38,7 +39,9 @@ export type SizingStep = number;
 /**
  * Definition of the sizing steps for each viewport.
  */
-export type SizingSteps<SizingType = SizingStep> = { [key in keyof typeof VIEWPORT]: { [key in SIZE]: SizingType } };
+export type SizingSteps<Override extends undefined | string = undefined> = {
+  [key in keyof typeof VIEWPORT]: { [key in SIZE]: Override extends string ? string : SizingStep };
+};
 
 /**
  * A set of predefined sizes from `x1` to `x10`.
@@ -46,12 +49,12 @@ export type SizingSteps<SizingType = SizingStep> = { [key in keyof typeof VIEWPO
  *
  * To optain the next size (e.g. from `x1` -> `x2`), the sizes are multipled by the ratio (e.g. `1.618` the Golden Ratio).
  */
-export interface Sizing<SizingType = SizingStep> {
+export interface Sizing<Override extends undefined | string = undefined> {
   /**
    * Base font size (in px) to set on the page <html/> element.
    * This defines what `1 rem` is.
    */
-  baseFontSize: SizingType;
+  baseFontSize: NumberType<Override>;
   /**
    * CSS variable name for each step.
    * @example `--sizing-x1`
@@ -72,5 +75,5 @@ export interface Sizing<SizingType = SizingStep> {
   /**
    * Size values for each step.
    */
-  sizes: SizingSteps<SizingType>;
+  sizes: SizingSteps<Override>;
 }

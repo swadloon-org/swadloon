@@ -1,5 +1,5 @@
+import { SizingType } from '../types';
 import { VIEWPORT } from './layout';
-import { SizingStep } from './sizing';
 
 /**
  * Default icons and their filenames.
@@ -45,11 +45,13 @@ export enum ICON_SIZE {
   small = 'small',
 }
 
-export type IconSizes<SizingType = SizingStep> = { [key in keyof typeof ICON_SIZE]: SizingType };
+export type IconSizes<Override extends undefined | string = undefined> = {
+  [key in keyof typeof ICON_SIZE]: SizingType<Override>;
+};
 
 export type Icons = { [key in keyof typeof ICON]: Icon };
 
-export interface Iconography<SizingType = SizingStep> {
+export interface Iconography<Override extends undefined | string = undefined> {
   /**
    * Name of the icon set.  (e.g. 'Ionicons')
    */
@@ -68,6 +70,6 @@ export interface Iconography<SizingType = SizingStep> {
    * Icon size for each viewport.
    */
   sizes: {
-    [key in keyof typeof VIEWPORT]: IconSizes<SizingType>;
+    [key in keyof typeof VIEWPORT]: IconSizes<Override>;
   };
 }
