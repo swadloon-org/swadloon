@@ -1,7 +1,7 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
-import { COMMON_VARIANT } from 'types/props-type';
 import { CONTENTFUL_WIDGET } from '../../../types/contentful-widget-ids';
+import { COMMON_VARIANT } from '../../../types/props-type';
 import { keys } from '../../utilities';
 import { COMMON_CONTENT_TYPE } from '../common-content-types';
 import { COMMON_FIELD, mediaField } from '../common-fields';

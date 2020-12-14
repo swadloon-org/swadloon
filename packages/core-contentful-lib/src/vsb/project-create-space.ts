@@ -13,6 +13,7 @@ import { createPortfolioClient } from '../common/content-types/portfolio-client'
 import { createPortfolioProject } from '../common/content-types/portfolio-project';
 import { createSection } from '../common/content-types/section';
 import { createSectionType } from '../common/content-types/section-type';
+import { createTag } from '../common/content-types/tag';
 import { PROJECT_CONTENT_TYPE, PROJECT_SECTION_TYPE } from './project-content-types';
 
 const program: Migration.MigrationFunction = function Program(migration) {
