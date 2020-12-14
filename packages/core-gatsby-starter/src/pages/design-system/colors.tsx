@@ -21,6 +21,9 @@ const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
             <h3>Typography</h3>
 
             <h4>Titles</h4>
+
+            {JSON.stringify(cssTheme.typography?.headings.desktop.h1)}
+
             <h4>Headings</h4>
             <h4>Labels</h4>
             <h4>Paragraphs</h4>

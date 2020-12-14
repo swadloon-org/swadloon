@@ -1,7 +1,8 @@
 import React from 'react';
 import { Color } from '@newrade/core-design-system';
 import { cleanup, render } from '@testing-library/react';
-import { getCSSColor } from '../colors.utilities';
+import { getCSSColor, getCSSVarNamesForColors, getCSSVarForColors, getCSSColors } from '../colors.utilities';
+import { defaultColorsColors, defaultColorIntents, defaultColors } from '../../design-system/default-colors';
 
 describe('colors utilities', () => {
   describe(`${getCSSColor.name}`, () => {
@@ -57,22 +58,22 @@ describe('colors utilities', () => {
     });
   });
 
-  // describe(`${getCSSVarNamesForColors.name}`, () => {
-  //   it(`should generate CSS variable names for a given Colors object`, () => {
-  //     const vars = getCSSVarNamesForColors({ colors: defaultColorsColors, colorIntents: defaultColorIntents });
-  //     expect(vars).toMatchSnapshot();
-  //   });
+  describe(`${getCSSVarNamesForColors.name}`, () => {
+    it(`should generate CSS variable names for a given Colors object`, () => {
+      const vars = getCSSVarNamesForColors({ colors: defaultColorsColors, colorIntents: defaultColorIntents });
+      expect(vars).toMatchSnapshot();
+    });
 
-  //   it(`should generate CSS statement to access Colors CSS vars`, () => {
-  //     const vars = getCSSVarForColors({ colors: defaultColorsColors, colorIntents: defaultColorIntents });
-  //     expect(vars).toMatchSnapshot();
-  //   });
-  // });
+    it(`should generate CSS statement to access Colors CSS vars`, () => {
+      const vars = getCSSVarForColors({ colors: defaultColorsColors, colorIntents: defaultColorIntents });
+      expect(vars).toMatchSnapshot();
+    });
+  });
 
-  // describe(`${getCSSColors.name}`, () => {
-  //   it(`should generate a CSS colors from a Colors object`, () => {
-  //     const colors = getCSSColors(defaultColors);
-  //     expect(colors).toMatchSnapshot();
-  //   });
-  // });
+  describe(`${getCSSColors.name}`, () => {
+    it(`should generate a CSS colors from a Colors object`, () => {
+      const colors = getCSSColors(defaultColors);
+      expect(colors).toMatchSnapshot();
+    });
+  });
 });

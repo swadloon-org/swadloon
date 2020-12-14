@@ -65,7 +65,7 @@ export enum TEXT_STYLE {
 /**
  * Available fonts in the design system.
  */
-export type Fonts = { [key in keyof typeof TYPOGRAPHIC_STYLE]?: Font } & {
+export type Fonts = { [key in keyof typeof TYPOGRAPHIC_STYLE]: Font[] } & {
   /**
    * CSS variable name for font famility.
    * @example `--font-sans-alternate`
@@ -128,6 +128,7 @@ export interface Typography<Override extends undefined | string = undefined> {
    * Available fonts in the design system.
    */
   fonts: Fonts;
+
   /**
    *
    */
@@ -135,6 +136,7 @@ export interface Typography<Override extends undefined | string = undefined> {
     [key in keyof typeof VIEWPORT]: Titles<Override>;
   } &
     PartialTextStyle<Override>;
+
   /**
    * TODO
    */
@@ -142,6 +144,7 @@ export interface Typography<Override extends undefined | string = undefined> {
     [key in keyof typeof VIEWPORT]: Headings<Override>;
   } &
     PartialTextStyle<Override>;
+
   /**
    * TODO
    */
@@ -154,6 +157,7 @@ export interface Typography<Override extends undefined | string = undefined> {
         [TEXT_STYLE.italic]: PartialTextStyle<Override>;
       };
     };
+
   /**
    * TODO
    */

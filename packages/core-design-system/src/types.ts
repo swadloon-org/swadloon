@@ -25,7 +25,10 @@ export type ColorType<Override extends undefined | string> = Override extends st
 /**
  * Font and text types
  */
-export type FontWeightType<Override extends undefined | string> = Override extends string ? string : number;
+export type FontWeightType<Override extends undefined | string> = Override extends string ? number : number;
+/**
+ * 3 => '3%'
+ */
 export type LetterSpacingType<Override extends undefined | string> = Override extends string ? string : number;
 export type TextTransformType<Override extends undefined | string> = Override extends string ? string : TEXT_TRANSFORM;
 export type TextDecorationType<Override extends undefined | string> = Override extends string ? string : TextDecoration;

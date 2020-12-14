@@ -1,3 +1,4 @@
+import { CapsizeStyles } from 'capsize';
 import { Color } from '../primitives/color';
 import { FontWeightType, LetterSpacingType, TextDecorationType, TextTransformType } from '../types';
 import { Font } from './font';
@@ -33,9 +34,9 @@ export type TextDecoration<ColorType = Color> = {
 
 export interface TextStyle<Override extends undefined | string = undefined> {
   /**
-   * Font object that contains information about the typeface.
+   * Array of font object that contains information about the typeface.
    */
-  font?: Font;
+  font?: Font[];
   /**
    * Font family which will be rendered in CSS files.
    *
@@ -57,7 +58,7 @@ export interface TextStyle<Override extends undefined | string = undefined> {
   fontStyle?: 'normal' | 'italic';
   /**
    * Optional property to set `letter-spacing`.
-   * @example '3' becomes '3%'
+   * @example 3 becomes '3%'
    */
   letterSpacing?: LetterSpacingType<Override>;
   /**
@@ -81,4 +82,8 @@ export interface TextStyle<Override extends undefined | string = undefined> {
    * @see https://seek-oss.github.io/capsize/
    */
   lineGap: number;
+  /**
+   * Cap
+   */
+  capsize?: Override extends string | undefined ? CapsizeStyles : undefined;
 }

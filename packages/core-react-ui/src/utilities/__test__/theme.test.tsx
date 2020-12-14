@@ -8,6 +8,7 @@ describe('theme utilities', () => {
       expect(defaultCSSTheme.name).toMatchSnapshot();
       expect(defaultCSSTheme.variation).toMatchSnapshot();
       expect(defaultCSSTheme.colors).toMatchSnapshot();
+      expect(defaultCSSTheme.typography).toMatchSnapshot();
     });
   });
 });

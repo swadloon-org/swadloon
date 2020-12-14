@@ -6,7 +6,6 @@ import { Node } from '../../types/graphql-types';
 import * as styleRefs from './layout.treat';
 
 import { useAllSitePages } from './use-all-site-pages.hook';
-import { DebugGasbyPage, SrcPageTemplateProps } from '@newrade/core-gatsby-ui';
 
 type LayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }>;
 

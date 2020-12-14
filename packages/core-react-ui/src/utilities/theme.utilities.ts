@@ -3,6 +3,7 @@ import { CSSDesignSystem } from '../design-system/css-design-system';
 import { getCSSColors } from './colors.utilities';
 import { getCSSEffects } from './effects.utilities';
 import { getCSSSizing } from './sizing.utilities';
+import { getCSSTypography } from './typography.utilities';
 
 export function createCSSTheme(theme: DesignSystem): Partial<CSSDesignSystem> {
   return {
@@ -12,7 +13,7 @@ export function createCSSTheme(theme: DesignSystem): Partial<CSSDesignSystem> {
     effects: getCSSEffects(theme.effects),
     sizing: getCSSSizing(theme.sizing),
     // iconography,
-    // typography,
+    typography: getCSSTypography({ ...theme.typography, baseFontSize: theme.sizing.baseFontSize }),
     // layout
     // animations
     // components: {
