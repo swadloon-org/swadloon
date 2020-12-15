@@ -1,4 +1,4 @@
-import { DEPLOY_ENV } from '@newrade/core-env';
+import { DEPLOY_ENV } from '@newrade/core-common';
 import { COMMON_ENV } from '@newrade/core-utils';
 import Gatsby from 'gatsby';
 

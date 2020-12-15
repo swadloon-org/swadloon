@@ -31,7 +31,7 @@
     "gatsby": "^2.24"
   },
   "devDependencies": {
-    "@newrade/core-env": "^1",
+    "@newrade/core-common": "^1",
     "@newrade/core-gatsby-config": "^1",
     "@newrade/core-gatsby-ui": "^1",
     "@newrade/core-utils": "^1",

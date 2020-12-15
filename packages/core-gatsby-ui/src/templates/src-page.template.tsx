@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import { PageProps } from 'gatsby';
-import { DEPLOY_ENV } from '@newrade/core-env';
+import { DEPLOY_ENV } from '@newrade/core-common';
 import { DebugGasbyPage } from '../components/debug-gatsby-page';
 // import { GatsbyNodeSiteMetadataFragment, GatsbySrcPageContext } from '@newrade/core-gatsby-config';
 

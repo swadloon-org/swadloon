@@ -1,5 +1,5 @@
 {
-  "name": "@newrade/core-env",
+  "name": "@newrade/core-common",
   "version": "1.0.0",
   "description": "env utilities shared across packages.",
   "author": {
@@ -7,7 +7,7 @@
     "name": "Newrade",
     "url": "https://github.com/newrade/newrade"
   },
-  "repository": "https://github.com/newrade/newrade-core/tree/master/packages/core-env",
+  "repository": "https://github.com/newrade/newrade-core/tree/master/packages/core-common",
   "license": "MIT",
   "main": "./lib/index.js",
   "module": "./lib/index.js",

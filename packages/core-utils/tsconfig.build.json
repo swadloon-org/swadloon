@@ -9,7 +9,7 @@
   },
   "references": [
     {
-      "path": "../core-env/tsconfig.build.json"
+      "path": "../core-common/tsconfig.build.json"
     }
   ],
   "include": ["src/**/*"]

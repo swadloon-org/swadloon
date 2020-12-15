@@ -8,10 +8,10 @@
   },
   "references": [
     {
-      "path": "../core-gatsby-config/tsconfig.build.json"
+      "path": "../core-common/tsconfig.build.json"
     },
     {
-      "path": "../core-env/tsconfig.build.json"
+      "path": "../core-gatsby-config/tsconfig.build.json"
     },
     {
       "path": "../core-utils/tsconfig.build.json"

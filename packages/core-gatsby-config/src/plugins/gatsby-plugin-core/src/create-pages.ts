@@ -1,4 +1,5 @@
-import { AppError, ERROR_TYPE, log, LOG_LEVEL } from '@newrade/core-utils';
+import { AppError, ERROR_TYPE } from '@newrade/core-common';
+import { log, LOG_LEVEL } from '@newrade/core-utils';
 import { GatsbyNode } from 'gatsby';
 import path from 'path';
 import { GatsbyMarkdownFilePageContext, GatsbySrcPageContext } from '../../../config/page-config';

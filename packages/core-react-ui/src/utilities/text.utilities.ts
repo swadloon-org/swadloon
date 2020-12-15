@@ -1,5 +1,5 @@
+import { AppError, ERROR_TYPE } from '@newrade/core-common';
 import { TextStyle } from '@newrade/core-design-system';
-import { AppError, ERROR_TYPE } from '@newrade/core-utils';
 import capsize, { CapsizeStyles } from 'capsize';
 import { pxStringToNumber, pxStringToRem } from './utilities';
 
@@ -28,6 +28,7 @@ export function createCSSTextStyle({
       name: ERROR_TYPE.LIB_ERROR,
       message: 'a text style requires a font to be set',
     });
+    // throw Error();
   }
   const { fontMetrics } = font[0];
 

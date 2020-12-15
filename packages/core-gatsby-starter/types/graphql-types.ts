@@ -2489,8 +2489,6 @@ export type QueryAllDirectoryArgs = {
 export type QuerySiteArgs = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
-  port?: Maybe<IntQueryOperatorInput>;
-  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -2680,8 +2678,6 @@ export type QueryAllSitePluginArgs = {
 export type Site = Node & {
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
-  port?: Maybe<Scalars['Int']>;
-  host?: Maybe<Scalars['String']>;
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
@@ -2887,8 +2883,6 @@ export type SiteFieldsEnum =
   | 'siteMetadata___siteEnv'
   | 'siteMetadata___languages___langs'
   | 'siteMetadata___languages___defaultLangKey'
-  | 'port'
-  | 'host'
   | 'polyfill'
   | 'pathPrefix'
   | 'id'
@@ -2981,8 +2975,6 @@ export type SiteFieldsEnum =
 export type SiteFilterInput = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
-  port?: Maybe<IntQueryOperatorInput>;
-  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -3040,17 +3032,17 @@ export type SitePageConnectionGroupArgs = {
 };
 
 export type SitePageContext = {
-  siteMetadata?: Maybe<SitePageContextSiteMetadata>;
-  fileId?: Maybe<Scalars['String']>;
   frontmatter?: Maybe<SitePageContextFrontmatter>;
+  siteMetadata?: Maybe<SitePageContextSiteMetadata>;
   slug?: Maybe<Scalars['String']>;
+  fileId?: Maybe<Scalars['String']>;
 };
 
 export type SitePageContextFilterInput = {
-  siteMetadata?: Maybe<SitePageContextSiteMetadataFilterInput>;
-  fileId?: Maybe<StringQueryOperatorInput>;
   frontmatter?: Maybe<SitePageContextFrontmatterFilterInput>;
+  siteMetadata?: Maybe<SitePageContextSiteMetadataFilterInput>;
   slug?: Maybe<StringQueryOperatorInput>;
+  fileId?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePageContextFrontmatter = {
@@ -3192,16 +3184,16 @@ export type SitePageFieldsEnum =
   | 'internal___owner'
   | 'internal___type'
   | 'isCreatedByStatefulCreatePages'
+  | 'context___frontmatter___name'
+  | 'context___frontmatter___tags'
   | 'context___siteMetadata___title'
   | 'context___siteMetadata___description'
   | 'context___siteMetadata___siteEnv'
   | 'context___siteMetadata___siteUrl'
   | 'context___siteMetadata___languages___langs'
   | 'context___siteMetadata___languages___defaultLangKey'
-  | 'context___fileId'
-  | 'context___frontmatter___name'
-  | 'context___frontmatter___tags'
   | 'context___slug'
+  | 'context___fileId'
   | 'pluginCreator___id'
   | 'pluginCreator___parent___id'
   | 'pluginCreator___parent___parent___id'
@@ -3249,10 +3241,17 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___spaceId'
   | 'pluginCreator___pluginOptions___accessToken'
   | 'pluginCreator___pluginOptions___environment'
+  | 'pluginCreator___pluginOptions___fileName'
+  | 'pluginCreator___pluginOptions___tsLoader___configFile'
+  | 'pluginCreator___pluginOptions___tsLoader___logLevel'
+  | 'pluginCreator___pluginOptions___tsLoader___transpileOnly'
+  | 'pluginCreator___pluginOptions___tsLoader___projectReferences'
+  | 'pluginCreator___pluginOptions___typeCheck'
+  | 'pluginCreator___pluginOptions___failOnError'
+  | 'pluginCreator___pluginOptions___documentPaths'
   | 'pluginCreator___pluginOptions___base64Width'
   | 'pluginCreator___pluginOptions___stripMetadata'
   | 'pluginCreator___pluginOptions___defaultQuality'
-  | 'pluginCreator___pluginOptions___failOnError'
   | 'pluginCreator___pluginOptions___extensions'
   | 'pluginCreator___pluginOptions___mediaTypes'
   | 'pluginCreator___pluginOptions___createLinkInHead'
@@ -3269,13 +3268,6 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___allExtensions'
   | 'pluginCreator___pluginOptions___isTSX'
   | 'pluginCreator___pluginOptions___jsxPragma'
-  | 'pluginCreator___pluginOptions___fileName'
-  | 'pluginCreator___pluginOptions___tsLoader___configFile'
-  | 'pluginCreator___pluginOptions___tsLoader___logLevel'
-  | 'pluginCreator___pluginOptions___tsLoader___transpileOnly'
-  | 'pluginCreator___pluginOptions___tsLoader___projectReferences'
-  | 'pluginCreator___pluginOptions___typeCheck'
-  | 'pluginCreator___pluginOptions___documentPaths'
   | 'pluginCreator___nodeAPIs'
   | 'pluginCreator___browserAPIs'
   | 'pluginCreator___ssrAPIs'
@@ -3474,10 +3466,17 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___spaceId'
   | 'pluginOptions___accessToken'
   | 'pluginOptions___environment'
+  | 'pluginOptions___fileName'
+  | 'pluginOptions___tsLoader___configFile'
+  | 'pluginOptions___tsLoader___logLevel'
+  | 'pluginOptions___tsLoader___transpileOnly'
+  | 'pluginOptions___tsLoader___projectReferences'
+  | 'pluginOptions___typeCheck'
+  | 'pluginOptions___failOnError'
+  | 'pluginOptions___documentPaths'
   | 'pluginOptions___base64Width'
   | 'pluginOptions___stripMetadata'
   | 'pluginOptions___defaultQuality'
-  | 'pluginOptions___failOnError'
   | 'pluginOptions___extensions'
   | 'pluginOptions___mediaTypes'
   | 'pluginOptions___createLinkInHead'
@@ -3498,13 +3497,6 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___allExtensions'
   | 'pluginOptions___isTSX'
   | 'pluginOptions___jsxPragma'
-  | 'pluginOptions___fileName'
-  | 'pluginOptions___tsLoader___configFile'
-  | 'pluginOptions___tsLoader___logLevel'
-  | 'pluginOptions___tsLoader___transpileOnly'
-  | 'pluginOptions___tsLoader___projectReferences'
-  | 'pluginOptions___typeCheck'
-  | 'pluginOptions___documentPaths'
   | 'nodeAPIs'
   | 'browserAPIs'
   | 'ssrAPIs'
@@ -3623,10 +3615,14 @@ export type SitePluginPluginOptions = {
   spaceId?: Maybe<Scalars['String']>;
   accessToken?: Maybe<Scalars['String']>;
   environment?: Maybe<Scalars['String']>;
+  fileName?: Maybe<Scalars['String']>;
+  tsLoader?: Maybe<SitePluginPluginOptionsTsLoader>;
+  typeCheck?: Maybe<Scalars['Boolean']>;
+  failOnError?: Maybe<Scalars['Boolean']>;
+  documentPaths?: Maybe<Array<Maybe<Scalars['String']>>>;
   base64Width?: Maybe<Scalars['Int']>;
   stripMetadata?: Maybe<Scalars['Boolean']>;
   defaultQuality?: Maybe<Scalars['Int']>;
-  failOnError?: Maybe<Scalars['Boolean']>;
   extensions?: Maybe<Array<Maybe<Scalars['String']>>>;
   mediaTypes?: Maybe<Array<Maybe<Scalars['String']>>>;
   createLinkInHead?: Maybe<Scalars['Boolean']>;
@@ -3644,10 +3640,6 @@ export type SitePluginPluginOptions = {
   allExtensions?: Maybe<Scalars['Boolean']>;
   isTSX?: Maybe<Scalars['Boolean']>;
   jsxPragma?: Maybe<Scalars['String']>;
-  fileName?: Maybe<Scalars['String']>;
-  tsLoader?: Maybe<SitePluginPluginOptionsTsLoader>;
-  typeCheck?: Maybe<Scalars['Boolean']>;
-  documentPaths?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 export type SitePluginPluginOptionsEnv = {
@@ -3759,10 +3751,14 @@ export type SitePluginPluginOptionsFilterInput = {
   spaceId?: Maybe<StringQueryOperatorInput>;
   accessToken?: Maybe<StringQueryOperatorInput>;
   environment?: Maybe<StringQueryOperatorInput>;
+  fileName?: Maybe<StringQueryOperatorInput>;
+  tsLoader?: Maybe<SitePluginPluginOptionsTsLoaderFilterInput>;
+  typeCheck?: Maybe<BooleanQueryOperatorInput>;
+  failOnError?: Maybe<BooleanQueryOperatorInput>;
+  documentPaths?: Maybe<StringQueryOperatorInput>;
   base64Width?: Maybe<IntQueryOperatorInput>;
   stripMetadata?: Maybe<BooleanQueryOperatorInput>;
   defaultQuality?: Maybe<IntQueryOperatorInput>;
-  failOnError?: Maybe<BooleanQueryOperatorInput>;
   extensions?: Maybe<StringQueryOperatorInput>;
   mediaTypes?: Maybe<StringQueryOperatorInput>;
   createLinkInHead?: Maybe<BooleanQueryOperatorInput>;
@@ -3780,10 +3776,6 @@ export type SitePluginPluginOptionsFilterInput = {
   allExtensions?: Maybe<BooleanQueryOperatorInput>;
   isTSX?: Maybe<BooleanQueryOperatorInput>;
   jsxPragma?: Maybe<StringQueryOperatorInput>;
-  fileName?: Maybe<StringQueryOperatorInput>;
-  tsLoader?: Maybe<SitePluginPluginOptionsTsLoaderFilterInput>;
-  typeCheck?: Maybe<BooleanQueryOperatorInput>;
-  documentPaths?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePluginPluginOptionsHeaders = {

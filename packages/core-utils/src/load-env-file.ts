@@ -1,10 +1,9 @@
+import { AppError, ERROR_TYPE } from '@newrade/core-common';
 import chalk from 'chalk';
 import * as dotenv from 'dotenv';
 import * as t from 'io-ts';
 import path from 'path';
 import { COMMON_ENV } from './common-env';
-import { ERROR_TYPE } from './errors/error.constant';
-import { AppError } from './errors/error.model';
 import { PathReporter } from './io-ts/reporter';
 import { log, LOG_LEVEL } from './log';
 
