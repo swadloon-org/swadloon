@@ -18,5 +18,14 @@
     "**/public/**/*": true,
     "**/*.js.map": true,
     "**/*.tsbuildinfo": true
+  },
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/**": true,
+    "**/.hg/store/**": true,
+    "**/dist/**": true,
+    "**/public/**": true,
+    "**/lib/**": true
   }
 }

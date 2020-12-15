@@ -49,5 +49,5 @@ export enum COMMON_CONTENT_TYPE {
   /**
    * Field Translation content types
    */
-  FIELD_TRANSLATION = 'FieldTranslation',
+  TRANSLATION = 'Translation',
 }

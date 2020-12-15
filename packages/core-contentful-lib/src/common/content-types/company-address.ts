@@ -1,6 +1,7 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
 import { COMMON_CONTENT_TYPE } from '../common-content-types';
+import { emailField, urlField } from '../common-fields';
 
 export const createCompanyAddress: Migration.MigrationFunction = function (migration) {
   const content = migration.createContentType(COMMON_CONTENT_TYPE.COMPANY_ADDRESS, {
@@ -16,6 +17,6 @@ export const createCompanyAddress: Migration.MigrationFunction = function (migra
   content.createField('phone', { name: 'Phone', type: 'Symbol' });
   content.createField('phoneNoFees', { name: 'PhoneNoFees', type: 'Symbol' });
   content.createField('fax', { name: 'Fax', type: 'Symbol' });
-  content.createField('websiteURL', { name: 'WebsiteURL', type: 'Symbol' });
-  content.createField('email', { name: 'Email', type: 'Symbol' });
+  content.createField('websiteURL', { name: 'WebsiteURL', type: 'Symbol', validations: urlField.validations });
+  content.createField('email', { name: 'Email', type: 'Symbol', validations: emailField.validations });
 };

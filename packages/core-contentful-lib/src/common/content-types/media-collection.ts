@@ -6,6 +6,9 @@ import { keys } from '../../utilities';
 import { COMMON_CONTENT_TYPE } from '../common-content-types';
 import { COMMON_FIELD } from '../common-fields';
 
+/**
+ * A MediaCollection holds one or more media (images, videos) to be used in banners, carousels
+ */
 export const createMediaCollection: Migration.MigrationFunction = function (migration) {
   const content = migration.createContentType(COMMON_CONTENT_TYPE.MEDIA_COLLECTION, {
     name: pascal(COMMON_CONTENT_TYPE.MEDIA_COLLECTION),
@@ -25,8 +28,6 @@ export const createMediaCollection: Migration.MigrationFunction = function (migr
   content.changeFieldControl(COMMON_FIELD.TYPE, 'builtin', CONTENTFUL_WIDGET.LIST, {
     helpText: 'Select media type',
   });
-
-  MEDIA_COLLECTION;
 
   content.createField(COMMON_FIELD.VARIANT, {
     name: pascal(COMMON_FIELD.VARIANT),

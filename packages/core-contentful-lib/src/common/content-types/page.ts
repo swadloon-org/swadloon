@@ -2,14 +2,7 @@ import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
 import { CONTENTFUL_WIDGET } from '../../../types/contentful-widget-ids';
 import { COMMON_CONTENT_TYPE } from '../common-content-types';
-import { COMMON_FIELD, mediaField } from '../common-fields';
-
-export enum PAGE_TYPE {
-  HOME,
-  CONTENT,
-  CONTACT,
-  BLOG,
-}
+import { COMMON_FIELD } from '../common-fields';
 
 export const createPage: Migration.MigrationFunction = function (migration) {
   const content = migration.createContentType(COMMON_CONTENT_TYPE.PAGE, {
@@ -17,26 +10,54 @@ export const createPage: Migration.MigrationFunction = function (migration) {
     description: 'Model to hold informations for pages',
   });
 
+  /**
+   * Unique page name
+   */
   content.createField(COMMON_FIELD.NAME, {
     name: pascal(COMMON_FIELD.NAME),
     type: 'Symbol',
+    validations: [
+      {
+        unique: true,
+      },
+    ],
   });
+
+  /**
+   * Page title used to set the page title (SEO)
+   */
   content.createField(COMMON_FIELD.TITLE, {
     name: pascal(COMMON_FIELD.TITLE),
     type: 'Symbol',
     localized: true,
   });
-  content.createField(COMMON_FIELD.DESCRIPTION, {
-    name: pascal(COMMON_FIELD.DESCRIPTION),
-    type: 'Text',
+
+  /**
+   * Page slug / route
+   */
+  content.createField(COMMON_FIELD.SLUG, {
+    name: pascal(COMMON_FIELD.SLUG),
+    type: 'Symbol',
     localized: true,
+    validations: [
+      {
+        regexp: {
+          pattern: `^(\/[a-z,0-9,-]+)*\/`,
+          flags: `g`,
+        },
+      },
+      {
+        unique: true,
+      },
+    ],
+  });
+  content.changeFieldControl(COMMON_FIELD.SLUG, 'builtin', CONTENTFUL_WIDGET.SLUG_EDITOR, {
+    helpText: 'The page route after the domain, e.g. /route/',
   });
 
-  content.changeFieldControl(COMMON_FIELD.DESCRIPTION, 'builtin', CONTENTFUL_WIDGET.MULTI_LINE, {
-    helpText: 'Enter the page description, it will be used for SEO purposes',
-  });
-
-  //  Types
+  /**
+   * Type of the page
+   */
   content.createField(COMMON_FIELD.TYPE, {
     name: pascal(COMMON_FIELD.TYPE),
     type: 'Array',
@@ -54,33 +75,20 @@ export const createPage: Migration.MigrationFunction = function (migration) {
     helpText: 'Provide Text',
   });
 
-  content.createField(COMMON_FIELD.ROUTE, { name: pascal(COMMON_FIELD.ROUTE), type: 'Symbol', localized: true });
-
-  //  Banner
   /**
-   * For all types
+   * Description of the page for SEO
    */
-  content.createField(COMMON_FIELD.BANNER, {
-    name: pascal(COMMON_FIELD.BANNER),
-    type: 'Link',
-    linkType: 'Entry',
-    required: true,
-    validations: [
-      {
-        linkContentType: [COMMON_CONTENT_TYPE.BANNER],
-      },
-    ],
+  content.createField(COMMON_FIELD.DESCRIPTION, {
+    name: pascal(COMMON_FIELD.DESCRIPTION),
+    type: 'Text',
+    localized: true,
+  });
+  content.changeFieldControl(COMMON_FIELD.DESCRIPTION, 'builtin', CONTENTFUL_WIDGET.MULTI_LINE, {
+    helpText: 'Enter the page description, it will be used for SEO purposes',
   });
 
   /**
-   * MediaCollection for banner images
-   */
-  content.createField(COMMON_FIELD.MEDIAS, { ...mediaField });
-  content.changeFieldControl(COMMON_FIELD.MEDIAS, 'builtin', CONTENTFUL_WIDGET.ENTRY_CARD_EDITOR, {
-    helpText: 'Select a media collection to set banner images on the page.',
-  });
-  /**
-   * Sections for the page
+   * Page sections'
    */
   content.createField(COMMON_FIELD.SECTIONS, {
     name: pascal(COMMON_FIELD.SECTIONS),

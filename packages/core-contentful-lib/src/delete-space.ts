@@ -16,6 +16,7 @@ logEnvVariables<ENV>({ packageName: packageJson.name, env });
  */
 runMigration({
   filePath: path.resolve(__dirname, env.CONTENTFUL_PROJECT, 'project-delete-space.ts'),
+  environmentId: env.CONTENTFUL_ENVIRONMENT,
   spaceId: env.CONTENTFUL_SPACEID,
   accessToken: env.CONTENTFUL_MANAGEMENT_TOKEN,
 })
