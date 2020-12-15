@@ -5,7 +5,7 @@ import { getCSSEffects } from './effects.utilities';
 import { getCSSSizing } from './sizing.utilities';
 import { getCSSTypography } from './typography.utilities';
 
-export function createCSSTheme(theme: DesignSystem): Partial<CSSDesignSystem> {
+export function createCSSTheme(theme: DesignSystem): CSSDesignSystem {
   return {
     name: theme.name,
     variation: theme.variation,

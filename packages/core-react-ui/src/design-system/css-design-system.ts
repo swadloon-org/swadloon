@@ -1,8 +1,8 @@
 import { DesignSystem } from '@newrade/core-design-system';
 
-export type CSSDesignSystem = DesignSystem<string>;
+export type CSSDesignSystem = Omit<DesignSystem<string>, 'iconography' | 'layout' | 'animations' | 'components'>;
 
 export interface Theme {
   theme: DesignSystem;
-  cssTheme: Partial<CSSDesignSystem>;
+  cssTheme: CSSDesignSystem;
 }

@@ -1,5 +1,6 @@
 import { DesignSystem } from '@newrade/core-design-system';
 import { createCSSTheme } from '../utilities/theme.utilities';
+import { CSSDesignSystem } from './css-design-system';
 import { defaultAnimations } from './default-animations';
 import { defaultButtons } from './default-buttons';
 import { defaultColors } from './default-colors';
@@ -24,4 +25,4 @@ export const defaultTheme: DesignSystem = {
   },
 };
 
-export const defaultCSSTheme: Partial<DesignSystem<string>> = createCSSTheme(defaultTheme);
+export const defaultCSSTheme: CSSDesignSystem = createCSSTheme(defaultTheme);

@@ -4,6 +4,7 @@ import { ColorSwatch, keys, Stack, useTreatTheme } from '@newrade/core-react-ui'
 import React from 'react';
 import { useStyles } from 'react-treat';
 import * as styleRefs from '../index.treat';
+import { Heading } from '@newrade/core-react-ui';
 
 const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
   const styles = useStyles(styleRefs);
@@ -21,6 +22,9 @@ const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
             <h3>Typography</h3>
 
             <h4>Titles</h4>
+
+            <Heading>Hey</Heading>
+
             <h4>Headings</h4>
             <h4>Labels</h4>
             <h4>Paragraphs</h4>
