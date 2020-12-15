@@ -1,9 +1,19 @@
-import { unstable_createResource, createResource as cSource } from 'react-cache';
+// import { unstable_createResource, createResource as cSource } from 'react-cache';
 
-let createResource: typeof cSource;
+// type Resource<I, V> = {
+//   read: (input?: I) => V;
+//   preload: (input?: I) => void;
+// };
+// function unstable_createResource<I, K extends string | number, V>(
+//   fetch: (input: I) => Promise<V>,
+//   maybeHashInput?: (input: I) => K
+// ): Resource<I, V>;
+// const createResource: typeof unstable_createResource;
 
-if (unstable_createResource) {
-  createResource = unstable_createResource;
-}
+// let createResource: typeof cSource;
 
-export { createResource };
+// if (unstable_createResource) {
+//   createResource = unstable_createResource;
+// }
+
+// export { createResource };
