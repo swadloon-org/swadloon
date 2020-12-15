@@ -33,3 +33,8 @@ export enum PROJECT_CONTENT_TYPE {
   STEP = 'STEP',
   COST_ITEM = 'COST_ITEM',
 }
+
+export enum PROJECT_FIELD {
+  STEP = 'step',
+  COST_ITEM = 'costItem',
+}

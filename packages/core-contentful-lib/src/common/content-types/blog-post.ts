@@ -59,6 +59,21 @@ export const createBlogPost: Migration.MigrationFunction = function (migration) 
 
   content.createField(COMMON_FIELD.TEXT, { name: pascal(COMMON_FIELD.TEXT), type: 'Text', localized: true });
 
+  /**
+   * To Tags of the blog post
+   */
+  content.createField(COMMON_FIELD.TAGS, {
+    name: pascal(COMMON_FIELD.TAGS),
+    type: 'Array',
+    items: {
+      type: 'Link',
+      linkType: 'Entry',
+      validations: [{ linkContentType: [COMMON_CONTENT_TYPE.TAG] }],
+    },
+  });
+  /**
+   * Authors of the blog post
+   */
   content.createField(COMMON_FIELD.BLOG_AUTHOR, {
     name: pascal(COMMON_FIELD.BLOG_AUTHOR),
     type: 'Array',

@@ -61,6 +61,18 @@ export const createPortfolioProject: Migration.MigrationFunction = function (mig
   content.createField(COMMON_FIELD.TEXT, { name: pascal(COMMON_FIELD.TEXT), type: 'Text', localized: true });
 
   /**
+   * To Tags of the portfolio
+   */
+  content.createField(COMMON_FIELD.TAGS, {
+    name: pascal(COMMON_FIELD.TAGS),
+    type: 'Array',
+    items: {
+      type: 'Link',
+      linkType: 'Entry',
+      validations: [{ linkContentType: [COMMON_CONTENT_TYPE.TAG] }],
+    },
+  });
+  /**
    * To link portfolio clients
    */
   content.createField(COMMON_FIELD.PORTFOLIOS, {

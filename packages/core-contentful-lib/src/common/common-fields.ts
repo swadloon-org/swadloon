@@ -166,3 +166,8 @@ export enum INPUT_TYPE {
   URL = 'url',
   WEEK = 'week',
 }
+
+export enum LINK_TYPE {
+  EXTERNAL_URL = 'EXTERNAL_URL',
+  INTERNAL_PAGE = 'INTERNAL_PAGE',
+}

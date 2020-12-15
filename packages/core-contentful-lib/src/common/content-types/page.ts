@@ -4,7 +4,7 @@ import { CONTENTFUL_WIDGET } from '../../../types/contentful-widget-ids';
 import { COMMON_CONTENT_TYPE } from '../common-content-types';
 import { COMMON_FIELD } from '../common-fields';
 
-export const createPage: Migration.MigrationFunction = function (migration) {
+export function createPage(migration: Migration.default) {
   const content = migration.createContentType(COMMON_CONTENT_TYPE.PAGE, {
     name: COMMON_CONTENT_TYPE.PAGE,
     description: 'Model to hold informations for pages',
@@ -58,21 +58,17 @@ export const createPage: Migration.MigrationFunction = function (migration) {
   /**
    * Type of the page
    */
+
   content.createField(COMMON_FIELD.TYPE, {
     name: pascal(COMMON_FIELD.TYPE),
-    type: 'Array',
-    validations: [{ size: { max: 1 } }],
-    items: {
-      type: 'Symbol',
-      validations: [
-        {
-          in: [PAGE_TYPE.HOME, PAGE_TYPE.CONTENT, PAGE_TYPE.CONTACT, PAGE_TYPE.BLOG],
-        },
-      ],
-    },
-  });
-  content.changeFieldControl(COMMON_FIELD.TYPE, 'builtin', CONTENTFUL_WIDGET.LIST, {
-    helpText: 'Provide Text',
+    type: 'Link',
+    linkType: 'Entry',
+    required: true,
+    validations: [
+      {
+        linkContentType: [COMMON_CONTENT_TYPE.PAGE_TYPE],
+      },
+    ],
   });
 
   /**
@@ -95,4 +91,4 @@ export const createPage: Migration.MigrationFunction = function (migration) {
     type: 'Array',
     items: { type: 'Link', linkType: 'Entry', validations: [{ linkContentType: [COMMON_CONTENT_TYPE.SECTION] }] },
   });
-};
+}

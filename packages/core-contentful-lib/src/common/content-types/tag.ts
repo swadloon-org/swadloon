@@ -1,9 +1,7 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
-import { CONTENTFUL_WIDGET } from '../../../types/contentful-widget-ids';
-import { enumValues } from '../../utilities';
 import { COMMON_CONTENT_TYPE } from '../common-content-types';
-import { COMMON_FIELD, TAG_LEVEL_1 } from '../common-fields';
+import { COMMON_FIELD } from '../common-fields';
 
 export const createTag: Migration.MigrationFunction = function (migration) {
   const content = migration.createContentType(COMMON_CONTENT_TYPE.TAG, {
@@ -18,19 +16,13 @@ export const createTag: Migration.MigrationFunction = function (migration) {
 
   content.createField(COMMON_FIELD.TYPE, {
     name: pascal(COMMON_FIELD.TYPE),
-    type: 'Array',
+    type: 'Link',
+    linkType: 'Entry',
     required: true,
-    validations: [{ size: { max: 1 } }],
-    items: {
-      type: 'Symbol',
-      validations: [
-        {
-          in: enumValues(TAG_LEVEL_1),
-        },
-      ],
-    },
-  });
-  content.changeFieldControl(COMMON_FIELD.TYPE, 'builtin', CONTENTFUL_WIDGET.DROPDOWN, {
-    helpText: 'Select the tag type.',
+    validations: [
+      {
+        linkContentType: [COMMON_CONTENT_TYPE.TAG_TYPE],
+      },
+    ],
   });
 };

@@ -6,7 +6,7 @@ import { COMMON_CONTENT_TYPE } from '../common-content-types';
 import { COMMON_FIELD, mediaField } from '../common-fields';
 import { COMMON_VARIANT } from '../common-props-types';
 
-export function createSection(migration: Migration.default, options: { sectionTypes: object }) {
+export function createSection(migration: Migration.default) {
   const content = migration.createContentType(COMMON_CONTENT_TYPE.SECTION, {
     name: COMMON_CONTENT_TYPE.SECTION,
     description: 'Configurable object for sections in a page.',
@@ -32,25 +32,22 @@ export function createSection(migration: Migration.default, options: { sectionTy
     required: true,
     validations: [
       {
-        linkContentType: keys(options.sectionTypes),
+        linkContentType: [COMMON_CONTENT_TYPE.SECTION_TYPE],
       },
     ],
   });
 
   content.createField(COMMON_FIELD.VARIANT, {
     name: pascal(COMMON_FIELD.VARIANT),
-    type: 'Array',
-    validations: [{ size: { max: 1 } }],
-    items: {
-      type: 'Symbol',
-      validations: [
-        {
-          in: keys(COMMON_VARIANT),
-        },
-      ],
-    },
+
+    type: 'Symbol',
+    validations: [
+      {
+        in: keys(COMMON_VARIANT),
+      },
+    ],
   });
-  content.changeFieldControl(COMMON_FIELD.VARIANT, 'builtin', CONTENTFUL_WIDGET.LIST, {
+  content.changeFieldControl(COMMON_FIELD.VARIANT, 'builtin', CONTENTFUL_WIDGET.DROPDOWN, {
     helpText: 'Select section variant',
   });
 
