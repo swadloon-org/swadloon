@@ -3,6 +3,6 @@ import { DesignSystem } from '@newrade/core-design-system';
 export type CSSDesignSystem = Omit<DesignSystem<string>, 'iconography' | 'layout' | 'animations' | 'components'>;
 
 export interface Theme {
-  theme: DesignSystem<string>;
+  theme: DesignSystem;
   cssTheme: CSSDesignSystem;
 }
