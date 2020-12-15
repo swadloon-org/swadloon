@@ -1,6 +1,4 @@
-import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
-import { COMMON_FIELD } from '../common/common-fields';
 import { createBlogAuthor } from '../common/content-types/blog-author';
 import { createBlogPost } from '../common/content-types/blog-post';
 import { createCompanyAddress } from '../common/content-types/company-address';
@@ -14,7 +12,8 @@ import { createPortfolioProject } from '../common/content-types/portfolio-projec
 import { createSection } from '../common/content-types/section';
 import { createSectionType } from '../common/content-types/section-type';
 import { createTag } from '../common/content-types/tag';
-import { PROJECT_CONTENT_TYPE, PROJECT_SECTION_TYPE } from './project-content-types';
+import { createCostItem, createStep } from './project-content-types';
+import { PROJECT_SECTION_TYPE } from './project-props-types';
 
 const program: Migration.MigrationFunction = function Program(migration) {
   /**
@@ -37,34 +36,13 @@ const program: Migration.MigrationFunction = function Program(migration) {
   /**
    * Project specific config for section
    */
-  // TODO create refs to steps and costItems
-  section.createField();
-  section.createField();
-  section.createField();
+  section.createField(); // TODO create refs to steps and costItems
   section.createField();
   /**
-   * Steps
+   * Project specific content types
    */
-  const steps = migration.createContentType(PROJECT_CONTENT_TYPE.STEP, {
-    name: pascal(PROJECT_CONTENT_TYPE.STEP),
-  });
-  steps.createField(COMMON_FIELD.TITLE, { name: pascal(COMMON_FIELD.TITLE), type: 'Symbol', localized: true });
-  steps.createField(COMMON_FIELD.SUBTITLE, { name: pascal(COMMON_FIELD.SUBTITLE), type: 'Symbol', localized: true });
-  steps.createField(COMMON_FIELD.TEXT, { name: pascal(COMMON_FIELD.TEXT), type: 'Text', localized: true });
-
-  /**
-   * Cost items
-   */
-  const costItems = migration.createContentType(PROJECT_CONTENT_TYPE.COST_ITEM, {
-    name: pascal(PROJECT_CONTENT_TYPE.COST_ITEM),
-  });
-  costItems.createField(COMMON_FIELD.TITLE, { name: pascal(COMMON_FIELD.TITLE), type: 'Symbol', localized: true });
-  costItems.createField(COMMON_FIELD.SUBTITLE, {
-    name: pascal(COMMON_FIELD.SUBTITLE),
-    type: 'Symbol',
-    localized: true,
-  });
-  costItems.createField(COMMON_FIELD.TEXT, { name: pascal(COMMON_FIELD.TEXT), type: 'Text', localized: true });
+  createStep(migration);
+  createCostItem(migration);
 };
 
 // @ts-ignore

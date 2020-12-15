@@ -1,10 +1,10 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
 import { CONTENTFUL_WIDGET } from '../../../types/contentful-widget-ids';
-import { CAROUSEL_STYLE, COMMON_SIZE, COMMON_STYLE_VARIANT, COMMON_VARIANT } from '../../../types/props-type';
 import { keys } from '../../utilities';
 import { COMMON_CONTENT_TYPE } from '../common-content-types';
 import { COMMON_FIELD } from '../common-fields';
+import { CAROUSEL_STYLE, COMMON_SIZE, COMMON_STYLE_VARIANT, COMMON_VARIANT } from '../common-props-types';
 
 /**
  * A MediaCollection holds one or more media (images, videos) to be used in banners, carousels
