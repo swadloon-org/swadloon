@@ -1,3 +1,4 @@
+import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
 import { createBlogAuthor } from '../common/content-types/blog-author';
 import { createBlogPost } from '../common/content-types/blog-post';
@@ -40,7 +41,6 @@ const program: Migration.MigrationFunction = function Program(migration) {
   /**
    * Project specific config for section
    */
-<<<<<<< HEAD
   section.createField(PROJECT_FIELD.STEP, {
     name: pascal(PROJECT_FIELD.STEP),
     type: 'Array',
@@ -68,10 +68,6 @@ const program: Migration.MigrationFunction = function Program(migration) {
     },
   });
 
-=======
-  section.createField(); // TODO create refs to steps and costItems
-  section.createField();
->>>>>>> 4f118b2de9e65813f434cd41c2672fae32b8c64f
   /**
    * Project specific content types
    */
