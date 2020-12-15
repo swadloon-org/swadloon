@@ -1,8 +1,8 @@
 import { SIZE, Sizing, SizingSteps, SizingVarNames, VIEWPORT } from '@newrade/core-design-system';
+import { cssVar } from '../utilities/css-variable.utilities';
 
-export const DEFAULT_BASE_FONT_SIZE = 9;
-export const DEFAULT_BASE_FONT_SIZE_PX = `${DEFAULT_BASE_FONT_SIZE}px`;
-export const DEFAULT_SCALING_RATIO = 1.618;
+export const defaultBaseFontSize = 9;
+export const defaultScalingRatio = 1.618;
 
 export const defaultSizesCSSVarNames: SizingVarNames = {
   [SIZE.x0]: '--sizing-x0',
@@ -19,17 +19,17 @@ export const defaultSizesCSSVarNames: SizingVarNames = {
 };
 
 export const defaultSizesCSSVar: SizingVarNames = {
-  [SIZE.x0]: `var(${defaultSizesCSSVarNames.x0})`,
-  [SIZE.x1]: `var(${defaultSizesCSSVarNames.x1})`,
-  [SIZE.x2]: `var(${defaultSizesCSSVarNames.x2})`,
-  [SIZE.x3]: `var(${defaultSizesCSSVarNames.x3})`,
-  [SIZE.x4]: `var(${defaultSizesCSSVarNames.x4})`,
-  [SIZE.x5]: `var(${defaultSizesCSSVarNames.x5})`,
-  [SIZE.x6]: `var(${defaultSizesCSSVarNames.x6})`,
-  [SIZE.x7]: `var(${defaultSizesCSSVarNames.x7})`,
-  [SIZE.x8]: `var(${defaultSizesCSSVarNames.x8})`,
-  [SIZE.x9]: `var(${defaultSizesCSSVarNames.x9})`,
-  [SIZE.x10]: `var(${defaultSizesCSSVarNames.x10})`,
+  [SIZE.x0]: cssVar(defaultSizesCSSVarNames.x0),
+  [SIZE.x1]: cssVar(defaultSizesCSSVarNames.x1),
+  [SIZE.x2]: cssVar(defaultSizesCSSVarNames.x2),
+  [SIZE.x3]: cssVar(defaultSizesCSSVarNames.x3),
+  [SIZE.x4]: cssVar(defaultSizesCSSVarNames.x4),
+  [SIZE.x5]: cssVar(defaultSizesCSSVarNames.x5),
+  [SIZE.x6]: cssVar(defaultSizesCSSVarNames.x6),
+  [SIZE.x7]: cssVar(defaultSizesCSSVarNames.x7),
+  [SIZE.x8]: cssVar(defaultSizesCSSVarNames.x8),
+  [SIZE.x9]: cssVar(defaultSizesCSSVarNames.x9),
+  [SIZE.x10]: cssVar(defaultSizesCSSVarNames.x10),
 };
 
 export const defaultSizingStepsMobile = {
@@ -53,8 +53,8 @@ export const defaultSizingSteps: SizingSteps = {
 };
 
 export const defaultSizing: Sizing = {
-  baseFontSize: DEFAULT_BASE_FONT_SIZE,
-  ratio: DEFAULT_SCALING_RATIO,
+  baseFontSize: defaultBaseFontSize,
+  ratio: defaultScalingRatio,
   varNames: defaultSizesCSSVarNames,
   var: defaultSizesCSSVar,
   sizes: defaultSizingSteps,

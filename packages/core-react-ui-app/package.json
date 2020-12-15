@@ -12,8 +12,8 @@
   "type": "module",
   "typings": "./lib/index.d.ts",
   "dependencies": {
+    "@newrade/core-common": "^1",
     "@newrade/core-design-system": "^1",
-    "@newrade/core-env": "^1",
     "@newrade/core-jest-config": "^1",
     "@newrade/core-react-ui": "^1",
     "@newrade/core-utils": "^1",

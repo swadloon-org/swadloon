@@ -1,5 +1,5 @@
+import { AppError, ERROR_TYPE } from '@newrade/core-common';
 import { TextStyle } from '@newrade/core-design-system';
-import { AppError, ERROR_TYPE } from '@newrade/core-utils';
 import capsize, { CapsizeStyles } from 'capsize';
 import { pxStringToNumber, pxStringToRem } from './utilities';
 
@@ -12,7 +12,7 @@ type TextStyleOptions = { baseFontSize: number } & Pick<
   'font' | 'fontFamily' | 'fontWeight' | 'letterSpacing' | 'textTransform' | 'capHeight' | 'lineGap'
 >;
 
-export function createTextStyle({
+export function createCSSTextStyle({
   baseFontSize,
   font,
   fontFamily,
@@ -21,31 +21,52 @@ export function createTextStyle({
   textTransform,
   capHeight,
   lineGap,
-}: TextStyleOptions): TextStyle {
+}: TextStyleOptions): TextStyle<string> {
   const compatibleCapHeight: number = capHeight;
   if (!font) {
     throw new AppError({
       name: ERROR_TYPE.LIB_ERROR,
       message: 'a text style requires a font to be set',
     });
+    // throw Error();
   }
-  const { fontMetrics } = font;
+  const { fontMetrics } = font[0];
 
   const capsizePx = capsize({ capHeight: compatibleCapHeight, lineGap, fontMetrics });
   return {
     font,
-    fontFamily,
-    fontWeight,
-    // letterSpacing: convertLetterSpacingToEM({
-    //   value: letterSpacing as any, // todo convert to %
-    //   fontSize: capsizePx.fontSize,
-    // }),
+    fontFamily: fontFamily ? fontFamily : font.map((font) => font.name).join(','),
+    fontWeight: fontWeight ? fontWeight : 400,
+    letterSpacing: convertLetterSpacingToPercent({ letterSpacing, fontSize: capsizePx.fontSize }),
     textTransform,
     capHeight,
     lineGap,
-    // capsizePx,
+    capsize: capsizePx,
     // capsizeRem: convertCapsizeValuesToRem({ baseFontSize, capsizePx }),
   };
+}
+
+/**
+ * Converts capsize styles from px to rem.
+ */
+export function convertLetterSpacingToPercent({
+  letterSpacing,
+  fontSize,
+}: {
+  letterSpacing: number | undefined;
+  fontSize: string;
+}): string {
+  if (letterSpacing === undefined) {
+    return `0px`;
+  }
+
+  const fontSizeNumber = pxStringToNumber({ value: fontSize });
+
+  if (fontSizeNumber === undefined) {
+    return `0px`;
+  }
+  const percent = (letterSpacing / 100) * fontSizeNumber;
+  return `${percent}px`;
 }
 
 /**
@@ -73,6 +94,7 @@ export function convertLetterSpacingToEM({ value, fontSize }: { value: string; f
 
   const match = exp.exec(value);
   if (!match) {
+    console.warn(`${value}, did not match`);
     return undefined;
   }
 

@@ -1,5 +1,5 @@
+import { SizingType } from '../types';
 import { VIEWPORT } from './layout';
-import { SizingStep } from './sizing';
 
 /**
  * Default icons and their filenames.
@@ -7,11 +7,25 @@ import { SizingStep } from './sizing';
  *    MENU = 'menu' would mean that a menu.svg icon exists in src/icons/
  */
 export enum ICON {
-  MENU = 'MENU',
   ARROW_UP = 'ARROW_UP',
   ARROW_RIGHT = 'ARROW_RIGHT',
   ARROW_DOWN = 'ARROW_DOWN',
   ARROW_LEFT = 'ARROW_LEFT',
+  MENU = 'MENU',
+  CHECKBOX_BOX = 'CHECKBOX_BOX',
+  CHECK = 'CHECK',
+  RADIO = 'RADIO',
+  CIRCLE = 'CIRCLE',
+}
+
+export enum ICON_STYLE {
+  SOLID = 'SOLID',
+  LINE = 'LINE',
+}
+
+export enum ICON_WEIGHT {
+  NORMAL = 'NORMAL',
+  LIGHT = 'LIGHT',
 }
 
 export interface Icon {
@@ -22,7 +36,7 @@ export interface Icon {
   /**
    * to control the stroke width on svg icons that supports it
    */
-  weight?: string;
+  weight?: number;
 }
 
 export enum ICON_SIZE {
@@ -31,16 +45,22 @@ export enum ICON_SIZE {
   small = 'small',
 }
 
-export type IconSizes<SizingType = SizingStep> = { [key in keyof typeof ICON_SIZE]: SizingType };
+export type IconSizes<Override extends undefined | string = undefined> = {
+  [key in keyof typeof ICON_SIZE]: SizingType<Override>;
+};
 
 export type Icons = { [key in keyof typeof ICON]: Icon };
 
-export interface Iconography<SizingType = SizingStep> {
+export interface Iconography<Override extends undefined | string = undefined> {
   /**
-   * Name of the icon set.
+   * Name of the icon set.  (e.g. 'Ionicons')
    */
-  iconsFamily: string;
-  iconsWebsite: string;
+  family: string;
+  website: string;
+  /**
+   * Variation of the icon set
+   */
+  style?: ICON_STYLE;
   /**
    * Default icon infos (name and optionally weight) along with
    * extra icons.
@@ -50,6 +70,6 @@ export interface Iconography<SizingType = SizingStep> {
    * Icon size for each viewport.
    */
   sizes: {
-    [key in keyof typeof VIEWPORT]: IconSizes<SizingType>;
+    [key in keyof typeof VIEWPORT]: IconSizes<Override>;
   };
 }

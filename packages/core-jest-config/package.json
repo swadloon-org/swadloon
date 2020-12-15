@@ -21,7 +21,7 @@
   },
   "typings": "./lib/index.d.ts",
   "dependencies": {
-    "@newrade/core-env": "^1",
+    "@newrade/core-common": "^1",
     "@newrade/core-utils": "^1"
   },
   "peerDependencies": {

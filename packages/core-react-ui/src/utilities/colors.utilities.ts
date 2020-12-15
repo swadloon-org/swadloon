@@ -1,17 +1,10 @@
-import * as coreDesignSystem from '@newrade/core-design-system';
+import * as DS from '@newrade/core-design-system';
 import { Color, Colors } from '@newrade/core-design-system';
 import { kebab } from 'case';
 import CSSTypes from 'csstype';
+import { keys } from './utilities';
 
-export function generateColorPalette5({
-  color: color,
-  light,
-  dark,
-}: {
-  color: coreDesignSystem.Color;
-  light: number;
-  dark: number;
-}) {
+export function generateColorPalette5({ color: color, light, dark }: { color: DS.Color; light: number; dark: number }) {
   if (dark < light) {
     throw new Error('the dark value must be higher than the light, e.g. 90, 10');
   }
@@ -28,7 +21,7 @@ export function generateColorPalette5({
     '500': color,
     '700': { ...color, l: color.l + 1 * lightStep },
     '900': { ...color, l: color.l + 2 * lightStep },
-  } as coreDesignSystem.ColorPalette<coreDesignSystem.ColorShades5>;
+  } as DS.ColorPalette<DS.ColorShades5>;
 }
 
 export function generateColorGreyPalette({ hue }: { hue: number }) {
@@ -49,19 +42,19 @@ export function generateColorGreyPalette({ hue }: { hue: number }) {
     '800': { h: hue, s: 10, l: 80 },
     '900': { h: hue, s: 10, l: 90 },
     '1000': { h: hue, s: 10, l: 95 },
-  } as coreDesignSystem.ColorPalette<coreDesignSystem.ColorShadesGrey>;
+  } as DS.ColorPalette<DS.ColorShadesGrey>;
 }
 
-export function getCSSColorPalette<ColorShades extends string>(palette: coreDesignSystem.ColorPalette<ColorShades>) {
+export function getCSSColorPalette<ColorShades extends string>(palette: DS.ColorPalette<ColorShades>) {
   const keys = Object.keys(palette) as ColorShades[];
   return keys.reduce((previous, current) => {
     previous[current] = getCSSColor(palette[current]);
     return previous;
-  }, {} as coreDesignSystem.ColorPalette<ColorShades, CSSTypes.Color>);
+  }, {} as DS.ColorPalette<ColorShades, CSSTypes.Color>);
 }
 
-export function getCSSColorIntents(intents: coreDesignSystem.ColorIntents) {
-  const keys = Object.keys(intents) as (keyof coreDesignSystem.ColorIntents)[];
+export function getCSSColorIntents(intents: DS.ColorIntents) {
+  const keys = Object.keys(intents) as (keyof DS.ColorIntents)[];
   return keys.reduce((previous, current) => {
     const color = intents[current] as Color;
     if (current === 'current') {
@@ -74,13 +67,22 @@ export function getCSSColorIntents(intents: coreDesignSystem.ColorIntents) {
     }
     previous[current] = getCSSColor(color);
     return previous;
-  }, {} as coreDesignSystem.ColorIntents<string>);
+  }, {} as DS.ColorIntents<string>);
+}
+
+export function getCSSColorGradients(intents: DS.ColorGradients) {
+  const gradients = keys(intents);
+  return gradients.reduce((previous, current) => {
+    const gradient = intents[current] as DS.ColorGradient;
+    previous[current] = getCSSLinearGradient(gradient);
+    return previous;
+  }, {} as DS.ColorGradients<string>);
 }
 
 /**
  * Create a CSS color string from a Color object
  */
-export function getCSSColors(colors: coreDesignSystem.Colors): Colors<string> {
+export function getCSSColors(colors: DS.Colors): Colors<string> {
   return {
     var: colors.var,
     varNames: colors.varNames,
@@ -100,35 +102,45 @@ export function getCSSColors(colors: coreDesignSystem.Colors): Colors<string> {
       utilityRed: getCSSColorPalette(colors.colors.utilityRed),
     },
     colorIntents: getCSSColorIntents(colors.colorIntents),
+    gradients: getCSSColorGradients(colors.gradients),
   };
 }
 
 /**
  * Create a CSS color string from a Color object
  */
-export function getCSSColor({ h, s, l, a }: Partial<coreDesignSystem.Color>): CSSTypes.Color {
+export function getCSSColor({ h, s, l, a }: Partial<DS.Color>): CSSTypes.Color {
   return `hsl(${h}deg ${s}% ${l}% / ${a === undefined ? 100 : a}%)`;
+}
+
+/**
+ * Create a CSS color string from a Color object
+ */
+export function getCSSLinearGradient({ angle, stops }: DS.ColorGradient): CSSTypes.BackgroundProperty<any> {
+  return `linear-gradient(${angle.value}${angle.unit}, ${stops
+    .map((stop) => `${getCSSColor(stop.color)} ${stop.position || ''}`)
+    .join(',')})`;
 }
 
 /**
  *  TODO - move to design system
  */
 
-export function lightenColor(color: coreDesignSystem.Color, amount: number): coreDesignSystem.Color {
+export function lightenColor(color: DS.Color, amount: number): DS.Color {
   return {
     ...color,
     l: color.l + amount,
   };
 }
 
-export function darkenColor(color: coreDesignSystem.Color, amount: number): coreDesignSystem.Color {
+export function darkenColor(color: DS.Color, amount: number): DS.Color {
   return lightenColor(color, -amount);
 }
 
 /**
  * Create default color intents.
  */
-export function createDefaultColorIntents(colors: coreDesignSystem.Colors['colors']): coreDesignSystem.ColorIntents {
+export function createDefaultColorIntents(colors: DS.Colors['colors']): DS.ColorIntents {
   return {
     accessibilityColor: colors.primary['700'],
     current: colors.current,
@@ -143,6 +155,8 @@ export function createDefaultColorIntents(colors: coreDesignSystem.Colors['color
     secondaryTextReversed: colors.grey['0-reversed'],
     tertiaryText: colors.grey['700'],
     tertiaryTextReversed: colors.grey['0-reversed'],
+    disabledText: colors.grey['400'],
+    disabledTextReversed: colors.grey['100'],
     successText: colors.utilityGreen['900'],
     successAction: colors.utilityGreen['500'],
     successBackground: colors.utilityGreen['100'],
@@ -155,6 +169,7 @@ export function createDefaultColorIntents(colors: coreDesignSystem.Colors['color
     background0: colors.grey['0'],
     background1: colors.grey['25'],
     background2: colors.grey['50'],
+    backgroundDisabled: colors.grey['100'],
   };
 }
 
@@ -166,11 +181,11 @@ export function getCSSVarNamesForColors({
   colors,
   colorIntents,
 }: {
-  colors: coreDesignSystem.Colors['colors'];
-  colorIntents: coreDesignSystem.ColorIntents;
-}): coreDesignSystem.ColorsVarNames {
-  const colorsVarNames: coreDesignSystem.ColorsVarNames = getNameForColors(colors, 'color');
-  const colorIntentsVarNames: coreDesignSystem.ColorsVarNames = getNameForColors(colorIntents, 'color-intent');
+  colors: DS.Colors['colors'];
+  colorIntents: DS.ColorIntents;
+}): DS.ColorsVarNames {
+  const colorsVarNames: DS.ColorsVarNames = getNameForColors(colors, 'color');
+  const colorIntentsVarNames: DS.ColorsVarNames = getNameForColors(colorIntents, 'color-intent');
 
   return [...colorsVarNames, ...colorIntentsVarNames];
 }
@@ -179,23 +194,20 @@ export function getCSSVarForColors({
   colors,
   colorIntents,
 }: {
-  colors: coreDesignSystem.Colors['colors'];
-  colorIntents: coreDesignSystem.ColorIntents;
-}): coreDesignSystem.ColorsVars {
+  colors: DS.Colors['colors'];
+  colorIntents: DS.ColorIntents;
+}): DS.ColorsVars {
   return getCSSVarNamesForColors({
     colors,
     colorIntents,
   }).map((cssVar) => `var(${cssVar})`);
 }
 
-function getNameForColors(
-  colors: coreDesignSystem.Colors['colors'] | coreDesignSystem.Colors['colorIntents'],
-  prefix: string
-) {
-  const colorsVarNames: coreDesignSystem.ColorsVarNames = [];
+function getNameForColors(colors: DS.Colors['colors'] | DS.Colors['colorIntents'], prefix: string) {
+  const colorsVarNames: DS.ColorsVarNames = [];
 
   Object.keys(colors).forEach((current) => {
-    const currentColor = current as keyof (coreDesignSystem.Colors['colors'] | coreDesignSystem.Colors['colorIntents']); // 'primary'
+    const currentColor = current as keyof (DS.Colors['colors'] | DS.Colors['colorIntents']); // 'primary'
     if (currentColor && currentColor.length) {
       // for colors that have a palette (nested colors)
       if (

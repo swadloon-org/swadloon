@@ -77,4 +77,20 @@ export const defaultLayout: Layout = {
   contentWidth: {
     desktopMaxWidth: 1200,
   },
+  menubarWidth: {
+    [VIEWPORT.desktop]: 270,
+    [VIEWPORT.tablet]: 270,
+    [VIEWPORT.mobile]: 375,
+  },
+  topbarHeight: {
+    [VIEWPORT.desktop]: 60,
+    [VIEWPORT.tablet]: 60,
+    [VIEWPORT.mobile]: 60,
+  },
+  asideWidth: 210,
+  footerHeight: {
+    [VIEWPORT.desktop]: 210,
+    [VIEWPORT.tablet]: 210,
+    [VIEWPORT.mobile]: 210,
+  },
 };

@@ -1,17 +1,25 @@
 import { TEXT_TRANSFORM, Typography } from '@newrade/core-design-system';
-import { defaultMonospaceFont, defaultSansAlternateFont, defaultSansFont, defaultSerifFont } from './default-fonts';
+import { cssVar } from '../utilities/css-variable.utilities';
+import * as fonts from './default-fonts';
+
+const defaultFontVars = [
+  '--font-family-monospace',
+  '--font-family-sans',
+  '--font-family-sans-alternate',
+  '--font-family-serif',
+];
 
 export const defaultTypography: Typography = {
   fonts: {
-    serif: defaultSerifFont,
-    sans: defaultSansFont,
-    sansAlternate: defaultSansAlternateFont,
-    monospace: defaultMonospaceFont,
-    var: ['--font-family-monospace', '--font-family-sans', '--font-family-sans-alternate', '--font-family-serif'],
-    varNames: ['--font-family-monospace', '--font-family-sans', '--font-family-sans-alternate', '--font-family-serif'],
+    serif: [fonts.defaultSerifFont, ...fonts.defaultFallbackSerifFonts],
+    sans: [fonts.defaultSansFont, ...fonts.defaultFallbackSansFonts],
+    sansAlternate: [fonts.defaultSansAlternateFont, ...fonts.defaultFallbackSansFonts],
+    monospace: [fonts.defaultMonospaceFont, ...fonts.defaultFallbackMonospaceFonts],
+    var: defaultFontVars,
+    varNames: defaultFontVars.map((varName) => cssVar(varName)),
   },
   titles: {
-    font: defaultSerifFont,
+    font: [fonts.defaultSerifFont, ...fonts.defaultFallbackSerifFonts],
     fontWeight: 400,
     letterSpacing: 6,
     mobile: {
@@ -47,7 +55,7 @@ export const defaultTypography: Typography = {
     },
   },
   headings: {
-    font: defaultSerifFont,
+    font: [fonts.defaultSerifFont, ...fonts.defaultFallbackSansFonts],
     fontWeight: 400,
     letterSpacing: 6,
     mobile: {
@@ -106,7 +114,7 @@ export const defaultTypography: Typography = {
     },
   },
   paragraphs: {
-    font: defaultSerifFont,
+    font: [fonts.defaultSerifFont, ...fonts.defaultFallbackSansFonts],
     fontWeight: 400,
     styles: {
       bold: {
@@ -173,7 +181,7 @@ export const defaultTypography: Typography = {
     },
   },
   labels: {
-    font: defaultSerifFont,
+    font: [fonts.defaultSerifFont, ...fonts.defaultFallbackSansFonts],
     fontWeight: 400,
     styles: {
       bold: {

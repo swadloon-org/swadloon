@@ -1,5 +1,6 @@
+import { SizeType } from '../types';
 import { ContentMargins, ContentWidths } from './content-width';
-import { MediaQueries, MediaQueryGroup } from './media-queries';
+import { MediaQueries } from './media-queries';
 
 /**
  * Viewport names.
@@ -42,14 +43,26 @@ export type Breakpoint = number;
 /**
  * Breakpoints values in pixel
  */
-export type Breakpoints<BreakpointType = number> = { [key in keyof typeof BREAKPOINT]: BreakpointType };
+export type Breakpoints<Override extends undefined | string = undefined> = {
+  [key in keyof typeof BREAKPOINT]: Override extends string ? string : Breakpoint;
+};
 
 /**
  * Breakpoints, commonly used content margins and max widths.
  */
-export interface Layout<BreakpointType = number, MediaQueryType = MediaQueryGroup> {
-  breakpoints: Breakpoints<BreakpointType>;
-  media: MediaQueries<MediaQueryType>;
-  contentMargins: ContentMargins<BreakpointType>;
+export interface Layout<Override extends undefined | string = undefined> {
+  breakpoints: Breakpoints<Override>;
+  media: MediaQueries<Override>;
+  contentMargins: ContentMargins<Override>;
   contentWidth: ContentWidths;
+  menubarWidth: {
+    [key in keyof typeof VIEWPORT]: SizeType<Override>;
+  };
+  topbarHeight: {
+    [key in keyof typeof VIEWPORT]: SizeType<Override>;
+  };
+  asideWidth: SizeType<Override>;
+  footerHeight: {
+    [key in keyof typeof VIEWPORT]: SizeType<Override>;
+  };
 }

@@ -4,6 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.createPages = void 0;
+const core_common_1 = require("@newrade/core-common");
 const core_utils_1 = require("@newrade/core-utils");
 const path_1 = __importDefault(require("path"));
 /**
@@ -63,8 +64,8 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     `);
         if (!allSiteData.data?.site?.siteMetadata) {
-            throw new core_utils_1.AppError({
-                name: core_utils_1.ERROR_TYPE.GATSBY_ERROR,
+            throw new core_common_1.AppError({
+                name: core_common_1.ERROR_TYPE.GATSBY_ERROR,
                 message: `Could not retrieve siteMetadata`,
             });
         }

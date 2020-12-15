@@ -26,7 +26,7 @@
       "path": "../packages/core-docs-generator"
     },
     {
-      "path": "../packages/core-env"
+      "path": "../packages/core-common"
     },
     {
       "path": "../packages/core-figma-plugins"

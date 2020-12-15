@@ -1,28 +1,36 @@
-import { ICON, Iconography, VIEWPORT } from '@newrade/core-design-system';
+import { ICON, Iconography, ICON_STYLE, VIEWPORT } from '@newrade/core-design-system';
 
 export const defaultIconography: Iconography = {
-  iconsFamily: 'FontAwesome',
-  iconsWebsite: 'https://fontawesome.com/',
+  family: 'FontAwesome',
+  style: ICON_STYLE.SOLID,
+  website: 'https://fontawesome.com/',
   icons: {
+    [ICON.CHECKBOX_BOX]: {
+      name: 'CheckboxBox',
+    },
+    [ICON.CHECK]: {
+      name: 'Check',
+    },
+    [ICON.RADIO]: {
+      name: 'Radio',
+    },
+    [ICON.CIRCLE]: {
+      name: 'Circle',
+    },
     [ICON.MENU]: {
       name: 'bars',
-      weight: 'light',
     },
     [ICON.ARROW_UP]: {
       name: 'arrow-up',
-      weight: 'light',
     },
     [ICON.ARROW_RIGHT]: {
       name: 'arrow-right',
-      weight: 'light',
     },
     [ICON.ARROW_DOWN]: {
       name: 'arrow-bottom',
-      weight: 'light',
     },
     [ICON.ARROW_LEFT]: {
       name: 'arrow-left',
-      weight: 'light',
     },
   },
   sizes: {

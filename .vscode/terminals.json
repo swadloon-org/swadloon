@@ -39,8 +39,8 @@
       "focus": false
     },
     {
-      "name": "core-env",
-      "cwd": "[workspaceFolder]/packages/core-env",
+      "name": "core-common",
+      "cwd": "[workspaceFolder]/packages/core-common",
       "open": true,
       "focus": false
     },

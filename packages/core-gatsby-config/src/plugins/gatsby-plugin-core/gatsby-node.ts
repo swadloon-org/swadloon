@@ -1,4 +1,4 @@
-import { DEPLOY_ENV } from '@newrade/core-env';
+import { DEPLOY_ENV } from '@newrade/core-common';
 import { COMMON_ENV, log, LOG_LEVEL } from '@newrade/core-utils';
 import { es6BabelLoader, getBundleVisualizerPlugin } from '@newrade/core-webpack-config';
 import chalk from 'chalk';

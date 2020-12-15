@@ -1,4 +1,4 @@
-import { DEPLOY_ENV, NODE_ENV } from '@newrade/core-env';
+import { DEPLOY_ENV, NODE_ENV } from '@newrade/core-common';
 import * as t from 'io-ts';
 
 const DeployEnv = t.keyof({

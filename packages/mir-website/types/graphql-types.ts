@@ -28589,6 +28589,7 @@ export type SitePageConnectionGroupArgs = {
 export type SitePageContext = {
   siteMetadata?: Maybe<SitePageContextSiteMetadata>;
   pageId?: Maybe<Scalars['String']>;
+  fileId?: Maybe<Scalars['String']>;
   blogPostId?: Maybe<Scalars['String']>;
   blogPath?: Maybe<Scalars['String']>;
   frontmatter?: Maybe<SitePageContextFrontmatter>;
@@ -28598,6 +28599,7 @@ export type SitePageContext = {
 export type SitePageContextFilterInput = {
   siteMetadata?: Maybe<SitePageContextSiteMetadataFilterInput>;
   pageId?: Maybe<StringQueryOperatorInput>;
+  fileId?: Maybe<StringQueryOperatorInput>;
   blogPostId?: Maybe<StringQueryOperatorInput>;
   blogPath?: Maybe<StringQueryOperatorInput>;
   frontmatter?: Maybe<SitePageContextFrontmatterFilterInput>;
@@ -28750,6 +28752,7 @@ export type SitePageFieldsEnum =
   | 'context___siteMetadata___languages___langs'
   | 'context___siteMetadata___languages___defaultLangKey'
   | 'context___pageId'
+  | 'context___fileId'
   | 'context___blogPostId'
   | 'context___blogPath'
   | 'context___frontmatter___name'

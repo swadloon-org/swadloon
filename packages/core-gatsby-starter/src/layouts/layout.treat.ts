@@ -1,28 +1,34 @@
 import { Theme } from '@newrade/core-react-ui';
-import { styleMap } from 'treat';
+import { style } from 'treat';
 
-export const styles = styleMap(({ cssTheme, theme }: Theme) => ({
-  wrapper: {
+export const styles = {
+  wrapper: style(({ cssTheme, theme }: Theme) => ({
     display: 'grid',
-    gridTemplateColumns: '300px 1fr',
-    gridTemplateRows: '100vh',
-  },
-  content: {
-    padding: '2em',
-  },
-  sideMenu: {
+    gridTemplateColumns: '1fr',
+    marginRight: 'auto',
+    marginLeft: 'auto',
+  })),
+  main: style(({ cssTheme, theme }: Theme) => ({
+    padding: '1em',
+    maxWidth: `calc( 1440px - 225px - 300px - 40px * 2 )`,
+    margin: `0 auto`,
+    width: `100%`,
+  })),
+  sideMenu: style(({ cssTheme, theme }: Theme) => ({
+    position: 'fixed',
     display: 'flex',
+    width: 300,
     flexDirection: 'column',
     alignItems: 'stretch',
     overflowY: 'scroll',
     maxHeight: '100vh',
+    minHeight: '100vh',
     backgroundColor: '#f9f9f9',
     borderRight: '1px solid #e4e4e4',
-  },
-  navItem: {
+  })),
+  navItem: style(({ cssTheme, theme }: Theme) => ({
     display: 'flex',
-
-    padding: '1em',
+    padding: `0.5em 1em`,
     fontWeight: 'bold',
-  },
-}));
+  })),
+};

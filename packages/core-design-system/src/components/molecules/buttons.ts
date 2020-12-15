@@ -1,6 +1,6 @@
 import { ButtonHTMLAttributes } from 'react';
-import { Color } from '../../primitives/color';
-import { Border, BoxStyle, Outline, Padding } from '../atoms/box';
+import { ColorType } from '../../types';
+import { BoxStyle } from '../atoms/box';
 
 export enum ButtonAs {
   button = 'button',
@@ -48,28 +48,25 @@ export interface ButtonProps extends ButtonHTMLAttributes<any> {
   state?: ButtonState;
 }
 
-export type ButtonStyle<ColorType> = {
-  textColor?: ColorType;
-  iconColor?: ColorType;
-  backgroundColor?: ColorType;
-  borderColor?: ColorType;
-  outlineColor?: ColorType;
+export type ButtonStyle<Override extends undefined | string = undefined> = {
+  textColor?: ColorType<Override>;
+  iconColor?: ColorType<Override>;
+  backgroundColor?: ColorType<Override>;
+  borderColor?: ColorType<Override>;
+  outlineColor?: ColorType<Override>;
 };
 
-export type ButtonBoxStyle<ColorType, PaddingType, BorderType, OutlineType> = BoxStyle<
-  ColorType,
-  PaddingType,
-  BorderType,
-  OutlineType
-> & {};
+export type ButtonBoxStyle<Override extends undefined | string = undefined> = BoxStyle<Override> & {};
 
-export type ButtonVariants<ColorType = Color> = { [key in keyof typeof ButtonVariant]: ButtonStyle<ColorType> };
-
-export type ButtonSizes<ColorType = Color, PaddingType = Padding, BorderType = Border, OutlineType = Outline> = {
-  [key in keyof typeof ButtonSize]: ButtonBoxStyle<ColorType, PaddingType, BorderType, OutlineType>;
+export type ButtonVariants<Override extends undefined | string = undefined> = {
+  [key in keyof typeof ButtonVariant]: ButtonStyle<Override>;
 };
 
-export interface Buttons<ColorType = Color, PaddingType = number, BorderType = Border, OutlineType = Outline> {
-  variants: ButtonVariants<ColorType>;
-  sizes: ButtonSizes<ColorType, PaddingType, BorderType, OutlineType>;
+export type ButtonSizes<Override extends undefined | string = undefined> = {
+  [key in keyof typeof ButtonSize]: ButtonBoxStyle<Override>;
+};
+
+export interface Buttons<Override extends undefined | string = undefined> {
+  variants: ButtonVariants<Override>;
+  sizes: ButtonSizes<Override>;
 }
