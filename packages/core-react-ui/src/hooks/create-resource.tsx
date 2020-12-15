@@ -1,7 +1,4 @@
-import {
-  unstable_createResource,
-  createResource as cSource,
-} from 'react-cache';
+import { unstable_createResource, createResource as cSource } from 'react-cache';
 
 let createResource: typeof cSource;
 
