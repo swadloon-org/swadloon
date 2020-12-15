@@ -1,7 +1,7 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
 import { CONTENTFUL_WIDGET } from '../../../types/contentful-widget-ids';
-import { keys } from '../../utilities';
+import { enumValues } from '../../utilities';
 import { COMMON_CONTENT_TYPE } from '../common-content-types';
 import { COMMON_FIELD, TAG_LEVEL_1 } from '../common-fields';
 
@@ -25,7 +25,7 @@ export const createTag: Migration.MigrationFunction = function (migration) {
       type: 'Symbol',
       validations: [
         {
-          in: keys(TAG_LEVEL_1),
+          in: enumValues(TAG_LEVEL_1),
         },
       ],
     },

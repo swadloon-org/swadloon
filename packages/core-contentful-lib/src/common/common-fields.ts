@@ -15,6 +15,7 @@ export enum COMMON_FIELD {
    */
   TYPE = 'type',
   VARIANT = 'variant',
+  STYLE_VARIANT = 'styleVariant',
   SIZE = 'size',
   TAGS = 'tags',
   /**
@@ -105,7 +106,7 @@ export const urlField: IFieldOptions = {
         pattern: `^(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-/]))?$`,
         flags: 'g',
       },
-      message: 'Please enter a valid URl (e.g. https://www.google.com)',
+      message: 'Please enter a valid URL (e.g. https://www.google.com)',
     },
   ],
 };

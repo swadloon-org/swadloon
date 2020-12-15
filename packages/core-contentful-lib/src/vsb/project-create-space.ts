@@ -25,17 +25,23 @@ const program: Migration.MigrationFunction = function Program(migration) {
   createMediaCollection(migration);
   createCompanyAddress(migration);
   createCompanyInfo(migration);
-  createPage(migration);
   createTag(migration);
   createBlogAuthor(migration);
   createBlogPost(migration);
   createPortfolioProject(migration);
   createPortfolioClient(migration);
+  // TODO createPageType with PROJECT_PAGE_TYPE
+  const page = createPage(migration); // TODO pass PROJECT_PAGE_TYPE
   createSectionType(migration, { sectionTypes: PROJECT_SECTION_TYPE });
   const section = createSection(migration, { sectionTypes: PROJECT_SECTION_TYPE });
   /**
-   * Project specific
+   * Project specific config for section
    */
+  // TODO create refs to steps and costItems
+  section.createField();
+  section.createField();
+  section.createField();
+  section.createField();
   /**
    * Steps
    */

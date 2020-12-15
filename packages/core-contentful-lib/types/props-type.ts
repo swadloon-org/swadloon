@@ -1,21 +1,23 @@
 export enum COMMON_VARIANT {
-  PRIMARY = 'Primary',
-  PRIMARY_REVERSED = 'PrimaryReversed',
-  SECONDARY = 'Secondary',
-  SECONDARY_REVERSED = 'SecondaryReversed',
-  TERTIARY = 'Tertiary',
-  TERTIARY_REVERSED = 'TertiaryReversed',
+  PRIMARY = 'PRIMARY',
+  SECONDARY = 'SECONDARY',
+  TERTIARY = 'TERTIARY',
 }
 
-export enum MEDIA_COLLECTION {
-  CAROUSEL_VERTICAL = 'carouselVertical',
-  CAROUSEL_HORIZONTAL = 'CarouselHorizontal',
+export enum COMMON_STYLE_VARIANT {
+  NORMAL = 'NORMAL',
+  REVERSED = 'REVERSED',
+}
+
+export enum CAROUSEL_STYLE {
+  CAROUSEL_VERTICAL = 'CAROUSEL_VERTICAL',
+  CAROUSEL_HORIZONTAL = 'CAROUSEL_HORIZONTAL',
 }
 
 export enum COMMON_SIZE {
-  X_SMALL = 'XSmall',
-  SMALL = 'Small',
-  MEDIUM = 'Medium',
-  LARGE = 'Large',
-  X_LARGE = 'XLarge',
+  X_SMALL = 'X_SMALL',
+  SMALL = 'SMALL',
+  MEDIUM = 'MEDIUM',
+  LARGE = 'LARGE',
+  X_LARGE = 'X_LARGE',
 }

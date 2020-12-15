@@ -32,7 +32,7 @@ export function createSection(migration: Migration.default, options: { sectionTy
     required: true,
     validations: [
       {
-        linkContentType: [COMMON_CONTENT_TYPE.SECTION_TYPE],
+        linkContentType: keys(options.sectionTypes),
       },
     ],
   });

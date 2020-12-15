@@ -1,7 +1,7 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
 import { CONTENTFUL_WIDGET } from '../../../types/contentful-widget-ids';
-import { COMMON_SIZE, MEDIA_COLLECTION } from '../../../types/props-type';
+import { CAROUSEL_STYLE, COMMON_SIZE, COMMON_STYLE_VARIANT, COMMON_VARIANT } from '../../../types/props-type';
 import { keys } from '../../utilities';
 import { COMMON_CONTENT_TYPE } from '../common-content-types';
 import { COMMON_FIELD } from '../common-fields';
@@ -14,47 +14,86 @@ export const createMediaCollection: Migration.MigrationFunction = function (migr
     name: pascal(COMMON_CONTENT_TYPE.MEDIA_COLLECTION),
   });
 
-  content.createField(COMMON_FIELD.TYPE, {
-    name: pascal(COMMON_FIELD.TYPE),
-    type: 'Link',
-    linkType: 'Entry',
-    required: true,
+  /**
+   * Unique collection name
+   */
+  content.createField(COMMON_FIELD.NAME, {
+    name: pascal(COMMON_FIELD.NAME),
+    type: 'Symbol',
     validations: [
       {
-        linkContentType: keys(MEDIA_COLLECTION),
+        unique: true,
       },
     ],
   });
-  content.changeFieldControl(COMMON_FIELD.TYPE, 'builtin', CONTENTFUL_WIDGET.LIST, {
-    helpText: 'Select media type',
+  content.changeFieldControl(COMMON_FIELD.NAME, 'builtin', CONTENTFUL_WIDGET.SINGLE_LINE, {
+    helpText: 'Name of the media collections, e.g. "Home images"',
   });
 
-  content.createField(COMMON_FIELD.VARIANT, {
-    name: pascal(COMMON_FIELD.VARIANT),
-    type: 'Array',
-    validations: [{ size: { max: 1 } }],
-    items: {
-      type: 'Symbol',
-      validations: [{ in: keys(COMMON_SIZE) }],
-    },
+  /**
+   * Media collection type
+   */
+  content.createField('carouselStyle', {
+    name: pascal('carouselStyle'),
+    type: 'Symbol',
+    required: true,
+    validations: [
+      {
+        in: keys(CAROUSEL_STYLE),
+      },
+    ],
   });
-  content.changeFieldControl(COMMON_FIELD.VARIANT, 'builtin', CONTENTFUL_WIDGET.LIST, {
-    helpText: 'Select media variant',
+  content.changeFieldControl('carouselStyle', 'builtin', CONTENTFUL_WIDGET.DROPDOWN, {
+    helpText: 'Select carousel style',
   });
 
+  /**
+   * Media collection size
+   */
   content.createField(COMMON_FIELD.SIZE, {
     name: pascal(COMMON_FIELD.SIZE),
-    type: 'Array',
-    validations: [{ size: { max: 1 } }],
-    items: {
-      type: 'Symbol',
-      validations: [{ in: keys(COMMON_SIZE) }],
-    },
+    type: 'Symbol',
+    validations: [{ in: [COMMON_SIZE.LARGE] }],
   });
-  content.changeFieldControl(COMMON_FIELD.SIZE, 'builtin', CONTENTFUL_WIDGET.LIST, {
+  content.changeFieldControl(COMMON_FIELD.SIZE, 'builtin', CONTENTFUL_WIDGET.DROPDOWN, {
     helpText: 'Select media size',
   });
 
+  /**
+   * Media collection variant
+   */
+  content.createField(COMMON_FIELD.VARIANT, {
+    name: pascal(COMMON_FIELD.VARIANT),
+    type: 'Symbol',
+    validations: [
+      {
+        in: [COMMON_VARIANT.PRIMARY, COMMON_VARIANT.SECONDARY],
+      },
+    ],
+  });
+  content.changeFieldControl(COMMON_FIELD.VARIANT, 'builtin', CONTENTFUL_WIDGET.DROPDOWN, {
+    helpText: 'Select variant',
+  });
+
+  /**
+   * Media collection style variant
+   */
+  content.createField(COMMON_FIELD.STYLE_VARIANT, {
+    name: pascal(COMMON_FIELD.STYLE_VARIANT),
+    type: 'Symbol',
+    validations: [
+      {
+        in: [COMMON_STYLE_VARIANT.NORMAL],
+      },
+    ],
+  });
+  content.changeFieldControl(COMMON_FIELD.STYLE_VARIANT, 'builtin', CONTENTFUL_WIDGET.DROPDOWN, {
+    helpText: 'Select style variant',
+  });
+
+  /**
+   * Linked medias
+   */
   content.createField(COMMON_FIELD.MEDIAS, {
     name: pascal(COMMON_FIELD.MEDIAS),
     type: 'Array',

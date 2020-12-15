@@ -11,23 +11,23 @@ export const createSectionType = function (migration: Migration.default, options
     displayField: COMMON_FIELD.NAME,
     description: 'Each section has a type to select the look and feel.',
   });
+
   /**
-   * For Name
+   * Section name
    */
   content.createField(COMMON_FIELD.NAME, { name: pascal(COMMON_FIELD.NAME), type: 'Symbol' });
 
   content.createField(COMMON_FIELD.TYPE, {
     name: pascal(COMMON_FIELD.TYPE),
-    type: 'Link',
-    linkType: 'Entry',
+    type: 'Symbol',
     required: true,
     validations: [
       {
-        linkContentType: keys(options.sectionTypes),
+        in: keys(options.sectionTypes),
       },
     ],
   });
-  content.changeFieldControl(COMMON_FIELD.TYPE, 'builtin', CONTENTFUL_WIDGET.LIST, {
+  content.changeFieldControl(COMMON_FIELD.TYPE, 'builtin', CONTENTFUL_WIDGET.DROPDOWN, {
     helpText: 'Select section type',
   });
 
