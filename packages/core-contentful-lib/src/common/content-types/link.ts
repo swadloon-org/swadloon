@@ -15,7 +15,7 @@ export const createLink: Migration.MigrationFunction = function (migration) {
     required: true,
     validations: [
       {
-        in: ['EXTERNAL_URL', 'INTERNAL_PAGE'],
+        in: ['EXTERNAL_URL', 'INTERNAL_PAGE'], // TODO create LINK_TYPE enum
       },
     ],
   });

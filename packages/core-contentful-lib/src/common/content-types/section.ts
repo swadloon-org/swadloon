@@ -1,10 +1,10 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
 import { CONTENTFUL_WIDGET } from '../../../types/contentful-widget-ids';
-import { COMMON_VARIANT } from '../../../types/props-type';
 import { keys } from '../../utilities';
 import { COMMON_CONTENT_TYPE } from '../common-content-types';
 import { COMMON_FIELD, mediaField } from '../common-fields';
+import { COMMON_VARIANT } from '../common-props-types';
 
 export function createSection(migration: Migration.default, options: { sectionTypes: object }) {
   const content = migration.createContentType(COMMON_CONTENT_TYPE.SECTION, {

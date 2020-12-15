@@ -8,11 +8,11 @@ export enum PROJECT_PAGE_TYPE {
 }
 
 export enum PROJECT_SECTION_TYPE {
-  BANNER = 'Banner',
-  CONTACT_CONTACT = 'ContactContact',
+  BANNER = 'BANNER',
+  CONTACT_CONTACT = 'CONTACT_CONTACT',
 }
 
 export enum PROJECT_CONTENT_TYPE {
-  STEP = 'Step',
-  COST_ITEM = 'CostItem',
+  STEP = 'STEP',
+  COST_ITEM = 'COST_ITEM',
 }
