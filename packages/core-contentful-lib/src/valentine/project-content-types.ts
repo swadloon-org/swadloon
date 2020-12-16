@@ -1,18 +1,13 @@
-export enum PROJECT_PAGE_TYPE {
-  HOME,
-  CLINIC,
-  VASECTOMY_FORM,
-  FORM,
-  PILOT_EXAM,
-  CONTACT,
-}
+import { pascal } from 'case';
+import * as Migration from 'contentful-migration';
+import { COMMON_FIELD } from '../common/common-fields';
+import { PROJECT_CONTENT_TYPE } from './project-props-types';
 
-export enum PROJECT_SECTION_TYPE {
-  BANNER = 'BANNER',
-  CONTACT_CONTACT = 'CONTACT_CONTACT',
-}
-
-export enum PROJECT_CONTENT_TYPE {
-  STEP = 'STEP',
-  COST_ITEM = 'COST_ITEM',
+export function createStep(migration: Migration.default) {
+  const steps = migration.createContentType(PROJECT_CONTENT_TYPE.STEP, {
+    name: pascal(PROJECT_CONTENT_TYPE.STEP),
+  });
+  steps.createField(COMMON_FIELD.TITLE, { name: pascal(COMMON_FIELD.TITLE), type: 'Symbol', localized: true });
+  steps.createField(COMMON_FIELD.SUBTITLE, { name: pascal(COMMON_FIELD.SUBTITLE), type: 'Symbol', localized: true });
+  steps.createField(COMMON_FIELD.TEXT, { name: pascal(COMMON_FIELD.TEXT), type: 'Text', localized: true });
 }
