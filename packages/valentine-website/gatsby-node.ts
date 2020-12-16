@@ -43,7 +43,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
   try {
     const pages = await graphql<{
       allContentfulPage: {
-        edges: { node: { id: string; name: string; route: string; node_locale: string } }[];
+        edges: { node: { id: string; name: string; slug: string; node_locale: string } }[];
       };
     }>(
       `
@@ -54,7 +54,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
                 node_locale
                 id
                 name
-                route
+                slug
               }
             }
           }
@@ -78,11 +78,11 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
         return true;
       })
       .forEach((edge, index) => {
-        log(`Creating page: ${edge.node.route}`, {
+        log(`Creating page: ${edge.node.slug}`, {
           toolName: 'valentine-website',
         });
         createPage({
-          path: edge.node.route,
+          path: edge.node.slug,
           component: pageTemplate,
           context: {
             pageId: edge.node.id,
