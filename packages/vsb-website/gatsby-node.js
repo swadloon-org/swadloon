@@ -78,7 +78,7 @@ exports.createPages = async ({ graphql, actions }) => {
                 node_locale
                 id
                 name
-                route
+                slug
               }
             }
           }
@@ -99,11 +99,11 @@ exports.createPages = async ({ graphql, actions }) => {
             return true;
         })
             .forEach((edge, index) => {
-            core_utils_1.log(`Creating page: ${edge.node.route}`, {
-                toolName: 'valentine-website',
+            core_utils_1.log(`Creating page: ${edge.node.slug}`, {
+                toolName: 'vsb-website',
             });
             createPage({
-                path: edge.node.route,
+                path: edge.node.slug,
                 context: {
                     siteMetadata,
                     pageId: edge.node.id,
@@ -144,10 +144,10 @@ exports.createPages = async ({ graphql, actions }) => {
         //   .filter((edge) => edge.node.name.includes('Blogue') && edge.node.node_locale === 'en-CA')
         //   .map((edge) => edge.node);
         // log(`Creating blog posts under: ${blogPageRouteEN?.[0].route}`, {
-        //   toolName: 'valentine-website',
+        //   toolName: 'vsb-website',
         // });
         // log(`Creating blog posts under: ${blogPageRouteFR?.[0].route}`, {
-        //   toolName: 'valentine-website',
+        //   toolName: 'vsb-website',
         // });
         // blogPosts?.data?.allContentfulBlogPost.edges
         //   .filter((edge) => {

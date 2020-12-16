@@ -75,7 +75,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
 
     const pagesData = await graphql<{
       allContentfulPage: {
-        edges: { node: { id: string; name: string; route: string; node_locale: string } }[];
+        edges: { node: { id: string; name: string; slug: string; node_locale: string } }[];
       };
     }>(
       `
@@ -86,7 +86,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
                 node_locale
                 id
                 name
-                route
+                slug
               }
             }
           }
@@ -110,11 +110,11 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
         return true;
       })
       .forEach((edge, index) => {
-        log(`Creating page: ${edge.node.route}`, {
-          toolName: 'valentine-website',
+        log(`Creating page: ${edge.node.slug}`, {
+          toolName: 'vsb-website',
         });
         createPage<GatsbyPageContext<GatsbyNodeSiteMetadataFragment>>({
-          path: edge.node.route,
+          path: edge.node.slug,
           context: {
             siteMetadata,
             pageId: edge.node.id,
@@ -158,11 +158,11 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
     //   .map((edge) => edge.node);
 
     // log(`Creating blog posts under: ${blogPageRouteEN?.[0].route}`, {
-    //   toolName: 'valentine-website',
+    //   toolName: 'vsb-website',
     // });
 
     // log(`Creating blog posts under: ${blogPageRouteFR?.[0].route}`, {
-    //   toolName: 'valentine-website',
+    //   toolName: 'vsb-website',
     // });
 
     // blogPosts?.data?.allContentfulBlogPost.edges
