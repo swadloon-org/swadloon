@@ -7,6 +7,7 @@ import { COMMON_FIELD, mediaField } from '../common-fields';
 export const createPortfolioProject: Migration.MigrationFunction = function (migration) {
   const content = migration.createContentType(COMMON_CONTENT_TYPE.PORTFOLIO_PROJECT, {
     name: COMMON_CONTENT_TYPE.PORTFOLIO_PROJECT,
+    displayField: COMMON_FIELD.TITLE,
   });
 
   content.createField(COMMON_FIELD.TITLE, {

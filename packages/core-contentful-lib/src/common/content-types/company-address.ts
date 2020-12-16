@@ -1,12 +1,14 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
 import { COMMON_CONTENT_TYPE } from '../common-content-types';
-import { emailField, urlField } from '../common-fields';
+import { COMMON_FIELD, emailField, urlField } from '../common-fields';
 
 export const createCompanyAddress: Migration.MigrationFunction = function (migration) {
   const content = migration.createContentType(COMMON_CONTENT_TYPE.COMPANY_ADDRESS, {
     name: pascal(COMMON_CONTENT_TYPE.COMPANY_ADDRESS),
+    displayField: COMMON_FIELD.NAME,
   });
+  content.createField(COMMON_FIELD.NAME, { name: pascal(COMMON_FIELD.NAME), type: 'Symbol' });
 
   content.createField('addressLine1', { name: 'AddressLine1', type: 'Symbol' });
   content.createField('addressLine2', { name: 'AddressLine2', type: 'Symbol' });

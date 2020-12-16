@@ -8,6 +8,7 @@ export function createPage(migration: Migration.default) {
   const content = migration.createContentType(COMMON_CONTENT_TYPE.PAGE, {
     name: COMMON_CONTENT_TYPE.PAGE,
     description: 'Model to hold informations for pages',
+    displayField: COMMON_FIELD.NAME,
   });
 
   /**

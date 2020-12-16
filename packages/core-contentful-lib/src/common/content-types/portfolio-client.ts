@@ -7,6 +7,7 @@ import { COMMON_FIELD, mediaField } from '../common-fields';
 export const createPortfolioClient: Migration.MigrationFunction = function (migration) {
   const content = migration.createContentType(COMMON_CONTENT_TYPE.PORTFOLIO_CLIENT, {
     name: COMMON_CONTENT_TYPE.PORTFOLIO_CLIENT,
+    displayField: COMMON_FIELD.NAME,
   });
 
   content.createField(COMMON_FIELD.NAME, {

@@ -7,6 +7,7 @@ export const createFieldTranslation: Migration.MigrationFunction = function (mig
   const content = migration.createContentType(COMMON_CONTENT_TYPE.TRANSLATION, {
     name: COMMON_CONTENT_TYPE.TRANSLATION,
     description: 'Configurable object for translation purpose.',
+    displayField: COMMON_FIELD.KEY,
   });
 
   content.createField(COMMON_FIELD.KEY, {

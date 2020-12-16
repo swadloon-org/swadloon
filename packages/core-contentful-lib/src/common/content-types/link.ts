@@ -8,6 +8,7 @@ import { COMMON_FIELD, LINK_TYPE, urlField } from '../common-fields';
 export const createLink: Migration.MigrationFunction = function (migration) {
   const content = migration.createContentType(COMMON_CONTENT_TYPE.LINK, {
     name: pascal(COMMON_CONTENT_TYPE.LINK),
+    displayField: COMMON_FIELD.NAME,
   });
 
   content.createField(COMMON_FIELD.TYPE, {

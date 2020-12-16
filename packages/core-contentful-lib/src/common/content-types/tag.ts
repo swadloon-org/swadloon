@@ -6,7 +6,9 @@ import { COMMON_FIELD } from '../common-fields';
 export const createTag: Migration.MigrationFunction = function (migration) {
   const content = migration.createContentType(COMMON_CONTENT_TYPE.TAG, {
     name: pascal(COMMON_CONTENT_TYPE.TAG),
+    displayField: COMMON_FIELD.NAME,
   });
+  content.createField(COMMON_FIELD.NAME, { name: pascal(COMMON_FIELD.NAME), type: 'Symbol' });
 
   content.createField(COMMON_FIELD.DESCRIPTION, {
     name: pascal(COMMON_FIELD.DESCRIPTION),

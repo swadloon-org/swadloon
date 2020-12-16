@@ -7,6 +7,7 @@ import { COMMON_FIELD, mediaField } from '../common-fields';
 export const createBlogPost: Migration.MigrationFunction = function (migration) {
   const content = migration.createContentType(COMMON_CONTENT_TYPE.BLOG_POST, {
     name: COMMON_CONTENT_TYPE.BLOG_POST,
+    displayField: COMMON_FIELD.TITLE,
   });
 
   content.createField(COMMON_FIELD.TITLE, {

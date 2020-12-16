@@ -10,6 +10,7 @@ export function createSection(migration: Migration.default) {
   const content = migration.createContentType(COMMON_CONTENT_TYPE.SECTION, {
     name: COMMON_CONTENT_TYPE.SECTION,
     description: 'Configurable object for sections in a page.',
+    displayField: COMMON_FIELD.NAME,
   });
 
   /**
