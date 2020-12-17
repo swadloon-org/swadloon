@@ -37,6 +37,7 @@ export enum COMMON_FIELD {
   TITLE = 'title',
   SUBTITLE = 'subtitle',
   TEXT = 'text',
+  PRICE = 'price',
   LABEL = 'label',
   MEDIAS = 'medias',
   IMAGE = 'image',

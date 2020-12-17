@@ -25,6 +25,21 @@ export function createPage(migration: Migration.default) {
   });
 
   /**
+   * Type of the page
+   */
+  content.createField(COMMON_FIELD.TYPE, {
+    name: pascal(COMMON_FIELD.TYPE),
+    type: 'Link',
+    linkType: 'Entry',
+    required: true,
+    validations: [
+      {
+        linkContentType: [COMMON_CONTENT_TYPE.PAGE_TYPE],
+      },
+    ],
+  });
+
+  /**
    * Page title used to set the page title (SEO)
    */
   content.createField(COMMON_FIELD.TITLE, {
@@ -54,22 +69,6 @@ export function createPage(migration: Migration.default) {
   });
   content.changeFieldControl(COMMON_FIELD.SLUG, 'builtin', CONTENTFUL_WIDGET.SLUG_EDITOR, {
     helpText: 'The page route after the domain, e.g. /route/',
-  });
-
-  /**
-   * Type of the page
-   */
-
-  content.createField(COMMON_FIELD.TYPE, {
-    name: pascal(COMMON_FIELD.TYPE),
-    type: 'Link',
-    linkType: 'Entry',
-    required: true,
-    validations: [
-      {
-        linkContentType: [COMMON_CONTENT_TYPE.PAGE_TYPE],
-      },
-    ],
   });
 
   /**

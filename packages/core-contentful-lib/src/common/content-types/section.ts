@@ -4,7 +4,7 @@ import { CONTENTFUL_WIDGET } from '../../../types/contentful-widget-ids';
 import { keys } from '../../utilities';
 import { COMMON_CONTENT_TYPE } from '../common-content-types';
 import { COMMON_FIELD, mediaField } from '../common-fields';
-import { COMMON_VARIANT } from '../common-props-types';
+import { COMMON_STYLE_VARIANT, COMMON_VARIANT } from '../common-props-types';
 
 export function createSection(migration: Migration.default) {
   const content = migration.createContentType(COMMON_CONTENT_TYPE.SECTION, {
@@ -17,6 +17,7 @@ export function createSection(migration: Migration.default) {
    * For all name of section as name and description
    */
   content.createField(COMMON_FIELD.NAME, { name: pascal(COMMON_FIELD.NAME), type: 'Symbol', localized: true });
+
   content.createField(COMMON_FIELD.DESCRIPTION, {
     name: pascal(COMMON_FIELD.DESCRIPTION),
     type: 'Text',
@@ -38,6 +39,9 @@ export function createSection(migration: Migration.default) {
     ],
   });
 
+  /**
+   * Variant of the section
+   */
   content.createField(COMMON_FIELD.VARIANT, {
     name: pascal(COMMON_FIELD.VARIANT),
 
@@ -49,6 +53,23 @@ export function createSection(migration: Migration.default) {
     ],
   });
   content.changeFieldControl(COMMON_FIELD.VARIANT, 'builtin', CONTENTFUL_WIDGET.DROPDOWN, {
+    helpText: 'Select section variant',
+  });
+
+  /**
+   * Normal or reversed look
+   */
+  content.createField(COMMON_FIELD.STYLE_VARIANT, {
+    name: pascal(COMMON_FIELD.STYLE_VARIANT),
+
+    type: 'Symbol',
+    validations: [
+      {
+        in: keys(COMMON_STYLE_VARIANT),
+      },
+    ],
+  });
+  content.changeFieldControl(COMMON_FIELD.STYLE_VARIANT, 'builtin', CONTENTFUL_WIDGET.DROPDOWN, {
     helpText: 'Select section variant',
   });
 

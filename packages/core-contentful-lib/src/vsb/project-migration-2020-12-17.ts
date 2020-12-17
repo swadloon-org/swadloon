@@ -27,16 +27,16 @@ const program: Migration.MigrationFunction = function Program(migration) {
   createMediaCollection(migration);
   createCompanyAddress(migration);
   createCompanyInfo(migration);
-  createTagType(migration);
   createTag(migration);
+  createTagType(migration);
   createBlogAuthor(migration);
   createBlogPost(migration);
   createPortfolioProject(migration);
   createPortfolioClient(migration);
-  createPageType(migration, { pageTypes: PROJECT_PAGE_TYPE });
   const page = createPage(migration);
-  createSectionType(migration, { sectionTypes: PROJECT_SECTION_TYPE });
+  createPageType(migration, { pageTypes: PROJECT_PAGE_TYPE });
   const section = createSection(migration);
+  createSectionType(migration, { sectionTypes: PROJECT_SECTION_TYPE });
 
   /**
    * Project specific config for section
