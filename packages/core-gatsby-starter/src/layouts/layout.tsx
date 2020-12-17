@@ -109,6 +109,8 @@ export const Layout = React.memo<LayoutProps>((props) => {
       {renderNavigation(props.location?.pathname)}
 
       <main className={styles.main}>{props.children}</main>
+
+      <footer>footer</footer>
     </div>
   );
 });

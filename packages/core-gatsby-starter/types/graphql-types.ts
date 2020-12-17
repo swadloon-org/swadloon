@@ -1336,6 +1336,7 @@ export type FileFieldsEnum =
   | 'childMdx___frontmatter___title'
   | 'childMdx___frontmatter___name'
   | 'childMdx___frontmatter___tags'
+  | 'childMdx___frontmatter___category'
   | 'childMdx___slug'
   | 'childMdx___body'
   | 'childMdx___excerpt'
@@ -2141,6 +2142,7 @@ export type MdxFieldsEnum =
   | 'frontmatter___title'
   | 'frontmatter___name'
   | 'frontmatter___tags'
+  | 'frontmatter___category'
   | 'slug'
   | 'body'
   | 'excerpt'
@@ -2264,12 +2266,14 @@ export type MdxFrontmatter = {
   title: Scalars['String'];
   name?: Maybe<Scalars['String']>;
   tags?: Maybe<Array<Maybe<Scalars['String']>>>;
+  category?: Maybe<Scalars['String']>;
 };
 
 export type MdxFrontmatterFilterInput = {
   title?: Maybe<StringQueryOperatorInput>;
   name?: Maybe<StringQueryOperatorInput>;
   tags?: Maybe<StringQueryOperatorInput>;
+  category?: Maybe<StringQueryOperatorInput>;
 };
 
 export type MdxGroupConnection = {
@@ -3054,13 +3058,15 @@ export type SitePageContextFilterInput = {
 };
 
 export type SitePageContextFrontmatter = {
-  name?: Maybe<Scalars['String']>;
+  category?: Maybe<Scalars['String']>;
   tags?: Maybe<Array<Maybe<Scalars['String']>>>;
+  name?: Maybe<Scalars['String']>;
 };
 
 export type SitePageContextFrontmatterFilterInput = {
-  name?: Maybe<StringQueryOperatorInput>;
+  category?: Maybe<StringQueryOperatorInput>;
   tags?: Maybe<StringQueryOperatorInput>;
+  name?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePageContextSiteMetadata = {
@@ -3199,8 +3205,9 @@ export type SitePageFieldsEnum =
   | 'context___siteMetadata___languages___langs'
   | 'context___siteMetadata___languages___defaultLangKey'
   | 'context___fileId'
-  | 'context___frontmatter___name'
+  | 'context___frontmatter___category'
   | 'context___frontmatter___tags'
+  | 'context___frontmatter___name'
   | 'context___slug'
   | 'pluginCreator___id'
   | 'pluginCreator___parent___id'

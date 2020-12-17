@@ -2,10 +2,9 @@ import React, { ReactNode } from 'react';
 import { PageProps } from 'gatsby';
 import { DEPLOY_ENV } from '@newrade/core-common';
 import { DebugGasbyPage } from '../components/debug-gatsby-page';
-// import { GatsbyNodeSiteMetadataFragment, GatsbySrcPageContext } from '@newrade/core-gatsby-config';
+import { GatsbyNodeSiteMetadataFragment, GatsbySrcPageContext } from '@newrade/core-gatsby-config';
 
-// export type SrcPageTemplateProps = PageProps<{}, GatsbySrcPageContext<GatsbyNodeSiteMetadataFragment>>;
-export type SrcPageTemplateProps = PageProps<{}, any>;
+export type SrcPageTemplateProps = PageProps<{}, GatsbySrcPageContext<GatsbyNodeSiteMetadataFragment>>;
 
 export type Props = Omit<SrcPageTemplateProps, 'children'> & { children: ReactNode };
 

@@ -85,5 +85,6 @@ exports.Layout = react_1.default.memo((props) => {
     return (react_1.default.createElement("div", { className: styles.wrapper },
         react_1.default.createElement("header", null),
         renderNavigation(props.location?.pathname),
-        react_1.default.createElement("main", { className: styles.main }, props.children)));
+        react_1.default.createElement("main", { className: styles.main }, props.children),
+        react_1.default.createElement("footer", null, "footer")));
 });

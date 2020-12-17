@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as Migration from 'contentful-migration';
 import exportSpace from '../../contentful-export-space.json';
 
