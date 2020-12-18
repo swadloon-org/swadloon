@@ -40,7 +40,7 @@ export const blogPostQuery = graphql`
           description {
             description
           }
-          route
+          slug
         }
       }
     }

@@ -34,7 +34,6 @@ export const NavBar: React.FC<OwnProps> = ({
   );
   const pagesEN = pages?.filter((page) => (currentLocaleIsEN ? page?.locale === 'en-CA' : page));
   const pagesFR = pages?.filter((page) => (currentLocaleIsFR ? page?.locale === 'fr-CA' : page));
-  // const alternateLocalePage = localENActive ? pages.includes({name: currentPageName, route: })
 
   const leftToolbarPageNames: (string | PAGE_NAME)[] = [
     PAGE_NAME.ACCUEIL,

@@ -1,5 +1,5 @@
 import { DesignSystem } from '@newrade/core-design-system-old';
-import { style, globalStyle } from 'treat';
+import { globalStyle, style } from 'treat';
 
 export const link = style((theme: DesignSystem) => ({
   position: 'relative',
@@ -10,6 +10,10 @@ export const link = style((theme: DesignSystem) => ({
   display: 'flex',
   alignItems: 'center',
   transition: 'all 1s ease-in',
+}));
+
+export const linkUnderline = style((theme: DesignSystem) => ({
+  textDecoration: 'underline',
 }));
 
 export const linkActive = style((theme: DesignSystem) => ({}));
