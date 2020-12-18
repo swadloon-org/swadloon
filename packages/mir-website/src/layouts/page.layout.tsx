@@ -15,7 +15,7 @@ export type NavigationProps = {
   facebookPageURL: string | null;
   instagramPageURL: string | null;
   twitterPageURL: string | null;
-  pages: { title?: string | null; route?: string | null; name?: string | PAGE_NAME | null; locale?: string | null }[];
+  pages: { title?: string | null; slug?: string | null; name?: string | PAGE_NAME | null; locale?: string | null }[];
 };
 
 export const Layout: React.FC<NavigationProps> = (props) => {
