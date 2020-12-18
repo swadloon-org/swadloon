@@ -7,19 +7,21 @@ export enum ButtonAs {
   a = 'a',
 }
 
-export enum ButtonVariant {
-  primary = 'primary',
-  primaryReversed = 'primaryReversed',
-  secondary = 'secondary',
-  secondaryReversed = 'secondaryReversed',
-  tertiary = 'tertiary',
-  tertiaryReversed = 'tertiaryReversed',
-}
-
 export enum ButtonSize {
   large = 'large',
   medium = 'medium',
   small = 'small',
+}
+
+export enum ButtonVariant {
+  primary = 'primary',
+  secondary = 'secondary',
+  tertiary = 'tertiary',
+}
+
+export enum ButtonStyleVariant {
+  normal = 'normal',
+  reversed = 'reversed',
 }
 
 export enum ButtonIcon {

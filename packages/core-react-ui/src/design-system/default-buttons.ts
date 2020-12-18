@@ -23,19 +23,10 @@ export const defaultButtons: Buttons = {
     primary: {
       textColor: defaultColorIntents.primaryText,
     },
-    primaryReversed: {
-      textColor: defaultColorIntents.primaryText,
-    },
     secondary: {
       textColor: defaultColorIntents.primaryText,
     },
-    secondaryReversed: {
-      textColor: defaultColorIntents.primaryText,
-    },
     tertiary: {
-      textColor: defaultColorIntents.primaryText,
-    },
-    tertiaryReversed: {
       textColor: defaultColorIntents.primaryText,
     },
   },

@@ -7,6 +7,7 @@ import { COMMON_FIELD } from '../common-fields';
 export const createCompanyInfo: Migration.MigrationFunction = function (migration) {
   const content = migration.createContentType(COMMON_CONTENT_TYPE.COMPANY_INFO, {
     name: pascal(COMMON_CONTENT_TYPE.COMPANY_INFO),
+    displayField: COMMON_FIELD.COMPANY_NAME,
   });
 
   content.createField(COMMON_FIELD.COMPANY_NAME, {

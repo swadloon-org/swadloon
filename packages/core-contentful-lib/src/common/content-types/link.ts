@@ -1,12 +1,14 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
 import { CONTENTFUL_WIDGET } from '../../../types/contentful-widget-ids';
+import { keys } from '../../utilities';
 import { COMMON_CONTENT_TYPE } from '../common-content-types';
-import { COMMON_FIELD, urlField } from '../common-fields';
+import { COMMON_FIELD, LINK_TYPE, urlField } from '../common-fields';
 
 export const createLink: Migration.MigrationFunction = function (migration) {
   const content = migration.createContentType(COMMON_CONTENT_TYPE.LINK, {
     name: pascal(COMMON_CONTENT_TYPE.LINK),
+    displayField: COMMON_FIELD.NAME,
   });
 
   content.createField(COMMON_FIELD.TYPE, {
@@ -15,7 +17,7 @@ export const createLink: Migration.MigrationFunction = function (migration) {
     required: true,
     validations: [
       {
-        in: ['EXTERNAL_URL', 'INTERNAL_PAGE'],
+        in: keys(LINK_TYPE),
       },
     ],
   });

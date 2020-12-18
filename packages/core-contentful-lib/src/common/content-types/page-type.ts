@@ -5,9 +5,9 @@ import { keys } from '../../utilities';
 import { COMMON_CONTENT_TYPE } from '../common-content-types';
 import { COMMON_FIELD } from '../common-fields';
 
-export const createSectionType = function (migration: Migration.default, options: { sectionTypes: object }) {
-  const content = migration.createContentType(COMMON_CONTENT_TYPE.SECTION_TYPE, {
-    name: COMMON_CONTENT_TYPE.SECTION_TYPE,
+export const createPageType = function (migration: Migration.default, options: { pageTypes: object }) {
+  const content = migration.createContentType(COMMON_CONTENT_TYPE.PAGE_TYPE, {
+    name: COMMON_CONTENT_TYPE.PAGE_TYPE,
     displayField: COMMON_FIELD.NAME,
     description: 'Each section has a type to select the look and feel.',
   });
@@ -23,7 +23,7 @@ export const createSectionType = function (migration: Migration.default, options
     required: true,
     validations: [
       {
-        in: keys(options.sectionTypes),
+        in: keys(options.pageTypes),
       },
     ],
   });

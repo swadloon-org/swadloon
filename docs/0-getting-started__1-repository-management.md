@@ -2,8 +2,8 @@
 category: setup
 tags:
   - git
+  - git
 ---
-
 
 # Repository Management
 
@@ -11,14 +11,14 @@ tags:
 
 To commit in this repository use `git cz` (with `commitizen` installed globally) or `npm run commit` when committing.
 
-You’ll be prompted to fill in any required fields and your commit messages will be formatted according to the standards defined by project maintainers:
+You'll be prompted to fill in any required fields and your commit messages will be formatted according to the standards defined by project maintainers:
 
 ```bash
 $ yarn commit
 
 cz-cli@4.0.3, cz-conventional-changelog@3.0.2
 
-? Select the type of change that you’re committing: (Use arrow keys)
+? Select the type of change that you\'re committing: (Use arrow keys)
 ❯ feat:     A new feature
   fix:      A bug fix
   docs:     Documentation only changes
@@ -66,4 +66,4 @@ TODO
 
 https://yarnpkg.com/features/protocols#table
 
-—
+—--

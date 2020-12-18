@@ -15,6 +15,7 @@ export enum COMMON_FIELD {
    */
   TYPE = 'type',
   VARIANT = 'variant',
+  STYLE_VARIANT = 'styleVariant',
   SIZE = 'size',
   TAGS = 'tags',
   /**
@@ -24,7 +25,7 @@ export enum COMMON_FIELD {
   SECTION = 'section',
   SECTIONS = 'sections',
   SUB_SECTIONS = 'subSections',
-  ROUTE = 'route',
+  SLUG = 'slug',
   /**
    * Banner fields
    */
@@ -36,6 +37,7 @@ export enum COMMON_FIELD {
   TITLE = 'title',
   SUBTITLE = 'subtitle',
   TEXT = 'text',
+  PRICE = 'price',
   LABEL = 'label',
   MEDIAS = 'medias',
   IMAGE = 'image',
@@ -105,6 +107,7 @@ export const urlField: IFieldOptions = {
         pattern: `^(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-/]))?$`,
         flags: 'g',
       },
+      message: 'Please enter a valid URL (e.g. https://www.google.com)',
     },
   ],
 };
@@ -121,6 +124,7 @@ export const emailField: IFieldOptions = {
         pattern: `^\w[\w.-]*@([\w-]+\.)+[\w-]+$`,
         flags: 'g',
       },
+      message: 'Please enter a valid email',
     },
   ],
 };
@@ -164,21 +168,7 @@ export enum INPUT_TYPE {
   WEEK = 'week',
 }
 
-export enum TagType {
-  /**
-   * Contentful defaults Tags level
-   */
-  FIRST_LEVEL = 'firstLevel',
-  SECOND_LEVEL = 'secondLevel',
-  THIRD_LEVEL = 'thirdLevel',
-}
-
-export enum TAG_LEVEL_1 {
-  TEST = 'Sample',
-}
-export enum TAG_LEVEL_2 {
-  TEST = 'Sample',
-}
-export enum TAG_LEVEL_3 {
-  TEST = 'Sample',
+export enum LINK_TYPE {
+  EXTERNAL_URL = 'EXTERNAL_URL',
+  INTERNAL_PAGE = 'INTERNAL_PAGE',
 }
