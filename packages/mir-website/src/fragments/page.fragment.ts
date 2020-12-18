@@ -12,7 +12,7 @@ export const pageQuery = graphql`
       }
     }
     title
-    route
+    slug
     bannerTitle
     bannerSubTitle
     bannerImages {

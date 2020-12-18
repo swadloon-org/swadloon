@@ -1,0 +1,22 @@
+{
+  "extends": "../../tsconfig.build.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "lib",
+    "strict": false,
+    "types": ["gatsby", "node"]
+  },
+  "references": [
+    {
+      "path": "../core-common/tsconfig.build.json"
+    },
+    {
+      "path": "../core-gatsby-config/tsconfig.build.json"
+    },
+    {
+      "path": "../core-utils/tsconfig.build.json"
+    }
+  ],
+  "include": ["src/**/*", "types"],
+  "exclude": ["public"]
+}

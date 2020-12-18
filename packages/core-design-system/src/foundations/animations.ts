@@ -29,13 +29,13 @@ export enum ANIMATION_CURVE {
  */
 export type Animation = {
   /**
-   * Animation duration in ms
-   * @example 300 => 300ms
+   * Animation duration in seconds
+   * @example 0.3 => 300ms
    */
   duration?: number;
   /**
-   * Overall delay before the animation start
-   * @example 300 => 300ms
+   * Overall delay before the animation start in seconds
+   * @example 0.3 => 300ms
    */
   delay?: number;
   /**

@@ -1,9 +1,11 @@
-export function getGatsbyImageFolder({ pathImgDir }: { pathImgDir: string }) {
+import path from 'path';
+
+export function getGatsbyImageFolder(options?: { pathImgDir?: string }) {
   return {
     resolve: `gatsby-source-filesystem`,
     options: {
       name: `images`,
-      path: pathImgDir,
+      path: options?.pathImgDir ? options.pathImgDir : path.join(`src`, `images`),
     },
   };
 }

@@ -16,8 +16,8 @@ export function SectionLinkButton({
 
   return (
     <div className={styles.wrapper}>
-      {link && link.type === 'INTERNAL_PAGE' && link.page?.route ? (
-        <GatsbyLink to={link.page?.route}>
+      {link && link.type === 'INTERNAL_PAGE' && link.page?.slug ? (
+        <GatsbyLink to={link.page?.slug}>
           <Button variant={'text'} size={'medium'} variantType={variant}>
             {link.label}
           </Button>

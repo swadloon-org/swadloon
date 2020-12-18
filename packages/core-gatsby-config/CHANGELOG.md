@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-config@1.4.2...@newrade/core-gatsby-config@1.5.0) (2020-12-18)
+
+### Bug Fixes
+
+- **core-common:** remove browser code from core-utils ([b2595fc](https://github.com/newrade/newrade/commit/b2595fcc496d8876b0f658592a66659840d1ec92))
+- **core-contentful-lib:** changes ([d42278c](https://github.com/newrade/newrade/commit/d42278c313ec5ca24a450536f7dc9b624a6d2fc1))
+- **core-gastby-config:** separate UI components ([be3d23e](https://github.com/newrade/newrade/commit/be3d23eafc6dbe76e293512fbec5521a8af5db73))
+- **core-gastby-starter:** fix char & in url (rename to and) ([a0c5cf8](https://github.com/newrade/newrade/commit/a0c5cf8fa52cdaff56c0568a8ff7a402b44928d7))
+- **core-gastby-starter:** layout for /docs /design-system /pages/ ([ea84a5c](https://github.com/newrade/newrade/commit/ea84a5c557dd39d6b10785d604798e457ff24341))
+- **core-gatsby-config:** fix config ([0ce5d65](https://github.com/newrade/newrade/commit/0ce5d65cb93e700ca30037a18c0bf69cea6f3eaf))
+- **core-gatsby-config:** wip ([23fc34d](https://github.com/newrade/newrade/commit/23fc34d697170326d0fac69874652635c2cf50ba))
+- **core-gatsby-starter:** add dot env files type check ([4c65040](https://github.com/newrade/newrade/commit/4c65040705a61efbf9e55ecd585a789dbfd9f623))
+- **core-gatsby-starter:** fix page creation ([9e6ffaa](https://github.com/newrade/newrade/commit/9e6ffaa854dabb24560f18d673f61e9542ddebe2))
+- **core-gatsby-starter:** fixes ([ffe7715](https://github.com/newrade/newrade/commit/ffe771547de87fd75b3745cf76ed136731c5f232))
+- **core-gatsby-starter:** refactor templates + setup pages and markdown ([4aaa949](https://github.com/newrade/newrade/commit/4aaa949750c94a939b35767f2bd3fb20b8fb2614))
+- **core-gatsby-starter:** wip ([6457254](https://github.com/newrade/newrade/commit/6457254e0f99917a7d7d7444ee34596e030e3a5c))
+- **core-react-ui:** wip ([093aa8f](https://github.com/newrade/newrade/commit/093aa8fb17d1c4b8aecca90142666984e239976d))
+- **gastby:** fixes for markdown file generation ([2982616](https://github.com/newrade/newrade/commit/29826163498932d216cc22ec713d7de076812fbb))
+- **gatsby-starter:** fixes for nav queries ([170803a](https://github.com/newrade/newrade/commit/170803a87cb0bb657407d58a5084e211942fac89))
+- **repo:** add .env type checking to all packages ([d382e42](https://github.com/newrade/newrade/commit/d382e42e2dcfbff0b635b4aa1f2c04e56deda4d7))
+- **wip-react-ui:** wip ([d8dc726](https://github.com/newrade/newrade/commit/d8dc7262ca611475cc028b1cdb4c9d121f170962))
+
+### Features
+
+- **core-gastby-config:** add feature to common plugin ([338812a](https://github.com/newrade/newrade/commit/338812a356d19a3d985000def12028b1e25e0220))
+- **core-react-ui:** add CSSReset component and other utilities ([dadedcb](https://github.com/newrade/newrade/commit/dadedcb398a615c60a6a9785faa4cdfd5e9b0c6e))
+
 ## [1.4.2](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-config@1.4.1...@newrade/core-gatsby-config@1.4.2) (2020-11-30)
 
 **Note:** Version bump only for package @newrade/core-gatsby-config

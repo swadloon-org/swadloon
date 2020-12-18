@@ -1,14 +1,10 @@
-# old browsers
-# last 2 versions
-# safari >= 9
-# not ie <= 10
-# not ie_mob > 0
-# not dead
+# browsers
+chrome >= 85
+firefox >= 82
+ios_saf >=12
+safari >=12
+not IE 11
 
-# modern browsers
-Firefox >= 62
-FirefoxAndroid  >= 62
-Chrome >= 66
-ChromeAndroid >= 66
-Safari >= 11
-iOS >= 11
+# nodejs
+node >= 14
+

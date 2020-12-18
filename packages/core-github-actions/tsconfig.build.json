@@ -4,5 +4,13 @@
     "rootDir": "src",
     "outDir": "lib"
   },
+  "references": [
+    {
+      "path": "../core-common/tsconfig.build.json"
+    },
+    {
+      "path": "../core-utils/tsconfig.build.json"
+    }
+  ],
   "include": ["src/**/*"]
 }

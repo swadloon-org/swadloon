@@ -1,6 +1,7 @@
 // const { compilerOptions } = require('../../../tsconfig.json');
 
-// tslint:disable:readonly-array
+import { includedLibToCompile } from './included-libs';
+
 export const baseJestConfig: jest.InitialOptions = {
   modulePaths: ['../../<rootDir>/node_modules', '<rootDir>/node_modules'],
   rootDir: '.',
@@ -11,10 +12,10 @@ export const baseJestConfig: jest.InitialOptions = {
     '\\.(ttf|eot|woff2?|svg|jpe?g|png|gif|ico)$': '../core-jest-config/transforms/file-transform.js',
     '\\.(mdx?)$': '../core-jest-config/transforms/mdx-transform.js',
   },
-  transformIgnorePatterns: ['node_modules/(?!(idlize)/)'],
+  transformIgnorePatterns: [`node_modules/(?!(${includedLibToCompile.join('|')})/)`],
   moduleNameMapper: {
     '\\.(css|less|sass|scss)$': 'identity-obj-proxy',
-    '^@newrade/(.*)$': '../$1/lib',
+    '^@newrade/(.*)$': '<rootDir>/../$1/lib',
     // ...pathsToModuleNameMapper(compilerOptions.paths /*, { prefix: '<rootDir>/' } */),
   },
   testRegex: '.+\\.test\\.tsx?',
@@ -38,7 +39,11 @@ export const baseJestConfig: jest.InitialOptions = {
   roots: ['<rootDir>/src', '<rootDir>/test'],
   globals: {
     'ts-jest': {
-      tsConfig: '<rootDir>/tsconfig.jest.json',
+      tsconfig: '<rootDir>/tsconfig.jest.json',
+      // see https://huafu.github.io/ts-jest/user/config/diagnostics
+      diagnostics: {
+        ignoreCodes: [2322],
+      },
     },
   },
 };

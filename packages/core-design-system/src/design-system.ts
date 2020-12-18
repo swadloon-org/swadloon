@@ -1,40 +1,13 @@
-import { Border, Outline } from './components/atoms/box';
+import { Buttons } from './components/molecules/buttons';
 import { Animations } from './foundations/animations';
-import { ColorIntents } from './foundations/color-intents';
 import { Colors } from './foundations/colors';
-import { Components } from './foundations/components';
-import { BoxShadow, Effects } from './foundations/effects';
+import { Effects } from './foundations/effects';
 import { Iconography } from './foundations/iconography';
 import { Layout } from './foundations/layout';
 import { Sizing } from './foundations/sizing';
-import { TEXT_TRANSFORM } from './foundations/text';
 import { Typography } from './foundations/typography';
-import { Color } from './primitives/color';
 
-export interface DesignSystemTypes {
-  themes: 'light' | 'dark';
-  color: Color | string;
-  shadow: BoxShadow | string;
-  sizing: Sizing | number;
-  typography: {
-    fontWeight: number | string;
-    letterSpacing: number;
-    textTransform: TEXT_TRANSFORM | string;
-  };
-  layout: {
-    breakpointType: number;
-  };
-  components: {
-    button: {
-      color: Color | string;
-      padding: number | string;
-      border: Border | string;
-      outline: Outline | string;
-    };
-  };
-}
-
-export interface DesignSystem<Types extends DesignSystemTypes = DesignSystemTypes> {
+export interface DesignSystem<Override extends undefined | string = undefined> {
   /**
    * Name of the project or brand's name.
    */
@@ -43,45 +16,120 @@ export interface DesignSystem<Types extends DesignSystemTypes = DesignSystemType
    * Theme variation's name.
    * @default 'light'
    */
-  themes: Types['themes'];
+  variation: 'light' | 'dark';
   /**
    * Every color defined in the system.
    */
-  colors: Colors<Types['color']>;
-  /**
-   * Contextual use of certain colors (text, action, state, etc).
-   */
-  colorIntents: ColorIntents<Types['color']>;
+  colors: Colors<Override>;
   /**
    * Shadows, elevation, blurs and other visual effects.
    */
-  effects: Effects<Types['shadow']>;
+  effects: Effects<Override>;
   /**
    * Defines the system's sizing values.
    */
-  sizing: Sizing<Types['sizing']>;
+  sizing: Sizing<Override>;
   /**
    * TODO
    */
-  iconography: Iconography<Types['sizing']>;
+  iconography: Iconography<Override>;
   /**
    * Defines every text styles.
    */
-  typography: Typography<
-    Types['typography']['fontWeight'],
-    Types['typography']['letterSpacing'],
-    Types['typography']['textTransform']
-  >;
-  /**
-   * TODO
-   */
-  animations?: Animations;
+  typography: Typography<Override>;
   /**
    * Breakpoints, common content margins for different viewports.
    */
-  layout: Layout<Types['layout']['breakpointType']>;
+  layout: Layout<Override>;
+  /**
+   * Curves, delays and other defaults for animations.
+   */
+  animations: Animations;
   /**
    * Components' specific settings.
    */
-  components: Components<Types>;
+  components: {
+    /**
+     * Atoms
+     */
+    // titles: {};
+    // headings: {};
+    // paragraphs: {};
+    // labels: {};
+    // logos: {};
+    // links: {};
+    // dividers: {};
+    // images: {};
+    // illustrations: {};
+    /**
+     * Molecules
+     */
+    buttons: Buttons<Override>;
+    // inputs: {
+    //   text: {};
+    //   switch: {};
+    //   number: {};
+    //   dropdown: {};
+    //   radio: {};
+    //   checkbox: {};
+    //   date: {};
+    //   dateRange: {};
+    //   time: {};
+    //   textArea: {};
+    // };
+    // tags: {};
+    // keyboard: {};
+    // accordions: {};
+    // breadcrumbs: {
+    //   separatorIcon: {};
+    // };
+    // progressBar: {};
+    // progressCircle: {};
+    // statusDot: {};
+    // tabs: {};
+    // listItems: {
+    //   info: {};
+    //   dropdown: {};
+    //   sidemenu: {};
+    //   menu: {};
+    // };
+    // notifications: {};
+    // backgrounds: {};
+    // steppers: {};
+    // tooltips: {};
+    /**
+     * Organisms
+     */
+    // avatars: {};
+    // tables: {};
+    // tabsGroup: {};
+    // dialogs: {};
+    // carousels: {};
+    // plots: {
+    //   axis: {};
+    //   lines: {};
+    //   legend: {};
+    // };
+    // cards: {};
+    // forms: {
+    //   text: {};
+    //   switch: {};
+    //   number: {};
+    //   dropdown: {};
+    //   radio: {};
+    //   checkbox: {};
+    //   date: {};
+    //   dateRange: {};
+    //   time: {};
+    //   textArea: {};
+    // };
+    // layout: {
+    //   topbar: {};
+    //   sidemenu: {};
+    //   main: {};
+    //   aside: {};
+    //   footer: {};
+    // };
+    // sections: {};
+  };
 }

@@ -36,7 +36,7 @@ export const InfoSectionType6: React.FC<OwnProps> = (props) => {
     }
   }
 
-  const componentsLink = {
+  const components = {
     h1: (props: any) => <Heading variant="h2" {...props}></Heading>,
     h2: (props: any) => <Heading variant="h3" {...props}></Heading>,
     h3: (props: any) => <Heading variant="h4" {...props}></Heading>,
@@ -52,7 +52,7 @@ export const InfoSectionType6: React.FC<OwnProps> = (props) => {
         {props?.title}
       </Heading>
       <Paragraph variant={'small'} className={styles.text}>
-        <MDXProvider components={componentsLink}>
+        <MDXProvider components={components}>
           <MDXRenderer>{props?.text?.childMdx?.body as any}</MDXRenderer>
         </MDXProvider>
       </Paragraph>

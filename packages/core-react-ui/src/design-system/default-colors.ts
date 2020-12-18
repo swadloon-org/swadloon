@@ -1,8 +1,27 @@
-import { ColorIntents, Colors } from '@newrade/core-design-system';
-import { generateColorGreyPalette, generateColorPalette5 } from '../utilities/colors.utilities';
-import { createDefaultColorIntents } from '../utilities/utilities';
+import {
+  ANGLE_UNIT,
+  ColorGradients,
+  ColorIntents,
+  Colors,
+  ColorsVarNames,
+  ColorsVars,
+} from '@newrade/core-design-system';
+import {
+  createDefaultColorIntents,
+  generateColorGreyPalette,
+  generateColorPalette5,
+  getCSSVarForColors,
+  getCSSVarNamesForColors,
+} from '../utilities/colors.utilities';
 
-export const defaultColors: Colors = {
+export const defaultColorsColors: Colors['colors'] = {
+  current: 'currentColor',
+  transparent: {
+    h: 0,
+    s: 0,
+    l: 0,
+    a: 0,
+  },
   primary: generateColorPalette5({
     color: { h: 222, s: 50, l: 50 },
     light: 20,
@@ -23,13 +42,12 @@ export const defaultColors: Colors = {
     light: 20,
     dark: 90,
   }),
-  transparent: { h: 222, s: 50, l: 50, a: 0 },
   grey: generateColorGreyPalette({
     hue: 10,
   }),
-  effectTransparentLight: { h: 222, s: 50, l: 50 },
-  effectTransparentMedium: { h: 222, s: 50, l: 50 },
-  effectTransparentHeavy: { h: 222, s: 50, l: 50 },
+  effectTransparentLight: { h: 222, s: 50, l: 50, a: 100 },
+  effectTransparentMedium: { h: 222, s: 50, l: 50, a: 100 },
+  effectTransparentHeavy: { h: 222, s: 50, l: 50, a: 100 },
   utilityGreen: generateColorPalette5({
     color: { h: 200, s: 50, l: 50 },
     light: 20,
@@ -47,4 +65,55 @@ export const defaultColors: Colors = {
   }),
 };
 
-export const defaultColorIntents: ColorIntents = createDefaultColorIntents(defaultColors);
+export const defaultColorIntents: ColorIntents = createDefaultColorIntents(defaultColorsColors);
+
+export const defaultColorsVarNames: ColorsVarNames = getCSSVarNamesForColors({
+  colors: defaultColorsColors,
+  colorIntents: defaultColorIntents,
+});
+
+export const defaultColorsVar: ColorsVars = getCSSVarForColors({
+  colors: defaultColorsColors,
+  colorIntents: defaultColorIntents,
+});
+
+export const defaultColorsGradients: ColorGradients = {
+  gradient1: {
+    angle: {
+      value: 45,
+      unit: ANGLE_UNIT.DEG,
+    },
+    stops: [
+      { color: defaultColorsColors.accent1[100], position: 0 },
+      { color: defaultColorsColors.accent1[500], position: 100 },
+    ],
+  },
+  gradient2: {
+    angle: {
+      value: 45,
+      unit: ANGLE_UNIT.DEG,
+    },
+    stops: [
+      { color: defaultColorsColors.accent2[100], position: 0 },
+      { color: defaultColorsColors.accent2[500], position: 100 },
+    ],
+  },
+  gradient3: {
+    angle: {
+      value: 45,
+      unit: ANGLE_UNIT.DEG,
+    },
+    stops: [
+      { color: defaultColorsColors.accent3[100], position: 0 },
+      { color: defaultColorsColors.accent3[500], position: 100 },
+    ],
+  },
+};
+
+export const defaultColors: Colors = {
+  varNames: defaultColorsVarNames,
+  var: defaultColorsVar,
+  colors: defaultColorsColors,
+  colorIntents: defaultColorIntents,
+  gradients: defaultColorsGradients,
+};

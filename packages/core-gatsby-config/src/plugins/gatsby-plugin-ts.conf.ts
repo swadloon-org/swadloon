@@ -1,4 +1,4 @@
-import { NODE_ENV } from '@newrade/core-utils';
+import { NODE_ENV } from '@newrade/core-common';
 import { ForkTsCheckerWebpackPluginOptions } from 'fork-ts-checker-webpack-plugin/lib/ForkTsCheckerWebpackPluginOptions';
 import Gatsby from 'gatsby';
 import * as TSLoader from 'ts-loader';
@@ -46,7 +46,7 @@ export function getGatsbyTsPluginConfig({
       typeCheck,
       forkTsCheckerPlugin,
       failOnError,
-      documentPaths: ['./src/**/*.{ts,tsx}'],
+      documentPaths: ['./src/**/*.{ts,tsx}', './gatsby-*.{ts,tsx}', './src/**/*.{js,jsx}'],
     },
   };
 }

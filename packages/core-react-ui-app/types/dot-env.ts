@@ -1,6 +1,9 @@
-import { COMMON_ENV } from '@newrade/core-utils';
+import { CommonEnv } from '@newrade/core-utils';
+import * as t from 'io-ts';
 
 /**
  * Local, typed representation of the .env file.
  */
-export type ENV = Partial<COMMON_ENV> & {};
+export const Env = t.intersection([CommonEnv, t.partial({}), t.type({})]);
+
+export type ENV = t.TypeOf<typeof Env>;

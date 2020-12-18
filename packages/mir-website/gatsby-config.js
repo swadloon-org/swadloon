@@ -26,7 +26,12 @@ const core = __importStar(require("@newrade/core-gatsby-config"));
 const core_utils_1 = require("@newrade/core-utils");
 const path_1 = __importDefault(require("path"));
 const package_json_1 = __importDefault(require("./package.json"));
-const env = core_utils_1.loadDotEnv(path_1.default.resolve(__dirname, '.env'));
+const dot_env_1 = require("./types/dot-env");
+const env = core_utils_1.loadDotEnv({
+    schema: dot_env_1.Env,
+    dotEnvPath: path_1.default.resolve(__dirname, '.env'),
+    packageName: package_json_1.default.name,
+});
 core_utils_1.logEnvVariables({ packageName: package_json_1.default.name, env });
 /**
  * Configure your Gatsby site with this file.
@@ -44,6 +49,9 @@ const config = {
         },
     },
     plugins: [
+        /**
+         * Project Specific Plugins
+         */
         {
             resolve: `gatsby-plugin-manifest`,
             options: {
@@ -57,38 +65,36 @@ const config = {
             },
         },
         {
-            resolve: `gatsby-plugin-page-creator`,
-            options: {
-                path: path_1.default.resolve(__dirname, 'src', 'pages'),
-                ignore: [`**/*.treat.ts`],
-            },
-        },
-        core.getGastbyCorePluginConfig(),
-        core.getGatsbyTsPluginConfig(),
-        core.getGatsbyReactSvgConfig(),
-        core.getGatsbyImageFolder({
-            pathImgDir: path_1.default.join(__dirname, `src`, `images`),
-        }),
-        core.getGatsbyNetlifyPlugin(),
-        core.getGatsbyTransformerSharp(),
-        core.getGatsbyPluginSharp(),
-        core.getGastbyPluginTreatConfig(),
-        core.getGatsbyPluginMdx(),
-        core.getGatsbyPluginPreloadFonts(),
-        core.getGatsbyPluginReactHelmet(),
-        core.getGatsbyPluginGoogleTagmanager({
-            googleTagId: 'GTM-T4LK3QF',
-        }),
-        core.getGatsbyPluginSitemap(),
-        core.getGatsbyPluginRobotsTxt({ env }),
-        {
             resolve: `gatsby-source-contentful`,
             options: {
                 spaceId: env.CONTENTFUL_SPACEID_MIR,
                 accessToken: env.CONTENTFUL_DELIVERY_TOKEN_MIR,
-                environment: 'master',
+                environment: env.CONTENTFUL_ENV,
             },
         },
+        /**
+         * Core Plugins
+         */
+        core.getGatsbyTsPluginConfig(),
+        core.getGatsbyReactSvgConfig(),
+        ...core.getGastbyPluginPageCreatorConfig(),
+        core.getGastbyPluginTreatConfig(),
+        core.getGatsbyTransformerSharp(),
+        core.getGatsbyPluginSharp(),
+        core.getGastbyPluginTreatConfig(),
+        core.getGatsbyPluginMdx(),
+        core.getGatsbyImageFolder(),
+        core.getGatsbyPluginReactHelmet(),
+        core.getGatsbyPluginSitemap(),
+        core.getGatsbyPluginRobotsTxt({ env }),
+        core.getGatsbyNetlifyPlugin(),
+        core.getGatsbyPluginPreloadFonts(),
+        core.getGatsbyPluginGoogleTagmanager({
+            googleTagId: 'GTM-T4LK3QF',
+        }),
+        core.getGastbyCorePluginConfig({
+            packageName: package_json_1.default.name,
+        }),
     ],
 };
 exports.default = config;

@@ -1,25 +1,41 @@
-import { Color } from '../primitives/color';
-import { ColorPalette, ColorShades5 } from '../primitives/color-palette';
-import { ColorShadesGrey } from './../primitives/color-palette';
+import { ColorIntents } from '..';
+import { ColorGradients } from './color-gradients';
+import { ColorsColors } from './colors-colors';
 
 /**
  * Every color defined in the system.
  */
-export interface Colors<ColorType = Color> {
-  primary: ColorPalette<ColorShades5, ColorType>;
+export interface Colors<Override extends undefined | string = undefined> {
+  /**
+   * CSS variable name for each step.
+   * @example `--color-primary-500`
+   */
+  varNames: ColorsVarNames;
+  /**
+   * CSS statement to access CSS variables
+   * @example `var(--color-primary-500)`
+   */
+  var: ColorsVars;
+  /**
+   * Raw colors
+   */
+  colors: ColorsColors<Override>;
+  /**
+   * Contextual use of certain colors (text, action, state, etc).
+   */
+  colorIntents: ColorIntents<Override>;
 
-  accent1: ColorPalette<ColorShades5, ColorType>;
-  accent2: ColorPalette<ColorShades5, ColorType>;
-  accent3: ColorPalette<ColorShades5, ColorType>;
-
-  transparent: ColorType;
-  grey: ColorPalette<ColorShadesGrey, ColorType>;
-
-  effectTransparentLight: ColorType;
-  effectTransparentMedium: ColorType;
-  effectTransparentHeavy: ColorType;
-
-  utilityGreen: ColorPalette<ColorShades5, ColorType>;
-  utilityYellow: ColorPalette<ColorShades5, ColorType>;
-  utilityRed: ColorPalette<ColorShades5, ColorType>;
+  gradients: ColorGradients<Override>;
 }
+
+/**
+ * Contains CSS variable names for each sizing step
+ * @example `--color-primary-500`
+ */
+export type ColorsVarNames = string[];
+
+/**
+ * Contains CSS statement to access CSS variables
+ * @example `var(--color-primary-500)`
+ */
+export type ColorsVars = string[];

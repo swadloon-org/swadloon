@@ -29,9 +29,9 @@ export const BlogTemplate: React.FC<ProjectPageProps> = (props) => {
     <main className={`${styles.wrapper}`}>
       <BannerSecondary imageData={bannerImagesSource} title={props.data?.contentfulPage?.bannerTitle}></BannerSecondary>
 
-      {props?.data?.contentfulPage?.route && blogSection ? (
+      {props?.data?.contentfulPage?.slug && blogSection ? (
         <BlogPreviewSection
-          pageRoute={props?.data?.contentfulPage?.route}
+          pageRoute={props?.data?.contentfulPage?.slug}
           variant="full"
           {...blogSection[0]}
         ></BlogPreviewSection>

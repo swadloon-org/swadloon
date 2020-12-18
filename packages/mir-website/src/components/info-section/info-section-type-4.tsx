@@ -54,8 +54,8 @@ export const InfoSectionType4: React.FC<OwnProps> = (props) => {
           </div>
         ) : null}
 
-        {props?.link && props?.link.type === 'INTERNAL_PAGE' && props?.link.page?.route ? (
-          <GatsbyLink to={props?.link?.page?.route}>
+        {props?.link && props?.link.type === 'INTERNAL_PAGE' && props?.link.page?.slug ? (
+          <GatsbyLink to={props?.link?.page?.slug}>
             <Button variantType={'primaryReversed'} variant={'text'} size={'medium'}>
               {props?.link?.label}
             </Button>

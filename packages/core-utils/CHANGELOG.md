@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/compare/@newrade/core-utils@1.2.2...@newrade/core-utils@1.3.0) (2020-12-18)
+
+### Bug Fixes
+
+- **build:** make some env variable optional ([60a93d6](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/commit/60a93d6b2565bb0c63e54b167da19ccd245b58d7))
+- **core-common:** remove browser code from core-utils ([b2595fc](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/commit/b2595fcc496d8876b0f658592a66659840d1ec92))
+- **core-contentful-lib:** changes ([d42278c](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/commit/d42278c313ec5ca24a450536f7dc9b624a6d2fc1))
+- **core-design-system:** wip ([36b5e4c](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/commit/36b5e4cb0bbc348a862cc396e74c76aa1a388356))
+- **core-gatsby-starter:** add dot env files type check ([4c65040](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/commit/4c65040705a61efbf9e55ecd585a789dbfd9f623))
+- **core-gatsby-starter:** refactor templates + setup pages and markdown ([4aaa949](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/commit/4aaa949750c94a939b35767f2bd3fb20b8fb2614))
+- **core-react-ui:** wip ([093aa8f](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/commit/093aa8fb17d1c4b8aecca90142666984e239976d))
+- **repo:** add .env type checking to all packages ([d382e42](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/commit/d382e42e2dcfbff0b635b4aa1f2c04e56deda4d7))
+
+### Features
+
+- **core-design-system:** finalize v2 ([c50fa62](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/commit/c50fa62e39b7e2fe87396223d92b88bb7644c008))
+
 ## [1.2.2](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/compare/@newrade/core-utils@1.2.1...@newrade/core-utils@1.2.2) (2020-11-30)
 
 ### Bug Fixes

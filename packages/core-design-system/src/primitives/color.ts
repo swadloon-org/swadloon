@@ -24,7 +24,7 @@ export interface Color {
   // hex: string;
   /**
    * alpha-channel transparency value
-   * @example 0.5
+   * @example 50 (e.g. 50%)
    */
   a?: number;
 }

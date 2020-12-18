@@ -1,3 +1,4 @@
+import { NumberType } from '../types';
 import { VIEWPORT } from './layout';
 
 /**
@@ -21,13 +22,13 @@ export enum SIZE {
  * Contains CSS variable names for each sizing step
  * @example `--sizing-x1`
  */
-export type SizeCSSVarNames = { [key in keyof typeof SIZE]: string };
+export type SizingVarNames = { [key in keyof typeof SIZE]: string };
 
 /**
  * Contains CSS statement to access CSS variables
  * @example `var(--sizing-x1)`
  */
-export type SizeCSSVars = { [key in keyof typeof SIZE]: string };
+export type SizingVars = { [key in keyof typeof SIZE]: string };
 
 /**
  * Defines in px, rem what a sizing step is.
@@ -38,7 +39,9 @@ export type SizingStep = number;
 /**
  * Definition of the sizing steps for each viewport.
  */
-export type SizingSteps<SizingType = SizingStep> = { [key in keyof typeof VIEWPORT]: { [key in SIZE]: SizingType } };
+export type SizingSteps<Override extends undefined | string = undefined> = {
+  [key in keyof typeof VIEWPORT]: { [key in SIZE]: Override extends string ? string : SizingStep };
+};
 
 /**
  * A set of predefined sizes from `x1` to `x10`.
@@ -46,12 +49,22 @@ export type SizingSteps<SizingType = SizingStep> = { [key in keyof typeof VIEWPO
  *
  * To optain the next size (e.g. from `x1` -> `x2`), the sizes are multipled by the ratio (e.g. `1.618` the Golden Ratio).
  */
-export interface Sizing<SizingType = SizingStep> {
+export interface Sizing<Override extends undefined | string = undefined> {
   /**
    * Base font size (in px) to set on the page <html/> element.
    * This defines what `1 rem` is.
    */
-  baseFontSize: SizingType;
+  baseFontSize: NumberType<Override>;
+  /**
+   * CSS variable name for each step.
+   * @example `--sizing-x1`
+   */
+  varNames: SizingVarNames;
+  /**
+   * CSS statement to access CSS variables
+   * @example `var(--sizing-x1)`
+   */
+  var: SizingVars;
   /**
    * The ratio by which we multiply to calculate the next size step.
    * E.g. 1.618 (Golden Ratio)
@@ -60,15 +73,7 @@ export interface Sizing<SizingType = SizingStep> {
    */
   ratio: number;
   /**
-   * CSS variable name for each step.
-   */
-  sizeCSSVarNames: SizeCSSVarNames;
-  /**
-   * CSS statement to access CSS variables
-   */
-  sizes: SizeCSSVars;
-  /**
    * Size values for each step.
    */
-  sizingSteps: SizingSteps<SizingType>;
+  sizes: SizingSteps<Override>;
 }

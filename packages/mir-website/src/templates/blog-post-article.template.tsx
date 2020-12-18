@@ -5,7 +5,7 @@ import { BlogPostFragment } from '../../types/graphql-types';
 import { Heading } from '../components/ui/heading';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { Label } from '../components/ui/label';
-import { LABEL } from '../../../core-design-system-old/src';
+import { LABEL } from '@newrade/core-design-system-old';
 import { Author } from '../components/blog-preview/author';
 import GatsbyImage, { FluidObject } from 'gatsby-image';
 

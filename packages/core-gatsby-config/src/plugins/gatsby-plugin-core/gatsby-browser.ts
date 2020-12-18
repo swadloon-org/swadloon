@@ -1,4 +1,6 @@
-export const onClientEntry = () => {
+import { GatsbyBrowser } from 'gatsby';
+
+export const onClientEntry: GatsbyBrowser['onClientEntry'] = () => {
   // IntersectionObserver polyfill for gatsby-background-image (Safari, IE)
   if (!(`IntersectionObserver` in window)) {
     // @ts-ignore

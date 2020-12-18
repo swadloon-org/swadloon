@@ -1,16 +1,14 @@
+import { AppError, ERROR_TYPE } from '@newrade/core-common';
 import { GatsbyPageContext } from '@newrade/core-gatsby-config';
-import { loadDotEnv, log, LOG_LEVEL } from '@newrade/core-utils';
+import { log, LOG_LEVEL } from '@newrade/core-utils';
 import { GatsbyNode } from 'gatsby';
 import path from 'path';
-import { ENV } from './types/dot-env';
-
+import { GatsbyNodeAllSiteQuery, GatsbyNodeSiteMetadataFragment } from './types/graphql-types';
 /**
  * Gatsby Node Configuration
  *
  * @see https://www.gatsbyjs.com/docs/node-apis/
  */
-
-const env = loadDotEnv<ENV>(path.resolve(__dirname, '.env'));
 
 export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions;
@@ -43,10 +41,41 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
   /**
    * Page creations
    */
+
   try {
-    const pages = await graphql<{
+    const allSiteData = await graphql<GatsbyNodeAllSiteQuery>(`
+      query GatsbyNodeAllSite {
+        site {
+          siteMetadata {
+            ...GatsbyNodeSiteMetadata
+          }
+        }
+      }
+
+      fragment GatsbyNodeSiteMetadata on SiteSiteMetadata {
+        title
+        description
+        siteEnv
+        siteUrl
+        languages {
+          langs
+          defaultLangKey
+        }
+      }
+    `);
+
+    if (!allSiteData.data?.site?.siteMetadata) {
+      throw new AppError({
+        name: ERROR_TYPE.GATSBY_ERROR,
+        message: `Could not retrieve siteMetadata`,
+      });
+    }
+
+    const siteMetadata: GatsbyNodeSiteMetadataFragment = allSiteData.data.site.siteMetadata;
+
+    const pagesData = await graphql<{
       allContentfulPage: {
-        edges: { node: { id: string; name: string; route: string; node_locale: string } }[];
+        edges: { node: { id: string; name: string; slug: string; node_locale: string } }[];
       };
     }>(
       `
@@ -57,21 +86,22 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
                 node_locale
                 id
                 name
-                route
+                slug
               }
             }
           }
         }
       `
     );
-    if (pages.errors) {
+    if (pagesData.errors) {
       throw new Error('Error while retrieving pages');
     }
     /**
      * Automatically create pages based on the Page Collection in Contentful
      */
     const pageTemplate = path.resolve(`src/templates/page.template.tsx`);
-    pages?.data?.allContentfulPage.edges
+
+    pagesData?.data?.allContentfulPage.edges
       .filter((edge) => {
         if (!(edge && edge.node)) {
           return false;
@@ -80,15 +110,16 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
         return true;
       })
       .forEach((edge, index) => {
-        log(`Creating page: ${edge.node.route}`, {
-          toolName: 'valentine-website',
+        log(`Creating page: ${edge.node.slug}`, {
+          toolName: 'vsb-website',
         });
-        createPage<GatsbyPageContext>({
-          path: edge.node.route,
-          component: pageTemplate,
+        createPage<GatsbyPageContext<GatsbyNodeSiteMetadataFragment>>({
+          path: edge.node.slug,
           context: {
+            siteMetadata,
             pageId: edge.node.id,
           },
+          component: pageTemplate,
         });
       });
 
@@ -127,11 +158,11 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
     //   .map((edge) => edge.node);
 
     // log(`Creating blog posts under: ${blogPageRouteEN?.[0].route}`, {
-    //   toolName: 'valentine-website',
+    //   toolName: 'vsb-website',
     // });
 
     // log(`Creating blog posts under: ${blogPageRouteFR?.[0].route}`, {
-    //   toolName: 'valentine-website',
+    //   toolName: 'vsb-website',
     // });
 
     // blogPosts?.data?.allContentfulBlogPost.edges

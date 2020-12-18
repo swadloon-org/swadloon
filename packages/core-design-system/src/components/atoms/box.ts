@@ -1,44 +1,44 @@
-import { Color } from '../../primitives/color';
+import { ColorType, RadiusType, SizeType } from '../../types';
 
-export type Padding<PaddingType = number> = {
-  default?: PaddingType;
-  top?: PaddingType;
-  right?: PaddingType;
-  bottom?: PaddingType;
-  left?: PaddingType;
+export type Padding<Override extends undefined | string = undefined> = {
+  default?: SizeType<Override>;
+  top?: SizeType<Override>;
+  right?: SizeType<Override>;
+  bottom?: SizeType<Override>;
+  left?: SizeType<Override>;
 };
 
-export type Border = {
-  borderColor?: Color;
+export type Border<Override extends undefined | string = undefined> = {
+  borderColor?: ColorType<Override>;
   borderStyle?: 'solid' | 'dotted';
-  borderWidth?: number;
-  borderRadius?: number;
+  borderWidth?: SizeType<Override>;
+  borderRadius?: RadiusType<Override>;
 };
 
-export type Outline = {
-  outlineColor?: Color;
+export type Outline<Override extends undefined | string = undefined> = {
+  outlineColor?: ColorType<Override>;
   outlineStyle?: 'solid' | 'dotted';
-  outlineWidth?: number;
-  outlineRadius?: number;
+  outlineWidth?: SizeType<Override>;
+  outlineRadius?: RadiusType<Override>;
 };
 
-export type BoxStyle<ColorType = Color, PaddingType = number, BorderType = Border, OutlineType = Outline> = {
+export type BoxStyle<Override extends undefined | string = undefined> = {
   width?: number;
   height?: number;
-  padding?: Padding<PaddingType>;
+  padding?: Padding<Override>;
   border?: {
-    default?: BorderType;
-    top?: BorderType;
-    right?: BorderType;
-    bottom?: BorderType;
-    left?: BorderType;
+    default?: Border<Override>;
+    top?: Border<Override>;
+    right?: Border<Override>;
+    bottom?: Border<Override>;
+    left?: Border<Override>;
   };
   outline?: {
-    default?: OutlineType;
-    top?: OutlineType;
-    right?: OutlineType;
-    bottom?: OutlineType;
-    left?: OutlineType;
+    default?: Outline<Override>;
+    top?: Outline<Override>;
+    right?: Outline<Override>;
+    bottom?: Outline<Override>;
+    left?: Outline<Override>;
   };
-  backgroundColor?: ColorType;
+  backgroundColor?: ColorType<Override>;
 };
