@@ -70,7 +70,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
      */
     const pagesData = await graphql<{
       allContentfulPage: {
-        edges: { node: { id: string; name: string; route: string; node_locale: string } }[];
+        edges: { node: { id: string; name: string; slug: string; node_locale: string } }[];
       };
     }>(
       `
@@ -81,7 +81,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
                 node_locale
                 id
                 name
-                route
+                slug
               }
             }
           }
@@ -105,11 +105,11 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
         return true;
       })
       .forEach((edge, index) => {
-        log(`Creating page: ${edge.node.route}`, {
+        log(`Creating page: ${edge.node.slug}`, {
           toolName: 'mir-website',
         });
         createPage<GatsbyPageContext<GatsbyNodeSiteMetadataFragment>>({
-          path: edge.node.route,
+          path: edge.node.slug,
           context: {
             siteMetadata,
             pageId: edge.node.id,
@@ -152,11 +152,11 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
       .filter((edge) => edge.node.name.includes('Blogue') && edge.node.node_locale === 'en-CA')
       .map((edge) => edge.node);
 
-    log(`Creating blog posts under: ${blogPageRouteEN?.[0].route}`, {
+    log(`Creating blog posts under: ${blogPageRouteEN?.[0].slug}`, {
       toolName: 'mir-website',
     });
 
-    log(`Creating blog posts under: ${blogPageRouteFR?.[0].route}`, {
+    log(`Creating blog posts under: ${blogPageRouteFR?.[0].slug}`, {
       toolName: 'mir-website',
     });
 
@@ -170,12 +170,12 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
       .forEach((edge, index) => {
         const path =
           edge.node.node_locale === 'fr-CA'
-            ? blogPageRouteFR?.[0]?.route
-              ? `${blogPageRouteFR?.[0]?.route}${edge.node.blogSlug}`
-              : `${blogPageRouteFR?.[0]?.route}`
-            : blogPageRouteEN?.[0]?.route
-            ? `${blogPageRouteEN?.[0]?.route}${edge.node.blogSlug}`
-            : `${blogPageRouteEN?.[0]?.route}`;
+            ? blogPageRouteFR?.[0]?.slug
+              ? `${blogPageRouteFR?.[0]?.slug}${edge.node.blogSlug}`
+              : `${blogPageRouteFR?.[0]?.slug}`
+            : blogPageRouteEN?.[0]?.slug
+            ? `${blogPageRouteEN?.[0]?.slug}${edge.node.blogSlug}`
+            : `${blogPageRouteEN?.[0]?.slug}`;
 
         log(`Creating blog post: ${path}`, {
           toolName: 'mir-website',

@@ -41,7 +41,7 @@ export const pageQuery = graphql`
           description {
             description
           }
-          route
+          slug
         }
       }
     }
@@ -70,7 +70,7 @@ export const PageTemplate: React.FC<ProjectPageProps> = ({ data, location, ...pr
           {getMetadataOpenGraphWebsiteTags({
             type: OPEN_GRAPH_TYPE.WEBSITE,
             title: `${data?.contentfulPage?.title}`,
-            url: `${data?.site?.siteMetadata?.siteUrl}${data?.contentfulPage?.route}`,
+            url: `${data?.site?.siteMetadata?.siteUrl}${data?.contentfulPage?.slug}`,
             description: `${data?.contentfulPage?.description?.description}`,
             image: `${data?.contentfulPage?.bannerImages?.medias?.[0]?.socialMediaImage?.src}`,
             site_name: `${data?.contentfulCompanyInfo?.metadataSiteName}`,

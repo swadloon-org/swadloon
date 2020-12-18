@@ -61,8 +61,8 @@ export const NavBar: React.FC<OwnProps> = ({
 
         <nav className={styles.desktopLeftToolbar}>
           {leftToolbarPages?.map((page) => {
-            return page?.route ? (
-              <Link key={`${page?.name}-${page?.locale}`} to={page?.route}>
+            return page?.slug ? (
+              <Link key={`${page?.name}-${page?.locale}`} to={page?.slug}>
                 {page?.title}
               </Link>
             ) : null;
@@ -129,11 +129,11 @@ export const NavBar: React.FC<OwnProps> = ({
           </div>
 
           <nav>
-            {currentAlternateLocalePage?.[0]?.route ? (
+            {currentAlternateLocalePage?.[0]?.slug ? (
               <GatsbyLink
                 to={
                   currentAlternateLocalePage?.length
-                    ? currentAlternateLocalePage?.[0]?.route
+                    ? currentAlternateLocalePage?.[0]?.slug
                     : currentLocaleIsEN
                     ? '/'
                     : '/en/'
@@ -145,8 +145,8 @@ export const NavBar: React.FC<OwnProps> = ({
               </GatsbyLink>
             ) : null}
 
-            {contactUsPage?.[0]?.route ? (
-              <GatsbyLink to={contactUsPage?.[0]?.route}>
+            {contactUsPage?.[0]?.slug ? (
+              <GatsbyLink to={contactUsPage?.[0]?.slug}>
                 <Button variantType="secondaryReversed" variant="text" size="small">
                   {contactUsPage[0]?.title}
                 </Button>

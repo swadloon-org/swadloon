@@ -84,10 +84,10 @@ export const SideBar: React.FC<OwnProps> = (props) => {
 
           <nav className={styles.listMenu}>
             {leftToolbarPages?.map((page) => {
-              return page.route ? (
+              return page.slug ? (
                 <GatsbyLink
                   className={styles.titleItem}
-                  to={page.route}
+                  to={page.slug}
                   key={`${page?.name}-${page?.locale}`}
                   activeClassName={`${styles.activeItem}`}
                 >

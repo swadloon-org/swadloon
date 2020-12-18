@@ -73,7 +73,7 @@ exports.createPages = async ({ graphql, actions }) => {
                 node_locale
                 id
                 name
-                route
+                slug
               }
             }
           }
@@ -94,11 +94,11 @@ exports.createPages = async ({ graphql, actions }) => {
             return true;
         })
             .forEach((edge, index) => {
-            core_utils_1.log(`Creating page: ${edge.node.route}`, {
+            core_utils_1.log(`Creating page: ${edge.node.slug}`, {
                 toolName: 'mir-website',
             });
             createPage({
-                path: edge.node.route,
+                path: edge.node.slug,
                 context: {
                     siteMetadata,
                     pageId: edge.node.id,
@@ -132,10 +132,10 @@ exports.createPages = async ({ graphql, actions }) => {
         const blogPageRouteEN = pagesData?.data?.allContentfulPage.edges
             .filter((edge) => edge.node.name.includes('Blogue') && edge.node.node_locale === 'en-CA')
             .map((edge) => edge.node);
-        core_utils_1.log(`Creating blog posts under: ${blogPageRouteEN?.[0].route}`, {
+        core_utils_1.log(`Creating blog posts under: ${blogPageRouteEN?.[0].slug}`, {
             toolName: 'mir-website',
         });
-        core_utils_1.log(`Creating blog posts under: ${blogPageRouteFR?.[0].route}`, {
+        core_utils_1.log(`Creating blog posts under: ${blogPageRouteFR?.[0].slug}`, {
             toolName: 'mir-website',
         });
         blogPosts?.data?.allContentfulBlogPost.edges
@@ -147,12 +147,12 @@ exports.createPages = async ({ graphql, actions }) => {
         })
             .forEach((edge, index) => {
             const path = edge.node.node_locale === 'fr-CA'
-                ? blogPageRouteFR?.[0]?.route
-                    ? `${blogPageRouteFR?.[0]?.route}${edge.node.blogSlug}`
-                    : `${blogPageRouteFR?.[0]?.route}`
-                : blogPageRouteEN?.[0]?.route
-                    ? `${blogPageRouteEN?.[0]?.route}${edge.node.blogSlug}`
-                    : `${blogPageRouteEN?.[0]?.route}`;
+                ? blogPageRouteFR?.[0]?.slug
+                    ? `${blogPageRouteFR?.[0]?.slug}${edge.node.blogSlug}`
+                    : `${blogPageRouteFR?.[0]?.slug}`
+                : blogPageRouteEN?.[0]?.slug
+                    ? `${blogPageRouteEN?.[0]?.slug}${edge.node.blogSlug}`
+                    : `${blogPageRouteEN?.[0]?.slug}`;
             core_utils_1.log(`Creating blog post: ${path}`, {
                 toolName: 'mir-website',
             });

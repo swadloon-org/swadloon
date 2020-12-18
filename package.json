@@ -41,7 +41,7 @@
     "start": "lerna run --parallel start",
     "start:core": "yarn start --scope @newrade/core-*",
     "start:core:lib": "yarn start --scope @newrade/core-* --ignore @newrade/core-gatsby-starter --ignore @newrade/core-react-ui-app",
-    "start:mir": "yarn build --scope @newrade/mir-*",
+    "start:mir": "yarn start --scope @newrade/mir-*",
     "start:newrade": "yarn start --scope @newrade/newrade-* --ignore @newrade/newrade-app",
     "start:starter": "yarn start --scope @newrade/core-gatsby-starter",
     "start:valentine": "yarn build --scope @newrade/mir-*",
