@@ -9,7 +9,7 @@ export const linkFragment = graphql`
     page {
       id
       name
-      route
+      slug
     }
     section {
       id

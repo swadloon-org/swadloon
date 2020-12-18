@@ -23,14 +23,13 @@ export const Link: React.FC<HTMLAttributes<any> & OwnProps> = (props) => {
   ) : null;
 };
 
-export const MarkdownLink: React.FC<HTMLAttributes<any> & OwnProps> = (props) => {
+export const MarkdownLink: React.FC<HTMLAttributes<any> & { children: string; href: string }> = (props) => {
   const styles = useStyles(styleRefs);
 
-  return props.to ? (
-    <GatsbyLink to={props.to} className={`${styles.link}`} activeClassName={`${styles.linkActive}`}>
-      <Paragraph>{props.children}</Paragraph>
-      <div className={`${styles.active}`}></div>
-    </GatsbyLink>
+  return props.href ? (
+    <a href={props.href} className={`${styles.link} ${styles.linkUnderline}`}>
+      {props.children}
+    </a>
   ) : null;
 };
 

@@ -39,7 +39,7 @@ const types: AnimationTypes = {
   [ANIMATION_TYPE.fadeOut]: fadeIn,
 };
 
-export const animations: Animations = {
+export const defaultAnimations: Animations = {
   curves,
   durations,
   types,

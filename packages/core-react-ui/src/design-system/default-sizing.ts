@@ -1,12 +1,10 @@
-import { SIZE, SizeCSSVarNames, Sizing, SizingSteps, VIEWPORT } from '@newrade/core-design-system';
-// import { createSizingStep } from '../utilities/sizing.utilities';
+import { SIZE, Sizing, SizingSteps, SizingVarNames, VIEWPORT } from '@newrade/core-design-system';
+import { cssVar } from '../utilities/css-variable.utilities';
 
-export const DEFAULT_BASE_FONT_SIZE = 9;
-export const DEFAULT_BASE_FONT_SIZE_PX = `${DEFAULT_BASE_FONT_SIZE}px`;
+export const defaultBaseFontSize = 9;
+export const defaultScalingRatio = 1.618;
 
-export const DEFAULT_SCALING_RATIO = 1.618;
-
-export const DEFAULT_SIZES_CSS_VAR_NAMES: SizeCSSVarNames = {
+export const defaultSizesCSSVarNames: SizingVarNames = {
   [SIZE.x0]: '--sizing-x0',
   [SIZE.x1]: '--sizing-x1',
   [SIZE.x2]: '--sizing-x2',
@@ -20,21 +18,21 @@ export const DEFAULT_SIZES_CSS_VAR_NAMES: SizeCSSVarNames = {
   [SIZE.x10]: '--sizing-x10',
 };
 
-export const DEFAULT_SIZES_CSS_VAR: SizeCSSVarNames = {
-  [SIZE.x0]: `var(${DEFAULT_SIZES_CSS_VAR_NAMES.x0})`,
-  [SIZE.x1]: `var(${DEFAULT_SIZES_CSS_VAR_NAMES.x1})`,
-  [SIZE.x2]: `var(${DEFAULT_SIZES_CSS_VAR_NAMES.x2})`,
-  [SIZE.x3]: `var(${DEFAULT_SIZES_CSS_VAR_NAMES.x3})`,
-  [SIZE.x4]: `var(${DEFAULT_SIZES_CSS_VAR_NAMES.x4})`,
-  [SIZE.x5]: `var(${DEFAULT_SIZES_CSS_VAR_NAMES.x5})`,
-  [SIZE.x6]: `var(${DEFAULT_SIZES_CSS_VAR_NAMES.x6})`,
-  [SIZE.x7]: `var(${DEFAULT_SIZES_CSS_VAR_NAMES.x7})`,
-  [SIZE.x8]: `var(${DEFAULT_SIZES_CSS_VAR_NAMES.x8})`,
-  [SIZE.x9]: `var(${DEFAULT_SIZES_CSS_VAR_NAMES.x9})`,
-  [SIZE.x10]: `var(${DEFAULT_SIZES_CSS_VAR_NAMES.x10})`,
+export const defaultSizesCSSVar: SizingVarNames = {
+  [SIZE.x0]: cssVar(defaultSizesCSSVarNames.x0),
+  [SIZE.x1]: cssVar(defaultSizesCSSVarNames.x1),
+  [SIZE.x2]: cssVar(defaultSizesCSSVarNames.x2),
+  [SIZE.x3]: cssVar(defaultSizesCSSVarNames.x3),
+  [SIZE.x4]: cssVar(defaultSizesCSSVarNames.x4),
+  [SIZE.x5]: cssVar(defaultSizesCSSVarNames.x5),
+  [SIZE.x6]: cssVar(defaultSizesCSSVarNames.x6),
+  [SIZE.x7]: cssVar(defaultSizesCSSVarNames.x7),
+  [SIZE.x8]: cssVar(defaultSizesCSSVarNames.x8),
+  [SIZE.x9]: cssVar(defaultSizesCSSVarNames.x9),
+  [SIZE.x10]: cssVar(defaultSizesCSSVarNames.x10),
 };
 
-const sizingStepMobile = {
+export const defaultSizingStepsMobile = {
   [SIZE.x0]: 9,
   [SIZE.x1]: 9,
   [SIZE.x2]: 13,
@@ -45,19 +43,19 @@ const sizingStepMobile = {
   [SIZE.x7]: 44,
   [SIZE.x8]: 33,
   [SIZE.x9]: 77,
-  [SIZE.x10]: 10,
+  [SIZE.x10]: 144,
 };
 
-export const DEFAULT_SIZING_STEPS: SizingSteps = {
-  [VIEWPORT.mobile]: sizingStepMobile,
-  [VIEWPORT.tablet]: sizingStepMobile,
-  [VIEWPORT.desktop]: sizingStepMobile,
+export const defaultSizingSteps: SizingSteps = {
+  [VIEWPORT.mobile]: defaultSizingStepsMobile,
+  [VIEWPORT.tablet]: defaultSizingStepsMobile,
+  [VIEWPORT.desktop]: defaultSizingStepsMobile,
 };
 
-export const DEFAULT_SIZING: Sizing = {
-  baseFontSize: DEFAULT_BASE_FONT_SIZE,
-  ratio: DEFAULT_SCALING_RATIO,
-  sizeCSSVarNames: DEFAULT_SIZES_CSS_VAR_NAMES,
-  sizes: DEFAULT_SIZES_CSS_VAR,
-  sizingSteps: DEFAULT_SIZING_STEPS,
+export const defaultSizing: Sizing = {
+  baseFontSize: defaultBaseFontSize,
+  ratio: defaultScalingRatio,
+  varNames: defaultSizesCSSVarNames,
+  var: defaultSizesCSSVar,
+  sizes: defaultSizingSteps,
 };

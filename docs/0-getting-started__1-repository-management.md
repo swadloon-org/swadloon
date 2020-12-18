@@ -1,3 +1,10 @@
+---
+category: setup
+tags:
+  - git
+  - git
+---
+
 # Repository Management
 
 ## Commit Style with [Commitizen](http://commitizen.github.io/cz-cli/)
@@ -11,7 +18,7 @@ $ yarn commit
 
 cz-cli@4.0.3, cz-conventional-changelog@3.0.2
 
-? Select the type of change that you're committing: (Use arrow keys)
+? Select the type of change that you\'re committing: (Use arrow keys)
 ❯ feat:     A new feature
   fix:      A bug fix
   docs:     Documentation only changes
@@ -59,4 +66,4 @@ TODO
 
 https://yarnpkg.com/features/protocols#table
 
----
+—--

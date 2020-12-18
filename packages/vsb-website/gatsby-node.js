@@ -4,6 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.createPages = void 0;
+const core_common_1 = require("@newrade/core-common");
 const core_utils_1 = require("@newrade/core-utils");
 const path_1 = __importDefault(require("path"));
 /**
@@ -11,7 +12,6 @@ const path_1 = __importDefault(require("path"));
  *
  * @see https://www.gatsbyjs.com/docs/node-apis/
  */
-const env = core_utils_1.loadDotEnv(path_1.default.resolve(__dirname, '.env'));
 exports.createPages = async ({ graphql, actions }) => {
     const { createPage, createRedirect } = actions;
     /**
@@ -43,7 +43,34 @@ exports.createPages = async ({ graphql, actions }) => {
      * Page creations
      */
     try {
-        const pages = await graphql(`
+        const allSiteData = await graphql(`
+      query GatsbyNodeAllSite {
+        site {
+          siteMetadata {
+            ...GatsbyNodeSiteMetadata
+          }
+        }
+      }
+
+      fragment GatsbyNodeSiteMetadata on SiteSiteMetadata {
+        title
+        description
+        siteEnv
+        siteUrl
+        languages {
+          langs
+          defaultLangKey
+        }
+      }
+    `);
+        if (!allSiteData.data?.site?.siteMetadata) {
+            throw new core_common_1.AppError({
+                name: core_common_1.ERROR_TYPE.GATSBY_ERROR,
+                message: `Could not retrieve siteMetadata`,
+            });
+        }
+        const siteMetadata = allSiteData.data.site.siteMetadata;
+        const pagesData = await graphql(`
         query GatsbyNodePages {
           allContentfulPage {
             edges {
@@ -51,20 +78,20 @@ exports.createPages = async ({ graphql, actions }) => {
                 node_locale
                 id
                 name
-                route
+                slug
               }
             }
           }
         }
       `);
-        if (pages.errors) {
+        if (pagesData.errors) {
             throw new Error('Error while retrieving pages');
         }
         /**
          * Automatically create pages based on the Page Collection in Contentful
          */
         const pageTemplate = path_1.default.resolve(`src/templates/page.template.tsx`);
-        pages?.data?.allContentfulPage.edges
+        pagesData?.data?.allContentfulPage.edges
             .filter((edge) => {
             if (!(edge && edge.node)) {
                 return false;
@@ -72,15 +99,16 @@ exports.createPages = async ({ graphql, actions }) => {
             return true;
         })
             .forEach((edge, index) => {
-            core_utils_1.log(`Creating page: ${edge.node.route}`, {
-                toolName: 'valentine-website',
+            core_utils_1.log(`Creating page: ${edge.node.slug}`, {
+                toolName: 'vsb-website',
             });
             createPage({
-                path: edge.node.route,
-                component: pageTemplate,
+                path: edge.node.slug,
                 context: {
+                    siteMetadata,
                     pageId: edge.node.id,
                 },
+                component: pageTemplate,
             });
         });
         /**
@@ -116,10 +144,10 @@ exports.createPages = async ({ graphql, actions }) => {
         //   .filter((edge) => edge.node.name.includes('Blogue') && edge.node.node_locale === 'en-CA')
         //   .map((edge) => edge.node);
         // log(`Creating blog posts under: ${blogPageRouteEN?.[0].route}`, {
-        //   toolName: 'valentine-website',
+        //   toolName: 'vsb-website',
         // });
         // log(`Creating blog posts under: ${blogPageRouteFR?.[0].route}`, {
-        //   toolName: 'valentine-website',
+        //   toolName: 'vsb-website',
         // });
         // blogPosts?.data?.allContentfulBlogPost.edges
         //   .filter((edge) => {

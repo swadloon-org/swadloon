@@ -1,200 +1,28 @@
 import { DesignSystem } from '@newrade/core-design-system';
-import { getCSSColor } from '../utilities/colors.utilities';
+import { createCSSTheme } from '../utilities/theme.utilities';
 import { CSSDesignSystem } from './css-design-system';
-import { defaultColorIntents, defaultColors } from './default-colors';
+import { defaultAnimations } from './default-animations';
+import { defaultButtons } from './default-buttons';
+import { defaultColors } from './default-colors';
+import { defaultEffects } from './default-effects';
+import { defaultIconography } from './default-iconography';
+import { defaultLayout } from './default-layout';
+import { defaultSizing } from './default-sizing';
+import { defaultTypography } from './default-typography';
 
-export const defaultTheme: Partial<DesignSystem> = {
+export const defaultTheme: DesignSystem = {
   name: 'core-react-ui',
-  themes: 'light',
+  variation: 'light',
   colors: defaultColors,
-  colorIntents: defaultColorIntents,
-  // typography: {
-  //   fonts: {
-  //     serif: defaultSerifFont,
-  //     sans: defaultSansFont,
-  //     sansAlternate: defaultSansAlternateFont,
-  //     monospace: defaultMonospaceFont,
-  //   },
-  //   titles: {
-  //     mobile: {
-  //       h1: {
-  //         serif: {
-  //           font: defaultSerifFont,
-  //           fontWeight: 400,
-  //           capHeight: 55,
-  //           lineGap: 19,
-  //         },
-  //       },
-  //       h2: {
-  //         serif: {
-  //           font: defaultSerifFont,
-  //           fontWeight: 400,
-  //           capHeight: 55,
-  //           lineGap: 19,
-  //         },
-  //       },
-  //     },
-  //     tablet: {
-  //       h1: {
-  //         serif: {
-  //           font: defaultSerifFont,
-  //           fontWeight: 400,
-  //           capHeight: 55,
-  //           lineGap: 19,
-  //         },
-  //       },
-  //       h2: {
-  //         serif: {
-  //           font: defaultSerifFont,
-  //           fontWeight: 400,
-  //           capHeight: 55,
-  //           lineGap: 19,
-  //         },
-  //       },
-  //     },
-  //     desktop: {
-  //       h1: {
-  //         serif: {
-  //           font: defaultSerifFont,
-  //           fontWeight: 400,
-  //           capHeight: 55,
-  //           lineGap: 19,
-  //         },
-  //       },
-  //       h2: {
-  //         serif: {
-  //           font: defaultSerifFont,
-  //           fontWeight: 400,
-  //           capHeight: 55,
-  //           lineGap: 19,
-  //         },
-  //       },
-  //     },
-  //   },
-  // },
+  effects: defaultEffects,
+  sizing: defaultSizing,
+  iconography: defaultIconography,
+  typography: defaultTypography,
+  layout: defaultLayout,
+  animations: defaultAnimations,
   components: {
-    buttons: {
-      variants: {
-        primary: {
-          textColor: defaultColors.grey['500'],
-          iconColor: defaultColors.grey['500'],
-          backgroundColor: defaultColors.grey['500'],
-        },
-        primaryReversed: {
-          textColor: defaultColors.grey['500'],
-          iconColor: defaultColors.grey['500'],
-        },
-        secondary: {
-          textColor: defaultColors.grey['500'],
-          iconColor: defaultColors.grey['500'],
-        },
-        secondaryReversed: {
-          textColor: defaultColors.grey['500'],
-          iconColor: defaultColors.grey['500'],
-        },
-        tertiary: {
-          textColor: defaultColors.grey['500'],
-          iconColor: defaultColors.grey['500'],
-        },
-        tertiaryReversed: {
-          textColor: defaultColors.grey['500'],
-          iconColor: defaultColors.grey['500'],
-        },
-      },
-      sizes: {
-        large: {
-          padding: {
-            default: 10,
-          },
-          border: {
-            default: {
-              borderWidth: 1,
-            },
-          },
-        },
-        medium: {
-          padding: {
-            default: 10,
-          },
-          border: {
-            default: {
-              borderWidth: 1,
-            },
-          },
-        },
-        small: {
-          padding: {
-            default: 10,
-          },
-          border: {
-            default: {
-              borderWidth: 1,
-            },
-          },
-        },
-      },
-    },
+    buttons: defaultButtons,
   },
 };
 
-export const defaultCSSTheme: Partial<CSSDesignSystem> = {
-  name: 'core-react-ui',
-  themes: 'light',
-  components: {
-    buttons: {
-      variants: {
-        primary: {
-          textColor: getCSSColor(defaultColors.grey['500']),
-          iconColor: getCSSColor(defaultColors.grey['500']),
-          backgroundColor: getCSSColor(defaultColors.grey['500']),
-        },
-        primaryReversed: {
-          textColor: getCSSColor(defaultColors.grey['500']),
-          iconColor: getCSSColor(defaultColors.grey['500']),
-        },
-        secondary: {
-          textColor: getCSSColor(defaultColors.grey['500']),
-          iconColor: getCSSColor(defaultColors.grey['500']),
-        },
-        secondaryReversed: {
-          textColor: getCSSColor(defaultColors.grey['500']),
-          iconColor: getCSSColor(defaultColors.grey['500']),
-        },
-        tertiary: {
-          textColor: getCSSColor(defaultColors.grey['500']),
-          iconColor: getCSSColor(defaultColors.grey['500']),
-        },
-        tertiaryReversed: {
-          textColor: getCSSColor(defaultColors.grey['500']),
-          iconColor: getCSSColor(defaultColors.grey['500']),
-        },
-      },
-      sizes: {
-        large: {
-          padding: {
-            default: `10px`,
-          },
-          border: {
-            default: `1px solid red`,
-          },
-        },
-        medium: {
-          padding: {
-            default: `10px`,
-          },
-          border: {
-            default: `1px solid red`,
-          },
-        },
-        small: {
-          padding: {
-            default: `10px`,
-          },
-          border: {
-            default: `1px solid red`,
-          },
-        },
-      },
-    },
-  },
-};
+export const defaultCSSTheme: CSSDesignSystem = createCSSTheme(defaultTheme);

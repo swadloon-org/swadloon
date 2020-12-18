@@ -40,6 +40,7 @@ assignees: ''
 - [ ] GraphCMS account
 - [ ] Contentful account
 - [ ] Netlify account
+- [ ] install and configure Krisp.ai
 
 ### Software
 
@@ -50,6 +51,7 @@ assignees: ''
 - [ ] brew https://brew.sh/
 - [ ] nvm https://github.com/nvm-sh/nvm
 - [ ] VS Code https://code.visualstudio.com/
+- [ ] Krisp.ai https://krisp.ai
 
 ## Machine Setup
 

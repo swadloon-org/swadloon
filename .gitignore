@@ -18,6 +18,7 @@ pids
 # logs
 *-debug.log
 *-error.log
+*.log
 
 # certificates
 *.pem

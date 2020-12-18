@@ -3,7 +3,7 @@ import React from 'react';
 import * as styleRefs from './app.treat';
 import { useStyles } from 'react-treat';
 import { ColorSwatch } from './components/color-swatch';
-import { animations } from '@newrade/core-react-ui';
+import { defaultAnimations } from '@newrade/core-react-ui';
 
 export function App() {
   const styles = useStyles(styleRefs);
@@ -11,7 +11,7 @@ export function App() {
 
   return (
     <div>
-      {JSON.stringify(animations)}
+      {JSON.stringify(defaultAnimations)}
       <ColorSwatch
         color={{
           h: 33,

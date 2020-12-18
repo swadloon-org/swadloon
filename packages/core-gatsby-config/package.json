@@ -19,6 +19,8 @@
   },
   "typings": "./lib/index.d.ts",
   "dependencies": {
-    "@newrade/core-utils": "^1.2.2"
+    "@newrade/core-common": "^1",
+    "@newrade/core-utils": "^1",
+    "@newrade/core-webpack-config": "^1"
   }
 }

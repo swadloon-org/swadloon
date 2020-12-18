@@ -27,7 +27,12 @@ const core = __importStar(require("@newrade/core-gatsby-config"));
 const core_utils_1 = require("@newrade/core-utils");
 const path_1 = __importDefault(require("path"));
 const package_json_1 = __importDefault(require("./package.json"));
-const env = core_utils_1.loadDotEnv(path_1.default.resolve(__dirname, '.env'));
+const dot_env_1 = require("./types/dot-env");
+const env = core_utils_1.loadDotEnv({
+    schema: dot_env_1.Env,
+    dotEnvPath: path_1.default.resolve(__dirname, '.env'),
+    packageName: package_json_1.default.name,
+});
 core_utils_1.logEnvVariables({ packageName: package_json_1.default.name, env });
 /**
  * Configure your Gatsby site with this file.
@@ -46,37 +51,36 @@ exports.config = {
         },
     },
     plugins: [
-        {
-            resolve: `gatsby-plugin-page-creator`,
-            options: {
-                path: path_1.default.resolve(__dirname, 'src', 'pages'),
-                ignore: [`**/*.treat.ts`],
-            },
-        },
-        core.getGastbyCorePluginConfig(),
-        core.getGatsbyTsPluginConfig(),
-        core.getGatsbyReactSvgConfig(),
-        core.getGastbyPluginTreatConfig(),
-        core.getGatsbyImageFolder({
-            pathImgDir: path_1.default.join(__dirname, `src`, `images`),
-        }),
-        core.getGatsbyNetlifyPlugin(),
-        core.getGatsbyTransformerSharp(),
-        core.getGatsbyPluginSharp(),
-        core.getGastbyPluginTreatConfig(),
-        core.getGatsbyPluginMdx(),
-        core.getGatsbyPluginPreloadFonts(),
-        core.getGatsbyPluginReactHelmet(),
-        core.getGatsbyPluginSitemap(),
-        core.getGatsbyPluginRobotsTxt({ env }),
+        /**
+         * Project Specific Plugins
+         */
         {
             resolve: `gatsby-source-contentful`,
             options: {
                 spaceId: env.CONTENTFUL_SPACEID_NEWRADE,
                 accessToken: env.CONTENTFUL_DELIVERY_TOKEN_NEWRADE,
-                environment: 'master',
+                environment: env.CONTENTFUL_ENV,
             },
         },
+        /**
+         * Core Plugins
+         */
+        core.getGatsbyTsPluginConfig(),
+        core.getGatsbyReactSvgConfig(),
+        ...core.getGastbyPluginPageCreatorConfig(),
+        core.getGastbyPluginTreatConfig(),
+        core.getGatsbyTransformerSharp(),
+        core.getGatsbyPluginSharp(),
+        core.getGastbyPluginTreatConfig(),
+        core.getGatsbyPluginMdx(),
+        core.getGatsbyImageFolder(),
+        core.getGatsbyPluginReactHelmet(),
+        core.getGatsbyPluginSitemap(),
+        core.getGatsbyPluginRobotsTxt({ env }),
+        core.getGatsbyNetlifyPlugin(),
+        core.getGastbyCorePluginConfig({
+            packageName: package_json_1.default.name,
+        }),
     ],
 };
 exports.default = exports.config;

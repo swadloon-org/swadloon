@@ -9,5 +9,7 @@
 dist/
 public/
 .cache/
-graphql-types.ts
+# graphql-types.ts
 
+Content.ts
+ContentStore.ts

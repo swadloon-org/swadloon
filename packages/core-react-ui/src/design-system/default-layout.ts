@@ -1,70 +1,96 @@
-// import { Layout, BREAKPOINT, Breakpoints, VIEWPORT } from '@newrade/core-design-system';
+import {
+  BREAKPOINT,
+  Breakpoints,
+  Layout,
+  MEDIA_FEATURE,
+  MEDIA_OPERATOR,
+  MEDIA_TYPE,
+  VIEWPORT,
+} from '@newrade/core-design-system';
 
-// const breakpoints: Breakpoints = {
-//   [BREAKPOINT.mobileXSmall]: {
-//     value: 320,
-//     px: `320px`,
-//   },
-//   [BREAKPOINT.mobileSmall]: {
-//     value: 375,
-//     px: `375px`,
-//   },
-//   [BREAKPOINT.mobileMedium]: {
-//     value: 414,
-//     px: `414px`,
-//   },
-//   [BREAKPOINT.tabletPortrait]: {
-//     value: 768,
-//     px: `768px`,
-//   },
-//   [BREAKPOINT.tabletLandscape]: {
-//     value: 1024,
-//     px: `1024px`,
-//   },
-//   [BREAKPOINT.desktopSmall]: {
-//     value: 1280,
-//     px: `1280px`,
-//   },
-//   [BREAKPOINT.desktopMedium]: {
-//     value: 1440,
-//     px: `1440px`,
-//   },
-//   [BREAKPOINT.desktopLarge]: {
-//     value: 1600,
-//     px: `1600px`,
-//   },
-//   [BREAKPOINT.desktopXLarge]: {
-//     value: 1920,
-//     px: `1920px`,
-//   },
-// };
+const defaultBreakpoints: Breakpoints = {
+  [BREAKPOINT.mobileXSmall]: 320,
+  [BREAKPOINT.mobileSmall]: 375,
+  [BREAKPOINT.mobileMedium]: 414,
+  [BREAKPOINT.tabletPortrait]: 768,
+  [BREAKPOINT.tabletLandscape]: 1024,
+  [BREAKPOINT.desktopSmall]: 1280,
+  [BREAKPOINT.desktopMedium]: 1440,
+  [BREAKPOINT.desktopLarge]: 1600,
+  [BREAKPOINT.desktopXLarge]: 1920,
+};
 
-// export const DEFAULT_LAYOUT: Layout = {
-//   breakpoints,
-//   media: {
-//     [VIEWPORT.mobile]: `screen and (max-width: ${breakpoints.tabletPortrait.px})`,
-//     [VIEWPORT.tablet]: `screen and (min-width: ${breakpoints.tabletPortrait.px}) and (max-width: ${breakpoints.desktopSmall.px})`,
-//     tabletPlus: `screen and (min-width: ${breakpoints.tabletPortrait.px}) `,
-//     [VIEWPORT.desktop]: `screen and (min-width: ${breakpoints.desktopSmall.px})`,
-//   },
-//   contentMargins: {
-//     [VIEWPORT.mobile]: {
-//       value: 24,
-//       px: `24px`,
-//     },
-//     [VIEWPORT.tablet]: {
-//       value: 40,
-//       px: `40px`,
-//     },
-//     [VIEWPORT.desktop]: {
-//       value: 40,
-//       px: `40px`,
-//     },
-//   },
-//   contentWidth: {
-//     desktopMaxWidth: {
-//       value: 1200,
-//       px: `1200px`,
-//     },
-//   },
-// };
+export const defaultLayout: Layout = {
+  breakpoints: defaultBreakpoints,
+  media: {
+    [VIEWPORT.mobile]: {
+      queryA: {
+        type: MEDIA_TYPE.screen,
+        feature: MEDIA_FEATURE['max-width'],
+        value: defaultBreakpoints.tabletPortrait,
+      },
+    },
+    [VIEWPORT.tablet]: {
+      queryA: {
+        type: MEDIA_TYPE.screen,
+      },
+      operator: MEDIA_OPERATOR.and,
+      queryB: {
+        queryA: {
+          type: MEDIA_TYPE.screen,
+          feature: MEDIA_FEATURE['min-width'],
+          value: defaultBreakpoints.tabletPortrait,
+        },
+        operator: MEDIA_OPERATOR.and,
+        queryB: {
+          type: MEDIA_TYPE.screen,
+          feature: MEDIA_FEATURE['max-width'],
+          value: defaultBreakpoints.desktopSmall,
+        },
+      },
+    },
+    tabletPlus: {
+      queryA: {
+        type: MEDIA_TYPE.screen,
+        feature: MEDIA_FEATURE['max-width'],
+        value: defaultBreakpoints.tabletPortrait,
+      },
+    },
+    [VIEWPORT.desktop]: {
+      queryA: {
+        type: MEDIA_TYPE.screen,
+        feature: MEDIA_FEATURE['max-width'],
+        value: defaultBreakpoints.tabletPortrait,
+      },
+    },
+
+    // // [VIEWPORT.mobile]: `screen and (max-width: ${defaultBreakpoints.tabletPortrait.px})`,
+    // [VIEWPORT.tablet]: `screen and (min-width: ${defaultBreakpoints.tabletPortrait.px}) and (max-width: ${defaultBreakpoints.desktopSmall.px})`,
+    // tabletPlus: `screen and (min-width: ${defaultBreakpoints.tabletPortrait.px}) `,
+    // [VIEWPORT.desktop]: `screen and (min-width: ${defaultBreakpoints.desktopSmall.px})`,
+  },
+  contentMargins: {
+    [VIEWPORT.mobile]: 24,
+    [VIEWPORT.tablet]: 40,
+    [VIEWPORT.desktop]: 40,
+  },
+  contentWidth: {
+    desktopMaxWidth: 1200,
+  },
+  menubarWidth: {
+    [VIEWPORT.desktop]: 270,
+    [VIEWPORT.tablet]: 270,
+    [VIEWPORT.mobile]: 375,
+  },
+  topbarHeight: {
+    [VIEWPORT.desktop]: 60,
+    [VIEWPORT.tablet]: 60,
+    [VIEWPORT.mobile]: 60,
+  },
+  asideWidth: 210,
+  footerHeight: {
+    [VIEWPORT.desktop]: 210,
+    [VIEWPORT.tablet]: 210,
+    [VIEWPORT.mobile]: 210,
+  },
+};

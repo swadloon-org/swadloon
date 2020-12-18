@@ -11,13 +11,13 @@ type AllStyles = ButtonVariantStyles | ButtonSizeStyles | ButtonIconStyles | But
 
 export const sizes = styleMap<keyof Styles>(({ cssTheme }: Theme) => ({
   large: {
-    padding: cssTheme.components?.buttons.sizes.large.padding?.default,
-    backgroundColor: cssTheme.components?.buttons.variants.primary.backgroundColor,
+    // padding: cssTheme.components?.buttons.sizes.large.padding?.default,
+    // backgroundColor: cssTheme.components?.buttons.variants.primary.backgroundColor,
   },
   medium: {
-    padding: cssTheme.components?.buttons.sizes.large.padding?.default,
+    // padding: cssTheme.components?.buttons.sizes.large.padding?.default,
   },
   small: {
-    padding: cssTheme.components?.buttons.sizes.large.padding?.default,
+    // padding: cssTheme.components?.buttons.sizes.large.padding?.default,
   },
 }));

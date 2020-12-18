@@ -1,0 +1,24 @@
+{
+  "name": "@newrade/core-gatsby-ui",
+  "version": "1.0.0",
+  "description": "Reusable UI components for Gatsby sites",
+  "license": "MIT",
+  "main": "./lib/index.js",
+  "files": [
+    "./lib/**/*"
+  ],
+  "scripts": {
+    "build": "tsc --build tsconfig.build.json",
+    "clean": "rimraf -r lib/** && rm -f tsconfig.build.tsbuildinfo",
+    "start": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
+    "test": "echo ok"
+  },
+  "typings": "./lib/index.d.ts",
+  "dependencies": {
+    "@newrade/core-common": "^1",
+    "@newrade/core-gatsby-config": "^1",
+    "@newrade/core-react-ui": "^1",
+    "@newrade/core-utils": "^1",
+    "@newrade/core-webpack-config": "^1"
+  }
+}

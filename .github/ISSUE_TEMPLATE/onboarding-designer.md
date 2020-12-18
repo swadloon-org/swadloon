@@ -31,11 +31,13 @@ assignees: ''
 - [ ] 1Password account
 - [ ] install 1Password app on personal phone
 - [ ] enable 2FA for 1Password
+- [ ] install and configure Krisp.ai
 
-## Tools
+## Software
 
 - [ ] Chrome browser https://www.google.com/intl/en_ca/chrome/
 - [ ] Figma https://www.figma.com/downloads/
+- [ ] Krisp.ai https://krisp.ai
 
 ## Design Resources
 

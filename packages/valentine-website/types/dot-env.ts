@@ -1,18 +1,30 @@
-import { COMMON_ENV_GATSBY } from '@newrade/core-utils';
+import { CommonEnvGatsby } from '@newrade/core-utils';
+import * as t from 'io-ts';
 
 /**
  * Local, typed representation of the .env file.
  */
-export type ENV = COMMON_ENV_GATSBY & {
-  /**
-   * Figma
-   */
-  FIGMA_TOKEN?: string;
-  FIGMA_FILE?: string;
-  /**
-   * Contentful variables
-   */
-  CONTENTFUL_SPACEID_VALENTINE: string;
-  CONTENTFUL_DELIVERY_TOKEN_VALENTINE: string;
-  CONTENTFUL_MANAGEMENT_TOKEN_VALENTINE: string;
-};
+export const Env = t.intersection([
+  CommonEnvGatsby,
+  t.partial({
+    /**
+     * Figma
+     */
+    FIGMA_TOKEN: t.string,
+    FIGMA_FILE: t.string,
+    /**
+     * Contentful variables
+     */
+    CONTENTFUL_MANAGEMENT_TOKEN_VALENTINE: t.string,
+  }),
+  t.type({
+    /**
+     * Contentful variables
+     */
+    CONTENTFUL_ENV: t.string,
+    CONTENTFUL_SPACEID_VALENTINE: t.string,
+    CONTENTFUL_DELIVERY_TOKEN_VALENTINE: t.string,
+  }),
+]);
+
+export type ENV = t.TypeOf<typeof Env>;

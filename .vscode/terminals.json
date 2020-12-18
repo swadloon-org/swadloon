@@ -39,6 +39,12 @@
       "focus": false
     },
     {
+      "name": "core-common",
+      "cwd": "[workspaceFolder]/packages/core-common",
+      "open": true,
+      "focus": false
+    },
+    {
       "name": "core-figma-plugins",
       "cwd": "[workspaceFolder]/packages/core-figma-plugins",
       "open": true,

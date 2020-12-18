@@ -32,8 +32,8 @@ export const ActionSection: React.FC<OwnProps> = (props) => {
           ></RenderTitleHighlight>
         </div>
         <div className={`${styles.buttonContainer}`}>
-          {props?.link && props?.link.type === 'INTERNAL_PAGE' && props?.link.page?.route ? (
-            <GatsbyLink to={props?.link.page?.route} className={`${styles.button}`}>
+          {props?.link && props?.link.type === 'INTERNAL_PAGE' && props?.link.page?.slug ? (
+            <GatsbyLink to={props?.link.page?.slug} className={`${styles.button}`}>
               <Button
                 className={`${styles.button}`}
                 variantType={variant === SECTION_TYPE.ACTION_PRIMARY ? 'primaryDefault' : 'primaryReversed'}

@@ -1,9 +1,10 @@
 import { Color } from '../primitives/color';
+import { ColorType, NumberType } from '../types';
 
 /**
  * Representation of a box shadow.
  */
-export type BoxShadow<ColorType = Color> = {
+export type BoxShadow = {
   /**
    * Blur value in px.
    */
@@ -23,25 +24,25 @@ export type BoxShadow<ColorType = Color> = {
   /**
    * The box shadow's color.
    */
-  color?: ColorType;
+  color?: Color;
 };
 
 /**
  * Levels of shadows in the system.
  */
-export type Shadows<ShadowType = BoxShadow, ColorType = Color> = {
-  light: ShadowType extends BoxShadow ? BoxShadow<ColorType> : ShadowType;
-  medium: ShadowType extends BoxShadow ? BoxShadow<ColorType> : ShadowType;
-  heavy: ShadowType extends BoxShadow ? BoxShadow<ColorType> : ShadowType;
-} & { [key: string]: ShadowType extends BoxShadow ? BoxShadow<ColorType> : ShadowType };
+export type Shadows<Override extends undefined | string = undefined> = {
+  light: Override extends string ? string : BoxShadow;
+  medium: Override extends string ? string : BoxShadow;
+  heavy: Override extends string ? string : BoxShadow;
+} & { [key: string]: Override extends string ? string : BoxShadow };
 
 /**
  * Representation of a background, either a plain background with a color
  * or a transparent background with a blurring effect.
  */
-export type OverlayBackground = {
-  color: Color;
-  blur?: number;
+export type OverlayBackground<Override extends undefined | string = undefined> = {
+  color: ColorType<Override>;
+  blur?: NumberType<Override>;
 };
 
 /**
@@ -56,8 +57,9 @@ export type Overlays = {
 /**
  * Shadows, elevation, blurs and other visual effects.
  */
-export interface Effects<ShadowType = BoxShadow, ColorType = Color> {
-  shadows: Shadows<ShadowType, ColorType>;
+export interface Effects<Override extends undefined | string = undefined> {
+  shadows: Shadows<Override>;
+  innerShadows: Shadows<Override>;
   // TOOD
   // overlays: Overlays;
 }

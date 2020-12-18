@@ -1,16 +1,12 @@
-import { GatsbyPageContext } from '@newrade/core-gatsby-config';
-import { loadDotEnv, log, LOG_LEVEL } from '@newrade/core-utils';
+import { log, LOG_LEVEL } from '@newrade/core-utils';
 import { GatsbyNode } from 'gatsby';
 import path from 'path';
-import { ENV } from './types/dot-env';
 
 /**
  * Gatsby Node Configuration
  *
  * @see https://www.gatsbyjs.com/docs/node-apis/
  */
-
-const env = loadDotEnv<ENV>(path.resolve(__dirname, '.env'));
 
 export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions;
@@ -47,7 +43,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
   try {
     const pages = await graphql<{
       allContentfulPage: {
-        edges: { node: { id: string; name: string; route: string; node_locale: string } }[];
+        edges: { node: { id: string; name: string; slug: string; node_locale: string } }[];
       };
     }>(
       `
@@ -58,13 +54,14 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
                 node_locale
                 id
                 name
-                route
+                slug
               }
             }
           }
         }
       `
     );
+
     if (pages.errors) {
       throw new Error('Error while retrieving pages');
     }
@@ -81,11 +78,11 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
         return true;
       })
       .forEach((edge, index) => {
-        log(`Creating page: ${edge.node.route}`, {
+        log(`Creating page: ${edge.node.slug}`, {
           toolName: 'valentine-website',
         });
-        createPage<GatsbyPageContext>({
-          path: edge.node.route,
+        createPage({
+          path: edge.node.slug,
           component: pageTemplate,
           context: {
             pageId: edge.node.id,

@@ -11,19 +11,19 @@
   "scripts": {
     "build": "tsc --build tsconfig.build.json",
     "clean": "rimraf -r lib/** && rm -f tsconfig.build.tsbuildinfo",
-    "create-space": "cross-env TS_NODE_PROJECT=tsconfig.build.json node -r ts-node/register src/create-space.ts",
-    "delete-space": "cross-env TS_NODE_PROJECT=tsconfig.build.json node -r ts-node/register src/delete-space.ts",
-    "exportcontent": "contentful space export --config contentful-export-config.json",
-    "importcontent": "contentful space import --config contentful-import-config.json",
-    "start": "tsc --build --watch --preserveWatchOutput tsconfig.build.json",
-    "test3": "contentful-generate -v"
+    "export-content": ". .env && contentful space export --space-id=$CONTENTFUL_SPACEID --management-token=$CONTENTFUL_MANAGEMENT_TOKEN --environment-id=$CONTENTFUL_ENV --content-file=contentful-export-space.json",
+    "import-content": "contentful space import",
+    "run-migration": "cross-env TS_NODE_PROJECT=tsconfig.build.json node -r ts-node/register src/run-migration.ts",
+    "start": "tsc --build --watch --preserveWatchOutput tsconfig.build.json"
   },
   "dependencies": {
     "contentful-migration": "^2.0.4"
   },
   "devDependencies": {
     "@contentful-tools/cli": "^0.7.3",
-    "@newrade/core-gatsby-config": "^1.4.2",
-    "@newrade/core-webpack-config": "^1.3.2"
+    "@newrade/core-common": "^1",
+    "@newrade/core-gatsby-config": "^1",
+    "@newrade/core-utils": "^1",
+    "@newrade/core-webpack-config": "^1"
   }
 }

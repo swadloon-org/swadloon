@@ -1,3 +1,4 @@
+import { MediaQueryType } from '../types';
 import { VIEWPORT } from './layout';
 
 export enum MEDIA_TYPE {
@@ -29,8 +30,8 @@ export enum MEDIA_OPERATOR {
  */
 export type MediaQuery = {
   type?: MEDIA_TYPE;
-  feature: MEDIA_FEATURE;
-  value: string;
+  feature?: MEDIA_FEATURE;
+  value?: number;
 };
 
 /**
@@ -40,14 +41,14 @@ export type MediaQuery = {
 export type MediaQueryGroup = {
   queryA: MediaQuery;
   operator?: MEDIA_OPERATOR;
-  queryB?: MediaQuery;
+  queryB?: MediaQuery | MediaQueryGroup;
 };
 /**
  * Breakpoints values in pixel.
  */
 
-export type MediaQueries<MediaQueryType = MediaQueryGroup> = {
-  [key in keyof typeof VIEWPORT]: MediaQueryType;
+export type MediaQueries<Override extends undefined | string = undefined> = {
+  [key in keyof typeof VIEWPORT]: MediaQueryType<Override>;
 } & {
-  tabletPlus: MediaQuery;
+  tabletPlus: MediaQueryType<Override>;
 };

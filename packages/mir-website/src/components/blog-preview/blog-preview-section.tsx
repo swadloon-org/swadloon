@@ -96,8 +96,8 @@ export const BlogPreviewSection: React.FC<OwnProps> = (props) => {
             </div>
           </div>
 
-          {props?.link?.page?.route ? (
-            <GatsbyLink to={props?.link?.page?.route}>
+          {props?.link?.page?.slug ? (
+            <GatsbyLink to={props?.link?.page?.slug}>
               <Button variantType="primaryDefault" size="medium" variant="text">
                 {props?.link?.label}
               </Button>
@@ -140,8 +140,8 @@ export const BlogPreviewSection: React.FC<OwnProps> = (props) => {
           </div>
         </div>
 
-        {props?.link?.page?.route ? (
-          <GatsbyLink to={props?.link.page?.route} style={{ margin: 'auto' }}>
+        {props?.link?.page?.slug ? (
+          <GatsbyLink to={props?.link.page?.slug} style={{ margin: 'auto' }}>
             <Button variantType="primaryDefault" size="medium" variant="text">
               {props?.link.label}
             </Button>

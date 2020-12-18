@@ -1,7 +1,9 @@
 {
   "extends": "../core-gatsby-config/src/tsconfig/tsconfig.ts-plugin.json",
   "compilerOptions": {
-    "rootDir": "."
+    "allowJs": true,
+    "rootDir": ".",
+    "strict": true
   },
   "references": [
     {
@@ -20,5 +22,6 @@
       "path": "../core-webpack-config/tsconfig.build.json"
     }
   ],
-  "include": ["src", "types"]
+  "include": ["src", "types"],
+  "exclude": ["public"]
 }

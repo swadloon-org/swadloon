@@ -1,16 +1,10 @@
-export enum HeadingVariant {
-  h0 = 'h0',
-  h1 = 'h1',
-  h2 = 'h2',
-  h3 = 'h3',
-  h4 = 'h4',
-}
+import { HEADING } from '../../foundations/typography';
 
 export interface HeadingProps {
-  variant?: HeadingVariant;
+  variant?: HEADING;
 }
 
-export type HeadingVariants = { [key in keyof typeof HeadingVariant]: HeadingStyle };
+export type HeadingVariants = { [key in keyof typeof HEADING]: HeadingStyle };
 
 export interface HeadingStyle {
   color?: string;
