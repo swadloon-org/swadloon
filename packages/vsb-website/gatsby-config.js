@@ -57,7 +57,7 @@ const config = {
             options: {
                 spaceId: env.CONTENTFUL_SPACEID_VSB,
                 accessToken: env.CONTENTFUL_DELIVERY_TOKEN_VSB,
-                environment: 'master',
+                environment: env.CONTENTFUL_ENV,
             },
         },
         /**

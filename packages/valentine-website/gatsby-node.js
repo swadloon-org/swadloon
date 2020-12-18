@@ -51,7 +51,7 @@ exports.createPages = async ({ graphql, actions }) => {
                 node_locale
                 id
                 name
-                route
+                slug
               }
             }
           }
@@ -72,11 +72,11 @@ exports.createPages = async ({ graphql, actions }) => {
             return true;
         })
             .forEach((edge, index) => {
-            core_utils_1.log(`Creating page: ${edge.node.route}`, {
+            core_utils_1.log(`Creating page: ${edge.node.slug}`, {
                 toolName: 'valentine-website',
             });
             createPage({
-                path: edge.node.route,
+                path: edge.node.slug,
                 component: pageTemplate,
                 context: {
                     pageId: edge.node.id,
