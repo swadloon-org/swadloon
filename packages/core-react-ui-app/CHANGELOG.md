@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.3](https://github.com/newrade/newrade/compare/@newrade/core-react-ui-app@1.5.2...@newrade/core-react-ui-app@1.5.3) (2020-12-18)
+
+### Bug Fixes
+
+- **build:** fix newrade-website ([070b12a](https://github.com/newrade/newrade/commit/070b12a4a7faaf59a1a837c15191e4a6c87b79ab))
+- **core-common:** remove browser code from core-utils ([b2595fc](https://github.com/newrade/newrade/commit/b2595fcc496d8876b0f658592a66659840d1ec92))
+- **core-contentful-lib:** changes ([d42278c](https://github.com/newrade/newrade/commit/d42278c313ec5ca24a450536f7dc9b624a6d2fc1))
+- **core-design-system:** fix merge ([9339fed](https://github.com/newrade/newrade/commit/9339fede481bdca142b0e34aca24f0c72d9ac688))
+- **core-gatsby-config:** commit missing files ([058477e](https://github.com/newrade/newrade/commit/058477e49cb3d3a7b398c58bf659f4f520b8a12e))
+- **core-gatsby-starter:** fix page creation ([9e6ffaa](https://github.com/newrade/newrade/commit/9e6ffaa854dabb24560f18d673f61e9542ddebe2))
+- **core-gatsby-starter:** refactor templates + setup pages and markdown ([4aaa949](https://github.com/newrade/newrade/commit/4aaa949750c94a939b35767f2bd3fb20b8fb2614))
+- **core-react-ui:** wip ([093aa8f](https://github.com/newrade/newrade/commit/093aa8fb17d1c4b8aecca90142666984e239976d))
+- **repo:** add .env type checking to all packages ([d382e42](https://github.com/newrade/newrade/commit/d382e42e2dcfbff0b635b4aa1f2c04e56deda4d7))
+
 ## [1.5.2](https://github.com/newrade/newrade/compare/@newrade/core-react-ui-app@1.5.1...@newrade/core-react-ui-app@1.5.2) (2020-11-30)
 
 **Note:** Version bump only for package @newrade/core-react-ui-app

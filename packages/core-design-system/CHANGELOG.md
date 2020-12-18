@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-design-system@1.4.0...@newrade/core-design-system@1.5.0) (2020-12-18)
+
+### Bug Fixes
+
+- **core-contentful-lib:** changes ([d42278c](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/d42278c313ec5ca24a450536f7dc9b624a6d2fc1))
+- **core-design-system:** add new components ([fc81d9f](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/fc81d9f05d3241e3bec30d922c4bd1bf09189448))
+- **core-design-system:** simplify typography.ts ([2885d71](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/2885d718647ca3cee50e96c5d4b4494f7a271fd3))
+- **core-design-system:** wip ([36b5e4c](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/36b5e4cb0bbc348a862cc396e74c76aa1a388356))
+- **core-design-system:** wip ([80f4e50](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/80f4e50d7034938456c4ed2408891bac0b0df528))
+- **core-design-system:** wip ([92ee1a7](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/92ee1a7990fa1e2b9ba9a6892180df0082b13f9d))
+- **core-react-ui:** fix test and ts-jest config ([e3624f2](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/e3624f2929c437fb49ed5eec0c580171308a29aa))
+- **core-react-ui:** wip ([093aa8f](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/093aa8fb17d1c4b8aecca90142666984e239976d))
+- **core-react-ui:** wip ([c2f5aa3](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/c2f5aa388845dd6b99e065a26aaf0707fb2711b1))
+
+### Features
+
+- **core-contentful-lib:** continue cleanup ([ebc45de](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/ebc45de5c34719e785542583009de3cb1082c551))
+- **core-design-system:** finalize v2 ([c50fa62](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/c50fa62e39b7e2fe87396223d92b88bb7644c008))
+- **core-react-ui:** add colors ([a47ea32](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/a47ea32bdf16dab1a0effb55a33230698aadfbdc))
+- **core-react-ui:** wip ([056953e](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/056953e021d0717de906ad36c4da684617d66309))
+- **core-react-ui:** wip for typography ([7974d81](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/7974d813caa29f325729e37dc6328478fc2b403b))
+- **layout:** adding the layout center in the gatsby starter ([ee68dfa](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/ee68dfaf544e255cfe63b23e85c8461b4bfaefe3))
+- **react-ui:** adding typography utilities ([bed28c6](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/bed28c6e62523dbbd449679f0f02ba8e255e547d))
+
 # 1.4.0 (2020-11-02)
 
 ### Bug Fixes

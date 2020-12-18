@@ -3,6 +3,47 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/mir-website@1.7.1...@newrade/mir-website@1.8.0) (2020-12-18)
+
+### Bug Fixes
+
+- **build:** fix newrade-website ([070b12a](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/070b12a4a7faaf59a1a837c15191e4a6c87b79ab))
+- **build:** make each pacakge build independent ([562c720](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/562c7208f2a75b187e82139a731ab01462846cd3))
+- **build:** make some env variable optional ([60a93d6](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/60a93d6b2565bb0c63e54b167da19ccd245b58d7))
+- **contentful:** fix mir-website after migration ([301c769](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/301c769579eea0ee2f97b8fbb1fe2a6afc6a06ff))
+- **core-common:** remove browser code from core-utils ([b2595fc](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/b2595fcc496d8876b0f658592a66659840d1ec92))
+- **core-contentful-lib:** changes ([d42278c](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/d42278c313ec5ca24a450536f7dc9b624a6d2fc1))
+- **core-design-system:** wip ([36b5e4c](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/36b5e4cb0bbc348a862cc396e74c76aa1a388356))
+- **core-design-system:** wip ([92ee1a7](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/92ee1a7990fa1e2b9ba9a6892180df0082b13f9d))
+- **core-gastby-config:** separate UI components ([be3d23e](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/be3d23eafc6dbe76e293512fbec5521a8af5db73))
+- **core-gatsby-config:** commit missing files ([058477e](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/058477e49cb3d3a7b398c58bf659f4f520b8a12e))
+- **core-gatsby-config:** fix config ([0ce5d65](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/0ce5d65cb93e700ca30037a18c0bf69cea6f3eaf))
+- **core-gatsby-starter:** add dot env files type check ([4c65040](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/4c65040705a61efbf9e55ecd585a789dbfd9f623))
+- **core-gatsby-starter:** refactor templates + setup pages and markdown ([4aaa949](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/4aaa949750c94a939b35767f2bd3fb20b8fb2614))
+- **core-react-ui:** wip ([093aa8f](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/093aa8fb17d1c4b8aecca90142666984e239976d))
+- **fix-vsb-valentine:** fixing the rest of the website with the correct mdx template ([a372c30](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/a372c3091f0898d2c3c0665642638fbd9aec1d5c))
+- **gastby:** fixes for markdown file generation ([2982616](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/29826163498932d216cc22ec713d7de076812fbb))
+- **gatsby:** add CONTENTFUL_ENV ([57f970a](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/57f970aca24374baaca31eeea029912a4893dce8))
+- **mir-website:** fix bad import ([e9c9435](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/e9c943595923319f4fff11a4736470d053361216))
+- **mir-website:** fix import linked to core-react-ui ([d3e03cb](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/d3e03cb0b1a34655519f2331c16b013bb6467f42))
+- **mir-website:** fix links ([facb7fe](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/facb7fedc83b5659a3a3828df271e11bcf1468b9))
+- **mir-website:** migrate page.route to page.slug ([a1ab95d](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/a1ab95dd942a907fc6b256681864578b287d842d))
+- **repo:** add .env type checking to all packages ([d382e42](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/d382e42e2dcfbff0b635b4aa1f2c04e56deda4d7))
+- **repo:** new commands to start websites ([a35dcbe](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/a35dcbe66f5e18db3431812fc74e24564394c41b))
+
+### Features
+
+- **core-gastby-config:** add feature to common plugin ([338812a](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/338812a356d19a3d985000def12028b1e25e0220))
+- **core-gatsby-starter:** wip in markdown ([99c407f](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/99c407f7416b821ad4703ed6431285578428758d))
+- **core-react-ui:** add CSSReset component and other utilities ([dadedcb](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/dadedcb398a615c60a6a9785faa4cdfd5e9b0c6e))
+- **core-react-ui:** add CSSReset component and other utilities ([12b1faa](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/12b1faa6fba61ed8f87026be96ef492538b716db))
+- **core-react-ui:** add docs navigation ([f49a46c](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/f49a46c81bf33d0a9c818bc801617c40262f93ef))
+- **generate-enum:** new config and script for generating types of enum (work in progress) ([d3909df](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/d3909dfad677ce7ec2baefd006626503ed363cd4))
+- **generate-enums:** cannot generate enums type but the basic type are generate ([6978854](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/6978854de01eb6b00f7ee3b190a03bdb976afb42))
+- **generate-enums:** exploring new possibility of errors ([5e6e610](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/5e6e61098fb747d4488090c1473a1cb42331d3b8))
+- **mir-update-config:** adding the new config for env and create page ([652cf71](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/652cf71b0882252a8ab1b657b3c5caafe87d6506))
+- **scripts:** add type checking script ([8abd27c](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/8abd27c4d4295b65cedd507cad12a612c78fca44))
+
 ## [1.7.1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/mir-website@1.7.0...@newrade/mir-website@1.7.1) (2020-11-30)
 
 ### Bug Fixes

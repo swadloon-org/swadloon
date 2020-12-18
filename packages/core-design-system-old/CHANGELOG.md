@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.4](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-design-system-old@1.3.3...@newrade/core-design-system-old@1.3.4) (2020-12-18)
+
+### Bug Fixes
+
+- **core-contentful-lib:** changes ([d42278c](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/d42278c313ec5ca24a450536f7dc9b624a6d2fc1))
+- **repo:** add .env type checking to all packages ([d382e42](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/d382e42e2dcfbff0b635b4aa1f2c04e56deda4d7))
+
 ## 1.3.3 (2020-11-02)
 
 ### Bug Fixes
