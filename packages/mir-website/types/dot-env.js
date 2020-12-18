@@ -42,6 +42,7 @@ exports.Env = t.intersection([
         /**
          * Contentful variables
          */
+        CONTENTFUL_ENV: t.string,
         CONTENTFUL_SPACEID_MIR: t.string,
         CONTENTFUL_DELIVERY_TOKEN_MIR: t.string,
     }),

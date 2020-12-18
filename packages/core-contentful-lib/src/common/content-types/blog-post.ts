@@ -25,9 +25,12 @@ export const createBlogPost: Migration.MigrationFunction = function (migration) 
     validations: [
       {
         regexp: {
-          pattern: '^([a-z]-?)+',
-          flags: 'g',
+          pattern: `^(\/[a-z,0-9,-]+)*\/`,
+          flags: `g`,
         },
+      },
+      {
+        unique: true,
       },
     ],
   });

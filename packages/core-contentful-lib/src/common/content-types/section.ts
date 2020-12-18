@@ -38,6 +38,9 @@ export function createSection(migration: Migration.default) {
       },
     ],
   });
+  content.changeFieldControl(COMMON_FIELD.TYPE, 'builtin', CONTENTFUL_WIDGET.ENTRY_CARD_EDITOR, {
+    helpText: 'Select section type',
+  });
 
   /**
    * Variant of the section

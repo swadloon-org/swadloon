@@ -56,6 +56,7 @@ export enum COMMON_FIELD {
    * Company related fields
    */
   COMPANY_NAME = 'companyName',
+  COPYRIGHT = 'copyright',
   LOGO = 'logo',
   LOGO_FOOTER = 'logoFooter',
   FAVICON = 'favicon',
@@ -104,7 +105,7 @@ export const urlField: IFieldOptions = {
   validations: [
     {
       regexp: {
-        pattern: `^(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-/]))?$`,
+        pattern: `^(ftp|http|https):\\/\\/(\\w+:{0,1}\\w*@)?(\\S+)(:[0-9]+)?(\\/|\\/([\\w#!:.?+=&%@!\-/]))?$`,
         flags: 'g',
       },
       message: 'Please enter a valid URL (e.g. https://www.google.com)',
@@ -121,7 +122,7 @@ export const emailField: IFieldOptions = {
   validations: [
     {
       regexp: {
-        pattern: `^\w[\w.-]*@([\w-]+\.)+[\w-]+$`,
+        pattern: `^\\w[\\w.-]*@([\\w-]+\\.)+[\\w-]+$`,
         flags: 'g',
       },
       message: 'Please enter a valid email',

@@ -21,6 +21,7 @@ export const Env = t.intersection([
     /**
      * Contentful variables
      */
+    CONTENTFUL_ENV: t.string,
     CONTENTFUL_SPACEID_NEWRADE: t.string,
     CONTENTFUL_DELIVERY_TOKEN_NEWRADE: t.string,
   }),

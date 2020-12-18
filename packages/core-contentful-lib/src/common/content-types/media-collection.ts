@@ -12,6 +12,7 @@ import { CAROUSEL_STYLE, COMMON_SIZE, COMMON_STYLE_VARIANT, COMMON_VARIANT } fro
 export const createMediaCollection: Migration.MigrationFunction = function (migration) {
   const content = migration.createContentType(COMMON_CONTENT_TYPE.MEDIA_COLLECTION, {
     name: pascal(COMMON_CONTENT_TYPE.MEDIA_COLLECTION),
+    displayField: COMMON_FIELD.NAME,
   });
 
   /**
@@ -36,7 +37,6 @@ export const createMediaCollection: Migration.MigrationFunction = function (migr
   content.createField('carouselStyle', {
     name: pascal('carouselStyle'),
     type: 'Symbol',
-    required: true,
     validations: [
       {
         in: keys(CAROUSEL_STYLE),

@@ -37,7 +37,7 @@ export const config: Gatsby.GatsbyConfig = {
       options: {
         spaceId: env.CONTENTFUL_SPACEID_NEWRADE,
         accessToken: env.CONTENTFUL_DELIVERY_TOKEN_NEWRADE,
-        environment: 'master',
+        environment: env.CONTENTFUL_ENV,
       },
     },
     /**

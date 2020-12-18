@@ -45,6 +45,11 @@ export const createCompanyInfo: Migration.MigrationFunction = function (migratio
     linkType: 'Asset',
   });
 
+  content.createField(COMMON_FIELD.COPYRIGHT, {
+    name: pascal(COMMON_FIELD.COPYRIGHT),
+    type: 'Symbol',
+  });
+
   content.createField('linkedinPageURL', { name: 'LinkedinPageURL', type: 'Symbol' });
   content.createField('facebookPageURL', { name: 'FacebookPageURL', type: 'Symbol' });
   content.createField('instagramPageURL', { name: 'InstagramPageURL', type: 'Symbol' });

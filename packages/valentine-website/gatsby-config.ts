@@ -36,7 +36,7 @@ const config: core.GastbySiteConfig = {
       options: {
         spaceId: env.CONTENTFUL_SPACEID_VALENTINE,
         accessToken: env.CONTENTFUL_DELIVERY_TOKEN_VALENTINE,
-        environment: 'master',
+        environment: env.CONTENTFUL_ENV,
       },
     },
     /**
