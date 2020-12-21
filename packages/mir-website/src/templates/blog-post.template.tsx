@@ -6,6 +6,8 @@ import {
   getMetadataTwitterTags,
   OPEN_GRAPH_TYPE,
 } from '@newrade/core-react-ui-old';
+import { Article, Organization } from 'schema-dts';
+import { helmetJsonLdProp } from 'react-schemaorg';
 import { graphql, PageProps } from 'gatsby';
 import React from 'react';
 import Helmet from 'react-helmet';
@@ -55,7 +57,44 @@ export const BlogPostTemplate: React.FC<ProjectPageProps> = ({ data, location, .
     <MDXProvider components={markdownComponents}>
       <TreatProvider theme={light}>
         <ViewportProvider context={viewportContext}>
-          <Helmet>
+          <Helmet
+            script={[
+              helmetJsonLdProp<Organization>({
+                '@context': 'https://schema.org',
+                '@type': 'Organization',
+                name: `${data?.contentfulCompanyInfo?.companyName}`,
+                url: `${data?.site?.siteMetadata?.siteUrl}`,
+                logo: {
+                  '@type': 'ImageObject',
+                  url: `${data?.contentfulCompanyInfo?.logo?.file?.url}`,
+                },
+              }),
+              helmetJsonLdProp<Article>({
+                '@context': 'https://schema.org',
+                '@type': 'Article',
+                mainEntityOfPage: {
+                  '@type': 'WebPage',
+                  '@id': `${data?.site?.siteMetadata?.siteUrl}`,
+                },
+                headline: `${data?.contentfulBlogPost?.title}`,
+                image: [`${data?.contentfulBlogPost?.blogMainImage?.socialMediaImage?.src}`],
+                datePublished: `${data?.contentfulBlogPost?.createdAt}`,
+                dateModified: `${data?.contentfulBlogPost?.updatedAt}`,
+                author: {
+                  '@type': 'Organization',
+                  name: `${data?.contentfulBlogPost?.blogAuthor?.[0]?.firstName} ${data?.contentfulBlogPost?.blogAuthor?.[0]?.lastName}`,
+                },
+                publisher: {
+                  '@type': 'Organization',
+                  name: `${data?.contentfulCompanyInfo?.companyName}`,
+                  logo: {
+                    '@type': 'ImageObject',
+                    url: `${data?.contentfulCompanyInfo?.logo?.file?.url}`,
+                  },
+                },
+              }),
+            ]}
+          >
             {getMetaBasicTags()}
             {getMetadataOpenGraphWebsiteTags({
               type: OPEN_GRAPH_TYPE.ARTICLE,
