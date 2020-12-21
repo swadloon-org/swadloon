@@ -14,7 +14,7 @@ export const pageQuery = graphql`
     title
     slug
 
-    pageType {
+    type {
       type
     }
   }

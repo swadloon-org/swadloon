@@ -14,6 +14,7 @@ import { TreatProvider } from 'react-treat';
 import { GatsbyNodeSiteMetadataFragment, PageQuery } from '../../types/graphql-types';
 import { HomeTemplate } from './home.template';
 import { PROJECT_PAGE_TYPE } from '../../types/page-type';
+import { Providers } from '../layouts/providers';
 
 export type ProjectPageProps = PageProps<PageQuery, GatsbyPageContext<GatsbyNodeSiteMetadataFragment>>;
 
@@ -22,9 +23,11 @@ export const pageQuery = graphql`
     site {
       ...SiteMetadata
     }
+
     contentfulCompanyInfo {
       ...CompanyInfo
     }
+
     allContentfulPage {
       edges {
         node {
@@ -35,9 +38,10 @@ export const pageQuery = graphql`
           description {
             description
           }
-          pageType {
+          type {
             type
           }
+          slug
         }
       }
     }
@@ -49,48 +53,33 @@ export const pageQuery = graphql`
 
 export const PageTemplate: React.FC<ProjectPageProps> = ({ data, location, ...props }) => {
   return (
-    <TreatProvider theme={light}>
-      <ViewportProvider context={viewportContext}>
-        <Helmet>
-          {getMetaBasicTags()}
-          {getMetadataOpenGraphWebsiteTags({
-            type: OPEN_GRAPH_TYPE.WEBSITE,
-            title: `${data?.contentfulPage?.title}`,
-            url: `${data?.site?.siteMetadata?.siteUrl}${data?.contentfulPage?.route}`,
-            description: `${data?.contentfulPage?.description?.description}`,
-            image: `${data?.contentfulPage?.bannerImages?.medias?.[0]?.socialMediaImage?.src}`,
-            site_name: `${data?.contentfulCompanyInfo?.metadataSiteName}`,
-            lang: data?.contentfulPage?.node_locale?.includes('fr') ? 'fr' : 'en',
-            locale: data?.contentfulPage?.node_locale?.includes('fr') ? 'fr_CA' : 'en_CA',
-            localeAlternate: data?.contentfulPage?.node_locale?.includes('en') ? 'fr_CA' : 'en_CA',
-          })}
-          {getMetadataTwitterTags({
-            card: 'summary_large_image',
-            image: `${data?.contentfulPage?.bannerImages?.medias?.[0]?.socialMediaImage?.src}`,
-            creator: `${data?.contentfulCompanyInfo?.metadataTwitterCreator}`,
-            site: `${data?.contentfulCompanyInfo?.metadataTwitterSite}`,
-          })}
-        </Helmet>
-        <Layout
-          currentPageName={data?.contentfulPage?.name as string | PROJECT_PAGE_TYPE}
-          location={location}
-          logoURL={data?.contentfulCompanyInfo?.logo?.file?.url as string | null}
-          linkedinPageURL={data?.contentfulCompanyInfo?.linkedinPageURL as string | null}
-          facebookPageURL={data?.contentfulCompanyInfo?.facebookPageURL as string | null}
-          instagramPageURL={data?.contentfulCompanyInfo?.instagramPageURL as string | null}
-          twitterPageURL={data?.contentfulCompanyInfo?.twitterPageURL as string | null}
-          pages={data?.allContentfulPage?.edges?.map((edge) => ({
-            ...edge?.node,
-            locale: edge?.node?.node_locale,
-          }))}
-        >
-          {getPageTemplateComponent({
-            pageType: data?.contentfulPage?.pageType?.type as any,
-            props: { data, location, ...props },
-          })}
-        </Layout>
-      </ViewportProvider>
-    </TreatProvider>
+    <Providers>
+      <Helmet>
+        {getMetaBasicTags()}
+        {getMetadataOpenGraphWebsiteTags({
+          type: OPEN_GRAPH_TYPE.WEBSITE,
+          title: `${data?.contentfulPage?.title}`,
+          url: `${data?.site?.siteMetadata?.siteUrl}${data?.contentfulPage?.slug}`,
+          description: `${data?.contentfulPage?.description?.description}`,
+          image: `${data?.contentfulPage?.bannerImages?.medias?.[0]?.socialMediaImage?.src}`,
+          site_name: `${data?.contentfulCompanyInfo?.metadataSiteName}`,
+          lang: data?.contentfulPage?.node_locale?.includes('fr') ? 'fr' : 'en',
+          locale: data?.contentfulPage?.node_locale?.includes('fr') ? 'fr_CA' : 'en_CA',
+          localeAlternate: data?.contentfulPage?.node_locale?.includes('en') ? 'fr_CA' : 'en_CA',
+        })}
+        {getMetadataTwitterTags({
+          card: 'summary_large_image',
+          image: `${data?.contentfulPage?.bannerImages?.medias?.[0]?.socialMediaImage?.src}`,
+          creator: `${data?.contentfulCompanyInfo?.metadataTwitterCreator}`,
+          site: `${data?.contentfulCompanyInfo?.metadataTwitterSite}`,
+        })}
+      </Helmet>
+
+      {getPageTemplateComponent({
+        pageType: data?.contentfulPage?.type?.type as any,
+        props: { data, location, ...props },
+      })}
+    </Providers>
   );
 };
 
