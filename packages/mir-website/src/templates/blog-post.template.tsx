@@ -6,7 +6,7 @@ import {
   getMetadataTwitterTags,
   OPEN_GRAPH_TYPE,
 } from '@newrade/core-react-ui-old';
-import { Article } from 'schema-dts';
+import { Article, Organization } from 'schema-dts';
 import { helmetJsonLdProp } from 'react-schemaorg';
 import { graphql, PageProps } from 'gatsby';
 import React from 'react';
@@ -59,12 +59,22 @@ export const BlogPostTemplate: React.FC<ProjectPageProps> = ({ data, location, .
         <ViewportProvider context={viewportContext}>
           <Helmet
             script={[
+              helmetJsonLdProp<Organization>({
+                '@context': 'https://schema.org',
+                '@type': 'Organization',
+                name: `${data?.contentfulCompanyInfo?.companyName}`,
+                url: `${data?.site?.siteMetadata?.siteUrl}`,
+                logo: {
+                  '@type': 'ImageObject',
+                  url: `${data?.contentfulCompanyInfo?.logo?.file?.url}`,
+                },
+              }),
               helmetJsonLdProp<Article>({
                 '@context': 'https://schema.org',
                 '@type': 'Article',
                 mainEntityOfPage: {
                   '@type': 'WebPage',
-                  '@id': 'https://mirinc.ca',
+                  '@id': `${data?.site?.siteMetadata?.siteUrl}`,
                 },
                 headline: `${data?.contentfulBlogPost?.title}`,
                 image: [`${data?.contentfulBlogPost?.blogMainImage?.socialMediaImage?.src}`],
@@ -76,7 +86,7 @@ export const BlogPostTemplate: React.FC<ProjectPageProps> = ({ data, location, .
                 },
                 publisher: {
                   '@type': 'Organization',
-                  name: 'MIR Inc',
+                  name: `${data?.contentfulCompanyInfo?.companyName}`,
                   logo: {
                     '@type': 'ImageObject',
                     url: `${data?.contentfulCompanyInfo?.logo?.file?.url}`,

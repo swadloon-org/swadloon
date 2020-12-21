@@ -119,6 +119,7 @@ jobs:
       run: yarn build --scope @newrade/valentine-website
       env:
         APP_URL: 'http://local.valentinebv.com'
+        CONTENTFUL_ENV: ${{ secrets.CONTENTFUL_ENV }}
         CONTENTFUL_SPACEID_VALENTINE: ${{ secrets.CONTENTFUL_SPACEID_VALENTINE }}
         CONTENTFUL_DELIVERY_TOKEN_VALENTINE : ${{ secrets.CONTENTFUL_DELIVERY_TOKEN_VALENTINE }}
         NVM_NODE_VERSION: ${{ secrets.NVM_NODE_VERSION }}
@@ -134,6 +135,7 @@ jobs:
       run: yarn build --scope @newrade/vsb-website
       env:
         APP_URL: 'http://local.vasectomie-pierre-boucher.ca'
+        CONTENTFUL_ENV: ${{ secrets.CONTENTFUL_ENV }}
         CONTENTFUL_SPACEID_VSB: ${{ secrets.CONTENTFUL_SPACEID_VSB }}
         CONTENTFUL_DELIVERY_TOKEN_VSB: ${{ secrets.CONTENTFUL_DELIVERY_TOKEN_VSB }}
         NVM_NODE_VERSION: ${{ secrets.NVM_NODE_VERSION }}
