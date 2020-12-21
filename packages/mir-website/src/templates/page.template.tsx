@@ -8,17 +8,18 @@ import {
 import { graphql, PageProps } from 'gatsby';
 import React from 'react';
 import Helmet from 'react-helmet';
+import { helmetJsonLdProp } from 'react-schemaorg';
 import { TreatProvider } from 'react-treat';
-import { PageQuery, GatsbyNodeSiteMetadataFragment } from '../../types/graphql-types';
+import { Organization } from 'schema-dts';
+import { GatsbyNodeSiteMetadataFragment, PageQuery } from '../../types/graphql-types';
 import { ViewportProvider } from '../context/viewport.context';
 import { light } from '../design-system/themes.treat';
 import { viewportContext } from '../hooks/use-viewport.hook';
 import { Layout } from '../layouts/page.layout';
+import '../styles/font-faces.styles.css';
 import { BlogTemplate } from './blog.template';
 import { ContactTemplate } from './contact.template';
 import { HomeTemplate } from './home.template';
-
-import '../styles/font-faces.styles.css';
 import { NotFoundTemplate } from './not-found.template';
 
 export type ProjectPageProps = PageProps<PageQuery, GatsbyPageContext<GatsbyNodeSiteMetadataFragment>>;
@@ -65,7 +66,20 @@ export const PageTemplate: React.FC<ProjectPageProps> = ({ data, location, ...pr
   return (
     <TreatProvider theme={light}>
       <ViewportProvider context={viewportContext}>
-        <Helmet>
+        <Helmet
+          script={[
+            helmetJsonLdProp<Organization>({
+              '@context': 'https://schema.org',
+              '@type': 'Organization',
+              name: `${data?.contentfulCompanyInfo?.companyName}`,
+              url: `${data?.site?.siteMetadata?.siteUrl}`,
+              logo: {
+                '@type': 'ImageObject',
+                url: `${data?.contentfulCompanyInfo?.logo?.file?.url}`,
+              },
+            }),
+          ]}
+        >
           {getMetaBasicTags()}
           {getMetadataOpenGraphWebsiteTags({
             type: OPEN_GRAPH_TYPE.WEBSITE,

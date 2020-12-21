@@ -24,12 +24,24 @@ https://developers.google.com/search/reference/robots_txt
 - iFramely: http://debug.iframely.com/
 - Twitter: https://cards-dev.twitter.com/validator
 - Google Rich Result Test: https://search.google.com/test/rich-results
+- https://search.google.com/test/rich-results
+
+https://saijogeorge.com/best-marketing-tools/
+https://www.screamingfrog.co.uk/seo-spider/
+
+For google business review
+https://supple.com.au/tools/google-review-link-generator/
 
 ## Specs
 
 - Schema and microdata: https://schema.org/docs/gs.html
 - Open Graph: https://ogp.me/
 - Google Rich Data: https://developers.google.com/search/docs/data-types/article
+
+## Libraries
+
+- JSON for Linking Data https://json-ld.org/
+- JSON-LD TypeScript types for Schema.org vocabulary. https://github.com/google/schema-dts
 
 ## Formats
 
@@ -45,8 +57,9 @@ Source:https://en.wikipedia.org/wiki/ISO_8601
 
 ## Glossary
 
-| Name | Definition                  |
-| ---- | :-------------------------- |
-| SERP | Search Engine Results Pages |
+| Name    | Definition                  |
+| ------- | :-------------------------- |
+| SERP    | Search Engine Results Pages |
+| JSON-LD | JSON for Linking Data       |
 
 ---
