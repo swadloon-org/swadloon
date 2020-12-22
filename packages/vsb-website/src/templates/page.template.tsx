@@ -1,31 +1,32 @@
-import { GatsbyPageContext } from '@newrade/core-gatsby-config';
+import { GatsbyPageContext, GatsbyNodeSiteMetadataFragment } from '@newrade/core-gatsby-config';
 import {
   getMetaBasicTags,
   getMetadataOpenGraphWebsiteTags,
   getMetadataTwitterTags,
   OPEN_GRAPH_TYPE,
-  viewportContext,
-  ViewportProvider,
 } from '@newrade/core-react-ui';
 import { graphql, PageProps } from 'gatsby';
 import React from 'react';
 import Helmet from 'react-helmet';
-import { TreatProvider } from 'react-treat';
-import { GatsbyNodeSiteMetadataFragment, PageQuery } from '../../types/graphql-types';
-import { HomeTemplate } from './home.template';
+import { PageQuery } from '../../types/graphql-types';
 import { PROJECT_PAGE_TYPE } from '../../types/page-type';
 import { Providers } from '../layouts/providers';
+import { HomeTemplate } from './home.template';
 
 export type ProjectPageProps = PageProps<PageQuery, GatsbyPageContext<GatsbyNodeSiteMetadataFragment>>;
 
 export const pageQuery = graphql`
   query Page($pageId: String) {
     site {
-      ...SiteMetadata
+      ...SiteMetadata1
     }
-
     contentfulCompanyInfo {
       ...CompanyInfo
+    }
+    allContentfulLink {
+      nodes {
+        ...Link
+      }
     }
     allContentfulPage {
       edges {
