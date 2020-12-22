@@ -1,1 +1,1 @@
-export * from '@newrade/core-gatsby-ui';
+// export * from '@newrade/core-gatsby-ui';

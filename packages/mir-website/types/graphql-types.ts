@@ -29481,14 +29481,6 @@ export type StringQueryOperatorInput = {
   glob?: Maybe<Scalars['String']>;
 };
 
-export type BlogPostFragment = (
-  Pick<ContentfulBlogPost, 'node_locale' | 'subtitle' | 'id' | 'title' | 'blogSlug' | 'createdAt' | 'updatedAt' | 'featured'>
-  & { blogExcerpt?: Maybe<Pick<ContentfulBlogPostBlogExcerptTextNode, 'blogExcerpt'>>, blogMainImage?: Maybe<{ file?: Maybe<Pick<ContentfulAssetFile, 'url'>>, thumbnail?: Maybe<Pick<ContentfulFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>>, socialMediaImage?: Maybe<Pick<ContentfulResize, 'src' | 'width' | 'height'>>, fluid?: Maybe<Pick<ContentfulFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>> }>, blogAuthor?: Maybe<Array<Maybe<(
-    Pick<ContentfulBlogAuthor, 'firstName' | 'lastName' | 'jobTitle'>
-    & { profilePicture?: Maybe<{ file?: Maybe<Pick<ContentfulAssetFile, 'url'>> }> }
-  )>>>, content?: Maybe<{ childMdx?: Maybe<Pick<Mdx, 'tableOfContents' | 'slug' | 'body'>> }> }
-);
-
 export type CompanyInfoFragment = (
   Pick<ContentfulCompanyInfo, 'companyName' | 'linkedinPageURL' | 'facebookPageURL' | 'instagramPageURL' | 'twitterPageURL' | 'metadataTwitterSite' | 'metadataTwitterCreator' | 'metadataSiteName'>
   & { logo?: Maybe<{ file?: Maybe<Pick<ContentfulAssetFile, 'url'>> }>, logoFooter?: Maybe<{ file?: Maybe<Pick<ContentfulAssetFile, 'url'>> }> }
@@ -29525,6 +29517,14 @@ export type FooterQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type FooterQuery = { contentfulCompanyInfo?: Maybe<{ logoFooter?: Maybe<{ file?: Maybe<Pick<ContentfulAssetFile, 'url'>> }> }>, contentfulCompanyAddress?: Maybe<Pick<ContentfulCompanyAddress, 'addressLine1' | 'addressLine2' | 'city' | 'provinceState' | 'postalCode' | 'country' | 'websiteURL' | 'phone' | 'phoneNoFees' | 'email'>> };
+
+export type BlogPostFragment = (
+  Pick<ContentfulBlogPost, 'node_locale' | 'subtitle' | 'id' | 'title' | 'blogSlug' | 'createdAt' | 'updatedAt' | 'featured'>
+  & { blogExcerpt?: Maybe<Pick<ContentfulBlogPostBlogExcerptTextNode, 'blogExcerpt'>>, blogMainImage?: Maybe<{ file?: Maybe<Pick<ContentfulAssetFile, 'url'>>, thumbnail?: Maybe<Pick<ContentfulFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>>, socialMediaImage?: Maybe<Pick<ContentfulResize, 'src' | 'width' | 'height'>>, fluid?: Maybe<Pick<ContentfulFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>> }>, blogAuthor?: Maybe<Array<Maybe<(
+    Pick<ContentfulBlogAuthor, 'firstName' | 'lastName' | 'jobTitle'>
+    & { profilePicture?: Maybe<{ file?: Maybe<Pick<ContentfulAssetFile, 'url'>> }> }
+  )>>>, content?: Maybe<{ childMdx?: Maybe<Pick<Mdx, 'tableOfContents' | 'slug' | 'body'>> }> }
+);
 
 export type InfoTileFragment = (
   Pick<ContentfulInfoTile, 'title'>

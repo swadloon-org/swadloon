@@ -57,6 +57,10 @@ const config: core.GastbySiteConfig = {
     core.getGastbyCoreContentfulPluginConfig({
       packageName: packageJson.name,
       locales: ['fr-CA'],
+      features: {
+        blog: false,
+        portfolio: false,
+      },
     }),
     core.getGastbyCorePluginConfig({
       packageName: packageJson.name,

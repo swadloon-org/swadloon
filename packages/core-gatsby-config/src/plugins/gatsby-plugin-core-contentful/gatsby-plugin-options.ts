@@ -3,5 +3,6 @@ export type GatsbyCoreContentfulPluginOptions = {
   locales?: ('fr-CA' | 'en-CA')[];
   features: {
     blog: boolean;
+    portfolio: boolean;
   };
 };

@@ -27,7 +27,6 @@ export const pageQuery = graphql`
     contentfulCompanyInfo {
       ...CompanyInfo
     }
-
     allContentfulPage {
       edges {
         node {

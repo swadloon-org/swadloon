@@ -7,20 +7,27 @@ const defaultOptions: GatsbyCoreContentfulPluginOptions = {
   locales: ['fr-CA', 'en-CA'],
   features: {
     blog: true,
+    portfolio: true,
   },
 };
 
 export function getGastbyCoreContentfulPluginConfig({
   packageName = defaultOptions.packageName,
   locales = defaultOptions.locales,
-  features: { blog = defaultOptions.features.blog } = defaultOptions.features,
+  features: {
+    blog = defaultOptions.features.blog,
+    portfolio = defaultOptions.features.portfolio,
+  } = defaultOptions.features,
 }: GatsbyCoreContentfulPluginOptions = defaultOptions): PluginRef {
   return {
     resolve: path.resolve(__dirname, `../../lib/plugins/gatsby-plugin-core-contentful`),
     options: {
       packageName,
       locales,
-      features,
+      features: {
+        blog,
+        portfolio,
+      },
     },
   };
 }

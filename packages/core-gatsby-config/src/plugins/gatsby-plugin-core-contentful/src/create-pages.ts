@@ -79,78 +79,80 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
         });
       });
 
-    /**
-     * Automatically create blog post pages
-     */
-    const blogPosts = await graphql<{
-      allContentfulBlogPost: {
-        edges: { node: { id: string; blogSlug: string; node_locale: string } }[];
-      };
-    }>(
-      `
-        query GatsbyNodeBlogPosts {
-          allContentfulBlogPost {
-            edges {
-              node {
-                node_locale
-                id
-                blogSlug
+    if (pluginOptions.features.blog) {
+      /**
+       * Automatically create blog post pages
+       */
+      const blogPosts = await graphql<{
+        allContentfulBlogPost: {
+          edges: { node: { id: string; blogSlug: string; node_locale: string } }[];
+        };
+      }>(
+        `
+          query GatsbyNodeBlogPosts {
+            allContentfulBlogPost {
+              edges {
+                node {
+                  node_locale
+                  id
+                  blogSlug
+                }
               }
             }
           }
-        }
-      `
-    );
-    if (blogPosts.errors) {
-      throw new Error('Error while retrieving blog posts');
-    }
+        `
+      );
+      if (blogPosts.errors) {
+        throw new Error('Error while retrieving blog posts');
+      }
 
-    const blogPostTemplate = path.resolve(`src/templates/blog-post.template.tsx`);
-    const blogPageRouteFR = pagesData?.data?.allContentfulPage.edges
-      .filter((edge) => edge.node.name.includes('Blogue') && edge.node.node_locale === 'fr-CA')
-      .map((edge) => edge.node);
-    const blogPageRouteEN = pagesData?.data?.allContentfulPage.edges
-      .filter((edge) => edge.node.name.includes('Blogue') && edge.node.node_locale === 'en-CA')
-      .map((edge) => edge.node);
+      const blogPostTemplate = path.resolve(`src/templates/blog-post.template.tsx`);
+      const blogPageRouteFR = pagesData?.data?.allContentfulPage.edges
+        .filter((edge) => edge.node.name.includes('Blogue') && edge.node.node_locale === 'fr-CA')
+        .map((edge) => edge.node);
+      const blogPageRouteEN = pagesData?.data?.allContentfulPage.edges
+        .filter((edge) => edge.node.name.includes('Blogue') && edge.node.node_locale === 'en-CA')
+        .map((edge) => edge.node);
 
-    log(`Creating blog posts under: ${blogPageRouteEN?.[0].slug}`, {
-      toolName: pluginOptions.packageName,
-    });
-
-    log(`Creating blog posts under: ${blogPageRouteFR?.[0].slug}`, {
-      toolName: pluginOptions.packageName,
-    });
-
-    blogPosts?.data?.allContentfulBlogPost.edges
-      .filter((edge) => {
-        if (!(edge && edge.node)) {
-          return false;
-        }
-        return true;
-      })
-      .forEach((edge, index) => {
-        const path =
-          edge.node.node_locale === 'fr-CA'
-            ? blogPageRouteFR?.[0]?.slug
-              ? `${blogPageRouteFR?.[0]?.slug}${edge.node.blogSlug}`
-              : `${blogPageRouteFR?.[0]?.slug}`
-            : blogPageRouteEN?.[0]?.slug
-            ? `${blogPageRouteEN?.[0]?.slug}${edge.node.blogSlug}`
-            : `${blogPageRouteEN?.[0]?.slug}`;
-
-        log(`Creating blog post: ${path}`, {
-          toolName: pluginOptions.packageName,
-        });
-
-        createPage<GatsbyBlogPostContext>({
-          path,
-          component: blogPostTemplate,
-          context: {
-            blogPostId: edge.node.id,
-            blogPath: path,
-          },
-        });
+      log(`Creating blog posts under: ${blogPageRouteEN?.[0].slug}`, {
+        toolName: pluginOptions.packageName,
       });
+
+      log(`Creating blog posts under: ${blogPageRouteFR?.[0].slug}`, {
+        toolName: pluginOptions.packageName,
+      });
+
+      blogPosts?.data?.allContentfulBlogPost.edges
+        .filter((edge) => {
+          if (!(edge && edge.node)) {
+            return false;
+          }
+          return true;
+        })
+        .forEach((edge, index) => {
+          const path =
+            edge.node.node_locale === 'fr-CA'
+              ? blogPageRouteFR?.[0]?.slug
+                ? `${blogPageRouteFR?.[0]?.slug}${edge.node.blogSlug}`
+                : `${blogPageRouteFR?.[0]?.slug}`
+              : blogPageRouteEN?.[0]?.slug
+              ? `${blogPageRouteEN?.[0]?.slug}${edge.node.blogSlug}`
+              : `${blogPageRouteEN?.[0]?.slug}`;
+
+          log(`Creating blog post: ${path}`, {
+            toolName: pluginOptions.packageName,
+          });
+
+          createPage<GatsbyBlogPostContext>({
+            path,
+            component: blogPostTemplate,
+            context: {
+              blogPostId: edge.node.id,
+              blogPath: path,
+            },
+          });
+        });
+    }
   } catch (error) {
     log(`Error occured when generating pages: ${error}`, {
       toolName: pluginOptions.packageName,
