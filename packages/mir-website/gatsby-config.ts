@@ -75,6 +75,7 @@ const config: core.GastbySiteConfig = {
     }),
     core.getGastbyCorePluginConfig({
       packageName: packageJson.name,
+      modules: ['@newrade/core-gatsby-config', '@newrade/core-gatsby-ui'],
     }),
     /**
      * gatsby-plugin-csp

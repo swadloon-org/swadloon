@@ -28822,19 +28822,12 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___spaceId'
   | 'pluginCreator___pluginOptions___accessToken'
   | 'pluginCreator___pluginOptions___environment'
-  | 'pluginCreator___pluginOptions___fileName'
-  | 'pluginCreator___pluginOptions___tsLoader___configFile'
-  | 'pluginCreator___pluginOptions___tsLoader___logLevel'
-  | 'pluginCreator___pluginOptions___tsLoader___transpileOnly'
-  | 'pluginCreator___pluginOptions___tsLoader___projectReferences'
-  | 'pluginCreator___pluginOptions___typeCheck'
-  | 'pluginCreator___pluginOptions___failOnError'
-  | 'pluginCreator___pluginOptions___documentPaths'
   | 'pluginCreator___pluginOptions___path'
   | 'pluginCreator___pluginOptions___ignore'
   | 'pluginCreator___pluginOptions___base64Width'
   | 'pluginCreator___pluginOptions___stripMetadata'
   | 'pluginCreator___pluginOptions___defaultQuality'
+  | 'pluginCreator___pluginOptions___failOnError'
   | 'pluginCreator___pluginOptions___extensions'
   | 'pluginCreator___pluginOptions___mediaTypes'
   | 'pluginCreator___pluginOptions___createLinkInHead'
@@ -28850,10 +28843,18 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___includeInDevelopment'
   | 'pluginCreator___pluginOptions___routeChangeEventName'
   | 'pluginCreator___pluginOptions___packageName'
+  | 'pluginCreator___pluginOptions___modules'
   | 'pluginCreator___pluginOptions___pathCheck'
   | 'pluginCreator___pluginOptions___allExtensions'
   | 'pluginCreator___pluginOptions___isTSX'
   | 'pluginCreator___pluginOptions___jsxPragma'
+  | 'pluginCreator___pluginOptions___fileName'
+  | 'pluginCreator___pluginOptions___tsLoader___configFile'
+  | 'pluginCreator___pluginOptions___tsLoader___logLevel'
+  | 'pluginCreator___pluginOptions___tsLoader___transpileOnly'
+  | 'pluginCreator___pluginOptions___tsLoader___projectReferences'
+  | 'pluginCreator___pluginOptions___typeCheck'
+  | 'pluginCreator___pluginOptions___documentPaths'
   | 'pluginCreator___nodeAPIs'
   | 'pluginCreator___browserAPIs'
   | 'pluginCreator___ssrAPIs'
@@ -29061,19 +29062,12 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___spaceId'
   | 'pluginOptions___accessToken'
   | 'pluginOptions___environment'
-  | 'pluginOptions___fileName'
-  | 'pluginOptions___tsLoader___configFile'
-  | 'pluginOptions___tsLoader___logLevel'
-  | 'pluginOptions___tsLoader___transpileOnly'
-  | 'pluginOptions___tsLoader___projectReferences'
-  | 'pluginOptions___typeCheck'
-  | 'pluginOptions___failOnError'
-  | 'pluginOptions___documentPaths'
   | 'pluginOptions___path'
   | 'pluginOptions___ignore'
   | 'pluginOptions___base64Width'
   | 'pluginOptions___stripMetadata'
   | 'pluginOptions___defaultQuality'
+  | 'pluginOptions___failOnError'
   | 'pluginOptions___extensions'
   | 'pluginOptions___mediaTypes'
   | 'pluginOptions___createLinkInHead'
@@ -29093,10 +29087,18 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___includeInDevelopment'
   | 'pluginOptions___routeChangeEventName'
   | 'pluginOptions___packageName'
+  | 'pluginOptions___modules'
   | 'pluginOptions___pathCheck'
   | 'pluginOptions___allExtensions'
   | 'pluginOptions___isTSX'
   | 'pluginOptions___jsxPragma'
+  | 'pluginOptions___fileName'
+  | 'pluginOptions___tsLoader___configFile'
+  | 'pluginOptions___tsLoader___logLevel'
+  | 'pluginOptions___tsLoader___transpileOnly'
+  | 'pluginOptions___tsLoader___projectReferences'
+  | 'pluginOptions___typeCheck'
+  | 'pluginOptions___documentPaths'
   | 'nodeAPIs'
   | 'browserAPIs'
   | 'ssrAPIs'
@@ -29224,16 +29226,12 @@ export type SitePluginPluginOptions = {
   spaceId?: Maybe<Scalars['String']>;
   accessToken?: Maybe<Scalars['String']>;
   environment?: Maybe<Scalars['String']>;
-  fileName?: Maybe<Scalars['String']>;
-  tsLoader?: Maybe<SitePluginPluginOptionsTsLoader>;
-  typeCheck?: Maybe<Scalars['Boolean']>;
-  failOnError?: Maybe<Scalars['Boolean']>;
-  documentPaths?: Maybe<Array<Maybe<Scalars['String']>>>;
   path?: Maybe<Scalars['String']>;
   ignore?: Maybe<Array<Maybe<Scalars['String']>>>;
   base64Width?: Maybe<Scalars['Int']>;
   stripMetadata?: Maybe<Scalars['Boolean']>;
   defaultQuality?: Maybe<Scalars['Int']>;
+  failOnError?: Maybe<Scalars['Boolean']>;
   extensions?: Maybe<Array<Maybe<Scalars['String']>>>;
   mediaTypes?: Maybe<Array<Maybe<Scalars['String']>>>;
   createLinkInHead?: Maybe<Scalars['Boolean']>;
@@ -29250,10 +29248,15 @@ export type SitePluginPluginOptions = {
   includeInDevelopment?: Maybe<Scalars['Boolean']>;
   routeChangeEventName?: Maybe<Scalars['String']>;
   packageName?: Maybe<Scalars['String']>;
+  modules?: Maybe<Array<Maybe<Scalars['String']>>>;
   pathCheck?: Maybe<Scalars['Boolean']>;
   allExtensions?: Maybe<Scalars['Boolean']>;
   isTSX?: Maybe<Scalars['Boolean']>;
   jsxPragma?: Maybe<Scalars['String']>;
+  fileName?: Maybe<Scalars['String']>;
+  tsLoader?: Maybe<SitePluginPluginOptionsTsLoader>;
+  typeCheck?: Maybe<Scalars['Boolean']>;
+  documentPaths?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 export type SitePluginPluginOptionsEnv = {
@@ -29374,16 +29377,12 @@ export type SitePluginPluginOptionsFilterInput = {
   spaceId?: Maybe<StringQueryOperatorInput>;
   accessToken?: Maybe<StringQueryOperatorInput>;
   environment?: Maybe<StringQueryOperatorInput>;
-  fileName?: Maybe<StringQueryOperatorInput>;
-  tsLoader?: Maybe<SitePluginPluginOptionsTsLoaderFilterInput>;
-  typeCheck?: Maybe<BooleanQueryOperatorInput>;
-  failOnError?: Maybe<BooleanQueryOperatorInput>;
-  documentPaths?: Maybe<StringQueryOperatorInput>;
   path?: Maybe<StringQueryOperatorInput>;
   ignore?: Maybe<StringQueryOperatorInput>;
   base64Width?: Maybe<IntQueryOperatorInput>;
   stripMetadata?: Maybe<BooleanQueryOperatorInput>;
   defaultQuality?: Maybe<IntQueryOperatorInput>;
+  failOnError?: Maybe<BooleanQueryOperatorInput>;
   extensions?: Maybe<StringQueryOperatorInput>;
   mediaTypes?: Maybe<StringQueryOperatorInput>;
   createLinkInHead?: Maybe<BooleanQueryOperatorInput>;
@@ -29400,10 +29399,15 @@ export type SitePluginPluginOptionsFilterInput = {
   includeInDevelopment?: Maybe<BooleanQueryOperatorInput>;
   routeChangeEventName?: Maybe<StringQueryOperatorInput>;
   packageName?: Maybe<StringQueryOperatorInput>;
+  modules?: Maybe<StringQueryOperatorInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;
   allExtensions?: Maybe<BooleanQueryOperatorInput>;
   isTSX?: Maybe<BooleanQueryOperatorInput>;
   jsxPragma?: Maybe<StringQueryOperatorInput>;
+  fileName?: Maybe<StringQueryOperatorInput>;
+  tsLoader?: Maybe<SitePluginPluginOptionsTsLoaderFilterInput>;
+  typeCheck?: Maybe<BooleanQueryOperatorInput>;
+  documentPaths?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePluginPluginOptionsHeaders = {
@@ -29477,16 +29481,6 @@ export type StringQueryOperatorInput = {
   glob?: Maybe<Scalars['String']>;
 };
 
-export type FeaturedPostsQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type FeaturedPostsQuery = { featuredPosts: { edges: Array<{ node: BlogPostFragment }> }, recentPostsNoFeatured: { edges: Array<{ node: BlogPostFragment }> }, recentPosts: { edges: Array<{ node: BlogPostFragment }> } };
-
-export type FooterQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type FooterQuery = { contentfulCompanyInfo?: Maybe<{ logoFooter?: Maybe<{ file?: Maybe<Pick<ContentfulAssetFile, 'url'>> }> }>, contentfulCompanyAddress?: Maybe<Pick<ContentfulCompanyAddress, 'addressLine1' | 'addressLine2' | 'city' | 'provinceState' | 'postalCode' | 'country' | 'websiteURL' | 'phone' | 'phoneNoFees' | 'email'>> };
-
 export type BlogPostFragment = (
   Pick<ContentfulBlogPost, 'node_locale' | 'subtitle' | 'id' | 'title' | 'blogSlug' | 'createdAt' | 'updatedAt' | 'featured'>
   & { blogExcerpt?: Maybe<Pick<ContentfulBlogPostBlogExcerptTextNode, 'blogExcerpt'>>, blogMainImage?: Maybe<{ file?: Maybe<Pick<ContentfulAssetFile, 'url'>>, thumbnail?: Maybe<Pick<ContentfulFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>>, socialMediaImage?: Maybe<Pick<ContentfulResize, 'src' | 'width' | 'height'>>, fluid?: Maybe<Pick<ContentfulFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>> }>, blogAuthor?: Maybe<Array<Maybe<(
@@ -29504,6 +29498,34 @@ export type MobileFluidImageFragment = { fluid?: Maybe<Pick<ContentfulFluid, 'ba
 
 export type DesktopFluidImageFragment = { fluid?: Maybe<Pick<ContentfulFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>> };
 
+export type LinkFragment = (
+  Pick<ContentfulLink, 'name' | 'type' | 'label' | 'url'>
+  & { page?: Maybe<Pick<ContentfulPage, 'id' | 'name' | 'slug'>>, section?: Maybe<Array<Maybe<Pick<ContentfulSection, 'id' | 'name'>>>> }
+);
+
+export type MediaCollectionFragment = (
+  Pick<ContentfulMediaCollection, 'name'>
+  & { medias?: Maybe<Array<Maybe<(
+    { file?: Maybe<Pick<ContentfulAssetFile, 'url'>> }
+    & MobileFluidImageFragment
+  )>>> }
+);
+
+export type SiteMetadataFragment = { siteMetadata?: Maybe<(
+    Pick<SiteSiteMetadata, 'title' | 'description' | 'siteUrl' | 'siteEnv'>
+    & { languages?: Maybe<Pick<SiteSiteMetadataLanguages, 'defaultLangKey' | 'langs'>> }
+  )> };
+
+export type FeaturedPostsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type FeaturedPostsQuery = { featuredPosts: { edges: Array<{ node: BlogPostFragment }> }, recentPostsNoFeatured: { edges: Array<{ node: BlogPostFragment }> }, recentPosts: { edges: Array<{ node: BlogPostFragment }> } };
+
+export type FooterQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type FooterQuery = { contentfulCompanyInfo?: Maybe<{ logoFooter?: Maybe<{ file?: Maybe<Pick<ContentfulAssetFile, 'url'>> }> }>, contentfulCompanyAddress?: Maybe<Pick<ContentfulCompanyAddress, 'addressLine1' | 'addressLine2' | 'city' | 'provinceState' | 'postalCode' | 'country' | 'websiteURL' | 'phone' | 'phoneNoFees' | 'email'>> };
+
 export type InfoTileFragment = (
   Pick<ContentfulInfoTile, 'title'>
   & { illustration?: Maybe<(
@@ -29518,19 +29540,6 @@ export type JobGroupFragment = (
     Pick<ContentfulAsset, 'title'>
     & { file?: Maybe<Pick<ContentfulAssetFile, 'url'>> }
   )>, jobs?: Maybe<Array<Maybe<Pick<ContentfulJob, 'title' | 'description'>>>> }
-);
-
-export type LinkFragment = (
-  Pick<ContentfulLink, 'name' | 'type' | 'label' | 'url'>
-  & { page?: Maybe<Pick<ContentfulPage, 'id' | 'name' | 'slug'>>, section?: Maybe<Array<Maybe<Pick<ContentfulSection, 'id' | 'name'>>>> }
-);
-
-export type MediaCollectionFragment = (
-  Pick<ContentfulMediaCollection, 'name'>
-  & { medias?: Maybe<Array<Maybe<(
-    { file?: Maybe<Pick<ContentfulAssetFile, 'url'>> }
-    & MobileFluidImageFragment
-  )>>> }
 );
 
 export type PageFragmentFragment = (
@@ -29571,11 +29580,6 @@ export type SectionFragment = (
     )>, medias?: Maybe<{ medias?: Maybe<Array<Maybe<{ file?: Maybe<Pick<ContentfulAssetFile, 'url'>>, desktopFluidImage?: Maybe<Pick<ContentfulFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>>, mobileFluidImage?: Maybe<Pick<ContentfulFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>> }>>> }>, infoTiles?: Maybe<Array<Maybe<InfoTileFragment>>>, infoChecks?: Maybe<Array<Maybe<Pick<ContentfulInfoCheck, 'id' | 'text'>>>>, jobGroup?: Maybe<Array<Maybe<JobGroupFragment>>>, processStep?: Maybe<Array<Maybe<ProcessStepFragmentFragment>>>, blogPosts?: Maybe<Array<Maybe<BlogPostFragment>>> }
   )>>> }
 );
-
-export type SiteMetadataFragment = { siteMetadata?: Maybe<(
-    Pick<SiteSiteMetadata, 'title' | 'description' | 'siteUrl' | 'siteEnv'>
-    & { languages?: Maybe<Pick<SiteSiteMetadataLanguages, 'defaultLangKey' | 'langs'>> }
-  )> };
 
 export type SectionTypeFragment = (
   Pick<ContentfulSectionType, 'name'>

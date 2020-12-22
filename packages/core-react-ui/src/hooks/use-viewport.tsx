@@ -1,7 +1,7 @@
 import React from 'react';
 import { ViewportContext } from '../context/viewport';
-import { VIEWPORT } from '@newrade/core-design-system-old';
-import { DEFAULT_LAYOUT } from '@newrade/core-react-ui-old';
+import { VIEWPORT } from '@newrade/core-design-system';
+import { defaultLayout } from '../design-system/default-layout';
 
 // singleton
 export const viewportContext = React.createContext<ViewportContext>({});
@@ -14,8 +14,8 @@ export function useViewportValues(): ViewportContext {
 export function useViewportBreakpoint(): { viewport: VIEWPORT } {
   const { width } = React.useContext(viewportContext);
 
-  const tabletBreakpoint = DEFAULT_LAYOUT.breakpoints.tabletPortrait.value;
-  const desktopBreakpoint = DEFAULT_LAYOUT.breakpoints.desktopSmall.value;
+  const tabletBreakpoint = defaultLayout.breakpoints.tabletPortrait;
+  const desktopBreakpoint = defaultLayout.breakpoints.desktopSmall;
 
   if (width !== undefined && width < tabletBreakpoint) {
     return { viewport: VIEWPORT.mobile };

@@ -16,14 +16,19 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
     /**
      * Page creations contentful
      */
+
+    log(`Creating pages for locales: ${pluginOptions.locales}`, {
+      toolName: pluginOptions.packageName,
+    });
+
     const pagesData = await graphql<{
       allContentfulPage: {
         edges: { node: { id: string; name: string; slug: string; node_locale: string } }[];
       };
     }>(
       `
-        query GatsbyNodePages {
-          allContentfulPage {
+        query GatsbyContentfulPages($locales: [String]) {
+          allContentfulPage(filter: { node_locale: { in: $locales } }) {
             edges {
               node {
                 node_locale
@@ -34,8 +39,16 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
             }
           }
         }
-      `
+      `,
+      {
+        locales: pluginOptions.locales,
+      }
     );
+
+    log(`Retrived: ${pagesData.data?.allContentfulPage.edges.length} pages`, {
+      toolName: pluginOptions.packageName,
+    });
+
     if (pagesData.errors) {
       throw new Error('Error while retrieving pages');
     }

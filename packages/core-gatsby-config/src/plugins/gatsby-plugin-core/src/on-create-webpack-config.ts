@@ -2,16 +2,16 @@ import { DEPLOY_ENV } from '@newrade/core-common';
 import { COMMON_ENV } from '@newrade/core-utils';
 import { es6BabelLoader, getBundleVisualizerPlugin } from '@newrade/core-webpack-config';
 import { GatsbyNode } from 'gatsby';
+import path from 'path';
+import regexEscape from 'regex-escape';
 import { RuleSetRule, RuleSetRules, RuleSetUseItem, WebpackOptions } from 'webpack/declarations/WebpackOptions';
+import { GatsbyCorePluginOptions } from '../gatsby-plugin-options';
 
-export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] = ({
-  stage,
-  rules,
-  loaders,
-  plugins,
-  actions,
-  getConfig,
-}) => {
+export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] = (
+  { stage, rules, loaders, plugins, actions, getConfig },
+  options
+) => {
+  const pluginOptions = (options as unknown) as GatsbyCorePluginOptions;
   const env = process.env as COMMON_ENV;
   const isProduction = stage !== `develop`;
   const isSSR = stage.includes(`html`);
@@ -82,6 +82,25 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
             options: { ...(gatsbyBabelLoaderConf.use as any)[0].options, ...(es6BabelLoader.use as any)[0].options },
           },
         ],
+        exclude: (modulePath) =>
+          /node_modules/.test(modulePath) &&
+          // whitelist specific es6 module
+          pluginOptions.modules
+            ? !new RegExp(
+                `[\\\\/](${pluginOptions.modules
+                  .map((module) => module.replace(/\//, path.sep))
+                  .map(regexEscape)
+                  .join('|')})[\\\\/]`
+              ).test(modulePath)
+            : false,
+        // pluginOptions.modules
+        //   ? !new RegExp(
+        //       `node_modules[\\\\/](${pluginOptions.modules
+        //         .map((module) => module.replace(/\//, path.sep))
+        //         .map(regexEscape)
+        //         .join('|')})[\\\\/]`
+        //     ).test(modulePath)
+        //   : false,
       },
     ];
 

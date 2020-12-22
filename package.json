@@ -192,6 +192,7 @@
     "puppeteer": "^3.3.0",
     "react-cache": "^2.0.0-alpha.1",
     "react-intersection-observer": "^8.29.0",
+    "regex-escape": "^3.4.10",
     "rimraf": "^3.0.2",
     "source-map-support": "^0.5.19",
     "style-loader": "^0.23.1",

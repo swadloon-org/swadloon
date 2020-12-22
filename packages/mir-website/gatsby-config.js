@@ -97,6 +97,7 @@ const config = {
         }),
         core.getGastbyCorePluginConfig({
             packageName: package_json_1.default.name,
+            modules: ['@newrade/core-gatsby-config', '@newrade/core-gatsby-ui'],
         }),
     ],
 };

@@ -76,8 +76,13 @@ const config = {
         core.getGatsbyPluginSitemap(),
         core.getGatsbyPluginRobotsTxt({ env }),
         core.getGatsbyNetlifyPlugin(),
+        core.getGastbyCoreContentfulPluginConfig({
+            packageName: package_json_1.default.name,
+            locales: ['fr-CA'],
+        }),
         core.getGastbyCorePluginConfig({
             packageName: package_json_1.default.name,
+            modules: ['@newrade/core-gatsby-config', '@newrade/core-gatsby-ui'],
         }),
     ],
 };
