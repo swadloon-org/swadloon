@@ -18,15 +18,10 @@ export type ProjectPageProps = PageProps<PageQuery, GatsbyPageContext<GatsbyNode
 export const pageQuery = graphql`
   query Page($pageId: String) {
     site {
-      ...SiteMetadata1
+      ...SiteMetadata
     }
     contentfulCompanyInfo {
       ...CompanyInfo
-    }
-    allContentfulLink {
-      nodes {
-        ...Link
-      }
     }
     allContentfulPage {
       edges {
@@ -74,7 +69,6 @@ export const PageTemplate: React.FC<ProjectPageProps> = ({ data, location, ...pr
           site: `${data?.contentfulCompanyInfo?.metadataTwitterSite}`,
         })}
       </Helmet>
-
       {getPageTemplateComponent({
         pageType: data?.contentfulPage?.type?.type as any,
         props: { data, location, ...props },

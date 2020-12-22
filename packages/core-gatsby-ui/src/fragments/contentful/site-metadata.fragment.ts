@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby';
 
 export const siteMetadataFragment = graphql`
-  fragment SiteMetadata1 on Site {
+  fragment SiteMetadata on Site {
     siteMetadata {
       title
       description

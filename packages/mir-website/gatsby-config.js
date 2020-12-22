@@ -94,6 +94,10 @@ const config = {
         }),
         core.getGastbyCoreContentfulPluginConfig({
             packageName: package_json_1.default.name,
+            features: {
+                blog: true,
+                portfolio: false,
+            },
         }),
         core.getGastbyCorePluginConfig({
             packageName: package_json_1.default.name,

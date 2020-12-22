@@ -16,5 +16,11 @@ export const pageQuery = graphql`
     type {
       type
     }
+    sections {
+      ...Section
+      subSections {
+        ...Section
+      }
+    }
   }
 `;

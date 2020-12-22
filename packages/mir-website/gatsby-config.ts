@@ -72,6 +72,10 @@ const config: core.GastbySiteConfig = {
     }),
     core.getGastbyCoreContentfulPluginConfig({
       packageName: packageJson.name,
+      features: {
+        blog: true,
+        portfolio: false,
+      },
     }),
     core.getGastbyCorePluginConfig({
       packageName: packageJson.name,
