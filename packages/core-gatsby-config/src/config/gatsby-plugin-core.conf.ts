@@ -1,6 +1,6 @@
 import { PluginRef } from 'gatsby';
 import path from 'path';
-import { GatsbyCorePluginOptions } from './gatsby-plugin-core';
+import { GatsbyCorePluginOptions } from '../plugins/gatsby-plugin-core';
 
 export function getGastbyCorePluginConfig(options: GatsbyCorePluginOptions = { packageName: 'package' }): PluginRef {
   return {

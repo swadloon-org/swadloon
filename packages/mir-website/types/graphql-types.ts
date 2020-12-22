@@ -29614,23 +29614,3 @@ export type PageQuery = { site?: Maybe<SiteMetadataFragment>, contentfulCompanyI
         Pick<ContentfulPage, 'id' | 'name' | 'node_locale' | 'title' | 'slug'>
         & { description?: Maybe<Pick<ContentfulPageDescriptionTextNode, 'description'>> }
       ) }> }, contentfulPage?: Maybe<PageFragmentFragment> };
-
-export type GatsbyNodeAllSiteQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type GatsbyNodeAllSiteQuery = { site?: Maybe<{ siteMetadata?: Maybe<GatsbyNodeSiteMetadataFragment> }> };
-
-export type GatsbyNodeSiteMetadataFragment = (
-  Pick<SiteSiteMetadata, 'title' | 'description' | 'siteEnv' | 'siteUrl'>
-  & { languages?: Maybe<Pick<SiteSiteMetadataLanguages, 'langs' | 'defaultLangKey'>> }
-);
-
-export type GatsbyNodePagesQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type GatsbyNodePagesQuery = { allContentfulPage: { edges: Array<{ node: Pick<ContentfulPage, 'node_locale' | 'id' | 'name' | 'slug'> }> } };
-
-export type GatsbyNodeBlogPostsQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type GatsbyNodeBlogPostsQuery = { allContentfulBlogPost: { edges: Array<{ node: Pick<ContentfulBlogPost, 'node_locale' | 'id' | 'blogSlug'> }> } };

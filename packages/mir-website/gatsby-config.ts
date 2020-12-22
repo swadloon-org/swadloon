@@ -70,6 +70,9 @@ const config: core.GastbySiteConfig = {
     core.getGatsbyPluginGoogleTagmanager({
       googleTagId: 'GTM-T4LK3QF',
     }),
+    core.getGastbyCoreContentfulPluginConfig({
+      packageName: packageJson.name,
+    }),
     core.getGastbyCorePluginConfig({
       packageName: packageJson.name,
     }),
