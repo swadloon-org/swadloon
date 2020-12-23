@@ -4,12 +4,12 @@ import '@figma/plugin-typings';
  * @see https://www.figma.com/plugin-docs/intro/
  */
 
-const pattern = /Frame/;
+const pattern = /Icon/;
 
 figma.notify(`Selecting nodes matching the pattern: '${pattern}'`);
 
 function predicate(node: SceneNode) {
-  if (node.type !== 'FRAME') {
+  if (node.type !== 'INSTANCE') {
     return false;
   }
   console.log(node.name);
