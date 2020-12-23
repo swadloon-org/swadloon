@@ -1,4 +1,4 @@
-import { GatsbyPageContext } from '@newrade/core-gatsby-config';
+import { GatsbyPageContext, GatsbyNodeSiteMetadataFragment } from '@newrade/core-gatsby-config';
 import {
   getMetaBasicTags,
   getMetadataOpenGraphWebsiteTags,
@@ -11,7 +11,7 @@ import Helmet from 'react-helmet';
 import { helmetJsonLdProp } from 'react-schemaorg';
 import { TreatProvider } from 'react-treat';
 import { Organization } from 'schema-dts';
-import { GatsbyNodeSiteMetadataFragment, PageQuery } from '../../types/graphql-types';
+import { PageQuery } from '../../types/graphql-types';
 import { ViewportProvider } from '../context/viewport.context';
 import { light } from '../design-system/themes.treat';
 import { viewportContext } from '../hooks/use-viewport.hook';

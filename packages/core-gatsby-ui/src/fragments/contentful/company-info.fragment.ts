@@ -1,6 +1,6 @@
 import { graphql } from 'gatsby';
 
-export const companyInfoQuery = graphql`
+export const companyInfoFragment = graphql`
   fragment CompanyInfo on ContentfulCompanyInfo {
     companyName
     logo {

@@ -65,7 +65,9 @@ exports.config = {
         /**
          * Core Plugins
          */
-        core.getGatsbyTsPluginConfig(),
+        core.getGatsbyTsPluginConfig({
+            documentPaths: ['./gatsby-*.{ts,tsx}', './src/**/*.{ts,tsx}', './src/**/*.{js,jsx}'],
+        }),
         core.getGatsbyReactSvgConfig(),
         ...core.getGastbyPluginPageCreatorConfig(),
         core.getGastbyPluginTreatConfig(),

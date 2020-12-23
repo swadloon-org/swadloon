@@ -8,6 +8,7 @@ import { getMetaBasicTags } from '@newrade/core-react-ui';
 import { GatsbyMarkdownFilePageContext, GatsbyNodeSiteMetadataFragment } from '@newrade/core-gatsby-config';
 import { MarkdownTemplateQuery } from '../../types/graphql-types';
 import { DebugGasbyPage } from '@newrade/core-gatsby-ui';
+// import { DebugGasbyPage } from '@newrade/core-gatsby-ui';
 
 export type MarkdownTemplateProps = PageProps<
   MarkdownTemplateQuery,

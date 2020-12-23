@@ -1,6 +1,6 @@
 import { PluginRef } from 'gatsby';
 import path from 'path';
-import { SOURCE_INSTANCE_NAME } from '../config/source-instances';
+import { SOURCE_INSTANCE_NAME } from './source-instances';
 
 /**
  * Create only .tsx pages found under /src/pages.

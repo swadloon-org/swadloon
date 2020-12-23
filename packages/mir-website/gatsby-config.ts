@@ -70,8 +70,16 @@ const config: core.GastbySiteConfig = {
     core.getGatsbyPluginGoogleTagmanager({
       googleTagId: 'GTM-T4LK3QF',
     }),
+    core.getGastbyCoreContentfulPluginConfig({
+      packageName: packageJson.name,
+      features: {
+        blog: true,
+        portfolio: false,
+      },
+    }),
     core.getGastbyCorePluginConfig({
       packageName: packageJson.name,
+      modules: ['@newrade/core-gatsby-config', '@newrade/core-gatsby-ui'],
     }),
     /**
      * gatsby-plugin-csp

@@ -12,6 +12,7 @@ export interface TsOptions {
    */
   failOnError?: boolean;
   forkTsCheckerPlugin?: ForkTsCheckerWebpackPluginOptions;
+  documentPaths: string[];
 }
 
 const defaultOptions: TsOptions = {
@@ -25,6 +26,12 @@ const defaultOptions: TsOptions = {
   typeCheck: process.env.NODE_ENV === NODE_ENV.PRODUCTION,
   forkTsCheckerPlugin: {},
   failOnError: process.env.NODE_ENV === NODE_ENV.PRODUCTION,
+  documentPaths: [
+    '../core-gatsby-ui/src/**/*.{ts,tsx}',
+    './gatsby-*.{ts,tsx}',
+    './src/**/*.{ts,tsx}',
+    './src/**/*.{js,jsx}',
+  ],
 };
 
 /**
@@ -37,6 +44,7 @@ export function getGatsbyTsPluginConfig({
   typeCheck = defaultOptions.typeCheck,
   forkTsCheckerPlugin = defaultOptions.forkTsCheckerPlugin,
   failOnError = defaultOptions.failOnError,
+  documentPaths = defaultOptions.documentPaths,
 }: TsOptions = defaultOptions): Gatsby.PluginRef {
   return {
     resolve: `gatsby-plugin-ts`,
@@ -46,7 +54,7 @@ export function getGatsbyTsPluginConfig({
       typeCheck,
       forkTsCheckerPlugin,
       failOnError,
-      documentPaths: ['./src/**/*.{ts,tsx}', './gatsby-*.{ts,tsx}', './src/**/*.{js,jsx}'],
+      documentPaths,
     },
   };
 }
