@@ -1,8 +1,8 @@
 {
   "extends": "../core-gatsby-config/src/tsconfig/tsconfig.ts-plugin.json",
   "compilerOptions": {
-    "rootDir": ".",
-    "outDir": "dist"
+    "allowJs": true,
+    "rootDir": "."
   },
   "references": [
     {

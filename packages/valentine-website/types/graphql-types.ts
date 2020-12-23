@@ -4004,6 +4004,11 @@ export type StringQueryOperatorInput = {
   glob?: Maybe<Scalars['String']>;
 };
 
+export type GatsbyNodePagesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GatsbyNodePagesQuery = { allContentfulPage: { edges: Array<{ node: Pick<ContentfulPage, 'node_locale' | 'id' | 'name' | 'slug'> }> } };
+
 export type MarkdownTemplateQueryVariables = Exact<{
   slug: Scalars['String'];
 }>;
@@ -4013,8 +4018,3 @@ export type MarkdownTemplateQuery = { mdx?: Maybe<(
     Pick<Mdx, 'slug' | 'excerpt' | 'timeToRead' | 'tableOfContents' | 'body'>
     & { frontmatter?: Maybe<Pick<MdxFrontmatter, 'title' | 'name' | 'tags'>>, headings?: Maybe<Array<Maybe<Pick<MdxHeadingMdx, 'value' | 'depth'>>>> }
   )> };
-
-export type GatsbyNodePagesQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type GatsbyNodePagesQuery = { allContentfulPage: { edges: Array<{ node: Pick<ContentfulPage, 'node_locale' | 'id' | 'name' | 'slug'> }> } };
