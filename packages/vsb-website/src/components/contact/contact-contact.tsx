@@ -1,11 +1,11 @@
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { SectionFragment } from '../../../types/graphql-types';
-import * as styleRefs from './clinic-dr-profile.treat';
+import * as styleRefs from './contact-contact.treat';
 
 type OwnProps = SectionFragment;
 
-export const ClinicDrProfile: React.FC<OwnProps> = (props) => {
+export const ContactContact: React.FC<OwnProps> = (props) => {
   const styles = useStyles(styleRefs);
 
   return (
