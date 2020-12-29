@@ -1,7 +1,7 @@
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { SectionFragment } from '../../../types/graphql-types';
-import * as styleRefs from './vasectomy-form-form.treat';
+import * as styleRefs from './treat/vasectomy-form-form.treat';
 
 type OwnProps = SectionFragment;
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { SectionFragment } from '../../../types/graphql-types';
-import * as styleRefs from './contact-contact.treat';
+import * as styleRefs from './treat/contact-contact.treat';
 
 type OwnProps = SectionFragment;
 
