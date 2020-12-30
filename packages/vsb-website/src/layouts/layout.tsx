@@ -1,51 +1,67 @@
 import { title } from 'case';
-import { Link, PageProps } from 'gatsby';
+import { Link, PageProps, graphql, useStaticQuery } from 'gatsby';
 import React, { ReactNode } from 'react';
 import { useStyles } from 'react-treat';
-import { Node } from '../../types/graphql-types';
+import { Node, LayoutAllSitePageQuery } from '../../types/graphql-types';
 import * as styleRefs from './layout.treat';
 
-import { useAllSitePages } from './use-all-site-pages.hook';
 import { NavBar } from '@newrade/core-gatsby-ui';
 
 type LayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }>;
 
+const query = graphql`
+  query LayoutAllSitePage {
+    pages: allSitePage {
+      nodes {
+        ...SitePageFragment
+      }
+    }
+  }
+  fragment SitePageFragment on SitePage {
+    id
+    path
+    context {
+      id
+      name
+      slug
+      node_locale
+      frontmatter {
+        name
+        tags
+      }
+    }
+  }
+`;
+
 export const Layout = React.memo<LayoutProps>((props) => {
-  const pages = useAllSitePages();
+  const pages = useStaticQuery<LayoutAllSitePageQuery>(query);
+
   const { styles } = useStyles(styleRefs);
 
-  function parsePathIntoName(path?: string | null) {
-    if (!path) {
-      return 'No title for page';
-    }
+  // function renderNavigation(path?: string) {
+  //   if (!path) {
+  //     return null;
+  //   }
 
-    return title(path.replace('/docs', '').replaceAll('/', ' '));
-  }
-
-  function renderNavigation(path?: string) {
-    if (!path) {
-      return null;
-    }
-
-    return (
-      <div className={styles.topMenu}>
-        {pages.pages.nodes
-          .filter((node) => !/404/.test(node.path))
-          .map((node) => (/^\/$/.test(node.path) ? { ...node, context: { frontmatter: { name: 'Home' } } } : node))
-          .map((node) => {
-            return (
-              <div key={node.id} className={styles.navItem}>
-                <Link to={node.path}>
-                  {node.context?.frontmatter?.name
-                    ? parsePathIntoName(node.context?.frontmatter?.name)
-                    : parsePathIntoName(node.path)}
-                </Link>
-              </div>
-            );
-          })}
-      </div>
-    );
-  }
+  //   return (
+  //     <div className={styles.topMenu}>
+  //       {pages.pages.nodes
+  //         .filter((node) => !/404/.test(node.path))
+  //         .map((node) => (/^\/$/.test(node.path) ? { ...node, context: { frontmatter: { name: 'Home' } } } : node))
+  //         .map((node) => {
+  //           return (
+  //             <div key={node.id} className={styles.navItem}>
+  //               <Link to={node.path}>
+  //                 {node.context?.frontmatter?.name
+  //                   ? parsePathIntoName(node.context?.frontmatter?.name)
+  //                   : parsePathIntoName(node.path)}
+  //               </Link>
+  //             </div>
+  //           );
+  //         })}
+  //     </div>
+  //   );
+  // }
 
   return (
     <div className={styles.wrapper}>

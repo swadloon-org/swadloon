@@ -28,7 +28,7 @@
   "dependencies": {
     "@newrade/core-design-system-old": "^1",
     "@newrade/core-react-ui-old": "^1",
-    "gatsby": "^2.24"
+    "gatsby": "^2.29"
   },
   "devDependencies": {
     "@newrade/core-gatsby-config": "^1",

@@ -23,7 +23,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
 
     const pagesData = await graphql<{
       allContentfulPage: {
-        edges: { node: { id: string; name: string; slug: string; node_locale: string } }[];
+        edges: { node: { id: string; name: string; slug: string; node_locale: string; type: { type: string } } }[];
       };
     }>(
       `
@@ -34,6 +34,9 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
                 node_locale
                 id
                 name
+                type {
+                  type
+                }
                 slug
               }
             }
@@ -76,6 +79,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
             pageId: edge.node.id,
             id: edge.node.id,
             name: edge.node.name,
+            type: edge.node.type.type,
             slug: edge.node.slug,
             node_locale: edge.node.node_locale,
           },

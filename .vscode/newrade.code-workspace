@@ -23,6 +23,7 @@
       "**/*.tsbuildinfo": true
     },
     "files.watcherExclude": {
+      "**/.cache/**": true,
       "**/.git/objects/**": true,
       "**/.git/subtree-cache/**": true,
       "**/node_modules/**": true,
