@@ -10,10 +10,10 @@ exports.styles = {
         marginLeft: 'auto',
     })),
     main: treat_1.style(({ cssTheme, theme }) => ({
-        padding: '1em',
-        maxWidth: `calc( 1440px - 225px - 300px - 40px * 2 )`,
+        // padding: '1em',
+        // maxWidth: `calc( 1440px - 225px - 300px - 40px * 2 )`,
         overflowX: `hidden`,
-        margin: `0 auto`,
+        // margin: `0 auto`,
         width: `100%`,
     })),
     sideMenu: treat_1.style(({ cssTheme, theme }) => ({

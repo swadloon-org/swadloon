@@ -24,7 +24,7 @@ export const sectionFragment = graphql`
         file {
           url
         }
-        desktopFluidImage: fluid(quality: 90, maxWidth: 800) {
+        desktopFluidImage: fluid(quality: 90, maxHeight: 800) {
           base64
           aspectRatio
           src

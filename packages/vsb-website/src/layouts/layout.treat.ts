@@ -9,10 +9,10 @@ export const styles = {
     marginLeft: 'auto',
   })),
   main: style(({ cssTheme, theme }: Theme) => ({
-    padding: '1em',
-    maxWidth: `calc( 1440px - 225px - 300px - 40px * 2 )`,
+    // padding: '1em',
+    // maxWidth: `calc( 1440px - 225px - 300px - 40px * 2 )`,
     overflowX: `hidden`,
-    margin: `0 auto`,
+    // margin: `0 auto`,
     width: `100%`,
   })),
   sideMenu: style(({ cssTheme, theme }: Theme) => ({
