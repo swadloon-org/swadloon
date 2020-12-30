@@ -1,4 +1,8 @@
-import { GatsbyPageContext, GatsbyNodeSiteMetadataFragment } from '@newrade/core-gatsby-config';
+import {
+  GatsbyPageContext,
+  GatsbyNodeSiteMetadataFragment,
+  GatsbyContentfulPageContext,
+} from '@newrade/core-gatsby-config';
 import {
   getMetaBasicTags,
   getMetadataOpenGraphWebsiteTags,
@@ -13,7 +17,7 @@ import { PROJECT_PAGE_TYPE } from '../../types/page-type';
 import { Providers } from '../layouts/providers';
 import { HomeTemplate } from './home.template';
 
-export type ProjectPageProps = PageProps<PageQuery, GatsbyPageContext<GatsbyNodeSiteMetadataFragment>>;
+export type ProjectPageProps = PageProps<PageQuery, GatsbyContentfulPageContext<GatsbyNodeSiteMetadataFragment>>;
 
 export const pageQuery = graphql`
   query Page($pageId: String) {

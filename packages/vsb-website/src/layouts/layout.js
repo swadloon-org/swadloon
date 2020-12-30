@@ -29,17 +29,10 @@ const react_1 = __importDefault(require("react"));
 const react_treat_1 = require("react-treat");
 const styleRefs = __importStar(require("./layout.treat"));
 const use_all_site_pages_hook_1 = require("./use-all-site-pages.hook");
+const core_gatsby_ui_1 = require("@newrade/core-gatsby-ui");
 exports.Layout = react_1.default.memo((props) => {
     const pages = use_all_site_pages_hook_1.useAllSitePages();
     const { styles } = react_treat_1.useStyles(styleRefs);
-    function parsePathGroupFromName(path) {
-        return path.match(/\/(?<folder>.+)\//);
-    }
-    function parsePathIntoGroup(pages) {
-        return pages.reduce((previous, current) => {
-            return previous;
-        }, {});
-    }
     function parsePathIntoName(path) {
         if (!path) {
             return 'No title for page';
@@ -50,29 +43,7 @@ exports.Layout = react_1.default.memo((props) => {
         if (!path) {
             return null;
         }
-        if (/^\/design-system/.test(path)) {
-            return (react_1.default.createElement("div", { className: styles.sideMenu }, pages.designsystem.nodes
-                .filter((node) => !/404/.test(node.path))
-                .map((node) => /^\/design-system\/$/.test(node.path) ? { ...node, context: { frontmatter: { name: 'Home' } } } : node)
-                .map((node) => {
-                return (react_1.default.createElement("div", { key: node.id, className: styles.navItem },
-                    react_1.default.createElement(gatsby_1.Link, { to: node.path }, node.context?.frontmatter?.name
-                        ? parsePathIntoName(node.context?.frontmatter?.name)
-                        : parsePathIntoName(node.path))));
-            })));
-        }
-        if (/^\/docs/.test(path)) {
-            return (react_1.default.createElement("div", { className: styles.sideMenu }, pages.docs.nodes
-                .filter((node) => !/404/.test(node.path))
-                .map((node) => /^\/docs\/$/.test(node.path) ? { ...node, context: { frontmatter: { name: 'Home' } } } : node)
-                .map((node) => {
-                return (react_1.default.createElement("div", { key: node.id, className: styles.navItem },
-                    react_1.default.createElement(gatsby_1.Link, { to: node.path }, node.context?.frontmatter?.name
-                        ? parsePathIntoName(node.context?.frontmatter?.name)
-                        : parsePathIntoName(node.path))));
-            })));
-        }
-        return (react_1.default.createElement("div", { className: styles.sideMenu }, pages.pages.nodes
+        return (react_1.default.createElement("div", { className: styles.topMenu }, pages.pages.nodes
             .filter((node) => !/404/.test(node.path))
             .map((node) => (/^\/$/.test(node.path) ? { ...node, context: { frontmatter: { name: 'Home' } } } : node))
             .map((node) => {
@@ -83,8 +54,13 @@ exports.Layout = react_1.default.memo((props) => {
         })));
     }
     return (react_1.default.createElement("div", { className: styles.wrapper },
-        react_1.default.createElement("header", null),
-        renderNavigation(props.location?.pathname),
+        react_1.default.createElement(core_gatsby_ui_1.NavBar, { items: pages.pages.nodes.map((item) => {
+                return {
+                    id: item.id,
+                    label: item.context?.name,
+                    to: item.path,
+                };
+            }) }),
         react_1.default.createElement("main", { className: styles.main }, props.children),
         react_1.default.createElement("footer", null, "footer")));
 });

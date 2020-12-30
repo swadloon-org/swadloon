@@ -30,17 +30,10 @@ export const useAllSitePages = () => {
         id
         path
         context {
+          id
+          name
           slug
-          siteMetadata {
-            description
-            languages {
-              defaultLangKey
-              langs
-            }
-            siteEnv
-            siteUrl
-            title
-          }
+          node_locale
           frontmatter {
             name
             tags

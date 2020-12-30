@@ -21,6 +21,8 @@ export * from './models/open-graph-metadata.model';
 export * from './models/twitter-metadata.model';
 export * from './utilities/colors.utilities';
 export * from './utilities/utilities';
+export * from './utilities/theme.utilities';
+export * from './utilities/effects.utilities';
 export * from './components/color/color-swatch';
 export * from './hooks/use-treat-theme';
 export * from './hooks/use-mouse-position';

@@ -17666,17 +17666,23 @@ export type SitePageConnectionGroupArgs = {
 export type SitePageContext = {
   siteMetadata?: Maybe<SitePageContextSiteMetadata>;
   pageId?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  slug?: Maybe<Scalars['String']>;
+  node_locale?: Maybe<Scalars['String']>;
   fileId?: Maybe<Scalars['String']>;
   frontmatter?: Maybe<SitePageContextFrontmatter>;
-  slug?: Maybe<Scalars['String']>;
 };
 
 export type SitePageContextFilterInput = {
   siteMetadata?: Maybe<SitePageContextSiteMetadataFilterInput>;
   pageId?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  name?: Maybe<StringQueryOperatorInput>;
+  slug?: Maybe<StringQueryOperatorInput>;
+  node_locale?: Maybe<StringQueryOperatorInput>;
   fileId?: Maybe<StringQueryOperatorInput>;
   frontmatter?: Maybe<SitePageContextFrontmatterFilterInput>;
-  slug?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePageContextFrontmatter = {
@@ -17825,10 +17831,13 @@ export type SitePageFieldsEnum =
   | 'context___siteMetadata___languages___langs'
   | 'context___siteMetadata___languages___defaultLangKey'
   | 'context___pageId'
+  | 'context___id'
+  | 'context___name'
+  | 'context___slug'
+  | 'context___node_locale'
   | 'context___fileId'
   | 'context___frontmatter___name'
   | 'context___frontmatter___tags'
-  | 'context___slug'
   | 'pluginCreator___id'
   | 'pluginCreator___parent___id'
   | 'pluginCreator___parent___parent___id'
@@ -18591,10 +18600,7 @@ export type LayoutAllSitePageQuery = { pages: (
 export type SitePageFragmentFragment = (
   Pick<SitePage, 'id' | 'path'>
   & { context?: Maybe<(
-    Pick<SitePageContext, 'slug'>
-    & { siteMetadata?: Maybe<(
-      Pick<SitePageContextSiteMetadata, 'description' | 'siteEnv' | 'siteUrl' | 'title'>
-      & { languages?: Maybe<Pick<SitePageContextSiteMetadataLanguages, 'defaultLangKey' | 'langs'>> }
-    )>, frontmatter?: Maybe<Pick<SitePageContextFrontmatter, 'name' | 'tags'>> }
+    Pick<SitePageContext, 'id' | 'name' | 'slug' | 'node_locale'>
+    & { frontmatter?: Maybe<Pick<SitePageContextFrontmatter, 'name' | 'tags'>> }
   )> }
 );

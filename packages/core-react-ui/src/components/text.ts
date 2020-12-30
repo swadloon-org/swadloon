@@ -20,4 +20,4 @@ const baseLinkExpression = /\[(?<label>.+)\]\((?<protocol>.+):\/?\/?(?<identifie
 
 type Protocol = 'http' | 'https' | 'page';
 
-type Props = {};
+// type Props = {};
