@@ -1,16 +1,61 @@
 import { title } from 'case';
-import { Link, PageProps } from 'gatsby';
+import { Link, PageProps, graphql, useStaticQuery } from 'gatsby';
 import React, { ReactNode } from 'react';
 import { useStyles } from 'react-treat';
-import { Node } from '../../types/graphql-types';
+import { Node, LayoutAllSitePageQuery } from '../../types/graphql-types';
 import * as styleRefs from './layout.treat';
 
-import { useAllSitePages } from './use-all-site-pages.hook';
+const query = graphql`
+  query LayoutAllSitePage {
+    pages: allSitePage(filter: { path: { glob: "!/{docs,design-system}/{**,*}" } }) {
+      totalCount
+      nodes {
+        ...SitePageFragment
+      }
+    }
+    designsystem: allSitePage(filter: { path: { glob: "/design-system/{**,*}" } }) {
+      totalCount
+      nodes {
+        ...SitePageFragment
+      }
+      totalCount
+    }
+    docs: allSitePage(filter: { path: { glob: "/docs/{**,*}" } }) {
+      totalCount
+      nodes {
+        ...SitePageFragment
+      }
+    }
+  }
+
+  fragment SitePageFragment on SitePage {
+    id
+    path
+    context {
+      slug
+      siteMetadata {
+        description
+        languages {
+          defaultLangKey
+          langs
+        }
+        siteEnv
+        siteUrl
+        title
+      }
+      frontmatter {
+        name
+        tags
+      }
+    }
+  }
+`;
 
 type LayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }>;
 
 export const Layout = React.memo<LayoutProps>((props) => {
-  const pages = useAllSitePages();
+  const pages = useStaticQuery<LayoutAllSitePageQuery>(query);
+
   const { styles } = useStyles(styleRefs);
 
   function parsePathGroupFromName(path: string) {

@@ -8,6 +8,9 @@ import { SOURCE_INSTANCE_NAME } from './source-instances';
  */
 export function getGastbyPluginPageCreatorConfig(options?: any): PluginRef[] {
   return [
+    /**
+     * Regular page components (e.g. page.tsx)
+     */
     {
       resolve: `gatsby-plugin-page-creator`,
       options: {
@@ -15,6 +18,9 @@ export function getGastbyPluginPageCreatorConfig(options?: any): PluginRef[] {
         ignore: [`**/*.treat.ts`, `**/*.mdx`, `**/*.md`],
       },
     },
+    /**
+     * Mdx page components (e.g. page.mdx)
+     */
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -30,6 +36,9 @@ export function getGastbyPluginPageCreatorConfig(options?: any): PluginRef[] {
         ignore: [`**/*.treat.ts`, `**/*.tsx`],
       },
     },
+    /**
+     * Mdx pages in src/docs/
+     */
     {
       resolve: `gatsby-source-filesystem`,
       options: {

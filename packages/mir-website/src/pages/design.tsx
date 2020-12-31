@@ -2,7 +2,7 @@ import { ICON_SIZE, LABEL } from '@newrade/core-design-system-old';
 import React from 'react';
 import { TreatProvider, useStyles } from 'react-treat';
 import { Author } from '../components/blog-preview/author';
-import { light } from '../design-system/themes.treat';
+import { light } from '../design-system/theme.treat';
 import * as styleRefs from './design.treat';
 import { Heading } from '../components/ui/heading';
 import { Paragraph } from '../components/ui/paragraph';

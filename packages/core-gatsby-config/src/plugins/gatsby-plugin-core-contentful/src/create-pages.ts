@@ -2,7 +2,7 @@ import { log, LOG_LEVEL } from '@newrade/core-utils';
 import { GatsbyNode } from 'gatsby';
 import path from 'path';
 import { GatsbyBlogPostContext, GatsbyContentfulPageContext } from '../../../config/page-config';
-import { GatsbyNodeSiteMetadataFragment } from '../../../config/site-graphql-types';
+import { SITE_LANGUAGES } from '../../../config/site-languages';
 import { GatsbyCoreContentfulPluginOptions } from '../gatsby-plugin-options';
 
 export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, graphql }, options) => {
@@ -72,7 +72,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
         log(`Creating page: ${edge.node.slug}`, {
           toolName: pluginOptions.packageName,
         });
-        createPage<GatsbyContentfulPageContext<GatsbyNodeSiteMetadataFragment>>({
+        createPage<GatsbyContentfulPageContext>({
           path: edge.node.slug,
           context: {
             siteMetadata: {} as any, // will be set by the gatsby-plugin-core plugin
@@ -81,7 +81,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
             name: edge.node.name,
             type: edge.node.type.type,
             slug: edge.node.slug,
-            node_locale: edge.node.node_locale,
+            locale: edge.node.node_locale as SITE_LANGUAGES,
           },
           component: pageTemplate,
         });

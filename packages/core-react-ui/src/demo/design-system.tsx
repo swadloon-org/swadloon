@@ -15,6 +15,10 @@ export const DesignSystemComponent: React.FC<Props> = (props) => {
   const styles = useStyles(styleRefs);
   const { cssTheme, theme } = useTreatTheme();
 
+  if (!(cssTheme && theme)) {
+    return <div className={styles.wrapper}>Please provide a theme</div>;
+  }
+
   return (
     <div className={styles.wrapper}>
       <Stack id={'Design System'} gap="2em">

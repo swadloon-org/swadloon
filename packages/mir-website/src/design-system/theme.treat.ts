@@ -1,4 +1,4 @@
 import { createTheme } from 'treat';
-import { theme } from './index';
+import { theme } from './theme';
 
 export const light = createTheme(theme);

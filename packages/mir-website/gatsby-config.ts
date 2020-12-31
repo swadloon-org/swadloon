@@ -22,8 +22,8 @@ const config: core.GastbySiteConfig = {
     siteUrl: env.APP_URL,
     siteEnv: env.APP_ENV,
     languages: {
-      langs: [core.SITE_LANGUAGES.FR, core.SITE_LANGUAGES.EN],
-      defaultLangKey: core.SITE_LANGUAGES.FR,
+      langs: [core.SITE_LANGUAGES.FR_CA, core.SITE_LANGUAGES.EN_CA],
+      defaultLangKey: core.SITE_LANGUAGES.FR_CA,
     },
   },
   plugins: [
@@ -53,7 +53,9 @@ const config: core.GastbySiteConfig = {
     /**
      * Core Plugins
      */
-    core.getGatsbyTsPluginConfig(),
+    ...core.getGatsbyPluginTypeScriptConfig({
+      documentPaths: ['../core-gatsby-ui/src/**/*.{ts,tsx}', './src/**/*.{ts,tsx}'],
+    }),
     core.getGatsbyReactSvgConfig(),
     ...core.getGastbyPluginPageCreatorConfig(),
     core.getGastbyPluginTreatConfig(),

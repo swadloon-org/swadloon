@@ -2,6 +2,7 @@
   "extends": "../../../../tsconfig.base.json",
   "compilerOptions": {
     "declaration": true,
+    "skipLibCheck": true,
     "sourceMap": true,
     "lib": ["es6", "dom", "es2017", "ESNext"],
     "types": ["node"],

@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { Link as GatsbyLink } from 'gatsby';
 import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
-import { NavigationProps } from '../../layouts/page.layout';
 import { PAGE_NAME } from '../../templates/page.template';
 import { Button } from '../ui/button';
 import { Heading } from '../ui/heading';
@@ -11,6 +10,17 @@ import { Icon } from '../ui/icon';
 import { Illustration } from '../ui/illustration';
 import { Label } from '../ui/label';
 import * as stylesRef from './side-bar.treat';
+
+export type NavigationProps = {
+  currentPageName: string | PAGE_NAME;
+  location: Location;
+  logoURL: string | null;
+  linkedinPageURL: string | null;
+  facebookPageURL: string | null;
+  instagramPageURL: string | null;
+  twitterPageURL: string | null;
+  pages: { title?: string | null; slug?: string | null; name?: string | PAGE_NAME | null; locale?: string | null }[];
+};
 
 type OwnProps = {
   state: 'opened' | 'closed';
@@ -24,12 +34,6 @@ export const SideBar: React.FC<OwnProps> = (props) => {
   const currentLocale = props.location?.pathname.includes('/en/') ? 'en-CA' : 'fr-CA';
   const currentLocaleIsEN = currentLocale === 'en-CA';
   const currentLocaleIsFR = !currentLocaleIsEN;
-  const currentPage = props?.pages.filter(
-    (page) => page?.name === props?.currentPageName && page?.locale === currentLocale
-  );
-  const currentAlternateLocalePage = props?.pages.filter(
-    (page) => page?.name === props?.currentPageName && page?.locale !== currentLocale
-  );
   const pagesEN = props?.pages?.filter((page) => (currentLocaleIsEN ? page?.locale === 'en-CA' : page));
   const pagesFR = props?.pages?.filter((page) => (currentLocaleIsFR ? page?.locale === 'fr-CA' : page));
 

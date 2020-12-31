@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { theme } from '../design-system/index';
+import { theme } from '../design-system/theme';
 import * as stylesRef from './home.treat';
 import { ProjectPageProps } from './page.template';
 import { SectionTemplate } from './section.template';

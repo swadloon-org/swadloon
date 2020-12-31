@@ -1,15 +1,12 @@
-import { PageProps } from 'gatsby';
+import { GatsbyMarkdownFilePageContext } from '@newrade/core-gatsby-config';
+import { graphql, PageProps } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
 import Helmet from 'react-helmet';
-import { graphql } from 'gatsby';
-import { GatsbyMarkdownFilePageContext, GatsbyNodeSiteMetadataFragment } from '@newrade/core-gatsby-config';
+import '../fonts';
 import { MarkdownTemplateQuery } from '../../types/graphql-types';
 
-export type MarkdownTemplateProps = PageProps<
-  MarkdownTemplateQuery,
-  GatsbyMarkdownFilePageContext<GatsbyNodeSiteMetadataFragment>
->;
+export type MarkdownTemplateProps = PageProps<MarkdownTemplateQuery, GatsbyMarkdownFilePageContext>;
 
 /**
  * Query to retrieve all markdown content for the markdown file
@@ -40,7 +37,7 @@ export const markdownTemplateQuery = graphql`
  */
 const Page: React.FC<MarkdownTemplateProps> = (props) => {
   return (
-    <div>
+    <>
       <Helmet>
         {/* {getMetadataOpenGraphWebsiteTags({
           type: OPEN_GRAPH_TYPE.ARTICLE,
@@ -61,7 +58,7 @@ const Page: React.FC<MarkdownTemplateProps> = (props) => {
         })} */}
       </Helmet>
       <MDXRenderer {...props}>{props.data.mdx?.body as string}</MDXRenderer>
-    </div>
+    </>
   );
 };
 
