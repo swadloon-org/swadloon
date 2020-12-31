@@ -47,6 +47,7 @@ export type GatsbyContentfulPageContext<SiteMetadataType> = {
    */
   id: string;
   name: string;
+  type: string;
   slug: string;
   node_locale: string;
 };

@@ -10,6 +10,8 @@ import { MarkdownTemplateQuery } from '../../types/graphql-types';
 import { DebugGasbyPage } from '@newrade/core-gatsby-ui';
 // import { DebugGasbyPage } from '@newrade/core-gatsby-ui';
 
+import '../fonts';
+
 export type MarkdownTemplateProps = PageProps<
   MarkdownTemplateQuery,
   GatsbyMarkdownFilePageContext<GatsbyNodeSiteMetadataFragment>
@@ -44,7 +46,7 @@ export const markdownTemplateQuery = graphql`
  */
 const Page: React.FC<MarkdownTemplateProps> = (props) => {
   return (
-    <div>
+    <>
       {props.pageContext.siteMetadata?.siteEnv === DEPLOY_ENV.LOCAL ? <DebugGasbyPage {...props} /> : null}
       <Helmet>
         {getMetaBasicTags()}
@@ -67,7 +69,7 @@ const Page: React.FC<MarkdownTemplateProps> = (props) => {
         })} */}
       </Helmet>
       <MDXRenderer {...props}>{props.data.mdx?.body as string}</MDXRenderer>
-    </div>
+    </>
   );
 };
 

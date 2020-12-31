@@ -11,6 +11,7 @@ export * from './config/gatsby-plugin-seo.conf';
 export * from './config/gatsby-plugin-sharp.conf';
 export * from './config/gatsby-plugin-treat.conf';
 export * from './config/gatsby-plugin-ts.conf';
+export * from './config/gatsby-plugin-typescript.conf';
 export * from './config/page-config';
 export * from './config/site-config';
 export * from './config/site-graphql-types';

@@ -1,10 +1,7 @@
-import { defaultCSSTheme, defaultTheme } from '@newrade/core-react-ui';
 import { createTheme } from 'treat';
-
-export const theme = defaultTheme;
-export const cssTheme = defaultCSSTheme;
+import { cssTheme, theme } from './theme';
 
 /**
  * Treat theme reference
  */
-export const light = createTheme({ theme: defaultTheme, cssTheme: defaultCSSTheme });
+export const light = createTheme({ theme, cssTheme });

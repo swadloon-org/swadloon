@@ -17,13 +17,7 @@ export const Layout = React.memo<LayoutProps>((props) => {
     return path.match(/\/(?<folder>.+)\//);
   }
 
-  function parsePathIntoGroup(pages: Node[]) {
-    return pages.reduce((previous, current) => {
-      return previous;
-    }, {});
-  }
-
-  function parsePathIntoName(path?: string | null) {
+  function parsePathIntoName(path: string) {
     if (!path) {
       return 'No title for page';
     }
