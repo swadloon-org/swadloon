@@ -37,6 +37,9 @@ export const pageQuery = graphql`
         node {
           id
           name
+          type {
+            type
+          }
           node_locale
           title
           description {
@@ -113,7 +116,7 @@ export const PageTemplate: React.FC<ProjectPageProps> = ({ data, location, ...pr
           }))}
         >
           {getPageTemplateComponent({
-            pageName: data?.contentfulPage?.name as any,
+            pageType: data?.contentfulPage?.type.type as any,
             props: { data, location, ...props },
           })}
         </Layout>
@@ -122,8 +125,8 @@ export const PageTemplate: React.FC<ProjectPageProps> = ({ data, location, ...pr
   );
 };
 
-function getPageTemplateComponent({ pageName, props }: { pageName: string; props: ProjectPageProps }) {
-  switch (pageName) {
+function getPageTemplateComponent({ pageType, props }: { pageType: string; props: ProjectPageProps }) {
+  switch (pageType) {
     case PAGE_NAME.ACCUEIL: {
       return <HomeTemplate {...props} />;
     }
