@@ -7,23 +7,17 @@ import * as styleRefs from './layout.treat';
 
 import { useAllSitePages } from './use-all-site-pages.hook';
 
-// type LayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }>;
+type LayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }>;
 
-export const Layout = React.memo((props) => {
+export const Layout = React.memo<LayoutProps>((props) => {
   const pages = useAllSitePages();
   const { styles } = useStyles(styleRefs);
 
-  function parsePathGroupFromName(path) {
+  function parsePathGroupFromName(path: string) {
     return path.match(/\/(?<folder>.+)\//);
   }
 
-  function parsePathIntoGroup(pages) {
-    return pages.reduce((previous, current) => {
-      return previous;
-    }, {});
-  }
-
-  function parsePathIntoName(path) {
+  function parsePathIntoName(path: string) {
     if (!path) {
       return 'No title for page';
     }
@@ -31,7 +25,7 @@ export const Layout = React.memo((props) => {
     return title(path.replace('/docs', '').replaceAll('/', ' '));
   }
 
-  function renderNavigation(path) {
+  function renderNavigation(path?: string) {
     if (!path) {
       return null;
     }

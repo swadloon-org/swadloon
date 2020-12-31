@@ -10,10 +10,10 @@ import { Providers } from './src/layouts/providers';
  * @see https://www.gatsbyjs.com/docs/api-files-gatsby-ssr/
  */
 
-export const wrapPageElement = ({ element }: any) => {
+export const wrapPageElement = ({ element }) => {
   return <Layout>{element}</Layout>;
 };
 
-export const wrapRootElement = ({ element }: any) => {
+export const wrapRootElement = ({ element }) => {
   return <Providers>{element}</Providers>;
 };
