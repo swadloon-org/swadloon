@@ -9,7 +9,8 @@ import {
 } from '@newrade/core-react-ui';
 import React from 'react';
 import { TreatProvider } from 'react-treat';
-import { light, theme, cssTheme } from '../design-system/theme.treat';
+import { light } from '../design-system/theme.treat';
+import { theme, cssTheme } from '../design-system/theme';
 import { IconContext } from 'react-icons/lib';
 
 export const Providers: React.FC = (props) => {

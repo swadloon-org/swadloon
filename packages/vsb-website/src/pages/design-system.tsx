@@ -1,14 +1,10 @@
-import React from 'react';
-import { IoIosHeart } from 'react-icons/io';
 import { SrcPageTemplateProps } from '@newrade/core-gatsby-ui';
+import React from 'react';
 import { SrcPageTemplate } from '../templates/src-page.template';
+import { DesignSystemComponent } from '@newrade/core-react-ui';
 
-export const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
-  return (
-    <div>
-      <IoIosHeart />
-    </div>
-  );
+const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
+  return <DesignSystemComponent />;
 };
 
 const Page: React.FC<SrcPageTemplateProps> = (props) => {

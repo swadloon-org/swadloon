@@ -1,18 +1,24 @@
-import { Color, ColorShades5 } from '@newrade/core-design-system';
-import { SrcPageTemplate, SrcPageTemplateProps } from '@newrade/core-gatsby-ui';
-import { ColorSwatch, keys, Stack, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
+import { Color, ColorShades5 } from '@newrade/core-design-system';
+import { IoIosHeart } from 'react-icons/io';
 import { useStyles } from 'react-treat';
-import * as styleRefs from '../index.treat';
+import * as styleRefs from './design-system.treat';
+import { useTreatTheme } from '../hooks/use-treat-theme';
+import { Stack } from '../layout/stack/stack';
+import { Heading } from '../components/heading/heading';
+import { keys } from '../utilities/utilities';
+import { ColorSwatch } from '../components/color/color-swatch';
 
-const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
+type Props = {};
+
+export const DesignSystemComponent: React.FC<Props> = (props) => {
   const styles = useStyles(styleRefs);
   const { cssTheme, theme } = useTreatTheme();
 
   return (
     <div className={styles.wrapper}>
       <Stack id={'Design System'} gap="2em">
-        <h1>Colors - {cssTheme.name}</h1>
+        <h1>Design System - {cssTheme.name}</h1>
 
         <Stack id={'Foundations'} gap="1.5em">
           <h2>Foundations</h2>
@@ -22,12 +28,14 @@ const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
 
             <h4>Titles</h4>
 
-            {JSON.stringify(cssTheme.typography?.headings.desktop.h1)}
+            <Heading>Hey</Heading>
 
             <h4>Headings</h4>
             <h4>Labels</h4>
             <h4>Paragraphs</h4>
           </Stack>
+
+          <IoIosHeart />
 
           <Stack id={'Colors'} gap="1em">
             <h4>All Colors</h4>
@@ -116,13 +124,3 @@ const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
     </div>
   );
 };
-
-const Page: React.FC<SrcPageTemplateProps> = (props) => {
-  return (
-    <SrcPageTemplate {...props}>
-      <PageComponent {...props}></PageComponent>
-    </SrcPageTemplate>
-  );
-};
-
-export default Page;

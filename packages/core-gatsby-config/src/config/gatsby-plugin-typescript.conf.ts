@@ -16,8 +16,9 @@ const defaultOptions: PluginOptions = {
 };
 
 /**
- * Return a `gatsby-plugin-ts` configuration object.
+ * Return a `gatsby-plugin-ts` and `gatsby-plugin-graphql-codegen` configuration objects
  * @see https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-typescript
+ * @see https://github.com/d4rekanguok/gatsby-typescript
  */
 export function getGatsbyPluginTypeScriptConfig({
   fileName = defaultOptions.fileName,
