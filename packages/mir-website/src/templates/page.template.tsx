@@ -65,6 +65,16 @@ export enum PAGE_NAME {
   NON_TROUVE = 'Non trouvée',
 }
 
+export enum PAGE_TYPE {
+  ACCUEIL = 'ACCUEIL',
+  CANDIDATS = 'CANDIDATS',
+  EMPLOYEURS = 'EMPLOYEURS',
+  BLOGUE = 'BLOGUE',
+  A_PROPOS = 'A_PROPOS',
+  CONTACT = 'CONTACT',
+  NON_TROUVE = 'NON_TROUVE',
+}
+
 export const PageTemplate: React.FC<ProjectPageProps> = ({ data, location, ...props }) => {
   return (
     <TreatProvider theme={light}>
@@ -116,7 +126,7 @@ export const PageTemplate: React.FC<ProjectPageProps> = ({ data, location, ...pr
           }))}
         >
           {getPageTemplateComponent({
-            pageType: data?.contentfulPage?.type.type as any,
+            pageType: data?.contentfulPage?.type?.type as any,
             props: { data, location, ...props },
           })}
         </Layout>
@@ -127,25 +137,25 @@ export const PageTemplate: React.FC<ProjectPageProps> = ({ data, location, ...pr
 
 function getPageTemplateComponent({ pageType, props }: { pageType: string; props: ProjectPageProps }) {
   switch (pageType) {
-    case PAGE_NAME.ACCUEIL: {
+    case PAGE_TYPE.ACCUEIL: {
       return <HomeTemplate {...props} />;
     }
-    case PAGE_NAME.CANDIDATS: {
+    case PAGE_TYPE.CANDIDATS: {
       return <HomeTemplate {...props} />;
     }
-    case PAGE_NAME.EMPLOYEURS: {
+    case PAGE_TYPE.EMPLOYEURS: {
       return <HomeTemplate {...props} />;
     }
-    case PAGE_NAME.BLOGUE: {
+    case PAGE_TYPE.BLOGUE: {
       return <BlogTemplate {...props} />;
     }
-    case PAGE_NAME.A_PROPOS: {
+    case PAGE_TYPE.A_PROPOS: {
       return <HomeTemplate {...props} />;
     }
-    case PAGE_NAME.CONTACT: {
+    case PAGE_TYPE.CONTACT: {
       return <ContactTemplate {...props} />;
     }
-    case PAGE_NAME.NON_TROUVE: {
+    case PAGE_TYPE.NON_TROUVE: {
       return <NotFoundTemplate {...props} />;
     }
     default: {
