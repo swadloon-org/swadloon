@@ -4,7 +4,7 @@ import { useStyles } from 'react-treat';
 import { Layout } from '../layouts/layout';
 import { Providers } from '../layouts/providers';
 import { SrcPageTemplateProps } from '@newrade/core-gatsby-ui';
-import * as styleRefs from './index.treat';
+import * as styleRefs from '../styles/index.treat';
 
 const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
   const styles = useStyles(styleRefs);

@@ -3,7 +3,7 @@ import { graphql, Link, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { SrcPageTemplate, SrcPageTemplateProps } from '@newrade/core-gatsby-ui';
-import * as styleRefs from './layouts.treat';
+import * as styleRefs from '../styles/layouts.treat';
 
 export const query = graphql`
   {
