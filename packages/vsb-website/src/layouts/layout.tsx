@@ -6,6 +6,7 @@ import { Node, LayoutAllSitePageQuery } from '../../types/graphql-types';
 import * as styleRefs from './layout.treat';
 
 import { NavBar } from '@newrade/core-gatsby-ui';
+import { Footer } from '../components/footer';
 
 type LayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }>;
 
@@ -79,7 +80,7 @@ export const Layout = React.memo<LayoutProps>((props) => {
 
       <main className={styles.main}>{props.children}</main>
 
-      <footer>footer</footer>
+      <Footer></Footer>
     </div>
   );
 });

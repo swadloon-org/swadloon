@@ -2,6 +2,8 @@ import React from 'react';
 import { useStyles } from 'react-treat';
 import { SectionFragment } from '../../types/graphql-types';
 import * as styleRefs from './tile-links.treat';
+import { Box, Center, Stack, Cluster } from '@newrade/core-react-ui';
+import { TileLink } from './tile-link';
 
 type OwnProps = SectionFragment;
 
@@ -10,7 +12,12 @@ export const TileLinks: React.FC<OwnProps> = (props) => {
 
   return (
     <div className={`${styles.wrapper}`}>
-      <pre>{JSON.stringify(props, null, 2)}</pre>
+      <Cluster maxWidth={'100%'}>
+        {/* ITEMS */}
+        {props?.subSections?.map((item: any, index: number) => {
+          return <TileLink {...item}></TileLink>;
+        })}
+      </Cluster>
     </div>
   );
 };

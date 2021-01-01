@@ -5,6 +5,4 @@ import { style } from 'treat';
 // Wrapper
 //
 
-export const wrapper = style((theme: DesignSystem) => ({
-  color: 'blue',
-}));
+export const wrapper = style((theme: DesignSystem) => ({ width: '100%', height: '720px' }));

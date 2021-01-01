@@ -45,9 +45,9 @@ export const Cluster: React.FC<OwnProps> = ({
       minWidth,
       justifyItems,
       // @ts-ignore
-      '--mobileTextAlign': mobileJustifyContent,
-      '--tabletTextAlign': tabletJustifyContent,
-      '--desktopTextAlign': desktopJustifyContent,
+      '--mobileJustifyContent': mobileJustifyContent,
+      '--tabletJustifyContent': tabletJustifyContent,
+      '--desktopJustifyContent': desktopJustifyContent,
     },
     ...props,
   });
