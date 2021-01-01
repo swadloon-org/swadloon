@@ -28,7 +28,7 @@ export const defaultTypography: Typography = {
         lineGap: 19,
       },
       t2: {
-        capHeight: 55,
+        capHeight: 34,
         lineGap: 19,
       },
     },
@@ -38,7 +38,7 @@ export const defaultTypography: Typography = {
         lineGap: 19,
       },
       t2: {
-        capHeight: 55,
+        capHeight: 34,
         lineGap: 19,
       },
     },
@@ -49,7 +49,7 @@ export const defaultTypography: Typography = {
         lineGap: 19,
       },
       t2: {
-        capHeight: 55,
+        capHeight: 34,
         lineGap: 19,
       },
     },

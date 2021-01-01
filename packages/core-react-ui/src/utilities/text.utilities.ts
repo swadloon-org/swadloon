@@ -1,6 +1,7 @@
 import { AppError, ERROR_TYPE } from '@newrade/core-common';
 import { TextStyle } from '@newrade/core-design-system';
 import capsize, { CapsizeStyles } from 'capsize';
+import { TextDecorationProperty, TextTransformProperty } from 'csstype';
 import { pxStringToNumber, pxStringToRem } from './utilities';
 
 /**
@@ -115,4 +116,19 @@ export function convertLetterSpacingToEM({ value, fontSize }: { value: string; f
   }
 
   return `${convertedValue / 100}em`;
+}
+
+/**
+ * Return a Treat compatible style object from a theme text style
+ */
+export function getCSSTextStyles(textStyle: TextStyle<string>) {
+  return {
+    fontWeight: textStyle.fontWeight,
+    textTransform: textStyle.textTransform as TextTransformProperty,
+    fontFamily: textStyle.fontFamily,
+    fontStyle: textStyle.fontStyle,
+    letterSpacing: textStyle.letterSpacing,
+    textDecoration: textStyle.textDecoration as TextDecorationProperty<any>,
+    ...textStyle.capsize,
+  };
 }

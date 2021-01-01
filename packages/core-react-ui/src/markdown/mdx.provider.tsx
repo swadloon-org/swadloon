@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heading } from '../components/heading/heading';
+import { Title } from '../components/text/title';
 
 /**
  * Components configuration object for <MDXProvider/>.
@@ -13,7 +13,7 @@ import { Heading } from '../components/heading/heading';
  *    ```
  */
 export const mdxComponents: Record<string, React.ReactNode> = {
-  h1: (props: MDXProps) => <Heading {...props} />,
+  h1: (props: MDXProps) => <Title {...props} />,
   // h2: Heading.H2,
   // // …
   // p: Text,
@@ -24,7 +24,7 @@ export const mdxComponents: Record<string, React.ReactNode> = {
 export const blogMdxComponents: Record<string, React.ReactNode> = {
   h1: (props: MDXProps) => (
     <div style={{ marginBottom: '22px' }}>
-      <Heading {...props} />
+      <Title {...props} />
     </div>
   ),
   // h2: Heading.H2,

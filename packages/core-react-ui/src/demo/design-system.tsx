@@ -1,11 +1,11 @@
 import React from 'react';
-import { Color, ColorShades5 } from '@newrade/core-design-system';
+import { Color, ColorShades5, TITLE } from '@newrade/core-design-system';
 import { IoIosHeart } from 'react-icons/io';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './design-system.treat';
 import { useTreatTheme } from '../hooks/use-treat-theme';
 import { Stack } from '../layout/stack/stack';
-import { Heading } from '../components/heading/heading';
+import { Title } from '../components/text/title';
 import { keys } from '../utilities/utilities';
 import { ColorSwatch } from '../components/color/color-swatch';
 
@@ -32,9 +32,12 @@ export const DesignSystemComponent: React.FC<Props> = (props) => {
 
             <h4>Titles</h4>
 
-            <Heading>Hey</Heading>
+            {keys(TITLE).map((variant, index) => (
+              <Title key={index} variant={TITLE[variant]}></Title>
+            ))}
 
             <h4>Headings</h4>
+
             <h4>Labels</h4>
             <h4>Paragraphs</h4>
           </Stack>

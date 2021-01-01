@@ -1,4 +1,4 @@
-export * from './components/heading/heading';
+export * from './components/text/title';
 export * from './components/button/button';
 export * from './components/seo/meta-basic';
 export * from './components/seo/metadata-twitter';
