@@ -3,7 +3,7 @@ import React from 'react';
 import { TreatProvider, useStyles } from 'react-treat';
 import { Author } from '../components/blog-preview/author';
 import { light } from '../design-system/theme.treat';
-import * as styleRefs from './design.treat';
+import * as styleRefs from '../styles/design.treat';
 import { Heading } from '../components/ui/heading';
 import { Paragraph } from '../components/ui/paragraph';
 import { Label } from '../components/ui/label';
