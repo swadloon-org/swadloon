@@ -1,21 +1,15 @@
-import { PageProps } from 'gatsby';
+import { DEPLOY_ENV } from '@newrade/core-common';
+import { GatsbyMarkdownFilePageContext } from '@newrade/core-gatsby-config';
+import { DebugGasbyPage } from '@newrade/core-gatsby-ui';
+import { getMetaBasicTags } from '@newrade/core-react-ui';
+import { graphql, PageProps } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
 import Helmet from 'react-helmet';
-import { graphql } from 'gatsby';
-import { DEPLOY_ENV } from '@newrade/core-common';
-import { getMetaBasicTags } from '@newrade/core-react-ui';
-import { GatsbyMarkdownFilePageContext, GatsbyNodeSiteMetadataFragment } from '@newrade/core-gatsby-config';
 import { MarkdownTemplateQuery } from '../../types/graphql-types';
-import { DebugGasbyPage } from '@newrade/core-gatsby-ui';
-// import { DebugGasbyPage } from '@newrade/core-gatsby-ui';
-
 import '../fonts';
 
-export type MarkdownTemplateProps = PageProps<
-  MarkdownTemplateQuery,
-  GatsbyMarkdownFilePageContext<GatsbyNodeSiteMetadataFragment>
->;
+export type MarkdownTemplateProps = PageProps<MarkdownTemplateQuery, GatsbyMarkdownFilePageContext>;
 
 /**
  * Query to retrieve all markdown content for the markdown file

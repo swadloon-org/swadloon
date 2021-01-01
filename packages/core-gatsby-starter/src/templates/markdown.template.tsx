@@ -5,16 +5,13 @@ import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
 import { DEPLOY_ENV } from '@newrade/core-common';
 import { getMetaBasicTags } from '@newrade/core-react-ui';
-import { GatsbyMarkdownFilePageContext, GatsbyNodeSiteMetadataFragment } from '@newrade/core-gatsby-config';
+import { GatsbyMarkdownFilePageContext } from '@newrade/core-gatsby-config';
 import { MarkdownTemplateQuery } from '../../types/graphql-types';
 import { DebugGasbyPage } from '@newrade/core-gatsby-ui';
 import * as styleRefs from './markdown.treat';
 import { useStyles } from 'react-treat';
 
-export type MarkdownTemplateProps = PageProps<
-  MarkdownTemplateQuery,
-  GatsbyMarkdownFilePageContext<GatsbyNodeSiteMetadataFragment>
->;
+export type MarkdownTemplateProps = PageProps<MarkdownTemplateQuery, GatsbyMarkdownFilePageContext>;
 
 /**
  * Query to retrieve all markdown content for the markdown file

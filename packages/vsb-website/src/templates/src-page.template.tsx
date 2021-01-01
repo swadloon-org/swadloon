@@ -1,10 +1,10 @@
 import { DEPLOY_ENV } from '@newrade/core-common';
-import { GatsbyNodeSiteMetadataFragment, GatsbySrcPageContext } from '@newrade/core-gatsby-config';
+import { GatsbySrcPageContext } from '@newrade/core-gatsby-config';
 import { DebugGasbyPage } from '@newrade/core-gatsby-ui';
 import { PageProps } from 'gatsby';
 import React, { ReactNode } from 'react';
 
-export type SrcPageTemplateProps = PageProps<{}, GatsbySrcPageContext<GatsbyNodeSiteMetadataFragment>>;
+export type SrcPageTemplateProps = PageProps<{}, GatsbySrcPageContext>;
 
 export type Props = Omit<SrcPageTemplateProps, 'children'> & { children: ReactNode };
 

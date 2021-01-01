@@ -10,6 +10,7 @@
   "repository": "https://github.com/newrade/newrade/tree/master/packages/newrade-website",
   "license": "MIT",
   "scripts": {
+    "prebuild": "yarn typecheck:build",
     "build": "gatsby build",
     "clean": "gatsby clean",
     "compile": "tsc --project tsconfig.gatsby.json",
@@ -20,7 +21,8 @@
     "serve": ". ./.env && NODE_ENV=production gatsby serve --port=$APP_PORT",
     "start": ". ./.env && gatsby develop -p $APP_PORT -H 0.0.0.0",
     "test": "echo \"Wrtps://gatsby.dev/unit-testing\"",
-    "type-check": "tsc --project tsconfig.build.json --noEmit --watch"
+    "typecheck": "yarn typecheck:build --watch",
+    "typecheck:build": "tsc --project tsconfig.build.json --noEmit"
   },
   "dependencies": {
     "@newrade/core-design-system": "^1",
