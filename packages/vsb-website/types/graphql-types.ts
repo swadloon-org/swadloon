@@ -16583,6 +16583,8 @@ export type QueryAllDirectoryArgs = {
 export type QuerySiteArgs = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  port?: Maybe<IntQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -17302,6 +17304,8 @@ export type QueryAllSitePluginArgs = {
 export type Site = Node & {
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
+  port?: Maybe<Scalars['Int']>;
+  host?: Maybe<Scalars['String']>;
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
@@ -17507,6 +17511,8 @@ export type SiteFieldsEnum =
   | 'siteMetadata___siteEnv'
   | 'siteMetadata___languages___langs'
   | 'siteMetadata___languages___defaultLangKey'
+  | 'port'
+  | 'host'
   | 'polyfill'
   | 'pathPrefix'
   | 'id'
@@ -17599,6 +17605,8 @@ export type SiteFieldsEnum =
 export type SiteFilterInput = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  port?: Maybe<IntQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -18530,6 +18538,13 @@ export type SiteMetadataFragment = { siteMetadata?: Maybe<(
     & { languages?: Maybe<Pick<SiteSiteMetadataLanguages, 'defaultLangKey' | 'langs'>> }
   )> };
 
+export type FooterQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type FooterQuery = { contentfulCompanyAddress?: Maybe<Pick<ContentfulCompanyAddress, 'addressLine1' | 'city' | 'provinceState' | 'postalCode' | 'websiteURL' | 'phone' | 'email'>> };
+
+export type CompanyAddressFragment = Pick<ContentfulCompanyAddress, 'name' | 'phone' | 'email' | 'city' | 'postalCode' | 'provinceState' | 'websiteURL' | 'addressLine1' | 'fax'>;
+
 export type LinkFragment = (
   Pick<ContentfulLink, 'name' | 'type' | 'label' | 'url'>
   & { page?: Maybe<Pick<ContentfulPage, 'id' | 'name' | 'slug'>>, section?: Maybe<Array<Maybe<Pick<ContentfulSection, 'id' | 'name'>>>> }
@@ -18551,7 +18566,25 @@ export type SectionFragment = (
   & { type?: Maybe<Pick<ContentfulSectionType, 'type'>>, link?: Maybe<LinkFragment>, text?: Maybe<(
     Pick<ContentfulSectionTextTextNode, 'text'>
     & { childMdx?: Maybe<Pick<Mdx, 'body'>> }
-  )>, medias?: Maybe<{ medias?: Maybe<Array<Maybe<{ file?: Maybe<Pick<ContentfulAssetFile, 'url'>>, desktopFluidImage?: Maybe<Pick<ContentfulFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>>, mobileFluidImage?: Maybe<Pick<ContentfulFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>> }>>> }> }
+  )>, announcements?: Maybe<Array<Maybe<(
+    Pick<ContentfulAnnouncement, 'title' | 'name' | 'type'>
+    & { message?: Maybe<(
+      Pick<ContentfulAnnouncementMessageTextNode, 'message'>
+      & { childMdx?: Maybe<Pick<Mdx, 'body'>> }
+    )> }
+  )>>>, medias?: Maybe<{ medias?: Maybe<Array<Maybe<{ file?: Maybe<Pick<ContentfulAssetFile, 'url'>>, desktopFluidImage?: Maybe<Pick<ContentfulFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>>, mobileFluidImage?: Maybe<Pick<ContentfulFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>> }>>> }>, subSections?: Maybe<Array<Maybe<(
+    Pick<ContentfulSection, 'node_locale' | 'name' | 'title' | 'titleHighlight' | 'subtitle'>
+    & { type?: Maybe<Pick<ContentfulSectionType, 'type'>>, link?: Maybe<LinkFragment>, text?: Maybe<(
+      Pick<ContentfulSectionTextTextNode, 'text'>
+      & { childMdx?: Maybe<Pick<Mdx, 'body'>> }
+    )>, announcements?: Maybe<Array<Maybe<(
+      Pick<ContentfulAnnouncement, 'title' | 'name' | 'type'>
+      & { message?: Maybe<(
+        Pick<ContentfulAnnouncementMessageTextNode, 'message'>
+        & { childMdx?: Maybe<Pick<Mdx, 'body'>> }
+      )> }
+    )>>>, medias?: Maybe<{ medias?: Maybe<Array<Maybe<{ file?: Maybe<Pick<ContentfulAssetFile, 'url'>>, desktopFluidImage?: Maybe<Pick<ContentfulFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>>, mobileFluidImage?: Maybe<Pick<ContentfulFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>> }>>> }> }
+  )>>> }
 );
 
 export type LayoutAllSitePageQueryVariables = Exact<{ [key: string]: never; }>;

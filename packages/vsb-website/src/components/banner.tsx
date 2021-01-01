@@ -13,7 +13,7 @@ export const Banner: React.FC<OwnProps> = (props) => {
   const imageData: any = props?.medias?.medias?.[0]?.desktopFluidImage;
   return (
     <div className={`${styles.wrapper}`}>
-      {/* {hasImage ? (
+      {hasImage ? (
         <BackgroundImage Tag="div" fluid={imageData as IFluidObject} className={`${styles.container}`} fadeIn={false}>
           <div className={styles.content}>
             <Center>
@@ -23,7 +23,7 @@ export const Banner: React.FC<OwnProps> = (props) => {
             </Center>
           </div>
         </BackgroundImage>
-      ) : null} */}
+      ) : null}
     </div>
   );
 };
