@@ -13,7 +13,7 @@ import * as stylesRef from './side-bar.treat';
 
 export type NavigationProps = {
   currentPageName: string | PAGE_NAME;
-  location: Location;
+  location?: Location;
   logoURL: string | null;
   linkedinPageURL: string | null;
   facebookPageURL: string | null;

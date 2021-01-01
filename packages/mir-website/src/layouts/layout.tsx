@@ -55,7 +55,7 @@ export const Layout: React.FC<LayoutProps> = (props) => {
         state={sideMenuState}
         onOpenSideMenu={onOpenSideMenu}
         currentPageName={props.location?.pathname as string | PAGE_NAME}
-        location={location}
+        location={props.location}
         logoURL={data?.contentfulCompanyInfo?.logo?.file?.url as string | null}
         linkedinPageURL={data?.contentfulCompanyInfo?.linkedinPageURL as string | null}
         facebookPageURL={data?.contentfulCompanyInfo?.facebookPageURL as string | null}
@@ -70,7 +70,7 @@ export const Layout: React.FC<LayoutProps> = (props) => {
         <NavBar
           onOpenSideMenu={onOpenSideMenu}
           currentPageName={props.location?.pathname as string | PAGE_NAME}
-          location={location}
+          location={props.location}
           logoURL={data?.contentfulCompanyInfo?.logo?.file?.url as string | null}
           linkedinPageURL={data?.contentfulCompanyInfo?.linkedinPageURL as string | null}
           facebookPageURL={data?.contentfulCompanyInfo?.facebookPageURL as string | null}
