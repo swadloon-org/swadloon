@@ -21,6 +21,17 @@ export const mdxComponents: Record<string, React.ReactNode> = {
   // inlineCode: Code,
 };
 
+/**
+ * Components configuration object for <MDXProvider/>.
+ * Those components may have margins and must be use in mdx documents only.
+ *
+ * @example
+ *    ```tsx
+ *    <MDXProvider components={components}>
+ *      <MDXRenderer>{props.text.childMdx.body}</MDXRenderer>
+ *    </MDXProvider>
+ *    ```
+ */
 export const blogMdxComponents: Record<string, React.ReactNode> = {
   h1: (props: MDXProps) => (
     <div style={{ marginBottom: '22px' }}>
