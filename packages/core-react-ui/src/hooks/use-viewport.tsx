@@ -1,5 +1,5 @@
 import React from 'react';
-import { ViewportContext } from '../context/viewport';
+import { ViewportContext } from '../context/viewport.provider';
 import { VIEWPORT } from '@newrade/core-design-system';
 import { defaultLayout } from '../design-system/default-layout';
 

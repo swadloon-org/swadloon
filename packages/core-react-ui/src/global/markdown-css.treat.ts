@@ -10,7 +10,7 @@ export const wrapper = style((theme: Theme) => ({
  * Global classes for markdown documents
  */
 
-globalStyle(`${wrapper} h1,h2,h3,h4,h5,h6`, ({ cssTheme, theme }: Theme) => ({
+globalStyle(`${wrapper} h1 h2 h3 h4 h5 h6`, ({ cssTheme, theme }: Theme) => ({
   marginBottom: '1.5em',
 }));
 

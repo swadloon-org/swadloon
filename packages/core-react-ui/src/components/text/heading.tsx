@@ -18,9 +18,7 @@ const defaultProps: Props = {
 export const Heading: React.FC<Props> = React.memo(({ variant, id, className, children, ...props }) => {
   const { styles } = useStyles(stylesRef);
 
-  console.log(variant);
-
-  let type: string;
+  let type: keyof React.ReactHTML;
 
   switch (variant) {
     case HEADING.h1: {

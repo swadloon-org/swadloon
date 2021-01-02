@@ -1,13 +1,8 @@
-import { globalStyle, style } from 'treat';
-import { Theme } from '../design-system/css-design-system';
+import { globalStyle } from 'treat';
 
 /**
  * Inspired from Normalize, but targeting modern browsers only.
  */
-
-export const local = style((theme: Theme) => ({
-  display: 'block',
-}));
 
 /**
  * Border-box everywhere
@@ -19,14 +14,16 @@ globalStyle(`*`, {
 /**
  * Resets the html element
  */
-globalStyle(`${local}, html`, ({ theme, cssTheme }: Theme) => ({
+globalStyle(`html`, {
   margin: 0,
   // Correct the line height in all browsers.
-  height: cssTheme.sizing?.sizes.mobile.x0,
   lineHeight: '1.15',
   // Prevent adjustments of font size after orientation changes in iOS.
   WebkitTextSizeAdjust: '100%',
-}));
+  // prevent the content to jump when scrolling
+  overflowY: 'scroll',
+  overflowX: 'hidden',
+});
 
 /**
  * Resets the body element
@@ -68,7 +65,7 @@ globalStyle(`hr`, {
  */
 globalStyle(`pre,code,kbd,samp`, {
   fontFamily: 'monospace, monospace' /* 1 */,
-  fontSize: '1em' /* 2 */,
+  fontSize: '0.85em' /* 2 */,
 });
 
 /**
@@ -85,7 +82,7 @@ globalStyle(`img`, {
 globalStyle(`button, input, optgroup, select, textarea`, {
   fontFamily: 'inherit' /* 1 */,
   fontSize: '100% ' /* 1 */,
-  lineHeight: '1.15 ' /* 1 */,
+  lineHeight: '1 ' /* 1 */,
   margin: '0' /* 2 */,
 });
 

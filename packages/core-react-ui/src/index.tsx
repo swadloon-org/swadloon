@@ -5,7 +5,7 @@ export * from './components/seo/metadata-twitter';
 export * from './components/text/heading';
 export * from './components/text/paragraph';
 export * from './components/text/title';
-export * from './context/viewport';
+export * from './context/viewport.provider';
 export * from './demo/design-system-demo';
 export * from './design-system/css-design-system';
 export * from './design-system/default-animations';
