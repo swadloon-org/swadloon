@@ -1,18 +1,50 @@
+import { remarkExternalLinksPlugin } from '@newrade/core-webpack-config';
 import Gatsby from 'gatsby';
 
-export function getGatsbyPluginMdx(): Gatsby.PluginRef {
-  return {
-    resolve: `gatsby-plugin-mdx`,
-    options: {
-      extensions: ['.md', '.mdx'],
-      // defaultLayouts: {
-      //   [SOURCE_INSTANCE_NAME.PACKAGE_DOCS]: require.resolve(
-      //     `../../../core-gatsby-ui/lib/templates/markdown.template.js`
-      //   ),
-      //   [SOURCE_INSTANCE_NAME.DOCS]: require.resolve(`../../../core-gatsby-ui/lib/templates/markdown.template.js`),
-      //   [SOURCE_INSTANCE_NAME.MDX_PAGES]: require.resolve(`../../../core-gatsby-ui/lib/templates/markdown.template.js`),
-      //   default: require.resolve(`../../../core-gatsby-ui/lib/templates/markdown.template.js`),
-      // },
+/**
+ * gatsby-plugin-mdx
+ * @see https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-mdx#readme
+ */
+export function getGatsbyPluginMdx(): Gatsby.PluginRef[] {
+  return [
+    /**
+     * @see https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-mdx#gatsby-remark-plugins
+     */
+    {
+      resolve: `gatsby-remark-images`,
     },
-  };
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        extensions: ['.md', '.mdx'],
+        gatsbyRemarkPlugins: [
+          /**
+           * gatsby-remark-prismjs
+           * @see https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-remark-prismjs
+           */
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              classPrefix: 'language-',
+              showLineNumbers: false,
+              noInlineHighlight: false,
+            },
+          },
+          // {
+          //   resolve: `gatsby-remark-abbr`,
+          // },
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 590,
+            },
+          },
+        ],
+        // see https://github.com/remarkjs/remark/blob/master/doc/plugins.md#list-of-plugins
+        remarkPlugins: [remarkExternalLinksPlugin],
+        // see https://github.com/rehypejs/rehype/blob/master/doc/plugins.md#list-of-plugins
+        rehypePlugins: [],
+      },
+    },
+  ];
 }

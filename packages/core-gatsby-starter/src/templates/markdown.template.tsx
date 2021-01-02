@@ -1,15 +1,13 @@
-import { PageProps } from 'gatsby';
+import { MDXProvider } from '@mdx-js/react';
+import { GatsbyMarkdownFilePageContext } from '@newrade/core-gatsby-config';
+import { mdxComponents, getMetaBasicTags, MarkdownCSS } from '@newrade/core-react-ui';
+import { graphql, PageProps } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
 import Helmet from 'react-helmet';
-import { graphql } from 'gatsby';
-import { DEPLOY_ENV } from '@newrade/core-common';
-import { getMetaBasicTags } from '@newrade/core-react-ui';
-import { GatsbyMarkdownFilePageContext } from '@newrade/core-gatsby-config';
-import { MarkdownTemplateQuery } from '../../types/graphql-types';
-import { DebugGasbyPage } from '@newrade/core-gatsby-ui';
-import * as styleRefs from './markdown.treat';
 import { useStyles } from 'react-treat';
+import { MarkdownTemplateQuery } from '../../types/graphql-types';
+import * as styleRefs from './markdown.treat';
 
 export type MarkdownTemplateProps = PageProps<MarkdownTemplateQuery, GatsbyMarkdownFilePageContext>;
 
@@ -44,8 +42,7 @@ const Page: React.FC<MarkdownTemplateProps> = (props) => {
   const { styles } = useStyles(styleRefs);
 
   return (
-    <div>
-      {props.pageContext.siteMetadata?.siteEnv === DEPLOY_ENV.LOCAL ? <DebugGasbyPage {...props} /> : null}
+    <>
       <Helmet>
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Quattrocento&display=swap" rel="stylesheet" />
@@ -76,7 +73,9 @@ const Page: React.FC<MarkdownTemplateProps> = (props) => {
           site: `${data?.contentfulCompanyInfo?.metadataTwitterSite}`,
         })} */}
       </Helmet>
-      <MDXRenderer {...props}>{props.data.mdx?.body as string}</MDXRenderer>
+      <MarkdownCSS>
+        <MDXRenderer {...props}>{props.data.mdx?.body as string}</MDXRenderer>
+      </MarkdownCSS>
 
       <aside className={styles.aside}>
         {props.data.mdx?.headings?.map((heading) => (
@@ -85,7 +84,7 @@ const Page: React.FC<MarkdownTemplateProps> = (props) => {
           </div>
         ))}
       </aside>
-    </div>
+    </>
   );
 };
 

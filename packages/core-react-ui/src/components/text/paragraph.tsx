@@ -16,7 +16,7 @@ const defaultProps: Props = {
 };
 
 export const Paragraph: React.FC<Props> = React.memo(({ variant, variantStyle, className, ...props }) => {
-  const { styles } = useStyles(stylesRef);
+  const { styles: styles } = useStyles(stylesRef);
 
   const type = 'p';
 

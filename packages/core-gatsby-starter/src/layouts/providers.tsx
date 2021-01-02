@@ -2,7 +2,7 @@ import { MDXProvider } from '@mdx-js/react';
 import {
   DefaultCSS,
   mdxComponents,
-  ResetCSS,
+  GlobalResetCSS,
   TreatThemeProvider,
   ViewportProvider,
   viewportContext,
@@ -20,13 +20,13 @@ export const Providers: React.FC = (props) => {
         <TreatThemeProvider theme={{ theme, cssTheme }}>
           <MDXProvider components={mdxComponents}>
             {/* <CSSVariables>{props.children}</CSSVariables> */}
-            <ResetCSS>
+            <GlobalResetCSS>
               <DefaultCSS>
                 <IconContext.Provider value={{ style: { verticalAlign: 'middle' } }}>
                   {props.children}
                 </IconContext.Provider>
               </DefaultCSS>
-            </ResetCSS>
+            </GlobalResetCSS>
           </MDXProvider>
         </TreatThemeProvider>
       </ViewportProvider>

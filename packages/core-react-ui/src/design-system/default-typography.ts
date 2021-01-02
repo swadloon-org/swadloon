@@ -20,7 +20,7 @@ export const defaultTypography: Typography = {
   },
   titles: {
     font: [fonts.defaultSerifFont, ...fonts.defaultFallbackSerifFonts],
-    fontWeight: 400,
+    fontWeight: 500,
     mobile: {
       t1: {
         capHeight: 55,
@@ -54,7 +54,7 @@ export const defaultTypography: Typography = {
   },
   headings: {
     font: [fonts.defaultSansFont, ...fonts.defaultFallbackSansFonts],
-    fontWeight: 400,
+    fontWeight: 600,
     mobile: {
       h1: {
         capHeight: 20,
@@ -124,20 +124,20 @@ export const defaultTypography: Typography = {
     },
     mobile: {
       large: {
-        capHeight: 21,
-        lineGap: 10,
+        capHeight: 15,
+        lineGap: 12,
       },
       medium: {
-        capHeight: 13,
-        lineGap: 13,
+        capHeight: 11,
+        lineGap: 11,
       },
       small: {
         capHeight: 10,
-        lineGap: 10,
+        lineGap: 8,
       },
       xSmall: {
-        capHeight: 9,
-        lineGap: 9,
+        capHeight: 8,
+        lineGap: 7,
       },
     },
     tablet: {
