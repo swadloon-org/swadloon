@@ -7,6 +7,7 @@ import {
   PARAGRAPH_SIZE,
   TEXT_STYLE,
   LABEL_SIZE,
+  TEXT_LEVEL,
 } from '@newrade/core-design-system';
 import { IoIosArrowDropright } from 'react-icons/io';
 import { useStyles } from 'react-treat';
@@ -43,9 +44,7 @@ export const DesignSystemComponent: React.FC<Props> = (props) => {
 
         <Stack id={'Foundations'} gap="34px">
           <Stack gap="34px">
-            <Heading className={styles.title} variant={HEADING.h2}>
-              Foundations
-            </Heading>
+            <Heading variant={HEADING.h2}>Foundations</Heading>
 
             <Paragraph>The design system describes</Paragraph>
           </Stack>
@@ -57,7 +56,9 @@ export const DesignSystemComponent: React.FC<Props> = (props) => {
             <Box padding={['1em', '0', '1em', '0']}>
               <Stack gap="55px">
                 <Stack gap="21px">
-                  <Heading variant={HEADING.h4}>Titles</Heading>
+                  <Heading variant={HEADING.h4} variantLevel={TEXT_LEVEL.secondary}>
+                    Titles
+                  </Heading>
 
                   {keys(TITLE).map((variant, index) => (
                     <Title key={index} variant={TITLE[variant]}></Title>

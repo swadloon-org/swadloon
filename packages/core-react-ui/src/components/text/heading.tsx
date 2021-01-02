@@ -1,4 +1,4 @@
-import { HEADING } from '@newrade/core-design-system';
+import { HEADING, TEXT_LEVEL } from '@newrade/core-design-system';
 import { pascal, kebab } from 'case';
 import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
@@ -8,14 +8,16 @@ import * as stylesRef from './heading.treat';
 type Props = CommonComponentProps &
   HTMLAttributes<HTMLHeadingElement> & {
     variant?: HEADING;
+    variantLevel?: TEXT_LEVEL;
   };
 
 const defaultProps: Props = {
   variant: HEADING.h1,
+  variantLevel: TEXT_LEVEL.primary,
   children: 'Heading',
 };
 
-export const Heading: React.FC<Props> = React.memo(({ variant, id, className, children, ...props }) => {
+export const Heading: React.FC<Props> = React.memo(({ variant, variantLevel, id, className, children, ...props }) => {
   const { styles } = useStyles(stylesRef);
 
   let type: keyof React.ReactHTML;
@@ -47,9 +49,13 @@ export const Heading: React.FC<Props> = React.memo(({ variant, id, className, ch
   const defaultChildrenString = `${defaultProps.children as string} ${pascal(type)}`;
   const child = children ? children : defaultChildrenString;
 
+  const variantClass = `${styles[variant ? variant : (defaultProps.variant as HEADING)]}`;
+  const variantLevelClass = `${styles[variantLevel ? variantLevel : (defaultProps.variantLevel as TEXT_LEVEL)]}`;
+  const mergedClass = `${className || ''}`;
+
   return React.createElement(type, {
     id: id ? id : typeof child === 'string' ? kebab(child) : kebab(defaultChildrenString),
-    className: `${className || ''} ${styles[variant ? variant : (defaultProps.variant as HEADING)]}`,
+    className: `${variantClass} ${variantLevelClass} ${mergedClass}`,
     children: child,
     ...props,
   });

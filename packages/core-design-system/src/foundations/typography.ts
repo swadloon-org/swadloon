@@ -63,6 +63,15 @@ export enum TEXT_STYLE {
 }
 
 /**
+ * Level of text
+ */
+export enum TEXT_LEVEL {
+  primary = 'primary',
+  secondary = 'secondary',
+  tertiary = 'tertiary',
+}
+
+/**
  * Available fonts in the design system.
  */
 export type Fonts = { [key in keyof typeof TYPOGRAPHIC_STYLE]: Font[] } & {

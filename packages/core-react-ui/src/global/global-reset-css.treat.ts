@@ -65,7 +65,7 @@ globalStyle(`hr`, {
  */
 globalStyle(`pre,code,kbd,samp`, {
   fontFamily: 'monospace, monospace' /* 1 */,
-  fontSize: '0.85em' /* 2 */,
+  fontSize: '1em' /* 2 */,
 });
 
 /**
