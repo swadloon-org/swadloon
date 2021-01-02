@@ -1,4 +1,4 @@
-import { Button, Stack } from '@newrade/core-react-ui';
+import { Button, Stack, Link } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { Layout } from '../layouts/layout';
@@ -18,6 +18,10 @@ const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
         <h1>Buttons</h1>
         <Button>Button</Button>
       </Stack>
+
+      <Link href="test" target="blank">
+        test
+      </Link>
     </Stack>
   );
 };
