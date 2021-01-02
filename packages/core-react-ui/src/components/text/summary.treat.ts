@@ -6,6 +6,7 @@ export const styles = {
   wrapper: style(({ theme, cssTheme }: Theme) => ({
     display: 'flex',
     position: 'relative',
+    userSelect: 'none',
 
     listStyleImage: 'none',
     padding: '1em 0',

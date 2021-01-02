@@ -3,8 +3,10 @@ import { style } from 'treat';
 
 export const styles = {
   wrapper: style(({ cssTheme, theme }: Theme) => ({
-    position: 'sticky',
+    position: 'fixed',
     top: 0,
+    left: 0,
+    right: 0,
     zIndex: 100,
 
     display: 'flex',
@@ -18,6 +20,8 @@ export const styles = {
     backgroundColor: 'white',
 
     color: 'black',
+
+    boxShadow: '0 1px 2px rgba(33,33,33,0.15)',
   })),
 
   container: style(({ cssTheme, theme }: Theme) => ({

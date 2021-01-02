@@ -17,7 +17,7 @@ export const NavBar: React.FC<Props> = (props) => {
   const { styles } = useStyles(styleRefs);
 
   return (
-    <div className={styles.wrapper}>
+    <header className={styles.wrapper}>
       <Cluster
         justifyContent={['space-between', 'space-between', 'space-between']}
         minWidth={'100%'}
@@ -44,6 +44,6 @@ export const NavBar: React.FC<Props> = (props) => {
           EN
         </Cluster>
       </Cluster>
-    </div>
+    </header>
   );
 };

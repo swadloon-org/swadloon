@@ -57,7 +57,7 @@ export const defaultTypography: Typography = {
     fontWeight: 600,
     mobile: {
       h1: {
-        capHeight: 20,
+        capHeight: 24,
         lineGap: 10,
       },
       h2: {
@@ -75,7 +75,7 @@ export const defaultTypography: Typography = {
     },
     tablet: {
       h1: {
-        capHeight: 20,
+        capHeight: 24,
         lineGap: 10,
       },
       h2: {
@@ -93,7 +93,7 @@ export const defaultTypography: Typography = {
     },
     desktop: {
       h1: {
-        capHeight: 20,
+        capHeight: 24,
         lineGap: 10,
       },
       h2: {

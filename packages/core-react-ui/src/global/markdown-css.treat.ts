@@ -4,6 +4,7 @@ import { Theme } from '../design-system/css-design-system';
 export const wrapper = style((theme: Theme) => ({
   display: 'inherit',
   marginTop: 80,
+  marginBottom: 80,
 }));
 
 /**
@@ -13,32 +14,43 @@ export const wrapper = style((theme: Theme) => ({
 globalStyle(
   `${wrapper} > h1, ${wrapper} > h2, ${wrapper} > h3, ${wrapper} > h4, ${wrapper} > h5, ${wrapper} > h6`,
   ({ cssTheme, theme }: Theme) => ({
-    marginBottom: '1.5em',
+    marginBottom: '1.4em',
   })
 );
 
 globalStyle(`${wrapper} p + p`, ({ cssTheme, theme }: Theme) => ({
   marginTop: '1.5em',
-  marginBottom: '1em',
+  marginBottom: '1.5em',
 }));
 
+globalStyle(
+  `${wrapper} > * + h1, ${wrapper} > * + h2, ${wrapper} > * + h3, ${wrapper} > * + h4, ${wrapper} > * + h5, ${wrapper} > * + h6`,
+  ({ cssTheme, theme }: Theme) => ({
+    marginTop: '2em',
+  })
+);
+
 globalStyle(`${wrapper} pre`, ({ cssTheme, theme }: Theme) => ({
-  maxWidth: 'calc(100%)',
-  margin: '0 0 28px',
+  maxWidth: '100%',
+  marginTop: '1em',
+  marginBottom: '1.5em',
   overflowX: 'auto',
 
   borderRadius: '6px',
   padding: '16px',
   overflow: 'auto',
-  fontSize: '85%',
   lineHeight: '1.45',
   backgroundColor: '#f2f5f8',
+}));
+
+globalStyle(`${wrapper} pre code`, ({ cssTheme, theme }: Theme) => ({
+  fontSize: '90%',
 }));
 
 globalStyle(`${wrapper} :not(pre) > code`, ({ cssTheme, theme }: Theme) => ({
   backgroundColor: 'rgba(27, 31, 35, 0.05)',
   color: '#373c49',
-  fontSize: '85%',
+  fontSize: '90%',
   margin: '0',
   padding: '0.2em 0.4em',
   BorderRadius: '6px',

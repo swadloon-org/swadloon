@@ -30,6 +30,8 @@ globalStyle(`html`, {
  */
 globalStyle(`body`, {
   margin: 0,
+  // prevent long string to break the layout
+  wordBreak: 'break-word',
 });
 
 /**
