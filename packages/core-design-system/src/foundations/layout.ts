@@ -55,7 +55,7 @@ export interface Layout<Override extends undefined | string = undefined> {
   media: MediaQueries<Override>;
   contentMargins: ContentMargins<Override>;
   contentWidth: ContentWidths;
-  menubarWidth: {
+  sidebarWidth: {
     [key in keyof typeof VIEWPORT]: SizeType<Override>;
   };
   topbarHeight: {

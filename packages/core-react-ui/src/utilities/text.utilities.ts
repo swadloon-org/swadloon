@@ -1,5 +1,5 @@
 import { AppError, ERROR_TYPE } from '@newrade/core-common';
-import { TextStyle } from '@newrade/core-design-system';
+import { CapsizeTextStyle, TextStyle } from '@newrade/core-design-system';
 import capsize, { CapsizeStyles } from 'capsize';
 import { TextTransformProperty } from 'csstype';
 import { Style } from 'treat';
@@ -9,21 +9,41 @@ import { pxStringToNumber, pxStringToRem } from './utilities';
  * Create a TextStyle using the Capsize utility.
  * @see https://seek-oss.github.io/capsize/
  */
-type TextStyleOptions = { baseFontSize: number } & Pick<
-  TextStyle,
-  'font' | 'fontFamily' | 'fontWeight' | 'letterSpacing' | 'textTransform' | 'capHeight' | 'lineGap'
->;
+type TextStyleOptions = { baseFontSize: number } & TextStyle;
 
 export function createCSSTextStyle({
+  baseFontSize,
+  fontFamily,
+  fontWeight,
+  fontStyle,
+  letterSpacing,
+  textTransform,
+  textDecoration,
+}: TextStyleOptions): TextStyle<string> {
+  return {
+    fontWeight,
+    fontStyle,
+    textTransform,
+    // textDecoration: getCSSTextDecoration(),
+  };
+}
+
+export function createCSSCapsizeTextStyle({
   baseFontSize,
   font,
   fontFamily,
   fontWeight,
+  fontStyle,
   letterSpacing,
   textTransform,
+  textDecoration,
   capHeight,
   lineGap,
-}: TextStyleOptions): TextStyle<string> {
+}: CapsizeTextStyleOptions): TextStyle<string> & CapsizeTextStyle<string> {
+  // text styles only
+
+  // capsize
+
   const compatibleCapHeight: number = capHeight;
   if (!font) {
     throw new AppError({
@@ -38,15 +58,19 @@ export function createCSSTextStyle({
   return {
     font,
     fontFamily: fontFamily ? fontFamily : font.map((font) => font.name).join(','),
-    fontWeight: fontWeight ? fontWeight : 400,
+    fontWeight,
+    fontStyle,
     letterSpacing: convertLetterSpacingToPercent({ letterSpacing, fontSize: capsizePx.fontSize }),
     textTransform,
+    // textDecoration: getCSSTextDecoration(),
     capHeight,
     lineGap,
     capsize: capsizePx,
     // capsizeRem: convertCapsizeValuesToRem({ baseFontSize, capsizePx }),
   };
 }
+
+type CapsizeTextStyleOptions = { baseFontSize: number } & TextStyle & CapsizeTextStyle;
 
 /**
  * Converts capsize styles from px to rem.
@@ -122,7 +146,10 @@ export function convertLetterSpacingToEM({ value, fontSize }: { value: string; f
 /**
  * Return a Treat compatible style object from a theme text style
  */
-export function getCSSTextStyles(textStyle: TextStyle<string>): Style {
+export function getCSSTextStyles(textStyle?: Partial<TextStyle<string> & CapsizeTextStyle<string>>): Style {
+  if (!textStyle) {
+    return {};
+  }
   return {
     fontWeight: textStyle.fontWeight as number,
     textTransform: textStyle.textTransform as TextTransformProperty,

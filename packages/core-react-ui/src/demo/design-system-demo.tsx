@@ -1,19 +1,32 @@
 import React from 'react';
-import { Color, ColorShades5, TITLE } from '@newrade/core-design-system';
+import {
+  Color,
+  ColorShades5,
+  TITLE,
+  HEADING,
+  PARAGRAPH_SIZE,
+  TEXT_STYLE,
+  LABEL_SIZE,
+} from '@newrade/core-design-system';
 import { IoIosHeart } from 'react-icons/io';
 import { useStyles } from 'react-treat';
-import * as styleRefs from './design-system.treat';
+import * as styleRefs from './design-system-demo.treat';
 import { useTreatTheme } from '../hooks/use-treat-theme';
 import { Stack } from '../layout/stack/stack';
 import { Title } from '../components/text/title';
 import { keys } from '../utilities/utilities';
 import { ColorSwatch } from '../components/color/color-swatch';
+import { Paragraph } from '../components/text/paragraph';
+import { Heading } from '../components/text/heading';
+import { Label } from '../components/text/label';
 
 type Props = {};
 
 export const DesignSystemComponent: React.FC<Props> = (props) => {
   const styles = useStyles(styleRefs);
   const { cssTheme, theme } = useTreatTheme();
+
+  const lorenipsum = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum`;
 
   if (!(cssTheme && theme)) {
     return <div className={styles.wrapper}>Please provide a theme</div>;
@@ -22,7 +35,7 @@ export const DesignSystemComponent: React.FC<Props> = (props) => {
   return (
     <div className={styles.wrapper}>
       <Stack id={'Design System'} gap="2em">
-        <h1>Design System - {cssTheme.name}</h1>
+        <Heading variant={HEADING.h1}>Design System - {cssTheme.name}</Heading>
 
         <Stack id={'Foundations'} gap="1.5em">
           <h2>Foundations</h2>
@@ -38,8 +51,37 @@ export const DesignSystemComponent: React.FC<Props> = (props) => {
 
             <h4>Headings</h4>
 
+            {keys(HEADING).map((variant, index) => (
+              <Heading key={index} variant={HEADING[variant]}></Heading>
+            ))}
+
             <h4>Labels</h4>
+
+            {keys(LABEL_SIZE).map((variant, index) => (
+              <Label key={index} variant={LABEL_SIZE[variant]}></Label>
+            ))}
+
+            {keys(TEXT_STYLE)
+              .filter((style) => cssTheme.typography.labels.styles[style])
+              .map((variant, index) => (
+                <Label key={index} variantStyle={TEXT_STYLE[variant]}></Label>
+              ))}
+
             <h4>Paragraphs</h4>
+
+            {keys(PARAGRAPH_SIZE).map((variant, index) => (
+              <Paragraph key={index} variant={PARAGRAPH_SIZE[variant]}>
+                {lorenipsum}
+              </Paragraph>
+            ))}
+
+            {keys(TEXT_STYLE)
+              .filter((style) => cssTheme.typography.paragraphs.styles[style])
+              .map((variant, index) => (
+                <Paragraph key={index} variantStyle={TEXT_STYLE[variant]}>
+                  {lorenipsum}
+                </Paragraph>
+              ))}
           </Stack>
 
           <IoIosHeart />

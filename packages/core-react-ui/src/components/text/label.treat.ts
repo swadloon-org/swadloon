@@ -7,12 +7,26 @@ export const styles: { [key in LABEL_SIZE]: string } & { [key in TEXT_STYLE]: st
   medium: style(({ theme, cssTheme }: Theme) => ({
     ...getCSSTextStyles(cssTheme.typography.labels.mobile.medium),
   })),
-  small: style(({ theme, cssTheme }: Theme) => ({})),
-  xSmall: style(({ theme, cssTheme }: Theme) => ({})),
+  small: style(({ theme, cssTheme }: Theme) => ({
+    ...getCSSTextStyles(cssTheme.typography.labels.mobile.small),
+  })),
+  xSmall: style(({ theme, cssTheme }: Theme) => ({
+    ...getCSSTextStyles(cssTheme.typography.labels.mobile.xSmall),
+  })),
 
-  italic: style(({ theme, cssTheme }: Theme) => ({})),
-  bold: style(({ theme, cssTheme }: Theme) => ({})),
-  uppercase: style(({ theme, cssTheme }: Theme) => ({})),
-  boldUppercase: style(({ theme, cssTheme }: Theme) => ({})),
-  italicBold: style(({ theme, cssTheme }: Theme) => ({})),
+  italic: style(({ theme, cssTheme }: Theme) => ({
+    ...getCSSTextStyles(cssTheme.typography.labels.styles.italic),
+  })),
+  bold: style(({ theme, cssTheme }: Theme) => ({
+    ...getCSSTextStyles(cssTheme.typography.labels.styles.bold),
+  })),
+  uppercase: style(({ theme, cssTheme }: Theme) => ({
+    ...getCSSTextStyles(cssTheme.typography.labels.styles.uppercase),
+  })),
+  boldUppercase: style(({ theme, cssTheme }: Theme) => ({
+    ...getCSSTextStyles(cssTheme.typography.labels.styles.boldUppercase),
+  })),
+  italicBold: style(({ theme, cssTheme }: Theme) => ({
+    ...getCSSTextStyles(cssTheme.typography.labels.styles.italicBold),
+  })),
 };
