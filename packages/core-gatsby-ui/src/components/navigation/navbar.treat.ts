@@ -8,19 +8,9 @@ export const styles = {
     left: 0,
     right: 0,
     zIndex: 100,
-
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-
-    padding: `0 20px`,
-    height: `55px`,
+    height: `56px`,
 
     backgroundColor: 'white',
-
-    color: 'black',
-
     boxShadow: '0 1px 2px rgba(33,33,33,0.15)',
   })),
 

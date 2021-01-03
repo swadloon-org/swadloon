@@ -3,6 +3,7 @@ import { Link as GatsbyLink, GatsbyLinkProps } from 'gatsby';
 import * as styleRefs from './navbar.treat';
 import { useStyles } from 'react-treat';
 import { Box, Cluster, Grid, Center } from '@newrade/core-react-ui';
+import { IoMenu } from 'react-icons/io5';
 
 type NavItem<TState = any> = {
   id?: string | null;
@@ -26,8 +27,8 @@ export const NavBar: React.FC<Props> = (props) => {
         >
           <Box>
             {/* LOGO */}
-            logo
             {props.children}
+            <IoMenu size={`24px`} />
           </Box>
           <Cluster gap={'20px'} className={styles.menuWrapper}>
             {/* ITEMS */}
