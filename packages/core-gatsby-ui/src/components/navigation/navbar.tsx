@@ -18,32 +18,35 @@ export const NavBar: React.FC<Props> = (props) => {
 
   return (
     <header className={styles.wrapper}>
-      <Cluster
-        justifyContent={['space-between', 'space-between', 'space-between']}
-        minWidth={'100%'}
-        className={styles.container}
-      >
-        <Box>
-          {/* LOGO */}
-          {props.children}
-        </Box>
-        <Cluster gap={'20px'} className={styles.menuWrapper}>
-          {/* ITEMS */}
-          {props.items?.map((item, index) => {
-            if (item.label != null) {
-              return (
-                <Box key={index}>
-                  <GatsbyLink className={styles.link} key={item.id} to={item.to}>
-                    {item.label}
-                  </GatsbyLink>
-                </Box>
-              );
-            }
-          })}
-          {/* LANG SWITCH */}
-          EN
+      <Center>
+        <Cluster
+          justifyContent={['space-between', 'space-between', 'space-between']}
+          minWidth={'100%'}
+          className={styles.container}
+        >
+          <Box>
+            {/* LOGO */}
+            logo
+            {props.children}
+          </Box>
+          <Cluster gap={'20px'} className={styles.menuWrapper}>
+            {/* ITEMS */}
+            {props.items?.map((item, index) => {
+              if (item.label != null) {
+                return (
+                  <Box key={index}>
+                    <GatsbyLink className={styles.link} key={item.id} to={item.to}>
+                      {item.label}
+                    </GatsbyLink>
+                  </Box>
+                );
+              }
+            })}
+            {/* LANG SWITCH */}
+            EN
+          </Cluster>
         </Cluster>
-      </Cluster>
+      </Center>
     </header>
   );
 };

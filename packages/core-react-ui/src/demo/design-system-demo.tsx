@@ -50,7 +50,7 @@ export const DesignSystemComponent: React.FC<Props> = (props) => {
             <Paragraph>The design system describes</Paragraph>
           </Stack>
 
-          <Details id={'Typography'}>
+          <Details id={'Typography'} open={true}>
             <Summary>
               <Heading variant={HEADING.h3}>Typography</Heading>
             </Summary>
@@ -67,7 +67,9 @@ export const DesignSystemComponent: React.FC<Props> = (props) => {
                 </Stack>
 
                 <Stack gap="21px">
-                  <Heading variant={HEADING.h4}>Headings</Heading>
+                  <Heading variant={HEADING.h4} variantLevel={TEXT_LEVEL.secondary}>
+                    Headings
+                  </Heading>
 
                   {keys(HEADING).map((variant, index) => (
                     <Heading key={index} variant={HEADING[variant]}></Heading>
@@ -75,7 +77,9 @@ export const DesignSystemComponent: React.FC<Props> = (props) => {
                 </Stack>
 
                 <Stack gap="21px">
-                  <Heading variant={HEADING.h4}>Labels</Heading>
+                  <Heading variant={HEADING.h4} variantLevel={TEXT_LEVEL.secondary}>
+                    Labels
+                  </Heading>
 
                   {keys(LABEL_SIZE).map((variant, index) => (
                     <Label key={index} variant={LABEL_SIZE[variant]}></Label>
@@ -89,7 +93,9 @@ export const DesignSystemComponent: React.FC<Props> = (props) => {
                 </Stack>
 
                 <Stack gap="21px">
-                  <Heading variant={HEADING.h4}>Paragraphs</Heading>
+                  <Heading variant={HEADING.h4} variantLevel={TEXT_LEVEL.secondary}>
+                    Paragraphs
+                  </Heading>
 
                   {keys(PARAGRAPH_SIZE).map((variant, index) => (
                     <Paragraph key={index} variant={PARAGRAPH_SIZE[variant]}>

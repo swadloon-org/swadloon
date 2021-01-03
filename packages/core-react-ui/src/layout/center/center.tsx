@@ -21,22 +21,33 @@ export const Center: React.FC<OwnProps> = ({
   marginHorizontal = 'auto',
   ...props
 } = {}) => {
-  const styles = useStyles(styleRefs);
+  const { styles } = useStyles(styleRefs);
 
-  return React.createElement(
-    as || 'div',
-    {
-      className: `${className || ''} ${styles.wrapper}`,
-      style: {
+  return (
+    <div
+      style={{
         ...style,
         marginTop: marginVerticalTop,
         marginBottom: marginVerticalBottom,
         marginRight: marginHorizontal,
         marginLeft: marginHorizontal,
-        maxWidth,
-      },
-      ...props,
-    },
-    <>{props.children}</>
+      }}
+      className={`${className || ''} ${styles.wrapper}`}
+    >
+      {/* padding */}
+      <div></div>
+      {/* centered content */}
+      <div
+        style={{
+          // @ts-ignore
+          '--max-content-width': maxWidth,
+        }}
+        className={styles.content}
+      >
+        {props.children}
+      </div>
+      {/* padding */}
+      <div></div>
+    </div>
   );
 };

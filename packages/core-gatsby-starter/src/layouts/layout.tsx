@@ -5,6 +5,7 @@ import { useStyles } from 'react-treat';
 import { Node, LayoutAllSitePageQuery } from '../../types/graphql-types';
 import * as styleRefs from './layout.treat';
 import { NavBar } from '@newrade/core-gatsby-ui';
+import { Center } from '@newrade/core-react-ui';
 
 const query = graphql`
   query LayoutAllSitePage {
@@ -150,7 +151,9 @@ export const Layout = React.memo<LayoutProps>((props) => {
 
         {renderNavigation(props.location?.pathname)}
 
-        <main className={styles.main}>{props.children}</main>
+        <Center maxWidth={`803px`}>{props.children}</Center>
+
+        {/* <main className={styles.main}></main> */}
 
         {/* <footer>footer</footer> */}
       </div>
