@@ -28,7 +28,7 @@ export const NavBar: React.FC<Props> = (props) => {
           <Box>
             {/* LOGO */}
             {props.children}
-            <IoMenu size={`24px`} />
+            <IoMenu size={`26px`} />
           </Box>
           <Cluster gap={'20px'} className={styles.menuWrapper}>
             {/* ITEMS */}

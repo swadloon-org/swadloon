@@ -1,9 +1,13 @@
 import { HEADING, TEXT_LEVEL } from '@newrade/core-design-system';
-import { style } from 'treat';
+import { globalStyle, style } from 'treat';
 import { Theme } from '../../design-system/css-design-system';
 import { getCSSTextStyles } from '../../utilities/text.utilities';
 
-export const styles: { [key in HEADING]: string } & { [key in TEXT_LEVEL]: string } = {
+export const styles: { wrapper: string } & { [key in HEADING]: string } & { [key in TEXT_LEVEL]: string } = {
+  wrapper: style(({ theme, cssTheme }: Theme) => ({
+    display: 'inherit',
+  })),
+
   h1: style(({ theme, cssTheme }: Theme) => ({
     ...getCSSTextStyles(cssTheme.typography.headings.mobile.h1),
     '@media': {
@@ -62,3 +66,11 @@ export const styles: { [key in HEADING]: string } & { [key in TEXT_LEVEL]: strin
     color: cssTheme.colors.colorIntents.tertiaryText,
   })),
 };
+
+globalStyle(`${styles.wrapper}::before`, ({ theme, cssTheme }: Theme) => ({
+  content: '" "',
+  display: 'block',
+  height: '75px',
+  marginTop: '-75px',
+  visibility: 'hidden',
+}));

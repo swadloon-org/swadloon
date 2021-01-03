@@ -2,6 +2,8 @@ import { AppError, ERROR_TYPE } from '@newrade/core-common';
 import { CapsizeTextStyle, TextStyle } from '@newrade/core-design-system';
 import capsize, { CapsizeStyles } from 'capsize';
 import { TextTransformProperty } from 'csstype';
+// @ts-ignore
+import GithubSlugger from 'github-slugger';
 import { Style } from 'treat';
 import { pxStringToNumber, pxStringToRem } from './utilities';
 
@@ -159,4 +161,8 @@ export function getCSSTextStyles(textStyle?: Partial<TextStyle<string> & Capsize
     textDecoration: textStyle.textDecoration as string,
     ...textStyle.capsize,
   };
+}
+
+export function formatAnchorId(value?: string | null): string {
+  return GithubSlugger.slug(value || '');
 }

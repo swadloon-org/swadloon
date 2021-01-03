@@ -1,4 +1,4 @@
-import { remarkExternalLinksPlugin } from '@newrade/core-webpack-config';
+import * as coreWebpackConfig from '@newrade/core-webpack-config';
 import Gatsby from 'gatsby';
 
 /**
@@ -41,9 +41,13 @@ export function getGatsbyPluginMdx(): Gatsby.PluginRef[] {
           },
         ],
         // see https://github.com/remarkjs/remark/blob/master/doc/plugins.md#list-of-plugins
-        remarkPlugins: [remarkExternalLinksPlugin],
+        remarkPlugins: [
+          coreWebpackConfig.remarkExternalLinksPlugin,
+          coreWebpackConfig.remarkUnwrapImagesPlugin,
+          coreWebpackConfig.remarkHtmlPlugin,
+        ],
         // see https://github.com/rehypejs/rehype/blob/master/doc/plugins.md#list-of-plugins
-        rehypePlugins: [],
+        rehypePlugins: [coreWebpackConfig.rehypeSlugPlugin, coreWebpackConfig.rehypeAutoLinkHeadingsPlugin],
       },
     },
   ];

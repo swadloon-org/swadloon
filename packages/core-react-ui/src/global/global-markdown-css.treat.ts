@@ -1,22 +1,45 @@
 import { globalStyle, style } from 'treat';
 import { Theme } from '../design-system/css-design-system';
 
-export const wrapper = style((theme: Theme) => ({
+export const wrapper = style(({ theme, cssTheme }: Theme) => ({
   display: 'inherit',
   marginTop: 80,
-  marginBottom: 80,
+  // needed to scroll to bottom ids
+  marginBottom: `80vh`,
 }));
 
 /**
  * Global classes for markdown documents
  */
 
+/**
+ * Headings
+ */
+
 globalStyle(
   `${wrapper} > h1, ${wrapper} > h2, ${wrapper} > h3, ${wrapper} > h4, ${wrapper} > h5, ${wrapper} > h6`,
   ({ cssTheme, theme }: Theme) => ({
     marginBottom: '1.4em',
+    position: 'relative',
   })
 );
+
+globalStyle(`${wrapper} .mdx-anchor`, ({ cssTheme, theme }: Theme) => ({
+  position: 'absolute',
+  top: '0',
+  left: '0',
+  transform: 'translateX(-100%)',
+  paddingRight: '4px',
+  visibility: 'hidden',
+}));
+
+globalStyle(`${wrapper} .mdx-anchor-pound`, ({ cssTheme, theme }: Theme) => ({
+  textDecoration: 'underline',
+}));
+
+/**
+ * Paragraphs
+ */
 
 globalStyle(`${wrapper} p + p`, ({ cssTheme, theme }: Theme) => ({
   marginTop: '1.5em',
@@ -29,6 +52,19 @@ globalStyle(
     marginTop: '2em',
   })
 );
+
+globalStyle(`${wrapper} figure`, ({ cssTheme, theme }: Theme) => ({
+  display: 'flex',
+  flexDirection: 'column',
+  // resets browser default margin on figure element
+  margin: 0,
+  marginTop: '1.5em',
+  marginBottom: '1.5em',
+}));
+
+globalStyle(`${wrapper} img`, ({ cssTheme, theme }: Theme) => ({
+  width: '100%',
+}));
 
 globalStyle(`${wrapper} pre`, ({ cssTheme, theme }: Theme) => ({
   maxWidth: '100%',

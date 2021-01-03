@@ -6,35 +6,22 @@ import { CommonComponentProps } from '../../props/component-common-props';
 type OwnProps = CommonComponentProps &
   Partial<{
     maxWidth: string;
-    marginVerticalTop?: number | 'auto';
-    marginVerticalBottom?: number | 'auto';
-    marginHorizontal?: number | 'auto';
   }>;
 
-export const Center: React.FC<OwnProps> = ({
-  as,
-  className = '',
-  style = {},
-  marginVerticalTop = '',
-  marginVerticalBottom = '',
-  maxWidth = '',
-  marginHorizontal = 'auto',
-  ...props
-} = {}) => {
+export const Center: React.FC<OwnProps> = ({ as, className, style, maxWidth, ...props } = {}) => {
   const { styles } = useStyles(styleRefs);
+
+  // TODO: enable as
+  // return React.createElement(as, )
 
   return (
     <div
       style={{
         ...style,
-        marginTop: marginVerticalTop,
-        marginBottom: marginVerticalBottom,
-        marginRight: marginHorizontal,
-        marginLeft: marginHorizontal,
       }}
       className={`${className || ''} ${styles.wrapper}`}
     >
-      {/* padding */}
+      {/* padding only div */}
       <div></div>
       {/* centered content */}
       <div
@@ -46,7 +33,7 @@ export const Center: React.FC<OwnProps> = ({
       >
         {props.children}
       </div>
-      {/* padding */}
+      {/* padding only div */}
       <div></div>
     </div>
   );

@@ -1,6 +1,6 @@
-import { MDXProvider } from '@mdx-js/react';
 import { GatsbyMarkdownFilePageContext } from '@newrade/core-gatsby-config';
-import { mdxComponents, getMetaBasicTags, MarkdownCSS } from '@newrade/core-react-ui';
+import { Aside } from '@newrade/core-gatsby-ui';
+import { getMetaBasicTags, GlobalMarkdownCSS } from '@newrade/core-react-ui';
 import { graphql, PageProps } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
@@ -73,17 +73,11 @@ const Page: React.FC<MarkdownTemplateProps> = (props) => {
           site: `${data?.contentfulCompanyInfo?.metadataTwitterSite}`,
         })} */}
       </Helmet>
-      <MarkdownCSS>
+      <GlobalMarkdownCSS>
         <MDXRenderer {...props}>{props.data.mdx?.body as string}</MDXRenderer>
-      </MarkdownCSS>
+      </GlobalMarkdownCSS>
 
-      <aside className={styles.aside}>
-        {props.data.mdx?.headings?.map((heading) => (
-          <div id={`link-${heading?.value}`} key={heading?.value}>
-            <a href={`#${heading?.value}`}>{heading?.value}</a>
-          </div>
-        ))}
-      </aside>
+      <Aside items={props.data.mdx?.headings} location={props.location} />
     </>
   );
 };

@@ -23,10 +23,13 @@ export const mdxComponents: Partial<Record<keyof React.ReactHTML, React.ReactNod
   h2: (props: MDXProps) => <Heading variant={HEADING.h2} {...props} />,
   h3: (props: MDXProps) => <Heading variant={HEADING.h3} {...props} />,
   h4: (props: MDXProps) => <Heading variant={HEADING.h4} {...props} />,
+  h5: (props: MDXProps) => <Heading variant={HEADING.h4} {...props} />,
+  h6: (props: MDXProps) => <Heading variant={HEADING.h4} {...props} />,
   p: (props: MDXProps) => <Paragraph {...props} />,
   b: (props: MDXProps) => <Paragraph as={'b'} variantStyle={TEXT_STYLE.bold} {...props} />,
   blockquote: (props: MDXProps) => <Blockquote {...props} />,
   abbr: (props: MDXProps) => <abbr {...props} />,
+  img: (props: MDXProps) => <img {...props} />,
   // ul	List	-
   // ol	Ordered list	1.
   // li	List item

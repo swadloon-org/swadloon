@@ -21,7 +21,8 @@ export const Box: React.FC<OwnProps> = ({
   padding = '',
   gap = '',
   maxWidth = '',
-  textAlign = ['justify', 'justify', 'justify'],
+  textAlign = ['left', 'left', 'left'],
+
   ...props
 }) => {
   const { styles } = useStyles(styleRefs);

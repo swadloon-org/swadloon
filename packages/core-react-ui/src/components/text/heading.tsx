@@ -4,6 +4,7 @@ import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
 import { CommonComponentProps } from '../../props/component-common-props';
 import * as stylesRef from './heading.treat';
+import { formatAnchorId } from '../../utilities/text.utilities';
 
 type Props = CommonComponentProps &
   HTMLAttributes<HTMLHeadingElement> & {
@@ -47,15 +48,19 @@ export const Heading: React.FC<Props> = React.memo(({ variant, variantLevel, id,
   }
 
   const defaultChildrenString = `${defaultProps.children as string} ${pascal(type)}`;
-  const child = children ? children : defaultChildrenString;
-
   const variantClass = `${styles[variant ? variant : (defaultProps.variant as HEADING)]}`;
   const variantLevelClass = `${styles[variantLevel ? variantLevel : (defaultProps.variantLevel as TEXT_LEVEL)]}`;
   const mergedClass = `${className || ''}`;
 
+  const child = children ? (
+    <div className={`${variantClass} ${variantLevelClass}`}>{children}</div>
+  ) : (
+    <div className={`${variantClass} ${variantLevelClass}`}>{defaultChildrenString}</div>
+  );
+
   return React.createElement(type, {
-    id: id ? id : typeof child === 'string' ? kebab(child) : kebab(defaultChildrenString),
-    className: `${variantClass} ${variantLevelClass} ${mergedClass}`,
+    id: id ? id : typeof child === 'string' ? formatAnchorId(child) : formatAnchorId(defaultChildrenString),
+    className: `${styles.wrapper} ${mergedClass}`,
     children: child,
     ...props,
   });

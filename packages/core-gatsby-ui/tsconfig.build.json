@@ -3,12 +3,16 @@
   "compilerOptions": {
     "rootDir": "src",
     "outDir": "lib",
+    "skipLibCheck": true,
     "strict": false,
     "types": ["gatsby", "node"]
   },
   "references": [
     {
       "path": "../core-common/tsconfig.build.json"
+    },
+    {
+      "path": "../core-webpack-config/tsconfig.build.json"
     },
     {
       "path": "../core-gatsby-config/tsconfig.build.json"

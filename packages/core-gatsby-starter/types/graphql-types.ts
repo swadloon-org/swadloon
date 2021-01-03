@@ -3276,6 +3276,7 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___remarkPlugins'
   | 'pluginCreator___pluginOptions___remarkPlugins___target'
   | 'pluginCreator___pluginOptions___remarkPlugins___rel'
+  | 'pluginCreator___pluginOptions___rehypePlugins'
   | 'pluginCreator___pluginOptions___createLinkInHead'
   | 'pluginCreator___pluginOptions___host'
   | 'pluginCreator___pluginOptions___sitemap'
@@ -3500,6 +3501,11 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___remarkPlugins'
   | 'pluginOptions___remarkPlugins___target'
   | 'pluginOptions___remarkPlugins___rel'
+  | 'pluginOptions___rehypePlugins'
+  | 'pluginOptions___rehypePlugins___properties___className'
+  | 'pluginOptions___rehypePlugins___content___type'
+  | 'pluginOptions___rehypePlugins___content___tagName'
+  | 'pluginOptions___rehypePlugins___content___children'
   | 'pluginOptions___createLinkInHead'
   | 'pluginOptions___host'
   | 'pluginOptions___sitemap'
@@ -3641,6 +3647,7 @@ export type SitePluginPluginOptions = {
   extensions?: Maybe<Array<Maybe<Scalars['String']>>>;
   gatsbyRemarkPlugins?: Maybe<Array<Maybe<SitePluginPluginOptionsGatsbyRemarkPlugins>>>;
   remarkPlugins?: Maybe<Array<Maybe<Array<Maybe<SitePluginPluginOptionsRemarkPlugins>>>>>;
+  rehypePlugins?: Maybe<Array<Maybe<Array<Maybe<SitePluginPluginOptionsRehypePlugins>>>>>;
   createLinkInHead?: Maybe<Scalars['Boolean']>;
   host?: Maybe<Scalars['String']>;
   sitemap?: Maybe<Scalars['String']>;
@@ -3772,6 +3779,7 @@ export type SitePluginPluginOptionsFilterInput = {
   extensions?: Maybe<StringQueryOperatorInput>;
   gatsbyRemarkPlugins?: Maybe<SitePluginPluginOptionsGatsbyRemarkPluginsFilterListInput>;
   remarkPlugins?: Maybe<SitePluginPluginOptionsRemarkPluginsFilterListInput>;
+  rehypePlugins?: Maybe<SitePluginPluginOptionsRehypePluginsFilterListInput>;
   createLinkInHead?: Maybe<BooleanQueryOperatorInput>;
   host?: Maybe<StringQueryOperatorInput>;
   sitemap?: Maybe<StringQueryOperatorInput>;
@@ -3820,6 +3828,64 @@ export type SitePluginPluginOptionsHeaders = {
 
 export type SitePluginPluginOptionsHeadersFilterInput = {
   _x?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsRehypePlugins = {
+  properties?: Maybe<SitePluginPluginOptionsRehypePluginsProperties>;
+  content?: Maybe<SitePluginPluginOptionsRehypePluginsContent>;
+};
+
+export type SitePluginPluginOptionsRehypePluginsContent = {
+  type?: Maybe<Scalars['String']>;
+  tagName?: Maybe<Scalars['String']>;
+  properties?: Maybe<SitePluginPluginOptionsRehypePluginsContentProperties>;
+  children?: Maybe<Array<Maybe<SitePluginPluginOptionsRehypePluginsContentChildren>>>;
+};
+
+export type SitePluginPluginOptionsRehypePluginsContentChildren = {
+  type?: Maybe<Scalars['String']>;
+  value?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsRehypePluginsContentChildrenFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  value?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsRehypePluginsContentChildrenFilterListInput = {
+  elemMatch?: Maybe<SitePluginPluginOptionsRehypePluginsContentChildrenFilterInput>;
+};
+
+export type SitePluginPluginOptionsRehypePluginsContentFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  tagName?: Maybe<StringQueryOperatorInput>;
+  properties?: Maybe<SitePluginPluginOptionsRehypePluginsContentPropertiesFilterInput>;
+  children?: Maybe<SitePluginPluginOptionsRehypePluginsContentChildrenFilterListInput>;
+};
+
+export type SitePluginPluginOptionsRehypePluginsContentProperties = {
+  className?: Maybe<Array<Maybe<Scalars['String']>>>;
+};
+
+export type SitePluginPluginOptionsRehypePluginsContentPropertiesFilterInput = {
+  className?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsRehypePluginsFilterInput = {
+  properties?: Maybe<SitePluginPluginOptionsRehypePluginsPropertiesFilterInput>;
+  content?: Maybe<SitePluginPluginOptionsRehypePluginsContentFilterInput>;
+};
+
+export type SitePluginPluginOptionsRehypePluginsFilterListInput = {
+  elemMatch?: Maybe<SitePluginPluginOptionsRehypePluginsFilterInput>;
+};
+
+export type SitePluginPluginOptionsRehypePluginsProperties = {
+  className?: Maybe<Array<Maybe<Scalars['String']>>>;
+};
+
+export type SitePluginPluginOptionsRehypePluginsPropertiesFilterInput = {
+  className?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePluginPluginOptionsRemarkPlugins = {
@@ -3909,11 +3975,6 @@ export type SitePageFragmentFragment = (
     )>, frontmatter?: Maybe<Pick<SitePageContextFrontmatter, 'name' | 'tags'>> }
   )> }
 );
-
-export type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type Unnamed_1_Query = { allSitePage: { nodes: Array<Pick<SitePage, 'id' | 'path'>> } };
 
 export type MarkdownTemplateQueryVariables = Exact<{
   slug: Scalars['String'];

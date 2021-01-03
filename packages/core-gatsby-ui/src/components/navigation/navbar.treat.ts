@@ -8,7 +8,7 @@ export const styles = {
     left: 0,
     right: 0,
     zIndex: 100,
-    height: `56px`,
+    height: `55px`,
 
     backgroundColor: 'white',
     boxShadow: '0 1px 2px rgba(33,33,33,0.15)',
