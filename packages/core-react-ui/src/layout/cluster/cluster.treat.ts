@@ -5,7 +5,7 @@ import { Theme } from '../../design-system/css-design-system';
 export const styles = styleMap(({ cssTheme, theme }: Theme) => ({
   wrapper: {
     display: 'grid',
-    gridAutoFlow: 'column',
+    // gridAutoFlow: 'column',
 
     alignItems: `center`,
     justifyContent: `var(--mobileJustifyContent)` as JustifyContentProperty,

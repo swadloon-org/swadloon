@@ -24,6 +24,7 @@ import { pascal } from 'case';
 import { Summary } from '../components/text/summary';
 import { Details } from '../components/text/details';
 import { Box } from '../layout/box/box';
+import { Cluster } from '../layout/cluster/cluster';
 
 type Props = {};
 
@@ -118,35 +119,81 @@ export const DesignSystemComponent: React.FC<Props> = (props) => {
                 const colorOrPalette = theme.colors.colors[colorName];
 
                 if (typeof colorOrPalette === 'string') {
-                  return <ColorSwatch key={index} name={colorName} color={colorOrPalette}></ColorSwatch>;
+                  return (
+                    <Stack key={index} gap={'10px'}>
+                      <h4>{colorName}</h4>
+                      <div style={{ width: '20%' }}>
+                        <ColorSwatch key={index} name={colorName} color={colorOrPalette}></ColorSwatch>
+                      </div>
+                    </Stack>
+                  );
                 }
                 if (typeof colorOrPalette === 'object' && (colorOrPalette as Color)['h'] !== undefined) {
-                  return <ColorSwatch key={index} name={colorName} color={colorOrPalette as Color}></ColorSwatch>;
+                  return (
+                    <Stack key={index} gap={'10px'}>
+                      <h4>{colorName}</h4>
+                      <div style={{ width: '20%' }}>
+                        <ColorSwatch key={index} name={colorName} color={colorOrPalette as Color}></ColorSwatch>{' '}
+                      </div>
+                    </Stack>
+                  );
                 }
 
                 if (typeof colorOrPalette === 'object') {
                   const palette = colorOrPalette as Record<ColorShades5, Color>;
                   const shades = keys(palette);
 
-                  return shades.map((shadeName, index) => {
-                    const color = palette[shadeName];
-                    return (
-                      <ColorSwatch key={index} shadeNumber={shadeName} name={colorName} color={color}></ColorSwatch>
-                    );
-                  });
+                  return (
+                    <Stack key={index} gap={'10px'}>
+                      <h4>{colorName}</h4>
+                      <Cluster
+                        key={index}
+                        justifyContent={['flex-start', 'flex-start', 'flex-start']}
+                        style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(20%, 1fr))' }}
+                      >
+                        {shades.map((shadeName, index) => {
+                          const color = palette[shadeName];
+
+                          return (
+                            <ColorSwatch
+                              key={index}
+                              shadeNumber={shadeName}
+                              name={colorName}
+                              color={color}
+                            ></ColorSwatch>
+                          );
+                        })}
+                      </Cluster>
+                    </Stack>
+                  );
                 }
+
                 return null;
               })}
 
               <h4>Color Intents</h4>
+
               {keys(theme.colors.colorIntents).map((colorName, index) => {
                 const colorOrPalette = theme.colors.colorIntents[colorName];
-
                 if (typeof colorOrPalette === 'string') {
-                  return <ColorSwatch key={index} name={colorName} color={colorOrPalette}></ColorSwatch>;
+                  return (
+                    <Stack key={index} gap={'10px'}>
+                      <h4>{colorName}</h4>
+                      <div style={{ width: '20%' }}>
+                        <ColorSwatch key={index} name={colorName} color={colorOrPalette}></ColorSwatch>
+                      </div>
+                    </Stack>
+                  );
                 }
                 if (typeof colorOrPalette === 'object' && (colorOrPalette as Color)['h'] !== undefined) {
-                  return <ColorSwatch key={index} name={colorName} color={colorOrPalette as Color}></ColorSwatch>;
+                  return (
+                    <Stack key={index} gap={'10px'}>
+                      <h4>{colorName}</h4>
+                      <div style={{ width: '20%' }}>
+                        <ColorSwatch key={index} name={colorName} color={colorOrPalette as Color}></ColorSwatch>
+                      </div>
+                    </Stack>
+                  );
                 }
                 return null;
               })}

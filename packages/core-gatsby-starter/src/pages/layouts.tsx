@@ -39,11 +39,11 @@ const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
 
       <h2>Cluster</h2>
       <Box padding={'1em'}>
-        <Cluster justifyContent={['Box', 'center', 'space-between']} minWidth={'100%'}>
+        <Cluster gridAutoFlow={'column'} justifyContent={['Box', 'center', 'space-between']} minWidth={'100%'}>
           <Box>
             <h1>Hello World</h1>
           </Box>
-          <Cluster justifyItems={'center'}>
+          <Cluster gridAutoFlow={'column'} gap={'10px'} justifyItems={'center'}>
             <Box>
               <a href={'#'}>Link</a>
             </Box>
