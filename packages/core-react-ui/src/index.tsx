@@ -2,6 +2,7 @@ export * from './components/button/button';
 export * from './components/color/color-swatch';
 export * from './components/seo/meta-basic';
 export * from './components/seo/metadata-twitter';
+export * from './components/seo/metadata-website';
 export * from './components/text/heading';
 export * from './components/text/link';
 export * from './components/text/paragraph';

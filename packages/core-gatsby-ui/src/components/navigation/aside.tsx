@@ -53,10 +53,11 @@ function useScrollSpy(items: Props['items']) {
   const [currentId, setCurrentId] = React.useState<string | null>(null);
   const location = useLocation();
 
-  React.useEffect(() => setCurrentId(null), [location?.hash]);
+  // React.useEffect(() => setCurrentId(null), [location?.hash]);
 
   React.useEffect(() => {
     if (!(items && items.length && items.filter(filterItemDepthPredicate).length)) {
+      setCurrentId(null);
       return;
     }
 
@@ -70,7 +71,7 @@ function useScrollSpy(items: Props['items']) {
 
     const handleScroll = () => {
       elementsArray.forEach((element) => {
-        if (element.offsetTop <= window.scrollY + 60) {
+        if (element.offsetTop <= window.scrollY + 30) {
           setCurrentId(element.id);
         }
       });

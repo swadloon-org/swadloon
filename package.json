@@ -50,6 +50,8 @@
     "start:website": "yarn start --scope @newrade/*-website --scope @newrade/core-gatsby-starter",
     "test": "lerna run --concurrency=1 test",
     "test:core:ui": "yarn test --scope '{@newrade/core-design-system,@newrade/core-react-ui,@newrade/core-react-ui-app}'",
+    "typecheck": "lerna run typecheck",
+    "typecheck:build": "lerna run typecheck:build",
     "yo": "nr-core-yo-generator"
   },
   "resolutions": {
