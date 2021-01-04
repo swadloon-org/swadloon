@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/newrade-website@1.4.0...@newrade/newrade-website@1.5.0) (2021-01-04)
+
+### Bug Fixes
+
+- **core-react-ui:** add mdx features ([bfbee76](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/bfbee769e8f029aa4b3a2b03b75645db88877d13))
+- **core-react-ui:** implement aside for mdx docs ([006577f](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/006577fc028bc948fec48a1a294f0c79892def57))
+- **gatsby:** fix hmr for gatsby sites ([389d3a4](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/389d3a42037976cfcca60da6832bb901fc0ea195))
+- **gatsby:** fixes typechecking ([4c3b323](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/4c3b323dce2eda2bb0b413628290f3238898c23e))
+- **gatsby:** re enable typecheck after switching to typescript plugin ([48078be](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/48078be91bcdf73f4970a98f6fe1ff3e972fe2a1))
+- **gatsby:** update gatsby site config to include new flags ([48422e7](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/48422e70dd02ff76bd4fdbd823cd1f5e34674136))
+- **repo:** fix gatsby website ([f1a1e23](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/f1a1e238938adf480d05884384425c75691fff63))
+- **repo:** fix tsconfigs ([5a57618](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/5a5761829153b3bf18f3d774ca9a4e7d498ac29f))
+
+### Features
+
+- **core-react-ui:** add layout utilities ([587c8e8](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/587c8e8a92fa85df4624637349b4cc48c6c24c70))
+- **gatsby:** update gatsby setup for each site ([9bb2a6a](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/9bb2a6a0bd47a67eef2c5c3cb0ba13dedb8b04ba))
+- **vsb-website:** add theme ([a93920b](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/a93920b651146b05dca9adc77d5389fa56de92cc))
+
 # [1.4.0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/newrade-website@1.3.2...@newrade/newrade-website@1.4.0) (2020-12-18)
 
 ### Bug Fixes

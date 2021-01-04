@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/newrade/newrade/compare/@newrade/core-contentful-lib@1.3.0...@newrade/core-contentful-lib@1.4.0) (2021-01-04)
+
+### Bug Fixes
+
+- **core-gatsby-config:** add new plugin to create contentful pages ([3af6c82](https://github.com/newrade/newrade/commit/3af6c82d6e2a34653c63baeeb0e0fa0e24c701fa))
+
+### Features
+
+- **fragment:** adding fragment and fixing project-delete-space ([ac0c165](https://github.com/newrade/newrade/commit/ac0c1657dfe5bdf9724f92c252dd82783e07c378))
+
 # [1.3.0](https://github.com/newrade/newrade/compare/@newrade/core-contentful-lib@1.2.1...@newrade/core-contentful-lib@1.3.0) (2020-12-18)
 
 ### Bug Fixes

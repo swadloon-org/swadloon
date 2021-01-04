@@ -9,10 +9,7 @@ import { GatsbyMarkdownFilePageContext, GatsbyNodeSiteMetadataFragment } from '@
 import { MarkdownTemplateQuery } from '../../types/graphql-types';
 import { DebugGasbyPage } from '@newrade/core-gatsby-ui';
 
-export type MarkdownTemplateProps = PageProps<
-  MarkdownTemplateQuery,
-  GatsbyMarkdownFilePageContext<GatsbyNodeSiteMetadataFragment>
->;
+export type MarkdownTemplateProps = PageProps<MarkdownTemplateQuery, GatsbyMarkdownFilePageContext>;
 
 /**
  * Query to retrieve all markdown content for the markdown file

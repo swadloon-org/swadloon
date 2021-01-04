@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { theme } from '../design-system';
+import { theme } from '../design-system/theme';
 import * as stylesRef from './blog.treat';
 import { ProjectPageProps } from './page.template';
 import { BannerSecondary } from '../components/banners/banner-secondary';

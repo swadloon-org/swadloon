@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.4](https://github.com/newrade/newrade/compare/@newrade/core-webpack-config@1.3.3...@newrade/core-webpack-config@1.3.4) (2021-01-04)
+
+### Bug Fixes
+
+- **core-react-ui:** add mdx features ([bfbee76](https://github.com/newrade/newrade/commit/bfbee769e8f029aa4b3a2b03b75645db88877d13))
+- **core-react-ui:** implement aside for mdx docs ([006577f](https://github.com/newrade/newrade/commit/006577fc028bc948fec48a1a294f0c79892def57))
+
 ## [1.3.3](https://github.com/newrade/newrade/compare/@newrade/core-webpack-config@1.3.2...@newrade/core-webpack-config@1.3.3) (2020-12-18)
 
 ### Bug Fixes

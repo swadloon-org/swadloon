@@ -3,9 +3,7 @@ import { graphql } from 'gatsby';
 export const sectionFragment = graphql`
   fragment Section on ContentfulSection {
     node_locale
-
     name
-
     type {
       ...sectionType
     }
@@ -34,8 +32,6 @@ export const sectionFragment = graphql`
           url
         }
         desktopFluidImage: fluid(quality: 90, maxWidth: 800) {
-          base64
-          aspectRatio
           src
           srcSet
           srcWebp
@@ -43,8 +39,6 @@ export const sectionFragment = graphql`
           sizes
         }
         mobileFluidImage: fluid(quality: 90, maxWidth: 400) {
-          base64
-          aspectRatio
           src
           srcSet
           srcWebp

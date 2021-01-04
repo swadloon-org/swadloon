@@ -9,7 +9,7 @@ import * as styleRefs from './info-section-type-6.treat';
 import { SectionFragment } from '../../../types/graphql-types';
 import { SECTION_TYPE } from '../../templates/section.template';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
-import { markdownComponents } from '../markdown/components-markdown';
+import { mdxComponents } from '../markdown/components-markdown';
 import { MarkdownLink } from '../ui/link';
 
 type OwnProps = SectionFragment;

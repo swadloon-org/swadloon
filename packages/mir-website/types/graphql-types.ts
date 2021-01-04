@@ -837,16 +837,16 @@ export type ContentfulBlogAuthorFieldsEnum =
   | 'blogpost___section___page___children'
   | 'blogpost___section___page___name'
   | 'blogpost___section___page___title'
-  | 'blogpost___section___page___bannerTitle'
   | 'blogpost___section___page___slug'
+  | 'blogpost___section___page___bannerTitle'
   | 'blogpost___section___page___sections'
   | 'blogpost___section___page___spaceId'
   | 'blogpost___section___page___contentful_id'
   | 'blogpost___section___page___createdAt'
   | 'blogpost___section___page___updatedAt'
   | 'blogpost___section___page___node_locale'
-  | 'blogpost___section___page___link'
   | 'blogpost___section___page___bannerSubTitle'
+  | 'blogpost___section___page___link'
   | 'blogpost___section___spaceId'
   | 'blogpost___section___contentful_id'
   | 'blogpost___section___createdAt'
@@ -2226,8 +2226,18 @@ export type ContentfulBlogPostFieldsEnum =
   | 'section___page___internal___type'
   | 'section___page___name'
   | 'section___page___title'
-  | 'section___page___bannerTitle'
   | 'section___page___slug'
+  | 'section___page___bannerTitle'
+  | 'section___page___type___id'
+  | 'section___page___type___children'
+  | 'section___page___type___name'
+  | 'section___page___type___type'
+  | 'section___page___type___page'
+  | 'section___page___type___spaceId'
+  | 'section___page___type___contentful_id'
+  | 'section___page___type___createdAt'
+  | 'section___page___type___updatedAt'
+  | 'section___page___type___node_locale'
   | 'section___page___bannerImages___id'
   | 'section___page___bannerImages___children'
   | 'section___page___bannerImages___name'
@@ -2270,6 +2280,7 @@ export type ContentfulBlogPostFieldsEnum =
   | 'section___page___sys___type'
   | 'section___page___sys___revision'
   | 'section___page___node_locale'
+  | 'section___page___bannerSubTitle'
   | 'section___page___link'
   | 'section___page___link___id'
   | 'section___page___link___children'
@@ -2283,7 +2294,6 @@ export type ContentfulBlogPostFieldsEnum =
   | 'section___page___link___updatedAt'
   | 'section___page___link___node_locale'
   | 'section___page___link___url'
-  | 'section___page___bannerSubTitle'
   | 'section___page___childContentfulPageDescriptionTextNode___id'
   | 'section___page___childContentfulPageDescriptionTextNode___children'
   | 'section___page___childContentfulPageDescriptionTextNode___description'
@@ -2353,16 +2363,16 @@ export type ContentfulBlogPostFieldsEnum =
   | 'section___medias___page___children'
   | 'section___medias___page___name'
   | 'section___medias___page___title'
-  | 'section___medias___page___bannerTitle'
   | 'section___medias___page___slug'
+  | 'section___medias___page___bannerTitle'
   | 'section___medias___page___sections'
   | 'section___medias___page___spaceId'
   | 'section___medias___page___contentful_id'
   | 'section___medias___page___createdAt'
   | 'section___medias___page___updatedAt'
   | 'section___medias___page___node_locale'
-  | 'section___medias___page___link'
   | 'section___medias___page___bannerSubTitle'
+  | 'section___medias___page___link'
   | 'section___link___id'
   | 'section___link___parent___id'
   | 'section___link___parent___children'
@@ -2412,16 +2422,16 @@ export type ContentfulBlogPostFieldsEnum =
   | 'section___link___page___children'
   | 'section___link___page___name'
   | 'section___link___page___title'
-  | 'section___link___page___bannerTitle'
   | 'section___link___page___slug'
+  | 'section___link___page___bannerTitle'
   | 'section___link___page___sections'
   | 'section___link___page___spaceId'
   | 'section___link___page___contentful_id'
   | 'section___link___page___createdAt'
   | 'section___link___page___updatedAt'
   | 'section___link___page___node_locale'
-  | 'section___link___page___link'
   | 'section___link___page___bannerSubTitle'
+  | 'section___link___page___link'
   | 'section___link___url'
   | 'section___text___id'
   | 'section___text___parent___id'
@@ -2561,16 +2571,16 @@ export type ContentfulBlogPostFieldsEnum =
   | 'section___section___page___children'
   | 'section___section___page___name'
   | 'section___section___page___title'
-  | 'section___section___page___bannerTitle'
   | 'section___section___page___slug'
+  | 'section___section___page___bannerTitle'
   | 'section___section___page___sections'
   | 'section___section___page___spaceId'
   | 'section___section___page___contentful_id'
   | 'section___section___page___createdAt'
   | 'section___section___page___updatedAt'
   | 'section___section___page___node_locale'
-  | 'section___section___page___link'
   | 'section___section___page___bannerSubTitle'
+  | 'section___section___page___link'
   | 'section___section___spaceId'
   | 'section___section___contentful_id'
   | 'section___section___createdAt'
@@ -2829,16 +2839,16 @@ export type ContentfulBlogPostFieldsEnum =
   | 'section___subSections___page___children'
   | 'section___subSections___page___name'
   | 'section___subSections___page___title'
-  | 'section___subSections___page___bannerTitle'
   | 'section___subSections___page___slug'
+  | 'section___subSections___page___bannerTitle'
   | 'section___subSections___page___sections'
   | 'section___subSections___page___spaceId'
   | 'section___subSections___page___contentful_id'
   | 'section___subSections___page___createdAt'
   | 'section___subSections___page___updatedAt'
   | 'section___subSections___page___node_locale'
-  | 'section___subSections___page___link'
   | 'section___subSections___page___bannerSubTitle'
+  | 'section___subSections___page___link'
   | 'section___subSections___spaceId'
   | 'section___subSections___contentful_id'
   | 'section___subSections___createdAt'
@@ -5072,8 +5082,18 @@ export type ContentfulInfoCheckFieldsEnum =
   | 'section___page___internal___type'
   | 'section___page___name'
   | 'section___page___title'
-  | 'section___page___bannerTitle'
   | 'section___page___slug'
+  | 'section___page___bannerTitle'
+  | 'section___page___type___id'
+  | 'section___page___type___children'
+  | 'section___page___type___name'
+  | 'section___page___type___type'
+  | 'section___page___type___page'
+  | 'section___page___type___spaceId'
+  | 'section___page___type___contentful_id'
+  | 'section___page___type___createdAt'
+  | 'section___page___type___updatedAt'
+  | 'section___page___type___node_locale'
   | 'section___page___bannerImages___id'
   | 'section___page___bannerImages___children'
   | 'section___page___bannerImages___name'
@@ -5116,6 +5136,7 @@ export type ContentfulInfoCheckFieldsEnum =
   | 'section___page___sys___type'
   | 'section___page___sys___revision'
   | 'section___page___node_locale'
+  | 'section___page___bannerSubTitle'
   | 'section___page___link'
   | 'section___page___link___id'
   | 'section___page___link___children'
@@ -5129,7 +5150,6 @@ export type ContentfulInfoCheckFieldsEnum =
   | 'section___page___link___updatedAt'
   | 'section___page___link___node_locale'
   | 'section___page___link___url'
-  | 'section___page___bannerSubTitle'
   | 'section___page___childContentfulPageDescriptionTextNode___id'
   | 'section___page___childContentfulPageDescriptionTextNode___children'
   | 'section___page___childContentfulPageDescriptionTextNode___description'
@@ -5199,16 +5219,16 @@ export type ContentfulInfoCheckFieldsEnum =
   | 'section___medias___page___children'
   | 'section___medias___page___name'
   | 'section___medias___page___title'
-  | 'section___medias___page___bannerTitle'
   | 'section___medias___page___slug'
+  | 'section___medias___page___bannerTitle'
   | 'section___medias___page___sections'
   | 'section___medias___page___spaceId'
   | 'section___medias___page___contentful_id'
   | 'section___medias___page___createdAt'
   | 'section___medias___page___updatedAt'
   | 'section___medias___page___node_locale'
-  | 'section___medias___page___link'
   | 'section___medias___page___bannerSubTitle'
+  | 'section___medias___page___link'
   | 'section___link___id'
   | 'section___link___parent___id'
   | 'section___link___parent___children'
@@ -5258,16 +5278,16 @@ export type ContentfulInfoCheckFieldsEnum =
   | 'section___link___page___children'
   | 'section___link___page___name'
   | 'section___link___page___title'
-  | 'section___link___page___bannerTitle'
   | 'section___link___page___slug'
+  | 'section___link___page___bannerTitle'
   | 'section___link___page___sections'
   | 'section___link___page___spaceId'
   | 'section___link___page___contentful_id'
   | 'section___link___page___createdAt'
   | 'section___link___page___updatedAt'
   | 'section___link___page___node_locale'
-  | 'section___link___page___link'
   | 'section___link___page___bannerSubTitle'
+  | 'section___link___page___link'
   | 'section___link___url'
   | 'section___text___id'
   | 'section___text___parent___id'
@@ -5407,16 +5427,16 @@ export type ContentfulInfoCheckFieldsEnum =
   | 'section___section___page___children'
   | 'section___section___page___name'
   | 'section___section___page___title'
-  | 'section___section___page___bannerTitle'
   | 'section___section___page___slug'
+  | 'section___section___page___bannerTitle'
   | 'section___section___page___sections'
   | 'section___section___page___spaceId'
   | 'section___section___page___contentful_id'
   | 'section___section___page___createdAt'
   | 'section___section___page___updatedAt'
   | 'section___section___page___node_locale'
-  | 'section___section___page___link'
   | 'section___section___page___bannerSubTitle'
+  | 'section___section___page___link'
   | 'section___section___spaceId'
   | 'section___section___contentful_id'
   | 'section___section___createdAt'
@@ -5675,16 +5695,16 @@ export type ContentfulInfoCheckFieldsEnum =
   | 'section___subSections___page___children'
   | 'section___subSections___page___name'
   | 'section___subSections___page___title'
-  | 'section___subSections___page___bannerTitle'
   | 'section___subSections___page___slug'
+  | 'section___subSections___page___bannerTitle'
   | 'section___subSections___page___sections'
   | 'section___subSections___page___spaceId'
   | 'section___subSections___page___contentful_id'
   | 'section___subSections___page___createdAt'
   | 'section___subSections___page___updatedAt'
   | 'section___subSections___page___node_locale'
-  | 'section___subSections___page___link'
   | 'section___subSections___page___bannerSubTitle'
+  | 'section___subSections___page___link'
   | 'section___subSections___spaceId'
   | 'section___subSections___contentful_id'
   | 'section___subSections___createdAt'
@@ -6500,8 +6520,18 @@ export type ContentfulInfoTileFieldsEnum =
   | 'section___page___internal___type'
   | 'section___page___name'
   | 'section___page___title'
-  | 'section___page___bannerTitle'
   | 'section___page___slug'
+  | 'section___page___bannerTitle'
+  | 'section___page___type___id'
+  | 'section___page___type___children'
+  | 'section___page___type___name'
+  | 'section___page___type___type'
+  | 'section___page___type___page'
+  | 'section___page___type___spaceId'
+  | 'section___page___type___contentful_id'
+  | 'section___page___type___createdAt'
+  | 'section___page___type___updatedAt'
+  | 'section___page___type___node_locale'
   | 'section___page___bannerImages___id'
   | 'section___page___bannerImages___children'
   | 'section___page___bannerImages___name'
@@ -6544,6 +6574,7 @@ export type ContentfulInfoTileFieldsEnum =
   | 'section___page___sys___type'
   | 'section___page___sys___revision'
   | 'section___page___node_locale'
+  | 'section___page___bannerSubTitle'
   | 'section___page___link'
   | 'section___page___link___id'
   | 'section___page___link___children'
@@ -6557,7 +6588,6 @@ export type ContentfulInfoTileFieldsEnum =
   | 'section___page___link___updatedAt'
   | 'section___page___link___node_locale'
   | 'section___page___link___url'
-  | 'section___page___bannerSubTitle'
   | 'section___page___childContentfulPageDescriptionTextNode___id'
   | 'section___page___childContentfulPageDescriptionTextNode___children'
   | 'section___page___childContentfulPageDescriptionTextNode___description'
@@ -6627,16 +6657,16 @@ export type ContentfulInfoTileFieldsEnum =
   | 'section___medias___page___children'
   | 'section___medias___page___name'
   | 'section___medias___page___title'
-  | 'section___medias___page___bannerTitle'
   | 'section___medias___page___slug'
+  | 'section___medias___page___bannerTitle'
   | 'section___medias___page___sections'
   | 'section___medias___page___spaceId'
   | 'section___medias___page___contentful_id'
   | 'section___medias___page___createdAt'
   | 'section___medias___page___updatedAt'
   | 'section___medias___page___node_locale'
-  | 'section___medias___page___link'
   | 'section___medias___page___bannerSubTitle'
+  | 'section___medias___page___link'
   | 'section___link___id'
   | 'section___link___parent___id'
   | 'section___link___parent___children'
@@ -6686,16 +6716,16 @@ export type ContentfulInfoTileFieldsEnum =
   | 'section___link___page___children'
   | 'section___link___page___name'
   | 'section___link___page___title'
-  | 'section___link___page___bannerTitle'
   | 'section___link___page___slug'
+  | 'section___link___page___bannerTitle'
   | 'section___link___page___sections'
   | 'section___link___page___spaceId'
   | 'section___link___page___contentful_id'
   | 'section___link___page___createdAt'
   | 'section___link___page___updatedAt'
   | 'section___link___page___node_locale'
-  | 'section___link___page___link'
   | 'section___link___page___bannerSubTitle'
+  | 'section___link___page___link'
   | 'section___link___url'
   | 'section___text___id'
   | 'section___text___parent___id'
@@ -6835,16 +6865,16 @@ export type ContentfulInfoTileFieldsEnum =
   | 'section___section___page___children'
   | 'section___section___page___name'
   | 'section___section___page___title'
-  | 'section___section___page___bannerTitle'
   | 'section___section___page___slug'
+  | 'section___section___page___bannerTitle'
   | 'section___section___page___sections'
   | 'section___section___page___spaceId'
   | 'section___section___page___contentful_id'
   | 'section___section___page___createdAt'
   | 'section___section___page___updatedAt'
   | 'section___section___page___node_locale'
-  | 'section___section___page___link'
   | 'section___section___page___bannerSubTitle'
+  | 'section___section___page___link'
   | 'section___section___spaceId'
   | 'section___section___contentful_id'
   | 'section___section___createdAt'
@@ -7103,16 +7133,16 @@ export type ContentfulInfoTileFieldsEnum =
   | 'section___subSections___page___children'
   | 'section___subSections___page___name'
   | 'section___subSections___page___title'
-  | 'section___subSections___page___bannerTitle'
   | 'section___subSections___page___slug'
+  | 'section___subSections___page___bannerTitle'
   | 'section___subSections___page___sections'
   | 'section___subSections___page___spaceId'
   | 'section___subSections___page___contentful_id'
   | 'section___subSections___page___createdAt'
   | 'section___subSections___page___updatedAt'
   | 'section___subSections___page___node_locale'
-  | 'section___subSections___page___link'
   | 'section___subSections___page___bannerSubTitle'
+  | 'section___subSections___page___link'
   | 'section___subSections___spaceId'
   | 'section___subSections___contentful_id'
   | 'section___subSections___createdAt'
@@ -8136,16 +8166,16 @@ export type ContentfulJobFieldsEnum =
   | 'jobgroup___section___page___children'
   | 'jobgroup___section___page___name'
   | 'jobgroup___section___page___title'
-  | 'jobgroup___section___page___bannerTitle'
   | 'jobgroup___section___page___slug'
+  | 'jobgroup___section___page___bannerTitle'
   | 'jobgroup___section___page___sections'
   | 'jobgroup___section___page___spaceId'
   | 'jobgroup___section___page___contentful_id'
   | 'jobgroup___section___page___createdAt'
   | 'jobgroup___section___page___updatedAt'
   | 'jobgroup___section___page___node_locale'
-  | 'jobgroup___section___page___link'
   | 'jobgroup___section___page___bannerSubTitle'
+  | 'jobgroup___section___page___link'
   | 'jobgroup___section___spaceId'
   | 'jobgroup___section___contentful_id'
   | 'jobgroup___section___createdAt'
@@ -8830,8 +8860,18 @@ export type ContentfulJobGroupFieldsEnum =
   | 'section___page___internal___type'
   | 'section___page___name'
   | 'section___page___title'
-  | 'section___page___bannerTitle'
   | 'section___page___slug'
+  | 'section___page___bannerTitle'
+  | 'section___page___type___id'
+  | 'section___page___type___children'
+  | 'section___page___type___name'
+  | 'section___page___type___type'
+  | 'section___page___type___page'
+  | 'section___page___type___spaceId'
+  | 'section___page___type___contentful_id'
+  | 'section___page___type___createdAt'
+  | 'section___page___type___updatedAt'
+  | 'section___page___type___node_locale'
   | 'section___page___bannerImages___id'
   | 'section___page___bannerImages___children'
   | 'section___page___bannerImages___name'
@@ -8874,6 +8914,7 @@ export type ContentfulJobGroupFieldsEnum =
   | 'section___page___sys___type'
   | 'section___page___sys___revision'
   | 'section___page___node_locale'
+  | 'section___page___bannerSubTitle'
   | 'section___page___link'
   | 'section___page___link___id'
   | 'section___page___link___children'
@@ -8887,7 +8928,6 @@ export type ContentfulJobGroupFieldsEnum =
   | 'section___page___link___updatedAt'
   | 'section___page___link___node_locale'
   | 'section___page___link___url'
-  | 'section___page___bannerSubTitle'
   | 'section___page___childContentfulPageDescriptionTextNode___id'
   | 'section___page___childContentfulPageDescriptionTextNode___children'
   | 'section___page___childContentfulPageDescriptionTextNode___description'
@@ -8957,16 +8997,16 @@ export type ContentfulJobGroupFieldsEnum =
   | 'section___medias___page___children'
   | 'section___medias___page___name'
   | 'section___medias___page___title'
-  | 'section___medias___page___bannerTitle'
   | 'section___medias___page___slug'
+  | 'section___medias___page___bannerTitle'
   | 'section___medias___page___sections'
   | 'section___medias___page___spaceId'
   | 'section___medias___page___contentful_id'
   | 'section___medias___page___createdAt'
   | 'section___medias___page___updatedAt'
   | 'section___medias___page___node_locale'
-  | 'section___medias___page___link'
   | 'section___medias___page___bannerSubTitle'
+  | 'section___medias___page___link'
   | 'section___link___id'
   | 'section___link___parent___id'
   | 'section___link___parent___children'
@@ -9016,16 +9056,16 @@ export type ContentfulJobGroupFieldsEnum =
   | 'section___link___page___children'
   | 'section___link___page___name'
   | 'section___link___page___title'
-  | 'section___link___page___bannerTitle'
   | 'section___link___page___slug'
+  | 'section___link___page___bannerTitle'
   | 'section___link___page___sections'
   | 'section___link___page___spaceId'
   | 'section___link___page___contentful_id'
   | 'section___link___page___createdAt'
   | 'section___link___page___updatedAt'
   | 'section___link___page___node_locale'
-  | 'section___link___page___link'
   | 'section___link___page___bannerSubTitle'
+  | 'section___link___page___link'
   | 'section___link___url'
   | 'section___text___id'
   | 'section___text___parent___id'
@@ -9165,16 +9205,16 @@ export type ContentfulJobGroupFieldsEnum =
   | 'section___section___page___children'
   | 'section___section___page___name'
   | 'section___section___page___title'
-  | 'section___section___page___bannerTitle'
   | 'section___section___page___slug'
+  | 'section___section___page___bannerTitle'
   | 'section___section___page___sections'
   | 'section___section___page___spaceId'
   | 'section___section___page___contentful_id'
   | 'section___section___page___createdAt'
   | 'section___section___page___updatedAt'
   | 'section___section___page___node_locale'
-  | 'section___section___page___link'
   | 'section___section___page___bannerSubTitle'
+  | 'section___section___page___link'
   | 'section___section___spaceId'
   | 'section___section___contentful_id'
   | 'section___section___createdAt'
@@ -9433,16 +9473,16 @@ export type ContentfulJobGroupFieldsEnum =
   | 'section___subSections___page___children'
   | 'section___subSections___page___name'
   | 'section___subSections___page___title'
-  | 'section___subSections___page___bannerTitle'
   | 'section___subSections___page___slug'
+  | 'section___subSections___page___bannerTitle'
   | 'section___subSections___page___sections'
   | 'section___subSections___page___spaceId'
   | 'section___subSections___page___contentful_id'
   | 'section___subSections___page___createdAt'
   | 'section___subSections___page___updatedAt'
   | 'section___subSections___page___node_locale'
-  | 'section___subSections___page___link'
   | 'section___subSections___page___bannerSubTitle'
+  | 'section___subSections___page___link'
   | 'section___subSections___spaceId'
   | 'section___subSections___contentful_id'
   | 'section___subSections___createdAt'
@@ -10303,8 +10343,18 @@ export type ContentfulLinkFieldsEnum =
   | 'section___page___internal___type'
   | 'section___page___name'
   | 'section___page___title'
-  | 'section___page___bannerTitle'
   | 'section___page___slug'
+  | 'section___page___bannerTitle'
+  | 'section___page___type___id'
+  | 'section___page___type___children'
+  | 'section___page___type___name'
+  | 'section___page___type___type'
+  | 'section___page___type___page'
+  | 'section___page___type___spaceId'
+  | 'section___page___type___contentful_id'
+  | 'section___page___type___createdAt'
+  | 'section___page___type___updatedAt'
+  | 'section___page___type___node_locale'
   | 'section___page___bannerImages___id'
   | 'section___page___bannerImages___children'
   | 'section___page___bannerImages___name'
@@ -10347,6 +10397,7 @@ export type ContentfulLinkFieldsEnum =
   | 'section___page___sys___type'
   | 'section___page___sys___revision'
   | 'section___page___node_locale'
+  | 'section___page___bannerSubTitle'
   | 'section___page___link'
   | 'section___page___link___id'
   | 'section___page___link___children'
@@ -10360,7 +10411,6 @@ export type ContentfulLinkFieldsEnum =
   | 'section___page___link___updatedAt'
   | 'section___page___link___node_locale'
   | 'section___page___link___url'
-  | 'section___page___bannerSubTitle'
   | 'section___page___childContentfulPageDescriptionTextNode___id'
   | 'section___page___childContentfulPageDescriptionTextNode___children'
   | 'section___page___childContentfulPageDescriptionTextNode___description'
@@ -10430,16 +10480,16 @@ export type ContentfulLinkFieldsEnum =
   | 'section___medias___page___children'
   | 'section___medias___page___name'
   | 'section___medias___page___title'
-  | 'section___medias___page___bannerTitle'
   | 'section___medias___page___slug'
+  | 'section___medias___page___bannerTitle'
   | 'section___medias___page___sections'
   | 'section___medias___page___spaceId'
   | 'section___medias___page___contentful_id'
   | 'section___medias___page___createdAt'
   | 'section___medias___page___updatedAt'
   | 'section___medias___page___node_locale'
-  | 'section___medias___page___link'
   | 'section___medias___page___bannerSubTitle'
+  | 'section___medias___page___link'
   | 'section___link___id'
   | 'section___link___parent___id'
   | 'section___link___parent___children'
@@ -10489,16 +10539,16 @@ export type ContentfulLinkFieldsEnum =
   | 'section___link___page___children'
   | 'section___link___page___name'
   | 'section___link___page___title'
-  | 'section___link___page___bannerTitle'
   | 'section___link___page___slug'
+  | 'section___link___page___bannerTitle'
   | 'section___link___page___sections'
   | 'section___link___page___spaceId'
   | 'section___link___page___contentful_id'
   | 'section___link___page___createdAt'
   | 'section___link___page___updatedAt'
   | 'section___link___page___node_locale'
-  | 'section___link___page___link'
   | 'section___link___page___bannerSubTitle'
+  | 'section___link___page___link'
   | 'section___link___url'
   | 'section___text___id'
   | 'section___text___parent___id'
@@ -10638,16 +10688,16 @@ export type ContentfulLinkFieldsEnum =
   | 'section___section___page___children'
   | 'section___section___page___name'
   | 'section___section___page___title'
-  | 'section___section___page___bannerTitle'
   | 'section___section___page___slug'
+  | 'section___section___page___bannerTitle'
   | 'section___section___page___sections'
   | 'section___section___page___spaceId'
   | 'section___section___page___contentful_id'
   | 'section___section___page___createdAt'
   | 'section___section___page___updatedAt'
   | 'section___section___page___node_locale'
-  | 'section___section___page___link'
   | 'section___section___page___bannerSubTitle'
+  | 'section___section___page___link'
   | 'section___section___spaceId'
   | 'section___section___contentful_id'
   | 'section___section___createdAt'
@@ -10906,16 +10956,16 @@ export type ContentfulLinkFieldsEnum =
   | 'section___subSections___page___children'
   | 'section___subSections___page___name'
   | 'section___subSections___page___title'
-  | 'section___subSections___page___bannerTitle'
   | 'section___subSections___page___slug'
+  | 'section___subSections___page___bannerTitle'
   | 'section___subSections___page___sections'
   | 'section___subSections___page___spaceId'
   | 'section___subSections___page___contentful_id'
   | 'section___subSections___page___createdAt'
   | 'section___subSections___page___updatedAt'
   | 'section___subSections___page___node_locale'
-  | 'section___subSections___page___link'
   | 'section___subSections___page___bannerSubTitle'
+  | 'section___subSections___page___link'
   | 'section___subSections___spaceId'
   | 'section___subSections___contentful_id'
   | 'section___subSections___createdAt'
@@ -11281,8 +11331,46 @@ export type ContentfulLinkFieldsEnum =
   | 'page___internal___type'
   | 'page___name'
   | 'page___title'
-  | 'page___bannerTitle'
   | 'page___slug'
+  | 'page___bannerTitle'
+  | 'page___type___id'
+  | 'page___type___parent___id'
+  | 'page___type___parent___children'
+  | 'page___type___children'
+  | 'page___type___children___id'
+  | 'page___type___children___children'
+  | 'page___type___internal___content'
+  | 'page___type___internal___contentDigest'
+  | 'page___type___internal___description'
+  | 'page___type___internal___fieldOwners'
+  | 'page___type___internal___ignoreType'
+  | 'page___type___internal___mediaType'
+  | 'page___type___internal___owner'
+  | 'page___type___internal___type'
+  | 'page___type___name'
+  | 'page___type___type'
+  | 'page___type___page'
+  | 'page___type___page___id'
+  | 'page___type___page___children'
+  | 'page___type___page___name'
+  | 'page___type___page___title'
+  | 'page___type___page___slug'
+  | 'page___type___page___bannerTitle'
+  | 'page___type___page___sections'
+  | 'page___type___page___spaceId'
+  | 'page___type___page___contentful_id'
+  | 'page___type___page___createdAt'
+  | 'page___type___page___updatedAt'
+  | 'page___type___page___node_locale'
+  | 'page___type___page___bannerSubTitle'
+  | 'page___type___page___link'
+  | 'page___type___spaceId'
+  | 'page___type___contentful_id'
+  | 'page___type___createdAt'
+  | 'page___type___updatedAt'
+  | 'page___type___sys___type'
+  | 'page___type___sys___revision'
+  | 'page___type___node_locale'
   | 'page___bannerImages___id'
   | 'page___bannerImages___parent___id'
   | 'page___bannerImages___parent___children'
@@ -11341,16 +11429,16 @@ export type ContentfulLinkFieldsEnum =
   | 'page___bannerImages___page___children'
   | 'page___bannerImages___page___name'
   | 'page___bannerImages___page___title'
-  | 'page___bannerImages___page___bannerTitle'
   | 'page___bannerImages___page___slug'
+  | 'page___bannerImages___page___bannerTitle'
   | 'page___bannerImages___page___sections'
   | 'page___bannerImages___page___spaceId'
   | 'page___bannerImages___page___contentful_id'
   | 'page___bannerImages___page___createdAt'
   | 'page___bannerImages___page___updatedAt'
   | 'page___bannerImages___page___node_locale'
-  | 'page___bannerImages___page___link'
   | 'page___bannerImages___page___bannerSubTitle'
+  | 'page___bannerImages___page___link'
   | 'page___sections'
   | 'page___sections___id'
   | 'page___sections___parent___id'
@@ -11395,16 +11483,16 @@ export type ContentfulLinkFieldsEnum =
   | 'page___sections___page___children'
   | 'page___sections___page___name'
   | 'page___sections___page___title'
-  | 'page___sections___page___bannerTitle'
   | 'page___sections___page___slug'
+  | 'page___sections___page___bannerTitle'
   | 'page___sections___page___sections'
   | 'page___sections___page___spaceId'
   | 'page___sections___page___contentful_id'
   | 'page___sections___page___createdAt'
   | 'page___sections___page___updatedAt'
   | 'page___sections___page___node_locale'
-  | 'page___sections___page___link'
   | 'page___sections___page___bannerSubTitle'
+  | 'page___sections___page___link'
   | 'page___sections___spaceId'
   | 'page___sections___contentful_id'
   | 'page___sections___createdAt'
@@ -11573,6 +11661,7 @@ export type ContentfulLinkFieldsEnum =
   | 'page___sys___type'
   | 'page___sys___revision'
   | 'page___node_locale'
+  | 'page___bannerSubTitle'
   | 'page___link'
   | 'page___link___id'
   | 'page___link___parent___id'
@@ -11623,18 +11712,17 @@ export type ContentfulLinkFieldsEnum =
   | 'page___link___page___children'
   | 'page___link___page___name'
   | 'page___link___page___title'
-  | 'page___link___page___bannerTitle'
   | 'page___link___page___slug'
+  | 'page___link___page___bannerTitle'
   | 'page___link___page___sections'
   | 'page___link___page___spaceId'
   | 'page___link___page___contentful_id'
   | 'page___link___page___createdAt'
   | 'page___link___page___updatedAt'
   | 'page___link___page___node_locale'
-  | 'page___link___page___link'
   | 'page___link___page___bannerSubTitle'
+  | 'page___link___page___link'
   | 'page___link___url'
-  | 'page___bannerSubTitle'
   | 'page___childContentfulPageDescriptionTextNode___id'
   | 'page___childContentfulPageDescriptionTextNode___parent___id'
   | 'page___childContentfulPageDescriptionTextNode___parent___children'
@@ -12158,8 +12246,18 @@ export type ContentfulMediaCollectionFieldsEnum =
   | 'section___page___internal___type'
   | 'section___page___name'
   | 'section___page___title'
-  | 'section___page___bannerTitle'
   | 'section___page___slug'
+  | 'section___page___bannerTitle'
+  | 'section___page___type___id'
+  | 'section___page___type___children'
+  | 'section___page___type___name'
+  | 'section___page___type___type'
+  | 'section___page___type___page'
+  | 'section___page___type___spaceId'
+  | 'section___page___type___contentful_id'
+  | 'section___page___type___createdAt'
+  | 'section___page___type___updatedAt'
+  | 'section___page___type___node_locale'
   | 'section___page___bannerImages___id'
   | 'section___page___bannerImages___children'
   | 'section___page___bannerImages___name'
@@ -12202,6 +12300,7 @@ export type ContentfulMediaCollectionFieldsEnum =
   | 'section___page___sys___type'
   | 'section___page___sys___revision'
   | 'section___page___node_locale'
+  | 'section___page___bannerSubTitle'
   | 'section___page___link'
   | 'section___page___link___id'
   | 'section___page___link___children'
@@ -12215,7 +12314,6 @@ export type ContentfulMediaCollectionFieldsEnum =
   | 'section___page___link___updatedAt'
   | 'section___page___link___node_locale'
   | 'section___page___link___url'
-  | 'section___page___bannerSubTitle'
   | 'section___page___childContentfulPageDescriptionTextNode___id'
   | 'section___page___childContentfulPageDescriptionTextNode___children'
   | 'section___page___childContentfulPageDescriptionTextNode___description'
@@ -12285,16 +12383,16 @@ export type ContentfulMediaCollectionFieldsEnum =
   | 'section___medias___page___children'
   | 'section___medias___page___name'
   | 'section___medias___page___title'
-  | 'section___medias___page___bannerTitle'
   | 'section___medias___page___slug'
+  | 'section___medias___page___bannerTitle'
   | 'section___medias___page___sections'
   | 'section___medias___page___spaceId'
   | 'section___medias___page___contentful_id'
   | 'section___medias___page___createdAt'
   | 'section___medias___page___updatedAt'
   | 'section___medias___page___node_locale'
-  | 'section___medias___page___link'
   | 'section___medias___page___bannerSubTitle'
+  | 'section___medias___page___link'
   | 'section___link___id'
   | 'section___link___parent___id'
   | 'section___link___parent___children'
@@ -12344,16 +12442,16 @@ export type ContentfulMediaCollectionFieldsEnum =
   | 'section___link___page___children'
   | 'section___link___page___name'
   | 'section___link___page___title'
-  | 'section___link___page___bannerTitle'
   | 'section___link___page___slug'
+  | 'section___link___page___bannerTitle'
   | 'section___link___page___sections'
   | 'section___link___page___spaceId'
   | 'section___link___page___contentful_id'
   | 'section___link___page___createdAt'
   | 'section___link___page___updatedAt'
   | 'section___link___page___node_locale'
-  | 'section___link___page___link'
   | 'section___link___page___bannerSubTitle'
+  | 'section___link___page___link'
   | 'section___link___url'
   | 'section___text___id'
   | 'section___text___parent___id'
@@ -12493,16 +12591,16 @@ export type ContentfulMediaCollectionFieldsEnum =
   | 'section___section___page___children'
   | 'section___section___page___name'
   | 'section___section___page___title'
-  | 'section___section___page___bannerTitle'
   | 'section___section___page___slug'
+  | 'section___section___page___bannerTitle'
   | 'section___section___page___sections'
   | 'section___section___page___spaceId'
   | 'section___section___page___contentful_id'
   | 'section___section___page___createdAt'
   | 'section___section___page___updatedAt'
   | 'section___section___page___node_locale'
-  | 'section___section___page___link'
   | 'section___section___page___bannerSubTitle'
+  | 'section___section___page___link'
   | 'section___section___spaceId'
   | 'section___section___contentful_id'
   | 'section___section___createdAt'
@@ -12761,16 +12859,16 @@ export type ContentfulMediaCollectionFieldsEnum =
   | 'section___subSections___page___children'
   | 'section___subSections___page___name'
   | 'section___subSections___page___title'
-  | 'section___subSections___page___bannerTitle'
   | 'section___subSections___page___slug'
+  | 'section___subSections___page___bannerTitle'
   | 'section___subSections___page___sections'
   | 'section___subSections___page___spaceId'
   | 'section___subSections___page___contentful_id'
   | 'section___subSections___page___createdAt'
   | 'section___subSections___page___updatedAt'
   | 'section___subSections___page___node_locale'
-  | 'section___subSections___page___link'
   | 'section___subSections___page___bannerSubTitle'
+  | 'section___subSections___page___link'
   | 'section___subSections___spaceId'
   | 'section___subSections___contentful_id'
   | 'section___subSections___createdAt'
@@ -13137,8 +13235,46 @@ export type ContentfulMediaCollectionFieldsEnum =
   | 'page___internal___type'
   | 'page___name'
   | 'page___title'
-  | 'page___bannerTitle'
   | 'page___slug'
+  | 'page___bannerTitle'
+  | 'page___type___id'
+  | 'page___type___parent___id'
+  | 'page___type___parent___children'
+  | 'page___type___children'
+  | 'page___type___children___id'
+  | 'page___type___children___children'
+  | 'page___type___internal___content'
+  | 'page___type___internal___contentDigest'
+  | 'page___type___internal___description'
+  | 'page___type___internal___fieldOwners'
+  | 'page___type___internal___ignoreType'
+  | 'page___type___internal___mediaType'
+  | 'page___type___internal___owner'
+  | 'page___type___internal___type'
+  | 'page___type___name'
+  | 'page___type___type'
+  | 'page___type___page'
+  | 'page___type___page___id'
+  | 'page___type___page___children'
+  | 'page___type___page___name'
+  | 'page___type___page___title'
+  | 'page___type___page___slug'
+  | 'page___type___page___bannerTitle'
+  | 'page___type___page___sections'
+  | 'page___type___page___spaceId'
+  | 'page___type___page___contentful_id'
+  | 'page___type___page___createdAt'
+  | 'page___type___page___updatedAt'
+  | 'page___type___page___node_locale'
+  | 'page___type___page___bannerSubTitle'
+  | 'page___type___page___link'
+  | 'page___type___spaceId'
+  | 'page___type___contentful_id'
+  | 'page___type___createdAt'
+  | 'page___type___updatedAt'
+  | 'page___type___sys___type'
+  | 'page___type___sys___revision'
+  | 'page___type___node_locale'
   | 'page___bannerImages___id'
   | 'page___bannerImages___parent___id'
   | 'page___bannerImages___parent___children'
@@ -13197,16 +13333,16 @@ export type ContentfulMediaCollectionFieldsEnum =
   | 'page___bannerImages___page___children'
   | 'page___bannerImages___page___name'
   | 'page___bannerImages___page___title'
-  | 'page___bannerImages___page___bannerTitle'
   | 'page___bannerImages___page___slug'
+  | 'page___bannerImages___page___bannerTitle'
   | 'page___bannerImages___page___sections'
   | 'page___bannerImages___page___spaceId'
   | 'page___bannerImages___page___contentful_id'
   | 'page___bannerImages___page___createdAt'
   | 'page___bannerImages___page___updatedAt'
   | 'page___bannerImages___page___node_locale'
-  | 'page___bannerImages___page___link'
   | 'page___bannerImages___page___bannerSubTitle'
+  | 'page___bannerImages___page___link'
   | 'page___sections'
   | 'page___sections___id'
   | 'page___sections___parent___id'
@@ -13251,16 +13387,16 @@ export type ContentfulMediaCollectionFieldsEnum =
   | 'page___sections___page___children'
   | 'page___sections___page___name'
   | 'page___sections___page___title'
-  | 'page___sections___page___bannerTitle'
   | 'page___sections___page___slug'
+  | 'page___sections___page___bannerTitle'
   | 'page___sections___page___sections'
   | 'page___sections___page___spaceId'
   | 'page___sections___page___contentful_id'
   | 'page___sections___page___createdAt'
   | 'page___sections___page___updatedAt'
   | 'page___sections___page___node_locale'
-  | 'page___sections___page___link'
   | 'page___sections___page___bannerSubTitle'
+  | 'page___sections___page___link'
   | 'page___sections___spaceId'
   | 'page___sections___contentful_id'
   | 'page___sections___createdAt'
@@ -13429,6 +13565,7 @@ export type ContentfulMediaCollectionFieldsEnum =
   | 'page___sys___type'
   | 'page___sys___revision'
   | 'page___node_locale'
+  | 'page___bannerSubTitle'
   | 'page___link'
   | 'page___link___id'
   | 'page___link___parent___id'
@@ -13479,18 +13616,17 @@ export type ContentfulMediaCollectionFieldsEnum =
   | 'page___link___page___children'
   | 'page___link___page___name'
   | 'page___link___page___title'
-  | 'page___link___page___bannerTitle'
   | 'page___link___page___slug'
+  | 'page___link___page___bannerTitle'
   | 'page___link___page___sections'
   | 'page___link___page___spaceId'
   | 'page___link___page___contentful_id'
   | 'page___link___page___createdAt'
   | 'page___link___page___updatedAt'
   | 'page___link___page___node_locale'
-  | 'page___link___page___link'
   | 'page___link___page___bannerSubTitle'
+  | 'page___link___page___link'
   | 'page___link___url'
-  | 'page___bannerSubTitle'
   | 'page___childContentfulPageDescriptionTextNode___id'
   | 'page___childContentfulPageDescriptionTextNode___parent___id'
   | 'page___childContentfulPageDescriptionTextNode___parent___children'
@@ -13592,8 +13728,9 @@ export type ContentfulPage = Node & {
   internal: Internal;
   name?: Maybe<Scalars['String']>;
   title?: Maybe<Scalars['String']>;
-  bannerTitle?: Maybe<Scalars['String']>;
   slug?: Maybe<Scalars['String']>;
+  bannerTitle?: Maybe<Scalars['String']>;
+  type?: Maybe<ContentfulPageType>;
   bannerImages?: Maybe<ContentfulMediaCollection>;
   sections?: Maybe<Array<Maybe<ContentfulSection>>>;
   description?: Maybe<ContentfulPageDescriptionTextNode>;
@@ -13603,8 +13740,8 @@ export type ContentfulPage = Node & {
   updatedAt?: Maybe<Scalars['Date']>;
   sys?: Maybe<ContentfulPageSys>;
   node_locale?: Maybe<Scalars['String']>;
-  link?: Maybe<Array<Maybe<ContentfulLink>>>;
   bannerSubTitle?: Maybe<Scalars['String']>;
+  link?: Maybe<Array<Maybe<ContentfulLink>>>;
   childContentfulPageDescriptionTextNode?: Maybe<ContentfulPageDescriptionTextNode>;
 };
 
@@ -13955,8 +14092,143 @@ export type ContentfulPageFieldsEnum =
   | 'internal___type'
   | 'name'
   | 'title'
-  | 'bannerTitle'
   | 'slug'
+  | 'bannerTitle'
+  | 'type___id'
+  | 'type___parent___id'
+  | 'type___parent___parent___id'
+  | 'type___parent___parent___children'
+  | 'type___parent___children'
+  | 'type___parent___children___id'
+  | 'type___parent___children___children'
+  | 'type___parent___internal___content'
+  | 'type___parent___internal___contentDigest'
+  | 'type___parent___internal___description'
+  | 'type___parent___internal___fieldOwners'
+  | 'type___parent___internal___ignoreType'
+  | 'type___parent___internal___mediaType'
+  | 'type___parent___internal___owner'
+  | 'type___parent___internal___type'
+  | 'type___children'
+  | 'type___children___id'
+  | 'type___children___parent___id'
+  | 'type___children___parent___children'
+  | 'type___children___children'
+  | 'type___children___children___id'
+  | 'type___children___children___children'
+  | 'type___children___internal___content'
+  | 'type___children___internal___contentDigest'
+  | 'type___children___internal___description'
+  | 'type___children___internal___fieldOwners'
+  | 'type___children___internal___ignoreType'
+  | 'type___children___internal___mediaType'
+  | 'type___children___internal___owner'
+  | 'type___children___internal___type'
+  | 'type___internal___content'
+  | 'type___internal___contentDigest'
+  | 'type___internal___description'
+  | 'type___internal___fieldOwners'
+  | 'type___internal___ignoreType'
+  | 'type___internal___mediaType'
+  | 'type___internal___owner'
+  | 'type___internal___type'
+  | 'type___name'
+  | 'type___type'
+  | 'type___page'
+  | 'type___page___id'
+  | 'type___page___parent___id'
+  | 'type___page___parent___children'
+  | 'type___page___children'
+  | 'type___page___children___id'
+  | 'type___page___children___children'
+  | 'type___page___internal___content'
+  | 'type___page___internal___contentDigest'
+  | 'type___page___internal___description'
+  | 'type___page___internal___fieldOwners'
+  | 'type___page___internal___ignoreType'
+  | 'type___page___internal___mediaType'
+  | 'type___page___internal___owner'
+  | 'type___page___internal___type'
+  | 'type___page___name'
+  | 'type___page___title'
+  | 'type___page___slug'
+  | 'type___page___bannerTitle'
+  | 'type___page___type___id'
+  | 'type___page___type___children'
+  | 'type___page___type___name'
+  | 'type___page___type___type'
+  | 'type___page___type___page'
+  | 'type___page___type___spaceId'
+  | 'type___page___type___contentful_id'
+  | 'type___page___type___createdAt'
+  | 'type___page___type___updatedAt'
+  | 'type___page___type___node_locale'
+  | 'type___page___bannerImages___id'
+  | 'type___page___bannerImages___children'
+  | 'type___page___bannerImages___name'
+  | 'type___page___bannerImages___medias'
+  | 'type___page___bannerImages___section'
+  | 'type___page___bannerImages___spaceId'
+  | 'type___page___bannerImages___contentful_id'
+  | 'type___page___bannerImages___createdAt'
+  | 'type___page___bannerImages___updatedAt'
+  | 'type___page___bannerImages___node_locale'
+  | 'type___page___bannerImages___page'
+  | 'type___page___sections'
+  | 'type___page___sections___id'
+  | 'type___page___sections___children'
+  | 'type___page___sections___name'
+  | 'type___page___sections___title'
+  | 'type___page___sections___titleHighlight'
+  | 'type___page___sections___jobGroup'
+  | 'type___page___sections___page'
+  | 'type___page___sections___spaceId'
+  | 'type___page___sections___contentful_id'
+  | 'type___page___sections___createdAt'
+  | 'type___page___sections___updatedAt'
+  | 'type___page___sections___node_locale'
+  | 'type___page___sections___imagePosition'
+  | 'type___page___sections___section'
+  | 'type___page___sections___blogPosts'
+  | 'type___page___sections___subTitle'
+  | 'type___page___sections___subSections'
+  | 'type___page___sections___infoChecks'
+  | 'type___page___sections___processStep'
+  | 'type___page___sections___infoTiles'
+  | 'type___page___description___id'
+  | 'type___page___description___children'
+  | 'type___page___description___description'
+  | 'type___page___spaceId'
+  | 'type___page___contentful_id'
+  | 'type___page___createdAt'
+  | 'type___page___updatedAt'
+  | 'type___page___sys___type'
+  | 'type___page___sys___revision'
+  | 'type___page___node_locale'
+  | 'type___page___bannerSubTitle'
+  | 'type___page___link'
+  | 'type___page___link___id'
+  | 'type___page___link___children'
+  | 'type___page___link___type'
+  | 'type___page___link___name'
+  | 'type___page___link___label'
+  | 'type___page___link___section'
+  | 'type___page___link___spaceId'
+  | 'type___page___link___contentful_id'
+  | 'type___page___link___createdAt'
+  | 'type___page___link___updatedAt'
+  | 'type___page___link___node_locale'
+  | 'type___page___link___url'
+  | 'type___page___childContentfulPageDescriptionTextNode___id'
+  | 'type___page___childContentfulPageDescriptionTextNode___children'
+  | 'type___page___childContentfulPageDescriptionTextNode___description'
+  | 'type___spaceId'
+  | 'type___contentful_id'
+  | 'type___createdAt'
+  | 'type___updatedAt'
+  | 'type___sys___type'
+  | 'type___sys___revision'
+  | 'type___node_locale'
   | 'bannerImages___id'
   | 'bannerImages___parent___id'
   | 'bannerImages___parent___parent___id'
@@ -14107,16 +14379,16 @@ export type ContentfulPageFieldsEnum =
   | 'bannerImages___section___page___children'
   | 'bannerImages___section___page___name'
   | 'bannerImages___section___page___title'
-  | 'bannerImages___section___page___bannerTitle'
   | 'bannerImages___section___page___slug'
+  | 'bannerImages___section___page___bannerTitle'
   | 'bannerImages___section___page___sections'
   | 'bannerImages___section___page___spaceId'
   | 'bannerImages___section___page___contentful_id'
   | 'bannerImages___section___page___createdAt'
   | 'bannerImages___section___page___updatedAt'
   | 'bannerImages___section___page___node_locale'
-  | 'bannerImages___section___page___link'
   | 'bannerImages___section___page___bannerSubTitle'
+  | 'bannerImages___section___page___link'
   | 'bannerImages___section___spaceId'
   | 'bannerImages___section___contentful_id'
   | 'bannerImages___section___createdAt'
@@ -14274,8 +14546,18 @@ export type ContentfulPageFieldsEnum =
   | 'bannerImages___page___internal___type'
   | 'bannerImages___page___name'
   | 'bannerImages___page___title'
-  | 'bannerImages___page___bannerTitle'
   | 'bannerImages___page___slug'
+  | 'bannerImages___page___bannerTitle'
+  | 'bannerImages___page___type___id'
+  | 'bannerImages___page___type___children'
+  | 'bannerImages___page___type___name'
+  | 'bannerImages___page___type___type'
+  | 'bannerImages___page___type___page'
+  | 'bannerImages___page___type___spaceId'
+  | 'bannerImages___page___type___contentful_id'
+  | 'bannerImages___page___type___createdAt'
+  | 'bannerImages___page___type___updatedAt'
+  | 'bannerImages___page___type___node_locale'
   | 'bannerImages___page___bannerImages___id'
   | 'bannerImages___page___bannerImages___children'
   | 'bannerImages___page___bannerImages___name'
@@ -14318,6 +14600,7 @@ export type ContentfulPageFieldsEnum =
   | 'bannerImages___page___sys___type'
   | 'bannerImages___page___sys___revision'
   | 'bannerImages___page___node_locale'
+  | 'bannerImages___page___bannerSubTitle'
   | 'bannerImages___page___link'
   | 'bannerImages___page___link___id'
   | 'bannerImages___page___link___children'
@@ -14331,7 +14614,6 @@ export type ContentfulPageFieldsEnum =
   | 'bannerImages___page___link___updatedAt'
   | 'bannerImages___page___link___node_locale'
   | 'bannerImages___page___link___url'
-  | 'bannerImages___page___bannerSubTitle'
   | 'bannerImages___page___childContentfulPageDescriptionTextNode___id'
   | 'bannerImages___page___childContentfulPageDescriptionTextNode___children'
   | 'bannerImages___page___childContentfulPageDescriptionTextNode___description'
@@ -14517,8 +14799,18 @@ export type ContentfulPageFieldsEnum =
   | 'sections___page___internal___type'
   | 'sections___page___name'
   | 'sections___page___title'
-  | 'sections___page___bannerTitle'
   | 'sections___page___slug'
+  | 'sections___page___bannerTitle'
+  | 'sections___page___type___id'
+  | 'sections___page___type___children'
+  | 'sections___page___type___name'
+  | 'sections___page___type___type'
+  | 'sections___page___type___page'
+  | 'sections___page___type___spaceId'
+  | 'sections___page___type___contentful_id'
+  | 'sections___page___type___createdAt'
+  | 'sections___page___type___updatedAt'
+  | 'sections___page___type___node_locale'
   | 'sections___page___bannerImages___id'
   | 'sections___page___bannerImages___children'
   | 'sections___page___bannerImages___name'
@@ -14561,6 +14853,7 @@ export type ContentfulPageFieldsEnum =
   | 'sections___page___sys___type'
   | 'sections___page___sys___revision'
   | 'sections___page___node_locale'
+  | 'sections___page___bannerSubTitle'
   | 'sections___page___link'
   | 'sections___page___link___id'
   | 'sections___page___link___children'
@@ -14574,7 +14867,6 @@ export type ContentfulPageFieldsEnum =
   | 'sections___page___link___updatedAt'
   | 'sections___page___link___node_locale'
   | 'sections___page___link___url'
-  | 'sections___page___bannerSubTitle'
   | 'sections___page___childContentfulPageDescriptionTextNode___id'
   | 'sections___page___childContentfulPageDescriptionTextNode___children'
   | 'sections___page___childContentfulPageDescriptionTextNode___description'
@@ -14644,16 +14936,16 @@ export type ContentfulPageFieldsEnum =
   | 'sections___medias___page___children'
   | 'sections___medias___page___name'
   | 'sections___medias___page___title'
-  | 'sections___medias___page___bannerTitle'
   | 'sections___medias___page___slug'
+  | 'sections___medias___page___bannerTitle'
   | 'sections___medias___page___sections'
   | 'sections___medias___page___spaceId'
   | 'sections___medias___page___contentful_id'
   | 'sections___medias___page___createdAt'
   | 'sections___medias___page___updatedAt'
   | 'sections___medias___page___node_locale'
-  | 'sections___medias___page___link'
   | 'sections___medias___page___bannerSubTitle'
+  | 'sections___medias___page___link'
   | 'sections___link___id'
   | 'sections___link___parent___id'
   | 'sections___link___parent___children'
@@ -14703,16 +14995,16 @@ export type ContentfulPageFieldsEnum =
   | 'sections___link___page___children'
   | 'sections___link___page___name'
   | 'sections___link___page___title'
-  | 'sections___link___page___bannerTitle'
   | 'sections___link___page___slug'
+  | 'sections___link___page___bannerTitle'
   | 'sections___link___page___sections'
   | 'sections___link___page___spaceId'
   | 'sections___link___page___contentful_id'
   | 'sections___link___page___createdAt'
   | 'sections___link___page___updatedAt'
   | 'sections___link___page___node_locale'
-  | 'sections___link___page___link'
   | 'sections___link___page___bannerSubTitle'
+  | 'sections___link___page___link'
   | 'sections___link___url'
   | 'sections___text___id'
   | 'sections___text___parent___id'
@@ -14852,16 +15144,16 @@ export type ContentfulPageFieldsEnum =
   | 'sections___section___page___children'
   | 'sections___section___page___name'
   | 'sections___section___page___title'
-  | 'sections___section___page___bannerTitle'
   | 'sections___section___page___slug'
+  | 'sections___section___page___bannerTitle'
   | 'sections___section___page___sections'
   | 'sections___section___page___spaceId'
   | 'sections___section___page___contentful_id'
   | 'sections___section___page___createdAt'
   | 'sections___section___page___updatedAt'
   | 'sections___section___page___node_locale'
-  | 'sections___section___page___link'
   | 'sections___section___page___bannerSubTitle'
+  | 'sections___section___page___link'
   | 'sections___section___spaceId'
   | 'sections___section___contentful_id'
   | 'sections___section___createdAt'
@@ -15120,16 +15412,16 @@ export type ContentfulPageFieldsEnum =
   | 'sections___subSections___page___children'
   | 'sections___subSections___page___name'
   | 'sections___subSections___page___title'
-  | 'sections___subSections___page___bannerTitle'
   | 'sections___subSections___page___slug'
+  | 'sections___subSections___page___bannerTitle'
   | 'sections___subSections___page___sections'
   | 'sections___subSections___page___spaceId'
   | 'sections___subSections___page___contentful_id'
   | 'sections___subSections___page___createdAt'
   | 'sections___subSections___page___updatedAt'
   | 'sections___subSections___page___node_locale'
-  | 'sections___subSections___page___link'
   | 'sections___subSections___page___bannerSubTitle'
+  | 'sections___subSections___page___link'
   | 'sections___subSections___spaceId'
   | 'sections___subSections___contentful_id'
   | 'sections___subSections___createdAt'
@@ -15527,6 +15819,7 @@ export type ContentfulPageFieldsEnum =
   | 'sys___contentType___sys___id'
   | 'sys___contentType___sys___contentful_id'
   | 'node_locale'
+  | 'bannerSubTitle'
   | 'link'
   | 'link___id'
   | 'link___parent___id'
@@ -15613,16 +15906,16 @@ export type ContentfulPageFieldsEnum =
   | 'link___section___page___children'
   | 'link___section___page___name'
   | 'link___section___page___title'
-  | 'link___section___page___bannerTitle'
   | 'link___section___page___slug'
+  | 'link___section___page___bannerTitle'
   | 'link___section___page___sections'
   | 'link___section___page___spaceId'
   | 'link___section___page___contentful_id'
   | 'link___section___page___createdAt'
   | 'link___section___page___updatedAt'
   | 'link___section___page___node_locale'
-  | 'link___section___page___link'
   | 'link___section___page___bannerSubTitle'
+  | 'link___section___page___link'
   | 'link___section___spaceId'
   | 'link___section___contentful_id'
   | 'link___section___createdAt'
@@ -15779,8 +16072,18 @@ export type ContentfulPageFieldsEnum =
   | 'link___page___internal___type'
   | 'link___page___name'
   | 'link___page___title'
-  | 'link___page___bannerTitle'
   | 'link___page___slug'
+  | 'link___page___bannerTitle'
+  | 'link___page___type___id'
+  | 'link___page___type___children'
+  | 'link___page___type___name'
+  | 'link___page___type___type'
+  | 'link___page___type___page'
+  | 'link___page___type___spaceId'
+  | 'link___page___type___contentful_id'
+  | 'link___page___type___createdAt'
+  | 'link___page___type___updatedAt'
+  | 'link___page___type___node_locale'
   | 'link___page___bannerImages___id'
   | 'link___page___bannerImages___children'
   | 'link___page___bannerImages___name'
@@ -15823,6 +16126,7 @@ export type ContentfulPageFieldsEnum =
   | 'link___page___sys___type'
   | 'link___page___sys___revision'
   | 'link___page___node_locale'
+  | 'link___page___bannerSubTitle'
   | 'link___page___link'
   | 'link___page___link___id'
   | 'link___page___link___children'
@@ -15836,12 +16140,10 @@ export type ContentfulPageFieldsEnum =
   | 'link___page___link___updatedAt'
   | 'link___page___link___node_locale'
   | 'link___page___link___url'
-  | 'link___page___bannerSubTitle'
   | 'link___page___childContentfulPageDescriptionTextNode___id'
   | 'link___page___childContentfulPageDescriptionTextNode___children'
   | 'link___page___childContentfulPageDescriptionTextNode___description'
   | 'link___url'
-  | 'bannerSubTitle'
   | 'childContentfulPageDescriptionTextNode___id'
   | 'childContentfulPageDescriptionTextNode___parent___id'
   | 'childContentfulPageDescriptionTextNode___parent___parent___id'
@@ -15922,8 +16224,9 @@ export type ContentfulPageFilterInput = {
   internal?: Maybe<InternalFilterInput>;
   name?: Maybe<StringQueryOperatorInput>;
   title?: Maybe<StringQueryOperatorInput>;
-  bannerTitle?: Maybe<StringQueryOperatorInput>;
   slug?: Maybe<StringQueryOperatorInput>;
+  bannerTitle?: Maybe<StringQueryOperatorInput>;
+  type?: Maybe<ContentfulPageTypeFilterInput>;
   bannerImages?: Maybe<ContentfulMediaCollectionFilterInput>;
   sections?: Maybe<ContentfulSectionFilterListInput>;
   description?: Maybe<ContentfulPageDescriptionTextNodeFilterInput>;
@@ -15933,8 +16236,8 @@ export type ContentfulPageFilterInput = {
   updatedAt?: Maybe<DateQueryOperatorInput>;
   sys?: Maybe<ContentfulPageSysFilterInput>;
   node_locale?: Maybe<StringQueryOperatorInput>;
-  link?: Maybe<ContentfulLinkFilterListInput>;
   bannerSubTitle?: Maybe<StringQueryOperatorInput>;
+  link?: Maybe<ContentfulLinkFilterListInput>;
   childContentfulPageDescriptionTextNode?: Maybe<ContentfulPageDescriptionTextNodeFilterInput>;
 };
 
@@ -15988,6 +16291,691 @@ export type ContentfulPageSysFilterInput = {
   type?: Maybe<StringQueryOperatorInput>;
   revision?: Maybe<IntQueryOperatorInput>;
   contentType?: Maybe<ContentfulPageSysContentTypeFilterInput>;
+};
+
+export type ContentfulPageType = Node & {
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
+  name?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+  page?: Maybe<Array<Maybe<ContentfulPage>>>;
+  spaceId?: Maybe<Scalars['String']>;
+  contentful_id?: Maybe<Scalars['String']>;
+  createdAt?: Maybe<Scalars['Date']>;
+  updatedAt?: Maybe<Scalars['Date']>;
+  sys?: Maybe<ContentfulPageTypeSys>;
+  node_locale?: Maybe<Scalars['String']>;
+};
+
+
+export type ContentfulPageTypeCreatedAtArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type ContentfulPageTypeUpdatedAtArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type ContentfulPageTypeConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<ContentfulPageTypeEdge>;
+  nodes: Array<ContentfulPageType>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  group: Array<ContentfulPageTypeGroupConnection>;
+};
+
+
+export type ContentfulPageTypeConnectionDistinctArgs = {
+  field: ContentfulPageTypeFieldsEnum;
+};
+
+
+export type ContentfulPageTypeConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  field: ContentfulPageTypeFieldsEnum;
+};
+
+export type ContentfulPageTypeEdge = {
+  next?: Maybe<ContentfulPageType>;
+  node: ContentfulPageType;
+  previous?: Maybe<ContentfulPageType>;
+};
+
+export type ContentfulPageTypeFieldsEnum = 
+  | 'id'
+  | 'parent___id'
+  | 'parent___parent___id'
+  | 'parent___parent___parent___id'
+  | 'parent___parent___parent___children'
+  | 'parent___parent___children'
+  | 'parent___parent___children___id'
+  | 'parent___parent___children___children'
+  | 'parent___parent___internal___content'
+  | 'parent___parent___internal___contentDigest'
+  | 'parent___parent___internal___description'
+  | 'parent___parent___internal___fieldOwners'
+  | 'parent___parent___internal___ignoreType'
+  | 'parent___parent___internal___mediaType'
+  | 'parent___parent___internal___owner'
+  | 'parent___parent___internal___type'
+  | 'parent___children'
+  | 'parent___children___id'
+  | 'parent___children___parent___id'
+  | 'parent___children___parent___children'
+  | 'parent___children___children'
+  | 'parent___children___children___id'
+  | 'parent___children___children___children'
+  | 'parent___children___internal___content'
+  | 'parent___children___internal___contentDigest'
+  | 'parent___children___internal___description'
+  | 'parent___children___internal___fieldOwners'
+  | 'parent___children___internal___ignoreType'
+  | 'parent___children___internal___mediaType'
+  | 'parent___children___internal___owner'
+  | 'parent___children___internal___type'
+  | 'parent___internal___content'
+  | 'parent___internal___contentDigest'
+  | 'parent___internal___description'
+  | 'parent___internal___fieldOwners'
+  | 'parent___internal___ignoreType'
+  | 'parent___internal___mediaType'
+  | 'parent___internal___owner'
+  | 'parent___internal___type'
+  | 'children'
+  | 'children___id'
+  | 'children___parent___id'
+  | 'children___parent___parent___id'
+  | 'children___parent___parent___children'
+  | 'children___parent___children'
+  | 'children___parent___children___id'
+  | 'children___parent___children___children'
+  | 'children___parent___internal___content'
+  | 'children___parent___internal___contentDigest'
+  | 'children___parent___internal___description'
+  | 'children___parent___internal___fieldOwners'
+  | 'children___parent___internal___ignoreType'
+  | 'children___parent___internal___mediaType'
+  | 'children___parent___internal___owner'
+  | 'children___parent___internal___type'
+  | 'children___children'
+  | 'children___children___id'
+  | 'children___children___parent___id'
+  | 'children___children___parent___children'
+  | 'children___children___children'
+  | 'children___children___children___id'
+  | 'children___children___children___children'
+  | 'children___children___internal___content'
+  | 'children___children___internal___contentDigest'
+  | 'children___children___internal___description'
+  | 'children___children___internal___fieldOwners'
+  | 'children___children___internal___ignoreType'
+  | 'children___children___internal___mediaType'
+  | 'children___children___internal___owner'
+  | 'children___children___internal___type'
+  | 'children___internal___content'
+  | 'children___internal___contentDigest'
+  | 'children___internal___description'
+  | 'children___internal___fieldOwners'
+  | 'children___internal___ignoreType'
+  | 'children___internal___mediaType'
+  | 'children___internal___owner'
+  | 'children___internal___type'
+  | 'internal___content'
+  | 'internal___contentDigest'
+  | 'internal___description'
+  | 'internal___fieldOwners'
+  | 'internal___ignoreType'
+  | 'internal___mediaType'
+  | 'internal___owner'
+  | 'internal___type'
+  | 'name'
+  | 'type'
+  | 'page'
+  | 'page___id'
+  | 'page___parent___id'
+  | 'page___parent___parent___id'
+  | 'page___parent___parent___children'
+  | 'page___parent___children'
+  | 'page___parent___children___id'
+  | 'page___parent___children___children'
+  | 'page___parent___internal___content'
+  | 'page___parent___internal___contentDigest'
+  | 'page___parent___internal___description'
+  | 'page___parent___internal___fieldOwners'
+  | 'page___parent___internal___ignoreType'
+  | 'page___parent___internal___mediaType'
+  | 'page___parent___internal___owner'
+  | 'page___parent___internal___type'
+  | 'page___children'
+  | 'page___children___id'
+  | 'page___children___parent___id'
+  | 'page___children___parent___children'
+  | 'page___children___children'
+  | 'page___children___children___id'
+  | 'page___children___children___children'
+  | 'page___children___internal___content'
+  | 'page___children___internal___contentDigest'
+  | 'page___children___internal___description'
+  | 'page___children___internal___fieldOwners'
+  | 'page___children___internal___ignoreType'
+  | 'page___children___internal___mediaType'
+  | 'page___children___internal___owner'
+  | 'page___children___internal___type'
+  | 'page___internal___content'
+  | 'page___internal___contentDigest'
+  | 'page___internal___description'
+  | 'page___internal___fieldOwners'
+  | 'page___internal___ignoreType'
+  | 'page___internal___mediaType'
+  | 'page___internal___owner'
+  | 'page___internal___type'
+  | 'page___name'
+  | 'page___title'
+  | 'page___slug'
+  | 'page___bannerTitle'
+  | 'page___type___id'
+  | 'page___type___parent___id'
+  | 'page___type___parent___children'
+  | 'page___type___children'
+  | 'page___type___children___id'
+  | 'page___type___children___children'
+  | 'page___type___internal___content'
+  | 'page___type___internal___contentDigest'
+  | 'page___type___internal___description'
+  | 'page___type___internal___fieldOwners'
+  | 'page___type___internal___ignoreType'
+  | 'page___type___internal___mediaType'
+  | 'page___type___internal___owner'
+  | 'page___type___internal___type'
+  | 'page___type___name'
+  | 'page___type___type'
+  | 'page___type___page'
+  | 'page___type___page___id'
+  | 'page___type___page___children'
+  | 'page___type___page___name'
+  | 'page___type___page___title'
+  | 'page___type___page___slug'
+  | 'page___type___page___bannerTitle'
+  | 'page___type___page___sections'
+  | 'page___type___page___spaceId'
+  | 'page___type___page___contentful_id'
+  | 'page___type___page___createdAt'
+  | 'page___type___page___updatedAt'
+  | 'page___type___page___node_locale'
+  | 'page___type___page___bannerSubTitle'
+  | 'page___type___page___link'
+  | 'page___type___spaceId'
+  | 'page___type___contentful_id'
+  | 'page___type___createdAt'
+  | 'page___type___updatedAt'
+  | 'page___type___sys___type'
+  | 'page___type___sys___revision'
+  | 'page___type___node_locale'
+  | 'page___bannerImages___id'
+  | 'page___bannerImages___parent___id'
+  | 'page___bannerImages___parent___children'
+  | 'page___bannerImages___children'
+  | 'page___bannerImages___children___id'
+  | 'page___bannerImages___children___children'
+  | 'page___bannerImages___internal___content'
+  | 'page___bannerImages___internal___contentDigest'
+  | 'page___bannerImages___internal___description'
+  | 'page___bannerImages___internal___fieldOwners'
+  | 'page___bannerImages___internal___ignoreType'
+  | 'page___bannerImages___internal___mediaType'
+  | 'page___bannerImages___internal___owner'
+  | 'page___bannerImages___internal___type'
+  | 'page___bannerImages___name'
+  | 'page___bannerImages___medias'
+  | 'page___bannerImages___medias___id'
+  | 'page___bannerImages___medias___children'
+  | 'page___bannerImages___medias___contentful_id'
+  | 'page___bannerImages___medias___spaceId'
+  | 'page___bannerImages___medias___createdAt'
+  | 'page___bannerImages___medias___updatedAt'
+  | 'page___bannerImages___medias___title'
+  | 'page___bannerImages___medias___description'
+  | 'page___bannerImages___medias___node_locale'
+  | 'page___bannerImages___section'
+  | 'page___bannerImages___section___id'
+  | 'page___bannerImages___section___children'
+  | 'page___bannerImages___section___name'
+  | 'page___bannerImages___section___title'
+  | 'page___bannerImages___section___titleHighlight'
+  | 'page___bannerImages___section___jobGroup'
+  | 'page___bannerImages___section___page'
+  | 'page___bannerImages___section___spaceId'
+  | 'page___bannerImages___section___contentful_id'
+  | 'page___bannerImages___section___createdAt'
+  | 'page___bannerImages___section___updatedAt'
+  | 'page___bannerImages___section___node_locale'
+  | 'page___bannerImages___section___imagePosition'
+  | 'page___bannerImages___section___section'
+  | 'page___bannerImages___section___blogPosts'
+  | 'page___bannerImages___section___subTitle'
+  | 'page___bannerImages___section___subSections'
+  | 'page___bannerImages___section___infoChecks'
+  | 'page___bannerImages___section___processStep'
+  | 'page___bannerImages___section___infoTiles'
+  | 'page___bannerImages___spaceId'
+  | 'page___bannerImages___contentful_id'
+  | 'page___bannerImages___createdAt'
+  | 'page___bannerImages___updatedAt'
+  | 'page___bannerImages___sys___type'
+  | 'page___bannerImages___sys___revision'
+  | 'page___bannerImages___node_locale'
+  | 'page___bannerImages___page'
+  | 'page___bannerImages___page___id'
+  | 'page___bannerImages___page___children'
+  | 'page___bannerImages___page___name'
+  | 'page___bannerImages___page___title'
+  | 'page___bannerImages___page___slug'
+  | 'page___bannerImages___page___bannerTitle'
+  | 'page___bannerImages___page___sections'
+  | 'page___bannerImages___page___spaceId'
+  | 'page___bannerImages___page___contentful_id'
+  | 'page___bannerImages___page___createdAt'
+  | 'page___bannerImages___page___updatedAt'
+  | 'page___bannerImages___page___node_locale'
+  | 'page___bannerImages___page___bannerSubTitle'
+  | 'page___bannerImages___page___link'
+  | 'page___sections'
+  | 'page___sections___id'
+  | 'page___sections___parent___id'
+  | 'page___sections___parent___children'
+  | 'page___sections___children'
+  | 'page___sections___children___id'
+  | 'page___sections___children___children'
+  | 'page___sections___internal___content'
+  | 'page___sections___internal___contentDigest'
+  | 'page___sections___internal___description'
+  | 'page___sections___internal___fieldOwners'
+  | 'page___sections___internal___ignoreType'
+  | 'page___sections___internal___mediaType'
+  | 'page___sections___internal___owner'
+  | 'page___sections___internal___type'
+  | 'page___sections___name'
+  | 'page___sections___title'
+  | 'page___sections___titleHighlight'
+  | 'page___sections___type___id'
+  | 'page___sections___type___children'
+  | 'page___sections___type___name'
+  | 'page___sections___type___section'
+  | 'page___sections___type___spaceId'
+  | 'page___sections___type___contentful_id'
+  | 'page___sections___type___createdAt'
+  | 'page___sections___type___updatedAt'
+  | 'page___sections___type___node_locale'
+  | 'page___sections___jobGroup'
+  | 'page___sections___jobGroup___id'
+  | 'page___sections___jobGroup___children'
+  | 'page___sections___jobGroup___typeName'
+  | 'page___sections___jobGroup___variant'
+  | 'page___sections___jobGroup___jobs'
+  | 'page___sections___jobGroup___section'
+  | 'page___sections___jobGroup___spaceId'
+  | 'page___sections___jobGroup___contentful_id'
+  | 'page___sections___jobGroup___createdAt'
+  | 'page___sections___jobGroup___updatedAt'
+  | 'page___sections___jobGroup___node_locale'
+  | 'page___sections___page'
+  | 'page___sections___page___id'
+  | 'page___sections___page___children'
+  | 'page___sections___page___name'
+  | 'page___sections___page___title'
+  | 'page___sections___page___slug'
+  | 'page___sections___page___bannerTitle'
+  | 'page___sections___page___sections'
+  | 'page___sections___page___spaceId'
+  | 'page___sections___page___contentful_id'
+  | 'page___sections___page___createdAt'
+  | 'page___sections___page___updatedAt'
+  | 'page___sections___page___node_locale'
+  | 'page___sections___page___bannerSubTitle'
+  | 'page___sections___page___link'
+  | 'page___sections___spaceId'
+  | 'page___sections___contentful_id'
+  | 'page___sections___createdAt'
+  | 'page___sections___updatedAt'
+  | 'page___sections___sys___type'
+  | 'page___sections___sys___revision'
+  | 'page___sections___node_locale'
+  | 'page___sections___imagePosition'
+  | 'page___sections___medias___id'
+  | 'page___sections___medias___children'
+  | 'page___sections___medias___name'
+  | 'page___sections___medias___medias'
+  | 'page___sections___medias___section'
+  | 'page___sections___medias___spaceId'
+  | 'page___sections___medias___contentful_id'
+  | 'page___sections___medias___createdAt'
+  | 'page___sections___medias___updatedAt'
+  | 'page___sections___medias___node_locale'
+  | 'page___sections___medias___page'
+  | 'page___sections___link___id'
+  | 'page___sections___link___children'
+  | 'page___sections___link___type'
+  | 'page___sections___link___name'
+  | 'page___sections___link___label'
+  | 'page___sections___link___section'
+  | 'page___sections___link___spaceId'
+  | 'page___sections___link___contentful_id'
+  | 'page___sections___link___createdAt'
+  | 'page___sections___link___updatedAt'
+  | 'page___sections___link___node_locale'
+  | 'page___sections___link___url'
+  | 'page___sections___text___id'
+  | 'page___sections___text___children'
+  | 'page___sections___text___text'
+  | 'page___sections___illustration___id'
+  | 'page___sections___illustration___children'
+  | 'page___sections___illustration___contentful_id'
+  | 'page___sections___illustration___spaceId'
+  | 'page___sections___illustration___createdAt'
+  | 'page___sections___illustration___updatedAt'
+  | 'page___sections___illustration___title'
+  | 'page___sections___illustration___description'
+  | 'page___sections___illustration___node_locale'
+  | 'page___sections___section'
+  | 'page___sections___section___id'
+  | 'page___sections___section___children'
+  | 'page___sections___section___name'
+  | 'page___sections___section___title'
+  | 'page___sections___section___titleHighlight'
+  | 'page___sections___section___jobGroup'
+  | 'page___sections___section___page'
+  | 'page___sections___section___spaceId'
+  | 'page___sections___section___contentful_id'
+  | 'page___sections___section___createdAt'
+  | 'page___sections___section___updatedAt'
+  | 'page___sections___section___node_locale'
+  | 'page___sections___section___imagePosition'
+  | 'page___sections___section___section'
+  | 'page___sections___section___blogPosts'
+  | 'page___sections___section___subTitle'
+  | 'page___sections___section___subSections'
+  | 'page___sections___section___infoChecks'
+  | 'page___sections___section___processStep'
+  | 'page___sections___section___infoTiles'
+  | 'page___sections___blogPosts'
+  | 'page___sections___blogPosts___id'
+  | 'page___sections___blogPosts___children'
+  | 'page___sections___blogPosts___title'
+  | 'page___sections___blogPosts___featured'
+  | 'page___sections___blogPosts___blogSlug'
+  | 'page___sections___blogPosts___subtitle'
+  | 'page___sections___blogPosts___blogAuthor'
+  | 'page___sections___blogPosts___section'
+  | 'page___sections___blogPosts___spaceId'
+  | 'page___sections___blogPosts___contentful_id'
+  | 'page___sections___blogPosts___createdAt'
+  | 'page___sections___blogPosts___updatedAt'
+  | 'page___sections___blogPosts___node_locale'
+  | 'page___sections___subTitle'
+  | 'page___sections___subSections'
+  | 'page___sections___subSections___id'
+  | 'page___sections___subSections___children'
+  | 'page___sections___subSections___name'
+  | 'page___sections___subSections___title'
+  | 'page___sections___subSections___titleHighlight'
+  | 'page___sections___subSections___jobGroup'
+  | 'page___sections___subSections___page'
+  | 'page___sections___subSections___spaceId'
+  | 'page___sections___subSections___contentful_id'
+  | 'page___sections___subSections___createdAt'
+  | 'page___sections___subSections___updatedAt'
+  | 'page___sections___subSections___node_locale'
+  | 'page___sections___subSections___imagePosition'
+  | 'page___sections___subSections___section'
+  | 'page___sections___subSections___blogPosts'
+  | 'page___sections___subSections___subTitle'
+  | 'page___sections___subSections___subSections'
+  | 'page___sections___subSections___infoChecks'
+  | 'page___sections___subSections___processStep'
+  | 'page___sections___subSections___infoTiles'
+  | 'page___sections___infoChecks'
+  | 'page___sections___infoChecks___id'
+  | 'page___sections___infoChecks___children'
+  | 'page___sections___infoChecks___text'
+  | 'page___sections___infoChecks___section'
+  | 'page___sections___infoChecks___spaceId'
+  | 'page___sections___infoChecks___contentful_id'
+  | 'page___sections___infoChecks___createdAt'
+  | 'page___sections___infoChecks___updatedAt'
+  | 'page___sections___infoChecks___node_locale'
+  | 'page___sections___processStep'
+  | 'page___sections___processStep___id'
+  | 'page___sections___processStep___children'
+  | 'page___sections___processStep___title'
+  | 'page___sections___processStep___section'
+  | 'page___sections___processStep___spaceId'
+  | 'page___sections___processStep___contentful_id'
+  | 'page___sections___processStep___createdAt'
+  | 'page___sections___processStep___updatedAt'
+  | 'page___sections___processStep___node_locale'
+  | 'page___sections___infoTiles'
+  | 'page___sections___infoTiles___id'
+  | 'page___sections___infoTiles___children'
+  | 'page___sections___infoTiles___title'
+  | 'page___sections___infoTiles___section'
+  | 'page___sections___infoTiles___spaceId'
+  | 'page___sections___infoTiles___contentful_id'
+  | 'page___sections___infoTiles___createdAt'
+  | 'page___sections___infoTiles___updatedAt'
+  | 'page___sections___infoTiles___node_locale'
+  | 'page___sections___childContentfulSectionTextTextNode___id'
+  | 'page___sections___childContentfulSectionTextTextNode___children'
+  | 'page___sections___childContentfulSectionTextTextNode___text'
+  | 'page___description___id'
+  | 'page___description___parent___id'
+  | 'page___description___parent___children'
+  | 'page___description___children'
+  | 'page___description___children___id'
+  | 'page___description___children___children'
+  | 'page___description___internal___content'
+  | 'page___description___internal___contentDigest'
+  | 'page___description___internal___description'
+  | 'page___description___internal___fieldOwners'
+  | 'page___description___internal___ignoreType'
+  | 'page___description___internal___mediaType'
+  | 'page___description___internal___owner'
+  | 'page___description___internal___type'
+  | 'page___description___description'
+  | 'page___description___sys___type'
+  | 'page___description___childMdx___rawBody'
+  | 'page___description___childMdx___fileAbsolutePath'
+  | 'page___description___childMdx___slug'
+  | 'page___description___childMdx___body'
+  | 'page___description___childMdx___excerpt'
+  | 'page___description___childMdx___headings'
+  | 'page___description___childMdx___html'
+  | 'page___description___childMdx___mdxAST'
+  | 'page___description___childMdx___tableOfContents'
+  | 'page___description___childMdx___timeToRead'
+  | 'page___description___childMdx___id'
+  | 'page___description___childMdx___children'
+  | 'page___spaceId'
+  | 'page___contentful_id'
+  | 'page___createdAt'
+  | 'page___updatedAt'
+  | 'page___sys___type'
+  | 'page___sys___revision'
+  | 'page___node_locale'
+  | 'page___bannerSubTitle'
+  | 'page___link'
+  | 'page___link___id'
+  | 'page___link___parent___id'
+  | 'page___link___parent___children'
+  | 'page___link___children'
+  | 'page___link___children___id'
+  | 'page___link___children___children'
+  | 'page___link___internal___content'
+  | 'page___link___internal___contentDigest'
+  | 'page___link___internal___description'
+  | 'page___link___internal___fieldOwners'
+  | 'page___link___internal___ignoreType'
+  | 'page___link___internal___mediaType'
+  | 'page___link___internal___owner'
+  | 'page___link___internal___type'
+  | 'page___link___type'
+  | 'page___link___name'
+  | 'page___link___label'
+  | 'page___link___section'
+  | 'page___link___section___id'
+  | 'page___link___section___children'
+  | 'page___link___section___name'
+  | 'page___link___section___title'
+  | 'page___link___section___titleHighlight'
+  | 'page___link___section___jobGroup'
+  | 'page___link___section___page'
+  | 'page___link___section___spaceId'
+  | 'page___link___section___contentful_id'
+  | 'page___link___section___createdAt'
+  | 'page___link___section___updatedAt'
+  | 'page___link___section___node_locale'
+  | 'page___link___section___imagePosition'
+  | 'page___link___section___section'
+  | 'page___link___section___blogPosts'
+  | 'page___link___section___subTitle'
+  | 'page___link___section___subSections'
+  | 'page___link___section___infoChecks'
+  | 'page___link___section___processStep'
+  | 'page___link___section___infoTiles'
+  | 'page___link___spaceId'
+  | 'page___link___contentful_id'
+  | 'page___link___createdAt'
+  | 'page___link___updatedAt'
+  | 'page___link___sys___type'
+  | 'page___link___sys___revision'
+  | 'page___link___node_locale'
+  | 'page___link___page___id'
+  | 'page___link___page___children'
+  | 'page___link___page___name'
+  | 'page___link___page___title'
+  | 'page___link___page___slug'
+  | 'page___link___page___bannerTitle'
+  | 'page___link___page___sections'
+  | 'page___link___page___spaceId'
+  | 'page___link___page___contentful_id'
+  | 'page___link___page___createdAt'
+  | 'page___link___page___updatedAt'
+  | 'page___link___page___node_locale'
+  | 'page___link___page___bannerSubTitle'
+  | 'page___link___page___link'
+  | 'page___link___url'
+  | 'page___childContentfulPageDescriptionTextNode___id'
+  | 'page___childContentfulPageDescriptionTextNode___parent___id'
+  | 'page___childContentfulPageDescriptionTextNode___parent___children'
+  | 'page___childContentfulPageDescriptionTextNode___children'
+  | 'page___childContentfulPageDescriptionTextNode___children___id'
+  | 'page___childContentfulPageDescriptionTextNode___children___children'
+  | 'page___childContentfulPageDescriptionTextNode___internal___content'
+  | 'page___childContentfulPageDescriptionTextNode___internal___contentDigest'
+  | 'page___childContentfulPageDescriptionTextNode___internal___description'
+  | 'page___childContentfulPageDescriptionTextNode___internal___fieldOwners'
+  | 'page___childContentfulPageDescriptionTextNode___internal___ignoreType'
+  | 'page___childContentfulPageDescriptionTextNode___internal___mediaType'
+  | 'page___childContentfulPageDescriptionTextNode___internal___owner'
+  | 'page___childContentfulPageDescriptionTextNode___internal___type'
+  | 'page___childContentfulPageDescriptionTextNode___description'
+  | 'page___childContentfulPageDescriptionTextNode___sys___type'
+  | 'page___childContentfulPageDescriptionTextNode___childMdx___rawBody'
+  | 'page___childContentfulPageDescriptionTextNode___childMdx___fileAbsolutePath'
+  | 'page___childContentfulPageDescriptionTextNode___childMdx___slug'
+  | 'page___childContentfulPageDescriptionTextNode___childMdx___body'
+  | 'page___childContentfulPageDescriptionTextNode___childMdx___excerpt'
+  | 'page___childContentfulPageDescriptionTextNode___childMdx___headings'
+  | 'page___childContentfulPageDescriptionTextNode___childMdx___html'
+  | 'page___childContentfulPageDescriptionTextNode___childMdx___mdxAST'
+  | 'page___childContentfulPageDescriptionTextNode___childMdx___tableOfContents'
+  | 'page___childContentfulPageDescriptionTextNode___childMdx___timeToRead'
+  | 'page___childContentfulPageDescriptionTextNode___childMdx___id'
+  | 'page___childContentfulPageDescriptionTextNode___childMdx___children'
+  | 'spaceId'
+  | 'contentful_id'
+  | 'createdAt'
+  | 'updatedAt'
+  | 'sys___type'
+  | 'sys___revision'
+  | 'sys___contentType___sys___type'
+  | 'sys___contentType___sys___linkType'
+  | 'sys___contentType___sys___id'
+  | 'sys___contentType___sys___contentful_id'
+  | 'node_locale';
+
+export type ContentfulPageTypeFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  name?: Maybe<StringQueryOperatorInput>;
+  type?: Maybe<StringQueryOperatorInput>;
+  page?: Maybe<ContentfulPageFilterListInput>;
+  spaceId?: Maybe<StringQueryOperatorInput>;
+  contentful_id?: Maybe<StringQueryOperatorInput>;
+  createdAt?: Maybe<DateQueryOperatorInput>;
+  updatedAt?: Maybe<DateQueryOperatorInput>;
+  sys?: Maybe<ContentfulPageTypeSysFilterInput>;
+  node_locale?: Maybe<StringQueryOperatorInput>;
+};
+
+export type ContentfulPageTypeGroupConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<ContentfulPageTypeEdge>;
+  nodes: Array<ContentfulPageType>;
+  pageInfo: PageInfo;
+  field: Scalars['String'];
+  fieldValue?: Maybe<Scalars['String']>;
+};
+
+export type ContentfulPageTypeSortInput = {
+  fields?: Maybe<Array<Maybe<ContentfulPageTypeFieldsEnum>>>;
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
+};
+
+export type ContentfulPageTypeSys = {
+  type?: Maybe<Scalars['String']>;
+  revision?: Maybe<Scalars['Int']>;
+  contentType?: Maybe<ContentfulPageTypeSysContentType>;
+};
+
+export type ContentfulPageTypeSysContentType = {
+  sys?: Maybe<ContentfulPageTypeSysContentTypeSys>;
+};
+
+export type ContentfulPageTypeSysContentTypeFilterInput = {
+  sys?: Maybe<ContentfulPageTypeSysContentTypeSysFilterInput>;
+};
+
+export type ContentfulPageTypeSysContentTypeSys = {
+  type?: Maybe<Scalars['String']>;
+  linkType?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['String']>;
+  contentful_id?: Maybe<Scalars['String']>;
+};
+
+export type ContentfulPageTypeSysContentTypeSysFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  linkType?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  contentful_id?: Maybe<StringQueryOperatorInput>;
+};
+
+export type ContentfulPageTypeSysFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  revision?: Maybe<IntQueryOperatorInput>;
+  contentType?: Maybe<ContentfulPageTypeSysContentTypeFilterInput>;
 };
 
 export type ContentfulProcessStep = Node & {
@@ -16535,8 +17523,18 @@ export type ContentfulProcessStepFieldsEnum =
   | 'section___page___internal___type'
   | 'section___page___name'
   | 'section___page___title'
-  | 'section___page___bannerTitle'
   | 'section___page___slug'
+  | 'section___page___bannerTitle'
+  | 'section___page___type___id'
+  | 'section___page___type___children'
+  | 'section___page___type___name'
+  | 'section___page___type___type'
+  | 'section___page___type___page'
+  | 'section___page___type___spaceId'
+  | 'section___page___type___contentful_id'
+  | 'section___page___type___createdAt'
+  | 'section___page___type___updatedAt'
+  | 'section___page___type___node_locale'
   | 'section___page___bannerImages___id'
   | 'section___page___bannerImages___children'
   | 'section___page___bannerImages___name'
@@ -16579,6 +17577,7 @@ export type ContentfulProcessStepFieldsEnum =
   | 'section___page___sys___type'
   | 'section___page___sys___revision'
   | 'section___page___node_locale'
+  | 'section___page___bannerSubTitle'
   | 'section___page___link'
   | 'section___page___link___id'
   | 'section___page___link___children'
@@ -16592,7 +17591,6 @@ export type ContentfulProcessStepFieldsEnum =
   | 'section___page___link___updatedAt'
   | 'section___page___link___node_locale'
   | 'section___page___link___url'
-  | 'section___page___bannerSubTitle'
   | 'section___page___childContentfulPageDescriptionTextNode___id'
   | 'section___page___childContentfulPageDescriptionTextNode___children'
   | 'section___page___childContentfulPageDescriptionTextNode___description'
@@ -16662,16 +17660,16 @@ export type ContentfulProcessStepFieldsEnum =
   | 'section___medias___page___children'
   | 'section___medias___page___name'
   | 'section___medias___page___title'
-  | 'section___medias___page___bannerTitle'
   | 'section___medias___page___slug'
+  | 'section___medias___page___bannerTitle'
   | 'section___medias___page___sections'
   | 'section___medias___page___spaceId'
   | 'section___medias___page___contentful_id'
   | 'section___medias___page___createdAt'
   | 'section___medias___page___updatedAt'
   | 'section___medias___page___node_locale'
-  | 'section___medias___page___link'
   | 'section___medias___page___bannerSubTitle'
+  | 'section___medias___page___link'
   | 'section___link___id'
   | 'section___link___parent___id'
   | 'section___link___parent___children'
@@ -16721,16 +17719,16 @@ export type ContentfulProcessStepFieldsEnum =
   | 'section___link___page___children'
   | 'section___link___page___name'
   | 'section___link___page___title'
-  | 'section___link___page___bannerTitle'
   | 'section___link___page___slug'
+  | 'section___link___page___bannerTitle'
   | 'section___link___page___sections'
   | 'section___link___page___spaceId'
   | 'section___link___page___contentful_id'
   | 'section___link___page___createdAt'
   | 'section___link___page___updatedAt'
   | 'section___link___page___node_locale'
-  | 'section___link___page___link'
   | 'section___link___page___bannerSubTitle'
+  | 'section___link___page___link'
   | 'section___link___url'
   | 'section___text___id'
   | 'section___text___parent___id'
@@ -16870,16 +17868,16 @@ export type ContentfulProcessStepFieldsEnum =
   | 'section___section___page___children'
   | 'section___section___page___name'
   | 'section___section___page___title'
-  | 'section___section___page___bannerTitle'
   | 'section___section___page___slug'
+  | 'section___section___page___bannerTitle'
   | 'section___section___page___sections'
   | 'section___section___page___spaceId'
   | 'section___section___page___contentful_id'
   | 'section___section___page___createdAt'
   | 'section___section___page___updatedAt'
   | 'section___section___page___node_locale'
-  | 'section___section___page___link'
   | 'section___section___page___bannerSubTitle'
+  | 'section___section___page___link'
   | 'section___section___spaceId'
   | 'section___section___contentful_id'
   | 'section___section___createdAt'
@@ -17138,16 +18136,16 @@ export type ContentfulProcessStepFieldsEnum =
   | 'section___subSections___page___children'
   | 'section___subSections___page___name'
   | 'section___subSections___page___title'
-  | 'section___subSections___page___bannerTitle'
   | 'section___subSections___page___slug'
+  | 'section___subSections___page___bannerTitle'
   | 'section___subSections___page___sections'
   | 'section___subSections___page___spaceId'
   | 'section___subSections___page___contentful_id'
   | 'section___subSections___page___createdAt'
   | 'section___subSections___page___updatedAt'
   | 'section___subSections___page___node_locale'
-  | 'section___subSections___page___link'
   | 'section___subSections___page___bannerSubTitle'
+  | 'section___subSections___page___link'
   | 'section___subSections___spaceId'
   | 'section___subSections___contentful_id'
   | 'section___subSections___createdAt'
@@ -18043,16 +19041,16 @@ export type ContentfulSectionFieldsEnum =
   | 'type___section___page___children'
   | 'type___section___page___name'
   | 'type___section___page___title'
-  | 'type___section___page___bannerTitle'
   | 'type___section___page___slug'
+  | 'type___section___page___bannerTitle'
   | 'type___section___page___sections'
   | 'type___section___page___spaceId'
   | 'type___section___page___contentful_id'
   | 'type___section___page___createdAt'
   | 'type___section___page___updatedAt'
   | 'type___section___page___node_locale'
-  | 'type___section___page___link'
   | 'type___section___page___bannerSubTitle'
+  | 'type___section___page___link'
   | 'type___section___spaceId'
   | 'type___section___contentful_id'
   | 'type___section___createdAt'
@@ -18370,16 +19368,16 @@ export type ContentfulSectionFieldsEnum =
   | 'jobGroup___section___page___children'
   | 'jobGroup___section___page___name'
   | 'jobGroup___section___page___title'
-  | 'jobGroup___section___page___bannerTitle'
   | 'jobGroup___section___page___slug'
+  | 'jobGroup___section___page___bannerTitle'
   | 'jobGroup___section___page___sections'
   | 'jobGroup___section___page___spaceId'
   | 'jobGroup___section___page___contentful_id'
   | 'jobGroup___section___page___createdAt'
   | 'jobGroup___section___page___updatedAt'
   | 'jobGroup___section___page___node_locale'
-  | 'jobGroup___section___page___link'
   | 'jobGroup___section___page___bannerSubTitle'
+  | 'jobGroup___section___page___link'
   | 'jobGroup___section___spaceId'
   | 'jobGroup___section___contentful_id'
   | 'jobGroup___section___createdAt'
@@ -18627,8 +19625,46 @@ export type ContentfulSectionFieldsEnum =
   | 'page___internal___type'
   | 'page___name'
   | 'page___title'
-  | 'page___bannerTitle'
   | 'page___slug'
+  | 'page___bannerTitle'
+  | 'page___type___id'
+  | 'page___type___parent___id'
+  | 'page___type___parent___children'
+  | 'page___type___children'
+  | 'page___type___children___id'
+  | 'page___type___children___children'
+  | 'page___type___internal___content'
+  | 'page___type___internal___contentDigest'
+  | 'page___type___internal___description'
+  | 'page___type___internal___fieldOwners'
+  | 'page___type___internal___ignoreType'
+  | 'page___type___internal___mediaType'
+  | 'page___type___internal___owner'
+  | 'page___type___internal___type'
+  | 'page___type___name'
+  | 'page___type___type'
+  | 'page___type___page'
+  | 'page___type___page___id'
+  | 'page___type___page___children'
+  | 'page___type___page___name'
+  | 'page___type___page___title'
+  | 'page___type___page___slug'
+  | 'page___type___page___bannerTitle'
+  | 'page___type___page___sections'
+  | 'page___type___page___spaceId'
+  | 'page___type___page___contentful_id'
+  | 'page___type___page___createdAt'
+  | 'page___type___page___updatedAt'
+  | 'page___type___page___node_locale'
+  | 'page___type___page___bannerSubTitle'
+  | 'page___type___page___link'
+  | 'page___type___spaceId'
+  | 'page___type___contentful_id'
+  | 'page___type___createdAt'
+  | 'page___type___updatedAt'
+  | 'page___type___sys___type'
+  | 'page___type___sys___revision'
+  | 'page___type___node_locale'
   | 'page___bannerImages___id'
   | 'page___bannerImages___parent___id'
   | 'page___bannerImages___parent___children'
@@ -18687,16 +19723,16 @@ export type ContentfulSectionFieldsEnum =
   | 'page___bannerImages___page___children'
   | 'page___bannerImages___page___name'
   | 'page___bannerImages___page___title'
-  | 'page___bannerImages___page___bannerTitle'
   | 'page___bannerImages___page___slug'
+  | 'page___bannerImages___page___bannerTitle'
   | 'page___bannerImages___page___sections'
   | 'page___bannerImages___page___spaceId'
   | 'page___bannerImages___page___contentful_id'
   | 'page___bannerImages___page___createdAt'
   | 'page___bannerImages___page___updatedAt'
   | 'page___bannerImages___page___node_locale'
-  | 'page___bannerImages___page___link'
   | 'page___bannerImages___page___bannerSubTitle'
+  | 'page___bannerImages___page___link'
   | 'page___sections'
   | 'page___sections___id'
   | 'page___sections___parent___id'
@@ -18741,16 +19777,16 @@ export type ContentfulSectionFieldsEnum =
   | 'page___sections___page___children'
   | 'page___sections___page___name'
   | 'page___sections___page___title'
-  | 'page___sections___page___bannerTitle'
   | 'page___sections___page___slug'
+  | 'page___sections___page___bannerTitle'
   | 'page___sections___page___sections'
   | 'page___sections___page___spaceId'
   | 'page___sections___page___contentful_id'
   | 'page___sections___page___createdAt'
   | 'page___sections___page___updatedAt'
   | 'page___sections___page___node_locale'
-  | 'page___sections___page___link'
   | 'page___sections___page___bannerSubTitle'
+  | 'page___sections___page___link'
   | 'page___sections___spaceId'
   | 'page___sections___contentful_id'
   | 'page___sections___createdAt'
@@ -18919,6 +19955,7 @@ export type ContentfulSectionFieldsEnum =
   | 'page___sys___type'
   | 'page___sys___revision'
   | 'page___node_locale'
+  | 'page___bannerSubTitle'
   | 'page___link'
   | 'page___link___id'
   | 'page___link___parent___id'
@@ -18969,18 +20006,17 @@ export type ContentfulSectionFieldsEnum =
   | 'page___link___page___children'
   | 'page___link___page___name'
   | 'page___link___page___title'
-  | 'page___link___page___bannerTitle'
   | 'page___link___page___slug'
+  | 'page___link___page___bannerTitle'
   | 'page___link___page___sections'
   | 'page___link___page___spaceId'
   | 'page___link___page___contentful_id'
   | 'page___link___page___createdAt'
   | 'page___link___page___updatedAt'
   | 'page___link___page___node_locale'
-  | 'page___link___page___link'
   | 'page___link___page___bannerSubTitle'
+  | 'page___link___page___link'
   | 'page___link___url'
-  | 'page___bannerSubTitle'
   | 'page___childContentfulPageDescriptionTextNode___id'
   | 'page___childContentfulPageDescriptionTextNode___parent___id'
   | 'page___childContentfulPageDescriptionTextNode___parent___children'
@@ -19171,16 +20207,16 @@ export type ContentfulSectionFieldsEnum =
   | 'medias___section___page___children'
   | 'medias___section___page___name'
   | 'medias___section___page___title'
-  | 'medias___section___page___bannerTitle'
   | 'medias___section___page___slug'
+  | 'medias___section___page___bannerTitle'
   | 'medias___section___page___sections'
   | 'medias___section___page___spaceId'
   | 'medias___section___page___contentful_id'
   | 'medias___section___page___createdAt'
   | 'medias___section___page___updatedAt'
   | 'medias___section___page___node_locale'
-  | 'medias___section___page___link'
   | 'medias___section___page___bannerSubTitle'
+  | 'medias___section___page___link'
   | 'medias___section___spaceId'
   | 'medias___section___contentful_id'
   | 'medias___section___createdAt'
@@ -19338,8 +20374,18 @@ export type ContentfulSectionFieldsEnum =
   | 'medias___page___internal___type'
   | 'medias___page___name'
   | 'medias___page___title'
-  | 'medias___page___bannerTitle'
   | 'medias___page___slug'
+  | 'medias___page___bannerTitle'
+  | 'medias___page___type___id'
+  | 'medias___page___type___children'
+  | 'medias___page___type___name'
+  | 'medias___page___type___type'
+  | 'medias___page___type___page'
+  | 'medias___page___type___spaceId'
+  | 'medias___page___type___contentful_id'
+  | 'medias___page___type___createdAt'
+  | 'medias___page___type___updatedAt'
+  | 'medias___page___type___node_locale'
   | 'medias___page___bannerImages___id'
   | 'medias___page___bannerImages___children'
   | 'medias___page___bannerImages___name'
@@ -19382,6 +20428,7 @@ export type ContentfulSectionFieldsEnum =
   | 'medias___page___sys___type'
   | 'medias___page___sys___revision'
   | 'medias___page___node_locale'
+  | 'medias___page___bannerSubTitle'
   | 'medias___page___link'
   | 'medias___page___link___id'
   | 'medias___page___link___children'
@@ -19395,7 +20442,6 @@ export type ContentfulSectionFieldsEnum =
   | 'medias___page___link___updatedAt'
   | 'medias___page___link___node_locale'
   | 'medias___page___link___url'
-  | 'medias___page___bannerSubTitle'
   | 'medias___page___childContentfulPageDescriptionTextNode___id'
   | 'medias___page___childContentfulPageDescriptionTextNode___children'
   | 'medias___page___childContentfulPageDescriptionTextNode___description'
@@ -19484,16 +20530,16 @@ export type ContentfulSectionFieldsEnum =
   | 'link___section___page___children'
   | 'link___section___page___name'
   | 'link___section___page___title'
-  | 'link___section___page___bannerTitle'
   | 'link___section___page___slug'
+  | 'link___section___page___bannerTitle'
   | 'link___section___page___sections'
   | 'link___section___page___spaceId'
   | 'link___section___page___contentful_id'
   | 'link___section___page___createdAt'
   | 'link___section___page___updatedAt'
   | 'link___section___page___node_locale'
-  | 'link___section___page___link'
   | 'link___section___page___bannerSubTitle'
+  | 'link___section___page___link'
   | 'link___section___spaceId'
   | 'link___section___contentful_id'
   | 'link___section___createdAt'
@@ -19650,8 +20696,18 @@ export type ContentfulSectionFieldsEnum =
   | 'link___page___internal___type'
   | 'link___page___name'
   | 'link___page___title'
-  | 'link___page___bannerTitle'
   | 'link___page___slug'
+  | 'link___page___bannerTitle'
+  | 'link___page___type___id'
+  | 'link___page___type___children'
+  | 'link___page___type___name'
+  | 'link___page___type___type'
+  | 'link___page___type___page'
+  | 'link___page___type___spaceId'
+  | 'link___page___type___contentful_id'
+  | 'link___page___type___createdAt'
+  | 'link___page___type___updatedAt'
+  | 'link___page___type___node_locale'
   | 'link___page___bannerImages___id'
   | 'link___page___bannerImages___children'
   | 'link___page___bannerImages___name'
@@ -19694,6 +20750,7 @@ export type ContentfulSectionFieldsEnum =
   | 'link___page___sys___type'
   | 'link___page___sys___revision'
   | 'link___page___node_locale'
+  | 'link___page___bannerSubTitle'
   | 'link___page___link'
   | 'link___page___link___id'
   | 'link___page___link___children'
@@ -19707,7 +20764,6 @@ export type ContentfulSectionFieldsEnum =
   | 'link___page___link___updatedAt'
   | 'link___page___link___node_locale'
   | 'link___page___link___url'
-  | 'link___page___bannerSubTitle'
   | 'link___page___childContentfulPageDescriptionTextNode___id'
   | 'link___page___childContentfulPageDescriptionTextNode___children'
   | 'link___page___childContentfulPageDescriptionTextNode___description'
@@ -20057,8 +21113,18 @@ export type ContentfulSectionFieldsEnum =
   | 'section___page___internal___type'
   | 'section___page___name'
   | 'section___page___title'
-  | 'section___page___bannerTitle'
   | 'section___page___slug'
+  | 'section___page___bannerTitle'
+  | 'section___page___type___id'
+  | 'section___page___type___children'
+  | 'section___page___type___name'
+  | 'section___page___type___type'
+  | 'section___page___type___page'
+  | 'section___page___type___spaceId'
+  | 'section___page___type___contentful_id'
+  | 'section___page___type___createdAt'
+  | 'section___page___type___updatedAt'
+  | 'section___page___type___node_locale'
   | 'section___page___bannerImages___id'
   | 'section___page___bannerImages___children'
   | 'section___page___bannerImages___name'
@@ -20101,6 +21167,7 @@ export type ContentfulSectionFieldsEnum =
   | 'section___page___sys___type'
   | 'section___page___sys___revision'
   | 'section___page___node_locale'
+  | 'section___page___bannerSubTitle'
   | 'section___page___link'
   | 'section___page___link___id'
   | 'section___page___link___children'
@@ -20114,7 +21181,6 @@ export type ContentfulSectionFieldsEnum =
   | 'section___page___link___updatedAt'
   | 'section___page___link___node_locale'
   | 'section___page___link___url'
-  | 'section___page___bannerSubTitle'
   | 'section___page___childContentfulPageDescriptionTextNode___id'
   | 'section___page___childContentfulPageDescriptionTextNode___children'
   | 'section___page___childContentfulPageDescriptionTextNode___description'
@@ -20184,16 +21250,16 @@ export type ContentfulSectionFieldsEnum =
   | 'section___medias___page___children'
   | 'section___medias___page___name'
   | 'section___medias___page___title'
-  | 'section___medias___page___bannerTitle'
   | 'section___medias___page___slug'
+  | 'section___medias___page___bannerTitle'
   | 'section___medias___page___sections'
   | 'section___medias___page___spaceId'
   | 'section___medias___page___contentful_id'
   | 'section___medias___page___createdAt'
   | 'section___medias___page___updatedAt'
   | 'section___medias___page___node_locale'
-  | 'section___medias___page___link'
   | 'section___medias___page___bannerSubTitle'
+  | 'section___medias___page___link'
   | 'section___link___id'
   | 'section___link___parent___id'
   | 'section___link___parent___children'
@@ -20243,16 +21309,16 @@ export type ContentfulSectionFieldsEnum =
   | 'section___link___page___children'
   | 'section___link___page___name'
   | 'section___link___page___title'
-  | 'section___link___page___bannerTitle'
   | 'section___link___page___slug'
+  | 'section___link___page___bannerTitle'
   | 'section___link___page___sections'
   | 'section___link___page___spaceId'
   | 'section___link___page___contentful_id'
   | 'section___link___page___createdAt'
   | 'section___link___page___updatedAt'
   | 'section___link___page___node_locale'
-  | 'section___link___page___link'
   | 'section___link___page___bannerSubTitle'
+  | 'section___link___page___link'
   | 'section___link___url'
   | 'section___text___id'
   | 'section___text___parent___id'
@@ -20392,16 +21458,16 @@ export type ContentfulSectionFieldsEnum =
   | 'section___section___page___children'
   | 'section___section___page___name'
   | 'section___section___page___title'
-  | 'section___section___page___bannerTitle'
   | 'section___section___page___slug'
+  | 'section___section___page___bannerTitle'
   | 'section___section___page___sections'
   | 'section___section___page___spaceId'
   | 'section___section___page___contentful_id'
   | 'section___section___page___createdAt'
   | 'section___section___page___updatedAt'
   | 'section___section___page___node_locale'
-  | 'section___section___page___link'
   | 'section___section___page___bannerSubTitle'
+  | 'section___section___page___link'
   | 'section___section___spaceId'
   | 'section___section___contentful_id'
   | 'section___section___createdAt'
@@ -20660,16 +21726,16 @@ export type ContentfulSectionFieldsEnum =
   | 'section___subSections___page___children'
   | 'section___subSections___page___name'
   | 'section___subSections___page___title'
-  | 'section___subSections___page___bannerTitle'
   | 'section___subSections___page___slug'
+  | 'section___subSections___page___bannerTitle'
   | 'section___subSections___page___sections'
   | 'section___subSections___page___spaceId'
   | 'section___subSections___page___contentful_id'
   | 'section___subSections___page___createdAt'
   | 'section___subSections___page___updatedAt'
   | 'section___subSections___page___node_locale'
-  | 'section___subSections___page___link'
   | 'section___subSections___page___bannerSubTitle'
+  | 'section___subSections___page___link'
   | 'section___subSections___spaceId'
   | 'section___subSections___contentful_id'
   | 'section___subSections___createdAt'
@@ -21185,16 +22251,16 @@ export type ContentfulSectionFieldsEnum =
   | 'blogPosts___section___page___children'
   | 'blogPosts___section___page___name'
   | 'blogPosts___section___page___title'
-  | 'blogPosts___section___page___bannerTitle'
   | 'blogPosts___section___page___slug'
+  | 'blogPosts___section___page___bannerTitle'
   | 'blogPosts___section___page___sections'
   | 'blogPosts___section___page___spaceId'
   | 'blogPosts___section___page___contentful_id'
   | 'blogPosts___section___page___createdAt'
   | 'blogPosts___section___page___updatedAt'
   | 'blogPosts___section___page___node_locale'
-  | 'blogPosts___section___page___link'
   | 'blogPosts___section___page___bannerSubTitle'
+  | 'blogPosts___section___page___link'
   | 'blogPosts___section___spaceId'
   | 'blogPosts___section___contentful_id'
   | 'blogPosts___section___createdAt'
@@ -21630,8 +22696,18 @@ export type ContentfulSectionFieldsEnum =
   | 'subSections___page___internal___type'
   | 'subSections___page___name'
   | 'subSections___page___title'
-  | 'subSections___page___bannerTitle'
   | 'subSections___page___slug'
+  | 'subSections___page___bannerTitle'
+  | 'subSections___page___type___id'
+  | 'subSections___page___type___children'
+  | 'subSections___page___type___name'
+  | 'subSections___page___type___type'
+  | 'subSections___page___type___page'
+  | 'subSections___page___type___spaceId'
+  | 'subSections___page___type___contentful_id'
+  | 'subSections___page___type___createdAt'
+  | 'subSections___page___type___updatedAt'
+  | 'subSections___page___type___node_locale'
   | 'subSections___page___bannerImages___id'
   | 'subSections___page___bannerImages___children'
   | 'subSections___page___bannerImages___name'
@@ -21674,6 +22750,7 @@ export type ContentfulSectionFieldsEnum =
   | 'subSections___page___sys___type'
   | 'subSections___page___sys___revision'
   | 'subSections___page___node_locale'
+  | 'subSections___page___bannerSubTitle'
   | 'subSections___page___link'
   | 'subSections___page___link___id'
   | 'subSections___page___link___children'
@@ -21687,7 +22764,6 @@ export type ContentfulSectionFieldsEnum =
   | 'subSections___page___link___updatedAt'
   | 'subSections___page___link___node_locale'
   | 'subSections___page___link___url'
-  | 'subSections___page___bannerSubTitle'
   | 'subSections___page___childContentfulPageDescriptionTextNode___id'
   | 'subSections___page___childContentfulPageDescriptionTextNode___children'
   | 'subSections___page___childContentfulPageDescriptionTextNode___description'
@@ -21757,16 +22833,16 @@ export type ContentfulSectionFieldsEnum =
   | 'subSections___medias___page___children'
   | 'subSections___medias___page___name'
   | 'subSections___medias___page___title'
-  | 'subSections___medias___page___bannerTitle'
   | 'subSections___medias___page___slug'
+  | 'subSections___medias___page___bannerTitle'
   | 'subSections___medias___page___sections'
   | 'subSections___medias___page___spaceId'
   | 'subSections___medias___page___contentful_id'
   | 'subSections___medias___page___createdAt'
   | 'subSections___medias___page___updatedAt'
   | 'subSections___medias___page___node_locale'
-  | 'subSections___medias___page___link'
   | 'subSections___medias___page___bannerSubTitle'
+  | 'subSections___medias___page___link'
   | 'subSections___link___id'
   | 'subSections___link___parent___id'
   | 'subSections___link___parent___children'
@@ -21816,16 +22892,16 @@ export type ContentfulSectionFieldsEnum =
   | 'subSections___link___page___children'
   | 'subSections___link___page___name'
   | 'subSections___link___page___title'
-  | 'subSections___link___page___bannerTitle'
   | 'subSections___link___page___slug'
+  | 'subSections___link___page___bannerTitle'
   | 'subSections___link___page___sections'
   | 'subSections___link___page___spaceId'
   | 'subSections___link___page___contentful_id'
   | 'subSections___link___page___createdAt'
   | 'subSections___link___page___updatedAt'
   | 'subSections___link___page___node_locale'
-  | 'subSections___link___page___link'
   | 'subSections___link___page___bannerSubTitle'
+  | 'subSections___link___page___link'
   | 'subSections___link___url'
   | 'subSections___text___id'
   | 'subSections___text___parent___id'
@@ -21965,16 +23041,16 @@ export type ContentfulSectionFieldsEnum =
   | 'subSections___section___page___children'
   | 'subSections___section___page___name'
   | 'subSections___section___page___title'
-  | 'subSections___section___page___bannerTitle'
   | 'subSections___section___page___slug'
+  | 'subSections___section___page___bannerTitle'
   | 'subSections___section___page___sections'
   | 'subSections___section___page___spaceId'
   | 'subSections___section___page___contentful_id'
   | 'subSections___section___page___createdAt'
   | 'subSections___section___page___updatedAt'
   | 'subSections___section___page___node_locale'
-  | 'subSections___section___page___link'
   | 'subSections___section___page___bannerSubTitle'
+  | 'subSections___section___page___link'
   | 'subSections___section___spaceId'
   | 'subSections___section___contentful_id'
   | 'subSections___section___createdAt'
@@ -22233,16 +23309,16 @@ export type ContentfulSectionFieldsEnum =
   | 'subSections___subSections___page___children'
   | 'subSections___subSections___page___name'
   | 'subSections___subSections___page___title'
-  | 'subSections___subSections___page___bannerTitle'
   | 'subSections___subSections___page___slug'
+  | 'subSections___subSections___page___bannerTitle'
   | 'subSections___subSections___page___sections'
   | 'subSections___subSections___page___spaceId'
   | 'subSections___subSections___page___contentful_id'
   | 'subSections___subSections___page___createdAt'
   | 'subSections___subSections___page___updatedAt'
   | 'subSections___subSections___page___node_locale'
-  | 'subSections___subSections___page___link'
   | 'subSections___subSections___page___bannerSubTitle'
+  | 'subSections___subSections___page___link'
   | 'subSections___subSections___spaceId'
   | 'subSections___subSections___contentful_id'
   | 'subSections___subSections___createdAt'
@@ -22641,16 +23717,16 @@ export type ContentfulSectionFieldsEnum =
   | 'infoChecks___section___page___children'
   | 'infoChecks___section___page___name'
   | 'infoChecks___section___page___title'
-  | 'infoChecks___section___page___bannerTitle'
   | 'infoChecks___section___page___slug'
+  | 'infoChecks___section___page___bannerTitle'
   | 'infoChecks___section___page___sections'
   | 'infoChecks___section___page___spaceId'
   | 'infoChecks___section___page___contentful_id'
   | 'infoChecks___section___page___createdAt'
   | 'infoChecks___section___page___updatedAt'
   | 'infoChecks___section___page___node_locale'
-  | 'infoChecks___section___page___link'
   | 'infoChecks___section___page___bannerSubTitle'
+  | 'infoChecks___section___page___link'
   | 'infoChecks___section___spaceId'
   | 'infoChecks___section___contentful_id'
   | 'infoChecks___section___createdAt'
@@ -22875,16 +23951,16 @@ export type ContentfulSectionFieldsEnum =
   | 'processStep___section___page___children'
   | 'processStep___section___page___name'
   | 'processStep___section___page___title'
-  | 'processStep___section___page___bannerTitle'
   | 'processStep___section___page___slug'
+  | 'processStep___section___page___bannerTitle'
   | 'processStep___section___page___sections'
   | 'processStep___section___page___spaceId'
   | 'processStep___section___page___contentful_id'
   | 'processStep___section___page___createdAt'
   | 'processStep___section___page___updatedAt'
   | 'processStep___section___page___node_locale'
-  | 'processStep___section___page___link'
   | 'processStep___section___page___bannerSubTitle'
+  | 'processStep___section___page___link'
   | 'processStep___section___spaceId'
   | 'processStep___section___contentful_id'
   | 'processStep___section___createdAt'
@@ -23231,16 +24307,16 @@ export type ContentfulSectionFieldsEnum =
   | 'infoTiles___section___page___children'
   | 'infoTiles___section___page___name'
   | 'infoTiles___section___page___title'
-  | 'infoTiles___section___page___bannerTitle'
   | 'infoTiles___section___page___slug'
+  | 'infoTiles___section___page___bannerTitle'
   | 'infoTiles___section___page___sections'
   | 'infoTiles___section___page___spaceId'
   | 'infoTiles___section___page___contentful_id'
   | 'infoTiles___section___page___createdAt'
   | 'infoTiles___section___page___updatedAt'
   | 'infoTiles___section___page___node_locale'
-  | 'infoTiles___section___page___link'
   | 'infoTiles___section___page___bannerSubTitle'
+  | 'infoTiles___section___page___link'
   | 'infoTiles___section___spaceId'
   | 'infoTiles___section___contentful_id'
   | 'infoTiles___section___createdAt'
@@ -24446,8 +25522,18 @@ export type ContentfulSectionTypeFieldsEnum =
   | 'section___page___internal___type'
   | 'section___page___name'
   | 'section___page___title'
-  | 'section___page___bannerTitle'
   | 'section___page___slug'
+  | 'section___page___bannerTitle'
+  | 'section___page___type___id'
+  | 'section___page___type___children'
+  | 'section___page___type___name'
+  | 'section___page___type___type'
+  | 'section___page___type___page'
+  | 'section___page___type___spaceId'
+  | 'section___page___type___contentful_id'
+  | 'section___page___type___createdAt'
+  | 'section___page___type___updatedAt'
+  | 'section___page___type___node_locale'
   | 'section___page___bannerImages___id'
   | 'section___page___bannerImages___children'
   | 'section___page___bannerImages___name'
@@ -24490,6 +25576,7 @@ export type ContentfulSectionTypeFieldsEnum =
   | 'section___page___sys___type'
   | 'section___page___sys___revision'
   | 'section___page___node_locale'
+  | 'section___page___bannerSubTitle'
   | 'section___page___link'
   | 'section___page___link___id'
   | 'section___page___link___children'
@@ -24503,7 +25590,6 @@ export type ContentfulSectionTypeFieldsEnum =
   | 'section___page___link___updatedAt'
   | 'section___page___link___node_locale'
   | 'section___page___link___url'
-  | 'section___page___bannerSubTitle'
   | 'section___page___childContentfulPageDescriptionTextNode___id'
   | 'section___page___childContentfulPageDescriptionTextNode___children'
   | 'section___page___childContentfulPageDescriptionTextNode___description'
@@ -24573,16 +25659,16 @@ export type ContentfulSectionTypeFieldsEnum =
   | 'section___medias___page___children'
   | 'section___medias___page___name'
   | 'section___medias___page___title'
-  | 'section___medias___page___bannerTitle'
   | 'section___medias___page___slug'
+  | 'section___medias___page___bannerTitle'
   | 'section___medias___page___sections'
   | 'section___medias___page___spaceId'
   | 'section___medias___page___contentful_id'
   | 'section___medias___page___createdAt'
   | 'section___medias___page___updatedAt'
   | 'section___medias___page___node_locale'
-  | 'section___medias___page___link'
   | 'section___medias___page___bannerSubTitle'
+  | 'section___medias___page___link'
   | 'section___link___id'
   | 'section___link___parent___id'
   | 'section___link___parent___children'
@@ -24632,16 +25718,16 @@ export type ContentfulSectionTypeFieldsEnum =
   | 'section___link___page___children'
   | 'section___link___page___name'
   | 'section___link___page___title'
-  | 'section___link___page___bannerTitle'
   | 'section___link___page___slug'
+  | 'section___link___page___bannerTitle'
   | 'section___link___page___sections'
   | 'section___link___page___spaceId'
   | 'section___link___page___contentful_id'
   | 'section___link___page___createdAt'
   | 'section___link___page___updatedAt'
   | 'section___link___page___node_locale'
-  | 'section___link___page___link'
   | 'section___link___page___bannerSubTitle'
+  | 'section___link___page___link'
   | 'section___link___url'
   | 'section___text___id'
   | 'section___text___parent___id'
@@ -24781,16 +25867,16 @@ export type ContentfulSectionTypeFieldsEnum =
   | 'section___section___page___children'
   | 'section___section___page___name'
   | 'section___section___page___title'
-  | 'section___section___page___bannerTitle'
   | 'section___section___page___slug'
+  | 'section___section___page___bannerTitle'
   | 'section___section___page___sections'
   | 'section___section___page___spaceId'
   | 'section___section___page___contentful_id'
   | 'section___section___page___createdAt'
   | 'section___section___page___updatedAt'
   | 'section___section___page___node_locale'
-  | 'section___section___page___link'
   | 'section___section___page___bannerSubTitle'
+  | 'section___section___page___link'
   | 'section___section___spaceId'
   | 'section___section___contentful_id'
   | 'section___section___createdAt'
@@ -25049,16 +26135,16 @@ export type ContentfulSectionTypeFieldsEnum =
   | 'section___subSections___page___children'
   | 'section___subSections___page___name'
   | 'section___subSections___page___title'
-  | 'section___subSections___page___bannerTitle'
   | 'section___subSections___page___slug'
+  | 'section___subSections___page___bannerTitle'
   | 'section___subSections___page___sections'
   | 'section___subSections___page___spaceId'
   | 'section___subSections___page___contentful_id'
   | 'section___subSections___page___createdAt'
   | 'section___subSections___page___updatedAt'
   | 'section___subSections___page___node_locale'
-  | 'section___subSections___page___link'
   | 'section___subSections___page___bannerSubTitle'
+  | 'section___subSections___page___link'
   | 'section___subSections___spaceId'
   | 'section___subSections___contentful_id'
   | 'section___subSections___createdAt'
@@ -27322,6 +28408,8 @@ export type Query = {
   allMdx: MdxConnection;
   contentfulAsset?: Maybe<ContentfulAsset>;
   allContentfulAsset: ContentfulAssetConnection;
+  contentfulPageType?: Maybe<ContentfulPageType>;
+  allContentfulPageType: ContentfulPageTypeConnection;
   contentfulFieldTranslation?: Maybe<ContentfulFieldTranslation>;
   allContentfulFieldTranslation: ContentfulFieldTranslationConnection;
   contentfulSectionTypeDescriptionTextNode?: Maybe<ContentfulSectionTypeDescriptionTextNode>;
@@ -27481,6 +28569,7 @@ export type QuerySiteArgs = {
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
   port?: Maybe<IntQueryOperatorInput>;
   host?: Maybe<StringQueryOperatorInput>;
+  flags?: Maybe<SiteFlagsFilterInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -27601,6 +28690,31 @@ export type QueryContentfulAssetArgs = {
 export type QueryAllContentfulAssetArgs = {
   filter?: Maybe<ContentfulAssetFilterInput>;
   sort?: Maybe<ContentfulAssetSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
+export type QueryContentfulPageTypeArgs = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  name?: Maybe<StringQueryOperatorInput>;
+  type?: Maybe<StringQueryOperatorInput>;
+  page?: Maybe<ContentfulPageFilterListInput>;
+  spaceId?: Maybe<StringQueryOperatorInput>;
+  contentful_id?: Maybe<StringQueryOperatorInput>;
+  createdAt?: Maybe<DateQueryOperatorInput>;
+  updatedAt?: Maybe<DateQueryOperatorInput>;
+  sys?: Maybe<ContentfulPageTypeSysFilterInput>;
+  node_locale?: Maybe<StringQueryOperatorInput>;
+};
+
+
+export type QueryAllContentfulPageTypeArgs = {
+  filter?: Maybe<ContentfulPageTypeFilterInput>;
+  sort?: Maybe<ContentfulPageTypeSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
@@ -27762,8 +28876,9 @@ export type QueryContentfulPageArgs = {
   internal?: Maybe<InternalFilterInput>;
   name?: Maybe<StringQueryOperatorInput>;
   title?: Maybe<StringQueryOperatorInput>;
-  bannerTitle?: Maybe<StringQueryOperatorInput>;
   slug?: Maybe<StringQueryOperatorInput>;
+  bannerTitle?: Maybe<StringQueryOperatorInput>;
+  type?: Maybe<ContentfulPageTypeFilterInput>;
   bannerImages?: Maybe<ContentfulMediaCollectionFilterInput>;
   sections?: Maybe<ContentfulSectionFilterListInput>;
   description?: Maybe<ContentfulPageDescriptionTextNodeFilterInput>;
@@ -27773,8 +28888,8 @@ export type QueryContentfulPageArgs = {
   updatedAt?: Maybe<DateQueryOperatorInput>;
   sys?: Maybe<ContentfulPageSysFilterInput>;
   node_locale?: Maybe<StringQueryOperatorInput>;
-  link?: Maybe<ContentfulLinkFilterListInput>;
   bannerSubTitle?: Maybe<StringQueryOperatorInput>;
+  link?: Maybe<ContentfulLinkFilterListInput>;
   childContentfulPageDescriptionTextNode?: Maybe<ContentfulPageDescriptionTextNodeFilterInput>;
 };
 
@@ -28237,6 +29352,7 @@ export type Site = Node & {
   siteMetadata?: Maybe<SiteSiteMetadata>;
   port?: Maybe<Scalars['Int']>;
   host?: Maybe<Scalars['String']>;
+  flags?: Maybe<SiteFlags>;
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
@@ -28444,6 +29560,14 @@ export type SiteFieldsEnum =
   | 'siteMetadata___languages___defaultLangKey'
   | 'port'
   | 'host'
+  | 'flags___PRESERVE_WEBPACK_CACHE'
+  | 'flags___PRESERVE_FILE_DOWNLOAD_CACHE'
+  | 'flags___QUERY_ON_DEMAND'
+  | 'flags___LAZY_IMAGES'
+  | 'flags___PARALLEL_SOURCING'
+  | 'flags___DEV_SSR'
+  | 'flags___FAST_DEV'
+  | 'flags___FAST_REFRESH'
   | 'polyfill'
   | 'pathPrefix'
   | 'id'
@@ -28538,12 +29662,35 @@ export type SiteFilterInput = {
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
   port?: Maybe<IntQueryOperatorInput>;
   host?: Maybe<StringQueryOperatorInput>;
+  flags?: Maybe<SiteFlagsFilterInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
+};
+
+export type SiteFlags = {
+  PRESERVE_WEBPACK_CACHE?: Maybe<Scalars['Boolean']>;
+  PRESERVE_FILE_DOWNLOAD_CACHE?: Maybe<Scalars['Boolean']>;
+  QUERY_ON_DEMAND?: Maybe<Scalars['Boolean']>;
+  LAZY_IMAGES?: Maybe<Scalars['Boolean']>;
+  PARALLEL_SOURCING?: Maybe<Scalars['Boolean']>;
+  DEV_SSR?: Maybe<Scalars['Boolean']>;
+  FAST_DEV?: Maybe<Scalars['Boolean']>;
+  FAST_REFRESH?: Maybe<Scalars['Boolean']>;
+};
+
+export type SiteFlagsFilterInput = {
+  PRESERVE_WEBPACK_CACHE?: Maybe<BooleanQueryOperatorInput>;
+  PRESERVE_FILE_DOWNLOAD_CACHE?: Maybe<BooleanQueryOperatorInput>;
+  QUERY_ON_DEMAND?: Maybe<BooleanQueryOperatorInput>;
+  LAZY_IMAGES?: Maybe<BooleanQueryOperatorInput>;
+  PARALLEL_SOURCING?: Maybe<BooleanQueryOperatorInput>;
+  DEV_SSR?: Maybe<BooleanQueryOperatorInput>;
+  FAST_DEV?: Maybe<BooleanQueryOperatorInput>;
+  FAST_REFRESH?: Maybe<BooleanQueryOperatorInput>;
 };
 
 export type SiteGroupConnection = {
@@ -28597,21 +29744,29 @@ export type SitePageConnectionGroupArgs = {
 export type SitePageContext = {
   siteMetadata?: Maybe<SitePageContextSiteMetadata>;
   pageId?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+  slug?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
   fileId?: Maybe<Scalars['String']>;
   blogPostId?: Maybe<Scalars['String']>;
   blogPath?: Maybe<Scalars['String']>;
   frontmatter?: Maybe<SitePageContextFrontmatter>;
-  slug?: Maybe<Scalars['String']>;
 };
 
 export type SitePageContextFilterInput = {
   siteMetadata?: Maybe<SitePageContextSiteMetadataFilterInput>;
   pageId?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  name?: Maybe<StringQueryOperatorInput>;
+  type?: Maybe<StringQueryOperatorInput>;
+  slug?: Maybe<StringQueryOperatorInput>;
+  locale?: Maybe<StringQueryOperatorInput>;
   fileId?: Maybe<StringQueryOperatorInput>;
   blogPostId?: Maybe<StringQueryOperatorInput>;
   blogPath?: Maybe<StringQueryOperatorInput>;
   frontmatter?: Maybe<SitePageContextFrontmatterFilterInput>;
-  slug?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePageContextFrontmatter = {
@@ -28760,12 +29915,16 @@ export type SitePageFieldsEnum =
   | 'context___siteMetadata___languages___langs'
   | 'context___siteMetadata___languages___defaultLangKey'
   | 'context___pageId'
+  | 'context___id'
+  | 'context___name'
+  | 'context___type'
+  | 'context___slug'
+  | 'context___locale'
   | 'context___fileId'
   | 'context___blogPostId'
   | 'context___blogPath'
   | 'context___frontmatter___name'
   | 'context___frontmatter___tags'
-  | 'context___slug'
   | 'pluginCreator___id'
   | 'pluginCreator___parent___id'
   | 'pluginCreator___parent___parent___id'
@@ -28822,38 +29981,36 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___spaceId'
   | 'pluginCreator___pluginOptions___accessToken'
   | 'pluginCreator___pluginOptions___environment'
+  | 'pluginCreator___pluginOptions___isTSX'
+  | 'pluginCreator___pluginOptions___jsxPragma'
+  | 'pluginCreator___pluginOptions___allExtensions'
   | 'pluginCreator___pluginOptions___fileName'
-  | 'pluginCreator___pluginOptions___tsLoader___configFile'
-  | 'pluginCreator___pluginOptions___tsLoader___logLevel'
-  | 'pluginCreator___pluginOptions___tsLoader___transpileOnly'
-  | 'pluginCreator___pluginOptions___tsLoader___projectReferences'
-  | 'pluginCreator___pluginOptions___typeCheck'
-  | 'pluginCreator___pluginOptions___failOnError'
   | 'pluginCreator___pluginOptions___documentPaths'
   | 'pluginCreator___pluginOptions___path'
   | 'pluginCreator___pluginOptions___ignore'
-  | 'pluginCreator___pluginOptions___base64Width'
-  | 'pluginCreator___pluginOptions___stripMetadata'
-  | 'pluginCreator___pluginOptions___defaultQuality'
   | 'pluginCreator___pluginOptions___extensions'
-  | 'pluginCreator___pluginOptions___mediaTypes'
+  | 'pluginCreator___pluginOptions___gatsbyRemarkPlugins'
+  | 'pluginCreator___pluginOptions___gatsbyRemarkPlugins___resolve'
+  | 'pluginCreator___pluginOptions___remarkPlugins'
+  | 'pluginCreator___pluginOptions___remarkPlugins___target'
+  | 'pluginCreator___pluginOptions___remarkPlugins___rel'
+  | 'pluginCreator___pluginOptions___rehypePlugins'
   | 'pluginCreator___pluginOptions___createLinkInHead'
-  | 'pluginCreator___pluginOptions___output'
   | 'pluginCreator___pluginOptions___host'
   | 'pluginCreator___pluginOptions___sitemap'
+  | 'pluginCreator___pluginOptions___output'
   | 'pluginCreator___pluginOptions___headers____x'
   | 'pluginCreator___pluginOptions___mergeSecurityHeaders'
   | 'pluginCreator___pluginOptions___mergeLinkHeaders'
   | 'pluginCreator___pluginOptions___mergeCachingHeaders'
   | 'pluginCreator___pluginOptions___generateMatchPathRewrites'
   | 'pluginCreator___pluginOptions___id'
-  | 'pluginCreator___pluginOptions___includeInDevelopment'
-  | 'pluginCreator___pluginOptions___routeChangeEventName'
   | 'pluginCreator___pluginOptions___packageName'
+  | 'pluginCreator___pluginOptions___locales'
+  | 'pluginCreator___pluginOptions___features___blog'
+  | 'pluginCreator___pluginOptions___features___portfolio'
+  | 'pluginCreator___pluginOptions___modules'
   | 'pluginCreator___pluginOptions___pathCheck'
-  | 'pluginCreator___pluginOptions___allExtensions'
-  | 'pluginCreator___pluginOptions___isTSX'
-  | 'pluginCreator___pluginOptions___jsxPragma'
   | 'pluginCreator___nodeAPIs'
   | 'pluginCreator___browserAPIs'
   | 'pluginCreator___ssrAPIs'
@@ -29061,25 +30218,32 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___spaceId'
   | 'pluginOptions___accessToken'
   | 'pluginOptions___environment'
+  | 'pluginOptions___isTSX'
+  | 'pluginOptions___jsxPragma'
+  | 'pluginOptions___allExtensions'
   | 'pluginOptions___fileName'
-  | 'pluginOptions___tsLoader___configFile'
-  | 'pluginOptions___tsLoader___logLevel'
-  | 'pluginOptions___tsLoader___transpileOnly'
-  | 'pluginOptions___tsLoader___projectReferences'
-  | 'pluginOptions___typeCheck'
-  | 'pluginOptions___failOnError'
   | 'pluginOptions___documentPaths'
   | 'pluginOptions___path'
   | 'pluginOptions___ignore'
-  | 'pluginOptions___base64Width'
-  | 'pluginOptions___stripMetadata'
-  | 'pluginOptions___defaultQuality'
   | 'pluginOptions___extensions'
-  | 'pluginOptions___mediaTypes'
+  | 'pluginOptions___gatsbyRemarkPlugins'
+  | 'pluginOptions___gatsbyRemarkPlugins___resolve'
+  | 'pluginOptions___gatsbyRemarkPlugins___options___classPrefix'
+  | 'pluginOptions___gatsbyRemarkPlugins___options___showLineNumbers'
+  | 'pluginOptions___gatsbyRemarkPlugins___options___noInlineHighlight'
+  | 'pluginOptions___gatsbyRemarkPlugins___options___maxWidth'
+  | 'pluginOptions___remarkPlugins'
+  | 'pluginOptions___remarkPlugins___target'
+  | 'pluginOptions___remarkPlugins___rel'
+  | 'pluginOptions___rehypePlugins'
+  | 'pluginOptions___rehypePlugins___properties___className'
+  | 'pluginOptions___rehypePlugins___content___type'
+  | 'pluginOptions___rehypePlugins___content___tagName'
+  | 'pluginOptions___rehypePlugins___content___children'
   | 'pluginOptions___createLinkInHead'
-  | 'pluginOptions___output'
   | 'pluginOptions___host'
   | 'pluginOptions___sitemap'
+  | 'pluginOptions___output'
   | 'pluginOptions___env___local___policy'
   | 'pluginOptions___env___dev___policy'
   | 'pluginOptions___env___staging___policy'
@@ -29090,13 +30254,12 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___mergeCachingHeaders'
   | 'pluginOptions___generateMatchPathRewrites'
   | 'pluginOptions___id'
-  | 'pluginOptions___includeInDevelopment'
-  | 'pluginOptions___routeChangeEventName'
   | 'pluginOptions___packageName'
+  | 'pluginOptions___locales'
+  | 'pluginOptions___features___blog'
+  | 'pluginOptions___features___portfolio'
+  | 'pluginOptions___modules'
   | 'pluginOptions___pathCheck'
-  | 'pluginOptions___allExtensions'
-  | 'pluginOptions___isTSX'
-  | 'pluginOptions___jsxPragma'
   | 'nodeAPIs'
   | 'browserAPIs'
   | 'ssrAPIs'
@@ -29224,22 +30387,21 @@ export type SitePluginPluginOptions = {
   spaceId?: Maybe<Scalars['String']>;
   accessToken?: Maybe<Scalars['String']>;
   environment?: Maybe<Scalars['String']>;
+  isTSX?: Maybe<Scalars['Boolean']>;
+  jsxPragma?: Maybe<Scalars['String']>;
+  allExtensions?: Maybe<Scalars['Boolean']>;
   fileName?: Maybe<Scalars['String']>;
-  tsLoader?: Maybe<SitePluginPluginOptionsTsLoader>;
-  typeCheck?: Maybe<Scalars['Boolean']>;
-  failOnError?: Maybe<Scalars['Boolean']>;
   documentPaths?: Maybe<Array<Maybe<Scalars['String']>>>;
   path?: Maybe<Scalars['String']>;
   ignore?: Maybe<Array<Maybe<Scalars['String']>>>;
-  base64Width?: Maybe<Scalars['Int']>;
-  stripMetadata?: Maybe<Scalars['Boolean']>;
-  defaultQuality?: Maybe<Scalars['Int']>;
   extensions?: Maybe<Array<Maybe<Scalars['String']>>>;
-  mediaTypes?: Maybe<Array<Maybe<Scalars['String']>>>;
+  gatsbyRemarkPlugins?: Maybe<Array<Maybe<SitePluginPluginOptionsGatsbyRemarkPlugins>>>;
+  remarkPlugins?: Maybe<Array<Maybe<Array<Maybe<SitePluginPluginOptionsRemarkPlugins>>>>>;
+  rehypePlugins?: Maybe<Array<Maybe<Array<Maybe<SitePluginPluginOptionsRehypePlugins>>>>>;
   createLinkInHead?: Maybe<Scalars['Boolean']>;
-  output?: Maybe<Scalars['String']>;
   host?: Maybe<Scalars['String']>;
   sitemap?: Maybe<Scalars['String']>;
+  output?: Maybe<Scalars['String']>;
   env?: Maybe<SitePluginPluginOptionsEnv>;
   headers?: Maybe<SitePluginPluginOptionsHeaders>;
   mergeSecurityHeaders?: Maybe<Scalars['Boolean']>;
@@ -29247,13 +30409,11 @@ export type SitePluginPluginOptions = {
   mergeCachingHeaders?: Maybe<Scalars['Boolean']>;
   generateMatchPathRewrites?: Maybe<Scalars['Boolean']>;
   id?: Maybe<Scalars['String']>;
-  includeInDevelopment?: Maybe<Scalars['Boolean']>;
-  routeChangeEventName?: Maybe<Scalars['String']>;
   packageName?: Maybe<Scalars['String']>;
+  locales?: Maybe<Array<Maybe<Scalars['String']>>>;
+  features?: Maybe<SitePluginPluginOptionsFeatures>;
+  modules?: Maybe<Array<Maybe<Scalars['String']>>>;
   pathCheck?: Maybe<Scalars['Boolean']>;
-  allExtensions?: Maybe<Scalars['Boolean']>;
-  isTSX?: Maybe<Scalars['Boolean']>;
-  jsxPragma?: Maybe<Scalars['String']>;
 };
 
 export type SitePluginPluginOptionsEnv = {
@@ -29358,6 +30518,16 @@ export type SitePluginPluginOptionsEnvStagingPolicyFilterListInput = {
   elemMatch?: Maybe<SitePluginPluginOptionsEnvStagingPolicyFilterInput>;
 };
 
+export type SitePluginPluginOptionsFeatures = {
+  blog?: Maybe<Scalars['Boolean']>;
+  portfolio?: Maybe<Scalars['Boolean']>;
+};
+
+export type SitePluginPluginOptionsFeaturesFilterInput = {
+  blog?: Maybe<BooleanQueryOperatorInput>;
+  portfolio?: Maybe<BooleanQueryOperatorInput>;
+};
+
 export type SitePluginPluginOptionsFilterInput = {
   name?: Maybe<StringQueryOperatorInput>;
   short_name?: Maybe<StringQueryOperatorInput>;
@@ -29374,22 +30544,21 @@ export type SitePluginPluginOptionsFilterInput = {
   spaceId?: Maybe<StringQueryOperatorInput>;
   accessToken?: Maybe<StringQueryOperatorInput>;
   environment?: Maybe<StringQueryOperatorInput>;
+  isTSX?: Maybe<BooleanQueryOperatorInput>;
+  jsxPragma?: Maybe<StringQueryOperatorInput>;
+  allExtensions?: Maybe<BooleanQueryOperatorInput>;
   fileName?: Maybe<StringQueryOperatorInput>;
-  tsLoader?: Maybe<SitePluginPluginOptionsTsLoaderFilterInput>;
-  typeCheck?: Maybe<BooleanQueryOperatorInput>;
-  failOnError?: Maybe<BooleanQueryOperatorInput>;
   documentPaths?: Maybe<StringQueryOperatorInput>;
   path?: Maybe<StringQueryOperatorInput>;
   ignore?: Maybe<StringQueryOperatorInput>;
-  base64Width?: Maybe<IntQueryOperatorInput>;
-  stripMetadata?: Maybe<BooleanQueryOperatorInput>;
-  defaultQuality?: Maybe<IntQueryOperatorInput>;
   extensions?: Maybe<StringQueryOperatorInput>;
-  mediaTypes?: Maybe<StringQueryOperatorInput>;
+  gatsbyRemarkPlugins?: Maybe<SitePluginPluginOptionsGatsbyRemarkPluginsFilterListInput>;
+  remarkPlugins?: Maybe<SitePluginPluginOptionsRemarkPluginsFilterListInput>;
+  rehypePlugins?: Maybe<SitePluginPluginOptionsRehypePluginsFilterListInput>;
   createLinkInHead?: Maybe<BooleanQueryOperatorInput>;
-  output?: Maybe<StringQueryOperatorInput>;
   host?: Maybe<StringQueryOperatorInput>;
   sitemap?: Maybe<StringQueryOperatorInput>;
+  output?: Maybe<StringQueryOperatorInput>;
   env?: Maybe<SitePluginPluginOptionsEnvFilterInput>;
   headers?: Maybe<SitePluginPluginOptionsHeadersFilterInput>;
   mergeSecurityHeaders?: Maybe<BooleanQueryOperatorInput>;
@@ -29397,13 +30566,39 @@ export type SitePluginPluginOptionsFilterInput = {
   mergeCachingHeaders?: Maybe<BooleanQueryOperatorInput>;
   generateMatchPathRewrites?: Maybe<BooleanQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
-  includeInDevelopment?: Maybe<BooleanQueryOperatorInput>;
-  routeChangeEventName?: Maybe<StringQueryOperatorInput>;
   packageName?: Maybe<StringQueryOperatorInput>;
+  locales?: Maybe<StringQueryOperatorInput>;
+  features?: Maybe<SitePluginPluginOptionsFeaturesFilterInput>;
+  modules?: Maybe<StringQueryOperatorInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;
-  allExtensions?: Maybe<BooleanQueryOperatorInput>;
-  isTSX?: Maybe<BooleanQueryOperatorInput>;
-  jsxPragma?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsGatsbyRemarkPlugins = {
+  resolve?: Maybe<Scalars['String']>;
+  options?: Maybe<SitePluginPluginOptionsGatsbyRemarkPluginsOptions>;
+};
+
+export type SitePluginPluginOptionsGatsbyRemarkPluginsFilterInput = {
+  resolve?: Maybe<StringQueryOperatorInput>;
+  options?: Maybe<SitePluginPluginOptionsGatsbyRemarkPluginsOptionsFilterInput>;
+};
+
+export type SitePluginPluginOptionsGatsbyRemarkPluginsFilterListInput = {
+  elemMatch?: Maybe<SitePluginPluginOptionsGatsbyRemarkPluginsFilterInput>;
+};
+
+export type SitePluginPluginOptionsGatsbyRemarkPluginsOptions = {
+  classPrefix?: Maybe<Scalars['String']>;
+  showLineNumbers?: Maybe<Scalars['Boolean']>;
+  noInlineHighlight?: Maybe<Scalars['Boolean']>;
+  maxWidth?: Maybe<Scalars['Int']>;
+};
+
+export type SitePluginPluginOptionsGatsbyRemarkPluginsOptionsFilterInput = {
+  classPrefix?: Maybe<StringQueryOperatorInput>;
+  showLineNumbers?: Maybe<BooleanQueryOperatorInput>;
+  noInlineHighlight?: Maybe<BooleanQueryOperatorInput>;
+  maxWidth?: Maybe<IntQueryOperatorInput>;
 };
 
 export type SitePluginPluginOptionsHeaders = {
@@ -29414,18 +30609,76 @@ export type SitePluginPluginOptionsHeadersFilterInput = {
   _x?: Maybe<StringQueryOperatorInput>;
 };
 
-export type SitePluginPluginOptionsTsLoader = {
-  configFile?: Maybe<Scalars['String']>;
-  logLevel?: Maybe<Scalars['String']>;
-  transpileOnly?: Maybe<Scalars['Boolean']>;
-  projectReferences?: Maybe<Scalars['Boolean']>;
+export type SitePluginPluginOptionsRehypePlugins = {
+  properties?: Maybe<SitePluginPluginOptionsRehypePluginsProperties>;
+  content?: Maybe<SitePluginPluginOptionsRehypePluginsContent>;
 };
 
-export type SitePluginPluginOptionsTsLoaderFilterInput = {
-  configFile?: Maybe<StringQueryOperatorInput>;
-  logLevel?: Maybe<StringQueryOperatorInput>;
-  transpileOnly?: Maybe<BooleanQueryOperatorInput>;
-  projectReferences?: Maybe<BooleanQueryOperatorInput>;
+export type SitePluginPluginOptionsRehypePluginsContent = {
+  type?: Maybe<Scalars['String']>;
+  tagName?: Maybe<Scalars['String']>;
+  properties?: Maybe<SitePluginPluginOptionsRehypePluginsContentProperties>;
+  children?: Maybe<Array<Maybe<SitePluginPluginOptionsRehypePluginsContentChildren>>>;
+};
+
+export type SitePluginPluginOptionsRehypePluginsContentChildren = {
+  type?: Maybe<Scalars['String']>;
+  value?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsRehypePluginsContentChildrenFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  value?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsRehypePluginsContentChildrenFilterListInput = {
+  elemMatch?: Maybe<SitePluginPluginOptionsRehypePluginsContentChildrenFilterInput>;
+};
+
+export type SitePluginPluginOptionsRehypePluginsContentFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  tagName?: Maybe<StringQueryOperatorInput>;
+  properties?: Maybe<SitePluginPluginOptionsRehypePluginsContentPropertiesFilterInput>;
+  children?: Maybe<SitePluginPluginOptionsRehypePluginsContentChildrenFilterListInput>;
+};
+
+export type SitePluginPluginOptionsRehypePluginsContentProperties = {
+  className?: Maybe<Array<Maybe<Scalars['String']>>>;
+};
+
+export type SitePluginPluginOptionsRehypePluginsContentPropertiesFilterInput = {
+  className?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsRehypePluginsFilterInput = {
+  properties?: Maybe<SitePluginPluginOptionsRehypePluginsPropertiesFilterInput>;
+  content?: Maybe<SitePluginPluginOptionsRehypePluginsContentFilterInput>;
+};
+
+export type SitePluginPluginOptionsRehypePluginsFilterListInput = {
+  elemMatch?: Maybe<SitePluginPluginOptionsRehypePluginsFilterInput>;
+};
+
+export type SitePluginPluginOptionsRehypePluginsProperties = {
+  className?: Maybe<Array<Maybe<Scalars['String']>>>;
+};
+
+export type SitePluginPluginOptionsRehypePluginsPropertiesFilterInput = {
+  className?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsRemarkPlugins = {
+  target?: Maybe<Scalars['String']>;
+  rel?: Maybe<Array<Maybe<Scalars['String']>>>;
+};
+
+export type SitePluginPluginOptionsRemarkPluginsFilterInput = {
+  target?: Maybe<StringQueryOperatorInput>;
+  rel?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsRemarkPluginsFilterListInput = {
+  elemMatch?: Maybe<SitePluginPluginOptionsRemarkPluginsFilterInput>;
 };
 
 export type SitePluginSortInput = {
@@ -29477,6 +30730,28 @@ export type StringQueryOperatorInput = {
   glob?: Maybe<Scalars['String']>;
 };
 
+export type CompanyInfoFragment = (
+  Pick<ContentfulCompanyInfo, 'companyName' | 'linkedinPageURL' | 'facebookPageURL' | 'instagramPageURL' | 'twitterPageURL' | 'metadataTwitterSite' | 'metadataTwitterCreator' | 'metadataSiteName'>
+  & { logo?: Maybe<{ file?: Maybe<Pick<ContentfulAssetFile, 'url'>> }>, logoFooter?: Maybe<{ file?: Maybe<Pick<ContentfulAssetFile, 'url'>> }> }
+);
+
+export type MediaCollectionFragment = (
+  Pick<ContentfulMediaCollection, 'name'>
+  & { medias?: Maybe<Array<Maybe<(
+    { file?: Maybe<Pick<ContentfulAssetFile, 'url'>> }
+    & MobileFluidImageFragment
+  )>>> }
+);
+
+export type MobileFluidImageFragment = { fluid?: Maybe<Pick<ContentfulFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>> };
+
+export type DesktopFluidImageFragment = { fluid?: Maybe<Pick<ContentfulFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>> };
+
+export type SiteMetadataFragment = { siteMetadata?: Maybe<(
+    Pick<SiteSiteMetadata, 'title' | 'description' | 'siteUrl' | 'siteEnv'>
+    & { languages?: Maybe<Pick<SiteSiteMetadataLanguages, 'defaultLangKey' | 'langs'>> }
+  )> };
+
 export type FeaturedPostsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -29494,15 +30769,6 @@ export type BlogPostFragment = (
     & { profilePicture?: Maybe<{ file?: Maybe<Pick<ContentfulAssetFile, 'url'>> }> }
   )>>>, content?: Maybe<{ childMdx?: Maybe<Pick<Mdx, 'tableOfContents' | 'slug' | 'body'>> }> }
 );
-
-export type CompanyInfoFragment = (
-  Pick<ContentfulCompanyInfo, 'companyName' | 'linkedinPageURL' | 'facebookPageURL' | 'instagramPageURL' | 'twitterPageURL' | 'metadataTwitterSite' | 'metadataTwitterCreator' | 'metadataSiteName'>
-  & { logo?: Maybe<{ file?: Maybe<Pick<ContentfulAssetFile, 'url'>> }>, logoFooter?: Maybe<{ file?: Maybe<Pick<ContentfulAssetFile, 'url'>> }> }
-);
-
-export type MobileFluidImageFragment = { fluid?: Maybe<Pick<ContentfulFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>> };
-
-export type DesktopFluidImageFragment = { fluid?: Maybe<Pick<ContentfulFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>> };
 
 export type InfoTileFragment = (
   Pick<ContentfulInfoTile, 'title'>
@@ -29525,17 +30791,9 @@ export type LinkFragment = (
   & { page?: Maybe<Pick<ContentfulPage, 'id' | 'name' | 'slug'>>, section?: Maybe<Array<Maybe<Pick<ContentfulSection, 'id' | 'name'>>>> }
 );
 
-export type MediaCollectionFragment = (
-  Pick<ContentfulMediaCollection, 'name'>
-  & { medias?: Maybe<Array<Maybe<(
-    { file?: Maybe<Pick<ContentfulAssetFile, 'url'>> }
-    & MobileFluidImageFragment
-  )>>> }
-);
-
 export type PageFragmentFragment = (
   Pick<ContentfulPage, 'id' | 'name' | 'node_locale' | 'title' | 'slug' | 'bannerTitle' | 'bannerSubTitle'>
-  & { description?: Maybe<(
+  & { type?: Maybe<Pick<ContentfulPageType, 'type'>>, description?: Maybe<(
     Pick<ContentfulPageDescriptionTextNode, 'description'>
     & { childMdx?: Maybe<Pick<Mdx, 'body'>> }
   )>, bannerImages?: Maybe<(
@@ -29560,7 +30818,7 @@ export type SectionFragment = (
   )>, illustration?: Maybe<(
     Pick<ContentfulAsset, 'title'>
     & { file?: Maybe<Pick<ContentfulAssetFile, 'url' | 'fileName'>> }
-  )>, medias?: Maybe<{ medias?: Maybe<Array<Maybe<{ file?: Maybe<Pick<ContentfulAssetFile, 'url'>>, desktopFluidImage?: Maybe<Pick<ContentfulFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>>, mobileFluidImage?: Maybe<Pick<ContentfulFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>> }>>> }>, infoTiles?: Maybe<Array<Maybe<InfoTileFragment>>>, infoChecks?: Maybe<Array<Maybe<Pick<ContentfulInfoCheck, 'id' | 'text'>>>>, jobGroup?: Maybe<Array<Maybe<JobGroupFragment>>>, processStep?: Maybe<Array<Maybe<ProcessStepFragmentFragment>>>, blogPosts?: Maybe<Array<Maybe<BlogPostFragment>>>, subSections?: Maybe<Array<Maybe<(
+  )>, medias?: Maybe<{ medias?: Maybe<Array<Maybe<{ file?: Maybe<Pick<ContentfulAssetFile, 'url'>>, desktopFluidImage?: Maybe<Pick<ContentfulFluid, 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>>, mobileFluidImage?: Maybe<Pick<ContentfulFluid, 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>> }>>> }>, infoTiles?: Maybe<Array<Maybe<InfoTileFragment>>>, infoChecks?: Maybe<Array<Maybe<Pick<ContentfulInfoCheck, 'id' | 'text'>>>>, jobGroup?: Maybe<Array<Maybe<JobGroupFragment>>>, processStep?: Maybe<Array<Maybe<ProcessStepFragmentFragment>>>, blogPosts?: Maybe<Array<Maybe<BlogPostFragment>>>, subSections?: Maybe<Array<Maybe<(
     Pick<ContentfulSection, 'name' | 'title' | 'titleHighlight' | 'subTitle' | 'imagePosition'>
     & { type?: Maybe<SectionTypeFragment>, link?: Maybe<LinkFragment>, text?: Maybe<(
       Pick<ContentfulSectionTextTextNode, 'text'>
@@ -29572,11 +30830,6 @@ export type SectionFragment = (
   )>>> }
 );
 
-export type SiteMetadataFragment = { siteMetadata?: Maybe<(
-    Pick<SiteSiteMetadata, 'title' | 'description' | 'siteUrl' | 'siteEnv'>
-    & { languages?: Maybe<Pick<SiteSiteMetadataLanguages, 'defaultLangKey' | 'langs'>> }
-  )> };
-
 export type SectionTypeFragment = (
   Pick<ContentfulSectionType, 'name'>
   & { preview?: Maybe<{ file?: Maybe<Pick<ContentfulAssetFile, 'url'>> }>, description?: Maybe<(
@@ -29584,6 +30837,14 @@ export type SectionTypeFragment = (
     & { childMdx?: Maybe<Pick<Mdx, 'body'>> }
   )> }
 );
+
+export type NavigationQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type NavigationQuery = { site?: Maybe<SiteMetadataFragment>, contentfulCompanyInfo?: Maybe<CompanyInfoFragment>, allContentfulPage: { edges: Array<{ node: (
+        Pick<ContentfulPage, 'id' | 'name' | 'node_locale' | 'title' | 'slug'>
+        & { type?: Maybe<Pick<ContentfulPageType, 'type'>>, description?: Maybe<Pick<ContentfulPageDescriptionTextNode, 'description'>> }
+      ) }> } };
 
 export type BlogPostPageQueryVariables = Exact<{
   blogPostId?: Maybe<Scalars['String']>;
@@ -29612,25 +30873,5 @@ export type PageQueryVariables = Exact<{
 
 export type PageQuery = { site?: Maybe<SiteMetadataFragment>, contentfulCompanyInfo?: Maybe<CompanyInfoFragment>, allContentfulPage: { edges: Array<{ node: (
         Pick<ContentfulPage, 'id' | 'name' | 'node_locale' | 'title' | 'slug'>
-        & { description?: Maybe<Pick<ContentfulPageDescriptionTextNode, 'description'>> }
+        & { type?: Maybe<Pick<ContentfulPageType, 'type'>>, description?: Maybe<Pick<ContentfulPageDescriptionTextNode, 'description'>> }
       ) }> }, contentfulPage?: Maybe<PageFragmentFragment> };
-
-export type GatsbyNodeAllSiteQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type GatsbyNodeAllSiteQuery = { site?: Maybe<{ siteMetadata?: Maybe<GatsbyNodeSiteMetadataFragment> }> };
-
-export type GatsbyNodeSiteMetadataFragment = (
-  Pick<SiteSiteMetadata, 'title' | 'description' | 'siteEnv' | 'siteUrl'>
-  & { languages?: Maybe<Pick<SiteSiteMetadataLanguages, 'langs' | 'defaultLangKey'>> }
-);
-
-export type GatsbyNodePagesQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type GatsbyNodePagesQuery = { allContentfulPage: { edges: Array<{ node: Pick<ContentfulPage, 'node_locale' | 'id' | 'name' | 'slug'> }> } };
-
-export type GatsbyNodeBlogPostsQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type GatsbyNodeBlogPostsQuery = { allContentfulBlogPost: { edges: Array<{ node: Pick<ContentfulBlogPost, 'node_locale' | 'id' | 'blogSlug'> }> } };

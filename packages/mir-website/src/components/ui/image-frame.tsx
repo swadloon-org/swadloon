@@ -137,11 +137,9 @@ export const ImageFrame: React.FC<OwnProps & HTMLAttributes<any>> = (props) => {
       }
       default: {
         return (
-          <LazyLoad>
-            <div className={`${styles.content} ${styles[props?.variant]}`}>
-              <div className={`${styles.image}`} style={{ backgroundImage: `url(${props?.url})` }} />
-            </div>
-          </LazyLoad>
+          <div className={`${styles.content} ${styles[props?.variant]}`}>
+            <GatsbyImage className={`${styles.image}`} fluid={props?.fluid as FluidObject}></GatsbyImage>
+          </div>
         );
       }
     }

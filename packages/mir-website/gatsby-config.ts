@@ -16,14 +16,24 @@ logEnvVariables({ packageName: packageJson.name, env });
  * @see https://www.gatsbyjs.org/docs/gatsby-config/
  */
 const config: core.GastbySiteConfig = {
+  flags: {
+    PRESERVE_WEBPACK_CACHE: Boolean(env.GATSBY_PRESERVE_WEBPACK_CACHE),
+    PRESERVE_FILE_DOWNLOAD_CACHE: Boolean(env.GATSBY_PRESERVE_FILE_DOWNLOAD_CACHE),
+    QUERY_ON_DEMAND: Boolean(env.GATSBY_QUERY_ON_DEMAND),
+    LAZY_IMAGES: Boolean(env.GATSBY_LAZY_IMAGES),
+    PARALLEL_SOURCING: Boolean(env.GATSBY_PARALLEL_SOURCING),
+    DEV_SSR: Boolean(env.GATSBY_DEV_SSR),
+    FAST_DEV: Boolean(env.GATSBY_FAST_DEV),
+    FAST_REFRESH: Boolean(env.GATSBY_FAST_REFRESH),
+  },
   siteMetadata: {
     title: `MIR Website`,
     description: `Gatsby powered MIR website`,
     siteUrl: env.APP_URL,
     siteEnv: env.APP_ENV,
     languages: {
-      langs: [core.SITE_LANGUAGES.FR, core.SITE_LANGUAGES.EN],
-      defaultLangKey: core.SITE_LANGUAGES.FR,
+      langs: [core.SITE_LANGUAGES.FR_CA, core.SITE_LANGUAGES.EN_CA],
+      defaultLangKey: core.SITE_LANGUAGES.FR_CA,
     },
   },
   plugins: [
@@ -53,14 +63,16 @@ const config: core.GastbySiteConfig = {
     /**
      * Core Plugins
      */
-    core.getGatsbyTsPluginConfig(),
+    ...core.getGatsbyPluginTypeScriptConfig({
+      documentPaths: ['../core-gatsby-ui/src/**/*.{ts,tsx}', './src/**/*.{ts,tsx}'],
+    }),
     core.getGatsbyReactSvgConfig(),
     ...core.getGastbyPluginPageCreatorConfig(),
     core.getGastbyPluginTreatConfig(),
     core.getGatsbyTransformerSharp(),
     core.getGatsbyPluginSharp(),
     core.getGastbyPluginTreatConfig(),
-    core.getGatsbyPluginMdx(),
+    ...core.getGatsbyPluginMdx(),
     core.getGatsbyImageFolder(),
     core.getGatsbyPluginReactHelmet(),
     core.getGatsbyPluginSitemap(),
@@ -70,8 +82,16 @@ const config: core.GastbySiteConfig = {
     core.getGatsbyPluginGoogleTagmanager({
       googleTagId: 'GTM-T4LK3QF',
     }),
+    core.getGastbyCoreContentfulPluginConfig({
+      packageName: packageJson.name,
+      features: {
+        blog: true,
+        portfolio: false,
+      },
+    }),
     core.getGastbyCorePluginConfig({
       packageName: packageJson.name,
+      modules: ['@newrade/core-gatsby-config', '@newrade/core-gatsby-ui'],
     }),
     /**
      * gatsby-plugin-csp

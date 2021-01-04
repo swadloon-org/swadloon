@@ -21,7 +21,8 @@ export const Box: React.FC<OwnProps> = ({
   padding = '',
   gap = '',
   maxWidth = '',
-  textAlign = ['justify', 'justify', 'justify'],
+  textAlign = ['left', 'left', 'left'],
+
   ...props
 }) => {
   const { styles } = useStyles(styleRefs);
@@ -30,22 +31,18 @@ export const Box: React.FC<OwnProps> = ({
   const [paddingTop, paddingRight, paddingBottom, paddingLeft] = padding;
   const paddingDefault = typeof padding === 'string' ? padding : undefined;
 
-  return React.createElement(
-    as,
-    {
-      className: `${className || ''} ${styles.wrapper}`,
-      style: {
-        ...style,
-        gap,
-        padding: paddingDefault ? `${paddingDefault}` : `${paddingTop} ${paddingRight} ${paddingBottom} ${paddingLeft}`,
-        maxWidth,
-        // @ts-ignore
-        '--mobileTextAlign': mobileTextAlign,
-        '--tabletTextAlign': tabletTextAlign,
-        '--desktopTextAlign': desktopTextAlign,
-      },
-      ...props,
+  return React.createElement(as, {
+    className: `${className || ''} ${styles.wrapper}`,
+    style: {
+      ...style,
+      gap,
+      padding: paddingDefault ? `${paddingDefault}` : `${paddingTop} ${paddingRight} ${paddingBottom} ${paddingLeft}`,
+      maxWidth,
+      // @ts-ignore
+      '--mobileTextAlign': mobileTextAlign,
+      '--tabletTextAlign': tabletTextAlign,
+      '--desktopTextAlign': desktopTextAlign,
     },
-    <>{props.children}</>
-  );
+    ...props,
+  });
 };

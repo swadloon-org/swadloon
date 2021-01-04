@@ -16,6 +16,16 @@ logEnvVariables({ packageName: packageJson.name, env });
  * @see https://www.gatsbyjs.org/docs/gatsby-config/
  */
 const config: core.GastbySiteConfig = {
+  flags: {
+    PRESERVE_WEBPACK_CACHE: Boolean(env.GATSBY_PRESERVE_WEBPACK_CACHE),
+    PRESERVE_FILE_DOWNLOAD_CACHE: Boolean(env.GATSBY_PRESERVE_FILE_DOWNLOAD_CACHE),
+    QUERY_ON_DEMAND: Boolean(env.GATSBY_QUERY_ON_DEMAND),
+    LAZY_IMAGES: Boolean(env.GATSBY_LAZY_IMAGES),
+    PARALLEL_SOURCING: Boolean(env.GATSBY_PARALLEL_SOURCING),
+    DEV_SSR: Boolean(env.GATSBY_DEV_SSR),
+    FAST_DEV: Boolean(env.GATSBY_FAST_DEV),
+    FAST_REFRESH: Boolean(env.GATSBY_FAST_REFRESH),
+  },
   siteMetadata: {
     title: `VSB Website`,
     description: `Gatsby powered MIR website`,
@@ -31,6 +41,18 @@ const config: core.GastbySiteConfig = {
      * Project Specific Plugins
      */
     {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Vasectomie Dr. Pierre Jr. Boucher`,
+        short_name: `Vasectomie Dr. Pierre Jr. Boucher`,
+        start_url: `/`,
+        background_color: `#ffffff`,
+        theme_color: `#7c997d`,
+        display: `standalone`,
+        icon: `src/images/favicon.png`,
+      },
+    },
+    {
       resolve: `gatsby-source-contentful`,
       options: {
         spaceId: env.CONTENTFUL_SPACEID_VSB,
@@ -41,22 +63,34 @@ const config: core.GastbySiteConfig = {
     /**
      * Core Plugins
      */
-    core.getGatsbyTsPluginConfig(),
+    ...core.getGatsbyPluginTypeScriptConfig({
+      documentPaths: ['../core-gatsby-ui/src/**/*.{ts,tsx}', './src/**/*.{ts,tsx}'],
+    }),
     core.getGatsbyReactSvgConfig(),
     ...core.getGastbyPluginPageCreatorConfig(),
     core.getGastbyPluginTreatConfig(),
     core.getGatsbyTransformerSharp(),
     core.getGatsbyPluginSharp(),
     core.getGastbyPluginTreatConfig(),
-    core.getGatsbyPluginMdx(),
+    ...core.getGatsbyPluginMdx(),
     core.getGatsbyImageFolder(),
     core.getGatsbyPluginReactHelmet(),
     core.getGatsbyPluginSitemap(),
     core.getGatsbyPluginRobotsTxt({ env }),
     core.getGatsbyNetlifyPlugin(),
+    core.getGastbyCoreContentfulPluginConfig({
+      packageName: packageJson.name,
+      locales: ['fr-CA'],
+      features: {
+        blog: false,
+        portfolio: false,
+      },
+    }),
     core.getGastbyCorePluginConfig({
       packageName: packageJson.name,
+      modules: ['@newrade/core-gatsby-config', '@newrade/core-gatsby-ui'],
     }),
+
     // core.getGatsbyPluginPreloadFonts(),
   ],
 };

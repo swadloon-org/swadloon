@@ -2489,6 +2489,9 @@ export type QueryAllDirectoryArgs = {
 export type QuerySiteArgs = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  port?: Maybe<IntQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
+  flags?: Maybe<SiteFlagsFilterInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -2678,6 +2681,9 @@ export type QueryAllSitePluginArgs = {
 export type Site = Node & {
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
+  port?: Maybe<Scalars['Int']>;
+  host?: Maybe<Scalars['String']>;
+  flags?: Maybe<SiteFlags>;
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
@@ -2883,6 +2889,16 @@ export type SiteFieldsEnum =
   | 'siteMetadata___siteEnv'
   | 'siteMetadata___languages___langs'
   | 'siteMetadata___languages___defaultLangKey'
+  | 'port'
+  | 'host'
+  | 'flags___PRESERVE_WEBPACK_CACHE'
+  | 'flags___PRESERVE_FILE_DOWNLOAD_CACHE'
+  | 'flags___QUERY_ON_DEMAND'
+  | 'flags___LAZY_IMAGES'
+  | 'flags___PARALLEL_SOURCING'
+  | 'flags___DEV_SSR'
+  | 'flags___FAST_DEV'
+  | 'flags___FAST_REFRESH'
   | 'polyfill'
   | 'pathPrefix'
   | 'id'
@@ -2975,12 +2991,37 @@ export type SiteFieldsEnum =
 export type SiteFilterInput = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  port?: Maybe<IntQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
+  flags?: Maybe<SiteFlagsFilterInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
+};
+
+export type SiteFlags = {
+  PRESERVE_WEBPACK_CACHE?: Maybe<Scalars['Boolean']>;
+  PRESERVE_FILE_DOWNLOAD_CACHE?: Maybe<Scalars['Boolean']>;
+  QUERY_ON_DEMAND?: Maybe<Scalars['Boolean']>;
+  LAZY_IMAGES?: Maybe<Scalars['Boolean']>;
+  PARALLEL_SOURCING?: Maybe<Scalars['Boolean']>;
+  DEV_SSR?: Maybe<Scalars['Boolean']>;
+  FAST_DEV?: Maybe<Scalars['Boolean']>;
+  FAST_REFRESH?: Maybe<Scalars['Boolean']>;
+};
+
+export type SiteFlagsFilterInput = {
+  PRESERVE_WEBPACK_CACHE?: Maybe<BooleanQueryOperatorInput>;
+  PRESERVE_FILE_DOWNLOAD_CACHE?: Maybe<BooleanQueryOperatorInput>;
+  QUERY_ON_DEMAND?: Maybe<BooleanQueryOperatorInput>;
+  LAZY_IMAGES?: Maybe<BooleanQueryOperatorInput>;
+  PARALLEL_SOURCING?: Maybe<BooleanQueryOperatorInput>;
+  DEV_SSR?: Maybe<BooleanQueryOperatorInput>;
+  FAST_DEV?: Maybe<BooleanQueryOperatorInput>;
+  FAST_REFRESH?: Maybe<BooleanQueryOperatorInput>;
 };
 
 export type SiteGroupConnection = {
@@ -3032,17 +3073,23 @@ export type SitePageConnectionGroupArgs = {
 };
 
 export type SitePageContext = {
-  frontmatter?: Maybe<SitePageContextFrontmatter>;
   siteMetadata?: Maybe<SitePageContextSiteMetadata>;
-  slug?: Maybe<Scalars['String']>;
   fileId?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+  frontmatter?: Maybe<SitePageContextFrontmatter>;
+  slug?: Maybe<Scalars['String']>;
 };
 
 export type SitePageContextFilterInput = {
-  frontmatter?: Maybe<SitePageContextFrontmatterFilterInput>;
   siteMetadata?: Maybe<SitePageContextSiteMetadataFilterInput>;
-  slug?: Maybe<StringQueryOperatorInput>;
   fileId?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  name?: Maybe<StringQueryOperatorInput>;
+  locale?: Maybe<StringQueryOperatorInput>;
+  frontmatter?: Maybe<SitePageContextFrontmatterFilterInput>;
+  slug?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePageContextFrontmatter = {
@@ -3184,16 +3231,19 @@ export type SitePageFieldsEnum =
   | 'internal___owner'
   | 'internal___type'
   | 'isCreatedByStatefulCreatePages'
-  | 'context___frontmatter___name'
-  | 'context___frontmatter___tags'
   | 'context___siteMetadata___title'
   | 'context___siteMetadata___description'
   | 'context___siteMetadata___siteEnv'
   | 'context___siteMetadata___siteUrl'
   | 'context___siteMetadata___languages___langs'
   | 'context___siteMetadata___languages___defaultLangKey'
-  | 'context___slug'
   | 'context___fileId'
+  | 'context___id'
+  | 'context___name'
+  | 'context___locale'
+  | 'context___frontmatter___name'
+  | 'context___frontmatter___tags'
+  | 'context___slug'
   | 'pluginCreator___id'
   | 'pluginCreator___parent___id'
   | 'pluginCreator___parent___parent___id'
@@ -3238,26 +3288,25 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___spaceId'
   | 'pluginCreator___pluginOptions___accessToken'
   | 'pluginCreator___pluginOptions___environment'
+  | 'pluginCreator___pluginOptions___isTSX'
+  | 'pluginCreator___pluginOptions___jsxPragma'
+  | 'pluginCreator___pluginOptions___allExtensions'
   | 'pluginCreator___pluginOptions___fileName'
-  | 'pluginCreator___pluginOptions___tsLoader___configFile'
-  | 'pluginCreator___pluginOptions___tsLoader___logLevel'
-  | 'pluginCreator___pluginOptions___tsLoader___transpileOnly'
-  | 'pluginCreator___pluginOptions___tsLoader___projectReferences'
-  | 'pluginCreator___pluginOptions___typeCheck'
-  | 'pluginCreator___pluginOptions___failOnError'
   | 'pluginCreator___pluginOptions___documentPaths'
   | 'pluginCreator___pluginOptions___path'
   | 'pluginCreator___pluginOptions___ignore'
   | 'pluginCreator___pluginOptions___name'
-  | 'pluginCreator___pluginOptions___base64Width'
-  | 'pluginCreator___pluginOptions___stripMetadata'
-  | 'pluginCreator___pluginOptions___defaultQuality'
   | 'pluginCreator___pluginOptions___extensions'
-  | 'pluginCreator___pluginOptions___mediaTypes'
+  | 'pluginCreator___pluginOptions___gatsbyRemarkPlugins'
+  | 'pluginCreator___pluginOptions___gatsbyRemarkPlugins___resolve'
+  | 'pluginCreator___pluginOptions___remarkPlugins'
+  | 'pluginCreator___pluginOptions___remarkPlugins___target'
+  | 'pluginCreator___pluginOptions___remarkPlugins___rel'
+  | 'pluginCreator___pluginOptions___rehypePlugins'
   | 'pluginCreator___pluginOptions___createLinkInHead'
-  | 'pluginCreator___pluginOptions___output'
   | 'pluginCreator___pluginOptions___host'
   | 'pluginCreator___pluginOptions___sitemap'
+  | 'pluginCreator___pluginOptions___output'
   | 'pluginCreator___pluginOptions___headers____x'
   | 'pluginCreator___pluginOptions___mergeSecurityHeaders'
   | 'pluginCreator___pluginOptions___mergeLinkHeaders'
@@ -3265,9 +3314,6 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___generateMatchPathRewrites'
   | 'pluginCreator___pluginOptions___packageName'
   | 'pluginCreator___pluginOptions___pathCheck'
-  | 'pluginCreator___pluginOptions___allExtensions'
-  | 'pluginCreator___pluginOptions___isTSX'
-  | 'pluginCreator___pluginOptions___jsxPragma'
   | 'pluginCreator___nodeAPIs'
   | 'pluginCreator___browserAPIs'
   | 'pluginCreator___ssrAPIs'
@@ -3463,26 +3509,33 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___spaceId'
   | 'pluginOptions___accessToken'
   | 'pluginOptions___environment'
+  | 'pluginOptions___isTSX'
+  | 'pluginOptions___jsxPragma'
+  | 'pluginOptions___allExtensions'
   | 'pluginOptions___fileName'
-  | 'pluginOptions___tsLoader___configFile'
-  | 'pluginOptions___tsLoader___logLevel'
-  | 'pluginOptions___tsLoader___transpileOnly'
-  | 'pluginOptions___tsLoader___projectReferences'
-  | 'pluginOptions___typeCheck'
-  | 'pluginOptions___failOnError'
   | 'pluginOptions___documentPaths'
   | 'pluginOptions___path'
   | 'pluginOptions___ignore'
   | 'pluginOptions___name'
-  | 'pluginOptions___base64Width'
-  | 'pluginOptions___stripMetadata'
-  | 'pluginOptions___defaultQuality'
   | 'pluginOptions___extensions'
-  | 'pluginOptions___mediaTypes'
+  | 'pluginOptions___gatsbyRemarkPlugins'
+  | 'pluginOptions___gatsbyRemarkPlugins___resolve'
+  | 'pluginOptions___gatsbyRemarkPlugins___options___classPrefix'
+  | 'pluginOptions___gatsbyRemarkPlugins___options___showLineNumbers'
+  | 'pluginOptions___gatsbyRemarkPlugins___options___noInlineHighlight'
+  | 'pluginOptions___gatsbyRemarkPlugins___options___maxWidth'
+  | 'pluginOptions___remarkPlugins'
+  | 'pluginOptions___remarkPlugins___target'
+  | 'pluginOptions___remarkPlugins___rel'
+  | 'pluginOptions___rehypePlugins'
+  | 'pluginOptions___rehypePlugins___properties___className'
+  | 'pluginOptions___rehypePlugins___content___type'
+  | 'pluginOptions___rehypePlugins___content___tagName'
+  | 'pluginOptions___rehypePlugins___content___children'
   | 'pluginOptions___createLinkInHead'
-  | 'pluginOptions___output'
   | 'pluginOptions___host'
   | 'pluginOptions___sitemap'
+  | 'pluginOptions___output'
   | 'pluginOptions___env___local___policy'
   | 'pluginOptions___env___dev___policy'
   | 'pluginOptions___env___staging___policy'
@@ -3494,9 +3547,6 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___generateMatchPathRewrites'
   | 'pluginOptions___packageName'
   | 'pluginOptions___pathCheck'
-  | 'pluginOptions___allExtensions'
-  | 'pluginOptions___isTSX'
-  | 'pluginOptions___jsxPragma'
   | 'nodeAPIs'
   | 'browserAPIs'
   | 'ssrAPIs'
@@ -3612,23 +3662,22 @@ export type SitePluginPluginOptions = {
   spaceId?: Maybe<Scalars['String']>;
   accessToken?: Maybe<Scalars['String']>;
   environment?: Maybe<Scalars['String']>;
+  isTSX?: Maybe<Scalars['Boolean']>;
+  jsxPragma?: Maybe<Scalars['String']>;
+  allExtensions?: Maybe<Scalars['Boolean']>;
   fileName?: Maybe<Scalars['String']>;
-  tsLoader?: Maybe<SitePluginPluginOptionsTsLoader>;
-  typeCheck?: Maybe<Scalars['Boolean']>;
-  failOnError?: Maybe<Scalars['Boolean']>;
   documentPaths?: Maybe<Array<Maybe<Scalars['String']>>>;
   path?: Maybe<Scalars['String']>;
   ignore?: Maybe<Array<Maybe<Scalars['String']>>>;
   name?: Maybe<Scalars['String']>;
-  base64Width?: Maybe<Scalars['Int']>;
-  stripMetadata?: Maybe<Scalars['Boolean']>;
-  defaultQuality?: Maybe<Scalars['Int']>;
   extensions?: Maybe<Array<Maybe<Scalars['String']>>>;
-  mediaTypes?: Maybe<Array<Maybe<Scalars['String']>>>;
+  gatsbyRemarkPlugins?: Maybe<Array<Maybe<SitePluginPluginOptionsGatsbyRemarkPlugins>>>;
+  remarkPlugins?: Maybe<Array<Maybe<Array<Maybe<SitePluginPluginOptionsRemarkPlugins>>>>>;
+  rehypePlugins?: Maybe<Array<Maybe<Array<Maybe<SitePluginPluginOptionsRehypePlugins>>>>>;
   createLinkInHead?: Maybe<Scalars['Boolean']>;
-  output?: Maybe<Scalars['String']>;
   host?: Maybe<Scalars['String']>;
   sitemap?: Maybe<Scalars['String']>;
+  output?: Maybe<Scalars['String']>;
   env?: Maybe<SitePluginPluginOptionsEnv>;
   headers?: Maybe<SitePluginPluginOptionsHeaders>;
   mergeSecurityHeaders?: Maybe<Scalars['Boolean']>;
@@ -3637,9 +3686,6 @@ export type SitePluginPluginOptions = {
   generateMatchPathRewrites?: Maybe<Scalars['Boolean']>;
   packageName?: Maybe<Scalars['String']>;
   pathCheck?: Maybe<Scalars['Boolean']>;
-  allExtensions?: Maybe<Scalars['Boolean']>;
-  isTSX?: Maybe<Scalars['Boolean']>;
-  jsxPragma?: Maybe<Scalars['String']>;
 };
 
 export type SitePluginPluginOptionsEnv = {
@@ -3748,23 +3794,22 @@ export type SitePluginPluginOptionsFilterInput = {
   spaceId?: Maybe<StringQueryOperatorInput>;
   accessToken?: Maybe<StringQueryOperatorInput>;
   environment?: Maybe<StringQueryOperatorInput>;
+  isTSX?: Maybe<BooleanQueryOperatorInput>;
+  jsxPragma?: Maybe<StringQueryOperatorInput>;
+  allExtensions?: Maybe<BooleanQueryOperatorInput>;
   fileName?: Maybe<StringQueryOperatorInput>;
-  tsLoader?: Maybe<SitePluginPluginOptionsTsLoaderFilterInput>;
-  typeCheck?: Maybe<BooleanQueryOperatorInput>;
-  failOnError?: Maybe<BooleanQueryOperatorInput>;
   documentPaths?: Maybe<StringQueryOperatorInput>;
   path?: Maybe<StringQueryOperatorInput>;
   ignore?: Maybe<StringQueryOperatorInput>;
   name?: Maybe<StringQueryOperatorInput>;
-  base64Width?: Maybe<IntQueryOperatorInput>;
-  stripMetadata?: Maybe<BooleanQueryOperatorInput>;
-  defaultQuality?: Maybe<IntQueryOperatorInput>;
   extensions?: Maybe<StringQueryOperatorInput>;
-  mediaTypes?: Maybe<StringQueryOperatorInput>;
+  gatsbyRemarkPlugins?: Maybe<SitePluginPluginOptionsGatsbyRemarkPluginsFilterListInput>;
+  remarkPlugins?: Maybe<SitePluginPluginOptionsRemarkPluginsFilterListInput>;
+  rehypePlugins?: Maybe<SitePluginPluginOptionsRehypePluginsFilterListInput>;
   createLinkInHead?: Maybe<BooleanQueryOperatorInput>;
-  output?: Maybe<StringQueryOperatorInput>;
   host?: Maybe<StringQueryOperatorInput>;
   sitemap?: Maybe<StringQueryOperatorInput>;
+  output?: Maybe<StringQueryOperatorInput>;
   env?: Maybe<SitePluginPluginOptionsEnvFilterInput>;
   headers?: Maybe<SitePluginPluginOptionsHeadersFilterInput>;
   mergeSecurityHeaders?: Maybe<BooleanQueryOperatorInput>;
@@ -3773,9 +3818,34 @@ export type SitePluginPluginOptionsFilterInput = {
   generateMatchPathRewrites?: Maybe<BooleanQueryOperatorInput>;
   packageName?: Maybe<StringQueryOperatorInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;
-  allExtensions?: Maybe<BooleanQueryOperatorInput>;
-  isTSX?: Maybe<BooleanQueryOperatorInput>;
-  jsxPragma?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsGatsbyRemarkPlugins = {
+  resolve?: Maybe<Scalars['String']>;
+  options?: Maybe<SitePluginPluginOptionsGatsbyRemarkPluginsOptions>;
+};
+
+export type SitePluginPluginOptionsGatsbyRemarkPluginsFilterInput = {
+  resolve?: Maybe<StringQueryOperatorInput>;
+  options?: Maybe<SitePluginPluginOptionsGatsbyRemarkPluginsOptionsFilterInput>;
+};
+
+export type SitePluginPluginOptionsGatsbyRemarkPluginsFilterListInput = {
+  elemMatch?: Maybe<SitePluginPluginOptionsGatsbyRemarkPluginsFilterInput>;
+};
+
+export type SitePluginPluginOptionsGatsbyRemarkPluginsOptions = {
+  classPrefix?: Maybe<Scalars['String']>;
+  showLineNumbers?: Maybe<Scalars['Boolean']>;
+  noInlineHighlight?: Maybe<Scalars['Boolean']>;
+  maxWidth?: Maybe<Scalars['Int']>;
+};
+
+export type SitePluginPluginOptionsGatsbyRemarkPluginsOptionsFilterInput = {
+  classPrefix?: Maybe<StringQueryOperatorInput>;
+  showLineNumbers?: Maybe<BooleanQueryOperatorInput>;
+  noInlineHighlight?: Maybe<BooleanQueryOperatorInput>;
+  maxWidth?: Maybe<IntQueryOperatorInput>;
 };
 
 export type SitePluginPluginOptionsHeaders = {
@@ -3786,18 +3856,76 @@ export type SitePluginPluginOptionsHeadersFilterInput = {
   _x?: Maybe<StringQueryOperatorInput>;
 };
 
-export type SitePluginPluginOptionsTsLoader = {
-  configFile?: Maybe<Scalars['String']>;
-  logLevel?: Maybe<Scalars['String']>;
-  transpileOnly?: Maybe<Scalars['Boolean']>;
-  projectReferences?: Maybe<Scalars['Boolean']>;
+export type SitePluginPluginOptionsRehypePlugins = {
+  properties?: Maybe<SitePluginPluginOptionsRehypePluginsProperties>;
+  content?: Maybe<SitePluginPluginOptionsRehypePluginsContent>;
 };
 
-export type SitePluginPluginOptionsTsLoaderFilterInput = {
-  configFile?: Maybe<StringQueryOperatorInput>;
-  logLevel?: Maybe<StringQueryOperatorInput>;
-  transpileOnly?: Maybe<BooleanQueryOperatorInput>;
-  projectReferences?: Maybe<BooleanQueryOperatorInput>;
+export type SitePluginPluginOptionsRehypePluginsContent = {
+  type?: Maybe<Scalars['String']>;
+  tagName?: Maybe<Scalars['String']>;
+  properties?: Maybe<SitePluginPluginOptionsRehypePluginsContentProperties>;
+  children?: Maybe<Array<Maybe<SitePluginPluginOptionsRehypePluginsContentChildren>>>;
+};
+
+export type SitePluginPluginOptionsRehypePluginsContentChildren = {
+  type?: Maybe<Scalars['String']>;
+  value?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsRehypePluginsContentChildrenFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  value?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsRehypePluginsContentChildrenFilterListInput = {
+  elemMatch?: Maybe<SitePluginPluginOptionsRehypePluginsContentChildrenFilterInput>;
+};
+
+export type SitePluginPluginOptionsRehypePluginsContentFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  tagName?: Maybe<StringQueryOperatorInput>;
+  properties?: Maybe<SitePluginPluginOptionsRehypePluginsContentPropertiesFilterInput>;
+  children?: Maybe<SitePluginPluginOptionsRehypePluginsContentChildrenFilterListInput>;
+};
+
+export type SitePluginPluginOptionsRehypePluginsContentProperties = {
+  className?: Maybe<Array<Maybe<Scalars['String']>>>;
+};
+
+export type SitePluginPluginOptionsRehypePluginsContentPropertiesFilterInput = {
+  className?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsRehypePluginsFilterInput = {
+  properties?: Maybe<SitePluginPluginOptionsRehypePluginsPropertiesFilterInput>;
+  content?: Maybe<SitePluginPluginOptionsRehypePluginsContentFilterInput>;
+};
+
+export type SitePluginPluginOptionsRehypePluginsFilterListInput = {
+  elemMatch?: Maybe<SitePluginPluginOptionsRehypePluginsFilterInput>;
+};
+
+export type SitePluginPluginOptionsRehypePluginsProperties = {
+  className?: Maybe<Array<Maybe<Scalars['String']>>>;
+};
+
+export type SitePluginPluginOptionsRehypePluginsPropertiesFilterInput = {
+  className?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsRemarkPlugins = {
+  target?: Maybe<Scalars['String']>;
+  rel?: Maybe<Array<Maybe<Scalars['String']>>>;
+};
+
+export type SitePluginPluginOptionsRemarkPluginsFilterInput = {
+  target?: Maybe<StringQueryOperatorInput>;
+  rel?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsRemarkPluginsFilterListInput = {
+  elemMatch?: Maybe<SitePluginPluginOptionsRemarkPluginsFilterInput>;
 };
 
 export type SitePluginSortInput = {
@@ -3848,6 +3976,28 @@ export type StringQueryOperatorInput = {
   regex?: Maybe<Scalars['String']>;
   glob?: Maybe<Scalars['String']>;
 };
+
+export type MobileFluidImageFragment = { fluid?: Maybe<Pick<ContentfulFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>> };
+
+export type DesktopFluidImageFragment = { fluid?: Maybe<Pick<ContentfulFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>> };
+
+export type SiteMetadataFragment = { siteMetadata?: Maybe<(
+    Pick<SiteSiteMetadata, 'title' | 'description' | 'siteUrl' | 'siteEnv'>
+    & { languages?: Maybe<Pick<SiteSiteMetadataLanguages, 'defaultLangKey' | 'langs'>> }
+  )> };
+
+export type LayoutAllSitePageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type LayoutAllSitePageQuery = { pages: { nodes: Array<SitePageFragmentFragment> } };
+
+export type SitePageFragmentFragment = (
+  Pick<SitePage, 'id' | 'path'>
+  & { context?: Maybe<(
+    Pick<SitePageContext, 'id' | 'name' | 'slug' | 'locale'>
+    & { frontmatter?: Maybe<Pick<SitePageContextFrontmatter, 'name' | 'tags'>> }
+  )> }
+);
 
 export type MarkdownTemplateQueryVariables = Exact<{
   slug: Scalars['String'];

@@ -10,6 +10,7 @@ import { SectionFragment } from '../../../types/graphql-types';
 import { LayoutCentered } from '../../layouts/content-centered';
 import { FadeIn } from '../animation/fade-in';
 import { SECTION_IMAGE_POSITION } from '../../templates/section.template';
+import { FluidObject } from 'gatsby-image';
 
 type OwnProps = SectionFragment;
 
@@ -17,14 +18,14 @@ export const InfoSectionType5: React.FC<OwnProps> = (props) => {
   const styles = useStyles(styleRefs);
   const imagePosition = props?.imagePosition as SECTION_IMAGE_POSITION;
   const hasImage = !!props?.medias?.medias?.length;
-  const imageUrl = props?.medias?.medias?.[0]?.file?.url;
+  const imageFluid = props?.medias?.medias?.[0]?.mobileFluidImage;
 
   return (
     <div className={`${styles.wrapper} ${styles.type5} }`}>
       <LayoutCentered reverseOrder={imagePosition === SECTION_IMAGE_POSITION.RIGHT}>
         <FadeIn>
-          {hasImage && imageUrl ? (
-            <ImageFrame variant={'bottomRight'} url={imageUrl} className={`${styles.image}}`} />
+          {hasImage && imageFluid ? (
+            <ImageFrame variant={'bottomRight'} fluid={imageFluid as FluidObject} className={`${styles.image}}`} />
           ) : null}
         </FadeIn>
 

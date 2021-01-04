@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.9.0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/mir-website@1.8.0...@newrade/mir-website@1.9.0) (2021-01-04)
+
+### Bug Fixes
+
+- **core-gatsby-config:** add new plugin to create contentful pages ([3af6c82](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/3af6c82d6e2a34653c63baeeb0e0fa0e24c701fa))
+- **core-gatsby-ui:** move common fragments ([be6e62a](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/be6e62a911799d69763865933c23d83e4293b8af))
+- **core-gatsby-ui:** wip ([eb7b648](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/eb7b64894ee92faea0bf2dc576a4e997ae523bc5))
+- **core-react-ui:** add mdx features ([bfbee76](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/bfbee769e8f029aa4b3a2b03b75645db88877d13))
+- **gatsby:** fix hmr for gatsby sites ([389d3a4](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/389d3a42037976cfcca60da6832bb901fc0ea195))
+- **gatsby:** fixes typechecking ([4c3b323](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/4c3b323dce2eda2bb0b413628290f3238898c23e))
+- **gatsby:** re enable typecheck after switching to typescript plugin ([48078be](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/48078be91bcdf73f4970a98f6fe1ff3e972fe2a1))
+- **gatsby:** update gatsby site config to include new flags ([48422e7](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/48422e70dd02ff76bd4fdbd823cd1f5e34674136))
+- **gatsby:** workaround for [#211](https://github.com/newrade/newrade/tree/master/packages/newrade-website/issues/211) ([c594adf](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/c594adf9084ab8929ede5c0e15303fdbe23bb766))
+- **mir-create-page:** fixing and updating the old setup of the page template ([5255a9e](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/5255a9ec2c5add7a03b83dad4a1cf0c375894a14))
+- **mir-update:** pageType added ([576582e](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/576582e34864821594b193bfa6ba33e6141753aa))
+- **mir-website:** fixes image loading ([feb0185](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/feb0185f183d01107d910f3176a9f49133735046))
+- **mir-websiute:** fix location ([3a5945b](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/3a5945bd0155eda0ba727f39d56dcd2f87b357ab))
+- **repo:** fix gatsby website ([f1a1e23](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/f1a1e238938adf480d05884384425c75691fff63))
+- **repo:** fix tsconfigs ([5a57618](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/5a5761829153b3bf18f3d774ca9a4e7d498ac29f))
+
+### Features
+
+- **core-gatsby-config:** add new plugin ([2bd8c5c](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/2bd8c5c32cf2992eb9f2cf5a6b6c16b666b1013d))
+- **gatsby:** update gatsby setup for each site ([9bb2a6a](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/9bb2a6a0bd47a67eef2c5c3cb0ba13dedb8b04ba))
+- **mir-website:** add json-ld data to article ([cc4c095](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/cc4c0951c8ec9179d49d03dea8821c66069e2af7))
+- **mir-website:** add json-ld for organization ([ce4c134](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ce4c13435fd97fe036bd61a5f9f369002f132f42))
+- **vsb-website:** add theme ([a93920b](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/a93920b651146b05dca9adc77d5389fa56de92cc))
+
 # [1.8.0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/mir-website@1.7.1...@newrade/mir-website@1.8.0) (2020-12-18)
 
 ### Bug Fixes

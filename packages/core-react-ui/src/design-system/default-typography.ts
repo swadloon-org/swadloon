@@ -20,15 +20,14 @@ export const defaultTypography: Typography = {
   },
   titles: {
     font: [fonts.defaultSerifFont, ...fonts.defaultFallbackSerifFonts],
-    fontWeight: 400,
-    letterSpacing: 6,
+    fontWeight: 500,
     mobile: {
       t1: {
         capHeight: 55,
         lineGap: 19,
       },
       t2: {
-        capHeight: 55,
+        capHeight: 34,
         lineGap: 19,
       },
     },
@@ -38,83 +37,81 @@ export const defaultTypography: Typography = {
         lineGap: 19,
       },
       t2: {
-        capHeight: 55,
+        capHeight: 34,
         lineGap: 19,
       },
     },
     desktop: {
       t1: {
-        fontWeight: 400,
         capHeight: 55,
         lineGap: 19,
       },
       t2: {
-        capHeight: 55,
+        capHeight: 34,
         lineGap: 19,
       },
     },
   },
   headings: {
-    font: [fonts.defaultSerifFont, ...fonts.defaultFallbackSansFonts],
-    fontWeight: 400,
-    letterSpacing: 6,
+    font: [fonts.defaultSansFont, ...fonts.defaultFallbackSansFonts],
+    fontWeight: 600,
     mobile: {
       h1: {
-        capHeight: 55,
-        lineGap: 19,
+        capHeight: 25,
+        lineGap: 10,
       },
       h2: {
-        capHeight: 55,
-        lineGap: 19,
+        capHeight: 17,
+        lineGap: 9,
       },
       h3: {
-        capHeight: 55,
-        lineGap: 19,
+        capHeight: 14,
+        lineGap: 7,
       },
       h4: {
-        capHeight: 55,
-        lineGap: 19,
+        capHeight: 12,
+        lineGap: 8,
       },
     },
     tablet: {
       h1: {
-        capHeight: 55,
-        lineGap: 19,
+        capHeight: 26,
+        lineGap: 10,
       },
       h2: {
-        capHeight: 55,
-        lineGap: 19,
+        capHeight: 17,
+        lineGap: 9,
       },
       h3: {
-        capHeight: 55,
-        lineGap: 19,
+        capHeight: 14,
+        lineGap: 7,
       },
       h4: {
-        capHeight: 55,
-        lineGap: 19,
+        capHeight: 12,
+        lineGap: 8,
       },
     },
     desktop: {
       h1: {
-        capHeight: 55,
-        lineGap: 19,
+        capHeight: 30,
+        lineGap: 10,
       },
       h2: {
-        capHeight: 55,
-        lineGap: 19,
+        capHeight: 17,
+        lineGap: 9,
       },
       h3: {
-        capHeight: 55,
-        lineGap: 19,
+        capHeight: 14,
+        lineGap: 7,
       },
       h4: {
-        capHeight: 55,
-        lineGap: 19,
+        capHeight: 12,
+        lineGap: 8,
       },
     },
   },
   paragraphs: {
-    font: [fonts.defaultSerifFont, ...fonts.defaultFallbackSansFonts],
+    font: [fonts.defaultSansFont, ...fonts.defaultFallbackSansFonts],
     fontWeight: 400,
     styles: {
       bold: {
@@ -125,63 +122,63 @@ export const defaultTypography: Typography = {
         fontStyle: 'italic',
       },
     },
-    desktop: {
+    mobile: {
       large: {
-        capHeight: 55,
-        lineGap: 19,
+        capHeight: 15,
+        lineGap: 12,
       },
       medium: {
-        capHeight: 55,
-        lineGap: 19,
+        capHeight: 11,
+        lineGap: 11,
       },
       small: {
-        capHeight: 55,
-        lineGap: 19,
+        capHeight: 10,
+        lineGap: 8,
       },
       xSmall: {
-        capHeight: 55,
-        lineGap: 19,
+        capHeight: 8,
+        lineGap: 7,
       },
     },
     tablet: {
       large: {
-        capHeight: 55,
-        lineGap: 19,
+        capHeight: 21,
+        lineGap: 10,
       },
       medium: {
-        capHeight: 55,
-        lineGap: 19,
+        capHeight: 13,
+        lineGap: 13,
       },
       small: {
-        capHeight: 55,
-        lineGap: 19,
+        capHeight: 10,
+        lineGap: 10,
       },
       xSmall: {
-        capHeight: 55,
-        lineGap: 19,
+        capHeight: 9,
+        lineGap: 9,
       },
     },
-    mobile: {
+    desktop: {
       large: {
-        capHeight: 55,
-        lineGap: 19,
+        capHeight: 21,
+        lineGap: 10,
       },
       medium: {
-        capHeight: 55,
-        lineGap: 19,
+        capHeight: 13,
+        lineGap: 13,
       },
       small: {
-        capHeight: 55,
-        lineGap: 19,
+        capHeight: 10,
+        lineGap: 10,
       },
       xSmall: {
-        capHeight: 55,
-        lineGap: 19,
+        capHeight: 9,
+        lineGap: 9,
       },
     },
   },
   labels: {
-    font: [fonts.defaultSerifFont, ...fonts.defaultFallbackSansFonts],
+    font: [fonts.defaultSansFont, ...fonts.defaultFallbackSansFonts],
     fontWeight: 400,
     styles: {
       bold: {
@@ -196,46 +193,46 @@ export const defaultTypography: Typography = {
         textTransform: TEXT_TRANSFORM.uppercase,
       },
     },
-    desktop: {
+    mobile: {
       medium: {
-        capHeight: 55,
-        lineGap: 19,
+        capHeight: 13,
+        lineGap: 9,
       },
       small: {
-        capHeight: 55,
-        lineGap: 19,
+        capHeight: 10,
+        lineGap: 8,
       },
       xSmall: {
-        capHeight: 55,
-        lineGap: 19,
+        capHeight: 6,
+        lineGap: 8,
       },
     },
     tablet: {
       medium: {
-        capHeight: 55,
-        lineGap: 19,
+        capHeight: 13,
+        lineGap: 9,
       },
       small: {
-        capHeight: 55,
-        lineGap: 19,
+        capHeight: 10,
+        lineGap: 8,
       },
       xSmall: {
-        capHeight: 55,
-        lineGap: 19,
+        capHeight: 6,
+        lineGap: 8,
       },
     },
-    mobile: {
+    desktop: {
       medium: {
-        capHeight: 55,
-        lineGap: 19,
+        capHeight: 13,
+        lineGap: 9,
       },
       small: {
-        capHeight: 55,
-        lineGap: 19,
+        capHeight: 10,
+        lineGap: 8,
       },
       xSmall: {
-        capHeight: 55,
-        lineGap: 19,
+        capHeight: 6,
+        lineGap: 8,
       },
     },
   },

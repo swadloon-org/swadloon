@@ -2,13 +2,15 @@
  * The locale these tags are marked up in. Of the format language_TERRITORY.
  */
 export enum SITE_LANGUAGES {
-  EN = 'en_CA',
-  FR = 'fr_CA',
+  EN = 'en',
+  EN_CA = 'en_CA',
+  FR = 'fr',
+  FR_CA = 'fr_CA',
 }
 
 export enum SITE_LANGUAGES_HYPHEN {
-  EN = 'en-CA',
-  FR = 'fr-CA',
+  EN_CA = 'en-CA',
+  FR_CA = 'fr-CA',
 }
 
 export interface GatsbySiteLanguages {

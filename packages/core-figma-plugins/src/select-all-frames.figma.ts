@@ -4,20 +4,34 @@ import '@figma/plugin-typings';
  * @see https://www.figma.com/plugin-docs/intro/
  */
 
-const name = 'Icon';
+const pattern = /Frame/;
 
-if (!(figma.currentPage.selection && figma.currentPage.selection.length)) {
-  figma.notify(`Please select a root artboard`);
-}
+figma.notify(`Selecting nodes matching the pattern: '${pattern}'`);
 
-figma.notify(`Selecting all frames with the name: '${name}'`);
-
-const nodes = figma.currentPage.findAll((node) => {
+function predicate(node: SceneNode) {
   if (node.type !== 'FRAME') {
     return false;
   }
   console.log(node.name);
-  return node.name === name;
-}) as readonly SceneNode[];
+  return pattern.test(node.name);
+}
 
-figma.notify(`Found ${nodes.length} frame nodes`);
+if (!figma.currentPage.selection?.length) {
+  throw new Error(`Please set your selection for the current page`);
+}
+
+const selection = figma.currentPage.selection
+  .flatMap((node: FrameNode | PageNode | SceneNode) => {
+    console.log(`Finding in selection node: ${node.name}`);
+
+    if ((node as PageNode | FrameNode)['findAll']) {
+      const result = (node as PageNode | FrameNode).findAll(predicate);
+      console.log(`FindAll found: ${result.map((node) => node.name)}`);
+
+      return result;
+    }
+    return node;
+  })
+  .filter((node) => node !== undefined) as readonly SceneNode[];
+
+figma.currentPage.selection = selection;

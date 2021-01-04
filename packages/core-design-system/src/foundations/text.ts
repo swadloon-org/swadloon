@@ -32,7 +32,24 @@ export type TextDecoration<ColorType = Color> = {
   style: TEXT_DECORATION_STYLE;
 };
 
-export interface TextStyle<Override extends undefined | string = undefined> {
+export type CapsizeTextStyle<Override extends undefined | string = undefined> = {
+  /**
+   * Desired capital letter height in pixels. (which is usually the height of the capital letter 'X')
+   * @see https://seek-oss.github.io/capsize/
+   */
+  capHeight: number;
+  /**
+   * Desired line gap in pixels.
+   * @see https://seek-oss.github.io/capsize/
+   */
+  lineGap: number;
+  /**
+   * Cap
+   */
+  capsize?: Override extends string | undefined ? CapsizeStyles : undefined;
+};
+
+export type TextStyle<Override extends undefined | string = undefined> = {
   /**
    * Array of font object that contains information about the typeface.
    */
@@ -72,18 +89,4 @@ export interface TextStyle<Override extends undefined | string = undefined> {
    * @example { color: red, line: underline, style'underline'}
    */
   textDecoration?: TextDecorationType<Override>;
-  /**
-   * Desired capital letter height in pixels. (which is usually the height of the capital letter 'X')
-   * @see https://seek-oss.github.io/capsize/
-   */
-  capHeight: number;
-  /**
-   * Desired line gap in pixels.
-   * @see https://seek-oss.github.io/capsize/
-   */
-  lineGap: number;
-  /**
-   * Cap
-   */
-  capsize?: Override extends string | undefined ? CapsizeStyles : undefined;
-}
+};

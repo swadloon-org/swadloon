@@ -1,10 +1,8 @@
-import { Button, Stack } from '@newrade/core-react-ui';
+import { SrcPageTemplateProps } from '@newrade/core-gatsby-ui';
+import { Button, Link, Stack } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { Layout } from '../layouts/layout';
-import { Providers } from '../layouts/providers';
-import { SrcPageTemplateProps } from '@newrade/core-gatsby-ui';
-import * as styleRefs from './index.treat';
+import * as styleRefs from '../styles/index.treat';
 
 const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
   const styles = useStyles(styleRefs);
@@ -18,6 +16,10 @@ const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
         <h1>Buttons</h1>
         <Button>Button</Button>
       </Stack>
+
+      <Link href="test" target="blank">
+        test
+      </Link>
     </Stack>
   );
 };

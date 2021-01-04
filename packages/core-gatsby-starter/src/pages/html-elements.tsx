@@ -2,7 +2,7 @@ import { Stack } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { SrcPageTemplate, SrcPageTemplateProps } from '@newrade/core-gatsby-ui';
-import * as styleRefs from './index.treat';
+import * as styleRefs from '../styles/index.treat';
 
 const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
   const lorenipsum = `Lorem ipsum dolor sit amet.`;
