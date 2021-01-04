@@ -9,6 +9,11 @@ const defaultProps: Props = {
   children: 'Summary',
 };
 
+/**
+ * <summary> The HTML Disclosure Summary element (<summary>) element
+ * specifies a summary, caption, or legend for a <details> element's disclosure box.
+ * @see https://devdocs.io/html/element/summary
+ */
 export const Summary: React.FC<Props> = React.memo(({ className, ...props }) => {
   const { styles } = useStyles(stylesRef);
 

@@ -16,6 +16,11 @@ const defaultProps: Props = {
   children: 'Paragraph',
 };
 
+/**
+ * The HTMLParagraphElement interface provides special properties
+ * (beyond those of the regular HTMLElement object interface it inherits) for manipulating <p> elements.
+ * @see https://devdocs.io/dom/htmlparagraphelement
+ */
 export const Paragraph: React.FC<Props> = React.memo(({ variant, variantStyle, className, ...props }) => {
   const { styles: styles } = useStyles(stylesRef);
 
