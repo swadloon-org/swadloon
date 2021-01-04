@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/compare/@newrade/core-utils@1.3.0...@newrade/core-utils@1.4.0) (2021-01-04)
+
+### Bug Fixes
+
+- **gatsby:** update gatsby site config to include new flags ([48422e7](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/commit/48422e70dd02ff76bd4fdbd823cd1f5e34674136))
+
+### Features
+
+- **vsb-website:** add theme ([a93920b](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/commit/a93920b651146b05dca9adc77d5389fa56de92cc))
+
 # [1.3.0](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/compare/@newrade/core-utils@1.2.2...@newrade/core-utils@1.3.0) (2020-12-18)
 
 ### Bug Fixes

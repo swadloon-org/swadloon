@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/core-gatsby-starter@1.5.0...@newrade/core-gatsby-starter@1.6.0) (2021-01-04)
+
+### Bug Fixes
+
+- **core-gatsby-config:** fix reloading bug in hmr with treat ([26d1a19](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/26d1a19de6c66bea70b45808f4668b9a63535b8d))
+- **core-react-ui:** add labels, paragraph, headings and titles ([598c84d](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/598c84d100ac7844a9d54c42c37bb89c159e7408))
+- **core-react-ui:** add mdx features ([bfbee76](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/bfbee769e8f029aa4b3a2b03b75645db88877d13))
+- **core-react-ui:** add summary et details ([a7382b9](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/a7382b9f933b2007f91b6f780c3bb5cda7035cd1))
+- **core-react-ui:** fixes for layouts and globals ([387c1da](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/387c1da29f5cd07a81da2729dae9716eab31be95))
+- **core-react-ui:** implement aside for mdx docs ([006577f](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/006577fc028bc948fec48a1a294f0c79892def57))
+- **core-react-ui:** refactor title ([be240b0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/be240b020b0aeebaefe3aa7748745417d057cb9c))
+- **core-react-ui:** upgrade react-icons, fix hmr bug ([2d581a4](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/2d581a4d7e860cbd4ffa0af8a0bacd5c39afb9fe))
+- **deps:** resolve missing peer deps ([dbbea5b](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/dbbea5b814cd0043ca01dfbe32a5575cadf22c0a))
+- **gatsby:** fixes typechecking ([4c3b323](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/4c3b323dce2eda2bb0b413628290f3238898c23e))
+- **gatsby:** re enable typecheck after switching to typescript plugin ([48078be](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/48078be91bcdf73f4970a98f6fe1ff3e972fe2a1))
+- **gatsby:** update gatsby site config to include new flags ([48422e7](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/48422e70dd02ff76bd4fdbd823cd1f5e34674136))
+- **mir-website:** fixes image loading ([feb0185](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/feb0185f183d01107d910f3176a9f49133735046))
+- **repo:** fix gatsby website ([f1a1e23](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/f1a1e238938adf480d05884384425c75691fff63))
+- **repo:** fix tsconfigs ([5a57618](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/5a5761829153b3bf18f3d774ca9a4e7d498ac29f))
+- **valentine-website:** fix config error ([d4ad7c0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/d4ad7c03f09157bdcabc11b898436f6b8b2d4e12))
+
+### Features
+
+- **cluster-color:** change de column in cluster and changing the colorswatch ([d4c6772](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/d4c6772c720b886fc294a9befdebf8a6aadbd461))
+- **core-react-ui:** add layout utilities ([587c8e8](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/587c8e8a92fa85df4624637349b4cc48c6c24c70))
+- **core-react-ui:** add TEXT_LEVEL ([ae83daf](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ae83daf80547d0ee9533e6e46351f4c358d94e70))
+- **core-react-ui:** adding paragraph and heading component ([ccb032e](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ccb032e23fd99727c68c2bc227ed70763e8f799e))
+- **gatsby:** update gatsby setup for each site ([9bb2a6a](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/9bb2a6a0bd47a67eef2c5c3cb0ba13dedb8b04ba))
+- **link-react-ui:** adding new component of link into the core-react-ui ([3a9e4d8](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/3a9e4d8f52aaa4e431d6d68e9ce0b2e8d81e887d))
+- **repo:** dependabot ([556536f](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/556536f782a10149a31f9a495e8f98c77ae78ee9))
+- **vsb-website:** add theme ([a93920b](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/a93920b651146b05dca9adc77d5389fa56de92cc))
+- **vsb-website:** wip on the theme config ([6362338](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/6362338d7ba92b50b54710205582c0aedfb46a60))
+
 # [1.5.0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/core-gatsby-starter@1.4.2...@newrade/core-gatsby-starter@1.5.0) (2020-12-18)
 
 ### Bug Fixes

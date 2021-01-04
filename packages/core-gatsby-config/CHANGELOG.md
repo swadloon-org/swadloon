@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-config@1.5.0...@newrade/core-gatsby-config@1.6.0) (2021-01-04)
+
+### Bug Fixes
+
+- **core-gatsby-config:** add new plugin to create contentful pages ([3af6c82](https://github.com/newrade/newrade/commit/3af6c82d6e2a34653c63baeeb0e0fa0e24c701fa))
+- **core-gatsby-config:** fix reloading bug in hmr with treat ([26d1a19](https://github.com/newrade/newrade/commit/26d1a19de6c66bea70b45808f4668b9a63535b8d))
+- **core-gatsby-ui:** wip ([eb7b648](https://github.com/newrade/newrade/commit/eb7b64894ee92faea0bf2dc576a4e997ae523bc5))
+- **core-react-ui:** add mdx features ([bfbee76](https://github.com/newrade/newrade/commit/bfbee769e8f029aa4b3a2b03b75645db88877d13))
+- **core-react-ui:** implement aside for mdx docs ([006577f](https://github.com/newrade/newrade/commit/006577fc028bc948fec48a1a294f0c79892def57))
+- **gatsby:** fixes typechecking ([4c3b323](https://github.com/newrade/newrade/commit/4c3b323dce2eda2bb0b413628290f3238898c23e))
+- **gatsby:** update gatsby site config to include new flags ([48422e7](https://github.com/newrade/newrade/commit/48422e70dd02ff76bd4fdbd823cd1f5e34674136))
+- **repo:** fix gatsby website ([f1a1e23](https://github.com/newrade/newrade/commit/f1a1e238938adf480d05884384425c75691fff63))
+
+### Features
+
+- **core-gatsby-config:** add new plugin ([2bd8c5c](https://github.com/newrade/newrade/commit/2bd8c5c32cf2992eb9f2cf5a6b6c16b666b1013d))
+- **vsb-website:** add theme ([a93920b](https://github.com/newrade/newrade/commit/a93920b651146b05dca9adc77d5389fa56de92cc))
+- **vsb-website:** adding gatsby ui components ([1607429](https://github.com/newrade/newrade/commit/16074292a2cf0ebe19f690a86011b6d750cc5380))
+- **vsb-website:** wip on the theme config ([6362338](https://github.com/newrade/newrade/commit/6362338d7ba92b50b54710205582c0aedfb46a60))
+
 # [1.5.0](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-config@1.4.2...@newrade/core-gatsby-config@1.5.0) (2020-12-18)
 
 ### Bug Fixes
