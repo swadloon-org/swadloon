@@ -11,10 +11,10 @@ export const styles: { wrapper: string } & { [key in HEADING]: string } & { [key
   h1: style(({ theme, cssTheme }: Theme) => ({
     ...getCSSTextStyles(cssTheme.typography.headings.mobile.h1),
     '@media': {
-      [theme.layout.breakpoints.tabletPortrait]: {
+      [cssTheme.layout.media.tablet]: {
         ...getCSSTextStyles(cssTheme.typography.headings.tablet.h1),
       },
-      [theme.layout.breakpoints.desktopSmall]: {
+      [cssTheme.layout.media.desktopSmall]: {
         ...getCSSTextStyles(cssTheme.typography.headings.desktop.h1),
       },
     },
@@ -23,10 +23,10 @@ export const styles: { wrapper: string } & { [key in HEADING]: string } & { [key
     ...getCSSTextStyles(cssTheme.typography.headings.mobile.h2),
 
     '@media': {
-      [theme.layout.breakpoints.tabletPortrait]: {
+      [cssTheme.layout.media.tablet]: {
         ...getCSSTextStyles(cssTheme.typography.headings.tablet.h2),
       },
-      [theme.layout.breakpoints.desktopSmall]: {
+      [cssTheme.layout.media.desktopSmall]: {
         ...getCSSTextStyles(cssTheme.typography.headings.desktop.h2),
       },
     },
@@ -35,10 +35,10 @@ export const styles: { wrapper: string } & { [key in HEADING]: string } & { [key
     ...getCSSTextStyles(cssTheme.typography.headings.mobile.h3),
 
     '@media': {
-      [theme.layout.breakpoints.tabletPortrait]: {
+      [cssTheme.layout.media.tablet]: {
         ...getCSSTextStyles(cssTheme.typography.headings.tablet.h3),
       },
-      [theme.layout.breakpoints.desktopSmall]: {
+      [cssTheme.layout.media.desktopSmall]: {
         ...getCSSTextStyles(cssTheme.typography.headings.desktop.h3),
       },
     },
@@ -47,10 +47,10 @@ export const styles: { wrapper: string } & { [key in HEADING]: string } & { [key
     ...getCSSTextStyles(cssTheme.typography.headings.mobile.h4),
 
     '@media': {
-      [theme.layout.breakpoints.tabletPortrait]: {
+      [cssTheme.layout.media.tablet]: {
         ...getCSSTextStyles(cssTheme.typography.headings.tablet.h4),
       },
-      [theme.layout.breakpoints.desktopSmall]: {
+      [cssTheme.layout.media.desktopSmall]: {
         ...getCSSTextStyles(cssTheme.typography.headings.desktop.h4),
       },
     },

@@ -1,5 +1,5 @@
 import React from 'react';
-import * as styleRefs from './css-variables.treat';
+import * as styleRefs from './global-css-variables.treat';
 import { useStyles } from 'react-treat';
 
 type Props = {};
@@ -7,8 +7,8 @@ type Props = {};
 /**
  * Injects the theme CSS variables.
  */
-export const CSSVariables: React.FC<Props> = (props) => {
+export const GlobalCSSVariables: React.FC<Props> = (props) => {
   const styles = useStyles(styleRefs);
 
-  return <div className={''}>{props.children}</div>;
+  return <>{props.children}</>;
 };

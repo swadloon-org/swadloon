@@ -52,7 +52,6 @@ export type Breakpoints<Override extends undefined | string = undefined> = {
  */
 export interface Layout<Override extends undefined | string = undefined> {
   breakpoints: Breakpoints<Override>;
-  media: MediaQueries<Override>;
   contentMargins: ContentMargins<Override>;
   contentWidth: ContentWidths;
   sidebarWidth: {
@@ -65,4 +64,5 @@ export interface Layout<Override extends undefined | string = undefined> {
   footerHeight: {
     [key in keyof typeof VIEWPORT]: SizeType<Override>;
   };
+  media: MediaQueries<Override>;
 }
