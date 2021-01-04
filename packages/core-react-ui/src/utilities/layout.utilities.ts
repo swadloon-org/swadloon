@@ -48,6 +48,7 @@ export function getCSSLayout(options: Layout): Layout<string> {
       previous = { ...previous, [current]: px({ value }) };
       return previous;
     }, {} as Layout<string>['footerHeight']),
+    ...getLayout,
   };
 }
 
@@ -181,4 +182,62 @@ export function extractQueryOperator(operator?: MEDIA_OPERATOR) {
       return ``;
     }
   }
+}
+
+/**
+ * Generate CSS variable names from the layout object.
+ */
+export function getCSSVarNamesForLayout({ layout }: { layout: Layout }): Pick<Layout, 'varNames' | 'vars'> {
+  const colorsVarNames: DS.ColorsVarNames = getNameForColors(colors, 'color');
+  const colorIntentsVarNames: DS.ColorsVarNames = getNameForColors(colorIntents, 'color-intent');
+
+  return [...colorsVarNames, ...colorIntentsVarNames];
+}
+
+export function getCSSVarForColors({
+  colors,
+  colorIntents,
+}: {
+  colors: DS.Colors['colors'];
+  colorIntents: DS.ColorIntents;
+}): DS.ColorsVars {
+  return getCSSVarNamesForColors({
+    colors,
+    colorIntents,
+  }).map((cssVar) => `var(${cssVar})`);
+}
+
+function getNameForColors(colors: DS.Colors['colors'] | DS.Colors['colorIntents'], prefix: string) {
+  const colorsVarNames: DS.ColorsVarNames = [];
+
+  Object.keys(colors).forEach((current) => {
+    const currentColor = current as keyof (DS.Colors['colors'] | DS.Colors['colorIntents']); // 'primary'
+    if (currentColor && currentColor.length) {
+      // for colors that have a palette (nested colors)
+      if (
+        colors[currentColor] &&
+        typeof colors[currentColor] === 'object' &&
+        !Object.keys(colors[currentColor]).includes('h')
+      ) {
+        Object.keys(colors[currentColor]).map((colorName) => {
+          const formattedCurrentColor = kebab(currentColor);
+          const formattedColorName = kebab(colorName);
+          colorsVarNames.push(`--${prefix}-${formattedCurrentColor}-${formattedColorName}`);
+        });
+      }
+
+      // for colors that don't have a nested structure
+      if (
+        colors[currentColor] &&
+        typeof colors[currentColor] === 'object' &&
+        Object.keys(colors[currentColor]).includes('h')
+      ) {
+        const formattedCurrentColor = kebab(currentColor);
+        const formattedColorName = kebab(currentColor);
+        colorsVarNames.push(`--${prefix}-${formattedCurrentColor}`);
+      }
+    }
+  });
+
+  return colorsVarNames;
 }

@@ -7,8 +7,10 @@ export const styles = {
     position: 'fixed',
     top: 80,
     right: 40,
-    width: '180px',
+    width: cssTheme.layout.asideWidth,
     padding: '1em',
+
+    gap: cssTheme.sizing.var.x2,
 
     backgroundColor: 'transparent',
 

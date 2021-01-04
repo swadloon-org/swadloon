@@ -48,6 +48,18 @@ export type Breakpoints<Override extends undefined | string = undefined> = {
 };
 
 /**
+ * Contains CSS variable names for layout sizes
+ * @example `--layout-size-navbar`
+ */
+export type LayoutVarNames = string[];
+
+/**
+ * Contains CSS statement to access CSS variables
+ * @example `var(--layout-size-navbar)`
+ */
+export type LayoutVars = string[];
+
+/**
  * Breakpoints, commonly used content margins and max widths.
  */
 export interface Layout<Override extends undefined | string = undefined> {
@@ -65,4 +77,6 @@ export interface Layout<Override extends undefined | string = undefined> {
     [key in keyof typeof VIEWPORT]: SizeType<Override>;
   };
   media: MediaQueries<Override>;
+  varNames: LayoutVarNames;
+  vars: LayoutVars;
 }
