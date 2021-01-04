@@ -28,7 +28,7 @@ export const InfoSectionType2: React.FC<OwnProps> = (props) => {
     <LayoutCentered reverseOrder={imagePosition === SECTION_IMAGE_POSITION.RIGHT}>
       <FadeIn>
         {hasImage && imageUrl ? (
-          <ImageFrame variant={'bottomRight'} url={imageUrl} fluid={imageUrlFluid} className={`${styles.image}`} />
+          <ImageFrame variant={'bottomRight'} fluid={imageUrlFluid} className={`${styles.image}`} />
         ) : null}
       </FadeIn>
 
