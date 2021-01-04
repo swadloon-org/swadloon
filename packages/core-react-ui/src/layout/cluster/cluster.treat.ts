@@ -1,4 +1,4 @@
-import { JustifyContentProperty } from 'csstype';
+import { AlignContentProperty, JustifyContentProperty } from 'csstype';
 import { styleMap } from 'treat';
 import { Theme } from '../../design-system/css-design-system';
 
@@ -7,18 +7,18 @@ export const styles = styleMap(({ cssTheme, theme }: Theme) => ({
     display: 'flex',
     // gridAutoFlow: 'column',
 
-    alignItems: `center`,
+    alignItems: `var(--mobileAlignItems)` as AlignContentProperty,
     justifyContent: `var(--mobileJustifyContent)` as JustifyContentProperty,
     alignContent: 'center',
 
     '@media': {
       [`(min-width: 700px)`]: {
-        alignItems: `center`,
+        alignItems: `var(--tabletAlignItems)` as AlignContentProperty,
         justifyContent: `var(--tabletJustifyContent)` as JustifyContentProperty,
         alignContent: 'center',
       },
       ['(min-width: 1200px)']: {
-        alignItems: `center`,
+        alignItems: `var(--desktopAlignItems)` as AlignContentProperty,
         justifyContent: `var(--desktopJustifyContent)` as JustifyContentProperty,
         alignContent: 'center',
       },

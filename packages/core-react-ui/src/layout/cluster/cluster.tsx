@@ -8,7 +8,6 @@ import {
   JustifyContentProperty,
   AlignContentProperty,
   JustifyItemsProperty,
-  GridAutoFlowProperty,
 } from 'csstype';
 import { SIZE } from '@newrade/core-design-system';
 
@@ -17,11 +16,10 @@ type OwnProps = CommonComponentProps &
     gap: string | SIZE;
     alignItems: AlignItemsProperty;
     justifyContent: [JustifyContentProperty, JustifyContentProperty, JustifyContentProperty];
-    alignContent: AlignContentProperty;
+    alignContent: [AlignContentProperty, AlignContentProperty, AlignContentProperty];
     justifyItems: JustifyItemsProperty;
     maxWidth: string;
     minWidth: string;
-    gridAutoFlow: GridAutoFlowProperty;
   }>;
 
 export const Cluster: React.FC<OwnProps> = ({
@@ -33,11 +31,12 @@ export const Cluster: React.FC<OwnProps> = ({
   justifyItems,
   maxWidth,
   minWidth,
-  gridAutoFlow,
+  alignItems = [],
   ...props
 } = {}) => {
   const { styles } = useStyles(styleRefs);
   const [mobileJustifyContent, tabletJustifyContent, desktopJustifyContent] = justifyContent;
+  const [mobileAlignItems, tabletAlignItems, desktopAlignItems] = alignItems;
 
   return React.createElement(as || 'div', {
     className: `${className || ''} ${styles.wrapper}`,
@@ -47,11 +46,13 @@ export const Cluster: React.FC<OwnProps> = ({
       maxWidth,
       minWidth,
       justifyItems,
-      gridAutoFlow,
       // @ts-ignore
       '--mobileJustifyContent': mobileJustifyContent,
       '--tabletJustifyContent': tabletJustifyContent,
       '--desktopJustifyContent': desktopJustifyContent,
+      '--mobileAlignItems': mobileAlignItems,
+      '--tabletAlignItems': tabletAlignItems,
+      '--desktopAlignItems': desktopAlignItems,
     },
     ...props,
   });
