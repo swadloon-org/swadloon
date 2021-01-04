@@ -10,6 +10,10 @@ import { Providers } from './src/layouts/providers';
  * @see https://www.gatsbyjs.com/docs/api-files-gatsby-browser/
  */
 
+if (module.hot) {
+  module.hot.accept();
+}
+
 /** @type {GatsbyBrowser['wrapPageElement']} */
 export const wrapPageElement = ({ element, props }) => {
   return <Layout {...props}>{element}</Layout>;
