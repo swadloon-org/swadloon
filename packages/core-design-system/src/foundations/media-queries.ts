@@ -1,5 +1,4 @@
 import { MediaQueryType } from '../types';
-import { VIEWPORT } from './layout';
 
 export enum MEDIA_TYPE {
   all = 'all',
@@ -9,13 +8,13 @@ export enum MEDIA_TYPE {
 }
 
 export enum MEDIA_FEATURE {
-  'display-mode' = 'display-mode',
-  'height' = 'height',
-  'width' = 'width',
-  'min-width' = 'min-width',
-  'max-width' = 'max-width',
-  'hover' = 'hover',
-  'orientation' = 'orientation',
+  displayMode = 'display-mode',
+  height = 'height',
+  width = 'width',
+  minWidth = 'min-width',
+  maxWidth = 'max-width',
+  hover = 'hover',
+  orientation = 'orientation',
 }
 
 export enum MEDIA_OPERATOR {
@@ -43,12 +42,21 @@ export type MediaQueryGroup = {
   operator?: MEDIA_OPERATOR;
   queryB?: MediaQuery | MediaQueryGroup;
 };
-/**
- * Breakpoints values in pixel.
- */
 
+/**
+ * Predefined media queries
+ */
 export type MediaQueries<Override extends undefined | string = undefined> = {
-  [key in keyof typeof VIEWPORT]: MediaQueryType<Override>;
-} & {
-  tabletPlus: MediaQueryType<Override>;
+  mobile: MediaQueryType<Override>;
+  mobileOnly: MediaQueryType<Override>;
+  tablet: MediaQueryType<Override>;
+  tabletOnly: MediaQueryType<Override>;
+  desktopSmall: MediaQueryType<Override>;
+  desktopSmallOnly: MediaQueryType<Override>;
+  desktopMedium: MediaQueryType<Override>;
+  desktopMediumOnly: MediaQueryType<Override>;
+  desktopLarge: MediaQueryType<Override>;
+  desktopLargeOnly: MediaQueryType<Override>;
+  desktopXLarge: MediaQueryType<Override>;
+  desktopXLargeOnly: MediaQueryType<Override>;
 };

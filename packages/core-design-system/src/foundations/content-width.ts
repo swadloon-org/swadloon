@@ -12,5 +12,6 @@ export type ContentMargins<Override extends undefined | string = undefined> = {
  * Content max width for larger viewports.
  */
 export interface ContentWidths<Override extends undefined | string = undefined> {
+  desktopBlogMaxWidth: SizeType<Override>;
   desktopMaxWidth: SizeType<Override>;
 }

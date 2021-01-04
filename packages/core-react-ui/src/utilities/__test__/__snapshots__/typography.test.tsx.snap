@@ -673,22 +673,22 @@ Object {
   "headings": Object {
     "desktop": Object {
       "h1": Object {
-        "capHeight": 25,
+        "capHeight": 30,
         "capsize": Object {
           "::after": Object {
             "content": "''",
             "display": "block",
             "height": 0,
-            "marginBottom": "-0.1573em",
+            "marginBottom": "-0.1333em",
           },
           "::before": Object {
             "content": "''",
             "display": "block",
             "height": 0,
-            "marginTop": "-0.1299em",
+            "marginTop": "-0.106em",
           },
-          "fontSize": "35.1648px",
-          "lineHeight": "35px",
+          "fontSize": "42.1978px",
+          "lineHeight": "40px",
           "padding": "0.05px 0",
         },
         "font": Array [
@@ -2182,22 +2182,22 @@ Object {
     },
     "tablet": Object {
       "h1": Object {
-        "capHeight": 25,
+        "capHeight": 26,
         "capsize": Object {
           "::after": Object {
             "content": "''",
             "display": "block",
             "height": 0,
-            "marginBottom": "-0.1573em",
+            "marginBottom": "-0.1518em",
           },
           "::before": Object {
             "content": "''",
             "display": "block",
             "height": 0,
-            "marginTop": "-0.1299em",
+            "marginTop": "-0.1244em",
           },
-          "fontSize": "35.1648px",
-          "lineHeight": "35px",
+          "fontSize": "36.5714px",
+          "lineHeight": "36px",
           "padding": "0.05px 0",
         },
         "font": Array [

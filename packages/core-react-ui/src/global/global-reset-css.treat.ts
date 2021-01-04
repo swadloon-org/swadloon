@@ -2,6 +2,7 @@ import { globalStyle } from 'treat';
 
 /**
  * Inspired from Normalize, but targeting modern browsers only.
+ * @see https://github.com/necolas/normalize.css
  */
 
 /**

@@ -182,7 +182,10 @@ export function createDefaultColorIntents(colors: DS.Colors['colors']): DS.Color
 
 /**
  * Generate CSS variable names from the colors object.
- * @example `{ primary: { 500: <COLOR>} } => { primary: { 500: '--primary-500'} }`
+ * @example
+ *  ```
+ *  { primary: { 500: <COLOR>} } => { primary: { 500: '--primary-500'} }
+ *  ```
  */
 export function getCSSVarNamesForColors({
   colors,

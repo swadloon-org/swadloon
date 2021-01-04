@@ -19,3 +19,10 @@ export const wrapPageElement = ({ element }) => {
 export const wrapRootElement = ({ element }) => {
   return <Providers>{element}</Providers>;
 };
+
+/** @type {GatsbySSR['onRenderBody']} */
+export const onRenderBody = (args) => {
+  args.setPostBodyComponents([
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/7954462.js"></script>,
+  ]);
+};

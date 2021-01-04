@@ -57,6 +57,7 @@
   "resolutions": {
     "@types/jest": "^26",
     "gatsby": "^2.29",
+    "sharp": "^0.27",
     "webpack": "^4.43.0"
   },
   "dependencies": {
@@ -177,7 +178,7 @@
     "gatsby-plugin-react-svg": "^3.0.0",
     "gatsby-plugin-remote-images": "^2.2.0",
     "gatsby-plugin-robots-txt": "^1.5.3",
-    "gatsby-plugin-sharp": "^2.4.0",
+    "gatsby-plugin-sharp": "^2.13.0-next.0",
     "gatsby-plugin-sitemap": "^2.4.12",
     "gatsby-plugin-ts": "^2.7.1",
     "gatsby-plugin-ts-config": "^1.1.5",
@@ -186,7 +187,6 @@
     "gatsby-remark-prismjs": "^3.10.0",
     "gatsby-source-contentful": "^2.3.55",
     "gatsby-source-filesystem": "^2.3.23",
-    "gatsby-source-graphcms": "2.0.0-next.9",
     "gatsby-source-graphql": "^2.6.1",
     "gatsby-transformer-remark": "^2.13.1",
     "gatsby-transformer-sharp": "^2.5.14",
@@ -220,6 +220,7 @@
     "remark-toc": "^7.0.0",
     "remark-unwrap-images": "^2.0.0",
     "rimraf": "^3.0.2",
+    "sharp": "^0.27.0",
     "source-map-support": "^0.5.19",
     "style-loader": "^0.23.1",
     "treat": "^1.6.1",
