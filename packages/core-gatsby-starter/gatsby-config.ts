@@ -61,19 +61,29 @@ const config: core.GastbySiteConfig = {
     /**
      * Core Plugins
      */
-    core.getGatsbyTsPluginConfig(),
+    ...core.getGatsbyPluginTypeScriptConfig({
+      documentPaths: ['./src/**/*.{ts,tsx}'],
+    }),
+    ...core.getGatsbyPluginMdx(),
     core.getGatsbyReactSvgConfig(),
     ...core.getGastbyPluginPageCreatorConfig(),
     core.getGastbyPluginTreatConfig(),
     core.getGatsbyTransformerSharp(),
     core.getGatsbyPluginSharp(),
     core.getGastbyPluginTreatConfig(),
-    core.getGatsbyPluginMdx(),
     core.getGatsbyImageFolder(),
     core.getGatsbyPluginReactHelmet(),
     core.getGatsbyPluginSitemap(),
     core.getGatsbyPluginRobotsTxt({ env }),
     core.getGatsbyNetlifyPlugin(),
+    // core.getGastbyCoreContentfulPluginConfig({
+    //   packageName: packageJson.name,
+    //   locales: ['fr-CA'],
+    //   features: {
+    //     blog: false,
+    //     portfolio: false,
+    //   },
+    // }),
     core.getGastbyCorePluginConfig({
       packageName: packageJson.name,
     }),

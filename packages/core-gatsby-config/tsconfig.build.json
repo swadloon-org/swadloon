@@ -2,6 +2,7 @@
   "extends": "../../tsconfig.build.json",
   "compilerOptions": {
     "rootDir": "src",
+    "allowJs": true,
     "outDir": "lib",
     "strict": false,
     "types": ["gatsby", "node"]

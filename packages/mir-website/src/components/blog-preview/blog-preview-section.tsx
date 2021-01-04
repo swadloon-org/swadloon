@@ -7,7 +7,6 @@ import { Button } from '../ui/button';
 import { Paragraph } from '../ui/paragraph';
 import { BlogPreviewTileImage, BlogPreviewTileImageFeatured } from './/blog-preview-tile-image';
 import * as styleRefs from './blog-preview-section.treat';
-import { isPropertySignature } from 'typescript';
 import { FluidObject } from 'gatsby-image';
 
 type OwnProps = SectionFragment & {

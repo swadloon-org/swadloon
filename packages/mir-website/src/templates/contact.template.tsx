@@ -2,7 +2,7 @@ import React from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { useStyles } from 'react-treat';
 
-import { theme } from '../design-system';
+import { theme } from '../design-system/theme';
 import * as stylesRef from './contact.treat';
 import { ProjectPageProps } from './page.template';
 import { SectionTemplate, SECTION_TYPE } from './section.template';

@@ -13,36 +13,26 @@ export const defaultSerifFont: Font = {
 };
 
 export const defaultSansFont: Font = {
-  name: 'Quattrocento',
-  link: 'https://fonts.google.com/specimen/Quattrocento',
+  name: 'Roboto',
+  link: 'https://fonts.google.com/specimen/Roboto',
   fontMetrics: {
-    capHeight: 660,
-    ascent: 848,
-    descent: -260,
+    capHeight: 1456,
+    ascent: 1900,
+    descent: -500,
     lineGap: 0,
-    unitsPerEm: 1000,
+    unitsPerEm: 2048,
   },
 };
 
-export const defaultSansAlternateFont: Font = {
-  name: 'Quattrocento',
-  link: 'https://fonts.google.com/specimen/Quattrocento',
-  fontMetrics: {
-    capHeight: 660,
-    ascent: 848,
-    descent: -260,
-    lineGap: 0,
-    unitsPerEm: 1000,
-  },
-};
+export const defaultSansAlternateFont: Font = defaultSansFont;
 
 export const defaultMonospaceFont: Font = {
-  name: 'Quattrocento',
-  link: 'https://fonts.google.com/specimen/Quattrocento',
+  name: 'Source Sans Pro',
+  link: 'https://fonts.google.com/specimen/Source+Sans+Pro',
   fontMetrics: {
     capHeight: 660,
-    ascent: 848,
-    descent: -260,
+    ascent: 984,
+    descent: -273,
     lineGap: 0,
     unitsPerEm: 1000,
   },

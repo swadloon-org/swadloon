@@ -26,22 +26,22 @@ export function generateColorPalette5({ color: color, light, dark }: { color: DS
 
 export function generateColorGreyPalette({ hue }: { hue: number }) {
   return {
-    '0': { h: hue, s: 10, l: 0 },
-    '0-reversed': { h: hue, s: 10, l: 100 },
-    '25': { h: hue, s: 10, l: 6 },
-    '50': { h: hue, s: 10, l: 9 },
-    '100': { h: hue, s: 10, l: 10 },
-    '100-reversed': { h: hue, s: 10, l: 0 },
-    '200': { h: hue, s: 10, l: 20 },
+    1000: { h: hue, s: 6, l: 7 },
+    900: { h: hue, s: 4, l: 13 },
+    800: { h: hue, s: 4, l: 26 },
+    700: { h: hue, s: 5, l: 39 },
+    600: { h: hue, s: 5, l: 59 },
+    500: { h: hue, s: 5, l: 66 },
+    400: { h: hue, s: 6, l: 73 },
+    300: { h: hue, s: 6, l: 83 },
+    200: { h: hue, s: 6, l: 86 },
     '200-reversed': { h: hue, s: 10, l: 0 },
-    '300': { h: hue, s: 10, l: 30 },
-    '400': { h: hue, s: 10, l: 40 },
-    '500': { h: hue, s: 10, l: 50 },
-    '600': { h: hue, s: 10, l: 60 },
-    '700': { h: hue, s: 10, l: 70 },
-    '800': { h: hue, s: 10, l: 80 },
-    '900': { h: hue, s: 10, l: 90 },
-    '1000': { h: hue, s: 10, l: 95 },
+    100: { h: hue, s: 6, l: 90 },
+    '100-reversed': { h: hue, s: 10, l: 0 },
+    50: { h: hue, s: 3, l: 93 },
+    25: { h: hue, s: 0, l: 97 },
+    '0-reversed': { h: hue, s: 10, l: 100 },
+    0: { h: hue, s: 0, l: 100 },
   } as DS.ColorPalette<DS.ColorShadesGrey>;
 }
 
@@ -145,27 +145,34 @@ export function createDefaultColorIntents(colors: DS.Colors['colors']): DS.Color
     accessibilityColor: colors.primary['700'],
     current: colors.current,
     transparent: colors.transparent,
+
     primary: colors.primary['500'],
     primaryReversed: colors.grey['0-reversed'],
+
     secondary: colors.accent1['500'],
     secondaryReversed: colors.grey['0-reversed'],
-    primaryText: colors.grey['900'],
+
+    primaryText: colors.grey['1000'],
     primaryTextReversed: colors.grey['0-reversed'],
-    secondaryText: colors.grey['800'],
+    secondaryText: colors.grey['500'],
     secondaryTextReversed: colors.grey['0-reversed'],
-    tertiaryText: colors.grey['700'],
+    tertiaryText: colors.grey['400'],
     tertiaryTextReversed: colors.grey['0-reversed'],
     disabledText: colors.grey['400'],
     disabledTextReversed: colors.grey['100'],
+
     successText: colors.utilityGreen['900'],
     successAction: colors.utilityGreen['500'],
     successBackground: colors.utilityGreen['100'],
+
     warningText: colors.utilityYellow['900'],
     warningAction: colors.utilityYellow['500'],
     warningBackground: colors.utilityYellow['100'],
+
     dangerText: colors.utilityRed['900'],
     dangerAction: colors.utilityRed['500'],
     dangerBackground: colors.utilityRed['100'],
+
     background0: colors.grey['0'],
     background1: colors.grey['25'],
     background2: colors.grey['50'],

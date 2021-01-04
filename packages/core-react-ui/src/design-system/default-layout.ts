@@ -77,7 +77,7 @@ export const defaultLayout: Layout = {
   contentWidth: {
     desktopMaxWidth: 1200,
   },
-  menubarWidth: {
+  sidebarWidth: {
     [VIEWPORT.desktop]: 270,
     [VIEWPORT.tablet]: 270,
     [VIEWPORT.mobile]: 375,
