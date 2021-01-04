@@ -42,6 +42,18 @@ const config: core.GastbySiteConfig = {
      * Project Specific Plugins
      */
     {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Newrade`,
+        short_name: `Newrade`,
+        start_url: `/`,
+        background_color: `#ffffff`,
+        theme_color: `#6061EC`,
+        display: `standalone`,
+        icon: `src/images/favicon.png`,
+      },
+    },
+    {
       resolve: `gatsby-source-contentful`,
       options: {
         spaceId: env.CONTENTFUL_SPACEID_NEWRADE,

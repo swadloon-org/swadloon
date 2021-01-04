@@ -42,6 +42,7 @@ export * from './markdown/mdx.provider';
 export * from './models/open-graph-metadata.model';
 export * from './models/twitter-metadata.model';
 export * from './utilities/colors.utilities';
+export * from './utilities/css-variable.utilities';
 export * from './utilities/effects.utilities';
 export * from './utilities/text.utilities';
 export * from './utilities/theme.utilities';

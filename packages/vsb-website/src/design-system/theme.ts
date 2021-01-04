@@ -8,7 +8,6 @@ import {
   defaultIconography,
   defaultLayout,
   defaultSizing,
-  defaultTypography,
 } from '@newrade/core-react-ui';
 import { colors } from './colors';
 
@@ -19,7 +18,7 @@ export const theme: DesignSystem = {
   effects: defaultEffects,
   sizing: defaultSizing,
   iconography: defaultIconography,
-  typography: defaultTypography,
+  typography,
   layout: defaultLayout,
   animations: defaultAnimations,
   components: {

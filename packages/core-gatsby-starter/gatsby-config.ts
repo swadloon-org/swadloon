@@ -47,6 +47,18 @@ const config: core.GastbySiteConfig = {
      * Project Specific Plugins
      */
     {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Core Gastby Starter`,
+        short_name: `Core Gastby Starter`,
+        start_url: `/`,
+        background_color: `#ffffff`,
+        theme_color: `#6061EC`,
+        display: `standalone`,
+        icon: `src/images/favicon.png`,
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: SOURCE_INSTANCE_NAME.DOCS,

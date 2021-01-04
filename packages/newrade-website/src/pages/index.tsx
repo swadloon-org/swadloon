@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Logo from '../illustrations/logo-color.svg';
+import Logo from '../images/logo.svg';
 
 import { SrcPageTemplateProps } from '@newrade/core-gatsby-ui';
 import { Button, Link, Stack, Title } from '@newrade/core-react-ui';

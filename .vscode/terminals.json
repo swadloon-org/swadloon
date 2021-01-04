@@ -121,12 +121,6 @@
       "cwd": "[workspaceFolder]/packages/vsb-website",
       "open": true,
       "focus": false
-    },
-    {
-      "name": "valentine-website",
-      "cwd": "[workspaceFolder]/packages/valentine-website",
-      "open": true,
-      "focus": false
     }
   ]
 }

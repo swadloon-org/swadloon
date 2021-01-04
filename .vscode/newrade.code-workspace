@@ -130,9 +130,6 @@
     },
     {
       "path": "../packages/vsb-website"
-    },
-    {
-      "path": "../packages/valentine-website"
     }
   ]
 }
