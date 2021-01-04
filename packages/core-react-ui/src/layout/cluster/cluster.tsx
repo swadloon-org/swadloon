@@ -8,6 +8,7 @@ import {
   JustifyContentProperty,
   AlignContentProperty,
   JustifyItemsProperty,
+  FlexWrapProperty,
 } from 'csstype';
 import { SIZE } from '@newrade/core-design-system';
 
@@ -20,6 +21,7 @@ type OwnProps = CommonComponentProps &
     justifyItems: JustifyItemsProperty;
     maxWidth: string;
     minWidth: string;
+    flexWrap: FlexWrapProperty;
   }>;
 
 export const Cluster: React.FC<OwnProps> = ({
@@ -32,6 +34,7 @@ export const Cluster: React.FC<OwnProps> = ({
   maxWidth,
   minWidth,
   alignItems = [],
+  flexWrap,
   ...props
 } = {}) => {
   const { styles } = useStyles(styleRefs);
@@ -46,6 +49,7 @@ export const Cluster: React.FC<OwnProps> = ({
       maxWidth,
       minWidth,
       justifyItems,
+      flexWrap,
       // @ts-ignore
       '--mobileJustifyContent': mobileJustifyContent,
       '--tabletJustifyContent': tabletJustifyContent,

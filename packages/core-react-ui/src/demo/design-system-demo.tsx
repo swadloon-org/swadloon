@@ -156,7 +156,7 @@ export const DesignSystemComponent: React.FC<Props> = (props) => {
                         key={index}
                         justifyContent={['flex-start', 'flex-start', 'flex-start']}
                         alignItems={'flex-start'}
-                        style={{ flexWrap: 'wrap' }}
+                        flexWrap={'wrap'}
                         gap={'10px  0'}
                       >
                         {shades.map((shadeName, index) => {
