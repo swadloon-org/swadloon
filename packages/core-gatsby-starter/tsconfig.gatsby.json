@@ -1,9 +1,0 @@
-{
-  "extends": "../core-gatsby-config/src/tsconfig/tsconfig.gatsby.json",
-  "compilerOptions": {
-    "rootDir": ".",
-    "outDir": "./"
-  },
-  "exclude": ["src"],
-  "include": ["gatsby-*", "src/layouts/*.tsx", "src/layouts/*.ts"]
-}

@@ -20,6 +20,7 @@ import { PilotExamService } from '../components/pilot/pilot-exam-service';
 import { PilotExamDrProfile } from '../components/pilot/pilot-exam-dr-profile';
 import { ContactContact } from '../components/contact/contact-contact';
 import { ClinicPreview } from '../components/clinic/clinic-preview';
+import { Message } from '../components/message';
 
 export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
   return (
@@ -30,7 +31,7 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
             return <Banner key={index} {...section} />;
           }
           case SECTION_TYPE.MESSAGE: {
-            return <Banner key={index} {...section} />;
+            return <Message key={index} {...section} />;
           }
           case SECTION_TYPE.TILE_LINKS: {
             return <TileLinks key={index} {...section} />;

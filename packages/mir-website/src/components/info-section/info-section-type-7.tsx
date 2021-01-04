@@ -2,7 +2,7 @@ import React from 'react';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './info-section-type-7.treat';
 import { InfoTile } from './info-tile';
-import { SectionFragment } from 'types/graphql-types';
+import { SectionFragment } from '../../../types/graphql-types';
 import { SECTION_TYPE } from '../../templates/section.template';
 
 type OwnProps = SectionFragment;

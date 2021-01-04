@@ -4,6 +4,7 @@ import { GatsbyNode } from 'gatsby';
 import path from 'path';
 import { GatsbyMarkdownFilePageContext, GatsbySrcPageContext } from '../../../config/page-config';
 import { GatsbyNodeAllSiteQuery, GatsbyNodeSiteMetadataFragment } from '../../../config/site-graphql-types';
+import { SITE_LANGUAGES } from '../../../config/site-languages';
 import { GatsbyCorePluginOptions } from '../gatsby-plugin-options';
 
 let siteMetadata: GatsbyNodeSiteMetadataFragment;
@@ -124,13 +125,15 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
 };
 
 export const onCreatePageFunction: GatsbyNode['onCreatePage'] = ({ page, actions }, options) => {
-  const { createPage, deletePage } = actions;
   const pluginOptions = (options as unknown) as GatsbyCorePluginOptions;
   let updatedPath = page.path;
+  const { createPage, deletePage } = actions;
   const { frontmatter } = page.context as any;
-  // const markdownTemplate = path.resolve(`../core-gatsby-ui/lib/templates/markdown.template.js`);
   const markdownTemplate = path.resolve(`src/templates/markdown.template.tsx`);
 
+  /**
+   * Process Markdown pages
+   */
   if (frontmatter) {
     if (/\/docs/g.test(page.component)) {
       updatedPath = `docs${page.path}`.replace('&', 'and');
@@ -146,13 +149,16 @@ export const onCreatePageFunction: GatsbyNode['onCreatePage'] = ({ page, actions
 
     deletePage(page);
 
-    createPage<GatsbyMarkdownFilePageContext<GatsbyNodeSiteMetadataFragment>>({
+    createPage<GatsbyMarkdownFilePageContext>({
       path: updatedPath,
       component: markdownTemplate,
       context: {
         ...page.context,
         siteMetadata,
         slug,
+        id: slug,
+        name: frontmatter?.name ? frontmatter.name : slug,
+        locale: SITE_LANGUAGES.EN,
       },
     });
     return;
@@ -165,13 +171,16 @@ export const onCreatePageFunction: GatsbyNode['onCreatePage'] = ({ page, actions
 
   deletePage(page);
 
-  createPage<GatsbySrcPageContext<GatsbyNodeSiteMetadataFragment>>({
+  createPage<GatsbySrcPageContext>({
     ...page,
     path: updatedPath,
     context: {
       ...page.context,
       siteMetadata,
       fileId: '',
+      id: updatedPath,
+      name: updatedPath,
+      locale: SITE_LANGUAGES.EN,
     },
   });
 };

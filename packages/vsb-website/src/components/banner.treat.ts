@@ -6,5 +6,13 @@ import { style } from 'treat';
 //
 
 export const wrapper = style((theme: DesignSystem) => ({
-  color: 'blue',
+  height: `800px`,
+  width: `100%`,
 }));
+export const container = style((theme: DesignSystem) => ({
+  width: `100%`,
+  height: `100%`,
+  display: 'grid',
+  alignContent: 'center',
+}));
+export const content = style((theme: DesignSystem) => ({}));

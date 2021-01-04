@@ -1,7 +1,7 @@
-import { CSSProperties, ReactNode } from 'react';
+import { CSSProperties, ReactNode, ReactHTML } from 'react';
 
 export type CommonComponentProps = Partial<{
-  as: 'div' | 'nav';
+  as: keyof ReactHTML;
   id: string;
   /**
    * Class name that will be applied to the component's outer containing element.

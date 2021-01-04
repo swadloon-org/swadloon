@@ -25,7 +25,15 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
         localIdentName: '[name]_[local]_[hash:base64:5]',
         themeIdentName: '_[name]-[local]_',
         outputCSS: isSSR ? false : true, // https://seek-oss.github.io/treat/setup#server-side-rendering
-        outputLoaders: [loaders.miniCssExtract()],
+        outputLoaders: [
+          loaders.miniCssExtract({
+            // // Options similar to the same options in webpackOptions.output
+            // // both options are optional
+            // filename: !isProduction ? '[name].css' : '[name].[contenthash].css',
+            // chunkFilename: !isProduction ? '[id].css' : '[id].[contenthash].css',
+          }),
+        ],
+        hmr: process.env.NODE_ENV === 'development',
       }),
     ],
   };

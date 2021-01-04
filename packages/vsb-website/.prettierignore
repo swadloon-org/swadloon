@@ -10,4 +10,10 @@ package-lock.json
 *.yml
 *.yaml
 
-gatsby-*.js
+# gatsby
+dist/
+public/
+.cache/
+graphql-types.ts
+
+

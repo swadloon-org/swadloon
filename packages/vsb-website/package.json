@@ -10,25 +10,24 @@
   "repository": "https://github.com/newrade/newrade/tree/master/packages/newrade-website",
   "license": "MIT",
   "scripts": {
-    "prebuild": "yarn compile",
+    "prebuild": "yarn typecheck:build",
     "build": "gatsby build",
     "clean": "gatsby clean",
     "compile": "tsc --project tsconfig.gatsby.json",
-    "compile:watch": "concurrently \"yarn compile --watch\" \"yarn type-check --watch\"",
     "contentful-types": ". ./.env && contentful-tools generate --config=contentful-tools.js --token=$CONTENTFUL_MANAGEMENT_TOKEN_VSB",
-    "pre-debug": "yarn clean && yarn compile",
+    "pre-debug": "yarn clean",
     "preload-fonts": ". ./.env && PORT=$APP_PORT gatsby-preload-fonts --no-sandbox",
     "refresh": ". ./.env && curl -X POST http://localhost:$APP_PORT/__refresh",
     "serve": ". ./.env && NODE_ENV=production gatsby serve --port=$APP_PORT",
-    "prestart": "yarn compile",
     "start": ". ./.env && gatsby develop -p $APP_PORT -H 0.0.0.0",
     "test": "echo \"Wrtps://gatsby.dev/unit-testing\"",
-    "type-check": "tsc --noEmit"
+    "typecheck": "yarn typecheck:build --watch",
+    "typecheck:build": "tsc --project tsconfig.build.json --noEmit"
   },
   "dependencies": {
     "@newrade/core-design-system": "^1",
     "@newrade/core-react-ui": "^1",
-    "gatsby": "^2.24"
+    "gatsby": "^2.29"
   },
   "devDependencies": {
     "@newrade/core-common": "^1",

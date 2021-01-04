@@ -1,20 +1,15 @@
-import { PageProps } from 'gatsby';
+import { GatsbyMarkdownFilePageContext } from '@newrade/core-gatsby-config';
+import { Aside } from '@newrade/core-gatsby-ui';
+import { getMetaBasicTags, GlobalMarkdownCSS } from '@newrade/core-react-ui';
+import { graphql, PageProps } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
 import Helmet from 'react-helmet';
-import { graphql } from 'gatsby';
-import { DEPLOY_ENV } from '@newrade/core-common';
-import { getMetaBasicTags } from '@newrade/core-react-ui';
-import { GatsbyMarkdownFilePageContext, GatsbyNodeSiteMetadataFragment } from '@newrade/core-gatsby-config';
-import { MarkdownTemplateQuery } from '../../types/graphql-types';
-import { DebugGasbyPage } from '@newrade/core-gatsby-ui';
-import * as styleRefs from './markdown.treat';
 import { useStyles } from 'react-treat';
+import { MarkdownTemplateQuery } from '../../types/graphql-types';
+import * as styleRefs from './markdown.treat';
 
-export type MarkdownTemplateProps = PageProps<
-  MarkdownTemplateQuery,
-  GatsbyMarkdownFilePageContext<GatsbyNodeSiteMetadataFragment>
->;
+export type MarkdownTemplateProps = PageProps<MarkdownTemplateQuery, GatsbyMarkdownFilePageContext>;
 
 /**
  * Query to retrieve all markdown content for the markdown file
@@ -47,9 +42,18 @@ const Page: React.FC<MarkdownTemplateProps> = (props) => {
   const { styles } = useStyles(styleRefs);
 
   return (
-    <div>
-      {props.pageContext.siteMetadata?.siteEnv === DEPLOY_ENV.LOCAL ? <DebugGasbyPage {...props} /> : null}
+    <>
       <Helmet>
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Quattrocento&display=swap" rel="stylesheet" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
+          rel="stylesheet"
+        />
         {getMetaBasicTags()}
         {/* {getMetadataOpenGraphWebsiteTags({
           type: OPEN_GRAPH_TYPE.ARTICLE,
@@ -69,16 +73,12 @@ const Page: React.FC<MarkdownTemplateProps> = (props) => {
           site: `${data?.contentfulCompanyInfo?.metadataTwitterSite}`,
         })} */}
       </Helmet>
-      <MDXRenderer {...props}>{props.data.mdx?.body as string}</MDXRenderer>
+      <GlobalMarkdownCSS>
+        <MDXRenderer {...props}>{props.data.mdx?.body as string}</MDXRenderer>
+      </GlobalMarkdownCSS>
 
-      <aside className={styles.aside}>
-        {props.data.mdx?.headings?.map((heading) => (
-          <div id={`link-${heading?.value}`} key={heading?.value}>
-            <a href={`#${heading?.value}`}>{heading?.value}</a>
-          </div>
-        ))}
-      </aside>
-    </div>
+      <Aside items={props.data.mdx?.headings} location={props.location} />
+    </>
   );
 };
 

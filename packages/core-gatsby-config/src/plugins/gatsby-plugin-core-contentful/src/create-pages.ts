@@ -1,8 +1,8 @@
 import { log, LOG_LEVEL } from '@newrade/core-utils';
 import { GatsbyNode } from 'gatsby';
 import path from 'path';
-import { GatsbyBlogPostContext, GatsbyPageContext } from '../../../config/page-config';
-import { GatsbyNodeSiteMetadataFragment } from '../../../config/site-graphql-types';
+import { GatsbyBlogPostContext, GatsbyContentfulPageContext } from '../../../config/page-config';
+import { SITE_LANGUAGES } from '../../../config/site-languages';
 import { GatsbyCoreContentfulPluginOptions } from '../gatsby-plugin-options';
 
 export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, graphql }, options) => {
@@ -23,7 +23,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
 
     const pagesData = await graphql<{
       allContentfulPage: {
-        edges: { node: { id: string; name: string; slug: string; node_locale: string } }[];
+        edges: { node: { id: string; name: string; slug: string; node_locale: string; type: { type: string } } }[];
       };
     }>(
       `
@@ -34,6 +34,9 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
                 node_locale
                 id
                 name
+                type {
+                  type
+                }
                 slug
               }
             }
@@ -69,11 +72,16 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
         log(`Creating page: ${edge.node.slug}`, {
           toolName: pluginOptions.packageName,
         });
-        createPage<GatsbyPageContext<GatsbyNodeSiteMetadataFragment>>({
+        createPage<GatsbyContentfulPageContext>({
           path: edge.node.slug,
           context: {
-            siteMetadata: {} as any, // will be set by the gatsby-plugin-core
+            siteMetadata: {} as any, // will be set by the gatsby-plugin-core plugin
             pageId: edge.node.id,
+            id: edge.node.id,
+            name: edge.node.name,
+            type: edge.node.type.type,
+            slug: edge.node.slug,
+            locale: edge.node.node_locale as SITE_LANGUAGES,
           },
           component: pageTemplate,
         });

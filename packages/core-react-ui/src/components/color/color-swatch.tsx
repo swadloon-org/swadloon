@@ -18,17 +18,22 @@ export const ColorSwatch: React.FC<OwnProps> = (props) => {
 
   return (
     <div className={styles.wrapper}>
-      <div style={{ backgroundColor: `${getCSSColor({ ...colorObject })}` }} className={styles.squareColor}></div>
+      <div className={styles.squareColor} style={{ backgroundColor: `${getCSSColor({ ...colorObject })}` }}></div>
       <div className={styles.containerText}>
-        <div className={styles.colorName}>{props.name}</div>
-        <div className={styles.shadeNumber}>{props.shadeNumber}</div>
-        <div className={styles.colorHSL}>
+        <div>
+          <label className={styles.colorName}>
+            {props.name}
+            {props.shadeNumber ? ` - ${props.shadeNumber}` : ''}
+          </label>
+        </div>
+
+        <label className={styles.colorHSL}>
           {colorObject != null
             ? `${colorObject?.h} ${colorObject?.s} ${colorObject?.l} ${
                 colorObject?.a === undefined ? '' : colorObject?.a
               }`
             : colorString}
-        </div>
+        </label>
       </div>
     </div>
   );

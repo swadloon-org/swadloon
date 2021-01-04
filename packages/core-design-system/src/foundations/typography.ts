@@ -1,6 +1,6 @@
 import { Font } from './font';
 import { VIEWPORT } from './layout';
-import { TextStyle } from './text';
+import { CapsizeTextStyle, TextStyle } from './text';
 
 /**
  * The main typographic styles.
@@ -63,6 +63,15 @@ export enum TEXT_STYLE {
 }
 
 /**
+ * Level of text
+ */
+export enum TEXT_LEVEL {
+  primary = 'primary',
+  secondary = 'secondary',
+  tertiary = 'tertiary',
+}
+
+/**
  * Available fonts in the design system.
  */
 export type Fonts = { [key in keyof typeof TYPOGRAPHIC_STYLE]: Font[] } & {
@@ -90,37 +99,36 @@ export type FontVarNames = string[];
  */
 export type FontVars = string[];
 
-type PartialTextStyle<Override extends undefined | string = undefined> = Omit<
-  TextStyle<Override>,
-  'capHeight' | 'lineGap'
->;
-
 /**
  * TODO
  */
 export type Titles<Override extends undefined | string = undefined> = {
-  [key in keyof typeof TITLE]: TextStyle<Override>;
+  [key in keyof typeof TITLE]: CapsizeTextStyle<Override> & TextStyle<Override>;
 };
 
 /**
  * TODO
  */
 export type Headings<Override extends undefined | string = undefined> = {
-  [key in keyof typeof HEADING]: TextStyle<Override>;
+  [key in keyof typeof HEADING]: CapsizeTextStyle<Override> & TextStyle<Override>;
 };
 
 /**
  * TODO
  */
 export type Paragraphs<Override extends undefined | string = undefined> = {
-  [key in keyof typeof PARAGRAPH_SIZE]: TextStyle<Override>;
+  [key in keyof typeof PARAGRAPH_SIZE]: CapsizeTextStyle<Override> & TextStyle<Override>;
 };
 
 /**
  * TODO
  */
 export type Labels<Override extends undefined | string = undefined> = {
-  [key in keyof typeof LABEL_SIZE]: TextStyle<Override>;
+  [key in keyof typeof LABEL_SIZE]: CapsizeTextStyle<Override> & TextStyle<Override>;
+};
+
+export type TextVariantStyles<Override extends undefined | string> = {
+  [key in TEXT_STYLE]?: TextStyle<Override>;
 };
 
 export interface Typography<Override extends undefined | string = undefined> {
@@ -135,7 +143,7 @@ export interface Typography<Override extends undefined | string = undefined> {
   titles: {
     [key in keyof typeof VIEWPORT]: Titles<Override>;
   } &
-    PartialTextStyle<Override>;
+    TextStyle<Override>;
 
   /**
    * TODO
@@ -143,7 +151,7 @@ export interface Typography<Override extends undefined | string = undefined> {
   headings: {
     [key in keyof typeof VIEWPORT]: Headings<Override>;
   } &
-    PartialTextStyle<Override>;
+    TextStyle<Override>;
 
   /**
    * TODO
@@ -151,12 +159,7 @@ export interface Typography<Override extends undefined | string = undefined> {
   paragraphs: {
     [key in keyof typeof VIEWPORT]: Paragraphs<Override>;
   } &
-    PartialTextStyle<Override> & {
-      styles: {
-        [TEXT_STYLE.bold]: PartialTextStyle<Override>;
-        [TEXT_STYLE.italic]: PartialTextStyle<Override>;
-      };
-    };
+    TextStyle<Override> & { styles: TextVariantStyles<Override> };
 
   /**
    * TODO
@@ -164,11 +167,5 @@ export interface Typography<Override extends undefined | string = undefined> {
   labels: {
     [key in keyof typeof VIEWPORT]: Labels<Override>;
   } &
-    PartialTextStyle<Override> & {
-      styles: {
-        [TEXT_STYLE.bold]: PartialTextStyle<Override>;
-        [TEXT_STYLE.uppercase]: PartialTextStyle<Override>;
-        [TEXT_STYLE.boldUppercase]: PartialTextStyle<Override>;
-      };
-    };
+    TextStyle<Override> & { styles: TextVariantStyles<Override> };
 }

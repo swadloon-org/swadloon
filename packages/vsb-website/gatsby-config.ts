@@ -31,6 +31,18 @@ const config: core.GastbySiteConfig = {
      * Project Specific Plugins
      */
     {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Vasectomie Dr. Pierre Jr. Boucher`,
+        short_name: `Vasectomie Dr. Pierre Jr. Boucher`,
+        start_url: `/`,
+        background_color: `#ffffff`,
+        theme_color: `#7c997d`,
+        display: `standalone`,
+        icon: `src/images/favicon.png`,
+      },
+    },
+    {
       resolve: `gatsby-source-contentful`,
       options: {
         spaceId: env.CONTENTFUL_SPACEID_VSB,
@@ -41,14 +53,16 @@ const config: core.GastbySiteConfig = {
     /**
      * Core Plugins
      */
-    core.getGatsbyTsPluginConfig(),
+    ...core.getGatsbyPluginTypeScriptConfig({
+      documentPaths: ['../core-gatsby-ui/src/**/*.{ts,tsx}', './src/**/*.{ts,tsx}'],
+    }),
     core.getGatsbyReactSvgConfig(),
     ...core.getGastbyPluginPageCreatorConfig(),
     core.getGastbyPluginTreatConfig(),
     core.getGatsbyTransformerSharp(),
     core.getGatsbyPluginSharp(),
     core.getGastbyPluginTreatConfig(),
-    core.getGatsbyPluginMdx(),
+    ...core.getGatsbyPluginMdx(),
     core.getGatsbyImageFolder(),
     core.getGatsbyPluginReactHelmet(),
     core.getGatsbyPluginSitemap(),

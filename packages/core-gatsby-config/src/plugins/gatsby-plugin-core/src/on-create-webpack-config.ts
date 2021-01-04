@@ -112,21 +112,24 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
    */
   if (config.module?.rules) {
     const [tsLoaderConf] = config.module.rules.filter(tsLoaderPredicate);
-    const [gatsbyBabelLoaderConf] = config.module.rules.filter(babelLoaderPredicate);
-    const [tsLoaderUseConf] = (tsLoaderConf.use as RuleSetUseItem[]).filter(
-      (use: any) => !/babel-loader/.test(use.loader)
-    );
 
-    config.module.rules = [
-      ...config.module.rules.filter(negateTsLoaderPredicate),
-      {
-        ...tsLoaderConf,
-        use: [(gatsbyBabelLoaderConf as any).use[0], tsLoaderUseConf] as RuleSetRule[],
-        exclude: /public|static/,
-      },
-    ] as RuleSetRules;
+    if (tsLoaderConf && tsLoaderConf.use && (tsLoaderConf.use as RuleSetUseItem[]).length) {
+      const [gatsbyBabelLoaderConf] = config.module.rules.filter(babelLoaderPredicate);
+      const [tsLoaderUseConf] = (tsLoaderConf.use as RuleSetUseItem[]).filter(
+        (use: any) => !/babel-loader/.test(use.loader)
+      );
 
-    const [modifiedTsLoaderConf] = config.module.rules.filter(tsLoaderPredicate);
+      config.module.rules = [
+        ...config.module.rules.filter(negateTsLoaderPredicate),
+        {
+          ...tsLoaderConf,
+          use: [(gatsbyBabelLoaderConf as any).use[0], tsLoaderUseConf] as RuleSetRule[],
+          exclude: /public|static/,
+        },
+      ] as RuleSetRules;
+
+      const [modifiedTsLoaderConf] = config.module.rules.filter(tsLoaderPredicate);
+    }
   }
 
   /**

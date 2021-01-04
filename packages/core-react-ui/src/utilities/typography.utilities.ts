@@ -1,5 +1,12 @@
-import { TextStyle, Titles, Typography, VIEWPORT } from '@newrade/core-design-system';
-import { createCSSTextStyle } from './text.utilities';
+import {
+  CapsizeTextStyle,
+  TextStyle,
+  TextVariantStyles,
+  Titles,
+  Typography,
+  VIEWPORT,
+} from '@newrade/core-design-system';
+import { createCSSCapsizeTextStyle, createCSSTextStyle } from './text.utilities';
 import { keys } from './utilities';
 
 export function getCSSTypography({
@@ -59,16 +66,28 @@ function createCSSVariantTextStyles({
       const styles = variant[viewport] as Titles;
       const viewportStyle = keys(styles).reduce((previous, title) => {
         // merge styles set on parent with specific styles
-        const textStyle: TextStyle = {
+        const textStyle: TextStyle & CapsizeTextStyle = {
           ...parentTextStyles,
           ...styles[title],
         };
-        const cssTextStyle = createCSSTextStyle({ ...textStyle, baseFontSize });
+        const cssTextStyle = createCSSCapsizeTextStyle({ ...textStyle, baseFontSize });
         (previous as any)[title] = cssTextStyle;
         return previous;
       }, {} as Titles<string>);
       (previous as any)[viewport] = viewportStyle;
       return previous;
     }, {} as Typography<string>['titles'] | Typography<string>['headings'] | Typography<string>['paragraphs'] | Typography<string>['labels']);
+
+  if (parentTextStyles && (parentTextStyles as Typography['paragraphs']).styles) {
+    const variantStylesStyles = (parentTextStyles as Typography['paragraphs']).styles;
+    return {
+      ...variantStyles,
+      styles: keys(variantStylesStyles).reduce((previous, current) => {
+        previous[current] = createCSSTextStyle({ ...variantStylesStyles[current], baseFontSize });
+        return previous;
+      }, {} as TextVariantStyles<string>),
+    };
+  }
+
   return variantStyles;
 }

@@ -4,9 +4,9 @@ import { useStyles } from 'react-treat';
 import Icon from '../../illustrations/Icon/IconBars.svg';
 import { Link } from '../ui/link';
 import * as stylesRef from './nav-bar.treat';
-import { NavigationProps } from '../../layouts/page.layout';
 import { PAGE_NAME } from '../../templates/page.template';
 import { Button } from '../ui/button';
+import { NavigationProps } from './side-bar';
 
 type OwnProps = {
   onOpenSideMenu: () => void;

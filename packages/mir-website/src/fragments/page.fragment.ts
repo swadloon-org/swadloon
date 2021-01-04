@@ -4,6 +4,9 @@ export const pageQuery = graphql`
   fragment PageFragment on ContentfulPage {
     id
     name
+    type {
+      type
+    }
     node_locale
     description {
       description

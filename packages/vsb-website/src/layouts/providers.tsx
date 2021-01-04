@@ -2,14 +2,16 @@ import { MDXProvider } from '@mdx-js/react';
 import {
   DefaultCSS,
   mdxComponents,
-  ResetCSS,
+  GlobalResetCSS,
   TreatThemeProvider,
   ViewportProvider,
   viewportContext,
 } from '@newrade/core-react-ui';
 import React from 'react';
 import { TreatProvider } from 'react-treat';
-import { light, theme, cssTheme } from '../design-system/theme.treat';
+import { light } from '../design-system/theme.treat';
+import { theme, cssTheme } from '../design-system/theme';
+import { IconContext } from 'react-icons/lib';
 
 export const Providers: React.FC = (props) => {
   return (
@@ -18,9 +20,13 @@ export const Providers: React.FC = (props) => {
         <TreatThemeProvider theme={{ theme, cssTheme }}>
           <MDXProvider components={mdxComponents}>
             {/* <CSSVariables>{props.children}</CSSVariables> */}
-            <ResetCSS>
-              <DefaultCSS>{props.children}</DefaultCSS>
-            </ResetCSS>
+            <GlobalResetCSS>
+              <DefaultCSS>
+                <IconContext.Provider value={{ style: { verticalAlign: 'middle' } }}>
+                  {props.children}
+                </IconContext.Provider>
+              </DefaultCSS>
+            </GlobalResetCSS>
           </MDXProvider>
         </TreatThemeProvider>
       </ViewportProvider>

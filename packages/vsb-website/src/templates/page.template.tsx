@@ -1,4 +1,4 @@
-import { GatsbyPageContext, GatsbyNodeSiteMetadataFragment } from '@newrade/core-gatsby-config';
+import { GatsbyContentfulPageContext } from '@newrade/core-gatsby-config';
 import {
   getMetaBasicTags,
   getMetadataOpenGraphWebsiteTags,
@@ -10,10 +10,10 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { PageQuery } from '../../types/graphql-types';
 import { PROJECT_PAGE_TYPE } from '../../types/page-type';
-import { Providers } from '../layouts/providers';
+import '../fonts';
 import { HomeTemplate } from './home.template';
 
-export type ProjectPageProps = PageProps<PageQuery, GatsbyPageContext<GatsbyNodeSiteMetadataFragment>>;
+export type ProjectPageProps = PageProps<PageQuery, GatsbyContentfulPageContext>;
 
 export const pageQuery = graphql`
   query Page($pageId: String) {
@@ -48,7 +48,7 @@ export const pageQuery = graphql`
 
 export const PageTemplate: React.FC<ProjectPageProps> = ({ data, location, ...props }) => {
   return (
-    <Providers>
+    <div>
       <Helmet>
         {getMetaBasicTags()}
         {getMetadataOpenGraphWebsiteTags({
@@ -73,7 +73,7 @@ export const PageTemplate: React.FC<ProjectPageProps> = ({ data, location, ...pr
         pageType: data?.contentfulPage?.type?.type as any,
         props: { data, location, ...props },
       })}
-    </Providers>
+    </div>
   );
 };
 
