@@ -30,12 +30,12 @@ export enum PROJECT_SECTION_TYPE {
 }
 
 export enum PROJECT_CONTENT_TYPE {
-  STEP = 'STEP',
-  COST_ITEM = 'COST_ITEM',
-  THEMATIC = 'THEMATIC',
-  SERVICE = 'SERVICE',
-  SERVICE_CATEGORY = 'SERVICE_CATEGORY',
-  TECHNOLOGY = 'TECHNOLOGY',
+  STEP = 'Step',
+  COST_ITEM = 'CostItem',
+  THEMATIC = 'Thematic',
+  SERVICE = 'Service',
+  SERVICE_CATEGORY = 'ServiceCategory',
+  TECHNOLOGY = 'Technology',
 }
 
 export enum PROJECT_FIELD {

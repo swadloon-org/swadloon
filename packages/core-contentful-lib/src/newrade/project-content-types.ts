@@ -135,7 +135,7 @@ export function createService(migration: Migration.default) {
 
 export const createServiceCategory = function (migration: Migration.default) {
   const serviceCategory = migration.createContentType(PROJECT_CONTENT_TYPE.SERVICE_CATEGORY, {
-    name: PROJECT_CONTENT_TYPE.SERVICE_CATEGORY,
+    name: pascal(PROJECT_CONTENT_TYPE.SERVICE_CATEGORY),
     displayField: COMMON_FIELD.NAME,
     description: 'Each section has a type to select the look and feel.',
   });
