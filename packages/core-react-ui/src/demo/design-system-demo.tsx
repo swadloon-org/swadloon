@@ -155,18 +155,22 @@ export const DesignSystemComponent: React.FC<Props> = (props) => {
                       <Cluster
                         key={index}
                         justifyContent={['flex-start', 'flex-start', 'flex-start']}
-                        style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(20%, 1fr))' }}
+                        alignItems={'flex-start'}
+                        style={{ flexWrap: 'wrap' }}
+                        gap={'10px  0'}
                       >
                         {shades.map((shadeName, index) => {
                           const color = palette[shadeName];
 
                           return (
-                            <ColorSwatch
-                              key={index}
-                              shadeNumber={shadeName}
-                              name={colorName}
-                              color={color}
-                            ></ColorSwatch>
+                            <div style={{ width: '20%' }}>
+                              <ColorSwatch
+                                key={index}
+                                shadeNumber={shadeName}
+                                name={colorName}
+                                color={color}
+                              ></ColorSwatch>
+                            </div>
                           );
                         })}
                       </Cluster>
