@@ -47,5 +47,3 @@ export enum PROJECT_FIELD {
   TECHNOLOGY = 'technology',
   SUMMARY = 'summary',
 }
-
-export enum PROJECT_SERVICE_CATEGORY {}

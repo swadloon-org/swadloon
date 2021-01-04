@@ -23,13 +23,7 @@ import {
   createTechnology,
   createThematic,
 } from './project-content-types';
-import {
-  PROJECT_CONTENT_TYPE,
-  PROJECT_FIELD,
-  PROJECT_PAGE_TYPE,
-  PROJECT_SECTION_TYPE,
-  PROJECT_SERVICE_CATEGORY,
-} from './project-props-types';
+import { PROJECT_CONTENT_TYPE, PROJECT_FIELD, PROJECT_PAGE_TYPE, PROJECT_SECTION_TYPE } from './project-props-types';
 
 const program: Migration.MigrationFunction = function Program(migration) {
   /**
@@ -127,7 +121,7 @@ const program: Migration.MigrationFunction = function Program(migration) {
   createCostItem(migration);
   createThematic(migration);
   createService(migration);
-  createServiceCategory(migration, { serviceCategory: PROJECT_SERVICE_CATEGORY });
+  createServiceCategory(migration);
   createTechnology(migration);
 };
 

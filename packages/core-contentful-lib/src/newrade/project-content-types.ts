@@ -3,7 +3,6 @@ import * as Migration from 'contentful-migration';
 import { CONTENTFUL_WIDGET } from 'types/contentful-widget-ids';
 import { COMMON_CONTENT_TYPE } from '../common/common-content-types';
 import { COMMON_FIELD, mediaField } from '../common/common-fields';
-import { keys } from '../utilities';
 import { PROJECT_CONTENT_TYPE, PROJECT_FIELD } from './project-props-types';
 
 export function createCostItem(migration: Migration.default) {
@@ -134,7 +133,7 @@ export function createService(migration: Migration.default) {
   });
 }
 
-export const createServiceCategory = function (migration: Migration.default, options: { serviceCategory: object }) {
+export const createServiceCategory = function (migration: Migration.default) {
   const serviceCategory = migration.createContentType(PROJECT_CONTENT_TYPE.SERVICE_CATEGORY, {
     name: PROJECT_CONTENT_TYPE.SERVICE_CATEGORY,
     displayField: COMMON_FIELD.NAME,
@@ -150,11 +149,6 @@ export const createServiceCategory = function (migration: Migration.default, opt
     name: pascal(COMMON_FIELD.TYPE),
     type: 'Symbol',
     required: true,
-    validations: [
-      {
-        in: keys(options.serviceCategory),
-      },
-    ],
   });
   serviceCategory.changeFieldControl(COMMON_FIELD.TYPE, 'builtin', CONTENTFUL_WIDGET.DROPDOWN, {
     helpText: 'Select section type',
