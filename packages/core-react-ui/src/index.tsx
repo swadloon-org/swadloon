@@ -21,7 +21,7 @@ export * from './design-system/default-layout';
 export * from './design-system/default-sizing';
 export * from './design-system/default-theme';
 export * from './design-system/default-typography';
-export * from './global/css-variables';
+export * from './global/global-css-variables';
 export * from './global/default-css';
 export * from './global/global-markdown-css';
 export * from './global/global-reset-css';

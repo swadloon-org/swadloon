@@ -22,59 +22,13 @@ const defaultBreakpoints: Breakpoints = {
 
 export const defaultLayout: Layout = {
   breakpoints: defaultBreakpoints,
-  media: {
-    [VIEWPORT.mobile]: {
-      queryA: {
-        type: MEDIA_TYPE.screen,
-        feature: MEDIA_FEATURE['max-width'],
-        value: defaultBreakpoints.tabletPortrait,
-      },
-    },
-    [VIEWPORT.tablet]: {
-      queryA: {
-        type: MEDIA_TYPE.screen,
-      },
-      operator: MEDIA_OPERATOR.and,
-      queryB: {
-        queryA: {
-          type: MEDIA_TYPE.screen,
-          feature: MEDIA_FEATURE['min-width'],
-          value: defaultBreakpoints.tabletPortrait,
-        },
-        operator: MEDIA_OPERATOR.and,
-        queryB: {
-          type: MEDIA_TYPE.screen,
-          feature: MEDIA_FEATURE['max-width'],
-          value: defaultBreakpoints.desktopSmall,
-        },
-      },
-    },
-    tabletPlus: {
-      queryA: {
-        type: MEDIA_TYPE.screen,
-        feature: MEDIA_FEATURE['max-width'],
-        value: defaultBreakpoints.tabletPortrait,
-      },
-    },
-    [VIEWPORT.desktop]: {
-      queryA: {
-        type: MEDIA_TYPE.screen,
-        feature: MEDIA_FEATURE['max-width'],
-        value: defaultBreakpoints.tabletPortrait,
-      },
-    },
-
-    // // [VIEWPORT.mobile]: `screen and (max-width: ${defaultBreakpoints.tabletPortrait.px})`,
-    // [VIEWPORT.tablet]: `screen and (min-width: ${defaultBreakpoints.tabletPortrait.px}) and (max-width: ${defaultBreakpoints.desktopSmall.px})`,
-    // tabletPlus: `screen and (min-width: ${defaultBreakpoints.tabletPortrait.px}) `,
-    // [VIEWPORT.desktop]: `screen and (min-width: ${defaultBreakpoints.desktopSmall.px})`,
-  },
   contentMargins: {
     [VIEWPORT.mobile]: 24,
     [VIEWPORT.tablet]: 40,
     [VIEWPORT.desktop]: 40,
   },
   contentWidth: {
+    desktopBlogMaxWidth: 800,
     desktopMaxWidth: 1200,
   },
   sidebarWidth: {
@@ -92,5 +46,166 @@ export const defaultLayout: Layout = {
     [VIEWPORT.desktop]: 210,
     [VIEWPORT.tablet]: 210,
     [VIEWPORT.mobile]: 210,
+  },
+  media: {
+    mobile: {
+      queryA: {
+        type: MEDIA_TYPE.screen,
+      },
+      operator: MEDIA_OPERATOR.and,
+      queryB: {
+        feature: MEDIA_FEATURE.maxWidth,
+        value: defaultBreakpoints.tabletPortrait,
+      },
+    },
+    mobileOnly: {
+      queryA: {
+        type: MEDIA_TYPE.screen,
+      },
+      operator: MEDIA_OPERATOR.and,
+      queryB: {
+        queryA: {
+          feature: MEDIA_FEATURE.minWidth,
+          value: 0,
+        },
+        operator: MEDIA_OPERATOR.and,
+        queryB: {
+          feature: MEDIA_FEATURE.maxWidth,
+          value: defaultBreakpoints.tabletPortrait,
+        },
+      },
+    },
+    tablet: {
+      queryA: {
+        type: MEDIA_TYPE.screen,
+      },
+      operator: MEDIA_OPERATOR.and,
+      queryB: {
+        feature: MEDIA_FEATURE.minWidth,
+        value: defaultBreakpoints.tabletPortrait,
+      },
+    },
+    tabletOnly: {
+      queryA: {
+        type: MEDIA_TYPE.screen,
+      },
+      operator: MEDIA_OPERATOR.and,
+      queryB: {
+        queryA: {
+          feature: MEDIA_FEATURE.minWidth,
+          value: defaultBreakpoints.tabletPortrait,
+        },
+        operator: MEDIA_OPERATOR.and,
+        queryB: {
+          feature: MEDIA_FEATURE.maxWidth,
+          value: defaultBreakpoints.desktopSmall,
+        },
+      },
+    },
+    desktopSmall: {
+      queryA: {
+        type: MEDIA_TYPE.screen,
+      },
+      operator: MEDIA_OPERATOR.and,
+      queryB: {
+        feature: MEDIA_FEATURE.minWidth,
+        value: defaultBreakpoints.desktopSmall,
+      },
+    },
+    desktopSmallOnly: {
+      queryA: {
+        type: MEDIA_TYPE.screen,
+      },
+      operator: MEDIA_OPERATOR.and,
+      queryB: {
+        queryA: {
+          feature: MEDIA_FEATURE.minWidth,
+          value: defaultBreakpoints.desktopSmall,
+        },
+        operator: MEDIA_OPERATOR.and,
+        queryB: {
+          feature: MEDIA_FEATURE.maxWidth,
+          value: defaultBreakpoints.desktopMedium,
+        },
+      },
+    },
+    desktopMedium: {
+      queryA: {
+        type: MEDIA_TYPE.screen,
+      },
+      operator: MEDIA_OPERATOR.and,
+      queryB: {
+        feature: MEDIA_FEATURE.minWidth,
+        value: defaultBreakpoints.desktopMedium,
+      },
+    },
+    desktopMediumOnly: {
+      queryA: {
+        type: MEDIA_TYPE.screen,
+      },
+      operator: MEDIA_OPERATOR.and,
+      queryB: {
+        queryA: {
+          feature: MEDIA_FEATURE.minWidth,
+          value: defaultBreakpoints.desktopMedium,
+        },
+        operator: MEDIA_OPERATOR.and,
+        queryB: {
+          feature: MEDIA_FEATURE.maxWidth,
+          value: defaultBreakpoints.desktopLarge,
+        },
+      },
+    },
+    desktopLarge: {
+      queryA: {
+        type: MEDIA_TYPE.screen,
+      },
+      operator: MEDIA_OPERATOR.and,
+      queryB: {
+        feature: MEDIA_FEATURE.minWidth,
+        value: defaultBreakpoints.desktopLarge,
+      },
+    },
+    desktopLargeOnly: {
+      queryA: {
+        type: MEDIA_TYPE.screen,
+      },
+      operator: MEDIA_OPERATOR.and,
+      queryB: {
+        queryA: {
+          feature: MEDIA_FEATURE.minWidth,
+          value: defaultBreakpoints.desktopLarge,
+        },
+        operator: MEDIA_OPERATOR.and,
+        queryB: {
+          feature: MEDIA_FEATURE.maxWidth,
+          value: defaultBreakpoints.desktopXLarge,
+        },
+      },
+    },
+    desktopXLarge: {
+      queryA: {
+        type: MEDIA_TYPE.screen,
+      },
+      operator: MEDIA_OPERATOR.and,
+      queryB: {
+        feature: MEDIA_FEATURE.minWidth,
+        value: defaultBreakpoints.desktopXLarge,
+      },
+    },
+    desktopXLargeOnly: {
+      queryA: {
+        type: MEDIA_TYPE.screen,
+      },
+      operator: MEDIA_OPERATOR.and,
+      queryB: {
+        feature: MEDIA_FEATURE.minWidth,
+        value: defaultBreakpoints.desktopXLarge,
+      },
+    },
+    // // [VIEWPORT.mobile]: `screen and (max-width: ${defaultBreakpoints.tabletPortrait.px})`,
+    // [VIEWPORT.tablet]: `screen and (min-width: ${defaultBreakpoints.tabletPortrait.px}) and (max-width: ${defaultBreakpoints.desktopSmall.px})`,
+    // tabletPlus: `screen and (min-width: ${defaultBreakpoints.tabletPortrait.px}) `,
+    // [VIEWPORT.desktop]: `screen and (min-width: ${defaultBreakpoints.desktopSmall.px})`,
   },
 };

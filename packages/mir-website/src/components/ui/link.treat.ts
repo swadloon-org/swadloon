@@ -33,7 +33,6 @@ export const active = style((theme: DesignSystem) => ({
   height: '2px',
   backgroundColor: theme.colorIntents.primaryReversed,
 
-  transitionDelay: '1s',
   transitionProperty: 'opacity',
   transitionDuration: '400ms',
   transitionTimingFunction: 'ease-in',
