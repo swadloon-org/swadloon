@@ -22,6 +22,16 @@ const env = loadDotEnv<ENV>({
 logEnvVariables({ packageName: packageJson.name, env });
 
 const config: core.GastbySiteConfig = {
+  flags: {
+    PRESERVE_WEBPACK_CACHE: Boolean(env.GATSBY_PRESERVE_WEBPACK_CACHE),
+    PRESERVE_FILE_DOWNLOAD_CACHE: Boolean(env.GATSBY_PRESERVE_FILE_DOWNLOAD_CACHE),
+    QUERY_ON_DEMAND: Boolean(env.GATSBY_QUERY_ON_DEMAND),
+    LAZY_IMAGES: Boolean(env.GATSBY_LAZY_IMAGES),
+    PARALLEL_SOURCING: Boolean(env.GATSBY_PARALLEL_SOURCING),
+    DEV_SSR: Boolean(env.GATSBY_DEV_SSR),
+    FAST_DEV: Boolean(env.GATSBY_FAST_DEV),
+    FAST_REFRESH: Boolean(env.GATSBY_FAST_REFRESH),
+  },
   siteMetadata: {
     title: `Core Gatsby Website`,
     description: `Gatsby powered MIR website`,

@@ -77,6 +77,6 @@ export interface Layout<Override extends undefined | string = undefined> {
     [key in keyof typeof VIEWPORT]: SizeType<Override>;
   };
   media: MediaQueries<Override>;
-  varNames: LayoutVarNames;
-  vars: LayoutVars;
+  // varNames: LayoutVarNames;
+  // vars: LayoutVars;
 }
