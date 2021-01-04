@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.2](https://github.com/newrade/newrade/compare/@newrade/core-figma-plugins@1.0.1...@newrade/core-figma-plugins@1.0.2) (2020-12-18)
+
+### Bug Fixes
+
+- **core-common:** remove browser code from core-utils ([b2595fc](https://github.com/newrade/newrade/commit/b2595fcc496d8876b0f658592a66659840d1ec92))
+- **core-gatsby-starter:** refactor templates + setup pages and markdown ([4aaa949](https://github.com/newrade/newrade/commit/4aaa949750c94a939b35767f2bd3fb20b8fb2614))
+- **core-react-ui:** wip ([093aa8f](https://github.com/newrade/newrade/commit/093aa8fb17d1c4b8aecca90142666984e239976d))
+
 ## 1.0.1 (2020-11-02)
 
 ### Bug Fixes

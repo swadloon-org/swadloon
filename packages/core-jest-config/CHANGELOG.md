@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/compare/@newrade/core-jest-config@1.4.2...@newrade/core-jest-config@1.5.0) (2020-12-18)
+
+### Bug Fixes
+
+- **core-common:** remove browser code from core-utils ([b2595fc](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/b2595fcc496d8876b0f658592a66659840d1ec92))
+- **core-contentful-lib:** changes ([d42278c](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/d42278c313ec5ca24a450536f7dc9b624a6d2fc1))
+- **core-design-system:** wip ([36b5e4c](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/36b5e4cb0bbc348a862cc396e74c76aa1a388356))
+- **core-gatsby-starter:** refactor templates + setup pages and markdown ([4aaa949](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/4aaa949750c94a939b35767f2bd3fb20b8fb2614))
+- **core-react-ui:** fix test and ts-jest config ([e3624f2](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/e3624f2929c437fb49ed5eec0c580171308a29aa))
+- **core-react-ui:** wip ([c2f5aa3](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/c2f5aa388845dd6b99e065a26aaf0707fb2711b1))
+- **repo:** add .env type checking to all packages ([d382e42](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/d382e42e2dcfbff0b635b4aa1f2c04e56deda4d7))
+
+### Features
+
+- **core-react-ui:** wip ([03ea0ea](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/03ea0eac2447243b30e168a4ab689e431abcb9dd))
+
 ## [1.4.2](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/compare/@newrade/core-jest-config@1.4.1...@newrade/core-jest-config@1.4.2) (2020-11-30)
 
 **Note:** Version bump only for package @newrade/core-jest-config

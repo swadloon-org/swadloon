@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.3](https://github.com/newrade/newrade/compare/@newrade/core-react-ui-old@1.5.2...@newrade/core-react-ui-old@1.5.3) (2020-12-18)
+
+### Bug Fixes
+
+- **core-common:** remove browser code from core-utils ([b2595fc](https://github.com/newrade/newrade/commit/b2595fcc496d8876b0f658592a66659840d1ec92))
+- **core-contentful-lib:** changes ([d42278c](https://github.com/newrade/newrade/commit/d42278c313ec5ca24a450536f7dc9b624a6d2fc1))
+- **core-gatsby-starter:** refactor templates + setup pages and markdown ([4aaa949](https://github.com/newrade/newrade/commit/4aaa949750c94a939b35767f2bd3fb20b8fb2614))
+- **repo:** add .env type checking to all packages ([d382e42](https://github.com/newrade/newrade/commit/d382e42e2dcfbff0b635b4aa1f2c04e56deda4d7))
+
 ## [1.5.2](https://github.com/newrade/newrade/compare/@newrade/core-react-ui-old@1.5.1...@newrade/core-react-ui-old@1.5.2) (2020-11-30)
 
 **Note:** Version bump only for package @newrade/core-react-ui-old

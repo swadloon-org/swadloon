@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.1.0 (2020-12-18)
+
+### Bug Fixes
+
+- **core-common:** remove browser code from core-utils ([b2595fc](https://github.com/newrade/newrade/commit/b2595fcc496d8876b0f658592a66659840d1ec92))
+- **core-contentful-lib:** changes ([d42278c](https://github.com/newrade/newrade/commit/d42278c313ec5ca24a450536f7dc9b624a6d2fc1))
+- **core-gastby-config:** separate UI components ([be3d23e](https://github.com/newrade/newrade/commit/be3d23eafc6dbe76e293512fbec5521a8af5db73))
+- **core-react-ui:** fixes default buttons ([1818326](https://github.com/newrade/newrade/commit/1818326370f0dad527a1333c82d3668fd75db0a2))
+- **gastby:** fixes for markdown file generation ([2982616](https://github.com/newrade/newrade/commit/29826163498932d216cc22ec713d7de076812fbb))
+- **mir-website:** fix import linked to core-react-ui ([d3e03cb](https://github.com/newrade/newrade/commit/d3e03cb0b1a34655519f2331c16b013bb6467f42))
+
+### Features
+
+- **core-react-ui:** wip for typography ([7974d81](https://github.com/newrade/newrade/commit/7974d813caa29f325729e37dc6328478fc2b403b))
+
 ## [1.4.2](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-config@1.4.1...@newrade/core-gatsby-config@1.4.2) (2020-11-30)
 
 **Note:** Version bump only for package @newrade/core-gatsby-config
