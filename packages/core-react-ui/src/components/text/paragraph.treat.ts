@@ -1,9 +1,11 @@
-import { PARAGRAPH_SIZE, TEXT_STYLE } from '@newrade/core-design-system';
+import { PARAGRAPH_SIZE, TEXT_LEVEL, TEXT_STYLE } from '@newrade/core-design-system';
 import { style } from 'treat';
 import { Theme } from '../../design-system/css-design-system';
 import { getCSSTextStyles } from '../../utilities/text.utilities';
 
-export const styles: { [key in TEXT_STYLE]: string } & { [key in PARAGRAPH_SIZE]: string } = {
+export const styles: { [key in TEXT_STYLE]: string } &
+  { [key in PARAGRAPH_SIZE]: string } &
+  { [key in TEXT_LEVEL]: string } = {
   large: style(({ theme, cssTheme }: Theme) => ({
     ...getCSSTextStyles(cssTheme.typography.paragraphs.mobile.large),
     '@media': {
@@ -63,5 +65,15 @@ export const styles: { [key in TEXT_STYLE]: string } & { [key in PARAGRAPH_SIZE]
   })),
   italicBold: style(({ theme, cssTheme }: Theme) => ({
     ...getCSSTextStyles(cssTheme.typography.paragraphs.styles.italicBold),
+  })),
+
+  primary: style(({ theme, cssTheme }: Theme) => ({
+    color: cssTheme.colors.colorIntents.primaryText,
+  })),
+  secondary: style(({ theme, cssTheme }: Theme) => ({
+    color: cssTheme.colors.colorIntents.secondaryText,
+  })),
+  tertiary: style(({ theme, cssTheme }: Theme) => ({
+    color: cssTheme.colors.colorIntents.tertiaryText,
   })),
 };

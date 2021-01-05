@@ -1,9 +1,11 @@
-import { LABEL_SIZE, TEXT_STYLE } from '@newrade/core-design-system';
+import { LABEL_SIZE, TEXT_LEVEL, TEXT_STYLE } from '@newrade/core-design-system';
 import { style } from 'treat';
 import { Theme } from '../../design-system/css-design-system';
 import { getCSSTextStyles } from '../../utilities/text.utilities';
 
-export const styles: { [key in LABEL_SIZE]: string } & { [key in TEXT_STYLE]: string } = {
+export const styles: { [key in LABEL_SIZE]: string } &
+  { [key in TEXT_STYLE]: string } &
+  { [key in TEXT_LEVEL]: string } = {
   medium: style(({ theme, cssTheme }: Theme) => ({
     ...getCSSTextStyles(cssTheme.typography.labels.mobile.medium),
     '@media': {
@@ -55,5 +57,15 @@ export const styles: { [key in LABEL_SIZE]: string } & { [key in TEXT_STYLE]: st
   })),
   italicBold: style(({ theme, cssTheme }: Theme) => ({
     ...getCSSTextStyles(cssTheme.typography.labels.styles.italicBold),
+  })),
+
+  primary: style(({ theme, cssTheme }: Theme) => ({
+    color: cssTheme.colors.colorIntents.primaryText,
+  })),
+  secondary: style(({ theme, cssTheme }: Theme) => ({
+    color: cssTheme.colors.colorIntents.secondaryText,
+  })),
+  tertiary: style(({ theme, cssTheme }: Theme) => ({
+    color: cssTheme.colors.colorIntents.tertiaryText,
   })),
 };
