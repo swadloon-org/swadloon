@@ -12,10 +12,10 @@ export const TileLinks: React.FC<OwnProps> = (props) => {
 
   return (
     <div className={`${styles.wrapper}`}>
-      <Cluster maxWidth={'100%'}>
+      <Cluster>
         {/* ITEMS */}
         {props?.subSections?.map((item: any, index: number) => {
-          return <TileLink {...item}></TileLink>;
+          return <TileLink key={index} {...item}></TileLink>;
         })}
       </Cluster>
     </div>
