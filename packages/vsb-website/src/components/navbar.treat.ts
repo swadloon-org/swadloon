@@ -5,6 +5,7 @@ export const wrapper = style(({ cssTheme, theme }: Theme) => ({
   position: 'fixed',
   top: 0,
   width: '100%',
+  height: cssTheme.layout.var.navbarHeight,
 
   backgroundColor: getCSSColor({ h: 0, s: 0, l: 13, a: 15 }),
   zIndex: 100,

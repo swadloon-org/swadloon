@@ -70,7 +70,7 @@ export const styles: { wrapper: string } & { [key in HEADING]: string } & { [key
 globalStyle(`${styles.wrapper}::before`, ({ theme, cssTheme }: Theme) => ({
   content: '" "',
   display: 'block',
-  height: '75px',
+  height: cssTheme.layout.navbarHeight.mobile,
   marginTop: '-75px',
   visibility: 'hidden',
 }));

@@ -1,11 +1,10 @@
+import { Center, Cluster, Label, Stack } from '@newrade/core-react-ui';
+import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import * as styleRefs from './footer.treat';
-import BackgroundImage, { IFluidObject } from 'gatsby-background-image';
-import { Box, Stack, Cluster, Label, Center } from '@newrade/core-react-ui';
-import { graphql, useStaticQuery } from 'gatsby';
-
 import { FooterQuery } from '../../types/graphql-types';
+import * as styleRefs from './footer.treat';
+import { TEXT_STYLE, TEXT_LEVEL } from '@newrade/core-design-system';
 
 export const footerQuery = graphql`
   query Footer {
@@ -33,7 +32,7 @@ export const Footer: React.FC<OwnProps> = (props) => {
         <Cluster>
           {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
           <Stack>
-            <Label>SERVICES</Label>
+            <Label variantStyle={TEXT_LEVEL.secondary}>SERVICES</Label>
           </Stack>
           <Stack>
             <Label>LA CLINIQUE</Label>

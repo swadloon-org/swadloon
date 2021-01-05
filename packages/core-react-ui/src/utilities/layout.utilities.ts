@@ -1,6 +1,8 @@
 import {
   Breakpoints,
   Layout,
+  LayoutVarNames,
+  LayoutVars,
   MediaQueries,
   MediaQuery,
   MediaQueryGroup,
@@ -8,7 +10,10 @@ import {
   MEDIA_FEATURE,
   MEDIA_OPERATOR,
   MEDIA_TYPE,
+  PartialLayout,
 } from '@newrade/core-design-system';
+import { kebab } from 'case';
+import { cssVar } from './css-variable.utilities';
 import { keys, px } from './utilities';
 
 /**
@@ -37,18 +42,19 @@ export function getCSSLayout(options: Layout): Layout<string> {
       previous = { ...previous, [current]: px({ value }) };
       return previous;
     }, {} as Layout<string>['sidebarWidth']),
-    topbarHeight: keys(options.topbarHeight).reduce((previous, current) => {
-      const value = options.topbarHeight[current];
+    navbarHeight: keys(options.navbarHeight).reduce((previous, current) => {
+      const value = options.navbarHeight[current];
       previous = { ...previous, [current]: px({ value }) };
       return previous;
-    }, {} as Layout<string>['topbarHeight']),
+    }, {} as Layout<string>['navbarHeight']),
     asideWidth: px({ value: options.asideWidth }),
     footerHeight: keys(options.footerHeight).reduce((previous, current) => {
       const value = options.footerHeight[current];
       previous = { ...previous, [current]: px({ value }) };
       return previous;
     }, {} as Layout<string>['footerHeight']),
-    // ...getLayout,
+    varNames: options.varNames,
+    var: options.var,
   };
 }
 
@@ -184,59 +190,67 @@ export function extractQueryOperator(operator?: MEDIA_OPERATOR) {
   }
 }
 
-// /**
-//  * Generate CSS variable names from the layout object.
-//  */
-// export function getCSSVarNamesForLayout({ layout }: { layout: Layout }): Pick<Layout, 'varNames' | 'vars'> {
-//   const layoutVarNames = getNameForColors(colors, 'color');
+/**
+ * Generate CSS statement to access variables
+ */
+export function getCSSVarForLayout({ layout }: { layout: PartialLayout }): LayoutVars {
+  return getNameForLayout({ layout, prefix: 'layout', wrapWithVar: true });
+}
 
-//   return [...layoutVarNames];
-// }
+/**
+ * Generate CSS variable names from the layout object.
+ */
+export function getCSSVarNamesForLayout({ layout }: { layout: PartialLayout }): LayoutVarNames {
+  return getNameForLayout({ layout, prefix: 'layout', wrapWithVar: false });
+}
 
-// export function getCSSVarForColors({
-//   colors,
-//   colorIntents,
-// }: {
-//   colors: DS.Colors['colors'];
-//   colorIntents: DS.ColorIntents;
-// }): DS.ColorsVars {
-//   return getCSSVarNamesForColors({
-//     colors,
-//     colorIntents,
-//   }).map((cssVar) => `var(${cssVar})`);
-// }
+function getNameForLayout({
+  layout,
+  prefix,
+  wrapWithVar,
+}: {
+  layout: PartialLayout;
+  prefix: string;
+  wrapWithVar: boolean;
+}) {
+  const varNames: LayoutVarNames = {} as LayoutVarNames;
 
-// function getNameForColors(colors: DS.Colors['colors'] | DS.Colors['colorIntents'], prefix: string) {
-//   const colorsVarNames: DS.ColorsVarNames = [];
+  keys(layout).forEach((layoutProp) => {
+    const value = layout[layoutProp];
 
-//   Object.keys(colors).forEach((current) => {
-//     const currentColor = current as keyof (DS.Colors['colors'] | DS.Colors['colorIntents']); // 'primary'
-//     if (currentColor && currentColor.length) {
-//       // for colors that have a palette (nested colors)
-//       if (
-//         colors[currentColor] &&
-//         typeof colors[currentColor] === 'object' &&
-//         !Object.keys(colors[currentColor]).includes('h')
-//       ) {
-//         Object.keys(colors[currentColor]).map((colorName) => {
-//           const formattedCurrentColor = kebab(currentColor);
-//           const formattedColorName = kebab(colorName);
-//           colorsVarNames.push(`--${prefix}-${formattedCurrentColor}-${formattedColorName}`);
-//         });
-//       }
+    if (!value) {
+      return;
+    }
 
-//       // for colors that don't have a nested structure
-//       if (
-//         colors[currentColor] &&
-//         typeof colors[currentColor] === 'object' &&
-//         Object.keys(colors[currentColor]).includes('h')
-//       ) {
-//         const formattedCurrentColor = kebab(currentColor);
-//         const formattedColorName = kebab(currentColor);
-//         colorsVarNames.push(`--${prefix}-${formattedCurrentColor}`);
-//       }
-//     }
-//   });
+    // for layout props that are nested
+    if (typeof value === 'number') {
+      const formattedCurrentLayoutProp = kebab(layoutProp);
+      const varString = `--${prefix}-${formattedCurrentLayoutProp}`;
+      varNames[layoutProp as 'asideWidth'] = wrapWithVar ? cssVar(varString) : varString;
+    }
 
-//   return colorsVarNames;
-// }
+    // for colors that don't have a nested structure
+    if (typeof value === 'object') {
+      if (!varNames[layoutProp]) {
+        varNames[layoutProp] = {} as any;
+      }
+
+      // don't traverse objects that have viewports
+      if ((keys(value) as string[]).includes('mobile')) {
+        const varString = `--${prefix}-${kebab(layoutProp)}` as any;
+        varNames[layoutProp] = wrapWithVar ? cssVar(varString) : varString;
+        return;
+      }
+
+      keys(value).forEach((nestedLayoutProp: string) => {
+        const formattedCurrentLayoutProp = kebab(layoutProp);
+        const formattedNestedLayoutProp = kebab(`${nestedLayoutProp}`);
+        const varString = `--${prefix}-${formattedCurrentLayoutProp}-${formattedNestedLayoutProp}` as any;
+        // @ts-ignore
+        varNames[layoutProp][nestedLayoutProp] = wrapWithVar ? cssVar(varString) : varString;
+      });
+    }
+  });
+
+  return varNames;
+}
