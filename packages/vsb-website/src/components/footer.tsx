@@ -2,7 +2,7 @@ import React from 'react';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './footer.treat';
 import BackgroundImage, { IFluidObject } from 'gatsby-background-image';
-import { Box, Stack, Cluster, Label } from '@newrade/core-react-ui';
+import { Box, Stack, Cluster, Label, Center } from '@newrade/core-react-ui';
 import { graphql, useStaticQuery } from 'gatsby';
 
 import { FooterQuery } from '../../types/graphql-types';
@@ -29,18 +29,20 @@ export const Footer: React.FC<OwnProps> = (props) => {
 
   return (
     <div className={`${styles.wrapper}`}>
-      <Cluster>
-        <pre>{JSON.stringify(data, null, 2)}</pre>
-        <Stack>
-          <Label>SERVICES</Label>
-        </Stack>
-        <Stack>
-          <Label>LA CLINIQUE</Label>
-        </Stack>
-        <Stack>
-          <Label>NOUS JOINDRE</Label>
-        </Stack>
-      </Cluster>
+      <Center>
+        <Cluster>
+          {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
+          <Stack>
+            <Label>SERVICES</Label>
+          </Stack>
+          <Stack>
+            <Label>LA CLINIQUE</Label>
+          </Stack>
+          <Stack>
+            <Label>NOUS JOINDRE</Label>
+          </Stack>
+        </Cluster>
+      </Center>
     </div>
   );
 };

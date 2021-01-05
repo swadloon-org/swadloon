@@ -1,7 +1,7 @@
 import { LABEL_SIZE, TEXT_STYLE } from '@newrade/core-design-system';
 import React, { LabelHTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
-import { CommonComponentProps } from '../../props/component-common-props';
+import { CommonComponentProps } from '../../props/component-common.props';
 import * as stylesRef from './label.treat';
 import { pascal, snake, kebab } from 'case';
 

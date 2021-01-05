@@ -17,9 +17,9 @@ export const TileLink: React.FC<OwnProps> = (props) => {
       {hasImage ? (
         <BackgroundImage Tag="div" fluid={imageData as IFluidObject} className={`${styles.container}`} fadeIn={false}>
           <div className={styles.content}>
-            <Box maxWidth={'1200px'}>
+            <Center maxWidth={'1200px'}>
               <h2>{props?.title}</h2>
-            </Box>
+            </Center>
           </div>
         </BackgroundImage>
       ) : null}

@@ -25,7 +25,7 @@
     "build:vsb": "yarn build --scope @newrade/vsb-*",
     "build:website": "yarn build --scope @newrade/*-website --scope @newrade/core-gatsby-starter",
     "changelog": "lerna version --conventional-commits --no-push",
-    "clean": "lerna run clean",
+    "clean": "lerna run clean --parallel",
     "cli": "nr",
     "commit": "lint-staged && git-cz",
     "fork": "ts-node --script-mode scripts/fork-repo.ts",
@@ -60,6 +60,7 @@
   },
   "dependencies": {
     "@popmotion/popcorn": "^0.4.4",
+    "@wellyshen/use-web-animations": "^0.6.1",
     "constate": "^3.1.0",
     "core-js": "^3",
     "fp-ts": "^2.8.4",
@@ -88,7 +89,8 @@
     "react-treat": "^1.6.1",
     "reakit": "^1.2.5",
     "schema-dts": "^0.8.2",
-    "use-resize-observer": "^7.0.0"
+    "use-resize-observer": "^7.0.0",
+    "web-animations-js": "^2.3.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.8",

@@ -12,6 +12,7 @@ export const SrcPageTemplate: React.FC<Props & { children: ReactNode }> = (props
   return (
     <>
       <Helmet>
+        <link rel="icon" href="favicon.svg" sizes="any" type="image/svg+xml" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Quattrocento&display=swap" rel="stylesheet" />
         <link

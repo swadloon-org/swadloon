@@ -1,30 +1,29 @@
-import React from 'react';
 import {
   Color,
   ColorShades5,
-  TITLE,
   HEADING,
-  PARAGRAPH_SIZE,
-  TEXT_STYLE,
   LABEL_SIZE,
+  PARAGRAPH_SIZE,
   TEXT_LEVEL,
+  TEXT_STYLE,
+  TITLE,
 } from '@newrade/core-design-system';
-import { IoIosArrowDropright } from 'react-icons/io';
+import { pascal } from 'case';
+import React from 'react';
 import { useStyles } from 'react-treat';
-import * as styleRefs from './design-system-demo.treat';
-import { useTreatTheme } from '../hooks/use-treat-theme';
-import { Stack } from '../layout/stack/stack';
-import { Title } from '../components/text/title';
-import { keys } from '../utilities/utilities';
 import { ColorSwatch } from '../components/color/color-swatch';
-import { Paragraph } from '../components/text/paragraph';
+import { Details } from '../components/text/details';
 import { Heading } from '../components/text/heading';
 import { Label } from '../components/text/label';
-import { pascal } from 'case';
+import { Paragraph } from '../components/text/paragraph';
 import { Summary } from '../components/text/summary';
-import { Details } from '../components/text/details';
-import { Box } from '../layout/box/box';
-import { Cluster } from '../layout/cluster/cluster';
+import { Title } from '../components/text/title';
+import { useTreatTheme } from '../hooks/use-treat-theme';
+import { Box } from '../layout/box';
+import { Cluster } from '../layout/cluster';
+import { Stack } from '../layout/stack';
+import { keys } from '../utilities/utilities';
+import * as styleRefs from './design-system-demo.treat';
 
 type Props = {};
 
@@ -156,7 +155,6 @@ export const DesignSystemComponent: React.FC<Props> = (props) => {
                         key={index}
                         justifyContent={['flex-start', 'flex-start', 'flex-start']}
                         alignItems={'flex-start'}
-                        flexWrap={'wrap'}
                         gap={'10px  0'}
                       >
                         {shades.map((shadeName, index) => {

@@ -1,17 +1,38 @@
-import { TEXT_TRANSFORM, Typography } from '@newrade/core-design-system';
-import { cssVar } from '@newrade/core-react-ui';
+import { Font, Fonts, TEXT_TRANSFORM, Typography } from '@newrade/core-design-system';
+import { defaultTypography } from '@newrade/core-react-ui';
+
+const fontSans: Font = {
+  name: 'AvenirNext LT Pro',
+  fontMetrics: {
+    capHeight: 708,
+    ascent: 756,
+    descent: -244,
+    lineGap: 200,
+    unitsPerEm: 1000,
+  },
+};
+
+const fontSansAlternate: Font = {
+  name: 'Neue Montreal',
+  fontMetrics: {
+    capHeight: 715,
+    ascent: 975,
+    descent: -225,
+    lineGap: 0,
+    unitsPerEm: 1000,
+  },
+};
+
+export const fonts: Fonts = {
+  ...defaultTypography.fonts,
+  sans: [fontSans, ...defaultTypography.fonts.sans],
+  sansAlternate: [fontSansAlternate, ...defaultTypography.fonts.sans],
+};
 
 export const typography: Typography = {
-  fonts: {
-    serif: [fonts.defaultSerifFont, ...fonts.defaultFallbackSerifFonts],
-    sans: [fonts.defaultSansFont, ...fonts.defaultFallbackSansFonts],
-    sansAlternate: [fonts.defaultSansAlternateFont, ...fonts.defaultFallbackSansFonts],
-    monospace: [fonts.defaultMonospaceFont, ...fonts.defaultFallbackMonospaceFonts],
-    var: defaultFontVars,
-    varNames: defaultFontVars.map((varName) => cssVar(varName)),
-  },
+  fonts,
   titles: {
-    font: [fonts.defaultSerifFont, ...fonts.defaultFallbackSerifFonts],
+    font: [fontSansAlternate, ...defaultTypography.fonts.sans],
     fontWeight: 500,
     mobile: {
       t1: {
@@ -45,7 +66,7 @@ export const typography: Typography = {
     },
   },
   headings: {
-    font: [fonts.defaultSansFont, ...fonts.defaultFallbackSansFonts],
+    font: [fontSansAlternate, ...defaultTypography.fonts.sans],
     fontWeight: 600,
     mobile: {
       h1: {
@@ -103,7 +124,7 @@ export const typography: Typography = {
     },
   },
   paragraphs: {
-    font: [fonts.defaultSansFont, ...fonts.defaultFallbackSansFonts],
+    font: [fontSans, ...defaultTypography.fonts.sans],
     fontWeight: 400,
     styles: {
       bold: {
@@ -170,8 +191,8 @@ export const typography: Typography = {
     },
   },
   labels: {
-    font: [fonts.defaultSansFont, ...fonts.defaultFallbackSansFonts],
-    fontWeight: 400,
+    font: [fontSans, ...defaultTypography.fonts.sans],
+    fontWeight: 500,
     styles: {
       bold: {
         fontWeight: 500,

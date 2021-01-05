@@ -2,7 +2,7 @@ import { TITLE } from '@newrade/core-design-system';
 import { pascal, kebab } from 'case';
 import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
-import { CommonComponentProps } from '../../props/component-common-props';
+import { CommonComponentProps } from '../../props/component-common.props';
 import * as stylesRef from './title.treat';
 
 type Props = CommonComponentProps &

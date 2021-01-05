@@ -87,7 +87,6 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
           case SECTION_TYPE.CONTACT_CONTACT: {
             return <ContactContact key={index} {...section} />;
           }
-
           default: {
             return null;
           }

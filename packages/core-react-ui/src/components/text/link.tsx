@@ -1,7 +1,7 @@
 import { PARAGRAPH_SIZE, TEXT_STYLE } from '@newrade/core-design-system';
 import React, { HTMLAttributes, useState, AnchorHTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
-import { CommonComponentProps } from '../../props/component-common-props';
+import { CommonComponentProps } from '../../props/component-common.props';
 import * as stylesRef from './link.treat';
 
 export enum LINK_STYLE {

@@ -1,12 +1,11 @@
-import { title } from 'case';
-import { Link, PageProps, graphql, useStaticQuery } from 'gatsby';
+import { graphql, PageProps, useStaticQuery } from 'gatsby';
 import React, { ReactNode } from 'react';
 import { useStyles } from 'react-treat';
-import { Node, LayoutAllSitePageQuery } from '../../types/graphql-types';
-import * as styleRefs from './layout.treat';
-
-import { NavBar } from '@newrade/core-gatsby-ui';
+import { LayoutAllSitePageQuery } from '../../types/graphql-types';
 import { Footer } from '../components/footer';
+import * as styleRefs from './layout.treat';
+import { NavBar } from '../components/navbar';
+import Logo from '../images/logo.svg';
 
 type LayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }>;
 
@@ -66,17 +65,7 @@ export const Layout = React.memo<LayoutProps>((props) => {
 
   return (
     <div className={styles.wrapper}>
-      <NavBar
-        items={pages.pages.nodes.map((item) => {
-          return {
-            id: item.id,
-            label: item.context?.name,
-            to: item.path,
-          };
-        })}
-      ></NavBar>
-
-      {/* <header>{renderNavigation(props.location?.pathname)}</header> */}
+      <NavBar variantStyle={'transparent'} SvgLogo={<Logo />}></NavBar>
 
       <main className={styles.main}>{props.children}</main>
 

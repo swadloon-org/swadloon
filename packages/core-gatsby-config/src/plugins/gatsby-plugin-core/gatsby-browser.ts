@@ -1,4 +1,5 @@
 import { GatsbyBrowser } from 'gatsby';
+import 'web-animations-js/web-animations.min';
 
 export const onClientEntry: GatsbyBrowser['onClientEntry'] = () => {
   // IntersectionObserver polyfill for gatsby-background-image (Safari, IE)

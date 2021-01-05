@@ -1,7 +1,7 @@
 import { PARAGRAPH_SIZE, TEXT_STYLE, TEXT_LEVEL } from '@newrade/core-design-system';
 import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
-import { CommonComponentProps } from '../../props/component-common-props';
+import { CommonComponentProps } from '../../props/component-common.props';
 import * as stylesRef from './paragraph.treat';
 
 type Props = CommonComponentProps &
