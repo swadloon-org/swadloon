@@ -16,6 +16,7 @@ import { createSectionType } from '../common/content-types/section-type';
 import { createTag } from '../common/content-types/tag';
 import { createTagType } from '../common/content-types/tag-type';
 import {
+  createCompanyEmployee,
   createCostItem,
   createService,
   createServiceCategory,
@@ -100,15 +101,15 @@ const program: Migration.MigrationFunction = function Program(migration) {
       ],
     },
   });
-  section.createField(PROJECT_FIELD.TECHNOLOGY, {
-    name: pascal(PROJECT_FIELD.TECHNOLOGY),
+  section.createField(PROJECT_FIELD.COMPANY_EMPLOYEE, {
+    name: pascal(PROJECT_FIELD.COMPANY_EMPLOYEE),
     type: 'Array',
     items: {
       type: 'Link',
       linkType: 'Entry',
       validations: [
         {
-          linkContentType: [PROJECT_CONTENT_TYPE.TECHNOLOGY],
+          linkContentType: [PROJECT_CONTENT_TYPE.COMPANY_EMPLOYEE],
         },
       ],
     },
@@ -123,6 +124,7 @@ const program: Migration.MigrationFunction = function Program(migration) {
   createService(migration);
   createServiceCategory(migration);
   createTechnology(migration);
+  createCompanyEmployee(migration);
 };
 
 // @ts-ignore

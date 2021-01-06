@@ -208,3 +208,39 @@ export function createTechnology(migration: Migration.default) {
     helpText: 'Select a media collection to set images on the section.',
   });
 }
+
+export function createCompanyEmployee(migration: Migration.default) {
+  const companyEmployee = migration.createContentType(PROJECT_CONTENT_TYPE.COMPANY_EMPLOYEE, {
+    name: pascal(PROJECT_CONTENT_TYPE.COMPANY_EMPLOYEE),
+  });
+  companyEmployee.createField(COMMON_FIELD.NAME, {
+    name: pascal(COMMON_FIELD.NAME),
+    type: 'Symbol',
+    required: true,
+    localized: true,
+  });
+  companyEmployee.createField(COMMON_FIELD.FIRST_NAME, {
+    name: pascal(COMMON_FIELD.FIRST_NAME),
+    type: 'Symbol',
+  });
+  companyEmployee.createField(COMMON_FIELD.LAST_NAME, {
+    name: pascal(COMMON_FIELD.LAST_NAME),
+    type: 'Symbol',
+  });
+  companyEmployee.createField(COMMON_FIELD.JOB_TITLE, {
+    name: pascal(COMMON_FIELD.JOB_TITLE),
+    type: 'Symbol',
+    localized: true,
+  });
+  companyEmployee.createField(COMMON_FIELD.BIO, {
+    name: pascal(COMMON_FIELD.BIO),
+    type: 'Text',
+    localized: true,
+  });
+
+  companyEmployee.createField(COMMON_FIELD.IMAGE, {
+    name: pascal(COMMON_FIELD.IMAGE),
+    type: 'Link',
+    linkType: 'Asset',
+  });
+}
