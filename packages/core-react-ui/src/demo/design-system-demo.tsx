@@ -39,11 +39,11 @@ export const DesignSystemComponent: React.FC<Props> = (props) => {
 
   return (
     <div className={styles.wrapper}>
-      <Stack id={'Design System'} gap="55px">
+      <Stack id={'Design System'} gap={['55px']}>
         <Heading variant={HEADING.h1}>Design System - {pascal(cssTheme.name)}</Heading>
 
-        <Stack id={'Foundations'} gap="34px">
-          <Stack gap="34px">
+        <Stack id={'Foundations'} gap={['34px']}>
+          <Stack gap={['34px']}>
             <Heading variant={HEADING.h2}>Foundations</Heading>
 
             <Paragraph>The design system describes</Paragraph>
@@ -54,8 +54,8 @@ export const DesignSystemComponent: React.FC<Props> = (props) => {
               <Heading variant={HEADING.h3}>Typography</Heading>
             </Summary>
             <Box padding={['1em', '0', '1em', '0']}>
-              <Stack gap="55px">
-                <Stack gap="21px">
+              <Stack gap={['55px']}>
+                <Stack gap={['21px']}>
                   <Heading variant={HEADING.h4} variantLevel={TEXT_LEVEL.secondary}>
                     Titles
                   </Heading>
@@ -65,7 +65,7 @@ export const DesignSystemComponent: React.FC<Props> = (props) => {
                   ))}
                 </Stack>
 
-                <Stack gap="21px">
+                <Stack gap={['21px']}>
                   <Heading variant={HEADING.h4} variantLevel={TEXT_LEVEL.secondary}>
                     Headings
                   </Heading>
@@ -75,7 +75,7 @@ export const DesignSystemComponent: React.FC<Props> = (props) => {
                   ))}
                 </Stack>
 
-                <Stack gap="21px">
+                <Stack gap={['21px']}>
                   <Heading variant={HEADING.h4} variantLevel={TEXT_LEVEL.secondary}>
                     Labels
                   </Heading>
@@ -91,7 +91,7 @@ export const DesignSystemComponent: React.FC<Props> = (props) => {
                     ))}
                 </Stack>
 
-                <Stack gap="21px">
+                <Stack gap={['21px']}>
                   <Heading variant={HEADING.h4} variantLevel={TEXT_LEVEL.secondary}>
                     Paragraphs
                   </Heading>
@@ -118,14 +118,14 @@ export const DesignSystemComponent: React.FC<Props> = (props) => {
             <Summary>
               <Heading variant={HEADING.h3}>Colors</Heading>
             </Summary>
-            <Stack id={'Colors'} gap="1em">
+            <Stack id={'Colors'} gap={['1em']}>
               <h4>All Colors</h4>
               {keys(theme.colors.colors).map((colorName, index) => {
                 const colorOrPalette = theme.colors.colors[colorName];
 
                 if (typeof colorOrPalette === 'string') {
                   return (
-                    <Stack key={index} gap={'10px'}>
+                    <Stack key={index} gap={['10px']}>
                       <h4>{colorName}</h4>
                       <div style={{ width: '20%' }}>
                         <ColorSwatch key={index} name={colorName} color={colorOrPalette}></ColorSwatch>
@@ -135,7 +135,7 @@ export const DesignSystemComponent: React.FC<Props> = (props) => {
                 }
                 if (typeof colorOrPalette === 'object' && (colorOrPalette as Color)['h'] !== undefined) {
                   return (
-                    <Stack key={index} gap={'10px'}>
+                    <Stack key={index} gap={['10px']}>
                       <h4>{colorName}</h4>
                       <div style={{ width: '20%' }}>
                         <ColorSwatch key={index} name={colorName} color={colorOrPalette as Color}></ColorSwatch>{' '}
@@ -149,13 +149,13 @@ export const DesignSystemComponent: React.FC<Props> = (props) => {
                   const shades = keys(palette);
 
                   return (
-                    <Stack key={index} gap={'10px'}>
+                    <Stack key={index} gap={['10px']}>
                       <h4>{colorName}</h4>
                       <Cluster
                         key={index}
                         justifyContent={['flex-start', 'flex-start', 'flex-start']}
                         alignItems={'flex-start'}
-                        gap={'10px  0'}
+                        gap={'10px 0px'}
                       >
                         {shades.map((shadeName, index) => {
                           const color = palette[shadeName];
@@ -185,7 +185,7 @@ export const DesignSystemComponent: React.FC<Props> = (props) => {
                 const colorOrPalette = theme.colors.colorIntents[colorName];
                 if (typeof colorOrPalette === 'string') {
                   return (
-                    <Stack key={index} gap={'10px'}>
+                    <Stack key={index} gap={['10px']}>
                       <h4>{colorName}</h4>
                       <div style={{ width: '20%' }}>
                         <ColorSwatch key={index} name={colorName} color={colorOrPalette}></ColorSwatch>
@@ -195,7 +195,7 @@ export const DesignSystemComponent: React.FC<Props> = (props) => {
                 }
                 if (typeof colorOrPalette === 'object' && (colorOrPalette as Color)['h'] !== undefined) {
                   return (
-                    <Stack key={index} gap={'10px'}>
+                    <Stack key={index} gap={['10px']}>
                       <h4>{colorName}</h4>
                       <div style={{ width: '20%' }}>
                         <ColorSwatch key={index} name={colorName} color={colorOrPalette as Color}></ColorSwatch>
@@ -212,7 +212,7 @@ export const DesignSystemComponent: React.FC<Props> = (props) => {
             <Summary>
               <Heading variant={HEADING.h3}>Sizing</Heading>
             </Summary>
-            <Stack id={'Sizing'} gap="1em">
+            <Stack id={'Sizing'} gap={['1em']}>
               <h3>Sizing</h3>
 
               <h4>Sizes</h4>
@@ -221,7 +221,7 @@ export const DesignSystemComponent: React.FC<Props> = (props) => {
                   return cssTheme?.sizing?.sizes[size] ? (
                     <div key={size}>
                       <label>{size}</label>
-                      <Stack gap="1em">
+                      <Stack gap={['1em']}>
                         {keys(cssTheme?.sizing?.sizes[size]).map((step) => {
                           return (
                             <div
@@ -244,7 +244,7 @@ export const DesignSystemComponent: React.FC<Props> = (props) => {
             <Summary>
               <Heading variant={HEADING.h3}>Effects</Heading>
             </Summary>
-            <Stack id={'Effects'} gap="1em">
+            <Stack id={'Effects'} gap={['1em']}>
               <h3>Effects</h3>
 
               <h4>Shadows</h4>
@@ -260,7 +260,7 @@ export const DesignSystemComponent: React.FC<Props> = (props) => {
           </Details>
         </Stack>
 
-        <Stack id={'Components'} gap="34px">
+        <Stack id={'Components'} gap={['34px']}>
           <Heading variant={HEADING.h2}>Components</Heading>
 
           <Details id={'Buttons'}>

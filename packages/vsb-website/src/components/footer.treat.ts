@@ -6,26 +6,44 @@ import { style } from 'treat';
 //
 
 export const wrapper = style(({ cssTheme, theme }: Theme) => ({
+  backgroundColor: cssTheme.colors.colors.grey[900],
+  paddingTop: cssTheme.sizing.var.x5,
+  paddingBottom: cssTheme.sizing.var.x5,
+
   '@media': {
+    [cssTheme.layout.media.tablet]: {
+      paddingTop: cssTheme.sizing.var.x6,
+    },
     [cssTheme.layout.media.desktopSmall]: {},
   },
 }));
+
+export const container = style(({ cssTheme, theme }: Theme) => ({}));
+
 export const grid = style(({ cssTheme, theme }: Theme) => ({
+  display: 'grid',
+  gridTemplateColumns: '1fr',
+  gap: cssTheme.sizing.var.x4,
+
   '@media': {
     [cssTheme.layout.media.tablet]: {
-      display: 'grid',
       gridTemplateColumns: 'repeat(12, 1fr)',
-      gridTemplateAreas: "'service service . clinique clinique . joindre joindre . . . . '",
+      gap: '20px',
+      gridTemplateAreas: `"service service service . clinique clinique clinique . joindre joindre joindre ."`,
     },
     [cssTheme.layout.media.desktopSmall]: {
-      display: 'grid',
       gridTemplateColumns: 'repeat(12, 1fr)',
-      gridTemplateAreas: "'service service . clinique clinique . joindre joindre . . . . '",
+      gap: '20px',
+      gridTemplateAreas: `"service service . clinique clinique . joindre joindre . . . . "`,
     },
   },
 }));
 export const services = style(({ cssTheme, theme }: Theme) => ({
   '@media': {
+    [cssTheme.layout.media.tablet]: {
+      gridArea: 'service',
+      height: 'fit-content',
+    },
     [cssTheme.layout.media.desktopSmall]: {
       gridArea: 'service',
     },
@@ -33,6 +51,10 @@ export const services = style(({ cssTheme, theme }: Theme) => ({
 }));
 export const clinique = style(({ cssTheme, theme }: Theme) => ({
   '@media': {
+    [cssTheme.layout.media.tablet]: {
+      gridArea: 'clinique',
+      height: 'fit-content',
+    },
     [cssTheme.layout.media.desktopSmall]: {
       gridArea: 'clinique',
     },
@@ -40,9 +62,16 @@ export const clinique = style(({ cssTheme, theme }: Theme) => ({
 }));
 export const joindre = style(({ cssTheme, theme }: Theme) => ({
   '@media': {
+    [cssTheme.layout.media.tablet]: {
+      gridArea: 'joindre',
+      height: 'fit-content',
+    },
     [cssTheme.layout.media.desktopSmall]: {
       gridArea: 'joindre',
     },
   },
 }));
-export const copyright = style(({ cssTheme, theme }: Theme) => ({}));
+export const copyright = style(({ cssTheme, theme }: Theme) => ({
+  marginTop: cssTheme.sizing.var.x4,
+  color: cssTheme.colors.colors.grey[700],
+}));

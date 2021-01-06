@@ -1,15 +1,23 @@
 import React from 'react';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './footer.treat';
-import { Box, Stack, Grid, Label, Center, Paragraph } from '@newrade/core-react-ui';
+import { Box, Stack, Grid, Label, Center, Paragraph, keys } from '@newrade/core-react-ui';
 import { graphql, useStaticQuery } from 'gatsby';
 import { Link as GatsbyLink } from 'gatsby';
 
 import { FooterQuery } from '../../types/graphql-types';
-import { PARAGRAPH_SIZE } from '@newrade/core-design-system';
+import { PARAGRAPH_SIZE, TEXT_LEVEL, TEXT_STYLE, LABEL_SIZE } from '@newrade/core-design-system';
+import { Theme } from '@newrade/core-react-ui';
+import { cssTheme } from '../design-system/theme';
+import { elem } from 'fp-ts/lib/Option';
+import { toArray } from 'lodash';
 
 export const footerQuery = graphql`
   query Footer {
+    contentfulCompanyInfo {
+      copyright
+    }
+
     contentfulCompanyAddress {
       addressLine1
       city
@@ -19,15 +27,6 @@ export const footerQuery = graphql`
       phone
       email
       fax
-    }
-
-    allContentfulPage(filter: { node_locale: { eq: "fr-CA" } }) {
-      edges {
-        node {
-          name
-          slug
-        }
-      }
     }
   }
 `;
@@ -41,36 +40,73 @@ export const Footer: React.FC<OwnProps> = (props) => {
   return (
     <div className={`${styles.wrapper}`}>
       <Center>
-        <div className={styles.grid}>
-          <Stack className={styles.services}>
-            <Label>SERVICES</Label>
-            <Stack></Stack>
-          </Stack>
-          <Stack className={styles.clinique}>
-            <Label>LA CLINIQUE</Label>
-            <Stack></Stack>
-          </Stack>
-          <Stack className={styles.joindre}>
-            <Label>NOUS JOINDRE</Label>
-            <Stack>
-              <GatsbyLink to={`mailto:${data?.contentfulCompanyAddress?.email}`}>
-                {data?.contentfulCompanyAddress?.email}
-              </GatsbyLink>
-              <GatsbyLink to={`tel:${data?.contentfulCompanyAddress?.phone}`}>
-                {data?.contentfulCompanyAddress?.phone}
-              </GatsbyLink>
-              <GatsbyLink to={`fax:${data?.contentfulCompanyAddress?.fax}`}>
-                {data?.contentfulCompanyAddress?.fax}
-              </GatsbyLink>
-              <GatsbyLink to={'https://goo.gl/maps/nndYpgQLkbDC6c7S7'} target="blank">
-                {data?.contentfulCompanyAddress?.addressLine1}
-              </GatsbyLink>
+        <div className={styles.container}>
+          <div className={styles.grid}>
+            <Stack
+              className={styles.services}
+              gap={[`${cssTheme.sizing.var.x2}`, `${cssTheme.sizing.var.x4}`, `${cssTheme.sizing.var.x4}`]}
+            >
+              <Label
+                variantStyle={TEXT_STYLE.boldUppercase}
+                variant={LABEL_SIZE.small}
+                variantLevel={TEXT_LEVEL.tertiary}
+              >
+                Services
+              </Label>
+              <Stack gap={[cssTheme.sizing.var.x3]}>
+                <GatsbyLink to={'/vasectomie/'}>Tout sur la vasectomie</GatsbyLink>
+                <GatsbyLink to={'/formulaire-vasectomie/'}>Formulaire de demande</GatsbyLink>
+                <GatsbyLink to={'/examen-pour-transport-canada/'}>Examen pour Transport Canada</GatsbyLink>
+              </Stack>
             </Stack>
-          </Stack>
+            <Stack
+              className={styles.clinique}
+              gap={[`${cssTheme.sizing.var.x2}`, `${cssTheme.sizing.var.x4}`, `${cssTheme.sizing.var.x4}`]}
+            >
+              <Label
+                variantStyle={TEXT_STYLE.boldUppercase}
+                variant={LABEL_SIZE.small}
+                variantLevel={TEXT_LEVEL.tertiary}
+              >
+                La Clinique
+              </Label>
+              <Stack gap={[cssTheme.sizing.var.x3]}>
+                <GatsbyLink to={'/equipe/'}>Notre équipe</GatsbyLink>
+                <GatsbyLink to={'/equipe/#dr_pierre_jr_boucher'}>Dr. Pierre Jr. Boucher</GatsbyLink>
+                <GatsbyLink to={'/contact/'}>Contact</GatsbyLink>
+              </Stack>
+            </Stack>
+            <Stack
+              className={styles.joindre}
+              gap={[`${cssTheme.sizing.var.x2}`, `${cssTheme.sizing.var.x4}`, `${cssTheme.sizing.var.x4}`]}
+            >
+              <Label
+                variantStyle={TEXT_STYLE.boldUppercase}
+                variant={LABEL_SIZE.small}
+                variantLevel={TEXT_LEVEL.tertiary}
+              >
+                Nous Joindre
+              </Label>
+              <Stack gap={[cssTheme.sizing.var.x3]}>
+                <GatsbyLink to={`mailto:${data?.contentfulCompanyAddress?.email}`}>
+                  {data?.contentfulCompanyAddress?.email}
+                </GatsbyLink>
+                <GatsbyLink to={`tel:${data?.contentfulCompanyAddress?.phone}`}>
+                  {data?.contentfulCompanyAddress?.phone}
+                </GatsbyLink>
+                <GatsbyLink to={`fax:${data?.contentfulCompanyAddress?.fax}`}>
+                  {data?.contentfulCompanyAddress?.fax}
+                </GatsbyLink>
+                <GatsbyLink to={'https://goo.gl/maps/nndYpgQLkbDC6c7S7'} target="blank">
+                  {data?.contentfulCompanyAddress?.addressLine1}
+                </GatsbyLink>
+              </Stack>
+            </Stack>
+          </div>
+          <Paragraph className={styles.copyright} variant={PARAGRAPH_SIZE.small}>
+            {data?.contentfulCompanyInfo?.copyright}
+          </Paragraph>
         </div>
-        <Paragraph className={styles.copyright} variant={PARAGRAPH_SIZE.small}>
-          © {new Date().getFullYear()} Tous droits réservés MIR Inc.
-        </Paragraph>
       </Center>
     </div>
   );
