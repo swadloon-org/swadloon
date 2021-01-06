@@ -12,10 +12,10 @@ export const styles = styleMap(({ cssTheme, theme }: Theme) => ({
   },
   viewport: {
     '@media': {
-      [`(min-width: 700px)`]: {
+      [cssTheme.layout.media.tablet]: {
         gridTemplateColumns: `repeat(var(--tabletCol), 1fr)`,
       },
-      ['(min-width: 1200px)']: {
+      [cssTheme.layout.media.desktopSmall]: {
         gridTemplateColumns: `repeat(var(--desktopCol), 1fr)`,
       },
     },

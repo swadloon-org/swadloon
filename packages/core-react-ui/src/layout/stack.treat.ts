@@ -7,8 +7,8 @@ export const styles = styleMap(({ cssTheme, theme }: Theme) => ({
     gridTemplateColumns: '1fr',
     gap: `var(--mobileGap)` as string,
     '@media': {
-      [`(min-width: 700px)`]: { gap: `var(--tabletGap)` as string },
-      ['(min-width: 1200px)']: { gap: `var(--desktopGap)` as string },
+      [cssTheme.layout.media.tablet]: { gap: `var(--tabletGap)` as string },
+      [cssTheme.layout.media.desktopSmall]: { gap: `var(--desktopGap)` as string },
     },
   },
 }));

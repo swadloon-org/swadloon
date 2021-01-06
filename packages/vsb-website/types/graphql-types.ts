@@ -22262,7 +22262,7 @@ export type SiteMetadataFragment = { siteMetadata?: Maybe<(
 export type FooterQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type FooterQuery = { contentfulCompanyAddress?: Maybe<Pick<ContentfulCompanyAddress, 'addressLine1' | 'city' | 'provinceState' | 'postalCode' | 'websiteURL' | 'phone' | 'email' | 'fax'>>, allContentfulPage: { edges: Array<{ node: Pick<ContentfulPage, 'name' | 'slug'> }> } };
+export type FooterQuery = { contentfulCompanyInfo?: Maybe<Pick<ContentfulCompanyInfo, 'copyright'>>, contentfulCompanyAddress?: Maybe<Pick<ContentfulCompanyAddress, 'addressLine1' | 'city' | 'provinceState' | 'postalCode' | 'websiteURL' | 'phone' | 'email' | 'fax'>> };
 
 export type CompanyAddressFragment = Pick<ContentfulCompanyAddress, 'name' | 'phone' | 'email' | 'city' | 'postalCode' | 'provinceState' | 'websiteURL' | 'addressLine1' | 'fax'>;
 

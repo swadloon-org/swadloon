@@ -6,10 +6,10 @@ export const styles = styleMap(({ cssTheme, theme }: Theme) => ({
   wrapper: {
     textAlign: `var(--mobileTextAlign)` as TextAlignProperty,
     '@media': {
-      [`(min-width: 700px)`]: {
+      [cssTheme.layout.media.tablet]: {
         textAlign: `var(--tabletTextAlign)` as TextAlignProperty,
       },
-      ['(min-width: 1200px)']: {
+      [cssTheme.layout.media.desktopSmall]: {
         textAlign: `var(--desktopTextAlign)` as TextAlignProperty,
       },
     },

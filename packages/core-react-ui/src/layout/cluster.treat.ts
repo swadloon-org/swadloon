@@ -5,17 +5,16 @@ import { Theme } from '../design-system/css-design-system';
 export const styles = styleMap(({ cssTheme, theme }: Theme) => ({
   wrapper: {
     display: 'flex',
-    alignItems: `var(--mobileAlignItems)` as AlignContentProperty,
-    justifyContent: `var(--mobileJustifyContent)` as JustifyContentProperty,
-
+    alignItems: 'var(--mobile-align-items)' as AlignContentProperty,
+    justifyContent: 'var(--mobile-justify-content)' as JustifyContentProperty,
     '@media': {
-      [`(min-width: 700px)`]: {
-        alignItems: `var(--tabletAlignItems)` as AlignContentProperty,
-        justifyContent: `var(--tabletJustifyContent)` as JustifyContentProperty,
+      [cssTheme.layout.media.tablet]: {
+        alignItems: `var(--tablet-align-items)` as AlignContentProperty,
+        justifyContent: `var(--tablet-justify-content)` as JustifyContentProperty,
       },
-      ['(min-width: 1200px)']: {
-        alignItems: `var(--desktopAlignItems)` as AlignContentProperty,
-        justifyContent: `var(--desktopJustifyContent)` as JustifyContentProperty,
+      [cssTheme.layout.media.desktopSmall]: {
+        alignItems: `var(--desktop-align-items)` as AlignContentProperty,
+        justifyContent: `var(--desktop-justify-content)` as JustifyContentProperty,
       },
     },
   },

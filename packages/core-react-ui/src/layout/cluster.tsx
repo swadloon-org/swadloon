@@ -5,7 +5,7 @@ import { CommonComponentProps } from '../props/component-common.props';
 import { AlignItemsProperty, JustifyContentProperty, JustifyItemsProperty, FlexWrapProperty } from 'csstype';
 import { SIZE } from '@newrade/core-design-system';
 
-type OwnProps = CommonComponentProps &
+type Props = CommonComponentProps &
   Partial<{
     gap: string | SIZE;
     alignItems: AlignItemsProperty;
@@ -15,7 +15,7 @@ type OwnProps = CommonComponentProps &
       | [JustifyContentProperty, JustifyContentProperty, JustifyContentProperty];
   }>;
 
-export const Cluster: React.FC<OwnProps> = ({
+export const Cluster: React.FC<Props> = ({
   as,
   className = '',
   gap = '',
@@ -34,12 +34,12 @@ export const Cluster: React.FC<OwnProps> = ({
       ...style,
       gap,
       // @ts-ignore
-      '--mobileJustifyContent': mobileJustifyContent,
-      '--tabletJustifyContent': tabletJustifyContent || mobileJustifyContent,
-      '--desktopJustifyContent': desktopJustifyContent || tabletJustifyContent || mobileJustifyContent,
-      '--mobileAlignItems': mobileAlignItems,
-      '--tabletAlignItems': tabletAlignItems || mobileAlignItems,
-      '--desktopAlignItems': desktopAlignItems || tabletAlignItems || mobileAlignItems,
+      '--mobile-justify-content': mobileJustifyContent,
+      '--tablet-justify-content': tabletJustifyContent || mobileJustifyContent,
+      '--desktop-justify-content': desktopJustifyContent || tabletJustifyContent || mobileJustifyContent,
+      '--mobile-align-items': mobileAlignItems,
+      '--tablet-align-items': tabletAlignItems || mobileAlignItems,
+      '--desktop-align-items': desktopAlignItems || tabletAlignItems || mobileAlignItems,
     },
     ...props,
   });
