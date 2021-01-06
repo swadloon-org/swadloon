@@ -22,7 +22,7 @@ const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
   console.log(arr[Symbol.iterator]());
 
   const styles = useStyles(styleRefs);
-  return <Stack gap={'20px'}>Feature: 'Array.includes' {JSON.stringify(check)}</Stack>;
+  return <Stack gap={['20px']}>Feature: 'Array.includes' {JSON.stringify(check)}</Stack>;
 };
 
 const Page: React.FC<SrcPageTemplateProps> = (props) => {

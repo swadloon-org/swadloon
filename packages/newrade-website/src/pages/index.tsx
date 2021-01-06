@@ -8,7 +8,7 @@ import { SrcPageTemplate } from '../templates/src-page.template';
 
 const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
   return (
-    <Stack gap={'20px'}>
+    <Stack gap={['20px']}>
       <Title>Hey</Title>
       <Logo />
     </Stack>

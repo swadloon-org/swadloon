@@ -9,13 +9,13 @@ const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
   const styles = useStyles(styleRefs);
 
   return (
-    <Stack id={'HTML Elements'} gap={'55px'}>
+    <Stack id={'HTML Elements'} gap={['55px']}>
       <h1>HTML Elements</h1>
 
-      <Stack id={'Content sectioning'} gap={'21px'}>
+      <Stack id={'Content sectioning'} gap={['21px']}>
         <h2>Content sectioning</h2>
 
-        <Stack id={'Header'} gap={'13px'}>
+        <Stack id={'Header'} gap={['13px']}>
           <h3>Header</h3>
 
           <header>
@@ -23,7 +23,7 @@ const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
           </header>
         </Stack>
 
-        <Stack id={'Headings'} gap={'13px'}>
+        <Stack id={'Headings'} gap={['13px']}>
           <h3>Headings</h3>
 
           <h1>Heading H1</h1>
@@ -43,7 +43,7 @@ const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
           </hgroup>
         </Stack>
 
-        <Stack id={'Main'} gap={'13px'}>
+        <Stack id={'Main'} gap={['13px']}>
           <h3>Main</h3>
 
           <main role="main">
@@ -56,7 +56,7 @@ const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
           </main>
         </Stack>
 
-        <Stack id={'Nav'} gap={'13px'}>
+        <Stack id={'Nav'} gap={['13px']}>
           <h3>Nav</h3>
 
           <nav className="crumbs">
@@ -72,7 +72,7 @@ const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
           </nav>
         </Stack>
 
-        <Stack id={'Address'} gap={'13px'}>
+        <Stack id={'Address'} gap={['13px']}>
           <h3>Address</h3>
 
           <address>
@@ -82,7 +82,7 @@ const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
           </address>
         </Stack>
 
-        <Stack id={'Article'} gap={'13px'}>
+        <Stack id={'Article'} gap={['13px']}>
           <h3>Article</h3>
 
           <article>
@@ -94,7 +94,7 @@ const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
           </article>
         </Stack>
 
-        <Stack id={'Aside'} gap={'13px'}>
+        <Stack id={'Aside'} gap={['13px']}>
           <h3>aside</h3>
           <p>
             Salamanders are a group of amphibians with a lizard-like appearance, including short legs and a tail in both
@@ -112,7 +112,7 @@ const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
           </p>
         </Stack>
 
-        <Stack id={'Section'} gap={'13px'}>
+        <Stack id={'Section'} gap={['13px']}>
           <h3>section</h3>
 
           <section>
@@ -124,7 +124,7 @@ const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
           </section>
         </Stack>
 
-        <Stack id={'Footer'} gap={'13px'}>
+        <Stack id={'Footer'} gap={['13px']}>
           <h3>Footer</h3>
 
           <footer>
@@ -133,14 +133,14 @@ const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
         </Stack>
       </Stack>
 
-      <Stack id={'Text content'} gap={'21px'}>
+      <Stack id={'Text content'} gap={['21px']}>
         <h2>Text content</h2>
 
-        <Stack id={'Blockquotes'} gap={'21px'}>
+        <Stack id={'Blockquotes'} gap={['21px']}>
           <h3>Blockquotes</h3>
           <blockquote>{lorenipsum}</blockquote>
         </Stack>
-        <Stack id={'Dl'} gap={'21px'}>
+        <Stack id={'Dl'} gap={['21px']}>
           <h3>dl & dd & dt</h3>
           <dl>
             <dt>Beast of Bodmin</dt>
@@ -179,7 +179,7 @@ const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
         </pre>
       </Stack>
 
-      <Stack id={'Inline text semantics'} gap={'21px'}>
+      <Stack id={'Inline text semantics'} gap={['21px']}>
         <h2>Inline text semantics</h2>
 
         <h3>a</h3>
@@ -430,7 +430,7 @@ const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
         </blockquote>
       </Stack>
 
-      <Stack id={'Image and multimedia'} gap={'21px'}>
+      <Stack id={'Image and multimedia'} gap={['21px']}>
         <h2>Image and multimedia</h2>
 
         <h3>area</h3>
@@ -505,7 +505,7 @@ const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
         </video>
       </Stack>
       {/*
-      <Stack id={'Table content'} gap={'21px'}>
+      <Stack id={'Table content'} gap={['21px']}>
         <h3>embed</h3>
         <embed
           type="video/webm"
@@ -560,7 +560,7 @@ const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
         </video>
       </Stack> */}
 
-      <Stack className="wrapper" id={'Table content'} gap={'21px'}>
+      <Stack className="wrapper" id={'Table content'} gap={['21px']}>
         <h3>Table and Caption</h3>
 
         <caption>He-Man and Skeletor facts</caption>
@@ -668,10 +668,10 @@ const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
         </table>
       </Stack>
 
-      <Stack id={'Forms'} gap={'21px'}>
+      <Stack id={'Forms'} gap={['21px']}>
         <h2>Forms</h2>
 
-        <Stack id={'content-form'} gap={'21px'}>
+        <Stack id={'content-form'} gap={['21px']}>
           <h3>Button</h3>
           <button className="favorite styled" type="button">
             Add to favorites
@@ -827,7 +827,7 @@ const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
 
           <textarea defaultValue="was a dark and stormy night..." id="story" name="story" rows={5} cols={33}></textarea>
         </Stack>
-        <Stack id={'Forms'} gap={'21px'}>
+        <Stack id={'Forms'} gap={['21px']}>
           <h2>Interactive elements</h2>
 
           <h3>details</h3>
@@ -860,7 +860,7 @@ const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
           </details>
         </Stack>
 
-        <Stack id={'Forms'} gap={'21px'}>
+        <Stack id={'Forms'} gap={['21px']}>
           <h2>Web Components</h2>
 
           <h3>slot</h3>

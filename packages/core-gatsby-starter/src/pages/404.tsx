@@ -6,7 +6,7 @@ import * as styleRefs from '../styles/index.treat';
 
 const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
   const styles = useStyles(styleRefs);
-  return <Stack gap={'20px'}>Not found</Stack>;
+  return <Stack gap={['20px']}>Not found</Stack>;
 };
 
 const Page: React.FC<SrcPageTemplateProps> = (props) => {

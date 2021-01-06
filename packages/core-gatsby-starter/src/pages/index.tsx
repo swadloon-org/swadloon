@@ -7,12 +7,12 @@ import * as styleRefs from '../styles/index.treat';
 const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
   const styles = useStyles(styleRefs);
   return (
-    <Stack gap={'20px'}>
-      <Stack gap={'20px'}>
+    <Stack gap={['20px']}>
+      <Stack gap={['20px']}>
         <div>hello</div>
       </Stack>
 
-      <Stack gap={'13px'}>
+      <Stack gap={['13px']}>
         <h1>Buttons</h1>
         <Button>Button</Button>
       </Stack>
