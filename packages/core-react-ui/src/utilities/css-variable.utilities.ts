@@ -5,7 +5,7 @@ import { kebab } from 'case';
  * @param fallback optional fallback
  */
 export function cssVar(value: string, fallback?: string): string {
-  return fallback ? `var(${kebab(value)}, ${kebab(fallback)})` : `var(${kebab(value)})`;
+  return fallback ? `var(${value}, ${fallback})` : `var(${value})`;
 }
 
 /**

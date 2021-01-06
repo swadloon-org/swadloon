@@ -664,10 +664,10 @@ Object {
       "--font-family-serif",
     ],
     "varNames": Array [
-      "var(-font-family-monospace)",
-      "var(-font-family-sans)",
-      "var(-font-family-sans-alternate)",
-      "var(-font-family-serif)",
+      "var(--font-family-monospace)",
+      "var(--font-family-sans)",
+      "var(--font-family-sans-alternate)",
+      "var(--font-family-serif)",
     ],
   },
   "headings": Object {
