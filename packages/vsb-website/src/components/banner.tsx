@@ -12,6 +12,7 @@ export const Banner: React.FC<OwnProps> = (props) => {
   const hasImage = !!props?.medias?.medias?.length;
   const imageData: any = props?.medias?.medias?.[0]?.desktopFluidImage;
   return (
+    // todo calculate 100vh and leave it as is after (to prevent background image resizing)
     <div className={`${styles.wrapper}`}>
       {hasImage ? (
         <BackgroundImage Tag="div" fluid={imageData as IFluidObject} className={`${styles.container}`} fadeIn={false}>
