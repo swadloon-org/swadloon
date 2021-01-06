@@ -11,6 +11,7 @@ import {
   VIEWPORT,
 } from '@newrade/core-design-system';
 import { getCSSVarForLayout, getCSSVarNamesForLayout } from '../utilities/layout.utilities';
+import { defautlLayoutZIndexes } from './default-layout-z-indexes';
 
 const defaultBreakpoints: Breakpoints = {
   [BREAKPOINT.mobileXSmall]: 320,
@@ -226,4 +227,5 @@ export const defaultLayout: Layout = {
   },
   varNames: defaultLayoutVarNames,
   var: defaultLayoutVar,
+  zIndex: defautlLayoutZIndexes,
 };

@@ -13,7 +13,7 @@ export const Message: React.FC<OwnProps> = (props) => {
 
   return (
     <div className={`${styles.wrapper}`}>
-      <Cluster maxWidth={'1200px'}>
+      <Cluster>
         <Box>{props?.title}</Box>
         <Box>
           <Stack>

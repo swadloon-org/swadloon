@@ -1,11 +1,9 @@
-import { title } from 'case';
-import { Link, PageProps, graphql, useStaticQuery } from 'gatsby';
+import { NavBar } from '@newrade/core-react-ui';
+import { graphql, PageProps, useStaticQuery } from 'gatsby';
 import React, { ReactNode } from 'react';
 import { useStyles } from 'react-treat';
-import { Node, LayoutAllSitePageQuery } from '../../types/graphql-types';
+import { LayoutAllSitePageQuery } from '../../types/graphql-types';
 import * as styleRefs from './layout.treat';
-
-import { NavBar } from '@newrade/core-gatsby-ui';
 
 type LayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }>;
 
@@ -65,15 +63,7 @@ export const Layout = React.memo<LayoutProps>((props) => {
 
   return (
     <div className={styles.wrapper}>
-      <NavBar
-        items={pages.pages.nodes.map((item) => {
-          return {
-            id: item.id,
-            label: item.context?.name,
-            to: item.path,
-          };
-        })}
-      ></NavBar>
+      <NavBar></NavBar>
 
       {/* <header>{renderNavigation(props.location?.pathname)}</header> */}
 

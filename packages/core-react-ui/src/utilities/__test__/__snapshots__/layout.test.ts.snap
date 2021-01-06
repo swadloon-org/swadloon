@@ -96,5 +96,13 @@ Object {
     "navbarHeight": "--layout-navbar-height",
     "sidebarWidth": "--layout-sidebar-width",
   },
+  "zIndex": Object {
+    "chatBubble": 103,
+    "content": 50,
+    "dialog": 99,
+    "navBar": 100,
+    "notifications": 102,
+    "sideBar": 101,
+  },
 }
 `;

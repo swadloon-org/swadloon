@@ -69,7 +69,7 @@ export type LayoutVars = LayoutVarNames;
 
 export type PartialLayout<Override extends undefined | string = undefined> = Omit<
   Layout<Override>,
-  'var' | 'varNames' | 'media'
+  'var' | 'varNames' | 'media' | 'zIndex'
 >;
 
 /**
@@ -100,4 +100,15 @@ export interface Layout<Override extends undefined | string = undefined> {
    * @example `var(--layout-navbar-height)`
    */
   var: LayoutVars;
+  /**
+   * One place to define the different z indexes
+   */
+  zIndex: {
+    chatBubble: number;
+    notifications: number;
+    navBar: number;
+    sideBar: number;
+    dialog: number;
+    content: number;
+  };
 }

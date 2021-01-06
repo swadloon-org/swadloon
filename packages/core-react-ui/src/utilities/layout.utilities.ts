@@ -55,6 +55,7 @@ export function getCSSLayout(options: Layout): Layout<string> {
     }, {} as Layout<string>['footerHeight']),
     varNames: options.varNames,
     var: options.var,
+    zIndex: options.zIndex,
   };
 }
 

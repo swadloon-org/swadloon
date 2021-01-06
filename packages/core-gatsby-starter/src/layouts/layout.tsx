@@ -4,8 +4,7 @@ import React, { ReactNode } from 'react';
 import { useStyles } from 'react-treat';
 import { Node, LayoutAllSitePageQuery } from '../../types/graphql-types';
 import * as styleRefs from './layout.treat';
-import { NavBar } from '@newrade/core-gatsby-ui';
-import { Center } from '@newrade/core-react-ui';
+import { Center, NavBar } from '@newrade/core-react-ui';
 
 const query = graphql`
   query LayoutAllSitePage {
@@ -146,7 +145,7 @@ export const Layout = React.memo<LayoutProps>((props) => {
   return (
     <div className={styles.wrapper}>
       <div>
-        <NavBar />
+        <NavBar></NavBar>
         {/* <SideBar /> */}
 
         {renderNavigation(props.location?.pathname)}

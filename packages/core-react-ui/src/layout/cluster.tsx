@@ -38,8 +38,8 @@ export const Cluster: React.FC<OwnProps> = ({
       '--tabletJustifyContent': tabletJustifyContent || mobileJustifyContent,
       '--desktopJustifyContent': desktopJustifyContent || tabletJustifyContent || mobileJustifyContent,
       '--mobileAlignItems': mobileAlignItems,
-      '--tabletAlignItems': tabletAlignItems,
-      '--desktopAlignItems': desktopAlignItems,
+      '--tabletAlignItems': tabletAlignItems || mobileAlignItems,
+      '--desktopAlignItems': desktopAlignItems || tabletAlignItems || mobileAlignItems,
     },
     ...props,
   });

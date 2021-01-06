@@ -36,7 +36,7 @@ export const typography: Typography = {
     fontWeight: 500,
     mobile: {
       t1: {
-        capHeight: 55,
+        capHeight: 59,
         lineGap: 19,
       },
       t2: {

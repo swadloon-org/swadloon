@@ -1,11 +1,12 @@
+import { Label, Main, MainWrapper, NavBar } from '@newrade/core-react-ui';
 import { graphql, PageProps, useStaticQuery } from 'gatsby';
 import React, { ReactNode } from 'react';
 import { useStyles } from 'react-treat';
 import { LayoutAllSitePageQuery } from '../../types/graphql-types';
 import { Footer } from '../components/footer';
-import * as styleRefs from './layout.treat';
-import { NavBar } from '../components/navbar';
+import LogoSymbol from '../images/logo-symbol.svg';
 import Logo from '../images/logo.svg';
+import * as styleRefs from './layout.treat';
 
 type LayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }>;
 
@@ -64,12 +65,22 @@ export const Layout = React.memo<LayoutProps>((props) => {
   // }
 
   return (
-    <div className={styles.wrapper}>
-      <NavBar variantStyle={'transparent'} SvgLogo={<Logo />}></NavBar>
-
-      <main className={styles.main}>{props.children}</main>
-
+    <MainWrapper>
+      <NavBar
+        variantStyle={'transparent'}
+        MobileSvgLogo={<LogoSymbol />}
+        DesktopSvgLogo={<Logo />}
+        MenuLinks={
+          <>
+            <Label>Tout sur la vasectomie</Label>
+            <Label>Examen pour Transport Canada</Label>
+            <Label>La clinique</Label>
+            <Label>Contact</Label>
+          </>
+        }
+      ></NavBar>
+      <Main>{props.children}</Main>
       <Footer></Footer>
-    </div>
+    </MainWrapper>
   );
 });
