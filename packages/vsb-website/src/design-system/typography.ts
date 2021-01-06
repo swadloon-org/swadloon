@@ -200,10 +200,12 @@ export const typography: Typography = {
       boldUppercase: {
         fontWeight: 500,
         textTransform: TEXT_TRANSFORM.uppercase,
+        letterSpacing: 10,
       },
       uppercase: {
         fontWeight: 400,
         textTransform: TEXT_TRANSFORM.uppercase,
+        letterSpacing: 10,
       },
     },
     mobile: {

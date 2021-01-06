@@ -88,18 +88,12 @@ export const Footer: React.FC<OwnProps> = (props) => {
                 Nous Joindre
               </Label>
               <Stack gap={[cssTheme.sizing.var.x3]}>
-                <GatsbyLink to={`mailto:${data?.contentfulCompanyAddress?.email}`}>
-                  {data?.contentfulCompanyAddress?.email}
-                </GatsbyLink>
-                <GatsbyLink to={`tel:${data?.contentfulCompanyAddress?.phone}`}>
-                  {data?.contentfulCompanyAddress?.phone}
-                </GatsbyLink>
-                <GatsbyLink to={`fax:${data?.contentfulCompanyAddress?.fax}`}>
-                  {data?.contentfulCompanyAddress?.fax}
-                </GatsbyLink>
-                <GatsbyLink to={'https://goo.gl/maps/nndYpgQLkbDC6c7S7'} target="blank">
+                <a href={`mailto:${data?.contentfulCompanyAddress?.email}`}>{data?.contentfulCompanyAddress?.email}</a>
+                <a href={`tel:${data?.contentfulCompanyAddress?.phone}`}>{data?.contentfulCompanyAddress?.phone}</a>
+                <a href={`fax:${data?.contentfulCompanyAddress?.fax}`}>{data?.contentfulCompanyAddress?.fax}</a>
+                <a href={'https://goo.gl/maps/nndYpgQLkbDC6c7S7'} target="blank">
                   {data?.contentfulCompanyAddress?.addressLine1}
-                </GatsbyLink>
+                </a>
               </Stack>
             </Stack>
           </div>

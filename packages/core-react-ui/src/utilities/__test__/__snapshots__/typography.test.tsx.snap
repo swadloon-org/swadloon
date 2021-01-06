@@ -178,6 +178,7 @@ Object {
   "fontWeight": undefined,
   "letterSpacing": "0px",
   "lineGap": 19,
+  "textDecoration": undefined,
   "textTransform": undefined,
 }
 `;
@@ -849,6 +850,7 @@ Object {
         "fontWeight": 600,
         "letterSpacing": "0px",
         "lineGap": 10,
+        "textDecoration": undefined,
         "textTransform": undefined,
       },
       "h2": Object {
@@ -1028,6 +1030,7 @@ Object {
         "fontWeight": 600,
         "letterSpacing": "0px",
         "lineGap": 9,
+        "textDecoration": undefined,
         "textTransform": undefined,
       },
       "h3": Object {
@@ -1207,6 +1210,7 @@ Object {
         "fontWeight": 600,
         "letterSpacing": "0px",
         "lineGap": 7,
+        "textDecoration": undefined,
         "textTransform": undefined,
       },
       "h4": Object {
@@ -1386,6 +1390,7 @@ Object {
         "fontWeight": 600,
         "letterSpacing": "0px",
         "lineGap": 8,
+        "textDecoration": undefined,
         "textTransform": undefined,
       },
     },
@@ -1640,6 +1645,7 @@ Object {
         "fontWeight": 600,
         "letterSpacing": "0px",
         "lineGap": 10,
+        "textDecoration": undefined,
         "textTransform": undefined,
       },
       "h2": Object {
@@ -1819,6 +1825,7 @@ Object {
         "fontWeight": 600,
         "letterSpacing": "0px",
         "lineGap": 9,
+        "textDecoration": undefined,
         "textTransform": undefined,
       },
       "h3": Object {
@@ -1998,6 +2005,7 @@ Object {
         "fontWeight": 600,
         "letterSpacing": "0px",
         "lineGap": 7,
+        "textDecoration": undefined,
         "textTransform": undefined,
       },
       "h4": Object {
@@ -2177,6 +2185,7 @@ Object {
         "fontWeight": 600,
         "letterSpacing": "0px",
         "lineGap": 8,
+        "textDecoration": undefined,
         "textTransform": undefined,
       },
     },
@@ -2358,6 +2367,7 @@ Object {
         "fontWeight": 600,
         "letterSpacing": "0px",
         "lineGap": 10,
+        "textDecoration": undefined,
         "textTransform": undefined,
       },
       "h2": Object {
@@ -2537,6 +2547,7 @@ Object {
         "fontWeight": 600,
         "letterSpacing": "0px",
         "lineGap": 9,
+        "textDecoration": undefined,
         "textTransform": undefined,
       },
       "h3": Object {
@@ -2716,6 +2727,7 @@ Object {
         "fontWeight": 600,
         "letterSpacing": "0px",
         "lineGap": 7,
+        "textDecoration": undefined,
         "textTransform": undefined,
       },
       "h4": Object {
@@ -2895,6 +2907,7 @@ Object {
         "fontWeight": 600,
         "letterSpacing": "0px",
         "lineGap": 8,
+        "textDecoration": undefined,
         "textTransform": undefined,
       },
     },
@@ -3078,6 +3091,7 @@ Object {
         "fontWeight": 400,
         "letterSpacing": "0px",
         "lineGap": 9,
+        "textDecoration": undefined,
         "textTransform": undefined,
       },
       "small": Object {
@@ -3257,6 +3271,7 @@ Object {
         "fontWeight": 400,
         "letterSpacing": "0px",
         "lineGap": 8,
+        "textDecoration": undefined,
         "textTransform": undefined,
       },
       "xSmall": Object {
@@ -3436,6 +3451,7 @@ Object {
         "fontWeight": 400,
         "letterSpacing": "0px",
         "lineGap": 8,
+        "textDecoration": undefined,
         "textTransform": undefined,
       },
     },
@@ -3690,6 +3706,7 @@ Object {
         "fontWeight": 400,
         "letterSpacing": "0px",
         "lineGap": 9,
+        "textDecoration": undefined,
         "textTransform": undefined,
       },
       "small": Object {
@@ -3869,6 +3886,7 @@ Object {
         "fontWeight": 400,
         "letterSpacing": "0px",
         "lineGap": 8,
+        "textDecoration": undefined,
         "textTransform": undefined,
       },
       "xSmall": Object {
@@ -4048,6 +4066,7 @@ Object {
         "fontWeight": 400,
         "letterSpacing": "0px",
         "lineGap": 8,
+        "textDecoration": undefined,
         "textTransform": undefined,
       },
     },
@@ -4055,16 +4074,22 @@ Object {
       "bold": Object {
         "fontStyle": undefined,
         "fontWeight": 500,
+        "letterSpacing": "0px",
+        "textDecoration": undefined,
         "textTransform": undefined,
       },
       "boldUppercase": Object {
         "fontStyle": undefined,
         "fontWeight": 500,
+        "letterSpacing": "0.1em",
+        "textDecoration": undefined,
         "textTransform": "uppercase",
       },
       "uppercase": Object {
         "fontStyle": undefined,
         "fontWeight": 400,
+        "letterSpacing": "0.1em",
+        "textDecoration": undefined,
         "textTransform": "uppercase",
       },
     },
@@ -4246,6 +4271,7 @@ Object {
         "fontWeight": 400,
         "letterSpacing": "0px",
         "lineGap": 9,
+        "textDecoration": undefined,
         "textTransform": undefined,
       },
       "small": Object {
@@ -4425,6 +4451,7 @@ Object {
         "fontWeight": 400,
         "letterSpacing": "0px",
         "lineGap": 8,
+        "textDecoration": undefined,
         "textTransform": undefined,
       },
       "xSmall": Object {
@@ -4604,6 +4631,7 @@ Object {
         "fontWeight": 400,
         "letterSpacing": "0px",
         "lineGap": 8,
+        "textDecoration": undefined,
         "textTransform": undefined,
       },
     },
@@ -4787,6 +4815,7 @@ Object {
         "fontWeight": 400,
         "letterSpacing": "0px",
         "lineGap": 10,
+        "textDecoration": undefined,
         "textTransform": undefined,
       },
       "medium": Object {
@@ -4966,6 +4995,7 @@ Object {
         "fontWeight": 400,
         "letterSpacing": "0px",
         "lineGap": 13,
+        "textDecoration": undefined,
         "textTransform": undefined,
       },
       "small": Object {
@@ -5145,6 +5175,7 @@ Object {
         "fontWeight": 400,
         "letterSpacing": "0px",
         "lineGap": 10,
+        "textDecoration": undefined,
         "textTransform": undefined,
       },
       "xSmall": Object {
@@ -5324,6 +5355,7 @@ Object {
         "fontWeight": 400,
         "letterSpacing": "0px",
         "lineGap": 9,
+        "textDecoration": undefined,
         "textTransform": undefined,
       },
     },
@@ -5578,6 +5610,7 @@ Object {
         "fontWeight": 400,
         "letterSpacing": "0px",
         "lineGap": 12,
+        "textDecoration": undefined,
         "textTransform": undefined,
       },
       "medium": Object {
@@ -5757,6 +5790,7 @@ Object {
         "fontWeight": 400,
         "letterSpacing": "0px",
         "lineGap": 11,
+        "textDecoration": undefined,
         "textTransform": undefined,
       },
       "small": Object {
@@ -5936,6 +5970,7 @@ Object {
         "fontWeight": 400,
         "letterSpacing": "0px",
         "lineGap": 8,
+        "textDecoration": undefined,
         "textTransform": undefined,
       },
       "xSmall": Object {
@@ -6115,6 +6150,7 @@ Object {
         "fontWeight": 400,
         "letterSpacing": "0px",
         "lineGap": 7,
+        "textDecoration": undefined,
         "textTransform": undefined,
       },
     },
@@ -6122,11 +6158,15 @@ Object {
       "bold": Object {
         "fontStyle": undefined,
         "fontWeight": 500,
+        "letterSpacing": "0px",
+        "textDecoration": undefined,
         "textTransform": undefined,
       },
       "italic": Object {
         "fontStyle": "italic",
         "fontWeight": 400,
+        "letterSpacing": "0px",
+        "textDecoration": undefined,
         "textTransform": undefined,
       },
     },
@@ -6308,6 +6348,7 @@ Object {
         "fontWeight": 400,
         "letterSpacing": "0px",
         "lineGap": 10,
+        "textDecoration": undefined,
         "textTransform": undefined,
       },
       "medium": Object {
@@ -6487,6 +6528,7 @@ Object {
         "fontWeight": 400,
         "letterSpacing": "0px",
         "lineGap": 13,
+        "textDecoration": undefined,
         "textTransform": undefined,
       },
       "small": Object {
@@ -6666,6 +6708,7 @@ Object {
         "fontWeight": 400,
         "letterSpacing": "0px",
         "lineGap": 10,
+        "textDecoration": undefined,
         "textTransform": undefined,
       },
       "xSmall": Object {
@@ -6845,6 +6888,7 @@ Object {
         "fontWeight": 400,
         "letterSpacing": "0px",
         "lineGap": 9,
+        "textDecoration": undefined,
         "textTransform": undefined,
       },
     },
@@ -6948,6 +6992,7 @@ Object {
         "fontWeight": 500,
         "letterSpacing": "0px",
         "lineGap": 19,
+        "textDecoration": undefined,
         "textTransform": undefined,
       },
       "t2": Object {
@@ -7047,6 +7092,7 @@ Object {
         "fontWeight": 500,
         "letterSpacing": "0px",
         "lineGap": 19,
+        "textDecoration": undefined,
         "textTransform": undefined,
       },
     },
@@ -7221,6 +7267,7 @@ Object {
         "fontWeight": 500,
         "letterSpacing": "0px",
         "lineGap": 19,
+        "textDecoration": undefined,
         "textTransform": undefined,
       },
       "t2": Object {
@@ -7320,6 +7367,7 @@ Object {
         "fontWeight": 500,
         "letterSpacing": "0px",
         "lineGap": 19,
+        "textDecoration": undefined,
         "textTransform": undefined,
       },
     },
@@ -7421,6 +7469,7 @@ Object {
         "fontWeight": 500,
         "letterSpacing": "0px",
         "lineGap": 19,
+        "textDecoration": undefined,
         "textTransform": undefined,
       },
       "t2": Object {
@@ -7520,6 +7569,7 @@ Object {
         "fontWeight": 500,
         "letterSpacing": "0px",
         "lineGap": 19,
+        "textDecoration": undefined,
         "textTransform": undefined,
       },
     },
