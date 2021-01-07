@@ -103,7 +103,7 @@
     "@babel/plugin-transform-destructuring": "^7.12.1",
     "@babel/plugin-transform-runtime": "^7.11.5",
     "@babel/preset-env": "^7.12.7",
-    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-react": "^7.12.10",
     "@contentful-tools/cli": "^0.7.3",
     "@contentful-tools/store": "^0.7.3",
     "@dream-bit-de/gatsby-plugin-better-page-tree": "^1.6.0",
