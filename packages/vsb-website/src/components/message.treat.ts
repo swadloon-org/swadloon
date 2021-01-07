@@ -13,26 +13,26 @@ export const styles = {
   grid: style(({ theme, cssTheme }: Theme) => ({
     display: 'grid',
     gridTemplateColumns: '1fr',
-    gap: cssTheme.sizing.var.x4,
+    gap: cssTheme.sizing.var.x5,
 
     '@media': {
       [cssTheme.layout.media.tablet]: {
         gridTemplateColumns: 'repeat(12, 1fr)',
-        gap: '55px',
-        gridTemplateAreas: `"title title title messages messages messages messages messages messages messages messages ."`,
+        gap: cssTheme.sizing.var.x5,
+        gridTemplateAreas: `"title title title title messages messages messages messages messages messages messages ."`,
       },
       [cssTheme.layout.media.desktopSmall]: {
         gridTemplateColumns: 'repeat(12, 1fr)',
-        gap: '55px',
+        gap: cssTheme.sizing.var.x5,
 
         gridTemplateAreas: `"title title title messages messages messages messages messages messages messages messages ."`,
       },
     },
   })),
   gridTitle: style(({ theme, cssTheme }: Theme) => ({
-    justifySelf: 'flex-end',
     '@media': {
       [cssTheme.layout.media.tablet]: {
+        justifySelf: 'flex-end',
         gridArea: 'title',
       },
       [cssTheme.layout.media.desktopSmall]: {

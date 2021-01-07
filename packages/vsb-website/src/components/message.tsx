@@ -1,4 +1,4 @@
-import { Box, Center, Cluster, Stack, useTreatTheme, Heading } from '@newrade/core-react-ui';
+import { Box, Center, Cluster, Stack, useTreatTheme, Heading, BoxV2 } from '@newrade/core-react-ui';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
 import { useStyles } from 'react-treat';
@@ -14,7 +14,7 @@ export const Message: React.FC<OwnProps> = (props) => {
 
   return (
     <Center className={`${styles.wrapper}`}>
-      <Box padding={cssTheme.sizing.var.x6}>
+      <BoxV2 padding={[cssTheme.sizing.var.x6, 0]}>
         <div className={styles.grid}>
           <Box className={styles.gridTitle}>
             <Heading variant={HEADING.h3}>{props?.title}</Heading>
@@ -30,7 +30,7 @@ export const Message: React.FC<OwnProps> = (props) => {
             })}
           </Stack>
         </div>
-      </Box>
+      </BoxV2>
     </Center>
   );
 };

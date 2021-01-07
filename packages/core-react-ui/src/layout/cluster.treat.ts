@@ -5,6 +5,7 @@ import { Theme } from '../design-system/css-design-system';
 export const styles = styleMap(({ cssTheme, theme }: Theme) => ({
   wrapper: {
     display: 'flex',
+    height: '100%',
     alignItems: 'var(--mobile-align-items)' as AlignContentProperty,
     justifyContent: 'var(--mobile-justify-content)' as JustifyContentProperty,
     '@media': {
