@@ -65,7 +65,7 @@ export const Layout = React.memo<LayoutProps>((props) => {
 
   return (
     <MainWrapper>
-      <NavBar
+      {/* <NavBar
         variantStyle={'transparent'}
         MobileSvgLogo={<LogoSymbol />}
         DesktopSvgLogo={<Logo />}
@@ -77,7 +77,7 @@ export const Layout = React.memo<LayoutProps>((props) => {
             <Label>Contact</Label>
           </>
         }
-      ></NavBar>
+      ></NavBar> */}
       <Main>{props.children}</Main>
       {/* <Footer></Footer> */}
     </MainWrapper>

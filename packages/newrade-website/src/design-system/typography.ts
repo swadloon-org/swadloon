@@ -2,22 +2,22 @@ import { Font, Fonts, TEXT_TRANSFORM, Typography } from '@newrade/core-design-sy
 import { defaultTypography } from '@newrade/core-react-ui';
 
 const fontSans: Font = {
-  name: 'AvenirNext LT Pro',
+  name: 'Gilroy',
   fontMetrics: {
-    capHeight: 708,
-    ascent: 756,
-    descent: -244,
-    lineGap: 200,
+    capHeight: 700,
+    ascent: 920,
+    descent: -240,
+    lineGap: 0,
     unitsPerEm: 1000,
   },
 };
 
 const fontSansAlternate: Font = {
-  name: 'Neue Montreal',
+  name: 'Blatant',
   fontMetrics: {
-    capHeight: 715,
-    ascent: 975,
-    descent: -225,
+    capHeight: 559,
+    ascent: 700,
+    descent: -201,
     lineGap: 0,
     unitsPerEm: 1000,
   },
@@ -36,32 +36,32 @@ export const typography: Typography = {
     fontWeight: 500,
     mobile: {
       t1: {
-        capHeight: 29,
-        lineGap: 15,
+        capHeight: 30,
+        lineGap: 25,
       },
       t2: {
-        capHeight: 34,
-        lineGap: 19,
+        capHeight: 24,
+        lineGap: 20,
       },
     },
     tablet: {
       t1: {
-        capHeight: 55,
-        lineGap: 19,
+        capHeight: 48,
+        lineGap: 35,
       },
       t2: {
-        capHeight: 34,
-        lineGap: 19,
+        capHeight: 36,
+        lineGap: 28,
       },
     },
     desktop: {
       t1: {
-        capHeight: 59,
-        lineGap: 19,
+        capHeight: 60,
+        lineGap: 45,
       },
       t2: {
-        capHeight: 34,
-        lineGap: 19,
+        capHeight: 48,
+        lineGap: 32,
       },
     },
   },
@@ -70,56 +70,56 @@ export const typography: Typography = {
     fontWeight: 500,
     mobile: {
       h1: {
-        capHeight: 25,
-        lineGap: 10,
+        capHeight: 22,
+        lineGap: 18,
       },
       h2: {
-        capHeight: 17,
-        lineGap: 9,
+        capHeight: 20,
+        lineGap: 16,
       },
       h3: {
-        capHeight: 14,
-        lineGap: 7,
+        capHeight: 18,
+        lineGap: 14,
       },
       h4: {
-        capHeight: 12,
-        lineGap: 8,
+        capHeight: 16,
+        lineGap: 14,
       },
     },
     tablet: {
       h1: {
-        capHeight: 26,
-        lineGap: 10,
+        capHeight: 32,
+        lineGap: 28,
       },
       h2: {
-        capHeight: 17,
-        lineGap: 9,
+        capHeight: 24,
+        lineGap: 20,
       },
       h3: {
-        capHeight: 14,
-        lineGap: 7,
+        capHeight: 20,
+        lineGap: 16,
       },
       h4: {
-        capHeight: 12,
-        lineGap: 8,
+        capHeight: 18,
+        lineGap: 14,
       },
     },
     desktop: {
       h1: {
-        capHeight: 30,
-        lineGap: 10,
+        capHeight: 40,
+        lineGap: 45,
       },
       h2: {
-        capHeight: 17,
-        lineGap: 9,
+        capHeight: 36,
+        lineGap: 30,
       },
       h3: {
-        capHeight: 13,
-        lineGap: 13,
+        capHeight: 24,
+        lineGap: 20,
       },
       h4: {
-        capHeight: 12,
-        lineGap: 8,
+        capHeight: 20,
+        lineGap: 15,
       },
     },
   },
@@ -137,56 +137,56 @@ export const typography: Typography = {
     },
     mobile: {
       large: {
-        capHeight: 15,
-        lineGap: 15,
+        capHeight: 18,
+        lineGap: 14,
       },
       medium: {
-        capHeight: 11,
-        lineGap: 11,
+        capHeight: 16,
+        lineGap: 12,
       },
       small: {
-        capHeight: 10,
+        capHeight: 14,
         lineGap: 10,
       },
       xSmall: {
-        capHeight: 8,
+        capHeight: 12,
         lineGap: 8,
       },
     },
     tablet: {
       large: {
-        capHeight: 21,
-        lineGap: 10,
+        capHeight: 18,
+        lineGap: 14,
       },
       medium: {
-        capHeight: 11,
-        lineGap: 11,
+        capHeight: 16,
+        lineGap: 12,
       },
       small: {
-        capHeight: 10,
+        capHeight: 15,
         lineGap: 10,
       },
       xSmall: {
-        capHeight: 9,
-        lineGap: 9,
+        capHeight: 14,
+        lineGap: 8,
       },
     },
     desktop: {
       large: {
-        capHeight: 14,
+        capHeight: 18,
         lineGap: 14,
       },
       medium: {
-        capHeight: 11,
-        lineGap: 17,
+        capHeight: 16,
+        lineGap: 12,
       },
       small: {
-        capHeight: 10,
+        capHeight: 14,
         lineGap: 10,
       },
       xSmall: {
-        capHeight: 9,
-        lineGap: 9,
+        capHeight: 12,
+        lineGap: 8,
       },
     },
   },
@@ -210,43 +210,43 @@ export const typography: Typography = {
     },
     mobile: {
       medium: {
-        capHeight: 13,
-        lineGap: 9,
+        capHeight: 14,
+        lineGap: 10,
       },
       small: {
-        capHeight: 10,
+        capHeight: 12,
         lineGap: 8,
       },
       xSmall: {
-        capHeight: 6,
-        lineGap: 8,
+        capHeight: 8,
+        lineGap: 6,
       },
     },
     tablet: {
       medium: {
-        capHeight: 13,
-        lineGap: 9,
+        capHeight: 16,
+        lineGap: 12,
       },
       small: {
-        capHeight: 10,
-        lineGap: 8,
+        capHeight: 14,
+        lineGap: 10,
       },
       xSmall: {
-        capHeight: 6,
+        capHeight: 12,
         lineGap: 8,
       },
     },
     desktop: {
       medium: {
-        capHeight: 13,
-        lineGap: 9,
+        capHeight: 16,
+        lineGap: 12,
       },
       small: {
-        capHeight: 10,
-        lineGap: 8,
+        capHeight: 14,
+        lineGap: 10,
       },
       xSmall: {
-        capHeight: 6,
+        capHeight: 12,
         lineGap: 8,
       },
     },
