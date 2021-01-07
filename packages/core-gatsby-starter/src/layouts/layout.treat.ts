@@ -2,18 +2,6 @@ import { Theme } from '@newrade/core-react-ui';
 import { style } from 'treat';
 
 export const styles = {
-  wrapper: style(({ cssTheme, theme }: Theme) => ({
-    display: 'grid',
-    gridTemplateColumns: '1fr',
-    marginRight: 'auto',
-    marginLeft: 'auto',
-  })),
-  main: style(({ cssTheme, theme }: Theme) => ({
-    width: `100vw`,
-    padding: '1em',
-    maxWidth: `calc( 1440px - 225px - 300px - 40px * 2 )`,
-    margin: `0 auto`,
-  })),
   sideMenu: style(({ cssTheme, theme }: Theme) => ({
     display: 'none',
     position: 'fixed',

@@ -4,7 +4,7 @@ import React, { ReactNode } from 'react';
 import { useStyles } from 'react-treat';
 import { Node, LayoutAllSitePageQuery } from '../../types/graphql-types';
 import * as styleRefs from './layout.treat';
-import { Center, NavBar } from '@newrade/core-react-ui';
+import { Center, NavBar, MainWrapper, Main } from '@newrade/core-react-ui';
 
 const query = graphql`
   query LayoutAllSitePage {
@@ -143,19 +143,18 @@ export const Layout = React.memo<LayoutProps>((props) => {
   }
 
   return (
-    <div className={styles.wrapper}>
-      <div>
-        <NavBar></NavBar>
-        {/* <SideBar /> */}
+    <MainWrapper>
+      <NavBar></NavBar>
+      {/* <SideBar /> */}
 
-        {renderNavigation(props.location?.pathname)}
+      {/* {renderNavigation(props.location?.pathname)} */}
 
-        <Center maxWidth={`803px`}>{props.children}</Center>
+      {/* <Center maxWidth={`803px`}>{props.children}</Center> */}
+      <Main>{props.children}</Main>
 
-        {/* <main className={styles.main}></main> */}
+      {/* <main className={styles.main}></main> */}
 
-        {/* <footer>footer</footer> */}
-      </div>
-    </div>
+      {/* <footer>footer</footer> */}
+    </MainWrapper>
   );
 });

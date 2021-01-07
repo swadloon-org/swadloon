@@ -11,7 +11,7 @@ export type Props = Omit<SrcPageTemplateProps, 'children'> & { children: ReactNo
 export const SrcPageTemplate: React.FC<Props & { children: ReactNode }> = (props) => {
   return (
     <>
-      {props.pageContext.siteMetadata?.siteEnv === DEPLOY_ENV.LOCAL ? <DebugGasbyPage {...props} /> : null}
+      {/* {props.pageContext.siteMetadata?.siteEnv === DEPLOY_ENV.LOCAL ? <DebugGasbyPage {...props} /> : null} */}
       {props.children}
     </>
   );

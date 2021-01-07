@@ -9,8 +9,9 @@ import { Cluster } from '../layout/cluster';
 import { Button } from '../components/button/button';
 import { BoxV2 } from '../layout/box-v2';
 import { Label } from '../components/text/label';
+import { CommonComponentProps } from '../props/component-common.props';
 
-type Props = {
+type Props = CommonComponentProps & {
   variantStyle?: 'transparent' | 'white';
   MobileSvgLogo?: React.ReactNode;
   DesktopSvgLogo?: React.ReactNode;
@@ -76,7 +77,7 @@ export const NavBar: React.FC<Props> = (props) => {
   return (
     <>
       {/* Mobile */}
-      <Center as={'header'} className={`${styles.wrapper} ${styles.mobileMenu}`} ref={ref1}>
+      <Center as={'header'} className={`${styles.wrapper} ${styles.mobileMenu}`} ref={ref1} style={props.style}>
         <Cluster justifyContent={['space-between']}>
           <Button>
             <IoMenu className={styles.icon} />

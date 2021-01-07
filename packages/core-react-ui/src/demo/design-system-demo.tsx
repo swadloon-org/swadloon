@@ -8,7 +8,7 @@ import {
   TEXT_STYLE,
   TITLE,
 } from '@newrade/core-design-system';
-import { pascal } from 'case';
+import { pascal, kebab, title } from 'case';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { ColorSwatch } from '../components/color/color-swatch';
@@ -24,6 +24,11 @@ import { Cluster } from '../layout/cluster';
 import { Stack } from '../layout/stack';
 import { keys } from '../utilities/utilities';
 import * as styleRefs from './design-system-demo.treat';
+import { NavBar } from '../navigation/navbar';
+import { Center } from '../layout/center';
+import { LogoPlaceholder } from './logo-placeholder';
+import { BoxV2 } from '../layout/box-v2';
+import { FontShowcase } from './font-showcase';
 
 type Props = {};
 
@@ -38,12 +43,17 @@ export const DesignSystemComponent: React.FC<Props> = (props) => {
   }
 
   return (
-    <div className={styles.wrapper}>
-      <Stack id={'Design System'} gap={['55px']}>
-        <Heading variant={HEADING.h1}>Design System - {pascal(cssTheme.name)}</Heading>
+    <Center contentClassName={styles.wrapper}>
+      <Stack id={'Design System'} gap={[cssTheme.sizing.var.x5]}>
+        <Heading variant={HEADING.h1}>
+          {title(cssTheme.name)} Design System -{' '}
+          <Heading variant={HEADING.h1} variantLevel={TEXT_LEVEL.secondary} displayMode={'inline-block'}>
+            {title(cssTheme.variation)} Theme
+          </Heading>
+        </Heading>
 
-        <Stack id={'Foundations'} gap={['34px']}>
-          <Stack gap={['34px']}>
+        <Stack id={'Foundations'} gap={[cssTheme.sizing.var.x5]}>
+          <Stack gap={[cssTheme.sizing.var.x4]}>
             <Heading variant={HEADING.h2}>Foundations</Heading>
 
             <Paragraph>The design system describes</Paragraph>
@@ -53,68 +63,87 @@ export const DesignSystemComponent: React.FC<Props> = (props) => {
             <Summary>
               <Heading variant={HEADING.h3}>Typography</Heading>
             </Summary>
-            <Box padding={['1em', '0', '1em', '0']}>
-              <Stack gap={['55px']}>
-                <Stack gap={['21px']}>
+
+            <BoxV2 padding={[cssTheme.sizing.var.x3, '0']}>
+              <Stack gap={[cssTheme.sizing.var.x5]}>
+                <Stack gap={[cssTheme.sizing.var.x4]}>
+                  <Heading variant={HEADING.h4} variantLevel={TEXT_LEVEL.secondary}>
+                    Fonts
+                  </Heading>
+
+                  <Stack gap={[cssTheme.sizing.var.x4]}>
+                    <FontShowcase></FontShowcase>
+                  </Stack>
+                </Stack>
+
+                <Stack gap={[cssTheme.sizing.var.x4]}>
                   <Heading variant={HEADING.h4} variantLevel={TEXT_LEVEL.secondary}>
                     Titles
                   </Heading>
 
-                  {keys(TITLE).map((variant, index) => (
-                    <Title key={index} variant={TITLE[variant]}></Title>
-                  ))}
+                  <Stack gap={[cssTheme.sizing.var.x3]}>
+                    {keys(TITLE).map((variant, index) => (
+                      <Title key={index} variant={TITLE[variant]}></Title>
+                    ))}
+                  </Stack>
                 </Stack>
 
-                <Stack gap={['21px']}>
+                <Stack gap={[cssTheme.sizing.var.x4]}>
                   <Heading variant={HEADING.h4} variantLevel={TEXT_LEVEL.secondary}>
                     Headings
                   </Heading>
 
-                  {keys(HEADING).map((variant, index) => (
-                    <Heading key={index} variant={HEADING[variant]}></Heading>
-                  ))}
+                  <Stack gap={[cssTheme.sizing.var.x3]}>
+                    {keys(HEADING).map((variant, index) => (
+                      <Heading key={index} variant={HEADING[variant]}></Heading>
+                    ))}
+                  </Stack>
                 </Stack>
 
-                <Stack gap={['21px']}>
+                <Stack gap={[cssTheme.sizing.var.x4]}>
                   <Heading variant={HEADING.h4} variantLevel={TEXT_LEVEL.secondary}>
                     Labels
                   </Heading>
 
-                  {keys(LABEL_SIZE).map((variant, index) => (
-                    <Label key={index} variant={LABEL_SIZE[variant]}></Label>
-                  ))}
-
-                  {keys(TEXT_STYLE)
-                    .filter((style) => cssTheme.typography.labels.styles[style])
-                    .map((variant, index) => (
-                      <Label key={index} variantStyle={TEXT_STYLE[variant]}></Label>
+                  <Stack gap={[cssTheme.sizing.var.x3]}>
+                    {keys(LABEL_SIZE).map((variant, index) => (
+                      <Label key={index} variant={LABEL_SIZE[variant]}></Label>
                     ))}
+
+                    {keys(TEXT_STYLE)
+                      .filter((style) => cssTheme.typography.labels.styles[style])
+                      .map((variant, index) => (
+                        <Label key={index} variantStyle={TEXT_STYLE[variant]}></Label>
+                      ))}
+                  </Stack>
                 </Stack>
 
-                <Stack gap={['21px']}>
+                <Stack gap={[cssTheme.sizing.var.x4]}>
                   <Heading variant={HEADING.h4} variantLevel={TEXT_LEVEL.secondary}>
                     Paragraphs
                   </Heading>
 
-                  {keys(PARAGRAPH_SIZE).map((variant, index) => (
-                    <Paragraph key={index} variant={PARAGRAPH_SIZE[variant]}>
-                      {lorenipsum}
-                    </Paragraph>
-                  ))}
-
-                  {keys(TEXT_STYLE)
-                    .filter((style) => cssTheme.typography.paragraphs.styles[style])
-                    .map((variant, index) => (
-                      <Paragraph key={index} variantStyle={TEXT_STYLE[variant]}>
+                  <Stack gap={[cssTheme.sizing.var.x3]}>
+                    {keys(PARAGRAPH_SIZE).map((variant, index) => (
+                      <Paragraph key={index} variant={PARAGRAPH_SIZE[variant]}>
                         {lorenipsum}
                       </Paragraph>
                     ))}
+
+                    {keys(TEXT_STYLE)
+                      .filter((style) => cssTheme.typography.paragraphs.styles[style])
+                      .map((variant, index) => (
+                        <Paragraph key={index} variantStyle={TEXT_STYLE[variant]}>
+                          {lorenipsum}
+                        </Paragraph>
+                      ))}
+                  </Stack>
                 </Stack>
               </Stack>
-            </Box>
+            </BoxV2>
           </Details>
 
-          <Details id={'Colors'}>
+          <Details id={'Colors'} open={true}>
             <Summary>
               <Heading variant={HEADING.h3}>Colors</Heading>
             </Summary>
@@ -161,7 +190,7 @@ export const DesignSystemComponent: React.FC<Props> = (props) => {
                           const color = palette[shadeName];
 
                           return (
-                            <div style={{ width: '20%' }}>
+                            <div style={{ width: '20%' }} key={index}>
                               <ColorSwatch
                                 key={index}
                                 shadeNumber={shadeName}
@@ -208,7 +237,7 @@ export const DesignSystemComponent: React.FC<Props> = (props) => {
             </Stack>
           </Details>
 
-          <Details id={'Sizing'}>
+          <Details id={'Sizing'} open={true}>
             <Summary>
               <Heading variant={HEADING.h3}>Sizing</Heading>
             </Summary>
@@ -240,7 +269,7 @@ export const DesignSystemComponent: React.FC<Props> = (props) => {
             </Stack>
           </Details>
 
-          <Details id={'Effects'}>
+          <Details id={'Effects'} open={true}>
             <Summary>
               <Heading variant={HEADING.h3}>Effects</Heading>
             </Summary>
@@ -260,16 +289,40 @@ export const DesignSystemComponent: React.FC<Props> = (props) => {
           </Details>
         </Stack>
 
-        <Stack id={'Components'} gap={['34px']}>
+        <Stack id={'Components'} gap={[cssTheme.sizing.var.x5]}>
           <Heading variant={HEADING.h2}>Components</Heading>
 
-          <Details id={'Buttons'}>
+          <Details id={'Navigation'} open={true}>
+            <Summary>
+              <Heading variant={HEADING.h3}>Navigation</Heading>
+            </Summary>
+
+            <BoxV2 padding={[cssTheme.sizing.var.x4, '0']}>
+              <Stack gap={['43px']}>
+                <NavBar
+                  style={{ position: 'relative' }}
+                  MobileSvgLogo={<LogoPlaceholder />}
+                  DesktopSvgLogo={<LogoPlaceholder />}
+                />
+              </Stack>
+            </BoxV2>
+          </Details>
+
+          <Details id={'Buttons'} open={true}>
             <Summary>
               <Heading variant={HEADING.h3}>Buttons</Heading>
             </Summary>
+
+            <Stack gap={['43px']}>
+              <NavBar
+                style={{ position: 'relative' }}
+                MobileSvgLogo={<LogoPlaceholder />}
+                DesktopSvgLogo={<LogoPlaceholder />}
+              />
+            </Stack>
           </Details>
         </Stack>
       </Stack>
-    </div>
+    </Center>
   );
 };

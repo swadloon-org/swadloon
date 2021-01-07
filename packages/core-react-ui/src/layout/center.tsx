@@ -5,37 +5,46 @@ import { CommonComponentProps } from '../props/component-common.props';
 
 type OwnProps = CommonComponentProps &
   Partial<{
+    /**
+     * Force the maxWidth of the content
+     */
     maxWidth: string;
+    /**
+     * className applied to the centered content
+     */
+    contentClassName: string;
   }>;
 
-export const Center = React.forwardRef<any, OwnProps>(({ as, className, style, maxWidth, ...props } = {}, ref) => {
-  const { styles } = useStyles(styleRefs);
+export const Center = React.forwardRef<any, OwnProps>(
+  ({ as, className, contentClassName, style, maxWidth, ...props } = {}, ref) => {
+    const { styles } = useStyles(styleRefs);
 
-  // TODO: enable as
-  // return React.createElement(as, )
+    // TODO: enable as
+    // return React.createElement(as, )
 
-  return (
-    <div
-      ref={ref}
-      style={{
-        ...style,
-      }}
-      className={`${className || ''} ${styles.wrapper}`}
-    >
-      {/* padding only div */}
-      <div></div>
-      {/* centered content */}
+    return (
       <div
+        ref={ref}
         style={{
-          // @ts-ignore
-          '--max-content-width': maxWidth,
+          ...style,
         }}
-        className={styles.content}
+        className={`${className || ''} ${styles.wrapper}`}
       >
-        {props.children}
+        {/* padding only div */}
+        <div></div>
+        {/* centered content */}
+        <div
+          style={{
+            // @ts-ignore
+            '--max-content-width': maxWidth,
+          }}
+          className={`${styles.content} ${contentClassName || ''}`}
+        >
+          {props.children}
+        </div>
+        {/* padding only div */}
+        <div></div>
       </div>
-      {/* padding only div */}
-      <div></div>
-    </div>
-  );
-});
+    );
+  }
+);

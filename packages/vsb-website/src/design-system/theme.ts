@@ -13,7 +13,7 @@ import { layout } from './layout';
 import { typography } from './typography';
 
 export const theme: DesignSystem = {
-  name: 'vsb-website',
+  name: 'Clinique Dr. Boucher',
   variation: 'light',
   colors,
   effects: defaultEffects,

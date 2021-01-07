@@ -13,7 +13,7 @@ import { layout } from './layout';
 import { typography } from './typography';
 
 export const theme: DesignSystem = {
-  name: 'newrade-website',
+  name: 'newrade',
   variation: 'light',
   colors,
   effects: defaultEffects,

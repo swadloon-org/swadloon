@@ -14,17 +14,18 @@ export const styles = {
     boxShadow: `0px 2px 6px rgba(0, 0, 0, 0.25)`,
 
     zIndex: cssTheme.layout.zIndex.navBar,
+    overflow: 'hidden',
   })),
   mobileMenu: style(({ cssTheme, theme }: Theme) => ({
     display: 'inherit',
     '@media': {
       [cssTheme.layout.media.desktopSmall]: {
-        display: 'none',
+        display: 'none !important',
       },
     },
   })),
   desktopMenu: style(({ cssTheme, theme }: Theme) => ({
-    display: 'none',
+    display: 'none !important',
     '@media': {
       [cssTheme.layout.media.desktopSmall]: {
         display: 'inherit',
