@@ -56,3 +56,6 @@ lib-cov
 # env
 .env*
 !.env.test
+
+# Local Netlify folder
+.netlify

@@ -2489,8 +2489,6 @@ export type QueryAllDirectoryArgs = {
 export type QuerySiteArgs = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
-  port?: Maybe<IntQueryOperatorInput>;
-  host?: Maybe<StringQueryOperatorInput>;
   flags?: Maybe<SiteFlagsFilterInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
@@ -2681,8 +2679,6 @@ export type QueryAllSitePluginArgs = {
 export type Site = Node & {
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
-  port?: Maybe<Scalars['Int']>;
-  host?: Maybe<Scalars['String']>;
   flags?: Maybe<SiteFlags>;
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
@@ -2889,8 +2885,6 @@ export type SiteFieldsEnum =
   | 'siteMetadata___siteEnv'
   | 'siteMetadata___languages___langs'
   | 'siteMetadata___languages___defaultLangKey'
-  | 'port'
-  | 'host'
   | 'flags___PRESERVE_WEBPACK_CACHE'
   | 'flags___PRESERVE_FILE_DOWNLOAD_CACHE'
   | 'flags___QUERY_ON_DEMAND'
@@ -2991,8 +2985,6 @@ export type SiteFieldsEnum =
 export type SiteFilterInput = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
-  port?: Maybe<IntQueryOperatorInput>;
-  host?: Maybe<StringQueryOperatorInput>;
   flags?: Maybe<SiteFlagsFilterInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
@@ -3073,23 +3065,23 @@ export type SitePageConnectionGroupArgs = {
 };
 
 export type SitePageContext = {
+  frontmatter?: Maybe<SitePageContextFrontmatter>;
   siteMetadata?: Maybe<SitePageContextSiteMetadata>;
-  fileId?: Maybe<Scalars['String']>;
+  slug?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
   locale?: Maybe<Scalars['String']>;
-  frontmatter?: Maybe<SitePageContextFrontmatter>;
-  slug?: Maybe<Scalars['String']>;
+  fileId?: Maybe<Scalars['String']>;
 };
 
 export type SitePageContextFilterInput = {
+  frontmatter?: Maybe<SitePageContextFrontmatterFilterInput>;
   siteMetadata?: Maybe<SitePageContextSiteMetadataFilterInput>;
-  fileId?: Maybe<StringQueryOperatorInput>;
+  slug?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
   name?: Maybe<StringQueryOperatorInput>;
   locale?: Maybe<StringQueryOperatorInput>;
-  frontmatter?: Maybe<SitePageContextFrontmatterFilterInput>;
-  slug?: Maybe<StringQueryOperatorInput>;
+  fileId?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePageContextFrontmatter = {
@@ -3231,19 +3223,19 @@ export type SitePageFieldsEnum =
   | 'internal___owner'
   | 'internal___type'
   | 'isCreatedByStatefulCreatePages'
+  | 'context___frontmatter___name'
+  | 'context___frontmatter___tags'
   | 'context___siteMetadata___title'
   | 'context___siteMetadata___description'
   | 'context___siteMetadata___siteEnv'
   | 'context___siteMetadata___siteUrl'
   | 'context___siteMetadata___languages___langs'
   | 'context___siteMetadata___languages___defaultLangKey'
-  | 'context___fileId'
+  | 'context___slug'
   | 'context___id'
   | 'context___name'
   | 'context___locale'
-  | 'context___frontmatter___name'
-  | 'context___frontmatter___tags'
-  | 'context___slug'
+  | 'context___fileId'
   | 'pluginCreator___id'
   | 'pluginCreator___parent___id'
   | 'pluginCreator___parent___parent___id'
@@ -3314,6 +3306,9 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___remarkPlugins___target'
   | 'pluginCreator___pluginOptions___remarkPlugins___rel'
   | 'pluginCreator___pluginOptions___rehypePlugins'
+  | 'pluginCreator___pluginOptions___source'
+  | 'pluginCreator___pluginOptions___destination'
+  | 'pluginCreator___pluginOptions___purge'
   | 'pluginCreator___pluginOptions___createLinkInHead'
   | 'pluginCreator___pluginOptions___host'
   | 'pluginCreator___pluginOptions___sitemap'
@@ -3542,6 +3537,7 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___extensions'
   | 'pluginOptions___gatsbyRemarkPlugins'
   | 'pluginOptions___gatsbyRemarkPlugins___resolve'
+  | 'pluginOptions___gatsbyRemarkPlugins___options___destinationDir'
   | 'pluginOptions___gatsbyRemarkPlugins___options___classPrefix'
   | 'pluginOptions___gatsbyRemarkPlugins___options___showLineNumbers'
   | 'pluginOptions___gatsbyRemarkPlugins___options___noInlineHighlight'
@@ -3554,6 +3550,9 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___rehypePlugins___content___type'
   | 'pluginOptions___rehypePlugins___content___tagName'
   | 'pluginOptions___rehypePlugins___content___children'
+  | 'pluginOptions___source'
+  | 'pluginOptions___destination'
+  | 'pluginOptions___purge'
   | 'pluginOptions___createLinkInHead'
   | 'pluginOptions___host'
   | 'pluginOptions___sitemap'
@@ -3707,6 +3706,9 @@ export type SitePluginPluginOptions = {
   gatsbyRemarkPlugins?: Maybe<Array<Maybe<SitePluginPluginOptionsGatsbyRemarkPlugins>>>;
   remarkPlugins?: Maybe<Array<Maybe<Array<Maybe<SitePluginPluginOptionsRemarkPlugins>>>>>;
   rehypePlugins?: Maybe<Array<Maybe<Array<Maybe<SitePluginPluginOptionsRehypePlugins>>>>>;
+  source?: Maybe<Scalars['String']>;
+  destination?: Maybe<Scalars['String']>;
+  purge?: Maybe<Scalars['Boolean']>;
   createLinkInHead?: Maybe<Scalars['Boolean']>;
   host?: Maybe<Scalars['String']>;
   sitemap?: Maybe<Scalars['String']>;
@@ -3850,6 +3852,9 @@ export type SitePluginPluginOptionsFilterInput = {
   gatsbyRemarkPlugins?: Maybe<SitePluginPluginOptionsGatsbyRemarkPluginsFilterListInput>;
   remarkPlugins?: Maybe<SitePluginPluginOptionsRemarkPluginsFilterListInput>;
   rehypePlugins?: Maybe<SitePluginPluginOptionsRehypePluginsFilterListInput>;
+  source?: Maybe<StringQueryOperatorInput>;
+  destination?: Maybe<StringQueryOperatorInput>;
+  purge?: Maybe<BooleanQueryOperatorInput>;
   createLinkInHead?: Maybe<BooleanQueryOperatorInput>;
   host?: Maybe<StringQueryOperatorInput>;
   sitemap?: Maybe<StringQueryOperatorInput>;
@@ -3879,6 +3884,7 @@ export type SitePluginPluginOptionsGatsbyRemarkPluginsFilterListInput = {
 };
 
 export type SitePluginPluginOptionsGatsbyRemarkPluginsOptions = {
+  destinationDir?: Maybe<Scalars['String']>;
   classPrefix?: Maybe<Scalars['String']>;
   showLineNumbers?: Maybe<Scalars['Boolean']>;
   noInlineHighlight?: Maybe<Scalars['Boolean']>;
@@ -3886,6 +3892,7 @@ export type SitePluginPluginOptionsGatsbyRemarkPluginsOptions = {
 };
 
 export type SitePluginPluginOptionsGatsbyRemarkPluginsOptionsFilterInput = {
+  destinationDir?: Maybe<StringQueryOperatorInput>;
   classPrefix?: Maybe<StringQueryOperatorInput>;
   showLineNumbers?: Maybe<BooleanQueryOperatorInput>;
   noInlineHighlight?: Maybe<BooleanQueryOperatorInput>;

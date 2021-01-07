@@ -105,6 +105,18 @@
       "focus": false
     },
     {
+      "name": "newrade-admin",
+      "cwd": "[workspaceFolder]/packages/newrade-admin",
+      "open": true,
+      "focus": false
+    },
+    {
+      "name": "newrade-app",
+      "cwd": "[workspaceFolder]/packages/newrade-app",
+      "open": true,
+      "focus": false
+    },
+    {
       "name": "newrade-website",
       "cwd": "[workspaceFolder]/packages/newrade-website",
       "open": true,

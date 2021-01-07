@@ -19,6 +19,16 @@ export function getGatsbyPluginMdx(): Gatsby.PluginRef[] {
         extensions: ['.md', '.mdx'],
         gatsbyRemarkPlugins: [
           /**
+           * @see https://www.gatsbyjs.com/plugins/gatsby-remark-copy-linked-files
+           */
+          {
+            resolve: 'gatsby-remark-copy-linked-files',
+            options: {
+              destinationDir: 'markdown-assets',
+              ignoreFileExtensions: [],
+            },
+          },
+          /**
            * gatsby-remark-prismjs
            * @see https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-remark-prismjs
            */

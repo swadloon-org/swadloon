@@ -125,6 +125,9 @@
       "path": "../packages/newrade-website"
     },
     {
+      "path": "../packages/newrade-admin"
+    },
+    {
       "path": "../packages/newrade-app"
     },
     {
