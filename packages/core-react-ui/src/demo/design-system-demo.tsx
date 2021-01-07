@@ -8,10 +8,16 @@ import {
   TEXT_STYLE,
   TITLE,
 } from '@newrade/core-design-system';
-import { pascal, kebab, title } from 'case';
+import { title } from 'case';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { ColorSwatch } from '../components/color/color-swatch';
+import { Table } from '../components/table/table';
+import { TableBody } from '../components/table/table-body';
+import { Td } from '../components/table/table-cell-data';
+import { Th } from '../components/table/table-cell-header';
+import { TableHeader } from '../components/table/table-header';
+import { TableRow } from '../components/table/table-row';
 import { Details } from '../components/text/details';
 import { Heading } from '../components/text/heading';
 import { Label } from '../components/text/label';
@@ -19,16 +25,15 @@ import { Paragraph } from '../components/text/paragraph';
 import { Summary } from '../components/text/summary';
 import { Title } from '../components/text/title';
 import { useTreatTheme } from '../hooks/use-treat-theme';
-import { Box } from '../layout/box';
+import { BoxV2 } from '../layout/box-v2';
+import { Center } from '../layout/center';
 import { Cluster } from '../layout/cluster';
 import { Stack } from '../layout/stack';
+import { NavBar } from '../navigation/navbar';
 import { keys } from '../utilities/utilities';
 import * as styleRefs from './design-system-demo.treat';
-import { NavBar } from '../navigation/navbar';
-import { Center } from '../layout/center';
-import { LogoPlaceholder } from './logo-placeholder';
-import { BoxV2 } from '../layout/box-v2';
 import { FontShowcase } from './font-showcase';
+import { LogoPlaceholder } from './logo-placeholder';
 
 type Props = {};
 
@@ -319,6 +324,46 @@ export const DesignSystemComponent: React.FC<Props> = (props) => {
                 MobileSvgLogo={<LogoPlaceholder />}
                 DesktopSvgLogo={<LogoPlaceholder />}
               />
+            </Stack>
+          </Details>
+          <Details id={'Table'}>
+            <Summary>
+              <Heading variant={HEADING.h3}>Tables</Heading>
+            </Summary>
+            <Stack id={'Tables'} gap={['1em']}>
+              <div style={{ borderRadius: '0.5rem' }}>
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <Th>Name</Th>
+                      <Th>ID</Th>
+                      <Th>Favorite Color</Th>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    <TableRow>
+                      <Td>Jim</Td>
+                      <Td>00001</Td>
+                      <Td>Blue</Td>
+                    </TableRow>
+                    <TableRow>
+                      <Td>Barb</Td>
+                      <Td>0021001</Td>
+                      <Td>Red</Td>
+                    </TableRow>
+                    <TableRow>
+                      <Td>Jim</Td>
+                      <Td>00001</Td>
+                      <Td>Blue</Td>
+                    </TableRow>
+                    <TableRow>
+                      <Td>Barb</Td>
+                      <Td>0021001</Td>
+                      <Td>Red</Td>
+                    </TableRow>
+                  </TableBody>
+                </Table>
+              </div>
             </Stack>
           </Details>
         </Stack>
