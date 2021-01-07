@@ -5,6 +5,12 @@
 - https://developers.google.com/apps-script/overview
 - https://developers.google.com/apps-script/guides/clasp
 - https://stackoverflow.com/questions/54533397/error-retrieving-access-token-typeerror-cannot-read-property-project-id-of-u
+- https://stackoverflow.com/questions/18646554/importing-external-javascript-to-google-apps-script
+
+### Tutorials
+
+- https://developers.google.com/gsuite/solutions
+- https://developers.google.com/apps-script/articles/tutorials
 
 ## Local Setup
 

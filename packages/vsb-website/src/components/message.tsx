@@ -1,34 +1,36 @@
+import { Box, Center, Cluster, Stack, useTreatTheme, Heading } from '@newrade/core-react-ui';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { SectionFragment } from '../../types/graphql-types';
 import * as styleRefs from './message.treat';
-import { Box, Center, Stack, Cluster } from '@newrade/core-react-ui';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
-import { markdownComponents } from './markdown/components-markdown';
+import { HEADING } from '../../../core-design-system/src';
 
 type OwnProps = SectionFragment;
 
 export const Message: React.FC<OwnProps> = (props) => {
-  const styles = useStyles(styleRefs);
+  const { styles } = useStyles(styleRefs);
+  const { cssTheme, theme } = useTreatTheme();
 
   return (
-    <div className={`${styles.wrapper}`}>
-      <Cluster>
-        <Box>{props?.title}</Box>
-        <Box>
-          <Stack>
-            {/* ITEMS */}
+    <Center className={`${styles.wrapper}`}>
+      <Box padding={cssTheme.sizing.var.x6}>
+        <div className={styles.grid}>
+          <Box className={styles.gridTitle}>
+            <Heading variant={HEADING.h3}>{props?.title}</Heading>
+          </Box>
+
+          <Stack gap={[cssTheme.sizing.var.x4]} className={styles.gridMessages}>
             {props?.announcements?.map((item: any, index: number) => {
               return (
-                <Box key={index}>
-                  <h4>{item?.title}</h4>
-                  <MDXRenderer components={markdownComponents}>{item.message.childMdx.body}</MDXRenderer>
-                </Box>
+                <Cluster key={index} justifyContent={['flex-start']} gap={cssTheme.sizing.var.x1}>
+                  <MDXRenderer>{item.message.childMdx.body}</MDXRenderer>
+                </Cluster>
               );
             })}
           </Stack>
-        </Box>
-      </Cluster>
-    </div>
+        </div>
+      </Box>
+    </Center>
   );
 };

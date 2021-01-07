@@ -40,7 +40,6 @@ export type ContentfulAnnouncement = Node & {
   internal: Internal;
   name?: Maybe<Scalars['String']>;
   type?: Maybe<Scalars['String']>;
-  title?: Maybe<Scalars['String']>;
   section?: Maybe<Array<Maybe<ContentfulSection>>>;
   message?: Maybe<ContentfulAnnouncementMessageTextNode>;
   spaceId?: Maybe<Scalars['String']>;
@@ -184,7 +183,6 @@ export type ContentfulAnnouncementFieldsEnum =
   | 'internal___type'
   | 'name'
   | 'type'
-  | 'title'
   | 'section'
   | 'section___id'
   | 'section___parent___id'
@@ -745,7 +743,6 @@ export type ContentfulAnnouncementFieldsEnum =
   | 'section___subSections___announcements___children'
   | 'section___subSections___announcements___name'
   | 'section___subSections___announcements___type'
-  | 'section___subSections___announcements___title'
   | 'section___subSections___announcements___section'
   | 'section___subSections___announcements___spaceId'
   | 'section___subSections___announcements___contentful_id'
@@ -908,7 +905,6 @@ export type ContentfulAnnouncementFieldsEnum =
   | 'section___section___announcements___children'
   | 'section___section___announcements___name'
   | 'section___section___announcements___type'
-  | 'section___section___announcements___title'
   | 'section___section___announcements___section'
   | 'section___section___announcements___spaceId'
   | 'section___section___announcements___contentful_id'
@@ -969,7 +965,6 @@ export type ContentfulAnnouncementFieldsEnum =
   | 'section___announcements___internal___type'
   | 'section___announcements___name'
   | 'section___announcements___type'
-  | 'section___announcements___title'
   | 'section___announcements___section'
   | 'section___announcements___section___id'
   | 'section___announcements___section___children'
@@ -1222,7 +1217,6 @@ export type ContentfulAnnouncementFilterInput = {
   internal?: Maybe<InternalFilterInput>;
   name?: Maybe<StringQueryOperatorInput>;
   type?: Maybe<StringQueryOperatorInput>;
-  title?: Maybe<StringQueryOperatorInput>;
   section?: Maybe<ContentfulSectionFilterListInput>;
   message?: Maybe<ContentfulAnnouncementMessageTextNodeFilterInput>;
   spaceId?: Maybe<StringQueryOperatorInput>;
@@ -4079,7 +4073,6 @@ export type ContentfulCostItemFieldsEnum =
   | 'section___subSections___announcements___children'
   | 'section___subSections___announcements___name'
   | 'section___subSections___announcements___type'
-  | 'section___subSections___announcements___title'
   | 'section___subSections___announcements___section'
   | 'section___subSections___announcements___spaceId'
   | 'section___subSections___announcements___contentful_id'
@@ -4242,7 +4235,6 @@ export type ContentfulCostItemFieldsEnum =
   | 'section___section___announcements___children'
   | 'section___section___announcements___name'
   | 'section___section___announcements___type'
-  | 'section___section___announcements___title'
   | 'section___section___announcements___section'
   | 'section___section___announcements___spaceId'
   | 'section___section___announcements___contentful_id'
@@ -4303,7 +4295,6 @@ export type ContentfulCostItemFieldsEnum =
   | 'section___announcements___internal___type'
   | 'section___announcements___name'
   | 'section___announcements___type'
-  | 'section___announcements___title'
   | 'section___announcements___section'
   | 'section___announcements___section___id'
   | 'section___announcements___section___children'
@@ -4928,7 +4919,6 @@ export type ContentfulLinkFieldsEnum =
   | 'page___sections___announcements___children'
   | 'page___sections___announcements___name'
   | 'page___sections___announcements___type'
-  | 'page___sections___announcements___title'
   | 'page___sections___announcements___section'
   | 'page___sections___announcements___spaceId'
   | 'page___sections___announcements___contentful_id'
@@ -5622,7 +5612,6 @@ export type ContentfulLinkFieldsEnum =
   | 'section___subSections___announcements___children'
   | 'section___subSections___announcements___name'
   | 'section___subSections___announcements___type'
-  | 'section___subSections___announcements___title'
   | 'section___subSections___announcements___section'
   | 'section___subSections___announcements___spaceId'
   | 'section___subSections___announcements___contentful_id'
@@ -5785,7 +5774,6 @@ export type ContentfulLinkFieldsEnum =
   | 'section___section___announcements___children'
   | 'section___section___announcements___name'
   | 'section___section___announcements___type'
-  | 'section___section___announcements___title'
   | 'section___section___announcements___section'
   | 'section___section___announcements___spaceId'
   | 'section___section___announcements___contentful_id'
@@ -5846,7 +5834,6 @@ export type ContentfulLinkFieldsEnum =
   | 'section___announcements___internal___type'
   | 'section___announcements___name'
   | 'section___announcements___type'
-  | 'section___announcements___title'
   | 'section___announcements___section'
   | 'section___announcements___section___id'
   | 'section___announcements___section___children'
@@ -6823,7 +6810,6 @@ export type ContentfulMediaCollectionFieldsEnum =
   | 'section___subSections___announcements___children'
   | 'section___subSections___announcements___name'
   | 'section___subSections___announcements___type'
-  | 'section___subSections___announcements___title'
   | 'section___subSections___announcements___section'
   | 'section___subSections___announcements___spaceId'
   | 'section___subSections___announcements___contentful_id'
@@ -6986,7 +6972,6 @@ export type ContentfulMediaCollectionFieldsEnum =
   | 'section___section___announcements___children'
   | 'section___section___announcements___name'
   | 'section___section___announcements___type'
-  | 'section___section___announcements___title'
   | 'section___section___announcements___section'
   | 'section___section___announcements___spaceId'
   | 'section___section___announcements___contentful_id'
@@ -7047,7 +7032,6 @@ export type ContentfulMediaCollectionFieldsEnum =
   | 'section___announcements___internal___type'
   | 'section___announcements___name'
   | 'section___announcements___type'
-  | 'section___announcements___title'
   | 'section___announcements___section'
   | 'section___announcements___section___id'
   | 'section___announcements___section___children'
@@ -8337,7 +8321,6 @@ export type ContentfulPageFieldsEnum =
   | 'sections___subSections___announcements___children'
   | 'sections___subSections___announcements___name'
   | 'sections___subSections___announcements___type'
-  | 'sections___subSections___announcements___title'
   | 'sections___subSections___announcements___section'
   | 'sections___subSections___announcements___spaceId'
   | 'sections___subSections___announcements___contentful_id'
@@ -8500,7 +8483,6 @@ export type ContentfulPageFieldsEnum =
   | 'sections___section___announcements___children'
   | 'sections___section___announcements___name'
   | 'sections___section___announcements___type'
-  | 'sections___section___announcements___title'
   | 'sections___section___announcements___section'
   | 'sections___section___announcements___spaceId'
   | 'sections___section___announcements___contentful_id'
@@ -8561,7 +8543,6 @@ export type ContentfulPageFieldsEnum =
   | 'sections___announcements___internal___type'
   | 'sections___announcements___name'
   | 'sections___announcements___type'
-  | 'sections___announcements___title'
   | 'sections___announcements___section'
   | 'sections___announcements___section___id'
   | 'sections___announcements___section___children'
@@ -8916,7 +8897,6 @@ export type ContentfulPageFieldsEnum =
   | 'link___section___announcements___children'
   | 'link___section___announcements___name'
   | 'link___section___announcements___type'
-  | 'link___section___announcements___title'
   | 'link___section___announcements___section'
   | 'link___section___announcements___spaceId'
   | 'link___section___announcements___contentful_id'
@@ -9643,7 +9623,6 @@ export type ContentfulPageTypeFieldsEnum =
   | 'page___sections___announcements___children'
   | 'page___sections___announcements___name'
   | 'page___sections___announcements___type'
-  | 'page___sections___announcements___title'
   | 'page___sections___announcements___section'
   | 'page___sections___announcements___spaceId'
   | 'page___sections___announcements___contentful_id'
@@ -10531,7 +10510,6 @@ export type ContentfulSectionFieldsEnum =
   | 'type___section___announcements___children'
   | 'type___section___announcements___name'
   | 'type___section___announcements___type'
-  | 'type___section___announcements___title'
   | 'type___section___announcements___section'
   | 'type___section___announcements___spaceId'
   | 'type___section___announcements___contentful_id'
@@ -10890,7 +10868,6 @@ export type ContentfulSectionFieldsEnum =
   | 'medias___section___announcements___children'
   | 'medias___section___announcements___name'
   | 'medias___section___announcements___type'
-  | 'medias___section___announcements___title'
   | 'medias___section___announcements___section'
   | 'medias___section___announcements___spaceId'
   | 'medias___section___announcements___contentful_id'
@@ -11151,7 +11128,6 @@ export type ContentfulSectionFieldsEnum =
   | 'page___sections___announcements___children'
   | 'page___sections___announcements___name'
   | 'page___sections___announcements___type'
-  | 'page___sections___announcements___title'
   | 'page___sections___announcements___section'
   | 'page___sections___announcements___spaceId'
   | 'page___sections___announcements___contentful_id'
@@ -11477,7 +11453,6 @@ export type ContentfulSectionFieldsEnum =
   | 'costItems___section___announcements___children'
   | 'costItems___section___announcements___name'
   | 'costItems___section___announcements___type'
-  | 'costItems___section___announcements___title'
   | 'costItems___section___announcements___section'
   | 'costItems___section___announcements___spaceId'
   | 'costItems___section___announcements___contentful_id'
@@ -11762,7 +11737,6 @@ export type ContentfulSectionFieldsEnum =
   | 'link___section___announcements___children'
   | 'link___section___announcements___name'
   | 'link___section___announcements___type'
-  | 'link___section___announcements___title'
   | 'link___section___announcements___section'
   | 'link___section___announcements___spaceId'
   | 'link___section___announcements___contentful_id'
@@ -11973,7 +11947,6 @@ export type ContentfulSectionFieldsEnum =
   | 'steps___section___announcements___children'
   | 'steps___section___announcements___name'
   | 'steps___section___announcements___type'
-  | 'steps___section___announcements___title'
   | 'steps___section___announcements___section'
   | 'steps___section___announcements___spaceId'
   | 'steps___section___announcements___contentful_id'
@@ -12609,7 +12582,6 @@ export type ContentfulSectionFieldsEnum =
   | 'subSections___subSections___announcements___children'
   | 'subSections___subSections___announcements___name'
   | 'subSections___subSections___announcements___type'
-  | 'subSections___subSections___announcements___title'
   | 'subSections___subSections___announcements___section'
   | 'subSections___subSections___announcements___spaceId'
   | 'subSections___subSections___announcements___contentful_id'
@@ -12772,7 +12744,6 @@ export type ContentfulSectionFieldsEnum =
   | 'subSections___section___announcements___children'
   | 'subSections___section___announcements___name'
   | 'subSections___section___announcements___type'
-  | 'subSections___section___announcements___title'
   | 'subSections___section___announcements___section'
   | 'subSections___section___announcements___spaceId'
   | 'subSections___section___announcements___contentful_id'
@@ -12833,7 +12804,6 @@ export type ContentfulSectionFieldsEnum =
   | 'subSections___announcements___internal___type'
   | 'subSections___announcements___name'
   | 'subSections___announcements___type'
-  | 'subSections___announcements___title'
   | 'subSections___announcements___section'
   | 'subSections___announcements___section___id'
   | 'subSections___announcements___section___children'
@@ -13483,7 +13453,6 @@ export type ContentfulSectionFieldsEnum =
   | 'section___subSections___announcements___children'
   | 'section___subSections___announcements___name'
   | 'section___subSections___announcements___type'
-  | 'section___subSections___announcements___title'
   | 'section___subSections___announcements___section'
   | 'section___subSections___announcements___spaceId'
   | 'section___subSections___announcements___contentful_id'
@@ -13646,7 +13615,6 @@ export type ContentfulSectionFieldsEnum =
   | 'section___section___announcements___children'
   | 'section___section___announcements___name'
   | 'section___section___announcements___type'
-  | 'section___section___announcements___title'
   | 'section___section___announcements___section'
   | 'section___section___announcements___spaceId'
   | 'section___section___announcements___contentful_id'
@@ -13707,7 +13675,6 @@ export type ContentfulSectionFieldsEnum =
   | 'section___announcements___internal___type'
   | 'section___announcements___name'
   | 'section___announcements___type'
-  | 'section___announcements___title'
   | 'section___announcements___section'
   | 'section___announcements___section___id'
   | 'section___announcements___section___children'
@@ -13913,7 +13880,6 @@ export type ContentfulSectionFieldsEnum =
   | 'announcements___internal___type'
   | 'announcements___name'
   | 'announcements___type'
-  | 'announcements___title'
   | 'announcements___section'
   | 'announcements___section___id'
   | 'announcements___section___parent___id'
@@ -14064,7 +14030,6 @@ export type ContentfulSectionFieldsEnum =
   | 'announcements___section___announcements___children'
   | 'announcements___section___announcements___name'
   | 'announcements___section___announcements___type'
-  | 'announcements___section___announcements___title'
   | 'announcements___section___announcements___section'
   | 'announcements___section___announcements___spaceId'
   | 'announcements___section___announcements___contentful_id'
@@ -15384,7 +15349,6 @@ export type ContentfulSectionTypeFieldsEnum =
   | 'section___subSections___announcements___children'
   | 'section___subSections___announcements___name'
   | 'section___subSections___announcements___type'
-  | 'section___subSections___announcements___title'
   | 'section___subSections___announcements___section'
   | 'section___subSections___announcements___spaceId'
   | 'section___subSections___announcements___contentful_id'
@@ -15547,7 +15511,6 @@ export type ContentfulSectionTypeFieldsEnum =
   | 'section___section___announcements___children'
   | 'section___section___announcements___name'
   | 'section___section___announcements___type'
-  | 'section___section___announcements___title'
   | 'section___section___announcements___section'
   | 'section___section___announcements___spaceId'
   | 'section___section___announcements___contentful_id'
@@ -15608,7 +15571,6 @@ export type ContentfulSectionTypeFieldsEnum =
   | 'section___announcements___internal___type'
   | 'section___announcements___name'
   | 'section___announcements___type'
-  | 'section___announcements___title'
   | 'section___announcements___section'
   | 'section___announcements___section___id'
   | 'section___announcements___section___children'
@@ -16505,7 +16467,6 @@ export type ContentfulStepFieldsEnum =
   | 'section___subSections___announcements___children'
   | 'section___subSections___announcements___name'
   | 'section___subSections___announcements___type'
-  | 'section___subSections___announcements___title'
   | 'section___subSections___announcements___section'
   | 'section___subSections___announcements___spaceId'
   | 'section___subSections___announcements___contentful_id'
@@ -16668,7 +16629,6 @@ export type ContentfulStepFieldsEnum =
   | 'section___section___announcements___children'
   | 'section___section___announcements___name'
   | 'section___section___announcements___type'
-  | 'section___section___announcements___title'
   | 'section___section___announcements___section'
   | 'section___section___announcements___spaceId'
   | 'section___section___announcements___contentful_id'
@@ -16729,7 +16689,6 @@ export type ContentfulStepFieldsEnum =
   | 'section___announcements___internal___type'
   | 'section___announcements___name'
   | 'section___announcements___type'
-  | 'section___announcements___title'
   | 'section___announcements___section'
   | 'section___announcements___section___id'
   | 'section___announcements___section___children'
@@ -20140,6 +20099,8 @@ export type QueryAllDirectoryArgs = {
 export type QuerySiteArgs = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  port?: Maybe<IntQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
   flags?: Maybe<SiteFlagsFilterInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
@@ -20292,7 +20253,6 @@ export type QueryContentfulAnnouncementArgs = {
   internal?: Maybe<InternalFilterInput>;
   name?: Maybe<StringQueryOperatorInput>;
   type?: Maybe<StringQueryOperatorInput>;
-  title?: Maybe<StringQueryOperatorInput>;
   section?: Maybe<ContentfulSectionFilterListInput>;
   message?: Maybe<ContentfulAnnouncementMessageTextNodeFilterInput>;
   spaceId?: Maybe<StringQueryOperatorInput>;
@@ -20865,6 +20825,8 @@ export type QueryAllSitePluginArgs = {
 export type Site = Node & {
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
+  port?: Maybe<Scalars['Int']>;
+  host?: Maybe<Scalars['String']>;
   flags?: Maybe<SiteFlags>;
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
@@ -21071,6 +21033,8 @@ export type SiteFieldsEnum =
   | 'siteMetadata___siteEnv'
   | 'siteMetadata___languages___langs'
   | 'siteMetadata___languages___defaultLangKey'
+  | 'port'
+  | 'host'
   | 'flags___PRESERVE_WEBPACK_CACHE'
   | 'flags___PRESERVE_FILE_DOWNLOAD_CACHE'
   | 'flags___QUERY_ON_DEMAND'
@@ -21171,6 +21135,8 @@ export type SiteFieldsEnum =
 export type SiteFilterInput = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  port?: Maybe<IntQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
   flags?: Maybe<SiteFlagsFilterInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
@@ -22295,7 +22261,7 @@ export type SectionFragment = (
     Pick<ContentfulSectionTextTextNode, 'text'>
     & { childMdx?: Maybe<Pick<Mdx, 'body'>> }
   )>, announcements?: Maybe<Array<Maybe<(
-    Pick<ContentfulAnnouncement, 'title' | 'name' | 'type'>
+    Pick<ContentfulAnnouncement, 'name' | 'type'>
     & { message?: Maybe<(
       Pick<ContentfulAnnouncementMessageTextNode, 'message'>
       & { childMdx?: Maybe<Pick<Mdx, 'body'>> }
@@ -22306,7 +22272,7 @@ export type SectionFragment = (
       Pick<ContentfulSectionTextTextNode, 'text'>
       & { childMdx?: Maybe<Pick<Mdx, 'body'>> }
     )>, announcements?: Maybe<Array<Maybe<(
-      Pick<ContentfulAnnouncement, 'title' | 'name' | 'type'>
+      Pick<ContentfulAnnouncement, 'name' | 'type'>
       & { message?: Maybe<(
         Pick<ContentfulAnnouncementMessageTextNode, 'message'>
         & { childMdx?: Maybe<Pick<Mdx, 'body'>> }

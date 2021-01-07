@@ -1,9 +1,11 @@
-import { NavBar } from '@newrade/core-react-ui';
+import { NavBar, MainWrapper, Label, Main } from '@newrade/core-react-ui';
 import { graphql, PageProps, useStaticQuery } from 'gatsby';
 import React, { ReactNode } from 'react';
 import { useStyles } from 'react-treat';
 import { LayoutAllSitePageQuery } from '../../types/graphql-types';
 import * as styleRefs from './layout.treat';
+import LogoSymbol from '../images/logo-symbol.svg';
+import Logo from '../images/logo.svg';
 
 type LayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }>;
 
@@ -62,14 +64,22 @@ export const Layout = React.memo<LayoutProps>((props) => {
   // }
 
   return (
-    <div className={styles.wrapper}>
-      <NavBar></NavBar>
-
-      {/* <header>{renderNavigation(props.location?.pathname)}</header> */}
-
-      <main className={styles.main}>{props.children}</main>
-
-      <footer>footer</footer>
-    </div>
+    <MainWrapper>
+      <NavBar
+        variantStyle={'transparent'}
+        MobileSvgLogo={<LogoSymbol />}
+        DesktopSvgLogo={<Logo />}
+        MenuLinks={
+          <>
+            <Label>Services</Label>
+            <Label>Technologies</Label>
+            <Label>Agence</Label>
+            <Label>Contact</Label>
+          </>
+        }
+      ></NavBar>
+      <Main>{props.children}</Main>
+      {/* <Footer></Footer> */}
+    </MainWrapper>
   );
 });

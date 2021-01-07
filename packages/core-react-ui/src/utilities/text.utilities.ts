@@ -153,12 +153,30 @@ export function getCSSTextStyles(textStyle?: Partial<TextStyle<string> & Capsize
     return {};
   }
   return {
+    ...getCSSFontTextStyles(textStyle),
+    ...getCSSSizeTextStyles(textStyle),
+  };
+}
+
+export function getCSSFontTextStyles(textStyle?: Partial<TextStyle<string> & CapsizeTextStyle<string>>): Style {
+  if (!textStyle) {
+    return {};
+  }
+  return {
     fontWeight: textStyle.fontWeight as number,
     textTransform: textStyle.textTransform as TextTransformProperty,
     fontFamily: textStyle.fontFamily as string,
     fontStyle: textStyle.fontStyle as string,
     letterSpacing: textStyle.letterSpacing as string,
     textDecoration: textStyle.textDecoration as string,
+  };
+}
+
+export function getCSSSizeTextStyles(textStyle?: Partial<TextStyle<string> & CapsizeTextStyle<string>>): Style {
+  if (!textStyle) {
+    return {};
+  }
+  return {
     ...textStyle.capsize,
   };
 }

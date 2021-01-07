@@ -3,7 +3,7 @@ import { HEADING, TEXT_STYLE } from '../../../core-design-system/src';
 import { Blockquote } from '../components/text/blockquote';
 import { Details } from '../components/text/details';
 import { Heading } from '../components/text/heading';
-import { Paragraph } from '../components/text/paragraph';
+import { Paragraph, ParagraphInlineBold } from '../components/text/paragraph';
 import { Summary } from '../components/text/summary';
 
 /**
@@ -26,7 +26,8 @@ export const mdxComponents: Partial<Record<keyof React.ReactHTML, React.ReactNod
   h5: (props: MDXProps) => <Heading variant={HEADING.h4} {...props} />,
   h6: (props: MDXProps) => <Heading variant={HEADING.h4} {...props} />,
   p: (props: MDXProps) => <Paragraph {...props} />,
-  b: (props: MDXProps) => <Paragraph as={'b'} variantStyle={TEXT_STYLE.bold} {...props} />,
+  b: (props: MDXProps) => <ParagraphInlineBold as={'b'} variantStyle={TEXT_STYLE.bold} {...props} />,
+  strong: (props: MDXProps) => <ParagraphInlineBold as={'b'} variantStyle={TEXT_STYLE.bold} {...props} />,
   blockquote: (props: MDXProps) => <Blockquote {...props} />,
   abbr: (props: MDXProps) => <abbr {...props} />,
   img: (props: MDXProps) => <img {...props} />,

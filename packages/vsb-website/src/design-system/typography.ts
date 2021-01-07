@@ -67,7 +67,7 @@ export const typography: Typography = {
   },
   headings: {
     font: [fontSansAlternate, ...defaultTypography.fonts.sans],
-    fontWeight: 600,
+    fontWeight: 500,
     mobile: {
       h1: {
         capHeight: 25,
@@ -114,8 +114,8 @@ export const typography: Typography = {
         lineGap: 9,
       },
       h3: {
-        capHeight: 14,
-        lineGap: 7,
+        capHeight: 13,
+        lineGap: 13,
       },
       h4: {
         capHeight: 12,
@@ -128,7 +128,7 @@ export const typography: Typography = {
     fontWeight: 400,
     styles: {
       bold: {
-        fontWeight: 500,
+        fontWeight: 600,
       },
       italic: {
         fontWeight: 400,
@@ -138,7 +138,7 @@ export const typography: Typography = {
     mobile: {
       large: {
         capHeight: 15,
-        lineGap: 12,
+        lineGap: 15,
       },
       medium: {
         capHeight: 11,
@@ -146,11 +146,11 @@ export const typography: Typography = {
       },
       small: {
         capHeight: 10,
-        lineGap: 8,
+        lineGap: 10,
       },
       xSmall: {
         capHeight: 8,
-        lineGap: 7,
+        lineGap: 8,
       },
     },
     tablet: {
@@ -159,8 +159,8 @@ export const typography: Typography = {
         lineGap: 10,
       },
       medium: {
-        capHeight: 13,
-        lineGap: 13,
+        capHeight: 11,
+        lineGap: 11,
       },
       small: {
         capHeight: 10,
@@ -173,12 +173,12 @@ export const typography: Typography = {
     },
     desktop: {
       large: {
-        capHeight: 21,
-        lineGap: 10,
+        capHeight: 14,
+        lineGap: 14,
       },
       medium: {
-        capHeight: 13,
-        lineGap: 13,
+        capHeight: 11,
+        lineGap: 17,
       },
       small: {
         capHeight: 10,

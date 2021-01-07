@@ -21,15 +21,32 @@ const defaultProps: Props = {
  * (beyond those of the regular HTMLElement object interface it inherits) for manipulating <p> elements.
  * @see https://devdocs.io/dom/htmlparagraphelement
  */
-export const Paragraph: React.FC<Props> = React.memo(({ variant, variantStyle, variantLevel, className, ...props }) => {
-  const { styles: styles } = useStyles(stylesRef);
+export const Paragraph: React.FC<Props> = React.memo(
+  ({ variant, variantStyle, variantLevel, className, as, ...props }) => {
+    const { styles: styles } = useStyles(stylesRef);
 
-  const type = 'p';
+    const type = as ? as : 'p';
 
-  return React.createElement(type, {
-    className: `${className || ''} ${styles[variant ? variant : (defaultProps.variant as PARAGRAPH_SIZE)]} 
-    ${variantStyle ? styles[variantStyle] : ''} 
+    return React.createElement(type, {
+      className: `${styles.normal} ${className || ''} ${
+        styles[variant ? variant : (defaultProps.variant as PARAGRAPH_SIZE)]
+      }
+    ${variantStyle ? styles[variantStyle] : ''}
     ${variantLevel ? styles[variantLevel] : ''}`,
-    ...props,
-  });
-});
+      ...props,
+    });
+  }
+);
+
+export const ParagraphInlineBold: React.FC<Props> = React.memo(
+  ({ variant, variantStyle, variantLevel, className, as, ...props }) => {
+    const { styles: styles } = useStyles(stylesRef);
+
+    const type = as ? as : 'p';
+
+    return React.createElement(type, {
+      className: `${styles.bold} ${className || ''} ${variantLevel ? styles[variantLevel] : ''}`,
+      ...props,
+    });
+  }
+);

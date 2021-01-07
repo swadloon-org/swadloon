@@ -20,7 +20,6 @@ export const sectionFragment = graphql`
       }
     }
     announcements {
-      title
       name
       type
       message {
@@ -74,7 +73,6 @@ export const sectionFragment = graphql`
         }
       }
       announcements {
-        title
         name
         type
         message {

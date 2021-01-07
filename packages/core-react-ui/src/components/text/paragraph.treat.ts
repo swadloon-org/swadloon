@@ -1,19 +1,19 @@
 import { PARAGRAPH_SIZE, TEXT_LEVEL, TEXT_STYLE } from '@newrade/core-design-system';
 import { style } from 'treat';
 import { Theme } from '../../design-system/css-design-system';
-import { getCSSTextStyles } from '../../utilities/text.utilities';
+import { getCSSFontTextStyles, getCSSSizeTextStyles, getCSSTextStyles } from '../../utilities/text.utilities';
 
-export const styles: { [key in TEXT_STYLE]: string } &
+export const styles: { inline: string } & { [key in TEXT_STYLE]: string } &
   { [key in PARAGRAPH_SIZE]: string } &
   { [key in TEXT_LEVEL]: string } = {
   large: style(({ theme, cssTheme }: Theme) => ({
     ...getCSSTextStyles(cssTheme.typography.paragraphs.mobile.large),
     '@media': {
       [cssTheme.layout.media.tablet]: {
-        ...getCSSTextStyles(cssTheme.typography.paragraphs.tablet.large),
+        ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.tablet.large),
       },
       [cssTheme.layout.media.desktopSmall]: {
-        ...getCSSTextStyles(cssTheme.typography.paragraphs.desktop.large),
+        ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.desktop.large),
       },
     },
   })),
@@ -21,10 +21,10 @@ export const styles: { [key in TEXT_STYLE]: string } &
     ...getCSSTextStyles(cssTheme.typography.paragraphs.mobile.medium),
     '@media': {
       [cssTheme.layout.media.tablet]: {
-        ...getCSSTextStyles(cssTheme.typography.paragraphs.tablet.medium),
+        ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.tablet.medium),
       },
       [cssTheme.layout.media.desktopSmall]: {
-        ...getCSSTextStyles(cssTheme.typography.paragraphs.desktop.medium),
+        ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.desktop.medium),
       },
     },
   })),
@@ -32,10 +32,10 @@ export const styles: { [key in TEXT_STYLE]: string } &
     ...getCSSTextStyles(cssTheme.typography.paragraphs.mobile.small),
     '@media': {
       [cssTheme.layout.media.tablet]: {
-        ...getCSSTextStyles(cssTheme.typography.paragraphs.tablet.small),
+        ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.tablet.small),
       },
       [cssTheme.layout.media.desktopSmall]: {
-        ...getCSSTextStyles(cssTheme.typography.paragraphs.desktop.small),
+        ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.desktop.small),
       },
     },
   })),
@@ -43,28 +43,34 @@ export const styles: { [key in TEXT_STYLE]: string } &
     ...getCSSTextStyles(cssTheme.typography.paragraphs.mobile.xSmall),
     '@media': {
       [cssTheme.layout.media.tablet]: {
-        ...getCSSTextStyles(cssTheme.typography.paragraphs.tablet.xSmall),
+        ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.tablet.xSmall),
       },
       [cssTheme.layout.media.desktopSmall]: {
-        ...getCSSTextStyles(cssTheme.typography.paragraphs.desktop.xSmall),
+        ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.desktop.xSmall),
       },
     },
   })),
+  inline: style(({ theme, cssTheme }: Theme) => ({
+    fontSize: '1em',
+  })),
 
+  normal: style(({ theme, cssTheme }: Theme) => ({
+    ...getCSSFontTextStyles(cssTheme.typography.paragraphs),
+  })),
   bold: style(({ theme, cssTheme }: Theme) => ({
-    ...getCSSTextStyles(cssTheme.typography.paragraphs.styles.bold),
+    ...getCSSFontTextStyles(cssTheme.typography.paragraphs.styles.bold),
   })),
   italic: style(({ theme, cssTheme }: Theme) => ({
-    ...getCSSTextStyles(cssTheme.typography.paragraphs.styles.italic),
+    ...getCSSFontTextStyles(cssTheme.typography.paragraphs.styles.italic),
   })),
   uppercase: style(({ theme, cssTheme }: Theme) => ({
-    ...getCSSTextStyles(cssTheme.typography.paragraphs.styles.uppercase),
+    ...getCSSFontTextStyles(cssTheme.typography.paragraphs.styles.uppercase),
   })),
   boldUppercase: style(({ theme, cssTheme }: Theme) => ({
-    ...getCSSTextStyles(cssTheme.typography.paragraphs.styles.boldUppercase),
+    ...getCSSFontTextStyles(cssTheme.typography.paragraphs.styles.boldUppercase),
   })),
   italicBold: style(({ theme, cssTheme }: Theme) => ({
-    ...getCSSTextStyles(cssTheme.typography.paragraphs.styles.italicBold),
+    ...getCSSFontTextStyles(cssTheme.typography.paragraphs.styles.italicBold),
   })),
 
   primary: style(({ theme, cssTheme }: Theme) => ({
