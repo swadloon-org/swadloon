@@ -25,6 +25,12 @@ import { Summary } from '../components/text/summary';
 import { Details } from '../components/text/details';
 import { Box } from '../layout/box/box';
 import { Cluster } from '../layout/cluster/cluster';
+import { Table } from '../components/table/table';
+import { TableHeader } from '../components/table/table-header';
+import { TableRow } from '../components/table/table-row';
+import { Th } from '../components/table/table-cell-header';
+import { TableBody } from '../components/table/table-body';
+import { Td } from '../components/table/table-cell-data';
 
 type Props = {};
 
@@ -269,6 +275,46 @@ export const DesignSystemComponent: React.FC<Props> = (props) => {
             <Summary>
               <Heading variant={HEADING.h3}>Buttons</Heading>
             </Summary>
+          </Details>
+          <Details id={'Table'}>
+            <Summary>
+              <Heading variant={HEADING.h3}>Tables</Heading>
+            </Summary>
+            <Stack id={'Tables'} gap="1em">
+              <div style={{ borderRadius: '0.5rem' }}>
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <Th>Name</Th>
+                      <Th>ID</Th>
+                      <Th>Favorite Color</Th>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    <TableRow>
+                      <Td>Jim</Td>
+                      <Td>00001</Td>
+                      <Td>Blue</Td>
+                    </TableRow>
+                    <TableRow>
+                      <Td>Barb</Td>
+                      <Td>0021001</Td>
+                      <Td>Red</Td>
+                    </TableRow>
+                    <TableRow>
+                      <Td>Jim</Td>
+                      <Td>00001</Td>
+                      <Td>Blue</Td>
+                    </TableRow>
+                    <TableRow>
+                      <Td>Barb</Td>
+                      <Td>0021001</Td>
+                      <Td>Red</Td>
+                    </TableRow>
+                  </TableBody>
+                </Table>
+              </div>
+            </Stack>
           </Details>
         </Stack>
       </Stack>

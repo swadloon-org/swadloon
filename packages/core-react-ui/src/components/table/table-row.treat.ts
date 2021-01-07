@@ -2,10 +2,12 @@ import { style } from 'treat';
 import { Theme } from '../../design-system/css-design-system';
 
 export const styles = {
-  table: style(({ theme, cssTheme }: Theme) => ({
-    minWidth: '100%',
-    borderWidth: '1px',
-    borderStyle: 'solid',
+  tr: style(({ theme, cssTheme }: Theme) => ({
     borderColor: cssTheme.colors?.colors.grey['100'],
+    borderWidth: '0px',
+    borderBottomWidth: '1px',
+
+    boxSizing: 'border-box',
+    borderStyle: 'solid',
   })),
 };

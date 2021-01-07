@@ -204,3 +204,18 @@ globalStyle(`summary`, {
   // Add the correct display in all browsers.
   display: 'list-item',
 });
+/**
+ * Resets table
+ */
+globalStyle(`table, caption, tbody, tfoot, thead, tr, th, td`, {
+  margin: '0',
+  padding: '0',
+  border: '0',
+  fontSize: '100%',
+  font: 'inherit',
+  verticalAlign: 'baseline',
+});
+globalStyle(`table`, {
+  borderCollapse: 'collapse',
+  borderSpacing: '0',
+});
