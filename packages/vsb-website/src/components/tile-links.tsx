@@ -8,16 +8,16 @@ import { TileLink } from './tile-link';
 type OwnProps = SectionFragment;
 
 export const TileLinks: React.FC<OwnProps> = (props) => {
-  const styles = useStyles(styleRefs);
+  const { styles } = useStyles(styleRefs);
 
   return (
     <div className={`${styles.wrapper}`}>
-      <Cluster>
+      <div className={`${styles.gridSwitch}`}>
         {/* ITEMS */}
         {props?.subSections?.map((item: any, index: number) => {
           return <TileLink key={index} {...item}></TileLink>;
         })}
-      </Cluster>
+      </div>
     </div>
   );
 };

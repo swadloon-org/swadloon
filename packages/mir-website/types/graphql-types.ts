@@ -29995,6 +29995,9 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___remarkPlugins___target'
   | 'pluginCreator___pluginOptions___remarkPlugins___rel'
   | 'pluginCreator___pluginOptions___rehypePlugins'
+  | 'pluginCreator___pluginOptions___source'
+  | 'pluginCreator___pluginOptions___destination'
+  | 'pluginCreator___pluginOptions___purge'
   | 'pluginCreator___pluginOptions___createLinkInHead'
   | 'pluginCreator___pluginOptions___host'
   | 'pluginCreator___pluginOptions___sitemap'
@@ -30228,6 +30231,7 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___extensions'
   | 'pluginOptions___gatsbyRemarkPlugins'
   | 'pluginOptions___gatsbyRemarkPlugins___resolve'
+  | 'pluginOptions___gatsbyRemarkPlugins___options___destinationDir'
   | 'pluginOptions___gatsbyRemarkPlugins___options___classPrefix'
   | 'pluginOptions___gatsbyRemarkPlugins___options___showLineNumbers'
   | 'pluginOptions___gatsbyRemarkPlugins___options___noInlineHighlight'
@@ -30240,6 +30244,9 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___rehypePlugins___content___type'
   | 'pluginOptions___rehypePlugins___content___tagName'
   | 'pluginOptions___rehypePlugins___content___children'
+  | 'pluginOptions___source'
+  | 'pluginOptions___destination'
+  | 'pluginOptions___purge'
   | 'pluginOptions___createLinkInHead'
   | 'pluginOptions___host'
   | 'pluginOptions___sitemap'
@@ -30398,6 +30405,9 @@ export type SitePluginPluginOptions = {
   gatsbyRemarkPlugins?: Maybe<Array<Maybe<SitePluginPluginOptionsGatsbyRemarkPlugins>>>;
   remarkPlugins?: Maybe<Array<Maybe<Array<Maybe<SitePluginPluginOptionsRemarkPlugins>>>>>;
   rehypePlugins?: Maybe<Array<Maybe<Array<Maybe<SitePluginPluginOptionsRehypePlugins>>>>>;
+  source?: Maybe<Scalars['String']>;
+  destination?: Maybe<Scalars['String']>;
+  purge?: Maybe<Scalars['Boolean']>;
   createLinkInHead?: Maybe<Scalars['Boolean']>;
   host?: Maybe<Scalars['String']>;
   sitemap?: Maybe<Scalars['String']>;
@@ -30555,6 +30565,9 @@ export type SitePluginPluginOptionsFilterInput = {
   gatsbyRemarkPlugins?: Maybe<SitePluginPluginOptionsGatsbyRemarkPluginsFilterListInput>;
   remarkPlugins?: Maybe<SitePluginPluginOptionsRemarkPluginsFilterListInput>;
   rehypePlugins?: Maybe<SitePluginPluginOptionsRehypePluginsFilterListInput>;
+  source?: Maybe<StringQueryOperatorInput>;
+  destination?: Maybe<StringQueryOperatorInput>;
+  purge?: Maybe<BooleanQueryOperatorInput>;
   createLinkInHead?: Maybe<BooleanQueryOperatorInput>;
   host?: Maybe<StringQueryOperatorInput>;
   sitemap?: Maybe<StringQueryOperatorInput>;
@@ -30588,6 +30601,7 @@ export type SitePluginPluginOptionsGatsbyRemarkPluginsFilterListInput = {
 };
 
 export type SitePluginPluginOptionsGatsbyRemarkPluginsOptions = {
+  destinationDir?: Maybe<Scalars['String']>;
   classPrefix?: Maybe<Scalars['String']>;
   showLineNumbers?: Maybe<Scalars['Boolean']>;
   noInlineHighlight?: Maybe<Scalars['Boolean']>;
@@ -30595,6 +30609,7 @@ export type SitePluginPluginOptionsGatsbyRemarkPluginsOptions = {
 };
 
 export type SitePluginPluginOptionsGatsbyRemarkPluginsOptionsFilterInput = {
+  destinationDir?: Maybe<StringQueryOperatorInput>;
   classPrefix?: Maybe<StringQueryOperatorInput>;
   showLineNumbers?: Maybe<BooleanQueryOperatorInput>;
   noInlineHighlight?: Maybe<BooleanQueryOperatorInput>;
