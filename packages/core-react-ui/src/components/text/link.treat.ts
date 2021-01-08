@@ -71,7 +71,7 @@ export const styles: { [key in LinkStyleProps['variantStyle']]: string } &
     },
   })),
   small: style(({ theme, cssTheme }: Theme) => ({
-    ...getCSSTextStyles(cssTheme.typography.paragraphs.mobile.small),
+    ...getCSSTextStyles(cssTheme.typography.paragraphs.mobile.medium),
     '@media': {
       [cssTheme.layout.media.tablet]: {
         ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.tablet.small),

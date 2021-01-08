@@ -23,7 +23,7 @@ export const Message: React.FC<OwnProps> = (props) => {
           <Stack gap={[cssTheme.sizing.var.x4]} className={styles.gridMessages}>
             {props?.announcements?.map((item: any, index: number) => {
               return (
-                <Cluster key={index} justifyContent={['flex-start']} gap={cssTheme.sizing.var.x1}>
+                <Cluster key={index} justifyContent={['flex-start']} gap={[cssTheme.sizing.var.x1]}>
                   <MDXRenderer>{item.message.childMdx.body}</MDXRenderer>
                 </Cluster>
               );

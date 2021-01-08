@@ -24,7 +24,7 @@ export const FontShowcase: React.FC<Props> = (props) => {
           {'Sans'} - {title(cssTheme.typography.fonts.sans[0].name)}
         </Heading>
 
-        <Cluster justifyContent={['flex-start']} gap={cssTheme.sizing.var.x2}>
+        <Cluster justifyContent={['flex-start']} gap={[cssTheme.sizing.var.x2]}>
           <div className={`${styles.letters} ${styles.lettersSans}`}>Aa</div>
           <div className={`${styles.letters} ${styles.lettersMedium} ${styles.lettersSans}`}>Aa</div>
           <div className={`${styles.letters} ${styles.lettersBold} ${styles.lettersSans}`}>Aa</div>
@@ -38,7 +38,7 @@ export const FontShowcase: React.FC<Props> = (props) => {
           {'Sans Alternate'} - {title(cssTheme.typography.fonts.sansAlternate[0].name)}
         </Heading>
 
-        <Cluster justifyContent={['flex-start']} gap={cssTheme.sizing.var.x2}>
+        <Cluster justifyContent={['flex-start']} gap={[cssTheme.sizing.var.x2]}>
           <div className={`${styles.letters} ${styles.lettersSansAlternate}`}>Aa</div>
           <div className={`${styles.letters} ${styles.lettersMedium} ${styles.lettersSansAlternate}`}>Aa</div>
           <div className={`${styles.letters} ${styles.lettersBold} ${styles.lettersSansAlternate}`}>Aa</div>
@@ -52,7 +52,7 @@ export const FontShowcase: React.FC<Props> = (props) => {
           {'Serif'} - {title(cssTheme.typography.fonts.serif[0].name)}
         </Heading>
 
-        <Cluster justifyContent={['flex-start']} gap={cssTheme.sizing.var.x2}>
+        <Cluster justifyContent={['flex-start']} gap={[cssTheme.sizing.var.x2]}>
           <div className={`${styles.letters} ${styles.lettersSansSerif}`}>Aa</div>
           <div className={`${styles.letters} ${styles.lettersMedium} ${styles.lettersSansSerif}`}>Aa</div>
           <div className={`${styles.letters} ${styles.lettersBold} ${styles.lettersSansSerif}`}>Aa</div>
@@ -66,7 +66,7 @@ export const FontShowcase: React.FC<Props> = (props) => {
           {'Mono'} - {title(cssTheme.typography.fonts.monospace[0].name)}
         </Heading>
 
-        <Cluster justifyContent={['flex-start']} gap={cssTheme.sizing.var.x2}>
+        <Cluster justifyContent={['flex-start']} gap={[cssTheme.sizing.var.x2]}>
           <div className={`${styles.letters} ${styles.lettersSansMono}`}>Aa</div>
           <div className={`${styles.letters} ${styles.lettersMedium} ${styles.lettersSansMono}`}>Aa</div>
           <div className={`${styles.letters} ${styles.lettersBold} ${styles.lettersSansMono}`}>Aa</div>

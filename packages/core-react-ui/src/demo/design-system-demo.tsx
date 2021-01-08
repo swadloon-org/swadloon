@@ -35,6 +35,7 @@ import * as styleRefs from './design-system-demo.treat';
 import { FontShowcase } from './font-showcase';
 import { LogoPlaceholder } from './logo-placeholder';
 import { light } from '../design-system/theme.treat';
+import { Button } from '../components/button/button';
 
 type Props = {};
 
@@ -164,7 +165,7 @@ export const DesignSystemComponent: React.FC<Props> = (props) => {
                   return (
                     <Stack key={index} gap={['10px']}>
                       <h4>{colorName}</h4>
-                      <div style={{ width: '20%' }}>
+                      <div>
                         <ColorSwatch key={index} name={colorName} color={colorOrPalette}></ColorSwatch>
                       </div>
                     </Stack>
@@ -174,7 +175,7 @@ export const DesignSystemComponent: React.FC<Props> = (props) => {
                   return (
                     <Stack key={index} gap={['10px']}>
                       <h4>{colorName}</h4>
-                      <div style={{ width: '20%' }}>
+                      <div>
                         <ColorSwatch key={index} name={colorName} color={colorOrPalette as Color}></ColorSwatch>{' '}
                       </div>
                     </Stack>
@@ -191,14 +192,14 @@ export const DesignSystemComponent: React.FC<Props> = (props) => {
                       <Cluster
                         key={index}
                         justifyContent={['flex-start', 'flex-start', 'flex-start']}
-                        alignItems={'flex-start'}
-                        gap={'10px 0px'}
+                        alignItems={['flex-start']}
+                        gap={['10px', '0px']}
                       >
                         {shades.map((shadeName, index) => {
                           const color = palette[shadeName];
 
                           return (
-                            <div style={{ width: '20%' }} key={index}>
+                            <div key={index}>
                               <ColorSwatch
                                 key={index}
                                 shadeNumber={shadeName}
@@ -224,7 +225,7 @@ export const DesignSystemComponent: React.FC<Props> = (props) => {
                   return (
                     <Stack key={index} gap={['10px']}>
                       <h4>{colorName}</h4>
-                      <div style={{ width: '20%' }}>
+                      <div>
                         <ColorSwatch key={index} name={colorName} color={colorOrPalette}></ColorSwatch>
                       </div>
                     </Stack>
@@ -234,7 +235,7 @@ export const DesignSystemComponent: React.FC<Props> = (props) => {
                   return (
                     <Stack key={index} gap={['10px']}>
                       <h4>{colorName}</h4>
-                      <div style={{ width: '20%' }}>
+                      <div>
                         <ColorSwatch key={index} name={colorName} color={colorOrPalette as Color}></ColorSwatch>
                       </div>
                     </Stack>
@@ -322,11 +323,7 @@ export const DesignSystemComponent: React.FC<Props> = (props) => {
             </Summary>
 
             <Stack gap={['43px']}>
-              <NavBar
-                style={{ position: 'relative' }}
-                MobileSvgLogo={<LogoPlaceholder />}
-                DesktopSvgLogo={<LogoPlaceholder />}
-              />
+              <Button>Button</Button>
             </Stack>
           </Details>
           <Details id={'Table'}>

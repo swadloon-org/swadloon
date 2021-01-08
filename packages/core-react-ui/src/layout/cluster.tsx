@@ -1,14 +1,21 @@
+import { AlignItemsProperty, GapProperty, JustifyContentProperty } from 'csstype';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import * as styleRefs from './cluster.treat';
 import { CommonComponentProps } from '../props/component-common.props';
-import { AlignItemsProperty, JustifyContentProperty, JustifyItemsProperty, FlexWrapProperty } from 'csstype';
-import { SIZE } from '@newrade/core-design-system';
+import * as styleRefs from './cluster.treat';
+
+type Gap = string;
 
 type Props = CommonComponentProps &
   Partial<{
-    gap: string | SIZE;
-    alignItems: AlignItemsProperty;
+    gap:
+      | [GapProperty<any>]
+      | [GapProperty<any>, GapProperty<any>]
+      | [GapProperty<any>, GapProperty<any>, GapProperty<any>];
+    alignItems:
+      | [AlignItemsProperty]
+      | [AlignItemsProperty, AlignItemsProperty]
+      | [AlignItemsProperty, AlignItemsProperty, AlignItemsProperty];
     justifyContent:
       | [JustifyContentProperty]
       | [JustifyContentProperty, JustifyContentProperty]

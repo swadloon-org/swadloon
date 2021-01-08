@@ -1,6 +1,7 @@
-import { SrcPageTemplate, SrcPageTemplateProps } from '@newrade/core-gatsby-ui';
+import { SrcPageTemplateProps } from '@newrade/core-gatsby-ui';
 import React from 'react';
 import { DesignSystemComponent } from '@newrade/core-react-ui';
+import { SrcPageTemplate } from '../templates/src-page.template';
 
 const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
   return <DesignSystemComponent />;

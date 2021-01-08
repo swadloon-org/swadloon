@@ -43,6 +43,7 @@ const Page: React.FC<MarkdownTemplateProps> = (props) => {
     <div>
       {props.pageContext.siteMetadata?.siteEnv === DEPLOY_ENV.LOCAL ? <DebugGasbyPage {...props} /> : null}
       <Helmet>
+        <link rel="icon" href="/images/favicon.svg" sizes="any" type="image/svg+xml" />
         {getMetaBasicTags()}
         {/* {getMetadataOpenGraphWebsiteTags({
           type: OPEN_GRAPH_TYPE.ARTICLE,

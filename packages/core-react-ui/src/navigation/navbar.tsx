@@ -62,8 +62,8 @@ export const NavBar: React.FC<Props> = (props) => {
   useEffect(() => {
     if (isIOS) {
       const handler = updateDocumentBackgroundColor({ multiplier: 2 });
-      window.document.addEventListener('touchmove', handler);
-      window.document.addEventListener('scroll', handler);
+      window.document.addEventListener('touchmove', handler, { passive: true });
+      window.document.addEventListener('scroll', handler, { passive: true });
 
       return () => {
         window.document.removeEventListener('touchmove', handler);
@@ -125,13 +125,13 @@ export const NavBar: React.FC<Props> = (props) => {
       </Center>
 
       {/* Desktop */}
-      <Center as={'header'} className={`${styles.wrapper} ${styles.desktopMenu}`} ref={ref2}>
+      <Center as={'header'} className={`${styles.wrapper} ${styles.desktopMenu}`} ref={ref2} style={props.style}>
         <Cluster justifyContent={['space-between']}>
           <BoxV2 padding={[cssTheme.sizing.var.x3, 0]} className={styles.logoWrapper}>
             {DesktopSvgLogo}
           </BoxV2>
 
-          <Cluster justifyContent={['space-between']} gap={cssTheme.sizing.var.x4}>
+          <Cluster justifyContent={['space-between']} gap={[cssTheme.sizing.var.x4]}>
             {props.MenuLinks}
           </Cluster>
         </Cluster>
