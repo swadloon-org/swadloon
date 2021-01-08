@@ -36,31 +36,31 @@ export const typography: Typography = {
     fontWeight: 500,
     mobile: {
       t1: {
-        capHeight: 30,
-        lineGap: 25,
+        capHeight: 34,
+        lineGap: 24,
       },
       t2: {
-        capHeight: 24,
-        lineGap: 20,
+        capHeight: 28,
+        lineGap: 22,
       },
     },
     tablet: {
       t1: {
-        capHeight: 48,
-        lineGap: 35,
+        capHeight: 38,
+        lineGap: 28,
       },
       t2: {
-        capHeight: 36,
-        lineGap: 28,
+        capHeight: 32,
+        lineGap: 26,
       },
     },
     desktop: {
       t1: {
-        capHeight: 60,
+        capHeight: 42,
         lineGap: 45,
       },
       t2: {
-        capHeight: 48,
+        capHeight: 36,
         lineGap: 32,
       },
     },
@@ -70,16 +70,16 @@ export const typography: Typography = {
     fontWeight: 500,
     mobile: {
       h1: {
-        capHeight: 22,
-        lineGap: 18,
+        capHeight: 24,
+        lineGap: 20,
       },
       h2: {
         capHeight: 20,
-        lineGap: 16,
+        lineGap: 18,
       },
       h3: {
         capHeight: 18,
-        lineGap: 14,
+        lineGap: 16,
       },
       h4: {
         capHeight: 16,
@@ -88,16 +88,16 @@ export const typography: Typography = {
     },
     tablet: {
       h1: {
-        capHeight: 32,
-        lineGap: 28,
+        capHeight: 26,
+        lineGap: 18,
       },
       h2: {
-        capHeight: 24,
-        lineGap: 20,
+        capHeight: 22,
+        lineGap: 16,
       },
       h3: {
         capHeight: 20,
-        lineGap: 16,
+        lineGap: 14,
       },
       h4: {
         capHeight: 18,
@@ -106,20 +106,20 @@ export const typography: Typography = {
     },
     desktop: {
       h1: {
-        capHeight: 40,
-        lineGap: 45,
+        capHeight: 28,
+        lineGap: 18,
       },
       h2: {
-        capHeight: 36,
-        lineGap: 30,
+        capHeight: 24,
+        lineGap: 16,
       },
       h3: {
-        capHeight: 24,
-        lineGap: 20,
+        capHeight: 22,
+        lineGap: 14,
       },
       h4: {
         capHeight: 20,
-        lineGap: 15,
+        lineGap: 14,
       },
     },
   },
@@ -137,56 +137,56 @@ export const typography: Typography = {
     },
     mobile: {
       large: {
-        capHeight: 18,
-        lineGap: 14,
+        capHeight: 14,
+        lineGap: 16,
       },
       medium: {
-        capHeight: 16,
-        lineGap: 12,
+        capHeight: 12,
+        lineGap: 16,
       },
       small: {
-        capHeight: 14,
-        lineGap: 10,
+        capHeight: 10,
+        lineGap: 14,
       },
       xSmall: {
-        capHeight: 12,
-        lineGap: 8,
+        capHeight: 9,
+        lineGap: 12,
       },
     },
     tablet: {
       large: {
-        capHeight: 18,
-        lineGap: 14,
+        capHeight: 14,
+        lineGap: 16,
       },
       medium: {
-        capHeight: 16,
-        lineGap: 12,
+        capHeight: 12,
+        lineGap: 16,
       },
       small: {
-        capHeight: 15,
-        lineGap: 10,
+        capHeight: 10,
+        lineGap: 14,
       },
       xSmall: {
-        capHeight: 14,
-        lineGap: 8,
+        capHeight: 9,
+        lineGap: 12,
       },
     },
     desktop: {
       large: {
-        capHeight: 18,
-        lineGap: 14,
+        capHeight: 14,
+        lineGap: 16,
       },
       medium: {
-        capHeight: 16,
-        lineGap: 12,
+        capHeight: 12,
+        lineGap: 16,
       },
       small: {
-        capHeight: 14,
-        lineGap: 10,
+        capHeight: 10,
+        lineGap: 14,
       },
       xSmall: {
-        capHeight: 12,
-        lineGap: 8,
+        capHeight: 9,
+        lineGap: 12,
       },
     },
   },
@@ -210,44 +210,44 @@ export const typography: Typography = {
     },
     mobile: {
       medium: {
-        capHeight: 14,
-        lineGap: 10,
+        capHeight: 13,
+        lineGap: 12,
       },
       small: {
-        capHeight: 12,
-        lineGap: 8,
+        capHeight: 11,
+        lineGap: 12,
       },
       xSmall: {
-        capHeight: 8,
-        lineGap: 6,
+        capHeight: 9,
+        lineGap: 12,
       },
     },
     tablet: {
       medium: {
-        capHeight: 16,
+        capHeight: 13,
         lineGap: 12,
       },
       small: {
-        capHeight: 14,
-        lineGap: 10,
+        capHeight: 11,
+        lineGap: 12,
       },
       xSmall: {
-        capHeight: 12,
-        lineGap: 8,
+        capHeight: 9,
+        lineGap: 12,
       },
     },
     desktop: {
       medium: {
-        capHeight: 16,
+        capHeight: 13,
         lineGap: 12,
       },
       small: {
-        capHeight: 14,
-        lineGap: 10,
+        capHeight: 11,
+        lineGap: 12,
       },
       xSmall: {
-        capHeight: 12,
-        lineGap: 8,
+        capHeight: 9,
+        lineGap: 12,
       },
     },
   },
