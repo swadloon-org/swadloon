@@ -28,38 +28,6 @@ globalStyle(`${wrapper} kbd`, ({ cssTheme, theme }: Theme) => ({
 /**
  * Default styles for table elements
  */
-// globalStyle(`${wrapper} table`, ({ cssTheme, theme }: Theme) => ({
-//   display: 'inline-block',
-//   borderColor: '#424242',
-// }));
-
-// globalStyle(`${wrapper} table`, (theme: Theme) => ({
-//   minWidth: '100%',
-//   borderCollapse: 'collapse',
-// }));
-
-// globalStyle(`${wrapper} thead`, (theme: Theme) => ({
-//   display: 'table-header-group',
-//   verticalAlign: 'middle',
-// }));
-
-// globalStyle(`${wrapper} tbody`, (theme: Theme) => ({
-//   display: 'table-row-group',
-//   verticalAlign: 'middle',
-// }));
-
-// globalStyle(`${wrapper} tr`, (theme: Theme) => ({
-//   display: 'table-row',
-//   verticalAlign: 'inherit',
-// }));
-
-// globalStyle(`${wrapper} th`, (theme: Theme) => ({
-//   letterSpacing: '0.05em',
-//   textTransform: 'uppercase',
-//   color: 'rgba(107, 114, 128, 0.4)',
-//   textAlign: 'left',
-// }));
-
 globalStyle(`${wrapper} pre`, ({ theme, cssTheme }: Theme) => ({
   backgroundColor: '#282a36',
   color: cssTheme.colors?.colors.grey['0-reversed'],

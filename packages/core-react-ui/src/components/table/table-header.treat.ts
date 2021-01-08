@@ -3,7 +3,7 @@ import { Theme } from '../../design-system/css-design-system';
 
 export const styles = {
   thead: style(({ theme, cssTheme }: Theme) => ({
-    backgroundColor: cssTheme.colors?.colors.grey[100],
+    backgroundColor: cssTheme.colors?.colors.grey[25],
 
     '::after': {
       content: 'none',

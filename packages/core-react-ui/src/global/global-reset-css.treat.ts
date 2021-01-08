@@ -204,6 +204,7 @@ globalStyle(`summary`, {
   // Add the correct display in all browsers.
   display: 'list-item',
 });
+
 /**
  * Resets table
  */
@@ -215,6 +216,7 @@ globalStyle(`table, caption, tbody, tfoot, thead, tr, th, td`, {
   font: 'inherit',
   verticalAlign: 'baseline',
 });
+
 globalStyle(`table`, {
   borderCollapse: 'collapse',
   borderSpacing: '0',

@@ -10,12 +10,12 @@ import {
 } from '@newrade/core-design-system';
 import { title } from 'case';
 import React from 'react';
-import { useStyles } from 'react-treat';
+import { useStyles, TreatProvider } from 'react-treat';
 import { ColorSwatch } from '../components/color/color-swatch';
 import { Table } from '../components/table/table';
 import { TableBody } from '../components/table/table-body';
-import { Td } from '../components/table/table-cell-data';
-import { Th } from '../components/table/table-cell-header';
+import { TableCell } from '../components/table/table-cell-data';
+import { TableCellHeader } from '../components/table/table-cell-header';
 import { TableHeader } from '../components/table/table-header';
 import { TableRow } from '../components/table/table-row';
 import { Details } from '../components/text/details';
@@ -34,6 +34,7 @@ import { keys } from '../utilities/utilities';
 import * as styleRefs from './design-system-demo.treat';
 import { FontShowcase } from './font-showcase';
 import { LogoPlaceholder } from './logo-placeholder';
+import { light } from '../design-system/theme.treat';
 
 type Props = {};
 
@@ -50,12 +51,14 @@ export const DesignSystemComponent: React.FC<Props> = (props) => {
   return (
     <Center contentClassName={styles.wrapper}>
       <Stack id={'Design System'} gap={[cssTheme.sizing.var.x5]}>
+        {/* <TreatProvider theme={light}> */}
         <Heading variant={HEADING.h1}>
           {title(cssTheme.name)} Design System -{' '}
           <Heading variant={HEADING.h1} variantLevel={TEXT_LEVEL.secondary} displayMode={'inline-block'}>
             {title(cssTheme.variation)} Theme
           </Heading>
         </Heading>
+        {/* </TreatProvider> */}
 
         <Stack id={'Foundations'} gap={[cssTheme.sizing.var.x5]}>
           <Stack gap={[cssTheme.sizing.var.x4]}>
@@ -335,31 +338,31 @@ export const DesignSystemComponent: React.FC<Props> = (props) => {
                 <Table>
                   <TableHeader>
                     <TableRow>
-                      <Th>Name</Th>
-                      <Th>ID</Th>
-                      <Th>Favorite Color</Th>
+                      <TableCellHeader>Name</TableCellHeader>
+                      <TableCellHeader>ID</TableCellHeader>
+                      <TableCellHeader>Favorite Color</TableCellHeader>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
                     <TableRow>
-                      <Td>Jim</Td>
-                      <Td>00001</Td>
-                      <Td>Blue</Td>
+                      <TableCell>Jim</TableCell>
+                      <TableCell>00001</TableCell>
+                      <TableCell>Blue</TableCell>
                     </TableRow>
                     <TableRow>
-                      <Td>Barb</Td>
-                      <Td>0021001</Td>
-                      <Td>Red</Td>
+                      <TableCell>Barb</TableCell>
+                      <TableCell>0021001</TableCell>
+                      <TableCell>Red</TableCell>
                     </TableRow>
                     <TableRow>
-                      <Td>Jim</Td>
-                      <Td>00001</Td>
-                      <Td>Blue</Td>
+                      <TableCell>Jim</TableCell>
+                      <TableCell>00001</TableCell>
+                      <TableCell>Blue</TableCell>
                     </TableRow>
                     <TableRow>
-                      <Td>Barb</Td>
-                      <Td>0021001</Td>
-                      <Td>Red</Td>
+                      <TableCell>Barb</TableCell>
+                      <TableCell>0021001</TableCell>
+                      <TableCell>Red</TableCell>
                     </TableRow>
                   </TableBody>
                 </Table>

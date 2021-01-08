@@ -1,4 +1,4 @@
-import { style } from 'treat';
+import { globalStyle, style } from 'treat';
 import { Theme } from '../../design-system/css-design-system';
 import { getCSSFontTextStyles, getCSSTextStyles } from '../../utilities/text.utilities';
 
@@ -59,8 +59,10 @@ export const styles = {
   italicBold: style(({ theme, cssTheme }: Theme) => ({
     ...getCSSTextStyles(cssTheme.typography.labels.styles.italicBold),
   })),
+
   th: style(({ theme, cssTheme }: Theme) => ({
     textAlign: 'left',
+
     paddingLeft: cssTheme.sizing.var.x3,
     paddingRight: cssTheme.sizing.var.x3,
     paddingTop: cssTheme.sizing.var.x2,
@@ -83,3 +85,7 @@ export const styles = {
     },
   })),
 };
+
+globalStyle(`${styles.th}[align="center"]`, ({ theme, cssTheme }: Theme) => ({
+  textAlign: 'center',
+}));

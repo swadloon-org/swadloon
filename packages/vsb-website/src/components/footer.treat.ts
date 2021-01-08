@@ -23,7 +23,7 @@ export const container = style(({ cssTheme, theme }: Theme) => ({}));
 export const grid = style(({ cssTheme, theme }: Theme) => ({
   display: 'grid',
   gridTemplateColumns: '1fr',
-  gap: cssTheme.sizing.var.x4,
+  gap: cssTheme.sizing.var.x5,
 
   '@media': {
     [cssTheme.layout.media.tablet]: {

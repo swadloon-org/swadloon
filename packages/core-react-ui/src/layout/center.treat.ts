@@ -15,7 +15,7 @@ export const styles = {
 
     maxWidth: `calc(100vw - ${2 * theme.layout.contentMargins.mobile}px)`,
     '@media': {
-      [`screen and (min-width: ${theme.layout.breakpoints.desktopMedium}px)`]: {
+      [`screen and (min-width: ${theme.layout.breakpoints.desktopSmall}px)`]: {
         maxWidth: `var(--max-content-width, ${theme.layout.contentWidth.desktopMaxWidth}px)`,
       },
     },

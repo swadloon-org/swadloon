@@ -1,6 +1,6 @@
 import { GatsbyMarkdownFilePageContext } from '@newrade/core-gatsby-config';
 import { Aside } from '@newrade/core-gatsby-ui';
-import { getMetaBasicTags, GlobalMarkdownCSS } from '@newrade/core-react-ui';
+import { getMetaBasicTags, GlobalMarkdownCSS, Center } from '@newrade/core-react-ui';
 import { graphql, PageProps } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
@@ -73,9 +73,11 @@ const Page: React.FC<MarkdownTemplateProps> = (props) => {
           site: `${data?.contentfulCompanyInfo?.metadataTwitterSite}`,
         })} */}
       </Helmet>
-      <GlobalMarkdownCSS>
-        <MDXRenderer {...props}>{props.data.mdx?.body as string}</MDXRenderer>
-      </GlobalMarkdownCSS>
+      <Center maxWidth={'800px'}>
+        <GlobalMarkdownCSS>
+          <MDXRenderer {...props}>{props.data.mdx?.body as string}</MDXRenderer>
+        </GlobalMarkdownCSS>
+      </Center>
 
       <Aside items={props.data.mdx?.headings} location={props.location} />
     </>

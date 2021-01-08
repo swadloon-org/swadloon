@@ -53,6 +53,11 @@ globalStyle(
   })
 );
 
+globalStyle(`${wrapper} table`, ({ cssTheme, theme }: Theme) => ({
+  marginTop: '2em',
+  marginBottom: '2em',
+}));
+
 globalStyle(`${wrapper} figure`, ({ cssTheme, theme }: Theme) => ({
   display: 'flex',
   flexDirection: 'column',

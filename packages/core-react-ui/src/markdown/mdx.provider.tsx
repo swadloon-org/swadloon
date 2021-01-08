@@ -5,6 +5,12 @@ import { Details } from '../components/text/details';
 import { Heading } from '../components/text/heading';
 import { Paragraph, ParagraphInlineBold } from '../components/text/paragraph';
 import { Summary } from '../components/text/summary';
+import { Table } from '../components/table/table';
+import { TableHeader } from '../components/table/table-header';
+import { TableRow } from '../components/table/table-row';
+import { TableCell } from '../components/table/table-cell-data';
+import { TableCellHeader } from '../components/table/table-cell-header';
+import { TableBody } from '../components/table/table-body';
 
 /**
  * Components configuration object for <MDXProvider/>.
@@ -35,11 +41,12 @@ export const mdxComponents: Partial<Record<keyof React.ReactHTML, React.ReactNod
   // ol	Ordered list	1.
   // li	List item
 
-  // table	Table
-  // thead	Table head
-  // tbody	Table body
-  // tr	Table row
-  // td/th	Table cell
+  table: (props: MDXProps) => <Table {...props} />,
+  thead: (props: MDXProps) => <TableHeader {...props} />,
+  tbody: (props: MDXProps) => <TableBody {...props} />,
+  tr: (props: MDXProps) => <TableRow {...props} />,
+  td: (props: MDXProps) => <TableCell {...props} />,
+  th: (props: MDXProps) => <TableCellHeader {...props} />,
 
   // code: (props: MDXProps) => <Code {...props} />,
   // inlineCode	InlineCode	`inlineCode`

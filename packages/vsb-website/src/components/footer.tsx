@@ -1,16 +1,18 @@
+import {
+  LABEL_SIZE,
+  PARAGRAPH_SIZE,
+  TEXT_LEVEL,
+  TEXT_STYLE,
+  LinkStyleVariant,
+  LinkVariant,
+} from '@newrade/core-design-system';
+import { Center, Label, Link, Paragraph, Stack } from '@newrade/core-react-ui';
+import { graphql, Link as GatsbyLink, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import * as styleRefs from './footer.treat';
-import { Box, Stack, Grid, Label, Center, Paragraph, keys } from '@newrade/core-react-ui';
-import { graphql, useStaticQuery } from 'gatsby';
-import { Link as GatsbyLink } from 'gatsby';
-
 import { FooterQuery } from '../../types/graphql-types';
-import { PARAGRAPH_SIZE, TEXT_LEVEL, TEXT_STYLE, LABEL_SIZE } from '@newrade/core-design-system';
-import { Theme } from '@newrade/core-react-ui';
 import { cssTheme } from '../design-system/theme';
-import { elem } from 'fp-ts/lib/Option';
-import { toArray } from 'lodash';
+import * as styleRefs from './footer.treat';
 
 export const footerQuery = graphql`
   query Footer {
@@ -42,10 +44,7 @@ export const Footer: React.FC<OwnProps> = (props) => {
       <Center>
         <div className={styles.container}>
           <div className={styles.grid}>
-            <Stack
-              className={styles.services}
-              gap={[`${cssTheme.sizing.var.x2}`, `${cssTheme.sizing.var.x4}`, `${cssTheme.sizing.var.x4}`]}
-            >
+            <Stack className={styles.services} gap={[cssTheme.sizing.var.x3]}>
               <Label
                 variantStyle={TEXT_STYLE.boldUppercase}
                 variant={LABEL_SIZE.small}
@@ -54,15 +53,24 @@ export const Footer: React.FC<OwnProps> = (props) => {
                 Services
               </Label>
               <Stack gap={[cssTheme.sizing.var.x3]}>
-                <GatsbyLink to={'/vasectomie/'}>Tout sur la vasectomie</GatsbyLink>
-                <GatsbyLink to={'/formulaire-vasectomie/'}>Formulaire de demande</GatsbyLink>
-                <GatsbyLink to={'/examen-pour-transport-canada/'}>Examen pour Transport Canada</GatsbyLink>
+                <GatsbyLink to={'/vasectomie/'}>
+                  <Link as="span" variantStyle={LinkStyleVariant.reversed}>
+                    Tout sur la vasectomie
+                  </Link>
+                </GatsbyLink>
+                <GatsbyLink to={'/formulaire-vasectomie/'}>
+                  <Link as="span" variantStyle={LinkStyleVariant.reversed}>
+                    Formulaire de demande
+                  </Link>
+                </GatsbyLink>
+                <GatsbyLink to={'/examen-pour-transport-canada/'}>
+                  <Link as="span" variantStyle={LinkStyleVariant.reversed}>
+                    Examen pour Transport Canada
+                  </Link>
+                </GatsbyLink>
               </Stack>
             </Stack>
-            <Stack
-              className={styles.clinique}
-              gap={[`${cssTheme.sizing.var.x2}`, `${cssTheme.sizing.var.x4}`, `${cssTheme.sizing.var.x4}`]}
-            >
+            <Stack className={styles.clinique} gap={[cssTheme.sizing.var.x3]}>
               <Label
                 variantStyle={TEXT_STYLE.boldUppercase}
                 variant={LABEL_SIZE.small}
@@ -71,15 +79,24 @@ export const Footer: React.FC<OwnProps> = (props) => {
                 La Clinique
               </Label>
               <Stack gap={[cssTheme.sizing.var.x3]}>
-                <GatsbyLink to={'/equipe/'}>Notre équipe</GatsbyLink>
-                <GatsbyLink to={'/equipe/#dr_pierre_jr_boucher'}>Dr. Pierre Jr. Boucher</GatsbyLink>
-                <GatsbyLink to={'/contact/'}>Contact</GatsbyLink>
+                <GatsbyLink to={'/equipe/'}>
+                  <Link as="span" variantStyle={LinkStyleVariant.reversed}>
+                    Notre équipe
+                  </Link>
+                </GatsbyLink>
+                <GatsbyLink to={'/equipe/#dr_pierre_jr_boucher'}>
+                  <Link as="span" variantStyle={LinkStyleVariant.reversed}>
+                    Dr. Pierre Jr. Boucher
+                  </Link>
+                </GatsbyLink>
+                <GatsbyLink to={'/contact/'}>
+                  <Link as="span" variantStyle={LinkStyleVariant.reversed}>
+                    Contact
+                  </Link>
+                </GatsbyLink>
               </Stack>
             </Stack>
-            <Stack
-              className={styles.joindre}
-              gap={[`${cssTheme.sizing.var.x2}`, `${cssTheme.sizing.var.x4}`, `${cssTheme.sizing.var.x4}`]}
-            >
+            <Stack className={styles.joindre} gap={[cssTheme.sizing.var.x3]}>
               <Label
                 variantStyle={TEXT_STYLE.boldUppercase}
                 variant={LABEL_SIZE.small}
@@ -88,12 +105,35 @@ export const Footer: React.FC<OwnProps> = (props) => {
                 Nous Joindre
               </Label>
               <Stack gap={[cssTheme.sizing.var.x3]}>
-                <a href={`mailto:${data?.contentfulCompanyAddress?.email}`}>{data?.contentfulCompanyAddress?.email}</a>
-                <a href={`tel:${data?.contentfulCompanyAddress?.phone}`}>{data?.contentfulCompanyAddress?.phone}</a>
-                <a href={`fax:${data?.contentfulCompanyAddress?.fax}`}>{data?.contentfulCompanyAddress?.fax}</a>
-                <a href={'https://goo.gl/maps/nndYpgQLkbDC6c7S7'} target="blank">
+                <Link
+                  variantStyle={LinkStyleVariant.reversed}
+                  variant={LinkVariant.underline}
+                  href={`mailto:${data?.contentfulCompanyAddress?.email}`}
+                >
+                  {data?.contentfulCompanyAddress?.email}
+                </Link>
+                <Link
+                  variantStyle={LinkStyleVariant.reversed}
+                  variant={LinkVariant.underline}
+                  href={`tel:${data?.contentfulCompanyAddress?.phone}`}
+                >
+                  {data?.contentfulCompanyAddress?.phone}
+                </Link>
+                <Link
+                  variantStyle={LinkStyleVariant.reversed}
+                  variant={LinkVariant.underline}
+                  href={`fax:${data?.contentfulCompanyAddress?.fax}`}
+                >
+                  {data?.contentfulCompanyAddress?.fax}
+                </Link>
+                <Link
+                  variantStyle={LinkStyleVariant.reversed}
+                  variant={LinkVariant.underline}
+                  href={'https://goo.gl/maps/nndYpgQLkbDC6c7S7'}
+                  target="blank"
+                >
                   {data?.contentfulCompanyAddress?.addressLine1}
-                </a>
+                </Link>
               </Stack>
             </Stack>
           </div>

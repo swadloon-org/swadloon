@@ -62,13 +62,6 @@ export enum TEXT_STYLE {
   boldUppercase = 'boldUppercase',
   italicBold = 'italicBold',
 }
-/**
- * The link styles.
- */
-export enum LINK_STYLE {
-  normal = 'normal',
-  underLine = 'underLine',
-}
 
 /**
  * Level of text

@@ -5576,6 +5576,8 @@ export type Query = {
   allImageSharp: ImageSharpConnection;
   mdx?: Maybe<Mdx>;
   allMdx: MdxConnection;
+  contentfulAsset?: Maybe<ContentfulAsset>;
+  allContentfulAsset: ContentfulAssetConnection;
   contentfulSectionType?: Maybe<ContentfulSectionType>;
   allContentfulSectionType: ContentfulSectionTypeConnection;
   contentfulSectionTextTextNode?: Maybe<ContentfulSectionTextTextNode>;
@@ -5588,8 +5590,6 @@ export type Query = {
   allContentfulPage: ContentfulPageConnection;
   contentfulLink?: Maybe<ContentfulLink>;
   allContentfulLink: ContentfulLinkConnection;
-  contentfulAsset?: Maybe<ContentfulAsset>;
-  allContentfulAsset: ContentfulAssetConnection;
   contentfulContentType?: Maybe<ContentfulContentType>;
   allContentfulContentType: ContentfulContentTypeConnection;
   siteBuildMetadata?: Maybe<SiteBuildMetadata>;
@@ -5801,6 +5801,36 @@ export type QueryAllMdxArgs = {
 };
 
 
+export type QueryContentfulAssetArgs = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  contentful_id?: Maybe<StringQueryOperatorInput>;
+  spaceId?: Maybe<StringQueryOperatorInput>;
+  createdAt?: Maybe<DateQueryOperatorInput>;
+  updatedAt?: Maybe<DateQueryOperatorInput>;
+  file?: Maybe<ContentfulAssetFileFilterInput>;
+  title?: Maybe<StringQueryOperatorInput>;
+  description?: Maybe<StringQueryOperatorInput>;
+  node_locale?: Maybe<StringQueryOperatorInput>;
+  sys?: Maybe<ContentfulAssetSysFilterInput>;
+  fixed?: Maybe<ContentfulFixedFilterInput>;
+  resolutions?: Maybe<ContentfulResolutionsFilterInput>;
+  fluid?: Maybe<ContentfulFluidFilterInput>;
+  sizes?: Maybe<ContentfulSizesFilterInput>;
+  resize?: Maybe<ContentfulResizeFilterInput>;
+};
+
+
+export type QueryAllContentfulAssetArgs = {
+  filter?: Maybe<ContentfulAssetFilterInput>;
+  sort?: Maybe<ContentfulAssetSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
 export type QueryContentfulSectionTypeArgs = {
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
@@ -5953,36 +5983,6 @@ export type QueryContentfulLinkArgs = {
 export type QueryAllContentfulLinkArgs = {
   filter?: Maybe<ContentfulLinkFilterInput>;
   sort?: Maybe<ContentfulLinkSortInput>;
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-};
-
-
-export type QueryContentfulAssetArgs = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-  contentful_id?: Maybe<StringQueryOperatorInput>;
-  spaceId?: Maybe<StringQueryOperatorInput>;
-  createdAt?: Maybe<DateQueryOperatorInput>;
-  updatedAt?: Maybe<DateQueryOperatorInput>;
-  file?: Maybe<ContentfulAssetFileFilterInput>;
-  title?: Maybe<StringQueryOperatorInput>;
-  description?: Maybe<StringQueryOperatorInput>;
-  node_locale?: Maybe<StringQueryOperatorInput>;
-  sys?: Maybe<ContentfulAssetSysFilterInput>;
-  fixed?: Maybe<ContentfulFixedFilterInput>;
-  resolutions?: Maybe<ContentfulResolutionsFilterInput>;
-  fluid?: Maybe<ContentfulFluidFilterInput>;
-  sizes?: Maybe<ContentfulSizesFilterInput>;
-  resize?: Maybe<ContentfulResizeFilterInput>;
-};
-
-
-export type QueryAllContentfulAssetArgs = {
-  filter?: Maybe<ContentfulAssetFilterInput>;
-  sort?: Maybe<ContentfulAssetSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };

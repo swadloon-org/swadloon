@@ -72,7 +72,7 @@ export const styles = {
     paddingRight: cssTheme.sizing.var.x3,
     paddingTop: cssTheme.sizing.var.x2,
     paddingBottom: cssTheme.sizing.var.x2,
-    backgroundColor: cssTheme.colors?.colors.grey[25],
+    backgroundColor: cssTheme.colors?.colors.grey[0],
     '@media': {
       [cssTheme.layout.media.tablet]: {
         paddingLeft: cssTheme.sizing.var.x3,
