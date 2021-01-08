@@ -19,15 +19,20 @@ export const styles: { [key in LinkStyleProps['variantStyle']]: string } &
 
   rest: style(({ theme, cssTheme }: Theme) => ({
     outline: 'none',
-    transition: `all 0.3s ease-out`,
+    transition: `all 0.2s ease-out`,
     /**
      * States
      */
     ':hover': {
       color: cssTheme.colors.colors.primary[500],
     },
+    ':active': {
+      color: cssTheme.colors.colors.primary[500],
+    },
     ':focus': {
       color: cssTheme.colors.colors.primary[500],
+      // outline: `1px solid ${cssTheme.colors.colors.primary[500]}`,
+      // outlineOffset: '10px',
     },
   })),
   /**

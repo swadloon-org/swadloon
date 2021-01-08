@@ -24,6 +24,15 @@ globalStyle(`html`, {
   // prevent the content to jump when scrolling
   overflowY: 'scroll',
   overflowX: 'hidden',
+  // prevent tap highlight
+  WebkitTapHighlightColor: 'rgba(0, 0, 0, 0) ',
+  // @ts-ignore
+  WebkitFontSmoothing: 'antialiased',
+  // ensure fast clicks on ios safari 9, 10
+  touchAction: 'manipulation',
+  WebkitTouchCallout: 'none',
+  // smooth background transition
+  transition: 'background-color 0.2s ease-out',
 });
 
 /**

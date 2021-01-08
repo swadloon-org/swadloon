@@ -8,7 +8,7 @@ import { style } from 'treat';
 export const wrapper = style(({ cssTheme, theme }: Theme) => ({
   backgroundColor: cssTheme.colors.colors.grey[900],
   paddingTop: cssTheme.sizing.var.x6,
-  paddingBottom: cssTheme.sizing.var.x5,
+  paddingBottom: cssTheme.sizing.var.x6,
 }));
 
 export const grid = style(({ cssTheme, theme }: Theme) => ({

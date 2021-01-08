@@ -10,6 +10,7 @@ import { Button } from '../components/button/button';
 import { BoxV2 } from '../layout/box-v2';
 import { Label } from '../components/text/label';
 import { CommonComponentProps } from '../props/component-common.props';
+import { isIOS } from 'react-device-detect';
 
 type Props = CommonComponentProps & {
   variantStyle?: 'transparent' | 'white';
@@ -44,6 +45,38 @@ export const NavBar: React.FC<Props> = (props) => {
   ) : (
     <div className={styles.logoDesktop}>Logo</div>
   );
+
+  const updateDocumentBackgroundColor = (options: { multiplier: number }) => (event: Event) => {
+    const scrollPosition = window.scrollY;
+
+    if (window.document.documentElement.scrollHeight - scrollPosition < options.multiplier * window.screen.height) {
+      window.document.documentElement.style.backgroundColor = cssTheme.colors.colors.grey[900];
+      return;
+    }
+    if (window.document.documentElement.scrollHeight - scrollPosition >= options.multiplier * window.screen.height) {
+      window.document.documentElement.style.backgroundColor = cssTheme.colors.colorIntents.background0;
+      return;
+    }
+  };
+
+  useEffect(() => {
+    if (isIOS) {
+      const handler = updateDocumentBackgroundColor({ multiplier: 2 });
+      window.document.addEventListener('touchmove', handler);
+      window.document.addEventListener('scroll', handler);
+
+      return () => {
+        window.document.removeEventListener('touchmove', handler);
+        window.document.removeEventListener('scroll', handler);
+      };
+    }
+    // not needed for desktop
+    // const handler = updateDocumentBackgroundColor({ multiplier: 1.5 });
+    // window.addEventListener('scroll', handler, { passive: true });
+    // return () => {
+    //   window.removeEventListener('scroll', handler);
+    // };
+  }, []);
 
   // useEffect(() => {
   //   window.addEventListener('scroll', (event) => {
