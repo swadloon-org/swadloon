@@ -1,10 +1,8 @@
-// import React from 'react';
-// import { Link as GatsbyLinkInitial, useStaticQuery } from 'gatsby';
+import { GatsbyLinkProps, Link as GastbyLinkDefault } from 'gatsby';
+import React from 'react';
 
-// type Props = {};
+type Props = GatsbyLinkProps<any>;
 
-// export class GatsbyLink<TState> extends GatsbyLinkInitial<TState> {}
-
-// const GatsbyLink: React.FC<Props> = (props) => {
-//   return <GatsbyLinkInitial></GatsbyLinkInitial>;
-// };
+export const GatsbyLink = React.forwardRef<any, Props>((props, ref) => {
+  return <GastbyLinkDefault ref={ref as any} {...props} />;
+});

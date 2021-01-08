@@ -20,12 +20,12 @@ export const styles = {
     display: 'inherit',
     '@media': {
       [cssTheme.layout.media.desktopSmall]: {
-        display: 'none !important',
+        display: 'none',
       },
     },
   })),
   desktopMenu: style(({ cssTheme, theme }: Theme) => ({
-    display: 'none !important',
+    display: 'none',
     '@media': {
       [cssTheme.layout.media.desktopSmall]: {
         display: 'inherit',

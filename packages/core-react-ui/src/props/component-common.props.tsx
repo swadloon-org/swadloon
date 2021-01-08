@@ -1,7 +1,14 @@
 import { CSSProperties, ReactNode, ReactHTML } from 'react';
 
 export type CommonComponentProps = Partial<{
+  /**
+   * Uses React.createElement with as as the element type.
+   */
   as: keyof ReactHTML;
+  /**
+   * Pass a complete React component to replace the default outer containing element.
+   */
+  AsElement: React.ReactNode;
   id: string;
   /**
    * Class name that will be applied to the component's outer containing element.

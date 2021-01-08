@@ -1,5 +1,5 @@
 import { LinkStyleProps } from '@newrade/core-design-system';
-import { globalStyle, style } from 'treat';
+import { style } from 'treat';
 import { Theme } from '../../design-system/css-design-system';
 import { getCSSSizeTextStyles, getCSSTextStyles } from '../../utilities/text.utilities';
 
@@ -8,7 +8,7 @@ export const styles: { [key in LinkStyleProps['variantStyle']]: string } &
   { [key in LinkStyleProps['state']]?: string } &
   { [key in LinkStyleProps['variantSize']]: string } = {
   /**
-   * States
+   * Variant
    */
   underline: style(({ theme, cssTheme }: Theme) => ({
     textDecoration: 'underline',
@@ -16,10 +16,20 @@ export const styles: { [key in LinkStyleProps['variantStyle']]: string } &
   noUnderline: style(({ theme, cssTheme }: Theme) => ({
     textDecoration: 'none',
   })),
-  /**
-   * States
-   */
 
+  rest: style(({ theme, cssTheme }: Theme) => ({
+    outline: 'none',
+    transition: `all 0.3s ease-out`,
+    /**
+     * States
+     */
+    ':hover': {
+      color: cssTheme.colors.colors.primary[500],
+    },
+    ':focus': {
+      color: cssTheme.colors.colors.primary[500],
+    },
+  })),
   /**
    * Styles
    */
@@ -78,22 +88,3 @@ export const styles: { [key in LinkStyleProps['variantStyle']]: string } &
     },
   })),
 };
-
-/**
- * States
- */
-globalStyle(`${styles.normal}::hover`, ({ theme, cssTheme }: Theme) => ({
-  color: cssTheme.colors.colorIntents.primaryReversed,
-}));
-
-globalStyle(`${styles.normal}::active`, ({ theme, cssTheme }: Theme) => ({
-  color: cssTheme.colors.colors.primary[700],
-}));
-
-globalStyle(`${styles.normal}::focused`, ({ theme, cssTheme }: Theme) => ({
-  color: cssTheme.colors.colors.primary[700],
-}));
-
-globalStyle(`${styles.normal}::disabled`, ({ theme, cssTheme }: Theme) => ({
-  color: cssTheme.colors.colorIntents.disabledText,
-}));

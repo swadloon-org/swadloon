@@ -42,9 +42,9 @@ export const Footer: React.FC<OwnProps> = (props) => {
   return (
     <div className={`${styles.wrapper}`}>
       <Center>
-        <div className={styles.container}>
+        <Stack gap={[cssTheme.sizing.var.x5]}>
           <div className={styles.grid}>
-            <Stack className={styles.services} gap={[cssTheme.sizing.var.x3]}>
+            <Stack className={styles.services} gap={[cssTheme.sizing.var.x4]}>
               <Label
                 variantStyle={TEXT_STYLE.boldUppercase}
                 variant={LABEL_SIZE.small}
@@ -52,25 +52,27 @@ export const Footer: React.FC<OwnProps> = (props) => {
               >
                 Services
               </Label>
-              <Stack gap={[cssTheme.sizing.var.x3]}>
-                <GatsbyLink to={'/vasectomie/'}>
-                  <Link as="span" variantStyle={LinkStyleVariant.reversed}>
-                    Tout sur la vasectomie
-                  </Link>
-                </GatsbyLink>
-                <GatsbyLink to={'/formulaire-vasectomie/'}>
-                  <Link as="span" variantStyle={LinkStyleVariant.reversed}>
-                    Formulaire de demande
-                  </Link>
-                </GatsbyLink>
-                <GatsbyLink to={'/examen-pour-transport-canada/'}>
-                  <Link as="span" variantStyle={LinkStyleVariant.reversed}>
-                    Examen pour Transport Canada
-                  </Link>
-                </GatsbyLink>
+              <Stack gap={[cssTheme.sizing.var.x4]}>
+                <Link variantStyle={LinkStyleVariant.reversed} AsElement={<GatsbyLink to={'/vasectomie/'} />}>
+                  Tout sur la vasectomie
+                </Link>
+
+                <Link
+                  variantStyle={LinkStyleVariant.reversed}
+                  AsElement={<GatsbyLink to={'/formulaire-vasectomie/'} />}
+                >
+                  Formulaire de demande
+                </Link>
+
+                <Link
+                  variantStyle={LinkStyleVariant.reversed}
+                  AsElement={<GatsbyLink to={'/examen-pour-transport-canada/'} />}
+                >
+                  Examen pour Transport Canada
+                </Link>
               </Stack>
             </Stack>
-            <Stack className={styles.clinique} gap={[cssTheme.sizing.var.x3]}>
+            <Stack className={styles.clinique} gap={[cssTheme.sizing.var.x4]}>
               <Label
                 variantStyle={TEXT_STYLE.boldUppercase}
                 variant={LABEL_SIZE.small}
@@ -78,25 +80,24 @@ export const Footer: React.FC<OwnProps> = (props) => {
               >
                 La Clinique
               </Label>
-              <Stack gap={[cssTheme.sizing.var.x3]}>
-                <GatsbyLink to={'/equipe/'}>
-                  <Link as="span" variantStyle={LinkStyleVariant.reversed}>
-                    Notre équipe
-                  </Link>
-                </GatsbyLink>
-                <GatsbyLink to={'/equipe/#dr_pierre_jr_boucher'}>
-                  <Link as="span" variantStyle={LinkStyleVariant.reversed}>
-                    Dr. Pierre Jr. Boucher
-                  </Link>
-                </GatsbyLink>
-                <GatsbyLink to={'/contact/'}>
-                  <Link as="span" variantStyle={LinkStyleVariant.reversed}>
-                    Contact
-                  </Link>
-                </GatsbyLink>
+              <Stack gap={[cssTheme.sizing.var.x4]}>
+                <Link variantStyle={LinkStyleVariant.reversed} AsElement={<GatsbyLink to={'/equipe/'} />}>
+                  Notre équipe
+                </Link>
+
+                <Link
+                  variantStyle={LinkStyleVariant.reversed}
+                  AsElement={<GatsbyLink to={'/equipe/#dr_pierre_jr_boucher'} />}
+                >
+                  Dr. Pierre Jr. Boucher
+                </Link>
+
+                <Link variantStyle={LinkStyleVariant.reversed} AsElement={<GatsbyLink to={'/contact/'} />}>
+                  Contact
+                </Link>
               </Stack>
             </Stack>
-            <Stack className={styles.joindre} gap={[cssTheme.sizing.var.x3]}>
+            <Stack className={styles.joindre} gap={[cssTheme.sizing.var.x4]}>
               <Label
                 variantStyle={TEXT_STYLE.boldUppercase}
                 variant={LABEL_SIZE.small}
@@ -104,7 +105,7 @@ export const Footer: React.FC<OwnProps> = (props) => {
               >
                 Nous Joindre
               </Label>
-              <Stack gap={[cssTheme.sizing.var.x3]}>
+              <Stack gap={[cssTheme.sizing.var.x4]}>
                 <Link
                   variantStyle={LinkStyleVariant.reversed}
                   variant={LinkVariant.underline}
@@ -140,7 +141,7 @@ export const Footer: React.FC<OwnProps> = (props) => {
           <Paragraph className={styles.copyright} variant={PARAGRAPH_SIZE.small}>
             {data?.contentfulCompanyInfo?.copyright}
           </Paragraph>
-        </div>
+        </Stack>
       </Center>
     </div>
   );

@@ -7,18 +7,9 @@ import { style } from 'treat';
 
 export const wrapper = style(({ cssTheme, theme }: Theme) => ({
   backgroundColor: cssTheme.colors.colors.grey[900],
-  paddingTop: cssTheme.sizing.var.x5,
+  paddingTop: cssTheme.sizing.var.x6,
   paddingBottom: cssTheme.sizing.var.x5,
-
-  '@media': {
-    [cssTheme.layout.media.tablet]: {
-      paddingTop: cssTheme.sizing.var.x6,
-    },
-    [cssTheme.layout.media.desktopSmall]: {},
-  },
 }));
-
-export const container = style(({ cssTheme, theme }: Theme) => ({}));
 
 export const grid = style(({ cssTheme, theme }: Theme) => ({
   display: 'grid',
@@ -29,12 +20,12 @@ export const grid = style(({ cssTheme, theme }: Theme) => ({
     [cssTheme.layout.media.tablet]: {
       gridTemplateColumns: 'repeat(12, 1fr)',
       gap: '20px',
-      gridTemplateAreas: `"service service service . clinique clinique clinique . joindre joindre joindre ."`,
+      gridTemplateAreas: `"service service service . clinique clinique clinique . joindre joindre joindre joindre"`,
     },
     [cssTheme.layout.media.desktopSmall]: {
       gridTemplateColumns: 'repeat(12, 1fr)',
       gap: '20px',
-      gridTemplateAreas: `"service service . clinique clinique . joindre joindre . . . . "`,
+      gridTemplateAreas: `"service service service . clinique clinique clinique . joindre joindre  joindre . "`,
     },
   },
 }));

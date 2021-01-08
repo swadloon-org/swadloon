@@ -30,6 +30,7 @@ export enum LinkIcon {
 }
 
 export enum LinkState {
+  rest = 'rest',
   hover = 'hover',
   active = 'active',
   focused = 'focused',
