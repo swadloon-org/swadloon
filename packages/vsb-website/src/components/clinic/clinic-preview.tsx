@@ -7,6 +7,7 @@ import { cssTheme } from '../../design-system/theme';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { HEADING } from '@newrade/core-design-system/';
 import BackgroundImage, { IFluidObject } from 'gatsby-background-image';
+import { BackgroundFilter } from '@newrade/core-react-ui';
 
 type OwnProps = SectionFragment;
 
@@ -24,12 +25,11 @@ export const ClinicPreview: React.FC<OwnProps> = (props) => {
       <div className={styles.grid}>
         <Box className={styles.imagePreview}>
           {hasImage ? (
-            <BackgroundImage
-              Tag="div"
-              fluid={imageData as IFluidObject}
+            <BackgroundFilter
+              filter={['grayscale(10%)']}
               style={{ width: '100%', height: '100%' }}
-              fadeIn={false}
-            ></BackgroundImage>
+              AsElement={<BackgroundImage Tag="div" fluid={imageData as IFluidObject} fadeIn={false}></BackgroundImage>}
+            ></BackgroundFilter>
           ) : null}
         </Box>
         <Box className={styles.containerInfo}>

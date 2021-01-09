@@ -57,3 +57,4 @@ export * from './components/table/table-cell-header';
 export * from './components/table/table-cell-data';
 export * from './components/table/caption';
 export * from './components/table/table-body';
+export * from './components/effect/background-effect';

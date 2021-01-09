@@ -2,6 +2,7 @@ export * from './components/atoms/links';
 export * from './components/molecules/buttons';
 export * from './design-system';
 export * from './foundations/animations';
+export * from './foundations/background-effect';
 export * from './foundations/color-gradients';
 export * from './foundations/color-intents';
 export * from './foundations/colors';
