@@ -6,6 +6,7 @@ export enum FilterStyleProps {
   hueRotate = 'hueRotate',
   saturate = 'saturate',
 }
+
 export enum FilterStyleVariant {
   normal = 'normal',
   reversed = 'reversed',

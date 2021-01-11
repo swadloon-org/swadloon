@@ -3,15 +3,13 @@ import React from 'react';
 import { useStyles } from 'react-treat';
 import { CommonComponentProps } from '../props/component-common.props';
 import * as styleRefs from './cluster.treat';
+import { GapProp } from '../props/layout.prop';
 
 type Gap = string;
 
 type Props = CommonComponentProps &
   Partial<{
-    gap:
-      | [GapProperty<any>]
-      | [GapProperty<any>, GapProperty<any>]
-      | [GapProperty<any>, GapProperty<any>, GapProperty<any>];
+    gap: GapProp;
     alignItems:
       | [AlignItemsProperty]
       | [AlignItemsProperty, AlignItemsProperty]

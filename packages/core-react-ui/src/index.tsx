@@ -10,6 +10,7 @@ export * from './components/text/paragraph';
 export * from './components/text/title';
 export * from './context/viewport.provider';
 export * from './demo/design-system-demo';
+export * from './demo/placeholder';
 export * from './design-system/css-design-system';
 export * from './design-system/default-animations';
 export * from './design-system/default-buttons';
