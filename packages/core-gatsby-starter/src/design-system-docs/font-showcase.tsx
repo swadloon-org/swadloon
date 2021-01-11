@@ -1,12 +1,9 @@
 import { HEADING } from '@newrade/core-design-system';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { Heading } from '../components/text/heading';
-import { useTreatTheme } from '../hooks/use-treat-theme';
-import { Cluster } from '../layout/cluster';
-import { Stack } from '../layout/stack';
 import * as styleRefs from './font-showcase.treat';
 import { title } from 'case';
+import { useTreatTheme, Stack, Heading, Cluster } from '@newrade/core-react-ui';
 
 type Props = {};
 

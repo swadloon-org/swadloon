@@ -1,8 +1,8 @@
 import { Stack } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { SrcPageTemplateProps } from '@newrade/core-gatsby-ui';
-import * as styleRefs from '../styles/index.treat';
+import { SrcPageTemplateProps, SrcPageTemplate } from '../../templates/src-page.template';
+import * as styleRefs from '../../styles/index.treat';
 
 const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
   const arr = ['kk', 'yeah'];

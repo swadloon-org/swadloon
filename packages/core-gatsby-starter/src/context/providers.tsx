@@ -35,3 +35,5 @@ export const Providers: React.FC = (props) => {
     </TreatProvider>
   );
 };
+
+export default Providers;

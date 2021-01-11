@@ -44,7 +44,13 @@ export interface LinkStyleProps {
    * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/button_role
    */
   role: string;
+  /**
+   * icon placement
+   */
   variantIcon: LinkIcon;
+  /**
+   * Normal or reversed style
+   */
   variantStyle: LinkStyleVariant;
   variant: LinkVariant;
   variantSize: PARAGRAPH_SIZE; // same as paragraph sizes

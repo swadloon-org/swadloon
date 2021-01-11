@@ -1,8 +1,8 @@
 import { Stack } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { SrcPageTemplate, SrcPageTemplateProps } from '@newrade/core-gatsby-ui';
-import * as styleRefs from '../styles/index.treat';
+import * as styleRefs from '../../styles/index.treat';
+import { SrcPageTemplateProps, SrcPageTemplate } from '../../templates/src-page.template';
 
 const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
   const lorenipsum = `Lorem ipsum dolor sit amet.`;
@@ -563,8 +563,6 @@ const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
       <Stack className="wrapper" id={'Table content'} gap={['21px']}>
         <h3>Table and Caption</h3>
 
-        <caption>He-Man and Skeletor facts</caption>
-
         <table>
           <tbody>
             <tr>
@@ -597,7 +595,6 @@ const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
         <h3>col and colgroup</h3>
         <table>
           <tbody>
-            <caption>Superheros and sidekicks</caption>
             <colgroup>
               <col></col>
               <col span={2} className="batman" style={{ backgroundColor: 'red' }}></col>
@@ -622,7 +619,6 @@ const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
 
         <h3>Tbody and thead</h3>
         <table>
-          <caption>Council budget (in £) 2018</caption>
           <thead>
             <tr>
               <th>Items</th>

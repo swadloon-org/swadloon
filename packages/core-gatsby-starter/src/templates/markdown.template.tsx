@@ -1,36 +1,37 @@
 import { GatsbyMarkdownFilePageContext } from '@newrade/core-gatsby-config';
-import { Aside } from '@newrade/core-gatsby-ui';
 import { getMetaBasicTags, GlobalMarkdownCSS, Center } from '@newrade/core-react-ui';
 import { graphql, PageProps } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
 import Helmet from 'react-helmet';
 import { useStyles } from 'react-treat';
-import { MarkdownTemplateQuery } from '../../types/graphql-types';
 import * as styleRefs from './markdown.treat';
+import { Aside } from '@newrade/core-gatsby-ui';
 
-export type MarkdownTemplateProps = PageProps<MarkdownTemplateQuery, GatsbyMarkdownFilePageContext>;
+export type MarkdownTemplateProps = PageProps<any, GatsbyMarkdownFilePageContext>;
 
 /**
  * Query to retrieve all markdown content for the markdown file
  */
 export const markdownTemplateQuery = graphql`
-  query MarkdownTemplate($slug: String!) {
-    mdx(slug: { eq: $slug }) {
-      slug
-      excerpt(pruneLength: 160)
-      frontmatter {
-        title
-        name
-        tags
+  query MarkdownTemplate($fileId: String!) {
+    file(id: { eq: $fileId }) {
+      childMdx {
+        slug
+        excerpt(pruneLength: 160)
+        frontmatter {
+          title
+          name
+          tags
+        }
+        timeToRead
+        headings {
+          value
+          depth
+        }
+        tableOfContents(maxDepth: 3)
+        body
       }
-      timeToRead
-      headings {
-        value
-        depth
-      }
-      tableOfContents(maxDepth: 3)
-      body
     }
   }
 `;
@@ -38,7 +39,7 @@ export const markdownTemplateQuery = graphql`
 /**
  * Markdown template to render .mdx? files (e.g. documentation)
  */
-const Page: React.FC<MarkdownTemplateProps> = (props) => {
+const Template: React.FC<MarkdownTemplateProps> = (props) => {
   const { styles } = useStyles(styleRefs);
 
   return (
@@ -75,13 +76,13 @@ const Page: React.FC<MarkdownTemplateProps> = (props) => {
       </Helmet>
       <Center maxWidth={'800px'}>
         <GlobalMarkdownCSS>
-          <MDXRenderer {...props}>{props.data.mdx?.body as string}</MDXRenderer>
+          <MDXRenderer {...props}>{props.data.file?.childMdx?.body as string}</MDXRenderer>
         </GlobalMarkdownCSS>
       </Center>
 
-      <Aside items={props.data.mdx?.headings} location={props.location} />
+      <Aside items={props.data.file?.childMdx?.headings} location={props.location} />
     </>
   );
 };
 
-export default Page;
+export default Template;

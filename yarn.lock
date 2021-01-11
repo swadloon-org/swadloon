@@ -12832,6 +12832,13 @@ gatsby-plugin-graphql-codegen@^2.7.1:
     fs-extra "^7.0.1"
     lodash.debounce "^4.0.8"
 
+gatsby-plugin-load-script@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-load-script/-/gatsby-plugin-load-script-1.1.0.tgz#b73dc8248ad0e3565d3f848bfd1ecd64f2b7aad2"
+  integrity sha512-EoXUtWX4aBO4zD61xMHIIlQti4FNYmH0KgBkhac+kNMLI64cjzLc0iD7zPrFnzjYR454XAN/GJBa7M7N/VYSpw==
+  dependencies:
+    "@babel/runtime" "^7.9.2"
+
 gatsby-plugin-manifest@^2:
   version "2.5.1"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-manifest/-/gatsby-plugin-manifest-2.5.1.tgz#278e8dc4d11f3ded81d0e55173a43d7f83a4810d"

@@ -82,6 +82,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
             type: edge.node.type.type,
             slug: edge.node.slug,
             locale: edge.node.node_locale as SITE_LANGUAGES,
+            layout: 'SITE',
           },
           component: pageTemplate,
         });

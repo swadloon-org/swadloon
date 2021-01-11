@@ -1,7 +1,7 @@
 import React from 'react';
 import { GatsbySSR } from 'gatsby';
-import { Layout } from './src/layouts/layout';
-import { Providers } from './src/layouts/providers';
+import { Layout } from './src/layout/layout';
+import { Providers } from './src/context/providers';
 
 /**
  * Gatsby Server Rendering APIs

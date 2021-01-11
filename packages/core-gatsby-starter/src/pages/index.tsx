@@ -1,27 +1,24 @@
-import { SrcPageTemplateProps } from '@newrade/core-gatsby-ui';
-import { Button, Stack, BackgroundFilter } from '@newrade/core-react-ui';
+import { Center, Heading } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import * as styleRefs from '../styles/index.treat';
+import { SrcPageTemplate, SrcPageTemplateProps } from '../templates/src-page.template';
 
 const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
   const styles = useStyles(styleRefs);
   return (
-    <Stack gap={['20px']}>
-      <Stack gap={['20px']}>
-        <div>hello</div>
-      </Stack>
-
-      <Stack gap={['13px']}>
-        <h1>Buttons</h1>
-        <Button>Button</Button>
-      </Stack>
-    </Stack>
+    <Center>
+      <Heading>Core Gastby Starter</Heading>
+    </Center>
   );
 };
 
 const Page: React.FC<SrcPageTemplateProps> = (props) => {
-  return <PageComponent {...props}></PageComponent>;
+  return (
+    <SrcPageTemplate {...props}>
+      <PageComponent {...props}></PageComponent>
+    </SrcPageTemplate>
+  );
 };
 
 export default Page;

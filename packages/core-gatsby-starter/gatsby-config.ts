@@ -58,6 +58,9 @@ const config: core.GastbySiteConfig = {
         icon: `src/images/favicon.png`,
       },
     },
+    /**
+     * Source markdown files at `<repo-root>/docs`
+     */
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -65,13 +68,9 @@ const config: core.GastbySiteConfig = {
         path: path.resolve('..', '..', 'docs'),
       },
     },
-    {
-      resolve: `gatsby-plugin-page-creator`,
-      options: {
-        path: path.resolve('..', '..', 'docs'),
-        ignore: [`**/*.treat.ts`, `**/*.tsx`],
-      },
-    },
+    /**
+     * Newrade Contentful project
+     */
     {
       resolve: `gatsby-source-contentful`,
       options: {

@@ -3,10 +3,6 @@ import { Theme } from '../design-system/css-design-system';
 
 export const wrapper = style(({ theme, cssTheme }: Theme) => ({
   display: 'inherit',
-  // TODO
-  // marginTop: 80,
-  // needed to scroll to bottom ids
-  // marginBottom: `80vh`,
 }));
 
 /**

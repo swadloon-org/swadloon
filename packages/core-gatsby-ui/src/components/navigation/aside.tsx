@@ -1,4 +1,4 @@
-import { Label, Stack, Box } from '@newrade/core-react-ui';
+import { Label, Stack, Box, useTreatTheme } from '@newrade/core-react-ui';
 import { WindowLocation } from '@reach/router';
 import { kebab } from 'case';
 import React from 'react';
@@ -19,6 +19,7 @@ type Props = {
 
 export const Aside: React.FC<Props> = (props) => {
   const { styles } = useStyles(styleRefs);
+  const { theme, cssTheme } = useTreatTheme();
 
   const id = props?.location?.hash;
   const currentId = useScrollSpy(props.items);
@@ -71,7 +72,9 @@ function useScrollSpy(items: Props['items']) {
 
     const handleScroll = () => {
       elementsArray.forEach((element) => {
-        if (element.offsetTop <= window.scrollY + 30) {
+        if (element.offsetTop <= window.scrollY + 40) {
+          console.log(element.offsetTop);
+          console.log(window.scrollY);
           setCurrentId(element.id);
         }
       });

@@ -5,8 +5,8 @@
     "sourceMap": true,
     "outDir": "./lib/",
     "rootDir": "./src/",
-    "target": "ESNext",
-    "module": "ESNext",
+    "target": "esnext",
+    "module": "esnext",
     "types": ["react"]
   },
 
