@@ -4,6 +4,7 @@ import { Theme } from '../design-system/css-design-system';
 export const styles = {
   wrapper: style(({ cssTheme, theme }: Theme) => ({
     display: 'grid',
+    width: '100%',
     gridTemplateColumns: `${theme.layout.contentMargins.mobile}px 1fr ${theme.layout.contentMargins.mobile}px`,
     marginLeft: 'auto',
     marginRight: 'auto',

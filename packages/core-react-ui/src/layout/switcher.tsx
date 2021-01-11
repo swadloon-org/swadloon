@@ -7,12 +7,14 @@ import { GapProp } from '../props/layout.prop';
 type OwnProps = CommonComponentProps &
   Partial<{
     gap: GapProp;
+    col: number;
   }>;
 
-export const Switcher: React.FC<OwnProps> = ({ as, className, style, ...props } = {}) => {
+export const Switcher: React.FC<OwnProps> = ({ id, className, style, as, col, ...props } = {}) => {
   const styles = useStyles(styleRefs);
 
   const mergedClassName = `${styles.wrapper} ${className}`;
+  const mergedStyle = { ...style, '--switcher-columns': col ? col : 2 };
 
-  return React.createElement(as || 'div', { className: mergedClassName, style, ...props });
+  return React.createElement(as || 'div', { id, style: mergedStyle, className: mergedClassName, ...props });
 };

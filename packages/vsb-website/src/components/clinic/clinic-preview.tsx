@@ -25,12 +25,13 @@ export const ClinicPreview: React.FC<OwnProps> = (props) => {
       <div className={styles.grid}>
         <Box className={styles.imagePreview}>
           {hasImage ? (
-            <Background
-              filter={['grayscale(90%)']}
-              backgroundPosition={['50% 50%']}
-              style={{ width: '100%', height: '100%' }}
-              AsElement={<BackgroundImage Tag="div" fluid={imageData as IFluidObject} fadeIn={false}></BackgroundImage>}
-            ></Background>
+            // <Background
+            //   filter={['grayscale(90%)']}
+            //   backgroundPosition={['50% 50%']}
+            //   style={{ width: '100%', height: '100%' }}
+            //   AsElement={<BackgroundImage Tag="div" fluid={imageData as IFluidObject} fadeIn={false}></BackgroundImage>}
+            // ></Background>
+            <Background imageSrc={props?.medias?.medias?.[0]?.file?.url}></Background>
           ) : null}
         </Box>
         <Box className={styles.containerInfo}>

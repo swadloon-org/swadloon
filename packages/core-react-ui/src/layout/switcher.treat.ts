@@ -8,10 +8,10 @@ export const wrapper = style(({ cssTheme, theme }: Theme) => ({
 
   '@media': {
     [cssTheme.layout.media.tablet]: {
-      gridTemplateColumns: `1fr 1fr`,
+      gridTemplateColumns: `repeat(var(--switcher-columns, 2), 1fr)`,
     },
     [cssTheme.layout.media.desktopSmall]: {
-      gridTemplateColumns: `1fr 1fr`,
+      gridTemplateColumns: `repeat(var(--switcher-columns, 2), 1fr)`,
     },
   },
 }));
