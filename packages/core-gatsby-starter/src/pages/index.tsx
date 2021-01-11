@@ -1,5 +1,5 @@
 import { SrcPageTemplateProps } from '@newrade/core-gatsby-ui';
-import { Button, Stack, BackgroundFilter } from '@newrade/core-react-ui';
+import { Button, Stack } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import * as styleRefs from '../styles/index.treat';
