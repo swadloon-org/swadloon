@@ -1,19 +1,8 @@
-import { SrcPageTemplateProps } from '@newrade/core-gatsby-ui';
-import {
-  Center,
-  Heading,
-  Placeholder,
-  Stack,
-  Switcher,
-  useTreatTheme,
-  Paragraph,
-  Background,
-  Box,
-  BoxV2,
-} from '@newrade/core-react-ui';
+import { Background, BoxV2, Center, Heading, Stack, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
-import { SrcPageTemplate } from '../templates/src-page.template';
 import { HEADING } from '../../../core-design-system/src';
+import { Placeholder } from '../design-system-docs/utils/placeholder';
+import { SrcPageTemplate, SrcPageTemplateProps } from '../templates/src-page.template';
 
 const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
   const { cssTheme } = useTreatTheme();

@@ -2,7 +2,6 @@ import React from 'react';
 
 import Logo from '../images/logo.svg';
 
-import { SrcPageTemplateProps } from '@newrade/core-gatsby-ui';
 import {
   Button,
   Link,
@@ -16,7 +15,7 @@ import {
   Paragraph,
   Label,
 } from '@newrade/core-react-ui';
-import { SrcPageTemplate } from '../templates/src-page.template';
+import { SrcPageTemplate, SrcPageTemplateProps } from '../templates/src-page.template';
 import { TITLE, HEADING, PARAGRAPH_SIZE, LABEL_SIZE } from '@newrade/core-design-system';
 
 const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {

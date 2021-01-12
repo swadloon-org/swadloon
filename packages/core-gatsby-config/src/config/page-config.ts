@@ -1,3 +1,4 @@
+import { SITE_LAYOUT } from './layouts';
 import { GatsbyNodeSiteMetadataFragment } from './site-graphql-types';
 import { SITE_LANGUAGES } from './site-languages';
 
@@ -20,12 +21,16 @@ export type GatsbyCommonPageContext<SiteMetadataType = GatsbyNodeSiteMetadataFra
   /**
    * Locale of the page
    * @example
-   *  fr.page.tsx
-   *  fr_CA.page.tsx
-   *  en.doc.mdx
-   *  doc.md (with frontmatter data)
+   *  fr.page.tsx => locale is fr
+   *  fr_CA.page.tsx => locale is fr_CA
+   *  en.doc.mdx => locale is en
+   *  doc.md (with frontmatter data) => locale is frontmatter.locale
    */
   locale: SITE_LANGUAGES;
+  /**
+   * Each page can be rendered using a specific layout
+   */
+  layout: SITE_LAYOUT;
 };
 
 /**
@@ -80,10 +85,25 @@ export type GatsbyMarkdownFilePageContext = GatsbyCommonPageContext & {
    *
    * @example
    *  ```ts
+   *    `query Page($fileId: String) {...}`
+   *  ```
+   */
+  fileId: string;
+};
+
+/**
+ * For design system pages.
+ *
+ */
+export type GatsbyDesignSystemPageContext = GatsbyCommonPageContext & {
+  /**
+   * The pageId that should be use to query the full data.
+   *
+   * @example
+   *  ```ts
    *    `query Page($slug: String) {...}`
    *  ```
    */
-  slug: string;
 };
 
 /**

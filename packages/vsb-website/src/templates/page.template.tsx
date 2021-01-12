@@ -9,7 +9,7 @@ import { graphql, PageProps } from 'gatsby';
 import React from 'react';
 import Helmet from 'react-helmet';
 import { PageQuery } from '../../types/graphql-types';
-import { PROJECT_PAGE_TYPE } from '../../types/page-type';
+import { PROJECT_PAGE_TYPE } from '../../types/contentful-page-type';
 import '../fonts';
 import { HomeTemplate } from './home.template';
 

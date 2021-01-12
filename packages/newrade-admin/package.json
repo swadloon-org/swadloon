@@ -27,6 +27,7 @@
   "dependencies": {
     "@google/clasp": "^2.3.0",
     "@newrade/core-common": "^1.0.1",
+    "@newrade/core-types": "^1.0.0",
     "@newrade/core-utils": "^1.0.1"
   }
 }

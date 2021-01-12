@@ -71,6 +71,17 @@ globalStyle(`${styles.wrapper}::before`, ({ theme, cssTheme }: Theme) => ({
   content: '" "',
   display: 'block',
   height: cssTheme.layout.navbarHeight.mobile,
-  marginTop: '-75px',
+  marginTop: `-${cssTheme.layout.navbarHeight.mobile}`,
   visibility: 'hidden',
+
+  '@media': {
+    [cssTheme.layout.media.tablet]: {
+      height: cssTheme.layout.navbarHeight.tablet,
+      marginTop: `-${cssTheme.layout.navbarHeight.tablet}`,
+    },
+    [cssTheme.layout.media.desktopSmall]: {
+      height: cssTheme.layout.navbarHeight.desktop,
+      marginTop: `-${cssTheme.layout.navbarHeight.desktop}`,
+    },
+  },
 }));

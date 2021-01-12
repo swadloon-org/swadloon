@@ -11,7 +11,7 @@ export const styles = {
     color: cssTheme.colors.colorIntents.primaryText,
 
     backgroundColor: getCSSColor({ h: 0, s: 0, l: 100, a: 100 }),
-    boxShadow: `0px 2px 6px rgba(0, 0, 0, 0.25)`,
+    boxShadow: `rgba(33, 33, 33, 0.15) 0px 1px 2px`,
 
     zIndex: cssTheme.layout.zIndex.navBar,
     overflow: 'hidden',
@@ -37,11 +37,11 @@ export const styles = {
     width: 28,
   })),
   logoMobile: style(({ cssTheme, theme }: Theme) => ({
-    height: `100%`,
+    maxHeight: `100%`,
     fill: cssTheme.colors.colorIntents.primary,
   })),
   logoDesktop: style(({ cssTheme, theme }: Theme) => ({
-    height: `100%`,
+    maxHeight: `100%`,
     fill: cssTheme.colors.colorIntents.primary,
   })),
   logoWrapper: style(({ cssTheme, theme }: Theme) => ({

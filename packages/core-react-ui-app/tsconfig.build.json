@@ -8,7 +8,7 @@
     "outDir": "dist",
     "baseUrl": ".",
     "target": "es6",
-    "module": "ESNext",
+    "module": "esnext",
     "rootDir": ".",
     "types": ["react", "react-dom"],
     "paths": {
