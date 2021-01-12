@@ -113,6 +113,9 @@
       "path": "../packages/core-react-ui-app"
     },
     {
+      "path": "../packages/core-types"
+    },
+    {
       "path": "../packages/core-utils"
     },
     {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { ProjectPageProps } from './page.template';
-import { SECTION_TYPE } from '../../types/contentful/section-type';
+import { SECTION_TYPE } from '../../types/contentful-section-type';
 import { Banner } from '../components/banner';
 import { TileLinks } from '../components/tile-links';
 import { TileLink } from '../components/tile-link';

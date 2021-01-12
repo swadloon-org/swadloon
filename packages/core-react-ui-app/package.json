@@ -16,6 +16,7 @@
     "@newrade/core-design-system": "^1.5.0",
     "@newrade/core-jest-config": "^1.5.0",
     "@newrade/core-react-ui": "^1.6.0",
+    "@newrade/core-types": "^1.0.0",
     "@newrade/core-utils": "^1.3.0",
     "@newrade/core-webpack-config": "^1.3.3",
     "treat": "^1.5.1"
