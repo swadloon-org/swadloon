@@ -7,3 +7,5 @@ export type GapProp =
   | [GapProperty<any>]
   | [GapProperty<any>, GapProperty<any>]
   | [GapProperty<any>, GapProperty<any>, GapProperty<any>];
+
+export type VariantGrid = 'rows' | 'col';
