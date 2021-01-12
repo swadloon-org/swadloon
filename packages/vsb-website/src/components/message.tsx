@@ -1,10 +1,10 @@
-import { Box, Center, Cluster, Stack, useTreatTheme, Heading, BoxV2 } from '@newrade/core-react-ui';
+import { BoxV2, Center, Cluster, Heading, Stack, useTreatTheme } from '@newrade/core-react-ui';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
 import { useStyles } from 'react-treat';
+import { HEADING } from '../../../core-design-system/src';
 import { SectionFragment } from '../../types/graphql-types';
 import * as styleRefs from './message.treat';
-import { HEADING } from '../../../core-design-system/src';
 
 type OwnProps = SectionFragment;
 
@@ -16,9 +16,9 @@ export const Message: React.FC<OwnProps> = (props) => {
     <Center className={`${styles.wrapper}`}>
       <BoxV2 padding={[cssTheme.sizing.var.x6, 0]}>
         <div className={styles.grid}>
-          <Box className={styles.gridTitle}>
+          <BoxV2 className={styles.gridTitle}>
             <Heading variant={HEADING.h3}>{props?.title}</Heading>
-          </Box>
+          </BoxV2>
 
           <Stack gap={[cssTheme.sizing.var.x4]} className={styles.gridMessages}>
             {props?.announcements?.map((item: any, index: number) => {

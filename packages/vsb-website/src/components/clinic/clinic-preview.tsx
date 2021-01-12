@@ -2,7 +2,7 @@ import React from 'react';
 import { useStyles } from 'react-treat';
 import { SectionFragment } from '../../../types/graphql-types';
 import * as styleRefs from './treat/clinic-preview.treat';
-import { Center, Cluster, Box, Stack, Heading, Grid, GlobalMarkdownCSS } from '@newrade/core-react-ui';
+import { Center, Cluster, Stack, Heading, Grid, GlobalMarkdownCSS, BoxV2 } from '@newrade/core-react-ui';
 import { cssTheme } from '../../design-system/theme';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { HEADING } from '@newrade/core-design-system/';
@@ -23,7 +23,7 @@ export const ClinicPreview: React.FC<OwnProps> = (props) => {
   return (
     <Center className={`${styles.wrapper}`}>
       <div className={styles.grid}>
-        <Box className={styles.imagePreview}>
+        <BoxV2 className={styles.imagePreview}>
           {hasImage ? (
             // <Background
             //   filter={['grayscale(90%)']}
@@ -33,8 +33,8 @@ export const ClinicPreview: React.FC<OwnProps> = (props) => {
             // ></Background>
             <Background imageSrc={props?.medias?.medias?.[0]?.file?.url}></Background>
           ) : null}
-        </Box>
-        <Box className={styles.containerInfo}>
+        </BoxV2>
+        <BoxV2 className={styles.containerInfo}>
           <Stack gap={[cssTheme.sizing.var.x5]}>
             <Heading variant={HEADING.h1}>{props?.title}</Heading>
             <div className={styles.contentMarkdown}>
@@ -43,7 +43,7 @@ export const ClinicPreview: React.FC<OwnProps> = (props) => {
               </GlobalMarkdownCSS>
             </div>
           </Stack>
-        </Box>
+        </BoxV2>
       </div>
     </Center>
   );

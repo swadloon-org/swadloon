@@ -1,10 +1,10 @@
+import { HEADING } from '@newrade/core-design-system';
+import { Center, Heading } from '@newrade/core-react-ui';
+import BackgroundImage, { IFluidObject } from 'gatsby-background-image';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { SectionFragment } from '../../types/graphql-types';
 import * as styleRefs from './tile-link.treat';
-import BackgroundImage, { IFluidObject } from 'gatsby-background-image';
-import { Box, Center, Stack, Cluster, Heading } from '@newrade/core-react-ui';
-import { HEADING, TEXT_LEVEL } from '@newrade/core-design-system';
 
 type OwnProps = SectionFragment;
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { useStyles } from 'react-treat';
 import { SectionFragment } from '../../types/graphql-types';
 import * as styleRefs from './tile-links.treat';
-import { Box, Center, Stack, Cluster } from '@newrade/core-react-ui';
+import { Center, Stack, Cluster } from '@newrade/core-react-ui';
 import { TileLink } from './tile-link';
 
 type OwnProps = SectionFragment;
