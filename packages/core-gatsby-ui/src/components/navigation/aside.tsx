@@ -1,4 +1,4 @@
-import { Label, Stack, Box, useTreatTheme, BoxV2 } from '@newrade/core-react-ui';
+import { Label, Stack, useTreatTheme, BoxV2 } from '@newrade/core-react-ui';
 import { WindowLocation } from '@reach/router';
 import { kebab } from 'case';
 import React from 'react';
