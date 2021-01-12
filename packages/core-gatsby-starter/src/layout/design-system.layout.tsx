@@ -1,24 +1,22 @@
+import { GatsbyLink } from '@newrade/core-gatsby-ui';
 import {
   Main,
   MainWrapper,
   NavBar,
-  SideBar,
-  Link,
   NavItem,
-  Label,
   NavItemGroup,
+  SideBar,
   Stack,
   useTreatTheme,
 } from '@newrade/core-react-ui';
-import { PageProps, graphql, useStaticQuery } from 'gatsby';
+import { title } from 'case';
+import { PageProps } from 'gatsby';
 import React, { ReactNode } from 'react';
 import { useStyles } from 'react-treat';
-import * as styleRefs from './design-system.layout.treat';
-import { DesignSystemLayoutPageQuery } from '../../types/graphql-types';
-import { title } from 'case';
-import { GatsbyLink } from '@newrade/core-gatsby-ui';
-import Logo from '../images/logo.svg';
 import { useDesignSystemNavItems } from '../hooks/use-design-system-nav-items.hook';
+import Logo from '../images/logo.svg';
+import MobileLogo from '../images/logo-symbol.svg';
+import * as styleRefs from './design-system.layout.treat';
 
 type LayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }>;
 
@@ -30,8 +28,8 @@ export const LayoutDesignSystem = React.memo<LayoutProps>((props) => {
   return (
     <MainWrapper>
       <NavBar
-        DesktopSvgLogo={<Logo height={'70%'} />}
-        MobileSvgLogo={<Logo height={'70%'} />}
+        DesktopSvgLogo={<Logo height={'20'} fill={cssTheme.colors.colorIntents.primary} />}
+        MobileSvgLogo={<MobileLogo height={'29'} fill={cssTheme.colors.colorIntents.primary} />}
         maxWidth={'100%'}
       ></NavBar>
 
@@ -40,7 +38,7 @@ export const LayoutDesignSystem = React.memo<LayoutProps>((props) => {
           <Stack gap={[cssTheme.sizing.var.x4]}>
             {[...navItemsByDirName].map((dirName, index) => {
               return (
-                <Stack key={index} gap={[cssTheme.sizing.var.x2]}>
+                <Stack key={index} gap={[`calc(2 * ${cssTheme.sizing.var.x1})`]}>
                   {dirName === '' ? (
                     <NavItemGroup>Docs</NavItemGroup>
                   ) : (
@@ -54,7 +52,7 @@ export const LayoutDesignSystem = React.memo<LayoutProps>((props) => {
                           <NavItem
                             key={itemIndex}
                             active={item.path === props.location?.pathname}
-                            AsElement={<GatsbyLink to={item.path} />}
+                            AsElement={<GatsbyLink to={item.path} noStyles={true} />}
                           >
                             {item.name}
                           </NavItem>

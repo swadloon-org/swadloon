@@ -32,9 +32,7 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
 
       <Stack id={'Foundations'} gap={[cssTheme.sizing.var.x5]}>
         <Stack gap={[cssTheme.sizing.var.x4]}>
-          <Heading variant={HEADING.h2}>Foundations</Heading>
-
-          <Paragraph>The design system describes</Paragraph>
+          <Paragraph>The design system describes every aspect of the visual design of a brand</Paragraph>
 
           {navItems.map((item, index) => {
             return (

@@ -121,17 +121,21 @@ export const NavBar: React.FC<Props> = (props) => {
         style={props.style}
         maxWidth={props.maxWidth}
       >
-        <Cluster justifyContent={['space-between']} alignItems={['center']}>
-          <Button>
-            <IoMenu className={styles.icon} />
-          </Button>
+        <div className={styles.mobileWrapper}>
+          <BoxV2 justifyContent={['flex-start']}>
+            <Button>
+              <IoMenu className={styles.icon} />
+            </Button>
+          </BoxV2>
 
-          <BoxV2 padding={[cssTheme.sizing.var.x2, cssTheme.sizing.var.x3]}>{MobileSvgLogo}</BoxV2>
+          <BoxV2 justifyContent={['center']} padding={[cssTheme.sizing.var.x2, 0]}>
+            {MobileSvgLogo || DesktopSvgLogo}
+          </BoxV2>
 
-          <BoxV2 padding={[cssTheme.sizing.var.x2, cssTheme.sizing.var.x3]}>
+          <BoxV2 justifyContent={['flex-end']} padding={[cssTheme.sizing.var.x2, cssTheme.sizing.var.x3]}>
             <Label>EN</Label>
           </BoxV2>
-        </Cluster>
+        </div>
       </Center>
 
       {/* Desktop */}
@@ -143,8 +147,8 @@ export const NavBar: React.FC<Props> = (props) => {
         maxWidth={props.maxWidth}
       >
         <Cluster justifyContent={['space-between']} alignItems={['center']}>
-          <BoxV2 padding={[cssTheme.sizing.var.x3, 0]} className={styles.logoWrapper}>
-            {DesktopSvgLogo}
+          <BoxV2 padding={[cssTheme.sizing.var.x2, 0]} className={styles.logoWrapper}>
+            {DesktopSvgLogo || MobileSvgLogo}
           </BoxV2>
 
           <Cluster justifyContent={['space-between']} gap={[cssTheme.sizing.var.x4]}>
