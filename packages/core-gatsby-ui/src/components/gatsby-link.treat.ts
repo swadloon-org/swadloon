@@ -3,10 +3,12 @@ import { style } from 'treat';
 
 export const styles = {
   wrapper: style(({ cssTheme, theme }: Theme) => ({
-    color: 'currentColor',
-    textDecoration: 'none',
     outline: 'none',
     cursor: 'pointer',
+  })),
+  noStyles: style(({ cssTheme, theme }: Theme) => ({
+    color: 'currentColor',
+    textDecoration: 'none',
     /**
      * States
      */

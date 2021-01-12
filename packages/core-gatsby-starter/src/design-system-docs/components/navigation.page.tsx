@@ -28,31 +28,19 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
   return (
     <Stack id={'Design System'} gap={[cssTheme.sizing.var.x5]}>
       <Stack id={'Components'} gap={[cssTheme.sizing.var.x5]}>
-        <Heading variant={HEADING.h2}>Components</Heading>
+        <Heading variant={HEADING.h2}>Navigation</Heading>
 
-        <Details id={'Links'} open={true}>
+        <Details id={'Navigation'} open={true}>
           <Summary>
-            <Heading variant={HEADING.h3}>Links</Heading>
+            <Heading variant={HEADING.h3}>NavBar</Heading>
           </Summary>
 
           <BoxV2 padding={[cssTheme.sizing.var.x3, 0]}>
-            <Stack gap={[cssTheme.sizing.var.x4]}>
-              <Stack gap={[cssTheme.sizing.var.x3]}>
-                <Label variantLevel={TEXT_LEVEL.tertiary}>Variant</Label>
-
-                <Link variant={LinkVariant.noUnderline}>Link</Link>
-                <Link variant={LinkVariant.underline}>Link Underline</Link>
-              </Stack>
-
-              <Stack gap={[cssTheme.sizing.var.x3]}>
-                <Label variantLevel={TEXT_LEVEL.tertiary}>Size</Label>
-
-                <Link variantSize={PARAGRAPH_SIZE.large}>Link</Link>
-                <Link variantSize={PARAGRAPH_SIZE.medium}>Link</Link>
-                <Link variantSize={PARAGRAPH_SIZE.small}>Link</Link>
-                <Link variantSize={PARAGRAPH_SIZE.xSmall}>Link</Link>
-              </Stack>
-            </Stack>
+            <NavBar
+              style={{ position: 'relative' }}
+              MobileSvgLogo={<LogoPlaceholder height={'100%'} />}
+              DesktopSvgLogo={<LogoPlaceholder height={'100%'} />}
+            />
           </BoxV2>
         </Details>
       </Stack>

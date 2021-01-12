@@ -16,8 +16,12 @@ export const styles = {
     zIndex: cssTheme.layout.zIndex.navBar,
     overflow: 'hidden',
   })),
+  mobileWrapper: style(({ cssTheme, theme }: Theme) => ({
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr 1fr',
+    height: '100%',
+  })),
   mobileMenu: style(({ cssTheme, theme }: Theme) => ({
-    display: 'inherit',
     '@media': {
       [cssTheme.layout.media.desktopSmall]: {
         display: 'none',
@@ -28,7 +32,7 @@ export const styles = {
     display: 'none',
     '@media': {
       [cssTheme.layout.media.desktopSmall]: {
-        display: 'inherit',
+        display: 'grid',
       },
     },
   })),
@@ -38,11 +42,9 @@ export const styles = {
   })),
   logoMobile: style(({ cssTheme, theme }: Theme) => ({
     maxHeight: `100%`,
-    fill: cssTheme.colors.colorIntents.primary,
   })),
   logoDesktop: style(({ cssTheme, theme }: Theme) => ({
     maxHeight: `100%`,
-    fill: cssTheme.colors.colorIntents.primary,
   })),
   logoWrapper: style(({ cssTheme, theme }: Theme) => ({
     height: cssTheme.layout.var.navbarHeight,
