@@ -21,7 +21,7 @@ export const Message: React.FC<OwnProps> = (props) => {
             {props?.announcements?.map((item: any, index: number) => {
               return (
                 <Box key={index}>
-                  <h4>{item?.title}</h4>
+                  {/* <h4>{item?.title}</h4> */}
                   <MDXRenderer components={markdownComponents}>{item.message.childMdx.body}</MDXRenderer>
                 </Box>
               );

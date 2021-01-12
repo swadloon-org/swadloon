@@ -74,7 +74,6 @@ export const sectionFragment = graphql`
         }
       }
       announcements {
-        title
         name
         type
         message {
