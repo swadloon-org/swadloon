@@ -40,7 +40,6 @@ export * from './hooks/use-treat-theme';
 export * from './hooks/use-viewport';
 export * from './hooks/use-window-scroll-position';
 export * from './hooks/use-window-size';
-export * from './layout/box';
 export * from './layout/box-v2';
 export * from './layout/center';
 export * from './layout/cluster';

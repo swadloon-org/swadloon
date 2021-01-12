@@ -1,4 +1,4 @@
-import { Label, Stack, Box, useTreatTheme } from '@newrade/core-react-ui';
+import { Label, Stack, Box, useTreatTheme, BoxV2 } from '@newrade/core-react-ui';
 import { WindowLocation } from '@reach/router';
 import { kebab } from 'case';
 import React from 'react';
@@ -25,7 +25,7 @@ export const Aside: React.FC<Props> = (props) => {
   const currentId = useScrollSpy(props.items);
 
   return (
-    <Box as={'aside'} className={styles.wrapper}>
+    <BoxV2 as={'aside'} className={styles.wrapper}>
       <Stack as={'nav'} className={styles.wrapper}>
         {props.items?.filter(filterItemDepthPredicate).map((item) => {
           const href = `#${formatAnchorId(item?.value)}`;
@@ -42,7 +42,7 @@ export const Aside: React.FC<Props> = (props) => {
           );
         })}
       </Stack>
-    </Box>
+    </BoxV2>
   );
 };
 
