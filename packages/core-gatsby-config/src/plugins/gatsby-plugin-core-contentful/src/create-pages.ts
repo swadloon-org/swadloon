@@ -79,6 +79,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
             pageId: edge.node.id,
             id: edge.node.id,
             name: edge.node.name,
+            dirName: edge.node.slug, // TODO
             type: edge.node.type.type,
             slug: edge.node.slug,
             locale: edge.node.node_locale as SITE_LANGUAGES,

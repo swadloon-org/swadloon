@@ -52,6 +52,7 @@ export type File = {
   ext: string;
   dir: string;
   absolutePath: string;
+  relativePath: string;
   publicURL: string;
   size: string;
   sourceInstanceName: string;

@@ -9,6 +9,7 @@ export const styles = {
     left: 0,
     bottom: 0,
     width: cssTheme.layout.var.sidebarWidth,
+    padding: `${cssTheme.sizing.var.x3} 0`,
     color: cssTheme.colors.colorIntents.primaryText,
 
     backgroundColor: getCSSColor({ h: 0, s: 0, l: 100, a: 100 }),

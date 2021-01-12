@@ -2,7 +2,8 @@ import React, { AnchorHTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './nav-item.treat';
 import { CommonComponentProps } from '../props/component-common.props';
-import { LinkProps } from '../../../core-design-system/src';
+import { LinkProps, TEXT_STYLE } from '../../../core-design-system/src';
+import { Label } from '../components/text/label';
 
 type Props = CommonComponentProps &
   AnchorHTMLAttributes<any> &
@@ -10,18 +11,22 @@ type Props = CommonComponentProps &
     active?: boolean;
   };
 
-export const NavItem: React.FC<Props> = ({ id, style, className, AsElement, ...props }) => {
+export const NavItem: React.FC<Props> = ({ id, style, className, active, AsElement, ...props }) => {
   const { styles } = useStyles(styleRefs);
 
-  const allClassName = `${styles.wrapper} ${className || ''} `;
+  const allClassName = `${styles.wrapper} ${active ? styles.active : ''} ${className || ''} `;
 
   const WrapperElement = AsElement
-    ? React.cloneElement(AsElement as React.ReactElement, {
-        id,
-        style,
-        className: allClassName,
-        ...props,
-      })
+    ? React.cloneElement(
+        AsElement as React.ReactElement,
+        {
+          id,
+          ...props,
+        },
+        <div style={style} className={allClassName}>
+          <Label>{props.children}</Label>
+        </div>
+      )
     : null;
 
   if (WrapperElement) {
@@ -29,8 +34,8 @@ export const NavItem: React.FC<Props> = ({ id, style, className, AsElement, ...p
   }
 
   return (
-    <div id={id} style={style} className={styles.wrapper}>
-      {props.children}
+    <div id={id} style={style} className={allClassName}>
+      <Label variantStyle={TEXT_STYLE.normal}>{props.children}</Label>
     </div>
   );
 };

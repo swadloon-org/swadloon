@@ -16,8 +16,14 @@ export type GatsbyCommonPageContext<SiteMetadataType = GatsbyNodeSiteMetadataFra
   id: string;
   /**
    * Display name of the page
+   * @example /docs/colors => colors
    */
   name: string;
+  /**
+   * Directory name
+   * @example /docs/colors => docs
+   */
+  dirName: string;
   /**
    * Locale of the page
    * @example

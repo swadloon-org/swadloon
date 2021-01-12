@@ -9249,6 +9249,7 @@ export type SitePageContext = {
   siteMetadata?: Maybe<SitePageContextSiteMetadata>;
   id?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
+  dirName?: Maybe<Scalars['String']>;
   fileId?: Maybe<Scalars['String']>;
   layout?: Maybe<Scalars['String']>;
   locale?: Maybe<Scalars['String']>;
@@ -9259,6 +9260,7 @@ export type SitePageContextFilterInput = {
   siteMetadata?: Maybe<SitePageContextSiteMetadataFilterInput>;
   id?: Maybe<StringQueryOperatorInput>;
   name?: Maybe<StringQueryOperatorInput>;
+  dirName?: Maybe<StringQueryOperatorInput>;
   fileId?: Maybe<StringQueryOperatorInput>;
   layout?: Maybe<StringQueryOperatorInput>;
   locale?: Maybe<StringQueryOperatorInput>;
@@ -9324,6 +9326,7 @@ export type SitePageFieldsEnum =
   | 'context___siteMetadata___languages___defaultLangKey'
   | 'context___id'
   | 'context___name'
+  | 'context___dirName'
   | 'context___fileId'
   | 'context___layout'
   | 'context___locale'
@@ -10210,7 +10213,7 @@ export type DesignSystemLayoutPageQuery = { pages: (
     & { nodes: Array<(
       Pick<SitePage, 'id' | 'path'>
       & { context?: Maybe<(
-        Pick<SitePageContext, 'id' | 'name' | 'locale' | 'layout'>
+        Pick<SitePageContext, 'id' | 'name' | 'dirName' | 'locale' | 'layout'>
         & { siteMetadata?: Maybe<(
           Pick<SitePageContextSiteMetadata, 'description' | 'siteEnv' | 'siteUrl' | 'title'>
           & { languages?: Maybe<Pick<SitePageContextSiteMetadataLanguages, 'defaultLangKey' | 'langs'>> }

@@ -11,6 +11,7 @@ import {
 } from '../../../config/site-graphql-types';
 import { SITE_LANGUAGES } from '../../../config/site-languages';
 import { SOURCE_INSTANCE_NAME } from '../../../config/source-instances';
+import { getDirNameFromRelativePath } from '../../../utils/dir-name.utilities';
 import { GatsbyCorePluginOptions } from '../gatsby-plugin-options';
 
 let siteMetadata: GatsbyNodeSiteMetadataFragment;
@@ -66,6 +67,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
             ext
             dir
             absolutePath
+            relativePath
             publicURL
             size
             sourceInstanceName
@@ -114,6 +116,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
           siteMetadata,
           id: node.id,
           name: node.childMdx?.frontmatter?.name || node.name,
+          dirName: getDirNameFromRelativePath(node.relativePath),
           fileId: node.id,
           layout: 'DOCS',
           locale,
@@ -156,6 +159,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
           siteMetadata,
           id: node.id,
           name: node.name,
+          dirName: getDirNameFromRelativePath(node.relativePath),
           fileId: node.id,
           layout: 'DESIGN_SYSTEM',
           locale: SITE_LANGUAGES.EN,

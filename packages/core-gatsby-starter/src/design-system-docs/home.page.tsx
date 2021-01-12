@@ -36,9 +36,9 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
 
           <Paragraph>The design system describes</Paragraph>
 
-          {navItems.map((item) => {
+          {navItems.map((item, index) => {
             return (
-              <Link variantSize={PARAGRAPH_SIZE.medium} AsElement={<GatsbyLink to={item.path} />}>
+              <Link key={index} variantSize={PARAGRAPH_SIZE.medium} AsElement={<GatsbyLink to={item.path} />}>
                 {item.name}
               </Link>
             );

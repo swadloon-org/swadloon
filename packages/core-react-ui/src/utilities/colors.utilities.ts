@@ -16,11 +16,11 @@ export function generateColorPalette5({ color: color, light, dark }: { color: DS
   const lightStep = Math.round((dark - light) / 5);
 
   return {
-    '100': { ...color, l: color.l - 2 * lightStep },
-    '300': { ...color, l: color.l - 1 * lightStep },
+    '900': { ...color, l: color.l - 2 * lightStep },
+    '700': { ...color, l: color.l - 1 * lightStep },
     '500': color,
-    '700': { ...color, l: color.l + 1 * lightStep },
-    '900': { ...color, l: color.l + 2 * lightStep },
+    '300': { ...color, l: color.l + 1 * lightStep },
+    '100': { ...color, l: color.l + 2 * lightStep },
   } as DS.ColorPalette<DS.ColorShades5>;
 }
 

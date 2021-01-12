@@ -53,6 +53,7 @@ export * from './markdown/mdx.provider';
 export * from './models/open-graph-metadata.model';
 export * from './models/twitter-metadata.model';
 export * from './navigation/nav-item';
+export * from './navigation/nav-item-group';
 export * from './navigation/navbar';
 export * from './navigation/sidebar';
 export * from './utilities/colors.utilities';

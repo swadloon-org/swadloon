@@ -17,7 +17,8 @@
     "create-package-json-treat": "mkdir -p lib/plugins/gatsby-plugin-treat && cp 'src/plugins/gatsby-plugin-treat/package.json' 'lib/plugins/gatsby-plugin-treat/package.json'",
     "prestart": "yarn create-package-json-plugin-layout-core & create-package-json-plugin-core-contentful & yarn create-package-json-plugin-core & yarn create-package-json-treat",
     "start": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
-    "test": "echo ok"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "sideEffects": false,
   "typings": "./lib/index.d.ts",

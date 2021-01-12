@@ -6,7 +6,7 @@
     "outDir": "lib",
     "module": "commonjs",
     "strict": false,
-    "types": ["gatsby", "node"]
+    "types": ["gatsby", "node", "jest"]
   },
   "references": [
     {

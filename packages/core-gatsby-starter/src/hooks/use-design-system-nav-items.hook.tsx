@@ -1,6 +1,6 @@
 import { useStaticQuery, graphql } from 'gatsby';
 import { DesignSystemLayoutPageQuery } from '../../types/graphql-types';
-import { title } from 'case';
+import { title, kebab } from 'case';
 
 const query = graphql`
   query DesignSystemLayoutPage {
@@ -22,6 +22,7 @@ const query = graphql`
           }
           id
           name
+          dirName
           locale
           layout
         }
@@ -35,6 +36,7 @@ export function useDesignSystemNavItems() {
 
   const navItems = data?.pages.nodes.map((node) => ({
     name: formatName(node.context?.name),
+    dirName: node.context?.dirName,
     path: node.path,
   }));
 
