@@ -1,22 +1,14 @@
-import useWebAnimations from '@wellyshen/use-web-animations';
-import React, { useEffect, useState } from 'react';
-import { IoMenu } from 'react-icons/io5';
+import React from 'react';
 import { useStyles } from 'react-treat';
-import * as styleRefs from './navbar.treat';
+import { Link } from '../components/text/link';
 import { useTreatTheme } from '../hooks/use-treat-theme';
-import { Center } from '../layout/center';
-import { Cluster } from '../layout/cluster';
-import { Button } from '../components/button/button';
-import { BoxV2 } from '../layout/box-v2';
-import { Label } from '../components/text/label';
 import { CommonComponentProps } from '../props/component-common.props';
-import { isIOS } from 'react-device-detect';
+import * as styleRefs from './sidebar.treat';
+import { Stack } from '../layout/stack';
 
 type Props = CommonComponentProps & {
   variantStyle?: 'transparent' | 'white';
-  MobileSvgLogo?: React.ReactNode;
-  DesktopSvgLogo?: React.ReactNode;
-  MenuLinks?: React.ReactNode;
+  navItems?: { name?: string | null; path?: string | null }[];
 };
 
 /**
@@ -27,5 +19,20 @@ export const SideBar: React.FC<Props> = (props) => {
   const { styles } = useStyles(styleRefs);
   const { theme, cssTheme } = useTreatTheme();
 
-  return <div className={styles.wrapper}>sidebar</div>;
+  return (
+    <div className={styles.wrapper}>
+      <Stack className={styles.navItemsWrapper}>
+        {/* Default links */}
+        {props.navItems?.map((item, index) => {
+          return (
+            <div key={index} className={styles.navItem}>
+              <Link href={item.path || ''}>{item.name}</Link>
+            </div>
+          );
+        })}
+        {/* User provided links */}
+        {props.children}
+      </Stack>
+    </div>
+  );
 };

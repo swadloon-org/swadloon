@@ -1,4 +1,4 @@
-declare module 'react-helmet' {
+declare module '*.scss' {
   const value: any;
   export default value;
 }

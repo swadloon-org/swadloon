@@ -19,6 +19,7 @@ export const styles: { [key in LinkStyleProps['variantStyle']]: string } &
 
   rest: style(({ theme, cssTheme }: Theme) => ({
     outline: 'none',
+    cursor: 'pointer',
     transition: `all 0.2s ease-out`,
     /**
      * States

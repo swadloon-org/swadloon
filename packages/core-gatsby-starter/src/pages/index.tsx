@@ -1,4 +1,4 @@
-import { Center, Heading } from '@newrade/core-react-ui';
+import { Center, Heading, Link } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import * as styleRefs from '../styles/index.treat';
@@ -9,6 +9,10 @@ const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
   return (
     <Center>
       <Heading>Core Gastby Starter</Heading>
+
+      <Link href={'/docs/'}>Repo Docs</Link>
+      <Link href={'/packages-docs/'}>Docs</Link>
+      <Link href={'/design-system/'}>Design System</Link>
     </Center>
   );
 };

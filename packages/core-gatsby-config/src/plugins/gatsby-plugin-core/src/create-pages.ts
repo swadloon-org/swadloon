@@ -128,22 +128,23 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
     // const designSystemPageTemplate = path.resolve(`../core-gatsby-ui/lib/templates/src-page.template.js`);
     const designSystemPageTemplate = path.resolve(`src/templates/design-system-page.template.tsx`);
     const designSystemPagesData = await graphql<{
-      allFile: { nodes: { id: string; name: string; absolutePath: string }[] };
+      allFile: { nodes: { id: string; name: string; absolutePath: string; relativePath: string }[] };
     }>(`
       query GatsbyNodeDesignSystemFiles {
-        allFile(filter: { sourceInstanceName: { eq: "DESIGN_SYSTEM_DOCS" }, name: { regex: "/.page$/g" } }) {
+        allFile(filter: { sourceInstanceName: { eq: "DESIGN_SYSTEM_DOCS" }, name: { glob: "*.page" } }) {
           nodes {
             id
             name
             absolutePath
+            relativePath
           }
         }
       }
     `);
     designSystemPagesData?.data?.allFile.nodes.forEach((node, index) => {
-      const dir = `design-system`;
-      const formattedName = kebab(node.name.replace('.page', '').replace('design-system-', ''));
-      const path = `${dir}/${formattedName}`;
+      const dir = `design-system/${node.relativePath.replace(/\/(.+)/, '/').replace(`${node.name}.tsx`, '')}`;
+      const formattedName = kebab(node.name.replace('.page', '').replace('home', ''));
+      const path = `${dir}${formattedName}`;
 
       log(`Creating design system page: ${path}`, {
         toolName: pluginOptions.packageName,

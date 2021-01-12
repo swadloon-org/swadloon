@@ -209,6 +209,7 @@
     "mini-css-extract-plugin": "^0.10.0",
     "mocha": "^7.2.0",
     "next": "^9.4.4",
+    "onchange": "^7.1.0",
     "polished": "^3.6.6",
     "postcss-preset-env": "^6.7.0",
     "prettier": "^2.0.5",

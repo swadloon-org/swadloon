@@ -14,6 +14,10 @@ import { isIOS } from 'react-device-detect';
 
 type Props = CommonComponentProps & {
   variantStyle?: 'transparent' | 'white';
+  /**
+   * Allow to override the max-width of the content
+   */
+  maxWidth?: string;
   MobileSvgLogo?: React.ReactNode;
   DesktopSvgLogo?: React.ReactNode;
   MenuLinks?: React.ReactNode;
@@ -110,8 +114,14 @@ export const NavBar: React.FC<Props> = (props) => {
   return (
     <>
       {/* Mobile */}
-      <Center as={'header'} className={`${styles.wrapper} ${styles.mobileMenu}`} ref={ref1} style={props.style}>
-        <Cluster justifyContent={['space-between']}>
+      <Center
+        as={'header'}
+        className={`${styles.wrapper} ${styles.mobileMenu}`}
+        ref={ref1}
+        style={props.style}
+        maxWidth={props.maxWidth}
+      >
+        <Cluster justifyContent={['space-between']} alignItems={['center']}>
           <Button>
             <IoMenu className={styles.icon} />
           </Button>
@@ -125,8 +135,14 @@ export const NavBar: React.FC<Props> = (props) => {
       </Center>
 
       {/* Desktop */}
-      <Center as={'header'} className={`${styles.wrapper} ${styles.desktopMenu}`} ref={ref2} style={props.style}>
-        <Cluster justifyContent={['space-between']}>
+      <Center
+        as={'header'}
+        className={`${styles.wrapper} ${styles.desktopMenu}`}
+        ref={ref2}
+        style={props.style}
+        maxWidth={props.maxWidth}
+      >
+        <Cluster justifyContent={['space-between']} alignItems={['center']}>
           <BoxV2 padding={[cssTheme.sizing.var.x3, 0]} className={styles.logoWrapper}>
             {DesktopSvgLogo}
           </BoxV2>

@@ -1,3 +1,4 @@
+import CaretDown from '!!file-loader!../../assets/caret-down-outline.svg';
 import { globalStyle, style } from 'treat';
 import { Theme } from '../../design-system/css-design-system';
 import { getCSSColor } from '../../utilities/colors.utilities';
@@ -21,9 +22,11 @@ export const styles = {
     },
 
     '::before': {
-      content: '"▾"',
+      content: `url(${CaretDown})`,
       position: 'absolute',
       right: `1em`,
+      width: '16px',
+      height: '16px',
       top: `calc(50% - 0.5em)`,
       lineHeight: '1em',
       transform: 'rotate(0deg)',
