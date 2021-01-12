@@ -6,7 +6,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './markdown.treat';
-import { Aside } from '@newrade/core-gatsby-ui';
+import { Aside } from '../components/navigation/aside';
 
 export type MarkdownTemplateProps = PageProps<any, GatsbyMarkdownFilePageContext>;
 

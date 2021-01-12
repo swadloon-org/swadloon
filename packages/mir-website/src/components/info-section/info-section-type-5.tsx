@@ -7,7 +7,7 @@ import { Paragraph } from '../ui/paragraph';
 import * as styleRefs from './info-section-type-5.treat';
 import { RenderTitleHighlight } from './info-title-highligh';
 import { SectionFragment } from '../../../types/graphql-types';
-import { LayoutCentered } from '../../layouts/content-centered';
+import { LayoutCentered } from '../../layout/content-centered';
 import { FadeIn } from '../animation/fade-in';
 import { SECTION_IMAGE_POSITION } from '../../templates/section.template';
 import { FluidObject } from 'gatsby-image';

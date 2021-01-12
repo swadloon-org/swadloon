@@ -83,7 +83,11 @@ const config: core.GastbySiteConfig = {
      * Core Plugins
      */
     ...core.getGatsbyPluginTypeScriptConfig({
-      documentPaths: ['./src/**/*.{ts,tsx}'],
+      documentPaths: [
+        './src/**/*.{ts,tsx}',
+        '../core-gatsby-ui/src/hooks/**/*.{ts,tsx}',
+        '../core-gatsby-ui/src/templates/**/*.{ts,tsx}',
+      ],
     }),
     ...core.getGatsbyPluginMdx(),
     core.getGatsbyReactSvgConfig(),

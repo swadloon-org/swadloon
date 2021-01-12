@@ -1,9 +1,8 @@
-import { useStaticQuery, graphql } from 'gatsby';
-import { DesignSystemLayoutPageQuery } from '../../types/graphql-types';
-import { title, kebab } from 'case';
+import { title } from 'case';
+import { graphql, useStaticQuery } from 'gatsby';
 
 const query = graphql`
-  query DesignSystemLayoutPage {
+  query DesignSystemLayoutPage1 {
     pages: allSitePage(filter: { path: { glob: "/design-system/{**,*}" } }) {
       totalCount
       nodes {
@@ -31,9 +30,10 @@ const query = graphql`
   }
 `;
 
-export function useDesignSystemNavItems() {
-  const data = useStaticQuery<DesignSystemLayoutPageQuery>(query);
+export function useDesignSystemNavItems(): { name: string; dirName: string; path: string }[] {
+  const data = useStaticQuery(query);
 
+  // @ts-ignore
   const navItems = data?.pages.nodes.map((node) => ({
     name: formatName(node.context?.name),
     dirName: node.context?.dirName,

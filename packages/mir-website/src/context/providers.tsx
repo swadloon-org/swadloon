@@ -4,7 +4,7 @@ import React from 'react';
 import { TreatProvider } from 'react-treat';
 import { light } from '../design-system/theme.treat';
 import { IconContext } from 'react-icons/lib';
-import { ViewportProvider } from '../context/viewport.context';
+import { ViewportProvider } from './viewport.context';
 import { viewportContext } from '../hooks/use-viewport.hook';
 import { mdxComponents } from '../components/markdown/components-markdown';
 

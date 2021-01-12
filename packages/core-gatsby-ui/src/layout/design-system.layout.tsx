@@ -1,4 +1,4 @@
-import { GatsbyLink } from '@newrade/core-gatsby-ui';
+import { GatsbyLink, useDesignSystemNavItems } from '@newrade/core-gatsby-ui/src';
 import {
   Main,
   MainWrapper,
@@ -13,25 +13,22 @@ import { title } from 'case';
 import { PageProps } from 'gatsby';
 import React, { ReactNode } from 'react';
 import { useStyles } from 'react-treat';
-import { useDesignSystemNavItems } from '../hooks/use-design-system-nav-items.hook';
-import Logo from '../images/logo.svg';
-import MobileLogo from '../images/logo-symbol.svg';
 import * as styleRefs from './design-system.layout.treat';
 
-type LayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }>;
+type LayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }> & {
+  MobileSvgLogo?: React.ReactNode;
+  DesktopSvgLogo?: React.ReactNode;
+};
 
-export const LayoutDesignSystem = React.memo<LayoutProps>((props) => {
+export const LayoutDesignSystem = React.memo<LayoutProps>(({ MobileSvgLogo, DesktopSvgLogo, ...props }) => {
   const { styles } = useStyles(styleRefs);
   const { cssTheme } = useTreatTheme();
   const navItems = useDesignSystemNavItems();
   const navItemsByDirName = new Set(navItems.map((item) => item.dirName));
+
   return (
     <MainWrapper>
-      <NavBar
-        DesktopSvgLogo={<Logo height={'20'} fill={cssTheme.colors.colorIntents.primary} />}
-        MobileSvgLogo={<MobileLogo height={'29'} fill={cssTheme.colors.colorIntents.primary} />}
-        maxWidth={'100%'}
-      ></NavBar>
+      <NavBar DesktopSvgLogo={DesktopSvgLogo} MobileSvgLogo={MobileSvgLogo} maxWidth={'100%'}></NavBar>
 
       {navItems ? (
         <SideBar>

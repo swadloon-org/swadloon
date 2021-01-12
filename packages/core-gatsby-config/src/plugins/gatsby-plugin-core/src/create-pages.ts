@@ -59,7 +59,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
      */
     const markdownFilesData = await graphql<GatsbyNodeMarkdownFilesQuery>(`
       query GatsbyNodeMarkdownFiles {
-        allFile(filter: { ext: { in: [".md", ".mdx"] } }) {
+        allFile(filter: { sourceInstanceName: { eq: "PACKAGE_DOCS" }, ext: { in: [".md", ".mdx"] } }) {
           nodes {
             id
             name
@@ -93,7 +93,8 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
      * Organise files to create pages and paths
      */
     // const markdownTemplate = path.resolve(`../core-gatsby-ui/lib/templates/markdown.template.js`);
-    const markdownTemplate = path.resolve(`src/templates/markdown.template.tsx`);
+    const markdownTemplate = path.resolve(`../core-gatsby-ui/src/templates/markdown.template.tsx`);
+    // const markdownTemplate = path.resolve(`src/templates/markdown.template.tsx`);
 
     /**
      * Create Markdown pages

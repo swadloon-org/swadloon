@@ -12,22 +12,27 @@ type LayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }
 const query = graphql`
   query LayoutAllSitePage {
     pages: allSitePage {
+      totalCount
       nodes {
-        ...SitePageFragment
-      }
-    }
-  }
-  fragment SitePageFragment on SitePage {
-    id
-    path
-    context {
-      id
-      name
-      slug
-      locale
-      frontmatter {
-        name
-        tags
+        id
+        path
+        context {
+          siteMetadata {
+            description
+            languages {
+              defaultLangKey
+              langs
+            }
+            siteEnv
+            siteUrl
+            title
+          }
+          id
+          name
+          dirName
+          locale
+          layout
+        }
       }
     }
   }

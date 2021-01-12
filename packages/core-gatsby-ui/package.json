@@ -8,10 +8,10 @@
     "./lib/**/*"
   ],
   "scripts": {
-    "build": "tsc --build tsconfig.build.json",
-    "clean": "rimraf -r lib/** && rm -f tsconfig.build.tsbuildinfo",
-    "start": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
-    "test": "echo ok"
+    "build1": "tsc --build tsconfig.build.json",
+    "clean1": "rimraf -r lib/** && rm -f tsconfig.build.tsbuildinfo",
+    "start1": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
+    "test1": "echo ok"
   },
   "sideEffects": false,
   "typings": "./lib/index.d.ts",
