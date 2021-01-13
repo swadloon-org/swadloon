@@ -13,9 +13,8 @@ import { Providers } from './src/context/providers';
 
 /** @type {GatsbySSR['wrapPageElement']} */
 // @ts-ignore
-export const wrapPageElement = ({ element }) => {
+export const wrapPageElement = ({ element, props }) => {
   /** @type {import('gatsby').PageProps<{}, import('@newrade/core-gatsby-config').GatsbyCommonPageContext>} */
-  // @ts-ignore
   const pageProps = props;
   return <Layout {...pageProps}>{element}</Layout>;
 };

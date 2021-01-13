@@ -21459,6 +21459,8 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___features___blog'
   | 'pluginCreator___pluginOptions___features___portfolio'
   | 'pluginCreator___pluginOptions___modules'
+  | 'pluginCreator___pluginOptions___enableDesignSystemPages'
+  | 'pluginCreator___pluginOptions___enableDocsPages'
   | 'pluginCreator___pluginOptions___pathCheck'
   | 'pluginCreator___nodeAPIs'
   | 'pluginCreator___browserAPIs'
@@ -21705,6 +21707,8 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___features___blog'
   | 'pluginOptions___features___portfolio'
   | 'pluginOptions___modules'
+  | 'pluginOptions___enableDesignSystemPages'
+  | 'pluginOptions___enableDocsPages'
   | 'pluginOptions___pathCheck'
   | 'nodeAPIs'
   | 'browserAPIs'
@@ -21861,6 +21865,8 @@ export type SitePluginPluginOptions = {
   locales?: Maybe<Array<Maybe<Scalars['String']>>>;
   features?: Maybe<SitePluginPluginOptionsFeatures>;
   modules?: Maybe<Array<Maybe<Scalars['String']>>>;
+  enableDesignSystemPages?: Maybe<Scalars['Boolean']>;
+  enableDocsPages?: Maybe<Scalars['Boolean']>;
   pathCheck?: Maybe<Scalars['Boolean']>;
 };
 
@@ -22020,6 +22026,8 @@ export type SitePluginPluginOptionsFilterInput = {
   locales?: Maybe<StringQueryOperatorInput>;
   features?: Maybe<SitePluginPluginOptionsFeaturesFilterInput>;
   modules?: Maybe<StringQueryOperatorInput>;
+  enableDesignSystemPages?: Maybe<BooleanQueryOperatorInput>;
+  enableDocsPages?: Maybe<BooleanQueryOperatorInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;
 };
 
