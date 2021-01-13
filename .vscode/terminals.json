@@ -87,6 +87,12 @@
       "focus": false
     },
     {
+      "name": "core-types",
+      "cwd": "[workspaceFolder]/packages/core-types",
+      "open": true,
+      "focus": false
+    },
+    {
       "name": "core-utils",
       "cwd": "[workspaceFolder]/packages/core-utils",
       "open": true,

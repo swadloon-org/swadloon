@@ -1,3 +1,7 @@
-console.log('hello');
+import fs from 'fs-extra';
 
-// copy files in src/assets/ to lib/assets
+const copyFile = () => {
+  fs.copySync(`./src/assets`, './lib/assets', { recursive: true, overwrite: true });
+};
+
+copyFile();
