@@ -54,120 +54,124 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
 
     siteMetadata = allSiteData.data.site.siteMetadata;
 
-    /**
-     * Query for mdx files in /docs/
-     */
-    const markdownFilesData = await graphql<GatsbyNodeMarkdownFilesQuery>(`
-      query GatsbyNodeMarkdownFiles {
-        allFile(filter: { sourceInstanceName: { eq: "PACKAGE_DOCS" }, ext: { in: [".md", ".mdx"] } }) {
-          nodes {
-            id
-            name
-            base
-            ext
-            dir
-            absolutePath
-            relativePath
-            publicURL
-            size
-            sourceInstanceName
-            childMdx {
-              slug
-              excerpt
-              frontmatter {
-                name
-                tags
-                title
+    if (pluginOptions.enableDocsPages) {
+      /**
+       * Query for mdx files in /docs/
+       */
+      const markdownFilesData = await graphql<GatsbyNodeMarkdownFilesQuery>(`
+        query GatsbyNodeMarkdownFiles {
+          allFile(filter: { sourceInstanceName: { eq: "PACKAGE_DOCS" }, ext: { in: [".md", ".mdx"] } }) {
+            nodes {
+              id
+              name
+              base
+              ext
+              dir
+              absolutePath
+              relativePath
+              publicURL
+              size
+              sourceInstanceName
+              childMdx {
+                slug
+                excerpt
+                frontmatter {
+                  name
+                  tags
+                  title
+                }
               }
             }
           }
         }
-      }
-    `);
+      `);
 
-    log(`Got ${markdownFilesData?.data?.allFile?.nodes?.length} files for markdown pages`, {
-      toolName: pluginOptions.packageName,
-    });
-
-    /**
-     * Organise files to create pages and paths
-     */
-    // const markdownTemplate = path.resolve(`../core-gatsby-ui/lib/templates/markdown.template.js`);
-    const markdownTemplate = path.resolve(`../core-gatsby-ui/src/templates/markdown.template.tsx`);
-    // const markdownTemplate = path.resolve(`src/templates/markdown.template.tsx`);
-
-    /**
-     * Create Markdown pages
-     */
-    markdownFilesData?.data?.allFile.nodes.forEach((node, index) => {
-      const dir =
-        node.sourceInstanceName === SOURCE_INSTANCE_NAME.MDX_PAGES
-          ? ``
-          : `${node.sourceInstanceName ? `${kebab(node.sourceInstanceName)}/` : ''}`;
-      const path = `${dir}${node.childMdx?.slug}`;
-      const locale = /fr\.+/.test(node.name) ? SITE_LANGUAGES.EN : SITE_LANGUAGES.FR;
-
-      log(`Creating markdown page: ${path}`, {
+      log(`Got ${markdownFilesData?.data?.allFile?.nodes?.length} files for markdown pages`, {
         toolName: pluginOptions.packageName,
       });
 
-      createPage<GatsbyMarkdownFilePageContext>({
-        path,
-        context: {
-          siteMetadata,
-          id: node.id,
-          name: node.childMdx?.frontmatter?.name || node.name,
-          dirName: getDirNameFromRelativePath(node.relativePath),
-          fileId: node.id,
-          layout: 'DOCS',
-          locale,
-        },
-        component: markdownTemplate,
-      });
-    });
+      /**
+       * Organise files to create pages and paths
+       */
+      // const markdownTemplate = path.resolve(`../core-gatsby-ui/lib/templates/markdown.template.js`);
+      const markdownTemplate = path.resolve(`../core-gatsby-ui/src/templates/markdown.template.tsx`);
+      // const markdownTemplate = path.resolve(`src/templates/markdown.template.tsx`);
 
-    /**
-     * Create Design System pages
-     */
-    // const designSystemPageTemplate = path.resolve(`../core-gatsby-ui/lib/templates/src-page.template.js`);
-    const designSystemPageTemplate = path.resolve(`src/templates/design-system-page.template.tsx`);
-    const designSystemPagesData = await graphql<{
-      allFile: { nodes: { id: string; name: string; absolutePath: string; relativePath: string }[] };
-    }>(`
-      query GatsbyNodeDesignSystemFiles {
-        allFile(filter: { sourceInstanceName: { eq: "DESIGN_SYSTEM_DOCS" }, name: { glob: "*.page" } }) {
-          nodes {
-            id
-            name
-            absolutePath
-            relativePath
+      /**
+       * Create Markdown pages
+       */
+      markdownFilesData?.data?.allFile.nodes.forEach((node, index) => {
+        const dir =
+          node.sourceInstanceName === SOURCE_INSTANCE_NAME.MDX_PAGES
+            ? ``
+            : `${node.sourceInstanceName ? `${kebab(node.sourceInstanceName)}/` : ''}`;
+        const path = `${dir}${node.childMdx?.slug}`;
+        const locale = /fr\.+/.test(node.name) ? SITE_LANGUAGES.EN : SITE_LANGUAGES.FR;
+
+        log(`Creating markdown page: ${path}`, {
+          toolName: pluginOptions.packageName,
+        });
+
+        createPage<GatsbyMarkdownFilePageContext>({
+          path,
+          context: {
+            siteMetadata,
+            id: node.id,
+            name: node.childMdx?.frontmatter?.name || node.name,
+            dirName: getDirNameFromRelativePath(node.relativePath),
+            fileId: node.id,
+            layout: 'DOCS',
+            locale,
+          },
+          component: markdownTemplate,
+        });
+      });
+    }
+
+    if (pluginOptions.enableDesignSystemPages) {
+      /**
+       * Create Design System pages
+       */
+      // const designSystemPageTemplate = path.resolve(`../core-gatsby-ui/lib/templates/src-page.template.js`);
+      const designSystemPageTemplate = path.resolve(`src/templates/design-system-page.template.tsx`);
+      const designSystemPagesData = await graphql<{
+        allFile: { nodes: { id: string; name: string; absolutePath: string; relativePath: string }[] };
+      }>(`
+        query GatsbyNodeDesignSystemFiles {
+          allFile(filter: { sourceInstanceName: { eq: "DESIGN_SYSTEM_DOCS" }, name: { glob: "*.page" } }) {
+            nodes {
+              id
+              name
+              absolutePath
+              relativePath
+            }
           }
         }
-      }
-    `);
-    designSystemPagesData?.data?.allFile.nodes.forEach((node, index) => {
-      const dir = `design-system/${node.relativePath.replace(/\/(.+)/, '/').replace(`${node.name}.tsx`, '')}`;
-      const formattedName = kebab(node.name.replace('.page', '').replace('home', ''));
-      const path = `${dir}${formattedName}`;
+      `);
+      designSystemPagesData?.data?.allFile.nodes.forEach((node, index) => {
+        const dir = `design-system/${node.relativePath.replace(/\/(.+)/, '/').replace(`${node.name}.tsx`, '')}`;
+        const formattedName = kebab(node.name.replace('.page', '').replace('home', ''));
+        const path = `${dir}${formattedName}`;
 
-      log(`Creating design system page: ${path}`, {
-        toolName: pluginOptions.packageName,
-      });
+        log(`Creating design system page: ${path}`, {
+          toolName: pluginOptions.packageName,
+        });
 
-      createPage<GatsbySrcPageContext>({
-        path,
-        context: {
-          siteMetadata,
-          id: node.id,
-          name: node.name,
-          dirName: getDirNameFromRelativePath(node.relativePath),
-          fileId: node.id,
-          layout: 'DESIGN_SYSTEM',
-          locale: SITE_LANGUAGES.EN,
-        },
-        component: node.absolutePath,
+        createPage<GatsbySrcPageContext>({
+          path,
+          context: {
+            siteMetadata,
+            id: node.id,
+            name: node.name,
+            dirName: getDirNameFromRelativePath(node.relativePath),
+            fileId: node.id,
+            layout: 'DESIGN_SYSTEM',
+            locale: SITE_LANGUAGES.EN,
+          },
+          component: node.absolutePath,
+        });
       });
-    });
+    }
   } catch (error) {
     log(`Error occured when generating pages: ${error}`, {
       toolName: pluginOptions.packageName,

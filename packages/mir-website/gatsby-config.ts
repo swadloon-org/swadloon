@@ -64,7 +64,7 @@ const config: core.GastbySiteConfig = {
      * Core Plugins
      */
     ...core.getGatsbyPluginTypeScriptConfig({
-      documentPaths: ['./src/**/*.{ts,tsx}'],
+      documentPaths: ['./src/**/*.{ts,tsx}', '../core-gatsby-ui/src/**/*.{ts,tsx}'],
     }),
     core.getGatsbyReactSvgConfig(),
     ...core.getGastbyPluginPageCreatorConfig(),
@@ -92,6 +92,8 @@ const config: core.GastbySiteConfig = {
     core.getGastbyCorePluginConfig({
       packageName: packageJson.name,
       modules: ['@newrade/core-gatsby-config', '@newrade/core-gatsby-ui/src'],
+      enableDesignSystemPages: false,
+      enableDocsPages: false,
     }),
     /**
      * gatsby-plugin-csp

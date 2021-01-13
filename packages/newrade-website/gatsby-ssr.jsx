@@ -1,9 +1,8 @@
 // @ts-check
-import React from 'react';
 import { GatsbySSR } from 'gatsby';
-import { Layout } from './src/layout/layout';
+import React from 'react';
+import { WrapElement } from './gatsby-wrap-element';
 import { Providers } from './src/context/providers';
-import { LayoutDesignSystem } from './src/layout/design-system.layout';
 
 /**
  * Gatsby Server Rendering APIs
@@ -14,27 +13,8 @@ import { LayoutDesignSystem } from './src/layout/design-system.layout';
 
 /** @type {GatsbySSR['wrapPageElement']} */
 // @ts-ignore
-export const wrapPageElement = ({ element }) => {
-  /** @type {import('gatsby').PageProps<{}, import('@newrade/core-gatsby-config').GatsbyCommonPageContext>} */
-  // @ts-ignore
-  const pageProps = props;
-
-  if (!pageProps?.pageContext?.layout) {
-    return <Layout {...pageProps}>{element}</Layout>;
-  }
-
-  switch (pageProps.pageContext.layout) {
-    case 'DOCS': {
-      return <Layout {...pageProps}>{element}</Layout>;
-    }
-    case 'DESIGN_SYSTEM': {
-      return <LayoutDesignSystem {...pageProps}>{element}</LayoutDesignSystem>;
-    }
-    case 'SITE':
-    default: {
-      return <Layout {...pageProps}>{element}</Layout>;
-    }
-  }
+export const wrapPageElement = (args) => {
+  return <WrapElement {...args} />;
 };
 
 /** @type {GatsbySSR['wrapRootElement']} */
