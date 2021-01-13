@@ -1,18 +1,52 @@
+import { AppError, ERROR_TYPE } from '@newrade/core-common';
 import { log, LOG_LEVEL } from '@newrade/core-utils';
 import { GatsbyNode } from 'gatsby';
 import path from 'path';
 import { GatsbyBlogPostContext, GatsbyContentfulPageContext } from '../../../config/page-config';
+import { GatsbyNodeAllSiteQuery, GatsbyNodeSiteMetadataFragment } from '../../../config/site-graphql-types';
 import { SITE_LANGUAGES } from '../../../config/site-languages';
 import { GatsbyCoreContentfulPluginOptions } from '../gatsby-plugin-options';
+
+let siteMetadata: GatsbyNodeSiteMetadataFragment;
 
 export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, graphql }, options) => {
   const { createPage, deletePage } = actions;
   const pluginOptions = (options as unknown) as GatsbyCoreContentfulPluginOptions;
 
-  /**
-   * Page creations Site - metadata
-   */
   try {
+    /**
+     * Query for site metadata
+     */
+    const allSiteData = await graphql<GatsbyNodeAllSiteQuery>(`
+      query GatsbyNodeAllSite {
+        site {
+          siteMetadata {
+            ...GatsbyNodeSiteMetadata
+          }
+        }
+      }
+
+      fragment GatsbyNodeSiteMetadata on SiteSiteMetadata {
+        title
+        description
+        siteEnv
+        siteUrl
+        languages {
+          langs
+          defaultLangKey
+        }
+      }
+    `);
+
+    if (!allSiteData.data?.site?.siteMetadata) {
+      throw new AppError({
+        name: ERROR_TYPE.GATSBY_ERROR,
+        message: `Could not retrieve siteMetadata`,
+      });
+    }
+
+    siteMetadata = allSiteData.data.site.siteMetadata;
+
     /**
      * Page creations contentful
      */
@@ -75,7 +109,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
         createPage<GatsbyContentfulPageContext>({
           path: edge.node.slug,
           context: {
-            siteMetadata: {} as any, // will be set by the gatsby-plugin-core plugin
+            siteMetadata,
             pageId: edge.node.id,
             id: edge.node.id,
             name: edge.node.name,

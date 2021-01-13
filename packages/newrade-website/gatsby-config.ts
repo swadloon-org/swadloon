@@ -97,6 +97,8 @@ const config: core.GastbySiteConfig = {
     core.getGastbyPluginLayoutCoreConfig(),
     core.getGastbyCorePluginConfig({
       packageName: packageJson.name,
+      enableDesignSystemPages: true,
+      enableDocsPages: true,
     }),
     // core.getGatsbyPluginPreloadFonts(),
   ],
