@@ -12,7 +12,7 @@
     "build": "yarn copy:assets && yarn build:tsc",
     "build:tsc": "tsc --build tsconfig.build.json",
     "clean": "rimraf -r lib/** && rm -f tsconfig.build.tsbuildinfo",
-    "copy:assets": "mkdir -p lib/assets && cp -r src/assets/ lib/assets",
+    "copy:assets": "TS_NODE_PROJECT=tsconfig.script.json node -r ts-node/register scripts/copy-assets.script.ts",
     "start": "concurrently \"yarn tsc:start\" \"yarn watch:assets\"",
     "test": "jest",
     "test:watch": "jest --watch",

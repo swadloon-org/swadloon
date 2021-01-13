@@ -1,6 +1,6 @@
 {
   "name": "@newrade/core-cli",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "CLI for various purposes, automate actions, etc.",
   "author": {
     "email": "info@newrade.ca",
@@ -22,7 +22,7 @@
   ],
   "scripts": {
     "postpack": "rm -f oclif.manifest.json",
-    "prepack": "rm -rf lib && tsc -b tsconfig.build.json && oclif-dev manifest && oclif-dev readme",
+    "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
     "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
     "version": "oclif-dev readme && git add README.md"
   },

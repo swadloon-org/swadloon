@@ -1,4 +1,4 @@
-import CaretDown from '!!file-loader!@newrade/core-react-ui/assets/caret-down-outline.svg';
+import CaretDown from '!!file-loader!../../assets/caret-down-outline.svg';
 import { globalStyle, style } from 'treat';
 import { Theme } from '../../design-system/css-design-system';
 import { getCSSColor } from '../../utilities/colors.utilities';
