@@ -9476,8 +9476,6 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___mergeCachingHeaders'
   | 'pluginCreator___pluginOptions___generateMatchPathRewrites'
   | 'pluginCreator___pluginOptions___packageName'
-  | 'pluginCreator___pluginOptions___layoutComponentPath'
-  | 'pluginCreator___pluginOptions___providersComponentPath'
   | 'pluginCreator___pluginOptions___enableDesignSystemPages'
   | 'pluginCreator___pluginOptions___enableDocsPages'
   | 'pluginCreator___pluginOptions___pathCheck'
@@ -9726,8 +9724,6 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___mergeCachingHeaders'
   | 'pluginOptions___generateMatchPathRewrites'
   | 'pluginOptions___packageName'
-  | 'pluginOptions___layoutComponentPath'
-  | 'pluginOptions___providersComponentPath'
   | 'pluginOptions___enableDesignSystemPages'
   | 'pluginOptions___enableDocsPages'
   | 'pluginOptions___pathCheck'
@@ -9887,8 +9883,6 @@ export type SitePluginPluginOptions = {
   mergeCachingHeaders?: Maybe<Scalars['Boolean']>;
   generateMatchPathRewrites?: Maybe<Scalars['Boolean']>;
   packageName?: Maybe<Scalars['String']>;
-  layoutComponentPath?: Maybe<Scalars['String']>;
-  providersComponentPath?: Maybe<Scalars['String']>;
   enableDesignSystemPages?: Maybe<Scalars['Boolean']>;
   enableDocsPages?: Maybe<Scalars['Boolean']>;
   pathCheck?: Maybe<Scalars['Boolean']>;
@@ -10041,8 +10035,6 @@ export type SitePluginPluginOptionsFilterInput = {
   mergeCachingHeaders?: Maybe<BooleanQueryOperatorInput>;
   generateMatchPathRewrites?: Maybe<BooleanQueryOperatorInput>;
   packageName?: Maybe<StringQueryOperatorInput>;
-  layoutComponentPath?: Maybe<StringQueryOperatorInput>;
-  providersComponentPath?: Maybe<StringQueryOperatorInput>;
   enableDesignSystemPages?: Maybe<BooleanQueryOperatorInput>;
   enableDocsPages?: Maybe<BooleanQueryOperatorInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;

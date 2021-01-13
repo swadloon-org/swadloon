@@ -94,7 +94,6 @@ const config: core.GastbySiteConfig = {
     core.getGatsbyPluginSitemap(),
     core.getGatsbyPluginRobotsTxt({ env }),
     core.getGatsbyNetlifyPlugin(),
-    core.getGastbyPluginLayoutCoreConfig(),
     core.getGastbyCorePluginConfig({
       packageName: packageJson.name,
       enableDesignSystemPages: true,
