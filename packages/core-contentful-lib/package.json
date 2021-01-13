@@ -22,8 +22,9 @@
   "devDependencies": {
     "@contentful-tools/cli": "^0.7.3",
     "@newrade/core-common": "^1.0.1",
-    "@newrade/core-gatsby-config": "^1.6.0",
-    "@newrade/core-utils": "^1.4.0",
-    "@newrade/core-webpack-config": "^1.3.4"
+    "@newrade/core-gatsby-config": "^1.5.0",
+    "@newrade/core-types": "^1.0.0",
+    "@newrade/core-utils": "^1.3.0",
+    "@newrade/core-webpack-config": "^1.3.3"
   }
 }

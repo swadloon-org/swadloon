@@ -27,6 +27,7 @@
   "sideEffects": false,
   "typings": "./lib/index.d.ts",
   "dependencies": {
-    "@newrade/core-common": "^1.0.1"
+    "@newrade/core-common": "^1.0.1",
+    "@newrade/core-types": "^1.0.1"
   }
 }

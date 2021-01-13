@@ -6,21 +6,21 @@ import {
   defaultButtons,
   defaultEffects,
   defaultIconography,
-  defaultLayout,
   defaultSizing,
-  defaultTypography,
 } from '@newrade/core-react-ui';
 import { colors } from './colors';
+import { layout } from './layout';
+import { typography } from './typography';
 
 export const theme: DesignSystem = {
-  name: 'vsb-website',
+  name: 'Clinique Dr. Boucher',
   variation: 'light',
   colors,
   effects: defaultEffects,
   sizing: defaultSizing,
   iconography: defaultIconography,
-  typography: defaultTypography,
-  layout: defaultLayout,
+  typography,
+  layout,
   animations: defaultAnimations,
   components: {
     buttons: defaultButtons,

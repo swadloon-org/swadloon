@@ -3,9 +3,6 @@ import { Theme } from '../design-system/css-design-system';
 
 export const wrapper = style(({ theme, cssTheme }: Theme) => ({
   display: 'inherit',
-  marginTop: 80,
-  // needed to scroll to bottom ids
-  marginBottom: `80vh`,
 }));
 
 /**
@@ -52,6 +49,11 @@ globalStyle(
     marginTop: '2em',
   })
 );
+
+globalStyle(`${wrapper} table`, ({ cssTheme, theme }: Theme) => ({
+  marginTop: '2em',
+  marginBottom: '2em',
+}));
 
 globalStyle(`${wrapper} figure`, ({ cssTheme, theme }: Theme) => ({
   display: 'flex',

@@ -51,13 +51,26 @@ export type Breakpoints<Override extends undefined | string = undefined> = {
  * Contains CSS variable names for layout sizes
  * @example `--layout-size-navbar`
  */
-export type LayoutVarNames = string[];
+export type LayoutVarNames = {
+  breakpoints: Breakpoints<string>;
+  contentMargins: string;
+  contentWidth: ContentWidths<string>;
+  sidebarWidth: string;
+  navbarHeight: string;
+  asideWidth: string;
+  footerHeight: string;
+};
 
 /**
  * Contains CSS statement to access CSS variables
  * @example `var(--layout-size-navbar)`
  */
-export type LayoutVars = string[];
+export type LayoutVars = LayoutVarNames;
+
+export type PartialLayout<Override extends undefined | string = undefined> = Omit<
+  Layout<Override>,
+  'var' | 'varNames' | 'media' | 'zIndex'
+>;
 
 /**
  * Breakpoints, commonly used content margins and max widths.
@@ -69,7 +82,7 @@ export interface Layout<Override extends undefined | string = undefined> {
   sidebarWidth: {
     [key in keyof typeof VIEWPORT]: SizeType<Override>;
   };
-  topbarHeight: {
+  navbarHeight: {
     [key in keyof typeof VIEWPORT]: SizeType<Override>;
   };
   asideWidth: SizeType<Override>;
@@ -77,6 +90,25 @@ export interface Layout<Override extends undefined | string = undefined> {
     [key in keyof typeof VIEWPORT]: SizeType<Override>;
   };
   media: MediaQueries<Override>;
-  // varNames: LayoutVarNames;
-  // vars: LayoutVars;
+  /**
+   * CSS variable name for each step.
+   * @example `--layout-navbar-height`
+   */
+  varNames: LayoutVarNames;
+  /**
+   * CSS statement to access CSS variables
+   * @example `var(--layout-navbar-height)`
+   */
+  var: LayoutVars;
+  /**
+   * One place to define the different z indexes
+   */
+  zIndex: {
+    chatBubble: number;
+    notifications: number;
+    navBar: number;
+    sideBar: number;
+    dialog: number;
+    content: number;
+  };
 }

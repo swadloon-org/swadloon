@@ -55,6 +55,7 @@ export enum LABEL_SIZE {
  * The text styles.
  */
 export enum TEXT_STYLE {
+  normal = 'normal',
   italic = 'italic',
   bold = 'bold',
   uppercase = 'uppercase',

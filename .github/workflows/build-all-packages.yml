@@ -114,22 +114,6 @@ jobs:
         PROJECT_REPO_ORG: ${{ secrets.PROJECT_REPO_ORG }}
         PROJECT_REPO_NAME: ${{ secrets.PROJECT_REPO_NAME }}
 
-    - name: Build valentine-website
-      if: always()
-      run: yarn build --scope @newrade/valentine-website
-      env:
-        APP_URL: 'http://local.valentinebv.com'
-        CONTENTFUL_ENV: ${{ secrets.CONTENTFUL_ENV }}
-        CONTENTFUL_SPACEID_VALENTINE: ${{ secrets.CONTENTFUL_SPACEID_VALENTINE }}
-        CONTENTFUL_DELIVERY_TOKEN_VALENTINE : ${{ secrets.CONTENTFUL_DELIVERY_TOKEN_VALENTINE }}
-        NVM_NODE_VERSION: ${{ secrets.NVM_NODE_VERSION }}
-        MASTER_GIT_HOST: ${{ secrets.MASTER_GIT_HOST }}
-        MASTER_REPO_ORG: ${{ secrets.MASTER_REPO_ORG }}
-        MASTER_REPO_NAME: ${{ secrets.MASTER_REPO_NAME }}
-        PROJECT_GIT_HOST: ${{ secrets.PROJECT_GIT_HOST }}
-        PROJECT_REPO_ORG: ${{ secrets.PROJECT_REPO_ORG }}
-        PROJECT_REPO_NAME: ${{ secrets.PROJECT_REPO_NAME }}
-
     - name: Build vsb-website
       if: always()
       run: yarn build --scope @newrade/vsb-website

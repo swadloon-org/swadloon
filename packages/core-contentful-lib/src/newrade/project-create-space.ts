@@ -15,7 +15,14 @@ import { createSection } from '../common/content-types/section';
 import { createSectionType } from '../common/content-types/section-type';
 import { createTag } from '../common/content-types/tag';
 import { createTagType } from '../common/content-types/tag-type';
-import { createCostItem, createStep } from './project-content-types';
+import {
+  createCostItem,
+  createService,
+  createServiceCategory,
+  createStep,
+  createTechnology,
+  createThematic,
+} from './project-content-types';
 import { PROJECT_CONTENT_TYPE, PROJECT_FIELD, PROJECT_PAGE_TYPE, PROJECT_SECTION_TYPE } from './project-props-types';
 
 const program: Migration.MigrationFunction = function Program(migration) {
@@ -67,12 +74,55 @@ const program: Migration.MigrationFunction = function Program(migration) {
       ],
     },
   });
+  section.createField(PROJECT_FIELD.THEMATIC, {
+    name: pascal(PROJECT_FIELD.THEMATIC),
+    type: 'Array',
+    items: {
+      type: 'Link',
+      linkType: 'Entry',
+      validations: [
+        {
+          linkContentType: [PROJECT_CONTENT_TYPE.THEMATIC],
+        },
+      ],
+    },
+  });
+  section.createField(PROJECT_FIELD.SERVICE, {
+    name: pascal(PROJECT_FIELD.SERVICE),
+    type: 'Array',
+    items: {
+      type: 'Link',
+      linkType: 'Entry',
+      validations: [
+        {
+          linkContentType: [PROJECT_CONTENT_TYPE.SERVICE],
+        },
+      ],
+    },
+  });
+  section.createField(PROJECT_FIELD.TECHNOLOGY, {
+    name: pascal(PROJECT_FIELD.TECHNOLOGY),
+    type: 'Array',
+    items: {
+      type: 'Link',
+      linkType: 'Entry',
+      validations: [
+        {
+          linkContentType: [PROJECT_CONTENT_TYPE.TECHNOLOGY],
+        },
+      ],
+    },
+  });
 
   /**
    * Project specific content types
    */
   createStep(migration);
   createCostItem(migration);
+  createThematic(migration);
+  createService(migration);
+  createServiceCategory(migration);
+  createTechnology(migration);
 };
 
 // @ts-ignore

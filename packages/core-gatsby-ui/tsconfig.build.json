@@ -12,6 +12,9 @@
       "path": "../core-common/tsconfig.build.json"
     },
     {
+      "path": "../core-react-ui/tsconfig.build.json"
+    },
+    {
       "path": "../core-webpack-config/tsconfig.build.json"
     },
     {

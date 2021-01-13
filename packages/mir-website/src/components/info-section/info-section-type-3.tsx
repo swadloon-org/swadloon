@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useStyles } from 'react-treat';
 import { SectionFragment, LinkFragment } from '../../../types/graphql-types';
-import { LayoutCentered } from '../../layouts/content-centered';
+import { LayoutCentered } from '../../layout/content-centered';
 import { SECTION_IMAGE_POSITION } from '../../templates/section.template';
 import { FadeIn } from '../animation/fade-in';
 import { ImageFrame } from '../ui/image-frame';

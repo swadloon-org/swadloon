@@ -51,7 +51,9 @@
       "yzhang.markdown-all-in-one",
       "paulmolluzzo.convert-css-in-js",
       "formulahendry.auto-rename-tag",
-      "bierner.markdown-yaml-preamble"
+      "bierner.markdown-yaml-preamble",
+      "jock.svg",
+      "cssho.vscode-svgviewer"
     ]
   },
   "folders": [
@@ -111,6 +113,9 @@
       "path": "../packages/core-react-ui-app"
     },
     {
+      "path": "../packages/core-types"
+    },
+    {
       "path": "../packages/core-utils"
     },
     {
@@ -123,6 +128,9 @@
       "path": "../packages/newrade-website"
     },
     {
+      "path": "../packages/newrade-admin"
+    },
+    {
       "path": "../packages/newrade-app"
     },
     {
@@ -130,9 +138,27 @@
     },
     {
       "path": "../packages/vsb-website"
-    },
-    {
-      "path": "../packages/valentine-website"
     }
+  ],
+  "recommendations": [
+    "fabiospampinato.vscode-terminals",
+    "fabiospampinato.vscode-open-in-node-modules",
+    "jasonnutter.search-node-modules",
+    "esbenp.prettier-vscode",
+    "msjsdiag.debugger-for-chrome",
+    "digitalbrainstem.javascript-ejs-support",
+    "mikestead.dotenv",
+    "silvenon.mdx",
+    "ms-vscode-remote.vscode-remote-extensionpack",
+    "eg2.vscode-npm-script",
+    "wmaurer.change-case",
+    "github.vscode-pull-request-github",
+    "cschleiden.vscode-github-actions",
+    "yzhang.markdown-all-in-one",
+    "paulmolluzzo.convert-css-in-js",
+    "formulahendry.auto-rename-tag",
+    "bierner.markdown-yaml-preamble",
+    "jock.svg",
+    "cssho.vscode-svgviewer"
   ]
 }

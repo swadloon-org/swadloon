@@ -2,11 +2,16 @@ import {
   BREAKPOINT,
   Breakpoints,
   Layout,
+  LayoutVarNames,
+  LayoutVars,
   MEDIA_FEATURE,
   MEDIA_OPERATOR,
   MEDIA_TYPE,
+  PartialLayout,
   VIEWPORT,
 } from '@newrade/core-design-system';
+import { getCSSVarForLayout, getCSSVarNamesForLayout } from '../utilities/layout.utilities';
+import { defautlLayoutZIndexes } from './default-layout-z-indexes';
 
 const defaultBreakpoints: Breakpoints = {
   [BREAKPOINT.mobileXSmall]: 320,
@@ -20,7 +25,7 @@ const defaultBreakpoints: Breakpoints = {
   [BREAKPOINT.desktopXLarge]: 1920,
 };
 
-export const defaultLayout: Layout = {
+export const defaultPartialLayout: PartialLayout = {
   breakpoints: defaultBreakpoints,
   contentMargins: {
     [VIEWPORT.mobile]: 24,
@@ -36,10 +41,10 @@ export const defaultLayout: Layout = {
     [VIEWPORT.tablet]: 270,
     [VIEWPORT.mobile]: 375,
   },
-  topbarHeight: {
-    [VIEWPORT.desktop]: 60,
+  navbarHeight: {
+    [VIEWPORT.desktop]: 72,
     [VIEWPORT.tablet]: 60,
-    [VIEWPORT.mobile]: 60,
+    [VIEWPORT.mobile]: 55,
   },
   asideWidth: 210,
   footerHeight: {
@@ -47,6 +52,18 @@ export const defaultLayout: Layout = {
     [VIEWPORT.tablet]: 210,
     [VIEWPORT.mobile]: 210,
   },
+};
+
+export const defaultLayoutVarNames: LayoutVarNames = getCSSVarNamesForLayout({
+  layout: defaultPartialLayout,
+});
+
+export const defaultLayoutVar: LayoutVars = getCSSVarForLayout({
+  layout: defaultPartialLayout,
+});
+
+export const defaultLayout: Layout = {
+  ...defaultPartialLayout,
   media: {
     mobile: {
       queryA: {
@@ -208,4 +225,7 @@ export const defaultLayout: Layout = {
     // tabletPlus: `screen and (min-width: ${defaultBreakpoints.tabletPortrait.px}) `,
     // [VIEWPORT.desktop]: `screen and (min-width: ${defaultBreakpoints.desktopSmall.px})`,
   },
+  varNames: defaultLayoutVarNames,
+  var: defaultLayoutVar,
+  zIndex: defautlLayoutZIndexes,
 };

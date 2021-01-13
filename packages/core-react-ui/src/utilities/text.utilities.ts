@@ -1,5 +1,5 @@
 import { AppError, ERROR_TYPE } from '@newrade/core-common';
-import { CapsizeTextStyle, TextStyle } from '@newrade/core-design-system';
+import { CapsizeTextStyle, TextDecoration, TextStyle } from '@newrade/core-design-system';
 import capsize, { CapsizeStyles } from 'capsize';
 import { TextTransformProperty } from 'csstype';
 // @ts-ignore
@@ -15,7 +15,6 @@ type TextStyleOptions = { baseFontSize: number } & TextStyle;
 
 export function createCSSTextStyle({
   baseFontSize,
-  fontFamily,
   fontWeight,
   fontStyle,
   letterSpacing,
@@ -25,7 +24,9 @@ export function createCSSTextStyle({
   return {
     fontWeight,
     fontStyle,
+    letterSpacing: letterSpacing ? `${letterSpacing / 100}em` : '0px',
     textTransform,
+    textDecoration: getCSSTextDecoration(textDecoration),
     // textDecoration: getCSSTextDecoration(),
   };
 }
@@ -42,33 +43,32 @@ export function createCSSCapsizeTextStyle({
   capHeight,
   lineGap,
 }: CapsizeTextStyleOptions): TextStyle<string> & CapsizeTextStyle<string> {
-  // text styles only
-
-  // capsize
-
   const compatibleCapHeight: number = capHeight;
   if (!font) {
     throw new AppError({
       name: ERROR_TYPE.LIB_ERROR,
       message: 'a text style requires a font to be set',
     });
-    // throw Error();
   }
   const { fontMetrics } = font[0];
 
   const capsizePx = capsize({ capHeight: compatibleCapHeight, lineGap, fontMetrics });
   return {
+    ...createCSSTextStyle({
+      baseFontSize,
+      font,
+      fontFamily,
+      fontWeight,
+      fontStyle,
+      letterSpacing,
+      textTransform,
+      textDecoration,
+    }),
     font,
     fontFamily: fontFamily ? fontFamily : font.map((font) => font.name).join(','),
-    fontWeight,
-    fontStyle,
-    letterSpacing: convertLetterSpacingToPercent({ letterSpacing, fontSize: capsizePx.fontSize }),
-    textTransform,
-    // textDecoration: getCSSTextDecoration(),
     capHeight,
     lineGap,
     capsize: capsizePx,
-    // capsizeRem: convertCapsizeValuesToRem({ baseFontSize, capsizePx }),
   };
 }
 
@@ -153,14 +153,43 @@ export function getCSSTextStyles(textStyle?: Partial<TextStyle<string> & Capsize
     return {};
   }
   return {
+    ...getCSSFontTextStyles(textStyle),
+    ...getCSSSizeTextStyles(textStyle),
+  };
+}
+
+export function getCSSFontTextStyles(textStyle?: Partial<TextStyle<string> & CapsizeTextStyle<string>>): Style {
+  if (!textStyle) {
+    return {};
+  }
+  return {
     fontWeight: textStyle.fontWeight as number,
     textTransform: textStyle.textTransform as TextTransformProperty,
     fontFamily: textStyle.fontFamily as string,
     fontStyle: textStyle.fontStyle as string,
     letterSpacing: textStyle.letterSpacing as string,
     textDecoration: textStyle.textDecoration as string,
+  };
+}
+
+export function getCSSSizeTextStyles(textStyle?: Partial<TextStyle<string> & CapsizeTextStyle<string>>): Style {
+  if (!textStyle) {
+    return {};
+  }
+  return {
     ...textStyle.capsize,
   };
+}
+
+/**
+ * Return a Treat compatible style object from a theme text style
+ */
+export function getCSSTextDecoration(textDecoration?: TextDecoration): string | undefined {
+  if (!textDecoration) {
+    return undefined;
+  }
+  // text-decoration: underline dotted red;
+  return `${textDecoration.line} ${textDecoration.style} ${textDecoration.color}`;
 }
 
 export function formatAnchorId(value?: string | null): string {

@@ -1,6 +1,6 @@
 import React, { HTMLAttributes, DetailsHTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
-import { CommonComponentProps } from '../../props/component-common-props';
+import { CommonComponentProps } from '../../props/component-common.props';
 import * as stylesRef from './details.treat';
 
 type Props = CommonComponentProps & DetailsHTMLAttributes<any> & {};

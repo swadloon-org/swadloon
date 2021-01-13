@@ -17,7 +17,7 @@ import { mdxComponents } from '../components/markdown/components-markdown';
 import { ViewportProvider } from '../context/viewport.context';
 import { light } from '../design-system/theme.treat';
 import { viewportContext } from '../hooks/use-viewport.hook';
-import { Layout } from '../layouts/layout';
+import { Layout } from '../layout/layout';
 import '../fonts';
 
 import { BlogPostArticleTemplate } from './blog-post-article.template';

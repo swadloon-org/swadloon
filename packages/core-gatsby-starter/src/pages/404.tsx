@@ -1,12 +1,18 @@
-import { Stack } from '@newrade/core-react-ui';
+import { Stack, Center, Heading } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { SrcPageTemplate, SrcPageTemplateProps } from '@newrade/core-gatsby-ui';
+import { SrcPageTemplateProps, SrcPageTemplate } from '../templates/src-page.template';
 import * as styleRefs from '../styles/index.treat';
 
 const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
   const styles = useStyles(styleRefs);
-  return <Stack gap={'20px'}>Not found</Stack>;
+  return (
+    <Center>
+      <Stack gap={['20px']}>
+        <Heading>Not found :(</Heading>
+      </Stack>
+    </Center>
+  );
 };
 
 const Page: React.FC<SrcPageTemplateProps> = (props) => {

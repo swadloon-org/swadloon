@@ -8,7 +8,8 @@
       "type": "node",
       "request": "launch",
       "name": "Jest Debug All",
-      "program": "${workspaceFolder}/node_modules/jest/bin/jest.js",
+      "env": {},
+      "program": "${workspaceFolder}/../../node_modules/jest/bin/jest.js",
       "args": ["--runInBand", "--no-cache", "--config=${workspaceFolder}/jest.config.js"],
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen"
@@ -17,6 +18,7 @@
       "type": "node",
       "request": "launch",
       "name": "Jest debug current file",
+      "env": {},
       "program": "${workspaceFolder}/../../node_modules/jest/bin/jest.js",
       "args": ["${relativeFile}", "--no-cache", "--config=${workspaceFolder}/jest.config.js", "--coverage=false"],
       "sourceMaps": true,
@@ -27,10 +29,8 @@
       "type": "node",
       "request": "launch",
       "name": "Jest debug current file (e2e)",
-      "env": {
-        "APP_URL": "dev-erp.com"
-      },
-      "program": "${workspaceFolder}/node_modules/jest/bin/jest.js",
+      "env": {},
+      "program": "${workspaceFolder}/../../node_modules/jest/bin/jest.js",
       "args": ["${relativeFile}", "--no-cache", "--config=${workspaceFolder}/jest-e2e.config.js"],
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen"

@@ -88,6 +88,13 @@ assignees: ''
   chsh -s /bin/bash
   ```
 
+- [ ] Suppress warning
+
+  ```
+  # silence zsh prompt on macos
+  export BASH_SILENCE_DEPRECATION_WARNING=1
+  ```
+
   Then restart VSCode
 
 #### Github Actions

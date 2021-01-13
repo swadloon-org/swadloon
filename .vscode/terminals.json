@@ -87,6 +87,12 @@
       "focus": false
     },
     {
+      "name": "core-types",
+      "cwd": "[workspaceFolder]/packages/core-types",
+      "open": true,
+      "focus": false
+    },
+    {
       "name": "core-utils",
       "cwd": "[workspaceFolder]/packages/core-utils",
       "open": true,
@@ -105,6 +111,18 @@
       "focus": false
     },
     {
+      "name": "newrade-admin",
+      "cwd": "[workspaceFolder]/packages/newrade-admin",
+      "open": true,
+      "focus": false
+    },
+    {
+      "name": "newrade-app",
+      "cwd": "[workspaceFolder]/packages/newrade-app",
+      "open": true,
+      "focus": false
+    },
+    {
       "name": "newrade-website",
       "cwd": "[workspaceFolder]/packages/newrade-website",
       "open": true,
@@ -119,12 +137,6 @@
     {
       "name": "vsb-website",
       "cwd": "[workspaceFolder]/packages/vsb-website",
-      "open": true,
-      "focus": false
-    },
-    {
-      "name": "valentine-website",
-      "cwd": "[workspaceFolder]/packages/valentine-website",
       "open": true,
       "focus": false
     }
