@@ -5,14 +5,16 @@ CLI for various purposes, automate actions, etc.
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 
 <!-- toc -->
-* [core-cli](#core-cli)
-* [Usage](#usage)
-* [Commands](#commands)
+
+- [core-cli](#core-cli)
+- [Usage](#usage)
+- [Commands](#commands)
 <!-- tocstop -->
 
 # Usage
 
 <!-- usage -->
+
 ```sh-session
 $ npm install -g @newrade/core-cli
 $ nr COMMAND
@@ -24,16 +26,18 @@ USAGE
   $ nr COMMAND
 ...
 ```
+
 <!-- usagestop -->
 
 # Commands
 
 <!-- commands -->
-* [`nr commit [FILE]`](#nr-commit-file)
-* [`nr figma-sync [FILE]`](#nr-figma-sync-file)
-* [`nr hello [FILE]`](#nr-hello-file)
-* [`nr help [COMMAND]`](#nr-help-command)
-* [`nr reset-branches [FILE]`](#nr-reset-branches-file)
+
+- [`nr commit [FILE]`](#nr-commit-file)
+- [`nr figma-sync [FILE]`](#nr-figma-sync-file)
+- [`nr hello [FILE]`](#nr-hello-file)
+- [`nr help [COMMAND]`](#nr-help-command)
+- [`nr reset-branches [FILE]`](#nr-reset-branches-file)
 
 ## `nr commit [FILE]`
 
@@ -125,4 +129,5 @@ EXAMPLE
 ```
 
 _See code: [src/commands/reset-branches.ts](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/blob/v1.4.2/src/commands/reset-branches.ts)_
+
 <!-- commandsstop -->

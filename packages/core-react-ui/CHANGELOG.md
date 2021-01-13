@@ -3,6 +3,42 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/newrade/newrade/compare/@newrade/core-react-ui@1.6.0...@newrade/core-react-ui@1.7.0) (2021-01-04)
+
+### Bug Fixes
+
+- **core-gatsby-config:** fix reloading bug in hmr with treat ([26d1a19](https://github.com/newrade/newrade/commit/26d1a19de6c66bea70b45808f4668b9a63535b8d))
+- **core-react-ui:** add labels, paragraph, headings and titles ([598c84d](https://github.com/newrade/newrade/commit/598c84d100ac7844a9d54c42c37bb89c159e7408))
+- **core-react-ui:** add mdx features ([bfbee76](https://github.com/newrade/newrade/commit/bfbee769e8f029aa4b3a2b03b75645db88877d13))
+- **core-react-ui:** add summary et details ([a7382b9](https://github.com/newrade/newrade/commit/a7382b9f933b2007f91b6f780c3bb5cda7035cd1))
+- **core-react-ui:** css fixes ([f648b00](https://github.com/newrade/newrade/commit/f648b0044f4c0fc595123a67d61069991dd575bf))
+- **core-react-ui:** fixes ([967a4d7](https://github.com/newrade/newrade/commit/967a4d7b32985f8bfd8b3e5e500d0d4303495c5e))
+- **core-react-ui:** fixes for layouts and globals ([387c1da](https://github.com/newrade/newrade/commit/387c1da29f5cd07a81da2729dae9716eab31be95))
+- **core-react-ui:** fixes snapshots ([b87717d](https://github.com/newrade/newrade/commit/b87717d85fe213a3e9578cea1c347873aa2b551b))
+- **core-react-ui:** implement aside for mdx docs ([006577f](https://github.com/newrade/newrade/commit/006577fc028bc948fec48a1a294f0c79892def57))
+- **core-react-ui:** refactor title ([be240b0](https://github.com/newrade/newrade/commit/be240b020b0aeebaefe3aa7748745417d057cb9c))
+- **core-react-ui:** upgrade react-icons, fix hmr bug ([2d581a4](https://github.com/newrade/newrade/commit/2d581a4d7e860cbd4ffa0af8a0bacd5c39afb9fe))
+- **gatsby:** fixes typechecking ([4c3b323](https://github.com/newrade/newrade/commit/4c3b323dce2eda2bb0b413628290f3238898c23e))
+- **gatsby:** re enable typecheck after switching to typescript plugin ([48078be](https://github.com/newrade/newrade/commit/48078be91bcdf73f4970a98f6fe1ff3e972fe2a1))
+- **gatsby:** update gatsby site config to include new flags ([48422e7](https://github.com/newrade/newrade/commit/48422e70dd02ff76bd4fdbd823cd1f5e34674136))
+
+### Features
+
+- **cluster-color:** change de column in cluster and changing the colorswatch ([d4c6772](https://github.com/newrade/newrade/commit/d4c6772c720b886fc294a9befdebf8a6aadbd461))
+- **code-highlight:** adding the treat file for code highlighter ([7cefb6e](https://github.com/newrade/newrade/commit/7cefb6eea594bebc47cdf42ddc79bb17add68e54))
+- **component-react-ui:** adding responsive change in label , paragraph and into cluster ([620fbad](https://github.com/newrade/newrade/commit/620fbad997577fae42fbf0277467b3c41e5b6b08))
+- **core-gatsby-config:** add new plugin ([2bd8c5c](https://github.com/newrade/newrade/commit/2bd8c5c32cf2992eb9f2cf5a6b6c16b666b1013d))
+- **core-react-ui:** add layout utilities ([587c8e8](https://github.com/newrade/newrade/commit/587c8e8a92fa85df4624637349b4cc48c6c24c70))
+- **core-react-ui:** add TEXT_LEVEL ([ae83daf](https://github.com/newrade/newrade/commit/ae83daf80547d0ee9533e6e46351f4c358d94e70))
+- **core-react-ui:** adding paragraph and heading component ([ccb032e](https://github.com/newrade/newrade/commit/ccb032e23fd99727c68c2bc227ed70763e8f799e))
+- **core-react-ui:** label compoment ([f18d9ad](https://github.com/newrade/newrade/commit/f18d9ad72b3f34a0bd76ffe11f09cf5103480b8c))
+- **core-react-ui:** wip adding layout vars and adding responsize ([fed7406](https://github.com/newrade/newrade/commit/fed74064c7803b4dc00338964ac7deea352c1864))
+- **link-react-ui:** adding new component of link into the core-react-ui ([3a9e4d8](https://github.com/newrade/newrade/commit/3a9e4d8f52aaa4e431d6d68e9ce0b2e8d81e887d))
+- **page-template:** progress on making the new page-template ([e45ad7f](https://github.com/newrade/newrade/commit/e45ad7ffedb6dc0c1dbf1c4e5e694775a2e2979a))
+- **vsb-website:** adding content to first component of section in the home page ([6d202b8](https://github.com/newrade/newrade/commit/6d202b8d9ddcf674ca7fa292cea39338d67524eb))
+- **vsb-website:** adding gatsby ui components ([1607429](https://github.com/newrade/newrade/commit/16074292a2cf0ebe19f690a86011b6d750cc5380))
+- **vsb-website:** wip on the theme config ([6362338](https://github.com/newrade/newrade/commit/6362338d7ba92b50b54710205582c0aedfb46a60))
+
 # [1.6.0](https://github.com/newrade/newrade/compare/@newrade/core-react-ui@1.5.2...@newrade/core-react-ui@1.6.0) (2020-12-18)
 
 ### Bug Fixes

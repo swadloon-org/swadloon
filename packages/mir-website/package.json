@@ -1,6 +1,6 @@
 {
   "name": "@newrade/mir-website",
-  "version": "1.8.0",
+  "version": "1.9.0",
   "description": "Gatsby website for newrade's main website",
   "author": {
     "email": "info@newrade.ca",
@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "@newrade/core-design-system-old": "^1",
-    "@newrade/core-react-ui-old": "^1",
+    "@newrade/core-react-ui-old": "^1.5.4",
     "gatsby": "^2.29"
   },
   "devDependencies": {

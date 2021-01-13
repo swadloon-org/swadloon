@@ -1,6 +1,6 @@
 {
   "name": "@newrade/newrade-website",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "Gatsby website for newrade's main website",
   "author": {
     "email": "info@newrade.ca",
@@ -25,8 +25,8 @@
     "typecheck:build": "tsc --project tsconfig.build.json --noEmit"
   },
   "dependencies": {
-    "@newrade/core-design-system": "^1",
-    "@newrade/core-react-ui": "^1",
+    "@newrade/core-design-system": "^1.6.0",
+    "@newrade/core-react-ui": "^1.7.0",
     "gatsby": "^2.29"
   },
   "devDependencies": {

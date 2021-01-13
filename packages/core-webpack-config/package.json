@@ -1,6 +1,6 @@
 {
   "name": "@newrade/core-webpack-config",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "description": "Reusable webpack configuration files",
   "license": "MIT",
   "main": "./lib/index.js",

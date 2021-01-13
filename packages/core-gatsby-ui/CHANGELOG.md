@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-ui@1.1.0...@newrade/core-gatsby-ui@1.2.0) (2021-01-04)
+
+### Bug Fixes
+
+- **core-gatsby-config:** fix reloading bug in hmr with treat ([26d1a19](https://github.com/newrade/newrade/commit/26d1a19de6c66bea70b45808f4668b9a63535b8d))
+- **core-gatsby-ui:** move common fragments ([be6e62a](https://github.com/newrade/newrade/commit/be6e62a911799d69763865933c23d83e4293b8af))
+- **core-gatsby-ui:** wip ([eb7b648](https://github.com/newrade/newrade/commit/eb7b64894ee92faea0bf2dc576a4e997ae523bc5))
+- **core-react-ui:** css fixes ([f648b00](https://github.com/newrade/newrade/commit/f648b0044f4c0fc595123a67d61069991dd575bf))
+- **core-react-ui:** fixes ([967a4d7](https://github.com/newrade/newrade/commit/967a4d7b32985f8bfd8b3e5e500d0d4303495c5e))
+- **core-react-ui:** fixes for layouts and globals ([387c1da](https://github.com/newrade/newrade/commit/387c1da29f5cd07a81da2729dae9716eab31be95))
+- **core-react-ui:** implement aside for mdx docs ([006577f](https://github.com/newrade/newrade/commit/006577fc028bc948fec48a1a294f0c79892def57))
+- **core-react-ui:** upgrade react-icons, fix hmr bug ([2d581a4](https://github.com/newrade/newrade/commit/2d581a4d7e860cbd4ffa0af8a0bacd5c39afb9fe))
+- **mir-website:** fixes image loading ([feb0185](https://github.com/newrade/newrade/commit/feb0185f183d01107d910f3176a9f49133735046))
+
+### Features
+
+- **core-gatsby-config:** add new plugin ([2bd8c5c](https://github.com/newrade/newrade/commit/2bd8c5c32cf2992eb9f2cf5a6b6c16b666b1013d))
+- **core-react-ui:** wip adding layout vars and adding responsize ([fed7406](https://github.com/newrade/newrade/commit/fed74064c7803b4dc00338964ac7deea352c1864))
+- **vsb-website:** adding content to first component of section in the home page ([6d202b8](https://github.com/newrade/newrade/commit/6d202b8d9ddcf674ca7fa292cea39338d67524eb))
+- **vsb-website:** adding gatsby ui components ([1607429](https://github.com/newrade/newrade/commit/16074292a2cf0ebe19f690a86011b6d750cc5380))
+
 # 1.1.0 (2020-12-18)
 
 ### Bug Fixes

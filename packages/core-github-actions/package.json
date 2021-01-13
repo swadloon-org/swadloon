@@ -1,6 +1,6 @@
 {
   "name": "@newrade/core-github-actions",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Custom Github actions",
   "author": {
     "email": "info@newrade.ca",

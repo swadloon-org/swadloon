@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-design-system@1.5.0...@newrade/core-design-system@1.6.0) (2021-01-04)
+
+### Bug Fixes
+
+- **core-react-ui:** add labels, paragraph, headings and titles ([598c84d](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/598c84d100ac7844a9d54c42c37bb89c159e7408))
+- **gatsby:** update gatsby site config to include new flags ([48422e7](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/48422e70dd02ff76bd4fdbd823cd1f5e34674136))
+
+### Features
+
+- **core-react-ui:** add layout utilities ([587c8e8](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/587c8e8a92fa85df4624637349b4cc48c6c24c70))
+- **core-react-ui:** add TEXT_LEVEL ([ae83daf](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/ae83daf80547d0ee9533e6e46351f4c358d94e70))
+- **core-react-ui:** wip adding layout vars and adding responsize ([fed7406](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/fed74064c7803b4dc00338964ac7deea352c1864))
+
 # [1.5.0](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-design-system@1.4.0...@newrade/core-design-system@1.5.0) (2020-12-18)
 
 ### Bug Fixes
