@@ -1,6 +1,6 @@
 import React, { BlockquoteHTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
-import { CommonComponentProps } from '../../props/component-common-props';
+import { CommonComponentProps } from '../../props/component-common.props';
 import * as stylesRef from './blockquote.treat';
 
 type Props = CommonComponentProps & BlockquoteHTMLAttributes<any> & {};

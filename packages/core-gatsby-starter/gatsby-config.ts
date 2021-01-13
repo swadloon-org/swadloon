@@ -47,19 +47,30 @@ const config: core.GastbySiteConfig = {
      * Project Specific Plugins
      */
     {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Core Gastby Starter`,
+        short_name: `Core Gastby Starter`,
+        start_url: `/`,
+        background_color: `#ffffff`,
+        theme_color: `#6061EC`,
+        display: `standalone`,
+        icon: `src/images/favicon.png`,
+      },
+    },
+    /**
+     * Source markdown files at `<repo-root>/docs`
+     */
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: SOURCE_INSTANCE_NAME.DOCS,
         path: path.resolve('..', '..', 'docs'),
       },
     },
-    {
-      resolve: `gatsby-plugin-page-creator`,
-      options: {
-        path: path.resolve('..', '..', 'docs'),
-        ignore: [`**/*.treat.ts`, `**/*.tsx`],
-      },
-    },
+    /**
+     * Newrade Contentful project
+     */
     {
       resolve: `gatsby-source-contentful`,
       options: {
@@ -72,7 +83,11 @@ const config: core.GastbySiteConfig = {
      * Core Plugins
      */
     ...core.getGatsbyPluginTypeScriptConfig({
-      documentPaths: ['./src/**/*.{ts,tsx}'],
+      documentPaths: [
+        './src/**/*.{ts,tsx}',
+        '../core-gatsby-ui/src/hooks/**/*.{ts,tsx}',
+        '../core-gatsby-ui/src/templates/**/*.{ts,tsx}',
+      ],
     }),
     ...core.getGatsbyPluginMdx(),
     core.getGatsbyReactSvgConfig(),
@@ -81,7 +96,7 @@ const config: core.GastbySiteConfig = {
     core.getGatsbyTransformerSharp(),
     core.getGatsbyPluginSharp(),
     core.getGastbyPluginTreatConfig(),
-    core.getGatsbyImageFolder(),
+    ...core.getGatsbyImageFolder(),
     core.getGatsbyPluginReactHelmet(),
     core.getGatsbyPluginSitemap(),
     core.getGatsbyPluginRobotsTxt({ env }),
@@ -96,6 +111,8 @@ const config: core.GastbySiteConfig = {
     // }),
     core.getGastbyCorePluginConfig({
       packageName: packageJson.name,
+      enableDesignSystemPages: true,
+      enableDocsPages: true,
     }),
     // core.getGatsbyPluginPreloadFonts(),
   ],

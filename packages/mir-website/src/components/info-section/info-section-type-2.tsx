@@ -10,7 +10,7 @@ import { Button } from '../ui/button';
 import { SectionLinkButton } from './section-link-button';
 import { ImageFrame } from '../ui/image-frame';
 import { FadeIn } from '../animation/fade-in';
-import { LayoutCentered } from '../../layouts/content-centered';
+import { LayoutCentered } from '../../layout/content-centered';
 import { FluidObject } from 'gatsby-image';
 
 type OwnProps = SectionFragment;

@@ -1,6 +1,6 @@
 import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
-import { CommonComponentProps } from '../../props/component-common-props';
+import { CommonComponentProps } from '../../props/component-common.props';
 import * as stylesRef from './summary.treat';
 
 type Props = CommonComponentProps & HTMLAttributes<HTMLHeadingElement> & {};

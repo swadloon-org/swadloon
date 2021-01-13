@@ -3,6 +3,7 @@
   "compilerOptions": {
     "rootDir": "src",
     "outDir": "lib",
+    "module": "commonjs",
     "types": ["jest", "node", "expect-puppeteer", "jest-environment-puppeteer", "puppeteer"]
   },
   "references": [

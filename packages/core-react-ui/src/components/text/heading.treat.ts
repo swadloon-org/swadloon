@@ -5,7 +5,7 @@ import { getCSSTextStyles } from '../../utilities/text.utilities';
 
 export const styles: { wrapper: string } & { [key in HEADING]: string } & { [key in TEXT_LEVEL]: string } = {
   wrapper: style(({ theme, cssTheme }: Theme) => ({
-    display: 'inherit',
+    display: 'flex',
   })),
 
   h1: style(({ theme, cssTheme }: Theme) => ({
@@ -70,7 +70,18 @@ export const styles: { wrapper: string } & { [key in HEADING]: string } & { [key
 globalStyle(`${styles.wrapper}::before`, ({ theme, cssTheme }: Theme) => ({
   content: '" "',
   display: 'block',
-  height: '75px',
-  marginTop: '-75px',
+  height: cssTheme.layout.navbarHeight.mobile,
+  marginTop: `-${cssTheme.layout.navbarHeight.mobile}`,
   visibility: 'hidden',
+
+  '@media': {
+    [cssTheme.layout.media.tablet]: {
+      height: cssTheme.layout.navbarHeight.tablet,
+      marginTop: `-${cssTheme.layout.navbarHeight.tablet}`,
+    },
+    [cssTheme.layout.media.desktopSmall]: {
+      height: cssTheme.layout.navbarHeight.desktop,
+      marginTop: `-${cssTheme.layout.navbarHeight.desktop}`,
+    },
+  },
 }));

@@ -2,10 +2,11 @@ import { ButtonProps } from '@newrade/core-design-system';
 import React, { ButtonHTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './button.treat';
+import { CommonComponentProps } from '../../props/component-common.props';
 
-type OwnProps = ButtonProps & ButtonHTMLAttributes<any> & { as?: 'button' | 'a' };
+type Props = CommonComponentProps & ButtonProps & ButtonHTMLAttributes<any> & { as?: 'button' | 'a' };
 
-export const Button: React.FC<OwnProps> = ({ className, variant, size, state, icon, ...props }) => {
+export const Button: React.FC<Props> = ({ className, variant, size, state, icon, ...props }) => {
   const styles = useStyles(styleRefs);
 
   const sizeClass = `${size ? styles.sizes[size] : styles.sizes.large}`;

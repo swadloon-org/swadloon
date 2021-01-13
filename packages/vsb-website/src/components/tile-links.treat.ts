@@ -1,8 +1,19 @@
-import { DesignSystem } from '@newrade/core-design-system';
+import { Theme } from '@newrade/core-react-ui';
 import { style } from 'treat';
 
-//
-// Wrapper
-//
+export const styles = {
+  wrapper: style(({ theme, cssTheme }: Theme) => ({})),
+  gridSwitch: style(({ theme, cssTheme }: Theme) => ({
+    display: 'grid',
+    gridTemplateColumns: '1fr',
 
-export const wrapper = style((theme: DesignSystem) => ({ width: '100%', height: '720px' }));
+    '@media': {
+      [cssTheme.layout.media.tablet]: {
+        gridTemplateColumns: '1fr 1fr',
+      },
+      [cssTheme.layout.media.desktopSmall]: {
+        gridTemplateColumns: '1fr 1fr',
+      },
+    },
+  })),
+};

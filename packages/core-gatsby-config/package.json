@@ -8,19 +8,24 @@
     "./lib/**/*"
   ],
   "scripts": {
-    "prebuild": "yarn create-package-json-plugin-core-contentful & yarn create-package-json-plugin-core & yarn create-package-json-treat",
+    "prebuild": "yarn create-package-json",
     "build": "tsc --build tsconfig.build.json",
     "clean": "rimraf -r lib/** && rm -f tsconfig.build.tsbuildinfo",
+    "create-package-json": "yarn create-package-json-plugin-layout-core & yarn create-package-json-plugin-core-contentful & yarn create-package-json-plugin-core & yarn create-package-json-treat",
     "create-package-json-plugin-core": "mkdir -p lib/plugins/gatsby-plugin-core && cp 'src/plugins/gatsby-plugin-core/package.json' 'lib/plugins/gatsby-plugin-core/package.json'",
     "create-package-json-plugin-core-contentful": "mkdir -p lib/plugins/gatsby-plugin-core-contentful && cp 'src/plugins/gatsby-plugin-core-contentful/package.json' 'lib/plugins/gatsby-plugin-core-contentful/package.json'",
+    "create-package-json-plugin-layout-core": "mkdir -p lib/plugins/gatsby-plugin-layout-core && cp 'src/plugins/gatsby-plugin-layout-core/package.json' 'lib/plugins/gatsby-plugin-layout-core/package.json'",
     "create-package-json-treat": "mkdir -p lib/plugins/gatsby-plugin-treat && cp 'src/plugins/gatsby-plugin-treat/package.json' 'lib/plugins/gatsby-plugin-treat/package.json'",
-    "prestart": "yarn create-package-json-plugin-core-contentful & yarn create-package-json-plugin-core & yarn create-package-json-treat",
+    "prestart": "yarn create-package-json",
     "start": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
-    "test": "echo ok"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
+  "sideEffects": false,
   "typings": "./lib/index.d.ts",
   "dependencies": {
     "@newrade/core-common": "^1.0.1",
+    "@newrade/core-types": "^1.0.0",
     "@newrade/core-utils": "^1.3.0",
     "@newrade/core-webpack-config": "^1.3.3"
   }

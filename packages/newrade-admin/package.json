@@ -1,0 +1,30 @@
+{
+  "name": "@newrade/newrade-admin",
+  "version": "1.3.0",
+  "description": "Internal tools",
+  "author": {
+    "email": "info@newrade.ca",
+    "name": "Newrade",
+    "url": "https://github.com/newrade/newrade"
+  },
+  "repository": "https://github.com/newrade/newrade/tree/master/packages/newrade-admin",
+  "license": "MIT",
+  "main": "./lib/index.js",
+  "module": "./lib/index.js",
+  "files": [
+    "./lib/**/*"
+  ],
+  "scripts": {
+    "clasp": "clasp",
+    "clasp:watch": "clasp push --watch",
+    "clean": "rimraf -r lib/** && rm -f tsconfig.build.tsbuildinfo"
+  },
+  "sideEffects": false,
+  "typings": "./lib/index.d.ts",
+  "dependencies": {
+    "@google/clasp": "^2.3.0",
+    "@newrade/core-common": "^1.0.1",
+    "@newrade/core-types": "^1.0.0",
+    "@newrade/core-utils": "^1.0.1"
+  }
+}

@@ -24,6 +24,15 @@ globalStyle(`html`, {
   // prevent the content to jump when scrolling
   overflowY: 'scroll',
   overflowX: 'hidden',
+  // prevent tap highlight
+  WebkitTapHighlightColor: 'rgba(0, 0, 0, 0) ',
+  // @ts-ignore
+  WebkitFontSmoothing: 'antialiased',
+  // ensure fast clicks on ios safari 9, 10
+  touchAction: 'manipulation',
+  WebkitTouchCallout: 'none',
+  // smooth background transition
+  transition: 'background-color 0.2s ease-out',
 });
 
 /**
@@ -203,4 +212,21 @@ globalStyle(`details`, {
 globalStyle(`summary`, {
   // Add the correct display in all browsers.
   display: 'list-item',
+});
+
+/**
+ * Resets table
+ */
+globalStyle(`table, caption, tbody, tfoot, thead, tr, th, td`, {
+  margin: '0',
+  padding: '0',
+  border: '0',
+  fontSize: '100%',
+  font: 'inherit',
+  verticalAlign: 'baseline',
+});
+
+globalStyle(`table`, {
+  borderCollapse: 'collapse',
+  borderSpacing: '0',
 });

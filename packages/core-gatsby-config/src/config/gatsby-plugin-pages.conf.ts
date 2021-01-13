@@ -29,13 +29,6 @@ export function getGastbyPluginPageCreatorConfig(options?: any): PluginRef[] {
         ignore: [`**/*.ts?x`],
       },
     },
-    {
-      resolve: `gatsby-plugin-page-creator`,
-      options: {
-        path: path.resolve('src', 'pages'),
-        ignore: [`**/*.treat.ts`, `**/*.tsx`],
-      },
-    },
     /**
      * Mdx pages in src/docs/
      */
@@ -47,11 +40,14 @@ export function getGastbyPluginPageCreatorConfig(options?: any): PluginRef[] {
         ignore: [`**/*.ts?x`],
       },
     },
+    /**
+     * Design system pages
+     */
     {
-      resolve: `gatsby-plugin-page-creator`,
+      resolve: `gatsby-source-filesystem`,
       options: {
-        path: path.resolve('src', 'docs'),
-        ignore: [`**/*.treat.ts`, `**/*.tsx`],
+        name: SOURCE_INSTANCE_NAME.DESIGN_SYSTEM_DOCS,
+        path: path.resolve('..', 'core-gatsby-starter', 'src', 'design-system-docs'),
       },
     },
   ];
