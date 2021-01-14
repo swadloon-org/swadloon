@@ -53,8 +53,6 @@ export const Button: React.FC<Props> = ({
     className || ''
   } `;
 
-  // TODO should we use reakti as a base https://reakit.io/docs/button/?
-
   // return React.createElement(type, {
   //   className: allClassName,
   //   ...props,
