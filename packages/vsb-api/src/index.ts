@@ -22,12 +22,12 @@ const testPatient: Partial<Patient> = {
   accepted_sms_marketing: false,
   address_1: '12312321',
   country: 'Canada',
-  date_of_birth: '1999-05-01',
-  email: 'elliot@newrade.ca',
-  first_name: 'Elliot',
+  date_of_birth: '1999-09-09',
+  email: 'fake@newrade.ca',
+  first_name: 'Lorem',
   gender_identity: 'Man',
   invoice_email: null,
-  last_name: 'Pellerin',
+  last_name: 'Ipsum',
   medicare_reference_number: null,
   patient_phone_numbers: [{ number: '4444444444', phone_type: 'Mobile' }],
   receives_confirmation_emails: true,
@@ -36,6 +36,7 @@ const testPatient: Partial<Patient> = {
   state: '',
   title: 'Mr',
 };
+
 server.get('/', (req: Request, res: Response) => {
   console.log(req);
   res.send('<form action="/register" method="post"><input type="submit"></form>');
