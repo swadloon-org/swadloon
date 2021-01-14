@@ -1,4 +1,4 @@
-import { GatsbyLink, useDesignSystemNavItems } from '@newrade/core-gatsby-ui/src';
+import { GatsbyLink, useDocsNavItems } from '@newrade/core-gatsby-ui/src';
 import {
   Main,
   MainWrapper,
@@ -14,7 +14,7 @@ import { title } from 'case';
 import { PageProps } from 'gatsby';
 import React, { ReactNode } from 'react';
 import { useStyles } from 'react-treat';
-import * as styleRefs from './design-system.layout.treat';
+import * as styleRefs from './documentation.layout.treat';
 import { useLocale, useIsSSR } from 'react-aria';
 
 type LayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }> & {
@@ -22,7 +22,7 @@ type LayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }
   DesktopSvgLogo?: React.ReactNode;
 };
 
-export const LayoutDesignSystem = React.memo<LayoutProps>(({ MobileSvgLogo, DesktopSvgLogo, ...props }) => {
+export const LayoutDocumentation = React.memo<LayoutProps>(({ MobileSvgLogo, DesktopSvgLogo, ...props }) => {
   /**
    * React Aria
    */
@@ -33,7 +33,7 @@ export const LayoutDesignSystem = React.memo<LayoutProps>(({ MobileSvgLogo, Desk
    */
   const { styles } = useStyles(styleRefs);
   const { cssTheme } = useTreatTheme();
-  const navItems = useDesignSystemNavItems();
+  const navItems = useDocsNavItems();
   const navItemsByDirName = new Set(navItems.map((item) => item.dirName));
 
   return (

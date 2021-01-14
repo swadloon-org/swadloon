@@ -35,7 +35,7 @@ export function getGastbyPluginPageCreatorConfig(options?: any): PluginRef[] {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: SOURCE_INSTANCE_NAME.PACKAGE_DOCS,
+        name: SOURCE_INSTANCE_NAME.DOCS,
         path: path.resolve('src', 'docs'),
         ignore: [`**/*.ts?x`],
       },

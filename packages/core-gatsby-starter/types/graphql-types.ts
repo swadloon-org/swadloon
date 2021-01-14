@@ -9381,8 +9381,8 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___theme_color'
   | 'pluginCreator___pluginOptions___display'
   | 'pluginCreator___pluginOptions___icon'
-  | 'pluginCreator___pluginOptions___cache_busting_mode'
   | 'pluginCreator___pluginOptions___include_favicon'
+  | 'pluginCreator___pluginOptions___cache_busting_mode'
   | 'pluginCreator___pluginOptions___legacy'
   | 'pluginCreator___pluginOptions___theme_color_in_head'
   | 'pluginCreator___pluginOptions___cacheDigest'
@@ -9698,8 +9698,8 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___theme_color'
   | 'pluginOptions___display'
   | 'pluginOptions___icon'
-  | 'pluginOptions___cache_busting_mode'
   | 'pluginOptions___include_favicon'
+  | 'pluginOptions___cache_busting_mode'
   | 'pluginOptions___legacy'
   | 'pluginOptions___theme_color_in_head'
   | 'pluginOptions___cacheDigest'
@@ -9868,8 +9868,8 @@ export type SitePluginPluginOptions = {
   theme_color?: Maybe<Scalars['String']>;
   display?: Maybe<Scalars['String']>;
   icon?: Maybe<Scalars['String']>;
-  cache_busting_mode?: Maybe<Scalars['String']>;
   include_favicon?: Maybe<Scalars['Boolean']>;
+  cache_busting_mode?: Maybe<Scalars['String']>;
   legacy?: Maybe<Scalars['Boolean']>;
   theme_color_in_head?: Maybe<Scalars['Boolean']>;
   cacheDigest?: Maybe<Scalars['String']>;
@@ -10016,8 +10016,8 @@ export type SitePluginPluginOptionsFilterInput = {
   theme_color?: Maybe<StringQueryOperatorInput>;
   display?: Maybe<StringQueryOperatorInput>;
   icon?: Maybe<StringQueryOperatorInput>;
-  cache_busting_mode?: Maybe<StringQueryOperatorInput>;
   include_favicon?: Maybe<BooleanQueryOperatorInput>;
+  cache_busting_mode?: Maybe<StringQueryOperatorInput>;
   legacy?: Maybe<BooleanQueryOperatorInput>;
   theme_color_in_head?: Maybe<BooleanQueryOperatorInput>;
   cacheDigest?: Maybe<StringQueryOperatorInput>;
@@ -10229,10 +10229,27 @@ export type SitePageFragmentFragment = (
     )>, frontmatter?: Maybe<Pick<SitePageContextFrontmatter, 'name' | 'tags'>> }> }
 );
 
-export type DesignSystemLayoutPage1QueryVariables = Exact<{ [key: string]: never; }>;
+export type DesignSystemLayoutPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type DesignSystemLayoutPage1Query = { pages: (
+export type DesignSystemLayoutPageQuery = { pages: (
+    Pick<SitePageConnection, 'totalCount'>
+    & { nodes: Array<(
+      Pick<SitePage, 'id' | 'path'>
+      & { context?: Maybe<(
+        Pick<SitePageContext, 'id' | 'name' | 'dirName' | 'locale' | 'layout'>
+        & { siteMetadata?: Maybe<(
+          Pick<SitePageContextSiteMetadata, 'description' | 'siteEnv' | 'siteUrl' | 'title'>
+          & { languages?: Maybe<Pick<SitePageContextSiteMetadataLanguages, 'defaultLangKey' | 'langs'>> }
+        )> }
+      )> }
+    )> }
+  ) };
+
+export type DocsLayoutQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type DocsLayoutQuery = { pages: (
     Pick<SitePageConnection, 'totalCount'>
     & { nodes: Array<(
       Pick<SitePage, 'id' | 'path'>

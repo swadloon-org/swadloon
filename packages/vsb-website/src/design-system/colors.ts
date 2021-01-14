@@ -18,20 +18,20 @@ export const colorsColors: Colors['colors'] = {
   },
   accent1: generateColorPalette5({
     color: { h: 24, s: 40, l: 74 },
-    light: 28,
-    dark: 94,
+    light: 94,
+    dark: 28,
   }),
   // not used
   accent2: generateColorPalette5({
     color: { h: 200, s: 50, l: 50 },
-    light: 20,
-    dark: 90,
+    light: 90,
+    dark: 20,
   }),
   // not used
   accent3: generateColorPalette5({
     color: { h: 200, s: 50, l: 50 },
-    light: 20,
-    dark: 90,
+    light: 90,
+    dark: 20,
   }),
   grey: {
     '1000': { h: 210, s: 6, l: 7 },
@@ -56,18 +56,18 @@ export const colorsColors: Colors['colors'] = {
   effectTransparentHeavy: { h: 222, s: 50, l: 50, a: 100 },
   utilityGreen: generateColorPalette5({
     color: { h: 200, s: 50, l: 50 },
-    light: 20,
-    dark: 90,
+    light: 90,
+    dark: 20,
   }),
   utilityYellow: generateColorPalette5({
     color: { h: 200, s: 50, l: 50 },
-    light: 20,
-    dark: 90,
+    light: 90,
+    dark: 20,
   }),
   utilityRed: generateColorPalette5({
     color: { h: 200, s: 50, l: 50 },
-    light: 20,
-    dark: 90,
+    light: 90,
+    dark: 20,
   }),
 };
 

@@ -33,7 +33,7 @@ export const defaultSizesCSSVar: SizingVarNames = {
 };
 
 export const defaultSizingStepsMobile = {
-  [SIZE.x0]: 9,
+  [SIZE.x0]: 4,
   [SIZE.x1]: 9,
   [SIZE.x2]: 13,
   [SIZE.x3]: 21,

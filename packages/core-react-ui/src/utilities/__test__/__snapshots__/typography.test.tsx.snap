@@ -3095,22 +3095,22 @@ Object {
         "textTransform": undefined,
       },
       "small": Object {
-        "capHeight": 11,
+        "capHeight": 10,
         "capsize": Object {
           "::after": Object {
             "content": "''",
             "display": "block",
             "height": 0,
-            "marginBottom": "-0.4047em",
+            "marginBottom": "-0.4438em",
           },
           "::before": Object {
             "content": "''",
             "display": "block",
             "height": 0,
-            "marginTop": "-0.3773em",
+            "marginTop": "-0.4164em",
           },
-          "fontSize": "15.4725px",
-          "lineHeight": "23px",
+          "fontSize": "14.0659px",
+          "lineHeight": "22px",
           "padding": "0.05px 0",
         },
         "font": Array [
@@ -3275,22 +3275,22 @@ Object {
         "textTransform": undefined,
       },
       "xSmall": Object {
-        "capHeight": 9,
+        "capHeight": 8,
         "capsize": Object {
           "::after": Object {
             "content": "''",
             "display": "block",
             "height": 0,
-            "marginBottom": "-0.4916em",
+            "marginBottom": "-0.5513em",
           },
           "::before": Object {
             "content": "''",
             "display": "block",
             "height": 0,
-            "marginTop": "-0.4642em",
+            "marginTop": "-0.524em",
           },
-          "fontSize": "12.6593px",
-          "lineHeight": "21px",
+          "fontSize": "11.2527px",
+          "lineHeight": "20px",
           "padding": "0.05px 0",
         },
         "font": Array [

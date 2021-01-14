@@ -1,5 +1,5 @@
 import React from 'react';
-import { OpenGraphMetadataBasic } from '../../models/open-graph-metadata.model';
+import { OpenGraphMetadataBasic } from '../models/open-graph-metadata.model';
 
 type Props = OpenGraphMetadataBasic;
 

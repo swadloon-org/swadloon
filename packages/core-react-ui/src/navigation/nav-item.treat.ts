@@ -9,7 +9,7 @@ export const styles = {
     color: cssTheme.colors.colors.grey[700],
   })),
   active: style(({ cssTheme, theme }: Theme) => ({
-    backgroundColor: getCSSColor({ ...theme.colors.colors.primary[100], a: 10 }),
+    backgroundColor: getCSSColor({ ...theme.colors.colors.primary[500], a: 5 }),
     color: cssTheme.colors.colors.grey[1000],
     '::before': {
       content: '" "',
