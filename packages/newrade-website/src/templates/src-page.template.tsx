@@ -23,7 +23,6 @@ export const SrcPageTemplate: React.FC<Props & { children: ReactNode }> = (props
           href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
           rel="stylesheet"
         />
-
         {getMetaBasicTags()}
       </Helmet>
       {props.children}

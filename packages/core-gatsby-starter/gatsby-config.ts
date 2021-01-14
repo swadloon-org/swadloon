@@ -55,7 +55,8 @@ const config: core.GastbySiteConfig = {
         background_color: `#ffffff`,
         theme_color: `#6061EC`,
         display: `standalone`,
-        icon: `src/images/favicon.png`,
+        icon: `../newrade-website/src/images/favicon.svg`,
+        include_favicon: false,
       },
     },
     /**
@@ -64,7 +65,7 @@ const config: core.GastbySiteConfig = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: SOURCE_INSTANCE_NAME.DOCS,
+        name: SOURCE_INSTANCE_NAME.MONO_REPO_DOCS,
         path: path.resolve('..', '..', 'docs'),
       },
     },

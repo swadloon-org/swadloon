@@ -4,12 +4,14 @@ import { BoxStyle } from '../atoms/box';
 export enum ButtonAs {
   button = 'button',
   a = 'a',
+  div = 'div',
 }
 
 export enum ButtonSize {
   large = 'large',
   medium = 'medium',
   small = 'small',
+  xsmall = 'xSmall',
 }
 
 export enum ButtonVariant {
@@ -31,22 +33,25 @@ export enum ButtonIcon {
 }
 
 export enum ButtonState {
-  normal = 'normal',
+  rest = 'rest',
   pressed = 'pressed',
   focused = 'focused',
   loading = 'loading',
   disabled = 'disabled',
 }
 
-export interface ButtonProps {
+export type ButtonProps = Partial<ButtonStyleProps>;
+
+export interface ButtonStyleProps {
   /**
    * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/button_role
    */
-  role?: string;
-  variant?: ButtonVariant;
-  icon?: ButtonIcon;
-  size?: ButtonSize;
-  state?: ButtonState;
+  role: string;
+  variant: ButtonVariant;
+  variantStyle: ButtonStyleVariant;
+  icon: ButtonIcon;
+  size: ButtonSize;
+  state: ButtonState;
 }
 
 export type ButtonStyle<Override extends undefined | string = undefined> = {

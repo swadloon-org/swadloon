@@ -18,6 +18,11 @@ export const defaultButtons: Buttons = {
         default: 2,
       },
     },
+    xsmall: {
+      padding: {
+        default: 2,
+      },
+    },
   },
   variants: {
     primary: {

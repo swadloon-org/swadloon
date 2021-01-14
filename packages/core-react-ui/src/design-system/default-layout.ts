@@ -42,8 +42,8 @@ export const defaultPartialLayout: PartialLayout = {
     [VIEWPORT.mobile]: 375,
   },
   navbarHeight: {
-    [VIEWPORT.desktop]: 72,
-    [VIEWPORT.tablet]: 60,
+    [VIEWPORT.desktop]: 55,
+    [VIEWPORT.tablet]: 55,
     [VIEWPORT.mobile]: 55,
   },
   asideWidth: 210,

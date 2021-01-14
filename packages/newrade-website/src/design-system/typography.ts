@@ -198,7 +198,7 @@ export const typography: Typography = {
         fontWeight: 500,
       },
       boldUppercase: {
-        fontWeight: 500,
+        fontWeight: 600,
         textTransform: TEXT_TRANSFORM.uppercase,
         letterSpacing: 10,
       },

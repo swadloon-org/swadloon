@@ -232,11 +232,11 @@ export const defaultTypography: Typography = {
         lineGap: 12,
       },
       small: {
-        capHeight: 11,
+        capHeight: 10,
         lineGap: 12,
       },
       xSmall: {
-        capHeight: 9,
+        capHeight: 8,
         lineGap: 12,
       },
     },

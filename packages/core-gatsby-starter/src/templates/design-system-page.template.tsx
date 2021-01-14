@@ -25,7 +25,7 @@ export const DesignSystemPageTemplate: React.FC<Props & { children: ReactNode }>
         />
         {getMetaBasicTags()}
       </Helmet>
-      <Center maxWidth={`800px`}>{props.children}</Center>
+      <Center maxWidth={`900px`}>{props.children}</Center>
     </>
   );
 };

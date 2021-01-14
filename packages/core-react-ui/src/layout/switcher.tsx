@@ -10,7 +10,7 @@ type OwnProps = CommonComponentProps &
     col: number;
   }>;
 
-export const Switcher: React.FC<OwnProps> = ({ id, className, style, as, col, gap = [], ...props } = {}) => {
+export const Switcher: React.FC<OwnProps> = ({ id, className, style, as, col, gap = [0], ...props } = {}) => {
   const styles = useStyles(styleRefs);
   const [mobileGap, tabletGap, desktopGap] = gap;
 

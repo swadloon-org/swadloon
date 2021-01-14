@@ -22,7 +22,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
 
   try {
     /**
-     * Query for site metadata
+     * Query for site metadata which will be set to all pages' context
      */
     const allSiteData = await graphql<GatsbyNodeAllSiteQuery>(`
       query GatsbyNodeAllSite {
@@ -60,7 +60,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
        */
       const markdownFilesData = await graphql<GatsbyNodeMarkdownFilesQuery>(`
         query GatsbyNodeMarkdownFiles {
-          allFile(filter: { sourceInstanceName: { eq: "PACKAGE_DOCS" }, ext: { in: [".md", ".mdx"] } }) {
+          allFile(filter: { sourceInstanceName: { in: ["MONO_REPO_DOCS", "DOCS"] }, ext: { in: [".md", ".mdx"] } }) {
             nodes {
               id
               name
@@ -93,19 +93,16 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
       /**
        * Organise files to create pages and paths
        */
-      // const markdownTemplate = path.resolve(`../core-gatsby-ui/lib/templates/markdown.template.js`);
       const markdownTemplate = path.resolve(`../core-gatsby-ui/src/templates/markdown.template.tsx`);
-      // const markdownTemplate = path.resolve(`src/templates/markdown.template.tsx`);
 
       /**
        * Create Markdown pages
        */
       markdownFilesData?.data?.allFile.nodes.forEach((node, index) => {
-        const dir =
-          node.sourceInstanceName === SOURCE_INSTANCE_NAME.MDX_PAGES
-            ? ``
-            : `${node.sourceInstanceName ? `${kebab(node.sourceInstanceName)}/` : ''}`;
-        const path = `${dir}${node.childMdx?.slug}`;
+        const dir = getDirNameForSourceInstance(node.sourceInstanceName as SOURCE_INSTANCE_NAME);
+        const path = `${getLocaleDirName(node.name, siteMetadata.languages?.defaultLangKey)}${dir}${
+          node.childMdx?.slug
+        }`;
         const locale = /fr\.+/.test(node.name) ? SITE_LANGUAGES.EN : SITE_LANGUAGES.FR;
 
         log(`Creating markdown page: ${path}`, {
@@ -128,12 +125,10 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
       });
     }
 
+    /**
+     * Create Design System pages
+     */
     if (pluginOptions.enableDesignSystemPages) {
-      /**
-       * Create Design System pages
-       */
-      // const designSystemPageTemplate = path.resolve(`../core-gatsby-ui/lib/templates/src-page.template.js`);
-      const designSystemPageTemplate = path.resolve(`src/templates/design-system-page.template.tsx`);
       const designSystemPagesData = await graphql<{
         allFile: { nodes: { id: string; name: string; absolutePath: string; relativePath: string }[] };
       }>(`
@@ -185,6 +180,55 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
     }
   }
 };
+
+function getDirNameForSourceInstance(sourceInstanceName: SOURCE_INSTANCE_NAME): string {
+  switch (sourceInstanceName) {
+    case SOURCE_INSTANCE_NAME.DOCS: {
+      return 'docs/';
+    }
+    case SOURCE_INSTANCE_NAME.MDX_PAGES: {
+      return '';
+    }
+    case SOURCE_INSTANCE_NAME.MONO_REPO_DOCS: {
+      return 'core-docs/';
+    }
+    case SOURCE_INSTANCE_NAME.DESIGN_SYSTEM_DOCS: {
+      return 'design-system/';
+    }
+    default: {
+      return '';
+    }
+  }
+}
+
+/**
+ * Return the locale directory name for a given node path.
+ * For example if the default locale is fr or fr_CA, a node with the name
+ * document.mdx will yield the path /document since the default locale is always the shortest.
+ * A document called en.document.mdx would yield /en/document.
+ *
+ * @param nodeName the mdx page node name e.g. fr.readme.md
+ */
+function getLocaleDirName(nodeName: string, defaultLangKey?: SITE_LANGUAGES): string {
+  if (!defaultLangKey) {
+    return '';
+  }
+
+  // extract the locale name from node name
+  const pattern = new RegExp(`(${Object.entries(SITE_LANGUAGES).join('|')})`, 'gi');
+  const match = pattern.exec(nodeName);
+  const fileLocale = match?.[1];
+
+  if (!fileLocale) {
+    return '';
+  }
+
+  if (defaultLangKey === SITE_LANGUAGES.EN || fileLocale === SITE_LANGUAGES.EN_CA) {
+    return fileLocale === SITE_LANGUAGES.EN || fileLocale === SITE_LANGUAGES.EN_CA ? '' : 'fr/';
+  }
+
+  return fileLocale === SITE_LANGUAGES.EN || fileLocale === SITE_LANGUAGES.EN_CA ? 'en/' : '';
+}
 
 // export const onCreatePageFunction: GatsbyNode['onCreatePage'] = ({ page, actions }, options) => {
 //   const pluginOptions = (options as unknown) as GatsbyCorePluginOptions;

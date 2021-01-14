@@ -29,10 +29,5 @@ globalStyle(`${wrapper} kbd`, ({ cssTheme, theme }: Theme) => ({
  * Default styles for table elements
  */
 globalStyle(`${wrapper} pre`, ({ theme, cssTheme }: Theme) => ({
-  backgroundColor: '#282a36',
-  color: cssTheme.colors?.colors.grey['0-reversed'],
-  border: 'none',
-  borderRadius: '0.25em',
-  height: 'auto',
-  padding: '1em',
+  fontFamily: cssTheme.typography.fonts.monospace.join(', '),
 }));

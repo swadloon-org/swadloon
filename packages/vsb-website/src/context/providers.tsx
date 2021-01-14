@@ -6,6 +6,7 @@ import {
   TreatThemeProvider,
   ViewportProvider,
   viewportContext,
+  GlobalCSSVariables,
 } from '@newrade/core-react-ui';
 import React from 'react';
 import { TreatProvider } from 'react-treat';
@@ -19,17 +20,20 @@ export const Providers: React.FC = (props) => {
       <ViewportProvider context={viewportContext}>
         <TreatThemeProvider theme={{ theme, cssTheme }}>
           <MDXProvider components={mdxComponents}>
-            {/* <CSSVariables>{props.children}</CSSVariables> */}
-            <GlobalResetCSS>
-              <DefaultCSS>
-                <IconContext.Provider value={{ style: { verticalAlign: 'middle' } }}>
-                  {props.children}
-                </IconContext.Provider>
-              </DefaultCSS>
-            </GlobalResetCSS>
+            <GlobalCSSVariables>
+              <GlobalResetCSS>
+                <DefaultCSS>
+                  <IconContext.Provider value={{ style: { verticalAlign: 'middle' } }}>
+                    {props.children}
+                  </IconContext.Provider>
+                </DefaultCSS>
+              </GlobalResetCSS>
+            </GlobalCSSVariables>
           </MDXProvider>
         </TreatThemeProvider>
       </ViewportProvider>
     </TreatProvider>
   );
 };
+
+export default Providers;

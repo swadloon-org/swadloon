@@ -22220,10 +22220,27 @@ export type SiteMetadataFragment = { siteMetadata?: Maybe<(
     & { languages?: Maybe<Pick<SiteSiteMetadataLanguages, 'defaultLangKey' | 'langs'>> }
   )> };
 
-export type DesignSystemLayoutPage1QueryVariables = Exact<{ [key: string]: never; }>;
+export type DesignSystemLayoutPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type DesignSystemLayoutPage1Query = { pages: (
+export type DesignSystemLayoutPageQuery = { pages: (
+    Pick<SitePageConnection, 'totalCount'>
+    & { nodes: Array<(
+      Pick<SitePage, 'id' | 'path'>
+      & { context?: Maybe<(
+        Pick<SitePageContext, 'id' | 'name' | 'dirName' | 'locale' | 'layout'>
+        & { siteMetadata?: Maybe<(
+          Pick<SitePageContextSiteMetadata, 'description' | 'siteEnv' | 'siteUrl' | 'title'>
+          & { languages?: Maybe<Pick<SitePageContextSiteMetadataLanguages, 'defaultLangKey' | 'langs'>> }
+        )> }
+      )> }
+    )> }
+  ) };
+
+export type DocsLayoutQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type DocsLayoutQuery = { pages: (
     Pick<SitePageConnection, 'totalCount'>
     & { nodes: Array<(
       Pick<SitePage, 'id' | 'path'>

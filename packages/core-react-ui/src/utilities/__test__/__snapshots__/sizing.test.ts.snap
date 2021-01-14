@@ -6,7 +6,7 @@ Object {
   "ratio": 1.618,
   "sizes": Object {
     "desktop": Object {
-      "x0": "9px",
+      "x0": "4px",
       "x1": "9px",
       "x10": "144px",
       "x2": "13px",
@@ -19,7 +19,7 @@ Object {
       "x9": "77px",
     },
     "mobile": Object {
-      "x0": "9px",
+      "x0": "4px",
       "x1": "9px",
       "x10": "144px",
       "x2": "13px",
@@ -32,7 +32,7 @@ Object {
       "x9": "77px",
     },
     "tablet": Object {
-      "x0": "9px",
+      "x0": "4px",
       "x1": "9px",
       "x10": "144px",
       "x2": "13px",
