@@ -103,7 +103,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
         const path = `${getLocaleDirName(node.name, siteMetadata.languages?.defaultLangKey)}${dir}${
           node.childMdx?.slug
         }`;
-        const locale = /fr\.+/.test(node.name) ? SITE_LANGUAGES.EN : SITE_LANGUAGES.FR;
+        const locale = /fr\.+/.test(node.name) ? SITE_LANGUAGES.FR : SITE_LANGUAGES.EN;
 
         log(`Creating markdown page: ${path}`, {
           toolName: pluginOptions.packageName,

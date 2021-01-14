@@ -86,6 +86,7 @@ const config: core.GastbySiteConfig = {
     ...core.getGatsbyPluginTypeScriptConfig({
       documentPaths: [
         './src/**/*.{ts,tsx}',
+        '../core-gatsby-ui/src/fragments/gatsby/**/*.{ts,tsx}',
         '../core-gatsby-ui/src/hooks/**/*.{ts,tsx}',
         '../core-gatsby-ui/src/templates/**/*.{ts,tsx}',
       ],

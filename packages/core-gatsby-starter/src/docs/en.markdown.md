@@ -2,10 +2,10 @@
 name: Markdown Page
 category: docs
 tags:
-  - tag1fr
-  - tag2fr
+  - tag1
+  - tag2
 ---
 
-# Markdown FR
+# Markdown EN
 
 /markdown

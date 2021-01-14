@@ -1,30 +1,9 @@
-import {
-  HEADING,
-  LinkVariant,
-  PARAGRAPH_SIZE,
-  TEXT_LEVEL,
-  ButtonVariant,
-  ButtonSize,
-  LABEL_SIZE,
-} from '@newrade/core-design-system';
-import {
-  BoxV2,
-  Button,
-  Details,
-  Heading,
-  Label,
-  Link,
-  NavBar,
-  Stack,
-  Summary,
-  useTreatTheme,
-  Grid,
-} from '@newrade/core-react-ui';
+import { ButtonSize, ButtonVariant, HEADING, LABEL_SIZE, TEXT_LEVEL } from '@newrade/core-design-system';
+import { BoxV2, Button, Details, Grid, Heading, Label, Stack, Summary, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import DesignSystemPageTemplate, { DesignSystemPageProps } from '../../templates/design-system-page.template';
 import * as styleRefs from '../home.treat';
-import { LogoPlaceholder } from '../utils/logo-placeholder';
 
 const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
   const { styles } = useStyles(styleRefs);
@@ -47,11 +26,9 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
           <BoxV2 padding={[cssTheme.sizing.var.x3, 0]}>
             <Stack gap={[cssTheme.sizing.var.x4]}>
               <Grid gap={[cssTheme.sizing.var.x2]}>
-                <Label variantLevel={TEXT_LEVEL.tertiary}>Label</Label>
+                <Label variantLevel={TEXT_LEVEL.tertiary}>Sizes</Label>
 
-                <Button variant={ButtonVariant.primary} size={ButtonSize.large} Icon={<>😀</>}>
-                  <Label variant={LABEL_SIZE.medium}>Label</Label>
-                </Button>
+                <Button variant={ButtonVariant.primary} size={ButtonSize.large}></Button>
               </Grid>
             </Stack>
           </BoxV2>

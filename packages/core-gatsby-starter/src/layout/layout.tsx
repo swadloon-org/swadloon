@@ -29,10 +29,6 @@ const query = graphql`
         siteUrl
         title
       }
-      frontmatter {
-        name
-        tags
-      }
     }
   }
 `;
