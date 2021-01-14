@@ -138,6 +138,9 @@
     },
     {
       "path": "../packages/vsb-website"
+    },
+    {
+      "path": "../packages/vsb-api"
     }
   ],
   "recommendations": [

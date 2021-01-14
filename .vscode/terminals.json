@@ -139,6 +139,12 @@
       "cwd": "[workspaceFolder]/packages/vsb-website",
       "open": true,
       "focus": false
+    },
+    {
+      "name": "vsb-api",
+      "cwd": "[workspaceFolder]/packages/vsb-api",
+      "open": true,
+      "focus": false
     }
   ]
 }
