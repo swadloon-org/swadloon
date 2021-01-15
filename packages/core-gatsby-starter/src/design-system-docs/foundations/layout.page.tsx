@@ -15,7 +15,7 @@ import {
 } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import DesignSystemPageTemplate, { DesignSystemPageProps } from '../../templates/design-system-page.template';
+import { DesignSystemPageTemplate, DesignSystemPageProps } from '../../templates/design-system-page.template';
 import * as styleRefs from '../home.treat';
 import { Placeholder } from '../utils/placeholder';
 
@@ -36,10 +36,12 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
 
             <Paragraph>Grid, center, box, stacks, cluster ...</Paragraph>
           </Stack>
+
           <Details id={'Center'} open={true}>
             <Summary>
               <Heading variant={HEADING.h3}>Center</Heading>
             </Summary>
+
             <BoxV2 padding={[cssTheme.sizing.var.x3, '0']}>
               <Stack gap={[cssTheme.sizing.var.x2]} style={{ width: '100%' }}>
                 <Paragraph>
@@ -57,6 +59,7 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
             <Summary>
               <Heading variant={HEADING.h3}>Switcher</Heading>
             </Summary>
+
             <BoxV2 padding={[cssTheme.sizing.var.x3, '0']}>
               <Stack gap={[cssTheme.sizing.var.x2]} style={{ width: '100%' }}>
                 <Paragraph>
@@ -77,12 +80,34 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
                 </Stack>
               </Stack>
             </BoxV2>
+
+            <BoxV2 padding={[cssTheme.sizing.var.x3, '0']}>
+              <Stack gap={[cssTheme.sizing.var.x2]} style={{ width: '100%' }}>
+                <Paragraph>Can be used with Stack</Paragraph>
+
+                <Stack gap={[cssTheme.sizing.var.x2]}>
+                  <Switcher gap={['1em']}>
+                    <Stack>
+                      <Placeholder>1</Placeholder>
+                      <Placeholder>2</Placeholder>
+                    </Stack>
+                  </Switcher>
+
+                  <Switcher gap={['1em']} col={3}>
+                    <Placeholder>1</Placeholder>
+                    <Placeholder>2</Placeholder>
+                    <Placeholder>3</Placeholder>
+                  </Switcher>
+                </Stack>
+              </Stack>
+            </BoxV2>
           </Details>
 
           <Details id={'Cluster'} open={true}>
             <Summary>
               <Heading variant={HEADING.h3}>Cluster</Heading>
             </Summary>
+
             <BoxV2 padding={[cssTheme.sizing.var.x3, '0']}>
               <Stack gap={[cssTheme.sizing.var.x2]} style={{ width: '100%' }}>
                 <Paragraph>Used to inline content horizontally without wrapping</Paragraph>
@@ -104,6 +129,7 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
             <Summary>
               <Heading variant={HEADING.h3}>Grid</Heading>
             </Summary>
+
             <BoxV2 padding={[cssTheme.sizing.var.x3, '0']}>
               <Stack gap={[cssTheme.sizing.var.x2]} style={{ width: '100%' }}>
                 <Paragraph>Used to make a grid of content horizontally or vertically</Paragraph>
@@ -128,17 +154,20 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
                 </Grid>
 
                 <Heading variant={HEADING.h4}>Columns & Rows</Heading>
+
                 <Grid gap={['1em']} variantGrid={'col'} columns={[1, 3, 3]}>
                   <Grid gap={['1em']} variantGrid={'rows'} rows={[1, 2, 3]}>
                     <Placeholder>1</Placeholder>
                     <Placeholder>2</Placeholder>
                     <Placeholder>3</Placeholder>
                   </Grid>
+
                   <Grid gap={['1em']} variantGrid={'rows'} rows={[1, 2, 3]}>
                     <Placeholder>A</Placeholder>
                     <Placeholder>B</Placeholder>
                     <Placeholder>C</Placeholder>
                   </Grid>
+
                   <Grid gap={['1em']} variantGrid={'rows'} rows={[1, 2, 3]}>
                     <Placeholder>A1</Placeholder>
                     <Placeholder>B1</Placeholder>
@@ -153,6 +182,7 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
             <Summary>
               <Heading variant={HEADING.h3}>Box</Heading>
             </Summary>
+
             <BoxV2 padding={[cssTheme.sizing.var.x3, '0']}>
               <Stack gap={[cssTheme.sizing.var.x2]} style={{ width: '100%' }}>
                 <Paragraph>Used to make a container with the ability to have padding</Paragraph>
@@ -161,6 +191,7 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
                   <BoxV2 padding={[cssTheme.sizing.var.x4]} style={{ border: '2px solid red' }}>
                     <Placeholder>A1</Placeholder>
                   </BoxV2>
+
                   <BoxV2 padding={[cssTheme.sizing.var.x4]} style={{ border: '2px solid red' }}>
                     <Placeholder>B1</Placeholder>
                   </BoxV2>

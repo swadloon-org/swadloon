@@ -60,6 +60,7 @@ export type Overlays = {
 export interface Effects<Override extends undefined | string = undefined> {
   shadows: Shadows<Override>;
   innerShadows: Shadows<Override>;
-  // TOOD
+  // TODO
+  // textShadows
   // overlays: Overlays;
 }

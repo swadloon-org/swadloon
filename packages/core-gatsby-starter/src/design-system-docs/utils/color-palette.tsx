@@ -1,9 +1,9 @@
 import { Color, ColorShades5, ColorShadesGrey } from '@newrade/core-design-system';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { ColorSwatch, keys, Stack, useTreatTheme } from '..';
-import { Switcher } from '../layout/switcher';
 import * as stylesRef from './color-palette.treat';
+import { useTreatTheme, Stack, keys } from '@newrade/core-react-ui';
+import { ColorSwatch } from './color-swatch';
 
 type Props = {
   colorName: string;
@@ -24,7 +24,7 @@ export const ColorPalette: React.FC<Props> = ({ colorName, colorOrPalette }) => 
   if (typeof colorOrPalette === 'object' && (colorOrPalette as Color)['h'] !== undefined) {
     return (
       <Stack gap={['10px']}>
-        <ColorSwatch name={colorName} color={colorOrPalette as Color}></ColorSwatch>{' '}
+        <ColorSwatch name={colorName} color={colorOrPalette as any}></ColorSwatch>{' '}
       </Stack>
     );
   }
@@ -37,7 +37,7 @@ export const ColorPalette: React.FC<Props> = ({ colorName, colorOrPalette }) => 
       <div className={styles.wrapper}>
         {shades.map((shadeName, index) => {
           const color = palette[shadeName];
-          return <ColorSwatch key={index} shadeNumber={shadeName} name={colorName} color={color}></ColorSwatch>;
+          return <ColorSwatch key={index} shadeNumber={shadeName} name={colorName} color={color as any}></ColorSwatch>;
         })}
       </div>
     );

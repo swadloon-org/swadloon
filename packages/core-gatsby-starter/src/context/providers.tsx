@@ -29,9 +29,9 @@ export const Providers: React.FC = (props) => {
               <GlobalCSSVariables>
                 <GlobalResetCSS>
                   <DefaultCSS>
-                    <IconContext.Provider value={{ style: { verticalAlign: 'middle' } }}>
-                      {props.children}
-                    </IconContext.Provider>
+                    {/* <IconContext.Provider value={{ style: { verticalAlign: 'middle' } }}> */}
+                    {props.children}
+                    {/* </IconContext.Provider> */}
                   </DefaultCSS>
                 </GlobalResetCSS>
               </GlobalCSSVariables>

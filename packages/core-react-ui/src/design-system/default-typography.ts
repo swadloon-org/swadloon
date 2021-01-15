@@ -163,11 +163,11 @@ export const defaultTypography: Typography = {
     },
     desktop: {
       large: {
-        capHeight: 14,
+        capHeight: 12,
         lineGap: 16,
       },
       medium: {
-        capHeight: 12,
+        capHeight: 11,
         lineGap: 16,
       },
       small: {
@@ -188,7 +188,7 @@ export const defaultTypography: Typography = {
         fontWeight: 500,
       },
       boldUppercase: {
-        fontWeight: 500,
+        fontWeight: 600,
         textTransform: TEXT_TRANSFORM.uppercase,
         letterSpacing: 10,
       },

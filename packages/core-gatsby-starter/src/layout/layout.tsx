@@ -4,6 +4,8 @@ import React, { ReactNode } from 'react';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './layout.treat';
 import { LayoutPageQuery } from '../../types/graphql-types';
+import MobileLogo from '../../../newrade-website/src/images/logo-symbol.svg';
+import Logo from '../../../newrade-website/src/images/logo.svg';
 
 const query = graphql`
   query LayoutPage {
@@ -42,7 +44,7 @@ export const Layout = React.memo<LayoutProps>((props) => {
 
   return (
     <MainWrapper>
-      <NavBar></NavBar>
+      <NavBar DesktopSvgLogo={<Logo />} MobileSvgLogo={<MobileLogo />}></NavBar>
 
       <Main navbarPadding={true}>{props.children}</Main>
     </MainWrapper>

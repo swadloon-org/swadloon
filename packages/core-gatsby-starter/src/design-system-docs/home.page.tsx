@@ -3,7 +3,7 @@ import { Heading, Link, Paragraph, Stack, useTreatTheme } from '@newrade/core-re
 import { title } from 'case';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import DesignSystemPageTemplate, { DesignSystemPageProps } from '../templates/design-system-page.template';
+import { DesignSystemPageTemplate, DesignSystemPageProps } from '../templates/design-system-page.template';
 import * as styleRefs from './home.treat';
 import { GatsbyLink } from '@newrade/core-gatsby-ui/src/components/gatsby-link';
 import { useDocsNavItems } from '@newrade/core-gatsby-ui/src/';

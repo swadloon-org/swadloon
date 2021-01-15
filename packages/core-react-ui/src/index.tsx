@@ -1,6 +1,4 @@
 export * from './components/button/button';
-export * from './design-system-components/color-swatch';
-export * from './design-system-components/color-palette';
 export * from './components/effect/background-effect';
 export * from './seo/meta-basic';
 export * from './seo/metadata-twitter';

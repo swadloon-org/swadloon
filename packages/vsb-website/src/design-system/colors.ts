@@ -51,23 +51,23 @@ export const colorsColors: Colors['colors'] = {
     '0-reversed': { h: 0, s: 0, l: 100 },
     '0': { h: 0, s: 0, l: 100 },
   },
-  effectTransparentLight: { h: 222, s: 50, l: 50, a: 100 },
-  effectTransparentMedium: { h: 222, s: 50, l: 50, a: 100 },
-  effectTransparentHeavy: { h: 222, s: 50, l: 50, a: 100 },
+  effectTransparentLight: { h: 0, s: 0, l: 0, a: 10 },
+  effectTransparentMedium: { h: 0, s: 0, l: 0, a: 10 },
+  effectTransparentHeavy: { h: 0, s: 0, l: 0, a: 13 },
   utilityGreen: generateColorPalette5({
-    color: { h: 200, s: 50, l: 50 },
+    color: { h: 112, s: 71, l: 53 },
     light: 90,
-    dark: 20,
+    dark: 5,
   }),
   utilityYellow: generateColorPalette5({
-    color: { h: 200, s: 50, l: 50 },
+    color: { h: 47, s: 90, l: 54 },
     light: 90,
-    dark: 20,
+    dark: 5,
   }),
   utilityRed: generateColorPalette5({
-    color: { h: 200, s: 50, l: 50 },
+    color: { h: 360, s: 84, l: 48 },
     light: 90,
-    dark: 20,
+    dark: 5,
   }),
 };
 

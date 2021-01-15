@@ -33,5 +33,3 @@ export const DesignSystemPageTemplate: React.FC<Props & { children: ReactNode }>
     </>
   );
 };
-
-export default DesignSystemPageTemplate;

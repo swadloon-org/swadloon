@@ -2,7 +2,7 @@ import { ButtonSize, ButtonVariant, HEADING, LABEL_SIZE, TEXT_LEVEL } from '@new
 import { BoxV2, Button, Details, Grid, Heading, Label, Stack, Summary, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import DesignSystemPageTemplate, { DesignSystemPageProps } from '../../templates/design-system-page.template';
+import { DesignSystemPageTemplate, DesignSystemPageProps } from '../../templates/design-system-page.template';
 import * as styleRefs from '../home.treat';
 
 const PageComponent: React.FC<DesignSystemPageProps> = (props) => {

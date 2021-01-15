@@ -1,4 +1,4 @@
-import { HEADING, LinkVariant, PARAGRAPH_SIZE, TEXT_LEVEL } from '@newrade/core-design-system';
+import { HEADING, LinkVariant, PARAGRAPH_SIZE, TEXT_LEVEL, LinkIcon } from '@newrade/core-design-system';
 import {
   BoxV2,
   Button,
@@ -13,9 +13,8 @@ import {
 } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import DesignSystemPageTemplate, { DesignSystemPageProps } from '../../templates/design-system-page.template';
+import { DesignSystemPageTemplate, DesignSystemPageProps } from '../../templates/design-system-page.template';
 import * as styleRefs from '../home.treat';
-import { LogoPlaceholder } from '../utils/logo-placeholder';
 
 const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
   const { styles } = useStyles(styleRefs);
@@ -40,17 +39,26 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
               <Stack gap={[cssTheme.sizing.var.x3]}>
                 <Label variantLevel={TEXT_LEVEL.tertiary}>Variant</Label>
 
-                <Link variant={LinkVariant.noUnderline}>Link</Link>
-                <Link variant={LinkVariant.underline}>Link Underline</Link>
+                <Link href={'#'} variant={LinkVariant.noUnderline}></Link>
+                <Link href={'#'} variant={LinkVariant.underline}></Link>
               </Stack>
 
               <Stack gap={[cssTheme.sizing.var.x3]}>
                 <Label variantLevel={TEXT_LEVEL.tertiary}>Size</Label>
 
-                <Link variantSize={PARAGRAPH_SIZE.large}>Link</Link>
-                <Link variantSize={PARAGRAPH_SIZE.medium}>Link</Link>
-                <Link variantSize={PARAGRAPH_SIZE.small}>Link</Link>
-                <Link variantSize={PARAGRAPH_SIZE.xSmall}>Link</Link>
+                <Link href={'#'} variantSize={PARAGRAPH_SIZE.large}></Link>
+                <Link href={'#'} variantSize={PARAGRAPH_SIZE.medium}></Link>
+                <Link href={'#'} variantSize={PARAGRAPH_SIZE.small}></Link>
+                <Link href={'#'} variantSize={PARAGRAPH_SIZE.xSmall}></Link>
+              </Stack>
+
+              <Stack gap={[cssTheme.sizing.var.x3]}>
+                <Label variantLevel={TEXT_LEVEL.tertiary}>Icon</Label>
+
+                <Link href={'#'} variantSize={PARAGRAPH_SIZE.large} variantIcon={LinkIcon.right}></Link>
+                <Link href={'#'} variantSize={PARAGRAPH_SIZE.medium} variantIcon={LinkIcon.right}></Link>
+                <Link href={'#'} variantSize={PARAGRAPH_SIZE.small} variantIcon={LinkIcon.right}></Link>
+                <Link href={'#'} variantSize={PARAGRAPH_SIZE.xSmall} variantIcon={LinkIcon.right}></Link>
               </Stack>
             </Stack>
           </BoxV2>
