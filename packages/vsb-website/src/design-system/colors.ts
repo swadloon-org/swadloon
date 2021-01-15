@@ -71,7 +71,10 @@ export const colorsColors: Colors['colors'] = {
   }),
 };
 
-export const colorIntents: ColorIntents = createDefaultColorIntents(colorsColors);
+export const colorIntents: ColorIntents = {
+  ...createDefaultColorIntents(colorsColors),
+  backgroundDisabled: colorsColors.grey[25],
+};
 
 export const colors: Colors = {
   ...defaultColors,

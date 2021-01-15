@@ -35,7 +35,7 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
           </Summary>
 
           <BoxV2 padding={[cssTheme.sizing.var.x3, 0]}>
-            <Stack gap={[cssTheme.sizing.var.x4]}>
+            <Stack gap={[cssTheme.sizing.var.x5]}>
               <Stack gap={[cssTheme.sizing.var.x3]}>
                 <Label variantLevel={TEXT_LEVEL.tertiary}>Variant</Label>
 

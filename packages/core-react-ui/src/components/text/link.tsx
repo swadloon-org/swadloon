@@ -1,14 +1,16 @@
-import { LinkProps, PARAGRAPH_SIZE, LinkVariant, LinkStyleVariant, LinkState } from '@newrade/core-design-system';
-import React, { AnchorHTMLAttributes } from 'react';
+import { LinkProps, LinkState, LinkStyleVariant, LinkVariant, PARAGRAPH_SIZE } from '@newrade/core-design-system';
+import React, { AnchorHTMLAttributes, useRef } from 'react';
+import { useButton } from 'react-aria';
+import { IoOpenOutline } from 'react-icons/io5';
 import { useStyles } from 'react-treat';
 import { CommonComponentProps } from '../../props/component-common.props';
+import { getDefaultTextFromProps, getMergedClassname } from '../../utilities/component.utilities';
 import * as stylesRef from './link.treat';
-import { IoOpenOutline } from 'react-icons/io5';
-import { getDefaultTextFromProps } from '../../utilities/component.utilities';
 
 type Props = CommonComponentProps &
   AnchorHTMLAttributes<any> &
   Pick<LinkProps, 'role' | 'variant' | 'variantIcon' | 'variantSize' | 'variantStyle'> & {
+    as?: 'div' | 'a';
     Icon?: React.ReactNode;
   };
 
@@ -27,16 +29,36 @@ export const Link: React.FC<Props> = React.memo(
     children,
     ...props
   }) => {
-    const { styles: styles } = useStyles(stylesRef);
-
     const type = as ? as : 'a';
-    const variantStateClassName = `${styles[LinkState.rest]}`;
-    const variantClassName = `${styles[variant ? variant : LinkVariant.noUnderline]}`;
+
+    /**
+     * Hooks
+     */
+    const { styles: styles } = useStyles(stylesRef);
+    let ref = useRef();
+    // @ts-ignore
+    let { buttonProps, isPressed } = useButton({ ...props, elementType: type }, ref);
+
+    /**
+     * Props
+     */
+    const variantStateClassName = styles[LinkState.rest];
+    const variantClassName = styles[variant ? variant : LinkVariant.noUnderline];
     const variantStyleClassName = styles[variantStyle ? variantStyle : LinkStyleVariant.normal];
     const variantSizeClassName = styles[variantSize ? variantSize : PARAGRAPH_SIZE.small];
-    const allClassName = `${variantStateClassName} ${variantStyleClassName} ${variantSizeClassName} ${variantClassName} ${
-      className || ''
-    } `;
+    const activeClassName = isPressed ? styles.active : '';
+    const allClassName = getMergedClassname([
+      variantStateClassName,
+      variantStyleClassName,
+      variantSizeClassName,
+      variantClassName,
+      activeClassName,
+      className,
+    ]);
+
+    /**
+     * Default children
+     */
     const renderedChildren = children
       ? children
       : getDefaultTextFromProps('link', {
@@ -46,15 +68,22 @@ export const Link: React.FC<Props> = React.memo(
           variantIcon,
         });
 
+    /**
+     * Icon insertion
+     */
     const IconSvg =
       variantIcon && Icon ? (
         React.cloneElement(Icon as React.ReactElement, {
           className: styles.icon,
+          preserveAspectRatio: `xMinYMin meet`,
         })
       ) : variantIcon ? (
-        <IoOpenOutline className={styles.icon} />
+        <IoOpenOutline className={styles.icon} preserveAspectRatio="xMinYMin meet" />
       ) : null;
 
+    /**
+     * Handle AsElement option
+     */
     const WrapperElement = AsElement
       ? React.cloneElement(AsElement as React.ReactElement, {
           id,
@@ -66,7 +95,8 @@ export const Link: React.FC<Props> = React.memo(
               {IconSvg}
             </>
           ),
-          ...props,
+          ref,
+          ...buttonProps,
         })
       : null;
 
@@ -74,15 +104,20 @@ export const Link: React.FC<Props> = React.memo(
       return WrapperElement;
     }
 
+    /**
+     * Render
+     */
     return React.createElement(
       type,
       {
         id,
         style,
         className: allClassName,
-        ...props,
+        ref,
+        ...buttonProps,
       },
       <>
+        {isPressed}
         {renderedChildren}
         {IconSvg}
       </>

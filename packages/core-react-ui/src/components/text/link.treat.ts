@@ -19,26 +19,6 @@ export const styles: { [key in LinkStyleProps['variantStyle']]: string } &
     textDecoration: 'none',
   })),
 
-  rest: style(({ theme, cssTheme }: Theme) => ({
-    outline: 'none',
-    cursor: 'pointer',
-    transition: `all 0.2s ease-out`,
-    width: 'fit-content',
-    /**
-     * States
-     */
-    ':hover': {
-      color: cssTheme.colors.colors.primary[500],
-    },
-    ':active': {
-      color: cssTheme.colors.colors.primary[500],
-    },
-    ':focus': {
-      color: cssTheme.colors.colors.primary[500],
-      // outline: `1px solid ${cssTheme.colors.colors.primary[500]}`,
-      // outlineOffset: '10px',
-    },
-  })),
   /**
    * Styles
    */
@@ -47,6 +27,30 @@ export const styles: { [key in LinkStyleProps['variantStyle']]: string } &
   })),
   reversed: style(({ theme, cssTheme }: Theme) => ({
     color: cssTheme.colors.colorIntents.primaryReversed,
+  })),
+
+  /**
+   * States
+   */
+  rest: style(({ theme, cssTheme }: Theme) => ({
+    outline: 'none',
+    cursor: 'pointer',
+    width: 'fit-content',
+    appearance: 'none',
+    WebkitAppearance: 'none',
+    // ':hover': {
+    //   color: cssTheme.colors.colors.primary[500],
+    // },
+    // ':active': {
+    //   color: cssTheme.colors.colors.primary[500],
+    // },
+    // ':focus': {
+    //   outline: `1px solid ${cssTheme.colors.colors.primary[500]}`,
+    //   outlineOffset: '10px',
+    // },
+  })),
+  active: style(({ theme, cssTheme }: Theme) => ({
+    color: cssTheme.colors.colors.primary[700],
   })),
 
   /**
@@ -109,9 +113,12 @@ export const styles: { [key in LinkStyleProps['variantStyle']]: string } &
     },
   })),
 
+  /**
+   * Icon
+   */
   icon: style(({ theme, cssTheme }: Theme) => ({
     display: 'inline-block',
-    marginLeft: 4,
-    verticalAlign: 'text-top',
+    marginLeft: '0.3em',
+    verticalAlign: '-0.1em',
   })),
 };

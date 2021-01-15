@@ -3,6 +3,7 @@
   "compilerOptions": {
     "rootDir": "src",
     "outDir": "lib",
+    "skipLibCheck": true,
     "target": "es6",
     "module": "es6",
     "types": ["react", "react-dom", "jest"],

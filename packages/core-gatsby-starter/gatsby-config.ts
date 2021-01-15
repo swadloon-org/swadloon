@@ -55,7 +55,7 @@ const config: core.GastbySiteConfig = {
         background_color: `#ffffff`,
         theme_color: `#6061EC`,
         display: `standalone`,
-        icon: `../newrade-website/src/images/favicon.svg`,
+        icon: `src/images/favicon.svg`,
         include_favicon: false,
       },
     },

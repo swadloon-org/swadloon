@@ -11,3 +11,14 @@ export function getDefaultTextFromProps(name: string, props: object): string {
 
   return `${pascal(name)} ${propString}`;
 }
+
+/**
+ * ['hey', 'classname '] => 'hey classname'
+ */
+export function getMergedClassname(classNames: (string | null | undefined)[]): string {
+  return classNames
+    .filter((className) => !!className)
+    .filter((className) => className?.length !== 0)
+    .join(' ')
+    .trim();
+}
