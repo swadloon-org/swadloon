@@ -19,7 +19,6 @@ export const footerQuery = graphql`
     contentfulCompanyInfo {
       copyright
     }
-
     contentfulCompanyAddress {
       addressLine1
       city

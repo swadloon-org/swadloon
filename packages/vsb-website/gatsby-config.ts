@@ -32,7 +32,7 @@ const config: core.GastbySiteConfig = {
     siteUrl: env.APP_URL,
     siteEnv: env.APP_ENV,
     languages: {
-      langs: [core.SITE_LANGUAGES.FR, core.SITE_LANGUAGES.EN],
+      langs: [core.SITE_LANGUAGES.FR],
       defaultLangKey: core.SITE_LANGUAGES.FR,
     },
   },

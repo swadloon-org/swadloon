@@ -51,8 +51,8 @@ export type OpenGraphMetadataBasic = {
    */
   locale: string;
   /**
-   * An array of other locales this page is available in.
+   * An optional array of other locales this page is available in.
    * @example en_CA
    */
-  localeAlternate: string;
+  localeAlternate?: string;
 };
