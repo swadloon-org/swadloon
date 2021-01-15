@@ -8282,6 +8282,8 @@ export type QueryAllDirectoryArgs = {
 export type QuerySiteArgs = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  port?: Maybe<IntQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
   flags?: Maybe<SiteFlagsFilterInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
@@ -8853,6 +8855,8 @@ export type QueryAllSitePluginArgs = {
 export type Site = Node & {
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
+  port?: Maybe<Scalars['Int']>;
+  host?: Maybe<Scalars['String']>;
   flags?: Maybe<SiteFlags>;
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
@@ -9059,6 +9063,8 @@ export type SiteFieldsEnum =
   | 'siteMetadata___siteEnv'
   | 'siteMetadata___languages___langs'
   | 'siteMetadata___languages___defaultLangKey'
+  | 'port'
+  | 'host'
   | 'flags___PRESERVE_WEBPACK_CACHE'
   | 'flags___PRESERVE_FILE_DOWNLOAD_CACHE'
   | 'flags___QUERY_ON_DEMAND'
@@ -9159,6 +9165,8 @@ export type SiteFieldsEnum =
 export type SiteFilterInput = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  port?: Maybe<IntQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
   flags?: Maybe<SiteFlagsFilterInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
@@ -9241,6 +9249,7 @@ export type SitePageContext = {
   siteMetadata?: Maybe<SitePageContextSiteMetadata>;
   id?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
+  displayName?: Maybe<Scalars['String']>;
   dirName?: Maybe<Scalars['String']>;
   fileId?: Maybe<Scalars['String']>;
   layout?: Maybe<Scalars['String']>;
@@ -9251,6 +9260,7 @@ export type SitePageContextFilterInput = {
   siteMetadata?: Maybe<SitePageContextSiteMetadataFilterInput>;
   id?: Maybe<StringQueryOperatorInput>;
   name?: Maybe<StringQueryOperatorInput>;
+  displayName?: Maybe<StringQueryOperatorInput>;
   dirName?: Maybe<StringQueryOperatorInput>;
   fileId?: Maybe<StringQueryOperatorInput>;
   layout?: Maybe<StringQueryOperatorInput>;
@@ -9390,6 +9400,7 @@ export type SitePageFieldsEnum =
   | 'context___siteMetadata___languages___defaultLangKey'
   | 'context___id'
   | 'context___name'
+  | 'context___displayName'
   | 'context___dirName'
   | 'context___fileId'
   | 'context___layout'

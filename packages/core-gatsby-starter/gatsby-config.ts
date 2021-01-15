@@ -98,7 +98,9 @@ const config: core.GastbySiteConfig = {
     core.getGatsbyTransformerSharp(),
     core.getGatsbyPluginSharp(),
     core.getGastbyPluginTreatConfig(),
-    ...core.getGatsbyImageFolder(),
+    ...core.getGatsbyImageFolder({
+      pathImgDir: path.join(__dirname, `/src/images`),
+    }),
     core.getGatsbyPluginReactHelmet(),
     core.getGatsbyPluginSitemap(),
     core.getGatsbyPluginRobotsTxt({ env }),

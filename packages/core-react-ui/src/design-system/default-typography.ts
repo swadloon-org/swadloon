@@ -95,7 +95,7 @@ export const defaultTypography: Typography = {
     },
     desktop: {
       h1: {
-        capHeight: 28,
+        capHeight: 35,
         lineGap: 18,
       },
       h2: {

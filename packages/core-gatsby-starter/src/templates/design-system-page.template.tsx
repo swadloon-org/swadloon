@@ -1,5 +1,5 @@
 import { GatsbySrcPageContext } from '@newrade/core-gatsby-config';
-import { Center, getMetaBasicTags } from '@newrade/core-react-ui';
+import { Center, getMetaBasicTags, getMetadataOpenGraphWebsiteTags, OPEN_GRAPH_TYPE } from '@newrade/core-react-ui';
 import { PageProps } from 'gatsby';
 import React, { ReactNode } from 'react';
 import { I18nProvider } from 'react-aria';
@@ -26,6 +26,17 @@ export const DesignSystemPageTemplate: React.FC<Props & { children: ReactNode }>
           rel="stylesheet"
         />
         {getMetaBasicTags()}
+        {getMetadataOpenGraphWebsiteTags({
+          type: OPEN_GRAPH_TYPE.WEBSITE,
+          title: `${props.pageContext.displayName || props.pageContext.name || props.pageContext.siteMetadata.title}`,
+          // url: `${data?.site?.siteMetadata?.siteUrl}${data?.contentfulBlogPost?.blogSlug}`,
+          description: `No description provided`,
+          // image: `${data?.contentfulBlogPost?.blogMainImage?.socialMediaImage?.src}`,
+          // site_name: `${data?.contentfulCompanyInfo?.metadataSiteName}`,
+          lang: props.pageContext.locale,
+          locale: props.pageContext.locale,
+          // localeAlternate: data?.contentfulBlogPost?.node_locale?.includes('en') ? 'fr_CA' : 'en_CA',
+        })}
       </Helmet>
       <I18nProvider locale={props.pageContext.locale}>
         <Center maxWidth={`900px`}>{props.children}</Center>
