@@ -1,7 +1,8 @@
 import { GatsbySrcPageContext } from '@newrade/core-gatsby-config';
-import { getMetaBasicTags, Center } from '@newrade/core-react-ui';
+import { Center, getMetaBasicTags } from '@newrade/core-react-ui';
 import { PageProps } from 'gatsby';
 import React, { ReactNode } from 'react';
+import { I18nProvider } from 'react-aria';
 import Helmet from 'react-helmet';
 
 export type DesignSystemPageProps = PageProps<{}, GatsbySrcPageContext>;
@@ -12,6 +13,7 @@ export const DesignSystemPageTemplate: React.FC<Props & { children: ReactNode }>
   return (
     <>
       <Helmet>
+        <html lang={props.pageContext.locale} />
         <link rel="icon" href="/images/favicon.svg" sizes="any" type="image/svg+xml" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Quattrocento&display=swap" rel="stylesheet" />
@@ -25,9 +27,9 @@ export const DesignSystemPageTemplate: React.FC<Props & { children: ReactNode }>
         />
         {getMetaBasicTags()}
       </Helmet>
-      <Center maxWidth={`900px`}>{props.children}</Center>
+      <I18nProvider locale={props.pageContext.locale}>
+        <Center maxWidth={`900px`}>{props.children}</Center>
+      </I18nProvider>
     </>
   );
 };
-
-export default DesignSystemPageTemplate;

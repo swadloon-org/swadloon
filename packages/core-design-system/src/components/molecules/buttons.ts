@@ -16,13 +16,11 @@ export enum ButtonSize {
 
 export enum ButtonVariant {
   primary = 'primary',
+  primaryReversed = 'primaryReversed',
   secondary = 'secondary',
+  secondaryReversed = 'secondaryReversed',
   tertiary = 'tertiary',
-}
-
-export enum ButtonStyleVariant {
-  normal = 'normal',
-  reversed = 'reversed',
+  tertiaryReversed = 'tertiaryReversed',
 }
 
 export enum ButtonIcon {
@@ -48,7 +46,6 @@ export interface ButtonStyleProps {
    */
   role: string;
   variant: ButtonVariant;
-  variantStyle: ButtonStyleVariant;
   icon: ButtonIcon;
   size: ButtonSize;
   state: ButtonState;

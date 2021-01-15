@@ -1,10 +1,10 @@
 import { HEADING } from '@newrade/core-design-system';
-import { Background, BoxV2, Heading, Stack, useTreatTheme, Details, Summary, keys } from '@newrade/core-react-ui';
+import { Details, Heading, keys, Stack, Summary, useTreatTheme, BoxV2, Switcher } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import DesignSystemPageTemplate, { DesignSystemPageProps } from '../../templates/design-system-page.template';
+import { DesignSystemPageTemplate, DesignSystemPageProps } from '../../templates/design-system-page.template';
 import * as styleRefs from '../home.treat';
-import { Placeholder } from '../utils/placeholder';
+import { ShadowSwatch } from '../utils/shadow-swatch';
 
 const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
   const { styles } = useStyles(styleRefs);
@@ -15,29 +15,39 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
   }
 
   return (
-    <Stack id={'Design System'} gap={[cssTheme.sizing.var.x5]}>
-      <Stack id={'Components'} gap={[cssTheme.sizing.var.x5]}>
-        <Heading variant={HEADING.h2}>Components</Heading>
+    <Stack gap={[cssTheme.sizing.var.x5]}>
+      <Heading variant={HEADING.h2}>Shadows</Heading>
 
-        <Details id={'Effects'} open={true}>
-          <Summary>
-            <Heading variant={HEADING.h3}>Effects</Heading>
-          </Summary>
-          <Stack id={'Effects'} gap={['1em']}>
-            <h3>Effects</h3>
+      <Details id={'Box Shadows'} open={true}>
+        <Summary>
+          <Heading variant={HEADING.h3}>Box Shadows</Heading>
+        </Summary>
 
-            <h4>Shadows</h4>
-            {cssTheme.effects?.shadows &&
-              keys(cssTheme.effects.shadows).map((shadow) => {
-                return (
-                  <div key={shadow} style={{ boxShadow: cssTheme?.effects?.shadows?.[shadow] }}>
-                    {shadow}
-                  </div>
-                );
-              })}
-          </Stack>
-        </Details>
-      </Stack>
+        <BoxV2 padding={[cssTheme.sizing.var.x3, 0]}>
+          {theme.effects?.shadows &&
+            keys(theme.effects.shadows).map((shadowKey, index) => {
+              const shadow = theme.effects.shadows[shadowKey];
+              const xOffset = 100;
+              const yOffset = 60;
+              const size = 400;
+              return (
+                <ShadowSwatch
+                  key={shadowKey}
+                  shadow={shadow}
+                  name={shadowKey as string}
+                  size={size}
+                  style={{
+                    width: size,
+                    height: size,
+                    position: 'absolute',
+                    left: xOffset * index,
+                    top: yOffset * (index + 1),
+                  }}
+                />
+              );
+            })}
+        </BoxV2>
+      </Details>
     </Stack>
   );
 };

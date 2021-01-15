@@ -103,7 +103,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
         const path = `${getLocaleDirName(node.name, siteMetadata.languages?.defaultLangKey)}${dir}${
           node.childMdx?.slug
         }`;
-        const locale = /fr\.+/.test(node.name) ? SITE_LANGUAGES.EN : SITE_LANGUAGES.FR;
+        const locale = /fr\.+/.test(node.name) ? SITE_LANGUAGES.FR : SITE_LANGUAGES.EN;
 
         log(`Creating markdown page: ${path}`, {
           toolName: pluginOptions.packageName,
@@ -215,7 +215,7 @@ function getLocaleDirName(nodeName: string, defaultLangKey?: SITE_LANGUAGES): st
   }
 
   // extract the locale name from node name
-  const pattern = new RegExp(`(${Object.entries(SITE_LANGUAGES).join('|')})`, 'gi');
+  const pattern = new RegExp(`(${Object.keys(SITE_LANGUAGES).join('|')})`, 'gi');
   const match = pattern.exec(nodeName);
   const fileLocale = match?.[1];
 
@@ -223,6 +223,7 @@ function getLocaleDirName(nodeName: string, defaultLangKey?: SITE_LANGUAGES): st
     return '';
   }
 
+  // if the site is EN, en pages will have no prefix path
   if (defaultLangKey === SITE_LANGUAGES.EN || fileLocale === SITE_LANGUAGES.EN_CA) {
     return fileLocale === SITE_LANGUAGES.EN || fileLocale === SITE_LANGUAGES.EN_CA ? '' : 'fr/';
   }

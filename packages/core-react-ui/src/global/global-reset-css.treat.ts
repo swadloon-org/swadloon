@@ -125,6 +125,16 @@ globalStyle(
 );
 
 /**
+ * Reset the button look
+ */
+globalStyle(`button`, {
+  border: 'none',
+  outline: 'none',
+  background: 'none',
+  backgroundColor: 'none',
+});
+
+/**
  * Remove the inner border and padding in Firefox.
  */
 globalStyle(

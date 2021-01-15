@@ -1,22 +1,10 @@
-import { Color, ColorShades5, HEADING } from '@newrade/core-design-system';
-import {
-  BoxV2,
-  Cluster,
-  ColorSwatch,
-  Details,
-  Heading,
-  keys,
-  Label,
-  Paragraph,
-  Stack,
-  Summary,
-  useTreatTheme,
-  ColorPalette,
-} from '@newrade/core-react-ui';
+import { HEADING } from '@newrade/core-design-system';
+import { BoxV2, Details, Heading, Paragraph, Stack, Summary, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import DesignSystemPageTemplate, { DesignSystemPageProps } from '../../templates/design-system-page.template';
+import { DesignSystemPageProps, DesignSystemPageTemplate } from '../../templates/design-system-page.template';
 import * as styleRefs from '../home.treat';
+import { ColorPalette } from '../utils/color-palette';
 
 const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
   const { styles } = useStyles(styleRefs);

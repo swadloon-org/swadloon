@@ -7,6 +7,7 @@ import Helmet from 'react-helmet';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './markdown.treat';
 import { Aside } from '../components/navigation/aside';
+import { I18nProvider } from 'react-aria';
 
 export type MarkdownTemplateProps = PageProps<any, GatsbyMarkdownFilePageContext>;
 
@@ -45,6 +46,8 @@ const Template: React.FC<MarkdownTemplateProps> = (props) => {
   return (
     <>
       <Helmet>
+        <html lang={props.pageContext.locale} />
+        <link rel="icon" href="/images/favicon.svg" sizes="any" type="image/svg+xml" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Quattrocento&display=swap" rel="stylesheet" />
         <link
@@ -74,13 +77,15 @@ const Template: React.FC<MarkdownTemplateProps> = (props) => {
           site: `${data?.contentfulCompanyInfo?.metadataTwitterSite}`,
         })} */}
       </Helmet>
-      <Center maxWidth={'800px'}>
-        <GlobalMarkdownCSS>
-          <MDXRenderer {...props}>{props.data.file?.childMdx?.body as string}</MDXRenderer>
-        </GlobalMarkdownCSS>
-      </Center>
+      <I18nProvider locale={props.pageContext.locale}>
+        <Center maxWidth={'800px'}>
+          <GlobalMarkdownCSS>
+            <MDXRenderer {...props}>{props.data.file?.childMdx?.body as string}</MDXRenderer>
+          </GlobalMarkdownCSS>
+        </Center>
 
-      <Aside items={props.data.file?.childMdx?.headings} location={props.location} />
+        <Aside items={props.data.file?.childMdx?.headings} location={props.location} />
+      </I18nProvider>
     </>
   );
 };

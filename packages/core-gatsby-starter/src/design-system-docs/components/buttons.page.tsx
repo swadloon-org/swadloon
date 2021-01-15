@@ -1,30 +1,9 @@
-import {
-  HEADING,
-  LinkVariant,
-  PARAGRAPH_SIZE,
-  TEXT_LEVEL,
-  ButtonVariant,
-  ButtonSize,
-  LABEL_SIZE,
-} from '@newrade/core-design-system';
-import {
-  BoxV2,
-  Button,
-  Details,
-  Heading,
-  Label,
-  Link,
-  NavBar,
-  Stack,
-  Summary,
-  useTreatTheme,
-  Grid,
-} from '@newrade/core-react-ui';
+import { ButtonSize, ButtonVariant, HEADING, LABEL_SIZE, TEXT_LEVEL, ButtonIcon } from '@newrade/core-design-system';
+import { BoxV2, Button, Details, Grid, Heading, Label, Stack, Summary, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import DesignSystemPageTemplate, { DesignSystemPageProps } from '../../templates/design-system-page.template';
+import { DesignSystemPageTemplate, DesignSystemPageProps } from '../../templates/design-system-page.template';
 import * as styleRefs from '../home.treat';
-import { LogoPlaceholder } from '../utils/logo-placeholder';
 
 const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
   const { styles } = useStyles(styleRefs);
@@ -45,14 +24,40 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
           </Summary>
 
           <BoxV2 padding={[cssTheme.sizing.var.x3, 0]}>
-            <Stack gap={[cssTheme.sizing.var.x4]}>
-              <Grid gap={[cssTheme.sizing.var.x2]}>
-                <Label variantLevel={TEXT_LEVEL.tertiary}>Label</Label>
+            <Stack gap={[cssTheme.sizing.var.x5]}>
+              <Stack gap={[cssTheme.sizing.var.x3]}>
+                <Label variantLevel={TEXT_LEVEL.tertiary}>Variant</Label>
 
-                <Button variant={ButtonVariant.primary} size={ButtonSize.large} Icon={<>😀</>}>
-                  <Label variant={LABEL_SIZE.medium}>Label</Label>
-                </Button>
-              </Grid>
+                <Button variant={ButtonVariant.primary}></Button>
+                <Button variant={ButtonVariant.secondary}></Button>
+                <Button variant={ButtonVariant.tertiary}></Button>
+              </Stack>
+
+              <Stack gap={[cssTheme.sizing.var.x3]}>
+                <Label variantLevel={TEXT_LEVEL.tertiary}>Sizes</Label>
+
+                <Button size={ButtonSize.large}></Button>
+                <Button size={ButtonSize.medium}></Button>
+                <Button size={ButtonSize.small}></Button>
+                <Button size={ButtonSize.xsmall}></Button>
+              </Stack>
+
+              <Stack gap={[cssTheme.sizing.var.x3]}>
+                <Label variantLevel={TEXT_LEVEL.tertiary}>Icon</Label>
+
+                <Button size={ButtonSize.large} icon={ButtonIcon.right}></Button>
+                <Button size={ButtonSize.medium} icon={ButtonIcon.right}></Button>
+                <Button size={ButtonSize.small} icon={ButtonIcon.right}></Button>
+                <Button size={ButtonSize.xsmall} icon={ButtonIcon.right}></Button>
+              </Stack>
+
+              <Stack gap={[cssTheme.sizing.var.x3]}>
+                <Label variantLevel={TEXT_LEVEL.tertiary}>States</Label>
+
+                <Button isDisabled={true} variant={ButtonVariant.primary}></Button>
+                <Button isDisabled={true} variant={ButtonVariant.secondary}></Button>
+                <Button isDisabled={true} variant={ButtonVariant.tertiary}></Button>
+              </Stack>
             </Stack>
           </BoxV2>
         </Details>

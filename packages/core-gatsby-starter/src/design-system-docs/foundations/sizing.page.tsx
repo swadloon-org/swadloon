@@ -1,9 +1,22 @@
-import { HEADING } from '@newrade/core-design-system';
-import { Details, Heading, keys, Stack, Summary, useTreatTheme } from '@newrade/core-react-ui';
+import { HEADING, LABEL_SIZE, LinkVariant, PARAGRAPH_SIZE, LinkIcon } from '@newrade/core-design-system';
+import {
+  Details,
+  Heading,
+  keys,
+  Stack,
+  Summary,
+  useTreatTheme,
+  BoxV2,
+  Paragraph,
+  Cluster,
+  Label,
+  Link,
+} from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import DesignSystemPageTemplate, { DesignSystemPageProps } from '../../templates/design-system-page.template';
+import { DesignSystemPageTemplate, DesignSystemPageProps } from '../../templates/design-system-page.template';
 import * as styleRefs from '../home.treat';
+import { Placeholder } from '../utils/placeholder';
 
 const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
   const { styles } = useStyles(styleRefs);
@@ -20,32 +33,47 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
           <Summary>
             <Heading variant={HEADING.h3}>Sizing</Heading>
           </Summary>
-          <Stack gap={['1em']}>
-            <h3>Sizing</h3>
 
-            <h4>Sizes</h4>
-            {cssTheme.sizing?.sizes &&
-              keys(cssTheme.sizing.sizes).map((size) => {
-                return cssTheme?.sizing?.sizes[size] ? (
-                  <div key={size}>
-                    <label>{size}</label>
-                    <Stack gap={['1em']}>
-                      {keys(cssTheme?.sizing?.sizes[size]).map((step) => {
-                        return (
-                          <div
-                            key={step}
-                            id={step}
-                            style={{ height: cssTheme?.sizing?.sizes[size][step], backgroundColor: 'grey' }}
-                          >
-                            {step}
-                          </div>
-                        );
-                      })}
-                    </Stack>
-                  </div>
-                ) : null;
-              })}
-          </Stack>
+          <BoxV2 padding={[cssTheme.sizing.var.x3, '0']}>
+            <Stack gap={[cssTheme.sizing.var.x4]}>
+              <Paragraph>
+                A module scale is available. It is based on the standard{' '}
+                <Link
+                  href={'https://en.wikipedia.org/wiki/Golden_ratio'}
+                  target={'_blank'}
+                  style={{ display: 'inline-block' }}
+                  variantSize={PARAGRAPH_SIZE.medium}
+                  variantIcon={LinkIcon.right}
+                >
+                  Golden ratio
+                </Link>{' '}
+                which assure a natural progression for each sizing step. The scale is automatically responsive for
+                mobile, tablet and desktop.
+              </Paragraph>
+
+              <Stack gap={[cssTheme.sizing.var.x1]}>
+                {keys(cssTheme.sizing.var).map((step) => {
+                  const varValue = cssTheme.sizing.var[step];
+                  return (
+                    <Cluster
+                      gap={[cssTheme.sizing.var.x2]}
+                      justifyContent={['flex-start']}
+                      style={{ maxWidth: `100%`, overflow: `hidden` }}
+                    >
+                      <Label style={{ width: 30 }}>{step}</Label>
+                      <Placeholder
+                        key={step}
+                        id={step}
+                        style={{ width: `${varValue}`, height: 30, padding: `inherit 0`, textAlign: 'left' }}
+                      >
+                        {' '}
+                      </Placeholder>
+                    </Cluster>
+                  );
+                })}
+              </Stack>
+            </Stack>
+          </BoxV2>
         </Details>
       </Stack>
     </Stack>

@@ -4183,7 +4183,7 @@ Object {
       },
       "boldUppercase": Object {
         "fontStyle": undefined,
-        "fontWeight": 500,
+        "fontWeight": 600,
         "letterSpacing": "0.1em",
         "textDecoration": undefined,
         "textTransform": "uppercase",
@@ -4742,22 +4742,22 @@ Object {
   "paragraphs": Object {
     "desktop": Object {
       "large": Object {
-        "capHeight": 14,
+        "capHeight": 12,
         "capsize": Object {
           "::after": Object {
             "content": "''",
             "display": "block",
             "height": 0,
-            "marginBottom": "-0.4225em",
+            "marginBottom": "-0.4906em",
           },
           "::before": Object {
             "content": "''",
             "display": "block",
             "height": 0,
-            "marginTop": "-0.3951em",
+            "marginTop": "-0.4632em",
           },
-          "fontSize": "19.6923px",
-          "lineHeight": "30px",
+          "fontSize": "16.8791px",
+          "lineHeight": "28px",
           "padding": "0.05px 0",
         },
         "font": Array [
@@ -4922,22 +4922,22 @@ Object {
         "textTransform": undefined,
       },
       "medium": Object {
-        "capHeight": 12,
+        "capHeight": 11,
         "capsize": Object {
           "::after": Object {
             "content": "''",
             "display": "block",
             "height": 0,
-            "marginBottom": "-0.4906em",
+            "marginBottom": "-0.5339em",
           },
           "::before": Object {
             "content": "''",
             "display": "block",
             "height": 0,
-            "marginTop": "-0.4632em",
+            "marginTop": "-0.5066em",
           },
-          "fontSize": "16.8791px",
-          "lineHeight": "28px",
+          "fontSize": "15.4725px",
+          "lineHeight": "27px",
           "padding": "0.05px 0",
         },
         "font": Array [
