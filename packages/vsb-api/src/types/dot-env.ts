@@ -1,11 +1,11 @@
-import { CommonEnv } from '@newrade/core-utils';
+import { CommonEnvGatsby } from '@newrade/core-utils';
 import * as t from 'io-ts';
 
 /**
  * Local, typed representation of the .env file.
  */
 export const Env = t.intersection([
-  CommonEnv,
+  CommonEnvGatsby,
   t.type({
     /**
      * cliniko variables
