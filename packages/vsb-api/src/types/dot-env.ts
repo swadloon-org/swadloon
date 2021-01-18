@@ -10,10 +10,10 @@ export const Env = t.intersection([
     /**
      * cliniko variables
      */
-    APP_VENDOR_NAME: t.string,
-    APP_VENDOR_EMAIL: t.string,
-    API_KEY: t.string,
-    SHARD_ID: t.string,
+    API_VSB_VENDOR_NAME: t.string,
+    API_VSB_VENDOR_EMAIL: t.string,
+    API_VSB_KEY: t.string,
+    API_VSB_SHARD_ID: t.string,
   }),
 ]);
 
