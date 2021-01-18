@@ -777,22 +777,22 @@ Object {
   "headings": Object {
     "desktop": Object {
       "h1": Object {
-        "capHeight": 28,
+        "capHeight": 35,
         "capsize": Object {
           "::after": Object {
             "content": "''",
             "display": "block",
             "height": 0,
-            "marginBottom": "-0.2435em",
+            "marginBottom": "-0.1975em",
           },
           "::before": Object {
             "content": "''",
             "display": "block",
             "height": 0,
-            "marginTop": "-0.2161em",
+            "marginTop": "-0.1702em",
           },
-          "fontSize": "39.3846px",
-          "lineHeight": "46px",
+          "fontSize": "49.2308px",
+          "lineHeight": "53px",
           "padding": "0.05px 0",
         },
         "font": Array [
