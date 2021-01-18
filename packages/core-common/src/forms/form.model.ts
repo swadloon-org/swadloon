@@ -5,7 +5,7 @@ import { FORM_INPUT_TYPE } from './form-types';
  * Type to configure a form
  */
 export type FormConfig = {
-  fields: Record<string, FormFieldConfig>;
+  fields: Record<string, FormFieldConfig | FormConfig>;
 };
 
 /**
@@ -31,7 +31,11 @@ export type Form<TFormConfig extends FormConfig> = {
  * Form fields
  */
 export type FormFieldsMap<TFormFieldConfig extends FormConfig> = {
-  [key in keyof TFormFieldConfig['fields']]: FormField<TFormFieldConfig['fields'][key]>;
+  [key in keyof TFormFieldConfig['fields']]: TFormFieldConfig['fields'][key] extends FormFieldConfig
+    ? FormField<TFormFieldConfig['fields'][key]>
+    : TFormFieldConfig['fields'][key] extends FormConfig
+    ? Form<TFormFieldConfig['fields'][key]>
+    : undefined;
 };
 
 /**
@@ -51,6 +55,16 @@ type ExampleFormConfig = {
     };
     startDate: {
       type: FORM_INPUT_TYPE.DATE;
+    };
+    nested: {
+      fields: {
+        firstName: {
+          type: FORM_INPUT_TYPE.TEXT;
+        };
+        lastName: {
+          type: FORM_INPUT_TYPE.TEXT;
+        };
+      };
     };
   };
 };
@@ -87,6 +101,23 @@ const exampleForm: Form<ExampleFormConfig> = {
           dateRange: { min: '2021-12-12' },
         },
       ],
+    },
+    nested: {
+      name: 'extra-contact',
+      fieldsMap: {
+        firstName: {
+          name: 'firstName',
+          label: 'First Name',
+          placeholder: 'Enter value',
+          type: FORM_INPUT_TYPE.TEXT,
+        },
+        lastName: {
+          name: 'lastname',
+          label: 'Last Name',
+          placeholder: 'Enter value',
+          type: FORM_INPUT_TYPE.TEXT,
+        },
+      },
     },
   },
 };

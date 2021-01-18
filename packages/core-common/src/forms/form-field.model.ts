@@ -12,6 +12,10 @@ export type FormFieldConfig = {
 
 export type FormField<TFormFieldConfig extends FormFieldConfig> = {
   /**
+   * Control in what order fields are displayed
+   */
+  order?: number;
+  /**
    * Field name
    */
   name: TFormFieldConfig['name'] extends string ? TFormFieldConfig['name'] : string;
