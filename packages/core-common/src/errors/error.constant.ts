@@ -29,6 +29,9 @@ export enum ERROR_TYPE {
   USER_CONFIGURATION_ERROR = 'USER_CONFIGURATION_ERROR',
   INVALID_RESPONSE = 'INVALID_RESPONSE',
   //
+  // server side
+  //
+  //
   // others
   //
   UNHANDLED_ERROR = 'UNHANDLED_ERROR', // errors that were unhandled

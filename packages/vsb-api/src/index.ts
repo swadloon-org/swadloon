@@ -18,6 +18,7 @@ const server = express();
 server.use(json());
 server.use(urlencoded({ extended: true }));
 
+// / => form html avec un submit
 server.use('/api/register', registerRouter);
 
 const httpServer = server.listen(port);

@@ -3,9 +3,10 @@ import fetch from 'node-fetch';
 import { env } from '../index';
 
 export const createPatientCliniko = async (req: Request, res: Response) => {
-  console.log('sending');
-  const createPatient = await req.body.patient;
   try {
+    console.log('sending');
+    const createPatient = await req.body.patient;
+
     await fetch('https://api.' + env.API_VSB_SHARD_ID + '.cliniko.com/v1/patients/', {
       method: 'POST',
       headers: {
