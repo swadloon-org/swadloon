@@ -130,9 +130,9 @@ jobs:
         PROJECT_REPO_ORG: ${{ secrets.PROJECT_REPO_ORG }}
         PROJECT_REPO_NAME: ${{ secrets.PROJECT_REPO_NAME }}
 
-    - name: Build vsb api
+    - name: Build vsb-api
       if: always()
-      run: yarn build --scope @newrade/vsb-website
+      run: yarn build --scope @newrade/vsb-api
       env:
         APP_URL: 'http://local.vasectomie-pierre-boucher.ca/api/register'
         CONTENTFUL_ENV: ${{ secrets.CONTENTFUL_ENV }}
