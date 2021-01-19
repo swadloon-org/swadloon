@@ -33,7 +33,7 @@
     "lint": "eslint . --ext ts,tsx",
     "lint:fix": "eslint . --ext ts,tsx --fix",
     "nvm": "ts-node --script-mode scripts/install-node-nvm.ts",
-    "postinstall": "yarn build:core:lib",
+    "postinstall": "yarn build:core:lib && yarn build --scope @newrade/vsb-common",
     "push": "git push --follow-tags",
     "reset": "npm i -g rimraf && rimraf -rf ./node_modules packages/**/node_modules && yarn",
     "set-permissions": "chmod a+x node_modules/.bin/nr-core-cli",
