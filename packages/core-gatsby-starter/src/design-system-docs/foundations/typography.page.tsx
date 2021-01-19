@@ -14,7 +14,7 @@ import {
 import { title } from 'case';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import DesignSystemPageTemplate, { DesignSystemPageProps } from '../../templates/design-system-page.template';
+import { DesignSystemPageTemplate, DesignSystemPageProps } from '../../templates/design-system-page.template';
 import * as styleRefs from '../home.treat';
 import { FontShowcase } from '../utils/font-showcase';
 import { lorenipsum } from '../utils/loren-ipsum';

@@ -8,12 +8,14 @@ import {
   SideBar,
   Stack,
   useTreatTheme,
+  Label,
 } from '@newrade/core-react-ui';
 import { title } from 'case';
 import { PageProps } from 'gatsby';
 import React, { ReactNode } from 'react';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './design-system.layout.treat';
+import { useLocale, useIsSSR } from 'react-aria';
 
 type LayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }> & {
   MobileSvgLogo?: React.ReactNode;
@@ -21,6 +23,14 @@ type LayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }
 };
 
 export const LayoutDesignSystem = React.memo<LayoutProps>(({ MobileSvgLogo, DesktopSvgLogo, ...props }) => {
+  /**
+   * React Aria
+   */
+  const isSSR = useIsSSR();
+
+  /**
+   * Props
+   */
   const { styles } = useStyles(styleRefs);
   const { cssTheme } = useTreatTheme();
   const navItems = useDesignSystemNavItems();
@@ -28,9 +38,20 @@ export const LayoutDesignSystem = React.memo<LayoutProps>(({ MobileSvgLogo, Desk
 
   return (
     <MainWrapper>
-      <NavBar DesktopSvgLogo={DesktopSvgLogo} MobileSvgLogo={MobileSvgLogo} maxWidth={'100%'}></NavBar>
+      <NavBar
+        DesktopSvgLogo={DesktopSvgLogo}
+        MobileSvgLogo={MobileSvgLogo}
+        maxWidth={'100%'}
+        MenuLinks={
+          <>
+            <Label>Design System</Label>
+            <Label>Docs</Label>
+            <Label>Core Docs</Label>
+          </>
+        }
+      ></NavBar>
 
-      {navItems ? (
+      {navItems && !isSSR ? (
         <SideBar>
           <Stack gap={[cssTheme.sizing.var.x4]}>
             {[...navItemsByDirName].map((dirName, index) => {

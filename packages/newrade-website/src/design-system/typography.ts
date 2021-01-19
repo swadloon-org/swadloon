@@ -192,18 +192,18 @@ export const typography: Typography = {
   },
   labels: {
     font: [fontSans, ...defaultTypography.fonts.sans],
-    fontWeight: 500,
+    fontWeight: 600,
     styles: {
       bold: {
-        fontWeight: 500,
+        fontWeight: 600,
       },
       boldUppercase: {
-        fontWeight: 500,
+        fontWeight: 600,
         textTransform: TEXT_TRANSFORM.uppercase,
         letterSpacing: 10,
       },
       uppercase: {
-        fontWeight: 400,
+        fontWeight: 500,
         textTransform: TEXT_TRANSFORM.uppercase,
         letterSpacing: 10,
       },

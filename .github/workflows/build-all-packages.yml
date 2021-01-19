@@ -45,7 +45,6 @@ jobs:
       run: |
         echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 
-
     - name: Install dependencies
       run: yarn
 
@@ -114,14 +113,19 @@ jobs:
         PROJECT_REPO_ORG: ${{ secrets.PROJECT_REPO_ORG }}
         PROJECT_REPO_NAME: ${{ secrets.PROJECT_REPO_NAME }}
 
-    - name: Build vsb-website
+    - name: Build vsb-common
       if: always()
-      run: yarn build --scope @newrade/vsb-website
+      run: yarn build --scope @newrade/vsb-common
+
+    - name: Build vsb-api
+      if: always()
+      run: yarn build --scope @newrade/vsb-api
       env:
-        APP_URL: 'http://local.vasectomie-pierre-boucher.ca'
-        CONTENTFUL_ENV: ${{ secrets.CONTENTFUL_ENV }}
-        CONTENTFUL_SPACEID_VSB: ${{ secrets.CONTENTFUL_SPACEID_VSB }}
-        CONTENTFUL_DELIVERY_TOKEN_VSB: ${{ secrets.CONTENTFUL_DELIVERY_TOKEN_VSB }}
+        APP_URL: 'http://local.vasectomie-pierre-boucher.ca/api/register'
+        API_VSB_VENDOR_NAME: ${{ secrets.API_VSB_VENDOR_NAME }}
+        API_VSB_VENDOR_EMAIL: ${{ secrets.API_VSB_VENDOR_EMAIL }}
+        API_VSB_KEY: ${{ secrets.API_VSB_KEY }}
+        API_VSB_SHARD_ID: ${{ secrets.API_VSB_SHARD_ID }}
         NVM_NODE_VERSION: ${{ secrets.NVM_NODE_VERSION }}
         MASTER_GIT_HOST: ${{ secrets.MASTER_GIT_HOST }}
         MASTER_REPO_ORG: ${{ secrets.MASTER_REPO_ORG }}
@@ -130,16 +134,14 @@ jobs:
         PROJECT_REPO_ORG: ${{ secrets.PROJECT_REPO_ORG }}
         PROJECT_REPO_NAME: ${{ secrets.PROJECT_REPO_NAME }}
 
-    - name: Build vsb-api
+    - name: Build vsb-website
       if: always()
-      run: yarn build --scope @newrade/vsb-api
+      run: yarn build --scope @newrade/vsb-website
       env:
-        APP_URL: 'http://local.vasectomie-pierre-boucher.ca/api/register'
+        APP_URL: 'http://local.vasectomie-pierre-boucher.ca'
         CONTENTFUL_ENV: ${{ secrets.CONTENTFUL_ENV }}
-        API_VSB_VENDOR_NAME: ${{ secrets.API_VSB_VENDOR_NAME }}
-        API_VSB_VENDOR_EMAIL: ${{ secrets.API_VSB_VENDOR_EMAIL }}
-        API_VSB_KEY: ${{ secrets.API_VSB_KEY }}
-        API_VSB_SHARD_ID: ${{ secrets.API_VSB_SHARD_ID }}
+        CONTENTFUL_SPACEID_VSB: ${{ secrets.CONTENTFUL_SPACEID_VSB }}
+        CONTENTFUL_DELIVERY_TOKEN_VSB: ${{ secrets.CONTENTFUL_DELIVERY_TOKEN_VSB }}
         NVM_NODE_VERSION: ${{ secrets.NVM_NODE_VERSION }}
         MASTER_GIT_HOST: ${{ secrets.MASTER_GIT_HOST }}
         MASTER_REPO_ORG: ${{ secrets.MASTER_REPO_ORG }}

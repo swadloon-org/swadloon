@@ -32,7 +32,7 @@ const config: core.GastbySiteConfig = {
     siteUrl: env.APP_URL,
     siteEnv: env.APP_ENV,
     languages: {
-      langs: [core.SITE_LANGUAGES.FR, core.SITE_LANGUAGES.EN],
+      langs: [core.SITE_LANGUAGES.FR],
       defaultLangKey: core.SITE_LANGUAGES.FR,
     },
   },
@@ -73,7 +73,9 @@ const config: core.GastbySiteConfig = {
     core.getGatsbyPluginSharp(),
     core.getGastbyPluginTreatConfig(),
     ...core.getGatsbyPluginMdx(),
-    ...core.getGatsbyImageFolder(),
+    ...core.getGatsbyImageFolder({
+      pathImgDir: path.join(__dirname, `/src/images`),
+    }),
     core.getGatsbyPluginReactHelmet(),
     core.getGatsbyPluginSitemap(),
     core.getGatsbyPluginRobotsTxt({ env }),

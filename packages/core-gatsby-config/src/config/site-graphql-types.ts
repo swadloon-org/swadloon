@@ -81,7 +81,10 @@ export type GatsbyNodeSrcPagesQuery = {
 };
 
 export type GatsbyNodeSrcPageFilesQuery = {
-  allFile: {
+  mdxSrcPages: {
+    nodes: Array<File>;
+  };
+  docs: {
     nodes: Array<File>;
   };
 };

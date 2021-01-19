@@ -1,15 +1,17 @@
-import { Stack, Center, Heading } from '@newrade/core-react-ui';
+import { Center, Paragraph, Stack, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { SrcPageTemplateProps, SrcPageTemplate } from '../templates/src-page.template';
 import * as styleRefs from '../styles/index.treat';
+import { SrcPageTemplate, SrcPageTemplateProps } from '../templates/src-page.template';
 
 const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
   const styles = useStyles(styleRefs);
+  const { cssTheme } = useTreatTheme();
+
   return (
     <Center>
-      <Stack gap={['20px']}>
-        <Heading>Not found :(</Heading>
+      <Stack gap={[cssTheme.sizing.var.x5]}>
+        <Paragraph>This page could not be found</Paragraph>
       </Stack>
     </Center>
   );

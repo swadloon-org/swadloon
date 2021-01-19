@@ -95,7 +95,7 @@ export const defaultTypography: Typography = {
     },
     desktop: {
       h1: {
-        capHeight: 28,
+        capHeight: 35,
         lineGap: 18,
       },
       h2: {
@@ -163,11 +163,11 @@ export const defaultTypography: Typography = {
     },
     desktop: {
       large: {
-        capHeight: 14,
+        capHeight: 12,
         lineGap: 16,
       },
       medium: {
-        capHeight: 12,
+        capHeight: 11,
         lineGap: 16,
       },
       small: {
@@ -188,7 +188,7 @@ export const defaultTypography: Typography = {
         fontWeight: 500,
       },
       boldUppercase: {
-        fontWeight: 500,
+        fontWeight: 600,
         textTransform: TEXT_TRANSFORM.uppercase,
         letterSpacing: 10,
       },
@@ -232,11 +232,11 @@ export const defaultTypography: Typography = {
         lineGap: 12,
       },
       small: {
-        capHeight: 11,
+        capHeight: 10,
         lineGap: 12,
       },
       xSmall: {
-        capHeight: 9,
+        capHeight: 8,
         lineGap: 12,
       },
     },

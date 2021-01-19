@@ -78,6 +78,7 @@ globalStyle(`hr`, {
 globalStyle(`pre,code,kbd,samp`, {
   fontFamily: 'monospace, monospace' /* 1 */,
   fontSize: '1em' /* 2 */,
+  margin: 0,
 });
 
 /**
@@ -122,6 +123,16 @@ globalStyle(
     WebkitAppearance: 'button',
   }
 );
+
+/**
+ * Reset the button look
+ */
+globalStyle(`button`, {
+  border: 'none',
+  outline: 'none',
+  background: 'none',
+  backgroundColor: 'none',
+});
 
 /**
  * Remove the inner border and padding in Firefox.

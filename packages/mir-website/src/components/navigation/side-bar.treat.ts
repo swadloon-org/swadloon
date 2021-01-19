@@ -10,6 +10,7 @@ export const wrapper = style((theme: DesignSystem) => ({
   height: '110%',
   boxShadow: theme.effects.shadows.medium.css,
   display: 'block',
+  transform: `translateX(-100%)`,
   '@media': {
     [theme.layout.media.mobile]: {
       width: '90%',

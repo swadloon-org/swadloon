@@ -31,8 +31,10 @@ export const NavBar: React.FC<Props> = (props) => {
   const { styles } = useStyles(styleRefs);
   const { theme, cssTheme } = useTreatTheme();
 
-  const { ref: ref1, animate: animate1 } = useWebAnimations<HTMLDivElement>();
-  const { ref: ref2, animate: animate2 } = useWebAnimations<HTMLDivElement>();
+  const [isInstalled, setIsInstalled] = useState<boolean>(false);
+
+  // const { ref: ref1, animate: animate1 } = useWebAnimations<HTMLDivElement>();
+  // const { ref: ref2, animate: animate2 } = useWebAnimations<HTMLDivElement>();
 
   const MobileSvgLogo = props.MobileSvgLogo ? (
     React.cloneElement(props.MobileSvgLogo as React.ReactElement, {
@@ -64,10 +66,12 @@ export const NavBar: React.FC<Props> = (props) => {
   };
 
   useEffect(() => {
-    if (isIOS) {
+    if (isIOS && !isInstalled) {
       const handler = updateDocumentBackgroundColor({ multiplier: 2 });
       window.document.addEventListener('touchmove', handler, { passive: true });
       window.document.addEventListener('scroll', handler, { passive: true });
+
+      setIsInstalled(true);
 
       return () => {
         window.document.removeEventListener('touchmove', handler);
@@ -117,7 +121,7 @@ export const NavBar: React.FC<Props> = (props) => {
       <Center
         as={'header'}
         className={`${styles.wrapper} ${styles.mobileMenu}`}
-        ref={ref1}
+        // ref={ref1}
         style={props.style}
         maxWidth={props.maxWidth}
       >
@@ -142,7 +146,7 @@ export const NavBar: React.FC<Props> = (props) => {
       <Center
         as={'header'}
         className={`${styles.wrapper} ${styles.desktopMenu}`}
-        ref={ref2}
+        // ref={ref2}
         style={props.style}
         maxWidth={props.maxWidth}
       >

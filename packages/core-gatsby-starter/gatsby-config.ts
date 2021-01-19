@@ -55,7 +55,8 @@ const config: core.GastbySiteConfig = {
         background_color: `#ffffff`,
         theme_color: `#6061EC`,
         display: `standalone`,
-        icon: `src/images/favicon.png`,
+        icon: `src/images/favicon.svg`,
+        include_favicon: false,
       },
     },
     /**
@@ -64,7 +65,7 @@ const config: core.GastbySiteConfig = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: SOURCE_INSTANCE_NAME.DOCS,
+        name: SOURCE_INSTANCE_NAME.MONO_REPO_DOCS,
         path: path.resolve('..', '..', 'docs'),
       },
     },
@@ -85,6 +86,7 @@ const config: core.GastbySiteConfig = {
     ...core.getGatsbyPluginTypeScriptConfig({
       documentPaths: [
         './src/**/*.{ts,tsx}',
+        '../core-gatsby-ui/src/fragments/gatsby/**/*.{ts,tsx}',
         '../core-gatsby-ui/src/hooks/**/*.{ts,tsx}',
         '../core-gatsby-ui/src/templates/**/*.{ts,tsx}',
       ],
@@ -96,7 +98,9 @@ const config: core.GastbySiteConfig = {
     core.getGatsbyTransformerSharp(),
     core.getGatsbyPluginSharp(),
     core.getGastbyPluginTreatConfig(),
-    ...core.getGatsbyImageFolder(),
+    ...core.getGatsbyImageFolder({
+      pathImgDir: path.join(__dirname, `/src/images`),
+    }),
     core.getGatsbyPluginReactHelmet(),
     core.getGatsbyPluginSitemap(),
     core.getGatsbyPluginRobotsTxt({ env }),
