@@ -1,6 +1,6 @@
 import { AppError, ERROR_TYPE } from '@newrade/core-common';
 import { log, LOG_LEVEL } from '@newrade/core-utils';
-import { kebab } from 'case';
+import { kebab, pascal, title } from 'case';
 import { GatsbyNode } from 'gatsby';
 import path from 'path';
 import { GatsbyMarkdownFilePageContext, GatsbySrcPageContext } from '../../../config/page-config';
@@ -11,7 +11,7 @@ import {
 } from '../../../config/site-graphql-types';
 import { SITE_LANGUAGES } from '../../../config/site-languages';
 import { SOURCE_INSTANCE_NAME } from '../../../config/source-instances';
-import { getDirNameFromRelativePath } from '../../../utils/dir-name.utilities';
+import { getDirNameFromRelativePath, getLocaleDirName, getPageFormattedName } from '../../../utils/dir-name.utilities';
 import { GatsbyCorePluginOptions } from '../gatsby-plugin-options';
 
 let siteMetadata: GatsbyNodeSiteMetadataFragment;
@@ -104,6 +104,8 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
           node.childMdx?.slug
         }`;
         const locale = /fr\.+/.test(node.name) ? SITE_LANGUAGES.FR : SITE_LANGUAGES.EN;
+        const name = `${title(node.childMdx?.frontmatter?.name || node.name)}`;
+        const displayName = name;
 
         log(`Creating markdown page: ${path}`, {
           toolName: pluginOptions.packageName,
@@ -114,7 +116,8 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
           context: {
             siteMetadata,
             id: node.id,
-            name: node.childMdx?.frontmatter?.name || node.name,
+            name,
+            displayName,
             dirName: getDirNameFromRelativePath(node.relativePath),
             fileId: node.id,
             layout: 'DOCS',
@@ -145,8 +148,9 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
       `);
       designSystemPagesData?.data?.allFile.nodes.forEach((node, index) => {
         const dir = `design-system/${node.relativePath.replace(/\/(.+)/, '/').replace(`${node.name}.tsx`, '')}`;
-        const formattedName = kebab(node.name.replace('.page', '').replace('home', ''));
-        const path = `${dir}${formattedName}`;
+        const formattedNodeName = kebab(node.name.replace('.page', '').replace('home', ''));
+        const displayName = `Design System - ${pascal(formattedNodeName)}`;
+        const path = `${dir}${formattedNodeName}`;
 
         log(`Creating design system page: ${path}`, {
           toolName: pluginOptions.packageName,
@@ -158,6 +162,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
             siteMetadata,
             id: node.id,
             name: node.name,
+            displayName,
             dirName: getDirNameFromRelativePath(node.relativePath),
             fileId: node.id,
             layout: 'DESIGN_SYSTEM',
@@ -202,115 +207,45 @@ function getDirNameForSourceInstance(sourceInstanceName: SOURCE_INSTANCE_NAME): 
 }
 
 /**
- * Return the locale directory name for a given node path.
- * For example if the default locale is fr or fr_CA, a node with the name
- * document.mdx will yield the path /document since the default locale is always the shortest.
- * A document called en.document.mdx would yield /en/document.
- *
- * @param nodeName the mdx page node name e.g. fr.readme.md
+ * Process Src Pages and inject the mandatory site metadata and context.
+ * This is neccessary because gatsby automatically create pages from /src/pages and there is an issue with overriding the
+ * default behavior with gatsby-config-ts
+ * @see https://github.com/newrade/newrade/issues/211
  */
-function getLocaleDirName(nodeName: string, defaultLangKey?: SITE_LANGUAGES): string {
-  if (!defaultLangKey) {
-    return '';
+export const onCreatePageFunction: GatsbyNode['onCreatePage'] = ({ page, actions }, options) => {
+  const pluginOptions = (options as unknown) as GatsbyCorePluginOptions;
+  const { createPage, deletePage } = actions;
+
+  // recreate only if a page is missing context data
+  if (page && page.context && !(page.context as any).siteMetadata) {
+    log(`Recreating page: ${page.path}`, {
+      toolName: pluginOptions.packageName,
+      level: LOG_LEVEL.INFO,
+    });
+
+    // TODO: fix when pages are not prefixed by fr but still meant to be in fr
+    // also need to recreate path like the docs pages above
+    const locale = /fr\.+/.test(page.path) ? SITE_LANGUAGES.FR : SITE_LANGUAGES.EN;
+    const path = `${getLocaleDirName(page.path, locale)}${page.path}`;
+
+    deletePage(page);
+
+    createPage<GatsbySrcPageContext>({
+      ...page,
+      path,
+      context: {
+        ...page.context,
+        id: page.path,
+        name: getPageFormattedName(page.path),
+        displayName: getPageFormattedName(page.path, {
+          locale: locale,
+        }),
+        dirName: getDirNameFromRelativePath(page.path),
+        siteMetadata,
+        fileId: '',
+        locale,
+        layout: 'SITE',
+      },
+    });
   }
-
-  // extract the locale name from node name
-  const pattern = new RegExp(`(${Object.keys(SITE_LANGUAGES).join('|')})`, 'gi');
-  const match = pattern.exec(nodeName);
-  const fileLocale = match?.[1];
-
-  if (!fileLocale) {
-    return '';
-  }
-
-  // if the site is EN, en pages will have no prefix path
-  if (defaultLangKey === SITE_LANGUAGES.EN || fileLocale === SITE_LANGUAGES.EN_CA) {
-    return fileLocale === SITE_LANGUAGES.EN || fileLocale === SITE_LANGUAGES.EN_CA ? '' : 'fr/';
-  }
-
-  return fileLocale === SITE_LANGUAGES.EN || fileLocale === SITE_LANGUAGES.EN_CA ? 'en/' : '';
-}
-
-// export const onCreatePageFunction: GatsbyNode['onCreatePage'] = ({ page, actions }, options) => {
-//   const pluginOptions = (options as unknown) as GatsbyCorePluginOptions;
-//   let updatedPath = page.path;
-//   const { createPage, deletePage } = actions;
-//   const { frontmatter } = page.context as any;
-//   const markdownTemplate = path.resolve(`src/templates/markdown.template.tsx`);
-
-//   /**
-//    * Process Markdown pages
-//    */
-//   if (frontmatter) {
-//     if (/\/docs/g.test(page.component)) {
-//       updatedPath = `docs${page.path}`.replace('&', 'and');
-//     }
-
-//     const slugWithoutSlash = page.path.replace(/(^\/)/, '');
-//     const slug = slugWithoutSlash.replace(/(\/)$/, '').replace('&', 'and');
-
-//     log(`Recreating page: ${updatedPath}, slug: ${slug}`, {
-//       toolName: pluginOptions.packageName,
-//       level: LOG_LEVEL.INFO,
-//     });
-
-//     deletePage(page);
-
-//     createPage<GatsbyMarkdownFilePageContext>({
-//       path: updatedPath,
-//       component: markdownTemplate,
-//       context: {
-//         ...page.context,
-//         siteMetadata,
-//         slug,
-//         id: slug,
-//         name: frontmatter?.name ? frontmatter.name : slug,
-//         locale: SITE_LANGUAGES.EN,
-//         layout: 'SITE',
-//       },
-//     });
-//     return;
-//   }
-
-//   log(`Recreating page: ${updatedPath}`, {
-//     toolName: pluginOptions.packageName,
-//     level: LOG_LEVEL.INFO,
-//   });
-
-//   deletePage(page);
-
-//   const existingContext =
-
-//   createPage<GatsbySrcPageContext>({
-//     ...page,
-//     path: updatedPath,
-//     context: {
-//       ...page.context,
-//       siteMetadata,
-//       fileId: '',
-//       id: updatedPath,
-//       name: updatedPath,
-//       locale: SITE_LANGUAGES.EN,
-//       layout: page.,
-//     },
-//   });
-// };
-
-// export const onCreateNodeFunction: GatsbyNode['onCreateNode'] = ({ node, actions, getNode }, options) => {
-//   const pluginOptions = (options as unknown) as GatsbyCorePluginOptions;
-//   const { createNodeField } = actions;
-
-//   if (node && node.context && (node.context as any).frontmatter && (node.context as any).slug) {
-//     const slug = (node.context as any).slug;
-//     const updatedSlug = slug.replace('docs/', '');
-//     log(`Updating node: ${node.id}`, {
-//       toolName: pluginOptions.packageName,
-//       level: LOG_LEVEL.INFO,
-//     });
-//     createNodeField({
-//       name: 'slug',
-//       node,
-//       value: updatedSlug,
-//     });
-//   }
-// };
+};

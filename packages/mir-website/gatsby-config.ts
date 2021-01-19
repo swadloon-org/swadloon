@@ -73,7 +73,9 @@ const config: core.GastbySiteConfig = {
     core.getGatsbyPluginSharp(),
     core.getGastbyPluginTreatConfig(),
     ...core.getGatsbyPluginMdx(),
-    ...core.getGatsbyImageFolder(),
+    ...core.getGatsbyImageFolder({
+      pathImgDir: path.join(__dirname, `/src/images`),
+    }),
     core.getGatsbyPluginReactHelmet(),
     core.getGatsbyPluginSitemap(),
     core.getGatsbyPluginRobotsTxt({ env }),

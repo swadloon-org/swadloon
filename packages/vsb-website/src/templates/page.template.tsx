@@ -12,6 +12,7 @@ import { PageQuery } from '../../types/graphql-types';
 import { PROJECT_PAGE_TYPE } from '../../types/contentful-page-type';
 import '../fonts';
 import { HomeTemplate } from './home.template';
+import { I18nProvider } from 'react-aria';
 
 export type ProjectPageProps = PageProps<PageQuery, GatsbyContentfulPageContext>;
 
@@ -50,6 +51,8 @@ export const PageTemplate: React.FC<ProjectPageProps> = ({ data, location, ...pr
   return (
     <div>
       <Helmet>
+        {/* FR only website */}
+        <html lang={props.pageContext.locale} />
         {getMetaBasicTags()}
         {getMetadataOpenGraphWebsiteTags({
           type: OPEN_GRAPH_TYPE.WEBSITE,
@@ -60,7 +63,7 @@ export const PageTemplate: React.FC<ProjectPageProps> = ({ data, location, ...pr
           site_name: `${data?.contentfulCompanyInfo?.metadataSiteName}`,
           lang: data?.contentfulPage?.node_locale?.includes('fr') ? 'fr' : 'en',
           locale: data?.contentfulPage?.node_locale?.includes('fr') ? 'fr_CA' : 'en_CA',
-          localeAlternate: data?.contentfulPage?.node_locale?.includes('en') ? 'fr_CA' : 'en_CA',
+          // localeAlternate: data?.contentfulPage?.node_locale?.includes('en') ? 'fr_CA' : 'en_CA',
         })}
         {getMetadataTwitterTags({
           card: 'summary_large_image',
@@ -69,10 +72,12 @@ export const PageTemplate: React.FC<ProjectPageProps> = ({ data, location, ...pr
           site: `${data?.contentfulCompanyInfo?.metadataTwitterSite}`,
         })}
       </Helmet>
-      {getPageTemplateComponent({
-        pageType: data?.contentfulPage?.type?.type as any,
-        props: { data, location, ...props },
-      })}
+      <I18nProvider locale={props.pageContext.locale}>
+        {getPageTemplateComponent({
+          pageType: data?.contentfulPage?.type?.type as any,
+          props: { data, location, ...props },
+        })}
+      </I18nProvider>
     </div>
   );
 };

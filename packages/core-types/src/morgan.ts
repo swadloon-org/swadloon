@@ -1,4 +1,4 @@
-declare module 'react-helmet' {
+declare module 'morgan' {
   const value: any;
   export default value;
 }

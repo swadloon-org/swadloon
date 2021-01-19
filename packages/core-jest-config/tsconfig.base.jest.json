@@ -4,7 +4,7 @@
     "allowJs": true,
     "resolveJsonModule": true,
     "outDir": "dist",
-    "target": "es2017",
+    "target": "es6",
     "lib": ["es6", "dom", "es2017"],
     "types": ["jest", "node", "react", "expect-puppeteer", "jest-environment-puppeteer", "puppeteer"]
   }
