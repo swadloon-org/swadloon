@@ -3,7 +3,7 @@ import { Resource } from 'i18next';
 export const locales: Resource = {
   en: {
     translation: {
-      hello: 'Hello',
+      hello: 'Hellooooo',
       requis: 'Required',
     },
   },

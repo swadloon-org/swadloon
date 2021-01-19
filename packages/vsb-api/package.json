@@ -16,7 +16,7 @@
     "start": "concurrently \"yarn tsc:watch\" \"yarn watch\"",
     "test": "echo test",
     "tsc:watch": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
-    "watch": "nodemon --delay 500ms --watch dist/ --exec 'yarn inspect'"
+    "watch": "nodemon --delay 500ms --watch dist/ --watch ../vsb-common/lib/ --exec 'yarn inspect'"
   },
   "dependencies": {
     "@newrade/vsb-common": "^1"
