@@ -8,6 +8,9 @@ import LogoSymbol from '../images/logo-symbol.svg';
 import Logo from '../images/logo.svg';
 import * as styleRefs from './layout.treat';
 
+import '../services/i18n.service';
+import { useTranslation } from 'react-i18next';
+
 type LayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }>;
 
 const query = graphql`
@@ -41,8 +44,12 @@ const query = graphql`
 
 export const Layout = React.memo<LayoutProps>((props) => {
   const pages = useStaticQuery<LayoutAllSitePageQuery>(query);
-
+  const { t, i18n } = useTranslation();
   const { styles } = useStyles(styleRefs);
+
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
+  };
 
   // function renderNavigation(path?: string) {
   //   if (!path) {
@@ -81,6 +88,7 @@ export const Layout = React.memo<LayoutProps>((props) => {
             <Label>Examen pour Transport Canada</Label>
             <Label>La clinique</Label>
             <Label>Contact</Label>
+            <Label onClick={() => changeLanguage('en')}>{t('hello')}</Label>
           </>
         }
       ></NavBar>

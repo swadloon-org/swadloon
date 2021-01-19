@@ -17,6 +17,7 @@
       "**/node_modules": true,
       "**/yarn.lock": true,
       "**/lib": true,
+      "**/dist": true,
       "**/.cache/**/*": true,
       "**/public/**/*": true,
       "**/*.js.map": true,

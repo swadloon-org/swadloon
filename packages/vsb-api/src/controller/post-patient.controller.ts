@@ -1,62 +1,44 @@
+import { AppError, ERROR_TYPE } from '@newrade/core-common';
+import { PatientAPIRequestBody, PatientAPIResponseBody, PatientValidation } from '@newrade/vsb-common';
 import { RequestHandler } from 'express';
-import fetch from 'node-fetch';
-import { env } from '../index';
-import { runReport } from '../io-ts/reporter';
-import { Patient, PatientModel } from '../models/patient.model';
+import { ValidationError } from 'yup';
 
-type APIResponse = {
-  api: string;
-  route: string;
-  status: string;
-  statusCode: number;
-  message: string;
-  validations: FieldValidation[];
-};
-
-type FieldValidation = { prop: string; displayMessage: string; status: 'info' | 'valid' | 'warning' | 'error' };
-
-const response: APIResponse = {
-  api: 'vsb-api',
-  route: 'req.url', // /api/v1/patient
-  status: '',
-  statusCode: 401,
-  message: 'Certains champs sont manquants',
-  validations: [
-    {
-      prop: 'patient.first_name',
-      displayMessage: 'Champ requis',
-      status: 'error',
-    },
-  ],
-};
-
-export const postPatient: RequestHandler<any, any /** ???? what */, { patient: PatientModel }> = async (req, res) => {
+export const postPatient: RequestHandler<any, PatientAPIResponseBody, PatientAPIRequestBody> = async (req, res) => {
   try {
-    const validation = Patient.decode(req.body.patient);
-    const result = runReport(validation);
+    console.log(req.language);
+    console.log(req.languages);
+    console.log(req.i18n.t('hello'));
 
-    if (!result.success) {
-      return res.status(400).send(result);
-    }
+    const validation = PatientValidation.validateSync(req.body.payload.patient, { abortEarly: false });
+    return res.status(200).send({ api: 'vsb-api', errors: [], payload: { errors: [] } });
 
-    const clinikoResult = await fetch('https://api.' + env.API_VSB_SHARD_ID + '.cliniko.com/v1/patients/', {
-      method: 'POST',
-      headers: {
-        authorization: 'Basic ' + Buffer.from(env.API_VSB_KEY + ':').toString('base64'),
-        'user-agent': `${env.API_VSB_VENDOR_NAME} (${env.API_VSB_VENDOR_EMAIL})`,
-        accept: 'application/json',
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify(req.body.patient),
+    // if (!result.success) {
+    //   return res.status(400).send(result);
+    // }
+
+    // const clinikoResult = await fetch('https://api.' + env.API_VSB_SHARD_ID + '.cliniko.com/v1/patients/', {
+    //   method: 'POST',
+    //   headers: {
+    //     authorization: 'Basic ' + Buffer.from(env.API_VSB_KEY + ':').toString('base64'),
+    //     'user-agent': `${env.API_VSB_VENDOR_NAME} (${env.API_VSB_VENDOR_EMAIL})`,
+    //     accept: 'application/json',
+    //     'content-type': 'application/json',
+    //   },
+    //   body: JSON.stringify(req.body.patient),
+    // });
+
+    // if (clinikoResult.status === 200) {
+    //   return res.status(201).send({ message: 'hey' });
+    // } else {
+    //   return res.status(400).send(clinikoResult);
+    // }
+  } catch (error) {
+    const yupError = error as ValidationError;
+    const appError = new AppError({
+      name: ERROR_TYPE.DTO_VALIDATION_ERROR,
+      message: 'Invalid dto',
     });
 
-    if (clinikoResult.status === 200) {
-      return res.status(201).send({ message: 'Data is valid' });
-    } else {
-      return res.status(400).send(clinikoResult);
-    }
-  } catch (e) {
-    console.error(e);
-    res.status(400).end();
+    res.status(400).send({ api: 'vsb-api', errors: [appError], payload: { errors: yupError.inner } });
   }
 };

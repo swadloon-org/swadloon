@@ -31,6 +31,8 @@ export enum ERROR_TYPE {
   //
   // server side
   //
+  DTO_VALIDATION_ERROR = 'DTO_VALIDATION_ERROR',
+  RATE_LIMITING_ERROR = 'RATE_LIMITING_ERROR',
   //
   // others
   //

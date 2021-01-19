@@ -1,4 +1,5 @@
-import { env } from '..';
+import fetch from 'node-fetch';
+import { env } from '../server';
 
 export async function fetchCliniko({ method, route, payload }: { method: 'POST'; route: 'patients'; payload: object }) {
   const response = await fetch(`https://api.` + `${env.API_VSB_SHARD_ID}.cliniko.com/v1/${route}/`, {
