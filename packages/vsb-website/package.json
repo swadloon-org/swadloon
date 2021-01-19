@@ -27,6 +27,7 @@
   "dependencies": {
     "@newrade/core-design-system": "^1.6.0",
     "@newrade/core-react-ui": "^1.7.0",
+    "@newrade/vsb-common": "^1",
     "gatsby": "^2.29"
   },
   "devDependencies": {

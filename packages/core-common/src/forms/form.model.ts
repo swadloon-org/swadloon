@@ -13,6 +13,10 @@ export type FormConfig = {
  */
 export type Form<TFormConfig extends FormConfig> = {
   /**
+   * Controls the display order of forms (for nested forms)
+   */
+  order?: number;
+  /**
    * @example 'contact-form'
    *
    */
@@ -21,10 +25,6 @@ export type Form<TFormConfig extends FormConfig> = {
    * The same form fields in map format
    */
   fieldsMap: FormFieldsMap<TFormConfig>;
-  /**
-   * Nested forms
-   */
-  forms?: Form<any>[];
 };
 
 /**
@@ -61,9 +61,6 @@ type ExampleFormConfig = {
         firstName: {
           type: FORM_INPUT_TYPE.TEXT;
         };
-        lastName: {
-          type: FORM_INPUT_TYPE.TEXT;
-        };
       };
     };
   };
@@ -73,24 +70,28 @@ const exampleForm: Form<ExampleFormConfig> = {
   name: 'contact-form',
   fieldsMap: {
     firstName: {
+      order: 1,
       name: 'firstName',
       label: 'First Name',
       placeholder: 'Enter value',
       type: FORM_INPUT_TYPE.TEXT,
     },
     lastName: {
+      order: 2,
       name: 'lastname',
       label: 'Last Name',
       placeholder: 'Enter value',
       type: FORM_INPUT_TYPE.TEXT,
     },
     email: {
+      order: 3,
       name: 'email',
       label: 'Email',
       placeholder: 'Enter value',
       type: FORM_INPUT_TYPE.TEXT,
     },
     startDate: {
+      order: 4,
       name: 'startDate',
       label: 'Start date',
       placeholder: 'Enter start date',
@@ -103,17 +104,12 @@ const exampleForm: Form<ExampleFormConfig> = {
       ],
     },
     nested: {
-      name: 'extra-contact',
+      name: 'nested',
       fieldsMap: {
         firstName: {
+          order: 1,
           name: 'firstName',
           label: 'First Name',
-          placeholder: 'Enter value',
-          type: FORM_INPUT_TYPE.TEXT,
-        },
-        lastName: {
-          name: 'lastname',
-          label: 'Last Name',
           placeholder: 'Enter value',
           type: FORM_INPUT_TYPE.TEXT,
         },

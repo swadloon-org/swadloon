@@ -140,6 +140,9 @@
       "path": "../packages/vsb-website"
     },
     {
+      "path": "../packages/vsb-common"
+    },
+    {
       "path": "../packages/vsb-api"
     }
   ],

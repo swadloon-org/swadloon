@@ -1,5 +1,8 @@
 import { FORM_INPUT_TYPE } from './form-types';
 
+/**
+ * Depending on the input type we can infer the type of valueType and placeholder
+ */
 export type FormFieldValueType<Type extends FORM_INPUT_TYPE> = {
   placeholderType: string;
   valueType: Type extends FORM_INPUT_TYPE.DATE ? Date : string;

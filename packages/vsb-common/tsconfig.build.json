@@ -1,16 +1,19 @@
 {
   "extends": "../../tsconfig.build.json",
   "compilerOptions": {
-    "rootDir": ".",
-    "outDir": "dist",
+    "rootDir": "src",
+    "outDir": "lib",
     "target": "es6",
-    "module": "commonjs",
-    "types": ["node", "jest"],
+    "module": "es6",
+    "types": [],
     "lib": ["es6", "dom", "es2017"]
   },
   "references": [
     {
       "path": "../core-common/tsconfig.build.json"
+    },
+    {
+      "path": "../core-design-system/tsconfig.build.json"
     },
     {
       "path": "../core-utils/tsconfig.build.json"

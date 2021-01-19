@@ -1,29 +1,46 @@
 import { loadDotEnv, logEnvVariables } from '@newrade/core-utils';
 import { json } from 'body-parser';
-import express, { urlencoded } from 'express';
+import express, { Router, urlencoded } from 'express';
 import path from 'path';
-import registerRouter from './router/register.router';
-import { Env, ENV } from './types/dot-env';
+import { Env, ENV } from '../types/dot-env';
+import { postPatient } from './controller/post-patient.controller';
 
+/**
+ * Env variables
+ */
 export const env = loadDotEnv<ENV>({
   schema: Env,
-  dotEnvPath: path.resolve(__dirname, '../.env'),
+  dotEnvPath: path.resolve(__dirname, '../../.env'),
   packageName: '@newrade/vsb-api',
 });
 logEnvVariables({ packageName: '@newrade/vsb-api', env });
 
+/**
+ * Init
+ */
 const port = env.APP_PORT ? Number(env.APP_PORT) : 3000;
-
 const server = express();
+
+/**
+ * Middlewares
+ */
 server.use(json());
 server.use(urlencoded({ extended: true }));
 
-// / => form html avec un submit
-server.use('/api/register', registerRouter);
+/**
+ * Routes
+ */
+const router = Router();
+server.use('/api', router);
+router.route('/register').post(postPatient);
 
 const httpServer = server.listen(port);
+
 console.log('listening on port: ' + port);
 
+/**
+ * Shutdown
+ */
 process.on('SIGINT', function () {
   httpServer.close(function () {
     console.log('Finished all requestsss');
