@@ -2,20 +2,13 @@ import * as yup from 'yup';
 import { SchemaOf } from 'yup';
 import { PatientModel, REMINDER_TYPE } from './patient.model';
 
-// setLocale({
-//   // use constant translation keys for messages without values
-//   mixed: {
-//     default: 'field_invalid',
-//   },
-//   // use functions to generate an error object that includes the value from the schema
-//   number: {
-//     min: ({ min }) => ({ key: 'field_too_short', values: { min } }),
-//     max: ({ max }) => ({ key: 'field_too_big', values: { max } }),
-//   },
-// });
-
 export const PatientValidation: SchemaOf<PatientModel> = yup
   .object({
+    occupation: yup.string(),
+    gender_identity: yup.string(),
+    sex: yup.string(),
+    address_2: yup.string(),
+    address_3: yup.string(),
     first_name: yup.string().min(2, 'Too Short').max(50, 'Too Long').required('Required'),
     last_name: yup.string().min(2, 'Too Short').max(50, 'Too Long').required('Required'),
     email: yup.string().email().required('Required'),
@@ -30,8 +23,8 @@ export const PatientValidation: SchemaOf<PatientModel> = yup
     invoice_email: yup.string().required('Required'),
     invoice_extra_information: yup.string().required('Required'),
     accepted_privacy_policy: yup.bool().nullable().required('Required'),
-    accepted_sms_marketing: yup.string().required('Required'),
-    accepted_email_marketing: yup.string().required('Required'),
+    accepted_sms_marketing: yup.boolean().required('Required'),
+    accepted_email_marketing: yup.boolean().required('Required'),
     medicare: yup.string().required('Required'),
     medicare_reference_number: yup.string().required('Required'),
     receives_confirmation_emails: yup.boolean().required('Required'),
@@ -49,11 +42,5 @@ export const PatientValidation: SchemaOf<PatientModel> = yup
         })
       )
       .required(),
-
-    occupation: yup.string(),
-    gender_identity: yup.string(),
-    sex: yup.string(),
-    address_2: yup.string(),
-    address_3: yup.string(),
   })
   .defined();

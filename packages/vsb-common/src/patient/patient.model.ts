@@ -20,8 +20,8 @@ export type PatientModel = {
   invoice_email: string;
   invoice_extra_information: string;
   accepted_privacy_policy: boolean | null;
-  accepted_sms_marketing: string;
-  accepted_email_marketing: string;
+  accepted_sms_marketing: boolean;
+  accepted_email_marketing: boolean;
   medicare: string;
   medicare_reference_number: string;
   receives_confirmation_emails: boolean;

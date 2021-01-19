@@ -5,11 +5,17 @@ import { ValidationError } from 'yup';
 
 export const postPatient: RequestHandler<any, PatientAPIResponseBody, PatientAPIRequestBody> = async (req, res) => {
   try {
-    console.log(req.language);
-    console.log(req.languages);
-    console.log(req.i18n.t('hello'));
+    // console.log(req.language);
+    // console.log(req.languages);
+    // console.log(req.i18n.t('hello'));
 
-    const validation = PatientValidation.validateSync(req.body.payload.patient, { abortEarly: false });
+    const validation = PatientValidation.validateSync(req.body.payload.patient, {
+      abortEarly: false,
+      strict: true,
+    });
+    // @ts-ignore
+    console.log(JSON.stringify(validation, null, 2));
+
     return res.status(200).send({ api: 'vsb-api', errors: [], payload: { errors: [] } });
 
     // if (!result.success) {
@@ -34,6 +40,7 @@ export const postPatient: RequestHandler<any, PatientAPIResponseBody, PatientAPI
     // }
   } catch (error) {
     const yupError = error as ValidationError;
+    console.log(yupError);
     const appError = new AppError({
       name: ERROR_TYPE.DTO_VALIDATION_ERROR,
       message: 'Invalid dto',
