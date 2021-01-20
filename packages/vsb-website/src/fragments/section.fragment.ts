@@ -29,12 +29,14 @@ export const sectionFragment = graphql`
         }
       }
     }
+    backgroundPosition
     medias {
       medias {
         file {
           url
         }
         desktopFluidImage: fluid(quality: 90, maxWidth: 1920) {
+          base64
           aspectRatio
           src
           srcSet
@@ -43,6 +45,7 @@ export const sectionFragment = graphql`
           sizes
         }
         mobileFluidImage: fluid(quality: 90, maxWidth: 768) {
+          base64
           aspectRatio
           src
           srcSet

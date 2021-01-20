@@ -16,8 +16,8 @@ export const Message: React.FC<OwnProps> = (props) => {
     <Center className={`${styles.wrapper}`}>
       <BoxV2 padding={[cssTheme.sizing.var.x6, 0]}>
         <div className={styles.grid}>
-          <BoxV2 className={styles.gridTitle}>
-            <Heading variant={HEADING.h3}>{props?.title}</Heading>
+          <BoxV2 className={styles.gridTitle} alignItems={['flex-start']}>
+            <Heading variant={HEADING.h4}>{props?.title}</Heading>
           </BoxV2>
 
           <Stack gap={[cssTheme.sizing.var.x4]} className={styles.gridMessages}>

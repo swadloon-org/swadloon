@@ -5,8 +5,8 @@ import { getCSSTextStyles } from '../../utilities/text.utilities';
 
 export const styles: { [key in TITLE]: string } & { [key in TEXT_LEVEL]: string } = {
   t1: style(({ theme, cssTheme }: Theme) => ({
-    // TODO: Design System 2.0
-    textShadow: `0px 2px 17px rgba(0, 0, 0, 0.04)`,
+    // todo should be in all titles
+    wordBreak: 'break-word',
     ...getCSSTextStyles(cssTheme.typography.titles.mobile.t1),
     '@media': {
       [cssTheme.layout.media.tablet]: {

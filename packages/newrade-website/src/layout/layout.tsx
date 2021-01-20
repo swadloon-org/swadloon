@@ -6,6 +6,7 @@ import { LayoutAllSitePageQuery } from '../../types/graphql-types';
 import * as styleRefs from './layout.treat';
 import LogoSymbol from '../images/logo-symbol.svg';
 import Logo from '../images/logo.svg';
+import { GatsbyLink } from '@newrade/core-gatsby-ui/src';
 
 type LayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }>;
 
@@ -43,35 +44,10 @@ export const Layout = React.memo<LayoutProps>((props) => {
 
   const { styles } = useStyles(styleRefs);
 
-  // function renderNavigation(path?: string) {
-  //   if (!path) {
-  //     return null;
-  //   }
-
-  //   return (
-  //     <div className={styles.topMenu}>
-  //       {pages.pages.nodes
-  //         .filter((node) => !/404/.test(node.path))
-  //         .map((node) => (/^\/$/.test(node.path) ? { ...node, context: { frontmatter: { name: 'Home' } } } : node))
-  //         .map((node) => {
-  //           return (
-  //             <div key={node.id} className={styles.navItem}>
-  //               <Link to={node.path}>
-  //                 {node.context?.frontmatter?.name
-  //                   ? parsePathIntoName(node.context?.frontmatter?.name)
-  //                   : parsePathIntoName(node.path)}
-  //               </Link>
-  //             </div>
-  //           );
-  //         })}
-  //     </div>
-  //   );
-  // }
-
   return (
     <MainWrapper>
       <NavBar
-        variantStyle={'transparent'}
+        HomeLink={<GatsbyLink to={'/'} />}
         MobileSvgLogo={<LogoSymbol />}
         DesktopSvgLogo={<Logo />}
         MenuLinks={

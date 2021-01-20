@@ -1,19 +1,21 @@
 import { GatsbyLink } from '@newrade/core-gatsby-ui/src';
-import { Link, Main, MainWrapper, NavBar, useTreatTheme, NavBarRefs } from '@newrade/core-react-ui';
+import { Link, Main, MainWrapper, NavBar, NavBarRefs, useTreatTheme } from '@newrade/core-react-ui';
 import { graphql, PageProps, useStaticQuery } from 'gatsby';
-import gsap, { TweenMax } from 'gsap';
+import { gsap, TweenMax } from 'gsap';
 import React, { ReactNode, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useStyles } from 'react-treat';
 import { LayoutAllSitePageQuery } from '../../types/graphql-types';
 import { Footer } from '../components/footer';
+import { ExpoScaleEase } from '../gsap/EasePack';
 import ScrollTrigger from '../gsap/ScrollTrigger';
 import LogoSymbol from '../images/logo-symbol.svg';
 import Logo from '../images/logo.svg';
 import '../services/i18n.service';
 import * as styleRefs from './layout.treat';
+import { PARAGRAPH_SIZE } from '../../../core-design-system/src';
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, ExpoScaleEase as any);
 
 type LayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }>;
 
@@ -68,11 +70,13 @@ export const Layout = React.memo<LayoutProps>((props) => {
 
   useEffect(() => {
     const desktopNavbar = navbarRef?.current?.desktopNavbar;
-    const duration = 0.3;
+    const duration = 0.2;
 
     if (!desktopNavbar) {
       return;
     }
+
+    const [logoSmallScale, logoLargeScale] = [1, 1.3];
 
     if (!animationReady) {
       TweenMax.set(desktopNavbar, {
@@ -83,7 +87,8 @@ export const Layout = React.memo<LayoutProps>((props) => {
       TweenMax.set(desktopNavbar.getElementsByTagName('svg'), {
         autoAlpha: 1,
         fill: `rgba(255,255,255,1)`,
-        height: `100%`,
+        scale: logoLargeScale,
+        transformOrigin: 'left top',
       });
       TweenMax.set(desktopNavbar.getElementsByTagName('a'), {
         autoAlpha: 1,
@@ -92,55 +97,25 @@ export const Layout = React.memo<LayoutProps>((props) => {
 
       setAnimationReady(true);
     }
-
     const timeline = gsap.timeline({
       /**
        * @see https://greensock.com/docs/v3/Plugins/ScrollTrigger
        */
       scrollTrigger: {
-        scrub: 0.3,
-        snap: 1,
+        scrub: 1,
         toggleActions: `play none reverse none`,
         trigger: '#footer',
         start: 'top bottom',
-        end: 'top 60%',
+        end: 'top 100%',
       },
     });
-
-    // animateToTransparent.to(desktopNavbar.getElementsByTagName('a'), {
-    //   color: `rgba(255,255,255,1)`,
-    //   duration,
-    //   position: 0,
-    // });
-    // animateToTransparent.to(desktopNavbar.getElementsByTagName('svg'), {
-    //   fill: `rgba(255,255,255,1)`,
-    //   duration,
-    //   position: 0,
-    // });
-    // animateToTransparent.to(desktopNavbar, {
-    //   backgroundColor: `rgba(255,255,255,0)`,
-    //   duration,
-    //   position: 0,
-    // });
-
-    // const animateToWhite = gsap.timeline({
-    //   /**
-    //    * @see https://greensock.com/docs/v3/Plugins/ScrollTrigger
-    //    */
-    //   scrollTrigger: {
-    //     scrub: 0.3,
-    //     toggleActions: `play none reverse none`,
-    //     trigger: '#footer',
-    //     start: 'top bottom',
-    //     end: 'top 60%',
-    //   },
-    // });
 
     timeline.to(
       desktopNavbar,
       {
+        duration: duration,
+        ease: `expoScale(${logoLargeScale}, ${logoSmallScale})`,
         backgroundColor: `rgba(255,255,255,1)`,
-        duration,
         boxShadow: `0px 2px 8px 0px rgba(0, 0, 0, 0.15)`,
       },
       0
@@ -148,17 +123,20 @@ export const Layout = React.memo<LayoutProps>((props) => {
     timeline.to(
       desktopNavbar.getElementsByTagName('svg'),
       {
-        fill: cssTheme.colors.colorIntents.primary,
-        height: `90%`,
         duration,
+        ease: `expoScale(${logoLargeScale}, ${logoSmallScale})`,
+        transformOrigin: 'left top',
+        scale: logoSmallScale,
+        fill: cssTheme.colors.colorIntents.primary,
       },
       0
     );
     timeline.to(
       desktopNavbar.getElementsByTagName('a'),
       {
-        color: cssTheme.colors.colorIntents.primary,
         duration,
+        ease: 'expo.inOut',
+        color: cssTheme.colors.colorIntents.primary,
       },
       0
     );
@@ -172,12 +150,23 @@ export const Layout = React.memo<LayoutProps>((props) => {
     <MainWrapper>
       <NavBar
         ref={navbarRef}
+        HomeLink={<GatsbyLink to={'/'} />}
         MobileSvgLogo={<LogoSymbol />}
         DesktopSvgLogo={<Logo />}
         MenuLinks={
           <>
-            <Link AsElement={<GatsbyLink to={'/vasectomie/'} />}>Tout sur la vasectomie</Link>
-            <Link AsElement={<GatsbyLink to={'/examen-pour-transport-canada/'} />}>Examen pour Transport Canada</Link>
+            <Link variantSize={PARAGRAPH_SIZE.medium} AsElement={<GatsbyLink to={'/vasectomie/'} />}>
+              Tout sur la vasectomie
+            </Link>
+            <Link variantSize={PARAGRAPH_SIZE.medium} AsElement={<GatsbyLink to={'/examen-pour-transport-canada/'} />}>
+              Examen pour Transport Canada
+            </Link>
+            <Link variantSize={PARAGRAPH_SIZE.medium} AsElement={<GatsbyLink to={'/equipe/'} />}>
+              La clinique
+            </Link>
+            <Link variantSize={PARAGRAPH_SIZE.medium} AsElement={<GatsbyLink to={'/contact/'} />}>
+              Contact
+            </Link>
           </>
         }
       ></NavBar>

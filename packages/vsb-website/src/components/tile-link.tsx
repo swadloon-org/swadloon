@@ -18,7 +18,7 @@ export const TileLink: React.FC<OwnProps> = (props) => {
       {hasImage ? (
         <BackgroundImage Tag="div" fluid={imageData as IFluidObject} className={`${styles.container}`} fadeIn={false}>
           <Center className={styles.content}>
-            <Heading variant={HEADING.h2}>{props?.title}</Heading>
+            <Heading variant={HEADING.h1}>{props?.title}</Heading>
           </Center>
         </BackgroundImage>
       ) : null}

@@ -1,11 +1,10 @@
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { SectionFragment } from '../../types/graphql-types';
-import * as styleRefs from './tile-links.treat';
-import { Center, Stack, Cluster } from '@newrade/core-react-ui';
+import { ContentfulSection, SectionFragment, ContentfulPage } from '../../types/graphql-types';
 import { TileLink } from './tile-link';
+import * as styleRefs from './tile-links.treat';
 
-type OwnProps = SectionFragment;
+type OwnProps = ContentfulSection;
 
 export const TileLinks: React.FC<OwnProps> = (props) => {
   const { styles } = useStyles(styleRefs);
@@ -13,7 +12,6 @@ export const TileLinks: React.FC<OwnProps> = (props) => {
   return (
     <div className={`${styles.wrapper}`}>
       <div className={`${styles.gridSwitch}`}>
-        {/* ITEMS */}
         {props?.subSections?.map((item: any, index: number) => {
           return <TileLink key={index} {...item}></TileLink>;
         })}

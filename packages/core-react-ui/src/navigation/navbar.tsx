@@ -23,6 +23,7 @@ type Props = CommonComponentProps & {
    * Allow to override the max-width of the content
    */
   maxWidth?: string;
+  HomeLink?: React.ReactNode;
   MobileSvgLogo?: React.ReactNode;
   DesktopSvgLogo?: React.ReactNode;
   MenuLinks?: React.ReactNode;
@@ -122,7 +123,7 @@ export const NavBar = React.forwardRef<any, Props>((props, ref) => {
             ></Button>
           </BoxV2>
 
-          <BoxV2 justifyContent={['center']} padding={[cssTheme.sizing.var.x2, 0]}>
+          <BoxV2 justifyContent={['center']} padding={[cssTheme.sizing.var.x2, 0]} AsElement={props.HomeLink}>
             <SVGLogo Icon={MobileSvgLogo || DesktopSvgLogo} />
           </BoxV2>
 
@@ -141,7 +142,7 @@ export const NavBar = React.forwardRef<any, Props>((props, ref) => {
         maxWidth={props.maxWidth}
       >
         <Cluster justifyContent={['space-between']} alignItems={['center']}>
-          <BoxV2 padding={[cssTheme.sizing.var.x2, 0]} className={styles.logoWrapper}>
+          <BoxV2 padding={[cssTheme.sizing.var.x2, 0]} className={styles.logoWrapper} AsElement={props.HomeLink}>
             <SVGLogo Icon={DesktopSvgLogo || MobileSvgLogo} />
           </BoxV2>
 
