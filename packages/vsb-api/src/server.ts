@@ -1,4 +1,5 @@
 import { loadDotEnv, logEnvVariables } from '@newrade/core-utils';
+import cors from 'cors';
 import express, { Router, urlencoded } from 'express';
 import { Server } from 'http';
 import i18nextMiddleware from 'i18next-http-middleware';
@@ -9,7 +10,6 @@ import { API_REGISTER_ROUTE, API_TRANSLATION_ROUTE } from './constants/api-route
 import { postPatient } from './controller/post-patient.controller';
 import { getTranslation } from './controller/translation.controller.js';
 import { i18nService, initI18nService } from './services/i18n.service';
-
 /**
  * Env variables
  */
@@ -42,6 +42,7 @@ server.disable('x-powered-by');
 /**
  * Middlewares
  */
+server.use(cors());
 server.use(express.json());
 server.use(morgan('common'));
 server.use(urlencoded({ extended: true }));

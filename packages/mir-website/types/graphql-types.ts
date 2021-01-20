@@ -29751,6 +29751,8 @@ export type SitePageContext = {
   layout?: Maybe<Scalars['String']>;
   blogPostId?: Maybe<Scalars['String']>;
   blogPath?: Maybe<Scalars['String']>;
+  displayName?: Maybe<Scalars['String']>;
+  fileId?: Maybe<Scalars['String']>;
 };
 
 export type SitePageContextFilterInput = {
@@ -29765,6 +29767,8 @@ export type SitePageContextFilterInput = {
   layout?: Maybe<StringQueryOperatorInput>;
   blogPostId?: Maybe<StringQueryOperatorInput>;
   blogPath?: Maybe<StringQueryOperatorInput>;
+  displayName?: Maybe<StringQueryOperatorInput>;
+  fileId?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePageContextSiteMetadata = {
@@ -29908,6 +29912,8 @@ export type SitePageFieldsEnum =
   | 'context___layout'
   | 'context___blogPostId'
   | 'context___blogPath'
+  | 'context___displayName'
+  | 'context___fileId'
   | 'pluginCreator___id'
   | 'pluginCreator___parent___id'
   | 'pluginCreator___parent___parent___id'

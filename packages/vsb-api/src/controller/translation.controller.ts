@@ -2,9 +2,9 @@ import { RequestHandler } from 'express';
 
 export const getTranslation: RequestHandler<{ key: string }, any, any> = async (req, res) => {
   try {
-    console.log(req.language);
-    console.log(req.languages);
-    console.log(req.query['key']);
+    // console.log(req.language);
+    // console.log(req.languages);
+    // console.log(req.query['key']);
     const key = req.query['key'];
 
     if (!(key && typeof key === 'string')) {
