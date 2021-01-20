@@ -56,14 +56,26 @@ export const styles: { wrapper: string } & { [key in HEADING]: string } & { [key
     },
   })),
 
+  /**
+   * Text styles
+   */
   primary: style(({ theme, cssTheme }: Theme) => ({
     color: cssTheme.colors.colorIntents.primaryText,
+  })),
+  primaryReversed: style(({ theme, cssTheme }: Theme) => ({
+    color: cssTheme.colors.colorIntents.primaryTextReversed,
   })),
   secondary: style(({ theme, cssTheme }: Theme) => ({
     color: cssTheme.colors.colorIntents.secondaryText,
   })),
+  secondaryReversed: style(({ theme, cssTheme }: Theme) => ({
+    color: cssTheme.colors.colorIntents.secondaryTextReversed,
+  })),
   tertiary: style(({ theme, cssTheme }: Theme) => ({
     color: cssTheme.colors.colorIntents.tertiaryText,
+  })),
+  tertiaryReversed: style(({ theme, cssTheme }: Theme) => ({
+    color: cssTheme.colors.colorIntents.tertiaryTextReversed,
   })),
 };
 

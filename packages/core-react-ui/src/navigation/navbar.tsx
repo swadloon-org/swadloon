@@ -2,7 +2,7 @@ import React, { useEffect, useImperativeHandle, useState, useRef } from 'react';
 import { isIOS } from 'react-device-detect';
 import { IoMenu } from 'react-icons/io5';
 import { useStyles } from 'react-treat';
-import { ButtonIcon, ButtonSize, ButtonVariant } from '../../../core-design-system/src';
+import { ButtonIcon, ButtonSize, ButtonVariant } from '@newrade/core-design-system';
 import { Button } from '../components/button/button';
 import { SVGLogo } from '../components/svg-logo/svg-logo';
 import { Label } from '../components/text/label';

@@ -1,5 +1,5 @@
-import { HEADING } from '@newrade/core-design-system';
-import { BoxV2, Details, Heading, Paragraph, Stack, Summary, useTreatTheme } from '@newrade/core-react-ui';
+import { HEADING, TEXT_LEVEL } from '@newrade/core-design-system';
+import { BoxV2, Details, Heading, Paragraph, Stack, Summary, useTreatTheme, Cluster } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { DesignSystemPageProps, DesignSystemPageTemplate } from '../../templates/design-system-page.template';
@@ -27,16 +27,32 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
         </Summary>
 
         <BoxV2 padding={[cssTheme.sizing.var.x3, '0']}>
-          <ColorPalette
-            colorName={''}
-            colorOrPalette={{
-              primaryText: theme.colors.colorIntents.primaryText,
-              secondaryText: theme.colors.colorIntents.secondaryText,
-              tertiaryText: theme.colors.colorIntents.tertiaryText,
-              disabledText: theme.colors.colorIntents.disabledText,
-              primaryReversed: theme.colors.colorIntents.primaryReversed,
-            }}
-          ></ColorPalette>
+          <Stack gap={[cssTheme.sizing.var.x5]}>
+            <Cluster gap={[cssTheme.sizing.var.x5]} justifyContent={['flex-start']}>
+              <Stack gap={[cssTheme.sizing.var.x2]}>
+                <Heading variant={HEADING.h2} variantLevel={TEXT_LEVEL.primary}></Heading>
+                <Heading variant={HEADING.h2} variantLevel={TEXT_LEVEL.secondary}></Heading>
+                <Heading variant={HEADING.h2} variantLevel={TEXT_LEVEL.tertiary}></Heading>
+              </Stack>
+
+              <Stack gap={[cssTheme.sizing.var.x2]} style={{ backgroundColor: cssTheme.colors.colors.grey[1000] }}>
+                <Heading variant={HEADING.h2} variantLevel={TEXT_LEVEL.primaryReversed}></Heading>
+                <Heading variant={HEADING.h2} variantLevel={TEXT_LEVEL.secondaryReversed}></Heading>
+                <Heading variant={HEADING.h2} variantLevel={TEXT_LEVEL.tertiaryReversed}></Heading>
+              </Stack>
+            </Cluster>
+
+            <ColorPalette
+              colorName={''}
+              colorOrPalette={{
+                primaryText: theme.colors.colorIntents.primaryText,
+                secondaryText: theme.colors.colorIntents.secondaryText,
+                tertiaryText: theme.colors.colorIntents.tertiaryText,
+                disabledText: theme.colors.colorIntents.disabledText,
+                primaryReversed: theme.colors.colorIntents.primaryReversed,
+              }}
+            ></ColorPalette>
+          </Stack>
         </BoxV2>
       </Details>
 

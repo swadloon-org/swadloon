@@ -3,14 +3,14 @@ import { style } from 'treat';
 import { Theme } from '../../design-system/css-design-system';
 import { getCSSSizeTextStyles, getCSSTextStyles } from '../../utilities/text.utilities';
 
-export const styles: { [key in LinkStyleProps['variantStyle']]: string } &
+export const styles: { [key in LinkStyleProps['variantLevel']]: string } &
   { [key in LinkStyleProps['variant']]: string } &
   { [key in LinkStyleProps['state']]?: string } &
   { [key in LinkStyleProps['variantSize']]: string } & {
     icon: string;
   } = {
   /**
-   * Variant
+   * Variants
    */
   underline: style(({ theme, cssTheme }: Theme) => ({
     textDecoration: 'underline',
@@ -20,13 +20,25 @@ export const styles: { [key in LinkStyleProps['variantStyle']]: string } &
   })),
 
   /**
-   * Styles
+   * Text styles
    */
-  normal: style(({ theme, cssTheme }: Theme) => ({
-    color: cssTheme.colors.colorIntents.primary,
+  primary: style(({ theme, cssTheme }: Theme) => ({
+    color: cssTheme.colors.colorIntents.primaryText,
   })),
-  reversed: style(({ theme, cssTheme }: Theme) => ({
-    color: cssTheme.colors.colorIntents.primaryReversed,
+  primaryReversed: style(({ theme, cssTheme }: Theme) => ({
+    color: cssTheme.colors.colorIntents.primaryTextReversed,
+  })),
+  secondary: style(({ theme, cssTheme }: Theme) => ({
+    color: cssTheme.colors.colorIntents.secondaryText,
+  })),
+  secondaryReversed: style(({ theme, cssTheme }: Theme) => ({
+    color: cssTheme.colors.colorIntents.secondaryTextReversed,
+  })),
+  tertiary: style(({ theme, cssTheme }: Theme) => ({
+    color: cssTheme.colors.colorIntents.tertiaryText,
+  })),
+  tertiaryReversed: style(({ theme, cssTheme }: Theme) => ({
+    color: cssTheme.colors.colorIntents.tertiaryTextReversed,
   })),
 
   /**

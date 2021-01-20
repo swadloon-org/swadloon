@@ -7,8 +7,8 @@ import { pascal, snake, kebab } from 'case';
 
 type Props = CommonComponentProps &
   LabelHTMLAttributes<any> & {
-    variantStyle?: TEXT_STYLE;
     variant?: LABEL_SIZE;
+    variantStyle?: TEXT_STYLE;
     variantLevel?: TEXT_LEVEL;
   };
 

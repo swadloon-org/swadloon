@@ -13,7 +13,7 @@ import LogoSymbol from '../images/logo-symbol.svg';
 import Logo from '../images/logo.svg';
 import '../services/i18n.service';
 import * as styleRefs from './layout.treat';
-import { PARAGRAPH_SIZE } from '../../../core-design-system/src';
+import { PARAGRAPH_SIZE } from '@newrade/core-design-system';
 
 gsap.registerPlugin(ScrollTrigger, ExpoScaleEase as any);
 

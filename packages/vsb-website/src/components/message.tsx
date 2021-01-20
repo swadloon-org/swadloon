@@ -2,7 +2,7 @@ import { BoxV2, Center, Cluster, Heading, Stack, useTreatTheme } from '@newrade/
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { HEADING } from '../../../core-design-system/src';
+import { HEADING } from '@newrade/core-design-system';
 import { SectionFragment } from '../../types/graphql-types';
 import * as styleRefs from './message.treat';
 
@@ -20,7 +20,7 @@ export const Message: React.FC<OwnProps> = (props) => {
             <Heading variant={HEADING.h4}>{props?.title}</Heading>
           </BoxV2>
 
-          <Stack gap={[cssTheme.sizing.var.x4]} className={styles.gridMessages}>
+          <Stack gap={[cssTheme.sizing.var.x5]} className={styles.gridMessages}>
             {props?.announcements?.map((item: any, index: number) => {
               return (
                 <Cluster key={index} justifyContent={['flex-start']} gap={[cssTheme.sizing.var.x1]}>
