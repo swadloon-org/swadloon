@@ -36,6 +36,7 @@ export const styles = {
       },
     },
   })),
+
   icon: style(({ cssTheme, theme }: Theme) => ({
     height: 28,
     width: 28,

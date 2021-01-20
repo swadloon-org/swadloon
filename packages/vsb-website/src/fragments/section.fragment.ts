@@ -34,8 +34,7 @@ export const sectionFragment = graphql`
         file {
           url
         }
-        desktopFluidImage: fluid(quality: 90, maxHeight: 800) {
-          base64
+        desktopFluidImage: fluid(quality: 90, maxWidth: 1920) {
           aspectRatio
           src
           srcSet
@@ -43,68 +42,13 @@ export const sectionFragment = graphql`
           srcSetWebp
           sizes
         }
-        mobileFluidImage: fluid(quality: 90, maxWidth: 400) {
-          base64
+        mobileFluidImage: fluid(quality: 90, maxWidth: 768) {
           aspectRatio
           src
           srcSet
           srcWebp
           srcSetWebp
           sizes
-        }
-      }
-    }
-    subSections {
-      node_locale
-      name
-      type {
-        type
-      }
-      title
-      titleHighlight
-      subtitle
-      link {
-        ...Link
-      }
-      text {
-        text
-        childMdx {
-          body
-        }
-      }
-      announcements {
-        name
-        type
-        message {
-          message
-          childMdx {
-            body
-          }
-        }
-      }
-      medias {
-        medias {
-          file {
-            url
-          }
-          desktopFluidImage: fluid(quality: 90, maxHeight: 800) {
-            base64
-            aspectRatio
-            src
-            srcSet
-            srcWebp
-            srcSetWebp
-            sizes
-          }
-          mobileFluidImage: fluid(quality: 90, maxWidth: 400) {
-            base64
-            aspectRatio
-            src
-            srcSet
-            srcWebp
-            srcSetWebp
-            sizes
-          }
         }
       }
     }

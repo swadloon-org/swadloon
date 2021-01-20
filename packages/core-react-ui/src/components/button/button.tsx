@@ -1,22 +1,21 @@
 import {
+  ButtonIcon,
   ButtonProps,
+  ButtonSize,
   ButtonState,
   ButtonVariant,
-  ButtonSize,
-  ButtonIcon,
-  TEXT_STYLE,
   LABEL_SIZE,
+  TEXT_STYLE,
 } from '@newrade/core-design-system';
-import React, { ButtonHTMLAttributes, useRef } from 'react';
+import { AriaButtonProps } from '@react-types/button';
+import React, { useRef } from 'react';
+import { useButton } from 'react-aria';
+import { IoAddOutline } from 'react-icons/io5';
 import { useStyles } from 'react-treat';
-import * as stylesRef from './button.treat';
 import { CommonComponentProps } from '../../props/component-common.props';
-import { IoArrowForwardOutline, IoAddOutline } from 'react-icons/io5';
-import { pascal, kebab } from 'case';
 import { getDefaultTextFromProps, getMergedClassname } from '../../utilities/component.utilities';
 import { Label } from '../text/label';
-import { useButton } from 'react-aria';
-import { AriaButtonProps } from '@react-types/button';
+import * as stylesRef from './button.treat';
 
 type Props = CommonComponentProps &
   Pick<ButtonProps, 'icon' | 'role' | 'size' | 'state' | 'variant'> &
@@ -24,6 +23,7 @@ type Props = CommonComponentProps &
     loading?: boolean;
     Icon?: React.ReactNode;
     dataPressed?: boolean;
+    collapsePadding?: 'left' | 'right';
   };
 
 export const Button: React.FC<Props> = ({
@@ -32,6 +32,7 @@ export const Button: React.FC<Props> = ({
   className,
   children,
   variant,
+  collapsePadding,
   as,
   size,
   state,
@@ -39,12 +40,12 @@ export const Button: React.FC<Props> = ({
   Icon,
   ...props
 }) => {
-  const { styles: styles } = useStyles(stylesRef);
+  const { styles } = useStyles(stylesRef);
   const ref = useRef<HTMLButtonElement>(null);
   const type = as ? as : 'button';
   const { buttonProps, isPressed } = useButton({ ...props, elementType: type }, ref);
 
-  const iconClassNames = getMergedClassname([styles.icon, icon ? styles[icon] : '']);
+  const iconClassNames = getMergedClassname([styles.iconBase, icon ? styles[icon] : '']);
 
   const IconSvg =
     Icon && icon ? (
@@ -58,6 +59,7 @@ export const Button: React.FC<Props> = ({
 
   const variantStateClassName = `${styles[ButtonState.rest]}`;
   const variantClassName = `${styles[variant ? variant : ButtonVariant.primary]}`;
+  const collapsePaddingClassName = `${collapsePadding === 'left' ? styles.collapsePaddingLeft : ''}`;
   const variantSizeClassName = styles[size ? size : ButtonSize.medium];
   const activeClassName = isPressed ? styles.pressed : '';
   const allClassName = getMergedClassname([
@@ -73,6 +75,7 @@ export const Button: React.FC<Props> = ({
         variant,
         size,
         icon,
+        disabled: props.isDisabled,
       });
 
   function getLabelSizeForButtonSize(size?: ButtonSize): LABEL_SIZE {
@@ -98,19 +101,22 @@ export const Button: React.FC<Props> = ({
       id={id}
       style={style}
       className={allClassName}
-      ref={(element) => ref}
+      ref={ref}
       {...buttonProps}
       // @ts-ignore
       dataicon={`${icon}`}
       datapressed={`${isPressed}`}
+      datapaddingcollapse={`${collapsePadding}`}
     >
-      <Label
-        style={{ display: 'inline-block' }}
-        variantStyle={TEXT_STYLE.bold}
-        variant={getLabelSizeForButtonSize(size)}
-      >
-        {renderedChildren}
-      </Label>
+      {icon === ButtonIcon.icon ? null : (
+        <Label
+          style={{ display: 'inline-block' }}
+          variantStyle={TEXT_STYLE.bold}
+          variant={getLabelSizeForButtonSize(size)}
+        >
+          {renderedChildren}
+        </Label>
+      )}
       {IconSvg}
       {/* children: child, */}
     </button>

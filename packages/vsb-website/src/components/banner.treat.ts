@@ -3,7 +3,7 @@ import { style } from 'treat';
 
 export const styles = {
   wrapper: style(({ theme, cssTheme }: Theme) => ({
-    height: `800px`,
+    height: `80vh`,
     width: `100%`,
     color: cssTheme.colors.colorIntents.primaryReversed,
     textShadow: `0px 2px 17px rgba(0, 0, 0, 0.04)`,
@@ -13,5 +13,6 @@ export const styles = {
     height: `100%`,
     display: 'grid',
     alignContent: 'center',
+    backgroundColor: 'transparent',
   })),
 };

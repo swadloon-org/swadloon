@@ -13,6 +13,8 @@ import { useStyles } from 'react-treat';
 import { FooterQuery } from '../../types/graphql-types';
 import { cssTheme } from '../design-system/theme';
 import * as styleRefs from './footer.treat';
+import { CommonComponentProps } from '../../../core-react-ui/src/props/component-common.props';
+import { getMergedClassname } from '../../../core-react-ui/src/utilities/component.utilities';
 
 export const footerQuery = graphql`
   query Footer {
@@ -31,15 +33,16 @@ export const footerQuery = graphql`
     }
   }
 `;
-//To do add - commun component props
-type OwnProps = {};
 
-export const Footer: React.FC<OwnProps> = (props) => {
+type Props = CommonComponentProps;
+
+export const Footer: React.FC<Props> = ({ id, style, className, ...props }) => {
   const styles = useStyles(styleRefs);
   const data = useStaticQuery<FooterQuery>(footerQuery);
+  const mergedClassNames = getMergedClassname([className, styles.wrapper]);
 
   return (
-    <div className={`${styles.wrapper}`}>
+    <div id={id} style={style} className={mergedClassNames}>
       <Center>
         <Stack gap={[cssTheme.sizing.var.x5]}>
           <div className={styles.grid}>

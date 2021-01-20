@@ -15,7 +15,7 @@ export const Banner: React.FC<OwnProps> = (props) => {
     // todo calculate 100vh and leave it as is after (to prevent background image resizing)
     <div className={`${styles.wrapper}`}>
       {hasImage ? (
-        <BackgroundImage Tag="div" fluid={imageData as IFluidObject} className={`${styles.container}`} fadeIn={false}>
+        <BackgroundImage Tag="div" fluid={imageData as IFluidObject} className={`${styles.container}`} fadeIn={true}>
           <Center>
             <Title>{props?.title}</Title>
           </Center>
