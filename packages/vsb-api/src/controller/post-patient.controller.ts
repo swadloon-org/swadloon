@@ -6,10 +6,6 @@ import { fetchCliniko } from '../services/cliniko.service';
 
 export const postPatient: RequestHandler<any, PatientAPIResponseBody, PatientAPIRequestBody> = async (req, res) => {
   try {
-    // console.log(req.language);
-    // console.log(req.languages);
-    // console.log(req.i18n.t('hello'));
-
     const validation = PatientValidation.validateSync(req.body.payload.patient, {
       abortEarly: false,
       strict: true,
@@ -17,7 +13,7 @@ export const postPatient: RequestHandler<any, PatientAPIResponseBody, PatientAPI
 
     const result = await fetchCliniko({ method: 'POST', route: 'patients', payload: req.body.payload.patient });
 
-    return res.status(200).send({ api: 'vsb-api', errors: [result as AppError], payload: { errors: [] } });
+    return res.status(200).send({ api: 'vsb-api', errors: [result as AppError], payload: { validationErrors: [] } });
   } catch (error) {
     const yupError = error as ValidationError;
 
@@ -27,6 +23,6 @@ export const postPatient: RequestHandler<any, PatientAPIResponseBody, PatientAPI
     });
     console.log(res.end);
 
-    res.status(400).send({ api: 'vsb-api', errors: [appError], payload: { errors: yupError.inner } });
+    res.status(400).send({ api: 'vsb-api', errors: [appError], payload: { validationErrors: yupError.inner } });
   }
 };

@@ -45,8 +45,19 @@ const useYupValidationResolver = (PatientValidation: SchemaOf<PatientModel>) =>
 const Form: React.FC = (props) => {
   const styles = useStyles(styleRefs);
 
+  const resolver = useYupValidationResolver(PatientValidation);
+
+  const {
+    register,
+    handleSubmit,
+    control,
+    setError,
+    errors,
+    formState: { isDirty, isSubmitting, touched, submitCount, isValid },
+  } = useForm<PatientModel>({ mode: 'onBlur', resolver });
+
   const onSubmit: SubmitHandler<PatientModel> = (data) => {
-    fetch('http://localhost:3002/api/register', {
+    fetch('http://localhost:10003/api/register', {
       method: 'POST',
       headers: {
         accept: 'application/json',
@@ -55,19 +66,23 @@ const Form: React.FC = (props) => {
       body: JSON.stringify({ api: 'vsb-api', payload: { patient: { ...data } } }, null, 2),
     })
       .then((response) => response.json())
-      .then((result: PatientAPIResponseBody) => console.log(result));
+      .then((result: PatientAPIResponseBody) => {
+        if (result.errors) {
+          result.errors.map((error) => {
+            console.log(error);
+          });
+        }
+        //
+        result.payload.validationErrors.map((validationError) => {
+          if (validationError) {
+            setError(validationError.path as keyof PatientModel, {
+              type: 'manual',
+              message: validationError.message,
+            });
+          }
+        });
+      });
   };
-
-  const resolver = useYupValidationResolver(PatientValidation);
-
-  const {
-    register,
-    handleSubmit,
-    control,
-    errors,
-    formState: { isDirty, isSubmitting, touched, submitCount, isValid },
-  } = useForm<PatientModel>({ mode: 'onBlur', resolver });
-  // mode is perfect for isValid before changing the style state of the submitte for active isValid return a bool for that
 
   return (
     <Center>
@@ -93,7 +108,7 @@ const Form: React.FC = (props) => {
                 {console.log(errors.last_name)}
 
                 {/* <input name="last_name" ref={register} /> */}
-                {/* 
+                {/*
                 <Controller
                   control={control}
                   ref={register}

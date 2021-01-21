@@ -9,7 +9,7 @@ export const PatientValidation: SchemaOf<PatientModel> = yup
     // sex: yup.string(),
     // address_2: yup.string(),
     // address_3: yup.string(),
-    first_name: yup.string().min(2, 'Too Short').max(50, 'Too Long').required('Required'),
+    first_name: yup.string().min(2, 'Too Short').max(50, 'validation.tooShort').required('Required'),
     last_name: yup.string().min(2, 'Too Short').max(50, 'Too Long').required('Required'),
     // email: yup.string().email().required('Required'),
     // date_of_birth: yup.string().required('Required'),

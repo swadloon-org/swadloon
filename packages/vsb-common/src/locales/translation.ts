@@ -5,6 +5,7 @@ export const locales: Resource = {
     translation: {
       hello: 'Hellooooo',
       requis: 'Required',
+      tooShort: 'Required',
     },
   },
   fr: {
