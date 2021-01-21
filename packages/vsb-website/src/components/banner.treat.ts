@@ -7,7 +7,7 @@ export const styles = {
     height: `80vh`,
     width: `100%`,
     color: cssTheme.colors.colorIntents.primaryReversed,
-    textShadow: `0px 2px 17px rgba(0, 0, 0, 0.04)`,
+    textShadow: cssTheme.effects.textShadows.light,
   })),
   container: style(({ theme, cssTheme }: Theme) => ({
     width: `100%`,

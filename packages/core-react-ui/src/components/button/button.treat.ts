@@ -30,8 +30,18 @@ export const styles: { [key in ButtonStyleProps['variant']]: string } &
     },
   })),
   primaryReversed: style(({ theme, cssTheme }: Theme) => ({
-    color: cssTheme.colors.colorIntents.primary,
-    backgroundColor: cssTheme.colors.colorIntents.primaryReversed,
+    color: cssTheme.colors.colorIntents.primaryTextReversed,
+    backgroundColor: cssTheme.colors.colorIntents.primary,
+    selectors: {
+      '&[datapressed="true"]': {
+        backgroundColor: cssTheme.colors.colors.primary[100],
+      },
+      '&[disabled]': {
+        cursor: 'not-allowed',
+        color: cssTheme.colors.colorIntents.disabledText,
+        backgroundColor: cssTheme.colors.colorIntents.backgroundDisabled,
+      },
+    },
   })),
   secondary: style(({ theme, cssTheme }: Theme) => ({
     color: cssTheme.colors.colorIntents.primary,
@@ -52,6 +62,17 @@ export const styles: { [key in ButtonStyleProps['variant']]: string } &
   secondaryReversed: style(({ theme, cssTheme }: Theme) => ({
     color: cssTheme.colors.colorIntents.primaryReversed,
     border: `1px solid ${cssTheme.colors.colorIntents.primaryReversed}`,
+    selectors: {
+      '&[datapressed="true"]': {
+        backgroundColor: cssTheme.colors.colors.grey[100],
+      },
+      '&[disabled]': {
+        cursor: 'not-allowed',
+        color: cssTheme.colors.colorIntents.disabledText,
+        borderColor: cssTheme.colors.colorIntents.backgroundDisabled,
+        backgroundColor: cssTheme.colors.colorIntents.backgroundDisabled,
+      },
+    },
   })),
   tertiary: style(({ theme, cssTheme }: Theme) => ({
     color: cssTheme.colors.colorIntents.primary,
@@ -67,7 +88,19 @@ export const styles: { [key in ButtonStyleProps['variant']]: string } &
       },
     },
   })),
-  tertiaryReversed: style(({ theme, cssTheme }: Theme) => ({})),
+  tertiaryReversed: style(({ theme, cssTheme }: Theme) => ({
+    color: cssTheme.colors.colorIntents.primaryReversed,
+    selectors: {
+      '&[datapressed="true"]': {
+        backgroundColor: cssTheme.colors.colors.grey[100],
+      },
+      '&[disabled]': {
+        cursor: 'not-allowed',
+        color: cssTheme.colors.colorIntents.disabledText,
+        backgroundColor: cssTheme.colors.colorIntents.backgroundDisabled,
+      },
+    },
+  })),
 
   /**
    * States

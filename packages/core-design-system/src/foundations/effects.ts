@@ -28,13 +28,24 @@ export type BoxShadow = {
 };
 
 /**
+ * Representation of a text shadow.
+ */
+export type TextShadow = Omit<BoxShadow, 'spread'>;
+
+/**
  * Levels of shadows in the system.
  */
-export type Shadows<Override extends undefined | string = undefined> = {
+export type BoxShadows<Override extends undefined | string = undefined> = {
   light: Override extends string ? string : BoxShadow;
   medium: Override extends string ? string : BoxShadow;
   heavy: Override extends string ? string : BoxShadow;
 } & { [key: string]: Override extends string ? string : BoxShadow };
+
+export type TextShadows<Override extends undefined | string = undefined> = {
+  light: Override extends string ? string : TextShadow;
+  medium: Override extends string ? string : TextShadow;
+  heavy: Override extends string ? string : TextShadow;
+} & { [key: string]: Override extends string ? string : TextShadow };
 
 /**
  * Representation of a background, either a plain background with a color
@@ -58,9 +69,9 @@ export type Overlays = {
  * Shadows, elevation, blurs and other visual effects.
  */
 export interface Effects<Override extends undefined | string = undefined> {
-  shadows: Shadows<Override>;
-  innerShadows: Shadows<Override>;
+  boxShadows: BoxShadows<Override>;
+  innerBoxShadows: BoxShadows<Override>;
+  textShadows: TextShadows<Override>;
   // TODO
-  // textShadows
   // overlays: Overlays;
 }

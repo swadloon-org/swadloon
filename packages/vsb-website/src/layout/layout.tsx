@@ -53,6 +53,7 @@ export const Layout = React.memo<LayoutProps>((props) => {
    * Data query
    */
   const pages = useStaticQuery<LayoutAllSitePageQuery>(query);
+
   /**
    * i18n
    */
@@ -60,6 +61,7 @@ export const Layout = React.memo<LayoutProps>((props) => {
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
   };
+
   /**
    * Styles & animations
    */

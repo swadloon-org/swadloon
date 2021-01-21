@@ -7,6 +7,7 @@ export const sectionFragment = graphql`
     type {
       type
     }
+    variant
     title
     titleHighlight
     subtitle

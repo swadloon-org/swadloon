@@ -48,10 +48,10 @@ export const styles: { [key in LABEL_SIZE]: string } &
     width: 'fit-content',
   })),
   italic: style(({ theme, cssTheme }: Theme) => ({
-    ...getCSSSizeTextStyles(cssTheme.typography.labels.styles.italic),
+    ...getCSSTextStyles(cssTheme.typography.labels.styles.italic),
   })),
   bold: style(({ theme, cssTheme }: Theme) => ({
-    ...getCSSSizeTextStyles(cssTheme.typography.labels.styles.bold),
+    ...getCSSTextStyles(cssTheme.typography.labels.styles.bold),
   })),
   uppercase: style(({ theme, cssTheme }: Theme) => ({
     ...getCSSTextStyles(cssTheme.typography.labels.styles.uppercase),

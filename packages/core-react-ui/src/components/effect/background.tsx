@@ -21,7 +21,7 @@ export const Background: React.FC<Props> = ({ id, style, className, effects, bac
           {effects?.map((effect, index) => {
             return <BackgroundEffect key={index} effect={effect} />;
           })}
-          <div style={{ zIndex: 1 }}>{children}</div>
+          {children}
         </BackgroundImage>
       </div>
     );

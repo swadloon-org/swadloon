@@ -34,6 +34,7 @@ export const Button: React.FC<Props> = ({
   variant,
   collapsePadding,
   as,
+  AsElement,
   size,
   state,
   icon,
@@ -95,6 +96,10 @@ export const Button: React.FC<Props> = ({
       }
     }
   }
+
+  // const Element = AsElement ? React.cloneElement(AsElement, {
+
+  // }) : null;
 
   return (
     <button

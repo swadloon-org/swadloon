@@ -35,10 +35,10 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
             return <Message key={index} {...section} />;
           }
           case SECTION_TYPE.TILE_LINKS: {
-            return <TileLinks key={index} {...(section as ContentfulSection)} />;
+            return <TileLinks key={index} section={section as ContentfulSection} />;
           }
           case SECTION_TYPE.TILE_LINK: {
-            return <TileLink key={index} {...section} />;
+            return <TileLink key={index} section={section} />;
           }
           // case SECTION_TYPE.CLINIC_PREVIEW: {
           //   return <ClinicPreview key={index} {...section} />;

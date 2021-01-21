@@ -1,19 +1,24 @@
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { ContentfulSection, SectionFragment, ContentfulPage } from '../../types/graphql-types';
+import { CommonComponentProps } from '../../../core-react-ui/src';
+import { ContentfulSection } from '../../types/graphql-types';
 import { TileLink } from './tile-link';
 import * as styleRefs from './tile-links.treat';
 
-type OwnProps = ContentfulSection;
+type OwnProps = CommonComponentProps & {
+  section: ContentfulSection;
+};
 
-export const TileLinks: React.FC<OwnProps> = (props) => {
+export const TileLinks: React.FC<OwnProps> = ({ id, style, className, section, ...props }) => {
   const { styles } = useStyles(styleRefs);
 
   return (
     <div className={`${styles.wrapper}`}>
       <div className={`${styles.gridSwitch}`}>
-        {props?.subSections?.map((item: any, index: number) => {
-          return <TileLink key={index} {...item}></TileLink>;
+        {section.subSections?.map((item: any, index: number) => {
+          return (
+            <TileLink key={index} section={item} contentClassName={index % 2 === 0 ? styles.evenTile : ''}></TileLink>
+          );
         })}
       </div>
     </div>

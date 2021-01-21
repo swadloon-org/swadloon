@@ -20,7 +20,7 @@ export const Banner: React.FC<OwnProps> = (props) => {
         <Background
           effects={[
             {
-              background: `linear-gradient(rgb(0 0 0 / 30%) 0%, rgba(0, 0, 0, 0) 36%), linear-gradient(0deg, rgb(14 13 13 / 30%), rgba(14, 13, 13, 0.30))`,
+              background: `linear-gradient(rgb(0 0 0 / 30%) 0%, rgba(0, 0, 0, 0) 36%), linear-gradient(0deg, rgb(14 13 13 / 25%), rgba(14, 13, 13, 0.25))`,
             },
           ]}
           backgroundImage={{

@@ -1,7 +1,7 @@
 import React, { AnchorHTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
 import { CommonComponentProps } from '../props/component-common.props';
-import { PaddingProps } from '../props/padding.props';
+import { PaddingProps, AlignItemsViewportProps, JustifyContentViewportProps } from '../props/padding.props';
 import * as styleRefs from './box-v2.treat';
 import { AlignItemsProperty, JustifyContentProperty } from 'csstype';
 
@@ -9,14 +9,8 @@ type Props = CommonComponentProps &
   AnchorHTMLAttributes<any> &
   Partial<{
     padding?: PaddingProps;
-    alignItems:
-      | [AlignItemsProperty]
-      | [AlignItemsProperty, AlignItemsProperty]
-      | [AlignItemsProperty, AlignItemsProperty, AlignItemsProperty];
-    justifyContent:
-      | [JustifyContentProperty]
-      | [JustifyContentProperty, JustifyContentProperty]
-      | [JustifyContentProperty, JustifyContentProperty, JustifyContentProperty];
+    alignItems: AlignItemsViewportProps;
+    justifyContent: JustifyContentViewportProps;
   }>;
 
 /**

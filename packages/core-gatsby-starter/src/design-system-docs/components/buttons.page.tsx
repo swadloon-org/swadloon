@@ -34,6 +34,16 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
                 <Button variant={ButtonVariant.tertiary}></Button>
               </Stack>
 
+              <BoxV2 padding={[cssTheme.sizing.var.x3]} style={{ backgroundColor: cssTheme.colors.colors.grey[800] }}>
+                <Stack gap={[cssTheme.sizing.var.x3]}>
+                  <Label variantLevel={TEXT_LEVEL.tertiaryReversed}>Variant Reversed</Label>
+
+                  <Button variant={ButtonVariant.primaryReversed}></Button>
+                  <Button variant={ButtonVariant.secondaryReversed}></Button>
+                  <Button variant={ButtonVariant.tertiaryReversed}></Button>
+                </Stack>
+              </BoxV2>
+
               <Stack gap={[cssTheme.sizing.var.x3]}>
                 <Label variantLevel={TEXT_LEVEL.tertiary}>Sizes</Label>
 

@@ -18,4 +18,7 @@ export const styles = {
       },
     },
   })),
+  evenTile: style(({ theme, cssTheme }: Theme) => ({
+    justifySelf: 'flex-end',
+  })),
 };

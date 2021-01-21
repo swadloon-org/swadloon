@@ -203,7 +203,7 @@ export const typography: Typography = {
         letterSpacing: 10,
       },
       uppercase: {
-        fontWeight: 400,
+        fontWeight: 500,
         textTransform: TEXT_TRANSFORM.uppercase,
         letterSpacing: 10,
       },

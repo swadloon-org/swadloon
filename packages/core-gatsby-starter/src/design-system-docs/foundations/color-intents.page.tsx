@@ -1,5 +1,15 @@
 import { HEADING, TEXT_LEVEL } from '@newrade/core-design-system';
-import { BoxV2, Details, Heading, Paragraph, Stack, Summary, useTreatTheme, Cluster } from '@newrade/core-react-ui';
+import {
+  BoxV2,
+  Details,
+  Heading,
+  Paragraph,
+  Stack,
+  Summary,
+  useTreatTheme,
+  Cluster,
+  Button,
+} from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { DesignSystemPageProps, DesignSystemPageTemplate } from '../../templates/design-system-page.template';
