@@ -17,6 +17,10 @@ type Props = CommonComponentProps & {
    */
   mobileOnly?: boolean;
   /**
+   * Forcefully disable the body scroll while the sidebar is opened
+   */
+  disableBodyScroll?: boolean;
+  /**
    * State of the sidebar
    */
   sidebarOpened?: boolean;

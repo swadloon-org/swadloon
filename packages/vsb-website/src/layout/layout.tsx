@@ -35,7 +35,7 @@ import { useTranslation } from 'react-i18next';
 import { useStyles } from 'react-treat';
 import { Footer } from '../components/footer';
 import { useAnimateNavbar } from '../hook/use-animate-navbar';
-import { useVsbNavItems, useVsbCompanyInfo } from '../hook/use-vsb-nav-items.hook';
+import { useNavItems, useVsbCompanyInfo } from '../hook/use-nav-items.hook';
 import LogoSymbol from '../images/logo-symbol.svg';
 import Logo from '../images/logo.svg';
 import '../services/i18n.service';
@@ -52,7 +52,7 @@ export const Layout = React.memo<LayoutProps>((props) => {
   /**
    * Data query
    */
-  const navItems = useVsbNavItems();
+  const navItems = useNavItems();
   const navItemsByDirName = new Set(navItems.map((item) => item.dirName));
   const { companyInfo, companyAddress } = useVsbCompanyInfo();
 

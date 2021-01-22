@@ -31,14 +31,12 @@ const query = graphql`
     }
     companyAddress: contentfulCompanyAddress {
       addressLine1
-      addressLine2
       city
       provinceState
       postalCode
       websiteURL
       phone
       email
-      fax
     }
     companyInfo: contentfulCompanyInfo {
       copyright
@@ -46,8 +44,12 @@ const query = graphql`
   }
 `;
 
-export function useVsbNavItems(): NavItem[] {
-  const data = useStaticQuery<LayoutAllSitePageQuery>(query);
+export function useQuery() {
+  return useStaticQuery<LayoutAllSitePageQuery>(query);
+}
+
+export function useNavItems(): NavItem[] {
+  const data = useQuery();
   const dirSortOrder = ['Services', 'La Clinique', 'Nous Joindre'];
 
   const navItems: NavItem[] = data?.pages.nodes
@@ -76,6 +78,6 @@ export function useVsbNavItems(): NavItem[] {
 }
 
 export function useVsbCompanyInfo() {
-  const { companyInfo, companyAddress } = useStaticQuery<LayoutAllSitePageQuery>(query);
-  return { companyInfo, companyAddress };
+  const data = useQuery();
+  return { companyInfo: data.companyInfo, companyAddress: data.companyAddress };
 }

@@ -73,7 +73,7 @@ export const LayoutDesignSystem = React.memo<LayoutProps>(({ MobileSvgLogo, Desk
       ></NavBar>
 
       {navItems && !isSSR ? (
-        <SideBar sidebarOpened={sidebarOpened} mobileOnly={false}>
+        <SideBar sidebarOpened={sidebarOpened} mobileOnly={false} disableBodyScroll={false}>
           <BoxV2
             style={{ flexDirection: 'column' }}
             padding={[cssTheme.sizing.var.x3]}
