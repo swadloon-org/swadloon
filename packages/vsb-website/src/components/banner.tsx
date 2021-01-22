@@ -1,26 +1,53 @@
-import { Center, Stack, Title, useTreatTheme, Background } from '@newrade/core-react-ui';
-import BackgroundImage, { IFluidObject } from 'gatsby-background-image';
-import React, { useRef } from 'react';
+import { Background, Center, Stack, Title, useTreatTheme, Button } from '@newrade/core-react-ui';
+import { IFluidObject } from 'gatsby-background-image';
+import { TweenMax } from '@newrade/core-gsap-ui';
+import React, { useRef, useEffect } from 'react';
+import { IoChevronDownOutline } from 'react-icons/io5';
 import { useStyles } from 'react-treat';
 import { SectionFragment } from '../../types/graphql-types';
 import * as styleRefs from './banner.treat';
+import { ButtonIcon, ButtonVariant, ButtonSize } from '../../../core-design-system/src';
 
 type OwnProps = SectionFragment;
 
 export const Banner: React.FC<OwnProps> = (props) => {
   const { styles } = useStyles(styleRefs);
-  const { cssTheme } = useTreatTheme();
+  const { theme, cssTheme } = useTreatTheme();
+  const ref = useRef<HTMLDivElement>(null);
   const hasImage = !!props?.medias?.medias?.length;
   const backgroundPosition = props.backgroundPosition;
   const imageData: any = props?.medias?.medias?.[0]?.desktopFluidImage;
 
+  /**
+   * Icon animation
+   */
+  useEffect(() => {
+    const wrapper = ref.current;
+    if (!wrapper) {
+      return;
+    }
+
+    const tween = TweenMax.to(wrapper.getElementsByClassName(styles.icon), {
+      duration: 1,
+      y: -10,
+      ease: `elastic.out(1, 0.4)`,
+      yoyo: true,
+      delay: 0,
+      repeat: Infinity,
+    });
+
+    return () => {
+      tween.kill();
+    };
+  }, []);
+
   return (
-    <div className={`${styles.wrapper}`}>
+    <div className={`${styles.wrapper}`} ref={ref}>
       {hasImage ? (
         <Background
           effects={[
             {
-              background: `linear-gradient(rgb(0 0 0 / 30%) 0%, rgba(0, 0, 0, 0) 36%), linear-gradient(0deg, rgb(14 13 13 / 25%), rgba(14, 13, 13, 0.25))`,
+              background: `linear-gradient(rgb(0 0 0 / 30%) 0%, rgba(0, 0, 0, 0) 36%), linear-gradient(0deg, rgb(14 13 13 / 20%), rgba(14, 13, 13, 0.20))`,
             },
           ]}
           backgroundImage={{
@@ -40,6 +67,14 @@ export const Banner: React.FC<OwnProps> = (props) => {
             >
               <Title>{props.title}</Title>
               {props.subtitle ? <Title>{props.subtitle}</Title> : null}
+              <Button
+                ref={ref}
+                className={styles.icon}
+                size={ButtonSize.large}
+                variant={ButtonVariant.tertiaryReversed}
+                icon={ButtonIcon.icon}
+                Icon={<IoChevronDownOutline />}
+              ></Button>
             </Stack>
           </Center>
         </Background>

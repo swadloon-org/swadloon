@@ -29,16 +29,32 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
       {data.contentfulPage?.sections?.map((section, index) => {
         switch (section?.type?.type) {
           case SECTION_TYPE.BANNER: {
-            return <Banner key={index} {...section} />;
+            return (
+              <div id={`section-${index}`} key={index}>
+                <Banner key={index} {...section} />
+              </div>
+            );
           }
           case SECTION_TYPE.MESSAGE: {
-            return <Message key={index} {...section} />;
+            return (
+              <div id={`section-${index}`} key={index}>
+                <Message key={index} {...section} />
+              </div>
+            );
           }
           case SECTION_TYPE.TILE_LINKS: {
-            return <TileLinks key={index} section={section as ContentfulSection} />;
+            return (
+              <div id={`section-${index}`} key={index}>
+                <TileLinks key={index} section={section as ContentfulSection} />
+              </div>
+            );
           }
           case SECTION_TYPE.TILE_LINK: {
-            return <TileLink key={index} section={section} />;
+            return (
+              <div id={`section-${index}`} key={index}>
+                <TileLink key={index} section={section} />
+              </div>
+            );
           }
           // case SECTION_TYPE.CLINIC_PREVIEW: {
           //   return <ClinicPreview key={index} {...section} />;

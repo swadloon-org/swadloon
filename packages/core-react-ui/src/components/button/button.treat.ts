@@ -76,7 +76,6 @@ export const styles: { [key in ButtonStyleProps['variant']]: string } &
   })),
   tertiary: style(({ theme, cssTheme }: Theme) => ({
     color: cssTheme.colors.colorIntents.primary,
-    backgroundColor: cssTheme.colors.colorIntents.background0,
     selectors: {
       '&[datapressed="true"]': {
         backgroundColor: cssTheme.colors.colors.primary[100],

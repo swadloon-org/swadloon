@@ -26,104 +26,122 @@ type Props = CommonComponentProps &
     collapsePadding?: 'left' | 'right';
   };
 
-export const Button: React.FC<Props> = ({
-  id,
-  style,
-  className,
-  children,
-  variant,
-  collapsePadding,
-  as,
-  AsElement,
-  size,
-  state,
-  icon,
-  Icon,
-  ...props
-}) => {
-  const { styles } = useStyles(stylesRef);
-  const ref = useRef<HTMLButtonElement>(null);
-  const type = as ? as : 'button';
-  const { buttonProps, isPressed } = useButton({ ...props, elementType: type }, ref);
+export const Button = React.forwardRef<any, Props>(
+  (
+    { id, style, className, children, variant, collapsePadding, as, AsElement, size, state, icon, Icon, ...props },
+    ref
+  ) => {
+    const { styles } = useStyles(stylesRef);
+    const refLocal = ref ? (ref as React.RefObject<HTMLButtonElement>) : useRef<HTMLButtonElement>(null);
+    const type = as ? as : 'button';
+    const { buttonProps, isPressed } = useButton({ ...props, elementType: type }, refLocal as any);
 
-  const iconClassNames = getMergedClassname([styles.iconBase, icon ? styles[icon] : '']);
+    const iconClassNames = getMergedClassname([styles.iconBase, icon ? styles[icon] : '']);
 
-  const IconSvg =
-    Icon && icon ? (
-      React.cloneElement(Icon as React.ReactElement, {
-        className: iconClassNames,
-        preserveAspectRatio: `xMinYMin meet`,
-      })
-    ) : icon ? (
-      <IoAddOutline className={iconClassNames} preserveAspectRatio="xMinYMin meet" />
-    ) : null;
+    const IconSvg =
+      Icon && icon ? (
+        React.cloneElement(Icon as React.ReactElement, {
+          className: iconClassNames,
+          preserveAspectRatio: `xMinYMin meet`,
+        })
+      ) : icon ? (
+        <IoAddOutline className={iconClassNames} preserveAspectRatio="xMinYMin meet" />
+      ) : null;
 
-  const variantStateClassName = `${styles[ButtonState.rest]}`;
-  const variantClassName = `${styles[variant ? variant : ButtonVariant.primary]}`;
-  const collapsePaddingClassName = `${collapsePadding === 'left' ? styles.collapsePaddingLeft : ''}`;
-  const variantSizeClassName = styles[size ? size : ButtonSize.medium];
-  const activeClassName = isPressed ? styles.pressed : '';
-  const allClassName = getMergedClassname([
-    variantStateClassName,
-    variantSizeClassName,
-    variantClassName,
-    activeClassName,
-    className,
-  ]);
-  const renderedChildren = children
-    ? children
-    : getDefaultTextFromProps('button', {
-        variant,
-        size,
-        icon,
-        disabled: props.isDisabled,
-      });
+    const variantStateClassName = `${styles[ButtonState.rest]}`;
+    const variantClassName = `${styles[variant ? variant : ButtonVariant.primary]}`;
+    const collapsePaddingClassName = `${collapsePadding === 'left' ? styles.collapsePaddingLeft : ''}`;
+    const variantSizeClassName = styles[size ? size : ButtonSize.medium];
+    const activeClassName = isPressed ? styles.pressed : '';
+    const allClassName = getMergedClassname([
+      variantStateClassName,
+      variantSizeClassName,
+      variantClassName,
+      activeClassName,
+      className,
+    ]);
+    const renderedChildren = children
+      ? children
+      : getDefaultTextFromProps('button', {
+          variant,
+          size,
+          icon,
+          disabled: props.isDisabled,
+        });
 
-  function getLabelSizeForButtonSize(size?: ButtonSize): LABEL_SIZE {
-    switch (size) {
-      case ButtonSize.large: {
-        return LABEL_SIZE.medium;
-      }
-      case ButtonSize.medium: {
-        return LABEL_SIZE.small;
-      }
-      default:
-      case ButtonSize.small: {
-        return LABEL_SIZE.small;
-      }
-      case ButtonSize.xsmall: {
-        return LABEL_SIZE.xSmall;
+    function getLabelSizeForButtonSize(size?: ButtonSize): LABEL_SIZE {
+      switch (size) {
+        case ButtonSize.large: {
+          return LABEL_SIZE.medium;
+        }
+        case ButtonSize.medium: {
+          return LABEL_SIZE.small;
+        }
+        default:
+        case ButtonSize.small: {
+          return LABEL_SIZE.small;
+        }
+        case ButtonSize.xsmall: {
+          return LABEL_SIZE.xSmall;
+        }
       }
     }
+
+    const CustomElement = AsElement
+      ? React.cloneElement(
+          AsElement as React.ReactElement,
+          {
+            id,
+            style,
+            className: allClassName,
+            ref: refLocal,
+            ...buttonProps,
+            dataicon: `${icon}`,
+            datapressed: `${isPressed}`,
+            datapaddingcollapse: `${collapsePadding}`,
+          },
+          <>
+            {icon === ButtonIcon.icon ? null : (
+              <Label
+                style={{ display: 'inline-block' }}
+                variantStyle={TEXT_STYLE.bold}
+                variant={getLabelSizeForButtonSize(size)}
+              >
+                {renderedChildren}
+              </Label>
+            )}
+            {IconSvg}
+          </>
+        )
+      : null;
+
+    if (CustomElement) {
+      return CustomElement;
+    }
+
+    return (
+      <button
+        id={id}
+        style={style}
+        className={allClassName}
+        ref={refLocal}
+        {...buttonProps}
+        // @ts-ignore
+        dataicon={`${icon}`}
+        datapressed={`${isPressed}`}
+        datapaddingcollapse={`${collapsePadding}`}
+      >
+        {icon === ButtonIcon.icon ? null : (
+          <Label
+            style={{ display: 'inline-block' }}
+            variantStyle={TEXT_STYLE.bold}
+            variant={getLabelSizeForButtonSize(size)}
+          >
+            {renderedChildren}
+          </Label>
+        )}
+        {IconSvg}
+      </button>
+    );
   }
-
-  // const Element = AsElement ? React.cloneElement(AsElement, {
-
-  // }) : null;
-
-  return (
-    <button
-      id={id}
-      style={style}
-      className={allClassName}
-      ref={ref}
-      {...buttonProps}
-      // @ts-ignore
-      dataicon={`${icon}`}
-      datapressed={`${isPressed}`}
-      datapaddingcollapse={`${collapsePadding}`}
-    >
-      {icon === ButtonIcon.icon ? null : (
-        <Label
-          style={{ display: 'inline-block' }}
-          variantStyle={TEXT_STYLE.bold}
-          variant={getLabelSizeForButtonSize(size)}
-        >
-          {renderedChildren}
-        </Label>
-      )}
-      {IconSvg}
-      {/* children: child, */}
-    </button>
-  );
-};
+);

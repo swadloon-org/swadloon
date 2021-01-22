@@ -4,7 +4,7 @@ import { style } from 'treat';
 export const styles = {
   wrapper: style(({ theme, cssTheme }: Theme) => ({
     position: 'relative',
-    height: `80vh`,
+    height: `max(80vh, 500px)`,
     width: `100%`,
     color: cssTheme.colors.colorIntents.primaryReversed,
     textShadow: cssTheme.effects.textShadows.light,
@@ -16,15 +16,10 @@ export const styles = {
     alignContent: 'center',
     backgroundColor: '#94aec5',
   })),
-  textContainer: style(({ theme, cssTheme }: Theme) => ({
-    minHeight: `calc(3 * ${cssTheme.typography.titles.mobile.t1.capHeight}px + 2 * ${cssTheme.typography.titles.mobile.t1.lineGap}px)`,
-    '@media': {
-      [cssTheme.layout.media.tablet]: {
-        minHeight: `calc(2 * ${cssTheme.typography.titles.tablet.t1.capHeight}px + ${cssTheme.typography.titles.tablet.t1.lineGap}px)`,
-      },
-      [cssTheme.layout.media.desktopSmall]: {
-        minHeight: `calc(2 * ${cssTheme.typography.titles.desktop.t1.capHeight}px + ${cssTheme.typography.titles.desktop.t1.lineGap}px)`,
-      },
-    },
+  textContainer: style(({ theme, cssTheme }: Theme) => ({})),
+  icon: style(({ theme, cssTheme }: Theme) => ({
+    position: 'absolute',
+    left: `calc(50% - (2 * ${cssTheme.sizing.var.x3} + ${cssTheme.typography.labels.mobile.medium.capHeight}px) / 2)`,
+    bottom: `calc(${cssTheme.sizing.var.x3} * 1.5)`,
   })),
 };

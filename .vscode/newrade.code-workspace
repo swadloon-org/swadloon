@@ -102,6 +102,9 @@
       "path": "../packages/core-github-actions"
     },
     {
+      "path": "../packages/core-gsap-ui"
+    },
+    {
       "path": "../packages/core-jest-config"
     },
     {

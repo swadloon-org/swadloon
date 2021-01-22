@@ -37,7 +37,7 @@ export const TileLink: React.FC<Props> = ({ id, style, className, contentClassNa
         <Background
           effects={[
             {
-              background: `linear-gradient(rgb(0 0 0 / 30%) 0%, rgba(0, 0, 0, 0) 36%), linear-gradient(0deg, rgb(14 13 13 / 25%), rgba(14, 13, 13, 0.25))`,
+              background: `linear-gradient(rgb(0 0 0 / 30%) 0%, rgba(0, 0, 0, 0) 36%), linear-gradient(0deg, rgb(14 13 13 / 20%), rgba(14, 13, 13, 0.20))`,
             },
           ]}
           backgroundImage={{
@@ -62,11 +62,11 @@ export const TileLink: React.FC<Props> = ({ id, style, className, contentClassNa
               <Button
                 size={ButtonSize.large}
                 variant={
-                  section.variant === 'PRIMARY' ? ButtonVariant.primaryReversed : ButtonVariant.secondaryReversed
+                  section.variant === 'PRIMARY_NORMAL' ? ButtonVariant.primaryReversed : ButtonVariant.secondaryReversed
                 }
                 icon={ButtonIcon.right}
                 Icon={<IoArrowForwardOutline />}
-                AsElement={<GatsbyLink to={'/vasectomie/'} />}
+                AsElement={<GatsbyLink to={section?.link?.page?.slug || ''} />}
               >
                 {section?.link?.label}
               </Button>

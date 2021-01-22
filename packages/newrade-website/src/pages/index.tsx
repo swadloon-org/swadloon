@@ -1,5 +1,5 @@
 import { BoxV2, Center, Cluster, Stack, Title, useTreatTheme } from '@newrade/core-react-ui';
-import { TweenMax, TimelineMax, Back, Linear } from 'gsap';
+import { TweenMax, TimelineMax, Back, Linear } from '@newrade/core-gsap-ui';
 import React, { useRef, useEffect, useState } from 'react';
 import { SrcPageTemplate, SrcPageTemplateProps } from '../templates/src-page.template';
 import ts from 'typescript';

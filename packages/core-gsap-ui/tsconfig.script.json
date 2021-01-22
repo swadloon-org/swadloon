@@ -2,19 +2,15 @@
   "extends": "../../tsconfig.build.json",
   "compilerOptions": {
     "rootDir": "src",
-    "outDir": "lib",
-    "skipLibCheck": true,
+    "noEmit": true,
     "target": "es6",
-    "module": "es6",
-    "types": ["react", "react-dom", "jest"],
+    "module": "commonjs",
+    "types": ["node"],
     "lib": ["es6", "dom", "es2017"]
   },
   "references": [
     {
       "path": "../core-common/tsconfig.build.json"
-    },
-    {
-      "path": "../core-design-system/tsconfig.build.json"
     },
     {
       "path": "../core-utils/tsconfig.build.json"
@@ -23,6 +19,5 @@
       "path": "../core-jest-config/tsconfig.build.json"
     }
   ],
-  "include": ["src/**/*", "types/**/*"],
-  "exclude": ["./lib/**/*"]
+  "include": ["scripts/**/*"]
 }

@@ -1,8 +1,9 @@
-import React, { useEffect, useImperativeHandle, useState, useRef } from 'react';
-import { isIOS } from 'react-device-detect';
-import { IoMenu } from 'react-icons/io5';
-import { useStyles } from 'react-treat';
 import { ButtonIcon, ButtonSize, ButtonVariant } from '@newrade/core-design-system';
+import { PressEvent } from '@react-types/shared';
+import React, { useEffect, useImperativeHandle, useRef, useState } from 'react';
+import { isIOS } from 'react-device-detect';
+import { IoClose, IoMenu } from 'react-icons/io5';
+import { useStyles } from 'react-treat';
 import { Button } from '../components/button/button';
 import { SVGLogo } from '../components/svg-logo/svg-logo';
 import { Label } from '../components/text/label';
@@ -23,10 +24,29 @@ type Props = CommonComponentProps & {
    * Allow to override the max-width of the content
    */
   maxWidth?: string;
+  /**
+   * Inject a link around the logo
+   * @example
+   *  <NavBar ... HomeLink={<GatsbyLink to={'/'} />} />
+   */
   HomeLink?: React.ReactNode;
+  /**
+   * Pass a React SVG to the mobile logo
+   */
   MobileSvgLogo?: React.ReactNode;
+  /**
+   * Pass a React SVG to the desktop logo
+   */
   DesktopSvgLogo?: React.ReactNode;
+  /**
+   * Navigation links
+   */
   MenuLinks?: React.ReactNode;
+  /**
+   * Used to set the close or menu icon
+   */
+  menuOpened?: boolean;
+  onPressMenuButton?: (event: PressEvent) => void;
 };
 
 /**
@@ -102,6 +122,15 @@ export const NavBar = React.forwardRef<any, Props>((props, ref) => {
       } as NavBarRefs)
   );
 
+  /**
+   * Events handling
+   */
+  function handlePressMenuButton(event: PressEvent) {
+    if (props.onPressMenuButton) {
+      props.onPressMenuButton(event);
+    }
+  }
+
   return (
     <>
       {/* Mobile */}
@@ -119,7 +148,8 @@ export const NavBar = React.forwardRef<any, Props>((props, ref) => {
               collapsePadding={'left'}
               variant={ButtonVariant.tertiary}
               icon={ButtonIcon.icon}
-              Icon={<IoMenu />}
+              Icon={props.menuOpened ? <IoClose /> : <IoMenu />}
+              onPress={handlePressMenuButton}
             ></Button>
           </BoxV2>
 

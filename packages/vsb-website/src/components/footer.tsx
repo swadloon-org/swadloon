@@ -6,8 +6,7 @@ import { useStyles } from 'react-treat';
 import { FooterQuery } from '../../types/graphql-types';
 import { cssTheme } from '../design-system/theme';
 import * as styleRefs from './footer.treat';
-import { CommonComponentProps } from '../../../core-react-ui/src/props/component-common.props';
-import { getMergedClassname } from '../../../core-react-ui/src/utilities/component.utilities';
+import { CommonComponentProps, getMergedClassname } from '@newrade/core-react-ui';
 
 export const footerQuery = graphql`
   query Footer {
@@ -16,6 +15,7 @@ export const footerQuery = graphql`
     }
     contentfulCompanyAddress {
       addressLine1
+      addressLine2
       city
       provinceState
       postalCode
@@ -129,6 +129,8 @@ export const Footer: React.FC<Props> = ({ id, style, className, ...props }) => {
                   target="blank"
                 >
                   {data?.contentfulCompanyAddress?.addressLine1}
+                  <br />
+                  {data?.contentfulCompanyAddress?.addressLine2}
                 </Link>
               </Stack>
             </Stack>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { CommonComponentProps } from '../../../core-react-ui/src';
+import { CommonComponentProps } from '@newrade/core-react-ui';
 import { ContentfulSection } from '../../types/graphql-types';
 import { TileLink } from './tile-link';
 import * as styleRefs from './tile-links.treat';
