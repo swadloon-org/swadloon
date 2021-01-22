@@ -17,6 +17,7 @@
       "**/node_modules": true,
       "**/yarn.lock": true,
       "**/lib": true,
+      "**/dist": true,
       "**/.cache/**/*": true,
       "**/public/**/*": true,
       "**/*.js.map": true,
@@ -101,6 +102,9 @@
       "path": "../packages/core-github-actions"
     },
     {
+      "path": "../packages/core-gsap-ui"
+    },
+    {
       "path": "../packages/core-jest-config"
     },
     {
@@ -138,6 +142,12 @@
     },
     {
       "path": "../packages/vsb-website"
+    },
+    {
+      "path": "../packages/vsb-common"
+    },
+    {
+      "path": "../packages/vsb-api"
     }
   ],
   "recommendations": [

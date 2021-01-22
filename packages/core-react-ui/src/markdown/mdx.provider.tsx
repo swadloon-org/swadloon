@@ -1,5 +1,5 @@
 import React from 'react';
-import { HEADING, TEXT_STYLE } from '../../../core-design-system/src';
+import { HEADING, TEXT_STYLE } from '@newrade/core-design-system';
 import { Blockquote } from '../components/text/blockquote';
 import { Details } from '../components/text/details';
 import { Heading } from '../components/text/heading';

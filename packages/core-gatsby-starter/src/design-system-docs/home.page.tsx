@@ -3,15 +3,15 @@ import { Heading, Link, Paragraph, Stack, useTreatTheme } from '@newrade/core-re
 import { title } from 'case';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import DesignSystemPageTemplate, { DesignSystemPageProps } from '../templates/design-system-page.template';
+import { DesignSystemPageTemplate, DesignSystemPageProps } from '../templates/design-system-page.template';
 import * as styleRefs from './home.treat';
 import { GatsbyLink } from '@newrade/core-gatsby-ui/src/components/gatsby-link';
-import { useDesignSystemNavItems } from '@newrade/core-gatsby-ui/src/';
+import { useDocsNavItems } from '@newrade/core-gatsby-ui/src/';
 
 const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
   const { styles } = useStyles(styleRefs);
   const { cssTheme, theme } = useTreatTheme();
-  const navItems = useDesignSystemNavItems();
+  const navItems = useDocsNavItems();
 
   if (!(cssTheme && theme)) {
     return <div className={styles.wrapper}>Please provide a theme</div>;

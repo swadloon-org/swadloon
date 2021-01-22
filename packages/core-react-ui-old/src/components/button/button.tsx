@@ -14,8 +14,6 @@ export const Button: React.FC<OwnProps> = ({ className, variant, size, state, ic
   const stateClass = `${size ? styles[size] : ''}`;
   const propsClassnames = `${sizeClass} ${variantClass} ${iconClass} ${stateClass}`;
 
-  // TODO should we use reakti as a base https://reakit.io/docs/button/?
-
   return (
     <button className={`${className || ''} ${propsClassnames}`} {...props}>
       {props.children}

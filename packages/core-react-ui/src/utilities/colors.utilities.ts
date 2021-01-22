@@ -5,15 +5,15 @@ import CSSTypes from 'csstype';
 import { keys } from './utilities';
 
 export function generateColorPalette5({ color: color, light, dark }: { color: DS.Color; light: number; dark: number }) {
-  if (dark < light) {
+  if (dark > light) {
     throw new Error('the dark value must be higher than the light, e.g. 90, 10');
   }
 
-  if (dark - light <= 50) {
+  if (light - dark <= 50) {
     throw new Error('the light range must be greater or equal than 50, e.g. 60, 10');
   }
 
-  const lightStep = Math.round((dark - light) / 5);
+  const lightStep = Math.round((light - dark) / 5);
 
   return {
     '900': { ...color, l: color.l - 2 * lightStep },
@@ -29,7 +29,7 @@ export function generateColorGreyPalette({ hue }: { hue: number }) {
     1000: { h: hue, s: 6, l: 7 },
     900: { h: hue, s: 4, l: 13 },
     800: { h: hue, s: 4, l: 26 },
-    700: { h: hue, s: 5, l: 39 },
+    700: { h: hue, s: 5, l: 46 },
     600: { h: hue, s: 5, l: 59 },
     500: { h: hue, s: 5, l: 66 },
     400: { h: hue, s: 6, l: 73 },
@@ -154,9 +154,9 @@ export function createDefaultColorIntents(colors: DS.Colors['colors']): DS.Color
 
     primaryText: colors.grey['1000'],
     primaryTextReversed: colors.grey['0-reversed'],
-    secondaryText: colors.grey['500'],
+    secondaryText: colors.grey['700'],
     secondaryTextReversed: colors.grey['0-reversed'],
-    tertiaryText: colors.grey['400'],
+    tertiaryText: colors.grey['500'],
     tertiaryTextReversed: colors.grey['0-reversed'],
     disabledText: colors.grey['400'],
     disabledTextReversed: colors.grey['100'],

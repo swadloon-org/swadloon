@@ -68,8 +68,11 @@ export enum TEXT_STYLE {
  */
 export enum TEXT_LEVEL {
   primary = 'primary',
+  primaryReversed = 'primaryReversed',
   secondary = 'secondary',
+  secondaryReversed = 'secondaryReversed',
   tertiary = 'tertiary',
+  tertiaryReversed = 'tertiaryReversed',
 }
 
 /**

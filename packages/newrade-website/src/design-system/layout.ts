@@ -9,7 +9,7 @@ export const layout: Layout = {
     [VIEWPORT.mobile]: 375,
   },
   navbarHeight: {
-    [VIEWPORT.desktop]: 115,
+    [VIEWPORT.desktop]: 60,
     [VIEWPORT.tablet]: 60,
     [VIEWPORT.mobile]: 60,
   },

@@ -1,9 +1,13 @@
-import { title } from 'case';
+import { title, kebab } from 'case';
 import { graphql, useStaticQuery } from 'gatsby';
+import { NavItem } from '../models/nav-item.model';
 
 const query = graphql`
-  query DesignSystemLayoutPage1 {
-    pages: allSitePage(filter: { path: { glob: "/design-system/{**,*}" } }) {
+  query DesignSystemLayoutPage {
+    pages: allSitePage(
+      filter: { path: { glob: "/design-system/{**,*}" } }
+      sort: { fields: context___name, order: DESC }
+    ) {
       totalCount
       nodes {
         id
@@ -30,15 +34,21 @@ const query = graphql`
   }
 `;
 
-export function useDesignSystemNavItems(): { name: string; dirName: string; path: string }[] {
+export function useDesignSystemNavItems(): NavItem[] {
   const data = useStaticQuery(query);
+  const dirSortOrder = ['docs', 'foundations', 'components', 'effects'];
 
-  // @ts-ignore
-  const navItems = data?.pages.nodes.map((node) => ({
+  const navItems: NavItem[] = data?.pages.nodes.map((node: any) => ({
     name: formatName(node.context?.name),
     dirName: node.context?.dirName,
     path: node.path,
   }));
+  const sortedNavItems = navItems.sort((itemA, itemB) => {
+    const indexA = dirSortOrder.indexOf(kebab(itemA.dirName));
+    const indexB = dirSortOrder.indexOf(kebab(itemB.dirName));
+
+    return indexA > indexB ? 1 : -1;
+  });
 
   function formatName(name?: string | null): string {
     if (!name) {
@@ -47,5 +57,5 @@ export function useDesignSystemNavItems(): { name: string; dirName: string; path
     return title(name?.replace('.page', '').replace('design-system-', ''));
   }
 
-  return navItems;
+  return sortedNavItems;
 }

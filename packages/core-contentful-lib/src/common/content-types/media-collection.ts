@@ -4,7 +4,7 @@ import { CONTENTFUL_WIDGET } from '../../../types/contentful-widget-ids';
 import { keys } from '../../utilities';
 import { COMMON_CONTENT_TYPE } from '../common-content-types';
 import { COMMON_FIELD } from '../common-fields';
-import { CAROUSEL_STYLE, COMMON_SIZE, COMMON_STYLE_VARIANT, COMMON_VARIANT } from '../common-props-types';
+import { CAROUSEL_STYLE, COMMON_SIZE, COMMON_VARIANT } from '../common-props-types';
 
 /**
  * A MediaCollection holds one or more media (images, videos) to be used in banners, carousels
@@ -67,28 +67,12 @@ export const createMediaCollection: Migration.MigrationFunction = function (migr
     type: 'Symbol',
     validations: [
       {
-        in: [COMMON_VARIANT.PRIMARY, COMMON_VARIANT.SECONDARY],
+        in: keys(COMMON_VARIANT),
       },
     ],
   });
   content.changeFieldControl(COMMON_FIELD.VARIANT, 'builtin', CONTENTFUL_WIDGET.DROPDOWN, {
     helpText: 'Select variant',
-  });
-
-  /**
-   * Media collection style variant
-   */
-  content.createField(COMMON_FIELD.STYLE_VARIANT, {
-    name: pascal(COMMON_FIELD.STYLE_VARIANT),
-    type: 'Symbol',
-    validations: [
-      {
-        in: [COMMON_STYLE_VARIANT.NORMAL],
-      },
-    ],
-  });
-  content.changeFieldControl(COMMON_FIELD.STYLE_VARIANT, 'builtin', CONTENTFUL_WIDGET.DROPDOWN, {
-    helpText: 'Select style variant',
   });
 
   /**

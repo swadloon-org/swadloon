@@ -25,8 +25,6 @@ function getContextPath(context: Context): string {
   const length = context.length;
   const lastEntry = context[length - 1];
   return `${lastEntry.key} of type ${lastEntry.type.name}\n`;
-
-  // return context.map(({ key, type }, index) => `${type.name}`).join('/');
 }
 
 function getMessage(e: ValidationError): string {

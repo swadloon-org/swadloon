@@ -47,31 +47,16 @@ export const Grid: React.FC<OwnProps> = ({
   ...props
 }) => {
   const { styles } = useStyles(styleRefs);
-  // const { ref: ref1, width: widthComponent, height: height1 } = useThrottledResizeObserver(200);
 
   const [mobileRows, tabletRows, desktopRows] = rows;
   const [mobileCol, tabletCol, desktopCol] = columns;
   const [mobileGap, tabletGap, desktopGap] = gap;
 
-  // const usesContainerQuery = !!(containerQuery && containerQuery.length);
-  // const [mobileColContainer, tabletColContainer, desktopColContainer] =
-  //   containerQuery && containerQuery.length ? containerQuery : [1, 1, 1];
-
-  // const activeColContainer = widthComponent
-  //   ? widthComponent > mobileColContainer && widthComponent < tabletColContainer
-  //     ? mobileCol
-  //     : widthComponent > tabletColContainer && widthComponent < desktopColContainer
-  //     ? tabletCol
-  //     : widthComponent > desktopColContainer
-  //     ? desktopCol
-  //     : 1
-  //   : 1;
-
   return React.createElement(
     as,
     {
       // ref: ref1,
-      className: `${className || ''} ${styles.wrapper} 
+      className: `${className || ''} ${styles.wrapper}
       ${styles[variantGrid]}`,
       style: {
         // @ts-ignore

@@ -5,11 +5,11 @@ import { getCSSColor } from '../utilities/colors.utilities';
 export const styles = {
   wrapper: style(({ cssTheme, theme }: Theme) => ({
     position: 'relative',
-    padding: `${cssTheme.sizing.var.x2} ${cssTheme.sizing.var.x3}`,
-    color: cssTheme.colors.colors.grey[700],
+    padding: `${cssTheme.sizing.var.x3} ${cssTheme.sizing.var.x3}`,
+    color: cssTheme.colors.colorIntents.secondaryText,
   })),
   active: style(({ cssTheme, theme }: Theme) => ({
-    backgroundColor: getCSSColor({ ...theme.colors.colors.primary[100], a: 10 }),
+    backgroundColor: getCSSColor({ ...theme.colors.colors.primary[500], a: 5 }),
     color: cssTheme.colors.colors.grey[1000],
     '::before': {
       content: '" "',

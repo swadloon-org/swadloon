@@ -45,12 +45,13 @@ export const styles: { [key in LABEL_SIZE]: string } &
 
   normal: style(({ theme, cssTheme }: Theme) => ({
     ...getCSSTextStyles(cssTheme.typography.labels),
+    width: 'fit-content',
   })),
   italic: style(({ theme, cssTheme }: Theme) => ({
-    ...getCSSSizeTextStyles(cssTheme.typography.labels.styles.italic),
+    ...getCSSTextStyles(cssTheme.typography.labels.styles.italic),
   })),
   bold: style(({ theme, cssTheme }: Theme) => ({
-    ...getCSSSizeTextStyles(cssTheme.typography.labels.styles.bold),
+    ...getCSSTextStyles(cssTheme.typography.labels.styles.bold),
   })),
   uppercase: style(({ theme, cssTheme }: Theme) => ({
     ...getCSSTextStyles(cssTheme.typography.labels.styles.uppercase),
@@ -62,13 +63,25 @@ export const styles: { [key in LABEL_SIZE]: string } &
     ...getCSSTextStyles(cssTheme.typography.labels.styles.italicBold),
   })),
 
+  /**
+   * Text styles
+   */
   primary: style(({ theme, cssTheme }: Theme) => ({
     color: cssTheme.colors.colorIntents.primaryText,
+  })),
+  primaryReversed: style(({ theme, cssTheme }: Theme) => ({
+    color: cssTheme.colors.colorIntents.primaryTextReversed,
   })),
   secondary: style(({ theme, cssTheme }: Theme) => ({
     color: cssTheme.colors.colorIntents.secondaryText,
   })),
+  secondaryReversed: style(({ theme, cssTheme }: Theme) => ({
+    color: cssTheme.colors.colorIntents.secondaryTextReversed,
+  })),
   tertiary: style(({ theme, cssTheme }: Theme) => ({
     color: cssTheme.colors.colorIntents.tertiaryText,
+  })),
+  tertiaryReversed: style(({ theme, cssTheme }: Theme) => ({
+    color: cssTheme.colors.colorIntents.tertiaryTextReversed,
   })),
 };

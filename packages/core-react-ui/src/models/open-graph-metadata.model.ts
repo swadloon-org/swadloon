@@ -30,7 +30,7 @@ export type OpenGraphMetadataBasic = {
   /**
    * The canonical URL of your object that will be used as its permanent ID in the graph, e.g., "https://www.imdb.com/title/tt0117500/"
    */
-  url: string;
+  url?: string;
   /**
    * A one to two sentence description of your object
    * Max 150-160 characters.
@@ -39,7 +39,7 @@ export type OpenGraphMetadataBasic = {
   /**
    * If your object is part of a larger web site, the name which should be displayed for the overall site. e.g., "IMDb".
    */
-  site_name: string;
+  site_name?: string;
   /**
    * The html lang attribute according to https://www.w3.org/International/articles/language-tags/
    * @example fr-CA or fr
@@ -51,8 +51,8 @@ export type OpenGraphMetadataBasic = {
    */
   locale: string;
   /**
-   * An array of other locales this page is available in.
+   * An optional array of other locales this page is available in.
    * @example en_CA
    */
-  localeAlternate: string;
+  localeAlternate?: string;
 };

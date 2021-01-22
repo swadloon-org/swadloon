@@ -1,4 +1,4 @@
-import { PARAGRAPH_SIZE } from '../../foundations/typography';
+import { PARAGRAPH_SIZE, TEXT_LEVEL } from '../../foundations/typography';
 import { ColorType } from '../../types';
 import { BoxStyle } from '../atoms/box';
 
@@ -18,14 +18,7 @@ export enum LinkVariant {
   noUnderline = 'noUnderline',
 }
 
-export enum LinkStyleVariant {
-  normal = 'normal',
-  reversed = 'reversed',
-}
-
 export enum LinkIcon {
-  none = 'none',
-  left = 'left',
   right = 'right',
 }
 
@@ -51,7 +44,7 @@ export interface LinkStyleProps {
   /**
    * Normal or reversed style
    */
-  variantStyle: LinkStyleVariant;
+  variantLevel: TEXT_LEVEL;
   variant: LinkVariant;
   variantSize: PARAGRAPH_SIZE; // same as paragraph sizes
   state: LinkState;

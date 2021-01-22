@@ -2,12 +2,12 @@ import React, { AnchorHTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './nav-item.treat';
 import { CommonComponentProps } from '../props/component-common.props';
-import { LinkProps, TEXT_STYLE } from '../../../core-design-system/src';
+import { LinkProps, TEXT_STYLE, LABEL_SIZE } from '@newrade/core-design-system';
 import { Label } from '../components/text/label';
 
 type Props = CommonComponentProps &
   AnchorHTMLAttributes<any> &
-  Pick<LinkProps, 'role' | 'variant' | 'variantIcon' | 'variantSize' | 'variantStyle'> & {
+  Pick<LinkProps, 'role' | 'variant' | 'variantIcon' | 'variantSize' | 'variantLevel'> & {
     active?: boolean;
   };
 
@@ -24,7 +24,7 @@ export const NavItem: React.FC<Props> = ({ id, style, className, active, AsEleme
           ...props,
         },
         <div style={style} className={allClassName}>
-          <Label>{props.children}</Label>
+          <Label variant={LABEL_SIZE.medium}>{props.children}</Label>
         </div>
       )
     : null;

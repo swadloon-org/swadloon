@@ -3,6 +3,15 @@ import { defaultLayout } from '@newrade/core-react-ui';
 
 export const layout: Layout = {
   ...defaultLayout,
+  contentWidth: {
+    ...defaultLayout.contentWidth,
+    desktopMaxWidth: 1600,
+  },
+  contentMargins: {
+    ...defaultLayout.contentMargins,
+    tablet: 32,
+    desktop: 48,
+  },
   sidebarWidth: {
     [VIEWPORT.desktop]: 270,
     [VIEWPORT.tablet]: 270,

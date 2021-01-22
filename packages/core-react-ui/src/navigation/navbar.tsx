@@ -1,38 +1,63 @@
-import useWebAnimations from '@wellyshen/use-web-animations';
-import React, { useEffect, useState } from 'react';
-import { IoMenu } from 'react-icons/io5';
+import { ButtonIcon, ButtonSize, ButtonVariant } from '@newrade/core-design-system';
+import { PressEvent } from '@react-types/shared';
+import React, { useEffect, useImperativeHandle, useRef, useState } from 'react';
+import { isIOS } from 'react-device-detect';
+import { IoClose, IoMenu } from 'react-icons/io5';
 import { useStyles } from 'react-treat';
-import * as styleRefs from './navbar.treat';
+import { Button } from '../components/button/button';
+import { SVGLogo } from '../components/svg-logo/svg-logo';
+import { Label } from '../components/text/label';
 import { useTreatTheme } from '../hooks/use-treat-theme';
+import { BoxV2 } from '../layout/box-v2';
 import { Center } from '../layout/center';
 import { Cluster } from '../layout/cluster';
-import { Button } from '../components/button/button';
-import { BoxV2 } from '../layout/box-v2';
-import { Label } from '../components/text/label';
 import { CommonComponentProps } from '../props/component-common.props';
-import { isIOS } from 'react-device-detect';
+import * as styleRefs from './navbar.treat';
+
+export type NavBarRefs = {
+  readonly mobileNavbar: HTMLDivElement | undefined;
+  readonly desktopNavbar: HTMLDivElement | undefined;
+};
 
 type Props = CommonComponentProps & {
-  variantStyle?: 'transparent' | 'white';
   /**
    * Allow to override the max-width of the content
    */
   maxWidth?: string;
+  /**
+   * Inject a link around the logo
+   * @example
+   *  <NavBar ... HomeLink={<GatsbyLink to={'/'} />} />
+   */
+  HomeLink?: React.ReactNode;
+  /**
+   * Pass a React SVG to the mobile logo
+   */
   MobileSvgLogo?: React.ReactNode;
+  /**
+   * Pass a React SVG to the desktop logo
+   */
   DesktopSvgLogo?: React.ReactNode;
+  /**
+   * Navigation links
+   */
   MenuLinks?: React.ReactNode;
+  /**
+   * Used to set the close or menu icon
+   */
+  menuOpened?: boolean;
+  onPressMenuButton?: (event: PressEvent) => void;
 };
 
 /**
  * Generic navigation bar with an icon logo and language switch on mobile
  * and on desktop, a logo, and menu links
  */
-export const NavBar: React.FC<Props> = (props) => {
+export const NavBar = React.forwardRef<any, Props>((props, ref) => {
   const { styles } = useStyles(styleRefs);
   const { theme, cssTheme } = useTreatTheme();
 
-  const { ref: ref1, animate: animate1 } = useWebAnimations<HTMLDivElement>();
-  const { ref: ref2, animate: animate2 } = useWebAnimations<HTMLDivElement>();
+  const [isInstalled, setIsInstalled] = useState<boolean>(false);
 
   const MobileSvgLogo = props.MobileSvgLogo ? (
     React.cloneElement(props.MobileSvgLogo as React.ReactElement, {
@@ -64,91 +89,91 @@ export const NavBar: React.FC<Props> = (props) => {
   };
 
   useEffect(() => {
-    if (isIOS) {
+    if (isIOS && !isInstalled) {
       const handler = updateDocumentBackgroundColor({ multiplier: 2 });
       window.document.addEventListener('touchmove', handler, { passive: true });
       window.document.addEventListener('scroll', handler, { passive: true });
+
+      setIsInstalled(true);
 
       return () => {
         window.document.removeEventListener('touchmove', handler);
         window.document.removeEventListener('scroll', handler);
       };
     }
-    // not needed for desktop
-    // const handler = updateDocumentBackgroundColor({ multiplier: 1.5 });
-    // window.addEventListener('scroll', handler, { passive: true });
-    // return () => {
-    //   window.removeEventListener('scroll', handler);
-    // };
   }, []);
 
-  // useEffect(() => {
-  //   window.addEventListener('scroll', (event) => {
-  //     // The target will follow the mouse cursor
-  //     const scrollPosition = window.scrollY;
-  //     const positionForWhite = 200;
-  //     const ratio = (positionForWhite - scrollPosition) / positionForWhite;
-  //     setScrollPosition(ratio);
+  /**
+   * Refs
+   */
+  const mobileNavbar = useRef<HTMLDivElement>();
+  const desktopNavbar = useRef<HTMLDivElement>();
 
-  //     animate1({
-  //       keyframes: [
-  //         {
-  //           backgroundColor: getCSSColor({
-  //             h: 0,
-  //             s: 10,
-  //             l: 100,
-  //             a: ratio < 0 ? 0 : ratio * 100,
-  //           }),
-  //           color: getCSSColor({
-  //             h: 0,
-  //             s: 10,
-  //             l: ratio < 0 ? 0 : ratio * 100,
-  //           }),
-  //         },
-  //       ],
-  //       timing: { duration: 300, fill: 'forwards' },
-  //     });
-  //   });
-  // }, [animate1]);
+  useImperativeHandle(
+    ref,
+    () =>
+      ({
+        get mobileNavbar() {
+          return mobileNavbar.current;
+        },
+        get desktopNavbar() {
+          return desktopNavbar.current;
+        },
+      } as NavBarRefs)
+  );
+
+  /**
+   * Events handling
+   */
+  function handlePressMenuButton(event: PressEvent) {
+    if (props.onPressMenuButton) {
+      props.onPressMenuButton(event);
+    }
+  }
 
   return (
     <>
       {/* Mobile */}
       <Center
+        ref={mobileNavbar}
         as={'header'}
         className={`${styles.wrapper} ${styles.mobileMenu}`}
-        ref={ref1}
         style={props.style}
         maxWidth={props.maxWidth}
       >
         <div className={styles.mobileWrapper}>
           <BoxV2 justifyContent={['flex-start']}>
-            <Button>
-              <IoMenu className={styles.icon} />
-            </Button>
+            <Button
+              size={ButtonSize.large}
+              collapsePadding={'left'}
+              variant={ButtonVariant.tertiary}
+              icon={ButtonIcon.icon}
+              Icon={props.menuOpened ? <IoClose /> : <IoMenu />}
+              onPress={handlePressMenuButton}
+            ></Button>
           </BoxV2>
 
-          <BoxV2 justifyContent={['center']} padding={[cssTheme.sizing.var.x2, 0]}>
-            {MobileSvgLogo || DesktopSvgLogo}
+          <BoxV2 justifyContent={['center']} padding={[cssTheme.sizing.var.x2, 0]} AsElement={props.HomeLink}>
+            <SVGLogo Icon={MobileSvgLogo || DesktopSvgLogo} />
           </BoxV2>
 
           <BoxV2 justifyContent={['flex-end']} padding={[cssTheme.sizing.var.x2, cssTheme.sizing.var.x3]}>
-            <Label>EN</Label>
+            <Label> </Label>
           </BoxV2>
         </div>
       </Center>
 
       {/* Desktop */}
       <Center
+        ref={desktopNavbar}
         as={'header'}
         className={`${styles.wrapper} ${styles.desktopMenu}`}
-        ref={ref2}
         style={props.style}
         maxWidth={props.maxWidth}
       >
         <Cluster justifyContent={['space-between']} alignItems={['center']}>
-          <BoxV2 padding={[cssTheme.sizing.var.x2, 0]} className={styles.logoWrapper}>
-            {DesktopSvgLogo || MobileSvgLogo}
+          <BoxV2 padding={[cssTheme.sizing.var.x2, 0]} className={styles.logoWrapper} AsElement={props.HomeLink}>
+            <SVGLogo Icon={DesktopSvgLogo || MobileSvgLogo} />
           </BoxV2>
 
           <Cluster justifyContent={['space-between']} gap={[cssTheme.sizing.var.x4]}>
@@ -158,4 +183,4 @@ export const NavBar: React.FC<Props> = (props) => {
       </Center>
     </>
   );
-};
+});

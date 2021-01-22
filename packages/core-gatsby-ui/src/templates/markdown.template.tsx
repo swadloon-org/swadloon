@@ -1,5 +1,11 @@
 import { GatsbyMarkdownFilePageContext } from '@newrade/core-gatsby-config';
-import { getMetaBasicTags, GlobalMarkdownCSS, Center } from '@newrade/core-react-ui';
+import {
+  getMetaBasicTags,
+  GlobalMarkdownCSS,
+  Center,
+  getMetadataOpenGraphWebsiteTags,
+  OPEN_GRAPH_TYPE,
+} from '@newrade/core-react-ui';
 import { graphql, PageProps } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
@@ -7,8 +13,10 @@ import Helmet from 'react-helmet';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './markdown.treat';
 import { Aside } from '../components/navigation/aside';
+import { I18nProvider } from 'react-aria';
+import { MarkdownTemplateQuery } from '../../types/site-graphql-types';
 
-export type MarkdownTemplateProps = PageProps<any, GatsbyMarkdownFilePageContext>;
+export type MarkdownTemplateProps = PageProps<MarkdownTemplateQuery, GatsbyMarkdownFilePageContext>;
 
 /**
  * Query to retrieve all markdown content for the markdown file
@@ -45,6 +53,8 @@ const Template: React.FC<MarkdownTemplateProps> = (props) => {
   return (
     <>
       <Helmet>
+        <html lang={props.pageContext.locale} />
+        <link rel="icon" href="/images/favicon.svg" sizes="any" type="image/svg+xml" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Quattrocento&display=swap" rel="stylesheet" />
         <link
@@ -55,32 +65,35 @@ const Template: React.FC<MarkdownTemplateProps> = (props) => {
           href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
           rel="stylesheet"
         />
+        {/* TODO: Complete with all the tags and preview */}
         {getMetaBasicTags()}
-        {/* {getMetadataOpenGraphWebsiteTags({
+        {getMetadataOpenGraphWebsiteTags({
           type: OPEN_GRAPH_TYPE.ARTICLE,
-          title: `${data?.contentfulBlogPost?.title}`,
-          url: `${data?.site?.siteMetadata?.siteUrl}${data?.contentfulBlogPost?.blogSlug}`,
-          description: `${data?.contentfulBlogPost?.blogExcerpt?.blogExcerpt}`,
-          image: `${data?.contentfulBlogPost?.blogMainImage?.socialMediaImage?.src}`,
-          site_name: `${data?.contentfulCompanyInfo?.metadataSiteName}`,
-          lang: data?.contentfulBlogPost?.node_locale?.includes('fr') ? 'fr' : 'en',
-          locale: data?.contentfulBlogPost?.node_locale?.includes('fr') ? 'fr_CA' : 'en_CA',
-          localeAlternate: data?.contentfulBlogPost?.node_locale?.includes('en') ? 'fr_CA' : 'en_CA',
+          title: `${props.pageContext.displayName || props.pageContext.name || props.pageContext.siteMetadata.title}`,
+          // url: `${data?.site?.siteMetadata?.siteUrl}${data?.contentfulBlogPost?.blogSlug}`,
+          description: `${props.data.file?.childMdx?.excerpt || 'No description provided'}`,
+          // image: `${data?.contentfulBlogPost?.blogMainImage?.socialMediaImage?.src}`,
+          // site_name: `${data?.contentfulCompanyInfo?.metadataSiteName}`,
+          lang: props.pageContext.locale,
+          locale: props.pageContext.locale,
+          // localeAlternate: data?.contentfulBlogPost?.node_locale?.includes('en') ? 'fr_CA' : 'en_CA',
         })}
-        {getMetadataTwitterTags({
+        {/* {getMetadataTwitterTags({
           card: 'summary_large_image',
           image: `${data?.contentfulBlogPost?.blogMainImage?.socialMediaImage?.src}`,
           creator: `${data?.contentfulCompanyInfo?.metadataTwitterCreator}`,
           site: `${data?.contentfulCompanyInfo?.metadataTwitterSite}`,
         })} */}
       </Helmet>
-      <Center maxWidth={'800px'}>
-        <GlobalMarkdownCSS>
-          <MDXRenderer {...props}>{props.data.file?.childMdx?.body as string}</MDXRenderer>
-        </GlobalMarkdownCSS>
-      </Center>
+      <I18nProvider locale={props.pageContext.locale}>
+        <Center maxWidth={'800px'}>
+          <GlobalMarkdownCSS>
+            <MDXRenderer {...props}>{props.data.file?.childMdx?.body as string}</MDXRenderer>
+          </GlobalMarkdownCSS>
+        </Center>
 
-      <Aside items={props.data.file?.childMdx?.headings} location={props.location} />
+        <Aside items={props.data.file?.childMdx?.headings} location={props.location} />
+      </I18nProvider>
     </>
   );
 };

@@ -33,6 +33,8 @@ globalStyle(`html`, {
   WebkitTouchCallout: 'none',
   // smooth background transition
   transition: 'background-color 0.2s ease-out',
+  // user select
+  userSelect: 'none',
 });
 
 /**
@@ -78,6 +80,7 @@ globalStyle(`hr`, {
 globalStyle(`pre,code,kbd,samp`, {
   fontFamily: 'monospace, monospace' /* 1 */,
   fontSize: '1em' /* 2 */,
+  margin: 0,
 });
 
 /**
@@ -122,6 +125,16 @@ globalStyle(
     WebkitAppearance: 'button',
   }
 );
+
+/**
+ * Reset the button look
+ */
+globalStyle(`button`, {
+  border: 'none',
+  outline: 'none',
+  background: 'none',
+  backgroundColor: 'none',
+});
 
 /**
  * Remove the inner border and padding in Firefox.
