@@ -3,6 +3,7 @@ import { ERROR_TYPE } from './error.constant';
 export class AppError extends Error {
   name!: ERROR_TYPE;
   message!: string;
+  value?: any;
   stack?: string;
   constructor(options: Error) {
     super(options.message);
