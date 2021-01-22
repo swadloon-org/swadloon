@@ -50,7 +50,7 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
   /**
    * Replace the devtool option
    */
-  config.devtool = env.APP_ENV === DEPLOY_ENV.LOCAL ? 'source-map' : 'cheap-source-map';
+  config.devtool = env.APP_ENV === DEPLOY_ENV.LOCAL ? 'eval-cheap-source-map' : 'eval-cheap-source-map';
 
   /**
    * Replace Gatsby default babel config

@@ -1,12 +1,16 @@
 import { Background, Center, Stack, Title, useTreatTheme, Button } from '@newrade/core-react-ui';
 import { IFluidObject } from 'gatsby-background-image';
-import { TweenMax } from '@newrade/core-gsap-ui';
+import { gsap, TweenMax } from '@newrade/core-gsap-ui';
 import React, { useRef, useEffect } from 'react';
 import { IoChevronDownOutline } from 'react-icons/io5';
 import { useStyles } from 'react-treat';
 import { SectionFragment } from '../../types/graphql-types';
 import * as styleRefs from './banner.treat';
-import { ButtonIcon, ButtonVariant, ButtonSize } from '../../../core-design-system/src';
+import { ButtonIcon, ButtonVariant, ButtonSize } from '@newrade/core-design-system';
+
+import ScrollToPlugin from '@newrade/core-gsap-ui/lib/plugins/ScrollToPlugin';
+
+gsap.registerPlugin(ScrollToPlugin);
 
 type OwnProps = SectionFragment;
 
@@ -41,6 +45,27 @@ export const Banner: React.FC<OwnProps> = (props) => {
     };
   }, []);
 
+  function handleScrollToNextSection() {
+    const wrapper = ref.current;
+    if (!wrapper) {
+      return;
+    }
+
+    const target = window.document.getElementById(`section-1`);
+
+    if (!target) {
+      return;
+    }
+
+    TweenMax.to(window, {
+      duration: 1,
+      ease: 'power2',
+      scrollTo: {
+        y: target,
+      },
+    });
+  }
+
   return (
     <div className={`${styles.wrapper}`} ref={ref}>
       {hasImage ? (
@@ -65,8 +90,8 @@ export const Banner: React.FC<OwnProps> = (props) => {
                 `${cssTheme.typography.titles.desktop.t1.lineGap}px`,
               ]}
             >
-              <Title>{props.title}</Title>
-              {props.subtitle ? <Title>{props.subtitle}</Title> : null}
+              <Title>{props.title?.trim()}</Title>
+              {props.subtitle ? <Title>{props.subtitle?.trim()}</Title> : null}
               <Button
                 ref={ref}
                 className={styles.icon}
@@ -74,6 +99,7 @@ export const Banner: React.FC<OwnProps> = (props) => {
                 variant={ButtonVariant.tertiaryReversed}
                 icon={ButtonIcon.icon}
                 Icon={<IoChevronDownOutline />}
+                onPress={handleScrollToNextSection}
               ></Button>
             </Stack>
           </Center>

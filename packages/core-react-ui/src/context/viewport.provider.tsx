@@ -1,4 +1,5 @@
 import React from 'react';
+import debounce from 'lodash/debounce';
 
 declare var window: Window | undefined;
 
@@ -17,19 +18,19 @@ export const ViewportProvider: React.FC<ViewportProviderProps> = ({ children, co
   const [width, setWidth] = React.useState<ViewportContext['width']>(windowGlobal ? windowGlobal.innerWidth : 320);
   const [height, setHeight] = React.useState<ViewportContext['height']>(windowGlobal ? windowGlobal.innerHeight : 600);
 
-  function handleWindowResize() {
+  const handle = debounce(function handleWindowResize() {
     setWidth(windowGlobal ? windowGlobal.innerWidth : 320);
     setHeight(windowGlobal ? windowGlobal.innerHeight : 600);
-  }
+  }, 500);
 
   // TODO throttle this
   React.useEffect(() => {
     if (windowGlobal) {
-      windowGlobal.addEventListener('resize', handleWindowResize);
+      windowGlobal.addEventListener('resize', handle);
     }
     return () => {
       if (windowGlobal) {
-        windowGlobal.removeEventListener('resize', handleWindowResize);
+        windowGlobal.removeEventListener('resize', handle);
       }
     };
   }, []);

@@ -29,7 +29,7 @@ const query = graphql`
         }
       }
     }
-    companyInfo: contentfulCompanyAddress {
+    companyAddress: contentfulCompanyAddress {
       addressLine1
       addressLine2
       city
@@ -39,6 +39,9 @@ const query = graphql`
       phone
       email
       fax
+    }
+    companyInfo: contentfulCompanyInfo {
+      copyright
     }
   }
 `;
@@ -66,13 +69,13 @@ export function useVsbNavItems(): NavItem[] {
     if (!name) {
       return '';
     }
-    return title(name?.replace('.page', '').replace('design-system-', ''));
+    return name?.replace('.page', '').replace('design-system-', '');
   }
 
   return sortedNavItems;
 }
 
 export function useVsbCompanyInfo() {
-  const data = useStaticQuery<LayoutAllSitePageQuery>(query);
-  return data.companyInfo;
+  const { companyInfo, companyAddress } = useStaticQuery<LayoutAllSitePageQuery>(query);
+  return { companyInfo, companyAddress };
 }

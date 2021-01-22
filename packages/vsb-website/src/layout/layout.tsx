@@ -1,4 +1,12 @@
-import { PARAGRAPH_SIZE, TEXT_LEVEL, LinkVariant } from '@newrade/core-design-system';
+import {
+  PARAGRAPH_SIZE,
+  TEXT_LEVEL,
+  LinkVariant,
+  VIEWPORT,
+  HEADING,
+  LABEL_SIZE,
+  TEXT_STYLE,
+} from '@newrade/core-design-system';
 import { GatsbyLink } from '@newrade/core-gatsby-ui/src';
 import ScrollTrigger from '@newrade/core-gsap-ui/lib/plugins/ScrollTrigger';
 import { gsap } from '@newrade/core-gsap-ui/src';
@@ -14,6 +22,10 @@ import {
   NavItemGroup,
   NavItem,
   BoxV2,
+  useViewportBreakpoint,
+  Paragraph,
+  Heading,
+  Label,
 } from '@newrade/core-react-ui';
 import { globalHistory } from '@reach/router';
 import { PressEvent } from '@react-types/shared';
@@ -42,7 +54,7 @@ export const Layout = React.memo<LayoutProps>((props) => {
    */
   const navItems = useVsbNavItems();
   const navItemsByDirName = new Set(navItems.map((item) => item.dirName));
-  const companyInfo = useVsbCompanyInfo();
+  const { companyInfo, companyAddress } = useVsbCompanyInfo();
 
   /**
    * i18n
@@ -75,6 +87,13 @@ export const Layout = React.memo<LayoutProps>((props) => {
     setSidebarOpened(!sidebarOpened);
   }
 
+  const { viewport } = useViewportBreakpoint();
+  useEffect(() => {
+    if (viewport === VIEWPORT.desktop) {
+      setSidebarOpened(false);
+    }
+  }, [viewport]);
+
   /**
    * Navbar
    */
@@ -82,7 +101,7 @@ export const Layout = React.memo<LayoutProps>((props) => {
   const [navbarStyle, setNavbarStyle] = useState<'white' | 'transparent'>(
     props.location?.pathname === '/' ? 'transparent' : 'white'
   );
-  useAnimateNavbar({ navbarRef, whiteStyle: navbarStyle === 'white' });
+  useAnimateNavbar({ navbarRef, whiteStyle: navbarStyle === 'white', viewport });
   useEffect(() => {
     /**
      * @see https://greensock.com/docs/v3/Plugins/ScrollTrigger
@@ -138,73 +157,106 @@ export const Layout = React.memo<LayoutProps>((props) => {
       ></NavBar>
 
       <SideBar sidebarOpened={sidebarOpened} fullHeight={false}>
-        <Stack gap={[cssTheme.sizing.var.x4]}>
-          <BoxV2 style={{ height: 120 }}>
-            <Logo />
+        <Stack>
+          <BoxV2
+            padding={[cssTheme.sizing.var.x4, cssTheme.layout.var.contentMargins, cssTheme.sizing.var.x4]}
+            style={{ flexDirection: 'column' }}
+            justifyContent={['flex-start']}
+            alignItems={['stretch']}
+          >
+            <Stack gap={[cssTheme.sizing.var.x4]}>
+              {[...navItemsByDirName].map((dirName, index) => {
+                return (
+                  <Stack key={index} gap={[`calc(2 * ${cssTheme.sizing.var.x1})`]}>
+                    {dirName === '' ? (
+                      <NavItemGroup>Docs</NavItemGroup>
+                    ) : (
+                      <NavItemGroup>{title(dirName || '')}</NavItemGroup>
+                    )}
+                    <Stack>
+                      {navItems
+                        .filter((item) => item.dirName === dirName)
+                        .map((item, itemIndex) => {
+                          return (
+                            <NavItem
+                              key={itemIndex}
+                              active={item.path === props.location?.pathname}
+                              AsElement={<GatsbyLink to={item.path} noStyles={true} />}
+                            >
+                              {item.name}
+                            </NavItem>
+                          );
+                        })}
+                    </Stack>
+                  </Stack>
+                );
+              })}
+            </Stack>
           </BoxV2>
 
-          <Stack gap={[cssTheme.sizing.var.x4]}>
-            {[...navItemsByDirName].map((dirName, index) => {
-              return (
-                <Stack key={index} gap={[`calc(2 * ${cssTheme.sizing.var.x1})`]}>
-                  {dirName === '' ? (
-                    <NavItemGroup>Docs</NavItemGroup>
-                  ) : (
-                    <NavItemGroup>{title(dirName || '')}</NavItemGroup>
-                  )}
-                  <Stack>
-                    {navItems
-                      .filter((item) => item.dirName === dirName)
-                      .map((item, itemIndex) => {
-                        return (
-                          <NavItem
-                            key={itemIndex}
-                            active={item.path === props.location?.pathname}
-                            AsElement={<GatsbyLink to={item.path} noStyles={true} />}
-                          >
-                            {item.name}
-                          </NavItem>
-                        );
-                      })}
-                  </Stack>
-                </Stack>
-              );
-            })}
-          </Stack>
+          <BoxV2
+            style={{ flexDirection: 'column', backgroundColor: cssTheme.colors.colors.grey[800] }}
+            justifyContent={['flex-start']}
+            alignItems={['stretch']}
+            padding={[cssTheme.sizing.var.x5, cssTheme.layout.var.contentMargins]}
+          >
+            <Stack gap={[cssTheme.sizing.var.x5]}>
+              <Stack gap={[cssTheme.sizing.var.x3]}>
+                <Heading variant={HEADING.h4} variantLevel={TEXT_LEVEL.primaryReversed}>
+                  Clinique Dr. Pierre Boucher Jr.
+                </Heading>
+                <Label
+                  variant={LABEL_SIZE.xSmall}
+                  variantStyle={TEXT_STYLE.boldUppercase}
+                  variantLevel={TEXT_LEVEL.primaryReversed}
+                >
+                  Omnipraticien CCMF
+                </Label>
+              </Stack>
 
-          <Stack gap={[cssTheme.sizing.var.x4]}>
-            <Link
-              variantLevel={TEXT_LEVEL.primaryReversed}
-              variant={LinkVariant.underline}
-              href={`mailto:${companyInfo?.email}`}
-            >
-              {companyInfo?.email}
-            </Link>
-            <Link
-              variantLevel={TEXT_LEVEL.primaryReversed}
-              variant={LinkVariant.underline}
-              href={`tel:${companyInfo?.phone}`}
-            >
-              {companyInfo?.phone}
-            </Link>
-            <Link
-              variantLevel={TEXT_LEVEL.primaryReversed}
-              variant={LinkVariant.underline}
-              href={`fax:${companyInfo?.fax}`}
-            >
-              {companyInfo?.fax}
-            </Link>
-            <Link
-              variantLevel={TEXT_LEVEL.primaryReversed}
-              variant={LinkVariant.underline}
-              href={'https://goo.gl/maps/nndYpgQLkbDC6c7S7'}
-              target="blank"
-            >
-              {companyInfo?.addressLine1}
-              <br />
-              {companyInfo?.addressLine2}
-            </Link>
-          </Stack>
+              <Stack gap={[cssTheme.sizing.var.x4]}>
+                <Link
+                  variantLevel={TEXT_LEVEL.primaryReversed}
+                  variantSize={PARAGRAPH_SIZE.small}
+                  variant={LinkVariant.underline}
+                  href={`mailto:${companyAddress?.email}`}
+                >
+                  {companyAddress?.email}
+                </Link>
+                <Link
+                  variantLevel={TEXT_LEVEL.primaryReversed}
+                  variantSize={PARAGRAPH_SIZE.small}
+                  variant={LinkVariant.underline}
+                  href={`tel:${companyAddress?.phone}`}
+                >
+                  {companyAddress?.phone}
+                </Link>
+                <Link
+                  variantLevel={TEXT_LEVEL.primaryReversed}
+                  variantSize={PARAGRAPH_SIZE.small}
+                  variant={LinkVariant.underline}
+                  href={`fax:${companyAddress?.fax}`}
+                >
+                  {companyAddress?.fax}
+                </Link>
+                <Link
+                  variantLevel={TEXT_LEVEL.primaryReversed}
+                  variantSize={PARAGRAPH_SIZE.small}
+                  variant={LinkVariant.underline}
+                  href={'https://goo.gl/maps/nndYpgQLkbDC6c7S7'}
+                  target="blank"
+                >
+                  {companyAddress?.addressLine1}
+                  <br />
+                  {companyAddress?.addressLine2}
+                </Link>
+              </Stack>
+
+              <Paragraph variantLevel={TEXT_LEVEL.primaryReversed} variant={PARAGRAPH_SIZE.small}>
+                {companyInfo?.copyright}
+              </Paragraph>
+            </Stack>
+          </BoxV2>
         </Stack>
       </SideBar>
 

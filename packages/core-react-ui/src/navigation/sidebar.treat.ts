@@ -7,20 +7,18 @@ export const styles = {
    * Sidebar
    */
   wrapper: style(({ cssTheme, theme }: Theme) => ({
+    WebkitOverflowScrolling: `touch`,
     position: 'fixed',
     top: cssTheme.layout.var.navbarHeight,
+    maxHeight: `calc(100vh - ${cssTheme.layout.var.navbarHeight})`,
     left: 0,
     bottom: 0,
-    width: `100vw`,
+    width: `100vw`, // TODO: add an option to not cover the whole viewport
     '@media': {
       [cssTheme.layout.media.tablet]: {
         width: cssTheme.layout.var.sidebarWidth,
       },
-      [cssTheme.layout.media.desktopSmall]: {
-        display: 'none',
-      },
     },
-    padding: `${cssTheme.sizing.var.x3} 0`,
     color: cssTheme.colors.colorIntents.primaryText,
 
     backgroundColor: getCSSColor({ h: 0, s: 0, l: 100, a: 100 }),
@@ -33,12 +31,20 @@ export const styles = {
   fullHeight: style(({ cssTheme, theme }: Theme) => ({
     top: 0,
     zIndex: cssTheme.layout.zIndex.navBar + 1,
+    maxHeight: `calc(100vh)`,
+  })),
+  mobileOnly: style(({ cssTheme, theme }: Theme) => ({
+    '@media': {
+      [cssTheme.layout.media.desktopSmall]: {
+        display: 'none',
+      },
+    },
   })),
   /**
    * Nav items
    */
   navItemsWrapper: style(({ cssTheme, theme }: Theme) => ({
-    padding: `${cssTheme.sizing.var.x2}`,
+    minHeight: `105vh`,
   })),
   navItem: style(({ cssTheme, theme }: Theme) => ({
     padding: cssTheme.sizing.var.x2,

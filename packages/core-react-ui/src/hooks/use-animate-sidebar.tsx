@@ -2,6 +2,7 @@ import { gsap, TweenMax } from '@newrade/core-gsap-ui';
 import { useEffect, useState } from 'react';
 import { useTreatTheme } from './use-treat-theme';
 import { useBodyScrollLock } from './use-body-scroll-lock';
+import { isMobile } from 'react-device-detect';
 
 export function useAnimateSideBar({
   sidebarOpened,
@@ -12,7 +13,7 @@ export function useAnimateSideBar({
 }) {
   const { cssTheme } = useTreatTheme();
   const [animationReady, setAnimationReady] = useState<boolean>(false);
-  const [locks, documentListenerAdded] = useBodyScrollLock({ disableScrolling: sidebarOpened, ref });
+  const [locks, documentListenerAdded] = useBodyScrollLock({ disableScrolling: isMobile && sidebarOpened, ref });
 
   useEffect(() => {
     const sidebarRef = ref?.current;
@@ -36,6 +37,11 @@ export function useAnimateSideBar({
         duration: duration,
         ease: `power4.out`,
         x: `0`,
+      });
+
+      TweenMax.to(sidebarRef, {
+        duration: 0,
+        scrollTo: 0,
       });
     }
 

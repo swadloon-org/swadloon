@@ -6,6 +6,7 @@ import { getCSSTextStyles } from '../../utilities/text.utilities';
 export const styles: { wrapper: string } & { [key in HEADING]: string } & { [key in TEXT_LEVEL]: string } = {
   wrapper: style(({ theme, cssTheme }: Theme) => ({
     display: 'flex',
+    userSelect: 'text',
   })),
 
   h1: style(({ theme, cssTheme }: Theme) => ({

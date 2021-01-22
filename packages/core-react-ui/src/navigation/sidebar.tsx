@@ -13,6 +13,10 @@ type Props = CommonComponentProps & {
    */
   fullHeight?: boolean;
   /**
+   * Hide the sidebar on desktop
+   */
+  mobileOnly?: boolean;
+  /**
    * State of the sidebar
    */
   sidebarOpened?: boolean;
@@ -22,10 +26,23 @@ type Props = CommonComponentProps & {
  * Generic navigation bar with an icon logo and language switch on mobile
  * and on desktop, a logo, and menu links
  */
-export const SideBar: React.FC<Props> = ({ id, style, className, sidebarOpened, fullHeight, ...props }) => {
+export const SideBar: React.FC<Props> = ({
+  id,
+  style,
+  className,
+  sidebarOpened,
+  fullHeight,
+  mobileOnly = true,
+  ...props
+}) => {
   const { styles } = useStyles(styleRefs);
   const { theme, cssTheme } = useTreatTheme();
-  const classNames = getMergedClassname([className, styles.wrapper, fullHeight ? styles.fullHeight : '']);
+  const classNames = getMergedClassname([
+    className,
+    styles.wrapper,
+    fullHeight ? styles.fullHeight : '',
+    mobileOnly ? styles.mobileOnly : '',
+  ]);
 
   /**
    * Animation

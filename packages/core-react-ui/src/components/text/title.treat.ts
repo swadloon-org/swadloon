@@ -7,6 +7,7 @@ export const styles: { [key in TITLE]: string } & { [key in TEXT_LEVEL]: string 
   t1: style(({ theme, cssTheme }: Theme) => ({
     // todo should be in all titles
     wordBreak: 'normal',
+    userSelect: 'text',
     ...getCSSTextStyles(cssTheme.typography.titles.mobile.t1),
     '@media': {
       [cssTheme.layout.media.tablet]: {

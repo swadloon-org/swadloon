@@ -1,16 +1,19 @@
 import { NavBarRefs, useTreatTheme } from '@newrade/core-react-ui';
 import { gsap, TweenMax } from 'gsap';
 import { useEffect, useState } from 'react';
-import { ExpoScaleEase } from '@newrade/core-gsap-ui/lib/plugins/EasePack';
+import ExpoScaleEase from '@newrade/core-gsap-ui/lib/plugins/EasePack';
+import { VIEWPORT } from '@newrade/core-design-system';
 
 gsap.registerPlugin(ExpoScaleEase as any);
 
 export function useAnimateNavbar({
   navbarRef,
   whiteStyle,
+  viewport,
 }: {
   navbarRef: React.MutableRefObject<NavBarRefs | undefined>;
   whiteStyle: boolean;
+  viewport: VIEWPORT;
 }) {
   const { cssTheme } = useTreatTheme();
   const [animationReady, setAnimationReady] = useState<boolean>(false);
@@ -20,6 +23,10 @@ export function useAnimateNavbar({
   useEffect(() => {
     const desktopNavbar = navbarRef?.current?.desktopNavbar;
     const duration = 0.3;
+
+    if (viewport !== VIEWPORT.desktop) {
+      return;
+    }
 
     if (!desktopNavbar) {
       return;
@@ -96,5 +103,5 @@ export function useAnimateNavbar({
     }
 
     setPreviousWhiteStyle(whiteStyle);
-  }, [navbarRef, animationReady, whiteStyle]);
+  }, [navbarRef, animationReady, whiteStyle, viewport]);
 }

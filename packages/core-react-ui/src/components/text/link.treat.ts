@@ -48,6 +48,7 @@ export const styles: { [key in LinkStyleProps['variantLevel']]: string } &
     outline: 'none',
     cursor: 'pointer',
     width: 'fit-content',
+    userSelect: 'text',
     appearance: 'none',
     WebkitAppearance: 'none',
     // ':hover': {

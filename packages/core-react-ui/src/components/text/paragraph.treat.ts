@@ -55,6 +55,7 @@ export const styles: { inline: string } & { [key in TEXT_STYLE]: string } &
   })),
 
   normal: style(({ theme, cssTheme }: Theme) => ({
+    userSelect: 'text',
     ...getCSSFontTextStyles(cssTheme.typography.paragraphs),
   })),
   bold: style(({ theme, cssTheme }: Theme) => ({

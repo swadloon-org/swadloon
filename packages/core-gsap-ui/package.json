@@ -14,8 +14,6 @@
     "clean": "rimraf -r lib/** && rm -f tsconfig.build.tsbuildinfo",
     "copy:plugins": "TS_NODE_PROJECT=tsconfig.script.json node -r ts-node/register scripts/copy-plugins.script.ts",
     "start": "concurrently \"yarn tsc:start\" \"yarn watch:plugins\"",
-    "test": "jest",
-    "test:watch": "jest --watch",
     "tsc:start": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
     "watch:plugins": "onchange -i 'src/plugins/**/*' -- yarn copy:plugins"
   },
