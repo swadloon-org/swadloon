@@ -15,8 +15,6 @@ import {
 } from '@newrade/vsb-common';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { SchemaOf, ValidationError } from 'yup';
-import * as styleRefs from './from.treat';
-import { useStyles } from 'react-treat';
 import { LABEL_SIZE, TEXT_STYLE } from '@newrade/core-design-system';
 
 const useYupValidationResolver = (PatientValidation: SchemaOf<PatientModel>) =>
@@ -53,8 +51,6 @@ const useYupValidationResolver = (PatientValidation: SchemaOf<PatientModel>) =>
   );
 
 const Form: React.FC = (props) => {
-  const styles = useStyles(styleRefs);
-
   const resolver = useYupValidationResolver(PatientValidation);
 
   const {
