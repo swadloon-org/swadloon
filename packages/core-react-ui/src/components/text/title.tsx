@@ -16,19 +16,22 @@ const defaultProps: Props = {
   children: 'Title',
 };
 
-export const Title: React.FC<Props> = React.memo(({ variant, variantLevel, id, className, children, ...props }) => {
-  const { styles } = useStyles(stylesRef);
+export const Title = React.memo(
+  React.forwardRef<any, Props>(({ variant, variantLevel, id, className, children, ...props }, ref) => {
+    const { styles } = useStyles(stylesRef);
 
-  const type = variant === TITLE.t1 ? 'h1' : 'h2';
-  const defaultChildrenString = `${defaultProps.children as string} ${pascal(type)}`;
-  const child = children ? children : defaultChildrenString;
+    const type = variant === TITLE.t1 ? 'h1' : 'h2';
+    const defaultChildrenString = `${defaultProps.children as string} ${pascal(type)}`;
+    const child = children ? children : defaultChildrenString;
 
-  return React.createElement(type, {
-    id: id ? id : typeof child === 'string' ? kebab(child) : kebab(defaultChildrenString),
-    className: `${className || ''} ${styles[variant ? variant : (defaultProps.variant as TITLE)]} ${
-      variantLevel ? styles[variantLevel] : ''
-    }`,
-    children: child,
-    ...props,
-  });
-});
+    return React.createElement(type, {
+      id: id ? id : typeof child === 'string' ? kebab(child) : kebab(defaultChildrenString),
+      className: `${className || ''} ${styles[variant ? variant : (defaultProps.variant as TITLE)]} ${
+        variantLevel ? styles[variantLevel] : ''
+      }`,
+      children: child,
+      ...props,
+      ref,
+    });
+  })
+);

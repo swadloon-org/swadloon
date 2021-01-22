@@ -1,0 +1,32 @@
+{
+  "name": "@newrade/core-gsap-ui",
+  "version": "1.0.0",
+  "description": "UI library",
+  "license": "MIT",
+  "main": "./lib/index.js",
+  "module": "./lib/index.js",
+  "files": [
+    "./lib/**/*"
+  ],
+  "scripts": {
+    "build": "yarn copy:plugins && yarn build:tsc",
+    "build:tsc": "tsc --build tsconfig.build.json",
+    "clean": "rimraf -r lib/** && rm -f tsconfig.build.tsbuildinfo",
+    "copy:plugins": "TS_NODE_PROJECT=tsconfig.script.json node -r ts-node/register scripts/copy-plugins.script.ts",
+    "start": "concurrently \"yarn tsc:start\" \"yarn watch:plugins\"",
+    "tsc:start": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
+    "watch:plugins": "onchange -i 'src/plugins/**/*' -- yarn copy:plugins"
+  },
+  "sideEffects": false,
+  "typings": "./lib/index.d.ts",
+  "dependencies": {
+    "@newrade/core-common": "^1.0.1",
+    "@newrade/core-design-system": "^1.5.0",
+    "@newrade/core-jest-config": "^1.5.0",
+    "@newrade/core-types": "^1.0.0",
+    "@newrade/core-utils": "^1.3.0"
+  },
+  "devDependencies": {
+    "@newrade/core-cli": "^1"
+  }
+}

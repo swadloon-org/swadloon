@@ -33,6 +33,8 @@ globalStyle(`html`, {
   WebkitTouchCallout: 'none',
   // smooth background transition
   transition: 'background-color 0.2s ease-out',
+  // user select
+  userSelect: 'none',
 });
 
 /**

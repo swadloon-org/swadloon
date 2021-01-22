@@ -21,6 +21,7 @@ import { PilotExamDrProfile } from '../components/pilot/pilot-exam-dr-profile';
 import { ContactContact } from '../components/contact/contact-contact';
 import { ClinicPreview } from '../components/clinic/clinic-preview';
 import { Message } from '../components/message';
+import { ContentfulSection } from '../../types/graphql-types';
 
 export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
   return (
@@ -28,17 +29,33 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
       {data.contentfulPage?.sections?.map((section, index) => {
         switch (section?.type?.type) {
           case SECTION_TYPE.BANNER: {
-            return <Banner key={index} {...section} />;
+            return (
+              <div id={`section-${index}`} key={index}>
+                <Banner key={index} {...section} />
+              </div>
+            );
           }
-          // case SECTION_TYPE.MESSAGE: {
-          //   return <Message key={index} {...section} />;
-          // }
-          // case SECTION_TYPE.TILE_LINKS: {
-          //   return <TileLinks key={index} {...section} />;
-          // }
-          // case SECTION_TYPE.TILE_LINK: {
-          //   return <TileLink key={index} {...section} />;
-          // }
+          case SECTION_TYPE.MESSAGE: {
+            return (
+              <div id={`section-${index}`} key={index}>
+                <Message key={index} {...section} />
+              </div>
+            );
+          }
+          case SECTION_TYPE.TILE_LINKS: {
+            return (
+              <div id={`section-${index}`} key={index}>
+                <TileLinks key={index} section={section as ContentfulSection} />
+              </div>
+            );
+          }
+          case SECTION_TYPE.TILE_LINK: {
+            return (
+              <div id={`section-${index}`} key={index}>
+                <TileLink key={index} section={section} />
+              </div>
+            );
+          }
           // case SECTION_TYPE.CLINIC_PREVIEW: {
           //   return <ClinicPreview key={index} {...section} />;
           // }

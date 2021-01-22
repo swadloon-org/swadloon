@@ -6,6 +6,7 @@ import { getCSSTextStyles } from '../../utilities/text.utilities';
 export const styles: { wrapper: string } & { [key in HEADING]: string } & { [key in TEXT_LEVEL]: string } = {
   wrapper: style(({ theme, cssTheme }: Theme) => ({
     display: 'flex',
+    userSelect: 'text',
   })),
 
   h1: style(({ theme, cssTheme }: Theme) => ({
@@ -56,14 +57,26 @@ export const styles: { wrapper: string } & { [key in HEADING]: string } & { [key
     },
   })),
 
+  /**
+   * Text styles
+   */
   primary: style(({ theme, cssTheme }: Theme) => ({
     color: cssTheme.colors.colorIntents.primaryText,
+  })),
+  primaryReversed: style(({ theme, cssTheme }: Theme) => ({
+    color: cssTheme.colors.colorIntents.primaryTextReversed,
   })),
   secondary: style(({ theme, cssTheme }: Theme) => ({
     color: cssTheme.colors.colorIntents.secondaryText,
   })),
+  secondaryReversed: style(({ theme, cssTheme }: Theme) => ({
+    color: cssTheme.colors.colorIntents.secondaryTextReversed,
+  })),
   tertiary: style(({ theme, cssTheme }: Theme) => ({
     color: cssTheme.colors.colorIntents.tertiaryText,
+  })),
+  tertiaryReversed: style(({ theme, cssTheme }: Theme) => ({
+    color: cssTheme.colors.colorIntents.tertiaryTextReversed,
   })),
 };
 

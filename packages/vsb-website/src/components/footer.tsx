@@ -1,11 +1,4 @@
-import {
-  LABEL_SIZE,
-  PARAGRAPH_SIZE,
-  TEXT_LEVEL,
-  TEXT_STYLE,
-  LinkStyleVariant,
-  LinkVariant,
-} from '@newrade/core-design-system';
+import { LABEL_SIZE, PARAGRAPH_SIZE, TEXT_LEVEL, TEXT_STYLE, LinkVariant } from '@newrade/core-design-system';
 import { Center, Label, Link, Paragraph, Stack } from '@newrade/core-react-ui';
 import { graphql, Link as GatsbyLink, useStaticQuery } from 'gatsby';
 import React from 'react';
@@ -13,6 +6,7 @@ import { useStyles } from 'react-treat';
 import { FooterQuery } from '../../types/graphql-types';
 import { cssTheme } from '../design-system/theme';
 import * as styleRefs from './footer.treat';
+import { CommonComponentProps, getMergedClassname } from '@newrade/core-react-ui';
 
 export const footerQuery = graphql`
   query Footer {
@@ -21,6 +15,7 @@ export const footerQuery = graphql`
     }
     contentfulCompanyAddress {
       addressLine1
+      addressLine2
       city
       provinceState
       postalCode
@@ -31,15 +26,16 @@ export const footerQuery = graphql`
     }
   }
 `;
-//To do add - commun component props
-type OwnProps = {};
 
-export const Footer: React.FC<OwnProps> = (props) => {
+type Props = CommonComponentProps;
+
+export const Footer: React.FC<Props> = ({ id, style, className, ...props }) => {
   const styles = useStyles(styleRefs);
   const data = useStaticQuery<FooterQuery>(footerQuery);
+  const mergedClassNames = getMergedClassname([className, styles.wrapper]);
 
   return (
-    <div className={`${styles.wrapper}`}>
+    <div id={id} style={style} className={mergedClassNames}>
       <Center>
         <Stack gap={[cssTheme.sizing.var.x5]}>
           <div className={styles.grid}>
@@ -52,19 +48,19 @@ export const Footer: React.FC<OwnProps> = (props) => {
                 Services
               </Label>
               <Stack gap={[cssTheme.sizing.var.x4]}>
-                <Link variantStyle={LinkStyleVariant.reversed} AsElement={<GatsbyLink to={'/vasectomie/'} />}>
+                <Link variantLevel={TEXT_LEVEL.primaryReversed} AsElement={<GatsbyLink to={'/vasectomie/'} />}>
                   Tout sur la vasectomie
                 </Link>
 
                 <Link
-                  variantStyle={LinkStyleVariant.reversed}
+                  variantLevel={TEXT_LEVEL.primaryReversed}
                   AsElement={<GatsbyLink to={'/formulaire-vasectomie/'} />}
                 >
                   Formulaire de demande
                 </Link>
 
                 <Link
-                  variantStyle={LinkStyleVariant.reversed}
+                  variantLevel={TEXT_LEVEL.primaryReversed}
                   AsElement={<GatsbyLink to={'/examen-pour-transport-canada/'} />}
                 >
                   Examen pour Transport Canada
@@ -80,18 +76,18 @@ export const Footer: React.FC<OwnProps> = (props) => {
                 La Clinique
               </Label>
               <Stack gap={[cssTheme.sizing.var.x4]}>
-                <Link variantStyle={LinkStyleVariant.reversed} AsElement={<GatsbyLink to={'/equipe/'} />}>
+                <Link variantLevel={TEXT_LEVEL.primaryReversed} AsElement={<GatsbyLink to={'/equipe/'} />}>
                   Notre équipe
                 </Link>
 
                 <Link
-                  variantStyle={LinkStyleVariant.reversed}
+                  variantLevel={TEXT_LEVEL.primaryReversed}
                   AsElement={<GatsbyLink to={'/equipe/#dr_pierre_jr_boucher'} />}
                 >
                   Dr. Pierre Jr. Boucher
                 </Link>
 
-                <Link variantStyle={LinkStyleVariant.reversed} AsElement={<GatsbyLink to={'/contact/'} />}>
+                <Link variantLevel={TEXT_LEVEL.primaryReversed} AsElement={<GatsbyLink to={'/contact/'} />}>
                   Contact
                 </Link>
               </Stack>
@@ -106,33 +102,35 @@ export const Footer: React.FC<OwnProps> = (props) => {
               </Label>
               <Stack gap={[cssTheme.sizing.var.x4]}>
                 <Link
-                  variantStyle={LinkStyleVariant.reversed}
+                  variantLevel={TEXT_LEVEL.primaryReversed}
                   variant={LinkVariant.underline}
                   href={`mailto:${data?.contentfulCompanyAddress?.email}`}
                 >
                   {data?.contentfulCompanyAddress?.email}
                 </Link>
                 <Link
-                  variantStyle={LinkStyleVariant.reversed}
+                  variantLevel={TEXT_LEVEL.primaryReversed}
                   variant={LinkVariant.underline}
                   href={`tel:${data?.contentfulCompanyAddress?.phone}`}
                 >
                   {data?.contentfulCompanyAddress?.phone}
                 </Link>
                 <Link
-                  variantStyle={LinkStyleVariant.reversed}
+                  variantLevel={TEXT_LEVEL.primaryReversed}
                   variant={LinkVariant.underline}
                   href={`fax:${data?.contentfulCompanyAddress?.fax}`}
                 >
                   {data?.contentfulCompanyAddress?.fax}
                 </Link>
                 <Link
-                  variantStyle={LinkStyleVariant.reversed}
+                  variantLevel={TEXT_LEVEL.primaryReversed}
                   variant={LinkVariant.underline}
                   href={'https://goo.gl/maps/nndYpgQLkbDC6c7S7'}
                   target="blank"
                 >
                   {data?.contentfulCompanyAddress?.addressLine1}
+                  <br />
+                  {data?.contentfulCompanyAddress?.addressLine2}
                 </Link>
               </Stack>
             </Stack>

@@ -20,16 +20,6 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
         <Heading variant={HEADING.h2}>Components</Heading>
         <Stack gap={[cssTheme.sizing.var.x4]}>
           <Heading variant={HEADING.h2}>Background Effect</Heading>
-
-          <BoxV2>
-            <Background imageSrc={'https://icatcare.org/app/uploads/2018/07/Thinking-of-getting-a-cat.png'} />
-            <Placeholder></Placeholder>
-          </BoxV2>
-
-          <BoxV2>
-            <Background imageSrc={'https://icatcare.org/app/uploads/2018/07/Thinking-of-getting-a-cat.png'} />
-            <Placeholder></Placeholder>
-          </BoxV2>
         </Stack>
       </Stack>
     </Stack>

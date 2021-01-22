@@ -24,7 +24,7 @@ export const ClinicPreview: React.FC<OwnProps> = (props) => {
     <Center className={`${styles.wrapper}`}>
       <div className={styles.grid}>
         <BoxV2 className={styles.imagePreview}>
-          {hasImage ? (
+          {/* {hasImage ? (
             // <Background
             //   filter={['grayscale(90%)']}
             //   backgroundPosition={['50% 50%']}
@@ -32,7 +32,7 @@ export const ClinicPreview: React.FC<OwnProps> = (props) => {
             //   AsElement={<BackgroundImage Tag="div" fluid={imageData as IFluidObject} fadeIn={false}></BackgroundImage>}
             // ></Background>
             <Background imageSrc={props?.medias?.medias?.[0]?.file?.url}></Background>
-          ) : null}
+          ) : null} */}
         </BoxV2>
         <BoxV2 className={styles.containerInfo}>
           <Stack gap={[cssTheme.sizing.var.x5]}>

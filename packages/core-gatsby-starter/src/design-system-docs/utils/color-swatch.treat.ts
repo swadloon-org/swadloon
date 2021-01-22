@@ -8,6 +8,6 @@ export const styles = {
   squareColor: style(({ theme, cssTheme }: Theme) => ({
     width: `100%`,
     height: `60px`,
-    boxShadow: cssTheme.effects.shadows.light,
+    boxShadow: cssTheme.effects.boxShadows.light,
   })),
 };

@@ -2,7 +2,9 @@ import { Theme } from '@newrade/core-react-ui';
 import { style } from 'treat';
 
 export const styles = {
-  wrapper: style(({ theme, cssTheme }: Theme) => ({})),
+  wrapper: style(({ theme, cssTheme }: Theme) => ({
+    color: cssTheme.colors.colorIntents.primaryTextReversed,
+  })),
   gridSwitch: style(({ theme, cssTheme }: Theme) => ({
     display: 'grid',
     gridTemplateColumns: '1fr',
@@ -15,5 +17,8 @@ export const styles = {
         gridTemplateColumns: '1fr 1fr',
       },
     },
+  })),
+  evenTile: style(({ theme, cssTheme }: Theme) => ({
+    justifySelf: 'flex-end',
   })),
 };

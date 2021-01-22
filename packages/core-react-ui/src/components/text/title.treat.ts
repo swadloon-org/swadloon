@@ -5,8 +5,9 @@ import { getCSSTextStyles } from '../../utilities/text.utilities';
 
 export const styles: { [key in TITLE]: string } & { [key in TEXT_LEVEL]: string } = {
   t1: style(({ theme, cssTheme }: Theme) => ({
-    // TODO: Design System 2.0
-    textShadow: `0px 2px 17px rgba(0, 0, 0, 0.04)`,
+    // todo should be in all titles
+    wordBreak: 'normal',
+    userSelect: 'text',
     ...getCSSTextStyles(cssTheme.typography.titles.mobile.t1),
     '@media': {
       [cssTheme.layout.media.tablet]: {
@@ -32,10 +33,19 @@ export const styles: { [key in TITLE]: string } & { [key in TEXT_LEVEL]: string 
   primary: style(({ theme, cssTheme }: Theme) => ({
     color: cssTheme.colors.colorIntents.primaryText,
   })),
+  primaryReversed: style(({ theme, cssTheme }: Theme) => ({
+    color: cssTheme.colors.colorIntents.primaryTextReversed,
+  })),
   secondary: style(({ theme, cssTheme }: Theme) => ({
     color: cssTheme.colors.colorIntents.secondaryText,
   })),
+  secondaryReversed: style(({ theme, cssTheme }: Theme) => ({
+    color: cssTheme.colors.colorIntents.secondaryTextReversed,
+  })),
   tertiary: style(({ theme, cssTheme }: Theme) => ({
     color: cssTheme.colors.colorIntents.tertiaryText,
+  })),
+  tertiaryReversed: style(({ theme, cssTheme }: Theme) => ({
+    color: cssTheme.colors.colorIntents.tertiaryTextReversed,
   })),
 };

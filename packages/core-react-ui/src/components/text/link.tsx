@@ -1,4 +1,4 @@
-import { LinkProps, LinkState, LinkStyleVariant, LinkVariant, PARAGRAPH_SIZE } from '@newrade/core-design-system';
+import { LinkProps, LinkState, LinkVariant, PARAGRAPH_SIZE, TEXT_LEVEL } from '@newrade/core-design-system';
 import React, { AnchorHTMLAttributes, useRef } from 'react';
 import { useButton } from 'react-aria';
 import { IoOpenOutline } from 'react-icons/io5';
@@ -9,7 +9,7 @@ import * as stylesRef from './link.treat';
 
 type Props = CommonComponentProps &
   AnchorHTMLAttributes<any> &
-  Pick<LinkProps, 'role' | 'variant' | 'variantIcon' | 'variantSize' | 'variantStyle'> & {
+  Pick<LinkProps, 'role' | 'variant' | 'variantIcon' | 'variantSize' | 'variantLevel'> & {
     as?: 'div' | 'a';
     Icon?: React.ReactNode;
   };
@@ -23,7 +23,7 @@ export const Link: React.FC<Props> = React.memo(
     variantIcon,
     Icon,
     variantSize,
-    variantStyle,
+    variantLevel,
     as,
     AsElement,
     children,
@@ -44,7 +44,7 @@ export const Link: React.FC<Props> = React.memo(
      */
     const variantStateClassName = styles[LinkState.rest];
     const variantClassName = styles[variant ? variant : LinkVariant.noUnderline];
-    const variantStyleClassName = styles[variantStyle ? variantStyle : LinkStyleVariant.normal];
+    const variantStyleClassName = styles[variantLevel ? variantLevel : TEXT_LEVEL.primary];
     const variantSizeClassName = styles[variantSize ? variantSize : PARAGRAPH_SIZE.small];
     const activeClassName = isPressed ? styles.active : '';
     const allClassName = getMergedClassname([
@@ -63,7 +63,7 @@ export const Link: React.FC<Props> = React.memo(
       ? children
       : getDefaultTextFromProps('link', {
           variant,
-          variantStyle,
+          variantLevel,
           variantSize,
           variantIcon,
         });

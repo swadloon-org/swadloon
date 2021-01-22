@@ -129,7 +129,7 @@ export function getCSSEffects(options: Effects): Effects<string> {
       previous[current] = {} as Shadows<string>;
     }
     shadowsKey.forEach((shadow) => {
-      previous[current][shadow] = getCSSShadow(options[current][shadow]);
+      previous[current][shadow] = getCSSBoxShadow(options[current][shadow]);
     });
     return previous;
   }, {} as Effects<string>);

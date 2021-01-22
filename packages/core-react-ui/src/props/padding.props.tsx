@@ -1,3 +1,24 @@
+import { AlignItemsProperty, JustifyContentProperty } from 'csstype';
+
+/**
+ * [mobile, tablet, desktop]
+ */
+export type AlignItemsViewportProps =
+  | [AlignItemsProperty]
+  | [AlignItemsProperty, AlignItemsProperty]
+  | [AlignItemsProperty, AlignItemsProperty, AlignItemsProperty];
+
+export type JustifyContentViewportProps =
+  | [JustifyContentProperty]
+  | [JustifyContentProperty, JustifyContentProperty]
+  | [JustifyContentProperty, JustifyContentProperty, JustifyContentProperty];
+
+/**
+ * [all]
+ * [top & bottom, right & left]
+ * [top, right & left, bottom]
+ * [top, right, bottom, left]
+ */
 export type PaddingProps =
   | [PaddingNumber | PaddingString]
   | [PaddingNumber | PaddingString, PaddingNumber | PaddingString]

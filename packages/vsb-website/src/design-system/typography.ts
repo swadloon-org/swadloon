@@ -36,12 +36,12 @@ export const typography: Typography = {
     fontWeight: 500,
     mobile: {
       t1: {
-        capHeight: 34,
-        lineGap: 24,
+        capHeight: 28,
+        lineGap: 20,
       },
       t2: {
-        capHeight: 28,
-        lineGap: 22,
+        capHeight: 24,
+        lineGap: 20,
       },
     },
     tablet: {
@@ -56,8 +56,8 @@ export const typography: Typography = {
     },
     desktop: {
       t1: {
-        capHeight: 42,
-        lineGap: 45,
+        capHeight: 55,
+        lineGap: 34,
       },
       t2: {
         capHeight: 36,
@@ -114,11 +114,11 @@ export const typography: Typography = {
         lineGap: 16,
       },
       h3: {
-        capHeight: 22,
+        capHeight: 20,
         lineGap: 14,
       },
       h4: {
-        capHeight: 20,
+        capHeight: 18,
         lineGap: 14,
       },
     },
@@ -128,7 +128,7 @@ export const typography: Typography = {
     fontWeight: 400,
     styles: {
       bold: {
-        fontWeight: 600,
+        fontWeight: 500,
       },
       italic: {
         fontWeight: 400,
@@ -203,7 +203,7 @@ export const typography: Typography = {
         letterSpacing: 10,
       },
       uppercase: {
-        fontWeight: 400,
+        fontWeight: 500,
         textTransform: TEXT_TRANSFORM.uppercase,
         letterSpacing: 10,
       },
