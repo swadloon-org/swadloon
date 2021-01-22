@@ -18,17 +18,6 @@ import { SchemaOf, ValidationError } from 'yup';
 import * as styleRefs from './from.treat';
 import { useStyles } from 'react-treat';
 import { LABEL_SIZE, TEXT_STYLE } from '@newrade/core-design-system';
-import { object } from 'io-ts';
-import { date } from 'yup/lib/locale';
-import { delimiter } from 'path';
-
-export interface ISignUpData {
-  street: string;
-  city: string;
-  province: string;
-  country: string;
-  postal: string;
-}
 
 const useYupValidationResolver = (PatientValidation: SchemaOf<PatientModel>) =>
   useCallback(
