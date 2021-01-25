@@ -1,6 +1,6 @@
 import { TITLE, TEXT_LEVEL } from '@newrade/core-design-system';
 import { pascal, kebab } from 'case';
-import React, { HTMLAttributes } from 'react';
+import React, { HTMLAttributes, useRef } from 'react';
 import { useStyles } from 'react-treat';
 import { CommonComponentProps } from '../../props/component-common.props';
 import * as stylesRef from './title.treat';
@@ -23,15 +23,16 @@ export const Title = React.memo(
     const type = variant === TITLE.t1 ? 'h1' : 'h2';
     const defaultChildrenString = `${defaultProps.children as string} ${pascal(type)}`;
     const child = children ? children : defaultChildrenString;
+    const refLocal = ref ? (ref as React.RefObject<HTMLButtonElement>) : useRef<HTMLButtonElement>(null);
 
     return React.createElement(type, {
+      ref,
       id: id ? id : typeof child === 'string' ? kebab(child) : kebab(defaultChildrenString),
       className: `${className || ''} ${styles[variant ? variant : (defaultProps.variant as TITLE)]} ${
         variantLevel ? styles[variantLevel] : ''
       }`,
       children: child,
       ...props,
-      ref,
     });
   })
 );

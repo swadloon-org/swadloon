@@ -1,11 +1,12 @@
 import { LinkProps, LinkState, LinkVariant, PARAGRAPH_SIZE, TEXT_LEVEL } from '@newrade/core-design-system';
-import React, { AnchorHTMLAttributes, useRef } from 'react';
+import React, { AnchorHTMLAttributes, useRef, useEffect } from 'react';
 import { useButton } from 'react-aria';
 import { IoOpenOutline } from 'react-icons/io5';
 import { useStyles } from 'react-treat';
 import { CommonComponentProps } from '../../props/component-common.props';
 import { getDefaultTextFromProps, getMergedClassname } from '../../utilities/component.utilities';
 import * as stylesRef from './link.treat';
+import { usePreventPinchZoom } from '../..';
 
 type Props = CommonComponentProps &
   AnchorHTMLAttributes<any> &
@@ -38,6 +39,8 @@ export const Link: React.FC<Props> = React.memo(
     let ref = useRef();
     // @ts-ignore
     let { buttonProps, isPressed } = useButton({ ...props, elementType: type }, ref);
+
+    usePreventPinchZoom(ref.current);
 
     /**
      * Props

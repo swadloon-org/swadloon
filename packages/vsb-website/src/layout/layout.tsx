@@ -156,7 +156,7 @@ export const Layout = React.memo<LayoutProps>((props) => {
         menuOpened={sidebarOpened}
       ></NavBar>
 
-      <SideBar sidebarOpened={sidebarOpened} fullHeight={false}>
+      <SideBar sidebarOpened={sidebarOpened} fullHeight={false} disableBodyScroll={true}>
         <Stack>
           <BoxV2
             padding={[cssTheme.sizing.var.x4, cssTheme.layout.var.contentMargins, cssTheme.sizing.var.x4]}

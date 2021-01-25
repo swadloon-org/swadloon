@@ -111,6 +111,7 @@ export const styles: { [key in ButtonStyleProps['variant']]: string } &
     cursor: 'pointer',
     appearance: 'none',
     userSelect: 'none',
+    touchAction: 'none',
     WebkitAppearance: 'none',
     borderRadius: 4,
     width: 'fit-content',

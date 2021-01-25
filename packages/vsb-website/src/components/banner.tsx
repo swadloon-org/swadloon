@@ -26,12 +26,11 @@ export const Banner: React.FC<OwnProps> = (props) => {
    * Icon animation
    */
   useEffect(() => {
-    const wrapper = ref.current;
-    if (!wrapper) {
+    if (!ref.current) {
       return;
     }
 
-    const tween = TweenMax.to(wrapper.getElementsByClassName(styles.icon), {
+    const tween = TweenMax.to(ref.current.getElementsByClassName(styles.icon), {
       duration: 1,
       y: -10,
       ease: `elastic.out(1, 0.4)`,
@@ -43,7 +42,7 @@ export const Banner: React.FC<OwnProps> = (props) => {
     return () => {
       tween.kill();
     };
-  }, []);
+  }, [ref.current]);
 
   function handleScrollToNextSection() {
     const wrapper = ref.current;
@@ -59,6 +58,7 @@ export const Banner: React.FC<OwnProps> = (props) => {
 
     TweenMax.to(window, {
       duration: 1,
+      delay: 0.2,
       ease: 'power2',
       scrollTo: {
         y: target,
@@ -92,15 +92,16 @@ export const Banner: React.FC<OwnProps> = (props) => {
             >
               <Title>{props.title?.trim()}</Title>
               {props.subtitle ? <Title>{props.subtitle?.trim()}</Title> : null}
-              <Button
-                ref={ref}
-                className={styles.icon}
-                size={ButtonSize.large}
-                variant={ButtonVariant.tertiaryReversed}
-                icon={ButtonIcon.icon}
-                Icon={<IoChevronDownOutline />}
-                onPress={handleScrollToNextSection}
-              ></Button>
+
+              <div ref={ref} className={styles.icon}>
+                <Button
+                  size={ButtonSize.large}
+                  variant={ButtonVariant.tertiaryReversed}
+                  icon={ButtonIcon.icon}
+                  Icon={<IoChevronDownOutline />}
+                  onPress={handleScrollToNextSection}
+                ></Button>
+              </div>
             </Stack>
           </Center>
         </Background>

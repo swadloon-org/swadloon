@@ -29,8 +29,8 @@ globalStyle(`html`, {
   // @ts-ignore
   WebkitFontSmoothing: 'antialiased',
   // ensure fast clicks on ios safari 9, 10
-  touchAction: 'manipulation',
-  WebkitTouchCallout: 'none',
+  // disable browser handling of all panning and zooming gestures. https://developer.mozilla.org/en-US/docs/Web/CSS/touch-action#values
+  touchAction: 'none',
   // smooth background transition
   transition: 'background-color 0.2s ease-out',
   // user select

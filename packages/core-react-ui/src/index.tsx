@@ -33,6 +33,8 @@ export * from './global/global-css-variables';
 export * from './global/global-markdown-css';
 export * from './global/global-reset-css';
 export * from './hooks/use-mouse-position';
+export * from './hooks/use-prevent-pinch-zoom';
+export * from './hooks/use-prevent-long-press';
 export * from './hooks/use-network-status';
 export * from './hooks/use-treat-theme';
 export * from './hooks/use-viewport';
