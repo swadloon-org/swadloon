@@ -243,3 +243,19 @@ globalStyle(`table`, {
   borderCollapse: 'collapse',
   borderSpacing: '0',
 });
+
+/**
+ * Resets ol,ul,li
+ */
+globalStyle(`ul,ol`, {
+  listStylePosition: 'inside', // no side effects from the added padding
+  marginBlockStart: '0px',
+  marginBlockEnd: '0px',
+  marginInlineStart: '0px',
+  marginInlineEnd: '0px',
+  paddingInlineStart: '0px',
+});
+
+globalStyle(`li`, {
+  lineHeight: '0', // ensure that the list items height collapse
+});

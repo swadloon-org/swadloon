@@ -28,13 +28,60 @@ type OwnProps = CommonComponentProps & {
   order?: 'normal' | 'reverse';
 };
 
-export const InfoSection: React.FC<OwnProps> = ({ id, style, className, variant, section, ...props }) => {
+export const InfoSection: React.FC<OwnProps> = ({
+  id,
+  style,
+  className,
+  variant,
+  section,
+  order = 'normal',
+  ...props
+}) => {
   const { styles } = useStyles(styleRefs);
   const mergedClassNames = getMergedClassname([styles.wrapper, className, variant ? styles[variant] : '']);
   const hasImage = !!section?.medias?.medias?.length;
   const mobileFluidTallImage: any = section?.medias?.medias?.[0]?.mobileFluidTallImage;
   const hasMarkdown = !!section?.text?.childMdx?.body;
   const mardownData: any = section?.text?.childMdx?.body;
+
+  const children = [
+    <BoxV2 className={styles.imagePreview} justifySelf={['center', 'center', 'flex-end']} key={'1'}>
+      <Image
+        // effects={[
+        //   {
+        //     background: gradient,
+        //     zIndex: 1,
+        //   },
+        // ]}
+        image={
+          hasImage
+            ? {
+                Tag: 'div',
+                fluid: mobileFluidTallImage as FluidObject,
+              }
+            : undefined
+        }
+      ></Image>
+    </BoxV2>,
+    <Stack gap={[`2em`]} style={{ maxWidth: `min(480px, 100%)` }} key={'2'}>
+      <Heading variant={HEADING.h1}>{section?.title}</Heading>
+
+      <GlobalMarkdownCSS>
+        <MDXRenderer>{hasMarkdown ? mardownData : ''}</MDXRenderer>
+      </GlobalMarkdownCSS>
+
+      {section.link?.page?.slug ? (
+        <Button
+          size={ButtonSize.large}
+          variant={ButtonVariant.secondary}
+          Icon={<IoArrowForwardOutline />}
+          AsElement={<GatsbyLink to={section.link?.page?.slug} />}
+        >
+          {section.link?.label}
+        </Button>
+      ) : null}
+    </Stack>,
+  ];
 
   return (
     <Center id={id} style={style} className={mergedClassNames}>
@@ -44,43 +91,7 @@ export const InfoSection: React.FC<OwnProps> = ({ id, style, className, variant,
           alignItems={['center']}
           style={{ width: `100%` }}
         >
-          <BoxV2 className={styles.imagePreview} justifySelf={['center', 'center', 'flex-end']}>
-            <Image
-              effects={[
-                {
-                  background: gradient,
-                  zIndex: 1,
-                },
-              ]}
-              image={
-                hasImage
-                  ? {
-                      Tag: 'div',
-                      fluid: mobileFluidTallImage as FluidObject,
-                    }
-                  : undefined
-              }
-            ></Image>
-          </BoxV2>
-
-          <Stack gap={[`2em`]} style={{ maxWidth: `min(480px, 100%)` }}>
-            <Heading variant={HEADING.h1}>{section?.title}</Heading>
-
-            <GlobalMarkdownCSS>
-              <MDXRenderer>{hasMarkdown ? mardownData : ''}</MDXRenderer>
-            </GlobalMarkdownCSS>
-
-            {section.link?.page?.slug ? (
-              <Button
-                size={ButtonSize.large}
-                variant={ButtonVariant.secondary}
-                Icon={<IoArrowForwardOutline />}
-                AsElement={<GatsbyLink to={section.link?.page?.slug} />}
-              >
-                {section.link?.label}
-              </Button>
-            ) : null}
-          </Stack>
+          {order === 'normal' ? children : children.reverse()}
         </Switcher>
       </BoxV2>
     </Center>

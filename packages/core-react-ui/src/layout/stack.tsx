@@ -2,10 +2,11 @@ import React from 'react';
 import { useStyles } from 'react-treat';
 import { CommonComponentProps } from '../props/component-common.props';
 import * as styleRefs from './stack.treat';
+import { GapProp } from '../props/layout.prop';
 
 type OwnProps = CommonComponentProps &
   Partial<{
-    gap: [string] | [string, string] | [string, string, string];
+    gap: GapProp;
   }>;
 
 export const Stack: React.FC<OwnProps> = ({ id, style, className = '', as, gap = ['0px'], ...props } = {}) => {

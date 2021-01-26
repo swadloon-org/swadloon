@@ -28,6 +28,9 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
     <>
       {data.contentfulPage?.sections?.map((section, index) => {
         switch (section?.type?.type) {
+          /**
+           * Common
+           */
           case SECTION_TYPE.BANNER: {
             return (
               <div id={`section-${index}`} key={index}>
@@ -44,6 +47,9 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
             );
           }
 
+          /**
+           * Home page
+           */
           case SECTION_TYPE.TILE_LINKS: {
             return (
               <div id={`section-${index}`} key={index}>
@@ -51,7 +57,6 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
               </div>
             );
           }
-
           case SECTION_TYPE.TILE_LINK: {
             return (
               <div id={`section-${index}`} key={index}>
@@ -59,7 +64,6 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
               </div>
             );
           }
-
           case SECTION_TYPE.CLINIC_PREVIEW: {
             return (
               <div id={`section-${index}`} key={index}>
@@ -70,10 +74,14 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
           case SECTION_TYPE.CONTACT_PREVIEW: {
             return (
               <div id={`section-${index}`} key={index}>
-                <InfoSection variant={'secondary'} key={index} section={section} />
+                <InfoSection variant={'secondary'} order={'reverse'} key={index} section={section} />
               </div>
             );
           }
+
+          /**
+           * Clinic page
+           */
           case SECTION_TYPE.CLINIC_MISSION: {
             return (
               <div id={`section-${index}`} key={index}>
@@ -85,10 +93,14 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
           case SECTION_TYPE.CLINIC_DR_PROFILE: {
             return (
               <div id={`section-${index}`} key={index}>
-                <ClinicDrProfile key={index} {...section} />
+                <InfoSection key={index} section={section} />
               </div>
             );
           }
+
+          /**
+           * Vasectomy page
+           */
           case SECTION_TYPE.VASECTOMY_STEPS: {
             return (
               <div id={`section-${index}`} key={index}>
@@ -99,7 +111,7 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
           case SECTION_TYPE.VASECTOMY_INFO: {
             return (
               <div id={`section-${index}`} key={index}>
-                <VasectomyInfo key={index} {...section} />
+                <InfoSection key={index} section={section} />
               </div>
             );
           }
@@ -131,6 +143,10 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
               </div>
             );
           }
+
+          /**
+           * Vasectomy form page
+           */
           case SECTION_TYPE.VASECTOMY_FORM_VIDEO: {
             return (
               <div id={`section-${index}`} key={index}>
@@ -145,10 +161,14 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
               </div>
             );
           }
+
+          /**
+           * Pilot page
+           */
           case SECTION_TYPE.PILOT_EXAM_INFO: {
             return (
               <div id={`section-${index}`} key={index}>
-                <PilotExamInfo key={index} {...section} />
+                <InfoSection key={index} section={section} />
               </div>
             );
           }
@@ -162,10 +182,14 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
           case SECTION_TYPE.PILOT_EXAM_DR_PROFILE: {
             return (
               <div id={`section-${index}`} key={index}>
-                <PilotExamDrProfile key={index} {...section} />
+                <InfoSection key={index} section={section} />
               </div>
             );
           }
+
+          /**
+           * Contact page
+           */
           case SECTION_TYPE.CONTACT_CONTACT: {
             return (
               <div id={`section-${index}`} key={index}>

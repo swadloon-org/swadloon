@@ -53,6 +53,7 @@ export function useQuery() {
 export function useNavItems(): NavItem[] {
   const data = useQuery();
   const dirSortOrder = ['Services', 'La Clinique', 'Nous Joindre'];
+  const pageSortOrder = ['Tout sur', 'Formulaire', 'Examen'];
 
   const navItems: NavItem[] = data?.pages.nodes
     .filter((node) => !/404/gi.test(node.context?.name || ''))

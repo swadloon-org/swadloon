@@ -66,3 +66,6 @@ export const copyright = style(({ cssTheme, theme }: Theme) => ({
   marginTop: cssTheme.sizing.var.x4,
   color: cssTheme.colors.colors.grey[700],
 }));
+export const listItem = style(({ cssTheme, theme }: Theme) => ({
+  display: 'inline-block',
+}));
