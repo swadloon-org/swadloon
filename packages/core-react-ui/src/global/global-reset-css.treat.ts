@@ -26,8 +26,10 @@ globalStyle(`html`, {
   overflowX: 'hidden',
   // prevent tap highlight
   WebkitTapHighlightColor: 'rgba(0, 0, 0, 0) ',
+  // https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth
   // @ts-ignore
   WebkitFontSmoothing: 'antialiased',
+  '-moz-osx-font-smoothing': 'grayscale',
   // ensure fast clicks on ios safari 9, 10
   // disable browser handling zooming gestures https://developer.mozilla.org/en-US/docs/Web/CSS/touch-action#values
   touchAction: 'pan-x pan-y',

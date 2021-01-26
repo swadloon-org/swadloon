@@ -231,6 +231,10 @@ export function useBodyScrollLock({
     if (disableScrolling === false) {
       enableBodyScroll(ref.current);
     }
+
+    return () => {
+      disableBodyScroll(ref.current);
+    };
   }, [ref.current, disableScrolling]);
 
   return [locks, documentListenerAdded];
