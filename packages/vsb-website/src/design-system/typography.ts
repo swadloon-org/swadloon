@@ -106,8 +106,8 @@ export const typography: Typography = {
     },
     desktop: {
       h1: {
-        capHeight: 28,
-        lineGap: 18,
+        capHeight: 34,
+        lineGap: 20,
       },
       h2: {
         capHeight: 24,
@@ -210,7 +210,7 @@ export const typography: Typography = {
     },
     mobile: {
       medium: {
-        capHeight: 13,
+        capHeight: 12,
         lineGap: 12,
       },
       small: {

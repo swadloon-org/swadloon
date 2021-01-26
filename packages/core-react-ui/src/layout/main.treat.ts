@@ -4,6 +4,7 @@ import { Theme } from '../design-system/css-design-system';
 export const styles = {
   wrapper: style(({ cssTheme, theme }: Theme) => ({
     width: `100%`,
+    overflowX: 'hidden',
     backgroundColor: cssTheme.colors.colorIntents.background0,
   })),
   navbar: style(({ cssTheme, theme }: Theme) => ({

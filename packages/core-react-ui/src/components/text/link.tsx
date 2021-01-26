@@ -40,7 +40,7 @@ export const Link: React.FC<Props> = React.memo(
     // @ts-ignore
     let { buttonProps, isPressed } = useButton({ ...props, elementType: type }, ref);
 
-    usePreventPinchZoom(ref.current);
+    // usePreventPinchZoom(ref.current);
 
     /**
      * Props

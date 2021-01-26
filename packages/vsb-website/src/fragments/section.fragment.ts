@@ -54,6 +54,24 @@ export const sectionFragment = graphql`
           srcSetWebp
           sizes
         }
+        mobileFluidTallImage: fluid(quality: 90, maxHeight: 630) {
+          base64
+          aspectRatio
+          src
+          srcSet
+          srcWebp
+          srcSetWebp
+          sizes
+        }
+        fixed: fixed(quality: 90, height: 650) {
+          base64
+          width
+          height
+          src
+          srcSet
+          srcWebp
+          srcSetWebp
+        }
       }
     }
   }

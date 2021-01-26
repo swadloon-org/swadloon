@@ -28,7 +28,7 @@ export const NavItem: React.FC<Props> = ({ id, style, className, active, AsEleme
           ...props,
         },
         <div style={style} className={allClassName}>
-          <Label variant={LABEL_SIZE.medium}>{props.children}</Label>
+          <Label variantStyle={TEXT_STYLE.normal}>{props.children}</Label>
         </div>
       )
     : null;

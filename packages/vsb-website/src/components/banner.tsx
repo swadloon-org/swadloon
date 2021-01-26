@@ -9,6 +9,7 @@ import * as styleRefs from './banner.treat';
 import { ButtonIcon, ButtonVariant, ButtonSize } from '@newrade/core-design-system';
 
 import ScrollToPlugin from '@newrade/core-gsap-ui/lib/plugins/ScrollToPlugin';
+import { gradient } from '../styles/effects.styles';
 
 gsap.registerPlugin(ScrollToPlugin);
 
@@ -72,7 +73,7 @@ export const Banner: React.FC<OwnProps> = (props) => {
         <Background
           effects={[
             {
-              background: `linear-gradient(rgb(0 0 0 / 30%) 0%, rgba(0, 0, 0, 0) 36%), linear-gradient(0deg, rgb(14 13 13 / 20%), rgba(14, 13, 13, 0.20))`,
+              background: gradient,
             },
           ]}
           backgroundImage={{

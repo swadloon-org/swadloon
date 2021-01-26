@@ -24,7 +24,6 @@ export const styles: { [key in LABEL_SIZE]: string } &
       [cssTheme.layout.media.tablet]: {
         ...getCSSSizeTextStyles(cssTheme.typography.labels.tablet.small),
       },
-
       [cssTheme.layout.media.desktopSmall]: {
         ...getCSSSizeTextStyles(cssTheme.typography.labels.desktop.small),
       },

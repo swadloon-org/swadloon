@@ -1,5 +1,6 @@
 export * from './components/button/button';
 export * from './components/effect/background';
+export * from './components/effect/image';
 export * from './components/effect/background-effect';
 export * from './components/svg-logo/svg-logo';
 export * from './components/table/caption';

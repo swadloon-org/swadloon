@@ -29,7 +29,21 @@ type Props = CommonComponentProps &
 
 export const Button = React.forwardRef<any, Props>(
   (
-    { id, style, className, children, variant, collapsePadding, as, AsElement, size, state, icon, Icon, ...props },
+    {
+      id,
+      style,
+      className,
+      children,
+      variant,
+      collapsePadding,
+      as,
+      AsElement,
+      size,
+      state,
+      icon = ButtonIcon.right,
+      Icon,
+      ...props
+    },
     ref
   ) => {
     const { styles } = useStyles(stylesRef);

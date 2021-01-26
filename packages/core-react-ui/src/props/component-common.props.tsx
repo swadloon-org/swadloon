@@ -9,6 +9,9 @@ export type CommonComponentProps = Partial<{
    * Pass a complete React component to replace the default outer containing element.
    */
   AsElement: React.ReactNode;
+  /**
+   * Id that will be normalized
+   */
   id: string;
   /**
    * Class name that will be applied to the component's outer containing element.

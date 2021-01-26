@@ -10,7 +10,7 @@ export const PilotExamService: React.FC<OwnProps> = (props) => {
 
   return (
     <div className={`${styles.wrapper}`}>
-      <pre>{JSON.stringify(props, null, 2)}</pre>
+      <pre>{JSON.stringify(props.name, null, 2)}</pre>
     </div>
   );
 };
