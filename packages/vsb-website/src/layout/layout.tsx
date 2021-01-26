@@ -156,110 +156,111 @@ export const Layout = React.memo<LayoutProps>((props) => {
         menuOpened={sidebarOpened}
       ></NavBar>
 
-      <SideBar sidebarOpened={sidebarOpened} fullHeight={false}>
-        <Stack>
-          <BoxV2
-            padding={[cssTheme.sizing.var.x4, cssTheme.layout.var.contentMargins, cssTheme.sizing.var.x4]}
-            style={{ flexDirection: 'column' }}
-            justifyContent={['flex-start']}
-            alignItems={['stretch']}
-          >
-            <Stack gap={[cssTheme.sizing.var.x4]}>
-              {[...navItemsByDirName].map((dirName, index) => {
-                return (
-                  <Stack key={index} gap={[`calc(2 * ${cssTheme.sizing.var.x1})`]}>
-                    {dirName === '' ? (
-                      <NavItemGroup>Docs</NavItemGroup>
-                    ) : (
-                      <NavItemGroup>{title(dirName || '')}</NavItemGroup>
-                    )}
-                    <Stack>
-                      {navItems
-                        .filter((item) => item.dirName === dirName)
-                        .map((item, itemIndex) => {
-                          return (
-                            <NavItem
-                              key={itemIndex}
-                              active={item.path === props.location?.pathname}
-                              AsElement={<GatsbyLink to={item.path} noStyles={true} />}
-                            >
-                              {item.name}
-                            </NavItem>
-                          );
-                        })}
-                    </Stack>
-                  </Stack>
-                );
-              })}
-            </Stack>
-          </BoxV2>
-
-          <BoxV2
-            style={{ flexDirection: 'column', backgroundColor: cssTheme.colors.colors.grey[800] }}
-            justifyContent={['flex-start']}
-            alignItems={['stretch']}
-            padding={[cssTheme.sizing.var.x5, cssTheme.layout.var.contentMargins]}
-          >
-            <Stack gap={[cssTheme.sizing.var.x5]}>
-              <Stack gap={[cssTheme.sizing.var.x3]}>
-                <Heading variant={HEADING.h4} variantLevel={TEXT_LEVEL.primaryReversed}>
-                  Clinique Dr. Pierre Boucher Jr.
-                </Heading>
-                <Label
-                  variant={LABEL_SIZE.xSmall}
-                  variantStyle={TEXT_STYLE.boldUppercase}
-                  variantLevel={TEXT_LEVEL.primaryReversed}
-                >
-                  Omnipraticien CCMF
-                </Label>
-              </Stack>
-
+      {typeof window !== `undefined` ? (
+        <SideBar sidebarOpened={sidebarOpened} fullHeight={false} disableBodyScroll={true}>
+          <Stack>
+            <BoxV2
+              padding={[cssTheme.sizing.var.x4, cssTheme.layout.var.contentMargins, cssTheme.sizing.var.x4]}
+              style={{ flexDirection: 'column' }}
+              justifyContent={['flex-start']}
+              alignItems={['stretch']}
+            >
               <Stack gap={[cssTheme.sizing.var.x4]}>
-                <Link
-                  variantLevel={TEXT_LEVEL.primaryReversed}
-                  variantSize={PARAGRAPH_SIZE.small}
-                  variant={LinkVariant.underline}
-                  href={`mailto:${companyAddress?.email}`}
-                >
-                  {companyAddress?.email}
-                </Link>
-                <Link
-                  variantLevel={TEXT_LEVEL.primaryReversed}
-                  variantSize={PARAGRAPH_SIZE.small}
-                  variant={LinkVariant.underline}
-                  href={`tel:${companyAddress?.phone}`}
-                >
-                  {companyAddress?.phone}
-                </Link>
-                <Link
-                  variantLevel={TEXT_LEVEL.primaryReversed}
-                  variantSize={PARAGRAPH_SIZE.small}
-                  variant={LinkVariant.underline}
-                  href={`fax:${companyAddress?.fax}`}
-                >
-                  {companyAddress?.fax}
-                </Link>
-                <Link
-                  variantLevel={TEXT_LEVEL.primaryReversed}
-                  variantSize={PARAGRAPH_SIZE.small}
-                  variant={LinkVariant.underline}
-                  href={'https://goo.gl/maps/nndYpgQLkbDC6c7S7'}
-                  target="blank"
-                >
-                  {companyAddress?.addressLine1}
-                  <br />
-                  {companyAddress?.addressLine2}
-                </Link>
+                {[...navItemsByDirName].map((dirName, index) => {
+                  return (
+                    <Stack key={index} gap={[`calc(2 * ${cssTheme.sizing.var.x1})`]}>
+                      {dirName === '' ? (
+                        <NavItemGroup>Docs</NavItemGroup>
+                      ) : (
+                        <NavItemGroup>{title(dirName || '')}</NavItemGroup>
+                      )}
+                      <Stack>
+                        {navItems
+                          .filter((item) => item.dirName === dirName)
+                          .map((item, itemIndex) => {
+                            return (
+                              <NavItem
+                                key={itemIndex}
+                                active={item.path === props.location?.pathname}
+                                AsElement={<GatsbyLink to={item.path} noStyles={true} />}
+                              >
+                                {item.name}
+                              </NavItem>
+                            );
+                          })}
+                      </Stack>
+                    </Stack>
+                  );
+                })}
               </Stack>
+            </BoxV2>
 
-              <Paragraph variantLevel={TEXT_LEVEL.primaryReversed} variant={PARAGRAPH_SIZE.small}>
-                {companyInfo?.copyright}
-              </Paragraph>
-            </Stack>
-          </BoxV2>
-        </Stack>
-      </SideBar>
+            <BoxV2
+              style={{ flexDirection: 'column', backgroundColor: cssTheme.colors.colors.grey[800] }}
+              justifyContent={['flex-start']}
+              alignItems={['stretch']}
+              padding={[cssTheme.sizing.var.x5, cssTheme.layout.var.contentMargins]}
+            >
+              <Stack gap={[cssTheme.sizing.var.x5]}>
+                <Stack gap={[cssTheme.sizing.var.x3]}>
+                  <Heading variant={HEADING.h4} variantLevel={TEXT_LEVEL.primaryReversed}>
+                    Clinique Dr. Pierre Boucher Jr.
+                  </Heading>
+                  <Label
+                    variant={LABEL_SIZE.xSmall}
+                    variantStyle={TEXT_STYLE.boldUppercase}
+                    variantLevel={TEXT_LEVEL.primaryReversed}
+                  >
+                    Omnipraticien CCMF
+                  </Label>
+                </Stack>
 
+                <Stack gap={[cssTheme.sizing.var.x4]}>
+                  <Link
+                    variantLevel={TEXT_LEVEL.primaryReversed}
+                    variantSize={PARAGRAPH_SIZE.small}
+                    variant={LinkVariant.underline}
+                    href={`mailto:${companyAddress?.email}`}
+                  >
+                    {companyAddress?.email}
+                  </Link>
+                  <Link
+                    variantLevel={TEXT_LEVEL.primaryReversed}
+                    variantSize={PARAGRAPH_SIZE.small}
+                    variant={LinkVariant.underline}
+                    href={`tel:${companyAddress?.phone}`}
+                  >
+                    {companyAddress?.phone}
+                  </Link>
+                  <Link
+                    variantLevel={TEXT_LEVEL.primaryReversed}
+                    variantSize={PARAGRAPH_SIZE.small}
+                    variant={LinkVariant.underline}
+                    href={`fax:${companyAddress?.fax}`}
+                  >
+                    {companyAddress?.fax}
+                  </Link>
+                  <Link
+                    variantLevel={TEXT_LEVEL.primaryReversed}
+                    variantSize={PARAGRAPH_SIZE.small}
+                    variant={LinkVariant.underline}
+                    href={'https://goo.gl/maps/nndYpgQLkbDC6c7S7'}
+                    target="blank"
+                  >
+                    {companyAddress?.addressLine1}
+                    <br />
+                    {companyAddress?.addressLine2}
+                  </Link>
+                </Stack>
+
+                <Paragraph variantLevel={TEXT_LEVEL.primaryReversed} variant={PARAGRAPH_SIZE.small}>
+                  {companyInfo?.copyright}
+                </Paragraph>
+              </Stack>
+            </BoxV2>
+          </Stack>
+        </SideBar>
+      ) : null}
       <Main minHeight={true}>{props.children}</Main>
 
       <Footer id={'footer'}></Footer>

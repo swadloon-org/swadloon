@@ -27,10 +27,6 @@ let previousBodyPaddingRight: string | undefined = undefined;
 const preventDefault = (rawEvent: HandleScrollEvent | TouchEvent): boolean => {
   const e = rawEvent || window.event;
 
-  if ((e as any).scale !== 1) {
-    e.preventDefault();
-  }
-
   // For the case whereby consumers adds a touchmove event listener to window.
   // Recall that we do window.addEventListener('touchmove', preventDefault, { passive: false })
   // in disableBodyScroll - so if we provide this opportunity to allowTouchMove, then
@@ -84,6 +80,11 @@ export function useBodyScrollLock({
 
     const handleScroll = (event: HandleScrollEvent, targetElement: any): boolean => {
       const clientY = event.targetTouches[0].clientY - initialClientY;
+
+      if ((event as any).scale && (event as any).scale !== undefined && (event as any).scale !== 1) {
+        console.log(`prevented zoom`);
+        event.preventDefault();
+      }
 
       if (allowTouchMove(event.target)) {
         return false;
@@ -185,9 +186,10 @@ export function useBodyScrollLock({
         };
 
         if (!documentListenerAdded) {
-          window.document.addEventListener('gesturestart touchmove' as any, preventDefault, {
+          window.document.addEventListener('touchmove', preventDefault, {
             passive: false,
           });
+
           documentListenerAdded = true;
         }
       }
@@ -210,7 +212,7 @@ export function useBodyScrollLock({
         targetElement.ontouchmove = null;
 
         if (documentListenerAdded && locks.length === 0) {
-          window.document.removeEventListener('gesturestart touchmove' as any, preventDefault);
+          window.document.removeEventListener('touchmove', preventDefault);
           documentListenerAdded = false;
         }
       }

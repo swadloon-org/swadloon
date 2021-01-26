@@ -40,6 +40,9 @@ globalStyle(`${wrapper} .mdx-anchor-pound`, ({ cssTheme, theme }: Theme) => ({
 
 globalStyle(`${wrapper} p + p`, ({ cssTheme, theme }: Theme) => ({
   marginTop: '1.5em',
+}));
+
+globalStyle(`${wrapper} p + p:not(:last)`, ({ cssTheme, theme }: Theme) => ({
   marginBottom: '1.5em',
 }));
 

@@ -13,6 +13,7 @@ import { Center } from '../layout/center';
 import { Cluster } from '../layout/cluster';
 import { CommonComponentProps } from '../props/component-common.props';
 import * as styleRefs from './navbar.treat';
+import { usePreventPinchZoom } from '../hooks/use-prevent-pinch-zoom';
 
 export type NavBarRefs = {
   readonly mobileNavbar: HTMLDivElement | undefined;
@@ -130,6 +131,8 @@ export const NavBar = React.forwardRef<any, Props>((props, ref) => {
       props.onPressMenuButton(event);
     }
   }
+
+  usePreventPinchZoom(mobileNavbar.current);
 
   return (
     <>

@@ -1,7 +1,7 @@
 import { AppError, ERROR_TYPE } from '@newrade/core-common';
 import { CapsizeTextStyle, TextDecoration, TextStyle } from '@newrade/core-design-system';
 import capsize, { CapsizeStyles } from 'capsize';
-import { TextTransformProperty } from 'csstype';
+import { DisplayProperty, TextTransformProperty } from 'csstype';
 // @ts-ignore
 import GithubSlugger from 'github-slugger';
 import { Style } from 'treat';
@@ -148,17 +148,23 @@ export function convertLetterSpacingToEM({ value, fontSize }: { value: string; f
 /**
  * Return a Treat compatible style object from a theme text style
  */
-export function getCSSTextStyles(textStyle?: Partial<TextStyle<string> & CapsizeTextStyle<string>>): Style {
+export function getCSSTextStyles(
+  textStyle?: Partial<TextStyle<string> & CapsizeTextStyle<string>>,
+  options?: CSSTextStyleOptions
+): Style {
   if (!textStyle) {
     return {};
   }
   return {
     ...getCSSFontTextStyles(textStyle),
-    ...getCSSSizeTextStyles(textStyle),
+    ...getCSSSizeTextStyles(textStyle, options),
   };
 }
 
-export function getCSSFontTextStyles(textStyle?: Partial<TextStyle<string> & CapsizeTextStyle<string>>): Style {
+export function getCSSFontTextStyles(
+  textStyle?: Partial<TextStyle<string> & CapsizeTextStyle<string>>,
+  options?: CSSTextStyleOptions
+): Style {
   if (!textStyle) {
     return {};
   }
@@ -172,10 +178,34 @@ export function getCSSFontTextStyles(textStyle?: Partial<TextStyle<string> & Cap
   };
 }
 
-export function getCSSSizeTextStyles(textStyle?: Partial<TextStyle<string> & CapsizeTextStyle<string>>): Style {
+type CSSTextStyleOptions = {
+  stylePseudoElements: {
+    display: DisplayProperty;
+  };
+};
+
+export function getCSSSizeTextStyles(
+  textStyle?: Partial<TextStyle<string> & CapsizeTextStyle<string>>,
+  options?: CSSTextStyleOptions
+): Style {
   if (!textStyle) {
     return {};
   }
+
+  if (options?.stylePseudoElements) {
+    return {
+      ...textStyle.capsize,
+      '::before': {
+        ...textStyle.capsize?.['::before'],
+        ...options.stylePseudoElements,
+      },
+      '::after': {
+        ...textStyle.capsize?.['::after'],
+        ...options.stylePseudoElements,
+      },
+    };
+  }
+
   return {
     ...textStyle.capsize,
   };

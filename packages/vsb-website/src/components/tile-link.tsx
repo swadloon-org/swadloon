@@ -17,6 +17,7 @@ import { SectionFragment } from '../../types/graphql-types';
 import * as styleRefs from './tile-link.treat';
 import { IoArrowForwardOutline } from 'react-icons/io5';
 import { GatsbyLink } from '@newrade/core-gatsby-ui/src';
+import { gradient } from '../styles/effects.styles';
 
 type Props = CommonComponentProps & {
   section: SectionFragment;
@@ -37,7 +38,7 @@ export const TileLink: React.FC<Props> = ({ id, style, className, contentClassNa
         <Background
           effects={[
             {
-              background: `linear-gradient(rgb(0 0 0 / 30%) 0%, rgba(0, 0, 0, 0) 36%), linear-gradient(0deg, rgb(14 13 13 / 20%), rgba(14, 13, 13, 0.20))`,
+              background: gradient,
             },
           ]}
           backgroundImage={{

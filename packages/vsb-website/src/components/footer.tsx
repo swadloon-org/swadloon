@@ -1,5 +1,5 @@
 import { LABEL_SIZE, PARAGRAPH_SIZE, TEXT_LEVEL, TEXT_STYLE, LinkVariant } from '@newrade/core-design-system';
-import { Center, Label, Link, Paragraph, Stack } from '@newrade/core-react-ui';
+import { Center, Label, Link, Paragraph, Stack, ListItem } from '@newrade/core-react-ui';
 import { graphql, Link as GatsbyLink, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { useStyles } from 'react-treat';
@@ -7,6 +7,14 @@ import { FooterQuery } from '../../types/graphql-types';
 import { cssTheme } from '../design-system/theme';
 import * as styleRefs from './footer.treat';
 import { CommonComponentProps, getMergedClassname } from '@newrade/core-react-ui';
+import {
+  IoMailOpenOutline,
+  IoMailOutline,
+  IoPhonePortraitOutline,
+  IoCallOutline,
+  IoLocationOutline,
+  IoPrintOutline,
+} from 'react-icons/io5';
 
 export const footerQuery = graphql`
   query Footer {
@@ -101,37 +109,56 @@ export const Footer: React.FC<Props> = ({ id, style, className, ...props }) => {
                 Nous Joindre
               </Label>
               <Stack gap={[cssTheme.sizing.var.x4]}>
-                <Link
+                <ListItem variantLevel={TEXT_LEVEL.primaryReversed} variantIcon={'icon'} Icon={<IoMailOutline />}>
+                  <Link
+                    className={styles.listItem}
+                    variantLevel={TEXT_LEVEL.primaryReversed}
+                    variant={LinkVariant.underline}
+                    href={`mailto:${data?.contentfulCompanyAddress?.email}`}
+                  >
+                    {data?.contentfulCompanyAddress?.email}
+                  </Link>
+                </ListItem>
+
+                <ListItem variantLevel={TEXT_LEVEL.primaryReversed} variantIcon={'icon'} Icon={<IoCallOutline />}>
+                  <Link
+                    className={styles.listItem}
+                    variantLevel={TEXT_LEVEL.primaryReversed}
+                    variant={LinkVariant.underline}
+                    href={`tel:${data?.contentfulCompanyAddress?.phone}`}
+                  >
+                    {data?.contentfulCompanyAddress?.phone}
+                  </Link>
+                </ListItem>
+
+                <ListItem variantLevel={TEXT_LEVEL.primaryReversed} variantIcon={'icon'} Icon={<IoPrintOutline />}>
+                  <Link
+                    className={styles.listItem}
+                    variantLevel={TEXT_LEVEL.primaryReversed}
+                    variant={LinkVariant.underline}
+                    href={`fax:${data?.contentfulCompanyAddress?.fax}`}
+                  >
+                    {data?.contentfulCompanyAddress?.fax}
+                  </Link>
+                </ListItem>
+
+                <ListItem
                   variantLevel={TEXT_LEVEL.primaryReversed}
-                  variant={LinkVariant.underline}
-                  href={`mailto:${data?.contentfulCompanyAddress?.email}`}
+                  variantIcon={'icon'}
+                  Icon={<IoLocationOutline style={{ verticalAlign: 'top' }} />}
                 >
-                  {data?.contentfulCompanyAddress?.email}
-                </Link>
-                <Link
-                  variantLevel={TEXT_LEVEL.primaryReversed}
-                  variant={LinkVariant.underline}
-                  href={`tel:${data?.contentfulCompanyAddress?.phone}`}
-                >
-                  {data?.contentfulCompanyAddress?.phone}
-                </Link>
-                <Link
-                  variantLevel={TEXT_LEVEL.primaryReversed}
-                  variant={LinkVariant.underline}
-                  href={`fax:${data?.contentfulCompanyAddress?.fax}`}
-                >
-                  {data?.contentfulCompanyAddress?.fax}
-                </Link>
-                <Link
-                  variantLevel={TEXT_LEVEL.primaryReversed}
-                  variant={LinkVariant.underline}
-                  href={'https://goo.gl/maps/nndYpgQLkbDC6c7S7'}
-                  target="blank"
-                >
-                  {data?.contentfulCompanyAddress?.addressLine1}
-                  <br />
-                  {data?.contentfulCompanyAddress?.addressLine2}
-                </Link>
+                  <Link
+                    className={styles.listItem}
+                    variantLevel={TEXT_LEVEL.primaryReversed}
+                    variant={LinkVariant.underline}
+                    href={'https://goo.gl/maps/nndYpgQLkbDC6c7S7'}
+                    target="blank"
+                  >
+                    {data?.contentfulCompanyAddress?.addressLine1}
+                    <br />
+                    {data?.contentfulCompanyAddress?.addressLine2}
+                  </Link>
+                </ListItem>
               </Stack>
             </Stack>
           </div>

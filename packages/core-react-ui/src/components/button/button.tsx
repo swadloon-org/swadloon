@@ -8,7 +8,7 @@ import {
   TEXT_STYLE,
 } from '@newrade/core-design-system';
 import { AriaButtonProps } from '@react-types/button';
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { useButton } from 'react-aria';
 import { IoAddOutline } from 'react-icons/io5';
 import { useStyles } from 'react-treat';
@@ -16,6 +16,7 @@ import { CommonComponentProps } from '../../props/component-common.props';
 import { getDefaultTextFromProps, getMergedClassname } from '../../utilities/component.utilities';
 import { Label } from '../text/label';
 import * as stylesRef from './button.treat';
+import { usePreventPinchZoom, usePreventLongPress } from '../..';
 
 type Props = CommonComponentProps &
   Pick<ButtonProps, 'icon' | 'role' | 'size' | 'state' | 'variant'> &
@@ -28,7 +29,21 @@ type Props = CommonComponentProps &
 
 export const Button = React.forwardRef<any, Props>(
   (
-    { id, style, className, children, variant, collapsePadding, as, AsElement, size, state, icon, Icon, ...props },
+    {
+      id,
+      style,
+      className,
+      children,
+      variant,
+      collapsePadding,
+      as,
+      AsElement,
+      size,
+      state,
+      icon = ButtonIcon.right,
+      Icon,
+      ...props
+    },
     ref
   ) => {
     const { styles } = useStyles(stylesRef);
@@ -37,6 +52,9 @@ export const Button = React.forwardRef<any, Props>(
     const { buttonProps, isPressed } = useButton({ ...props, elementType: type }, refLocal as any);
 
     const iconClassNames = getMergedClassname([styles.iconBase, icon ? styles[icon] : '']);
+
+    usePreventPinchZoom(refLocal.current);
+    usePreventLongPress(refLocal.current);
 
     const IconSvg =
       Icon && icon ? (
