@@ -4,7 +4,7 @@ import { env } from '../server';
 
 // Todo erreur from cliniko
 type clinikoResponse = {
-  errors: {};
+  errors: object;
   message: string;
 };
 
@@ -14,7 +14,7 @@ export async function fetchCliniko({ method, route, payload }: { method: 'POST';
   const response = await fetch(`https://api.` + `${env.API_VSB_SHARD_ID}.cliniko.com/v1/${route}/`, {
     method,
     headers: {
-      authorization: 'Basic ' + Buffer.from(env.API_VSB_KEY + ':').toString('base64'),
+      authorization: 'Basic ' + Buffer.from(env.API_VSB_KEY_CLINIKO + ':').toString('base64'),
       'user-agent': `${env.API_VSB_VENDOR_NAME} (${env.API_VSB_VENDOR_EMAIL})`,
       accept: 'application/json',
       'content-type': 'application/json',

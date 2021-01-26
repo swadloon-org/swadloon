@@ -1,7 +1,8 @@
 import { Center, Heading, Link, Stack, useTreatTheme, Paragraph, BoxV2, Label, keys } from '@newrade/core-react-ui';
-import React, { useCallback, useMemo } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import { cssTheme } from '../design-system/theme';
 import { useForm, SubmitHandler, Controller } from 'react-hook-form';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 import Cleave from 'cleave.js/react';
 import 'cleave.js/dist/addons/cleave-phone.ca';
@@ -50,7 +51,11 @@ const useYupValidationResolver = (PatientValidation: SchemaOf<PatientModel>) =>
     [PatientValidation]
   );
 
+export type recaptcha = {};
+
 const Form: React.FC = (props) => {
+  const [isLoading, setLoading] = useState<boolean>(false);
+  const recaptchaRef = React.useRef<any>();
   const resolver = useYupValidationResolver(PatientValidation);
 
   const {
@@ -62,15 +67,20 @@ const Form: React.FC = (props) => {
     formState: { isDirty, isSubmitting, touched, submitCount, isValid },
   } = useForm<PatientModel>({ mode: 'onBlur', resolver });
 
-  const onSubmit: SubmitHandler<PatientModel> = (data) => {
-    console.log(JSON.stringify(data));
-    fetch('http://localhost:10003/api/register', {
+  const onSubmit: SubmitHandler<PatientModel> = async (data) => {
+    setLoading(true);
+    const tokenRecaptcha: string = await recaptchaRef.current.getValue();
+    fetch('http://localhost:10003/api/patient/register', {
       method: 'POST',
       headers: {
         accept: 'application/json',
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ api: 'vsb-api', payload: { patient: { ...data } } }, null, 2),
+      body: JSON.stringify(
+        { api: 'vsb-api', payload: { patient: { ...data }, recaptcha: { token: tokenRecaptcha } } },
+        null,
+        2
+      ),
     })
       .then((response) => response.json())
       .then((result: PatientAPIResponseBody) => {
@@ -88,12 +98,8 @@ const Form: React.FC = (props) => {
           }
         });
       });
+    setLoading(false);
   };
-
-  // const phoneValidation = new Cleave('.phone-validation', {
-  //   phone: true,
-  //   phoneRegionCode: 'CA',
-  // });
 
   return (
     <Center>
@@ -199,8 +205,9 @@ const Form: React.FC = (props) => {
                     return <option key={index} value={REMINDER_TYPE[element]} />;
                   })}
                 </datalist>
-                {console.log(isSubmitting)}
-                <input type="submit" />
+
+                <ReCAPTCHA size={'normal'} ref={recaptchaRef} sitekey="6LcUCzwaAAAAAF0AZL9Y8DsjFXgfrVm4f2m9ial9" />
+                <input className={isLoading ? 'loading' : ''} type="submit" />
               </Stack>
             </BoxV2>
           </form>

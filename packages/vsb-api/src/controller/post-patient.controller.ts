@@ -21,7 +21,6 @@ export const postPatient: RequestHandler<any, PatientAPIResponseBody, PatientAPI
       name: ERROR_TYPE.DTO_VALIDATION_ERROR,
       message: 'Invalid dto',
     });
-    console.log(res.end);
 
     res.status(400).send({ api: 'vsb-api', errors: [appError], payload: { validationErrors: yupError.inner } });
   }

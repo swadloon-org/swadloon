@@ -1,15 +1,18 @@
 import { loadDotEnv, logEnvVariables } from '@newrade/core-utils';
 import cors from 'cors';
 import express, { Router, urlencoded } from 'express';
+import rateLimit from 'express-rate-limit';
 import { Server } from 'http';
 import i18nextMiddleware from 'i18next-http-middleware';
 import morgan from 'morgan';
 import path from 'path';
 import { Env, ENV } from '../types/dot-env.js';
-import { API_REGISTER_ROUTE, API_TRANSLATION_ROUTE } from './constants/api-routes.constants';
+import { API_BASE_PATH, API_REGISTER_PATIENT_ROUTE, API_TRANSLATION_ROUTE } from './constants/api-routes.constants';
 import { postPatient } from './controller/post-patient.controller';
 import { getTranslation } from './controller/translation.controller.js';
+import { recaptchaMiddleware } from './middleware/recaptcha.middleware';
 import { i18nService, initI18nService } from './services/i18n.service';
+
 /**
  * Env variables
  */
@@ -48,11 +51,21 @@ server.use(morgan('common'));
 server.use(urlencoded({ extended: true }));
 
 /**
+ * Rate Limiter
+ */
+const apiLimiter = rateLimit({
+  windowMs: 1 * 60 * 1000, // 1 minutes
+  max: 10,
+  statusCode: 429,
+});
+server.use(API_BASE_PATH, apiLimiter);
+
+/**
  * Routes
  */
 const router = Router();
 server.use(router);
-router.route(API_REGISTER_ROUTE).post(postPatient);
+router.route(API_REGISTER_PATIENT_ROUTE).post(recaptchaMiddleware, postPatient);
 router.route(API_TRANSLATION_ROUTE).get(getTranslation);
 
 httpServer = server.listen(port);
