@@ -7,9 +7,15 @@ import i18nextMiddleware from 'i18next-http-middleware';
 import morgan from 'morgan';
 import path from 'path';
 import { Env, ENV } from '../types/dot-env.js';
-import { API_BASE_PATH, API_REGISTER_PATIENT_ROUTE, API_TRANSLATION_ROUTE } from './constants/api-routes.constants';
+import {
+  API_BASE_PATH,
+  API_REGISTER_PATIENT_ROUTE,
+  API_STATUS_CLINIKO,
+  API_TRANSLATION_ROUTE,
+} from './constants/api-routes.constants';
 import { postPatient } from './controller/post-patient.controller';
-import { getTranslation } from './controller/translation.controller.js';
+import { statusCliniko } from './controller/status-cliniko.controller';
+import { getTranslation } from './controller/translation.controller';
 import { recaptchaMiddleware } from './middleware/recaptcha.middleware';
 import { i18nService, initI18nService } from './services/i18n.service';
 
@@ -65,6 +71,7 @@ server.use(API_BASE_PATH, apiLimiter);
  */
 const router = Router();
 server.use(router);
+router.route(API_STATUS_CLINIKO).get(statusCliniko);
 router.route(API_REGISTER_PATIENT_ROUTE).post(recaptchaMiddleware, postPatient);
 router.route(API_TRANSLATION_ROUTE).get(getTranslation);
 

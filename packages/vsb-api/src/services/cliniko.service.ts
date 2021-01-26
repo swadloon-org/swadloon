@@ -26,7 +26,7 @@ export async function fetchCliniko({ method, route, payload }: { method: 'POST';
 
   switch (response.status) {
     case 201: {
-      return { name: ERROR_TYPE.SUCCESS_REQUEST, message: 'Data send' } as AppError;
+      return { name: ERROR_TYPE.SUCCESSFUL_REQUEST, message: 'Data send' } as AppError;
     }
     case 401: {
       return { name: ERROR_TYPE.HTTP_UNAUTHORIZED_401, message: 'Unable to conntect to cliniko' } as AppError;
