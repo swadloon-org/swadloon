@@ -10,7 +10,7 @@ import {
 import { AriaButtonProps } from '@react-types/button';
 import React, { useRef, useEffect } from 'react';
 import { useButton } from 'react-aria';
-import { IoAddOutline } from 'react-icons/io5';
+import { IoAddOutline } from '@react-icons/all-files/io5/IoAddOutline';
 import { useStyles } from 'react-treat';
 import { CommonComponentProps } from '../../props/component-common.props';
 import { getDefaultTextFromProps, getMergedClassname } from '../../utilities/component.utilities';

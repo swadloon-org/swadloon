@@ -15,7 +15,7 @@ import {
 import { FluidObject } from 'gatsby-image';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
-import { IoArrowForwardOutline } from 'react-icons/io5';
+import { IoArrowForwardOutline } from '@react-icons/all-files/io5/IoArrowForwardOutline';
 import { useStyles } from 'react-treat';
 import { SectionFragment } from '../../types/graphql-types';
 import { cssTheme } from '../design-system/theme';

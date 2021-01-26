@@ -7,14 +7,10 @@ import { FooterQuery } from '../../types/graphql-types';
 import { cssTheme } from '../design-system/theme';
 import * as styleRefs from './footer.treat';
 import { CommonComponentProps, getMergedClassname } from '@newrade/core-react-ui';
-import {
-  IoMailOpenOutline,
-  IoMailOutline,
-  IoPhonePortraitOutline,
-  IoCallOutline,
-  IoLocationOutline,
-  IoPrintOutline,
-} from 'react-icons/io5';
+import { IoMailOutline } from '@react-icons/all-files/io5/IoMailOutline';
+import { IoLocationOutline } from '@react-icons/all-files/io5/IoLocationOutline';
+import { IoPrintOutline } from '@react-icons/all-files/io5/IoPrintOutline';
+import { IoCallOutline } from '@react-icons/all-files/io5/IoCallOutline';
 
 export const footerQuery = graphql`
   query Footer {

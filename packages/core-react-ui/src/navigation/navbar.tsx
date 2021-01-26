@@ -2,7 +2,8 @@ import { ButtonIcon, ButtonSize, ButtonVariant } from '@newrade/core-design-syst
 import { PressEvent } from '@react-types/shared';
 import React, { useEffect, useImperativeHandle, useRef, useState } from 'react';
 import { isIOS } from 'react-device-detect';
-import { IoClose, IoMenu } from 'react-icons/io5';
+import { IoClose } from '@react-icons/all-files/io5/IoClose';
+import { IoMenu } from '@react-icons/all-files/io5/IoMenu';
 import { useStyles } from 'react-treat';
 import { Button } from '../components/button/button';
 import { SVGLogo } from '../components/svg-logo/svg-logo';

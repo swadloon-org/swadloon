@@ -1,10 +1,10 @@
-import { WebpackOptions } from 'webpack/declarations/WebpackOptions';
+import { StatsOptions } from 'webpack/declarations/WebpackOptions';
 
 /**
  * @description Webpack Stats Configuration
  * @see https://webpack.js.org/configuration/stats/
  */
-export const webpackStatsConf: { [key: string]: WebpackOptions['stats'] } = {
+export const webpackStatsConf: { [key: string]: StatsOptions } = {
   debug: {
     all: undefined,
     colors: true,
@@ -69,5 +69,7 @@ export const webpackStatsConf: { [key: string]: WebpackOptions['stats'] } = {
     warnings: true,
     version: false,
     hash: false,
+    maxModules: Infinity, // examine all modules
+    optimizationBailout: true, // display bailout reasons
   },
 };

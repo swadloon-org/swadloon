@@ -10,7 +10,6 @@ import {
 } from '@newrade/core-react-ui';
 import { SSRProvider } from '@react-aria/ssr';
 import React from 'react';
-import { IconContext } from 'react-icons/lib';
 import { TreatProvider } from 'react-treat';
 import { cssTheme, theme } from '../design-system/theme';
 import { light } from '../design-system/theme.treat';
@@ -28,11 +27,7 @@ export const Providers: React.FC = (props) => {
             <MDXProvider components={mdxComponents}>
               <GlobalCSSVariables>
                 <GlobalResetCSS>
-                  <DefaultCSS>
-                    {/* <IconContext.Provider value={{ style: { verticalAlign: 'middle' } }}> */}
-                    {props.children}
-                    {/* </IconContext.Provider> */}
-                  </DefaultCSS>
+                  <DefaultCSS>{props.children}</DefaultCSS>
                 </GlobalResetCSS>
               </GlobalCSSVariables>
             </MDXProvider>

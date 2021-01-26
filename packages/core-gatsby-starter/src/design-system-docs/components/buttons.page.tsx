@@ -3,7 +3,7 @@ import { BoxV2, Button, Details, Heading, Label, Stack, Summary, useTreatTheme }
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { DesignSystemPageProps, DesignSystemPageTemplate } from '../../templates/design-system-page.template';
-import { IoArrowForwardOutline } from 'react-icons/io5';
+import { IoArrowForwardOutline } from '@react-icons/all-files/io5/IoArrowForwardOutline';
 import * as styleRefs from '../home.treat';
 
 const PageComponent: React.FC<DesignSystemPageProps> = (props) => {

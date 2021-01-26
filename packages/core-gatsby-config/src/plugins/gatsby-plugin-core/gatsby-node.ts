@@ -9,4 +9,3 @@ export const onCreateBabelConfig: GatsbyNode['onCreateBabelConfig'] = onCreateBa
 export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = onCreateWebpackConfigFunction;
 export const createPages: GatsbyNode['createPages'] = createPagesFunction;
 export const onCreatePage: GatsbyNode['onCreatePage'] = onCreatePageFunction;
-// export const onCreateNode: GatsbyNode['onCreateNode'] = onCreateNodeFunction;

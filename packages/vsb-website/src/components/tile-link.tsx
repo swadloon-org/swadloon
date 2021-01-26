@@ -15,7 +15,7 @@ import React from 'react';
 import { useStyles } from 'react-treat';
 import { SectionFragment } from '../../types/graphql-types';
 import * as styleRefs from './tile-link.treat';
-import { IoArrowForwardOutline } from 'react-icons/io5';
+import { IoArrowForwardOutline } from '@react-icons/all-files/io5/IoArrowForwardOutline';
 import { GatsbyLink } from '@newrade/core-gatsby-ui/src';
 import { gradient } from '../styles/effects.styles';
 

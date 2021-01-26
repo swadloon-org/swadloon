@@ -94,7 +94,16 @@ const config: core.GastbySiteConfig = {
     }),
     core.getGastbyCorePluginConfig({
       packageName: packageJson.name,
-      modules: ['@newrade/core-gatsby-config', '@newrade/core-gatsby-ui/src'],
+      modules: [
+        '@newrade/core-gatsby-config',
+        '@newrade/core-gatsby-ui/src',
+        '@newrade/core-react-ui',
+        '@react-aria',
+        'yup',
+        'lodash',
+        'lodash-es',
+        '@react-icons',
+      ],
       enableDesignSystemPages: true,
       enableDocsPages: true,
     }),

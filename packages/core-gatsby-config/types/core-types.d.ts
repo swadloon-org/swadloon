@@ -4,6 +4,7 @@
 /// <reference types="../../core-types/lib/mdx" />
 /// <reference types="../../core-types/lib/react-capcha" />
 /// <reference types="../../core-types/lib/react-helmet" />
+/// <reference types="../../core-types/lib/regex-escape" />
 /// <reference types="../../core-types/lib/svg" />
 /// <reference types="../../core-types/lib/react-lazyload" />
 /// <reference types="../../core-types/lib/treat-webpack-plugin" />

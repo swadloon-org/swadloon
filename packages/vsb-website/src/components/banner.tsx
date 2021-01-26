@@ -2,7 +2,7 @@ import { Background, Center, Stack, Title, useTreatTheme, Button } from '@newrad
 import { IFluidObject } from 'gatsby-background-image';
 import { gsap, TweenMax } from '@newrade/core-gsap-ui';
 import React, { useRef, useEffect } from 'react';
-import { IoChevronDownOutline } from 'react-icons/io5';
+import { IoChevronDownOutline } from '@react-icons/all-files/io5/IoChevronDownOutline';
 import { useStyles } from 'react-treat';
 import { SectionFragment } from '../../types/graphql-types';
 import * as styleRefs from './banner.treat';
@@ -26,24 +26,24 @@ export const Banner: React.FC<OwnProps> = (props) => {
   /**
    * Icon animation
    */
-  useEffect(() => {
-    if (!ref.current) {
-      return;
-    }
+  // useEffect(() => {
+  //   if (!ref.current) {
+  //     return;
+  //   }
 
-    const tween = TweenMax.to(ref.current.getElementsByClassName(styles.icon), {
-      duration: 1,
-      y: -10,
-      ease: `elastic.out(1, 0.4)`,
-      yoyo: true,
-      delay: 0,
-      repeat: Infinity,
-    });
+  //   const tween = TweenMax.to(ref.current.getElementsByClassName(styles.icon), {
+  //     duration: 1,
+  //     y: -10,
+  //     ease: `elastic.out(1, 0.4)`,
+  //     yoyo: true,
+  //     delay: 0,
+  //     repeat: Infinity,
+  //   });
 
-    return () => {
-      tween.kill();
-    };
-  }, [ref.current]);
+  //   return () => {
+  //     tween.kill();
+  //   };
+  // }, [ref.current]);
 
   function handleScrollToNextSection() {
     const wrapper = ref.current;

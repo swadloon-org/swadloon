@@ -12,7 +12,8 @@ import {
   useTreatTheme,
 } from '@newrade/core-react-ui';
 import React from 'react';
-import { IoMailOutline, IoPhonePortraitOutline } from 'react-icons/io5';
+import { IoMailOutline } from '@react-icons/all-files/io5/IoMailOutline';
+import { IoPhonePortraitOutline } from '@react-icons/all-files/io5/IoPhonePortraitOutline';
 import { useStyles } from 'react-treat';
 import { DesignSystemPageProps, DesignSystemPageTemplate } from '../../templates/design-system-page.template';
 import * as styleRefs from '../home.treat';
