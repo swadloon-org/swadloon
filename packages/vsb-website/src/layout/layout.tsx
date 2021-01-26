@@ -16,7 +16,6 @@ import {
   MainWrapper,
   NavBar,
   NavBarRefs,
-  SideBar,
   useTreatTheme,
   Stack,
   NavItemGroup,
@@ -42,13 +41,17 @@ import '../services/i18n.service';
 import * as styleRefs from './layout.treat';
 import { title } from 'case';
 
-gsap.registerPlugin(ScrollTrigger as any);
-
 type LayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }>;
 
 let pathname: string | undefined = '/'; // needed for gsap callbacks
 
+const SideBar = React.lazy(() =>
+  import('@newrade/core-react-ui/lib/navigation/sidebar').then((comp) => ({ default: comp.SideBar }))
+);
+
 export const Layout = React.memo<LayoutProps>((props) => {
+  const isSSR = typeof window === 'undefined';
+
   /**
    * Data query
    */
@@ -103,25 +106,28 @@ export const Layout = React.memo<LayoutProps>((props) => {
   );
   useAnimateNavbar({ navbarRef, whiteStyle: navbarStyle === 'white', viewport });
   useEffect(() => {
-    /**
-     * @see https://greensock.com/docs/v3/Plugins/ScrollTrigger
-     */
-    const scrollTrigger = new ScrollTrigger({
-      scrub: 1,
-      delay: 1,
-      toggleActions: `play none reverse none`,
-      start: '40vh',
-      end: '40vh',
-      onEnter: () => {
-        setNavbarStyle('white');
-      },
-      onEnterBack: function () {
-        if (pathname === '/') {
-          setNavbarStyle('transparent');
-        }
-      },
-    });
-
+    let scrollTrigger: any;
+    setTimeout(() => {
+      gsap.registerPlugin(ScrollTrigger as any);
+      /**
+       * @see https://greensock.com/docs/v3/Plugins/ScrollTrigger
+       */
+      scrollTrigger = new ScrollTrigger({
+        scrub: 1,
+        delay: 1,
+        toggleActions: `play none reverse none`,
+        start: '40vh',
+        end: '40vh',
+        onEnter: () => {
+          setNavbarStyle('white');
+        },
+        onEnterBack: function () {
+          if (pathname === '/') {
+            setNavbarStyle('transparent');
+          }
+        },
+      });
+    }, 2000);
     return () => {
       if (scrollTrigger) {
         scrollTrigger.kill?.();
@@ -156,109 +162,113 @@ export const Layout = React.memo<LayoutProps>((props) => {
         menuOpened={sidebarOpened}
       ></NavBar>
 
-      <SideBar sidebarOpened={sidebarOpened} fullHeight={false} disableBodyScroll={true}>
-        <Stack>
-          <BoxV2
-            padding={[cssTheme.sizing.var.x4, cssTheme.layout.var.contentMargins, cssTheme.sizing.var.x4]}
-            style={{ flexDirection: 'column' }}
-            justifyContent={['flex-start']}
-            alignItems={['stretch']}
-          >
-            <Stack gap={[cssTheme.sizing.var.x4]}>
-              {[...navItemsByDirName].map((dirName, index) => {
-                return (
-                  <Stack key={index} gap={[`calc(2 * ${cssTheme.sizing.var.x1})`]}>
-                    {dirName === '' ? (
-                      <NavItemGroup>Docs</NavItemGroup>
-                    ) : (
-                      <NavItemGroup>{title(dirName || '')}</NavItemGroup>
-                    )}
-                    <Stack>
-                      {navItems
-                        .filter((item) => item.dirName === dirName)
-                        .map((item, itemIndex) => {
-                          return (
-                            <NavItem
-                              key={itemIndex}
-                              active={item.path === props.location?.pathname}
-                              AsElement={<GatsbyLink to={item.path} noStyles={true} />}
-                            >
-                              {item.name}
-                            </NavItem>
-                          );
-                        })}
-                    </Stack>
+      {!isSSR && (
+        <React.Suspense fallback={<div />}>
+          <SideBar sidebarOpened={sidebarOpened} fullHeight={false} disableBodyScroll={true}>
+            <Stack>
+              <BoxV2
+                padding={[cssTheme.sizing.var.x4, cssTheme.layout.var.contentMargins, cssTheme.sizing.var.x4]}
+                style={{ flexDirection: 'column' }}
+                justifyContent={['flex-start']}
+                alignItems={['stretch']}
+              >
+                <Stack gap={[cssTheme.sizing.var.x4]}>
+                  {[...navItemsByDirName].map((dirName, index) => {
+                    return (
+                      <Stack key={index} gap={[`calc(2 * ${cssTheme.sizing.var.x1})`]}>
+                        {dirName === '' ? (
+                          <NavItemGroup>Docs</NavItemGroup>
+                        ) : (
+                          <NavItemGroup>{title(dirName || '')}</NavItemGroup>
+                        )}
+                        <Stack>
+                          {navItems
+                            .filter((item) => item.dirName === dirName)
+                            .map((item, itemIndex) => {
+                              return (
+                                <NavItem
+                                  key={itemIndex}
+                                  active={item.path === props.location?.pathname}
+                                  AsElement={<GatsbyLink to={item.path} noStyles={true} />}
+                                >
+                                  {item.name}
+                                </NavItem>
+                              );
+                            })}
+                        </Stack>
+                      </Stack>
+                    );
+                  })}
+                </Stack>
+              </BoxV2>
+
+              <BoxV2
+                style={{ flexDirection: 'column', backgroundColor: cssTheme.colors.colors.grey[800] }}
+                justifyContent={['flex-start']}
+                alignItems={['stretch']}
+                padding={[cssTheme.sizing.var.x5, cssTheme.layout.var.contentMargins]}
+              >
+                <Stack gap={[cssTheme.sizing.var.x5]}>
+                  <Stack gap={[cssTheme.sizing.var.x3]}>
+                    <Heading variant={HEADING.h4} variantLevel={TEXT_LEVEL.primaryReversed}>
+                      Clinique Dr. Pierre Boucher Jr.
+                    </Heading>
+                    <Label
+                      variant={LABEL_SIZE.xSmall}
+                      variantStyle={TEXT_STYLE.boldUppercase}
+                      variantLevel={TEXT_LEVEL.primaryReversed}
+                    >
+                      Omnipraticien CCMF
+                    </Label>
                   </Stack>
-                );
-              })}
+
+                  <Stack gap={[cssTheme.sizing.var.x4]}>
+                    <Link
+                      variantLevel={TEXT_LEVEL.primaryReversed}
+                      variantSize={PARAGRAPH_SIZE.small}
+                      variant={LinkVariant.underline}
+                      href={`mailto:${companyAddress?.email}`}
+                    >
+                      {companyAddress?.email}
+                    </Link>
+                    <Link
+                      variantLevel={TEXT_LEVEL.primaryReversed}
+                      variantSize={PARAGRAPH_SIZE.small}
+                      variant={LinkVariant.underline}
+                      href={`tel:${companyAddress?.phone}`}
+                    >
+                      {companyAddress?.phone}
+                    </Link>
+                    <Link
+                      variantLevel={TEXT_LEVEL.primaryReversed}
+                      variantSize={PARAGRAPH_SIZE.small}
+                      variant={LinkVariant.underline}
+                      href={`fax:${companyAddress?.fax}`}
+                    >
+                      {companyAddress?.fax}
+                    </Link>
+                    <Link
+                      variantLevel={TEXT_LEVEL.primaryReversed}
+                      variantSize={PARAGRAPH_SIZE.small}
+                      variant={LinkVariant.underline}
+                      href={'https://goo.gl/maps/nndYpgQLkbDC6c7S7'}
+                      target="blank"
+                    >
+                      {companyAddress?.addressLine1}
+                      <br />
+                      {companyAddress?.addressLine2}
+                    </Link>
+                  </Stack>
+
+                  <Paragraph variantLevel={TEXT_LEVEL.primaryReversed} variant={PARAGRAPH_SIZE.small}>
+                    {companyInfo?.copyright}
+                  </Paragraph>
+                </Stack>
+              </BoxV2>
             </Stack>
-          </BoxV2>
-
-          <BoxV2
-            style={{ flexDirection: 'column', backgroundColor: cssTheme.colors.colors.grey[800] }}
-            justifyContent={['flex-start']}
-            alignItems={['stretch']}
-            padding={[cssTheme.sizing.var.x5, cssTheme.layout.var.contentMargins]}
-          >
-            <Stack gap={[cssTheme.sizing.var.x5]}>
-              <Stack gap={[cssTheme.sizing.var.x3]}>
-                <Heading variant={HEADING.h4} variantLevel={TEXT_LEVEL.primaryReversed}>
-                  Clinique Dr. Pierre Boucher Jr.
-                </Heading>
-                <Label
-                  variant={LABEL_SIZE.xSmall}
-                  variantStyle={TEXT_STYLE.boldUppercase}
-                  variantLevel={TEXT_LEVEL.primaryReversed}
-                >
-                  Omnipraticien CCMF
-                </Label>
-              </Stack>
-
-              <Stack gap={[cssTheme.sizing.var.x4]}>
-                <Link
-                  variantLevel={TEXT_LEVEL.primaryReversed}
-                  variantSize={PARAGRAPH_SIZE.small}
-                  variant={LinkVariant.underline}
-                  href={`mailto:${companyAddress?.email}`}
-                >
-                  {companyAddress?.email}
-                </Link>
-                <Link
-                  variantLevel={TEXT_LEVEL.primaryReversed}
-                  variantSize={PARAGRAPH_SIZE.small}
-                  variant={LinkVariant.underline}
-                  href={`tel:${companyAddress?.phone}`}
-                >
-                  {companyAddress?.phone}
-                </Link>
-                <Link
-                  variantLevel={TEXT_LEVEL.primaryReversed}
-                  variantSize={PARAGRAPH_SIZE.small}
-                  variant={LinkVariant.underline}
-                  href={`fax:${companyAddress?.fax}`}
-                >
-                  {companyAddress?.fax}
-                </Link>
-                <Link
-                  variantLevel={TEXT_LEVEL.primaryReversed}
-                  variantSize={PARAGRAPH_SIZE.small}
-                  variant={LinkVariant.underline}
-                  href={'https://goo.gl/maps/nndYpgQLkbDC6c7S7'}
-                  target="blank"
-                >
-                  {companyAddress?.addressLine1}
-                  <br />
-                  {companyAddress?.addressLine2}
-                </Link>
-              </Stack>
-
-              <Paragraph variantLevel={TEXT_LEVEL.primaryReversed} variant={PARAGRAPH_SIZE.small}>
-                {companyInfo?.copyright}
-              </Paragraph>
-            </Stack>
-          </BoxV2>
-        </Stack>
-      </SideBar>
+          </SideBar>
+        </React.Suspense>
+      )}
 
       <Main minHeight={true}>{props.children}</Main>
 

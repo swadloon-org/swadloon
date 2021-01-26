@@ -1,17 +1,12 @@
-import { Background, Center, Stack, Title, useTreatTheme, Button } from '@newrade/core-react-ui';
-import { IFluidObject } from 'gatsby-background-image';
-import { gsap, TweenMax } from '@newrade/core-gsap-ui';
-import React, { useRef, useEffect } from 'react';
+import { ButtonIcon, ButtonSize, ButtonVariant } from '@newrade/core-design-system';
+import { TweenMax } from '@newrade/core-gsap-ui';
+import { Background, Button, Center, Stack, Title, useTreatTheme } from '@newrade/core-react-ui';
 import { IoChevronDownOutline } from '@react-icons/all-files/io5/IoChevronDownOutline';
+import React, { useRef } from 'react';
 import { useStyles } from 'react-treat';
 import { SectionFragment } from '../../types/graphql-types';
-import * as styleRefs from './banner.treat';
-import { ButtonIcon, ButtonVariant, ButtonSize } from '@newrade/core-design-system';
-
-import ScrollToPlugin from '@newrade/core-gsap-ui/lib/plugins/ScrollToPlugin';
 import { gradient } from '../styles/effects.styles';
-
-gsap.registerPlugin(ScrollToPlugin);
+import * as styleRefs from './banner.treat';
 
 type OwnProps = SectionFragment;
 
@@ -19,9 +14,10 @@ export const Banner: React.FC<OwnProps> = (props) => {
   const { styles } = useStyles(styleRefs);
   const { theme, cssTheme } = useTreatTheme();
   const ref = useRef<HTMLDivElement>(null);
-  const hasImage = !!props?.medias?.medias?.length;
   const backgroundPosition = props.backgroundPosition;
-  const imageData: any = props?.medias?.medias?.[0]?.desktopFluidImage?.childImageSharp?.fluid;
+  const imageData = props?.medias?.medias?.[0]?.desktopFluidImage?.childImageSharp?.fluid;
+  const imageDataFixed = props?.medias?.medias?.[0]?.fixed?.childImageSharp?.fixed;
+  const hasImage = !!props?.medias?.medias?.length;
 
   /**
    * Icon animation
@@ -76,12 +72,15 @@ export const Banner: React.FC<OwnProps> = (props) => {
               background: gradient,
             },
           ]}
-          backgroundImage={{
-            Tag: 'div',
-            fluid: imageData as IFluidObject,
-            style: { backgroundPositionY: backgroundPosition || '' },
-            fadeIn: false,
-          }}
+          backgroundPosition={backgroundPosition}
+          src={imageDataFixed?.base64}
+          // backgroundImage={{
+          //   Tag: 'div',
+          //   // fluid: imageData as IFluidObject,
+          //   // fixed: imageDataFixed as IFixedObject,
+          //   style: { backgroundPositionY: backgroundPosition || '', display: 'inherit' },
+          //   fadeIn: false,
+          // }}
         >
           <Center contentClassName={styles.textContainer}>
             <Stack

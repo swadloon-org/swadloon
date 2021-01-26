@@ -36,6 +36,13 @@ export const sectionFragment = graphql`
         file {
           url
         }
+        aboveFoldImage: localFile {
+          childImageSharp {
+            sizes(base64Width: 1920, jpegQuality: 80, jpegProgressive: true) {
+              base64
+            }
+          }
+        }
         desktopFluidImage: localFile {
           childImageSharp {
             fluid(quality: 90, maxWidth: 1920) {
@@ -49,19 +56,19 @@ export const sectionFragment = graphql`
             }
           }
         }
-        mobileFluidImage: localFile {
-          childImageSharp {
-            fluid(quality: 90, maxWidth: 768) {
-              base64
-              aspectRatio
-              src
-              srcSet
-              srcWebp
-              srcSetWebp
-              sizes
-            }
-          }
-        }
+        # mobileFluidImage: localFile {
+        #   childImageSharp {
+        #     fluid(quality: 90, maxWidth: 768) {
+        #       base64
+        #       aspectRatio
+        #       src
+        #       srcSet
+        #       srcWebp
+        #       srcSetWebp
+        #       sizes
+        #     }
+        #   }
+        # }
         mobileFluidTallImage: localFile {
           childImageSharp {
             fluid(quality: 90, maxHeight: 630) {
@@ -77,14 +84,8 @@ export const sectionFragment = graphql`
         }
         fixed: localFile {
           childImageSharp {
-            fixed(quality: 90, height: 650) {
+            fixed(base64Width: 1920, quality: 100) {
               base64
-              width
-              height
-              src
-              srcSet
-              srcWebp
-              srcSetWebp
             }
           }
         }
