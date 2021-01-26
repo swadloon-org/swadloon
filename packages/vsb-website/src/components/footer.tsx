@@ -1,5 +1,5 @@
 import { LABEL_SIZE, PARAGRAPH_SIZE, TEXT_LEVEL, TEXT_STYLE, LinkVariant } from '@newrade/core-design-system';
-import { Center, Label, Link, Paragraph, Stack, ListItem } from '@newrade/core-react-ui';
+import { Center, Label, Link, Paragraph, Stack, ListItem, ListItems } from '@newrade/core-react-ui';
 import { graphql, Link as GatsbyLink, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { useStyles } from 'react-treat';
@@ -43,7 +43,7 @@ export const Footer: React.FC<Props> = ({ id, style, className, ...props }) => {
   const mergedClassNames = getMergedClassname([className, styles.wrapper]);
 
   return (
-    <div id={id} style={style} className={mergedClassNames}>
+    <footer id={id} style={style} className={mergedClassNames}>
       <Center>
         <Stack gap={[cssTheme.sizing.var.x5]}>
           <div className={styles.grid}>
@@ -108,7 +108,7 @@ export const Footer: React.FC<Props> = ({ id, style, className, ...props }) => {
               >
                 Nous Joindre
               </Label>
-              <Stack gap={[cssTheme.sizing.var.x4]}>
+              <ListItems gap={[cssTheme.sizing.var.x4]}>
                 <ListItem variantLevel={TEXT_LEVEL.primaryReversed} variantIcon={'icon'} Icon={<IoMailOutline />}>
                   <Link
                     className={styles.listItem}
@@ -159,7 +159,7 @@ export const Footer: React.FC<Props> = ({ id, style, className, ...props }) => {
                     {data?.contentfulCompanyAddress?.addressLine2}
                   </Link>
                 </ListItem>
-              </Stack>
+              </ListItems>
             </Stack>
           </div>
           <Paragraph className={styles.copyright} variant={PARAGRAPH_SIZE.small}>
@@ -167,6 +167,6 @@ export const Footer: React.FC<Props> = ({ id, style, className, ...props }) => {
           </Paragraph>
         </Stack>
       </Center>
-    </div>
+    </footer>
   );
 };

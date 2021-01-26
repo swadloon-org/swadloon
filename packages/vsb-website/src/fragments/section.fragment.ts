@@ -36,41 +36,57 @@ export const sectionFragment = graphql`
         file {
           url
         }
-        desktopFluidImage: fluid(quality: 90, maxWidth: 1920) {
-          base64
-          aspectRatio
-          src
-          srcSet
-          srcWebp
-          srcSetWebp
-          sizes
+        desktopFluidImage: localFile {
+          childImageSharp {
+            fluid(quality: 90, maxWidth: 1920) {
+              base64
+              aspectRatio
+              src
+              srcSet
+              srcWebp
+              srcSetWebp
+              sizes
+            }
+          }
         }
-        mobileFluidImage: fluid(quality: 90, maxWidth: 768) {
-          base64
-          aspectRatio
-          src
-          srcSet
-          srcWebp
-          srcSetWebp
-          sizes
+        mobileFluidImage: localFile {
+          childImageSharp {
+            fluid(quality: 90, maxWidth: 768) {
+              base64
+              aspectRatio
+              src
+              srcSet
+              srcWebp
+              srcSetWebp
+              sizes
+            }
+          }
         }
-        mobileFluidTallImage: fluid(quality: 90, maxHeight: 630) {
-          base64
-          aspectRatio
-          src
-          srcSet
-          srcWebp
-          srcSetWebp
-          sizes
+        mobileFluidTallImage: localFile {
+          childImageSharp {
+            fluid(quality: 90, maxHeight: 630) {
+              base64
+              aspectRatio
+              src
+              srcSet
+              srcWebp
+              srcSetWebp
+              sizes
+            }
+          }
         }
-        fixed: fixed(quality: 90, height: 650) {
-          base64
-          width
-          height
-          src
-          srcSet
-          srcWebp
-          srcSetWebp
+        fixed: localFile {
+          childImageSharp {
+            fixed(quality: 90, height: 650) {
+              base64
+              width
+              height
+              src
+              srcSet
+              srcWebp
+              srcSetWebp
+            }
+          }
         }
       }
     }

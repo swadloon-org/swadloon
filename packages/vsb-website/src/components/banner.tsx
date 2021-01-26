@@ -21,7 +21,7 @@ export const Banner: React.FC<OwnProps> = (props) => {
   const ref = useRef<HTMLDivElement>(null);
   const hasImage = !!props?.medias?.medias?.length;
   const backgroundPosition = props.backgroundPosition;
-  const imageData: any = props?.medias?.medias?.[0]?.desktopFluidImage;
+  const imageData: any = props?.medias?.medias?.[0]?.desktopFluidImage?.childImageSharp?.fluid;
 
   /**
    * Icon animation
@@ -96,6 +96,7 @@ export const Banner: React.FC<OwnProps> = (props) => {
 
               <div ref={ref} className={styles.icon}>
                 <Button
+                  aria-label={'Next section'}
                   size={ButtonSize.large}
                   variant={ButtonVariant.tertiaryReversed}
                   icon={ButtonIcon.icon}

@@ -22,7 +22,7 @@ const defaultProps: Props = {
 
 export const Heading = React.memo(
   React.forwardRef<any, Props>(
-    ({ variant, variantLevel, displayMode, id, className, children, style, ...props }, ref) => {
+    ({ variant, variantLevel, displayMode, id, className, children, style, as, ...props }, ref) => {
       const { styles } = useStyles(stylesRef);
       const refLocal = ref ? (ref as React.RefObject<HTMLButtonElement>) : useRef<HTMLButtonElement>(null);
 
@@ -30,19 +30,19 @@ export const Heading = React.memo(
 
       switch (variant) {
         case HEADING.h1: {
-          type = 'h1';
+          type = as ? as : 'h1';
           break;
         }
         case HEADING.h2: {
-          type = 'h2';
+          type = as ? as : 'h2';
           break;
         }
         case HEADING.h3: {
-          type = 'h3';
+          type = as ? as : 'h3';
           break;
         }
         case HEADING.h4: {
-          type = 'h4';
+          type = as ? as : 'h4';
           break;
         }
 

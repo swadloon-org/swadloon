@@ -147,6 +147,7 @@ export const NavBar = React.forwardRef<any, Props>((props, ref) => {
         <div className={styles.mobileWrapper}>
           <BoxV2 justifyContent={['flex-start']}>
             <Button
+              aria-label={'Menu'}
               size={ButtonSize.large}
               collapsePadding={'left'}
               variant={ButtonVariant.tertiary}
@@ -156,7 +157,12 @@ export const NavBar = React.forwardRef<any, Props>((props, ref) => {
             ></Button>
           </BoxV2>
 
-          <BoxV2 justifyContent={['center']} padding={[cssTheme.sizing.var.x2, 0]} AsElement={props.HomeLink}>
+          <BoxV2
+            justifyContent={['center']}
+            padding={[cssTheme.sizing.var.x2, 0]}
+            AsElement={props.HomeLink}
+            aria-label={'Home'}
+          >
             <SVGLogo Icon={MobileSvgLogo || DesktopSvgLogo} />
           </BoxV2>
 
@@ -174,7 +180,7 @@ export const NavBar = React.forwardRef<any, Props>((props, ref) => {
         style={props.style}
         maxWidth={props.maxWidth}
       >
-        <Cluster justifyContent={['space-between']} alignItems={['center']}>
+        <Cluster justifyContent={['space-between']} alignItems={['center']} as={'nav'}>
           <BoxV2 padding={[cssTheme.sizing.var.x2, 0]} className={styles.logoWrapper} AsElement={props.HomeLink}>
             <SVGLogo Icon={DesktopSvgLogo || MobileSvgLogo} />
           </BoxV2>

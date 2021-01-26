@@ -27,7 +27,7 @@ type Props = CommonComponentProps & {
 export const TileLink: React.FC<Props> = ({ id, style, className, contentClassName, section, ...props }) => {
   const { styles } = useStyles(styleRefs);
   const hasImage = !!section?.medias?.medias?.length;
-  const imageData: any = section?.medias?.medias?.[0]?.desktopFluidImage;
+  const imageData: any = section?.medias?.medias?.[0]?.desktopFluidImage?.childImageSharp?.fluid;
   const { cssTheme } = useTreatTheme();
   const mergedClassNames = getMergedClassname([styles.wrapper, className]);
   const mergedContentClassNames = getMergedClassname([styles.content, contentClassName]);

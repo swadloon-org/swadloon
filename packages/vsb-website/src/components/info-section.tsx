@@ -40,7 +40,7 @@ export const InfoSection: React.FC<OwnProps> = ({
   const { styles } = useStyles(styleRefs);
   const mergedClassNames = getMergedClassname([styles.wrapper, className, variant ? styles[variant] : '']);
   const hasImage = !!section?.medias?.medias?.length;
-  const mobileFluidTallImage: any = section?.medias?.medias?.[0]?.mobileFluidTallImage;
+  const mobileFluidTallImage: any = section?.medias?.medias?.[0]?.mobileFluidTallImage?.childImageSharp?.fluid;
   const hasMarkdown = !!section?.text?.childMdx?.body;
   const mardownData: any = section?.text?.childMdx?.body;
 

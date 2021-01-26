@@ -17,7 +17,9 @@ export const Message: React.FC<OwnProps> = (props) => {
       <BoxV2 padding={[cssTheme.sizing.var.x6, 0]}>
         <div className={styles.grid}>
           <BoxV2 className={styles.gridTitle} alignItems={['flex-start']}>
-            <Heading variant={HEADING.h4}>{props?.title}</Heading>
+            <Heading variant={HEADING.h4} as={'h1'}>
+              {props?.title}
+            </Heading>
           </BoxV2>
 
           <Stack gap={[cssTheme.sizing.var.x5]} className={styles.gridMessages}>

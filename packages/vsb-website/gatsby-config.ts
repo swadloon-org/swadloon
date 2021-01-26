@@ -53,11 +53,15 @@ const config: core.GastbySiteConfig = {
       },
     },
     {
+      /**
+       * @see https://www.gatsbyjs.com/plugins/gatsby-source-contentful/
+       */
       resolve: `gatsby-source-contentful`,
       options: {
         spaceId: env.CONTENTFUL_SPACEID_VSB,
         accessToken: env.CONTENTFUL_DELIVERY_TOKEN_VSB,
         environment: env.CONTENTFUL_ENV,
+        downloadLocal: true,
       },
     },
     /**
