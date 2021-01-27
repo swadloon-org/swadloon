@@ -12,63 +12,80 @@ import {
   Stack,
   Switcher,
 } from '@newrade/core-react-ui';
+import { IoArrowForwardOutline } from '@react-icons/all-files/io5/IoArrowForwardOutline';
 import { FluidObject } from 'gatsby-image';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
-import { IoArrowForwardOutline } from '@react-icons/all-files/io5/IoArrowForwardOutline';
 import { useStyles } from 'react-treat';
-import { SectionFragment } from '../../types/graphql-types';
 import { cssTheme } from '../design-system/theme';
-import { gradient } from '../styles/effects.styles';
-import * as styleRefs from './info-section.treat';
+import * as styleRefs from './section-info.treat';
+import { SectionProps } from './section.props';
 
-type OwnProps = CommonComponentProps & {
-  section: SectionFragment;
-  variant?: 'primary' | 'secondary';
-  order?: 'normal' | 'reverse';
-};
+type Props = CommonComponentProps &
+  SectionProps & {
+    variant?: 'primary' | 'secondary';
+    variantType?: 'image' | 'children';
+    order?: 'normal' | 'reverse';
+  };
 
-export const InfoSection: React.FC<OwnProps> = ({
+export const SectionInfo: React.FC<Props> = ({
   id,
   style,
   className,
   variant,
+  variantType = 'image',
   section,
   order = 'normal',
   ...props
 }) => {
   const { styles } = useStyles(styleRefs);
   const mergedClassNames = getMergedClassname([styles.wrapper, className, variant ? styles[variant] : '']);
+
+  /**
+   * Image
+   */
   const hasImage = !!section?.medias?.medias?.length;
   const mobileFluidTallImage: any = section?.medias?.medias?.[0]?.mobileFluidTallImage?.childImageSharp?.fluid;
+  const childImage =
+    variantType === 'image' && hasImage ? (
+      <Image key={1} image={{ Tag: 'div', fluid: mobileFluidTallImage as FluidObject }}></Image>
+    ) : null;
+
+  /**
+   * Markdown
+   */
   const hasMarkdown = !!section?.text?.childMdx?.body;
-  const mardownData: any = section?.text?.childMdx?.body;
+  const markdownData: any = section?.text?.childMdx?.body;
+  const Markdown = hasMarkdown ? (
+    <GlobalMarkdownCSS>
+      <MDXRenderer>{hasMarkdown ? markdownData : ''}</MDXRenderer>
+    </GlobalMarkdownCSS>
+  ) : null;
+
+  /**
+   * Passed children
+   */
+  const child = variantType === 'children' ? props.children : null;
+
+  /**
+   * Only keep the non null nodes
+   */
+  const renderedChildren = [childImage, child].filter((child) => !!child);
 
   const children = [
-    <BoxV2 className={styles.imagePreview} justifySelf={['center', 'center', 'flex-end']} key={'1'}>
-      <Image
-        // effects={[
-        //   {
-        //     background: gradient,
-        //     zIndex: 1,
-        //   },
-        // ]}
-        image={
-          hasImage
-            ? {
-                Tag: 'div',
-                fluid: mobileFluidTallImage as FluidObject,
-              }
-            : undefined
-        }
-      ></Image>
+    /**
+     * Either an image or a ReactNode passed as children
+     */
+    <BoxV2 className={getMergedClassname([styles.content])} justifySelf={['center', 'center', 'flex-end']} key={'1'}>
+      {renderedChildren}
     </BoxV2>,
+    /**
+     * Second section with rendered markdown
+     */
     <Stack gap={[`2em`]} style={{ maxWidth: `min(480px, 100%)` }} key={'2'}>
       <Heading variant={HEADING.h1}>{section?.title}</Heading>
 
-      <GlobalMarkdownCSS>
-        <MDXRenderer>{hasMarkdown ? mardownData : ''}</MDXRenderer>
-      </GlobalMarkdownCSS>
+      {Markdown}
 
       {section.link?.page?.slug ? (
         <Button
@@ -83,6 +100,9 @@ export const InfoSection: React.FC<OwnProps> = ({
     </Stack>,
   ];
 
+  /**
+   * Layout
+   */
   return (
     <Center id={id} style={style} className={mergedClassNames}>
       <BoxV2 padding={[cssTheme.sizing.var.x7, 0]} justifyContent={['center']}>

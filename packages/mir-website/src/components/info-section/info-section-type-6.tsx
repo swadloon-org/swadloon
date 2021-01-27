@@ -12,7 +12,7 @@ import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { mdxComponents } from '../markdown/components-markdown';
 import { MarkdownLink } from '../ui/link';
 
-type OwnProps = SectionFragment;
+type OwnProps = SectionFragment & SectionProps & {};
 
 export const InfoSectionType6: React.FC<OwnProps> = (props) => {
   const styles = useStyles(styleRefs);

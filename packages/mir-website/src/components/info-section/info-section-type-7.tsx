@@ -5,7 +5,7 @@ import { InfoTile } from './info-tile';
 import { SectionFragment } from '../../../types/graphql-types';
 import { SECTION_TYPE } from '../../templates/section.template';
 
-type OwnProps = SectionFragment;
+type OwnProps = SectionFragment & SectionProps & {};
 
 export const InfoSectionType7: React.FC<OwnProps> = (props) => {
   const styles = useStyles(styleRefs);

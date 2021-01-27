@@ -8,10 +8,11 @@ import { SectionFragment } from '../../types/graphql-types';
 import { gradient } from '../styles/effects.styles';
 import * as styleRefs from './banner.treat';
 import { IFluidObject } from 'gatsby-background-image';
+import { SectionProps } from './section.props';
 
-type OwnProps = SectionFragment;
+type Props = SectionFragment & SectionProps & {};
 
-export const Banner: React.FC<OwnProps> = (props) => {
+export const Banner: React.FC<Props> = (props) => {
   const { styles } = useStyles(styleRefs);
   const { theme, cssTheme } = useTreatTheme();
   const ref = useRef<HTMLDivElement>(null);

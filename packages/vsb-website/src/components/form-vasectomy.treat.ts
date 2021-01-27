@@ -8,7 +8,7 @@ export const styles = {
   wrapper: style(({ theme, cssTheme }: Theme) => ({
     width: '100%',
   })),
-  imagePreview: style(({ theme, cssTheme }: Theme) => ({
+  content: style(({ theme, cssTheme }: Theme) => ({
     width: 'min(100vw, 100%)',
   })),
   /**

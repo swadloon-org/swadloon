@@ -10,7 +10,7 @@ import { Tags } from './tags';
 import * as styleRefs from './job-section.treat';
 import { SECTION_TYPE } from '../../templates/section.template';
 
-type OwnProps = SectionFragment;
+type OwnProps = SectionFragment & SectionProps & {};
 
 export function JobSection(props: OwnProps) {
   const styles = useStyles(styleRefs);

@@ -4,11 +4,12 @@ import React from 'react';
 import { useStyles } from 'react-treat';
 import { HEADING } from '@newrade/core-design-system';
 import { SectionFragment } from '../../types/graphql-types';
-import * as styleRefs from './message.treat';
+import * as styleRefs from './section-messages.treat';
+import { SectionProps } from './section.props';
 
-type OwnProps = SectionFragment;
+type OwnProps = SectionFragment & SectionProps & {};
 
-export const Message: React.FC<OwnProps> = (props) => {
+export const SectionMessages: React.FC<OwnProps> = (props) => {
   const { styles } = useStyles(styleRefs);
   const { cssTheme, theme } = useTreatTheme();
 

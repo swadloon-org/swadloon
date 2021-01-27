@@ -8,7 +8,7 @@ import { SectionFragment } from '../../../types/graphql-types';
 import { Paragraph } from '../ui/paragraph';
 import { SectionLinkButton } from './section-link-button';
 
-type OwnProps = SectionFragment;
+type OwnProps = SectionFragment & SectionProps & {};
 
 export const InfoSectionType1: React.FC<OwnProps> = (props) => {
   const styles = useStyles(styleRefs);

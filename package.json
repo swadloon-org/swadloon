@@ -60,6 +60,7 @@
   },
   "dependencies": {
     "@popmotion/popcorn": "^0.4.4",
+    "@react-google-maps/api": "^2.1.1",
     "@react-icons/all-files": "^4.1.0",
     "@wellyshen/use-web-animations": "^0.6.1",
     "constate": "^3.1.0",
@@ -124,6 +125,7 @@
     "@types/express": "^4.17.11",
     "@types/fs-extra": "^9.0.6",
     "@types/google-apps-script": "^1.0.20",
+    "@types/googlemaps": "^3.43.2",
     "@types/jest": "^26",
     "@types/jest-environment-puppeteer": "^4.3.1",
     "@types/lodash": "^4.14",

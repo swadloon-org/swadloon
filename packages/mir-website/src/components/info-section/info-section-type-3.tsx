@@ -12,7 +12,7 @@ import { SectionLinkButton } from './section-link-button';
 import { Tab } from './tab';
 import { FluidObject } from 'gatsby-image';
 
-type OwnProps = SectionFragment;
+type OwnProps = SectionFragment & SectionProps & {};
 
 export const InfoSectionType3: React.FC<OwnProps> = (props) => {
   const styles = useStyles(styleRefsType3);

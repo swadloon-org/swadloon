@@ -6,7 +6,7 @@
     "skipLibCheck": true,
     "target": "es6",
     "module": "es6",
-    "types": ["react", "react-dom", "jest"],
+    "types": ["react", "react-dom", "jest", "googlemaps"],
     "lib": ["es6", "dom", "es2017"]
   },
   "references": [

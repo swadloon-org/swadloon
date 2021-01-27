@@ -33,7 +33,7 @@ import { title } from 'case';
 import { PageProps } from 'gatsby';
 import React, { ReactNode, useEffect, useRef, useState } from 'react';
 import { useStyles } from 'react-treat';
-import { Footer } from '../components/footer';
+import { Footer } from './footer';
 import { useAnimateNavbar } from '../hook/use-animate-navbar';
 import { useNavItems, useVsbCompanyInfo } from '../hook/use-nav-items.hook';
 import LogoSymbol from '../images/logo-symbol.svg';
