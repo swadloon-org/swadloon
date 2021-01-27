@@ -1,45 +1,45 @@
 import {
-  PARAGRAPH_SIZE,
-  TEXT_LEVEL,
-  LinkVariant,
-  VIEWPORT,
   HEADING,
   LABEL_SIZE,
+  LinkVariant,
+  PARAGRAPH_SIZE,
+  TEXT_LEVEL,
   TEXT_STYLE,
+  VIEWPORT,
 } from '@newrade/core-design-system';
 import { GatsbyLink } from '@newrade/core-gatsby-ui/src';
+import ExpoScaleEase from '@newrade/core-gsap-ui/lib/plugins/EasePack';
 import ScrollTrigger from '@newrade/core-gsap-ui/lib/plugins/ScrollTrigger';
 import { gsap } from '@newrade/core-gsap-ui/src';
 import {
+  BoxV2,
+  Heading,
+  Label,
   Link,
   Main,
   MainWrapper,
   NavBar,
   NavBarRefs,
-  useTreatTheme,
-  Stack,
-  NavItemGroup,
   NavItem,
-  BoxV2,
-  useViewportBreakpoint,
+  NavItemGroup,
   Paragraph,
-  Heading,
-  Label,
+  Stack,
+  useTreatTheme,
+  useViewportBreakpoint,
 } from '@newrade/core-react-ui';
 import { globalHistory } from '@reach/router';
 import { PressEvent } from '@react-types/shared';
+import { title } from 'case';
 import { PageProps } from 'gatsby';
 import React, { ReactNode, useEffect, useRef, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useStyles } from 'react-treat';
 import { Footer } from '../components/footer';
 import { useAnimateNavbar } from '../hook/use-animate-navbar';
 import { useNavItems, useVsbCompanyInfo } from '../hook/use-nav-items.hook';
 import LogoSymbol from '../images/logo-symbol.svg';
 import Logo from '../images/logo.svg';
-import '../services/i18n.service';
+// import '../services/i18n.service';
 import * as styleRefs from './layout.treat';
-import { title } from 'case';
 
 type LayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }>;
 
@@ -62,10 +62,10 @@ export const Layout = React.memo<LayoutProps>((props) => {
   /**
    * i18n
    */
-  const { t, i18n } = useTranslation();
-  const changeLanguage = (lng: string) => {
-    i18n.changeLanguage(lng);
-  };
+  // const { t, i18n } = useTranslation();
+  // const changeLanguage = (lng: string) => {
+  //   i18n.changeLanguage(lng);
+  // };
 
   /**
    * Styles & animations
@@ -100,40 +100,51 @@ export const Layout = React.memo<LayoutProps>((props) => {
   /**
    * Navbar
    */
+  const defaultNavbarState = props.location?.pathname === '/' ? 'transparent' : 'white';
   const navbarRef = useRef<NavBarRefs>();
-  const [navbarStyle, setNavbarStyle] = useState<'white' | 'transparent'>(
-    props.location?.pathname === '/' ? 'transparent' : 'white'
-  );
+  const [navbarStyle, setNavbarStyle] = useState<'white' | 'transparent'>(defaultNavbarState);
+  const [gsapLoaded, setGsapLoaded] = useState<boolean>(false);
   useAnimateNavbar({ navbarRef, whiteStyle: navbarStyle === 'white', viewport });
+
+  useEffect(() => {
+    setTimeout(() => {
+      gsap.registerPlugin(ScrollTrigger as any, ExpoScaleEase as any);
+      setGsapLoaded(true);
+    }, 1000);
+  }, []);
+
   useEffect(() => {
     let scrollTrigger: any;
-    setTimeout(() => {
-      gsap.registerPlugin(ScrollTrigger as any);
-      /**
-       * @see https://greensock.com/docs/v3/Plugins/ScrollTrigger
-       */
-      scrollTrigger = new ScrollTrigger({
-        scrub: 1,
-        delay: 1,
-        toggleActions: `play none reverse none`,
-        start: '40vh',
-        end: '40vh',
-        onEnter: () => {
-          setNavbarStyle('white');
-        },
-        onEnterBack: function () {
-          if (pathname === '/') {
-            setNavbarStyle('transparent');
-          }
-        },
-      });
-    }, 2000);
+
+    if (!gsapLoaded) {
+      return;
+    }
+
+    /**
+     * @see https://greensock.com/docs/v3/Plugins/ScrollTrigger
+     */
+    scrollTrigger = new ScrollTrigger({
+      scrub: 1,
+      delay: 1,
+      toggleActions: `play none reverse none`,
+      start: '40vh',
+      end: '40vh',
+      onEnter: () => {
+        setNavbarStyle('white');
+      },
+      onEnterBack: function () {
+        if (pathname === '/') {
+          setNavbarStyle('transparent');
+        }
+      },
+    });
+
     return () => {
       if (scrollTrigger) {
         scrollTrigger.kill?.();
       }
     };
-  }, []);
+  }, [gsapLoaded]);
 
   return (
     <MainWrapper>

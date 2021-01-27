@@ -2,11 +2,12 @@ import { ButtonIcon, ButtonSize, ButtonVariant } from '@newrade/core-design-syst
 import { TweenMax } from '@newrade/core-gsap-ui';
 import { Background, Button, Center, Stack, Title, useTreatTheme } from '@newrade/core-react-ui';
 import { IoChevronDownOutline } from '@react-icons/all-files/io5/IoChevronDownOutline';
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { useStyles } from 'react-treat';
 import { SectionFragment } from '../../types/graphql-types';
 import { gradient } from '../styles/effects.styles';
 import * as styleRefs from './banner.treat';
+import { IFluidObject } from 'gatsby-background-image';
 
 type OwnProps = SectionFragment;
 
@@ -16,30 +17,30 @@ export const Banner: React.FC<OwnProps> = (props) => {
   const ref = useRef<HTMLDivElement>(null);
   const backgroundPosition = props.backgroundPosition;
   const imageData = props?.medias?.medias?.[0]?.desktopFluidImage?.childImageSharp?.fluid;
-  const imageDataFixed = props?.medias?.medias?.[0]?.fixed?.childImageSharp?.fixed;
+  // const imageDataFixed = props?.medias?.medias?.[0]?.fixed?.childImageSharp?.fixed;
   const hasImage = !!props?.medias?.medias?.length;
 
   /**
    * Icon animation
    */
-  // useEffect(() => {
-  //   if (!ref.current) {
-  //     return;
-  //   }
+  useEffect(() => {
+    if (!ref.current) {
+      return;
+    }
 
-  //   const tween = TweenMax.to(ref.current.getElementsByClassName(styles.icon), {
-  //     duration: 1,
-  //     y: -10,
-  //     ease: `elastic.out(1, 0.4)`,
-  //     yoyo: true,
-  //     delay: 0,
-  //     repeat: Infinity,
-  //   });
+    const tween = TweenMax.to(ref.current.getElementsByClassName(styles.icon), {
+      duration: 1,
+      y: -10,
+      ease: `elastic.out(1, 0.4)`,
+      yoyo: true,
+      delay: 0,
+      repeat: Infinity,
+    });
 
-  //   return () => {
-  //     tween.kill();
-  //   };
-  // }, [ref.current]);
+    return () => {
+      tween.kill();
+    };
+  }, [ref.current]);
 
   function handleScrollToNextSection() {
     const wrapper = ref.current;
@@ -73,14 +74,14 @@ export const Banner: React.FC<OwnProps> = (props) => {
             },
           ]}
           backgroundPosition={backgroundPosition}
-          src={imageDataFixed?.base64}
-          // backgroundImage={{
-          //   Tag: 'div',
-          //   // fluid: imageData as IFluidObject,
-          //   // fixed: imageDataFixed as IFixedObject,
-          //   style: { backgroundPositionY: backgroundPosition || '', display: 'inherit' },
-          //   fadeIn: false,
-          // }}
+          // src={imageDataFixed?.base64}
+          backgroundImage={{
+            Tag: 'div',
+            fluid: imageData as IFluidObject,
+            // fixed: imageDataFixed as IFixedObject,
+            style: { backgroundPositionY: backgroundPosition || '' },
+            fadeIn: false,
+          }}
         >
           <Center contentClassName={styles.textContainer}>
             <Stack

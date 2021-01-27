@@ -1,7 +1,6 @@
 import { NavBarRefs, useTreatTheme } from '@newrade/core-react-ui';
 import { gsap, TweenMax } from '@newrade/core-gsap-ui';
 import { useEffect, useState } from 'react';
-import ExpoScaleEase from '@newrade/core-gsap-ui/lib/plugins/EasePack';
 import { VIEWPORT } from '@newrade/core-design-system';
 
 export function useAnimateNavbar({
@@ -18,15 +17,6 @@ export function useAnimateNavbar({
   const [previousWhiteStyle, setPreviousWhiteStyle] = useState<boolean>(false);
   const [logoSmallScale, logoLargeScale] = [1, 1.3];
 
-  const [gsapLoaded, setGsapLoaded] = useState<boolean>(false);
-
-  useEffect(() => {
-    setTimeout(() => {
-      gsap.registerPlugin(ExpoScaleEase as any);
-      setGsapLoaded(true);
-    }, 1000);
-  }, []);
-
   useEffect(() => {
     const desktopNavbar = navbarRef?.current?.desktopNavbar;
     const duration = 0.3;
@@ -36,10 +26,6 @@ export function useAnimateNavbar({
     }
 
     if (!desktopNavbar) {
-      return;
-    }
-
-    if (!gsapLoaded) {
       return;
     }
 
@@ -55,10 +41,12 @@ export function useAnimateNavbar({
       return;
     }
 
-    if (whiteStyle) {
-      animateToWhite(duration);
-    } else {
-      animateToTransparent(duration);
+    if (whiteStyle !== previousWhiteStyle) {
+      if (whiteStyle) {
+        animateToWhite(duration);
+      } else {
+        animateToTransparent(duration);
+      }
     }
 
     function animateToTransparent(duration: number) {
@@ -86,6 +74,8 @@ export function useAnimateNavbar({
         autoAlpha: 1,
         color: `rgba(255,255,255,1)`,
       });
+
+      setPreviousWhiteStyle(false);
     }
 
     function animateToWhite(duration: number) {
@@ -111,8 +101,10 @@ export function useAnimateNavbar({
         ease: 'expo.inOut',
         color: cssTheme.colors.colorIntents.primary,
       });
+
+      setPreviousWhiteStyle(true);
     }
 
     setPreviousWhiteStyle(whiteStyle);
-  }, [navbarRef, animationReady, whiteStyle, viewport, gsapLoaded]);
+  }, [navbarRef, animationReady, whiteStyle, viewport]);
 }

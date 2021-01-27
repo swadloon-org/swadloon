@@ -108,6 +108,7 @@ const config: core.GastbySiteConfig = {
       enableDesignSystemPages: true,
       enableDocsPages: true,
     }),
+    core.getGatsbyPluginPreloadFonts(),
   ],
 };
 

@@ -27,6 +27,11 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
   }
 
   /**
+   * Retrieve the initial gatsby webpack config
+   */
+  const config = getConfig() as WebpackOptions;
+
+  /**
    * Plugins applied for dev and production modes
    */
   const commonPlugins: WebpackOptions['plugins'] = [];
@@ -40,14 +45,6 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
    * Plugins applied in production, but when built local only
    */
   const productionLocalOnlyPlugins: WebpackOptions['plugins'] = [];
-
-  // const config: WebpackOptions = {
-  //   plugins: isProduction
-  //     ? [...commonPlugins, ...productionPlugins, ...productionLocalOnlyPlugins]
-  //     : [...commonPlugins],
-  // };
-
-  const config = getConfig() as WebpackOptions;
 
   if (!config) {
     return {};
@@ -95,6 +92,46 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
    */
   if (typeof config === 'object' && config.entry && (config.entry as Record<string, string>)['polyfill']) {
     delete (config.entry as Record<string, string>)['polyfill'];
+  }
+
+  /**
+   *
+   */
+  if (typeof config === 'object') {
+    config.optimization = {
+      ...config.optimization,
+      ...{
+        splitChunks: {
+          chunks: 'all',
+          minSize: 30000,
+          maxSize: 0,
+          minChunks: 1,
+          maxAsyncRequests: 5,
+          maxInitialRequests: 5,
+          automaticNameDelimiter: '~',
+          cacheGroups: {
+            polyfills: {
+              name: 'polyfills',
+              chunks: 'all',
+              test: /(polyfills?(-only)*\.js|fetch\.umd\.js)|[\\/]node_modules[\\/](core-js(-pure)?|@babel)[\\/]/,
+            },
+            react: {
+              name: 'react',
+              chunks: 'initial',
+              test: /[\\/]node_modules[\\/](react|react-dom|scheduler)[\\/]/,
+            },
+            gsap: {
+              name: 'gsap',
+              chunks: 'initial',
+              test: /[\\/]core-gsap-ui[\\/]|[\\/]node_modules[\\/](gsap)[\\/]/,
+            },
+          },
+        },
+        runtimeChunk: 'single',
+        namedModules: true,
+        namedChunks: true,
+      },
+    };
   }
 
   /**
