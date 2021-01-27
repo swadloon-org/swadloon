@@ -9,10 +9,12 @@ import path from 'path';
 import { Env, ENV } from '../types/dot-env.js';
 import {
   API_BASE_PATH,
+  API_LIST_PATIENTS_ROUTE,
   API_REGISTER_PATIENT_ROUTE,
   API_STATUS_CLINIKO,
   API_TRANSLATION_ROUTE,
 } from './constants/api-routes.constants';
+import { getListPatients } from './controller/get-list-patients.controller';
 import { postPatient } from './controller/post-patient.controller';
 import { statusCliniko } from './controller/status-cliniko.controller';
 import { getTranslation } from './controller/translation.controller';
@@ -74,6 +76,7 @@ server.use(router);
 router.route(API_STATUS_CLINIKO).get(statusCliniko);
 router.route(API_REGISTER_PATIENT_ROUTE).post(recaptchaMiddleware, postPatient);
 router.route(API_TRANSLATION_ROUTE).get(getTranslation);
+router.route(API_LIST_PATIENTS_ROUTE).get(getListPatients);
 
 httpServer = server.listen(port);
 
