@@ -6,7 +6,7 @@ import * as styleRefs from './info-section-type-6-group.treat';
 import { InfoSectionType6 } from './info-section-type-6';
 import { SectionFragment } from '../../../types/graphql-types';
 
-type OwnProps = SectionFragment & SectionProps & {};
+type OwnProps = SectionFragment;
 
 export const InfoSectionType6Group: React.FC<OwnProps> = (props) => {
   const hasChilds = !!props?.subSections?.length;

@@ -1,5 +1,5 @@
-import { GoogleMaps } from '@newrade/core-react-ui';
-import React from 'react';
+import { GoogleMaps, useTreatTheme, GoogleMapsInfoWindow } from '@newrade/core-react-ui';
+import React, { useCallback, useState, useEffect } from 'react';
 import { SECTION_TYPE } from '../../types/contentful-section-type';
 import { ContentfulSection } from '../../types/graphql-types';
 import { Banner } from '../components/banner';
@@ -14,8 +14,35 @@ import { SectionSteps } from '../components/steps-section';
 import { TileLink } from '../components/tile-link';
 import { SectionTileLinks } from '../components/section-tile-links';
 import { ProjectPageProps } from './page.template';
+import { Marker } from '@react-google-maps/api';
 
 export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
+  const theme = useTreatTheme();
+
+  const [place, setPlace] = useState<google.maps.places.PlaceResult>();
+  const [marker, setMarker] = useState<google.maps.Marker>();
+  const [infoWindowVisible, setInfoWindowVisible] = useState<boolean>(true);
+  const onLoad = useCallback(function onLoad(mapInstance: google.maps.Map<Element>) {
+    const service = new window.google.maps.places.PlacesService(mapInstance);
+
+    service.getDetails({ placeId: `ChIJ3aN08VsDyUwRSryItyrt4g0` }, (result, status) => {
+      // somehow we can't pass place to <Marker/> so we set the result in the state
+      const marker = new google.maps.Marker({
+        map: mapInstance,
+        place: {
+          placeId: result.place_id,
+          location: result.geometry?.location,
+        },
+      });
+
+      setPlace(result);
+      setMarker(marker);
+    });
+  }, []);
+  const handleToggleInfoWindow = () => {
+    setInfoWindowVisible(!infoWindowVisible);
+  };
+
   return (
     <>
       {data.contentfulPage?.sections?.map((section, index) => {
@@ -74,17 +101,31 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
                   section={section}
                 >
                   <GoogleMaps
+                    theme={theme}
                     script={{
                       id: 'contact-map-script',
-                      googleMapsApiKey: 'AIzaSyB41IPC7t1sYwRfrII04lrL94eiCYm8pZw',
+                      googleMapsApiKey: 'AIzaSyDCcSCivD2CPrWHNIIGBiPexN5QCujfSkE',
                     }}
                     map={{
                       id: 'contact-map',
+                      center: { lat: 45.54339323463644, lng: -73.45490549293764 },
                       mapContainerStyle: {
                         height: `min(50vh, 600px)`,
                       },
+                      options: {
+                        streetViewControl: true,
+                      },
+                      onLoad,
                     }}
-                  ></GoogleMaps>
+                  >
+                    {place && place.geometry?.location ? (
+                      <Marker position={place.geometry?.location} onClick={handleToggleInfoWindow}></Marker>
+                    ) : null}
+                    {place && marker && infoWindowVisible ? (
+                      <GoogleMapsInfoWindow place={place} anchor={marker} onCloseClick={handleToggleInfoWindow} />
+                    ) : null}
+                    {/* <TrafficLayer /> */}
+                  </GoogleMaps>
                 </SectionInfo>
               </section>
             );

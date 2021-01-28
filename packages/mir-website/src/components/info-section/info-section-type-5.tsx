@@ -12,7 +12,7 @@ import { FadeIn } from '../animation/fade-in';
 import { SECTION_IMAGE_POSITION } from '../../templates/section.template';
 import { FluidObject } from 'gatsby-image';
 
-type OwnProps = SectionFragment & SectionProps & {};
+type OwnProps = SectionFragment;
 
 export const InfoSectionType5: React.FC<OwnProps> = (props) => {
   const styles = useStyles(styleRefs);

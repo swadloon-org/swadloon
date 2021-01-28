@@ -9,7 +9,7 @@ import { RenderTitleHighlight } from '../info-section/info-title-highligh';
 import { SectionFragment } from '../../../types/graphql-types';
 import { SECTION_TYPE } from '../../templates/section.template';
 
-type OwnProps = SectionFragment & SectionProps & {};
+type OwnProps = SectionFragment;
 
 export const Process: React.FC<OwnProps> = (props) => {
   const styles = useStyles(styleRefs);

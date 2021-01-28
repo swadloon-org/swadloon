@@ -1,25 +1,24 @@
 import { ButtonIcon, ButtonSize, ButtonVariant } from '@newrade/core-design-system';
 import { TweenMax } from '@newrade/core-gsap-ui';
-import { Background, Button, Center, Stack, Title, useTreatTheme } from '@newrade/core-react-ui';
+import { Background, Button, Center, CommonComponentProps, Stack, Title, useTreatTheme } from '@newrade/core-react-ui';
 import { IoChevronDownOutline } from '@react-icons/all-files/io5/IoChevronDownOutline';
-import React, { useRef, useEffect } from 'react';
+import { IFluidObject } from 'gatsby-background-image';
+import React, { useEffect, useRef } from 'react';
 import { useStyles } from 'react-treat';
-import { SectionFragment } from '../../types/graphql-types';
 import { gradient } from '../styles/effects.styles';
 import * as styleRefs from './banner.treat';
-import { IFluidObject } from 'gatsby-background-image';
 import { SectionProps } from './section.props';
 
-type Props = SectionFragment & SectionProps & {};
+type Props = CommonComponentProps & SectionProps & {};
 
-export const Banner: React.FC<Props> = (props) => {
+export const Banner: React.FC<Props> = ({ id, style, className, section, ...props }) => {
   const { styles } = useStyles(styleRefs);
   const { theme, cssTheme } = useTreatTheme();
   const ref = useRef<HTMLDivElement>(null);
-  const backgroundPosition = props.backgroundPosition;
-  const imageData = props?.medias?.medias?.[0]?.desktopFluidImage?.childImageSharp?.fluid;
+  const backgroundPosition = section.backgroundPosition;
+  const imageData = section?.medias?.medias?.[0]?.desktopFluidImage?.childImageSharp?.fluid;
   // const imageDataFixed = props?.medias?.medias?.[0]?.fixed?.childImageSharp?.fixed;
-  const hasImage = !!props?.medias?.medias?.length;
+  const hasImage = !!section?.medias?.medias?.length;
 
   /**
    * Icon animation
@@ -29,7 +28,13 @@ export const Banner: React.FC<Props> = (props) => {
       return;
     }
 
-    const tween = TweenMax.to(ref.current.getElementsByClassName(styles.icon), {
+    const icon = ref.current.getElementsByClassName(styles.icon);
+
+    if (!icon) {
+      return;
+    }
+
+    const tween = TweenMax.to(icon, {
       duration: 1,
       y: -10,
       ease: `elastic.out(1, 0.4)`,
@@ -66,7 +71,7 @@ export const Banner: React.FC<Props> = (props) => {
   }
 
   return (
-    <div className={`${styles.wrapper}`} ref={ref}>
+    <div id={id} style={style} className={`${styles.wrapper}`} ref={ref}>
       {hasImage ? (
         <Background
           effects={[
@@ -92,8 +97,8 @@ export const Banner: React.FC<Props> = (props) => {
                 `${cssTheme.typography.titles.desktop.t1.lineGap}px`,
               ]}
             >
-              <Title>{props.title?.trim()}</Title>
-              {props.subtitle ? <Title>{props.subtitle?.trim()}</Title> : null}
+              <Title>{section.title?.trim()}</Title>
+              {section.subtitle ? <Title>{section.subtitle?.trim()}</Title> : null}
 
               <div ref={ref} className={styles.icon}>
                 <Button

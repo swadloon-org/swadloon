@@ -9,7 +9,7 @@ import * as styleRefsType4 from './info-section-type-4.treat';
 import { InfoTile } from './info-tile';
 import { RenderTitleHighlight } from './info-title-highligh';
 
-type OwnProps = SectionFragment & SectionProps & {};
+type OwnProps = SectionFragment;
 
 export const InfoSectionType4: React.FC<OwnProps> = (props) => {
   const variant = props?.type?.name as SECTION_TYPE.TYPE_4_PRIMARY | SECTION_TYPE.TYPE_4_SECONDARY;

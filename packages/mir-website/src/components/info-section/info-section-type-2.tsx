@@ -13,7 +13,7 @@ import { FadeIn } from '../animation/fade-in';
 import { LayoutCentered } from '../../layout/content-centered';
 import { FluidObject } from 'gatsby-image';
 
-type OwnProps = SectionFragment & SectionProps & {};
+type OwnProps = SectionFragment;
 
 export const InfoSectionType2: React.FC<OwnProps> = (props) => {
   const styles = useStyles(styleRefs);

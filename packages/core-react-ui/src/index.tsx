@@ -20,6 +20,7 @@ export * from './components/text/paragraph';
 export * from './components/text/summary';
 export * from './components/text/title';
 export * from './maps/google-maps';
+export * from './maps/google-maps-info-window';
 export * from './context/viewport.provider';
 export * from './design-system/css-design-system';
 export * from './design-system/default-animations';

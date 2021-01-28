@@ -6,7 +6,7 @@ import { Heading } from '../ui/heading';
 import { Paragraph } from '../ui/paragraph';
 import * as styleRefs from './info-section-video.treat';
 
-type OwnProps = SectionFragment & SectionProps & {};
+type OwnProps = SectionFragment;
 
 export const InfoSectionVideo: React.FC<OwnProps> = (props) => {
   const styles = useStyles(styleRefs);

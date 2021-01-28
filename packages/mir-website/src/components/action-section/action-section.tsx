@@ -9,7 +9,7 @@ import { Label } from '../ui/label';
 import * as styleRefs from './action-section.treat';
 import { SECTION_TYPE } from '../../templates/section.template';
 
-type OwnProps = SectionFragment & SectionProps & {};
+type OwnProps = SectionFragment;
 
 export const ActionSection: React.FC<OwnProps> = (props) => {
   const styles = useStyles(styleRefs);

@@ -98,6 +98,7 @@ const config: core.GastbySiteConfig = {
         '@newrade/core-gatsby-config',
         '@newrade/core-gatsby-ui/src',
         '@newrade/core-react-ui',
+        '@react-google-maps/api',
         '@react-aria',
         'i18next',
         'yup',

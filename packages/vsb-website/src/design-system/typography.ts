@@ -145,7 +145,7 @@ export const typography: Typography = {
         lineGap: 16,
       },
       small: {
-        capHeight: 10,
+        capHeight: 11,
         lineGap: 14,
       },
       xSmall: {
@@ -239,15 +239,15 @@ export const typography: Typography = {
     desktop: {
       medium: {
         capHeight: 13,
-        lineGap: 12,
+        lineGap: 10,
       },
       small: {
         capHeight: 11,
-        lineGap: 12,
+        lineGap: 8,
       },
       xSmall: {
         capHeight: 9,
-        lineGap: 12,
+        lineGap: 7,
       },
     },
   },
