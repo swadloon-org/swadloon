@@ -1,9 +1,9 @@
+import { LinkProps } from '@newrade/core-design-system';
 import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
 import { CommonComponentProps } from '../../props/component-common.props';
 import { getDefaultTextFromProps, getMergedClassname } from '../../utilities/component.utilities';
 import * as stylesRef from './list-item.treat';
-import { LinkProps } from '@newrade/core-design-system';
 
 type Props = CommonComponentProps &
   HTMLAttributes<HTMLLIElement> &
@@ -34,13 +34,16 @@ export const ListItem: React.FC<Props> = React.memo(
     /**
      * Props
      */
-    const variantStateClassName = styles.wrapper;
-    const allClassName = getMergedClassname([
-      variantStateClassName,
+    const wrapperClassNames = getMergedClassname([
+      styles.wrapper,
+      variantIcon === 'icon' ? styles.iconWrapper : '',
       className,
+    ]);
+    const classNames = getMergedClassname([
+      styles.textWrapper,
+      variantIcon === 'icon' ? styles.textWrapperIcon : '',
       variantLevel ? styles[variantLevel] : '',
       variantSize ? styles[variantSize] : styles.small,
-      variantIcon === 'icon' ? styles.iconWrapper : '',
     ]);
 
     /**
@@ -72,13 +75,13 @@ export const ListItem: React.FC<Props> = React.memo(
       {
         id,
         style,
-        className: allClassName,
+        className: wrapperClassNames,
         ...props,
       },
-      <>
+      <div className={classNames}>
         {IconSvg}
-        {renderedChildren}
-      </>
+        <div className={styles.content}>{renderedChildren}</div>
+      </div>
     );
   }
 );

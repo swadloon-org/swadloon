@@ -8,5 +8,5 @@
       "@newrade/*": ["../*/src"]
     }
   },
-  "include": ["src", "types"]
+  "include": ["src", "types", "../core-gatsby-ui/src/markdown/markdown-renderer.tsx"]
 }

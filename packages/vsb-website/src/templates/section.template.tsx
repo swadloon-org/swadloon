@@ -12,8 +12,8 @@ import { SectionFaq } from '../components/section-faq';
 import { SectionInfo } from '../components/section-info';
 import { SectionLayout } from '../components/section-layout';
 import { SectionMessages } from '../components/section-messages';
+import { SectionSteps } from '../components/section-steps';
 import { SectionTileLinks } from '../components/section-tile-links';
-import { SectionSteps } from '../components/steps-section';
 import { ProjectPageProps } from './page.template';
 
 export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
@@ -156,7 +156,7 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
           }
           case SECTION_TYPE.VASECTOMY_INFO: {
             return (
-              <SectionLayout id={`section-${index}`} key={index}>
+              <SectionLayout id={`section-${index}`} key={index} variant={'secondary'}>
                 <SectionInfo key={index} section={section} />
               </SectionLayout>
             );
@@ -170,7 +170,7 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
           }
           case SECTION_TYPE.VASECTOMY_INFO_COST: {
             return (
-              <SectionLayout id={`section-${index}`} key={index}>
+              <SectionLayout id={`section-${index}`} key={index} variant={'secondary'}>
                 <SectionCost key={index} section={section} />
               </SectionLayout>
             );
@@ -184,7 +184,7 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
           }
           case SECTION_TYPE.VASECTOMY_FORM_LINK: {
             return (
-              <SectionLayout id={`section-${index}`} key={index}>
+              <SectionLayout id={`section-${index}`} key={index} variantLayout={'banner'}>
                 <SectionCallout key={index} section={section} />
               </SectionLayout>
             );
@@ -218,17 +218,17 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
               </SectionLayout>
             );
           }
+          case SECTION_TYPE.PILOT_EXAM_SERVICE: {
+            return (
+              <SectionLayout id={`section-${index}`} key={index} variant={'secondary'}>
+                <SectionCost key={index} section={section} />
+              </SectionLayout>
+            );
+          }
           case SECTION_TYPE.PILOT_EXAM_DR_PROFILE: {
             return (
               <SectionLayout id={`section-${index}`} key={index}>
                 <SectionInfo key={index} section={section} />
-              </SectionLayout>
-            );
-          }
-          case SECTION_TYPE.PILOT_EXAM_SERVICE: {
-            return (
-              <SectionLayout id={`section-${index}`} key={index}>
-                <SectionCost key={index} section={section} />
               </SectionLayout>
             );
           }

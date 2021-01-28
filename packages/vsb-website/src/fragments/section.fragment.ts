@@ -15,7 +15,6 @@ export const sectionFragment = graphql`
       ...Link
     }
     text {
-      text
       childMdx {
         body
       }
@@ -25,6 +24,15 @@ export const sectionFragment = graphql`
       type
       message {
         message
+        childMdx {
+          body
+        }
+      }
+    }
+    steps {
+      id
+      title
+      text {
         childMdx {
           body
         }

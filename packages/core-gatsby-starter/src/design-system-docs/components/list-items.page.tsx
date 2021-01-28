@@ -1,22 +1,22 @@
-import { HEADING, LinkVariant, TEXT_LEVEL, PARAGRAPH_SIZE } from '@newrade/core-design-system';
+import { HEADING, PARAGRAPH_SIZE, TEXT_LEVEL } from '@newrade/core-design-system';
 import {
   BoxV2,
   Details,
   Heading,
   Label,
-  Link,
   ListItem,
   ListItems,
   Stack,
   Summary,
   useTreatTheme,
 } from '@newrade/core-react-ui';
-import React from 'react';
 import { IoMailOutline } from '@react-icons/all-files/io5/IoMailOutline';
 import { IoPhonePortraitOutline } from '@react-icons/all-files/io5/IoPhonePortraitOutline';
+import React from 'react';
 import { useStyles } from 'react-treat';
 import { DesignSystemPageProps, DesignSystemPageTemplate } from '../../templates/design-system-page.template';
 import * as styleRefs from '../home.treat';
+import { lorenipsum } from '../utils/loren-ipsum';
 
 const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
   const { styles } = useStyles(styleRefs);
@@ -98,6 +98,28 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
                     Icon={<IoMailOutline />}
                   ></ListItem>
                 </ListItems>
+              </Stack>
+
+              <Stack gap={[cssTheme.sizing.var.x3]}>
+                <Label variantLevel={TEXT_LEVEL.tertiary}>Multi-lines</Label>
+
+                <Stack as={'ul'} gap={[cssTheme.sizing.var.x2]}>
+                  <ListItem variantIcon={'icon'} Icon={<IoMailOutline />} variantSize={PARAGRAPH_SIZE.large}>
+                    {lorenipsum}
+                  </ListItem>
+
+                  <ListItem variantIcon={'icon'} Icon={<IoMailOutline />} variantSize={PARAGRAPH_SIZE.medium}>
+                    {lorenipsum}
+                  </ListItem>
+
+                  <ListItem variantIcon={'icon'} Icon={<IoMailOutline />}>
+                    {lorenipsum}
+                  </ListItem>
+
+                  <ListItem variantIcon={'icon'} Icon={<IoPhonePortraitOutline />} variantSize={PARAGRAPH_SIZE.xSmall}>
+                    {lorenipsum}
+                  </ListItem>
+                </Stack>
               </Stack>
             </Stack>
           </BoxV2>

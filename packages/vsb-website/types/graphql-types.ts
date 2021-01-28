@@ -23112,15 +23112,15 @@ export type PageFragmentFragment = (
 
 export type SectionFragment = (
   Pick<ContentfulSection, 'node_locale' | 'name' | 'variant' | 'title' | 'titleHighlight' | 'subtitle' | 'backgroundPosition'>
-  & { type?: Maybe<Pick<ContentfulSectionType, 'type'>>, link?: Maybe<LinkFragment>, text?: Maybe<(
-    Pick<ContentfulSectionTextTextNode, 'text'>
-    & { childMdx?: Maybe<Pick<Mdx, 'body'>> }
-  )>, announcements?: Maybe<Array<Maybe<(
+  & { type?: Maybe<Pick<ContentfulSectionType, 'type'>>, link?: Maybe<LinkFragment>, text?: Maybe<{ childMdx?: Maybe<Pick<Mdx, 'body'>> }>, announcements?: Maybe<Array<Maybe<(
     Pick<ContentfulAnnouncement, 'name' | 'type'>
     & { message?: Maybe<(
       Pick<ContentfulAnnouncementMessageTextNode, 'message'>
       & { childMdx?: Maybe<Pick<Mdx, 'body'>> }
     )> }
+  )>>>, steps?: Maybe<Array<Maybe<(
+    Pick<ContentfulStep, 'id' | 'title'>
+    & { text?: Maybe<{ childMdx?: Maybe<Pick<Mdx, 'body'>> }> }
   )>>>, medias?: Maybe<{ medias?: Maybe<Array<Maybe<{ file?: Maybe<Pick<ContentfulAssetFile, 'url'>>, desktopFluidImage?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>> }> }>, mobileFluidTallImage?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>> }> }> }>>> }> }
 );
 
