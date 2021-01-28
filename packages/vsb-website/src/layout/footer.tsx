@@ -1,16 +1,25 @@
-import { LABEL_SIZE, PARAGRAPH_SIZE, TEXT_LEVEL, TEXT_STYLE, LinkVariant } from '@newrade/core-design-system';
-import { Center, Label, Link, Paragraph, Stack, ListItem, ListItems } from '@newrade/core-react-ui';
+import { LABEL_SIZE, LinkVariant, PARAGRAPH_SIZE, TEXT_LEVEL, TEXT_STYLE } from '@newrade/core-design-system';
+import {
+  Center,
+  CommonComponentProps,
+  getMergedClassname,
+  Label,
+  Link,
+  ListItem,
+  ListItems,
+  Paragraph,
+  Stack,
+} from '@newrade/core-react-ui';
+import { IoCallOutline } from '@react-icons/all-files/io5/IoCallOutline';
+import { IoLocationOutline } from '@react-icons/all-files/io5/IoLocationOutline';
+import { IoMailOutline } from '@react-icons/all-files/io5/IoMailOutline';
+import { IoPrintOutline } from '@react-icons/all-files/io5/IoPrintOutline';
 import { graphql, Link as GatsbyLink, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { FooterQuery } from '../../types/graphql-types';
 import { cssTheme } from '../design-system/theme';
 import * as styleRefs from './footer.treat';
-import { CommonComponentProps, getMergedClassname } from '@newrade/core-react-ui';
-import { IoMailOutline } from '@react-icons/all-files/io5/IoMailOutline';
-import { IoLocationOutline } from '@react-icons/all-files/io5/IoLocationOutline';
-import { IoPrintOutline } from '@react-icons/all-files/io5/IoPrintOutline';
-import { IoCallOutline } from '@react-icons/all-files/io5/IoCallOutline';
 
 export const footerQuery = graphql`
   query Footer {

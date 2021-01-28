@@ -107,7 +107,7 @@ export const SectionInfo: React.FC<Props> = ({
    * Layout
    */
   return (
-    <Switcher gap={[cssTheme.sizing.var.x5, cssTheme.sizing.var.x6]} alignItems={['center']} style={{ width: `100%` }}>
+    <Switcher gap={[cssTheme.sizing.var.x6]} alignItems={['center']} style={{ width: `100%` }}>
       {order === 'normal' ? children : children.reverse()}
     </Switcher>
   );

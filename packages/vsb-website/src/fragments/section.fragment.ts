@@ -38,7 +38,7 @@ export const sectionFragment = graphql`
         }
         desktopFluidImage: localFile {
           childImageSharp {
-            fluid(quality: 90, maxWidth: 1920) {
+            fluid(quality: 90, maxWidth: 1920, base64Width: 400) {
               base64
               aspectRatio
               src
