@@ -68,7 +68,7 @@ export const SectionInfo: React.FC<Props> = ({
     /**
      * Either an image or a ReactNode passed as children
      */
-    <BoxV2 className={getMergedClassname([styles.content])} justifySelf={['center', 'center', 'flex-end']} key={'1'}>
+    <BoxV2 className={getMergedClassname([styles.content])} justifySelf={['center', 'center', 'flex-end']} key={1}>
       {renderedChildren}
     </BoxV2>,
     /**
@@ -78,7 +78,7 @@ export const SectionInfo: React.FC<Props> = ({
       className={getMergedClassname([styles.content])}
       justifySelf={['center', 'center', order === 'reverse' ? 'flex-end' : 'flex-start']}
       justifyContent={['center', 'center', order === 'reverse' ? 'flex-end' : 'flex-start']}
-      key={'1'}
+      key={2}
     >
       <Stack gap={[cssTheme.sizing.var.x5]} style={{ maxWidth: `min(480px, 100%)` }} key={'2'}>
         <Heading variant={HEADING.h1}>{section?.title}</Heading>

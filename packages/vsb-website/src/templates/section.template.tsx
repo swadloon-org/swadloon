@@ -1,6 +1,7 @@
 import { GoogleMaps, GoogleMapsInfoWindow, useTreatTheme } from '@newrade/core-react-ui';
 import { Marker } from '@react-google-maps/api';
 import React, { useCallback, useState } from 'react';
+import { useInView } from 'react-intersection-observer';
 import { SECTION_TYPE } from '../../types/contentful-section-type';
 import { ContentfulSection } from '../../types/graphql-types';
 import { Banner } from '../components/banner';
@@ -18,6 +19,12 @@ import { ProjectPageProps } from './page.template';
 export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
   const theme = useTreatTheme();
 
+  /**
+   * Google Maps section
+   */
+  const { ref, inView } = useInView({
+    threshold: 0,
+  });
   const [place, setPlace] = useState<google.maps.places.PlaceResult>();
   const [marker, setMarker] = useState<google.maps.Marker>();
   const [infoWindowVisible, setInfoWindowVisible] = useState<boolean>(true);
@@ -84,34 +91,35 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
           }
           case SECTION_TYPE.CONTACT_PREVIEW: {
             return (
-              <SectionLayout id={`section-${index}`} key={index} variant={'secondary'}>
+              <SectionLayout id={`section-${index}`} key={index} variant={'secondary'} ref={ref}>
                 <SectionInfo variantType={'children'} order={'reverse'} key={index} section={section}>
-                  <GoogleMaps
-                    theme={theme}
-                    script={{
-                      id: 'contact-map-script',
-                      googleMapsApiKey: 'AIzaSyDCcSCivD2CPrWHNIIGBiPexN5QCujfSkE',
-                    }}
-                    map={{
-                      id: 'contact-map',
-                      center: { lat: 45.54339323463644, lng: -73.45490549293764 },
-                      mapContainerStyle: {
-                        height: `min(50vh, 600px)`,
-                      },
-                      options: {
-                        streetViewControl: true,
-                      },
-                      onLoad,
-                    }}
-                  >
-                    {place && place.geometry?.location ? (
-                      <Marker position={place.geometry?.location} onClick={handleToggleInfoWindow}></Marker>
-                    ) : null}
-                    {place && marker && infoWindowVisible ? (
-                      <GoogleMapsInfoWindow place={place} anchor={marker} onCloseClick={handleToggleInfoWindow} />
-                    ) : null}
-                    {/* <TrafficLayer /> */}
-                  </GoogleMaps>
+                  {inView ? (
+                    <GoogleMaps
+                      theme={theme}
+                      script={{
+                        id: 'contact-map-script',
+                        googleMapsApiKey: 'AIzaSyDCcSCivD2CPrWHNIIGBiPexN5QCujfSkE',
+                      }}
+                      map={{
+                        id: 'contact-map',
+                        center: { lat: 45.54339323463644, lng: -73.45490549293764 },
+                        mapContainerStyle: {
+                          height: `min(50vh, 600px)`,
+                        },
+                        options: {
+                          streetViewControl: true,
+                        },
+                        onLoad,
+                      }}
+                    >
+                      {place && place.geometry?.location ? (
+                        <Marker position={place.geometry?.location} onClick={handleToggleInfoWindow}></Marker>
+                      ) : null}
+                      {place && marker && infoWindowVisible ? (
+                        <GoogleMapsInfoWindow place={place} anchor={marker} onCloseClick={handleToggleInfoWindow} />
+                      ) : null}
+                    </GoogleMaps>
+                  ) : null}
                 </SectionInfo>
               </SectionLayout>
             );
