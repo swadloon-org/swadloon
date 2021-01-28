@@ -1,12 +1,11 @@
 import { LinkProps, LinkState, LinkVariant, PARAGRAPH_SIZE, TEXT_LEVEL } from '@newrade/core-design-system';
-import React, { AnchorHTMLAttributes, useRef, useEffect } from 'react';
-import { useButton } from 'react-aria';
 import { IoOpenOutline } from '@react-icons/all-files/io5/IoOpenOutline';
+import React, { AnchorHTMLAttributes, useRef, RefObject } from 'react';
+import { useLink } from 'react-aria';
 import { useStyles } from 'react-treat';
 import { CommonComponentProps } from '../../props/component-common.props';
 import { getDefaultTextFromProps, getMergedClassname } from '../../utilities/component.utilities';
 import * as stylesRef from './link.treat';
-import { usePreventPinchZoom } from '../..';
 
 type Props = CommonComponentProps &
   AnchorHTMLAttributes<any> &
@@ -20,6 +19,8 @@ export const Link: React.FC<Props> = React.memo(
     id,
     style,
     className,
+    href,
+    target,
     variant,
     variantIcon,
     Icon,
@@ -36,11 +37,8 @@ export const Link: React.FC<Props> = React.memo(
      * Hooks
      */
     const { styles: styles } = useStyles(stylesRef);
-    let ref = useRef();
-    // @ts-ignore
-    let { buttonProps, isPressed } = useButton({ ...props, elementType: type }, ref);
-
-    // usePreventPinchZoom(ref.current);
+    let ref = useRef<HTMLElement>();
+    let { linkProps } = useLink({ ...{ ...props, children }, elementType: type }, ref as RefObject<HTMLElement>);
 
     /**
      * Props
@@ -49,13 +47,11 @@ export const Link: React.FC<Props> = React.memo(
     const variantClassName = styles[variant ? variant : LinkVariant.noUnderline];
     const variantStyleClassName = styles[variantLevel ? variantLevel : TEXT_LEVEL.primary];
     const variantSizeClassName = styles[variantSize ? variantSize : PARAGRAPH_SIZE.small];
-    const activeClassName = isPressed ? styles.active : '';
     const allClassName = getMergedClassname([
       variantStateClassName,
       variantStyleClassName,
       variantSizeClassName,
       variantClassName,
-      activeClassName,
       className,
     ]);
 
@@ -85,23 +81,28 @@ export const Link: React.FC<Props> = React.memo(
       ) : null;
 
     /**
+     * Props
+     */
+    const compProps = {
+      id,
+      style,
+      href,
+      rel: target === '_blank' ? 'noopener' : undefined,
+      className: allClassName,
+      ref,
+      ...linkProps,
+      children: (
+        <>
+          {renderedChildren}
+          {IconSvg}
+        </>
+      ),
+    };
+
+    /**
      * Handle AsElement option
      */
-    const WrapperElement = AsElement
-      ? React.cloneElement(AsElement as React.ReactElement, {
-          id,
-          style,
-          className: allClassName,
-          children: (
-            <>
-              {renderedChildren}
-              {IconSvg}
-            </>
-          ),
-          ref,
-          ...buttonProps,
-        })
-      : null;
+    const WrapperElement = AsElement ? React.cloneElement(AsElement as React.ReactElement, compProps) : null;
 
     if (WrapperElement) {
       return WrapperElement;
@@ -110,20 +111,6 @@ export const Link: React.FC<Props> = React.memo(
     /**
      * Render
      */
-    return React.createElement(
-      type,
-      {
-        id,
-        style,
-        className: allClassName,
-        ref,
-        ...buttonProps,
-      },
-      <>
-        {isPressed}
-        {renderedChildren}
-        {IconSvg}
-      </>
-    );
+    return React.createElement(type, compProps);
   }
 );

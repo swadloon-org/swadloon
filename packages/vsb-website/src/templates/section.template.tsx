@@ -15,6 +15,7 @@ import { TileLink } from '../components/tile-link';
 import { SectionTileLinks } from '../components/section-tile-links';
 import { ProjectPageProps } from './page.template';
 import { Marker } from '@react-google-maps/api';
+import { SectionLayout } from '../components/section-layout';
 
 export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
   const theme = useTreatTheme();
@@ -244,9 +245,9 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
            */
           case SECTION_TYPE.CONTACT_CONTACT: {
             return (
-              <section id={`section-${index}`} key={index}>
-                <SectionContact key={index} section={section} />
-              </section>
+              <SectionLayout id={`section-${index}`} key={index}>
+                <SectionInfo key={index} section={section} />
+              </SectionLayout>
             );
           }
           default: {

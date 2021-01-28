@@ -69,7 +69,7 @@ export function pxStringToNumber({ value }: { value: string }): number | undefin
     return undefined;
   }
   const conversion = Number(match[0]);
-  if (conversion === undefined || conversion === NaN || conversion === null) {
+  if (conversion === undefined || conversion === NaN) {
     return undefined;
   }
 

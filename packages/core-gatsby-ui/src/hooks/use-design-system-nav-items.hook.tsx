@@ -43,7 +43,7 @@ export function useDesignSystemNavItems(): NavItem[] {
     dirName: node.context?.dirName,
     path: node.path,
   }));
-  const sortedNavItems = navItems.sort((itemA, itemB) => {
+  const sortedNavItems = navItems?.sort((itemA, itemB) => {
     const indexA = dirSortOrder.indexOf(kebab(itemA.dirName));
     const indexB = dirSortOrder.indexOf(kebab(itemB.dirName));
 
@@ -54,7 +54,7 @@ export function useDesignSystemNavItems(): NavItem[] {
     if (!name) {
       return '';
     }
-    return title(name?.replace('.page', '').replace('design-system-', ''));
+    return title(name.replace('.page', '').replace('design-system-', ''));
   }
 
   return sortedNavItems;

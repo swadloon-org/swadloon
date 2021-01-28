@@ -28,7 +28,6 @@ export const NavBar: React.FC<OwnProps> = ({
   const currentLocale = location?.pathname.includes('/en/') ? 'en-CA' : 'fr-CA';
   const currentLocaleIsEN = currentLocale === 'en-CA';
   const currentLocaleIsFR = !currentLocaleIsEN;
-  const currentPage = pages?.filter((page) => page?.name === currentPageName && page?.locale === currentLocale);
   const currentAlternateLocalePage = pages?.filter(
     (page) => page?.name === currentPageName && page?.locale !== currentLocale
   );
@@ -43,10 +42,10 @@ export const NavBar: React.FC<OwnProps> = ({
     PAGE_NAME.A_PROPOS,
   ];
   const leftToolbarPages = (currentLocaleIsEN ? pagesEN : pagesFR)
-    ?.filter((page) => page.name && leftToolbarPageNames?.includes(page?.name))
+    ?.filter((page) => page?.name && leftToolbarPageNames.includes(page?.name))
     .sort((pageA, pageB) => {
-      const indexA = pageA && pageA.name ? leftToolbarPageNames?.indexOf(pageA?.name) : 1;
-      const indexB = pageB && pageB.name ? leftToolbarPageNames?.indexOf(pageB?.name) : 1;
+      const indexA = pageA?.name ? leftToolbarPageNames.indexOf(pageA?.name) : 1;
+      const indexB = pageB?.name ? leftToolbarPageNames.indexOf(pageB?.name) : 1;
       return indexA > indexB ? 1 : -1;
     });
   const contactUsPage = (currentLocaleIsEN ? pagesEN : pagesFR)?.filter((page) => page?.name === 'Contact');
@@ -147,7 +146,7 @@ export const NavBar: React.FC<OwnProps> = ({
             {contactUsPage?.[0]?.slug ? (
               <GatsbyLink to={contactUsPage?.[0]?.slug}>
                 <Button variantType="secondaryReversed" variant="text" size="small">
-                  {contactUsPage[0]?.title}
+                  {contactUsPage?.[0]?.title}
                 </Button>
               </GatsbyLink>
             ) : null}

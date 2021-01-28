@@ -15,7 +15,7 @@ export const Banner: React.FC<Props> = ({ id, style, className, section, ...prop
   const { styles } = useStyles(styleRefs);
   const { theme, cssTheme } = useTreatTheme();
   const ref = useRef<HTMLDivElement>(null);
-  const backgroundPosition = section.backgroundPosition;
+  const backgroundPosition = section?.backgroundPosition;
   const imageData = section?.medias?.medias?.[0]?.desktopFluidImage?.childImageSharp?.fluid;
   // const imageDataFixed = props?.medias?.medias?.[0]?.fixed?.childImageSharp?.fixed;
   const hasImage = !!section?.medias?.medias?.length;
@@ -98,7 +98,7 @@ export const Banner: React.FC<Props> = ({ id, style, className, section, ...prop
               ]}
             >
               <Title>{section.title?.trim()}</Title>
-              {section.subtitle ? <Title>{section.subtitle?.trim()}</Title> : null}
+              {section.subtitle ? <Title>{section.subtitle.trim()}</Title> : null}
 
               <div ref={ref} className={styles.icon}>
                 <Button

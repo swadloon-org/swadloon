@@ -68,7 +68,7 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
   if (typeof config === 'object' && env.APP_ENV === DEPLOY_ENV.LOCAL) {
     config.stats = {
       ...(typeof config.stats === 'object' ? config.stats : {}),
-      ...(env.APP_ENV === DEPLOY_ENV.LOCAL ? webpackStatsConf.dev : {}),
+      ...webpackStatsConf.dev,
     };
 
     config.plugins?.push(getWebpackStatsPlugin());

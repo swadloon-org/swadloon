@@ -27,7 +27,7 @@ const defaultLibraries: Libraries = ['places'];
  * @see https://github.com/JustFly1984/react-google-maps-api
  * @see https://developers.google.com/places/web-service/overview
  */
-export const GoogleMaps: React.FC<Props> = React.memo(
+export const GoogleMapsStatic: React.FC<Props> = React.memo(
   ({ id, className, style, as, script, map, children, theme, ...props }) => {
     /**
      * Component props

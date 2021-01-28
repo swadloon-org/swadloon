@@ -1,5 +1,5 @@
 import { ICON_SIZE, LABEL } from '@newrade/core-design-system-old';
-import { motion } from 'framer-motion';
+import useWebAnimations from '@wellyshen/use-web-animations';
 import { Link as GatsbyLink } from 'gatsby';
 import React, { HTMLAttributes, useEffect, useState } from 'react';
 import { useStyles } from 'react-treat';
@@ -9,7 +9,6 @@ import { Heading } from '../ui/heading';
 import { Icon } from '../ui/icon';
 import { Illustration } from '../ui/illustration';
 import { Label } from '../ui/label';
-import useWebAnimations from '@wellyshen/use-web-animations';
 import * as stylesRef from './side-bar.treat';
 
 export type NavigationProps = {
@@ -35,8 +34,8 @@ export const SideBar: React.FC<OwnProps> = (props) => {
   const currentLocale = props.location?.pathname.includes('/en/') ? 'en-CA' : 'fr-CA';
   const currentLocaleIsEN = currentLocale === 'en-CA';
   const currentLocaleIsFR = !currentLocaleIsEN;
-  const pagesEN = props?.pages?.filter((page) => (currentLocaleIsEN ? page?.locale === 'en-CA' : page));
-  const pagesFR = props?.pages?.filter((page) => (currentLocaleIsFR ? page?.locale === 'fr-CA' : page));
+  const pagesEN = props.pages?.filter((page) => (currentLocaleIsEN ? page?.locale === 'en-CA' : page));
+  const pagesFR = props.pages?.filter((page) => (currentLocaleIsFR ? page?.locale === 'fr-CA' : page));
 
   const leftToolbarPageNames: (string | PAGE_NAME)[] = [
     PAGE_NAME?.ACCUEIL,
@@ -47,13 +46,12 @@ export const SideBar: React.FC<OwnProps> = (props) => {
     PAGE_NAME?.CONTACT,
   ];
   const leftToolbarPages = (currentLocaleIsEN ? pagesEN : pagesFR)
-    ?.filter((page) => page.name && leftToolbarPageNames.includes(page?.name))
+    ?.filter((page) => page?.name && leftToolbarPageNames.includes(page?.name))
     .sort((pageA, pageB) => {
-      const indexA = pageA.name ? leftToolbarPageNames?.indexOf(pageA?.name) : 1;
-      const indexB = pageB.name ? leftToolbarPageNames?.indexOf(pageB?.name) : 1;
+      const indexA = pageA?.name ? leftToolbarPageNames.indexOf(pageA?.name) : 1;
+      const indexB = pageB?.name ? leftToolbarPageNames.indexOf(pageB?.name) : 1;
       return indexA > indexB ? 1 : -1;
     });
-  const contactUsPage = (currentLocaleIsEN ? pagesEN : pagesFR)?.filter((page) => page?.name === 'Contact');
 
   const { ref, animate } = useWebAnimations<HTMLDivElement>();
   const [initial, setInitial] = useState(true);
@@ -69,10 +67,10 @@ export const SideBar: React.FC<OwnProps> = (props) => {
   }, [props.state, animate]);
 
   return (
-    <div className={`${props?.className || ''} ${styles.wrapper} `} key="sidebar" ref={ref}>
+    <div className={`${props.className || ''} ${styles.wrapper} `} key="sidebar" ref={ref}>
       <div className={styles.topContainer}>
         {props.logoURL ? <img className={styles.logo} src={props.logoURL} /> : null}
-        <div className={styles.icon} onClick={(e) => props?.onOpenSideMenu()}>
+        <div className={styles.icon} onClick={(e) => props.onOpenSideMenu()}>
           <Icon icon="IconClose" size={ICON_SIZE.large}></Icon>
         </div>
       </div>
@@ -91,16 +89,14 @@ export const SideBar: React.FC<OwnProps> = (props) => {
 
           <nav className={styles.listMenu}>
             {leftToolbarPages?.map((page) => {
-              return page.slug ? (
+              return page?.slug ? (
                 <GatsbyLink
                   className={styles.titleItem}
-                  to={page.slug}
+                  to={page?.slug}
                   key={`${page?.name}-${page?.locale}`}
                   activeClassName={`${styles.activeItem}`}
                 >
-                  <div
-                    className={`${styles.itemMenu} ${props?.currentPageName == page?.name ? styles.activeItem : ''}`}
-                  >
+                  <div className={`${styles.itemMenu} ${props.currentPageName == page?.name ? styles.activeItem : ''}`}>
                     <Heading variant="h4">{page?.title}</Heading>
                   </div>
                 </GatsbyLink>
@@ -119,8 +115,8 @@ export const SideBar: React.FC<OwnProps> = (props) => {
             <Label variant={LABEL.smallUppercase}>SOCIAL</Label>
           </div>
           <div className={styles.listSocial}>
-            {props?.facebookPageURL ? (
-              <a href={props?.facebookPageURL} target={'_blank'} aria-label="Facebook Page" rel="noopener">
+            {props.facebookPageURL ? (
+              <a href={props.facebookPageURL} target={'_blank'} aria-label="Facebook Page" rel="noopener">
                 <Button
                   className={styles.btnSocial}
                   variantType="secondaryReversed"
@@ -131,8 +127,8 @@ export const SideBar: React.FC<OwnProps> = (props) => {
                 ></Button>
               </a>
             ) : null}
-            {props?.linkedinPageURL ? (
-              <a href={props?.linkedinPageURL} target={'_blank'} aria-label="LinkedIn Page" rel="noopener">
+            {props.linkedinPageURL ? (
+              <a href={props.linkedinPageURL} target={'_blank'} aria-label="LinkedIn Page" rel="noopener">
                 <Button
                   className={styles.btnSocial}
                   variantType="secondaryReversed"
@@ -143,8 +139,8 @@ export const SideBar: React.FC<OwnProps> = (props) => {
                 ></Button>
               </a>
             ) : null}
-            {props?.twitterPageURL ? (
-              <a href={props?.twitterPageURL} target={'_blank'} aria-label="Twitter Page" rel="noopener">
+            {props.twitterPageURL ? (
+              <a href={props.twitterPageURL} target={'_blank'} aria-label="Twitter Page" rel="noopener">
                 <Button
                   className={styles.btnSocial}
                   variantType="secondaryReversed"
@@ -155,8 +151,8 @@ export const SideBar: React.FC<OwnProps> = (props) => {
                 ></Button>
               </a>
             ) : null}
-            {props?.instagramPageURL ? (
-              <a href={props?.instagramPageURL} target={'_blank'} aria-label="Instagram Page" rel="noopener">
+            {props.instagramPageURL ? (
+              <a href={props.instagramPageURL} target={'_blank'} aria-label="Instagram Page" rel="noopener">
                 <Button
                   className={styles.btnSocial}
                   variantType="secondaryReversed"
@@ -171,120 +167,5 @@ export const SideBar: React.FC<OwnProps> = (props) => {
         </div>
       </div>
     </div>
-
-    // return (
-    //   <motion.div
-    //     className={`${props?.className || ''} ${styles.wrapper} `}
-    //     key="sidebar"
-    //     initial="closed"
-    //     animate={props?.state}
-    //     exit="closed"
-    //     variants={{
-    //       opened: { x: 0 },
-    //       closed: { x: '-100%' },
-    //     }}
-    //     transition={{ x: { duration: 0.2, ease: 'easeOut' } }}
-    //   >
-    //     <div className={styles.topContainer}>
-    //       {props.logoURL ? <img className={styles.logo} src={props.logoURL} /> : null}
-    //       <div className={styles.icon} onClick={(e) => props?.onOpenSideMenu()}>
-    //         <Icon icon="IconClose" size={ICON_SIZE.large}></Icon>
-    //       </div>
-    //     </div>
-
-    //     <div className={styles.content}>
-    //       <div className={styles.containerList}>
-    //         <div className={styles.separation}>
-    //           <Illustration
-    //             className={styles.bar}
-    //             width="29px"
-    //             height="3px"
-    //             name="Illustration/IllustrationBar"
-    //           ></Illustration>
-    //           <Label variant={LABEL.smallUppercase}>Menu</Label>
-    //         </div>
-
-    //         <nav className={styles.listMenu}>
-    //           {leftToolbarPages?.map((page) => {
-    //             return page.slug ? (
-    //               <GatsbyLink
-    //                 className={styles.titleItem}
-    //                 to={page.slug}
-    //                 key={`${page?.name}-${page?.locale}`}
-    //                 activeClassName={`${styles.activeItem}`}
-    //               >
-    //                 <div
-    //                   className={`${styles.itemMenu} ${props?.currentPageName == page?.name ? styles.activeItem : ''}`}
-    //                 >
-    //                   <Heading variant="h4">{page?.title}</Heading>
-    //                 </div>
-    //               </GatsbyLink>
-    //             ) : null;
-    //           })}
-    //         </nav>
-    //       </div>
-    //       <div className={styles.containerList}>
-    //         <div className={styles.separation}>
-    //           <Illustration
-    //             className={styles.bar}
-    //             width="29px"
-    //             height="3px"
-    //             name="Illustration/IllustrationBar"
-    //           ></Illustration>
-    //           <Label variant={LABEL.smallUppercase}>SOCIAL</Label>
-    //         </div>
-    //         <div className={styles.listSocial}>
-    //           {props?.facebookPageURL ? (
-    //             <a href={props?.facebookPageURL} target={'_blank'} aria-label="Facebook Page" rel="noopener">
-    //               <Button
-    //                 className={styles.btnSocial}
-    //                 variantType="secondaryReversed"
-    //                 size="social"
-    //                 variant="icon"
-    //                 icon="IconFacebook"
-    //                 aria-label="Facebook Page"
-    //               ></Button>
-    //             </a>
-    //           ) : null}
-    //           {props?.linkedinPageURL ? (
-    //             <a href={props?.linkedinPageURL} target={'_blank'} aria-label="LinkedIn Page" rel="noopener">
-    //               <Button
-    //                 className={styles.btnSocial}
-    //                 variantType="secondaryReversed"
-    //                 size="social"
-    //                 variant="icon"
-    //                 icon="IconLinkedin"
-    //                 aria-label="LinkedIn Page"
-    //               ></Button>
-    //             </a>
-    //           ) : null}
-    //           {props?.twitterPageURL ? (
-    //             <a href={props?.twitterPageURL} target={'_blank'} aria-label="Twitter Page" rel="noopener">
-    //               <Button
-    //                 className={styles.btnSocial}
-    //                 variantType="secondaryReversed"
-    //                 size="social"
-    //                 variant="icon"
-    //                 icon="IconTwitter"
-    //                 aria-label="Twitter Page"
-    //               ></Button>
-    //             </a>
-    //           ) : null}
-    //           {props?.instagramPageURL ? (
-    //             <a href={props?.instagramPageURL} target={'_blank'} aria-label="Instagram Page" rel="noopener">
-    //               <Button
-    //                 className={styles.btnSocial}
-    //                 variantType="secondaryReversed"
-    //                 size="social"
-    //                 variant="icon"
-    //                 icon="IconInstagram"
-    //                 aria-label="Instagram Page"
-    //               ></Button>
-    //             </a>
-    //           ) : null}
-    //         </div>
-    //       </div>
-    //     </div>
-    //   </motion.div>
   );
 };

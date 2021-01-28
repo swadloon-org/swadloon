@@ -56,6 +56,7 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
                   const varValue = cssTheme.sizing.var[step];
                   return (
                     <Cluster
+                      key={step}
                       gap={[cssTheme.sizing.var.x2]}
                       justifyContent={['flex-start']}
                       style={{ maxWidth: `100%`, overflow: `hidden` }}

@@ -5,5 +5,5 @@ import { style } from 'treat';
 // Wrapper
 //
 export const wrapper = style((theme: DesignSystem) => ({
-  color: 'blue',
+  // color: 'blue',
 }));

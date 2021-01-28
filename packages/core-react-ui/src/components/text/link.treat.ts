@@ -51,6 +51,9 @@ export const styles: { [key in LinkStyleProps['variantLevel']]: string } &
     userSelect: 'text',
     appearance: 'none',
     WebkitAppearance: 'none',
+    ':active': {
+      color: cssTheme.colors.colors.primary[700],
+    },
     // ':hover': {
     //   color: cssTheme.colors.colors.primary[500],
     // },
@@ -61,9 +64,6 @@ export const styles: { [key in LinkStyleProps['variantLevel']]: string } &
     //   outline: `1px solid ${cssTheme.colors.colors.primary[500]}`,
     //   outlineOffset: '10px',
     // },
-  })),
-  active: style(({ theme, cssTheme }: Theme) => ({
-    color: cssTheme.colors.colors.primary[700],
   })),
 
   /**

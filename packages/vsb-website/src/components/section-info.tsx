@@ -3,7 +3,6 @@ import { GatsbyLink } from '@newrade/core-gatsby-ui/src';
 import {
   BoxV2,
   Button,
-  Center,
   CommonComponentProps,
   getMergedClassname,
   GlobalMarkdownCSS,
@@ -11,19 +10,18 @@ import {
   Image,
   Stack,
   Switcher,
+  useTreatTheme,
 } from '@newrade/core-react-ui';
 import { IoArrowForwardOutline } from '@react-icons/all-files/io5/IoArrowForwardOutline';
 import { FluidObject } from 'gatsby-image';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { cssTheme } from '../design-system/theme';
 import * as styleRefs from './section-info.treat';
 import { SectionProps } from './section.props';
 
 type Props = CommonComponentProps &
   SectionProps & {
-    variant?: 'primary' | 'secondary';
     variantType?: 'image' | 'children';
     order?: 'normal' | 'reverse';
   };
@@ -32,14 +30,14 @@ export const SectionInfo: React.FC<Props> = ({
   id,
   style,
   className,
-  variant,
   variantType = 'image',
   section,
   order = 'normal',
   ...props
 }) => {
   const { styles } = useStyles(styleRefs);
-  const mergedClassNames = getMergedClassname([styles.wrapper, className, variant ? styles[variant] : '']);
+  const classNames = getMergedClassname([className]);
+  const { theme, cssTheme } = useTreatTheme();
 
   /**
    * Image
@@ -56,11 +54,6 @@ export const SectionInfo: React.FC<Props> = ({
    */
   const hasMarkdown = !!section?.text?.childMdx?.body;
   const markdownData: any = section?.text?.childMdx?.body;
-  const Markdown = hasMarkdown ? (
-    <GlobalMarkdownCSS>
-      <MDXRenderer>{hasMarkdown ? markdownData : ''}</MDXRenderer>
-    </GlobalMarkdownCSS>
-  ) : null;
 
   /**
    * Passed children
@@ -85,7 +78,11 @@ export const SectionInfo: React.FC<Props> = ({
     <Stack gap={[`2em`]} style={{ maxWidth: `min(480px, 100%)` }} key={'2'}>
       <Heading variant={HEADING.h1}>{section?.title}</Heading>
 
-      {Markdown}
+      {hasMarkdown ? (
+        <GlobalMarkdownCSS>
+          <MDXRenderer>{hasMarkdown ? markdownData : ''}</MDXRenderer>
+        </GlobalMarkdownCSS>
+      ) : null}
 
       {section.link?.page?.slug ? (
         <Button
@@ -104,16 +101,8 @@ export const SectionInfo: React.FC<Props> = ({
    * Layout
    */
   return (
-    <Center id={id} style={style} className={mergedClassNames}>
-      <BoxV2 padding={[cssTheme.sizing.var.x7, 0]} justifyContent={['center']}>
-        <Switcher
-          gap={[cssTheme.sizing.var.x5, cssTheme.sizing.var.x6]}
-          alignItems={['center']}
-          style={{ width: `100%` }}
-        >
-          {order === 'normal' ? children : children.reverse()}
-        </Switcher>
-      </BoxV2>
-    </Center>
+    <Switcher gap={[cssTheme.sizing.var.x5, cssTheme.sizing.var.x6]} alignItems={['center']} style={{ width: `100%` }}>
+      {order === 'normal' ? children : children.reverse()}
+    </Switcher>
   );
 };

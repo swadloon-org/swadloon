@@ -1,7 +1,7 @@
-import { NavBarRefs, useTreatTheme } from '@newrade/core-react-ui';
-import { gsap, TweenMax } from '@newrade/core-gsap-ui';
-import { useEffect, useState } from 'react';
 import { VIEWPORT } from '@newrade/core-design-system';
+import { TweenMax } from '@newrade/core-gsap-ui';
+import { NavBarRefs, useTreatTheme } from '@newrade/core-react-ui';
+import { useEffect, useState } from 'react';
 
 export function useAnimateNavbar({
   navbarRef,
