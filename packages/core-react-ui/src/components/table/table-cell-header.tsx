@@ -23,9 +23,12 @@ export const TableCellHeader: React.FC<Props> = React.memo(({ className, variant
   const type = 'th';
   const variantClassName = `${variant ? styles[variant as LABEL_SIZE] : styles[defaultProps.variant as LABEL_SIZE]}`;
 
-  return React.createElement(type, {
-    className: `${styles.th} ${className || ''}`,
-    ...props,
-    children: <div className={`${variantClassName} ${variantStyle ? styles[variantStyle] : ''}`}>{props.children}</div>,
-  });
+  return React.createElement(
+    type,
+    {
+      className: `${styles.th} ${className || ''}`,
+      ...props,
+    },
+    <div className={`${variantClassName} ${variantStyle ? styles[variantStyle] : ''}`}>{props.children}</div>
+  );
 });

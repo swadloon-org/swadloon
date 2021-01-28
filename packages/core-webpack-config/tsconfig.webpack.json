@@ -5,7 +5,6 @@
     "sourceMap": true,
     "outDir": "dist",
     "rootDir": "test",
-    "strict": false,
     "target": "es6",
     "module": "commonjs",
     "types": ["node"]

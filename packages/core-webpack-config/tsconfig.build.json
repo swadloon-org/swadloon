@@ -4,8 +4,18 @@
     "rootDir": "src",
     "outDir": "lib",
     "module": "commonjs",
-    "skipLibCheck": true,
     "types": ["node"]
   },
+  "references": [
+    {
+      "path": "../core-types/tsconfig.build.json"
+    },
+    {
+      "path": "../core-utils/tsconfig.build.json"
+    },
+    {
+      "path": "../core-common/tsconfig.build.json"
+    }
+  ],
   "include": ["src/**/*", "types/**/*"]
 }

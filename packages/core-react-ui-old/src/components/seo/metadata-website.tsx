@@ -24,6 +24,7 @@ export function getMetadataOpenGraphWebsiteTags({
   localeAlternate,
 }: Props) {
   return [
+    /* eslint-disable react/jsx-key */
     <html lang={lang ? lang : 'en'} prefix="og: https://ogp.me/ns#" />,
     title ? <title>{title}</title> : null,
     url ? <link rel="canonical" href={url} /> : null,

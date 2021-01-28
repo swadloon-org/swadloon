@@ -116,7 +116,7 @@ export const SideBar: React.FC<OwnProps> = (props) => {
           </div>
           <div className={styles.listSocial}>
             {props.facebookPageURL ? (
-              <a href={props.facebookPageURL} target={'_blank'} aria-label="Facebook Page" rel="noopener">
+              <a href={props.facebookPageURL} target={'_blank'} aria-label="Facebook Page" rel="noreferrer">
                 <Button
                   className={styles.btnSocial}
                   variantType="secondaryReversed"
@@ -128,7 +128,7 @@ export const SideBar: React.FC<OwnProps> = (props) => {
               </a>
             ) : null}
             {props.linkedinPageURL ? (
-              <a href={props.linkedinPageURL} target={'_blank'} aria-label="LinkedIn Page" rel="noopener">
+              <a href={props.linkedinPageURL} target={'_blank'} aria-label="LinkedIn Page" rel="noreferrer">
                 <Button
                   className={styles.btnSocial}
                   variantType="secondaryReversed"
@@ -140,7 +140,7 @@ export const SideBar: React.FC<OwnProps> = (props) => {
               </a>
             ) : null}
             {props.twitterPageURL ? (
-              <a href={props.twitterPageURL} target={'_blank'} aria-label="Twitter Page" rel="noopener">
+              <a href={props.twitterPageURL} target={'_blank'} aria-label="Twitter Page" rel="noreferrer">
                 <Button
                   className={styles.btnSocial}
                   variantType="secondaryReversed"
@@ -152,7 +152,7 @@ export const SideBar: React.FC<OwnProps> = (props) => {
               </a>
             ) : null}
             {props.instagramPageURL ? (
-              <a href={props.instagramPageURL} target={'_blank'} aria-label="Instagram Page" rel="noopener">
+              <a href={props.instagramPageURL} target={'_blank'} aria-label="Instagram Page" rel="noreferrer">
                 <Button
                   className={styles.btnSocial}
                   variantType="secondaryReversed"

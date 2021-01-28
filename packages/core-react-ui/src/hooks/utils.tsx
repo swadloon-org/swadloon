@@ -9,11 +9,10 @@ declare function clearTimeout(handle?: number): void;
 
 export function throttle<T extends (...args: any[]) => void>(func: T, threshold = 250, scope?: any): T {
   let last: number, deferTimer: any;
-  return function (this: any) {
+  return function (this: any, ...args) {
     const context = scope || this;
 
-    const now = Date.now(),
-      args = arguments;
+    const now = Date.now();
     if (last && now < last + threshold) {
       // hold on to it
       clearTimeout(deferTimer);
@@ -26,4 +25,4 @@ export function throttle<T extends (...args: any[]) => void>(func: T, threshold 
       func.apply(context, args as any);
     }
   } as T;
-} // @ts-ignore
+}
