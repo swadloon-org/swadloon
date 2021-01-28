@@ -10,6 +10,9 @@
       "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    },
     "[yaml]": {
       "editor.formatOnSave": false
     },
@@ -55,7 +58,8 @@
       "formulahendry.auto-rename-tag",
       "bierner.markdown-yaml-preamble",
       "jock.svg",
-      "cssho.vscode-svgviewer"
+      "cssho.vscode-svgviewer",
+      "deepscan.vscode-deepscan"
     ]
   },
   "folders": [
@@ -150,26 +154,5 @@
     {
       "path": "../packages/vsb-api"
     }
-  ],
-  "recommendations": [
-    "fabiospampinato.vscode-terminals",
-    "fabiospampinato.vscode-open-in-node-modules",
-    "jasonnutter.search-node-modules",
-    "esbenp.prettier-vscode",
-    "msjsdiag.debugger-for-chrome",
-    "digitalbrainstem.javascript-ejs-support",
-    "mikestead.dotenv",
-    "silvenon.mdx",
-    "ms-vscode-remote.vscode-remote-extensionpack",
-    "eg2.vscode-npm-script",
-    "wmaurer.change-case",
-    "github.vscode-pull-request-github",
-    "cschleiden.vscode-github-actions",
-    "yzhang.markdown-all-in-one",
-    "paulmolluzzo.convert-css-in-js",
-    "formulahendry.auto-rename-tag",
-    "bierner.markdown-yaml-preamble",
-    "jock.svg",
-    "cssho.vscode-svgviewer"
   ]
 }

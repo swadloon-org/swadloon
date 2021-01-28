@@ -1,1 +1,1 @@
-export const a: string = 'kk';
+export const a = 'kk';

@@ -7,7 +7,7 @@ import ts from 'typescript';
 const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
   const { theme, cssTheme } = useTreatTheme();
 
-  let formRef = useRef<(SVGElement | null)[]>([]);
+  const formRef = useRef<(SVGElement | null)[]>([]);
 
   const [animationRunning, setAnimationRunning] = useState<boolean>(false);
   const [gsapTimeline, setGsapTimeline] = useState<TimelineMax | undefined>();

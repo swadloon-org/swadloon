@@ -21,7 +21,7 @@ type Props = CommonComponentProps & SectionProps & {};
 export const SectionContact: React.FC<Props> = ({ id, style, className, section, ...props }) => {
   const styles = useStyles(styleRefs);
   const classNames = getMergedClassname([styles.wrapper, className]);
-  const { theme, cssTheme } = useTreatTheme();
+  const { cssTheme } = useTreatTheme();
 
   /**
    * Markdown
@@ -42,7 +42,7 @@ export const SectionContact: React.FC<Props> = ({ id, style, className, section,
 
             {hasMarkdown ? (
               <GlobalMarkdownCSS>
-                <MDXRenderer>{hasMarkdown ? markdownData : ''}</MDXRenderer>
+                <MDXRenderer>{markdownData}</MDXRenderer>
               </GlobalMarkdownCSS>
             ) : null}
           </Stack>

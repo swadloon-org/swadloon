@@ -32,14 +32,12 @@ import { PressEvent } from '@react-types/shared';
 import { title } from 'case';
 import { PageProps } from 'gatsby';
 import React, { ReactNode, useEffect, useRef, useState } from 'react';
-import { useStyles } from 'react-treat';
-import { Footer } from './footer';
 import { useAnimateNavbar } from '../hook/use-animate-navbar';
 import { useNavItems, useVsbCompanyInfo } from '../hook/use-nav-items.hook';
 import LogoSymbol from '../images/logo-symbol.svg';
 import Logo from '../images/logo.svg';
+import { Footer } from './footer';
 // import '../services/i18n.service';
-import * as styleRefs from './layout.treat';
 
 type LayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }>;
 
@@ -70,7 +68,6 @@ export const Layout = React.memo<LayoutProps>((props) => {
   /**
    * Styles & animations
    */
-  const { styles } = useStyles(styleRefs);
   const { cssTheme } = useTreatTheme();
 
   /**
@@ -108,14 +105,12 @@ export const Layout = React.memo<LayoutProps>((props) => {
 
   useEffect(() => {
     setTimeout(() => {
-      gsap.registerPlugin(ScrollTrigger as any, ExpoScaleEase as any);
+      gsap.registerPlugin(ScrollTrigger, ExpoScaleEase);
       setGsapLoaded(true);
     }, 1000);
   }, []);
 
   useEffect(() => {
-    let scrollTrigger: any;
-
     if (!gsapLoaded) {
       return;
     }
@@ -123,7 +118,7 @@ export const Layout = React.memo<LayoutProps>((props) => {
     /**
      * @see https://greensock.com/docs/v3/Plugins/ScrollTrigger
      */
-    scrollTrigger = new ScrollTrigger({
+    const scrollTrigger = new ScrollTrigger({
       scrub: 1,
       delay: 1,
       toggleActions: `play none reverse none`,

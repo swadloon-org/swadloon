@@ -37,8 +37,8 @@ export const Link: React.FC<Props> = React.memo(
      * Hooks
      */
     const { styles: styles } = useStyles(stylesRef);
-    let ref = useRef<HTMLElement>();
-    let { linkProps } = useLink({ ...{ ...props, children }, elementType: type }, ref as RefObject<HTMLElement>);
+    const ref = useRef<HTMLElement>();
+    const { linkProps } = useLink({ ...{ ...props, children }, elementType: type }, ref as RefObject<HTMLElement>);
 
     /**
      * Props

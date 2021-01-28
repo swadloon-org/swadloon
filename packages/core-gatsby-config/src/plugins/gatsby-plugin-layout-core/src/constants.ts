@@ -1,5 +1,5 @@
-declare var CORE_LAYOUT_COMPONENT_PATH: string | undefined;
-declare var CORE_PROVIDERS_COMPONENT_PATH: string | undefined;
+declare let CORE_LAYOUT_COMPONENT_PATH: string | undefined;
+declare let CORE_PROVIDERS_COMPONENT_PATH: string | undefined;
 
 export enum PLUGIN_CONSTANT_NAME {
   CORE_LAYOUT_COMPONENT_PATH = 'CORE_LAYOUT_COMPONENT_PATH',

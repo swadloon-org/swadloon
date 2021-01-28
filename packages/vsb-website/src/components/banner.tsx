@@ -43,6 +43,7 @@ export const Banner: React.FC<Props> = ({ id, style, className, section, ...prop
       repeat: Infinity,
     });
 
+    // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
     return () => {
       tween.kill();
     };

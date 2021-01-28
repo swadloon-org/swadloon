@@ -7,7 +7,7 @@ import { render } from '@testing-library/react';
  */
 describe('jest', () => {
   it('should compile typescript', () => {
-    const a: string = 'hello!';
+    const a = 'hello!';
     expect(typeof a).toBe('string');
   });
 

@@ -30,12 +30,15 @@ export const Title = React.memo(
       variantLevel ? styles[variantLevel] : '',
     ]);
 
-    return React.createElement(type, {
-      ref,
-      id: id ? id : typeof child === 'string' ? kebab(child) : kebab(defaultChildrenString),
-      className: classNames,
-      children: child,
-      ...props,
-    });
+    return React.createElement(
+      type,
+      {
+        ref,
+        id: id ? id : typeof child === 'string' ? kebab(child) : kebab(defaultChildrenString),
+        className: classNames,
+        ...props,
+      },
+      child
+    );
   })
 );

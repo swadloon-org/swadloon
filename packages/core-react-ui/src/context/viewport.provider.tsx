@@ -1,7 +1,7 @@
 import React from 'react';
 import debounce from 'lodash/debounce';
 
-declare var window: Window | undefined;
+declare let window: Window | undefined;
 
 export type ViewportContext = {
   width?: number;

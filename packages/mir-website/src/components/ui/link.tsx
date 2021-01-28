@@ -4,7 +4,6 @@ import { useStyles } from 'react-treat';
 import * as styleRefs from './link.treat';
 import { LABEL } from '@newrade/core-design-system-old';
 import { Label } from './label';
-import { Paragraph } from './paragraph';
 
 type OwnProps = {
   to: string | null;

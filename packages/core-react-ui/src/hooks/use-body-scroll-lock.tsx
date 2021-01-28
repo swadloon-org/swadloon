@@ -19,8 +19,8 @@ interface Lock {
 type HandleScrollEvent = TouchEvent;
 
 let locks: Array<Lock> = [];
-let documentListenerAdded: boolean = false;
-let initialClientY: number = -1;
+let documentListenerAdded = false;
+let initialClientY = -1;
 let previousBodyOverflowSetting: string | undefined = undefined;
 let previousBodyPaddingRight: string | undefined = undefined;
 

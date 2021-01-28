@@ -1,21 +1,20 @@
-import { GoogleMaps, useTreatTheme, GoogleMapsInfoWindow } from '@newrade/core-react-ui';
-import React, { useCallback, useState, useEffect } from 'react';
+import { GoogleMaps, GoogleMapsInfoWindow, useTreatTheme } from '@newrade/core-react-ui';
+import { Marker } from '@react-google-maps/api';
+import React, { useCallback, useState } from 'react';
 import { SECTION_TYPE } from '../../types/contentful-section-type';
 import { ContentfulSection } from '../../types/graphql-types';
 import { Banner } from '../components/banner';
 import { FormVasectomy } from '../components/form-vasectomy';
 import { SectionCallout } from '../components/section-callout';
-import { SectionContact } from '../components/section-contact';
 import { SectionCost } from '../components/section-cost';
 import { SectionFaq } from '../components/section-faq';
 import { SectionInfo } from '../components/section-info';
+import { SectionLayout } from '../components/section-layout';
 import { SectionMessages } from '../components/section-messages';
+import { SectionTileLinks } from '../components/section-tile-links';
 import { SectionSteps } from '../components/steps-section';
 import { TileLink } from '../components/tile-link';
-import { SectionTileLinks } from '../components/section-tile-links';
 import { ProjectPageProps } from './page.template';
-import { Marker } from '@react-google-maps/api';
-import { SectionLayout } from '../components/section-layout';
 
 export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
   const theme = useTreatTheme();
@@ -53,17 +52,17 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
            */
           case SECTION_TYPE.BANNER: {
             return (
-              <section id={`section-${index}`} key={index}>
+              <SectionLayout id={`section-${index}`} key={index}>
                 <Banner key={index} section={section} />
-              </section>
+              </SectionLayout>
             );
           }
 
           case SECTION_TYPE.MESSAGE: {
             return (
-              <section id={`section-${index}`} key={index}>
+              <SectionLayout id={`section-${index}`} key={index}>
                 <SectionMessages key={index} section={section} />
-              </section>
+              </SectionLayout>
             );
           }
 
@@ -72,35 +71,29 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
            */
           case SECTION_TYPE.TILE_LINKS: {
             return (
-              <section id={`section-${index}`} key={index}>
+              <SectionLayout id={`section-${index}`} key={index}>
                 <SectionTileLinks key={index} section={section as ContentfulSection} />
-              </section>
+              </SectionLayout>
             );
           }
           case SECTION_TYPE.TILE_LINK: {
             return (
-              <section id={`section-${index}`} key={index}>
+              <SectionLayout id={`section-${index}`} key={index}>
                 <TileLink key={index} section={section} />
-              </section>
+              </SectionLayout>
             );
           }
           case SECTION_TYPE.CLINIC_PREVIEW: {
             return (
-              <section id={`section-${index}`} key={index}>
+              <SectionLayout id={`section-${index}`} key={index}>
                 <SectionInfo key={index} section={section}></SectionInfo>
-              </section>
+              </SectionLayout>
             );
           }
           case SECTION_TYPE.CONTACT_PREVIEW: {
             return (
-              <section id={`section-${index}`} key={index}>
-                <SectionInfo
-                  variant={'secondary'}
-                  variantType={'children'}
-                  order={'reverse'}
-                  key={index}
-                  section={section}
-                >
+              <SectionLayout id={`section-${index}`} key={index} variant={'secondary'}>
+                <SectionInfo variantType={'children'} order={'reverse'} key={index} section={section}>
                   <GoogleMaps
                     theme={theme}
                     script={{
@@ -128,7 +121,7 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
                     {/* <TrafficLayer /> */}
                   </GoogleMaps>
                 </SectionInfo>
-              </section>
+              </SectionLayout>
             );
           }
 
@@ -137,17 +130,17 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
            */
           case SECTION_TYPE.CLINIC_MISSION: {
             return (
-              <section id={`section-${index}`} key={index}>
-                <SectionInfo variant={'secondary'} key={index} section={section} />
-              </section>
+              <SectionLayout id={`section-${index}`} key={index} variant={'secondary'}>
+                <SectionInfo key={index} section={section} />
+              </SectionLayout>
             );
           }
 
           case SECTION_TYPE.CLINIC_DR_PROFILE: {
             return (
-              <section id={`section-${index}`} key={index}>
+              <SectionLayout id={`section-${index}`} key={index}>
                 <SectionInfo key={index} section={section} />
-              </section>
+              </SectionLayout>
             );
           }
 
@@ -156,44 +149,44 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
            */
           case SECTION_TYPE.VASECTOMY_STEPS: {
             return (
-              <section id={`section-${index}`} key={index}>
+              <SectionLayout id={`section-${index}`} key={index}>
                 <SectionSteps key={index} section={section} />
-              </section>
+              </SectionLayout>
             );
           }
           case SECTION_TYPE.VASECTOMY_INFO: {
             return (
-              <section id={`section-${index}`} key={index}>
+              <SectionLayout id={`section-${index}`} key={index}>
                 <SectionInfo key={index} section={section} />
-              </section>
+              </SectionLayout>
             );
           }
           case SECTION_TYPE.VASECTOMY_INFO_BEFORE: {
             return (
-              <section id={`section-${index}`} key={index}>
+              <SectionLayout id={`section-${index}`} key={index}>
                 <SectionFaq key={index} section={section} />
-              </section>
+              </SectionLayout>
             );
           }
           case SECTION_TYPE.VASECTOMY_INFO_COST: {
             return (
-              <section id={`section-${index}`} key={index}>
+              <SectionLayout id={`section-${index}`} key={index}>
                 <SectionCost key={index} section={section} />
-              </section>
+              </SectionLayout>
             );
           }
           case SECTION_TYPE.VASECTOMY_INFO_AFTER: {
             return (
-              <section id={`section-${index}`} key={index}>
+              <SectionLayout id={`section-${index}`} key={index}>
                 <SectionFaq key={index} section={section} />
-              </section>
+              </SectionLayout>
             );
           }
           case SECTION_TYPE.VASECTOMY_FORM_LINK: {
             return (
-              <section id={`section-${index}`} key={index}>
+              <SectionLayout id={`section-${index}`} key={index}>
                 <SectionCallout key={index} section={section} />
-              </section>
+              </SectionLayout>
             );
           }
 
@@ -202,16 +195,16 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
            */
           case SECTION_TYPE.VASECTOMY_FORM_VIDEO: {
             return (
-              <section id={`section-${index}`} key={index}>
+              <SectionLayout id={`section-${index}`} key={index}>
                 <FormVasectomy key={index} section={section} />
-              </section>
+              </SectionLayout>
             );
           }
           case SECTION_TYPE.VASECTOMY_FORM_FORM: {
             return (
-              <section id={`section-${index}`} key={index}>
+              <SectionLayout id={`section-${index}`} key={index}>
                 <FormVasectomy key={index} section={section} />
-              </section>
+              </SectionLayout>
             );
           }
 
@@ -220,23 +213,23 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
            */
           case SECTION_TYPE.PILOT_EXAM_INFO: {
             return (
-              <section id={`section-${index}`} key={index}>
+              <SectionLayout id={`section-${index}`} key={index}>
                 <SectionInfo key={index} section={section} />
-              </section>
+              </SectionLayout>
             );
           }
           case SECTION_TYPE.PILOT_EXAM_DR_PROFILE: {
             return (
-              <section id={`section-${index}`} key={index}>
+              <SectionLayout id={`section-${index}`} key={index}>
                 <SectionInfo key={index} section={section} />
-              </section>
+              </SectionLayout>
             );
           }
           case SECTION_TYPE.PILOT_EXAM_SERVICE: {
             return (
-              <section id={`section-${index}`} key={index}>
+              <SectionLayout id={`section-${index}`} key={index}>
                 <SectionCost key={index} section={section} />
-              </section>
+              </SectionLayout>
             );
           }
 
@@ -250,6 +243,7 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
               </SectionLayout>
             );
           }
+
           default: {
             return null;
           }

@@ -7,12 +7,12 @@
 declare function setTimeout(handler: TimerHandler, timeout?: number, ...arguments: any[]): number;
 declare function clearTimeout(handle?: number): void;
 
-export function throttle<T extends (...args: any[]) => void>(func: T, threshold: number = 250, scope?: any): T {
+export function throttle<T extends (...args: any[]) => void>(func: T, threshold = 250, scope?: any): T {
   let last: number, deferTimer: any;
   return function (this: any) {
-    let context = scope || this;
+    const context = scope || this;
 
-    let now = Date.now(),
+    const now = Date.now(),
       args = arguments;
     if (last && now < last + threshold) {
       // hold on to it

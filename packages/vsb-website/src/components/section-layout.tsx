@@ -13,7 +13,7 @@ export const SectionLayout: React.FC<Props> = ({ id, style, className, variant, 
    */
   const { styles } = useStyles(styleRefs);
   const classNames = getMergedClassname([styles.wrapper, className, variant ? styles[variant] : '']);
-  const { theme, cssTheme } = useTreatTheme();
+  const { cssTheme } = useTreatTheme();
 
   /**
    * Layout

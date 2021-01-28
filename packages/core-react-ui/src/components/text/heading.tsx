@@ -65,14 +65,17 @@ export const Heading = React.memo(
         <div className={`${variantClass} ${variantLevelClass}`}>{defaultChildrenString}</div>
       );
 
-      return React.createElement(type, {
-        ref,
-        id: id ? id : typeof child === 'string' ? formatAnchorId(child) : formatAnchorId(defaultChildrenString),
-        style: displayMode ? { ...style, display: displayMode } : style,
-        className: `${styles.wrapper} ${mergedClass}`,
-        children: child,
-        ...props,
-      });
+      return React.createElement(
+        type,
+        {
+          ref,
+          id: id ? id : typeof child === 'string' ? formatAnchorId(child) : formatAnchorId(defaultChildrenString),
+          style: displayMode ? { ...style, display: displayMode } : style,
+          className: `${styles.wrapper} ${mergedClass}`,
+          ...props,
+        },
+        child
+      );
     }
   )
 );

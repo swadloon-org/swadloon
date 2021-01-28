@@ -14,8 +14,8 @@ export const MetaBasicTags: React.FC<Props> = () => {
 export function getMetaBasicTags() {
   // not a good idea to push `user-scalable=no` for SEO: https://web.dev/meta-viewport/
   return [
-    <meta charSet="utf-8" />,
-    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1" />,
+    <meta key={1} charSet="utf-8" />,
+    <meta key={2} name="viewport" id="viewport" content="width=device-width, initial-scale=1" />,
   ].map((tag, index) => {
     return <meta key={index} {...tag.props} />;
   });

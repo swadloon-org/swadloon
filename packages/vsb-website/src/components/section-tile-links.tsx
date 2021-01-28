@@ -15,7 +15,11 @@ export const SectionTileLinks: React.FC<OwnProps> = ({ id, style, className, sec
   return (
     <div className={`${styles.wrapper}`}>
       <div className={`${styles.gridSwitch}`}>
-        {section.subSections?.map((item: any, index: number) => {
+        {section.subSections?.map((item, index: number) => {
+          if (!item) {
+            return null;
+          }
+
           return (
             <TileLink key={index} section={item} contentClassName={index % 2 === 0 ? styles.evenTile : ''}></TileLink>
           );
