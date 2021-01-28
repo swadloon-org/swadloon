@@ -5,9 +5,22 @@
     "sourceMap": true,
     "outDir": "dist",
     "rootDir": "test",
+    "strict": false,
+    "noImplicitAny": true,
     "target": "es6",
     "module": "commonjs",
     "types": ["node"]
   },
-  "include": ["src", "types", "test"]
+  "references": [
+    {
+      "path": "../core-types/tsconfig.build.json"
+    },
+    {
+      "path": "../core-utils/tsconfig.build.json"
+    },
+    {
+      "path": "../core-common/tsconfig.build.json"
+    }
+  ],
+  "include": ["src/**/*", "types/**/*", "test/**/*"]
 }

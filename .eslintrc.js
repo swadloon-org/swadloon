@@ -40,6 +40,7 @@ module.exports = {
     '@typescript-eslint/camelcase': 'off',
     '@typescript-eslint/ban-ts-ignore': 'off',
     '@typescript-eslint/no-empty-interface': 'off',
+    '@typescript-eslint/triple-slash-reference': 'off',
     '@typescript-eslint/no-empty-function': 'off',
     '@typescript-eslint/no-explicit-any': 'off', // TODO: enable, this is good practice for debugging
     'explicit-function-return-type': 'off',
