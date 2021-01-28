@@ -1,4 +1,5 @@
-import { ButtonSize, HEADING, TEXT_LEVEL, ButtonVariant, ButtonIcon } from '@newrade/core-design-system';
+import { ButtonIcon, ButtonSize, ButtonVariant, HEADING, TEXT_LEVEL } from '@newrade/core-design-system';
+import { GatsbyLink } from '@newrade/core-gatsby-ui/src';
 import {
   Background,
   BoxV2,
@@ -10,14 +11,13 @@ import {
   Stack,
   useTreatTheme,
 } from '@newrade/core-react-ui';
+import { IoArrowForwardOutline } from '@react-icons/all-files/io5/IoArrowForwardOutline';
 import { IFluidObject } from 'gatsby-background-image';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { SectionFragment } from '../../types/graphql-types';
-import * as styleRefs from './tile-link.treat';
-import { IoArrowForwardOutline } from '@react-icons/all-files/io5/IoArrowForwardOutline';
-import { GatsbyLink } from '@newrade/core-gatsby-ui/src';
 import { gradient } from '../styles/effects.styles';
+import * as styleRefs from './tile-link.treat';
 
 type Props = CommonComponentProps & {
   section: SectionFragment;
@@ -63,7 +63,9 @@ export const TileLink: React.FC<Props> = ({ id, style, className, contentClassNa
               <Button
                 size={ButtonSize.large}
                 variant={
-                  section.variant === 'PRIMARY_NORMAL' ? ButtonVariant.primaryReversed : ButtonVariant.secondaryReversed
+                  section?.variant === 'PRIMARY_NORMAL'
+                    ? ButtonVariant.primaryReversed
+                    : ButtonVariant.secondaryReversed
                 }
                 icon={ButtonIcon.right}
                 Icon={<IoArrowForwardOutline />}

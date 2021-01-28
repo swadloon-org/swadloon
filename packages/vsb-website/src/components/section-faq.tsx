@@ -1,8 +1,8 @@
+import { CommonComponentProps } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './section-faq.treat';
 import { SectionProps } from './section.props';
-import { CommonComponentProps } from '@newrade/core-react-ui';
 
 type Props = CommonComponentProps & SectionProps & {};
 
@@ -11,7 +11,7 @@ export const SectionFaq: React.FC<Props> = ({ id, style, className, section, ...
 
   return (
     <div className={`${styles.wrapper}`}>
-      <pre>{JSON.stringify(section.name, null, 2)}</pre>
+      <pre>{JSON.stringify(section?.name, null, 2)}</pre>
     </div>
   );
 };

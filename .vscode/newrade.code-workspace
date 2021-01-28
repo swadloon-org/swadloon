@@ -3,15 +3,11 @@
     "typescript.surveys.enabled": false,
     "terminals.sortTerminals": true,
     "typescript.tsdk": "newrade/node_modules/typescript/lib",
-    "[typescript]": {
-      "editor.codeActionsOnSave": {
-        "source.organizeImports": true
-      },
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
     "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
+      "source.fixAll.eslint": true,
+      "source.organizeImports": true
     },
     "[yaml]": {
       "editor.formatOnSave": false

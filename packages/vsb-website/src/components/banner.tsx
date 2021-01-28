@@ -13,7 +13,7 @@ type Props = CommonComponentProps & SectionProps & {};
 
 export const Banner: React.FC<Props> = ({ id, style, className, section, ...props }) => {
   const { styles } = useStyles(styleRefs);
-  const { theme, cssTheme } = useTreatTheme();
+  const { cssTheme } = useTreatTheme();
   const ref = useRef<HTMLDivElement>(null);
   const backgroundPosition = section?.backgroundPosition;
   const imageData = section?.medias?.medias?.[0]?.desktopFluidImage?.childImageSharp?.fluid;
@@ -98,8 +98,8 @@ export const Banner: React.FC<Props> = ({ id, style, className, section, ...prop
                 `${cssTheme.typography.titles.desktop.t1.lineGap}px`,
               ]}
             >
-              <Title>{section.title?.trim()}</Title>
-              {section.subtitle ? <Title>{section.subtitle.trim()}</Title> : null}
+              <Title>{section?.title?.trim()}</Title>
+              {section?.subtitle ? <Title>{section?.subtitle.trim()}</Title> : null}
 
               <div ref={ref} className={styles.icon}>
                 <Button

@@ -1,9 +1,9 @@
+import { CommonComponentProps } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { CommonComponentProps } from '@newrade/core-react-ui';
 import { ContentfulSection } from '../../types/graphql-types';
-import { TileLink } from './tile-link';
 import * as styleRefs from './section-tile-links.treat';
+import { TileLink } from './tile-link';
 
 type OwnProps = CommonComponentProps & {
   section: ContentfulSection;
@@ -15,7 +15,7 @@ export const SectionTileLinks: React.FC<OwnProps> = ({ id, style, className, sec
   return (
     <div className={`${styles.wrapper}`}>
       <div className={`${styles.gridSwitch}`}>
-        {section.subSections?.map((item, index: number) => {
+        {section?.subSections?.map((item, index: number) => {
           if (!item) {
             return null;
           }

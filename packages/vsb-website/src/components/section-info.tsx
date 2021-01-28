@@ -36,8 +36,7 @@ export const SectionInfo: React.FC<Props> = ({
   ...props
 }) => {
   const { styles } = useStyles(styleRefs);
-  const classNames = getMergedClassname([className]);
-  const { theme, cssTheme } = useTreatTheme();
+  const { cssTheme } = useTreatTheme();
 
   /**
    * Image
@@ -75,26 +74,33 @@ export const SectionInfo: React.FC<Props> = ({
     /**
      * Second section with rendered markdown
      */
-    <Stack gap={[`2em`]} style={{ maxWidth: `min(480px, 100%)` }} key={'2'}>
-      <Heading variant={HEADING.h1}>{section?.title}</Heading>
+    <BoxV2
+      className={getMergedClassname([styles.content])}
+      justifySelf={['center', 'center', order === 'reverse' ? 'flex-end' : 'flex-start']}
+      justifyContent={['center', 'center', order === 'reverse' ? 'flex-end' : 'flex-start']}
+      key={'1'}
+    >
+      <Stack gap={[cssTheme.sizing.var.x5]} style={{ maxWidth: `min(480px, 100%)` }} key={'2'}>
+        <Heading variant={HEADING.h1}>{section?.title}</Heading>
 
-      {hasMarkdown ? (
-        <GlobalMarkdownCSS>
-          <MDXRenderer>{hasMarkdown ? markdownData : ''}</MDXRenderer>
-        </GlobalMarkdownCSS>
-      ) : null}
+        {hasMarkdown ? (
+          <GlobalMarkdownCSS>
+            <MDXRenderer>{markdownData}</MDXRenderer>
+          </GlobalMarkdownCSS>
+        ) : null}
 
-      {section.link?.page?.slug ? (
-        <Button
-          size={ButtonSize.large}
-          variant={ButtonVariant.secondary}
-          Icon={<IoArrowForwardOutline />}
-          AsElement={<GatsbyLink to={section.link?.page?.slug} />}
-        >
-          {section.link?.label}
-        </Button>
-      ) : null}
-    </Stack>,
+        {section?.link?.page?.slug ? (
+          <Button
+            size={ButtonSize.large}
+            variant={ButtonVariant.secondary}
+            Icon={<IoArrowForwardOutline />}
+            AsElement={<GatsbyLink to={section?.link?.page?.slug} />}
+          >
+            {section?.link?.label}
+          </Button>
+        ) : null}
+      </Stack>
+    </BoxV2>,
   ];
 
   /**

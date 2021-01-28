@@ -13,7 +13,6 @@ import { SectionLayout } from '../components/section-layout';
 import { SectionMessages } from '../components/section-messages';
 import { SectionTileLinks } from '../components/section-tile-links';
 import { SectionSteps } from '../components/steps-section';
-import { TileLink } from '../components/tile-link';
 import { ProjectPageProps } from './page.template';
 
 export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
@@ -52,7 +51,7 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
            */
           case SECTION_TYPE.BANNER: {
             return (
-              <SectionLayout id={`section-${index}`} key={index}>
+              <SectionLayout id={`section-${index}`} key={index} variantLayout={'banner'}>
                 <Banner key={index} section={section} />
               </SectionLayout>
             );
@@ -71,15 +70,8 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
            */
           case SECTION_TYPE.TILE_LINKS: {
             return (
-              <SectionLayout id={`section-${index}`} key={index}>
+              <SectionLayout id={`section-${index}`} key={index} variantLayout={'banner'}>
                 <SectionTileLinks key={index} section={section as ContentfulSection} />
-              </SectionLayout>
-            );
-          }
-          case SECTION_TYPE.TILE_LINK: {
-            return (
-              <SectionLayout id={`section-${index}`} key={index}>
-                <TileLink key={index} section={section} />
               </SectionLayout>
             );
           }

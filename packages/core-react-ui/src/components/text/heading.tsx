@@ -1,11 +1,11 @@
 import { HEADING, TEXT_LEVEL } from '@newrade/core-design-system';
-import { pascal, kebab } from 'case';
+import { pascal } from 'case';
 import React, { HTMLAttributes, useRef } from 'react';
 import { useStyles } from 'react-treat';
-import { CommonComponentProps } from '../../props/component-common.props';
-import * as stylesRef from './heading.treat';
-import { formatAnchorId } from '../../utilities/text.utilities';
 import { usePreventPinchZoom } from '../../hooks/use-prevent-pinch-zoom';
+import { CommonComponentProps } from '../../props/component-common.props';
+import { formatAnchorId } from '../../utilities/text.utilities';
+import * as stylesRef from './heading.treat';
 
 type Props = CommonComponentProps &
   HTMLAttributes<HTMLHeadingElement> & {
@@ -69,7 +69,7 @@ export const Heading = React.memo(
         type,
         {
           ref,
-          id: id ? id : typeof child === 'string' ? formatAnchorId(child) : formatAnchorId(defaultChildrenString),
+          id: formatAnchorId(id),
           style: displayMode ? { ...style, display: displayMode } : style,
           className: `${styles.wrapper} ${mergedClass}`,
           ...props,

@@ -7,16 +7,16 @@ import {
   LABEL_SIZE,
   TEXT_STYLE,
 } from '@newrade/core-design-system';
-import { AriaButtonProps } from '@react-types/button';
-import React, { useRef, useEffect } from 'react';
-import { useButton } from 'react-aria';
 import { IoAddOutline } from '@react-icons/all-files/io5/IoAddOutline';
+import { AriaButtonProps } from '@react-types/button';
+import React, { useRef } from 'react';
+import { useButton } from 'react-aria';
 import { useStyles } from 'react-treat';
+import { usePreventLongPress, usePreventPinchZoom } from '../..';
 import { CommonComponentProps } from '../../props/component-common.props';
 import { getDefaultTextFromProps, getMergedClassname } from '../../utilities/component.utilities';
 import { Label } from '../text/label';
 import * as stylesRef from './button.treat';
-import { usePreventPinchZoom, usePreventLongPress } from '../..';
 
 type Props = CommonComponentProps &
   Pick<ButtonProps, 'icon' | 'role' | 'size' | 'state' | 'variant'> &
@@ -68,7 +68,6 @@ export const Button = React.forwardRef<any, Props>(
 
     const variantStateClassName = `${styles[ButtonState.rest]}`;
     const variantClassName = `${styles[variant ? variant : ButtonVariant.primary]}`;
-    const collapsePaddingClassName = `${collapsePadding === 'left' ? styles.collapsePaddingLeft : ''}`;
     const variantSizeClassName = styles[size ? size : ButtonSize.medium];
     const activeClassName = isPressed ? styles.pressed : '';
     const allClassName = getMergedClassname([

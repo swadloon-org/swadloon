@@ -1,9 +1,8 @@
 import React, { AnchorHTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
 import { CommonComponentProps } from '../props/component-common.props';
-import { PaddingProps, AlignItemsViewportProps, JustifyContentViewportProps } from '../props/padding.props';
+import { AlignItemsViewportProps, JustifyContentViewportProps, PaddingProps } from '../props/padding.props';
 import * as styleRefs from './box-v2.treat';
-import { AlignItemsProperty, JustifyContentProperty } from 'csstype';
 
 type Props = CommonComponentProps &
   AnchorHTMLAttributes<any> &

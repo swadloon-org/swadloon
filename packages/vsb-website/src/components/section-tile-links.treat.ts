@@ -4,6 +4,7 @@ import { style } from 'treat';
 export const styles = {
   wrapper: style(({ theme, cssTheme }: Theme) => ({
     color: cssTheme.colors.colorIntents.primaryTextReversed,
+    width: `100%`,
   })),
   gridSwitch: style(({ theme, cssTheme }: Theme) => ({
     display: 'grid',

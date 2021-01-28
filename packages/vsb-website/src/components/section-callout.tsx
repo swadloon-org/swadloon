@@ -11,7 +11,7 @@ export const SectionCallout: React.FC<Props> = ({ id, style, className, section,
 
   return (
     <div className={`${styles.wrapper}`}>
-      <pre>{JSON.stringify(section.name, null, 2)}</pre>
+      <pre>{JSON.stringify(section?.name, null, 2)}</pre>
     </div>
   );
 };
