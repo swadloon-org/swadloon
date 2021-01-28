@@ -4,10 +4,8 @@
     "rootDir": "src",
     "outDir": "lib",
     "module": "commonjs",
-    "strict": false,
-    "strictNullChecks": true,
     "skipLibCheck": true,
     "types": ["node"]
   },
-  "include": ["src", "types"]
+  "include": ["src/**/*", "types/**/*"]
 }

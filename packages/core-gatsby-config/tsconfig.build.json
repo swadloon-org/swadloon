@@ -10,6 +10,9 @@
   },
   "references": [
     {
+      "path": "../core-webpack-config/tsconfig.build.json"
+    },
+    {
       "path": "../core-common/tsconfig.build.json"
     },
     {

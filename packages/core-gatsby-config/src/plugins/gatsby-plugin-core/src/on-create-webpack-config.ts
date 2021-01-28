@@ -20,7 +20,6 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
   const pluginOptions = (options as unknown) as GatsbyCorePluginOptions;
   const env = process.env as COMMON_ENV;
   const isProduction = stage !== `develop`;
-  const isSSR = stage.includes(`html`);
 
   if (stage !== `build-javascript`) {
     return;
@@ -30,21 +29,6 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
    * Retrieve the initial gatsby webpack config
    */
   const config = getConfig() as WebpackOptions;
-
-  /**
-   * Plugins applied for dev and production modes
-   */
-  const commonPlugins: WebpackOptions['plugins'] = [];
-
-  /**
-   * Plugins applied for production only
-   */
-  const productionPlugins: WebpackOptions['plugins'] = [];
-
-  /**
-   * Plugins applied in production, but when built local only
-   */
-  const productionLocalOnlyPlugins: WebpackOptions['plugins'] = [];
 
   if (!config) {
     return {};
@@ -82,7 +66,7 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
   }
   if (typeof config === 'object' && config.resolve) {
     config.resolve.alias = {
-      ...(typeof config.resolve?.alias === 'object' ? config.resolve?.alias : {}),
+      ...(typeof config.resolve.alias === 'object' ? config.resolve.alias : {}),
       lodash: 'lodash-es',
     };
   }
@@ -210,7 +194,7 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
   /**
    * Add BundleVisualizer when building for production but local only
    */
-  if (isProduction && stage === 'build-javascript' && env.APP_ENV === DEPLOY_ENV.LOCAL) {
+  if (isProduction && env.APP_ENV === DEPLOY_ENV.LOCAL) {
     config.plugins = config.plugins ? [...config.plugins, getBundleVisualizerPlugin()] : [getBundleVisualizerPlugin()];
   }
 

@@ -1,5 +1,6 @@
 export * from './babel-plugins.conf';
 export * from './babel-preset.conf';
+export * from './dev-server.conf';
 export * from './loaders/css-loader';
 export * from './loaders/ejs-loader';
 export * from './loaders/es6-babel.loader';
