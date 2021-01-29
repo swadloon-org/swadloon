@@ -41,7 +41,7 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
               <Stack gap={[cssTheme.sizing.var.x3]}>
                 <Label variantLevel={TEXT_LEVEL.tertiary}>Bullet</Label>
 
-                <ListItems gap={[cssTheme.sizing.var.x3]}>
+                <ListItems gap={[cssTheme.sizing.var.x2]}>
                   <ListItem></ListItem>
 
                   <ListItem></ListItem>

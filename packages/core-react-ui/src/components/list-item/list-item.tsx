@@ -34,14 +34,9 @@ export const ListItem: React.FC<Props> = React.memo(
     /**
      * Props
      */
-    const wrapperClassNames = getMergedClassname([
-      styles.wrapper,
-      variantIcon === 'icon' ? styles.iconWrapper : '',
-      className,
-    ]);
+    const wrapperClassNames = getMergedClassname([styles.wrapper, styles.iconWrapper, className]);
     const classNames = getMergedClassname([
-      styles.textWrapper,
-      variantIcon === 'icon' ? styles.textWrapperIcon : '',
+      styles.textWrapperIcon,
       variantLevel ? styles[variantLevel] : '',
       variantSize ? styles[variantSize] : styles.small,
     ]);
@@ -59,13 +54,14 @@ export const ListItem: React.FC<Props> = React.memo(
     /**
      * Icon insertion
      */
-    const IconSvg =
-      variantIcon === 'icon' && Icon
-        ? React.cloneElement(Icon as React.ReactElement, {
-            className: styles.icon,
-            preserveAspectRatio: `xMinYMin meet`,
-          })
-        : null;
+    const IconSvg = Icon ? (
+      React.cloneElement(Icon as React.ReactElement, {
+        className: styles.icon,
+        preserveAspectRatio: `xMinYMin meet`,
+      })
+    ) : (
+      <div className={styles.bulletIcon}>•</div>
+    );
 
     /**
      * Render

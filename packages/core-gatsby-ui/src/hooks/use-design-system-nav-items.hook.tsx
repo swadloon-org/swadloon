@@ -1,4 +1,4 @@
-import { title, kebab } from 'case';
+import { kebab, title } from 'case';
 import { graphql, useStaticQuery } from 'gatsby';
 import { NavItem } from '../models/nav-item.model';
 
@@ -36,7 +36,7 @@ const query = graphql`
 
 export function useDesignSystemNavItems(): NavItem[] {
   const data = useStaticQuery(query);
-  const dirSortOrder = ['docs', 'foundations', 'components', 'effects'];
+  const dirSortOrder = ['docs', 'foundations', 'components', 'markdown', 'effects', 'tokens'];
 
   const navItems: NavItem[] = data?.pages.nodes.map((node: any) => ({
     name: formatName(node.context?.name),

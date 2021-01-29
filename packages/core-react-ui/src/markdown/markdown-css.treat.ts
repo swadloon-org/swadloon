@@ -42,6 +42,30 @@ globalStyle(`${wrapper} p + p`, ({ cssTheme, theme }: Theme) => ({
   marginTop: '1.5em',
 }));
 
+globalStyle(`${wrapper} p + ul`, ({ cssTheme, theme }: Theme) => ({
+  marginTop: '1.5em',
+}));
+
+globalStyle(`${wrapper} ul + p`, ({ cssTheme, theme }: Theme) => ({
+  marginTop: '1.5em',
+}));
+
+globalStyle(`${wrapper} ul + ul`, ({ cssTheme, theme }: Theme) => ({
+  marginTop: '1.5em',
+}));
+
+globalStyle(`${wrapper} p + ol`, ({ cssTheme, theme }: Theme) => ({
+  marginTop: '1.5em',
+}));
+
+globalStyle(`${wrapper} ol + p`, ({ cssTheme, theme }: Theme) => ({
+  marginTop: '1.5em',
+}));
+
+globalStyle(`${wrapper} ol + ol`, ({ cssTheme, theme }: Theme) => ({
+  marginTop: '1.5em',
+}));
+
 globalStyle(`${wrapper} p + p:not(:last)`, ({ cssTheme, theme }: Theme) => ({
   marginBottom: '1.5em',
 }));

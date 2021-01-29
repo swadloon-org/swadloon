@@ -4,3 +4,8 @@ declare module '@mdx-js/react' {
   export default value;
   export { MDXProvider };
 }
+
+declare module '*.mdx' {
+  const value: any;
+  export default value;
+}

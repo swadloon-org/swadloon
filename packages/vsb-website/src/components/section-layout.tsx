@@ -38,7 +38,7 @@ export const SectionLayout = React.forwardRef<any, Props>(
           style={style}
           className={classNames}
           as={'section'}
-          padding={[cssTheme.sizing.var.x6, 0]}
+          padding={[cssTheme.sizing.var.x7, 0]}
           justifyContent={['center']}
           ref={ref}
         >
@@ -52,7 +52,7 @@ export const SectionLayout = React.forwardRef<any, Props>(
      */
     return (
       <Center id={id} style={style} className={classNames} as={'section'} ref={ref}>
-        <BoxV2 padding={[cssTheme.sizing.var.x6, 0]} justifyContent={['center', 'flex-start', 'flex-start']}>
+        <BoxV2 padding={[cssTheme.sizing.var.x7, 0]} justifyContent={['center', 'flex-start', 'flex-start']}>
           {children}
         </BoxV2>
       </Center>

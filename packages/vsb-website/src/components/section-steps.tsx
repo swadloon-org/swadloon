@@ -1,6 +1,7 @@
 import { MarkdownRenderer } from '@newrade/core-gatsby-ui/src';
 import { BoxV2, CommonComponentProps, Heading, Label, ListItem, Stack, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
+import { isIOS } from 'react-device-detect';
 import { useStyles } from 'react-treat';
 import { PARAGRAPH_SIZE, TEXT_LEVEL } from '../../../core-design-system/src';
 import { SectionFragment } from '../../types/graphql-types';
@@ -19,24 +20,29 @@ export const SectionSteps: React.FC<Props> = ({ id, style, className, section, .
 
   const steps = section.steps.filter((step) => !!step);
 
+  // TODO: create indicator component
   const renderNumberIndicator = (index: number) => {
     return (
-      <div style={{ position: 'absolute', marginLeft: -9 }}>
+      <div style={{ position: 'absolute', marginLeft: -9, top: 0 }}>
         <Label
           style={{
             position: 'absolute',
             left: 0,
             width: 32,
             height: 32,
-            paddingTop: `11px`,
+            top: isIOS ? 0 : 2, // don't ask me why
+            bottom: '0',
             textAlign: 'center',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
           }}
           variantLevel={TEXT_LEVEL.primaryReversed}
         >
           {index}
         </Label>
-        <svg>
-          <circle viewBox="0 0 32 32" r={16} cx={16} cy={16} fill={cssTheme.colors.colors.primary[700]}></circle>
+        <svg preserveAspectRatio="xMidYMid meet">
+          <circle r={16} cx={16} cy={16} fill={cssTheme.colors.colors.primary[700]}></circle>
         </svg>
       </div>
     );
@@ -49,7 +55,7 @@ export const SectionSteps: React.FC<Props> = ({ id, style, className, section, .
           <Stack key={step?.id} gap={[cssTheme.sizing.var.x3]}>
             <ListItem variantSize={PARAGRAPH_SIZE.large} Icon={renderNumberIndicator(index + 1)} variantIcon={'icon'}>
               <Stack gap={[cssTheme.sizing.var.x3]}>
-                {step?.title}
+                <b style={{ fontWeight: 500 }}>{step?.title}</b>
 
                 <MarkdownRenderer style={{ color: cssTheme.colors.colorIntents.secondaryText }}>
                   {step?.text?.childMdx?.body}
@@ -63,9 +69,15 @@ export const SectionSteps: React.FC<Props> = ({ id, style, className, section, .
   );
 
   return (
-    <BoxV2 className={`${styles.wrapper}`} padding={[cssTheme.sizing.var.x6, 0]}>
+    <BoxV2 className={`${styles.wrapper}`}>
       <Stack gap={[cssTheme.sizing.var.x7]}>
-        <Heading style={{ maxWidth: 600 }}>{section.title}</Heading>
+        <Stack gap={[cssTheme.sizing.var.x6]}>
+          <Heading style={{ maxWidth: 600 }}>{section.title}</Heading>
+
+          <MarkdownRenderer style={{ color: cssTheme.colors.colorIntents.secondaryText }}>
+            {section.text?.childMdx?.body}
+          </MarkdownRenderer>
+        </Stack>
 
         <ul className={styles.grid}>{renderListItems(steps)}</ul>
       </Stack>

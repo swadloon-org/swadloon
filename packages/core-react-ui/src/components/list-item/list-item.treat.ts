@@ -4,7 +4,7 @@ import { getCSSSizeTextStyles, getCSSTextStyles } from '../../utilities/text.uti
 
 const iconWidthNumber = `1.4`;
 const iconWidth = `1.4em`;
-const iconMargin = `0.8em`;
+const iconMargin = `1em`;
 
 export const styles = {
   /**
@@ -20,9 +20,6 @@ export const styles = {
   })),
   iconWrapper: style(({ theme, cssTheme }: Theme) => ({
     display: 'inline-block',
-  })),
-  textWrapper: style(({ theme, cssTheme }: Theme) => ({
-    display: 'inline',
   })),
   textWrapperIcon: style(({ theme, cssTheme }: Theme) => ({
     display: 'inline-block',
@@ -52,9 +49,17 @@ export const styles = {
   icon: style(({ theme, cssTheme }: Theme) => ({
     position: 'absolute',
     left: `calc(-1 * (${iconWidth} + ${iconMargin}) / ${iconWidthNumber})`,
-    top: `0em`,
+    top: `0.1em`,
 
     fontSize: `${iconWidth}`,
+    display: 'inline-block',
+    verticalAlign: 'middle',
+  })),
+  bulletIcon: style(({ theme, cssTheme }: Theme) => ({
+    position: 'absolute',
+    left: `calc(-1 * (${1}em + ${iconMargin}))`,
+    top: `0.1em`,
+
     display: 'inline-block',
     verticalAlign: 'middle',
   })),
@@ -68,7 +73,6 @@ export const styles = {
         display: 'inline-block',
       },
     }),
-    fontWeight: 500,
     '@media': {
       [cssTheme.layout.media.tablet]: {
         ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.tablet.large, {
@@ -76,7 +80,6 @@ export const styles = {
             display: 'inline-block',
           },
         }),
-        fontWeight: 500,
       },
       [cssTheme.layout.media.desktopSmall]: {
         ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.desktop.large, {
@@ -84,7 +87,6 @@ export const styles = {
             display: 'inline-block',
           },
         }),
-        fontWeight: 500,
       },
     },
   })),
@@ -94,7 +96,6 @@ export const styles = {
         display: 'inline-block',
       },
     }),
-    fontWeight: 500,
     '@media': {
       [cssTheme.layout.media.tablet]: {
         ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.tablet.medium, {
@@ -102,7 +103,6 @@ export const styles = {
             display: 'inline-block',
           },
         }),
-        fontWeight: 500,
       },
       [cssTheme.layout.media.desktopSmall]: {
         ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.desktop.medium, {
@@ -110,7 +110,6 @@ export const styles = {
             display: 'inline-block',
           },
         }),
-        fontWeight: 500,
       },
     },
   })),
@@ -120,7 +119,6 @@ export const styles = {
         display: 'inline-block',
       },
     }),
-    fontWeight: 500,
     '@media': {
       [cssTheme.layout.media.tablet]: {
         ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.tablet.small, {
@@ -128,7 +126,6 @@ export const styles = {
             display: 'inline-block',
           },
         }),
-        fontWeight: 500,
       },
       [cssTheme.layout.media.desktopSmall]: {
         ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.desktop.small, {
@@ -136,7 +133,6 @@ export const styles = {
             display: 'inline-block',
           },
         }),
-        fontWeight: 500,
       },
     },
   })),
@@ -146,7 +142,6 @@ export const styles = {
         display: 'inline-block',
       },
     }),
-    fontWeight: 500,
     '@media': {
       [cssTheme.layout.media.tablet]: {
         ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.tablet.xSmall, {
@@ -154,7 +149,6 @@ export const styles = {
             display: 'inline-block',
           },
         }),
-        fontWeight: 500,
       },
       [cssTheme.layout.media.desktopSmall]: {
         ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.desktop.xSmall, {
@@ -162,7 +156,6 @@ export const styles = {
             display: 'inline-block',
           },
         }),
-        fontWeight: 500,
       },
     },
   })),
