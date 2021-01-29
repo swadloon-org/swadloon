@@ -32,7 +32,8 @@
       "**/dist/**": true,
       "**/public/**": true,
       "**/lib/**": true
-    }
+    },
+    "deepscan.enable": true
   },
   "extensions": {
     "recommendations": [
