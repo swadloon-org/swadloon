@@ -239,7 +239,7 @@ function getNameForColors(colors: DS.Colors['colors'] | DS.Colors['colorIntents'
         typeof colors[currentColor] === 'object' &&
         !Object.keys(colors[currentColor]).includes('h')
       ) {
-        Object.keys(colors[currentColor]).map((colorName) => {
+        Object.keys(colors[currentColor]).forEach((colorName) => {
           const formattedCurrentColor = kebab(currentColor);
           const formattedColorName = kebab(colorName);
           colorsVarNames.push(`--${prefix}-${formattedCurrentColor}-${formattedColorName}`);
@@ -253,7 +253,6 @@ function getNameForColors(colors: DS.Colors['colors'] | DS.Colors['colorIntents'
         Object.keys(colors[currentColor]).includes('h')
       ) {
         const formattedCurrentColor = kebab(currentColor);
-        const formattedColorName = kebab(currentColor);
         colorsVarNames.push(`--${prefix}-${formattedCurrentColor}`);
       }
     }

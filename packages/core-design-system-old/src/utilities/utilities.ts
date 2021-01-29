@@ -210,7 +210,7 @@ export function pxStringToNumber({ value }: { value: string }): number | undefin
     return undefined;
   }
   const conversion = Number(match[0]);
-  if (conversion === undefined || conversion === NaN) {
+  if (isNaN(conversion)) {
     return undefined;
   }
 
