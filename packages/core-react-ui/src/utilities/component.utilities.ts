@@ -6,7 +6,7 @@ import { keys } from './utilities';
  */
 export function getDefaultTextFromProps(name: string, props: object): string {
   const propString = `${keys(props)
-    .map((prop) => pascal(props[prop]))
+    .map((prop) => (typeof props[prop] === 'boolean' ? pascal(prop) : pascal(props[prop])))
     .join(' ')}`;
 
   return `${pascal(name)} ${propString}`;
@@ -15,10 +15,11 @@ export function getDefaultTextFromProps(name: string, props: object): string {
 /**
  * ['hey', 'classname '] => 'hey classname'
  */
-export function getMergedClassname(classNames: (string | null | undefined)[]): string {
+export function getMergedClassname(classNames: (string | null | undefined | boolean)[]): string {
   return classNames
     .filter((className) => !!className)
-    .filter((className) => className?.length !== 0)
+    .filter((className) => (className as string)?.length !== 0)
+    .filter((className) => className !== ' ')
     .join(' ')
     .trim();
 }

@@ -5,5 +5,7 @@ export * from './components/navigation/aside';
 export * from './hooks/use-design-system-nav-items.hook';
 export * from './hooks/use-docs-nav-items.hook';
 export * from './hooks/use-reach-router-location';
+export * from './models/nav-item.model';
+export * from './markdown/markdown-renderer';
 export * from './layout/design-system.layout';
 export * from './layout/documentation.layout';

@@ -1,5 +1,5 @@
 import { BoxShadow, TEXT_LEVEL } from '@newrade/core-design-system';
-import { getCSSShadow, Label, Stack, useTreatTheme } from '@newrade/core-react-ui';
+import { getCSSBoxShadow, Label, Stack, useTreatTheme } from '@newrade/core-react-ui';
 import { kebab } from 'case';
 import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
@@ -16,7 +16,7 @@ export const ShadowSwatch: React.FC<OwnProps> = ({ id, style, className, shadow,
   const { cssTheme, theme } = useTreatTheme();
 
   const shadowObject = typeof shadow === 'object' ? (shadow as BoxShadow) : null;
-  const cssShadowString = shadowObject ? getCSSShadow(shadowObject) : '';
+  const cssShadowString = shadowObject ? getCSSBoxShadow(shadowObject) : '';
 
   return (
     <Stack id={id} style={style} gap={[cssTheme.sizing.var.x3]} {...props}>

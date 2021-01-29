@@ -3,14 +3,14 @@ import { style } from 'treat';
 import { Theme } from '../../design-system/css-design-system';
 import { getCSSSizeTextStyles, getCSSTextStyles } from '../../utilities/text.utilities';
 
-export const styles: { [key in LinkStyleProps['variantStyle']]: string } &
+export const styles: { [key in LinkStyleProps['variantLevel']]: string } &
   { [key in LinkStyleProps['variant']]: string } &
   { [key in LinkStyleProps['state']]?: string } &
   { [key in LinkStyleProps['variantSize']]: string } & {
     icon: string;
   } = {
   /**
-   * Variant
+   * Variants
    */
   underline: style(({ theme, cssTheme }: Theme) => ({
     textDecoration: 'underline',
@@ -20,13 +20,25 @@ export const styles: { [key in LinkStyleProps['variantStyle']]: string } &
   })),
 
   /**
-   * Styles
+   * Text styles
    */
-  normal: style(({ theme, cssTheme }: Theme) => ({
+  primary: style(({ theme, cssTheme }: Theme) => ({
     color: cssTheme.colors.colorIntents.primary,
   })),
-  reversed: style(({ theme, cssTheme }: Theme) => ({
+  primaryReversed: style(({ theme, cssTheme }: Theme) => ({
     color: cssTheme.colors.colorIntents.primaryReversed,
+  })),
+  secondary: style(({ theme, cssTheme }: Theme) => ({
+    color: cssTheme.colors.colorIntents.secondary,
+  })),
+  secondaryReversed: style(({ theme, cssTheme }: Theme) => ({
+    color: cssTheme.colors.colorIntents.secondaryReversed,
+  })),
+  tertiary: style(({ theme, cssTheme }: Theme) => ({
+    color: cssTheme.colors.colorIntents.tertiaryText,
+  })),
+  tertiaryReversed: style(({ theme, cssTheme }: Theme) => ({
+    color: cssTheme.colors.colorIntents.tertiaryTextReversed,
   })),
 
   /**
@@ -36,8 +48,12 @@ export const styles: { [key in LinkStyleProps['variantStyle']]: string } &
     outline: 'none',
     cursor: 'pointer',
     width: 'fit-content',
+    userSelect: 'text',
     appearance: 'none',
     WebkitAppearance: 'none',
+    ':active': {
+      color: cssTheme.colors.colors.primary[700],
+    },
     // ':hover': {
     //   color: cssTheme.colors.colors.primary[500],
     // },
@@ -48,9 +64,6 @@ export const styles: { [key in LinkStyleProps['variantStyle']]: string } &
     //   outline: `1px solid ${cssTheme.colors.colors.primary[500]}`,
     //   outlineOffset: '10px',
     // },
-  })),
-  active: style(({ theme, cssTheme }: Theme) => ({
-    color: cssTheme.colors.colors.primary[700],
   })),
 
   /**
@@ -85,7 +98,7 @@ export const styles: { [key in LinkStyleProps['variantStyle']]: string } &
     },
   })),
   small: style(({ theme, cssTheme }: Theme) => ({
-    ...getCSSTextStyles(cssTheme.typography.paragraphs.mobile.medium),
+    ...getCSSTextStyles(cssTheme.typography.paragraphs.mobile.small),
     fontWeight: 500,
     '@media': {
       [cssTheme.layout.media.tablet]: {

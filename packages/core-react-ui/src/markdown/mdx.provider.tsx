@@ -1,16 +1,19 @@
+import { HEADING, LinkVariant, PARAGRAPH_SIZE, TEXT_STYLE } from '@newrade/core-design-system';
 import React from 'react';
-import { HEADING, TEXT_STYLE } from '../../../core-design-system/src';
+import { ListItem } from '../components/list-item/list-item';
+import { ListItems } from '../components/list-item/list-items';
+import { Table } from '../components/table/table';
+import { TableBody } from '../components/table/table-body';
+import { TableCell } from '../components/table/table-cell-data';
+import { TableCellHeader } from '../components/table/table-cell-header';
+import { TableHeader } from '../components/table/table-header';
+import { TableRow } from '../components/table/table-row';
 import { Blockquote } from '../components/text/blockquote';
 import { Details } from '../components/text/details';
 import { Heading } from '../components/text/heading';
+import { Link } from '../components/text/link';
 import { Paragraph, ParagraphInlineBold } from '../components/text/paragraph';
 import { Summary } from '../components/text/summary';
-import { Table } from '../components/table/table';
-import { TableHeader } from '../components/table/table-header';
-import { TableRow } from '../components/table/table-row';
-import { TableCell } from '../components/table/table-cell-data';
-import { TableCellHeader } from '../components/table/table-cell-header';
-import { TableBody } from '../components/table/table-body';
 
 /**
  * Components configuration object for <MDXProvider/>.
@@ -31,15 +34,19 @@ export const mdxComponents: Partial<Record<keyof React.ReactHTML, React.ReactNod
   h4: (props: MDXProps) => <Heading variant={HEADING.h4} {...props} />,
   h5: (props: MDXProps) => <Heading variant={HEADING.h4} {...props} />,
   h6: (props: MDXProps) => <Heading variant={HEADING.h4} {...props} />,
+
   p: (props: MDXProps) => <Paragraph {...props} />,
   b: (props: MDXProps) => <ParagraphInlineBold as={'b'} variantStyle={TEXT_STYLE.bold} {...props} />,
+  a: (props: MDXProps) => <Link variant={LinkVariant.underline} {...props} />,
   strong: (props: MDXProps) => <ParagraphInlineBold as={'b'} variantStyle={TEXT_STYLE.bold} {...props} />,
+
   blockquote: (props: MDXProps) => <Blockquote {...props} />,
   abbr: (props: MDXProps) => <abbr {...props} />,
   img: (props: MDXProps) => <img {...props} />,
-  // ul	List	-
-  // ol	Ordered list	1.
-  // li	List item
+
+  ul: (props: MDXProps) => <ListItems {...props} />,
+  ol: (props: MDXProps) => <ListItems {...props} />,
+  li: (props: MDXProps) => <ListItem variantSize={PARAGRAPH_SIZE.medium} {...props} />,
 
   table: (props: MDXProps) => <Table {...props} />,
   thead: (props: MDXProps) => <TableHeader {...props} />,

@@ -2,7 +2,6 @@ import { loadDotEnv, logEnvVariables } from '@newrade/core-utils';
 import cors from 'cors';
 import express, { Router, urlencoded } from 'express';
 import rateLimit from 'express-rate-limit';
-import { Server } from 'http';
 import i18nextMiddleware from 'i18next-http-middleware';
 import morgan from 'morgan';
 import path from 'path';
@@ -34,7 +33,6 @@ logEnvVariables({ packageName: '@newrade/vsb-api', env });
  */
 const port = env.APP_PORT ? Number(env.APP_PORT) : 3000;
 const server = express();
-let httpServer: Server;
 
 /**
  * i18n Localization service
@@ -76,7 +74,7 @@ router.route(API_STATUS_CLINIKO).get(statusCliniko);
 router.route(API_TRANSLATION_ROUTE).get(getTranslation);
 // router.route(API_LIST_PATIENTS_ROUTE).get(getListPatients);
 
-httpServer = server.listen(port);
+const httpServer = server.listen(port);
 
 console.log('listening on port: ' + port);
 

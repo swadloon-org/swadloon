@@ -3,7 +3,7 @@ import { WindowLocation } from '@reach/router';
 import { kebab } from 'case';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { useLocation } from '../../hooks/use-reach-router-location';
+import { useReachRouterLocation } from '../../hooks/use-reach-router-location';
 import * as styleRefs from './aside.treat';
 import { formatAnchorId } from '@newrade/core-react-ui';
 
@@ -52,7 +52,7 @@ function filterItemDepthPredicate(item: AsideItem) {
 
 function useScrollSpy(items: Props['items']) {
   const [currentId, setCurrentId] = React.useState<string | null>(null);
-  const location = useLocation();
+  const location = useReachRouterLocation();
 
   // React.useEffect(() => setCurrentId(null), [location?.hash]);
 

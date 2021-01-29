@@ -4,11 +4,11 @@ import {
   CSSDesignSystem,
   defaultAnimations,
   defaultButtons,
-  defaultEffects,
   defaultIconography,
   defaultSizing,
 } from '@newrade/core-react-ui';
 import { colors } from './colors';
+import { effects } from './effects';
 import { layout } from './layout';
 import { typography } from './typography';
 
@@ -16,7 +16,7 @@ export const theme: DesignSystem = {
   name: 'Clinique Dr. Boucher',
   variation: 'light',
   colors,
-  effects: defaultEffects,
+  effects,
   sizing: defaultSizing,
   iconography: defaultIconography,
   typography,

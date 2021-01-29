@@ -7,8 +7,8 @@ import { pascal, snake, kebab } from 'case';
 
 type Props = CommonComponentProps &
   LabelHTMLAttributes<any> & {
-    variantStyle?: TEXT_STYLE;
     variant?: LABEL_SIZE;
+    variantStyle?: TEXT_STYLE;
     variantLevel?: TEXT_LEVEL;
   };
 
@@ -28,12 +28,15 @@ export const Label: React.FC<Props> = React.memo(
     )} ${pascal(kebab(variantStyle || '') || '')}`;
     const child = children ? children : defaultChildrenString;
 
-    return React.createElement(type, {
-      className: `${styles.normal} ${className || ''} ${
-        variant ? styles[variant as LABEL_SIZE] : styles[defaultProps.variant as LABEL_SIZE]
-      } ${variantStyle ? styles[variantStyle] : ''} ${variantLevel ? styles[variantLevel] : ''}`,
-      children: child,
-      ...props,
-    });
+    return React.createElement(
+      type,
+      {
+        className: `${styles.normal} ${className || ''} ${
+          variant ? styles[variant as LABEL_SIZE] : styles[defaultProps.variant as LABEL_SIZE]
+        } ${variantStyle ? styles[variantStyle] : ''} ${variantLevel ? styles[variantLevel] : ''}`,
+        ...props,
+      },
+      child
+    );
   }
 );

@@ -13,14 +13,14 @@ export const useMousePosition = (options: { throttleMs?: number } = {}) => {
 
   React.useEffect(() => {
     const handle = throttle((event: MouseEvent) => {
-      let x = event.clientX / innerWidth;
-      let y = event.clientY / innerHeight;
+      const x = event.clientX / innerWidth;
+      const y = event.clientY / innerHeight;
 
       if (!x || !y) {
         return;
       }
 
-      var root = document.documentElement;
+      const root = document.documentElement;
 
       root.style.setProperty('--mouse-x', `${x}`);
       root.style.setProperty('--mouse-y', `${y}`);

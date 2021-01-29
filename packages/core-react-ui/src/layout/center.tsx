@@ -2,6 +2,7 @@ import React from 'react';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './center.treat';
 import { CommonComponentProps } from '../props/component-common.props';
+import { getMergedClassname } from '../utilities/component.utilities';
 
 type OwnProps = CommonComponentProps &
   Partial<{
@@ -17,19 +18,21 @@ type OwnProps = CommonComponentProps &
 
 export const Center = React.forwardRef<any, OwnProps>(
   ({ as, className, contentClassName, style, maxWidth, ...props } = {}, ref) => {
+    const type = as ? as : 'div';
     const { styles } = useStyles(styleRefs);
+    const classNames = getMergedClassname([className || '', styles.wrapper]);
 
-    // TODO: enable as
-    // return React.createElement(as, )
-
-    return (
-      <div
-        ref={ref}
-        style={{
+    return React.createElement(
+      type,
+      {
+        ref,
+        style: {
           ...style,
-        }}
-        className={`${className || ''} ${styles.wrapper}`}
-      >
+        },
+        className: classNames,
+        ...props,
+      },
+      <>
         {/* padding only div */}
         <div></div>
         {/* centered content */}
@@ -44,7 +47,7 @@ export const Center = React.forwardRef<any, OwnProps>(
         </div>
         {/* padding only div */}
         <div></div>
-      </div>
+      </>
     );
   }
 );

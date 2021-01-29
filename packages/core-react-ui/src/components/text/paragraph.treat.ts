@@ -55,6 +55,7 @@ export const styles: { inline: string } & { [key in TEXT_STYLE]: string } &
   })),
 
   normal: style(({ theme, cssTheme }: Theme) => ({
+    userSelect: 'text',
     ...getCSSFontTextStyles(cssTheme.typography.paragraphs),
   })),
   bold: style(({ theme, cssTheme }: Theme) => ({
@@ -73,13 +74,25 @@ export const styles: { inline: string } & { [key in TEXT_STYLE]: string } &
     ...getCSSFontTextStyles(cssTheme.typography.paragraphs.styles.italicBold),
   })),
 
+  /**
+   * Text styles
+   */
   primary: style(({ theme, cssTheme }: Theme) => ({
     color: cssTheme.colors.colorIntents.primaryText,
+  })),
+  primaryReversed: style(({ theme, cssTheme }: Theme) => ({
+    color: cssTheme.colors.colorIntents.primaryTextReversed,
   })),
   secondary: style(({ theme, cssTheme }: Theme) => ({
     color: cssTheme.colors.colorIntents.secondaryText,
   })),
+  secondaryReversed: style(({ theme, cssTheme }: Theme) => ({
+    color: cssTheme.colors.colorIntents.secondaryTextReversed,
+  })),
   tertiary: style(({ theme, cssTheme }: Theme) => ({
     color: cssTheme.colors.colorIntents.tertiaryText,
+  })),
+  tertiaryReversed: style(({ theme, cssTheme }: Theme) => ({
+    color: cssTheme.colors.colorIntents.tertiaryTextReversed,
   })),
 };

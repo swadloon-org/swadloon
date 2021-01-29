@@ -1,5 +1,6 @@
-import _ from 'lodash';
+// @ts-nocheck
 import loaderUtils from 'loader-utils';
+import _ from 'lodash';
 
 function getOptions(context: { options: { ejsLoader: any } }) {
   if (context.options && context.options.ejsLoader) {
@@ -12,8 +13,7 @@ export function ejsLoader(source: string) {
   if (this.cacheable) {
     this.cacheable();
   }
-  // @ts-ignore
-  const query = this.query && this.query !== '' ? loaderUtils.parseQuery(this.query) : '';
+  const query = this.query !== '' ? loaderUtils.parseQuery(this.query) : '';
   const options = getOptions(this);
 
   ['escape', 'interpolate', 'evaluate'].forEach(function (templateSetting: string) {

@@ -6,3 +6,5 @@
 /// <reference types="../../core-types/lib/react-helmet" />
 /// <reference types="../../core-types/lib/svg" />
 /// <reference types="../../core-types/lib/react-lazyload" />
+/// <reference types="../../core-gsap-ui/lib/types" />
+/// <reference types="googlemaps" />

@@ -24,23 +24,6 @@ export const pageQuery = graphql`
     contentfulCompanyInfo {
       ...CompanyInfo
     }
-    allContentfulPage {
-      edges {
-        node {
-          id
-          name
-          node_locale
-          title
-          description {
-            description
-          }
-          type {
-            type
-          }
-          slug
-        }
-      }
-    }
     contentfulPage(id: { eq: $pageId }) {
       ...PageFragment
     }

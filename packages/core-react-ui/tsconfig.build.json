@@ -3,13 +3,18 @@
   "compilerOptions": {
     "rootDir": "src",
     "outDir": "lib",
-    "skipLibCheck": true,
     "target": "es6",
     "module": "es6",
-    "types": ["react", "react-dom", "jest"],
+    "types": ["react", "react-dom", "jest", "googlemaps"],
     "lib": ["es6", "dom", "es2017"]
   },
   "references": [
+    {
+      "path": "../core-types/tsconfig.build.json"
+    },
+    {
+      "path": "../core-utils/tsconfig.build.json"
+    },
     {
       "path": "../core-common/tsconfig.build.json"
     },
@@ -17,11 +22,9 @@
       "path": "../core-design-system/tsconfig.build.json"
     },
     {
-      "path": "../core-utils/tsconfig.build.json"
-    },
-    {
       "path": "../core-jest-config/tsconfig.build.json"
     }
   ],
-  "include": ["src/**/*", "types/**/*"]
+  "include": ["src/**/*", "types/**/*"],
+  "exclude": ["./lib/**/*"]
 }

@@ -1,8 +1,8 @@
 import capsize, { CapsizeStyles } from 'capsize';
 import { DesignSystem } from '../design-system';
-import { TextStyle } from '../foundations/typography';
-import { Colors, ColorIntents } from '../foundations/colors';
+import { ColorIntents, Colors } from '../foundations/colors';
 import { SizingStep } from '../foundations/sizing';
+import { TextStyle } from '../foundations/typography';
 
 /**
  * Create a DesignSystem object with sensible defaults.
@@ -210,7 +210,7 @@ export function pxStringToNumber({ value }: { value: string }): number | undefin
     return undefined;
   }
   const conversion = Number(match[0]);
-  if (conversion === undefined || conversion === NaN || conversion === null) {
+  if (conversion === undefined || conversion === NaN) {
     return undefined;
   }
 

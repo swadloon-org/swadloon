@@ -1,5 +1,5 @@
 import { BoxV2, Center, Cluster, Stack, Title, useTreatTheme } from '@newrade/core-react-ui';
-import { TweenMax, TimelineMax, Back, Linear } from 'gsap';
+import { TweenMax, TimelineMax, Back, Linear } from '@newrade/core-gsap-ui';
 import React, { useRef, useEffect, useState } from 'react';
 import { SrcPageTemplate, SrcPageTemplateProps } from '../templates/src-page.template';
 import ts from 'typescript';
@@ -7,7 +7,7 @@ import ts from 'typescript';
 const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
   const { theme, cssTheme } = useTreatTheme();
 
-  let formRef = useRef<(SVGElement | null)[]>([]);
+  const formRef = useRef<(SVGElement | null)[]>([]);
 
   const [animationRunning, setAnimationRunning] = useState<boolean>(false);
   const [gsapTimeline, setGsapTimeline] = useState<TimelineMax | undefined>();

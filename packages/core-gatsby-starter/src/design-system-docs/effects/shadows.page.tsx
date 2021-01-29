@@ -24,17 +24,17 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
         </Summary>
 
         <BoxV2 padding={[cssTheme.sizing.var.x3, 0]}>
-          {theme.effects?.shadows &&
-            keys(theme.effects.shadows).map((shadowKey, index) => {
-              const shadow = theme.effects.shadows[shadowKey];
+          {theme.effects?.boxShadows &&
+            keys(theme.effects.boxShadows).map((boxShadowKey, index) => {
+              const shadow = theme.effects.boxShadows[boxShadowKey];
               const xOffset = 100;
               const yOffset = 60;
               const size = 400;
               return (
                 <ShadowSwatch
-                  key={shadowKey}
+                  key={boxShadowKey}
                   shadow={shadow}
-                  name={shadowKey as string}
+                  name={boxShadowKey as string}
                   size={size}
                   style={{
                     width: size,

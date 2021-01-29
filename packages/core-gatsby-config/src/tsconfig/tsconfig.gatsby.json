@@ -5,7 +5,6 @@
     "declaration": false,
     "sourceMap": false,
     "composite": false,
-    "strict": false,
     "target": "esnext",
     "module": "commonjs",
     "types": ["node"]

@@ -5,10 +5,6 @@ import * as stylesRef from './summary.treat';
 
 type Props = CommonComponentProps & HTMLAttributes<HTMLHeadingElement> & {};
 
-const defaultProps: Props = {
-  children: 'Summary',
-};
-
 /**
  * <summary> The HTML Disclosure Summary element (<summary>) element
  * specifies a summary, caption, or legend for a <details> element's disclosure box.

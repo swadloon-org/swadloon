@@ -1,0 +1,167 @@
+---
+name: Markdown Elements
+tags:
+  - doc
+  - doc1
+  - markdown
+---
+
+export const lorenipsum = `Lorem ipsum dolor sit amet.`;
+
+# Heading H1
+
+## Heading H2
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+esse cillum dolore eu fugiat nulla pariatur.
+
+### Heading H3
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+nisi ut aliquip ex ea commodo consequat.
+
+#### Heading H4
+
+> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+> labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+> nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+> esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
+> in culpa qui officia deserunt mollit anim id est laborum
+
+<dl>
+<dt>Beast of Bodmin</dt>
+<dd>A large feline inhabiting Bodmin Moor.</dd>
+
+
+<dt>Morgawr</dt>
+<dd>A sea serpent.</dd>
+
+<dt>Owlman</dt>
+<dd>A giant owl-like creature.</dd>
+
+</dl>
+
+
+## images
+
+![picture alt](/image.jpg 'Title is optional')
+
+<figure>
+  <img
+    src="https://interactive-examples.mdn.mozilla.net/media/cc0-images/elephant-660-480.jpg"
+    alt="Elephant at sunset"
+  ></img>
+  <figcaption>An elephant at sunset</figcaption>
+</figure>
+
+---
+
+| Col   | Align Center | Align Right | Align left |
+| ----- | :----------: | ----------: | ---------- |
+| loren |    loren     |       loren | loren      |
+| loren |    loren     |       loren | loren      |
+| loren |    loren     |       loren | loren      |
+| loren |    loren     |       loren | loren      |
+| loren |    loren     |       loren | loren      |
+
+Please, input "<kbd>Yes</kbd>" or "<kbd>No</kbd>"
+
+[Link back to H2](#id-goes-here)
+
+Here is a Markdown link to [Warped](https://warpedvisions.org), and a literal <http://link.com/>.
+Now some SimpleLinks.
+
+Now some inline markup like _italics_, **bold**, and `code()`. Note that underscores in
+words are ignored in Markdown Extra.
+
+> Blockquotes are like quoted text in email replies
+>
+> > And, they can be nested
+
+- Bullet lists are easy too
+- Bullet lists are easy too
+- Bullet lists are easy too
+- Bullet lists are easy too
+
+* Another one
+* Another one
+* Another one
+* Another one
+
+1. A numbered list
+1. Which is numbered
+1. With periods and a space
+
+- [ ] lorenipsum
+- [ ] lorenipsum
+- [ ] lorenipsum
+- [ ] lorenipsum
+
+Emphasis, aka italics, with _asterisks_ or _underscores_.
+
+Strong emphasis, aka bold, with **asterisks** or **underscores**.
+
+Combined emphasis with **asterisks and _underscores_**.
+
+Strikethrough uses two tildes. ~~Scratch this.~~
+
+Inline `code`
+
+```tsx
+/**
+ * Transform the Effects object into a CSS compatible one.
+ */
+export function getCSSEffects(options: Effects): Effects<string> {
+  const effects = keys(options);
+  return effects.reduce((previous, current) => {
+    const shadows = options[current];
+    const shadowsKey = keys(shadows);
+    if (!previous[current]) {
+      previous[current] = {} as Shadows<string>;
+    }
+    shadowsKey.forEach((shadow) => {
+      previous[current][shadow] = getCSSBoxShadow(options[current][shadow]);
+    });
+    return previous;
+  }, {} as Effects<string>);
+}
+```
+
+```css
+/* latin-ext */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Open Sans Regular'), local('OpenSans-Regular'),
+    url(https://fonts.gstatic.com/s/opensans/v17/mem8YaGs126MiZpBA-UFW50bf8pkAp6a.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+```
+
+```json
+{
+  "a": "a",
+  "b": "b"
+}
+```
+
+<details>
+  <summary>
+    <h1>Summary</h1>
+  </summary>
+  <p>Details</p>
+</details>
+<br />
+
+The HTML specification
+is maintained by the W3C.
+
+<!-- see https://github.com/prettier/prettier/pull/5749 -->
+
+_[HTML]: Hyper Text Markup Language
+_[W3C]: World Wide Web Consortium

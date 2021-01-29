@@ -10,7 +10,6 @@ import {
 } from '@newrade/core-react-ui';
 import { SSRProvider } from '@react-aria/ssr';
 import React from 'react';
-import { IconContext } from 'react-icons/lib';
 import { TreatProvider } from 'react-treat';
 import { cssTheme, theme } from '../design-system/theme';
 import { light } from '../design-system/theme.treat';

@@ -26,13 +26,17 @@ globalStyle(`html`, {
   overflowX: 'hidden',
   // prevent tap highlight
   WebkitTapHighlightColor: 'rgba(0, 0, 0, 0) ',
+  // https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth
   // @ts-ignore
   WebkitFontSmoothing: 'antialiased',
+  '-moz-osx-font-smoothing': 'grayscale',
   // ensure fast clicks on ios safari 9, 10
-  touchAction: 'manipulation',
-  WebkitTouchCallout: 'none',
+  // disable browser handling zooming gestures https://developer.mozilla.org/en-US/docs/Web/CSS/touch-action#values
+  touchAction: 'pan-x pan-y',
   // smooth background transition
   transition: 'background-color 0.2s ease-out',
+  // user select
+  userSelect: 'none',
 });
 
 /**
@@ -240,4 +244,20 @@ globalStyle(`table, caption, tbody, tfoot, thead, tr, th, td`, {
 globalStyle(`table`, {
   borderCollapse: 'collapse',
   borderSpacing: '0',
+});
+
+/**
+ * Resets ol,ul,li
+ */
+globalStyle(`ul,ol`, {
+  listStylePosition: 'inside', // no side effects from the added padding
+  marginBlockStart: '0px',
+  marginBlockEnd: '0px',
+  marginInlineStart: '0px',
+  marginInlineEnd: '0px',
+  paddingInlineStart: '0px',
+});
+
+globalStyle(`li`, {
+  lineHeight: '0', // ensure that the list items height collapse
 });

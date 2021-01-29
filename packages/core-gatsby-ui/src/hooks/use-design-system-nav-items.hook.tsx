@@ -1,4 +1,4 @@
-import { title, kebab } from 'case';
+import { kebab, title } from 'case';
 import { graphql, useStaticQuery } from 'gatsby';
 import { NavItem } from '../models/nav-item.model';
 
@@ -36,14 +36,14 @@ const query = graphql`
 
 export function useDesignSystemNavItems(): NavItem[] {
   const data = useStaticQuery(query);
-  const dirSortOrder = ['docs', 'foundations', 'components', 'effects'];
+  const dirSortOrder = ['docs', 'foundations', 'components', 'markdown', 'effects', 'tokens'];
 
   const navItems: NavItem[] = data?.pages.nodes.map((node: any) => ({
     name: formatName(node.context?.name),
     dirName: node.context?.dirName,
     path: node.path,
   }));
-  const sortedNavItems = navItems.sort((itemA, itemB) => {
+  const sortedNavItems = navItems?.sort((itemA, itemB) => {
     const indexA = dirSortOrder.indexOf(kebab(itemA.dirName));
     const indexB = dirSortOrder.indexOf(kebab(itemB.dirName));
 
@@ -54,7 +54,7 @@ export function useDesignSystemNavItems(): NavItem[] {
     if (!name) {
       return '';
     }
-    return title(name?.replace('.page', '').replace('design-system-', ''));
+    return title(name.replace('.page', '').replace('design-system-', ''));
   }
 
   return sortedNavItems;

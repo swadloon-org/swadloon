@@ -1,8 +1,8 @@
 import { LABEL } from '@newrade/core-design-system-old';
 import React, { ButtonHTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
-import CornerBottomRight from '../../illustrations/Illustration/IllustrationCornerBottomRight.svg';
-import CornerTopLeft from '../../illustrations/Illustration/IllustrationCornerTopLeft.svg';
+import CornerBottomRight from '../../illustrations/IllustrationCornerBottomRight.svg';
+import CornerTopLeft from '../../illustrations/IllustrationCornerTopLeft.svg';
 import * as styleRefs from './button.treat';
 import { Illustration } from './illustration';
 import { Label } from './label';
@@ -25,7 +25,7 @@ export const Button: React.FC<OwnProps> = ({ className, variantType, size, varia
 
   return (
     <button
-      type={props?.type ? props?.type : 'button'}
+      type={props.type ? props.type : 'button'}
       className={`${className || ''}  ${styles[variantType]} ${styles[size]} ${styles[variant]} ${styles.base}`}
       {...props}
     >
@@ -40,10 +40,10 @@ export const Button: React.FC<OwnProps> = ({ className, variantType, size, varia
       ) : null}
 
       {variant === 'icon' && icon ? (
-        <Illustration className={`${styles.illustration}`} name={`Icon/${icon}`} width={42} height={42} />
+        <Illustration className={`${styles.illustration}`} name={`icons/${icon}`} width={42} height={42} />
       ) : (
         <Label as="div" className={`${styles.label}`} variant={getLabelSize(size)}>
-          {props?.children}
+          {props.children}
         </Label>
       )}
     </button>

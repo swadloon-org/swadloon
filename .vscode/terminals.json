@@ -141,6 +141,12 @@
       "focus": false
     },
     {
+      "name": "vsb-common",
+      "cwd": "[workspaceFolder]/packages/vsb-common",
+      "open": true,
+      "focus": false
+    },
+    {
       "name": "vsb-api",
       "cwd": "[workspaceFolder]/packages/vsb-api",
       "open": true,
