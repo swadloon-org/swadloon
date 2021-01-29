@@ -49,11 +49,11 @@ export const InfoSectionType6: React.FC<OwnProps> = (props) => {
       <Heading variant="h3" className={styles.title}>
         {props?.title}
       </Heading>
-      <Paragraph variant={'small'} className={styles.text}>
+      <div className={styles.text}>
         <MDXProvider components={components}>
           <MDXRenderer>{props?.text?.childMdx?.body as any}</MDXRenderer>
         </MDXProvider>
-      </Paragraph>
+      </div>
     </div>
   );
 };

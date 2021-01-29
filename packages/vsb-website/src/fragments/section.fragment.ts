@@ -57,19 +57,6 @@ export const sectionFragment = graphql`
             }
           }
         }
-        # mobileFluidImage: localFile {
-        #   childImageSharp {
-        #     fluid(quality: 90, maxWidth: 768) {
-        #       base64
-        #       aspectRatio
-        #       src
-        #       srcSet
-        #       srcWebp
-        #       srcSetWebp
-        #       sizes
-        #     }
-        #   }
-        # }
         mobileFluidTallImage: localFile {
           childImageSharp {
             fluid(quality: 90, maxHeight: 630) {
@@ -83,13 +70,6 @@ export const sectionFragment = graphql`
             }
           }
         }
-        # fixed: localFile {
-        #   childImageSharp {
-        #     fixed(base64Width: 1920, quality: 100) {
-        #       base64
-        #     }
-        #   }
-        # }
       }
     }
   }

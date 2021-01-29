@@ -31,14 +31,16 @@ export const sectionFragment = graphql`
         file {
           url
         }
-        desktopFluidImage: fluid(quality: 90, maxWidth: 800) {
+        desktopFluidImage: fluid(quality: 90, maxWidth: 1920) {
+          aspectRatio
           src
           srcSet
           srcWebp
           srcSetWebp
           sizes
         }
-        mobileFluidImage: fluid(quality: 90, maxWidth: 400) {
+        mobileFluidImage: fluid(quality: 90, maxWidth: 700) {
+          aspectRatio
           src
           srcSet
           srcWebp

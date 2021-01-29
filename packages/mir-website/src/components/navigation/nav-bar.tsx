@@ -13,7 +13,7 @@ type OwnProps = {
 } & NavigationProps;
 
 export const NavBar: React.FC<OwnProps> = ({
-  currentPageName,
+  currentPathname,
   location,
   pages,
   onOpenSideMenu,
@@ -29,7 +29,7 @@ export const NavBar: React.FC<OwnProps> = ({
   const currentLocaleIsEN = currentLocale === 'en-CA';
   const currentLocaleIsFR = !currentLocaleIsEN;
   const currentAlternateLocalePage = pages?.filter(
-    (page) => page?.name === currentPageName && page?.locale !== currentLocale
+    (page) => page?.slug === currentPathname && page?.locale !== currentLocale
   );
   const pagesEN = pages?.filter((page) => (currentLocaleIsEN ? page?.locale === 'en-CA' : page));
   const pagesFR = pages?.filter((page) => (currentLocaleIsFR ? page?.locale === 'fr-CA' : page));
@@ -49,6 +49,12 @@ export const NavBar: React.FC<OwnProps> = ({
       return indexA > indexB ? 1 : -1;
     });
   const contactUsPage = (currentLocaleIsEN ? pagesEN : pagesFR)?.filter((page) => page?.name === 'Contact');
+
+  const alternateLocalePageLink = currentAlternateLocalePage?.length
+    ? currentAlternateLocalePage?.[0]?.slug
+    : currentLocaleIsEN
+    ? '/'
+    : '/en/';
 
   return (
     <header className={styles.wrapper}>
@@ -127,21 +133,11 @@ export const NavBar: React.FC<OwnProps> = ({
           </div>
 
           <nav>
-            {currentAlternateLocalePage?.[0]?.slug ? (
-              <GatsbyLink
-                to={
-                  currentAlternateLocalePage?.length
-                    ? currentAlternateLocalePage?.[0]?.slug
-                    : currentLocaleIsEN
-                    ? '/'
-                    : '/en/'
-                }
-              >
-                <Button variantType="tertiaryReversed" variant="text" size="small">
-                  {currentLocaleIsEN ? 'FR' : 'EN'}
-                </Button>
-              </GatsbyLink>
-            ) : null}
+            <GatsbyLink to={alternateLocalePageLink || '/'}>
+              <Button variantType="tertiaryReversed" variant="text" size="small">
+                {currentLocaleIsEN ? 'FR' : 'EN'}
+              </Button>
+            </GatsbyLink>
 
             {contactUsPage?.[0]?.slug ? (
               <GatsbyLink to={contactUsPage?.[0]?.slug}>

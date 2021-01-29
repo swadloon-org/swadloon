@@ -30620,7 +30620,7 @@ export type SectionFragment = (
   )>, illustration?: Maybe<(
     Pick<ContentfulAsset, 'title'>
     & { file?: Maybe<Pick<ContentfulAssetFile, 'url' | 'fileName'>> }
-  )>, medias?: Maybe<{ medias?: Maybe<Array<Maybe<{ file?: Maybe<Pick<ContentfulAssetFile, 'url'>>, desktopFluidImage?: Maybe<Pick<ContentfulFluid, 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>>, mobileFluidImage?: Maybe<Pick<ContentfulFluid, 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>> }>>> }>, infoTiles?: Maybe<Array<Maybe<InfoTileFragment>>>, infoChecks?: Maybe<Array<Maybe<Pick<ContentfulInfoCheck, 'id' | 'text'>>>>, jobGroup?: Maybe<Array<Maybe<JobGroupFragment>>>, processStep?: Maybe<Array<Maybe<ProcessStepFragmentFragment>>>, blogPosts?: Maybe<Array<Maybe<BlogPostFragment>>>, subSections?: Maybe<Array<Maybe<(
+  )>, medias?: Maybe<{ medias?: Maybe<Array<Maybe<{ file?: Maybe<Pick<ContentfulAssetFile, 'url'>>, desktopFluidImage?: Maybe<Pick<ContentfulFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>>, mobileFluidImage?: Maybe<Pick<ContentfulFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>> }>>> }>, infoTiles?: Maybe<Array<Maybe<InfoTileFragment>>>, infoChecks?: Maybe<Array<Maybe<Pick<ContentfulInfoCheck, 'id' | 'text'>>>>, jobGroup?: Maybe<Array<Maybe<JobGroupFragment>>>, processStep?: Maybe<Array<Maybe<ProcessStepFragmentFragment>>>, blogPosts?: Maybe<Array<Maybe<BlogPostFragment>>>, subSections?: Maybe<Array<Maybe<(
     Pick<ContentfulSection, 'name' | 'title' | 'titleHighlight' | 'subTitle' | 'imagePosition'>
     & { type?: Maybe<SectionTypeFragment>, link?: Maybe<LinkFragment>, text?: Maybe<(
       Pick<ContentfulSectionTextTextNode, 'text'>

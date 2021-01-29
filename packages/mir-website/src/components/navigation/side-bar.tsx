@@ -12,7 +12,7 @@ import { Label } from '../ui/label';
 import * as stylesRef from './side-bar.treat';
 
 export type NavigationProps = {
-  currentPageName: string | PAGE_NAME;
+  currentPathname: string | PAGE_NAME;
   location?: Location;
   logoURL: string | null;
   linkedinPageURL: string | null;
@@ -96,7 +96,7 @@ export const SideBar: React.FC<OwnProps> = (props) => {
                   key={`${page?.name}-${page?.locale}`}
                   activeClassName={`${styles.activeItem}`}
                 >
-                  <div className={`${styles.itemMenu} ${props.currentPageName == page?.name ? styles.activeItem : ''}`}>
+                  <div className={`${styles.itemMenu} ${props.currentPathname == page?.name ? styles.activeItem : ''}`}>
                     <Heading variant="h4">{page?.title}</Heading>
                   </div>
                 </GatsbyLink>
