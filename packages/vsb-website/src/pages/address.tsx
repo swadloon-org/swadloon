@@ -1,17 +1,9 @@
-import { Center, Heading, Stack, Paragraph, BoxV2, Label, keys } from '@newrade/core-react-ui';
-import React, { useState } from 'react';
-import { cssTheme } from '../design-system/theme';
-import { useForm, SubmitHandler } from 'react-hook-form';
-
 import { LABEL_SIZE, TEXT_STYLE } from '@newrade/core-design-system';
-import {
-  AddressAutoCompleteOptions,
-  getAddressAutoComplete,
-  getAddressById,
-  AddressByIdOptions,
-} from '../services/address.service';
-import debounce from 'lodash/debounce';
-import value from '@mdx-js/react';
+import { BoxV2, Center, Heading, keys, Label, Paragraph, Stack } from '@newrade/core-react-ui';
+import React, { useState } from 'react';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { cssTheme } from '../design-system/theme';
+import { AddressAutoCompleteOptions, AddressByIdOptions, getAddressAutoComplete } from '../services/address.service';
 
 export type AdressFields = {
   street: string;
