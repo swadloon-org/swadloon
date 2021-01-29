@@ -4,7 +4,7 @@ import { NextFunction, Request, RequestHandler, Response } from 'express';
 import fetch from 'node-fetch';
 import { env } from '../server';
 
-export interface recaptchaResponse {
+export interface RecaptchaResponse {
   success?: boolean;
   errors?: Array<string>;
 }
@@ -23,7 +23,7 @@ export const recaptchaMiddleware: RequestHandler<any, PatientAPIResponseBody, an
       method: 'POST',
     });
 
-    const errorsRecaptcha: recaptchaResponse = await response.json();
+    const errorsRecaptcha: RecaptchaResponse = await response.json();
 
     console.log(response.status);
 
