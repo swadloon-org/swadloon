@@ -12,9 +12,7 @@ export class AppError extends Error {
   constructor(options: Error & AdvanceError) {
     super(options.message);
     this.name = options.name as ERROR_TYPE;
-    if (options.stack) {
-      this.stack = options.stack ? options.stack : undefined;
-    }
+    this.stack = options.stack ? options.stack : undefined;
     this.value = options.value ? options.value : undefined;
   }
 }

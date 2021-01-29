@@ -23,8 +23,6 @@ export const statusCliniko: RequestHandler<any, any, any> = async (req, res) => 
     } else {
       throw new AppError({ name: ERROR_TYPE.EXTERNAL_SERVER_ERROR, message: `Current status is ${response.status}` });
     }
-
-    // return res.status(200).send({ api: 'vsb-api', errors: [result as AppError], payload: { validationErrors: [] } });
   } catch (error) {
     res.status(400).send({ api: 'vsb-api', errors: [error] });
   }

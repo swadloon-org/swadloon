@@ -5,6 +5,15 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { cssTheme } from '../design-system/theme';
 import { AddressAutoCompleteOptions, AddressByIdOptions, getAddressAutoComplete } from '../services/address.service';
 
+enum ADDRESS {
+  ADDRESS_1 = 'address_1',
+  ADDRESS_2 = 'address_2',
+  CITY = 'city',
+  STATE = 'state',
+  POST_CODE = 'post_code',
+  COUNTRY = 'country',
+}
+
 export type AdressFields = {
   street: string;
   city?: string;
@@ -14,13 +23,17 @@ export type AdressFields = {
 };
 
 const FormAdress: React.FC = (props) => {
-  const { register, handleSubmit, errors } = useForm();
+  const { register, handleSubmit } = useForm();
 
   const [isFocus, setFocus] = useState<boolean>(false);
   const [isSuggestion, setSuggestion] = useState<boolean>(false);
   const [isValueSug, setValueSug] = useState<any>();
 
   const onSubmit: SubmitHandler<any> = async (data) => {};
+
+  const onSelect = async (data: any) => {
+    console.log(data);
+  };
 
   const onSuggest = async (data: AdressFields) => {
     const searchTerm = keys(data)
@@ -40,22 +53,18 @@ const FormAdress: React.FC = (props) => {
     };
     const valueTest = await getAddressAutoComplete(contentAddress);
 
-    const validationObject: AddressByIdOptions = {
-      Id: await valueTest.Items?.[0]?.Id,
+    const setValidationState = () => {
+      if (valueTest?.Items?.[0]?.Id !== undefined) {
+        setValueSug(valueTest?.Items);
+        setSuggestion(true);
+      } else if (valueTest?.Items?.[0]?.Id == undefined) {
+        setSuggestion(false);
+      }
     };
-
-    if (validationObject?.Id !== undefined) {
-      console.log(valueTest?.Items);
-
-      setValueSug(await valueTest?.Items);
-      setSuggestion(true);
-    } else if (validationObject?.Id === undefined) {
-      setSuggestion(false);
-    }
+    setValidationState();
   };
 
   const renderSuggestionsT = (items: any) => {
-    console.log(isSuggestion);
     return (
       <ul>
         {items.map((suggestion: any) => {
@@ -82,41 +91,42 @@ const FormAdress: React.FC = (props) => {
                 <Label variant={LABEL_SIZE.medium} variantStyle={TEXT_STYLE.bold}>
                   Adresse
                 </Label>
+                <input type="text" name="test" id="" onChange={(e) => valueTarget(e.target.name)} />
+
                 <input
                   id="street-address"
-                  name="address_1"
+                  name={ADDRESS.ADDRESS_1}
                   ref={register}
+                  onFocus={(e) => onSelect(e.target.name)}
                   onChange={(e) => onSuggest({ street: e.target.value })}
                 />
-
-                <input type="text" name="test" id="" onChange={(e) => valueTarget(e.target.name)} />
 
                 {isSuggestion == true ? renderSuggestionsT(isValueSug) : null}
 
                 <Label variant={LABEL_SIZE.medium} variantStyle={TEXT_STYLE.bold}>
                   Adresse (appartement / bureau)
                 </Label>
-                <input id="street-address2" name="address_2" ref={register} />
+                <input id="street-address2" name={ADDRESS.ADDRESS_2} ref={register} />
 
                 <Label variant={LABEL_SIZE.medium} variantStyle={TEXT_STYLE.bold}>
                   Ville
                 </Label>
-                <input id="city" name="city" ref={register} />
+                <input id="city" name={ADDRESS.CITY} ref={register} />
 
                 <Label variant={LABEL_SIZE.medium} variantStyle={TEXT_STYLE.bold}>
                   Province / État
                 </Label>
-                <input id="state" name="state" ref={register} />
+                <input id="state" name={ADDRESS.STATE} ref={register} />
 
                 <Label variant={LABEL_SIZE.medium} variantStyle={TEXT_STYLE.bold}>
                   Code Postal
                 </Label>
-                <input id="postcode" name="post_code" ref={register} />
+                <input id="postcode" name={ADDRESS.POST_CODE} ref={register} />
 
                 <Label variant={LABEL_SIZE.medium} variantStyle={TEXT_STYLE.bold}>
                   Pays
                 </Label>
-                <input id="country" name="country" ref={register} />
+                <input id="country" name={ADDRESS.COUNTRY} ref={register} />
 
                 <input type="submit" />
               </Stack>

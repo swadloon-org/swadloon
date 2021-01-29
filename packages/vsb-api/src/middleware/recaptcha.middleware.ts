@@ -33,6 +33,13 @@ export const recaptchaMiddleware: RequestHandler<any, PatientAPIResponseBody, an
       throw new AppError({ name: ERROR_TYPE.AUTH_ERROR, message: 'Invalid Recaptcha', value: errorsRecaptcha });
     }
   } catch (error) {
-    res.status(400).send({ api: 'vsb-api', errors: [error], payload: { validationErrors: [] } });
+    const incorrectRecaptcha: AppError = {
+      name: ERROR_TYPE.DTO_VALIDATION_ERROR,
+      message: 'Invalid Validation',
+    };
+
+    res
+      .status(400)
+      .send({ api: 'vsb-api', errors: [incorrectRecaptcha as AppError], payload: { validationErrors: [] } });
   }
 };

@@ -71,8 +71,8 @@ server.use(API_BASE_PATH, apiLimiter);
  */
 const router = Router();
 server.use(router);
-router.route(API_STATUS_CLINIKO).get(statusCliniko);
 router.route(API_REGISTER_PATIENT_ROUTE).post(recaptchaMiddleware, postPatient);
+router.route(API_STATUS_CLINIKO).get(statusCliniko);
 router.route(API_TRANSLATION_ROUTE).get(getTranslation);
 // router.route(API_LIST_PATIENTS_ROUTE).get(getListPatients);
 

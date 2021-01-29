@@ -9,8 +9,6 @@ type clinikoResponse = {
 };
 
 export async function fetchCliniko({ method, route, payload }: { method: 'POST'; route: 'patients'; payload: object }) {
-  console.log('test', payload);
-
   const response = await fetch(`https://api.` + `${env.API_VSB_SHARD_ID}.cliniko.com/v1/${route}/`, {
     method,
     headers: {

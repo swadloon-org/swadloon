@@ -6,7 +6,7 @@ import { fetchCliniko } from '../services/cliniko.service';
 
 export const postPatient: RequestHandler<any, PatientAPIResponseBody, PatientAPIRequestBody> = async (req, res) => {
   try {
-    const validation = PatientValidation.validateSync(req.body.payload.patient, {
+    PatientValidation.validateSync(req.body.payload.patient, {
       abortEarly: false,
       strict: true,
     });
@@ -15,6 +15,8 @@ export const postPatient: RequestHandler<any, PatientAPIResponseBody, PatientAPI
 
     return res.status(200).send({ api: 'vsb-api', errors: [result as AppError], payload: { validationErrors: [] } });
   } catch (error) {
+    console.log(error);
+
     const yupError = error as ValidationError;
 
     const appError = new AppError({

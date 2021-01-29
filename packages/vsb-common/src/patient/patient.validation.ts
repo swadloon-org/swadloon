@@ -2,8 +2,6 @@ import * as yup from 'yup';
 import { SchemaOf } from 'yup';
 import { PatientModel, REMINDER_TYPE } from './patient.model';
 
-const today = new Date();
-
 export const PatientValidation: SchemaOf<PatientModel> = yup
   .object({
     // occupation: yup.string(),
