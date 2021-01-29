@@ -82,7 +82,7 @@ export const SideBar: React.FC<OwnProps> = (props) => {
               className={styles.bar}
               width="29px"
               height="3px"
-              name="Illustration/IllustrationBar"
+              name="illustrations/IllustrationBar"
             ></Illustration>
             <Label variant={LABEL.smallUppercase}>Menu</Label>
           </div>
@@ -104,13 +104,14 @@ export const SideBar: React.FC<OwnProps> = (props) => {
             })}
           </nav>
         </div>
+
         <div className={styles.containerList}>
           <div className={styles.separation}>
             <Illustration
               className={styles.bar}
               width="29px"
               height="3px"
-              name="Illustration/IllustrationBar"
+              name="illustrations/IllustrationBar"
             ></Illustration>
             <Label variant={LABEL.smallUppercase}>SOCIAL</Label>
           </div>

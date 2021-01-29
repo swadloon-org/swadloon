@@ -1,5 +1,7 @@
+import { VIEWPORT } from '@newrade/core-design-system';
 import { GatsbyLink, useDesignSystemNavItems } from '@newrade/core-gatsby-ui/src';
 import {
+  BoxV2,
   Label,
   Main,
   MainWrapper,
@@ -10,16 +12,12 @@ import {
   Stack,
   useTreatTheme,
   useViewportBreakpoint,
-  BoxV2,
 } from '@newrade/core-react-ui';
 import { PressEvent } from '@react-types/shared';
 import { title } from 'case';
 import { PageProps } from 'gatsby';
-import React, { ReactNode, useState, useEffect } from 'react';
+import React, { ReactNode, useEffect, useState } from 'react';
 import { useIsSSR } from 'react-aria';
-import { useStyles } from 'react-treat';
-import * as styleRefs from './design-system.layout.treat';
-import { VIEWPORT } from '@newrade/core-design-system';
 
 type LayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }> & {
   MobileSvgLogo?: React.ReactNode;
@@ -37,10 +35,10 @@ export const LayoutDesignSystem = React.memo<LayoutProps>(({ MobileSvgLogo, Desk
   /**
    * Props
    */
-  const { styles } = useStyles(styleRefs);
+  // const { styles } = useStyles(styleRefs);
   const { cssTheme } = useTreatTheme();
   const navItems = useDesignSystemNavItems();
-  const navItemsByDirName = new Set(navItems.map((item) => item.dirName));
+  const navItemsByDirName = new Set(navItems?.map((item) => item.dirName));
 
   /**
    * Sidemenu

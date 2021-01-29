@@ -1,11 +1,11 @@
 import { Link as GatsbyLink } from 'gatsby';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import Icon from '../../illustrations/Icon/IconBars.svg';
-import { Link } from '../ui/link';
-import * as stylesRef from './nav-bar.treat';
+import Icon from '../../icons/IconBars.svg';
 import { PAGE_NAME } from '../../templates/page.template';
 import { Button } from '../ui/button';
+import { Link } from '../ui/link';
+import * as stylesRef from './nav-bar.treat';
 import { NavigationProps } from './side-bar';
 
 type OwnProps = {

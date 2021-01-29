@@ -9,7 +9,7 @@ export const styles = {
     width: '100%',
   })),
   content: style(({ theme, cssTheme }: Theme) => ({
-    width: 'min(100vw, 100%)',
+    maxWidth: '500px',
   })),
   /**
    * Variants

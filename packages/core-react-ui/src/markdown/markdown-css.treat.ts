@@ -10,16 +10,8 @@ export const wrapper = style(({ theme, cssTheme }: Theme) => ({
  */
 
 /**
- * Headings
+ * Anchor for documentation pages
  */
-
-globalStyle(
-  `${wrapper} > h1, ${wrapper} > h2, ${wrapper} > h3, ${wrapper} > h4, ${wrapper} > h5, ${wrapper} > h6`,
-  ({ cssTheme, theme }: Theme) => ({
-    marginBottom: '1.4em',
-    position: 'relative',
-  })
-);
 
 globalStyle(`${wrapper} .mdx-anchor`, ({ cssTheme, theme }: Theme) => ({
   position: 'absolute',
@@ -29,6 +21,25 @@ globalStyle(`${wrapper} .mdx-anchor`, ({ cssTheme, theme }: Theme) => ({
   paddingRight: '4px',
   visibility: 'hidden',
 }));
+
+/**
+ * Headings
+ */
+
+globalStyle(
+  `${wrapper} > h1, ${wrapper} > h2, ${wrapper} > h3, ${wrapper} > h4, ${wrapper} > h5, ${wrapper} > h6`,
+  ({ cssTheme, theme }: Theme) => ({
+    marginBottom: '1.8em',
+    position: 'relative',
+  })
+);
+
+globalStyle(
+  `${wrapper} > * + h1, ${wrapper} > * + h2, ${wrapper} > * + h3, ${wrapper} > * + h4, ${wrapper} > * + h5, ${wrapper} > * + h6`,
+  ({ cssTheme, theme }: Theme) => ({
+    marginTop: '2em',
+  })
+);
 
 globalStyle(`${wrapper} .mdx-anchor-pound`, ({ cssTheme, theme }: Theme) => ({
   textDecoration: 'underline',
@@ -69,13 +80,6 @@ globalStyle(`${wrapper} ol + ol`, ({ cssTheme, theme }: Theme) => ({
 globalStyle(`${wrapper} p + p:not(:last)`, ({ cssTheme, theme }: Theme) => ({
   marginBottom: '1.5em',
 }));
-
-globalStyle(
-  `${wrapper} > * + h1, ${wrapper} > * + h2, ${wrapper} > * + h3, ${wrapper} > * + h4, ${wrapper} > * + h5, ${wrapper} > * + h6`,
-  ({ cssTheme, theme }: Theme) => ({
-    marginTop: '2em',
-  })
-);
 
 globalStyle(`${wrapper} table`, ({ cssTheme, theme }: Theme) => ({
   marginTop: '2em',

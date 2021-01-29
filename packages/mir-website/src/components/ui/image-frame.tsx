@@ -1,14 +1,13 @@
-import React, { HTMLAttributes, useState } from 'react';
-import { useStyles } from 'react-treat';
-import * as styleRefs from './image-frame.treat';
-import LazyLoad from 'react-lazyload';
-import { motion, AnimatePresence } from 'framer-motion';
-import { wrap } from '@popmotion/popcorn';
 import { ICON_SIZE } from '@newrade/core-design-system-old';
+import { wrap } from '@popmotion/popcorn';
+import { AnimatePresence, motion } from 'framer-motion';
+import GatsbyImage, { FixedObject, FluidObject } from 'gatsby-image';
+import React, { HTMLAttributes, useState } from 'react';
+import LazyLoad from 'react-lazyload';
+import { useStyles } from 'react-treat';
 import { Icon } from '../ui/icon';
 import { Illustration } from './illustration';
-import GatsbyImage, { FixedObject, FluidObject } from 'gatsby-image';
-import { FadeIn } from '../animation/fade-in';
+import * as styleRefs from './image-frame.treat';
 
 enum MOTION_STATE {
   ENTER = 'ENTER',
@@ -61,7 +60,7 @@ export const ImageFrame: React.FC<OwnProps & HTMLAttributes<any>> = (props) => {
   return (
     <div className={`${props?.className || ''} ${styles.wrapper}`}>
       <Illustration
-        name={'Illustration/IllustrationSquare'}
+        name={'illustrations/IllustrationSquare'}
         className={`${styles.backgroundIllustration} ${getVariantStyle(props?.variant)}`}
         preserveAspectRatio="none"
         width={200}

@@ -1,3 +1,4 @@
+import LogoFramed from '!!file-loader!../images/LogoFramedReversed.svg';
 import { GatsbyContentfulPageContext } from '@newrade/core-gatsby-config';
 import {
   getMetaBasicTags,
@@ -82,7 +83,7 @@ export const PageTemplate: React.FC<ProjectPageProps> = ({ data, location, ...pr
             url: `${data?.site?.siteMetadata?.siteUrl}`,
             logo: {
               '@type': 'ImageObject',
-              url: `${data?.contentfulCompanyInfo?.logo?.file?.url}`,
+              url: `${LogoFramed}`,
             },
           }),
         ]}

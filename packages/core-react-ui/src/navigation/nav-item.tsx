@@ -1,10 +1,10 @@
+import { LinkProps, TEXT_STYLE } from '@newrade/core-design-system';
 import React, { AnchorHTMLAttributes, useRef } from 'react';
 import { useStyles } from 'react-treat';
-import * as styleRefs from './nav-item.treat';
-import { CommonComponentProps } from '../props/component-common.props';
-import { LinkProps, TEXT_STYLE, LABEL_SIZE } from '@newrade/core-design-system';
 import { Label } from '../components/text/label';
 import { usePreventPinchZoom } from '../hooks/use-prevent-pinch-zoom';
+import { CommonComponentProps } from '../props/component-common.props';
+import * as styleRefs from './nav-item.treat';
 
 type Props = CommonComponentProps &
   AnchorHTMLAttributes<any> &

@@ -1,9 +1,9 @@
 import { ICON_SIZE } from '@newrade/core-design-system-old';
 import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
-import { Icon } from './icon';
 import * as styleRefs from './accordions.treat';
 import { Heading } from './heading';
+import { Icon } from './icon';
 import { Illustration } from './illustration';
 
 type OwnProps = {
@@ -30,7 +30,7 @@ export const Accordions: React.FC<
             className={styles.icon}
             width={50}
             height={50}
-            name={`Illustration/${props.icon}`}
+            name={`illustrations/${props.icon}`}
           ></Illustration>
         ) : (
           ''
