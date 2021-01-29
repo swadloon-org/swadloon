@@ -1,63 +1,80 @@
-import { Center, Heading, Link, Stack, useTreatTheme, Paragraph, BoxV2, Label, keys } from '@newrade/core-react-ui';
-import React, { useCallback, useMemo } from 'react';
+import { Center, Heading, Stack, Paragraph, BoxV2, Label, keys } from '@newrade/core-react-ui';
+import React, { useState } from 'react';
 import { cssTheme } from '../design-system/theme';
-import { useForm, SubmitHandler, Controller, useFieldArray } from 'react-hook-form';
-import {
-  PatientValidation,
-  PatientModel,
-  PatientAPIRequestBody,
-  PatientAPIResponseBody,
-  REMINDER_TYPE,
-} from '@newrade/vsb-common';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { SchemaOf, ValidationError } from 'yup';
-import { LABEL_SIZE, TEXT_STYLE } from '@newrade/core-design-system';
+import { useForm, SubmitHandler } from 'react-hook-form';
 
-export type AdressTest = {
+import { LABEL_SIZE, TEXT_STYLE } from '@newrade/core-design-system';
+import {
+  AddressAutoCompleteOptions,
+  getAddressAutoComplete,
+  getAddressById,
+  AddressByIdOptions,
+} from '../services/address.service';
+import debounce from 'lodash/debounce';
+import value from '@mdx-js/react';
+
+export type AdressFields = {
   street: string;
-  city: string;
-  province: string;
-  country: string;
-  postal: string;
+  city?: string;
+  province?: string;
+  country?: string;
+  postal?: string;
 };
 
 const FormAdress: React.FC = (props) => {
   const { register, handleSubmit, errors } = useForm();
 
-  const onSubmit: SubmitHandler<any> = (data) => {
-    console.log(
-      Object.keys(data)
-        .map((test: any, index: number) => {
-          if (data[test]) {
-            return data[test];
-          }
-        })
-        .join(',')
+  const [isFocus, setFocus] = useState<boolean>(false);
+  const [isSuggestion, setSuggestion] = useState<boolean>(false);
+  const [isValueSug, setValueSug] = useState<any>();
+
+  const onSubmit: SubmitHandler<any> = async (data) => {};
+
+  const onSuggest = async (data: AdressFields) => {
+    const searchTerm = keys(data)
+      .map((field) => {
+        if (data[field]) {
+          return data[field];
+        }
+      })
+      .join(' ')
+      .trim();
+
+    const contentAddress: AddressAutoCompleteOptions = {
+      SearchTerm: searchTerm,
+      Country: 'CAN',
+      LanguagePreference: 'EN',
+      MaxResults: 5,
+    };
+    const valueTest = await getAddressAutoComplete(contentAddress);
+
+    const validationObject: AddressByIdOptions = {
+      Id: await valueTest.Items?.[0]?.Id,
+    };
+
+    if (validationObject?.Id !== undefined) {
+      console.log(valueTest?.Items);
+
+      setValueSug(await valueTest?.Items);
+      setSuggestion(true);
+    } else if (validationObject?.Id === undefined) {
+      setSuggestion(false);
+    }
+  };
+
+  const renderSuggestionsT = (items: any) => {
+    console.log(isSuggestion);
+    return (
+      <ul>
+        {items.map((suggestion: any) => {
+          return <li key={suggestion.Id}>{suggestion.Text + suggestion.Description}</li>;
+        })}
+      </ul>
     );
-    let requestUrl: string =
-      'http://ws1.postescanada-canadapost.ca/AddressComplete/Interactive/Find/v2.10/json3.ws?Key=TH44-ZJ42-ET17-UY39';
+  };
 
-    requestUrl +=
-      '&SearchTerm=' +
-      encodeURIComponent(
-        Object.keys(data)
-          .map((test: any, index: number) => {
-            if (data[test]) {
-              return data[test];
-            }
-          })
-          .toString()
-      );
-    requestUrl += '&Country=' + encodeURIComponent('CAN');
-    requestUrl += '&LanguagePreference=' + encodeURIComponent('EN');
-    requestUrl += '&MaxResults=' + encodeURIComponent(8);
-
-    console.log(requestUrl);
-
-    fetch(requestUrl, {})
-      .then((response) => response.json())
-      .then((data) => data.Items)
-      .then((items) => console.log(items));
+  const valueTarget = (value: any) => {
+    console.log(value);
   };
 
   return (
@@ -73,7 +90,16 @@ const FormAdress: React.FC = (props) => {
                 <Label variant={LABEL_SIZE.medium} variantStyle={TEXT_STYLE.bold}>
                   Adresse
                 </Label>
-                <input id="street-address" name="address_1" ref={register} />
+                <input
+                  id="street-address"
+                  name="address_1"
+                  ref={register}
+                  onChange={(e) => onSuggest({ street: e.target.value })}
+                />
+
+                <input type="text" name="test" id="" onChange={(e) => valueTarget(e.target.name)} />
+
+                {isSuggestion == true ? renderSuggestionsT(isValueSug) : null}
 
                 <Label variant={LABEL_SIZE.medium} variantStyle={TEXT_STYLE.bold}>
                   Adresse (appartement / bureau)

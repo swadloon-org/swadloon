@@ -1,12 +1,6 @@
+import { AUTO_COMPLETE_API_URL, FIND_ADDRESS_BY_ID_API_URL } from '../constants/canada-post.constant';
+import { CLIENT_CONFIG } from '../constants/client-config.constant';
 // import { ErrorService } from './error.service';
-// import { SitefinityAuthService } from './sitefinity-auth.service';
-
-// let requestUrl: string =
-//   'http://ws1.postescanada-canadapost.ca/AddressComplete/Interactive/Find/v2.10/json3.ws?Key=TH44-ZJ42-ET17-UY39';
-
-// requestUrl += '&SearchTerm=' + encodeURIComponent(data.street);
-// requestUrl += '&Country=' + encodeURIComponent('CAN');
-// requestUrl += '&MaxResults=' + encodeURIComponent(8);
 
 export type AddressAutoCompleteOptions = {
   SearchTerm: string;
@@ -73,29 +67,44 @@ export type AddressByIdResponse = {
   DataLevel?: string;
 };
 
+export function formEncode(payload: { [key: string]: string | number | undefined }) {
+  const urlEncoded = new URLSearchParams();
+  Object.keys(payload).forEach((key) => {
+    const value: any = payload[key];
+    urlEncoded.append(key, value);
+  });
+  return urlEncoded;
+}
+
 /**
  * @see https://www.canadapost.ca/pca/support/webservice/addresscomplete/interactive/find/2.1/
  */
-// export async function getAddressAutoComplete(options: AddressAutoCompleteOptions) {
-//   try {
-//     const encodedParams = SitefinityAuthService.formEncode({ ...options, Key: CLIENT_CONFIG.CANADA_POST_API_KEY });
+export async function getAddressAutoComplete(options: AddressAutoCompleteOptions) {
+  try {
+    const encodedParams = formEncode({ ...options, Key: CLIENT_CONFIG.CANADA_POST_API_KEY });
 
-//     const response = await fetch(`${AUTO_COMPLETE_API_URL}?${encodedParams}`);
-//     return ErrorService.parseResponse<{ Items: readonly AddressAutoCompleteResponse[] }>({ context: Error() })(
-//       response
-//     );
-//   } catch (error) {
-//     throw ErrorService.parseError(error, Error());
-//   }
-// }
+    const response = await fetch(`${AUTO_COMPLETE_API_URL}?${encodedParams}`);
+    const result = await response.json();
+    console.log(result);
+    return result;
+  } catch (error) {
+    // throw ErrorService.parseError(error, Error());
+    throw Error('not good');
+  }
+}
 
-// export async function getAddressById(options: AddressByIdOptions) {
-//   try {
-//     const encodedParams = SitefinityAuthService.formEncode({ ...options, Key: CLIENT_CONFIG.CANADA_POST_API_KEY });
+export async function getAddressById(options: AddressByIdOptions) {
+  try {
+    const encodedParams = formEncode({ ...options, Key: CLIENT_CONFIG.CANADA_POST_API_KEY });
 
-//     const response = await fetch(`${FIND_ADDRESS_BY_ID_API_URL}?${encodedParams}`);
-//     return ErrorService.parseResponse<{ Items: readonly AddressByIdResponse[] }>({ context: Error() })(response);
-//   } catch (error) {
-//     throw ErrorService.parseError(error, Error());
-//   }
-// }
+    const response = await fetch(`${FIND_ADDRESS_BY_ID_API_URL}?${encodedParams}`);
+    // return ErrorService.parseResponse<{ Items: readonly AddressByIdResponse[] }>({ context: Error() })(response);
+    const result = await response.json();
+    console.log(result);
+
+    return result;
+  } catch (error) {
+    // throw ErrorService.parseError(error, Error());
+    throw Error('not good');
+  }
+}
