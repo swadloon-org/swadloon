@@ -4,9 +4,9 @@ import { env } from '../server';
 
 export const getListPatients: RequestHandler<any, any, any> = async (req, res) => {
   try {
-    const routes: string = 'patients';
-    const paramsSearch: string = 'created_at';
-    const filterParams: string = `?sort=${paramsSearch}:desc`;
+    const routes = 'patients';
+    const paramsSearch = 'created_at';
+    const filterParams = `?sort=${paramsSearch}:desc`;
     const response = await fetch(`https://api.` + `${env.API_VSB_SHARD_ID}.cliniko.com/v1/${routes}${filterParams}`, {
       method: 'GET',
       headers: {
