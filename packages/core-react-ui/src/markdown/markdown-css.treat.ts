@@ -29,7 +29,7 @@ globalStyle(`${wrapper} .mdx-anchor`, ({ cssTheme, theme }: Theme) => ({
 globalStyle(
   `${wrapper} > h1, ${wrapper} > h2, ${wrapper} > h3, ${wrapper} > h4, ${wrapper} > h5, ${wrapper} > h6`,
   ({ cssTheme, theme }: Theme) => ({
-    marginBottom: '1.8em',
+    marginBottom: '1.4em',
     position: 'relative',
   })
 );
@@ -37,7 +37,7 @@ globalStyle(
 globalStyle(
   `${wrapper} > * + h1, ${wrapper} > * + h2, ${wrapper} > * + h3, ${wrapper} > * + h4, ${wrapper} > * + h5, ${wrapper} > * + h6`,
   ({ cssTheme, theme }: Theme) => ({
-    marginTop: '2em',
+    marginTop: '1.5em',
   })
 );
 
@@ -46,7 +46,7 @@ globalStyle(`${wrapper} .mdx-anchor-pound`, ({ cssTheme, theme }: Theme) => ({
 }));
 
 /**
- * Paragraphs
+ * Paragraphs, list items
  */
 
 globalStyle(`${wrapper} p + p`, ({ cssTheme, theme }: Theme) => ({
@@ -81,23 +81,46 @@ globalStyle(`${wrapper} p + p:not(:last)`, ({ cssTheme, theme }: Theme) => ({
   marginBottom: '1.5em',
 }));
 
+globalStyle(`${wrapper} p + img`, ({ cssTheme, theme }: Theme) => ({
+  marginTop: '1.5em',
+}));
+
+/**
+ * Details & summary
+ */
+
+globalStyle(`${wrapper} p + details`, ({ cssTheme, theme }: Theme) => ({
+  marginTop: '2em',
+}));
+
+/**
+ * Tables
+ */
+
 globalStyle(`${wrapper} table`, ({ cssTheme, theme }: Theme) => ({
   marginTop: '2em',
   marginBottom: '2em',
 }));
 
+/**
+ * Medias
+ */
+
 globalStyle(`${wrapper} figure`, ({ cssTheme, theme }: Theme) => ({
   display: 'flex',
   flexDirection: 'column',
-  // resets browser default margin on figure element
-  margin: 0,
+  margin: 0, // resets browser default margin on figure element
   marginTop: '1.5em',
   marginBottom: '1.5em',
 }));
 
 globalStyle(`${wrapper} img`, ({ cssTheme, theme }: Theme) => ({
-  width: '100%',
+  maxWidth: '100%',
 }));
+
+/**
+ * Code
+ */
 
 globalStyle(`${wrapper} pre`, ({ cssTheme, theme }: Theme) => ({
   maxWidth: '100%',
@@ -125,7 +148,6 @@ globalStyle(`${wrapper} :not(pre) > code`, ({ cssTheme, theme }: Theme) => ({
   BorderRadius: '6px',
 }));
 
-//todo add theme fonts
 globalStyle(
   `${wrapper} code[class*='language-'],
 pre[class*='language-']`,

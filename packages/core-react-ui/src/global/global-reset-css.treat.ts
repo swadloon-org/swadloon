@@ -225,8 +225,7 @@ globalStyle(`details`, {
  * Resets the img tag
  */
 globalStyle(`summary`, {
-  // Add the correct display in all browsers.
-  display: 'list-item',
+  display: 'flex', // Add the correct display in all browsers.
 });
 
 /**

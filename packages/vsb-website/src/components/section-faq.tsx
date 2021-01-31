@@ -19,7 +19,7 @@ export const SectionFaq: React.FC<Props> = ({ id, style, className, section, ...
     <BoxV2 className={`${styles.wrapper}`}>
       <Stack gap={[cssTheme.sizing.var.x7]}>
         <Stack gap={[cssTheme.sizing.var.x6]}>
-          <Heading style={{ maxWidth: 600 }}>{section.title}</Heading>
+          <Heading style={{ maxWidth: 800 }}>{section.title}</Heading>
 
           <MarkdownRenderer className={styles.content}>{section.text?.childMdx?.body}</MarkdownRenderer>
         </Stack>

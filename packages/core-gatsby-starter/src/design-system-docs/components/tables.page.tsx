@@ -15,7 +15,7 @@ import {
 } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { DesignSystemPageTemplate, DesignSystemPageProps } from '../../templates/design-system-page.template';
+import { DesignSystemPageProps, DesignSystemPageTemplate } from '../../templates/design-system-page.template';
 import * as styleRefs from '../home.treat';
 
 const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
@@ -32,9 +32,7 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
         <Heading variant={HEADING.h2}>Components</Heading>
 
         <Details id={'Table'} open={true}>
-          <Summary>
-            <Heading variant={HEADING.h3}>Tables</Heading>
-          </Summary>
+          <Summary>Tables</Summary>
 
           <BoxV2 padding={[cssTheme.sizing.var.x3, 0]}>
             <Stack id={'Tables'} gap={['1em']}>

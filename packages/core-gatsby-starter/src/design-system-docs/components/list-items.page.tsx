@@ -1,15 +1,5 @@
 import { HEADING, PARAGRAPH_SIZE, TEXT_LEVEL } from '@newrade/core-design-system';
-import {
-  BoxV2,
-  Details,
-  Heading,
-  Label,
-  ListItem,
-  ListItems,
-  Stack,
-  Summary,
-  useTreatTheme,
-} from '@newrade/core-react-ui';
+import { Details, Heading, Label, ListItem, ListItems, Stack, Summary, useTreatTheme } from '@newrade/core-react-ui';
 import { IoMailOutline } from '@react-icons/all-files/io5/IoMailOutline';
 import { IoPhonePortraitOutline } from '@react-icons/all-files/io5/IoPhonePortraitOutline';
 import React from 'react';
@@ -32,119 +22,103 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
         <Heading variant={HEADING.h2}>List Items</Heading>
 
         <Details id={'Links'} open={true}>
-          <Summary>
-            <Heading variant={HEADING.h3}>Unordered</Heading>
-          </Summary>
+          <Summary>Unordered</Summary>
 
-          <BoxV2 padding={[cssTheme.sizing.var.x3, 0]}>
-            <Stack gap={[cssTheme.sizing.var.x5]}>
-              <Stack gap={[cssTheme.sizing.var.x3]}>
-                <Label variantLevel={TEXT_LEVEL.tertiary}>Bullet</Label>
+          <Stack gap={[cssTheme.sizing.var.x5]}>
+            <Stack gap={[cssTheme.sizing.var.x3]}>
+              <Label variantLevel={TEXT_LEVEL.tertiary}>Bullet</Label>
 
-                <ListItems gap={[cssTheme.sizing.var.x2]}>
-                  <ListItem></ListItem>
+              <ListItems gap={[cssTheme.sizing.var.x2]}>
+                <ListItem></ListItem>
 
-                  <ListItem></ListItem>
+                <ListItem></ListItem>
 
-                  <ListItem></ListItem>
-                </ListItems>
-              </Stack>
+                <ListItem></ListItem>
+              </ListItems>
+            </Stack>
 
-              <Stack gap={[cssTheme.sizing.var.x3]}>
-                <Label variantLevel={TEXT_LEVEL.tertiary}>Icon</Label>
+            <Stack gap={[cssTheme.sizing.var.x3]}>
+              <Label variantLevel={TEXT_LEVEL.tertiary}>Icon</Label>
 
-                <Stack as={'ul'} gap={[cssTheme.sizing.var.x2]}>
-                  <ListItem variantIcon={'icon'} Icon={<IoMailOutline />}>
-                    info@website.ca
-                  </ListItem>
+              <Stack as={'ul'} gap={[cssTheme.sizing.var.x2]}>
+                <ListItem variantIcon={'icon'} Icon={<IoMailOutline />}>
+                  info@website.ca
+                </ListItem>
 
-                  <ListItem variantIcon={'icon'} Icon={<IoMailOutline />}>
-                    info@website.ca
-                  </ListItem>
+                <ListItem variantIcon={'icon'} Icon={<IoMailOutline />}>
+                  info@website.ca
+                </ListItem>
 
-                  <ListItem variantIcon={'icon'} Icon={<IoPhonePortraitOutline />}>
-                    444-555-2222
-                  </ListItem>
-                </Stack>
-              </Stack>
-
-              <Stack gap={[cssTheme.sizing.var.x4]}>
-                <Label variantLevel={TEXT_LEVEL.tertiary}>Sizes</Label>
-
-                <ListItems gap={[cssTheme.sizing.var.x3]}>
-                  <ListItem variantSize={PARAGRAPH_SIZE.large} variantIcon={'bullet'}></ListItem>
-
-                  <ListItem variantSize={PARAGRAPH_SIZE.medium} variantIcon={'bullet'}></ListItem>
-
-                  <ListItem variantSize={PARAGRAPH_SIZE.small} variantIcon={'bullet'}></ListItem>
-
-                  <ListItem variantSize={PARAGRAPH_SIZE.xSmall} variantIcon={'bullet'}></ListItem>
-                </ListItems>
-
-                <ListItems gap={[cssTheme.sizing.var.x3]}>
-                  <ListItem variantSize={PARAGRAPH_SIZE.large} variantIcon={'icon'} Icon={<IoMailOutline />}></ListItem>
-
-                  <ListItem
-                    variantSize={PARAGRAPH_SIZE.medium}
-                    variantIcon={'icon'}
-                    Icon={<IoMailOutline />}
-                  ></ListItem>
-
-                  <ListItem variantSize={PARAGRAPH_SIZE.small} variantIcon={'icon'} Icon={<IoMailOutline />}></ListItem>
-
-                  <ListItem
-                    variantSize={PARAGRAPH_SIZE.xSmall}
-                    variantIcon={'icon'}
-                    Icon={<IoMailOutline />}
-                  ></ListItem>
-                </ListItems>
-              </Stack>
-
-              <Stack gap={[cssTheme.sizing.var.x3]}>
-                <Label variantLevel={TEXT_LEVEL.tertiary}>Multi-lines</Label>
-
-                <Stack as={'ul'} gap={[cssTheme.sizing.var.x2]}>
-                  <ListItem variantIcon={'icon'} Icon={<IoMailOutline />} variantSize={PARAGRAPH_SIZE.large}>
-                    {lorenipsum}
-                  </ListItem>
-
-                  <ListItem variantIcon={'icon'} Icon={<IoMailOutline />} variantSize={PARAGRAPH_SIZE.medium}>
-                    {lorenipsum}
-                  </ListItem>
-
-                  <ListItem variantIcon={'icon'} Icon={<IoMailOutline />}>
-                    {lorenipsum}
-                  </ListItem>
-
-                  <ListItem variantIcon={'icon'} Icon={<IoPhonePortraitOutline />} variantSize={PARAGRAPH_SIZE.xSmall}>
-                    {lorenipsum}
-                  </ListItem>
-                </Stack>
+                <ListItem variantIcon={'icon'} Icon={<IoPhonePortraitOutline />}>
+                  444-555-2222
+                </ListItem>
               </Stack>
             </Stack>
-          </BoxV2>
+
+            <Stack gap={[cssTheme.sizing.var.x4]}>
+              <Label variantLevel={TEXT_LEVEL.tertiary}>Sizes</Label>
+
+              <ListItems gap={[cssTheme.sizing.var.x3]}>
+                <ListItem variantSize={PARAGRAPH_SIZE.large} variantIcon={'bullet'}></ListItem>
+
+                <ListItem variantSize={PARAGRAPH_SIZE.medium} variantIcon={'bullet'}></ListItem>
+
+                <ListItem variantSize={PARAGRAPH_SIZE.small} variantIcon={'bullet'}></ListItem>
+
+                <ListItem variantSize={PARAGRAPH_SIZE.xSmall} variantIcon={'bullet'}></ListItem>
+              </ListItems>
+
+              <ListItems gap={[cssTheme.sizing.var.x3]}>
+                <ListItem variantSize={PARAGRAPH_SIZE.large} variantIcon={'icon'} Icon={<IoMailOutline />}></ListItem>
+
+                <ListItem variantSize={PARAGRAPH_SIZE.medium} variantIcon={'icon'} Icon={<IoMailOutline />}></ListItem>
+
+                <ListItem variantSize={PARAGRAPH_SIZE.small} variantIcon={'icon'} Icon={<IoMailOutline />}></ListItem>
+
+                <ListItem variantSize={PARAGRAPH_SIZE.xSmall} variantIcon={'icon'} Icon={<IoMailOutline />}></ListItem>
+              </ListItems>
+            </Stack>
+
+            <Stack gap={[cssTheme.sizing.var.x3]}>
+              <Label variantLevel={TEXT_LEVEL.tertiary}>Multi-lines</Label>
+
+              <Stack as={'ul'} gap={[cssTheme.sizing.var.x2]}>
+                <ListItem variantIcon={'icon'} Icon={<IoMailOutline />} variantSize={PARAGRAPH_SIZE.large}>
+                  {lorenipsum}
+                </ListItem>
+
+                <ListItem variantIcon={'icon'} Icon={<IoMailOutline />} variantSize={PARAGRAPH_SIZE.medium}>
+                  {lorenipsum}
+                </ListItem>
+
+                <ListItem variantIcon={'icon'} Icon={<IoMailOutline />}>
+                  {lorenipsum}
+                </ListItem>
+
+                <ListItem variantIcon={'icon'} Icon={<IoPhonePortraitOutline />} variantSize={PARAGRAPH_SIZE.xSmall}>
+                  {lorenipsum}
+                </ListItem>
+              </Stack>
+            </Stack>
+          </Stack>
         </Details>
 
         <Details id={'Links'} open={true}>
-          <Summary>
-            <Heading variant={HEADING.h3}>Ordered</Heading>
-          </Summary>
+          <Summary>Ordered</Summary>
 
-          <BoxV2 padding={[cssTheme.sizing.var.x3, 0]}>
-            <Stack gap={[cssTheme.sizing.var.x5]}>
-              <Stack gap={[cssTheme.sizing.var.x3]}>
-                <Label variantLevel={TEXT_LEVEL.tertiary}>Number</Label>
+          <Stack gap={[cssTheme.sizing.var.x5]}>
+            <Stack gap={[cssTheme.sizing.var.x3]}>
+              <Label variantLevel={TEXT_LEVEL.tertiary}>Number</Label>
 
-                <ListItems gap={[cssTheme.sizing.var.x3]} as={'ol'}>
-                  <ListItem variantIcon={'number'}></ListItem>
+              <ListItems gap={[cssTheme.sizing.var.x3]} as={'ol'}>
+                <ListItem variantIcon={'number'}></ListItem>
 
-                  <ListItem variantIcon={'number'}></ListItem>
+                <ListItem variantIcon={'number'}></ListItem>
 
-                  <ListItem variantIcon={'number'}></ListItem>
-                </ListItems>
-              </Stack>
+                <ListItem variantIcon={'number'}></ListItem>
+              </ListItems>
             </Stack>
-          </BoxV2>
+          </Stack>
         </Details>
       </Stack>
     </Stack>

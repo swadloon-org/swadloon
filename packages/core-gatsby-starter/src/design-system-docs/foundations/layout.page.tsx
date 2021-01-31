@@ -1,21 +1,20 @@
 import { HEADING } from '@newrade/core-design-system';
 import {
+  BoxV2,
+  Center,
+  Cluster,
   Details,
+  Grid,
   Heading,
-  keys,
+  Paragraph,
   Stack,
   Summary,
-  useTreatTheme,
-  Paragraph,
-  Center,
   Switcher,
-  Cluster,
-  Grid,
-  BoxV2,
+  useTreatTheme,
 } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { DesignSystemPageTemplate, DesignSystemPageProps } from '../../templates/design-system-page.template';
+import { DesignSystemPageProps, DesignSystemPageTemplate } from '../../templates/design-system-page.template';
 import * as styleRefs from '../home.treat';
 import { Placeholder } from '../utils/placeholder';
 
@@ -38,9 +37,7 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
           </Stack>
 
           <Details id={'Center'} open={true}>
-            <Summary>
-              <Heading variant={HEADING.h3}>Center</Heading>
-            </Summary>
+            <Summary>Center</Summary>
 
             <BoxV2 padding={[cssTheme.sizing.var.x3, '0']}>
               <Stack gap={[cssTheme.sizing.var.x2]} style={{ width: '100%' }}>
@@ -56,9 +53,7 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
           </Details>
 
           <Details id={'Switcher'} open={true}>
-            <Summary>
-              <Heading variant={HEADING.h3}>Switcher</Heading>
-            </Summary>
+            <Summary>Switcher</Summary>
 
             <BoxV2 padding={[cssTheme.sizing.var.x3, '0']}>
               <Stack gap={[cssTheme.sizing.var.x2]} style={{ width: '100%' }}>
@@ -104,9 +99,7 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
           </Details>
 
           <Details id={'Cluster'} open={true}>
-            <Summary>
-              <Heading variant={HEADING.h3}>Cluster</Heading>
-            </Summary>
+            <Summary>Cluster</Summary>
 
             <BoxV2 padding={[cssTheme.sizing.var.x3, '0']}>
               <Stack gap={[cssTheme.sizing.var.x2]} style={{ width: '100%' }}>
@@ -126,9 +119,7 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
           </Details>
 
           <Details id={'Grid'} open={true}>
-            <Summary>
-              <Heading variant={HEADING.h3}>Grid</Heading>
-            </Summary>
+            <Summary>Grid</Summary>
 
             <BoxV2 padding={[cssTheme.sizing.var.x3, '0']}>
               <Stack gap={[cssTheme.sizing.var.x2]} style={{ width: '100%' }}>
@@ -179,9 +170,7 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
           </Details>
 
           <Details id={'Box'} open={true}>
-            <Summary>
-              <Heading variant={HEADING.h3}>Box</Heading>
-            </Summary>
+            <Summary>Box</Summary>
 
             <BoxV2 padding={[cssTheme.sizing.var.x3, '0']}>
               <Stack gap={[cssTheme.sizing.var.x2]} style={{ width: '100%' }}>

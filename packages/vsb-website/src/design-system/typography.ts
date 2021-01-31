@@ -82,7 +82,7 @@ export const typography: Typography = {
         lineGap: 16,
       },
       h4: {
-        capHeight: 16,
+        capHeight: 14,
         lineGap: 14,
       },
     },
@@ -100,7 +100,7 @@ export const typography: Typography = {
         lineGap: 14,
       },
       h4: {
-        capHeight: 18,
+        capHeight: 16,
         lineGap: 14,
       },
     },
@@ -118,7 +118,7 @@ export const typography: Typography = {
         lineGap: 14,
       },
       h4: {
-        capHeight: 18,
+        capHeight: 16,
         lineGap: 14,
       },
     },

@@ -1,4 +1,4 @@
-import { HEADING, LABEL_SIZE, PARAGRAPH_SIZE, TEXT_LEVEL, TEXT_STYLE, TITLE } from '@newrade/core-design-system';
+import { HEADING, LABEL_SIZE, PARAGRAPH_SIZE, TEXT_STYLE, TITLE } from '@newrade/core-design-system';
 import {
   BoxV2,
   Details,
@@ -11,10 +11,9 @@ import {
   Title,
   useTreatTheme,
 } from '@newrade/core-react-ui';
-import { title } from 'case';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { DesignSystemPageTemplate, DesignSystemPageProps } from '../../templates/design-system-page.template';
+import { DesignSystemPageProps, DesignSystemPageTemplate } from '../../templates/design-system-page.template';
 import * as styleRefs from '../home.treat';
 import { FontShowcase } from '../utils/font-showcase';
 import { lorenipsum } from '../utils/loren-ipsum';
@@ -37,9 +36,7 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
         </Stack>
 
         <Details id={'fonts'} open={true}>
-          <Summary>
-            <Heading variant={HEADING.h3}>Fonts</Heading>
-          </Summary>
+          <Summary>Fonts</Summary>
 
           <BoxV2 padding={[cssTheme.sizing.var.x3, '0']}>
             <Stack gap={[cssTheme.sizing.var.x4]}>
@@ -49,9 +46,7 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
         </Details>
 
         <Details id={'titles'} open={true}>
-          <Summary>
-            <Heading variant={HEADING.h3}>Titles</Heading>
-          </Summary>
+          <Summary>Titles</Summary>
 
           <BoxV2 padding={[cssTheme.sizing.var.x3, '0']}>
             <Stack gap={[cssTheme.sizing.var.x3]}>
@@ -63,9 +58,7 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
         </Details>
 
         <Details id={'headings'} open={true}>
-          <Summary>
-            <Heading variant={HEADING.h3}>Headings</Heading>
-          </Summary>
+          <Summary>Headings</Summary>
 
           <BoxV2 padding={[cssTheme.sizing.var.x3, '0']}>
             <Stack gap={[cssTheme.sizing.var.x3]}>
@@ -77,9 +70,7 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
         </Details>
 
         <Details id={'labels'} open={true}>
-          <Summary>
-            <Heading variant={HEADING.h3}>Labels</Heading>
-          </Summary>
+          <Summary>Labels</Summary>
 
           <BoxV2 padding={[cssTheme.sizing.var.x3, '0']}>
             <Stack gap={[cssTheme.sizing.var.x3]}>
@@ -97,9 +88,7 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
         </Details>
 
         <Details id={'paragraphs'} open={true}>
-          <Summary>
-            <Heading variant={HEADING.h3}>Paragraphs</Heading>
-          </Summary>
+          <Summary>Paragraphs</Summary>
 
           <BoxV2 padding={[cssTheme.sizing.var.x3, '0']}>
             <Stack gap={[cssTheme.sizing.var.x3]}>

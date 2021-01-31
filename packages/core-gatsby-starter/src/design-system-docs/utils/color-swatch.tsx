@@ -1,9 +1,9 @@
 import { Color, LABEL_SIZE, TEXT_LEVEL } from '@newrade/core-design-system';
+import { getCSSColor, Label, Stack, useTreatTheme } from '@newrade/core-react-ui';
+import { kebab } from 'case';
 import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
-import { getCSSColor, useTreatTheme, Stack, Label } from '@newrade/core-react-ui';
 import * as stylesRef from './color-swatch.treat';
-import { kebab } from 'case';
 
 type OwnProps = HTMLAttributes<any> & {
   color: Color | string;
@@ -16,7 +16,6 @@ export const ColorSwatch: React.FC<OwnProps> = ({ id, style, className, ...props
   const { cssTheme } = useTreatTheme();
 
   const colorObject = typeof props.color === 'object' ? (props.color as Color) : null;
-  const colorString = typeof props.color === 'string' ? (props.color as string) : null;
   const cssColorString = colorObject ? getCSSColor(colorObject) : '';
 
   return (
@@ -29,10 +28,6 @@ export const ColorSwatch: React.FC<OwnProps> = ({ id, style, className, ...props
             {`${props.name ? `${kebab(props.name)}-` : ''}${props.shadeNumber ? `${kebab(props.shadeNumber)}` : ''}`}
           </Label>
         </div>
-
-        {/* <Label variant={LABEL_SIZE.xSmall} className={styles.colorHSL}>
-          <pre>{cssColorString || colorString}</pre>
-        </Label> */}
       </Stack>
     </Stack>
   );

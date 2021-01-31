@@ -2,7 +2,7 @@ import { HEADING } from '@newrade/core-design-system';
 import { BoxV2, Details, Heading, Paragraph, Stack, Summary, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { DesignSystemPageTemplate, DesignSystemPageProps } from '../../templates/design-system-page.template';
+import { DesignSystemPageProps, DesignSystemPageTemplate } from '../../templates/design-system-page.template';
 import * as styleRefs from '../home.treat';
 import { ColorPalette } from '../utils/color-palette';
 
@@ -22,19 +22,13 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
       </Stack>
 
       <Details id={'Primary'} open={true}>
-        <Summary>
-          <Heading variant={HEADING.h3}>Primary</Heading>
-        </Summary>
+        <Summary>Primary</Summary>
 
-        <BoxV2 padding={[cssTheme.sizing.var.x3, '0']}>
-          <ColorPalette colorName={'Primary'} colorOrPalette={theme.colors.colors.primary}></ColorPalette>
-        </BoxV2>
+        <ColorPalette colorName={'Primary'} colorOrPalette={theme.colors.colors.primary}></ColorPalette>
       </Details>
 
       <Details id={'Greyscale'} open={true}>
-        <Summary>
-          <Heading variant={HEADING.h3}>Greyscale</Heading>
-        </Summary>
+        <Summary>Greyscale</Summary>
 
         <Stack gap={[cssTheme.sizing.var.x3]}>
           <BoxV2 padding={[cssTheme.sizing.var.x3, '0']}>
@@ -44,9 +38,7 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
       </Details>
 
       <Details id={'Accent'} open={true}>
-        <Summary>
-          <Heading variant={HEADING.h3}>Accent</Heading>
-        </Summary>
+        <Summary>Accent</Summary>
 
         <Stack gap={[cssTheme.sizing.var.x3]}>
           <BoxV2 padding={[cssTheme.sizing.var.x3, '0']}>
@@ -64,9 +56,7 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
       </Details>
 
       <Details id={'Utility'} open={true}>
-        <Summary>
-          <Heading variant={HEADING.h3}>Utility</Heading>
-        </Summary>
+        <Summary>Utility</Summary>
 
         <Stack gap={[cssTheme.sizing.var.x3]}>
           <BoxV2 padding={[cssTheme.sizing.var.x3, '0']}>

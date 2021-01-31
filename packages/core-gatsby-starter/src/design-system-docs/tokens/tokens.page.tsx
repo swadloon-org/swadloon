@@ -1,19 +1,8 @@
-import { HEADING, LinkVariant, PARAGRAPH_SIZE, TEXT_LEVEL, LinkIcon } from '@newrade/core-design-system';
-import {
-  BoxV2,
-  Button,
-  Details,
-  Heading,
-  Label,
-  Link,
-  NavBar,
-  Stack,
-  Summary,
-  useTreatTheme,
-} from '@newrade/core-react-ui';
+import { HEADING } from '@newrade/core-design-system';
+import { BoxV2, Details, Heading, Stack, Summary, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { DesignSystemPageTemplate, DesignSystemPageProps } from '../../templates/design-system-page.template';
+import { DesignSystemPageProps, DesignSystemPageTemplate } from '../../templates/design-system-page.template';
 import * as styleRefs from '../home.treat';
 
 const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
@@ -30,9 +19,7 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
         <Heading variant={HEADING.h2}>Tokens</Heading>
 
         <Details id={'Links'} open={true}>
-          <Summary>
-            <Heading variant={HEADING.h3}>Colors</Heading>
-          </Summary>
+          <Summary>Colors</Summary>
 
           <BoxV2 padding={[cssTheme.sizing.var.x3, 0]}>
             <pre>

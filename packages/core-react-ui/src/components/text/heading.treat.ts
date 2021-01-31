@@ -1,11 +1,10 @@
 import { HEADING, TEXT_LEVEL } from '@newrade/core-design-system';
-import { globalStyle, style } from 'treat';
+import { style } from 'treat';
 import { Theme } from '../../design-system/css-design-system';
 import { getCSSTextStyles } from '../../utilities/text.utilities';
 
 export const styles: { wrapper: string } & { [key in HEADING]: string } & { [key in TEXT_LEVEL]: string } = {
   wrapper: style(({ theme, cssTheme }: Theme) => ({
-    display: 'flex',
     userSelect: 'text',
   })),
 
@@ -80,21 +79,21 @@ export const styles: { wrapper: string } & { [key in HEADING]: string } & { [key
   })),
 };
 
-globalStyle(`${styles.wrapper}::before`, ({ theme, cssTheme }: Theme) => ({
-  content: '" "',
-  display: 'block',
-  height: cssTheme.layout.navbarHeight.mobile,
-  marginTop: `-${cssTheme.layout.navbarHeight.mobile}`,
-  visibility: 'hidden',
+// globalStyle(`${styles.wrapper}::before`, ({ theme, cssTheme }: Theme) => ({
+//   content: '" "',
+//   display: 'block',
+//   height: cssTheme.layout.navbarHeight.mobile,
+//   marginTop: `-${cssTheme.layout.navbarHeight.mobile}`,
+//   visibility: 'hidden',
 
-  '@media': {
-    [cssTheme.layout.media.tablet]: {
-      height: cssTheme.layout.navbarHeight.tablet,
-      marginTop: `-${cssTheme.layout.navbarHeight.tablet}`,
-    },
-    [cssTheme.layout.media.desktopSmall]: {
-      height: cssTheme.layout.navbarHeight.desktop,
-      marginTop: `-${cssTheme.layout.navbarHeight.desktop}`,
-    },
-  },
-}));
+//   '@media': {
+//     [cssTheme.layout.media.tablet]: {
+//       height: cssTheme.layout.navbarHeight.tablet,
+//       marginTop: `-${cssTheme.layout.navbarHeight.tablet}`,
+//     },
+//     [cssTheme.layout.media.desktopSmall]: {
+//       height: cssTheme.layout.navbarHeight.desktop,
+//       marginTop: `-${cssTheme.layout.navbarHeight.desktop}`,
+//     },
+//   },
+// }));

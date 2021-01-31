@@ -12,6 +12,9 @@
     "[yaml]": {
       "editor.formatOnSave": false
     },
+    "[svg]": {
+      "editor.defaultFormatter": "jock.svg"
+    },
     "search.exclude": {
       "**/node_modules": true,
       "**/yarn.lock": true,

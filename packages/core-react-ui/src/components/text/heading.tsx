@@ -4,6 +4,7 @@ import React, { HTMLAttributes, useRef } from 'react';
 import { useStyles } from 'react-treat';
 import { usePreventPinchZoom } from '../../hooks/use-prevent-pinch-zoom';
 import { CommonComponentProps } from '../../props/component-common.props';
+import { getMergedClassname } from '../../utilities/component.utilities';
 import { formatAnchorId } from '../../utilities/text.utilities';
 import * as stylesRef from './heading.treat';
 
@@ -55,15 +56,11 @@ export const Heading = React.memo(
       const defaultChildrenString = `${defaultProps.children as string} ${pascal(type)}`;
       const variantClass = `${styles[variant ? variant : (defaultProps.variant as HEADING)]}`;
       const variantLevelClass = `${styles[variantLevel ? variantLevel : (defaultProps.variantLevel as TEXT_LEVEL)]}`;
-      const mergedClass = `${className || ''}`;
+      const classNames = getMergedClassname([className, styles.wrapper, variantClass, variantLevelClass]);
 
       usePreventPinchZoom(refLocal.current);
 
-      const child = children ? (
-        <div className={`${variantClass} ${variantLevelClass}`}>{children}</div>
-      ) : (
-        <div className={`${variantClass} ${variantLevelClass}`}>{defaultChildrenString}</div>
-      );
+      const child = children ? children : defaultChildrenString;
 
       return React.createElement(
         type,
@@ -71,7 +68,7 @@ export const Heading = React.memo(
           ref,
           id: formatAnchorId(id),
           style: displayMode ? { ...style, display: displayMode } : style,
-          className: `${styles.wrapper} ${mergedClass}`,
+          className: classNames,
           ...props,
         },
         child

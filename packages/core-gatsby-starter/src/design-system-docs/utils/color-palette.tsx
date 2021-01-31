@@ -1,8 +1,8 @@
 import { Color, ColorShades5, ColorShadesGrey } from '@newrade/core-design-system';
+import { keys, Stack } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import * as stylesRef from './color-palette.treat';
-import { useTreatTheme, Stack, keys } from '@newrade/core-react-ui';
 import { ColorSwatch } from './color-swatch';
 
 type Props = {
@@ -12,7 +12,6 @@ type Props = {
 
 export const ColorPalette: React.FC<Props> = ({ colorName, colorOrPalette }) => {
   const { styles } = useStyles(stylesRef);
-  const { cssTheme } = useTreatTheme();
 
   if (typeof colorOrPalette === 'string') {
     return (

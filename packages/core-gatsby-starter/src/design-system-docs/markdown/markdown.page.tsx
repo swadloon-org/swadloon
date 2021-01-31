@@ -20,9 +20,7 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
         <Heading variant={HEADING.h2}>Markdown</Heading>
 
         <Details id={'Links'} open={true}>
-          <Summary>
-            <Heading variant={HEADING.h3}>Headings</Heading>
-          </Summary>
+          <Summary>Headings</Summary>
 
           <GlobalMarkdownCSS>
             <MDXMarkdown />

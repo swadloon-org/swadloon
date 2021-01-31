@@ -1,20 +1,19 @@
-import { HEADING, LABEL_SIZE, LinkVariant, PARAGRAPH_SIZE, LinkIcon } from '@newrade/core-design-system';
+import { LinkIcon, PARAGRAPH_SIZE } from '@newrade/core-design-system';
 import {
+  BoxV2,
+  Cluster,
   Details,
-  Heading,
   keys,
+  Label,
+  Link,
+  Paragraph,
   Stack,
   Summary,
   useTreatTheme,
-  BoxV2,
-  Paragraph,
-  Cluster,
-  Label,
-  Link,
 } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { DesignSystemPageTemplate, DesignSystemPageProps } from '../../templates/design-system-page.template';
+import { DesignSystemPageProps, DesignSystemPageTemplate } from '../../templates/design-system-page.template';
 import * as styleRefs from '../home.treat';
 import { Placeholder } from '../utils/placeholder';
 
@@ -30,9 +29,7 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
     <Stack id={'Design System'} gap={[cssTheme.sizing.var.x5]}>
       <Stack gap={[cssTheme.sizing.var.x5]}>
         <Details open={true}>
-          <Summary>
-            <Heading variant={HEADING.h3}>Sizing</Heading>
-          </Summary>
+          <Summary>Sizing</Summary>
 
           <BoxV2 padding={[cssTheme.sizing.var.x3, '0']}>
             <Stack gap={[cssTheme.sizing.var.x4]}>
