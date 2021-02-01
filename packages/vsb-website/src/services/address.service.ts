@@ -85,7 +85,6 @@ export async function getAddressAutoComplete(options: AddressAutoCompleteOptions
 
     const response = await fetch(`${AUTO_COMPLETE_API_URL}?${encodedParams}`);
     const result = await response.json();
-    console.log(result);
     return result;
   } catch (error) {
     // throw ErrorService.parseError(error, Error());
@@ -100,9 +99,8 @@ export async function getAddressById(options: AddressByIdOptions) {
     const response = await fetch(`${FIND_ADDRESS_BY_ID_API_URL}?${encodedParams}`);
     // return ErrorService.parseResponse<{ Items: readonly AddressByIdResponse[] }>({ context: Error() })(response);
     const result = await response.json();
-    console.log(result);
 
-    return result;
+    return result.Items;
   } catch (error) {
     // throw ErrorService.parseError(error, Error());
     throw Error('not good');

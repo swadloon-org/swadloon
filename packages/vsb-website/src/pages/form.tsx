@@ -1,22 +1,13 @@
-import { Center, Heading, Link, Stack, useTreatTheme, Paragraph, BoxV2, Label, keys } from '@newrade/core-react-ui';
-import React, { useCallback, useMemo, useState } from 'react';
-import { cssTheme } from '../design-system/theme';
-import { useForm, SubmitHandler, Controller } from 'react-hook-form';
-import ReCAPTCHA from 'react-google-recaptcha';
-
-import Cleave from 'cleave.js/react';
-import 'cleave.js/dist/addons/cleave-phone.ca';
-
-import {
-  PatientValidation,
-  PatientModel,
-  PatientAPIRequestBody,
-  PatientAPIResponseBody,
-  REMINDER_TYPE,
-} from '@newrade/vsb-common';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { SchemaOf, ValidationError } from 'yup';
 import { LABEL_SIZE, TEXT_STYLE } from '@newrade/core-design-system';
+import { BoxV2, Center, Heading, keys, Label, Paragraph, Stack } from '@newrade/core-react-ui';
+import { PatientAPIResponseBody, PatientModel, PatientValidation, REMINDER_TYPE } from '@newrade/vsb-common';
+import 'cleave.js/dist/addons/cleave-phone.ca';
+import Cleave from 'cleave.js/react';
+import React, { useCallback, useState } from 'react';
+import ReCAPTCHA from 'react-google-recaptcha';
+import { Controller, SubmitHandler, useForm } from 'react-hook-form';
+import { SchemaOf, ValidationError } from 'yup';
+import { cssTheme } from '../design-system/theme';
 
 const useYupValidationResolver = (PatientValidation: SchemaOf<PatientModel>) =>
   useCallback(
@@ -64,7 +55,7 @@ const Form: React.FC = (props) => {
     control,
     setError,
     errors,
-    formState: { isDirty, isSubmitting, touched, submitCount, isValid },
+    // formState: { isDirty, isSubmitting, touched, submitCount, isValid },
   } = useForm<PatientModel>({ mode: 'onBlur', resolver });
 
   const onSubmit: SubmitHandler<PatientModel> = async (data) => {
