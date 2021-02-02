@@ -26,7 +26,7 @@ type AdressFields = {
   city?: string;
   state?: string;
   country?: string;
-  postal?: string;
+  post_code?: string;
 };
 
 const FormAdress: React.FC = (props) => {
@@ -42,7 +42,7 @@ const FormAdress: React.FC = (props) => {
     city: '',
     state: '',
     country: '',
-    postal: '',
+    post_code: '',
   });
 
   const onSubmit: SubmitHandler<any> = async (data) => {};
@@ -107,7 +107,8 @@ const FormAdress: React.FC = (props) => {
               key={suggestion.Id}
               onClick={(e) => onSelectSuggestion({ Id: suggestion.Id })}
             >
-              {suggestion.Text + suggestion.Description}
+              {console.log(JSON.stringify(suggestion, null))}
+              {`${suggestion.Text} ${suggestion.Description}`}
             </li>
           );
         })}
@@ -118,13 +119,15 @@ const FormAdress: React.FC = (props) => {
   const onSelectSuggestion = async (props: AddressByIdOptions) => {
     const response: readonly AddressByIdResponse[] = await getAddressById(props);
     const result: AddressByIdResponse = response[0];
+    console.log(result);
+
     setProps({
       address_1: result.Line1,
       address_2: result.SecondaryStreet,
       city: result.City,
       state: result.ProvinceName,
       country: result.CountryName,
-      postal: result.PostalCode,
+      post_code: result.PostalCode,
     });
     setSuggestion(false);
   };
@@ -181,7 +184,7 @@ const FormAdress: React.FC = (props) => {
                 <input
                   id="postcode"
                   name={ADDRESS.POST_CODE}
-                  value={newProps.postal}
+                  value={newProps.post_code}
                   onChange={changeHandler}
                   ref={register}
                 />
