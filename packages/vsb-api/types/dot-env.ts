@@ -12,8 +12,9 @@ export const Env = t.intersection([
      */
     API_VSB_VENDOR_NAME: t.string,
     API_VSB_VENDOR_EMAIL: t.string,
-    API_VSB_KEY: t.string,
+    API_VSB_KEY_CLINIKO: t.string,
     API_VSB_SHARD_ID: t.string,
+    API_VSB_SECRET_KEY_RECAPTCHAT: t.string,
   }),
 ]);
 

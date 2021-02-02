@@ -1,0 +1,20 @@
+{
+	"info": {
+		"_postman_id": "8f92636e-bafd-41da-adce-5b883f1bac36",
+		"name": "Post Canada",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST address",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		}
+	]
+}
