@@ -124,8 +124,9 @@ jobs:
         APP_URL: 'http://local.vasectomie-pierre-boucher.ca/api/register'
         API_VSB_VENDOR_NAME: ${{ secrets.API_VSB_VENDOR_NAME }}
         API_VSB_VENDOR_EMAIL: ${{ secrets.API_VSB_VENDOR_EMAIL }}
-        API_VSB_KEY: ${{ secrets.API_VSB_KEY }}
+        API_VSB_KEY_CLINIKO: ${{ secrets.API_VSB_KEY_CLINIKO }}
         API_VSB_SHARD_ID: ${{ secrets.API_VSB_SHARD_ID }}
+        API_VSB_SECRET_KEY_RECAPTCHAT: ${{ secrets.API_VSB_SECRET_KEY_RECAPTCHAT }}
         NVM_NODE_VERSION: ${{ secrets.NVM_NODE_VERSION }}
         MASTER_GIT_HOST: ${{ secrets.MASTER_GIT_HOST }}
         MASTER_REPO_ORG: ${{ secrets.MASTER_REPO_ORG }}

@@ -1,4 +1,4 @@
-import GastbyImage, { GatsbyImageProps, FluidObject } from 'gatsby-image';
+import GastbyImage, { GatsbyImageProps } from 'gatsby-image';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { CommonComponentProps } from '../../props/component-common.props';
