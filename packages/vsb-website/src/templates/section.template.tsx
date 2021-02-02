@@ -7,6 +7,7 @@ import { ContentfulSection } from '../../types/graphql-types';
 import { Banner } from '../components/banner';
 import { FormVasectomy } from '../components/form-vasectomy';
 import { SectionCallout } from '../components/section-callout';
+import { SectionContact } from '../components/section-contact';
 import { SectionCost } from '../components/section-cost';
 import { SectionFaq } from '../components/section-faq';
 import { SectionInfo } from '../components/section-info';
@@ -238,8 +239,8 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
            */
           case SECTION_TYPE.CONTACT_CONTACT: {
             return (
-              <SectionLayout id={`section-${index}`} key={index}>
-                <SectionInfo key={index} section={section} />
+              <SectionLayout id={`section-${index}`} key={index} variant={'secondary'} variantLayout={'center'}>
+                <SectionContact key={index} section={section} />
               </SectionLayout>
             );
           }

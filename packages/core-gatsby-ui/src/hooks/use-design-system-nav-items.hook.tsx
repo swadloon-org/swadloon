@@ -36,7 +36,7 @@ const query = graphql`
 
 export function useDesignSystemNavItems(): NavItem[] {
   const data = useStaticQuery(query);
-  const dirSortOrder = ['docs', 'foundations', 'components', 'markdown', 'effects', 'tokens'];
+  const dirSortOrder = ['docs', 'foundations', 'components', 'markdown', 'effects', 'motion', 'tokens'];
 
   const navItems: NavItem[] = data?.pages.nodes.map((node: any) => ({
     name: formatName(node.context?.name),

@@ -4,8 +4,13 @@ import { Theme } from '../../design-system/css-design-system';
 export const styles = {
   wrapper: style(({ theme, cssTheme }: Theme) => ({
     userSelect: 'text',
+    borderBottom: `0px solid ${cssTheme.colors.colors.grey[50]}`,
   })),
 };
+
+globalStyle(`${styles.wrapper}:last-of-type`, ({ theme, cssTheme }: Theme) => ({
+  borderBottomWidth: `1px`,
+}));
 
 globalStyle(`${styles.wrapper} summary + *`, ({ theme, cssTheme }: Theme) => ({
   marginTop: `${cssTheme.sizing.var.x3}`,

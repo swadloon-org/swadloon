@@ -66,7 +66,7 @@ export const Heading = React.memo(
         type,
         {
           ref,
-          id: formatAnchorId(id),
+          id: formatAnchorId(id ? id : typeof children === 'string' ? children : ''),
           style: displayMode ? { ...style, display: displayMode } : style,
           className: classNames,
           ...props,

@@ -10,12 +10,26 @@ export const lorenipsum = `Lorem ipsum dolor sit amet.`;
 
 # Heading H1
 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+esse cillum dolore eu fugiat nulla pariatur.
+
 ## Heading H2
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
 labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
 nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
 esse cillum dolore eu fugiat nulla pariatur.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+esse cillum dolore eu fugiat nulla pariatur.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+esse cillum dolore eu fugiat nulla pariatur.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
 
 ### Heading H3
 
@@ -31,33 +45,13 @@ nisi ut aliquip ex ea commodo consequat.
 > esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
 > in culpa qui officia deserunt mollit anim id est laborum
 
-<dl>
-<dt>Beast of Bodmin</dt>
-<dd>A large feline inhabiting Bodmin Moor.</dd>
+## Content sectioning
 
-
-<dt>Morgawr</dt>
-<dd>A sea serpent.</dd>
-
-<dt>Owlman</dt>
-<dd>A giant owl-like creature.</dd>
-
-</dl>
-
-
-## images
-
-![picture alt](/image.jpg 'Title is optional')
-
-<figure>
-  <img
-    src="https://interactive-examples.mdn.mozilla.net/media/cc0-images/elephant-660-480.jpg"
-    alt="Elephant at sunset"
-  ></img>
-  <figcaption>An elephant at sunset</figcaption>
-</figure>
+### Horizontal Row
 
 ---
+
+## Tables
 
 | Col   | Align Center | Align Right | Align left |
 | ----- | :----------: | ----------: | ---------- |
@@ -67,12 +61,11 @@ nisi ut aliquip ex ea commodo consequat.
 | loren |    loren     |       loren | loren      |
 | loren |    loren     |       loren | loren      |
 
+## Keyboard
+
 Please, input "<kbd>Yes</kbd>" or "<kbd>No</kbd>"
 
 [Link back to H2](#id-goes-here)
-
-Here is a Markdown link to [Warped](https://warpedvisions.org), and a literal <http://link.com/>.
-Now some SimpleLinks.
 
 Now some inline markup like _italics_, **bold**, and `code()`. Note that underscores in
 words are ignored in Markdown Extra.
@@ -107,6 +100,8 @@ Strong emphasis, aka bold, with **asterisks** or **underscores**.
 Combined emphasis with **asterisks and _underscores_**.
 
 Strikethrough uses two tildes. ~~Scratch this.~~
+
+## Code Highlighting
 
 Inline `code`
 
@@ -151,11 +146,10 @@ export function getCSSEffects(options: Effects): Effects<string> {
 ```
 
 <details>
-  <summary>
-    <h1>Summary</h1>
-  </summary>
+  <summary>Summary</summary>
   <p>Details</p>
 </details>
+
 <br />
 
 The HTML specification
@@ -165,3 +159,17 @@ is maintained by the W3C.
 
 _[HTML]: Hyper Text Markup Language
 _[W3C]: World Wide Web Consortium
+
+## Images
+
+![picture alt](https://interactive-examples.mdn.mozilla.net/media/cc0-images/elephant-660-480.jpg 'Title is optional')
+
+<figure>
+  <img
+    src="https://interactive-examples.mdn.mozilla.net/media/cc0-images/elephant-660-480.jpg"
+    alt="Elephant at sunset"
+  ></img>
+  <figcaption>An elephant at sunset</figcaption>
+</figure>
+
+---

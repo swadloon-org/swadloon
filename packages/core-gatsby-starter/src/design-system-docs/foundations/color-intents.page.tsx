@@ -15,14 +15,12 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
   }
 
   return (
-    <Stack gap={[cssTheme.sizing.var.x5]}>
-      <Stack gap={[cssTheme.sizing.var.x4]}>
-        <Heading variant={HEADING.h2}>Color Intents</Heading>
-        <Paragraph>How colors should be used in text & components.</Paragraph>
-      </Stack>
+    <Stack gap={[cssTheme.sizing.var.x6]}>
+      <Heading variant={HEADING.h1}>Color Intents</Heading>
+      <Paragraph>How colors should be used in text & components.</Paragraph>
 
-      <Details id={'Text'} open={true}>
-        <Summary>Text</Summary>
+      <Stack gap={[cssTheme.sizing.var.x5]}>
+        <Heading variant={HEADING.h3}>Text</Heading>
 
         <Stack gap={[cssTheme.sizing.var.x5]}>
           <Cluster gap={[cssTheme.sizing.var.x5]} justifyContent={['flex-start']}>
@@ -50,7 +48,7 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
             }}
           ></ColorPalette>
         </Stack>
-      </Details>
+      </Stack>
 
       <Details id={'Actions'} open={true}>
         <Summary>Actions</Summary>

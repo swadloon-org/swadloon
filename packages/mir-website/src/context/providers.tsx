@@ -2,10 +2,10 @@ import { MDXProvider } from '@mdx-js/react';
 // import { DefaultCSS, mdxComponents, ResetCSS, ViewportProvider, viewportContext } from '@newrade/core-react-ui';
 import React from 'react';
 import { TreatProvider } from 'react-treat';
-import { light } from '../design-system/theme.treat';
-import { ViewportProvider } from './viewport.context';
-import { viewportContext } from '../hooks/use-viewport.hook';
 import { mdxComponents } from '../components/markdown/components-markdown';
+import { light } from '../design-system/theme.treat';
+import { viewportContext } from '../hooks/use-viewport.hook';
+import { ViewportProvider } from './viewport.context';
 
 export const Providers: React.FC = (props) => {
   return (
@@ -15,11 +15,9 @@ export const Providers: React.FC = (props) => {
         <MDXProvider components={mdxComponents}>
           {/* <CSSVariables>{props.children}</CSSVariables> */}
           {/* <ResetCSS> */}
-          {/* <DefaultCSS> */}
           {/* <IconContext.Provider value={{ style: { verticalAlign: 'middle' } }}> */}
           {props.children}
           {/* </IconContext.Provider> */}
-          {/* </DefaultCSS> */}
           {/* </ResetCSS> */}
         </MDXProvider>
         {/* </TreatThemeProvider> */}

@@ -1,5 +1,5 @@
 import { HEADING } from '@newrade/core-design-system';
-import { Details, GlobalMarkdownCSS, Heading, Stack, Summary, useTreatTheme } from '@newrade/core-react-ui';
+import { GlobalMarkdownCSS, Heading, Hr, Paragraph, Stack, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { DesignSystemPageProps, DesignSystemPageTemplate } from '../../templates/design-system-page.template';
@@ -15,17 +15,17 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
   }
 
   return (
-    <Stack id={'Design System'} gap={[cssTheme.sizing.var.x5]}>
+    <Stack id={'Design System'} gap={[cssTheme.sizing.var.x6]}>
       <Stack id={'Components'} gap={[cssTheme.sizing.var.x5]}>
-        <Heading variant={HEADING.h2}>Markdown</Heading>
+        <Heading variant={HEADING.h1}>Markdown Document</Heading>
 
-        <Details id={'Links'} open={true}>
-          <Summary>Headings</Summary>
+        <Paragraph>All markdown syntax is supported with mdx.</Paragraph>
 
-          <GlobalMarkdownCSS>
-            <MDXMarkdown />
-          </GlobalMarkdownCSS>
-        </Details>
+        <Hr />
+
+        <GlobalMarkdownCSS>
+          <MDXMarkdown />
+        </GlobalMarkdownCSS>
       </Stack>
     </Stack>
   );

@@ -3,6 +3,7 @@ import {
   BoxV2,
   Center,
   Cluster,
+  CodeBlock,
   Details,
   Grid,
   Heading,
@@ -26,169 +27,122 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
     return <div className={styles.wrapper}>Please provide a theme</div>;
   }
 
+  const scope = {
+    BoxV2,
+    Center,
+    Cluster,
+    CodeBlock,
+    Details,
+    Grid,
+    Heading,
+    Paragraph,
+    Stack,
+    Summary,
+    Switcher,
+    Placeholder,
+    cssTheme,
+  };
+
   return (
-    <Stack id={'Design System'} gap={[cssTheme.sizing.var.x5]}>
-      <Stack gap={[cssTheme.sizing.var.x5]}>
-        <Stack id={'typography'} gap={[cssTheme.sizing.var.x5]}>
-          <Stack gap={[cssTheme.sizing.var.x4]}>
-            <Heading variant={HEADING.h2}>Layout</Heading>
+    <Stack gap={[cssTheme.sizing.var.x6]}>
+      <Stack gap={[cssTheme.sizing.var.x4]}>
+        <Heading variant={HEADING.h2}>Layout</Heading>
 
-            <Paragraph>Grid, center, box, stacks, cluster ...</Paragraph>
-          </Stack>
+        <Paragraph>Reusable and responsive primitive layout components.</Paragraph>
+      </Stack>
 
-          <Details id={'Center'} open={true}>
-            <Summary>Center</Summary>
+      <Stack gap={[cssTheme.sizing.var.x4]}>
+        <Heading variant={HEADING.h3}>Box</Heading>
 
-            <BoxV2 padding={[cssTheme.sizing.var.x3, '0']}>
-              <Stack gap={[cssTheme.sizing.var.x2]} style={{ width: '100%' }}>
-                <Paragraph>
-                  Used to separate 2 or more blocks horizontally on desktop and vertically on mobile
-                </Paragraph>
+        <Paragraph>Flex container with padding.</Paragraph>
 
-                <Center>
-                  <Placeholder>1</Placeholder>
-                </Center>
-              </Stack>
-            </BoxV2>
-          </Details>
+        <CodeBlock live={true} scope={scope}>
+          {`
+          <BoxV2 padding={[cssTheme.sizing.var.x4]} style={{ border: '2px solid red' }}>
+            <Placeholder></Placeholder>
+          </BoxV2>
+          `}
+        </CodeBlock>
+      </Stack>
 
-          <Details id={'Switcher'} open={true}>
-            <Summary>Switcher</Summary>
+      <Stack gap={[cssTheme.sizing.var.x4]}>
+        <Heading variant={HEADING.h3}>Center</Heading>
 
-            <BoxV2 padding={[cssTheme.sizing.var.x3, '0']}>
-              <Stack gap={[cssTheme.sizing.var.x2]} style={{ width: '100%' }}>
-                <Paragraph>
-                  Used to separate 2 or more blocks horizontally on desktop and vertically on mobile
-                </Paragraph>
+        <Paragraph>Center content respecting the content margin set on each viewport.</Paragraph>
 
-                <Stack gap={[cssTheme.sizing.var.x2]}>
-                  <Switcher gap={['1em']}>
-                    <Placeholder>1</Placeholder>
-                    <Placeholder>2</Placeholder>
-                  </Switcher>
+        <CodeBlock live={true} scope={scope}>
+          {`
+          <Center>
+            <Placeholder>Content</Placeholder>
+          </Center>
+          `}
+        </CodeBlock>
+      </Stack>
 
-                  <Switcher gap={['1em']} col={3}>
-                    <Placeholder>1</Placeholder>
-                    <Placeholder>2</Placeholder>
-                    <Placeholder>3</Placeholder>
-                  </Switcher>
-                </Stack>
-              </Stack>
-            </BoxV2>
+      <Stack gap={[cssTheme.sizing.var.x4]}>
+        <Heading variant={HEADING.h3}>Switcher</Heading>
 
-            <BoxV2 padding={[cssTheme.sizing.var.x3, '0']}>
-              <Stack gap={[cssTheme.sizing.var.x2]} style={{ width: '100%' }}>
-                <Paragraph>Can be used with Stack</Paragraph>
+        <Paragraph>Used to separate 2 or more blocks horizontally on desktop and vertically on mobile.</Paragraph>
 
-                <Stack gap={[cssTheme.sizing.var.x2]}>
-                  <Switcher gap={['1em']}>
-                    <Stack>
-                      <Placeholder>1</Placeholder>
-                      <Placeholder>2</Placeholder>
-                    </Stack>
-                  </Switcher>
+        <CodeBlock live={true} scope={scope}>
+          {`
+          <Switcher gap={[cssTheme.sizing.var.x2]} col={3}>
+            <Placeholder>1</Placeholder>
+            <Placeholder>2</Placeholder>
+            <Placeholder>3</Placeholder>
+          </Switcher>
+          `}
+        </CodeBlock>
+      </Stack>
 
-                  <Switcher gap={['1em']} col={3}>
-                    <Placeholder>1</Placeholder>
-                    <Placeholder>2</Placeholder>
-                    <Placeholder>3</Placeholder>
-                  </Switcher>
-                </Stack>
-              </Stack>
-            </BoxV2>
-          </Details>
+      <Stack gap={[cssTheme.sizing.var.x4]}>
+        <Heading variant={HEADING.h3}>Cluster</Heading>
 
-          <Details id={'Cluster'} open={true}>
-            <Summary>Cluster</Summary>
+        <Paragraph>Used to inline content horizontally without wrapping.</Paragraph>
 
-            <BoxV2 padding={[cssTheme.sizing.var.x3, '0']}>
-              <Stack gap={[cssTheme.sizing.var.x2]} style={{ width: '100%' }}>
-                <Paragraph>Used to inline content horizontally without wrapping</Paragraph>
+        <CodeBlock live={true} scope={scope}>
+          {`
+          <Cluster>
+          <Placeholder>1</Placeholder>
+          <Cluster gap={[cssTheme.sizing.var.x2]}>
+            <Placeholder>1</Placeholder>
+            <Placeholder>2</Placeholder>
+            <Placeholder>3</Placeholder>
+            <Placeholder>4</Placeholder>
+          </Cluster>
+          </Cluster>
+          `}
+        </CodeBlock>
+      </Stack>
 
-                <Cluster>
-                  <Placeholder>1</Placeholder>
-                  <Cluster gap={['1em']}>
-                    <Placeholder>1</Placeholder>
-                    <Placeholder>2</Placeholder>
-                    <Placeholder>3</Placeholder>
-                    <Placeholder>4</Placeholder>
-                  </Cluster>
-                </Cluster>
-              </Stack>
-            </BoxV2>
-          </Details>
+      <Stack gap={[cssTheme.sizing.var.x4]}>
+        <Heading variant={HEADING.h3}>Grid</Heading>
 
-          <Details id={'Grid'} open={true}>
-            <Summary>Grid</Summary>
+        <Paragraph>Used to make a grid of content horizontally or vertically.</Paragraph>
 
-            <BoxV2 padding={[cssTheme.sizing.var.x3, '0']}>
-              <Stack gap={[cssTheme.sizing.var.x2]} style={{ width: '100%' }}>
-                <Paragraph>Used to make a grid of content horizontally or vertically</Paragraph>
+        <CodeBlock live={true} scope={scope}>
+          {`
+          <Grid gap={['1em']} variantGrid={'col'} columns={[1, 3, 3]}>
+          <Grid gap={['1em']} variantGrid={'rows'} rows={[1, 2, 3]}>
+            <Placeholder>1</Placeholder>
+            <Placeholder>2</Placeholder>
+            <Placeholder>3</Placeholder>
+          </Grid>
 
-                <Heading variant={HEADING.h4}>Rows</Heading>
+          <Grid gap={['1em']} variantGrid={'rows'} rows={[1, 2, 3]}>
+            <Placeholder>A</Placeholder>
+            <Placeholder>B</Placeholder>
+            <Placeholder>C</Placeholder>
+          </Grid>
 
-                <Grid gap={['1em']} variantGrid={'rows'} rows={[1, 2, 3]}>
-                  <Placeholder>1</Placeholder>
-                  <Placeholder>2</Placeholder>
-                  <Placeholder>3</Placeholder>
-                </Grid>
-
-                <Heading variant={HEADING.h4}>Columns</Heading>
-
-                <Grid gap={['1em']} variantGrid={'col'} columns={[1, 2, 3]}>
-                  <Placeholder>1</Placeholder>
-                  <Placeholder>2</Placeholder>
-                  <Placeholder>3</Placeholder>
-                  <Placeholder>4</Placeholder>
-                  <Placeholder>5</Placeholder>
-                  <Placeholder>6</Placeholder>
-                </Grid>
-
-                <Heading variant={HEADING.h4}>Columns & Rows</Heading>
-
-                <Grid gap={['1em']} variantGrid={'col'} columns={[1, 3, 3]}>
-                  <Grid gap={['1em']} variantGrid={'rows'} rows={[1, 2, 3]}>
-                    <Placeholder>1</Placeholder>
-                    <Placeholder>2</Placeholder>
-                    <Placeholder>3</Placeholder>
-                  </Grid>
-
-                  <Grid gap={['1em']} variantGrid={'rows'} rows={[1, 2, 3]}>
-                    <Placeholder>A</Placeholder>
-                    <Placeholder>B</Placeholder>
-                    <Placeholder>C</Placeholder>
-                  </Grid>
-
-                  <Grid gap={['1em']} variantGrid={'rows'} rows={[1, 2, 3]}>
-                    <Placeholder>A1</Placeholder>
-                    <Placeholder>B1</Placeholder>
-                    <Placeholder>C1</Placeholder>
-                  </Grid>
-                </Grid>
-              </Stack>
-            </BoxV2>
-          </Details>
-
-          <Details id={'Box'} open={true}>
-            <Summary>Box</Summary>
-
-            <BoxV2 padding={[cssTheme.sizing.var.x3, '0']}>
-              <Stack gap={[cssTheme.sizing.var.x2]} style={{ width: '100%' }}>
-                <Paragraph>Used to make a container with the ability to have padding</Paragraph>
-
-                <Grid gap={['1em']} variantGrid={'col'} columns={[1, 2, 2]}>
-                  <BoxV2 padding={[cssTheme.sizing.var.x4]} style={{ border: '2px solid red' }}>
-                    <Placeholder>A1</Placeholder>
-                  </BoxV2>
-
-                  <BoxV2 padding={[cssTheme.sizing.var.x4]} style={{ border: '2px solid red' }}>
-                    <Placeholder>B1</Placeholder>
-                  </BoxV2>
-                </Grid>
-              </Stack>
-            </BoxV2>
-          </Details>
-        </Stack>
+          <Grid gap={['1em']} variantGrid={'rows'} rows={[1, 2, 3]}>
+            <Placeholder>A1</Placeholder>
+            <Placeholder>B1</Placeholder>
+            <Placeholder>C1</Placeholder>
+          </Grid>
+          </Grid>
+          `}
+        </CodeBlock>
       </Stack>
     </Stack>
   );

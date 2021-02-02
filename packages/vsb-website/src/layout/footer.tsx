@@ -80,6 +80,7 @@ export const Footer: React.FC<Props> = ({ id, style, className, ...props }) => {
                 </Link>
               </Stack>
             </Stack>
+
             <Stack className={styles.clinique} gap={[cssTheme.sizing.var.x4]}>
               <Label
                 variantStyle={TEXT_STYLE.boldUppercase}
@@ -105,6 +106,7 @@ export const Footer: React.FC<Props> = ({ id, style, className, ...props }) => {
                 </Link>
               </Stack>
             </Stack>
+
             <Stack className={styles.joindre} gap={[cssTheme.sizing.var.x4]}>
               <Label
                 variantStyle={TEXT_STYLE.boldUppercase}
@@ -113,6 +115,7 @@ export const Footer: React.FC<Props> = ({ id, style, className, ...props }) => {
               >
                 Nous Joindre
               </Label>
+
               <ListItems gap={[cssTheme.sizing.var.x4]}>
                 <ListItem variantLevel={TEXT_LEVEL.primaryReversed} variantIcon={'icon'} Icon={<IoMailOutline />}>
                   <Link

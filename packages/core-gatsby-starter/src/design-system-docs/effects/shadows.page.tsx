@@ -1,5 +1,5 @@
 import { HEADING } from '@newrade/core-design-system';
-import { Details, Heading, keys, Stack, Summary, useTreatTheme } from '@newrade/core-react-ui';
+import { BoxV2, Heading, keys, Stack, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { DesignSystemPageProps, DesignSystemPageTemplate } from '../../templates/design-system-page.template';
@@ -15,35 +15,37 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
   }
 
   return (
-    <Stack gap={[cssTheme.sizing.var.x5]}>
-      <Heading variant={HEADING.h2}>Shadows</Heading>
+    <Stack gap={[cssTheme.sizing.var.x6]}>
+      <Heading variant={HEADING.h1}>Shadows</Heading>
 
-      <Details id={'Box Shadows'} open={true}>
-        <Summary>Box Shadows</Summary>
+      <Stack gap={[cssTheme.sizing.var.x4]}>
+        <Heading variant={HEADING.h2}>Box Shadows</Heading>
 
-        {theme.effects?.boxShadows &&
-          keys(theme.effects.boxShadows).map((boxShadowKey, index) => {
-            const shadow = theme.effects.boxShadows[boxShadowKey];
-            const xOffset = 100;
-            const yOffset = 60;
-            const size = 400;
-            return (
-              <ShadowSwatch
-                key={boxShadowKey}
-                shadow={shadow}
-                name={boxShadowKey as string}
-                size={size}
-                style={{
-                  width: size,
-                  height: size,
-                  position: 'absolute',
-                  left: xOffset * index,
-                  top: yOffset * (index + 1),
-                }}
-              />
-            );
-          })}
-      </Details>
+        <BoxV2 padding={[cssTheme.sizing.var.x6]}>
+          {theme.effects?.boxShadows &&
+            keys(theme.effects.boxShadows).map((boxShadowKey, index) => {
+              const shadow = theme.effects.boxShadows[boxShadowKey];
+              const xOffset = 100;
+              const yOffset = 60;
+              const size = 400;
+              return (
+                <ShadowSwatch
+                  key={boxShadowKey}
+                  shadow={shadow}
+                  name={boxShadowKey as string}
+                  size={size}
+                  style={{
+                    width: size,
+                    height: size,
+                    position: 'absolute',
+                    left: xOffset * index,
+                    top: yOffset * (index + 1),
+                  }}
+                />
+              );
+            })}
+        </BoxV2>
+      </Stack>
     </Stack>
   );
 };

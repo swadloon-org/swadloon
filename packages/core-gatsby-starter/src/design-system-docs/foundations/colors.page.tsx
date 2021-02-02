@@ -1,5 +1,5 @@
 import { HEADING } from '@newrade/core-design-system';
-import { BoxV2, Details, Heading, Paragraph, Stack, Summary, useTreatTheme } from '@newrade/core-react-ui';
+import { Heading, Paragraph, Stack, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { DesignSystemPageProps, DesignSystemPageTemplate } from '../../templates/design-system-page.template';
@@ -15,66 +15,49 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
   }
 
   return (
-    <Stack gap={[cssTheme.sizing.var.x5]}>
-      <Stack gap={[cssTheme.sizing.var.x4]}>
+    <Stack gap={[cssTheme.sizing.var.x6]}>
+      <Stack gap={[cssTheme.sizing.var.x5]}>
         <Heading variant={HEADING.h2}>Colors</Heading>
-        <Paragraph>Every colors used in the system</Paragraph>
+        <Paragraph>Every colors used in the system.</Paragraph>
       </Stack>
 
-      <Details id={'Primary'} open={true}>
-        <Summary>Primary</Summary>
+      <Stack gap={[cssTheme.sizing.var.x5]}>
+        <Heading variant={HEADING.h3}>Primary</Heading>
 
         <ColorPalette colorName={'Primary'} colorOrPalette={theme.colors.colors.primary}></ColorPalette>
-      </Details>
+      </Stack>
 
-      <Details id={'Greyscale'} open={true}>
-        <Summary>Greyscale</Summary>
+      <Stack gap={[cssTheme.sizing.var.x5]}>
+        <Heading variant={HEADING.h3}>Greyscale</Heading>
 
-        <Stack gap={[cssTheme.sizing.var.x3]}>
-          <BoxV2 padding={[cssTheme.sizing.var.x3, '0']}>
-            <ColorPalette colorName={'Greyscale'} colorOrPalette={theme.colors.colors.grey}></ColorPalette>
-          </BoxV2>
+        <Stack gap={[cssTheme.sizing.var.x4]}>
+          <ColorPalette colorName={'Greyscale'} colorOrPalette={theme.colors.colors.grey}></ColorPalette>
         </Stack>
-      </Details>
+      </Stack>
 
-      <Details id={'Accent'} open={true}>
-        <Summary>Accent</Summary>
+      <Stack gap={[cssTheme.sizing.var.x5]}>
+        <Heading variant={HEADING.h3}>Accent</Heading>
 
-        <Stack gap={[cssTheme.sizing.var.x3]}>
-          <BoxV2 padding={[cssTheme.sizing.var.x3, '0']}>
-            <ColorPalette colorName={'Primary'} colorOrPalette={theme.colors.colors.accent1}></ColorPalette>
-          </BoxV2>
+        <Stack gap={[cssTheme.sizing.var.x4]}>
+          <ColorPalette colorName={'Primary'} colorOrPalette={theme.colors.colors.accent1}></ColorPalette>
 
-          <BoxV2 padding={[cssTheme.sizing.var.x3, '0']}>
-            <ColorPalette colorName={'Primary'} colorOrPalette={theme.colors.colors.accent2}></ColorPalette>
-          </BoxV2>
+          <ColorPalette colorName={'Primary'} colorOrPalette={theme.colors.colors.accent2}></ColorPalette>
 
-          <BoxV2 padding={[cssTheme.sizing.var.x3, '0']}>
-            <ColorPalette colorName={'Primary'} colorOrPalette={theme.colors.colors.accent3}></ColorPalette>
-          </BoxV2>
+          <ColorPalette colorName={'Primary'} colorOrPalette={theme.colors.colors.accent3}></ColorPalette>
         </Stack>
-      </Details>
+      </Stack>
 
-      <Details id={'Utility'} open={true}>
-        <Summary>Utility</Summary>
+      <Stack gap={[cssTheme.sizing.var.x5]}>
+        <Heading variant={HEADING.h3}>Utility</Heading>
 
-        <Stack gap={[cssTheme.sizing.var.x3]}>
-          <BoxV2 padding={[cssTheme.sizing.var.x3, '0']}>
-            <ColorPalette colorName={'Utility Green'} colorOrPalette={theme.colors.colors.utilityGreen}></ColorPalette>
-          </BoxV2>
+        <Stack gap={[cssTheme.sizing.var.x4]}>
+          <ColorPalette colorName={'Utility Green'} colorOrPalette={theme.colors.colors.utilityGreen}></ColorPalette>
 
-          <BoxV2 padding={[cssTheme.sizing.var.x3, '0']}>
-            <ColorPalette
-              colorName={'Utility Yellow'}
-              colorOrPalette={theme.colors.colors.utilityYellow}
-            ></ColorPalette>
-          </BoxV2>
+          <ColorPalette colorName={'Utility Yellow'} colorOrPalette={theme.colors.colors.utilityYellow}></ColorPalette>
 
-          <BoxV2 padding={[cssTheme.sizing.var.x3, '0']}>
-            <ColorPalette colorName={'Utility Red'} colorOrPalette={theme.colors.colors.utilityRed}></ColorPalette>
-          </BoxV2>
+          <ColorPalette colorName={'Utility Red'} colorOrPalette={theme.colors.colors.utilityRed}></ColorPalette>
         </Stack>
-      </Details>
+      </Stack>
     </Stack>
   );
 };

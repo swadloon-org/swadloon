@@ -17,7 +17,7 @@ import { GatsbyCorePluginOptions } from '../gatsby-plugin-options';
 let siteMetadata: GatsbyNodeSiteMetadataFragment;
 
 export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, graphql }, options) => {
-  const { createPage, deletePage } = actions;
+  const { createPage } = actions;
   const pluginOptions = (options as unknown) as GatsbyCorePluginOptions;
 
   try {

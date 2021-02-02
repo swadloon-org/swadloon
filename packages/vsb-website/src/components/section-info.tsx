@@ -1,4 +1,4 @@
-import { ButtonSize, ButtonVariant, HEADING } from '@newrade/core-design-system/';
+import { ButtonSize, ButtonVariant } from '@newrade/core-design-system/';
 import { GatsbyLink } from '@newrade/core-gatsby-ui/src';
 import {
   BoxV2,
@@ -6,7 +6,6 @@ import {
   CommonComponentProps,
   getMergedClassname,
   GlobalMarkdownCSS,
-  Heading,
   Image,
   Stack,
   Switcher,
@@ -68,9 +67,11 @@ export const SectionInfo: React.FC<Props> = ({
     /**
      * Either an image or a ReactNode passed as children
      */
-    <BoxV2 className={getMergedClassname([styles.content])} justifySelf={['center', 'center', 'flex-end']} key={1}>
-      {renderedChildren}
-    </BoxV2>,
+    renderedChildren.length ? (
+      <BoxV2 className={getMergedClassname([styles.content])} justifySelf={['center', 'center', 'flex-end']} key={1}>
+        {renderedChildren}
+      </BoxV2>
+    ) : null,
     /**
      * Second section with rendered markdown
      */
@@ -81,8 +82,6 @@ export const SectionInfo: React.FC<Props> = ({
       key={2}
     >
       <Stack gap={[cssTheme.sizing.var.x5]} style={{ maxWidth: `min(480px, 100%)` }} key={'2'}>
-        <Heading variant={HEADING.h1}>{section?.title}</Heading>
-
         {hasMarkdown ? (
           <GlobalMarkdownCSS>
             <MDXRenderer>{markdownData}</MDXRenderer>

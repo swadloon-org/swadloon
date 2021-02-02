@@ -37,7 +37,7 @@ export const SectionContact: React.FC<Props> = ({ id, style, className, section,
           alignItems={['center']}
           style={{ width: `100%` }}
         >
-          <Stack gap={[`2em`]} style={{ maxWidth: `min(480px, 100%)` }} key={'2'}>
+          <Stack gap={[cssTheme.sizing.var.x5]} style={{ maxWidth: `min(480px, 100%)` }} key={'2'}>
             <Heading variant={HEADING.h1}>{section?.title}</Heading>
 
             {hasMarkdown ? (
@@ -45,6 +45,20 @@ export const SectionContact: React.FC<Props> = ({ id, style, className, section,
                 <MDXRenderer>{markdownData}</MDXRenderer>
               </GlobalMarkdownCSS>
             ) : null}
+
+            {/* <Form>
+              <FormWrapper>
+                <InputLabel required={true}>First Name *</InputLabel>
+                <InputText ref={firstNameInput}></InputText>
+                <InputError></InputError>
+              </FormWrapper>
+
+              <FormWrapper>
+                <InputLabel required={true}>First Name *</InputLabel>
+                <InputDropdown ref={firstNameInput}></InputDropdown>
+                <InputError></InputError>
+              </FormWrapper>
+            </Form> */}
           </Stack>
         </Switcher>
       </BoxV2>

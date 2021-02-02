@@ -35,7 +35,9 @@
       "**/public/**": true,
       "**/lib/**": true
     },
-    "deepscan.enable": true
+    // https://github.com/deepscan/vscode-deepscan#settings-options
+    "deepscan.enable": true,
+    "deepscan.ignorePatterns": ["**/node_modules/**"]
   },
   "extensions": {
     "recommendations": [

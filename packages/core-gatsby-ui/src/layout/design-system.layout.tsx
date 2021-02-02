@@ -74,16 +74,16 @@ export const LayoutDesignSystem = React.memo<LayoutProps>(({ MobileSvgLogo, Desk
         <SideBar sidebarOpened={sidebarOpened} mobileOnly={false} disableBodyScroll={false}>
           <BoxV2
             style={{ flexDirection: 'column' }}
-            padding={[cssTheme.sizing.var.x3]}
+            padding={[cssTheme.sizing.var.x4, cssTheme.sizing.var.x3]}
             justifyContent={['flex-start']}
             alignItems={['stretch']}
           >
-            <Stack gap={[cssTheme.sizing.var.x4]}>
+            <Stack gap={[cssTheme.sizing.var.x5]}>
               {[...navItemsByDirName].map((dirName, index) => {
                 return (
                   <Stack key={index} gap={[`calc(2 * ${cssTheme.sizing.var.x1})`]}>
                     {dirName === '' ? (
-                      <NavItemGroup>Docs</NavItemGroup>
+                      <NavItemGroup>Design System</NavItemGroup>
                     ) : (
                       <NavItemGroup>{title(dirName || '')}</NavItemGroup>
                     )}

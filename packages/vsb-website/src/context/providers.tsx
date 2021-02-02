@@ -1,6 +1,5 @@
 import { MDXProvider } from '@mdx-js/react';
 import {
-  DefaultCSS,
   GlobalCSSVariables,
   GlobalResetCSS,
   mdxComponents,
@@ -26,9 +25,7 @@ export const Providers: React.FC = (props) => {
           <TreatThemeProvider theme={{ theme, cssTheme }}>
             <MDXProvider components={mdxComponents}>
               <GlobalCSSVariables>
-                <GlobalResetCSS>
-                  <DefaultCSS>{props.children}</DefaultCSS>
-                </GlobalResetCSS>
+                <GlobalResetCSS>{props.children}</GlobalResetCSS>
               </GlobalCSSVariables>
             </MDXProvider>
           </TreatThemeProvider>

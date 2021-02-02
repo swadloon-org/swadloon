@@ -32,14 +32,15 @@ export function getGatsbyPluginMdx(): Gatsby.PluginRef[] {
            * gatsby-remark-prismjs
            * @see https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-remark-prismjs
            */
-          {
-            resolve: `gatsby-remark-prismjs`,
-            options: {
-              classPrefix: 'language-',
-              showLineNumbers: false,
-              noInlineHighlight: false,
-            },
-          },
+          // Not needed as we run prism in <CodeBlock/>
+          // {
+          //   resolve: `gatsby-remark-prismjs`,
+          //   options: {
+          //     classPrefix: 'language-',
+          //     showLineNumbers: false,
+          //     noInlineHighlight: false,
+          //   },
+          // },
           // {
           //   resolve: `gatsby-remark-abbr`,
           // },

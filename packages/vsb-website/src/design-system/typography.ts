@@ -246,8 +246,8 @@ export const typography: Typography = {
         lineGap: 8,
       },
       xSmall: {
-        capHeight: 9,
-        lineGap: 7,
+        capHeight: 9.5,
+        lineGap: 8,
       },
     },
   },

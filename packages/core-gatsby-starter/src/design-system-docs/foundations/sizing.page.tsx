@@ -1,16 +1,5 @@
-import { LinkIcon, PARAGRAPH_SIZE } from '@newrade/core-design-system';
-import {
-  BoxV2,
-  Cluster,
-  Details,
-  keys,
-  Label,
-  Link,
-  Paragraph,
-  Stack,
-  Summary,
-  useTreatTheme,
-} from '@newrade/core-react-ui';
+import { HEADING, LinkIcon, PARAGRAPH_SIZE } from '@newrade/core-design-system';
+import { Cluster, Heading, keys, Label, Link, Paragraph, Stack, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { DesignSystemPageProps, DesignSystemPageTemplate } from '../../templates/design-system-page.template';
@@ -27,52 +16,46 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
 
   return (
     <Stack id={'Design System'} gap={[cssTheme.sizing.var.x5]}>
+      <Heading variant={HEADING.h3}>Sizing</Heading>
+
       <Stack gap={[cssTheme.sizing.var.x5]}>
-        <Details open={true}>
-          <Summary>Sizing</Summary>
+        <Paragraph>
+          A module scale is available. It is based on the standard{' '}
+          <Link
+            href={'https://en.wikipedia.org/wiki/Golden_ratio'}
+            target={'_blank'}
+            style={{ display: 'inline-block' }}
+            variantSize={PARAGRAPH_SIZE.medium}
+            variantIcon={LinkIcon.right}
+          >
+            Golden ratio
+          </Link>{' '}
+          which assure a natural progression for each sizing step. The scale is automatically responsive for mobile,
+          tablet and desktop.
+        </Paragraph>
 
-          <BoxV2 padding={[cssTheme.sizing.var.x3, '0']}>
-            <Stack gap={[cssTheme.sizing.var.x4]}>
-              <Paragraph>
-                A module scale is available. It is based on the standard{' '}
-                <Link
-                  href={'https://en.wikipedia.org/wiki/Golden_ratio'}
-                  target={'_blank'}
-                  style={{ display: 'inline-block' }}
-                  variantSize={PARAGRAPH_SIZE.medium}
-                  variantIcon={LinkIcon.right}
+        <Stack gap={[cssTheme.sizing.var.x1]}>
+          {keys(cssTheme.sizing.var).map((step) => {
+            const varValue = cssTheme.sizing.var[step];
+            return (
+              <Cluster
+                key={step}
+                gap={[cssTheme.sizing.var.x2]}
+                justifyContent={['flex-start']}
+                style={{ maxWidth: `100%`, overflow: `hidden` }}
+              >
+                <Label style={{ width: 30 }}>{step}</Label>
+                <Placeholder
+                  key={step}
+                  id={step}
+                  style={{ width: `${varValue}`, height: 30, padding: `inherit 0`, textAlign: 'left' }}
                 >
-                  Golden ratio
-                </Link>{' '}
-                which assure a natural progression for each sizing step. The scale is automatically responsive for
-                mobile, tablet and desktop.
-              </Paragraph>
-
-              <Stack gap={[cssTheme.sizing.var.x1]}>
-                {keys(cssTheme.sizing.var).map((step) => {
-                  const varValue = cssTheme.sizing.var[step];
-                  return (
-                    <Cluster
-                      key={step}
-                      gap={[cssTheme.sizing.var.x2]}
-                      justifyContent={['flex-start']}
-                      style={{ maxWidth: `100%`, overflow: `hidden` }}
-                    >
-                      <Label style={{ width: 30 }}>{step}</Label>
-                      <Placeholder
-                        key={step}
-                        id={step}
-                        style={{ width: `${varValue}`, height: 30, padding: `inherit 0`, textAlign: 'left' }}
-                      >
-                        {' '}
-                      </Placeholder>
-                    </Cluster>
-                  );
-                })}
-              </Stack>
-            </Stack>
-          </BoxV2>
-        </Details>
+                  {' '}
+                </Placeholder>
+              </Cluster>
+            );
+          })}
+        </Stack>
       </Stack>
     </Stack>
   );

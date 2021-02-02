@@ -1,6 +1,5 @@
 import { MDXProvider } from '@mdx-js/react';
 import {
-  DefaultCSS,
   GlobalCSSVariables,
   GlobalResetCSS,
   mdxComponents,
@@ -27,11 +26,9 @@ export const Providers: React.FC = (props) => {
             <MDXProvider components={mdxComponents}>
               <GlobalCSSVariables>
                 <GlobalResetCSS>
-                  <DefaultCSS>
-                    {/* <IconContext.Provider value={{ style: { verticalAlign: 'middle' } }}> */}
-                    {props.children}
-                    {/* </IconContext.Provider> */}
-                  </DefaultCSS>
+                  {/* <IconContext.Provider value={{ style: { verticalAlign: 'middle' } }}> */}
+                  {props.children}
+                  {/* </IconContext.Provider> */}
                 </GlobalResetCSS>
               </GlobalCSSVariables>
             </MDXProvider>

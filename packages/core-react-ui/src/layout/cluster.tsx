@@ -1,9 +1,9 @@
-import { AlignItemsProperty, GapProperty, JustifyContentProperty } from 'csstype';
+import { AlignItemsProperty, JustifyContentProperty } from 'csstype';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { CommonComponentProps } from '../props/component-common.props';
-import * as styleRefs from './cluster.treat';
 import { GapProp } from '../props/layout.prop';
+import * as styleRefs from './cluster.treat';
 
 type Gap = string;
 

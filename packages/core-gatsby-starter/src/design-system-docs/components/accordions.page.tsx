@@ -1,4 +1,3 @@
-import ChevronIcon from '!!file-loader!@newrade/core-react-ui/lib/assets/chevron-down-outline.svg';
 import { HEADING } from '@newrade/core-design-system';
 import { Details, Heading, Paragraph, Stack, Summary, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
@@ -42,25 +41,19 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
 
         <Stack>
           <Details>
-            <Summary mode={'animate'} iconOpenedPath={ChevronIcon} iconClosedPath={ChevronIcon}>
-              Accordion
-            </Summary>
+            <Summary mode={'animate'}>Accordion</Summary>
 
             <Paragraph>{lorenipsum}</Paragraph>
           </Details>
 
           <Details>
-            <Summary mode={'animate'} iconOpenedPath={ChevronIcon} iconClosedPath={ChevronIcon}>
-              Accordion
-            </Summary>
+            <Summary mode={'animate'}>Accordion</Summary>
 
             <Paragraph>{lorenipsum}</Paragraph>
           </Details>
 
           <Details>
-            <Summary mode={'animate'} iconOpenedPath={ChevronIcon} iconClosedPath={ChevronIcon}>
-              Accordion
-            </Summary>
+            <Summary mode={'animate'}>Accordion</Summary>
 
             <Paragraph>{lorenipsum}</Paragraph>
           </Details>

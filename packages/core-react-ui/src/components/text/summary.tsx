@@ -1,11 +1,11 @@
+import { LABEL_SIZE } from '@newrade/core-design-system';
+import React, { HTMLAttributes } from 'react';
+import { useStyles } from 'react-treat';
 /**
  * Built in icons
  */
-import PlusIcon from '!!file-loader!../../assets/add-outline.svg';
-import MinusIcon from '!!file-loader!../../assets/remove-outline.svg';
-import React, { HTMLAttributes } from 'react';
-import { useStyles } from 'react-treat';
-import { LABEL_SIZE } from '../../../../core-design-system/src';
+import PlusIcon from '../../assets/add-outline.svg';
+import MinusIcon from '../../assets/remove-outline.svg';
 import { CommonComponentProps } from '../../props/component-common.props';
 import { getMergedClassname } from '../../utilities/component.utilities';
 import { Label } from './label';
@@ -15,8 +15,8 @@ type Props = CommonComponentProps &
   HTMLAttributes<HTMLHeadingElement> & {
     mode?: 'swap' | 'animate';
     iconType?: 'caret' | 'angle';
-    iconOpenedPath?: string;
-    iconClosedPath?: string;
+    iconOpened?: React.ReactNode;
+    iconClosed?: React.ReactNode;
   };
 
 /**
@@ -25,13 +25,15 @@ type Props = CommonComponentProps &
  * @see https://devdocs.io/html/element/summary
  */
 export const Summary: React.FC<Props> = React.memo(
-  ({ id, style, className, mode = 'swap', iconType, iconOpenedPath, iconClosedPath, children, ...props }) => {
+  ({ id, style, className, mode = 'swap', iconType, iconOpened, iconClosed, children, ...props }) => {
     const { styles } = useStyles(stylesRef);
 
     const type: keyof React.ReactHTML = 'summary';
     const classNames = getMergedClassname([className, styles.wrapper, mode === 'animate' ? styles.animate : '']);
-    const renderedIconOpenPath = iconOpenedPath ? iconOpenedPath : MinusIcon;
-    const renderedIconClosedPath = iconClosedPath ? iconClosedPath : PlusIcon;
+    const iconOpenedClassNames = getMergedClassname([styles.icon, styles.iconOpened]);
+    const iconClosedClassNames = getMergedClassname([styles.icon, styles.iconClosed]);
+    const IconOpened = iconOpened ? iconOpened : MinusIcon;
+    const IconClosed = iconClosed ? iconClosed : PlusIcon;
 
     return React.createElement(
       type,
@@ -39,13 +41,15 @@ export const Summary: React.FC<Props> = React.memo(
         id,
         style: {
           ...style,
-          '--icon-opened': `url(${renderedIconOpenPath})`, // inject the css var to set the icon
-          '--icon-closed': `url(${renderedIconClosedPath})`, // inject the css var to set the icon
         },
         className: classNames,
         ...props,
       },
-      <Label variant={LABEL_SIZE.medium}>{children}</Label>
+      <Label variant={LABEL_SIZE.medium}>
+        {children}
+        <IconOpened className={iconOpenedClassNames} />
+        <IconClosed className={iconClosedClassNames} />
+      </Label>
     );
   }
 );

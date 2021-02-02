@@ -1,5 +1,5 @@
 import { Color, LABEL_SIZE, TEXT_LEVEL } from '@newrade/core-design-system';
-import { getCSSColor, Label, Stack, useTreatTheme } from '@newrade/core-react-ui';
+import { getCSSColor, getCSSHexColor, Label, Stack, useTreatTheme } from '@newrade/core-react-ui';
 import { kebab } from 'case';
 import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
@@ -19,15 +19,16 @@ export const ColorSwatch: React.FC<OwnProps> = ({ id, style, className, ...props
   const cssColorString = colorObject ? getCSSColor(colorObject) : '';
 
   return (
-    <Stack id={id} style={style} className={styles.wrapper} gap={[cssTheme.sizing.var.x1]}>
+    <Stack id={id} style={style} className={styles.wrapper} gap={[cssTheme.sizing.var.x2]}>
       <div className={styles.squareColor} style={{ backgroundColor: `${cssColorString}` }}></div>
 
       <Stack gap={[cssTheme.sizing.var.x1]}>
-        <div>
-          <Label variant={LABEL_SIZE.xSmall} variantLevel={TEXT_LEVEL.secondary}>
-            {`${props.name ? `${kebab(props.name)}-` : ''}${props.shadeNumber ? `${kebab(props.shadeNumber)}` : ''}`}
-          </Label>
-        </div>
+        <Label variant={LABEL_SIZE.xSmall} variantLevel={TEXT_LEVEL.secondary}>
+          {`${props.name ? `${kebab(props.name)}-` : ''}${props.shadeNumber ? `${kebab(props.shadeNumber)}` : ''}`}
+        </Label>
+        <Label variant={LABEL_SIZE.xSmall} variantLevel={TEXT_LEVEL.secondary}>
+          <code>{`${getCSSHexColor(props.color as Color)}`}</code>
+        </Label>
       </Stack>
     </Stack>
   );

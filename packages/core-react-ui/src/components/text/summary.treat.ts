@@ -1,57 +1,66 @@
 import { globalStyle, style } from 'treat';
 import { Theme } from '../../design-system/css-design-system';
-import { getCSSColor } from '../../utilities/colors.utilities';
-import { getCSSFilterColor } from '../../utilities/filter-color.utility';
 
-const iconSize = `2em`;
+const iconSize = `32px`;
 
 export const styles = {
   wrapper: style(({ theme, cssTheme }: Theme) => {
-    const iconColorClosed = getCSSFilterColor(theme.colors.colors.grey[600]);
-    const iconColorOpened = getCSSFilterColor(theme.colors.colors.grey[900]);
-
     return {
       display: `flex`,
       position: `relative`,
       userSelect: `none`,
 
       listStyleImage: `none`,
-      padding: `calc(${cssTheme.sizing.var.x3} * 2) 0`,
+      padding: `${cssTheme.sizing.var.x5} 0`,
       paddingRight: `2em`,
       borderTop: `1px solid ${cssTheme.colors.colors.grey[50]}`,
 
       cursor: `pointer`,
-      ':hover': {
-        backgroundColor: getCSSColor({ h: 222, s: 0, l: 10, a: 5 }),
-      },
+
+      // TODO: find a better effect on desktop
+      // '@media': {
+      //   [cssTheme.layout.media.desktopSmall]: {
+      //     ':hover': {
+      //       backgroundColor: getCSSColor({ h: 222, s: 0, l: 10, a: 5 }),
+      //     },
+      //   },
+      // },
+
       ':focus': {
         outline: `none`,
-      },
-
-      '::before': {
-        content: `var(--icon-closed)`,
-        position: `absolute`,
-        right: `1em`,
-        width: iconSize,
-        height: iconSize,
-        top: `calc(50% - ${iconSize} / 2)`,
-        lineHeight: `1em`,
-        filter: iconColorClosed,
       },
 
       color: cssTheme.colors.colorIntents.secondaryText,
 
       selectors: {
-        [`[open] > &::before`]: {
-          content: `var(--icon-opened)`,
-          filter: iconColorOpened,
-        },
         [`[open] > &`]: {
           color: cssTheme.colors.colorIntents.primaryText,
         },
       },
     };
   }),
+  icon: style(({ theme, cssTheme }: Theme) => ({
+    position: `absolute`,
+    right: cssTheme.sizing.var.x1,
+    width: iconSize,
+    height: iconSize,
+    top: `calc(50% - ${iconSize} / 2)`,
+    lineHeight: `1em`,
+  })),
+  iconOpened: style(({ theme, cssTheme }: Theme) => ({
+    selectors: {
+      [`[open] &`]: {
+        visibility: 'visible',
+      },
+    },
+  })),
+  iconClosed: style(({ theme, cssTheme }: Theme) => ({
+    selectors: {
+      [`[open] &`]: {
+        visibility: 'hidden',
+      },
+    },
+  })),
   animate: style(({ theme, cssTheme }: Theme) => ({
     '::before': {
       transform: `rotate(90deg)`,
@@ -64,6 +73,11 @@ export const styles = {
     },
   })),
 };
+
+globalStyle(`${styles.icon} svg path`, {
+  stroke: 'currentColor',
+  strokeWidth: 32,
+});
 
 // hide the default arrow
 globalStyle(`${styles.wrapper}::-webkit-details-marker`, {
