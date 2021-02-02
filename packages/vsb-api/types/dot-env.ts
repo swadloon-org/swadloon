@@ -15,6 +15,12 @@ export const Env = t.intersection([
     API_VSB_KEY_CLINIKO: t.string,
     API_VSB_SHARD_ID: t.string,
     API_VSB_SECRET_KEY_RECAPTCHAT: t.string,
+    /**
+     * Email
+     */
+
+    API_CONTACT_GMAIL_USER: t.string,
+    API_CONTACT_GMAIL_PASS: t.string,
   }),
 ]);
 
