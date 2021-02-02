@@ -56,7 +56,7 @@ export const typography: Typography = {
     },
     desktop: {
       t1: {
-        capHeight: 55,
+        capHeight: 60,
         lineGap: 34,
       },
       t2: {

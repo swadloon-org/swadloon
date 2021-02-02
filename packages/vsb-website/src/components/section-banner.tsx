@@ -6,12 +6,12 @@ import { IFluidObject } from 'gatsby-background-image';
 import React, { useEffect, useRef } from 'react';
 import { useStyles } from 'react-treat';
 import { gradient } from '../styles/effects.styles';
-import * as styleRefs from './banner.treat';
+import * as styleRefs from './section-banner.treat';
 import { SectionProps } from './section.props';
 
 type Props = CommonComponentProps & SectionProps & {};
 
-export const Banner: React.FC<Props> = ({ id, style, className, section, ...props }) => {
+export const SectionBanner: React.FC<Props> = ({ id, style, className, section, ...props }) => {
   const { styles } = useStyles(styleRefs);
   const { cssTheme } = useTreatTheme();
   const ref = useRef<HTMLDivElement>(null);

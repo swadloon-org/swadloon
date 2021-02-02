@@ -1,18 +1,8 @@
-import {
-  BoxV2,
-  Center,
-  CommonComponentProps,
-  getMergedClassname,
-  GlobalMarkdownCSS,
-  Heading,
-  Stack,
-  Switcher,
-  useTreatTheme,
-} from '@newrade/core-react-ui';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
+import { MarkdownRenderer } from '@newrade/core-gatsby-ui/src';
+import { CommonComponentProps, getMergedClassname, Stack, Switcher, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { HEADING } from '../../../core-design-system/src';
+import { GoogleMapVSB } from './google-map';
 import * as styleRefs from './section-contact.treat';
 import { SectionProps } from './section.props';
 
@@ -23,30 +13,19 @@ export const SectionContact: React.FC<Props> = ({ id, style, className, section,
   const classNames = getMergedClassname([styles.wrapper, className]);
   const { cssTheme } = useTreatTheme();
 
-  /**
-   * Markdown
-   */
-  const hasMarkdown = !!section?.text?.childMdx?.body;
-  const markdownData: any = section?.text?.childMdx?.body;
-
   return (
-    <Center id={id} style={style} className={classNames}>
-      <BoxV2 padding={[cssTheme.sizing.var.x7, 0]} justifyContent={['center']}>
-        <Switcher
-          gap={[cssTheme.sizing.var.x5, cssTheme.sizing.var.x6]}
-          alignItems={['center']}
-          style={{ width: `100%` }}
-        >
-          <Stack gap={[cssTheme.sizing.var.x5]} style={{ maxWidth: `min(480px, 100%)` }} key={'2'}>
-            <Heading variant={HEADING.h1}>{section?.title}</Heading>
+    <Switcher
+      gap={[cssTheme.sizing.var.x5, cssTheme.sizing.var.x6]}
+      alignItems={['center']}
+      style={{ width: `100%` }}
+      className={classNames}
+    >
+      <Stack gap={[cssTheme.sizing.var.x5]} style={{ maxWidth: `min(480px, 100%)` }} key={'2'}>
+        <MarkdownRenderer>{section?.text?.childMdx?.body}</MarkdownRenderer>
 
-            {hasMarkdown ? (
-              <GlobalMarkdownCSS>
-                <MDXRenderer>{markdownData}</MDXRenderer>
-              </GlobalMarkdownCSS>
-            ) : null}
+        <GoogleMapVSB inView={true} />
 
-            {/* <Form>
+        {/* <Form>
               <FormWrapper>
                 <InputLabel required={true}>First Name *</InputLabel>
                 <InputText ref={firstNameInput}></InputText>
@@ -59,9 +38,7 @@ export const SectionContact: React.FC<Props> = ({ id, style, className, section,
                 <InputError></InputError>
               </FormWrapper>
             </Form> */}
-          </Stack>
-        </Switcher>
-      </BoxV2>
-    </Center>
+      </Stack>
+    </Switcher>
   );
 };

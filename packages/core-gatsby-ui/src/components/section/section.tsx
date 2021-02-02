@@ -1,14 +1,14 @@
 import { BoxV2, Center, CommonComponentProps, getMergedClassname, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import * as styleRefs from './section-layout.treat';
+import * as styleRefs from './section.treat';
 
 type Props = CommonComponentProps & {
   variant?: 'primary' | 'secondary';
   variantLayout?: 'center' | 'fullwidth' | 'banner';
 };
 
-export const SectionLayout = React.forwardRef<any, Props>(
+export const Section = React.forwardRef<any, Props>(
   ({ id, style, className, variant, variantLayout = 'center', children, ...props }, ref) => {
     /**
      * Styling

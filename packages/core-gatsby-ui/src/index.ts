@@ -2,6 +2,8 @@ export * from './components/debug-gatsby-page';
 export * from './components/gatsby-link';
 export * from './components/layout-switcher';
 export * from './components/navigation/aside';
+export * from './components/content/block-markdown';
+export * from './components/section/section';
 export * from './hooks/use-design-system-nav-items.hook';
 export * from './hooks/use-docs-nav-items.hook';
 export * from './hooks/use-reach-router-location';

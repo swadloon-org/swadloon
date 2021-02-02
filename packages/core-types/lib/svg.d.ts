@@ -1,4 +1,4 @@
 declare module '*.svg' {
-  const CaretDownIcon: any;
-  export default CaretDownIcon;
+    const value: any;
+    export default value;
 }
