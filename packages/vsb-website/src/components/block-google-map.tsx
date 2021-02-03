@@ -6,7 +6,7 @@ type Props = {
   inView: boolean;
 };
 
-export const GoogleMapVSB: React.FC<Props> = React.memo(({ inView }) => {
+export const BlockGoogleMapVSB: React.FC<Props> = React.memo(({ inView }) => {
   const theme = useTreatTheme();
   const [shouldLoad, setShouldLoad] = useState<boolean>(false);
 

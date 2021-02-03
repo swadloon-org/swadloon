@@ -2,9 +2,6 @@ import { Theme } from '@newrade/core-react-ui';
 import { style } from 'treat';
 
 export const styles = {
-  /**
-   * Styles
-   */
   wrapper: style(({ theme, cssTheme }: Theme) => ({
     position: 'relative',
     width: '100%',

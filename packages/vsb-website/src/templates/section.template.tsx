@@ -7,12 +7,11 @@ import { useInView } from 'react-intersection-observer';
 import { ButtonSize, ButtonVariant } from '../../../core-design-system/src';
 import { SECTION_TYPE } from '../../types/contentful-section-type';
 import { ContentfulSection } from '../../types/graphql-types';
+import { BlockGoogleMapVSB } from '../components/block-google-map';
 import { FormVasectomy } from '../components/form-vasectomy';
-import { GoogleMapVSB } from '../components/google-map';
 import { SectionBanner } from '../components/section-banner';
 import { SectionBannerLink } from '../components/section-banner-link';
 import { SectionContact } from '../components/section-contact';
-import { SectionCost } from '../components/section-cost';
 import { SectionInfo } from '../components/section-info';
 import { SectionMessages } from '../components/section-messages';
 import { SectionSteps } from '../components/section-steps';
@@ -90,7 +89,7 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
                         justifySelf={['center', 'center', 'flex-start']}
                         style={{ maxWidth: 700, width: 'min(100vw, 100%)', height: `100%` }}
                       >
-                        <GoogleMapVSB inView={inView} />
+                        <BlockGoogleMapVSB inView={inView} />
                       </BoxV2>
                     ) : null}
                   </Switcher>
@@ -192,18 +191,23 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
           case SECTION_TYPE.VASECTOMY_INFO_BEFORE: {
             return (
               <Section id={`section-${index}`} key={index}>
-                <BoxV2 style={{ width: `100%` }}>
-                  <Stack gap={[cssTheme.sizing.var.x7]}>
-                    <MarkdownRenderer>{section.text?.childMdx?.body}</MarkdownRenderer>
-                  </Stack>
-                </BoxV2>
+                <Stack gap={[cssTheme.sizing.var.x7]}>
+                  <MarkdownRenderer>{section.text?.childMdx?.body}</MarkdownRenderer>
+                </Stack>
               </Section>
             );
           }
+          case SECTION_TYPE.PILOT_EXAM_SERVICE:
           case SECTION_TYPE.VASECTOMY_INFO_COST: {
             return (
               <Section id={`section-${index}`} key={index} variant={'secondary'}>
-                <SectionCost key={index} section={section} />
+                <Stack gap={[cssTheme.sizing.var.x7]}>
+                  <MarkdownRenderer>{section?.text?.childMdx?.body}</MarkdownRenderer>
+
+                  {section?.costItems?.map((item, index) => {
+                    return <div key={index}>{item?.title}</div>;
+                  })}
+                </Stack>
               </Section>
             );
           }
@@ -243,13 +247,7 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
               </Section>
             );
           }
-          case SECTION_TYPE.PILOT_EXAM_SERVICE: {
-            return (
-              <Section id={`section-${index}`} key={index} variant={'secondary'}>
-                <SectionCost key={index} section={section} />
-              </Section>
-            );
-          }
+
           case SECTION_TYPE.PILOT_EXAM_DR_PROFILE: {
             return (
               <Section id={`section-${index}`} key={index}>

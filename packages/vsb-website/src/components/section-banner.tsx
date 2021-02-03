@@ -100,21 +100,21 @@ export const SectionBanner: React.FC<Props> = ({ id, style, className, section, 
             >
               <Title>{section?.title?.trim()}</Title>
               {section?.subtitle ? <Title>{section?.subtitle.trim()}</Title> : null}
-
-              <div ref={ref} className={styles.icon}>
-                <Button
-                  aria-label={'Next section'}
-                  size={ButtonSize.large}
-                  variant={ButtonVariant.tertiaryReversed}
-                  icon={ButtonIcon.icon}
-                  Icon={<IoChevronDownOutline />}
-                  onPress={handleScrollToNextSection}
-                ></Button>
-              </div>
             </Stack>
           </Center>
         </Background>
       ) : null}
+
+      <div ref={ref} className={styles.icon}>
+        <Button
+          aria-label={'Next section'}
+          size={ButtonSize.large}
+          variant={ButtonVariant.tertiaryReversed}
+          icon={ButtonIcon.icon}
+          Icon={<IoChevronDownOutline />}
+          onPress={handleScrollToNextSection}
+        ></Button>
+      </div>
     </div>
   );
 };

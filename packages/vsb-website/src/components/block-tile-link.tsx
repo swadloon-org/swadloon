@@ -17,14 +17,14 @@ import React from 'react';
 import { useStyles } from 'react-treat';
 import { SectionFragment } from '../../types/graphql-types';
 import { gradient } from '../styles/effects.styles';
-import * as styleRefs from './tile-link.treat';
+import * as styleRefs from './block-tile-link.treat';
 
 type Props = CommonComponentProps & {
   section: SectionFragment;
   contentClassName?: string;
 };
 
-export const TileLink: React.FC<Props> = ({ id, style, className, contentClassName, section, ...props }) => {
+export const BlockTileLink: React.FC<Props> = ({ id, style, className, contentClassName, section, ...props }) => {
   const { styles } = useStyles(styleRefs);
   const hasImage = !!section?.medias?.medias?.length;
   const imageData: any = section?.medias?.medias?.[0]?.desktopFluidImage?.childImageSharp?.fluid;

@@ -2,7 +2,7 @@ import { MarkdownRenderer } from '@newrade/core-gatsby-ui/src';
 import { CommonComponentProps, getMergedClassname, Stack, Switcher, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { GoogleMapVSB } from './google-map';
+import { BlockGoogleMapVSB } from './block-google-map';
 import * as styleRefs from './section-contact.treat';
 import { SectionProps } from './section.props';
 
@@ -23,7 +23,7 @@ export const SectionContact: React.FC<Props> = ({ id, style, className, section,
       <Stack gap={[cssTheme.sizing.var.x5]} style={{ maxWidth: `min(480px, 100%)` }} key={'2'}>
         <MarkdownRenderer>{section?.text?.childMdx?.body}</MarkdownRenderer>
 
-        <GoogleMapVSB inView={true} />
+        <BlockGoogleMapVSB inView={true} />
 
         {/* <Form>
               <FormWrapper>
