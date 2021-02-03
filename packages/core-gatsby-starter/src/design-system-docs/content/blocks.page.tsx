@@ -18,6 +18,7 @@ import React from 'react';
 import { useStyles } from 'react-treat';
 import { DesignSystemPageProps, DesignSystemPageTemplate } from '../../templates/design-system-page.template';
 import * as styleRefs from '../home.treat';
+import MarkdownExample from './block-markdown-example.mdx';
 
 const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
   const { styles } = useStyles(styleRefs);
@@ -56,7 +57,9 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
 
         <Paragraph>Flex container with padding.</Paragraph>
 
-        <BlockMarkdown>{'### markdown'}</BlockMarkdown>
+        <BlockMarkdown>
+          <MarkdownExample />
+        </BlockMarkdown>
 
         {/* <CodeBlock live={true} scope={scope}>
           {`

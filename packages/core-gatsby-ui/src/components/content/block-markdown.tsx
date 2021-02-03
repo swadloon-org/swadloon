@@ -5,7 +5,7 @@ import { MarkdownRenderer } from '../../markdown/markdown-renderer';
 import * as styleRefs from './block-markdown.treat';
 
 type Props = CommonComponentProps & {
-  children?: string | null;
+  children?: string | null | React.ReactNode;
 };
 
 export const BlockMarkdown: React.FC<Props> = ({ id, style, className, children, ...props }) => {
@@ -17,7 +17,11 @@ export const BlockMarkdown: React.FC<Props> = ({ id, style, className, children,
 
   return (
     <BoxV2 id={id} style={style} className={`${styles.wrapper}`}>
-      <MarkdownRenderer className={styles.content}>{children}</MarkdownRenderer>
+      {typeof children !== 'string' ? (
+        children
+      ) : (
+        <MarkdownRenderer className={styles.content}>{children}</MarkdownRenderer>
+      )}
     </BoxV2>
   );
 };

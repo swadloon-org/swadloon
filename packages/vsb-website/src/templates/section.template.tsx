@@ -136,6 +136,7 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
                 key={index}
                 variant={section.variant && /secondary/gi.test(section.variant) ? 'secondary' : 'primary'}
               >
+                {/* in the section map for each blocks and for each type of block assign to component */}
                 {section.text?.childMdx?.body ? (
                   <Switcher gap={[cssTheme.sizing.var.x6]} alignItems={['center']}>
                     <BoxV2 justifySelf={['center', 'center', 'flex-end']} style={{ maxWidth: 600 }}>
