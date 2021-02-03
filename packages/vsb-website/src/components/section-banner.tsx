@@ -9,7 +9,7 @@ import { gradient } from '../styles/effects.styles';
 import * as styleRefs from './section-banner.treat';
 import { SectionProps } from './section.props';
 
-type Props = CommonComponentProps & SectionProps & {};
+type Props = CommonComponentProps & SectionProps;
 
 export const SectionBanner: React.FC<Props> = ({ id, style, className, section, ...props }) => {
   const { styles } = useStyles(styleRefs);

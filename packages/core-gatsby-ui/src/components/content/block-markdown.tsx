@@ -16,7 +16,7 @@ export const BlockMarkdown: React.FC<Props> = ({ id, style, className, children,
   }
 
   return (
-    <BoxV2 className={`${styles.wrapper}`}>
+    <BoxV2 id={id} style={style} className={`${styles.wrapper}`}>
       <MarkdownRenderer className={styles.content}>{children}</MarkdownRenderer>
     </BoxV2>
   );

@@ -31,7 +31,7 @@ globalStyle(`${wrapper} .mdx-anchor`, ({ cssTheme, theme }: Theme) => ({
 globalStyle(
   `${wrapper} > h1, ${wrapper} > h2, ${wrapper} > h3, ${wrapper} > h4, ${wrapper} > h5, ${wrapper} > h6`,
   ({ cssTheme, theme }: Theme) => ({
-    marginBottom: '1.4em',
+    marginBottom: '1.6em',
     position: 'relative',
   })
 );

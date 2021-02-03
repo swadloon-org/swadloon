@@ -4,6 +4,7 @@ import { Theme } from '../design-system/css-design-system';
 
 export const wrapper = style(({ cssTheme, theme }: Theme) => ({
   display: 'grid',
+  width: `100%`,
   gridTemplateColumns: `1fr`,
   gap: `var(--mobile-gap)`,
   alignItems: 'var(--mobile-align-items)' as AlignContentProperty,

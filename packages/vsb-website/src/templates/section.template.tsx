@@ -1,14 +1,16 @@
-import { BlockMarkdown, Section } from '@newrade/core-gatsby-ui/src';
-import { Image, Switcher, useTreatTheme } from '@newrade/core-react-ui';
+import { BlockMarkdown, GatsbyLink, Section } from '@newrade/core-gatsby-ui/src';
+import { BoxV2, Button, Image, Stack, Switcher, useTreatTheme } from '@newrade/core-react-ui';
+import { IoArrowForwardOutline } from '@react-icons/all-files/io5/IoArrowForwardOutline';
 import { FluidObject } from 'gatsby-image';
 import React from 'react';
 import { useInView } from 'react-intersection-observer';
+import { ButtonSize, ButtonVariant } from '../../../core-design-system/src';
 import { SECTION_TYPE } from '../../types/contentful-section-type';
 import { ContentfulSection } from '../../types/graphql-types';
 import { FormVasectomy } from '../components/form-vasectomy';
 import { GoogleMapVSB } from '../components/google-map';
 import { SectionBanner } from '../components/section-banner';
-import { SectionCallout } from '../components/section-callout';
+import { SectionBannerLink } from '../components/section-banner-link';
 import { SectionContact } from '../components/section-contact';
 import { SectionCost } from '../components/section-cost';
 import { SectionFaq } from '../components/section-faq';
@@ -57,19 +59,50 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
               </Section>
             );
           }
-          case SECTION_TYPE.CLINIC_PREVIEW: {
+          case SECTION_TYPE.CONTACT_PREVIEW: {
             return (
-              <Section id={`section-${index}`} key={index}>
-                <SectionInfo key={index} section={section}></SectionInfo>
+              <Section
+                ref={ref}
+                id={`section-${index}`}
+                key={index}
+                variant={section.variant && /secondary/gi.test(section.variant) ? 'secondary' : 'primary'}
+              >
+                {section.text?.childMdx?.body ? (
+                  <Switcher gap={[cssTheme.sizing.var.x6]} alignItems={['center']}>
+                    <BoxV2 justifySelf={['center', 'center', 'flex-end']} style={{ maxWidth: 600 }}>
+                      <Stack gap={[cssTheme.sizing.var.x5]} style={{ maxWidth: `min(480px, 100%)` }} key={'2'}>
+                        <BlockMarkdown key={section.id}>{section.text?.childMdx?.body}</BlockMarkdown>
+
+                        {section.link?.page?.slug ? (
+                          <Button
+                            size={ButtonSize.large}
+                            variant={ButtonVariant.secondary}
+                            Icon={<IoArrowForwardOutline />}
+                            AsElement={<GatsbyLink to={section.link?.page?.slug} />}
+                          >
+                            {section.link?.label}
+                          </Button>
+                        ) : null}
+                      </Stack>
+                    </BoxV2>
+
+                    {section.medias?.medias?.[0]?.mobileFluidTallImage?.childImageSharp?.fluid ? (
+                      <BoxV2
+                        justifySelf={['center', 'center', 'flex-start']}
+                        style={{ maxWidth: 700, width: 'min(100vw, 100%)', height: `100%` }}
+                      >
+                        <GoogleMapVSB inView={inView} />
+                      </BoxV2>
+                    ) : null}
+                  </Switcher>
+                ) : null}
               </Section>
             );
           }
-          case SECTION_TYPE.CONTACT_PREVIEW: {
+          case SECTION_TYPE.CONTACT_CONTACT: {
             return (
-              <Section id={`section-${index}`} key={index} variant={'secondary'} ref={ref}>
-                <SectionInfo variantType={'children'} order={'reverse'} key={index} section={section}>
-                  <GoogleMapVSB inView={inView} />
-                </SectionInfo>
+              <Section id={`section-${index}`} key={index} variant={'secondary'} variantLayout={'center'}>
+                <SectionContact key={index} section={section} />
               </Section>
             );
           }
@@ -77,25 +110,14 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
           /**
            * Clinic page
            */
-          case SECTION_TYPE.CLINIC_MISSION: {
-            return (
-              <Section id={`section-${index}`} key={index} variant={'secondary'}>
-                <SectionInfo key={index} section={section} />
-              </Section>
-            );
-          }
+          // case SECTION_TYPE.CLINIC_MISSION: {
+          //   return (
+          //     <Section id={`section-${index}`} key={index} variant={'secondary'}>
+          //       <SectionInfo key={index} section={section} />
+          //     </Section>
+          //   );
+          // }
 
-          case SECTION_TYPE.CLINIC_DR_PROFILE: {
-            return (
-              <Section id={`section-${index}`} key={index}>
-                <SectionInfo key={index} section={section} />
-              </Section>
-            );
-          }
-
-          /**
-           * Vasectomy page
-           */
           case SECTION_TYPE.VASECTOMY_STEPS: {
             return (
               <Section id={`section-${index}`} key={index}>
@@ -103,27 +125,62 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
               </Section>
             );
           }
+
+          case SECTION_TYPE.CLINIC_PREVIEW:
+          case SECTION_TYPE.CLINIC_MISSION:
+          case SECTION_TYPE.CLINIC_DR_PROFILE:
           case SECTION_TYPE.VASECTOMY_INFO: {
             return (
-              <Section id={`section-${index}`} key={index} variant={'secondary'}>
+              <Section
+                id={`section-${index}`}
+                key={index}
+                variant={section.variant && /secondary/gi.test(section.variant) ? 'secondary' : 'primary'}
+              >
                 {section.text?.childMdx?.body ? (
-                  <Switcher gap={[cssTheme.sizing.var.x6]}>
-                    <BlockMarkdown key={section.id}>{section.text?.childMdx?.body}</BlockMarkdown>
+                  <Switcher gap={[cssTheme.sizing.var.x6]} alignItems={['center']}>
+                    <BoxV2 justifySelf={['center', 'center', 'flex-end']} style={{ maxWidth: 600 }}>
+                      <Stack gap={[cssTheme.sizing.var.x5]} style={{ maxWidth: `min(480px, 100%)` }} key={'2'}>
+                        <BlockMarkdown key={section.id}>{section.text?.childMdx?.body}</BlockMarkdown>
+
+                        {section.link?.page?.slug ? (
+                          <Button
+                            size={ButtonSize.large}
+                            variant={ButtonVariant.secondary}
+                            Icon={<IoArrowForwardOutline />}
+                            AsElement={<GatsbyLink to={section.link?.page?.slug} />}
+                          >
+                            {section.link?.label}
+                          </Button>
+                        ) : null}
+                      </Stack>
+                    </BoxV2>
+
                     {section.medias?.medias?.[0]?.mobileFluidTallImage?.childImageSharp?.fluid ? (
-                      <Image
-                        image={{
-                          Tag: 'div',
-                          fluid: section.medias?.medias?.[0]?.mobileFluidTallImage?.childImageSharp
-                            ?.fluid as FluidObject,
-                        }}
-                      ></Image>
+                      <BoxV2
+                        justifySelf={['center', 'center', 'flex-start']}
+                        style={{ maxWidth: 500, width: 'min(100vw, 100%)' }}
+                      >
+                        <Image
+                          image={{
+                            Tag: 'div',
+                            fluid: section.medias?.medias?.[0]?.mobileFluidTallImage?.childImageSharp
+                              ?.fluid as FluidObject,
+                          }}
+                        ></Image>
+                      </BoxV2>
                     ) : null}
                   </Switcher>
                 ) : section.subSections?.length ? (
                   <Switcher gap={[cssTheme.sizing.var.x6]}>
-                    {section.subSections?.map((subSection) => {
+                    {section.subSections?.map((subSection, index) => {
                       return subSection ? (
-                        <BlockMarkdown key={subSection.id}>{subSection.text?.childMdx?.body}</BlockMarkdown>
+                        <BoxV2
+                          key={subSection.id}
+                          justifySelf={['center', 'center', index % 2 > 0 ? 'flex-start' : 'flex-end']}
+                          style={{ maxWidth: 600 }}
+                        >
+                          <BlockMarkdown key={subSection.id}>{subSection.text?.childMdx?.body}</BlockMarkdown>
+                        </BoxV2>
                       ) : null;
                     })}
                   </Switcher>
@@ -156,7 +213,7 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
           case SECTION_TYPE.VASECTOMY_FORM_LINK: {
             return (
               <Section id={`section-${index}`} key={index} variantLayout={'banner'}>
-                <SectionCallout key={index} section={section} />
+                <SectionBannerLink key={index} section={section} />
               </Section>
             );
           }
@@ -200,17 +257,6 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
             return (
               <Section id={`section-${index}`} key={index}>
                 <SectionInfo key={index} section={section} />
-              </Section>
-            );
-          }
-
-          /**
-           * Contact page
-           */
-          case SECTION_TYPE.CONTACT_CONTACT: {
-            return (
-              <Section id={`section-${index}`} key={index} variant={'secondary'} variantLayout={'center'}>
-                <SectionContact key={index} section={section} />
               </Section>
             );
           }

@@ -16,7 +16,7 @@ export const Image: React.FC<Props> = ({ id, style, className, effects, image, c
 
   if (image) {
     return (
-      <div className={mergedClassNames}>
+      <div id={id} style={style} className={mergedClassNames}>
         {effects?.map((effect, index) => {
           return <BackgroundEffect key={index} effect={effect} />;
         })}
