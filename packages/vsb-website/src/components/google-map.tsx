@@ -6,14 +6,15 @@ type Props = {
   inView: boolean;
 };
 
-export const GoogleMapVSB: React.FC<Props> = ({ inView }) => {
+export const GoogleMapVSB: React.FC<Props> = React.memo(({ inView }) => {
   const theme = useTreatTheme();
-  const [loaded, setLoaded] = useState<boolean>(false);
+  const [shouldLoad, setShouldLoad] = useState<boolean>(false);
 
+  // when in view, load once and stay visible
   useEffect(() => {
     if (inView) {
-      if (!loaded) {
-        setLoaded(true);
+      if (!shouldLoad) {
+        setShouldLoad(true);
       }
     }
   }, [inView]);
@@ -47,7 +48,7 @@ export const GoogleMapVSB: React.FC<Props> = ({ inView }) => {
 
   return (
     <>
-      {!loaded ? (
+      {shouldLoad ? (
         <GoogleMaps
           theme={theme}
           script={{
@@ -76,4 +77,4 @@ export const GoogleMapVSB: React.FC<Props> = ({ inView }) => {
       ) : null}
     </>
   );
-};
+});

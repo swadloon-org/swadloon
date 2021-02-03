@@ -2,7 +2,8 @@ import * as DS from '@newrade/core-design-system';
 import { Color, Colors } from '@newrade/core-design-system';
 import { kebab } from 'case';
 import CSSTypes from 'csstype';
-import { toColorString, parseToRgb } from 'polished';
+import toColorString from 'polished/lib/color/toColorString';
+import parseToRgb from 'polished/lib/color/parseToRgb';
 import { keys } from './utilities';
 
 export function generateColorPalette5({ color: color, light, dark }: { color: DS.Color; light: number; dark: number }) {

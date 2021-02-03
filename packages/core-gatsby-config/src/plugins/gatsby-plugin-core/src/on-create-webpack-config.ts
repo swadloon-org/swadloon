@@ -86,18 +86,24 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
       ...config.optimization,
       ...{
         splitChunks: {
-          chunks: 'all',
-          minSize: 30000,
+          chunks: 'async',
+          minSize: 20000,
           maxSize: 0,
           minChunks: 1,
-          maxAsyncRequests: 5,
-          maxInitialRequests: 5,
+          maxAsyncRequests: 30,
+          maxInitialRequests: 30,
+          enforceSizeThreshold: 50000,
           automaticNameDelimiter: '~',
           cacheGroups: {
             polyfills: {
               name: 'polyfills',
               chunks: 'all',
               test: /(polyfills?(-only)*\.js|fetch\.umd\.js)|[\\/]node_modules[\\/](core-js(-pure)?|@babel)[\\/]/,
+            },
+            prettier: {
+              name: 'prettier',
+              chunks: 'all',
+              test: /[\\/]node_modules[\\/](prettier)[\\/]/,
             },
             react: {
               name: 'react',
@@ -112,8 +118,8 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
           },
         },
         runtimeChunk: 'single',
-        namedModules: true,
-        namedChunks: true,
+        moduleIds: 'named',
+        chunkIds: 'named',
       },
     };
   }

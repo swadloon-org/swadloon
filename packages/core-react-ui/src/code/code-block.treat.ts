@@ -18,6 +18,7 @@ export const styles = {
     // overflowX: 'auto !important' as any,
     // borderRadius: '6px !important',
     fontSize: `14px !important`,
+    lineHeight: 1.5,
     borderRadius: `6px`,
     // overflow: 'auto !important' as any,
     // lineHeight: '1.45 !important',

@@ -1,4 +1,3 @@
-import { rgba } from 'polished';
 import { BoxShadow } from '../foundations/effects';
 
 export function createShadow(options: Omit<BoxShadow, 'css'>): BoxShadow {
