@@ -1,5 +1,6 @@
 import { GatsbyLink, useDocsNavItems } from '@newrade/core-gatsby-ui/src';
 import {
+  Label,
   Main,
   MainWrapper,
   NavBar,
@@ -8,14 +9,11 @@ import {
   SideBar,
   Stack,
   useTreatTheme,
-  Label,
 } from '@newrade/core-react-ui';
 import { title } from 'case';
 import { PageProps } from 'gatsby';
 import React, { ReactNode } from 'react';
-import { useStyles } from 'react-treat';
-import * as styleRefs from './documentation.layout.treat';
-import { useLocale, useIsSSR } from 'react-aria';
+import { useIsSSR } from 'react-aria';
 
 type LayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }> & {
   MobileSvgLogo?: React.ReactNode;
@@ -31,10 +29,10 @@ export const LayoutDocumentation = React.memo<LayoutProps>(({ MobileSvgLogo, Des
   /**
    * Props
    */
-  const { styles } = useStyles(styleRefs);
   const { cssTheme } = useTreatTheme();
-  const navItems = useDocsNavItems();
-  const navItemsByDirName = new Set(navItems.map((item) => item.dirName));
+
+  const navItems = useDocsNavItems() ? useDocsNavItems() : null;
+  const navItemsByDirName = new Set(navItems?.map((item) => item.dirName));
 
   return (
     <MainWrapper>
