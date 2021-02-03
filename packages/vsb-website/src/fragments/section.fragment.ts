@@ -2,6 +2,7 @@ import { graphql } from 'gatsby';
 
 export const sectionFragment = graphql`
   fragment Section on ContentfulSection {
+    id
     node_locale
     name
     type {
@@ -15,7 +16,6 @@ export const sectionFragment = graphql`
       ...Link
     }
     text {
-      text
       childMdx {
         body
       }
@@ -30,29 +30,52 @@ export const sectionFragment = graphql`
         }
       }
     }
+    steps {
+      id
+      title
+      text {
+        childMdx {
+          body
+        }
+      }
+    }
+    costItems {
+      id
+      title
+      subtitle
+      price
+    }
     backgroundPosition
     medias {
       medias {
         file {
           url
         }
-        desktopFluidImage: fluid(quality: 90, maxWidth: 1920) {
-          base64
-          aspectRatio
-          src
-          srcSet
-          srcWebp
-          srcSetWebp
-          sizes
+        desktopFluidImage: localFile {
+          childImageSharp {
+            fluid(quality: 90, maxWidth: 1920, base64Width: 400) {
+              base64
+              aspectRatio
+              src
+              srcSet
+              srcWebp
+              srcSetWebp
+              sizes
+            }
+          }
         }
-        mobileFluidImage: fluid(quality: 90, maxWidth: 768) {
-          base64
-          aspectRatio
-          src
-          srcSet
-          srcWebp
-          srcSetWebp
-          sizes
+        mobileFluidTallImage: localFile {
+          childImageSharp {
+            fluid(quality: 90, maxHeight: 630) {
+              base64
+              aspectRatio
+              src
+              srcSet
+              srcWebp
+              srcSetWebp
+              sizes
+            }
+          }
         }
       }
     }

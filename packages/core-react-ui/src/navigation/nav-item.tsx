@@ -1,9 +1,10 @@
-import React, { AnchorHTMLAttributes } from 'react';
+import { LinkProps, TEXT_STYLE } from '@newrade/core-design-system';
+import React, { AnchorHTMLAttributes, useRef } from 'react';
 import { useStyles } from 'react-treat';
-import * as styleRefs from './nav-item.treat';
-import { CommonComponentProps } from '../props/component-common.props';
-import { LinkProps, TEXT_STYLE, LABEL_SIZE } from '@newrade/core-design-system';
 import { Label } from '../components/text/label';
+import { usePreventPinchZoom } from '../hooks/use-prevent-pinch-zoom';
+import { CommonComponentProps } from '../props/component-common.props';
+import * as styleRefs from './nav-item.treat';
 
 type Props = CommonComponentProps &
   AnchorHTMLAttributes<any> &
@@ -13,6 +14,9 @@ type Props = CommonComponentProps &
 
 export const NavItem: React.FC<Props> = ({ id, style, className, active, AsElement, ...props }) => {
   const { styles } = useStyles(styleRefs);
+  const ref = useRef<HTMLButtonElement>(null);
+
+  usePreventPinchZoom(ref.current);
 
   const allClassName = `${styles.wrapper} ${active ? styles.active : ''} ${className || ''} `;
 
@@ -24,7 +28,7 @@ export const NavItem: React.FC<Props> = ({ id, style, className, active, AsEleme
           ...props,
         },
         <div style={style} className={allClassName}>
-          <Label variant={LABEL_SIZE.medium}>{props.children}</Label>
+          <Label variantStyle={TEXT_STYLE.normal}>{props.children}</Label>
         </div>
       )
     : null;

@@ -6,8 +6,8 @@ export const styles = {
     display: 'grid',
     width: `100%`,
     gridTemplateColumns: `1fr`,
-    columnGap: 0,
-    rowGap: cssTheme.sizing.var.x4,
+    columnGap: cssTheme.sizing.var.x3,
+    rowGap: cssTheme.sizing.var.x5,
     '@media': {
       [cssTheme.layout.media.tablet]: {
         gridTemplateColumns: `repeat(3, 1fr)`,

@@ -1,6 +1,6 @@
-import { title, kebab } from 'case';
-import { graphql, useStaticQuery } from 'gatsby';
 import { NavItem } from '@newrade/core-gatsby-ui/src';
+import { kebab } from 'case';
+import { graphql, useStaticQuery } from 'gatsby';
 import { LayoutAllSitePageQuery } from '../../types/graphql-types';
 
 const query = graphql`
@@ -53,16 +53,17 @@ export function useQuery() {
 export function useNavItems(): NavItem[] {
   const data = useQuery();
   const dirSortOrder = ['Services', 'La Clinique', 'Nous Joindre'];
+  const pageSortOrder = ['Tout sur', 'Formulaire', 'Examen'];
 
-  const navItems: NavItem[] = data?.pages.nodes
+  const navItems = data?.pages.nodes
     .filter((node) => !/404/gi.test(node.context?.name || ''))
     .filter((node) => node.context?.name !== 'Accueil')
-    .map((node: any) => ({
+    .map((node) => ({
       name: formatName(node.context?.name),
-      dirName: node.context?.dirName,
+      dirName: node.context?.dirName || '',
       path: node.path,
     }));
-  const sortedNavItems = navItems.sort((itemA, itemB) => {
+  const sortedNavItems = navItems?.sort((itemA, itemB) => {
     const indexA = dirSortOrder.indexOf(kebab(itemA.dirName));
     const indexB = dirSortOrder.indexOf(kebab(itemB.dirName));
 
@@ -73,7 +74,7 @@ export function useNavItems(): NavItem[] {
     if (!name) {
       return '';
     }
-    return name?.replace('.page', '').replace('design-system-', '');
+    return name.replace('.page', '').replace('design-system-', '');
   }
 
   return sortedNavItems;

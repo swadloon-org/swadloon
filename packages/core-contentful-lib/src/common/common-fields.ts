@@ -15,6 +15,7 @@ export enum COMMON_FIELD {
    */
   TYPE = 'type',
   VARIANT = 'variant',
+  VARIANT_LAYOUT = 'variantLayout',
   STYLE_VARIANT = 'styleVariant',
   SIZE = 'size',
   TAGS = 'tags',
@@ -26,6 +27,14 @@ export enum COMMON_FIELD {
   SECTIONS = 'sections',
   SUB_SECTIONS = 'subSections',
   SLUG = 'slug',
+  /**
+   * section V2
+   */
+  SECTION_V2 = 'sectionV2',
+  SECTIONS_V2 = 'sectionsV2',
+
+  BLOCK = 'block',
+  BLOCKS = 'blocks',
   /**
    * Banner fields
    */
@@ -94,6 +103,13 @@ export enum COMMON_FIELD {
   PORTFOLIO_PROJECT_SLUG = 'portfolioProjectSlug',
   PORTFOLIO_PROJECTS = 'portfolioProjects',
   PORTFOLIO_PROJECT_EXCERPT = 'portfolioProjectExcerpt',
+
+  /**
+   * Navigation
+   */
+
+  NAVIGATION = 'navigation',
+  SUB_NAVIGATION = 'subNavigation',
 }
 
 /**

@@ -1,9 +1,9 @@
 import BackgroundImage from 'gatsby-background-image';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import BarSVG from '../../illustrations/Illustration/IllustrationBar.svg';
-import * as styleRefs from './banner-secondary.treat';
+import BarSVG from '../../illustrations/IllustrationBar.svg';
 import { Heading } from '../ui/heading';
+import * as styleRefs from './banner-secondary.treat';
 
 interface OwnProps {
   title?: string | null;

@@ -35,9 +35,9 @@ export function JobSection(props: OwnProps) {
         return (
           <div className={styles.container}>
             {props?.jobGroup?.map((group, index) => {
-              let lengthJobs: any = props?.jobGroup?.[index]?.jobs?.length;
+              const lengthJobs: any = props?.jobGroup?.[index]?.jobs?.length;
 
-              let RowNumber: number =
+              const RowNumber: number =
                 viewport >= VIEWPORT.desktop ? Math.ceil(lengthJobs / 3) : Math.ceil(lengthJobs / 1);
 
               return (
@@ -82,9 +82,9 @@ export function JobSection(props: OwnProps) {
         return (
           <div className={styles.container}>
             {props?.jobGroup?.map((jobType, index) => {
-              let lengthJobs: any = props?.jobGroup?.[index]?.jobs?.length;
+              const lengthJobs: any = props?.jobGroup?.[index]?.jobs?.length;
 
-              let RowNumber: number =
+              const RowNumber: number =
                 viewport >= VIEWPORT.desktop ? Math.ceil(lengthJobs / 3) : Math.ceil(lengthJobs / 1);
 
               return (
@@ -129,7 +129,7 @@ export function JobSection(props: OwnProps) {
   }
 
   function getIndexState(index: number) {
-    let newArr = [...accordionOpenState];
+    const newArr = [...accordionOpenState];
     accordionOpenState[index].state === 'opened' ? (newArr[index].state = 'closed') : (newArr[index].state = 'opened');
     setAccordionsOpenState(newArr);
   }

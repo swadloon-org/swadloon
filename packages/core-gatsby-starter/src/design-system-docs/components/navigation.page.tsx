@@ -1,19 +1,8 @@
-import { HEADING, LinkVariant, PARAGRAPH_SIZE, TEXT_LEVEL } from '@newrade/core-design-system';
-import {
-  BoxV2,
-  Button,
-  Details,
-  Heading,
-  Label,
-  Link,
-  NavBar,
-  Stack,
-  Summary,
-  useTreatTheme,
-} from '@newrade/core-react-ui';
+import { HEADING } from '@newrade/core-design-system';
+import { BoxV2, Details, Heading, NavBar, Stack, Summary, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { DesignSystemPageTemplate, DesignSystemPageProps } from '../../templates/design-system-page.template';
+import { DesignSystemPageProps, DesignSystemPageTemplate } from '../../templates/design-system-page.template';
 import * as styleRefs from '../home.treat';
 import { LogoPlaceholder } from '../utils/logo-placeholder';
 
@@ -31,9 +20,7 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
         <Heading variant={HEADING.h2}>Navigation</Heading>
 
         <Details id={'Navigation'} open={true}>
-          <Summary>
-            <Heading variant={HEADING.h3}>NavBar</Heading>
-          </Summary>
+          <Summary>NavBar</Summary>
 
           <BoxV2 padding={[cssTheme.sizing.var.x3, 0]}>
             <NavBar

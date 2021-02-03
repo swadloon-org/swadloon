@@ -1,9 +1,6 @@
-const { webpackStatsConf } = require('@ai-ui/core-webpack-config');
+import { webpackStatsConf } from './stats.conf';
 
-const configPaths = require('../config-paths');
-
-module.exports = {
-  contentBase: configPaths.srcDir,
+export const devServerConfig = {
   disableHostCheck: true,
   compress: false,
   historyApiFallback: true,

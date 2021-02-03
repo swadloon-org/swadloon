@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
+import React, { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 
 type OwnProps = {
@@ -16,6 +16,10 @@ export const FadeIn: React.FC<OwnProps> = (props) => {
       return;
     }
   }, [controls, inView]);
+
+  if (!ref) {
+    return null;
+  }
 
   return (
     <motion.div

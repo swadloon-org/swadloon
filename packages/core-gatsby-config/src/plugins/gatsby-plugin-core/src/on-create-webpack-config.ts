@@ -1,6 +1,12 @@
 import { DEPLOY_ENV } from '@newrade/core-common';
 import { COMMON_ENV } from '@newrade/core-utils';
-import { es6BabelLoader, getBundleVisualizerPlugin } from '@newrade/core-webpack-config';
+import {
+  es6BabelLoader,
+  getBundleVisualizerPlugin,
+  getLodashPlugin,
+  getWebpackStatsPlugin,
+  webpackStatsConf,
+} from '@newrade/core-webpack-config';
 import { GatsbyNode } from 'gatsby';
 import path from 'path';
 import regexEscape from 'regex-escape';
@@ -14,33 +20,14 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
   const pluginOptions = (options as unknown) as GatsbyCorePluginOptions;
   const env = process.env as COMMON_ENV;
   const isProduction = stage !== `develop`;
-  const isSSR = stage.includes(`html`);
 
-  if (stage === 'develop-html') {
-    return {};
+  if (stage !== `build-javascript`) {
+    return;
   }
 
   /**
-   * Plugins applied for dev and production modes
+   * Retrieve the initial gatsby webpack config
    */
-  const commonPlugins: WebpackOptions['plugins'] = [];
-
-  /**
-   * Plugins applied for production only
-   */
-  const productionPlugins: WebpackOptions['plugins'] = [];
-
-  /**
-   * Plugins applied in production, but when built local only
-   */
-  const productionLocalOnlyPlugins: WebpackOptions['plugins'] = [];
-
-  // const config: WebpackOptions = {
-  //   plugins: isProduction
-  //     ? [...commonPlugins, ...productionPlugins, ...productionLocalOnlyPlugins]
-  //     : [...commonPlugins],
-  // };
-
   const config = getConfig() as WebpackOptions;
 
   if (!config) {
@@ -50,13 +37,91 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
   /**
    * Replace the devtool option
    */
-  config.devtool = env.APP_ENV === DEPLOY_ENV.LOCAL ? 'eval-cheap-source-map' : 'eval-cheap-source-map';
+  config.devtool = env.APP_ENV === DEPLOY_ENV.LOCAL ? 'source-map' : 'cheap-source-map';
 
   /**
-   * Replace Gatsby default babel config
+   * Enable `module` in mainfields
+   */
+  if (typeof config === 'object' && config.resolve) {
+    config.resolve.mainFields = ['browser', 'module', 'main'];
+  }
+
+  /**
+   * Configure stats for webpack
+   */
+  if (typeof config === 'object' && env.APP_ENV === DEPLOY_ENV.LOCAL) {
+    config.stats = {
+      ...(typeof config.stats === 'object' ? config.stats : {}),
+      ...webpackStatsConf.dev,
+    };
+
+    config.plugins?.push(getWebpackStatsPlugin());
+  }
+
+  /**
+   * Add lodash plugin
+   */
+  if (typeof config === 'object') {
+    config.plugins?.push(getLodashPlugin());
+  }
+  if (typeof config === 'object' && config.resolve) {
+    config.resolve.alias = {
+      ...(typeof config.resolve.alias === 'object' ? config.resolve.alias : {}),
+      lodash: 'lodash-es',
+    };
+  }
+
+  /**
+   * Replace Gatsby default entry polyfill
    */
   if (typeof config === 'object' && config.entry && (config.entry as Record<string, string>)['polyfill']) {
     delete (config.entry as Record<string, string>)['polyfill'];
+  }
+
+  /**
+   *
+   */
+  if (typeof config === 'object') {
+    config.optimization = {
+      ...config.optimization,
+      ...{
+        splitChunks: {
+          chunks: 'async',
+          minSize: 20000,
+          maxSize: 0,
+          minChunks: 1,
+          maxAsyncRequests: 30,
+          maxInitialRequests: 30,
+          enforceSizeThreshold: 50000,
+          automaticNameDelimiter: '~',
+          cacheGroups: {
+            polyfills: {
+              name: 'polyfills',
+              chunks: 'all',
+              test: /(polyfills?(-only)*\.js|fetch\.umd\.js)|[\\/]node_modules[\\/](core-js(-pure)?|@babel)[\\/]/,
+            },
+            prettier: {
+              name: 'prettier',
+              chunks: 'all',
+              test: /[\\/]node_modules[\\/](prettier)[\\/]/,
+            },
+            react: {
+              name: 'react',
+              chunks: 'initial',
+              test: /[\\/]node_modules[\\/](react|react-dom|scheduler)[\\/]/,
+            },
+            gsap: {
+              name: 'gsap',
+              chunks: 'initial',
+              test: /[\\/]core-gsap-ui[\\/]|[\\/]node_modules[\\/](gsap)[\\/]/,
+            },
+          },
+        },
+        runtimeChunk: 'single',
+        moduleIds: 'named',
+        chunkIds: 'named',
+      },
+    };
   }
 
   /**
@@ -135,7 +200,7 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
   /**
    * Add BundleVisualizer when building for production but local only
    */
-  if (isProduction && stage === 'build-javascript' && env.APP_ENV === DEPLOY_ENV.LOCAL) {
+  if (isProduction && env.APP_ENV === DEPLOY_ENV.LOCAL) {
     config.plugins = config.plugins ? [...config.plugins, getBundleVisualizerPlugin()] : [getBundleVisualizerPlugin()];
   }
 

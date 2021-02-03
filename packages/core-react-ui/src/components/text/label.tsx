@@ -1,9 +1,9 @@
-import { LABEL_SIZE, TEXT_STYLE, TEXT_LEVEL } from '@newrade/core-design-system';
+import { LABEL_SIZE, TEXT_LEVEL, TEXT_STYLE } from '@newrade/core-design-system';
+import { kebab, pascal } from 'case';
 import React, { LabelHTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
 import { CommonComponentProps } from '../../props/component-common.props';
 import * as stylesRef from './label.treat';
-import { pascal, snake, kebab } from 'case';
 
 type Props = CommonComponentProps &
   LabelHTMLAttributes<any> & {
@@ -28,12 +28,15 @@ export const Label: React.FC<Props> = React.memo(
     )} ${pascal(kebab(variantStyle || '') || '')}`;
     const child = children ? children : defaultChildrenString;
 
-    return React.createElement(type, {
-      className: `${styles.normal} ${className || ''} ${
-        variant ? styles[variant as LABEL_SIZE] : styles[defaultProps.variant as LABEL_SIZE]
-      } ${variantStyle ? styles[variantStyle] : ''} ${variantLevel ? styles[variantLevel] : ''}`,
-      children: child,
-      ...props,
-    });
+    return React.createElement(
+      type,
+      {
+        className: `${styles.normal} ${className || ''} ${
+          variant ? styles[variant as LABEL_SIZE] : styles[defaultProps.variant as LABEL_SIZE]
+        } ${variantStyle ? styles[variantStyle] : ''} ${variantLevel ? styles[variantLevel] : ''}`,
+        ...props,
+      },
+      child
+    );
   }
 );

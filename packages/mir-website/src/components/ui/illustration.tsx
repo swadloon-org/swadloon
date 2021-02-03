@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, SVGAttributes } from 'react';
+import React, { SVGAttributes, useEffect, useRef, useState } from 'react';
 
 type OwnProps = {
   name: string;
@@ -14,7 +14,7 @@ export const Illustration: React.FC<OwnProps & SVGAttributes<any>> = ({ name, he
     setLoading(true);
     const importIcon = async () => {
       try {
-        const { default: namedImport } = await import(`../../illustrations/${name}.svg`);
+        const { default: namedImport } = await import(`../../${name}.svg`);
         ImportedIconRef.current = namedImport;
       } catch (err) {
         console.log(err);

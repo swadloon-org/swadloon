@@ -4,6 +4,7 @@ import { Theme } from '../design-system/css-design-system';
 export const styles = styleMap(({ cssTheme, theme }: Theme) => ({
   wrapper: {
     display: 'grid',
+    width: `100%`,
     gridTemplateColumns: '1fr',
     /**
      * we want Stack's childs to take the minimum space (their content size)

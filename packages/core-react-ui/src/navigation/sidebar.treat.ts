@@ -21,6 +21,8 @@ export const styles = {
     },
     color: cssTheme.colors.colorIntents.primaryText,
 
+    transform: 'translateX(-100%)', // initial state for SSR
+
     backgroundColor: getCSSColor({ h: 0, s: 0, l: 100, a: 100 }),
     boxShadow: `rgba(33, 33, 33, 0.15) 1px 1px 2px`,
 

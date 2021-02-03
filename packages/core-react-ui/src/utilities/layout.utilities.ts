@@ -99,7 +99,7 @@ export function getCSSMediaQuery(query?: MediaQueryGroup): MediaQueryType<string
 
   const cssQuery = keys(query).reduce((previous, current) => {
     const partQuery = query[current];
-    let partQueryResult: string[] = [];
+    const partQueryResult: string[] = [];
     // if it's an operator, convert and append
     if (current === 'operator') {
       partQueryResult.push(extractQueryOperator(partQuery as MEDIA_OPERATOR));
@@ -122,7 +122,7 @@ export function extractQueryType(query: MediaQuery | MediaQueryGroup | MEDIA_OPE
     return ``;
   }
 
-  let queryString: string[] = [];
+  const queryString: string[] = [];
 
   if ((query as MediaQuery).type) {
     queryString.push(extractQueryMediaType(query as MediaQuery));

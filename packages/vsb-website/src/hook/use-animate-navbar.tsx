@@ -1,10 +1,7 @@
-import { NavBarRefs, useTreatTheme } from '@newrade/core-react-ui';
-import { gsap, TweenMax } from 'gsap';
-import { useEffect, useState } from 'react';
-import ExpoScaleEase from '@newrade/core-gsap-ui/lib/plugins/EasePack';
 import { VIEWPORT } from '@newrade/core-design-system';
-
-gsap.registerPlugin(ExpoScaleEase as any);
+import { TweenMax } from '@newrade/core-gsap-ui';
+import { NavBarRefs, useTreatTheme } from '@newrade/core-react-ui';
+import { useEffect, useState } from 'react';
 
 export function useAnimateNavbar({
   navbarRef,
@@ -44,10 +41,12 @@ export function useAnimateNavbar({
       return;
     }
 
-    if (whiteStyle) {
-      animateToWhite(duration);
-    } else {
-      animateToTransparent(duration);
+    if (whiteStyle !== previousWhiteStyle) {
+      if (whiteStyle) {
+        animateToWhite(duration);
+      } else {
+        animateToTransparent(duration);
+      }
     }
 
     function animateToTransparent(duration: number) {
@@ -75,6 +74,8 @@ export function useAnimateNavbar({
         autoAlpha: 1,
         color: `rgba(255,255,255,1)`,
       });
+
+      setPreviousWhiteStyle(false);
     }
 
     function animateToWhite(duration: number) {
@@ -100,6 +101,8 @@ export function useAnimateNavbar({
         ease: 'expo.inOut',
         color: cssTheme.colors.colorIntents.primary,
       });
+
+      setPreviousWhiteStyle(true);
     }
 
     setPreviousWhiteStyle(whiteStyle);

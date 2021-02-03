@@ -20,5 +20,5 @@ export const BackgroundEffect: React.FC<Props> = ({ id, style, className, effect
   const { styles } = useStyles(styleRefs);
   const mergedClassNames = getMergedClassname([className, styles.wrapper]);
 
-  return <div id={id} style={{ ...style, ...effect }} className={styles.wrapper}></div>;
+  return <div id={id} style={{ ...style, ...effect }} className={mergedClassNames}></div>;
 };

@@ -28,3 +28,13 @@ export interface Color {
    */
   a?: number;
 }
+
+export interface ColorRGB {
+  // /**
+  //  * RGB cubic-coordinates
+  //  * @see https://en.wikipedia.org/wiki/RGB_color_model#Geometric_representation
+  //  */
+  r: number;
+  g: number;
+  b: number;
+}

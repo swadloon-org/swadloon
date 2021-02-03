@@ -14,6 +14,4 @@ export const es6BabelLoader: RuleSetRule = {
       },
     },
   ],
-  // exclude: [configPaths.dist],
-  // include: [path.join(configPaths.nodeModules, 'idlize')],
 };

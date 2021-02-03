@@ -1,8 +1,8 @@
 import { HEADING } from '@newrade/core-design-system';
-import { Details, Heading, keys, Stack, Summary, useTreatTheme, BoxV2, Switcher } from '@newrade/core-react-ui';
+import { BoxV2, Heading, keys, Stack, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { DesignSystemPageTemplate, DesignSystemPageProps } from '../../templates/design-system-page.template';
+import { DesignSystemPageProps, DesignSystemPageTemplate } from '../../templates/design-system-page.template';
 import * as styleRefs from '../home.treat';
 import { ShadowSwatch } from '../utils/shadow-swatch';
 
@@ -15,15 +15,13 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
   }
 
   return (
-    <Stack gap={[cssTheme.sizing.var.x5]}>
-      <Heading variant={HEADING.h2}>Shadows</Heading>
+    <Stack gap={[cssTheme.sizing.var.x6]}>
+      <Heading variant={HEADING.h1}>Shadows</Heading>
 
-      <Details id={'Box Shadows'} open={true}>
-        <Summary>
-          <Heading variant={HEADING.h3}>Box Shadows</Heading>
-        </Summary>
+      <Stack gap={[cssTheme.sizing.var.x4]}>
+        <Heading variant={HEADING.h2}>Box Shadows</Heading>
 
-        <BoxV2 padding={[cssTheme.sizing.var.x3, 0]}>
+        <BoxV2 padding={[cssTheme.sizing.var.x6]}>
           {theme.effects?.boxShadows &&
             keys(theme.effects.boxShadows).map((boxShadowKey, index) => {
               const shadow = theme.effects.boxShadows[boxShadowKey];
@@ -47,7 +45,7 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
               );
             })}
         </BoxV2>
-      </Details>
+      </Stack>
     </Stack>
   );
 };

@@ -1,7 +1,13 @@
 import React from 'react';
 import { Color } from '@newrade/core-design-system';
 import { cleanup, render } from '@testing-library/react';
-import { getCSSColor, getCSSVarNamesForColors, getCSSVarForColors, getCSSColors } from '../colors.utilities';
+import {
+  getCSSColor,
+  getCSSVarNamesForColors,
+  getCSSVarForColors,
+  getCSSColors,
+  getCSSHexColor,
+} from '../colors.utilities';
 import { defaultColorsColors, defaultColorIntents, defaultColors } from '../../design-system/default-colors';
 
 describe('colors utilities', () => {
@@ -55,6 +61,18 @@ describe('colors utilities', () => {
         expect(element[0]).toHaveStyle(`backgroundColor: hsl(222deg 40% 50% / 100%)`);
       }
       cleanup();
+    });
+  });
+
+  describe(`${getCSSHexColor.name}`, () => {
+    it('should create a valid HEX CSS color from a Color object', () => {
+      const color: Color = {
+        h: 0,
+        s: 100,
+        l: 50,
+      };
+      const cssColor = getCSSHexColor(color);
+      expect(cssColor).toBe('#f00');
     });
   });
 

@@ -7,11 +7,12 @@ import {
   LABEL_SIZE,
   TEXT_STYLE,
 } from '@newrade/core-design-system';
+import { IoAddOutline } from '@react-icons/all-files/io5/IoAddOutline';
 import { AriaButtonProps } from '@react-types/button';
 import React, { useRef } from 'react';
 import { useButton } from 'react-aria';
-import { IoAddOutline } from 'react-icons/io5';
 import { useStyles } from 'react-treat';
+import { usePreventLongPress, usePreventPinchZoom } from '../..';
 import { CommonComponentProps } from '../../props/component-common.props';
 import { getDefaultTextFromProps, getMergedClassname } from '../../utilities/component.utilities';
 import { Label } from '../text/label';
@@ -28,7 +29,21 @@ type Props = CommonComponentProps &
 
 export const Button = React.forwardRef<any, Props>(
   (
-    { id, style, className, children, variant, collapsePadding, as, AsElement, size, state, icon, Icon, ...props },
+    {
+      id,
+      style,
+      className,
+      children,
+      variant,
+      collapsePadding,
+      as,
+      AsElement,
+      size,
+      state,
+      icon = ButtonIcon.right,
+      Icon,
+      ...props
+    },
     ref
   ) => {
     const { styles } = useStyles(stylesRef);
@@ -37,6 +52,9 @@ export const Button = React.forwardRef<any, Props>(
     const { buttonProps, isPressed } = useButton({ ...props, elementType: type }, refLocal as any);
 
     const iconClassNames = getMergedClassname([styles.iconBase, icon ? styles[icon] : '']);
+
+    usePreventPinchZoom(refLocal.current);
+    usePreventLongPress(refLocal.current);
 
     const IconSvg =
       Icon && icon ? (
@@ -50,7 +68,6 @@ export const Button = React.forwardRef<any, Props>(
 
     const variantStateClassName = `${styles[ButtonState.rest]}`;
     const variantClassName = `${styles[variant ? variant : ButtonVariant.primary]}`;
-    const collapsePaddingClassName = `${collapsePadding === 'left' ? styles.collapsePaddingLeft : ''}`;
     const variantSizeClassName = styles[size ? size : ButtonSize.medium];
     const activeClassName = isPressed ? styles.pressed : '';
     const allClassName = getMergedClassname([

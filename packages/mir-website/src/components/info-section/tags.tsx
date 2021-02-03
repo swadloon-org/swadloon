@@ -1,12 +1,9 @@
+import { LABEL } from '@newrade/core-design-system-old';
 import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
-
-import * as styleRefs from './tags.treat';
-
-import { Label } from '../ui/label';
-
 import { Illustration } from '../ui/illustration';
-import { LABEL } from '@newrade/core-design-system-old';
+import { Label } from '../ui/label';
+import * as styleRefs from './tags.treat';
 
 type OwnProps = {
   numberIndex: string;
@@ -20,7 +17,7 @@ export const Tags: React.FC<HTMLAttributes<any> & OwnProps> = (props) => {
       <div className={styles.container}>
         <Illustration
           className={`${styles.illustration}`}
-          name={`Illustration/IllustrationOvalSquare`}
+          name={`illustrations/IllustrationOvalSquare`}
           width={42}
           height={42}
         ></Illustration>

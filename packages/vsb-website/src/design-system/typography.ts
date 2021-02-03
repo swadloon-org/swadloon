@@ -56,7 +56,7 @@ export const typography: Typography = {
     },
     desktop: {
       t1: {
-        capHeight: 55,
+        capHeight: 60,
         lineGap: 34,
       },
       t2: {
@@ -82,7 +82,7 @@ export const typography: Typography = {
         lineGap: 16,
       },
       h4: {
-        capHeight: 16,
+        capHeight: 14,
         lineGap: 14,
       },
     },
@@ -100,25 +100,25 @@ export const typography: Typography = {
         lineGap: 14,
       },
       h4: {
-        capHeight: 18,
+        capHeight: 16,
         lineGap: 14,
       },
     },
     desktop: {
       h1: {
-        capHeight: 28,
-        lineGap: 18,
+        capHeight: 34,
+        lineGap: 30,
       },
       h2: {
         capHeight: 24,
-        lineGap: 16,
+        lineGap: 20,
       },
       h3: {
         capHeight: 20,
         lineGap: 14,
       },
       h4: {
-        capHeight: 18,
+        capHeight: 16,
         lineGap: 14,
       },
     },
@@ -145,7 +145,7 @@ export const typography: Typography = {
         lineGap: 16,
       },
       small: {
-        capHeight: 10,
+        capHeight: 11,
         lineGap: 14,
       },
       xSmall: {
@@ -210,7 +210,7 @@ export const typography: Typography = {
     },
     mobile: {
       medium: {
-        capHeight: 13,
+        capHeight: 12,
         lineGap: 12,
       },
       small: {
@@ -239,15 +239,15 @@ export const typography: Typography = {
     desktop: {
       medium: {
         capHeight: 13,
-        lineGap: 12,
+        lineGap: 10,
       },
       small: {
         capHeight: 11,
-        lineGap: 12,
+        lineGap: 8,
       },
       xSmall: {
-        capHeight: 9,
-        lineGap: 12,
+        capHeight: 9.5,
+        lineGap: 8,
       },
     },
   },

@@ -15,7 +15,7 @@ export const NotFoundTemplate: React.FC<ProjectPageProps> = ({ data, location })
         Page non trouvée
       </Heading>
       <Paragraph variant="medium" className={`${styles.text}`}>
-        Cette page n'existe plus!
+        {`Cette page n'existe plus!`}
       </Paragraph>
     </main>
   );

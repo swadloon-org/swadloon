@@ -36,6 +36,7 @@ export const SideBar: React.FC<Props> = ({
   className,
   sidebarOpened,
   fullHeight,
+  disableBodyScroll,
   mobileOnly = true,
   ...props
 }) => {
@@ -52,14 +53,14 @@ export const SideBar: React.FC<Props> = ({
    * Animation
    */
   const ref = useRef<HTMLDivElement>(null);
-  useAnimateSideBar({ sidebarOpened, ref });
+  useAnimateSideBar({ sidebarOpened, ref, disableBodyScroll });
 
   return (
-    <div className={classNames} ref={ref}>
+    <nav className={classNames} ref={ref}>
       <Stack className={styles.navItemsWrapper}>
         {/* User provided links and content */}
         {props.children}
       </Stack>
-    </div>
+    </nav>
   );
 };

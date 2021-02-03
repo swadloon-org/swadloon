@@ -2,6 +2,8 @@ import * as DS from '@newrade/core-design-system';
 import { Color, Colors } from '@newrade/core-design-system';
 import { kebab } from 'case';
 import CSSTypes from 'csstype';
+import toColorString from 'polished/lib/color/toColorString';
+import parseToRgb from 'polished/lib/color/parseToRgb';
 import { keys } from './utilities';
 
 export function generateColorPalette5({ color: color, light, dark }: { color: DS.Color; light: number; dark: number }) {
@@ -111,6 +113,31 @@ export function getCSSColors(colors: DS.Colors): Colors<string> {
  */
 export function getCSSColor({ h, s, l, a }: Partial<DS.Color>): CSSTypes.Color {
   return `hsl(${h}deg ${s}% ${l}% / ${a === undefined ? 100 : a}%)`;
+}
+
+/**
+ * Create a hex CSS color string from a Color object
+ */
+export function getCSSHexColor({ h, s, l, a }: Partial<DS.Color>): CSSTypes.Color {
+  // toColorString({ hue: 360, saturation: 0.75, lightness: 0.4, alpha: 0.72 }),
+  return toColorString({
+    hue: h,
+    saturation: s !== undefined ? s / 100 : 1,
+    lightness: l !== undefined ? l / 100 : 1,
+    alpha: a !== undefined ? a / 100 : 1,
+  });
+}
+
+/**
+ * Create a rgb color from a Color object
+ */
+export function getRGBColor(color: Partial<DS.Color>): DS.ColorRGB {
+  const rgb = parseToRgb(getCSSHexColor(color));
+  return {
+    r: rgb.red,
+    g: rgb.green,
+    b: rgb.blue,
+  };
 }
 
 /**
@@ -225,7 +252,7 @@ function getNameForColors(colors: DS.Colors['colors'] | DS.Colors['colorIntents'
         typeof colors[currentColor] === 'object' &&
         !Object.keys(colors[currentColor]).includes('h')
       ) {
-        Object.keys(colors[currentColor]).map((colorName) => {
+        Object.keys(colors[currentColor]).forEach((colorName) => {
           const formattedCurrentColor = kebab(currentColor);
           const formattedColorName = kebab(colorName);
           colorsVarNames.push(`--${prefix}-${formattedCurrentColor}-${formattedColorName}`);
@@ -239,7 +266,6 @@ function getNameForColors(colors: DS.Colors['colors'] | DS.Colors['colorIntents'
         Object.keys(colors[currentColor]).includes('h')
       ) {
         const formattedCurrentColor = kebab(currentColor);
-        const formattedColorName = kebab(currentColor);
         colorsVarNames.push(`--${prefix}-${formattedCurrentColor}`);
       }
     }

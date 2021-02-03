@@ -5,7 +5,7 @@ import { initReactI18next } from 'react-i18next';
 // const langInLocalstorage = window.localStorage.getItem('PreferedLanguage');
 
 const options: InitOptions = {
-  debug: true,
+  // debug: true,
   load: 'languageOnly',
   // lng: 'fr' ? 'fr' : langInLocalstorage === 'en' ? 'en' : 'fr', // default to fr
   lng: 'fr',

@@ -1,10 +1,12 @@
 import { HEADING, TEXT_LEVEL } from '@newrade/core-design-system';
-import { pascal, kebab } from 'case';
-import React, { HTMLAttributes } from 'react';
+import { pascal } from 'case';
+import React, { HTMLAttributes, useRef } from 'react';
 import { useStyles } from 'react-treat';
+import { usePreventPinchZoom } from '../../hooks/use-prevent-pinch-zoom';
 import { CommonComponentProps } from '../../props/component-common.props';
-import * as stylesRef from './heading.treat';
+import { getMergedClassname } from '../../utilities/component.utilities';
 import { formatAnchorId } from '../../utilities/text.utilities';
+import * as stylesRef from './heading.treat';
 
 type Props = CommonComponentProps &
   HTMLAttributes<HTMLHeadingElement> & {
@@ -19,53 +21,58 @@ const defaultProps: Props = {
   children: 'Heading',
 };
 
-export const Heading: React.FC<Props> = React.memo(
-  ({ variant, variantLevel, displayMode, id, className, children, style, ...props }) => {
-    const { styles } = useStyles(stylesRef);
+export const Heading = React.memo(
+  React.forwardRef<any, Props>(
+    ({ variant, variantLevel, displayMode, id, className, children, style, as, ...props }, ref) => {
+      const { styles } = useStyles(stylesRef);
+      const refLocal = ref ? (ref as React.RefObject<HTMLButtonElement>) : useRef<HTMLButtonElement>(null);
 
-    let type: keyof React.ReactHTML;
+      let type: keyof React.ReactHTML;
 
-    switch (variant) {
-      case HEADING.h1: {
-        type = 'h1';
-        break;
-      }
-      case HEADING.h2: {
-        type = 'h2';
-        break;
-      }
-      case HEADING.h3: {
-        type = 'h3';
-        break;
-      }
-      case HEADING.h4: {
-        type = 'h4';
-        break;
+      switch (variant) {
+        case HEADING.h1: {
+          type = as ? as : 'h1';
+          break;
+        }
+        case HEADING.h2: {
+          type = as ? as : 'h2';
+          break;
+        }
+        case HEADING.h3: {
+          type = as ? as : 'h3';
+          break;
+        }
+        case HEADING.h4: {
+          type = as ? as : 'h4';
+          break;
+        }
+
+        default: {
+          type = 'h1';
+          break;
+        }
       }
 
-      default: {
-        type = 'h1';
-        break;
-      }
+      const defaultChildrenString = `${defaultProps.children as string} ${pascal(type)}`;
+      const variantClass = `${styles[variant ? variant : (defaultProps.variant as HEADING)]}`;
+      const variantLevelClass = `${styles[variantLevel ? variantLevel : (defaultProps.variantLevel as TEXT_LEVEL)]}`;
+      const classNames = getMergedClassname([className, styles.wrapper, variantClass, variantLevelClass]);
+
+      usePreventPinchZoom(refLocal.current);
+
+      const child = children ? children : defaultChildrenString;
+
+      return React.createElement(
+        type,
+        {
+          ref,
+          id: formatAnchorId(id ? id : typeof children === 'string' ? children : ''),
+          style: displayMode ? { ...style, display: displayMode } : style,
+          className: classNames,
+          ...props,
+        },
+        child
+      );
     }
-
-    const defaultChildrenString = `${defaultProps.children as string} ${pascal(type)}`;
-    const variantClass = `${styles[variant ? variant : (defaultProps.variant as HEADING)]}`;
-    const variantLevelClass = `${styles[variantLevel ? variantLevel : (defaultProps.variantLevel as TEXT_LEVEL)]}`;
-    const mergedClass = `${className || ''}`;
-
-    const child = children ? (
-      <div className={`${variantClass} ${variantLevelClass}`}>{children}</div>
-    ) : (
-      <div className={`${variantClass} ${variantLevelClass}`}>{defaultChildrenString}</div>
-    );
-
-    return React.createElement(type, {
-      id: id ? id : typeof child === 'string' ? formatAnchorId(child) : formatAnchorId(defaultChildrenString),
-      style: displayMode ? { ...style, display: displayMode } : style,
-      className: `${styles.wrapper} ${mergedClass}`,
-      children: child,
-      ...props,
-    });
-  }
+  )
 );

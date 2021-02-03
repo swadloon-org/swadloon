@@ -3,6 +3,7 @@ import { Theme } from '../design-system/css-design-system';
 
 export const styles = {
   wrapper: style(({ cssTheme, theme }: Theme) => ({
+    position: 'relative',
     display: 'grid',
     width: '100%',
     marginLeft: 'auto',

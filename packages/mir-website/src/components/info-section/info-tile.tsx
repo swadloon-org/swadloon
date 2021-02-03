@@ -20,7 +20,7 @@ export const InfoTile: React.FC<OwnProps & PassProps> = (props) => {
       }`}
     >
       <Illustration
-        name={'Illustration/IllustrationRoundedRectangle'}
+        name={'illustrations/IllustrationRoundedRectangle'}
         className={`${styles.backgroundIllustration}`}
         preserveAspectRatio="xMidYMid meet"
         width={'100%'}
@@ -31,7 +31,7 @@ export const InfoTile: React.FC<OwnProps & PassProps> = (props) => {
         {props?.illustration ? (
           <Illustration
             className={`${styles.illustration}`}
-            name={`Illustration/${props?.illustration?.title}`}
+            name={`illustrations/${props?.illustration?.title}`}
             width={42}
             height={42}
           />

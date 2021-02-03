@@ -12,7 +12,7 @@ export function getDirNameFromRelativePath(name?: string | null): string {
 
   const reg = /([A-Z-]+)\//gi;
   const match = reg.exec(name);
-  return match && match?.[1] ? match[1] : '';
+  return match && match[1] ? match[1] : '';
 }
 
 /**

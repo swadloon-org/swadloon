@@ -3,7 +3,7 @@ import { style } from 'treat';
 import { Theme } from '../../design-system/css-design-system';
 
 const iconSize = `1.5em`;
-const iconPadding = `2.5em`;
+const iconPadding = `3em`;
 
 export const styles: { [key in ButtonStyleProps['variant']]: string } &
   { [key in ButtonStyleProps['icon']]?: string } &
@@ -17,6 +17,7 @@ export const styles: { [key in ButtonStyleProps['variant']]: string } &
    */
   primary: style(({ theme, cssTheme }: Theme) => ({
     color: cssTheme.colors.colorIntents.primaryTextReversed,
+    border: `2px solid ${cssTheme.colors.colorIntents.primary}`,
     backgroundColor: cssTheme.colors.colorIntents.primary,
     selectors: {
       '&[datapressed="true"]': {
@@ -31,6 +32,7 @@ export const styles: { [key in ButtonStyleProps['variant']]: string } &
   })),
   primaryReversed: style(({ theme, cssTheme }: Theme) => ({
     color: cssTheme.colors.colorIntents.primaryTextReversed,
+    border: `2px solid ${cssTheme.colors.colorIntents.primary}`,
     backgroundColor: cssTheme.colors.colorIntents.primary,
     selectors: {
       '&[datapressed="true"]': {
@@ -45,8 +47,7 @@ export const styles: { [key in ButtonStyleProps['variant']]: string } &
   })),
   secondary: style(({ theme, cssTheme }: Theme) => ({
     color: cssTheme.colors.colorIntents.primary,
-    border: `1px solid ${cssTheme.colors.colorIntents.primary}`,
-    backgroundColor: cssTheme.colors.colorIntents.background0,
+    border: `2px solid ${cssTheme.colors.colorIntents.primary}`,
     selectors: {
       '&[datapressed="true"]': {
         backgroundColor: cssTheme.colors.colors.primary[100],
@@ -61,7 +62,7 @@ export const styles: { [key in ButtonStyleProps['variant']]: string } &
   })),
   secondaryReversed: style(({ theme, cssTheme }: Theme) => ({
     color: cssTheme.colors.colorIntents.primaryReversed,
-    border: `1px solid ${cssTheme.colors.colorIntents.primaryReversed}`,
+    border: `2px solid ${cssTheme.colors.colorIntents.primaryReversed}`,
     selectors: {
       '&[datapressed="true"]': {
         backgroundColor: cssTheme.colors.colors.grey[100],
@@ -111,7 +112,9 @@ export const styles: { [key in ButtonStyleProps['variant']]: string } &
     cursor: 'pointer',
     appearance: 'none',
     userSelect: 'none',
+    touchAction: 'none',
     WebkitAppearance: 'none',
+    whiteSpace: 'nowrap', // don't allow wrapping
     borderRadius: 4,
     width: 'fit-content',
     ':focus': {
@@ -125,19 +128,27 @@ export const styles: { [key in ButtonStyleProps['variant']]: string } &
    * Sizes
    */
   large: style(({ theme, cssTheme }: Theme) => ({
-    minHeight: `calc(2 * ${cssTheme.sizing.var.x3} + ${cssTheme.typography.labels.mobile.medium.capHeight}px)`,
-    minWidth: `calc(2 * ${cssTheme.sizing.var.x3} + ${cssTheme.typography.labels.mobile.medium.capHeight}px)`,
+    height: `calc(2 * ${cssTheme.sizing.var.x3} + ${cssTheme.typography.labels.mobile.medium.capHeight}px + ${4}px)`,
+    minWidth: `calc(2 * ${cssTheme.sizing.var.x3} + ${cssTheme.typography.labels.mobile.medium.capHeight}px + ${4}px)`,
     padding: `${cssTheme.sizing.var.x3} ${cssTheme.sizing.var.x3}`,
     fontSize: cssTheme.typography.labels.mobile.medium.capsize?.fontSize,
     '@media': {
       [cssTheme.layout.media.tablet]: {
-        minHeight: `calc(2 * ${cssTheme.sizing.var.x3} + ${cssTheme.typography.labels.tablet.medium.capHeight}px)`,
-        minWidth: `calc(2 * ${cssTheme.sizing.var.x3} + ${cssTheme.typography.labels.tablet.medium.capHeight}px)`,
+        height: `calc(2 * ${cssTheme.sizing.var.x3} + ${
+          cssTheme.typography.labels.tablet.medium.capHeight
+        }px + ${4}px)`,
+        minWidth: `calc(2 * ${cssTheme.sizing.var.x3} + ${
+          cssTheme.typography.labels.tablet.medium.capHeight
+        }px + ${4}px)`,
         fontSize: cssTheme.typography.labels.tablet.medium.capsize?.fontSize,
       },
       [cssTheme.layout.media.desktopSmall]: {
-        minHeight: `calc(2 * ${cssTheme.sizing.var.x3} + ${cssTheme.typography.labels.desktop.medium.capHeight}px)`,
-        minWidth: `calc(2 * ${cssTheme.sizing.var.x3} + ${cssTheme.typography.labels.desktop.medium.capHeight}px)`,
+        height: `calc(2 * ${cssTheme.sizing.var.x3} + ${
+          cssTheme.typography.labels.desktop.medium.capHeight
+        }px + ${4}px)`,
+        minWidth: `calc(2 * ${cssTheme.sizing.var.x3} + ${
+          cssTheme.typography.labels.desktop.medium.capHeight
+        }px + ${4}px)`,
         fontSize: cssTheme.typography.labels.desktop.medium.capsize?.fontSize,
       },
     },
@@ -155,19 +166,25 @@ export const styles: { [key in ButtonStyleProps['variant']]: string } &
   })),
   collapsePaddingLeft: style(({ theme, cssTheme }: Theme) => ({})),
   medium: style(({ theme, cssTheme }: Theme) => ({
-    minHeight: `calc(2 * ${cssTheme.sizing.var.x2} + ${cssTheme.typography.labels.mobile.small.capHeight}px)`,
-    minWidth: `calc(2 * ${cssTheme.sizing.var.x2} + ${cssTheme.typography.labels.mobile.small.capHeight}px)`,
+    height: `calc(2 * ${cssTheme.sizing.var.x2} + ${cssTheme.typography.labels.mobile.small.capHeight}px + ${4}px)`,
+    minWidth: `calc(2 * ${cssTheme.sizing.var.x2} + ${cssTheme.typography.labels.mobile.small.capHeight}px + ${4}px)`,
     padding: `${cssTheme.sizing.var.x2} ${cssTheme.sizing.var.x2}`,
     fontSize: cssTheme.typography.labels.mobile.small.capsize?.fontSize,
     '@media': {
       [cssTheme.layout.media.tablet]: {
-        minHeight: `calc(2 * ${cssTheme.sizing.var.x2} + ${cssTheme.typography.labels.tablet.small.capHeight}px)`,
-        minWidth: `calc(2 * ${cssTheme.sizing.var.x2} + ${cssTheme.typography.labels.tablet.small.capHeight}px)`,
+        height: `calc(2 * ${cssTheme.sizing.var.x2} + ${cssTheme.typography.labels.tablet.small.capHeight}px + ${4}px)`,
+        minWidth: `calc(2 * ${cssTheme.sizing.var.x2} + ${
+          cssTheme.typography.labels.tablet.small.capHeight
+        }px + ${4}px)`,
         fontSize: cssTheme.typography.labels.tablet.small.capsize?.fontSize,
       },
       [cssTheme.layout.media.desktopSmall]: {
-        minHeight: `calc(2 * ${cssTheme.sizing.var.x2} + ${cssTheme.typography.labels.desktop.small.capHeight}px)`,
-        minWidth: `calc(2 * ${cssTheme.sizing.var.x2} + ${cssTheme.typography.labels.desktop.small.capHeight}px)`,
+        height: `calc(2 * ${cssTheme.sizing.var.x2} + ${
+          cssTheme.typography.labels.desktop.small.capHeight
+        }px + ${4}px)`,
+        minWidth: `calc(2 * ${cssTheme.sizing.var.x2} + ${
+          cssTheme.typography.labels.desktop.small.capHeight
+        }px + ${4}px)`,
         fontSize: cssTheme.typography.labels.desktop.small.capsize?.fontSize,
       },
     },
@@ -184,19 +201,25 @@ export const styles: { [key in ButtonStyleProps['variant']]: string } &
     },
   })),
   small: style(({ theme, cssTheme }: Theme) => ({
-    minHeight: `calc(2 * ${cssTheme.sizing.var.x1} + ${cssTheme.typography.labels.mobile.small.capHeight}px)`,
-    minWidth: `calc(2 * ${cssTheme.sizing.var.x1} + ${cssTheme.typography.labels.mobile.small.capHeight}px)`,
+    height: `calc(2 * ${cssTheme.sizing.var.x1} + ${cssTheme.typography.labels.mobile.small.capHeight}px + ${4}px)`,
+    minWidth: `calc(2 * ${cssTheme.sizing.var.x1} + ${cssTheme.typography.labels.mobile.small.capHeight}px + ${4}px)`,
     padding: `${cssTheme.sizing.var.x1} ${cssTheme.sizing.var.x2}`,
     fontSize: cssTheme.typography.labels.mobile.small.capsize?.fontSize,
     '@media': {
       [cssTheme.layout.media.tablet]: {
-        minHeight: `calc(2 * ${cssTheme.sizing.var.x1} + ${cssTheme.typography.labels.tablet.small.capHeight}px)`,
-        minWidth: `calc(2 * ${cssTheme.sizing.var.x1} + ${cssTheme.typography.labels.tablet.small.capHeight}px)`,
+        height: `calc(2 * ${cssTheme.sizing.var.x1} + ${cssTheme.typography.labels.tablet.small.capHeight}px + ${4}px)`,
+        minWidth: `calc(2 * ${cssTheme.sizing.var.x1} + ${
+          cssTheme.typography.labels.tablet.small.capHeight
+        }px + ${4}px)`,
         fontSize: cssTheme.typography.labels.tablet.small.capsize?.fontSize,
       },
       [cssTheme.layout.media.desktopSmall]: {
-        minHeight: `calc(2 * ${cssTheme.sizing.var.x1} + ${cssTheme.typography.labels.desktop.small.capHeight}px)`,
-        minWidth: `calc(2 * ${cssTheme.sizing.var.x1} + ${cssTheme.typography.labels.desktop.small.capHeight}px)`,
+        height: `calc(2 * ${cssTheme.sizing.var.x1} + ${
+          cssTheme.typography.labels.desktop.small.capHeight
+        }px + ${4}px)`,
+        minWidth: `calc(2 * ${cssTheme.sizing.var.x1} + ${
+          cssTheme.typography.labels.desktop.small.capHeight
+        }px + ${4}px)`,
         fontSize: cssTheme.typography.labels.desktop.small.capsize?.fontSize,
       },
     },
@@ -213,8 +236,8 @@ export const styles: { [key in ButtonStyleProps['variant']]: string } &
     },
   })),
   xSmall: style(({ theme, cssTheme }: Theme) => ({
-    minHeight: `calc(2 * ${cssTheme.sizing.var.x1} + ${cssTheme.typography.labels.mobile.xSmall.capHeight}px)`,
-    minWidth: `calc(2 * ${cssTheme.sizing.var.x1} + ${cssTheme.typography.labels.mobile.xSmall.capHeight}px)`,
+    height: `calc(2 * ${cssTheme.sizing.var.x1} + ${cssTheme.typography.labels.mobile.xSmall.capHeight}px + ${4}px)`,
+    minWidth: `calc(2 * ${cssTheme.sizing.var.x1} + ${cssTheme.typography.labels.mobile.xSmall.capHeight}px + ${4}px)`,
     padding: `${cssTheme.sizing.var.x1} ${cssTheme.sizing.var.x1}`,
     fontSize: cssTheme.typography.labels.mobile.xSmall.capsize?.fontSize,
     '@media': {
@@ -230,13 +253,21 @@ export const styles: { [key in ButtonStyleProps['variant']]: string } &
         marginLeft: `calc(-1 * ${cssTheme.sizing.var.x1} + (${iconSize} - ${cssTheme.sizing.var.x3}) / 2)`,
       },
       '&[dataicon="right"]': {
-        minHeight: `calc(2 * ${cssTheme.sizing.var.x1} + ${cssTheme.typography.labels.tablet.xSmall.capHeight}px)`,
-        minWidth: `calc(2 * ${cssTheme.sizing.var.x1} + ${cssTheme.typography.labels.tablet.xSmall.capHeight}px)`,
+        height: `calc(2 * ${cssTheme.sizing.var.x1} + ${
+          cssTheme.typography.labels.tablet.xSmall.capHeight
+        }px + ${4}px)`,
+        minWidth: `calc(2 * ${cssTheme.sizing.var.x1} + ${
+          cssTheme.typography.labels.tablet.xSmall.capHeight
+        }px + ${4}px)`,
         padding: `${cssTheme.sizing.var.x1} ${iconPadding} ${cssTheme.sizing.var.x1} ${cssTheme.sizing.var.x1}`,
       },
       '&[dataicon="left"]': {
-        minHeight: `calc(2 * ${cssTheme.sizing.var.x1} + ${cssTheme.typography.labels.desktop.xSmall.capHeight}px)`,
-        minWidth: `calc(2 * ${cssTheme.sizing.var.x1} + ${cssTheme.typography.labels.desktop.xSmall.capHeight}px)`,
+        height: `calc(2 * ${cssTheme.sizing.var.x1} + ${
+          cssTheme.typography.labels.desktop.xSmall.capHeight
+        }px + ${4}px)`,
+        minWidth: `calc(2 * ${cssTheme.sizing.var.x1} + ${
+          cssTheme.typography.labels.desktop.xSmall.capHeight
+        }px + ${4}px)`,
         padding: `${cssTheme.sizing.var.x1} ${cssTheme.sizing.var.x1} ${cssTheme.sizing.var.x1} ${iconPadding}`,
       },
     },
@@ -255,14 +286,10 @@ export const styles: { [key in ButtonStyleProps['variant']]: string } &
   })),
   right: style(({ theme, cssTheme }: Theme) => ({
     top: `calc(50% - ${iconSize} / 2)`,
-    right: `0.6em`,
+    right: `0.8em`,
   })),
   left: style(({ theme, cssTheme }: Theme) => ({
     top: `calc(50% - ${iconSize} / 2)`,
-    left: `0.6em`,
+    left: `0.8em`,
   })),
 };
-
-// globalStyle(`${styles.large} ${styles.iconBase} path`, ({ theme, cssTheme }: Theme) => ({
-//   strokeWidth: 40,
-// }));

@@ -10,6 +10,12 @@
   },
   "references": [
     {
+      "path": "../core-types/tsconfig.build.json"
+    },
+    {
+      "path": "../core-utils/tsconfig.build.json"
+    },
+    {
       "path": "../core-common/tsconfig.build.json"
     },
     {

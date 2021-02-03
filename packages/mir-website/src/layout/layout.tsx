@@ -1,13 +1,14 @@
-import React, { useState, ReactNode, Props } from 'react';
+import LogoFramed from '!!file-loader!../images/LogoFramedReversed.svg';
+import { globalHistory } from '@reach/router';
+import { graphql, PageProps, useStaticQuery } from 'gatsby';
+import React, { ReactNode, useEffect, useState } from 'react';
 import { useStyles } from 'react-treat';
-
-import * as styleRefs from './layout.treat';
-import { PAGE_NAME } from '../templates/page.template';
-import { SideBar } from '../components/navigation/side-bar';
-import { NavBar } from '../components/navigation/nav-bar';
-import { Footer } from '../components/navigation/footer';
-import { graphql, useStaticQuery, PageProps } from 'gatsby';
 import { NavigationQuery } from '../../types/graphql-types';
+import { Footer } from '../components/navigation/footer';
+import { NavBar } from '../components/navigation/nav-bar';
+import { SideBar } from '../components/navigation/side-bar';
+import { PAGE_NAME } from '../templates/page.template';
+import * as styleRefs from './layout.treat';
 
 type LayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }>;
 
@@ -44,9 +45,21 @@ export const Layout: React.FC<LayoutProps> = (props) => {
   const data = useStaticQuery<NavigationQuery>(query);
   const [sideMenuState, setSideMenuState] = useState<'opened' | 'closed'>('closed');
 
-  function onOpenSideMenu() {
+  function onOpenSideMenu(state?: 'opened' | 'closed') {
+    if (state) {
+      setSideMenuState(state);
+      return;
+    }
+
     setSideMenuState(sideMenuState === 'opened' ? 'closed' : 'opened');
   }
+
+  // close sidebar upon navigation
+  useEffect(() => {
+    return globalHistory.listen((params) => {
+      onOpenSideMenu('closed');
+    });
+  }, [globalHistory, sideMenuState]);
 
   return (
     <div className={styles.wrapper}>
@@ -54,9 +67,9 @@ export const Layout: React.FC<LayoutProps> = (props) => {
         className={`${styles.sidebar}`}
         state={sideMenuState}
         onOpenSideMenu={onOpenSideMenu}
-        currentPageName={props.location?.pathname as string | PAGE_NAME}
+        currentPathname={props.location?.pathname as string | PAGE_NAME}
         location={props.location}
-        logoURL={data?.contentfulCompanyInfo?.logo?.file?.url as string | null}
+        logoURL={LogoFramed}
         linkedinPageURL={data?.contentfulCompanyInfo?.linkedinPageURL as string | null}
         facebookPageURL={data?.contentfulCompanyInfo?.facebookPageURL as string | null}
         instagramPageURL={data?.contentfulCompanyInfo?.instagramPageURL as string | null}
@@ -69,9 +82,9 @@ export const Layout: React.FC<LayoutProps> = (props) => {
       <div className={`${sideMenuState === 'opened' ? styles.open : styles.close}`}>
         <NavBar
           onOpenSideMenu={onOpenSideMenu}
-          currentPageName={props.location?.pathname as string | PAGE_NAME}
+          currentPathname={props.location?.pathname as string | PAGE_NAME}
           location={props.location}
-          logoURL={data?.contentfulCompanyInfo?.logo?.file?.url as string | null}
+          logoURL={LogoFramed}
           linkedinPageURL={data?.contentfulCompanyInfo?.linkedinPageURL as string | null}
           facebookPageURL={data?.contentfulCompanyInfo?.facebookPageURL as string | null}
           instagramPageURL={data?.contentfulCompanyInfo?.instagramPageURL as string | null}

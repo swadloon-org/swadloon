@@ -5,13 +5,23 @@ import * as styleRefs from './main.treat';
 import { getMergedClassname } from '../utilities/component.utilities';
 
 type Props = CommonComponentProps & {
-  minHeight?: boolean;
+  /**
+   * Offset the navbar height
+   */
   navbarPadding?: boolean;
+  /**
+   * Prevents the main content's height from collapsing
+   */
+  minHeight?: boolean;
 };
 
+/**
+ * High level layout component to create a <main/> area in a page.
+ * Should be used inside <MainWrapper/>
+ */
 export const Main: React.FC<Props> = ({ as, style, className, navbarPadding, minHeight, ...props }) => {
   const { styles } = useStyles(styleRefs);
-  const type = as ? as : 'div';
+  const type = as ? as : 'main';
   const mergedClassName = getMergedClassname([
     className,
     styles.wrapper,

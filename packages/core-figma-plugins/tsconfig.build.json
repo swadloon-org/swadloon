@@ -3,7 +3,6 @@
   "compilerOptions": {
     "rootDir": "src",
     "outDir": "lib",
-    "strict": false,
     "lib": ["es2019"],
     "types": ["node"]
   },

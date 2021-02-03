@@ -1,4 +1,5 @@
-import { ButtonSize, HEADING, TEXT_LEVEL, ButtonVariant, ButtonIcon } from '@newrade/core-design-system';
+import { ButtonIcon, ButtonSize, ButtonVariant, HEADING, TEXT_LEVEL } from '@newrade/core-design-system';
+import { GatsbyLink } from '@newrade/core-gatsby-ui/src';
 import {
   Background,
   BoxV2,
@@ -10,13 +11,13 @@ import {
   Stack,
   useTreatTheme,
 } from '@newrade/core-react-ui';
+import { IoArrowForwardOutline } from '@react-icons/all-files/io5/IoArrowForwardOutline';
 import { IFluidObject } from 'gatsby-background-image';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { SectionFragment } from '../../types/graphql-types';
+import { gradient } from '../styles/effects.styles';
 import * as styleRefs from './tile-link.treat';
-import { IoArrowForwardOutline } from 'react-icons/io5';
-import { GatsbyLink } from '@newrade/core-gatsby-ui/src';
 
 type Props = CommonComponentProps & {
   section: SectionFragment;
@@ -26,7 +27,7 @@ type Props = CommonComponentProps & {
 export const TileLink: React.FC<Props> = ({ id, style, className, contentClassName, section, ...props }) => {
   const { styles } = useStyles(styleRefs);
   const hasImage = !!section?.medias?.medias?.length;
-  const imageData: any = section?.medias?.medias?.[0]?.desktopFluidImage;
+  const imageData: any = section?.medias?.medias?.[0]?.desktopFluidImage?.childImageSharp?.fluid;
   const { cssTheme } = useTreatTheme();
   const mergedClassNames = getMergedClassname([styles.wrapper, className]);
   const mergedContentClassNames = getMergedClassname([styles.content, contentClassName]);
@@ -37,7 +38,7 @@ export const TileLink: React.FC<Props> = ({ id, style, className, contentClassNa
         <Background
           effects={[
             {
-              background: `linear-gradient(rgb(0 0 0 / 30%) 0%, rgba(0, 0, 0, 0) 36%), linear-gradient(0deg, rgb(14 13 13 / 20%), rgba(14, 13, 13, 0.20))`,
+              background: gradient,
             },
           ]}
           backgroundImage={{
@@ -62,7 +63,9 @@ export const TileLink: React.FC<Props> = ({ id, style, className, contentClassNa
               <Button
                 size={ButtonSize.large}
                 variant={
-                  section.variant === 'PRIMARY_NORMAL' ? ButtonVariant.primaryReversed : ButtonVariant.secondaryReversed
+                  section?.variant === 'PRIMARY_NORMAL'
+                    ? ButtonVariant.primaryReversed
+                    : ButtonVariant.secondaryReversed
                 }
                 icon={ButtonIcon.right}
                 Icon={<IoArrowForwardOutline />}
