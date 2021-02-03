@@ -9,29 +9,53 @@ export const styles = {
     width: `100%`,
     border: `1px solid ${cssTheme.colors.colors.grey[50]}`,
     borderRadius: 4,
+    overflowX: 'auto',
   })),
   editor: style(({ theme, cssTheme }: Theme) => ({
     padding: 16,
-    // maxWidth: '100% !important',
-    // marginTop: '1em !important',
-    // marginBottom: contentMargin,
-    // overflowX: 'auto !important' as any,
-    // borderRadius: '6px !important',
+    userSelect: 'text',
     fontSize: `14px !important`,
     lineHeight: 1.5,
     borderRadius: `6px`,
-    // overflow: 'auto !important' as any,
-    // lineHeight: '1.45 !important',
-    // backgroundColor: '#f2f5f8 !important',
+  })),
+  error: style(({ theme, cssTheme }: Theme) => ({
+    padding: 16,
+    userSelect: 'text',
+    fontSize: `14px !important`,
+    lineHeight: 1.5,
+    overflow: `auto hidden`,
   })),
   pre: style(({ theme, cssTheme }: Theme) => ({
     fontSize: `14px !important`,
-    borderRadius: `6px`,
-    lineHeight: 1.5,
+    marginTop: '1em !important',
+    marginBottom: contentMargin,
+    maxWidth: '100% !important',
+    overflowX: 'auto !important' as any,
     padding: 16,
+
+    lineHeight: 1.5,
+    borderRadius: `6px`,
+    userSelect: 'text',
   })),
-  textArea: style(({ theme, cssTheme }: Theme) => ({
+  /**
+   * For react-simple-code-editor
+   */
+  textAreaEditor: style(({ theme, cssTheme }: Theme) => ({
+    userSelect: `text !important` as any,
+    outline: `none !important` as any,
+    lineHeight: 1.5,
+
+    // breaks the editor
+    // whiteSpace: `pre !important` as any,
+    // overflowWrap: `inherit !important` as any,
+  })),
+  preEditor: style(({ theme, cssTheme }: Theme) => ({
+    userSelect: `text`,
     outline: `none`,
     lineHeight: 1.5,
+
+    // breaks the editor
+    // whiteSpace: `pre !important` as any,
+    // overflowWrap: `inherit !important` as any,
   })),
 };
