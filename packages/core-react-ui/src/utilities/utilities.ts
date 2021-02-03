@@ -68,8 +68,9 @@ export function pxStringToNumber({ value }: { value: string }): number | undefin
   if (!(match?.length && match[0]?.length)) {
     return undefined;
   }
+
   const conversion = Number(match[0]);
-  if (conversion === undefined || conversion === NaN) {
+  if (isNaN(conversion)) {
     return undefined;
   }
 
