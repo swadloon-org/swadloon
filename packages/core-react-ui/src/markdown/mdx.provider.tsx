@@ -1,5 +1,5 @@
 import { HEADING, LinkVariant, PARAGRAPH_SIZE, TEXT_STYLE } from '@newrade/core-design-system';
-import React from 'react';
+import React, { Suspense } from 'react';
 import { ListItem } from '../components/list-item/list-item';
 import { ListItems } from '../components/list-item/list-items';
 import { Table } from '../components/table/table';
@@ -85,7 +85,11 @@ export const mdxComponents: Partial<Record<keyof React.ReactHTML, React.ReactNod
       import('../code/code-block').then((comp) => ({ default: comp.CodeBlock }))
     );
 
-    return !isSSR ? <CodeBlock {...props}>{children as string}</CodeBlock> : null;
+    return !isSSR ? (
+      <Suspense fallback={'loading...'}>
+        <CodeBlock {...props}>{children as string}</CodeBlock>
+      </Suspense>
+    ) : null;
   },
   // inlineCode	InlineCode	`inlineCode`
   // pre	Code	```code```

@@ -27,9 +27,11 @@ export const styles = {
   pre: style(({ theme, cssTheme }: Theme) => ({
     fontSize: `14px !important`,
     borderRadius: `6px`,
+    lineHeight: 1.5,
     padding: 16,
   })),
   textArea: style(({ theme, cssTheme }: Theme) => ({
     outline: `none`,
+    lineHeight: 1.5,
   })),
 };
