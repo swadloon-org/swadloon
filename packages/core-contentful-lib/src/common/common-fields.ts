@@ -30,6 +30,9 @@ export enum COMMON_FIELD {
   /**
    * section V2
    */
+  SECTION_V2 = 'sectionV2',
+  SECTIONS_V2 = 'sectionsV2',
+
   BLOCK = 'block',
   BLOCKS = 'blocks',
   /**

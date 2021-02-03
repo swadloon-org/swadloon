@@ -16,7 +16,7 @@ import { createTagType } from '../common/content-types/tag-type';
 import { createBlock } from '../common/content-types/v2/block';
 import { createBlockType } from '../common/content-types/v2/block-type';
 import { createNavigation } from '../common/content-types/v2/navigation';
-import { createPageV2 } from '../common/content-types/v2/page';
+import { createPageV2 } from '../common/content-types/v2/pagev2';
 import { createSectionV2 } from '../common/content-types/v2/sectionV2';
 import { createCostItem, createStep } from './project-content-types';
 import {

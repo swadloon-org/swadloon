@@ -3,7 +3,7 @@ import * as Migration from 'contentful-migration';
 import { CONTENTFUL_WIDGET } from '../../../../types/contentful-widget-ids';
 import { keys } from '../../../utilities';
 import { COMMON_CONTENT_TYPE } from '../../common-content-types';
-import { COMMON_FIELD, mediaField } from '../../common-fields';
+import { COMMON_FIELD } from '../../common-fields';
 import { COMMON_VARIANT, COMMON_VARIANT_LAYOUT } from '../../common-props-types';
 
 export function createSectionV2(migration: Migration.default) {
@@ -74,33 +74,6 @@ export function createSectionV2(migration: Migration.default) {
   });
   content.changeFieldControl(COMMON_FIELD.VARIANT, 'builtin', CONTENTFUL_WIDGET.DROPDOWN, {
     helpText: 'Select section variant',
-  });
-
-  /**
-   * For Title and TitleHighlight
-   */
-  content.createField(COMMON_FIELD.TITLE, { name: pascal(COMMON_FIELD.TITLE), type: 'Symbol', localized: true });
-  content.createField('titleHighlight', {
-    name: 'TitleHighlight',
-    type: 'Symbol',
-    localized: true,
-  });
-
-  /**
-   * For SUBTITLE
-   */
-  content.createField(COMMON_FIELD.SUBTITLE, {
-    name: pascal(COMMON_FIELD.SUBTITLE),
-    type: 'Symbol',
-    localized: true,
-  });
-
-  /**
-   * For MediaCollection
-   */
-  content.createField(COMMON_FIELD.MEDIAS, { ...mediaField });
-  content.changeFieldControl(COMMON_FIELD.MEDIAS, 'builtin', CONTENTFUL_WIDGET.ENTRY_CARD_EDITOR, {
-    helpText: 'Select a media collection to set images on the section.',
   });
 
   /**
