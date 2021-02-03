@@ -25,6 +25,7 @@ https://developers.google.com/search/reference/robots_txt
 - Twitter: https://cards-dev.twitter.com/validator
 - Google Rich Result Test: https://search.google.com/test/rich-results
 - https://search.google.com/test/rich-results
+- https://www.checkbot.io/
 
 https://saijogeorge.com/best-marketing-tools/
 https://www.screamingfrog.co.uk/seo-spider/

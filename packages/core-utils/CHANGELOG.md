@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/compare/@newrade/core-utils@1.4.0...@newrade/core-utils@1.5.0) (2021-02-03)
+
+### Bug Fixes
+
+- **repo:** improve tsconfigs and build references ([22a31c1](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/commit/22a31c17608f6d6fda5ccd193588fd9194c68502))
+- **repo:** share .d.ts files in core-types ([4b28071](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/commit/4b28071d704905c281b304a78c5888fbf5961de5))
+
+### Features
+
+- **vsb:** create common package and adjust vsb-api ([5db75ab](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/commit/5db75ab09fc2dd4e3cd6f52b4cc2bc56398863b8))
+
 # [1.4.0](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/compare/@newrade/core-utils@1.3.0...@newrade/core-utils@1.4.0) (2021-01-04)
 
 ### Bug Fixes

@@ -1,11 +1,11 @@
 import { Link as GatsbyLink } from 'gatsby';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import Icon from '../../illustrations/Icon/IconBars.svg';
-import { Link } from '../ui/link';
-import * as stylesRef from './nav-bar.treat';
+import Icon from '../../icons/IconBars.svg';
 import { PAGE_NAME } from '../../templates/page.template';
 import { Button } from '../ui/button';
+import { Link } from '../ui/link';
+import * as stylesRef from './nav-bar.treat';
 import { NavigationProps } from './side-bar';
 
 type OwnProps = {
@@ -13,7 +13,7 @@ type OwnProps = {
 } & NavigationProps;
 
 export const NavBar: React.FC<OwnProps> = ({
-  currentPageName,
+  currentPathname,
   location,
   pages,
   onOpenSideMenu,
@@ -28,9 +28,8 @@ export const NavBar: React.FC<OwnProps> = ({
   const currentLocale = location?.pathname.includes('/en/') ? 'en-CA' : 'fr-CA';
   const currentLocaleIsEN = currentLocale === 'en-CA';
   const currentLocaleIsFR = !currentLocaleIsEN;
-  const currentPage = pages?.filter((page) => page?.name === currentPageName && page?.locale === currentLocale);
   const currentAlternateLocalePage = pages?.filter(
-    (page) => page?.name === currentPageName && page?.locale !== currentLocale
+    (page) => page?.slug === currentPathname && page?.locale !== currentLocale
   );
   const pagesEN = pages?.filter((page) => (currentLocaleIsEN ? page?.locale === 'en-CA' : page));
   const pagesFR = pages?.filter((page) => (currentLocaleIsFR ? page?.locale === 'fr-CA' : page));
@@ -43,13 +42,19 @@ export const NavBar: React.FC<OwnProps> = ({
     PAGE_NAME.A_PROPOS,
   ];
   const leftToolbarPages = (currentLocaleIsEN ? pagesEN : pagesFR)
-    ?.filter((page) => page.name && leftToolbarPageNames?.includes(page?.name))
+    ?.filter((page) => page?.name && leftToolbarPageNames.includes(page?.name))
     .sort((pageA, pageB) => {
-      const indexA = pageA && pageA.name ? leftToolbarPageNames?.indexOf(pageA?.name) : 1;
-      const indexB = pageB && pageB.name ? leftToolbarPageNames?.indexOf(pageB?.name) : 1;
+      const indexA = pageA?.name ? leftToolbarPageNames.indexOf(pageA?.name) : 1;
+      const indexB = pageB?.name ? leftToolbarPageNames.indexOf(pageB?.name) : 1;
       return indexA > indexB ? 1 : -1;
     });
   const contactUsPage = (currentLocaleIsEN ? pagesEN : pagesFR)?.filter((page) => page?.name === 'Contact');
+
+  const alternateLocalePageLink = currentAlternateLocalePage?.length
+    ? currentAlternateLocalePage?.[0]?.slug
+    : currentLocaleIsEN
+    ? '/'
+    : '/en/';
 
   return (
     <header className={styles.wrapper}>
@@ -82,7 +87,7 @@ export const NavBar: React.FC<OwnProps> = ({
         <div className={styles.desktopRightToolbar}>
           <div className={styles.desktopSocialButtons}>
             {facebookPageURL ? (
-              <a href={facebookPageURL} target={'_blank'} aria-label="Facebook Page" rel="noopener">
+              <a href={facebookPageURL} target={'_blank'} aria-label="Facebook Page" rel="noreferrer">
                 <Button
                   variantType="tertiaryReversed"
                   variant="icon"
@@ -93,7 +98,7 @@ export const NavBar: React.FC<OwnProps> = ({
               </a>
             ) : null}
             {linkedinPageURL ? (
-              <a href={linkedinPageURL} target={'_blank'} aria-label="LinkedIn Page" rel="noopener">
+              <a href={linkedinPageURL} target={'_blank'} aria-label="LinkedIn Page" rel="noreferrer">
                 <Button
                   variantType="tertiaryReversed"
                   variant="icon"
@@ -104,7 +109,7 @@ export const NavBar: React.FC<OwnProps> = ({
               </a>
             ) : null}
             {twitterPageURL ? (
-              <a href={twitterPageURL} target={'_blank'} aria-label="Twitter Page" rel="noopener">
+              <a href={twitterPageURL} target={'_blank'} aria-label="Twitter Page" rel="noreferrer">
                 <Button
                   variantType="tertiaryReversed"
                   variant="icon"
@@ -115,7 +120,7 @@ export const NavBar: React.FC<OwnProps> = ({
               </a>
             ) : null}
             {instagramPageURL ? (
-              <a href={instagramPageURL} target={'_blank'} aria-label="Instagram Page" rel="noopener">
+              <a href={instagramPageURL} target={'_blank'} aria-label="Instagram Page" rel="noreferrer">
                 <Button
                   variantType="tertiaryReversed"
                   variant="icon"
@@ -128,26 +133,16 @@ export const NavBar: React.FC<OwnProps> = ({
           </div>
 
           <nav>
-            {currentAlternateLocalePage?.[0]?.slug ? (
-              <GatsbyLink
-                to={
-                  currentAlternateLocalePage?.length
-                    ? currentAlternateLocalePage?.[0]?.slug
-                    : currentLocaleIsEN
-                    ? '/'
-                    : '/en/'
-                }
-              >
-                <Button variantType="tertiaryReversed" variant="text" size="small">
-                  {currentLocaleIsEN ? 'FR' : 'EN'}
-                </Button>
-              </GatsbyLink>
-            ) : null}
+            <GatsbyLink to={alternateLocalePageLink || '/'}>
+              <Button variantType="tertiaryReversed" variant="text" size="small">
+                {currentLocaleIsEN ? 'FR' : 'EN'}
+              </Button>
+            </GatsbyLink>
 
             {contactUsPage?.[0]?.slug ? (
               <GatsbyLink to={contactUsPage?.[0]?.slug}>
                 <Button variantType="secondaryReversed" variant="text" size="small">
-                  {contactUsPage[0]?.title}
+                  {contactUsPage?.[0]?.title}
                 </Button>
               </GatsbyLink>
             ) : null}

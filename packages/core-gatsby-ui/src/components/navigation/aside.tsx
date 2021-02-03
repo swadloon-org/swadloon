@@ -1,9 +1,9 @@
-import { Label, Stack, Box } from '@newrade/core-react-ui';
+import { Label, Stack, useTreatTheme, BoxV2 } from '@newrade/core-react-ui';
 import { WindowLocation } from '@reach/router';
 import { kebab } from 'case';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { useLocation } from '../../hooks/use-reach-router-location';
+import { useReachRouterLocation } from '../../hooks/use-reach-router-location';
 import * as styleRefs from './aside.treat';
 import { formatAnchorId } from '@newrade/core-react-ui';
 
@@ -19,12 +19,13 @@ type Props = {
 
 export const Aside: React.FC<Props> = (props) => {
   const { styles } = useStyles(styleRefs);
+  const { theme, cssTheme } = useTreatTheme();
 
   const id = props?.location?.hash;
   const currentId = useScrollSpy(props.items);
 
   return (
-    <Box as={'aside'} className={styles.wrapper}>
+    <BoxV2 as={'aside'} className={styles.wrapper}>
       <Stack as={'nav'} className={styles.wrapper}>
         {props.items?.filter(filterItemDepthPredicate).map((item) => {
           const href = `#${formatAnchorId(item?.value)}`;
@@ -41,7 +42,7 @@ export const Aside: React.FC<Props> = (props) => {
           );
         })}
       </Stack>
-    </Box>
+    </BoxV2>
   );
 };
 
@@ -51,7 +52,7 @@ function filterItemDepthPredicate(item: AsideItem) {
 
 function useScrollSpy(items: Props['items']) {
   const [currentId, setCurrentId] = React.useState<string | null>(null);
-  const location = useLocation();
+  const location = useReachRouterLocation();
 
   // React.useEffect(() => setCurrentId(null), [location?.hash]);
 
@@ -71,7 +72,9 @@ function useScrollSpy(items: Props['items']) {
 
     const handleScroll = () => {
       elementsArray.forEach((element) => {
-        if (element.offsetTop <= window.scrollY + 30) {
+        if (element.offsetTop <= window.scrollY + 40) {
+          console.log(element.offsetTop);
+          console.log(window.scrollY);
           setCurrentId(element.id);
         }
       });

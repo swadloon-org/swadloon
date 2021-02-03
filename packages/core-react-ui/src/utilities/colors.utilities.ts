@@ -2,25 +2,27 @@ import * as DS from '@newrade/core-design-system';
 import { Color, Colors } from '@newrade/core-design-system';
 import { kebab } from 'case';
 import CSSTypes from 'csstype';
+import toColorString from 'polished/lib/color/toColorString';
+import parseToRgb from 'polished/lib/color/parseToRgb';
 import { keys } from './utilities';
 
 export function generateColorPalette5({ color: color, light, dark }: { color: DS.Color; light: number; dark: number }) {
-  if (dark < light) {
+  if (dark > light) {
     throw new Error('the dark value must be higher than the light, e.g. 90, 10');
   }
 
-  if (dark - light <= 50) {
+  if (light - dark <= 50) {
     throw new Error('the light range must be greater or equal than 50, e.g. 60, 10');
   }
 
-  const lightStep = Math.round((dark - light) / 5);
+  const lightStep = Math.round((light - dark) / 5);
 
   return {
-    '100': { ...color, l: color.l - 2 * lightStep },
-    '300': { ...color, l: color.l - 1 * lightStep },
+    '900': { ...color, l: color.l - 2 * lightStep },
+    '700': { ...color, l: color.l - 1 * lightStep },
     '500': color,
-    '700': { ...color, l: color.l + 1 * lightStep },
-    '900': { ...color, l: color.l + 2 * lightStep },
+    '300': { ...color, l: color.l + 1 * lightStep },
+    '100': { ...color, l: color.l + 2 * lightStep },
   } as DS.ColorPalette<DS.ColorShades5>;
 }
 
@@ -29,7 +31,7 @@ export function generateColorGreyPalette({ hue }: { hue: number }) {
     1000: { h: hue, s: 6, l: 7 },
     900: { h: hue, s: 4, l: 13 },
     800: { h: hue, s: 4, l: 26 },
-    700: { h: hue, s: 5, l: 39 },
+    700: { h: hue, s: 5, l: 46 },
     600: { h: hue, s: 5, l: 59 },
     500: { h: hue, s: 5, l: 66 },
     400: { h: hue, s: 6, l: 73 },
@@ -114,6 +116,31 @@ export function getCSSColor({ h, s, l, a }: Partial<DS.Color>): CSSTypes.Color {
 }
 
 /**
+ * Create a hex CSS color string from a Color object
+ */
+export function getCSSHexColor({ h, s, l, a }: Partial<DS.Color>): CSSTypes.Color {
+  // toColorString({ hue: 360, saturation: 0.75, lightness: 0.4, alpha: 0.72 }),
+  return toColorString({
+    hue: h,
+    saturation: s !== undefined ? s / 100 : 1,
+    lightness: l !== undefined ? l / 100 : 1,
+    alpha: a !== undefined ? a / 100 : 1,
+  });
+}
+
+/**
+ * Create a rgb color from a Color object
+ */
+export function getRGBColor(color: Partial<DS.Color>): DS.ColorRGB {
+  const rgb = parseToRgb(getCSSHexColor(color));
+  return {
+    r: rgb.red,
+    g: rgb.green,
+    b: rgb.blue,
+  };
+}
+
+/**
  * Create a CSS color string from a Color object
  */
 export function getCSSLinearGradient({ angle, stops }: DS.ColorGradient): CSSTypes.BackgroundProperty<any> {
@@ -154,9 +181,9 @@ export function createDefaultColorIntents(colors: DS.Colors['colors']): DS.Color
 
     primaryText: colors.grey['1000'],
     primaryTextReversed: colors.grey['0-reversed'],
-    secondaryText: colors.grey['500'],
+    secondaryText: colors.grey['700'],
     secondaryTextReversed: colors.grey['0-reversed'],
-    tertiaryText: colors.grey['400'],
+    tertiaryText: colors.grey['500'],
     tertiaryTextReversed: colors.grey['0-reversed'],
     disabledText: colors.grey['400'],
     disabledTextReversed: colors.grey['100'],
@@ -225,7 +252,7 @@ function getNameForColors(colors: DS.Colors['colors'] | DS.Colors['colorIntents'
         typeof colors[currentColor] === 'object' &&
         !Object.keys(colors[currentColor]).includes('h')
       ) {
-        Object.keys(colors[currentColor]).map((colorName) => {
+        Object.keys(colors[currentColor]).forEach((colorName) => {
           const formattedCurrentColor = kebab(currentColor);
           const formattedColorName = kebab(colorName);
           colorsVarNames.push(`--${prefix}-${formattedCurrentColor}-${formattedColorName}`);
@@ -239,7 +266,6 @@ function getNameForColors(colors: DS.Colors['colors'] | DS.Colors['colorIntents'
         Object.keys(colors[currentColor]).includes('h')
       ) {
         const formattedCurrentColor = kebab(currentColor);
-        const formattedColorName = kebab(currentColor);
         colorsVarNames.push(`--${prefix}-${formattedCurrentColor}`);
       }
     }

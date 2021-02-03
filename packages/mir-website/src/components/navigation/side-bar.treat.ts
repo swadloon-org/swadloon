@@ -6,10 +6,11 @@ export const wrapper = style((theme: DesignSystem) => ({
   left: '0',
   top: '0',
   backgroundColor: theme.colors.greyscale0,
-  zIndex: 10,
+  zIndex: 111,
   height: '110%',
   boxShadow: theme.effects.shadows.medium.css,
   display: 'block',
+  transform: `translateX(-100%)`,
   '@media': {
     [theme.layout.media.mobile]: {
       width: '90%',

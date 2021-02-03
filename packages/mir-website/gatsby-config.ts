@@ -49,7 +49,7 @@ const config: core.GastbySiteConfig = {
         background_color: `#f7f0eb`,
         theme_color: `#a2466c`,
         display: `standalone`,
-        icon: `src/illustrations/Logo/LogoFavicon.png`,
+        icon: `src/images/LogoFavicon.png`,
       },
     },
     {
@@ -64,7 +64,7 @@ const config: core.GastbySiteConfig = {
      * Core Plugins
      */
     ...core.getGatsbyPluginTypeScriptConfig({
-      documentPaths: ['../core-gatsby-ui/src/**/*.{ts,tsx}', './src/**/*.{ts,tsx}'],
+      documentPaths: ['./src/**/*.{ts,tsx}', '../core-gatsby-ui/src/**/*.{ts,tsx}'],
     }),
     core.getGatsbyReactSvgConfig(),
     ...core.getGastbyPluginPageCreatorConfig(),
@@ -73,7 +73,9 @@ const config: core.GastbySiteConfig = {
     core.getGatsbyPluginSharp(),
     core.getGastbyPluginTreatConfig(),
     ...core.getGatsbyPluginMdx(),
-    core.getGatsbyImageFolder(),
+    ...core.getGatsbyImageFolder({
+      pathImgDir: path.join(__dirname, `/src/images`),
+    }),
     core.getGatsbyPluginReactHelmet(),
     core.getGatsbyPluginSitemap(),
     core.getGatsbyPluginRobotsTxt({ env }),
@@ -91,7 +93,9 @@ const config: core.GastbySiteConfig = {
     }),
     core.getGastbyCorePluginConfig({
       packageName: packageJson.name,
-      modules: ['@newrade/core-gatsby-config', '@newrade/core-gatsby-ui'],
+      modules: ['@newrade/core-gatsby-config', '@newrade/core-gatsby-ui/src'],
+      enableDesignSystemPages: false,
+      enableDocsPages: false,
     }),
     /**
      * gatsby-plugin-csp

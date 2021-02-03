@@ -1,6 +1,12 @@
 export enum SOURCE_INSTANCE_NAME {
+  /** for a package readme.file */
   README = 'README',
+  /** for mdx files located at the root of the monorepository, <root>/docs/ */
+  MONO_REPO_DOCS = 'MONO_REPO_DOCS',
+  /** mdx doc files related to the design system */
+  DESIGN_SYSTEM_DOCS = 'DESIGN_SYSTEM_DOCS',
+  /** package's specific docs, located in /src/docs/ */
   DOCS = 'DOCS',
-  PACKAGE_DOCS = 'PACKAGE_DOCS',
+  /** mdx pages located in /src/pages/ */
   MDX_PAGES = 'MDX_PAGES',
 }

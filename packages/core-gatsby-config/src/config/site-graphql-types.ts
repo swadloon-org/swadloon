@@ -52,6 +52,7 @@ export type File = {
   ext: string;
   dir: string;
   absolutePath: string;
+  relativePath: string;
   publicURL: string;
   size: string;
   sourceInstanceName: string;
@@ -80,7 +81,10 @@ export type GatsbyNodeSrcPagesQuery = {
 };
 
 export type GatsbyNodeSrcPageFilesQuery = {
-  allFile: {
+  mdxSrcPages: {
+    nodes: Array<File>;
+  };
+  docs: {
     nodes: Array<File>;
   };
 };

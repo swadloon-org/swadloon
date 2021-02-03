@@ -1,12 +1,12 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "types": ["react", "react-dom", "jest"],
+    "types": ["react", "react-dom", "jest", "googlemaps"],
     "lib": ["es6", "dom", "es2017"],
     "baseUrl": ".",
     "paths": {
       "@newrade/*": ["../*/src"]
     }
   },
-  "include": ["src", "types"]
+  "include": ["src", "types", "../core-gatsby-ui/src/markdown/markdown-renderer.tsx"]
 }

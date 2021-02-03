@@ -1,7 +1,7 @@
 import { PARAGRAPH_SIZE, TEXT_STYLE, TEXT_LEVEL } from '@newrade/core-design-system';
 import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
-import { CommonComponentProps } from '../../props/component-common-props';
+import { CommonComponentProps } from '../../props/component-common.props';
 import * as stylesRef from './paragraph.treat';
 
 type Props = CommonComponentProps &
@@ -21,15 +21,32 @@ const defaultProps: Props = {
  * (beyond those of the regular HTMLElement object interface it inherits) for manipulating <p> elements.
  * @see https://devdocs.io/dom/htmlparagraphelement
  */
-export const Paragraph: React.FC<Props> = React.memo(({ variant, variantStyle, className, ...props }) => {
-  const { styles: styles } = useStyles(stylesRef);
+export const Paragraph: React.FC<Props> = React.memo(
+  ({ variant, variantStyle, variantLevel, className, as, ...props }) => {
+    const { styles: styles } = useStyles(stylesRef);
 
-  const type = 'p';
+    const type = as ? as : 'p';
 
-  return React.createElement(type, {
-    className: `${className || ''} ${styles[variant ? variant : (defaultProps.variant as PARAGRAPH_SIZE)]} ${
-      variantStyle ? styles[variantStyle] : ''
-    }`,
-    ...props,
-  });
-});
+    return React.createElement(type, {
+      className: `${styles.normal} ${className || ''} ${
+        styles[variant ? variant : (defaultProps.variant as PARAGRAPH_SIZE)]
+      }
+    ${variantStyle ? styles[variantStyle] : ''}
+    ${variantLevel ? styles[variantLevel] : ''}`,
+      ...props,
+    });
+  }
+);
+
+export const ParagraphInlineBold: React.FC<Props> = React.memo(
+  ({ variant, variantStyle, variantLevel, className, as, ...props }) => {
+    const { styles: styles } = useStyles(stylesRef);
+
+    const type = as ? as : 'p';
+
+    return React.createElement(type, {
+      className: `${styles.bold} ${className || ''} ${variantLevel ? styles[variantLevel] : ''}`,
+      ...props,
+    });
+  }
+);

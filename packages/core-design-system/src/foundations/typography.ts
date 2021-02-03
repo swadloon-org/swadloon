@@ -55,6 +55,7 @@ export enum LABEL_SIZE {
  * The text styles.
  */
 export enum TEXT_STYLE {
+  normal = 'normal',
   italic = 'italic',
   bold = 'bold',
   uppercase = 'uppercase',
@@ -67,8 +68,11 @@ export enum TEXT_STYLE {
  */
 export enum TEXT_LEVEL {
   primary = 'primary',
+  primaryReversed = 'primaryReversed',
   secondary = 'secondary',
+  secondaryReversed = 'secondaryReversed',
   tertiary = 'tertiary',
+  tertiaryReversed = 'tertiaryReversed',
 }
 
 /**

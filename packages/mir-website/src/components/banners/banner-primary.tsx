@@ -2,10 +2,10 @@ import { LABEL } from '@newrade/core-design-system-old';
 import BackgroundImage from 'gatsby-background-image';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import BarSVG from '../../illustrations/Illustration/IllustrationBar.svg';
-import * as styleRefs from './banner-primary.treat';
-import { Label } from '../ui/label';
+import BarSVG from '../../illustrations/IllustrationBar.svg';
 import { Heading } from '../ui/heading';
+import { Label } from '../ui/label';
+import * as styleRefs from './banner-primary.treat';
 
 interface OwnProps {
   title?: string | null;

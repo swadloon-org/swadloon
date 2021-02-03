@@ -87,6 +87,12 @@
       "focus": false
     },
     {
+      "name": "core-types",
+      "cwd": "[workspaceFolder]/packages/core-types",
+      "open": true,
+      "focus": false
+    },
+    {
       "name": "core-utils",
       "cwd": "[workspaceFolder]/packages/core-utils",
       "open": true,
@@ -101,6 +107,18 @@
     {
       "name": "core-yo-generator",
       "cwd": "[workspaceFolder]/packages/core-yo-generator",
+      "open": true,
+      "focus": false
+    },
+    {
+      "name": "newrade-admin",
+      "cwd": "[workspaceFolder]/packages/newrade-admin",
+      "open": true,
+      "focus": false
+    },
+    {
+      "name": "newrade-app",
+      "cwd": "[workspaceFolder]/packages/newrade-app",
       "open": true,
       "focus": false
     },
@@ -123,8 +141,14 @@
       "focus": false
     },
     {
-      "name": "valentine-website",
-      "cwd": "[workspaceFolder]/packages/valentine-website",
+      "name": "vsb-common",
+      "cwd": "[workspaceFolder]/packages/vsb-common",
+      "open": true,
+      "focus": false
+    },
+    {
+      "name": "vsb-api",
+      "cwd": "[workspaceFolder]/packages/vsb-api",
       "open": true,
       "focus": false
     }

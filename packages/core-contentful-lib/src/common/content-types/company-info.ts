@@ -27,24 +27,6 @@ export const createCompanyInfo: Migration.MigrationFunction = function (migratio
     helpText: 'Short description of the company.',
   });
 
-  content.createField(COMMON_FIELD.LOGO, {
-    name: pascal(COMMON_FIELD.LOGO),
-    type: 'Link',
-    linkType: 'Asset',
-  });
-
-  content.createField(COMMON_FIELD.LOGO_FOOTER, {
-    name: pascal(COMMON_FIELD.LOGO_FOOTER),
-    type: 'Link',
-    linkType: 'Asset',
-  });
-
-  content.createField(COMMON_FIELD.FAVICON, {
-    name: pascal(COMMON_FIELD.FAVICON),
-    type: 'Link',
-    linkType: 'Asset',
-  });
-
   content.createField(COMMON_FIELD.COPYRIGHT, {
     name: pascal(COMMON_FIELD.COPYRIGHT),
     type: 'Symbol',

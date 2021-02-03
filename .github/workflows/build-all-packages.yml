@@ -45,7 +45,6 @@ jobs:
       run: |
         echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 
-
     - name: Install dependencies
       run: yarn
 
@@ -114,14 +113,20 @@ jobs:
         PROJECT_REPO_ORG: ${{ secrets.PROJECT_REPO_ORG }}
         PROJECT_REPO_NAME: ${{ secrets.PROJECT_REPO_NAME }}
 
-    - name: Build valentine-website
+    - name: Build vsb-common
       if: always()
-      run: yarn build --scope @newrade/valentine-website
+      run: yarn build --scope @newrade/vsb-common
+
+    - name: Build vsb-api
+      if: always()
+      run: yarn build --scope @newrade/vsb-api
       env:
-        APP_URL: 'http://local.valentinebv.com'
-        CONTENTFUL_ENV: ${{ secrets.CONTENTFUL_ENV }}
-        CONTENTFUL_SPACEID_VALENTINE: ${{ secrets.CONTENTFUL_SPACEID_VALENTINE }}
-        CONTENTFUL_DELIVERY_TOKEN_VALENTINE : ${{ secrets.CONTENTFUL_DELIVERY_TOKEN_VALENTINE }}
+        APP_URL: 'http://local.vasectomie-pierre-boucher.ca/api/register'
+        API_VSB_VENDOR_NAME: ${{ secrets.API_VSB_VENDOR_NAME }}
+        API_VSB_VENDOR_EMAIL: ${{ secrets.API_VSB_VENDOR_EMAIL }}
+        API_VSB_KEY_CLINIKO: ${{ secrets.API_VSB_KEY_CLINIKO }}
+        API_VSB_SHARD_ID: ${{ secrets.API_VSB_SHARD_ID }}
+        API_VSB_SECRET_KEY_RECAPTCHAT: ${{ secrets.API_VSB_SECRET_KEY_RECAPTCHAT }}
         NVM_NODE_VERSION: ${{ secrets.NVM_NODE_VERSION }}
         MASTER_GIT_HOST: ${{ secrets.MASTER_GIT_HOST }}
         MASTER_REPO_ORG: ${{ secrets.MASTER_REPO_ORG }}

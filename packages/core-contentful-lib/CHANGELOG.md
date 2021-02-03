@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/newrade/newrade/compare/@newrade/core-contentful-lib@1.4.0...@newrade/core-contentful-lib@1.5.0) (2021-02-03)
+
+### Bug Fixes
+
+- **correction-contentful-block:** deleting deprecated content in section and ajusting variant layout ([ea8d036](https://github.com/newrade/newrade/commit/ea8d036e822d9efcb674fa709b77617153be6ac5))
+- **fix-bad-import:** fixing the bad import made for the type contentful_widget ([3dae97f](https://github.com/newrade/newrade/commit/3dae97f9cf8c6722a1bccb24aad63a3586d6bda7))
+- **fix-id-case:** correction of the api id case to Pascal ([0d2f3be](https://github.com/newrade/newrade/commit/0d2f3beb5212959ab89d8cd9ea161ab7228f2c4b))
+- **newrade-contentful-migration:** delete de project service category ([1142057](https://github.com/newrade/newrade/commit/1142057069bd6280c50e0917fd7b5720be4d2089))
+- **repo:** share .d.ts files in core-types ([4b28071](https://github.com/newrade/newrade/commit/4b28071d704905c281b304a78c5888fbf5961de5))
+
+### Features
+
+- **contentful-lib:** adding company employee and deleting the media files in company info ([8376027](https://github.com/newrade/newrade/commit/8376027b9fc7224b38ee0c7b58c9802d84d47d27))
+- **contentful-migration:** deleting the field variant style and merging it with variant ([100250e](https://github.com/newrade/newrade/commit/100250e49876d7ac945c1cf7831929928aba7e1d))
+- **newrade-contentful-migration:** adding thematic, service, serviceCategory, technology ([868e555](https://github.com/newrade/newrade/commit/868e555ab60049f19a2f0bb5d60f6a263c29d508))
+- **section-v2:** adding new section , block , navigation and modification to page ([95b7b40](https://github.com/newrade/newrade/commit/95b7b40f745de297c751b461c54645775973a8ee))
+
 # [1.4.0](https://github.com/newrade/newrade/compare/@newrade/core-contentful-lib@1.3.0...@newrade/core-contentful-lib@1.4.0) (2021-01-04)
 
 ### Bug Fixes

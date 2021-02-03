@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-cli@1.4.1...@newrade/core-cli@1.5.0) (2021-02-03)
+
+### Bug Fixes
+
+- **core-react-ui:** add a node script to copy files ([4079d99](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/4079d99ad5f946c582579ec740c6ffa18b202d5c))
+- **repo:** improve tsconfigs and build references ([22a31c1](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/22a31c17608f6d6fda5ccd193588fd9194c68502))
+- **repo:** share .d.ts files in core-types ([4b28071](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/4b28071d704905c281b304a78c5888fbf5961de5))
+
+### Features
+
+- **core-react-ui:** fix syntax highlighting for mdx or regular react code ([1f03fa8](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/1f03fa8d0b8345cdbc1cb54328c39baa35e979f8))
+
 ## [1.4.1](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-cli@1.4.0...@newrade/core-cli@1.4.1) (2021-01-04)
 
 **Note:** Version bump only for package @newrade/core-cli

@@ -1,3 +1,9 @@
+/**
+ * Needed so ts-node can find core-types
+ * @see https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html#-reference-types-
+ */
+/// <reference types="./types/core-types" />
+
 delete process.env.TS_NODE_PROJECT; // see https://github.com/dividab/tsconfig-paths-webpack-plugin/issues/32
 
 import { babelPluginConf, babelPresetConf, extractCssLoader } from '@newrade/core-webpack-config';

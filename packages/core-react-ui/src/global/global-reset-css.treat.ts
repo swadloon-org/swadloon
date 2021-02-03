@@ -24,6 +24,19 @@ globalStyle(`html`, {
   // prevent the content to jump when scrolling
   overflowY: 'scroll',
   overflowX: 'hidden',
+  // prevent tap highlight
+  WebkitTapHighlightColor: 'rgba(0, 0, 0, 0) ',
+  // https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth
+  // @ts-ignore
+  WebkitFontSmoothing: 'antialiased',
+  '-moz-osx-font-smoothing': 'grayscale',
+  // ensure fast clicks on ios safari 9, 10
+  // disable browser handling zooming gestures https://developer.mozilla.org/en-US/docs/Web/CSS/touch-action#values
+  touchAction: 'pan-x pan-y',
+  // smooth background transition
+  transition: 'background-color 0.2s ease-out',
+  // user select
+  userSelect: 'none',
 });
 
 /**
@@ -69,6 +82,7 @@ globalStyle(`hr`, {
 globalStyle(`pre,code,kbd,samp`, {
   fontFamily: 'monospace, monospace' /* 1 */,
   fontSize: '1em' /* 2 */,
+  margin: 0,
 });
 
 /**
@@ -113,6 +127,16 @@ globalStyle(
     WebkitAppearance: 'button',
   }
 );
+
+/**
+ * Reset the button look
+ */
+globalStyle(`button`, {
+  border: 'none',
+  outline: 'none',
+  background: 'none',
+  backgroundColor: 'none',
+});
 
 /**
  * Remove the inner border and padding in Firefox.
@@ -201,6 +225,38 @@ globalStyle(`details`, {
  * Resets the img tag
  */
 globalStyle(`summary`, {
-  // Add the correct display in all browsers.
-  display: 'list-item',
+  display: 'flex', // Add the correct display in all browsers.
+});
+
+/**
+ * Resets table
+ */
+globalStyle(`table, caption, tbody, tfoot, thead, tr, th, td`, {
+  margin: '0',
+  padding: '0',
+  border: '0',
+  fontSize: '100%',
+  font: 'inherit',
+  verticalAlign: 'baseline',
+});
+
+globalStyle(`table`, {
+  borderCollapse: 'collapse',
+  borderSpacing: '0',
+});
+
+/**
+ * Resets ol,ul,li
+ */
+globalStyle(`ul,ol`, {
+  listStylePosition: 'inside', // no side effects from the added padding
+  marginBlockStart: '0px',
+  marginBlockEnd: '0px',
+  marginInlineStart: '0px',
+  marginInlineEnd: '0px',
+  paddingInlineStart: '0px',
+});
+
+globalStyle(`li`, {
+  lineHeight: '0', // ensure that the list items height collapse
 });

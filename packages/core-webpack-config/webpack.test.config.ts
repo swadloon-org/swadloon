@@ -1,8 +1,15 @@
+/**
+ * Needed so ts-node can find core-types
+ * @see https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html#-reference-types-
+ */
+/// <reference types="./types/core-types" />
+
 import webpack from 'webpack/declarations/WebpackOptions';
 import { ENVIRONMENT } from './src/environments';
-import { defaultOuputConf, getBundleVisualizerPlugin } from './src/index';
 import { es6BabelLoader } from './src/loaders/es6-babel.loader';
 import { typescriptBabelLoader } from './src/loaders/typescript-babel.loader';
+import { defaultOuputConf } from './src/output.conf';
+import { getBundleVisualizerPlugin } from './src/plugins/bundle-visualizer-plugin';
 
 const config: webpack.WebpackOptions = {
   mode: 'production',

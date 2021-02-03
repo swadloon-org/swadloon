@@ -1,0 +1,24 @@
+{
+  "name": "@newrade/vsb-api",
+  "version": "1.1.0",
+  "description": "API for the vsb website",
+  "author": {
+    "email": "info@newrade.ca",
+    "name": "Newrade",
+    "url": "https://github.com/newrade/newrade"
+  },
+  "repository": "https://github.com/newrade/newrade-core/tree/master/packages/vsb-api",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc --build tsconfig.build.json",
+    "clean": "rimraf -r dist/** && rm -f tsconfig.build.tsbuildinfo",
+    "inspect": "kill-port --port 9229 && node --no-warnings --inspect=0.0.0.0:9229 --experimental-modules ./dist/src/server.js",
+    "start": "concurrently \"yarn tsc:watch\" \"yarn watch\"",
+    "test": "echo test",
+    "tsc:watch": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
+    "watch": "nodemon --delay 500ms --watch dist/ --watch ../vsb-common/lib/ --exec 'yarn inspect'"
+  },
+  "dependencies": {
+    "@newrade/vsb-common": "^1.1.0"
+  }
+}

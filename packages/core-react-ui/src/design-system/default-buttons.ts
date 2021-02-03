@@ -18,16 +18,30 @@ export const defaultButtons: Buttons = {
         default: 2,
       },
     },
+    xsmall: {
+      padding: {
+        default: 2,
+      },
+    },
   },
   variants: {
     primary: {
       textColor: defaultColorIntents.primaryText,
     },
+    primaryReversed: {
+      textColor: defaultColorIntents.primaryTextReversed,
+    },
     secondary: {
       textColor: defaultColorIntents.primaryText,
     },
+    secondaryReversed: {
+      textColor: defaultColorIntents.primaryTextReversed,
+    },
     tertiary: {
       textColor: defaultColorIntents.primaryText,
+    },
+    tertiaryReversed: {
+      textColor: defaultColorIntents.primaryTextReversed,
     },
   },
 };

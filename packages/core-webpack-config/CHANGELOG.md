@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/newrade/newrade/compare/@newrade/core-webpack-config@1.3.4...@newrade/core-webpack-config@1.4.0) (2021-02-03)
+
+### Bug Fixes
+
+- **core-webpack-config:** fix tsconfig ([44dc7df](https://github.com/newrade/newrade/commit/44dc7dfc09c8044d08e1d1c9a0182f24dbc44126))
+- **core-webpack-config:** fixes for test case ([5b715b1](https://github.com/newrade/newrade/commit/5b715b1e26d87dbfd90037a0898a8912249f6846))
+- **repo:** fix linting issues ([25cd3d4](https://github.com/newrade/newrade/commit/25cd3d4d91ada263a02177eed2eecbc4bcc0fd70))
+- **repo:** improve tsconfigs and build references ([22a31c1](https://github.com/newrade/newrade/commit/22a31c17608f6d6fda5ccd193588fd9194c68502))
+- **repo:** share .d.ts files in core-types ([4b28071](https://github.com/newrade/newrade/commit/4b28071d704905c281b304a78c5888fbf5961de5))
+- **ts:** fix last non strict packages ([ce1a8cb](https://github.com/newrade/newrade/commit/ce1a8cbf6b459f1f0e0510d4df0c2885eb0d60d6))
+- **vsb-website:** fix build issues ([11fd560](https://github.com/newrade/newrade/commit/11fd56082bd6eb576f5a7309b419611467a1850d))
+
+### Features
+
+- **vsb-website:** accordions for faq section ([a19e65f](https://github.com/newrade/newrade/commit/a19e65f39193a849186c41ab2c1dcfad157e3724))
+
 ## [1.3.4](https://github.com/newrade/newrade/compare/@newrade/core-webpack-config@1.3.3...@newrade/core-webpack-config@1.3.4) (2021-01-04)
 
 ### Bug Fixes

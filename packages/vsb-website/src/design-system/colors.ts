@@ -11,33 +11,33 @@ export const colorsColors: Colors['colors'] = {
   },
   primary: {
     '900': { h: 120, s: 13, l: 19 },
-    '700': { h: 122, s: 10, l: 45 },
-    '500': { h: 122, s: 12, l: 54 },
+    '700': { h: 122, s: 10, l: 38 },
+    '500': { h: 122, s: 12, l: 42 },
     '300': { h: 122, s: 19, l: 64 },
     '100': { h: 123, s: 26, l: 84 },
   },
   accent1: generateColorPalette5({
     color: { h: 24, s: 40, l: 74 },
-    light: 28,
-    dark: 94,
+    light: 94,
+    dark: 28,
   }),
   // not used
   accent2: generateColorPalette5({
     color: { h: 200, s: 50, l: 50 },
-    light: 20,
-    dark: 90,
+    light: 90,
+    dark: 20,
   }),
   // not used
   accent3: generateColorPalette5({
     color: { h: 200, s: 50, l: 50 },
-    light: 20,
-    dark: 90,
+    light: 90,
+    dark: 20,
   }),
   grey: {
     '1000': { h: 210, s: 6, l: 7 },
     '900': { h: 200, s: 4, l: 13 },
     '800': { h: 210, s: 4, l: 26 },
-    '700': { h: 207, s: 5, l: 39 },
+    '700': { h: 207, s: 5, l: 45 },
     '600': { h: 207, s: 5, l: 59 },
     '500': { h: 207, s: 5, l: 66 },
     '400': { h: 210, s: 6, l: 73 },
@@ -51,27 +51,30 @@ export const colorsColors: Colors['colors'] = {
     '0-reversed': { h: 0, s: 0, l: 100 },
     '0': { h: 0, s: 0, l: 100 },
   },
-  effectTransparentLight: { h: 222, s: 50, l: 50, a: 100 },
-  effectTransparentMedium: { h: 222, s: 50, l: 50, a: 100 },
-  effectTransparentHeavy: { h: 222, s: 50, l: 50, a: 100 },
+  effectTransparentLight: { h: 0, s: 0, l: 0, a: 10 },
+  effectTransparentMedium: { h: 0, s: 0, l: 0, a: 10 },
+  effectTransparentHeavy: { h: 0, s: 0, l: 0, a: 13 },
   utilityGreen: generateColorPalette5({
-    color: { h: 200, s: 50, l: 50 },
-    light: 20,
-    dark: 90,
+    color: { h: 112, s: 71, l: 53 },
+    light: 90,
+    dark: 5,
   }),
   utilityYellow: generateColorPalette5({
-    color: { h: 200, s: 50, l: 50 },
-    light: 20,
-    dark: 90,
+    color: { h: 47, s: 90, l: 54 },
+    light: 90,
+    dark: 5,
   }),
   utilityRed: generateColorPalette5({
-    color: { h: 200, s: 50, l: 50 },
-    light: 20,
-    dark: 90,
+    color: { h: 360, s: 84, l: 48 },
+    light: 90,
+    dark: 5,
   }),
 };
 
-export const colorIntents: ColorIntents = createDefaultColorIntents(colorsColors);
+export const colorIntents: ColorIntents = {
+  ...createDefaultColorIntents(colorsColors),
+  backgroundDisabled: colorsColors.grey[25],
+};
 
 export const colors: Colors = {
   ...defaultColors,

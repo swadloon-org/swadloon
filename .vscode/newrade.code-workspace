@@ -3,20 +3,23 @@
     "typescript.surveys.enabled": false,
     "terminals.sortTerminals": true,
     "typescript.tsdk": "newrade/node_modules/typescript/lib",
-    "[typescript]": {
-      "editor.codeActionsOnSave": {
-        "source.organizeImports": true
-      },
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
     "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true,
+      "source.organizeImports": true
+    },
     "[yaml]": {
       "editor.formatOnSave": false
+    },
+    "[svg]": {
+      "editor.defaultFormatter": "jock.svg"
     },
     "search.exclude": {
       "**/node_modules": true,
       "**/yarn.lock": true,
       "**/lib": true,
+      "**/dist": true,
       "**/.cache/**/*": true,
       "**/public/**/*": true,
       "**/*.js.map": true,
@@ -31,7 +34,10 @@
       "**/dist/**": true,
       "**/public/**": true,
       "**/lib/**": true
-    }
+    },
+    // https://github.com/deepscan/vscode-deepscan#settings-options
+    "deepscan.enable": true,
+    "deepscan.ignorePatterns": ["**/node_modules/**", "graphql-types.ts"]
   },
   "extensions": {
     "recommendations": [
@@ -51,7 +57,10 @@
       "yzhang.markdown-all-in-one",
       "paulmolluzzo.convert-css-in-js",
       "formulahendry.auto-rename-tag",
-      "bierner.markdown-yaml-preamble"
+      "bierner.markdown-yaml-preamble",
+      "jock.svg",
+      "cssho.vscode-svgviewer",
+      "deepscan.vscode-deepscan"
     ]
   },
   "folders": [
@@ -99,6 +108,9 @@
       "path": "../packages/core-github-actions"
     },
     {
+      "path": "../packages/core-gsap-ui"
+    },
+    {
       "path": "../packages/core-jest-config"
     },
     {
@@ -109,6 +121,9 @@
     },
     {
       "path": "../packages/core-react-ui-app"
+    },
+    {
+      "path": "../packages/core-types"
     },
     {
       "path": "../packages/core-utils"
@@ -123,6 +138,9 @@
       "path": "../packages/newrade-website"
     },
     {
+      "path": "../packages/newrade-admin"
+    },
+    {
       "path": "../packages/newrade-app"
     },
     {
@@ -132,7 +150,10 @@
       "path": "../packages/vsb-website"
     },
     {
-      "path": "../packages/valentine-website"
+      "path": "../packages/vsb-common"
+    },
+    {
+      "path": "../packages/vsb-api"
     }
   ]
 }

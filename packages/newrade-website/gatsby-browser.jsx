@@ -1,7 +1,8 @@
-import React from 'react';
+// @ts-check
 import { GatsbyBrowser } from 'gatsby';
-import { Layout } from './src/layouts/layout';
-import { Providers } from './src/layouts/providers';
+import React from 'react';
+import { WrapElement } from './gatsby-wrap-element';
+import { Providers } from './src/context/providers';
 
 /**
  * Gatsby Browser APIs
@@ -10,13 +11,14 @@ import { Providers } from './src/layouts/providers';
  * @see https://www.gatsbyjs.com/docs/api-files-gatsby-browser/
  */
 
+// @ts-ignore
 if (module.hot) {
+  // @ts-ignore
   module.hot.accept();
 }
-
 /** @type {GatsbyBrowser['wrapPageElement']} */
-export const wrapPageElement = ({ element, props }) => {
-  return <Layout {...props}>{element}</Layout>;
+export const wrapPageElement = (args) => {
+  return <WrapElement {...args} />;
 };
 
 /** @type {GatsbyBrowser['wrapRootElement']} */

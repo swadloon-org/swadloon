@@ -1,6 +1,6 @@
 import React from 'react';
 
-declare var window: Window | undefined;
+declare let window: Window | undefined;
 
 export type ViewportContext = {
   width?: number;

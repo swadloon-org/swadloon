@@ -2,11 +2,13 @@ import { graphql } from 'gatsby';
 
 export const sectionFragment = graphql`
   fragment Section on ContentfulSection {
+    id
     node_locale
     name
     type {
       type
     }
+    variant
     title
     titleHighlight
     subtitle
@@ -14,13 +16,11 @@ export const sectionFragment = graphql`
       ...Link
     }
     text {
-      text
       childMdx {
         body
       }
     }
     announcements {
-      title
       name
       type
       message {
@@ -30,82 +30,51 @@ export const sectionFragment = graphql`
         }
       }
     }
+    steps {
+      id
+      title
+      text {
+        childMdx {
+          body
+        }
+      }
+    }
+    costItems {
+      id
+      title
+      subtitle
+      price
+    }
+    backgroundPosition
     medias {
       medias {
         file {
           url
         }
-        desktopFluidImage: fluid(quality: 90, maxHeight: 800) {
-          base64
-          aspectRatio
-          src
-          srcSet
-          srcWebp
-          srcSetWebp
-          sizes
-        }
-        mobileFluidImage: fluid(quality: 90, maxWidth: 400) {
-          base64
-          aspectRatio
-          src
-          srcSet
-          srcWebp
-          srcSetWebp
-          sizes
-        }
-      }
-    }
-    subSections {
-      node_locale
-      name
-      type {
-        type
-      }
-      title
-      titleHighlight
-      subtitle
-      link {
-        ...Link
-      }
-      text {
-        text
-        childMdx {
-          body
-        }
-      }
-      announcements {
-        title
-        name
-        type
-        message {
-          message
-          childMdx {
-            body
+        desktopFluidImage: localFile {
+          childImageSharp {
+            fluid(quality: 90, maxWidth: 1920, base64Width: 400) {
+              base64
+              aspectRatio
+              src
+              srcSet
+              srcWebp
+              srcSetWebp
+              sizes
+            }
           }
         }
-      }
-      medias {
-        medias {
-          file {
-            url
-          }
-          desktopFluidImage: fluid(quality: 90, maxHeight: 800) {
-            base64
-            aspectRatio
-            src
-            srcSet
-            srcWebp
-            srcSetWebp
-            sizes
-          }
-          mobileFluidImage: fluid(quality: 90, maxWidth: 400) {
-            base64
-            aspectRatio
-            src
-            srcSet
-            srcWebp
-            srcSetWebp
-            sizes
+        mobileFluidTallImage: localFile {
+          childImageSharp {
+            fluid(quality: 90, maxHeight: 630) {
+              base64
+              aspectRatio
+              src
+              srcSet
+              srcWebp
+              srcSetWebp
+              sizes
+            }
           }
         }
       }

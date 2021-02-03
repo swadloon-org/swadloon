@@ -1,31 +1,35 @@
-import { SrcPageTemplateProps } from '@newrade/core-gatsby-ui';
-import { Button, Link, Stack } from '@newrade/core-react-ui';
+import { Center, Heading, Link, Stack, useTreatTheme, Paragraph } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import * as styleRefs from '../styles/index.treat';
+import { SrcPageTemplate, SrcPageTemplateProps } from '../templates/src-page.template';
 
 const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
   const styles = useStyles(styleRefs);
+  const { cssTheme } = useTreatTheme();
+
   return (
-    <Stack gap={'20px'}>
-      <Stack gap={'20px'}>
-        <div>hello</div>
-      </Stack>
+    <Center>
+      <Stack gap={[cssTheme.sizing.var.x5]}>
+        <Heading>Core Gastby Starter</Heading>
+        <Paragraph>This is a demo Gatsby site.</Paragraph>
 
-      <Stack gap={'13px'}>
-        <h1>Buttons</h1>
-        <Button>Button</Button>
+        <Stack gap={[cssTheme.sizing.var.x3]}>
+          <Link href={'/docs/'}>Docs</Link>
+          <Link href={'/core-docs/'}>Core Docs</Link>
+          <Link href={'/design-system/'}>Design System</Link>
+        </Stack>
       </Stack>
-
-      <Link href="test" target="blank">
-        test
-      </Link>
-    </Stack>
+    </Center>
   );
 };
 
 const Page: React.FC<SrcPageTemplateProps> = (props) => {
-  return <PageComponent {...props}></PageComponent>;
+  return (
+    <SrcPageTemplate {...props}>
+      <PageComponent {...props}></PageComponent>
+    </SrcPageTemplate>
+  );
 };
 
 export default Page;

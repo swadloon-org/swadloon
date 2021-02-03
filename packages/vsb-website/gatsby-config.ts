@@ -32,7 +32,7 @@ const config: core.GastbySiteConfig = {
     siteUrl: env.APP_URL,
     siteEnv: env.APP_ENV,
     languages: {
-      langs: [core.SITE_LANGUAGES.FR, core.SITE_LANGUAGES.EN],
+      langs: [core.SITE_LANGUAGES.FR],
       defaultLangKey: core.SITE_LANGUAGES.FR,
     },
   },
@@ -53,11 +53,15 @@ const config: core.GastbySiteConfig = {
       },
     },
     {
+      /**
+       * @see https://www.gatsbyjs.com/plugins/gatsby-source-contentful/
+       */
       resolve: `gatsby-source-contentful`,
       options: {
         spaceId: env.CONTENTFUL_SPACEID_VSB,
         accessToken: env.CONTENTFUL_DELIVERY_TOKEN_VSB,
         environment: env.CONTENTFUL_ENV,
+        downloadLocal: true,
       },
     },
     /**
@@ -73,7 +77,9 @@ const config: core.GastbySiteConfig = {
     core.getGatsbyPluginSharp(),
     core.getGastbyPluginTreatConfig(),
     ...core.getGatsbyPluginMdx(),
-    core.getGatsbyImageFolder(),
+    ...core.getGatsbyImageFolder({
+      pathImgDir: path.join(__dirname, `/src/images`),
+    }),
     core.getGatsbyPluginReactHelmet(),
     core.getGatsbyPluginSitemap(),
     core.getGatsbyPluginRobotsTxt({ env }),
@@ -88,10 +94,22 @@ const config: core.GastbySiteConfig = {
     }),
     core.getGastbyCorePluginConfig({
       packageName: packageJson.name,
-      modules: ['@newrade/core-gatsby-config', '@newrade/core-gatsby-ui'],
+      modules: [
+        '@newrade/core-gatsby-config',
+        '@newrade/core-gatsby-ui/src',
+        '@newrade/core-react-ui',
+        '@react-google-maps/api',
+        '@react-aria',
+        'i18next',
+        'yup',
+        'lodash',
+        'lodash-es',
+        '@react-icons',
+      ],
+      enableDesignSystemPages: true,
+      enableDocsPages: true,
     }),
-
-    // core.getGatsbyPluginPreloadFonts(),
+    core.getGatsbyPluginPreloadFonts(),
   ],
 };
 

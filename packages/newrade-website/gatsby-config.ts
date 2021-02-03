@@ -42,11 +42,36 @@ const config: core.GastbySiteConfig = {
      * Project Specific Plugins
      */
     {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Newrade`,
+        short_name: `Newrade`,
+        start_url: `/`,
+        background_color: `#ffffff`,
+        theme_color: `#6061EC`,
+        display: `standalone`,
+        icon: `src/images/favicon.svg`,
+        include_favicon: false,
+      },
+    },
+    {
       resolve: `gatsby-source-contentful`,
       options: {
         spaceId: env.CONTENTFUL_SPACEID_NEWRADE,
         accessToken: env.CONTENTFUL_DELIVERY_TOKEN_NEWRADE,
         environment: env.CONTENTFUL_ENV,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-load-script',
+      options: {
+        // <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/7954462.js"></script>,
+        // disable: !process.env.SENTRY_DSN, // When do you want to disable it ?
+        id: `hs-script-loader`,
+        async: 'true',
+        defer: 'true',
+        src: 'https://js.hs-scripts.com/7954462.js',
+        // onLoad: `() => Sentry.init({dsn:"${process.env.SENTRY_DSN}"})`,
       },
     },
     /**
@@ -62,13 +87,17 @@ const config: core.GastbySiteConfig = {
     core.getGatsbyPluginSharp(),
     core.getGastbyPluginTreatConfig(),
     ...core.getGatsbyPluginMdx(),
-    core.getGatsbyImageFolder(),
+    ...core.getGatsbyImageFolder({
+      pathImgDir: path.join(__dirname, `/src/images`),
+    }),
     core.getGatsbyPluginReactHelmet(),
     core.getGatsbyPluginSitemap(),
     core.getGatsbyPluginRobotsTxt({ env }),
     core.getGatsbyNetlifyPlugin(),
     core.getGastbyCorePluginConfig({
       packageName: packageJson.name,
+      enableDesignSystemPages: true,
+      enableDocsPages: true,
     }),
     // core.getGatsbyPluginPreloadFonts(),
   ],

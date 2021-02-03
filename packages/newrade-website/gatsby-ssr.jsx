@@ -1,7 +1,8 @@
-import React from 'react';
+// @ts-check
 import { GatsbySSR } from 'gatsby';
-import { Layout } from './src/layouts/layout';
-import { Providers } from './src/layouts/providers';
+import React from 'react';
+import { WrapElement } from './gatsby-wrap-element';
+import { Providers } from './src/context/providers';
 
 /**
  * Gatsby Server Rendering APIs
@@ -11,18 +12,13 @@ import { Providers } from './src/layouts/providers';
  */
 
 /** @type {GatsbySSR['wrapPageElement']} */
-export const wrapPageElement = ({ element }) => {
-  return <Layout>{element}</Layout>;
+// @ts-ignore
+export const wrapPageElement = (args) => {
+  return <WrapElement {...args} />;
 };
 
 /** @type {GatsbySSR['wrapRootElement']} */
+// @ts-ignore
 export const wrapRootElement = ({ element }) => {
   return <Providers>{element}</Providers>;
-};
-
-/** @type {GatsbySSR['onRenderBody']} */
-export const onRenderBody = (args) => {
-  args.setPostBodyComponents([
-    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/7954462.js"></script>,
-  ]);
 };

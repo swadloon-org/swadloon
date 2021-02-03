@@ -1,0 +1,1 @@
+export const jestSetup = 'jestSetup';

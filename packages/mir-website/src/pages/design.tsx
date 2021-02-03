@@ -58,24 +58,10 @@ export const Design: React.FC = () => {
         <Icon size={ICON_SIZE.large} icon={'IconArrowRight'} />
         <Icon size={ICON_SIZE.medium} icon={'IconArrowRight'} />
         <Icon size={ICON_SIZE.small} icon={'IconArrowRight'} />
-        <Accordions
-          type="candidates"
-          variant="Default"
-          icon="IllustrationFactory"
-          onClick={() => {
-            console.log('test');
-          }}
-        >
+        <Accordions type="candidates" variant="Default" icon="IllustrationFactory" onClick={() => {}}>
           Test
         </Accordions>
-        <Accordions
-          type="employer"
-          variant="reversed"
-          icon="IllustrationFactory"
-          onClick={() => {
-            console.log('test');
-          }}
-        >
+        <Accordions type="employer" variant="reversed" icon="IllustrationFactory" onClick={() => {}}>
           Test
         </Accordions>
         {/* <InfoSectionVideo></InfoSectionVideo> */}

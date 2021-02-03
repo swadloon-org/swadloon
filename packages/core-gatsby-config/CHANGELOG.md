@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-config@1.6.0...@newrade/core-gatsby-config@1.7.0) (2021-02-03)
+
+### Bug Fixes
+
+- **core-gatsby-config:** fix locale in create-pages ([d8f5353](https://github.com/newrade/newrade/commit/d8f5353b870fc6ef3f9c0dc8809ba840afe1085f))
+- **core-gatsby-config:** fix test config ([d3f0b7b](https://github.com/newrade/newrade/commit/d3f0b7b5103fb85fc764e10ca78e7e6c53b00172))
+- **core-gatsby-ui:** fix SEO for templates ([9419f69](https://github.com/newrade/newrade/commit/9419f699b3a034395adb44358f94a9d01728d1bc))
+- **core-react-ui:** fix async bundle and md providers ([8f3404a](https://github.com/newrade/newrade/commit/8f3404aaa3962b794c359f1a626b4efdf5121e01))
+- **core-react-ui:** fixes for links ([8b0068f](https://github.com/newrade/newrade/commit/8b0068f5911c6553e42d8dcacac4b83937dfc435))
+- **core-webpack-config:** fix tsconfig ([44dc7df](https://github.com/newrade/newrade/commit/44dc7dfc09c8044d08e1d1c9a0182f24dbc44126))
+- **mir-website:** config fixes ([8128983](https://github.com/newrade/newrade/commit/81289832a9dd327dcecf11b357696ecccdd3338c))
+- **repo:** fix linting issues ([25cd3d4](https://github.com/newrade/newrade/commit/25cd3d4d91ada263a02177eed2eecbc4bcc0fd70))
+- **repo:** fixes after deepscan ([4e6e58f](https://github.com/newrade/newrade/commit/4e6e58fb7788e6a4361dffd2eb593970306d9404))
+- **repo:** improve tsconfigs and build references ([22a31c1](https://github.com/newrade/newrade/commit/22a31c17608f6d6fda5ccd193588fd9194c68502))
+- **repo:** share .d.ts files in core-types ([4b28071](https://github.com/newrade/newrade/commit/4b28071d704905c281b304a78c5888fbf5961de5))
+- **sites:** fixes and all assets ([c859573](https://github.com/newrade/newrade/commit/c859573dcb8eb79e095e9a98be6b08dbb0063ff9))
+- **ts:** fix last non strict packages ([ce1a8cb](https://github.com/newrade/newrade/commit/ce1a8cbf6b459f1f0e0510d4df0c2885eb0d60d6))
+- **vsb-website:** fix build issues ([11fd560](https://github.com/newrade/newrade/commit/11fd56082bd6eb576f5a7309b419611467a1850d))
+- **vsb-website:** implement fixes for nav ([188087f](https://github.com/newrade/newrade/commit/188087f8dcd1b6e836e86186d8e291aa8c537dfe))
+- **vsb-website:** optimizations ([ed0a853](https://github.com/newrade/newrade/commit/ed0a853cce3c2105c8b527cd524ee2ec55875f6d))
+- **vsb-website:** optimize lcp ([875ce00](https://github.com/newrade/newrade/commit/875ce0061ada6d2b1d12f8782983e499e4e83c6c))
+- **vsb-website:** refactor section layout ([673134c](https://github.com/newrade/newrade/commit/673134ce8d659e0226b438d5beb5cd4acc9da690))
+
+### Features
+
+- **core-react-ui:** add nav items ([36d340b](https://github.com/newrade/newrade/commit/36d340bff5c883011c0de1caaadb072d966d8c25))
+- **core-react-ui:** fix syntax highlighting for mdx or regular react code ([1f03fa8](https://github.com/newrade/newrade/commit/1f03fa8d0b8345cdbc1cb54328c39baa35e979f8))
+- **core-react-ui:** improvements to ds pages ([10f9095](https://github.com/newrade/newrade/commit/10f9095cda31b61f7b1368141243f595c6468e65))
+- **gatsby:** move layout components to core-gatsby-ui ([7ac5f9a](https://github.com/newrade/newrade/commit/7ac5f9af92d86f8266abc19fc5396df012c27dc3))
+- **newrade-admin:** add google app scripts example ([a7a9280](https://github.com/newrade/newrade/commit/a7a928074a09143165c6cd1f389fdc7e35b9a7cf))
+- **vsb-website:** accordions for faq section ([a19e65f](https://github.com/newrade/newrade/commit/a19e65f39193a849186c41ab2c1dcfad157e3724))
+- **vsb-website:** implement sidenav ([6b57a86](https://github.com/newrade/newrade/commit/6b57a867a88f57636c1d8268608d0605a02cc924))
+
 # [1.6.0](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-config@1.5.0...@newrade/core-gatsby-config@1.6.0) (2021-01-04)
 
 ### Bug Fixes

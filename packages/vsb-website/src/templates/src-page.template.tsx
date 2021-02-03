@@ -1,8 +1,8 @@
-import { DEPLOY_ENV } from '@newrade/core-common';
 import { GatsbySrcPageContext } from '@newrade/core-gatsby-config';
-import { DebugGasbyPage } from '@newrade/core-gatsby-ui';
 import { PageProps } from 'gatsby';
+import Helmet from 'react-helmet';
 import React, { ReactNode } from 'react';
+import { getMetaBasicTags, getMetadataOpenGraphWebsiteTags, OPEN_GRAPH_TYPE } from '@newrade/core-react-ui';
 
 export type SrcPageTemplateProps = PageProps<{}, GatsbySrcPageContext>;
 
@@ -11,7 +11,21 @@ export type Props = Omit<SrcPageTemplateProps, 'children'> & { children: ReactNo
 export const SrcPageTemplate: React.FC<Props & { children: ReactNode }> = (props) => {
   return (
     <>
-      {props.pageContext.siteMetadata?.siteEnv === DEPLOY_ENV.LOCAL ? <DebugGasbyPage {...props} /> : null}
+      <Helmet>
+        <link rel="icon" href="/images/favicon.svg" sizes="any" type="image/svg+xml" />
+        {getMetaBasicTags()}
+        {getMetadataOpenGraphWebsiteTags({
+          type: OPEN_GRAPH_TYPE.WEBSITE,
+          title: `${props.pageContext.displayName || props.pageContext.name || props.pageContext.siteMetadata.title}`,
+          // url: `${data?.site?.siteMetadata?.siteUrl}${data?.contentfulBlogPost?.blogSlug}`,
+          description: `No description provided`,
+          // image: `${data?.contentfulBlogPost?.blogMainImage?.socialMediaImage?.src}`,
+          // site_name: `${data?.contentfulCompanyInfo?.metadataSiteName}`,
+          lang: props.pageContext.locale,
+          locale: props.pageContext.locale,
+          // localeAlternate: data?.contentfulBlogPost?.node_locale?.includes('en') ? 'fr_CA' : 'en_CA',
+        })}
+      </Helmet>
       {props.children}
     </>
   );

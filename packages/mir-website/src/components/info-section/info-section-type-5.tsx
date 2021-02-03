@@ -1,16 +1,15 @@
+import { FluidObject } from 'gatsby-image';
 import React from 'react';
 import { useStyles } from 'react-treat';
+import { SectionFragment } from '../../../types/graphql-types';
+import { LayoutCentered } from '../../layout/content-centered';
+import { SECTION_IMAGE_POSITION } from '../../templates/section.template';
+import { FadeIn } from '../animation/fade-in';
 import { ImageFrame } from '../ui/image-frame';
-import { CheckLabel } from './info-section-check';
 import { Paragraph } from '../ui/paragraph';
-
+import { CheckLabel } from './info-section-check';
 import * as styleRefs from './info-section-type-5.treat';
 import { RenderTitleHighlight } from './info-title-highligh';
-import { SectionFragment } from '../../../types/graphql-types';
-import { LayoutCentered } from '../../layouts/content-centered';
-import { FadeIn } from '../animation/fade-in';
-import { SECTION_IMAGE_POSITION } from '../../templates/section.template';
-import { FluidObject } from 'gatsby-image';
 
 type OwnProps = SectionFragment;
 
@@ -18,7 +17,7 @@ export const InfoSectionType5: React.FC<OwnProps> = (props) => {
   const styles = useStyles(styleRefs);
   const imagePosition = props?.imagePosition as SECTION_IMAGE_POSITION;
   const hasImage = !!props?.medias?.medias?.length;
-  const imageFluid = props?.medias?.medias?.[0]?.mobileFluidImage;
+  const imageFluid = props?.medias?.medias?.[0]?.desktopFluidImage;
 
   return (
     <div className={`${styles.wrapper} ${styles.type5} }`}>

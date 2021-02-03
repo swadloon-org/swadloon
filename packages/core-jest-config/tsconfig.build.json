@@ -3,14 +3,18 @@
   "compilerOptions": {
     "rootDir": "src",
     "outDir": "lib",
+    "module": "commonjs",
     "types": ["jest", "node", "expect-puppeteer", "jest-environment-puppeteer", "puppeteer"]
   },
   "references": [
     {
-      "path": "../core-common/tsconfig.build.json"
+      "path": "../core-types/tsconfig.build.json"
     },
     {
       "path": "../core-utils/tsconfig.build.json"
+    },
+    {
+      "path": "../core-common/tsconfig.build.json"
     }
   ],
   "include": ["src", "types"]

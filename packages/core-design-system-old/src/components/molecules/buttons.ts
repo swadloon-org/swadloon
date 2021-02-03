@@ -51,7 +51,7 @@ export interface ButtonStyle {
 }
 
 export interface ButtonSizeStyle {
-  width?: String | undefined;
+  width?: string | undefined;
   height?: SIZING;
   padding?: SIZING;
   paddingV?: SIZING;
