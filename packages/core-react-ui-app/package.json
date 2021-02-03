@@ -4,10 +4,10 @@
   "description": "UI App library",
   "license": "MIT",
   "scripts": {
-    "build": "cross-env TS_NODE_PROJECT=tsconfig.webpack.json node -r ts-node/register ../../node_modules/webpack/bin/webpack --config webpack.dev.config.ts",
-    "clean": "rimraf -r dist/** && rm -f tsconfig.build.tsbuildinfo",
-    "start": "cross-env TS_NODE_PROJECT=tsconfig.webpack.json node -r ts-node/register ../../node_modules/webpack-dev-server/bin/webpack-dev-server --config webpack.dev.config.ts",
-    "test": "echo ok"
+    "build-disabled": "cross-env TS_NODE_PROJECT=tsconfig.webpack.json node -r ts-node/register ../../node_modules/webpack/bin/webpack --config webpack.dev.config.ts",
+    "clean-disabled": "rimraf -r dist/** && rm -f tsconfig.build.tsbuildinfo",
+    "start-disabled": "cross-env TS_NODE_PROJECT=tsconfig.webpack.json node -r ts-node/register ../../node_modules/webpack-dev-server/bin/webpack-dev-server --config webpack.dev.config.ts",
+    "test-disabled": "echo ok"
   },
   "type": "module",
   "typings": "./lib/index.d.ts",

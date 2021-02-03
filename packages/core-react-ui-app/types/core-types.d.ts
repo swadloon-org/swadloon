@@ -7,3 +7,5 @@
 /// <reference types="../../core-types/lib/svg" />
 /// <reference types="../../core-types/lib/react-lazyload" />
 /// <reference types="../../core-types/lib/treat-webpack-plugin" />
+/// <reference types="../../core-types/lib/copy-webpack-plugin" />
+/// <reference types="../../core-types/lib/mini-css-extract-plugin" />

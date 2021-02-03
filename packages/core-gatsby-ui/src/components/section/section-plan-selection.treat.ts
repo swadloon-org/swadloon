@@ -8,9 +8,6 @@ export const styles = {
   wrapper: style(({ theme, cssTheme }: Theme) => ({
     width: '100%',
   })),
-  content: style(({ theme, cssTheme }: Theme) => ({
-    width: '100%',
-  })),
   /**
    * Variants
    */

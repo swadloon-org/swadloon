@@ -1,6 +1,6 @@
 import { GoogleMaps, GoogleMapsInfoWindow, useTreatTheme } from '@newrade/core-react-ui';
 import { Marker } from '@react-google-maps/api';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
 type Props = {
   inView: boolean;
@@ -8,11 +8,19 @@ type Props = {
 
 export const GoogleMapVSB: React.FC<Props> = ({ inView }) => {
   const theme = useTreatTheme();
+  const [loaded, setLoaded] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (inView) {
+      if (!loaded) {
+        setLoaded(true);
+      }
+    }
+  }, [inView]);
 
   /**
    * Google Maps section
    */
-
   const [place, setPlace] = useState<google.maps.places.PlaceResult>();
   const [marker, setMarker] = useState<google.maps.Marker>();
   const [infoWindowVisible, setInfoWindowVisible] = useState<boolean>(true);
@@ -39,7 +47,7 @@ export const GoogleMapVSB: React.FC<Props> = ({ inView }) => {
 
   return (
     <>
-      {inView ? (
+      {!loaded ? (
         <GoogleMaps
           theme={theme}
           script={{

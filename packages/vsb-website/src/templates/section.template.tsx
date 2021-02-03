@@ -1,4 +1,4 @@
-import { BlockMarkdown, GatsbyLink, Section } from '@newrade/core-gatsby-ui/src';
+import { BlockMarkdown, GatsbyLink, MarkdownRenderer, Section } from '@newrade/core-gatsby-ui/src';
 import { BoxV2, Button, Image, Stack, Switcher, useTreatTheme } from '@newrade/core-react-ui';
 import { IoArrowForwardOutline } from '@react-icons/all-files/io5/IoArrowForwardOutline';
 import { FluidObject } from 'gatsby-image';
@@ -13,7 +13,6 @@ import { SectionBanner } from '../components/section-banner';
 import { SectionBannerLink } from '../components/section-banner-link';
 import { SectionContact } from '../components/section-contact';
 import { SectionCost } from '../components/section-cost';
-import { SectionFaq } from '../components/section-faq';
 import { SectionInfo } from '../components/section-info';
 import { SectionMessages } from '../components/section-messages';
 import { SectionSteps } from '../components/section-steps';
@@ -189,11 +188,15 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
               </Section>
             );
           }
+          case SECTION_TYPE.VASECTOMY_INFO_AFTER:
           case SECTION_TYPE.VASECTOMY_INFO_BEFORE: {
             return (
               <Section id={`section-${index}`} key={index}>
-                <SectionFaq key={index} section={section} />
-                {/* BlockMarkdown */}
+                <BoxV2 style={{ width: `100%` }}>
+                  <Stack gap={[cssTheme.sizing.var.x7]}>
+                    <MarkdownRenderer>{section.text?.childMdx?.body}</MarkdownRenderer>
+                  </Stack>
+                </BoxV2>
               </Section>
             );
           }
@@ -201,13 +204,6 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
             return (
               <Section id={`section-${index}`} key={index} variant={'secondary'}>
                 <SectionCost key={index} section={section} />
-              </Section>
-            );
-          }
-          case SECTION_TYPE.VASECTOMY_INFO_AFTER: {
-            return (
-              <Section id={`section-${index}`} key={index}>
-                <SectionFaq key={index} section={section} />
               </Section>
             );
           }
