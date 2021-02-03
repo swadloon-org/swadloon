@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.5](https://github.com/newrade/newrade/compare/@newrade/core-react-ui-app@1.5.4...@newrade/core-react-ui-app@1.5.5) (2021-02-03)
+
+### Bug Fixes
+
+- **core-react-app:** fix types references ([594baec](https://github.com/newrade/newrade/commit/594baecc7cad830c5e080cfa32461a40b99bd1c4))
+- **repo:** improve tsconfigs and build references ([22a31c1](https://github.com/newrade/newrade/commit/22a31c17608f6d6fda5ccd193588fd9194c68502))
+- **repo:** share .d.ts files in core-types ([4b28071](https://github.com/newrade/newrade/commit/4b28071d704905c281b304a78c5888fbf5961de5))
+
 ## [1.5.4](https://github.com/newrade/newrade/compare/@newrade/core-react-ui-app@1.5.3...@newrade/core-react-ui-app@1.5.4) (2021-01-04)
 
 **Note:** Version bump only for package @newrade/core-react-ui-app

@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/newrade/newrade-core/tree/master/packages/core-common/compare/@newrade/core-common@1.0.1...@newrade/core-common@1.1.0) (2021-02-03)
+
+### Bug Fixes
+
+- **deepscan-fixes:** fixing error flag by deepscan ([fee3386](https://github.com/newrade/newrade-core/tree/master/packages/core-common/commit/fee3386d881f78036447523e48f7455ace636645))
+- **vsb-api:** small improvements ([efbfa93](https://github.com/newrade/newrade-core/tree/master/packages/core-common/commit/efbfa93b83aa458fab40a9691ba5e37803234f52))
+
+### Features
+
+- **controller-status:** adding route and controller for knowing the current status of cliniko ([e357a5b](https://github.com/newrade/newrade-core/tree/master/packages/core-common/commit/e357a5b5c3865d664184bb659370f7b4fdc2c9a2))
+- **core-common:** add form api ([b25a7a7](https://github.com/newrade/newrade-core/tree/master/packages/core-common/commit/b25a7a7a7ea7232b039a4cf6aa130de8304a67cc))
+- **core-common:** add v1 of forms ([d74b759](https://github.com/newrade/newrade-core/tree/master/packages/core-common/commit/d74b75936295e49399c0843b79545c70693be5b0))
+- **form-validation:** adding Cleave lib for front-end validation of fields ([f4a6326](https://github.com/newrade/newrade-core/tree/master/packages/core-common/commit/f4a63263d832bb14f480b20d82e57cde93d31428))
+- **form-validation-yup:** adding form and testing the yup errors ([53e8096](https://github.com/newrade/newrade-core/tree/master/packages/core-common/commit/53e809643d48cce51bacd6abc097e5cf91429745))
+- **spam-middleware:** recaptcha and rate limiting ([dd2edb2](https://github.com/newrade/newrade-core/tree/master/packages/core-common/commit/dd2edb24a527435dc45546c6753ebaa9c3464252))
+- **vsb:** create common package and adjust vsb-api ([5db75ab](https://github.com/newrade/newrade-core/tree/master/packages/core-common/commit/5db75ab09fc2dd4e3cd6f52b4cc2bc56398863b8))
+- **vsb-api:** add i18n translation service ([76ae02f](https://github.com/newrade/newrade-core/tree/master/packages/core-common/commit/76ae02fa4bc15c744b5d2629267bda27b66d9403))
+
 ## 1.0.1 (2020-12-18)
 
 ### Bug Fixes

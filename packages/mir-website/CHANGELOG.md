@@ -3,6 +3,40 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.10.0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/mir-website@1.9.0...@newrade/mir-website@1.10.0) (2021-02-03)
+
+### Bug Fixes
+
+- **core-gatsby-ui:** fix SEO for templates ([9419f69](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/9419f699b3a034395adb44358f94a9d01728d1bc))
+- **core-react-ui:** fix async bundle and md providers ([8f3404a](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/8f3404aaa3962b794c359f1a626b4efdf5121e01))
+- **core-react-ui:** fixes for buttons and links ([4933704](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/49337046d67b5b1c1809732b765333378d4a18e9))
+- **gatsby:** various config fixes ([b1169be](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/b1169be173b416af2bbd01cd8f7786a7b3421797))
+- **mir-website:** config fixes ([8128983](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/81289832a9dd327dcecf11b357696ecccdd3338c))
+- **mir-website:** fix initial animation ([ae0e4e4](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ae0e4e422b6a48a0cafe900f68d6c0e90193ff18))
+- **mir-website:** fix mobile sidebar initial animation ([a7a56a6](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/a7a56a6185fa64ade15515b01e9ad36525854b44))
+- **mir-website:** fixes ([7aec9c0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/7aec9c083ee54b99cdea5222ede3358a26874a3f))
+- **mir-website:** maintenance ([2d5d392](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/2d5d39200c4bb1eaaa347ca600bf434d6a64ed29))
+- **repo:** fix linting issues ([25cd3d4](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/25cd3d4d91ada263a02177eed2eecbc4bcc0fd70))
+- **repo:** fixes after deepscan ([4e6e58f](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/4e6e58fb7788e6a4361dffd2eb593970306d9404))
+- **repo:** improve tsconfigs and build references ([22a31c1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/22a31c17608f6d6fda5ccd193588fd9194c68502))
+- **repo:** share .d.ts files in core-types ([4b28071](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/4b28071d704905c281b304a78c5888fbf5961de5))
+- **sites:** fixes and all assets ([c859573](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/c859573dcb8eb79e095e9a98be6b08dbb0063ff9))
+- **vsb-website:** fix build issues ([11fd560](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/11fd56082bd6eb576f5a7309b419611467a1850d))
+- **vsb-website:** refactor sections ([b3b327b](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/b3b327be766c9e493b5e0b816875d5b8e9c364b8))
+
+### Features
+
+- **clinic-component:** modify global-mardown-css and working on clinic-preview component ([fa1ee1d](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/fa1ee1d97d5846a6a79aea6639e0cc2c4f5aa395))
+- **core-react-ui:** add react-aria ([b42c52a](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/b42c52aa02b8ffd00f3a2da943d362df3f2f28cd))
+- **core-react-ui:** fix syntax highlighting for mdx or regular react code ([1f03fa8](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/1f03fa8d0b8345cdbc1cb54328c39baa35e979f8))
+- **core-react-ui:** implement custom google maps components ([86dbfe7](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/86dbfe75ed89e40e90dd5249cdf3c65d4949d1b3))
+- **core-react-ui:** improvements to ds pages ([10f9095](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/10f9095cda31b61f7b1368141243f595c6468e65))
+- **core-react-ui:** new components ([60b43ef](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/60b43efa4537e2067137ed9fd82eb7165630055c))
+- **gatsby:** move layout components to core-gatsby-ui ([7ac5f9a](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/7ac5f9af92d86f8266abc19fc5396df012c27dc3))
+- **newrade-admin:** add google app scripts example ([a7a9280](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/a7a928074a09143165c6cd1f389fdc7e35b9a7cf))
+- **vsb-api:** add i18n translation service ([76ae02f](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/76ae02fa4bc15c744b5d2629267bda27b66d9403))
+- **vsb-website:** accordions for faq section ([a19e65f](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/a19e65f39193a849186c41ab2c1dcfad157e3724))
+
 # [1.9.0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/mir-website@1.8.0...@newrade/mir-website@1.9.0) (2021-01-04)
 
 ### Bug Fixes

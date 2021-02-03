@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.5](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-design-system-old@1.3.4...@newrade/core-design-system-old@1.3.5) (2021-02-03)
+
+### Bug Fixes
+
+- **core-react-ui:** fix async bundle and md providers ([8f3404a](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/8f3404aaa3962b794c359f1a626b4efdf5121e01))
+- **linting:** fixes ([6d6fd06](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/6d6fd0636bffadd57e63a337da959861282a2a0f))
+- **repo:** fix linting issues ([25cd3d4](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/25cd3d4d91ada263a02177eed2eecbc4bcc0fd70))
+- **repo:** fixes after deepscan ([4e6e58f](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/4e6e58fb7788e6a4361dffd2eb593970306d9404))
+
 ## [1.3.4](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-design-system-old@1.3.3...@newrade/core-design-system-old@1.3.4) (2020-12-18)
 
 ### Bug Fixes

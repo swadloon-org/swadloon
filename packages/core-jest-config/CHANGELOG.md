@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.2](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/compare/@newrade/core-jest-config@1.5.1...@newrade/core-jest-config@1.5.2) (2021-02-03)
+
+### Bug Fixes
+
+- **core-gatsby-ui:** fix SEO for templates ([9419f69](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/9419f699b3a034395adb44358f94a9d01728d1bc))
+- **repo:** fix linting issues ([25cd3d4](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/25cd3d4d91ada263a02177eed2eecbc4bcc0fd70))
+- **repo:** improve tsconfigs and build references ([22a31c1](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/22a31c17608f6d6fda5ccd193588fd9194c68502))
+- **repo:** share .d.ts files in core-types ([4b28071](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/4b28071d704905c281b304a78c5888fbf5961de5))
+
 ## [1.5.1](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/compare/@newrade/core-jest-config@1.5.0...@newrade/core-jest-config@1.5.1) (2021-01-04)
 
 **Note:** Version bump only for package @newrade/core-jest-config

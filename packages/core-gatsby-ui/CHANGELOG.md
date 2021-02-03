@@ -3,6 +3,44 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-ui@1.2.0...@newrade/core-gatsby-ui@1.3.0) (2021-02-03)
+
+### Bug Fixes
+
+- **box-fix:** deleting bad import in gatsby-ui ([9dc2601](https://github.com/newrade/newrade/commit/9dc260167dada1a593199968387e9f6c4207b31d))
+- **core-gatsby-config:** fix locale in create-pages ([d8f5353](https://github.com/newrade/newrade/commit/d8f5353b870fc6ef3f9c0dc8809ba840afe1085f))
+- **core-gatsby-starter:** update for layouts ([91b30b5](https://github.com/newrade/newrade/commit/91b30b5716c7dbd1953f4362f176c94b1de41b45))
+- **core-gatsby-ui:** fix SEO for templates ([9419f69](https://github.com/newrade/newrade/commit/9419f699b3a034395adb44358f94a9d01728d1bc))
+- **core-react-app:** fix types references ([594baec](https://github.com/newrade/newrade/commit/594baecc7cad830c5e080cfa32461a40b99bd1c4))
+- **core-react-ui:** fixes for links and navigation ([36407cc](https://github.com/newrade/newrade/commit/36407ccdd4cedaa9422f40dca2e04b9a9c6460c0))
+- **mir-website:** config fixes ([8128983](https://github.com/newrade/newrade/commit/81289832a9dd327dcecf11b357696ecccdd3338c))
+- **mir-website:** fixes ([7aec9c0](https://github.com/newrade/newrade/commit/7aec9c083ee54b99cdea5222ede3358a26874a3f))
+- **repo:** fixes after deepscan ([4e6e58f](https://github.com/newrade/newrade/commit/4e6e58fb7788e6a4361dffd2eb593970306d9404))
+- **repo:** improve tsconfigs and build references ([22a31c1](https://github.com/newrade/newrade/commit/22a31c17608f6d6fda5ccd193588fd9194c68502))
+- **repo:** share .d.ts files in core-types ([4b28071](https://github.com/newrade/newrade/commit/4b28071d704905c281b304a78c5888fbf5961de5))
+- **sites:** fixes and all assets ([c859573](https://github.com/newrade/newrade/commit/c859573dcb8eb79e095e9a98be6b08dbb0063ff9))
+- **vsb-website:** implement fixes for nav ([188087f](https://github.com/newrade/newrade/commit/188087f8dcd1b6e836e86186d8e291aa8c537dfe))
+- **vsb-website:** implement info section ([d1eff7f](https://github.com/newrade/newrade/commit/d1eff7f307a4f2add25587cbd7a66b7722d8cb2d))
+
+### Features
+
+- **core-gatsby-ui:** introduce blocks ([19e0b02](https://github.com/newrade/newrade/commit/19e0b0225fe06e3b3a68a30a7bae052f9325732a))
+- **core-react-ui:** add nav items ([36d340b](https://github.com/newrade/newrade/commit/36d340bff5c883011c0de1caaadb072d966d8c25))
+- **core-react-ui:** add v1 of button.tsx ([881e2ff](https://github.com/newrade/newrade/commit/881e2ff3ade1197c71da23cf9f5ad8677d6aaf6f))
+- **core-react-ui:** finish footer ([e5e9eb6](https://github.com/newrade/newrade/commit/e5e9eb6822a6a6f9dd325104387f33021757dbcc))
+- **core-react-ui:** fix syntax highlighting for mdx or regular react code ([1f03fa8](https://github.com/newrade/newrade/commit/1f03fa8d0b8345cdbc1cb54328c39baa35e979f8))
+- **core-react-ui:** implement v1 of links ([d0a5d74](https://github.com/newrade/newrade/commit/d0a5d7407d764584537cce558b11beccb1dc0184))
+- **core-react-ui:** improvements to ds pages ([10f9095](https://github.com/newrade/newrade/commit/10f9095cda31b61f7b1368141243f595c6468e65))
+- **core-react-ui:** new components ([60b43ef](https://github.com/newrade/newrade/commit/60b43efa4537e2067137ed9fd82eb7165630055c))
+- **core-react-ui:** update design system demo ([7f2b472](https://github.com/newrade/newrade/commit/7f2b47232b1509f4fa91629befd43cb2630ce927))
+- **gatsby:** move layout components to core-gatsby-ui ([7ac5f9a](https://github.com/newrade/newrade/commit/7ac5f9af92d86f8266abc19fc5396df012c27dc3))
+- **layout-page:** deleting the box v1 and remplacing it by boxV2 ([3f3f60e](https://github.com/newrade/newrade/commit/3f3f60e4e35d666935eaa6940e57be6bf764ce0b))
+- **vsb-website:** add banner-link section ([406fbda](https://github.com/newrade/newrade/commit/406fbda81f8cb1979168794e19e75b170504d5b6))
+- **vsb-website:** finish steps section ([4c622a1](https://github.com/newrade/newrade/commit/4c622a1cce7f71c0eb84ff6529fa76590000559d))
+- **vsb-website:** fixes ([3196c2c](https://github.com/newrade/newrade/commit/3196c2c8cd4a5fb784b9f65e72ee51158e17e13f))
+- **vsb-website:** fixes list items ([1cda7d1](https://github.com/newrade/newrade/commit/1cda7d1276c520dc8ad470880b9755407d300338))
+- **vsb-website:** implement sidenav ([6b57a86](https://github.com/newrade/newrade/commit/6b57a867a88f57636c1d8268608d0605a02cc924))
+
 # [1.2.0](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-ui@1.1.0...@newrade/core-gatsby-ui@1.2.0) (2021-01-04)
 
 ### Bug Fixes

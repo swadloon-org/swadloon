@@ -5,39 +5,37 @@ CLI for various purposes, automate actions, etc.
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 
 <!-- toc -->
-
-- [core-cli](#core-cli)
-- [Usage](#usage)
-- [Commands](#commands)
+* [core-cli](#core-cli)
+* [Usage](#usage)
+* [Commands](#commands)
 <!-- tocstop -->
 
 # Usage
 
 <!-- usage -->
-
 ```sh-session
 $ npm install -g @newrade/core-cli
 $ nr COMMAND
 running command...
 $ nr (-v|--version|version)
-@newrade/core-cli/1.4.2 darwin-x64 node-v14.15.3
+@newrade/core-cli/1.5.0 darwin-x64 node-v14.15.4
 $ nr --help [COMMAND]
 USAGE
   $ nr COMMAND
 ...
 ```
-
 <!-- usagestop -->
 
 # Commands
 
 <!-- commands -->
-
-- [`nr commit [FILE]`](#nr-commit-file)
-- [`nr figma-sync [FILE]`](#nr-figma-sync-file)
-- [`nr hello [FILE]`](#nr-hello-file)
-- [`nr help [COMMAND]`](#nr-help-command)
-- [`nr reset-branches [FILE]`](#nr-reset-branches-file)
+* [`nr commit [FILE]`](#nr-commit-file)
+* [`nr figma-sync [FILE]`](#nr-figma-sync-file)
+* [`nr gastby-start`](#nr-gastby-start)
+* [`nr hello [FILE]`](#nr-hello-file)
+* [`nr help [COMMAND]`](#nr-help-command)
+* [`nr netlify-deploy`](#nr-netlify-deploy)
+* [`nr reset-branches [FILE]`](#nr-reset-branches-file)
 
 ## `nr commit [FILE]`
 
@@ -54,7 +52,7 @@ EXAMPLE
   $ nr commit
 ```
 
-_See code: [src/commands/commit.ts](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/blob/v1.4.2/src/commands/commit.ts)_
+_See code: [src/commands/commit.ts](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/blob/v1.5.0/src/commands/commit.ts)_
 
 ## `nr figma-sync [FILE]`
 
@@ -74,7 +72,27 @@ EXAMPLE
   $ nr figma-sync
 ```
 
-_See code: [src/commands/figma-sync.ts](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/blob/v1.4.2/src/commands/figma-sync.ts)_
+_See code: [src/commands/figma-sync.ts](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/blob/v1.5.0/src/commands/figma-sync.ts)_
+
+## `nr gastby-start`
+
+run gatsby dev
+
+```
+USAGE
+  $ nr gastby-start
+
+OPTIONS
+  -h, --help  show CLI help
+
+ALIASES
+  $ nr gatsby:start
+
+EXAMPLE
+  $ nr gatsby:start
+```
+
+_See code: [src/commands/gastby-start.ts](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/blob/v1.5.0/src/commands/gastby-start.ts)_
 
 ## `nr hello [FILE]`
 
@@ -94,7 +112,7 @@ EXAMPLE
      hello world from ./src/hello.ts!
 ```
 
-_See code: [src/commands/hello.ts](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/blob/v1.4.2/src/commands/hello.ts)_
+_See code: [src/commands/hello.ts](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/blob/v1.5.0/src/commands/hello.ts)_
 
 ## `nr help [COMMAND]`
 
@@ -111,7 +129,27 @@ OPTIONS
   --all  see all commands in CLI
 ```
 
-_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.2.3/src/commands/help.ts)_
+_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.1/src/commands/help.ts)_
+
+## `nr netlify-deploy`
+
+deploy gatsby site with netlify
+
+```
+USAGE
+  $ nr netlify-deploy
+
+OPTIONS
+  -h, --help  show CLI help
+
+ALIASES
+  $ nr netlify:deploy
+
+EXAMPLE
+  $ nr netlify:deploy
+```
+
+_See code: [src/commands/netlify-deploy.ts](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/blob/v1.5.0/src/commands/netlify-deploy.ts)_
 
 ## `nr reset-branches [FILE]`
 
@@ -128,6 +166,5 @@ EXAMPLE
   $ nr resetbranches
 ```
 
-_See code: [src/commands/reset-branches.ts](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/blob/v1.4.2/src/commands/reset-branches.ts)_
-
+_See code: [src/commands/reset-branches.ts](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/blob/v1.5.0/src/commands/reset-branches.ts)_
 <!-- commandsstop -->

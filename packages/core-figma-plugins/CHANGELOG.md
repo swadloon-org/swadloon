@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/newrade/newrade/compare/@newrade/core-figma-plugins@1.1.0...@newrade/core-figma-plugins@1.1.1) (2021-02-03)
+
+### Bug Fixes
+
+- **repo:** improve tsconfigs and build references ([22a31c1](https://github.com/newrade/newrade/commit/22a31c17608f6d6fda5ccd193588fd9194c68502))
+- **repo:** share .d.ts files in core-types ([4b28071](https://github.com/newrade/newrade/commit/4b28071d704905c281b304a78c5888fbf5961de5))
+
 # [1.1.0](https://github.com/newrade/newrade/compare/@newrade/core-figma-plugins@1.0.2...@newrade/core-figma-plugins@1.1.0) (2021-01-04)
 
 ### Features

@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-design-system@1.6.0...@newrade/core-design-system@1.7.0) (2021-02-03)
+
+### Bug Fixes
+
+- **core-react-ui:** fixes for links ([8b0068f](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/8b0068f5911c6553e42d8dcacac4b83937dfc435))
+- **sites:** fixes and all assets ([c859573](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/c859573dcb8eb79e095e9a98be6b08dbb0063ff9))
+
+### Features
+
+- **background-filter:** adding the component to wrap the background image to apply any css filter ([2fa99b0](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/2fa99b0979c3dbc450e16c7c8a01152e5c126c3d))
+- **core-react-ui:** add layout variables ([ad22c9e](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/ad22c9e493142fcf75f93f3159b64dc7a63055fa))
+- **core-react-ui:** add switcher component ([9b845ac](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/9b845ac0f1d45e08db42756bd833b1f383c4fbde))
+- **core-react-ui:** add v1 of button.tsx ([881e2ff](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/881e2ff3ade1197c71da23cf9f5ad8677d6aaf6f))
+- **core-react-ui:** finish footer ([e5e9eb6](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/e5e9eb6822a6a6f9dd325104387f33021757dbcc))
+- **core-react-ui:** implement v1 of links ([d0a5d74](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/d0a5d7407d764584537cce558b11beccb1dc0184))
+- **core-react-ui:** implement variantLevel in text components ([634a984](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/634a98407b096d9c2559ade698b673570125668b))
+- **core-react-ui:** new components ([60b43ef](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/60b43efa4537e2067137ed9fd82eb7165630055c))
+- **link-style:** adding new enum of link-style ([364cf53](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/364cf535802a1f852f6c836bdc07d1d2b291e93c))
+- **update-button:** adding new props to the design system and updating the button.tsx ([162056f](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/162056f6fa696cbf48afe10c9b603985bcb28625))
+- **vsb-website:** accordions for faq section ([a19e65f](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/a19e65f39193a849186c41ab2c1dcfad157e3724))
+- **vsb-website:** formatting for messages section ([c38821a](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/c38821a9073313677c5e36dc8fd54c0629c1254a))
+- **vsb-website:** implement tiles ([508f9db](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/508f9db45c2a91a4b1f7c3e2ceb930be8289b971))
+
 # [1.6.0](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-design-system@1.5.0...@newrade/core-design-system@1.6.0) (2021-01-04)
 
 ### Bug Fixes

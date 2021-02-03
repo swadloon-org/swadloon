@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.5](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/compare/@newrade/core-yo-generator@1.4.4...@newrade/core-yo-generator@1.4.5) (2021-02-03)
+
+### Bug Fixes
+
+- **repo:** share .d.ts files in core-types ([4b28071](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/4b28071d704905c281b304a78c5888fbf5961de5))
+
 ## [1.4.4](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/compare/@newrade/core-yo-generator@1.4.3...@newrade/core-yo-generator@1.4.4) (2021-01-04)
 
 **Note:** Version bump only for package @newrade/core-yo-generator
