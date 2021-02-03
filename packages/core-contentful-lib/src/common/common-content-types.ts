@@ -50,4 +50,16 @@ export enum COMMON_CONTENT_TYPE {
    * Field Translation content types
    */
   TRANSLATION = 'Translation',
+
+  /**
+   * Section V2 && et block
+   */
+  SECTION_V2 = 'SectionV2',
+  BLOCK = 'Block',
+  BLOCK_TYPE = 'BlockType',
+
+  /**
+   * Navigation
+   */
+  NAVIGATION = 'Navigation',
 }
