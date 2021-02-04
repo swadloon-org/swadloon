@@ -1,11 +1,8 @@
-import { Label, Stack, useTreatTheme, BoxV2 } from '@newrade/core-react-ui';
+import { BoxV2, formatAnchorId, Label, Stack } from '@newrade/core-react-ui';
 import { WindowLocation } from '@reach/router';
-import { kebab } from 'case';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { useReachRouterLocation } from '../../hooks/use-reach-router-location';
 import * as styleRefs from './aside.treat';
-import { formatAnchorId } from '@newrade/core-react-ui';
 
 type AsideItem<TState = any> = {
   value?: string | null;
@@ -19,9 +16,9 @@ type Props = {
 
 export const Aside: React.FC<Props> = (props) => {
   const { styles } = useStyles(styleRefs);
-  const { theme, cssTheme } = useTreatTheme();
+  // const { theme, cssTheme } = useTreatTheme();
+  // const id = props.location?.hash;
 
-  const id = props?.location?.hash;
   const currentId = useScrollSpy(props.items);
 
   return (
@@ -52,7 +49,7 @@ function filterItemDepthPredicate(item: AsideItem) {
 
 function useScrollSpy(items: Props['items']) {
   const [currentId, setCurrentId] = React.useState<string | null>(null);
-  const location = useReachRouterLocation();
+  // const location = useReachRouterLocation();
 
   // React.useEffect(() => setCurrentId(null), [location?.hash]);
 

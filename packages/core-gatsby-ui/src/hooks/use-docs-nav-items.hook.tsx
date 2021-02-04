@@ -45,7 +45,7 @@ export function useDocsNavItems(): NavItem[] {
     if (!name) {
       return '';
     }
-    return title(name?.replace('.page', '').replace('design-system-', ''));
+    return title(name.replace('.page', '').replace('design-system-', ''));
   }
 
   return navItems;

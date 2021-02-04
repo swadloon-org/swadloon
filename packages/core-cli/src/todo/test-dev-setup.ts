@@ -1,10 +1,9 @@
-import path from 'path';
+import { log, LOG_LEVEL, scriptLog } from '@newrade/core-utils';
 import chalk from 'chalk';
-import dotenv from 'dotenv';
 import { spawn } from 'child_process';
-
-import { log, scriptLog, LOG_LEVEL } from '@newrade/core-utils';
-import { devTools, DevTool } from './dev-tools';
+import dotenv from 'dotenv';
+import path from 'path';
+import { DevTool, devTools } from './dev-tools';
 
 const failedDevTools: DevTool[] = [];
 
@@ -56,7 +55,7 @@ function checkDevTools() {
         toolName: tool.name,
         level: LOG_LEVEL.ERROR,
       });
-      if (tool?.mandatory) {
+      if (tool.mandatory) {
         failedDevTools.push(tool);
       }
     });
@@ -78,7 +77,7 @@ function checkDevTools() {
 }
 
 function checkForFailures() {
-  if (failedDevTools?.length) {
+  if (failedDevTools.length) {
     scriptLog(`missing mandatory dependencies: ${failedDevTools.map((tool) => tool.name).join(', ')}`);
   }
 }
