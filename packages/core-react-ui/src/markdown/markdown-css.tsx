@@ -9,7 +9,7 @@ type Props = CommonComponentProps;
 /**
  * Applies Global CSS on md/mdx elements.
  */
-export const GlobalMarkdownCSS: React.FC<Props> = ({ id, style, className, ...props }) => {
+export const MarkdownCSS: React.FC<Props> = ({ id, style, className, ...props }) => {
   const styles = useStyles(styleRefs);
   const classNames = getMergedClassname([className, styles.wrapper]);
 

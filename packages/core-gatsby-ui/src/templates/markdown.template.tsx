@@ -1,20 +1,20 @@
 import { GatsbyMarkdownFilePageContext } from '@newrade/core-gatsby-config';
 import {
-  getMetaBasicTags,
-  GlobalMarkdownCSS,
   Center,
+  getMetaBasicTags,
   getMetadataOpenGraphWebsiteTags,
+  MarkdownCSS,
   OPEN_GRAPH_TYPE,
 } from '@newrade/core-react-ui';
 import { graphql, PageProps } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
+import { I18nProvider } from 'react-aria';
 import Helmet from 'react-helmet';
 import { useStyles } from 'react-treat';
-import * as styleRefs from './markdown.treat';
-import { Aside } from '../components/navigation/aside';
-import { I18nProvider } from 'react-aria';
 import { MarkdownTemplateQuery } from '../../types/site-graphql-types';
+import { Aside } from '../components/navigation/aside';
+import * as styleRefs from './markdown.treat';
 
 export type MarkdownTemplateProps = PageProps<MarkdownTemplateQuery, GatsbyMarkdownFilePageContext>;
 
@@ -87,9 +87,9 @@ const Template: React.FC<MarkdownTemplateProps> = (props) => {
       </Helmet>
       <I18nProvider locale={props.pageContext.locale}>
         <Center maxWidth={'800px'}>
-          <GlobalMarkdownCSS>
+          <MarkdownCSS>
             <MDXRenderer {...props}>{props.data.file?.childMdx?.body as string}</MDXRenderer>
-          </GlobalMarkdownCSS>
+          </MarkdownCSS>
         </Center>
 
         <Aside items={props.data.file?.childMdx?.headings} location={props.location} />

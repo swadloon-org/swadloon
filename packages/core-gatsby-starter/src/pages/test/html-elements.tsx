@@ -2,7 +2,7 @@ import { Stack } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import * as styleRefs from '../../styles/index.treat';
-import { SrcPageTemplateProps, SrcPageTemplate } from '../../templates/src-page.template';
+import { SrcPageTemplate, SrcPageTemplateProps } from '../../templates/src-page.template';
 
 const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
   const lorenipsum = `Lorem ipsum dolor sit amet.`;
@@ -423,6 +423,7 @@ const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
           <p>Fernstraßen&shy;bau&shy;privat&shy;finanzierungs&shy;gesetz</p>
         </div>
       </Stack>
+
       <Stack id={'Demarcating edits'}>
         <blockquote>
           There is <del>nothing</del> <ins>no code</ins> either good or bad, but <del>thinking</del>
@@ -504,63 +505,8 @@ const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
           Sorry, your browser doesn't support embedded videos.
         </video>
       </Stack>
-      {/*
-      <Stack id={'Table content'} gap={['21px']}>
-        <h3>embed</h3>
-        <embed
-          type="video/webm"
-          src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/friday.mp4"
-          width="250"
-          height="200"
-        ></embed>
 
-        <h3>iframe</h3>
-        <iframe
-          id="inlineFrameExample"
-          title="Inline Frame Example"
-          width="300"
-          height="200"
-          src="https://www.openstreetmap.org/export/embed.html?bbox=-0.004017949104309083%2C51.47612752641776%2C0.00030577182769775396%2C51.478569861898606&layer=mapnik"
-        ></iframe>
-
-        <h3>object</h3>
-        <object
-          type="application/pdf"
-          data="https://interactive-examples.mdn.mozilla.net/media/examples/In-CC0.pdf"
-          width={250}
-          height={200}
-        ></object>
-
-        <h3>param</h3>
-        <object type="application/pdf" data="/media/examples/In-CC0.pdf" width={250} height={200}></object>
-
-        <h3>picture</h3>
-        <picture>
-          <source
-            srcSet="https://interactive-examples.mdn.mozilla.net/media/cc0-images/surfer-240-200.jpg"
-            media="(min-width: 800px)"
-          ></source>
-          <img
-            src="https://interactive-examples.mdn.mozilla.net/media/cc0-images/painted-hand-298-332.jpg"
-            alt=""
-          ></img>
-        </picture>
-
-        <h3>source</h3>
-        <video controls width="250" height="200" muted>
-          <source
-            src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm"
-            type="video/webm"
-          ></source>
-          <source
-            src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
-            type="video/mp4"
-          ></source>
-          This browser does not support the HTML5 video element.
-        </video>
-      </Stack> */}
-
-      <Stack className="wrapper" id={'Table content'} gap={['21px']}>
+      <Stack id={'Table content'} className="wrapper" gap={['21px']}>
         <h3>Table and Caption</h3>
 
         <table>

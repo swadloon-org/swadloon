@@ -1,7 +1,8 @@
-import { PARAGRAPH_SIZE, TEXT_STYLE, TEXT_LEVEL } from '@newrade/core-design-system';
+import { PARAGRAPH_SIZE, TEXT_LEVEL, TEXT_STYLE } from '@newrade/core-design-system';
 import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
 import { CommonComponentProps } from '../../props/component-common.props';
+import { getMergedClassname } from '../../utilities/component.utilities';
 import * as stylesRef from './paragraph.treat';
 
 type Props = CommonComponentProps &
@@ -26,13 +27,16 @@ export const Paragraph: React.FC<Props> = React.memo(
     const { styles: styles } = useStyles(stylesRef);
 
     const type = as ? as : 'p';
+    const classNames = getMergedClassname([
+      className,
+      styles.normal,
+      styles[variant ? variant : (defaultProps.variant as PARAGRAPH_SIZE)],
+      variantStyle ? styles[variantStyle] : '',
+      variantLevel ? styles[variantLevel] : '',
+    ]);
 
     return React.createElement(type, {
-      className: `${styles.normal} ${className || ''} ${
-        styles[variant ? variant : (defaultProps.variant as PARAGRAPH_SIZE)]
-      }
-    ${variantStyle ? styles[variantStyle] : ''}
-    ${variantLevel ? styles[variantLevel] : ''}`,
+      className: classNames,
       ...props,
     });
   }

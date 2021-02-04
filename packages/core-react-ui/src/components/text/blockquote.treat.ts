@@ -9,6 +9,5 @@ export const styles = {
     backgroundColor: getCSSColor({ ...theme.colors.colors.primary[100], a: 25 }),
     borderLeft: `8px solid ${cssTheme.colors.colors.primary[500]}`,
     padding: `20px 16px 20px 25px`,
-    margin: `20px 0px`,
   })),
 };

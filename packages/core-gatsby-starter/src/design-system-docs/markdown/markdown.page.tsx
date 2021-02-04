@@ -1,5 +1,5 @@
 import { HEADING } from '@newrade/core-design-system';
-import { GlobalMarkdownCSS, Heading, Hr, Paragraph, Stack, useTreatTheme } from '@newrade/core-react-ui';
+import { Heading, Hr, MarkdownCSS, Paragraph, Stack, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { DesignSystemPageProps, DesignSystemPageTemplate } from '../../templates/design-system-page.template';
@@ -23,9 +23,9 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
 
         <Hr />
 
-        <GlobalMarkdownCSS>
+        <MarkdownCSS>
           <MDXMarkdown />
-        </GlobalMarkdownCSS>
+        </MarkdownCSS>
       </Stack>
     </Stack>
   );

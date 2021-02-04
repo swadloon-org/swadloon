@@ -12,7 +12,6 @@ import { FormVasectomy } from '../components/form-vasectomy';
 import { SectionBanner } from '../components/section-banner';
 import { SectionBannerLink } from '../components/section-banner-link';
 import { SectionContact } from '../components/section-contact';
-import { SectionInfo } from '../components/section-info';
 import { SectionMessages } from '../components/section-messages';
 import { SectionSteps } from '../components/section-steps';
 import { SectionTileLinks } from '../components/section-tile-links';
@@ -31,6 +30,7 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
           /**
            * Common
            */
+
           case SECTION_TYPE.BANNER: {
             return (
               <Section id={`section-${index}`} key={index} variantLayout={'banner'}>
@@ -50,6 +50,7 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
           /**
            * Home page
            */
+
           case SECTION_TYPE.TILE_LINKS: {
             return (
               <Section id={`section-${index}`} key={index} variantLayout={'banner'}>
@@ -57,6 +58,7 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
               </Section>
             );
           }
+
           case SECTION_TYPE.CONTACT_PREVIEW: {
             return (
               <Section
@@ -97,25 +99,10 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
               </Section>
             );
           }
-          case SECTION_TYPE.CONTACT_CONTACT: {
-            return (
-              <Section id={`section-${index}`} key={index} variant={'secondary'} variantLayout={'center'}>
-                <SectionContact key={index} section={section} />
-              </Section>
-            );
-          }
 
           /**
-           * Clinic page
+           * Steps
            */
-          // case SECTION_TYPE.CLINIC_MISSION: {
-          //   return (
-          //     <Section id={`section-${index}`} key={index} variant={'secondary'}>
-          //       <SectionInfo key={index} section={section} />
-          //     </Section>
-          //   );
-          // }
-
           case SECTION_TYPE.VASECTOMY_STEPS: {
             return (
               <Section id={`section-${index}`} key={index}>
@@ -124,6 +111,11 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
             );
           }
 
+          /**
+           * Pilot page
+           */
+          case SECTION_TYPE.PILOT_EXAM_INFO:
+          case SECTION_TYPE.PILOT_EXAM_DR_PROFILE:
           case SECTION_TYPE.CLINIC_PREVIEW:
           case SECTION_TYPE.CLINIC_MISSION:
           case SECTION_TYPE.CLINIC_DR_PROFILE:
@@ -187,6 +179,10 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
               </Section>
             );
           }
+
+          /**
+           * FAQ
+           */
           case SECTION_TYPE.VASECTOMY_INFO_AFTER:
           case SECTION_TYPE.VASECTOMY_INFO_BEFORE: {
             return (
@@ -197,6 +193,10 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
               </Section>
             );
           }
+
+          /**
+           * Cost items sections
+           */
           case SECTION_TYPE.PILOT_EXAM_SERVICE:
           case SECTION_TYPE.VASECTOMY_INFO_COST: {
             return (
@@ -220,12 +220,13 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
           }
 
           /**
-           * Vasectomy form page
+           * Forms
            */
-          case SECTION_TYPE.VASECTOMY_FORM_VIDEO: {
+
+          case SECTION_TYPE.CONTACT_CONTACT: {
             return (
-              <Section id={`section-${index}`} key={index}>
-                <FormVasectomy key={index} section={section} />
+              <Section id={`section-${index}`} key={index} variant={'secondary'} variantLayout={'center'}>
+                <SectionContact key={index} section={section} />
               </Section>
             );
           }
@@ -238,20 +239,12 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
           }
 
           /**
-           * Pilot page
+           * TODO
            */
-          case SECTION_TYPE.PILOT_EXAM_INFO: {
+          case SECTION_TYPE.VASECTOMY_FORM_VIDEO: {
             return (
               <Section id={`section-${index}`} key={index}>
-                <SectionInfo key={index} section={section} />
-              </Section>
-            );
-          }
-
-          case SECTION_TYPE.PILOT_EXAM_DR_PROFILE: {
-            return (
-              <Section id={`section-${index}`} key={index}>
-                <SectionInfo key={index} section={section} />
+                <FormVasectomy key={index} section={section} />
               </Section>
             );
           }
