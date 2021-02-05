@@ -60,26 +60,6 @@ export function createBlock(migration: Migration.default) {
   });
 
   /**
-   * For Title and TitleHighlight
-   */
-  content.createField(COMMON_FIELD.TITLE, { name: pascal(COMMON_FIELD.TITLE), type: 'Symbol', localized: true });
-
-  content.createField('titleHighlight', {
-    name: 'TitleHighlight',
-    type: 'Symbol',
-    localized: true,
-  });
-
-  /**
-   * For SUBTITLE
-   */
-  content.createField(COMMON_FIELD.SUBTITLE, {
-    name: pascal(COMMON_FIELD.SUBTITLE),
-    type: 'Symbol',
-    localized: true,
-  });
-
-  /**
    * For Text
    */
   content.createField(COMMON_FIELD.TEXT, { name: pascal(COMMON_FIELD.TEXT), type: 'Text', localized: true });

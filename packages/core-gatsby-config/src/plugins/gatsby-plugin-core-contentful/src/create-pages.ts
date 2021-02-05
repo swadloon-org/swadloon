@@ -10,7 +10,7 @@ import { GatsbyCoreContentfulPluginOptions } from '../gatsby-plugin-options';
 let siteMetadata: GatsbyNodeSiteMetadataFragment;
 
 export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, graphql }, options) => {
-  const { createPage, deletePage } = actions;
+  const { createPage } = actions;
   const pluginOptions = (options as unknown) as GatsbyCoreContentfulPluginOptions;
 
   try {
@@ -104,7 +104,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
      */
     const pageTemplate = path.resolve(`src/templates/page.template.tsx`);
 
-    pagesData?.data?.allContentfulPage.edges
+    pagesData.data?.allContentfulPage.edges
       .filter((edge) => {
         if (!(edge && edge.node)) {
           return false;
@@ -161,10 +161,10 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
       }
 
       const blogPostTemplate = path.resolve(`src/templates/blog-post.template.tsx`);
-      const blogPageRouteFR = pagesData?.data?.allContentfulPage.edges
+      const blogPageRouteFR = pagesData.data?.allContentfulPage.edges
         .filter((edge) => edge.node.name.includes('Blogue') && edge.node.node_locale === 'fr-CA')
         .map((edge) => edge.node);
-      const blogPageRouteEN = pagesData?.data?.allContentfulPage.edges
+      const blogPageRouteEN = pagesData.data?.allContentfulPage.edges
         .filter((edge) => edge.node.name.includes('Blogue') && edge.node.node_locale === 'en-CA')
         .map((edge) => edge.node);
 
@@ -176,7 +176,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
         toolName: pluginOptions.packageName,
       });
 
-      blogPosts?.data?.allContentfulBlogPost.edges
+      blogPosts.data?.allContentfulBlogPost.edges
         .filter((edge) => {
           if (!(edge && edge.node)) {
             return false;
