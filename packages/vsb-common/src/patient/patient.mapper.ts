@@ -1,11 +1,23 @@
 import { formatISO } from 'date-fns';
-import { PatientAPIModel, PatientClinikoModel } from './patient.model';
+import { PatientModel, PatientClinikoModel } from './patient.model';
 
-// TODO: find best approach to map object to another object (automapper ?)
-export function getPatientClinkoModel(patientAPIModel: PatientAPIModel): Partial<PatientClinikoModel> {
+export function getPatientClinikoModel(patientModel: PatientModel): PatientClinikoModel {
   return {
-    first_name: patientAPIModel.firstName,
-    last_name: patientAPIModel.lastName,
-    date_of_birth: formatISO(patientAPIModel.dateOfBirth, { representation: 'date' }),
+    first_name: patientModel.firstName,
+    last_name: patientModel.lastName,
+    date_of_birth:
+      typeof patientModel.dateOfBirth === 'string'
+        ? patientModel.dateOfBirth
+        : formatISO(patientModel.dateOfBirth, { representation: 'date' }),
+    medicare: patientModel.medicare,
+    email: patientModel.email,
+    patient_phone_numbers: [{ phone_type: patientModel.patientPhoneType, number: patientModel.patientPhoneNumber }],
+    address_1: patientModel.address1,
+    address_2: patientModel.address2,
+    city: patientModel.city,
+    state: patientModel.state,
+    post_code: patientModel.postCode,
+    country: patientModel.country,
+    reminder_type: patientModel.reminderType,
   };
 }

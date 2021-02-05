@@ -15,7 +15,7 @@ import {
   Switcher,
   useTreatTheme,
 } from '@newrade/core-react-ui';
-import { PatientAPIResponseBody, PatientClinikoModel, PatientValidation, REMINDER_TYPE } from '@newrade/vsb-common';
+import { CLINIKO_REMINDER_TYPE, PatientAPIResponseBody, PatientModel, PatientValidation } from '@newrade/vsb-common';
 import 'cleave.js/dist/addons/cleave-phone.ca';
 import React, { useCallback, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
@@ -27,7 +27,7 @@ import { SectionProps } from './section.props';
 
 type Props = CommonComponentProps & SectionProps & {};
 
-const useYupValidationResolver = (PatientValidation: SchemaOf<PatientClinikoModel>) =>
+const useYupValidationResolver = (PatientValidation: SchemaOf<PatientModel>) =>
   useCallback(
     async (patient) => {
       try {
@@ -77,9 +77,9 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
     getValues,
     formState,
     // formState: { isDirty, isSubmitting, touched, submitCount, isValid },
-  } = useForm<PatientClinikoModel>({ mode: 'onBlur', resolver });
+  } = useForm<PatientModel>({ mode: 'onBlur', resolver });
 
-  const onSubmit: SubmitHandler<PatientClinikoModel> = async (data) => {
+  const onSubmit: SubmitHandler<PatientModel> = async (data) => {
     setLoading(true);
 
     const tokenRecaptcha: string = await recaptchaRef.current.getValue();
@@ -105,7 +105,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
         }
         result.payload.validationErrors.map((validationError) => {
           if (validationError) {
-            setError(validationError.path as keyof PatientClinikoModel, {
+            setError(validationError.path as keyof PatientModel, {
               type: 'manual',
               message: validationError.message,
             });
@@ -130,33 +130,33 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
           <FormStack>
             <FormSwitcher>
               <InputWrapper>
-                <InputLabel htmlFor={'first_name'}>Prénom</InputLabel>
+                <InputLabel htmlFor={'firstName'}>Prénom</InputLabel>
                 <InputText
-                  name="first_name"
+                  name="firstName"
                   ref={register}
                   autoComplete="given-name"
                   placeholder={'John'}
-                  state={errors.first_name?.message ? 'error' : 'rest'}
+                  state={errors.firstName?.message ? 'error' : 'rest'}
                 />
-                <InputError>{errors.first_name?.message}</InputError>
+                <InputError>{errors.firstName?.message}</InputError>
               </InputWrapper>
 
               <InputWrapper>
-                <InputLabel htmlFor={'last_name'}>Nom de famille</InputLabel>
+                <InputLabel htmlFor={'lastName'}>Nom de famille</InputLabel>
                 <InputText
-                  name="last_name"
+                  name="lastName"
                   ref={register}
                   autoComplete="last-name"
                   placeholder={'Snow'}
-                  state={errors.last_name?.message ? 'error' : 'rest'}
+                  state={errors.lastName?.message ? 'error' : 'rest'}
                 />
-                <InputError>{errors.last_name?.message}</InputError>
+                <InputError>{errors.lastName?.message}</InputError>
               </InputWrapper>
             </FormSwitcher>
 
             <FormSwitcher>
               <InputWrapper>
-                <InputLabel htmlFor={'date_of_birth'}>Date de naissance</InputLabel>
+                <InputLabel htmlFor={'dateOfBirth'}>Date de naissance</InputLabel>
                 <InputText
                   type={'text'}
                   name="date_of_birth"
@@ -165,12 +165,12 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
                     options: { date: true, datePattern: ['d', 'm', 'Y'], delimiter: '-' },
                   }}
                   placeholder={'jj-mm-aaaa'}
-                  state={errors.date_of_birth?.message ? 'error' : 'rest'}
+                  state={errors.dateOfBirth?.message ? 'error' : 'rest'}
                 />
-                <InputError>{errors.date_of_birth?.message}</InputError>
+                <InputError>{errors.dateOfBirth?.message}</InputError>
               </InputWrapper>
 
-              <InputWrapper>
+              {/* <InputWrapper>
                 <InputLabel htmlFor={'sex'}>Sexe</InputLabel>
                 <InputText
                   name="sex"
@@ -179,7 +179,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
                   state={errors.sex?.message ? 'error' : 'rest'}
                 />
                 <InputError>{errors.sex?.message}</InputError>
-              </InputWrapper>
+              </InputWrapper> */}
             </FormSwitcher>
           </FormStack>
 
@@ -202,18 +202,18 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
               </InputWrapper>
 
               <InputWrapper>
-                <InputLabel htmlFor={'date_of_birth'}>Expiration</InputLabel>
+                <InputLabel htmlFor={'medicareExpiryDate'}>Expiration</InputLabel>
                 <InputText
                   type={'text'}
-                  name="date_of_birth"
+                  name="medicareExpiryDate"
                   cleaveProps={{
                     htmlRef: register,
                     options: { date: true, datePattern: ['d', 'm', 'Y'], delimiter: '-' },
                   }}
                   placeholder={'jj-mm-aaaa'}
-                  state={errors.date_of_birth?.message ? 'error' : 'rest'}
+                  state={errors.medicareExpiryDate?.message ? 'error' : 'rest'}
                 />
-                <InputError>{errors.date_of_birth?.message}</InputError>
+                <InputError>{errors.medicareExpiryDate?.message}</InputError>
               </InputWrapper>
             </FormSwitcher>
           </FormStack>
@@ -221,9 +221,9 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
           <FormStack>
             <FormSwitcher>
               <InputWrapper>
-                <InputLabel htmlFor={`patient_phone_numbers[${0}].number`}>Téléphone</InputLabel>
+                <InputLabel htmlFor={'patientPhoneNumber'}>Téléphone</InputLabel>
                 <InputText
-                  name={`patient_phone_numbers[${0}].number`}
+                  name={'patientPhoneNumber'}
                   placeholder={'1 555-555-5555'}
                   autoComplete="tel"
                   cleaveProps={{
@@ -231,19 +231,19 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
                     type: 'tel',
                     options: { phone: true, phoneRegionCode: 'CA', delimiter: '-' },
                   }}
-                  state={errors.patient_phone_numbers?.[0]?.number?.message ? 'error' : 'rest'}
+                  state={errors.patientPhoneNumber?.message ? 'error' : 'rest'}
                 />
-                <InputError>{errors.patient_phone_numbers?.[0]?.number?.message}</InputError>
+                <InputError>{errors.patientPhoneNumber?.message}</InputError>
               </InputWrapper>
 
               <InputWrapper>
-                <InputLabel htmlFor={'`patient_phone_numbers[${0}].phone_type`'}>Téléphone Type</InputLabel>
+                <InputLabel htmlFor={'patientPhoneType'}>Téléphone Type</InputLabel>
                 <InputText
-                  name={`patient_phone_numbers[${0}].phone_type`}
+                  name={'patientPhoneType'}
                   ref={register}
-                  state={errors.patient_phone_numbers?.[0]?.phone_type?.message ? 'error' : 'rest'}
+                  state={errors.patientPhoneType?.message ? 'error' : 'rest'}
                 />
-                <InputError>{errors.sex?.message}</InputError>
+                <InputError>{errors.patientPhoneType?.message}</InputError>
               </InputWrapper>
             </FormSwitcher>
 
@@ -255,7 +255,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
                   name="email"
                   ref={register}
                   autoComplete="email"
-                  state={errors.sex?.message ? 'error' : 'rest'}
+                  state={errors.email?.message ? 'error' : 'rest'}
                 />
                 <InputError>{errors.email?.message}</InputError>
               </InputWrapper>
@@ -267,7 +267,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
                   name="email"
                   ref={register}
                   autoComplete="email"
-                  state={errors.sex?.message ? 'error' : 'rest'}
+                  state={errors.email?.message ? 'error' : 'rest'}
                 />
                 <InputError>{errors.email?.message}</InputError>
               </InputWrapper>
@@ -276,23 +276,25 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
 
           <FormStack>
             <InputWrapper>
-              <InputLabel htmlFor={'address_1'}>Adresse</InputLabel>
+              <InputLabel htmlFor={'address1'}>Adresse</InputLabel>
               <InputText
-                name="address_1"
+                name="address1"
                 ref={register}
                 autoComplete="address-line1"
-                state={errors.address_1?.message ? 'error' : 'rest'}
+                state={errors.address1?.message ? 'error' : 'rest'}
               />
-              <InputError>{errors.sex?.message}</InputError>
+              <InputError>{errors.address1?.message}</InputError>
             </InputWrapper>
+
             <InputWrapper>
-              <InputLabel htmlFor={'address_2'}>Adresse (appartement / bureau)</InputLabel>
+              <InputLabel htmlFor={'address2'}>Adresse (appartement / bureau)</InputLabel>
               <InputText
-                name="address_2"
+                name="address2"
                 ref={register}
                 autoComplete="address-line2"
-                state={errors.address_2?.message ? 'error' : 'rest'}
+                state={errors.address2?.message ? 'error' : 'rest'}
               />
+              <InputError>{errors.address2?.message}</InputError>
             </InputWrapper>
 
             <FormSwitcher>
@@ -304,7 +306,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
                   autoComplete="address-level2"
                   state={errors.city?.message ? 'error' : 'rest'}
                 />
-                <InputError>{errors.sex?.message}</InputError>
+                <InputError>{errors.city?.message}</InputError>
               </InputWrapper>
 
               <InputWrapper>
@@ -321,14 +323,14 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
 
             <FormSwitcher>
               <InputWrapper>
-                <InputLabel htmlFor={'post_code'}>Code Postal</InputLabel>
+                <InputLabel htmlFor={'postCode'}>Code Postal</InputLabel>
                 <InputText
-                  name="post_code"
+                  name="postCode"
                   ref={register}
                   autoComplete="postal-code"
-                  state={errors.post_code?.message ? 'error' : 'rest'}
+                  state={errors.postCode?.message ? 'error' : 'rest'}
                 />
-                <InputError>{errors.post_code?.message}</InputError>
+                <InputError>{errors.postCode?.message}</InputError>
               </InputWrapper>
 
               <InputWrapper>
@@ -345,20 +347,20 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
           </FormStack>
 
           <InputWrapper>
-            <InputLabel htmlFor={''}>Type de rappel automatisé</InputLabel>
+            <InputLabel htmlFor={'reminderType'}>Type de rappel automatisé</InputLabel>
             <InputText
+              name="reminderType"
               list="reminder_type"
-              name="reminder_type"
               ref={register}
-              state={errors.sex?.message ? 'error' : 'rest'}
+              state={errors.reminderType?.message ? 'error' : 'rest'}
             />
-            <InputError>{errors.sex?.message}</InputError>
+            <InputError>{errors.reminderType?.message}</InputError>
 
-            <datalist id="reminder_type">
-              {keys(REMINDER_TYPE).map((element, index) => {
-                return <option key={index} value={REMINDER_TYPE[element]} />;
+            <select id="reminder_type">
+              {keys(CLINIKO_REMINDER_TYPE).map((element, index) => {
+                return <option key={index} value={CLINIKO_REMINDER_TYPE[element]} />;
               })}
-            </datalist>
+            </select>
           </InputWrapper>
 
           <FormStack>

@@ -4,7 +4,7 @@ import {
   PatientAPIResponseBody,
   PatientValidation,
   PatientClinikoModel,
-  getPatientClinkoModel,
+  getPatientClinikoModel,
 } from '@newrade/vsb-common';
 import { RequestHandler } from 'express';
 import { ValidationError } from 'yup';
@@ -20,7 +20,7 @@ export const postPatient: RequestHandler<any, PatientAPIResponseBody, PatientAPI
     const result = await fetchCliniko<PatientClinikoModel>({
       method: 'POST',
       route: 'patients',
-      payload: getPatientClinkoModel(req.body.payload.patient) as any,
+      payload: getPatientClinikoModel(req.body.payload.patient) as any,
     });
 
     return res.status(200).send({ api: 'vsb-api', errors: [result as AppError], payload: { validationErrors: [] } });
