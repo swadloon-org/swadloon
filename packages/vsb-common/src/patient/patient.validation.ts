@@ -1,8 +1,8 @@
 import * as yup from 'yup';
 import { SchemaOf } from 'yup';
-import { PatientModel, REMINDER_TYPE } from './patient.model';
+import { PatientClinikoModel, REMINDER_TYPE, PatientAPIModel } from './patient.model';
 
-export const PatientValidation: SchemaOf<PatientModel> = yup
+export const PatientValidation: SchemaOf<PatientAPIModel> = yup
   .object({
     sex: yup.string(),
     first_name: yup.string().min(2, 'Too Short').max(50, 'validation.tooShort').required('Requis'),
@@ -22,6 +22,7 @@ export const PatientValidation: SchemaOf<PatientModel> = yup
     post_code: yup.string().required('Requis'),
     country: yup.string().required('Requis'),
     medicare: yup.string().required('Requis'),
+
     reminder_type: yup
       .mixed()
       .oneOf([REMINDER_TYPE.NONE, REMINDER_TYPE.SMS, REMINDER_TYPE.EMAIL, REMINDER_TYPE.SMS_EMAIL]),
@@ -33,6 +34,17 @@ export const PatientValidation: SchemaOf<PatientModel> = yup
           number: yup.string().required('Requis'),
         })
       )
+      .required('Requis'),
+
+    /**
+     * Extra fields not in Cliniko, only for validation on our side
+     */
+    medicare_expiry_date: yup
+      .string()
+      .matches(/^(?:0[1-9]|[12]\d|3[01])([\/.-])(?:0[1-9]|1[012])\1(?:19|20)\d\d$/, {
+        excludeEmptyString: true,
+        message: 'Format jj-mm-aaaa, par ex. 01-05-1980 est le premier mai 1980',
+      })
       .required('Requis'),
 
     /**

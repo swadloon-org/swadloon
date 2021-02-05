@@ -17,7 +17,6 @@ export const SectionBanner: React.FC<Props> = ({ id, style, className, section, 
   const ref = useRef<HTMLDivElement>(null);
   const backgroundPosition = section?.backgroundPosition;
   const imageData = section?.medias?.medias?.[0]?.desktopFluidImage?.childImageSharp?.fluid;
-  // const imageDataFixed = props?.medias?.medias?.[0]?.fixed?.childImageSharp?.fixed;
   const hasImage = !!section?.medias?.medias?.length;
 
   /**
@@ -81,7 +80,7 @@ export const SectionBanner: React.FC<Props> = ({ id, style, className, section, 
             },
           ]}
           backgroundPosition={backgroundPosition}
-          // src={imageDataFixed?.base64}
+          // src={imageData?.fluid?.src}
           backgroundImage={{
             Tag: 'div',
             fluid: imageData as IFluidObject,

@@ -5,7 +5,30 @@ export enum REMINDER_TYPE {
   SMS_EMAIL = 'SMS & Email',
 }
 
-export type PatientModel = {
+export type PatientAPIModel = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  dateOfBirth: Date;
+  address1: string;
+  address2?: string;
+  city: string;
+  state: string;
+  postCode: string;
+  country: string;
+  medicare: string;
+  medicareExpiryDate: Date;
+  reminderType: REMINDER_TYPE;
+  patientPhoneNumbers: [
+    {
+      phoneType?: string;
+      number: string;
+    }
+  ];
+  sex?: string;
+};
+
+export type PatientClinikoModel = {
   first_name: string;
   last_name: string;
   email: string;
@@ -16,7 +39,7 @@ export type PatientModel = {
   post_code: string;
   country: string;
   medicare: string;
-  reminder_type: REMINDER_TYPE.NONE | REMINDER_TYPE.EMAIL | REMINDER_TYPE.SMS | REMINDER_TYPE.SMS_EMAIL;
+  reminder_type: REMINDER_TYPE;
   patient_phone_numbers: [
     {
       phone_type?: string;
@@ -29,6 +52,7 @@ export type PatientModel = {
   /**
    * also in Cliniko but unused right now
    */
+
   // address_3?: string;
   // occupation?: string;
   // gender_identity?: string;

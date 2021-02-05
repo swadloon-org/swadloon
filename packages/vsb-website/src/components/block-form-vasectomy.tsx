@@ -15,7 +15,7 @@ import {
   Switcher,
   useTreatTheme,
 } from '@newrade/core-react-ui';
-import { PatientAPIResponseBody, PatientModel, PatientValidation, REMINDER_TYPE } from '@newrade/vsb-common';
+import { PatientAPIResponseBody, PatientClinikoModel, PatientValidation, REMINDER_TYPE } from '@newrade/vsb-common';
 import 'cleave.js/dist/addons/cleave-phone.ca';
 import React, { useCallback, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
@@ -27,7 +27,7 @@ import { SectionProps } from './section.props';
 
 type Props = CommonComponentProps & SectionProps & {};
 
-const useYupValidationResolver = (PatientValidation: SchemaOf<PatientModel>) =>
+const useYupValidationResolver = (PatientValidation: SchemaOf<PatientClinikoModel>) =>
   useCallback(
     async (patient) => {
       try {
@@ -77,9 +77,9 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
     getValues,
     formState,
     // formState: { isDirty, isSubmitting, touched, submitCount, isValid },
-  } = useForm<PatientModel>({ mode: 'onBlur', resolver });
+  } = useForm<PatientClinikoModel>({ mode: 'onBlur', resolver });
 
-  const onSubmit: SubmitHandler<PatientModel> = async (data) => {
+  const onSubmit: SubmitHandler<PatientClinikoModel> = async (data) => {
     setLoading(true);
 
     const tokenRecaptcha: string = await recaptchaRef.current.getValue();
@@ -105,7 +105,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
         }
         result.payload.validationErrors.map((validationError) => {
           if (validationError) {
-            setError(validationError.path as keyof PatientModel, {
+            setError(validationError.path as keyof PatientClinikoModel, {
               type: 'manual',
               message: validationError.message,
             });
@@ -362,7 +362,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
           </InputWrapper>
 
           <FormStack>
-            <ReCAPTCHA size={'normal'} ref={recaptchaRef} sitekey="6LcUCzwaAAAAAF0AZL9Y8DsjFXgfrVm4f2m9ial9" />
+            <ReCAPTCHA size={'normal'} ref={recaptchaRef} sitekey="6Lc0iksaAAAAALyiB9gYY0sCjQYb-rdLKI-RNP6d" />
 
             <Paragraph>
               Une fois la demande soumise, notre équipe vous contactera dans les plus brefs délais pour planifier les

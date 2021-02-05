@@ -1,6 +1,6 @@
 import { LABEL_SIZE, TEXT_STYLE } from '@newrade/core-design-system';
 import { BoxV2, Center, Heading, keys, Label, Paragraph, Stack } from '@newrade/core-react-ui';
-import { PatientAPIResponseBody, PatientModel, PatientValidation, REMINDER_TYPE } from '@newrade/vsb-common';
+import { PatientAPIModel, PatientAPIResponseBody, PatientValidation, REMINDER_TYPE } from '@newrade/vsb-common';
 import 'cleave.js/dist/addons/cleave-phone.ca';
 import Cleave from 'cleave.js/react';
 import React, { useCallback, useState } from 'react';
@@ -9,7 +9,7 @@ import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { SchemaOf, ValidationError } from 'yup';
 import { cssTheme } from '../design-system/theme';
 
-const useYupValidationResolver = (PatientValidation: SchemaOf<PatientModel>) =>
+const useYupValidationResolver = (PatientValidation: SchemaOf<PatientAPIModel>) =>
   useCallback(
     async (patient) => {
       try {
@@ -56,9 +56,9 @@ const Form: React.FC = (props) => {
     setError,
     errors,
     // formState: { isDirty, isSubmitting, touched, submitCount, isValid },
-  } = useForm<PatientModel>({ mode: 'onBlur', resolver });
+  } = useForm<PatientAPIModel>({ mode: 'onBlur', resolver });
 
-  const onSubmit: SubmitHandler<PatientModel> = async (data) => {
+  const onSubmit: SubmitHandler<PatientAPIModel> = async (data) => {
     setLoading(true);
     const tokenRecaptcha: string = await recaptchaRef.current.getValue();
     fetch('http://localhost:10003/api/patient/register', {
@@ -82,7 +82,7 @@ const Form: React.FC = (props) => {
         }
         result.payload.validationErrors.map((validationError) => {
           if (validationError) {
-            setError(validationError.path as keyof PatientModel, {
+            setError(validationError.path as keyof PatientAPIModel, {
               type: 'manual',
               message: validationError.message,
             });
