@@ -1,20 +1,20 @@
 import { HEADING, LinkIcon, LinkVariant, PARAGRAPH_SIZE, TEXT_STYLE } from '@newrade/core-design-system';
 import React, { AnchorHTMLAttributes, Suspense } from 'react';
-import { ListItem } from '../components/list-item/list-item';
-import { ListItems } from '../components/list-item/list-items';
-import { Table } from '../components/table/table';
-import { TableBody } from '../components/table/table-body';
-import { TableCell } from '../components/table/table-cell-data';
-import { TableCellHeader } from '../components/table/table-cell-header';
-import { TableHeader } from '../components/table/table-header';
-import { TableRow } from '../components/table/table-row';
-import { Blockquote } from '../components/text/blockquote';
-import { Details } from '../components/text/details';
-import { Heading } from '../components/text/heading';
-import { Hr } from '../components/text/hr';
-import { Link } from '../components/text/link';
-import { Paragraph } from '../components/text/paragraph';
-import { Summary } from '../components/text/summary';
+import { ListItem } from '../list-item/list-item';
+import { ListItems } from '../list-item/list-items';
+import { Table } from '../table/table';
+import { TableBody } from '../table/table-body';
+import { TableCell } from '../table/table-cell-data';
+import { TableCellHeader } from '../table/table-cell-header';
+import { TableHeader } from '../table/table-header';
+import { TableRow } from '../table/table-row';
+import { Blockquote } from '../text/blockquote';
+import { Details } from '../text/details';
+import { Heading } from '../text/heading';
+import { Hr } from '../text/hr';
+import { Link } from '../text/link';
+import { Paragraph } from '../text/paragraph';
+import { Summary } from '../text/summary';
 
 /**
  * Components configuration object for <MDXProvider/>.

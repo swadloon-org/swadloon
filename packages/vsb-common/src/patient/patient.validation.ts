@@ -4,47 +4,51 @@ import { PatientModel, REMINDER_TYPE } from './patient.model';
 
 export const PatientValidation: SchemaOf<PatientModel> = yup
   .object({
-    // occupation: yup.string(),
-    // gender_identity: yup.string(),
     sex: yup.string(),
-
-    // address_3: yup.string(),
-    first_name: yup.string().min(2, 'Too Short').max(50, 'validation.tooShort').required('Required'),
-    last_name: yup.string().min(2, 'Too Short').max(50, 'Too Long').required('Required'),
-    email: yup.string().email().required('Required'),
+    first_name: yup.string().min(2, 'Too Short').max(50, 'validation.tooShort').required('Requis'),
+    last_name: yup.string().min(2, 'Too Short').max(50, 'Too Long').required('Requis'),
+    email: yup.string().email().required('Requis'),
     date_of_birth: yup
       .string()
-      .matches(/^(?:0[1-9]|[12]\d|3[01])([\/.-])(?:0[1-9]|1[012])\1(?:19|20)\d\d$/, { excludeEmptyString: true })
-      .required('Required'),
-    // title: yup.string().required('Required'),
-    address_1: yup.string().required('Required'),
+      .matches(/^(?:0[1-9]|[12]\d|3[01])([\/.-])(?:0[1-9]|1[012])\1(?:19|20)\d\d$/, {
+        excludeEmptyString: true,
+        message: 'Format jj-mm-aaaa, par ex. 01-05-1980 est le premier mai 1980',
+      })
+      .required('Requis'),
+    address_1: yup.string().required('Requis'),
     address_2: yup.string(),
-    city: yup.string().required('Required'),
-    state: yup.string().required('Required'),
-    post_code: yup.string().required('Required'),
-    country: yup.string().required('Required'),
-    // invoice_default_to: yup.string().required('Required'),
-    // invoice_email: yup.string().required('Required'),
-    // invoice_extra_information: yup.string().required('Required'),
-    // accepted_privacy_policy: yup.bool().nullable().required('Required'),
-    // accepted_sms_marketing: yup.boolean().required('Required'),
-    // accepted_email_marketing: yup.boolean().required('Required'),
-    medicare: yup.string().required('Required'),
-    // medicare_reference_number: yup.string().required('Required'),
-    // receives_confirmation_emails: yup.boolean().required('Required'),
-
+    city: yup.string().required('Requis'),
+    state: yup.string().required('Requis'),
+    post_code: yup.string().required('Requis'),
+    country: yup.string().required('Requis'),
+    medicare: yup.string().required('Requis'),
     reminder_type: yup
       .mixed()
       .oneOf([REMINDER_TYPE.NONE, REMINDER_TYPE.SMS, REMINDER_TYPE.EMAIL, REMINDER_TYPE.SMS_EMAIL]),
-
     patient_phone_numbers: yup
       .array()
       .of(
         yup.object().shape({
-          phone_type: yup.string(),
-          number: yup.string().required(),
+          phone_type: yup.string().required('Requis'),
+          number: yup.string().required('Requis'),
         })
       )
-      .required(),
+      .required('Requis'),
+
+    /**
+     * also in Cliniko but unused right now
+     */
+    // occupation: yup.string(),
+    // gender_identity: yup.string(),
+    // address_3: yup.string(),
+    // title: yup.string().required('Requis'),
+    // medicare_reference_number: yup.string().required('Requis'),
+    // receives_confirmation_emails: yup.boolean().required('Requis'),
+    // invoice_default_to: yup.string().required('Requis'),
+    // invoice_email: yup.string().required('Requis'),
+    // invoice_extra_information: yup.string().required('Requis'),
+    // accepted_privacy_policy: yup.bool().nullable().required('Requis'),
+    // accepted_sms_marketing: yup.boolean().required('Requis'),
+    // accepted_email_marketing: yup.boolean().required('Requis'),
   })
   .defined();

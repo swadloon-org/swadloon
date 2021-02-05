@@ -1,9 +1,9 @@
-import { defaultTypography } from '../../design-system/default-typography';
-import { getCSSTypography } from '../typography.utilities';
+import { CapsizeTextStyle, TextStyle } from '@newrade/core-design-system';
+import { defaultFallbackSansFonts, defaultSansFont } from '../../design-system/default-fonts';
 import { defaultBaseFontSize } from '../../design-system/default-sizing';
+import { defaultTypography } from '../../design-system/default-typography';
 import { createCSSCapsizeTextStyle } from '../text.utilities';
-import { TextStyle, CapsizeTextStyle } from '@newrade/core-design-system';
-import { defaultSansFont, defaultFallbackSansFonts } from '../../design-system/default-fonts';
+import { getCSSTypography } from '../typography.utilities';
 
 describe('colors utilities', () => {
   describe(`${createCSSCapsizeTextStyle.name}`, () => {

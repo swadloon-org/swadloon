@@ -5,7 +5,7 @@ import * as styleRefs from './section.treat';
 
 type Props = CommonComponentProps & {
   variant?: 'primary' | 'secondary';
-  variantLayout?: 'center' | 'fullwidth' | 'banner';
+  variantLayout?: 'center' | 'centerNoPadding' | 'fullwidth' | 'banner';
 };
 
 export const Section = React.forwardRef<any, Props>(
@@ -44,6 +44,17 @@ export const Section = React.forwardRef<any, Props>(
         >
           {children}
         </BoxV2>
+      );
+    }
+
+    if (variantLayout === 'centerNoPadding') {
+      /**
+       * Layout centered no padding
+       */
+      return (
+        <Center id={id} style={style} className={classNames} as={'section'} ref={ref}>
+          <BoxV2 justifyContent={['center', 'flex-start', 'flex-start']}>{children}</BoxV2>
+        </Center>
       );
     }
 

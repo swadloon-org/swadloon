@@ -1,9 +1,9 @@
 import { LinkProps, TEXT_STYLE } from '@newrade/core-design-system';
 import React, { AnchorHTMLAttributes, useRef } from 'react';
 import { useStyles } from 'react-treat';
-import { Label } from '../components/text/label';
 import { usePreventPinchZoom } from '../hooks/use-prevent-pinch-zoom';
 import { CommonComponentProps } from '../props/component-common.props';
+import { Label } from '../text/label';
 import * as styleRefs from './nav-item.treat';
 
 type Props = CommonComponentProps &

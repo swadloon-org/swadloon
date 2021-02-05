@@ -1,3 +1,3 @@
-import { CSSProperties, ReactNode, ReactHTML } from 'react';
-
-export type TextCommonProps = Partial<{}>;
+export type TextCommonProps = Partial<{
+  displayMode: 'block' | 'inlineBlock';
+}>;

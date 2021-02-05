@@ -1,18 +1,18 @@
 import { InfoWindow, InfoWindowProps } from '@react-google-maps/api';
-import React from 'react';
-import { useStyles } from 'react-treat';
-import { CommonComponentProps } from '../props/component-common.props';
-import { getMergedClassname } from '../utilities/component.utilities';
-import * as styleRefs from './google-maps-info-window.treat';
-import { Label } from '../components/text/label';
-import { title } from 'case';
-import { Link } from '../components/text/link';
-import { Stack } from '../layout/stack';
-import { useTreatTheme } from '../hooks/use-treat-theme';
-import { LinkIcon, LinkVariant, PARAGRAPH_SIZE, LABEL_SIZE } from '../../../core-design-system/src';
-import { Paragraph } from '../components/text/paragraph';
 import { IoStar } from '@react-icons/all-files/io5/IoStar';
 import { IoStarHalf } from '@react-icons/all-files/io5/IoStarHalf';
+import { title } from 'case';
+import React from 'react';
+import { useStyles } from 'react-treat';
+import { LABEL_SIZE, LinkIcon, LinkVariant, PARAGRAPH_SIZE } from '../../../core-design-system/src';
+import { useTreatTheme } from '../hooks/use-treat-theme';
+import { Stack } from '../layout/stack';
+import { CommonComponentProps } from '../props/component-common.props';
+import { Label } from '../text/label';
+import { Link } from '../text/link';
+import { Paragraph } from '../text/paragraph';
+import { getMergedClassname } from '../utilities/component.utilities';
+import * as styleRefs from './google-maps-info-window.treat';
 
 type Props = CommonComponentProps & {
   place: google.maps.places.PlaceResult;

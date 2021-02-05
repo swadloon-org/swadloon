@@ -5,4 +5,5 @@ export type SectionProps = {
    * Contentful section
    */
   section?: SectionFragment;
+  subSections?: (SectionFragment | null)[] | null;
 };

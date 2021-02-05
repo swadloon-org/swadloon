@@ -76,6 +76,8 @@ export const Layout = React.memo<LayoutProps>((props) => {
   const [sidebarOpened, setSidebarOpened] = useState<boolean>(false);
 
   useEffect(() => {
+    pathname = props.location?.pathname;
+
     return globalHistory.listen((params) => {
       setSidebarOpened(false); // close sidebar upon navigation
       setNavbarStyle(params.location?.pathname === '/' ? 'transparent' : 'white'); // set the navbar style
@@ -278,7 +280,7 @@ export const Layout = React.memo<LayoutProps>((props) => {
 
       <Main minHeight={true}>{props.children}</Main>
 
-      <Footer id={'footer'}></Footer>
+      <Footer id={'footer'} style={{ zIndex: cssTheme.layout.zIndex.content }}></Footer>
     </MainWrapper>
   );
 });

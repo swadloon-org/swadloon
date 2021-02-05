@@ -1,4 +1,4 @@
-import { BlockMarkdown, GatsbyLink, MarkdownRenderer, Section } from '@newrade/core-gatsby-ui/src';
+import { BlockMarkdown, GatsbyLink, Section } from '@newrade/core-gatsby-ui/src';
 import { BoxV2, Button, Image, Stack, Switcher, useTreatTheme } from '@newrade/core-react-ui';
 import { IoArrowForwardOutline } from '@react-icons/all-files/io5/IoArrowForwardOutline';
 import { FluidObject } from 'gatsby-image';
@@ -8,10 +8,10 @@ import { ButtonSize, ButtonVariant } from '../../../core-design-system/src';
 import { SECTION_TYPE } from '../../types/contentful-section-type';
 import { ContentfulSection } from '../../types/graphql-types';
 import { BlockGoogleMapVSB } from '../components/block-google-map';
-import { FormVasectomy } from '../components/form-vasectomy';
 import { SectionBanner } from '../components/section-banner';
 import { SectionBannerLink } from '../components/section-banner-link';
 import { SectionContact } from '../components/section-contact';
+import { SectionFormVasectomy } from '../components/section-form-vasectomy';
 import { SectionMessages } from '../components/section-messages';
 import { SectionSteps } from '../components/section-steps';
 import { SectionTileLinks } from '../components/section-tile-links';
@@ -21,7 +21,7 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
   const { ref, inView } = useInView({
     threshold: 0,
   });
-  const { cssTheme } = useTreatTheme();
+  const { cssTheme, theme } = useTreatTheme();
 
   return (
     <>
@@ -187,9 +187,7 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
           case SECTION_TYPE.VASECTOMY_INFO_BEFORE: {
             return (
               <Section id={`section-${index}`} key={index}>
-                <Stack gap={[cssTheme.sizing.var.x7]}>
-                  <MarkdownRenderer>{section.text?.childMdx?.body}</MarkdownRenderer>
-                </Stack>
+                <BlockMarkdown>{section.text?.childMdx?.body}</BlockMarkdown>
               </Section>
             );
           }
@@ -202,7 +200,7 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
             return (
               <Section id={`section-${index}`} key={index} variant={'secondary'}>
                 <Stack gap={[cssTheme.sizing.var.x7]}>
-                  <MarkdownRenderer>{section?.text?.childMdx?.body}</MarkdownRenderer>
+                  <BlockMarkdown style={{ maxWidth: 500 }}>{section.text?.childMdx?.body}</BlockMarkdown>
 
                   {section?.costItems?.map((item, index) => {
                     return <div key={index}>{item?.title}</div>;
@@ -223,28 +221,20 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
            * Forms
            */
 
+          case SECTION_TYPE.VASECTOMY_FORM_FORM: {
+            return (
+              <SectionFormVasectomy
+                id={`section-${index}`}
+                key={index}
+                section={section}
+                subSections={section.subSections}
+              />
+            );
+          }
           case SECTION_TYPE.CONTACT_CONTACT: {
             return (
               <Section id={`section-${index}`} key={index} variant={'secondary'} variantLayout={'center'}>
                 <SectionContact key={index} section={section} />
-              </Section>
-            );
-          }
-          case SECTION_TYPE.VASECTOMY_FORM_FORM: {
-            return (
-              <Section id={`section-${index}`} key={index}>
-                <FormVasectomy key={index} section={section} />
-              </Section>
-            );
-          }
-
-          /**
-           * TODO
-           */
-          case SECTION_TYPE.VASECTOMY_FORM_VIDEO: {
-            return (
-              <Section id={`section-${index}`} key={index}>
-                <FormVasectomy key={index} section={section} />
               </Section>
             );
           }

@@ -116,6 +116,14 @@ globalStyle(`${wrapper} p + blockquote`, ({ cssTheme, theme }: Theme) => ({
   marginTop: contentMargin,
 }));
 
+globalStyle(`${wrapper} p + iframe`, ({ cssTheme, theme }: Theme) => ({
+  marginTop: contentMargin,
+}));
+
+globalStyle(`${wrapper} iframe`, ({ cssTheme, theme }: Theme) => ({
+  maxWidth: `100%`,
+}));
+
 /**
  * Details & summary
  */
