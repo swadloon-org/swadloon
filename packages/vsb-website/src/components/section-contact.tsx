@@ -1,5 +1,12 @@
-import { MarkdownRenderer } from '@newrade/core-gatsby-ui/src';
-import { CommonComponentProps, getMergedClassname, Stack, Switcher, useTreatTheme } from '@newrade/core-react-ui';
+import { BlockMarkdown } from '@newrade/core-gatsby-ui/src';
+import {
+  BoxV2,
+  CommonComponentProps,
+  getMergedClassname,
+  Stack,
+  Switcher,
+  useTreatTheme,
+} from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { BlockGoogleMapVSB } from './block-google-map';
@@ -20,25 +27,13 @@ export const SectionContact: React.FC<Props> = ({ id, style, className, section,
       style={{ width: `100%` }}
       className={classNames}
     >
-      <Stack gap={[cssTheme.sizing.var.x5]} style={{ maxWidth: `min(480px, 100%)` }} key={'2'}>
-        <MarkdownRenderer>{section?.text?.childMdx?.body}</MarkdownRenderer>
-
-        <BlockGoogleMapVSB inView={true} />
-
-        {/* <Form>
-              <FormWrapper>
-                <InputLabel required={true}>First Name *</InputLabel>
-                <InputText ref={firstNameInput}></InputText>
-                <InputError></InputError>
-              </FormWrapper>
-
-              <FormWrapper>
-                <InputLabel required={true}>First Name *</InputLabel>
-                <InputDropdown ref={firstNameInput}></InputDropdown>
-                <InputError></InputError>
-              </FormWrapper>
-            </Form> */}
+      <Stack gap={[cssTheme.sizing.var.x5]} style={{ maxWidth: `min(600px, 100%)` }}>
+        <BlockMarkdown>{section?.text?.childMdx?.body}</BlockMarkdown>
       </Stack>
+
+      <BoxV2 style={{ width: `100%` }}>
+        <BlockGoogleMapVSB inView={true} />
+      </BoxV2>
     </Switcher>
   );
 };
