@@ -1,7 +1,7 @@
 import { AppError, ERROR_TYPE } from '@newrade/core-common';
 import { CapsizeTextStyle, TextDecoration, TextStyle } from '@newrade/core-design-system';
 import capsize, { CapsizeStyles } from 'capsize';
-import { DisplayProperty, TextTransformProperty } from 'csstype';
+import { Property } from 'csstype';
 // @ts-ignore
 import GithubSlugger from 'github-slugger';
 import { Style } from 'treat';
@@ -170,7 +170,7 @@ export function getCSSFontTextStyles(
   }
   return {
     fontWeight: textStyle.fontWeight as number,
-    textTransform: textStyle.textTransform as TextTransformProperty,
+    textTransform: textStyle.textTransform as Property.TextTransform,
     fontFamily: textStyle.fontFamily as string,
     fontStyle: textStyle.fontStyle as string,
     letterSpacing: textStyle.letterSpacing as string,
@@ -180,7 +180,7 @@ export function getCSSFontTextStyles(
 
 type CSSTextStyleOptions = {
   stylePseudoElements: {
-    display: DisplayProperty;
+    display: Property.Display;
   };
 };
 

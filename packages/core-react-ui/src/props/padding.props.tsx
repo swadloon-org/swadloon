@@ -1,17 +1,17 @@
-import { AlignItemsProperty, JustifyContentProperty } from 'csstype';
+import { Property } from 'csstype';
 
 /**
  * [mobile, tablet, desktop]
  */
 export type AlignItemsViewportProps =
-  | [AlignItemsProperty]
-  | [AlignItemsProperty, AlignItemsProperty]
-  | [AlignItemsProperty, AlignItemsProperty, AlignItemsProperty];
+  | [Property.AlignItems]
+  | [Property.AlignItems, Property.AlignItems]
+  | [Property.AlignItems, Property.AlignItems, Property.AlignItems];
 
 export type JustifyContentViewportProps =
-  | [JustifyContentProperty]
-  | [JustifyContentProperty, JustifyContentProperty]
-  | [JustifyContentProperty, JustifyContentProperty, JustifyContentProperty];
+  | [Property.JustifyContent]
+  | [Property.JustifyContent, Property.JustifyContent]
+  | [Property.JustifyContent, Property.JustifyContent, Property.JustifyContent];
 
 /**
  * [all]

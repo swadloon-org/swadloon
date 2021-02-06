@@ -1,4 +1,4 @@
-import { Color } from 'csstype';
+import { Property } from 'csstype';
 
 /**
  * Representation of a box shadow.
@@ -23,7 +23,7 @@ export type BoxShadow = {
   /**
    * The box shadow's color.
    */
-  color: Color;
+  color: Property.Color;
   /**
    * The box-shadow property
    */
@@ -44,7 +44,7 @@ export type Shadows = {
  * or a transparent background with a blurring effect.
  */
 export type OverlayBackground = {
-  color: Color;
+  color: Property.Color;
   blur?: number;
 };
 
