@@ -11,6 +11,7 @@ export const wrapper = style(({ theme, cssTheme }: Theme) => ({
 
 const contentMarginSmall = `1.4em`;
 const contentMargin = `2em`;
+const halfcontentMargin = `1em`;
 const contentMarginLarge = `4em`;
 
 /**
@@ -187,7 +188,7 @@ globalStyle(`${wrapper} kbd`, ({ cssTheme, theme }: Theme) => ({
  */
 
 globalStyle(`${wrapper} pre + pre`, ({ cssTheme, theme }: Theme) => ({
-  marginTop: contentMargin,
+  marginTop: halfcontentMargin,
 }));
 
 globalStyle(`${wrapper} p + pre`, ({ cssTheme, theme }: Theme) => ({

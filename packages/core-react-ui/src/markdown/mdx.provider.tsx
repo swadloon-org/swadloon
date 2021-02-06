@@ -1,5 +1,6 @@
 import { HEADING, LinkIcon, LinkVariant, PARAGRAPH_SIZE, TEXT_STYLE } from '@newrade/core-design-system';
 import React, { AnchorHTMLAttributes, Suspense } from 'react';
+import { Code } from '../code/code';
 import { ListItem } from '../list-item/list-item';
 import { ListItems } from '../list-item/list-items';
 import { Table } from '../table/table';
@@ -29,7 +30,7 @@ import { Summary } from '../text/summary';
  *    ```
  */
 export const mdxComponents: Partial<
-  Record<keyof React.ReactHTML, React.ReactNode> & { pragmaFrag: React.ReactNode }
+  Record<keyof React.ReactHTML, React.ReactNode> & { pragmaFrag: React.ReactNode; inlineCode: React.ReactNode }
 > = {
   /**
    * Content sectioning
@@ -120,7 +121,7 @@ export const mdxComponents: Partial<
       <Paragraph>{props.children}</Paragraph>{' '}
     </figcaption>
   ),
-  // inlineCode	InlineCode	`inlineCode`
+  inlineCode: (props: MDXProps) => <Code>{props.children}</Code>,
   // pre	Code	```code```
   // em	Emphasis	_emphasis_
   // strong	Strong	**strong**

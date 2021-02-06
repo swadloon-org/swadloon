@@ -47,7 +47,9 @@ export function generateColorGreyPalette({ hue }: { hue: number }) {
   } as DS.ColorPalette<DS.ColorShadesGrey>;
 }
 
-export function getCSSColorPalette<ColorShades extends string>(palette: DS.ColorPalette<ColorShades>) {
+export function getCSSColorPalette<ColorShades extends string>(
+  palette: DS.ColorPalette<ColorShades>
+): Record<ColorShades, Property.Color> {
   const keys = Object.keys(palette) as ColorShades[];
   return keys.reduce((previous, current) => {
     previous[current] = getCSSColor(palette[current]);

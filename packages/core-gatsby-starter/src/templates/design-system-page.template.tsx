@@ -1,5 +1,13 @@
 import { GatsbySrcPageContext } from '@newrade/core-gatsby-config';
-import { Center, getMetaBasicTags, getMetadataOpenGraphWebsiteTags, OPEN_GRAPH_TYPE } from '@newrade/core-react-ui';
+import {
+  Center,
+  getMetaBasicTags,
+  getMetadataOpenGraphWebsiteTags,
+  Hr,
+  OPEN_GRAPH_TYPE,
+  Stack,
+  useTreatTheme,
+} from '@newrade/core-react-ui';
 import { PageProps } from 'gatsby';
 import React, { ReactNode } from 'react';
 import { I18nProvider } from 'react-aria';
@@ -10,6 +18,8 @@ export type DesignSystemPageProps = PageProps<{}, GatsbySrcPageContext>;
 type Props = Omit<DesignSystemPageProps, 'children'> & { children: ReactNode };
 
 export const DesignSystemPageTemplate: React.FC<Props & { children: ReactNode }> = (props) => {
+  const { cssTheme } = useTreatTheme();
+
   return (
     <>
       <Helmet>
@@ -39,7 +49,13 @@ export const DesignSystemPageTemplate: React.FC<Props & { children: ReactNode }>
         })}
       </Helmet>
       <I18nProvider locale={props.pageContext.locale}>
-        <Center maxWidth={`900px`}>{props.children}</Center>
+        <Center maxWidth={`900px`}>
+          <Stack gap={[cssTheme.sizing.var.x6]}>
+            {props.children}
+
+            <Hr />
+          </Stack>
+        </Center>
       </I18nProvider>
     </>
   );

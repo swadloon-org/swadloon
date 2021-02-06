@@ -27,7 +27,7 @@ export const styles = {
   })),
   pre: style(({ theme, cssTheme }: Theme) => ({
     fontSize: `14px !important`,
-    marginTop: '1em !important',
+    // marginTop: '1em !important',
     marginBottom: contentMargin,
     maxWidth: '100% !important',
     overflowX: 'auto !important' as any,
