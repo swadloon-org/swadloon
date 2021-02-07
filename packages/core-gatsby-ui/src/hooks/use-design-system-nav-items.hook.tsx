@@ -1,6 +1,7 @@
 import { kebab, title } from 'case';
 import { graphql, useStaticQuery } from 'gatsby';
 import { NavItem } from '../models/nav-item.model';
+import { Navigation } from '../models/navigation.model';
 
 const query = graphql`
   query DesignSystemLayoutPage {
@@ -34,7 +35,7 @@ const query = graphql`
   }
 `;
 
-export function useDesignSystemNavItems(): NavItem[] {
+export function useNavigation(): Navigation {
   const data = useStaticQuery(query);
   const dirSortOrder = ['docs', 'foundations', 'components', 'content', 'markdown', 'effects', 'motion', 'tokens'];
 
@@ -50,12 +51,12 @@ export function useDesignSystemNavItems(): NavItem[] {
     return indexA > indexB ? 1 : -1;
   });
 
-  function formatName(name?: string | null): string {
-    if (!name) {
-      return '';
-    }
-    return title(name.replace('.page', '').replace('design-system-', ''));
-  }
-
   return sortedNavItems;
+}
+
+function formatName(name?: string | null): string {
+  if (!name) {
+    return '';
+  }
+  return title(name.replace('.page', '').replace('design-system-', ''));
 }

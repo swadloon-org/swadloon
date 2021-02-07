@@ -25,14 +25,14 @@ const defaultProps: Props = {
  * @see https://devdocs.io/dom/htmlparagraphelement
  */
 export const Paragraph: React.FC<Props> = React.memo(
-  ({ variant, variantStyle, variantLevel, displayMode, className, as, ...props }) => {
+  ({ variant, variantStyle, variantLevel, display, className, as, ...props }) => {
     const { styles: styles } = useStyles(stylesRef);
 
     const type = as ? as : 'p';
     const classNames = getMergedClassname([
       className,
       styles.normal,
-      displayMode === 'inlineBlock' ? styles.inline : '',
+      display === 'inline-block' ? styles.inline : '',
       styles[variant ? variant : (defaultProps.variant as PARAGRAPH_SIZE)],
       variantStyle ? styles[variantStyle] : '',
       variantLevel ? styles[variantLevel] : '',
@@ -46,7 +46,7 @@ export const Paragraph: React.FC<Props> = React.memo(
 );
 
 export const Bold: React.FC<Props> = React.memo(
-  ({ variant, variantStyle, variantLevel, className, displayMode = 'inlineBlock', as, ...props }) => {
+  ({ variant, variantStyle, variantLevel, className, display = 'inline-block', as, ...props }) => {
     const classNames = getMergedClassname([className]);
 
     return (
@@ -54,7 +54,7 @@ export const Bold: React.FC<Props> = React.memo(
         as={'b'}
         variantStyle={TEXT_STYLE.bold}
         className={classNames}
-        displayMode={displayMode}
+        display={display}
         {...props}
       ></Paragraph>
     );

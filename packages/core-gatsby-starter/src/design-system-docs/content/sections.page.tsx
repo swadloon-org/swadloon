@@ -44,7 +44,7 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
   };
 
   return (
-    <Stack gap={[cssTheme.sizing.var.x6]}>
+    <>
       <Stack gap={[cssTheme.sizing.var.x4]}>
         <Heading variant={HEADING.h2}>Sections</Heading>
 
@@ -60,7 +60,7 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
         <Section variant={'secondary'}></Section>
         <Section variant={'secondary'}></Section> */}
       </Stack>
-    </Stack>
+    </>
   );
 };
 

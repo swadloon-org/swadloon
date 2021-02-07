@@ -4,15 +4,16 @@ import React, { HTMLAttributes, useRef } from 'react';
 import { useStyles } from 'react-treat';
 import { usePreventPinchZoom } from '../hooks/use-prevent-pinch-zoom';
 import { CommonComponentProps } from '../props/component-common.props';
+import { TextCommonProps } from '../props/text-common.props';
 import { getMergedClassname } from '../utilities/component.utilities';
 import { formatAnchorId } from '../utilities/text.utilities';
 import * as stylesRef from './heading.treat';
 
 type Props = CommonComponentProps &
+  TextCommonProps &
   HTMLAttributes<HTMLHeadingElement> & {
     variant?: HEADING;
     variantLevel?: TEXT_LEVEL;
-    displayMode?: 'inline-block';
   };
 
 const defaultProps: Props = {
@@ -23,7 +24,7 @@ const defaultProps: Props = {
 
 export const Heading = React.memo(
   React.forwardRef<any, Props>(
-    ({ variant, variantLevel, displayMode, id, className, children, style, as, ...props }, ref) => {
+    ({ variant, variantLevel, display, id, className, children, style, as, ...props }, ref) => {
       const { styles } = useStyles(stylesRef);
       const refLocal = ref ? (ref as React.RefObject<HTMLButtonElement>) : useRef<HTMLButtonElement>(null);
 
@@ -67,7 +68,7 @@ export const Heading = React.memo(
         {
           ref,
           id: formatAnchorId(id ? id : typeof children === 'string' ? children : ''),
-          style: displayMode ? { ...style, display: displayMode } : style,
+          style: display ? { ...style, display: display } : style,
           className: classNames,
           ...props,
         },

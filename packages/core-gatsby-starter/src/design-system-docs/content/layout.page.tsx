@@ -80,6 +80,22 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
       </Stack>
 
       <Stack gap={[cssTheme.sizing.var.x4]}>
+        <Heading variant={HEADING.h3}>Stack</Heading>
+
+        <Paragraph>Vertical grid container.</Paragraph>
+
+        <CodeBlock live={true} scope={scope}>
+          {`
+          <Stack gap={[cssTheme.sizing.var.x3]}>
+            <Placeholder></Placeholder>
+            <Placeholder></Placeholder>
+            <Placeholder></Placeholder>
+          </Stack>
+          `}
+        </CodeBlock>
+      </Stack>
+
+      <Stack gap={[cssTheme.sizing.var.x4]}>
         <Heading variant={HEADING.h3}>Switcher</Heading>
 
         <Paragraph>Used to separate 2 or more blocks horizontally on desktop and vertically on mobile.</Paragraph>

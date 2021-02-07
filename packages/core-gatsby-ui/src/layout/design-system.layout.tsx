@@ -1,5 +1,5 @@
 import { VIEWPORT } from '@newrade/core-design-system';
-import { GatsbyLink, useDesignSystemNavItems } from '@newrade/core-gatsby-ui/src';
+import { GatsbyLink, useNavigation } from '@newrade/core-gatsby-ui/src';
 import {
   BoxV2,
   Label,
@@ -14,7 +14,7 @@ import {
   useViewportBreakpoint,
 } from '@newrade/core-react-ui';
 import { PressEvent } from '@react-types/shared';
-import { title } from 'case';
+import { kebab, title } from 'case';
 import { PageProps } from 'gatsby';
 import React, { ReactNode, useEffect, useState } from 'react';
 import { useIsSSR } from 'react-aria';
@@ -35,9 +35,8 @@ export const LayoutDesignSystem = React.memo<LayoutProps>(({ MobileSvgLogo, Desk
   /**
    * Props
    */
-  // const { styles } = useStyles(styleRefs);
   const { cssTheme } = useTreatTheme();
-  const navItems = useDesignSystemNavItems();
+  const navItems = useNavigation();
   const navItemsByDirName = new Set(navItems?.map((item) => item.dirName));
 
   /**
@@ -53,9 +52,12 @@ export const LayoutDesignSystem = React.memo<LayoutProps>(({ MobileSvgLogo, Desk
     setSidebarOpened(viewport === VIEWPORT.desktop ? true : false);
   }, [viewport]);
 
+  const itemSortOrder = ['home', 'typography', 'colors', 'color-intents', 'sizing'];
+
   return (
     <MainWrapper>
       <NavBar
+        HomeLink={<GatsbyLink to={'/'} />}
         DesktopSvgLogo={DesktopSvgLogo}
         MobileSvgLogo={MobileSvgLogo}
         maxWidth={'100%'}
@@ -74,7 +76,7 @@ export const LayoutDesignSystem = React.memo<LayoutProps>(({ MobileSvgLogo, Desk
         <SideBar sidebarOpened={sidebarOpened} mobileOnly={false} disableBodyScroll={false}>
           <BoxV2
             style={{ flexDirection: 'column' }}
-            padding={[cssTheme.sizing.var.x4, cssTheme.sizing.var.x3]}
+            padding={[cssTheme.sizing.var.x4, cssTheme.sizing.var.x3, cssTheme.sizing.var.x7]}
             justifyContent={['flex-start']}
             alignItems={['stretch']}
           >
@@ -90,6 +92,12 @@ export const LayoutDesignSystem = React.memo<LayoutProps>(({ MobileSvgLogo, Desk
                     <Stack>
                       {navItems
                         .filter((item) => item.dirName === dirName)
+                        .sort((itemA, itemB) => {
+                          const indexA = itemSortOrder.indexOf(kebab(itemA.name));
+                          const indexB = itemSortOrder.indexOf(kebab(itemB.name));
+
+                          return indexA > indexB ? 1 : -1;
+                        })
                         .map((item, itemIndex) => {
                           return (
                             <NavItem

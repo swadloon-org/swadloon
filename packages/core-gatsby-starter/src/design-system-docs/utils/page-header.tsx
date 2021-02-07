@@ -11,7 +11,7 @@ import {
 import React from 'react';
 
 type Props = CommonComponentProps & {
-  title: string;
+  title: string | React.ReactNode;
 };
 
 export const PageHeader: React.FC<Props> = ({ title, ...props }) => {
@@ -20,10 +20,8 @@ export const PageHeader: React.FC<Props> = ({ title, ...props }) => {
 
   return (
     <Stack {...commonProps} gap={[`calc(2 * ${cssTheme.sizing.var.x3})`]}>
-      <Heading variant={HEADING.h1}>{title}</Heading>
-
+      {typeof title === 'string' ? <Heading variant={HEADING.h1}>{title}</Heading> : title}
       <Paragraph variant={PARAGRAPH_SIZE.large}>{commonProps.children}</Paragraph>
-
       <Hr></Hr>
     </Stack>
   );

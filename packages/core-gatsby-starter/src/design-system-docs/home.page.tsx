@@ -7,6 +7,7 @@ import React from 'react';
 import { useStyles } from 'react-treat';
 import { DesignSystemPageProps, DesignSystemPageTemplate } from '../templates/design-system-page.template';
 import * as styleRefs from './home.treat';
+import { PageHeader } from './utils/page-header';
 
 const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
   const { styles } = useStyles(styleRefs);
@@ -18,17 +19,21 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
   }
 
   return (
-    <Stack id={'Design System'} gap={[cssTheme.sizing.var.x5]}>
-      {/* <TreatProvider theme={light}> */}
-      <Heading variant={HEADING.h1}>
-        Design System -{' '}
-        <Heading variant={HEADING.h1} variantLevel={TEXT_LEVEL.secondary} displayMode={'inline-block'} as={'span'}>
-          {title(cssTheme.variation)} Theme
-        </Heading>
-      </Heading>
-      {/* </TreatProvider> */}
+    <>
+      <PageHeader
+        title={
+          <Heading variant={HEADING.h1}>
+            Design System -{' '}
+            <Heading variant={HEADING.h1} variantLevel={TEXT_LEVEL.secondary} display={'inline-block'} as={'span'}>
+              {title(cssTheme.variation)} Theme
+            </Heading>
+          </Heading>
+        }
+      >
+        These are the principles that shape how we design every aspect of the interfaces.
+      </PageHeader>
 
-      <Stack id={'Foundations'} gap={[cssTheme.sizing.var.x5]}>
+      <Stack gap={[cssTheme.sizing.var.x5]}>
         <Stack gap={[cssTheme.sizing.var.x4]}>
           <Paragraph>The design system describes every aspect of the visual design of a brand</Paragraph>
 
@@ -41,7 +46,7 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
           })}
         </Stack>
       </Stack>
-    </Stack>
+    </>
   );
 };
 
