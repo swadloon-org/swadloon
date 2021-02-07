@@ -1,10 +1,11 @@
 import { HEADING } from '@newrade/core-design-system';
-import { BoxV2, Details, Heading, NavBar, Stack, Summary, useTreatTheme } from '@newrade/core-react-ui';
+import { BoxV2, Heading, NavBar, Stack, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { DesignSystemPageProps, DesignSystemPageTemplate } from '../../templates/design-system-page.template';
 import * as styleRefs from '../home.treat';
 import { LogoPlaceholder } from '../utils/logo-placeholder';
+import { PageHeader } from '../utils/page-header';
 
 const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
   const { styles } = useStyles(styleRefs);
@@ -15,23 +16,21 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
   }
 
   return (
-    <Stack id={'Design System'} gap={[cssTheme.sizing.var.x5]}>
-      <Stack id={'Components'} gap={[cssTheme.sizing.var.x5]}>
-        <Heading variant={HEADING.h2}>Navigation</Heading>
+    <>
+      <PageHeader title={'Navigation'}>How colors should be used in text & components.</PageHeader>
 
-        <Details id={'Navigation'} open={true}>
-          <Summary>NavBar</Summary>
+      <Stack gap={[cssTheme.sizing.var.x5]}>
+        <Heading variant={HEADING.h2}>NavBar</Heading>
 
-          <BoxV2 padding={[cssTheme.sizing.var.x3, 0]}>
-            <NavBar
-              style={{ position: 'relative' }}
-              MobileSvgLogo={<LogoPlaceholder height={'100%'} />}
-              DesktopSvgLogo={<LogoPlaceholder height={'100%'} />}
-            />
-          </BoxV2>
-        </Details>
+        <BoxV2 padding={[cssTheme.sizing.var.x3, 0]}>
+          <NavBar
+            style={{ position: 'relative' }}
+            MobileSvgLogo={<LogoPlaceholder height={'100%'} />}
+            DesktopSvgLogo={<LogoPlaceholder height={'100%'} />}
+          />
+        </BoxV2>
       </Stack>
-    </Stack>
+    </>
   );
 };
 

@@ -5,6 +5,7 @@ import { useStyles } from 'react-treat';
 import { DesignSystemPageProps, DesignSystemPageTemplate } from '../../templates/design-system-page.template';
 import * as styleRefs from '../home.treat';
 import { lorenipsum } from '../utils/loren-ipsum';
+import { PageHeader } from '../utils/page-header';
 
 const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
   const { styles } = useStyles(styleRefs);
@@ -15,9 +16,11 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
   }
 
   return (
-    <Stack id={'Design System'} gap={[cssTheme.sizing.var.x5]}>
-      <Stack id={'Components'} gap={[cssTheme.sizing.var.x5]}>
-        <Heading variant={HEADING.h2}>Accordions</Heading>
+    <>
+      <PageHeader title={'Accordions'}>How the component accordions should be used.</PageHeader>
+
+      <Stack gap={[cssTheme.sizing.var.x5]}>
+        <Heading variant={HEADING.h2}>Accordion</Heading>
 
         <Stack>
           <Details>
@@ -59,7 +62,7 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
           </Details>
         </Stack>
       </Stack>
-    </Stack>
+    </>
   );
 };
 

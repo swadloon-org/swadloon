@@ -1,17 +1,6 @@
 /* eslint-disable react/jsx-no-undef */
 import { HEADING, LABEL_SIZE, PARAGRAPH_SIZE, TEXT_STYLE, TITLE } from '@newrade/core-design-system';
-import {
-  BoxV2,
-  Details,
-  Heading,
-  keys,
-  Label,
-  Paragraph,
-  Stack,
-  Summary,
-  Title,
-  useTreatTheme,
-} from '@newrade/core-react-ui';
+import { BoxV2, Heading, keys, Label, Paragraph, Stack, Title, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { DesignSystemPageProps, DesignSystemPageTemplate } from '../../templates/design-system-page.template';
@@ -32,18 +21,18 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
     <>
       <PageHeader title={'Typography'}>Fonts, titles, headings...</PageHeader>
 
-      <Details id={'fonts'} open={true}>
-        <Summary>Fonts</Summary>
+      <Stack gap={[cssTheme.sizing.var.x5]}>
+        <Heading variant={HEADING.h2}>Fonts</Heading>
 
         <BoxV2 padding={[cssTheme.sizing.var.x3, '0']}>
           <Stack gap={[cssTheme.sizing.var.x4]}>
             <FontShowcase></FontShowcase>
           </Stack>
         </BoxV2>
-      </Details>
+      </Stack>
 
-      <Details id={'titles'} open={true}>
-        <Summary>Titles</Summary>
+      <Stack gap={[cssTheme.sizing.var.x5]}>
+        <Heading variant={HEADING.h2}>Titles</Heading>
 
         <BoxV2 padding={[cssTheme.sizing.var.x3, '0']}>
           <Stack gap={[cssTheme.sizing.var.x3]}>
@@ -52,10 +41,10 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
             ))}
           </Stack>
         </BoxV2>
-      </Details>
+      </Stack>
 
-      <Details id={'headings'} open={true}>
-        <Summary>Headings</Summary>
+      <Stack gap={[cssTheme.sizing.var.x5]}>
+        <Heading variant={HEADING.h2}>Headings</Heading>
 
         <BoxV2 padding={[cssTheme.sizing.var.x3, '0']}>
           <Stack gap={[cssTheme.sizing.var.x3]}>
@@ -64,10 +53,10 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
             ))}
           </Stack>
         </BoxV2>
-      </Details>
+      </Stack>
 
-      <Details id={'labels'} open={true}>
-        <Summary>Labels</Summary>
+      <Stack gap={[cssTheme.sizing.var.x5]}>
+        <Heading variant={HEADING.h2}>Labels</Heading>
 
         <BoxV2 padding={[cssTheme.sizing.var.x3, '0']}>
           <Stack gap={[cssTheme.sizing.var.x3]}>
@@ -82,10 +71,10 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
               ))}
           </Stack>
         </BoxV2>
-      </Details>
+      </Stack>
 
-      <Details id={'paragraphs'} open={true}>
-        <Summary>Paragraphs</Summary>
+      <Stack gap={[cssTheme.sizing.var.x5]}>
+        <Heading variant={HEADING.h2}>Paragraphs</Heading>
 
         <BoxV2 padding={[cssTheme.sizing.var.x3, '0']}>
           <Stack gap={[cssTheme.sizing.var.x3]}>
@@ -104,7 +93,7 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
               ))}
           </Stack>
         </BoxV2>
-      </Details>
+      </Stack>
     </>
   );
 };
