@@ -1,8 +1,8 @@
-import { FilterProperty, BackgroundPositionProperty } from 'csstype';
+import { Property } from 'csstype';
 
-export type FilterProps = FilterProperty;
+export type FilterProps = Property.Filter;
 
 export type BackgroundPositionProps =
-  | [BackgroundPositionProperty<string>]
-  | [BackgroundPositionProperty<string>, BackgroundPositionProperty<string>]
-  | [BackgroundPositionProperty<string>, BackgroundPositionProperty<string>, BackgroundPositionProperty<string>];
+  | [Property.BackgroundPosition<string>]
+  | [Property.BackgroundPosition<string>, Property.BackgroundPosition<string>]
+  | [Property.BackgroundPosition<string>, Property.BackgroundPosition<string>, Property.BackgroundPosition<string>];

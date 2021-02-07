@@ -1,5 +1,5 @@
 import { CapsizeStyles, FontMetrics } from 'capsize';
-import { FontWeightProperty, TextTransformProperty, LetterSpacingProperty } from 'csstype';
+import { Property } from 'csstype';
 import { VIEWPORT } from './layout';
 import { SizingStep } from './sizing';
 
@@ -85,20 +85,20 @@ export interface TextStyle {
    *
    * @example 500
    */
-  fontWeight: FontWeightProperty;
+  fontWeight: Property.FontWeight;
   /**
    * Optional property to set `letter-spacing`.
    * Note that only percentage (x%) values are allowed right now.
    *
    * @example '3%' becomes '0.48em'
    */
-  letterSpacing?: LetterSpacingProperty<any>;
+  letterSpacing?: Property.LetterSpacing<any>;
   /**
    * Optional property to set `text-transform`.
    *
    * @example 'uppercase'
    */
-  textTransform?: TextTransformProperty;
+  textTransform?: Property.TextTransform;
   /**
    * Desired capital letter height in pixels. (which is usually the height of the letter 'X')
    * @see https://seek-oss.github.io/capsize/

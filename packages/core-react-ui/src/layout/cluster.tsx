@@ -1,4 +1,4 @@
-import { AlignItemsProperty, JustifyContentProperty } from 'csstype';
+import { Property } from 'csstype';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { CommonComponentProps } from '../props/component-common.props';
@@ -11,13 +11,13 @@ type Props = CommonComponentProps &
   Partial<{
     gap: GapProp;
     alignItems:
-      | [AlignItemsProperty]
-      | [AlignItemsProperty, AlignItemsProperty]
-      | [AlignItemsProperty, AlignItemsProperty, AlignItemsProperty];
+      | [Property.AlignItems]
+      | [Property.AlignItems, Property.AlignItems]
+      | [Property.AlignItems, Property.AlignItems, Property.AlignItems];
     justifyContent:
-      | [JustifyContentProperty]
-      | [JustifyContentProperty, JustifyContentProperty]
-      | [JustifyContentProperty, JustifyContentProperty, JustifyContentProperty];
+      | [Property.JustifyContent]
+      | [Property.JustifyContent, Property.JustifyContent]
+      | [Property.JustifyContent, Property.JustifyContent, Property.JustifyContent];
   }>;
 
 export const Cluster: React.FC<Props> = ({

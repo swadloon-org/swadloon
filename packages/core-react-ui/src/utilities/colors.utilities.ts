@@ -1,7 +1,7 @@
 import * as DS from '@newrade/core-design-system';
 import { Color, Colors } from '@newrade/core-design-system';
 import { kebab } from 'case';
-import CSSTypes from 'csstype';
+import { Property } from 'csstype';
 import toColorString from 'polished/lib/color/toColorString';
 import parseToRgb from 'polished/lib/color/parseToRgb';
 import { keys } from './utilities';
@@ -47,12 +47,14 @@ export function generateColorGreyPalette({ hue }: { hue: number }) {
   } as DS.ColorPalette<DS.ColorShadesGrey>;
 }
 
-export function getCSSColorPalette<ColorShades extends string>(palette: DS.ColorPalette<ColorShades>) {
+export function getCSSColorPalette<ColorShades extends string>(
+  palette: DS.ColorPalette<ColorShades>
+): Record<ColorShades, Property.Color> {
   const keys = Object.keys(palette) as ColorShades[];
   return keys.reduce((previous, current) => {
     previous[current] = getCSSColor(palette[current]);
     return previous;
-  }, {} as DS.ColorPalette<ColorShades, CSSTypes.Color>);
+  }, {} as DS.ColorPalette<ColorShades, Property.Color>);
 }
 
 export function getCSSColorIntents(intents: DS.ColorIntents) {
@@ -111,14 +113,14 @@ export function getCSSColors(colors: DS.Colors): Colors<string> {
 /**
  * Create a CSS color string from a Color object
  */
-export function getCSSColor({ h, s, l, a }: Partial<DS.Color>): CSSTypes.Color {
+export function getCSSColor({ h, s, l, a }: Partial<DS.Color>): Property.Color {
   return `hsl(${h}deg ${s}% ${l}% / ${a === undefined ? 100 : a}%)`;
 }
 
 /**
  * Create a hex CSS color string from a Color object
  */
-export function getCSSHexColor({ h, s, l, a }: Partial<DS.Color>): CSSTypes.Color {
+export function getCSSHexColor({ h, s, l, a }: Partial<DS.Color>): Property.Color {
   // toColorString({ hue: 360, saturation: 0.75, lightness: 0.4, alpha: 0.72 }),
   return toColorString({
     hue: h,
@@ -143,7 +145,7 @@ export function getRGBColor(color: Partial<DS.Color>): DS.ColorRGB {
 /**
  * Create a CSS color string from a Color object
  */
-export function getCSSLinearGradient({ angle, stops }: DS.ColorGradient): CSSTypes.BackgroundProperty<any> {
+export function getCSSLinearGradient({ angle, stops }: DS.ColorGradient): Property.Background<string> {
   return `linear-gradient(${angle.value}${angle.unit}, ${stops
     .map((stop) => `${getCSSColor(stop.color)} ${stop.position || ''}`)
     .join(',')})`;

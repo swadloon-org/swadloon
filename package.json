@@ -173,7 +173,7 @@
     "cross-env": "^7.0.2",
     "csp-html-webpack-plugin": "^4.0.0",
     "css-loader": "^2.1.1",
-    "csstype": "^2.6.3",
+    "csstype": "^3.0",
     "cz-conventional-changelog": "^3.2.0",
     "dotenv": "^8.2.0",
     "eslint": "6.x",

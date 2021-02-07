@@ -1,10 +1,11 @@
 import { HEADING } from '@newrade/core-design-system';
-import { Heading, Paragraph, Stack, useTreatTheme } from '@newrade/core-react-ui';
+import { Heading, Stack, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { DesignSystemPageProps, DesignSystemPageTemplate } from '../../templates/design-system-page.template';
 import * as styleRefs from '../home.treat';
 import { ColorPalette } from '../utils/color-palette';
+import { PageHeader } from '../utils/page-header';
 
 const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
   const { styles } = useStyles(styleRefs);
@@ -15,20 +16,17 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
   }
 
   return (
-    <Stack gap={[cssTheme.sizing.var.x6]}>
-      <Stack gap={[cssTheme.sizing.var.x5]}>
-        <Heading variant={HEADING.h2}>Colors</Heading>
-        <Paragraph>Every colors used in the system.</Paragraph>
-      </Stack>
+    <>
+      <PageHeader title={'Colors'}>Every colors used in the system.</PageHeader>
 
       <Stack gap={[cssTheme.sizing.var.x5]}>
-        <Heading variant={HEADING.h3}>Primary</Heading>
+        <Heading variant={HEADING.h2}>Primary</Heading>
 
         <ColorPalette colorName={'Primary'} colorOrPalette={theme.colors.colors.primary}></ColorPalette>
       </Stack>
 
       <Stack gap={[cssTheme.sizing.var.x5]}>
-        <Heading variant={HEADING.h3}>Greyscale</Heading>
+        <Heading variant={HEADING.h2}>Greyscale</Heading>
 
         <Stack gap={[cssTheme.sizing.var.x4]}>
           <ColorPalette colorName={'Greyscale'} colorOrPalette={theme.colors.colors.grey}></ColorPalette>
@@ -36,7 +34,7 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
       </Stack>
 
       <Stack gap={[cssTheme.sizing.var.x5]}>
-        <Heading variant={HEADING.h3}>Accent</Heading>
+        <Heading variant={HEADING.h2}>Accent</Heading>
 
         <Stack gap={[cssTheme.sizing.var.x4]}>
           <ColorPalette colorName={'Primary'} colorOrPalette={theme.colors.colors.accent1}></ColorPalette>
@@ -48,7 +46,7 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
       </Stack>
 
       <Stack gap={[cssTheme.sizing.var.x5]}>
-        <Heading variant={HEADING.h3}>Utility</Heading>
+        <Heading variant={HEADING.h2}>Utility</Heading>
 
         <Stack gap={[cssTheme.sizing.var.x4]}>
           <ColorPalette colorName={'Utility Green'} colorOrPalette={theme.colors.colors.utilityGreen}></ColorPalette>
@@ -58,7 +56,7 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
           <ColorPalette colorName={'Utility Red'} colorOrPalette={theme.colors.colors.utilityRed}></ColorPalette>
         </Stack>
       </Stack>
-    </Stack>
+    </>
   );
 };
 
