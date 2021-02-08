@@ -17,11 +17,20 @@ import {
 } from '@newrade/core-react-ui';
 import { CLINIKO_REMINDER_TYPE, PatientAPIResponseBody, PatientModel, PatientValidation } from '@newrade/vsb-common';
 import 'cleave.js/dist/addons/cleave-phone.ca';
+import { debounce } from 'lodash';
 import React, { useCallback, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useStyles } from 'react-treat';
 import { SchemaOf, ValidationError } from 'yup';
+import {
+  AddressAutoCompleteOptions,
+  AddressAutoCompleteResponse,
+  AddressByIdOptions,
+  AddressByIdResponse,
+  getAddressAutoComplete,
+  getAddressById,
+} from '../services/address.service';
 import * as styleRefs from './block-form-vasectomy.treat';
 import { SectionProps } from './section.props';
 
@@ -61,6 +70,9 @@ const useYupValidationResolver = (PatientValidation: SchemaOf<PatientModel>) =>
   );
 
 export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, section, ...props }) => {
+  const [isSuggestion, setSuggestion] = useState<boolean>(false);
+  const [isValueSuggestion, setValueSuggestion] = useState<any>();
+
   const { styles } = useStyles(styleRefs);
   const { cssTheme } = useTreatTheme();
 
@@ -74,6 +86,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
     control,
     setError,
     errors,
+    setValue,
     getValues,
     formState,
     // formState: { isDirty, isSubmitting, touched, submitCount, isValid },
@@ -113,6 +126,79 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
         });
       });
     setLoading(false);
+  };
+
+  const debouncedSave = useCallback(
+    debounce((value) => {
+      if (value !== '') {
+        onSuggest(value);
+      } else {
+        setSuggestion(false);
+      }
+    }, 500),
+    []
+  );
+
+  const onChangeHandler = () => {
+    return async (event: React.ChangeEvent<HTMLInputElement>) => {
+      debouncedSave(event.target.value);
+    };
+  };
+
+  const onSuggest = async (searchTerm: string) => {
+    console.log(searchTerm);
+    const contentAddress: AddressAutoCompleteOptions = {
+      SearchTerm: searchTerm,
+      Country: 'CAN',
+      LanguagePreference: 'EN',
+      MaxResults: 5,
+    };
+
+    const valueSuggestion = await getAddressAutoComplete(contentAddress);
+
+    if (valueSuggestion?.Items?.[0]?.Id !== undefined) {
+      setValueSuggestion(valueSuggestion?.Items);
+      setSuggestion(true);
+    } else if (valueSuggestion?.Items?.[0]?.Id == undefined) {
+      setSuggestion(false);
+    }
+  };
+
+  const handleSelectSuggestion = (suggestion: AddressAutoCompleteResponse) => {
+    return async (event: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
+      const newInfos = await onValidateById(suggestion);
+
+      setValue('address1', newInfos.Line1 as string);
+      setValue('address2', newInfos.SecondaryStreet);
+      setValue('city', newInfos.City as string);
+      setValue('state', newInfos.ProvinceName as string);
+      setValue('country', newInfos.CountryName as string);
+      setValue('postCode', newInfos.PostalCode as string);
+
+      console.log(getValues('postCode'));
+      setSuggestion(false);
+    };
+  };
+
+  const renderSuggestionsT = (items: AddressAutoCompleteResponse[]) => {
+    return (
+      <ul>
+        {items.map((suggestion: AddressAutoCompleteResponse, index: number) => {
+          return (
+            <li style={{ lineHeight: '1' }} key={index} onClick={handleSelectSuggestion(suggestion)}>
+              {`${suggestion.Text} ${suggestion.Description}`}
+            </li>
+          );
+        })}
+      </ul>
+    );
+  };
+
+  const onValidateById = async (validate: AddressByIdOptions) => {
+    const response: readonly AddressByIdResponse[] = await getAddressById(validate);
+
+    const result: AddressByIdResponse = response[0];
+    return result;
   };
 
   const FormSwitcher: React.FC = (props) => (
@@ -282,9 +368,11 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
                 ref={register}
                 autoComplete="address-line1"
                 state={errors.address1?.message ? 'error' : 'rest'}
+                onChange={onChangeHandler()}
               />
               <InputError>{errors.address1?.message}</InputError>
             </InputWrapper>
+            {isSuggestion == true ? renderSuggestionsT(isValueSuggestion) : ''}
 
             <InputWrapper>
               <InputLabel htmlFor={'address2'}>Adresse (appartement / bureau)</InputLabel>

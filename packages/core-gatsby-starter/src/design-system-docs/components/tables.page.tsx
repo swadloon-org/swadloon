@@ -1,10 +1,8 @@
 import { HEADING } from '@newrade/core-design-system';
 import {
   BoxV2,
-  Details,
   Heading,
   Stack,
-  Summary,
   Table,
   TableBody,
   TableCell,
@@ -17,6 +15,7 @@ import React from 'react';
 import { useStyles } from 'react-treat';
 import { DesignSystemPageProps, DesignSystemPageTemplate } from '../../templates/design-system-page.template';
 import * as styleRefs from '../home.treat';
+import { PageHeader } from '../utils/page-header';
 
 const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
   const { styles } = useStyles(styleRefs);
@@ -27,51 +26,49 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
   }
 
   return (
-    <Stack id={'Design System'} gap={[cssTheme.sizing.var.x5]}>
-      <Stack id={'Components'} gap={[cssTheme.sizing.var.x5]}>
-        <Heading variant={HEADING.h2}>Components</Heading>
+    <>
+      <PageHeader title={'Tables components'}>How the table component should be used.</PageHeader>
 
-        <Details id={'Table'} open={true}>
-          <Summary>Tables</Summary>
+      <Stack gap={[cssTheme.sizing.var.x5]}>
+        <Heading variant={HEADING.h2}>Tables</Heading>
 
-          <BoxV2 padding={[cssTheme.sizing.var.x3, 0]}>
-            <Stack id={'Tables'} gap={['1em']}>
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableCellHeader>Name</TableCellHeader>
-                    <TableCellHeader>ID</TableCellHeader>
-                    <TableCellHeader>Favorite Color</TableCellHeader>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  <TableRow>
-                    <TableCell>Jim</TableCell>
-                    <TableCell>00001</TableCell>
-                    <TableCell>Blue</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>Barb</TableCell>
-                    <TableCell>0021001</TableCell>
-                    <TableCell>Red</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>Jim</TableCell>
-                    <TableCell>00001</TableCell>
-                    <TableCell>Blue</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>Barb</TableCell>
-                    <TableCell>0021001</TableCell>
-                    <TableCell>Red</TableCell>
-                  </TableRow>
-                </TableBody>
-              </Table>
-            </Stack>
-          </BoxV2>
-        </Details>
+        <BoxV2 padding={[cssTheme.sizing.var.x3, 0]}>
+          <Stack id={'Tables'} gap={['1em']}>
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableCellHeader>Name</TableCellHeader>
+                  <TableCellHeader>ID</TableCellHeader>
+                  <TableCellHeader>Favorite Color</TableCellHeader>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                <TableRow>
+                  <TableCell>Jim</TableCell>
+                  <TableCell>00001</TableCell>
+                  <TableCell>Blue</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>Barb</TableCell>
+                  <TableCell>0021001</TableCell>
+                  <TableCell>Red</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>Jim</TableCell>
+                  <TableCell>00001</TableCell>
+                  <TableCell>Blue</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>Barb</TableCell>
+                  <TableCell>0021001</TableCell>
+                  <TableCell>Red</TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </Stack>
+        </BoxV2>
       </Stack>
-    </Stack>
+    </>
   );
 };
 
