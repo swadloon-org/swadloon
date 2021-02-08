@@ -43,7 +43,9 @@ export const CodeBlock: React.FC<Props> = ({ children = '', className = '', live
             )}
           </LiveContext.Consumer>
 
-          <LiveError />
+          <div className={styles.error}>
+            <LiveError />
+          </div>
         </Stack>
       </LiveProvider>
     );

@@ -1,3 +1,6 @@
-import { CSSProperties, ReactNode, ReactHTML } from 'react';
-
-export type TextCommonProps = Partial<{}>;
+/**
+ * Props for text components such as Title, Heading, Paragraph and so on.
+ */
+export type TextCommonProps = Partial<{
+  display: 'block' | 'inline-block';
+}>;

@@ -1,41 +1,62 @@
-export enum REMINDER_TYPE {
-  NONE = 'None',
-  EMAIL = 'Email',
-  SMS = 'SMS',
-  SMS_EMAIL = 'SMS & Email',
-}
+import { CLINIKO_REMINDER_TYPE, CLINIKO_PHONE_TYPE } from './patient.constant';
 
 export type PatientModel = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  dateOfBirth: Date | string;
+  address1: string;
+  address2?: string;
+  city: string;
+  state: string;
+  postCode: string;
+  country: string;
+  medicare: string;
+  medicareExpiryDate: Date | string;
+  reminderType: CLINIKO_REMINDER_TYPE;
+  patientPhoneNumber: string;
+  patientPhoneType: CLINIKO_PHONE_TYPE;
+};
+
+export type PatientClinikoModel = {
   first_name: string;
   last_name: string;
-  email: string;
+
   date_of_birth: string;
-  // title: string;
+  medicare: string;
+
+  email: string;
+  patient_phone_numbers: [
+    {
+      phone_type: CLINIKO_PHONE_TYPE;
+      number: string;
+    }
+  ];
+
   address_1: string;
+  address_2?: string;
   city: string;
   state: string;
   post_code: string;
   country: string;
+
+  reminder_type: CLINIKO_REMINDER_TYPE;
+
+  /**
+   * also in Cliniko but unused right now
+   */
+
+  // sex: CLINIKO_SEX;
+  // address_3?: string;
+  // occupation?: string;
+  // gender_identity?: string;
+  // title: string;
+  // medicare_reference_number: string;
+  // receives_confirmation_emails: boolean;
   // invoice_default_to: string;
   // invoice_email: string;
   // invoice_extra_information: string;
   // accepted_privacy_policy: boolean | null;
   // accepted_sms_marketing: boolean;
   // accepted_email_marketing: boolean;
-  medicare: string;
-  // medicare_reference_number: string;
-  // receives_confirmation_emails: boolean;
-  reminder_type: REMINDER_TYPE.NONE | REMINDER_TYPE.EMAIL | REMINDER_TYPE.SMS | REMINDER_TYPE.SMS_EMAIL;
-  patient_phone_numbers: [
-    {
-      phone_type?: string;
-      number: string;
-    }
-  ];
-
-  // occupation?: string;
-  // gender_identity?: string;
-  sex?: string;
-  address_2?: string;
-  // address_3?: string;
 };

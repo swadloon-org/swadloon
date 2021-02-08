@@ -11,7 +11,7 @@
       "",
       "type Props = {};",
       "",
-      "const $1: React.FC<Props> = (props) => {",
+      "export const $1: React.FC<Props> = (props) => {",
       "  return <div></div>;",
       "};"
     ],

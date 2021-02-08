@@ -47,7 +47,7 @@ export function getGastbyPluginPageCreatorConfig(options?: any): PluginRef[] {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: SOURCE_INSTANCE_NAME.DESIGN_SYSTEM_DOCS,
-        path: path.resolve('..', 'core-gatsby-starter', 'src', 'design-system-docs'),
+        path: path.resolve('..', 'core-gatsby-ui', 'src', 'design-system-docs'),
       },
     },
   ];

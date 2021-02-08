@@ -87,11 +87,11 @@ const EditorWrapper: React.FC<{
       className={styles.editor}
       insertSpaces={true}
       tabSize={2}
-      textareaClassName={styles.textArea}
+      textareaClassName={styles.textAreaEditor}
+      preClassName={styles.textAreaEditor}
       padding={16}
       style={
         {
-          whiteSpace: 'pre-wrap',
           fontFamily: 'monospace',
           ...baseTheme,
           ...style,

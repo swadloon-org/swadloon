@@ -1,6 +1,6 @@
 import { Color } from '@newrade/core-design-system';
 import { getRGBColor } from './colors.utilities';
-import CSSTypes from 'csstype';
+import { Property } from 'csstype';
 
 type Matrix = [number, number, number, number, number, number, number, number, number];
 
@@ -307,7 +307,7 @@ export function hexToRgb(hex: string) {
   return result ? [parseInt(result[1], 16), parseInt(result[2], 16), parseInt(result[3], 16)] : null;
 }
 
-export function getCSSFilterColor(targetColor: Color): CSSTypes.FilterProperty {
+export function getCSSFilterColor(targetColor: Color): Property.Filter {
   const iconColorRgb = getRGBColor(targetColor);
   const color = new ColorFilter(iconColorRgb.r, iconColorRgb.g, iconColorRgb.b);
   const solver = new ColorFilterSolver(color);

@@ -1,6 +1,6 @@
 import React from 'react';
-import { Center } from '../center';
 import { renderTest } from '../../utilities/test-render';
+import { Center } from '../center';
 
 describe('props', () => {
   it('should render correctly', () => {

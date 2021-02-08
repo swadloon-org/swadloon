@@ -45,6 +45,7 @@ export function getPageFormattedName(
   if (rawName === '/' || rawName === '') {
     return 'Accueil';
   }
+
   return title(removeDir(removeDotPage(rawName)));
 
   function removeDotPage(rawName: string): string {
@@ -52,6 +53,11 @@ export function getPageFormattedName(
   }
 
   function removeDir(rawName: string): string {
+    // for src pages page-name.tsx => /page-name/ => Page Name
+    if (/^\/.+\/$/gi.test(rawName)) {
+      return title(rawName.replace(/\//gi, ''));
+    }
+
     return rawName
       .replace(/(\/?[A-Z-]+\/)/gi, '')
       .replace(/^(\/)/gi, '')

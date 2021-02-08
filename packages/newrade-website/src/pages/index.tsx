@@ -1,8 +1,7 @@
+import { Back, Linear, TimelineMax, TweenMax } from '@newrade/core-gsap-ui';
 import { BoxV2, Center, Cluster, Stack, Title, useTreatTheme } from '@newrade/core-react-ui';
-import { TweenMax, TimelineMax, Back, Linear } from '@newrade/core-gsap-ui';
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { SrcPageTemplate, SrcPageTemplateProps } from '../templates/src-page.template';
-import ts from 'typescript';
 
 const PageComponent: React.FC<SrcPageTemplateProps> = (props) => {
   const { theme, cssTheme } = useTreatTheme();

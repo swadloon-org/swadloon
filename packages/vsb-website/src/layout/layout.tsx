@@ -33,7 +33,7 @@ import { title } from 'case';
 import { PageProps } from 'gatsby';
 import React, { ReactNode, useEffect, useRef, useState } from 'react';
 import { useAnimateNavbar } from '../hook/use-animate-navbar';
-import { useNavItems, useVsbCompanyInfo } from '../hook/use-nav-items.hook';
+import { useCompanyInfo, usePagesNavigation } from '../hook/use-layout-data';
 import LogoSymbol from '../images/logo-symbol.svg';
 import Logo from '../images/logo.svg';
 import { Footer } from './footer';
@@ -53,9 +53,8 @@ export const Layout = React.memo<LayoutProps>((props) => {
   /**
    * Data query
    */
-  const navItems = useNavItems();
-  const navItemsByDirName = new Set(navItems.map((item) => item.dirName));
-  const { companyInfo, companyAddress } = useVsbCompanyInfo();
+  const navigation = usePagesNavigation();
+  const { companyInfo, companyAddress } = useCompanyInfo();
 
   /**
    * i18n
@@ -76,6 +75,8 @@ export const Layout = React.memo<LayoutProps>((props) => {
   const [sidebarOpened, setSidebarOpened] = useState<boolean>(false);
 
   useEffect(() => {
+    pathname = props.location?.pathname;
+
     return globalHistory.listen((params) => {
       setSidebarOpened(false); // close sidebar upon navigation
       setNavbarStyle(params.location?.pathname === '/' ? 'transparent' : 'white'); // set the navbar style
@@ -179,29 +180,34 @@ export const Layout = React.memo<LayoutProps>((props) => {
                 alignItems={['stretch']}
               >
                 <Stack gap={[cssTheme.sizing.var.x4]}>
-                  {[...navItemsByDirName].map((dirName, index) => {
+                  {navigation.items.map((item, index) => {
                     return (
                       <Stack key={index} gap={[`calc(2 * ${cssTheme.sizing.var.x1})`]}>
-                        {dirName === '' ? (
-                          <NavItemGroup>Docs</NavItemGroup>
+                        {item.items?.length ? (
+                          <NavItemGroup>{title(item.displayName || item.name || 'Home')}</NavItemGroup>
                         ) : (
-                          <NavItemGroup>{title(dirName || '')}</NavItemGroup>
+                          <NavItem
+                            active={item.path === props.location?.pathname}
+                            AsElement={<GatsbyLink to={item.path} noStyles={true} />}
+                          >
+                            {item.name || item.displayName}
+                          </NavItem>
                         )}
-                        <Stack>
-                          {navItems
-                            .filter((item) => item.dirName === dirName)
-                            .map((item, itemIndex) => {
+                        {item.items?.length ? (
+                          <Stack>
+                            {item.items?.map((item, itemIndex) => {
                               return (
                                 <NavItem
                                   key={itemIndex}
                                   active={item.path === props.location?.pathname}
                                   AsElement={<GatsbyLink to={item.path} noStyles={true} />}
                                 >
-                                  {item.name}
+                                  {item.name || item.displayName}
                                 </NavItem>
                               );
                             })}
-                        </Stack>
+                          </Stack>
+                        ) : null}
                       </Stack>
                     );
                   })}
@@ -278,7 +284,7 @@ export const Layout = React.memo<LayoutProps>((props) => {
 
       <Main minHeight={true}>{props.children}</Main>
 
-      <Footer id={'footer'}></Footer>
+      <Footer id={'footer'} style={{ zIndex: cssTheme.layout.zIndex.content }}></Footer>
     </MainWrapper>
   );
 });

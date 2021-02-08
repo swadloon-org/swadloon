@@ -57,8 +57,8 @@
       "focus": false
     },
     {
-      "name": "core-gatsby-starter",
-      "cwd": "[workspaceFolder]/packages/core-gatsby-starter",
+      "name": "core-gatsby-ui",
+      "cwd": "[workspaceFolder]/packages/core-gatsby-ui",
       "open": true,
       "focus": false
     },

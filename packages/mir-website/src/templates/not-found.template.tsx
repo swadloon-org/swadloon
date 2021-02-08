@@ -1,10 +1,9 @@
 import React from 'react';
 import { useStyles } from 'react-treat';
-
-import * as stylesRef from './not-found.treat';
-import { ProjectPageProps } from './page.template';
 import { Heading } from '../components/ui/heading';
 import { Paragraph } from '../components/ui/paragraph';
+import * as stylesRef from './not-found.treat';
+import { ProjectPageProps } from './page.template';
 
 export const NotFoundTemplate: React.FC<ProjectPageProps> = ({ data, location }) => {
   const styles = useStyles(stylesRef);
@@ -15,7 +14,7 @@ export const NotFoundTemplate: React.FC<ProjectPageProps> = ({ data, location })
         Page non trouvée
       </Heading>
       <Paragraph variant="medium" className={`${styles.text}`}>
-        {`Cette page n'existe plus!`}
+        {`Cette page n'existe pas!`}
       </Paragraph>
     </main>
   );

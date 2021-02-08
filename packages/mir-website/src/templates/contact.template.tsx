@@ -1,17 +1,16 @@
 import React from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { useStyles } from 'react-treat';
-
+import { PageFragmentFragment } from '../../types/graphql-types';
+import { BannerPrimary } from '../components/banners/banner-primary';
+import { BannerSecondary } from '../components/banners/banner-secondary';
+import { Button } from '../components/ui/button';
+import { Heading } from '../components/ui/heading';
+import { Input, TextArea } from '../components/ui/input';
 import { theme } from '../design-system/theme';
 import * as stylesRef from './contact.treat';
 import { ProjectPageProps } from './page.template';
 import { SectionTemplate, SECTION_TYPE } from './section.template';
-import { BannerPrimary } from '../components/banners/banner-primary';
-import { BannerSecondary } from '../components/banners/banner-secondary';
-import { Heading } from '../components/ui/heading';
-import { Input, TextArea } from '../components/ui/input';
-import { Button } from '../components/ui/button';
-import { PageFragmentFragment } from '../../types/graphql-types';
 
 export const ContactTemplate: React.FC<ProjectPageProps> = (props) => {
   const styles = useStyles(stylesRef);
@@ -25,7 +24,7 @@ export const ContactTemplate: React.FC<ProjectPageProps> = (props) => {
       media: `(min-width: ${theme.layout.breakpoints.desktopSmall.px})`,
     },
   ];
-  const bannerImagesAreValid = !!(bannerImagesSource?.length && bannerImagesSource[0] && bannerImagesSource[1]);
+  const bannerImagesAreValid = !!(bannerImagesSource.length && bannerImagesSource[0] && bannerImagesSource[1]);
 
   const [hasMounted, setHasMounted] = React.useState(false);
   React.useEffect(() => {
@@ -34,29 +33,29 @@ export const ContactTemplate: React.FC<ProjectPageProps> = (props) => {
 
   const recaptchaRef = React.createRef<any>();
 
-  const sections1 = props?.data?.contentfulPage?.sections?.filter(
+  const sections1 = props.data.contentfulPage?.sections?.filter(
     (section) => section?.type?.name === SECTION_TYPE.TYPE_6_GROUP
   );
   const props1: ProjectPageProps = {
     ...props,
     data: {
-      ...props?.data,
+      ...props.data,
       contentfulPage: {
-        ...props?.data?.contentfulPage,
+        ...props.data.contentfulPage,
         sections: sections1,
       } as PageFragmentFragment,
     },
   };
 
-  const sections2 = props?.data?.contentfulPage?.sections?.filter(
+  const sections2 = props.data.contentfulPage?.sections?.filter(
     (section) => section?.type?.name === SECTION_TYPE.NEWSLETTER_PRIMARY
   );
   const props2: ProjectPageProps = {
     ...props,
     data: {
-      ...props?.data,
+      ...props.data,
       contentfulPage: {
-        ...props?.data.contentfulPage,
+        ...props.data.contentfulPage,
         sections: sections2,
       } as PageFragmentFragment,
     },

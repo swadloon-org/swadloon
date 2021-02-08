@@ -2,8 +2,8 @@ import { CommonComponentProps } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { ContentfulSection } from '../../types/graphql-types';
+import { BlockTileLink } from './block-tile-link';
 import * as styleRefs from './section-tile-links.treat';
-import { TileLink } from './tile-link';
 
 type OwnProps = CommonComponentProps & {
   section: ContentfulSection;
@@ -21,7 +21,11 @@ export const SectionTileLinks: React.FC<OwnProps> = ({ id, style, className, sec
           }
 
           return (
-            <TileLink key={index} section={item} contentClassName={index % 2 === 0 ? styles.evenTile : ''}></TileLink>
+            <BlockTileLink
+              key={index}
+              section={item}
+              contentClassName={index % 2 === 0 ? styles.evenTile : ''}
+            ></BlockTileLink>
           );
         })}
       </div>

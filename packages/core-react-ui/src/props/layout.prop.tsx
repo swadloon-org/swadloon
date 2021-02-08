@@ -1,11 +1,11 @@
-import { GapProperty } from 'csstype';
+import { Property } from 'csstype';
 
 /**
  * [mobile, tablet, desktop]
  */
 export type GapProp =
-  | [GapProperty<any>]
-  | [GapProperty<any>, GapProperty<any>]
-  | [GapProperty<any>, GapProperty<any>, GapProperty<any>];
+  | [Property.Gap<any>]
+  | [Property.Gap<any>, Property.Gap<any>]
+  | [Property.Gap<any>, Property.Gap<any>, Property.Gap<any>];
 
 export type VariantGrid = 'rows' | 'col';

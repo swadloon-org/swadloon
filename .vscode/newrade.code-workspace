@@ -99,9 +99,6 @@
       "path": "../packages/core-gatsby-config"
     },
     {
-      "path": "../packages/core-gatsby-starter"
-    },
-    {
       "path": "../packages/core-gatsby-ui"
     },
     {
