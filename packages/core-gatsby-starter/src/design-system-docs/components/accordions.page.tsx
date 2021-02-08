@@ -41,26 +41,6 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
             <Paragraph>{lorenipsum}</Paragraph>
           </Details>
         </Stack>
-
-        <Stack>
-          <Details>
-            <Summary mode={'animate'}>Accordion</Summary>
-
-            <Paragraph>{lorenipsum}</Paragraph>
-          </Details>
-
-          <Details>
-            <Summary mode={'animate'}>Accordion</Summary>
-
-            <Paragraph>{lorenipsum}</Paragraph>
-          </Details>
-
-          <Details>
-            <Summary mode={'animate'}>Accordion</Summary>
-
-            <Paragraph>{lorenipsum}</Paragraph>
-          </Details>
-        </Stack>
       </Stack>
     </>
   );

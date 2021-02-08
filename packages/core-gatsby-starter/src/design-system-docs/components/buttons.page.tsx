@@ -57,20 +57,20 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
 
         <Stack gap={[cssTheme.sizing.var.x3]}>
           <Button size={ButtonSize.large} icon={ButtonIcon.right} Icon={<IoArrowForwardOutline />}></Button>
-          <Button size={ButtonSize.large} icon={ButtonIcon.left}></Button>
-          <Button size={ButtonSize.large} icon={ButtonIcon.icon}></Button>
+          <Button size={ButtonSize.large} icon={ButtonIcon.left} Icon={<IoArrowForwardOutline />}></Button>
+          <Button size={ButtonSize.large} icon={ButtonIcon.icon} Icon={<IoArrowForwardOutline />}></Button>
 
           <Button size={ButtonSize.medium} icon={ButtonIcon.right} Icon={<IoArrowForwardOutline />}></Button>
-          <Button size={ButtonSize.medium} icon={ButtonIcon.left}></Button>
-          <Button size={ButtonSize.medium} icon={ButtonIcon.icon}></Button>
+          <Button size={ButtonSize.medium} icon={ButtonIcon.left} Icon={<IoArrowForwardOutline />}></Button>
+          <Button size={ButtonSize.medium} icon={ButtonIcon.icon} Icon={<IoArrowForwardOutline />}></Button>
 
           <Button size={ButtonSize.small} icon={ButtonIcon.right} Icon={<IoArrowForwardOutline />}></Button>
-          <Button size={ButtonSize.small} icon={ButtonIcon.left}></Button>
-          <Button size={ButtonSize.small} icon={ButtonIcon.icon}></Button>
+          <Button size={ButtonSize.small} icon={ButtonIcon.left} Icon={<IoArrowForwardOutline />}></Button>
+          <Button size={ButtonSize.small} icon={ButtonIcon.icon} Icon={<IoArrowForwardOutline />}></Button>
 
           <Button size={ButtonSize.xsmall} icon={ButtonIcon.right} Icon={<IoArrowForwardOutline />}></Button>
-          <Button size={ButtonSize.xsmall} icon={ButtonIcon.left}></Button>
-          <Button size={ButtonSize.xsmall} icon={ButtonIcon.icon}></Button>
+          <Button size={ButtonSize.xsmall} icon={ButtonIcon.left} Icon={<IoArrowForwardOutline />}></Button>
+          <Button size={ButtonSize.xsmall} icon={ButtonIcon.icon} Icon={<IoArrowForwardOutline />}></Button>
 
           <Button
             variant={ButtonVariant.secondary}
@@ -78,8 +78,18 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
             icon={ButtonIcon.right}
             Icon={<IoArrowForwardOutline />}
           ></Button>
-          <Button variant={ButtonVariant.secondary} size={ButtonSize.large} icon={ButtonIcon.left}></Button>
-          <Button variant={ButtonVariant.secondary} size={ButtonSize.large} icon={ButtonIcon.icon}></Button>
+          <Button
+            variant={ButtonVariant.secondary}
+            size={ButtonSize.large}
+            icon={ButtonIcon.left}
+            Icon={<IoArrowForwardOutline />}
+          ></Button>
+          <Button
+            variant={ButtonVariant.secondary}
+            size={ButtonSize.large}
+            icon={ButtonIcon.icon}
+            Icon={<IoArrowForwardOutline />}
+          ></Button>
 
           <Button
             variant={ButtonVariant.secondary}
@@ -87,8 +97,18 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
             icon={ButtonIcon.right}
             Icon={<IoArrowForwardOutline />}
           ></Button>
-          <Button variant={ButtonVariant.secondary} size={ButtonSize.medium} icon={ButtonIcon.left}></Button>
-          <Button variant={ButtonVariant.secondary} size={ButtonSize.medium} icon={ButtonIcon.icon}></Button>
+          <Button
+            variant={ButtonVariant.secondary}
+            size={ButtonSize.medium}
+            icon={ButtonIcon.left}
+            Icon={<IoArrowForwardOutline />}
+          ></Button>
+          <Button
+            variant={ButtonVariant.secondary}
+            size={ButtonSize.medium}
+            icon={ButtonIcon.icon}
+            Icon={<IoArrowForwardOutline />}
+          ></Button>
 
           <Button
             variant={ButtonVariant.secondary}
@@ -96,8 +116,18 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
             icon={ButtonIcon.right}
             Icon={<IoArrowForwardOutline />}
           ></Button>
-          <Button variant={ButtonVariant.secondary} size={ButtonSize.small} icon={ButtonIcon.left}></Button>
-          <Button variant={ButtonVariant.secondary} size={ButtonSize.small} icon={ButtonIcon.icon}></Button>
+          <Button
+            variant={ButtonVariant.secondary}
+            size={ButtonSize.small}
+            icon={ButtonIcon.left}
+            Icon={<IoArrowForwardOutline />}
+          ></Button>
+          <Button
+            variant={ButtonVariant.secondary}
+            size={ButtonSize.small}
+            icon={ButtonIcon.icon}
+            Icon={<IoArrowForwardOutline />}
+          ></Button>
 
           <Button
             variant={ButtonVariant.secondary}
@@ -105,8 +135,18 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
             icon={ButtonIcon.right}
             Icon={<IoArrowForwardOutline />}
           ></Button>
-          <Button variant={ButtonVariant.secondary} size={ButtonSize.xsmall} icon={ButtonIcon.left}></Button>
-          <Button variant={ButtonVariant.secondary} size={ButtonSize.xsmall} icon={ButtonIcon.icon}></Button>
+          <Button
+            variant={ButtonVariant.secondary}
+            size={ButtonSize.xsmall}
+            icon={ButtonIcon.left}
+            Icon={<IoArrowForwardOutline />}
+          ></Button>
+          <Button
+            variant={ButtonVariant.secondary}
+            size={ButtonSize.xsmall}
+            icon={ButtonIcon.icon}
+            Icon={<IoArrowForwardOutline />}
+          ></Button>
 
           <Button
             variant={ButtonVariant.tertiary}
@@ -114,8 +154,18 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
             icon={ButtonIcon.right}
             Icon={<IoArrowForwardOutline />}
           ></Button>
-          <Button variant={ButtonVariant.tertiary} size={ButtonSize.large} icon={ButtonIcon.left}></Button>
-          <Button variant={ButtonVariant.tertiary} size={ButtonSize.large} icon={ButtonIcon.icon}></Button>
+          <Button
+            variant={ButtonVariant.tertiary}
+            size={ButtonSize.large}
+            icon={ButtonIcon.left}
+            Icon={<IoArrowForwardOutline />}
+          ></Button>
+          <Button
+            variant={ButtonVariant.tertiary}
+            size={ButtonSize.large}
+            icon={ButtonIcon.icon}
+            Icon={<IoArrowForwardOutline />}
+          ></Button>
 
           <Button
             variant={ButtonVariant.tertiary}
@@ -123,8 +173,18 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
             icon={ButtonIcon.right}
             Icon={<IoArrowForwardOutline />}
           ></Button>
-          <Button variant={ButtonVariant.tertiary} size={ButtonSize.medium} icon={ButtonIcon.left}></Button>
-          <Button variant={ButtonVariant.tertiary} size={ButtonSize.medium} icon={ButtonIcon.icon}></Button>
+          <Button
+            variant={ButtonVariant.tertiary}
+            size={ButtonSize.medium}
+            icon={ButtonIcon.left}
+            Icon={<IoArrowForwardOutline />}
+          ></Button>
+          <Button
+            variant={ButtonVariant.tertiary}
+            size={ButtonSize.medium}
+            icon={ButtonIcon.icon}
+            Icon={<IoArrowForwardOutline />}
+          ></Button>
 
           <Button
             variant={ButtonVariant.tertiary}
@@ -132,8 +192,18 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
             icon={ButtonIcon.right}
             Icon={<IoArrowForwardOutline />}
           ></Button>
-          <Button variant={ButtonVariant.tertiary} size={ButtonSize.small} icon={ButtonIcon.left}></Button>
-          <Button variant={ButtonVariant.tertiary} size={ButtonSize.small} icon={ButtonIcon.icon}></Button>
+          <Button
+            variant={ButtonVariant.tertiary}
+            size={ButtonSize.small}
+            icon={ButtonIcon.left}
+            Icon={<IoArrowForwardOutline />}
+          ></Button>
+          <Button
+            variant={ButtonVariant.tertiary}
+            size={ButtonSize.small}
+            icon={ButtonIcon.icon}
+            Icon={<IoArrowForwardOutline />}
+          ></Button>
 
           <Button
             variant={ButtonVariant.tertiary}
@@ -141,8 +211,18 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
             icon={ButtonIcon.right}
             Icon={<IoArrowForwardOutline />}
           ></Button>
-          <Button variant={ButtonVariant.tertiary} size={ButtonSize.xsmall} icon={ButtonIcon.left}></Button>
-          <Button variant={ButtonVariant.tertiary} size={ButtonSize.xsmall} icon={ButtonIcon.icon}></Button>
+          <Button
+            variant={ButtonVariant.tertiary}
+            size={ButtonSize.xsmall}
+            icon={ButtonIcon.left}
+            Icon={<IoArrowForwardOutline />}
+          ></Button>
+          <Button
+            variant={ButtonVariant.tertiary}
+            size={ButtonSize.xsmall}
+            icon={ButtonIcon.icon}
+            Icon={<IoArrowForwardOutline />}
+          ></Button>
         </Stack>
       </Stack>
 

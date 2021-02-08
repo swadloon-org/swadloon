@@ -3,7 +3,7 @@
   "compilerOptions": {
     "rootDir": "src",
     "outDir": "lib",
-    "types": ["gatsby", "node"]
+    "types": ["gatsby", "node", "jest"]
   },
   "references": [
     {
@@ -25,6 +25,6 @@
       "path": "../core-react-ui/tsconfig.build.json"
     }
   ],
-  "include": ["src/**/*", "types"],
+  "include": ["src/**/*", "types/**/*"],
   "exclude": ["public"]
 }

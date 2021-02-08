@@ -1,5 +1,5 @@
-import { NavItem } from '@newrade/core-gatsby-ui/src';
-import { kebab } from 'case';
+import { Navigation } from '@newrade/core-gatsby-ui';
+import { getNavigationFromPageNodes, PageNode } from '@newrade/core-gatsby-ui/src';
 import { graphql, useStaticQuery } from 'gatsby';
 import { LayoutAllSitePageQuery } from '../../types/graphql-types';
 
@@ -50,37 +50,19 @@ export function useQuery() {
   return useStaticQuery<LayoutAllSitePageQuery>(query);
 }
 
-export function useNavItems(): NavItem[] {
+export function usePagesNavigation(): Navigation {
   const data = useQuery();
-  const dirSortOrder = ['Services', 'La Clinique', 'Nous Joindre'];
-  const pageSortOrder = ['Tout sur', 'Formulaire', 'Examen'];
 
-  const navItems = data?.pages.nodes
-    .filter((node) => !/404/gi.test(node.context?.name || ''))
-    .filter((node) => node.context?.name !== 'Accueil')
-    .map((node) => ({
-      name: formatName(node.context?.name),
-      dirName: node.context?.dirName || '',
-      path: node.path,
-    }));
-  const sortedNavItems = navItems?.sort((itemA, itemB) => {
-    const indexA = dirSortOrder.indexOf(kebab(itemA.dirName));
-    const indexB = dirSortOrder.indexOf(kebab(itemB.dirName));
-
-    return indexA > indexB ? 1 : -1;
+  return getNavigationFromPageNodes({
+    name: 'VSB sidenav',
+    pageNodes: data?.pages.nodes as PageNode[],
+    sortOrderDirectories: ['services', 'la clinique', 'nous joindre'],
+    sortOrderItems: ['tout sur la vasectomie', 'formulaire vasectomie', 'examen pour transport canada'],
+    ignoredItems: ['address', 'accueil'],
   });
-
-  function formatName(name?: string | null): string {
-    if (!name) {
-      return '';
-    }
-    return name.replace('.page', '').replace('design-system-', '');
-  }
-
-  return sortedNavItems;
 }
 
-export function useVsbCompanyInfo() {
+export function useCompanyInfo() {
   const data = useQuery();
   return { companyInfo: data.companyInfo, companyAddress: data.companyAddress };
 }

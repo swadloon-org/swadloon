@@ -1,5 +1,5 @@
 import { VIEWPORT } from '@newrade/core-design-system';
-import { GatsbyLink, useNavigation } from '@newrade/core-gatsby-ui/src';
+import { GatsbyLink } from '@newrade/core-gatsby-ui/src';
 import {
   BoxV2,
   Label,
@@ -14,18 +14,51 @@ import {
   useViewportBreakpoint,
 } from '@newrade/core-react-ui';
 import { PressEvent } from '@react-types/shared';
-import { kebab, title } from 'case';
-import { PageProps } from 'gatsby';
+import { title } from 'case';
+import { graphql, PageProps, useStaticQuery } from 'gatsby';
 import React, { ReactNode, useEffect, useState } from 'react';
 import { useIsSSR } from 'react-aria';
+import { getNavigationFromPageNodes } from '../utilities/navigation.utilities';
 
 type LayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }> & {
   MobileSvgLogo?: React.ReactNode;
   DesktopSvgLogo?: React.ReactNode;
 };
 
+const query = graphql`
+  query DesignSystemLayoutPage {
+    pages: allSitePage(filter: { path: { glob: "/design-system/{**,*}" } }) {
+      totalCount
+      nodes {
+        id
+        path
+        context {
+          siteMetadata {
+            description
+            languages {
+              defaultLangKey
+              langs
+            }
+            siteEnv
+            siteUrl
+            title
+          }
+          id
+          name
+          dirName
+          locale
+          layout
+        }
+      }
+    }
+  }
+`;
+
 export const LayoutDesignSystem = React.memo<LayoutProps>(({ MobileSvgLogo, DesktopSvgLogo, ...props }) => {
-  const { viewport } = useViewportBreakpoint();
+  /**
+   * Data / Queries
+   */
+  const data = useStaticQuery(query);
 
   /**
    * React Aria
@@ -36,12 +69,17 @@ export const LayoutDesignSystem = React.memo<LayoutProps>(({ MobileSvgLogo, Desk
    * Props
    */
   const { cssTheme } = useTreatTheme();
-  const navItems = useNavigation();
-  const navItemsByDirName = new Set(navItems?.map((item) => item.dirName));
+  const navigation = getNavigationFromPageNodes({
+    name: 'Design system side navigation',
+    pageNodes: data?.pages.nodes,
+    sortOrderDirectories: ['', 'typography', 'colors', 'foundations', 'components', 'content', 'effects', 'motion'],
+    sortOrderItems: ['', 'typography', 'colors', 'color-intents', 'sizing', 'layout-components', 'blocks', 'sections'],
+  });
 
   /**
    * Sidemenu
    */
+  const { viewport } = useViewportBreakpoint();
   const [sidebarOpened, setSidebarOpened] = useState<boolean>(true);
 
   function handlePressMenuButton(event: PressEvent) {
@@ -51,8 +89,6 @@ export const LayoutDesignSystem = React.memo<LayoutProps>(({ MobileSvgLogo, Desk
   useEffect(() => {
     setSidebarOpened(viewport === VIEWPORT.desktop ? true : false);
   }, [viewport]);
-
-  const itemSortOrder = ['home', 'typography', 'colors', 'color-intents', 'sizing'];
 
   return (
     <MainWrapper>
@@ -72,7 +108,7 @@ export const LayoutDesignSystem = React.memo<LayoutProps>(({ MobileSvgLogo, Desk
         menuOpened={sidebarOpened}
       ></NavBar>
 
-      {navItems && !isSSR ? (
+      {navigation.items && !isSSR ? (
         <SideBar sidebarOpened={sidebarOpened} mobileOnly={false} disableBodyScroll={false}>
           <BoxV2
             style={{ flexDirection: 'column' }}
@@ -81,35 +117,34 @@ export const LayoutDesignSystem = React.memo<LayoutProps>(({ MobileSvgLogo, Desk
             alignItems={['stretch']}
           >
             <Stack gap={[cssTheme.sizing.var.x5]}>
-              {[...navItemsByDirName].map((dirName, index) => {
+              {navigation.items.map((item, index) => {
                 return (
                   <Stack key={index} gap={[`calc(2 * ${cssTheme.sizing.var.x1})`]}>
-                    {dirName === '' ? (
-                      <NavItemGroup>Design System</NavItemGroup>
+                    {item.items?.length ? (
+                      <NavItemGroup>{title(item.displayName || item.name || 'Design System')}</NavItemGroup>
                     ) : (
-                      <NavItemGroup>{title(dirName || '')}</NavItemGroup>
+                      <NavItem
+                        active={item.path === props.location?.pathname}
+                        AsElement={<GatsbyLink to={item.path} noStyles={true} />}
+                      >
+                        {item.name || item.displayName}
+                      </NavItem>
                     )}
-                    <Stack>
-                      {navItems
-                        .filter((item) => item.dirName === dirName)
-                        .sort((itemA, itemB) => {
-                          const indexA = itemSortOrder.indexOf(kebab(itemA.name));
-                          const indexB = itemSortOrder.indexOf(kebab(itemB.name));
-
-                          return indexA > indexB ? 1 : -1;
-                        })
-                        .map((item, itemIndex) => {
+                    {item.items?.length ? (
+                      <Stack>
+                        {item.items?.map((item, itemIndex) => {
                           return (
                             <NavItem
                               key={itemIndex}
                               active={item.path === props.location?.pathname}
                               AsElement={<GatsbyLink to={item.path} noStyles={true} />}
                             >
-                              {item.name}
+                              {item.name || item.displayName}
                             </NavItem>
                           );
                         })}
-                    </Stack>
+                      </Stack>
+                    ) : null}
                   </Stack>
                 );
               })}

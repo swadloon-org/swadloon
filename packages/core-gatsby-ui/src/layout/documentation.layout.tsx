@@ -1,4 +1,4 @@
-import { GatsbyLink, useDocsNavItems } from '@newrade/core-gatsby-ui/src';
+import { GatsbyLink, useDocsNavigation } from '@newrade/core-gatsby-ui/src';
 import {
   Label,
   Main,
@@ -21,18 +21,14 @@ type LayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }
 };
 
 export const LayoutDocumentation = React.memo<LayoutProps>(({ MobileSvgLogo, DesktopSvgLogo, ...props }) => {
+  const { cssTheme } = useTreatTheme();
+
   /**
    * React Aria
    */
   const isSSR = useIsSSR();
 
-  /**
-   * Props
-   */
-  const { cssTheme } = useTreatTheme();
-
-  const navItems = useDocsNavItems() ? useDocsNavItems() : null;
-  const navItemsByDirName = new Set(navItems?.map((item) => item.dirName));
+  const navigation = useDocsNavigation();
 
   return (
     <MainWrapper>
@@ -49,32 +45,37 @@ export const LayoutDocumentation = React.memo<LayoutProps>(({ MobileSvgLogo, Des
         }
       ></NavBar>
 
-      {navItems && !isSSR ? (
+      {navigation && !isSSR ? (
         <SideBar>
           <Stack gap={[cssTheme.sizing.var.x4]}>
-            {[...navItemsByDirName].map((dirName, index) => {
+            {navigation.items.map((item, index) => {
               return (
                 <Stack key={index} gap={[`calc(2 * ${cssTheme.sizing.var.x1})`]}>
-                  {dirName === '' ? (
-                    <NavItemGroup>Docs</NavItemGroup>
+                  {item.items?.length ? (
+                    <NavItemGroup>{title(item.displayName || item.name || 'Docs')}</NavItemGroup>
                   ) : (
-                    <NavItemGroup>{title(dirName || '')}</NavItemGroup>
+                    <NavItem
+                      active={item.path === props.location?.pathname}
+                      AsElement={<GatsbyLink to={item.path} noStyles={true} />}
+                    >
+                      {item.name || item.displayName}
+                    </NavItem>
                   )}
-                  <Stack>
-                    {navItems
-                      .filter((item) => item.dirName === dirName)
-                      .map((item, itemIndex) => {
+                  {item.items?.length ? (
+                    <Stack>
+                      {item.items?.map((item, itemIndex) => {
                         return (
                           <NavItem
                             key={itemIndex}
                             active={item.path === props.location?.pathname}
                             AsElement={<GatsbyLink to={item.path} noStyles={true} />}
                           >
-                            {item.name}
+                            {item.name || item.displayName}
                           </NavItem>
                         );
                       })}
-                  </Stack>
+                    </Stack>
+                  ) : null}
                 </Stack>
               );
             })}

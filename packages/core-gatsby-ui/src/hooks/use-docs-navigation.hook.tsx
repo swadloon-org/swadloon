@@ -1,6 +1,6 @@
-import { title } from 'case';
 import { graphql, useStaticQuery } from 'gatsby';
-import { NavItem } from '../models/nav-item.model';
+import { Navigation } from '../models/navigation.model';
+import { getNavigationFromPageNodes } from '../utilities/navigation.utilities';
 
 const query = graphql`
   query DocsLayout {
@@ -31,22 +31,11 @@ const query = graphql`
   }
 `;
 
-export function useDocsNavItems(): NavItem[] {
+export function useDocsNavigation(): Navigation {
   const data = useStaticQuery(query);
 
-  // @ts-ignore
-  const navItems = data?.pages.nodes.map((node) => ({
-    name: formatName(node.context?.name),
-    dirName: node.context?.dirName,
-    path: node.path,
-  }));
-
-  function formatName(name?: string | null): string {
-    if (!name) {
-      return '';
-    }
-    return title(name.replace('.page', '').replace('design-system-', ''));
-  }
-
-  return navItems;
+  return getNavigationFromPageNodes({
+    name: 'docs navigation',
+    pageNodes: data.pages.nodes,
+  });
 }

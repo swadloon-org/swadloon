@@ -1,5 +1,4 @@
-import { NavItem } from '@newrade/core-gatsby-ui/src';
-import { kebab } from 'case';
+import { getNavigationFromPageNodes, Navigation, PageNode } from '@newrade/core-gatsby-ui/src';
 import { graphql, useStaticQuery } from 'gatsby';
 import { LayoutAllSitePageQuery } from '../../types/graphql-types';
 
@@ -48,36 +47,16 @@ export function useQuery() {
   return useStaticQuery<LayoutAllSitePageQuery>(query);
 }
 
-export function useNavItems(): NavItem[] {
+export function useNavigation(): Navigation {
   const data = useQuery();
-  const dirSortOrder = ['Services', 'La Clinique', 'Nous Joindre'];
 
-  const navItems: NavItem[] = data?.pages.nodes
-    .filter((node) => !/404/gi.test(node.context?.name || ''))
-    .filter((node) => node.context?.name !== 'Accueil')
-    .map((node: any) => ({
-      name: formatName(node.context?.name),
-      dirName: node.context?.dirName,
-      path: node.path,
-    }));
-  const sortedNavItems = navItems?.sort((itemA, itemB) => {
-    const indexA = dirSortOrder.indexOf(kebab(itemA.dirName));
-    const indexB = dirSortOrder.indexOf(kebab(itemB.dirName));
-
-    return indexA > indexB ? 1 : -1;
+  return getNavigationFromPageNodes({
+    name: 'newrade sidenav',
+    pageNodes: data?.pages.nodes as PageNode[],
   });
-
-  function formatName(name?: string | null): string {
-    if (!name) {
-      return '';
-    }
-    return name.replace('.page', '').replace('design-system-', '');
-  }
-
-  return sortedNavItems;
 }
 
-export function useVsbCompanyInfo() {
+export function useCompanyInfo() {
   const data = useQuery();
   return { companyInfo: data.companyInfo, companyAddress: data.companyAddress };
 }

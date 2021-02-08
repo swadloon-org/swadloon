@@ -26,6 +26,7 @@ export const styles: { [key in ButtonStyleProps['variant']]: string } &
       '&[disabled]': {
         cursor: 'not-allowed',
         color: cssTheme.colors.colorIntents.disabledText,
+        borderColor: cssTheme.colors.colorIntents.backgroundDisabled,
         backgroundColor: cssTheme.colors.colorIntents.backgroundDisabled,
       },
     },

@@ -46,7 +46,7 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
   return (
     <Stack gap={[cssTheme.sizing.var.x6]}>
       <Stack gap={[cssTheme.sizing.var.x4]}>
-        <Heading variant={HEADING.h2}>Layout</Heading>
+        <Heading variant={HEADING.h2}>Layout Components</Heading>
 
         <Paragraph>Reusable and responsive primitive layout components.</Paragraph>
       </Stack>

@@ -11,7 +11,8 @@
     "build-disabled": "tsc --build tsconfig.build.json",
     "clean": "rimraf -r lib/** && rm -f tsconfig.build.tsbuildinfo",
     "start-disabled": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
-    "test-disabled": "echo ok"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "sideEffects": false,
   "typings": "./lib/index.d.ts",

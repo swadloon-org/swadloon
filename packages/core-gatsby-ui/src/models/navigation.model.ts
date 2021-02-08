@@ -6,5 +6,4 @@ export type Navigation = {
    */
   name: string;
   items: NavItem[];
-  itemsTree: NavItem[];
 };

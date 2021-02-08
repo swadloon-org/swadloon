@@ -23,12 +23,12 @@ export type GatsbyCommonPageContext<SiteMetadataType = GatsbyNodeSiteMetadataFra
    * Formatted name of the page
    * @example /design-system/colors.page => Design System: Colors
    */
-  displayName?: string;
+  displayName?: string | null;
   /**
    * Directory name
    * @example /docs/colors => docs
    */
-  dirName: string;
+  dirName: string | null;
   /**
    * Locale of the page
    * @example
