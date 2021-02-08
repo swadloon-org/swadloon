@@ -127,7 +127,7 @@ export const LayoutDesignSystem = React.memo<LayoutProps>(({ MobileSvgLogo, Desk
                         active={item.path === props.location?.pathname}
                         AsElement={<GatsbyLink to={item.path} noStyles={true} />}
                       >
-                        {item.name || item.displayName}
+                        {item.displayName || item.name}
                       </NavItem>
                     )}
                     {item.items?.length ? (
@@ -139,7 +139,7 @@ export const LayoutDesignSystem = React.memo<LayoutProps>(({ MobileSvgLogo, Desk
                               active={item.path === props.location?.pathname}
                               AsElement={<GatsbyLink to={item.path} noStyles={true} />}
                             >
-                              {item.name || item.displayName}
+                              {item.displayName || item.name}
                             </NavItem>
                           );
                         })}

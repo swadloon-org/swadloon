@@ -44,7 +44,8 @@ export function getNavigationFromPageNodes({
   const normalizedSortOrderDirectories = sortOrderDirectories?.map((item) => normalizeName(item));
   const normalizedIgnoredItems = ignoredItems?.map((item) => normalizeName(item));
 
-  const filteredPageNodes = pageNodes // remove 404 pages
+  const filteredPageNodes = pageNodes
+    // remove 404 pages
     .filter((node) => !(/404/gi.test(node.context?.name || '') || /404/gi.test(node.path || '')))
     // remove ignored items
     .filter((node) => !normalizedIgnoredItems?.find((item) => item === normalizeName(node.context?.name)));
