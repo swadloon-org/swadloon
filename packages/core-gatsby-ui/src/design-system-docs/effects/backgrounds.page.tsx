@@ -1,10 +1,9 @@
 import { HEADING } from '@newrade/core-design-system';
-import { Background, BoxV2, Heading, Stack, useTreatTheme } from '@newrade/core-react-ui';
+import { Heading, Stack, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { DesignSystemPageTemplate, DesignSystemPageProps } from '../../templates/design-system-page.template';
+import { DesignSystemPageProps, DesignSystemPageTemplate } from '../../templates/design-system-page.template';
 import * as styleRefs from '../home.treat';
-import { Placeholder } from '../utils/placeholder';
 
 const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
   const { styles } = useStyles(styleRefs);
