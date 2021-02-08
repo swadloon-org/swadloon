@@ -1,4 +1,5 @@
 import { CLIENT_CONFIG } from '../constants/client-config.constant';
+import { AUTO_COMPLETE_API_URL } from '../constants/canada-post.constant';
 // import { ErrorService } from './error.service';
 
 export type AddressAutoCompleteOptions = {
@@ -84,15 +85,65 @@ export async function getAddressAutoComplete(options: AddressAutoCompleteOptions
 
     // const response = await fetch(`${AUTO_COMPLETE_API_URL}?${encodedParams}`);
     // const result = await response.json();
+
+    // return result;
     return {
       Items: [
         {
+          Id: 'CA|CP|ENG|NS-HALIFAX-FENWICK_ST-5595',
+          Text: '5595 Fenwick St',
+          Highlight: '0-4',
           Cursor: 0,
-          Description: 'string',
-          Highlight: 'string',
-          Id: 'string',
-          Next: 'string',
-          Text: 'string',
+          Description: 'Halifax, NS, B3H 4M2 - 16 Addresses',
+          Next: 'Find',
+        },
+        {
+          Id: 'CA|CP|A|52030',
+          Text: '5595 Av Irving',
+          Highlight: '0-4',
+          Cursor: 0,
+          Description: 'Saint-Hubert, QC, J3Y 1H2',
+          Next: 'Retrieve',
+        },
+        {
+          Id: 'CA|CP|A|111918',
+          Text: '5595 Muermann Rd',
+          Highlight: '0-4',
+          Cursor: 0,
+          Description: 'Prince George, BC, V2K 5V8',
+          Next: 'Retrieve',
+        },
+        {
+          Id: 'CA|CP|A|130769',
+          Text: '5595 Rue Hercule',
+          Highlight: '0-4',
+          Cursor: 0,
+          Description: 'Sherbrooke, QC, J1N 2J4',
+          Next: 'Retrieve',
+        },
+        {
+          Id: 'CA|CP|ENG|ON-NIAGARA_FALLS-DRUMMOND_RD-5595',
+          Text: '5595 Drummond Rd',
+          Highlight: '0-4',
+          Cursor: 0,
+          Description: 'Niagara Falls, ON, L2G 4L2 - 27 Addresses',
+          Next: 'Find',
+        },
+        {
+          Id: 'CA|CP|A|156290',
+          Text: '5595 Grove Ave',
+          Highlight: '0-4',
+          Cursor: 0,
+          Description: 'Delta, BC, V4K 2A6',
+          Next: 'Retrieve',
+        },
+        {
+          Id: 'CA|CP|A|159517',
+          Text: '5595 Clearwater Lake Rd',
+          Highlight: '0-4',
+          Cursor: 0,
+          Description: 'Sudbury, ON, P3G 1L9',
+          Next: 'Retrieve',
         },
       ],
     };

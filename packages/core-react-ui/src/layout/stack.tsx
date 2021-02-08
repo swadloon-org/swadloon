@@ -1,3 +1,4 @@
+import isEqual from 'lodash/isEqual';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { CommonComponentProps } from '../props/component-common.props';
@@ -9,8 +10,8 @@ type Props = CommonComponentProps &
     gap: GapProp;
   }>;
 
-export const Stack = React.forwardRef<any, Props>(
-  ({ id, style, className = '', as, gap = ['0px'], ...props } = {}, ref) => {
+export const Stack = React.memo(
+  React.forwardRef<any, Props>(function Stack({ id, style, className = '', as, gap = ['0px'], ...props } = {}, ref) {
     const { styles } = useStyles(styleRefs);
     const [mobileGap, tabletGap, desktopGap] = gap;
 
@@ -26,5 +27,15 @@ export const Stack = React.forwardRef<any, Props>(
       },
       ...props,
     });
-  }
+  })
+  // areEqual
 );
+
+function areEqual(prevProps: Props, nextProps: Props) {
+  const previousGap = prevProps.gap;
+  const nextGap = nextProps.gap;
+
+  const gapIsEquel = isEqual(previousGap, nextGap);
+
+  return false;
+}

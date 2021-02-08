@@ -17,7 +17,7 @@ import {
 } from '@newrade/core-react-ui';
 import { CLINIKO_REMINDER_TYPE, PatientAPIResponseBody, PatientModel, PatientValidation } from '@newrade/vsb-common';
 import 'cleave.js/dist/addons/cleave-phone.ca';
-import { debounce } from 'lodash';
+import debounce from 'lodash/debounce';
 import React, { useCallback, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { SubmitHandler, useForm } from 'react-hook-form';
@@ -68,6 +68,22 @@ const useYupValidationResolver = (PatientValidation: SchemaOf<PatientModel>) =>
     },
     [PatientValidation]
   );
+
+const FormSwitcher: React.FC = (props) => {
+  const { cssTheme } = useTreatTheme();
+
+  return (
+    <Switcher gap={[cssTheme.sizing.var.x5]} alignItems={['flex-start']}>
+      {props.children}
+    </Switcher>
+  );
+};
+
+const FormStack: React.FC = (props) => {
+  const { cssTheme } = useTreatTheme();
+
+  return <Stack gap={[cssTheme.sizing.var.x4]}>{props.children}</Stack>;
+};
 
 export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, section, ...props }) => {
   const [isSuggestion, setSuggestion] = useState<boolean>(false);
@@ -200,14 +216,6 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
     const result: AddressByIdResponse = response[0];
     return result;
   };
-
-  const FormSwitcher: React.FC = (props) => (
-    <Switcher gap={[cssTheme.sizing.var.x5]} alignItems={['flex-start']}>
-      {props.children}
-    </Switcher>
-  );
-
-  const FormStack: React.FC = (props) => <Stack gap={[cssTheme.sizing.var.x4]}>{props.children}</Stack>;
 
   return (
     <div className={`${styles.wrapper}`}>
