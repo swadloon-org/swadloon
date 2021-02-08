@@ -1,5 +1,4 @@
-import { Navigation } from '@newrade/core-gatsby-ui';
-import { getNavigationFromPageNodes, PageNode } from '@newrade/core-gatsby-ui/src';
+import { getNavigationFromPageNodes, Navigation, PageNode } from '@newrade/core-gatsby-ui/src';
 import { graphql, useStaticQuery } from 'gatsby';
 import { LayoutAllSitePageQuery } from '../../types/graphql-types';
 

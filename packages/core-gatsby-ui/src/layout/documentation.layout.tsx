@@ -28,6 +28,9 @@ export const LayoutDocumentation = React.memo<LayoutProps>(({ MobileSvgLogo, Des
    */
   const isSSR = useIsSSR();
 
+  /**
+   * Retrieve
+   */
   const navigation = useDocsNavigation();
 
   return (
@@ -83,7 +86,9 @@ export const LayoutDocumentation = React.memo<LayoutProps>(({ MobileSvgLogo, Des
         </SideBar>
       ) : null}
 
-      <Main navbarPadding={true}>{props.children}</Main>
+      <Main navbarPadding={true} minHeight={true}>
+        {props.children}
+      </Main>
     </MainWrapper>
   );
 });

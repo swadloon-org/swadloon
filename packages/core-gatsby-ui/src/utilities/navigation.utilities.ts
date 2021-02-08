@@ -44,13 +44,13 @@ export function getNavigationFromPageNodes({
   const normalizedSortOrderDirectories = sortOrderDirectories?.map((item) => normalizeName(item));
   const normalizedIgnoredItems = ignoredItems?.map((item) => normalizeName(item));
 
-  // find the dirNames
-  const dirNames = pageNodes
-    // remove 404 pages
-    .filter((node) => !/404/gi.test(node.context?.name || ''))
+  const filteredPageNodes = pageNodes // remove 404 pages
+    .filter((node) => !(/404/gi.test(node.context?.name || '') || /404/gi.test(node.path || '')))
     // remove ignored items
-    .filter((node) => !normalizedIgnoredItems?.find((item) => item === normalizeName(node.context?.name)))
-    .map((node) => node?.context?.dirName);
+    .filter((node) => !normalizedIgnoredItems?.find((item) => item === normalizeName(node.context?.name)));
+
+  // find the dirNames
+  const dirNames = filteredPageNodes.map((node) => node?.context?.dirName);
 
   // for item at the root the dir name is ''
   const navigation = [...new Set(dirNames)].reduce(
@@ -58,7 +58,7 @@ export function getNavigationFromPageNodes({
       // for each dir name, transform the nodes and place them in .items
       const currentDirName = current;
 
-      const dirNameNodes = pageNodes.filter((node) => node?.context?.dirName === currentDirName);
+      const dirNameNodes = filteredPageNodes.filter((node) => node?.context?.dirName === currentDirName);
       if (!dirNameNodes) {
         return previous;
       }
