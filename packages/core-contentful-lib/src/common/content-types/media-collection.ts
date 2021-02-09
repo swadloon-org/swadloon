@@ -32,6 +32,14 @@ export const createMediaCollection: Migration.MigrationFunction = function (migr
   });
 
   /**
+   * Above The Fold
+   */
+  content.createField('aboveTheFold', {
+    name: pascal('AboveTheFold'),
+    type: 'Boolean',
+  });
+
+  /**
    * Media collection type
    */
   content.createField('carouselStyle', {

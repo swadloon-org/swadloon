@@ -9,3 +9,4 @@
 /// <reference types="../../core-types/lib/treat-webpack-plugin" />
 /// <reference types="testing-library__jest-dom" />
 /// <reference types="../../core-gsap-ui/lib/types" />
+/// <reference types="../../core-types/lib/github-slugger" />

@@ -24,9 +24,6 @@ export const SectionPlanSelection = React.forwardRef<any, Props>(
     const classNames = getMergedClassname([styles.wrapper, className, variant ? styles[variant] : '']);
     const { cssTheme } = useTreatTheme();
 
-    /**
-     * Layout centered
-     */
     return (
       <Stack>
         <BoxV2>

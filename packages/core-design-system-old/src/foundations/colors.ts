@@ -1,4 +1,6 @@
-import { Color } from 'csstype';
+import { Property } from 'csstype';
+
+type Color = Property.Color;
 
 /**
  * Every color defined in the system.

@@ -65,22 +65,6 @@ jobs:
       env:
         CI: true
 
-    - name: Build core-gatsby-starter
-      if: always()
-      run: yarn build --scope @newrade/core-gatsby-starter
-      env:
-        APP_URL: 'http://local.newrade.ca'
-        CONTENTFUL_ENV: ${{ secrets.CONTENTFUL_ENV }}
-        CONTENTFUL_SPACEID_NEWRADE: ${{ secrets.CONTENTFUL_SPACEID_NEWRADE }}
-        CONTENTFUL_DELIVERY_TOKEN_NEWRADE: ${{ secrets.CONTENTFUL_DELIVERY_TOKEN_NEWRADE }}
-        NVM_NODE_VERSION: ${{ secrets.NVM_NODE_VERSION }}
-        MASTER_GIT_HOST: ${{ secrets.MASTER_GIT_HOST }}
-        MASTER_REPO_ORG: ${{ secrets.MASTER_REPO_ORG }}
-        MASTER_REPO_NAME: ${{ secrets.MASTER_REPO_NAME }}
-        PROJECT_GIT_HOST: ${{ secrets.PROJECT_GIT_HOST }}
-        PROJECT_REPO_ORG: ${{ secrets.PROJECT_REPO_ORG }}
-        PROJECT_REPO_NAME: ${{ secrets.PROJECT_REPO_NAME }}
-
     - name: Build newrade-website
       if: always()
       run: yarn build --scope @newrade/newrade-website

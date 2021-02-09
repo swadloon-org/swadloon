@@ -1,4 +1,4 @@
-import { BlockMarkdown, GatsbyLink, MarkdownRenderer, Section } from '@newrade/core-gatsby-ui/src';
+import { BlockMarkdown, GatsbyLink, Section } from '@newrade/core-gatsby-ui/src';
 import { BoxV2, Button, Image, Stack, Switcher, useTreatTheme } from '@newrade/core-react-ui';
 import { IoArrowForwardOutline } from '@react-icons/all-files/io5/IoArrowForwardOutline';
 import { FluidObject } from 'gatsby-image';
@@ -7,13 +7,11 @@ import { useInView } from 'react-intersection-observer';
 import { ButtonSize, ButtonVariant } from '../../../core-design-system/src';
 import { SECTION_TYPE } from '../../types/contentful-section-type';
 import { ContentfulSection } from '../../types/graphql-types';
-import { FormVasectomy } from '../components/form-vasectomy';
-import { GoogleMapVSB } from '../components/google-map';
+import { BlockGoogleMapVSB } from '../components/block-google-map';
 import { SectionBanner } from '../components/section-banner';
 import { SectionBannerLink } from '../components/section-banner-link';
 import { SectionContact } from '../components/section-contact';
-import { SectionCost } from '../components/section-cost';
-import { SectionInfo } from '../components/section-info';
+import { SectionFormVasectomy } from '../components/section-form-vasectomy';
 import { SectionMessages } from '../components/section-messages';
 import { SectionSteps } from '../components/section-steps';
 import { SectionTileLinks } from '../components/section-tile-links';
@@ -23,7 +21,7 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
   const { ref, inView } = useInView({
     threshold: 0,
   });
-  const { cssTheme } = useTreatTheme();
+  const { cssTheme, theme } = useTreatTheme();
 
   return (
     <>
@@ -32,6 +30,7 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
           /**
            * Common
            */
+
           case SECTION_TYPE.BANNER: {
             return (
               <Section id={`section-${index}`} key={index} variantLayout={'banner'}>
@@ -51,6 +50,7 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
           /**
            * Home page
            */
+
           case SECTION_TYPE.TILE_LINKS: {
             return (
               <Section id={`section-${index}`} key={index} variantLayout={'banner'}>
@@ -58,6 +58,7 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
               </Section>
             );
           }
+
           case SECTION_TYPE.CONTACT_PREVIEW: {
             return (
               <Section
@@ -90,7 +91,7 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
                         justifySelf={['center', 'center', 'flex-start']}
                         style={{ maxWidth: 700, width: 'min(100vw, 100%)', height: `100%` }}
                       >
-                        <GoogleMapVSB inView={inView} />
+                        <BlockGoogleMapVSB inView={inView} />
                       </BoxV2>
                     ) : null}
                   </Switcher>
@@ -98,25 +99,10 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
               </Section>
             );
           }
-          case SECTION_TYPE.CONTACT_CONTACT: {
-            return (
-              <Section id={`section-${index}`} key={index} variant={'secondary'} variantLayout={'center'}>
-                <SectionContact key={index} section={section} />
-              </Section>
-            );
-          }
 
           /**
-           * Clinic page
+           * Steps
            */
-          // case SECTION_TYPE.CLINIC_MISSION: {
-          //   return (
-          //     <Section id={`section-${index}`} key={index} variant={'secondary'}>
-          //       <SectionInfo key={index} section={section} />
-          //     </Section>
-          //   );
-          // }
-
           case SECTION_TYPE.VASECTOMY_STEPS: {
             return (
               <Section id={`section-${index}`} key={index}>
@@ -125,6 +111,11 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
             );
           }
 
+          /**
+           * Pilot page
+           */
+          case SECTION_TYPE.PILOT_EXAM_INFO:
+          case SECTION_TYPE.PILOT_EXAM_DR_PROFILE:
           case SECTION_TYPE.CLINIC_PREVIEW:
           case SECTION_TYPE.CLINIC_MISSION:
           case SECTION_TYPE.CLINIC_DR_PROFILE:
@@ -188,22 +179,33 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
               </Section>
             );
           }
+
+          /**
+           * FAQ
+           */
           case SECTION_TYPE.VASECTOMY_INFO_AFTER:
           case SECTION_TYPE.VASECTOMY_INFO_BEFORE: {
             return (
               <Section id={`section-${index}`} key={index}>
-                <BoxV2 style={{ width: `100%` }}>
-                  <Stack gap={[cssTheme.sizing.var.x7]}>
-                    <MarkdownRenderer>{section.text?.childMdx?.body}</MarkdownRenderer>
-                  </Stack>
-                </BoxV2>
+                <BlockMarkdown>{section.text?.childMdx?.body}</BlockMarkdown>
               </Section>
             );
           }
+
+          /**
+           * Cost items sections
+           */
+          case SECTION_TYPE.PILOT_EXAM_SERVICE:
           case SECTION_TYPE.VASECTOMY_INFO_COST: {
             return (
               <Section id={`section-${index}`} key={index} variant={'secondary'}>
-                <SectionCost key={index} section={section} />
+                <Stack gap={[cssTheme.sizing.var.x7]}>
+                  <BlockMarkdown style={{ maxWidth: 500 }}>{section.text?.childMdx?.body}</BlockMarkdown>
+
+                  {section?.costItems?.map((item, index) => {
+                    return <div key={index}>{item?.title}</div>;
+                  })}
+                </Stack>
               </Section>
             );
           }
@@ -216,44 +218,23 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
           }
 
           /**
-           * Vasectomy form page
+           * Forms
            */
-          case SECTION_TYPE.VASECTOMY_FORM_VIDEO: {
-            return (
-              <Section id={`section-${index}`} key={index}>
-                <FormVasectomy key={index} section={section} />
-              </Section>
-            );
-          }
+
           case SECTION_TYPE.VASECTOMY_FORM_FORM: {
             return (
-              <Section id={`section-${index}`} key={index}>
-                <FormVasectomy key={index} section={section} />
-              </Section>
+              <SectionFormVasectomy
+                id={`section-${index}`}
+                key={index}
+                section={section}
+                subSections={section.subSections}
+              />
             );
           }
-
-          /**
-           * Pilot page
-           */
-          case SECTION_TYPE.PILOT_EXAM_INFO: {
+          case SECTION_TYPE.CONTACT_CONTACT: {
             return (
-              <Section id={`section-${index}`} key={index}>
-                <SectionInfo key={index} section={section} />
-              </Section>
-            );
-          }
-          case SECTION_TYPE.PILOT_EXAM_SERVICE: {
-            return (
-              <Section id={`section-${index}`} key={index} variant={'secondary'}>
-                <SectionCost key={index} section={section} />
-              </Section>
-            );
-          }
-          case SECTION_TYPE.PILOT_EXAM_DR_PROFILE: {
-            return (
-              <Section id={`section-${index}`} key={index}>
-                <SectionInfo key={index} section={section} />
+              <Section id={`section-${index}`} key={index} variant={'secondary'} variantLayout={'center'}>
+                <SectionContact key={index} section={section} />
               </Section>
             );
           }

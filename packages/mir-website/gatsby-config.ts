@@ -64,7 +64,11 @@ const config: core.GastbySiteConfig = {
      * Core Plugins
      */
     ...core.getGatsbyPluginTypeScriptConfig({
-      documentPaths: ['./src/**/*.{ts,tsx}', '../core-gatsby-ui/src/**/*.{ts,tsx}'],
+      documentPaths: [
+        '../core-gatsby-ui/src/fragments/gatsby/**/*.{ts,tsx}',
+        '../core-gatsby-ui/src/fragments/contentful/**/*.{ts,tsx}',
+        './src/**/*.{ts,tsx}',
+      ],
     }),
     core.getGatsbyReactSvgConfig(),
     ...core.getGastbyPluginPageCreatorConfig(),

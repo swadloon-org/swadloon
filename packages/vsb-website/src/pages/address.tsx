@@ -1,10 +1,12 @@
 import { LABEL_SIZE, TEXT_STYLE } from '@newrade/core-design-system';
 import { BoxV2, Center, Heading, Label, Paragraph, Stack } from '@newrade/core-react-ui';
-import React, { useState } from 'react';
+import { debounce } from 'lodash';
+import React, { useCallback, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { cssTheme } from '../design-system/theme';
 import {
   AddressAutoCompleteOptions,
+  AddressAutoCompleteResponse,
   AddressByIdOptions,
   AddressByIdResponse,
   getAddressAutoComplete,
@@ -20,65 +22,35 @@ enum ADDRESS {
   COUNTRY = 'country',
 }
 
-type AdressFields = {
-  address_1?: string;
-  address_2?: string;
-  city?: string;
-  state?: string;
-  country?: string;
-  post_code?: string;
-};
-
 const FormAdress: React.FC = (props) => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, setValue } = useForm();
 
-  const [isFocus, setFocus] = useState<boolean>(false);
   const [isSuggestion, setSuggestion] = useState<boolean>(false);
   const [isValueSuggestion, setValueSuggestion] = useState<any>();
 
-  const [newProps, setProps] = useState<AdressFields>({
-    address_1: '',
-    address_2: '',
-    city: '',
-    state: '',
-    country: '',
-    post_code: '',
-  });
-
   const onSubmit: SubmitHandler<any> = async (data) => {};
 
-  const onSelect = async (data: any) => {
-    console.log(data);
+  const debouncedSave = useCallback(
+    debounce((value) => {
+      if (value !== '') {
+        onSuggest(value);
+      } else {
+        setSuggestion(false);
+      }
+    }, 500),
+    []
+  );
+
+  const onChangeHandler = () => {
+    return async (event: React.ChangeEvent<HTMLInputElement>) => {
+      debouncedSave(event.target.value);
+    };
   };
 
-  const changeHandler = (evt: any) => {
-    const value = evt.target.value;
-
-    setProps({
-      ...newProps,
-      [evt.target.name]: value,
-    });
-  };
-
-  const onSuggest = async (evt: any) => {
-    const value = evt.target.value;
-
-    setProps({
-      ...newProps,
-      [evt.target.name]: value,
-    });
-
-    // const searchTerm = keys(data)
-    //   .map((field) => {
-    //     if (data[field]) {
-    //       return data[field];
-    //     }
-    //   })
-    //   .join(' ')
-    //   .trim();
-
+  const onSuggest = async (searchTerm: string) => {
+    console.log(searchTerm);
     const contentAddress: AddressAutoCompleteOptions = {
-      SearchTerm: value,
+      SearchTerm: searchTerm,
       Country: 'CAN',
       LanguagePreference: 'EN',
       MaxResults: 5,
@@ -86,50 +58,47 @@ const FormAdress: React.FC = (props) => {
 
     const valueSuggestion = await getAddressAutoComplete(contentAddress);
 
-    const setValidationState = () => {
-      if (valueSuggestion?.Items?.[0]?.Id !== undefined) {
-        setValueSuggestion(valueSuggestion?.Items);
-        setSuggestion(true);
-      } else if (valueSuggestion?.Items?.[0]?.Id == undefined) {
-        setSuggestion(false);
-      }
-    };
-    setValidationState();
+    if (valueSuggestion?.Items?.[0]?.Id !== undefined) {
+      setValueSuggestion(valueSuggestion?.Items);
+      setSuggestion(true);
+    } else if (valueSuggestion?.Items?.[0]?.Id == undefined) {
+      setSuggestion(false);
+    }
   };
 
-  const renderSuggestionsT = (items: any) => {
+  const handleSelectSuggestion = (suggestion: AddressAutoCompleteResponse) => {
+    return async (event: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
+      const newInfos = await onValidateById(suggestion);
+
+      setValue(ADDRESS.ADDRESS_1, newInfos.Line1);
+      setValue(ADDRESS.ADDRESS_2, newInfos.SecondaryStreet);
+      setValue(ADDRESS.CITY, newInfos.City);
+      setValue(ADDRESS.STATE, newInfos.ProvinceName);
+      setValue(ADDRESS.COUNTRY, newInfos.CountryName);
+      setValue(ADDRESS.POST_CODE, newInfos.PostalCode);
+      setSuggestion(false);
+    };
+  };
+
+  const renderSuggestionsT = (items: AddressAutoCompleteResponse[]) => {
     return (
       <ul>
-        {items.map((suggestion: any) => {
+        {items.map((suggestion: AddressAutoCompleteResponse, index: number) => {
           return (
-            <li
-              style={{ lineHeight: '1' }}
-              key={suggestion.Id}
-              onClick={(e) => onSelectSuggestion({ Id: suggestion.Id })}
-            >
-              {console.log(JSON.stringify(suggestion, null))}
+            <li style={{ lineHeight: '1' }} key={index} onClick={handleSelectSuggestion(suggestion)}>
               {`${suggestion.Text} ${suggestion.Description}`}
+              test
             </li>
           );
         })}
       </ul>
     );
   };
-  // AddressByIdResponse
-  const onSelectSuggestion = async (props: AddressByIdOptions) => {
-    const response: readonly AddressByIdResponse[] = await getAddressById(props);
-    const result: AddressByIdResponse = response[0];
-    console.log(result);
+  const onValidateById = async (validate: AddressByIdOptions) => {
+    const response: readonly AddressByIdResponse[] = await getAddressById(validate);
 
-    setProps({
-      address_1: result.Line1,
-      address_2: result.SecondaryStreet,
-      city: result.City,
-      state: result.ProvinceName,
-      country: result.CountryName,
-      post_code: result.PostalCode,
-    });
-    setSuggestion(false);
+    const result: AddressByIdResponse = response[0];
+    return result;
   };
 
   return (
@@ -146,59 +115,34 @@ const FormAdress: React.FC = (props) => {
                   Adresse
                 </Label>
 
-                <input
-                  id="street-address"
-                  name={ADDRESS.ADDRESS_1}
-                  ref={register}
-                  value={newProps.address_1}
-                  onFocus={(e) => onSelect(e.target.name)}
-                  onChange={(e) => onSuggest(e)}
-                />
+                <input id="street-address" name={ADDRESS.ADDRESS_1} ref={register} onChange={onChangeHandler()} />
 
                 {isSuggestion == true ? renderSuggestionsT(isValueSuggestion) : null}
 
                 <Label variant={LABEL_SIZE.medium} variantStyle={TEXT_STYLE.bold}>
                   Adresse (appartement / bureau)
                 </Label>
-                <input
-                  id="street-address2"
-                  name={ADDRESS.ADDRESS_2}
-                  value={newProps.address_2}
-                  onChange={changeHandler}
-                  ref={register}
-                />
+                <input id="street-address2" name={ADDRESS.ADDRESS_2} ref={register} />
 
                 <Label variant={LABEL_SIZE.medium} variantStyle={TEXT_STYLE.bold}>
                   Ville
                 </Label>
-                <input id="city" name={ADDRESS.CITY} value={newProps.city} onChange={changeHandler} ref={register} />
+                <input id="city" name={ADDRESS.CITY} ref={register} />
 
                 <Label variant={LABEL_SIZE.medium} variantStyle={TEXT_STYLE.bold}>
                   Province / État
                 </Label>
-                <input id="state" name={ADDRESS.STATE} value={newProps.state} onChange={changeHandler} ref={register} />
+                <input id="state" name={ADDRESS.STATE} ref={register} />
 
                 <Label variant={LABEL_SIZE.medium} variantStyle={TEXT_STYLE.bold}>
                   Code Postal
                 </Label>
-                <input
-                  id="postcode"
-                  name={ADDRESS.POST_CODE}
-                  value={newProps.post_code}
-                  onChange={changeHandler}
-                  ref={register}
-                />
+                <input id="postcode" name={ADDRESS.POST_CODE} ref={register} />
 
                 <Label variant={LABEL_SIZE.medium} variantStyle={TEXT_STYLE.bold}>
                   Pays
                 </Label>
-                <input
-                  id="country"
-                  name={ADDRESS.COUNTRY}
-                  value={newProps.country}
-                  onChange={changeHandler}
-                  ref={register}
-                />
+                <input id="country" name={ADDRESS.COUNTRY} ref={register} />
 
                 <input type="submit" />
               </Stack>

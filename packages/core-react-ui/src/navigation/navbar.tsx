@@ -1,20 +1,20 @@
 import { ButtonIcon, ButtonSize, ButtonVariant } from '@newrade/core-design-system';
+import { IoClose } from '@react-icons/all-files/io5/IoClose';
+import { IoMenu } from '@react-icons/all-files/io5/IoMenu';
 import { PressEvent } from '@react-types/shared';
 import React, { useEffect, useImperativeHandle, useRef, useState } from 'react';
 import { isIOS } from 'react-device-detect';
-import { IoClose } from '@react-icons/all-files/io5/IoClose';
-import { IoMenu } from '@react-icons/all-files/io5/IoMenu';
 import { useStyles } from 'react-treat';
-import { Button } from '../components/button/button';
-import { SVGLogo } from '../components/svg-logo/svg-logo';
-import { Label } from '../components/text/label';
+import { Button } from '../button/button';
+import { usePreventPinchZoom } from '../hooks/use-prevent-pinch-zoom';
 import { useTreatTheme } from '../hooks/use-treat-theme';
 import { BoxV2 } from '../layout/box-v2';
 import { Center } from '../layout/center';
 import { Cluster } from '../layout/cluster';
 import { CommonComponentProps } from '../props/component-common.props';
+import { SVGLogo } from '../svg-logo/svg-logo';
+import { Label } from '../text/label';
 import * as styleRefs from './navbar.treat';
-import { usePreventPinchZoom } from '../hooks/use-prevent-pinch-zoom';
 
 export type NavBarRefs = {
   readonly mobileNavbar: HTMLDivElement | undefined;

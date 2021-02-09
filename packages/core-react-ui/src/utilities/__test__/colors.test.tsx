@@ -1,14 +1,14 @@
-import React from 'react';
 import { Color } from '@newrade/core-design-system';
 import { cleanup, render } from '@testing-library/react';
+import React from 'react';
+import { defaultColorIntents, defaultColors, defaultColorsColors } from '../../design-system/default-colors';
 import {
   getCSSColor,
-  getCSSVarNamesForColors,
-  getCSSVarForColors,
   getCSSColors,
   getCSSHexColor,
+  getCSSVarForColors,
+  getCSSVarNamesForColors,
 } from '../colors.utilities';
-import { defaultColorsColors, defaultColorIntents, defaultColors } from '../../design-system/default-colors';
 
 describe('colors utilities', () => {
   describe(`${getCSSColor.name}`, () => {

@@ -17,7 +17,6 @@ export const SectionBanner: React.FC<Props> = ({ id, style, className, section, 
   const ref = useRef<HTMLDivElement>(null);
   const backgroundPosition = section?.backgroundPosition;
   const imageData = section?.medias?.medias?.[0]?.desktopFluidImage?.childImageSharp?.fluid;
-  // const imageDataFixed = props?.medias?.medias?.[0]?.fixed?.childImageSharp?.fixed;
   const hasImage = !!section?.medias?.medias?.length;
 
   /**
@@ -81,7 +80,7 @@ export const SectionBanner: React.FC<Props> = ({ id, style, className, section, 
             },
           ]}
           backgroundPosition={backgroundPosition}
-          // src={imageDataFixed?.base64}
+          // src={imageData?.fluid?.src}
           backgroundImage={{
             Tag: 'div',
             fluid: imageData as IFluidObject,
@@ -100,21 +99,21 @@ export const SectionBanner: React.FC<Props> = ({ id, style, className, section, 
             >
               <Title>{section?.title?.trim()}</Title>
               {section?.subtitle ? <Title>{section?.subtitle.trim()}</Title> : null}
-
-              <div ref={ref} className={styles.icon}>
-                <Button
-                  aria-label={'Next section'}
-                  size={ButtonSize.large}
-                  variant={ButtonVariant.tertiaryReversed}
-                  icon={ButtonIcon.icon}
-                  Icon={<IoChevronDownOutline />}
-                  onPress={handleScrollToNextSection}
-                ></Button>
-              </div>
             </Stack>
           </Center>
         </Background>
       ) : null}
+
+      <div ref={ref} className={styles.icon}>
+        <Button
+          aria-label={'Next section'}
+          size={ButtonSize.large}
+          variant={ButtonVariant.tertiaryReversed}
+          icon={ButtonIcon.icon}
+          Icon={<IoChevronDownOutline />}
+          onPress={handleScrollToNextSection}
+        ></Button>
+      </div>
     </div>
   );
 };

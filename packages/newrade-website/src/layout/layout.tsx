@@ -1,38 +1,28 @@
-import {
-  HEADING,
-  LABEL_SIZE,
-  LinkVariant,
-  PARAGRAPH_SIZE,
-  TEXT_LEVEL,
-  TEXT_STYLE,
-  VIEWPORT,
-} from '@newrade/core-design-system';
+import { VIEWPORT } from '@newrade/core-design-system';
 import { GatsbyLink } from '@newrade/core-gatsby-ui/src';
-import { globalHistory } from '@reach/router';
 import {
   BoxV2,
-  Heading,
   Label,
   Main,
   MainWrapper,
   NavBar,
   NavItem,
   NavItemGroup,
-  Paragraph,
   SideBar,
   Stack,
   useViewportBreakpoint,
 } from '@newrade/core-react-ui';
-import { Link, PageProps } from 'gatsby';
-import { title } from 'process';
+import { globalHistory } from '@reach/router';
+import { PressEvent } from '@react-types/shared';
+import { title } from 'case';
+import { PageProps } from 'gatsby';
 import React, { ReactNode, useEffect, useState } from 'react';
 import { useStyles } from 'react-treat';
 import { cssTheme } from '../design-system/theme';
-import { useNavItems } from '../hooks/use-nav-items.hook';
+import { useNavigation } from '../hooks/use-layout-data';
 import LogoSymbol from '../images/logo-symbol.svg';
 import Logo from '../images/logo.svg';
 import * as styleRefs from './layout.treat';
-import { PressEvent } from '@react-types/shared';
 
 type LayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }>;
 
@@ -44,8 +34,7 @@ export const Layout = React.memo<LayoutProps>((props) => {
   /**
    * Data query
    */
-  const navItems = useNavItems();
-  const navItemsByDirName = new Set(navItems.map((item) => item.dirName));
+  const navigation = useNavigation();
 
   /**
    * Sidebar
@@ -97,25 +86,34 @@ export const Layout = React.memo<LayoutProps>((props) => {
             alignItems={['stretch']}
           >
             <Stack gap={[cssTheme.sizing.var.x4]}>
-              {[...navItemsByDirName].map((dirName, index) => {
+              {navigation.items.map((item, index) => {
                 return (
                   <Stack key={index} gap={[`calc(2 * ${cssTheme.sizing.var.x1})`]}>
-                    {dirName === '' ? <NavItemGroup>Docs</NavItemGroup> : <NavItemGroup>{dirName || ''}</NavItemGroup>}
-                    <Stack>
-                      {navItems
-                        .filter((item) => item.dirName === dirName)
-                        .map((item, itemIndex) => {
+                    {item.items?.length ? (
+                      <NavItemGroup>{title(item.displayName || item.name || 'Home')}</NavItemGroup>
+                    ) : (
+                      <NavItem
+                        active={item.path === props.location?.pathname}
+                        AsElement={<GatsbyLink to={item.path} noStyles={true} />}
+                      >
+                        {item.name || item.displayName}
+                      </NavItem>
+                    )}
+                    {item.items?.length ? (
+                      <Stack>
+                        {item.items?.map((item, itemIndex) => {
                           return (
                             <NavItem
                               key={itemIndex}
                               active={item.path === props.location?.pathname}
                               AsElement={<GatsbyLink to={item.path} noStyles={true} />}
                             >
-                              {item.name}
+                              {item.name || item.displayName}
                             </NavItem>
                           );
                         })}
-                    </Stack>
+                      </Stack>
+                    ) : null}
                   </Stack>
                 );
               })}

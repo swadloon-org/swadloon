@@ -149,7 +149,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
       designSystemPagesData?.data?.allFile.nodes.forEach((node, index) => {
         const dir = `design-system/${node.relativePath.replace(/\/(.+)/, '/').replace(`${node.name}.tsx`, '')}`;
         const formattedNodeName = kebab(node.name.replace('.page', '').replace('home', ''));
-        const displayName = `Design System - ${pascal(formattedNodeName)}`;
+        const displayName = formattedNodeName ? `Design System - ${pascal(formattedNodeName)}` : `Design System`;
         const path = `${dir}${formattedNodeName}`;
 
         log(`Creating design system page: ${path}`, {

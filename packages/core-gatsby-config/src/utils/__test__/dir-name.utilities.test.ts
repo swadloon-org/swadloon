@@ -23,6 +23,7 @@ describe('dir name utilities', () => {
         })
       ).toBe('Accueil');
       expect(getPageFormattedName('dir-name/page.page')).toBe('Page');
+      expect(getPageFormattedName('/dir-name/')).toBe('Dir Name');
       expect(getPageFormattedName('/dir-name/page.page')).toBe('Page');
       expect(getPageFormattedName('/dir-name/dir-a/dirb/page-name.page')).toBe('Page Name');
       expect(getPageFormattedName('/page-name.page')).toBe('Page Name');

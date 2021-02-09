@@ -1,9 +1,9 @@
+import { LABEL_SIZE, LinkProps, TEXT_LEVEL, TEXT_STYLE } from '@newrade/core-design-system';
 import React, { AnchorHTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
-import * as styleRefs from './nav-item-group.treat';
 import { CommonComponentProps } from '../props/component-common.props';
-import { LinkProps, TEXT_STYLE, LABEL_SIZE, TEXT_LEVEL } from '@newrade/core-design-system';
-import { Label } from '../components/text/label';
+import { Label } from '../text/label';
+import * as styleRefs from './nav-item-group.treat';
 
 type Props = CommonComponentProps &
   AnchorHTMLAttributes<any> &

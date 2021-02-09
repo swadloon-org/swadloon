@@ -51,6 +51,13 @@ export const sectionFragment = graphql`
         file {
           url
         }
+        # aboveTheFold: localFile {
+        #   childImageSharp {
+        #     fluid(quality: 90, maxWidth: 1920, base64Width: 400) {
+        #       base64
+        #     }
+        #   }
+        # }
         desktopFluidImage: localFile {
           childImageSharp {
             fluid(quality: 90, maxWidth: 1920, base64Width: 400) {

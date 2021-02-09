@@ -9,7 +9,10 @@ export const wrapper = style(({ theme, cssTheme }: Theme) => ({
  * Global classes for markdown documents
  */
 
+const contentMarginSmall = `1.4em`;
 const contentMargin = `2em`;
+const halfcontentMargin = `1em`;
+const contentMarginLarge = `4em`;
 
 /**
  * Anchor for documentation pages
@@ -24,14 +27,24 @@ globalStyle(`${wrapper} .mdx-anchor`, ({ cssTheme, theme }: Theme) => ({
   visibility: 'hidden',
 }));
 
+globalStyle(`${wrapper} .mdx-anchor-pound`, ({ cssTheme, theme }: Theme) => ({
+  visibility: 'hidden',
+  '@media': {
+    [':hover']: {
+      textDecoration: 'underline',
+    },
+  },
+}));
+
 /**
- * Headings
+ * Content sectioning
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element#content_sectioning
  */
 
 globalStyle(
   `${wrapper} > h1, ${wrapper} > h2, ${wrapper} > h3, ${wrapper} > h4, ${wrapper} > h5, ${wrapper} > h6`,
   ({ cssTheme, theme }: Theme) => ({
-    marginBottom: '1.6em',
+    marginBottom: '1.5em',
     position: 'relative',
   })
 );
@@ -43,17 +56,21 @@ globalStyle(
   })
 );
 
-globalStyle(`${wrapper} .mdx-anchor-pound`, ({ cssTheme, theme }: Theme) => ({
-  visibility: 'hidden',
-  '@media': {
-    [':hover']: {
-      textDecoration: 'underline',
-    },
-  },
+// TODO: should h* have no margin top ?
+// globalStyle(
+//   `${wrapper} > *:not(h1,h2,h3,h4,h5,h6) + h1, ${wrapper} > *:not(h1,h2,h3,h4,h5,h6) + h2, ${wrapper} > *:not(h1,h2,h3,h4,h5,h6) + h3, ${wrapper} > *:not(h1,h2,h3,h4,h5,h6) + h4, ${wrapper} > *:not(h1,h2,h3,h4,h5,h6) + h5, ${wrapper} > *:not(h1,h2,h3,h4,h5,h6) + h6`,
+//   ({ cssTheme, theme }: Theme) => ({
+//     marginTop: contentMargin,
+//   })
+// );
+
+globalStyle(`${wrapper} hr`, ({ cssTheme, theme }: Theme) => ({
+  marginTop: contentMarginLarge,
+  marginBottom: contentMarginLarge,
 }));
 
 /**
- * Paragraphs, list items
+ * Text content
  */
 
 globalStyle(`${wrapper} p + p`, ({ cssTheme, theme }: Theme) => ({
@@ -90,6 +107,22 @@ globalStyle(`${wrapper} p + p:not(:last)`, ({ cssTheme, theme }: Theme) => ({
 
 globalStyle(`${wrapper} p + img`, ({ cssTheme, theme }: Theme) => ({
   marginTop: contentMargin,
+}));
+
+globalStyle(`${wrapper} figcaption`, ({ cssTheme, theme }: Theme) => ({
+  marginTop: `1.3em`,
+}));
+
+globalStyle(`${wrapper} p + blockquote`, ({ cssTheme, theme }: Theme) => ({
+  marginTop: contentMargin,
+}));
+
+globalStyle(`${wrapper} p + iframe`, ({ cssTheme, theme }: Theme) => ({
+  marginTop: contentMargin,
+}));
+
+globalStyle(`${wrapper} iframe`, ({ cssTheme, theme }: Theme) => ({
+  maxWidth: `100%`,
 }));
 
 /**
@@ -132,6 +165,7 @@ globalStyle(`${wrapper} img`, ({ cssTheme, theme }: Theme) => ({
 /**
  * Styles for kbd element
  */
+
 globalStyle(`${wrapper} kbd`, ({ cssTheme, theme }: Theme) => ({
   display: 'inline-block',
   margin: '0 .1em',
@@ -154,7 +188,7 @@ globalStyle(`${wrapper} kbd`, ({ cssTheme, theme }: Theme) => ({
  */
 
 globalStyle(`${wrapper} pre + pre`, ({ cssTheme, theme }: Theme) => ({
-  marginTop: contentMargin,
+  marginTop: halfcontentMargin,
 }));
 
 globalStyle(`${wrapper} p + pre`, ({ cssTheme, theme }: Theme) => ({
