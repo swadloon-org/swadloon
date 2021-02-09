@@ -109,17 +109,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
   const recaptchaRef = React.useRef<any>();
   const resolver = useYupValidationResolver(PatientValidation);
 
-  const {
-    register,
-    handleSubmit,
-    control,
-    setError,
-    errors,
-    setValue,
-    getValues,
-    formState,
-    // formState: { isDirty, isSubmitting, touched, submitCount, isValid },
-  } = useForm<PatientModel>({ mode: 'onBlur', resolver });
+  const { register, handleSubmit, setError, errors, setValue } = useForm<PatientModel>({ mode: 'onBlur', resolver });
 
   const onSubmit: SubmitHandler<PatientModel> = async (data) => {
     setLoading(true);
@@ -164,30 +154,22 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
       });
   };
 
-  const debouncedSave = useCallback(
-    debounce((value) => {
-      if (value !== '') {
-        onSuggest(value);
-      } else {
-        setSuggestion(false);
-      }
-    }, 500),
-    []
-  );
+  const debouncedSave = debounce((value) => {
+    if (value !== '') {
+      handleAddressSuggest(value);
+    } else {
+      setSuggestion(false);
+    }
+  }, 1000);
 
-  const onChangeHandler = () => {
-    return async (event: React.ChangeEvent<HTMLInputElement>) => {
-      debouncedSave(event.target.value);
-    };
-  };
+  const onChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => debouncedSave(event.target.value);
 
-  const onSuggest = async (searchTerm: string) => {
-    console.log(searchTerm);
+  const handleAddressSuggest = async (searchTerm: string) => {
     const contentAddress: AddressAutoCompleteOptions = {
       SearchTerm: searchTerm,
       Country: 'CAN',
       LanguagePreference: 'EN',
-      MaxResults: 5,
+      MaxResults: 8,
     };
 
     const valueSuggestion = await getAddressAutoComplete(contentAddress);
@@ -200,19 +182,29 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
     }
   };
 
-  const handleSelectSuggestion = (suggestion: AddressAutoCompleteResponse) => {
-    return async (event: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
-      const newInfos = await onValidateById(suggestion);
+  const handleSelectSuggestion = (suggestion: AddressAutoCompleteResponse) => async (event: React.MouseEvent) => {
+    const newInfos = await onValidateById(suggestion);
 
-      setValue('address1', newInfos.Line1 as string);
-      setValue('address2', newInfos.SecondaryStreet);
-      setValue('city', newInfos.City as string);
-      setValue('state', newInfos.ProvinceName as string);
-      setValue('country', newInfos.CountryName as string);
-      setValue('postCode', newInfos.PostalCode as string);
-
+    if (!newInfos) {
       setSuggestion(false);
-    };
+      return;
+    }
+
+    setValue('address1', newInfos.Line1 as string);
+    setValue('address2', newInfos.SecondaryStreet);
+    setValue('city', newInfos.City as string);
+    setValue('state', newInfos.ProvinceName as string);
+    setValue('country', newInfos.CountryName as string);
+    setValue('postCode', newInfos.PostalCode as string);
+
+    setSuggestion(false);
+  };
+
+  const onValidateById = async (validate: AddressByIdOptions) => {
+    const response = await getAddressById(validate);
+
+    const result: AddressByIdResponse | undefined = response?.Items?.[0];
+    return result;
   };
 
   const renderSuggestionsT = (items: AddressAutoCompleteResponse[]) => {
@@ -227,13 +219,6 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
         })}
       </ul>
     );
-  };
-
-  const onValidateById = async (validate: AddressByIdOptions) => {
-    const response: readonly AddressByIdResponse[] = await getAddressById(validate);
-
-    const result: AddressByIdResponse = response[0];
-    return result;
   };
 
   return (
@@ -278,6 +263,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
                     options: { date: true, datePattern: ['d', 'm', 'Y'], delimiter: '-' },
                   }}
                   placeholder={'jj-mm-aaaa'}
+                  autoComplete={'bday'}
                   state={errors.dateOfBirth?.message ? 'error' : 'rest'}
                 />
                 <InputError>{errors.dateOfBirth?.message}</InputError>
@@ -338,7 +324,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
                 <InputText
                   name={'patientPhoneNumber'}
                   placeholder={'555-555-5555'}
-                  autoComplete="tel"
+                  autoComplete={'tel'}
                   cleaveProps={{
                     htmlRef: register,
                     type: 'tel',
@@ -385,7 +371,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
                   type="email"
                   name="emailConfirmation"
                   ref={register}
-                  autoComplete="emailConfirmation"
+                  autoComplete="email"
                   state={errors.emailConfirmation?.message ? 'error' : 'rest'}
                 />
 
@@ -401,12 +387,12 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
                 name="address1"
                 ref={register}
                 autoComplete="address-line1"
+                onChange={onChangeHandler}
                 state={errors.address1?.message ? 'error' : 'rest'}
-                onChange={onChangeHandler()}
               />
               <InputError>{errors.address1?.message}</InputError>
             </InputWrapper>
-            {isSuggestion == true ? renderSuggestionsT(isValueSuggestion) : ''}
+            {isSuggestion ? renderSuggestionsT(isValueSuggestion) : null}
 
             <InputWrapper>
               <InputLabel htmlFor={'address2'}>Adresse (appartement / bureau)</InputLabel>
