@@ -7,15 +7,21 @@ import {
   Hr,
   InputError,
   InputLabel,
+  InputSelect,
   InputText,
   InputWrapper,
-  keys,
   Paragraph,
   Stack,
   Switcher,
   useTreatTheme,
 } from '@newrade/core-react-ui';
-import { CLINIKO_REMINDER_TYPE, PatientAPIResponseBody, PatientModel, PatientValidation } from '@newrade/vsb-common';
+import {
+  CLINIKO_PHONE_TYPE,
+  CLINIKO_REMINDER_TYPE,
+  PatientAPIResponseBody,
+  PatientModel,
+  PatientValidation,
+} from '@newrade/vsb-common';
 import 'cleave.js/dist/addons/cleave-phone.ca';
 import debounce from 'lodash/debounce';
 import React, { useCallback, useState } from 'react';
@@ -42,14 +48,21 @@ const useYupValidationResolver = (PatientValidation: SchemaOf<PatientModel>) =>
       try {
         const values = await PatientValidation.validate(patient, {
           abortEarly: false,
-          strict: true,
         });
-
         return {
           values,
           errors: {},
         };
       } catch (errors) {
+        // capture other than validation errors
+        if (!errors.inner) {
+          console.log(errors);
+          return {
+            values: {},
+            errors: {},
+          };
+        }
+
         return {
           values: {},
           errors: errors.inner.reduce(
@@ -140,8 +153,15 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
             });
           }
         });
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+      .finally(() => {
+        window.setTimeout(() => {
+          setLoading(false);
+        }, 1000);
       });
-    setLoading(false);
   };
 
   const debouncedSave = useCallback(
@@ -191,7 +211,6 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
       setValue('country', newInfos.CountryName as string);
       setValue('postCode', newInfos.PostalCode as string);
 
-      console.log(getValues('postCode'));
       setSuggestion(false);
     };
   };
@@ -253,7 +272,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
                 <InputLabel htmlFor={'dateOfBirth'}>Date de naissance</InputLabel>
                 <InputText
                   type={'text'}
-                  name="date_of_birth"
+                  name="dateOfBirth"
                   cleaveProps={{
                     htmlRef: register,
                     options: { date: true, datePattern: ['d', 'm', 'Y'], delimiter: '-' },
@@ -302,9 +321,9 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
                   name="medicareExpiryDate"
                   cleaveProps={{
                     htmlRef: register,
-                    options: { date: true, datePattern: ['d', 'm', 'Y'], delimiter: '-' },
+                    options: { date: true, datePattern: ['m', 'Y'], delimiter: '-' },
                   }}
-                  placeholder={'jj-mm-aaaa'}
+                  placeholder={'mm-aaaa'}
                   state={errors.medicareExpiryDate?.message ? 'error' : 'rest'}
                 />
                 <InputError>{errors.medicareExpiryDate?.message}</InputError>
@@ -318,7 +337,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
                 <InputLabel htmlFor={'patientPhoneNumber'}>Téléphone</InputLabel>
                 <InputText
                   name={'patientPhoneNumber'}
-                  placeholder={'1 555-555-5555'}
+                  placeholder={'555-555-5555'}
                   autoComplete="tel"
                   cleaveProps={{
                     htmlRef: register,
@@ -332,11 +351,16 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
 
               <InputWrapper>
                 <InputLabel htmlFor={'patientPhoneType'}>Téléphone Type</InputLabel>
-                <InputText
+                <InputSelect
                   name={'patientPhoneType'}
                   ref={register}
                   state={errors.patientPhoneType?.message ? 'error' : 'rest'}
-                />
+                  defaultValue={CLINIKO_PHONE_TYPE.MOBILE}
+                >
+                  <option value={CLINIKO_PHONE_TYPE.MOBILE}>{'Mobile'}</option>
+                  <option value={CLINIKO_PHONE_TYPE.HOME}>{'Fixe'}</option>
+                </InputSelect>
+
                 <InputError>{errors.patientPhoneType?.message}</InputError>
               </InputWrapper>
             </FormSwitcher>
@@ -351,19 +375,21 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
                   autoComplete="email"
                   state={errors.email?.message ? 'error' : 'rest'}
                 />
+
                 <InputError>{errors.email?.message}</InputError>
               </InputWrapper>
 
               <InputWrapper>
-                <InputLabel htmlFor={'email'}>Confirmation du courriel</InputLabel>
+                <InputLabel htmlFor={'emailConfirmation'}>Confirmation du courriel</InputLabel>
                 <InputText
                   type="email"
-                  name="email"
+                  name="emailConfirmation"
                   ref={register}
-                  autoComplete="email"
-                  state={errors.email?.message ? 'error' : 'rest'}
+                  autoComplete="emailConfirmation"
+                  state={errors.emailConfirmation?.message ? 'error' : 'rest'}
                 />
-                <InputError>{errors.email?.message}</InputError>
+
+                <InputError>{errors.emailConfirmation?.message}</InputError>
               </InputWrapper>
             </FormSwitcher>
           </FormStack>
@@ -444,23 +470,27 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
 
           <InputWrapper>
             <InputLabel htmlFor={'reminderType'}>Type de rappel automatisé</InputLabel>
-            <InputText
+            <InputSelect
               name="reminderType"
-              list="reminder_type"
               ref={register}
               state={errors.reminderType?.message ? 'error' : 'rest'}
-            />
-            <InputError>{errors.reminderType?.message}</InputError>
+              defaultValue={CLINIKO_REMINDER_TYPE.EMAIL}
+            >
+              <option value={CLINIKO_REMINDER_TYPE.EMAIL}>{'Email'}</option>
+              <option value={CLINIKO_REMINDER_TYPE.SMS}>{'Message texte'}</option>
+              <option value={CLINIKO_REMINDER_TYPE.SMS_EMAIL}>{'Email et message texte'}</option>
+            </InputSelect>
 
-            <select id="reminder_type">
-              {keys(CLINIKO_REMINDER_TYPE).map((element, index) => {
-                return <option key={index} value={CLINIKO_REMINDER_TYPE[element]} />;
-              })}
-            </select>
+            <InputError>{errors.reminderType?.message}</InputError>
           </InputWrapper>
 
           <FormStack>
-            <ReCAPTCHA size={'normal'} ref={recaptchaRef} sitekey="6Lc0iksaAAAAALyiB9gYY0sCjQYb-rdLKI-RNP6d" />
+            <ReCAPTCHA
+              hl={'fr'}
+              size={'normal'}
+              ref={recaptchaRef}
+              sitekey="6Lc0iksaAAAAALyiB9gYY0sCjQYb-rdLKI-RNP6d"
+            />
 
             <Paragraph>
               Une fois la demande soumise, notre équipe vous contactera dans les plus brefs délais pour planifier les
@@ -471,6 +501,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
               variant={ButtonVariant.primary}
               className={isLoading ? 'loading' : ''}
               size={ButtonSize.large}
+              isDisabled={isLoading}
               type="submit"
             >
               {isLoading ? 'En cours...' : 'Soumettre la demande'}

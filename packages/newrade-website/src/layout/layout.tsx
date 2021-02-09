@@ -8,8 +8,8 @@ import {
   NavBar,
   NavItem,
   NavItemGroup,
-  SideBar,
   Stack,
+  useIsSSR,
   useViewportBreakpoint,
 } from '@newrade/core-react-ui';
 import { globalHistory } from '@reach/router';
@@ -28,7 +28,12 @@ type LayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }
 
 let pathname: string | undefined = '/'; // needed for gsap callbacks
 
+const SideBar = React.lazy(() =>
+  import('@newrade/core-react-ui/lib/navigation/sidebar').then((comp) => ({ default: comp.SideBar }))
+);
+
 export const Layout = React.memo<LayoutProps>((props) => {
+  const isSSR = useIsSSR();
   const { styles } = useStyles(styleRefs);
 
   /**
@@ -77,50 +82,54 @@ export const Layout = React.memo<LayoutProps>((props) => {
         onPressMenuButton={handlePressMenuButton}
       ></NavBar>
 
-      <SideBar sidebarOpened={sidebarOpened} fullHeight={false}>
-        <Stack>
-          <BoxV2
-            padding={[cssTheme.sizing.var.x4, cssTheme.layout.var.contentMargins, cssTheme.sizing.var.x4]}
-            style={{ flexDirection: 'column' }}
-            justifyContent={['flex-start']}
-            alignItems={['stretch']}
-          >
-            <Stack gap={[cssTheme.sizing.var.x4]}>
-              {navigation.items.map((item, index) => {
-                return (
-                  <Stack key={index} gap={[`calc(2 * ${cssTheme.sizing.var.x1})`]}>
-                    {item.items?.length ? (
-                      <NavItemGroup>{title(item.displayName || item.name || 'Home')}</NavItemGroup>
-                    ) : (
-                      <NavItem
-                        active={item.path === props.location?.pathname}
-                        AsElement={<GatsbyLink to={item.path} noStyles={true} />}
-                      >
-                        {item.name || item.displayName}
-                      </NavItem>
-                    )}
-                    {item.items?.length ? (
-                      <Stack>
-                        {item.items?.map((item, itemIndex) => {
-                          return (
-                            <NavItem
-                              key={itemIndex}
-                              active={item.path === props.location?.pathname}
-                              AsElement={<GatsbyLink to={item.path} noStyles={true} />}
-                            >
-                              {item.name || item.displayName}
-                            </NavItem>
-                          );
-                        })}
+      {!isSSR && (
+        <React.Suspense fallback={<div />}>
+          <SideBar sidebarOpened={sidebarOpened} fullHeight={false} disableBodyScroll={true}>
+            <Stack>
+              <BoxV2
+                padding={[cssTheme.sizing.var.x4, cssTheme.layout.var.contentMargins, cssTheme.sizing.var.x4]}
+                style={{ flexDirection: 'column' }}
+                justifyContent={['flex-start']}
+                alignItems={['stretch']}
+              >
+                <Stack gap={[cssTheme.sizing.var.x4]}>
+                  {navigation.items.map((item, index) => {
+                    return (
+                      <Stack key={index} gap={[`calc(2 * ${cssTheme.sizing.var.x1})`]}>
+                        {item.items?.length ? (
+                          <NavItemGroup>{title(item.displayName || item.name || 'Home')}</NavItemGroup>
+                        ) : (
+                          <NavItem
+                            active={item.path === props.location?.pathname}
+                            AsElement={<GatsbyLink to={item.path} noStyles={true} />}
+                          >
+                            {item.name || item.displayName}
+                          </NavItem>
+                        )}
+                        {item.items?.length ? (
+                          <Stack>
+                            {item.items?.map((item, itemIndex) => {
+                              return (
+                                <NavItem
+                                  key={itemIndex}
+                                  active={item.path === props.location?.pathname}
+                                  AsElement={<GatsbyLink to={item.path} noStyles={true} />}
+                                >
+                                  {item.name || item.displayName}
+                                </NavItem>
+                              );
+                            })}
+                          </Stack>
+                        ) : null}
                       </Stack>
-                    ) : null}
-                  </Stack>
-                );
-              })}
+                    );
+                  })}
+                </Stack>
+              </BoxV2>
             </Stack>
-          </BoxV2>
-        </Stack>
-      </SideBar>
+          </SideBar>
+        </React.Suspense>
+      )}
 
       <Main>{props.children}</Main>
       {/* <Footer></Footer> */}

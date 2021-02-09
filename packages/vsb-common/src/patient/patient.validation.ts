@@ -2,20 +2,57 @@ import * as yup from 'yup';
 import { SchemaOf } from 'yup';
 import { PatientClinikoModel, PatientModel } from './patient.model';
 import { CLINIKO_REMINDER_TYPE, CLINIKO_PHONE_TYPE } from './patient.constant';
-import { endOfMonth } from 'date-fns';
+import { endOfMonth, endOfDay, sub, parse, isDate } from 'date-fns';
 
 const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
+
+function parseFRDateString(format = 'dd-MM-yyyy') {
+  return (value: string, originalValue: string | Date) => {
+    const parsedDate = isDate(originalValue) ? originalValue : parse(originalValue as string, format, new Date());
+    return parsedDate;
+  };
+}
 
 export const PatientValidation: SchemaOf<PatientModel> = yup
   .object({
     firstName: yup.string().min(2, 'Trop court').max(50, 'Maximum 50 charactère').required('Requis'),
     lastName: yup.string().min(2, 'Trop court').max(50, 'Maximum 50 charactère').required('Requis'),
-    dateOfBirth: yup.date().required('Requis'),
+    dateOfBirth: yup
+      .date()
+      .transform(parseFRDateString())
+      .min(
+        sub(endOfDay(new Date()), {
+          years: 130,
+        }),
+        'Date invalide'
+      )
+      .max(
+        sub(endOfDay(new Date()), {
+          years: 18,
+        }),
+        'Âge minimum est de 18 ans'
+      )
+      .typeError('Date invalide')
+      .required('Requis'),
 
-    medicare: yup.string().length(12, 'Minimum 12 charactères').required('Requis'),
-    medicareExpiryDate: yup.date().min(endOfMonth(new Date()), 'Carte expirée').required('Requis'),
+    medicare: yup.string().min(12, 'Minimum 12 charactères').required('Requis'),
+    medicareExpiryDate: yup
+      .date()
+      .transform(parseFRDateString('MM-yyyy'))
+      .min(endOfMonth(new Date()), 'Carte expirée')
+      .typeError('Date invalide')
+      .required('Requis'),
 
-    email: yup.string().email(`Mauvais format d'email`).required('Requis'),
+    email: yup
+      .string()
+      .email(`Mauvais format d'email`)
+      .oneOf([yup.ref('email'), null], 'Emails doivent être identiques')
+      .required('Requis'),
+    emailConfirmation: yup
+      .string()
+      .email(`Mauvais format d'email`)
+      .oneOf([yup.ref('email'), null], 'Emails doivent être identiques')
+      .required('Requis'),
     patientPhoneNumber: yup.string().matches(phoneRegExp, 'Phone number is not valid').required('Requis'),
     patientPhoneType: yup.mixed().oneOf([CLINIKO_PHONE_TYPE.MOBILE, CLINIKO_PHONE_TYPE.HOME]),
 
@@ -37,7 +74,7 @@ export const PatientValidation: SchemaOf<PatientModel> = yup
   })
   .defined();
 
-export const PatientClinikoValidation: SchemaOf<PatientClinikoModel> = yup
+export const PatientClinikoValidation: SchemaOf<Omit<PatientClinikoModel, 'emailConfirmation'>> = yup
   .object({
     first_name: yup.string().min(2, 'Too Short').max(50, 'validation.tooShort').required('Requis'),
     last_name: yup.string().min(2, 'Too Short').max(50, 'Too Long').required('Requis'),

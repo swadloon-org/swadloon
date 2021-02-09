@@ -4,6 +4,7 @@ export type PatientModel = {
   firstName: string;
   lastName: string;
   email: string;
+  emailConfirmation: string;
   dateOfBirth: Date | string;
   address1: string;
   address2?: string;
