@@ -11,7 +11,7 @@
   "license": "MIT",
   "main": "dist/src/server.js",
   "scripts": {
-    "build": "cross-env TS_NODE_PROJECT=tsconfig.webpack.json node -r ts-node/register ../../node_modules/webpack/bin/webpack --config webpack.prod.config.ts",
+    "build": "yarn webpack && yarn copy:server",
     "build:tsc": "tsc --build tsconfig.build.json",
     "clean": "rimraf -r dist/** && rm -f tsconfig.build.tsbuildinfo",
     "copy:server": "TS_NODE_PROJECT=tsconfig.script.json node -r ts-node/register scripts/copy-server.script.ts",
@@ -19,9 +19,14 @@
     "start": "concurrently \"yarn tsc:watch\" \"yarn watch\"",
     "test": "echo test",
     "tsc:watch": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
-    "watch": "nodemon --delay 500ms --watch dist/ --watch ../vsb-common/lib/ --exec 'yarn inspect'"
+    "watch": "nodemon --delay 500ms --watch dist/ --watch ../vsb-common/lib/ --exec 'yarn inspect'",
+    "webpack": "cross-env TS_NODE_PROJECT=tsconfig.webpack.json node -r ts-node/register ../../node_modules/webpack/bin/webpack --config webpack.prod.config.ts"
   },
   "dependencies": {
+    "@newrade/core-common": "^1.1.0",
+    "@newrade/core-types": "^1.1.0",
+    "@newrade/core-utils": "^1.5.0",
+    "@newrade/core-webpack-config": "^1.4.0",
     "@newrade/vsb-common": "^1.1.0"
   }
 }
