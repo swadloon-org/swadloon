@@ -11,7 +11,7 @@
   command = "#"
   publish = "public/"
   # path to functions
-  functions = "functions/"
+  functions = "public/functions/"
 
 #
 # https://docs.netlify.com/routing/redirects/rewrites-proxies/#custom-headers-in-proxy-redirects
