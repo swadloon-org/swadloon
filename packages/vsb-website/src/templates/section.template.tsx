@@ -200,7 +200,7 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
             return (
               <Section id={`section-${index}`} key={index} variant={'secondary'}>
                 <Stack gap={[cssTheme.sizing.var.x7]}>
-                  <BlockMarkdown style={{ maxWidth: 500 }}>{section.text?.childMdx?.body}</BlockMarkdown>
+                  <BlockMarkdown style={{ maxWidth: 500 }}>{section?.text?.childMdx?.body}</BlockMarkdown>
 
                   {section?.costItems?.map((item, index) => {
                     return <div key={index}>{item?.title}</div>;

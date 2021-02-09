@@ -12,8 +12,7 @@ import {
   API_STATUS_CLINIKO,
   API_TRANSLATION_ROUTE,
 } from './constants/api-routes.constants';
-import { postPatient } from './controller/post-patient.controller';
-import { statusCliniko } from './controller/status-cliniko.controller';
+import { ClinikoController } from './controller/cliniko.controller';
 import { getTranslation } from './controller/translation.controller';
 import { recaptchaMiddleware } from './middleware/recaptcha.middleware';
 import { i18nService, initI18nService } from './services/i18n.service';
@@ -35,13 +34,6 @@ const port = env.APP_PORT ? Number(env.APP_PORT) : 3000;
 const server = express();
 
 /**
- * i18n Localization service
- * @see  see https://github.com/i18next/i18next-http-middleware
- */
-initI18nService();
-server.use(i18nextMiddleware.handle(i18nService));
-
-/**
  * General express configuration
  */
 server.disable('x-powered-by');
@@ -49,33 +41,40 @@ server.disable('x-powered-by');
 /**
  * Middlewares
  */
-server.use(cors());
-server.use(express.json());
-server.use(morgan('common'));
-server.use(urlencoded({ extended: true }));
-
-/**
- * Rate Limiter
- */
+/** Rate Limiter */
 const apiLimiter = rateLimit({
   windowMs: 1 * 60 * 1000, // 1 minutes
   max: 10,
   statusCode: 429,
 });
-server.use(API_BASE_PATH, apiLimiter);
+server.use(apiLimiter);
+server.use(cors());
+server.use(express.json());
+server.use(morgan('common'));
+server.use(urlencoded({ extended: true }));
+/**
+ * i18n Localization service
+ * @see https://github.com/i18next/i18next-http-middleware
+ */
+initI18nService();
+server.use(API_BASE_PATH, i18nextMiddleware.handle(i18nService));
 
 /**
  * Routes
  */
 const router = Router();
-server.use(router);
-router.route(API_REGISTER_PATIENT_ROUTE).post(recaptchaMiddleware, postPatient);
-router.route(API_STATUS_CLINIKO).get(statusCliniko);
+/** Cliniko */
+router.route(API_STATUS_CLINIKO).get(ClinikoController.getClinikoStatus);
+router.route(API_REGISTER_PATIENT_ROUTE).post(recaptchaMiddleware, ClinikoController.postPatient);
+// TODO: enable router.route(API_LIST_PATIENTS_ROUTE).get(getListPatients);
+/** Translation */
 router.route(API_TRANSLATION_ROUTE).get(getTranslation);
-// router.route(API_LIST_PATIENTS_ROUTE).get(getListPatients);
 
+/**
+ * Startup
+ */
+server.use(router);
 const httpServer = server.listen(port);
-
 console.log('listening on port: ' + port);
 
 /**
@@ -91,3 +90,5 @@ process.on('SIGTERM', function () {
     console.log('Finished all requests');
   });
 });
+
+export { server };
