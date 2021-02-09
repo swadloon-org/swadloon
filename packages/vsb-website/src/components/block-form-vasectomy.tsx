@@ -26,10 +26,7 @@ import { SchemaOf, ValidationError } from 'yup';
 import {
   AddressAutoCompleteOptions,
   AddressAutoCompleteResponse,
-  AddressByIdOptions,
-  AddressByIdResponse,
   getAddressAutoComplete,
-  getAddressById,
 } from '../services/address.service';
 import * as styleRefs from './block-form-vasectomy.treat';
 import { SectionProps } from './section.props';
@@ -96,17 +93,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
   const recaptchaRef = React.useRef<any>();
   const resolver = useYupValidationResolver(PatientValidation);
 
-  const {
-    register,
-    handleSubmit,
-    control,
-    setError,
-    errors,
-    setValue,
-    getValues,
-    formState,
-    // formState: { isDirty, isSubmitting, touched, submitCount, isValid },
-  } = useForm<PatientModel>({ mode: 'onBlur', resolver });
+  const { register, handleSubmit, setError, errors } = useForm<PatientModel>({ mode: 'onBlur', resolver });
 
   const onSubmit: SubmitHandler<PatientModel> = async (data) => {
     setLoading(true);
@@ -180,41 +167,18 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
     }
   };
 
-  const handleSelectSuggestion = (suggestion: AddressAutoCompleteResponse) => {
-    return async (event: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
-      const newInfos = await onValidateById(suggestion);
-
-      setValue('address1', newInfos.Line1 as string);
-      setValue('address2', newInfos.SecondaryStreet);
-      setValue('city', newInfos.City as string);
-      setValue('state', newInfos.ProvinceName as string);
-      setValue('country', newInfos.CountryName as string);
-      setValue('postCode', newInfos.PostalCode as string);
-
-      console.log(getValues('postCode'));
-      setSuggestion(false);
-    };
-  };
-
   const renderSuggestionsT = (items: AddressAutoCompleteResponse[]) => {
     return (
       <ul>
         {items.map((suggestion: AddressAutoCompleteResponse, index: number) => {
           return (
-            <li style={{ lineHeight: '1' }} key={index} onClick={handleSelectSuggestion(suggestion)}>
+            <li style={{ lineHeight: '1' }} key={index}>
               {`${suggestion.Text} ${suggestion.Description}`}
             </li>
           );
         })}
       </ul>
     );
-  };
-
-  const onValidateById = async (validate: AddressByIdOptions) => {
-    const response: readonly AddressByIdResponse[] = await getAddressById(validate);
-
-    const result: AddressByIdResponse = response[0];
-    return result;
   };
 
   return (
@@ -376,11 +340,10 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
                 ref={register}
                 autoComplete="address-line1"
                 state={errors.address1?.message ? 'error' : 'rest'}
-                onChange={onChangeHandler()}
               />
               <InputError>{errors.address1?.message}</InputError>
             </InputWrapper>
-            {isSuggestion == true ? renderSuggestionsT(isValueSuggestion) : ''}
+            {/* {isSuggestion == true ? renderSuggestionsT(isValueSuggestion) : ''} */}
 
             <InputWrapper>
               <InputLabel htmlFor={'address2'}>Adresse (appartement / bureau)</InputLabel>
