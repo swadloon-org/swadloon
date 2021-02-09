@@ -10,6 +10,9 @@ package-lock.json
 *.yml
 *.yaml
 
+# netlify
+functions/
+
 # gatsby
 dist/
 public/

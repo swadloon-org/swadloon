@@ -9,7 +9,7 @@ import {
 import { RequestHandler } from 'express';
 import fetch from 'node-fetch';
 import { ValidationError } from 'yup';
-import { env } from '../server';
+import { env } from '../../types/dot-env';
 import { fetchCliniko } from '../services/cliniko.service';
 
 const getClinikoStatus: RequestHandler<any, any, any> = async (req, res) => {
@@ -87,7 +87,7 @@ const postPatient: RequestHandler<any, PatientAPIResponseBody, PatientAPIRequest
   }
 };
 
-export const ClinikoController = {
+export const ClinikoController: { [key: string]: RequestHandler } = {
   getClinikoStatus,
   getPatients,
   postPatient,

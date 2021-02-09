@@ -1,13 +1,23 @@
+#
 # Docs https://docs.netlify.com/configure-builds/file-based-configuration/#sample-file
+#
 
 [dev]
-  # This is where we will look for package.json/.nvmrc/etc.
-  environment = { YARN_VERSION = "1.22.4", NODE_VERSION = "14" }
-  # Custom path to functions
+  command = "yarn typecheck"
+  # path to functions
   functions = "functions"
 
 [build]
   command = "#"
   publish = "public/"
-  # Custom path to functions
+  # path to functions
   functions = "functions/"
+
+#
+# https://docs.netlify.com/routing/redirects/rewrites-proxies/#custom-headers-in-proxy-redirects
+#
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/server"
+  status = 200
+  force = true

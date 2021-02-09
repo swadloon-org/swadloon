@@ -1,6 +1,6 @@
 import { AppError, ERROR_TYPE } from '@newrade/core-common/';
 import fetch from 'node-fetch';
-import { env } from '../server';
+import { env } from '../../types/dot-env';
 
 // Todo erreur from cliniko
 type clinikoResponse = {

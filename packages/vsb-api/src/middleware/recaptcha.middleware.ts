@@ -2,7 +2,7 @@ import { AppError, ERROR_TYPE } from '@newrade/core-common';
 import { PatientAPIResponseBody } from '@newrade/vsb-common';
 import { NextFunction, Request, RequestHandler, Response } from 'express';
 import fetch from 'node-fetch';
-import { env } from '../server';
+import { env } from '../../types/dot-env';
 
 export interface RecaptchaResponse {
   success?: boolean;

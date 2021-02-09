@@ -21,10 +21,12 @@ import { log, LOG_LEVEL } from './log';
 export function loadDotEnv<ENV = COMMON_ENV>({
   schema,
   dotEnvPath,
+  dotEnvRootPath = path.resolve(__dirname, '..', '..', '..', '.env'),
   packageName,
 }: {
   schema: t.IntersectionC<any>;
   dotEnvPath: string;
+  dotEnvRootPath?: string;
   packageName: string;
 }) {
   log(`Loading .env files`, {
@@ -41,7 +43,7 @@ export function loadDotEnv<ENV = COMMON_ENV>({
    * Loads repo root .env file
    */
   dotenv.config({
-    path: path.resolve(__dirname, '..', '..', '..', '.env'),
+    path: dotEnvRootPath,
   });
 
   log(`Validating .env files...`, {
