@@ -36,8 +36,10 @@
       "**/lib/**": true
     },
     // https://github.com/deepscan/vscode-deepscan#settings-options
+    // https://deepscan.io/docs/rules
     "deepscan.enable": true,
-    "deepscan.ignorePatterns": ["**/node_modules/**", "graphql-types.ts"]
+    "deepscan.ignorePatterns": ["**/node_modules/**", "graphql-types.ts"],
+    "deepscan.ignoreRules": ["no-console"]
   },
   "extensions": {
     "recommendations": [

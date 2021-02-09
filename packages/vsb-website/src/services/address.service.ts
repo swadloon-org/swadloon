@@ -87,7 +87,6 @@ export async function getAddressAutoComplete(options: AddressAutoCompleteOptions
 
     return result;
   } catch (error) {
-    // throw ErrorService.parseError(error, Error());
     throw Error('invalid suggestion');
   }
 }
@@ -103,7 +102,6 @@ export async function getAddressById(
 
     return result;
   } catch (error) {
-    // throw ErrorService.parseError(error, Error());
     throw Error('not good');
   }
 }
