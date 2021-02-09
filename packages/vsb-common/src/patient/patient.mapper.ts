@@ -1,5 +1,5 @@
 import { formatISO } from 'date-fns';
-import { PatientModel, PatientClinikoModel } from './patient.model';
+import { PatientClinikoModel, PatientModel } from './patient.model';
 
 export function getPatientClinikoModel(patientModel: PatientModel): PatientClinikoModel {
   return {

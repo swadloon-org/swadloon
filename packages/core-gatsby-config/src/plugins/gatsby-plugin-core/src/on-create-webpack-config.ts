@@ -72,6 +72,17 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
   }
 
   /**
+   * Alias date-fsn
+   * @see https://date-fns.org/v2.17.0/docs/ECMAScript-Modules
+   */
+  if (typeof config === 'object' && config.resolve) {
+    config.resolve.alias = {
+      ...(typeof config.resolve.alias === 'object' ? config.resolve.alias : {}),
+      'date-fns': 'date-fns/esm',
+    };
+  }
+
+  /**
    * Replace Gatsby default entry polyfill
    */
   if (typeof config === 'object' && config.entry && (config.entry as Record<string, string>)['polyfill']) {

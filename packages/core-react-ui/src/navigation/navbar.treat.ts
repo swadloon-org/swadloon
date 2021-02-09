@@ -21,18 +21,18 @@ export const styles = {
     gridTemplateColumns: '1fr 1fr 1fr',
     height: '100%',
   })),
-  mobileMenu: style(({ cssTheme, theme }: Theme) => ({
-    '@media': {
-      [cssTheme.layout.media.desktopSmall]: {
-        display: 'none',
-      },
-    },
-  })),
   desktopMenu: style(({ cssTheme, theme }: Theme) => ({
     display: 'none',
     '@media': {
       [cssTheme.layout.media.desktopSmall]: {
         display: 'grid',
+      },
+    },
+  })),
+  mobileMenu: style(({ cssTheme, theme }: Theme) => ({
+    '@media': {
+      [cssTheme.layout.media.desktopSmall]: {
+        display: 'none',
       },
     },
   })),

@@ -1,8 +1,14 @@
+import { endOfDay, endOfMonth, isDate, parse, sub } from 'date-fns';
 import * as yup from 'yup';
 import { SchemaOf } from 'yup';
+import { CLINIKO_PHONE_TYPE, CLINIKO_REMINDER_TYPE } from './patient.constant';
 import { PatientClinikoModel, PatientModel } from './patient.model';
-import { CLINIKO_REMINDER_TYPE, CLINIKO_PHONE_TYPE } from './patient.constant';
-import { endOfMonth, endOfDay, sub, parse, isDate } from 'date-fns';
+
+// import endOfDay from 'date-fns/endOfDay';
+// import endOfMonth from 'date-fns/endOfMonth';
+// import isDate from 'date-fns/isDate';
+// import parse from 'date-fns/parse';
+// import sub from 'date-fns/sub';
 
 const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 

@@ -108,8 +108,8 @@ export const NavBar = React.forwardRef<any, Props>((props, ref) => {
   /**
    * Refs
    */
-  const mobileNavbar = useRef<HTMLDivElement>();
-  const desktopNavbar = useRef<HTMLDivElement>();
+  const mobileNavbar = useRef<HTMLElement>(null);
+  const desktopNavbar = useRef<HTMLElement>(null);
 
   useImperativeHandle(
     ref,
@@ -138,59 +138,51 @@ export const NavBar = React.forwardRef<any, Props>((props, ref) => {
   return (
     <>
       {/* Mobile */}
-      <Center
-        ref={mobileNavbar}
-        as={'header'}
-        className={`${styles.wrapper} ${styles.mobileMenu}`}
-        style={props.style}
-        maxWidth={props.maxWidth}
-      >
-        <div className={styles.mobileWrapper}>
-          <BoxV2 justifyContent={['flex-start']}>
-            <Button
-              aria-label={'Menu'}
-              size={ButtonSize.large}
-              collapsePadding={'left'}
-              variant={ButtonVariant.tertiary}
-              icon={ButtonIcon.icon}
-              Icon={props.menuOpened ? <IoClose /> : <IoMenu />}
-              onPress={handlePressMenuButton}
-            ></Button>
-          </BoxV2>
+      <header ref={mobileNavbar} style={props.style} className={`${styles.wrapper} ${styles.mobileMenu}`}>
+        <Center maxWidth={props.maxWidth}>
+          <div className={styles.mobileWrapper}>
+            <BoxV2 justifyContent={['flex-start']}>
+              <Button
+                aria-label={'Menu'}
+                size={ButtonSize.large}
+                collapsePadding={'left'}
+                variant={ButtonVariant.tertiary}
+                icon={ButtonIcon.icon}
+                Icon={props.menuOpened ? <IoClose /> : <IoMenu />}
+                onPress={handlePressMenuButton}
+              ></Button>
+            </BoxV2>
 
-          <BoxV2
-            justifyContent={['center']}
-            padding={[cssTheme.sizing.var.x2, 0]}
-            AsElement={props.HomeLink}
-            aria-label={'Home'}
-          >
-            <SVGLogo Icon={MobileSvgLogo || DesktopSvgLogo} />
-          </BoxV2>
+            <BoxV2
+              justifyContent={['center']}
+              padding={[cssTheme.sizing.var.x2, 0]}
+              AsElement={props.HomeLink}
+              aria-label={'Home'}
+            >
+              <SVGLogo Icon={MobileSvgLogo || DesktopSvgLogo} />
+            </BoxV2>
 
-          <BoxV2 justifyContent={['flex-end']} padding={[cssTheme.sizing.var.x2, cssTheme.sizing.var.x3]}>
-            <Label> </Label>
-          </BoxV2>
-        </div>
-      </Center>
+            <BoxV2 justifyContent={['flex-end']} padding={[cssTheme.sizing.var.x2, cssTheme.sizing.var.x3]}>
+              <Label> </Label>
+            </BoxV2>
+          </div>
+        </Center>
+      </header>
 
       {/* Desktop */}
-      <Center
-        ref={desktopNavbar}
-        as={'header'}
-        className={`${styles.wrapper} ${styles.desktopMenu}`}
-        style={props.style}
-        maxWidth={props.maxWidth}
-      >
-        <Cluster justifyContent={['space-between']} alignItems={['center']} as={'nav'}>
-          <BoxV2 padding={[cssTheme.sizing.var.x2, 0]} className={styles.logoWrapper} AsElement={props.HomeLink}>
-            <SVGLogo Icon={DesktopSvgLogo || MobileSvgLogo} />
-          </BoxV2>
+      <header ref={desktopNavbar} className={`${styles.wrapper} ${styles.desktopMenu}`} style={props.style}>
+        <Center maxWidth={props.maxWidth}>
+          <Cluster justifyContent={['space-between']} alignItems={['center']} as={'nav'}>
+            <BoxV2 padding={[cssTheme.sizing.var.x2, 0]} className={styles.logoWrapper} AsElement={props.HomeLink}>
+              <SVGLogo Icon={DesktopSvgLogo || MobileSvgLogo} />
+            </BoxV2>
 
-          <Cluster justifyContent={['space-between']} gap={[cssTheme.sizing.var.x4]}>
-            {props.MenuLinks}
+            <Cluster justifyContent={['space-between']} gap={[cssTheme.sizing.var.x4]}>
+              {props.MenuLinks}
+            </Cluster>
           </Cluster>
-        </Cluster>
-      </Center>
+        </Center>
+      </header>
     </>
   );
 });

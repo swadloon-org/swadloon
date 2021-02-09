@@ -108,6 +108,7 @@ const config: core.GastbySiteConfig = {
         'yup',
         'lodash',
         'lodash-es',
+        'date-fns',
         '@react-icons',
       ],
       enableDesignSystemPages: true,
