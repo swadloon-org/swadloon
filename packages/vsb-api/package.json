@@ -14,6 +14,7 @@
     "build": "cross-env TS_NODE_PROJECT=tsconfig.webpack.json node -r ts-node/register ../../node_modules/webpack/bin/webpack --config webpack.prod.config.ts",
     "build:tsc": "tsc --build tsconfig.build.json",
     "clean": "rimraf -r dist/** && rm -f tsconfig.build.tsbuildinfo",
+    "copy:server": "TS_NODE_PROJECT=tsconfig.script.json node -r ts-node/register scripts/copy-server.script.ts",
     "inspect": "kill-port --port 9229 && node --no-warnings --inspect=0.0.0.0:9229 --experimental-modules ./dist/src/server.js",
     "start": "concurrently \"yarn tsc:watch\" \"yarn watch\"",
     "test": "echo test",
