@@ -36,6 +36,20 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
    */
 };
 
+// export const onCreateWebpackConfig:  = ({
+//   plugins,
+//   actions,
+// }) => {
+//   actions.setWebpackConfig({
+//     plugins: [
+//       plugins.define({
+//         __NAME__: JSON.stringify(packageJson.name),
+//         __VERSION__: JSON.stringify(packageJson.version),
+//       }),
+//     ],
+//   })
+// }
+
 const exec = util.promisify(child_process.exec);
 
 export const onPostBuild = async (gatsbyNodeHelpers: any) => {
