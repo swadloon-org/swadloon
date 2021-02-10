@@ -1,15 +1,16 @@
+import { DEPLOY_ENV } from '@newrade/core-common';
+import {
+  API_BASE_PATH,
+  API_REGISTER_PATIENT_ROUTE,
+  API_STATUS_CLINIKO,
+  API_TRANSLATION_ROUTE,
+} from '@newrade/vsb-common';
 import cors from 'cors';
 import express, { Router, urlencoded } from 'express';
 import rateLimit from 'express-rate-limit';
 import i18nextMiddleware from 'i18next-http-middleware';
 import morgan from 'morgan';
 import { env } from '../types/dot-env';
-import {
-  API_BASE_PATH,
-  API_REGISTER_PATIENT_ROUTE,
-  API_STATUS_CLINIKO,
-  API_TRANSLATION_ROUTE,
-} from './constants/api-routes.constants';
 import { ClinikoController } from './controller/cliniko.controller';
 import { getTranslation } from './controller/translation.controller';
 import { recaptchaMiddleware } from './middleware/recaptcha.middleware';
@@ -69,22 +70,24 @@ router.route(API_TRANSLATION_ROUTE).get(getTranslation);
  */
 server.use(router);
 
-const httpServer = server.listen(port);
-console.log('listening on port: ' + port);
+if (env.APP_ENV === DEPLOY_ENV.LOCAL) {
+  const httpServer = server.listen(port);
+  console.log('listening on port: ' + port);
 
-/**
- * Shutdown
- */
-process.on('SIGINT', function () {
-  httpServer.close(function () {
-    console.log('Finished all requestsss');
+  /**
+   * Shutdown
+   */
+  process.on('SIGINT', function () {
+    httpServer.close(function () {
+      console.log('Finished all requestsss');
+    });
   });
-});
-process.on('SIGTERM', function () {
-  httpServer.close(function () {
-    console.log('Finished all requests');
+  process.on('SIGTERM', function () {
+    httpServer.close(function () {
+      console.log('Finished all requests');
+    });
   });
-});
+}
 
 const serverless = require('serverless-http');
 

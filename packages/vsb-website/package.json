@@ -15,7 +15,7 @@
     "clean": "gatsby clean",
     "compile": "tsc --project tsconfig.gatsby.json",
     "contentful-types": ". ./.env && contentful-tools generate --config=contentful-tools.js --token=$CONTENTFUL_MANAGEMENT_TOKEN_VSB",
-    "lambda": "netlify-lambda build functions",
+    "copy:functions": "TS_NODE_PROJECT=tsconfig.script.json node -r ts-node/register scripts/copy-functions.script.ts",
     "pre-debug": "yarn clean",
     "preload-fonts": ". ./.env && PORT=$APP_PORT gatsby-preload-fonts --no-sandbox",
     "refresh": ". ./.env && curl -X POST http://localhost:$APP_PORT/__refresh",

@@ -46,6 +46,5 @@ export const onPostBuild = async (gatsbyNodeHelpers: any) => {
     if (stderr) reporter.error(stderr);
     if (stdout) reporter.info(stdout);
   };
-  console.log('lambda test');
-  reportOut(await exec('yarn lambda'));
+  reportOut(await exec('yarn copy:functions'));
 };

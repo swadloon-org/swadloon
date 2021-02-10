@@ -17,7 +17,7 @@
 # https://docs.netlify.com/routing/redirects/rewrites-proxies/#custom-headers-in-proxy-redirects
 #
 [[redirects]]
-  from = "/api/*"
+  from = "/api/server/*"
   to = "/.netlify/functions/server"
   status = 200
   force = true
