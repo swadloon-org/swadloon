@@ -1,16 +1,19 @@
-import { PatientAPIResponseBody } from '@newrade/vsb-common';
+import { lower } from 'case';
 import debug from 'debug';
 import { NextFunction, Request, RequestHandler, Response } from 'express';
 
 const log = debug('newrade:vsb-api');
+const logError = log.extend('error');
 
-export const loggerMiddleware: RequestHandler<any, PatientAPIResponseBody, any> = async (
+export const loggerMiddleware: RequestHandler<any, any, any> = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
   try {
-    log('receiving status request');
+    log(`${lower(req.method)} ${req.url}`);
     next();
-  } catch (error) {}
+  } catch (error) {
+    logError(`${error.message}`);
+  }
 };

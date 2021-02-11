@@ -40,6 +40,10 @@ import {
 } from '../services/address.service';
 import * as styleRefs from './block-form-vasectomy.treat';
 import { SectionProps } from './section.props';
+import debug from 'debug';
+
+const log = debug('newrade:vsb-website');
+const logError = log.extend('error');
 
 type Props = CommonComponentProps & SectionProps & {};
 
@@ -57,7 +61,7 @@ const useYupValidationResolver = (PatientValidation: SchemaOf<PatientModel>) =>
       } catch (errors) {
         // capture other than validation errors
         if (!errors.inner) {
-          console.log(errors);
+          logError(errors);
           return {
             values: {},
             errors: {},
@@ -113,6 +117,8 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
   const { register, handleSubmit, setError, errors, setValue } = useForm<PatientModel>({ mode: 'onBlur', resolver });
 
   const onSubmit: SubmitHandler<PatientModel> = async (data) => {
+    log('submitting');
+
     setLoading(true);
 
     const tokenRecaptcha: string = await recaptchaRef.current.getValue();
@@ -157,10 +163,12 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
       })
       .catch((error) => {
         console.log(error);
+        logError(error);
       })
       .finally(() => {
         window.setTimeout(() => {
           setLoading(false);
+          log('end submitting');
         }, 1000);
       });
   };
