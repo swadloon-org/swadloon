@@ -19,6 +19,11 @@ function parseFRDateString(format = 'dd-MM-yyyy') {
   };
 }
 
+function removeSpaces(value: string, originalValue: string) {
+  const withoutSpaces = originalValue.replace(/\s/g, '');
+  return withoutSpaces;
+}
+
 export const PatientValidation: SchemaOf<PatientModel> = yup
   .object({
     firstName: yup.string().min(2, 'Trop court').max(50, 'Maximum 50 charactère').required('Requis'),
@@ -41,10 +46,10 @@ export const PatientValidation: SchemaOf<PatientModel> = yup
       .typeError('Date invalide')
       .required('Requis'),
 
-    medicare: yup.string().min(12, 'Minimum 12 charactères').required('Requis'),
+    medicare: yup.string().transform(removeSpaces).min(12, 'Minimum 12 charactères').required('Requis'),
     medicareExpiryDate: yup
       .date()
-      .transform(parseFRDateString('MM-yyyy'))
+      .transform(parseFRDateString('MM-yy'))
       .min(endOfMonth(new Date()), 'Carte expirée')
       .typeError('Date invalide')
       .required('Requis'),

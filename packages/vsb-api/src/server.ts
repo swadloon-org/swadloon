@@ -6,6 +6,7 @@ import {
   API_TRANSLATION_ROUTE,
 } from '@newrade/vsb-common';
 import cors from 'cors';
+import debug from 'debug';
 import express, { Router, urlencoded } from 'express';
 import rateLimit from 'express-rate-limit';
 import i18nextMiddleware from 'i18next-http-middleware';
@@ -13,8 +14,14 @@ import morgan from 'morgan';
 import { env } from '../types/dot-env';
 import { ClinikoController } from './controller/cliniko.controller';
 import { getTranslation } from './controller/translation.controller';
+import { loggerMiddleware } from './middleware/logger.middleware';
 import { recaptchaMiddleware } from './middleware/recaptcha.middleware';
 import { i18nService, initI18nService } from './services/i18n.service';
+
+/**
+ * Logging setup
+ */
+const log = debug('newrade:vsb-api');
 
 /**
  * Init
@@ -38,6 +45,7 @@ const apiLimiter = rateLimit({
 server.use(apiLimiter);
 server.use(cors());
 server.use(express.json());
+server.use(loggerMiddleware);
 server.use(morgan('common'));
 server.use(urlencoded({ extended: true }));
 /**
@@ -54,9 +62,6 @@ const router = Router();
 /**
  * Cliniko
  */
-router.route('/api/server').get((req, res) => {
-  res.send('yes');
-});
 router.route(API_STATUS_CLINIKO).get(ClinikoController.getClinikoStatus);
 router.route(API_REGISTER_PATIENT_ROUTE).post(recaptchaMiddleware, ClinikoController.postPatient);
 // TODO: enable router.route(API_LIST_PATIENTS_ROUTE).get(getListPatients);
@@ -72,19 +77,19 @@ server.use(router);
 
 if (env.APP_ENV === DEPLOY_ENV.LOCAL) {
   const httpServer = server.listen(port);
-  console.log('listening on port: ' + port);
+  log('listening on port ' + port);
 
   /**
    * Shutdown
    */
   process.on('SIGINT', function () {
     httpServer.close(function () {
-      console.log('Finished all requestsss');
+      log('finished all requests and shutting down');
     });
   });
   process.on('SIGTERM', function () {
     httpServer.close(function () {
-      console.log('Finished all requests');
+      log('finished all requests and shutting down');
     });
   });
 }

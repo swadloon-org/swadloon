@@ -16,6 +16,11 @@ export const recaptchaMiddleware: RequestHandler<any, PatientAPIResponseBody, an
 ) => {
   try {
     const secret_key = env.API_VSB_SECRET_KEY_RECAPTCHAT;
+
+    if (!req?.body?.payload?.recaptcha?.token) {
+      return res.status(400).send(new AppError({ name: ERROR_TYPE.AUTH_ERROR, message: 'Captcha manquant' }));
+    }
+
     const token = req.body.payload.recaptcha.token;
     const urlApiRecaptcha = `https://www.google.com/recaptcha/api/siteverify?secret=${secret_key}&response=${token}`;
 

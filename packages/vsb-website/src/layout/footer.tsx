@@ -20,6 +20,7 @@ import { useStyles } from 'react-treat';
 import { FooterQuery } from '../../types/graphql-types';
 import { cssTheme } from '../design-system/theme';
 import * as styleRefs from './footer.treat';
+import { clientEnv } from '../../types/dot-env-client';
 
 export const footerQuery = graphql`
   query Footer {
@@ -171,7 +172,7 @@ export const Footer: React.FC<Props> = ({ id, style, className, ...props }) => {
             </Stack>
           </div>
           <Paragraph className={styles.copyright} variant={PARAGRAPH_SIZE.small}>
-            {data?.contentfulCompanyInfo?.copyright}
+            {data?.contentfulCompanyInfo?.copyright} - v{clientEnv.APP_VERSION}
           </Paragraph>
         </Stack>
       </Center>

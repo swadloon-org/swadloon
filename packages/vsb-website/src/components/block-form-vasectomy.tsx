@@ -21,6 +21,7 @@ import {
   PatientAPIResponseBody,
   PatientModel,
   PatientValidation,
+  API_REGISTER_PATIENT_ROUTE,
 } from '@newrade/vsb-common';
 import 'cleave.js/dist/addons/cleave-phone.ca';
 import debounce from 'lodash/debounce';
@@ -99,16 +100,16 @@ const FormStack: React.FC = (props) => {
 };
 
 export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, section, ...props }) => {
-  const [isSuggestion, setSuggestion] = useState<boolean>(false);
-  const [isValueSuggestion, setValueSuggestion] = useState<any>();
-
   const { styles } = useStyles(styleRefs);
   const { cssTheme } = useTreatTheme();
 
+  const [isSuggestion, setSuggestion] = useState<boolean>(false);
+  const [isValueSuggestion, setValueSuggestion] = useState<any>();
+
+  const [apiErrors, setApiErrors] = useState<string[]>([]);
   const [isLoading, setLoading] = useState<boolean>(false);
   const recaptchaRef = React.useRef<any>();
   const resolver = useYupValidationResolver(PatientValidation);
-
   const { register, handleSubmit, setError, errors, setValue } = useForm<PatientModel>({ mode: 'onBlur', resolver });
 
   const onSubmit: SubmitHandler<PatientModel> = async (data) => {
@@ -116,7 +117,9 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
 
     const tokenRecaptcha: string = await recaptchaRef.current.getValue();
 
-    fetch('http://localhost:10003/api/patient/register', {
+    setApiErrors([]);
+
+    fetch(API_REGISTER_PATIENT_ROUTE, {
       method: 'POST',
       headers: {
         accept: 'application/json',
@@ -135,14 +138,22 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
             console.log(error);
           });
         }
-        result.payload.validationErrors.map((validationError) => {
-          if (validationError) {
-            setError(validationError.path as keyof PatientModel, {
-              type: 'manual',
-              message: validationError.message,
-            });
-          }
-        });
+
+        if (result.payload.yupValidationErrors) {
+          result.payload.yupValidationErrors.map((validationError) => {
+            if (validationError) {
+              setError(validationError.path as keyof PatientModel, {
+                type: 'manual',
+                message: validationError.message,
+              });
+            }
+          });
+        }
+
+        setApiErrors([
+          ...result.errors.map((error) => error.message),
+          ...result.payload.yupValidationErrors.map((error) => error.errors.join(', ')),
+        ]);
       })
       .catch((error) => {
         console.log(error);
@@ -309,7 +320,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
                     htmlRef: register,
                     options: { date: true, datePattern: ['m', 'Y'], delimiter: '-' },
                   }}
-                  placeholder={'mm-aaaa'}
+                  placeholder={'mm-aa'}
                   state={errors.medicareExpiryDate?.message ? 'error' : 'rest'}
                 />
                 <InputError>{errors.medicareExpiryDate?.message}</InputError>
@@ -492,6 +503,10 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
             >
               {isLoading ? 'En cours...' : 'Soumettre la demande'}
             </Button>
+
+            {apiErrors.map((error, index) => {
+              return <div key={index}>{error}</div>;
+            })}
           </FormStack>
 
           <Hr></Hr>

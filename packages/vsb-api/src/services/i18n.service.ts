@@ -3,7 +3,7 @@ import i18n, { InitOptions } from 'i18next';
 import i18nextMiddleware from 'i18next-http-middleware';
 
 const options: InitOptions = {
-  debug: true,
+  // debug: true,
   preload: ['en', 'fr'],
   load: 'languageOnly',
   fallbackLng: 'fr',

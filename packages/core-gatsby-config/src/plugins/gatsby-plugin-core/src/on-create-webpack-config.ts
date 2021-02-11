@@ -14,7 +14,7 @@ import { RuleSetRule, RuleSetRules, RuleSetUseItem, WebpackOptions } from 'webpa
 import { GatsbyCorePluginOptions } from '../gatsby-plugin-options';
 
 export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] = (
-  { stage, rules, loaders, plugins, actions, getConfig },
+  { stage, rules, loaders, plugins, actions, getConfig, reporter },
   options
 ) => {
   const pluginOptions = (options as unknown) as GatsbyCorePluginOptions;
@@ -44,6 +44,16 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
    */
   if (typeof config === 'object' && config.resolve) {
     config.resolve.mainFields = ['browser', 'module', 'main'];
+  }
+
+  /**
+   * Custom settings for watchOptions
+   */
+  if (typeof config === 'object') {
+    config.watchOptions = {
+      ...config.watchOptions,
+      aggregateTimeout: 400,
+    };
   }
 
   /**

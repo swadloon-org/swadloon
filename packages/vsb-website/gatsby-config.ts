@@ -1,5 +1,6 @@
 import * as core from '@newrade/core-gatsby-config';
 import { loadDotEnv, logEnvVariables } from '@newrade/core-utils';
+import proxy from 'http-proxy-middleware';
 import path from 'path';
 import packageJson from './package.json';
 import { Env, ENV } from './types/dot-env';
@@ -116,6 +117,18 @@ const config: core.GastbySiteConfig = {
     }),
     core.getGatsbyPluginPreloadFonts(),
   ],
+  /**
+   * Mimic the same route that we have when deployed
+   * @see https://github.com/chimurai/http-proxy-middleware/tree/v0.21.0#readme
+   */
+  developMiddleware: (app) => {
+    app.use(
+      '/api/server/',
+      proxy({
+        target: 'http://localhost:10003',
+      })
+    );
+  },
 };
 
 export default config;

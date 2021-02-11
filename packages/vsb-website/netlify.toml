@@ -15,7 +15,9 @@
 
 #
 # https://docs.netlify.com/routing/redirects/rewrites-proxies/#custom-headers-in-proxy-redirects
+# _redirects file is used instead of the [[redirects]]
 #
+
 # [[redirects]]
 #   from = "/api/server/*"
 #   to = "/.netlify/functions/server"

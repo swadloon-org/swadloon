@@ -18,7 +18,7 @@
     }
   },
   "scripts": {
-    "autorelease": ". ./.env && lerna version --conventional-commits --create-release github",
+    "autorelease": ". ./.env && GH_TOKEN=$GH_TOKEN lerna version --conventional-commits --create-release github",
     "build": "lerna run build",
     "build:api": "yarn build --scope @newrade/vsb-common --scope @newrade/*-api",
     "build:core": "yarn build --scope @newrade/core-*",
@@ -72,6 +72,7 @@
     "core-js": "^3",
     "cors": "^2.8.5",
     "date-fns": "^2.17.0",
+    "debug": "^4.3.1",
     "express": "^4.17.1",
     "express-rate-limit": "^5.2.3",
     "fp-ts": "^2.8.4",

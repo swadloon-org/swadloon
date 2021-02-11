@@ -6,14 +6,18 @@ import {
   PatientClinikoModel,
   PatientValidation,
 } from '@newrade/vsb-common';
+import debug from 'debug';
 import { RequestHandler } from 'express';
 import fetch from 'node-fetch';
 import { ValidationError } from 'yup';
 import { env } from '../../types/dot-env';
 import { fetchCliniko } from '../services/cliniko.service';
 
+const log = debug('newrade:vsb-api:cliniko');
+
 const getClinikoStatus: RequestHandler<any, any, any> = async (req, res) => {
   try {
+    log('receiving status request');
     const response = await fetch(`https://api.` + `${env.API_VSB_SHARD_ID}.cliniko.com/v1/services/`, {
       method: 'GET',
       headers: {
@@ -61,10 +65,14 @@ const getPatients: RequestHandler<any, any, any> = async (req, res) => {
 
 const postPatient: RequestHandler<any, PatientAPIResponseBody, PatientAPIRequestBody> = async (req, res) => {
   try {
-    PatientValidation.validateSync(req.body.payload.patient, {
+    /**
+     * Validating the incoming payload
+     */
+    const payload = PatientValidation.validateSync(req.body.payload.patient, {
       abortEarly: false,
-      strict: true,
     });
+
+    console.log(payload);
 
     const result = await fetchCliniko<PatientClinikoModel>({
       method: 'POST',
@@ -72,7 +80,7 @@ const postPatient: RequestHandler<any, PatientAPIResponseBody, PatientAPIRequest
       payload: getPatientClinikoModel(req.body.payload.patient) as any,
     });
 
-    return res.status(200).send({ api: 'vsb-api', errors: [result as AppError], payload: { validationErrors: [] } });
+    return res.status(200).send({ api: 'vsb-api', errors: [result as AppError], payload: { yupValidationErrors: [] } });
   } catch (error) {
     console.log(error);
 
@@ -83,7 +91,7 @@ const postPatient: RequestHandler<any, PatientAPIResponseBody, PatientAPIRequest
       message: 'Invalid dto',
     });
 
-    res.status(400).send({ api: 'vsb-api', errors: [appError], payload: { validationErrors: yupError.inner } });
+    res.status(400).send({ api: 'vsb-api', errors: [appError], payload: { yupValidationErrors: yupError.inner } });
   }
 };
 
