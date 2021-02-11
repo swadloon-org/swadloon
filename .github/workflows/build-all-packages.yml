@@ -111,6 +111,7 @@ jobs:
         API_VSB_KEY_CLINIKO: ${{ secrets.API_VSB_KEY_CLINIKO }}
         API_VSB_SHARD_ID: ${{ secrets.API_VSB_SHARD_ID }}
         API_VSB_SECRET_KEY_RECAPTCHAT: ${{ secrets.API_VSB_SECRET_KEY_RECAPTCHAT }}
+        CANADA_POST_API_KEY_VSB: ${{ secrets.CANADA_POST_API_KEY_VSB }}
         NVM_NODE_VERSION: ${{ secrets.NVM_NODE_VERSION }}
         MASTER_GIT_HOST: ${{ secrets.MASTER_GIT_HOST }}
         MASTER_REPO_ORG: ${{ secrets.MASTER_REPO_ORG }}

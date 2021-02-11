@@ -1,5 +1,5 @@
+import { clientEnv } from '../../types/dot-env-client';
 import { AUTO_COMPLETE_API_URL, FIND_ADDRESS_BY_ID_API_URL } from '../constants/canada-post.constant';
-import { CLIENT_CONFIG } from '../constants/client-config.constant';
 
 export type AddressAutoCompleteOptions = {
   SearchTerm: string;
@@ -80,7 +80,7 @@ export function formEncode(payload: { [key: string]: string | number | undefined
  */
 export async function getAddressAutoComplete(options: AddressAutoCompleteOptions) {
   try {
-    const encodedParams = formEncode({ ...options, Key: CLIENT_CONFIG.CANADA_POST_API_KEY });
+    const encodedParams = formEncode({ ...options, Key: clientEnv.CANADA_POST_API_KEY_VSB });
 
     const response = await fetch(`${AUTO_COMPLETE_API_URL}?${encodedParams}`);
     const result = await response.json();
@@ -95,7 +95,7 @@ export async function getAddressById(
   options: AddressByIdOptions
 ): Promise<{ Items: (AddressByIdResponse | undefined)[] | undefined }> {
   try {
-    const encodedParams = formEncode({ ...options, Key: CLIENT_CONFIG.CANADA_POST_API_KEY });
+    const encodedParams = formEncode({ ...options, Key: clientEnv.CANADA_POST_API_KEY_VSB });
 
     const response = await fetch(`${FIND_ADDRESS_BY_ID_API_URL}?${encodedParams}`);
     const result = await response.json();
