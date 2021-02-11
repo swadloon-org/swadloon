@@ -4,12 +4,6 @@ import { SchemaOf } from 'yup';
 import { CLINIKO_PHONE_TYPE, CLINIKO_REMINDER_TYPE } from './patient.constant';
 import { PatientClinikoModel, PatientModel } from './patient.model';
 
-// import endOfDay from 'date-fns/endOfDay';
-// import endOfMonth from 'date-fns/endOfMonth';
-// import isDate from 'date-fns/isDate';
-// import parse from 'date-fns/parse';
-// import sub from 'date-fns/sub';
-
 const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
 function parseFRDateString(format = 'dd-MM-yyyy') {
@@ -74,14 +68,15 @@ export const PatientValidation: SchemaOf<PatientModel> = yup
     postCode: yup.string().required('Requis'),
     country: yup.string().required('Requis'),
 
-    reminderType: yup
-      .mixed()
-      .oneOf([
-        CLINIKO_REMINDER_TYPE.NONE,
-        CLINIKO_REMINDER_TYPE.SMS,
-        CLINIKO_REMINDER_TYPE.EMAIL,
-        CLINIKO_REMINDER_TYPE.SMS_EMAIL,
-      ]),
+    /** disabled on the form, will be hardcoded to email */
+    // reminderType: yup
+    //   .mixed()
+    //   .oneOf([
+    //     CLINIKO_REMINDER_TYPE.NONE,
+    //     CLINIKO_REMINDER_TYPE.SMS,
+    //     CLINIKO_REMINDER_TYPE.EMAIL,
+    //     CLINIKO_REMINDER_TYPE.SMS_EMAIL,
+    //   ]),
   })
   .defined();
 
@@ -90,11 +85,19 @@ export const PatientClinikoValidation: SchemaOf<Omit<PatientClinikoModel, 'email
     first_name: yup.string().min(2, 'Too Short').max(50, 'validation.tooShort').required('Requis'),
     last_name: yup.string().min(2, 'Too Short').max(50, 'Too Long').required('Requis'),
     date_of_birth: yup
-      .string()
-      .matches(/^(?:0[1-9]|[12]\d|3[01])([\/.-])(?:0[1-9]|1[012])\1(?:19|20)\d\d$/, {
-        excludeEmptyString: true,
-        message: 'Format jj-mm-aaaa, par ex. 01-05-1980 est le premier mai 1980',
-      })
+      .date()
+      .min(
+        sub(endOfDay(new Date()), {
+          years: 130,
+        }),
+        'Date invalide'
+      )
+      .max(
+        sub(endOfDay(new Date()), {
+          years: 18,
+        }),
+        'Âge minimum est de 18 ans'
+      )
       .required('Requis'),
     medicare: yup.string().required('Requis'),
 

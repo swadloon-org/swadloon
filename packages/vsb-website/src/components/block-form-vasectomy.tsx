@@ -14,18 +14,20 @@ import {
   Stack,
   Switcher,
   useTreatTheme,
+  Label,
+  Cluster,
 } from '@newrade/core-react-ui';
 import {
   CLINIKO_PHONE_TYPE,
-  CLINIKO_REMINDER_TYPE,
   PatientAPIResponseBody,
   PatientModel,
   PatientValidation,
   API_REGISTER_PATIENT_ROUTE,
+  API_STATUS_CLINIKO,
 } from '@newrade/vsb-common';
 import 'cleave.js/dist/addons/cleave-phone.ca';
 import debounce from 'lodash/debounce';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useState, useEffect } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useStyles } from 'react-treat';
@@ -41,6 +43,9 @@ import {
 import * as styleRefs from './block-form-vasectomy.treat';
 import { SectionProps } from './section.props';
 import debug from 'debug';
+import { IoAlertCircleOutline } from '@react-icons/all-files/io5/IoAlertCircleOutline';
+import { IoCheckmarkCircle } from '@react-icons/all-files/io5/IoCheckmarkCircle';
+import { API_RESPONSE_STATUS } from '@newrade/core-common';
 
 const log = debug('newrade:vsb-website');
 const logError = log.extend('error');
@@ -107,14 +112,33 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
   const { styles } = useStyles(styleRefs);
   const { cssTheme } = useTreatTheme();
 
+  const [apiStatus, setApiStatus] = useState<'en ligne' | 'hors ligne' | undefined>(undefined);
   const [isSuggestion, setSuggestion] = useState<boolean>(false);
   const [isValueSuggestion, setValueSuggestion] = useState<any>();
 
+  const [apiSuccess, setApiSuccess] = useState<string[]>([]);
   const [apiErrors, setApiErrors] = useState<string[]>([]);
   const [isLoading, setLoading] = useState<boolean>(false);
   const recaptchaRef = React.useRef<any>();
   const resolver = useYupValidationResolver(PatientValidation);
-  const { register, handleSubmit, setError, errors, setValue } = useForm<PatientModel>({ mode: 'onBlur', resolver });
+  const { register, handleSubmit, setError, errors, setValue, reset } = useForm<PatientModel>({
+    mode: 'onBlur',
+    resolver,
+  });
+
+  useEffect(() => {
+    try {
+      fetch(API_STATUS_CLINIKO)
+        .then((response) => response.json())
+        .then((body: PatientAPIResponseBody) => {
+          if (body.status === API_RESPONSE_STATUS.SUCCESS) {
+            setApiStatus('en ligne');
+          }
+        });
+    } catch (error) {
+      setApiStatus('hors ligne');
+    }
+  }, []);
 
   const onSubmit: SubmitHandler<PatientModel> = async (data) => {
     log('submitting');
@@ -139,15 +163,23 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
     })
       .then((response) => response.json())
       .then((result: PatientAPIResponseBody) => {
+        if (result.status === API_RESPONSE_STATUS.SUCCESS) {
+          log('patient was successfully created');
+          setApiSuccess([result.message]);
+          reset();
+          return;
+        }
+
         if (result.errors) {
           result.errors.map((error) => {
-            console.log(error);
+            logError(error);
           });
         }
 
         if (result.payload.yupValidationErrors) {
           result.payload.yupValidationErrors.map((validationError) => {
             if (validationError) {
+              logError(validationError);
               setError(validationError.path as keyof PatientModel, {
                 type: 'manual',
                 message: validationError.message,
@@ -156,13 +188,19 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
           });
         }
 
+        if (result.message) {
+          setApiErrors([result.message]);
+          return;
+        }
+
         setApiErrors([
           ...result.errors.map((error) => error.message),
-          ...result.payload.yupValidationErrors.map((error) => error.errors.join(', ')),
+          ...(result.payload.yupValidationErrors
+            ? result.payload.yupValidationErrors.map((error) => error.errors.join(', '))
+            : []),
         ]);
       })
       .catch((error) => {
-        console.log(error);
         logError(error);
       })
       .finally(() => {
@@ -326,7 +364,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
                   name="medicareExpiryDate"
                   cleaveProps={{
                     htmlRef: register,
-                    options: { date: true, datePattern: ['m', 'Y'], delimiter: '-' },
+                    options: { date: true, datePattern: ['m', 'y'], delimiter: '-' },
                   }}
                   placeholder={'mm-aa'}
                   state={errors.medicareExpiryDate?.message ? 'error' : 'rest'}
@@ -473,7 +511,8 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
             </FormSwitcher>
           </FormStack>
 
-          <InputWrapper>
+          {/* disabled on the form, will be hardcoded to email */}
+          {/* <InputWrapper>
             <InputLabel htmlFor={'reminderType'}>Type de rappel automatisé</InputLabel>
             <InputSelect
               name="reminderType"
@@ -487,7 +526,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
             </InputSelect>
 
             <InputError>{errors.reminderType?.message}</InputError>
-          </InputWrapper>
+          </InputWrapper> */}
 
           <FormStack>
             <ReCAPTCHA
@@ -512,12 +551,53 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
               {isLoading ? 'En cours...' : 'Soumettre la demande'}
             </Button>
 
-            {apiErrors.map((error, index) => {
-              return <div key={index}>{error}</div>;
-            })}
-          </FormStack>
+            {!isLoading ? (
+              <Stack gap={[cssTheme.sizing.var.x3]}>
+                {apiSuccess.map((success, index) => {
+                  return (
+                    <Cluster
+                      key={index}
+                      justifyContent={['flex-start']}
+                      className={`${styles.success}`}
+                      gap={[cssTheme.sizing.var.x2]}
+                    >
+                      <IoCheckmarkCircle className={styles.successIcon} size={30} />
+                      <Paragraph>{success}</Paragraph>
+                    </Cluster>
+                  );
+                })}
+              </Stack>
+            ) : null}
 
-          <Hr></Hr>
+            {!isLoading ? (
+              <Stack gap={[cssTheme.sizing.var.x3]}>
+                {apiErrors.map((error, index) => {
+                  return (
+                    <Cluster
+                      key={index}
+                      justifyContent={['flex-start']}
+                      className={`${styles.error}`}
+                      gap={[cssTheme.sizing.var.x2]}
+                    >
+                      <IoAlertCircleOutline className={styles.errorIcon} size={24} />
+                      <Paragraph>{error}</Paragraph>
+                    </Cluster>
+                  );
+                })}
+              </Stack>
+            ) : null}
+
+            <Cluster
+              justifyContent={['flex-start']}
+              className={`${styles.status} ${apiStatus === 'en ligne' ? styles.statusOnline : styles.statusOffline}`}
+              gap={[cssTheme.sizing.var.x2]}
+            >
+              <div className={styles.statusDot}></div>
+              <Label>système {apiStatus || 'en chargement...'}</Label>
+            </Cluster>
+
+            <Hr></Hr>
+          </FormStack>
 
           <Paragraph>
             <Bold>N.B. :</Bold> Suite à l’ouverture de votre dossier, vous aurez <Bold>deux</Bold> ans pour prendre
