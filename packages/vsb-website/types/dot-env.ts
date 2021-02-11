@@ -25,6 +25,12 @@ export const Env = t.intersection([
     CONTENTFUL_SPACEID_VSB: t.string,
     CONTENTFUL_DELIVERY_TOKEN_VSB: t.string,
   }),
+  t.type({
+    /**
+     * VSB
+     */
+    CANADA_POST_API_KEY_VSB: t.string,
+  }),
 ]);
 
 export type ENV = t.TypeOf<typeof Env>;
