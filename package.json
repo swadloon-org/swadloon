@@ -18,7 +18,7 @@
     }
   },
   "scripts": {
-    "autorelease": ". ./.env && lerna version --conventional-commits --create-release github",
+    "autorelease": ". ./.env && GH_TOKEN=$GH_TOKEN lerna version --conventional-commits --create-release github",
     "build": "lerna run build",
     "build:core": "yarn build --scope @newrade/core-*",
     "build:core:lib": "yarn build --scope @newrade/core-*  --ignore @newrade/core-react-ui-app",
