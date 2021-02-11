@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.1](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/compare/@newrade/core-utils@1.5.0...@newrade/core-utils@1.5.1) (2021-02-11)
+
+**Note:** Version bump only for package @newrade/core-utils
+
 # [1.5.0](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/compare/@newrade/core-utils@1.4.0...@newrade/core-utils@1.5.0) (2021-02-03)
 
 ### Bug Fixes

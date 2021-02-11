@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/newrade/newrade-core/tree/master/packages/vsb-api/compare/@newrade/vsb-api@1.1.0...@newrade/vsb-api@1.2.0) (2021-02-11)
+
+### Bug Fixes
+
+- **vsb-website:** refactor patient validation ([77180b5](https://github.com/newrade/newrade-core/tree/master/packages/vsb-api/commit/77180b59ed02a90ff8bbaeece51fc1bf78a82287))
+
+### Features
+
+- **vsb-website:** wip for mapper ([679002a](https://github.com/newrade/newrade-core/tree/master/packages/vsb-api/commit/679002ab9d8cbdb5ba4b489693b8406b2b91dd06))
+
 # 1.1.0 (2021-02-03)
 
 ### Bug Fixes

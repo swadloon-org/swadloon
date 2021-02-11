@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/vsb-website@1.7.0...@newrade/vsb-website@1.8.0) (2021-02-11)
+
+### Bug Fixes
+
+- **core-gatsby-ui:** refactor navigation ([07fad4c](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/07fad4c05c61edc455259cc2c43e369ed9974b90))
+- **core-react-ui:** fixes for markdown ([266fbbb](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/266fbbb935129dad6fd85d2d70ed108e9ae3d58b))
+- **newrade-website:** fix data ([7a3f1c4](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/7a3f1c46d8aad82c7884a506773c1f447bc95284))
+- **vsb-website:** fix contact section ([19c9194](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/19c91949d150d3449a9d5e2786d69aacba2acea4))
+- **vsb-website:** refactor patient validation ([77180b5](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/77180b59ed02a90ff8bbaeece51fc1bf78a82287))
+- **websites:** fix config for fragments ([2e0b9f7](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/2e0b9f7524461bc944dd50908b6250de540269d9))
+- **websites:** fixes for stability ([f398587](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/f3985874c00b07e7455bdff5027820f7dfd38689))
+
+### Features
+
+- **address-complete-merge:** adding the validation and handler of the address complete in the block ([431ce68](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/431ce68f24d2ce5a14d53cce40a7be104868fa27))
+- **core-react-ui:** fix design system pages ([062d175](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/062d175e705eeecd8dd00a4bb95d4240c556f6b9))
+- **debounce-input:** adding the input debounce and return item from address service ([e22ffd6](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/e22ffd63412fc7880cd0c1384623b074b3d4ddd1))
+- **vsb-website:** cleanup sections ([e98250c](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/e98250ceef2a763a555e369a1f7899996cc3d99d))
+- **vsb-website:** implement forms ([d22143f](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/d22143f076e06b28d0d6f39be66a8531f57fa677))
+- **vsb-website:** wip for mapper ([679002a](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/679002ab9d8cbdb5ba4b489693b8406b2b91dd06))
+
 # [1.7.0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/vsb-website@1.6.0...@newrade/vsb-website@1.7.0) (2021-02-03)
 
 ### Bug Fixes

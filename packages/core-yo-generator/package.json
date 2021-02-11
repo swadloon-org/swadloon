@@ -1,6 +1,6 @@
 {
   "name": "@newrade/core-yo-generator",
-  "version": "1.4.5",
+  "version": "1.4.6",
   "description": "Yeoman generators to scafold libraries, apps, components and more.",
   "author": {
     "email": "info@newrade.ca",
@@ -21,8 +21,8 @@
   },
   "dependencies": {
     "@newrade/core-common": "^1.1.0",
-    "@newrade/core-types": "^1.1.0",
-    "@newrade/core-utils": "^1.5.0",
+    "@newrade/core-types": "^1.2.0",
+    "@newrade/core-utils": "^1.5.1",
     "case": "^1.6.2",
     "inquirer": "^7.0.0",
     "yeoman-assert": "^3.1.1",

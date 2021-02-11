@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/newrade/newrade/compare/@newrade/vsb-common@1.1.0...@newrade/vsb-common@1.2.0) (2021-02-11)
+
+### Bug Fixes
+
+- **vsb-website:** refactor patient validation ([77180b5](https://github.com/newrade/newrade/commit/77180b59ed02a90ff8bbaeece51fc1bf78a82287))
+
+### Features
+
+- **vsb-website:** implement forms ([d22143f](https://github.com/newrade/newrade/commit/d22143f076e06b28d0d6f39be66a8531f57fa677))
+- **vsb-website:** wip for mapper ([679002a](https://github.com/newrade/newrade/commit/679002ab9d8cbdb5ba4b489693b8406b2b91dd06))
+
 # 1.1.0 (2021-02-03)
 
 ### Bug Fixes

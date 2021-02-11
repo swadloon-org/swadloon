@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.1](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-cli@1.5.0...@newrade/core-cli@1.5.1) (2021-02-11)
+
+### Bug Fixes
+
+- **deep-scan-fixes:** fixing medium issues ([ae016c5](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/ae016c53a192df6cfdb33f3c59da987870282b07))
+
 # [1.5.0](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-cli@1.4.1...@newrade/core-cli@1.5.0) (2021-02-03)
 
 ### Bug Fixes

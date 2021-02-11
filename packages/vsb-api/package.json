@@ -1,6 +1,6 @@
 {
   "name": "@newrade/vsb-api",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "API for the vsb website",
   "author": {
     "email": "info@newrade.ca",
@@ -28,6 +28,6 @@
     "@newrade/core-types": "^1.1.0",
     "@newrade/core-utils": "^1.5.0",
     "@newrade/core-webpack-config": "^1.4.0",
-    "@newrade/vsb-common": "^1.1.0"
+    "@newrade/vsb-common": "^1.2.0"
   }
 }

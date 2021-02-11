@@ -1,6 +1,6 @@
 {
   "name": "@newrade/newrade-admin",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Internal tools",
   "author": {
     "email": "info@newrade.ca",
@@ -24,7 +24,7 @@
   "dependencies": {
     "@google/clasp": "^2.3.0",
     "@newrade/core-common": "^1.1.0",
-    "@newrade/core-types": "^1.1.0",
-    "@newrade/core-utils": "^1.5.0"
+    "@newrade/core-types": "^1.2.0",
+    "@newrade/core-utils": "^1.5.1"
   }
 }

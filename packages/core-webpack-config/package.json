@@ -1,6 +1,6 @@
 {
   "name": "@newrade/core-webpack-config",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Reusable webpack configuration files",
   "license": "MIT",
   "main": "./lib/index.js",
@@ -19,8 +19,8 @@
   "typings": "./lib/index.d.ts",
   "dependencies": {
     "@newrade/core-common": "^1.1.0",
-    "@newrade/core-jest-config": "^1.5.2",
-    "@newrade/core-types": "^1.1.0",
-    "@newrade/core-utils": "^1.5.0"
+    "@newrade/core-jest-config": "^1.5.3",
+    "@newrade/core-types": "^1.2.0",
+    "@newrade/core-utils": "^1.5.1"
   }
 }
