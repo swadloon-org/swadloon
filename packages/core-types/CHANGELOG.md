@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/newrade/newrade-core/tree/master/packages/core-common/compare/@newrade/core-types@1.1.0...@newrade/core-types@1.2.0) (2021-02-11)
+
+### Features
+
+- **core-react-ui:** fix design system pages ([062d175](https://github.com/newrade/newrade-core/tree/master/packages/core-common/commit/062d175e705eeecd8dd00a4bb95d4240c556f6b9))
+
 # 1.1.0 (2021-02-03)
 
 ### Bug Fixes
