@@ -21,25 +21,14 @@ const env = loadDotEnv<ENV>({
 export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions;
   /**
-   * Page rdirection
+   * Page redirections
    */
-  // createRedirect({ fromPath: '/employeur-en-personnel-specialise/', toPath: '/employeurs/', isPermanent: true });
-  // createRedirect({ fromPath: '/division-secteur-industriel/', toPath: '/employeurs/', isPermanent: true });
-  // createRedirect({ fromPath: '/division-entreprises-de-services/', toPath: '/employeurs/', isPermanent: true });
-  // createRedirect({ fromPath: '/division-construction/', toPath: '/employeurs/', isPermanent: true });
-  // createRedirect({
-  //   fromPath: '/candidats-recrutement-personnel-specialise/',
-  //   toPath: '/candidats/',
-  //   isPermanent: true,
-  // });
-  // createRedirect({
-  //   fromPath: '/coordonnees/',
-  //   toPath: '/nous-joindre/',
-  //   isPermanent: true,
-  // });
+  createRedirect({ fromPath: '/boucher.php', toPath: '/equipe/', isPermanent: true });
+  createRedirect({ fromPath: '/boucher', toPath: '/equipe/', isPermanent: true });
+  createRedirect({ fromPath: '/plan.php', toPath: '/equipe/', isPermanent: true });
+  createRedirect({ fromPath: '/plan', toPath: '/equipe/', isPermanent: true });
   /**
    * /plan.php
-   * /boucher.php
    * /consultation.php
    * /couts.php
    * /spermogramme.php
