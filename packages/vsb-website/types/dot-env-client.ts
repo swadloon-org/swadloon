@@ -1,7 +1,7 @@
-import { DEPLOY_ENV } from '@newrade/core-common';
+import { DEPLOY_ENV, NODE_ENV as NODE_ENV_TYPE } from '@newrade/core-common';
 
 export type CLIENT_ENV = {
-  NODE_ENV: 'production' | 'development';
+  NODE_ENV: NODE_ENV_TYPE;
   NODE_VERSION: string;
   APP_ENV: DEPLOY_ENV;
   APP_VERSION: string;

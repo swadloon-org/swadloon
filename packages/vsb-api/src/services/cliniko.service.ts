@@ -1,4 +1,5 @@
 import { AppError, ERROR_TYPE } from '@newrade/core-common/';
+import { PatientAPIResponseBody } from '@newrade/vsb-common';
 import fetch from 'node-fetch';
 import { env } from '../../types/dot-env';
 
@@ -16,7 +17,7 @@ export async function fetchCliniko<Payload extends object>({
   method: 'POST';
   route: 'patients';
   payload: Payload;
-}) {
+}): Promise<PatientAPIResponseBody> {
   const response = await fetch(`https://api.` + `${env.API_VSB_SHARD_ID}.cliniko.com/v1/${route}/`, {
     method,
     headers: {
