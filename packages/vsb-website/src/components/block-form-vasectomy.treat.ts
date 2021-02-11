@@ -21,8 +21,8 @@ export const styles = {
     color: cssTheme.colors.colorIntents.warningAction,
   })),
   statusDot: style(({ theme, cssTheme }: Theme) => ({
-    width: 10,
-    height: 10,
+    width: `10px`,
+    height: `10px`,
     borderRadius: `50%`,
     backgroundColor: `currentColor`,
     boxShadow: `0 0 2px 0 currentColor`,

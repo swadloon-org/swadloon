@@ -4,7 +4,7 @@ import { IoStarHalf } from '@react-icons/all-files/io5/IoStarHalf';
 import { title } from 'case';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { LABEL_SIZE, LinkIcon, LinkVariant, PARAGRAPH_SIZE } from '../../../core-design-system/src';
+import { LABEL_SIZE, LinkIcon, LinkVariant, PARAGRAPH_SIZE } from '@newrade/core-design-system';
 import { useTreatTheme } from '../hooks/use-treat-theme';
 import { Stack } from '../layout/stack';
 import { CommonComponentProps } from '../props/component-common.props';

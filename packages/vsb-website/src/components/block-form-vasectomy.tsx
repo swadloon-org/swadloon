@@ -1,7 +1,9 @@
+import { API_RESPONSE_STATUS } from '@newrade/core-common';
 import { ButtonSize, ButtonVariant } from '@newrade/core-design-system';
 import {
   Bold,
   Button,
+  Cluster,
   CommonComponentProps,
   Form,
   Hr,
@@ -10,24 +12,26 @@ import {
   InputSelect,
   InputText,
   InputWrapper,
+  Label,
   Paragraph,
   Stack,
   Switcher,
   useTreatTheme,
-  Label,
-  Cluster,
 } from '@newrade/core-react-ui';
 import {
+  API_REGISTER_PATIENT_ROUTE,
+  API_STATUS_CLINIKO,
   CLINIKO_PHONE_TYPE,
   PatientAPIResponseBody,
   PatientModel,
   PatientValidation,
-  API_REGISTER_PATIENT_ROUTE,
-  API_STATUS_CLINIKO,
 } from '@newrade/vsb-common';
+import { IoAlertCircleOutline } from '@react-icons/all-files/io5/IoAlertCircleOutline';
+import { IoCheckmarkCircle } from '@react-icons/all-files/io5/IoCheckmarkCircle';
 import 'cleave.js/dist/addons/cleave-phone.ca';
+import debug from 'debug';
 import debounce from 'lodash/debounce';
-import React, { useCallback, useState, useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useStyles } from 'react-treat';
@@ -42,10 +46,6 @@ import {
 } from '../services/address.service';
 import * as styleRefs from './block-form-vasectomy.treat';
 import { SectionProps } from './section.props';
-import debug from 'debug';
-import { IoAlertCircleOutline } from '@react-icons/all-files/io5/IoAlertCircleOutline';
-import { IoCheckmarkCircle } from '@react-icons/all-files/io5/IoCheckmarkCircle';
-import { API_RESPONSE_STATUS } from '@newrade/core-common';
 
 const log = debug('newrade:vsb-website');
 const logError = log.extend('error');
@@ -128,15 +128,27 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
 
   useEffect(() => {
     try {
-      fetch(API_STATUS_CLINIKO)
-        .then((response) => response.json())
-        .then((body: PatientAPIResponseBody) => {
-          if (body.status === API_RESPONSE_STATUS.SUCCESS) {
-            setApiStatus('en ligne');
-          }
-        });
+      log('checking for api status');
+
+      const interval = window.setInterval(() => {
+        fetch(API_STATUS_CLINIKO)
+          .then((response) => response.json())
+          .then((body: PatientAPIResponseBody) => {
+            if (body.status === API_RESPONSE_STATUS.SUCCESS) {
+              setApiStatus('en ligne');
+            }
+          })
+          .catch((error) => {
+            setApiStatus('hors ligne');
+            logError('api offline');
+          });
+      }, 15000);
+      return () => {
+        window.clearInterval(interval);
+      };
     } catch (error) {
       setApiStatus('hors ligne');
+      logError('api offline');
     }
   }, []);
 

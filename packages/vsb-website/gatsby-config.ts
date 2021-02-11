@@ -80,7 +80,6 @@ const config: core.GastbySiteConfig = {
     core.getGastbyPluginTreatConfig(),
     core.getGatsbyTransformerSharp(),
     core.getGatsbyPluginSharp(),
-    core.getGastbyPluginTreatConfig(),
     ...core.getGatsbyPluginMdx(),
     ...core.getGatsbyImageFolder({
       pathImgDir: path.join(__dirname, `/src/images`),
