@@ -25,15 +25,32 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
    */
   createRedirect({ fromPath: '/boucher.php', toPath: '/equipe/', isPermanent: true });
   createRedirect({ fromPath: '/boucher', toPath: '/equipe/', isPermanent: true });
-  createRedirect({ fromPath: '/plan.php', toPath: '/equipe/', isPermanent: true });
-  createRedirect({ fromPath: '/plan', toPath: '/equipe/', isPermanent: true });
-  /**
-   * /plan.php
-   * /consultation.php
-   * /couts.php
-   * /spermogramme.php
-   * /joindre.php
-   */
+  createRedirect({ fromPath: '/plan.php', toPath: '/', isPermanent: true });
+  createRedirect({ fromPath: '/plan', toPath: '/', isPermanent: true });
+  createRedirect({ fromPath: '/consultation.php', toPath: '/vasectomie/', isPermanent: true });
+  createRedirect({ fromPath: '/consultation', toPath: '/vasectomie/', isPermanent: true });
+  createRedirect({ fromPath: '/vasectomie.php', toPath: '/vasectomie/', isPermanent: true });
+  createRedirect({ fromPath: '/vasectomie', toPath: '/vasectomie/', isPermanent: true });
+  createRedirect({ fromPath: '/couts.php', toPath: '/vasectomie/', isPermanent: true });
+  createRedirect({ fromPath: '/couts', toPath: '/vasectomie/', isPermanent: true });
+  createRedirect({ fromPath: '/spermogramme.php', toPath: '/vasectomie/', isPermanent: true });
+  createRedirect({ fromPath: '/spermogramme', toPath: '/vasectomie/', isPermanent: true });
+  createRedirect({ fromPath: '/etapes.php', toPath: '/vasectomie/', isPermanent: true });
+  createRedirect({ fromPath: '/etapes', toPath: '/vasectomie/', isPermanent: true });
+  createRedirect({ fromPath: '/meac.php', toPath: '/examen-pour-transport-canada/', isPermanent: true });
+  createRedirect({ fromPath: '/meac', toPath: '/examen-pour-transport-canada/', isPermanent: true });
+  createRedirect({
+    fromPath: '/media/pdf/depliant-preparatoire-vasectomie.pdf',
+    toPath: '/vasectomie/',
+    isPermanent: true,
+  });
+  createRedirect({
+    fromPath: '/media/pdf/carton-informations-vasectomie.pdf',
+    toPath: '/vasectomie/',
+    isPermanent: true,
+  });
+  createRedirect({ fromPath: '/joindre.php', toPath: '/contact/', isPermanent: true });
+  createRedirect({ fromPath: '/joindre', toPath: '/contact/', isPermanent: true });
 };
 
 export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({ plugins, actions }) => {
