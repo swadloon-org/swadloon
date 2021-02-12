@@ -60,6 +60,7 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({ plu
     APP_ENV: JSON.stringify(env.APP_ENV),
     APP_VERSION: JSON.stringify(packageJson.version),
     CANADA_POST_API_KEY_VSB: JSON.stringify(env.CANADA_POST_API_KEY_VSB),
+    RECAPTCHA_SITE_KEY_VSB: JSON.stringify(env.RECAPTCHA_SITE_KEY_VSB),
   } as CLIENT_ENV;
   actions.setWebpackConfig({
     plugins: [plugins.define(clientEnv)],

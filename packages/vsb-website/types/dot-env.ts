@@ -30,6 +30,7 @@ export const Env = t.intersection([
      * VSB
      */
     CANADA_POST_API_KEY_VSB: t.string,
+    RECAPTCHA_SITE_KEY_VSB: t.string,
   }),
 ]);
 
