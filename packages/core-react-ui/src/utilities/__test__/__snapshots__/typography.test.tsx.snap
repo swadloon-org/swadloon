@@ -183,6 +183,32 @@ Object {
 }
 `;
 
+exports[`colors utilities getCSSTextStyles should retrieve valid text styles 1`] = `
+Object {
+  "::after": Object {
+    "content": "''",
+    "display": "block",
+    "height": 0,
+    "marginBottom": "-0.1975em",
+  },
+  "::before": Object {
+    "content": "''",
+    "display": "block",
+    "height": 0,
+    "marginTop": "-0.1702em",
+  },
+  "fontFamily": "Roboto,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,\\"Segoe UI\\",Roboto,\\"Helvetica Neue\\",Arial,\\"Noto Sans\\",sans-serif,\\"Apple Color Emoji\\",\\"Segoe UI Emoji\\",\\"Segoe UI Symbol\\",\\"Noto Color Emoji\\"",
+  "fontSize": "49.2308px",
+  "fontStyle": undefined,
+  "fontWeight": 600,
+  "letterSpacing": "0px",
+  "lineHeight": "53px",
+  "padding": "0.05px 0",
+  "textDecoration": undefined,
+  "textTransform": undefined,
+}
+`;
+
 exports[`colors utilities getCSSTypography should create a valid CSS typography object 1`] = `
 Object {
   "fonts": Object {

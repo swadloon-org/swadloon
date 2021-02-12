@@ -12,7 +12,7 @@ import {
   InputSelect,
   InputText,
   InputWrapper,
-  Label,
+  OnlineIndicator,
   Paragraph,
   Stack,
   Switcher,
@@ -129,19 +129,10 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
   useEffect(() => {
     try {
       log('checking for api status');
+      checkApiStatus();
 
       const interval = window.setInterval(() => {
-        fetch(API_STATUS_CLINIKO)
-          .then((response) => response.json())
-          .then((body: PatientAPIResponseBody) => {
-            if (body.status === API_RESPONSE_STATUS.SUCCESS) {
-              setApiStatus('en ligne');
-            }
-          })
-          .catch((error) => {
-            setApiStatus('hors ligne');
-            logError('api offline');
-          });
+        checkApiStatus();
       }, 15000);
       return () => {
         window.clearInterval(interval);
@@ -151,6 +142,20 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
       logError('api offline');
     }
   }, []);
+
+  function checkApiStatus() {
+    fetch(API_STATUS_CLINIKO)
+      .then((response) => response.json())
+      .then((body: PatientAPIResponseBody) => {
+        if (body.status === API_RESPONSE_STATUS.SUCCESS) {
+          setApiStatus('en ligne');
+        }
+      })
+      .catch((error) => {
+        setApiStatus('hors ligne');
+        logError('api offline');
+      });
+  }
 
   const onSubmit: SubmitHandler<PatientModel> = async (data) => {
     log('submitting');
@@ -599,14 +604,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
               </Stack>
             ) : null}
 
-            <Cluster
-              justifyContent={['flex-start']}
-              className={`${styles.status} ${apiStatus === 'en ligne' ? styles.statusOnline : styles.statusOffline}`}
-              gap={[cssTheme.sizing.var.x2]}
-            >
-              <div className={styles.statusDot}></div>
-              <Label>système {apiStatus || 'en chargement...'}</Label>
-            </Cluster>
+            <OnlineIndicator>système {apiStatus || 'en chargement...'}</OnlineIndicator>
 
             <Hr></Hr>
           </FormStack>

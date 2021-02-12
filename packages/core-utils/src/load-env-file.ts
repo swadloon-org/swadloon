@@ -4,8 +4,8 @@ import debug from 'debug';
 import * as dotenv from 'dotenv';
 import * as t from 'io-ts';
 import path from 'path';
-import { COMMON_ENV } from './common-env';
-import { PathReporter } from './io-ts/reporter';
+import { CommonEnvType } from './common-env';
+import { PathReporter } from './reporter';
 
 const log = debug('newrade:env');
 
@@ -20,7 +20,7 @@ const log = debug('newrade:env');
  * @see https://github.com/motdotla/dotenv#readme
  * @see https://github.com/gcanti/io-ts/blob/master/index.md
  */
-export function loadDotEnv<ENV = COMMON_ENV>({
+export function loadDotEnv<ENV = CommonEnvType>({
   schema,
   dotEnvPath,
   dotEnvRootPath = path.resolve(__dirname, '..', '..', '..', '.env'),

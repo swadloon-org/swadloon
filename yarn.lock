@@ -17862,6 +17862,14 @@ jest-pnp-resolver@^1.2.1, jest-pnp-resolver@^1.2.2:
   resolved "https://registry.yarnpkg.com/jest-pnp-resolver/-/jest-pnp-resolver-1.2.2.tgz#b704ac0ae028a89108a4d040b3f919dfddc8e33c"
   integrity sha512-olV41bKSMm8BdnuMsewT4jqlZ8+3TCARAXjZGT9jcoSnrfUnRCqnMoF9XEeoWjbzObpqF9dRhHQj0Xb9QdF6/w==
 
+jest-puppeteer@^4.4.0:
+  version "4.4.0"
+  resolved "https://registry.npmjs.org/jest-puppeteer/-/jest-puppeteer-4.4.0.tgz#4b906e638a5e3782ed865e7b673c82047b85952e"
+  integrity sha512-ZaiCTlPZ07B9HW0erAWNX6cyzBqbXMM7d2ugai4epBDKpKvRDpItlRQC6XjERoJELKZsPziFGS0OhhUvTvQAXA==
+  dependencies:
+    expect-puppeteer "^4.4.0"
+    jest-environment-puppeteer "^4.4.0"
+
 jest-regex-util@^24.3.0, jest-regex-util@^24.9.0:
   version "24.9.0"
   resolved "https://registry.yarnpkg.com/jest-regex-util/-/jest-regex-util-24.9.0.tgz#c13fb3380bde22bf6575432c493ea8fe37965636"
@@ -23432,6 +23440,22 @@ puppeteer@^3.3.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/puppeteer/-/puppeteer-3.3.0.tgz#95839af9fdc0aa4de7e5ee073a4c0adeb9e2d3d7"
   integrity sha512-23zNqRltZ1PPoK28uRefWJ/zKb5Jhnzbbwbpcna2o5+QMn17F0khq5s1bdH3vPlyj+J36pubccR8wiNA/VE0Vw==
+  dependencies:
+    debug "^4.1.0"
+    extract-zip "^2.0.0"
+    https-proxy-agent "^4.0.0"
+    mime "^2.0.3"
+    progress "^2.0.1"
+    proxy-from-env "^1.0.0"
+    rimraf "^3.0.2"
+    tar-fs "^2.0.0"
+    unbzip2-stream "^1.3.3"
+    ws "^7.2.3"
+
+puppeteer@~3.1.0:
+  version "3.1.0"
+  resolved "https://registry.npmjs.org/puppeteer/-/puppeteer-3.1.0.tgz#d44efdc5410809025f38bca2de106c3ae5c85a52"
+  integrity sha512-jLa9sqdVx0tPnr2FcwAq+8DSjGhSM4YpkwOf3JE22Ycyqm71SW7B5uGfTyMGFoLCmbCozbLZclCjasPb0flTRw==
   dependencies:
     debug "^4.1.0"
     extract-zip "^2.0.0"

@@ -1,5 +1,5 @@
 import { DEPLOY_ENV } from '@newrade/core-common';
-import { COMMON_ENV } from '@newrade/core-utils';
+import { CommonEnvType } from '@newrade/core-utils';
 import {
   es6BabelLoader,
   getBundleVisualizerPlugin,
@@ -18,7 +18,7 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
   options
 ) => {
   const pluginOptions = (options as unknown) as GatsbyCorePluginOptions;
-  const env = process.env as COMMON_ENV;
+  const env = process.env as CommonEnvType;
   const isProduction = stage !== `develop`;
 
   if (stage !== `build-javascript`) {
