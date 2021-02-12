@@ -245,7 +245,7 @@
     "prettier": "^2.0.5",
     "puppeteer": "~3.1.0",
     "react-cache": "^2.0.0-alpha.1",
-    "react-intersection-observer": "^8.29.0",
+    "react-intersection-observer": "^8.31.0",
     "regex-escape": "^3.4.10",
     "rehype-autolink-headings": "^5.0.1",
     "rehype-slug": "^4.0.1",
