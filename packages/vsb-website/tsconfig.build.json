@@ -3,6 +3,7 @@
   "compilerOptions": {
     "allowJs": true,
     "rootDir": ".",
+    "types": ["node", "react", "jest"],
     "module": "commonjs",
     "target": "es6"
   },

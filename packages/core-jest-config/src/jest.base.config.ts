@@ -22,6 +22,7 @@ export const baseJestConfig: jest.InitialOptions = {
   testPathIgnorePatterns: [
     '<rootDir>/node_modules/',
     '<rootDir>/dist/',
+    '<rootDir>/lib/',
     '(\\.js\\.map)$',
     '.snap',
     '<rootDir>/package.json',
@@ -29,6 +30,7 @@ export const baseJestConfig: jest.InitialOptions = {
   watchPathIgnorePatterns: [
     '<rootDir>/node_modules/',
     '<rootDir>/dist/',
+    '<rootDir>/lib/',
     '(\\.js\\.map)$',
     '.snap',
     '<rootDir>/package.json',

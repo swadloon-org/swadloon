@@ -5,11 +5,9 @@
     "typescript.tsdk": "newrade/node_modules/typescript/lib",
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "[typescript]": {
-      "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true,
-        "source.organizeImports": true
-      }
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true,
+      "source.organizeImports": true
     },
     "[yaml]": {
       "editor.formatOnSave": false

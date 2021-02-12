@@ -89,8 +89,8 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
                 {lorenipsum}
               </ListItem>
 
-              <ListItem variantIcon={'icon'} Icon={<IoMailOutline />} variantSize={PARAGRAPH_SIZE.medium}>
-                {lorenipsum}
+              <ListItem variantSize={PARAGRAPH_SIZE.medium}>
+                {lorenipsum} <br /> {lorenipsum}
               </ListItem>
 
               <ListItem variantIcon={'icon'} Icon={<IoMailOutline />}>

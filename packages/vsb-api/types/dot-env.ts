@@ -1,4 +1,4 @@
-import { CommonEnvGatsby, loadDotEnv, logEnvVariables } from '@newrade/core-utils';
+import { loadDotEnv, logEnvVariables, CommonEnv } from '@newrade/core-utils';
 import * as t from 'io-ts';
 import path from 'path';
 
@@ -6,7 +6,7 @@ import path from 'path';
  * Local, typed representation of the .env file.
  */
 const Env = t.intersection([
-  CommonEnvGatsby,
+  CommonEnv,
   t.type({
     /**
      * cliniko variables

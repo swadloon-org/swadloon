@@ -22,7 +22,7 @@
     "serve": ". ./.env && NODE_ENV=production gatsby serve --port=$APP_PORT",
     "start": ". ./.env && DEBUG=$DEBUG gatsby develop -p $APP_PORT -H 0.0.0.0",
     "test": "echo \"Wrtps://gatsby.dev/unit-testing\"",
-    "test:e2e": "echo \"Wrtps://gatsby.dev/unit-testing\"",
+    "test:e2e": ". ./.env && DEBUG=$DEBUG jest --config jest-e2e.config.js",
     "typecheck": "yarn typecheck:build --watch --preserveWatchOutput",
     "typecheck:build": "tsc --project tsconfig.build.json --noEmit"
   },
