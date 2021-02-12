@@ -37,22 +37,24 @@ export const SectionFormVasectomy: React.FC<Props> = ({ id, style, className, se
         alignItems={['flex-start']}
         padding={[`calc(${cssTheme.layout.var.navbarHeight} + ${cssTheme.sizing.var.x6})`, cssTheme.sizing.var.x6, 0]}
       >
-        <BlockMarkdown style={{ maxWidth: 800 }}>{subSections?.[0]?.text?.childMdx?.body}</BlockMarkdown>
+        <Stack gap={[cssTheme.sizing.var.x5]}>
+          <BlockMarkdown style={{ maxWidth: 800 }}>{subSections?.[0]?.text?.childMdx?.body}</BlockMarkdown>
 
-        {/* {!isSSR ? (
-          <iframe
-            width="100%"
-            height="auto"
-            style={{
-              width: '100%',
-              height: 'max(400px, 30vh)',
-            }}
-            src="https://www.youtube-nocookie.com/embed/4DDfO2NdGE0"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
-        ) : null} */}
+          {!isSSR ? (
+            <iframe
+              width="100%"
+              height="auto"
+              style={{
+                width: '100%',
+                height: 'max(400px, 30vh)',
+              }}
+              src="https://www.youtube-nocookie.com/embed/TUOOuijeyZA"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          ) : null}
+        </Stack>
       </BoxV2>
     </Section>
   );

@@ -604,7 +604,9 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
               </Stack>
             ) : null}
 
-            <OnlineIndicator>système {apiStatus || 'en chargement...'}</OnlineIndicator>
+            <OnlineIndicator status={apiStatus === 'en ligne' ? 'online' : 'offline'}>
+              système {apiStatus || 'en chargement...'}
+            </OnlineIndicator>
 
             <Hr></Hr>
           </FormStack>

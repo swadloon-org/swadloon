@@ -61,7 +61,7 @@ export const ListItem: React.FC<Props> = React.memo(
         preserveAspectRatio: `xMinYMin meet`,
       })
     ) : (
-      <BsDot className={styles.bulletIcon} />
+      <BsDot className={styles.bulletIcon} size={'1.4em'} preserveAspectRatio={`xMinYMin meet`} />
     );
 
     /**
