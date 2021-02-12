@@ -2,6 +2,7 @@ import 'expect-puppeteer';
 import puppeteer, { Browser, Page } from 'puppeteer';
 import { puppeteerConfig } from '../puppeteer.config';
 import { HomePage } from '../pages/home.page';
+import { getElementText } from '../utilities';
 
 describe('in the navigation test suite', () => {
   let page: Page;
@@ -20,6 +21,16 @@ describe('in the navigation test suite', () => {
     });
 
     await expect(footer).toBeTruthy();
+  });
+
+  it('should have a form page with a submit button', async () => {
+    await page.goto(`${puppeteerConfig.appURL}/formulaire-vasectomie/`);
+    const buttonSubmit = await page.waitFor(`button[type="submit"]`, {
+      visible: true,
+    });
+    await expect(buttonSubmit).toBeTruthy();
+    const buttonText = await getElementText({ page, selector: `button[type="submit"]` });
+    await expect(buttonText.join(' ')).toMatch(/soumettre/gi);
   });
 
   afterAll(async () => {
