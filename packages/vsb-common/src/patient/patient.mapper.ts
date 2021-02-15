@@ -1,5 +1,6 @@
-import { formatISO } from 'date-fns';
-import { PatientModel, PatientClinikoModel } from './patient.model';
+import { formatISO, parseISO } from 'date-fns';
+import { CLINIKO_REMINDER_TYPE } from './patient.constant';
+import { PatientClinikoModel, PatientModel } from './patient.model';
 
 export function getPatientClinikoModel(patientModel: PatientModel): PatientClinikoModel {
   return {
@@ -7,7 +8,7 @@ export function getPatientClinikoModel(patientModel: PatientModel): PatientClini
     last_name: patientModel.lastName,
     date_of_birth:
       typeof patientModel.dateOfBirth === 'string'
-        ? patientModel.dateOfBirth
+        ? formatISO(parseISO(patientModel.dateOfBirth), { representation: 'date' })
         : formatISO(patientModel.dateOfBirth, { representation: 'date' }),
     medicare: patientModel.medicare,
     email: patientModel.email,
@@ -18,6 +19,7 @@ export function getPatientClinikoModel(patientModel: PatientModel): PatientClini
     state: patientModel.state,
     post_code: patientModel.postCode,
     country: patientModel.country,
-    reminder_type: patientModel.reminderType,
+    /** disabled on the form, will be hardcoded to email */
+    reminder_type: CLINIKO_REMINDER_TYPE.EMAIL,
   };
 }

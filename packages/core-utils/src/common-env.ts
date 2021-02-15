@@ -1,23 +1,17 @@
-import { DEPLOY_ENV, NODE_ENV } from '@newrade/core-common';
 import * as t from 'io-ts';
+import { NODE_ENV, DEPLOY_ENV } from '@newrade/core-common';
 
+// TODO: importing node env does not work
+const NodeEnv = t.keyof({
+  [NODE_ENV.DEVELOPMENT]: NODE_ENV.DEVELOPMENT,
+  [NODE_ENV.TEST]: NODE_ENV.TEST,
+  [NODE_ENV.PRODUCTION]: NODE_ENV.PRODUCTION,
+});
 const DeployEnv = t.keyof({
   [DEPLOY_ENV.LOCAL]: DEPLOY_ENV.LOCAL,
   [DEPLOY_ENV.DEV]: DEPLOY_ENV.DEV,
   [DEPLOY_ENV.STAGING]: DEPLOY_ENV.STAGING,
   [DEPLOY_ENV.PRODUCTION]: DEPLOY_ENV.PRODUCTION,
-});
-
-export type DeployEnv = t.TypeOf<typeof DeployEnv>;
-
-const NodeEnv = t.keyof({
-  [NODE_ENV.DEVELOPMENT]: NODE_ENV.DEVELOPMENT,
-  [NODE_ENV.PRODUCTION]: NODE_ENV.PRODUCTION,
-});
-
-const TextBoolean = t.keyof({
-  true: 'true',
-  false: 'false',
 });
 
 /**
@@ -79,31 +73,4 @@ export const CommonEnv = t.type({
   APP_PORT: t.string,
 });
 
-export type COMMON_ENV = t.TypeOf<typeof CommonEnv>;
-
-/**
- * Typed representation of the .env file for Gatsby sites.
- */
-export const CommonEnvGatsby = t.intersection([
-  CommonEnv,
-  t.partial({
-    /**
-     * Custom variable to enable Gatsby Cloud's incremental build.
-     * @see https://www.gatsbyjs.com/blog/2020-04-22-announcing-incremental-builds/
-     */
-    GATSBY_ENABLE_INCREMENTAL_BUILD: TextBoolean,
-    /**
-     * @see https://github.com/gatsbyjs/gatsby/blob/master/docs/docs/reference/release-notes/v2.28/index.md
-     */
-    GATSBY_PRESERVE_WEBPACK_CACHE: TextBoolean,
-    GATSBY_PRESERVE_FILE_DOWNLOAD_CACHE: TextBoolean,
-    GATSBY_QUERY_ON_DEMAND: TextBoolean,
-    GATSBY_LAZY_IMAGES: TextBoolean,
-    GATSBY_PARALLEL_SOURCING: TextBoolean,
-    GATSBY_DEV_SSR: TextBoolean,
-    GATSBY_FAST_DEV: TextBoolean,
-    GATSBY_FAST_REFRESH: TextBoolean,
-  }),
-]);
-
-export type COMMON_ENV_GATSBY = t.TypeOf<typeof CommonEnvGatsby>;
+export type CommonEnvType = t.TypeOf<typeof CommonEnv>;

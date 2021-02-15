@@ -3,7 +3,7 @@ import { BoxV2, CommonComponentProps, Heading, Label, ListItem, Stack, useTreatT
 import React from 'react';
 import { isIOS } from 'react-device-detect';
 import { useStyles } from 'react-treat';
-import { PARAGRAPH_SIZE, TEXT_LEVEL } from '../../../core-design-system/src';
+import { PARAGRAPH_SIZE, TEXT_LEVEL } from '@newrade/core-design-system';
 import { SectionFragment } from '../../types/graphql-types';
 import * as styleRefs from './section-steps.treat';
 import { SectionProps } from './section.props';

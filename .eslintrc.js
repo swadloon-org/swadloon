@@ -57,7 +57,7 @@ module.exports = {
     'jsx-a11y/label-has-associated-control': 'off',
     'jsx-a11y/label-has-for': 'off',
     'jsx-a11y/no-autofocus': 'off',
-    'no-console': 'warn',
+    'no-console': 'off', // TODO: turn on once we have centralized logging
     'no-bitwise': 'off',
     'no-nested-ternary': 'off',
     'no-param-reassign': 'off',

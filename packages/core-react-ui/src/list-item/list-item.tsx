@@ -1,4 +1,5 @@
 import { LinkProps } from '@newrade/core-design-system';
+import { BsDot } from '@react-icons/all-files/bs/BsDot';
 import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
 import { CommonComponentProps } from '../props/component-common.props';
@@ -60,7 +61,7 @@ export const ListItem: React.FC<Props> = React.memo(
         preserveAspectRatio: `xMinYMin meet`,
       })
     ) : (
-      <div className={styles.bulletIcon}>•</div>
+      <BsDot className={styles.bulletIcon} size={'1.4em'} preserveAspectRatio={`xMinYMin meet`} />
     );
 
     /**

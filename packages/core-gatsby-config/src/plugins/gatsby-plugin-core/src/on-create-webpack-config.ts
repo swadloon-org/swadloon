@@ -1,5 +1,5 @@
 import { DEPLOY_ENV } from '@newrade/core-common';
-import { COMMON_ENV } from '@newrade/core-utils';
+import { CommonEnvType } from '@newrade/core-utils';
 import {
   es6BabelLoader,
   getBundleVisualizerPlugin,
@@ -14,11 +14,11 @@ import { RuleSetRule, RuleSetRules, RuleSetUseItem, WebpackOptions } from 'webpa
 import { GatsbyCorePluginOptions } from '../gatsby-plugin-options';
 
 export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] = (
-  { stage, rules, loaders, plugins, actions, getConfig },
+  { stage, rules, loaders, plugins, actions, getConfig, reporter },
   options
 ) => {
   const pluginOptions = (options as unknown) as GatsbyCorePluginOptions;
-  const env = process.env as COMMON_ENV;
+  const env = process.env as CommonEnvType;
   const isProduction = stage !== `develop`;
 
   if (stage !== `build-javascript`) {
@@ -47,6 +47,16 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
   }
 
   /**
+   * Custom settings for watchOptions
+   */
+  if (typeof config === 'object') {
+    config.watchOptions = {
+      ...config.watchOptions,
+      aggregateTimeout: 400,
+    };
+  }
+
+  /**
    * Configure stats for webpack
    */
   if (typeof config === 'object' && env.APP_ENV === DEPLOY_ENV.LOCAL) {
@@ -68,6 +78,17 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
     config.resolve.alias = {
       ...(typeof config.resolve.alias === 'object' ? config.resolve.alias : {}),
       lodash: 'lodash-es',
+    };
+  }
+
+  /**
+   * Alias date-fsn
+   * @see https://date-fns.org/v2.17.0/docs/ECMAScript-Modules
+   */
+  if (typeof config === 'object' && config.resolve) {
+    config.resolve.alias = {
+      ...(typeof config.resolve.alias === 'object' ? config.resolve.alias : {}),
+      'date-fns': 'date-fns/esm',
     };
   }
 

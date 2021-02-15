@@ -1,0 +1,15 @@
+#
+# Docs https://docs.netlify.com/configure-builds/file-based-configuration/#sample-file
+#
+
+[dev]
+  command = "yarn typecheck"
+  # path to functions
+  functions = "functions"
+
+[build]
+  command = "#"
+  publish = "public/"
+  # path to functions
+
+

@@ -12,8 +12,11 @@ type Props = CommonComponentProps<'input'> &
     state?: 'rest' | 'error';
   };
 
-export const InputText = React.forwardRef<HTMLInputElement, Props>(
-  ({ id, style, className, cleaveProps, type = 'text', state = 'rest', ...props }, ref) => {
+export const InputText = React.memo(
+  React.forwardRef<HTMLInputElement, Props>(function InputText(
+    { id, style, className, cleaveProps, type = 'text', state = 'rest', ...props },
+    ref
+  ) {
     const { styles } = useStyles(styleRefs);
     const classNames = getMergedClassname([
       className,
@@ -27,7 +30,8 @@ export const InputText = React.forwardRef<HTMLInputElement, Props>(
     const CleaveComp = cleaveProps ? (
       <Cleave
         type={cleaveProps.type ? cleaveProps.type : type}
-        ref={ref as any}
+        htmlRef={(htmlRef) => (ref = htmlRef)}
+        // ref={ref as any}
         id={renderedId}
         style={style}
         className={classNames}
@@ -41,5 +45,5 @@ export const InputText = React.forwardRef<HTMLInputElement, Props>(
     ) : (
       <input ref={ref} type={type} id={renderedId} style={style} className={classNames} {...props} />
     );
-  }
+  })
 );

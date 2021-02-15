@@ -18,5 +18,6 @@ export enum DEPLOY_ENV {
  */
 export enum NODE_ENV {
   DEVELOPMENT = 'development',
+  TEST = 'test',
   PRODUCTION = 'production',
 }

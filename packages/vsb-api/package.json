@@ -9,16 +9,25 @@
   },
   "repository": "https://github.com/newrade/newrade-core/tree/master/packages/vsb-api",
   "license": "MIT",
+  "main": "dist/src/server.js",
   "scripts": {
-    "build": "tsc --build tsconfig.build.json",
+    "build": "yarn webpack && yarn copy:server",
+    "build:tsc": "tsc --build tsconfig.build.json",
     "clean": "rimraf -r dist/** && rm -f tsconfig.build.tsbuildinfo",
-    "inspect": "kill-port --port 9229 && node --no-warnings --inspect=0.0.0.0:9229 --experimental-modules ./dist/src/server.js",
+    "copy:server": "TS_NODE_PROJECT=tsconfig.script.json node -r ts-node/register scripts/copy-server.script.ts",
+    "inspect": ". ./.env && kill-port --port 9229 && NODE_DEBUG=$NODE_DEBUG DEBUG=$DEBUG node --no-warnings --inspect=0.0.0.0:9229 --experimental-modules ./dist/src/server.js",
     "start": "concurrently \"yarn tsc:watch\" \"yarn watch\"",
+    "start:prod": ". ./.env && NODE_DEBUG=$NODE_DEBUG DEBUG=$DEBUG node dist/src/server.js",
     "test": "echo test",
     "tsc:watch": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
-    "watch": "nodemon --delay 500ms --watch dist/ --watch ../vsb-common/lib/ --exec 'yarn inspect'"
+    "watch": "nodemon --delay 500ms --watch dist/ --watch ../vsb-common/lib/ --exec 'yarn inspect'",
+    "webpack": "cross-env TS_NODE_PROJECT=tsconfig.webpack.json node -r ts-node/register ../../node_modules/webpack/bin/webpack --config webpack.prod.config.ts"
   },
   "dependencies": {
+    "@newrade/core-common": "^1.1.0",
+    "@newrade/core-types": "^1.1.0",
+    "@newrade/core-utils": "^1.5.0",
+    "@newrade/core-webpack-config": "^1.4.0",
     "@newrade/vsb-common": "^1.2.0"
   }
 }

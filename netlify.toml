@@ -1,5 +1,0 @@
-# Docs https://docs.netlify.com/configure-builds/file-based-configuration/#sample-file
-
-[build]
-  # This is where we will look for package.json/.nvmrc/etc.
-  environment = { YARN_VERSION = "1.22.4", NODE_VERSION = "14" }

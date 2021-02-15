@@ -1,11 +1,12 @@
-import { CommonEnvGatsby } from '@newrade/core-utils';
+import { loadDotEnv, logEnvVariables, CommonEnv } from '@newrade/core-utils';
 import * as t from 'io-ts';
+import path from 'path';
 
 /**
  * Local, typed representation of the .env file.
  */
-export const Env = t.intersection([
-  CommonEnvGatsby,
+const Env = t.intersection([
+  CommonEnv,
   t.type({
     /**
      * cliniko variables
@@ -18,4 +19,12 @@ export const Env = t.intersection([
   }),
 ]);
 
-export type ENV = t.TypeOf<typeof Env>;
+type ENV = t.TypeOf<typeof Env>;
+
+export const env = loadDotEnv<ENV>({
+  schema: Env,
+  dotEnvPath: path.resolve(__dirname, '../../.env'),
+  dotEnvRootPath: path.resolve(__dirname, '../../../../.env'),
+  packageName: '@newrade/vsb-api',
+});
+logEnvVariables({ packageName: '@newrade/vsb-api', env });

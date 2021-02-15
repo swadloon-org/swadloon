@@ -1,9 +1,10 @@
-import { CLINIKO_REMINDER_TYPE, CLINIKO_PHONE_TYPE } from './patient.constant';
+import { CLINIKO_PHONE_TYPE, CLINIKO_REMINDER_TYPE } from './patient.constant';
 
 export type PatientModel = {
   firstName: string;
   lastName: string;
   email: string;
+  emailConfirmation: string;
   dateOfBirth: Date | string;
   address1: string;
   address2?: string;
@@ -13,7 +14,8 @@ export type PatientModel = {
   country: string;
   medicare: string;
   medicareExpiryDate: Date | string;
-  reminderType: CLINIKO_REMINDER_TYPE;
+  /** disabled on the form, will be hardcoded to email */
+  // reminderType: CLINIKO_REMINDER_TYPE;
   patientPhoneNumber: string;
   patientPhoneType: CLINIKO_PHONE_TYPE;
 };
@@ -22,7 +24,7 @@ export type PatientClinikoModel = {
   first_name: string;
   last_name: string;
 
-  date_of_birth: string;
+  date_of_birth: Date | string;
   medicare: string;
 
   email: string;

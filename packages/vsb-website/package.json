@@ -15,12 +15,14 @@
     "clean": "gatsby clean",
     "compile": "tsc --project tsconfig.gatsby.json",
     "contentful-types": ". ./.env && contentful-tools generate --config=contentful-tools.js --token=$CONTENTFUL_MANAGEMENT_TOKEN_VSB",
+    "copy:functions": "TS_NODE_PROJECT=tsconfig.script.json node -r ts-node/register scripts/copy-functions.script.ts",
     "pre-debug": "yarn clean",
     "preload-fonts": ". ./.env && PORT=$APP_PORT gatsby-preload-fonts --no-sandbox",
     "refresh": ". ./.env && curl -X POST http://localhost:$APP_PORT/__refresh",
     "serve": ". ./.env && NODE_ENV=production gatsby serve --port=$APP_PORT",
-    "start": ". ./.env && gatsby develop --verbose -p $APP_PORT -H 0.0.0.0",
+    "start": ". ./.env && DEBUG=$DEBUG gatsby develop -p $APP_PORT -H 0.0.0.0",
     "test": "echo \"Wrtps://gatsby.dev/unit-testing\"",
+    "test:e2e": ". ./.env && DEBUG=$DEBUG jest --config jest-e2e.config.js",
     "typecheck": "yarn typecheck:build --watch --preserveWatchOutput",
     "typecheck:build": "tsc --project tsconfig.build.json --noEmit"
   },
@@ -28,6 +30,7 @@
     "@newrade/core-design-system": "^1.8.0",
     "@newrade/core-gsap-ui": "^1.1.1",
     "@newrade/core-react-ui": "^1.9.0",
+    "@newrade/vsb-api": "^1.0.0",
     "@newrade/vsb-common": "^1.2.0",
     "gatsby": "^2.29"
   },

@@ -1,5 +1,5 @@
 import { DEPLOY_ENV } from '@newrade/core-common';
-import { COMMON_ENV } from '@newrade/core-utils';
+import { CommonEnvType } from '@newrade/core-utils';
 import Gatsby from 'gatsby';
 
 /**
@@ -37,7 +37,7 @@ export function getGatsbyPluginSitemap(): Gatsby.PluginRef {
  *
  * @see https://www.gatsbyjs.com/plugins/gatsby-plugin-robots-txt/
  */
-export function getGatsbyPluginRobotsTxt({ env }: { env: COMMON_ENV }): Gatsby.PluginRef {
+export function getGatsbyPluginRobotsTxt({ env }: { env: CommonEnvType }): Gatsby.PluginRef {
   return {
     resolve: 'gatsby-plugin-robots-txt',
     options: {
