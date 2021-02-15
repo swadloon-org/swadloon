@@ -49,7 +49,7 @@
     "@oclif/dev-cli": "^1",
     "@oclif/test": "^1",
     "@types/chai": "^4",
-    "@types/mocha": "^5",
+    "@types/mocha": "^8",
     "@types/node": "^10",
     "chai": "^4",
     "eslint": "^5.13",
