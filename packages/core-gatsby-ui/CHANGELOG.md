@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.1](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-ui@1.4.0...@newrade/core-gatsby-ui@1.4.1) (2021-02-15)
+
+### Bug Fixes
+
+- **vsb-website:** wip on fix for ssr bug ([884e643](https://github.com/newrade/newrade/commit/884e6439e95f02bc724f84b14b571cac45a26a07))
+
 # [1.4.0](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-ui@1.3.0...@newrade/core-gatsby-ui@1.4.0) (2021-02-11)
 
 ### Bug Fixes
