@@ -24,9 +24,10 @@ const defaultProps: Props = {
 
 export const Heading = React.memo(
   React.forwardRef<any, Props>(
-    ({ variant, variantLevel, display, id, className, children, style, as, ...props }, ref) => {
+    ({ variant, variantLevel, display, id, className, children, style, as, ...props }, forwardedRef) => {
       const { styles } = useStyles(stylesRef);
-      const refLocal = ref ? (ref as React.RefObject<HTMLButtonElement>) : useRef<HTMLButtonElement>(null);
+      const localRef = useRef<HTMLButtonElement>(null);
+      const ref = forwardedRef ? (forwardedRef as React.RefObject<HTMLButtonElement>) : localRef;
 
       let type: keyof React.ReactHTML;
 
@@ -59,14 +60,14 @@ export const Heading = React.memo(
       const variantLevelClass = `${styles[variantLevel ? variantLevel : (defaultProps.variantLevel as TEXT_LEVEL)]}`;
       const classNames = getMergedClassname([className, styles.wrapper, variantClass, variantLevelClass]);
 
-      usePreventPinchZoom(refLocal.current);
+      usePreventPinchZoom(ref.current);
 
       const child = children ? children : defaultChildrenString;
 
       return React.createElement(
         type,
         {
-          ref,
+          ref: forwardedRef,
           id: formatAnchorId(id ? id : typeof children === 'string' ? children : ''),
           style: display ? { ...style, display: display } : style,
           className: classNames,
