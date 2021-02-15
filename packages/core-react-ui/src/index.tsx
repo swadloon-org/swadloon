@@ -28,6 +28,7 @@ export * from './hooks/use-common-props.hook';
 export * from './hooks/use-is-ssr';
 export * from './hooks/use-mouse-position';
 export * from './hooks/use-network-status';
+export * from './hooks/use-page-visibility.hook';
 export * from './hooks/use-prevent-long-press';
 export * from './hooks/use-prevent-pinch-zoom';
 export * from './hooks/use-treat-theme';
