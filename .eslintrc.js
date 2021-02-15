@@ -7,7 +7,7 @@ module.exports = {
     'plugin:prettier/recommended', // Enables eslint-plugin-prettier and eslint-config-prettier. This will display prettier errors as ESLint errors. Make sure this is always the last configuration in the extends array
     // 'prettier/react',
   ],
-  plugins: ['jest'],
+  plugins: ['jest', 'react-hooks'],
   parserOptions: {
     ecmaVersion: 2020,
     sourceType: 'module',
@@ -80,6 +80,8 @@ module.exports = {
     'react/require-default-props': 'off',
     'react/state-in-constructor': 'off',
     'react/no-unescaped-entities': 'off',
+    'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
+    'react-hooks/exhaustive-deps': 'warn', // Checks effect dependencies
     'prettier/prettier': [
       'error',
       {

@@ -148,7 +148,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
       setApiStatus('hors ligne');
       logError('api offline');
     }
-  }, [pageVisible]);
+  }, [pageVisible, isOnline]);
 
   function checkApiStatus() {
     fetch(API_STATUS_CLINIKO)
