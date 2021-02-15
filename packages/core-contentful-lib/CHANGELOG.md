@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.1](https://github.com/newrade/newrade/compare/@newrade/core-contentful-lib@1.6.0...@newrade/core-contentful-lib@1.6.1) (2021-02-15)
+
+### Bug Fixes
+
+- **core-utils:** refactor envs ([1f82218](https://github.com/newrade/newrade/commit/1f82218b98f869c7e16202601bffe13ae085ae94))
+
+# [1.6.0](https://github.com/newrade/newrade/compare/@newrade/core-contentful-lib@1.5.0...@newrade/core-contentful-lib@1.6.0) (2021-02-11)
+
+### Features
+
+- **address-complete-merge:** adding the validation and handler of the address complete in the block ([431ce68](https://github.com/newrade/newrade/commit/431ce68f24d2ce5a14d53cce40a7be104868fa27))
+- **debounce-input:** adding the input debounce and return item from address service ([e22ffd6](https://github.com/newrade/newrade/commit/e22ffd63412fc7880cd0c1384623b074b3d4ddd1))
+
 # [1.5.0](https://github.com/newrade/newrade/compare/@newrade/core-contentful-lib@1.4.0...@newrade/core-contentful-lib@1.5.0) (2021-02-03)
 
 ### Bug Fixes

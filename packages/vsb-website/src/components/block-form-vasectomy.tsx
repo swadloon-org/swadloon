@@ -1,24 +1,37 @@
+import { API_RESPONSE_STATUS } from '@newrade/core-common';
 import { ButtonSize, ButtonVariant } from '@newrade/core-design-system';
 import {
   Bold,
   Button,
+  Cluster,
   CommonComponentProps,
   Form,
   Hr,
   InputError,
   InputLabel,
+  InputSelect,
   InputText,
   InputWrapper,
-  keys,
+  OnlineIndicator,
   Paragraph,
   Stack,
   Switcher,
   useTreatTheme,
 } from '@newrade/core-react-ui';
-import { CLINIKO_REMINDER_TYPE, PatientAPIResponseBody, PatientModel, PatientValidation } from '@newrade/vsb-common';
+import {
+  API_REGISTER_PATIENT_ROUTE,
+  API_STATUS_CLINIKO,
+  CLINIKO_PHONE_TYPE,
+  PatientAPIResponseBody,
+  PatientModel,
+  PatientValidation,
+} from '@newrade/vsb-common';
+import { IoAlertCircleOutline } from '@react-icons/all-files/io5/IoAlertCircleOutline';
+import { IoCheckmarkCircle } from '@react-icons/all-files/io5/IoCheckmarkCircle';
 import 'cleave.js/dist/addons/cleave-phone.ca';
-import { debounce } from 'lodash';
-import React, { useCallback, useState } from 'react';
+import debug from 'debug';
+import debounce from 'lodash/debounce';
+import React, { useCallback, useEffect, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useStyles } from 'react-treat';
@@ -34,6 +47,9 @@ import {
 import * as styleRefs from './block-form-vasectomy.treat';
 import { SectionProps } from './section.props';
 
+const log = debug('newrade:vsb-website');
+const logError = log.extend('error');
+
 type Props = CommonComponentProps & SectionProps & {};
 
 const useYupValidationResolver = (PatientValidation: SchemaOf<PatientModel>) =>
@@ -42,14 +58,21 @@ const useYupValidationResolver = (PatientValidation: SchemaOf<PatientModel>) =>
       try {
         const values = await PatientValidation.validate(patient, {
           abortEarly: false,
-          strict: true,
         });
-
         return {
           values,
           errors: {},
         };
       } catch (errors) {
+        // capture other than validation errors
+        if (!errors.inner) {
+          logError(errors);
+          return {
+            values: {},
+            errors: {},
+          };
+        }
+
         return {
           values: {},
           errors: errors.inner.reduce(
@@ -69,35 +92,81 @@ const useYupValidationResolver = (PatientValidation: SchemaOf<PatientModel>) =>
     [PatientValidation]
   );
 
-export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, section, ...props }) => {
-  const [isSuggestion, setSuggestion] = useState<boolean>(false);
-  const [isValueSuggestion, setValueSuggestion] = useState<any>();
+const FormSwitcher: React.FC = (props) => {
+  const { cssTheme } = useTreatTheme();
 
+  return (
+    <Switcher gap={[cssTheme.sizing.var.x5]} alignItems={['flex-start']}>
+      {props.children}
+    </Switcher>
+  );
+};
+
+const FormStack: React.FC = (props) => {
+  const { cssTheme } = useTreatTheme();
+
+  return <Stack gap={[cssTheme.sizing.var.x4]}>{props.children}</Stack>;
+};
+
+export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, section, ...props }) => {
   const { styles } = useStyles(styleRefs);
   const { cssTheme } = useTreatTheme();
 
+  const [apiStatus, setApiStatus] = useState<'en ligne' | 'hors ligne' | undefined>(undefined);
+  const [isSuggestion, setSuggestion] = useState<boolean>(false);
+  const [isValueSuggestion, setValueSuggestion] = useState<any>();
+
+  const [apiSuccess, setApiSuccess] = useState<string[]>([]);
+  const [apiErrors, setApiErrors] = useState<string[]>([]);
   const [isLoading, setLoading] = useState<boolean>(false);
   const recaptchaRef = React.useRef<any>();
   const resolver = useYupValidationResolver(PatientValidation);
+  const { register, handleSubmit, setError, errors, setValue, reset } = useForm<PatientModel>({
+    mode: 'onBlur',
+    resolver,
+  });
 
-  const {
-    register,
-    handleSubmit,
-    control,
-    setError,
-    errors,
-    setValue,
-    getValues,
-    formState,
-    // formState: { isDirty, isSubmitting, touched, submitCount, isValid },
-  } = useForm<PatientModel>({ mode: 'onBlur', resolver });
+  useEffect(() => {
+    try {
+      log('checking for api status');
+      checkApiStatus();
+
+      const interval = window.setInterval(() => {
+        checkApiStatus();
+      }, 15000);
+      return () => {
+        window.clearInterval(interval);
+      };
+    } catch (error) {
+      setApiStatus('hors ligne');
+      logError('api offline');
+    }
+  }, []);
+
+  function checkApiStatus() {
+    fetch(API_STATUS_CLINIKO)
+      .then((response) => response.json())
+      .then((body: PatientAPIResponseBody) => {
+        if (body.status === API_RESPONSE_STATUS.SUCCESS) {
+          setApiStatus('en ligne');
+        }
+      })
+      .catch((error) => {
+        setApiStatus('hors ligne');
+        logError('api offline');
+      });
+  }
 
   const onSubmit: SubmitHandler<PatientModel> = async (data) => {
+    log('submitting');
+
     setLoading(true);
 
     const tokenRecaptcha: string = await recaptchaRef.current.getValue();
 
-    fetch('http://localhost:10003/api/patient/register', {
+    setApiErrors([]);
+
+    fetch(API_REGISTER_PATIENT_ROUTE, {
       method: 'POST',
       headers: {
         accept: 'application/json',
@@ -111,47 +180,70 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
     })
       .then((response) => response.json())
       .then((result: PatientAPIResponseBody) => {
+        if (result.status === API_RESPONSE_STATUS.SUCCESS) {
+          log('patient was successfully created');
+          setApiSuccess([result.message]);
+          reset();
+          return;
+        }
+
         if (result.errors) {
           result.errors.map((error) => {
-            console.log(error);
+            logError(error);
           });
         }
-        result.payload.validationErrors.map((validationError) => {
-          if (validationError) {
-            setError(validationError.path as keyof PatientModel, {
-              type: 'manual',
-              message: validationError.message,
-            });
-          }
-        });
+
+        if (result.payload.yupValidationErrors) {
+          result.payload.yupValidationErrors.map((validationError) => {
+            if (validationError) {
+              logError(validationError);
+              setError(validationError.path as keyof PatientModel, {
+                type: 'manual',
+                message: validationError.message,
+              });
+            }
+          });
+        }
+
+        if (result.message) {
+          setApiErrors([result.message]);
+          return;
+        }
+
+        setApiErrors([
+          ...result.errors.map((error) => error.message),
+          ...(result.payload.yupValidationErrors
+            ? result.payload.yupValidationErrors.map((error) => error.errors.join(', '))
+            : []),
+        ]);
+      })
+      .catch((error) => {
+        logError(error);
+      })
+      .finally(() => {
+        window.setTimeout(() => {
+          setLoading(false);
+          log('end submitting');
+        }, 1000);
       });
-    setLoading(false);
   };
 
-  const debouncedSave = useCallback(
-    debounce((value) => {
-      if (value !== '') {
-        onSuggest(value);
-      } else {
-        setSuggestion(false);
-      }
-    }, 500),
-    []
-  );
+  const debouncedSave = debounce((value) => {
+    if (value !== '') {
+      handleAddressSuggest(value);
+    } else {
+      setSuggestion(false);
+    }
+  }, 1000);
 
-  const onChangeHandler = () => {
-    return async (event: React.ChangeEvent<HTMLInputElement>) => {
-      debouncedSave(event.target.value);
-    };
-  };
+  const onChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => debouncedSave(event.target.value);
 
-  const onSuggest = async (searchTerm: string) => {
-    console.log(searchTerm);
+  const handleAddressSuggest = async (searchTerm: string) => {
     const contentAddress: AddressAutoCompleteOptions = {
       SearchTerm: searchTerm,
       Country: 'CAN',
       LanguagePreference: 'EN',
-      MaxResults: 5,
+      MaxResults: 8,
     };
 
     const valueSuggestion = await getAddressAutoComplete(contentAddress);
@@ -164,20 +256,29 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
     }
   };
 
-  const handleSelectSuggestion = (suggestion: AddressAutoCompleteResponse) => {
-    return async (event: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
-      const newInfos = await onValidateById(suggestion);
+  const handleSelectSuggestion = (suggestion: AddressAutoCompleteResponse) => async (event: React.MouseEvent) => {
+    const newInfos = await onValidateById(suggestion);
 
-      setValue('address1', newInfos.Line1 as string);
-      setValue('address2', newInfos.SecondaryStreet);
-      setValue('city', newInfos.City as string);
-      setValue('state', newInfos.ProvinceName as string);
-      setValue('country', newInfos.CountryName as string);
-      setValue('postCode', newInfos.PostalCode as string);
-
-      console.log(getValues('postCode'));
+    if (!newInfos) {
       setSuggestion(false);
-    };
+      return;
+    }
+
+    setValue('address1', newInfos.Line1 as string);
+    setValue('address2', newInfos.SecondaryStreet);
+    setValue('city', newInfos.City as string);
+    setValue('state', newInfos.ProvinceName as string);
+    setValue('country', newInfos.CountryName as string);
+    setValue('postCode', newInfos.PostalCode as string);
+
+    setSuggestion(false);
+  };
+
+  const onValidateById = async (validate: AddressByIdOptions) => {
+    const response = await getAddressById(validate);
+
+    const result: AddressByIdResponse | undefined = response?.Items?.[0];
+    return result;
   };
 
   const renderSuggestionsT = (items: AddressAutoCompleteResponse[]) => {
@@ -193,21 +294,6 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
       </ul>
     );
   };
-
-  const onValidateById = async (validate: AddressByIdOptions) => {
-    const response: readonly AddressByIdResponse[] = await getAddressById(validate);
-
-    const result: AddressByIdResponse = response[0];
-    return result;
-  };
-
-  const FormSwitcher: React.FC = (props) => (
-    <Switcher gap={[cssTheme.sizing.var.x5]} alignItems={['flex-start']}>
-      {props.children}
-    </Switcher>
-  );
-
-  const FormStack: React.FC = (props) => <Stack gap={[cssTheme.sizing.var.x4]}>{props.children}</Stack>;
 
   return (
     <div className={`${styles.wrapper}`}>
@@ -245,12 +331,13 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
                 <InputLabel htmlFor={'dateOfBirth'}>Date de naissance</InputLabel>
                 <InputText
                   type={'text'}
-                  name="date_of_birth"
+                  name="dateOfBirth"
                   cleaveProps={{
                     htmlRef: register,
                     options: { date: true, datePattern: ['d', 'm', 'Y'], delimiter: '-' },
                   }}
                   placeholder={'jj-mm-aaaa'}
+                  autoComplete={'bday'}
                   state={errors.dateOfBirth?.message ? 'error' : 'rest'}
                 />
                 <InputError>{errors.dateOfBirth?.message}</InputError>
@@ -294,9 +381,9 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
                   name="medicareExpiryDate"
                   cleaveProps={{
                     htmlRef: register,
-                    options: { date: true, datePattern: ['d', 'm', 'Y'], delimiter: '-' },
+                    options: { date: true, datePattern: ['m', 'y'], delimiter: '-' },
                   }}
-                  placeholder={'jj-mm-aaaa'}
+                  placeholder={'mm-aa'}
                   state={errors.medicareExpiryDate?.message ? 'error' : 'rest'}
                 />
                 <InputError>{errors.medicareExpiryDate?.message}</InputError>
@@ -310,8 +397,8 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
                 <InputLabel htmlFor={'patientPhoneNumber'}>Téléphone</InputLabel>
                 <InputText
                   name={'patientPhoneNumber'}
-                  placeholder={'1 555-555-5555'}
-                  autoComplete="tel"
+                  placeholder={'555-555-5555'}
+                  autoComplete={'tel'}
                   cleaveProps={{
                     htmlRef: register,
                     type: 'tel',
@@ -324,11 +411,16 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
 
               <InputWrapper>
                 <InputLabel htmlFor={'patientPhoneType'}>Téléphone Type</InputLabel>
-                <InputText
+                <InputSelect
                   name={'patientPhoneType'}
                   ref={register}
                   state={errors.patientPhoneType?.message ? 'error' : 'rest'}
-                />
+                  defaultValue={CLINIKO_PHONE_TYPE.MOBILE}
+                >
+                  <option value={CLINIKO_PHONE_TYPE.MOBILE}>{'Mobile'}</option>
+                  <option value={CLINIKO_PHONE_TYPE.HOME}>{'Fixe'}</option>
+                </InputSelect>
+
                 <InputError>{errors.patientPhoneType?.message}</InputError>
               </InputWrapper>
             </FormSwitcher>
@@ -343,19 +435,21 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
                   autoComplete="email"
                   state={errors.email?.message ? 'error' : 'rest'}
                 />
+
                 <InputError>{errors.email?.message}</InputError>
               </InputWrapper>
 
               <InputWrapper>
-                <InputLabel htmlFor={'email'}>Confirmation du courriel</InputLabel>
+                <InputLabel htmlFor={'emailConfirmation'}>Confirmation du courriel</InputLabel>
                 <InputText
                   type="email"
-                  name="email"
+                  name="emailConfirmation"
                   ref={register}
                   autoComplete="email"
-                  state={errors.email?.message ? 'error' : 'rest'}
+                  state={errors.emailConfirmation?.message ? 'error' : 'rest'}
                 />
-                <InputError>{errors.email?.message}</InputError>
+
+                <InputError>{errors.emailConfirmation?.message}</InputError>
               </InputWrapper>
             </FormSwitcher>
           </FormStack>
@@ -367,12 +461,12 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
                 name="address1"
                 ref={register}
                 autoComplete="address-line1"
+                onChange={onChangeHandler}
                 state={errors.address1?.message ? 'error' : 'rest'}
-                onChange={onChangeHandler()}
               />
               <InputError>{errors.address1?.message}</InputError>
             </InputWrapper>
-            {isSuggestion == true ? renderSuggestionsT(isValueSuggestion) : ''}
+            {isSuggestion ? renderSuggestionsT(isValueSuggestion) : null}
 
             <InputWrapper>
               <InputLabel htmlFor={'address2'}>Adresse (appartement / bureau)</InputLabel>
@@ -434,25 +528,30 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
             </FormSwitcher>
           </FormStack>
 
-          <InputWrapper>
+          {/* disabled on the form, will be hardcoded to email */}
+          {/* <InputWrapper>
             <InputLabel htmlFor={'reminderType'}>Type de rappel automatisé</InputLabel>
-            <InputText
+            <InputSelect
               name="reminderType"
-              list="reminder_type"
               ref={register}
               state={errors.reminderType?.message ? 'error' : 'rest'}
-            />
-            <InputError>{errors.reminderType?.message}</InputError>
+              defaultValue={CLINIKO_REMINDER_TYPE.EMAIL}
+            >
+              <option value={CLINIKO_REMINDER_TYPE.EMAIL}>{'Email'}</option>
+              <option value={CLINIKO_REMINDER_TYPE.SMS}>{'Message texte'}</option>
+              <option value={CLINIKO_REMINDER_TYPE.SMS_EMAIL}>{'Email et message texte'}</option>
+            </InputSelect>
 
-            <select id="reminder_type">
-              {keys(CLINIKO_REMINDER_TYPE).map((element, index) => {
-                return <option key={index} value={CLINIKO_REMINDER_TYPE[element]} />;
-              })}
-            </select>
-          </InputWrapper>
+            <InputError>{errors.reminderType?.message}</InputError>
+          </InputWrapper> */}
 
           <FormStack>
-            <ReCAPTCHA size={'normal'} ref={recaptchaRef} sitekey="6Lc0iksaAAAAALyiB9gYY0sCjQYb-rdLKI-RNP6d" />
+            <ReCAPTCHA
+              hl={'fr'}
+              size={'normal'}
+              ref={recaptchaRef}
+              sitekey="6Lc0iksaAAAAALyiB9gYY0sCjQYb-rdLKI-RNP6d"
+            />
 
             <Paragraph>
               Une fois la demande soumise, notre équipe vous contactera dans les plus brefs délais pour planifier les
@@ -463,13 +562,54 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
               variant={ButtonVariant.primary}
               className={isLoading ? 'loading' : ''}
               size={ButtonSize.large}
+              isDisabled={isLoading}
               type="submit"
             >
               {isLoading ? 'En cours...' : 'Soumettre la demande'}
             </Button>
-          </FormStack>
 
-          <Hr></Hr>
+            {!isLoading ? (
+              <Stack gap={[cssTheme.sizing.var.x3]}>
+                {apiSuccess.map((success, index) => {
+                  return (
+                    <Cluster
+                      key={index}
+                      justifyContent={['flex-start']}
+                      className={`${styles.success}`}
+                      gap={[cssTheme.sizing.var.x2]}
+                    >
+                      <IoCheckmarkCircle className={styles.successIcon} size={30} />
+                      <Paragraph>{success}</Paragraph>
+                    </Cluster>
+                  );
+                })}
+              </Stack>
+            ) : null}
+
+            {!isLoading ? (
+              <Stack gap={[cssTheme.sizing.var.x3]}>
+                {apiErrors.map((error, index) => {
+                  return (
+                    <Cluster
+                      key={index}
+                      justifyContent={['flex-start']}
+                      className={`${styles.error}`}
+                      gap={[cssTheme.sizing.var.x2]}
+                    >
+                      <IoAlertCircleOutline className={styles.errorIcon} size={24} />
+                      <Paragraph>{error}</Paragraph>
+                    </Cluster>
+                  );
+                })}
+              </Stack>
+            ) : null}
+
+            <OnlineIndicator status={apiStatus === 'en ligne' ? 'online' : 'offline'}>
+              système {apiStatus || 'en chargement...'}
+            </OnlineIndicator>
+
+            <Hr></Hr>
+          </FormStack>
 
           <Paragraph>
             <Bold>N.B. :</Bold> Suite à l’ouverture de votre dossier, vous aurez <Bold>deux</Bold> ans pour prendre

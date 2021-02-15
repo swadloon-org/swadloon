@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.1](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-ui@1.4.0...@newrade/core-gatsby-ui@1.4.1) (2021-02-15)
+
+### Bug Fixes
+
+- **vsb-website:** wip on fix for ssr bug ([884e643](https://github.com/newrade/newrade/commit/884e6439e95f02bc724f84b14b571cac45a26a07))
+
+# [1.4.0](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-ui@1.3.0...@newrade/core-gatsby-ui@1.4.0) (2021-02-11)
+
+### Bug Fixes
+
+- **core-gatsby-ui:** refactor navigation ([07fad4c](https://github.com/newrade/newrade/commit/07fad4c05c61edc455259cc2c43e369ed9974b90))
+- **core-react-ui:** fixes for components ([5ffa0d9](https://github.com/newrade/newrade/commit/5ffa0d9a0c826d4b1767a2543a1ab11cc8818998))
+- **core-react-ui:** fixes for markdown ([266fbbb](https://github.com/newrade/newrade/commit/266fbbb935129dad6fd85d2d70ed108e9ae3d58b))
+- **deep-scan-fixes:** fixing medium issues ([ae016c5](https://github.com/newrade/newrade/commit/ae016c53a192df6cfdb33f3c59da987870282b07))
+- **newrade-website:** fix data ([7a3f1c4](https://github.com/newrade/newrade/commit/7a3f1c46d8aad82c7884a506773c1f447bc95284))
+- **websites:** fixes for stability ([f398587](https://github.com/newrade/newrade/commit/f3985874c00b07e7455bdff5027820f7dfd38689))
+
+### Features
+
+- **vsb-website:** implement forms ([d22143f](https://github.com/newrade/newrade/commit/d22143f076e06b28d0d6f39be66a8531f57fa677))
+
 # [1.3.0](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-ui@1.2.0...@newrade/core-gatsby-ui@1.3.0) (2021-02-03)
 
 ### Bug Fixes

@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/newrade/newrade-core/tree/master/packages/core-common/compare/@newrade/core-common@1.1.0...@newrade/core-common@1.2.0) (2021-02-15)
+
+### Bug Fixes
+
+- **core-utils:** refactor envs ([1f82218](https://github.com/newrade/newrade-core/tree/master/packages/core-common/commit/1f82218b98f869c7e16202601bffe13ae085ae94))
+
+### Features
+
+- **vsb-api:** add validation for endpoints and form ([6d18162](https://github.com/newrade/newrade-core/tree/master/packages/core-common/commit/6d18162c1d76e2f9463443d75c88f24514061afd))
+
 # [1.1.0](https://github.com/newrade/newrade-core/tree/master/packages/core-common/compare/@newrade/core-common@1.0.1...@newrade/core-common@1.1.0) (2021-02-03)
 
 ### Bug Fixes

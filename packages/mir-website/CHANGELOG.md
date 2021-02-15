@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.10.2](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/mir-website@1.10.1...@newrade/mir-website@1.10.2) (2021-02-15)
+
+### Bug Fixes
+
+- **core-utils:** refactor envs ([1f82218](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/1f82218b98f869c7e16202601bffe13ae085ae94))
+- **vsb-website:** finalize form valiation (client) ([7ddf34a](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/7ddf34a0443834fbdae668a7ddd53ab2c90ad805))
+- **vsb-website:** wip on fix for ssr bug ([884e643](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/884e6439e95f02bc724f84b14b571cac45a26a07))
+
+## [1.10.1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/mir-website@1.10.0...@newrade/mir-website@1.10.1) (2021-02-11)
+
+### Bug Fixes
+
+- **core-react-ui:** fixes for components ([5ffa0d9](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/5ffa0d9a0c826d4b1767a2543a1ab11cc8818998))
+- **deep-scan-fixes:** fixing medium issues ([ae016c5](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ae016c53a192df6cfdb33f3c59da987870282b07))
+- **websites:** fix config for fragments ([2e0b9f7](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/2e0b9f7524461bc944dd50908b6250de540269d9))
+- **websites:** fixes for stability ([f398587](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/f3985874c00b07e7455bdff5027820f7dfd38689))
+
 # [1.10.0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/mir-website@1.9.0...@newrade/mir-website@1.10.0) (2021-02-03)
 
 ### Bug Fixes

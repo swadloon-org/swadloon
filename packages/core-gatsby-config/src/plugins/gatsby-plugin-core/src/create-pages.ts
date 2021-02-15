@@ -1,5 +1,4 @@
 import { AppError, ERROR_TYPE } from '@newrade/core-common';
-import { log, LOG_LEVEL } from '@newrade/core-utils';
 import { kebab, pascal, title } from 'case';
 import { GatsbyNode } from 'gatsby';
 import path from 'path';
@@ -16,7 +15,7 @@ import { GatsbyCorePluginOptions } from '../gatsby-plugin-options';
 
 let siteMetadata: GatsbyNodeSiteMetadataFragment;
 
-export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, graphql }, options) => {
+export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, graphql, reporter }, options) => {
   const { createPage } = actions;
   const pluginOptions = (options as unknown) as GatsbyCorePluginOptions;
 
@@ -86,9 +85,9 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
         }
       `);
 
-      log(`Got ${markdownFilesData?.data?.allFile?.nodes?.length} files for markdown pages`, {
-        toolName: pluginOptions.packageName,
-      });
+      reporter.info(
+        `[${pluginOptions.pluginName}] got ${markdownFilesData?.data?.allFile?.nodes?.length} files for markdown pages`
+      );
 
       /**
        * Organise files to create pages and paths
@@ -107,9 +106,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
         const name = `${title(node.childMdx?.frontmatter?.name || node.name)}`;
         const displayName = name;
 
-        log(`Creating markdown page: ${path}`, {
-          toolName: pluginOptions.packageName,
-        });
+        reporter.info(`[${pluginOptions.pluginName}] creating markdown page ${path}`);
 
         createPage<GatsbyMarkdownFilePageContext>({
           path,
@@ -152,9 +149,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
         const displayName = formattedNodeName ? `Design System - ${pascal(formattedNodeName)}` : `Design System`;
         const path = `${dir}${formattedNodeName}`;
 
-        log(`Creating design system page: ${path}`, {
-          toolName: pluginOptions.packageName,
-        });
+        reporter.info(`[${pluginOptions.pluginName}] creating design system page: ${path}`);
 
         createPage<GatsbySrcPageContext>({
           path,
@@ -173,16 +168,8 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
       });
     }
   } catch (error) {
-    log(`Error occured when generating pages: ${error}`, {
-      toolName: pluginOptions.packageName,
-      level: LOG_LEVEL.ERROR,
-    });
-    if (error) {
-      throw new AppError({
-        name: ERROR_TYPE.GATSBY_ERROR,
-        message: error,
-      });
-    }
+    reporter.error(`[${pluginOptions.pluginName}] error occured when generating pages: ${error}`);
+    reporter.panic(error);
   }
 };
 
@@ -212,16 +199,13 @@ function getDirNameForSourceInstance(sourceInstanceName: SOURCE_INSTANCE_NAME): 
  * default behavior with gatsby-config-ts
  * @see https://github.com/newrade/newrade/issues/211
  */
-export const onCreatePageFunction: GatsbyNode['onCreatePage'] = ({ page, actions }, options) => {
+export const onCreatePageFunction: GatsbyNode['onCreatePage'] = ({ page, actions, reporter }, options) => {
   const pluginOptions = (options as unknown) as GatsbyCorePluginOptions;
   const { createPage, deletePage } = actions;
 
   // recreate only if a page is missing context data
   if (page && page.context && !(page.context as any).siteMetadata) {
-    log(`Recreating page: ${page.path}`, {
-      toolName: pluginOptions.packageName,
-      level: LOG_LEVEL.INFO,
-    });
+    reporter.info(`[${pluginOptions.pluginName}] recreating page: ${page.path}`);
 
     // TODO: fix when pages are not prefixed by fr but still meant to be in fr
     // also need to recreate path like the docs pages above

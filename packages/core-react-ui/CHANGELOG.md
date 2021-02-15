@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.10.0](https://github.com/newrade/newrade/compare/@newrade/core-react-ui@1.9.0...@newrade/core-react-ui@1.10.0) (2021-02-15)
+
+### Bug Fixes
+
+- **core-utils:** refactor envs ([1f82218](https://github.com/newrade/newrade/commit/1f82218b98f869c7e16202601bffe13ae085ae94))
+- **vsb-api:** fixes ([5a987dd](https://github.com/newrade/newrade/commit/5a987dd707852165c3a1834e9e6d0ec359663c8f))
+- **vsb-website:** finalize form valiation (client) ([7ddf34a](https://github.com/newrade/newrade/commit/7ddf34a0443834fbdae668a7ddd53ab2c90ad805))
+- **vsb-website:** fix rerender bug ([3101fcd](https://github.com/newrade/newrade/commit/3101fcd4cc4600d2e701dd1bc6f99db322ae3da7))
+- **vsb-website:** fix video iframe ([ab02dca](https://github.com/newrade/newrade/commit/ab02dcaaeb475c46986030fab9a86f31590617f7))
+- **vsb-website:** wip on fix for ssr bug ([884e643](https://github.com/newrade/newrade/commit/884e6439e95f02bc724f84b14b571cac45a26a07))
+
+### Features
+
+- **logging:** implement structured loggging ([713cb45](https://github.com/newrade/newrade/commit/713cb4501897b14ff3d53c93d32bce0686759a7c))
+
+# [1.9.0](https://github.com/newrade/newrade/compare/@newrade/core-react-ui@1.8.0...@newrade/core-react-ui@1.9.0) (2021-02-11)
+
+### Bug Fixes
+
+- **core-gatsby-ui:** refactor navigation ([07fad4c](https://github.com/newrade/newrade/commit/07fad4c05c61edc455259cc2c43e369ed9974b90))
+- **core-react-ui:** fixes for code blocks ([1e26d1d](https://github.com/newrade/newrade/commit/1e26d1d698a8d2c95f1cb3bf07ea98ff1a8e3765))
+- **core-react-ui:** fixes for components ([5ffa0d9](https://github.com/newrade/newrade/commit/5ffa0d9a0c826d4b1767a2543a1ab11cc8818998))
+- **core-react-ui:** fixes for markdown ([266fbbb](https://github.com/newrade/newrade/commit/266fbbb935129dad6fd85d2d70ed108e9ae3d58b))
+- **deep-scan-fix:** fixing the conversation validation with isNaN() ([ef2f37a](https://github.com/newrade/newrade/commit/ef2f37ae10b7b441b1fdfa9900cc7b6b0cc9a6d0))
+
+### Features
+
+- **core-react-ui:** fix design system pages ([062d175](https://github.com/newrade/newrade/commit/062d175e705eeecd8dd00a4bb95d4240c556f6b9))
+- **csstype:** bump csstype to v3 ([5826b07](https://github.com/newrade/newrade/commit/5826b07154c2c33d32dff9938ee5cdd5990cf985))
+- **vsb-website:** implement forms ([d22143f](https://github.com/newrade/newrade/commit/d22143f076e06b28d0d6f39be66a8531f57fa677))
+- **vsb-website:** wip for mapper ([679002a](https://github.com/newrade/newrade/commit/679002ab9d8cbdb5ba4b489693b8406b2b91dd06))
+
 # [1.8.0](https://github.com/newrade/newrade/compare/@newrade/core-react-ui@1.7.0...@newrade/core-react-ui@1.8.0) (2021-02-03)
 
 ### Bug Fixes

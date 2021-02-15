@@ -17,6 +17,25 @@
     ],
     "description": "Insert the default React import statement."
   },
+  "reactTreatFCComponent": {
+    "prefix": ["FCT"],
+    "body": [
+      "import React from 'react';",
+      "import * as styleRefs from '$2';",
+      "import { useStyles } from 'react-treat';",
+      "import { useTreatTheme } from '../hooks/use-treat-theme';",
+      "",
+      "type Props = {};",
+      "",
+      "export const $1: React.FC<Props> = ({ id, style, className, ...props }) => {",
+      "  const { styles } = useStyles(styleRefs);",
+      "  const { theme, cssTheme } = useTreatTheme();",
+      "",
+      "  return <div></div>;",
+      "};"
+    ],
+    "description": "Insert the default React import statement."
+  },
   "treatCSSStyleRefs": {
     "prefix": ["styleRefs"],
     "body": ["import * as styleRefs from '$1';"],

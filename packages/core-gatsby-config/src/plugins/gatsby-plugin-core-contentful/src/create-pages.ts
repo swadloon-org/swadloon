@@ -1,5 +1,4 @@
 import { AppError, ERROR_TYPE } from '@newrade/core-common';
-import { log, LOG_LEVEL } from '@newrade/core-utils';
 import { GatsbyNode } from 'gatsby';
 import path from 'path';
 import { GatsbyBlogPostContext, GatsbyContentfulPageContext } from '../../../config/page-config';
@@ -9,7 +8,7 @@ import { GatsbyCoreContentfulPluginOptions } from '../gatsby-plugin-options';
 
 let siteMetadata: GatsbyNodeSiteMetadataFragment;
 
-export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, graphql }, options) => {
+export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, graphql, reporter }, options) => {
   const { createPage } = actions;
   const pluginOptions = (options as unknown) as GatsbyCoreContentfulPluginOptions;
 
@@ -51,9 +50,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
      * Page creations contentful
      */
 
-    log(`Creating pages for locales: ${pluginOptions.locales}`, {
-      toolName: pluginOptions.packageName,
-    });
+    reporter.info(`[${pluginOptions.pluginName}] creating pages for locales ${pluginOptions.locales}`);
 
     const pagesData = await graphql<{
       allContentfulPage: {
@@ -92,9 +89,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
       }
     );
 
-    log(`Retrived: ${pagesData.data?.allContentfulPage.edges.length} pages`, {
-      toolName: pluginOptions.packageName,
-    });
+    reporter.info(`[${pluginOptions.pluginName}] found ${pagesData.data?.allContentfulPage.edges.length} pages`);
 
     if (pagesData.errors) {
       throw new Error('Error while retrieving pages');
@@ -113,9 +108,8 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
         return true;
       })
       .forEach((edge, index) => {
-        log(`Creating page: ${edge.node.slug}`, {
-          toolName: pluginOptions.packageName,
-        });
+        reporter.info(`[${pluginOptions.pluginName}] creating page: ${edge.node.slug}`);
+
         createPage<GatsbyContentfulPageContext>({
           path: edge.node.slug,
           context: {
@@ -168,13 +162,9 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
         .filter((edge) => edge.node.name.includes('Blogue') && edge.node.node_locale === 'en-CA')
         .map((edge) => edge.node);
 
-      log(`Creating blog posts under: ${blogPageRouteEN?.[0].slug}`, {
-        toolName: pluginOptions.packageName,
-      });
+      reporter.info(`[${pluginOptions.pluginName}] creating blog posts under: ${blogPageRouteEN?.[0].slug}`);
 
-      log(`Creating blog posts under: ${blogPageRouteFR?.[0].slug}`, {
-        toolName: pluginOptions.packageName,
-      });
+      reporter.info(`[${pluginOptions.pluginName}] creating blog posts under: ${blogPageRouteFR?.[0].slug}`);
 
       blogPosts.data?.allContentfulBlogPost.edges
         .filter((edge) => {
@@ -193,9 +183,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
               ? `${blogPageRouteEN?.[0]?.slug}${edge.node.blogSlug}`
               : `${blogPageRouteEN?.[0]?.slug}`;
 
-          log(`Creating blog post: ${path}`, {
-            toolName: pluginOptions.packageName,
-          });
+          reporter.info(`[${pluginOptions.pluginName}] creating blog post ${path}`);
 
           createPage<GatsbyBlogPostContext>({
             path,
@@ -208,12 +196,8 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
         });
     }
   } catch (error) {
-    log(`Error occured when generating pages: ${error}`, {
-      toolName: pluginOptions.packageName,
-      level: LOG_LEVEL.ERROR,
-    });
-    if (error) {
-      throw new Error('Error while retrieving pages');
-    }
+    reporter.error(`[${pluginOptions.pluginName}] error occured when generating pages: ${error}`);
+
+    reporter.panic(error);
   }
 };

@@ -3,7 +3,7 @@
   "compilerOptions": {
     "allowJs": true,
     "noEmit": true,
-    "types": ["node"],
+    "types": ["node", "react", "jest"],
     "baseUrl": ".",
     "paths": {
       "@newrade/*": ["../*/src"]

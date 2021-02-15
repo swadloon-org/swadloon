@@ -1,5 +1,6 @@
 import * as core from '@newrade/core-gatsby-config';
-import { loadDotEnv, logEnvVariables } from '@newrade/core-utils';
+import { loadDotEnv, logEnvVariables, toBoolean } from '@newrade/core-utils';
+import proxy from 'http-proxy-middleware';
 import path from 'path';
 import packageJson from './package.json';
 import { Env, ENV } from './types/dot-env';
@@ -17,14 +18,14 @@ logEnvVariables({ packageName: packageJson.name, env });
  */
 const config: core.GastbySiteConfig = {
   flags: {
-    PRESERVE_WEBPACK_CACHE: Boolean(env.GATSBY_PRESERVE_WEBPACK_CACHE),
-    PRESERVE_FILE_DOWNLOAD_CACHE: Boolean(env.GATSBY_PRESERVE_FILE_DOWNLOAD_CACHE),
-    QUERY_ON_DEMAND: Boolean(env.GATSBY_QUERY_ON_DEMAND),
-    LAZY_IMAGES: Boolean(env.GATSBY_LAZY_IMAGES),
-    PARALLEL_SOURCING: Boolean(env.GATSBY_PARALLEL_SOURCING),
-    DEV_SSR: Boolean(env.GATSBY_DEV_SSR),
-    FAST_DEV: Boolean(env.GATSBY_FAST_DEV),
-    FAST_REFRESH: Boolean(env.GATSBY_FAST_REFRESH),
+    PRESERVE_WEBPACK_CACHE: toBoolean(env.GATSBY_PRESERVE_WEBPACK_CACHE),
+    PRESERVE_FILE_DOWNLOAD_CACHE: toBoolean(env.GATSBY_PRESERVE_FILE_DOWNLOAD_CACHE),
+    QUERY_ON_DEMAND: toBoolean(env.GATSBY_QUERY_ON_DEMAND),
+    LAZY_IMAGES: toBoolean(env.GATSBY_LAZY_IMAGES),
+    PARALLEL_SOURCING: toBoolean(env.GATSBY_PARALLEL_SOURCING),
+    DEV_SSR: toBoolean(env.GATSBY_DEV_SSR),
+    FAST_DEV: toBoolean(env.GATSBY_FAST_DEV),
+    FAST_REFRESH: toBoolean(env.GATSBY_FAST_REFRESH),
   },
   siteMetadata: {
     title: `VSB Website`,
@@ -79,7 +80,6 @@ const config: core.GastbySiteConfig = {
     core.getGastbyPluginTreatConfig(),
     core.getGatsbyTransformerSharp(),
     core.getGatsbyPluginSharp(),
-    core.getGastbyPluginTreatConfig(),
     ...core.getGatsbyPluginMdx(),
     ...core.getGatsbyImageFolder({
       pathImgDir: path.join(__dirname, `/src/images`),
@@ -108,6 +108,7 @@ const config: core.GastbySiteConfig = {
         'yup',
         'lodash',
         'lodash-es',
+        'date-fns',
         '@react-icons',
       ],
       enableDesignSystemPages: true,
@@ -115,6 +116,18 @@ const config: core.GastbySiteConfig = {
     }),
     core.getGatsbyPluginPreloadFonts(),
   ],
+  /**
+   * Mimic the same route that we have when deployed
+   * @see https://github.com/chimurai/http-proxy-middleware/tree/v0.21.0#readme
+   */
+  developMiddleware: (app) => {
+    app.use(
+      '/api/server/',
+      proxy({
+        target: 'http://localhost:10003',
+      })
+    );
+  },
 };
 
 export default config;

@@ -1,10 +1,10 @@
+import { ButtonSize, ButtonVariant } from '@newrade/core-design-system';
 import { BlockMarkdown, GatsbyLink, Section } from '@newrade/core-gatsby-ui/src';
 import { BoxV2, Button, Image, Stack, Switcher, useTreatTheme } from '@newrade/core-react-ui';
 import { IoArrowForwardOutline } from '@react-icons/all-files/io5/IoArrowForwardOutline';
 import { FluidObject } from 'gatsby-image';
 import React from 'react';
 import { useInView } from 'react-intersection-observer';
-import { ButtonSize, ButtonVariant } from '../../../core-design-system/src';
 import { SECTION_TYPE } from '../../types/contentful-section-type';
 import { ContentfulSection } from '../../types/graphql-types';
 import { BlockGoogleMapVSB } from '../components/block-google-map';
@@ -200,11 +200,11 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
             return (
               <Section id={`section-${index}`} key={index} variant={'secondary'}>
                 <Stack gap={[cssTheme.sizing.var.x7]}>
-                  <BlockMarkdown style={{ maxWidth: 500 }}>{section.text?.childMdx?.body}</BlockMarkdown>
+                  <BlockMarkdown style={{ maxWidth: 800 }}>{section?.text?.childMdx?.body}</BlockMarkdown>
 
-                  {section?.costItems?.map((item, index) => {
+                  {/* {section?.costItems?.map((item, index) => {
                     return <div key={index}>{item?.title}</div>;
-                  })}
+                  })} */}
                 </Stack>
               </Section>
             );

@@ -1,11 +1,13 @@
 import { AppError, ERROR_TYPE } from '@newrade/core-common';
 import chalk from 'chalk';
+import debug from 'debug';
 import * as dotenv from 'dotenv';
 import * as t from 'io-ts';
 import path from 'path';
-import { COMMON_ENV } from './common-env';
-import { PathReporter } from './io-ts/reporter';
-import { log, LOG_LEVEL } from './log';
+import { CommonEnvType } from './common-env';
+import { PathReporter } from './reporter';
+
+const log = debug('newrade:env');
 
 /**
  * Utility function to load the .env files in the monorepository.
@@ -18,18 +20,20 @@ import { log, LOG_LEVEL } from './log';
  * @see https://github.com/motdotla/dotenv#readme
  * @see https://github.com/gcanti/io-ts/blob/master/index.md
  */
-export function loadDotEnv<ENV = COMMON_ENV>({
+export function loadDotEnv<ENV = CommonEnvType>({
   schema,
   dotEnvPath,
+  dotEnvRootPath = path.resolve(__dirname, '..', '..', '..', '.env'),
   packageName,
 }: {
   schema: t.IntersectionC<any>;
   dotEnvPath: string;
+  dotEnvRootPath?: string;
   packageName: string;
 }) {
-  log(`Loading .env files`, {
-    toolName: packageName || 'load-env-file',
-  });
+  const logEnv = log.extend(packageName.replace('@newrade/', ''));
+  const logEnvError = logEnv.extend('error');
+  logEnv(`loading .env files`);
 
   /**
    * Loads project .env file
@@ -41,12 +45,10 @@ export function loadDotEnv<ENV = COMMON_ENV>({
    * Loads repo root .env file
    */
   dotenv.config({
-    path: path.resolve(__dirname, '..', '..', '..', '.env'),
+    path: dotEnvRootPath,
   });
 
-  log(`Validating .env files...`, {
-    toolName: packageName || 'load-env-file',
-  });
+  logEnv(`validating .env files...`);
 
   /**
    * Validate if .env satisfies the passed schema with io-ts
@@ -57,10 +59,7 @@ export function loadDotEnv<ENV = COMMON_ENV>({
 
   if (report && report.length && !report[0].includes('No errors')) {
     report.map((reason) => {
-      log(`${reason}`, {
-        toolName: packageName || 'load-env-file',
-        level: LOG_LEVEL.ERROR,
-      });
+      logEnvError(`${reason}`);
     });
 
     throw new AppError({
@@ -69,9 +68,7 @@ export function loadDotEnv<ENV = COMMON_ENV>({
     });
   }
 
-  log(`.env files: ${chalk.green('valid')}`, {
-    toolName: packageName || 'load-env-file',
-  });
+  logEnv(`.env files is ${chalk.green('valid')}`);
 
   return (process.env as any) as ENV;
 }

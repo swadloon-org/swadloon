@@ -1,15 +1,11 @@
 import { ERROR_TYPE } from './error.constant';
 
-interface AdvanceError {
-  value?: any;
-}
-
 export class AppError extends Error {
   name!: ERROR_TYPE;
   message!: string;
   value?: any;
   stack?: string;
-  constructor(options: Error & AdvanceError) {
+  constructor(options: AppError) {
     super(options.message);
     this.name = options.name as ERROR_TYPE;
     this.stack = options.stack ? options.stack : undefined;

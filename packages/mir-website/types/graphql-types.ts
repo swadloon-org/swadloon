@@ -30545,6 +30545,25 @@ export type StringQueryOperatorInput = {
   glob?: Maybe<Scalars['String']>;
 };
 
+export type MobileFluidImageFragment = { fluid?: Maybe<Pick<ContentfulFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>> };
+
+export type DesktopFluidImageFragment = { fluid?: Maybe<Pick<ContentfulFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>> };
+
+export type SiteMetadataFragment = { siteMetadata?: Maybe<(
+    Pick<SiteSiteMetadata, 'title' | 'description' | 'siteUrl' | 'siteEnv'>
+    & { languages?: Maybe<Pick<SiteSiteMetadataLanguages, 'defaultLangKey' | 'langs'>> }
+  )> };
+
+export type CompanyInfoFragment = Pick<ContentfulCompanyInfo, 'companyName' | 'linkedinPageURL' | 'facebookPageURL' | 'instagramPageURL' | 'twitterPageURL' | 'metadataTwitterSite' | 'metadataTwitterCreator' | 'metadataSiteName' | 'copyright'>;
+
+export type MediaCollectionFragment = (
+  Pick<ContentfulMediaCollection, 'name'>
+  & { medias?: Maybe<Array<Maybe<(
+    { file?: Maybe<Pick<ContentfulAssetFile, 'url'>> }
+    & MobileFluidImageFragment
+  )>>> }
+);
+
 export type FeaturedPostsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -30658,66 +30677,3 @@ export type PageQuery = { site?: Maybe<SiteMetadataFragment>, contentfulCompanyI
         Pick<ContentfulPage, 'id' | 'name' | 'node_locale' | 'title' | 'slug'>
         & { type?: Maybe<Pick<ContentfulPageType, 'type'>>, description?: Maybe<Pick<ContentfulPageDescriptionTextNode, 'description'>> }
       ) }> }, contentfulPage?: Maybe<PageFragmentFragment> };
-
-export type CompanyInfoFragment = Pick<ContentfulCompanyInfo, 'companyName' | 'linkedinPageURL' | 'facebookPageURL' | 'instagramPageURL' | 'twitterPageURL' | 'metadataTwitterSite' | 'metadataTwitterCreator' | 'metadataSiteName' | 'copyright'>;
-
-export type MediaCollectionFragment = (
-  Pick<ContentfulMediaCollection, 'name'>
-  & { medias?: Maybe<Array<Maybe<(
-    { file?: Maybe<Pick<ContentfulAssetFile, 'url'>> }
-    & MobileFluidImageFragment
-  )>>> }
-);
-
-export type MobileFluidImageFragment = { fluid?: Maybe<Pick<ContentfulFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>> };
-
-export type DesktopFluidImageFragment = { fluid?: Maybe<Pick<ContentfulFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>> };
-
-export type SiteMetadataFragment = { siteMetadata?: Maybe<(
-    Pick<SiteSiteMetadata, 'title' | 'description' | 'siteUrl' | 'siteEnv'>
-    & { languages?: Maybe<Pick<SiteSiteMetadataLanguages, 'defaultLangKey' | 'langs'>> }
-  )> };
-
-export type DocsLayoutQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type DocsLayoutQuery = { pages: (
-    Pick<SitePageConnection, 'totalCount'>
-    & { nodes: Array<(
-      Pick<SitePage, 'id' | 'path'>
-      & { context?: Maybe<(
-        Pick<SitePageContext, 'id' | 'name' | 'dirName' | 'locale' | 'layout'>
-        & { siteMetadata?: Maybe<(
-          Pick<SitePageContextSiteMetadata, 'description' | 'siteEnv' | 'siteUrl' | 'title'>
-          & { languages?: Maybe<Pick<SitePageContextSiteMetadataLanguages, 'defaultLangKey' | 'langs'>> }
-        )> }
-      )> }
-    )> }
-  ) };
-
-export type DesignSystemLayoutPageQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type DesignSystemLayoutPageQuery = { pages: (
-    Pick<SitePageConnection, 'totalCount'>
-    & { nodes: Array<(
-      Pick<SitePage, 'id' | 'path'>
-      & { context?: Maybe<(
-        Pick<SitePageContext, 'id' | 'name' | 'dirName' | 'locale' | 'layout'>
-        & { siteMetadata?: Maybe<(
-          Pick<SitePageContextSiteMetadata, 'description' | 'siteEnv' | 'siteUrl' | 'title'>
-          & { languages?: Maybe<Pick<SitePageContextSiteMetadataLanguages, 'defaultLangKey' | 'langs'>> }
-        )> }
-      )> }
-    )> }
-  ) };
-
-export type MarkdownTemplateQueryVariables = Exact<{
-  fileId: Scalars['String'];
-}>;
-
-
-export type MarkdownTemplateQuery = { file?: Maybe<{ childMdx?: Maybe<(
-      Pick<Mdx, 'slug' | 'excerpt' | 'timeToRead' | 'tableOfContents' | 'body'>
-      & { frontmatter?: Maybe<Pick<MdxFrontmatter, 'title' | 'name' | 'tags'>>, headings?: Maybe<Array<Maybe<Pick<MdxHeadingMdx, 'value' | 'depth'>>>> }
-    )> }> };

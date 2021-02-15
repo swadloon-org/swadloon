@@ -24,6 +24,7 @@ import {
   NavItemGroup,
   Paragraph,
   Stack,
+  useIsSSR,
   useTreatTheme,
   useViewportBreakpoint,
 } from '@newrade/core-react-ui';
@@ -48,7 +49,7 @@ const SideBar = React.lazy(() =>
 );
 
 export const Layout = React.memo<LayoutProps>((props) => {
-  const isSSR = typeof window === 'undefined';
+  const isSSR = useIsSSR();
 
   /**
    * Data query

@@ -2,7 +2,10 @@
   "extends": "../core-gatsby-config/src/tsconfig/tsconfig.ts-plugin.json",
   "compilerOptions": {
     "allowJs": true,
-    "rootDir": "."
+    "rootDir": ".",
+    "types": ["node", "react", "jest"],
+    "module": "commonjs",
+    "target": "es6"
   },
   "references": [
     {

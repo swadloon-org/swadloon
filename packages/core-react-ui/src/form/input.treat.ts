@@ -35,7 +35,7 @@ export const styles = {
     borderRadius: 4,
     width: 'fit-content',
     ':focus': {
-      boxShadow: `0 0 0 1px ${cssTheme.colors.colors.primary[700]}`,
+      boxShadow: `0 0 1px 1px ${cssTheme.colors.colors.primary[300]}`,
     },
     '@media': {
       [cssTheme.layout.media.tablet]: {
@@ -53,22 +53,20 @@ export const styles = {
    * Sizes
    */
   medium: style(({ theme, cssTheme }: Theme) => ({
-    height: `calc(2 * ${cssTheme.sizing.var.x2} + ${cssTheme.typography.labels.mobile.small.capHeight}px + ${2}px)`,
+    height: `calc(${cssTheme.sizing.var.x4} + ${cssTheme.typography.labels.mobile.small.capHeight}px + ${2}px)`,
     // padding: `calc(${cssTheme.sizing.var.x2} - ${cssTheme.typography.labels.mobile.small.capsize?.['::before'].marginTop}) ${cssTheme.sizing.var.x2} ${cssTheme.sizing.var.x2}`,
-    padding: `3px ${cssTheme.sizing.var.x1} 1px`,
+    padding: `5px ${cssTheme.sizing.var.x1} 1px`,
     fontFamily: cssTheme.typography.labels.mobile.small.fontFamily,
     lineHeight: cssTheme.typography.labels.mobile.small.capsize?.lineHeight,
     fontSize: cssTheme.typography.labels.tablet.small.capsize?.fontSize,
     '@media': {
       [cssTheme.layout.media.tablet]: {
-        height: `calc(2 * ${cssTheme.sizing.var.x2} + ${cssTheme.typography.labels.tablet.small.capHeight}px + ${2}px)`,
+        height: `calc(${cssTheme.sizing.var.x4} + ${cssTheme.typography.labels.tablet.small.capHeight}px + ${2}px)`,
 
         fontSize: cssTheme.typography.labels.tablet.small.capsize?.fontSize,
       },
       [cssTheme.layout.media.desktopSmall]: {
-        height: `calc(2 * ${cssTheme.sizing.var.x2} + ${
-          cssTheme.typography.labels.desktop.small.capHeight
-        }px + ${2}px)`,
+        height: `calc(${cssTheme.sizing.var.x4} + ${cssTheme.typography.labels.desktop.small.capHeight}px + ${2}px)`,
         fontSize: cssTheme.typography.labels.desktop.small.capsize?.fontSize,
       },
     },

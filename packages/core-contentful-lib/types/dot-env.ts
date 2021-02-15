@@ -1,9 +1,11 @@
 import * as t from 'io-ts';
+import { CommonEnv } from '@newrade/core-utils';
 
 /**
  * Local, typed representation of the .env file.
  */
 export const Env = t.intersection([
+  CommonEnv,
   t.partial({
     /**
      * Figma

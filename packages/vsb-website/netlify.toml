@@ -1,0 +1,25 @@
+#
+# Docs https://docs.netlify.com/configure-builds/file-based-configuration/#sample-file
+#
+
+[dev]
+  command = "yarn typecheck"
+  # path to functions
+  functions = "functions"
+
+[build]
+  command = "#"
+  publish = "public/"
+  # path to functions
+  functions = "public/functions/"
+
+#
+# https://docs.netlify.com/routing/redirects/rewrites-proxies/#custom-headers-in-proxy-redirects
+# _redirects file is used instead of the [[redirects]]
+#
+
+# [[redirects]]
+#   from = "/api/server/*"
+#   to = "/.netlify/functions/server"
+#   status = 200
+#   force = true

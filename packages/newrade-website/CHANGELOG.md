@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/newrade-website@1.7.0...@newrade/newrade-website@1.8.0) (2021-02-15)
+
+### Bug Fixes
+
+- **core-utils:** refactor envs ([1f82218](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/1f82218b98f869c7e16202601bffe13ae085ae94))
+- **vsb-api:** fixes ([5a987dd](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/5a987dd707852165c3a1834e9e6d0ec359663c8f))
+- **vsb-website:** finalize form valiation (client) ([7ddf34a](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/7ddf34a0443834fbdae668a7ddd53ab2c90ad805))
+- **vsb-website:** wip on fix for ssr bug ([884e643](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/884e6439e95f02bc724f84b14b571cac45a26a07))
+
+### Features
+
+- **logging:** implement structured loggging ([713cb45](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/713cb4501897b14ff3d53c93d32bce0686759a7c))
+
+# [1.7.0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/newrade-website@1.6.0...@newrade/newrade-website@1.7.0) (2021-02-11)
+
+### Bug Fixes
+
+- **core-gatsby-ui:** refactor navigation ([07fad4c](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/07fad4c05c61edc455259cc2c43e369ed9974b90))
+- **core-react-ui:** fixes for components ([5ffa0d9](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/5ffa0d9a0c826d4b1767a2543a1ab11cc8818998))
+- **newrade-website:** fix data ([7a3f1c4](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/7a3f1c46d8aad82c7884a506773c1f447bc95284))
+- **newrade-website:** fix wrong export ([816fc55](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/816fc557a55e1ee96de3bdd4b0ae5597f31360b3))
+- **websites:** fix config for fragments ([2e0b9f7](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/2e0b9f7524461bc944dd50908b6250de540269d9))
+- **websites:** fixes for stability ([f398587](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/f3985874c00b07e7455bdff5027820f7dfd38689))
+
+### Features
+
+- **core-react-ui:** fix design system pages ([062d175](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/062d175e705eeecd8dd00a4bb95d4240c556f6b9))
+
 # [1.6.0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/newrade-website@1.5.0...@newrade/newrade-website@1.6.0) (2021-02-03)
 
 ### Bug Fixes
