@@ -14,7 +14,7 @@ export const styles = {
       bottom: '0',
       top: '0',
       width: '100vw',
-      padding: `${cssTheme.sizing.var.x5}`,
+      padding: `${cssTheme.sizing.var.x5} ${cssTheme.layout.var.contentMargins}`,
       borderTop: `1px solid ${cssTheme.colors.colors.primary[100]}`,
       borderBottom: `1px solid ${cssTheme.colors.colors.primary[100]}`,
       marginLeft: `calc(-1 * ${cssTheme.layout.var.contentMargins})`,
