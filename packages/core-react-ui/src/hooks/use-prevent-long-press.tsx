@@ -1,5 +1,5 @@
-import { isIOS } from 'react-device-detect';
 import { useEffect } from 'react';
+import { isIOS } from 'react-device-detect';
 
 type HandleScrollEvent = TouchEvent;
 
@@ -9,7 +9,11 @@ type HandleScrollEvent = TouchEvent;
  */
 // TODO: measure the time between start and end and cancel only when the press is long to prevent text selection
 export function usePreventLongPress(targetElement?: HTMLElement | Document | null) {
-  const handleTouchEvent = (event: HandleScrollEvent) => {
+  const handleStartTouchEvent = (event: Event) => {
+    event.returnValue = false;
+  };
+
+  const handleTouchEvent = (event: Event) => {
     event.returnValue = false;
   };
 
@@ -23,15 +27,15 @@ export function usePreventLongPress(targetElement?: HTMLElement | Document | nul
     }
 
     if (isIOS) {
-      targetElement.addEventListener('touchstart', handleTouchEvent as any);
-      targetElement.addEventListener('touchmove', handleTouchEvent as any);
-      targetElement.addEventListener('touchend', handleTouchEvent as any);
+      targetElement.addEventListener('touchstart', handleStartTouchEvent);
+      targetElement.addEventListener('touchmove', handleTouchEvent);
+      targetElement.addEventListener('touchend', handleTouchEvent);
     }
 
     return () => {
-      targetElement.removeEventListener('touchstart', handleTouchEvent as any);
-      targetElement.removeEventListener('touchmove', handleTouchEvent as any);
-      targetElement.removeEventListener('touchend', handleTouchEvent as any);
+      targetElement.removeEventListener('touchstart', handleStartTouchEvent);
+      targetElement.removeEventListener('touchmove', handleTouchEvent);
+      targetElement.removeEventListener('touchend', handleTouchEvent);
     };
   }, [targetElement]);
 }

@@ -39,7 +39,6 @@ export const PatientValidation: SchemaOf<PatientModel> = yup
       )
       .typeError('Date invalide')
       .required('Requis'),
-
     medicare: yup.string().transform(removeSpaces).min(12, 'Minimum 12 charactères').required('Requis'),
     medicareExpiryDate: yup
       .date()
@@ -48,6 +47,8 @@ export const PatientValidation: SchemaOf<PatientModel> = yup
       .typeError('Date invalide')
       .required('Requis'),
 
+    patientPhoneNumber: yup.string().matches(phoneRegExp, 'Phone number is not valid').required('Requis'),
+    patientPhoneType: yup.mixed().oneOf([CLINIKO_PHONE_TYPE.MOBILE, CLINIKO_PHONE_TYPE.HOME]),
     email: yup
       .string()
       .email(`Mauvais format d'email`)
@@ -58,8 +59,6 @@ export const PatientValidation: SchemaOf<PatientModel> = yup
       .email(`Mauvais format d'email`)
       .oneOf([yup.ref('email'), null], 'Emails doivent être identiques')
       .required('Requis'),
-    patientPhoneNumber: yup.string().matches(phoneRegExp, 'Phone number is not valid').required('Requis'),
-    patientPhoneType: yup.mixed().oneOf([CLINIKO_PHONE_TYPE.MOBILE, CLINIKO_PHONE_TYPE.HOME]),
 
     address1: yup.string().required('Requis'),
     address2: yup.string(),

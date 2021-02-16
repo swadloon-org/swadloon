@@ -39,7 +39,7 @@ server.disable('x-powered-by');
  */
 const apiLimiter = rateLimit({
   windowMs: 1 * 60 * 1000, // 1 minutes
-  max: 10,
+  max: 30,
   statusCode: 429,
 });
 server.use(apiLimiter);
