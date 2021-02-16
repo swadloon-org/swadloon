@@ -11,7 +11,7 @@ import { AriaButtonProps } from '@react-types/button';
 import React, { useRef } from 'react';
 import { useButton } from 'react-aria';
 import { useStyles } from 'react-treat';
-import { usePreventLongPress, usePreventPinchZoom } from '../';
+import { usePreventPinchZoom } from '../';
 import { CommonComponentProps } from '../props/component-common.props';
 import { Label } from '../text/label';
 import { getDefaultTextFromProps, getMergedClassname } from '../utilities/component.utilities';
@@ -54,7 +54,7 @@ export const Button = React.forwardRef<any, Props>(
     const iconClassNames = getMergedClassname([styles.iconBase, icon ? styles[icon] : '']);
 
     usePreventPinchZoom(ref.current);
-    usePreventLongPress(ref.current);
+    // usePreventLongPress(ref.current);
 
     const IconSvg =
       icon && icon !== ButtonIcon.none && Icon

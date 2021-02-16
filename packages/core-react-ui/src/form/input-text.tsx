@@ -31,7 +31,6 @@ export const InputText = React.memo(
       <Cleave
         type={cleaveProps.type ? cleaveProps.type : type}
         htmlRef={(htmlRef) => (ref = htmlRef)}
-        // ref={ref as any}
         id={renderedId}
         style={style}
         className={classNames}

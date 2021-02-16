@@ -77,6 +77,7 @@ export * from './text/link';
 export * from './text/paragraph';
 export * from './text/summary';
 export * from './text/title';
+export * from './transition/css-transition';
 export * from './utilities/colors.utilities';
 export * from './utilities/component.utilities';
 export * from './utilities/css-variable.utilities';

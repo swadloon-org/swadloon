@@ -33,9 +33,9 @@ import { IoCheckmarkCircle } from '@react-icons/all-files/io5/IoCheckmarkCircle'
 import 'cleave.js/dist/addons/cleave-phone.ca';
 import debug from 'debug';
 import debounce from 'lodash/debounce';
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
-import { SubmitHandler, useForm } from 'react-hook-form';
+import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { useStyles } from 'react-treat';
 import { SchemaOf, ValidationError } from 'yup';
 import {
@@ -53,6 +53,19 @@ const log = debug('newrade:vsb-website');
 const logError = log.extend('error');
 
 type Props = CommonComponentProps & SectionProps & {};
+
+function handleFocusControlled(name?: string) {
+  return () => {
+    if (!name) {
+      return;
+    }
+    const element = window.document.querySelector(`input[name="${name}"]`);
+
+    if (element) {
+      (element as HTMLElement).focus();
+    }
+  };
+}
 
 const useYupValidationResolver = (PatientValidation: SchemaOf<PatientModel>) =>
   useCallback(
@@ -75,19 +88,27 @@ const useYupValidationResolver = (PatientValidation: SchemaOf<PatientModel>) =>
           };
         }
 
+        const updatedErrors = errors.inner.reduce(
+          (allErrors: Array<ValidationError>, currentError: any) => ({
+            ...allErrors,
+
+            [currentError.path]: {
+              type: currentError.type ?? 'validation',
+              message: currentError.message,
+            },
+          }),
+          {}
+        );
+
+        if (errors.inner && errors.inner.length) {
+          console.log(errors.inner[0]);
+          const firstError = errors.inner[0] as ValidationError;
+          // handleFocusControlled(firstError.path)();
+        }
+
         return {
           values: {},
-          errors: errors.inner.reduce(
-            (allErrors: Array<ValidationError>, currentError: any) => ({
-              ...allErrors,
-
-              [currentError.path]: {
-                type: currentError.type ?? 'validation',
-                message: currentError.message,
-              },
-            }),
-            {}
-          ),
+          errors: updatedErrors,
         };
       }
     },
@@ -124,10 +145,33 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
   const [apiSuccess, setApiSuccess] = useState<string[]>([]);
   const [apiErrors, setApiErrors] = useState<string[]>([]);
   const [isLoading, setLoading] = useState<boolean>(false);
-  const recaptchaRef = React.useRef<any>();
+  const recaptchaRef = useRef<HTMLElement & { getValue: () => any; reset: () => any }>();
+  const submitButtonRef = useRef<HTMLButtonElement>();
   const resolver = useYupValidationResolver(PatientValidation);
-  const { register, handleSubmit, setError, errors, setValue, reset } = useForm<PatientModel>({
+  const defaultValues: PatientModel = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    emailConfirmation: '',
+    dateOfBirth: '',
+    address1: '',
+    address2: '',
+    city: '',
+    state: 'Québec',
+    postCode: '',
+    country: 'Canada',
+    medicare: '',
+    medicareExpiryDate: '',
+    patientPhoneNumber: '',
+    patientPhoneType: CLINIKO_PHONE_TYPE.MOBILE,
+  };
+  const { register, handleSubmit, setError, errors, setValue, reset, control, trigger, getValues, formState } = useForm<
+    PatientModel
+  >({
     mode: 'onBlur',
+    reValidateMode: 'onChange',
+    shouldFocusError: true,
+    defaultValues,
     resolver,
   });
 
@@ -164,14 +208,30 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
       });
   }
 
+  function scrollToSubmit() {
+    const recaptchatPos = submitButtonRef.current ? submitButtonRef.current.offsetTop : 0;
+    window.scrollTo({
+      top: recaptchatPos - window.document.documentElement.clientHeight / 2,
+      behavior: 'smooth',
+    });
+  }
+
   const onSubmit: SubmitHandler<PatientModel> = async (data) => {
     log('submitting');
 
     setLoading(true);
 
-    const tokenRecaptcha: string = await recaptchaRef.current.getValue();
+    if (!recaptchaRef.current) {
+      setLoading(false);
+      return;
+    }
+
+    scrollToSubmit();
+
+    const tokenRecaptcha: string = recaptchaRef.current.getValue();
 
     setApiErrors([]);
+    setApiSuccess([]);
 
     fetch(API_REGISTER_PATIENT_ROUTE, {
       method: 'POST',
@@ -190,7 +250,10 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
         if (result.status === API_RESPONSE_STATUS.SUCCESS) {
           log('patient was successfully created');
           setApiSuccess([result.message]);
-          reset();
+          reset(defaultValues);
+          if (recaptchaRef.current) {
+            recaptchaRef.current.reset();
+          }
           return;
         }
 
@@ -235,6 +298,12 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
       });
   };
 
+  function handleKeyPress(event: React.KeyboardEvent<any>) {
+    if (event.charCode === 13) {
+      handleSubmit(onSubmit)();
+    }
+  }
+
   const debouncedSave = debounce((value) => {
     if (value !== '') {
       handleAddressSuggest(value);
@@ -271,12 +340,24 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
       return;
     }
 
-    setValue('address1', newInfos.Line1 as string);
-    setValue('address2', newInfos.SecondaryStreet);
-    setValue('city', newInfos.City as string);
-    setValue('state', newInfos.ProvinceName as string);
-    setValue('country', newInfos.CountryName as string);
-    setValue('postCode', newInfos.PostalCode as string);
+    setValue('address1', newInfos.Line1 as string, {
+      shouldValidate: true,
+    });
+    setValue('address2', newInfos.SecondaryStreet, {
+      shouldValidate: true,
+    });
+    setValue('city', newInfos.City as string, {
+      shouldValidate: true,
+    });
+    setValue('state', newInfos.ProvinceName as string, {
+      shouldValidate: true,
+    });
+    setValue('country', newInfos.CountryName as string, {
+      shouldValidate: true,
+    });
+    setValue('postCode', newInfos.PostalCode as string, {
+      shouldValidate: true,
+    });
 
     setSuggestion(false);
   };
@@ -314,6 +395,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
                   name="firstName"
                   ref={register}
                   autoComplete="given-name"
+                  onKeyPress={handleKeyPress}
                   placeholder={'John'}
                   state={errors.firstName?.message ? 'error' : 'rest'}
                 />
@@ -336,16 +418,28 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
             <FormSwitcher>
               <InputWrapper>
                 <InputLabel htmlFor={'dateOfBirth'}>Date de naissance</InputLabel>
-                <InputText
-                  type={'text'}
+                <Controller
                   name="dateOfBirth"
-                  cleaveProps={{
-                    htmlRef: register,
-                    options: { date: true, datePattern: ['d', 'm', 'Y'], delimiter: '-' },
-                  }}
-                  placeholder={'jj-mm-aaaa'}
-                  autoComplete={'bday'}
-                  state={errors.dateOfBirth?.message ? 'error' : 'rest'}
+                  control={control}
+                  onFocus={handleFocusControlled('dateOfBirth')}
+                  render={({ onChange, onBlur, value, name, ref }) => (
+                    <InputText
+                      type={'tel'}
+                      name={name}
+                      cleaveProps={{
+                        htmlRef: (htmlRef) => {
+                          htmlRef = ref;
+                        },
+                        onChange,
+                        onBlur,
+                        value,
+                        options: { date: true, datePattern: ['d', 'm', 'Y'], delimiter: '-' },
+                      }}
+                      placeholder={'jj-mm-aaaa'}
+                      autoComplete={'bday'}
+                      state={errors.dateOfBirth?.message ? 'error' : 'rest'}
+                    />
+                  )}
                 />
                 <InputError>{errors.dateOfBirth?.message}</InputError>
               </InputWrapper>
@@ -367,32 +461,61 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
             <FormSwitcher>
               <InputWrapper>
                 <InputLabel htmlFor={'medicare'}>Numero d'assurance maladie (RAMQ)</InputLabel>
-                <InputText
+
+                <Controller
                   name="medicare"
-                  ref={register}
-                  autoComplete="off"
-                  placeholder={'FFFF 9999 9999'}
-                  cleaveProps={{
-                    htmlRef: register,
-                    options: { blocks: [4, 4, 4], delimiter: ' ', uppercase: true },
-                  }}
-                  state={errors.medicare?.message ? 'error' : 'rest'}
+                  control={control}
+                  onFocus={handleFocusControlled('medicare')}
+                  render={({ onChange, onBlur, value, name, ref }) => (
+                    <InputText
+                      name={name}
+                      autoComplete={'off'}
+                      placeholder={'FFFF 9999 9999'}
+                      type={'text'}
+                      cleaveProps={{
+                        htmlRef: (htmlRef) => {
+                          htmlRef = ref;
+                        },
+                        onChange,
+                        onBlur,
+                        value,
+                        options: { blocks: [4, 4, 4], delimiter: ' ', uppercase: true },
+                      }}
+                      state={errors.medicare?.message ? 'error' : 'rest'}
+                    />
+                  )}
                 />
+
                 <InputError>{errors.medicare?.message}</InputError>
               </InputWrapper>
 
               <InputWrapper>
                 <InputLabel htmlFor={'medicareExpiryDate'}>Expiration</InputLabel>
-                <InputText
-                  type={'text'}
+
+                <Controller
                   name="medicareExpiryDate"
-                  cleaveProps={{
-                    htmlRef: register,
-                    options: { date: true, datePattern: ['m', 'y'], delimiter: '-' },
-                  }}
-                  placeholder={'mm-aa'}
-                  state={errors.medicareExpiryDate?.message ? 'error' : 'rest'}
+                  control={control}
+                  onFocus={handleFocusControlled('medicareExpiryDate')}
+                  render={({ onChange, onBlur, value, name, ref }) => (
+                    <InputText
+                      name={name}
+                      type={'tel'}
+                      cleaveProps={{
+                        htmlRef: (htmlRef) => {
+                          htmlRef = ref;
+                        },
+                        onChange,
+                        onBlur,
+                        value,
+                        options: { date: true, datePattern: ['m', 'y'], delimiter: '-' },
+                      }}
+                      placeholder={'mm-aa'}
+                      autoComplete={'off'}
+                      state={errors.medicareExpiryDate?.message ? 'error' : 'rest'}
+                    />
+                  )}
                 />
+
                 <InputError>{errors.medicareExpiryDate?.message}</InputError>
               </InputWrapper>
             </FormSwitcher>
@@ -402,17 +525,30 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
             <FormSwitcher>
               <InputWrapper>
                 <InputLabel htmlFor={'patientPhoneNumber'}>Téléphone</InputLabel>
-                <InputText
-                  name={'patientPhoneNumber'}
-                  placeholder={'555-555-5555'}
-                  autoComplete={'tel'}
-                  cleaveProps={{
-                    htmlRef: register,
-                    type: 'tel',
-                    options: { phone: true, phoneRegionCode: 'CA', delimiter: '-' },
-                  }}
-                  state={errors.patientPhoneNumber?.message ? 'error' : 'rest'}
+                <Controller
+                  name="patientPhoneNumber"
+                  control={control}
+                  onFocus={handleFocusControlled('patientPhoneNumber')}
+                  render={({ onChange, onBlur, value, name, ref }) => (
+                    <InputText
+                      type={'tel'}
+                      name={name}
+                      cleaveProps={{
+                        htmlRef: (htmlRef) => {
+                          htmlRef = ref;
+                        },
+                        onChange,
+                        onBlur,
+                        value,
+                        options: { phone: true, phoneRegionCode: 'CA', delimiter: '-' },
+                      }}
+                      placeholder={'555-555-5555'}
+                      autoComplete={'tel'}
+                      state={errors.patientPhoneNumber?.message ? 'error' : 'rest'}
+                    />
+                  )}
                 />
+
                 <InputError>{errors.patientPhoneNumber?.message}</InputError>
               </InputWrapper>
 
@@ -422,7 +558,6 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
                   name={'patientPhoneType'}
                   ref={register}
                   state={errors.patientPhoneType?.message ? 'error' : 'rest'}
-                  defaultValue={CLINIKO_PHONE_TYPE.MOBILE}
                 >
                   <option value={CLINIKO_PHONE_TYPE.MOBILE}>{'Mobile'}</option>
                   <option value={CLINIKO_PHONE_TYPE.HOME}>{'Fixe'}</option>
@@ -440,6 +575,12 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
                   name="email"
                   ref={register}
                   autoComplete="email"
+                  onBlur={() => {
+                    if (getValues('emailConfirmation')) {
+                      trigger('emailConfirmation');
+                    }
+                  }}
+                  placeholder={'john@snow.com'}
                   state={errors.email?.message ? 'error' : 'rest'}
                 />
 
@@ -453,6 +594,12 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
                   name="emailConfirmation"
                   ref={register}
                   autoComplete="email"
+                  placeholder={'john@snow.com'}
+                  onBlur={() => {
+                    if (getValues('email')) {
+                      trigger('email');
+                    }
+                  }}
                   state={errors.emailConfirmation?.message ? 'error' : 'rest'}
                 />
 
@@ -468,6 +615,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
                 name="address1"
                 ref={register}
                 autoComplete="address-line1"
+                placeholder={'111 rue...'}
                 onChange={onChangeHandler}
                 state={errors.address1?.message ? 'error' : 'rest'}
               />
@@ -480,6 +628,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
               <InputText
                 name="address2"
                 ref={register}
+                placeholder={'#222'}
                 autoComplete="address-line2"
                 state={errors.address2?.message ? 'error' : 'rest'}
               />
@@ -492,6 +641,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
                 <InputText
                   name="city"
                   ref={register}
+                  placeholder={'Montréal'}
                   autoComplete="address-level2"
                   state={errors.city?.message ? 'error' : 'rest'}
                 />
@@ -503,6 +653,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
                 <InputText
                   name="state"
                   ref={register}
+                  placeholder={'Québec'}
                   autoComplete="address-level1"
                   state={errors.state?.message ? 'error' : 'rest'}
                 />
@@ -516,6 +667,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
                 <InputText
                   name="postCode"
                   ref={register}
+                  placeholder={'H1H2H2'}
                   autoComplete="postal-code"
                   state={errors.postCode?.message ? 'error' : 'rest'}
                 />
@@ -527,6 +679,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
                 <InputText
                   name="country"
                   ref={register}
+                  placeholder={'Canada'}
                   autoComplete="country-name"
                   state={errors.country?.message ? 'error' : 'rest'}
                 />
@@ -566,6 +719,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
             </Paragraph>
 
             <Button
+              ref={submitButtonRef}
               variant={ButtonVariant.primary}
               className={isLoading ? 'loading' : ''}
               size={ButtonSize.large}
@@ -575,7 +729,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
               {isLoading ? 'En cours...' : 'Soumettre la demande'}
             </Button>
 
-            {!isLoading ? (
+            {!isLoading && apiSuccess.length ? (
               <Stack gap={[cssTheme.sizing.var.x3]}>
                 {apiSuccess.map((success, index) => {
                   return (
@@ -593,12 +747,13 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
               </Stack>
             ) : null}
 
-            {!isLoading ? (
+            {!isLoading && apiErrors.length ? (
               <Stack gap={[cssTheme.sizing.var.x3]}>
                 {apiErrors.map((error, index) => {
                   return (
                     <Cluster
                       key={index}
+                      id="formError"
                       justifyContent={['flex-start']}
                       className={`${styles.error}`}
                       gap={[cssTheme.sizing.var.x2]}

@@ -1,6 +1,6 @@
 import puppeteer from 'puppeteer';
 
-export async function clickOnElementWithText({
+export async function findElementWithText({
   page,
   selector,
   text,
@@ -12,24 +12,35 @@ export async function clickOnElementWithText({
   useInnerHTML?: boolean;
 }) {
   try {
+    let foundItems: HTMLElement[];
     await page.evaluate(
       (selector, text, useInnerHTML) => {
-        const elements = Array.from(document.querySelectorAll(selector));
+        const elements: HTMLElement[] = Array.from(document.querySelectorAll(selector));
         const targetElements = elements.filter(({ innerHTML, innerText, textContent }) => {
           const exp = new RegExp(text, 'gi');
-          return useInnerHTML ? exp.test(innerHTML) : exp.test(innerText) || exp.test(textContent);
+          if (useInnerHTML) {
+            return exp.test(innerHTML);
+          }
+          if (useInnerHTML == false && !textContent) {
+            return exp.test(innerText);
+          }
+          if (useInnerHTML == false && textContent) {
+            return exp.test(textContent);
+          }
         });
         if (!(targetElements && targetElements.length)) {
           throw new Error('could not find element');
         }
-        targetElements[0].click();
+        foundItems = targetElements;
       },
       selector,
       text,
       useInnerHTML !== undefined ? useInnerHTML : false
     );
+
+    // return foundItems;
   } catch (error) {
-    fail(`Could not click on element with selector '${selector}', error: ${error}`);
+    fail(`Could not found on element with selector '${selector}', error: ${error}`);
   }
 }
 
