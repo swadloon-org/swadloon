@@ -37,6 +37,9 @@ export const styles = {
     ':focus': {
       boxShadow: `0 0 1px 1px ${cssTheme.colors.colors.primary[300]}`,
     },
+    '::-webkit-input-placeholder': {
+      color: cssTheme.colors.colors.grey[300],
+    },
     '@media': {
       [cssTheme.layout.media.tablet]: {
         // minWidth: 256,
@@ -55,7 +58,7 @@ export const styles = {
   medium: style(({ theme, cssTheme }: Theme) => ({
     height: `calc(${cssTheme.sizing.var.x4} + ${cssTheme.typography.labels.mobile.small.capHeight}px + ${2}px)`,
     // padding: `calc(${cssTheme.sizing.var.x2} - ${cssTheme.typography.labels.mobile.small.capsize?.['::before'].marginTop}) ${cssTheme.sizing.var.x2} ${cssTheme.sizing.var.x2}`,
-    padding: `5px ${cssTheme.sizing.var.x1} 1px`,
+    padding: `4px ${cssTheme.sizing.var.x1} 1px`,
     fontFamily: cssTheme.typography.labels.mobile.small.fontFamily,
     lineHeight: cssTheme.typography.labels.mobile.small.capsize?.lineHeight,
     fontSize: cssTheme.typography.labels.tablet.small.capsize?.fontSize,

@@ -1,6 +1,7 @@
+import { FluidObject } from 'gatsby-image';
 import React, { useState } from 'react';
 import { useStyles } from 'react-treat';
-import { SectionFragment, LinkFragment } from '../../../types/graphql-types';
+import { LinkFragment, SectionFragment } from '../../../types/graphql-types';
 import { LayoutCentered } from '../../layout/content-centered';
 import { SECTION_IMAGE_POSITION } from '../../templates/section.template';
 import { FadeIn } from '../animation/fade-in';
@@ -10,12 +11,12 @@ import * as styleRefsType3 from './info-section-type-3.treat';
 import { RenderTitleHighlight } from './info-title-highligh';
 import { SectionLinkButton } from './section-link-button';
 import { Tab } from './tab';
-import { FluidObject } from 'gatsby-image';
 
 type OwnProps = SectionFragment;
 
 export const InfoSectionType3: React.FC<OwnProps> = (props) => {
   const styles = useStyles(styleRefsType3);
+  const styleRefs = useStyles(styleRefsType3);
   const [selectedTabIndex, setSelectedTabIndex] = useState<number>(0);
 
   const imagePosition = props?.imagePosition as SECTION_IMAGE_POSITION;
@@ -60,8 +61,6 @@ export const InfoSectionType3: React.FC<OwnProps> = (props) => {
   );
 
   function renderTabbedInfoSection(props: SectionFragment, sectionIndex: number) {
-    const styleRefs = useStyles(styleRefsType3);
-
     return (
       <React.Fragment key={`${sectionIndex}`}>
         <RenderTitleHighlight className={styleRefs.title} title={props?.title} titleHighlight={props?.titleHighlight} />
