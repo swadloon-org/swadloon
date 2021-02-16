@@ -7147,10 +7147,10 @@ babel-plugin-transform-react-remove-prop-types@0.4.24, babel-plugin-transform-re
   resolved "https://registry.yarnpkg.com/babel-plugin-transform-react-remove-prop-types/-/babel-plugin-transform-react-remove-prop-types-0.4.24.tgz#f2edaf9b4c6a5fbe5c1d678bfb531078c1555f3a"
   integrity sha512-eqj0hVcJUR57/Ug2zE1Yswsw4LhuqqHhD+8v120T1cl3kjg76QwtyBrdIk4WVwK+lAhBJVYCd/v+4nc4y+8JsA==
 
-babel-plugin-treat@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/babel-plugin-treat/-/babel-plugin-treat-1.1.0.tgz#82fc26c9dc46cc075e13116e738456bc63ee0edc"
-  integrity sha512-7T5q8BD1P88E0pN803/Me/Hix19kmfJcR5vFEeXwQEoT1aQ3kmKsH95NCB4B3BvZr7gqlofDbGOhgNWYhPWAyw==
+babel-plugin-treat@^1.6.2:
+  version "1.6.2"
+  resolved "https://registry.yarnpkg.com/babel-plugin-treat/-/babel-plugin-treat-1.6.2.tgz#f718ce6bcca9237b00d68134a83e8e338472513d"
+  integrity sha512-wGqu14P09Y7L9CVcnUDxSOaOS/+A5n8PnEGg+2Vk837gB7OJ94N9974jb7qfm2kTw5pWKoEVW0N2yIVQCw10tw==
 
 babel-preset-current-node-syntax@^1.0.0:
   version "1.0.0"
