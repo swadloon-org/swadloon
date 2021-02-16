@@ -592,6 +592,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
                   return (
                     <Cluster
                       key={index}
+                      id="formError"
                       justifyContent={['flex-start']}
                       className={`${styles.error}`}
                       gap={[cssTheme.sizing.var.x2]}
