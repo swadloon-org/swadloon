@@ -43,17 +43,18 @@ export const Button = React.forwardRef<any, Props>(
       Icon,
       ...props
     },
-    ref
+    forwardedRef
   ) => {
     const { styles } = useStyles(stylesRef);
-    const refLocal = ref ? (ref as React.RefObject<HTMLButtonElement>) : useRef<HTMLButtonElement>(null);
+    const localRef = useRef<HTMLButtonElement>(null);
+    const ref = forwardedRef ? (forwardedRef as React.RefObject<HTMLButtonElement>) : localRef;
     const type = as ? as : 'button';
-    const { buttonProps, isPressed } = useButton({ ...props, elementType: type }, refLocal as any);
+    const { buttonProps, isPressed } = useButton({ ...props, elementType: type }, ref as any);
 
     const iconClassNames = getMergedClassname([styles.iconBase, icon ? styles[icon] : '']);
 
-    usePreventPinchZoom(refLocal.current);
-    usePreventLongPress(refLocal.current);
+    usePreventPinchZoom(ref.current);
+    usePreventLongPress(ref.current);
 
     const IconSvg =
       icon && icon !== ButtonIcon.none && Icon
@@ -108,7 +109,7 @@ export const Button = React.forwardRef<any, Props>(
             id,
             style,
             className: allClassName,
-            ref: refLocal,
+            ref: ref,
             ...buttonProps,
             dataicon: `${icon}`,
             datapressed: `${isPressed}`,
@@ -138,7 +139,7 @@ export const Button = React.forwardRef<any, Props>(
         id={id}
         style={style}
         className={allClassName}
-        ref={refLocal}
+        ref={ref}
         {...buttonProps}
         // @ts-ignore
         dataicon={`${IconSvg ? icon : ''}`}

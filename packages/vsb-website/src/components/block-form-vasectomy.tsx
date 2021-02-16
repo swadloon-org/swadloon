@@ -16,6 +16,8 @@ import {
   Paragraph,
   Stack,
   Switcher,
+  useNetworkStatus,
+  usePageVisibility,
   useTreatTheme,
 } from '@newrade/core-react-ui';
 import {
@@ -112,6 +114,9 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
   const { styles } = useStyles(styleRefs);
   const { cssTheme } = useTreatTheme();
 
+  const { isOnline } = useNetworkStatus();
+  const { pageVisible } = usePageVisibility();
+
   const [apiStatus, setApiStatus] = useState<'en ligne' | 'hors ligne' | undefined>(undefined);
   const [isSuggestion, setSuggestion] = useState<boolean>(false);
   const [isValueSuggestion, setValueSuggestion] = useState<any>();
@@ -132,7 +137,9 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
       checkApiStatus();
 
       const interval = window.setInterval(() => {
-        checkApiStatus();
+        if (isOnline && pageVisible) {
+          checkApiStatus();
+        }
       }, 15000);
       return () => {
         window.clearInterval(interval);
@@ -141,7 +148,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
       setApiStatus('hors ligne');
       logError('api offline');
     }
-  }, []);
+  }, [pageVisible, isOnline]);
 
   function checkApiStatus() {
     fetch(API_STATUS_CLINIKO)

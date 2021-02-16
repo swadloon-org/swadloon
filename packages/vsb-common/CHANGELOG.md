@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/newrade/newrade/compare/@newrade/vsb-common@1.2.0...@newrade/vsb-common@1.3.0) (2021-02-15)
+
+### Bug Fixes
+
+- **core-utils:** refactor envs ([1f82218](https://github.com/newrade/newrade/commit/1f82218b98f869c7e16202601bffe13ae085ae94))
+- **fixing-functions-netlify:** removing lambda ([5e2344f](https://github.com/newrade/newrade/commit/5e2344f4eda61740f377d25f2f708e7f89e9715b))
+- **vsb-api:** fixes ([5a987dd](https://github.com/newrade/newrade/commit/5a987dd707852165c3a1834e9e6d0ec359663c8f))
+- **vsb-website:** finalize form valiation (client) ([7ddf34a](https://github.com/newrade/newrade/commit/7ddf34a0443834fbdae668a7ddd53ab2c90ad805))
+
+### Features
+
+- **logging:** implement structured loggging ([713cb45](https://github.com/newrade/newrade/commit/713cb4501897b14ff3d53c93d32bce0686759a7c))
+- **vsb-api:** add validation for endpoints and form ([6d18162](https://github.com/newrade/newrade/commit/6d18162c1d76e2f9463443d75c88f24514061afd))
+
 # [1.2.0](https://github.com/newrade/newrade/compare/@newrade/vsb-common@1.1.0...@newrade/vsb-common@1.2.0) (2021-02-11)
 
 ### Bug Fixes

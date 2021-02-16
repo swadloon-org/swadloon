@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/newrade/newrade-core/tree/master/packages/vsb-api/compare/@newrade/vsb-api@1.2.0...@newrade/vsb-api@1.3.0) (2021-02-15)
+
+### Bug Fixes
+
+- **copyscript-fix:** adding the script after the build of the vsb-api ([94122dc](https://github.com/newrade/newrade-core/tree/master/packages/vsb-api/commit/94122dc792aba1586e0abdecd6f5a555c7a90b42))
+- **core-utils:** refactor envs ([1f82218](https://github.com/newrade/newrade-core/tree/master/packages/vsb-api/commit/1f82218b98f869c7e16202601bffe13ae085ae94))
+- **fixing-functions-netlify:** removing lambda ([5e2344f](https://github.com/newrade/newrade-core/tree/master/packages/vsb-api/commit/5e2344f4eda61740f377d25f2f708e7f89e9715b))
+- **vsb-website:** wip for validation ([62e8bb3](https://github.com/newrade/newrade-core/tree/master/packages/vsb-api/commit/62e8bb34fe83946b25e8e34f823cb608933658c7))
+
+### Features
+
+- **copy-server-script:** adding script for to overwrite the current build of the server ([2a40bcc](https://github.com/newrade/newrade-core/tree/master/packages/vsb-api/commit/2a40bccf3a2f00b06ca75eadef6fd9e25a3baee4))
+- **logging:** implement structured loggging ([713cb45](https://github.com/newrade/newrade-core/tree/master/packages/vsb-api/commit/713cb4501897b14ff3d53c93d32bce0686759a7c))
+- **vsb-api:** add netlify setup ([72a3830](https://github.com/newrade/newrade-core/tree/master/packages/vsb-api/commit/72a3830dab26801c066c040632b1e64b1f974e27))
+- **vsb-api:** add validation for endpoints and form ([6d18162](https://github.com/newrade/newrade-core/tree/master/packages/vsb-api/commit/6d18162c1d76e2f9463443d75c88f24514061afd))
+- **vsb-api:** trying to deploy to netlify ([3943583](https://github.com/newrade/newrade-core/tree/master/packages/vsb-api/commit/394358395408463b83b8140e662ffe6062109f64))
+- **vsb-website:** adding logging ([1729ca1](https://github.com/newrade/newrade-core/tree/master/packages/vsb-api/commit/1729ca148e4de6831bf2b7beaeec9abf658a1b5c))
+
 # [1.2.0](https://github.com/newrade/newrade-core/tree/master/packages/vsb-api/compare/@newrade/vsb-api@1.1.0...@newrade/vsb-api@1.2.0) (2021-02-11)
 
 ### Bug Fixes

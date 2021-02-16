@@ -1,10 +1,13 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
+import { useIsSSR } from './use-is-ssr';
 
 export const useNetworkStatus = () => {
-  const [status, setStatus] = React.useState(navigator.onLine);
-  const [offlineAt, setOfflineAt] = React.useState<Date | undefined>(undefined);
+  const isSSR = useIsSSR();
 
-  React.useEffect(() => {
+  const [status, setStatus] = useState(isSSR ? true : window.navigator.onLine);
+  const [offlineAt, setOfflineAt] = useState<Date | undefined>(undefined);
+
+  useEffect(() => {
     const handleOnline = () => {
       setStatus(true);
       setOfflineAt(undefined);
@@ -15,7 +18,7 @@ export const useNetworkStatus = () => {
       setOfflineAt(new Date());
     };
 
-    if (typeof window === 'undefined') {
+    if (isSSR) {
       return;
     }
 
@@ -25,7 +28,7 @@ export const useNetworkStatus = () => {
       window.removeEventListener('online', handleOnline);
       window.removeEventListener('offline', handleOffline);
     };
-  }, []);
+  }, [isSSR]);
 
   return {
     isOnline: status,

@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.9.0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/vsb-website@1.8.0...@newrade/vsb-website@1.9.0) (2021-02-15)
+
+### Bug Fixes
+
+- **config:** fix eslint config ([2dc1ecd](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/2dc1ecd8e17ef4bcfeec9e198af14428a3d2ea0e))
+- **core-utils:** refactor envs ([1f82218](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/1f82218b98f869c7e16202601bffe13ae085ae94))
+- **fixing-env-client:** fixing the recaptcha site key ([b5e66cf](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/b5e66cf1126dfde5c8146832891bfe28c85b1616))
+- **fixing-functions-netlify:** removing lambda ([5e2344f](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/5e2344f4eda61740f377d25f2f708e7f89e9715b))
+- **vsb-api:** fixes ([5a987dd](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/5a987dd707852165c3a1834e9e6d0ec359663c8f))
+- **vsb-website:** add e2e test ([10f9997](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/10f99976a2c97e7919335750b4184fdea8e146af))
+- **vsb-website:** finalize form valiation (client) ([7ddf34a](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/7ddf34a0443834fbdae668a7ddd53ab2c90ad805))
+- **vsb-website:** fix address service ([6e82b27](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/6e82b273011d6f5fe9647efcfb980b5c701126bb))
+- **vsb-website:** fix committed funcitons ([ca23144](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ca23144ea4868101e58f878f8a36227c3cd81ced))
+- **vsb-website:** fix for redirect ([d0fc61b](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/d0fc61b74e1f26094927441b7cfce1c48102e8d8))
+- **vsb-website:** fix missing entry in dot-env.ts ([6aa4a87](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/6aa4a879a0e7b4410738f6f046c73eaa3156a424))
+- **vsb-website:** fix rerender bug ([3101fcd](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/3101fcd4cc4600d2e701dd1bc6f99db322ae3da7))
+- **vsb-website:** fix video iframe ([ab02dca](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ab02dcaaeb475c46986030fab9a86f31590617f7))
+- **vsb-website:** wip for validation ([62e8bb3](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/62e8bb34fe83946b25e8e34f823cb608933658c7))
+- **vsb-website:** wip on fix for ssr bug ([884e643](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/884e6439e95f02bc724f84b14b571cac45a26a07))
+
+### Features
+
+- **address-complete:** deleting the address lookup complete ([651cbb1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/651cbb15f7d639263c16588c2a60198ecb1efb40))
+- **client-env:** adding postcanada api key ([5b2cc4f](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/5b2cc4fc8cb24c6c1a15fcfed16be540f5b88e4f))
+- **logging:** implement structured loggging ([713cb45](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/713cb4501897b14ff3d53c93d32bce0686759a7c))
+- **postbuild-netlify-functions:** adding the postbuild in gatsby-node for netlify ([bbc4ae8](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/bbc4ae8eb3d999be91e57fa741d5325096ff1816))
+- **recaptcha-env:** adding client dotenv for the recaptcha ([bd0b673](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/bd0b67305a22cde0397f2e840dae5d3b8cdedc89))
+- **redirection-vsb:** adding all path needed to redirect to the vsb website ([185ca89](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/185ca892d7abb83e8088611e9144de42412f8ef3))
+- **vsb-api:** add netlify setup ([72a3830](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/72a3830dab26801c066c040632b1e64b1f974e27))
+- **vsb-api:** add validation for endpoints and form ([6d18162](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/6d18162c1d76e2f9463443d75c88f24514061afd))
+- **vsb-api:** trying to deploy to netlify ([3943583](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/394358395408463b83b8140e662ffe6062109f64))
+- **vsb-website:** adding logging ([1729ca1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/1729ca148e4de6831bf2b7beaeec9abf658a1b5c))
+
 # [1.8.0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/vsb-website@1.7.0...@newrade/vsb-website@1.8.0) (2021-02-11)
 
 ### Bug Fixes

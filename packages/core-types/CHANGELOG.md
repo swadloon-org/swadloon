@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/newrade/newrade-core/tree/master/packages/core-common/compare/@newrade/core-types@1.2.0...@newrade/core-types@1.3.0) (2021-02-15)
+
+### Features
+
+- **logging:** implement structured loggging ([713cb45](https://github.com/newrade/newrade-core/tree/master/packages/core-common/commit/713cb4501897b14ff3d53c93d32bce0686759a7c))
+- **vsb-api:** trying to deploy to netlify ([3943583](https://github.com/newrade/newrade-core/tree/master/packages/core-common/commit/394358395408463b83b8140e662ffe6062109f64))
+
 # [1.2.0](https://github.com/newrade/newrade-core/tree/master/packages/core-common/compare/@newrade/core-types@1.1.0...@newrade/core-types@1.2.0) (2021-02-11)
 
 ### Features

@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.10.0](https://github.com/newrade/newrade/compare/@newrade/core-react-ui@1.9.0...@newrade/core-react-ui@1.10.0) (2021-02-15)
+
+### Bug Fixes
+
+- **core-utils:** refactor envs ([1f82218](https://github.com/newrade/newrade/commit/1f82218b98f869c7e16202601bffe13ae085ae94))
+- **vsb-api:** fixes ([5a987dd](https://github.com/newrade/newrade/commit/5a987dd707852165c3a1834e9e6d0ec359663c8f))
+- **vsb-website:** finalize form valiation (client) ([7ddf34a](https://github.com/newrade/newrade/commit/7ddf34a0443834fbdae668a7ddd53ab2c90ad805))
+- **vsb-website:** fix rerender bug ([3101fcd](https://github.com/newrade/newrade/commit/3101fcd4cc4600d2e701dd1bc6f99db322ae3da7))
+- **vsb-website:** fix video iframe ([ab02dca](https://github.com/newrade/newrade/commit/ab02dcaaeb475c46986030fab9a86f31590617f7))
+- **vsb-website:** wip on fix for ssr bug ([884e643](https://github.com/newrade/newrade/commit/884e6439e95f02bc724f84b14b571cac45a26a07))
+
+### Features
+
+- **logging:** implement structured loggging ([713cb45](https://github.com/newrade/newrade/commit/713cb4501897b14ff3d53c93d32bce0686759a7c))
+
 # [1.9.0](https://github.com/newrade/newrade/compare/@newrade/core-react-ui@1.8.0...@newrade/core-react-ui@1.9.0) (2021-02-11)
 
 ### Bug Fixes

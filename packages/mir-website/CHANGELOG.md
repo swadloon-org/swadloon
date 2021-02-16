@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.10.2](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/mir-website@1.10.1...@newrade/mir-website@1.10.2) (2021-02-15)
+
+### Bug Fixes
+
+- **core-utils:** refactor envs ([1f82218](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/1f82218b98f869c7e16202601bffe13ae085ae94))
+- **vsb-website:** finalize form valiation (client) ([7ddf34a](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/7ddf34a0443834fbdae668a7ddd53ab2c90ad805))
+- **vsb-website:** wip on fix for ssr bug ([884e643](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/884e6439e95f02bc724f84b14b571cac45a26a07))
+
 ## [1.10.1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/mir-website@1.10.0...@newrade/mir-website@1.10.1) (2021-02-11)
 
 ### Bug Fixes

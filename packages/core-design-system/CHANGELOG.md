@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.1](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-design-system@1.8.0...@newrade/core-design-system@1.8.1) (2021-02-15)
+
+### Bug Fixes
+
+- **core-utils:** refactor envs ([1f82218](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/1f82218b98f869c7e16202601bffe13ae085ae94))
+
 # [1.8.0](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-design-system@1.7.0...@newrade/core-design-system@1.8.0) (2021-02-11)
 
 ### Features

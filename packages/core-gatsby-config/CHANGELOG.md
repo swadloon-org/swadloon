@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-config@1.7.1...@newrade/core-gatsby-config@1.8.0) (2021-02-15)
+
+### Bug Fixes
+
+- **core-utils:** refactor envs ([1f82218](https://github.com/newrade/newrade/commit/1f82218b98f869c7e16202601bffe13ae085ae94))
+- **vsb-api:** fixes ([5a987dd](https://github.com/newrade/newrade/commit/5a987dd707852165c3a1834e9e6d0ec359663c8f))
+- **vsb-website:** wip on fix for ssr bug ([884e643](https://github.com/newrade/newrade/commit/884e6439e95f02bc724f84b14b571cac45a26a07))
+
+### Features
+
+- **logging:** implement structured loggging ([713cb45](https://github.com/newrade/newrade/commit/713cb4501897b14ff3d53c93d32bce0686759a7c))
+
 ## [1.7.1](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-config@1.7.0...@newrade/core-gatsby-config@1.7.1) (2021-02-11)
 
 ### Bug Fixes
