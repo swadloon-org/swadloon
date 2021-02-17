@@ -1,8 +1,10 @@
+import { parseFigmaColors } from '@newrade/core-figma-extractor/src';
 import { Command, flags } from '@oclif/command';
 import chalk from 'chalk';
+import debug from 'debug';
 import * as Figma from 'figma-js';
-import { log } from '../utilities/log';
 import { loadDotEnv } from '../utilities/utils';
+const log = debug('newrade:core-cli');
 
 const env = loadDotEnv();
 
@@ -44,7 +46,9 @@ export default class FigmaSync extends Command {
 
         log(`${JSON.stringify(data.styles, null, 2)}`);
 
-        // function parseFigmaColors(data: any): Colors {}
+        log(`${chalk.green('_____EXECUTING_____UTILITIES______')}`);
+
+        parseFigmaColors(data.styles);
 
         log(`Extracting text styles:\t ${chalk.green('done')}`);
 

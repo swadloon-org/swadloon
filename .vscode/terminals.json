@@ -45,6 +45,12 @@
       "focus": false
     },
     {
+      "name": "core-figma-extractor",
+      "cwd": "[workspaceFolder]/packages/core-figma-extractor",
+      "open": true,
+      "focus": false
+    },
+    {
       "name": "core-figma-plugins",
       "cwd": "[workspaceFolder]/packages/core-figma-plugins",
       "open": true,
