@@ -16,12 +16,10 @@ export function parseFigmaColors(data: FileResponse['styles']) {
     }
   );
 
-  const allColors: any = Object.keys(data).map((key: keyof FileResponse['styles']) => {
+  return Object.keys(data).map((key: keyof FileResponse['styles']) => {
     if (data[key].styleType === 'FILL' && !data[key].name.includes('Image')) {
       return fetchColor(key);
     }
-
-    return allColors;
   });
 }
 const createColorPalette = (colorObject: any, id: string | number) => {
