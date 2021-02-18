@@ -25,9 +25,9 @@ export function parseFigmaColors(data: FileResponse['styles']) {
   });
 }
 const createColorPalette = (colorObject: any, id: string | number) => {
-  let name = constant(colorObject.nodes[id].document.name);
+  const name = constant(colorObject.nodes[id].document.name);
 
-  let newColor = `export const ${name} = ${JSON.stringify(colorObject.nodes[id].document.fills[0])};`;
+  const newColor = `export const ${name} = ${JSON.stringify(colorObject.nodes[id].document.fills[0])};`;
 
   fs.appendFile(path.join(__dirname, '../../lib/src/color-render/design-system-color.ts'), newColor, (err) => {
     if (err) throw err;
@@ -59,6 +59,6 @@ async function fetchColor(node_id: string | number) {
   );
   // console.log(await request.json());
 
-  let colorObject = await request.json();
+  const colorObject = await request.json();
   createColorPalette(colorObject, node_id);
 }
