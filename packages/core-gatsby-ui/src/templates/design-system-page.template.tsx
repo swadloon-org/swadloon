@@ -4,8 +4,8 @@ import {
   getMetaBasicTags,
   getMetadataOpenGraphWebsiteTags,
   Hr,
+  MarkdownCSS,
   OPEN_GRAPH_TYPE,
-  Stack,
   useTreatTheme,
 } from '@newrade/core-react-ui';
 import { PageProps } from 'gatsby';
@@ -50,11 +50,11 @@ export const DesignSystemPageTemplate: React.FC<Props & { children: ReactNode }>
       </Helmet>
       <I18nProvider locale={props.pageContext.locale}>
         <Center maxWidth={`900px`}>
-          <Stack gap={[cssTheme.sizing.var.x6]}>
+          <MarkdownCSS>
             {props.children}
 
             <Hr />
-          </Stack>
+          </MarkdownCSS>
         </Center>
       </I18nProvider>
     </>

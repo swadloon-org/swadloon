@@ -44,7 +44,7 @@ globalStyle(`${wrapper} .mdx-anchor-pound`, ({ cssTheme, theme }: Theme) => ({
 globalStyle(
   `${wrapper} > h1, ${wrapper} > h2, ${wrapper} > h3, ${wrapper} > h4, ${wrapper} > h5, ${wrapper} > h6`,
   ({ cssTheme, theme }: Theme) => ({
-    marginBottom: '1.5em',
+    marginBottom: '1.1em',
     position: 'relative',
   })
 );
@@ -72,6 +72,10 @@ globalStyle(`${wrapper} hr`, ({ cssTheme, theme }: Theme) => ({
 /**
  * Text content
  */
+
+globalStyle(`${wrapper} p + *`, ({ cssTheme, theme }: Theme) => ({
+  marginTop: contentMargin,
+}));
 
 globalStyle(`${wrapper} p + p`, ({ cssTheme, theme }: Theme) => ({
   marginTop: contentMargin,
@@ -110,7 +114,7 @@ globalStyle(`${wrapper} p + img`, ({ cssTheme, theme }: Theme) => ({
 }));
 
 globalStyle(`${wrapper} figcaption`, ({ cssTheme, theme }: Theme) => ({
-  marginTop: `1.3em`,
+  marginTop: contentMargin,
 }));
 
 globalStyle(`${wrapper} p + blockquote`, ({ cssTheme, theme }: Theme) => ({

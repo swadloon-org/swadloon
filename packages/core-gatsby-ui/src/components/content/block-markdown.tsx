@@ -1,4 +1,4 @@
-import { BoxV2, CommonComponentProps } from '@newrade/core-react-ui';
+import { BoxV2, CommonComponentProps, MarkdownCSS } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { MarkdownRenderer } from '../../markdown/markdown-renderer';
@@ -18,8 +18,10 @@ export const BlockMarkdown: React.FC<Props> = ({ id, style, className, children,
   return (
     <BoxV2 id={id} style={style} className={`${styles.wrapper}`}>
       {typeof children !== 'string' ? (
-        children
+        // already rendered markdown
+        <MarkdownCSS className={styles.content}>{children}</MarkdownCSS>
       ) : (
+        // markdown string coming out of mdx-loader
         <MarkdownRenderer className={styles.content}>{children}</MarkdownRenderer>
       )}
     </BoxV2>

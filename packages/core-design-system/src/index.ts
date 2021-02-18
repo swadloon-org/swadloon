@@ -1,5 +1,6 @@
 export * from './components/atoms/links';
 export * from './components/molecules/buttons';
+export * from './components/components.props';
 export * from './design-system';
 export * from './foundations/animations';
 export * from './foundations/background-effect';

@@ -6,9 +6,15 @@ import * as styleRefs from './code.treat';
 
 type Props = CommonComponentProps;
 
-export const Code: React.FC<Props> = (props) => {
+export const Code: React.FC<Props> = ({ children, ...props }) => {
   const { styles } = useStyles(styleRefs);
   const commonProps = useCommonProps({ ...props, classNames: [styles.wrapper] });
 
-  return <code {...commonProps}></code>;
+  return (
+    <code {...commonProps}>
+      {'`'}
+      {children}
+      {'`'}
+    </code>
+  );
 };

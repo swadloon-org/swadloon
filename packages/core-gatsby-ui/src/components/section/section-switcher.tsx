@@ -1,27 +1,22 @@
-import { BoxV2, Stack, Switcher } from '@newrade/core-react-ui';
+import { Switcher, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
-import { BlockMarkdown } from '../content/block-markdown';
 import { Section } from './section';
+import { SectionProps } from './section.props';
 
-type Props = {
-  leftBlockCol: number;
-  rightBlockCol: number;
+type Props = SectionProps & {
+  RightBlock: React.ReactNode;
+  LeftBlock: React.ReactNode;
 };
 
-export const SectionSwitcher: React.FC<Props> = (props) => {
+export const SectionSwitcher: React.FC<Props> = ({ id, style, className, RightBlock, LeftBlock, ...props }) => {
+  const { theme, cssTheme } = useTreatTheme();
+
   return (
     <Section>
-      <Stack>
-        <BoxV2>
-          <BlockMarkdown></BlockMarkdown>
-        </BoxV2>
-
-        <Switcher col={2}>
-          <BlockMarkdown></BlockMarkdown>
-
-          <BlockMarkdown></BlockMarkdown>
-        </Switcher>
-      </Stack>
+      <Switcher col={2} gap={[cssTheme.sizing.var.x6]}>
+        {LeftBlock}
+        {RightBlock}
+      </Switcher>
     </Section>
   );
 };
