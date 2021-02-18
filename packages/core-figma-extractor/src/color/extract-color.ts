@@ -1,24 +1,35 @@
-import { camel } from 'case';
+import { constant } from 'case';
 import { FileResponse } from 'figma-js';
 import * as fs from 'fs';
 import fetch from 'node-fetch';
 import * as path from 'path';
 
 export function parseFigmaColors(data: FileResponse['styles']) {
-  return Object.keys(data).map((key: keyof FileResponse['styles']) => {
-    if (data[key].styleType == 'FILL') {
-      fetchColor(key);
-      return console.log(JSON.stringify(data[key], null, 2));
+  fs.writeFile(
+    path.join(__dirname, '../../lib/src/color-render/design-system-color.ts'),
+    '/** FIGMA COLOR ALPHA 1.0.0 **/',
+    function (err) {
+      if (err) {
+        return console.error(err);
+      }
+      console.log('File created!');
     }
+  );
+
+  const allColors: any = Object.keys(data).map((key: keyof FileResponse['styles']) => {
+    if (data[key].styleType === 'FILL' && !data[key].name.includes('Image')) {
+      return fetchColor(key);
+    }
+
+    return allColors;
   });
 }
-
 const createColorPalette = (colorObject: any, id: string | number) => {
-  let newColor = `export const ${camel(colorObject.nodes[id].document.name)} = ${JSON.stringify(
-    colorObject.nodes[id].document.fills[0]
-  )};`;
+  let name = constant(colorObject.nodes[id].document.name);
 
-  fs.appendFile(path.join(__dirname, '../color-render/design-system-color.ts'), newColor, (err) => {
+  let newColor = `export const ${name} = ${JSON.stringify(colorObject.nodes[id].document.fills[0])};`;
+
+  fs.appendFile(path.join(__dirname, '../../lib/src/color-render/design-system-color.ts'), newColor, (err) => {
     if (err) throw err;
     console.log(`New color added ${colorObject.nodes[id].document.name}`);
   });

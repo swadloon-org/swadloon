@@ -22,10 +22,10 @@
   ],
   "scripts": {
     "clean": "rimraf -r lib/** && yarn postpack && rm -f tsconfig.build.tsbuildinfo",
+    "figma-extract-color": ". ./.env && DEBUG=$DEBUG nr figma-sync $FIGMA_FILE",
     "postpack": "rm -f oclif.manifest.json",
     "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
     "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
-    "test123": ". ./.env && DEBUG=$DEBUG nr figma-sync HhBdQKwbihm0QMpE1C45ae",
     "version": "oclif-dev readme && git add README.md"
   },
   "oclif": {
