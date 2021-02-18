@@ -37,6 +37,7 @@ export * from './hooks/use-window-scroll-position';
 export * from './hooks/use-window-size';
 export * from './indicators/online-indicator';
 export * from './layout/box-v2';
+export * from './layout/box-v3';
 export * from './layout/center';
 export * from './layout/cluster';
 export * from './layout/grid';

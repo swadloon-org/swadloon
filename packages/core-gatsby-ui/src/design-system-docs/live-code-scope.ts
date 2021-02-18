@@ -1,5 +1,6 @@
 import {
   BoxV2,
+  BoxV3,
   Center,
   Cluster,
   Code,
@@ -23,6 +24,7 @@ import { SectionSwitcher } from '../components/section/section-switcher';
 
 export const liveCodeScope = {
   BoxV2,
+  BoxV3,
   Center,
   Code,
   Cluster,
