@@ -1,14 +1,13 @@
 import { ButtonSize, ButtonVariant, Variant } from '@newrade/core-design-system';
 import { BlockMarkdown, GatsbyLink, Section } from '@newrade/core-gatsby-ui/src';
 import { SectionLayout, SectionPadding } from '@newrade/core-gatsby-ui/src/components/content/section.props';
-import { BoxV2, Button, Image, Stack, Switcher, useTreatTheme } from '@newrade/core-react-ui';
+import { BoxV2, Button, Image, Stack, Switcher, useIsSSR, useTreatTheme } from '@newrade/core-react-ui';
 import { IoArrowForwardOutline } from '@react-icons/all-files/io5/IoArrowForwardOutline';
 import { FluidObject } from 'gatsby-image';
 import React from 'react';
 import { useInView } from 'react-intersection-observer';
 import { SECTION_TYPE } from '../../types/contentful-section-type';
 import { ContentfulSection } from '../../types/graphql-types';
-import { BlockGoogleMapVSB } from '../components/block-google-map';
 import { SectionBanner } from '../components/section-banner';
 import { SectionBannerLink } from '../components/section-banner-link';
 import { SectionContact } from '../components/section-contact';
@@ -18,7 +17,12 @@ import { SectionSteps } from '../components/section-steps';
 import { SectionTileLinks } from '../components/section-tile-links';
 import { ProjectPageProps } from './contentful-page.template';
 
+const BlockGoogleMapVSB = React.lazy(() =>
+  import('../components/block-google-map').then((comp) => ({ default: comp.BlockGoogleMapVSB }))
+);
+
 export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
+  const isSSR = useIsSSR();
   const { ref, inView } = useInView({
     threshold: 0,
   });
@@ -102,7 +106,11 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
                         justifySelf={['center', 'center', 'flex-start']}
                         style={{ maxWidth: 700, width: 'min(100vw, 100%)', height: `100%` }}
                       >
-                        <BlockGoogleMapVSB inView={inView} />
+                        {!isSSR ? (
+                          <React.Suspense fallback={<div />}>
+                            <BlockGoogleMapVSB inView={inView} />
+                          </React.Suspense>
+                        ) : null}
                       </BoxV2>
                     ) : null}
                   </Switcher>

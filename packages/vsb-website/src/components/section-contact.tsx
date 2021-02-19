@@ -5,17 +5,22 @@ import {
   getMergedClassname,
   Stack,
   Switcher,
+  useIsSSR,
   useTreatTheme,
 } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { BlockGoogleMapVSB } from './block-google-map';
 import * as styleRefs from './section-contact.treat';
 import { SectionProps } from './section.props';
+
+const BlockGoogleMapVSB = React.lazy(() =>
+  import('./block-google-map').then((comp) => ({ default: comp.BlockGoogleMapVSB }))
+);
 
 type Props = CommonComponentProps & SectionProps & {};
 
 export const SectionContact: React.FC<Props> = ({ id, style, className, section, ...props }) => {
+  const isSSR = useIsSSR();
   const styles = useStyles(styleRefs);
   const classNames = getMergedClassname([styles.wrapper, className]);
   const { cssTheme } = useTreatTheme();
@@ -32,7 +37,11 @@ export const SectionContact: React.FC<Props> = ({ id, style, className, section,
       </Stack>
 
       <BoxV2 style={{ width: `100%` }}>
-        <BlockGoogleMapVSB inView={true} />
+        {!isSSR ? (
+          <React.Suspense fallback={<div />}>
+            <BlockGoogleMapVSB inView={true} />
+          </React.Suspense>
+        ) : null}
       </BoxV2>
     </Switcher>
   );
