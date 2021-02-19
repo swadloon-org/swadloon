@@ -1,5 +1,5 @@
 import { BlockMarkdown, Section } from '@newrade/core-gatsby-ui/src';
-import { SectionLayout, SectionPadding } from '@newrade/core-gatsby-ui/src/components/section/section.props';
+import { SectionLayout, SectionPadding } from '@newrade/core-gatsby-ui/src/components/content/section.props';
 import {
   BoxV2,
   CommonComponentProps,

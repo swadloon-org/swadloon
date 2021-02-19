@@ -3,7 +3,7 @@ import useWebAnimations from '@wellyshen/use-web-animations';
 import { Link as GatsbyLink } from 'gatsby';
 import React, { HTMLAttributes, useEffect, useState } from 'react';
 import { useStyles } from 'react-treat';
-import { PAGE_NAME } from '../../templates/page.template';
+import { PAGE_NAME } from '../../templates/contentful-page.template';
 import { Button } from '../ui/button';
 import { Heading } from '../ui/heading';
 import { Icon } from '../ui/icon';

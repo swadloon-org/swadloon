@@ -1,14 +1,15 @@
-import { BoxV2, CommonComponentProps, MarkdownCSS } from '@newrade/core-react-ui';
+import { BoxV2, MarkdownCSS } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { MarkdownRenderer } from '../../markdown/markdown-renderer';
 import * as styleRefs from './block-markdown.treat';
+import { BlockProps, BlockType } from './block.props';
 
-type Props = CommonComponentProps & {
+type Props = BlockProps & {
   children?: string | null | React.ReactNode;
 };
 
-export const BlockMarkdown: React.FC<Props> = ({ id, style, className, children, ...props }) => {
+export const BlockMarkdown: React.FC<Props> = ({ id, style, className, type = BlockType.text, children, ...props }) => {
   const { styles } = useStyles(styleRefs);
 
   if (!children) {

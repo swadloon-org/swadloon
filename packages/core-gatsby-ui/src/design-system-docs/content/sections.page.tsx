@@ -2,12 +2,9 @@ import { HEADING } from '@newrade/core-design-system';
 import { Code, CodeBlock, Heading, Hr, ListItem, ListItems, Paragraph, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { BlockMarkdown } from '../../components/content/block-markdown';
-import { SectionSwitcher } from '../../components/section/section-switcher';
 import { DesignSystemPageProps, DesignSystemPageTemplate } from '../../templates/design-system-page.template';
 import * as styleRefs from '../home.treat';
 import { liveCodeScope } from '../live-code-scope';
-import { PlaceholderMarkdown } from '../utils/placeholder-markdown';
 
 const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
   const { styles } = useStyles(styleRefs);
@@ -115,22 +112,27 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
 
       <Paragraph>2 columns layout with the right one having no padding.</Paragraph>
 
-      <SectionSwitcher
-        LeftBlock={
-          <BlockMarkdown>
-            <PlaceholderMarkdown />
-            <PlaceholderMarkdown />
-          </BlockMarkdown>
-        }
-        RightBlock={<div style={{ backgroundColor: 'aliceblue', width: `100%`, height: `100%` }}></div>}
-      />
+      <CodeBlock live={true} scope={scope}>
+        {`
+        <SectionDivider
+          LeftBlock={
+            <BlockMarkdown>
+              <Heading>A Great Story.</Heading>
+              <PlaceholderMarkdown />
+              <PlaceholderMarkdown />
+            </BlockMarkdown>
+          }
+          RightBlock={<div style={{ background: 'linear-gradient(158deg, #49a3e2, hsl(265deg 73% 60%))', width: \`100%\`, height: \`100%\` }}></div>}
+        />
+        `}
+      </CodeBlock>
     </>
   );
 };
 
 const Page: React.FC<DesignSystemPageProps> = (props) => {
   return (
-    <DesignSystemPageTemplate {...props}>
+    <DesignSystemPageTemplate {...props} contentWidth={''}>
       <PageComponent {...props}></PageComponent>
     </DesignSystemPageTemplate>
   );

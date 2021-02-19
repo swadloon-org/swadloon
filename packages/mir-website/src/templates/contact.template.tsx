@@ -9,7 +9,7 @@ import { Heading } from '../components/ui/heading';
 import { Input, TextArea } from '../components/ui/input';
 import { theme } from '../design-system/theme';
 import * as stylesRef from './contact.treat';
-import { ProjectPageProps } from './page.template';
+import { ProjectPageProps } from './contentful-page.template';
 import { SectionTemplate, SECTION_TYPE } from './section.template';
 
 export const ContactTemplate: React.FC<ProjectPageProps> = (props) => {

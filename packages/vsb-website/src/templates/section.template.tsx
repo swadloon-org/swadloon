@@ -1,6 +1,6 @@
 import { ButtonSize, ButtonVariant, Variant } from '@newrade/core-design-system';
 import { BlockMarkdown, GatsbyLink, Section } from '@newrade/core-gatsby-ui/src';
-import { SectionLayout } from '@newrade/core-gatsby-ui/src/components/section/section.props';
+import { SectionLayout, SectionPadding } from '@newrade/core-gatsby-ui/src/components/content/section.props';
 import { BoxV2, Button, Image, Stack, Switcher, useTreatTheme } from '@newrade/core-react-ui';
 import { IoArrowForwardOutline } from '@react-icons/all-files/io5/IoArrowForwardOutline';
 import { FluidObject } from 'gatsby-image';
@@ -16,7 +16,7 @@ import { SectionFormVasectomy } from '../components/section-form-vasectomy';
 import { SectionMessages } from '../components/section-messages';
 import { SectionSteps } from '../components/section-steps';
 import { SectionTileLinks } from '../components/section-tile-links';
-import { ProjectPageProps } from './page.template';
+import { ProjectPageProps } from './contentful-page.template';
 
 export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
   const { ref, inView } = useInView({
@@ -34,7 +34,12 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
 
           case SECTION_TYPE.BANNER: {
             return (
-              <Section id={`section-${index}`} key={index} variantLayout={SectionLayout.fullWidth}>
+              <Section
+                id={`section-${index}`}
+                key={index}
+                variantLayout={SectionLayout.fullWidth}
+                variantPadding={SectionPadding.none}
+              >
                 <SectionBanner key={index} section={section} />
               </Section>
             );
@@ -54,7 +59,12 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
 
           case SECTION_TYPE.TILE_LINKS: {
             return (
-              <Section id={`section-${index}`} key={index} variantLayout={SectionLayout.fullWidth}>
+              <Section
+                id={`section-${index}`}
+                key={index}
+                variantLayout={SectionLayout.fullWidth}
+                variantPadding={SectionPadding.none}
+              >
                 <SectionTileLinks key={index} section={section as ContentfulSection} />
               </Section>
             );
@@ -212,7 +222,12 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
           }
           case SECTION_TYPE.VASECTOMY_FORM_LINK: {
             return (
-              <Section id={`section-${index}`} key={index} variantLayout={SectionLayout.fullWidth}>
+              <Section
+                id={`section-${index}`}
+                key={index}
+                variantLayout={SectionLayout.fullWidth}
+                variantPadding={SectionPadding.none}
+              >
                 <SectionBannerLink key={index} section={section} />
               </Section>
             );

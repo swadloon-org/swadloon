@@ -13,7 +13,9 @@ import React, { ReactNode } from 'react';
 import { I18nProvider } from 'react-aria';
 import Helmet from 'react-helmet';
 
-export type DesignSystemPageProps = PageProps<{}, GatsbySrcPageContext>;
+export type DesignSystemPageProps = PageProps<{}, GatsbySrcPageContext> & {
+  contentWidth?: string;
+};
 
 type Props = Omit<DesignSystemPageProps, 'children'> & { children: ReactNode };
 
@@ -49,7 +51,7 @@ export const DesignSystemPageTemplate: React.FC<Props & { children: ReactNode }>
         })}
       </Helmet>
       <I18nProvider locale={props.pageContext.locale}>
-        <Center maxWidth={`900px`}>
+        <Center maxWidth={props.contentWidth ? props.contentWidth : `900px`}>
           <MarkdownCSS>
             {props.children}
 
