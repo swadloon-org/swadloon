@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.9.0](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-config@1.8.0...@newrade/core-gatsby-config@1.9.0) (2021-02-19)
+
+### Bug Fixes
+
+- **vsb-common:** fix esm build that would prevent treeshaking for gastby/webpack ([ad116b3](https://github.com/newrade/newrade/commit/ad116b38456b0eb64b6a82d7deef3d8ad66510a3))
+
+### Features
+
+- **core-gatsby-ui:** working on sections and blocks ([4d55bfd](https://github.com/newrade/newrade/commit/4d55bfde04fd1df6d8b149a69414ba5129747fd6))
+
 # [1.8.0](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-config@1.7.1...@newrade/core-gatsby-config@1.8.0) (2021-02-15)
 
 ### Bug Fixes

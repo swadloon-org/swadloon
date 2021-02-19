@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.9.0](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-design-system@1.8.1...@newrade/core-design-system@1.9.0) (2021-02-19)
+
+### Features
+
+- **core-react-ui:** add sections and blocs ([04a5386](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/04a5386073c903740c635ff38cef435963078f12))
+
 ## [1.8.1](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-design-system@1.8.0...@newrade/core-design-system@1.8.1) (2021-02-15)
 
 ### Bug Fixes

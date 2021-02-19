@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.3](https://github.com/newrade/newrade/compare/@newrade/core-webpack-config@1.4.2...@newrade/core-webpack-config@1.4.3) (2021-02-19)
+
+### Bug Fixes
+
+- **vsb-common:** fix esm build that would prevent treeshaking for gastby/webpack ([ad116b3](https://github.com/newrade/newrade/commit/ad116b38456b0eb64b6a82d7deef3d8ad66510a3))
+
 ## [1.4.2](https://github.com/newrade/newrade/compare/@newrade/core-webpack-config@1.4.1...@newrade/core-webpack-config@1.4.2) (2021-02-15)
 
 **Note:** Version bump only for package @newrade/core-webpack-config

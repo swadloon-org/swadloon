@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.1](https://github.com/newrade/newrade/compare/@newrade/vsb-common@1.3.0...@newrade/vsb-common@1.3.1) (2021-02-19)
+
+### Bug Fixes
+
+- **vsb-common:** fix esm build that would prevent treeshaking for gastby/webpack ([ad116b3](https://github.com/newrade/newrade/commit/ad116b38456b0eb64b6a82d7deef3d8ad66510a3))
+- **vsb-website:** fix validation issues ([aa8f5f9](https://github.com/newrade/newrade/commit/aa8f5f9e1f2bab9eff62c32017d9a5159750e98f))
+
 # [1.3.0](https://github.com/newrade/newrade/compare/@newrade/vsb-common@1.2.0...@newrade/vsb-common@1.3.0) (2021-02-15)
 
 ### Bug Fixes

@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.8](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/compare/@newrade/core-yo-generator@1.4.7...@newrade/core-yo-generator@1.4.8) (2021-02-19)
+
+**Note:** Version bump only for package @newrade/core-yo-generator
+
 ## [1.4.7](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/compare/@newrade/core-yo-generator@1.4.6...@newrade/core-yo-generator@1.4.7) (2021-02-15)
 
 **Note:** Version bump only for package @newrade/core-yo-generator

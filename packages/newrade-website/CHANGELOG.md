@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.9.0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/newrade-website@1.8.0...@newrade/newrade-website@1.9.0) (2021-02-19)
+
+### Bug Fixes
+
+- **build:** fix gatsby build commands ([04de217](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/04de217d2cd543de974f052ea8e16eb5ad26119e))
+- **eslint:** fix new rules ([ec8cae6](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ec8cae6eb11f98fccd91fd378bd67252e47b6445))
+- **vsb-common:** fix esm build that would prevent treeshaking for gastby/webpack ([ad116b3](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ad116b38456b0eb64b6a82d7deef3d8ad66510a3))
+
+### Features
+
+- **core-react-ui:** add BoxV3 which uses TS v4's template literal ([14d395c](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/14d395cd4b0dc0948bce6e436daa1c63eef9716f))
+- **core-react-ui:** add sections and blocs ([04a5386](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/04a5386073c903740c635ff38cef435963078f12))
+
 # [1.8.0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/newrade-website@1.7.0...@newrade/newrade-website@1.8.0) (2021-02-15)
 
 ### Bug Fixes

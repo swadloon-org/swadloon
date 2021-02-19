@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.10.0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/vsb-website@1.9.0...@newrade/vsb-website@1.10.0) (2021-02-19)
+
+### Bug Fixes
+
+- **build:** fix gatsby build commands ([04de217](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/04de217d2cd543de974f052ea8e16eb5ad26119e))
+- **core-react-ui:** fix ssr bug ([4c5e7f4](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/4c5e7f4e4ef5610117c926bc7bed892de7ba8589))
+- **eslint:** fix new rules ([ec8cae6](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ec8cae6eb11f98fccd91fd378bd67252e47b6445))
+- **vsb-common:** fix esm build that would prevent treeshaking for gastby/webpack ([ad116b3](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ad116b38456b0eb64b6a82d7deef3d8ad66510a3))
+- **vsb-website:** fix for mobile form ([d7cf6fb](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/d7cf6fbf646dfcbe9a68fbe3403affcedc8bac91))
+- **vsb-website:** fix validation issues ([aa8f5f9](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/aa8f5f9e1f2bab9eff62c32017d9a5159750e98f))
+- **vsb-website:** only check status when page is active ([175842d](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/175842dcdb73248bf8472e05a553d1f358ce0b6b))
+- **vsb-website:** small fix for padding in form ([5c696a2](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/5c696a2aa743b655b67787e4869e7cca0825224c))
+- **vsb-website:** small fixes for e2e test ([824892f](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/824892f0db77984c9359cf12ea0a82707f09c64d))
+- **vsb-website:** use Suspense to improve SEO scores ([4f132e4](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/4f132e4a1cc71c8687a791eef4fc6cccaafd8b99))
+
+### Features
+
+- **core-gatsby-ui:** working on sections and blocks ([4d55bfd](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/4d55bfde04fd1df6d8b149a69414ba5129747fd6))
+- **core-react-ui:** add sections and blocs ([04a5386](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/04a5386073c903740c635ff38cef435963078f12))
+- **puppeteer-test:** adding navigation, api status and captcha error test ([e81d612](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/e81d6128271935eb0693fe4a7829876f34704e82))
+
 # [1.9.0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/vsb-website@1.8.0...@newrade/vsb-website@1.9.0) (2021-02-15)
 
 ### Bug Fixes
