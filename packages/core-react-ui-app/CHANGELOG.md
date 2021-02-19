@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.8](https://github.com/newrade/newrade/compare/@newrade/core-react-ui-app@1.5.7...@newrade/core-react-ui-app@1.5.8) (2021-02-19)
+
+**Note:** Version bump only for package @newrade/core-react-ui-app
+
 ## [1.5.7](https://github.com/newrade/newrade/compare/@newrade/core-react-ui-app@1.5.6...@newrade/core-react-ui-app@1.5.7) (2021-02-15)
 
 ### Bug Fixes
