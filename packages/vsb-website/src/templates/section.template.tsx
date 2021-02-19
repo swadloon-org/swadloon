@@ -106,7 +106,7 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
                         justifySelf={['center', 'center', 'flex-start']}
                         style={{ maxWidth: 700, width: 'min(100vw, 100%)', height: `100%` }}
                       >
-                        {!isSSR ? (
+                        {!isSSR && inView ? (
                           <React.Suspense fallback={<div />}>
                             <BlockGoogleMapVSB inView={inView} />
                           </React.Suspense>

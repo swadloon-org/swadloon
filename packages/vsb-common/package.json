@@ -4,17 +4,21 @@
   "description": "Common models and other types between vsb-website and vsb-api",
   "license": "MIT",
   "main": "./lib/index.js",
-  "module": "./lib/index.js",
+  "module": "./lib/esm/index.js",
   "files": [
     "./lib/**/*"
   ],
   "scripts": {
-    "build": "tsc --build tsconfig.build.json",
+    "build": "yarn build:commonjs && yarn build:esm",
+    "build:commonjs": "tsc --build tsconfig.build.json",
+    "build:esm": "tsc --build tsconfig.build.es.json",
     "clean": "rimraf -r lib/** && rm -f tsconfig.build.tsbuildinfo",
-    "start": "tsc --build tsconfig.build.json --watch --preserveWatchOutput"
+    "start": "concurrently \"yarn start:commonjs\" \"yarn start:esm\"",
+    "start:commonjs": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
+    "start:esm": "tsc --build tsconfig.build.json --watch --preserveWatchOutput"
   },
   "sideEffects": false,
-  "typings": "./lib/index.d.ts",
+  "typings": "./lib/esm/index.d.ts",
   "dependencies": {
     "@newrade/core-common": "^1.2.0",
     "@newrade/core-types": "^1.3.0",
