@@ -2,8 +2,8 @@
 node_modules
 
 # libs
-lib
-bin
+lib/
+bin/
 
 # gatsby
 .cache

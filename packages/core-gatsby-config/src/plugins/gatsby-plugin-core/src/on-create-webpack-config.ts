@@ -12,6 +12,7 @@ import path from 'path';
 import regexEscape from 'regex-escape';
 import { RuleSetRule, RuleSetRules, RuleSetUseItem, WebpackOptions } from 'webpack/declarations/WebpackOptions';
 import { GatsbyCorePluginOptions } from '../gatsby-plugin-options';
+import ESLintPlugin from 'eslint-webpack-plugin';
 
 export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] = (
   { stage, rules, loaders, plugins, actions, getConfig, reporter },
