@@ -5,7 +5,7 @@
     "outDir": "lib",
     "target": "es6",
     "module": "commonjs",
-    "types": [],
+    "types": ["jest", "node"],
     "lib": ["es6", "dom", "es2017"]
   },
   "references": [
@@ -28,5 +28,5 @@
       "path": "../core-jest-config/tsconfig.build.json"
     }
   ],
-  "include": ["src/**/*", "types/**/*"]
+  "include": ["src/**/*", "types/**/*", "package.json"]
 }

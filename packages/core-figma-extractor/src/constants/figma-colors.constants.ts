@@ -1,0 +1,5 @@
+/**
+ * regex for color type
+ *
+ *
+ */
