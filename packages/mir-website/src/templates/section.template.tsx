@@ -1,17 +1,17 @@
 import React from 'react';
-import { ProjectPageProps } from './page.template';
-import { InfoSectionType1Group } from '../components/info-section/info-section-type-1-group';
-import { InfoSectionType2 } from '../components/info-section/info-section-type-2';
-import { InfoSectionType5 } from '../components/info-section/info-section-type-5';
-import { InfoSectionType6Group } from '../components/info-section/info-section-type-6-group';
-import { InfoSectionVideo } from '../components/info-section/info-section-video';
-import { InfoSectionType3 } from '../components/info-section/info-section-type-3';
-import { InfoSectionType4 } from '../components/info-section/info-section-type-4';
-import { JobSection } from '../components/info-section/job-section';
-import { Process } from '../components/process-section/process-section';
 import { ActionSection } from '../components/action-section/action-section';
 import { Newsletter } from '../components/action-section/newsletter';
 import { BlogPreviewSection } from '../components/blog-preview/blog-preview-section';
+import { InfoSectionType1Group } from '../components/info-section/info-section-type-1-group';
+import { InfoSectionType2 } from '../components/info-section/info-section-type-2';
+import { InfoSectionType3 } from '../components/info-section/info-section-type-3';
+import { InfoSectionType4 } from '../components/info-section/info-section-type-4';
+import { InfoSectionType5 } from '../components/info-section/info-section-type-5';
+import { InfoSectionType6Group } from '../components/info-section/info-section-type-6-group';
+import { InfoSectionVideo } from '../components/info-section/info-section-video';
+import { JobSection } from '../components/info-section/job-section';
+import { Process } from '../components/process-section/process-section';
+import { ProjectPageProps } from './contentful-page.template';
 
 export enum SECTION_TYPE {
   TYPE_1_GROUP = 'TYPE_1_GROUP',

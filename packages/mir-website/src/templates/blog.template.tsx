@@ -5,7 +5,7 @@ import { BannerSecondary } from '../components/banners/banner-secondary';
 import { BlogPreviewSection } from '../components/blog-preview/blog-preview-section';
 import { theme } from '../design-system/theme';
 import * as stylesRef from './blog.treat';
-import { ProjectPageProps } from './page.template';
+import { ProjectPageProps } from './contentful-page.template';
 import { SECTION_TYPE } from './section.template';
 
 export const BlogTemplate: React.FC<ProjectPageProps> = (props) => {

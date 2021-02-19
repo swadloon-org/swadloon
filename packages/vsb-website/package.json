@@ -12,6 +12,7 @@
   "scripts": {
     "prebuild": "yarn typecheck:build",
     "build": "gatsby build",
+    "build:local": ". ./.env && DEBUG=$DEBUG gatsby build",
     "clean": "gatsby clean",
     "compile": "tsc --project tsconfig.gatsby.json",
     "contentful-types": ". ./.env && contentful-tools generate --config=contentful-tools.js --token=$CONTENTFUL_MANAGEMENT_TOKEN_VSB",

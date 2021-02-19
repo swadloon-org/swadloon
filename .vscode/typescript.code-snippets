@@ -36,6 +36,11 @@
     ],
     "description": "Insert the default React import statement."
   },
+  "useTreatTheme": {
+    "prefix": ["useTreatTheme"],
+    "body": ["const { theme, cssTheme } = useTreatTheme();"],
+    "description": "Import useTreatTheme for TreatCSS."
+  },
   "treatCSSStyleRefs": {
     "prefix": ["styleRefs"],
     "body": ["import * as styleRefs from '$1';"],
@@ -43,7 +48,7 @@
   },
   "treatCSSStyles": {
     "prefix": ["styles"],
-    "body": ["const styles = useStyles(styleRefs);"],
+    "body": ["const { styles } = useStyles(styleRefs);"],
     "description": "Insert useStyles() hook for TreatCSS."
   },
   "treatCSSStyle": {

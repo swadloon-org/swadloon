@@ -1,4 +1,4 @@
-import { LinkProps } from '@newrade/core-design-system';
+import { LinkProps, PARAGRAPH_SIZE } from '@newrade/core-design-system';
 import { BsDot } from '@react-icons/all-files/bs/BsDot';
 import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
@@ -20,7 +20,7 @@ export const ListItem: React.FC<Props> = React.memo(
     className,
     variantIcon = 'bullet',
     variantLevel,
-    variantSize,
+    variantSize = PARAGRAPH_SIZE.medium,
     Icon,
     as,
     AsElement,

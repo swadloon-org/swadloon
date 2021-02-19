@@ -2,8 +2,8 @@ import React from 'react';
 import { useStyles } from 'react-treat';
 import { Heading } from '../components/ui/heading';
 import { Paragraph } from '../components/ui/paragraph';
+import { ProjectPageProps } from './contentful-page.template';
 import * as stylesRef from './not-found.treat';
-import { ProjectPageProps } from './page.template';
 
 export const NotFoundTemplate: React.FC<ProjectPageProps> = ({ data, location }) => {
   const styles = useStyles(stylesRef);

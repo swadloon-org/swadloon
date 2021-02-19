@@ -165,9 +165,18 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
     patientPhoneNumber: '',
     patientPhoneType: CLINIKO_PHONE_TYPE.MOBILE,
   };
-  const { register, handleSubmit, setError, errors, setValue, reset, control, trigger, getValues, formState } = useForm<
-    PatientModel
-  >({
+  const {
+    register,
+    handleSubmit,
+    setError,
+    errors,
+    setValue,
+    reset,
+    control,
+    trigger,
+    getValues,
+    formState,
+  } = useForm<PatientModel>({
     mode: 'onBlur',
     reValidateMode: 'onChange',
     shouldFocusError: true,

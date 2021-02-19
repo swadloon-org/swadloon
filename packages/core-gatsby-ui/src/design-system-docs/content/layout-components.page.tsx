@@ -1,23 +1,10 @@
 import { HEADING } from '@newrade/core-design-system';
-import {
-  BoxV2,
-  Center,
-  Cluster,
-  CodeBlock,
-  Details,
-  Grid,
-  Heading,
-  Paragraph,
-  Stack,
-  Summary,
-  Switcher,
-  useTreatTheme,
-} from '@newrade/core-react-ui';
+import { Code, CodeBlock, Heading, Paragraph, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { DesignSystemPageProps, DesignSystemPageTemplate } from '../../templates/design-system-page.template';
 import * as styleRefs from '../home.treat';
-import { Placeholder } from '../utils/placeholder';
+import { liveCodeScope } from '../live-code-scope';
 
 const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
   const { styles } = useStyles(styleRefs);
@@ -28,96 +15,87 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
   }
 
   const scope = {
-    BoxV2,
-    Center,
-    Cluster,
-    CodeBlock,
-    Details,
-    Grid,
-    Heading,
-    Paragraph,
-    Stack,
-    Summary,
-    Switcher,
-    Placeholder,
+    ...liveCodeScope,
     cssTheme,
   };
 
   return (
-    <Stack gap={[cssTheme.sizing.var.x6]}>
-      <Stack gap={[cssTheme.sizing.var.x4]}>
-        <Heading variant={HEADING.h2}>Layout Components</Heading>
+    <>
+      <Heading variant={HEADING.h2}>Layout Components</Heading>
 
-        <Paragraph>Reusable and responsive primitive layout components.</Paragraph>
-      </Stack>
+      <Paragraph>Reusable and responsive primitive layout components.</Paragraph>
 
-      <Stack gap={[cssTheme.sizing.var.x4]}>
-        <Heading variant={HEADING.h3}>Box</Heading>
+      <Heading variant={HEADING.h3}>Box</Heading>
 
-        <Paragraph>Flex container with padding.</Paragraph>
+      <Paragraph>Flex container with padding.</Paragraph>
 
-        <CodeBlock live={true} scope={scope}>
-          {`
+      <CodeBlock live={true} scope={scope}>
+        {`
           <BoxV2 padding={[cssTheme.sizing.var.x4]} style={{ border: '2px solid red' }}>
             <Placeholder></Placeholder>
           </BoxV2>
           `}
-        </CodeBlock>
-      </Stack>
+      </CodeBlock>
 
-      <Stack gap={[cssTheme.sizing.var.x4]}>
-        <Heading variant={HEADING.h3}>Center</Heading>
+      <Paragraph>
+        Test for BoxV3. Here the <Code>padding</Code> prop uses the new template literal feature available in TypeScript
+        v4.1.
+      </Paragraph>
 
-        <Paragraph>Center content respecting the content margin set on each viewport.</Paragraph>
+      <CodeBlock live={true} scope={scope}>
+        {`
+        <BoxV3 padding={'x2 x3 x3 x1'} style={{ border: '2px solid red' }}>
+          <Placeholder></Placeholder>
+        </BoxV3>
+        `}
+      </CodeBlock>
 
-        <CodeBlock live={true} scope={scope}>
-          {`
+      <Heading variant={HEADING.h3}>Center</Heading>
+
+      <Paragraph>Center content respecting the content margin set on each viewport.</Paragraph>
+
+      <CodeBlock live={true} scope={scope}>
+        {`
           <Center>
             <Placeholder>Content</Placeholder>
           </Center>
           `}
-        </CodeBlock>
-      </Stack>
+      </CodeBlock>
 
-      <Stack gap={[cssTheme.sizing.var.x4]}>
-        <Heading variant={HEADING.h3}>Stack</Heading>
+      <Heading variant={HEADING.h3}>Stack</Heading>
 
-        <Paragraph>Vertical grid container.</Paragraph>
+      <Paragraph>Vertical grid container.</Paragraph>
 
-        <CodeBlock live={true} scope={scope}>
-          {`
+      <CodeBlock live={true} scope={scope}>
+        {`
           <Stack gap={[cssTheme.sizing.var.x3]}>
             <Placeholder></Placeholder>
             <Placeholder></Placeholder>
             <Placeholder></Placeholder>
           </Stack>
           `}
-        </CodeBlock>
-      </Stack>
+      </CodeBlock>
 
-      <Stack gap={[cssTheme.sizing.var.x4]}>
-        <Heading variant={HEADING.h3}>Switcher</Heading>
+      <Heading variant={HEADING.h3}>Switcher</Heading>
 
-        <Paragraph>Used to separate 2 or more blocks horizontally on desktop and vertically on mobile.</Paragraph>
+      <Paragraph>Used to separate 2 or more blocks horizontally on desktop and vertically on mobile.</Paragraph>
 
-        <CodeBlock live={true} scope={scope}>
-          {`
+      <CodeBlock live={true} scope={scope}>
+        {`
           <Switcher gap={[cssTheme.sizing.var.x2]} col={3}>
             <Placeholder>1</Placeholder>
             <Placeholder>2</Placeholder>
             <Placeholder>3</Placeholder>
           </Switcher>
           `}
-        </CodeBlock>
-      </Stack>
+      </CodeBlock>
 
-      <Stack gap={[cssTheme.sizing.var.x4]}>
-        <Heading variant={HEADING.h3}>Cluster</Heading>
+      <Heading variant={HEADING.h3}>Cluster</Heading>
 
-        <Paragraph>Used to inline content horizontally without wrapping.</Paragraph>
+      <Paragraph>Used to inline content horizontally without wrapping.</Paragraph>
 
-        <CodeBlock live={true} scope={scope}>
-          {`
+      <CodeBlock live={true} scope={scope}>
+        {`
           <Cluster>
           <Placeholder>1</Placeholder>
           <Cluster gap={[cssTheme.sizing.var.x2]}>
@@ -128,16 +106,14 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
           </Cluster>
           </Cluster>
           `}
-        </CodeBlock>
-      </Stack>
+      </CodeBlock>
 
-      <Stack gap={[cssTheme.sizing.var.x4]}>
-        <Heading variant={HEADING.h3}>Grid</Heading>
+      <Heading variant={HEADING.h3}>Grid</Heading>
 
-        <Paragraph>Used to make a grid of content horizontally or vertically.</Paragraph>
+      <Paragraph>Used to make a grid of content horizontally or vertically.</Paragraph>
 
-        <CodeBlock live={true} scope={scope}>
-          {`
+      <CodeBlock live={true} scope={scope}>
+        {`
           <Grid gap={['1em']} variantGrid={'col'} columns={[1, 3, 3]}>
           <Grid gap={['1em']} variantGrid={'rows'} rows={[1, 2, 3]}>
             <Placeholder>1</Placeholder>
@@ -158,9 +134,8 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
           </Grid>
           </Grid>
           `}
-        </CodeBlock>
-      </Stack>
-    </Stack>
+      </CodeBlock>
+    </>
   );
 };
 

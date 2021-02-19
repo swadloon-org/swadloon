@@ -1,4 +1,5 @@
 import { BlockMarkdown, Section } from '@newrade/core-gatsby-ui/src';
+import { SectionLayout, SectionPadding } from '@newrade/core-gatsby-ui/src/components/content/section.props';
 import {
   BoxV2,
   CommonComponentProps,
@@ -9,11 +10,14 @@ import {
 } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { BlockFormVasectomy } from './block-form-vasectomy';
 import * as styleRefs from './section-form-vasectomy.treat';
 import { SectionProps } from './section.props';
 
 type Props = CommonComponentProps & SectionProps & {};
+
+const BlockFormVasectomy = React.lazy(() =>
+  import('./block-form-vasectomy').then((comp) => ({ default: comp.BlockFormVasectomy }))
+);
 
 export const SectionFormVasectomy: React.FC<Props> = ({ id, style, className, section, subSections, ...props }) => {
   const isSSR = useIsSSR();
@@ -22,7 +26,7 @@ export const SectionFormVasectomy: React.FC<Props> = ({ id, style, className, se
   const { cssTheme } = useTreatTheme();
 
   return (
-    <Section id={id} className={classNames} variantLayout={'centerNoPadding'}>
+    <Section id={id} className={classNames} variantLayout={SectionLayout.center} variantPadding={SectionPadding.none}>
       <Stack>
         <BoxV2
           style={{ width: `min(100%, 900px)` }}
@@ -52,7 +56,11 @@ export const SectionFormVasectomy: React.FC<Props> = ({ id, style, className, se
               </Stack>
             </BoxV2>
 
-            <BlockFormVasectomy section={section} />
+            {!isSSR ? (
+              <React.Suspense fallback={<div />}>
+                <BlockFormVasectomy section={section} />
+              </React.Suspense>
+            ) : null}
           </Stack>
         </BoxV2>
       </Stack>

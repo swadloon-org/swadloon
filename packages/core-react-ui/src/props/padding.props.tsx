@@ -1,4 +1,18 @@
+import { SIZE } from '@newrade/core-design-system';
 import { Property } from 'csstype';
+
+/**
+ * 9 => 9px
+ */
+type PaddingNumber = number;
+
+/**
+ * 9 => 9px
+ * '9px' => 9px
+ */
+type PaddingString = string;
+
+type Padding = PaddingNumber | PaddingString;
 
 /**
  * [mobile, tablet, desktop]
@@ -20,23 +34,19 @@ export type JustifyContentViewportProps =
  * [top, right, bottom, left]
  */
 export type PaddingProps =
-  | [PaddingNumber | PaddingString]
-  | [PaddingNumber | PaddingString, PaddingNumber | PaddingString]
-  | [PaddingNumber | PaddingString, PaddingNumber | PaddingString, PaddingNumber | PaddingString]
-  | [
-      PaddingNumber | PaddingString,
-      PaddingNumber | PaddingString,
-      PaddingNumber | PaddingString,
-      PaddingNumber | PaddingString
-    ];
+  | [Padding]
+  | [Padding, Padding]
+  | [Padding, Padding, Padding]
+  | [Padding, Padding, Padding, Padding];
 
 /**
- * 9 => 9px
+ * 'all'
+ * 'top & bottom, right & left'
+ * 'top, right & left, bottom'
+ * 'top, right, bottom, left'
  */
-type PaddingNumber = number;
-
-/**
- * 9 => 9px
- * '9px' => 9px
- */
-type PaddingString = string;
+export type PaddingStringProps =
+  | `${SIZE}`
+  | `${SIZE} ${SIZE}`
+  | `${SIZE} ${SIZE} ${SIZE}`
+  | `${SIZE} ${SIZE} ${SIZE} ${SIZE}`;

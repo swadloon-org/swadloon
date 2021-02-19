@@ -18,7 +18,7 @@ import React from 'react';
 import { useStyles } from 'react-treat';
 import { DesignSystemPageProps, DesignSystemPageTemplate } from '../../templates/design-system-page.template';
 import * as styleRefs from '../home.treat';
-import MarkdownExample from './block-markdown-example.mdx';
+import { PlaceholderMarkdown } from '../utils/placeholder-markdown';
 
 const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
   const { styles } = useStyles(styleRefs);
@@ -41,6 +41,7 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
     Summary,
     Switcher,
     BlockMarkdown,
+    PlaceholderMarkdown,
     cssTheme,
   };
 
@@ -53,21 +54,20 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
       </Stack>
 
       <Stack gap={[cssTheme.sizing.var.x4]}>
-        <Heading variant={HEADING.h3}>Block Markdown</Heading>
+        <Heading variant={HEADING.h3}>Markdown / Text</Heading>
 
-        <Paragraph>Flex container with padding.</Paragraph>
+        <Paragraph>
+          Used to render markdown, can contain inlined links, images and anything that markdown supports. For more
+          examples, see the Markdown section.
+        </Paragraph>
 
-        <BlockMarkdown>
-          <MarkdownExample />
-        </BlockMarkdown>
-
-        {/* <CodeBlock live={true} scope={scope}>
+        <CodeBlock live={true} scope={scope}>
           {`
           <BlockMarkdown>
-            {'### markdown'}
+            <PlaceholderMarkdown />
           </BlockMarkdown>
           `}
-        </CodeBlock> */}
+        </CodeBlock>
       </Stack>
     </Stack>
   );

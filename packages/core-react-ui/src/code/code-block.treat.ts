@@ -7,8 +7,8 @@ export const styles = {
   preview: style(({ theme, cssTheme }: Theme) => ({
     padding: 16,
     width: `100%`,
-    border: `1px solid ${cssTheme.colors.colors.grey[50]}`,
-    borderRadius: 4,
+    border: `1px solid rgb(255 0 255 / 40%)`,
+    borderRadius: 0,
     overflowX: 'auto',
   })),
   editor: style(({ theme, cssTheme }: Theme) => ({
@@ -27,7 +27,6 @@ export const styles = {
   })),
   pre: style(({ theme, cssTheme }: Theme) => ({
     fontSize: `14px !important`,
-    // marginTop: '1em !important',
     marginBottom: contentMargin,
     maxWidth: '100% !important',
     overflowX: 'auto !important' as any,

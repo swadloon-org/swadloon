@@ -63,7 +63,7 @@ export const mdxComponents: Partial<
   ),
   ul: (props: MDXProps) => <ListItems {...props} />,
   ol: (props: MDXProps) => <ListItems {...props} />,
-  li: (props: MDXProps) => <ListItem variantSize={PARAGRAPH_SIZE.medium} {...props} />,
+  li: (props: MDXProps) => <ListItem {...props} />,
   blockquote: (props: MDXProps) => <Blockquote {...props} />,
   abbr: (props: MDXProps) => <abbr {...props} />,
 

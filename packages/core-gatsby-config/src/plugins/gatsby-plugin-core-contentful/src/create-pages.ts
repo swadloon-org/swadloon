@@ -97,7 +97,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
     /**
      * Automatically create pages based on the Page Collection in Contentful
      */
-    const pageTemplate = path.resolve(`src/templates/page.template.tsx`);
+    const pageTemplate = path.resolve(`src/templates/contentful-page.template.tsx`);
 
     pagesData.data?.allContentfulPage.edges
       .filter((edge) => {

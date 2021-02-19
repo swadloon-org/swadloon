@@ -12,6 +12,7 @@
   "scripts": {
     "prebuild": "yarn typecheck:build",
     "build": "gatsby build",
+    "build:local": ". ./.env && DEBUG=$DEBUG gatsby build",
     "clean": "gatsby clean",
     "compile": "tsc --project tsconfig.gatsby.json",
     "contentful-types": ". ./.env && contentful-tools generate --config=contentful-tools.js --token=$CONTENTFUL_MANAGEMENT_TOKEN_VSB",
@@ -19,7 +20,7 @@
     "preload-fonts": ". ./.env && PORT=$APP_PORT gatsby-preload-fonts --no-sandbox",
     "refresh": ". ./.env && curl -X POST http://localhost:$APP_PORT/__refresh",
     "serve": ". ./.env && NODE_ENV=production gatsby serve --port=$APP_PORT",
-    "start": ". ./.env && gatsby develop --verbose -p $APP_PORT -H 0.0.0.0",
+    "start": ". ./.env && DEBUG=$DEBUG gatsby develop -p $APP_PORT -H 0.0.0.0",
     "test": "echo \"Wrtps://gatsby.dev/unit-testing\"",
     "typecheck": "yarn typecheck:build --watch --preserveWatchOutput",
     "typecheck:build": "tsc --project tsconfig.build.json --noEmit"

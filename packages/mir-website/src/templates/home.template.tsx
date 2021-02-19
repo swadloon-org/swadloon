@@ -1,11 +1,11 @@
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { theme } from '../design-system/theme';
-import * as stylesRef from './home.treat';
-import { ProjectPageProps } from './page.template';
-import { SectionTemplate } from './section.template';
 import { BannerPrimary } from '../components/banners/banner-primary';
 import { BannerSecondary } from '../components/banners/banner-secondary';
+import { theme } from '../design-system/theme';
+import { ProjectPageProps } from './contentful-page.template';
+import * as stylesRef from './home.treat';
+import { SectionTemplate } from './section.template';
 
 export const HomeTemplate: React.FC<ProjectPageProps> = (props) => {
   const styles = useStyles(stylesRef);
