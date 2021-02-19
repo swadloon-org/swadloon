@@ -29780,9 +29780,6 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___spaceId'
   | 'pluginCreator___pluginOptions___accessToken'
   | 'pluginCreator___pluginOptions___environment'
-  | 'pluginCreator___pluginOptions___isTSX'
-  | 'pluginCreator___pluginOptions___jsxPragma'
-  | 'pluginCreator___pluginOptions___allExtensions'
   | 'pluginCreator___pluginOptions___fileName'
   | 'pluginCreator___pluginOptions___documentPaths'
   | 'pluginCreator___pluginOptions___path'
@@ -29815,6 +29812,9 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___enableDesignSystemPages'
   | 'pluginCreator___pluginOptions___enableDocsPages'
   | 'pluginCreator___pluginOptions___pathCheck'
+  | 'pluginCreator___pluginOptions___allExtensions'
+  | 'pluginCreator___pluginOptions___isTSX'
+  | 'pluginCreator___pluginOptions___jsxPragma'
   | 'pluginCreator___nodeAPIs'
   | 'pluginCreator___browserAPIs'
   | 'pluginCreator___ssrAPIs'
@@ -30016,9 +30016,6 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___spaceId'
   | 'pluginOptions___accessToken'
   | 'pluginOptions___environment'
-  | 'pluginOptions___isTSX'
-  | 'pluginOptions___jsxPragma'
-  | 'pluginOptions___allExtensions'
   | 'pluginOptions___fileName'
   | 'pluginOptions___documentPaths'
   | 'pluginOptions___path'
@@ -30061,6 +30058,9 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___enableDesignSystemPages'
   | 'pluginOptions___enableDocsPages'
   | 'pluginOptions___pathCheck'
+  | 'pluginOptions___allExtensions'
+  | 'pluginOptions___isTSX'
+  | 'pluginOptions___jsxPragma'
   | 'nodeAPIs'
   | 'browserAPIs'
   | 'ssrAPIs'
@@ -30188,9 +30188,6 @@ export type SitePluginPluginOptions = {
   spaceId?: Maybe<Scalars['String']>;
   accessToken?: Maybe<Scalars['String']>;
   environment?: Maybe<Scalars['String']>;
-  isTSX?: Maybe<Scalars['Boolean']>;
-  jsxPragma?: Maybe<Scalars['String']>;
-  allExtensions?: Maybe<Scalars['Boolean']>;
   fileName?: Maybe<Scalars['String']>;
   documentPaths?: Maybe<Array<Maybe<Scalars['String']>>>;
   path?: Maybe<Scalars['String']>;
@@ -30220,6 +30217,9 @@ export type SitePluginPluginOptions = {
   enableDesignSystemPages?: Maybe<Scalars['Boolean']>;
   enableDocsPages?: Maybe<Scalars['Boolean']>;
   pathCheck?: Maybe<Scalars['Boolean']>;
+  allExtensions?: Maybe<Scalars['Boolean']>;
+  isTSX?: Maybe<Scalars['Boolean']>;
+  jsxPragma?: Maybe<Scalars['String']>;
 };
 
 export type SitePluginPluginOptionsEnv = {
@@ -30350,9 +30350,6 @@ export type SitePluginPluginOptionsFilterInput = {
   spaceId?: Maybe<StringQueryOperatorInput>;
   accessToken?: Maybe<StringQueryOperatorInput>;
   environment?: Maybe<StringQueryOperatorInput>;
-  isTSX?: Maybe<BooleanQueryOperatorInput>;
-  jsxPragma?: Maybe<StringQueryOperatorInput>;
-  allExtensions?: Maybe<BooleanQueryOperatorInput>;
   fileName?: Maybe<StringQueryOperatorInput>;
   documentPaths?: Maybe<StringQueryOperatorInput>;
   path?: Maybe<StringQueryOperatorInput>;
@@ -30382,6 +30379,9 @@ export type SitePluginPluginOptionsFilterInput = {
   enableDesignSystemPages?: Maybe<BooleanQueryOperatorInput>;
   enableDocsPages?: Maybe<BooleanQueryOperatorInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;
+  allExtensions?: Maybe<BooleanQueryOperatorInput>;
+  isTSX?: Maybe<BooleanQueryOperatorInput>;
+  jsxPragma?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePluginPluginOptionsGatsbyRemarkPlugins = {

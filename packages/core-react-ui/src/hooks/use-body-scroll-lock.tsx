@@ -2,7 +2,7 @@
 // https://stackoverflow.com/questions/41594997/ios-10-safari-prevent-scrolling-behind-a-fixed-overlay-and-maintain-scroll-posi
 // inspired by https://github.com/willmcpo/body-scroll-lock
 
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { isIOS } from 'react-device-detect';
 
 export interface BodyScrollOptions {
@@ -69,12 +69,14 @@ export function useBodyScrollLock({
   const isTargetElementTotallyScrolled = (targetElement: any): boolean =>
     targetElement ? targetElement.scrollHeight - targetElement.scrollTop <= targetElement.clientHeight : false;
 
+  const target = ref.current;
+
   /**
    * Side effects below
    */
 
   useEffect(() => {
-    if (!ref.current) {
+    if (!target) {
       return;
     }
 
@@ -223,19 +225,19 @@ export function useBodyScrollLock({
     };
 
     if (disableScrolling) {
-      disableBodyScroll(ref.current, {
+      disableBodyScroll(target, {
         hideBodyOverflow: false, // TODO: enabling this break desktop scrolling
       });
     }
 
     if (disableScrolling === false) {
-      enableBodyScroll(ref.current);
+      enableBodyScroll(target);
     }
 
     return () => {
-      disableBodyScroll(ref.current);
+      disableBodyScroll(target);
     };
-  }, [ref.current, disableScrolling]);
+  }, [target, disableScrolling]);
 
   return [locks, documentListenerAdded];
 }
