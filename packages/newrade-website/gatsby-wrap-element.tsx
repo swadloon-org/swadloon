@@ -1,6 +1,5 @@
 import { GatsbyCommonPageContext } from '@newrade/core-gatsby-config';
-import { LayoutDocumentation } from '@newrade/core-gatsby-ui/src';
-import { LayoutDesignSystem } from '@newrade/core-gatsby-ui/src/layout/design-system.layout';
+import { LayoutDesignSystem, LayoutDocumentation } from '@newrade/core-gatsby-ui/src';
 import { PageProps, WrapPageElementBrowserArgs } from 'gatsby';
 import React from 'react';
 import MobileLogo from './src/images/logo-symbol.svg';

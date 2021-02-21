@@ -73,7 +73,17 @@ export const LayoutDesignSystem = React.memo<LayoutProps>(({ MobileSvgLogo, Desk
     name: 'Design system side navigation',
     pageNodes: data?.pages.nodes,
     sortOrderDirectories: ['', 'typography', 'colors', 'foundations', 'components', 'content', 'effects', 'motion'],
-    sortOrderItems: ['', 'typography', 'colors', 'color-intents', 'sizing', 'layout-components', 'blocks', 'sections'],
+    sortOrderItems: [
+      '',
+      'typography',
+      'colors',
+      'color-intents',
+      'sizing',
+      'pages',
+      'sections',
+      'blocks',
+      'layout-components',
+    ],
   });
 
   /**

@@ -1,6 +1,5 @@
 import { ButtonSize, ButtonVariant, Variant } from '@newrade/core-design-system';
-import { BlockMarkdown, GatsbyLink, Section } from '@newrade/core-gatsby-ui/src';
-import { SectionLayout, SectionPadding } from '@newrade/core-gatsby-ui/src/components/content/section.props';
+import { BlockMarkdown, GatsbyLink, Section, SectionLayout, SectionPadding } from '@newrade/core-gatsby-ui/src';
 import { BoxV2, Button, Image, Stack, Switcher, useIsSSR, useTreatTheme } from '@newrade/core-react-ui';
 import { IoArrowForwardOutline } from '@react-icons/all-files/io5/IoArrowForwardOutline';
 import { FluidObject } from 'gatsby-image';

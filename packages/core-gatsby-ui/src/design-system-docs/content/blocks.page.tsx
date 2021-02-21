@@ -1,24 +1,10 @@
 import { HEADING } from '@newrade/core-design-system';
-import { BlockMarkdown } from '@newrade/core-gatsby-ui/src';
-import {
-  BoxV2,
-  Center,
-  Cluster,
-  CodeBlock,
-  Details,
-  Grid,
-  Heading,
-  Paragraph,
-  Stack,
-  Summary,
-  Switcher,
-  useTreatTheme,
-} from '@newrade/core-react-ui';
+import { CodeBlock, Heading, Paragraph, Stack, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { DesignSystemPageProps, DesignSystemPageTemplate } from '../../templates/design-system-page.template';
 import * as styleRefs from '../home.treat';
-import { PlaceholderMarkdown } from '../utils/placeholder-markdown';
+import { liveCodeScope } from '../live-code-scope';
 
 const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
   const { styles } = useStyles(styleRefs);
@@ -29,26 +15,14 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
   }
 
   const scope = {
-    BoxV2,
-    Center,
-    Cluster,
-    CodeBlock,
-    Details,
-    Grid,
-    Heading,
-    Paragraph,
-    Stack,
-    Summary,
-    Switcher,
-    BlockMarkdown,
-    PlaceholderMarkdown,
+    ...liveCodeScope,
     cssTheme,
   };
 
   return (
     <Stack gap={[cssTheme.sizing.var.x6]}>
       <Stack gap={[cssTheme.sizing.var.x4]}>
-        <Heading variant={HEADING.h2}>Blocks</Heading>
+        <Heading variant={HEADING.h1}>Blocks</Heading>
 
         <Paragraph>High-level content components to display text, markdown, images, medias etc.</Paragraph>
       </Stack>

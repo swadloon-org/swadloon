@@ -15,14 +15,14 @@ import {
   Summary,
   Switcher,
 } from '@newrade/core-react-ui';
-import { Section } from '../components/content/section';
+import { Section } from '../sections/section';
 import { Placeholder } from './utils/placeholder';
 import { PlaceholderMarkdown } from './utils/placeholder-markdown';
 import { Variant } from '@newrade/core-design-system';
-import { BlockMarkdown } from '../components/content/block-markdown';
-import { SectionSwitcher } from '../components/content/section-switcher';
-import { SectionDivider } from '../components/content/section-divider';
-import { SectionLayout, SectionPadding } from '../components/content/section.props';
+import { BlockMarkdown } from '../blocks/block-markdown';
+import { SectionSwitcher } from '../sections/section-switcher';
+import { SectionDivider } from '../sections/section-divider';
+import { SectionLayout, SectionPadding } from '../sections/section.props';
 
 export const liveCodeScope = {
   BoxV2: BoxV2,

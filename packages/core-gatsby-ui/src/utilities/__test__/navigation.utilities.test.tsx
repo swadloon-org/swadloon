@@ -1,4 +1,4 @@
-import { Navigation } from '../../models/navigation.model';
+import { Navigation } from '../../navigation/navigation.model';
 import { getNavigationFromPageNodes } from '../navigation.utilities';
 import { navigationMock } from './navigation.mock';
 

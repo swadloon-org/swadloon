@@ -1,5 +1,5 @@
 import { graphql, useStaticQuery } from 'gatsby';
-import { Navigation } from '../models/navigation.model';
+import { Navigation } from '../navigation/navigation.model';
 import { getNavigationFromPageNodes } from '../utilities/navigation.utilities';
 
 const query = graphql`
