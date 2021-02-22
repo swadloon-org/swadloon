@@ -8,13 +8,16 @@ export const styles = {
     top: 0,
     width: '100%',
     height: cssTheme.layout.var.navbarHeight,
+    maxHeight: cssTheme.layout.var.navbarHeight,
     color: cssTheme.colors.colorIntents.primaryText,
 
     backgroundColor: getCSSColor({ h: 0, s: 0, l: 100, a: 100 }),
     boxShadow: `rgba(33, 33, 33, 0.15) 0px 1px 2px`,
 
     zIndex: cssTheme.layout.zIndex.navBar,
-    overflow: 'hidden',
+  })),
+  content: style(({ cssTheme, theme }: Theme) => ({
+    height: `100%`,
   })),
   mobileWrapper: style(({ cssTheme, theme }: Theme) => ({
     display: 'grid',

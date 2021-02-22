@@ -9,6 +9,7 @@ import {
 } from '@newrade/core-design-system';
 import { GatsbyLink } from '@newrade/core-gatsby-ui/src';
 import ExpoScaleEase from '@newrade/core-gsap-ui/lib/plugins/EasePack';
+import MorphSVGPlugin from '@newrade/core-gsap-ui/lib/plugins/MorphSVGPlugin';
 import ScrollTrigger from '@newrade/core-gsap-ui/lib/plugins/ScrollTrigger';
 import { gsap } from '@newrade/core-gsap-ui/src';
 import {
@@ -33,12 +34,12 @@ import { PressEvent } from '@react-types/shared';
 import { title } from 'case';
 import { PageProps } from 'gatsby';
 import React, { ReactNode, useEffect, useRef, useState } from 'react';
-import { useAnimateNavbar } from '../hook/use-animate-navbar';
+import { useAnimateNavbarDesktop } from '../hook/use-animate-navbar-desktop';
+import { useAnimateNavbarMobile } from '../hook/use-animate-navbar-mobile';
 import { useCompanyInfo, usePagesNavigation } from '../hook/use-layout-data';
-import LogoSymbol from '../images/logo-symbol.svg';
+import LogoMorph from '../images/logo-morph.svg';
 import Logo from '../images/logo.svg';
 import { Footer } from './footer';
-// import '../services/i18n.service';
 
 type LayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }>;
 
@@ -56,14 +57,6 @@ export const Layout = React.memo<LayoutProps>((props) => {
    */
   const navigation = usePagesNavigation();
   const { companyInfo, companyAddress } = useCompanyInfo();
-
-  /**
-   * i18n
-   */
-  // const { t, i18n } = useTranslation();
-  // const changeLanguage = (lng: string) => {
-  //   i18n.changeLanguage(lng);
-  // };
 
   /**
    * Styles & animations
@@ -103,11 +96,13 @@ export const Layout = React.memo<LayoutProps>((props) => {
   const navbarRef = useRef<NavBarRefs>();
   const [navbarStyle, setNavbarStyle] = useState<'white' | 'transparent'>(defaultNavbarState);
   const [gsapLoaded, setGsapLoaded] = useState<boolean>(false);
-  useAnimateNavbar({ navbarRef, whiteStyle: navbarStyle === 'white', viewport });
+  useAnimateNavbarDesktop({ navbarRef, whiteStyle: navbarStyle === 'white', viewport });
+  useAnimateNavbarMobile({ navbarRef, whiteStyle: navbarStyle === 'white', viewport });
+
+  gsap.registerPlugin(ScrollTrigger, ExpoScaleEase, MorphSVGPlugin);
 
   useEffect(() => {
     setTimeout(() => {
-      gsap.registerPlugin(ScrollTrigger, ExpoScaleEase);
       setGsapLoaded(true);
     }, 1000);
   }, []);
@@ -148,7 +143,7 @@ export const Layout = React.memo<LayoutProps>((props) => {
       <NavBar
         ref={navbarRef}
         HomeLink={<GatsbyLink to={'/'} />}
-        MobileSvgLogo={<LogoSymbol />}
+        MobileSvgLogo={<LogoMorph height={20} />}
         DesktopSvgLogo={<Logo />}
         MenuLinks={
           <>
@@ -172,7 +167,7 @@ export const Layout = React.memo<LayoutProps>((props) => {
 
       {!isSSR && (
         <React.Suspense fallback={<div />}>
-          <SideBar sidebarOpened={sidebarOpened} fullHeight={false} disableBodyScroll={true}>
+          <SideBar sidebarOpened={sidebarOpened} fullHeight={true} disableBodyScroll={true}>
             <Stack>
               <BoxV2
                 padding={[cssTheme.sizing.var.x4, cssTheme.layout.var.contentMargins, cssTheme.sizing.var.x4]}

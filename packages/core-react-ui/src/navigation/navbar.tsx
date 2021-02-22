@@ -139,7 +139,7 @@ export const NavBar = React.forwardRef<any, Props>((props, ref) => {
     <>
       {/* Mobile */}
       <header ref={mobileNavbar} style={props.style} className={`${styles.wrapper} ${styles.mobileMenu}`}>
-        <Center maxWidth={props.maxWidth}>
+        <Center maxWidth={props.maxWidth} className={styles.content}>
           <div className={styles.mobileWrapper}>
             <BoxV2 justifyContent={['flex-start']}>
               <Button
@@ -171,7 +171,7 @@ export const NavBar = React.forwardRef<any, Props>((props, ref) => {
 
       {/* Desktop */}
       <header ref={desktopNavbar} className={`${styles.wrapper} ${styles.desktopMenu}`} style={props.style}>
-        <Center maxWidth={props.maxWidth}>
+        <Center maxWidth={props.maxWidth} className={styles.content}>
           <Cluster justifyContent={['space-between']} alignItems={['center']} as={'nav'}>
             <BoxV2 padding={[cssTheme.sizing.var.x2, 0]} className={styles.logoWrapper} AsElement={props.HomeLink}>
               <SVGLogo Icon={DesktopSvgLogo || MobileSvgLogo} />

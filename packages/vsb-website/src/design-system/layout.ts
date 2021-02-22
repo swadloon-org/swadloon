@@ -19,7 +19,7 @@ export const layout: Layout = {
   },
   navbarHeight: {
     [VIEWPORT.desktop]: 115,
-    [VIEWPORT.tablet]: 60,
-    [VIEWPORT.mobile]: 60,
+    [VIEWPORT.tablet]: 68,
+    [VIEWPORT.mobile]: 68,
   },
 };
