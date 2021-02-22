@@ -4,7 +4,7 @@ export * from './debug/debug-gatsby-page';
 export * from './hooks/use-layout-data.hook';
 export * from './hooks/use-reach-router-location.hook';
 export * from './layout/design-system.layout';
-export * from './layout/documentation.layout';
+export * from './layout/docs.layout';
 export * from './links/gatsby-link';
 export * from './markdown/markdown-renderer';
 export * from './navigation/nav-item.model';

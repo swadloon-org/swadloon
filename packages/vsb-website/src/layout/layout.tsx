@@ -38,7 +38,6 @@ import { useCompanyInfo, usePagesNavigation } from '../hook/use-layout-data';
 import LogoSymbol from '../images/logo-symbol.svg';
 import Logo from '../images/logo.svg';
 import { Footer } from './footer';
-// import '../services/i18n.service';
 
 type LayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }>;
 
@@ -56,14 +55,6 @@ export const Layout = React.memo<LayoutProps>((props) => {
    */
   const navigation = usePagesNavigation();
   const { companyInfo, companyAddress } = useCompanyInfo();
-
-  /**
-   * i18n
-   */
-  // const { t, i18n } = useTranslation();
-  // const changeLanguage = (lng: string) => {
-  //   i18n.changeLanguage(lng);
-  // };
 
   /**
    * Styles & animations

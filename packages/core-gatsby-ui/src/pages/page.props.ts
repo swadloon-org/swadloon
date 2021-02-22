@@ -1,35 +1,9 @@
 import { CommonComponentProps } from '@newrade/core-react-ui';
+import { PageLayout, PageTemplate } from '@newrade/core-gatsby-config';
 
-export enum PageLayout {
-  /**
-   * Default layout of the site
-   */
-  default = 'default',
-  /**
-   * Special layout for the blog area
-   */
-  blog = 'blog',
-  /**
-   * Layout specific to documentation pages
-   */
-  docs = 'docs',
-  /**
-   * Layout specific to design system pages
-   */
-  designSystem = 'designSystem',
-}
-
-export enum PageTemplate {
-  /**
-   * Default template for normal web pages
-   */
-  default = 'default',
-  /**
-   * Special page template for blog pages (articles)
-   */
-  blog = 'blog',
-}
-
+/**
+ * UI only props
+ */
 export type PageProps = CommonComponentProps & {
   /**
    * Page's layout

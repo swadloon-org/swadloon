@@ -3,7 +3,6 @@ import { IoClose } from '@react-icons/all-files/io5/IoClose';
 import { IoMenu } from '@react-icons/all-files/io5/IoMenu';
 import { PressEvent } from '@react-types/shared';
 import React, { useEffect, useImperativeHandle, useRef, useState } from 'react';
-import { isIOS } from 'react-device-detect';
 import { useStyles } from 'react-treat';
 import { Button } from '../button/button';
 import { usePreventPinchZoom } from '../hooks/use-prevent-pinch-zoom';
@@ -80,18 +79,18 @@ export const NavBar = React.forwardRef<any, Props>((props, ref) => {
   const updateDocumentBackgroundColor = (options: { multiplier: number }) => (event: Event) => {
     const scrollPosition = window.scrollY;
 
-    if (window.document.documentElement.scrollHeight - scrollPosition < options.multiplier * window.screen.height) {
+    if (window.document.documentElement.scrollHeight - scrollPosition < window.screen.height) {
       window.document.documentElement.style.backgroundColor = cssTheme.colors.colors.grey[900];
       return;
     }
-    if (window.document.documentElement.scrollHeight - scrollPosition >= options.multiplier * window.screen.height) {
+    if (window.document.documentElement.scrollHeight - scrollPosition >= window.screen.height) {
       window.document.documentElement.style.backgroundColor = cssTheme.colors.colorIntents.background0;
       return;
     }
   };
 
   useEffect(() => {
-    if (isIOS && !isInstalled) {
+    if (!isInstalled) {
       const handler = updateDocumentBackgroundColor({ multiplier: 2 });
       window.document.addEventListener('touchmove', handler, { passive: true });
       window.document.addEventListener('scroll', handler, { passive: true });

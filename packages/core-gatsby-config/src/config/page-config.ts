@@ -1,4 +1,4 @@
-import { SITE_LAYOUT } from './layouts';
+import { PAGE_LAYOUT, PAGE_TEMPLATE } from './page.props';
 import { GatsbyNodeSiteMetadataFragment } from './site-graphql-types';
 import { SITE_LANGUAGES } from './site-languages';
 
@@ -41,7 +41,11 @@ export type GatsbyCommonPageContext<SiteMetadataType = GatsbyNodeSiteMetadataFra
   /**
    * Each page can be rendered using a specific layout
    */
-  layout: SITE_LAYOUT;
+  layout: PAGE_LAYOUT;
+  /**
+   * Each page can be rendered using a specific template
+   */
+  template: PAGE_TEMPLATE;
 };
 
 /**

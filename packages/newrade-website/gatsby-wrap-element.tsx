@@ -1,5 +1,5 @@
 import { GatsbyCommonPageContext } from '@newrade/core-gatsby-config';
-import { LayoutDesignSystem, LayoutDocumentation } from '@newrade/core-gatsby-ui/src';
+import { LayoutDesignSystem, LayoutDocs } from '@newrade/core-gatsby-ui/src';
 import { PageProps, WrapPageElementBrowserArgs } from 'gatsby';
 import React from 'react';
 import MobileLogo from './src/images/logo-symbol.svg';
@@ -16,21 +16,21 @@ export const WrapElement: React.FC<WrapPageElementBrowserArgs> = ({ element, pro
   }
 
   switch (pageProps.pageContext.layout) {
-    case 'DOCS': {
+    case 'docs': {
       return (
-        <LayoutDocumentation DesktopSvgLogo={<Logo />} MobileSvgLogo={<MobileLogo />} {...pageProps}>
+        <LayoutDocs DesktopSvgLogo={<Logo />} MobileSvgLogo={<MobileLogo />} {...pageProps}>
           {element}
-        </LayoutDocumentation>
+        </LayoutDocs>
       );
     }
-    case 'DESIGN_SYSTEM': {
+    case 'designSystem': {
       return (
         <LayoutDesignSystem DesktopSvgLogo={<Logo />} MobileSvgLogo={<MobileLogo />} {...pageProps}>
           {element}
         </LayoutDesignSystem>
       );
     }
-    case 'SITE':
+    case 'default':
     default: {
       return <Layout {...pageProps}>{element}</Layout>;
     }
