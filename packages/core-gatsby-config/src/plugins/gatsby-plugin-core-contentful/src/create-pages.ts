@@ -94,6 +94,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
     if (pagesData.errors) {
       throw new Error('Error while retrieving pages');
     }
+
     /**
      * Automatically create pages based on the Page Collection in Contentful
      */

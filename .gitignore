@@ -59,3 +59,10 @@ lib-cov
 
 # Local Netlify folder
 .netlify
+
+# libs
+bin/
+lib/
+
+# apps
+dist/

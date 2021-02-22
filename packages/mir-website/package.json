@@ -25,6 +25,7 @@
     "typecheck": "yarn typecheck:build --watch --preserveWatchOutput",
     "typecheck:build": "tsc --project tsconfig.build.json --noEmit"
   },
+  "eslintConfig": {},
   "dependencies": {
     "@newrade/core-design-system-old": "^1.4.1",
     "@newrade/core-react-ui-old": "^1.6.3",

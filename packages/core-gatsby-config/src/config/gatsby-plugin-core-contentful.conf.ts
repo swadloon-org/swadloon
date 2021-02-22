@@ -7,6 +7,7 @@ const defaultOptions: GatsbyCoreContentfulPluginOptions = {
   packageName: 'package',
   locales: ['fr-CA', 'en-CA'],
   features: {
+    pageVersion: 1,
     blog: true,
     portfolio: true,
   },

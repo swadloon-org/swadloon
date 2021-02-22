@@ -106,5 +106,14 @@ export function useAnimateNavbar({
     }
 
     setPreviousWhiteStyle(whiteStyle);
-  }, [navbarRef, animationReady, whiteStyle, viewport]);
+  }, [
+    navbarRef,
+    animationReady,
+    whiteStyle,
+    viewport,
+    logoLargeScale,
+    logoSmallScale,
+    previousWhiteStyle,
+    cssTheme.colors.colorIntents.primary,
+  ]);
 }

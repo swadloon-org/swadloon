@@ -25,23 +25,26 @@ export const BlockGoogleMapVSB: React.FC<Props> = React.memo(({ inView }) => {
   const [place, setPlace] = useState<google.maps.places.PlaceResult>();
   const [marker, setMarker] = useState<google.maps.Marker>();
   const [infoWindowVisible, setInfoWindowVisible] = useState<boolean>(true);
-  const onLoad = useCallback(function onLoad(mapInstance: google.maps.Map<Element>) {
-    const service = new window.google.maps.places.PlacesService(mapInstance);
+  const onLoad = useCallback(
+    function onLoad(mapInstance: google.maps.Map<Element>) {
+      const service = new window.google.maps.places.PlacesService(mapInstance);
 
-    service.getDetails({ placeId: `ChIJ3aN08VsDyUwRSryItyrt4g0` }, (result, status) => {
-      // somehow we can't pass place to <Marker/> so we set the result in the state
-      const marker = new google.maps.Marker({
-        map: mapInstance,
-        place: {
-          placeId: result.place_id,
-          location: result.geometry?.location,
-        },
+      service.getDetails({ placeId: `ChIJ3aN08VsDyUwRSryItyrt4g0` }, (result, status) => {
+        // somehow we can't pass place to <Marker/> so we set the result in the state
+        const marker = new window.google.maps.Marker({
+          map: mapInstance,
+          place: {
+            placeId: result.place_id,
+            location: result.geometry?.location,
+          },
+        });
+
+        setPlace(result);
+        setMarker(marker);
       });
-
-      setPlace(result);
-      setMarker(marker);
-    });
-  }, []);
+    },
+    [window.google]
+  );
   const handleToggleInfoWindow = () => {
     setInfoWindowVisible(!infoWindowVisible);
   };

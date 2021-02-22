@@ -45,6 +45,7 @@ export const styles: { [key in LABEL_SIZE]: string } &
   normal: style(({ theme, cssTheme }: Theme) => ({
     ...getCSSTextStyles(cssTheme.typography.labels),
     width: 'fit-content',
+    userSelect: 'text',
   })),
   italic: style(({ theme, cssTheme }: Theme) => ({
     ...getCSSTextStyles(cssTheme.typography.labels.styles.italic),
