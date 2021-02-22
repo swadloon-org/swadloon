@@ -574,8 +574,7 @@ export type ContentfulBlockFieldsEnum =
   | 'section___internal___type'
   | 'section___name'
   | 'section___variant'
-  | 'section___variantLayout'
-  | 'section___blocksLayout'
+  | 'section___layout'
   | 'section___blocks'
   | 'section___blocks___id'
   | 'section___blocks___parent___id'
@@ -598,8 +597,7 @@ export type ContentfulBlockFieldsEnum =
   | 'section___blocks___section___children'
   | 'section___blocks___section___name'
   | 'section___blocks___section___variant'
-  | 'section___blocks___section___variantLayout'
-  | 'section___blocks___section___blocksLayout'
+  | 'section___blocks___section___layout'
   | 'section___blocks___section___blocks'
   | 'section___blocks___section___page'
   | 'section___blocks___section___spaceId'
@@ -638,13 +636,14 @@ export type ContentfulBlockFieldsEnum =
   | 'section___page___name'
   | 'section___page___title'
   | 'section___page___slug'
+  | 'section___page___layout'
+  | 'section___page___template'
   | 'section___page___sections'
   | 'section___page___sections___id'
   | 'section___page___sections___children'
   | 'section___page___sections___name'
   | 'section___page___sections___variant'
-  | 'section___page___sections___variantLayout'
-  | 'section___page___sections___blocksLayout'
+  | 'section___page___sections___layout'
   | 'section___page___sections___blocks'
   | 'section___page___sections___page'
   | 'section___page___sections___spaceId'
@@ -652,6 +651,9 @@ export type ContentfulBlockFieldsEnum =
   | 'section___page___sections___createdAt'
   | 'section___page___sections___updatedAt'
   | 'section___page___sections___node_locale'
+  | 'section___page___description___id'
+  | 'section___page___description___children'
+  | 'section___page___description___description'
   | 'section___page___spaceId'
   | 'section___page___contentful_id'
   | 'section___page___createdAt'
@@ -659,9 +661,6 @@ export type ContentfulBlockFieldsEnum =
   | 'section___page___sys___type'
   | 'section___page___sys___revision'
   | 'section___page___node_locale'
-  | 'section___page___description___id'
-  | 'section___page___description___children'
-  | 'section___page___description___description'
   | 'section___page___childContentfulPageDescriptionTextNode___id'
   | 'section___page___childContentfulPageDescriptionTextNode___children'
   | 'section___page___childContentfulPageDescriptionTextNode___description'
@@ -3216,14 +3215,16 @@ export type ContentfulPage = Node & {
   name?: Maybe<Scalars['String']>;
   title?: Maybe<Scalars['String']>;
   slug?: Maybe<Scalars['String']>;
+  layout?: Maybe<Scalars['String']>;
+  template?: Maybe<Scalars['String']>;
   sections?: Maybe<Array<Maybe<ContentfulSection>>>;
+  description?: Maybe<ContentfulPageDescriptionTextNode>;
   spaceId?: Maybe<Scalars['String']>;
   contentful_id?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['Date']>;
   updatedAt?: Maybe<Scalars['Date']>;
   sys?: Maybe<ContentfulPageSys>;
   node_locale?: Maybe<Scalars['String']>;
-  description?: Maybe<ContentfulPageDescriptionTextNode>;
   childContentfulPageDescriptionTextNode?: Maybe<ContentfulPageDescriptionTextNode>;
 };
 
@@ -3579,6 +3580,8 @@ export type ContentfulPageFieldsEnum =
   | 'name'
   | 'title'
   | 'slug'
+  | 'layout'
+  | 'template'
   | 'sections'
   | 'sections___id'
   | 'sections___parent___id'
@@ -3620,8 +3623,7 @@ export type ContentfulPageFieldsEnum =
   | 'sections___internal___type'
   | 'sections___name'
   | 'sections___variant'
-  | 'sections___variantLayout'
-  | 'sections___blocksLayout'
+  | 'sections___layout'
   | 'sections___blocks'
   | 'sections___blocks___id'
   | 'sections___blocks___parent___id'
@@ -3644,8 +3646,7 @@ export type ContentfulPageFieldsEnum =
   | 'sections___blocks___section___children'
   | 'sections___blocks___section___name'
   | 'sections___blocks___section___variant'
-  | 'sections___blocks___section___variantLayout'
-  | 'sections___blocks___section___blocksLayout'
+  | 'sections___blocks___section___layout'
   | 'sections___blocks___section___blocks'
   | 'sections___blocks___section___page'
   | 'sections___blocks___section___spaceId'
@@ -3684,13 +3685,14 @@ export type ContentfulPageFieldsEnum =
   | 'sections___page___name'
   | 'sections___page___title'
   | 'sections___page___slug'
+  | 'sections___page___layout'
+  | 'sections___page___template'
   | 'sections___page___sections'
   | 'sections___page___sections___id'
   | 'sections___page___sections___children'
   | 'sections___page___sections___name'
   | 'sections___page___sections___variant'
-  | 'sections___page___sections___variantLayout'
-  | 'sections___page___sections___blocksLayout'
+  | 'sections___page___sections___layout'
   | 'sections___page___sections___blocks'
   | 'sections___page___sections___page'
   | 'sections___page___sections___spaceId'
@@ -3698,6 +3700,9 @@ export type ContentfulPageFieldsEnum =
   | 'sections___page___sections___createdAt'
   | 'sections___page___sections___updatedAt'
   | 'sections___page___sections___node_locale'
+  | 'sections___page___description___id'
+  | 'sections___page___description___children'
+  | 'sections___page___description___description'
   | 'sections___page___spaceId'
   | 'sections___page___contentful_id'
   | 'sections___page___createdAt'
@@ -3705,9 +3710,6 @@ export type ContentfulPageFieldsEnum =
   | 'sections___page___sys___type'
   | 'sections___page___sys___revision'
   | 'sections___page___node_locale'
-  | 'sections___page___description___id'
-  | 'sections___page___description___children'
-  | 'sections___page___description___description'
   | 'sections___page___childContentfulPageDescriptionTextNode___id'
   | 'sections___page___childContentfulPageDescriptionTextNode___children'
   | 'sections___page___childContentfulPageDescriptionTextNode___description'
@@ -3718,17 +3720,6 @@ export type ContentfulPageFieldsEnum =
   | 'sections___sys___type'
   | 'sections___sys___revision'
   | 'sections___node_locale'
-  | 'spaceId'
-  | 'contentful_id'
-  | 'createdAt'
-  | 'updatedAt'
-  | 'sys___type'
-  | 'sys___revision'
-  | 'sys___contentType___sys___type'
-  | 'sys___contentType___sys___linkType'
-  | 'sys___contentType___sys___id'
-  | 'sys___contentType___sys___contentful_id'
-  | 'node_locale'
   | 'description___id'
   | 'description___parent___id'
   | 'description___parent___parent___id'
@@ -3805,6 +3796,17 @@ export type ContentfulPageFieldsEnum =
   | 'description___childMdx___internal___mediaType'
   | 'description___childMdx___internal___owner'
   | 'description___childMdx___internal___type'
+  | 'spaceId'
+  | 'contentful_id'
+  | 'createdAt'
+  | 'updatedAt'
+  | 'sys___type'
+  | 'sys___revision'
+  | 'sys___contentType___sys___type'
+  | 'sys___contentType___sys___linkType'
+  | 'sys___contentType___sys___id'
+  | 'sys___contentType___sys___contentful_id'
+  | 'node_locale'
   | 'childContentfulPageDescriptionTextNode___id'
   | 'childContentfulPageDescriptionTextNode___parent___id'
   | 'childContentfulPageDescriptionTextNode___parent___parent___id'
@@ -3890,14 +3892,16 @@ export type ContentfulPageFilterInput = {
   name?: Maybe<StringQueryOperatorInput>;
   title?: Maybe<StringQueryOperatorInput>;
   slug?: Maybe<StringQueryOperatorInput>;
+  layout?: Maybe<StringQueryOperatorInput>;
+  template?: Maybe<StringQueryOperatorInput>;
   sections?: Maybe<ContentfulSectionFilterListInput>;
+  description?: Maybe<ContentfulPageDescriptionTextNodeFilterInput>;
   spaceId?: Maybe<StringQueryOperatorInput>;
   contentful_id?: Maybe<StringQueryOperatorInput>;
   createdAt?: Maybe<DateQueryOperatorInput>;
   updatedAt?: Maybe<DateQueryOperatorInput>;
   sys?: Maybe<ContentfulPageSysFilterInput>;
   node_locale?: Maybe<StringQueryOperatorInput>;
-  description?: Maybe<ContentfulPageDescriptionTextNodeFilterInput>;
   childContentfulPageDescriptionTextNode?: Maybe<ContentfulPageDescriptionTextNodeFilterInput>;
 };
 
@@ -4221,8 +4225,7 @@ export type ContentfulSection = Node & {
   internal: Internal;
   name?: Maybe<Scalars['String']>;
   variant?: Maybe<Scalars['String']>;
-  variantLayout?: Maybe<Scalars['String']>;
-  blocksLayout?: Maybe<Scalars['String']>;
+  layout?: Maybe<Scalars['String']>;
   blocks?: Maybe<Array<Maybe<ContentfulBlock>>>;
   page?: Maybe<Array<Maybe<ContentfulPage>>>;
   spaceId?: Maybe<Scalars['String']>;
@@ -4365,8 +4368,7 @@ export type ContentfulSectionFieldsEnum =
   | 'internal___type'
   | 'name'
   | 'variant'
-  | 'variantLayout'
-  | 'blocksLayout'
+  | 'layout'
   | 'blocks'
   | 'blocks___id'
   | 'blocks___parent___id'
@@ -4425,8 +4427,7 @@ export type ContentfulSectionFieldsEnum =
   | 'blocks___section___internal___type'
   | 'blocks___section___name'
   | 'blocks___section___variant'
-  | 'blocks___section___variantLayout'
-  | 'blocks___section___blocksLayout'
+  | 'blocks___section___layout'
   | 'blocks___section___blocks'
   | 'blocks___section___blocks___id'
   | 'blocks___section___blocks___children'
@@ -4444,6 +4445,8 @@ export type ContentfulSectionFieldsEnum =
   | 'blocks___section___page___name'
   | 'blocks___section___page___title'
   | 'blocks___section___page___slug'
+  | 'blocks___section___page___layout'
+  | 'blocks___section___page___template'
   | 'blocks___section___page___sections'
   | 'blocks___section___page___spaceId'
   | 'blocks___section___page___contentful_id'
@@ -4562,6 +4565,8 @@ export type ContentfulSectionFieldsEnum =
   | 'page___name'
   | 'page___title'
   | 'page___slug'
+  | 'page___layout'
+  | 'page___template'
   | 'page___sections'
   | 'page___sections___id'
   | 'page___sections___parent___id'
@@ -4579,8 +4584,7 @@ export type ContentfulSectionFieldsEnum =
   | 'page___sections___internal___type'
   | 'page___sections___name'
   | 'page___sections___variant'
-  | 'page___sections___variantLayout'
-  | 'page___sections___blocksLayout'
+  | 'page___sections___layout'
   | 'page___sections___blocks'
   | 'page___sections___blocks___id'
   | 'page___sections___blocks___children'
@@ -4598,6 +4602,8 @@ export type ContentfulSectionFieldsEnum =
   | 'page___sections___page___name'
   | 'page___sections___page___title'
   | 'page___sections___page___slug'
+  | 'page___sections___page___layout'
+  | 'page___sections___page___template'
   | 'page___sections___page___sections'
   | 'page___sections___page___spaceId'
   | 'page___sections___page___contentful_id'
@@ -4611,13 +4617,6 @@ export type ContentfulSectionFieldsEnum =
   | 'page___sections___sys___type'
   | 'page___sections___sys___revision'
   | 'page___sections___node_locale'
-  | 'page___spaceId'
-  | 'page___contentful_id'
-  | 'page___createdAt'
-  | 'page___updatedAt'
-  | 'page___sys___type'
-  | 'page___sys___revision'
-  | 'page___node_locale'
   | 'page___description___id'
   | 'page___description___parent___id'
   | 'page___description___parent___children'
@@ -4646,6 +4645,13 @@ export type ContentfulSectionFieldsEnum =
   | 'page___description___childMdx___timeToRead'
   | 'page___description___childMdx___id'
   | 'page___description___childMdx___children'
+  | 'page___spaceId'
+  | 'page___contentful_id'
+  | 'page___createdAt'
+  | 'page___updatedAt'
+  | 'page___sys___type'
+  | 'page___sys___revision'
+  | 'page___node_locale'
   | 'page___childContentfulPageDescriptionTextNode___id'
   | 'page___childContentfulPageDescriptionTextNode___parent___id'
   | 'page___childContentfulPageDescriptionTextNode___parent___children'
@@ -4693,8 +4699,7 @@ export type ContentfulSectionFilterInput = {
   internal?: Maybe<InternalFilterInput>;
   name?: Maybe<StringQueryOperatorInput>;
   variant?: Maybe<StringQueryOperatorInput>;
-  variantLayout?: Maybe<StringQueryOperatorInput>;
-  blocksLayout?: Maybe<StringQueryOperatorInput>;
+  layout?: Maybe<StringQueryOperatorInput>;
   blocks?: Maybe<ContentfulBlockFilterListInput>;
   page?: Maybe<ContentfulPageFilterListInput>;
   spaceId?: Maybe<StringQueryOperatorInput>;
@@ -9257,8 +9262,6 @@ export type QueryAllDirectoryArgs = {
 export type QuerySiteArgs = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
-  port?: Maybe<IntQueryOperatorInput>;
-  host?: Maybe<StringQueryOperatorInput>;
   flags?: Maybe<SiteFlagsFilterInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
@@ -9437,8 +9440,7 @@ export type QueryContentfulSectionArgs = {
   internal?: Maybe<InternalFilterInput>;
   name?: Maybe<StringQueryOperatorInput>;
   variant?: Maybe<StringQueryOperatorInput>;
-  variantLayout?: Maybe<StringQueryOperatorInput>;
-  blocksLayout?: Maybe<StringQueryOperatorInput>;
+  layout?: Maybe<StringQueryOperatorInput>;
   blocks?: Maybe<ContentfulBlockFilterListInput>;
   page?: Maybe<ContentfulPageFilterListInput>;
   spaceId?: Maybe<StringQueryOperatorInput>;
@@ -9646,14 +9648,16 @@ export type QueryContentfulPageArgs = {
   name?: Maybe<StringQueryOperatorInput>;
   title?: Maybe<StringQueryOperatorInput>;
   slug?: Maybe<StringQueryOperatorInput>;
+  layout?: Maybe<StringQueryOperatorInput>;
+  template?: Maybe<StringQueryOperatorInput>;
   sections?: Maybe<ContentfulSectionFilterListInput>;
+  description?: Maybe<ContentfulPageDescriptionTextNodeFilterInput>;
   spaceId?: Maybe<StringQueryOperatorInput>;
   contentful_id?: Maybe<StringQueryOperatorInput>;
   createdAt?: Maybe<DateQueryOperatorInput>;
   updatedAt?: Maybe<DateQueryOperatorInput>;
   sys?: Maybe<ContentfulPageSysFilterInput>;
   node_locale?: Maybe<StringQueryOperatorInput>;
-  description?: Maybe<ContentfulPageDescriptionTextNodeFilterInput>;
   childContentfulPageDescriptionTextNode?: Maybe<ContentfulPageDescriptionTextNodeFilterInput>;
 };
 
@@ -9954,8 +9958,6 @@ export type QueryAllSitePluginArgs = {
 export type Site = Node & {
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
-  port?: Maybe<Scalars['Int']>;
-  host?: Maybe<Scalars['String']>;
   flags?: Maybe<SiteFlags>;
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
@@ -10162,8 +10164,6 @@ export type SiteFieldsEnum =
   | 'siteMetadata___siteEnv'
   | 'siteMetadata___languages___langs'
   | 'siteMetadata___languages___defaultLangKey'
-  | 'port'
-  | 'host'
   | 'flags___PRESERVE_WEBPACK_CACHE'
   | 'flags___PRESERVE_FILE_DOWNLOAD_CACHE'
   | 'flags___QUERY_ON_DEMAND'
@@ -10264,8 +10264,6 @@ export type SiteFieldsEnum =
 export type SiteFilterInput = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
-  port?: Maybe<IntQueryOperatorInput>;
-  host?: Maybe<StringQueryOperatorInput>;
   flags?: Maybe<SiteFlagsFilterInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
