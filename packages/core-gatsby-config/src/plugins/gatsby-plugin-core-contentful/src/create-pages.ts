@@ -59,9 +59,9 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
             node_locale: string;
             id: string;
             name: string;
-            category: string;
+            // category: string;
             slug: string;
-            type: { type: string };
+            // type: { type: string };
           };
         }[];
       };
@@ -74,11 +74,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
                 node_locale
                 id
                 name
-                category
                 slug
-                type {
-                  type
-                }
               }
             }
           }

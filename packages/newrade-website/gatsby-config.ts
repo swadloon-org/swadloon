@@ -96,7 +96,7 @@ const config: core.GastbySiteConfig = {
     core.getGatsbyNetlifyPlugin(),
     core.getGastbyCoreContentfulPluginConfig({
       packageName: packageJson.name,
-      locales: ['fr-CA'],
+      locales: ['fr-CA', 'en-CA'],
       features: {
         renderPages: true,
         renderBlogPosts: false,
