@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/newrade-website@1.9.0...@newrade/newrade-website@1.9.1) (2021-02-22)
+
+### Bug Fixes
+
+- **eslint:** fight with eslint and goddamned gatsby ([d739497](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/d739497cbf641b3e5be26230008c5c58026f026e))
+- **newrade-website:** update configs ([90db24e](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/90db24e3ca7e9e8e4b6d41823d4a4366ed70db26))
+- **repo:** clean up eslint and gitignore files ([5a0a45d](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/5a0a45d7d6e669dc6859f361093d6d5b1e3c5d09))
+
 # [1.9.0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/newrade-website@1.8.0...@newrade/newrade-website@1.9.0) (2021-02-19)
 
 ### Bug Fixes

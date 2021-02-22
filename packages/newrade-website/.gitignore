@@ -4,6 +4,7 @@
 
 # netlify
 .netlify
+functions
 
 # gatsby
 dist/

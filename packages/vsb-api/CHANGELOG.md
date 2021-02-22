@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.2](https://github.com/newrade/newrade-core/tree/master/packages/vsb-api/compare/@newrade/vsb-api@1.3.1...@newrade/vsb-api@1.3.2) (2021-02-22)
+
+### Bug Fixes
+
+- **repo:** clean up eslint and gitignore files ([5a0a45d](https://github.com/newrade/newrade-core/tree/master/packages/vsb-api/commit/5a0a45d7d6e669dc6859f361093d6d5b1e3c5d09))
+
 ## [1.3.1](https://github.com/newrade/newrade-core/tree/master/packages/vsb-api/compare/@newrade/vsb-api@1.3.0...@newrade/vsb-api@1.3.1) (2021-02-19)
 
 ### Bug Fixes

@@ -29,7 +29,7 @@ const config: core.GastbySiteConfig = {
   },
   siteMetadata: {
     title: `VSB Website`,
-    description: `Gatsby powered MIR website`,
+    description: `Dr. Boucher Clinic's website`,
     siteUrl: env.APP_URL,
     siteEnv: env.APP_ENV,
     languages: {
@@ -92,26 +92,13 @@ const config: core.GastbySiteConfig = {
       packageName: packageJson.name,
       locales: ['fr-CA'],
       features: {
+        pageVersion: 1,
         blog: false,
         portfolio: false,
       },
     }),
     core.getGastbyCorePluginConfig({
       packageName: packageJson.name,
-      modules: [
-        // '@newrade/core-gatsby-config',
-        // '@newrade/core-gatsby-ui/src',
-        // '@newrade/core-react-ui',
-        // '@react-google-maps/api',
-        // '@react-google-maps',
-        // '@react-aria',
-        // 'i18next',
-        // 'yup',
-        // 'lodash',
-        // 'lodash-es',
-        // 'date-fns',
-        // '@react-icons',
-      ],
       enableDesignSystemPages: true,
       enableDocsPages: true,
     }),

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.1](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-design-system@1.9.0...@newrade/core-design-system@1.9.1) (2021-02-22)
+
+### Bug Fixes
+
+- **repo:** clean up eslint and gitignore files ([5a0a45d](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/5a0a45d7d6e669dc6859f361093d6d5b1e3c5d09))
+
 # [1.9.0](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-design-system@1.8.1...@newrade/core-design-system@1.9.0) (2021-02-19)
 
 ### Features

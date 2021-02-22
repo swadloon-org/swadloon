@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.1](https://github.com/newrade/newrade/compare/@newrade/core-react-ui@1.11.0...@newrade/core-react-ui@1.11.1) (2021-02-22)
+
+### Bug Fixes
+
+- **repo:** clean up eslint and gitignore files ([5a0a45d](https://github.com/newrade/newrade/commit/5a0a45d7d6e669dc6859f361093d6d5b1e3c5d09))
+- **vsb-website:** fixes cost items section ([d35917e](https://github.com/newrade/newrade/commit/d35917e53db9212129650eaeeb65fd176354219f))
+
 # [1.11.0](https://github.com/newrade/newrade/compare/@newrade/core-react-ui@1.10.0...@newrade/core-react-ui@1.11.0) (2021-02-19)
 
 ### Bug Fixes

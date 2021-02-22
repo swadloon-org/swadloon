@@ -2,9 +2,8 @@
 node_modules
 
 # libs
-lib
-dist
-bin
+lib/
+bin/
 
 # gatsby
 .cache
@@ -12,5 +11,5 @@ node_modules
 public
 graphql-types.ts
 
-# react apps
+# apps
 dist

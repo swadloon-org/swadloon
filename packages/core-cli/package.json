@@ -1,6 +1,6 @@
 {
   "name": "@newrade/core-cli",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "description": "CLI for various purposes, automate actions, etc.",
   "author": {
     "email": "info@newrade.ca",
@@ -36,9 +36,9 @@
   },
   "types": "lib/index.d.ts",
   "dependencies": {
-    "@newrade/core-common": "^1.2.1",
-    "@newrade/core-types": "^1.3.1",
-    "@newrade/core-utils": "^1.6.1",
+    "@newrade/core-common": "^1.2.2",
+    "@newrade/core-types": "^1.3.2",
+    "@newrade/core-utils": "^1.6.2",
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "@oclif/plugin-help": "^3",

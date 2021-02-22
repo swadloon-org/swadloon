@@ -28,7 +28,7 @@ const config: core.GastbySiteConfig = {
   },
   siteMetadata: {
     title: `MIR Website`,
-    description: `Gatsby powered MIR website`,
+    description: `MIR website`,
     siteUrl: env.APP_URL,
     siteEnv: env.APP_ENV,
     languages: {
@@ -96,7 +96,6 @@ const config: core.GastbySiteConfig = {
     }),
     core.getGastbyCorePluginConfig({
       packageName: packageJson.name,
-      modules: ['@newrade/core-gatsby-config', '@newrade/core-gatsby-ui/src'],
       enableDesignSystemPages: false,
       enableDocsPages: false,
     }),

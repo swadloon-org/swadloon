@@ -29,7 +29,7 @@ const config: core.GastbySiteConfig = {
   },
   siteMetadata: {
     title: `Newrade Website`,
-    description: `Gatsby powered MIR website`,
+    description: `Newrade's main website`,
     siteUrl: env.APP_URL,
     siteEnv: env.APP_ENV,
     languages: {
@@ -65,13 +65,10 @@ const config: core.GastbySiteConfig = {
     {
       resolve: 'gatsby-plugin-load-script',
       options: {
-        // <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/7954462.js"></script>,
-        // disable: !process.env.SENTRY_DSN, // When do you want to disable it ?
         id: `hs-script-loader`,
         async: 'true',
         defer: 'true',
         src: 'https://js.hs-scripts.com/7954462.js',
-        // onLoad: `() => Sentry.init({dsn:"${process.env.SENTRY_DSN}"})`,
       },
     },
     /**
@@ -97,6 +94,15 @@ const config: core.GastbySiteConfig = {
     core.getGatsbyPluginSitemap(),
     core.getGatsbyPluginRobotsTxt({ env }),
     core.getGatsbyNetlifyPlugin(),
+    // core.getGastbyCoreContentfulPluginConfig({
+    //   packageName: packageJson.name,
+    //   locales: ['fr-CA'],
+    //   features: {
+    //     pageVersion: 1,
+    //     blog: false,
+    //     portfolio: false,
+    //   },
+    // }),
     core.getGastbyCorePluginConfig({
       packageName: packageJson.name,
       enableDesignSystemPages: true,
