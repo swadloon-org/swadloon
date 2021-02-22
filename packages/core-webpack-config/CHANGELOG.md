@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.4](https://github.com/newrade/newrade/compare/@newrade/core-webpack-config@1.4.3...@newrade/core-webpack-config@1.4.4) (2021-02-22)
+
+### Bug Fixes
+
+- **repo:** clean up eslint and gitignore files ([5a0a45d](https://github.com/newrade/newrade/commit/5a0a45d7d6e669dc6859f361093d6d5b1e3c5d09))
+
 ## [1.4.3](https://github.com/newrade/newrade/compare/@newrade/core-webpack-config@1.4.2...@newrade/core-webpack-config@1.4.3) (2021-02-19)
 
 ### Bug Fixes
