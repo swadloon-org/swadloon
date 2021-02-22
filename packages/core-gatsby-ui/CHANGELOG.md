@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-ui@1.4.1...@newrade/core-gatsby-ui@1.5.0) (2021-02-19)
+
+### Bug Fixes
+
+- **vsb-website:** fix for mobile form ([d7cf6fb](https://github.com/newrade/newrade/commit/d7cf6fbf646dfcbe9a68fbe3403affcedc8bac91))
+- **vsb-website:** small fixes for e2e test ([824892f](https://github.com/newrade/newrade/commit/824892f0db77984c9359cf12ea0a82707f09c64d))
+
+### Features
+
+- **core-gatsby-ui:** working on sections and blocks ([4d55bfd](https://github.com/newrade/newrade/commit/4d55bfde04fd1df6d8b149a69414ba5129747fd6))
+- **core-react-ui:** add BoxV3 which uses TS v4's template literal ([14d395c](https://github.com/newrade/newrade/commit/14d395cd4b0dc0948bce6e436daa1c63eef9716f))
+- **core-react-ui:** add sections and blocs ([04a5386](https://github.com/newrade/newrade/commit/04a5386073c903740c635ff38cef435963078f12))
+
 ## [1.4.1](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-ui@1.4.0...@newrade/core-gatsby-ui@1.4.1) (2021-02-15)
 
 ### Bug Fixes

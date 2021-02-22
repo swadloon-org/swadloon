@@ -3,7 +3,7 @@ export * from './components/gatsby-link';
 export * from './components/layout-switcher';
 export * from './components/navigation/aside';
 export * from './components/content/block-markdown';
-export * from './components/section/section';
+export * from './components/content/section';
 export * from './hooks/use-layout-data.hook';
 export * from './hooks/use-reach-router-location.hook';
 export * from './models/nav-item.model';

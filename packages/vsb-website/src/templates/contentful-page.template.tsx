@@ -7,12 +7,11 @@ import {
 } from '@newrade/core-react-ui';
 import { graphql, PageProps } from 'gatsby';
 import React from 'react';
+import { I18nProvider } from 'react-aria';
 import Helmet from 'react-helmet';
 import { PageQuery } from '../../types/graphql-types';
-import { PROJECT_PAGE_TYPE } from '../../types/contentful-page-type';
 import '../fonts';
-import { HomeTemplate } from './home.template';
-import { I18nProvider } from 'react-aria';
+import { SectionTemplate } from './section.template';
 
 export type ProjectPageProps = PageProps<PageQuery, GatsbyContentfulPageContext>;
 
@@ -56,24 +55,10 @@ export const PageTemplate: React.FC<ProjectPageProps> = ({ data, location, ...pr
         })}
       </Helmet>
       <I18nProvider locale={props.pageContext.locale}>
-        {getPageTemplateComponent({
-          pageType: data?.contentfulPage?.type?.type as any,
-          props: { data, location, ...props },
-        })}
+        <SectionTemplate data={data} location={location} {...props} />
       </I18nProvider>
     </div>
   );
 };
-
-function getPageTemplateComponent({ pageType, props }: { pageType: PROJECT_PAGE_TYPE; props: ProjectPageProps }) {
-  switch (pageType) {
-    case PROJECT_PAGE_TYPE.HOME: {
-      return <HomeTemplate {...props} />;
-    }
-    default: {
-      return <HomeTemplate {...props} />;
-    }
-  }
-}
 
 export default PageTemplate;

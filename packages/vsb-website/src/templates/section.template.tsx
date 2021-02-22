@@ -1,13 +1,13 @@
-import { ButtonSize, ButtonVariant } from '@newrade/core-design-system';
+import { ButtonSize, ButtonVariant, Variant } from '@newrade/core-design-system';
 import { BlockMarkdown, GatsbyLink, Section } from '@newrade/core-gatsby-ui/src';
-import { BoxV2, Button, Image, Stack, Switcher, useTreatTheme } from '@newrade/core-react-ui';
+import { SectionLayout, SectionPadding } from '@newrade/core-gatsby-ui/src/components/content/section.props';
+import { BoxV2, Button, Image, Stack, Switcher, useIsSSR, useTreatTheme } from '@newrade/core-react-ui';
 import { IoArrowForwardOutline } from '@react-icons/all-files/io5/IoArrowForwardOutline';
 import { FluidObject } from 'gatsby-image';
 import React from 'react';
 import { useInView } from 'react-intersection-observer';
 import { SECTION_TYPE } from '../../types/contentful-section-type';
 import { ContentfulSection } from '../../types/graphql-types';
-import { BlockGoogleMapVSB } from '../components/block-google-map';
 import { SectionBanner } from '../components/section-banner';
 import { SectionBannerLink } from '../components/section-banner-link';
 import { SectionContact } from '../components/section-contact';
@@ -15,9 +15,14 @@ import { SectionFormVasectomy } from '../components/section-form-vasectomy';
 import { SectionMessages } from '../components/section-messages';
 import { SectionSteps } from '../components/section-steps';
 import { SectionTileLinks } from '../components/section-tile-links';
-import { ProjectPageProps } from './page.template';
+import { ProjectPageProps } from './contentful-page.template';
+
+const BlockGoogleMapVSB = React.lazy(() =>
+  import('../components/block-google-map').then((comp) => ({ default: comp.BlockGoogleMapVSB }))
+);
 
 export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
+  const isSSR = useIsSSR();
   const { ref, inView } = useInView({
     threshold: 0,
   });
@@ -33,7 +38,12 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
 
           case SECTION_TYPE.BANNER: {
             return (
-              <Section id={`section-${index}`} key={index} variantLayout={'banner'}>
+              <Section
+                id={`section-${index}`}
+                key={index}
+                variantLayout={SectionLayout.fullWidth}
+                variantPadding={SectionPadding.none}
+              >
                 <SectionBanner key={index} section={section} />
               </Section>
             );
@@ -53,7 +63,12 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
 
           case SECTION_TYPE.TILE_LINKS: {
             return (
-              <Section id={`section-${index}`} key={index} variantLayout={'banner'}>
+              <Section
+                id={`section-${index}`}
+                key={index}
+                variantLayout={SectionLayout.fullWidth}
+                variantPadding={SectionPadding.none}
+              >
                 <SectionTileLinks key={index} section={section as ContentfulSection} />
               </Section>
             );
@@ -65,7 +80,7 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
                 ref={ref}
                 id={`section-${index}`}
                 key={index}
-                variant={section.variant && /secondary/gi.test(section.variant) ? 'secondary' : 'primary'}
+                variant={section.variant && /secondary/gi.test(section.variant) ? Variant.secondary : Variant.primary}
               >
                 {section.text?.childMdx?.body ? (
                   <Switcher gap={[cssTheme.sizing.var.x6]} alignItems={['center']}>
@@ -91,7 +106,11 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
                         justifySelf={['center', 'center', 'flex-start']}
                         style={{ maxWidth: 700, width: 'min(100vw, 100%)', height: `100%` }}
                       >
-                        <BlockGoogleMapVSB inView={inView} />
+                        {!isSSR && inView ? (
+                          <React.Suspense fallback={<div />}>
+                            <BlockGoogleMapVSB inView={inView} />
+                          </React.Suspense>
+                        ) : null}
                       </BoxV2>
                     ) : null}
                   </Switcher>
@@ -124,7 +143,7 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
               <Section
                 id={`section-${index}`}
                 key={index}
-                variant={section.variant && /secondary/gi.test(section.variant) ? 'secondary' : 'primary'}
+                variant={section.variant && /secondary/gi.test(section.variant) ? Variant.secondary : Variant.primary}
               >
                 {/* in the section map for each blocks and for each type of block assign to component */}
                 {section.text?.childMdx?.body ? (
@@ -198,7 +217,7 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
           case SECTION_TYPE.PILOT_EXAM_SERVICE:
           case SECTION_TYPE.VASECTOMY_INFO_COST: {
             return (
-              <Section id={`section-${index}`} key={index} variant={'secondary'}>
+              <Section id={`section-${index}`} key={index} variant={Variant.secondary}>
                 <Stack gap={[cssTheme.sizing.var.x7]}>
                   <BlockMarkdown style={{ maxWidth: 800 }}>{section?.text?.childMdx?.body}</BlockMarkdown>
 
@@ -211,7 +230,12 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
           }
           case SECTION_TYPE.VASECTOMY_FORM_LINK: {
             return (
-              <Section id={`section-${index}`} key={index} variantLayout={'banner'}>
+              <Section
+                id={`section-${index}`}
+                key={index}
+                variantLayout={SectionLayout.fullWidth}
+                variantPadding={SectionPadding.none}
+              >
                 <SectionBannerLink key={index} section={section} />
               </Section>
             );
@@ -233,7 +257,12 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
           }
           case SECTION_TYPE.CONTACT_CONTACT: {
             return (
-              <Section id={`section-${index}`} key={index} variant={'secondary'} variantLayout={'center'}>
+              <Section
+                id={`section-${index}`}
+                key={index}
+                variant={Variant.secondary}
+                variantLayout={SectionLayout.center}
+              >
                 <SectionContact key={index} section={section} />
               </Section>
             );

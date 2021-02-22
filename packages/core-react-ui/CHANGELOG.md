@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.11.0](https://github.com/newrade/newrade/compare/@newrade/core-react-ui@1.10.0...@newrade/core-react-ui@1.11.0) (2021-02-19)
+
+### Bug Fixes
+
+- **core-react-ui:** fix ssr bug ([4c5e7f4](https://github.com/newrade/newrade/commit/4c5e7f4e4ef5610117c926bc7bed892de7ba8589))
+- **core-react-ui:** hotfix for linting issue ([7478c14](https://github.com/newrade/newrade/commit/7478c14343fa1dd9fa8b79c452da9a73bf1b928c))
+- **eslint:** fix new rules ([ec8cae6](https://github.com/newrade/newrade/commit/ec8cae6eb11f98fccd91fd378bd67252e47b6445))
+- **vsb-website:** fix for mobile form ([d7cf6fb](https://github.com/newrade/newrade/commit/d7cf6fbf646dfcbe9a68fbe3403affcedc8bac91))
+- **vsb-website:** fix validation issues ([aa8f5f9](https://github.com/newrade/newrade/commit/aa8f5f9e1f2bab9eff62c32017d9a5159750e98f))
+- **vsb-website:** only check status when page is active ([175842d](https://github.com/newrade/newrade/commit/175842dcdb73248bf8472e05a553d1f358ce0b6b))
+
+### Features
+
+- **core-react-ui:** add BoxV3 which uses TS v4's template literal ([14d395c](https://github.com/newrade/newrade/commit/14d395cd4b0dc0948bce6e436daa1c63eef9716f))
+- **core-react-ui:** add sections and blocs ([04a5386](https://github.com/newrade/newrade/commit/04a5386073c903740c635ff38cef435963078f12))
+
 # [1.10.0](https://github.com/newrade/newrade/compare/@newrade/core-react-ui@1.9.0...@newrade/core-react-ui@1.10.0) (2021-02-15)
 
 ### Bug Fixes

@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.11.0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/mir-website@1.10.2...@newrade/mir-website@1.11.0) (2021-02-19)
+
+### Bug Fixes
+
+- **build:** fix gatsby build commands ([04de217](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/04de217d2cd543de974f052ea8e16eb5ad26119e))
+- **core-react-ui:** hotfix for linting issue ([7478c14](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/7478c14343fa1dd9fa8b79c452da9a73bf1b928c))
+- **eslint:** fix new rules ([ec8cae6](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ec8cae6eb11f98fccd91fd378bd67252e47b6445))
+- **vsb-common:** fix esm build that would prevent treeshaking for gastby/webpack ([ad116b3](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ad116b38456b0eb64b6a82d7deef3d8ad66510a3))
+
+### Features
+
+- **core-gatsby-ui:** working on sections and blocks ([4d55bfd](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/4d55bfde04fd1df6d8b149a69414ba5129747fd6))
+- **core-react-ui:** add BoxV3 which uses TS v4's template literal ([14d395c](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/14d395cd4b0dc0948bce6e436daa1c63eef9716f))
+
 ## [1.10.2](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/mir-website@1.10.1...@newrade/mir-website@1.10.2) (2021-02-15)
 
 ### Bug Fixes

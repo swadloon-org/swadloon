@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.1](https://github.com/newrade/newrade-core/tree/master/packages/vsb-api/compare/@newrade/vsb-api@1.3.0...@newrade/vsb-api@1.3.1) (2021-02-19)
+
+### Bug Fixes
+
+- **vsb-website:** fix validation issues ([aa8f5f9](https://github.com/newrade/newrade-core/tree/master/packages/vsb-api/commit/aa8f5f9e1f2bab9eff62c32017d9a5159750e98f))
+
 # [1.3.0](https://github.com/newrade/newrade-core/tree/master/packages/vsb-api/compare/@newrade/vsb-api@1.2.0...@newrade/vsb-api@1.3.0) (2021-02-15)
 
 ### Bug Fixes

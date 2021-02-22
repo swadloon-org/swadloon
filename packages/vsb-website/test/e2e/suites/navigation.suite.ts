@@ -33,8 +33,6 @@ describe('in the navigation test suite', () => {
   });
 
   it('should have a footer', async () => {
-    await page.goto(puppeteerConfig.appURL);
-
     const footer = await page.waitFor(HomePage.footer, {
       visible: true,
     });
@@ -54,24 +52,7 @@ describe('in the navigation test suite', () => {
     await expect(buttonText.join(' ')).toMatch(/soumettre/gi);
   });
 
-  it('should have a the current status online', async () => {
-    await page.goto(`${puppeteerConfig.appURL}/formulaire-vasectomie/`);
-
-    const status = await page.waitFor(`div[class*="online-indicator"]`, {
-      visible: true,
-      timeout: 10000,
-    });
-
-    await expect(status).toBeTruthy();
-
-    const statusBox = await getElementText({ page, selector: `div[class*="online-indicator"]` });
-
-    await expect(statusBox.join(' ')).toMatch(/système en ligne/gi);
-  });
-
   it('should have the recaptcha error message', async () => {
-    await page.goto(`${puppeteerConfig.appURL}/formulaire-vasectomie/`);
-
     const form = await page.waitFor(`form`, {
       visible: true,
     });
@@ -107,6 +88,20 @@ describe('in the navigation test suite', () => {
 
     await expect(errorMessage.join(' ')).toMatch(/Le recaptcha est manquant/gi);
   });
+
+  it('should have a the current status online', async () => {
+    const status = await page.waitFor(`div[class*="online-indicator"]`, {
+      visible: true,
+      timeout: 10000,
+    });
+
+    await expect(status).toBeTruthy();
+
+    const statusBox = await getElementText({ page, selector: `div[class*="online-indicator"]` });
+
+    await expect(statusBox.join(' ')).toMatch(/système en ligne/gi);
+  });
+
   afterAll(async () => {
     await browser.close();
   });

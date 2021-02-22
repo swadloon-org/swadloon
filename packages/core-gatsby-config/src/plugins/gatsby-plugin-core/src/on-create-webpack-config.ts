@@ -82,17 +82,6 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
   }
 
   /**
-   * Alias date-fsn
-   * @see https://date-fns.org/v2.17.0/docs/ECMAScript-Modules
-   */
-  if (typeof config === 'object' && config.resolve) {
-    config.resolve.alias = {
-      ...(typeof config.resolve.alias === 'object' ? config.resolve.alias : {}),
-      'date-fns': 'date-fns/esm',
-    };
-  }
-
-  /**
    * Replace Gatsby default entry polyfill
    */
   if (typeof config === 'object' && config.entry && (config.entry as Record<string, string>)['polyfill']) {
@@ -216,6 +205,24 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
 
       const [modifiedTsLoaderConf] = config.module.rules.filter(tsLoaderPredicate);
     }
+  }
+
+  /**
+   * Add tsx support to babel (like gatsby-plugin-typescript)
+   */
+  if (config.module?.rules) {
+    const [gatsbyBabelLoaderConf] = config.module.rules.filter(babelLoaderPredicate);
+
+    config.module.rules = [
+      ...config.module.rules.filter(negateTsLoaderPredicate),
+      {
+        test: '/\\.tsx?$/',
+        use: [...((gatsbyBabelLoaderConf as RuleSetRule).use as RuleSetUseItem[])] as RuleSetRule[],
+        exclude: /public|static/,
+      },
+    ] as RuleSetRules;
+
+    const [modifiedTsLoaderConf] = config.module.rules.filter(tsLoaderPredicate);
   }
 
   /**

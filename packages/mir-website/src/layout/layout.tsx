@@ -7,7 +7,7 @@ import { NavigationQuery } from '../../types/graphql-types';
 import { Footer } from '../components/navigation/footer';
 import { NavBar } from '../components/navigation/nav-bar';
 import { SideBar } from '../components/navigation/side-bar';
-import { PAGE_NAME } from '../templates/page.template';
+import { PAGE_NAME } from '../templates/contentful-page.template';
 import * as styleRefs from './layout.treat';
 
 type LayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }>;

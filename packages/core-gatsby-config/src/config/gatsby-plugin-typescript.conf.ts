@@ -25,14 +25,14 @@ export function getGatsbyPluginTypeScriptConfig({
   documentPaths = defaultOptions.documentPaths,
 }: PluginOptions = defaultOptions): Gatsby.PluginRef[] {
   return [
-    {
-      resolve: `gatsby-plugin-typescript`,
-      options: {
-        isTSX: true, // defaults to false
-        jsxPragma: `jsx`, // defaults to "React"
-        allExtensions: true, // defaults to false
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-typescript`,
+    //   options: {
+    //     isTSX: true, // defaults to false
+    //     jsxPragma: `jsx`, // defaults to "React"
+    //     allExtensions: true, // defaults to false
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-graphql-codegen`,
       options: {
