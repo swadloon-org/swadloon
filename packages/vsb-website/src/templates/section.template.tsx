@@ -11,6 +11,7 @@ import { ContentfulSection } from '../../types/graphql-types';
 import { SectionBanner } from '../components/section-banner';
 import { SectionBannerLink } from '../components/section-banner-link';
 import { SectionContact } from '../components/section-contact';
+import { SectionCost } from '../components/section-cost-items';
 import { SectionFormVasectomy } from '../components/section-form-vasectomy';
 import { SectionMessages } from '../components/section-messages';
 import { SectionSteps } from '../components/section-steps';
@@ -25,6 +26,7 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
   const isSSR = useIsSSR();
   const { ref, inView } = useInView({
     threshold: 0,
+    triggerOnce: true,
   });
   const { cssTheme, theme } = useTreatTheme();
 
@@ -218,13 +220,7 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
           case SECTION_TYPE.VASECTOMY_INFO_COST: {
             return (
               <Section id={`section-${index}`} key={index} variant={Variant.secondary}>
-                <Stack gap={[cssTheme.sizing.var.x7]}>
-                  <BlockMarkdown style={{ maxWidth: 800 }}>{section?.text?.childMdx?.body}</BlockMarkdown>
-
-                  {/* {section?.costItems?.map((item, index) => {
-                    return <div key={index}>{item?.title}</div>;
-                  })} */}
-                </Stack>
+                <SectionCost section={section} />
               </Section>
             );
           }
