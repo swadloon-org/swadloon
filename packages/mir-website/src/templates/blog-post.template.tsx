@@ -1,5 +1,4 @@
 import LogoFramed from '!!file-loader!../images/LogoFramedTextDefault.svg';
-import { GatsbyBlogPostContext } from '@newrade/core-gatsby-config';
 import {
   getMetaBasicTags,
   getMetadataOpenGraphWebsiteTags,
@@ -11,11 +10,12 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { helmetJsonLdProp } from 'react-schemaorg';
 import { Article, Organization } from 'schema-dts';
+import { GatsbyBlogPostMIRContext } from '../../types/gatsby-types';
 import { BlogPostPageQuery } from '../../types/graphql-types';
 import '../fonts';
 import { BlogPostArticleTemplate } from './blog-post-article.template';
 
-export type ProjectPageProps = PageProps<BlogPostPageQuery, GatsbyBlogPostContext>;
+export type ProjectPageProps = PageProps<BlogPostPageQuery, GatsbyBlogPostMIRContext>;
 
 export const blogPostQuery = graphql`
   query BlogPostPage($blogPostId: String) {

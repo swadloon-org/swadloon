@@ -120,12 +120,3 @@ export type GatsbyDesignSystemPageContext = GatsbyCommonPageContext & {
    *  ```
    */
 };
-
-/**
- * Typing for Gatsby page's Context object
- * @deprecated
- */
-export type GatsbyBlogPostContext = {
-  blogPostId: string;
-  blogPath: string;
-};

@@ -2,7 +2,7 @@ import { CommonComponentProps } from '@newrade/core-react-ui';
 
 export enum BlockType {
   /**
-   * Will honor the content margins.
+   * Used for markdown text and content.
    */
   text = 'text',
 }

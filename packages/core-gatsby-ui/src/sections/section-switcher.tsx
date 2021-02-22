@@ -13,8 +13,8 @@ export const SectionSwitcher: React.FC<Props> = ({
   style,
   className,
   variant,
-  variantLayout,
-  variantPadding,
+  baseLayout,
+  padding,
   RightBlock,
   LeftBlock,
   ...props
@@ -22,7 +22,7 @@ export const SectionSwitcher: React.FC<Props> = ({
   const { theme, cssTheme } = useTreatTheme();
 
   return (
-    <Section variant={variant} variantLayout={variantLayout} variantPadding={variantPadding}>
+    <Section variant={variant} baseLayout={baseLayout} padding={padding}>
       <Switcher col={2} gap={[cssTheme.sizing.var.x6]}>
         {LeftBlock}
         {RightBlock}

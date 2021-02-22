@@ -11,11 +11,11 @@
   "scripts": {
     "build": "yarn build:commonjs && yarn build:esm",
     "build:commonjs": "tsc --build tsconfig.build.json",
-    "build:esm": "tsc --build tsconfig.build.es.json",
+    "build:esm": "tsc --build tsconfig.build.esm.json",
     "clean": "rimraf -r lib/** && rm -f tsconfig.build.tsbuildinfo",
     "start": "concurrently \"yarn start:commonjs\" \"yarn start:esm\"",
     "start:commonjs": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
-    "start:esm": "tsc --build tsconfig.build.json --watch --preserveWatchOutput"
+    "start:esm": "tsc --build tsconfig.build.esm.json --watch --preserveWatchOutput"
   },
   "sideEffects": false,
   "typings": "./lib/esm/index.d.ts",

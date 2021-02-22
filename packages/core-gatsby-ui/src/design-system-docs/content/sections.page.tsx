@@ -39,10 +39,10 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
           <Code>{`variant`}</Code>: controls the color scheme
         </ListItem>
         <ListItem>
-          <Code>{`variantLayout`}</Code>: controls the internal layout
+          <Code>{`baseLayout`}</Code>: controls the internal layout
         </ListItem>
         <ListItem>
-          <Code>{`variantPadding`}</Code>: controls vertical padding
+          <Code>{`padding`}</Code>: controls vertical padding
         </ListItem>
       </ListItems>
 

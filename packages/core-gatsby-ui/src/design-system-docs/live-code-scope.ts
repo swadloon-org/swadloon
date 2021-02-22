@@ -22,7 +22,7 @@ import { Variant } from '@newrade/core-design-system';
 import { BlockMarkdown } from '../blocks/block-markdown';
 import { SectionSwitcher } from '../sections/section-switcher';
 import { SectionDivider } from '../sections/section-divider';
-import { SectionLayout, SectionPadding } from '../sections/section.props';
+import { SectionBaseLayout, SectionPadding } from '../sections/section.props';
 
 export const liveCodeScope = {
   BoxV2: BoxV2,
@@ -46,7 +46,7 @@ export const liveCodeScope = {
   Summary: Summary,
   Switcher: Switcher,
   SectionDivider: SectionDivider,
-  SectionLayout: SectionLayout,
+  SectionLayout: SectionBaseLayout,
   SectionPadding: SectionPadding,
   Variant: Variant,
 };
