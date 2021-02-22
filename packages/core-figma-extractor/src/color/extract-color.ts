@@ -1,15 +1,12 @@
 import { camel } from 'change-case';
-import { FileResponse } from 'figma-js';
+import { FileStylesResponse, FullStyleMetadata } from 'figma-js';
 import * as fs from 'fs';
 import * as path from 'path';
+import { regexName } from '../constants/figma-colors.constants';
 import { fetchObjectById } from '../service/figma-api';
 import { FigmaColor } from './figma-colors.model';
-/**
- * @ extended type of the fills
- *    Todo later text
- */
 
-export function parseFigmaColors(data: FileResponse['styles']) {
+export function parseFigmaColors(data: FileStylesResponse['meta']['styles']) {
   const project = JSON.parse(fs.readFileSync(path.join(__dirname, '../../package.json'), 'utf-8'));
 
   fs.mkdirSync(path.join(__dirname, '../../lib/dist/color-render'), { recursive: true });
@@ -20,63 +17,48 @@ export function parseFigmaColors(data: FileResponse['styles']) {
     import { FigmaColor } from '@newrade/core-figma-extractor/src';\n\n`
   );
 
-  return Object.keys(data).map(async (key: keyof FileResponse['styles']) => {
-    if (data[key].styleType === 'FILL' && !data[key].name.includes('Image')) {
-      try {
-        /**
-         * todo regex for spliting primary
-         * checkout core-design-system
-         */
-        const result = await fetchObjectById(key);
+  return data.map(async (key: FullStyleMetadata, index) => {
+    try {
+      if (key.style_type === 'FILL' && regexName.test(key.name)) {
+        const result = await fetchObjectById(key.node_id);
         const colorStyle = await result.json();
-        return getFigmaColor(colorStyle, key);
-        //  createColorPalette(colorStyle, key);
-      } catch (error) {
-        console.log(error);
+
+        const newColor = getFigmaColor(colorStyle, key.node_id);
+
+        createColorPalette(newColor);
       }
+    } catch (error) {
+      console.log(key);
+      console.log(error);
     }
   });
 }
 
-export function getFigmaColor(rawColor: any, id: string | number): FigmaColor {
+export function getFigmaColor(rawColor: any, key: string | number): FigmaColor {
+  const nameNode: string[] = rawColor.nodes[key].document.name.split('/');
+
   const newFigmaColor: FigmaColor = {
-    id: `${id}`,
-    name: camel(rawColor.nodes[id].document.name),
-    r: `${rawColor.nodes[id].document.fills[0].color['r']}`,
-    g: `${rawColor.nodes[id].document.fills[0].color['g']}`,
-    b: `${rawColor.nodes[id].document.fills[0].color['b']}`,
-    a: `${rawColor.nodes[id].document.fills[0].color['a']}`,
+    id: `${key}`,
+    colorType: camel(nameNode[1]),
+    colorLevel: nameNode[2],
+    r: rawColor.nodes[key].document.fills[0].color['r'],
+    g: rawColor.nodes[key].document.fills[0].color['g'],
+    b: rawColor.nodes[key].document.fills[0].color['b'],
+    a: rawColor.nodes[key].document.fills[0].color['a'],
   };
 
-  createColorPalette(newFigmaColor);
   return newFigmaColor;
 }
 
 const createColorPalette = (colorObject: FigmaColor) => {
-  /**
-   * introduce ts-check
-   * add prettier
-   * validation read to not append not new colors
-   */
-
-  // const name = snake(colorObject.nodes[colo].document.name);
-
-  const colorTemplate = `export const ${colorObject.name}: FigmaColor = { id: '${colorObject.id}', r: '${colorObject.r}', g: '${colorObject.g}', b: '${colorObject.b}', a: '${colorObject.a}'};\n`;
+  const colorTemplate = `export const ${colorObject.colorType + colorObject.colorLevel}: FigmaColor = { id: '${
+    colorObject.id
+  }',colorType: '${colorObject.colorType}', colorLevel: '${colorObject.colorLevel}', r: ${colorObject.r}, g: ${
+    colorObject.g
+  }, b: ${colorObject.b}, a: ${colorObject.a}};\n`;
 
   fs.appendFile(path.join(__dirname, '../../lib/dist/color-render/design-system-color.ts'), colorTemplate, (err) => {
     if (err) throw err;
-    console.log(`New color added ${colorObject.name} + id: ${colorObject.id}`);
+    console.log(`New color added ${colorObject.colorType + colorObject.colorLevel} + id: ${colorObject.id}`);
   });
-  // writeStream.write(value);
-
-  // writeStream.on('finish', () => {
-  //   console.log('wrote all data to file');
-  // });
-
-  // fs.writeFile(path.join(__dirname, '../../lib/color-render/design-system-color.ts'), value, function (err) {
-  //   if (err) {
-  //     return console.error(err);
-  //   }
-  //   console.log('File created!');
-  // });
 };

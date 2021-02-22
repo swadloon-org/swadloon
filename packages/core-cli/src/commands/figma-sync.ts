@@ -37,18 +37,18 @@ export default class FigmaSync extends Command {
         log(`${JSON.stringify(data, null, 2)}`);
       });
 
-      client.file(args.file).then(({ data }) => {
+      client.fileStyles(args.file).then(({ data }) => {
         log(`Querying Figma API:\t\t ${chalk.green('ok')}`);
 
-        log(`Figma filename:\t\t ${chalk.blue(data.name)}`);
+        // log(`Figma filename:\t\t ${chalk.blue(data.name)}`);
 
         log(`Extracting colors:\t\t ${chalk.green('done')}`);
 
-        log(`${JSON.stringify(data.styles, null, 2)}`);
+        log(`${JSON.stringify(data.meta.styles, null, 2)}`);
 
         log(`${chalk.green('_____EXECUTING_____UTILITIES______')}`);
 
-        parseFigmaColors(data.styles);
+        parseFigmaColors(data.meta.styles);
 
         log(`Extracting text styles:\t ${chalk.green('done')}`);
 

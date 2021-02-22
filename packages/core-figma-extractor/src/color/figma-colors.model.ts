@@ -1,8 +1,9 @@
 export type FigmaColor = {
-  id: string;
-  name?: string;
-  r: string;
-  g: string;
-  b: string;
-  a: string;
+  id: string | number;
+  colorType: string;
+  colorLevel: string;
+  r: number;
+  g: number;
+  b: number;
+  a: number;
 };
