@@ -17,6 +17,7 @@ export const SectionCost: React.FC<Props> = ({ id, style, className, section, su
   return (
     <Stack gap={[cssTheme.sizing.var.x5]}>
       <BlockMarkdown style={{ maxWidth: 800 }}>{section?.text?.childMdx?.body}</BlockMarkdown>
+
       {section?.costItems?.length ? (
         <Stack>
           {section?.costItems?.map((item, index) => {

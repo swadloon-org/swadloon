@@ -7,8 +7,7 @@ import {
   LABEL_SIZE,
   TEXT_STYLE,
 } from '@newrade/core-design-system';
-import { AriaButtonProps } from '@react-types/button';
-import React, { useRef } from 'react';
+import React, { ButtonHTMLAttributes, useRef } from 'react';
 import { useStyles } from 'react-treat';
 import { usePreventPinchZoom } from '../';
 import { CommonComponentProps } from '../props/component-common.props';
@@ -17,8 +16,9 @@ import { getDefaultTextFromProps, getMergedClassname } from '../utilities/compon
 import * as stylesRef from './button.treat';
 
 type Props = CommonComponentProps &
-  Pick<ButtonProps, 'icon' | 'role' | 'size' | 'state' | 'variant'> &
-  AriaButtonProps & { as?: 'button' | 'a' | 'div' } & {
+  ButtonHTMLAttributes<any> &
+  Pick<ButtonProps, 'icon' | 'role' | 'size' | 'state' | 'variant'> & { as?: 'button' | 'a' | 'div' } & {
+    disabled?: boolean;
     loading?: boolean;
     Icon?: React.ReactNode;
     dataPressed?: boolean;
@@ -38,6 +38,7 @@ export const Button = React.forwardRef<any, Props>(
       AsElement,
       size,
       state,
+      disabled,
       icon = ButtonIcon.right,
       Icon,
       ...props
@@ -48,7 +49,6 @@ export const Button = React.forwardRef<any, Props>(
     const localRef = useRef<HTMLButtonElement>(null);
     const ref = forwardedRef ? (forwardedRef as React.RefObject<HTMLButtonElement>) : localRef;
     const type = as ? as : 'button';
-    const { buttonProps, isPressed } = useButton({ ...props, elementType: type }, ref as any);
 
     const iconClassNames = getMergedClassname([styles.iconBase, icon ? styles[icon] : '']);
 
@@ -66,7 +66,7 @@ export const Button = React.forwardRef<any, Props>(
     const variantStateClassName = `${styles[ButtonState.rest]}`;
     const variantClassName = `${styles[variant ? variant : ButtonVariant.primary]}`;
     const variantSizeClassName = styles[size ? size : ButtonSize.medium];
-    const activeClassName = isPressed ? styles.pressed : '';
+    const activeClassName = disabled ? styles.pressed : '';
     const allClassName = getMergedClassname([
       variantStateClassName,
       variantSizeClassName,
@@ -80,7 +80,7 @@ export const Button = React.forwardRef<any, Props>(
           variant,
           size,
           icon,
-          disabled: props.isDisabled,
+          disabled,
         });
 
     function getLabelSizeForButtonSize(size?: ButtonSize): LABEL_SIZE {
@@ -109,10 +109,9 @@ export const Button = React.forwardRef<any, Props>(
             style,
             className: allClassName,
             ref: ref,
-            ...buttonProps,
             dataicon: `${icon}`,
-            datapressed: `${isPressed}`,
             datapaddingcollapse: `${collapsePadding}`,
+            ...props,
           },
           <>
             {icon === ButtonIcon.icon ? null : (
@@ -139,11 +138,11 @@ export const Button = React.forwardRef<any, Props>(
         style={style}
         className={allClassName}
         ref={ref}
-        {...buttonProps}
         // @ts-ignore
         dataicon={`${IconSvg ? icon : ''}`}
-        datapressed={`${isPressed}`}
+        // datapressed={`${isPressed}`}
         datapaddingcollapse={`${collapsePadding}`}
+        {...props}
       >
         {icon === ButtonIcon.icon ? null : (
           <Label

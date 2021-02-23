@@ -10,7 +10,7 @@ import {
 } from '../../../config/site-graphql-types';
 import { SITE_LANGUAGES } from '../../../config/site-languages';
 import { SOURCE_INSTANCE_NAME } from '../../../config/source-instances';
-import { getLocaleDirName, getPageFormattedName } from '../../../utils/dir-name.utilities';
+import { getLocalePath, getPageFormattedName, getPathForSourceInstance } from '../../../utils/dir-name.utilities';
 import { GatsbyCorePluginOptions } from '../gatsby-plugin-options';
 
 let siteMetadata: GatsbyNodeSiteMetadataFragment;
@@ -102,11 +102,14 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
       const markdownTemplate = path.resolve(`../core-gatsby-ui/src/templates/markdown.template.tsx`);
 
       markdownFilesData?.data?.allFile.nodes.forEach((node, index) => {
-        const sourceDir = getDirNameForSourceInstance(node.sourceInstanceName as SOURCE_INSTANCE_NAME);
-        const localeDir = getLocaleDirName(node.name, siteMetadata.languages?.defaultLangKey || SITE_LANGUAGES.EN);
-
-        const path = `${localeDir ? localeDir + '/' : '/'}${sourceDir}${node.childMdx?.slug}`;
-
+        // docs
+        const sourceDir = getPathForSourceInstance(node.sourceInstanceName as SOURCE_INSTANCE_NAME);
+        // fr
+        const localeDir = getLocalePath(node.name, siteMetadata.languages?.defaultLangKey || SITE_LANGUAGES.EN);
+        // readme
+        const nodePath = node.childMdx?.slug;
+        // docs/fr/readme
+        const path = [localeDir, sourceDir, nodePath].filter((part) => !!part).join('/');
         const locale = /fr\.+/.test(node.name) ? SITE_LANGUAGES.FR : SITE_LANGUAGES.EN;
         const name = `${title(node.childMdx?.frontmatter?.name || node.name)}`;
         const displayName = name;
@@ -123,7 +126,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
             fileId: node.id,
             locale,
             layout: 'docs',
-            template: 'docs',
+            template: 'markdownDoc',
           },
           component: markdownTemplate,
         });
@@ -179,29 +182,6 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
 };
 
 /**
- * Return a prefix to prepend to pages created from sources files (e.g. mdx pages in /docs, etc)
- */
-function getDirNameForSourceInstance(sourceInstanceName: SOURCE_INSTANCE_NAME): string {
-  switch (sourceInstanceName) {
-    case SOURCE_INSTANCE_NAME.MDX_PAGES: {
-      return '';
-    }
-    case SOURCE_INSTANCE_NAME.DOCS: {
-      return 'docs';
-    }
-    case SOURCE_INSTANCE_NAME.MONO_REPO_DOCS: {
-      return 'core-docs';
-    }
-    case SOURCE_INSTANCE_NAME.DESIGN_SYSTEM_DOCS: {
-      return 'design-system';
-    }
-    default: {
-      return '';
-    }
-  }
-}
-
-/**
  * Process Src Pages and inject the mandatory site metadata and context.
  * This is neccessary because gatsby automatically create pages from /src/pages and there is an issue with overriding the
  * default behavior with gatsby-config-ts
@@ -218,7 +198,7 @@ export const onCreatePageFunction: GatsbyNode['onCreatePage'] = ({ page, actions
     // TODO: fix when pages are not prefixed by fr but still meant to be in fr
     // also need to recreate path like the docs pages above
     const locale = /fr\.+/.test(page.path) ? SITE_LANGUAGES.FR : SITE_LANGUAGES.EN;
-    const path = `${getLocaleDirName(page.path, locale)}${page.path}`;
+    const path = `${getLocalePath(page.path, locale)}${page.path}`;
 
     deletePage(page);
 

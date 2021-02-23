@@ -1,5 +1,5 @@
 import { SITE_LANGUAGES } from '../../config/site-languages';
-import { getLocaleDirName, getPageFormattedName } from '../dir-name.utilities';
+import { getLocalePath, getPageFormattedName } from '../dir-name.utilities';
 
 describe('dir name utilities', () => {
   describe(`${getPageFormattedName.name}`, () => {
@@ -21,24 +21,24 @@ describe('dir name utilities', () => {
     });
   });
 
-  describe(`${getLocaleDirName.name}`, () => {
+  describe(`${getLocalePath.name}`, () => {
     it('should return the dir name of the page, depending on the default language', () => {
-      expect(getLocaleDirName('/en/', SITE_LANGUAGES.EN)).toBe('');
-      expect(getLocaleDirName('/', SITE_LANGUAGES.EN)).toBe('');
-      expect(getLocaleDirName('', SITE_LANGUAGES.EN)).toBe('');
-      expect(getLocaleDirName('/en-ca/page', SITE_LANGUAGES.EN)).toBe('');
-      expect(getLocaleDirName('/fr-ca/page', SITE_LANGUAGES.EN)).toBe('fr');
-      expect(getLocaleDirName('/fr-ca/page/name/fr', SITE_LANGUAGES.EN_CA)).toBe('fr');
-      expect(getLocaleDirName('/fr-ca/page/name/en', SITE_LANGUAGES.EN)).toBe('fr');
-      expect(getLocaleDirName('/fr/page/name/en', SITE_LANGUAGES.EN)).toBe('fr');
-      expect(getLocaleDirName('/en/page/name/en', SITE_LANGUAGES.EN_CA)).toBe('');
-      expect(getLocaleDirName('/en/page/name/en', SITE_LANGUAGES.EN)).toBe('');
+      expect(getLocalePath('/en/', SITE_LANGUAGES.EN)).toBe('');
+      expect(getLocalePath('/', SITE_LANGUAGES.EN)).toBe('');
+      expect(getLocalePath('', SITE_LANGUAGES.EN)).toBe('');
+      expect(getLocalePath('/en-ca/page', SITE_LANGUAGES.EN)).toBe('');
+      expect(getLocalePath('/fr-ca/page', SITE_LANGUAGES.EN)).toBe('fr');
+      expect(getLocalePath('/fr-ca/page/name/fr', SITE_LANGUAGES.EN_CA)).toBe('fr');
+      expect(getLocalePath('/fr-ca/page/name/en', SITE_LANGUAGES.EN)).toBe('fr');
+      expect(getLocalePath('/fr/page/name/en', SITE_LANGUAGES.EN)).toBe('fr');
+      expect(getLocalePath('/en/page/name/en', SITE_LANGUAGES.EN_CA)).toBe('');
+      expect(getLocalePath('/en/page/name/en', SITE_LANGUAGES.EN)).toBe('');
 
-      expect(getLocaleDirName('/en/page/name/en', SITE_LANGUAGES.FR)).toBe('en');
-      expect(getLocaleDirName('/en/page-name', SITE_LANGUAGES.FR)).toBe('en');
-      expect(getLocaleDirName('/page-name', SITE_LANGUAGES.FR)).toBe('');
-      expect(getLocaleDirName('/', SITE_LANGUAGES.FR)).toBe('');
-      expect(getLocaleDirName('', SITE_LANGUAGES.FR)).toBe('');
+      expect(getLocalePath('/en/page/name/en', SITE_LANGUAGES.FR)).toBe('en');
+      expect(getLocalePath('/en/page-name', SITE_LANGUAGES.FR)).toBe('en');
+      expect(getLocalePath('/page-name', SITE_LANGUAGES.FR)).toBe('');
+      expect(getLocalePath('/', SITE_LANGUAGES.FR)).toBe('');
+      expect(getLocalePath('', SITE_LANGUAGES.FR)).toBe('');
     });
   });
 });

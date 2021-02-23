@@ -4,7 +4,7 @@ export enum BlockType {
   /**
    * Used for markdown text and content.
    */
-  text = 'text',
+  markdown = 'markdown',
 }
 
 export type BlockProps = CommonComponentProps & {

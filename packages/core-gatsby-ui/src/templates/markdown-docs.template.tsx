@@ -13,7 +13,7 @@ import Helmet from 'react-helmet';
 import { useStyles } from 'react-treat';
 import { MarkdownTemplateQuery } from '../../types/site-graphql-types';
 import { Aside } from '../navigation/aside';
-import * as styleRefs from './docs.treat';
+import * as styleRefs from './markdown-docs.treat';
 
 export type MarkdownTemplateProps = PageProps<MarkdownTemplateQuery, GatsbyMarkdownFilePageContext>;
 

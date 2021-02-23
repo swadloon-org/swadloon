@@ -1,5 +1,6 @@
 import { title } from 'case';
 import { SITE_LANGUAGES, SITE_LANGUAGES_HYPHEN } from '../config/site-languages';
+import { SOURCE_INSTANCE_NAME } from '../config/source-instances';
 
 /**
  * Format raw page path
@@ -59,7 +60,7 @@ export function getPageFormattedName(
  *
  * @param nodeName the mdx page node name e.g. fr.readme.md
  */
-export function getLocaleDirName(nodeName: string, defaultLangKey: SITE_LANGUAGES): 'en' | 'fr' | '' {
+export function getLocalePath(nodeName: string, defaultLangKey: SITE_LANGUAGES): 'en' | 'fr' | '' {
   // extract the locale name from node name
   const patternEn = new RegExp(
     `^\/?(${[SITE_LANGUAGES.EN, SITE_LANGUAGES.EN_CA, SITE_LANGUAGES_HYPHEN.EN_CA].join('|')})`,
@@ -102,4 +103,27 @@ export function getLocaleDirName(nodeName: string, defaultLangKey: SITE_LANGUAGE
   }
 
   return '';
+}
+
+/**
+ * Return a prefix to prepend to pages created from sources files (e.g. mdx pages in /docs, etc)
+ */
+export function getPathForSourceInstance(sourceInstanceName: SOURCE_INSTANCE_NAME) {
+  switch (sourceInstanceName) {
+    case SOURCE_INSTANCE_NAME.MDX_PAGES: {
+      return '';
+    }
+    case SOURCE_INSTANCE_NAME.DOCS: {
+      return 'docs';
+    }
+    case SOURCE_INSTANCE_NAME.MONO_REPO_DOCS: {
+      return 'core-docs';
+    }
+    case SOURCE_INSTANCE_NAME.DESIGN_SYSTEM_DOCS: {
+      return 'design-system';
+    }
+    default: {
+      return '';
+    }
+  }
 }

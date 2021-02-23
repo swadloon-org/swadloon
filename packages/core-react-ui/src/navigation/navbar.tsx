@@ -147,7 +147,7 @@ export const NavBar = React.forwardRef<any, Props>((props, ref) => {
                 variant={ButtonVariant.tertiary}
                 icon={ButtonIcon.icon}
                 Icon={props.menuOpened ? <IoClose /> : <IoMenu />}
-                onPress={handlePressMenuButton as any}
+                onClick={handlePressMenuButton}
               ></Button>
             </BoxV2>
 

@@ -60,11 +60,19 @@ export enum PageTemplate {
   /**
    * Special page template for docs pages
    */
-  docs = 'docs',
+  markdownDoc = 'markdownDoc',
+  /**
+   * Special page template for pages writter in .mdx
+   */
+  markdownPage = 'markdownPage',
   /**
    * Special page template for design system pages
    */
   designSystem = 'designSystem',
+  /**
+   * Template for contentfulPages
+   */
+  contentfulPage = 'contentfulPage',
 }
 
 /**

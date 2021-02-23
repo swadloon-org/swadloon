@@ -12,16 +12,18 @@ export enum SectionBaseLayout {
   fullWidth = 'fullWidth',
 }
 
-export enum SectionLayout {
-  switcher = 'switcher',
-  divider = 'divider',
-}
-
 export enum SectionPadding {
   large = 'large',
   medium = 'medium',
   small = 'small',
   none = 'none',
+}
+
+export enum SectionLayout {
+  switcher = 'switcher',
+  divider = 'divider',
+  banner = 'banner',
+  showcase = 'showcase',
 }
 
 export type SectionProps = CommonComponentProps & {

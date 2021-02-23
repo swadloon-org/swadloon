@@ -1,6 +1,6 @@
 import { LinkProps, LinkState, LinkVariant, PARAGRAPH_SIZE, TEXT_LEVEL } from '@newrade/core-design-system';
 import { IoOpenOutline } from '@react-icons/all-files/io5/IoOpenOutline';
-import React, { AnchorHTMLAttributes, RefObject, useRef } from 'react';
+import React, { AnchorHTMLAttributes, useRef } from 'react';
 import { useStyles } from 'react-treat';
 import { CommonComponentProps } from '../props/component-common.props';
 import { getDefaultTextFromProps, getMergedClassname } from '../utilities/component.utilities';
@@ -37,7 +37,6 @@ export const Link: React.FC<Props> = React.memo(
      */
     const { styles: styles } = useStyles(stylesRef);
     const ref = useRef<HTMLElement>();
-    const { linkProps } = useLink({ ...{ ...props, children }, elementType: type }, ref as RefObject<HTMLElement>);
 
     /**
      * Props
@@ -89,7 +88,6 @@ export const Link: React.FC<Props> = React.memo(
       rel: target === '_blank' ? 'noopener' : undefined,
       className: allClassName,
       ref,
-      ...linkProps,
       children: (
         <>
           {renderedChildren}

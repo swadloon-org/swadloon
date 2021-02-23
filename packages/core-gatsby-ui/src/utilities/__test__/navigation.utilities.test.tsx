@@ -1,15 +1,31 @@
 import { Navigation } from '../../navigation/navigation.model';
-import { getDirNameFromRelativePath, getNavigationFromPageNodes } from '../navigation.utilities';
+import { getNavigationFromPageNodes, getPageDirFromPath } from '../navigation.utilities';
 import { navigationMock } from './navigation.mock';
 
 describe(`navigation utilities`, () => {
-  describe(`${getDirNameFromRelativePath.name}`, () => {
-    it('should extract the dir name from a relative path', () => {
-      expect(getDirNameFromRelativePath('/dir-name/page-name.tsx')).toBe('dir-name');
-      expect(getDirNameFromRelativePath('dir-name/page-name.tsx')).toBe('dir-name');
-      expect(getDirNameFromRelativePath('/page-name.tsx')).toBe('');
-      expect(getDirNameFromRelativePath('page-name.tsx')).toBe('');
-      expect(getDirNameFromRelativePath('/dir/page-name.tsx')).toBe('dir');
+  describe(`${getPageDirFromPath.name}`, () => {
+    it('should extract the page dir name from a path with no locale', () => {
+      expect(getPageDirFromPath('/design-system/page-name.tsx')).toBe('');
+      expect(getPageDirFromPath('dir-name/page-name.tsx')).toBe('dir-name');
+      expect(getPageDirFromPath('dir-name/page-name.md')).toBe('dir-name');
+      expect(getPageDirFromPath('dir-name/page-name.mdx')).toBe('dir-name');
+      expect(getPageDirFromPath('/page-name.tsx')).toBe('');
+      expect(getPageDirFromPath('/index.tsx')).toBe('');
+      expect(getPageDirFromPath('index.tsx')).toBe('');
+      expect(getPageDirFromPath('page-name.tsx')).toBe('');
+      expect(getPageDirFromPath('/dir/page-name.tsx')).toBe('dir');
+    });
+
+    it('should extract the page dir name from a path with locales', () => {
+      expect(getPageDirFromPath('/fr/design-system/page-name.tsx')).toBe('');
+      expect(getPageDirFromPath('/fr/dir-name/page-name.tsx')).toBe('dir-name');
+      expect(getPageDirFromPath('/fr/dir-name/page-name.md')).toBe('dir-name');
+      expect(getPageDirFromPath('/fr/dir-name/page-name.mdx')).toBe('dir-name');
+      expect(getPageDirFromPath('/fr/')).toBe('');
+      expect(getPageDirFromPath('/en/')).toBe('');
+      expect(getPageDirFromPath('/fr/page-name.tsx')).toBe('');
+      expect(getPageDirFromPath('/fr/page-name.tsx')).toBe('');
+      expect(getPageDirFromPath('/fr/dir/page-name.tsx')).toBe('dir');
     });
   });
 

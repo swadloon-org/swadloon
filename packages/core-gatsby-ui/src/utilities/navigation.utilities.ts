@@ -51,7 +51,7 @@ export function getNavigationFromPageNodes({
     .filter((node) => !normalizedIgnoredItems?.find((item) => item === normalizeName(node.context?.name)));
 
   // find the dirNames
-  const dirNames = filteredPageNodes.map((node) => node?.context?.dirName);
+  const dirNames = filteredPageNodes.map((node) => getPageDirFromPath(node.path));
 
   // for item at the root the dir name is ''
   const navigation = [...new Set(dirNames)].reduce(
@@ -59,7 +59,7 @@ export function getNavigationFromPageNodes({
       // for each dir name, transform the nodes and place them in .items
       const currentDirName = current;
 
-      const dirNameNodes = filteredPageNodes.filter((node) => node?.context?.dirName === currentDirName);
+      const dirNameNodes = filteredPageNodes.filter((node) => getPageDirFromPath(node.path) === currentDirName);
       if (!dirNameNodes) {
         return previous;
       }
@@ -134,10 +134,10 @@ export function getNavigationFromPageNodes({
 
   function getNavItemShallow(node: PageNode): NavItem {
     return {
-      name: formatName ? formatName(node?.context?.name) : defaultFormatName(node?.context?.name),
+      name: formatName ? formatName(node.context?.name) : defaultFormatName(node.context?.name),
       displayName: formatDisplayName
-        ? formatDisplayName(node?.context?.name || node?.context?.displayName)
-        : defaultFormatDisplayName(node?.context?.name || node?.context?.displayName),
+        ? formatDisplayName(node.context?.name || node.context?.displayName)
+        : defaultFormatDisplayName(node.context?.name || node.context?.displayName),
       // leave the node path untouched
       path: node.path,
     };
@@ -148,14 +148,15 @@ export function getNavigationFromPageNodes({
  * @param path relative path
  * @example /dir/page-name.tsx => dir
  */
-export function getDirNameFromRelativePath(path?: string | null): string {
+export function getPageDirFromPath(path?: string | null): string {
   if (!path) {
     return '';
   }
 
-  const reg = /(?<lang>\/(fr|en))?(?<source>\/(docs|core-docs|design-system))?/gi;
+  const reg = /(\/(?<lang>fr|en|fr_CA|en_CA|fr-CA|en-CA))?(\/(?<source>docs|core-docs|design-system))?(\/?(?<dirname>.+)\/)?((?<pagename>[a-z\-]+|\/))(\.(?<ext>jsx|tsx|mdx|md))?/gi;
   const match = reg.exec(path);
-  return match && match[1] ? match[1] : '';
+  const dirName = match?.groups?.dirname;
+  return dirName || '';
 }
 
 function normalizeName(name?: string | null) {

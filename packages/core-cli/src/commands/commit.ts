@@ -1,4 +1,5 @@
 import { Command, flags } from '@oclif/command';
+import * as path from 'path';
 import { spawnSync } from 'child_process';
 
 export default class Commit extends Command {
@@ -14,7 +15,7 @@ export default class Commit extends Command {
 
   async run() {
     spawnSync(`yarn commit`, {
-      cwd: '.',
+      cwd: path.join(__dirname, '..', '..', '..', '..'),
       shell: true,
       stdio: 'inherit',
       env: process.env,
