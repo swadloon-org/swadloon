@@ -1,4 +1,6 @@
 import { camel } from 'case';
+import chalk from 'chalk';
+import debug from 'debug';
 import { FileNodesResponse, FileStylesResponse, FullStyleMetadata } from 'figma-js';
 import * as fs from 'fs';
 import * as path from 'path';
@@ -6,6 +8,8 @@ import * as prettier from 'prettier';
 import { regexName } from '../constants/figma-colors.constants';
 import { fetchObjectById } from '../service/figma-api';
 import { ColorTokens, FigmaColor, FILES_TYPE_LIST } from './figma-colors.model';
+
+const log = debug('newrade:core-cli');
 
 export function parseFigmaColors(data: FileStylesResponse['meta']['styles']) {
   const project = JSON.parse(fs.readFileSync(path.join(__dirname, '../../package.json'), 'utf-8'));
@@ -39,8 +43,7 @@ export function parseFigmaColors(data: FileStylesResponse['meta']['styles']) {
         return dataToken;
       }
     } catch (error) {
-      console.log(key);
-      console.log(error);
+      log(chalk.red(`${error}`));
     }
   });
 
@@ -52,7 +55,7 @@ export function parseFigmaColors(data: FileStylesResponse['meta']['styles']) {
       createColorPaletteJSON(dataToken);
     })
     .catch((error) => {
-      console.log(error);
+      log(chalk.red(`${error}`));
     });
 }
 
@@ -80,7 +83,7 @@ const createColorPaletteSCSS = (colorObject: ColorTokens) => {
 
   fs.appendFile(path.join(__dirname, FILES_TYPE_LIST.SCSS), `${allColorsString}`, (err) => {
     if (err) throw err;
-    console.log(`New colors SCSS added`);
+    log(chalk.green(`New colors SCSS added`));
   });
 
   const fileContent = fs.readFileSync(path.join(__dirname, FILES_TYPE_LIST.SCSS), 'utf-8');
@@ -102,7 +105,7 @@ const createColorPaletteCSS = (colorObject: ColorTokens) => {
   });
   fs.appendFile(path.join(__dirname, FILES_TYPE_LIST.CSS), `:root  { ${colorsString} }`, (err) => {
     if (err) throw err;
-    console.log(`New colors CSS added`);
+    log(chalk.green(`New colors CSS added`));
   });
 
   const fileContent = fs.readFileSync(path.join(__dirname, FILES_TYPE_LIST.CSS), 'utf-8');
@@ -137,7 +140,7 @@ const createColorPaletteTS = (colorObject: ColorTokens) => {
     `import { ColorTokens } from '@newrade/core-figma-extractor/src';\n ${colors}`,
     (err) => {
       if (err) throw err;
-      console.log(`New colors TS added`);
+      log(chalk.green(`New colors TS added`));
     }
   );
   const fileContent = fs.readFileSync(path.join(__dirname, FILES_TYPE_LIST.TS), 'utf-8');
@@ -155,7 +158,7 @@ const createColorPaletteTS = (colorObject: ColorTokens) => {
 const createColorPaletteJSON = (colorObject: ColorTokens) => {
   fs.appendFile(path.join(__dirname, FILES_TYPE_LIST.JSON), `${JSON.stringify(colorObject, null, 2)}`, (err) => {
     if (err) throw err;
-    console.log(`New colors JSON added`);
+    log(chalk.green(`New colors JSON added`));
   });
 
   const fileContent = fs.readFileSync(path.join(__dirname, FILES_TYPE_LIST.JSON), 'utf-8');
