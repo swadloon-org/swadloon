@@ -10,7 +10,7 @@ import {
 } from '../../../config/site-graphql-types';
 import { SITE_LANGUAGES } from '../../../config/site-languages';
 import { SOURCE_INSTANCE_NAME } from '../../../config/source-instances';
-import { getDirNameFromRelativePath, getLocaleDirName, getPageFormattedName } from '../../../utils/dir-name.utilities';
+import { getLocaleDirName, getPageFormattedName } from '../../../utils/dir-name.utilities';
 import { GatsbyCorePluginOptions } from '../gatsby-plugin-options';
 
 let siteMetadata: GatsbyNodeSiteMetadataFragment;
@@ -53,7 +53,10 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
 
     siteMetadata = allSiteData.data.site.siteMetadata;
 
-    if (pluginOptions.enableDocsPages) {
+    /**
+     * Render Markdown pages
+     */
+    if (pluginOptions.features.renderDocsPages) {
       /**
        * Query for mdx files in /docs/
        */
@@ -90,18 +93,20 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
       );
 
       /**
-       * Organise files to create pages and paths
+       * Organise files to create pages.
+       *
+       * Markdown files are formatted as follow:
+       * `/<locale>/<source-instance-dir>/<mdx-slug`
+       * for example `fr.markdown.mdx` in `/docs` would become `/fr/docs/markdown`
        */
       const markdownTemplate = path.resolve(`../core-gatsby-ui/src/templates/markdown.template.tsx`);
 
-      /**
-       * Create Markdown pages
-       */
       markdownFilesData?.data?.allFile.nodes.forEach((node, index) => {
-        const dir = getDirNameForSourceInstance(node.sourceInstanceName as SOURCE_INSTANCE_NAME);
-        const path = `${getLocaleDirName(node.name, siteMetadata.languages?.defaultLangKey)}${dir}${
-          node.childMdx?.slug
-        }`;
+        const sourceDir = getDirNameForSourceInstance(node.sourceInstanceName as SOURCE_INSTANCE_NAME);
+        const localeDir = getLocaleDirName(node.name, siteMetadata.languages?.defaultLangKey || SITE_LANGUAGES.EN);
+
+        const path = `${localeDir ? localeDir + '/' : '/'}${sourceDir}${node.childMdx?.slug}`;
+
         const locale = /fr\.+/.test(node.name) ? SITE_LANGUAGES.FR : SITE_LANGUAGES.EN;
         const name = `${title(node.childMdx?.frontmatter?.name || node.name)}`;
         const displayName = name;
@@ -115,7 +120,6 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
             id: node.id,
             name,
             displayName,
-            dirName: getDirNameFromRelativePath(node.relativePath),
             fileId: node.id,
             locale,
             layout: 'docs',
@@ -129,7 +133,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
     /**
      * Create Design System pages
      */
-    if (pluginOptions.enableDesignSystemPages) {
+    if (pluginOptions.features.renderDesignSystemPages) {
       const designSystemPagesData = await graphql<{
         allFile: { nodes: { id: string; name: string; absolutePath: string; relativePath: string }[] };
       }>(`
@@ -159,7 +163,6 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
             id: node.id,
             name: node.name,
             displayName,
-            dirName: getDirNameFromRelativePath(node.relativePath),
             fileId: node.id,
             locale: SITE_LANGUAGES.EN,
             layout: 'designSystem',
@@ -175,19 +178,22 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
   }
 };
 
+/**
+ * Return a prefix to prepend to pages created from sources files (e.g. mdx pages in /docs, etc)
+ */
 function getDirNameForSourceInstance(sourceInstanceName: SOURCE_INSTANCE_NAME): string {
   switch (sourceInstanceName) {
-    case SOURCE_INSTANCE_NAME.DOCS: {
-      return 'docs/';
-    }
     case SOURCE_INSTANCE_NAME.MDX_PAGES: {
       return '';
     }
+    case SOURCE_INSTANCE_NAME.DOCS: {
+      return 'docs';
+    }
     case SOURCE_INSTANCE_NAME.MONO_REPO_DOCS: {
-      return 'core-docs/';
+      return 'core-docs';
     }
     case SOURCE_INSTANCE_NAME.DESIGN_SYSTEM_DOCS: {
-      return 'design-system/';
+      return 'design-system';
     }
     default: {
       return '';
@@ -226,7 +232,6 @@ export const onCreatePageFunction: GatsbyNode['onCreatePage'] = ({ page, actions
         displayName: getPageFormattedName(page.path, {
           locale: locale,
         }),
-        dirName: getDirNameFromRelativePath(page.path),
         siteMetadata,
         fileId: '',
         locale,

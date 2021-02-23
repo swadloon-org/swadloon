@@ -3,7 +3,7 @@ import { Heading, Paragraph, Stack, useTreatTheme } from '@newrade/core-react-ui
 import { title } from 'case';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { DesignSystemPageProps, DesignSystemPageTemplate } from '../templates/design-system-page.template';
+import { DesignSystemPageProps, DesignSystemPageTemplate } from '../templates/design-system.template';
 import * as styleRefs from './home.treat';
 import { PageHeader } from './utils/page-header';
 

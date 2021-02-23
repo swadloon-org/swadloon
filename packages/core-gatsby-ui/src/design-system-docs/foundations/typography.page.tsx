@@ -3,7 +3,7 @@ import { HEADING, LABEL_SIZE, PARAGRAPH_SIZE, TEXT_STYLE, TITLE } from '@newrade
 import { BoxV2, Heading, keys, Label, Paragraph, Stack, Title, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { DesignSystemPageProps, DesignSystemPageTemplate } from '../../templates/design-system-page.template';
+import { DesignSystemPageProps, DesignSystemPageTemplate } from '../../templates/design-system.template';
 import * as styleRefs from '../home.treat';
 import { FontShowcase } from '../utils/font-showcase';
 import { lorenipsum } from '../utils/loren-ipsum';

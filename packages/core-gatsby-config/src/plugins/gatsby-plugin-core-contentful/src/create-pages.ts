@@ -2,6 +2,7 @@ import { AppError, ERROR_TYPE } from '@newrade/core-common';
 import { GatsbyNode } from 'gatsby';
 import path from 'path';
 import { GatsbyContentfulPageContext } from '../../../config/page-config';
+import { PAGE_LAYOUT, PAGE_TEMPLATE } from '../../../config/page.props';
 import { GatsbyNodeAllSiteQuery, GatsbyNodeSiteMetadataFragment } from '../../../config/site-graphql-types';
 import { SITE_LANGUAGES } from '../../../config/site-languages';
 import { GatsbyCoreContentfulPluginOptions } from '../gatsby-plugin-options';
@@ -16,6 +17,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
     /**
      * Query for site metadata
      */
+
     const allSiteData = await graphql<GatsbyNodeAllSiteQuery>(`
       query GatsbyNodeAllSite {
         site {
@@ -59,9 +61,9 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
             node_locale: string;
             id: string;
             name: string;
-            // category: string;
             slug: string;
-            // type: { type: string };
+            layout: PAGE_LAYOUT;
+            template: PAGE_TEMPLATE;
           };
         }[];
       };
@@ -75,6 +77,8 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
                 id
                 name
                 slug
+                layout
+                template
               }
             }
           }
@@ -114,12 +118,10 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
             pageId: edge.node.id,
             id: edge.node.id,
             name: edge.node.name,
-            dirName: edge.node.category,
-            type: edge.node.type.type,
             slug: edge.node.slug,
             locale: edge.node.node_locale as SITE_LANGUAGES,
-            layout: 'default',
-            template: 'default',
+            layout: edge.node.layout || 'default',
+            template: edge.node.template || 'default',
           },
           component: pageTemplate,
         });

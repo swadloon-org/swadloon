@@ -144,6 +144,20 @@ export function getNavigationFromPageNodes({
   }
 }
 
+/**
+ * @param path relative path
+ * @example /dir/page-name.tsx => dir
+ */
+export function getDirNameFromRelativePath(path?: string | null): string {
+  if (!path) {
+    return '';
+  }
+
+  const reg = /(?<lang>\/(fr|en))?(?<source>\/(docs|core-docs|design-system))?/gi;
+  const match = reg.exec(path);
+  return match && match[1] ? match[1] : '';
+}
+
 function normalizeName(name?: string | null) {
   return kebab(name || '');
 }

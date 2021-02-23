@@ -44,9 +44,9 @@ const query = graphql`
           }
           id
           name
-          dirName
           locale
           layout
+          template
         }
       }
     }

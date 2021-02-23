@@ -3,7 +3,7 @@ import { BoxV2, Button, Heading, Stack, useTreatTheme } from '@newrade/core-reac
 import { IoArrowForwardOutline } from '@react-icons/all-files/io5/IoArrowForwardOutline';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { DesignSystemPageProps, DesignSystemPageTemplate } from '../../templates/design-system-page.template';
+import { DesignSystemPageProps, DesignSystemPageTemplate } from '../../templates/design-system.template';
 import * as styleRefs from '../home.treat';
 import { PageHeader } from '../utils/page-header';
 

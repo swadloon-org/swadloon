@@ -25,11 +25,6 @@ export type GatsbyCommonPageContext<SiteMetadataType = GatsbyNodeSiteMetadataFra
    */
   displayName?: string | null;
   /**
-   * Directory name
-   * @example /docs/colors => docs
-   */
-  dirName: string | null;
-  /**
    * Locale of the page
    * @example
    *  fr.page.tsx => locale is fr
@@ -68,7 +63,6 @@ export type GatsbyContentfulPageContext = GatsbyCommonPageContext & {
   /**
    * Contentful specific page informations below
    */
-  type: string;
   slug: string;
 };
 

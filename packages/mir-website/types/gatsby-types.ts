@@ -57,5 +57,14 @@ export type GatsbyContentfulMIRPageContext = GatsbyCommonPageContext & {
    * Contentful specific page informations below
    */
   type: string;
+  /**
+   * Full path of the page including slashes
+   * @example /blog/
+   */
   slug: string;
+  /**
+   * Directory name
+   * @example /docs/colors => docs
+   */
+  dirName: string | null;
 };

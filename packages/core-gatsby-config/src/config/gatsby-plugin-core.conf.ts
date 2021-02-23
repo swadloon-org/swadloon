@@ -6,12 +6,16 @@ export function getGastbyCorePluginConfig(
   {
     packageName = 'package',
     pluginName = 'gastby-plugin-core',
-    enableDesignSystemPages = true,
-    enableDocsPages = true,
+    features = {
+      renderDesignSystemPages: true,
+      renderDocsPages: true,
+    },
   }: GatsbyCorePluginOptions = {
     packageName: 'package',
-    enableDesignSystemPages: true,
-    enableDocsPages: true,
+    features: {
+      renderDesignSystemPages: true,
+      renderDocsPages: true,
+    },
   }
 ): PluginRef {
   return {
@@ -19,8 +23,7 @@ export function getGastbyCorePluginConfig(
     options: {
       packageName,
       pluginName,
-      enableDesignSystemPages,
-      enableDocsPages,
+      features,
     },
   };
 }

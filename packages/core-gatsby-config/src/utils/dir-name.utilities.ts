@@ -1,19 +1,5 @@
 import { title } from 'case';
-import { SITE_LANGUAGES } from '../config/site-languages';
-
-/**
- * @param name relative path
- * @example /dir/page-name.tsx => dir
- */
-export function getDirNameFromRelativePath(name?: string | null): string {
-  if (!name) {
-    return '';
-  }
-
-  const reg = /([A-Z-]+)\//gi;
-  const match = reg.exec(name);
-  return match && match[1] ? match[1] : '';
-}
+import { SITE_LANGUAGES, SITE_LANGUAGES_HYPHEN } from '../config/site-languages';
 
 /**
  * Format raw page path
@@ -66,31 +52,54 @@ export function getPageFormattedName(
 }
 
 /**
- * Return the locale directory name for a given node path.
+ * Return the locale directory name for a given node (page) path.
  * For example if the default locale is fr or fr_CA, a node with the name
- * document.mdx will yield the path /document since the default locale is always the shortest.
- * A document called en.document.mdx would yield /en/document.
+ * document.mdx will yield the path /document (dir name is '') since the default locale is always the shortest.
+ * A document called en.document.mdx would yield /en/document (dir name 'en')
  *
  * @param nodeName the mdx page node name e.g. fr.readme.md
  */
-export function getLocaleDirName(nodeName: string, defaultLangKey?: SITE_LANGUAGES): string {
-  if (!defaultLangKey) {
-    return '';
-  }
-
+export function getLocaleDirName(nodeName: string, defaultLangKey: SITE_LANGUAGES): 'en' | 'fr' | '' {
   // extract the locale name from node name
-  const pattern = new RegExp(`(${Object.keys(SITE_LANGUAGES).join('|')})`, 'gi');
-  const match = pattern.exec(nodeName);
-  const fileLocale = match?.[1];
+  const patternEn = new RegExp(
+    `^\/?(${[SITE_LANGUAGES.EN, SITE_LANGUAGES.EN_CA, SITE_LANGUAGES_HYPHEN.EN_CA].join('|')})`,
+    'gi'
+  );
+  const patternFr = new RegExp(
+    `^\/?(${[SITE_LANGUAGES.FR, SITE_LANGUAGES.FR_CA, SITE_LANGUAGES_HYPHEN.FR_CA].join('|')})`,
+    'gi'
+  );
+  const matchEn = patternEn.exec(nodeName);
+  const matchFr = patternFr.exec(nodeName);
+  const fileLocaleEn = matchEn?.[1]; // en, en_CA, en-CA
+  const fileLocaleFr = matchFr?.[1]; // fr, fr_CA, fr-CA
+  const defaultLocaleIsEn = defaultLangKey === SITE_LANGUAGES.EN || defaultLangKey === SITE_LANGUAGES.EN_CA;
+  const defaultLocaleIsFr = defaultLangKey === SITE_LANGUAGES.FR || defaultLangKey === SITE_LANGUAGES.FR_CA;
 
-  if (!fileLocale) {
+  // en lang, so a page with '/en/page' becomes '/page' and a page with path '/fr/page' becomes '/fr/page'
+  if (defaultLocaleIsEn) {
+    if (fileLocaleEn) {
+      return '';
+    }
+
+    if (fileLocaleFr) {
+      return 'fr';
+    }
+
     return '';
   }
 
-  // if the site is EN, en pages will have no prefix path
-  if (defaultLangKey === SITE_LANGUAGES.EN || fileLocale === SITE_LANGUAGES.EN_CA) {
-    return fileLocale === SITE_LANGUAGES.EN || fileLocale === SITE_LANGUAGES.EN_CA ? '' : 'fr/';
+  if (defaultLocaleIsFr) {
+    if (fileLocaleFr) {
+      return '';
+    }
+
+    if (fileLocaleEn) {
+      return 'en';
+    }
+
+    return '';
   }
 
-  return fileLocale === SITE_LANGUAGES.EN || fileLocale === SITE_LANGUAGES.EN_CA ? 'en/' : '';
+  return '';
 }
