@@ -7,3 +7,7 @@ export type FigmaColor = {
   b: number;
   a: number;
 };
+
+export type ColorTokens = {
+  [key: string]: FigmaColor;
+};
