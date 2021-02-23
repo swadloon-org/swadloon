@@ -20,6 +20,17 @@ export const SectionCost: React.FC<Props> = ({ id, style, className, section, su
       {section?.costItems?.length ? (
         <Stack>
           {section?.costItems?.map((item, index) => {
+            if (/Renouvellement/gi.test(item?.title || '')) {
+              return (
+                <div className={styles.costItem} key={index}>
+                  <Label variant={LABEL_SIZE.medium} className={styles.costItemLabel}>
+                    {item?.title}
+                  </Label>
+                  <Label variant={LABEL_SIZE.medium}>{`-`}</Label>
+                </div>
+              );
+            }
+
             return (
               <div className={styles.costItem} key={index}>
                 <Label variant={LABEL_SIZE.medium} className={styles.costItemLabel}>
@@ -33,9 +44,12 @@ export const SectionCost: React.FC<Props> = ({ id, style, className, section, su
       ) : null}
 
       <Paragraph>
-        <sup id={'1'}>1</sup> Le coût de renouvellement du certificat médical est réduit pour les clients qui font
-        affaire avec le Dr Boucher année après année. Le renouvellement d'un médical par le Dr Boucher lors d'une
-        première rencontre est de 140$
+        <sup id={'1'}>1</sup> Contactez-nous pour obtenir les détails et prix, ceux-ci varient selon les tests dont vous
+        avez besoin.
+        <br />
+        <br />
+        Notez également que le coût de renouvellement du certificat médical est réduit pour les clients qui font affaire
+        avec le Dr Boucher année après année.
       </Paragraph>
     </Stack>
   );

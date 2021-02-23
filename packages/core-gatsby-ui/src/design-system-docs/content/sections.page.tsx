@@ -25,7 +25,7 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
 
       <Paragraph>
         Sections are high level components to organize content in pages. They have predefined layouts, each in a
-        dedicated components. Content inside Sections should always be contained in one of the Blocks.
+        dedicated layout component. Content inside Sections should always be contained in one of the Blocks.
       </Paragraph>
 
       <Heading variant={HEADING.h2}>Base Section Component</Heading>
@@ -39,10 +39,10 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
           <Code>{`variant`}</Code>: controls the color scheme
         </ListItem>
         <ListItem>
-          <Code>{`variantLayout`}</Code>: controls the internal layout
+          <Code>{`baseLayout`}</Code>: controls the internal layout
         </ListItem>
         <ListItem>
-          <Code>{`variantPadding`}</Code>: controls vertical padding
+          <Code>{`padding`}</Code>: controls vertical padding
         </ListItem>
       </ListItems>
 

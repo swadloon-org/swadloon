@@ -64,11 +64,7 @@ const config: core.GastbySiteConfig = {
      * Core Plugins
      */
     ...core.getGatsbyPluginTypeScriptConfig({
-      documentPaths: [
-        '../core-gatsby-ui/src/fragments/gatsby/**/*.{ts,tsx}',
-        '../core-gatsby-ui/src/fragments/contentful/**/*.{ts,tsx}',
-        './src/**/*.{ts,tsx}',
-      ],
+      documentPaths: ['./gatsby-*.{ts,tsx}', './src/**/*.{ts,tsx}'],
     }),
     core.getGatsbyReactSvgConfig(),
     ...core.getGastbyPluginPageCreatorConfig(),
@@ -86,13 +82,6 @@ const config: core.GastbySiteConfig = {
     core.getGatsbyPluginPreloadFonts(),
     core.getGatsbyPluginGoogleTagmanager({
       googleTagId: 'GTM-T4LK3QF',
-    }),
-    core.getGastbyCoreContentfulPluginConfig({
-      packageName: packageJson.name,
-      features: {
-        blog: true,
-        portfolio: false,
-      },
     }),
     core.getGastbyCorePluginConfig({
       packageName: packageJson.name,

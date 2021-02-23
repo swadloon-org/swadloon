@@ -1,5 +1,5 @@
 import { DEPLOY_ENV } from '@newrade/core-common';
-import { SITE_LANGUAGES, SITE_LAYOUT } from '@newrade/core-gatsby-config';
+import { PAGE_LAYOUT, PAGE_TEMPLATE, SITE_LANGUAGES } from '@newrade/core-gatsby-config';
 
 export const navigationMock = {
   name: 'navigation test',
@@ -22,7 +22,8 @@ export const navigationMock = {
           },
         },
         locale: SITE_LANGUAGES.EN,
-        layout: 'DESIGN_SYSTEM' as SITE_LAYOUT,
+        layout: 'designSystem' as PAGE_LAYOUT,
+        template: 'designSystem' as PAGE_TEMPLATE,
         name: 'index.page',
         displayName: 'Design System',
         dirName: '',
@@ -44,7 +45,8 @@ export const navigationMock = {
           },
         },
         locale: SITE_LANGUAGES.EN,
-        layout: 'DESIGN_SYSTEM' as SITE_LAYOUT,
+        layout: 'designSystem' as PAGE_LAYOUT,
+        template: 'designSystem' as PAGE_TEMPLATE,
         name: 'home.page',
         displayName: 'Design System',
         dirName: '',
@@ -66,7 +68,8 @@ export const navigationMock = {
           },
         },
         locale: SITE_LANGUAGES.EN,
-        layout: 'DESIGN_SYSTEM' as SITE_LAYOUT,
+        layout: 'designSystem' as PAGE_LAYOUT,
+        template: 'designSystem' as PAGE_TEMPLATE,
         name: 'page-1.page',
         displayName: 'Design System - MicroInteractions',
         dirName: 'path-a',
@@ -88,7 +91,8 @@ export const navigationMock = {
           },
         },
         locale: SITE_LANGUAGES.EN,
-        layout: 'DESIGN_SYSTEM' as SITE_LAYOUT,
+        layout: 'designSystem' as PAGE_LAYOUT,
+        template: 'designSystem' as PAGE_TEMPLATE,
         name: 'page-2.page',
         displayName: 'Design System - MicroInteractions',
         dirName: 'path-a',
@@ -110,7 +114,8 @@ export const navigationMock = {
           },
         },
         locale: SITE_LANGUAGES.EN,
-        layout: 'DESIGN_SYSTEM' as SITE_LAYOUT,
+        layout: 'designSystem' as PAGE_LAYOUT,
+        template: 'designSystem' as PAGE_TEMPLATE,
         name: 'page-1.page',
         displayName: 'Design System - MicroInteractions',
         dirName: 'path-b',

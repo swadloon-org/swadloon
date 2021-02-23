@@ -8,7 +8,7 @@ import {
 } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { BlockMarkdown } from '../content/block-markdown';
+import { BlockMarkdown } from '../blocks/block-markdown';
 import * as styleRefs from './section.treat';
 
 type Props = CommonComponentProps & {

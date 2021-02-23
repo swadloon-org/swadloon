@@ -94,15 +94,15 @@ const config: core.GastbySiteConfig = {
     core.getGatsbyPluginSitemap(),
     core.getGatsbyPluginRobotsTxt({ env }),
     core.getGatsbyNetlifyPlugin(),
-    // core.getGastbyCoreContentfulPluginConfig({
-    //   packageName: packageJson.name,
-    //   locales: ['fr-CA'],
-    //   features: {
-    //     pageVersion: 1,
-    //     blog: false,
-    //     portfolio: false,
-    //   },
-    // }),
+    core.getGastbyCoreContentfulPluginConfig({
+      packageName: packageJson.name,
+      locales: ['fr-CA', 'en-CA'],
+      features: {
+        renderPages: true,
+        renderBlogPosts: false,
+        renderPortfolio: false,
+      },
+    }),
     core.getGastbyCorePluginConfig({
       packageName: packageJson.name,
       enableDesignSystemPages: true,

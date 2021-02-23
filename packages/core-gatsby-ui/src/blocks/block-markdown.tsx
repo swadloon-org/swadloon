@@ -1,7 +1,7 @@
 import { BoxV2, MarkdownCSS } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { MarkdownRenderer } from '../../markdown/markdown-renderer';
+import { MarkdownRenderer } from '../markdown/markdown-renderer';
 import * as styleRefs from './block-markdown.treat';
 import { BlockProps, BlockType } from './block.props';
 

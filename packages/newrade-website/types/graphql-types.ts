@@ -715,8 +715,8 @@ export type ContentfulBlockFieldsEnum =
   | 'text___childMdx___fileAbsolutePath'
   | 'text___childMdx___frontmatter___title'
   | 'text___childMdx___frontmatter___name'
-  | 'text___childMdx___frontmatter___category'
   | 'text___childMdx___frontmatter___tags'
+  | 'text___childMdx___frontmatter___category'
   | 'text___childMdx___frontmatter___variant'
   | 'text___childMdx___frontmatter___layout'
   | 'text___childMdx___frontmatter___blockLayout'
@@ -802,8 +802,8 @@ export type ContentfulBlockFieldsEnum =
   | 'childContentfulBlockTextTextNode___childMdx___fileAbsolutePath'
   | 'childContentfulBlockTextTextNode___childMdx___frontmatter___title'
   | 'childContentfulBlockTextTextNode___childMdx___frontmatter___name'
-  | 'childContentfulBlockTextTextNode___childMdx___frontmatter___category'
   | 'childContentfulBlockTextTextNode___childMdx___frontmatter___tags'
+  | 'childContentfulBlockTextTextNode___childMdx___frontmatter___category'
   | 'childContentfulBlockTextTextNode___childMdx___frontmatter___variant'
   | 'childContentfulBlockTextTextNode___childMdx___frontmatter___layout'
   | 'childContentfulBlockTextTextNode___childMdx___frontmatter___blockLayout'
@@ -1035,8 +1035,8 @@ export type ContentfulBlockTextTextNodeFieldsEnum =
   | 'childMdx___fileAbsolutePath'
   | 'childMdx___frontmatter___title'
   | 'childMdx___frontmatter___name'
-  | 'childMdx___frontmatter___category'
   | 'childMdx___frontmatter___tags'
+  | 'childMdx___frontmatter___category'
   | 'childMdx___frontmatter___variant'
   | 'childMdx___frontmatter___layout'
   | 'childMdx___frontmatter___blockLayout'
@@ -1754,8 +1754,8 @@ export type ContentfulCompanyEmployeeBioTextNodeFieldsEnum =
   | 'childMdx___fileAbsolutePath'
   | 'childMdx___frontmatter___title'
   | 'childMdx___frontmatter___name'
-  | 'childMdx___frontmatter___category'
   | 'childMdx___frontmatter___tags'
+  | 'childMdx___frontmatter___category'
   | 'childMdx___frontmatter___variant'
   | 'childMdx___frontmatter___layout'
   | 'childMdx___frontmatter___blockLayout'
@@ -2016,8 +2016,8 @@ export type ContentfulCompanyEmployeeFieldsEnum =
   | 'bio___childMdx___fileAbsolutePath'
   | 'bio___childMdx___frontmatter___title'
   | 'bio___childMdx___frontmatter___name'
-  | 'bio___childMdx___frontmatter___category'
   | 'bio___childMdx___frontmatter___tags'
+  | 'bio___childMdx___frontmatter___category'
   | 'bio___childMdx___frontmatter___variant'
   | 'bio___childMdx___frontmatter___layout'
   | 'bio___childMdx___frontmatter___blockLayout'
@@ -2092,8 +2092,8 @@ export type ContentfulCompanyEmployeeFieldsEnum =
   | 'childContentfulCompanyEmployeeBioTextNode___childMdx___fileAbsolutePath'
   | 'childContentfulCompanyEmployeeBioTextNode___childMdx___frontmatter___title'
   | 'childContentfulCompanyEmployeeBioTextNode___childMdx___frontmatter___name'
-  | 'childContentfulCompanyEmployeeBioTextNode___childMdx___frontmatter___category'
   | 'childContentfulCompanyEmployeeBioTextNode___childMdx___frontmatter___tags'
+  | 'childContentfulCompanyEmployeeBioTextNode___childMdx___frontmatter___category'
   | 'childContentfulCompanyEmployeeBioTextNode___childMdx___frontmatter___variant'
   | 'childContentfulCompanyEmployeeBioTextNode___childMdx___frontmatter___layout'
   | 'childContentfulCompanyEmployeeBioTextNode___childMdx___frontmatter___blockLayout'
@@ -3395,8 +3395,8 @@ export type ContentfulPageDescriptionTextNodeFieldsEnum =
   | 'childMdx___fileAbsolutePath'
   | 'childMdx___frontmatter___title'
   | 'childMdx___frontmatter___name'
-  | 'childMdx___frontmatter___category'
   | 'childMdx___frontmatter___tags'
+  | 'childMdx___frontmatter___category'
   | 'childMdx___frontmatter___variant'
   | 'childMdx___frontmatter___layout'
   | 'childMdx___frontmatter___blockLayout'
@@ -3764,8 +3764,8 @@ export type ContentfulPageFieldsEnum =
   | 'description___childMdx___fileAbsolutePath'
   | 'description___childMdx___frontmatter___title'
   | 'description___childMdx___frontmatter___name'
-  | 'description___childMdx___frontmatter___category'
   | 'description___childMdx___frontmatter___tags'
+  | 'description___childMdx___frontmatter___category'
   | 'description___childMdx___frontmatter___variant'
   | 'description___childMdx___frontmatter___layout'
   | 'description___childMdx___frontmatter___blockLayout'
@@ -3851,8 +3851,8 @@ export type ContentfulPageFieldsEnum =
   | 'childContentfulPageDescriptionTextNode___childMdx___fileAbsolutePath'
   | 'childContentfulPageDescriptionTextNode___childMdx___frontmatter___title'
   | 'childContentfulPageDescriptionTextNode___childMdx___frontmatter___name'
-  | 'childContentfulPageDescriptionTextNode___childMdx___frontmatter___category'
   | 'childContentfulPageDescriptionTextNode___childMdx___frontmatter___tags'
+  | 'childContentfulPageDescriptionTextNode___childMdx___frontmatter___category'
   | 'childContentfulPageDescriptionTextNode___childMdx___frontmatter___variant'
   | 'childContentfulPageDescriptionTextNode___childMdx___frontmatter___layout'
   | 'childContentfulPageDescriptionTextNode___childMdx___frontmatter___blockLayout'
@@ -4977,8 +4977,8 @@ export type ContentfulServiceCategoryDescriptionTextNodeFieldsEnum =
   | 'childMdx___fileAbsolutePath'
   | 'childMdx___frontmatter___title'
   | 'childMdx___frontmatter___name'
-  | 'childMdx___frontmatter___category'
   | 'childMdx___frontmatter___tags'
+  | 'childMdx___frontmatter___category'
   | 'childMdx___frontmatter___variant'
   | 'childMdx___frontmatter___layout'
   | 'childMdx___frontmatter___blockLayout'
@@ -5288,8 +5288,8 @@ export type ContentfulServiceCategoryFieldsEnum =
   | 'description___childMdx___fileAbsolutePath'
   | 'description___childMdx___frontmatter___title'
   | 'description___childMdx___frontmatter___name'
-  | 'description___childMdx___frontmatter___category'
   | 'description___childMdx___frontmatter___tags'
+  | 'description___childMdx___frontmatter___category'
   | 'description___childMdx___frontmatter___variant'
   | 'description___childMdx___frontmatter___layout'
   | 'description___childMdx___frontmatter___blockLayout'
@@ -5375,8 +5375,8 @@ export type ContentfulServiceCategoryFieldsEnum =
   | 'childContentfulServiceCategoryDescriptionTextNode___childMdx___fileAbsolutePath'
   | 'childContentfulServiceCategoryDescriptionTextNode___childMdx___frontmatter___title'
   | 'childContentfulServiceCategoryDescriptionTextNode___childMdx___frontmatter___name'
-  | 'childContentfulServiceCategoryDescriptionTextNode___childMdx___frontmatter___category'
   | 'childContentfulServiceCategoryDescriptionTextNode___childMdx___frontmatter___tags'
+  | 'childContentfulServiceCategoryDescriptionTextNode___childMdx___frontmatter___category'
   | 'childContentfulServiceCategoryDescriptionTextNode___childMdx___frontmatter___variant'
   | 'childContentfulServiceCategoryDescriptionTextNode___childMdx___frontmatter___layout'
   | 'childContentfulServiceCategoryDescriptionTextNode___childMdx___frontmatter___blockLayout'
@@ -6007,8 +6007,8 @@ export type ContentfulTagTypeDescriptionTextNodeFieldsEnum =
   | 'childMdx___fileAbsolutePath'
   | 'childMdx___frontmatter___title'
   | 'childMdx___frontmatter___name'
-  | 'childMdx___frontmatter___category'
   | 'childMdx___frontmatter___tags'
+  | 'childMdx___frontmatter___category'
   | 'childMdx___frontmatter___variant'
   | 'childMdx___frontmatter___layout'
   | 'childMdx___frontmatter___blockLayout'
@@ -6233,8 +6233,8 @@ export type ContentfulTagTypeFieldsEnum =
   | 'name___childMdx___fileAbsolutePath'
   | 'name___childMdx___frontmatter___title'
   | 'name___childMdx___frontmatter___name'
-  | 'name___childMdx___frontmatter___category'
   | 'name___childMdx___frontmatter___tags'
+  | 'name___childMdx___frontmatter___category'
   | 'name___childMdx___frontmatter___variant'
   | 'name___childMdx___frontmatter___layout'
   | 'name___childMdx___frontmatter___blockLayout'
@@ -6309,8 +6309,8 @@ export type ContentfulTagTypeFieldsEnum =
   | 'description___childMdx___fileAbsolutePath'
   | 'description___childMdx___frontmatter___title'
   | 'description___childMdx___frontmatter___name'
-  | 'description___childMdx___frontmatter___category'
   | 'description___childMdx___frontmatter___tags'
+  | 'description___childMdx___frontmatter___category'
   | 'description___childMdx___frontmatter___variant'
   | 'description___childMdx___frontmatter___layout'
   | 'description___childMdx___frontmatter___blockLayout'
@@ -6396,8 +6396,8 @@ export type ContentfulTagTypeFieldsEnum =
   | 'childContentfulTagTypeNameTextNode___childMdx___fileAbsolutePath'
   | 'childContentfulTagTypeNameTextNode___childMdx___frontmatter___title'
   | 'childContentfulTagTypeNameTextNode___childMdx___frontmatter___name'
-  | 'childContentfulTagTypeNameTextNode___childMdx___frontmatter___category'
   | 'childContentfulTagTypeNameTextNode___childMdx___frontmatter___tags'
+  | 'childContentfulTagTypeNameTextNode___childMdx___frontmatter___category'
   | 'childContentfulTagTypeNameTextNode___childMdx___frontmatter___variant'
   | 'childContentfulTagTypeNameTextNode___childMdx___frontmatter___layout'
   | 'childContentfulTagTypeNameTextNode___childMdx___frontmatter___blockLayout'
@@ -6472,8 +6472,8 @@ export type ContentfulTagTypeFieldsEnum =
   | 'childContentfulTagTypeDescriptionTextNode___childMdx___fileAbsolutePath'
   | 'childContentfulTagTypeDescriptionTextNode___childMdx___frontmatter___title'
   | 'childContentfulTagTypeDescriptionTextNode___childMdx___frontmatter___name'
-  | 'childContentfulTagTypeDescriptionTextNode___childMdx___frontmatter___category'
   | 'childContentfulTagTypeDescriptionTextNode___childMdx___frontmatter___tags'
+  | 'childContentfulTagTypeDescriptionTextNode___childMdx___frontmatter___category'
   | 'childContentfulTagTypeDescriptionTextNode___childMdx___frontmatter___variant'
   | 'childContentfulTagTypeDescriptionTextNode___childMdx___frontmatter___layout'
   | 'childContentfulTagTypeDescriptionTextNode___childMdx___frontmatter___blockLayout'
@@ -6661,8 +6661,8 @@ export type ContentfulTagTypeNameTextNodeFieldsEnum =
   | 'childMdx___fileAbsolutePath'
   | 'childMdx___frontmatter___title'
   | 'childMdx___frontmatter___name'
-  | 'childMdx___frontmatter___category'
   | 'childMdx___frontmatter___tags'
+  | 'childMdx___frontmatter___category'
   | 'childMdx___frontmatter___variant'
   | 'childMdx___frontmatter___layout'
   | 'childMdx___frontmatter___blockLayout'
@@ -6973,8 +6973,8 @@ export type ContentfulTechnologyDescriptionTextNodeFieldsEnum =
   | 'childMdx___fileAbsolutePath'
   | 'childMdx___frontmatter___title'
   | 'childMdx___frontmatter___name'
-  | 'childMdx___frontmatter___category'
   | 'childMdx___frontmatter___tags'
+  | 'childMdx___frontmatter___category'
   | 'childMdx___frontmatter___variant'
   | 'childMdx___frontmatter___layout'
   | 'childMdx___frontmatter___blockLayout'
@@ -7201,8 +7201,8 @@ export type ContentfulTechnologyFieldsEnum =
   | 'description___childMdx___fileAbsolutePath'
   | 'description___childMdx___frontmatter___title'
   | 'description___childMdx___frontmatter___name'
-  | 'description___childMdx___frontmatter___category'
   | 'description___childMdx___frontmatter___tags'
+  | 'description___childMdx___frontmatter___category'
   | 'description___childMdx___frontmatter___variant'
   | 'description___childMdx___frontmatter___layout'
   | 'description___childMdx___frontmatter___blockLayout'
@@ -7288,8 +7288,8 @@ export type ContentfulTechnologyFieldsEnum =
   | 'childContentfulTechnologyDescriptionTextNode___childMdx___fileAbsolutePath'
   | 'childContentfulTechnologyDescriptionTextNode___childMdx___frontmatter___title'
   | 'childContentfulTechnologyDescriptionTextNode___childMdx___frontmatter___name'
-  | 'childContentfulTechnologyDescriptionTextNode___childMdx___frontmatter___category'
   | 'childContentfulTechnologyDescriptionTextNode___childMdx___frontmatter___tags'
+  | 'childContentfulTechnologyDescriptionTextNode___childMdx___frontmatter___category'
   | 'childContentfulTechnologyDescriptionTextNode___childMdx___frontmatter___variant'
   | 'childContentfulTechnologyDescriptionTextNode___childMdx___frontmatter___layout'
   | 'childContentfulTechnologyDescriptionTextNode___childMdx___frontmatter___blockLayout'
@@ -8050,8 +8050,8 @@ export type FileFieldsEnum =
   | 'childMdx___fileAbsolutePath'
   | 'childMdx___frontmatter___title'
   | 'childMdx___frontmatter___name'
-  | 'childMdx___frontmatter___category'
   | 'childMdx___frontmatter___tags'
+  | 'childMdx___frontmatter___category'
   | 'childMdx___frontmatter___variant'
   | 'childMdx___frontmatter___layout'
   | 'childMdx___frontmatter___blockLayout'
@@ -8859,8 +8859,8 @@ export type MdxFieldsEnum =
   | 'fileAbsolutePath'
   | 'frontmatter___title'
   | 'frontmatter___name'
-  | 'frontmatter___category'
   | 'frontmatter___tags'
+  | 'frontmatter___category'
   | 'frontmatter___variant'
   | 'frontmatter___layout'
   | 'frontmatter___blockLayout'
@@ -8986,8 +8986,8 @@ export type MdxFilterInput = {
 export type MdxFrontmatter = {
   title: Scalars['String'];
   name?: Maybe<Scalars['String']>;
-  category?: Maybe<Scalars['String']>;
   tags?: Maybe<Array<Maybe<Scalars['String']>>>;
+  category?: Maybe<Scalars['String']>;
   variant?: Maybe<Scalars['String']>;
   layout?: Maybe<Scalars['String']>;
   blockLayout?: Maybe<Scalars['String']>;
@@ -8996,8 +8996,8 @@ export type MdxFrontmatter = {
 export type MdxFrontmatterFilterInput = {
   title?: Maybe<StringQueryOperatorInput>;
   name?: Maybe<StringQueryOperatorInput>;
-  category?: Maybe<StringQueryOperatorInput>;
   tags?: Maybe<StringQueryOperatorInput>;
+  category?: Maybe<StringQueryOperatorInput>;
   variant?: Maybe<StringQueryOperatorInput>;
   layout?: Maybe<StringQueryOperatorInput>;
   blockLayout?: Maybe<StringQueryOperatorInput>;
@@ -10349,8 +10349,9 @@ export type SitePageContext = {
   displayName?: Maybe<Scalars['String']>;
   dirName?: Maybe<Scalars['String']>;
   fileId?: Maybe<Scalars['String']>;
-  layout?: Maybe<Scalars['String']>;
   locale?: Maybe<Scalars['String']>;
+  layout?: Maybe<Scalars['String']>;
+  template?: Maybe<Scalars['String']>;
 };
 
 export type SitePageContextFilterInput = {
@@ -10360,8 +10361,9 @@ export type SitePageContextFilterInput = {
   displayName?: Maybe<StringQueryOperatorInput>;
   dirName?: Maybe<StringQueryOperatorInput>;
   fileId?: Maybe<StringQueryOperatorInput>;
-  layout?: Maybe<StringQueryOperatorInput>;
   locale?: Maybe<StringQueryOperatorInput>;
+  layout?: Maybe<StringQueryOperatorInput>;
+  template?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePageContextSiteMetadata = {
@@ -10500,8 +10502,9 @@ export type SitePageFieldsEnum =
   | 'context___displayName'
   | 'context___dirName'
   | 'context___fileId'
-  | 'context___layout'
   | 'context___locale'
+  | 'context___layout'
+  | 'context___template'
   | 'pluginCreator___id'
   | 'pluginCreator___parent___id'
   | 'pluginCreator___parent___parent___id'

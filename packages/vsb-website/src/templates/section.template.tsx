@@ -1,6 +1,5 @@
 import { ButtonSize, ButtonVariant, Variant } from '@newrade/core-design-system';
-import { BlockMarkdown, GatsbyLink, Section } from '@newrade/core-gatsby-ui/src';
-import { SectionLayout, SectionPadding } from '@newrade/core-gatsby-ui/src/components/content/section.props';
+import { BlockMarkdown, GatsbyLink, Section, SectionBaseLayout, SectionPadding } from '@newrade/core-gatsby-ui/src';
 import { BoxV2, Button, Image, Stack, Switcher, useIsSSR, useTreatTheme } from '@newrade/core-react-ui';
 import { IoArrowForwardOutline } from '@react-icons/all-files/io5/IoArrowForwardOutline';
 import { FluidObject } from 'gatsby-image';
@@ -43,8 +42,8 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
               <Section
                 id={`section-${index}`}
                 key={index}
-                variantLayout={SectionLayout.fullWidth}
-                variantPadding={SectionPadding.none}
+                baseLayout={SectionBaseLayout.fullWidth}
+                padding={SectionPadding.none}
               >
                 <SectionBanner key={index} section={section} />
               </Section>
@@ -68,8 +67,8 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
               <Section
                 id={`section-${index}`}
                 key={index}
-                variantLayout={SectionLayout.fullWidth}
-                variantPadding={SectionPadding.none}
+                baseLayout={SectionBaseLayout.fullWidth}
+                padding={SectionPadding.none}
               >
                 <SectionTileLinks key={index} section={section as ContentfulSection} />
               </Section>
@@ -229,8 +228,8 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
               <Section
                 id={`section-${index}`}
                 key={index}
-                variantLayout={SectionLayout.fullWidth}
-                variantPadding={SectionPadding.none}
+                baseLayout={SectionBaseLayout.fullWidth}
+                padding={SectionPadding.none}
               >
                 <SectionBannerLink key={index} section={section} />
               </Section>
@@ -257,7 +256,7 @@ export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
                 id={`section-${index}`}
                 key={index}
                 variant={Variant.secondary}
-                variantLayout={SectionLayout.center}
+                baseLayout={SectionBaseLayout.center}
               >
                 <SectionContact key={index} section={section} />
               </Section>

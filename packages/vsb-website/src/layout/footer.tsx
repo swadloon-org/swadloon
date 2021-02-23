@@ -17,15 +17,38 @@ import { IoPrintOutline } from '@react-icons/all-files/io5/IoPrintOutline';
 import { graphql, Link as GatsbyLink, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { useStyles } from 'react-treat';
+import { clientEnv } from '../../types/dot-env-client';
 import { FooterQuery } from '../../types/graphql-types';
 import { cssTheme } from '../design-system/theme';
 import * as styleRefs from './footer.treat';
-import { clientEnv } from '../../types/dot-env-client';
 
 export const footerQuery = graphql`
   query Footer {
-    contentfulCompanyInfo {
-      copyright
+    contentfulNavigation(name: { eq: "Navigation avec catégories" }) {
+      id
+      name
+      subNavigation {
+        id
+        name
+        links {
+          id
+          label
+          page {
+            slug
+          }
+        }
+        subNavigation {
+          id
+          name
+          links {
+            id
+            label
+            page {
+              slug
+            }
+          }
+        }
+      }
     }
     contentfulCompanyAddress {
       addressLine1
@@ -37,6 +60,9 @@ export const footerQuery = graphql`
       phone
       email
       fax
+    }
+    contentfulCompanyInfo {
+      copyright
     }
   }
 `;
@@ -53,60 +79,37 @@ export const Footer: React.FC<Props> = ({ id, style, className, ...props }) => {
       <Center>
         <Stack gap={[cssTheme.sizing.var.x5]}>
           <div className={styles.grid}>
-            <Stack className={styles.services} gap={[cssTheme.sizing.var.x4]}>
-              <Label
-                variantStyle={TEXT_STYLE.boldUppercase}
-                variant={LABEL_SIZE.small}
-                variantLevel={TEXT_LEVEL.tertiary}
-              >
-                Services
-              </Label>
-              <Stack gap={[cssTheme.sizing.var.x4]}>
-                <Link variantLevel={TEXT_LEVEL.primaryReversed} AsElement={<GatsbyLink to={'/vasectomie/'} />}>
-                  Tout sur la vasectomie
-                </Link>
-
-                <Link
-                  variantLevel={TEXT_LEVEL.primaryReversed}
-                  AsElement={<GatsbyLink to={'/formulaire-vasectomie/'} />}
+            {data.contentfulNavigation?.subNavigation?.map((nav) => {
+              return (
+                <Stack
+                  key={nav?.id}
+                  className={/services/gi.test(nav?.name || '') ? styles.services : styles.clinique}
+                  gap={[cssTheme.sizing.var.x4]}
                 >
-                  Formulaire de demande
-                </Link>
+                  <Label
+                    variantStyle={TEXT_STYLE.boldUppercase}
+                    variant={LABEL_SIZE.small}
+                    variantLevel={TEXT_LEVEL.tertiary}
+                  >
+                    {nav?.name}
+                  </Label>
 
-                <Link
-                  variantLevel={TEXT_LEVEL.primaryReversed}
-                  AsElement={<GatsbyLink to={'/examen-pour-transport-canada/'} />}
-                >
-                  Examen pour Transport Canada
-                </Link>
-              </Stack>
-            </Stack>
-
-            <Stack className={styles.clinique} gap={[cssTheme.sizing.var.x4]}>
-              <Label
-                variantStyle={TEXT_STYLE.boldUppercase}
-                variant={LABEL_SIZE.small}
-                variantLevel={TEXT_LEVEL.tertiary}
-              >
-                La Clinique
-              </Label>
-              <Stack gap={[cssTheme.sizing.var.x4]}>
-                <Link variantLevel={TEXT_LEVEL.primaryReversed} AsElement={<GatsbyLink to={'/equipe/'} />}>
-                  Notre équipe
-                </Link>
-
-                <Link
-                  variantLevel={TEXT_LEVEL.primaryReversed}
-                  AsElement={<GatsbyLink to={'/equipe/#dr_pierre_jr_boucher'} />}
-                >
-                  Dr. Pierre Jr. Boucher
-                </Link>
-
-                <Link variantLevel={TEXT_LEVEL.primaryReversed} AsElement={<GatsbyLink to={'/contact/'} />}>
-                  Contact
-                </Link>
-              </Stack>
-            </Stack>
+                  <Stack gap={[cssTheme.sizing.var.x4]}>
+                    {nav?.links?.map((link) => {
+                      return (
+                        <Link
+                          key={link?.id}
+                          variantLevel={TEXT_LEVEL.primaryReversed}
+                          AsElement={<GatsbyLink to={link?.page?.slug || ''} />}
+                        >
+                          {link?.label}
+                        </Link>
+                      );
+                    })}
+                  </Stack>
+                </Stack>
+              );
+            })}
 
             <Stack className={styles.joindre} gap={[cssTheme.sizing.var.x4]}>
               <Label

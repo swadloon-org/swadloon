@@ -20,7 +20,7 @@ type LayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }
   DesktopSvgLogo?: React.ReactNode;
 };
 
-export const LayoutDocumentation = React.memo<LayoutProps>(({ MobileSvgLogo, DesktopSvgLogo, ...props }) => {
+export const LayoutDocs = React.memo<LayoutProps>(({ MobileSvgLogo, DesktopSvgLogo, ...props }) => {
   const { cssTheme } = useTreatTheme();
 
   /**

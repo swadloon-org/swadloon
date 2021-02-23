@@ -92,9 +92,9 @@ const config: core.GastbySiteConfig = {
       packageName: packageJson.name,
       locales: ['fr-CA'],
       features: {
-        pageVersion: 1,
-        blog: false,
-        portfolio: false,
+        renderPages: true,
+        renderBlogPosts: false,
+        renderPortfolio: false,
       },
     }),
     core.getGastbyCorePluginConfig({
