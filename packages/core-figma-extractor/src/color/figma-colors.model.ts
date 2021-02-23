@@ -11,3 +11,10 @@ export type FigmaColor = {
 export type ColorTokens = {
   [key: string]: FigmaColor;
 };
+
+export enum FILES_TYPE_LIST {
+  CSS = '../../figma/figma-color.css',
+  SCSS = '../../figma/figma-color.scss',
+  JSON = '../../figma/figma-color.json',
+  TS = '../../figma/figma-color.ts',
+}
