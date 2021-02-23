@@ -73,7 +73,7 @@ export function getFigmaColor(rawColor: any, key: string | number): FigmaColor {
 }
 
 const createColorPaletteSCSS = (colorObject: ColorTokens) => {
-  let allColorsString: string = '';
+  let allColorsString = '';
   Object.keys(colorObject).forEach((color) => {
     allColorsString += `$color-${colorObject[color].colorType}-${colorObject[color].colorLevel}: rgba(${colorObject[color].r}${colorObject[color].g}${colorObject[color].b}${colorObject[color].a});\n`;
   });
@@ -96,7 +96,7 @@ const createColorPaletteSCSS = (colorObject: ColorTokens) => {
 };
 
 const createColorPaletteCSS = (colorObject: ColorTokens) => {
-  let colorsString: string = '';
+  let colorsString = '';
   Object.keys(colorObject).forEach((color) => {
     colorsString += `--color-${colorObject[color].colorType}-${colorObject[color].colorLevel}: rgba(${colorObject[color].r}${colorObject[color].g}${colorObject[color].b}${colorObject[color].a});\n`;
   });
