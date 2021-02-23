@@ -1,5 +1,5 @@
 import { HEADING } from '@newrade/core-design-system';
-import { BoxV2, Heading, Stack, useTreatTheme } from '@newrade/core-react-ui';
+import { BoxV2, Heading, InputSelect, Stack, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { DesignSystemPageProps, DesignSystemPageTemplate } from '../../templates/design-system-page.template';
@@ -20,6 +20,12 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
 
       <Stack gap={[cssTheme.sizing.var.x5]}>
         <Heading variant={HEADING.h2}>Colors</Heading>
+
+        <InputSelect>
+          <option value={'CSS'}>{'CSS'}</option>
+          <option value={'SCSS'}>{'SCSS'}</option>
+          <option value={'JSON'}>{'JSON'}</option>
+        </InputSelect>
 
         <BoxV2 padding={[cssTheme.sizing.var.x3, 0]}>
           <pre>

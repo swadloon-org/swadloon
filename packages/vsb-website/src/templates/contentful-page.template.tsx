@@ -7,7 +7,6 @@ import {
 } from '@newrade/core-react-ui';
 import { graphql, PageProps } from 'gatsby';
 import React from 'react';
-import { I18nProvider } from 'react-aria';
 import Helmet from 'react-helmet';
 import { PageQuery } from '../../types/graphql-types';
 import '../fonts';
@@ -54,9 +53,7 @@ export const PageTemplate: React.FC<ProjectPageProps> = ({ data, location, ...pr
           site: `${data?.contentfulCompanyInfo?.metadataTwitterSite}`,
         })}
       </Helmet>
-      <I18nProvider locale={props.pageContext.locale}>
-        <SectionTemplate data={data} location={location} {...props} />
-      </I18nProvider>
+      <SectionTemplate data={data} location={location} {...props} />
     </div>
   );
 };

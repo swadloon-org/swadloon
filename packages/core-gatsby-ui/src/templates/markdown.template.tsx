@@ -9,7 +9,6 @@ import {
 import { graphql, PageProps } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
-import { I18nProvider } from 'react-aria';
 import Helmet from 'react-helmet';
 import { useStyles } from 'react-treat';
 import { MarkdownTemplateQuery } from '../../types/site-graphql-types';
@@ -85,15 +84,13 @@ const Template: React.FC<MarkdownTemplateProps> = (props) => {
           site: `${data?.contentfulCompanyInfo?.metadataTwitterSite}`,
         })} */}
       </Helmet>
-      <I18nProvider locale={props.pageContext.locale}>
-        <Center maxWidth={'800px'}>
-          <MarkdownCSS>
-            <MDXRenderer {...props}>{props.data.file?.childMdx?.body as string}</MDXRenderer>
-          </MarkdownCSS>
-        </Center>
+      <Center maxWidth={'800px'}>
+        <MarkdownCSS>
+          <MDXRenderer {...props}>{props.data.file?.childMdx?.body as string}</MDXRenderer>
+        </MarkdownCSS>
+      </Center>
 
-        <Aside items={props.data.file?.childMdx?.headings} location={props.location} />
-      </I18nProvider>
+      <Aside items={props.data.file?.childMdx?.headings} location={props.location} />
     </>
   );
 };

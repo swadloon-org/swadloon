@@ -24,6 +24,7 @@ type Props = CommonComponentProps & {
    * State of the sidebar
    */
   sidebarOpened?: boolean;
+  onPressBackdrop?: (event: React.MouseEvent) => void;
 };
 
 /**
@@ -37,6 +38,7 @@ export const SideBar: React.FC<Props> = ({
   sidebarOpened,
   fullHeight,
   disableBodyScroll,
+  onPressBackdrop,
   mobileOnly = true,
   ...props
 }) => {
@@ -56,11 +58,14 @@ export const SideBar: React.FC<Props> = ({
   useAnimateSideBar({ sidebarOpened, ref, disableBodyScroll });
 
   return (
-    <nav className={classNames} ref={ref}>
-      <Stack className={styles.navItemsWrapper}>
-        {/* User provided links and content */}
-        {props.children}
-      </Stack>
-    </nav>
+    <>
+      <nav className={classNames} ref={ref} style={style}>
+        <Stack className={styles.navItemsWrapper}>
+          {/* User provided links and content */}
+          {props.children}
+        </Stack>
+      </nav>
+      {sidebarOpened ? <div className={styles.backdrop} onClick={onPressBackdrop}></div> : null}
+    </>
   );
 };

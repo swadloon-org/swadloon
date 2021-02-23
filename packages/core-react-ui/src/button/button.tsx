@@ -9,7 +9,6 @@ import {
 } from '@newrade/core-design-system';
 import { AriaButtonProps } from '@react-types/button';
 import React, { useRef } from 'react';
-import { useButton } from 'react-aria';
 import { useStyles } from 'react-treat';
 import { usePreventPinchZoom } from '../';
 import { CommonComponentProps } from '../props/component-common.props';

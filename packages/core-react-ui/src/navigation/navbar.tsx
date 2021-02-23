@@ -1,7 +1,6 @@
 import { ButtonIcon, ButtonSize, ButtonVariant } from '@newrade/core-design-system';
 import { IoClose } from '@react-icons/all-files/io5/IoClose';
 import { IoMenu } from '@react-icons/all-files/io5/IoMenu';
-import { PressEvent } from '@react-types/shared';
 import React, { useEffect, useImperativeHandle, useRef, useState } from 'react';
 import { isIOS } from 'react-device-detect';
 import { useStyles } from 'react-treat';
@@ -48,7 +47,7 @@ type Props = CommonComponentProps & {
    * Used to set the close or menu icon
    */
   menuOpened?: boolean;
-  onPressMenuButton?: (event: PressEvent) => void;
+  onClickMenuButton?: (event: React.MouseEvent) => void;
 };
 
 /**
@@ -127,9 +126,9 @@ export const NavBar = React.forwardRef<any, Props>((props, ref) => {
   /**
    * Events handling
    */
-  function handlePressMenuButton(event: PressEvent) {
-    if (props.onPressMenuButton) {
-      props.onPressMenuButton(event);
+  function handlePressMenuButton(event: React.MouseEvent) {
+    if (props.onClickMenuButton) {
+      props.onClickMenuButton(event);
     }
   }
 
@@ -149,7 +148,7 @@ export const NavBar = React.forwardRef<any, Props>((props, ref) => {
                 variant={ButtonVariant.tertiary}
                 icon={ButtonIcon.icon}
                 Icon={props.menuOpened ? <IoClose /> : <IoMenu />}
-                onPress={handlePressMenuButton}
+                onPress={handlePressMenuButton as any}
               ></Button>
             </BoxV2>
 

@@ -1,7 +1,6 @@
 import { LinkProps, LinkState, LinkVariant, PARAGRAPH_SIZE, TEXT_LEVEL } from '@newrade/core-design-system';
 import { IoOpenOutline } from '@react-icons/all-files/io5/IoOpenOutline';
 import React, { AnchorHTMLAttributes, RefObject, useRef } from 'react';
-import { useLink } from 'react-aria';
 import { useStyles } from 'react-treat';
 import { CommonComponentProps } from '../props/component-common.props';
 import { getDefaultTextFromProps, getMergedClassname } from '../utilities/component.utilities';

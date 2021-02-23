@@ -13,7 +13,7 @@ export const styles = {
     maxHeight: `calc(100vh - ${cssTheme.layout.var.navbarHeight})`,
     left: 0,
     bottom: 0,
-    width: `100vw`, // TODO: add an option to not cover the whole viewport
+    width: `90vw`,
     '@media': {
       [cssTheme.layout.media.tablet]: {
         width: cssTheme.layout.var.sidebarWidth,
@@ -30,9 +30,17 @@ export const styles = {
     overflowY: 'scroll',
     overflowX: 'hidden',
   })),
+  backdrop: style(({ cssTheme, theme }: Theme) => ({
+    position: 'fixed',
+    backgroundColor: `rgba(0,0,0,0.20)`,
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    zIndex: cssTheme.layout.zIndex.sideBar - 1,
+  })),
   fullHeight: style(({ cssTheme, theme }: Theme) => ({
     top: 0,
-    zIndex: cssTheme.layout.zIndex.navBar + 1,
     maxHeight: `calc(100vh)`,
   })),
   mobileOnly: style(({ cssTheme, theme }: Theme) => ({

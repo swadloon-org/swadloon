@@ -10,7 +10,6 @@ import {
 } from '@newrade/core-react-ui';
 import { PageProps } from 'gatsby';
 import React, { ReactNode } from 'react';
-import { I18nProvider } from 'react-aria';
 import Helmet from 'react-helmet';
 
 export type DesignSystemPageProps = PageProps<{}, GatsbySrcPageContext> & {
@@ -50,15 +49,15 @@ export const DesignSystemPageTemplate: React.FC<Props & { children: ReactNode }>
           // localeAlternate: data?.contentfulBlogPost?.node_locale?.includes('en') ? 'fr_CA' : 'en_CA',
         })}
       </Helmet>
-      <I18nProvider locale={props.pageContext.locale}>
-        <Center maxWidth={props.contentWidth ? props.contentWidth : `900px`}>
-          <MarkdownCSS>
-            {props.children}
+      {/* <I18nextProvider locale={props.pageContext.locale}> */}
+      <Center maxWidth={props.contentWidth ? props.contentWidth : `900px`}>
+        <MarkdownCSS>
+          {props.children}
 
-            <Hr />
-          </MarkdownCSS>
-        </Center>
-      </I18nProvider>
+          <Hr />
+        </MarkdownCSS>
+      </Center>
+      {/* </I18nextProvider> */}
     </>
   );
 };

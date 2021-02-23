@@ -1,9 +1,9 @@
 import { gsap, TweenMax } from '@newrade/core-gsap-ui';
-import { useEffect, useState } from 'react';
-import { useTreatTheme } from './use-treat-theme';
-import { useBodyScrollLock } from './use-body-scroll-lock';
-import { isMobile } from 'react-device-detect';
 import ScrollToPlugin from '@newrade/core-gsap-ui/lib/plugins/ScrollToPlugin';
+import { useEffect, useState } from 'react';
+import { isMobile } from 'react-device-detect';
+import { useBodyScrollLock } from './use-body-scroll-lock';
+import { useTreatTheme } from './use-treat-theme';
 
 export function useAnimateSideBar({
   sidebarOpened,

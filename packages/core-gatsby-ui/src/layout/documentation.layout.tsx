@@ -8,12 +8,12 @@ import {
   NavItemGroup,
   SideBar,
   Stack,
+  useIsSSR,
   useTreatTheme,
 } from '@newrade/core-react-ui';
 import { title } from 'case';
 import { PageProps } from 'gatsby';
 import React, { ReactNode } from 'react';
-import { useIsSSR } from 'react-aria';
 
 type LayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }> & {
   MobileSvgLogo?: React.ReactNode;

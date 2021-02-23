@@ -10,14 +10,13 @@ import {
   NavItemGroup,
   SideBar,
   Stack,
+  useIsSSR,
   useTreatTheme,
   useViewportBreakpoint,
 } from '@newrade/core-react-ui';
-import { PressEvent } from '@react-types/shared';
 import { title } from 'case';
 import { graphql, PageProps, useStaticQuery } from 'gatsby';
 import React, { ReactNode, useEffect, useState } from 'react';
-import { useIsSSR } from 'react-aria';
 import { getNavigationFromPageNodes } from '../utilities/navigation.utilities';
 
 type LayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }> & {
@@ -82,7 +81,7 @@ export const LayoutDesignSystem = React.memo<LayoutProps>(({ MobileSvgLogo, Desk
   const { viewport } = useViewportBreakpoint();
   const [sidebarOpened, setSidebarOpened] = useState<boolean>(true);
 
-  function handlePressMenuButton(event: PressEvent) {
+  function handlePressMenuButton(event: React.MouseEvent) {
     setSidebarOpened(!sidebarOpened);
   }
 
@@ -104,7 +103,7 @@ export const LayoutDesignSystem = React.memo<LayoutProps>(({ MobileSvgLogo, Desk
             <Label>Core Docs</Label>
           </>
         }
-        onPressMenuButton={handlePressMenuButton}
+        onClickMenuButton={handlePressMenuButton}
         menuOpened={sidebarOpened}
       ></NavBar>
 

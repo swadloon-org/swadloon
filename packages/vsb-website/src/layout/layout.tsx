@@ -1,4 +1,7 @@
 import {
+  ButtonIcon,
+  ButtonSize,
+  ButtonVariant,
   HEADING,
   LABEL_SIZE,
   LinkVariant,
@@ -14,6 +17,8 @@ import ScrollTrigger from '@newrade/core-gsap-ui/lib/plugins/ScrollTrigger';
 import { gsap } from '@newrade/core-gsap-ui/src';
 import {
   BoxV2,
+  Button,
+  Cluster,
   Heading,
   Label,
   Link,
@@ -30,7 +35,7 @@ import {
   useViewportBreakpoint,
 } from '@newrade/core-react-ui';
 import { globalHistory } from '@reach/router';
-import { PressEvent } from '@react-types/shared';
+import { IoClose } from '@react-icons/all-files/io5/IoClose';
 import { title } from 'case';
 import { PageProps } from 'gatsby';
 import React, { ReactNode, useEffect, useRef, useState } from 'react';
@@ -38,6 +43,7 @@ import { useAnimateNavbarDesktop } from '../hook/use-animate-navbar-desktop';
 import { useAnimateNavbarMobile } from '../hook/use-animate-navbar-mobile';
 import { useCompanyInfo, usePagesNavigation } from '../hook/use-layout-data';
 import LogoMorph from '../images/logo-morph.svg';
+import LogoSymbol from '../images/logo-symbol.svg';
 import Logo from '../images/logo.svg';
 import { Footer } from './footer';
 
@@ -78,7 +84,10 @@ export const Layout = React.memo<LayoutProps>((props) => {
     });
   }, [globalHistory]);
 
-  function handlePressMenuButton(event: PressEvent) {
+  function handleClickMenuButton(event: React.MouseEvent) {
+    if (!sidebarOpened) {
+      event.stopPropagation();
+    }
     setSidebarOpened(!sidebarOpened);
   }
 
@@ -161,17 +170,70 @@ export const Layout = React.memo<LayoutProps>((props) => {
             </Link>
           </>
         }
-        onPressMenuButton={handlePressMenuButton}
+        onClickMenuButton={handleClickMenuButton}
         menuOpened={sidebarOpened}
       ></NavBar>
 
       {!isSSR && (
         <React.Suspense fallback={<div />}>
-          <SideBar sidebarOpened={sidebarOpened} fullHeight={true} disableBodyScroll={true}>
+          <SideBar
+            sidebarOpened={sidebarOpened}
+            fullHeight={true}
+            disableBodyScroll={true}
+            onClickBackdrop={handleClickMenuButton}
+            style={{ backgroundColor: cssTheme.colors.colors.grey[800] }}
+          >
             <Stack>
               <BoxV2
-                padding={[cssTheme.sizing.var.x4, cssTheme.layout.var.contentMargins, cssTheme.sizing.var.x4]}
                 style={{ flexDirection: 'column' }}
+                alignItems={['stretch']}
+                padding={[
+                  cssTheme.sizing.var.x2,
+                  cssTheme.sizing.var.x1,
+                  cssTheme.sizing.var.x3,
+                  cssTheme.layout.var.contentMargins,
+                ]}
+              >
+                <Cluster>
+                  <LogoSymbol fill={'white'} />
+
+                  <Button
+                    aria-label={'Menu'}
+                    size={ButtonSize.large}
+                    collapsePadding={'left'}
+                    variant={ButtonVariant.tertiary}
+                    icon={ButtonIcon.icon}
+                    Icon={<IoClose fill={'white'} />}
+                    onClick={handleClickMenuButton}
+                  ></Button>
+                </Cluster>
+              </BoxV2>
+
+              <BoxV2
+                style={{ flexDirection: 'column' }}
+                justifyContent={['flex-start']}
+                alignItems={['stretch']}
+                padding={[0, cssTheme.layout.var.contentMargins, cssTheme.sizing.var.x5]}
+              >
+                <Stack gap={[cssTheme.sizing.var.x5]}>
+                  <Stack gap={[cssTheme.sizing.var.x3]}>
+                    <Heading variant={HEADING.h4} variantLevel={TEXT_LEVEL.primaryReversed}>
+                      Clinique Dr. Pierre Boucher Jr.
+                    </Heading>
+                    <Label
+                      variant={LABEL_SIZE.xSmall}
+                      variantStyle={TEXT_STYLE.boldUppercase}
+                      variantLevel={TEXT_LEVEL.primaryReversed}
+                    >
+                      Omnipraticien CCMF (MU)
+                    </Label>
+                  </Stack>
+                </Stack>
+              </BoxV2>
+
+              <BoxV2
+                padding={[cssTheme.sizing.var.x5, cssTheme.layout.var.contentMargins, cssTheme.sizing.var.x6]}
+                style={{ flexDirection: 'column', backgroundColor: cssTheme.colors.colors.grey[0] }}
                 justifyContent={['flex-start']}
                 alignItems={['stretch']}
               >
@@ -211,28 +273,14 @@ export const Layout = React.memo<LayoutProps>((props) => {
               </BoxV2>
 
               <BoxV2
-                style={{ flexDirection: 'column', backgroundColor: cssTheme.colors.colors.grey[800] }}
+                style={{ flexDirection: 'column', backgroundColor: cssTheme.colors.colors.grey[50] }}
                 justifyContent={['flex-start']}
                 alignItems={['stretch']}
                 padding={[cssTheme.sizing.var.x5, cssTheme.layout.var.contentMargins]}
               >
                 <Stack gap={[cssTheme.sizing.var.x5]}>
-                  <Stack gap={[cssTheme.sizing.var.x3]}>
-                    <Heading variant={HEADING.h4} variantLevel={TEXT_LEVEL.primaryReversed}>
-                      Clinique Dr. Pierre Boucher Jr.
-                    </Heading>
-                    <Label
-                      variant={LABEL_SIZE.xSmall}
-                      variantStyle={TEXT_STYLE.boldUppercase}
-                      variantLevel={TEXT_LEVEL.primaryReversed}
-                    >
-                      Omnipraticien CCMF
-                    </Label>
-                  </Stack>
-
                   <Stack gap={[cssTheme.sizing.var.x4]}>
                     <Link
-                      variantLevel={TEXT_LEVEL.primaryReversed}
                       variantSize={PARAGRAPH_SIZE.small}
                       variant={LinkVariant.underline}
                       href={`mailto:${companyAddress?.email}`}
@@ -240,7 +288,6 @@ export const Layout = React.memo<LayoutProps>((props) => {
                       {companyAddress?.email}
                     </Link>
                     <Link
-                      variantLevel={TEXT_LEVEL.primaryReversed}
                       variantSize={PARAGRAPH_SIZE.small}
                       variant={LinkVariant.underline}
                       href={`tel:${companyAddress?.phone}`}
@@ -248,7 +295,6 @@ export const Layout = React.memo<LayoutProps>((props) => {
                       {companyAddress?.phone}
                     </Link>
                     <Link
-                      variantLevel={TEXT_LEVEL.primaryReversed}
                       variantSize={PARAGRAPH_SIZE.small}
                       variant={LinkVariant.underline}
                       href={`fax:${companyAddress?.fax}`}
@@ -256,7 +302,6 @@ export const Layout = React.memo<LayoutProps>((props) => {
                       {companyAddress?.fax}
                     </Link>
                     <Link
-                      variantLevel={TEXT_LEVEL.primaryReversed}
                       variantSize={PARAGRAPH_SIZE.small}
                       variant={LinkVariant.underline}
                       href={'https://goo.gl/maps/nndYpgQLkbDC6c7S7'}
@@ -268,9 +313,7 @@ export const Layout = React.memo<LayoutProps>((props) => {
                     </Link>
                   </Stack>
 
-                  <Paragraph variantLevel={TEXT_LEVEL.primaryReversed} variant={PARAGRAPH_SIZE.small}>
-                    {companyInfo?.copyright}
-                  </Paragraph>
+                  <Paragraph variant={PARAGRAPH_SIZE.small}>{companyInfo?.copyright}</Paragraph>
                 </Stack>
               </BoxV2>
             </Stack>

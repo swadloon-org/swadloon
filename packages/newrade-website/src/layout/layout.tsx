@@ -13,7 +13,6 @@ import {
   useViewportBreakpoint,
 } from '@newrade/core-react-ui';
 import { globalHistory } from '@reach/router';
-import { PressEvent } from '@react-types/shared';
 import { title } from 'case';
 import { PageProps } from 'gatsby';
 import React, { ReactNode, useEffect, useState } from 'react';
@@ -53,7 +52,7 @@ export const Layout = React.memo<LayoutProps>((props) => {
     });
   }, [globalHistory]);
 
-  function handlePressMenuButton(event: PressEvent) {
+  function handlePressMenuButton(event: React.MouseEvent) {
     setSidebarOpened(!sidebarOpened);
   }
 
@@ -79,7 +78,7 @@ export const Layout = React.memo<LayoutProps>((props) => {
           </>
         }
         menuOpened={sidebarOpened}
-        onPressMenuButton={handlePressMenuButton}
+        onClickMenuButton={handlePressMenuButton}
       ></NavBar>
 
       {!isSSR && (
