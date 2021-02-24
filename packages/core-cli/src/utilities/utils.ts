@@ -1,6 +1,6 @@
 import * as dotenv from 'dotenv';
-import { ENV } from './dot-env';
 import * as path from 'path';
+import { ENV } from '../types/dot-env';
 
 export function loadDotEnv() {
   // add env variables from .env file

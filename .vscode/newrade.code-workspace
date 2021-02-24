@@ -96,6 +96,9 @@
       "path": "../packages/core-common"
     },
     {
+      "path": "../packages/core-figma-extractor"
+    },
+    {
       "path": "../packages/core-figma-plugins"
     },
     {
