@@ -1,4 +1,5 @@
-import { title } from 'case';
+import { capital, lower, title } from 'case';
+import { PAGE_LAYOUT, PAGE_TEMPLATE } from '../config/page.props';
 import { SITE_LANGUAGES, SITE_LANGUAGES_HYPHEN } from '../config/site-languages';
 import { SOURCE_INSTANCE_NAME } from '../config/source-instances';
 
@@ -19,24 +20,28 @@ export function getPageFormattedName(
     if (rawName === '/' || rawName === '') {
       return 'Home';
     }
-    return title(removeDir(removeDotPage(rawName)));
+
+    return title(removeDir(removeLocalePrefix(removeDotPage(rawName))));
   }
 
   if (options?.locale === SITE_LANGUAGES.EN || options.locale === SITE_LANGUAGES.EN_CA) {
     if (rawName === '/' || rawName === '') {
       return 'Home';
     }
-    return title(removeDir(removeDotPage(rawName)));
+    return title(removeDir(removeLocalePrefix(removeDotPage(rawName))));
   }
 
   if (rawName === '/' || rawName === '') {
     return 'Accueil';
   }
 
-  return title(removeDir(removeDotPage(rawName)));
+  return lower(removeDir(removeLocalePrefix(removeDotPage(rawName))))
+    .split('')
+    .map((char, index) => (index === 0 ? capital(char) : char))
+    .join('');
 
   function removeDotPage(rawName: string): string {
-    return rawName.replace('.page', '');
+    return rawName.replace(/\.page$/, '');
   }
 
   function removeDir(rawName: string): string {
@@ -106,6 +111,32 @@ export function getLocalePath(nodeName: string, defaultLangKey: SITE_LANGUAGES):
 }
 
 /**
+ * Retrieve the locale from a nodename or page path
+ */
+export function getLocaleFromPath(nodeName?: string | null): SITE_LANGUAGES {
+  return /fr\.+/.test(nodeName || '') ? SITE_LANGUAGES.FR : SITE_LANGUAGES.EN;
+}
+
+/**
+ * Retrieve the locale from a nodename or page path
+ */
+export function getFullPageNodePath(parts: (string | null | undefined)[]): string {
+  const path = parts.filter((part) => !!part && !!part.length).join('/');
+  return `/${path}/`;
+}
+
+/**
+ * Remove the locale prefix from a node name
+ * e.g. 'en.my-doc' => 'my-mdx'
+ */
+export function removeLocalePrefix(name?: string | null): string {
+  if (!name?.length) {
+    return '';
+  }
+  return name.replace(/(en|fr)\./gi, '');
+}
+
+/**
  * Return a prefix to prepend to pages created from sources files (e.g. mdx pages in /docs, etc)
  */
 export function getPathForSourceInstance(sourceInstanceName: SOURCE_INSTANCE_NAME) {
@@ -124,6 +155,52 @@ export function getPathForSourceInstance(sourceInstanceName: SOURCE_INSTANCE_NAM
     }
     default: {
       return '';
+    }
+  }
+}
+
+/**
+ * Associate file source with their template
+ */
+export function getTemplateForSourceInstance(sourceInstanceName: SOURCE_INSTANCE_NAME): PAGE_TEMPLATE {
+  switch (sourceInstanceName) {
+    case SOURCE_INSTANCE_NAME.MDX_PAGES: {
+      return 'markdownPage';
+    }
+    case SOURCE_INSTANCE_NAME.DOCS: {
+      return 'markdownDoc';
+    }
+    case SOURCE_INSTANCE_NAME.MONO_REPO_DOCS: {
+      return 'markdownDoc';
+    }
+    case SOURCE_INSTANCE_NAME.DESIGN_SYSTEM_DOCS: {
+      return 'designSystem';
+    }
+    default: {
+      return 'default';
+    }
+  }
+}
+
+/**
+ * Associate file source with their Layout
+ */
+export function getLayoutForSourceInstance(sourceInstanceName: SOURCE_INSTANCE_NAME): PAGE_LAYOUT {
+  switch (sourceInstanceName) {
+    case SOURCE_INSTANCE_NAME.MDX_PAGES: {
+      return 'default';
+    }
+    case SOURCE_INSTANCE_NAME.DOCS: {
+      return 'docs';
+    }
+    case SOURCE_INSTANCE_NAME.MONO_REPO_DOCS: {
+      return 'docs';
+    }
+    case SOURCE_INSTANCE_NAME.DESIGN_SYSTEM_DOCS: {
+      return 'designSystem';
+    }
+    default: {
+      return 'default';
     }
   }
 }

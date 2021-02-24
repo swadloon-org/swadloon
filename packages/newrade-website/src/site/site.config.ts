@@ -9,7 +9,7 @@ const homePage = {
       layout: SectionLayout.banner,
       blocks: [
         {
-          type: BlockType.markdown,
+          type: BlockType.text,
         },
       ],
     },

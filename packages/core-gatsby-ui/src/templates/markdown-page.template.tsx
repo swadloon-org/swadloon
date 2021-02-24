@@ -21,7 +21,7 @@ export type MarkdownTemplateProps = PageProps<MarkdownTemplateQuery, GatsbyMarkd
  * Query to retrieve all markdown content for the markdown file
  */
 export const markdownTemplateQuery = graphql`
-  query MarkdownTemplate($fileId: String!) {
+  query MarkdownPageTemplate($fileId: String!) {
     file(id: { eq: $fileId }) {
       childMdx {
         slug

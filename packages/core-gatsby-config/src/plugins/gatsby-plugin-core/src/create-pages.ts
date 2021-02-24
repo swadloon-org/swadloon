@@ -1,5 +1,6 @@
 import { AppError, ERROR_TYPE } from '@newrade/core-common';
-import { kebab, pascal, title } from 'case';
+import { kebab, pascal } from 'case';
+import fsp from 'fs/promises';
 import { GatsbyNode } from 'gatsby';
 import path from 'path';
 import { GatsbyMarkdownFilePageContext, GatsbySrcPageContext } from '../../../config/page-config';
@@ -10,7 +11,16 @@ import {
 } from '../../../config/site-graphql-types';
 import { SITE_LANGUAGES } from '../../../config/site-languages';
 import { SOURCE_INSTANCE_NAME } from '../../../config/source-instances';
-import { getLocalePath, getPageFormattedName, getPathForSourceInstance } from '../../../utils/dir-name.utilities';
+import {
+  getFullPageNodePath,
+  getLayoutForSourceInstance,
+  getLocaleFromPath,
+  getLocalePath,
+  getPageFormattedName,
+  getPathForSourceInstance,
+  getTemplateForSourceInstance,
+  removeLocalePrefix,
+} from '../../../utils/pages.utilities';
 import { GatsbyCorePluginOptions } from '../gatsby-plugin-options';
 
 let siteMetadata: GatsbyNodeSiteMetadataFragment;
@@ -99,20 +109,62 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
        * `/<locale>/<source-instance-dir>/<mdx-slug`
        * for example `fr.markdown.mdx` in `/docs` would become `/fr/docs/markdown`
        */
-      const markdownTemplate = path.resolve(`../core-gatsby-ui/src/templates/markdown.template.tsx`);
+
+      let markdownDocsTemplate: string;
+      try {
+        await fsp.readFile(`src/templates/markdown-docs.template.tsx`);
+        reporter.info(`[${pluginOptions.pluginName}] found markdown-docs template in package`);
+        markdownDocsTemplate = path.resolve(`src/templates/markdown-docs.template.tsx`);
+      } catch (error) {
+        reporter.info(`[${pluginOptions.pluginName}] no template defined for markdown-docs in package`);
+      }
+
+      try {
+        await fsp.readFile(`../core-gatsby-ui/src/templates/markdown-docs.template.tsx`);
+        reporter.info(`[${pluginOptions.pluginName}] using default markdown-docs template`);
+        markdownDocsTemplate = path.resolve(`../core-gatsby-ui/src/templates/markdown-docs.template.tsx`);
+      } catch (error) {
+        reporter.panic(`[${pluginOptions.pluginName}] no default template defined for markdown-docs`);
+      }
+
+      let markdownPageTemplate: string;
+      try {
+        await fsp.readFile(`src/templates/markdown-page.template.tsx`);
+        reporter.info(`[${pluginOptions.pluginName}] found markdown-docs template in package`);
+        markdownDocsTemplate = path.resolve(`src/templates/markdown-page.template.tsx`);
+      } catch (error) {
+        reporter.info(`[${pluginOptions.pluginName}] no template defined for markdown-docs in package`);
+      }
+
+      try {
+        await fsp.readFile(`../core-gatsby-ui/src/templates/markdown-page.template.tsx`);
+        reporter.info(`[${pluginOptions.pluginName}] using default markdown-docs template`);
+        markdownDocsTemplate = path.resolve(`../core-gatsby-ui/src/templates/markdown-page.template.tsx`);
+      } catch (error) {
+        reporter.panic(`[${pluginOptions.pluginName}] no default template defined for markdown-docs`);
+      }
 
       markdownFilesData?.data?.allFile.nodes.forEach((node, index) => {
-        // docs
-        const sourceDir = getPathForSourceInstance(node.sourceInstanceName as SOURCE_INSTANCE_NAME);
-        // fr
+        const sourceInstance = node.sourceInstanceName as SOURCE_INSTANCE_NAME;
+        // for file src/docs/section/en.readme.mdx
+        // 'docs'
+        const sourceDir = getPathForSourceInstance(sourceInstance);
+        // 'en'
         const localeDir = getLocalePath(node.name, siteMetadata.languages?.defaultLangKey || SITE_LANGUAGES.EN);
-        // readme
+        // 'en.readme'
         const nodePath = node.childMdx?.slug;
-        // docs/fr/readme
-        const path = [localeDir, sourceDir, nodePath].filter((part) => !!part).join('/');
-        const locale = /fr\.+/.test(node.name) ? SITE_LANGUAGES.FR : SITE_LANGUAGES.EN;
-        const name = `${title(node.childMdx?.frontmatter?.name || node.name)}`;
-        const displayName = name;
+        // name without locale e.g 'readme'
+        const nameWithoutLocale = removeLocalePrefix(nodePath || node.name);
+        // 'docs/en/section/readme'
+        const path = getFullPageNodePath([localeDir, sourceDir, nameWithoutLocale]);
+        // SITE_LANGUAGES.EN
+        const locale = getLocaleFromPath(node.name);
+        // raw node name e.g. 'en.readme'
+        const name = node.name;
+        // nicely formated name for the node, defaults to frontmatter property e.g. 'Readme'
+        const displayName = getPageFormattedName(node.childMdx?.frontmatter?.name || nameWithoutLocale, {
+          locale: locale,
+        });
 
         reporter.info(`[${pluginOptions.pluginName}] creating markdown page ${path}`);
 
@@ -125,10 +177,10 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
             displayName,
             fileId: node.id,
             locale,
-            layout: 'docs',
-            template: 'markdownDoc',
+            layout: getLayoutForSourceInstance(sourceInstance),
+            template: getTemplateForSourceInstance(sourceInstance),
           },
-          component: markdownTemplate,
+          component: sourceInstance === SOURCE_INSTANCE_NAME.MDX_PAGES ? markdownPageTemplate : markdownDocsTemplate,
         });
       });
     }
@@ -152,10 +204,10 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
         }
       `);
       designSystemPagesData?.data?.allFile.nodes.forEach((node, index) => {
-        const dir = `design-system/${node.relativePath.replace(/\/(.+)/, '/').replace(`${node.name}.tsx`, '')}`;
+        const dir = `design-system/${node.relativePath.replace(/\/(.+)/, '').replace(`${node.name}.tsx`, '')}`;
         const formattedNodeName = kebab(node.name.replace('.page', '').replace('home', ''));
         const displayName = formattedNodeName ? `Design System - ${pascal(formattedNodeName)}` : `Design System`;
-        const path = `${dir}${formattedNodeName}`;
+        const path = getFullPageNodePath([dir, formattedNodeName]);
 
         reporter.info(`[${pluginOptions.pluginName}] creating design system page: ${path}`);
 
@@ -191,16 +243,35 @@ export const onCreatePageFunction: GatsbyNode['onCreatePage'] = ({ page, actions
   const pluginOptions = (options as unknown) as GatsbyCorePluginOptions;
   const { createPage, deletePage } = actions;
 
-  // recreate only if a page is missing context data
+  // recreate only if a page is missing context data e.g. pages that are created by the default gastby page creator
   if (page && page.context && !(page.context as any).siteMetadata) {
     reporter.info(`[${pluginOptions.pluginName}] recreating page: ${page.path}`);
 
-    // TODO: fix when pages are not prefixed by fr but still meant to be in fr
-    // also need to recreate path like the docs pages above
-    const locale = /fr\.+/.test(page.path) ? SITE_LANGUAGES.FR : SITE_LANGUAGES.EN;
-    const path = `${getLocalePath(page.path, locale)}${page.path}`;
+    // for file src/pages/section/en.page.tsx
+
+    // raw node name e.g. '/en.page.tsx/' => 'en.page.tsx'
+    const nameWithoutSlashes = page.path.replace(/\//g, '');
+    // '' i.e. goes to root of the site
+    const sourceDir = '';
+    // 'en'
+    const localeDir = getLocalePath(page.path, siteMetadata.languages?.defaultLangKey || SITE_LANGUAGES.EN);
+    // 'en.page.tsx'
+    const nodePath = nameWithoutSlashes;
+    // name without locale e.g 'page'
+    const nameWithoutLocale = removeLocalePrefix(nodePath);
+    // '/en/section/page'
+    const path = getFullPageNodePath([localeDir, sourceDir, nameWithoutLocale]);
+    // SITE_LANGUAGES.EN
+    const locale = getLocaleFromPath(page.path);
+
+    // nicely formated name for the page, e.g. en.page.tsx => Page
+    const displayName = getPageFormattedName(nameWithoutLocale, {
+      locale: locale,
+    });
 
     deletePage(page);
+
+    reporter.info(`[${pluginOptions.pluginName}] creating page: ${path}`);
 
     createPage<GatsbySrcPageContext>({
       ...page,
@@ -208,10 +279,8 @@ export const onCreatePageFunction: GatsbyNode['onCreatePage'] = ({ page, actions
       context: {
         ...page.context,
         id: page.path,
-        name: getPageFormattedName(page.path),
-        displayName: getPageFormattedName(page.path, {
-          locale: locale,
-        }),
+        name: nameWithoutSlashes,
+        displayName,
         siteMetadata,
         fileId: '',
         locale,

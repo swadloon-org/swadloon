@@ -1,5 +1,5 @@
 import { SITE_LANGUAGES } from '../../config/site-languages';
-import { getLocalePath, getPageFormattedName } from '../dir-name.utilities';
+import { getFullPageNodePath, getLocalePath, getPageFormattedName } from '../pages.utilities';
 
 describe('dir name utilities', () => {
   describe(`${getPageFormattedName.name}`, () => {
@@ -13,11 +13,33 @@ describe('dir name utilities', () => {
         })
       ).toBe('Accueil');
       expect(getPageFormattedName('dir-name/page.page')).toBe('Page');
+      expect(getPageFormattedName('dir-name/page')).toBe('Page');
       expect(getPageFormattedName('/dir-name/')).toBe('Dir Name');
       expect(getPageFormattedName('/dir-name/page.page')).toBe('Page');
       expect(getPageFormattedName('/dir-name/dir-a/dirb/page-name.page')).toBe('Page Name');
+      expect(
+        getPageFormattedName('/dir-name/dir-a/dirb/nom-de-la-page.page', {
+          locale: SITE_LANGUAGES.FR,
+        })
+      ).toBe('Nom de la page');
       expect(getPageFormattedName('/page-name.page')).toBe('Page Name');
       expect(getPageFormattedName('page-name.page')).toBe('Page Name');
+      expect(getPageFormattedName('en.page-name.page')).toBe('Page Name');
+      expect(
+        getPageFormattedName('fr.page-name.page', {
+          locale: SITE_LANGUAGES.FR,
+        })
+      ).toBe('Page name');
+    });
+  });
+
+  describe(`${getFullPageNodePath.name}`, () => {
+    it('should format correct full page path', () => {
+      expect(getFullPageNodePath(['/'])).toBe('/');
+      expect(getFullPageNodePath([''])).toBe('');
+      expect(getFullPageNodePath(['en', '', 'page'])).toBe('en/page');
+      expect(getFullPageNodePath(['', '', 'page'])).toBe('page');
+      expect(getFullPageNodePath(['', '', 'section', 'page'])).toBe('section/page');
     });
   });
 

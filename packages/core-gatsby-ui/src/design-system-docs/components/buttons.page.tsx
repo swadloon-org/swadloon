@@ -230,9 +230,9 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
         <Heading variant={HEADING.h2}>States</Heading>
 
         <Stack gap={[cssTheme.sizing.var.x3]}>
-          <Button isDisabled={true} variant={ButtonVariant.primary}></Button>
-          <Button isDisabled={true} variant={ButtonVariant.secondary}></Button>
-          <Button isDisabled={true} variant={ButtonVariant.tertiary}></Button>
+          <Button disabled={true} variant={ButtonVariant.primary}></Button>
+          <Button disabled={true} variant={ButtonVariant.secondary}></Button>
+          <Button disabled={true} variant={ButtonVariant.tertiary}></Button>
         </Stack>
       </Stack>
     </>
