@@ -13,14 +13,8 @@ export const pageQuery = graphql`
     }
     title
     slug
-    type {
-      type
-    }
     sections {
       ...Section
-      subSections {
-        ...Section
-      }
     }
   }
 `;

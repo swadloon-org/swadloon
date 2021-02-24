@@ -257,10 +257,6 @@ globalStyle(`ul,ol`, {
   paddingInlineStart: '0px',
 });
 
-globalStyle(`li`, {
-  lineHeight: '0', // ensure that the list items height collapse
-});
-
 /**
  * Resets blockquote
  */

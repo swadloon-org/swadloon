@@ -62,7 +62,8 @@
       "bierner.markdown-yaml-preamble",
       "jock.svg",
       "cssho.vscode-svgviewer",
-      "deepscan.vscode-deepscan"
+      // "deepscan.vscode-deepscan",
+      "graphql.vscode-graphql"
     ]
   },
   "folders": [

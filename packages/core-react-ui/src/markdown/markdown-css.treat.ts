@@ -130,6 +130,14 @@ globalStyle(`${wrapper} iframe`, ({ cssTheme, theme }: Theme) => ({
 }));
 
 /**
+ * List items
+ */
+
+globalStyle(`${wrapper} li`, {
+  lineHeight: '0', // ensure that the list items height collapse
+});
+
+/**
  * Details & summary
  */
 

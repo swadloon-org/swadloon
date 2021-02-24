@@ -10,7 +10,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { PageQuery } from '../../types/graphql-types';
 import '../fonts';
-import { SectionTemplate } from './section.template';
+import { ContentfulSections } from '../sections/contentful-sections';
 
 export type ProjectPageProps = PageProps<PageQuery, GatsbyContentfulPageContext>;
 
@@ -53,7 +53,7 @@ export const PageTemplate: React.FC<ProjectPageProps> = ({ data, location, ...pr
           site: `${data?.contentfulCompanyInfo?.metadataTwitterSite}`,
         })}
       </Helmet>
-      <SectionTemplate data={data} location={location} {...props} />
+      <ContentfulSections data={data} location={location} {...props} />
     </div>
   );
 };

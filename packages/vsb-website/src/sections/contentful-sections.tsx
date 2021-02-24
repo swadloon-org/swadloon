@@ -15,13 +15,13 @@ import { SectionFormVasectomy } from '../components/section-form-vasectomy';
 import { SectionMessages } from '../components/section-messages';
 import { SectionSteps } from '../components/section-steps';
 import { SectionTileLinks } from '../components/section-tile-links';
-import { ProjectPageProps } from './contentful-page.template';
+import { ProjectPageProps } from '../templates/contentful-page.template';
 
 const BlockGoogleMapVSB = React.lazy(() =>
   import('../components/block-google-map').then((comp) => ({ default: comp.BlockGoogleMapVSB }))
 );
 
-export const SectionTemplate: React.FC<ProjectPageProps> = ({ data }) => {
+export const ContentfulSections: React.FC<ProjectPageProps> = ({ data }) => {
   const isSSR = useIsSSR();
   const { ref, inView } = useInView({
     threshold: 0,

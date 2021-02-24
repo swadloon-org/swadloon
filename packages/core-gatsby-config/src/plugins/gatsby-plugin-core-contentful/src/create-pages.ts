@@ -2,6 +2,7 @@ import { AppError, ERROR_TYPE } from '@newrade/core-common';
 import { GatsbyNode } from 'gatsby';
 import path from 'path';
 import { GatsbyContentfulPageContext } from '../../../config/page-config';
+import fsp from 'fs/promises';
 import { PAGE_LAYOUT, PAGE_TEMPLATE } from '../../../config/page.props';
 import { GatsbyNodeAllSiteQuery, GatsbyNodeSiteMetadataFragment } from '../../../config/site-graphql-types';
 import { SITE_LANGUAGES } from '../../../config/site-languages';
@@ -62,8 +63,6 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
             id: string;
             name: string;
             slug: string;
-            layout: PAGE_LAYOUT;
-            template: PAGE_TEMPLATE;
           };
         }[];
       };
@@ -77,8 +76,6 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
                 id
                 name
                 slug
-                layout
-                template
               }
             }
           }
@@ -89,16 +86,31 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
       }
     );
 
-    reporter.info(`[${pluginOptions.pluginName}] found ${pagesData.data?.allContentfulPage.edges.length} pages`);
-
-    if (pagesData.errors) {
-      throw new Error('Error while retrieving pages');
+    if (!pagesData.data?.allContentfulPage.edges.length) {
+      reporter.panic(`[${pluginOptions.pluginName}] could not retrieve pages`);
     }
+
+    reporter.info(`[${pluginOptions.pluginName}] found ${pagesData.data?.allContentfulPage.edges.length} pages`);
 
     /**
      * Automatically create pages based on the Page Collection in Contentful
      */
-    const pageTemplate = path.resolve(`src/templates/contentful-page.template.tsx`);
+    let pageTemplate: string;
+    try {
+      await fsp.readFile(`src/templates/contentful-page.template.tsx`);
+      reporter.info(`[${pluginOptions.pluginName}] found contentful-page template in package`);
+      pageTemplate = path.resolve(`src/templates/contentful-page.template.tsx`);
+    } catch (error) {
+      reporter.panic(`[${pluginOptions.pluginName}] no template defined for contentful-page in package`);
+    }
+
+    // try {
+    //   await fsp.readFile(`../core-gatsby-ui/src/templates/contentful-page.template.tsx`);
+    //   reporter.info(`[${pluginOptions.pluginName}] using default contentful-page template`);
+    //   pageTemplate = path.resolve(`../core-gatsby-ui/contentful-page.template.tsx`);
+    // } catch (error) {
+    //   reporter.panic(`[${pluginOptions.pluginName}] no default template defined for contentful-page`);
+    // }
 
     pagesData.data?.allContentfulPage.edges
       .filter((edge) => {
@@ -120,8 +132,8 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
             name: edge.node.name,
             slug: edge.node.slug,
             locale: edge.node.node_locale as SITE_LANGUAGES,
-            layout: edge.node.layout || 'default',
-            template: edge.node.template || 'default',
+            layout: 'default',
+            template: 'contentfulPage',
           },
           component: pageTemplate,
         });

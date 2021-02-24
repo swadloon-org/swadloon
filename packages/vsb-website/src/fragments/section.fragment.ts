@@ -5,85 +5,19 @@ export const sectionFragment = graphql`
     id
     node_locale
     name
-    type {
-      type
-    }
     variant
-    title
-    titleHighlight
-    subtitle
-    link {
-      ...Link
-    }
-    text {
-      childMdx {
-        body
-      }
-    }
-    announcements {
-      name
-      type
-      message {
-        message
-        childMdx {
-          body
-        }
-      }
-    }
-    steps {
-      id
-      title
-      text {
-        childMdx {
-          body
-        }
-      }
-    }
-    costItems {
-      id
-      title
-      subtitle
-      price
-    }
-    backgroundPosition
-    medias {
-      medias {
-        file {
-          url
-        }
-        # aboveTheFold: localFile {
-        #   childImageSharp {
-        #     fluid(quality: 90, maxWidth: 1920, base64Width: 400) {
-        #       base64
-        #     }
-        #   }
-        # }
-        desktopFluidImage: localFile {
-          childImageSharp {
-            fluid(quality: 90, maxWidth: 1920, base64Width: 400) {
-              base64
-              aspectRatio
-              src
-              srcSet
-              srcWebp
-              srcSetWebp
-              sizes
-            }
+    blocks {
+      ... on ContentfulBlock {
+        id
+        name
+        text {
+          childMdx {
+            body
           }
         }
-        mobileFluidTallImage: localFile {
-          childImageSharp {
-            fluid(quality: 90, maxHeight: 630) {
-              base64
-              aspectRatio
-              src
-              srcSet
-              srcWebp
-              srcSetWebp
-              sizes
-            }
-          }
-        }
+      }
+      ... on ContentfulBlockCostItem {
+        id
       }
     }
   }
