@@ -5,8 +5,8 @@ type PathExport = {
 };
 
 export const FILES_TYPE_TEXT: PathExport = {
-  CSS: '../../figma/figma-text.css',
-  SCSS: '../../figma/figma-text.scss',
-  JSON: '../../figma/figma-text.json',
-  TS: '../../figma/figma-text.ts',
+  CSS: 'figma-text.css',
+  SCSS: 'figma-text.scss',
+  JSON: 'figma-text.json',
+  TS: 'figma-text.ts',
 };

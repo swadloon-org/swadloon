@@ -2,7 +2,6 @@
   "extends": "../../tsconfig.build.json",
   "compilerOptions": {
     "rootDir": ".",
-    "outDir": "lib",
     "target": "es6",
     "module": "commonjs",
     "types": ["jest", "node"],
@@ -28,5 +27,5 @@
       "path": "../core-jest-config/tsconfig.build.json"
     }
   ],
-  "include": ["src/**/*", "types/**/*"]
+  "include": ["bin/**/*", "src/**/*", "types/**/*"]
 }

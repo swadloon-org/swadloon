@@ -1,5 +1,5 @@
 # lib
 dist/
-bin/
+!bin/
 lib/
 

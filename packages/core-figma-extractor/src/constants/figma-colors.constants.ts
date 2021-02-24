@@ -1,19 +1,26 @@
 export const regexName = RegExp(/^(((?![I i]mage)\w)[/]?((?![E e]ffects).)*[/]?((\d)*(\w)))$/gm);
 
-type PathExport = {
-  [key: string]: string;
+export type PathExport = {
+  [key in FileType]: string;
 };
 
-export const FILES_TYPE_COLORS: PathExport = {
-  CSS: '../../figma/figma-color.css',
-  SCSS: '../../figma/figma-color.scss',
-  JSON: '../../figma/figma-color.json',
-  TS: '../../figma/figma-color.ts',
+export enum FileType {
+  CSS = 'CSS',
+  SCSS = 'SCSS',
+  JSON = 'JSON',
+  TS = 'TS',
+}
+
+export const outputColorFiles: PathExport = {
+  [FileType.CSS]: 'figma-color.css',
+  [FileType.SCSS]: 'figma-color.scss',
+  [FileType.JSON]: 'figma-color.json',
+  [FileType.TS]: 'figma-color.ts',
 };
 
-export const FILES_TYPE_TEXT: PathExport = {
-  CSS: '../../figma/figma-text.css',
-  SCSS: '../../figma/figma-text.scss',
-  JSON: '../../figma/figma-text.json',
-  TS: '../../figma/figma-text.ts',
+export const outputTextFiles: PathExport = {
+  [FileType.CSS]: 'figma-text.css',
+  [FileType.SCSS]: 'figma-text.scss',
+  [FileType.JSON]: 'figma-text.json',
+  [FileType.TS]: 'figma-text.ts',
 };
