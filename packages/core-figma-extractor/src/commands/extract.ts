@@ -3,15 +3,14 @@ import debug from 'debug';
 import * as Figma from 'figma-js';
 import fs from 'fs';
 import path from 'path';
+import { extractFigmaColors } from '../color/extract-color';
 import {
   createColorPaletteCSS,
   createColorPaletteJSON,
   createColorPaletteSCSS,
   createColorPaletteTS,
-  extractFigmaColors,
-} from '../color/extract-color';
+} from '../color/generate-tokens';
 import { FileType, outputColorFiles } from '../constants/figma-colors.constants';
-
 const log = debug('newrade:core-figma-extractor:extract');
 const logWarn = log.extend('warn');
 const logError = log.extend('error');
@@ -40,6 +39,8 @@ export function extract({ figmaFile, figmaToken, outputDir }: ExtractConfig) {
     personalAccessToken: figmaToken,
   });
 
+  log(chalk.greenBright(`Start the extraction process 🚀 `));
+
   log(`retrieving file styles\t`);
 
   client
@@ -59,18 +60,18 @@ export function extract({ figmaFile, figmaToken, outputDir }: ExtractConfig) {
     })
     .then((colorTokens) => {
       if (!colorTokens) {
-        logError(`extracting colors failed`);
-        throw new Error('extracting colors failed');
+        logError(`extracting colors failed ❌ `);
+        throw new Error('extracting colors failed ❌ ');
       }
 
       const colorsNumber = Object.keys(colorTokens).length;
 
       if (!colorsNumber) {
-        logWarn(`no colors were extracted`);
+        logWarn(`no colors were extracted ❌ `);
         return;
       }
 
-      log(`found ${colorsNumber} colors`);
+      log(chalk(`found ${colorsNumber} colors`));
 
       /**
        * Writing all export files
@@ -92,7 +93,6 @@ export function extract({ figmaFile, figmaToken, outputDir }: ExtractConfig) {
             .join('-')} */\n`
         );
       });
-
       createColorPaletteCSS(colorTokens, path.join(outputDir, outputColorFiles.CSS));
       createColorPaletteSCSS(colorTokens, path.join(outputDir, outputColorFiles.SCSS));
       createColorPaletteTS(colorTokens, path.join(outputDir, outputColorFiles.TS));

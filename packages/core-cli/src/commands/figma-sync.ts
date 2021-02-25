@@ -2,7 +2,6 @@ import { extract } from '@newrade/core-figma-extractor/src';
 import { loadDotEnv } from '@newrade/core-utils';
 import { Command, flags } from '@oclif/command';
 import debug from 'debug';
-import * as path from 'path';
 // import packageJson from '../../package.json'; // TODO: check if possible to load local package json
 import { Env, ENV } from '../types/dot-env';
 
