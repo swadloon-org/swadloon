@@ -1,34 +1,8 @@
-import { ButtonSize, ButtonVariant, Variant } from '@newrade/core-design-system';
-import { BlockMarkdown, GatsbyLink, Section, SectionBaseLayout, SectionPadding } from '@newrade/core-gatsby-ui/src';
-import { BoxV2, Button, Image, Stack, Switcher, useIsSSR, useTreatTheme } from '@newrade/core-react-ui';
-import { IoArrowForwardOutline } from '@react-icons/all-files/io5/IoArrowForwardOutline';
-import { FluidObject } from 'gatsby-image';
 import React from 'react';
-import { useInView } from 'react-intersection-observer';
-import { SECTION_TYPE } from '../../types/contentful-section-type';
-import { ContentfulSection } from '../../types/graphql-types';
-import { SectionBanner } from '../components/section-banner';
-import { SectionBannerLink } from '../components/section-banner-link';
-import { SectionContact } from '../components/section-contact';
-import { SectionCost } from '../components/section-cost-items';
-import { SectionFormVasectomy } from '../components/section-form-vasectomy';
-import { SectionMessages } from '../components/section-messages';
-import { SectionSteps } from '../components/section-steps';
-import { SectionTileLinks } from '../components/section-tile-links';
-import { ProjectPageProps } from '../templates/contentful-page.template';
 
-const BlockGoogleMapVSB = React.lazy(() =>
-  import('../components/block-google-map').then((comp) => ({ default: comp.BlockGoogleMapVSB }))
-);
+type Props = {};
 
-export const ContentfulSections: React.FC<ProjectPageProps> = ({ data }) => {
-  const isSSR = useIsSSR();
-  const { ref, inView } = useInView({
-    threshold: 0,
-    triggerOnce: true,
-  });
-  const { cssTheme, theme } = useTreatTheme();
-
+export const Com: React.FC<Props> = (props) => {
   return (
     <>
       {data.contentfulPage?.sections?.map((section, index) => {

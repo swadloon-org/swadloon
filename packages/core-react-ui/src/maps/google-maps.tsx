@@ -42,7 +42,7 @@ export const GoogleMaps: React.FC<Props> = React.memo(
     const loadingElement = script.loadingElement ? script.loadingElement : <DefaultLoadingElement />;
     const libraries: Libraries = script.libraries || defaultLibraries;
     const language: string = script.language || 'fr';
-    const googleMapsApiKey: string = script.googleMapsApiKey || 'AIzaSyDCcSCivD2CPrWHNIIGBiPexN5QCujfSkE';
+    const googleMapsApiKey: string = script.googleMapsApiKey;
 
     /**
      * Maps props

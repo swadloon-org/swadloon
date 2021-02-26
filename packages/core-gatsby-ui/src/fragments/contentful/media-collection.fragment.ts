@@ -8,10 +8,12 @@ export const mediaCollectionFragment = graphql`
     # variant
     # size
     medias {
-      file {
-        url
+      media {
+        file {
+          url
+        }
+        ...MobileFluidImage
       }
-      ...MobileFluidImage
     }
   }
 `;

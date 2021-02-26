@@ -1,6 +1,6 @@
 import { graphql } from 'gatsby';
 
-export const pageQuery = graphql`
+export const pageFragment = graphql`
   fragment PageFragment on ContentfulPage {
     id
     name

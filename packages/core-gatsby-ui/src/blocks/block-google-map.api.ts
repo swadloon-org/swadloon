@@ -1,6 +1,7 @@
+import { GoogleMapProps } from '@react-google-maps/api';
 import { BlockVariant } from './block.props';
 
-export type BlockAPI = {
+export type BlockGoogleMapAPI = {
   name?: string | null;
   variant?: BlockVariant | null | string;
   text?: {
@@ -9,4 +10,5 @@ export type BlockAPI = {
       body: string | null;
     };
   };
+  map: GoogleMapProps;
 };

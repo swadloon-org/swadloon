@@ -49,6 +49,14 @@ export interface DesignSystem<Override extends undefined | string = undefined> {
    * Components' specific settings.
    */
   components: {
+    sections?: {
+      divider: {
+        // backgroundColor
+        // padding
+        leftBlockWidth: number;
+        gap: number;
+      };
+    };
     /**
      * Atoms
      */

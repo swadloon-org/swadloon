@@ -1,6 +1,6 @@
 import chalk from 'chalk';
 import debug from 'debug';
-import * as Figma from 'figma-js';
+import Figma from 'figma-js';
 import fs from 'fs';
 import path from 'path';
 import { extractFigmaColors } from '../color/extract-color';

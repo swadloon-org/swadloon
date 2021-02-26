@@ -6,10 +6,12 @@ export const sectionFragment = graphql`
     node_locale
     name
     variant
+    layout
     blocks {
       ... on ContentfulBlock {
         id
         name
+        variant
         text {
           childMdx {
             body

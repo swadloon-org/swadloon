@@ -77,7 +77,13 @@ export const mdxComponents: Partial<
     <Paragraph as={'small'} style={{ display: 'inline-block' }} variant={PARAGRAPH_SIZE.small} {...props} />
   ),
   strong: (props: MDXProps) => (
-    <Paragraph as={'strong'} style={{ display: 'inline-block' }} variantStyle={TEXT_STYLE.bold} {...props} />
+    <Paragraph
+      as={'strong'}
+      style={{ display: 'inline-block' }}
+      variantStyle={TEXT_STYLE.bold}
+      variant={PARAGRAPH_SIZE.large}
+      {...props}
+    />
   ),
 
   /**
