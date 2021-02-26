@@ -9,7 +9,7 @@
     "./lib/**/*"
   ],
   "scripts": {
-    "build": "yarn build:commonjs ",
+    "build": "yarn build:commonjs && yarn build:esm",
     "build:commonjs": "tsc --build tsconfig.build.json",
     "build:esm": "tsc --build tsconfig.build.esm.json",
     "clean": "rimraf -r lib/** && rm -f tsconfig.build.tsbuildinfo",

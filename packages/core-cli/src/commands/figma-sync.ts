@@ -28,13 +28,11 @@ export default class FigmaSync extends Command {
   async run() {
     const env = loadDotEnv<ENV>({
       schema: Env,
-      dotEnvPath: '.env', // TODO: how to resolve CWD (current working directory)
+      dotEnvPath: '.env',
       packageName: 'core-cli',
     });
 
     const { args, flags } = this.parse(FigmaSync);
-
-    process.env.DEBUG = (env as any).DEBUG;
 
     extract({
       figmaFile: env.FIGMA_FILE,

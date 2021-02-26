@@ -1,6 +1,6 @@
 import chalk from 'chalk';
 import debug from 'debug';
-import Figma from 'figma-js';
+import * as Figma from 'figma-js'; // DON'T import Figma from 'figma-js'
 import fs from 'fs';
 import path from 'path';
 import { extractFigmaColors } from '../color/extract-color';
@@ -76,7 +76,7 @@ export function extract({ figmaFile, figmaToken, outputDir }: ExtractConfig) {
       /**
        * Writing all export files
        */
-      const project = JSON.parse(fs.readFileSync(path.join(__dirname, '../../package.json'), 'utf-8'));
+      const project = JSON.parse(fs.readFileSync(path.join(__dirname, '../../../package.json'), 'utf-8'));
       fs.mkdirSync(outputDir, { recursive: true });
 
       Object.keys(outputColorFiles).forEach((fileType: string) => {

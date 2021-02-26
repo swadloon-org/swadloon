@@ -30,7 +30,7 @@
   },
   "oclif": {
     "bin": "nr",
-    "commands": "./lib/commands",
+    "commands": "./lib/src/commands",
     "plugins": [
       "@oclif/plugin-help"
     ]
