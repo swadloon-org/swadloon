@@ -21,6 +21,7 @@ export enum SectionPadding {
 
 export enum SectionLayout {
   switcher = 'switcher',
+  stack = 'stack',
   divider = 'divider',
   banner = 'banner',
   showcase = 'showcase',

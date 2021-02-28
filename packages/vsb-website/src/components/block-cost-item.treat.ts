@@ -3,11 +3,8 @@ import { style } from 'treat';
 
 export const styles = {
   wrapper: style(({ theme, cssTheme }: Theme) => ({
-    position: 'relative',
-  })),
-  costItem: style(({ theme, cssTheme }: Theme) => ({
     display: 'flex',
-    padding: `${cssTheme.sizing.var.x5} 0`,
+    padding: `${cssTheme.sizing.var.x5} 0 0`,
     justifyContent: 'space-between',
     position: 'relative',
     borderTop: `1px solid ${cssTheme.colors.colors.grey[100]}`,
@@ -17,7 +14,7 @@ export const styles = {
       },
     },
   })),
-  costItemLabel: style(({ theme, cssTheme }: Theme) => ({
+  label: style(({ theme, cssTheme }: Theme) => ({
     flex: `80%`,
   })),
 };

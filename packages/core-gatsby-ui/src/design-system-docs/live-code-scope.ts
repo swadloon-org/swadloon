@@ -15,7 +15,7 @@ import {
   Summary,
   Switcher,
 } from '@newrade/core-react-ui';
-import { Section } from '../sections/section';
+import { BaseSection } from '../sections/section-base';
 import { Placeholder } from './utils/placeholder';
 import { PlaceholderMarkdown } from './utils/placeholder-markdown';
 import { Variant } from '@newrade/core-design-system';
@@ -41,7 +41,7 @@ export const liveCodeScope = {
   Placeholder: Placeholder,
   PlaceholderMarkdown: PlaceholderMarkdown,
   SectionSwitcher: SectionSwitcher,
-  Section: Section,
+  Section: BaseSection,
   Stack: Stack,
   Summary: Summary,
   Switcher: Switcher,

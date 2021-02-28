@@ -1,4 +1,5 @@
 import { CommonComponentProps } from '@newrade/core-react-ui';
+import { BlockAPI } from '../api/block.api';
 
 export enum BlockVariant {
   /**
@@ -19,13 +20,4 @@ export enum BlockVariant {
   googleMaps = 'googleMaps',
 }
 
-export type BlockProps = CommonComponentProps & {
-  /**
-   * Optional name
-   */
-  name?: string | null;
-  /**
-   * Controls the visual importance of the section.
-   */
-  variant?: BlockVariant | null | string;
-};
+export type BlockProps = CommonComponentProps & {};

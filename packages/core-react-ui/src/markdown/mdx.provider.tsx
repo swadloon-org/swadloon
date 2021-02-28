@@ -71,29 +71,34 @@ export const mdxComponents: Partial<
    * Inline text semantics
    */
   b: (props: MDXProps) => (
-    <Paragraph as={'b'} style={{ display: 'inline-block' }} variantStyle={TEXT_STYLE.bold} {...props} />
-  ),
-  small: (props: MDXProps) => (
-    <Paragraph as={'small'} style={{ display: 'inline-block' }} variant={PARAGRAPH_SIZE.small} {...props} />
-  ),
-  strong: (props: MDXProps) => (
     <Paragraph
-      as={'strong'}
+      as={'b'}
       style={{ display: 'inline-block' }}
       variantStyle={TEXT_STYLE.bold}
       variant={PARAGRAPH_SIZE.large}
       {...props}
     />
   ),
+  small: (props: MDXProps) => (
+    <Paragraph as={'small'} style={{ display: 'inline-block' }} variant={PARAGRAPH_SIZE.small} {...props} />
+  ),
+  strong: (props: MDXProps) => (
+    <Paragraph as={'strong'} style={{ display: 'inline-block' }} variantStyle={TEXT_STYLE.bold} {...props} />
+  ),
+  em: (props: MDXProps) => (
+    <Paragraph as={'em'} style={{ display: 'inline-block' }} variantStyle={TEXT_STYLE.italic} {...props} />
+  ),
+  del: (props: MDXProps) => <Paragraph as={'del'} style={{ display: 'inline-block' }} {...props} />,
 
   /**
-   * Images
+   * Images & Media
    */
   img: (props: MDXProps) => <img {...props} />,
-
-  /**
-   * Lists
-   */
+  figcaption: (props: MDXProps) => (
+    <figcaption>
+      <Paragraph>{props.children}</Paragraph>{' '}
+    </figcaption>
+  ),
 
   /**
    * Table
@@ -104,6 +109,7 @@ export const mdxComponents: Partial<
   tr: (props: MDXProps) => <TableRow {...props} />,
   td: (props: MDXProps) => <TableCell {...props} />,
   th: (props: MDXProps) => <TableCellHeader {...props} />,
+
   /**
    * Code
    */
@@ -122,16 +128,8 @@ export const mdxComponents: Partial<
       </Suspense>
     ) : null;
   },
-  figcaption: (props: MDXProps) => (
-    <figcaption>
-      <Paragraph>{props.children}</Paragraph>{' '}
-    </figcaption>
-  ),
+
   inlineCode: (props: MDXProps) => <Code>{props.children}</Code>,
-  // pre	Code	```code```
-  // em	Emphasis	_emphasis_
-  // strong	Strong	**strong**
-  // del	Delete	~~strikethrough~~
 
   /**
    * Others

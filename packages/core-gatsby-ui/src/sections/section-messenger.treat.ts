@@ -1,14 +1,10 @@
 import { Theme } from '@newrade/core-react-ui';
 import { style } from 'treat';
 
-//
-// Wrapper
-//
-
 export const styles = {
   wrapper: style(({ theme, cssTheme }: Theme) => ({
-    backgroundColor: '#FFFFFF',
     width: '100%',
+    backgroundColor: cssTheme.colors.colorIntents.background0,
   })),
   grid: style(({ theme, cssTheme }: Theme) => ({
     display: 'grid',
@@ -25,7 +21,7 @@ export const styles = {
         gridTemplateColumns: 'repeat(12, 1fr)',
         gap: cssTheme.sizing.var.x5,
 
-        gridTemplateAreas: `"title title title messages messages messages messages messages messages messages messages ."`,
+        gridTemplateAreas: `"title title title messages messages messages messages messages messages messages . ."`,
       },
     },
   })),

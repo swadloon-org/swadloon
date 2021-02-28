@@ -1,4 +1,4 @@
-import { BlockMarkdown, Section, SectionBaseLayout, SectionPadding } from '@newrade/core-gatsby-ui/src';
+import { BaseSection, BlockMarkdown, SectionBaseLayout, SectionPadding } from '@newrade/core-gatsby-ui/src';
 import {
   BoxV2,
   CommonComponentProps,
@@ -25,7 +25,7 @@ export const SectionFormVasectomy: React.FC<Props> = ({ id, style, className, se
   const { cssTheme } = useTreatTheme();
 
   return (
-    <Section id={id} className={classNames} baseLayout={SectionBaseLayout.center} padding={SectionPadding.none}>
+    <BaseSection id={id} className={classNames} baseLayout={SectionBaseLayout.center} padding={SectionPadding.none}>
       <Stack>
         <BoxV2
           style={{ width: `min(100%, 900px)` }}
@@ -63,6 +63,6 @@ export const SectionFormVasectomy: React.FC<Props> = ({ id, style, className, se
           </Stack>
         </BoxV2>
       </Stack>
-    </Section>
+    </BaseSection>
   );
 };

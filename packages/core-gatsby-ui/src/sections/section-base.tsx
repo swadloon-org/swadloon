@@ -6,7 +6,7 @@ import * as styleRefs from './section.treat';
 
 type Props = SectionProps;
 
-export const Section = React.forwardRef<any, Props>(
+export const BaseSection = React.forwardRef<any, Props>(
   (
     {
       id,
@@ -14,7 +14,7 @@ export const Section = React.forwardRef<any, Props>(
       className,
       variant,
       baseLayout: layout = SectionBaseLayout.center,
-      padding: sectionPadding = SectionPadding.medium,
+      padding: sectionPadding = SectionPadding.large,
       children,
       ...props
     },
@@ -60,10 +60,10 @@ export const Section = React.forwardRef<any, Props>(
           return [cssTheme.sizing.var.x7, 0];
         }
         case SectionPadding.medium: {
-          return [cssTheme.sizing.var.x7, 0];
+          return [cssTheme.sizing.var.x6, 0];
         }
         case SectionPadding.small: {
-          return [cssTheme.sizing.var.x7, 0];
+          return [cssTheme.sizing.var.x5, 0];
         }
         default:
         case SectionPadding.none: {

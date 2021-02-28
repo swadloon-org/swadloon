@@ -1,6 +1,6 @@
 import { BoxV2, Switcher, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
-import { Section } from './section';
+import { BaseSection } from './section-base';
 import { SectionBaseLayout, SectionPadding, SectionProps } from './section.props';
 
 type Props = SectionProps & {
@@ -19,15 +19,15 @@ export const SectionDivider: React.FC<Props> = ({
   LeftBlock,
   ...props
 }) => {
-  const { theme, cssTheme } = useTreatTheme();
+  const { cssTheme } = useTreatTheme();
 
   return (
-    <Section variant={variant} baseLayout={baseLayout} padding={padding}>
+    <BaseSection variant={variant} baseLayout={baseLayout} padding={padding}>
       <Switcher col={2}>
         <BoxV2 padding={[cssTheme.sizing.var.x7, cssTheme.sizing.var.x5]}>{LeftBlock}</BoxV2>
 
         {RightBlock}
       </Switcher>
-    </Section>
+    </BaseSection>
   );
 };

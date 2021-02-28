@@ -1,6 +1,6 @@
 import { Switcher, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
-import { Section } from './section';
+import { BaseSection } from './section-base';
 import { SectionProps } from './section.props';
 
 type Props = SectionProps & {
@@ -10,15 +10,15 @@ type Props = SectionProps & {
 
 export const SectionSwitcher = React.forwardRef<any, Props>(
   ({ id, style, className, variant, baseLayout, padding, RightBlock, LeftBlock, ...props }, ref) => {
-    const { theme, cssTheme } = useTreatTheme();
+    const { cssTheme } = useTreatTheme();
 
     return (
-      <Section variant={variant} baseLayout={baseLayout} padding={padding} ref={ref}>
+      <BaseSection variant={variant} baseLayout={baseLayout} padding={padding} ref={ref}>
         <Switcher col={2} gap={[cssTheme.sizing.var.x6]}>
           {LeftBlock}
           {RightBlock}
         </Switcher>
-      </Section>
+      </BaseSection>
     );
   }
 );

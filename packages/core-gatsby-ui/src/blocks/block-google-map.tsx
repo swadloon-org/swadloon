@@ -1,7 +1,7 @@
 import { GoogleMaps, GoogleMapsInfoWindow, useTreatTheme } from '@newrade/core-react-ui';
 import { Marker } from '@react-google-maps/api';
 import React, { useCallback, useEffect, useState } from 'react';
-import { BlockGoogleMapAPI } from './block-google-map.api';
+import { BlockGoogleMapAPI } from '../api/block-google-map.api';
 import { BlockProps } from './block.props';
 
 type Props = BlockProps &

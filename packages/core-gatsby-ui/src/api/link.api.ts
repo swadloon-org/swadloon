@@ -1,4 +1,4 @@
-import { PageAPI } from '../pages/page.api';
+import { PageAPI } from './page.api';
 
 export type LinkAPI = {
   name: string;

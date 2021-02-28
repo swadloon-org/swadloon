@@ -1,10 +1,9 @@
 import { GatsbyContentfulPageContext } from '@newrade/core-gatsby-config';
-import { BlockVariant, SectionLayout, SectionRenderer } from '@newrade/core-gatsby-ui/src';
+import { SectionAPI, SectionRenderer } from '@newrade/core-gatsby-ui/src';
 import {
   getMetaBasicTags,
   getMetadataOpenGraphWebsiteTags,
   getMetadataTwitterTags,
-  keys,
   OPEN_GRAPH_TYPE,
   useIsSSR,
   useTreatTheme,
@@ -13,7 +12,8 @@ import { graphql, PageProps } from 'gatsby';
 import React from 'react';
 import Helmet from 'react-helmet';
 import { useInView } from 'react-intersection-observer';
-import { ContentfulSection, PageQuery } from '../../types/graphql-types';
+import { BlockCostItemFragment, PageQuery } from '../../types/graphql-types';
+import { BlockCostItem } from '../components/block-cost-items';
 import '../fonts';
 
 const BlockGoogleMap = React.lazy(() =>
@@ -42,18 +42,6 @@ export const PageTemplate: React.FC<ProjectPageProps> = ({ data, location, ...pr
     triggerOnce: true,
   });
   const { cssTheme, theme } = useTreatTheme();
-
-  /**
-   * Sections and blocks
-   */
-  const sectionLayouts = keys(SectionLayout);
-  const blockVariants = keys(BlockVariant);
-
-  /**
-   * Custom sections and blocks
-   */
-  const customSectionLayouts = ['custom_steps', 'custom_formVasectomy'];
-  const customBlockVariants = ['costItem'];
 
   return (
     <div>
@@ -85,16 +73,20 @@ export const PageTemplate: React.FC<ProjectPageProps> = ({ data, location, ...pr
           }
 
           return (
-            <SectionRenderer
+            <SectionRenderer<'customCostItems' | 'customSteps' | 'customFormVasectomy', 'costItem'>
               key={index}
-              section={section as ContentfulSection}
-              // sectionComponents={{
-              //   custom_steps: () => null,
-              //   custom_formVasectomy: () => null,
-              // }}
-              // blockComponents={{
-              //   costItem: (blockProps: any) => <BlockCostItem />,
-              // }}
+              section={section as SectionAPI}
+              sectionComponents={{
+                customCostItems: (props) => <div>{JSON.stringify(props, null, 2)}</div>,
+                customSteps: (props) => <div>{JSON.stringify(props, null, 2)}</div>,
+                customFormVasectomy: (props) => <div>{JSON.stringify(props, null, 2)}</div>,
+              }}
+              blockComponents={{
+                costItem: ({ block, ...props }) => {
+                  const blockProps = block as BlockCostItemFragment;
+                  return <BlockCostItem costItem={blockProps} {...props} />;
+                },
+              }}
             />
           );
         })}

@@ -1,7 +1,8 @@
-import { SectionAPI } from '../sections/section.api';
+import { SectionAPI } from './section.api';
 
 export type PageAPI = {
   name: string;
+  slug: string;
   description: string;
   sections: SectionAPI[];
 };
