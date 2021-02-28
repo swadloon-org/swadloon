@@ -21,7 +21,11 @@ export enum BlockVariant {
 
 export type BlockProps = CommonComponentProps & {
   /**
+   * Optional name
+   */
+  name?: string | null;
+  /**
    * Controls the visual importance of the section.
    */
-  variant?: BlockVariant;
+  variant?: BlockVariant | null | string;
 };

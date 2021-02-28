@@ -8,25 +8,17 @@ type Props = SectionProps & {
   LeftBlock: React.ReactNode;
 };
 
-export const SectionSwitcher: React.FC<Props> = ({
-  id,
-  style,
-  className,
-  variant,
-  baseLayout,
-  padding,
-  RightBlock,
-  LeftBlock,
-  ...props
-}) => {
-  const { theme, cssTheme } = useTreatTheme();
+export const SectionSwitcher = React.forwardRef<any, Props>(
+  ({ id, style, className, variant, baseLayout, padding, RightBlock, LeftBlock, ...props }, ref) => {
+    const { theme, cssTheme } = useTreatTheme();
 
-  return (
-    <Section variant={variant} baseLayout={baseLayout} padding={padding}>
-      <Switcher col={2} gap={[cssTheme.sizing.var.x6]}>
-        {LeftBlock}
-        {RightBlock}
-      </Switcher>
-    </Section>
-  );
-};
+    return (
+      <Section variant={variant} baseLayout={baseLayout} padding={padding} ref={ref}>
+        <Switcher col={2} gap={[cssTheme.sizing.var.x6]}>
+          {LeftBlock}
+          {RightBlock}
+        </Switcher>
+      </Section>
+    );
+  }
+);

@@ -13,12 +13,11 @@ import { graphql, PageProps } from 'gatsby';
 import React from 'react';
 import Helmet from 'react-helmet';
 import { useInView } from 'react-intersection-observer';
-import { ContentfulBlock, PageQuery } from '../../types/graphql-types';
-import { BlockCostItem } from '../components/block-cost-items';
+import { ContentfulSection, PageQuery } from '../../types/graphql-types';
 import '../fonts';
 
-const BlockGoogleMapVSB = React.lazy(() =>
-  import('../components/block-google-map').then((comp) => ({ default: comp.BlockGoogleMapVSB }))
+const BlockGoogleMap = React.lazy(() =>
+  import('@newrade/core-gatsby-ui/src/blocks/block-google-map').then((comp) => ({ default: comp.BlockGoogleMap }))
 );
 export type ProjectPageProps = PageProps<PageQuery, GatsbyContentfulPageContext>;
 
@@ -88,14 +87,14 @@ export const PageTemplate: React.FC<ProjectPageProps> = ({ data, location, ...pr
           return (
             <SectionRenderer
               key={index}
-              section={section as ContentfulBlock}
-              sectionComponents={{
-                custom_steps: () => null,
-                custom_formVasectomy: () => null,
-              }}
-              blockComponents={{
-                costItem: (blockProps: any) => <BlockCostItem />,
-              }}
+              section={section as ContentfulSection}
+              // sectionComponents={{
+              //   custom_steps: () => null,
+              //   custom_formVasectomy: () => null,
+              // }}
+              // blockComponents={{
+              //   costItem: (blockProps: any) => <BlockCostItem />,
+              // }}
             />
           );
         })}

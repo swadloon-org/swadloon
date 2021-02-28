@@ -24,6 +24,7 @@ export enum SectionLayout {
   divider = 'divider',
   banner = 'banner',
   showcase = 'showcase',
+  messenger = 'messenger',
 }
 
 export type SectionProps = CommonComponentProps & {

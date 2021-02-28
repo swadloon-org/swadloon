@@ -16,6 +16,7 @@ export * from './design-system/default-typography';
 export * from './effect/background';
 export * from './effect/background-effect';
 export * from './effect/image';
+export * from './error/error-boundary';
 export * from './form/form';
 export * from './form/input-error';
 export * from './form/input-label';
