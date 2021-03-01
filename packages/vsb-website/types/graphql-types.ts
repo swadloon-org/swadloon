@@ -807,7 +807,6 @@ export type ContentfulBlockCostItemFieldsEnum =
   | 'section___internal___owner'
   | 'section___internal___type'
   | 'section___name'
-  | 'section___variant'
   | 'section___layout'
   | 'section___page'
   | 'section___page___id'
@@ -831,7 +830,6 @@ export type ContentfulBlockCostItemFieldsEnum =
   | 'section___page___sections___id'
   | 'section___page___sections___children'
   | 'section___page___sections___name'
-  | 'section___page___sections___variant'
   | 'section___page___sections___layout'
   | 'section___page___sections___page'
   | 'section___page___sections___spaceId'
@@ -839,6 +837,7 @@ export type ContentfulBlockCostItemFieldsEnum =
   | 'section___page___sections___createdAt'
   | 'section___page___sections___updatedAt'
   | 'section___page___sections___node_locale'
+  | 'section___page___sections___variant'
   | 'section___page___link'
   | 'section___page___link___id'
   | 'section___page___link___children'
@@ -873,6 +872,7 @@ export type ContentfulBlockCostItemFieldsEnum =
   | 'section___sys___type'
   | 'section___sys___revision'
   | 'section___node_locale'
+  | 'section___variant'
   | 'text___id'
   | 'text___parent___id'
   | 'text___parent___parent___id'
@@ -1452,7 +1452,6 @@ export type ContentfulBlockFieldsEnum =
   | 'section___internal___owner'
   | 'section___internal___type'
   | 'section___name'
-  | 'section___variant'
   | 'section___layout'
   | 'section___page'
   | 'section___page___id'
@@ -1476,7 +1475,6 @@ export type ContentfulBlockFieldsEnum =
   | 'section___page___sections___id'
   | 'section___page___sections___children'
   | 'section___page___sections___name'
-  | 'section___page___sections___variant'
   | 'section___page___sections___layout'
   | 'section___page___sections___page'
   | 'section___page___sections___spaceId'
@@ -1484,6 +1482,7 @@ export type ContentfulBlockFieldsEnum =
   | 'section___page___sections___createdAt'
   | 'section___page___sections___updatedAt'
   | 'section___page___sections___node_locale'
+  | 'section___page___sections___variant'
   | 'section___page___link'
   | 'section___page___link___id'
   | 'section___page___link___children'
@@ -1518,6 +1517,7 @@ export type ContentfulBlockFieldsEnum =
   | 'section___sys___type'
   | 'section___sys___revision'
   | 'section___node_locale'
+  | 'section___variant'
   | 'text___id'
   | 'text___parent___id'
   | 'text___parent___parent___id'
@@ -1665,7 +1665,6 @@ export type ContentfulBlockFieldsEnum =
   | 'link___page___sections___id'
   | 'link___page___sections___children'
   | 'link___page___sections___name'
-  | 'link___page___sections___variant'
   | 'link___page___sections___layout'
   | 'link___page___sections___page'
   | 'link___page___sections___spaceId'
@@ -1673,6 +1672,7 @@ export type ContentfulBlockFieldsEnum =
   | 'link___page___sections___createdAt'
   | 'link___page___sections___updatedAt'
   | 'link___page___sections___node_locale'
+  | 'link___page___sections___variant'
   | 'link___page___link'
   | 'link___page___link___id'
   | 'link___page___link___children'
@@ -1721,7 +1721,6 @@ export type ContentfulBlockFieldsEnum =
   | 'link___block___section___id'
   | 'link___block___section___children'
   | 'link___block___section___name'
-  | 'link___block___section___variant'
   | 'link___block___section___layout'
   | 'link___block___section___page'
   | 'link___block___section___spaceId'
@@ -1729,6 +1728,7 @@ export type ContentfulBlockFieldsEnum =
   | 'link___block___section___createdAt'
   | 'link___block___section___updatedAt'
   | 'link___block___section___node_locale'
+  | 'link___block___section___variant'
   | 'link___block___text___id'
   | 'link___block___text___children'
   | 'link___block___text___text'
@@ -1942,7 +1942,6 @@ export type ContentfulBlockFieldsEnum =
   | 'medias___block___section___id'
   | 'medias___block___section___children'
   | 'medias___block___section___name'
-  | 'medias___block___section___variant'
   | 'medias___block___section___layout'
   | 'medias___block___section___page'
   | 'medias___block___section___spaceId'
@@ -1950,6 +1949,7 @@ export type ContentfulBlockFieldsEnum =
   | 'medias___block___section___createdAt'
   | 'medias___block___section___updatedAt'
   | 'medias___block___section___node_locale'
+  | 'medias___block___section___variant'
   | 'medias___block___text___id'
   | 'medias___block___text___children'
   | 'medias___block___text___text'
@@ -2291,7 +2291,6 @@ export type ContentfulBlockGoogleMapFieldsEnum =
   | 'section___internal___owner'
   | 'section___internal___type'
   | 'section___name'
-  | 'section___variant'
   | 'section___layout'
   | 'section___page'
   | 'section___page___id'
@@ -2315,7 +2314,6 @@ export type ContentfulBlockGoogleMapFieldsEnum =
   | 'section___page___sections___id'
   | 'section___page___sections___children'
   | 'section___page___sections___name'
-  | 'section___page___sections___variant'
   | 'section___page___sections___layout'
   | 'section___page___sections___page'
   | 'section___page___sections___spaceId'
@@ -2323,6 +2321,7 @@ export type ContentfulBlockGoogleMapFieldsEnum =
   | 'section___page___sections___createdAt'
   | 'section___page___sections___updatedAt'
   | 'section___page___sections___node_locale'
+  | 'section___page___sections___variant'
   | 'section___page___link'
   | 'section___page___link___id'
   | 'section___page___link___children'
@@ -2357,6 +2356,7 @@ export type ContentfulBlockGoogleMapFieldsEnum =
   | 'section___sys___type'
   | 'section___sys___revision'
   | 'section___node_locale'
+  | 'section___variant'
   | 'spaceId'
   | 'contentful_id'
   | 'createdAt'
@@ -4229,7 +4229,6 @@ export type ContentfulLinkFieldsEnum =
   | 'page___sections___internal___owner'
   | 'page___sections___internal___type'
   | 'page___sections___name'
-  | 'page___sections___variant'
   | 'page___sections___layout'
   | 'page___sections___page'
   | 'page___sections___page___id'
@@ -4251,6 +4250,7 @@ export type ContentfulLinkFieldsEnum =
   | 'page___sections___sys___type'
   | 'page___sections___sys___revision'
   | 'page___sections___node_locale'
+  | 'page___sections___variant'
   | 'page___link'
   | 'page___link___id'
   | 'page___link___parent___id'
@@ -4433,7 +4433,6 @@ export type ContentfulLinkFieldsEnum =
   | 'block___section___internal___owner'
   | 'block___section___internal___type'
   | 'block___section___name'
-  | 'block___section___variant'
   | 'block___section___layout'
   | 'block___section___page'
   | 'block___section___page___id'
@@ -4455,6 +4454,7 @@ export type ContentfulLinkFieldsEnum =
   | 'block___section___sys___type'
   | 'block___section___sys___revision'
   | 'block___section___node_locale'
+  | 'block___section___variant'
   | 'block___text___id'
   | 'block___text___parent___id'
   | 'block___text___parent___children'
@@ -5378,7 +5378,6 @@ export type ContentfulMediaCollectionFieldsEnum =
   | 'block___section___internal___owner'
   | 'block___section___internal___type'
   | 'block___section___name'
-  | 'block___section___variant'
   | 'block___section___layout'
   | 'block___section___page'
   | 'block___section___page___id'
@@ -5400,6 +5399,7 @@ export type ContentfulMediaCollectionFieldsEnum =
   | 'block___section___sys___type'
   | 'block___section___sys___revision'
   | 'block___section___node_locale'
+  | 'block___section___variant'
   | 'block___text___id'
   | 'block___text___parent___id'
   | 'block___text___parent___children'
@@ -6028,7 +6028,6 @@ export type ContentfulMediaFieldsEnum =
   | 'mediacollection___block___section___id'
   | 'mediacollection___block___section___children'
   | 'mediacollection___block___section___name'
-  | 'mediacollection___block___section___variant'
   | 'mediacollection___block___section___layout'
   | 'mediacollection___block___section___page'
   | 'mediacollection___block___section___spaceId'
@@ -6036,6 +6035,7 @@ export type ContentfulMediaFieldsEnum =
   | 'mediacollection___block___section___createdAt'
   | 'mediacollection___block___section___updatedAt'
   | 'mediacollection___block___section___node_locale'
+  | 'mediacollection___block___section___variant'
   | 'mediacollection___block___text___id'
   | 'mediacollection___block___text___children'
   | 'mediacollection___block___text___text'
@@ -6375,7 +6375,6 @@ export type ContentfulNavigationFieldsEnum =
   | 'links___page___sections___id'
   | 'links___page___sections___children'
   | 'links___page___sections___name'
-  | 'links___page___sections___variant'
   | 'links___page___sections___layout'
   | 'links___page___sections___page'
   | 'links___page___sections___spaceId'
@@ -6383,6 +6382,7 @@ export type ContentfulNavigationFieldsEnum =
   | 'links___page___sections___createdAt'
   | 'links___page___sections___updatedAt'
   | 'links___page___sections___node_locale'
+  | 'links___page___sections___variant'
   | 'links___page___link'
   | 'links___page___link___id'
   | 'links___page___link___children'
@@ -6431,7 +6431,6 @@ export type ContentfulNavigationFieldsEnum =
   | 'links___block___section___id'
   | 'links___block___section___children'
   | 'links___block___section___name'
-  | 'links___block___section___variant'
   | 'links___block___section___layout'
   | 'links___block___section___page'
   | 'links___block___section___spaceId'
@@ -6439,6 +6438,7 @@ export type ContentfulNavigationFieldsEnum =
   | 'links___block___section___createdAt'
   | 'links___block___section___updatedAt'
   | 'links___block___section___node_locale'
+  | 'links___block___section___variant'
   | 'links___block___text___id'
   | 'links___block___text___children'
   | 'links___block___text___text'
@@ -7499,7 +7499,6 @@ export type ContentfulPageFieldsEnum =
   | 'sections___internal___owner'
   | 'sections___internal___type'
   | 'sections___name'
-  | 'sections___variant'
   | 'sections___layout'
   | 'sections___page'
   | 'sections___page___id'
@@ -7523,7 +7522,6 @@ export type ContentfulPageFieldsEnum =
   | 'sections___page___sections___id'
   | 'sections___page___sections___children'
   | 'sections___page___sections___name'
-  | 'sections___page___sections___variant'
   | 'sections___page___sections___layout'
   | 'sections___page___sections___page'
   | 'sections___page___sections___spaceId'
@@ -7531,6 +7529,7 @@ export type ContentfulPageFieldsEnum =
   | 'sections___page___sections___createdAt'
   | 'sections___page___sections___updatedAt'
   | 'sections___page___sections___node_locale'
+  | 'sections___page___sections___variant'
   | 'sections___page___link'
   | 'sections___page___link___id'
   | 'sections___page___link___children'
@@ -7565,6 +7564,7 @@ export type ContentfulPageFieldsEnum =
   | 'sections___sys___type'
   | 'sections___sys___revision'
   | 'sections___node_locale'
+  | 'sections___variant'
   | 'link'
   | 'link___id'
   | 'link___parent___id'
@@ -7628,7 +7628,6 @@ export type ContentfulPageFieldsEnum =
   | 'link___page___sections___id'
   | 'link___page___sections___children'
   | 'link___page___sections___name'
-  | 'link___page___sections___variant'
   | 'link___page___sections___layout'
   | 'link___page___sections___page'
   | 'link___page___sections___spaceId'
@@ -7636,6 +7635,7 @@ export type ContentfulPageFieldsEnum =
   | 'link___page___sections___createdAt'
   | 'link___page___sections___updatedAt'
   | 'link___page___sections___node_locale'
+  | 'link___page___sections___variant'
   | 'link___page___link'
   | 'link___page___link___id'
   | 'link___page___link___children'
@@ -7684,7 +7684,6 @@ export type ContentfulPageFieldsEnum =
   | 'link___block___section___id'
   | 'link___block___section___children'
   | 'link___block___section___name'
-  | 'link___block___section___variant'
   | 'link___block___section___layout'
   | 'link___block___section___page'
   | 'link___block___section___spaceId'
@@ -7692,6 +7691,7 @@ export type ContentfulPageFieldsEnum =
   | 'link___block___section___createdAt'
   | 'link___block___section___updatedAt'
   | 'link___block___section___node_locale'
+  | 'link___block___section___variant'
   | 'link___block___text___id'
   | 'link___block___text___children'
   | 'link___block___text___text'
@@ -8079,7 +8079,6 @@ export type ContentfulSection = Node & {
   children: Array<Node>;
   internal: Internal;
   name?: Maybe<Scalars['String']>;
-  variant?: Maybe<Scalars['String']>;
   layout?: Maybe<Scalars['String']>;
   blocks?: Maybe<Array<Maybe<ContentfulBlockContentfulBlockCostItemContentfulBlockGoogleMapUnion>>>;
   page?: Maybe<Array<Maybe<ContentfulPage>>>;
@@ -8089,6 +8088,7 @@ export type ContentfulSection = Node & {
   updatedAt?: Maybe<Scalars['Date']>;
   sys?: Maybe<ContentfulSectionSys>;
   node_locale?: Maybe<Scalars['String']>;
+  variant?: Maybe<Scalars['String']>;
 };
 
 
@@ -8222,7 +8222,6 @@ export type ContentfulSectionFieldsEnum =
   | 'internal___owner'
   | 'internal___type'
   | 'name'
-  | 'variant'
   | 'layout'
   | 'page'
   | 'page___id'
@@ -8282,7 +8281,6 @@ export type ContentfulSectionFieldsEnum =
   | 'page___sections___internal___owner'
   | 'page___sections___internal___type'
   | 'page___sections___name'
-  | 'page___sections___variant'
   | 'page___sections___layout'
   | 'page___sections___page'
   | 'page___sections___page___id'
@@ -8304,6 +8302,7 @@ export type ContentfulSectionFieldsEnum =
   | 'page___sections___sys___type'
   | 'page___sections___sys___revision'
   | 'page___sections___node_locale'
+  | 'page___sections___variant'
   | 'page___link'
   | 'page___link___id'
   | 'page___link___parent___id'
@@ -8439,7 +8438,8 @@ export type ContentfulSectionFieldsEnum =
   | 'sys___contentType___sys___linkType'
   | 'sys___contentType___sys___id'
   | 'sys___contentType___sys___contentful_id'
-  | 'node_locale';
+  | 'node_locale'
+  | 'variant';
 
 export type ContentfulSectionFilterInput = {
   id?: Maybe<StringQueryOperatorInput>;
@@ -8447,7 +8447,6 @@ export type ContentfulSectionFilterInput = {
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
   name?: Maybe<StringQueryOperatorInput>;
-  variant?: Maybe<StringQueryOperatorInput>;
   layout?: Maybe<StringQueryOperatorInput>;
   page?: Maybe<ContentfulPageFilterListInput>;
   spaceId?: Maybe<StringQueryOperatorInput>;
@@ -8456,6 +8455,7 @@ export type ContentfulSectionFilterInput = {
   updatedAt?: Maybe<DateQueryOperatorInput>;
   sys?: Maybe<ContentfulSectionSysFilterInput>;
   node_locale?: Maybe<StringQueryOperatorInput>;
+  variant?: Maybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulSectionFilterListInput = {
@@ -11737,7 +11737,6 @@ export type QueryContentfulSectionArgs = {
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
   name?: Maybe<StringQueryOperatorInput>;
-  variant?: Maybe<StringQueryOperatorInput>;
   layout?: Maybe<StringQueryOperatorInput>;
   page?: Maybe<ContentfulPageFilterListInput>;
   spaceId?: Maybe<StringQueryOperatorInput>;
@@ -11746,6 +11745,7 @@ export type QueryContentfulSectionArgs = {
   updatedAt?: Maybe<DateQueryOperatorInput>;
   sys?: Maybe<ContentfulSectionSysFilterInput>;
   node_locale?: Maybe<StringQueryOperatorInput>;
+  variant?: Maybe<StringQueryOperatorInput>;
 };
 
 

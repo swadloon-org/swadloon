@@ -2,7 +2,7 @@ import { ButtonSize, ButtonVariant } from '@newrade/core-design-system';
 import { Button, ErrorBoundary, Stack, useIsSSR, useTreatTheme } from '@newrade/core-react-ui';
 import { IoArrowForwardOutline } from '@react-icons/all-files/io5/IoArrowForwardOutline';
 import debug from 'debug';
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import { GatsbyLink } from '..';
 import { BlockGoogleMapAPI } from '../api/block-google-map.api';
 import { BlockAPI } from '../api/block.api';
@@ -13,10 +13,14 @@ const log = debug('newrade:core-gatsby-ui:block-renderer');
 const logWarn = log.extend('warn');
 const logError = log.extend('error');
 
-type Props = BlockProps & {
+type Props<CustomBlockVariants extends string = ''> = BlockProps & {
   inView?: boolean;
   block?: BlockAPI | BlockGoogleMapAPI | null;
-  blockComponents?: { [key: string]: (props: BlockProps & { block: BlockAPI }) => React.ReactElement | null };
+  blockComponents?: {
+    [key in CustomBlockVariants | BlockVariant]?: (
+      props: BlockProps & { block: BlockAPI }
+    ) => React.ReactElement | null;
+  };
 };
 
 const BlockGoogleMap = React.lazy(() =>
@@ -26,7 +30,12 @@ const BlockGoogleMap = React.lazy(() =>
 /**
  * Renders a block according to its variant (type)
  */
-export const BlockRenderer: React.FC<Props> = ({ block, inView, blockComponents, ...props }) => {
+export function BlockRenderer<CustomBlockVariants extends string>({
+  block,
+  inView,
+  blockComponents,
+  ...props
+}: PropsWithChildren<Props<CustomBlockVariants>>) {
   const isSSR = useIsSSR();
   const { cssTheme, theme } = useTreatTheme();
 
@@ -57,7 +66,7 @@ export const BlockRenderer: React.FC<Props> = ({ block, inView, blockComponents,
       return (
         <ErrorBoundary>
           <Stack gap={[cssTheme.sizing.var.x5]}>
-            <BlockMarkdown>{blockText.text?.childMdx?.body}</BlockMarkdown>
+            <BlockMarkdown block={blockText}>{blockText.text?.childMdx?.body}</BlockMarkdown>
 
             {blockText.link?.page?.slug ? (
               <Button
@@ -79,7 +88,7 @@ export const BlockRenderer: React.FC<Props> = ({ block, inView, blockComponents,
       return (
         <ErrorBoundary>
           <Stack gap={[cssTheme.sizing.var.x5]}>
-            <BlockMarkdown>{blockText.text?.childMdx?.body}</BlockMarkdown>
+            <BlockMarkdown block={blockText}>{blockText.text?.childMdx?.body}</BlockMarkdown>
 
             {blockText.link?.page?.slug ? (
               <Button
@@ -96,8 +105,8 @@ export const BlockRenderer: React.FC<Props> = ({ block, inView, blockComponents,
       );
     }
     default: {
-      if (block.variant && blockComponents && blockComponents[block.variant]) {
-        const CustomBlock = blockComponents[block.variant];
+      if (block.variant && blockComponents && blockComponents[block.variant as CustomBlockVariants | BlockVariant]) {
+        const CustomBlock = blockComponents[block.variant as CustomBlockVariants | BlockVariant] as React.ElementType;
         if (!CustomBlock) {
           return null;
         }
@@ -108,4 +117,4 @@ export const BlockRenderer: React.FC<Props> = ({ block, inView, blockComponents,
       return null;
     }
   }
-};
+}

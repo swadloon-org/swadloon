@@ -12,7 +12,6 @@ import {
 } from '@newrade/core-design-system';
 import { GatsbyLink } from '@newrade/core-gatsby-ui/src';
 import ExpoScaleEase from '@newrade/core-gsap-ui/lib/plugins/EasePack';
-import MorphSVGPlugin from '@newrade/core-gsap-ui/lib/plugins/MorphSVGPlugin';
 import ScrollTrigger from '@newrade/core-gsap-ui/lib/plugins/ScrollTrigger';
 import { gsap } from '@newrade/core-gsap-ui/src';
 import {
@@ -108,7 +107,7 @@ export const Layout = React.memo<LayoutProps>((props) => {
   useAnimateNavbarDesktop({ navbarRef, whiteStyle: navbarStyle === 'white', viewport });
   useAnimateNavbarMobile({ navbarRef, whiteStyle: navbarStyle === 'white', viewport });
 
-  gsap.registerPlugin(ScrollTrigger, ExpoScaleEase, MorphSVGPlugin);
+  gsap.registerPlugin(ScrollTrigger, ExpoScaleEase);
 
   useEffect(() => {
     setTimeout(() => {

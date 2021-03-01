@@ -1,5 +1,6 @@
-import { PageAPI } from './page.api';
 import { BlockVariant } from '../blocks/block.props';
+import { LinkAPI } from './link.api';
+import { MediaCollectionAPI } from './media-collection.api';
 
 export type BlockAPI = {
   id: string;
@@ -11,8 +12,6 @@ export type BlockAPI = {
       body: string;
     } | null;
   };
-  link?: {
-    label?: string;
-    page?: Partial<PageAPI>;
-  };
+  link?: LinkAPI;
+  medias?: MediaCollectionAPI[];
 };

@@ -5,7 +5,7 @@ import { useInView } from 'react-intersection-observer';
 import { BlockAPI } from '../api/block.api';
 import { SectionAPI } from '../api/section.api';
 import { BlockRenderer } from '../blocks/block-renderer';
-import { BlockProps } from '../blocks/block.props';
+import { BlockProps, BlockVariant } from '../blocks/block.props';
 import { SectionMessenger } from './section-messenger';
 import { SectionStack } from './section-stack';
 import { SectionSwitcher } from './section-switcher';
@@ -17,8 +17,14 @@ const logError = log.extend('error');
 
 type Props<CustomSectionLayouts extends string = '', CustomBlockVariants extends string = ''> = {
   section: SectionAPI;
-  sectionComponents?: { [key in CustomSectionLayouts]: (props: { section: SectionAPI }) => React.ReactNode };
-  blockComponents?: { [key in CustomBlockVariants]: (props: BlockProps & { block: BlockAPI }) => React.ReactNode };
+  sectionComponents?: {
+    [key in CustomSectionLayouts | SectionLayout]?: (props: { section: SectionAPI }) => React.ReactElement | null;
+  };
+  blockComponents?: {
+    [key in CustomBlockVariants | BlockVariant]?: (
+      props: BlockProps & { block: BlockAPI }
+    ) => React.ReactElement | null;
+  };
 };
 
 /**
@@ -83,8 +89,20 @@ export function SectionRenderer<CustomSectionLayouts extends string, CustomBlock
           <SectionSwitcher
             ref={ref}
             variant={section.variant}
-            LeftBlock={<BlockRenderer blockComponents={blockComponents} block={leftBlock} inView={sectionInView} />}
-            RightBlock={<BlockRenderer blockComponents={blockComponents} block={rightBlock} inView={sectionInView} />}
+            LeftBlock={
+              <BlockRenderer<CustomBlockVariants>
+                blockComponents={blockComponents}
+                block={leftBlock}
+                inView={sectionInView}
+              />
+            }
+            RightBlock={
+              <BlockRenderer<CustomBlockVariants>
+                blockComponents={blockComponents}
+                block={rightBlock}
+                inView={sectionInView}
+              />
+            }
           ></SectionSwitcher>
         );
       }
@@ -102,11 +120,22 @@ export function SectionRenderer<CustomSectionLayouts extends string, CustomBlock
           <SectionMessenger
             ref={ref}
             variant={section.variant}
-            LeftBlock={<BlockRenderer blockComponents={blockComponents} block={leftBlock} inView={sectionInView} />}
+            LeftBlock={
+              <BlockRenderer<CustomBlockVariants>
+                blockComponents={blockComponents}
+                block={leftBlock}
+                inView={sectionInView}
+              />
+            }
             RightBlocks={
               <>
                 {rightBlocks.map((block, index) => (
-                  <BlockRenderer blockComponents={blockComponents} key={index} block={block} inView={sectionInView} />
+                  <BlockRenderer<CustomBlockVariants>
+                    blockComponents={blockComponents}
+                    key={index}
+                    block={block}
+                    inView={sectionInView}
+                  />
                 ))}
               </>
             }
