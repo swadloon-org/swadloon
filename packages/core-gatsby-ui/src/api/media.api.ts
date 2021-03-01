@@ -1,9 +1,12 @@
 export type MediaAPI = {
-  name?: string;
+  /**
+   * name should be required
+   */
+  name?: string | null;
   media?: {
     title?: string;
     description?: string;
     file?: any;
   };
-  backgroundPositionY?: string;
+  backgroundPositionY?: string | null;
 };

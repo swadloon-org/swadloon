@@ -7,7 +7,7 @@ export type NavItemAPI = {
   /**
    * Optional display name
    */
-  displayName?: string;
+  displayName?: string | null;
   /**
    * Path or slug for the directory or page
    * @example /path /path/my-page/

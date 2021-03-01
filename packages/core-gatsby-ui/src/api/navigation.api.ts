@@ -9,5 +9,5 @@ export type NavigationAPI = {
   /**
    * Navigation items
    */
-  subNavigation?: NavigationAPI[];
+  subNavigation?: (NavigationAPI | null | undefined)[] | null;
 };

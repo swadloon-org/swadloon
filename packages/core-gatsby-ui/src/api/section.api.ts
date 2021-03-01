@@ -3,8 +3,11 @@ import { BlockAPI } from '../api/block.api';
 import { SectionLayout } from '../sections/section.props';
 
 export type SectionAPI = {
+  /**
+   * name should be required
+   */
   name?: string | null;
   layout?: SectionLayout | null | string;
-  blocks?: (BlockAPI | null | undefined)[] | null;
   variant?: Variant;
+  blocks?: (BlockAPI | null | undefined)[] | null;
 };

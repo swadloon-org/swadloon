@@ -1,11 +1,13 @@
+import { CompanyAddressAPI } from './company-address.api';
+import { CompanyInfoAPI } from './company-info.api';
 import { NavigationAPI } from './navigation.api';
 import { PageAPI } from './page.api';
 import { TranslationAPI } from './translation.api';
 
 export type SiteAPI = {
   name: string;
-  companyInfo: any;
-  companyAddresses: any;
+  companyInfo: CompanyInfoAPI;
+  companyAddresses: CompanyAddressAPI;
   translation: TranslationAPI;
   navigation: NavigationAPI[];
   pages: PageAPI[];
