@@ -9,11 +9,11 @@ import { BlockProps, BlockVariant } from '../blocks/block.props';
 import { SectionMessenger } from './section-messenger';
 import { SectionStack } from './section-stack';
 import { SectionSwitcher } from './section-switcher';
-import { SectionLayout } from './section.props';
+import { SectionLayout, SectionProps } from './section.props';
 
 const log = debug('newrade:core-gatsby-ui:section-renderer');
 const logWarn = log.extend('warn');
-const logError = log.extend('error');
+const logError = log.extend('error'); // deepscan-disable-line UNUSED_DECL
 
 type Props<CustomSectionLayouts extends string = '', CustomBlockVariants extends string = ''> = {
   section: SectionAPI;
@@ -54,6 +54,15 @@ export function SectionRenderer<CustomSectionLayouts extends string, CustomBlock
 
     log(`rendering: ${section.name}`);
 
+    /**
+     * Custom components
+     */
+    if (sectionComponents && sectionComponents[sectionLayout]) {
+      const CustomSection = sectionComponents[sectionLayout] as React.ElementType<SectionProps | SectionAPI>;
+
+      return <CustomSection section={section} />;
+    }
+
     switch (sectionLayout) {
       case SectionLayout.stack: {
         if (!blocks?.length) {
@@ -64,7 +73,7 @@ export function SectionRenderer<CustomSectionLayouts extends string, CustomBlock
         return (
           <SectionStack
             ref={ref}
-            variant={section.variant}
+            section={section}
             Blocks={
               <>
                 {blocks.map((block, index) => (
@@ -88,7 +97,7 @@ export function SectionRenderer<CustomSectionLayouts extends string, CustomBlock
         return (
           <SectionSwitcher
             ref={ref}
-            variant={section.variant}
+            section={section}
             LeftBlock={
               <BlockRenderer<CustomBlockVariants>
                 blockComponents={blockComponents}
@@ -119,7 +128,7 @@ export function SectionRenderer<CustomSectionLayouts extends string, CustomBlock
         return (
           <SectionMessenger
             ref={ref}
-            variant={section.variant}
+            section={section}
             LeftBlock={
               <BlockRenderer<CustomBlockVariants>
                 blockComponents={blockComponents}

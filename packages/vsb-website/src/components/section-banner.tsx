@@ -42,11 +42,10 @@ export const SectionBanner: React.FC<Props> = ({ id, style, className, section, 
       repeat: Infinity,
     });
 
-    // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
     return () => {
       tween.kill();
     };
-  }, [ref.current]);
+  }, [ref, styles.icon]);
 
   function handleScrollToNextSection() {
     const wrapper = ref.current;

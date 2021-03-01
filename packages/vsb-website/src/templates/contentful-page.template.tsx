@@ -14,6 +14,7 @@ import Helmet from 'react-helmet';
 import { useInView } from 'react-intersection-observer';
 import { BlockCostItemFragment, PageQuery } from '../../types/graphql-types';
 import { BlockCostItem } from '../components/block-cost-items';
+import { SectionBanner } from '../components/section-banner';
 import '../fonts';
 
 export type ProjectPageProps = PageProps<PageQuery, GatsbyContentfulPageContext>;
@@ -74,6 +75,7 @@ export const PageTemplate: React.FC<ProjectPageProps> = ({ data, location, ...pr
               key={index}
               section={section as SectionAPI}
               sectionComponents={{
+                banner: (props) => <SectionBanner></SectionBanner>,
                 customCostItems: (props) => <div>{JSON.stringify(props, null, 2)}</div>,
                 customSteps: (props) => <div>{JSON.stringify(props, null, 2)}</div>,
                 customFormVasectomy: (props) => <div>{JSON.stringify(props, null, 2)}</div>,

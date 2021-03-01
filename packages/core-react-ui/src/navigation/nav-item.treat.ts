@@ -5,7 +5,7 @@ import { getCSSColor } from '../utilities/colors.utilities';
 export const styles = {
   wrapper: style(({ cssTheme, theme }: Theme) => ({
     position: 'relative',
-    padding: `${cssTheme.sizing.var.x3} ${cssTheme.layout.var.contentMargins}`,
+    padding: `${cssTheme.sizing.var.x3} ${cssTheme.sizing.var.x4}`,
     color: cssTheme.colors.colorIntents.secondaryText,
   })),
   active: style(({ cssTheme, theme }: Theme) => ({

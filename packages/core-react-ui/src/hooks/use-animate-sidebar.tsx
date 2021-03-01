@@ -7,17 +7,19 @@ import { useBodyScrollLock } from './use-body-scroll-lock';
 export function useAnimateSideBar({
   sidebarOpened,
   disableBodyScroll,
-  ref,
+  sideBarRef,
+  sideBarBackdropRef,
 }: {
   sidebarOpened?: boolean;
   disableBodyScroll?: boolean;
-  ref: React.MutableRefObject<HTMLDivElement | null>;
+  sideBarRef: React.MutableRefObject<HTMLDivElement | null>;
+  sideBarBackdropRef: React.MutableRefObject<HTMLDivElement | null>;
 }) {
   const [gsapLoaded, setGsapLoaded] = useState<boolean>(false);
   const [animationReady, setAnimationReady] = useState<boolean>(false);
   const [locks, documentListenerAdded] = useBodyScrollLock({
     disableScrolling: isMobile && disableBodyScroll && sidebarOpened,
-    ref,
+    ref: sideBarRef,
   });
 
   useEffect(() => {
@@ -28,10 +30,14 @@ export function useAnimateSideBar({
   }, []);
 
   useEffect(() => {
-    const sidebarRef = ref?.current;
+    const sidebarRef = sideBarRef?.current;
     const duration = 0.2;
 
     if (!sidebarRef) {
+      return;
+    }
+
+    if (!sideBarBackdropRef) {
       return;
     }
 
@@ -45,28 +51,46 @@ export function useAnimateSideBar({
         x: `-100%`,
       });
 
+      TweenMax.to(sideBarBackdropRef.current, {
+        opacity: `0`,
+        pointerEvents: 'none',
+      });
+
       setAnimationReady(true);
+      return;
     }
 
     if (sidebarOpened) {
       TweenMax.to(sidebarRef, {
+        delay: `100ms`,
         duration: duration,
         ease: `power4.out`,
         x: `0`,
+        scrollTo: 0,
       });
 
-      TweenMax.to(sidebarRef, {
-        duration: 0,
-        scrollTo: 0,
+      TweenMax.to(sideBarBackdropRef.current, {
+        autoAlpha: 1,
+        duration,
+        opacity: `1`,
+        pointerEvents: 'auto',
       });
     }
 
     if (!sidebarOpened) {
       TweenMax.to(sidebarRef, {
+        delay: `100ms`,
         duration: duration,
         ease: `power4.int`,
         x: `-100%`,
       });
+
+      TweenMax.to(sideBarBackdropRef.current, {
+        delay: 0.1,
+        duration,
+        opacity: `0`,
+        pointerEvents: 'none',
+      });
     }
-  }, [gsapLoaded, sidebarOpened]);
+  }, [gsapLoaded, sidebarOpened, sideBarRef, sideBarBackdropRef]);
 }

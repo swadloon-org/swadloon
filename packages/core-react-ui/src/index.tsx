@@ -54,6 +54,7 @@ export * from './markdown/markdown-css';
 export * from './markdown/mdx.provider';
 export * from './models/open-graph-metadata.model';
 export * from './models/twitter-metadata.model';
+export * from './navigation/desktop-sidebar';
 export * from './navigation/mobile-sidebar';
 export * from './navigation/nav-item';
 export * from './navigation/nav-item-group';

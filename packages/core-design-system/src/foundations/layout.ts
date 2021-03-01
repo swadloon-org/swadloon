@@ -107,7 +107,8 @@ export interface Layout<Override extends undefined | string = undefined> {
     chatBubble: number;
     notifications: number;
     navBar: number;
-    sideBar: number;
+    sideBarMobile: number;
+    sideBarDesktop: number;
     dialog: number;
     content: number;
   };

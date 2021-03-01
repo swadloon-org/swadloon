@@ -83,7 +83,7 @@ export const Layout = React.memo<LayoutProps>((props) => {
 
       {!isSSR && (
         <React.Suspense fallback={<div />}>
-          <MobileSideBar sidebarOpened={sidebarOpened} fullHeight={false} disableBodyScroll={true}>
+          <MobileSideBar sidebarOpened={sidebarOpened} disableBodyScroll={true}>
             <Stack>
               <BoxV2
                 padding={[cssTheme.sizing.var.x4, cssTheme.layout.var.contentMargins, cssTheme.sizing.var.x4]}

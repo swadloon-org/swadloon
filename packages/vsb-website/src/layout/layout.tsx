@@ -8,6 +8,7 @@ import {
   PARAGRAPH_SIZE,
   TEXT_LEVEL,
   TEXT_STYLE,
+  VIEWPORT,
 } from '@newrade/core-design-system';
 import { GatsbyLink } from '@newrade/core-gatsby-ui/src';
 import ExpoScaleEase from '@newrade/core-gsap-ui/lib/plugins/EasePack';
@@ -83,9 +84,6 @@ export const Layout = React.memo<LayoutProps>((props) => {
   }, [globalHistory]);
 
   function handleClickMenuButton(event: React.MouseEvent) {
-    // if (!sidebarOpened) {
-    //   event.stopPropagation();
-    // }
     setSidebarOpened(!sidebarOpened);
   }
 
@@ -140,6 +138,20 @@ export const Layout = React.memo<LayoutProps>((props) => {
     };
   }, [gsapLoaded]);
 
+  useEffect(() => {
+    let timeout: number;
+    if (viewport === VIEWPORT.desktop) {
+      timeout = window.setTimeout(() => {
+        setSidebarOpened(false);
+      }, 300);
+    }
+    return () => {
+      if (timeout !== undefined) {
+        window.clearTimeout(timeout);
+      }
+    };
+  }, [viewport]);
+
   return (
     <MainWrapper>
       <NavBar
@@ -171,7 +183,6 @@ export const Layout = React.memo<LayoutProps>((props) => {
         <React.Suspense fallback={<div />}>
           <MobileSideBar
             sidebarOpened={sidebarOpened}
-            fullHeight={true}
             disableBodyScroll={true}
             onClickBackdrop={handleClickMenuButton}
             style={{ backgroundColor: cssTheme.colors.colors.grey[800] }}

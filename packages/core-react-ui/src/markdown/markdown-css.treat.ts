@@ -65,8 +65,8 @@ globalStyle(
 // );
 
 globalStyle(`${wrapper} hr`, ({ cssTheme, theme }: Theme) => ({
-  marginTop: contentMarginLarge,
-  marginBottom: contentMarginLarge,
+  marginTop: 0,
+  marginBottom: 0,
 }));
 
 /**

@@ -10,15 +10,16 @@ export const styles = {
     position: 'fixed',
     left: 0,
     bottom: 0,
-    width: `90vw`,
-    top: 0,
+    width: cssTheme.layout.var.sidebarWidth,
+    top: cssTheme.layout.var.navbarHeight,
     maxHeight: `calc(100vh)`,
+    display: 'none',
     '@media': {
-      [cssTheme.layout.media.tablet]: {
-        width: cssTheme.layout.var.sidebarWidth,
+      [cssTheme.layout.media.desktopSmall]: {
+        display: 'inherit',
       },
     },
-    zIndex: cssTheme.layout.zIndex.sideBarMobile,
+    zIndex: cssTheme.layout.zIndex.sideBarDesktop,
     overflowY: 'scroll',
     overflowX: 'hidden',
 
@@ -27,8 +28,6 @@ export const styles = {
     boxShadow: `rgba(33, 33, 33, 0.15) 1px 1px 2px`,
 
     WebkitOverflowScrolling: `touch`,
-
-    transform: 'translateX(-100%)', // initial state for SSR
   })),
 
   /**
@@ -36,21 +35,5 @@ export const styles = {
    */
   content: style(({ cssTheme, theme }: Theme) => ({
     minHeight: `105vh`,
-  })),
-
-  /**
-   * Backdrop
-   */
-
-  backdrop: style(({ cssTheme, theme }: Theme) => ({
-    position: 'fixed',
-    backgroundColor: `rgba(0,0,0,0.20)`,
-    top: 0,
-    bottom: 0,
-    left: 0,
-    right: 0,
-    zIndex: cssTheme.layout.zIndex.sideBarMobile - 1,
-
-    opacity: `0`, // inital animation state
   })),
 };

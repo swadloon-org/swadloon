@@ -15,7 +15,6 @@ const logError = log.extend('error');
 
 type Props<CustomBlockVariants extends string = ''> = BlockProps & {
   inView?: boolean;
-  block?: BlockAPI | BlockGoogleMapAPI | null;
   blockComponents?: {
     [key in CustomBlockVariants | BlockVariant]?: (
       props: BlockProps & { block: BlockAPI }

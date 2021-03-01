@@ -6,6 +6,7 @@ import {
   Hr,
   MarkdownCSS,
   OPEN_GRAPH_TYPE,
+  Stack,
   useTreatTheme,
 } from '@newrade/core-react-ui';
 import { PageProps } from 'gatsby';
@@ -52,9 +53,11 @@ export const DesignSystemPageTemplate: React.FC<Props & { children: ReactNode }>
       {/* <I18nextProvider locale={props.pageContext.locale}> */}
       <Center maxWidth={props.contentWidth ? props.contentWidth : `900px`}>
         <MarkdownCSS>
-          {props.children}
+          <Stack gap={[cssTheme.sizing.var.x5]}>
+            {props.children}
 
-          <Hr />
+            <Hr />
+          </Stack>
         </MarkdownCSS>
       </Center>
       {/* </I18nextProvider> */}

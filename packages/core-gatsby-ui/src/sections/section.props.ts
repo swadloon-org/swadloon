@@ -1,5 +1,5 @@
 import { CommonComponentProps } from '@newrade/core-react-ui';
-import { Variant } from '@newrade/core-design-system';
+import { SectionAPI } from '../api/section.api';
 
 export enum SectionBaseLayout {
   /**
@@ -29,16 +29,5 @@ export enum SectionLayout {
 }
 
 export type SectionProps = CommonComponentProps & {
-  /**
-   * Controls the visual importance of the section.
-   */
-  variant?: Variant;
-  /**
-   * Predefined layouts that controls how the content is layed out horizontally.
-   */
-  baseLayout?: SectionBaseLayout;
-  /**
-   * Presets for vertical padding.
-   */
-  padding?: SectionPadding;
+  section?: SectionAPI;
 };

@@ -38,7 +38,7 @@
     // https://deepscan.io/docs/rules
     "deepscan.enable": true,
     "deepscan.ignorePatterns": ["**/node_modules/**", "graphql-types.ts"],
-    "deepscan.ignoreRules": ["no-console"]
+    "deepscan.ignoreRules": ["no-console", "UNUSED_DECL"]
   },
   "extensions": {
     "recommendations": [

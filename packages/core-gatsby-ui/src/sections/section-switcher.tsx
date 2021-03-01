@@ -1,7 +1,8 @@
-import { Switcher, useTreatTheme } from '@newrade/core-react-ui';
+import { Variant } from '@newrade/core-design-system';
+import { Switcher, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 import { BaseSection } from './section-base';
-import { SectionProps } from './section.props';
+import { SectionBaseLayout, SectionPadding, SectionProps } from './section.props';
 
 type Props = SectionProps & {
   RightBlock: React.ReactNode;
@@ -9,11 +10,37 @@ type Props = SectionProps & {
 };
 
 export const SectionSwitcher = React.forwardRef<any, Props>(
-  ({ id, style, className, variant, baseLayout, padding, RightBlock, LeftBlock, ...props }, ref) => {
+  (
+    {
+      id,
+      style,
+      className,
+      as,
+      AsElement,
+      RightBlock,
+      LeftBlock,
+      section: { variant = Variant.primary, baseLayout = SectionBaseLayout.center, padding = SectionPadding.large } = {
+        variant: Variant.primary,
+        baseLayout: SectionBaseLayout.center,
+        padding: SectionPadding.large,
+      },
+      ...props
+    },
+    ref
+  ) => {
     const { cssTheme } = useTreatTheme();
+    const commonProps = useCommonProps({ id, style, className, ...props });
 
     return (
-      <BaseSection variant={variant} baseLayout={baseLayout} padding={padding} ref={ref}>
+      <BaseSection
+        ref={ref}
+        {...commonProps}
+        section={{
+          variant,
+          baseLayout,
+          padding,
+        }}
+      >
         <Switcher col={2} gap={[cssTheme.sizing.var.x6]}>
           {LeftBlock}
           {RightBlock}

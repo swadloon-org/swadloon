@@ -1,3 +1,4 @@
+import { Variant } from '@newrade/core-design-system';
 import { BoxV2, Center, getMergedClassname, PaddingProps, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
@@ -12,9 +13,13 @@ export const BaseSection = React.forwardRef<any, Props>(
       id,
       style,
       className,
-      variant,
-      baseLayout: layout = SectionBaseLayout.center,
-      padding: sectionPadding = SectionPadding.large,
+      as,
+      AsElement,
+      section: { variant = Variant.primary, baseLayout = SectionBaseLayout.center, padding = SectionPadding.large } = {
+        variant: Variant.primary,
+        baseLayout: SectionBaseLayout.center,
+        padding: SectionPadding.large,
+      },
       children,
       ...props
     },
@@ -23,17 +28,17 @@ export const BaseSection = React.forwardRef<any, Props>(
     /**
      * Styling
      */
+    const { cssTheme } = useTreatTheme();
     const { styles } = useStyles(styleRefs);
     const classNames = getMergedClassname([className, styles.wrapper, variant ? styles[variant] : '']);
-    const { cssTheme } = useTreatTheme();
-    const padding = getPaddingProp(sectionPadding);
+    const paddingProp = getPaddingProp((padding as SectionPadding) || SectionPadding.large);
 
     /**
      * Full width
      */
-    if (layout === SectionBaseLayout.fullWidth) {
+    if (baseLayout === SectionBaseLayout.fullWidth) {
       return (
-        <BoxV2 id={id} style={style} className={classNames} as={'section'} padding={padding} ref={ref}>
+        <BoxV2 id={id} style={style} className={classNames} as={'section'} padding={paddingProp} ref={ref}>
           {children}
         </BoxV2>
       );
@@ -44,7 +49,7 @@ export const BaseSection = React.forwardRef<any, Props>(
      */
     return (
       <Center id={id} style={style} className={classNames} as={'section'} ref={ref}>
-        <BoxV2 padding={padding} justifyContent={['center', 'flex-start', 'flex-start']}>
+        <BoxV2 padding={paddingProp} justifyContent={['center', 'flex-start', 'flex-start']}>
           {children}
         </BoxV2>
       </Center>

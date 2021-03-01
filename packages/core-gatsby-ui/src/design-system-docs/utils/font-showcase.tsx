@@ -1,9 +1,9 @@
 import { HEADING } from '@newrade/core-design-system';
+import { Cluster, Heading, Stack, useTreatTheme } from '@newrade/core-react-ui';
+import { title } from 'case';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './font-showcase.treat';
-import { title } from 'case';
-import { useTreatTheme, Stack, Heading, Cluster } from '@newrade/core-react-ui';
 
 type Props = {};
 
@@ -16,7 +16,7 @@ export const FontShowcase: React.FC<Props> = (props) => {
 
   return (
     <Stack className={styles.wrapper} gap={[cssTheme.sizing.var.x5]}>
-      <Stack gap={[cssTheme.sizing.var.x3]}>
+      <Stack gap={[cssTheme.sizing.var.x4]}>
         <Heading variant={HEADING.h4}>
           {'Sans'} - {title(cssTheme.typography.fonts.sans[0].name)}
         </Heading>

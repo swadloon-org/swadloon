@@ -3,6 +3,6 @@ import { Theme } from '../design-system/css-design-system';
 
 export const styles = {
   wrapper: style(({ cssTheme, theme }: Theme) => ({
-    padding: `0 ${cssTheme.layout.var.contentMargins}`,
+    padding: `0 ${cssTheme.sizing.var.x3}`,
   })),
 };
