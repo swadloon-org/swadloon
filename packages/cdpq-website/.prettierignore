@@ -1,0 +1,22 @@
+# IDEs
+.idea
+
+# npm
+node_modules
+package-lock.json
+
+# files
+*.html
+*.yml
+*.yaml
+
+# netlify
+functions/
+
+# gatsby
+dist/
+public/
+.cache/
+graphql-types.ts
+
+

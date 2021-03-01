@@ -156,6 +156,9 @@
     },
     {
       "path": "../packages/vsb-api"
+    },
+    {
+      "path": "../packages/cdpq-website"
     }
   ]
 }
