@@ -22,6 +22,7 @@ export const BlockCostItem: React.FC<Props> = ({ id, style, className, costItem,
       <Label variant={LABEL_SIZE.medium} className={styles.label}>
         {costItem.text?.text}
       </Label>
+
       <Label variant={LABEL_SIZE.medium}>{costItem.priceText}</Label>
     </div>
   );
