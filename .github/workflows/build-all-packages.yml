@@ -136,3 +136,16 @@ jobs:
         PROJECT_GIT_HOST: ${{ secrets.PROJECT_GIT_HOST }}
         PROJECT_REPO_ORG: ${{ secrets.PROJECT_REPO_ORG }}
         PROJECT_REPO_NAME: ${{ secrets.PROJECT_REPO_NAME }}
+
+    - name: Build cdpq-website
+      if: always()
+      run: yarn build --scope @newrade/cdpq-website
+      env:
+        APP_URL: 'https://cdpq-website-dev.netlify.app'
+        NVM_NODE_VERSION: ${{ secrets.NVM_NODE_VERSION }}
+        MASTER_GIT_HOST: ${{ secrets.MASTER_GIT_HOST }}
+        MASTER_REPO_ORG: ${{ secrets.MASTER_REPO_ORG }}
+        MASTER_REPO_NAME: ${{ secrets.MASTER_REPO_NAME }}
+        PROJECT_GIT_HOST: ${{ secrets.PROJECT_GIT_HOST }}
+        PROJECT_REPO_ORG: ${{ secrets.PROJECT_REPO_ORG }}
+        PROJECT_REPO_NAME: ${{ secrets.PROJECT_REPO_NAME }}

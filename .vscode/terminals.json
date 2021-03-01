@@ -157,6 +157,12 @@
       "cwd": "[workspaceFolder]/packages/vsb-api",
       "open": true,
       "focus": false
+    },
+    {
+      "name": "cdpq-website",
+      "cwd": "[workspaceFolder]/packages/cdpq-website",
+      "open": true,
+      "focus": false
     }
   ]
 }
