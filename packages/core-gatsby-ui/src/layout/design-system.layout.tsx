@@ -5,10 +5,10 @@ import {
   Label,
   Main,
   MainWrapper,
+  MobileSideBar,
   NavBar,
   NavItem,
   NavItemGroup,
-  SideBar,
   Stack,
   useIsSSR,
   useTreatTheme,
@@ -118,7 +118,7 @@ export const LayoutDesignSystem = React.memo<LayoutProps>(({ MobileSvgLogo, Desk
       ></NavBar>
 
       {navigation.items && !isSSR ? (
-        <SideBar sidebarOpened={sidebarOpened} mobileOnly={false} disableBodyScroll={false}>
+        <MobileSideBar sidebarOpened={sidebarOpened} disableBodyScroll={false}>
           <BoxV2
             style={{ flexDirection: 'column' }}
             padding={[cssTheme.sizing.var.x4, cssTheme.sizing.var.x3, cssTheme.sizing.var.x7]}
@@ -159,7 +159,7 @@ export const LayoutDesignSystem = React.memo<LayoutProps>(({ MobileSvgLogo, Desk
               })}
             </Stack>
           </BoxV2>
-        </SideBar>
+        </MobileSideBar>
       ) : null}
 
       <Main navbarPadding={true}>{props.children}</Main>

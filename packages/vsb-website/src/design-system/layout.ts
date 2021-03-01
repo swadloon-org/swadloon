@@ -13,8 +13,8 @@ export const layout: Layout = {
     desktop: 48,
   },
   sidebarWidth: {
-    [VIEWPORT.desktop]: 270,
-    [VIEWPORT.tablet]: 270,
+    [VIEWPORT.desktop]: 300,
+    [VIEWPORT.tablet]: 300,
     [VIEWPORT.mobile]: 375,
   },
   navbarHeight: {

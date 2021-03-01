@@ -3,10 +3,10 @@ import {
   Label,
   Main,
   MainWrapper,
+  MobileSideBar,
   NavBar,
   NavItem,
   NavItemGroup,
-  SideBar,
   Stack,
   useIsSSR,
   useTreatTheme,
@@ -23,14 +23,7 @@ type LayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }
 export const LayoutDocs = React.memo<LayoutProps>(({ MobileSvgLogo, DesktopSvgLogo, ...props }) => {
   const { cssTheme } = useTreatTheme();
 
-  /**
-   * React Aria
-   */
   const isSSR = useIsSSR();
-
-  /**
-   * Retrieve
-   */
   const navigation = useDocsNavigation();
 
   return (
@@ -49,7 +42,7 @@ export const LayoutDocs = React.memo<LayoutProps>(({ MobileSvgLogo, DesktopSvgLo
       ></NavBar>
 
       {navigation && !isSSR ? (
-        <SideBar>
+        <MobileSideBar>
           <Stack gap={[cssTheme.sizing.var.x4]}>
             {navigation.items.map((item, index) => {
               return (
@@ -83,7 +76,7 @@ export const LayoutDocs = React.memo<LayoutProps>(({ MobileSvgLogo, DesktopSvgLo
               );
             })}
           </Stack>
-        </SideBar>
+        </MobileSideBar>
       ) : null}
 
       <Main navbarPadding={true} minHeight={true}>

@@ -16,9 +16,6 @@ import { BlockCostItemFragment, PageQuery } from '../../types/graphql-types';
 import { BlockCostItem } from '../components/block-cost-items';
 import '../fonts';
 
-const BlockGoogleMap = React.lazy(() =>
-  import('@newrade/core-gatsby-ui/src/blocks/block-google-map').then((comp) => ({ default: comp.BlockGoogleMap }))
-);
 export type ProjectPageProps = PageProps<PageQuery, GatsbyContentfulPageContext>;
 
 export const pageQuery = graphql`

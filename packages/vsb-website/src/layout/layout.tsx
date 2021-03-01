@@ -8,7 +8,6 @@ import {
   PARAGRAPH_SIZE,
   TEXT_LEVEL,
   TEXT_STYLE,
-  VIEWPORT,
 } from '@newrade/core-design-system';
 import { GatsbyLink } from '@newrade/core-gatsby-ui/src';
 import ExpoScaleEase from '@newrade/core-gsap-ui/lib/plugins/EasePack';
@@ -50,8 +49,8 @@ type LayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }
 
 let pathname: string | undefined = '/'; // needed for gsap callbacks
 
-const SideBar = React.lazy(() =>
-  import('@newrade/core-react-ui/lib/navigation/sidebar').then((comp) => ({ default: comp.SideBar }))
+const MobileSideBar = React.lazy(() =>
+  import('@newrade/core-react-ui/lib/navigation/mobile-sidebar').then((comp) => ({ default: comp.MobileSideBar }))
 );
 
 export const Layout = React.memo<LayoutProps>((props) => {
@@ -84,18 +83,13 @@ export const Layout = React.memo<LayoutProps>((props) => {
   }, [globalHistory]);
 
   function handleClickMenuButton(event: React.MouseEvent) {
-    if (!sidebarOpened) {
-      event.stopPropagation();
-    }
+    // if (!sidebarOpened) {
+    //   event.stopPropagation();
+    // }
     setSidebarOpened(!sidebarOpened);
   }
 
   const { viewport } = useViewportBreakpoint();
-  useEffect(() => {
-    if (viewport === VIEWPORT.desktop) {
-      setSidebarOpened(false);
-    }
-  }, [viewport]);
 
   /**
    * Navbar
@@ -175,7 +169,7 @@ export const Layout = React.memo<LayoutProps>((props) => {
 
       {!isSSR && (
         <React.Suspense fallback={<div />}>
-          <SideBar
+          <MobileSideBar
             sidebarOpened={sidebarOpened}
             fullHeight={true}
             disableBodyScroll={true}
@@ -231,7 +225,7 @@ export const Layout = React.memo<LayoutProps>((props) => {
               </BoxV2>
 
               <BoxV2
-                padding={[cssTheme.sizing.var.x5, cssTheme.layout.var.contentMargins, cssTheme.sizing.var.x6]}
+                padding={[cssTheme.sizing.var.x5, 0, cssTheme.sizing.var.x6]}
                 style={{ flexDirection: 'column', backgroundColor: cssTheme.colors.colors.grey[0] }}
                 justifyContent={['flex-start']}
                 alignItems={['stretch']}
@@ -316,7 +310,7 @@ export const Layout = React.memo<LayoutProps>((props) => {
                 </Stack>
               </BoxV2>
             </Stack>
-          </SideBar>
+          </MobileSideBar>
         </React.Suspense>
       )}
 

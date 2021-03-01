@@ -3,7 +3,6 @@ import ScrollToPlugin from '@newrade/core-gsap-ui/lib/plugins/ScrollToPlugin';
 import { useEffect, useState } from 'react';
 import { isMobile } from 'react-device-detect';
 import { useBodyScrollLock } from './use-body-scroll-lock';
-import { useTreatTheme } from './use-treat-theme';
 
 export function useAnimateSideBar({
   sidebarOpened,
@@ -14,7 +13,6 @@ export function useAnimateSideBar({
   disableBodyScroll?: boolean;
   ref: React.MutableRefObject<HTMLDivElement | null>;
 }) {
-  const { cssTheme } = useTreatTheme();
   const [gsapLoaded, setGsapLoaded] = useState<boolean>(false);
   const [animationReady, setAnimationReady] = useState<boolean>(false);
   const [locks, documentListenerAdded] = useBodyScrollLock({

@@ -101,7 +101,7 @@ const config: core.GastbySiteConfig = {
       packageName: packageJson.name,
       features: {
         renderDesignSystemPages: true,
-        renderDocsPages: true,
+        renderDocsPages: false,
       },
     }),
     core.getGatsbyPluginPreloadFonts(),

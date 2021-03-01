@@ -122,7 +122,8 @@ export function getLocaleFromPath(nodeName?: string | null): SITE_LANGUAGES {
  */
 export function getFullPageNodePath(parts: (string | null | undefined)[]): string {
   const path = parts.filter((part) => !!part && !!part.length).join('/');
-  return `/${path}/`;
+  const fencedPath = path === '/' ? `/` : `/${path}/`;
+  return fencedPath.replace(/\/\//, '/');
 }
 
 /**

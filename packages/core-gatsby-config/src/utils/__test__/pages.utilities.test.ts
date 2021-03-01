@@ -36,10 +36,10 @@ describe('dir name utilities', () => {
   describe(`${getFullPageNodePath.name}`, () => {
     it('should format correct full page path', () => {
       expect(getFullPageNodePath(['/'])).toBe('/');
-      expect(getFullPageNodePath([''])).toBe('');
-      expect(getFullPageNodePath(['en', '', 'page'])).toBe('en/page');
-      expect(getFullPageNodePath(['', '', 'page'])).toBe('page');
-      expect(getFullPageNodePath(['', '', 'section', 'page'])).toBe('section/page');
+      expect(getFullPageNodePath(['/', ''])).toBe('/');
+      expect(getFullPageNodePath(['en', '', 'page'])).toBe('/en/page/');
+      expect(getFullPageNodePath(['', '', 'page'])).toBe('/page/');
+      expect(getFullPageNodePath(['', '', 'section', 'page'])).toBe('/section/page/');
     });
   });
 

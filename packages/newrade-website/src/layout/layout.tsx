@@ -27,8 +27,8 @@ type LayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }
 
 let pathname: string | undefined = '/'; // needed for gsap callbacks
 
-const SideBar = React.lazy(() =>
-  import('@newrade/core-react-ui/lib/navigation/sidebar').then((comp) => ({ default: comp.SideBar }))
+const MobileSideBar = React.lazy(() =>
+  import('@newrade/core-react-ui/lib/navigation/mobile-sidebar').then((comp) => ({ default: comp.MobileSideBar }))
 );
 
 export const Layout = React.memo<LayoutProps>((props) => {
@@ -83,7 +83,7 @@ export const Layout = React.memo<LayoutProps>((props) => {
 
       {!isSSR && (
         <React.Suspense fallback={<div />}>
-          <SideBar sidebarOpened={sidebarOpened} fullHeight={false} disableBodyScroll={true}>
+          <MobileSideBar sidebarOpened={sidebarOpened} fullHeight={false} disableBodyScroll={true}>
             <Stack>
               <BoxV2
                 padding={[cssTheme.sizing.var.x4, cssTheme.layout.var.contentMargins, cssTheme.sizing.var.x4]}
@@ -126,7 +126,7 @@ export const Layout = React.memo<LayoutProps>((props) => {
                 </Stack>
               </BoxV2>
             </Stack>
-          </SideBar>
+          </MobileSideBar>
         </React.Suspense>
       )}
 

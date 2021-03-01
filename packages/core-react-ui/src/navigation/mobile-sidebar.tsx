@@ -5,17 +5,9 @@ import { useTreatTheme } from '../hooks/use-treat-theme';
 import { Stack } from '../layout/stack';
 import { CommonComponentProps } from '../props/component-common.props';
 import { getMergedClassname } from '../utilities/component.utilities';
-import * as styleRefs from './sidebar.treat';
+import * as styleRefs from './mobile-sidebar.treat';
 
 type Props = CommonComponentProps & {
-  /**
-   * Full heigh will go over the navbar
-   */
-  fullHeight?: boolean;
-  /**
-   * Hide the sidebar on desktop
-   */
-  mobileOnly?: boolean;
   /**
    * Forcefully disable the body scroll while the sidebar is opened
    */
@@ -24,32 +16,28 @@ type Props = CommonComponentProps & {
    * State of the sidebar
    */
   sidebarOpened?: boolean;
-  onPressBackdrop?: (event: React.MouseEvent) => void;
+  /**
+   * Handle click on the backdrop
+   */
+  onClickBackdrop?: (event: React.MouseEvent) => void;
 };
 
 /**
  * Generic navigation bar with an icon logo and language switch on mobile
  * and on desktop, a logo, and menu links
  */
-export const SideBar: React.FC<Props> = ({
+export const MobileSideBar: React.FC<Props> = ({
   id,
   style,
   className,
   sidebarOpened,
-  fullHeight,
   disableBodyScroll,
-  onPressBackdrop,
-  mobileOnly = true,
+  onClickBackdrop: onPressBackdrop,
   ...props
 }) => {
   const { styles } = useStyles(styleRefs);
   const { theme, cssTheme } = useTreatTheme();
-  const classNames = getMergedClassname([
-    className,
-    styles.wrapper,
-    fullHeight ? styles.fullHeight : '',
-    mobileOnly ? styles.mobileOnly : '',
-  ]);
+  const classNames = getMergedClassname([className, styles.wrapper]);
 
   /**
    * Animation
@@ -60,11 +48,12 @@ export const SideBar: React.FC<Props> = ({
   return (
     <>
       <nav className={classNames} ref={ref} style={style}>
-        <Stack className={styles.navItemsWrapper}>
+        <Stack className={styles.content}>
           {/* User provided links and content */}
           {props.children}
         </Stack>
       </nav>
+
       {sidebarOpened ? <div className={styles.backdrop} onClick={onPressBackdrop}></div> : null}
     </>
   );
