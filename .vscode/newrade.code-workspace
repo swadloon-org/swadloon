@@ -83,6 +83,9 @@
       "path": "../packages/core-design-system"
     },
     {
+      "path": "../packages/core-design-system-docs"
+    },
+    {
       "path": "../packages/core-design-system-old"
     },
     {

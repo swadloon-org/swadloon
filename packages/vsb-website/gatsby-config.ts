@@ -90,7 +90,7 @@ const config: core.GastbySiteConfig = {
     core.getGatsbyNetlifyPlugin(),
     core.getGastbyCoreContentfulPluginConfig({
       packageName: packageJson.name,
-      locales: ['fr-CA'],
+      locales: ['fr-CA', 'en-CA'],
       features: {
         renderPages: true,
         renderBlogPosts: false,
@@ -101,7 +101,7 @@ const config: core.GastbySiteConfig = {
       packageName: packageJson.name,
       features: {
         renderDesignSystemPages: true,
-        renderDocsPages: false,
+        renderDocsPages: true,
       },
     }),
     core.getGatsbyPluginPreloadFonts(),

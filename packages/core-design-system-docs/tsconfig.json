@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "types": ["gatsby", "node", "jest"],
+    "baseUrl": ".",
+    "paths": {
+      "@newrade/*": ["../*/src"]
+    }
+  }
+}

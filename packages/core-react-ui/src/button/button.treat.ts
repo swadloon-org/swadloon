@@ -107,6 +107,7 @@ export const styles: { [key in ButtonStyleProps['variant']]: string } &
    * States
    */
   rest: style(({ theme, cssTheme }: Theme) => ({
+    display: 'block',
     position: 'relative',
     outline: 'none',
     lineHeight: 0,

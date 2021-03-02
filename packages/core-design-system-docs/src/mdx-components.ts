@@ -5,32 +5,37 @@ import {
   Cluster,
   Code,
   CodeBlock,
+  CodeHighlight,
   Details,
   Grid,
   Heading,
   ListItem,
   ListItems,
+  mdxComponents,
   Paragraph,
   Stack,
   Summary,
   Switcher,
 } from '@newrade/core-react-ui';
-import { BaseSection } from '../sections/section-base';
 import { Placeholder } from './utils/placeholder';
 import { PlaceholderMarkdown } from './utils/placeholder-markdown';
 import { Variant } from '@newrade/core-design-system';
-import { BlockMarkdown } from '../blocks/block-markdown';
-import { SectionSwitcher } from '../sections/section-switcher';
-import { SectionDivider } from '../sections/section-divider';
-import { SectionBaseLayout, SectionPadding } from '../sections/section.props';
+import {
+  BlockMarkdown,
+  SectionSwitcher,
+  SectionBase,
+  SectionDivider,
+  SectionBaseLayout,
+  SectionPadding,
+} from '@newrade/core-gatsby-ui/src';
 
-export const liveCodeScope = {
+export const designSystemMdxComponents = {
+  ...mdxComponents,
   BoxV2: BoxV2,
   BoxV3: BoxV3,
   Center: Center,
   Code: Code,
   Cluster: Cluster,
-  CodeBlock: CodeBlock,
   Details: Details,
   ListItem: ListItem,
   ListItems: ListItems,
@@ -41,7 +46,7 @@ export const liveCodeScope = {
   Placeholder: Placeholder,
   PlaceholderMarkdown: PlaceholderMarkdown,
   SectionSwitcher: SectionSwitcher,
-  Section: BaseSection,
+  Section: SectionBase,
   Stack: Stack,
   Summary: Summary,
   Switcher: Switcher,
@@ -49,4 +54,6 @@ export const liveCodeScope = {
   SectionLayout: SectionBaseLayout,
   SectionPadding: SectionPadding,
   Variant: Variant,
+  CodeHighlight: CodeHighlight,
+  CodeBlock: CodeBlock,
 };

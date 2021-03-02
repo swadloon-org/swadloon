@@ -8,7 +8,7 @@ import {
   TEXT_STYLE,
   VIEWPORT,
 } from '@newrade/core-design-system';
-import { GatsbyLink } from '@newrade/core-gatsby-ui/src';
+import { GatsbyLink, useDesignSystemNavigation } from '@newrade/core-gatsby-ui/src';
 import {
   BoxV2,
   Button,
@@ -27,9 +27,8 @@ import {
 } from '@newrade/core-react-ui';
 import { IoClose } from '@react-icons/all-files/io5/IoClose';
 import { title } from 'case';
-import { graphql, PageProps, useStaticQuery } from 'gatsby';
+import { PageProps } from 'gatsby';
 import React, { ReactNode, useEffect, useState } from 'react';
-import { getNavigationFromPageNodes } from '../utilities/navigation.utilities';
 
 const MobileSideBar = React.lazy(() =>
   import('@newrade/core-react-ui/lib/navigation/mobile-sidebar').then((comp) => ({ default: comp.MobileSideBar }))
@@ -44,70 +43,10 @@ type LayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }
   DesktopSvgLogo?: React.ReactNode;
 };
 
-const query = graphql`
-  query DesignSystemLayoutPage {
-    pages: allSitePage(filter: { path: { glob: "/design-system/{**,*}" } }) {
-      totalCount
-      nodes {
-        id
-        path
-        context {
-          siteMetadata {
-            description
-            languages {
-              defaultLangKey
-              langs
-            }
-            siteEnv
-            siteUrl
-            title
-          }
-          id
-          name
-          locale
-          layout
-          template
-        }
-      }
-    }
-  }
-`;
-
 export const LayoutDesignSystem = React.memo<LayoutProps>(({ MobileSvgLogo, DesktopSvgLogo, ...props }) => {
-  /**
-   * Data / Queries
-   */
-  const data = useStaticQuery(query);
-
-  /**
-   * React Aria
-   */
+  const navigation = useDesignSystemNavigation();
   const isSSR = useIsSSR();
-
-  /**
-   * Props
-   */
   const { cssTheme } = useTreatTheme();
-  const navigation = getNavigationFromPageNodes({
-    name: 'Design system side navigation',
-    pageNodes: data?.pages.nodes,
-    sortOrderDirectories: ['', 'typography', 'colors', 'foundations', 'components', 'content', 'effects', 'motion'],
-    sortOrderItems: [
-      '',
-      'typography',
-      'colors',
-      'color-intents',
-      'sizing',
-      'pages',
-      'sections',
-      'blocks',
-      'layout-components',
-    ],
-  });
-
-  /**
-   * Sidemenu
-   */
   const { viewport } = useViewportBreakpoint();
   const [mobileSidebarOpened, setMobileSidebarOpened] = useState<boolean>(false);
 
@@ -141,6 +80,7 @@ export const LayoutDesignSystem = React.memo<LayoutProps>(({ MobileSvgLogo, Desk
             <Label>Design System</Label>
             <Label>Docs</Label>
             <Label>Core Docs</Label>
+            {/* <Label>{props.pageContext.locale}</Label> */}
           </>
         }
         onClickMenuButton={handleClickMenuButton}

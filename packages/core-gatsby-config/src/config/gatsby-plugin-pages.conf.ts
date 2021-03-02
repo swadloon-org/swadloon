@@ -1,6 +1,6 @@
 import { PluginRef } from 'gatsby';
 import path from 'path';
-import { SOURCE_INSTANCE_NAME } from './source-instances';
+import { SOURCE_INSTANCE_NAME } from './gatsby-source-instances';
 
 /**
  * Create only .tsx pages found under /src/pages.
@@ -47,7 +47,7 @@ export function getGastbyPluginPageCreatorConfig(options?: any): PluginRef[] {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: SOURCE_INSTANCE_NAME.DESIGN_SYSTEM_DOCS,
-        path: path.resolve('..', 'core-gatsby-ui', 'src', 'design-system-docs'),
+        path: path.resolve('..', 'core-design-system-docs', 'docs'),
       },
     },
   ];

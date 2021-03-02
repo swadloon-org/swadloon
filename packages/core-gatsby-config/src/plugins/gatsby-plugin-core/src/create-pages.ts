@@ -10,7 +10,7 @@ import {
   GatsbyNodeSiteMetadataFragment,
 } from '../../../config/site-graphql-types';
 import { SITE_LANGUAGES } from '../../../config/site-languages';
-import { SOURCE_INSTANCE_NAME } from '../../../config/source-instances';
+import { SOURCE_INSTANCE_NAME } from '../../../config/gatsby-source-instances';
 import {
   getFullPageNodePath,
   getLayoutForSourceInstance,
@@ -72,7 +72,12 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
        */
       const markdownFilesData = await graphql<GatsbyNodeMarkdownFilesQuery>(`
         query GatsbyNodeMarkdownFiles {
-          allFile(filter: { sourceInstanceName: { in: ["MONO_REPO_DOCS", "DOCS"] }, ext: { in: [".md", ".mdx"] } }) {
+          allFile(
+            filter: {
+              sourceInstanceName: { in: ["MONO_REPO_DOCS", "DOCS", "DESIGN_SYSTEM_DOCS"] }
+              ext: { in: [".md", ".mdx"] }
+            }
+          ) {
             nodes {
               id
               name
@@ -138,15 +143,35 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
 
       try {
         await fsp.readFile(`../core-gatsby-ui/src/templates/markdown-page.template.tsx`);
-        reporter.info(`[${pluginOptions.pluginName}] using default markdown-docs template`);
+        reporter.info(`[${pluginOptions.pluginName}] using default markdown-page template`);
         markdownDocsTemplate = path.resolve(`../core-gatsby-ui/src/templates/markdown-page.template.tsx`);
       } catch (error) {
-        reporter.panic(`[${pluginOptions.pluginName}] no default template defined for markdown-docs`);
+        reporter.panic(`[${pluginOptions.pluginName}] no default template defined for markdown-page`);
+      }
+
+      let designSystemPageTemplate: string;
+      try {
+        await fsp.readFile(`src/templates/design-system.template.tsx`);
+        reporter.info(`[${pluginOptions.pluginName}] found design-system-page template in package`);
+        designSystemPageTemplate = path.resolve(`src/templates/design-system-page.template.tsx`);
+      } catch (error) {
+        reporter.info(`[${pluginOptions.pluginName}] no template defined for design-system-page in package`);
+      }
+
+      try {
+        await fsp.readFile(`../core-design-system-docs/src/templates/design-system-page.template.tsx`);
+        reporter.info(`[${pluginOptions.pluginName}] using default design-system-page template`);
+        designSystemPageTemplate = path.resolve(
+          `../core-design-system-docs/src/templates/design-system-page.template.tsx`
+        );
+      } catch (error) {
+        reporter.panic(`[${pluginOptions.pluginName}] no default template defined for design-system-page`);
       }
 
       markdownFilesData?.data?.allFile.nodes.forEach((node, index) => {
         const sourceInstance = node.sourceInstanceName as SOURCE_INSTANCE_NAME;
         // for file src/docs/section/en.readme.mdx
+
         // 'docs'
         const sourceDir = getPathForSourceInstance(sourceInstance);
         // 'en'
@@ -180,50 +205,12 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
             layout: getLayoutForSourceInstance(sourceInstance),
             template: getTemplateForSourceInstance(sourceInstance),
           },
-          component: sourceInstance === SOURCE_INSTANCE_NAME.MDX_PAGES ? markdownPageTemplate : markdownDocsTemplate,
-        });
-      });
-    }
-
-    /**
-     * Create Design System pages
-     */
-    if (pluginOptions.features.renderDesignSystemPages) {
-      const designSystemPagesData = await graphql<{
-        allFile: { nodes: { id: string; name: string; absolutePath: string; relativePath: string }[] };
-      }>(`
-        query GatsbyNodeDesignSystemFiles {
-          allFile(filter: { sourceInstanceName: { eq: "DESIGN_SYSTEM_DOCS" }, name: { glob: "*.page" } }) {
-            nodes {
-              id
-              name
-              absolutePath
-              relativePath
-            }
-          }
-        }
-      `);
-      designSystemPagesData?.data?.allFile.nodes.forEach((node, index) => {
-        const dir = `design-system/${node.relativePath.replace(/\/(.+)/, '').replace(`${node.name}.tsx`, '')}`;
-        const formattedNodeName = kebab(node.name.replace('.page', '').replace('home', ''));
-        const displayName = formattedNodeName ? `Design System - ${pascal(formattedNodeName)}` : `Design System`;
-        const path = getFullPageNodePath([dir, formattedNodeName]);
-
-        reporter.info(`[${pluginOptions.pluginName}] creating design system page: ${path}`);
-
-        createPage<GatsbySrcPageContext>({
-          path,
-          context: {
-            siteMetadata,
-            id: node.id,
-            name: node.name,
-            displayName,
-            fileId: node.id,
-            locale: SITE_LANGUAGES.EN,
-            layout: 'designSystem',
-            template: 'designSystem',
-          },
-          component: node.absolutePath,
+          component:
+            sourceInstance === SOURCE_INSTANCE_NAME.MDX_PAGES
+              ? markdownPageTemplate
+              : sourceInstance === SOURCE_INSTANCE_NAME.DESIGN_SYSTEM_DOCS
+              ? designSystemPageTemplate
+              : markdownDocsTemplate,
         });
       });
     }

@@ -1,7 +1,7 @@
 import { Variant } from '@newrade/core-design-system';
 import {
-  BaseSection,
   BlockRenderer,
+  SectionBase,
   SectionBaseLayout,
   SectionPadding,
   SectionProps,
@@ -46,7 +46,7 @@ export const SectionFormVasectomy = React.forwardRef<any, Props>(
     const commonProps = useCommonProps({ id, style, className, classNames: [styles.wrapper, className], ...props });
 
     return (
-      <BaseSection
+      <SectionBase
         {...commonProps}
         section={{
           variant,
@@ -117,7 +117,7 @@ export const SectionFormVasectomy = React.forwardRef<any, Props>(
             </Stack>
           </BoxV2>
         </Stack>
-      </BaseSection>
+      </SectionBase>
     );
   }
 );

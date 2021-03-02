@@ -1,7 +1,7 @@
 import { Variant } from '@newrade/core-design-system';
 import { Switcher, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
-import { BaseSection } from './section-base';
+import { SectionBase } from './section-base';
 import { SectionBaseLayout, SectionPadding, SectionProps } from './section.props';
 
 type Props = SectionProps & {
@@ -32,7 +32,7 @@ export const SectionSwitcher = React.forwardRef<any, Props>(
     const commonProps = useCommonProps({ id, style, className, ...props });
 
     return (
-      <BaseSection
+      <SectionBase
         ref={ref}
         {...commonProps}
         section={{
@@ -45,7 +45,7 @@ export const SectionSwitcher = React.forwardRef<any, Props>(
           {LeftBlock}
           {RightBlock}
         </Switcher>
-      </BaseSection>
+      </SectionBase>
     );
   }
 );

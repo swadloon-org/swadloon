@@ -2,10 +2,10 @@ import { HEADING } from '@newrade/core-design-system';
 import { CodeBlock, Heading, InputSelect, Stack, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
+import { designSystemMdxComponents } from '../../src/mdx-components';
+import { PageHeader } from '../../src/utils/page-header';
 import { DesignSystemPageProps, DesignSystemPageTemplate } from '../../templates/design-system.template';
 import * as styleRefs from '../home.treat';
-import { liveCodeScope } from '../live-code-scope';
-import { PageHeader } from '../utils/page-header';
 
 const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
   const { styles } = useStyles(styleRefs);
@@ -16,7 +16,7 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
   }
 
   const scope = {
-    ...liveCodeScope,
+    ...designSystemMdxComponents,
     cssTheme,
   };
 

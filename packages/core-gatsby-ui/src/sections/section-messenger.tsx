@@ -2,7 +2,7 @@ import { Variant } from '@newrade/core-design-system';
 import { BoxV2, CommonComponentProps, Stack, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { BaseSection } from './section-base';
+import { SectionBase } from './section-base';
 import * as styleRefs from './section-messenger.treat';
 import { SectionBaseLayout, SectionPadding, SectionProps } from './section.props';
 
@@ -36,7 +36,7 @@ export const SectionMessenger = React.forwardRef<any, Props>(
     const commonProps = useCommonProps({ id, style, className, ...props });
 
     return (
-      <BaseSection
+      <SectionBase
         ref={ref}
         {...commonProps}
         section={{
@@ -54,7 +54,7 @@ export const SectionMessenger = React.forwardRef<any, Props>(
             {RightBlocks}
           </Stack>
         </div>
-      </BaseSection>
+      </SectionBase>
     );
   }
 );

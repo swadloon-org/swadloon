@@ -2,9 +2,9 @@ import { HEADING, LinkIcon, LinkVariant, PARAGRAPH_SIZE, TEXT_LEVEL } from '@new
 import { Heading, Label, Link, Stack, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
+import { PageHeader } from '../../src/utils/page-header';
 import { DesignSystemPageProps, DesignSystemPageTemplate } from '../../templates/design-system.template';
 import * as styleRefs from '../home.treat';
-import { PageHeader } from '../utils/page-header';
 
 const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
   const { styles } = useStyles(styleRefs);

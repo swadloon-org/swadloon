@@ -7,7 +7,7 @@ import * as styleRefs from './section.treat';
 
 type Props = SectionProps;
 
-export const BaseSection = React.forwardRef<any, Props>(
+export const SectionBase = React.forwardRef<any, Props>(
   (
     {
       id,

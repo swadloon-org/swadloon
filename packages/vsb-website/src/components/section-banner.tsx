@@ -1,7 +1,7 @@
 import { ButtonIcon, ButtonSize, ButtonVariant, Variant } from '@newrade/core-design-system';
 import {
-  BaseSection,
   BlockRenderer,
+  SectionBase,
   SectionBaseLayout,
   SectionPadding,
   SectionProps,
@@ -59,9 +59,7 @@ export const SectionBanner = React.forwardRef<any, Props>(
       current: localRef?.current,
     }));
 
-    /**
-     * Icon animation
-     */
+    // icon animation
     useEffect(() => {
       if (!localRef.current) {
         return;
@@ -119,7 +117,7 @@ export const SectionBanner = React.forwardRef<any, Props>(
     const imageData = section?.medias?.medias?.[0]?.desktopFluidImage?.childImageSharp?.fluid;
 
     return (
-      <BaseSection
+      <SectionBase
         {...commonProps}
         ref={localRef}
         section={{
@@ -171,10 +169,10 @@ export const SectionBanner = React.forwardRef<any, Props>(
             variant={ButtonVariant.tertiaryReversed}
             icon={ButtonIcon.icon}
             Icon={<IoChevronDownOutline />}
-            onPress={handleScrollToNextSection}
+            onClick={handleScrollToNextSection}
           ></Button>
         </div>
-      </BaseSection>
+      </SectionBase>
     );
   }
 );

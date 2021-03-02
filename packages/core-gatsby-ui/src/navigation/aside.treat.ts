@@ -5,7 +5,7 @@ export const styles = {
   wrapper: style(({ cssTheme, theme }: Theme) => ({
     visibility: 'hidden',
     position: 'fixed',
-    top: 80,
+    top: `calc(${cssTheme.layout.var.navbarHeight} + ${cssTheme.sizing.var.x3})`,
     right: 40,
     width: cssTheme.layout.asideWidth,
     padding: '1em',

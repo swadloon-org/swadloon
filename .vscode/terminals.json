@@ -27,6 +27,12 @@
       "focus": false
     },
     {
+      "name": "core-design-system-docs",
+      "cwd": "[workspaceFolder]/packages/core-design-system-docs",
+      "open": true,
+      "focus": false
+    },
+    {
       "name": "core-design-system-old",
       "cwd": "[workspaceFolder]/packages/core-design-system-old",
       "open": true,

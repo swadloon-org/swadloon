@@ -10,9 +10,10 @@ export const styles = {
     border: `1px solid rgb(255 0 255 / 40%)`,
     borderRadius: 0,
     overflowX: 'auto',
+    marginBottom: 16,
   })),
   editor: style(({ theme, cssTheme }: Theme) => ({
-    padding: 16,
+    padding: `16px`,
     userSelect: 'text',
     fontSize: `14px !important`,
     lineHeight: 1.5,
@@ -30,7 +31,8 @@ export const styles = {
     marginBottom: contentMargin,
     maxWidth: '100% !important',
     overflowX: 'auto !important' as any,
-    padding: 16,
+    padding: `16px 16px 0`,
+    whiteSpace: `pre`,
 
     lineHeight: 1.5,
     borderRadius: `6px`,

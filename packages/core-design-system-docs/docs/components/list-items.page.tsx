@@ -4,10 +4,10 @@ import { IoMailOutline } from '@react-icons/all-files/io5/IoMailOutline';
 import { IoPhonePortraitOutline } from '@react-icons/all-files/io5/IoPhonePortraitOutline';
 import React from 'react';
 import { useStyles } from 'react-treat';
+import { lorenipsum } from '../../src/utils/loren-ipsum';
+import { PageHeader } from '../../src/utils/page-header';
 import { DesignSystemPageProps, DesignSystemPageTemplate } from '../../templates/design-system.template';
 import * as styleRefs from '../home.treat';
-import { lorenipsum } from '../utils/loren-ipsum';
-import { PageHeader } from '../utils/page-header';
 
 const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
   const { styles } = useStyles(styleRefs);

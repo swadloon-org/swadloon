@@ -38,6 +38,7 @@
   },
   "devDependencies": {
     "@newrade/core-common": "^1.2.2",
+    "@newrade/core-design-system-docs": "^1",
     "@newrade/core-gatsby-config": "^1.9.1",
     "@newrade/core-gatsby-ui": "^1.5.1",
     "@newrade/core-types": "^1.3.2",

@@ -1,7 +1,7 @@
 import { capital, lower, title } from 'case';
 import { PAGE_LAYOUT, PAGE_TEMPLATE } from '../config/page.props';
 import { SITE_LANGUAGES, SITE_LANGUAGES_HYPHEN } from '../config/site-languages';
-import { SOURCE_INSTANCE_NAME } from '../config/source-instances';
+import { SOURCE_INSTANCE_NAME } from '../config/gatsby-source-instances';
 
 /**
  * Format raw page path
@@ -17,7 +17,7 @@ export function getPageFormattedName(
   }
 
   if (!options?.locale) {
-    if (rawName === '/' || rawName === '') {
+    if (rawName === '/' || rawName === '' || rawName === 'index') {
       return 'Home';
     }
 
@@ -25,13 +25,13 @@ export function getPageFormattedName(
   }
 
   if (options?.locale === SITE_LANGUAGES.EN || options.locale === SITE_LANGUAGES.EN_CA) {
-    if (rawName === '/' || rawName === '') {
+    if (rawName === '/' || rawName === '' || rawName === 'index') {
       return 'Home';
     }
     return title(removeDir(removeLocalePrefix(removeDotPage(rawName))));
   }
 
-  if (rawName === '/' || rawName === '') {
+  if (rawName === '/' || rawName === '' || rawName === 'index') {
     return 'Accueil';
   }
 
@@ -123,7 +123,7 @@ export function getLocaleFromPath(nodeName?: string | null): SITE_LANGUAGES {
 export function getFullPageNodePath(parts: (string | null | undefined)[]): string {
   const path = parts.filter((part) => !!part && !!part.length).join('/');
   const fencedPath = path === '/' ? `/` : `/${path}/`;
-  return fencedPath.replace(/\/\//, '/');
+  return fencedPath.replace(/\/\//, '/').replace('/index/', '/');
 }
 
 /**

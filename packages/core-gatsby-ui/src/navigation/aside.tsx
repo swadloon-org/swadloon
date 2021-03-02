@@ -49,9 +49,6 @@ function filterItemDepthPredicate(item: AsideItem) {
 
 function useScrollSpy(items: Props['items']) {
   const [currentId, setCurrentId] = React.useState<string | null>(null);
-  // const location = useReachRouterLocation();
-
-  // React.useEffect(() => setCurrentId(null), [location?.hash]);
 
   React.useEffect(() => {
     if (!(items && items.length && items.filter(filterItemDepthPredicate).length)) {
@@ -70,8 +67,8 @@ function useScrollSpy(items: Props['items']) {
     const handleScroll = () => {
       elementsArray.forEach((element) => {
         if (element.offsetTop <= window.scrollY + 40) {
-          console.log(element.offsetTop);
-          console.log(window.scrollY);
+          // console.log(element.offsetTop);
+          // console.log(window.scrollY);
           setCurrentId(element.id);
         }
       });

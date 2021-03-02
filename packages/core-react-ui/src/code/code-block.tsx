@@ -1,3 +1,4 @@
+import { mdx, useMDXComponents } from '@mdx-js/react';
 import { Language } from 'prism-react-renderer';
 import React from 'react';
 import { LiveContext, LiveError, LivePreview, LiveProvider, LiveProviderProps } from 'react-live';
@@ -22,6 +23,7 @@ type Props = {
 export const CodeBlock: React.FC<Props> = ({ children = '', className = '', live, scope }) => {
   const { styles } = useStyles(styleRefs);
   const { cssTheme } = useTreatTheme();
+  const components = useMDXComponents();
   const language = className ? className.replace(/language-/, '') : 'tsx';
 
   if (live) {
@@ -31,7 +33,13 @@ export const CodeBlock: React.FC<Props> = ({ children = '', className = '', live
       .replace(/[\r\n]+$/, '');
 
     return (
-      <LiveProvider code={formattedCode} theme={githubTheme} scope={scope} language={language as Language}>
+      <LiveProvider
+        code={formattedCode}
+        theme={githubTheme}
+        transformCode={(code) => '/** @jsx mdx */' + code}
+        scope={{ mdx, ...components, ...scope }}
+        language={language as Language}
+      >
         <Stack gap={[cssTheme.sizing.var.x4]}>
           <LivePreview className={styles.preview} />
 
