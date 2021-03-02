@@ -6,6 +6,7 @@ import {
   Center,
   getMetaBasicTags,
   getMetadataOpenGraphWebsiteTags,
+  Hr,
   MarkdownCSS,
   OPEN_GRAPH_TYPE,
 } from '@newrade/core-react-ui';
@@ -90,6 +91,8 @@ const Template: React.FC<MarkdownTemplateProps> = (props) => {
         <Center maxWidth={'800px'}>
           <MarkdownCSS>
             <MDXRenderer {...props}>{props.data.file?.childMdx?.body as string}</MDXRenderer>
+
+            <Hr />
           </MarkdownCSS>
         </Center>
       </MDXProvider>

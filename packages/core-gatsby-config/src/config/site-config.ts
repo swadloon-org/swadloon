@@ -16,6 +16,7 @@ export interface GastbySiteConfig extends Gatsby.GatsbyConfig {
     FAST_REFRESH: boolean;
     PRESERVE_WEBPACK_CACHE: boolean;
     PRESERVE_FILE_DOWNLOAD_CACHE: boolean;
+    ENABLE_GATSBY_REFRESH_ENDPOINT: boolean;
   }>;
   siteMetadata: GatsbySiteMetadata;
 }

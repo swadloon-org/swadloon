@@ -16,6 +16,7 @@ export const blockFragment = graphql`
       medias {
         media {
           id
+          ...DesktopFluidImage
         }
         backgroundPositionY
       }

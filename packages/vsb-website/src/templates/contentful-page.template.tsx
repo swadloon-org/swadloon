@@ -45,16 +45,16 @@ type CustomBlockVariants = 'customCostItem' | 'customStep';
 export const blockComponents: CustomBlockVariantComponents<CustomBlockVariants> = {
   customCostItem: ({ block, ...props }) => {
     const blockProps = block as BlockCostItemFragment;
-    return <BlockCostItem costItem={blockProps} {...props} />; // ✅
+    return <BlockCostItem costItem={blockProps} {...props} />;
   },
-  customStep: (props) => <div>{JSON.stringify(props, null, 2)}</div>, // ⏳
+  customStep: (props) => <div>{JSON.stringify(props, null, 2)}</div>,
 };
 
 export const sectionComponents: CustomSectionLayoutComponents<CustomSectionLayouts> = {
-  banner: (props) => <SectionBanner></SectionBanner>, // ⏳
-  customCostItems: (props) => <div>{JSON.stringify(props, null, 2)}</div>, // ⏳
-  customSteps: (props) => <div>{JSON.stringify(props, null, 2)}</div>, // ⏳
-  customFormVasectomy: (props) => <SectionFormVasectomy section={props.section} />, // ✅
+  banner: (props) => <SectionBanner section={props.section} />,
+  customCostItems: (props) => <div>{JSON.stringify(props, null, 2)}</div>,
+  customSteps: (props) => <div>{JSON.stringify(props, null, 2)}</div>,
+  customFormVasectomy: (props) => <SectionFormVasectomy section={props.section} />,
 };
 
 export const PageTemplate: React.FC<ProjectPageProps> = ({ data, location, ...props }) => {

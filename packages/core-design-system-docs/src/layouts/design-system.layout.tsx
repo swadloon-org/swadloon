@@ -29,6 +29,7 @@ import { IoClose } from '@react-icons/all-files/io5/IoClose';
 import { title } from 'case';
 import { PageProps } from 'gatsby';
 import React, { ReactNode, useEffect, useState } from 'react';
+import { DesignSystemFooter } from './design-system-footer';
 
 const MobileSideBar = React.lazy(() =>
   import('@newrade/core-react-ui/lib/navigation/mobile-sidebar').then((comp) => ({ default: comp.MobileSideBar }))
@@ -236,6 +237,8 @@ export const LayoutDesignSystem = React.memo<LayoutProps>(({ MobileSvgLogo, Desk
       ) : null}
 
       <Main navbarPadding={true}>{props.children}</Main>
+
+      <DesignSystemFooter />
     </MainWrapper>
   );
 });

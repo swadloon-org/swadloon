@@ -4,8 +4,16 @@ tags:
   - test
 ---
 
+<!-- CODE IMPORTS -->
+
 import { Buttons } from './buttons.code';
 import ButtonsCode from '!!raw-loader!./buttons.code.tsx';
+import { ButtonsReversed } from './buttons-reversed.code';
+import ButtonsReversedCode from '!!raw-loader!./buttons-reversed.code.tsx';
+import { ButtonsSizes } from './buttons-sizes.code';
+import ButtonsSizesCode from '!!raw-loader!./buttons-sizes.code.tsx';
+
+<!-- END CODE IMPORTS -->
 
 ## Buttons
 
@@ -16,16 +24,10 @@ import ButtonsCode from '!!raw-loader!./buttons.code.tsx';
 
 ### Reversed Variants
 
-import { ButtonsReversed } from './buttons-reversed.code';
-import ButtonsReversedCode from '!!raw-loader!./buttons-reversed.code.tsx';
-
 <ButtonsReversed />
 <CodeBlock>{ButtonsReversedCode}</CodeBlock>
 
 ### Sizes
-
-import { ButtonsSizes } from './buttons-sizes.code';
-import ButtonsSizesCode from '!!raw-loader!./buttons-sizes.code.tsx';
 
 <ButtonsSizes />
 <CodeBlock>{ButtonsSizesCode}</CodeBlock>

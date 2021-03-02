@@ -1,5 +1,7 @@
+import { MDXProvider } from '@mdx-js/react';
 import { ButtonIcon, ButtonSize, ButtonVariant, Variant } from '@newrade/core-design-system';
 import {
+  BlockAPI,
   BlockRenderer,
   SectionBase,
   SectionBaseLayout,
@@ -12,6 +14,8 @@ import {
   Button,
   Center,
   CommonComponentProps,
+  mdxComponents,
+  MDXProps,
   Stack,
   Title,
   useCommonProps,
@@ -21,6 +25,7 @@ import { IoChevronDownOutline } from '@react-icons/all-files/io5/IoChevronDownOu
 import { IFluidObject } from 'gatsby-background-image';
 import React, { useEffect, useImperativeHandle, useRef } from 'react';
 import { useStyles } from 'react-treat';
+import { BlockFragment } from '../../types/graphql-types';
 import { gradient } from '../styles/effects.styles';
 import { blockComponents } from '../templates/contentful-page.template';
 import * as styleRefs from './section-banner.treat';
@@ -111,10 +116,16 @@ export const SectionBanner = React.forwardRef<any, Props>(
       return null;
     }
 
-    const imageBlock = blocks[0];
-    const hasImage = !!imageBlock?.medias?.[0].medias?.length;
-    const backgroundPosition = imageBlock?.medias?.[0].medias?.[0]?.backgroundPositionY;
-    const imageData = section?.medias?.medias?.[0]?.desktopFluidImage?.childImageSharp?.fluid;
+    const imageBlock = blocks[0] as BlockFragment;
+    const textBlock = blocks[1] as BlockFragment;
+    const hasImage = !!imageBlock?.medias?.[0]?.medias?.length;
+
+    if (!hasImage) {
+      return null;
+    }
+
+    const imageData = imageBlock.medias?.[0]?.medias?.[0]?.media?.fluid;
+    const backgroundPosition = imageBlock.medias?.[0]?.medias?.[0]?.backgroundPositionY;
 
     return (
       <SectionBase
@@ -126,41 +137,34 @@ export const SectionBanner = React.forwardRef<any, Props>(
           padding,
         }}
       >
-        {hasImage ? (
-          <Background
-            effects={[
-              {
-                background: gradient,
-              },
-            ]}
-            backgroundPosition={backgroundPosition}
-            // src={imageData?.fluid?.src}
-            backgroundImage={{
-              Tag: 'div',
-              fluid: imageData as IFluidObject,
-              // fixed: imageDataFixed as IFixedObject,
-              style: { backgroundPositionY: backgroundPosition || '' },
-              fadeIn: false,
-            }}
-          >
-            <Center contentClassName={styles.textContainer}>
-              {blocks?.map((block, index) => {
-                return <BlockRenderer key={index} blockComponents={blockComponents} block={block} />;
-              })}
-
-              <Stack
-                gap={[
-                  `${cssTheme.typography.titles.mobile.t1.lineGap}px`,
-                  `${cssTheme.typography.titles.tablet.t1.lineGap}px`,
-                  `${cssTheme.typography.titles.desktop.t1.lineGap}px`,
-                ]}
-              >
-                <Title>{section?.title?.trim()}</Title>
-                {section?.subtitle ? <Title>{section?.subtitle.trim()}</Title> : null}
-              </Stack>
-            </Center>
-          </Background>
-        ) : null}
+        <Background
+          effects={[
+            {
+              background: gradient,
+            },
+          ]}
+          backgroundPosition={backgroundPosition}
+          backgroundImage={{
+            Tag: 'div',
+            fluid: imageData as IFluidObject,
+            style: { backgroundPositionY: backgroundPosition || '' },
+            fadeIn: false,
+          }}
+        >
+          <Center contentClassName={styles.textContainer}>
+            <Stack
+              gap={[
+                `${cssTheme.typography.titles.mobile.t1.lineGap}px`,
+                `${cssTheme.typography.titles.tablet.t1.lineGap}px`,
+                `${cssTheme.typography.titles.desktop.t1.lineGap}px`,
+              ]}
+            >
+              <MDXProvider components={{ ...mdxComponents, h1: (props: MDXProps) => <Title {...props} /> }}>
+                <BlockRenderer blockComponents={blockComponents} block={textBlock as BlockAPI} />
+              </MDXProvider>
+            </Stack>
+          </Center>
+        </Background>
 
         <div ref={ref} className={styles.icon}>
           <Button

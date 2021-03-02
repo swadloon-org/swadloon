@@ -12281,6 +12281,7 @@ export type SiteFieldsEnum =
   | 'flags___DEV_SSR'
   | 'flags___FAST_DEV'
   | 'flags___FAST_REFRESH'
+  | 'flags___ENABLE_GATSBY_REFRESH_ENDPOINT'
   | 'polyfill'
   | 'pathPrefix'
   | 'id'
@@ -12393,6 +12394,7 @@ export type SiteFlags = {
   DEV_SSR?: Maybe<Scalars['Boolean']>;
   FAST_DEV?: Maybe<Scalars['Boolean']>;
   FAST_REFRESH?: Maybe<Scalars['Boolean']>;
+  ENABLE_GATSBY_REFRESH_ENDPOINT?: Maybe<Scalars['Boolean']>;
 };
 
 export type SiteFlagsFilterInput = {
@@ -12404,6 +12406,7 @@ export type SiteFlagsFilterInput = {
   DEV_SSR?: Maybe<BooleanQueryOperatorInput>;
   FAST_DEV?: Maybe<BooleanQueryOperatorInput>;
   FAST_REFRESH?: Maybe<BooleanQueryOperatorInput>;
+  ENABLE_GATSBY_REFRESH_ENDPOINT?: Maybe<BooleanQueryOperatorInput>;
 };
 
 export type SiteGroupConnection = {
@@ -13470,7 +13473,10 @@ export type BlockFragment = (
     Pick<ContentfulMediaCollection, 'name'>
     & { medias?: Maybe<Array<Maybe<(
       Pick<ContentfulMedia, 'backgroundPositionY'>
-      & { media?: Maybe<Pick<ContentfulAsset, 'id'>> }
+      & { media?: Maybe<(
+        Pick<ContentfulAsset, 'id'>
+        & DesktopFluidImageFragment
+      )> }
     )>>> }
   )>>>, link?: Maybe<(
     Pick<ContentfulLink, 'type' | 'label'>
