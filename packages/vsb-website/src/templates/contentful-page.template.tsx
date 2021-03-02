@@ -1,5 +1,10 @@
 import { GatsbyContentfulPageContext } from '@newrade/core-gatsby-config';
-import { SectionAPI, SectionRenderer } from '@newrade/core-gatsby-ui/src';
+import {
+  CustomBlockVariantComponents,
+  CustomSectionLayoutComponents,
+  SectionAPI,
+  SectionRenderer,
+} from '@newrade/core-gatsby-ui/src';
 import {
   getMetaBasicTags,
   getMetadataOpenGraphWebsiteTags,
@@ -15,6 +20,7 @@ import { useInView } from 'react-intersection-observer';
 import { BlockCostItemFragment, PageQuery } from '../../types/graphql-types';
 import { BlockCostItem } from '../components/block-cost-items';
 import { SectionBanner } from '../components/section-banner';
+import { SectionFormVasectomy } from '../components/section-form-vasectomy';
 import '../fonts';
 
 export type ProjectPageProps = PageProps<PageQuery, GatsbyContentfulPageContext>;
@@ -32,6 +38,24 @@ export const pageQuery = graphql`
     }
   }
 `;
+
+type CustomSectionLayouts = 'customCostItems' | 'customSteps' | 'customFormVasectomy';
+type CustomBlockVariants = 'customCostItem' | 'customFormVasectomy';
+
+export const blockComponents: CustomBlockVariantComponents<CustomBlockVariants> = {
+  customCostItem: ({ block, ...props }) => {
+    const blockProps = block as BlockCostItemFragment;
+    return <BlockCostItem costItem={blockProps} {...props} />;
+  },
+  customFormVasectomy: (props) => <div>{JSON.stringify(props, null, 2)}</div>,
+};
+
+export const sectionComponents: CustomSectionLayoutComponents<CustomSectionLayouts> = {
+  banner: (props) => <SectionBanner></SectionBanner>,
+  customCostItems: (props) => <div>{JSON.stringify(props, null, 2)}</div>,
+  customSteps: (props) => <div>{JSON.stringify(props, null, 2)}</div>,
+  customFormVasectomy: (props) => <SectionFormVasectomy section={props.section} />,
+};
 
 export const PageTemplate: React.FC<ProjectPageProps> = ({ data, location, ...props }) => {
   const isSSR = useIsSSR();
@@ -71,21 +95,11 @@ export const PageTemplate: React.FC<ProjectPageProps> = ({ data, location, ...pr
           }
 
           return (
-            <SectionRenderer<'customCostItems' | 'customSteps' | 'customFormVasectomy', 'costItem'>
+            <SectionRenderer<CustomSectionLayouts, CustomBlockVariants>
               key={index}
               section={section as SectionAPI}
-              sectionComponents={{
-                banner: (props) => <SectionBanner></SectionBanner>,
-                customCostItems: (props) => <div>{JSON.stringify(props, null, 2)}</div>,
-                customSteps: (props) => <div>{JSON.stringify(props, null, 2)}</div>,
-                customFormVasectomy: (props) => <div>{JSON.stringify(props, null, 2)}</div>,
-              }}
-              blockComponents={{
-                costItem: ({ block, ...props }) => {
-                  const blockProps = block as BlockCostItemFragment;
-                  return <BlockCostItem costItem={blockProps} {...props} />;
-                },
-              }}
+              sectionComponents={sectionComponents}
+              blockComponents={blockComponents}
             />
           );
         })}

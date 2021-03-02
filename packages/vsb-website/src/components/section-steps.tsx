@@ -1,14 +1,14 @@
+import { PARAGRAPH_SIZE, TEXT_LEVEL } from '@newrade/core-design-system';
 import { MarkdownRenderer } from '@newrade/core-gatsby-ui/src';
 import { BoxV2, CommonComponentProps, Heading, Label, ListItem, Stack, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 import { isIOS } from 'react-device-detect';
 import { useStyles } from 'react-treat';
-import { PARAGRAPH_SIZE, TEXT_LEVEL } from '@newrade/core-design-system';
 import { SectionFragment } from '../../types/graphql-types';
+import { CustomSectionProps } from './custom-section.props';
 import * as styleRefs from './section-steps.treat';
-import { SectionProps } from './section.props';
 
-type Props = CommonComponentProps & SectionProps & {};
+type Props = CommonComponentProps & CustomSectionProps & {};
 
 export const SectionSteps: React.FC<Props> = ({ id, style, className, section, ...props }) => {
   const { styles } = useStyles(styleRefs);

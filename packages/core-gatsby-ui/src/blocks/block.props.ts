@@ -1,6 +1,7 @@
 import { CommonComponentProps } from '@newrade/core-react-ui';
 import { BlockGoogleMapAPI } from '../api/block-google-map.api';
 import { BlockAPI } from '../api/block.api';
+import { CustomBlockVariantComponents } from '../sections/section.props';
 
 export enum BlockVariant {
   /**
@@ -19,16 +20,21 @@ export enum BlockVariant {
    * Display a Google Maps
    */
   googleMaps = 'googleMaps',
-  /**
-   * Display a custom step
-   */
-  customStep = 'customStep',
-  /**
-   * Display a custom cost item
-   */
-  customCostItem = 'customCostItem',
 }
 
+/**
+ * Props that all Block components should have
+ */
 export type BlockProps = CommonComponentProps & {
+  /** tells the block whether it is visible in the viewport */
+  inView?: boolean;
+  /** block data */
   block?: BlockAPI | BlockGoogleMapAPI | null;
+};
+
+/**
+ * Define the API of the BlockRenderer component
+ */
+export type BlockRendererProps<CustomBlockVariants extends string = ''> = BlockProps & {
+  blockComponents?: CustomBlockVariantComponents<CustomBlockVariants>;
 };

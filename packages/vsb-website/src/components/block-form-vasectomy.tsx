@@ -1,5 +1,6 @@
 import { API_RESPONSE_STATUS } from '@newrade/core-common';
 import { ButtonSize, ButtonVariant } from '@newrade/core-design-system';
+import { BlockProps } from '@newrade/core-gatsby-ui/src';
 import {
   Bold,
   Button,
@@ -47,12 +48,11 @@ import {
   getAddressById,
 } from '../services/address.service';
 import * as styleRefs from './block-form-vasectomy.treat';
-import { SectionProps } from './section.props';
 
 const log = debug('newrade:vsb-website');
 const logError = log.extend('error');
 
-type Props = CommonComponentProps & SectionProps & {};
+type Props = CommonComponentProps & BlockProps & {};
 
 function handleFocusControlled(name?: string) {
   return () => {
@@ -131,7 +131,7 @@ const FormStack: React.FC = (props) => {
   return <Stack gap={[cssTheme.sizing.var.x4]}>{props.children}</Stack>;
 };
 
-export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, section, ...props }) => {
+export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, block, ...props }) => {
   const { styles } = useStyles(styleRefs);
   const { cssTheme } = useTreatTheme();
 
@@ -308,7 +308,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
   };
 
   function handleKeyPress(event: React.KeyboardEvent<any>) {
-    if (event.charCode === 13) {
+    if (event.key === 'Enter') {
       handleSubmit(onSubmit)();
     }
   }
@@ -408,6 +408,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
                   placeholder={'John'}
                   state={errors.firstName?.message ? 'error' : 'rest'}
                 />
+
                 <InputError>{errors.firstName?.message}</InputError>
               </InputWrapper>
 
@@ -420,6 +421,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
                   placeholder={'Snow'}
                   state={errors.lastName?.message ? 'error' : 'rest'}
                 />
+
                 <InputError>{errors.lastName?.message}</InputError>
               </InputWrapper>
             </FormSwitcher>
@@ -427,6 +429,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
             <FormSwitcher>
               <InputWrapper>
                 <InputLabel htmlFor={'dateOfBirth'}>Date de naissance</InputLabel>
+
                 <Controller
                   name="dateOfBirth"
                   control={control}
@@ -450,6 +453,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
                     />
                   )}
                 />
+
                 <InputError>{errors.dateOfBirth?.message}</InputError>
               </InputWrapper>
 
@@ -625,12 +629,14 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
                 ref={register}
                 autoComplete="address-line1"
                 placeholder={'111 rue...'}
-                onChange={onChangeHandler}
+                // DISABLED CANADAPOST on Client request 03/21/21
+                // onChange={onChangeHandler}
                 state={errors.address1?.message ? 'error' : 'rest'}
               />
               <InputError>{errors.address1?.message}</InputError>
             </InputWrapper>
-            {isSuggestion ? renderSuggestionsT(isValueSuggestion) : null}
+            {/* DISABLED CANADAPOST on Client request 03/21/21 */}
+            {/* {isSuggestion ? renderSuggestionsT(isValueSuggestion) : null} */}
 
             <InputWrapper>
               <InputLabel htmlFor={'address2'}>Adresse (appartement / bureau)</InputLabel>
@@ -641,12 +647,14 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
                 autoComplete="address-line2"
                 state={errors.address2?.message ? 'error' : 'rest'}
               />
+
               <InputError>{errors.address2?.message}</InputError>
             </InputWrapper>
 
             <FormSwitcher>
               <InputWrapper>
                 <InputLabel htmlFor={'city'}>Ville</InputLabel>
+
                 <InputText
                   name="city"
                   ref={register}
@@ -654,11 +662,13 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
                   autoComplete="address-level2"
                   state={errors.city?.message ? 'error' : 'rest'}
                 />
+
                 <InputError>{errors.city?.message}</InputError>
               </InputWrapper>
 
               <InputWrapper>
                 <InputLabel htmlFor={'state'}>État</InputLabel>
+
                 <InputText
                   name="state"
                   ref={register}
@@ -666,6 +676,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
                   autoComplete="address-level1"
                   state={errors.state?.message ? 'error' : 'rest'}
                 />
+
                 <InputError>{errors.state?.message}</InputError>
               </InputWrapper>
             </FormSwitcher>
@@ -673,6 +684,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
             <FormSwitcher>
               <InputWrapper>
                 <InputLabel htmlFor={'postCode'}>Code Postal</InputLabel>
+
                 <InputText
                   name="postCode"
                   ref={register}
@@ -680,6 +692,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
                   autoComplete="postal-code"
                   state={errors.postCode?.message ? 'error' : 'rest'}
                 />
+
                 <InputError>{errors.postCode?.message}</InputError>
               </InputWrapper>
 
@@ -692,6 +705,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
                   autoComplete="country-name"
                   state={errors.country?.message ? 'error' : 'rest'}
                 />
+
                 <InputError>{errors.country?.message}</InputError>
               </InputWrapper>
             </FormSwitcher>
@@ -732,7 +746,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, sect
               variant={ButtonVariant.primary}
               className={isLoading ? 'loading' : ''}
               size={ButtonSize.large}
-              isDisabled={isLoading}
+              disabled={isLoading}
               type="submit"
             >
               {isLoading ? 'En cours...' : 'Soumettre la demande'}

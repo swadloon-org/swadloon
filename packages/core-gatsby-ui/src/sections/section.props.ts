@@ -1,5 +1,7 @@
 import { CommonComponentProps } from '@newrade/core-react-ui';
+import { BlockAPI } from '../api/block.api';
 import { SectionAPI } from '../api/section.api';
+import { BlockProps, BlockVariant } from '../blocks/block.props';
 
 export enum SectionBaseLayout {
   /**
@@ -12,6 +14,9 @@ export enum SectionBaseLayout {
   fullWidth = 'fullWidth',
 }
 
+/**
+ * Predefined section paddings
+ */
 export enum SectionPadding {
   large = 'large',
   medium = 'medium',
@@ -19,6 +24,9 @@ export enum SectionPadding {
   none = 'none',
 }
 
+/**
+ * Predefined section layouts
+ */
 export enum SectionLayout {
   switcher = 'switcher',
   stack = 'stack',
@@ -28,6 +36,39 @@ export enum SectionLayout {
   messenger = 'messenger',
 }
 
+/**
+ * Minimal props for a Section component
+ */
 export type SectionProps = CommonComponentProps & {
+  /** tells the section whether it is visible in the viewport */
+  inView?: boolean;
+  /** section data */
   section?: SectionAPI;
+};
+
+/**
+ * Defines a component for each custom layout
+ */
+export type CustomSectionLayoutComponents<CustomSectionLayouts extends string> = {
+  [key in CustomSectionLayouts | SectionLayout]?: (props: { section: SectionAPI }) => React.ReactElement | null;
+};
+
+/**
+ * Defines a component for each custom block variant
+ */
+export type CustomBlockVariantComponents<CustomBlockVariants extends string> = {
+  [key in CustomBlockVariants | BlockVariant]?: (
+    props: BlockProps & {
+      block: BlockAPI;
+    }
+  ) => React.ReactElement | null;
+};
+
+/**
+ * Define the API of the SectionRenderer component
+ */
+export type SectionRendererProps<CustomSectionLayouts extends string = '', CustomBlockVariants extends string = ''> = {
+  section: SectionAPI;
+  sectionComponents?: CustomSectionLayoutComponents<CustomSectionLayouts>;
+  blockComponents?: CustomBlockVariantComponents<CustomBlockVariants>;
 };

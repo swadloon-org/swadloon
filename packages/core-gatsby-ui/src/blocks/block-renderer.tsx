@@ -7,20 +7,11 @@ import { GatsbyLink } from '..';
 import { BlockGoogleMapAPI } from '../api/block-google-map.api';
 import { BlockAPI } from '../api/block.api';
 import { BlockMarkdown } from './block-markdown';
-import { BlockProps, BlockVariant } from './block.props';
+import { BlockRendererProps, BlockVariant } from './block.props';
 
 const log = debug('newrade:core-gatsby-ui:block-renderer');
 const logWarn = log.extend('warn');
 const logError = log.extend('error');
-
-type Props<CustomBlockVariants extends string = ''> = BlockProps & {
-  inView?: boolean;
-  blockComponents?: {
-    [key in CustomBlockVariants | BlockVariant]?: (
-      props: BlockProps & { block: BlockAPI }
-    ) => React.ReactElement | null;
-  };
-};
 
 const BlockGoogleMap = React.lazy(() =>
   import('./block-google-map').then((comp) => ({ default: comp.BlockGoogleMap }))
@@ -34,7 +25,7 @@ export function BlockRenderer<CustomBlockVariants extends string>({
   inView,
   blockComponents,
   ...props
-}: PropsWithChildren<Props<CustomBlockVariants>>) {
+}: PropsWithChildren<BlockRendererProps<CustomBlockVariants>>) {
   const isSSR = useIsSSR();
   const { cssTheme, theme } = useTreatTheme();
 
@@ -45,10 +36,24 @@ export function BlockRenderer<CustomBlockVariants extends string>({
 
   log(`rendering: ${block.name} with variant ${block.variant}`);
 
+  /**
+   * Custom Blocks
+   */
+  if (block.variant && blockComponents && blockComponents[block.variant as CustomBlockVariants | BlockVariant]) {
+    const CustomBlock = blockComponents[block.variant as CustomBlockVariants | BlockVariant] as React.ElementType;
+    if (!CustomBlock) {
+      return null;
+    }
+
+    return <CustomBlock block={block as BlockAPI} />;
+  }
+
   switch (block.variant) {
+    /**
+     * Google Maps Block
+     */
     case BlockVariant.googleMaps: {
       const blockGoogleMaps = block as BlockGoogleMapAPI;
-
       return (
         <ErrorBoundary>
           {!isSSR && inView ? (
@@ -60,6 +65,9 @@ export function BlockRenderer<CustomBlockVariants extends string>({
       );
     }
 
+    /**
+     * Image Block
+     */
     case BlockVariant.image: {
       const blockText = block as BlockAPI;
       return (
@@ -82,6 +90,9 @@ export function BlockRenderer<CustomBlockVariants extends string>({
       );
     }
 
+    /**
+     * Text / Generic Block
+     */
     case BlockVariant.text: {
       const blockText = block as BlockAPI;
       return (
@@ -103,16 +114,11 @@ export function BlockRenderer<CustomBlockVariants extends string>({
         </ErrorBoundary>
       );
     }
+
+    /**
+     * No component defined for the block
+     */
     default: {
-      if (block.variant && blockComponents && blockComponents[block.variant as CustomBlockVariants | BlockVariant]) {
-        const CustomBlock = blockComponents[block.variant as CustomBlockVariants | BlockVariant] as React.ElementType;
-        if (!CustomBlock) {
-          return null;
-        }
-
-        return <CustomBlock block={block as BlockAPI} />;
-      }
-
       return null;
     }
   }

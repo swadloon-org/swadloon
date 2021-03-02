@@ -14,10 +14,10 @@ import { IFluidObject } from 'gatsby-background-image';
 import React, { useRef } from 'react';
 import { useStyles } from 'react-treat';
 import { gradient } from '../styles/effects.styles';
+import { CustomSectionProps } from './custom-section.props';
 import * as styleRefs from './section-banner-link.treat';
-import { SectionProps } from './section.props';
 
-type Props = CommonComponentProps & SectionProps;
+type Props = CommonComponentProps & CustomSectionProps;
 
 export const SectionBannerLink: React.FC<Props> = ({ id, style, className, section, ...props }) => {
   const { styles } = useStyles(styleRefs);
