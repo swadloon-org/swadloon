@@ -4,6 +4,7 @@ import React, { PropsWithChildren } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { SectionAPI } from '../api/section.api';
 import { BlockRenderer } from '../blocks/block-renderer';
+import { SectionDivider } from './section-divider';
 import { SectionMessenger } from './section-messenger';
 import { SectionStack } from './section-stack';
 import { SectionSwitcher } from './section-switcher';
@@ -99,6 +100,37 @@ export function SectionRenderer<CustomSectionLayouts extends string, CustomBlock
               />
             }
           ></SectionSwitcher>
+        );
+      }
+
+      case SectionLayout.divider: {
+        const leftBlock = blocks?.[0];
+        const rightBlock = blocks?.[1];
+
+        if (!leftBlock || !rightBlock) {
+          logWarn(`both blocks must be set for SectionSwitcher ${section.name}`);
+          return null;
+        }
+
+        return (
+          <SectionDivider
+            ref={ref}
+            section={section}
+            LeftBlock={
+              <BlockRenderer<CustomBlockVariants>
+                blockComponents={blockComponents}
+                block={leftBlock}
+                inView={sectionInView}
+              />
+            }
+            RightBlock={
+              <BlockRenderer<CustomBlockVariants>
+                blockComponents={blockComponents}
+                block={rightBlock}
+                inView={sectionInView}
+              />
+            }
+          ></SectionDivider>
         );
       }
 

@@ -10,13 +10,10 @@ import {
   getMetadataOpenGraphWebsiteTags,
   getMetadataTwitterTags,
   OPEN_GRAPH_TYPE,
-  useIsSSR,
-  useTreatTheme,
 } from '@newrade/core-react-ui';
 import { graphql, PageProps } from 'gatsby';
 import React from 'react';
 import Helmet from 'react-helmet';
-import { useInView } from 'react-intersection-observer';
 import { BlockCostItemFragment, PageQuery } from '../../types/graphql-types';
 import { BlockCostItem } from '../components/block-cost-items';
 import { SectionBanner } from '../components/section-banner';
@@ -42,6 +39,13 @@ export const pageQuery = graphql`
 type CustomSectionLayouts = 'customCostItems' | 'customSteps' | 'customFormVasectomy';
 type CustomBlockVariants = 'customCostItem' | 'customStep';
 
+export const sectionComponents: CustomSectionLayoutComponents<CustomSectionLayouts> = {
+  banner: (props) => <SectionBanner section={props.section} />,
+  customCostItems: (props) => <div>{JSON.stringify(props, null, 2)}</div>,
+  customSteps: (props) => <div>{JSON.stringify(props, null, 2)}</div>,
+  customFormVasectomy: (props) => <SectionFormVasectomy section={props.section} />,
+};
+
 export const blockComponents: CustomBlockVariantComponents<CustomBlockVariants> = {
   customCostItem: ({ block, ...props }) => {
     const blockProps = block as BlockCostItemFragment;
@@ -50,23 +54,9 @@ export const blockComponents: CustomBlockVariantComponents<CustomBlockVariants> 
   customStep: (props) => <div>{JSON.stringify(props, null, 2)}</div>,
 };
 
-export const sectionComponents: CustomSectionLayoutComponents<CustomSectionLayouts> = {
-  banner: (props) => <SectionBanner section={props.section} />,
-  customCostItems: (props) => <div>{JSON.stringify(props, null, 2)}</div>,
-  customSteps: (props) => <div>{JSON.stringify(props, null, 2)}</div>,
-  customFormVasectomy: (props) => <SectionFormVasectomy section={props.section} />,
-};
-
 export const PageTemplate: React.FC<ProjectPageProps> = ({ data, location, ...props }) => {
-  const isSSR = useIsSSR();
-  const { ref, inView } = useInView({
-    threshold: 0,
-    triggerOnce: true,
-  });
-  const { cssTheme, theme } = useTreatTheme();
-
   return (
-    <div>
+    <>
       <Helmet>
         {/* FR only website */}
         <html lang={props.pageContext.locale} />
@@ -104,7 +94,7 @@ export const PageTemplate: React.FC<ProjectPageProps> = ({ data, location, ...pr
           );
         })}
       </>
-    </div>
+    </>
   );
 };
 

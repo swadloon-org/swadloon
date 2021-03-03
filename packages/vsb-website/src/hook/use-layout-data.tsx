@@ -4,7 +4,7 @@ import { LayoutAllSitePageQuery } from '../../types/graphql-types';
 
 const query = graphql`
   query LayoutAllSitePage {
-    pages: allSitePage(filter: { path: { glob: "!/{docs,design-system}/{**,*}" } }) {
+    pages: allSitePage(filter: { path: { glob: "!**/{docs,design-system}/{**,*}" } }) {
       totalCount
       nodes {
         id

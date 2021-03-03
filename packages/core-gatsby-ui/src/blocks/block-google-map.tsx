@@ -4,19 +4,19 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { BlockGoogleMapAPI } from '../api/block-google-map.api';
 import { BlockProps } from './block.props';
 
-type Props = BlockProps &
-  BlockGoogleMapAPI & {
-    inView?: boolean;
-    googleMapsApiKey?: string;
-  };
+export type BlockGoogleMapsProps = BlockProps & {
+  blockGoogleMaps?: BlockGoogleMapAPI;
+  inView?: boolean;
+  googleMapsApiKey?: string;
+};
 
 declare let GOOGLE_MAP_API_KEY: string;
 
 /**
  * High-level component that renders a Google Map iframe.
  */
-export const BlockGoogleMap: React.FC<Props> = React.memo(
-  ({ inView, long, lat, zoom, placeId, googleMapsApiKey = GOOGLE_MAP_API_KEY }) => {
+export const BlockGoogleMap: React.FC<BlockGoogleMapsProps> = React.memo(
+  ({ inView, blockGoogleMaps, googleMapsApiKey = GOOGLE_MAP_API_KEY }) => {
     const theme = useTreatTheme();
     const [shouldLoad, setShouldLoad] = useState<boolean>(false);
 
@@ -35,6 +35,7 @@ export const BlockGoogleMap: React.FC<Props> = React.memo(
     const [place, setPlace] = useState<google.maps.places.PlaceResult>();
     const [marker, setMarker] = useState<google.maps.Marker>();
     const [infoWindowVisible, setInfoWindowVisible] = useState<boolean>(true);
+
     const onLoad = useCallback(
       function onLoad(mapInstance: google.maps.Map<Element>) {
         if (!placeId) {
@@ -59,12 +60,18 @@ export const BlockGoogleMap: React.FC<Props> = React.memo(
       },
       [window.google]
     );
+
+    if (!blockGoogleMaps) {
+      return null;
+    }
+    const { long, lat, zoom, placeId } = blockGoogleMaps;
+
     const handleToggleInfoWindow = () => {
       setInfoWindowVisible(!infoWindowVisible);
     };
 
     return (
-      <div>
+      <div style={{ height: `max(100%, 50vh)`, minHeight: `50vh` }}>
         {shouldLoad && googleMapsApiKey ? (
           <GoogleMaps
             theme={theme}
@@ -78,7 +85,8 @@ export const BlockGoogleMap: React.FC<Props> = React.memo(
               id: 'contact-map',
               center: { lat: Number(lat), lng: Number(long) },
               mapContainerStyle: {
-                height: `min(50vh, 600px)`,
+                height: `100%`,
+                minHeight: `50vh`,
               },
               options: {
                 streetViewControl: true,

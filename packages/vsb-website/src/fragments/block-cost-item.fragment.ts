@@ -5,6 +5,7 @@ export const blockCostItemFragment = graphql`
     id
     title
     variant
+    type
     text {
       text
       childMdx {

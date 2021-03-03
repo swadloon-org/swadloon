@@ -174,7 +174,7 @@ export const Footer: React.FC<Props> = ({ id, style, className, ...props }) => {
               </ListItems>
             </Stack>
           </div>
-          <Paragraph className={styles.copyright} variant={PARAGRAPH_SIZE.small}>
+          <Paragraph className={styles.copyright} variant={PARAGRAPH_SIZE.xSmall}>
             {data?.contentfulCompanyInfo?.copyright} - v{clientEnv.APP_VERSION}
           </Paragraph>
         </Stack>

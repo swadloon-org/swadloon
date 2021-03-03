@@ -4,7 +4,7 @@ export const blockGoogleMapsFragment = graphql`
   fragment BlockGoogleMaps on ContentfulBlockGoogleMap {
     id
     name
-    variant
+    type
     placeId
     lat
     long

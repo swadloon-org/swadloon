@@ -4,6 +4,7 @@ export type BlockGoogleMapAPI = {
   id: string;
   name?: string | null;
   variant?: BlockType | null | string;
+  type?: BlockType | null | string;
   placeId?: string;
   lat?: string;
   long?: string;

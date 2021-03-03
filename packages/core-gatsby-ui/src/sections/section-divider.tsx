@@ -1,7 +1,9 @@
 import { Variant } from '@newrade/core-design-system';
-import { BoxV2, Switcher, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
+import { Switcher, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
+import { useStyles } from 'react-treat';
 import { SectionBase } from './section-base';
+import * as styleRefs from './section-divider.treat';
 import { SectionBaseLayout, SectionPadding, SectionProps } from './section.props';
 
 type Props = SectionProps & {
@@ -9,42 +11,49 @@ type Props = SectionProps & {
   LeftBlock: React.ReactNode;
 };
 
-export const SectionDivider: React.FC<Props> = (
-  {
-    id,
-    style,
-    className,
-    as,
-    AsElement,
-    RightBlock,
-    LeftBlock,
-    section: { variant = Variant.primary, baseLayout = SectionBaseLayout.center, padding = SectionPadding.large } = {
-      variant: Variant.primary,
-      baseLayout: SectionBaseLayout.center,
-      padding: SectionPadding.large,
+export const SectionDivider = React.forwardRef<any, Props>(
+  (
+    {
+      id,
+      style,
+      className,
+      as,
+      AsElement,
+      RightBlock,
+      LeftBlock,
+      section: {
+        variant = Variant.primary,
+        baseLayout = SectionBaseLayout.fullWidth,
+        padding = SectionPadding.none,
+      } = {
+        variant: Variant.primary,
+        baseLayout: SectionBaseLayout.center,
+        padding: SectionPadding.large,
+      },
+      ...props
     },
-    ...props
-  },
-  ref
-) => {
-  const { cssTheme } = useTreatTheme();
-  const commonProps = useCommonProps({ id, style, className, ...props });
+    ref
+  ) => {
+    const { styles } = useStyles(styleRefs);
+    const { cssTheme } = useTreatTheme();
+    const commonProps = useCommonProps({ id, style, className, ...props });
 
-  return (
-    <SectionBase
-      ref={ref}
-      {...commonProps}
-      section={{
-        variant,
-        baseLayout,
-        padding,
-      }}
-    >
-      <Switcher col={2}>
-        <BoxV2 padding={[cssTheme.sizing.var.x7, cssTheme.sizing.var.x5]}>{LeftBlock}</BoxV2>
+    return (
+      <SectionBase
+        ref={ref}
+        {...commonProps}
+        section={{
+          variant,
+          baseLayout,
+          padding,
+        }}
+      >
+        <Switcher col={2} gap={[0, cssTheme.sizing.var.x6]}>
+          <div className={styles.left}>{LeftBlock}</div>
 
-        {RightBlock}
-      </Switcher>
-    </SectionBase>
-  );
-};
+          <div className={styles.right}>{RightBlock}</div>
+        </Switcher>
+      </SectionBase>
+    );
+  }
+);

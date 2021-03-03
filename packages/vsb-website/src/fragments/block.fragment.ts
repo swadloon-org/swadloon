@@ -5,6 +5,7 @@ export const blockFragment = graphql`
     id
     name
     variant
+    type
     text {
       text
       childMdx {

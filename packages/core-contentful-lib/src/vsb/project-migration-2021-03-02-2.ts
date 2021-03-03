@@ -5,15 +5,15 @@ import { COMMON_VARIANT } from '../common-type/common-props-types';
 import { keys } from '../utilities';
 
 const program: Migration.MigrationFunction = function Program(migration) {
-  const block = migration.editContentType('block');
   // set variant field to a default
   migration.transformEntries({
-    contentType: 'block',
+    contentType: 'COST_ITEM',
     from: ['variant'],
     to: ['variant'],
     transformEntryForLocale: async (from, locale) => {
       return {
-        variant: null,
+        type: 'customCostItem',
+        variant: 'primary',
       };
     },
   });

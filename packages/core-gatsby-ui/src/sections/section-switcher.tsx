@@ -1,7 +1,9 @@
 import { Variant } from '@newrade/core-design-system';
 import { Switcher, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
+import { useStyles } from 'react-treat';
 import { SectionBase } from './section-base';
+import * as styleRefs from './section-switcher.treat';
 import { SectionBaseLayout, SectionPadding, SectionProps } from './section.props';
 
 type Props = SectionProps & {
@@ -28,6 +30,7 @@ export const SectionSwitcher = React.forwardRef<any, Props>(
     },
     ref
   ) => {
+    const { styles } = useStyles(styleRefs);
     const { cssTheme } = useTreatTheme();
     const commonProps = useCommonProps({ id, style, className, ...props });
 
@@ -42,8 +45,8 @@ export const SectionSwitcher = React.forwardRef<any, Props>(
         }}
       >
         <Switcher col={2} gap={[cssTheme.sizing.var.x6]}>
-          {LeftBlock}
-          {RightBlock}
+          <div className={styles.left}>{LeftBlock}</div>
+          <div className={styles.right}>{RightBlock}</div>
         </Switcher>
       </SectionBase>
     );

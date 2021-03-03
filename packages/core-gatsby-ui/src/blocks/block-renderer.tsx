@@ -6,6 +6,7 @@ import React, { PropsWithChildren } from 'react';
 import { GatsbyLink } from '..';
 import { BlockGoogleMapAPI } from '../api/block-google-map.api';
 import { BlockAPI } from '../api/block.api';
+import { BlockImage } from './block-image';
 import { BlockMarkdown } from './block-markdown';
 import { BlockRendererProps, BlockType } from './block.props';
 
@@ -48,48 +49,7 @@ export function BlockRenderer<CustomBlockVariants extends string>({
     return <CustomBlock block={block as BlockAPI} />;
   }
 
-  switch (block.variant) {
-    /**
-     * Google Maps Block
-     */
-    case BlockType.googleMaps: {
-      const blockGoogleMaps = block as BlockGoogleMapAPI;
-      return (
-        <ErrorBoundary>
-          {!isSSR && inView ? (
-            <React.Suspense fallback={<div />}>
-              <BlockGoogleMap inView={inView} {...blockGoogleMaps} />
-            </React.Suspense>
-          ) : null}
-        </ErrorBoundary>
-      );
-    }
-
-    /**
-     * Image Block
-     */
-    case BlockType.image: {
-      const blockText = block as BlockAPI;
-      return (
-        <ErrorBoundary>
-          <Stack gap={[cssTheme.sizing.var.x5]}>
-            <BlockMarkdown block={blockText}>{blockText.text?.childMdx?.body}</BlockMarkdown>
-
-            {blockText.link?.page?.slug ? (
-              <Button
-                size={ButtonSize.large}
-                variant={blockText.variant ? (blockText.variant as Variant) : Variant.secondary}
-                Icon={<IoArrowForwardOutline />}
-                AsElement={<GatsbyLink to={blockText.link?.page?.slug} />}
-              >
-                {blockText.link?.label}
-              </Button>
-            ) : null}
-          </Stack>
-        </ErrorBoundary>
-      );
-    }
-
+  switch (block.type) {
     /**
      * Text / Generic Block
      */
@@ -97,7 +57,7 @@ export function BlockRenderer<CustomBlockVariants extends string>({
       const blockText = block as BlockAPI;
       return (
         <ErrorBoundary>
-          <Stack gap={[cssTheme.sizing.var.x5]}>
+          <Stack gap={[cssTheme.sizing.var.x5]} {...props}>
             <BlockMarkdown block={blockText}>{blockText.text?.childMdx?.body}</BlockMarkdown>
 
             {blockText.link?.page?.slug ? (
@@ -111,6 +71,34 @@ export function BlockRenderer<CustomBlockVariants extends string>({
               </Button>
             ) : null}
           </Stack>
+        </ErrorBoundary>
+      );
+    }
+
+    /**
+     * Image Block
+     */
+    case BlockType.image: {
+      const blockImage = block as BlockAPI;
+      return (
+        <ErrorBoundary>
+          <BlockImage block={blockImage} {...props}></BlockImage>
+        </ErrorBoundary>
+      );
+    }
+
+    /**
+     * Google Maps Block
+     */
+    case BlockType.googleMaps: {
+      const blockGoogleMaps = block as BlockGoogleMapAPI;
+      return (
+        <ErrorBoundary>
+          {!isSSR && inView ? (
+            <React.Suspense fallback={<div />}>
+              <BlockGoogleMap inView={inView} blockGoogleMaps={blockGoogleMaps} {...props} />
+            </React.Suspense>
+          ) : null}
         </ErrorBoundary>
       );
     }
