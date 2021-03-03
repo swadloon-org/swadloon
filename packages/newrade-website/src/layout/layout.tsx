@@ -130,7 +130,10 @@ export const Layout = React.memo<LayoutProps>((props) => {
         </React.Suspense>
       )}
 
-      <Main>{props.children}</Main>
+      <Main navbarPadding={true} minHeight={true}>
+        {props.children}
+      </Main>
+
       {/* <Footer></Footer> */}
     </MainWrapper>
   );

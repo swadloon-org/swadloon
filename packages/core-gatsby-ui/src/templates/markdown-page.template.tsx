@@ -12,7 +12,6 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { useStyles } from 'react-treat';
 import { MarkdownTemplateQuery } from '../../types/site-graphql-types';
-import { Aside } from '../navigation/aside';
 import * as styleRefs from './markdown-docs.treat';
 
 export type MarkdownTemplateProps = PageProps<MarkdownTemplateQuery, GatsbyMarkdownFilePageContext>;
@@ -84,13 +83,12 @@ const Template: React.FC<MarkdownTemplateProps> = (props) => {
           site: `${data?.contentfulCompanyInfo?.metadataTwitterSite}`,
         })} */}
       </Helmet>
-      <Center maxWidth={'800px'}>
+
+      <Center maxWidth={'1200px'}>
         <MarkdownCSS>
-          <MDXRenderer {...props}>{props.data.file?.childMdx?.body as string}</MDXRenderer>
+          <MDXRenderer>{props.data.file?.childMdx?.body as string}</MDXRenderer>
         </MarkdownCSS>
       </Center>
-
-      <Aside items={props.data.file?.childMdx?.headings} location={props.location} />
     </>
   );
 };

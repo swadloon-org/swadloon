@@ -15,7 +15,7 @@ import * as styleRefs from './section-form-vasectomy.treat';
 type Props = CommonComponentProps & SectionProps & {};
 
 const BlockFormVasectomy = React.lazy(() =>
-  import('./block-form-vasectomy').then((comp) => ({ default: comp.BlockFormVasectomy }))
+  import('../blocks/block-form-vasectomy').then((comp) => ({ default: comp.BlockFormVasectomy }))
 );
 
 export const SectionFormVasectomy = React.forwardRef<any, Props>(

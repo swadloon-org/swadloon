@@ -33,8 +33,8 @@ const config: core.GastbySiteConfig = {
     siteUrl: env.APP_URL,
     siteEnv: env.APP_ENV,
     languages: {
-      langs: [core.SITE_LANGUAGES.FR_CA, core.SITE_LANGUAGES.EN_CA],
-      defaultLangKey: core.SITE_LANGUAGES.FR_CA,
+      langs: [core.SITE_LANGUAGES.EN_CA, core.SITE_LANGUAGES.FR_CA],
+      defaultLangKey: core.SITE_LANGUAGES.EN_CA,
     },
   },
   plugins: [
@@ -54,14 +54,14 @@ const config: core.GastbySiteConfig = {
         include_favicon: false,
       },
     },
-    {
-      resolve: `gatsby-source-contentful`,
-      options: {
-        spaceId: env.CONTENTFUL_SPACEID_NEWRADE,
-        accessToken: env.CONTENTFUL_DELIVERY_TOKEN_NEWRADE,
-        environment: env.CONTENTFUL_ENV,
-      },
-    },
+    // {
+    //   resolve: `gatsby-source-contentful`,
+    //   options: {
+    //     spaceId: env.CONTENTFUL_SPACEID_NEWRADE,
+    //     accessToken: env.CONTENTFUL_DELIVERY_TOKEN_NEWRADE,
+    //     environment: env.CONTENTFUL_ENV,
+    //   },
+    // },
     {
       resolve: 'gatsby-plugin-load-script',
       options: {
@@ -77,7 +77,7 @@ const config: core.GastbySiteConfig = {
     ...core.getGatsbyPluginTypeScriptConfig({
       documentPaths: [
         '../core-gatsby-ui/src/fragments/gatsby/**/*.{ts,tsx}',
-        '../core-gatsby-ui/src/fragments/contentful/**/*.{ts,tsx}',
+        // '../core-gatsby-ui/src/fragments/contentful/**/*.{ts,tsx}',
         './src/**/*.{ts,tsx}',
       ],
     }),
@@ -94,19 +94,21 @@ const config: core.GastbySiteConfig = {
     core.getGatsbyPluginSitemap(),
     core.getGatsbyPluginRobotsTxt({ env }),
     core.getGatsbyNetlifyPlugin(),
-    core.getGastbyCoreContentfulPluginConfig({
-      packageName: packageJson.name,
-      locales: ['fr-CA', 'en-CA'],
-      features: {
-        renderPages: true,
-        renderBlogPosts: false,
-        renderPortfolio: false,
-      },
-    }),
+    // core.getGastbyCoreContentfulPluginConfig({
+    //   packageName: packageJson.name,
+    //   locales: ['fr-CA', 'en-CA'],
+    //   features: {
+    //     renderPages: true,
+    //     renderBlogPosts: false,
+    //     renderPortfolio: false,
+    //   },
+    // }),
     core.getGastbyCorePluginConfig({
       packageName: packageJson.name,
-      enableDesignSystemPages: true,
-      enableDocsPages: true,
+      features: {
+        renderDesignSystemPages: true,
+        renderDocsPages: true,
+      },
     }),
     // core.getGatsbyPluginPreloadFonts(),
   ],

@@ -15,10 +15,10 @@ import { graphql, PageProps } from 'gatsby';
 import React from 'react';
 import Helmet from 'react-helmet';
 import { BlockCostItemFragment, PageQuery } from '../../types/graphql-types';
-import { BlockCostItem } from '../components/block-cost-items';
-import { SectionBanner } from '../components/section-banner';
-import { SectionFormVasectomy } from '../components/section-form-vasectomy';
+import { BlockCostItem } from '../blocks/block-cost-items';
 import '../fonts';
+import { SectionBanner } from '../sections/section-banner';
+import { SectionFormVasectomy } from '../sections/section-form-vasectomy';
 
 export type ProjectPageProps = PageProps<PageQuery, GatsbyContentfulPageContext>;
 
@@ -41,9 +41,9 @@ type CustomBlockVariants = 'customCostItem' | 'customStep';
 
 export const sectionComponents: CustomSectionLayoutComponents<CustomSectionLayouts> = {
   banner: (props) => <SectionBanner section={props.section} />,
-  customCostItems: (props) => <div>{JSON.stringify(props, null, 2)}</div>,
   customSteps: (props) => <div>{JSON.stringify(props, null, 2)}</div>,
   customFormVasectomy: (props) => <SectionFormVasectomy section={props.section} />,
+  customCostItems: (props) => <div>{JSON.stringify(props, null, 2)}</div>,
 };
 
 export const blockComponents: CustomBlockVariantComponents<CustomBlockVariants> = {

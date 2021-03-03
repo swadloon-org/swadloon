@@ -37,7 +37,7 @@ export function SectionRenderer<CustomSectionLayouts extends string, CustomBlock
   log(`rendering: ${section.name} with layout: ${sectionLayout}`);
 
   /**
-   * Custom components
+   * Render custom sections (layouts)
    */
   if (sectionComponents && sectionComponents[sectionLayout]) {
     const CustomSection = sectionComponents[sectionLayout] as React.ElementType<SectionProps | SectionAPI>;
@@ -47,136 +47,147 @@ export function SectionRenderer<CustomSectionLayouts extends string, CustomBlock
 
   const sectionLayouts = keys(SectionLayout);
 
-  if (sectionLayouts.includes(section.layout as SectionLayout)) {
-    const blocks = section.blocks;
+  const blocks = section.blocks;
 
-    switch (sectionLayout) {
-      case SectionLayout.stack: {
-        if (!blocks?.length) {
-          logWarn(`blocks must be set for SectionStack ${section.name}`);
-          return null;
-        }
-
-        return (
-          <SectionStack
-            ref={ref}
-            section={section}
-            Blocks={
-              <>
-                {blocks.map((block, index) => (
-                  <BlockRenderer blockComponents={blockComponents} key={index} block={block} inView={sectionInView} />
-                ))}
-              </>
-            }
-          ></SectionStack>
-        );
+  switch (sectionLayout) {
+    /**
+     * Stack
+     */
+    case SectionLayout.stack: {
+      if (!blocks?.length) {
+        logWarn(`blocks must be set for SectionStack ${section.name}`);
+        return null;
       }
 
-      case SectionLayout.switcher: {
-        const leftBlock = blocks?.[0];
-        const rightBlock = blocks?.[1];
+      return (
+        <SectionStack
+          ref={ref}
+          section={section}
+          Blocks={
+            <>
+              {blocks.map((block, index) => (
+                <BlockRenderer blockComponents={blockComponents} key={index} block={block} inView={sectionInView} />
+              ))}
+            </>
+          }
+        ></SectionStack>
+      );
+    }
 
-        if (!leftBlock || !rightBlock) {
-          logWarn(`both blocks must be set for SectionSwitcher ${section.name}`);
-          return null;
-        }
+    /**
+     * Switcher
+     */
+    case SectionLayout.switcher: {
+      const leftBlock = blocks?.[0];
+      const rightBlock = blocks?.[1];
 
-        return (
-          <SectionSwitcher
-            ref={ref}
-            section={section}
-            LeftBlock={
-              <BlockRenderer<CustomBlockVariants>
-                blockComponents={blockComponents}
-                block={leftBlock}
-                inView={sectionInView}
-              />
-            }
-            RightBlock={
-              <BlockRenderer<CustomBlockVariants>
-                blockComponents={blockComponents}
-                block={rightBlock}
-                inView={sectionInView}
-              />
-            }
-          ></SectionSwitcher>
-        );
+      if (!leftBlock || !rightBlock) {
+        logWarn(`both blocks must be set for SectionSwitcher ${section.name}`);
+        return null;
       }
 
-      case SectionLayout.divider: {
-        const leftBlock = blocks?.[0];
-        const rightBlock = blocks?.[1];
+      return (
+        <SectionSwitcher
+          ref={ref}
+          section={section}
+          LeftBlock={
+            <BlockRenderer<CustomBlockVariants>
+              blockComponents={blockComponents}
+              block={leftBlock}
+              inView={sectionInView}
+            />
+          }
+          RightBlock={
+            <BlockRenderer<CustomBlockVariants>
+              blockComponents={blockComponents}
+              block={rightBlock}
+              inView={sectionInView}
+            />
+          }
+        ></SectionSwitcher>
+      );
+    }
 
-        if (!leftBlock || !rightBlock) {
-          logWarn(`both blocks must be set for SectionSwitcher ${section.name}`);
-          return null;
-        }
+    /**
+     * Divider
+     */
+    case SectionLayout.divider: {
+      const leftBlock = blocks?.[0];
+      const rightBlock = blocks?.[1];
 
-        return (
-          <SectionDivider
-            ref={ref}
-            section={section}
-            LeftBlock={
-              <BlockRenderer<CustomBlockVariants>
-                blockComponents={blockComponents}
-                block={leftBlock}
-                inView={sectionInView}
-              />
-            }
-            RightBlock={
-              <BlockRenderer<CustomBlockVariants>
-                blockComponents={blockComponents}
-                block={rightBlock}
-                inView={sectionInView}
-              />
-            }
-          ></SectionDivider>
-        );
+      if (!leftBlock || !rightBlock) {
+        logWarn(`both blocks must be set for SectionSwitcher ${section.name}`);
+        return null;
       }
 
-      case SectionLayout.messenger: {
-        const leftBlock = blocks?.[0];
-        const rightBlocks = blocks?.slice(1);
+      return (
+        <SectionDivider
+          ref={ref}
+          section={section}
+          LeftBlock={
+            <BlockRenderer<CustomBlockVariants>
+              blockComponents={blockComponents}
+              block={leftBlock}
+              inView={sectionInView}
+            />
+          }
+          RightBlock={
+            <BlockRenderer<CustomBlockVariants>
+              blockComponents={blockComponents}
+              block={rightBlock}
+              inView={sectionInView}
+            />
+          }
+        ></SectionDivider>
+      );
+    }
 
-        if (!leftBlock || !rightBlocks) {
-          logWarn(`both blocks must be set for SectionMessenger ${section.name}`);
-          return null;
-        }
+    /**
+     * Messenger
+     */
+    case SectionLayout.messenger: {
+      const leftBlock = blocks?.[0];
+      const rightBlocks = blocks?.slice(1);
 
-        return (
-          <SectionMessenger
-            ref={ref}
-            section={section}
-            LeftBlock={
-              <BlockRenderer<CustomBlockVariants>
-                blockComponents={blockComponents}
-                block={leftBlock}
-                inView={sectionInView}
-              />
-            }
-            RightBlocks={
-              <>
-                {rightBlocks.map((block, index) => (
-                  <BlockRenderer<CustomBlockVariants>
-                    blockComponents={blockComponents}
-                    key={index}
-                    block={block}
-                    inView={sectionInView}
-                  />
-                ))}
-              </>
-            }
-          ></SectionMessenger>
-        );
+      if (!leftBlock || !rightBlocks) {
+        logWarn(`both blocks must be set for SectionMessenger ${section.name}`);
+        return null;
       }
 
-      default: {
-        return <div>{section.name}</div>;
-      }
+      return (
+        <SectionMessenger
+          ref={ref}
+          section={section}
+          LeftBlock={
+            <BlockRenderer<CustomBlockVariants>
+              blockComponents={blockComponents}
+              block={leftBlock}
+              inView={sectionInView}
+            />
+          }
+          RightBlocks={
+            <>
+              {rightBlocks.map((block, index) => (
+                <BlockRenderer<CustomBlockVariants>
+                  blockComponents={blockComponents}
+                  key={index}
+                  block={block}
+                  inView={sectionInView}
+                />
+              ))}
+            </>
+          }
+        ></SectionMessenger>
+      );
+    }
+
+    /**
+     * Default layout which indicates a config problem, or
+     * that a custom section was passed but no component was provided for this layout
+     */
+    default: {
+      logWarn(`unsupported layout: ${section.layout}, skipping section: ${section.name}`);
+      return <div>{section.name}</div>;
     }
   }
-
-  logWarn(`unsupported layout: ${section.layout}, skipping section: ${section.name}`);
-
-  return null;
 }

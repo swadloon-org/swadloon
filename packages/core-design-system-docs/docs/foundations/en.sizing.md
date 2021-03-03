@@ -20,9 +20,9 @@ the screen real estate is large, one could the [Golden ratio](https://en.wikiped
 
 ## Scale
 
-A scale from <Code>x0</Code> to <Code>x10</Code> is defined for each viewport (mobile, tablet and desktop).
-The values are also available as css variables <Code>var(--sizing-x1)</Code>), and they can be used by the
-theming system (e.g.<Code>cssTheme.sizing.var.x1</Code>).
+A scale from `x0` to `x10` is defined for each viewport (mobile, tablet and desktop).
+The values are also available as css variables `var(--sizing-x1)`), and they can be used by the
+theming system (e.g.`cssTheme.sizing.var.x1`).
 
 #### Desktop
 
@@ -35,6 +35,3 @@ theming system (e.g.<Code>cssTheme.sizing.var.x1</Code>).
 #### Mobile
 
 <SizingMobile />
-
-<br/>
-<br/>

@@ -9,6 +9,7 @@ import {
   Hr,
   MarkdownCSS,
   OPEN_GRAPH_TYPE,
+  useTreatTheme,
 } from '@newrade/core-react-ui';
 import { graphql, PageProps } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
@@ -51,6 +52,7 @@ export const markdownTemplateQuery = graphql`
  */
 const Template: React.FC<MarkdownTemplateProps> = (props) => {
   const { styles } = useStyles(styleRefs);
+  const { theme, cssTheme } = useTreatTheme();
 
   return (
     <>
@@ -88,9 +90,9 @@ const Template: React.FC<MarkdownTemplateProps> = (props) => {
         })} */}
       </Helmet>
       <MDXProvider components={designSystemMdxComponents}>
-        <Center maxWidth={'800px'}>
+        <Center maxWidth={'1200px'}>
           <MarkdownCSS>
-            <MDXRenderer {...props}>{props.data.file?.childMdx?.body as string}</MDXRenderer>
+            <MDXRenderer {...{ ...props, theme, cssTheme }}>{props.data.file?.childMdx?.body as string}</MDXRenderer>
 
             <Hr />
           </MarkdownCSS>

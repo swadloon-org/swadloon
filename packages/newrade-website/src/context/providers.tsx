@@ -1,4 +1,5 @@
 import { MDXProvider } from '@mdx-js/react';
+import { SectionSwitcher } from '@newrade/core-gatsby-ui/src';
 import {
   GlobalCSSVariables,
   GlobalResetCSS,
@@ -17,7 +18,7 @@ export const Providers: React.FC = (props) => {
     <TreatProvider theme={light}>
       <ViewportProvider context={viewportContext}>
         <TreatThemeProvider theme={{ theme, cssTheme }}>
-          <MDXProvider components={mdxComponents}>
+          <MDXProvider components={{ ...mdxComponents, SectionSwitcher: SectionSwitcher }}>
             <GlobalCSSVariables>
               <GlobalResetCSS>
                 {/* <IconContext.Provider value={{ style: { verticalAlign: 'middle' } }}> */}

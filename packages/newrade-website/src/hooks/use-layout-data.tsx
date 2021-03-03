@@ -22,24 +22,23 @@ const query = graphql`
           }
           id
           name
-          dirName
           locale
           layout
         }
       }
     }
-    companyAddress: contentfulCompanyAddress {
-      addressLine1
-      city
-      provinceState
-      postalCode
-      websiteURL
-      phone
-      email
-    }
-    companyInfo: contentfulCompanyInfo {
-      copyright
-    }
+    # companyAddress: contentfulCompanyAddress {
+    #   addressLine1
+    #   city
+    #   provinceState
+    #   postalCode
+    #   websiteURL
+    #   phone
+    #   email
+    # }
+    # companyInfo: contentfulCompanyInfo {
+    #   copyright
+    # }
   }
 `;
 
@@ -56,7 +55,7 @@ export function useNavigation(): Navigation {
   });
 }
 
-export function useCompanyInfo() {
-  const data = useQuery();
-  return { companyInfo: data.companyInfo, companyAddress: data.companyAddress };
-}
+// export function useCompanyInfo() {
+//   const data = useQuery();
+//   return { companyInfo: data.companyInfo, companyAddress: data.companyAddress };
+// }

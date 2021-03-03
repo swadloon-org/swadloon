@@ -6,9 +6,9 @@ import { TranslationAPI } from './translation.api';
 
 export type SiteAPI = {
   name: string;
-  companyInfo: CompanyInfoAPI;
-  companyAddresses: CompanyAddressAPI;
-  translation: TranslationAPI;
-  navigation: NavigationAPI[];
-  pages: PageAPI[];
+  companyInfo?: CompanyInfoAPI;
+  companyAddresses?: CompanyAddressAPI;
+  translation?: TranslationAPI;
+  navigation?: NavigationAPI[];
+  pages?: PageAPI[];
 };

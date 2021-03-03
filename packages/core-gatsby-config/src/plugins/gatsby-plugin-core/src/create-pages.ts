@@ -22,6 +22,7 @@ import {
   removeLocalePrefix,
 } from '../../../utils/pages.utilities';
 import { GatsbyCorePluginOptions } from '../gatsby-plugin-options';
+import chalk from 'chalk';
 
 let siteMetadata: GatsbyNodeSiteMetadataFragment;
 
@@ -74,7 +75,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
         query GatsbyNodeMarkdownFiles {
           allFile(
             filter: {
-              sourceInstanceName: { in: ["MONO_REPO_DOCS", "DOCS", "DESIGN_SYSTEM_DOCS"] }
+              sourceInstanceName: { in: ["MONO_REPO_DOCS", "DOCS", "DESIGN_SYSTEM_DOCS", "MDX_PAGES"] }
               ext: { in: [".md", ".mdx"] }
             }
           ) {
@@ -135,16 +136,16 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
       let markdownPageTemplate: string;
       try {
         await fsp.readFile(`src/templates/markdown-page.template.tsx`);
-        reporter.info(`[${pluginOptions.pluginName}] found markdown-docs template in package`);
-        markdownDocsTemplate = path.resolve(`src/templates/markdown-page.template.tsx`);
+        reporter.info(`[${pluginOptions.pluginName}] found markdown-page template in package`);
+        markdownPageTemplate = path.resolve(`src/templates/markdown-page.template.tsx`);
       } catch (error) {
-        reporter.info(`[${pluginOptions.pluginName}] no template defined for markdown-docs in package`);
+        reporter.info(`[${pluginOptions.pluginName}] no template defined for markdown-page in package`);
       }
 
       try {
         await fsp.readFile(`../core-gatsby-ui/src/templates/markdown-page.template.tsx`);
         reporter.info(`[${pluginOptions.pluginName}] using default markdown-page template`);
-        markdownDocsTemplate = path.resolve(`../core-gatsby-ui/src/templates/markdown-page.template.tsx`);
+        markdownPageTemplate = path.resolve(`../core-gatsby-ui/src/templates/markdown-page.template.tsx`);
       } catch (error) {
         reporter.panic(`[${pluginOptions.pluginName}] no default template defined for markdown-page`);
       }
@@ -191,7 +192,20 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
           locale: locale,
         });
 
-        reporter.info(`[${pluginOptions.pluginName}] creating markdown page ${path}`);
+        const layout = getLayoutForSourceInstance(sourceInstance);
+        const template = getTemplateForSourceInstance(sourceInstance);
+        const component =
+          sourceInstance === SOURCE_INSTANCE_NAME.MDX_PAGES
+            ? markdownPageTemplate
+            : sourceInstance === SOURCE_INSTANCE_NAME.DESIGN_SYSTEM_DOCS
+            ? designSystemPageTemplate
+            : markdownDocsTemplate;
+
+        reporter.info(
+          `[${pluginOptions.pluginName}] create page: layout: ${chalk.redBright(layout)}, template: ${chalk.blue(
+            template
+          )}, component: ${chalk.greenBright(component.replace(/\/.+\//gi, ''))},  path: ${chalk.blueBright(path)}`
+        );
 
         createPage<GatsbyMarkdownFilePageContext>({
           path,
@@ -202,15 +216,10 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
             displayName,
             fileId: node.id,
             locale,
-            layout: getLayoutForSourceInstance(sourceInstance),
-            template: getTemplateForSourceInstance(sourceInstance),
+            layout,
+            template,
           },
-          component:
-            sourceInstance === SOURCE_INSTANCE_NAME.MDX_PAGES
-              ? markdownPageTemplate
-              : sourceInstance === SOURCE_INSTANCE_NAME.DESIGN_SYSTEM_DOCS
-              ? designSystemPageTemplate
-              : markdownDocsTemplate,
+          component,
         });
       });
     }
