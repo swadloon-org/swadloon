@@ -1,8 +1,8 @@
 import { HEADING, TEXT_LEVEL } from '@newrade/core-design-system';
 import { Heading, Stack, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
-import { ColorPalette } from '../../utils/color-palette';
-import { ReversedBox } from '../../utils/reversed-box';
+import { ColorPalette } from '../../../utils/color-palette';
+import { ReversedBox } from '../../../utils/reversed-box';
 
 type Props = {};
 
