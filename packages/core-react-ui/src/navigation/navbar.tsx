@@ -1,4 +1,4 @@
-import { ButtonIcon, ButtonSize, ButtonVariant } from '@newrade/core-design-system';
+import { ButtonIcon, ButtonSize, Variant } from '@newrade/core-design-system';
 import { IoClose } from '@react-icons/all-files/io5/IoClose';
 import { IoMenu } from '@react-icons/all-files/io5/IoMenu';
 import React, { useEffect, useImperativeHandle, useRef, useState } from 'react';
@@ -144,7 +144,7 @@ export const NavBar = React.forwardRef<any, Props>((props, ref) => {
                 aria-label={'Menu'}
                 size={ButtonSize.large}
                 collapsePadding={'left'}
-                variant={ButtonVariant.tertiary}
+                variant={Variant.tertiary}
                 icon={ButtonIcon.icon}
                 Icon={props.menuOpened ? <IoClose /> : <IoMenu />}
                 onClick={handlePressMenuButton}

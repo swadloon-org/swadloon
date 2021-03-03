@@ -1,5 +1,5 @@
 import { MDXProvider } from '@mdx-js/react';
-import { ButtonIcon, ButtonSize, ButtonVariant, Variant } from '@newrade/core-design-system';
+import { ButtonIcon, ButtonSize, Variant } from '@newrade/core-design-system';
 import {
   BlockAPI,
   BlockRenderer,
@@ -170,7 +170,7 @@ export const SectionBanner = React.forwardRef<any, Props>(
           <Button
             aria-label={'Next section'}
             size={ButtonSize.large}
-            variant={ButtonVariant.tertiaryReversed}
+            variant={Variant.tertiaryReversed}
             icon={ButtonIcon.icon}
             Icon={<IoChevronDownOutline />}
             onClick={handleScrollToNextSection}

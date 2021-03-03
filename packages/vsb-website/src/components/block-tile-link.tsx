@@ -1,4 +1,4 @@
-import { ButtonIcon, ButtonSize, ButtonVariant, HEADING, TEXT_LEVEL } from '@newrade/core-design-system';
+import { ButtonIcon, ButtonSize, HEADING, TEXT_LEVEL, Variant } from '@newrade/core-design-system';
 import { GatsbyLink } from '@newrade/core-gatsby-ui/src';
 import {
   Background,
@@ -62,11 +62,7 @@ export const BlockTileLink: React.FC<Props> = ({ id, style, className, contentCl
 
               <Button
                 size={ButtonSize.large}
-                variant={
-                  section?.variant === 'PRIMARY_NORMAL'
-                    ? ButtonVariant.primaryReversed
-                    : ButtonVariant.secondaryReversed
-                }
+                variant={section?.variant === 'PRIMARY_NORMAL' ? Variant.primaryReversed : Variant.secondaryReversed}
                 icon={ButtonIcon.right}
                 Icon={<IoArrowForwardOutline />}
                 AsElement={<GatsbyLink to={section?.link?.page?.slug || ''} />}

@@ -1,13 +1,13 @@
 import {
   ButtonIcon,
   ButtonSize,
-  ButtonVariant,
   HEADING,
   LABEL_SIZE,
   LinkVariant,
   PARAGRAPH_SIZE,
   TEXT_LEVEL,
   TEXT_STYLE,
+  Variant,
   VIEWPORT,
 } from '@newrade/core-design-system';
 import { GatsbyLink } from '@newrade/core-gatsby-ui/src';
@@ -205,7 +205,7 @@ export const Layout = React.memo<LayoutProps>((props) => {
                     aria-label={'Menu'}
                     size={ButtonSize.large}
                     collapsePadding={'left'}
-                    variant={ButtonVariant.tertiary}
+                    variant={Variant.tertiary}
                     icon={ButtonIcon.icon}
                     Icon={<IoClose fill={'white'} />}
                     onClick={handleClickMenuButton}

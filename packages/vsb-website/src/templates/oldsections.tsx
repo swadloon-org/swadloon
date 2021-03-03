@@ -60,7 +60,7 @@
 //                         {section.link?.page?.slug ? (
 //                           <Button
 //                             size={ButtonSize.large}
-//                             variant={ButtonVariant.secondary}
+//                             variant={Variant.secondary}
 //                             Icon={<IoArrowForwardOutline />}
 //                             AsElement={<GatsbyLink to={section.link?.page?.slug} />}
 //                           >

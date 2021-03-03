@@ -1,4 +1,4 @@
-import { ButtonVariant, HEADING, TEXT_LEVEL } from '@newrade/core-design-system';
+import { HEADING, TEXT_LEVEL, Variant } from '@newrade/core-design-system';
 import { BoxV2, Button, Heading, Stack, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
@@ -68,16 +68,16 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
         <Heading variant={HEADING.h2}>Action</Heading>
 
         <Stack gap={[cssTheme.sizing.var.x3]}>
-          <Button variant={ButtonVariant.primary}></Button>
-          <Button variant={ButtonVariant.secondary}></Button>
-          <Button variant={ButtonVariant.tertiary}></Button>
+          <Button variant={Variant.primary}></Button>
+          <Button variant={Variant.secondary}></Button>
+          <Button variant={Variant.tertiary}></Button>
         </Stack>
 
         <ReversedBox>
           <Stack gap={[cssTheme.sizing.var.x3]}>
-            <Button variant={ButtonVariant.primaryReversed}></Button>
-            <Button variant={ButtonVariant.secondaryReversed}></Button>
-            <Button variant={ButtonVariant.tertiaryReversed}></Button>
+            <Button variant={Variant.primaryReversed}></Button>
+            <Button variant={Variant.secondaryReversed}></Button>
+            <Button variant={Variant.tertiaryReversed}></Button>
           </Stack>
         </ReversedBox>
 

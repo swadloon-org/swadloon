@@ -3,7 +3,7 @@ import { BlockGoogleMapAPI } from '../api/block-google-map.api';
 import { BlockAPI } from '../api/block.api';
 import { CustomBlockVariantComponents } from '../sections/section.props';
 
-export enum BlockVariant {
+export enum BlockType {
   /**
    * Used for markdown text and content.
    */

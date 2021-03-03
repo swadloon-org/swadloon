@@ -3,9 +3,9 @@ import {
   ButtonProps,
   ButtonSize,
   ButtonState,
-  ButtonVariant,
   LABEL_SIZE,
   TEXT_STYLE,
+  Variant,
 } from '@newrade/core-design-system';
 import React, { ButtonHTMLAttributes, useRef } from 'react';
 import { useStyles } from 'react-treat';
@@ -64,7 +64,7 @@ export const Button = React.forwardRef<any, Props>(
         : null;
 
     const variantStateClassName = `${styles[ButtonState.rest]}`;
-    const variantClassName = `${styles[variant ? variant : ButtonVariant.primary]}`;
+    const variantClassName = `${styles[variant ? variant : Variant.primary]}`;
     const variantSizeClassName = styles[size ? size : ButtonSize.medium];
     const activeClassName = disabled ? styles.pressed : '';
     const allClassName = getMergedClassname([

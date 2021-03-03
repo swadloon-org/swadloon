@@ -4,7 +4,7 @@ import { useStyles } from 'react-treat';
 import { BlockAPI } from '../api/block.api';
 import { MarkdownRenderer } from '../markdown/markdown-renderer';
 import * as styleRefs from './block-markdown.treat';
-import { BlockProps, BlockVariant } from './block.props';
+import { BlockProps, BlockType } from './block.props';
 
 type Props = BlockProps & { block?: BlockAPI } & {
   children?: string | null | React.ReactNode;
@@ -15,7 +15,7 @@ export const BlockMarkdown: React.FC<Props> = ({
   style,
   className,
   children,
-  block: { variant = BlockVariant.text } = { variant: BlockVariant.text },
+  block: { variant = BlockType.text } = { variant: BlockType.text },
   ...props
 }) => {
   const { styles } = useStyles(styleRefs);

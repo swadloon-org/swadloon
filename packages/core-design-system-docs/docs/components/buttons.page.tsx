@@ -1,4 +1,4 @@
-import { ButtonIcon, ButtonSize, ButtonVariant, HEADING } from '@newrade/core-design-system';
+import { ButtonIcon, ButtonSize, HEADING, Variant } from '@newrade/core-design-system';
 import { BoxV2, Button, Heading, Stack, useTreatTheme } from '@newrade/core-react-ui';
 import { IoArrowForwardOutline } from '@react-icons/all-files/io5/IoArrowForwardOutline';
 import React from 'react';
@@ -23,9 +23,9 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
         <Heading variant={HEADING.h2}>Variant</Heading>
 
         <Stack gap={[cssTheme.sizing.var.x3]}>
-          <Button variant={ButtonVariant.primary}></Button>
-          <Button variant={ButtonVariant.secondary}></Button>
-          <Button variant={ButtonVariant.tertiary}></Button>
+          <Button variant={Variant.primary}></Button>
+          <Button variant={Variant.secondary}></Button>
+          <Button variant={Variant.tertiary}></Button>
         </Stack>
       </Stack>
 
@@ -34,9 +34,9 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
 
         <BoxV2 padding={[cssTheme.sizing.var.x3]} style={{ backgroundColor: cssTheme.colors.colors.grey[800] }}>
           <Stack gap={[cssTheme.sizing.var.x3]}>
-            <Button variant={ButtonVariant.primaryReversed}></Button>
-            <Button variant={ButtonVariant.secondaryReversed}></Button>
-            <Button variant={ButtonVariant.tertiaryReversed}></Button>
+            <Button variant={Variant.primaryReversed}></Button>
+            <Button variant={Variant.secondaryReversed}></Button>
+            <Button variant={Variant.tertiaryReversed}></Button>
           </Stack>
         </BoxV2>
       </Stack>
@@ -73,152 +73,152 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
           <Button size={ButtonSize.xsmall} icon={ButtonIcon.icon} Icon={<IoArrowForwardOutline />}></Button>
 
           <Button
-            variant={ButtonVariant.secondary}
+            variant={Variant.secondary}
             size={ButtonSize.large}
             icon={ButtonIcon.right}
             Icon={<IoArrowForwardOutline />}
           ></Button>
           <Button
-            variant={ButtonVariant.secondary}
+            variant={Variant.secondary}
             size={ButtonSize.large}
             icon={ButtonIcon.left}
             Icon={<IoArrowForwardOutline />}
           ></Button>
           <Button
-            variant={ButtonVariant.secondary}
+            variant={Variant.secondary}
             size={ButtonSize.large}
             icon={ButtonIcon.icon}
             Icon={<IoArrowForwardOutline />}
           ></Button>
 
           <Button
-            variant={ButtonVariant.secondary}
+            variant={Variant.secondary}
             size={ButtonSize.medium}
             icon={ButtonIcon.right}
             Icon={<IoArrowForwardOutline />}
           ></Button>
           <Button
-            variant={ButtonVariant.secondary}
+            variant={Variant.secondary}
             size={ButtonSize.medium}
             icon={ButtonIcon.left}
             Icon={<IoArrowForwardOutline />}
           ></Button>
           <Button
-            variant={ButtonVariant.secondary}
+            variant={Variant.secondary}
             size={ButtonSize.medium}
             icon={ButtonIcon.icon}
             Icon={<IoArrowForwardOutline />}
           ></Button>
 
           <Button
-            variant={ButtonVariant.secondary}
+            variant={Variant.secondary}
             size={ButtonSize.small}
             icon={ButtonIcon.right}
             Icon={<IoArrowForwardOutline />}
           ></Button>
           <Button
-            variant={ButtonVariant.secondary}
+            variant={Variant.secondary}
             size={ButtonSize.small}
             icon={ButtonIcon.left}
             Icon={<IoArrowForwardOutline />}
           ></Button>
           <Button
-            variant={ButtonVariant.secondary}
+            variant={Variant.secondary}
             size={ButtonSize.small}
             icon={ButtonIcon.icon}
             Icon={<IoArrowForwardOutline />}
           ></Button>
 
           <Button
-            variant={ButtonVariant.secondary}
+            variant={Variant.secondary}
             size={ButtonSize.xsmall}
             icon={ButtonIcon.right}
             Icon={<IoArrowForwardOutline />}
           ></Button>
           <Button
-            variant={ButtonVariant.secondary}
+            variant={Variant.secondary}
             size={ButtonSize.xsmall}
             icon={ButtonIcon.left}
             Icon={<IoArrowForwardOutline />}
           ></Button>
           <Button
-            variant={ButtonVariant.secondary}
+            variant={Variant.secondary}
             size={ButtonSize.xsmall}
             icon={ButtonIcon.icon}
             Icon={<IoArrowForwardOutline />}
           ></Button>
 
           <Button
-            variant={ButtonVariant.tertiary}
+            variant={Variant.tertiary}
             size={ButtonSize.large}
             icon={ButtonIcon.right}
             Icon={<IoArrowForwardOutline />}
           ></Button>
           <Button
-            variant={ButtonVariant.tertiary}
+            variant={Variant.tertiary}
             size={ButtonSize.large}
             icon={ButtonIcon.left}
             Icon={<IoArrowForwardOutline />}
           ></Button>
           <Button
-            variant={ButtonVariant.tertiary}
+            variant={Variant.tertiary}
             size={ButtonSize.large}
             icon={ButtonIcon.icon}
             Icon={<IoArrowForwardOutline />}
           ></Button>
 
           <Button
-            variant={ButtonVariant.tertiary}
+            variant={Variant.tertiary}
             size={ButtonSize.medium}
             icon={ButtonIcon.right}
             Icon={<IoArrowForwardOutline />}
           ></Button>
           <Button
-            variant={ButtonVariant.tertiary}
+            variant={Variant.tertiary}
             size={ButtonSize.medium}
             icon={ButtonIcon.left}
             Icon={<IoArrowForwardOutline />}
           ></Button>
           <Button
-            variant={ButtonVariant.tertiary}
+            variant={Variant.tertiary}
             size={ButtonSize.medium}
             icon={ButtonIcon.icon}
             Icon={<IoArrowForwardOutline />}
           ></Button>
 
           <Button
-            variant={ButtonVariant.tertiary}
+            variant={Variant.tertiary}
             size={ButtonSize.small}
             icon={ButtonIcon.right}
             Icon={<IoArrowForwardOutline />}
           ></Button>
           <Button
-            variant={ButtonVariant.tertiary}
+            variant={Variant.tertiary}
             size={ButtonSize.small}
             icon={ButtonIcon.left}
             Icon={<IoArrowForwardOutline />}
           ></Button>
           <Button
-            variant={ButtonVariant.tertiary}
+            variant={Variant.tertiary}
             size={ButtonSize.small}
             icon={ButtonIcon.icon}
             Icon={<IoArrowForwardOutline />}
           ></Button>
 
           <Button
-            variant={ButtonVariant.tertiary}
+            variant={Variant.tertiary}
             size={ButtonSize.xsmall}
             icon={ButtonIcon.right}
             Icon={<IoArrowForwardOutline />}
           ></Button>
           <Button
-            variant={ButtonVariant.tertiary}
+            variant={Variant.tertiary}
             size={ButtonSize.xsmall}
             icon={ButtonIcon.left}
             Icon={<IoArrowForwardOutline />}
           ></Button>
           <Button
-            variant={ButtonVariant.tertiary}
+            variant={Variant.tertiary}
             size={ButtonSize.xsmall}
             icon={ButtonIcon.icon}
             Icon={<IoArrowForwardOutline />}
@@ -230,9 +230,9 @@ const PageComponent: React.FC<DesignSystemPageProps> = (props) => {
         <Heading variant={HEADING.h2}>States</Heading>
 
         <Stack gap={[cssTheme.sizing.var.x3]}>
-          <Button disabled={true} variant={ButtonVariant.primary}></Button>
-          <Button disabled={true} variant={ButtonVariant.secondary}></Button>
-          <Button disabled={true} variant={ButtonVariant.tertiary}></Button>
+          <Button disabled={true} variant={Variant.primary}></Button>
+          <Button disabled={true} variant={Variant.secondary}></Button>
+          <Button disabled={true} variant={Variant.tertiary}></Button>
         </Stack>
       </Stack>
     </>

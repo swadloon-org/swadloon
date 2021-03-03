@@ -1,9 +1,9 @@
-import { BlockVariant } from '../blocks/block.props';
+import { BlockType } from '../blocks/block.props';
 
 export type BlockGoogleMapAPI = {
   id: string;
   name?: string | null;
-  variant?: BlockVariant | null | string;
+  variant?: BlockType | null | string;
   placeId?: string;
   lat?: string;
   long?: string;

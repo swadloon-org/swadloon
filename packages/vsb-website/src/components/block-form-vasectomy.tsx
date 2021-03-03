@@ -1,5 +1,5 @@
 import { API_RESPONSE_STATUS } from '@newrade/core-common';
-import { ButtonSize, ButtonVariant } from '@newrade/core-design-system';
+import { ButtonSize, Variant } from '@newrade/core-design-system';
 import { BlockProps } from '@newrade/core-gatsby-ui/src';
 import {
   Bold,
@@ -743,7 +743,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, bloc
 
             <Button
               ref={submitButtonRef}
-              variant={ButtonVariant.primary}
+              variant={Variant.primary}
               className={isLoading ? 'loading' : ''}
               size={ButtonSize.large}
               disabled={isLoading}

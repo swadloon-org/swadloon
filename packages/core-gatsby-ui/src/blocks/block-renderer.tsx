@@ -1,4 +1,4 @@
-import { ButtonSize, ButtonVariant } from '@newrade/core-design-system';
+import { ButtonSize, Variant } from '@newrade/core-design-system';
 import { Button, ErrorBoundary, Stack, useIsSSR, useTreatTheme } from '@newrade/core-react-ui';
 import { IoArrowForwardOutline } from '@react-icons/all-files/io5/IoArrowForwardOutline';
 import debug from 'debug';
@@ -7,7 +7,7 @@ import { GatsbyLink } from '..';
 import { BlockGoogleMapAPI } from '../api/block-google-map.api';
 import { BlockAPI } from '../api/block.api';
 import { BlockMarkdown } from './block-markdown';
-import { BlockRendererProps, BlockVariant } from './block.props';
+import { BlockRendererProps, BlockType } from './block.props';
 
 const log = debug('newrade:core-gatsby-ui:block-renderer');
 const logWarn = log.extend('warn');
@@ -39,8 +39,8 @@ export function BlockRenderer<CustomBlockVariants extends string>({
   /**
    * Custom Blocks
    */
-  if (block.variant && blockComponents && blockComponents[block.variant as CustomBlockVariants | BlockVariant]) {
-    const CustomBlock = blockComponents[block.variant as CustomBlockVariants | BlockVariant] as React.ElementType;
+  if (block.variant && blockComponents && blockComponents[block.variant as CustomBlockVariants | BlockType]) {
+    const CustomBlock = blockComponents[block.variant as CustomBlockVariants | BlockType] as React.ElementType;
     if (!CustomBlock) {
       return null;
     }
@@ -52,7 +52,7 @@ export function BlockRenderer<CustomBlockVariants extends string>({
     /**
      * Google Maps Block
      */
-    case BlockVariant.googleMaps: {
+    case BlockType.googleMaps: {
       const blockGoogleMaps = block as BlockGoogleMapAPI;
       return (
         <ErrorBoundary>
@@ -68,7 +68,7 @@ export function BlockRenderer<CustomBlockVariants extends string>({
     /**
      * Image Block
      */
-    case BlockVariant.image: {
+    case BlockType.image: {
       const blockText = block as BlockAPI;
       return (
         <ErrorBoundary>
@@ -78,7 +78,7 @@ export function BlockRenderer<CustomBlockVariants extends string>({
             {blockText.link?.page?.slug ? (
               <Button
                 size={ButtonSize.large}
-                variant={ButtonVariant.secondary}
+                variant={blockText.variant ? (blockText.variant as Variant) : Variant.secondary}
                 Icon={<IoArrowForwardOutline />}
                 AsElement={<GatsbyLink to={blockText.link?.page?.slug} />}
               >
@@ -93,7 +93,7 @@ export function BlockRenderer<CustomBlockVariants extends string>({
     /**
      * Text / Generic Block
      */
-    case BlockVariant.text: {
+    case BlockType.text: {
       const blockText = block as BlockAPI;
       return (
         <ErrorBoundary>
@@ -103,7 +103,7 @@ export function BlockRenderer<CustomBlockVariants extends string>({
             {blockText.link?.page?.slug ? (
               <Button
                 size={ButtonSize.large}
-                variant={ButtonVariant.secondary}
+                variant={Variant.secondary}
                 Icon={<IoArrowForwardOutline />}
                 AsElement={<GatsbyLink to={blockText.link?.page?.slug} />}
               >
