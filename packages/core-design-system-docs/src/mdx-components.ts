@@ -1,3 +1,12 @@
+import { Variant } from '@newrade/core-design-system';
+import {
+  BlockMarkdown,
+  SectionBase,
+  SectionBaseLayout,
+  SectionDivider,
+  SectionPadding,
+  SectionSwitcher,
+} from '@newrade/core-gatsby-ui/src';
 import {
   BoxV2,
   BoxV3,
@@ -19,15 +28,6 @@ import {
 } from '@newrade/core-react-ui';
 import { Placeholder } from './utils/placeholder';
 import { PlaceholderMarkdown } from './utils/placeholder-markdown';
-import { Variant } from '@newrade/core-design-system';
-import {
-  BlockMarkdown,
-  SectionSwitcher,
-  SectionBase,
-  SectionDivider,
-  SectionBaseLayout,
-  SectionPadding,
-} from '@newrade/core-gatsby-ui/src';
 
 export const designSystemMdxComponents = {
   ...mdxComponents,
@@ -46,7 +46,7 @@ export const designSystemMdxComponents = {
   Placeholder: Placeholder,
   PlaceholderMarkdown: PlaceholderMarkdown,
   SectionSwitcher: SectionSwitcher,
-  Section: SectionBase,
+  SectionBase: SectionBase,
   Stack: Stack,
   Summary: Summary,
   Switcher: Switcher,
