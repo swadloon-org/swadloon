@@ -30,7 +30,10 @@ import { Summary } from '../text/summary';
  *    ```
  */
 export const mdxComponents: Partial<
-  Record<keyof React.ReactHTML, React.ReactNode> & { pragmaFrag: React.ReactNode; inlineCode: React.ReactNode }
+  Record<keyof React.ReactHTML, React.ReactNode> & {
+    pragmaFrag: React.ReactNode;
+    inlineCode: React.ReactNode;
+  }
 > = {
   /**
    * Content sectioning

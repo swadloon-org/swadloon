@@ -77,6 +77,10 @@ globalStyle(`${wrapper} p + *`, ({ cssTheme, theme }: Theme) => ({
   marginTop: contentMargin,
 }));
 
+globalStyle(`${wrapper} * + p`, ({ cssTheme, theme }: Theme) => ({
+  marginTop: contentMargin,
+}));
+
 globalStyle(`${wrapper} p + p`, ({ cssTheme, theme }: Theme) => ({
   marginTop: contentMargin,
 }));

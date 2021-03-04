@@ -1,5 +1,5 @@
 import { Theme } from '@newrade/core-react-ui';
-import { style } from 'treat';
+import { globalStyle, style } from 'treat';
 
 export const styles = {
   /**
@@ -23,4 +23,9 @@ export const styles = {
       },
     },
   })),
+  text: style(({ theme, cssTheme }: Theme) => ({})),
 };
+
+globalStyle(`${styles.text} * + p`, ({ cssTheme, theme }: Theme) => ({
+  marginTop: `1em`,
+}));

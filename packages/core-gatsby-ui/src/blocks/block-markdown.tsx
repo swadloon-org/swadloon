@@ -8,6 +8,7 @@ import { BlockProps, BlockType } from './block.props';
 
 type Props = BlockProps & { block?: BlockAPI } & {
   children?: string | null | React.ReactNode;
+  injectMarkdownStyles?: boolean;
 };
 
 export const BlockMarkdown: React.FC<Props> = ({
@@ -15,6 +16,7 @@ export const BlockMarkdown: React.FC<Props> = ({
   style,
   className,
   children,
+  injectMarkdownStyles = true,
   block: { variant = BlockType.text } = { variant: BlockType.text },
   ...props
 }) => {
@@ -27,12 +29,26 @@ export const BlockMarkdown: React.FC<Props> = ({
 
   return (
     <BoxV2 {...commonProps}>
-      {typeof children !== 'string' ? (
-        // already rendered markdown
-        <MarkdownCSS className={styles.content}>{children}</MarkdownCSS>
+      {injectMarkdownStyles ? (
+        <MarkdownCSS className={styles.content}>
+          {typeof children !== 'string' ? (
+            // already rendered markdown
+            children
+          ) : (
+            // markdown string coming out of mdx-loader
+            <MarkdownRenderer className={styles.content}>{children}</MarkdownRenderer>
+          )}
+        </MarkdownCSS>
       ) : (
-        // markdown string coming out of mdx-loader
-        <MarkdownRenderer className={styles.content}>{children}</MarkdownRenderer>
+        <>
+          {typeof children !== 'string' ? (
+            // already rendered markdown
+            children
+          ) : (
+            // markdown string coming out of mdx-loader
+            <MarkdownRenderer className={styles.content}>{children}</MarkdownRenderer>
+          )}
+        </>
       )}
     </BoxV2>
   );

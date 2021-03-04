@@ -19,6 +19,7 @@ import { BlockCostItem } from '../blocks/block-cost-items';
 import '../fonts';
 import { SectionBanner } from '../sections/section-banner';
 import { SectionFormVasectomy } from '../sections/section-form-vasectomy';
+import { SectionSteps } from '../sections/section-steps';
 
 export type ProjectPageProps = PageProps<PageQuery, GatsbyContentfulPageContext>;
 
@@ -39,19 +40,19 @@ export const pageQuery = graphql`
 type CustomSectionLayouts = 'customCostItems' | 'customSteps' | 'customFormVasectomy';
 type CustomBlockVariants = 'customCostItem' | 'customStep';
 
-export const sectionComponents: CustomSectionLayoutComponents<CustomSectionLayouts> = {
-  banner: (props) => <SectionBanner section={props.section} />,
-  customSteps: (props) => <div>{JSON.stringify(props, null, 2)}</div>,
-  customFormVasectomy: (props) => <SectionFormVasectomy section={props.section} />,
-  customCostItems: (props) => <div>{JSON.stringify(props, null, 2)}</div>,
-};
-
 export const blockComponents: CustomBlockVariantComponents<CustomBlockVariants> = {
   customCostItem: ({ block, ...props }) => {
     const blockProps = block as BlockCostItemFragment;
     return <BlockCostItem costItem={blockProps} {...props} />;
   },
   customStep: (props) => <div>{JSON.stringify(props, null, 2)}</div>,
+};
+
+export const sectionComponents: CustomSectionLayoutComponents<CustomSectionLayouts> = {
+  banner: (props) => <SectionBanner section={props.section} />,
+  customSteps: (props) => <SectionSteps section={props.section} />,
+  customFormVasectomy: (props) => <SectionFormVasectomy section={props.section} />,
+  customCostItems: (props) => <div>{JSON.stringify(props, null, 2)}</div>,
 };
 
 export const PageTemplate: React.FC<ProjectPageProps> = ({ data, location, ...props }) => {
@@ -88,8 +89,8 @@ export const PageTemplate: React.FC<ProjectPageProps> = ({ data, location, ...pr
             <SectionRenderer<CustomSectionLayouts, CustomBlockVariants>
               key={index}
               section={section as SectionAPI}
-              sectionComponents={sectionComponents}
               blockComponents={blockComponents}
+              sectionComponents={sectionComponents}
             />
           );
         })}
