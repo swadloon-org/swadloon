@@ -7,6 +7,7 @@ import { BlockRenderer } from '../blocks/block-renderer';
 import { SectionDivider } from './section-divider';
 import { SectionMessenger } from './section-messenger';
 import { SectionStack } from './section-stack';
+import { SectionStatement } from './section-statement';
 import { SectionSwitcher } from './section-switcher';
 import { SectionLayout, SectionProps, SectionRendererProps } from './section.props';
 
@@ -105,6 +106,48 @@ export function SectionRenderer<CustomSectionLayouts extends string, CustomBlock
             />
           }
         ></SectionSwitcher>
+      );
+    }
+
+    /**
+     * Statement
+     */
+    case SectionLayout.statement: {
+      const topBlock = blocks?.[0];
+      const leftBlock = blocks?.[1];
+      const rightBlock = blocks?.[2];
+
+      if (!topBlock || !leftBlock || !rightBlock) {
+        logWarn(`both blocks must be set for SectionStatement ${section.name}`);
+        return null;
+      }
+
+      return (
+        <SectionStatement
+          ref={ref}
+          section={section}
+          TopBlock={
+            <BlockRenderer<CustomBlockVariants>
+              blockComponents={blockComponents}
+              block={topBlock}
+              inView={sectionInView}
+            />
+          }
+          LeftBlock={
+            <BlockRenderer<CustomBlockVariants>
+              blockComponents={blockComponents}
+              block={leftBlock}
+              inView={sectionInView}
+            />
+          }
+          RightBlock={
+            <BlockRenderer<CustomBlockVariants>
+              blockComponents={blockComponents}
+              block={rightBlock}
+              inView={sectionInView}
+            />
+          }
+        ></SectionStatement>
       );
     }
 

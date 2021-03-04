@@ -14,12 +14,12 @@ export const styles = {
     '@media': {
       [cssTheme.layout.media.tablet]: {
         gridTemplateColumns: 'repeat(12, 1fr)',
-        gap: cssTheme.sizing.var.x5,
+        gap: cssTheme.sizing.var.x6,
         gridTemplateAreas: `"title title title title messages messages messages messages messages messages messages ."`,
       },
       [cssTheme.layout.media.desktopSmall]: {
         gridTemplateColumns: 'repeat(12, 1fr)',
-        gap: cssTheme.sizing.var.x5,
+        gap: cssTheme.sizing.var.x6,
 
         gridTemplateAreas: `"title title title messages messages messages messages messages messages messages . ."`,
       },

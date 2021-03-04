@@ -8,7 +8,7 @@ export const styles = {
     justifySelf: 'flex-end',
     '@media': {
       [cssTheme.layout.media.tablet]: {
-        maxWidth: '70ch',
+        maxWidth: '80ch',
       },
     },
   })),
@@ -18,7 +18,7 @@ export const styles = {
     justifySelf: 'flex-start',
     '@media': {
       [cssTheme.layout.media.tablet]: {
-        maxWidth: '70ch',
+        maxWidth: '80ch',
       },
     },
   })),

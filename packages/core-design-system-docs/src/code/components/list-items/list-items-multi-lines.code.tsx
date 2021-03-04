@@ -1,7 +1,5 @@
 import { PARAGRAPH_SIZE } from '@newrade/core-design-system';
-import { CodeOutline, ListItem, Stack, useTreatTheme } from '@newrade/core-react-ui';
-import { IoMailOutline } from '@react-icons/all-files/io5/IoMailOutline';
-import { IoPhonePortraitOutline } from '@react-icons/all-files/io5/IoPhonePortraitOutline';
+import { CodeOutline, ListItem, Paragraph, Stack, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 import { lorenipsum } from '../../../utils/loren-ipsum';
 
@@ -12,20 +10,22 @@ export const ListItemsMultiLine: React.FC<Props> = (props) => {
 
   return (
     <CodeOutline>
-      <Stack as={'ul'} gap={[cssTheme.sizing.var.x2]}>
-        <ListItem variantIcon={'icon'} Icon={<IoMailOutline />} variantSize={PARAGRAPH_SIZE.large}>
+      <Stack as={'ul'} gap={[cssTheme.sizing.var.x4]}>
+        <ListItem variantIcon={'bullet'} variantSize={PARAGRAPH_SIZE.large}>
+          <Paragraph>{lorenipsum}</Paragraph>
+        </ListItem>
+
+        <ListItem variantIcon={'bullet'} variantSize={PARAGRAPH_SIZE.large}>
+          <Paragraph>{lorenipsum}</Paragraph>
+        </ListItem>
+
+        <ListItem variantIcon={'bullet'}>{lorenipsum}</ListItem>
+        <ListItem variantIcon={'bullet'}>{lorenipsum}</ListItem>
+
+        <ListItem variantIcon={'bullet'} variantSize={PARAGRAPH_SIZE.xSmall}>
           {lorenipsum}
         </ListItem>
-
-        <ListItem variantSize={PARAGRAPH_SIZE.medium}>
-          {lorenipsum} <br /> {lorenipsum}
-        </ListItem>
-
-        <ListItem variantIcon={'icon'} Icon={<IoMailOutline />}>
-          {lorenipsum}
-        </ListItem>
-
-        <ListItem variantIcon={'icon'} Icon={<IoPhonePortraitOutline />} variantSize={PARAGRAPH_SIZE.xSmall}>
+        <ListItem variantIcon={'bullet'} variantSize={PARAGRAPH_SIZE.xSmall}>
           {lorenipsum}
         </ListItem>
       </Stack>

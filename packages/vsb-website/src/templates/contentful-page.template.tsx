@@ -45,7 +45,7 @@ export const blockComponents: CustomBlockVariantComponents<CustomBlockVariants> 
     const blockProps = block as BlockCostItemFragment;
     return <BlockCostItem costItem={blockProps} {...props} />;
   },
-  customStep: (props) => <div>{JSON.stringify(props, null, 2)}</div>,
+  customStep: (props) => <div>{JSON.stringify(props, null, 2)}</div>, // handled in SectionSteps
 };
 
 export const sectionComponents: CustomSectionLayoutComponents<CustomSectionLayouts> = {

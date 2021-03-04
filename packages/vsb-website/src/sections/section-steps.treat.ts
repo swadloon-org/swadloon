@@ -11,7 +11,7 @@ export const styles = {
   grid: style(({ theme, cssTheme }: Theme) => ({
     display: 'grid',
     padding: `0 ${cssTheme.sizing.var.x3}`,
-    gap: `${cssTheme.sizing.var.x6} calc(${cssTheme.sizing.var.x5} + 20px)`,
+    gap: `${cssTheme.sizing.var.x6} calc(${cssTheme.sizing.var.x6} + 40px)`,
     gridTemplateColumns: '1fr',
 
     '@media': {

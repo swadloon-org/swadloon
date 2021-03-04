@@ -42,9 +42,9 @@ globalStyle(`${wrapper} .mdx-anchor-pound`, ({ cssTheme, theme }: Theme) => ({
  */
 
 globalStyle(
-  `${wrapper} h1, ${wrapper} h2, ${wrapper} h3, ${wrapper} h4, ${wrapper} h5, ${wrapper} h6`,
+  `${wrapper} h1:not(:last-child), ${wrapper} h2:not(:last-child), ${wrapper} h3:not(:last-child), ${wrapper} h4:not(:last-child), ${wrapper} h5:not(:last-child) ${wrapper} h6:not(:last-child)`,
   ({ cssTheme, theme }: Theme) => ({
-    marginBottom: '1.1em',
+    marginBottom: contentMarginSmall,
     position: 'relative',
   })
 );
@@ -72,6 +72,10 @@ globalStyle(`${wrapper} hr`, ({ cssTheme, theme }: Theme) => ({
 /**
  * Text content
  */
+
+globalStyle(`${wrapper} p`, ({ cssTheme, theme }: Theme) => ({
+  maxWidth: `120ch`,
+}));
 
 globalStyle(`${wrapper} p + *`, ({ cssTheme, theme }: Theme) => ({
   marginTop: contentMargin,
@@ -144,6 +148,10 @@ globalStyle(`${wrapper} iframe`, ({ cssTheme, theme }: Theme) => ({
 globalStyle(`${wrapper} li`, {
   lineHeight: '0', // ensure that the list items height collapse
 });
+
+globalStyle(`${wrapper} li p + p`, ({ cssTheme, theme }: Theme) => ({
+  marginTop: contentMarginSmall,
+}));
 
 /**
  * Details & summary
