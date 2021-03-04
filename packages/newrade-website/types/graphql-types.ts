@@ -697,11 +697,8 @@ export type FileFieldsEnum =
   | 'childMdx___fileAbsolutePath'
   | 'childMdx___frontmatter___title'
   | 'childMdx___frontmatter___name'
-  | 'childMdx___frontmatter___category'
   | 'childMdx___frontmatter___tags'
-  | 'childMdx___frontmatter___variant'
-  | 'childMdx___frontmatter___layout'
-  | 'childMdx___frontmatter___blockLayout'
+  | 'childMdx___frontmatter___category'
   | 'childMdx___slug'
   | 'childMdx___body'
   | 'childMdx___excerpt'
@@ -1490,11 +1487,8 @@ export type MdxFieldsEnum =
   | 'fileAbsolutePath'
   | 'frontmatter___title'
   | 'frontmatter___name'
-  | 'frontmatter___category'
   | 'frontmatter___tags'
-  | 'frontmatter___variant'
-  | 'frontmatter___layout'
-  | 'frontmatter___blockLayout'
+  | 'frontmatter___category'
   | 'slug'
   | 'body'
   | 'excerpt'
@@ -1617,21 +1611,15 @@ export type MdxFilterInput = {
 export type MdxFrontmatter = {
   title: Scalars['String'];
   name?: Maybe<Scalars['String']>;
-  category?: Maybe<Scalars['String']>;
   tags?: Maybe<Array<Maybe<Scalars['String']>>>;
-  variant?: Maybe<Scalars['String']>;
-  layout?: Maybe<Scalars['String']>;
-  blockLayout?: Maybe<Scalars['String']>;
+  category?: Maybe<Scalars['String']>;
 };
 
 export type MdxFrontmatterFilterInput = {
   title?: Maybe<StringQueryOperatorInput>;
   name?: Maybe<StringQueryOperatorInput>;
-  category?: Maybe<StringQueryOperatorInput>;
   tags?: Maybe<StringQueryOperatorInput>;
-  variant?: Maybe<StringQueryOperatorInput>;
-  layout?: Maybe<StringQueryOperatorInput>;
-  blockLayout?: Maybe<StringQueryOperatorInput>;
+  category?: Maybe<StringQueryOperatorInput>;
 };
 
 export type MdxGroupConnection = {

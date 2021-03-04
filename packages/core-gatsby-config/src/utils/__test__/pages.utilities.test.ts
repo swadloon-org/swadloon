@@ -51,6 +51,7 @@ describe('dir name utilities', () => {
       expect(getLocalePath('/en-ca/page', SITE_LANGUAGES.EN)).toBe('');
       expect(getLocalePath('/fr-ca/page', SITE_LANGUAGES.EN)).toBe('fr');
       expect(getLocalePath('/fr-ca/page/name/fr', SITE_LANGUAGES.EN_CA)).toBe('fr');
+      expect(getLocalePath('/front-end', SITE_LANGUAGES.EN_CA)).toBe('');
       expect(getLocalePath('/fr-ca/page/name/en', SITE_LANGUAGES.EN)).toBe('fr');
       expect(getLocalePath('/fr/page/name/en', SITE_LANGUAGES.EN)).toBe('fr');
       expect(getLocalePath('/en/page/name/en', SITE_LANGUAGES.EN_CA)).toBe('');

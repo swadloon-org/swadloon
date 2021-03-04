@@ -7,7 +7,6 @@ import { useTreatTheme } from '../hooks/use-treat-theme';
 import { Stack } from '../layout/stack';
 import * as styleRefs from './code-block.treat';
 import { CodeEditor } from './code-editor';
-import { formatCode } from './code-format';
 import { CodeHighlight } from './code-highlight';
 import { githubTheme } from './code-theme';
 
@@ -25,13 +24,11 @@ export const CodeBlock: React.FC<Props> = ({ children = '', className = '', live
   const { cssTheme } = useTreatTheme();
   const components = useMDXComponents();
   const language = className ? className.replace(/language-/, '') : 'tsx';
+  const trimmedCode = children ? children.trim() : '';
+  const formattedCode = trimmedCode.replace(/(\r?\n|\r)+$/g, ''); // remove extra line inserted by prettier
+  // const formattedCodePrettier = formatCode(trimmedCode).replace(/(\r?\n|\r)$/g, ''); // remove extra line inserted by prettier
 
   if (live) {
-    const trimmedCode = children ? children.trim() : '';
-    const formattedCode = formatCode(trimmedCode)
-      .replace(';', '')
-      .replace(/[\r\n]+$/, '');
-
     return (
       <LiveProvider
         code={formattedCode}
@@ -59,5 +56,7 @@ export const CodeBlock: React.FC<Props> = ({ children = '', className = '', live
     );
   }
 
-  return <CodeHighlight code={children} theme={githubTheme} language={language as Language} injectPreElement={true} />;
+  return (
+    <CodeHighlight code={formattedCode} theme={githubTheme} language={language as Language} injectPreElement={true} />
+  );
 };

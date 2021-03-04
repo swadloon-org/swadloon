@@ -8,16 +8,18 @@ import {
   Variant,
   VIEWPORT,
 } from '@newrade/core-design-system';
-import { GatsbyLink, useDesignSystemNavigation } from '@newrade/core-gatsby-ui/src';
+import { GatsbyLink, getNavigationFromPageNodes, useDocsPageNodes } from '@newrade/core-gatsby-ui/src';
 import {
   BoxV2,
   Button,
   Cluster,
+  DesktopSideBar,
   Heading,
   Label,
   Link,
   Main,
   MainWrapper,
+  MobileSideBar,
   NavBar,
   NavItem,
   NavItemGroup,
@@ -30,32 +32,31 @@ import { IoClose } from '@react-icons/all-files/io5/IoClose';
 import { title } from 'case';
 import { PageProps } from 'gatsby';
 import React, { ReactNode, useEffect, useState } from 'react';
-import { DesignSystemFooter } from './design-system-footer';
-
-const MobileSideBar = React.lazy(() =>
-  import('@newrade/core-react-ui/lib/navigation/mobile-sidebar').then((comp) => ({ default: comp.MobileSideBar }))
-);
-
-const DesktopSideBar = React.lazy(() =>
-  import('@newrade/core-react-ui/lib/navigation/desktop-sidebar').then((comp) => ({ default: comp.DesktopSideBar }))
-);
 
 type LayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }> & {
   MobileSvgLogo?: React.ReactNode;
   DesktopSvgLogo?: React.ReactNode;
 };
 
-export const LayoutDesignSystem = React.memo<LayoutProps>(({ MobileSvgLogo, DesktopSvgLogo, ...props }) => {
-  const navigation = useDesignSystemNavigation();
+export const LayoutDocs = React.memo<LayoutProps>(({ MobileSvgLogo, DesktopSvgLogo, ...props }) => {
   const isSSR = useIsSSR();
   const { cssTheme } = useTreatTheme();
+
+  /**
+   * Retrieve all docs pages
+   */
+  const pageNodes = useDocsPageNodes();
+  const navigation = getNavigationFromPageNodes({
+    name: 'docs navigation',
+    pageNodes: pageNodes,
+    sortOrderDirectories: ['home', 'developer guide', 'hr'],
+  });
+
+  /**
+   * Handle sidebar events
+   */
   const { viewport } = useViewportBreakpoint();
   const [mobileSidebarOpened, setMobileSidebarOpened] = useState<boolean>(false);
-
-  function handleClickMenuButton(event: React.MouseEvent) {
-    setMobileSidebarOpened(!mobileSidebarOpened);
-  }
-
   useEffect(() => {
     let timeout: number;
     if (viewport === VIEWPORT.desktop) {
@@ -70,20 +71,21 @@ export const LayoutDesignSystem = React.memo<LayoutProps>(({ MobileSvgLogo, Desk
     };
   }, [viewport]);
 
+  function handleClickMenuButton(event: React.MouseEvent) {
+    setMobileSidebarOpened(!mobileSidebarOpened);
+  }
+
   return (
     <MainWrapper>
       <NavBar
-        HomeLink={<GatsbyLink to={'/'} />}
         DesktopSvgLogo={DesktopSvgLogo}
         MobileSvgLogo={MobileSvgLogo}
         maxWidth={'100%'}
         MenuLinks={
           <>
-            <Link AsElement={<GatsbyLink to={'/docs'} />}>Docs</Link>
+            <Link AsElement={<GatsbyLink to={'/design-system'} />}>Design System</Link>
           </>
         }
-        onClickMenuButton={handleClickMenuButton}
-        menuOpened={mobileSidebarOpened}
       ></NavBar>
 
       {!isSSR ? (
@@ -129,14 +131,14 @@ export const LayoutDesignSystem = React.memo<LayoutProps>(({ MobileSvgLogo, Desk
                 <Stack gap={[cssTheme.sizing.var.x5]}>
                   <Stack gap={[cssTheme.sizing.var.x3]}>
                     <Heading variant={HEADING.h4} variantLevel={TEXT_LEVEL.primaryReversed}>
-                      Système de design
+                      Docs
                     </Heading>
                     <Label
                       variant={LABEL_SIZE.xSmall}
                       variantStyle={TEXT_STYLE.boldUppercase}
                       variantLevel={TEXT_LEVEL.primaryReversed}
                     >
-                      Caisse de dépôt et placement
+                      Label
                     </Label>
                   </Stack>
                 </Stack>
@@ -234,9 +236,9 @@ export const LayoutDesignSystem = React.memo<LayoutProps>(({ MobileSvgLogo, Desk
         </React.Suspense>
       ) : null}
 
-      <Main navbarPadding={true}>{props.children}</Main>
-
-      <DesignSystemFooter />
+      <Main navbarPadding={true} minHeight={true}>
+        {props.children}
+      </Main>
     </MainWrapper>
   );
 });

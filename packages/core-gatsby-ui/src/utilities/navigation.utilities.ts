@@ -21,7 +21,7 @@ export function getNavigationFromPageNodes({
   pageNodes,
   sortOrderDirectories,
   sortOrderItems,
-  ignoredItems,
+  excludedItems,
   formatName,
   formatDisplayName,
 }: {
@@ -29,7 +29,7 @@ export function getNavigationFromPageNodes({
   pageNodes?: PageNode[];
   sortOrderItems?: string[];
   sortOrderDirectories?: string[];
-  ignoredItems?: string[];
+  excludedItems?: string[];
   formatName?: (name?: string | null) => string;
   formatDisplayName?: (name?: string | null) => string;
 }): Navigation {
@@ -42,7 +42,7 @@ export function getNavigationFromPageNodes({
 
   const normalizedSortOrderItems = sortOrderItems?.map((item) => normalizeName(item));
   const normalizedSortOrderDirectories = sortOrderDirectories?.map((item) => normalizeName(item));
-  const normalizedIgnoredItems = ignoredItems?.map((item) => normalizeName(item));
+  const normalizedIgnoredItems = excludedItems?.map((item) => normalizeName(item));
 
   const filteredPageNodes = pageNodes
     // remove 404 pages

@@ -31,7 +31,7 @@ export const styles = {
     marginBottom: contentMargin,
     maxWidth: '100% !important',
     overflowX: 'auto !important' as any,
-    padding: `16px 16px 0`,
+    padding: `16px`,
     whiteSpace: `pre`,
 
     lineHeight: 1.5,

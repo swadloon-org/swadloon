@@ -1,4 +1,10 @@
-# Installing WSL 2 On Windows 10
+---
+name: Installing WSL 2 On Windows 10 (Archived)
+---
+
+# Installing WSL 2 On Windows 10 (Archived)
+
+> Notice: as of nov 2021 we are not supporting Windows for development
 
 Guide : https://docs.microsoft.com/en-us/windows/wsl/install-win10
 

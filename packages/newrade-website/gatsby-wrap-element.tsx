@@ -1,10 +1,13 @@
 import { LayoutDesignSystem } from '@newrade/core-design-system-docs/src';
 import { GatsbyCommonPageContext } from '@newrade/core-gatsby-config';
-import { LayoutDocs } from '@newrade/core-gatsby-ui/src';
 import { PageProps, WrapPageElementBrowserArgs } from 'gatsby';
 import React from 'react';
 import MobileLogo from './src/images/logo-symbol.svg';
 import Logo from './src/images/logo.svg';
+/**
+ * Local layouts
+ */
+import { LayoutDocs } from './src/layout/docs.layout';
 import { Layout } from './src/layout/layout';
 
 type Props = PageProps<{}, GatsbyCommonPageContext>;

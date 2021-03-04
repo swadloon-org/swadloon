@@ -57,7 +57,7 @@ export function usePagesNavigation(): Navigation {
     pageNodes: data?.pages.nodes as PageNode[],
     sortOrderDirectories: ['services', 'la clinique', 'nous joindre'],
     sortOrderItems: ['tout sur la vasectomie', 'formulaire vasectomie', 'examen pour transport canada'],
-    ignoredItems: ['address', 'accueil'],
+    excludedItems: ['address', 'accueil'],
   });
 }
 

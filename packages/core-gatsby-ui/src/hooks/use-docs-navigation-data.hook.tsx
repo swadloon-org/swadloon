@@ -4,7 +4,7 @@ import { getNavigationFromPageNodes } from '../utilities/navigation.utilities';
 
 const query = graphql`
   query DocsLayout {
-    pages: allSitePage(filter: { path: { glob: "/docs/{**,*}" } }) {
+    pages: allSitePage(filter: { path: { glob: "**/docs/{**,*}" } }) {
       totalCount
       nodes {
         id
@@ -38,4 +38,9 @@ export function useDocsNavigation(): Navigation {
     name: 'docs navigation',
     pageNodes: data.pages.nodes,
   });
+}
+
+export function useDocsPageNodes() {
+  const data = useStaticQuery(query);
+  return data.pages.nodes;
 }

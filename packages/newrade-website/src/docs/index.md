@@ -1,4 +1,1 @@
----
----
-
-# Docs
+# Newrade's Internal Documentation

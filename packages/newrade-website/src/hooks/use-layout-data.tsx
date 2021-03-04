@@ -52,6 +52,7 @@ export function useNavigation(): Navigation {
   return getNavigationFromPageNodes({
     name: 'newrade sidenav',
     pageNodes: data?.pages.nodes as PageNode[],
+    excludedItems: ['todo'],
   });
 }
 
