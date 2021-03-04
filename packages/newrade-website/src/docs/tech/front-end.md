@@ -96,5 +96,3 @@ https://developers.google.com/web/fundamentals/design-and-ux/animations/animatio
 | High PerformanceBrowser Networking | [right-aligned](https://hpbn.co/) | browsers, networking |
 | col 2 is                           | centered                          | 2                    |
 | zebra stripes                      | are neat                          | 1                    |
-
----

@@ -1,16 +1,15 @@
-import { AppError, ERROR_TYPE } from '@newrade/core-common';
-import { kebab, pascal } from 'case';
+import { AppError, ERROR_TYPE, SITE_LANGUAGES } from '@newrade/core-common';
+import chalk from 'chalk';
 import fsp from 'fs/promises';
 import { GatsbyNode } from 'gatsby';
 import path from 'path';
+import { SOURCE_INSTANCE_NAME } from '../../../config/gatsby-source-instances';
 import { GatsbyMarkdownFilePageContext, GatsbySrcPageContext } from '../../../config/page-config';
 import {
   GatsbyNodeAllSiteQuery,
   GatsbyNodeMarkdownFilesQuery,
   GatsbyNodeSiteMetadataFragment,
 } from '../../../config/site-graphql-types';
-import { SITE_LANGUAGES } from '../../../config/site-languages';
-import { SOURCE_INSTANCE_NAME } from '../../../config/gatsby-source-instances';
 import {
   getFullPageNodePath,
   getLayoutForSourceInstance,
@@ -22,7 +21,6 @@ import {
   removeLocalePrefix,
 } from '../../../utils/pages.utilities';
 import { GatsbyCorePluginOptions } from '../gatsby-plugin-options';
-import chalk from 'chalk';
 
 let siteMetadata: GatsbyNodeSiteMetadataFragment;
 

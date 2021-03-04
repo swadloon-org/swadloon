@@ -71,8 +71,8 @@ export default = {
     siteUrl: env.APP_URL,
     siteEnv: env.APP_ENV,
     languages: {
-      langs: [core.SITE_LANGUAGES.FR],
-      defaultLangKey: core.SITE_LANGUAGES.FR,
+      langs: [common.SITE_LANGUAGES.FR],
+      defaultLangKey: common.SITE_LANGUAGES.FR,
     },
   },
   plugins: [
@@ -118,5 +118,3 @@ https://www.gatsbyjs.com/docs/loading-plugins-from-your-local-plugins-folder/
 ## Resources
 
 https://mcro.tech/gatsby-image-sharp/
-
----

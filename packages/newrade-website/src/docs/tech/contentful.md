@@ -12,12 +12,8 @@
 
 ### Courses
 
-| Name             | Link                                 | Paid |
-| ---------------- | ------------------------------------ | ---: |
-| Bits and Bytes   | [Videos](https://www.contentful.com/developers/videos/bits-and-bytes/#what-is-contentful) |   no |
-| contentful-data-model | [Doc](https://www.contentful.com/developers/docs/concepts/data-model/) |   no |
-| contentful-migration (repo) | [Doc](https://github.com/contentful/contentful-migration) |   no |
-
----
-
-
+| Name                        | Link                                                                                      | Paid |
+| --------------------------- | ----------------------------------------------------------------------------------------- | ---: |
+| Bits and Bytes              | [Videos](https://www.contentful.com/developers/videos/bits-and-bytes/#what-is-contentful) |   no |
+| contentful-data-model       | [Doc](https://www.contentful.com/developers/docs/concepts/data-model/)                    |   no |
+| contentful-migration (repo) | [Doc](https://github.com/contentful/contentful-migration)                                 |   no |

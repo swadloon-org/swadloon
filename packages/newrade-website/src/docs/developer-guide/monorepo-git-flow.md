@@ -232,5 +232,3 @@ Dev2 prepare a release on your-application-name/release
 application-name with version 1.23.0
 
 Dev2 release to your-application-name/master
-
----

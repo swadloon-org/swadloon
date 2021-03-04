@@ -5,5 +5,3 @@
 ## Tools
 
 https://github.com/APIs-guru/graphql-voyager
-
----

@@ -138,5 +138,3 @@ Each Gatsby Cloud site is automatically deployed with Netlify.
 2. Select the current website in "Gatsby Cloud" by selecting the button "View details".
 3. Under "Site Settings" > "Integrations" > "Hosting"
 4. The last step is to "connect" Netlify and do the indicated steps.
-
----

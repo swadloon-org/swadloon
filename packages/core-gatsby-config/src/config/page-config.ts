@@ -1,6 +1,6 @@
 import { PAGE_LAYOUT, PAGE_TEMPLATE } from './page.props';
 import { GatsbyNodeSiteMetadataFragment } from './site-graphql-types';
-import { SITE_LANGUAGES } from './site-languages';
+import { SITE_LANGUAGES } from '@newrade/core-common';
 
 /**
  * Common page context that all page should receive.

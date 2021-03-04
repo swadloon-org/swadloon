@@ -57,5 +57,3 @@ git remote add upstream git@github.com:newrade/newrade-core.git
 # creates a merge commit from the release branch
 git pull upstream release
 ```
-
----

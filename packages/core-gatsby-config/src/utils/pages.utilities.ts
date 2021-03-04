@@ -1,6 +1,6 @@
 import { capital, lower, title } from 'case';
 import { PAGE_LAYOUT, PAGE_TEMPLATE } from '../config/page.props';
-import { SITE_LANGUAGES, SITE_LANGUAGES_HYPHEN } from '../config/site-languages';
+import { SITE_LANGUAGES, SITE_LANGUAGES_HYPHEN } from '@newrade/core-common';
 import { SOURCE_INSTANCE_NAME } from '../config/gatsby-source-instances';
 
 /**
@@ -68,11 +68,11 @@ export function getPageFormattedName(
 export function getLocalePath(nodeName: string, defaultLangKey: SITE_LANGUAGES): 'en' | 'fr' | '' {
   // extract the locale name from node name
   const patternEn = new RegExp(
-    `^\/?(${[SITE_LANGUAGES.EN, SITE_LANGUAGES.EN_CA, SITE_LANGUAGES_HYPHEN.EN_CA].join('|')})\/`,
+    `^\/?(${[SITE_LANGUAGES.EN, SITE_LANGUAGES.EN_CA, SITE_LANGUAGES_HYPHEN.EN_CA].join('|')})[\/|\.]`,
     'gi'
   );
   const patternFr = new RegExp(
-    `^\/?(${[SITE_LANGUAGES.FR, SITE_LANGUAGES.FR_CA, SITE_LANGUAGES_HYPHEN.FR_CA].join('|')})\/`,
+    `^\/?(${[SITE_LANGUAGES.FR, SITE_LANGUAGES.FR_CA, SITE_LANGUAGES_HYPHEN.FR_CA].join('|')})[\/|\.]`,
     'gi'
   );
   const matchEn = patternEn.exec(nodeName);

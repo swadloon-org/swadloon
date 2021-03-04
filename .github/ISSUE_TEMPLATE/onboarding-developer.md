@@ -90,7 +90,7 @@ assignees: ''
 
 - [ ] Suppress warning
 
-  ```
+  ```bash
   # silence zsh prompt on macos
   export BASH_SILENCE_DEPRECATION_WARNING=1
   ```

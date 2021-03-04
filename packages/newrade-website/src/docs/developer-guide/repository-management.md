@@ -65,5 +65,3 @@ TODO document how to manage dependencies in the mono repo
 TODO
 
 https://yarnpkg.com/features/protocols#table
-
----

@@ -17,5 +17,3 @@
 <img src="diagram3.png" width="75%" height="auto"/>
 
 - Once the `green` environment is stable and the `dev` branch has been merged into the master then we can change the master's environment to `green`.
-
----

@@ -1,4 +1,5 @@
 import * as core from '@newrade/core-gatsby-config';
+import * as common from '@newrade/core-common';
 import { loadDotEnv, logEnvVariables, toBoolean } from '@newrade/core-utils';
 import path from 'path';
 import packageJson from './package.json';
@@ -32,8 +33,8 @@ const config: core.GastbySiteConfig = {
     siteUrl: env.APP_URL,
     siteEnv: env.APP_ENV,
     languages: {
-      langs: [core.SITE_LANGUAGES.FR],
-      defaultLangKey: core.SITE_LANGUAGES.FR,
+      langs: [common.SITE_LANGUAGES.FR],
+      defaultLangKey: common.SITE_LANGUAGES.FR,
     },
   },
   plugins: [

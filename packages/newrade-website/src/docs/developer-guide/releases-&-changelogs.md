@@ -17,5 +17,3 @@ after reviewing the changes, you may push the tags and release commit with:
 ```bash
 npm run release
 ```
-
----

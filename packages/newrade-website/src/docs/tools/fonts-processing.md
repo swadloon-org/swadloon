@@ -25,5 +25,3 @@
    ![image](https://user-images.githubusercontent.com/9644867/103575680-1476dc80-4ea0-11eb-8e52-58b24daa3388.png)
 
 Done!
-
----

@@ -1,4 +1,4 @@
-import { SITE_LANGUAGES } from '../../config/site-languages';
+import { SITE_LANGUAGES } from '@newrade/core-common';
 import { getFullPageNodePath, getLocalePath, getPageFormattedName } from '../pages.utilities';
 
 describe('dir name utilities', () => {

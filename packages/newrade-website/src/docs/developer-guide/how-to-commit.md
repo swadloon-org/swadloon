@@ -29,5 +29,3 @@ cz-cli@4.0.3, cz-conventional-changelog@3.0.2
   test:     Adding missing tests or correcting existing tests
 (Move up and down to reveal more choices)
 ```
-
----

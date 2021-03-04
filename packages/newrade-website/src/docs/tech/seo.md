@@ -62,5 +62,3 @@ Source:https://en.wikipedia.org/wiki/ISO_8601
 | ------- | :-------------------------- |
 | SERP    | Search Engine Results Pages |
 | JSON-LD | JSON for Linking Data       |
-
----

@@ -1,11 +1,9 @@
-import { AppError, ERROR_TYPE } from '@newrade/core-common';
+import { AppError, ERROR_TYPE, SITE_LANGUAGES } from '@newrade/core-common';
+import fsp from 'fs/promises';
 import { GatsbyNode } from 'gatsby';
 import path from 'path';
 import { GatsbyContentfulPageContext } from '../../../config/page-config';
-import fsp from 'fs/promises';
-import { PAGE_LAYOUT, PAGE_TEMPLATE } from '../../../config/page.props';
 import { GatsbyNodeAllSiteQuery, GatsbyNodeSiteMetadataFragment } from '../../../config/site-graphql-types';
-import { SITE_LANGUAGES } from '../../../config/site-languages';
 import { GatsbyCoreContentfulPluginOptions } from '../gatsby-plugin-options';
 
 let siteMetadata: GatsbyNodeSiteMetadataFragment;

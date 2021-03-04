@@ -55,5 +55,3 @@ To run prettier manually:
 ```bash
 npm run prettier
 ```
-
----

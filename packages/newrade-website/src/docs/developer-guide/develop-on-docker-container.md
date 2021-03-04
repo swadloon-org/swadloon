@@ -139,5 +139,3 @@ Install `nvm`: https://github.com/nvm-sh/nvm (Install & Update Script)
 You can clone your repos now.
 
 When working on a repo docker.
-
----

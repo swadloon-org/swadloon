@@ -22,5 +22,3 @@
 1. Review is done on the code
 1. Branch is merged if acceptable
 1. The task is done when the code is merged into `/dev`
-
----

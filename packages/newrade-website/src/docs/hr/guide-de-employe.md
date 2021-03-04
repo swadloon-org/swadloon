@@ -89,5 +89,3 @@ Par exemple un employé étant à temps plein (37.5 heures), peut demander d'êt
 semaine afin de libérer une journée durant la semaine pour des projets personnels.
 
 L'employé est même encouragé s'il le souhaite, à partager ses projets avec l'équipe.
-
----

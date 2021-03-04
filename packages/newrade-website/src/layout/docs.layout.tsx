@@ -49,7 +49,7 @@ export const LayoutDocs = React.memo<LayoutProps>(({ MobileSvgLogo, DesktopSvgLo
   const navigation = getNavigationFromPageNodes({
     name: 'docs navigation',
     pageNodes: pageNodes,
-    sortOrderDirectories: ['home', 'developer guide', 'hr'],
+    sortOrderDirectories: ['home', 'developer guide', 'tools', 'hr'],
   });
 
   /**

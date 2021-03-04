@@ -21,5 +21,3 @@ act -l
 # simulate push
 act push -j build_all_packages  --reuse --secret-file .env --secret-file packages/website/.env
 ```
-
----

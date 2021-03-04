@@ -1,7 +1,8 @@
 import { Navigation } from '../navigation/navigation.model';
 import { NavItem } from '../navigation/nav-item.model';
 import { GatsbyCommonPageContext } from '@newrade/core-gatsby-config';
-import { title, kebab } from 'case';
+import { title, kebab, capital, lower } from 'case';
+import { SITE_LANGUAGES } from '@newrade/core-common';
 
 /**
  * Simplified type for a Page Node
@@ -22,6 +23,7 @@ export function getNavigationFromPageNodes({
   sortOrderDirectories,
   sortOrderItems,
   excludedItems,
+  uppercaseWords = ['wsl', 'ui', 'ux', 'seo', 'ssh', 'css'],
   formatName,
   formatDisplayName,
 }: {
@@ -30,6 +32,7 @@ export function getNavigationFromPageNodes({
   sortOrderItems?: string[];
   sortOrderDirectories?: string[];
   excludedItems?: string[];
+  uppercaseWords?: string[];
   formatName?: (name?: string | null) => string;
   formatDisplayName?: (name?: string | null) => string;
 }): Navigation {
@@ -68,8 +71,10 @@ export function getNavigationFromPageNodes({
         ...previous.items,
         // create a new item
         {
-          name: currentDirName ? currentDirName : '',
-          displayName: formatDisplayName ? formatDisplayName(currentDirName) : defaultFormatDisplayName(currentDirName),
+          name: currentDirName ? currentDirName : 'Home',
+          displayName: formatDisplayName
+            ? formatDisplayName(currentDirName)
+            : defaultFormatDisplayName({ name: currentDirName, uppercaseWords }),
           path: currentDirName ? currentDirName : '',
           // for each child nodes, creat a nav item
           items: dirNameNodes
@@ -137,7 +142,11 @@ export function getNavigationFromPageNodes({
       name: formatName ? formatName(node.context?.name) : defaultFormatName(node.context?.name),
       displayName: formatDisplayName
         ? formatDisplayName(node.context?.name || node.context?.displayName)
-        : defaultFormatDisplayName(node.context?.name || node.context?.displayName),
+        : defaultFormatDisplayName({
+            name: node.context?.name || node.context?.displayName,
+            lang: node.context?.locale,
+            uppercaseWords,
+          }),
       // leave the node path untouched
       path: node.path,
     };
@@ -159,18 +168,62 @@ export function getPageDirFromPath(path?: string | null): string {
   return dirName || '';
 }
 
-function normalizeName(name?: string | null) {
+export function normalizeName(name?: string | null) {
   return kebab(name || '');
 }
 
-function defaultFormatDisplayName(name?: string | null): string {
+export function defaultFormatDisplayName({
+  name,
+  lang,
+  uppercaseWords,
+}: {
+  name?: string | null;
+  lang?: SITE_LANGUAGES;
+  uppercaseWords?: string[];
+}): string {
   if (!name) {
     return '';
   }
-  return title(defaultFormatName(name));
+
+  const nameWithoutLocale = name.replace(/^(en|fr)\./gi, '');
+  const nameWithoutDotPage = nameWithoutLocale.replace('.page', '');
+  const nameNoTrailingDash = nameWithoutDotPage.replace(/\s-\s$/, '');
+
+  if (lang === SITE_LANGUAGES.FR || lang === SITE_LANGUAGES.FR_CA) {
+    const nameDefaultIndex = nameNoTrailingDash.replace('index', 'Accueil');
+    const nameWithFRTitle = nameDefaultIndex
+      .trim()
+      .split('')
+      .map((char, index) => (index === 0 ? capital(char) : char))
+      .join('');
+    const nameWithUppercaseWords = getNameWithUppercaseWords({ name: nameWithFRTitle, words: uppercaseWords });
+    return nameWithUppercaseWords;
+  }
+
+  const nameDefaultIndex = nameNoTrailingDash.replace('index', 'Home');
+  const nametTitle = title(nameDefaultIndex);
+  const nameWithUppercaseWords = getNameWithUppercaseWords({ name: nametTitle, words: uppercaseWords });
+  return nameWithUppercaseWords;
 }
 
-function defaultFormatName(name?: string | null): string {
+function getNameWithUppercaseWords({ name, words }: { name?: string; words?: string[] }): string {
+  if (!name) {
+    return '';
+  }
+
+  if (!words?.length) {
+    return name;
+  }
+
+  const wordsToFind = words.map((word) => lower(word));
+
+  return name
+    .split(' ')
+    .map((part) => (wordsToFind.includes(lower(part)) ? part.toUpperCase() : part))
+    .join(' ');
+}
+
+export function defaultFormatName(name?: string | null): string {
   if (!name) {
     return '';
   }

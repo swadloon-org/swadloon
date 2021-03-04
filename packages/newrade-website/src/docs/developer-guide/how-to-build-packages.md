@@ -31,5 +31,3 @@ npm test
 # to run for packages that matches core-docs-*
 npm run test -- --scope @ai-ui/core-docs-*
 ```
-
----

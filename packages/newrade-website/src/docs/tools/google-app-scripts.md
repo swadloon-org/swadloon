@@ -58,7 +58,4 @@ Redeploy:
 
 ```bash
 clasp redeploy AKfycbx8mOlTM80ja3gX8mxCsS3nn_ZtNHTkprEKE0YdEBEwfA5wJsmiHj2aYQ
-``
-
----
 ```

@@ -14,7 +14,7 @@ To do a manual deployment for the test purpose of the netlify functions you will
   ### comand for deploy
 
   ```
-      netlify deploy --prod
+  netlify deploy --prod
   ```
 
 ## Gatsby Cloud deploying Netlify Functions
