@@ -1,9 +1,13 @@
+import { MDXProvider } from '@mdx-js/react';
 import { GatsbyMarkdownFilePageContext } from '@newrade/core-gatsby-config';
 import {
   Center,
+  CodeBlock,
   getMetaBasicTags,
   getMetadataOpenGraphWebsiteTags,
+  Hr,
   MarkdownCSS,
+  mdxComponents,
   OPEN_GRAPH_TYPE,
 } from '@newrade/core-react-ui';
 import { graphql, PageProps } from 'gatsby';
@@ -84,13 +88,18 @@ const Template: React.FC<MarkdownTemplateProps> = (props) => {
           site: `${data?.contentfulCompanyInfo?.metadataTwitterSite}`,
         })} */}
       </Helmet>
-      <Center maxWidth={'800px'}>
-        <MarkdownCSS>
-          <MDXRenderer {...props}>{props.data.file?.childMdx?.body as string}</MDXRenderer>
-        </MarkdownCSS>
-      </Center>
+      <MDXProvider components={{ ...mdxComponents, CodeBlock: CodeBlock }}>
+        <Center maxWidth={'800px'}>
+          <MarkdownCSS>
+            <MDXRenderer {...props}>{props.data.file?.childMdx?.body as string}</MDXRenderer>
+          </MarkdownCSS>
 
-      <Aside items={props.data.file?.childMdx?.headings} location={props.location} />
+          <Hr />
+          <a href={`https://github.com/newrade/newrade/edit/master/README.md`}>Edit this page</a>
+        </Center>
+
+        <Aside items={props.data.file?.childMdx?.headings} location={props.location} />
+      </MDXProvider>
     </>
   );
 };

@@ -82,5 +82,3 @@ wsl code .
 Or use the VSCode command:
 
 ![image](https://user-images.githubusercontent.com/9644867/84569928-0d4b7e00-ad58-11ea-8dc4-7cf8091c192b.png)
-
----

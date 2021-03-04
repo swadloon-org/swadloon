@@ -48,6 +48,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
         description
         siteEnv
         siteUrl
+
         languages {
           langs
           defaultLangKey

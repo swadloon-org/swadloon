@@ -6,5 +6,6 @@ export type GatsbySiteMetadata = Record<string, unknown> & {
   description: string;
   siteEnv: DeployEnvType;
   siteUrl: string;
+  siteRepositoryUrl: string;
   languages: GatsbySiteLanguages;
 };

@@ -38,7 +38,7 @@
     "nvm": "ts-node --script-mode scripts/install-node-nvm.ts",
     "postinstall": "yarn build:core:lib && yarn build:api",
     "push": "git push --follow-tags",
-    "reset": "npm i -g rimraf && rimraf -rf ./node_modules packages/**/node_modules && yarn",
+    "reset": "rm -rf ./node_modules packages/**/node_modules && yarn",
     "set-permissions": "chmod a+x node_modules/.bin/nr-core-cli",
     "start": "lerna run --parallel start",
     "start:api": "yarn start --scope @newrade/*-api",
