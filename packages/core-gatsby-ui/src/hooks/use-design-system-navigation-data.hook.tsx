@@ -36,7 +36,7 @@ export function useDesignSystemNavigation(): Navigation {
   return getNavigationFromPageNodes({
     name: 'design system navigation',
     pageNodes: data.pages.nodes,
-    sortOrderDirectories: ['', 'typography', 'colors', 'foundations', 'components', 'content', 'effects', 'motion'],
+    sortOrderDirectories: ['home', 'typography', 'colors', 'foundations', 'components', 'content', 'effects', 'motion'],
     sortOrderItems: [
       '',
       'typography',

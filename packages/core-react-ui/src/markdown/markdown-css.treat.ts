@@ -42,7 +42,7 @@ globalStyle(`${wrapper} .mdx-anchor-pound`, ({ cssTheme, theme }: Theme) => ({
  */
 
 globalStyle(
-  `${wrapper} > h1, ${wrapper} > h2, ${wrapper} > h3, ${wrapper} > h4, ${wrapper} > h5, ${wrapper} > h6`,
+  `${wrapper} h1, ${wrapper} h2, ${wrapper} h3, ${wrapper} h4, ${wrapper} h5, ${wrapper} h6`,
   ({ cssTheme, theme }: Theme) => ({
     marginBottom: '1.1em',
     position: 'relative',
@@ -50,7 +50,7 @@ globalStyle(
 );
 
 globalStyle(
-  `${wrapper} > * + h1, ${wrapper} > * + h2, ${wrapper} > * + h3, ${wrapper} > * + h4, ${wrapper} > * + h5, ${wrapper} > * + h6`,
+  `${wrapper} * + h1, ${wrapper} * + h2, ${wrapper} * + h3, ${wrapper} * + h4, ${wrapper} * + h5, ${wrapper} * + h6`,
   ({ cssTheme, theme }: Theme) => ({
     marginTop: contentMargin,
   })

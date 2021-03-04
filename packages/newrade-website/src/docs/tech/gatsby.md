@@ -39,7 +39,11 @@ The Page model has the following properties:
 
 If the website's defautlLang is EN
 
-src/docs/en.markdown.md /docs/markdown  
+| Page Path               | Url            |
+| ----------------------- | -------------- |
+| src/docs/en.markdown.md | /docs/markdown |
+
+```
 src/docs/en.markdown.mdx /docs/markdown
 src/docs/index.md /docs/
 src/docs/readme.md /docs/readme
@@ -55,6 +59,7 @@ src/pages/design-system/home.tsx /design-system/home
 src/pages/design-system/index.tsx /design-system/index
 src/pages/design-system/component/button.tsx /design-system/component/button
 src/pages/design-system/component/button.mdx /design-system/component/button
+```
 
 ## Config
 
