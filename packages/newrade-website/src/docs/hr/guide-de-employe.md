@@ -24,9 +24,15 @@ L'important est de donner des efforts et de bien travailler en équipe pour fair
 
 - Une journée de travail est d'environ 7.5 heures, incluant les pauses et l'heure de dîner.
 - Une semaine normale de travail est donc de 37.5 heures.
-- Il n'y a pas d'heure de début obligatoire, mais il est important d'adapter son horaire aux rencontres d'équipes.
+- Il n'y a pas d'heure de début obligatoire, mais il est important d'adapter son horaire aux rencontres d'équipes et d'être disponible au plus tard à 9h30.
 - Il n'y a pas de rencontres d'équipe avant 9h30 et pas après 16h.
 - Il n'y a également pas de rencontres d'équipe sur l'heure du lunch donc de midi à 13h.
+
+Cependant, si l'employé(e) doit s'absenter pour plus de la moitié de la journée entre 9h30 et 17h, l'employé doit considéré que la journée n'est pas travaillée.
+
+Par exemple, si l'employé a un empêchement en après midi, à partir de 13h, et qu'il n'est pas disponible le matin entre 9h30 et midi, la journée aura 0 heures travaillées.
+
+Exceptionnellement, l'employé(e) peut demander de reprendre ses heures en envoyant un email pour demander l'autorisation.
 
 ### Heures supplémentatires
 
@@ -42,7 +48,11 @@ TODO
 
 #### Absences
 
-Il suffit de signaler à l'équipe (par Slack ou email), que vous ne serez pas disponible.
+Pour signaler une absence, nous utilisons les calendriers Gmail.
+
+Vous devez envoyer votre non-disponibilité sous forme d'invitation calendrier, en incluant les autres membres de votre équipe.
+
+L'absence doit être communiquée au moins 24 heures d'avance.
 
 Veuillez prendre note que la politique en place indique _de ne pas_ donner la raison de l'absence.
 

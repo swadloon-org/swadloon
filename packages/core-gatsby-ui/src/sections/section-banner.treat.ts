@@ -9,6 +9,9 @@ export const styles = {
     color: cssTheme.colors.colorIntents.primaryReversed,
     textShadow: cssTheme.effects.textShadows.light,
   })),
+  background: style(({ theme, cssTheme }: Theme) => ({
+    position: 'absolute',
+  })),
   container: style(({ theme, cssTheme }: Theme) => ({
     width: `100%`,
     height: `100%`,

@@ -20,45 +20,45 @@ export const grid = style(({ cssTheme, theme }: Theme) => ({
     [cssTheme.layout.media.tablet]: {
       gridTemplateColumns: 'repeat(12, 1fr)',
       gap: '20px',
-      gridTemplateAreas: `"service service service . clinique clinique clinique . joindre joindre joindre joindre"`,
+      gridTemplateAreas: `"area1 area1 area1 . area2 area2 area2 . address address address address"`,
     },
     [cssTheme.layout.media.desktopSmall]: {
       gridTemplateColumns: 'repeat(12, 1fr)',
       gap: '20px',
-      gridTemplateAreas: `"service service service . clinique clinique clinique . joindre joindre  joindre . "`,
+      gridTemplateAreas: `"area1 area1 area1 . area2 area2 area2 . address address address . "`,
     },
   },
 }));
 export const services = style(({ cssTheme, theme }: Theme) => ({
   '@media': {
     [cssTheme.layout.media.tablet]: {
-      gridArea: 'service',
+      gridArea: 'area1',
       height: 'fit-content',
     },
     [cssTheme.layout.media.desktopSmall]: {
-      gridArea: 'service',
+      gridArea: 'area1',
     },
   },
 }));
 export const clinique = style(({ cssTheme, theme }: Theme) => ({
   '@media': {
     [cssTheme.layout.media.tablet]: {
-      gridArea: 'clinique',
+      gridArea: 'area2',
       height: 'fit-content',
     },
     [cssTheme.layout.media.desktopSmall]: {
-      gridArea: 'clinique',
+      gridArea: 'area2',
     },
   },
 }));
 export const joindre = style(({ cssTheme, theme }: Theme) => ({
   '@media': {
     [cssTheme.layout.media.tablet]: {
-      gridArea: 'joindre',
+      gridArea: 'address',
       height: 'fit-content',
     },
     [cssTheme.layout.media.desktopSmall]: {
-      gridArea: 'joindre',
+      gridArea: 'address',
     },
   },
 }));

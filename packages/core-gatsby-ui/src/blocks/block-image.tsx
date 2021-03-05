@@ -1,7 +1,8 @@
-import { BoxV2, CommonComponentProps, Image, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
+import { BoxV2, CommonComponentProps, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
 import { FluidObject } from 'gatsby-image';
 import React from 'react';
 import { BlockAPI } from '../api/block.api';
+import { Image } from '../image/image';
 import { BlockProps } from './block.props';
 
 type Props = CommonComponentProps & BlockProps;
@@ -21,7 +22,7 @@ export const BlockImage: React.FC<Props> = ({ id, style, className, block, ...pr
   }
 
   const imageBlock = block as BlockAPI;
-  const image = imageBlock?.medias?.[0]?.medias?.[0]?.media;
+  const image = imageBlock.medias?.[0]?.medias?.[0]?.media;
 
   return (
     <BoxV2 justifySelf={['inherit', 'inherit', 'inherit']} {...commonProps}>

@@ -1,22 +1,20 @@
 import { MDXProvider } from '@mdx-js/react';
 import { ButtonIcon, ButtonSize, Variant } from '@newrade/core-design-system';
 import {
+  Background,
   BlockAPI,
   BlockRenderer,
-  SectionBase,
+  SectionBanner,
   SectionBaseLayout,
   SectionPadding,
   SectionProps,
 } from '@newrade/core-gatsby-ui/src';
 import { TweenMax } from '@newrade/core-gsap-ui';
 import {
-  Background,
   Button,
-  Center,
   CommonComponentProps,
   mdxComponents,
   MDXProps,
-  Stack,
   Title,
   useCommonProps,
   useTreatTheme,
@@ -28,11 +26,11 @@ import { useStyles } from 'react-treat';
 import { BlockFragment } from '../../types/graphql-types';
 import { gradient } from '../styles/effects.styles';
 import { blockComponents } from '../templates/contentful-page.template';
-import * as styleRefs from './section-banner.treat';
+import * as styleRefs from './custom-section-banner.treat';
 
 type Props = CommonComponentProps & SectionProps;
 
-export const SectionBanner = React.forwardRef<any, Props>(
+export const CustomSectionBanner = React.forwardRef<any, Props>(
   (
     {
       id,
@@ -55,26 +53,25 @@ export const SectionBanner = React.forwardRef<any, Props>(
     ref
   ) => {
     const { styles } = useStyles(styleRefs);
-    const { cssTheme } = useTreatTheme();
+    const { theme, cssTheme } = useTreatTheme();
     const localRef = useRef<HTMLDivElement>(null);
-    const commonProps = useCommonProps({ id, style, className, classNames: [styles.wrapper], ...props });
+    const commonProps = useCommonProps({ id, style, className, ...props });
+    const customButtonRef = useRef<HTMLDivElement>(null);
 
     // merge local ref with forwarded
     useImperativeHandle(ref, () => ({
       current: localRef?.current,
     }));
 
-    // icon animation
+    /**
+     * Custom Button animation
+     */
     useEffect(() => {
-      if (!localRef.current) {
+      if (!customButtonRef.current) {
         return;
       }
 
-      const icon = localRef.current.getElementsByClassName(styles.icon);
-
-      if (!icon) {
-        return;
-      }
+      const icon = customButtonRef.current;
 
       const tween = TweenMax.to(icon, {
         duration: 1,
@@ -88,10 +85,10 @@ export const SectionBanner = React.forwardRef<any, Props>(
       return () => {
         tween.kill();
       };
-    }, [localRef, styles.icon]);
+    }, [customButtonRef, styles.icon]);
 
     function handleScrollToNextSection() {
-      const wrapper = localRef.current;
+      const wrapper = customButtonRef.current;
       if (!wrapper) {
         return;
       }
@@ -102,23 +99,41 @@ export const SectionBanner = React.forwardRef<any, Props>(
         return;
       }
 
-      TweenMax.to(window, {
+      const tween = TweenMax.to(window, {
         duration: 1,
         delay: 0.2,
         ease: 'power2',
         scrollTo: {
           y: target,
+          offsetY: theme.layout.navbarHeight.desktop,
         },
       });
+
+      return () => {
+        tween.kill();
+      };
     }
+
+    const CustomButton = (
+      <div ref={customButtonRef} className={styles.icon}>
+        <Button
+          aria-label={'Next section'}
+          size={ButtonSize.large}
+          variant={Variant.tertiaryReversed}
+          icon={ButtonIcon.icon}
+          Icon={<IoChevronDownOutline />}
+          onClick={handleScrollToNextSection}
+        ></Button>
+      </div>
+    );
 
     if (!blocks?.length) {
       return null;
     }
 
     const imageBlock = blocks[0] as BlockFragment;
-    const textBlock = blocks[1] as BlockFragment;
     const hasImage = !!imageBlock?.medias?.[0]?.medias?.length;
+    const textBlock = blocks[1] as BlockFragment;
 
     if (!hasImage) {
       return null;
@@ -127,56 +142,43 @@ export const SectionBanner = React.forwardRef<any, Props>(
     const imageData = imageBlock.medias?.[0]?.medias?.[0]?.media?.fluid;
     const backgroundPosition = imageBlock.medias?.[0]?.medias?.[0]?.backgroundPositionY;
 
+    const BackgroundBlock = (
+      <Background
+        effects={[
+          {
+            background: gradient,
+          },
+        ]}
+        backgroundPosition={backgroundPosition}
+        backgroundImage={{
+          Tag: 'div',
+          fluid: imageData as IFluidObject,
+          style: { backgroundPositionY: backgroundPosition || '' },
+          fadeIn: false,
+        }}
+      ></Background>
+    );
+
+    const ContentBlock = (
+      <MDXProvider components={{ ...mdxComponents, h1: (props: MDXProps) => <Title {...props} /> }}>
+        <BlockRenderer blockComponents={blockComponents} block={textBlock as BlockAPI} />
+      </MDXProvider>
+    );
+
     return (
-      <SectionBase
-        {...commonProps}
-        ref={localRef}
+      <SectionBanner
+        ref={ref}
+        BackgroundBlock={BackgroundBlock}
+        ContentBlock={ContentBlock}
         section={{
           variant,
           baseLayout,
           padding,
         }}
+        {...commonProps}
       >
-        <Background
-          effects={[
-            {
-              background: gradient,
-            },
-          ]}
-          backgroundPosition={backgroundPosition}
-          backgroundImage={{
-            Tag: 'div',
-            fluid: imageData as IFluidObject,
-            style: { backgroundPositionY: backgroundPosition || '' },
-            fadeIn: false,
-          }}
-        >
-          <Center contentClassName={styles.textContainer}>
-            <Stack
-              gap={[
-                `${cssTheme.typography.titles.mobile.t1.lineGap}px`,
-                `${cssTheme.typography.titles.tablet.t1.lineGap}px`,
-                `${cssTheme.typography.titles.desktop.t1.lineGap}px`,
-              ]}
-            >
-              <MDXProvider components={{ ...mdxComponents, h1: (props: MDXProps) => <Title {...props} /> }}>
-                <BlockRenderer blockComponents={blockComponents} block={textBlock as BlockAPI} />
-              </MDXProvider>
-            </Stack>
-          </Center>
-        </Background>
-
-        <div ref={ref} className={styles.icon}>
-          <Button
-            aria-label={'Next section'}
-            size={ButtonSize.large}
-            variant={Variant.tertiaryReversed}
-            icon={ButtonIcon.icon}
-            Icon={<IoChevronDownOutline />}
-            onClick={handleScrollToNextSection}
-          ></Button>
-        </div>
-      </SectionBase>
+        {CustomButton}
+      </SectionBanner>
     );
   }
 );

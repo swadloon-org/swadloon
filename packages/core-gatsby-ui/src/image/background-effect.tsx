@@ -1,8 +1,6 @@
+import { CommonComponentProps, FilterProps, getMergedClassname } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { FilterProps } from '../props/background.props';
-import { CommonComponentProps } from '../props/component-common.props';
-import { getMergedClassname } from '../utilities/component.utilities';
 import * as styleRefs from './background-effect.treat';
 
 export type BackgroundEffectConfig = Partial<{

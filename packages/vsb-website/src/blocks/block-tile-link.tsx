@@ -1,7 +1,6 @@
 import { ButtonIcon, ButtonSize, HEADING, TEXT_LEVEL, Variant } from '@newrade/core-design-system';
-import { GatsbyLink } from '@newrade/core-gatsby-ui/src';
+import { Background, GatsbyLink } from '@newrade/core-gatsby-ui/src';
 import {
-  Background,
   BoxV2,
   Button,
   CommonComponentProps,

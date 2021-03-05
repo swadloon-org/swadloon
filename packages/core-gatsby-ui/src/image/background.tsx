@@ -1,9 +1,7 @@
+import { CommonComponentProps, getMergedClassname, useTreatTheme } from '@newrade/core-react-ui';
 import BackgroundImage, { IBackgroundImageProps, InferExtraProps } from 'gatsby-background-image';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { useTreatTheme } from '../hooks/use-treat-theme';
-import { CommonComponentProps } from '../props/component-common.props';
-import { getMergedClassname } from '../utilities/component.utilities';
 import { BackgroundEffect, BackgroundEffectConfig } from './background-effect';
 import * as styleRefs from './background.treat';
 

@@ -14,6 +14,7 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
   actions,
 }) => {
   const isSSR = stage.includes(`html`);
+  const isDev = process.env.NODE_ENV === 'development';
 
   if (stage === 'develop-html') {
     return;
@@ -22,11 +23,11 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
   const config: WebpackOptions = {
     plugins: [
       new TreatPlugin({
-        localIdentName: `[name]_[local]_[hash:base64:5]`,
-        themeIdentName: `_[name]-[local]_`,
+        localIdentName: isDev ? `[name]_[local]_[hash:base64:5]` : `[hash:base64:5]`,
+        themeIdentName: isDev ? `_[name]-[local]_[hash:base64:4]` : `[hash:base64:4]`,
         outputCSS: isSSR ? false : true,
         outputLoaders: [loaders.miniCssExtract({})],
-        hmr: process.env.NODE_ENV === 'development',
+        hmr: isDev,
       }),
       // getTreatCSSPlugin({
       //   isSSR,

@@ -51,7 +51,7 @@ export type SectionProps = CommonComponentProps & {
  * Defines a component for each custom layout
  */
 export type CustomSectionLayoutComponents<CustomSectionLayouts extends string> = {
-  [key in CustomSectionLayouts | SectionLayout]?: (props: { section: SectionAPI }) => React.ReactElement | null;
+  [key in CustomSectionLayouts | SectionLayout]?: (props: SectionProps) => React.ReactElement | null;
 };
 
 /**
@@ -68,8 +68,10 @@ export type CustomBlockVariantComponents<CustomBlockVariants extends string> = {
 /**
  * Define the API of the SectionRenderer component
  */
-export type SectionRendererProps<CustomSectionLayouts extends string = '', CustomBlockVariants extends string = ''> = {
-  section: SectionAPI;
+export type SectionRendererProps<
+  CustomSectionLayouts extends string = '',
+  CustomBlockVariants extends string = ''
+> = SectionProps & {
   sectionComponents?: CustomSectionLayoutComponents<CustomSectionLayouts>;
   blockComponents?: CustomBlockVariantComponents<CustomBlockVariants>;
 };

@@ -94,13 +94,13 @@ export const SectionSteps = React.forwardRef<any, Props>(
 
     return (
       <SectionBase
-        {...commonProps}
         ref={ref}
         section={{
           variant,
           baseLayout,
           padding,
         }}
+        {...commonProps}
       >
         <Stack gap={[cssTheme.sizing.var.x7]}>
           <Stack gap={[cssTheme.sizing.var.x6]}>

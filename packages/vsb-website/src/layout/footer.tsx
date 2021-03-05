@@ -126,9 +126,9 @@ export const Footer: React.FC<Props> = ({ id, style, className, ...props }) => {
                     className={styles.listItem}
                     variantLevel={TEXT_LEVEL.primaryReversed}
                     variant={LinkVariant.underline}
-                    href={`mailto:${data?.contentfulCompanyAddress?.email}`}
+                    href={`mailto:${data.contentfulCompanyAddress?.email}`}
                   >
-                    {data?.contentfulCompanyAddress?.email}
+                    {data.contentfulCompanyAddress?.email}
                   </Link>
                 </ListItem>
 
@@ -137,9 +137,9 @@ export const Footer: React.FC<Props> = ({ id, style, className, ...props }) => {
                     className={styles.listItem}
                     variantLevel={TEXT_LEVEL.primaryReversed}
                     variant={LinkVariant.underline}
-                    href={`tel:${data?.contentfulCompanyAddress?.phone}`}
+                    href={`tel:${data.contentfulCompanyAddress?.phone}`}
                   >
-                    {data?.contentfulCompanyAddress?.phone}
+                    {data.contentfulCompanyAddress?.phone}
                   </Link>
                 </ListItem>
 
@@ -148,9 +148,9 @@ export const Footer: React.FC<Props> = ({ id, style, className, ...props }) => {
                     className={styles.listItem}
                     variantLevel={TEXT_LEVEL.primaryReversed}
                     variant={LinkVariant.underline}
-                    href={`fax:${data?.contentfulCompanyAddress?.fax}`}
+                    href={`fax:${data.contentfulCompanyAddress?.fax}`}
                   >
-                    {data?.contentfulCompanyAddress?.fax}
+                    {data.contentfulCompanyAddress?.fax}
                   </Link>
                 </ListItem>
 
@@ -166,16 +166,16 @@ export const Footer: React.FC<Props> = ({ id, style, className, ...props }) => {
                     href={'https://goo.gl/maps/nndYpgQLkbDC6c7S7'}
                     target="blank"
                   >
-                    {data?.contentfulCompanyAddress?.addressLine1}
+                    {data.contentfulCompanyAddress?.addressLine1}
                     <br />
-                    {data?.contentfulCompanyAddress?.addressLine2}
+                    {data.contentfulCompanyAddress?.addressLine2}
                   </Link>
                 </ListItem>
               </ListItems>
             </Stack>
           </div>
           <Paragraph className={styles.copyright} variant={PARAGRAPH_SIZE.xSmall}>
-            {data?.contentfulCompanyInfo?.copyright} - v{clientEnv.APP_VERSION}
+            {data.contentfulCompanyInfo?.copyright} - v{clientEnv.APP_VERSION}
           </Paragraph>
         </Stack>
       </Center>

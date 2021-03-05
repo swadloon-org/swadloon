@@ -25,14 +25,22 @@
       "**/*.tsbuildinfo": true
     },
     "files.watcherExclude": {
-      "**/.cache/**": true,
       "**/.git/objects/**": true,
       "**/.git/subtree-cache/**": true,
       "**/node_modules/**": true,
       "**/.hg/store/**": true,
       "**/dist/**": true,
       "**/public/**": true,
+      "**/.cache/**": true,
       "**/lib/**": true
+    },
+    "files.exclude": {
+      "**/.git": true,
+      "**/.svn": true,
+      "**/.hg": true,
+      "**/CVS": true,
+      "**/.DS_Store": true,
+      "**/node_modules/**": true
     },
     // https://github.com/deepscan/vscode-deepscan#settings-options
     // https://deepscan.io/docs/rules
@@ -61,7 +69,7 @@
       "bierner.markdown-yaml-preamble",
       "jock.svg",
       "cssho.vscode-svgviewer",
-      // "deepscan.vscode-deepscan",
+      "deepscan.vscode-deepscan",
       "graphql.vscode-graphql"
     ]
   },

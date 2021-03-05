@@ -1,9 +1,10 @@
-import { keys, useTreatTheme } from '@newrade/core-react-ui';
+import { keys, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
 import debug from 'debug';
 import React, { PropsWithChildren } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { SectionAPI } from '../api/section.api';
 import { BlockRenderer } from '../blocks/block-renderer';
+import { SectionBanner } from './section-banner';
 import { SectionDivider } from './section-divider';
 import { SectionMessenger } from './section-messenger';
 import { SectionStack } from './section-stack';
@@ -19,6 +20,12 @@ const logError = log.extend('error'); // deepscan-disable-line UNUSED_DECL
  * Component that will render a Section object in their layout.
  */
 export function SectionRenderer<CustomSectionLayouts extends string, CustomBlockVariants extends string>({
+  id,
+  className,
+  style,
+  as,
+  AsElement,
+  inView,
   section,
   sectionComponents,
   blockComponents,
@@ -29,6 +36,7 @@ export function SectionRenderer<CustomSectionLayouts extends string, CustomBlock
     triggerOnce: true,
   });
   const { cssTheme, theme } = useTreatTheme();
+  const commonProps = useCommonProps({ id, style, className, ...props });
 
   if (!section) {
     return null;
@@ -43,7 +51,7 @@ export function SectionRenderer<CustomSectionLayouts extends string, CustomBlock
   if (sectionComponents && sectionComponents[sectionLayout]) {
     const CustomSection = sectionComponents[sectionLayout] as React.ElementType<SectionProps | SectionAPI>;
 
-    return <CustomSection section={section} />;
+    return <CustomSection section={section} {...commonProps} />;
   }
 
   const sectionLayouts = keys(SectionLayout);
@@ -51,30 +59,6 @@ export function SectionRenderer<CustomSectionLayouts extends string, CustomBlock
   const blocks = section.blocks;
 
   switch (sectionLayout) {
-    /**
-     * Stack
-     */
-    case SectionLayout.stack: {
-      if (!blocks?.length) {
-        logWarn(`blocks must be set for SectionStack ${section.name}`);
-        return null;
-      }
-
-      return (
-        <SectionStack
-          ref={ref}
-          section={section}
-          Blocks={
-            <>
-              {blocks.map((block, index) => (
-                <BlockRenderer blockComponents={blockComponents} key={index} block={block} inView={sectionInView} />
-              ))}
-            </>
-          }
-        ></SectionStack>
-      );
-    }
-
     /**
      * Switcher
      */
@@ -105,7 +89,33 @@ export function SectionRenderer<CustomSectionLayouts extends string, CustomBlock
               inView={sectionInView}
             />
           }
+          {...commonProps}
         ></SectionSwitcher>
+      );
+    }
+
+    /**
+     * Stack
+     */
+    case SectionLayout.stack: {
+      if (!blocks?.length) {
+        logWarn(`blocks must be set for SectionStack ${section.name}`);
+        return null;
+      }
+
+      return (
+        <SectionStack
+          ref={ref}
+          section={section}
+          Blocks={
+            <>
+              {blocks.map((block, index) => (
+                <BlockRenderer blockComponents={blockComponents} key={index} block={block} inView={sectionInView} />
+              ))}
+            </>
+          }
+          {...commonProps}
+        ></SectionStack>
       );
     }
 
@@ -147,6 +157,7 @@ export function SectionRenderer<CustomSectionLayouts extends string, CustomBlock
               inView={sectionInView}
             />
           }
+          {...commonProps}
         ></SectionStatement>
       );
     }
@@ -181,6 +192,7 @@ export function SectionRenderer<CustomSectionLayouts extends string, CustomBlock
               inView={sectionInView}
             />
           }
+          {...commonProps}
         ></SectionDivider>
       );
     }
@@ -220,7 +232,43 @@ export function SectionRenderer<CustomSectionLayouts extends string, CustomBlock
               ))}
             </>
           }
+          {...commonProps}
         ></SectionMessenger>
+      );
+    }
+
+    /**
+     * Banner
+     */
+    case SectionLayout.banner: {
+      const leftBlock = blocks?.[0];
+      const rightBlock = blocks?.[1];
+
+      if (!leftBlock || !rightBlock) {
+        logWarn(`both blocks must be set for SectionBanner ${section.name}`);
+        return null;
+      }
+
+      return (
+        <SectionBanner
+          ref={ref}
+          section={section}
+          BackgroundBlock={
+            <BlockRenderer<CustomBlockVariants>
+              blockComponents={blockComponents}
+              block={leftBlock}
+              inView={sectionInView}
+            />
+          }
+          ContentBlock={
+            <BlockRenderer<CustomBlockVariants>
+              blockComponents={blockComponents}
+              block={rightBlock}
+              inView={sectionInView}
+            />
+          }
+          {...commonProps}
+        ></SectionBanner>
       );
     }
 
@@ -230,7 +278,7 @@ export function SectionRenderer<CustomSectionLayouts extends string, CustomBlock
      */
     default: {
       logWarn(`unsupported layout: ${section.layout}, skipping section: ${section.name}`);
-      return <div>{section.name}</div>;
+      return <div {...commonProps}>{section.name}</div>;
     }
   }
 }
