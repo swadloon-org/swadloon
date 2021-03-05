@@ -20,4 +20,4 @@ High-level content components to display text, markdown, images, medias etc.
 Used to render markdown, can contain inlined links, images and anything that markdown supports. For more examples, see the Markdown section.
 
 <Blocks />
-<CodeBlock>{TablesCode}</CodeBlock>
+<CodeBlock>{BlocksCode}</CodeBlock>
