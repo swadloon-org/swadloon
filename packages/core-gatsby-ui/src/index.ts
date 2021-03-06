@@ -26,5 +26,6 @@ export * from './sections/section-divider';
 export * from './sections/section-renderer';
 export * from './sections/section-switcher';
 export * from './sections/section-statement';
+export * from './sections/section-showcase';
 export * from './sections/section.props';
 export * from './utilities/navigation.utilities';

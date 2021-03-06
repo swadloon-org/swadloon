@@ -26,7 +26,6 @@ import {
   NavBar,
   NavBarRefs,
   NavItem,
-  NavItemGroup,
   Paragraph,
   Stack,
   useIsSSR,
@@ -35,7 +34,6 @@ import {
 } from '@newrade/core-react-ui';
 import { globalHistory } from '@reach/router';
 import { IoClose } from '@react-icons/all-files/io5/IoClose';
-import { title } from 'case';
 import { PageProps } from 'gatsby';
 import React, { ReactNode, useEffect, useRef, useState } from 'react';
 import { useAnimateNavbarDesktop } from '../hook/use-animate-navbar-desktop';
@@ -246,17 +244,13 @@ export const Layout = React.memo<LayoutProps>((props) => {
                     return (
                       <Stack key={index} gap={[`calc(2 * ${cssTheme.sizing.var.x1})`]}>
                         {item.items?.length ? (
-                          <NavItemGroup>{title(item.displayName || item.name || 'Home')}</NavItemGroup>
-                        ) : (
-                          <NavItem
-                            active={item.path === props.location?.pathname}
-                            AsElement={<GatsbyLink to={item.path} noStyles={true} />}
-                          >
-                            {item.name || item.displayName}
-                          </NavItem>
-                        )}
-                        {item.items?.length ? (
                           <Stack>
+                            <NavItem
+                              active={'/' === props.location?.pathname}
+                              AsElement={<GatsbyLink to={'/'} noStyles={true} />}
+                            >
+                              {'Accueil'}
+                            </NavItem>
                             {item.items?.map((item, itemIndex) => {
                               return (
                                 <NavItem

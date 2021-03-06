@@ -4,6 +4,7 @@ import {
   CustomSectionLayoutComponents,
   SectionAPI,
   SectionRenderer,
+  SectionShowcase,
 } from '@newrade/core-gatsby-ui/src';
 import {
   getMetaBasicTags,
@@ -49,6 +50,7 @@ export const blockComponents: CustomBlockVariantComponents<CustomBlockVariants> 
 };
 
 export const sectionComponents: CustomSectionLayoutComponents<CustomSectionLayouts> = {
+  showcase: (props) => <SectionShowcase section={props.section} />,
   banner: (props) => <CustomSectionBanner {...props} />,
   customSteps: (props) => <SectionSteps section={props.section} />,
   customFormVasectomy: (props) => <SectionFormVasectomy section={props.section} />,

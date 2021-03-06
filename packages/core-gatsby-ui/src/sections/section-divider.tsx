@@ -27,8 +27,8 @@ export const SectionDivider = React.forwardRef<any, Props>(
         padding = SectionPadding.none,
       } = {
         variant: Variant.primary,
-        baseLayout: SectionBaseLayout.center,
-        padding: SectionPadding.large,
+        baseLayout: SectionBaseLayout.fullWidth,
+        padding: SectionPadding.none,
       },
       ...props
     },

@@ -7,6 +7,7 @@ import { BlockRenderer } from '../blocks/block-renderer';
 import { SectionBanner } from './section-banner';
 import { SectionDivider } from './section-divider';
 import { SectionMessenger } from './section-messenger';
+import { SectionShowcase } from './section-showcase';
 import { SectionStack } from './section-stack';
 import { SectionStatement } from './section-statement';
 import { SectionSwitcher } from './section-switcher';
@@ -194,6 +195,37 @@ export function SectionRenderer<CustomSectionLayouts extends string, CustomBlock
           }
           {...commonProps}
         ></SectionDivider>
+      );
+    }
+
+    case SectionLayout.showcase: {
+      const leftBlock = blocks?.[0];
+      const rightBlock = blocks?.[1];
+
+      if (!leftBlock || !rightBlock) {
+        logWarn(`both blocks must be set for SectionShowcase ${section.name}`);
+        return null;
+      }
+
+      return (
+        <SectionShowcase
+          ref={ref}
+          section={section}
+          LeftBGBlock={
+            <BlockRenderer<CustomBlockVariants>
+              blockComponents={blockComponents}
+              block={leftBlock}
+              inView={sectionInView}
+            />
+          }
+          RightBGBlock={
+            <BlockRenderer<CustomBlockVariants>
+              blockComponents={blockComponents}
+              block={rightBlock}
+              inView={sectionInView}
+            />
+          }
+        ></SectionShowcase>
       );
     }
 

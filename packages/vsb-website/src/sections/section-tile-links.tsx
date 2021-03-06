@@ -2,7 +2,7 @@ import { CommonComponentProps } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { ContentfulSection } from '../../types/graphql-types';
-import { BlockTileLink } from './block-tile-link';
+import { BlockTileLink } from '../blocks/block-tile-link';
 import * as styleRefs from './section-tile-links.treat';
 
 type OwnProps = CommonComponentProps & {
