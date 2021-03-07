@@ -1,6 +1,6 @@
 import { CodeOutline, Details, Paragraph, Summary } from '@newrade/core-react-ui';
 import React from 'react';
-import { lorenipsum } from '../../../utils/loren-ipsum';
+import { lorenipsum } from '../../utils/loren-ipsum';
 
 type Props = {};
 
