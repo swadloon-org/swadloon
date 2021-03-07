@@ -7,7 +7,7 @@ import { BlockProps } from './block.props';
 
 type Props = CommonComponentProps & BlockProps;
 
-export const BlockImage: React.FC<Props> = ({ id, style, className, block, ...props }) => {
+export const BlockImage: React.FC<Props> = ({ id, style, className, inView, block, ...props }) => {
   const { theme, cssTheme } = useTreatTheme();
   const commonProps = useCommonProps({
     id,

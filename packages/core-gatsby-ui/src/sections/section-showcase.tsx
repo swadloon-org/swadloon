@@ -1,5 +1,5 @@
 import { Variant } from '@newrade/core-design-system';
-import { useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
+import { BoxV2, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { SectionBase } from './section-base';
@@ -21,6 +21,7 @@ export const SectionShowcase = React.forwardRef<any, Props>(
       className,
       as,
       AsElement,
+      inView,
       LeftTextBlock,
       LeftBGBlock,
       RightTextBlock,
@@ -31,8 +32,8 @@ export const SectionShowcase = React.forwardRef<any, Props>(
         padding = SectionPadding.none,
       } = {
         variant: Variant.primary,
-        baseLayout: SectionBaseLayout.center,
-        padding: SectionPadding.large,
+        baseLayout: SectionBaseLayout.fullWidth,
+        padding: SectionPadding.none,
       },
       ...props
     },
@@ -41,6 +42,26 @@ export const SectionShowcase = React.forwardRef<any, Props>(
     const { styles } = useStyles(styleRefs);
     const { cssTheme } = useTreatTheme();
     const commonProps = useCommonProps({ id, style, className, classNames: [styles.wrapper], ...props });
+
+    // const LeftTextBlockComp = LeftTextBlock
+    //   ? React.cloneElement(LeftTextBlock as React.ReactElement, {
+    //       style: {
+    //         position: 'relative',
+    //       },
+    //       className: styles.leftBlock,
+    //       children: <>{LeftBGBlock}</>,
+    //     })
+    //   : null;
+
+    // const RightTextBlockComp = RightTextBlock
+    //   ? React.cloneElement(RightTextBlock as React.ReactElement, {
+    //       style: {
+    //         position: 'relative',
+    //       },
+    //       className: styles.rightBlock,
+    //       children: <>{RightBGBlock}</>,
+    //     })
+    //   : null;
 
     return (
       <SectionBase
@@ -53,22 +74,24 @@ export const SectionShowcase = React.forwardRef<any, Props>(
         }}
       >
         <div className={`${styles.gridSwitch} `}>
-          <div className={styles.evenTile}>{LeftBGBlock}</div>
-
-          <div>{RightBGBlock}</div>
-          {/* {section?.subSections?.map((item, index: number) => {
-            if (!item) {
-              return null;
-            }
-
-            return (
-              <BlockTileLink
-                key={index}
-                section={item}
-                contentClassName={index % 2 === 0 ? styles.evenTile : ''}
-              ></BlockTileLink>
-            );
-          })} */}
+          <div className={styles.leftBlock}>
+            {LeftBGBlock}
+            <BoxV2
+              className={styles.leftInnerBlock}
+              padding={[cssTheme.sizing.var.x7, cssTheme.layout.var.contentMargins]}
+            >
+              {LeftTextBlock}
+            </BoxV2>
+          </div>
+          <div className={styles.rightBlock}>
+            {RightBGBlock}
+            <BoxV2
+              className={styles.rightInnerBlock}
+              padding={[cssTheme.sizing.var.x7, cssTheme.layout.var.contentMargins]}
+            >
+              {RightTextBlock}
+            </BoxV2>
+          </div>
         </div>
       </SectionBase>
     );

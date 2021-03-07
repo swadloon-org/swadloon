@@ -9,59 +9,53 @@ type Props = Omit<CommonComponentProps, 'as'> & {
   effects?: BackgroundEffectConfig[];
 } & {
   /**
+   * Simple img src mode
+   */
+  src?: string | null;
+  /**
    * For Gatsby fixed or fluid images
    */
   backgroundImage?: IBackgroundImageProps & InferExtraProps<any>;
   /**
-   * Simple img src mode
+   * Useful to adjuste the position of large background image
    */
-  src?: string | null;
-
   backgroundPosition?: string | null;
 };
 
-export const Background: React.FC<Props> = ({
-  id,
-  style,
-  className,
-  effects,
-  children,
-  backgroundImage,
-  backgroundPosition,
-  src,
-  ...props
-}) => {
-  const { cssTheme } = useTreatTheme();
-  const { styles } = useStyles(styleRefs);
-  const mergedClassNames = getMergedClassname([className, styles.backgroundWrapper]);
+export const Background = React.forwardRef<any, Props>(
+  ({ id, style, className, effects, children, backgroundImage, backgroundPosition, src, ...props }, ref) => {
+    const { cssTheme } = useTreatTheme();
+    const { styles } = useStyles(styleRefs);
+    const mergedClassNames = getMergedClassname([className, styles.wrapper]);
 
-  return (
-    <div className={mergedClassNames}>
-      {src ? (
-        <div
-          className={styles.container}
-          style={{
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: 'cover',
-            position: 'relative',
-            backgroundPositionY: backgroundPosition || '50%',
-            backgroundImage: `url(${src})`,
-          }}
-        >
-          {effects?.map((effect, index) => {
-            return <BackgroundEffect key={index} effect={effect} />;
-          })}
-          {children}
-        </div>
-      ) : (
-        <BackgroundImage {...backgroundImage} className={styles.container}>
-          {effects?.map((effect, index) => {
-            return <BackgroundEffect key={index} effect={effect} />;
-          })}
-          {children}
-        </BackgroundImage>
-      )}
-    </div>
-  );
-};
+    return (
+      <div className={mergedClassNames} ref={ref}>
+        {src ? (
+          <div
+            className={styles.container}
+            style={{
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: 'cover',
+              position: 'relative',
+              backgroundPositionY: backgroundPosition || '50%',
+              backgroundImage: `url(${src})`,
+            }}
+          >
+            {effects?.map((effect, index) => {
+              return <BackgroundEffect key={index} effect={effect} />;
+            })}
+            {children}
+          </div>
+        ) : (
+          <BackgroundImage {...backgroundImage} className={styles.container}>
+            {effects?.map((effect, index) => {
+              return <BackgroundEffect key={index} effect={effect} />;
+            })}
+            {children}
+          </BackgroundImage>
+        )}
+      </div>
+    );
+  }
+);

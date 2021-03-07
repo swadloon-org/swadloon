@@ -4,7 +4,6 @@ import {
   CustomSectionLayoutComponents,
   SectionAPI,
   SectionRenderer,
-  SectionShowcase,
 } from '@newrade/core-gatsby-ui/src';
 import {
   getMetaBasicTags,
@@ -19,8 +18,8 @@ import { BlockCostItemFragment, PageQuery } from '../../types/graphql-types';
 import { BlockCostItem } from '../blocks/block-cost-items';
 import '../fonts';
 import { CustomSectionBanner } from '../sections/custom-section-banner';
-import { SectionFormVasectomy } from '../sections/section-form-vasectomy';
-import { SectionSteps } from '../sections/section-steps';
+import { CustomSectionFormVasectomy } from '../sections/section-form-vasectomy';
+import { CustomSectionSteps } from '../sections/section-steps';
 
 export type ProjectPageProps = PageProps<PageQuery, GatsbyContentfulPageContext>;
 
@@ -50,10 +49,10 @@ export const blockComponents: CustomBlockVariantComponents<CustomBlockVariants> 
 };
 
 export const sectionComponents: CustomSectionLayoutComponents<CustomSectionLayouts> = {
-  showcase: (props) => <SectionShowcase section={props.section} />,
   banner: (props) => <CustomSectionBanner {...props} />,
-  customSteps: (props) => <SectionSteps section={props.section} />,
-  customFormVasectomy: (props) => <SectionFormVasectomy section={props.section} />,
+  callout: (props) => <CustomSectionBanner callout={true} nextSectionButton={false} {...props} />,
+  customSteps: (props) => <CustomSectionSteps section={props.section} />,
+  customFormVasectomy: (props) => <CustomSectionFormVasectomy section={props.section} />,
   customCostItems: (props) => <div>{JSON.stringify(props, null, 2)}</div>,
 };
 

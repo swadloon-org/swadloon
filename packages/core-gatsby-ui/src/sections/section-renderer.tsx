@@ -52,6 +52,7 @@ export function SectionRenderer<CustomSectionLayouts extends string, CustomBlock
   if (sectionComponents && sectionComponents[sectionLayout]) {
     const CustomSection = sectionComponents[sectionLayout] as React.ElementType<SectionProps | SectionAPI>;
 
+    // @ts-ignore
     return <CustomSection section={section} {...commonProps} />;
   }
 
@@ -199,10 +200,12 @@ export function SectionRenderer<CustomSectionLayouts extends string, CustomBlock
     }
 
     case SectionLayout.showcase: {
-      const leftBlock = blocks?.[0];
-      const rightBlock = blocks?.[1];
+      const leftTextBlock = blocks?.[0];
+      const leftBackgroundBlock = blocks?.[1];
+      const rightTextBlock = blocks?.[2];
+      const rightBackgroundBlock = blocks?.[3];
 
-      if (!leftBlock || !rightBlock) {
+      if (!leftTextBlock || !rightTextBlock) {
         logWarn(`both blocks must be set for SectionShowcase ${section.name}`);
         return null;
       }
@@ -211,17 +214,31 @@ export function SectionRenderer<CustomSectionLayouts extends string, CustomBlock
         <SectionShowcase
           ref={ref}
           section={section}
+          LeftTextBlock={
+            <BlockRenderer<CustomBlockVariants>
+              blockComponents={blockComponents}
+              block={leftTextBlock}
+              inView={sectionInView}
+            />
+          }
           LeftBGBlock={
             <BlockRenderer<CustomBlockVariants>
               blockComponents={blockComponents}
-              block={leftBlock}
+              block={leftBackgroundBlock}
+              inView={sectionInView}
+            />
+          }
+          RightTextBlock={
+            <BlockRenderer<CustomBlockVariants>
+              blockComponents={blockComponents}
+              block={rightTextBlock}
               inView={sectionInView}
             />
           }
           RightBGBlock={
             <BlockRenderer<CustomBlockVariants>
               blockComponents={blockComponents}
-              block={rightBlock}
+              block={rightBackgroundBlock}
               inView={sectionInView}
             />
           }
@@ -273,10 +290,10 @@ export function SectionRenderer<CustomSectionLayouts extends string, CustomBlock
      * Banner
      */
     case SectionLayout.banner: {
-      const leftBlock = blocks?.[0];
-      const rightBlock = blocks?.[1];
+      const backgroundBlock = blocks?.[0];
+      const contentBlock = blocks?.[1];
 
-      if (!leftBlock || !rightBlock) {
+      if (!backgroundBlock || !contentBlock) {
         logWarn(`both blocks must be set for SectionBanner ${section.name}`);
         return null;
       }
@@ -288,17 +305,54 @@ export function SectionRenderer<CustomSectionLayouts extends string, CustomBlock
           BackgroundBlock={
             <BlockRenderer<CustomBlockVariants>
               blockComponents={blockComponents}
-              block={leftBlock}
+              block={backgroundBlock}
               inView={sectionInView}
             />
           }
           ContentBlock={
             <BlockRenderer<CustomBlockVariants>
               blockComponents={blockComponents}
-              block={rightBlock}
+              block={contentBlock}
               inView={sectionInView}
             />
           }
+          {...commonProps}
+        ></SectionBanner>
+      );
+    }
+
+    /**
+     * Banner
+     */
+    case SectionLayout.callout: {
+      const backgroundBlock = blocks?.[0];
+      const contentBlock = blocks?.[1];
+
+      if (!backgroundBlock || !contentBlock) {
+        logWarn(`both blocks must be set for SectionBanner ${section.name}`);
+        return null;
+      }
+
+      return (
+        <SectionBanner
+          ref={ref}
+          section={section}
+          inView={inView}
+          BackgroundBlock={
+            <BlockRenderer<CustomBlockVariants>
+              blockComponents={blockComponents}
+              block={backgroundBlock}
+              inView={sectionInView}
+            />
+          }
+          ContentBlock={
+            <BlockRenderer<CustomBlockVariants>
+              blockComponents={blockComponents}
+              block={contentBlock}
+              inView={sectionInView}
+            />
+          }
+          callout={true}
           {...commonProps}
         ></SectionBanner>
       );

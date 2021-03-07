@@ -5,6 +5,8 @@ export * from './api/site.api';
 export * from './blocks/block-google-map';
 export * from './blocks/block-markdown';
 export * from './blocks/block-renderer';
+export * from './blocks/block-image';
+export * from './blocks/block-image-background';
 export * from './blocks/block.props';
 export * from './debug/debug-gatsby-page';
 export * from './hooks/use-docs-navigation-data.hook';

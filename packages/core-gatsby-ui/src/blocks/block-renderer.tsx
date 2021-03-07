@@ -1,5 +1,5 @@
 import { ButtonSize, Variant } from '@newrade/core-design-system';
-import { Button, ErrorBoundary, Stack, useIsSSR, useTreatTheme } from '@newrade/core-react-ui';
+import { Button, ErrorBoundary, Stack, useCommonProps, useIsSSR, useTreatTheme } from '@newrade/core-react-ui';
 import { IoArrowForwardOutline } from '@react-icons/all-files/io5/IoArrowForwardOutline';
 import debug from 'debug';
 import React, { PropsWithChildren } from 'react';
@@ -7,6 +7,7 @@ import { GatsbyLink } from '..';
 import { BlockGoogleMapAPI } from '../api/block-google-map.api';
 import { BlockAPI } from '../api/block.api';
 import { BlockImage } from './block-image';
+import { BlockImageBackground } from './block-image-background';
 import { BlockMarkdown } from './block-markdown';
 import { BlockRendererProps, BlockType } from './block.props';
 
@@ -22,13 +23,19 @@ const BlockGoogleMap = React.lazy(() =>
  * Renders a block according to its variant (type)
  */
 export function BlockRenderer<CustomBlockVariants extends string>({
-  block,
+  id,
+  style,
+  className,
+  as,
+  AsElement,
   inView,
+  block,
   blockComponents,
   ...props
 }: PropsWithChildren<BlockRendererProps<CustomBlockVariants>>) {
   const isSSR = useIsSSR();
   const { cssTheme, theme } = useTreatTheme();
+  const commonProps = useCommonProps({ id, style, className, ...props });
 
   if (!block) {
     logWarn(`block was not defined`);
@@ -41,12 +48,14 @@ export function BlockRenderer<CustomBlockVariants extends string>({
    * Custom Blocks
    */
   if (block.variant && blockComponents && blockComponents[block.variant as CustomBlockVariants | BlockType]) {
-    const CustomBlock = blockComponents[block.variant as CustomBlockVariants | BlockType] as React.ElementType;
+    const CustomBlock = blockComponents[block.variant as CustomBlockVariants | BlockType] as React.ElementType<
+      BlockRendererProps<CustomBlockVariants>
+    >;
     if (!CustomBlock) {
       return null;
     }
 
-    return <CustomBlock block={block as BlockAPI} />;
+    return <CustomBlock inView={inView} block={block as BlockAPI} {...commonProps} />;
   }
 
   switch (block.type) {
@@ -57,13 +66,13 @@ export function BlockRenderer<CustomBlockVariants extends string>({
       const blockText = block as BlockAPI;
       return (
         <ErrorBoundary>
-          <Stack gap={[cssTheme.sizing.var.x5]} {...props}>
+          <Stack gap={[cssTheme.sizing.var.x5]} {...commonProps}>
             <BlockMarkdown block={blockText}>{blockText.text?.childMdx?.body}</BlockMarkdown>
 
             {blockText.link?.page?.slug ? (
               <Button
                 size={ButtonSize.large}
-                variant={Variant.secondary}
+                variant={(blockText.variant as Variant) || Variant.secondary}
                 Icon={<IoArrowForwardOutline />}
                 AsElement={<GatsbyLink to={blockText.link?.page?.slug} />}
               >
@@ -76,13 +85,25 @@ export function BlockRenderer<CustomBlockVariants extends string>({
     }
 
     /**
+     * Image background
+     */
+    case BlockType.imageBackground: {
+      const blockImage = block as BlockAPI;
+      return (
+        <ErrorBoundary>
+          <BlockImageBackground inView={inView} block={blockImage} {...commonProps}></BlockImageBackground>
+        </ErrorBoundary>
+      );
+    }
+
+    /**
      * Image Block
      */
     case BlockType.image: {
       const blockImage = block as BlockAPI;
       return (
         <ErrorBoundary>
-          <BlockImage block={blockImage} {...props}></BlockImage>
+          <BlockImage inView={inView} block={blockImage} {...commonProps}></BlockImage>
         </ErrorBoundary>
       );
     }
@@ -96,7 +117,7 @@ export function BlockRenderer<CustomBlockVariants extends string>({
         <ErrorBoundary>
           {!isSSR && inView ? (
             <React.Suspense fallback={<div />}>
-              <BlockGoogleMap inView={inView} blockGoogleMaps={blockGoogleMaps} {...props} />
+              <BlockGoogleMap inView={inView} blockGoogleMaps={blockGoogleMaps} {...commonProps} />
             </React.Suspense>
           ) : null}
         </ErrorBoundary>

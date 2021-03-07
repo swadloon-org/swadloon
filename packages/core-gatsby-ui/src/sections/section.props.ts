@@ -1,5 +1,4 @@
 import { CommonComponentProps } from '@newrade/core-react-ui';
-import { BlockAPI } from '../api/block.api';
 import { SectionAPI } from '../api/section.api';
 import { BlockProps, BlockType } from '../blocks/block.props';
 
@@ -33,6 +32,7 @@ export enum SectionLayout {
   stack = 'stack',
   divider = 'divider',
   banner = 'banner',
+  callout = 'callout',
   showcase = 'showcase',
   messenger = 'messenger',
 }
@@ -58,11 +58,7 @@ export type CustomSectionLayoutComponents<CustomSectionLayouts extends string> =
  * Defines a component for each custom block variant
  */
 export type CustomBlockVariantComponents<CustomBlockVariants extends string> = {
-  [key in CustomBlockVariants | BlockType]?: (
-    props: BlockProps & {
-      block: BlockAPI;
-    }
-  ) => React.ReactElement | null;
+  [key in CustomBlockVariants | BlockType]?: (props: BlockProps) => React.ReactElement | null;
 };
 
 /**

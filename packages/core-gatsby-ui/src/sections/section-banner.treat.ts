@@ -4,10 +4,13 @@ import { style } from 'treat';
 export const styles = {
   wrapper: style(({ theme, cssTheme }: Theme) => ({
     position: 'relative',
-    height: `max(80vh, 500px)`,
+    height: `max(70vh, 500px)`,
     width: `100%`,
     color: cssTheme.colors.colorIntents.primaryReversed,
     textShadow: cssTheme.effects.textShadows.light,
+  })),
+  callout: style(({ theme, cssTheme }: Theme) => ({
+    height: `auto`,
   })),
   background: style(({ theme, cssTheme }: Theme) => ({
     position: 'absolute',
@@ -18,11 +21,5 @@ export const styles = {
     display: 'grid',
     alignContent: 'center',
     backgroundColor: '#94aec5',
-  })),
-  textContainer: style(({ theme, cssTheme }: Theme) => ({})),
-  icon: style(({ theme, cssTheme }: Theme) => ({
-    position: 'absolute',
-    left: `calc(50% - (2 * ${cssTheme.sizing.var.x3} + ${cssTheme.typography.labels.mobile.medium.capHeight}px) / 2)`,
-    bottom: `calc(${cssTheme.sizing.var.x3} * 1.5)`,
   })),
 };

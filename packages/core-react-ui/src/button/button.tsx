@@ -116,7 +116,7 @@ export const Button = React.forwardRef<any, Props>(
           <>
             {icon === ButtonIcon.icon ? null : (
               <Label
-                style={{ display: 'inline-block' }}
+                style={{ display: 'inline-block', userSelect: 'none' }}
                 variantStyle={TEXT_STYLE.bold}
                 variant={getLabelSizeForButtonSize(size)}
               >
@@ -138,15 +138,15 @@ export const Button = React.forwardRef<any, Props>(
         style={style}
         className={allClassName}
         ref={ref}
+        disabled={disabled}
         // @ts-ignore
         dataicon={`${IconSvg ? icon : ''}`}
-        // datapressed={`${isPressed}`}
         datapaddingcollapse={`${collapsePadding}`}
         {...props}
       >
         {icon === ButtonIcon.icon ? null : (
           <Label
-            style={{ display: 'inline-block' }}
+            style={{ display: 'inline-block', userSelect: 'none' }}
             variantStyle={TEXT_STYLE.bold}
             variant={getLabelSizeForButtonSize(size)}
           >

@@ -3,12 +3,12 @@ import { style } from 'treat';
 
 export const styles = {
   wrapper: style(({ theme, cssTheme }: Theme) => ({
-    color: cssTheme.colors.colorIntents.primaryTextReversed,
     width: `100%`,
   })),
   gridSwitch: style(({ theme, cssTheme }: Theme) => ({
     display: 'grid',
     gridTemplateColumns: '1fr',
+    width: `100%`,
 
     '@media': {
       [cssTheme.layout.media.tablet]: {
@@ -19,7 +19,17 @@ export const styles = {
       },
     },
   })),
-  evenTile: style(({ theme, cssTheme }: Theme) => ({
-    justifySelf: 'flex-end',
+  leftBlock: style(({ theme, cssTheme }: Theme) => ({
+    position: 'relative',
+  })),
+  leftInnerBlock: style(({ theme, cssTheme }: Theme) => ({
+    maxWidth: `calc(${cssTheme.layout.contentWidth.desktopMaxWidth} / 2)`,
+    marginLeft: 'auto',
+  })),
+  rightBlock: style(({ theme, cssTheme }: Theme) => ({
+    position: 'relative',
+  })),
+  rightInnerBlock: style(({ theme, cssTheme }: Theme) => ({
+    maxWidth: `calc(${cssTheme.layout.contentWidth.desktopMaxWidth} / 2)`,
   })),
 };

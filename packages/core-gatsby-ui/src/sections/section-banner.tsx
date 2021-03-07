@@ -1,7 +1,7 @@
 import { Variant } from '@newrade/core-design-system';
 import { SectionBase, SectionBaseLayout, SectionPadding, SectionProps } from '@newrade/core-gatsby-ui/src';
-import { Center, CommonComponentProps, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
-import React, { useImperativeHandle, useRef } from 'react';
+import { BoxV2, Center, CommonComponentProps, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
+import React from 'react';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './section-banner.treat';
 
@@ -9,6 +9,7 @@ type Props = CommonComponentProps &
   SectionProps & {
     BackgroundBlock: React.ReactNode;
     ContentBlock: React.ReactNode;
+    callout?: boolean;
   };
 
 export const SectionBanner = React.forwardRef<any, Props>(
@@ -21,6 +22,7 @@ export const SectionBanner = React.forwardRef<any, Props>(
       AsElement,
       BackgroundBlock,
       ContentBlock,
+      callout,
       section: {
         variant = Variant.primary,
         baseLayout = SectionBaseLayout.fullWidth,
@@ -38,17 +40,21 @@ export const SectionBanner = React.forwardRef<any, Props>(
   ) => {
     const { styles } = useStyles(styleRefs);
     const { theme, cssTheme } = useTreatTheme();
-    const localRef = useRef<HTMLDivElement>(null);
-    const commonProps = useCommonProps({ id, style, className, classNames: [styles.wrapper], ...props });
+    const commonProps = useCommonProps({
+      id,
+      style,
+      className,
+      classNames: [styles.wrapper, callout ? styles.callout : ''],
+      ...props,
+    });
 
+    // TODO: how to correctly merge inner and outer ref
     // merge local ref with forwarded
-    useImperativeHandle(ref, () => ({
-      current: localRef?.current,
-    }));
+    // const localRef = useRef<HTMLDivElement>(null);
+    // useImperativeHandle(ref, () => localRef);
 
     const innerBlockProps = {
       className: styles.background,
-      children: <Center contentClassName={styles.textContainer}>{ContentBlock}</Center>,
     };
 
     const BackgroundBlockComponent = BackgroundBlock ? (
@@ -59,7 +65,7 @@ export const SectionBanner = React.forwardRef<any, Props>(
 
     return (
       <SectionBase
-        ref={localRef}
+        ref={ref}
         section={{
           variant,
           baseLayout,
@@ -68,7 +74,11 @@ export const SectionBanner = React.forwardRef<any, Props>(
         {...commonProps}
       >
         {BackgroundBlockComponent}
-        {/* inject the passed children, incase user wants to render something custom */}
+        <Center>
+          <BoxV2 padding={[cssTheme.sizing.var.x7, cssTheme.layout.var.contentMargins]}>{ContentBlock}</BoxV2>
+        </Center>
+
+        {/* inject the passed children, in case user wants to render something custom */}
         {children}
       </SectionBase>
     );

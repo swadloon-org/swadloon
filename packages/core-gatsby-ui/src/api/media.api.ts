@@ -1,3 +1,5 @@
+import { IFixedObject, IFluidObject } from 'gatsby-background-image';
+
 export type MediaAPI = {
   /**
    * name should be required
@@ -7,6 +9,9 @@ export type MediaAPI = {
     title?: string;
     description?: string;
     file?: any;
+    fluid?: IFluidObject;
+    fixed?: IFixedObject;
   };
+  // TODO: should we have mediaMobile, mediaDesktop in mediav2 ?
   backgroundPositionY?: string | null;
 };

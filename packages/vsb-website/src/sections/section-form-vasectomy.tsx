@@ -18,7 +18,7 @@ const BlockFormVasectomy = React.lazy(() =>
   import('../blocks/block-form-vasectomy').then((comp) => ({ default: comp.BlockFormVasectomy }))
 );
 
-export const SectionFormVasectomy = React.forwardRef<any, Props>(
+export const CustomSectionFormVasectomy = React.forwardRef<any, Props>(
   (
     {
       id,

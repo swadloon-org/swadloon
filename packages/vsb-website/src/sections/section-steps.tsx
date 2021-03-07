@@ -15,7 +15,7 @@ import * as styleRefs from './section-steps.treat';
 
 type Props = CommonComponentProps & SectionProps;
 
-export const SectionSteps = React.forwardRef<any, Props>(
+export const CustomSectionSteps = React.forwardRef<any, Props>(
   (
     {
       id,

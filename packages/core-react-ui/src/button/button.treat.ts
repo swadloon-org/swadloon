@@ -20,7 +20,7 @@ export const styles: { [key in ButtonStyleProps['variant']]: string } &
     border: `2px solid ${cssTheme.colors.colorIntents.primary}`,
     backgroundColor: cssTheme.colors.colorIntents.primary,
     selectors: {
-      '&[datapressed="true"]': {
+      '&:active': {
         filter: `brightness(90%)`,
       },
       '&[disabled]': {
@@ -36,7 +36,7 @@ export const styles: { [key in ButtonStyleProps['variant']]: string } &
     border: `2px solid ${cssTheme.colors.colorIntents.primary}`,
     backgroundColor: cssTheme.colors.colorIntents.primary,
     selectors: {
-      '&[datapressed="true"]': {
+      '&:active': {
         backgroundColor: cssTheme.colors.colors.primary[100],
       },
       '&[disabled]': {
@@ -50,7 +50,7 @@ export const styles: { [key in ButtonStyleProps['variant']]: string } &
     color: cssTheme.colors.colorIntents.primary,
     border: `2px solid ${cssTheme.colors.colorIntents.primary}`,
     selectors: {
-      '&[datapressed="true"]': {
+      '&:active': {
         backgroundColor: cssTheme.colors.colors.primary[100],
       },
       '&[disabled]': {
@@ -65,7 +65,7 @@ export const styles: { [key in ButtonStyleProps['variant']]: string } &
     color: cssTheme.colors.colorIntents.primaryReversed,
     border: `2px solid ${cssTheme.colors.colorIntents.primaryReversed}`,
     selectors: {
-      '&[datapressed="true"]': {
+      '&:active': {
         backgroundColor: cssTheme.colors.colors.grey[100],
       },
       '&[disabled]': {
@@ -79,7 +79,7 @@ export const styles: { [key in ButtonStyleProps['variant']]: string } &
   tertiary: style(({ theme, cssTheme }: Theme) => ({
     color: cssTheme.colors.colorIntents.primary,
     selectors: {
-      '&[datapressed="true"]': {
+      '&:active': {
         backgroundColor: cssTheme.colors.colors.primary[100],
       },
       '&[disabled]': {
@@ -92,7 +92,7 @@ export const styles: { [key in ButtonStyleProps['variant']]: string } &
   tertiaryReversed: style(({ theme, cssTheme }: Theme) => ({
     color: cssTheme.colors.colorIntents.primaryReversed,
     selectors: {
-      '&[datapressed="true"]': {
+      '&:active': {
         backgroundColor: cssTheme.colors.colors.grey[100],
       },
       '&[disabled]': {

@@ -13,6 +13,14 @@ export enum BlockType {
    */
   image = 'image',
   /**
+   * Display an image as background
+   */
+  imageBackground = 'imageBackground',
+  /**
+   * Display a video media
+   */
+  video = 'video',
+  /**
    * Carousel
    */
   carousel = 'carousel',

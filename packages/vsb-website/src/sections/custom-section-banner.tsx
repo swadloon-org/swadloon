@@ -28,7 +28,11 @@ import { gradient } from '../styles/effects.styles';
 import { blockComponents } from '../templates/contentful-page.template';
 import * as styleRefs from './custom-section-banner.treat';
 
-type Props = CommonComponentProps & SectionProps;
+type Props = CommonComponentProps &
+  SectionProps & {
+    callout?: boolean;
+    nextSectionButton?: boolean;
+  };
 
 export const CustomSectionBanner = React.forwardRef<any, Props>(
   (
@@ -48,6 +52,8 @@ export const CustomSectionBanner = React.forwardRef<any, Props>(
         baseLayout: SectionBaseLayout.fullWidth,
         padding: SectionPadding.none,
       },
+      callout,
+      nextSectionButton = true,
       ...props
     },
     ref
@@ -175,9 +181,10 @@ export const CustomSectionBanner = React.forwardRef<any, Props>(
           baseLayout,
           padding,
         }}
+        callout={callout}
         {...commonProps}
       >
-        {CustomButton}
+        {nextSectionButton ? CustomButton : null}
       </SectionBanner>
     );
   }
