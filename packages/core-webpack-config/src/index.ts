@@ -4,6 +4,7 @@ export * from './dev-server.conf';
 export * from './loaders/css-loader';
 export * from './loaders/ejs-loader';
 export * from './loaders/es6-babel.loader';
+export * from './loaders/svg.loader';
 export * from './loaders/extract-css.loader';
 export * from './loaders/mdx.loader';
 export * from './loaders/scss-loader';

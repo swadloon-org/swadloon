@@ -13,7 +13,7 @@ export * from './design-system/default-fonts';
 export * from './design-system/default-iconography';
 export * from './design-system/default-layout';
 export * from './design-system/default-sizing';
-export * from './design-system/default-theme';
+// export * from './design-system/default-theme';
 export * from './design-system/default-typography';
 export * from './error/error-boundary';
 export * from './form/form';

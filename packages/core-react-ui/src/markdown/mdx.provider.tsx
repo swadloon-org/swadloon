@@ -1,5 +1,5 @@
 import { HEADING, LinkIcon, LinkVariant, PARAGRAPH_SIZE, TEXT_STYLE } from '@newrade/core-design-system';
-import React, { AnchorHTMLAttributes, Suspense } from 'react';
+import React, { AnchorHTMLAttributes } from 'react';
 import { Code } from '../code/code';
 import '../code/code-block.treat';
 import { ListItem } from '../list-item/list-item';
@@ -116,20 +116,20 @@ export const mdxComponents: Partial<
    * Code
    */
   pre: (props: MDXProps) => <>{props.children}</>,
-  code: ({ children, ...props }: MDXProps) => {
-    const isSSR = typeof window === 'undefined';
+  // code: ({ children, ...props }: MDXProps) => {
+  //   const isSSR = typeof window === 'undefined';
 
-    const CodeBlock = React.lazy(() =>
-      // instead of import { CodeBlock } from '../code/code-block';
-      import('../code/code-block').then((comp) => ({ default: comp.CodeBlock }))
-    );
+  //   const CodeBlock = React.lazy(() =>
+  //     // instead of import { CodeBlock } from '../code/code-block';
+  //     import('../code/code-block').then((comp) => ({ default: comp.CodeBlock }))
+  //   );
 
-    return !isSSR ? (
-      <Suspense fallback={'loading...'}>
-        <CodeBlock {...props}>{children as string}</CodeBlock>
-      </Suspense>
-    ) : null;
-  },
+  //   return !isSSR ? (
+  //     <Suspense fallback={'loading...'}>
+  //       <CodeBlock {...props}>{children as string}</CodeBlock>
+  //     </Suspense>
+  //   ) : null;
+  // },
 
   inlineCode: (props: MDXProps) => <Code>{props.children}</Code>,
 

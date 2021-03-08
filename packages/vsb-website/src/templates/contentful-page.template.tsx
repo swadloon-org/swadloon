@@ -86,6 +86,8 @@ export const PageTemplate: React.FC<ProjectPageProps> = ({ data, location, ...pr
             return null;
           }
 
+          return 'hey';
+
           return (
             <SectionRenderer<CustomSectionLayouts, CustomBlockVariants>
               key={index}

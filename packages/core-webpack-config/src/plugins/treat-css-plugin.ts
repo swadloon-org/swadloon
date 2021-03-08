@@ -1,5 +1,5 @@
 import { WebpackPluginInstance } from 'webpack/declarations/WebpackOptions';
-import { TreatPlugin } from 'treat/webpack-plugin';
+import TreatPlugin from 'treat/webpack-plugin';
 
 /**
  * TreatCSS Webpack Plugin

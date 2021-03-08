@@ -2,15 +2,21 @@ import { VIEWPORT } from '@newrade/core-design-system';
 import ExpoScaleEase from '@newrade/core-gsap-ui/lib/plugins/EasePack';
 import ScrollTrigger from '@newrade/core-gsap-ui/lib/plugins/ScrollTrigger';
 import { gsap } from '@newrade/core-gsap-ui/src';
-import { MainWrapper, NavBarRefs, useIsSSR, useTreatTheme, useViewportBreakpoint } from '@newrade/core-react-ui';
+import {
+  Button,
+  Main,
+  MainWrapper,
+  NavBarRefs,
+  useIsSSR,
+  useTreatTheme,
+  useViewportBreakpoint,
+} from '@newrade/core-react-ui';
 import { globalHistory } from '@reach/router';
 import { PageProps } from 'gatsby';
 import React, { ReactNode, useEffect, useRef, useState } from 'react';
-import { useStyles } from 'react-treat';
 import { useAnimateNavbarDesktop } from '../hook/use-animate-navbar-desktop';
 import { useAnimateNavbarMobile } from '../hook/use-animate-navbar-mobile';
 import { useCompanyInfo, usePagesNavigation } from '../hook/use-layout-data';
-import * as styleRefs from './layout.treat';
 
 type LayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }>;
 
@@ -33,7 +39,6 @@ export const Layout = React.memo<LayoutProps>((props) => {
    * Styles & animations
    */
   const { cssTheme } = useTreatTheme();
-  const styles = useStyles(styleRefs);
 
   /**
    * Sidebar
@@ -119,5 +124,11 @@ export const Layout = React.memo<LayoutProps>((props) => {
     };
   }, [viewport]);
 
-  return <MainWrapper className={styles.wrapper}>hey</MainWrapper>;
+  return (
+    <MainWrapper>
+      <Main minHeight={true}>
+        <Button>hey</Button>
+      </Main>
+    </MainWrapper>
+  );
 });
