@@ -11,8 +11,6 @@ import {
   defaultTypography,
 } from '@newrade/core-react-ui';
 import { colors } from './colors';
-import { layout } from './layout';
-import { typography } from './typography';
 
 export const theme: DesignSystem = {
   name: 'newrade',
@@ -24,6 +22,7 @@ export const theme: DesignSystem = {
   // typography,
   typography: defaultTypography,
   layout: defaultLayout,
+  // layout,
   animations: defaultAnimations,
   components: {
     buttons: defaultButtons,

@@ -1,26 +1,46 @@
-import { VIEWPORT } from '@newrade/core-design-system';
+import {
+  ButtonIcon,
+  ButtonSize,
+  HEADING,
+  LinkVariant,
+  PARAGRAPH_SIZE,
+  TEXT_LEVEL,
+  Variant,
+  VIEWPORT,
+} from '@newrade/core-design-system';
 import { GatsbyLink } from '@newrade/core-gatsby-ui/src';
+import ExpoScaleEase from '@newrade/core-gsap-ui/lib/plugins/EasePack';
+import ScrollTrigger from '@newrade/core-gsap-ui/lib/plugins/ScrollTrigger';
+import { gsap } from '@newrade/core-gsap-ui/src';
 import {
   BoxV2,
-  Label,
+  Button,
+  Cluster,
+  Heading,
+  Link,
   Main,
   MainWrapper,
   NavBar,
+  NavBarRefs,
   NavItem,
-  NavItemGroup,
+  Paragraph,
   Stack,
   useIsSSR,
+  useTreatTheme,
   useViewportBreakpoint,
 } from '@newrade/core-react-ui';
 import { globalHistory } from '@reach/router';
-import { title } from 'case';
+import { IoClose } from '@react-icons/all-files/io5/IoClose';
 import { PageProps } from 'gatsby';
-import React, { ReactNode, useEffect, useState } from 'react';
+import React, { ReactNode, useEffect, useRef, useState } from 'react';
 import { useStyles } from 'react-treat';
-import { cssTheme } from '../design-system/theme';
-import { useNavigation } from '../hooks/use-layout-data';
+import { useAnimateNavbarDesktop } from '../hooks/use-animate-navbar-desktop';
+import { useAnimateNavbarMobile } from '../hooks/use-animate-navbar-mobile';
+import { useCompanyInfo, usePagesNavigation } from '../hooks/use-layout-data';
 import LogoSymbol from '../images/logo-symbol.svg';
+import LogoText from '../images/logo-text.svg';
 import Logo from '../images/logo.svg';
+import { Footer } from './footer';
 import * as styleRefs from './layout.treat';
 
 type LayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }>;
@@ -33,12 +53,18 @@ const MobileSideBar = React.lazy(() =>
 
 export const Layout = React.memo<LayoutProps>((props) => {
   const isSSR = useIsSSR();
-  const { styles } = useStyles(styleRefs);
 
   /**
    * Data query
    */
-  const navigation = useNavigation();
+  const navigation = usePagesNavigation();
+  const { companyInfo, companyAddress } = useCompanyInfo();
+
+  /**
+   * Styles & animations
+   */
+  const { cssTheme } = useTreatTheme();
+  const styles = useStyles(styleRefs);
 
   /**
    * Sidebar
@@ -46,68 +72,194 @@ export const Layout = React.memo<LayoutProps>((props) => {
   const [sidebarOpened, setSidebarOpened] = useState<boolean>(false);
 
   useEffect(() => {
+    pathname = props.location?.pathname;
+
     return globalHistory.listen((params) => {
       setSidebarOpened(false); // close sidebar upon navigation
+      setNavbarStyle(params.location?.pathname === '/' ? 'transparent' : 'white'); // set the navbar style
       pathname = params.location?.pathname;
     });
   }, [globalHistory]);
 
-  function handlePressMenuButton(event: React.MouseEvent) {
+  function handleClickMenuButton(event: React.MouseEvent) {
     setSidebarOpened(!sidebarOpened);
   }
 
   const { viewport } = useViewportBreakpoint();
+
+  /**
+   * Navbar
+   */
+  const defaultNavbarState = props.location?.pathname === '/' ? 'transparent' : 'white';
+  const navbarRef = useRef<NavBarRefs>();
+  const [navbarStyle, setNavbarStyle] = useState<'white' | 'transparent'>(defaultNavbarState);
+  const [gsapLoaded, setGsapLoaded] = useState<boolean>(false);
+  useAnimateNavbarDesktop({ navbarRef, whiteStyle: navbarStyle === 'white', viewport });
+  useAnimateNavbarMobile({ navbarRef, whiteStyle: navbarStyle === 'white', viewport });
+
+  gsap.registerPlugin(ScrollTrigger, ExpoScaleEase);
+
   useEffect(() => {
-    if (viewport === VIEWPORT.desktop) {
-      setSidebarOpened(false);
+    setTimeout(() => {
+      setGsapLoaded(true);
+    }, 1000);
+  }, []);
+
+  useEffect(() => {
+    if (!gsapLoaded) {
+      return;
     }
+
+    /**
+     * @see https://greensock.com/docs/v3/Plugins/ScrollTrigger
+     */
+    const scrollTrigger = new ScrollTrigger({
+      scrub: 1,
+      delay: 1,
+      toggleActions: `play none reverse none`,
+      start: '40vh',
+      end: '40vh',
+      onEnter: () => {
+        setNavbarStyle('white');
+      },
+      onEnterBack: function () {
+        if (pathname === '/') {
+          setNavbarStyle('transparent');
+        }
+      },
+    });
+
+    return () => {
+      if (scrollTrigger) {
+        scrollTrigger.kill?.();
+      }
+    };
+  }, [gsapLoaded]);
+
+  useEffect(() => {
+    let timeout: number;
+    if (viewport === VIEWPORT.desktop) {
+      timeout = window.setTimeout(() => {
+        setSidebarOpened(false);
+      }, 300);
+    }
+    return () => {
+      if (timeout !== undefined) {
+        window.clearTimeout(timeout);
+      }
+    };
   }, [viewport]);
 
   return (
-    <MainWrapper>
+    <MainWrapper className={styles.wrapper}>
       <NavBar
+        ref={navbarRef}
         HomeLink={<GatsbyLink to={'/'} />}
-        MobileSvgLogo={<LogoSymbol />}
+        MobileSvgLogo={<LogoText height={20} />}
         DesktopSvgLogo={<Logo />}
         MenuLinks={
-          <>
-            <Label>Services</Label>
-            <Label>Technologies</Label>
-            <Label>Agence</Label>
-            <Label>Contact</Label>
-          </>
+          navigation.items.length ? (
+            <>
+              {navigation.items.map((item: any, itemIndex: number) => {
+                return (
+                  <Link
+                    variantSize={PARAGRAPH_SIZE.medium}
+                    AsElement={<GatsbyLink to={`${item.path}`} />}
+                    key={itemIndex}
+                  >
+                    {item.name || item.displayName}
+                  </Link>
+                );
+              })}
+            </>
+          ) : null
         }
+        // <>
+        //   <Link variantSize={PARAGRAPH_SIZE.medium} AsElement={<GatsbyLink to={'/vasectomie/'} />}>
+        //     Tout sur la vasectomie
+        //   </Link>
+        //   <Link variantSize={PARAGRAPH_SIZE.medium} AsElement={<GatsbyLink to={'/examen-pour-transports-canada/'} />}>
+        //     Examen pour Transport Canada
+        //   </Link>
+        //   <Link variantSize={PARAGRAPH_SIZE.medium} AsElement={<GatsbyLink to={'/equipe/'} />}>
+        //     La clinique
+        //   </Link>
+        //   <Link variantSize={PARAGRAPH_SIZE.medium} AsElement={<GatsbyLink to={'/contact/'} />}>
+        //     Contact
+        //   </Link>
+        // </>
+        onClickMenuButton={handleClickMenuButton}
         menuOpened={sidebarOpened}
-        onClickMenuButton={handlePressMenuButton}
       ></NavBar>
 
       {!isSSR && (
         <React.Suspense fallback={<div />}>
-          <MobileSideBar sidebarOpened={sidebarOpened} disableBodyScroll={true}>
+          <MobileSideBar
+            sidebarOpened={sidebarOpened}
+            disableBodyScroll={true}
+            onClickBackdrop={handleClickMenuButton}
+            style={{ backgroundColor: cssTheme.colors.colors.grey[800] }}
+          >
             <Stack>
               <BoxV2
-                padding={[cssTheme.sizing.var.x4, cssTheme.layout.var.contentMargins, cssTheme.sizing.var.x4]}
                 style={{ flexDirection: 'column' }}
+                alignItems={['stretch']}
+                padding={[
+                  cssTheme.sizing.var.x2,
+                  cssTheme.sizing.var.x1,
+                  cssTheme.sizing.var.x3,
+                  cssTheme.layout.var.contentMargins,
+                ]}
+              >
+                <Cluster>
+                  <LogoSymbol fill={'white'} />
+
+                  <Button
+                    aria-label={'Menu'}
+                    size={ButtonSize.large}
+                    collapsePadding={'left'}
+                    variant={Variant.tertiary}
+                    icon={ButtonIcon.icon}
+                    Icon={<IoClose fill={'white'} />}
+                    onClick={handleClickMenuButton}
+                  ></Button>
+                </Cluster>
+              </BoxV2>
+
+              <BoxV2
+                style={{ flexDirection: 'column' }}
+                justifyContent={['flex-start']}
+                alignItems={['stretch']}
+                padding={[0, cssTheme.layout.var.contentMargins, cssTheme.sizing.var.x5]}
+              >
+                <Stack gap={[cssTheme.sizing.var.x5]}>
+                  <Stack gap={[cssTheme.sizing.var.x3]}>
+                    <Heading variant={HEADING.h4} variantLevel={TEXT_LEVEL.primaryReversed}>
+                      Newrade
+                    </Heading>
+                  </Stack>
+                </Stack>
+              </BoxV2>
+
+              <BoxV2
+                padding={[cssTheme.sizing.var.x5, 0, cssTheme.sizing.var.x6]}
+                style={{ flexDirection: 'column', backgroundColor: cssTheme.colors.colors.grey[0] }}
                 justifyContent={['flex-start']}
                 alignItems={['stretch']}
               >
                 <Stack gap={[cssTheme.sizing.var.x4]}>
-                  {navigation.items.map((item, index) => {
+                  {navigation.items.map((item: any, index: number) => {
                     return (
                       <Stack key={index} gap={[`calc(2 * ${cssTheme.sizing.var.x1})`]}>
                         {item.items?.length ? (
-                          <NavItemGroup>{title(item.displayName || item.name || 'Home')}</NavItemGroup>
-                        ) : (
-                          <NavItem
-                            active={item.path === props.location?.pathname}
-                            AsElement={<GatsbyLink to={item.path} noStyles={true} />}
-                          >
-                            {item.name || item.displayName}
-                          </NavItem>
-                        )}
-                        {item.items?.length ? (
                           <Stack>
-                            {item.items?.map((item, itemIndex) => {
+                            <NavItem
+                              active={'/' === props.location?.pathname}
+                              AsElement={<GatsbyLink to={'/'} noStyles={true} />}
+                            >
+                              {'Accueil'}
+                            </NavItem>
+                            {item.items?.map((item: any, itemIndex: number) => {
                               return (
                                 <NavItem
                                   key={itemIndex}
@@ -125,16 +277,57 @@ export const Layout = React.memo<LayoutProps>((props) => {
                   })}
                 </Stack>
               </BoxV2>
+
+              <BoxV2
+                style={{ flexDirection: 'column', backgroundColor: cssTheme.colors.colors.grey[50] }}
+                justifyContent={['flex-start']}
+                alignItems={['stretch']}
+                padding={[cssTheme.sizing.var.x5, cssTheme.layout.var.contentMargins]}
+              >
+                <Stack gap={[cssTheme.sizing.var.x5]}>
+                  <Stack gap={[cssTheme.sizing.var.x4]}>
+                    <Link
+                      variantSize={PARAGRAPH_SIZE.small}
+                      variant={LinkVariant.underline}
+                      href={`mailto:${companyAddress?.email}`}
+                    >
+                      {companyAddress?.email}
+                    </Link>
+                    <Link
+                      variantSize={PARAGRAPH_SIZE.small}
+                      variant={LinkVariant.underline}
+                      href={`tel:${companyAddress?.phone}`}
+                    >
+                      {companyAddress?.phone}
+                    </Link>
+                    <Link
+                      variantSize={PARAGRAPH_SIZE.small}
+                      variant={LinkVariant.underline}
+                      href={`fax:${companyAddress?.fax}`}
+                    >
+                      {companyAddress?.fax}
+                    </Link>
+                    <Link
+                      variantSize={PARAGRAPH_SIZE.small}
+                      variant={LinkVariant.underline}
+                      href={'https://goo.gl/maps/nndYpgQLkbDC6c7S7'}
+                      target="blank"
+                    >
+                      {companyAddress?.addressLine1}
+                    </Link>
+                  </Stack>
+
+                  <Paragraph variant={PARAGRAPH_SIZE.small}>{companyInfo?.copyright}</Paragraph>
+                </Stack>
+              </BoxV2>
             </Stack>
           </MobileSideBar>
         </React.Suspense>
       )}
 
-      <Main navbarPadding={true} minHeight={true}>
-        {props.children}
-      </Main>
+      <Main minHeight={true}>{props.children}</Main>
 
-      {/* <Footer></Footer> */}
+      <Footer id={'footer'} style={{ zIndex: cssTheme.layout.zIndex.content }}></Footer>
     </MainWrapper>
   );
 });
