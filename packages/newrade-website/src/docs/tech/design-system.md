@@ -5,7 +5,7 @@
 Those are the standard pages in Figma. The `---` pages are used as separators.
 
 ```
-🏠  Table of Content
+🏠  Table of Contents
 ---
 💡  Moodboards
 ---

@@ -23,7 +23,7 @@ export function getNavigationFromPageNodes({
   sortOrderDirectories,
   sortOrderItems,
   excludedItems,
-  uppercaseWords = ['wsl', 'ui', 'ux', 'seo', 'ssh', 'css'],
+  uppercaseWords = ['wsl', 'ui', 'ux', 'seo', 'ssh', 'css', 'api'],
   formatName,
   formatDisplayName,
 }: {

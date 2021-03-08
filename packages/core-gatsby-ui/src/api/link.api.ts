@@ -1,9 +1,17 @@
+import { Variant } from '@newrade/core-design-system';
 import { PageAPI } from './page.api';
 import { SectionAPI } from './section.api';
 
 export type LinkAPI = {
-  type: LinkType;
   name: string;
+  type: LinkType;
+  variant?: Variant | null | string;
+  /**
+   * How the link is rendered
+   * @default 'button'
+   */
+  component?: 'link' | 'button';
+  icon?: boolean;
   label?: string | null;
   url?: string | null;
   page?: PageAPI;

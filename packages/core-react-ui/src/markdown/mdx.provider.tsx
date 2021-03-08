@@ -54,7 +54,6 @@ export const mdxComponents: Partial<
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element#text_content
    */
   p: (props: MDXProps) => <Paragraph {...props} />,
-  span: (props: MDXProps) => <Paragraph {...props} />,
   a: (props: MDXProps & AnchorHTMLAttributes<any>) => (
     <Link
       variant={LinkVariant.underline}
@@ -96,7 +95,6 @@ export const mdxComponents: Partial<
   /**
    * Images & Media
    */
-  img: (props: MDXProps) => <img {...props} />,
   figcaption: (props: MDXProps) => (
     <figcaption>
       <Paragraph>{props.children}</Paragraph>{' '}

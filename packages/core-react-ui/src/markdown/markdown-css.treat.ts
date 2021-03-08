@@ -93,7 +93,7 @@ globalStyle(`${wrapper} p + ul`, ({ cssTheme, theme }: Theme) => ({
   marginTop: contentMargin,
 }));
 
-globalStyle(`${wrapper} ul + p`, ({ cssTheme, theme }: Theme) => ({
+globalStyle(`${wrapper} ul + *`, ({ cssTheme, theme }: Theme) => ({
   marginTop: contentMargin,
 }));
 
@@ -188,6 +188,13 @@ globalStyle(`${wrapper} figure`, ({ cssTheme, theme }: Theme) => ({
 
 globalStyle(`${wrapper} img`, ({ cssTheme, theme }: Theme) => ({
   maxWidth: '100%',
+}));
+
+/**
+ * Styles for https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-remark-images
+ */
+globalStyle(`${wrapper} .gatsby-resp-image-wrapper`, ({ cssTheme, theme }: Theme) => ({
+  marginLeft: 'inherit !important',
 }));
 
 /**

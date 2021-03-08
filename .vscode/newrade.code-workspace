@@ -70,7 +70,8 @@
       "jock.svg",
       "cssho.vscode-svgviewer",
       "deepscan.vscode-deepscan",
-      "graphql.vscode-graphql"
+      "graphql.vscode-graphql",
+      "vstirbu.vscode-mermaid-preview"
     ]
   },
   "folders": [
