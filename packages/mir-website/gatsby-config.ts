@@ -26,6 +26,7 @@ const config: core.GastbySiteConfig = {
     DEV_SSR: toBoolean(env.GATSBY_DEV_SSR),
     FAST_DEV: toBoolean(env.GATSBY_FAST_DEV),
     FAST_REFRESH: toBoolean(env.GATSBY_FAST_REFRESH),
+    ENABLE_GATSBY_REFRESH_ENDPOINT: toBoolean(env.ENABLE_GATSBY_REFRESH_ENDPOINT),
   },
   siteMetadata: {
     title: `MIR Website`,
@@ -68,7 +69,6 @@ const config: core.GastbySiteConfig = {
       documentPaths: ['./gatsby-*.{ts,tsx}', './src/**/*.{ts,tsx}'],
     }),
     core.getGatsbyReactSvgConfig(),
-    ...core.getGastbyPluginPageCreatorConfig(),
     core.getGastbyPluginTreatConfig(),
     core.getGatsbyTransformerSharp(),
     core.getGatsbyPluginSharp(),
@@ -86,8 +86,10 @@ const config: core.GastbySiteConfig = {
     }),
     core.getGastbyCorePluginConfig({
       packageName: packageJson.name,
-      enableDesignSystemPages: false,
-      enableDocsPages: false,
+      features: {
+        renderDesignSystemPages: false,
+        renderDocsPages: false,
+      },
     }),
     /**
      * gatsby-plugin-csp
