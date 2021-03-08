@@ -12,7 +12,7 @@ import dotenv from 'dotenv';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import path from 'path';
-import TreatPlugin from 'treat/webpack-plugin';
+import { TreatPlugin } from 'treat/webpack-plugin';
 import * as tsloader from 'ts-loader';
 import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
 import webpack from 'webpack';

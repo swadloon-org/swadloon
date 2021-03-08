@@ -1,6 +1,7 @@
 import { HEADING, LinkIcon, LinkVariant, PARAGRAPH_SIZE, TEXT_STYLE } from '@newrade/core-design-system';
 import React, { AnchorHTMLAttributes, Suspense } from 'react';
 import { Code } from '../code/code';
+import '../code/code-block.treat';
 import { ListItem } from '../list-item/list-item';
 import { ListItems } from '../list-item/list-items';
 import { Table } from '../table/table';

@@ -34,7 +34,7 @@
     "@newrade/core-react-ui": "^1.11.1",
     "@newrade/vsb-api": "^1.3.2",
     "@newrade/vsb-common": "^1.3.2",
-    "gatsby": "^2.29"
+    "gatsby": "^2.32.4"
   },
   "devDependencies": {
     "@newrade/core-common": "^1.2.2",

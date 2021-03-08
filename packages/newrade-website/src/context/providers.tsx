@@ -1,13 +1,7 @@
 import { MDXProvider } from '@mdx-js/react';
-import { SectionSwitcher } from '@newrade/core-gatsby-ui/src';
-import {
-  GlobalCSSVariables,
-  GlobalResetCSS,
-  mdxComponents,
-  TreatThemeProvider,
-  viewportContext,
-  ViewportProvider,
-} from '@newrade/core-react-ui';
+import { mdxComponents, TreatThemeProvider, viewportContext, ViewportProvider } from '@newrade/core-react-ui';
+import { GlobalCSSVariables } from '@newrade/core-react-ui/lib/global/global-css-variables';
+import { GlobalResetCSS } from '@newrade/core-react-ui/lib/global/global-reset-css';
 import React from 'react';
 import { TreatProvider } from 'react-treat';
 import { cssTheme, theme } from '../design-system/theme';
@@ -18,13 +12,9 @@ export const Providers: React.FC = (props) => {
     <TreatProvider theme={light}>
       <ViewportProvider context={viewportContext}>
         <TreatThemeProvider theme={{ theme, cssTheme }}>
-          <MDXProvider components={{ ...mdxComponents, SectionSwitcher: SectionSwitcher }}>
+          <MDXProvider components={mdxComponents}>
             <GlobalCSSVariables>
-              <GlobalResetCSS>
-                {/* <IconContext.Provider value={{ style: { verticalAlign: 'middle' } }}> */}
-                {props.children}
-                {/* </IconContext.Provider> */}
-              </GlobalResetCSS>
+              <GlobalResetCSS>{props.children}</GlobalResetCSS>
             </GlobalCSSVariables>
           </MDXProvider>
         </TreatThemeProvider>

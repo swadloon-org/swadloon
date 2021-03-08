@@ -30,7 +30,7 @@
     "@newrade/core-design-system": "^1.9.1",
     "@newrade/core-gsap-ui": "^1.1.4",
     "@newrade/core-react-ui": "^1.11.1",
-    "gatsby": "^2.29"
+    "gatsby": "^2.32.4"
   },
   "devDependencies": {
     "@newrade/core-common": "^1.2.2",
