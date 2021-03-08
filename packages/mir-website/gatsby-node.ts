@@ -1,5 +1,5 @@
-import { AppError, ERROR_TYPE } from '@newrade/core-common';
-import { GatsbyNodeSiteMetadataFragment, SITE_LANGUAGES } from '@newrade/core-gatsby-config';
+import { AppError, ERROR_TYPE, SITE_LANGUAGES } from '@newrade/core-common';
+import { GatsbyNodeSiteMetadataFragment } from '@newrade/core-gatsby-config';
 import { GatsbyNode } from 'gatsby';
 import path from 'path';
 import {
