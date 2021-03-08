@@ -3,7 +3,7 @@ import * as Migration from 'contentful-migration';
 import { CONTENTFUL_WIDGET } from '../../types/contentful-widget-ids';
 import { COMMON_CONTENT_TYPE } from '../common-type/common-content-types';
 import { COMMON_FIELD } from '../common-type/common-fields';
-import { CAROUSEL_STYLE, COMMON_SIZE, COMMON_VARIANT } from '../common-type/common-props-types';
+import { CAROUSEL_STYLE } from '../common-type/common-props-types';
 import { keys } from '../utilities';
 
 /**
@@ -53,34 +53,6 @@ export const createMediaCollection: Migration.MigrationFunction = function (migr
   });
   content.changeFieldControl('carouselStyle', 'builtin', CONTENTFUL_WIDGET.DROPDOWN, {
     helpText: 'Select carousel style',
-  });
-
-  /**
-   * Media collection size
-   */
-  content.createField(COMMON_FIELD.SIZE, {
-    name: pascal(COMMON_FIELD.SIZE),
-    type: 'Symbol',
-    validations: [{ in: [COMMON_SIZE.LARGE] }],
-  });
-  content.changeFieldControl(COMMON_FIELD.SIZE, 'builtin', CONTENTFUL_WIDGET.DROPDOWN, {
-    helpText: 'Select media size',
-  });
-
-  /**
-   * Media collection variant
-   */
-  content.createField(COMMON_FIELD.VARIANT, {
-    name: pascal(COMMON_FIELD.VARIANT),
-    type: 'Symbol',
-    validations: [
-      {
-        in: keys(COMMON_VARIANT),
-      },
-    ],
-  });
-  content.changeFieldControl(COMMON_FIELD.VARIANT, 'builtin', CONTENTFUL_WIDGET.DROPDOWN, {
-    helpText: 'Select variant',
   });
 
   /**

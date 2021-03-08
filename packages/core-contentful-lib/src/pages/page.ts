@@ -4,7 +4,7 @@ import { CONTENTFUL_WIDGET } from '../../types/contentful-widget-ids';
 import { COMMON_CONTENT_TYPE } from '../common-type/common-content-types';
 import { COMMON_FIELD } from '../common-type/common-fields';
 
-export function createPageV2(migration: Migration.default) {
+export function createPage(migration: Migration.default) {
   const content = migration.createContentType(COMMON_CONTENT_TYPE.PAGE, {
     name: COMMON_CONTENT_TYPE.PAGE,
     description: 'Model to hold informations for pages',
@@ -72,7 +72,7 @@ export function createPageV2(migration: Migration.default) {
    * Page sections'
    */
   content.createField(COMMON_FIELD.SECTIONS, {
-    name: pascal(COMMON_FIELD.SECTION),
+    name: pascal(COMMON_FIELD.SECTIONS),
     type: 'Array',
     items: { type: 'Link', linkType: 'Entry', validations: [{ linkContentType: [COMMON_CONTENT_TYPE.SECTION] }] },
   });

@@ -53,6 +53,7 @@ export enum COMMON_FIELD {
    * Navigation related fields
    */
   LINK = 'link',
+  LINKS = 'links',
   /**
    * For Markdown Content
    */
