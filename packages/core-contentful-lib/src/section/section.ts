@@ -1,13 +1,12 @@
-import { Variant } from '@newrade/core-design-system';
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
 import { CONTENTFUL_WIDGET } from '../../types/contentful-widget-ids';
 import { COMMON_CONTENT_TYPE } from '../common-type/common-content-types';
 import { COMMON_FIELD } from '../common-type/common-fields';
-import { COMMON_VARIANT_LAYOUT } from '../common-type/common-props-types';
+import { SectionLayout, Variant } from '../common-type/common-variants';
 import { keys } from '../utilities';
 
-export function createSectionV2(migration: Migration.default) {
+export function createSection(migration: Migration.default) {
   const content = migration.createContentType(COMMON_CONTENT_TYPE.SECTION, {
     name: COMMON_CONTENT_TYPE.SECTION,
     description: 'Configurable object for sections in a page.',
@@ -55,11 +54,11 @@ export function createSectionV2(migration: Migration.default) {
          * TODO Change for GatsbyUI plus custom
          */
 
-        in: keys(COMMON_VARIANT_LAYOUT),
+        in: keys(SectionLayout),
       },
     ],
   });
-  content.changeFieldControl(COMMON_FIELD.LAYOUT, 'builtin', CONTENTFUL_WIDGET.CHECKBOX, {
+  content.changeFieldControl(COMMON_FIELD.LAYOUT, 'builtin', CONTENTFUL_WIDGET.RADIO, {
     helpText: 'Select section variant layout',
   });
 

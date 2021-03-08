@@ -19,8 +19,8 @@ export function createNavigation(migration: Migration.default) {
   /**
    * For Link,
    */
-  content.createField(COMMON_FIELD.LINK, {
-    name: pascal(COMMON_FIELD.LINK),
+  content.createField(COMMON_FIELD.LINKS, {
+    name: pascal(COMMON_FIELD.LINKS),
     type: 'Link',
     linkType: 'Entry',
     validations: [{ linkContentType: [COMMON_CONTENT_TYPE.LINK] }],

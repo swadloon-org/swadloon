@@ -3,7 +3,7 @@ import * as Migration from 'contentful-migration';
 import { CONTENTFUL_WIDGET } from '../../types/contentful-widget-ids';
 import { COMMON_CONTENT_TYPE } from '../common-type/common-content-types';
 import { COMMON_FIELD, mediaField } from '../common-type/common-fields';
-import { COMMON_VARIANT } from '../common-type/common-props-types';
+import { BlockType, Variant } from '../common-type/common-variants';
 import { keys } from '../utilities';
 
 export function createBlock(migration: Migration.default) {
@@ -36,11 +36,31 @@ export function createBlock(migration: Migration.default) {
         /**
          * TODO CHANGE FOR GENERIC AND CUSTOM
          */
-        in: keys(COMMON_VARIANT),
+        in: keys(Variant),
       },
     ],
   });
-  content.changeFieldControl(COMMON_FIELD.VARIANT, 'builtin', CONTENTFUL_WIDGET.CHECKBOX, {
+  content.changeFieldControl(COMMON_FIELD.VARIANT, 'builtin', CONTENTFUL_WIDGET.RADIO, {
+    helpText: 'Select block variant',
+  });
+
+  /**
+   * Type of the Block
+   */
+  content.createField(COMMON_FIELD.TYPE, {
+    name: pascal(COMMON_FIELD.TYPE),
+
+    type: 'Symbol',
+    validations: [
+      {
+        /**
+         * TODO CHANGE FOR GENERIC AND CUSTOM
+         */
+        in: keys(BlockType),
+      },
+    ],
+  });
+  content.changeFieldControl(COMMON_FIELD.VARIANT, 'builtin', CONTENTFUL_WIDGET.RADIO, {
     helpText: 'Select block variant',
   });
 
