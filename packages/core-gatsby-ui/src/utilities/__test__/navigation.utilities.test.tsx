@@ -68,13 +68,13 @@ describe(`navigation utilities`, () => {
             ],
           },
           {
-            name: '',
+            name: 'Home',
             displayName: '',
             path: '',
             items: [
               {
                 name: 'index',
-                displayName: 'Index',
+                displayName: 'Home',
                 path: '/',
               },
               {
