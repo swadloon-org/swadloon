@@ -21,6 +21,20 @@ import SectionsSecondaryCode from '!!raw-loader!../../src/code/content/sections/
 import { SectionsSwitcher } from '../../src/code/content/sections/sections-switcher.code';
 import SectionsSwitcherCode from '!!raw-loader!../../src/code/content/sections/sections-switcher.code.tsx';
 
+import { SectionsBanner } from '../../src/code/content/sections/sections-banner.code';
+import SectionsBannerCode from '!!raw-loader!../../src/code/content/sections/sections-banner.code.tsx';
+
+import { SectionsCallOut } from '../../src/code/content/sections/sections-callout.code';
+import SectionsCallOutCode from '!!raw-loader!../../src/code/content/sections/sections-callout.code.tsx';
+
+import { SectionsStatement } from '../../src/code/content/sections/sections-statement.code';
+import SectionsStatementCode from '!!raw-loader!../../src/code/content/sections/sections-statement.code.tsx';
+
+import { SectionsShowCase } from '../../src/code/content/sections/sections-showcase.code';
+import SectionsShowCaseCode from '!!raw-loader!../../src/code/content/sections/sections-showcase.code.tsx';
+
+
+
 <!-- END CODE IMPORTS -->
 
 # Sections
@@ -57,3 +71,31 @@ Sections are high level components to organize content in pages. They have prede
 
 <SectionsDivider />
 <CodeBlock>{SectionsDividerCode}</CodeBlock>
+
+### The "Banner"
+
+1 background image with a centered block.
+
+<SectionsBanner />
+<CodeBlock>{SectionsBannerCode}</CodeBlock>
+
+### The "CallOut"
+
+1 section with a background image who's adapted itself to section height.
+
+<SectionsCallOut />
+<CodeBlock>{SectionsCallOutCode}</CodeBlock>
+
+### The "Statement"
+
+1 top block full width followed with multiple blocks inline.
+
+<SectionsStatement />
+<CodeBlock>{SectionsStatementCode}</CodeBlock>
+
+### The "Show Case"
+
+Like the CallOut with more than one block.
+
+<SectionsShowCase />
+<CodeBlock>{SectionsShowCaseCode}</CodeBlock>
