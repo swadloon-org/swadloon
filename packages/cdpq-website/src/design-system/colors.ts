@@ -1,5 +1,6 @@
 import { ColorIntents, Colors } from '@newrade/core-design-system';
-import { createDefaultColorIntents, defaultColors, generateColorPalette5 } from '@newrade/core-react-ui';
+import { createDefaultColorIntents, generateColorPalette5 } from '@newrade/core-react-ui/lib/utilities';
+import { defaultColors } from '@newrade/core-react-ui/lib/design-system/index';
 
 export const colorsColors: Colors['colors'] = {
   current: 'currentColor',

@@ -1,5 +1,5 @@
 import { Font, Fonts, TEXT_TRANSFORM, Typography } from '@newrade/core-design-system';
-import { defaultTypography } from '@newrade/core-react-ui';
+import { defaultTypography } from '@newrade/core-react-ui/lib/design-system';
 
 const fontSans: Font = {
   name: 'AvenirNext LT Pro',
@@ -56,7 +56,7 @@ export const typography: Typography = {
     },
     desktop: {
       t1: {
-        capHeight: 60,
+        capHeight: 55,
         lineGap: 34,
       },
       t2: {

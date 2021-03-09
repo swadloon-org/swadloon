@@ -38,31 +38,27 @@ export const BlockGoogleMap: React.FC<BlockGoogleMapsProps> = ({
   const [place, setPlace] = useState<google.maps.places.PlaceResult>();
   const [marker, setMarker] = useState<google.maps.Marker>();
   const [infoWindowVisible, setInfoWindowVisible] = useState<boolean>(true);
+  const onLoad = useCallback(function onLoad(mapInstance: google.maps.Map<Element>) {
+    if (!placeId) {
+      return;
+    }
 
-  const onLoad = useCallback(
-    function onLoad(mapInstance: google.maps.Map<Element>) {
-      if (!placeId) {
-        return;
-      }
+    const service = new window.google.maps.places.PlacesService(mapInstance);
 
-      const service = new window.google.maps.places.PlacesService(mapInstance);
-
-      service.getDetails({ placeId }, (result, status) => {
-        // somehow we can't pass place to <Marker/> so we set the result in the state
-        const marker = new window.google.maps.Marker({
-          map: mapInstance,
-          place: {
-            placeId: result.place_id,
-            location: result.geometry?.location,
-          },
-        });
-
-        setPlace(result);
-        setMarker(marker);
+    service.getDetails({ placeId }, (result, status) => {
+      // somehow we can't pass place to <Marker/> so we set the result in the state
+      const marker = new window.google.maps.Marker({
+        map: mapInstance,
+        place: {
+          placeId: result.place_id,
+          location: result.geometry?.location,
+        },
       });
-    },
-    [window.google]
-  );
+
+      setPlace(result);
+      setMarker(marker);
+    });
+  }, []);
 
   if (!blockGoogleMaps) {
     return null;

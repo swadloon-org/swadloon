@@ -4,7 +4,7 @@ import { style } from 'treat';
 export const styles = {
   wrapper: style(({ theme, cssTheme }: Theme) => ({
     position: 'relative',
-    height: `max(70vh, 500px)`,
+    height: `max(80vh, 500px)`,
     width: `100%`,
     color: cssTheme.colors.colorIntents.primaryReversed,
     textShadow: cssTheme.effects.textShadows.light,

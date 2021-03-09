@@ -1,19 +1,19 @@
 import { DesignSystem } from '@newrade/core-design-system';
+import { createCSSTheme } from '@newrade/core-react-ui/lib/utilities';
+import { CSSDesignSystem } from '@newrade/core-react-ui/lib/design-system';
 import {
-  createCSSTheme,
-  CSSDesignSystem,
+  defaultSizing,
+  defaultIconography,
   defaultAnimations,
   defaultButtons,
-  defaultIconography,
-  defaultSizing,
-} from '@newrade/core-react-ui';
+} from '@newrade/core-react-ui/lib/design-system/index';
 import { colors } from './colors';
 import { effects } from './effects';
 import { layout } from './layout';
 import { typography } from './typography';
 
 export const theme: DesignSystem = {
-  name: 'Clinique Dr. Boucher',
+  name: 'CDPQ',
   variation: 'light',
   colors,
   effects,

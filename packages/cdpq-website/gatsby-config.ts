@@ -26,6 +26,7 @@ const config: core.GastbySiteConfig = {
     DEV_SSR: toBoolean(env.GATSBY_DEV_SSR),
     FAST_DEV: toBoolean(env.GATSBY_FAST_DEV),
     FAST_REFRESH: toBoolean(env.GATSBY_FAST_REFRESH),
+    ENABLE_GATSBY_REFRESH_ENDPOINT: toBoolean(env.ENABLE_GATSBY_REFRESH_ENDPOINT),
   },
   siteMetadata: {
     title: `CDPQ`,
@@ -69,7 +70,6 @@ const config: core.GastbySiteConfig = {
     core.getGatsbyPluginSitemap(),
     core.getGatsbyPluginRobotsTxt({ env }),
     core.getGatsbyNetlifyPlugin(),
-
     core.getGastbyCorePluginConfig({
       packageName: packageJson.name,
       features: {

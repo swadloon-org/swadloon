@@ -1,5 +1,6 @@
 import { Color, LABEL_SIZE, TEXT_LEVEL } from '@newrade/core-design-system';
-import { getCSSColor, getCSSHexColor, Label, Stack, useTreatTheme } from '@newrade/core-react-ui';
+import { Label, Stack, useTreatTheme } from '@newrade/core-react-ui';
+import { getCSSColor, getCSSHexColor } from '@newrade/core-react-ui/lib/utilities';
 import { kebab } from 'case';
 import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
