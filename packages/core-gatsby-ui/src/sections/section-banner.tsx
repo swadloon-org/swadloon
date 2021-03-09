@@ -76,7 +76,7 @@ export const SectionBanner = React.forwardRef<any, Props>(
       >
         {BackgroundBlockComponent}
         <Center>
-          <BoxV2 padding={[cssTheme.sizing.var.x7, cssTheme.layout.var.contentMargins]}>{ContentBlock}</BoxV2>
+          <BoxV2 padding={[cssTheme.sizing.var.x7, 0]}>{ContentBlock}</BoxV2>
         </Center>
 
         {/* inject the passed children, in case user wants to render something custom */}

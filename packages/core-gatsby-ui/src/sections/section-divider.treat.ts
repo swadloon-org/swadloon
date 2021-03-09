@@ -10,7 +10,7 @@ export const styles = {
     '@media': {
       [cssTheme.layout.media.tablet]: {
         maxWidth: '80ch',
-        padding: `${cssTheme.sizing.var.x7} 0 ${cssTheme.sizing.var.x7} 0`,
+        padding: `${cssTheme.sizing.var.x7} ${cssTheme.layout.var.contentMargins}`,
       },
     },
   })),

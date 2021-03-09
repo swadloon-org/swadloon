@@ -45,7 +45,7 @@ export const blockComponents: CustomBlockVariantComponents<CustomBlockVariants> 
     const blockProps = block as BlockCostItemFragment;
     return <BlockCostItem costItem={blockProps} {...props} />;
   },
-  customStep: (props) => <div>{JSON.stringify(props, null, 2)}</div>, // handled in SectionSteps
+  customStep: (props) => <div>{JSON.stringify(props, null, 2)}</div>, // not needed see CustomSectionSteps
 };
 
 export const sectionComponents: CustomSectionLayoutComponents<CustomSectionLayouts> = {
@@ -62,6 +62,7 @@ export const PageTemplate: React.FC<ProjectPageProps> = ({ data, location, ...pr
       <Helmet>
         {/* FR only website */}
         <html lang={props.pageContext.locale} />
+        <body />
         {getMetaBasicTags()}
         {getMetadataOpenGraphWebsiteTags({
           type: OPEN_GRAPH_TYPE.WEBSITE,

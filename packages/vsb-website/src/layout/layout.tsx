@@ -40,7 +40,6 @@ import { useStyles } from 'react-treat';
 import { useAnimateNavbarDesktop } from '../hook/use-animate-navbar-desktop';
 import { useAnimateNavbarMobile } from '../hook/use-animate-navbar-mobile';
 import { useCompanyInfo, usePagesNavigation } from '../hook/use-layout-data';
-import LogoMorph from '../images/logo-morph.svg';
 import LogoSymbol from '../images/logo-symbol.svg';
 import Logo from '../images/logo.svg';
 import { Footer } from './footer';
@@ -98,7 +97,7 @@ export const Layout = React.memo<LayoutProps>((props) => {
   const [navbarStyle, setNavbarStyle] = useState<'white' | 'transparent'>(defaultNavbarState);
   const [gsapLoaded, setGsapLoaded] = useState<boolean>(false);
   useAnimateNavbarDesktop({ navbarRef, whiteStyle: navbarStyle === 'white', viewport });
-  useAnimateNavbarMobile({ navbarRef, whiteStyle: navbarStyle === 'white', viewport });
+  useAnimateNavbarMobile({ navbarRef, whiteStyle: navbarStyle === 'white', viewport, sidebarOpened });
 
   gsap.registerPlugin(ScrollTrigger, ExpoScaleEase);
 
@@ -158,7 +157,19 @@ export const Layout = React.memo<LayoutProps>((props) => {
       <NavBar
         ref={navbarRef}
         HomeLink={<GatsbyLink to={'/'} />}
-        MobileSvgLogo={<LogoMorph height={20} />}
+        MobileSvgLogo={
+          navbarStyle === 'transparent' ? (
+            <Logo
+              height={40}
+              style={{
+                transform: `scale(1.9) translate(0, 17px)`,
+                fill: 'white',
+              }}
+            />
+          ) : (
+            <LogoSymbol />
+          )
+        }
         DesktopSvgLogo={<Logo />}
         MenuLinks={
           <>
@@ -199,7 +210,11 @@ export const Layout = React.memo<LayoutProps>((props) => {
                   cssTheme.layout.var.contentMargins,
                 ]}
               >
-                <Cluster>
+                <Cluster
+                  style={{
+                    height: `auto`, // bug on safari
+                  }}
+                >
                   <LogoSymbol fill={'white'} />
 
                   <Button

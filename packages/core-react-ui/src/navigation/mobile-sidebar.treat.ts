@@ -11,7 +11,7 @@ export const styles = {
     left: 0,
     bottom: 0,
     width: `90vw`,
-    top: 0,
+    top: `-1px`,
     maxHeight: `calc(100vh)`,
     '@media': {
       [cssTheme.layout.media.tablet]: {

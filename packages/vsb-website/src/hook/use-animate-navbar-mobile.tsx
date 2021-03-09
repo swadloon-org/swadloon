@@ -7,15 +7,17 @@ export function useAnimateNavbarMobile({
   navbarRef,
   whiteStyle,
   viewport,
+  sidebarOpened,
 }: {
   navbarRef: React.MutableRefObject<NavBarRefs | undefined>;
   whiteStyle: boolean;
   viewport: VIEWPORT;
+  sidebarOpened: boolean;
 }) {
   const { cssTheme } = useTreatTheme();
   const [animationReady, setAnimationReady] = useState<boolean>(false);
   const [previousWhiteStyle, setPreviousWhiteStyle] = useState<boolean>(false);
-  const [logoSmallScale, logoLargeScale] = [2, 4];
+  const [logoSmallScale, logoLargeScale] = [1, 4];
 
   useEffect(() => {
     const mobileNavbar = navbarRef?.current?.mobileNavbar;
@@ -70,30 +72,6 @@ export function useAnimateNavbarMobile({
         color: `rgba(255,255,255,1)`,
       });
 
-      TweenMax.to(mobileNavbar.querySelector('svg[class*="logo"]'), {
-        duration,
-        autoAlpha: 1,
-        scale: logoLargeScale,
-        translateY: '0',
-        transformOrigin: 'center top',
-      });
-
-      TweenMax.to(mobileNavbar.querySelectorAll('.text-path,.small-dot'), {
-        duration,
-        visibility: 'visible',
-        autoAlpha: 1,
-        ease: `expoScale(${logoLargeScale}, ${logoSmallScale})`,
-        stroke: `rgba(255,255,255,1)`,
-        fill: `rgba(255,255,255,1)`,
-      });
-
-      TweenMax.to(mobileNavbar.querySelectorAll('.center-dot'), {
-        duration,
-        visibility: 'hidden',
-        autoAlpha: 1,
-        ease: `expoScale(${logoLargeScale}, ${logoSmallScale})`,
-      });
-
       setPreviousWhiteStyle(false);
     }
 
@@ -112,25 +90,8 @@ export function useAnimateNavbarMobile({
       TweenMax.to(mobileNavbar.querySelector('svg[class*="button"'), {
         duration,
         ease: `expoScale(${logoLargeScale}, ${logoSmallScale})`,
+        color: `rgba(255,255,255,1)`,
         stroke: cssTheme.colors.colorIntents.primary,
-      });
-
-      TweenMax.to(mobileNavbar.querySelector('svg[class*="logo"]'), {
-        duration,
-        autoAlpha: 1,
-        translateY: '-29px',
-      });
-
-      TweenMax.to(mobileNavbar.querySelectorAll('.text-path,.small-dot'), {
-        duration,
-        visibility: 'hidden',
-      });
-
-      TweenMax.to(mobileNavbar.querySelectorAll('.center-dot'), {
-        duration,
-        visibility: 'visible',
-        autoAlpha: 1,
-        ease: `expoScale(${logoLargeScale}, ${logoSmallScale})`,
       });
 
       setPreviousWhiteStyle(true);
@@ -146,5 +107,6 @@ export function useAnimateNavbarMobile({
     logoSmallScale,
     previousWhiteStyle,
     cssTheme.colors.colorIntents.primary,
+    sidebarOpened,
   ]);
 }
