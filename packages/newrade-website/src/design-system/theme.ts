@@ -1,6 +1,5 @@
 import { DesignSystem } from '@newrade/core-design-system';
 import {
-  createCSSTheme,
   CSSDesignSystem,
   defaultAnimations,
   defaultButtons,
@@ -9,7 +8,8 @@ import {
   defaultLayout,
   defaultSizing,
   defaultTypography,
-} from '@newrade/core-react-ui';
+} from '@newrade/core-react-ui/lib/design-system/';
+import { createCSSTheme } from '@newrade/core-react-ui/lib/utilities';
 import { colors } from './colors';
 
 export const theme: DesignSystem = {

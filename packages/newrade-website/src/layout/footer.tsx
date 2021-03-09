@@ -2,7 +2,6 @@ import { LABEL_SIZE, LinkVariant, PARAGRAPH_SIZE, TEXT_LEVEL, TEXT_STYLE } from 
 import {
   Center,
   CommonComponentProps,
-  getMergedClassname,
   Label,
   Link,
   ListItem,
@@ -11,6 +10,7 @@ import {
   Stack,
   useTreatTheme,
 } from '@newrade/core-react-ui';
+import { getMergedClassname } from '@newrade/core-react-ui/lib/utilities';
 import { IoCallOutline } from '@react-icons/all-files/io5/IoCallOutline';
 import { IoLocationOutline } from '@react-icons/all-files/io5/IoLocationOutline';
 import { IoMailOutline } from '@react-icons/all-files/io5/IoMailOutline';

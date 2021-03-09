@@ -37,9 +37,9 @@ import { useStyles } from 'react-treat';
 import { useAnimateNavbarDesktop } from '../hooks/use-animate-navbar-desktop';
 import { useAnimateNavbarMobile } from '../hooks/use-animate-navbar-mobile';
 import { useCompanyInfo, usePagesNavigation } from '../hooks/use-layout-data';
-import LogoSymbol from '../images/logo-symbol.svg';
-import LogoText from '../images/logo-text.svg';
-import Logo from '../images/logo.svg';
+import LogoSymbol from '../images/logos/logo-symbol.svg';
+import LogoText from '../images/logos/logo-text.svg';
+import Logo from '../images/logos/logo.svg';
 import { Footer } from './footer';
 import * as styleRefs from './layout.treat';
 
