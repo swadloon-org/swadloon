@@ -74,7 +74,7 @@ globalStyle(`${wrapper} hr`, ({ cssTheme, theme }: Theme) => ({
  */
 
 globalStyle(`${wrapper} p`, ({ cssTheme, theme }: Theme) => ({
-  maxWidth: `120ch`,
+  maxWidth: `80ch`,
 }));
 
 globalStyle(`${wrapper} p + *`, ({ cssTheme, theme }: Theme) => ({

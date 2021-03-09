@@ -162,7 +162,7 @@ export const Layout = React.memo<LayoutProps>((props) => {
             <Logo
               height={40}
               style={{
-                transform: `scale(1.9) translate(0, 17px)`,
+                transform: `scale(2) translate(0, 17px)`,
                 fill: 'white',
               }}
             />

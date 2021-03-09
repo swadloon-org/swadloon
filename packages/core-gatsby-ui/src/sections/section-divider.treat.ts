@@ -19,5 +19,10 @@ export const styles = {
     height: `100%`,
     minHeight: `50vh`,
     maxWidth: '100%',
+    '@media': {
+      [cssTheme.layout.media.tablet]: {
+        width: '50vw',
+      },
+    },
   })),
 };

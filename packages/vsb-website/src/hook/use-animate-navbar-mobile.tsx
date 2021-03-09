@@ -64,11 +64,10 @@ export function useAnimateNavbarMobile({
         boxShadow: `0px 2px 8px 0px rgba(0, 0, 0, 0.0)`,
       });
 
-      TweenMax.to(mobileNavbar.querySelector('svg[class*="button"]'), {
+      TweenMax.to(mobileNavbar.querySelector('button'), {
         duration,
         autoAlpha: 1,
         ease: `expoScale(${logoLargeScale}, ${logoSmallScale})`,
-        stroke: `rgba(255,255,255,1)`,
         color: `rgba(255,255,255,1)`,
       });
 
@@ -87,11 +86,10 @@ export function useAnimateNavbarMobile({
         boxShadow: `0px 2px 8px 0px rgba(0, 0, 0, 0.15)`,
       });
 
-      TweenMax.to(mobileNavbar.querySelector('svg[class*="button"'), {
+      TweenMax.to(mobileNavbar.querySelector('button'), {
         duration,
         ease: `expoScale(${logoLargeScale}, ${logoSmallScale})`,
-        color: `rgba(255,255,255,1)`,
-        stroke: cssTheme.colors.colorIntents.primary,
+        color: cssTheme.colors.colorIntents.primary,
       });
 
       setPreviousWhiteStyle(true);
