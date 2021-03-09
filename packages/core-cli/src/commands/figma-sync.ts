@@ -1,10 +1,18 @@
+import { extract } from '@newrade/core-figma-extractor';
+import { loadDotEnv } from '@newrade/core-utils';
 import { Command, flags } from '@oclif/command';
-import chalk from 'chalk';
-import * as Figma from 'figma-js';
-import { log } from '../utilities/log';
-import { loadDotEnv } from '../utilities/utils';
+import * as t from 'io-ts';
 
-const env = loadDotEnv();
+// import packageJson from '../../package.json'; // TODO: check if possible to load local package json
+
+export type ENV = t.TypeOf<typeof Env>;
+export const Env = t.intersection([
+  t.type({}),
+  t.type({
+    FIGMA_TOKEN: t.string,
+    FIGMA_FILE: t.string,
+  }),
+]);
 
 export default class FigmaSync extends Command {
   static description = 'sync design tokens from figma file';
@@ -18,38 +26,18 @@ export default class FigmaSync extends Command {
   static args = [{ name: 'file', description: 'figma file id' }];
 
   async run() {
-    const { args, flags } = this.parse(FigmaSync);
-
-    const client = Figma.Client({
-      personalAccessToken: env.FIGMA_TOKEN,
+    const env = loadDotEnv<ENV>({
+      schema: Env,
+      dotEnvPath: '.env',
+      packageName: 'core-cli',
     });
 
-    log(`Querying Figma API\t\t ${args.file}...`);
+    const { args, flags } = this.parse(FigmaSync);
 
-    client.fileStyles(args.file).then(({ data }) => {
-      log(`${JSON.stringify(data.meta.styles[0], null, 2)}`);
-
-      const key = data.meta.styles[0].key;
-
-      client.style(key).then(({ data }) => {
-        log(`${JSON.stringify(data, null, 2)}`);
-      });
-
-      client.file(args.file).then(({ data }) => {
-        log(`Querying Figma API:\t\t ${chalk.green('ok')}`);
-
-        log(`Figma filename:\t\t ${chalk.blue(data.name)}`);
-
-        log(`Extracting colors:\t\t ${chalk.green('done')}`);
-
-        log(`${JSON.stringify(data.styles, null, 2)}`);
-
-        // function parseFigmaColors(data: any): Colors {}
-
-        log(`Extracting text styles:\t ${chalk.green('done')}`);
-
-        log(`Extracting exports:\t\t ${chalk.green('done')}`);
-      });
+    extract({
+      figmaFile: env.FIGMA_FILE,
+      figmaToken: env.FIGMA_TOKEN,
+      outputDir: 'dist',
     });
   }
 }

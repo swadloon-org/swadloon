@@ -3,12 +3,12 @@ import React, { useState } from 'react';
 import { useStyles } from 'react-treat';
 import { SectionFragment } from '../../../types/graphql-types';
 import { useViewportBreakpoint } from '../../hooks/use-viewport.hook';
+import { SECTION_TYPE } from '../../templates/section.template';
+import { RenderTitleHighlight } from '../info-section/info-title-highligh';
 import { Accordions } from '../ui/accordions';
 import { CheckLabel } from './info-section-check';
-import { RenderTitleHighlight } from '../info-section/info-title-highligh';
-import { Tags } from './tags';
 import * as styleRefs from './job-section.treat';
-import { SECTION_TYPE } from '../../templates/section.template';
+import { Tags } from './tags';
 
 type OwnProps = SectionFragment;
 
@@ -130,7 +130,13 @@ export function JobSection(props: OwnProps) {
 
   function getIndexState(index: number) {
     const newArr = [...accordionOpenState];
-    accordionOpenState[index].state === 'opened' ? (newArr[index].state = 'closed') : (newArr[index].state = 'opened');
+
+    if (accordionOpenState[index].state === 'opened') {
+      newArr[index].state = 'closed';
+    } else {
+      newArr[index].state = 'opened';
+    }
+
     setAccordionsOpenState(newArr);
   }
 }

@@ -22,6 +22,7 @@
   ],
   "scripts": {
     "clean": "rimraf -r lib/** && yarn postpack && rm -f tsconfig.build.tsbuildinfo",
+    "figma-extract-color": ". ./.env && DEBUG=$DEBUG nr figma-sync $FIGMA_FILE",
     "postpack": "rm -f oclif.manifest.json",
     "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
     "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
@@ -37,6 +38,7 @@
   "types": "lib/index.d.ts",
   "dependencies": {
     "@newrade/core-common": "^1.2.2",
+    "@newrade/core-figma-extractor": "^1.0.0",
     "@newrade/core-types": "^1.3.2",
     "@newrade/core-utils": "^1.6.2",
     "@oclif/command": "^1",

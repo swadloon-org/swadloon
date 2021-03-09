@@ -1,4 +1,0 @@
-# UI Components - Overview
-
-```ts
-```

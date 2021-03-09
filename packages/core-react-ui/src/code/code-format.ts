@@ -1,7 +1,7 @@
 import babelParser from 'prettier/parser-babel';
 import prettier from 'prettier/standalone';
 
-export const formatCode = (code: string) => {
+export function formatCode(code: string): string {
   try {
     return prettier.format(code, {
       parser: 'babel',
@@ -10,4 +10,4 @@ export const formatCode = (code: string) => {
   } catch (error) {
     return error;
   }
-};
+}

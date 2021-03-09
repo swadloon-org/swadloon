@@ -1,4 +1,5 @@
 import * as core from '@newrade/core-gatsby-config';
+import * as common from '@newrade/core-common';
 import { loadDotEnv, logEnvVariables, toBoolean } from '@newrade/core-utils';
 import proxy from 'http-proxy-middleware';
 import path from 'path';
@@ -26,6 +27,7 @@ const config: core.GastbySiteConfig = {
     DEV_SSR: toBoolean(env.GATSBY_DEV_SSR),
     FAST_DEV: toBoolean(env.GATSBY_FAST_DEV),
     FAST_REFRESH: toBoolean(env.GATSBY_FAST_REFRESH),
+    ENABLE_GATSBY_REFRESH_ENDPOINT: toBoolean(env.ENABLE_GATSBY_REFRESH_ENDPOINT),
   },
   siteMetadata: {
     title: `VSB Website`,
@@ -33,8 +35,8 @@ const config: core.GastbySiteConfig = {
     siteUrl: env.APP_URL,
     siteEnv: env.APP_ENV,
     languages: {
-      langs: [core.SITE_LANGUAGES.FR],
-      defaultLangKey: core.SITE_LANGUAGES.FR,
+      langs: [common.SITE_LANGUAGES.FR],
+      defaultLangKey: common.SITE_LANGUAGES.FR,
     },
   },
   plugins: [
@@ -90,17 +92,19 @@ const config: core.GastbySiteConfig = {
     core.getGatsbyNetlifyPlugin(),
     core.getGastbyCoreContentfulPluginConfig({
       packageName: packageJson.name,
-      locales: ['fr-CA'],
+      locales: ['fr-CA', 'en-CA'],
       features: {
-        pageVersion: 1,
-        blog: false,
-        portfolio: false,
+        renderPages: true,
+        renderBlogPosts: false,
+        renderPortfolio: false,
       },
     }),
     core.getGastbyCorePluginConfig({
       packageName: packageJson.name,
-      enableDesignSystemPages: true,
-      enableDocsPages: true,
+      features: {
+        renderDesignSystemPages: true,
+        renderDocsPages: true,
+      },
     }),
     core.getGatsbyPluginPreloadFonts(),
   ],

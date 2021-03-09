@@ -10,7 +10,7 @@
   "scripts": {
     "build-disabled": "tsc --build tsconfig.build.json",
     "clean": "rimraf -r lib/** && rm -f tsconfig.build.tsbuildinfo",
-    "start": "yarn typecheck",
+    "start-disabled": "yarn typecheck",
     "test": "jest",
     "test:watch": "jest --watch",
     "typecheck": "yarn typecheck:build --watch --preserveWatchOutput",

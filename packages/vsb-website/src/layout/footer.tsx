@@ -2,14 +2,15 @@ import { LABEL_SIZE, LinkVariant, PARAGRAPH_SIZE, TEXT_LEVEL, TEXT_STYLE } from 
 import {
   Center,
   CommonComponentProps,
-  getMergedClassname,
   Label,
   Link,
   ListItem,
   ListItems,
   Paragraph,
   Stack,
+  useTreatTheme,
 } from '@newrade/core-react-ui';
+import { getMergedClassname } from '@newrade/core-react-ui/lib/utilities';
 import { IoCallOutline } from '@react-icons/all-files/io5/IoCallOutline';
 import { IoLocationOutline } from '@react-icons/all-files/io5/IoLocationOutline';
 import { IoMailOutline } from '@react-icons/all-files/io5/IoMailOutline';
@@ -17,15 +18,37 @@ import { IoPrintOutline } from '@react-icons/all-files/io5/IoPrintOutline';
 import { graphql, Link as GatsbyLink, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { FooterQuery } from '../../types/graphql-types';
-import { cssTheme } from '../design-system/theme';
-import * as styleRefs from './footer.treat';
 import { clientEnv } from '../../types/dot-env-client';
+import { FooterQuery } from '../../types/graphql-types';
+import * as styleRefs from './footer.treat';
 
 export const footerQuery = graphql`
   query Footer {
-    contentfulCompanyInfo {
-      copyright
+    contentfulNavigation(name: { eq: "Navigation avec catégories" }) {
+      id
+      name
+      subNavigation {
+        id
+        name
+        links {
+          id
+          label
+          page {
+            slug
+          }
+        }
+        subNavigation {
+          id
+          name
+          links {
+            id
+            label
+            page {
+              slug
+            }
+          }
+        }
+      }
     }
     contentfulCompanyAddress {
       addressLine1
@@ -38,6 +61,9 @@ export const footerQuery = graphql`
       email
       fax
     }
+    contentfulCompanyInfo {
+      copyright
+    }
   }
 `;
 
@@ -47,66 +73,44 @@ export const Footer: React.FC<Props> = ({ id, style, className, ...props }) => {
   const styles = useStyles(styleRefs);
   const data = useStaticQuery<FooterQuery>(footerQuery);
   const mergedClassNames = getMergedClassname([className, styles.wrapper]);
+  const { theme, cssTheme } = useTreatTheme();
 
   return (
     <footer id={id} style={style} className={mergedClassNames}>
       <Center>
         <Stack gap={[cssTheme.sizing.var.x5]}>
           <div className={styles.grid}>
-            <Stack className={styles.services} gap={[cssTheme.sizing.var.x4]}>
-              <Label
-                variantStyle={TEXT_STYLE.boldUppercase}
-                variant={LABEL_SIZE.small}
-                variantLevel={TEXT_LEVEL.tertiary}
-              >
-                Services
-              </Label>
-              <Stack gap={[cssTheme.sizing.var.x4]}>
-                <Link variantLevel={TEXT_LEVEL.primaryReversed} AsElement={<GatsbyLink to={'/vasectomie/'} />}>
-                  Tout sur la vasectomie
-                </Link>
-
-                <Link
-                  variantLevel={TEXT_LEVEL.primaryReversed}
-                  AsElement={<GatsbyLink to={'/formulaire-vasectomie/'} />}
+            {data.contentfulNavigation?.subNavigation?.map((nav) => {
+              return (
+                <Stack
+                  key={nav?.id}
+                  className={/services/gi.test(nav?.name || '') ? styles.services : styles.clinique}
+                  gap={[cssTheme.sizing.var.x4]}
                 >
-                  Formulaire de demande
-                </Link>
+                  <Label
+                    variantStyle={TEXT_STYLE.boldUppercase}
+                    variant={LABEL_SIZE.small}
+                    variantLevel={TEXT_LEVEL.tertiary}
+                  >
+                    {nav?.name}
+                  </Label>
 
-                <Link
-                  variantLevel={TEXT_LEVEL.primaryReversed}
-                  AsElement={<GatsbyLink to={'/examen-pour-transport-canada/'} />}
-                >
-                  Examen pour Transport Canada
-                </Link>
-              </Stack>
-            </Stack>
-
-            <Stack className={styles.clinique} gap={[cssTheme.sizing.var.x4]}>
-              <Label
-                variantStyle={TEXT_STYLE.boldUppercase}
-                variant={LABEL_SIZE.small}
-                variantLevel={TEXT_LEVEL.tertiary}
-              >
-                La Clinique
-              </Label>
-              <Stack gap={[cssTheme.sizing.var.x4]}>
-                <Link variantLevel={TEXT_LEVEL.primaryReversed} AsElement={<GatsbyLink to={'/equipe/'} />}>
-                  Notre équipe
-                </Link>
-
-                <Link
-                  variantLevel={TEXT_LEVEL.primaryReversed}
-                  AsElement={<GatsbyLink to={'/equipe/#dr_pierre_jr_boucher'} />}
-                >
-                  Dr. Pierre Jr. Boucher
-                </Link>
-
-                <Link variantLevel={TEXT_LEVEL.primaryReversed} AsElement={<GatsbyLink to={'/contact/'} />}>
-                  Contact
-                </Link>
-              </Stack>
-            </Stack>
+                  <Stack gap={[cssTheme.sizing.var.x4]}>
+                    {nav?.links?.map((link) => {
+                      return (
+                        <Link
+                          key={link?.id}
+                          variantLevel={TEXT_LEVEL.primaryReversed}
+                          AsElement={<GatsbyLink to={link?.page?.slug || ''} />}
+                        >
+                          {link?.label}
+                        </Link>
+                      );
+                    })}
+                  </Stack>
+                </Stack>
+              );
+            })}
 
             <Stack className={styles.joindre} gap={[cssTheme.sizing.var.x4]}>
               <Label
@@ -123,9 +127,9 @@ export const Footer: React.FC<Props> = ({ id, style, className, ...props }) => {
                     className={styles.listItem}
                     variantLevel={TEXT_LEVEL.primaryReversed}
                     variant={LinkVariant.underline}
-                    href={`mailto:${data?.contentfulCompanyAddress?.email}`}
+                    href={`mailto:${data.contentfulCompanyAddress?.email}`}
                   >
-                    {data?.contentfulCompanyAddress?.email}
+                    {data.contentfulCompanyAddress?.email}
                   </Link>
                 </ListItem>
 
@@ -134,9 +138,9 @@ export const Footer: React.FC<Props> = ({ id, style, className, ...props }) => {
                     className={styles.listItem}
                     variantLevel={TEXT_LEVEL.primaryReversed}
                     variant={LinkVariant.underline}
-                    href={`tel:${data?.contentfulCompanyAddress?.phone}`}
+                    href={`tel:${data.contentfulCompanyAddress?.phone}`}
                   >
-                    {data?.contentfulCompanyAddress?.phone}
+                    {data.contentfulCompanyAddress?.phone}
                   </Link>
                 </ListItem>
 
@@ -145,9 +149,9 @@ export const Footer: React.FC<Props> = ({ id, style, className, ...props }) => {
                     className={styles.listItem}
                     variantLevel={TEXT_LEVEL.primaryReversed}
                     variant={LinkVariant.underline}
-                    href={`fax:${data?.contentfulCompanyAddress?.fax}`}
+                    href={`fax:${data.contentfulCompanyAddress?.fax}`}
                   >
-                    {data?.contentfulCompanyAddress?.fax}
+                    {data.contentfulCompanyAddress?.fax}
                   </Link>
                 </ListItem>
 
@@ -163,16 +167,16 @@ export const Footer: React.FC<Props> = ({ id, style, className, ...props }) => {
                     href={'https://goo.gl/maps/nndYpgQLkbDC6c7S7'}
                     target="blank"
                   >
-                    {data?.contentfulCompanyAddress?.addressLine1}
+                    {data.contentfulCompanyAddress?.addressLine1}
                     <br />
-                    {data?.contentfulCompanyAddress?.addressLine2}
+                    {data.contentfulCompanyAddress?.addressLine2}
                   </Link>
                 </ListItem>
               </ListItems>
             </Stack>
           </div>
-          <Paragraph className={styles.copyright} variant={PARAGRAPH_SIZE.small}>
-            {data?.contentfulCompanyInfo?.copyright} - v{clientEnv.APP_VERSION}
+          <Paragraph className={styles.copyright} variant={PARAGRAPH_SIZE.xSmall}>
+            {data.contentfulCompanyInfo?.copyright} - v{clientEnv.APP_VERSION}
           </Paragraph>
         </Stack>
       </Center>

@@ -21,6 +21,7 @@ export const CommonEnvGatsby = t.partial({
   GATSBY_DEV_SSR: TextBoolean,
   GATSBY_FAST_DEV: TextBoolean,
   GATSBY_FAST_REFRESH: TextBoolean,
+  ENABLE_GATSBY_REFRESH_ENDPOINT: TextBoolean,
 });
 
 export type CommonEnvGatsbyType = t.TypeOf<typeof CommonEnvGatsby>;

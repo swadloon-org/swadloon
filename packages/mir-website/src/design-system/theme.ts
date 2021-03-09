@@ -1,4 +1,4 @@
-import { ButtonSize, ButtonVariant, DesignSystem, SIZING } from '@newrade/core-design-system-old';
+import { ButtonSize, Variant, DesignSystem, SIZING } from '@newrade/core-design-system-old';
 import { DEFAULT_LAYOUT } from '@newrade/core-react-ui-old';
 import { colorIntents, colors } from './colors';
 import { effects } from './effects';
@@ -39,27 +39,27 @@ export const theme: DesignSystem = {
         },
       },
       variants: {
-        [ButtonVariant.primary]: {
+        [Variant.primary]: {
           color: 'white',
           backgroundColor: 'blue',
         },
-        [ButtonVariant.primaryReversed]: {
+        [Variant.primaryReversed]: {
           color: 'white',
           backgroundColor: 'blue',
         },
-        [ButtonVariant.secondary]: {
+        [Variant.secondary]: {
           color: 'white',
           backgroundColor: 'blue',
         },
-        [ButtonVariant.secondaryReversed]: {
+        [Variant.secondaryReversed]: {
           color: 'white',
           backgroundColor: 'blue',
         },
-        [ButtonVariant.tertiary]: {
+        [Variant.tertiary]: {
           color: 'white',
           backgroundColor: 'blue',
         },
-        [ButtonVariant.tertiaryReversed]: {
+        [Variant.tertiaryReversed]: {
           color: 'white',
           backgroundColor: 'blue',
         },

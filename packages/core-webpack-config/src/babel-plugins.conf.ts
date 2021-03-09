@@ -5,7 +5,7 @@ export const babelPluginConf: ([string, object] | [string])[] = [
   ['babel-plugin-lodash'],
   ['babel-plugin-treat'],
   ['@babel/plugin-proposal-nullish-coalescing-operator'],
-  ['@babel/plugin-proposal-class-properties'],
+  ['@babel/plugin-proposal-private-methods', { loose: false }],
   ['@babel/plugin-transform-destructuring'],
   ['babel-plugin-optimize-hook-destructuring'],
   ['@babel/plugin-syntax-dynamic-import'],

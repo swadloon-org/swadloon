@@ -7,9 +7,9 @@ const defaultOptions: GatsbyCoreContentfulPluginOptions = {
   packageName: 'package',
   locales: ['fr-CA', 'en-CA'],
   features: {
-    pageVersion: 1,
-    blog: true,
-    portfolio: true,
+    renderPages: true,
+    renderBlogPosts: true,
+    renderPortfolio: true,
   },
 };
 
@@ -17,7 +17,10 @@ export function getGastbyCoreContentfulPluginConfig({
   pluginName = defaultOptions.pluginName,
   packageName = defaultOptions.packageName,
   locales = defaultOptions.locales,
-  features: { blog = defaultOptions.features.blog, portfolio = defaultOptions.features.portfolio },
+  features: {
+    renderBlogPosts: blog = defaultOptions.features.renderBlogPosts,
+    renderPortfolio: portfolio = defaultOptions.features.renderPortfolio,
+  },
 }: GatsbyCoreContentfulPluginOptions = defaultOptions): PluginRef {
   return {
     resolve: path.resolve(__dirname, `../../lib/plugins/gatsby-plugin-core-contentful`),

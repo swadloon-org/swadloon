@@ -1,6 +1,6 @@
-import { SITE_LAYOUT } from './layouts';
+import { PAGE_LAYOUT, PAGE_TEMPLATE } from './page.props';
 import { GatsbyNodeSiteMetadataFragment } from './site-graphql-types';
-import { SITE_LANGUAGES } from './site-languages';
+import { SITE_LANGUAGES } from '@newrade/core-common';
 
 /**
  * Common page context that all page should receive.
@@ -25,11 +25,6 @@ export type GatsbyCommonPageContext<SiteMetadataType = GatsbyNodeSiteMetadataFra
    */
   displayName?: string | null;
   /**
-   * Directory name
-   * @example /docs/colors => docs
-   */
-  dirName: string | null;
-  /**
    * Locale of the page
    * @example
    *  fr.page.tsx => locale is fr
@@ -41,7 +36,11 @@ export type GatsbyCommonPageContext<SiteMetadataType = GatsbyNodeSiteMetadataFra
   /**
    * Each page can be rendered using a specific layout
    */
-  layout: SITE_LAYOUT;
+  layout: PAGE_LAYOUT;
+  /**
+   * Each page can be rendered using a specific template
+   */
+  template: PAGE_TEMPLATE;
 };
 
 /**
@@ -64,7 +63,6 @@ export type GatsbyContentfulPageContext = GatsbyCommonPageContext & {
   /**
    * Contentful specific page informations below
    */
-  type: string;
   slug: string;
 };
 
@@ -115,13 +113,4 @@ export type GatsbyDesignSystemPageContext = GatsbyCommonPageContext & {
    *    `query Page($slug: String) {...}`
    *  ```
    */
-};
-
-/**
- * Typing for Gatsby page's Context object
- * @deprecated
- */
-export type GatsbyBlogPostContext = {
-  blogPostId: string;
-  blogPath: string;
 };

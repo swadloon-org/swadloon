@@ -26,6 +26,7 @@ export const Stack = React.memo(
         '--desktop-gap': desktopGap || tabletGap || mobileGap,
       },
       ...props,
+      ref,
     });
   })
   // areEqual

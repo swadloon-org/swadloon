@@ -29,6 +29,7 @@ globalStyle(`html`, {
   // https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth
   // @ts-ignore
   WebkitFontSmoothing: 'antialiased',
+  // @ts-ignore
   '-moz-osx-font-smoothing': 'grayscale',
   // ensure fast clicks on ios safari 9, 10
   // disable browser handling zooming gestures https://developer.mozilla.org/en-US/docs/Web/CSS/touch-action#values
@@ -255,10 +256,6 @@ globalStyle(`ul,ol`, {
   marginInlineStart: '0px',
   marginInlineEnd: '0px',
   paddingInlineStart: '0px',
-});
-
-globalStyle(`li`, {
-  lineHeight: '0', // ensure that the list items height collapse
 });
 
 /**

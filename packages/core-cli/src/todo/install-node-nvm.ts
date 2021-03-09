@@ -1,9 +1,9 @@
-import { spawn } from 'child_process';
 import { log, scriptLog } from '@newrade/core-utils';
-import { loadDotEnv, dotEnvProcess } from '../utilities/utils';
+import { spawn } from 'child_process';
 import * as os from 'os';
+import { ENV } from '../types/dot-env';
 
-loadDotEnv();
+const dotEnvProcess: ENV = process.env as ENV;
 
 scriptLog(`node js version for this project: ${dotEnvProcess.NVM_NODE_VERSION}`);
 scriptLog(`installing node with nvm...`);

@@ -7777,12 +7777,13 @@ Object {
     "sidebarWidth": "--layout-sidebar-width",
   },
   "zIndex": Object {
-    "chatBubble": 103,
+    "chatBubble": 130,
     "content": 50,
-    "dialog": 99,
-    "navBar": 101,
-    "notifications": 102,
-    "sideBar": 100,
+    "dialog": 70,
+    "navBar": 100,
+    "notifications": 120,
+    "sideBarDesktop": 90,
+    "sideBarMobile": 110,
   },
 }
 `;

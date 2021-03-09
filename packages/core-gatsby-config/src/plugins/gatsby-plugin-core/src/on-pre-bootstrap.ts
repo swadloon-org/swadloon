@@ -13,8 +13,8 @@ export const onPreBootstrapFunction: GatsbyNode['onPreBootstrap'] = (args, optio
   });
 
   if (process.env.GATSBY_ENABLE_INCREMENTAL_BUILD !== 'true') {
-    callback && callback(null);
-    return;
+    const resultIncrementalBuild = callback && callback(null);
+    return resultIncrementalBuild;
   }
 
   log(`rebuilding core-* packages for gatsby cloud's incremental build`, {
@@ -42,13 +42,13 @@ export const onPreBootstrapFunction: GatsbyNode['onPreBootstrap'] = (args, optio
       toolName,
       level: LOG_LEVEL.ERROR,
     });
-    callback && callback(data);
+    return callback && callback(data);
   });
 
   cwd.on('close', (code) => {
     log(`rebuilding core-* packages: ${chalk.green('done')}`, {
       toolName,
     });
-    callback && callback(null);
+    return callback && callback(null);
   });
 };

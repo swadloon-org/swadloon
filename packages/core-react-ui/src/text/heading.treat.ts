@@ -3,7 +3,7 @@ import { style } from 'treat';
 import { Theme } from '../design-system/css-design-system';
 import { getCSSTextStyles } from '../utilities/text.utilities';
 
-export const styles: { wrapper: string } & { [key in HEADING]: string } & { [key in TEXT_LEVEL]: string } = {
+export const styles: { wrapper: string } & { [key in HEADING]: string } = {
   wrapper: style(({ theme, cssTheme }: Theme) => ({
     userSelect: 'text',
   })),
@@ -54,28 +54,6 @@ export const styles: { wrapper: string } & { [key in HEADING]: string } & { [key
         ...getCSSTextStyles(cssTheme.typography.headings.desktop.h4),
       },
     },
-  })),
-
-  /**
-   * Text styles
-   */
-  primary: style(({ theme, cssTheme }: Theme) => ({
-    color: cssTheme.colors.colorIntents.primaryText,
-  })),
-  primaryReversed: style(({ theme, cssTheme }: Theme) => ({
-    color: cssTheme.colors.colorIntents.primaryTextReversed,
-  })),
-  secondary: style(({ theme, cssTheme }: Theme) => ({
-    color: cssTheme.colors.colorIntents.secondaryText,
-  })),
-  secondaryReversed: style(({ theme, cssTheme }: Theme) => ({
-    color: cssTheme.colors.colorIntents.secondaryTextReversed,
-  })),
-  tertiary: style(({ theme, cssTheme }: Theme) => ({
-    color: cssTheme.colors.colorIntents.tertiaryText,
-  })),
-  tertiaryReversed: style(({ theme, cssTheme }: Theme) => ({
-    color: cssTheme.colors.colorIntents.tertiaryTextReversed,
   })),
 };
 

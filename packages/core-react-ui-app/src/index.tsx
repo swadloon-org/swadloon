@@ -1,16 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { TreatProvider } from 'react-treat';
 import { App } from './app';
-import { light } from './design-system/themes.treat';
+import { Providers } from './context/providers';
+import { Layout } from './layouts/layout';
 
 export function RootComponent() {
   return (
-    <TreatProvider theme={light}>
-      {/* <ThemeProvider theme={{}}> */}
-      <App />
-      {/* </ThemeProvider> */}
-    </TreatProvider>
+    <Providers>
+      <Layout>
+        <App />
+      </Layout>
+    </Providers>
   );
 }
 

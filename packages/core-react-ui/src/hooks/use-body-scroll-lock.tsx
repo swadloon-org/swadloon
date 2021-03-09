@@ -83,7 +83,7 @@ export function useBodyScrollLock({
     const handleScroll = (event: HandleScrollEvent, targetElement: any): boolean => {
       const clientY = event.targetTouches[0].clientY - initialClientY;
 
-      if ((event as any).scale && (event as any).scale !== undefined && (event as any).scale !== 1) {
+      if ((event as any).scale && (event as any).scale !== 1) {
         console.log(`prevented zoom`);
         event.preventDefault();
       }

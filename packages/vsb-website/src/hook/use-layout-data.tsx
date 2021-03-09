@@ -4,7 +4,7 @@ import { LayoutAllSitePageQuery } from '../../types/graphql-types';
 
 const query = graphql`
   query LayoutAllSitePage {
-    pages: allSitePage(filter: { path: { glob: "!/{docs,design-system}/{**,*}" } }) {
+    pages: allSitePage(filter: { path: { glob: "!**/{docs,design-system}/{**,*}" } }) {
       totalCount
       nodes {
         id
@@ -22,9 +22,9 @@ const query = graphql`
           }
           id
           name
-          dirName
           locale
           layout
+          template
         }
       }
     }
@@ -57,7 +57,7 @@ export function usePagesNavigation(): Navigation {
     pageNodes: data?.pages.nodes as PageNode[],
     sortOrderDirectories: ['services', 'la clinique', 'nous joindre'],
     sortOrderItems: ['tout sur la vasectomie', 'formulaire vasectomie', 'examen pour transport canada'],
-    ignoredItems: ['address', 'accueil'],
+    excludedItems: ['address', 'accueil'],
   });
 }
 

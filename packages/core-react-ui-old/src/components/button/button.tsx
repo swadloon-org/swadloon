@@ -21,10 +21,10 @@ export const Button: React.FC<OwnProps> = ({ className, variant, size, state, ic
   );
 };
 
-() => {
-  return (
-    <Button disabled={true} onClick={() => {}}>
-      hello
-    </Button>
-  );
-};
+// () => {
+//   return (
+//     <Button disabled={true} onClick={() => {}}>
+//       hello
+//     </Button>
+//   );
+// };

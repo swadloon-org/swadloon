@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.build.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "outDir": "lib",
+    "types": ["gatsby", "node", "jest"],
+    "incremental": false,
+    "composite": false
+  },
+  "include": ["src/**/*", "docs/**/*", "types/**/*"],
+  "exclude": ["public"]
+}

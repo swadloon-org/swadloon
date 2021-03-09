@@ -1,26 +1,19 @@
+import { Button, Center, Heading, Paragraph, Stack, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
-
-import * as styleRefs from './app.treat';
 import { useStyles } from 'react-treat';
-import { ColorSwatch } from './components/color-swatch';
-import { defaultAnimations } from '@newrade/core-react-ui';
+import * as styleRefs from './app.treat';
 
 export function App() {
   const styles = useStyles(styleRefs);
-  // const theme = useTheme();
+  const { theme, cssTheme } = useTreatTheme();
 
   return (
-    <div>
-      {JSON.stringify(defaultAnimations)}
-      <ColorSwatch
-        color={{
-          h: 33,
-          s: 100,
-          l: 50,
-          a: 80,
-        }}
-      ></ColorSwatch>
-      {/* <GraphQLVoyagerPage /> */}
-    </div>
+    <Center>
+      <Stack className={styles.wrapper}>
+        <Heading>Core React App</Heading>
+        <Paragraph>Core React App</Paragraph>
+        <Button>{cssTheme.name}</Button>
+      </Stack>
+    </Center>
   );
 }
