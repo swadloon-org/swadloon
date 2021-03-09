@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.3](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-design-system-old@1.4.2...@newrade/core-design-system-old@1.4.3) (2021-03-09)
+
+**Note:** Version bump only for package @newrade/core-design-system-old
+
 ## [1.4.2](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-design-system-old@1.4.1...@newrade/core-design-system-old@1.4.2) (2021-02-22)
 
 ### Bug Fixes

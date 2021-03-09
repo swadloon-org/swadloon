@@ -1,15 +1,13 @@
-import { CommonComponentProps, getMergedClassname, MarkdownCSS } from '@newrade/core-react-ui';
+import { CommonComponentProps, useCommonProps } from '@newrade/core-react-ui';
 import { MDXRenderer, MDXRendererProps } from 'gatsby-plugin-mdx';
 import React from 'react';
 
 type Props = CommonComponentProps & Partial<MDXRendererProps>;
 
+/**
+ * Wrapper round gatsby-plugin-mdx's MDXRenderer
+ */
 export const MarkdownRenderer: React.FC<Props> = React.memo(({ id, style, className, ...props }) => {
-  const classNames = getMergedClassname([className]);
-
-  return (
-    <MarkdownCSS id={id} style={style} className={classNames}>
-      <MDXRenderer>{props.children || ''}</MDXRenderer>
-    </MarkdownCSS>
-  );
+  const commonProps = useCommonProps({ id, style, className, ...props });
+  return <MDXRenderer {...commonProps}>{props.children || ''}</MDXRenderer>;
 });

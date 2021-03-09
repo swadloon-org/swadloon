@@ -8,3 +8,5 @@
 /// <reference types="../../core-types/lib/react-lazyload" />
 /// <reference types="../../core-types/lib/treat-webpack-plugin" />
 /// <reference types="../../core-types/lib/mini-css-extract-plugin" />
+/// <reference types="../../core-types/lib/github-slugger" />
+/// <reference types="../../core-gsap-ui/lib/types" />

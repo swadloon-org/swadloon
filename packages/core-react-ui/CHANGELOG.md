@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.12.0](https://github.com/newrade/newrade/compare/@newrade/core-react-ui@1.11.1...@newrade/core-react-ui@1.12.0) (2021-03-09)
+
+### Bug Fixes
+
+- **core-design-system-docs:** init package ([224064a](https://github.com/newrade/newrade/commit/224064a713a5f41f998fe1e8e18ea4bfbe8b048d))
+- **core-gatsby-config:** fix page path for design system page ([2abccf6](https://github.com/newrade/newrade/commit/2abccf6c6829061480eaa6950485b3d13885d177))
+- **core-gatsby-config:** things are starting to work again ([9b5dec8](https://github.com/newrade/newrade/commit/9b5dec81b161122302006f924aa95f443ad116d2))
+- **core-react-ui:** fix code block treat imports ([4d092dd](https://github.com/newrade/newrade/commit/4d092dd0c44c3d80edee86bcdd668e3d04e00ad5))
+- **core-react-ui:** fix linting ([8a5cffb](https://github.com/newrade/newrade/commit/8a5cffb7ae8fc70d5b12c974bb269f7c632c8f7a))
+- **core-react-ui:** fix list item, using flex now ([5f462e4](https://github.com/newrade/newrade/commit/5f462e45b0ced1a6ad3b891401e3b8ace802c4a7))
+- **core-react-ui:** fix tests ([400fbe8](https://github.com/newrade/newrade/commit/400fbe8985b4046eabfb8f4c0e9071fde57f6e5a))
+- **core-react-ui:** rework sidebars ([bc6e2d1](https://github.com/newrade/newrade/commit/bc6e2d1722f0814eb47db3907452f60d91567144))
+- **core-react-ui:** rocket ([eae1626](https://github.com/newrade/newrade/commit/eae16266f0d82c7003c98ad01b87b9b03beb16dd))
+- **core-react-ui:** small fix for inputs ([a2c70bd](https://github.com/newrade/newrade/commit/a2c70bd54d454a17f02a642883d51e9d20545a67))
+- **core-react-ui:** trying to find issue ([a62e71c](https://github.com/newrade/newrade/commit/a62e71c9c14b2897eb5d619457f2727eed2f2938))
+- **corereact-ui:** fix nasty bug with treat files importing other treat files ([d1644df](https://github.com/newrade/newrade/commit/d1644df51704ce05edb1aabcf7cf3a74d91edf00))
+- **vbs-website:** fix steps section ([def91cc](https://github.com/newrade/newrade/commit/def91cc31dae2c6ffc22449c87a1f90265616125))
+- **vsb-website:** fixing build ([5b446af](https://github.com/newrade/newrade/commit/5b446afda481089b7ec00c85b36f4233db305689))
+- **vsb-website:** working on sections & blocks ([8641d04](https://github.com/newrade/newrade/commit/8641d04cb1a44737d19a7330ed038105fa9b6b7c))
+
+### Features
+
+- **core-gatsby-ui:** implemented section banner ([6514337](https://github.com/newrade/newrade/commit/6514337788141b7bede1d74084aee10f21b6e8c2))
+- **core-gatsby-ui:** working on new blocks, sections and api ([aa67282](https://github.com/newrade/newrade/commit/aa67282fb497895abe7f7583d2a573f07b392cc0))
+- **core-gatsy-ui:** add block-google-maps ([4efaf57](https://github.com/newrade/newrade/commit/4efaf578cd92ca4ed84f1bd7bb22d38b3dc38b3c))
+- **gatsby:** upgrade to latest v2 gatsby ([6ccfd11](https://github.com/newrade/newrade/commit/6ccfd11efe789383353be0cd3b5a251e22a8f41a))
+- **gsap:** wip ([0d099eb](https://github.com/newrade/newrade/commit/0d099ebbc78f50910e56ffada9b92d6d51025883))
+- **newrade-website:** reorg docs ([47856d1](https://github.com/newrade/newrade/commit/47856d1889c2311c01cf4cd9f94f52fadd1ac61f))
+- **vsb-website:** fix fragments after refactor ([253f987](https://github.com/newrade/newrade/commit/253f98723f264938eab85113c71bbcdddc7a041f))
+- **vsb-website:** implement v1 of callout section as a variation of banner ([ef723da](https://github.com/newrade/newrade/commit/ef723da0d9386ec7b8f6a689f074fed42e553df2))
+- **vsb-website:** working on mobile logo animation ([ba7fb5d](https://github.com/newrade/newrade/commit/ba7fb5d3226b2fbbe23090ce08555dd5965e1e61))
+
 ## [1.11.1](https://github.com/newrade/newrade/compare/@newrade/core-react-ui@1.11.0...@newrade/core-react-ui@1.11.1) (2021-02-22)
 
 ### Bug Fixes

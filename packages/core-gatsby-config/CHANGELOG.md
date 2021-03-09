@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.10.0](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-config@1.9.1...@newrade/core-gatsby-config@1.10.0) (2021-03-09)
+
+### Bug Fixes
+
+- **core:** packages are building ([a6985ed](https://github.com/newrade/newrade/commit/a6985ed2e5d630c8dff85ac8625a4ef5b318a602))
+- **core-design-system-docs:** init package ([224064a](https://github.com/newrade/newrade/commit/224064a713a5f41f998fe1e8e18ea4bfbe8b048d))
+- **core-gatsby-config:** fix page path for design system page ([2abccf6](https://github.com/newrade/newrade/commit/2abccf6c6829061480eaa6950485b3d13885d177))
+- **core-gatsby-config:** refactor create pages logic ([81c800c](https://github.com/newrade/newrade/commit/81c800cf698d37958035e44f5695a8ba39ca6637))
+- **core-gatsby-config:** refactor page creation ([9b0161c](https://github.com/newrade/newrade/commit/9b0161c24dce482a98d55dc0fb0682f1f9ef80fa))
+- **core-gatsby-config:** things are starting to work again ([9b5dec8](https://github.com/newrade/newrade/commit/9b5dec81b161122302006f924aa95f443ad116d2))
+- **core-react-ui:** trying to find issue ([a62e71c](https://github.com/newrade/newrade/commit/a62e71c9c14b2897eb5d619457f2727eed2f2938))
+- **lint-fix:** fixing current lint error on the build ([c28d6f3](https://github.com/newrade/newrade/commit/c28d6f3e688af0e4ad42abe1a8bc5630b663dbda))
+- **newrade-website:** clean up ([9534e61](https://github.com/newrade/newrade/commit/9534e61b01545371bde739d05c4519ead5fbd143))
+- **newrade-website:** disable gatsby-remark-mermaid as gatsby-cloud doesn't support puppeteer ([e5c42a8](https://github.com/newrade/newrade/commit/e5c42a84901b71a400f58ad72c173f6c68bf3773))
+- **newrade-website:** docs update ([08db9ce](https://github.com/newrade/newrade/commit/08db9ce60c3779684db9260c435792e532bd6729))
+- **vsb-website:** section banner done ([0fb9609](https://github.com/newrade/newrade/commit/0fb9609bcbc0d83aaee537e6033da01ff4dae620))
+
+### Features
+
+- **core-gatsby-config:** refactor page creation logic for .mdx, .md, and .tsx files ([02cb1bb](https://github.com/newrade/newrade/commit/02cb1bb2dc93be32ed8e5fda87c062ae2c05ea05))
+- **core-gatsby-ui:** implemented section banner ([6514337](https://github.com/newrade/newrade/commit/6514337788141b7bede1d74084aee10f21b6e8c2))
+- **gatsby:** upgrade to latest v2 gatsby ([6ccfd11](https://github.com/newrade/newrade/commit/6ccfd11efe789383353be0cd3b5a251e22a8f41a))
+- **newrade-website:** reorg docs ([47856d1](https://github.com/newrade/newrade/commit/47856d1889c2311c01cf4cd9f94f52fadd1ac61f))
+- **newrade-website:** update docs ([999fa76](https://github.com/newrade/newrade/commit/999fa7639941e100bf5c5aaff42fdd4fcb65236b))
+- **vsb-website:** fix fragments after refactor ([253f987](https://github.com/newrade/newrade/commit/253f98723f264938eab85113c71bbcdddc7a041f))
+
 ## [1.9.1](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-config@1.9.0...@newrade/core-gatsby-config@1.9.1) (2021-02-22)
 
 ### Bug Fixes

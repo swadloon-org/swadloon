@@ -1,5 +1,5 @@
 import { HEADING, LinkIcon, LinkVariant, PARAGRAPH_SIZE, TEXT_STYLE } from '@newrade/core-design-system';
-import React, { AnchorHTMLAttributes, Suspense } from 'react';
+import React, { AnchorHTMLAttributes } from 'react';
 import { Code } from '../code/code';
 import { ListItem } from '../list-item/list-item';
 import { ListItems } from '../list-item/list-items';
@@ -30,7 +30,10 @@ import { Summary } from '../text/summary';
  *    ```
  */
 export const mdxComponents: Partial<
-  Record<keyof React.ReactHTML, React.ReactNode> & { pragmaFrag: React.ReactNode; inlineCode: React.ReactNode }
+  Record<keyof React.ReactHTML, React.ReactNode> & {
+    pragmaFrag: React.ReactNode;
+    inlineCode: React.ReactNode;
+  }
 > = {
   /**
    * Content sectioning
@@ -51,7 +54,6 @@ export const mdxComponents: Partial<
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element#text_content
    */
   p: (props: MDXProps) => <Paragraph {...props} />,
-  span: (props: MDXProps) => <Paragraph {...props} />,
   a: (props: MDXProps & AnchorHTMLAttributes<any>) => (
     <Link
       variant={LinkVariant.underline}
@@ -71,7 +73,13 @@ export const mdxComponents: Partial<
    * Inline text semantics
    */
   b: (props: MDXProps) => (
-    <Paragraph as={'b'} style={{ display: 'inline-block' }} variantStyle={TEXT_STYLE.bold} {...props} />
+    <Paragraph
+      as={'b'}
+      style={{ display: 'inline-block' }}
+      variantStyle={TEXT_STYLE.bold}
+      variant={PARAGRAPH_SIZE.large}
+      {...props}
+    />
   ),
   small: (props: MDXProps) => (
     <Paragraph as={'small'} style={{ display: 'inline-block' }} variant={PARAGRAPH_SIZE.small} {...props} />
@@ -79,15 +87,19 @@ export const mdxComponents: Partial<
   strong: (props: MDXProps) => (
     <Paragraph as={'strong'} style={{ display: 'inline-block' }} variantStyle={TEXT_STYLE.bold} {...props} />
   ),
+  em: (props: MDXProps) => (
+    <Paragraph as={'em'} style={{ display: 'inline-block' }} variantStyle={TEXT_STYLE.italic} {...props} />
+  ),
+  del: (props: MDXProps) => <Paragraph as={'del'} style={{ display: 'inline-block' }} {...props} />,
 
   /**
-   * Images
+   * Images & Media
    */
-  img: (props: MDXProps) => <img {...props} />,
-
-  /**
-   * Lists
-   */
+  figcaption: (props: MDXProps) => (
+    <figcaption>
+      <Paragraph>{props.children}</Paragraph>{' '}
+    </figcaption>
+  ),
 
   /**
    * Table
@@ -98,34 +110,27 @@ export const mdxComponents: Partial<
   tr: (props: MDXProps) => <TableRow {...props} />,
   td: (props: MDXProps) => <TableCell {...props} />,
   th: (props: MDXProps) => <TableCellHeader {...props} />,
+
   /**
    * Code
    */
   pre: (props: MDXProps) => <>{props.children}</>,
-  code: ({ children, ...props }: MDXProps) => {
-    const isSSR = typeof window === 'undefined';
+  // code: ({ children, ...props }: MDXProps) => {
+  //   const isSSR = typeof window === 'undefined';
 
-    const CodeBlock = React.lazy(() =>
-      // instead of import { CodeBlock } from '../code/code-block';
-      import('../code/code-block').then((comp) => ({ default: comp.CodeBlock }))
-    );
+  //   const CodeBlock = React.lazy(() =>
+  //     // instead of import { CodeBlock } from '../code/code-block';
+  //     import('../code/code-block').then((comp) => ({ default: comp.CodeBlock }))
+  //   );
 
-    return !isSSR ? (
-      <Suspense fallback={'loading...'}>
-        <CodeBlock {...props}>{children as string}</CodeBlock>
-      </Suspense>
-    ) : null;
-  },
-  figcaption: (props: MDXProps) => (
-    <figcaption>
-      <Paragraph>{props.children}</Paragraph>{' '}
-    </figcaption>
-  ),
+  //   return !isSSR ? (
+  //     <Suspense fallback={'loading...'}>
+  //       <CodeBlock {...props}>{children as string}</CodeBlock>
+  //     </Suspense>
+  //   ) : null;
+  // },
+
   inlineCode: (props: MDXProps) => <Code>{props.children}</Code>,
-  // pre	Code	```code```
-  // em	Emphasis	_emphasis_
-  // strong	Strong	**strong**
-  // del	Delete	~~strikethrough~~
 
   /**
    * Others

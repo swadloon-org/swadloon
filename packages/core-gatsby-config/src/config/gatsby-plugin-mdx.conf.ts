@@ -19,15 +19,11 @@ export function getGatsbyPluginMdx(): Gatsby.PluginRef[] {
         extensions: ['.md', '.mdx'],
         gatsbyRemarkPlugins: [
           /**
-           * @see https://www.gatsbyjs.com/plugins/gatsby-remark-copy-linked-files
+           * @see https://github.com/remcohaszing/gatsby-remark-mermaid
            */
-          {
-            resolve: 'gatsby-remark-copy-linked-files',
-            options: {
-              destinationDir: 'markdown-assets',
-              ignoreFileExtensions: [],
-            },
-          },
+          // {
+          //   resolve: 'gatsby-remark-mermaid',
+          // },
           /**
            * gatsby-remark-prismjs
            * @see https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-remark-prismjs
@@ -48,14 +44,29 @@ export function getGatsbyPluginMdx(): Gatsby.PluginRef[] {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 590,
+              linkImagesToOriginal: false,
+              wrapperStyle: `margin-left: inherit; margin-right: inherit;`,
+            },
+          },
+          /**
+           * @see https://www.gatsbyjs.com/plugins/gatsby-remark-copy-linked-files
+           */
+          {
+            resolve: 'gatsby-remark-copy-linked-files',
+            options: {
+              destinationDir: 'markdown-assets',
+              ignoreFileExtensions: [],
             },
           },
         ],
-        // see https://github.com/remarkjs/remark/blob/master/doc/plugins.md#list-of-plugins
+        /**
+         * @see https://github.com/remarkjs/remark/blob/master/doc/plugins.md#list-of-plugins
+         */
         remarkPlugins: [
           coreWebpackConfig.remarkExternalLinksPlugin,
-          coreWebpackConfig.remarkUnwrapImagesPlugin,
+          // coreWebpackConfig.remarkUnwrapImagesPlugin,
           coreWebpackConfig.remarkHtmlPlugin,
+          coreWebpackConfig.remarkTocPlugin,
         ],
         // see https://github.com/rehypejs/rehype/blob/master/doc/plugins.md#list-of-plugins
         rehypePlugins: [coreWebpackConfig.rehypeSlugPlugin, coreWebpackConfig.rehypeAutoLinkHeadingsPlugin],

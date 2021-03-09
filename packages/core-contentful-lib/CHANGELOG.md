@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/newrade/newrade/compare/@newrade/core-contentful-lib@1.6.3...@newrade/core-contentful-lib@1.7.0) (2021-03-09)
+
+### Bug Fixes
+
+- **core-gatsby-ui:** fixes for section components ([6007d5f](https://github.com/newrade/newrade/commit/6007d5fbcb390d2ef1e2826312a5d0fcceec4a32))
+
+### Features
+
+- **contentful-lib-refactor:** adding new version and deleting all past version ([cb6c2cb](https://github.com/newrade/newrade/commit/cb6c2cb79ad1aa0a95363ed36e7381aba7f92559))
+- **contentful-lib-update:** fix and update of the contentful lib for the export of newrade ([c970a83](https://github.com/newrade/newrade/commit/c970a83b07ee4883a984b6a6c69a94cfcb94895b))
+
 ## [1.6.3](https://github.com/newrade/newrade/compare/@newrade/core-contentful-lib@1.6.2...@newrade/core-contentful-lib@1.6.3) (2021-02-22)
 
 ### Bug Fixes

@@ -1,8 +1,5 @@
 import { style } from 'treat';
-import { applyStylesToHtmlElement } from './app.styles';
 
-export const globalStyle = style((theme: any) => ({
+export const wrapper = style((theme: any) => ({
   display: 'inherit',
 }));
-
-applyStylesToHtmlElement(globalStyle);

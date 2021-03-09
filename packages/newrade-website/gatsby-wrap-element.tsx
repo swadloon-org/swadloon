@@ -1,10 +1,10 @@
+import { LayoutDesignSystem } from '@newrade/core-design-system-docs/src';
 import { GatsbyCommonPageContext } from '@newrade/core-gatsby-config';
-import { LayoutDocumentation } from '@newrade/core-gatsby-ui/src';
-import { LayoutDesignSystem } from '@newrade/core-gatsby-ui/src/layout/design-system.layout';
+import { LayoutDocs } from '@newrade/core-gatsby-ui/src';
 import { PageProps, WrapPageElementBrowserArgs } from 'gatsby';
 import React from 'react';
-import MobileLogo from './src/images/logo-symbol.svg';
-import Logo from './src/images/logo.svg';
+import MobileLogo from './src/images/logos/logo-symbol.svg';
+import Logo from './src/images/logos/logo.svg';
 import { Layout } from './src/layout/layout';
 
 type Props = PageProps<{}, GatsbyCommonPageContext>;
@@ -17,21 +17,17 @@ export const WrapElement: React.FC<WrapPageElementBrowserArgs> = ({ element, pro
   }
 
   switch (pageProps.pageContext.layout) {
-    case 'DOCS': {
-      return (
-        <LayoutDocumentation DesktopSvgLogo={<Logo />} MobileSvgLogo={<MobileLogo />} {...pageProps}>
-          {element}
-        </LayoutDocumentation>
-      );
+    case 'docs': {
+      return <LayoutDocs {...pageProps}>{element}</LayoutDocs>;
     }
-    case 'DESIGN_SYSTEM': {
+    case 'designSystem': {
       return (
         <LayoutDesignSystem DesktopSvgLogo={<Logo />} MobileSvgLogo={<MobileLogo />} {...pageProps}>
           {element}
         </LayoutDesignSystem>
       );
     }
-    case 'SITE':
+    case 'default':
     default: {
       return <Layout {...pageProps}>{element}</Layout>;
     }

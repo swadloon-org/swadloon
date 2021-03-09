@@ -1,6 +1,6 @@
 {
   "name": "@newrade/core-contentful-lib",
-  "version": "1.6.3",
+  "version": "1.7.0",
   "description": "",
   "author": "",
   "license": "MIT",
@@ -13,7 +13,7 @@
     "clean": "rimraf -r lib/** && rm -f tsconfig.build.tsbuildinfo",
     "export-content": ". .env && contentful space export --space-id=$CONTENTFUL_SPACEID --management-token=$CONTENTFUL_MANAGEMENT_TOKEN --environment-id=$CONTENTFUL_ENV --content-file=contentful-export-space.json",
     "import-content": "contentful space import",
-    "run-migration": "cross-env TS_NODE_PROJECT=tsconfig.build.json node -r ts-node/register src/run-migration.ts",
+    "run-migration": ". ./.env && DEBUG=$DEBUG TS_NODE_PROJECT=tsconfig.build.json node -r ts-node/register src/run-migration.ts",
     "start": "tsc --build --watch --preserveWatchOutput tsconfig.build.json"
   },
   "dependencies": {
@@ -21,10 +21,10 @@
   },
   "devDependencies": {
     "@contentful-tools/cli": "^0.7.3",
-    "@newrade/core-common": "^1.2.2",
-    "@newrade/core-gatsby-config": "^1.9.1",
-    "@newrade/core-types": "^1.3.2",
-    "@newrade/core-utils": "^1.6.2",
-    "@newrade/core-webpack-config": "^1.4.4"
+    "@newrade/core-common": "^1.2.3",
+    "@newrade/core-gatsby-config": "^1.10.0",
+    "@newrade/core-types": "^1.4.0",
+    "@newrade/core-utils": "^1.6.3",
+    "@newrade/core-webpack-config": "^1.5.0"
   }
 }

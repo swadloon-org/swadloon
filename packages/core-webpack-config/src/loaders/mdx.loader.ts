@@ -37,6 +37,12 @@ export const remarkExternalLinksPlugin = [
 ];
 
 /**
+ * remark plugin to generate a table of contents.
+ * @see https://github.com/remarkjs/remark-toc
+ */
+export const remarkTocPlugin = [remarkToc, {}];
+
+/**
  * remark plugin to remove the wrapping paragraph for images.
  * @see https://github.com/remarkjs/remark-unwrap-images
  */

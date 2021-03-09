@@ -5,7 +5,7 @@ import { GatsbySiteMetadata } from './site-metadata';
  * Extends the default Gatsby Config
  */
 export interface GastbySiteConfig extends Gatsby.GatsbyConfig {
-  flags?: Partial<{
+  flags?: {
     // @see https://www.gatsbyjs.com/docs/reference/release-notes/v2.29/
     QUERY_ON_DEMAND: boolean;
     LAZY_IMAGES: boolean;
@@ -16,6 +16,7 @@ export interface GastbySiteConfig extends Gatsby.GatsbyConfig {
     FAST_REFRESH: boolean;
     PRESERVE_WEBPACK_CACHE: boolean;
     PRESERVE_FILE_DOWNLOAD_CACHE: boolean;
-  }>;
+    ENABLE_GATSBY_REFRESH_ENDPOINT: boolean;
+  };
   siteMetadata: GatsbySiteMetadata;
 }

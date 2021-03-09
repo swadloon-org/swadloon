@@ -3,6 +3,40 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.10.0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/newrade-website@1.9.1...@newrade/newrade-website@1.10.0) (2021-03-09)
+
+### Bug Fixes
+
+- **core-design-system-docs:** init package ([224064a](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/224064a713a5f41f998fe1e8e18ea4bfbe8b048d))
+- **core-gatsby-config:** fix page path for design system page ([2abccf6](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/2abccf6c6829061480eaa6950485b3d13885d177))
+- **core-gatsby-config:** refactor create pages logic ([81c800c](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/81c800cf698d37958035e44f5695a8ba39ca6637))
+- **core-gatsby-config:** refactor page creation ([9b0161c](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/9b0161c24dce482a98d55dc0fb0682f1f9ef80fa))
+- **core-gatsby-config:** things are starting to work again ([9b5dec8](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/9b5dec81b161122302006f924aa95f443ad116d2))
+- **core-react-ui:** rework sidebars ([bc6e2d1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/bc6e2d1722f0814eb47db3907452f60d91567144))
+- **core-react-ui:** rocket ([eae1626](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/eae16266f0d82c7003c98ad01b87b9b03beb16dd))
+- **corereact-ui:** fix nasty bug with treat files importing other treat files ([d1644df](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/d1644df51704ce05edb1aabcf7cf3a74d91edf00))
+- **docs:** fix image path ([a563f22](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/a563f2294fcf315c439e8ca45861e4beab23e0f2))
+- **fix-newrade-import:** fixing all bad import on core-react-ui/lib ([99e3203](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/99e3203aba825126bcc3375ea67cacde230a3f78))
+- **footer-theme-import:** fixing the bad import of the theme in the footer ([40d719f](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/40d719f7cee39daf417ff451644f8b61143e1837))
+- **newrade-website:** clean up ([9534e61](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/9534e61b01545371bde739d05c4519ead5fbd143))
+- **newrade-website:** docs update ([08db9ce](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/08db9ce60c3779684db9260c435792e532bd6729))
+- **newrade-website:** fix docs ([68e09a3](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/68e09a37790ad8294e70598b4b828fbef300c34a))
+- **newrade-website:** fix types ([ae5b88c](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ae5b88c78e4818ddf296553a20a92f63b5b22791))
+- **newrade-website-wrap:** fixing the current gatsby-wrap-element ([f1b085c](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/f1b085cdaf713f020251d19877c44ca3e85041f8))
+- **vbs-website:** fix steps section ([def91cc](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/def91cc31dae2c6ffc22449c87a1f90265616125))
+- **vsb-website:** fixing build ([5b446af](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/5b446afda481089b7ec00c85b36f4233db305689))
+
+### Features
+
+- **core-gatsby-config:** refactor page creation logic for .mdx, .md, and .tsx files ([02cb1bb](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/02cb1bb2dc93be32ed8e5fda87c062ae2c05ea05))
+- **core-gatsby-ui:** implemented section banner ([6514337](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/6514337788141b7bede1d74084aee10f21b6e8c2))
+- **gatsby:** upgrade to latest v2 gatsby ([6ccfd11](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/6ccfd11efe789383353be0cd3b5a251e22a8f41a))
+- **gsap:** wip ([0d099eb](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/0d099ebbc78f50910e56ffada9b92d6d51025883))
+- **naming-convention-img:** adding illustrations and logos folders with correct naming ([3735576](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/3735576608193108b85bf9d88c1466309045eabf))
+- **newrade-website:** first integration of the newrade website with the default theme ([8202c58](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/8202c580d92ef0c458904d9eeb59d0caf6e3440d))
+- **newrade-website:** reorg docs ([47856d1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/47856d1889c2311c01cf4cd9f94f52fadd1ac61f))
+- **newrade-website:** update docs ([999fa76](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/999fa7639941e100bf5c5aaff42fdd4fcb65236b))
+
 ## [1.9.1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/newrade-website@1.9.0...@newrade/newrade-website@1.9.1) (2021-02-22)
 
 ### Bug Fixes

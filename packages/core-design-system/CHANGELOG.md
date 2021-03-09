@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.2](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-design-system@1.9.1...@newrade/core-design-system@1.9.2) (2021-03-09)
+
+### Bug Fixes
+
+- **core-react-ui:** rework sidebars ([bc6e2d1](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/bc6e2d1722f0814eb47db3907452f60d91567144))
+- **newrade-website:** clean up ([9534e61](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/9534e61b01545371bde739d05c4519ead5fbd143))
+- **vsb-website:** working on sections & blocks ([8641d04](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/8641d04cb1a44737d19a7330ed038105fa9b6b7c))
+
 ## [1.9.1](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-design-system@1.9.0...@newrade/core-design-system@1.9.1) (2021-02-22)
 
 ### Bug Fixes

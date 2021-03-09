@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "allowJs": true,
+    "noEmit": true,
+    "types": ["node", "react", "jest"],
+    "baseUrl": ".",
+    "paths": {
+      "@newrade/*": ["../*/src"]
+    }
+  }
+}

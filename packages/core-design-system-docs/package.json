@@ -1,0 +1,30 @@
+{
+  "name": "@newrade/core-design-system-docs",
+  "version": "1.1.0",
+  "description": "Markdown based documentation for design systems",
+  "license": "MIT",
+  "main": "./lib/index.js",
+  "files": [
+    "./lib/**/*"
+  ],
+  "scripts": {
+    "build-disabled": "tsc --build tsconfig.build.json",
+    "clean": "rimraf -r lib/** && rm -f tsconfig.build.tsbuildinfo",
+    "start-disabled": "yarn typecheck",
+    "test-disabled": "jest",
+    "test:watch-disabled": "jest --watch",
+    "typecheck": "yarn typecheck:build --watch --preserveWatchOutput",
+    "typecheck:build": "tsc --project tsconfig.build.json --noEmit"
+  },
+  "sideEffects": false,
+  "typings": "./lib/index.d.ts",
+  "dependencies": {
+    "@newrade/core-common": "^1.2.3",
+    "@newrade/core-gatsby-config": "^1.10.0",
+    "@newrade/core-gatsby-ui": "^1.6.0",
+    "@newrade/core-react-ui": "^1.12.0",
+    "@newrade/core-types": "^1.4.0",
+    "@newrade/core-utils": "^1.6.3",
+    "@newrade/core-webpack-config": "^1.5.0"
+  }
+}

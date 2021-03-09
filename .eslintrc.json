@@ -1,6 +1,7 @@
 {
   "parser": "@typescript-eslint/parser",
   "extends": [
+    "plugin:mdx/recommended", // https://github.com/mdx-js/eslint-mdx
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
     "prettier/@typescript-eslint", // Uses eslint-config-prettier to disable ESLint rules from @typescript-eslint/eslint-plugin that would conflict with prettier
@@ -98,15 +99,15 @@
         "withinDescribe": "it"
       }
     ]
-  },
-  "overrides": [
-    {
-      "files": ["**/*.md"],
-      "plugins": ["markdown"],
-      "rules": {
-        "no-unused-vars": "off",
-        "react/react-in-jsx-scope": "off"
-      }
-    }
-  ]
+  }
+  // "overrides": [
+  //   {
+  //     "files": ["**/*.md"],
+  //     "plugins": ["markdown"],
+  //     "rules": {
+  //       "no-unused-vars": "off",
+  //       "react/react-in-jsx-scope": "off"
+  //     }
+  //   }
+  // ]
 }

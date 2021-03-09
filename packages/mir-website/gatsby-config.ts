@@ -1,4 +1,5 @@
 import * as core from '@newrade/core-gatsby-config';
+import * as common from '@newrade/core-common';
 import { loadDotEnv, logEnvVariables, toBoolean } from '@newrade/core-utils';
 import path from 'path';
 import packageJson from './package.json';
@@ -25,6 +26,7 @@ const config: core.GastbySiteConfig = {
     DEV_SSR: toBoolean(env.GATSBY_DEV_SSR),
     FAST_DEV: toBoolean(env.GATSBY_FAST_DEV),
     FAST_REFRESH: toBoolean(env.GATSBY_FAST_REFRESH),
+    ENABLE_GATSBY_REFRESH_ENDPOINT: toBoolean(env.ENABLE_GATSBY_REFRESH_ENDPOINT),
   },
   siteMetadata: {
     title: `MIR Website`,
@@ -32,8 +34,8 @@ const config: core.GastbySiteConfig = {
     siteUrl: env.APP_URL,
     siteEnv: env.APP_ENV,
     languages: {
-      langs: [core.SITE_LANGUAGES.FR_CA, core.SITE_LANGUAGES.EN_CA],
-      defaultLangKey: core.SITE_LANGUAGES.FR_CA,
+      langs: [common.SITE_LANGUAGES.FR_CA, common.SITE_LANGUAGES.EN_CA],
+      defaultLangKey: common.SITE_LANGUAGES.FR_CA,
     },
   },
   plugins: [
@@ -64,14 +66,9 @@ const config: core.GastbySiteConfig = {
      * Core Plugins
      */
     ...core.getGatsbyPluginTypeScriptConfig({
-      documentPaths: [
-        '../core-gatsby-ui/src/fragments/gatsby/**/*.{ts,tsx}',
-        '../core-gatsby-ui/src/fragments/contentful/**/*.{ts,tsx}',
-        './src/**/*.{ts,tsx}',
-      ],
+      documentPaths: ['./gatsby-*.{ts,tsx}', './src/**/*.{ts,tsx}'],
     }),
     core.getGatsbyReactSvgConfig(),
-    ...core.getGastbyPluginPageCreatorConfig(),
     core.getGastbyPluginTreatConfig(),
     core.getGatsbyTransformerSharp(),
     core.getGatsbyPluginSharp(),
@@ -87,17 +84,12 @@ const config: core.GastbySiteConfig = {
     core.getGatsbyPluginGoogleTagmanager({
       googleTagId: 'GTM-T4LK3QF',
     }),
-    core.getGastbyCoreContentfulPluginConfig({
-      packageName: packageJson.name,
-      features: {
-        blog: true,
-        portfolio: false,
-      },
-    }),
     core.getGastbyCorePluginConfig({
       packageName: packageJson.name,
-      enableDesignSystemPages: false,
-      enableDocsPages: false,
+      features: {
+        renderDesignSystemPages: false,
+        renderDocsPages: false,
+      },
     }),
     /**
      * gatsby-plugin-csp

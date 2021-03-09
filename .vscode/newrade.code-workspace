@@ -6,7 +6,6 @@
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true,
       "source.organizeImports": true
     },
     "[yaml]": {
@@ -26,20 +25,28 @@
       "**/*.tsbuildinfo": true
     },
     "files.watcherExclude": {
-      "**/.cache/**": true,
       "**/.git/objects/**": true,
       "**/.git/subtree-cache/**": true,
       "**/node_modules/**": true,
       "**/.hg/store/**": true,
       "**/dist/**": true,
       "**/public/**": true,
+      "**/.cache/**": true,
       "**/lib/**": true
+    },
+    "files.exclude": {
+      "**/.git": true,
+      "**/.svn": true,
+      "**/.hg": true,
+      "**/CVS": true,
+      "**/.DS_Store": true,
+      "**/node_modules/**": true
     },
     // https://github.com/deepscan/vscode-deepscan#settings-options
     // https://deepscan.io/docs/rules
     "deepscan.enable": true,
     "deepscan.ignorePatterns": ["**/node_modules/**", "graphql-types.ts"],
-    "deepscan.ignoreRules": ["no-console"]
+    "deepscan.ignoreRules": ["no-console", "UNUSED_DECL"]
   },
   "extensions": {
     "recommendations": [
@@ -62,7 +69,9 @@
       "bierner.markdown-yaml-preamble",
       "jock.svg",
       "cssho.vscode-svgviewer",
-      "deepscan.vscode-deepscan"
+      "deepscan.vscode-deepscan",
+      "graphql.vscode-graphql",
+      "vstirbu.vscode-mermaid-preview"
     ]
   },
   "folders": [
@@ -83,6 +92,9 @@
       "path": "../packages/core-design-system"
     },
     {
+      "path": "../packages/core-design-system-docs"
+    },
+    {
       "path": "../packages/core-design-system-old"
     },
     {
@@ -93,6 +105,9 @@
     },
     {
       "path": "../packages/core-common"
+    },
+    {
+      "path": "../packages/core-figma-extractor"
     },
     {
       "path": "../packages/core-figma-plugins"
@@ -153,6 +168,9 @@
     },
     {
       "path": "../packages/vsb-api"
+    },
+    {
+      "path": "../packages/cdpq-website"
     }
   ]
 }

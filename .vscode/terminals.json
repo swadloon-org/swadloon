@@ -27,6 +27,12 @@
       "focus": false
     },
     {
+      "name": "core-design-system-docs",
+      "cwd": "[workspaceFolder]/packages/core-design-system-docs",
+      "open": true,
+      "focus": false
+    },
+    {
       "name": "core-design-system-old",
       "cwd": "[workspaceFolder]/packages/core-design-system-old",
       "open": true,
@@ -41,6 +47,12 @@
     {
       "name": "core-common",
       "cwd": "[workspaceFolder]/packages/core-common",
+      "open": true,
+      "focus": false
+    },
+    {
+      "name": "core-figma-extractor",
+      "cwd": "[workspaceFolder]/packages/core-figma-extractor",
       "open": true,
       "focus": false
     },
@@ -149,6 +161,12 @@
     {
       "name": "vsb-api",
       "cwd": "[workspaceFolder]/packages/vsb-api",
+      "open": true,
+      "focus": false
+    },
+    {
+      "name": "cdpq-website",
+      "cwd": "[workspaceFolder]/packages/cdpq-website",
       "open": true,
       "focus": false
     }

@@ -1,16 +1,16 @@
 import { DesignSystem } from '@newrade/core-design-system';
 import {
-  createCSSTheme,
   CSSDesignSystem,
   defaultAnimations,
   defaultButtons,
   defaultEffects,
   defaultIconography,
+  defaultLayout,
   defaultSizing,
-} from '@newrade/core-react-ui';
+  defaultTypography,
+} from '@newrade/core-react-ui/lib/design-system/';
+import { createCSSTheme } from '@newrade/core-react-ui/lib/utilities';
 import { colors } from './colors';
-import { layout } from './layout';
-import { typography } from './typography';
 
 export const theme: DesignSystem = {
   name: 'newrade',
@@ -19,8 +19,10 @@ export const theme: DesignSystem = {
   effects: defaultEffects,
   sizing: defaultSizing,
   iconography: defaultIconography,
-  typography,
-  layout,
+  // typography,
+  typography: defaultTypography,
+  layout: defaultLayout,
+  // layout,
   animations: defaultAnimations,
   components: {
     buttons: defaultButtons,

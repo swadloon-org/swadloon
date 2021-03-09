@@ -1,11 +1,10 @@
-import { PARAGRAPH_SIZE, TEXT_LEVEL, TEXT_STYLE } from '@newrade/core-design-system';
+import { PARAGRAPH_SIZE, TEXT_STYLE } from '@newrade/core-design-system';
 import { style } from 'treat';
 import { Theme } from '../design-system/css-design-system';
 import { getCSSFontTextStyles, getCSSSizeTextStyles, getCSSTextStyles } from '../utilities/text.utilities';
 
 export const styles: { inline: string } & { [key in TEXT_STYLE]: string } &
-  { [key in PARAGRAPH_SIZE]: string } &
-  { [key in TEXT_LEVEL]: string } & {
+  { [key in PARAGRAPH_SIZE]: string } & {
     inline: string;
   } = {
   large: style(({ theme, cssTheme }: Theme) => ({
@@ -74,27 +73,5 @@ export const styles: { inline: string } & { [key in TEXT_STYLE]: string } &
   })),
   italicBold: style(({ theme, cssTheme }: Theme) => ({
     ...getCSSFontTextStyles(cssTheme.typography.paragraphs.styles.italicBold),
-  })),
-
-  /**
-   * Text styles
-   */
-  primary: style(({ theme, cssTheme }: Theme) => ({
-    color: cssTheme.colors.colorIntents.primaryText,
-  })),
-  primaryReversed: style(({ theme, cssTheme }: Theme) => ({
-    color: cssTheme.colors.colorIntents.primaryTextReversed,
-  })),
-  secondary: style(({ theme, cssTheme }: Theme) => ({
-    color: cssTheme.colors.colorIntents.secondaryText,
-  })),
-  secondaryReversed: style(({ theme, cssTheme }: Theme) => ({
-    color: cssTheme.colors.colorIntents.secondaryTextReversed,
-  })),
-  tertiary: style(({ theme, cssTheme }: Theme) => ({
-    color: cssTheme.colors.colorIntents.tertiaryText,
-  })),
-  tertiaryReversed: style(({ theme, cssTheme }: Theme) => ({
-    color: cssTheme.colors.colorIntents.tertiaryTextReversed,
   })),
 };

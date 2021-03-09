@@ -1,0 +1,35 @@
+{
+  "name": "@newrade/core-figma-extractor",
+  "version": "1.1.0",
+  "description": "Utility to extract colors, text styles and other tokens from figma",
+  "license": "MIT",
+  "main": "./lib/src/index.js",
+  "module": "./lib/src/esm/index.js",
+  "files": [
+    "./lib/**/*"
+  ],
+  "scripts": {
+    "build": "yarn build:commonjs && yarn build:esm",
+    "build:commonjs": "tsc --build tsconfig.build.json",
+    "build:esm": "tsc --build tsconfig.build.esm.json",
+    "clean": "rimraf -r lib/** && rm -f tsconfig.build.tsbuildinfo",
+    "extract": ". ./.env && DEBUG=$DEBUG cross-env TS_NODE_PROJECT=tsconfig.bin.json node -r ts-node/register bin/run.ts",
+    "start": "concurrently \"yarn start:commonjs\" \"yarn start:esm\"",
+    "start:commonjs": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
+    "start:esm": "tsc --build tsconfig.build.esm.json --watch --preserveWatchOutput",
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "sideEffects": false,
+  "typings": "./lib/src/index.d.ts",
+  "dependencies": {
+    "@newrade/core-common": "^1.2.3",
+    "@newrade/core-design-system": "^1.9.2",
+    "@newrade/core-types": "^1.4.0",
+    "@newrade/core-utils": "^1.6.3",
+    "figma-js": "^1.11.0"
+  },
+  "devDependencies": {
+    "@newrade/core-cli": "^1.7.0"
+  }
+}
