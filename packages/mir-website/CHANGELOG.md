@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.12.0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/mir-website@1.11.1...@newrade/mir-website@1.12.0) (2021-03-09)
+
+### Bug Fixes
+
+- **core-design-system-docs:** init package ([224064a](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/224064a713a5f41f998fe1e8e18ea4bfbe8b048d))
+- **core-gatsby-config:** refactor page creation ([9b0161c](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/9b0161c24dce482a98d55dc0fb0682f1f9ef80fa))
+- **lint-fix:** fixing current lint error on the build ([c28d6f3](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/c28d6f3e688af0e4ad42abe1a8bc5630b663dbda))
+- **mir-website:** fix mir ([ce3b1bd](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ce3b1bd50b33dba12daf5dcb0439ba410980a022))
+- **newrade-website:** docs update ([08db9ce](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/08db9ce60c3779684db9260c435792e532bd6729))
+- **newrade-website:** fix types ([ae5b88c](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ae5b88c78e4818ddf296553a20a92f63b5b22791))
+
+### Features
+
+- **gatsby:** upgrade to latest v2 gatsby ([6ccfd11](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/6ccfd11efe789383353be0cd3b5a251e22a8f41a))
+
 ## [1.11.1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/mir-website@1.11.0...@newrade/mir-website@1.11.1) (2021-02-22)
 
 ### Bug Fixes

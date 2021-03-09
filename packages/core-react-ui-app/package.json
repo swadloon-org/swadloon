@@ -1,6 +1,6 @@
 {
   "name": "@newrade/core-react-ui-app",
-  "version": "1.5.9",
+  "version": "1.6.0",
   "description": "UI App library",
   "license": "MIT",
   "scripts": {
@@ -12,12 +12,12 @@
   "type": "module",
   "typings": "./lib/index.d.ts",
   "dependencies": {
-    "@newrade/core-common": "^1.2.2",
-    "@newrade/core-design-system": "^1.9.1",
-    "@newrade/core-jest-config": "^1.5.6",
-    "@newrade/core-react-ui": "^1.11.1",
-    "@newrade/core-types": "^1.3.2",
-    "@newrade/core-utils": "^1.6.2",
-    "@newrade/core-webpack-config": "^1.4.4"
+    "@newrade/core-common": "^1.2.3",
+    "@newrade/core-design-system": "^1.9.2",
+    "@newrade/core-jest-config": "^1.5.7",
+    "@newrade/core-react-ui": "^1.12.0",
+    "@newrade/core-types": "^1.4.0",
+    "@newrade/core-utils": "^1.6.3",
+    "@newrade/core-webpack-config": "^1.5.0"
   }
 }

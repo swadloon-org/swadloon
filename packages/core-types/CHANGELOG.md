@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/newrade/newrade-core/tree/master/packages/core-common/compare/@newrade/core-types@1.3.2...@newrade/core-types@1.4.0) (2021-03-09)
+
+### Bug Fixes
+
+- **core-design-system-docs:** init package ([224064a](https://github.com/newrade/newrade-core/tree/master/packages/core-common/commit/224064a713a5f41f998fe1e8e18ea4bfbe8b048d))
+- **newrade-website:** clean up ([9534e61](https://github.com/newrade/newrade-core/tree/master/packages/core-common/commit/9534e61b01545371bde739d05c4519ead5fbd143))
+- **newrade-website:** docs update ([08db9ce](https://github.com/newrade/newrade-core/tree/master/packages/core-common/commit/08db9ce60c3779684db9260c435792e532bd6729))
+
+### Features
+
+- **gatsby:** upgrade to latest v2 gatsby ([6ccfd11](https://github.com/newrade/newrade-core/tree/master/packages/core-common/commit/6ccfd11efe789383353be0cd3b5a251e22a8f41a))
+
 ## [1.3.2](https://github.com/newrade/newrade-core/tree/master/packages/core-common/compare/@newrade/core-types@1.3.1...@newrade/core-types@1.3.2) (2021-02-22)
 
 ### Bug Fixes

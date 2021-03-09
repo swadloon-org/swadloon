@@ -3,6 +3,47 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-ui@1.5.1...@newrade/core-gatsby-ui@1.6.0) (2021-03-09)
+
+### Bug Fixes
+
+- **cdpq-website:** fix imports ([86ffeb9](https://github.com/newrade/newrade/commit/86ffeb96b028af4fad2c287d16a782a31b343fdf))
+- **core-design-system-docs:** init package ([224064a](https://github.com/newrade/newrade/commit/224064a713a5f41f998fe1e8e18ea4bfbe8b048d))
+- **core-gatsby-config:** fix page path for design system page ([2abccf6](https://github.com/newrade/newrade/commit/2abccf6c6829061480eaa6950485b3d13885d177))
+- **core-gatsby-config:** refactor page creation ([9b0161c](https://github.com/newrade/newrade/commit/9b0161c24dce482a98d55dc0fb0682f1f9ef80fa))
+- **core-gatsby-config:** things are starting to work again ([9b5dec8](https://github.com/newrade/newrade/commit/9b5dec81b161122302006f924aa95f443ad116d2))
+- **core-gatsby-ui:** add more data models ([4fd195c](https://github.com/newrade/newrade/commit/4fd195ce14597d5ff0f29c9b9f830b4593d394d7))
+- **core-gatsby-ui:** fixes for section components ([6007d5f](https://github.com/newrade/newrade/commit/6007d5fbcb390d2ef1e2826312a5d0fcceec4a32))
+- **core-react-ui:** fix list item, using flex now ([5f462e4](https://github.com/newrade/newrade/commit/5f462e45b0ced1a6ad3b891401e3b8ace802c4a7))
+- **core-react-ui:** fix tests ([400fbe8](https://github.com/newrade/newrade/commit/400fbe8985b4046eabfb8f4c0e9071fde57f6e5a))
+- **core-react-ui:** rework sidebars ([bc6e2d1](https://github.com/newrade/newrade/commit/bc6e2d1722f0814eb47db3907452f60d91567144))
+- **core-react-ui:** trying to find issue ([a62e71c](https://github.com/newrade/newrade/commit/a62e71c9c14b2897eb5d619457f2727eed2f2938))
+- **corereact-ui:** fix nasty bug with treat files importing other treat files ([d1644df](https://github.com/newrade/newrade/commit/d1644df51704ce05edb1aabcf7cf3a74d91edf00))
+- **docs:** fix image path ([a563f22](https://github.com/newrade/newrade/commit/a563f2294fcf315c439e8ca45861e4beab23e0f2))
+- **newrade-website:** clean up ([9534e61](https://github.com/newrade/newrade/commit/9534e61b01545371bde739d05c4519ead5fbd143))
+- **newrade-website:** docs update ([08db9ce](https://github.com/newrade/newrade/commit/08db9ce60c3779684db9260c435792e532bd6729))
+- **vbs-website:** fix steps section ([def91cc](https://github.com/newrade/newrade/commit/def91cc31dae2c6ffc22449c87a1f90265616125))
+- **vsb-website:** fix custom form section and block ([206f09b](https://github.com/newrade/newrade/commit/206f09b90c3418f984392deb55509c7edf2943f6))
+- **vsb-website:** fixes ([41a0aa2](https://github.com/newrade/newrade/commit/41a0aa279971986f0a2d7f598cf1966715083fd2))
+- **vsb-website:** fixing build ([5b446af](https://github.com/newrade/newrade/commit/5b446afda481089b7ec00c85b36f4233db305689))
+- **vsb-website:** remove old sections ([c8292a4](https://github.com/newrade/newrade/commit/c8292a46868d22dc9229481f974f2d9bde8fff06))
+- **vsb-website:** wip ([3b87b81](https://github.com/newrade/newrade/commit/3b87b815f1a9062da29341c234defa8ab5d63e24))
+- **vsb-website:** working on sections & blocks ([8641d04](https://github.com/newrade/newrade/commit/8641d04cb1a44737d19a7330ed038105fa9b6b7c))
+
+### Features
+
+- **cdpq-website:** init ([abe071b](https://github.com/newrade/newrade/commit/abe071bd2a3834d32dd96f25f5831649cdd2618f))
+- **contentful-lib-update:** fix and update of the contentful lib for the export of newrade ([c970a83](https://github.com/newrade/newrade/commit/c970a83b07ee4883a984b6a6c69a94cfcb94895b))
+- **core-gatsby-config:** refactor page creation logic for .mdx, .md, and .tsx files ([02cb1bb](https://github.com/newrade/newrade/commit/02cb1bb2dc93be32ed8e5fda87c062ae2c05ea05))
+- **core-gatsby-ui:** implemented section banner ([6514337](https://github.com/newrade/newrade/commit/6514337788141b7bede1d74084aee10f21b6e8c2))
+- **core-gatsby-ui:** working on new blocks, sections and api ([aa67282](https://github.com/newrade/newrade/commit/aa67282fb497895abe7f7583d2a573f07b392cc0))
+- **core-gatsy-ui:** add block-google-maps ([4efaf57](https://github.com/newrade/newrade/commit/4efaf578cd92ca4ed84f1bd7bb22d38b3dc38b3c))
+- **gatsby-ui-api:** adding the missing part of the data models of all .api ([9bb9da9](https://github.com/newrade/newrade/commit/9bb9da94cc6deb386b72bca31bea1fd20d830b55))
+- **gsap:** wip ([0d099eb](https://github.com/newrade/newrade/commit/0d099ebbc78f50910e56ffada9b92d6d51025883))
+- **newrade-website:** reorg docs ([47856d1](https://github.com/newrade/newrade/commit/47856d1889c2311c01cf4cd9f94f52fadd1ac61f))
+- **newrade-website:** update docs ([999fa76](https://github.com/newrade/newrade/commit/999fa7639941e100bf5c5aaff42fdd4fcb65236b))
+- **vsb-website:** implement v1 of callout section as a variation of banner ([ef723da](https://github.com/newrade/newrade/commit/ef723da0d9386ec7b8f6a689f074fed42e553df2))
+
 ## [1.5.1](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-ui@1.5.0...@newrade/core-gatsby-ui@1.5.1) (2021-02-22)
 
 ### Bug Fixes

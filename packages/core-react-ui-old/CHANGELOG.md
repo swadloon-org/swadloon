@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.5](https://github.com/newrade/newrade/compare/@newrade/core-react-ui-old@1.6.4...@newrade/core-react-ui-old@1.6.5) (2021-03-09)
+
+### Bug Fixes
+
+- **lint-fix:** fixing current lint error on the build ([c28d6f3](https://github.com/newrade/newrade/commit/c28d6f3e688af0e4ad42abe1a8bc5630b663dbda))
+
 ## [1.6.4](https://github.com/newrade/newrade/compare/@newrade/core-react-ui-old@1.6.3...@newrade/core-react-ui-old@1.6.4) (2021-02-22)
 
 ### Bug Fixes

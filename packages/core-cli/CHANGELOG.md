@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-cli@1.6.1...@newrade/core-cli@1.7.0) (2021-03-09)
+
+### Bug Fixes
+
+- **adding-log-fix:** fixing the formating of the figma-color.ts and adding new logError ([ad7d646](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/ad7d6460b93aa3a83efc948138fadc8cea3dc7b8))
+- **core-cli:** fix tsconfig path ([15ff3d4](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/15ff3d4ca98070f5bc2ff19452f00eb04b51c0c1))
+- **core-figma-extractor:** fix bad import ([68b3c64](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/68b3c645928aa2c65719d8b3b54740a2042ef782))
+- **core-figma-extractor:** refactor extract color functions ([bba1455](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/bba1455cde161672fbff7184964fdd894b9af694))
+- **core-gatsby-config:** things are starting to work again ([9b5dec8](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/9b5dec81b161122302006f924aa95f443ad116d2))
+- **fix-error-compile:** fixing the creation of figma colors ([b72ef19](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/b72ef192ed693d333d3cf266abc04f5abf81f16e))
+- **vsb-website:** working on sections & blocks ([8641d04](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/8641d04cb1a44737d19a7330ed038105fa9b6b7c))
+
+### Features
+
+- **gsap:** wip ([0d099eb](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/0d099ebbc78f50910e56ffada9b92d6d51025883))
+- **new-figma-request-model:** adding thefigma style request in the current color extractor ([8f63750](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/8f637506d77f9df0936c142d87f29f5452702c43))
+- **parsing-color:** parsing all the color of the style ([6124b85](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/6124b85eadfc10c5f878fec58b16b16b33c22bb6))
+
 ## [1.6.1](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-cli@1.6.0...@newrade/core-cli@1.6.1) (2021-02-22)
 
 ### Bug Fixes

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.3](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/compare/@newrade/core-utils@1.6.2...@newrade/core-utils@1.6.3) (2021-03-09)
+
+### Bug Fixes
+
+- **vsb-website:** section banner done ([0fb9609](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/commit/0fb9609bcbc0d83aaee537e6033da01ff4dae620))
+
 ## [1.6.2](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/compare/@newrade/core-utils@1.6.1...@newrade/core-utils@1.6.2) (2021-02-22)
 
 ### Bug Fixes
