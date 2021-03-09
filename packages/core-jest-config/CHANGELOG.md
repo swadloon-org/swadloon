@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.7](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/compare/@newrade/core-jest-config@1.5.6...@newrade/core-jest-config@1.5.7) (2021-03-09)
+
+**Note:** Version bump only for package @newrade/core-jest-config
+
 ## [1.5.6](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/compare/@newrade/core-jest-config@1.5.5...@newrade/core-jest-config@1.5.6) (2021-02-22)
 
 ### Bug Fixes

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/newrade/newrade/tree/master/packages/newrade-admin/compare/@newrade/newrade-admin@1.4.4...@newrade/newrade-admin@1.5.0) (2021-03-09)
+
+### Features
+
+- **newrade-website:** update docs ([999fa76](https://github.com/newrade/newrade/tree/master/packages/newrade-admin/commit/999fa7639941e100bf5c5aaff42fdd4fcb65236b))
+
 ## [1.4.4](https://github.com/newrade/newrade/tree/master/packages/newrade-admin/compare/@newrade/newrade-admin@1.4.3...@newrade/newrade-admin@1.4.4) (2021-02-22)
 
 **Note:** Version bump only for package @newrade/newrade-admin

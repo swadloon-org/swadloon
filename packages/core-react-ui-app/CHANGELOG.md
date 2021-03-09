@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/newrade/newrade/compare/@newrade/core-react-ui-app@1.5.9...@newrade/core-react-ui-app@1.6.0) (2021-03-09)
+
+### Bug Fixes
+
+- **core-react-ui:** trying to find issue ([a62e71c](https://github.com/newrade/newrade/commit/a62e71c9c14b2897eb5d619457f2727eed2f2938))
+- **corereact-ui:** fix nasty bug with treat files importing other treat files ([d1644df](https://github.com/newrade/newrade/commit/d1644df51704ce05edb1aabcf7cf3a74d91edf00))
+
+### Features
+
+- **gatsby:** upgrade to latest v2 gatsby ([6ccfd11](https://github.com/newrade/newrade/commit/6ccfd11efe789383353be0cd3b5a251e22a8f41a))
+
 ## [1.5.9](https://github.com/newrade/newrade/compare/@newrade/core-react-ui-app@1.5.8...@newrade/core-react-ui-app@1.5.9) (2021-02-22)
 
 ### Bug Fixes

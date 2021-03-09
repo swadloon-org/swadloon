@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.3](https://github.com/newrade/newrade-core/tree/master/packages/core-common/compare/@newrade/core-common@1.2.2...@newrade/core-common@1.2.3) (2021-03-09)
+
+### Bug Fixes
+
+- **newrade-website:** docs update ([08db9ce](https://github.com/newrade/newrade-core/tree/master/packages/core-common/commit/08db9ce60c3779684db9260c435792e532bd6729))
+
 ## [1.2.2](https://github.com/newrade/newrade-core/tree/master/packages/core-common/compare/@newrade/core-common@1.2.1...@newrade/core-common@1.2.2) (2021-02-22)
 
 ### Bug Fixes
