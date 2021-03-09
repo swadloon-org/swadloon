@@ -10,11 +10,4 @@ export const styles = {
     overflowX: 'auto',
     marginBottom: 16,
   })),
-  error: style(({ theme, cssTheme }: Theme) => ({
-    padding: 16,
-    userSelect: 'text',
-    fontSize: `14px !important`,
-    lineHeight: 1.5,
-    overflow: `auto hidden`,
-  })),
 };

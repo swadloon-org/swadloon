@@ -2,7 +2,7 @@ import { Language, PrismTheme } from 'prism-react-renderer';
 import React from 'react';
 import Editor from 'react-simple-code-editor';
 import { useStyles } from 'react-treat';
-import * as styleRefs from './code-block.treat';
+import * as styleRefs from './code-editor.treat';
 import { CodeHighlight } from './code-highlight';
 
 /**

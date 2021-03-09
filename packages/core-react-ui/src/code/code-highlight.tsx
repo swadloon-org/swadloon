@@ -1,7 +1,7 @@
 import Highlight, { Language, Prism, PrismTheme } from 'prism-react-renderer';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import * as styleRefs from './code-block.treat';
+import * as styleRefs from './code-highlight.treat';
 
 type Props = {
   code?: string;

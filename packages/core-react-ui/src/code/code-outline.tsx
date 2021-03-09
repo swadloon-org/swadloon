@@ -4,7 +4,7 @@ import { useCommonProps } from '../hooks/use-common-props.hook';
 import { useTreatTheme } from '../hooks/use-treat-theme';
 import { Stack } from '../layout/stack';
 import { CommonComponentProps } from '../props/component-common.props';
-import * as styleRefs from './code-block.treat';
+import * as styleRefs from './code-outline.treat';
 
 type Props = CommonComponentProps;
 
