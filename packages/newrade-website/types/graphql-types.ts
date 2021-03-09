@@ -1195,6 +1195,7 @@ export type ContentfulBlockFieldsEnum =
   | 'text___childrenMdx___wordCount___paragraphs'
   | 'text___childrenMdx___wordCount___sentences'
   | 'text___childrenMdx___wordCount___words'
+  | 'text___childrenMdx___exports___youtubeDocLink'
   | 'text___childrenMdx___id'
   | 'text___childrenMdx___parent___id'
   | 'text___childrenMdx___parent___children'
@@ -1229,6 +1230,7 @@ export type ContentfulBlockFieldsEnum =
   | 'text___childMdx___wordCount___paragraphs'
   | 'text___childMdx___wordCount___sentences'
   | 'text___childMdx___wordCount___words'
+  | 'text___childMdx___exports___youtubeDocLink'
   | 'text___childMdx___id'
   | 'text___childMdx___parent___id'
   | 'text___childMdx___parent___children'
@@ -1306,6 +1308,7 @@ export type ContentfulBlockFieldsEnum =
   | 'childrenContentfulBlockTextTextNode___childrenMdx___wordCount___paragraphs'
   | 'childrenContentfulBlockTextTextNode___childrenMdx___wordCount___sentences'
   | 'childrenContentfulBlockTextTextNode___childrenMdx___wordCount___words'
+  | 'childrenContentfulBlockTextTextNode___childrenMdx___exports___youtubeDocLink'
   | 'childrenContentfulBlockTextTextNode___childrenMdx___id'
   | 'childrenContentfulBlockTextTextNode___childrenMdx___parent___id'
   | 'childrenContentfulBlockTextTextNode___childrenMdx___parent___children'
@@ -1340,6 +1343,7 @@ export type ContentfulBlockFieldsEnum =
   | 'childrenContentfulBlockTextTextNode___childMdx___wordCount___paragraphs'
   | 'childrenContentfulBlockTextTextNode___childMdx___wordCount___sentences'
   | 'childrenContentfulBlockTextTextNode___childMdx___wordCount___words'
+  | 'childrenContentfulBlockTextTextNode___childMdx___exports___youtubeDocLink'
   | 'childrenContentfulBlockTextTextNode___childMdx___id'
   | 'childrenContentfulBlockTextTextNode___childMdx___parent___id'
   | 'childrenContentfulBlockTextTextNode___childMdx___parent___children'
@@ -1415,6 +1419,7 @@ export type ContentfulBlockFieldsEnum =
   | 'childContentfulBlockTextTextNode___childrenMdx___wordCount___paragraphs'
   | 'childContentfulBlockTextTextNode___childrenMdx___wordCount___sentences'
   | 'childContentfulBlockTextTextNode___childrenMdx___wordCount___words'
+  | 'childContentfulBlockTextTextNode___childrenMdx___exports___youtubeDocLink'
   | 'childContentfulBlockTextTextNode___childrenMdx___id'
   | 'childContentfulBlockTextTextNode___childrenMdx___parent___id'
   | 'childContentfulBlockTextTextNode___childrenMdx___parent___children'
@@ -1449,6 +1454,7 @@ export type ContentfulBlockFieldsEnum =
   | 'childContentfulBlockTextTextNode___childMdx___wordCount___paragraphs'
   | 'childContentfulBlockTextTextNode___childMdx___wordCount___sentences'
   | 'childContentfulBlockTextTextNode___childMdx___wordCount___words'
+  | 'childContentfulBlockTextTextNode___childMdx___exports___youtubeDocLink'
   | 'childContentfulBlockTextTextNode___childMdx___id'
   | 'childContentfulBlockTextTextNode___childMdx___parent___id'
   | 'childContentfulBlockTextTextNode___childMdx___parent___children'
@@ -1688,6 +1694,7 @@ export type ContentfulBlockTextTextNodeFieldsEnum =
   | 'childrenMdx___wordCount___paragraphs'
   | 'childrenMdx___wordCount___sentences'
   | 'childrenMdx___wordCount___words'
+  | 'childrenMdx___exports___youtubeDocLink'
   | 'childrenMdx___id'
   | 'childrenMdx___parent___id'
   | 'childrenMdx___parent___parent___id'
@@ -1746,6 +1753,7 @@ export type ContentfulBlockTextTextNodeFieldsEnum =
   | 'childMdx___wordCount___paragraphs'
   | 'childMdx___wordCount___sentences'
   | 'childMdx___wordCount___words'
+  | 'childMdx___exports___youtubeDocLink'
   | 'childMdx___id'
   | 'childMdx___parent___id'
   | 'childMdx___parent___parent___id'
@@ -5393,6 +5401,7 @@ export type ContentfulPageDescriptionTextNodeFieldsEnum =
   | 'childrenMdx___wordCount___paragraphs'
   | 'childrenMdx___wordCount___sentences'
   | 'childrenMdx___wordCount___words'
+  | 'childrenMdx___exports___youtubeDocLink'
   | 'childrenMdx___id'
   | 'childrenMdx___parent___id'
   | 'childrenMdx___parent___parent___id'
@@ -5451,6 +5460,7 @@ export type ContentfulPageDescriptionTextNodeFieldsEnum =
   | 'childMdx___wordCount___paragraphs'
   | 'childMdx___wordCount___sentences'
   | 'childMdx___wordCount___words'
+  | 'childMdx___exports___youtubeDocLink'
   | 'childMdx___id'
   | 'childMdx___parent___id'
   | 'childMdx___parent___parent___id'
@@ -5873,6 +5883,7 @@ export type ContentfulPageFieldsEnum =
   | 'description___childrenMdx___wordCount___paragraphs'
   | 'description___childrenMdx___wordCount___sentences'
   | 'description___childrenMdx___wordCount___words'
+  | 'description___childrenMdx___exports___youtubeDocLink'
   | 'description___childrenMdx___id'
   | 'description___childrenMdx___parent___id'
   | 'description___childrenMdx___parent___children'
@@ -5907,6 +5918,7 @@ export type ContentfulPageFieldsEnum =
   | 'description___childMdx___wordCount___paragraphs'
   | 'description___childMdx___wordCount___sentences'
   | 'description___childMdx___wordCount___words'
+  | 'description___childMdx___exports___youtubeDocLink'
   | 'description___childMdx___id'
   | 'description___childMdx___parent___id'
   | 'description___childMdx___parent___children'
@@ -6220,6 +6232,7 @@ export type ContentfulPageFieldsEnum =
   | 'childrenContentfulPageDescriptionTextNode___childrenMdx___wordCount___paragraphs'
   | 'childrenContentfulPageDescriptionTextNode___childrenMdx___wordCount___sentences'
   | 'childrenContentfulPageDescriptionTextNode___childrenMdx___wordCount___words'
+  | 'childrenContentfulPageDescriptionTextNode___childrenMdx___exports___youtubeDocLink'
   | 'childrenContentfulPageDescriptionTextNode___childrenMdx___id'
   | 'childrenContentfulPageDescriptionTextNode___childrenMdx___parent___id'
   | 'childrenContentfulPageDescriptionTextNode___childrenMdx___parent___children'
@@ -6254,6 +6267,7 @@ export type ContentfulPageFieldsEnum =
   | 'childrenContentfulPageDescriptionTextNode___childMdx___wordCount___paragraphs'
   | 'childrenContentfulPageDescriptionTextNode___childMdx___wordCount___sentences'
   | 'childrenContentfulPageDescriptionTextNode___childMdx___wordCount___words'
+  | 'childrenContentfulPageDescriptionTextNode___childMdx___exports___youtubeDocLink'
   | 'childrenContentfulPageDescriptionTextNode___childMdx___id'
   | 'childrenContentfulPageDescriptionTextNode___childMdx___parent___id'
   | 'childrenContentfulPageDescriptionTextNode___childMdx___parent___children'
@@ -6329,6 +6343,7 @@ export type ContentfulPageFieldsEnum =
   | 'childContentfulPageDescriptionTextNode___childrenMdx___wordCount___paragraphs'
   | 'childContentfulPageDescriptionTextNode___childrenMdx___wordCount___sentences'
   | 'childContentfulPageDescriptionTextNode___childrenMdx___wordCount___words'
+  | 'childContentfulPageDescriptionTextNode___childrenMdx___exports___youtubeDocLink'
   | 'childContentfulPageDescriptionTextNode___childrenMdx___id'
   | 'childContentfulPageDescriptionTextNode___childrenMdx___parent___id'
   | 'childContentfulPageDescriptionTextNode___childrenMdx___parent___children'
@@ -6363,6 +6378,7 @@ export type ContentfulPageFieldsEnum =
   | 'childContentfulPageDescriptionTextNode___childMdx___wordCount___paragraphs'
   | 'childContentfulPageDescriptionTextNode___childMdx___wordCount___sentences'
   | 'childContentfulPageDescriptionTextNode___childMdx___wordCount___words'
+  | 'childContentfulPageDescriptionTextNode___childMdx___exports___youtubeDocLink'
   | 'childContentfulPageDescriptionTextNode___childMdx___id'
   | 'childContentfulPageDescriptionTextNode___childMdx___parent___id'
   | 'childContentfulPageDescriptionTextNode___childMdx___parent___children'
@@ -8068,6 +8084,7 @@ export type FileFieldsEnum =
   | 'childrenMdx___wordCount___paragraphs'
   | 'childrenMdx___wordCount___sentences'
   | 'childrenMdx___wordCount___words'
+  | 'childrenMdx___exports___youtubeDocLink'
   | 'childrenMdx___id'
   | 'childrenMdx___parent___id'
   | 'childrenMdx___parent___parent___id'
@@ -8126,6 +8143,7 @@ export type FileFieldsEnum =
   | 'childMdx___wordCount___paragraphs'
   | 'childMdx___wordCount___sentences'
   | 'childMdx___wordCount___words'
+  | 'childMdx___exports___youtubeDocLink'
   | 'childMdx___id'
   | 'childMdx___parent___id'
   | 'childMdx___parent___parent___id'
@@ -8955,6 +8973,7 @@ export type Mdx = Node & {
   tableOfContents?: Maybe<Scalars['JSON']>;
   timeToRead?: Maybe<Scalars['Int']>;
   wordCount?: Maybe<MdxWordCount>;
+  exports?: Maybe<MdxExports>;
   id: Scalars['ID'];
   parent?: Maybe<Node>;
   children: Array<Node>;
@@ -9004,6 +9023,14 @@ export type MdxEdge = {
   previous?: Maybe<Mdx>;
 };
 
+export type MdxExports = {
+  youtubeDocLink?: Maybe<Scalars['String']>;
+};
+
+export type MdxExportsFilterInput = {
+  youtubeDocLink?: Maybe<StringQueryOperatorInput>;
+};
+
 export type MdxFieldsEnum = 
   | 'rawBody'
   | 'fileAbsolutePath'
@@ -9025,6 +9052,7 @@ export type MdxFieldsEnum =
   | 'wordCount___paragraphs'
   | 'wordCount___sentences'
   | 'wordCount___words'
+  | 'exports___youtubeDocLink'
   | 'id'
   | 'parent___id'
   | 'parent___parent___id'
@@ -9125,6 +9153,7 @@ export type MdxFilterInput = {
   tableOfContents?: Maybe<JsonQueryOperatorInput>;
   timeToRead?: Maybe<IntQueryOperatorInput>;
   wordCount?: Maybe<MdxWordCountFilterInput>;
+  exports?: Maybe<MdxExportsFilterInput>;
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
@@ -9392,6 +9421,8 @@ export type QueryAllDirectoryArgs = {
 export type QuerySiteArgs = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  port?: Maybe<IntQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
   flags?: Maybe<SiteFlagsFilterInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
@@ -9416,15 +9447,15 @@ export type QuerySitePageArgs = {
   internalComponentName?: Maybe<StringQueryOperatorInput>;
   componentChunkName?: Maybe<StringQueryOperatorInput>;
   matchPath?: Maybe<StringQueryOperatorInput>;
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
   isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>;
   context?: Maybe<SitePageContextFilterInput>;
   pluginCreator?: Maybe<SitePluginFilterInput>;
   pluginCreatorId?: Maybe<StringQueryOperatorInput>;
   componentPath?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
 };
 
 
@@ -9472,6 +9503,7 @@ export type QueryMdxArgs = {
   tableOfContents?: Maybe<JsonQueryOperatorInput>;
   timeToRead?: Maybe<IntQueryOperatorInput>;
   wordCount?: Maybe<MdxWordCountFilterInput>;
+  exports?: Maybe<MdxExportsFilterInput>;
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
@@ -9876,6 +9908,8 @@ export type QueryAllSitePluginArgs = {
 export type Site = Node & {
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
+  port?: Maybe<Scalars['Int']>;
+  host?: Maybe<Scalars['String']>;
   flags?: Maybe<SiteFlags>;
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
@@ -10082,6 +10116,8 @@ export type SiteFieldsEnum =
   | 'siteMetadata___siteEnv'
   | 'siteMetadata___languages___langs'
   | 'siteMetadata___languages___defaultLangKey'
+  | 'port'
+  | 'host'
   | 'flags___PRESERVE_WEBPACK_CACHE'
   | 'flags___PRESERVE_FILE_DOWNLOAD_CACHE'
   | 'flags___QUERY_ON_DEMAND'
@@ -10183,6 +10219,8 @@ export type SiteFieldsEnum =
 export type SiteFilterInput = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  port?: Maybe<IntQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
   flags?: Maybe<SiteFlagsFilterInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
@@ -10231,15 +10269,15 @@ export type SitePage = Node & {
   internalComponentName: Scalars['String'];
   componentChunkName: Scalars['String'];
   matchPath?: Maybe<Scalars['String']>;
-  id: Scalars['ID'];
-  parent?: Maybe<Node>;
-  children: Array<Node>;
-  internal: Internal;
   isCreatedByStatefulCreatePages?: Maybe<Scalars['Boolean']>;
   context?: Maybe<SitePageContext>;
   pluginCreator?: Maybe<SitePlugin>;
   pluginCreatorId?: Maybe<Scalars['String']>;
   componentPath?: Maybe<Scalars['String']>;
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
 };
 
 export type SitePageConnection = {
@@ -10327,92 +10365,6 @@ export type SitePageFieldsEnum =
   | 'internalComponentName'
   | 'componentChunkName'
   | 'matchPath'
-  | 'id'
-  | 'parent___id'
-  | 'parent___parent___id'
-  | 'parent___parent___parent___id'
-  | 'parent___parent___parent___children'
-  | 'parent___parent___children'
-  | 'parent___parent___children___id'
-  | 'parent___parent___children___children'
-  | 'parent___parent___internal___content'
-  | 'parent___parent___internal___contentDigest'
-  | 'parent___parent___internal___description'
-  | 'parent___parent___internal___fieldOwners'
-  | 'parent___parent___internal___ignoreType'
-  | 'parent___parent___internal___mediaType'
-  | 'parent___parent___internal___owner'
-  | 'parent___parent___internal___type'
-  | 'parent___children'
-  | 'parent___children___id'
-  | 'parent___children___parent___id'
-  | 'parent___children___parent___children'
-  | 'parent___children___children'
-  | 'parent___children___children___id'
-  | 'parent___children___children___children'
-  | 'parent___children___internal___content'
-  | 'parent___children___internal___contentDigest'
-  | 'parent___children___internal___description'
-  | 'parent___children___internal___fieldOwners'
-  | 'parent___children___internal___ignoreType'
-  | 'parent___children___internal___mediaType'
-  | 'parent___children___internal___owner'
-  | 'parent___children___internal___type'
-  | 'parent___internal___content'
-  | 'parent___internal___contentDigest'
-  | 'parent___internal___description'
-  | 'parent___internal___fieldOwners'
-  | 'parent___internal___ignoreType'
-  | 'parent___internal___mediaType'
-  | 'parent___internal___owner'
-  | 'parent___internal___type'
-  | 'children'
-  | 'children___id'
-  | 'children___parent___id'
-  | 'children___parent___parent___id'
-  | 'children___parent___parent___children'
-  | 'children___parent___children'
-  | 'children___parent___children___id'
-  | 'children___parent___children___children'
-  | 'children___parent___internal___content'
-  | 'children___parent___internal___contentDigest'
-  | 'children___parent___internal___description'
-  | 'children___parent___internal___fieldOwners'
-  | 'children___parent___internal___ignoreType'
-  | 'children___parent___internal___mediaType'
-  | 'children___parent___internal___owner'
-  | 'children___parent___internal___type'
-  | 'children___children'
-  | 'children___children___id'
-  | 'children___children___parent___id'
-  | 'children___children___parent___children'
-  | 'children___children___children'
-  | 'children___children___children___id'
-  | 'children___children___children___children'
-  | 'children___children___internal___content'
-  | 'children___children___internal___contentDigest'
-  | 'children___children___internal___description'
-  | 'children___children___internal___fieldOwners'
-  | 'children___children___internal___ignoreType'
-  | 'children___children___internal___mediaType'
-  | 'children___children___internal___owner'
-  | 'children___children___internal___type'
-  | 'children___internal___content'
-  | 'children___internal___contentDigest'
-  | 'children___internal___description'
-  | 'children___internal___fieldOwners'
-  | 'children___internal___ignoreType'
-  | 'children___internal___mediaType'
-  | 'children___internal___owner'
-  | 'children___internal___type'
-  | 'internal___content'
-  | 'internal___contentDigest'
-  | 'internal___description'
-  | 'internal___fieldOwners'
-  | 'internal___ignoreType'
-  | 'internal___mediaType'
-  | 'internal___owner'
-  | 'internal___type'
   | 'isCreatedByStatefulCreatePages'
   | 'context___siteMetadata___title'
   | 'context___siteMetadata___description'
@@ -10539,7 +10491,93 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___packageJson___peerDependencies___version'
   | 'pluginCreator___packageJson___keywords'
   | 'pluginCreatorId'
-  | 'componentPath';
+  | 'componentPath'
+  | 'id'
+  | 'parent___id'
+  | 'parent___parent___id'
+  | 'parent___parent___parent___id'
+  | 'parent___parent___parent___children'
+  | 'parent___parent___children'
+  | 'parent___parent___children___id'
+  | 'parent___parent___children___children'
+  | 'parent___parent___internal___content'
+  | 'parent___parent___internal___contentDigest'
+  | 'parent___parent___internal___description'
+  | 'parent___parent___internal___fieldOwners'
+  | 'parent___parent___internal___ignoreType'
+  | 'parent___parent___internal___mediaType'
+  | 'parent___parent___internal___owner'
+  | 'parent___parent___internal___type'
+  | 'parent___children'
+  | 'parent___children___id'
+  | 'parent___children___parent___id'
+  | 'parent___children___parent___children'
+  | 'parent___children___children'
+  | 'parent___children___children___id'
+  | 'parent___children___children___children'
+  | 'parent___children___internal___content'
+  | 'parent___children___internal___contentDigest'
+  | 'parent___children___internal___description'
+  | 'parent___children___internal___fieldOwners'
+  | 'parent___children___internal___ignoreType'
+  | 'parent___children___internal___mediaType'
+  | 'parent___children___internal___owner'
+  | 'parent___children___internal___type'
+  | 'parent___internal___content'
+  | 'parent___internal___contentDigest'
+  | 'parent___internal___description'
+  | 'parent___internal___fieldOwners'
+  | 'parent___internal___ignoreType'
+  | 'parent___internal___mediaType'
+  | 'parent___internal___owner'
+  | 'parent___internal___type'
+  | 'children'
+  | 'children___id'
+  | 'children___parent___id'
+  | 'children___parent___parent___id'
+  | 'children___parent___parent___children'
+  | 'children___parent___children'
+  | 'children___parent___children___id'
+  | 'children___parent___children___children'
+  | 'children___parent___internal___content'
+  | 'children___parent___internal___contentDigest'
+  | 'children___parent___internal___description'
+  | 'children___parent___internal___fieldOwners'
+  | 'children___parent___internal___ignoreType'
+  | 'children___parent___internal___mediaType'
+  | 'children___parent___internal___owner'
+  | 'children___parent___internal___type'
+  | 'children___children'
+  | 'children___children___id'
+  | 'children___children___parent___id'
+  | 'children___children___parent___children'
+  | 'children___children___children'
+  | 'children___children___children___id'
+  | 'children___children___children___children'
+  | 'children___children___internal___content'
+  | 'children___children___internal___contentDigest'
+  | 'children___children___internal___description'
+  | 'children___children___internal___fieldOwners'
+  | 'children___children___internal___ignoreType'
+  | 'children___children___internal___mediaType'
+  | 'children___children___internal___owner'
+  | 'children___children___internal___type'
+  | 'children___internal___content'
+  | 'children___internal___contentDigest'
+  | 'children___internal___description'
+  | 'children___internal___fieldOwners'
+  | 'children___internal___ignoreType'
+  | 'children___internal___mediaType'
+  | 'children___internal___owner'
+  | 'children___internal___type'
+  | 'internal___content'
+  | 'internal___contentDigest'
+  | 'internal___description'
+  | 'internal___fieldOwners'
+  | 'internal___ignoreType'
+  | 'internal___mediaType'
+  | 'internal___owner'
+  | 'internal___type';
 
 export type SitePageFilterInput = {
   path?: Maybe<StringQueryOperatorInput>;
@@ -10547,15 +10585,15 @@ export type SitePageFilterInput = {
   internalComponentName?: Maybe<StringQueryOperatorInput>;
   componentChunkName?: Maybe<StringQueryOperatorInput>;
   matchPath?: Maybe<StringQueryOperatorInput>;
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
   isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>;
   context?: Maybe<SitePageContextFilterInput>;
   pluginCreator?: Maybe<SitePluginFilterInput>;
   pluginCreatorId?: Maybe<StringQueryOperatorInput>;
   componentPath?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
 };
 
 export type SitePageGroupConnection = {

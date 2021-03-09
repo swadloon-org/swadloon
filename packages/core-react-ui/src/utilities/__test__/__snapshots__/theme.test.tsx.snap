@@ -7682,7 +7682,7 @@ Object {
 
 exports[`theme utilities createCSSTheme should create a valid CSS theme 5`] = `
 Object {
-  "asideWidth": "210px",
+  "asideWidth": "230px",
   "breakpoints": Object {
     "desktopLarge": "1600px",
     "desktopMedium": "1440px",

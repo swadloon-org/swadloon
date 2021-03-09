@@ -13374,6 +13374,8 @@ export type QueryAllDirectoryArgs = {
 export type QuerySiteArgs = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  port?: Maybe<IntQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
   flags?: Maybe<SiteFlagsFilterInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
@@ -14061,6 +14063,8 @@ export type QueryAllSitePluginArgs = {
 export type Site = Node & {
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
+  port?: Maybe<Scalars['Int']>;
+  host?: Maybe<Scalars['String']>;
   flags?: Maybe<SiteFlags>;
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
@@ -14267,6 +14271,8 @@ export type SiteFieldsEnum =
   | 'siteMetadata___siteEnv'
   | 'siteMetadata___languages___langs'
   | 'siteMetadata___languages___defaultLangKey'
+  | 'port'
+  | 'host'
   | 'flags___PRESERVE_WEBPACK_CACHE'
   | 'flags___PRESERVE_FILE_DOWNLOAD_CACHE'
   | 'flags___QUERY_ON_DEMAND'
@@ -14368,6 +14374,8 @@ export type SiteFieldsEnum =
 export type SiteFilterInput = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  port?: Maybe<IntQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
   flags?: Maybe<SiteFlagsFilterInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
@@ -14675,13 +14683,6 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___documentPaths'
   | 'pluginCreator___pluginOptions___path'
   | 'pluginCreator___pluginOptions___ignore'
-  | 'pluginCreator___pluginOptions___extensions'
-  | 'pluginCreator___pluginOptions___gatsbyRemarkPlugins'
-  | 'pluginCreator___pluginOptions___gatsbyRemarkPlugins___resolve'
-  | 'pluginCreator___pluginOptions___remarkPlugins'
-  | 'pluginCreator___pluginOptions___remarkPlugins___target'
-  | 'pluginCreator___pluginOptions___remarkPlugins___rel'
-  | 'pluginCreator___pluginOptions___rehypePlugins'
   | 'pluginCreator___pluginOptions___source'
   | 'pluginCreator___pluginOptions___destination'
   | 'pluginCreator___pluginOptions___purge'
@@ -14705,6 +14706,13 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___allExtensions'
   | 'pluginCreator___pluginOptions___isTSX'
   | 'pluginCreator___pluginOptions___jsxPragma'
+  | 'pluginCreator___pluginOptions___extensions'
+  | 'pluginCreator___pluginOptions___gatsbyRemarkPlugins'
+  | 'pluginCreator___pluginOptions___gatsbyRemarkPlugins___resolve'
+  | 'pluginCreator___pluginOptions___remarkPlugins'
+  | 'pluginCreator___pluginOptions___remarkPlugins___target'
+  | 'pluginCreator___pluginOptions___remarkPlugins___rel'
+  | 'pluginCreator___pluginOptions___rehypePlugins'
   | 'pluginCreator___nodeAPIs'
   | 'pluginCreator___browserAPIs'
   | 'pluginCreator___ssrAPIs'
@@ -14911,21 +14919,6 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___documentPaths'
   | 'pluginOptions___path'
   | 'pluginOptions___ignore'
-  | 'pluginOptions___extensions'
-  | 'pluginOptions___gatsbyRemarkPlugins'
-  | 'pluginOptions___gatsbyRemarkPlugins___resolve'
-  | 'pluginOptions___gatsbyRemarkPlugins___options___maxWidth'
-  | 'pluginOptions___gatsbyRemarkPlugins___options___linkImagesToOriginal'
-  | 'pluginOptions___gatsbyRemarkPlugins___options___wrapperStyle'
-  | 'pluginOptions___gatsbyRemarkPlugins___options___destinationDir'
-  | 'pluginOptions___remarkPlugins'
-  | 'pluginOptions___remarkPlugins___target'
-  | 'pluginOptions___remarkPlugins___rel'
-  | 'pluginOptions___rehypePlugins'
-  | 'pluginOptions___rehypePlugins___properties___className'
-  | 'pluginOptions___rehypePlugins___content___type'
-  | 'pluginOptions___rehypePlugins___content___tagName'
-  | 'pluginOptions___rehypePlugins___content___children'
   | 'pluginOptions___source'
   | 'pluginOptions___destination'
   | 'pluginOptions___purge'
@@ -14953,6 +14946,21 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___allExtensions'
   | 'pluginOptions___isTSX'
   | 'pluginOptions___jsxPragma'
+  | 'pluginOptions___extensions'
+  | 'pluginOptions___gatsbyRemarkPlugins'
+  | 'pluginOptions___gatsbyRemarkPlugins___resolve'
+  | 'pluginOptions___gatsbyRemarkPlugins___options___maxWidth'
+  | 'pluginOptions___gatsbyRemarkPlugins___options___linkImagesToOriginal'
+  | 'pluginOptions___gatsbyRemarkPlugins___options___wrapperStyle'
+  | 'pluginOptions___gatsbyRemarkPlugins___options___destinationDir'
+  | 'pluginOptions___remarkPlugins'
+  | 'pluginOptions___remarkPlugins___target'
+  | 'pluginOptions___remarkPlugins___rel'
+  | 'pluginOptions___rehypePlugins'
+  | 'pluginOptions___rehypePlugins___properties___className'
+  | 'pluginOptions___rehypePlugins___content___type'
+  | 'pluginOptions___rehypePlugins___content___tagName'
+  | 'pluginOptions___rehypePlugins___content___children'
   | 'nodeAPIs'
   | 'browserAPIs'
   | 'ssrAPIs'
@@ -15085,10 +15093,6 @@ export type SitePluginPluginOptions = {
   documentPaths?: Maybe<Array<Maybe<Scalars['String']>>>;
   path?: Maybe<Scalars['String']>;
   ignore?: Maybe<Array<Maybe<Scalars['String']>>>;
-  extensions?: Maybe<Array<Maybe<Scalars['String']>>>;
-  gatsbyRemarkPlugins?: Maybe<Array<Maybe<SitePluginPluginOptionsGatsbyRemarkPlugins>>>;
-  remarkPlugins?: Maybe<Array<Maybe<Array<Maybe<SitePluginPluginOptionsRemarkPlugins>>>>>;
-  rehypePlugins?: Maybe<Array<Maybe<Array<Maybe<SitePluginPluginOptionsRehypePlugins>>>>>;
   source?: Maybe<Scalars['String']>;
   destination?: Maybe<Scalars['String']>;
   purge?: Maybe<Scalars['Boolean']>;
@@ -15110,6 +15114,10 @@ export type SitePluginPluginOptions = {
   allExtensions?: Maybe<Scalars['Boolean']>;
   isTSX?: Maybe<Scalars['Boolean']>;
   jsxPragma?: Maybe<Scalars['String']>;
+  extensions?: Maybe<Array<Maybe<Scalars['String']>>>;
+  gatsbyRemarkPlugins?: Maybe<Array<Maybe<SitePluginPluginOptionsGatsbyRemarkPlugins>>>;
+  remarkPlugins?: Maybe<Array<Maybe<Array<Maybe<SitePluginPluginOptionsRemarkPlugins>>>>>;
+  rehypePlugins?: Maybe<Array<Maybe<Array<Maybe<SitePluginPluginOptionsRehypePlugins>>>>>;
 };
 
 export type SitePluginPluginOptionsEnv = {
@@ -15249,10 +15257,6 @@ export type SitePluginPluginOptionsFilterInput = {
   documentPaths?: Maybe<StringQueryOperatorInput>;
   path?: Maybe<StringQueryOperatorInput>;
   ignore?: Maybe<StringQueryOperatorInput>;
-  extensions?: Maybe<StringQueryOperatorInput>;
-  gatsbyRemarkPlugins?: Maybe<SitePluginPluginOptionsGatsbyRemarkPluginsFilterListInput>;
-  remarkPlugins?: Maybe<SitePluginPluginOptionsRemarkPluginsFilterListInput>;
-  rehypePlugins?: Maybe<SitePluginPluginOptionsRehypePluginsFilterListInput>;
   source?: Maybe<StringQueryOperatorInput>;
   destination?: Maybe<StringQueryOperatorInput>;
   purge?: Maybe<BooleanQueryOperatorInput>;
@@ -15274,6 +15278,10 @@ export type SitePluginPluginOptionsFilterInput = {
   allExtensions?: Maybe<BooleanQueryOperatorInput>;
   isTSX?: Maybe<BooleanQueryOperatorInput>;
   jsxPragma?: Maybe<StringQueryOperatorInput>;
+  extensions?: Maybe<StringQueryOperatorInput>;
+  gatsbyRemarkPlugins?: Maybe<SitePluginPluginOptionsGatsbyRemarkPluginsFilterListInput>;
+  remarkPlugins?: Maybe<SitePluginPluginOptionsRemarkPluginsFilterListInput>;
+  rehypePlugins?: Maybe<SitePluginPluginOptionsRehypePluginsFilterListInput>;
 };
 
 export type SitePluginPluginOptionsGatsbyRemarkPlugins = {

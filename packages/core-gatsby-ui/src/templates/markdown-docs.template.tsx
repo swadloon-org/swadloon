@@ -92,7 +92,7 @@ const Template: React.FC<MarkdownTemplateProps> = (props) => {
           site: `${data?.contentfulCompanyInfo?.metadataTwitterSite}`,
         })} */}
       </Helmet>
-      <MDXProvider components={{ ...mdxComponents, CodeBlock: CodeBlock }}>
+      <MDXProvider components={{ ...mdxComponents, CodeBlock: CodeBlock, Link: Link }}>
         <Center maxWidth={'800px'}>
           <Stack gap={[cssTheme.sizing.var.x3]}>
             <MarkdownCSS>
