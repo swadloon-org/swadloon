@@ -21,9 +21,9 @@ export function getGatsbyPluginMdx(): Gatsby.PluginRef[] {
           /**
            * @see https://github.com/remcohaszing/gatsby-remark-mermaid
            */
-          {
-            resolve: 'gatsby-remark-mermaid',
-          },
+          // {
+          //   resolve: 'gatsby-remark-mermaid',
+          // },
           /**
            * gatsby-remark-prismjs
            * @see https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-remark-prismjs
