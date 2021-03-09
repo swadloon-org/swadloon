@@ -1,5 +1,5 @@
-import * as core from '@newrade/core-gatsby-config';
 import * as common from '@newrade/core-common';
+import * as core from '@newrade/core-gatsby-config';
 import { loadDotEnv, logEnvVariables, toBoolean } from '@newrade/core-utils';
 import path from 'path';
 import packageJson from './package.json';
@@ -27,6 +27,7 @@ const config: core.GastbySiteConfig = {
     DEV_SSR: toBoolean(env.GATSBY_DEV_SSR),
     FAST_DEV: toBoolean(env.GATSBY_FAST_DEV),
     FAST_REFRESH: toBoolean(env.GATSBY_FAST_REFRESH),
+    ENABLE_GATSBY_REFRESH_ENDPOINT: toBoolean(env.ENABLE_GATSBY_REFRESH_ENDPOINT),
   },
   siteMetadata: {
     title: `Newrade Website`,
@@ -35,7 +36,7 @@ const config: core.GastbySiteConfig = {
     siteEnv: env.APP_ENV,
     languages: {
       langs: [common.SITE_LANGUAGES.EN_CA, common.SITE_LANGUAGES.FR_CA],
-      defaultLangKey: common.SITE_LANGUAGES.EN_CA,
+      defaultLangKey: common.SITE_LANGUAGES.FR_CA,
     },
   },
   plugins: [
@@ -52,33 +53,35 @@ const config: core.GastbySiteConfig = {
         theme_color: `#6061EC`,
         display: `standalone`,
         icon: `src/images/favicon.svg`,
-        include_favicon: false,
+      },
+    },
+    {
+      /**
+       * @see https://www.gatsbyjs.com/plugins/gatsby-source-contentful/
+       */
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: env.CONTENTFUL_SPACEID_NEWRADE,
+        accessToken: env.CONTENTFUL_DELIVERY_TOKEN_NEWRADE,
+        environment: env.CONTENTFUL_ENV,
       },
     },
     // {
-    //   resolve: `gatsby-source-contentful`,
+    //   resolve: 'gatsby-plugin-load-script',
     //   options: {
-    //     spaceId: env.CONTENTFUL_SPACEID_NEWRADE,
-    //     accessToken: env.CONTENTFUL_DELIVERY_TOKEN_NEWRADE,
-    //     environment: env.CONTENTFUL_ENV,
+    //     id: `hs-script-loader`,
+    //     async: 'true',
+    //     defer: 'true',
+    //     src: 'https://js.hs-scripts.com/7954462.js',
     //   },
     // },
-    {
-      resolve: 'gatsby-plugin-load-script',
-      options: {
-        id: `hs-script-loader`,
-        async: 'true',
-        defer: 'true',
-        src: 'https://js.hs-scripts.com/7954462.js',
-      },
-    },
     /**
      * Core Plugins
      */
     ...core.getGatsbyPluginTypeScriptConfig({
       documentPaths: [
         '../core-gatsby-ui/src/fragments/gatsby/**/*.{ts,tsx}',
-        // '../core-gatsby-ui/src/fragments/contentful/**/*.{ts,tsx}',
+        '../core-gatsby-ui/src/fragments/contentful/**/*.{ts,tsx}',
         './src/**/*.{ts,tsx}',
       ],
     }),
@@ -95,15 +98,15 @@ const config: core.GastbySiteConfig = {
     core.getGatsbyPluginSitemap(),
     core.getGatsbyPluginRobotsTxt({ env }),
     core.getGatsbyNetlifyPlugin(),
-    // core.getGastbyCoreContentfulPluginConfig({
-    //   packageName: packageJson.name,
-    //   locales: ['fr-CA', 'en-CA'],
-    //   features: {
-    //     renderPages: true,
-    //     renderBlogPosts: false,
-    //     renderPortfolio: false,
-    //   },
-    // }),
+    core.getGastbyCoreContentfulPluginConfig({
+      packageName: packageJson.name,
+      locales: ['fr-CA', 'en-CA'],
+      features: {
+        renderPages: true,
+        renderBlogPosts: false,
+        renderPortfolio: false,
+      },
+    }),
     core.getGastbyCorePluginConfig({
       packageName: packageJson.name,
       features: {
@@ -111,7 +114,7 @@ const config: core.GastbySiteConfig = {
         renderDocsPages: true,
       },
     }),
-    // core.getGatsbyPluginPreloadFonts(),
+    core.getGatsbyPluginPreloadFonts(),
   ],
 };
 
