@@ -9,6 +9,7 @@ import {
   ListItems,
   Paragraph,
   Stack,
+  useTreatTheme,
 } from '@newrade/core-react-ui';
 import { IoCallOutline } from '@react-icons/all-files/io5/IoCallOutline';
 import { IoLocationOutline } from '@react-icons/all-files/io5/IoLocationOutline';
@@ -19,7 +20,6 @@ import React from 'react';
 import { useStyles } from 'react-treat';
 import { clientEnv } from '../../types/dot-env-client';
 import { FooterQuery } from '../../types/graphql-types';
-import { cssTheme } from '../design-system/theme';
 import * as styleRefs from './footer.treat';
 
 export const footerQuery = graphql`
@@ -70,6 +70,7 @@ export const footerQuery = graphql`
 type Props = CommonComponentProps;
 
 export const Footer: React.FC<Props> = ({ id, style, className, ...props }) => {
+  const { theme, cssTheme } = useTreatTheme();
   const styles = useStyles(styleRefs);
   const data = useStaticQuery<FooterQuery>(footerQuery);
   const mergedClassNames = getMergedClassname([className, styles.wrapper]);
