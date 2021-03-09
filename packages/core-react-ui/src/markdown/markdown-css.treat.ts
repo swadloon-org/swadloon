@@ -73,8 +73,8 @@ globalStyle(`${wrapper} hr`, ({ cssTheme, theme }: Theme) => ({
  * Text content
  */
 
-globalStyle(`${wrapper} p`, ({ cssTheme, theme }: Theme) => ({
-  maxWidth: `80ch`,
+globalStyle(`${wrapper} p *, ${wrapper} p *::before, ${wrapper} p *::after`, ({ cssTheme, theme }: Theme) => ({
+  display: 'inline-block',
 }));
 
 globalStyle(`${wrapper} p + *`, ({ cssTheme, theme }: Theme) => ({
@@ -144,10 +144,6 @@ globalStyle(`${wrapper} iframe`, ({ cssTheme, theme }: Theme) => ({
 /**
  * List items
  */
-
-globalStyle(`${wrapper} li`, {
-  lineHeight: '0', // ensure that the list items height collapse
-});
 
 globalStyle(`${wrapper} li p + p`, ({ cssTheme, theme }: Theme) => ({
   marginTop: contentMarginSmall,

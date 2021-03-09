@@ -3,7 +3,6 @@ import {
   ButtonSize,
   HEADING,
   LABEL_SIZE,
-  LinkVariant,
   PARAGRAPH_SIZE,
   TEXT_LEVEL,
   TEXT_STYLE,
@@ -197,7 +196,9 @@ export const Layout = React.memo<LayoutProps>((props) => {
             sidebarOpened={sidebarOpened}
             disableBodyScroll={true}
             onClickBackdrop={handleClickMenuButton}
-            style={{ backgroundColor: cssTheme.colors.colors.grey[800] }}
+            style={{
+              background: `linear-gradient(180deg, ${cssTheme.colors.colors.grey[800]} 0%, ${cssTheme.colors.colors.grey[800]} 50%, ${cssTheme.colors.colors.grey[50]} 50%, ${cssTheme.colors.colors.grey[50]} 100%)`,
+            }}
           >
             <Stack>
               <BoxV2
@@ -294,43 +295,7 @@ export const Layout = React.memo<LayoutProps>((props) => {
                 alignItems={['stretch']}
                 padding={[cssTheme.sizing.var.x5, cssTheme.layout.var.contentMargins]}
               >
-                <Stack gap={[cssTheme.sizing.var.x5]}>
-                  <Stack gap={[cssTheme.sizing.var.x4]}>
-                    <Link
-                      variantSize={PARAGRAPH_SIZE.small}
-                      variant={LinkVariant.underline}
-                      href={`mailto:${companyAddress?.email}`}
-                    >
-                      {companyAddress?.email}
-                    </Link>
-                    <Link
-                      variantSize={PARAGRAPH_SIZE.small}
-                      variant={LinkVariant.underline}
-                      href={`tel:${companyAddress?.phone}`}
-                    >
-                      {companyAddress?.phone}
-                    </Link>
-                    <Link
-                      variantSize={PARAGRAPH_SIZE.small}
-                      variant={LinkVariant.underline}
-                      href={`fax:${companyAddress?.fax}`}
-                    >
-                      {companyAddress?.fax}
-                    </Link>
-                    <Link
-                      variantSize={PARAGRAPH_SIZE.small}
-                      variant={LinkVariant.underline}
-                      href={'https://goo.gl/maps/nndYpgQLkbDC6c7S7'}
-                      target="blank"
-                    >
-                      {companyAddress?.addressLine1}
-                      <br />
-                      {companyAddress?.addressLine2}
-                    </Link>
-                  </Stack>
-
-                  <Paragraph variant={PARAGRAPH_SIZE.small}>{companyInfo?.copyright}</Paragraph>
-                </Stack>
+                <Paragraph variant={PARAGRAPH_SIZE.xSmall}>{companyInfo?.copyright}</Paragraph>
               </BoxV2>
             </Stack>
           </MobileSideBar>
