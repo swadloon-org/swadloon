@@ -1,4 +1,5 @@
-import { CommonComponentProps, getMergedClassname } from '@newrade/core-react-ui';
+import { CommonComponentProps } from '@newrade/core-react-ui';
+import { getMergedClassname } from '@newrade/core-react-ui/lib/utilities';
 import GastbyImage, { GatsbyImageProps } from 'gatsby-image';
 import React from 'react';
 import { useStyles } from 'react-treat';

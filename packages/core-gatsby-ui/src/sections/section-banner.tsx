@@ -1,9 +1,10 @@
 import { Variant } from '@newrade/core-design-system';
-import { SectionBase, SectionBaseLayout, SectionPadding, SectionProps } from '@newrade/core-gatsby-ui/src';
 import { BoxV2, Center, CommonComponentProps, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './section-banner.treat';
+import { SectionBase } from './section-base';
+import { SectionBaseLayout, SectionPadding, SectionProps } from './section.props';
 
 type Props = CommonComponentProps &
   SectionProps & {

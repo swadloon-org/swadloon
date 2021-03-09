@@ -1,4 +1,5 @@
-import { BoxV2, keys, useTreatTheme } from '@newrade/core-react-ui';
+import { BoxV2, useTreatTheme } from '@newrade/core-react-ui';
+import { keys } from '@newrade/core-react-ui/lib/utilities';
 import React from 'react';
 import { ShadowSwatch } from '../../utils/shadow-swatch';
 

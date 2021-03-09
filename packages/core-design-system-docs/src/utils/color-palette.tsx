@@ -1,5 +1,6 @@
 import { Color, ColorShades5, ColorShadesGrey } from '@newrade/core-design-system';
-import { keys, Stack } from '@newrade/core-react-ui';
+import { Stack } from '@newrade/core-react-ui';
+import { keys } from '@newrade/core-react-ui/lib/utilities';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import * as stylesRef from './color-palette.treat';

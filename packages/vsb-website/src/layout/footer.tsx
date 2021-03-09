@@ -2,14 +2,15 @@ import { LABEL_SIZE, LinkVariant, PARAGRAPH_SIZE, TEXT_LEVEL, TEXT_STYLE } from 
 import {
   Center,
   CommonComponentProps,
-  getMergedClassname,
   Label,
   Link,
   ListItem,
   ListItems,
   Paragraph,
   Stack,
+  useTreatTheme,
 } from '@newrade/core-react-ui';
+import { getMergedClassname } from '@newrade/core-react-ui/lib/utilities';
 import { IoCallOutline } from '@react-icons/all-files/io5/IoCallOutline';
 import { IoLocationOutline } from '@react-icons/all-files/io5/IoLocationOutline';
 import { IoMailOutline } from '@react-icons/all-files/io5/IoMailOutline';
@@ -19,7 +20,6 @@ import React from 'react';
 import { useStyles } from 'react-treat';
 import { clientEnv } from '../../types/dot-env-client';
 import { FooterQuery } from '../../types/graphql-types';
-import { cssTheme } from '../design-system/theme';
 import * as styleRefs from './footer.treat';
 
 export const footerQuery = graphql`
@@ -73,6 +73,7 @@ export const Footer: React.FC<Props> = ({ id, style, className, ...props }) => {
   const styles = useStyles(styleRefs);
   const data = useStaticQuery<FooterQuery>(footerQuery);
   const mergedClassNames = getMergedClassname([className, styles.wrapper]);
+  const { theme, cssTheme } = useTreatTheme();
 
   return (
     <footer id={id} style={style} className={mergedClassNames}>

@@ -8,7 +8,6 @@ import {
   Variant,
   VIEWPORT,
 } from '@newrade/core-design-system';
-import { GatsbyLink, useDocsNavigation } from '@newrade/core-gatsby-ui/src';
 import {
   BoxV2,
   Button,
@@ -31,6 +30,8 @@ import { IoClose } from '@react-icons/all-files/io5/IoClose';
 import { title } from 'case';
 import { PageProps } from 'gatsby';
 import React, { ReactNode, useEffect, useState } from 'react';
+import { useDocsNavigation } from '../hooks/use-docs-navigation-data.hook';
+import { GatsbyLink } from '../links/gatsby-link';
 
 type LayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }> & {
   MobileSvgLogo?: React.ReactNode;

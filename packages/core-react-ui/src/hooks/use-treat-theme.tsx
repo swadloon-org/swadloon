@@ -18,6 +18,7 @@ export const TreatThemeProvider = ({ theme, children }: { theme: Theme; children
  */
 export function useTreatTheme(): Theme {
   const value = React.useContext(TreatThemeContext);
+  TreatThemeContext.displayName;
   if (!value) {
     throw new Error('no treat theme provided');
   }

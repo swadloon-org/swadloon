@@ -1,5 +1,6 @@
 import { SizingSteps } from '@newrade/core-design-system';
-import { Cluster, keys, Label, Stack, useTreatTheme } from '@newrade/core-react-ui';
+import { Cluster, Label, Stack, useTreatTheme } from '@newrade/core-react-ui';
+import { keys } from '@newrade/core-react-ui/lib/utilities';
 import React from 'react';
 import { Placeholder } from './placeholder';
 

@@ -17,7 +17,6 @@ import { title } from 'case';
 import { PageProps } from 'gatsby';
 import React, { ReactNode, useEffect, useState } from 'react';
 import { useStyles } from 'react-treat';
-import { cssTheme } from '../design-system/theme';
 import { useNavigation } from '../hooks/use-layout-data';
 import LogoSymbol from '../images/logo-symbol.svg';
 import Logo from '../images/logo.svg';

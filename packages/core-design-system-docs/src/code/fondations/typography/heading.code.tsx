@@ -1,5 +1,6 @@
 import { HEADING } from '@newrade/core-design-system';
-import { Heading, keys, Stack, useTreatTheme } from '@newrade/core-react-ui';
+import { Heading, Stack, useTreatTheme } from '@newrade/core-react-ui';
+import { keys } from '@newrade/core-react-ui/lib/utilities';
 import React from 'react';
 
 type Props = {};

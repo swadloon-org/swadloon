@@ -1,5 +1,6 @@
 import { TITLE } from '@newrade/core-design-system';
-import { keys, Stack, Title, useTreatTheme } from '@newrade/core-react-ui';
+import { Stack, Title, useTreatTheme } from '@newrade/core-react-ui';
+import { keys } from '@newrade/core-react-ui/lib/utilities';
 import React from 'react';
 
 type Props = {};

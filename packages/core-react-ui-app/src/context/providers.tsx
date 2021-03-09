@@ -5,7 +5,7 @@ import { GlobalCSSVariables } from '@newrade/core-react-ui/lib/global/global-css
 import { GlobalResetCSS } from '@newrade/core-react-ui/lib/global/global-reset-css';
 import React from 'react';
 import { TreatProvider } from 'react-treat';
-import { light } from '../design-system/themes.treat';
+import { light } from '../design-system/theme.treat';
 
 export const Providers: React.FC = (props) => {
   return (

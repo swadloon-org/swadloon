@@ -1,4 +1,5 @@
-import { keys, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
+import { useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
+import { keys } from '@newrade/core-react-ui/lib/utilities';
 import debug from 'debug';
 import React, { PropsWithChildren } from 'react';
 import { useInView } from 'react-intersection-observer';

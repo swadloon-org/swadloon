@@ -1,5 +1,6 @@
 import { Variant } from '@newrade/core-design-system';
-import { BoxV2, Center, getMergedClassname, PaddingProps, useTreatTheme } from '@newrade/core-react-ui';
+import { BoxV2, Center, PaddingProps, useTreatTheme } from '@newrade/core-react-ui';
+import { getMergedClassname } from '@newrade/core-react-ui/lib/utilities';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './section-base.treat';

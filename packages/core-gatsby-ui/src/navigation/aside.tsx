@@ -1,4 +1,5 @@
-import { BoxV2, formatAnchorId, Label, Stack } from '@newrade/core-react-ui';
+import { BoxV2, Label, Stack } from '@newrade/core-react-ui';
+import { formatAnchorId } from '@newrade/core-react-ui/lib/utilities';
 import { WindowLocation } from '@reach/router';
 import React from 'react';
 import { useStyles } from 'react-treat';

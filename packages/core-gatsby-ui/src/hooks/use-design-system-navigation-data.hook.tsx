@@ -1,5 +1,6 @@
-import { getNavigationFromPageNodes, Navigation } from '@newrade/core-gatsby-ui/src';
 import { graphql, useStaticQuery } from 'gatsby';
+import { Navigation } from '../navigation/navigation.model';
+import { getNavigationFromPageNodes } from '../utilities/navigation.utilities';
 
 const query = graphql`
   query DesignSystemLayoutPage {
