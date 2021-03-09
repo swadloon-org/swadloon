@@ -6,9 +6,12 @@ import {
   getMetaBasicTags,
   getMetadataOpenGraphWebsiteTags,
   Hr,
+  Link,
   MarkdownCSS,
   mdxComponents,
   OPEN_GRAPH_TYPE,
+  Stack,
+  useTreatTheme,
 } from '@newrade/core-react-ui';
 import { graphql, PageProps } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
@@ -52,6 +55,7 @@ export const markdownTemplateQuery = graphql`
  */
 const Template: React.FC<MarkdownTemplateProps> = (props) => {
   const { styles } = useStyles(styleRefs);
+  const { theme, cssTheme } = useTreatTheme();
 
   return (
     <>
@@ -90,12 +94,15 @@ const Template: React.FC<MarkdownTemplateProps> = (props) => {
       </Helmet>
       <MDXProvider components={{ ...mdxComponents, CodeBlock: CodeBlock }}>
         <Center maxWidth={'800px'}>
-          <MarkdownCSS>
-            <MDXRenderer {...props}>{props.data.file?.childMdx?.body as string}</MDXRenderer>
-          </MarkdownCSS>
+          <Stack gap={[cssTheme.sizing.var.x3]}>
+            <MarkdownCSS>
+              <MDXRenderer {...props}>{props.data.file?.childMdx?.body as string}</MDXRenderer>
+            </MarkdownCSS>
 
-          <Hr />
-          <a href={`https://github.com/newrade/newrade/edit/master/README.md`}>Edit this page</a>
+            <Hr />
+
+            <Link href={`https://github.com/newrade/newrade/edit/master/README.md`}>Edit this page</Link>
+          </Stack>
         </Center>
 
         <Aside items={props.data.file?.childMdx?.headings} location={props.location} />
