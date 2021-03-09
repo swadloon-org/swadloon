@@ -1,9 +1,8 @@
+import { Color } from '@newrade/core-design-system';
+import { getCSSColor } from '@newrade/core-react-ui/lib/utilities';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { Color } from '@newrade/core-design-system';
-
 import * as styleRefs from './color-swatch.treat';
-import { getCSSColor } from '@newrade/core-react-ui';
 
 type Props = {
   color: Color;

@@ -13,7 +13,7 @@
     "clean": "rimraf -r lib/** && rm -f tsconfig.build.tsbuildinfo",
     "export-content": ". .env && contentful space export --space-id=$CONTENTFUL_SPACEID --management-token=$CONTENTFUL_MANAGEMENT_TOKEN --environment-id=$CONTENTFUL_ENV --content-file=contentful-export-space.json",
     "import-content": "contentful space import",
-    "run-migration": "cross-env TS_NODE_PROJECT=tsconfig.build.json node -r ts-node/register src/run-migration.ts",
+    "run-migration": ". ./.env && DEBUG=$DEBUG TS_NODE_PROJECT=tsconfig.build.json node -r ts-node/register src/run-migration.ts",
     "start": "tsc --build --watch --preserveWatchOutput tsconfig.build.json"
   },
   "dependencies": {

@@ -1,5 +1,5 @@
 import { Layout, VIEWPORT } from '@newrade/core-design-system';
-import { defaultLayout } from '@newrade/core-react-ui';
+import { defaultLayout } from '@newrade/core-react-ui/lib/design-system';
 
 export const layout: Layout = {
   ...defaultLayout,

@@ -1,5 +1,6 @@
+import { LayoutDesignSystem } from '@newrade/core-design-system-docs/src';
 import { GatsbyCommonPageContext } from '@newrade/core-gatsby-config';
-import { LayoutDesignSystem, LayoutDocumentation } from '@newrade/core-gatsby-ui/src';
+import { LayoutDocs } from '@newrade/core-gatsby-ui/src';
 import { PageProps, WrapPageElementBrowserArgs } from 'gatsby';
 import React from 'react';
 import MobileLogo from './src/images/logo-symbol.svg';
@@ -16,17 +17,17 @@ export const WrapElement: React.FC<WrapPageElementBrowserArgs> = ({ element, pro
   }
 
   switch (pageProps.pageContext.layout) {
-    case 'DOCS': {
-      return <LayoutDocumentation {...pageProps}>{element}</LayoutDocumentation>;
+    case 'docs': {
+      return <LayoutDocs {...pageProps}>{element}</LayoutDocs>;
     }
-    case 'DESIGN_SYSTEM': {
+    case 'designSystem': {
       return (
         <LayoutDesignSystem DesktopSvgLogo={<Logo />} MobileSvgLogo={<MobileLogo />} {...pageProps}>
           {element}
         </LayoutDesignSystem>
       );
     }
-    case 'SITE':
+    case 'default':
     default: {
       return <Layout {...pageProps}>{element}</Layout>;
     }

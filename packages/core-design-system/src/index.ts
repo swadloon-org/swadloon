@@ -8,6 +8,7 @@ export * from './foundations/color-gradients';
 export * from './foundations/color-intents';
 export * from './foundations/colors';
 export * from './foundations/effects';
+export * from './components/organisms/carousel';
 export * from './foundations/font';
 export * from './foundations/iconography';
 export * from './foundations/layout';

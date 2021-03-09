@@ -12,23 +12,25 @@ export const styles = {
    */
   wrapper: style(({ theme, cssTheme }: Theme) => ({
     position: 'relative',
+    maxWidth: `80ch`,
     outline: 'none',
     width: 'fit-content',
     userSelect: 'text',
     flexWrap: 'nowrap',
-    display: 'list-item',
+    display: 'flex',
   })),
   iconWrapper: style(({ theme, cssTheme }: Theme) => ({
     display: 'inline-block',
   })),
   textWrapperIcon: style(({ theme, cssTheme }: Theme) => ({
-    display: 'inline-block',
+    display: 'flex',
     position: 'relative',
 
     left: `calc(${iconWidth} + ${iconMargin})`,
   })),
   content: style(({ theme, cssTheme }: Theme) => ({
-    display: 'inline-block',
+    display: 'flex',
+    flexDirection: 'column',
     position: 'relative',
     paddingRight: `calc((${iconWidth} + ${iconMargin}))`,
   })),
@@ -49,7 +51,7 @@ export const styles = {
   icon: style(({ theme, cssTheme }: Theme) => ({
     position: 'absolute',
     left: `calc(-1 * (${iconWidth} + ${iconMargin}) / ${iconWidthNumber})`,
-    top: `0.1em`,
+    top: `-0.3em`,
 
     fontSize: `${iconWidth}`,
     display: 'inline-block',
@@ -58,7 +60,7 @@ export const styles = {
   bulletIcon: style(({ theme, cssTheme }: Theme) => ({
     position: 'absolute',
     left: `calc(-1 * (${1}em + ${iconMargin}))`,
-    top: `0.1em`,
+    top: `-0.3em`,
 
     display: 'inline-block',
     verticalAlign: 'middle',

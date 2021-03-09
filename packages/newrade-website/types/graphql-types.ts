@@ -390,14 +390,23 @@ export type ContentfulBlock = Node & {
   internal: Internal;
   name?: Maybe<Scalars['String']>;
   type?: Maybe<Scalars['String']>;
+  medias?: Maybe<Array<Maybe<ContentfulMediaCollection>>>;
   section?: Maybe<Array<Maybe<ContentfulSection>>>;
-  text?: Maybe<ContentfulBlockTextTextNode>;
   spaceId?: Maybe<Scalars['String']>;
   contentful_id?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['Date']>;
   updatedAt?: Maybe<Scalars['Date']>;
   sys?: Maybe<ContentfulBlockSys>;
   node_locale?: Maybe<Scalars['String']>;
+  link?: Maybe<ContentfulLink>;
+  text?: Maybe<ContentfulBlockTextTextNode>;
+  variant?: Maybe<Scalars['String']>;
+  /** Returns all children nodes filtered by type contentfulBlockTextTextNode */
+  childrenContentfulBlockTextTextNode?: Maybe<Array<Maybe<ContentfulBlockTextTextNode>>>;
+  /**
+   * Returns the first child node of type contentfulBlockTextTextNode or null if
+   * there are no children of given type on this node
+   */
   childContentfulBlockTextTextNode?: Maybe<ContentfulBlockTextTextNode>;
 };
 
@@ -533,6 +542,173 @@ export type ContentfulBlockFieldsEnum =
   | 'internal___type'
   | 'name'
   | 'type'
+  | 'medias'
+  | 'medias___id'
+  | 'medias___parent___id'
+  | 'medias___parent___parent___id'
+  | 'medias___parent___parent___children'
+  | 'medias___parent___children'
+  | 'medias___parent___children___id'
+  | 'medias___parent___children___children'
+  | 'medias___parent___internal___content'
+  | 'medias___parent___internal___contentDigest'
+  | 'medias___parent___internal___description'
+  | 'medias___parent___internal___fieldOwners'
+  | 'medias___parent___internal___ignoreType'
+  | 'medias___parent___internal___mediaType'
+  | 'medias___parent___internal___owner'
+  | 'medias___parent___internal___type'
+  | 'medias___children'
+  | 'medias___children___id'
+  | 'medias___children___parent___id'
+  | 'medias___children___parent___children'
+  | 'medias___children___children'
+  | 'medias___children___children___id'
+  | 'medias___children___children___children'
+  | 'medias___children___internal___content'
+  | 'medias___children___internal___contentDigest'
+  | 'medias___children___internal___description'
+  | 'medias___children___internal___fieldOwners'
+  | 'medias___children___internal___ignoreType'
+  | 'medias___children___internal___mediaType'
+  | 'medias___children___internal___owner'
+  | 'medias___children___internal___type'
+  | 'medias___internal___content'
+  | 'medias___internal___contentDigest'
+  | 'medias___internal___description'
+  | 'medias___internal___fieldOwners'
+  | 'medias___internal___ignoreType'
+  | 'medias___internal___mediaType'
+  | 'medias___internal___owner'
+  | 'medias___internal___type'
+  | 'medias___name'
+  | 'medias___medias'
+  | 'medias___medias___id'
+  | 'medias___medias___parent___id'
+  | 'medias___medias___parent___children'
+  | 'medias___medias___children'
+  | 'medias___medias___children___id'
+  | 'medias___medias___children___children'
+  | 'medias___medias___internal___content'
+  | 'medias___medias___internal___contentDigest'
+  | 'medias___medias___internal___description'
+  | 'medias___medias___internal___fieldOwners'
+  | 'medias___medias___internal___ignoreType'
+  | 'medias___medias___internal___mediaType'
+  | 'medias___medias___internal___owner'
+  | 'medias___medias___internal___type'
+  | 'medias___medias___name'
+  | 'medias___medias___backgroundPositionY'
+  | 'medias___medias___media'
+  | 'medias___medias___media___id'
+  | 'medias___medias___media___children'
+  | 'medias___medias___media___contentful_id'
+  | 'medias___medias___media___spaceId'
+  | 'medias___medias___media___createdAt'
+  | 'medias___medias___media___updatedAt'
+  | 'medias___medias___media___title'
+  | 'medias___medias___media___description'
+  | 'medias___medias___media___node_locale'
+  | 'medias___medias___mediacollection'
+  | 'medias___medias___mediacollection___id'
+  | 'medias___medias___mediacollection___children'
+  | 'medias___medias___mediacollection___name'
+  | 'medias___medias___mediacollection___medias'
+  | 'medias___medias___mediacollection___block'
+  | 'medias___medias___mediacollection___spaceId'
+  | 'medias___medias___mediacollection___contentful_id'
+  | 'medias___medias___mediacollection___createdAt'
+  | 'medias___medias___mediacollection___updatedAt'
+  | 'medias___medias___mediacollection___node_locale'
+  | 'medias___medias___spaceId'
+  | 'medias___medias___contentful_id'
+  | 'medias___medias___createdAt'
+  | 'medias___medias___updatedAt'
+  | 'medias___medias___sys___type'
+  | 'medias___medias___sys___revision'
+  | 'medias___medias___node_locale'
+  | 'medias___block'
+  | 'medias___block___id'
+  | 'medias___block___parent___id'
+  | 'medias___block___parent___children'
+  | 'medias___block___children'
+  | 'medias___block___children___id'
+  | 'medias___block___children___children'
+  | 'medias___block___internal___content'
+  | 'medias___block___internal___contentDigest'
+  | 'medias___block___internal___description'
+  | 'medias___block___internal___fieldOwners'
+  | 'medias___block___internal___ignoreType'
+  | 'medias___block___internal___mediaType'
+  | 'medias___block___internal___owner'
+  | 'medias___block___internal___type'
+  | 'medias___block___name'
+  | 'medias___block___type'
+  | 'medias___block___medias'
+  | 'medias___block___medias___id'
+  | 'medias___block___medias___children'
+  | 'medias___block___medias___name'
+  | 'medias___block___medias___medias'
+  | 'medias___block___medias___block'
+  | 'medias___block___medias___spaceId'
+  | 'medias___block___medias___contentful_id'
+  | 'medias___block___medias___createdAt'
+  | 'medias___block___medias___updatedAt'
+  | 'medias___block___medias___node_locale'
+  | 'medias___block___section'
+  | 'medias___block___section___id'
+  | 'medias___block___section___children'
+  | 'medias___block___section___name'
+  | 'medias___block___section___variant'
+  | 'medias___block___section___layout'
+  | 'medias___block___section___spaceId'
+  | 'medias___block___section___contentful_id'
+  | 'medias___block___section___createdAt'
+  | 'medias___block___section___updatedAt'
+  | 'medias___block___section___node_locale'
+  | 'medias___block___section___blocks'
+  | 'medias___block___section___page'
+  | 'medias___block___spaceId'
+  | 'medias___block___contentful_id'
+  | 'medias___block___createdAt'
+  | 'medias___block___updatedAt'
+  | 'medias___block___sys___type'
+  | 'medias___block___sys___revision'
+  | 'medias___block___node_locale'
+  | 'medias___block___link___id'
+  | 'medias___block___link___children'
+  | 'medias___block___link___type'
+  | 'medias___block___link___name'
+  | 'medias___block___link___label'
+  | 'medias___block___link___url'
+  | 'medias___block___link___spaceId'
+  | 'medias___block___link___contentful_id'
+  | 'medias___block___link___createdAt'
+  | 'medias___block___link___updatedAt'
+  | 'medias___block___link___node_locale'
+  | 'medias___block___link___navigation'
+  | 'medias___block___link___block'
+  | 'medias___block___text___id'
+  | 'medias___block___text___children'
+  | 'medias___block___text___text'
+  | 'medias___block___text___childrenMdx'
+  | 'medias___block___variant'
+  | 'medias___block___childrenContentfulBlockTextTextNode'
+  | 'medias___block___childrenContentfulBlockTextTextNode___id'
+  | 'medias___block___childrenContentfulBlockTextTextNode___children'
+  | 'medias___block___childrenContentfulBlockTextTextNode___text'
+  | 'medias___block___childrenContentfulBlockTextTextNode___childrenMdx'
+  | 'medias___block___childContentfulBlockTextTextNode___id'
+  | 'medias___block___childContentfulBlockTextTextNode___children'
+  | 'medias___block___childContentfulBlockTextTextNode___text'
+  | 'medias___block___childContentfulBlockTextTextNode___childrenMdx'
+  | 'medias___spaceId'
+  | 'medias___contentful_id'
+  | 'medias___createdAt'
+  | 'medias___updatedAt'
+  | 'medias___sys___type'
+  | 'medias___sys___revision'
+  | 'medias___node_locale'
   | 'section'
   | 'section___id'
   | 'section___parent___id'
@@ -575,6 +751,13 @@ export type ContentfulBlockFieldsEnum =
   | 'section___name'
   | 'section___variant'
   | 'section___layout'
+  | 'section___spaceId'
+  | 'section___contentful_id'
+  | 'section___createdAt'
+  | 'section___updatedAt'
+  | 'section___sys___type'
+  | 'section___sys___revision'
+  | 'section___node_locale'
   | 'section___blocks'
   | 'section___blocks___id'
   | 'section___blocks___parent___id'
@@ -592,22 +775,30 @@ export type ContentfulBlockFieldsEnum =
   | 'section___blocks___internal___type'
   | 'section___blocks___name'
   | 'section___blocks___type'
+  | 'section___blocks___medias'
+  | 'section___blocks___medias___id'
+  | 'section___blocks___medias___children'
+  | 'section___blocks___medias___name'
+  | 'section___blocks___medias___medias'
+  | 'section___blocks___medias___block'
+  | 'section___blocks___medias___spaceId'
+  | 'section___blocks___medias___contentful_id'
+  | 'section___blocks___medias___createdAt'
+  | 'section___blocks___medias___updatedAt'
+  | 'section___blocks___medias___node_locale'
   | 'section___blocks___section'
   | 'section___blocks___section___id'
   | 'section___blocks___section___children'
   | 'section___blocks___section___name'
   | 'section___blocks___section___variant'
   | 'section___blocks___section___layout'
-  | 'section___blocks___section___blocks'
-  | 'section___blocks___section___page'
   | 'section___blocks___section___spaceId'
   | 'section___blocks___section___contentful_id'
   | 'section___blocks___section___createdAt'
   | 'section___blocks___section___updatedAt'
   | 'section___blocks___section___node_locale'
-  | 'section___blocks___text___id'
-  | 'section___blocks___text___children'
-  | 'section___blocks___text___text'
+  | 'section___blocks___section___blocks'
+  | 'section___blocks___section___page'
   | 'section___blocks___spaceId'
   | 'section___blocks___contentful_id'
   | 'section___blocks___createdAt'
@@ -615,9 +806,33 @@ export type ContentfulBlockFieldsEnum =
   | 'section___blocks___sys___type'
   | 'section___blocks___sys___revision'
   | 'section___blocks___node_locale'
+  | 'section___blocks___link___id'
+  | 'section___blocks___link___children'
+  | 'section___blocks___link___type'
+  | 'section___blocks___link___name'
+  | 'section___blocks___link___label'
+  | 'section___blocks___link___url'
+  | 'section___blocks___link___spaceId'
+  | 'section___blocks___link___contentful_id'
+  | 'section___blocks___link___createdAt'
+  | 'section___blocks___link___updatedAt'
+  | 'section___blocks___link___node_locale'
+  | 'section___blocks___link___navigation'
+  | 'section___blocks___link___block'
+  | 'section___blocks___text___id'
+  | 'section___blocks___text___children'
+  | 'section___blocks___text___text'
+  | 'section___blocks___text___childrenMdx'
+  | 'section___blocks___variant'
+  | 'section___blocks___childrenContentfulBlockTextTextNode'
+  | 'section___blocks___childrenContentfulBlockTextTextNode___id'
+  | 'section___blocks___childrenContentfulBlockTextTextNode___children'
+  | 'section___blocks___childrenContentfulBlockTextTextNode___text'
+  | 'section___blocks___childrenContentfulBlockTextTextNode___childrenMdx'
   | 'section___blocks___childContentfulBlockTextTextNode___id'
   | 'section___blocks___childContentfulBlockTextTextNode___children'
   | 'section___blocks___childContentfulBlockTextTextNode___text'
+  | 'section___blocks___childContentfulBlockTextTextNode___childrenMdx'
   | 'section___page'
   | 'section___page___id'
   | 'section___page___parent___id'
@@ -636,24 +851,23 @@ export type ContentfulBlockFieldsEnum =
   | 'section___page___name'
   | 'section___page___title'
   | 'section___page___slug'
-  | 'section___page___layout'
-  | 'section___page___template'
   | 'section___page___sections'
   | 'section___page___sections___id'
   | 'section___page___sections___children'
   | 'section___page___sections___name'
   | 'section___page___sections___variant'
   | 'section___page___sections___layout'
-  | 'section___page___sections___blocks'
-  | 'section___page___sections___page'
   | 'section___page___sections___spaceId'
   | 'section___page___sections___contentful_id'
   | 'section___page___sections___createdAt'
   | 'section___page___sections___updatedAt'
   | 'section___page___sections___node_locale'
+  | 'section___page___sections___blocks'
+  | 'section___page___sections___page'
   | 'section___page___description___id'
   | 'section___page___description___children'
   | 'section___page___description___description'
+  | 'section___page___description___childrenMdx'
   | 'section___page___spaceId'
   | 'section___page___contentful_id'
   | 'section___page___createdAt'
@@ -661,16 +875,265 @@ export type ContentfulBlockFieldsEnum =
   | 'section___page___sys___type'
   | 'section___page___sys___revision'
   | 'section___page___node_locale'
+  | 'section___page___link'
+  | 'section___page___link___id'
+  | 'section___page___link___children'
+  | 'section___page___link___type'
+  | 'section___page___link___name'
+  | 'section___page___link___label'
+  | 'section___page___link___url'
+  | 'section___page___link___spaceId'
+  | 'section___page___link___contentful_id'
+  | 'section___page___link___createdAt'
+  | 'section___page___link___updatedAt'
+  | 'section___page___link___node_locale'
+  | 'section___page___link___navigation'
+  | 'section___page___link___block'
+  | 'section___page___childrenContentfulPageDescriptionTextNode'
+  | 'section___page___childrenContentfulPageDescriptionTextNode___id'
+  | 'section___page___childrenContentfulPageDescriptionTextNode___children'
+  | 'section___page___childrenContentfulPageDescriptionTextNode___description'
+  | 'section___page___childrenContentfulPageDescriptionTextNode___childrenMdx'
   | 'section___page___childContentfulPageDescriptionTextNode___id'
   | 'section___page___childContentfulPageDescriptionTextNode___children'
   | 'section___page___childContentfulPageDescriptionTextNode___description'
-  | 'section___spaceId'
-  | 'section___contentful_id'
-  | 'section___createdAt'
-  | 'section___updatedAt'
-  | 'section___sys___type'
-  | 'section___sys___revision'
-  | 'section___node_locale'
+  | 'section___page___childContentfulPageDescriptionTextNode___childrenMdx'
+  | 'spaceId'
+  | 'contentful_id'
+  | 'createdAt'
+  | 'updatedAt'
+  | 'sys___type'
+  | 'sys___revision'
+  | 'sys___contentType___sys___type'
+  | 'sys___contentType___sys___linkType'
+  | 'sys___contentType___sys___id'
+  | 'sys___contentType___sys___contentful_id'
+  | 'node_locale'
+  | 'link___id'
+  | 'link___parent___id'
+  | 'link___parent___parent___id'
+  | 'link___parent___parent___children'
+  | 'link___parent___children'
+  | 'link___parent___children___id'
+  | 'link___parent___children___children'
+  | 'link___parent___internal___content'
+  | 'link___parent___internal___contentDigest'
+  | 'link___parent___internal___description'
+  | 'link___parent___internal___fieldOwners'
+  | 'link___parent___internal___ignoreType'
+  | 'link___parent___internal___mediaType'
+  | 'link___parent___internal___owner'
+  | 'link___parent___internal___type'
+  | 'link___children'
+  | 'link___children___id'
+  | 'link___children___parent___id'
+  | 'link___children___parent___children'
+  | 'link___children___children'
+  | 'link___children___children___id'
+  | 'link___children___children___children'
+  | 'link___children___internal___content'
+  | 'link___children___internal___contentDigest'
+  | 'link___children___internal___description'
+  | 'link___children___internal___fieldOwners'
+  | 'link___children___internal___ignoreType'
+  | 'link___children___internal___mediaType'
+  | 'link___children___internal___owner'
+  | 'link___children___internal___type'
+  | 'link___internal___content'
+  | 'link___internal___contentDigest'
+  | 'link___internal___description'
+  | 'link___internal___fieldOwners'
+  | 'link___internal___ignoreType'
+  | 'link___internal___mediaType'
+  | 'link___internal___owner'
+  | 'link___internal___type'
+  | 'link___type'
+  | 'link___name'
+  | 'link___label'
+  | 'link___url'
+  | 'link___spaceId'
+  | 'link___contentful_id'
+  | 'link___createdAt'
+  | 'link___updatedAt'
+  | 'link___sys___type'
+  | 'link___sys___revision'
+  | 'link___node_locale'
+  | 'link___page___id'
+  | 'link___page___parent___id'
+  | 'link___page___parent___children'
+  | 'link___page___children'
+  | 'link___page___children___id'
+  | 'link___page___children___children'
+  | 'link___page___internal___content'
+  | 'link___page___internal___contentDigest'
+  | 'link___page___internal___description'
+  | 'link___page___internal___fieldOwners'
+  | 'link___page___internal___ignoreType'
+  | 'link___page___internal___mediaType'
+  | 'link___page___internal___owner'
+  | 'link___page___internal___type'
+  | 'link___page___name'
+  | 'link___page___title'
+  | 'link___page___slug'
+  | 'link___page___sections'
+  | 'link___page___sections___id'
+  | 'link___page___sections___children'
+  | 'link___page___sections___name'
+  | 'link___page___sections___variant'
+  | 'link___page___sections___layout'
+  | 'link___page___sections___spaceId'
+  | 'link___page___sections___contentful_id'
+  | 'link___page___sections___createdAt'
+  | 'link___page___sections___updatedAt'
+  | 'link___page___sections___node_locale'
+  | 'link___page___sections___blocks'
+  | 'link___page___sections___page'
+  | 'link___page___description___id'
+  | 'link___page___description___children'
+  | 'link___page___description___description'
+  | 'link___page___description___childrenMdx'
+  | 'link___page___spaceId'
+  | 'link___page___contentful_id'
+  | 'link___page___createdAt'
+  | 'link___page___updatedAt'
+  | 'link___page___sys___type'
+  | 'link___page___sys___revision'
+  | 'link___page___node_locale'
+  | 'link___page___link'
+  | 'link___page___link___id'
+  | 'link___page___link___children'
+  | 'link___page___link___type'
+  | 'link___page___link___name'
+  | 'link___page___link___label'
+  | 'link___page___link___url'
+  | 'link___page___link___spaceId'
+  | 'link___page___link___contentful_id'
+  | 'link___page___link___createdAt'
+  | 'link___page___link___updatedAt'
+  | 'link___page___link___node_locale'
+  | 'link___page___link___navigation'
+  | 'link___page___link___block'
+  | 'link___page___childrenContentfulPageDescriptionTextNode'
+  | 'link___page___childrenContentfulPageDescriptionTextNode___id'
+  | 'link___page___childrenContentfulPageDescriptionTextNode___children'
+  | 'link___page___childrenContentfulPageDescriptionTextNode___description'
+  | 'link___page___childrenContentfulPageDescriptionTextNode___childrenMdx'
+  | 'link___page___childContentfulPageDescriptionTextNode___id'
+  | 'link___page___childContentfulPageDescriptionTextNode___children'
+  | 'link___page___childContentfulPageDescriptionTextNode___description'
+  | 'link___page___childContentfulPageDescriptionTextNode___childrenMdx'
+  | 'link___navigation'
+  | 'link___navigation___id'
+  | 'link___navigation___parent___id'
+  | 'link___navigation___parent___children'
+  | 'link___navigation___children'
+  | 'link___navigation___children___id'
+  | 'link___navigation___children___children'
+  | 'link___navigation___internal___content'
+  | 'link___navigation___internal___contentDigest'
+  | 'link___navigation___internal___description'
+  | 'link___navigation___internal___fieldOwners'
+  | 'link___navigation___internal___ignoreType'
+  | 'link___navigation___internal___mediaType'
+  | 'link___navigation___internal___owner'
+  | 'link___navigation___internal___type'
+  | 'link___navigation___name'
+  | 'link___navigation___links'
+  | 'link___navigation___links___id'
+  | 'link___navigation___links___children'
+  | 'link___navigation___links___type'
+  | 'link___navigation___links___name'
+  | 'link___navigation___links___label'
+  | 'link___navigation___links___url'
+  | 'link___navigation___links___spaceId'
+  | 'link___navigation___links___contentful_id'
+  | 'link___navigation___links___createdAt'
+  | 'link___navigation___links___updatedAt'
+  | 'link___navigation___links___node_locale'
+  | 'link___navigation___links___navigation'
+  | 'link___navigation___links___block'
+  | 'link___navigation___spaceId'
+  | 'link___navigation___contentful_id'
+  | 'link___navigation___createdAt'
+  | 'link___navigation___updatedAt'
+  | 'link___navigation___sys___type'
+  | 'link___navigation___sys___revision'
+  | 'link___navigation___node_locale'
+  | 'link___block'
+  | 'link___block___id'
+  | 'link___block___parent___id'
+  | 'link___block___parent___children'
+  | 'link___block___children'
+  | 'link___block___children___id'
+  | 'link___block___children___children'
+  | 'link___block___internal___content'
+  | 'link___block___internal___contentDigest'
+  | 'link___block___internal___description'
+  | 'link___block___internal___fieldOwners'
+  | 'link___block___internal___ignoreType'
+  | 'link___block___internal___mediaType'
+  | 'link___block___internal___owner'
+  | 'link___block___internal___type'
+  | 'link___block___name'
+  | 'link___block___type'
+  | 'link___block___medias'
+  | 'link___block___medias___id'
+  | 'link___block___medias___children'
+  | 'link___block___medias___name'
+  | 'link___block___medias___medias'
+  | 'link___block___medias___block'
+  | 'link___block___medias___spaceId'
+  | 'link___block___medias___contentful_id'
+  | 'link___block___medias___createdAt'
+  | 'link___block___medias___updatedAt'
+  | 'link___block___medias___node_locale'
+  | 'link___block___section'
+  | 'link___block___section___id'
+  | 'link___block___section___children'
+  | 'link___block___section___name'
+  | 'link___block___section___variant'
+  | 'link___block___section___layout'
+  | 'link___block___section___spaceId'
+  | 'link___block___section___contentful_id'
+  | 'link___block___section___createdAt'
+  | 'link___block___section___updatedAt'
+  | 'link___block___section___node_locale'
+  | 'link___block___section___blocks'
+  | 'link___block___section___page'
+  | 'link___block___spaceId'
+  | 'link___block___contentful_id'
+  | 'link___block___createdAt'
+  | 'link___block___updatedAt'
+  | 'link___block___sys___type'
+  | 'link___block___sys___revision'
+  | 'link___block___node_locale'
+  | 'link___block___link___id'
+  | 'link___block___link___children'
+  | 'link___block___link___type'
+  | 'link___block___link___name'
+  | 'link___block___link___label'
+  | 'link___block___link___url'
+  | 'link___block___link___spaceId'
+  | 'link___block___link___contentful_id'
+  | 'link___block___link___createdAt'
+  | 'link___block___link___updatedAt'
+  | 'link___block___link___node_locale'
+  | 'link___block___link___navigation'
+  | 'link___block___link___block'
+  | 'link___block___text___id'
+  | 'link___block___text___children'
+  | 'link___block___text___text'
+  | 'link___block___text___childrenMdx'
+  | 'link___block___variant'
+  | 'link___block___childrenContentfulBlockTextTextNode'
+  | 'link___block___childrenContentfulBlockTextTextNode___id'
+  | 'link___block___childrenContentfulBlockTextTextNode___children'
+  | 'link___block___childrenContentfulBlockTextTextNode___text'
+  | 'link___block___childrenContentfulBlockTextTextNode___childrenMdx'
+  | 'link___block___childContentfulBlockTextTextNode___id'
+  | 'link___block___childContentfulBlockTextTextNode___children'
+  | 'link___block___childContentfulBlockTextTextNode___text'
+  | 'link___block___childContentfulBlockTextTextNode___childrenMdx'
   | 'text___id'
   | 'text___parent___id'
   | 'text___parent___parent___id'
@@ -711,15 +1174,48 @@ export type ContentfulBlockFieldsEnum =
   | 'text___internal___type'
   | 'text___text'
   | 'text___sys___type'
+  | 'text___childrenMdx'
+  | 'text___childrenMdx___rawBody'
+  | 'text___childrenMdx___fileAbsolutePath'
+  | 'text___childrenMdx___frontmatter___title'
+  | 'text___childrenMdx___frontmatter___name'
+  | 'text___childrenMdx___frontmatter___description'
+  | 'text___childrenMdx___frontmatter___tags'
+  | 'text___childrenMdx___frontmatter___category'
+  | 'text___childrenMdx___slug'
+  | 'text___childrenMdx___body'
+  | 'text___childrenMdx___excerpt'
+  | 'text___childrenMdx___headings'
+  | 'text___childrenMdx___headings___value'
+  | 'text___childrenMdx___headings___depth'
+  | 'text___childrenMdx___html'
+  | 'text___childrenMdx___mdxAST'
+  | 'text___childrenMdx___tableOfContents'
+  | 'text___childrenMdx___timeToRead'
+  | 'text___childrenMdx___wordCount___paragraphs'
+  | 'text___childrenMdx___wordCount___sentences'
+  | 'text___childrenMdx___wordCount___words'
+  | 'text___childrenMdx___id'
+  | 'text___childrenMdx___parent___id'
+  | 'text___childrenMdx___parent___children'
+  | 'text___childrenMdx___children'
+  | 'text___childrenMdx___children___id'
+  | 'text___childrenMdx___children___children'
+  | 'text___childrenMdx___internal___content'
+  | 'text___childrenMdx___internal___contentDigest'
+  | 'text___childrenMdx___internal___description'
+  | 'text___childrenMdx___internal___fieldOwners'
+  | 'text___childrenMdx___internal___ignoreType'
+  | 'text___childrenMdx___internal___mediaType'
+  | 'text___childrenMdx___internal___owner'
+  | 'text___childrenMdx___internal___type'
   | 'text___childMdx___rawBody'
   | 'text___childMdx___fileAbsolutePath'
   | 'text___childMdx___frontmatter___title'
   | 'text___childMdx___frontmatter___name'
-  | 'text___childMdx___frontmatter___category'
+  | 'text___childMdx___frontmatter___description'
   | 'text___childMdx___frontmatter___tags'
-  | 'text___childMdx___frontmatter___variant'
-  | 'text___childMdx___frontmatter___layout'
-  | 'text___childMdx___frontmatter___blockLayout'
+  | 'text___childMdx___frontmatter___category'
   | 'text___childMdx___slug'
   | 'text___childMdx___body'
   | 'text___childMdx___excerpt'
@@ -747,17 +1243,117 @@ export type ContentfulBlockFieldsEnum =
   | 'text___childMdx___internal___mediaType'
   | 'text___childMdx___internal___owner'
   | 'text___childMdx___internal___type'
-  | 'spaceId'
-  | 'contentful_id'
-  | 'createdAt'
-  | 'updatedAt'
-  | 'sys___type'
-  | 'sys___revision'
-  | 'sys___contentType___sys___type'
-  | 'sys___contentType___sys___linkType'
-  | 'sys___contentType___sys___id'
-  | 'sys___contentType___sys___contentful_id'
-  | 'node_locale'
+  | 'variant'
+  | 'childrenContentfulBlockTextTextNode'
+  | 'childrenContentfulBlockTextTextNode___id'
+  | 'childrenContentfulBlockTextTextNode___parent___id'
+  | 'childrenContentfulBlockTextTextNode___parent___parent___id'
+  | 'childrenContentfulBlockTextTextNode___parent___parent___children'
+  | 'childrenContentfulBlockTextTextNode___parent___children'
+  | 'childrenContentfulBlockTextTextNode___parent___children___id'
+  | 'childrenContentfulBlockTextTextNode___parent___children___children'
+  | 'childrenContentfulBlockTextTextNode___parent___internal___content'
+  | 'childrenContentfulBlockTextTextNode___parent___internal___contentDigest'
+  | 'childrenContentfulBlockTextTextNode___parent___internal___description'
+  | 'childrenContentfulBlockTextTextNode___parent___internal___fieldOwners'
+  | 'childrenContentfulBlockTextTextNode___parent___internal___ignoreType'
+  | 'childrenContentfulBlockTextTextNode___parent___internal___mediaType'
+  | 'childrenContentfulBlockTextTextNode___parent___internal___owner'
+  | 'childrenContentfulBlockTextTextNode___parent___internal___type'
+  | 'childrenContentfulBlockTextTextNode___children'
+  | 'childrenContentfulBlockTextTextNode___children___id'
+  | 'childrenContentfulBlockTextTextNode___children___parent___id'
+  | 'childrenContentfulBlockTextTextNode___children___parent___children'
+  | 'childrenContentfulBlockTextTextNode___children___children'
+  | 'childrenContentfulBlockTextTextNode___children___children___id'
+  | 'childrenContentfulBlockTextTextNode___children___children___children'
+  | 'childrenContentfulBlockTextTextNode___children___internal___content'
+  | 'childrenContentfulBlockTextTextNode___children___internal___contentDigest'
+  | 'childrenContentfulBlockTextTextNode___children___internal___description'
+  | 'childrenContentfulBlockTextTextNode___children___internal___fieldOwners'
+  | 'childrenContentfulBlockTextTextNode___children___internal___ignoreType'
+  | 'childrenContentfulBlockTextTextNode___children___internal___mediaType'
+  | 'childrenContentfulBlockTextTextNode___children___internal___owner'
+  | 'childrenContentfulBlockTextTextNode___children___internal___type'
+  | 'childrenContentfulBlockTextTextNode___internal___content'
+  | 'childrenContentfulBlockTextTextNode___internal___contentDigest'
+  | 'childrenContentfulBlockTextTextNode___internal___description'
+  | 'childrenContentfulBlockTextTextNode___internal___fieldOwners'
+  | 'childrenContentfulBlockTextTextNode___internal___ignoreType'
+  | 'childrenContentfulBlockTextTextNode___internal___mediaType'
+  | 'childrenContentfulBlockTextTextNode___internal___owner'
+  | 'childrenContentfulBlockTextTextNode___internal___type'
+  | 'childrenContentfulBlockTextTextNode___text'
+  | 'childrenContentfulBlockTextTextNode___sys___type'
+  | 'childrenContentfulBlockTextTextNode___childrenMdx'
+  | 'childrenContentfulBlockTextTextNode___childrenMdx___rawBody'
+  | 'childrenContentfulBlockTextTextNode___childrenMdx___fileAbsolutePath'
+  | 'childrenContentfulBlockTextTextNode___childrenMdx___frontmatter___title'
+  | 'childrenContentfulBlockTextTextNode___childrenMdx___frontmatter___name'
+  | 'childrenContentfulBlockTextTextNode___childrenMdx___frontmatter___description'
+  | 'childrenContentfulBlockTextTextNode___childrenMdx___frontmatter___tags'
+  | 'childrenContentfulBlockTextTextNode___childrenMdx___frontmatter___category'
+  | 'childrenContentfulBlockTextTextNode___childrenMdx___slug'
+  | 'childrenContentfulBlockTextTextNode___childrenMdx___body'
+  | 'childrenContentfulBlockTextTextNode___childrenMdx___excerpt'
+  | 'childrenContentfulBlockTextTextNode___childrenMdx___headings'
+  | 'childrenContentfulBlockTextTextNode___childrenMdx___headings___value'
+  | 'childrenContentfulBlockTextTextNode___childrenMdx___headings___depth'
+  | 'childrenContentfulBlockTextTextNode___childrenMdx___html'
+  | 'childrenContentfulBlockTextTextNode___childrenMdx___mdxAST'
+  | 'childrenContentfulBlockTextTextNode___childrenMdx___tableOfContents'
+  | 'childrenContentfulBlockTextTextNode___childrenMdx___timeToRead'
+  | 'childrenContentfulBlockTextTextNode___childrenMdx___wordCount___paragraphs'
+  | 'childrenContentfulBlockTextTextNode___childrenMdx___wordCount___sentences'
+  | 'childrenContentfulBlockTextTextNode___childrenMdx___wordCount___words'
+  | 'childrenContentfulBlockTextTextNode___childrenMdx___id'
+  | 'childrenContentfulBlockTextTextNode___childrenMdx___parent___id'
+  | 'childrenContentfulBlockTextTextNode___childrenMdx___parent___children'
+  | 'childrenContentfulBlockTextTextNode___childrenMdx___children'
+  | 'childrenContentfulBlockTextTextNode___childrenMdx___children___id'
+  | 'childrenContentfulBlockTextTextNode___childrenMdx___children___children'
+  | 'childrenContentfulBlockTextTextNode___childrenMdx___internal___content'
+  | 'childrenContentfulBlockTextTextNode___childrenMdx___internal___contentDigest'
+  | 'childrenContentfulBlockTextTextNode___childrenMdx___internal___description'
+  | 'childrenContentfulBlockTextTextNode___childrenMdx___internal___fieldOwners'
+  | 'childrenContentfulBlockTextTextNode___childrenMdx___internal___ignoreType'
+  | 'childrenContentfulBlockTextTextNode___childrenMdx___internal___mediaType'
+  | 'childrenContentfulBlockTextTextNode___childrenMdx___internal___owner'
+  | 'childrenContentfulBlockTextTextNode___childrenMdx___internal___type'
+  | 'childrenContentfulBlockTextTextNode___childMdx___rawBody'
+  | 'childrenContentfulBlockTextTextNode___childMdx___fileAbsolutePath'
+  | 'childrenContentfulBlockTextTextNode___childMdx___frontmatter___title'
+  | 'childrenContentfulBlockTextTextNode___childMdx___frontmatter___name'
+  | 'childrenContentfulBlockTextTextNode___childMdx___frontmatter___description'
+  | 'childrenContentfulBlockTextTextNode___childMdx___frontmatter___tags'
+  | 'childrenContentfulBlockTextTextNode___childMdx___frontmatter___category'
+  | 'childrenContentfulBlockTextTextNode___childMdx___slug'
+  | 'childrenContentfulBlockTextTextNode___childMdx___body'
+  | 'childrenContentfulBlockTextTextNode___childMdx___excerpt'
+  | 'childrenContentfulBlockTextTextNode___childMdx___headings'
+  | 'childrenContentfulBlockTextTextNode___childMdx___headings___value'
+  | 'childrenContentfulBlockTextTextNode___childMdx___headings___depth'
+  | 'childrenContentfulBlockTextTextNode___childMdx___html'
+  | 'childrenContentfulBlockTextTextNode___childMdx___mdxAST'
+  | 'childrenContentfulBlockTextTextNode___childMdx___tableOfContents'
+  | 'childrenContentfulBlockTextTextNode___childMdx___timeToRead'
+  | 'childrenContentfulBlockTextTextNode___childMdx___wordCount___paragraphs'
+  | 'childrenContentfulBlockTextTextNode___childMdx___wordCount___sentences'
+  | 'childrenContentfulBlockTextTextNode___childMdx___wordCount___words'
+  | 'childrenContentfulBlockTextTextNode___childMdx___id'
+  | 'childrenContentfulBlockTextTextNode___childMdx___parent___id'
+  | 'childrenContentfulBlockTextTextNode___childMdx___parent___children'
+  | 'childrenContentfulBlockTextTextNode___childMdx___children'
+  | 'childrenContentfulBlockTextTextNode___childMdx___children___id'
+  | 'childrenContentfulBlockTextTextNode___childMdx___children___children'
+  | 'childrenContentfulBlockTextTextNode___childMdx___internal___content'
+  | 'childrenContentfulBlockTextTextNode___childMdx___internal___contentDigest'
+  | 'childrenContentfulBlockTextTextNode___childMdx___internal___description'
+  | 'childrenContentfulBlockTextTextNode___childMdx___internal___fieldOwners'
+  | 'childrenContentfulBlockTextTextNode___childMdx___internal___ignoreType'
+  | 'childrenContentfulBlockTextTextNode___childMdx___internal___mediaType'
+  | 'childrenContentfulBlockTextTextNode___childMdx___internal___owner'
+  | 'childrenContentfulBlockTextTextNode___childMdx___internal___type'
   | 'childContentfulBlockTextTextNode___id'
   | 'childContentfulBlockTextTextNode___parent___id'
   | 'childContentfulBlockTextTextNode___parent___parent___id'
@@ -798,15 +1394,48 @@ export type ContentfulBlockFieldsEnum =
   | 'childContentfulBlockTextTextNode___internal___type'
   | 'childContentfulBlockTextTextNode___text'
   | 'childContentfulBlockTextTextNode___sys___type'
+  | 'childContentfulBlockTextTextNode___childrenMdx'
+  | 'childContentfulBlockTextTextNode___childrenMdx___rawBody'
+  | 'childContentfulBlockTextTextNode___childrenMdx___fileAbsolutePath'
+  | 'childContentfulBlockTextTextNode___childrenMdx___frontmatter___title'
+  | 'childContentfulBlockTextTextNode___childrenMdx___frontmatter___name'
+  | 'childContentfulBlockTextTextNode___childrenMdx___frontmatter___description'
+  | 'childContentfulBlockTextTextNode___childrenMdx___frontmatter___tags'
+  | 'childContentfulBlockTextTextNode___childrenMdx___frontmatter___category'
+  | 'childContentfulBlockTextTextNode___childrenMdx___slug'
+  | 'childContentfulBlockTextTextNode___childrenMdx___body'
+  | 'childContentfulBlockTextTextNode___childrenMdx___excerpt'
+  | 'childContentfulBlockTextTextNode___childrenMdx___headings'
+  | 'childContentfulBlockTextTextNode___childrenMdx___headings___value'
+  | 'childContentfulBlockTextTextNode___childrenMdx___headings___depth'
+  | 'childContentfulBlockTextTextNode___childrenMdx___html'
+  | 'childContentfulBlockTextTextNode___childrenMdx___mdxAST'
+  | 'childContentfulBlockTextTextNode___childrenMdx___tableOfContents'
+  | 'childContentfulBlockTextTextNode___childrenMdx___timeToRead'
+  | 'childContentfulBlockTextTextNode___childrenMdx___wordCount___paragraphs'
+  | 'childContentfulBlockTextTextNode___childrenMdx___wordCount___sentences'
+  | 'childContentfulBlockTextTextNode___childrenMdx___wordCount___words'
+  | 'childContentfulBlockTextTextNode___childrenMdx___id'
+  | 'childContentfulBlockTextTextNode___childrenMdx___parent___id'
+  | 'childContentfulBlockTextTextNode___childrenMdx___parent___children'
+  | 'childContentfulBlockTextTextNode___childrenMdx___children'
+  | 'childContentfulBlockTextTextNode___childrenMdx___children___id'
+  | 'childContentfulBlockTextTextNode___childrenMdx___children___children'
+  | 'childContentfulBlockTextTextNode___childrenMdx___internal___content'
+  | 'childContentfulBlockTextTextNode___childrenMdx___internal___contentDigest'
+  | 'childContentfulBlockTextTextNode___childrenMdx___internal___description'
+  | 'childContentfulBlockTextTextNode___childrenMdx___internal___fieldOwners'
+  | 'childContentfulBlockTextTextNode___childrenMdx___internal___ignoreType'
+  | 'childContentfulBlockTextTextNode___childrenMdx___internal___mediaType'
+  | 'childContentfulBlockTextTextNode___childrenMdx___internal___owner'
+  | 'childContentfulBlockTextTextNode___childrenMdx___internal___type'
   | 'childContentfulBlockTextTextNode___childMdx___rawBody'
   | 'childContentfulBlockTextTextNode___childMdx___fileAbsolutePath'
   | 'childContentfulBlockTextTextNode___childMdx___frontmatter___title'
   | 'childContentfulBlockTextTextNode___childMdx___frontmatter___name'
-  | 'childContentfulBlockTextTextNode___childMdx___frontmatter___category'
+  | 'childContentfulBlockTextTextNode___childMdx___frontmatter___description'
   | 'childContentfulBlockTextTextNode___childMdx___frontmatter___tags'
-  | 'childContentfulBlockTextTextNode___childMdx___frontmatter___variant'
-  | 'childContentfulBlockTextTextNode___childMdx___frontmatter___layout'
-  | 'childContentfulBlockTextTextNode___childMdx___frontmatter___blockLayout'
+  | 'childContentfulBlockTextTextNode___childMdx___frontmatter___category'
   | 'childContentfulBlockTextTextNode___childMdx___slug'
   | 'childContentfulBlockTextTextNode___childMdx___body'
   | 'childContentfulBlockTextTextNode___childMdx___excerpt'
@@ -842,14 +1471,18 @@ export type ContentfulBlockFilterInput = {
   internal?: Maybe<InternalFilterInput>;
   name?: Maybe<StringQueryOperatorInput>;
   type?: Maybe<StringQueryOperatorInput>;
+  medias?: Maybe<ContentfulMediaCollectionFilterListInput>;
   section?: Maybe<ContentfulSectionFilterListInput>;
-  text?: Maybe<ContentfulBlockTextTextNodeFilterInput>;
   spaceId?: Maybe<StringQueryOperatorInput>;
   contentful_id?: Maybe<StringQueryOperatorInput>;
   createdAt?: Maybe<DateQueryOperatorInput>;
   updatedAt?: Maybe<DateQueryOperatorInput>;
   sys?: Maybe<ContentfulBlockSysFilterInput>;
   node_locale?: Maybe<StringQueryOperatorInput>;
+  link?: Maybe<ContentfulLinkFilterInput>;
+  text?: Maybe<ContentfulBlockTextTextNodeFilterInput>;
+  variant?: Maybe<StringQueryOperatorInput>;
+  childrenContentfulBlockTextTextNode?: Maybe<ContentfulBlockTextTextNodeFilterListInput>;
   childContentfulBlockTextTextNode?: Maybe<ContentfulBlockTextTextNodeFilterInput>;
 };
 
@@ -912,6 +1545,9 @@ export type ContentfulBlockTextTextNode = Node & {
   internal: Internal;
   text?: Maybe<Scalars['String']>;
   sys?: Maybe<ContentfulBlockTextTextNodeSys>;
+  /** Returns all children nodes filtered by type Mdx */
+  childrenMdx?: Maybe<Array<Maybe<Mdx>>>;
+  /** Returns the first child node of type Mdx or null if there are no children of given type on this node */
   childMdx?: Maybe<Mdx>;
 };
 
@@ -1031,15 +1667,72 @@ export type ContentfulBlockTextTextNodeFieldsEnum =
   | 'internal___type'
   | 'text'
   | 'sys___type'
+  | 'childrenMdx'
+  | 'childrenMdx___rawBody'
+  | 'childrenMdx___fileAbsolutePath'
+  | 'childrenMdx___frontmatter___title'
+  | 'childrenMdx___frontmatter___name'
+  | 'childrenMdx___frontmatter___description'
+  | 'childrenMdx___frontmatter___tags'
+  | 'childrenMdx___frontmatter___category'
+  | 'childrenMdx___slug'
+  | 'childrenMdx___body'
+  | 'childrenMdx___excerpt'
+  | 'childrenMdx___headings'
+  | 'childrenMdx___headings___value'
+  | 'childrenMdx___headings___depth'
+  | 'childrenMdx___html'
+  | 'childrenMdx___mdxAST'
+  | 'childrenMdx___tableOfContents'
+  | 'childrenMdx___timeToRead'
+  | 'childrenMdx___wordCount___paragraphs'
+  | 'childrenMdx___wordCount___sentences'
+  | 'childrenMdx___wordCount___words'
+  | 'childrenMdx___id'
+  | 'childrenMdx___parent___id'
+  | 'childrenMdx___parent___parent___id'
+  | 'childrenMdx___parent___parent___children'
+  | 'childrenMdx___parent___children'
+  | 'childrenMdx___parent___children___id'
+  | 'childrenMdx___parent___children___children'
+  | 'childrenMdx___parent___internal___content'
+  | 'childrenMdx___parent___internal___contentDigest'
+  | 'childrenMdx___parent___internal___description'
+  | 'childrenMdx___parent___internal___fieldOwners'
+  | 'childrenMdx___parent___internal___ignoreType'
+  | 'childrenMdx___parent___internal___mediaType'
+  | 'childrenMdx___parent___internal___owner'
+  | 'childrenMdx___parent___internal___type'
+  | 'childrenMdx___children'
+  | 'childrenMdx___children___id'
+  | 'childrenMdx___children___parent___id'
+  | 'childrenMdx___children___parent___children'
+  | 'childrenMdx___children___children'
+  | 'childrenMdx___children___children___id'
+  | 'childrenMdx___children___children___children'
+  | 'childrenMdx___children___internal___content'
+  | 'childrenMdx___children___internal___contentDigest'
+  | 'childrenMdx___children___internal___description'
+  | 'childrenMdx___children___internal___fieldOwners'
+  | 'childrenMdx___children___internal___ignoreType'
+  | 'childrenMdx___children___internal___mediaType'
+  | 'childrenMdx___children___internal___owner'
+  | 'childrenMdx___children___internal___type'
+  | 'childrenMdx___internal___content'
+  | 'childrenMdx___internal___contentDigest'
+  | 'childrenMdx___internal___description'
+  | 'childrenMdx___internal___fieldOwners'
+  | 'childrenMdx___internal___ignoreType'
+  | 'childrenMdx___internal___mediaType'
+  | 'childrenMdx___internal___owner'
+  | 'childrenMdx___internal___type'
   | 'childMdx___rawBody'
   | 'childMdx___fileAbsolutePath'
   | 'childMdx___frontmatter___title'
   | 'childMdx___frontmatter___name'
-  | 'childMdx___frontmatter___category'
+  | 'childMdx___frontmatter___description'
   | 'childMdx___frontmatter___tags'
-  | 'childMdx___frontmatter___variant'
-  | 'childMdx___frontmatter___layout'
-  | 'childMdx___frontmatter___blockLayout'
+  | 'childMdx___frontmatter___category'
   | 'childMdx___slug'
   | 'childMdx___body'
   | 'childMdx___excerpt'
@@ -1099,7 +1792,12 @@ export type ContentfulBlockTextTextNodeFilterInput = {
   internal?: Maybe<InternalFilterInput>;
   text?: Maybe<StringQueryOperatorInput>;
   sys?: Maybe<ContentfulBlockTextTextNodeSysFilterInput>;
+  childrenMdx?: Maybe<MdxFilterListInput>;
   childMdx?: Maybe<MdxFilterInput>;
+};
+
+export type ContentfulBlockTextTextNodeFilterListInput = {
+  elemMatch?: Maybe<ContentfulBlockTextTextNodeFilterInput>;
 };
 
 export type ContentfulBlockTextTextNodeGroupConnection = {
@@ -1124,228 +1822,6 @@ export type ContentfulBlockTextTextNodeSysFilterInput = {
   type?: Maybe<StringQueryOperatorInput>;
 };
 
-export type ContentfulBlogPost = Node & {
-  id: Scalars['ID'];
-  parent?: Maybe<Node>;
-  children: Array<Node>;
-  internal: Internal;
-  title?: Maybe<Scalars['String']>;
-  blogSlug?: Maybe<Scalars['String']>;
-  spaceId?: Maybe<Scalars['String']>;
-  contentful_id?: Maybe<Scalars['String']>;
-  createdAt?: Maybe<Scalars['Date']>;
-  updatedAt?: Maybe<Scalars['Date']>;
-  sys?: Maybe<ContentfulBlogPostSys>;
-  node_locale?: Maybe<Scalars['String']>;
-};
-
-
-export type ContentfulBlogPostCreatedAtArgs = {
-  formatString?: Maybe<Scalars['String']>;
-  fromNow?: Maybe<Scalars['Boolean']>;
-  difference?: Maybe<Scalars['String']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type ContentfulBlogPostUpdatedAtArgs = {
-  formatString?: Maybe<Scalars['String']>;
-  fromNow?: Maybe<Scalars['Boolean']>;
-  difference?: Maybe<Scalars['String']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type ContentfulBlogPostConnection = {
-  totalCount: Scalars['Int'];
-  edges: Array<ContentfulBlogPostEdge>;
-  nodes: Array<ContentfulBlogPost>;
-  pageInfo: PageInfo;
-  distinct: Array<Scalars['String']>;
-  group: Array<ContentfulBlogPostGroupConnection>;
-};
-
-
-export type ContentfulBlogPostConnectionDistinctArgs = {
-  field: ContentfulBlogPostFieldsEnum;
-};
-
-
-export type ContentfulBlogPostConnectionGroupArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  field: ContentfulBlogPostFieldsEnum;
-};
-
-export type ContentfulBlogPostEdge = {
-  next?: Maybe<ContentfulBlogPost>;
-  node: ContentfulBlogPost;
-  previous?: Maybe<ContentfulBlogPost>;
-};
-
-export type ContentfulBlogPostFieldsEnum = 
-  | 'id'
-  | 'parent___id'
-  | 'parent___parent___id'
-  | 'parent___parent___parent___id'
-  | 'parent___parent___parent___children'
-  | 'parent___parent___children'
-  | 'parent___parent___children___id'
-  | 'parent___parent___children___children'
-  | 'parent___parent___internal___content'
-  | 'parent___parent___internal___contentDigest'
-  | 'parent___parent___internal___description'
-  | 'parent___parent___internal___fieldOwners'
-  | 'parent___parent___internal___ignoreType'
-  | 'parent___parent___internal___mediaType'
-  | 'parent___parent___internal___owner'
-  | 'parent___parent___internal___type'
-  | 'parent___children'
-  | 'parent___children___id'
-  | 'parent___children___parent___id'
-  | 'parent___children___parent___children'
-  | 'parent___children___children'
-  | 'parent___children___children___id'
-  | 'parent___children___children___children'
-  | 'parent___children___internal___content'
-  | 'parent___children___internal___contentDigest'
-  | 'parent___children___internal___description'
-  | 'parent___children___internal___fieldOwners'
-  | 'parent___children___internal___ignoreType'
-  | 'parent___children___internal___mediaType'
-  | 'parent___children___internal___owner'
-  | 'parent___children___internal___type'
-  | 'parent___internal___content'
-  | 'parent___internal___contentDigest'
-  | 'parent___internal___description'
-  | 'parent___internal___fieldOwners'
-  | 'parent___internal___ignoreType'
-  | 'parent___internal___mediaType'
-  | 'parent___internal___owner'
-  | 'parent___internal___type'
-  | 'children'
-  | 'children___id'
-  | 'children___parent___id'
-  | 'children___parent___parent___id'
-  | 'children___parent___parent___children'
-  | 'children___parent___children'
-  | 'children___parent___children___id'
-  | 'children___parent___children___children'
-  | 'children___parent___internal___content'
-  | 'children___parent___internal___contentDigest'
-  | 'children___parent___internal___description'
-  | 'children___parent___internal___fieldOwners'
-  | 'children___parent___internal___ignoreType'
-  | 'children___parent___internal___mediaType'
-  | 'children___parent___internal___owner'
-  | 'children___parent___internal___type'
-  | 'children___children'
-  | 'children___children___id'
-  | 'children___children___parent___id'
-  | 'children___children___parent___children'
-  | 'children___children___children'
-  | 'children___children___children___id'
-  | 'children___children___children___children'
-  | 'children___children___internal___content'
-  | 'children___children___internal___contentDigest'
-  | 'children___children___internal___description'
-  | 'children___children___internal___fieldOwners'
-  | 'children___children___internal___ignoreType'
-  | 'children___children___internal___mediaType'
-  | 'children___children___internal___owner'
-  | 'children___children___internal___type'
-  | 'children___internal___content'
-  | 'children___internal___contentDigest'
-  | 'children___internal___description'
-  | 'children___internal___fieldOwners'
-  | 'children___internal___ignoreType'
-  | 'children___internal___mediaType'
-  | 'children___internal___owner'
-  | 'children___internal___type'
-  | 'internal___content'
-  | 'internal___contentDigest'
-  | 'internal___description'
-  | 'internal___fieldOwners'
-  | 'internal___ignoreType'
-  | 'internal___mediaType'
-  | 'internal___owner'
-  | 'internal___type'
-  | 'title'
-  | 'blogSlug'
-  | 'spaceId'
-  | 'contentful_id'
-  | 'createdAt'
-  | 'updatedAt'
-  | 'sys___type'
-  | 'sys___revision'
-  | 'sys___contentType___sys___type'
-  | 'sys___contentType___sys___linkType'
-  | 'sys___contentType___sys___id'
-  | 'sys___contentType___sys___contentful_id'
-  | 'node_locale';
-
-export type ContentfulBlogPostFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-  title?: Maybe<StringQueryOperatorInput>;
-  blogSlug?: Maybe<StringQueryOperatorInput>;
-  spaceId?: Maybe<StringQueryOperatorInput>;
-  contentful_id?: Maybe<StringQueryOperatorInput>;
-  createdAt?: Maybe<DateQueryOperatorInput>;
-  updatedAt?: Maybe<DateQueryOperatorInput>;
-  sys?: Maybe<ContentfulBlogPostSysFilterInput>;
-  node_locale?: Maybe<StringQueryOperatorInput>;
-};
-
-export type ContentfulBlogPostGroupConnection = {
-  totalCount: Scalars['Int'];
-  edges: Array<ContentfulBlogPostEdge>;
-  nodes: Array<ContentfulBlogPost>;
-  pageInfo: PageInfo;
-  field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
-};
-
-export type ContentfulBlogPostSortInput = {
-  fields?: Maybe<Array<Maybe<ContentfulBlogPostFieldsEnum>>>;
-  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
-};
-
-export type ContentfulBlogPostSys = {
-  type?: Maybe<Scalars['String']>;
-  revision?: Maybe<Scalars['Int']>;
-  contentType?: Maybe<ContentfulBlogPostSysContentType>;
-};
-
-export type ContentfulBlogPostSysContentType = {
-  sys?: Maybe<ContentfulBlogPostSysContentTypeSys>;
-};
-
-export type ContentfulBlogPostSysContentTypeFilterInput = {
-  sys?: Maybe<ContentfulBlogPostSysContentTypeSysFilterInput>;
-};
-
-export type ContentfulBlogPostSysContentTypeSys = {
-  type?: Maybe<Scalars['String']>;
-  linkType?: Maybe<Scalars['String']>;
-  id?: Maybe<Scalars['String']>;
-  contentful_id?: Maybe<Scalars['String']>;
-};
-
-export type ContentfulBlogPostSysContentTypeSysFilterInput = {
-  type?: Maybe<StringQueryOperatorInput>;
-  linkType?: Maybe<StringQueryOperatorInput>;
-  id?: Maybe<StringQueryOperatorInput>;
-  contentful_id?: Maybe<StringQueryOperatorInput>;
-};
-
-export type ContentfulBlogPostSysFilterInput = {
-  type?: Maybe<StringQueryOperatorInput>;
-  revision?: Maybe<IntQueryOperatorInput>;
-  contentType?: Maybe<ContentfulBlogPostSysContentTypeFilterInput>;
-};
-
 export type ContentfulCompanyAddress = Node & {
   id: Scalars['ID'];
   parent?: Maybe<Node>;
@@ -1358,6 +1834,7 @@ export type ContentfulCompanyAddress = Node & {
   provinceState?: Maybe<Scalars['String']>;
   country?: Maybe<Scalars['String']>;
   phone?: Maybe<Scalars['String']>;
+  fax?: Maybe<Scalars['String']>;
   websiteURL?: Maybe<Scalars['String']>;
   email?: Maybe<Scalars['String']>;
   spaceId?: Maybe<Scalars['String']>;
@@ -1505,6 +1982,7 @@ export type ContentfulCompanyAddressFieldsEnum =
   | 'provinceState'
   | 'country'
   | 'phone'
+  | 'fax'
   | 'websiteURL'
   | 'email'
   | 'spaceId'
@@ -1531,6 +2009,7 @@ export type ContentfulCompanyAddressFilterInput = {
   provinceState?: Maybe<StringQueryOperatorInput>;
   country?: Maybe<StringQueryOperatorInput>;
   phone?: Maybe<StringQueryOperatorInput>;
+  fax?: Maybe<StringQueryOperatorInput>;
   websiteURL?: Maybe<StringQueryOperatorInput>;
   email?: Maybe<StringQueryOperatorInput>;
   spaceId?: Maybe<StringQueryOperatorInput>;
@@ -1589,616 +2068,12 @@ export type ContentfulCompanyAddressSysFilterInput = {
   contentType?: Maybe<ContentfulCompanyAddressSysContentTypeFilterInput>;
 };
 
-export type ContentfulCompanyEmployee = Node & {
-  id: Scalars['ID'];
-  parent?: Maybe<Node>;
-  children: Array<Node>;
-  internal: Internal;
-  name?: Maybe<Scalars['String']>;
-  firstName?: Maybe<Scalars['String']>;
-  lastName?: Maybe<Scalars['String']>;
-  jobTitle?: Maybe<Scalars['String']>;
-  spaceId?: Maybe<Scalars['String']>;
-  contentful_id?: Maybe<Scalars['String']>;
-  createdAt?: Maybe<Scalars['Date']>;
-  updatedAt?: Maybe<Scalars['Date']>;
-  sys?: Maybe<ContentfulCompanyEmployeeSys>;
-  node_locale?: Maybe<Scalars['String']>;
-  bio?: Maybe<ContentfulCompanyEmployeeBioTextNode>;
-  childContentfulCompanyEmployeeBioTextNode?: Maybe<ContentfulCompanyEmployeeBioTextNode>;
-};
-
-
-export type ContentfulCompanyEmployeeCreatedAtArgs = {
-  formatString?: Maybe<Scalars['String']>;
-  fromNow?: Maybe<Scalars['Boolean']>;
-  difference?: Maybe<Scalars['String']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type ContentfulCompanyEmployeeUpdatedAtArgs = {
-  formatString?: Maybe<Scalars['String']>;
-  fromNow?: Maybe<Scalars['Boolean']>;
-  difference?: Maybe<Scalars['String']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type ContentfulCompanyEmployeeBioTextNode = Node & {
-  id: Scalars['ID'];
-  parent?: Maybe<Node>;
-  children: Array<Node>;
-  internal: Internal;
-  bio?: Maybe<Scalars['String']>;
-  sys?: Maybe<ContentfulCompanyEmployeeBioTextNodeSys>;
-  childMdx?: Maybe<Mdx>;
-};
-
-export type ContentfulCompanyEmployeeBioTextNodeConnection = {
-  totalCount: Scalars['Int'];
-  edges: Array<ContentfulCompanyEmployeeBioTextNodeEdge>;
-  nodes: Array<ContentfulCompanyEmployeeBioTextNode>;
-  pageInfo: PageInfo;
-  distinct: Array<Scalars['String']>;
-  group: Array<ContentfulCompanyEmployeeBioTextNodeGroupConnection>;
-};
-
-
-export type ContentfulCompanyEmployeeBioTextNodeConnectionDistinctArgs = {
-  field: ContentfulCompanyEmployeeBioTextNodeFieldsEnum;
-};
-
-
-export type ContentfulCompanyEmployeeBioTextNodeConnectionGroupArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  field: ContentfulCompanyEmployeeBioTextNodeFieldsEnum;
-};
-
-export type ContentfulCompanyEmployeeBioTextNodeEdge = {
-  next?: Maybe<ContentfulCompanyEmployeeBioTextNode>;
-  node: ContentfulCompanyEmployeeBioTextNode;
-  previous?: Maybe<ContentfulCompanyEmployeeBioTextNode>;
-};
-
-export type ContentfulCompanyEmployeeBioTextNodeFieldsEnum = 
-  | 'id'
-  | 'parent___id'
-  | 'parent___parent___id'
-  | 'parent___parent___parent___id'
-  | 'parent___parent___parent___children'
-  | 'parent___parent___children'
-  | 'parent___parent___children___id'
-  | 'parent___parent___children___children'
-  | 'parent___parent___internal___content'
-  | 'parent___parent___internal___contentDigest'
-  | 'parent___parent___internal___description'
-  | 'parent___parent___internal___fieldOwners'
-  | 'parent___parent___internal___ignoreType'
-  | 'parent___parent___internal___mediaType'
-  | 'parent___parent___internal___owner'
-  | 'parent___parent___internal___type'
-  | 'parent___children'
-  | 'parent___children___id'
-  | 'parent___children___parent___id'
-  | 'parent___children___parent___children'
-  | 'parent___children___children'
-  | 'parent___children___children___id'
-  | 'parent___children___children___children'
-  | 'parent___children___internal___content'
-  | 'parent___children___internal___contentDigest'
-  | 'parent___children___internal___description'
-  | 'parent___children___internal___fieldOwners'
-  | 'parent___children___internal___ignoreType'
-  | 'parent___children___internal___mediaType'
-  | 'parent___children___internal___owner'
-  | 'parent___children___internal___type'
-  | 'parent___internal___content'
-  | 'parent___internal___contentDigest'
-  | 'parent___internal___description'
-  | 'parent___internal___fieldOwners'
-  | 'parent___internal___ignoreType'
-  | 'parent___internal___mediaType'
-  | 'parent___internal___owner'
-  | 'parent___internal___type'
-  | 'children'
-  | 'children___id'
-  | 'children___parent___id'
-  | 'children___parent___parent___id'
-  | 'children___parent___parent___children'
-  | 'children___parent___children'
-  | 'children___parent___children___id'
-  | 'children___parent___children___children'
-  | 'children___parent___internal___content'
-  | 'children___parent___internal___contentDigest'
-  | 'children___parent___internal___description'
-  | 'children___parent___internal___fieldOwners'
-  | 'children___parent___internal___ignoreType'
-  | 'children___parent___internal___mediaType'
-  | 'children___parent___internal___owner'
-  | 'children___parent___internal___type'
-  | 'children___children'
-  | 'children___children___id'
-  | 'children___children___parent___id'
-  | 'children___children___parent___children'
-  | 'children___children___children'
-  | 'children___children___children___id'
-  | 'children___children___children___children'
-  | 'children___children___internal___content'
-  | 'children___children___internal___contentDigest'
-  | 'children___children___internal___description'
-  | 'children___children___internal___fieldOwners'
-  | 'children___children___internal___ignoreType'
-  | 'children___children___internal___mediaType'
-  | 'children___children___internal___owner'
-  | 'children___children___internal___type'
-  | 'children___internal___content'
-  | 'children___internal___contentDigest'
-  | 'children___internal___description'
-  | 'children___internal___fieldOwners'
-  | 'children___internal___ignoreType'
-  | 'children___internal___mediaType'
-  | 'children___internal___owner'
-  | 'children___internal___type'
-  | 'internal___content'
-  | 'internal___contentDigest'
-  | 'internal___description'
-  | 'internal___fieldOwners'
-  | 'internal___ignoreType'
-  | 'internal___mediaType'
-  | 'internal___owner'
-  | 'internal___type'
-  | 'bio'
-  | 'sys___type'
-  | 'childMdx___rawBody'
-  | 'childMdx___fileAbsolutePath'
-  | 'childMdx___frontmatter___title'
-  | 'childMdx___frontmatter___name'
-  | 'childMdx___frontmatter___category'
-  | 'childMdx___frontmatter___tags'
-  | 'childMdx___frontmatter___variant'
-  | 'childMdx___frontmatter___layout'
-  | 'childMdx___frontmatter___blockLayout'
-  | 'childMdx___slug'
-  | 'childMdx___body'
-  | 'childMdx___excerpt'
-  | 'childMdx___headings'
-  | 'childMdx___headings___value'
-  | 'childMdx___headings___depth'
-  | 'childMdx___html'
-  | 'childMdx___mdxAST'
-  | 'childMdx___tableOfContents'
-  | 'childMdx___timeToRead'
-  | 'childMdx___wordCount___paragraphs'
-  | 'childMdx___wordCount___sentences'
-  | 'childMdx___wordCount___words'
-  | 'childMdx___id'
-  | 'childMdx___parent___id'
-  | 'childMdx___parent___parent___id'
-  | 'childMdx___parent___parent___children'
-  | 'childMdx___parent___children'
-  | 'childMdx___parent___children___id'
-  | 'childMdx___parent___children___children'
-  | 'childMdx___parent___internal___content'
-  | 'childMdx___parent___internal___contentDigest'
-  | 'childMdx___parent___internal___description'
-  | 'childMdx___parent___internal___fieldOwners'
-  | 'childMdx___parent___internal___ignoreType'
-  | 'childMdx___parent___internal___mediaType'
-  | 'childMdx___parent___internal___owner'
-  | 'childMdx___parent___internal___type'
-  | 'childMdx___children'
-  | 'childMdx___children___id'
-  | 'childMdx___children___parent___id'
-  | 'childMdx___children___parent___children'
-  | 'childMdx___children___children'
-  | 'childMdx___children___children___id'
-  | 'childMdx___children___children___children'
-  | 'childMdx___children___internal___content'
-  | 'childMdx___children___internal___contentDigest'
-  | 'childMdx___children___internal___description'
-  | 'childMdx___children___internal___fieldOwners'
-  | 'childMdx___children___internal___ignoreType'
-  | 'childMdx___children___internal___mediaType'
-  | 'childMdx___children___internal___owner'
-  | 'childMdx___children___internal___type'
-  | 'childMdx___internal___content'
-  | 'childMdx___internal___contentDigest'
-  | 'childMdx___internal___description'
-  | 'childMdx___internal___fieldOwners'
-  | 'childMdx___internal___ignoreType'
-  | 'childMdx___internal___mediaType'
-  | 'childMdx___internal___owner'
-  | 'childMdx___internal___type';
-
-export type ContentfulCompanyEmployeeBioTextNodeFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-  bio?: Maybe<StringQueryOperatorInput>;
-  sys?: Maybe<ContentfulCompanyEmployeeBioTextNodeSysFilterInput>;
-  childMdx?: Maybe<MdxFilterInput>;
-};
-
-export type ContentfulCompanyEmployeeBioTextNodeGroupConnection = {
-  totalCount: Scalars['Int'];
-  edges: Array<ContentfulCompanyEmployeeBioTextNodeEdge>;
-  nodes: Array<ContentfulCompanyEmployeeBioTextNode>;
-  pageInfo: PageInfo;
-  field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
-};
-
-export type ContentfulCompanyEmployeeBioTextNodeSortInput = {
-  fields?: Maybe<Array<Maybe<ContentfulCompanyEmployeeBioTextNodeFieldsEnum>>>;
-  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
-};
-
-export type ContentfulCompanyEmployeeBioTextNodeSys = {
-  type?: Maybe<Scalars['String']>;
-};
-
-export type ContentfulCompanyEmployeeBioTextNodeSysFilterInput = {
-  type?: Maybe<StringQueryOperatorInput>;
-};
-
-export type ContentfulCompanyEmployeeConnection = {
-  totalCount: Scalars['Int'];
-  edges: Array<ContentfulCompanyEmployeeEdge>;
-  nodes: Array<ContentfulCompanyEmployee>;
-  pageInfo: PageInfo;
-  distinct: Array<Scalars['String']>;
-  group: Array<ContentfulCompanyEmployeeGroupConnection>;
-};
-
-
-export type ContentfulCompanyEmployeeConnectionDistinctArgs = {
-  field: ContentfulCompanyEmployeeFieldsEnum;
-};
-
-
-export type ContentfulCompanyEmployeeConnectionGroupArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  field: ContentfulCompanyEmployeeFieldsEnum;
-};
-
-export type ContentfulCompanyEmployeeEdge = {
-  next?: Maybe<ContentfulCompanyEmployee>;
-  node: ContentfulCompanyEmployee;
-  previous?: Maybe<ContentfulCompanyEmployee>;
-};
-
-export type ContentfulCompanyEmployeeFieldsEnum = 
-  | 'id'
-  | 'parent___id'
-  | 'parent___parent___id'
-  | 'parent___parent___parent___id'
-  | 'parent___parent___parent___children'
-  | 'parent___parent___children'
-  | 'parent___parent___children___id'
-  | 'parent___parent___children___children'
-  | 'parent___parent___internal___content'
-  | 'parent___parent___internal___contentDigest'
-  | 'parent___parent___internal___description'
-  | 'parent___parent___internal___fieldOwners'
-  | 'parent___parent___internal___ignoreType'
-  | 'parent___parent___internal___mediaType'
-  | 'parent___parent___internal___owner'
-  | 'parent___parent___internal___type'
-  | 'parent___children'
-  | 'parent___children___id'
-  | 'parent___children___parent___id'
-  | 'parent___children___parent___children'
-  | 'parent___children___children'
-  | 'parent___children___children___id'
-  | 'parent___children___children___children'
-  | 'parent___children___internal___content'
-  | 'parent___children___internal___contentDigest'
-  | 'parent___children___internal___description'
-  | 'parent___children___internal___fieldOwners'
-  | 'parent___children___internal___ignoreType'
-  | 'parent___children___internal___mediaType'
-  | 'parent___children___internal___owner'
-  | 'parent___children___internal___type'
-  | 'parent___internal___content'
-  | 'parent___internal___contentDigest'
-  | 'parent___internal___description'
-  | 'parent___internal___fieldOwners'
-  | 'parent___internal___ignoreType'
-  | 'parent___internal___mediaType'
-  | 'parent___internal___owner'
-  | 'parent___internal___type'
-  | 'children'
-  | 'children___id'
-  | 'children___parent___id'
-  | 'children___parent___parent___id'
-  | 'children___parent___parent___children'
-  | 'children___parent___children'
-  | 'children___parent___children___id'
-  | 'children___parent___children___children'
-  | 'children___parent___internal___content'
-  | 'children___parent___internal___contentDigest'
-  | 'children___parent___internal___description'
-  | 'children___parent___internal___fieldOwners'
-  | 'children___parent___internal___ignoreType'
-  | 'children___parent___internal___mediaType'
-  | 'children___parent___internal___owner'
-  | 'children___parent___internal___type'
-  | 'children___children'
-  | 'children___children___id'
-  | 'children___children___parent___id'
-  | 'children___children___parent___children'
-  | 'children___children___children'
-  | 'children___children___children___id'
-  | 'children___children___children___children'
-  | 'children___children___internal___content'
-  | 'children___children___internal___contentDigest'
-  | 'children___children___internal___description'
-  | 'children___children___internal___fieldOwners'
-  | 'children___children___internal___ignoreType'
-  | 'children___children___internal___mediaType'
-  | 'children___children___internal___owner'
-  | 'children___children___internal___type'
-  | 'children___internal___content'
-  | 'children___internal___contentDigest'
-  | 'children___internal___description'
-  | 'children___internal___fieldOwners'
-  | 'children___internal___ignoreType'
-  | 'children___internal___mediaType'
-  | 'children___internal___owner'
-  | 'children___internal___type'
-  | 'internal___content'
-  | 'internal___contentDigest'
-  | 'internal___description'
-  | 'internal___fieldOwners'
-  | 'internal___ignoreType'
-  | 'internal___mediaType'
-  | 'internal___owner'
-  | 'internal___type'
-  | 'name'
-  | 'firstName'
-  | 'lastName'
-  | 'jobTitle'
-  | 'spaceId'
-  | 'contentful_id'
-  | 'createdAt'
-  | 'updatedAt'
-  | 'sys___type'
-  | 'sys___revision'
-  | 'sys___contentType___sys___type'
-  | 'sys___contentType___sys___linkType'
-  | 'sys___contentType___sys___id'
-  | 'sys___contentType___sys___contentful_id'
-  | 'node_locale'
-  | 'bio___id'
-  | 'bio___parent___id'
-  | 'bio___parent___parent___id'
-  | 'bio___parent___parent___children'
-  | 'bio___parent___children'
-  | 'bio___parent___children___id'
-  | 'bio___parent___children___children'
-  | 'bio___parent___internal___content'
-  | 'bio___parent___internal___contentDigest'
-  | 'bio___parent___internal___description'
-  | 'bio___parent___internal___fieldOwners'
-  | 'bio___parent___internal___ignoreType'
-  | 'bio___parent___internal___mediaType'
-  | 'bio___parent___internal___owner'
-  | 'bio___parent___internal___type'
-  | 'bio___children'
-  | 'bio___children___id'
-  | 'bio___children___parent___id'
-  | 'bio___children___parent___children'
-  | 'bio___children___children'
-  | 'bio___children___children___id'
-  | 'bio___children___children___children'
-  | 'bio___children___internal___content'
-  | 'bio___children___internal___contentDigest'
-  | 'bio___children___internal___description'
-  | 'bio___children___internal___fieldOwners'
-  | 'bio___children___internal___ignoreType'
-  | 'bio___children___internal___mediaType'
-  | 'bio___children___internal___owner'
-  | 'bio___children___internal___type'
-  | 'bio___internal___content'
-  | 'bio___internal___contentDigest'
-  | 'bio___internal___description'
-  | 'bio___internal___fieldOwners'
-  | 'bio___internal___ignoreType'
-  | 'bio___internal___mediaType'
-  | 'bio___internal___owner'
-  | 'bio___internal___type'
-  | 'bio___bio'
-  | 'bio___sys___type'
-  | 'bio___childMdx___rawBody'
-  | 'bio___childMdx___fileAbsolutePath'
-  | 'bio___childMdx___frontmatter___title'
-  | 'bio___childMdx___frontmatter___name'
-  | 'bio___childMdx___frontmatter___category'
-  | 'bio___childMdx___frontmatter___tags'
-  | 'bio___childMdx___frontmatter___variant'
-  | 'bio___childMdx___frontmatter___layout'
-  | 'bio___childMdx___frontmatter___blockLayout'
-  | 'bio___childMdx___slug'
-  | 'bio___childMdx___body'
-  | 'bio___childMdx___excerpt'
-  | 'bio___childMdx___headings'
-  | 'bio___childMdx___headings___value'
-  | 'bio___childMdx___headings___depth'
-  | 'bio___childMdx___html'
-  | 'bio___childMdx___mdxAST'
-  | 'bio___childMdx___tableOfContents'
-  | 'bio___childMdx___timeToRead'
-  | 'bio___childMdx___wordCount___paragraphs'
-  | 'bio___childMdx___wordCount___sentences'
-  | 'bio___childMdx___wordCount___words'
-  | 'bio___childMdx___id'
-  | 'bio___childMdx___parent___id'
-  | 'bio___childMdx___parent___children'
-  | 'bio___childMdx___children'
-  | 'bio___childMdx___children___id'
-  | 'bio___childMdx___children___children'
-  | 'bio___childMdx___internal___content'
-  | 'bio___childMdx___internal___contentDigest'
-  | 'bio___childMdx___internal___description'
-  | 'bio___childMdx___internal___fieldOwners'
-  | 'bio___childMdx___internal___ignoreType'
-  | 'bio___childMdx___internal___mediaType'
-  | 'bio___childMdx___internal___owner'
-  | 'bio___childMdx___internal___type'
-  | 'childContentfulCompanyEmployeeBioTextNode___id'
-  | 'childContentfulCompanyEmployeeBioTextNode___parent___id'
-  | 'childContentfulCompanyEmployeeBioTextNode___parent___parent___id'
-  | 'childContentfulCompanyEmployeeBioTextNode___parent___parent___children'
-  | 'childContentfulCompanyEmployeeBioTextNode___parent___children'
-  | 'childContentfulCompanyEmployeeBioTextNode___parent___children___id'
-  | 'childContentfulCompanyEmployeeBioTextNode___parent___children___children'
-  | 'childContentfulCompanyEmployeeBioTextNode___parent___internal___content'
-  | 'childContentfulCompanyEmployeeBioTextNode___parent___internal___contentDigest'
-  | 'childContentfulCompanyEmployeeBioTextNode___parent___internal___description'
-  | 'childContentfulCompanyEmployeeBioTextNode___parent___internal___fieldOwners'
-  | 'childContentfulCompanyEmployeeBioTextNode___parent___internal___ignoreType'
-  | 'childContentfulCompanyEmployeeBioTextNode___parent___internal___mediaType'
-  | 'childContentfulCompanyEmployeeBioTextNode___parent___internal___owner'
-  | 'childContentfulCompanyEmployeeBioTextNode___parent___internal___type'
-  | 'childContentfulCompanyEmployeeBioTextNode___children'
-  | 'childContentfulCompanyEmployeeBioTextNode___children___id'
-  | 'childContentfulCompanyEmployeeBioTextNode___children___parent___id'
-  | 'childContentfulCompanyEmployeeBioTextNode___children___parent___children'
-  | 'childContentfulCompanyEmployeeBioTextNode___children___children'
-  | 'childContentfulCompanyEmployeeBioTextNode___children___children___id'
-  | 'childContentfulCompanyEmployeeBioTextNode___children___children___children'
-  | 'childContentfulCompanyEmployeeBioTextNode___children___internal___content'
-  | 'childContentfulCompanyEmployeeBioTextNode___children___internal___contentDigest'
-  | 'childContentfulCompanyEmployeeBioTextNode___children___internal___description'
-  | 'childContentfulCompanyEmployeeBioTextNode___children___internal___fieldOwners'
-  | 'childContentfulCompanyEmployeeBioTextNode___children___internal___ignoreType'
-  | 'childContentfulCompanyEmployeeBioTextNode___children___internal___mediaType'
-  | 'childContentfulCompanyEmployeeBioTextNode___children___internal___owner'
-  | 'childContentfulCompanyEmployeeBioTextNode___children___internal___type'
-  | 'childContentfulCompanyEmployeeBioTextNode___internal___content'
-  | 'childContentfulCompanyEmployeeBioTextNode___internal___contentDigest'
-  | 'childContentfulCompanyEmployeeBioTextNode___internal___description'
-  | 'childContentfulCompanyEmployeeBioTextNode___internal___fieldOwners'
-  | 'childContentfulCompanyEmployeeBioTextNode___internal___ignoreType'
-  | 'childContentfulCompanyEmployeeBioTextNode___internal___mediaType'
-  | 'childContentfulCompanyEmployeeBioTextNode___internal___owner'
-  | 'childContentfulCompanyEmployeeBioTextNode___internal___type'
-  | 'childContentfulCompanyEmployeeBioTextNode___bio'
-  | 'childContentfulCompanyEmployeeBioTextNode___sys___type'
-  | 'childContentfulCompanyEmployeeBioTextNode___childMdx___rawBody'
-  | 'childContentfulCompanyEmployeeBioTextNode___childMdx___fileAbsolutePath'
-  | 'childContentfulCompanyEmployeeBioTextNode___childMdx___frontmatter___title'
-  | 'childContentfulCompanyEmployeeBioTextNode___childMdx___frontmatter___name'
-  | 'childContentfulCompanyEmployeeBioTextNode___childMdx___frontmatter___category'
-  | 'childContentfulCompanyEmployeeBioTextNode___childMdx___frontmatter___tags'
-  | 'childContentfulCompanyEmployeeBioTextNode___childMdx___frontmatter___variant'
-  | 'childContentfulCompanyEmployeeBioTextNode___childMdx___frontmatter___layout'
-  | 'childContentfulCompanyEmployeeBioTextNode___childMdx___frontmatter___blockLayout'
-  | 'childContentfulCompanyEmployeeBioTextNode___childMdx___slug'
-  | 'childContentfulCompanyEmployeeBioTextNode___childMdx___body'
-  | 'childContentfulCompanyEmployeeBioTextNode___childMdx___excerpt'
-  | 'childContentfulCompanyEmployeeBioTextNode___childMdx___headings'
-  | 'childContentfulCompanyEmployeeBioTextNode___childMdx___headings___value'
-  | 'childContentfulCompanyEmployeeBioTextNode___childMdx___headings___depth'
-  | 'childContentfulCompanyEmployeeBioTextNode___childMdx___html'
-  | 'childContentfulCompanyEmployeeBioTextNode___childMdx___mdxAST'
-  | 'childContentfulCompanyEmployeeBioTextNode___childMdx___tableOfContents'
-  | 'childContentfulCompanyEmployeeBioTextNode___childMdx___timeToRead'
-  | 'childContentfulCompanyEmployeeBioTextNode___childMdx___wordCount___paragraphs'
-  | 'childContentfulCompanyEmployeeBioTextNode___childMdx___wordCount___sentences'
-  | 'childContentfulCompanyEmployeeBioTextNode___childMdx___wordCount___words'
-  | 'childContentfulCompanyEmployeeBioTextNode___childMdx___id'
-  | 'childContentfulCompanyEmployeeBioTextNode___childMdx___parent___id'
-  | 'childContentfulCompanyEmployeeBioTextNode___childMdx___parent___children'
-  | 'childContentfulCompanyEmployeeBioTextNode___childMdx___children'
-  | 'childContentfulCompanyEmployeeBioTextNode___childMdx___children___id'
-  | 'childContentfulCompanyEmployeeBioTextNode___childMdx___children___children'
-  | 'childContentfulCompanyEmployeeBioTextNode___childMdx___internal___content'
-  | 'childContentfulCompanyEmployeeBioTextNode___childMdx___internal___contentDigest'
-  | 'childContentfulCompanyEmployeeBioTextNode___childMdx___internal___description'
-  | 'childContentfulCompanyEmployeeBioTextNode___childMdx___internal___fieldOwners'
-  | 'childContentfulCompanyEmployeeBioTextNode___childMdx___internal___ignoreType'
-  | 'childContentfulCompanyEmployeeBioTextNode___childMdx___internal___mediaType'
-  | 'childContentfulCompanyEmployeeBioTextNode___childMdx___internal___owner'
-  | 'childContentfulCompanyEmployeeBioTextNode___childMdx___internal___type';
-
-export type ContentfulCompanyEmployeeFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-  name?: Maybe<StringQueryOperatorInput>;
-  firstName?: Maybe<StringQueryOperatorInput>;
-  lastName?: Maybe<StringQueryOperatorInput>;
-  jobTitle?: Maybe<StringQueryOperatorInput>;
-  spaceId?: Maybe<StringQueryOperatorInput>;
-  contentful_id?: Maybe<StringQueryOperatorInput>;
-  createdAt?: Maybe<DateQueryOperatorInput>;
-  updatedAt?: Maybe<DateQueryOperatorInput>;
-  sys?: Maybe<ContentfulCompanyEmployeeSysFilterInput>;
-  node_locale?: Maybe<StringQueryOperatorInput>;
-  bio?: Maybe<ContentfulCompanyEmployeeBioTextNodeFilterInput>;
-  childContentfulCompanyEmployeeBioTextNode?: Maybe<ContentfulCompanyEmployeeBioTextNodeFilterInput>;
-};
-
-export type ContentfulCompanyEmployeeGroupConnection = {
-  totalCount: Scalars['Int'];
-  edges: Array<ContentfulCompanyEmployeeEdge>;
-  nodes: Array<ContentfulCompanyEmployee>;
-  pageInfo: PageInfo;
-  field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
-};
-
-export type ContentfulCompanyEmployeeSortInput = {
-  fields?: Maybe<Array<Maybe<ContentfulCompanyEmployeeFieldsEnum>>>;
-  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
-};
-
-export type ContentfulCompanyEmployeeSys = {
-  type?: Maybe<Scalars['String']>;
-  revision?: Maybe<Scalars['Int']>;
-  contentType?: Maybe<ContentfulCompanyEmployeeSysContentType>;
-};
-
-export type ContentfulCompanyEmployeeSysContentType = {
-  sys?: Maybe<ContentfulCompanyEmployeeSysContentTypeSys>;
-};
-
-export type ContentfulCompanyEmployeeSysContentTypeFilterInput = {
-  sys?: Maybe<ContentfulCompanyEmployeeSysContentTypeSysFilterInput>;
-};
-
-export type ContentfulCompanyEmployeeSysContentTypeSys = {
-  type?: Maybe<Scalars['String']>;
-  linkType?: Maybe<Scalars['String']>;
-  id?: Maybe<Scalars['String']>;
-  contentful_id?: Maybe<Scalars['String']>;
-};
-
-export type ContentfulCompanyEmployeeSysContentTypeSysFilterInput = {
-  type?: Maybe<StringQueryOperatorInput>;
-  linkType?: Maybe<StringQueryOperatorInput>;
-  id?: Maybe<StringQueryOperatorInput>;
-  contentful_id?: Maybe<StringQueryOperatorInput>;
-};
-
-export type ContentfulCompanyEmployeeSysFilterInput = {
-  type?: Maybe<StringQueryOperatorInput>;
-  revision?: Maybe<IntQueryOperatorInput>;
-  contentType?: Maybe<ContentfulCompanyEmployeeSysContentTypeFilterInput>;
-};
-
 export type ContentfulCompanyInfo = Node & {
   id: Scalars['ID'];
   parent?: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
   companyName?: Maybe<Scalars['String']>;
-  description?: Maybe<Scalars['String']>;
   copyright?: Maybe<Scalars['String']>;
   linkedinPageURL?: Maybe<Scalars['String']>;
   facebookPageURL?: Maybe<Scalars['String']>;
@@ -2346,7 +2221,6 @@ export type ContentfulCompanyInfoFieldsEnum =
   | 'internal___owner'
   | 'internal___type'
   | 'companyName'
-  | 'description'
   | 'copyright'
   | 'linkedinPageURL'
   | 'facebookPageURL'
@@ -2373,7 +2247,6 @@ export type ContentfulCompanyInfoFilterInput = {
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
   companyName?: Maybe<StringQueryOperatorInput>;
-  description?: Maybe<StringQueryOperatorInput>;
   copyright?: Maybe<StringQueryOperatorInput>;
   linkedinPageURL?: Maybe<StringQueryOperatorInput>;
   facebookPageURL?: Maybe<StringQueryOperatorInput>;
@@ -2674,13 +2547,16 @@ export type ContentfulLink = Node & {
   type?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
   label?: Maybe<Scalars['String']>;
+  url?: Maybe<Scalars['String']>;
   spaceId?: Maybe<Scalars['String']>;
   contentful_id?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['Date']>;
   updatedAt?: Maybe<Scalars['Date']>;
   sys?: Maybe<ContentfulLinkSys>;
   node_locale?: Maybe<Scalars['String']>;
-  url?: Maybe<Scalars['String']>;
+  page?: Maybe<ContentfulPage>;
+  navigation?: Maybe<Array<Maybe<ContentfulNavigation>>>;
+  block?: Maybe<Array<Maybe<ContentfulBlock>>>;
 };
 
 
@@ -2816,6 +2692,7 @@ export type ContentfulLinkFieldsEnum =
   | 'type'
   | 'name'
   | 'label'
+  | 'url'
   | 'spaceId'
   | 'contentful_id'
   | 'createdAt'
@@ -2827,7 +2704,741 @@ export type ContentfulLinkFieldsEnum =
   | 'sys___contentType___sys___id'
   | 'sys___contentType___sys___contentful_id'
   | 'node_locale'
-  | 'url';
+  | 'page___id'
+  | 'page___parent___id'
+  | 'page___parent___parent___id'
+  | 'page___parent___parent___children'
+  | 'page___parent___children'
+  | 'page___parent___children___id'
+  | 'page___parent___children___children'
+  | 'page___parent___internal___content'
+  | 'page___parent___internal___contentDigest'
+  | 'page___parent___internal___description'
+  | 'page___parent___internal___fieldOwners'
+  | 'page___parent___internal___ignoreType'
+  | 'page___parent___internal___mediaType'
+  | 'page___parent___internal___owner'
+  | 'page___parent___internal___type'
+  | 'page___children'
+  | 'page___children___id'
+  | 'page___children___parent___id'
+  | 'page___children___parent___children'
+  | 'page___children___children'
+  | 'page___children___children___id'
+  | 'page___children___children___children'
+  | 'page___children___internal___content'
+  | 'page___children___internal___contentDigest'
+  | 'page___children___internal___description'
+  | 'page___children___internal___fieldOwners'
+  | 'page___children___internal___ignoreType'
+  | 'page___children___internal___mediaType'
+  | 'page___children___internal___owner'
+  | 'page___children___internal___type'
+  | 'page___internal___content'
+  | 'page___internal___contentDigest'
+  | 'page___internal___description'
+  | 'page___internal___fieldOwners'
+  | 'page___internal___ignoreType'
+  | 'page___internal___mediaType'
+  | 'page___internal___owner'
+  | 'page___internal___type'
+  | 'page___name'
+  | 'page___title'
+  | 'page___slug'
+  | 'page___sections'
+  | 'page___sections___id'
+  | 'page___sections___parent___id'
+  | 'page___sections___parent___children'
+  | 'page___sections___children'
+  | 'page___sections___children___id'
+  | 'page___sections___children___children'
+  | 'page___sections___internal___content'
+  | 'page___sections___internal___contentDigest'
+  | 'page___sections___internal___description'
+  | 'page___sections___internal___fieldOwners'
+  | 'page___sections___internal___ignoreType'
+  | 'page___sections___internal___mediaType'
+  | 'page___sections___internal___owner'
+  | 'page___sections___internal___type'
+  | 'page___sections___name'
+  | 'page___sections___variant'
+  | 'page___sections___layout'
+  | 'page___sections___spaceId'
+  | 'page___sections___contentful_id'
+  | 'page___sections___createdAt'
+  | 'page___sections___updatedAt'
+  | 'page___sections___sys___type'
+  | 'page___sections___sys___revision'
+  | 'page___sections___node_locale'
+  | 'page___sections___blocks'
+  | 'page___sections___blocks___id'
+  | 'page___sections___blocks___children'
+  | 'page___sections___blocks___name'
+  | 'page___sections___blocks___type'
+  | 'page___sections___blocks___medias'
+  | 'page___sections___blocks___section'
+  | 'page___sections___blocks___spaceId'
+  | 'page___sections___blocks___contentful_id'
+  | 'page___sections___blocks___createdAt'
+  | 'page___sections___blocks___updatedAt'
+  | 'page___sections___blocks___node_locale'
+  | 'page___sections___blocks___variant'
+  | 'page___sections___blocks___childrenContentfulBlockTextTextNode'
+  | 'page___sections___page'
+  | 'page___sections___page___id'
+  | 'page___sections___page___children'
+  | 'page___sections___page___name'
+  | 'page___sections___page___title'
+  | 'page___sections___page___slug'
+  | 'page___sections___page___sections'
+  | 'page___sections___page___spaceId'
+  | 'page___sections___page___contentful_id'
+  | 'page___sections___page___createdAt'
+  | 'page___sections___page___updatedAt'
+  | 'page___sections___page___node_locale'
+  | 'page___sections___page___link'
+  | 'page___sections___page___childrenContentfulPageDescriptionTextNode'
+  | 'page___description___id'
+  | 'page___description___parent___id'
+  | 'page___description___parent___children'
+  | 'page___description___children'
+  | 'page___description___children___id'
+  | 'page___description___children___children'
+  | 'page___description___internal___content'
+  | 'page___description___internal___contentDigest'
+  | 'page___description___internal___description'
+  | 'page___description___internal___fieldOwners'
+  | 'page___description___internal___ignoreType'
+  | 'page___description___internal___mediaType'
+  | 'page___description___internal___owner'
+  | 'page___description___internal___type'
+  | 'page___description___description'
+  | 'page___description___sys___type'
+  | 'page___description___childrenMdx'
+  | 'page___description___childrenMdx___rawBody'
+  | 'page___description___childrenMdx___fileAbsolutePath'
+  | 'page___description___childrenMdx___slug'
+  | 'page___description___childrenMdx___body'
+  | 'page___description___childrenMdx___excerpt'
+  | 'page___description___childrenMdx___headings'
+  | 'page___description___childrenMdx___html'
+  | 'page___description___childrenMdx___mdxAST'
+  | 'page___description___childrenMdx___tableOfContents'
+  | 'page___description___childrenMdx___timeToRead'
+  | 'page___description___childrenMdx___id'
+  | 'page___description___childrenMdx___children'
+  | 'page___description___childMdx___rawBody'
+  | 'page___description___childMdx___fileAbsolutePath'
+  | 'page___description___childMdx___slug'
+  | 'page___description___childMdx___body'
+  | 'page___description___childMdx___excerpt'
+  | 'page___description___childMdx___headings'
+  | 'page___description___childMdx___html'
+  | 'page___description___childMdx___mdxAST'
+  | 'page___description___childMdx___tableOfContents'
+  | 'page___description___childMdx___timeToRead'
+  | 'page___description___childMdx___id'
+  | 'page___description___childMdx___children'
+  | 'page___spaceId'
+  | 'page___contentful_id'
+  | 'page___createdAt'
+  | 'page___updatedAt'
+  | 'page___sys___type'
+  | 'page___sys___revision'
+  | 'page___node_locale'
+  | 'page___link'
+  | 'page___link___id'
+  | 'page___link___parent___id'
+  | 'page___link___parent___children'
+  | 'page___link___children'
+  | 'page___link___children___id'
+  | 'page___link___children___children'
+  | 'page___link___internal___content'
+  | 'page___link___internal___contentDigest'
+  | 'page___link___internal___description'
+  | 'page___link___internal___fieldOwners'
+  | 'page___link___internal___ignoreType'
+  | 'page___link___internal___mediaType'
+  | 'page___link___internal___owner'
+  | 'page___link___internal___type'
+  | 'page___link___type'
+  | 'page___link___name'
+  | 'page___link___label'
+  | 'page___link___url'
+  | 'page___link___spaceId'
+  | 'page___link___contentful_id'
+  | 'page___link___createdAt'
+  | 'page___link___updatedAt'
+  | 'page___link___sys___type'
+  | 'page___link___sys___revision'
+  | 'page___link___node_locale'
+  | 'page___link___page___id'
+  | 'page___link___page___children'
+  | 'page___link___page___name'
+  | 'page___link___page___title'
+  | 'page___link___page___slug'
+  | 'page___link___page___sections'
+  | 'page___link___page___spaceId'
+  | 'page___link___page___contentful_id'
+  | 'page___link___page___createdAt'
+  | 'page___link___page___updatedAt'
+  | 'page___link___page___node_locale'
+  | 'page___link___page___link'
+  | 'page___link___page___childrenContentfulPageDescriptionTextNode'
+  | 'page___link___navigation'
+  | 'page___link___navigation___id'
+  | 'page___link___navigation___children'
+  | 'page___link___navigation___name'
+  | 'page___link___navigation___links'
+  | 'page___link___navigation___spaceId'
+  | 'page___link___navigation___contentful_id'
+  | 'page___link___navigation___createdAt'
+  | 'page___link___navigation___updatedAt'
+  | 'page___link___navigation___node_locale'
+  | 'page___link___block'
+  | 'page___link___block___id'
+  | 'page___link___block___children'
+  | 'page___link___block___name'
+  | 'page___link___block___type'
+  | 'page___link___block___medias'
+  | 'page___link___block___section'
+  | 'page___link___block___spaceId'
+  | 'page___link___block___contentful_id'
+  | 'page___link___block___createdAt'
+  | 'page___link___block___updatedAt'
+  | 'page___link___block___node_locale'
+  | 'page___link___block___variant'
+  | 'page___link___block___childrenContentfulBlockTextTextNode'
+  | 'page___childrenContentfulPageDescriptionTextNode'
+  | 'page___childrenContentfulPageDescriptionTextNode___id'
+  | 'page___childrenContentfulPageDescriptionTextNode___parent___id'
+  | 'page___childrenContentfulPageDescriptionTextNode___parent___children'
+  | 'page___childrenContentfulPageDescriptionTextNode___children'
+  | 'page___childrenContentfulPageDescriptionTextNode___children___id'
+  | 'page___childrenContentfulPageDescriptionTextNode___children___children'
+  | 'page___childrenContentfulPageDescriptionTextNode___internal___content'
+  | 'page___childrenContentfulPageDescriptionTextNode___internal___contentDigest'
+  | 'page___childrenContentfulPageDescriptionTextNode___internal___description'
+  | 'page___childrenContentfulPageDescriptionTextNode___internal___fieldOwners'
+  | 'page___childrenContentfulPageDescriptionTextNode___internal___ignoreType'
+  | 'page___childrenContentfulPageDescriptionTextNode___internal___mediaType'
+  | 'page___childrenContentfulPageDescriptionTextNode___internal___owner'
+  | 'page___childrenContentfulPageDescriptionTextNode___internal___type'
+  | 'page___childrenContentfulPageDescriptionTextNode___description'
+  | 'page___childrenContentfulPageDescriptionTextNode___sys___type'
+  | 'page___childrenContentfulPageDescriptionTextNode___childrenMdx'
+  | 'page___childrenContentfulPageDescriptionTextNode___childrenMdx___rawBody'
+  | 'page___childrenContentfulPageDescriptionTextNode___childrenMdx___fileAbsolutePath'
+  | 'page___childrenContentfulPageDescriptionTextNode___childrenMdx___slug'
+  | 'page___childrenContentfulPageDescriptionTextNode___childrenMdx___body'
+  | 'page___childrenContentfulPageDescriptionTextNode___childrenMdx___excerpt'
+  | 'page___childrenContentfulPageDescriptionTextNode___childrenMdx___headings'
+  | 'page___childrenContentfulPageDescriptionTextNode___childrenMdx___html'
+  | 'page___childrenContentfulPageDescriptionTextNode___childrenMdx___mdxAST'
+  | 'page___childrenContentfulPageDescriptionTextNode___childrenMdx___tableOfContents'
+  | 'page___childrenContentfulPageDescriptionTextNode___childrenMdx___timeToRead'
+  | 'page___childrenContentfulPageDescriptionTextNode___childrenMdx___id'
+  | 'page___childrenContentfulPageDescriptionTextNode___childrenMdx___children'
+  | 'page___childrenContentfulPageDescriptionTextNode___childMdx___rawBody'
+  | 'page___childrenContentfulPageDescriptionTextNode___childMdx___fileAbsolutePath'
+  | 'page___childrenContentfulPageDescriptionTextNode___childMdx___slug'
+  | 'page___childrenContentfulPageDescriptionTextNode___childMdx___body'
+  | 'page___childrenContentfulPageDescriptionTextNode___childMdx___excerpt'
+  | 'page___childrenContentfulPageDescriptionTextNode___childMdx___headings'
+  | 'page___childrenContentfulPageDescriptionTextNode___childMdx___html'
+  | 'page___childrenContentfulPageDescriptionTextNode___childMdx___mdxAST'
+  | 'page___childrenContentfulPageDescriptionTextNode___childMdx___tableOfContents'
+  | 'page___childrenContentfulPageDescriptionTextNode___childMdx___timeToRead'
+  | 'page___childrenContentfulPageDescriptionTextNode___childMdx___id'
+  | 'page___childrenContentfulPageDescriptionTextNode___childMdx___children'
+  | 'page___childContentfulPageDescriptionTextNode___id'
+  | 'page___childContentfulPageDescriptionTextNode___parent___id'
+  | 'page___childContentfulPageDescriptionTextNode___parent___children'
+  | 'page___childContentfulPageDescriptionTextNode___children'
+  | 'page___childContentfulPageDescriptionTextNode___children___id'
+  | 'page___childContentfulPageDescriptionTextNode___children___children'
+  | 'page___childContentfulPageDescriptionTextNode___internal___content'
+  | 'page___childContentfulPageDescriptionTextNode___internal___contentDigest'
+  | 'page___childContentfulPageDescriptionTextNode___internal___description'
+  | 'page___childContentfulPageDescriptionTextNode___internal___fieldOwners'
+  | 'page___childContentfulPageDescriptionTextNode___internal___ignoreType'
+  | 'page___childContentfulPageDescriptionTextNode___internal___mediaType'
+  | 'page___childContentfulPageDescriptionTextNode___internal___owner'
+  | 'page___childContentfulPageDescriptionTextNode___internal___type'
+  | 'page___childContentfulPageDescriptionTextNode___description'
+  | 'page___childContentfulPageDescriptionTextNode___sys___type'
+  | 'page___childContentfulPageDescriptionTextNode___childrenMdx'
+  | 'page___childContentfulPageDescriptionTextNode___childrenMdx___rawBody'
+  | 'page___childContentfulPageDescriptionTextNode___childrenMdx___fileAbsolutePath'
+  | 'page___childContentfulPageDescriptionTextNode___childrenMdx___slug'
+  | 'page___childContentfulPageDescriptionTextNode___childrenMdx___body'
+  | 'page___childContentfulPageDescriptionTextNode___childrenMdx___excerpt'
+  | 'page___childContentfulPageDescriptionTextNode___childrenMdx___headings'
+  | 'page___childContentfulPageDescriptionTextNode___childrenMdx___html'
+  | 'page___childContentfulPageDescriptionTextNode___childrenMdx___mdxAST'
+  | 'page___childContentfulPageDescriptionTextNode___childrenMdx___tableOfContents'
+  | 'page___childContentfulPageDescriptionTextNode___childrenMdx___timeToRead'
+  | 'page___childContentfulPageDescriptionTextNode___childrenMdx___id'
+  | 'page___childContentfulPageDescriptionTextNode___childrenMdx___children'
+  | 'page___childContentfulPageDescriptionTextNode___childMdx___rawBody'
+  | 'page___childContentfulPageDescriptionTextNode___childMdx___fileAbsolutePath'
+  | 'page___childContentfulPageDescriptionTextNode___childMdx___slug'
+  | 'page___childContentfulPageDescriptionTextNode___childMdx___body'
+  | 'page___childContentfulPageDescriptionTextNode___childMdx___excerpt'
+  | 'page___childContentfulPageDescriptionTextNode___childMdx___headings'
+  | 'page___childContentfulPageDescriptionTextNode___childMdx___html'
+  | 'page___childContentfulPageDescriptionTextNode___childMdx___mdxAST'
+  | 'page___childContentfulPageDescriptionTextNode___childMdx___tableOfContents'
+  | 'page___childContentfulPageDescriptionTextNode___childMdx___timeToRead'
+  | 'page___childContentfulPageDescriptionTextNode___childMdx___id'
+  | 'page___childContentfulPageDescriptionTextNode___childMdx___children'
+  | 'navigation'
+  | 'navigation___id'
+  | 'navigation___parent___id'
+  | 'navigation___parent___parent___id'
+  | 'navigation___parent___parent___children'
+  | 'navigation___parent___children'
+  | 'navigation___parent___children___id'
+  | 'navigation___parent___children___children'
+  | 'navigation___parent___internal___content'
+  | 'navigation___parent___internal___contentDigest'
+  | 'navigation___parent___internal___description'
+  | 'navigation___parent___internal___fieldOwners'
+  | 'navigation___parent___internal___ignoreType'
+  | 'navigation___parent___internal___mediaType'
+  | 'navigation___parent___internal___owner'
+  | 'navigation___parent___internal___type'
+  | 'navigation___children'
+  | 'navigation___children___id'
+  | 'navigation___children___parent___id'
+  | 'navigation___children___parent___children'
+  | 'navigation___children___children'
+  | 'navigation___children___children___id'
+  | 'navigation___children___children___children'
+  | 'navigation___children___internal___content'
+  | 'navigation___children___internal___contentDigest'
+  | 'navigation___children___internal___description'
+  | 'navigation___children___internal___fieldOwners'
+  | 'navigation___children___internal___ignoreType'
+  | 'navigation___children___internal___mediaType'
+  | 'navigation___children___internal___owner'
+  | 'navigation___children___internal___type'
+  | 'navigation___internal___content'
+  | 'navigation___internal___contentDigest'
+  | 'navigation___internal___description'
+  | 'navigation___internal___fieldOwners'
+  | 'navigation___internal___ignoreType'
+  | 'navigation___internal___mediaType'
+  | 'navigation___internal___owner'
+  | 'navigation___internal___type'
+  | 'navigation___name'
+  | 'navigation___links'
+  | 'navigation___links___id'
+  | 'navigation___links___parent___id'
+  | 'navigation___links___parent___children'
+  | 'navigation___links___children'
+  | 'navigation___links___children___id'
+  | 'navigation___links___children___children'
+  | 'navigation___links___internal___content'
+  | 'navigation___links___internal___contentDigest'
+  | 'navigation___links___internal___description'
+  | 'navigation___links___internal___fieldOwners'
+  | 'navigation___links___internal___ignoreType'
+  | 'navigation___links___internal___mediaType'
+  | 'navigation___links___internal___owner'
+  | 'navigation___links___internal___type'
+  | 'navigation___links___type'
+  | 'navigation___links___name'
+  | 'navigation___links___label'
+  | 'navigation___links___url'
+  | 'navigation___links___spaceId'
+  | 'navigation___links___contentful_id'
+  | 'navigation___links___createdAt'
+  | 'navigation___links___updatedAt'
+  | 'navigation___links___sys___type'
+  | 'navigation___links___sys___revision'
+  | 'navigation___links___node_locale'
+  | 'navigation___links___page___id'
+  | 'navigation___links___page___children'
+  | 'navigation___links___page___name'
+  | 'navigation___links___page___title'
+  | 'navigation___links___page___slug'
+  | 'navigation___links___page___sections'
+  | 'navigation___links___page___spaceId'
+  | 'navigation___links___page___contentful_id'
+  | 'navigation___links___page___createdAt'
+  | 'navigation___links___page___updatedAt'
+  | 'navigation___links___page___node_locale'
+  | 'navigation___links___page___link'
+  | 'navigation___links___page___childrenContentfulPageDescriptionTextNode'
+  | 'navigation___links___navigation'
+  | 'navigation___links___navigation___id'
+  | 'navigation___links___navigation___children'
+  | 'navigation___links___navigation___name'
+  | 'navigation___links___navigation___links'
+  | 'navigation___links___navigation___spaceId'
+  | 'navigation___links___navigation___contentful_id'
+  | 'navigation___links___navigation___createdAt'
+  | 'navigation___links___navigation___updatedAt'
+  | 'navigation___links___navigation___node_locale'
+  | 'navigation___links___block'
+  | 'navigation___links___block___id'
+  | 'navigation___links___block___children'
+  | 'navigation___links___block___name'
+  | 'navigation___links___block___type'
+  | 'navigation___links___block___medias'
+  | 'navigation___links___block___section'
+  | 'navigation___links___block___spaceId'
+  | 'navigation___links___block___contentful_id'
+  | 'navigation___links___block___createdAt'
+  | 'navigation___links___block___updatedAt'
+  | 'navigation___links___block___node_locale'
+  | 'navigation___links___block___variant'
+  | 'navigation___links___block___childrenContentfulBlockTextTextNode'
+  | 'navigation___spaceId'
+  | 'navigation___contentful_id'
+  | 'navigation___createdAt'
+  | 'navigation___updatedAt'
+  | 'navigation___sys___type'
+  | 'navigation___sys___revision'
+  | 'navigation___node_locale'
+  | 'block'
+  | 'block___id'
+  | 'block___parent___id'
+  | 'block___parent___parent___id'
+  | 'block___parent___parent___children'
+  | 'block___parent___children'
+  | 'block___parent___children___id'
+  | 'block___parent___children___children'
+  | 'block___parent___internal___content'
+  | 'block___parent___internal___contentDigest'
+  | 'block___parent___internal___description'
+  | 'block___parent___internal___fieldOwners'
+  | 'block___parent___internal___ignoreType'
+  | 'block___parent___internal___mediaType'
+  | 'block___parent___internal___owner'
+  | 'block___parent___internal___type'
+  | 'block___children'
+  | 'block___children___id'
+  | 'block___children___parent___id'
+  | 'block___children___parent___children'
+  | 'block___children___children'
+  | 'block___children___children___id'
+  | 'block___children___children___children'
+  | 'block___children___internal___content'
+  | 'block___children___internal___contentDigest'
+  | 'block___children___internal___description'
+  | 'block___children___internal___fieldOwners'
+  | 'block___children___internal___ignoreType'
+  | 'block___children___internal___mediaType'
+  | 'block___children___internal___owner'
+  | 'block___children___internal___type'
+  | 'block___internal___content'
+  | 'block___internal___contentDigest'
+  | 'block___internal___description'
+  | 'block___internal___fieldOwners'
+  | 'block___internal___ignoreType'
+  | 'block___internal___mediaType'
+  | 'block___internal___owner'
+  | 'block___internal___type'
+  | 'block___name'
+  | 'block___type'
+  | 'block___medias'
+  | 'block___medias___id'
+  | 'block___medias___parent___id'
+  | 'block___medias___parent___children'
+  | 'block___medias___children'
+  | 'block___medias___children___id'
+  | 'block___medias___children___children'
+  | 'block___medias___internal___content'
+  | 'block___medias___internal___contentDigest'
+  | 'block___medias___internal___description'
+  | 'block___medias___internal___fieldOwners'
+  | 'block___medias___internal___ignoreType'
+  | 'block___medias___internal___mediaType'
+  | 'block___medias___internal___owner'
+  | 'block___medias___internal___type'
+  | 'block___medias___name'
+  | 'block___medias___medias'
+  | 'block___medias___medias___id'
+  | 'block___medias___medias___children'
+  | 'block___medias___medias___name'
+  | 'block___medias___medias___backgroundPositionY'
+  | 'block___medias___medias___media'
+  | 'block___medias___medias___mediacollection'
+  | 'block___medias___medias___spaceId'
+  | 'block___medias___medias___contentful_id'
+  | 'block___medias___medias___createdAt'
+  | 'block___medias___medias___updatedAt'
+  | 'block___medias___medias___node_locale'
+  | 'block___medias___block'
+  | 'block___medias___block___id'
+  | 'block___medias___block___children'
+  | 'block___medias___block___name'
+  | 'block___medias___block___type'
+  | 'block___medias___block___medias'
+  | 'block___medias___block___section'
+  | 'block___medias___block___spaceId'
+  | 'block___medias___block___contentful_id'
+  | 'block___medias___block___createdAt'
+  | 'block___medias___block___updatedAt'
+  | 'block___medias___block___node_locale'
+  | 'block___medias___block___variant'
+  | 'block___medias___block___childrenContentfulBlockTextTextNode'
+  | 'block___medias___spaceId'
+  | 'block___medias___contentful_id'
+  | 'block___medias___createdAt'
+  | 'block___medias___updatedAt'
+  | 'block___medias___sys___type'
+  | 'block___medias___sys___revision'
+  | 'block___medias___node_locale'
+  | 'block___section'
+  | 'block___section___id'
+  | 'block___section___parent___id'
+  | 'block___section___parent___children'
+  | 'block___section___children'
+  | 'block___section___children___id'
+  | 'block___section___children___children'
+  | 'block___section___internal___content'
+  | 'block___section___internal___contentDigest'
+  | 'block___section___internal___description'
+  | 'block___section___internal___fieldOwners'
+  | 'block___section___internal___ignoreType'
+  | 'block___section___internal___mediaType'
+  | 'block___section___internal___owner'
+  | 'block___section___internal___type'
+  | 'block___section___name'
+  | 'block___section___variant'
+  | 'block___section___layout'
+  | 'block___section___spaceId'
+  | 'block___section___contentful_id'
+  | 'block___section___createdAt'
+  | 'block___section___updatedAt'
+  | 'block___section___sys___type'
+  | 'block___section___sys___revision'
+  | 'block___section___node_locale'
+  | 'block___section___blocks'
+  | 'block___section___blocks___id'
+  | 'block___section___blocks___children'
+  | 'block___section___blocks___name'
+  | 'block___section___blocks___type'
+  | 'block___section___blocks___medias'
+  | 'block___section___blocks___section'
+  | 'block___section___blocks___spaceId'
+  | 'block___section___blocks___contentful_id'
+  | 'block___section___blocks___createdAt'
+  | 'block___section___blocks___updatedAt'
+  | 'block___section___blocks___node_locale'
+  | 'block___section___blocks___variant'
+  | 'block___section___blocks___childrenContentfulBlockTextTextNode'
+  | 'block___section___page'
+  | 'block___section___page___id'
+  | 'block___section___page___children'
+  | 'block___section___page___name'
+  | 'block___section___page___title'
+  | 'block___section___page___slug'
+  | 'block___section___page___sections'
+  | 'block___section___page___spaceId'
+  | 'block___section___page___contentful_id'
+  | 'block___section___page___createdAt'
+  | 'block___section___page___updatedAt'
+  | 'block___section___page___node_locale'
+  | 'block___section___page___link'
+  | 'block___section___page___childrenContentfulPageDescriptionTextNode'
+  | 'block___spaceId'
+  | 'block___contentful_id'
+  | 'block___createdAt'
+  | 'block___updatedAt'
+  | 'block___sys___type'
+  | 'block___sys___revision'
+  | 'block___node_locale'
+  | 'block___link___id'
+  | 'block___link___parent___id'
+  | 'block___link___parent___children'
+  | 'block___link___children'
+  | 'block___link___children___id'
+  | 'block___link___children___children'
+  | 'block___link___internal___content'
+  | 'block___link___internal___contentDigest'
+  | 'block___link___internal___description'
+  | 'block___link___internal___fieldOwners'
+  | 'block___link___internal___ignoreType'
+  | 'block___link___internal___mediaType'
+  | 'block___link___internal___owner'
+  | 'block___link___internal___type'
+  | 'block___link___type'
+  | 'block___link___name'
+  | 'block___link___label'
+  | 'block___link___url'
+  | 'block___link___spaceId'
+  | 'block___link___contentful_id'
+  | 'block___link___createdAt'
+  | 'block___link___updatedAt'
+  | 'block___link___sys___type'
+  | 'block___link___sys___revision'
+  | 'block___link___node_locale'
+  | 'block___link___page___id'
+  | 'block___link___page___children'
+  | 'block___link___page___name'
+  | 'block___link___page___title'
+  | 'block___link___page___slug'
+  | 'block___link___page___sections'
+  | 'block___link___page___spaceId'
+  | 'block___link___page___contentful_id'
+  | 'block___link___page___createdAt'
+  | 'block___link___page___updatedAt'
+  | 'block___link___page___node_locale'
+  | 'block___link___page___link'
+  | 'block___link___page___childrenContentfulPageDescriptionTextNode'
+  | 'block___link___navigation'
+  | 'block___link___navigation___id'
+  | 'block___link___navigation___children'
+  | 'block___link___navigation___name'
+  | 'block___link___navigation___links'
+  | 'block___link___navigation___spaceId'
+  | 'block___link___navigation___contentful_id'
+  | 'block___link___navigation___createdAt'
+  | 'block___link___navigation___updatedAt'
+  | 'block___link___navigation___node_locale'
+  | 'block___link___block'
+  | 'block___link___block___id'
+  | 'block___link___block___children'
+  | 'block___link___block___name'
+  | 'block___link___block___type'
+  | 'block___link___block___medias'
+  | 'block___link___block___section'
+  | 'block___link___block___spaceId'
+  | 'block___link___block___contentful_id'
+  | 'block___link___block___createdAt'
+  | 'block___link___block___updatedAt'
+  | 'block___link___block___node_locale'
+  | 'block___link___block___variant'
+  | 'block___link___block___childrenContentfulBlockTextTextNode'
+  | 'block___text___id'
+  | 'block___text___parent___id'
+  | 'block___text___parent___children'
+  | 'block___text___children'
+  | 'block___text___children___id'
+  | 'block___text___children___children'
+  | 'block___text___internal___content'
+  | 'block___text___internal___contentDigest'
+  | 'block___text___internal___description'
+  | 'block___text___internal___fieldOwners'
+  | 'block___text___internal___ignoreType'
+  | 'block___text___internal___mediaType'
+  | 'block___text___internal___owner'
+  | 'block___text___internal___type'
+  | 'block___text___text'
+  | 'block___text___sys___type'
+  | 'block___text___childrenMdx'
+  | 'block___text___childrenMdx___rawBody'
+  | 'block___text___childrenMdx___fileAbsolutePath'
+  | 'block___text___childrenMdx___slug'
+  | 'block___text___childrenMdx___body'
+  | 'block___text___childrenMdx___excerpt'
+  | 'block___text___childrenMdx___headings'
+  | 'block___text___childrenMdx___html'
+  | 'block___text___childrenMdx___mdxAST'
+  | 'block___text___childrenMdx___tableOfContents'
+  | 'block___text___childrenMdx___timeToRead'
+  | 'block___text___childrenMdx___id'
+  | 'block___text___childrenMdx___children'
+  | 'block___text___childMdx___rawBody'
+  | 'block___text___childMdx___fileAbsolutePath'
+  | 'block___text___childMdx___slug'
+  | 'block___text___childMdx___body'
+  | 'block___text___childMdx___excerpt'
+  | 'block___text___childMdx___headings'
+  | 'block___text___childMdx___html'
+  | 'block___text___childMdx___mdxAST'
+  | 'block___text___childMdx___tableOfContents'
+  | 'block___text___childMdx___timeToRead'
+  | 'block___text___childMdx___id'
+  | 'block___text___childMdx___children'
+  | 'block___variant'
+  | 'block___childrenContentfulBlockTextTextNode'
+  | 'block___childrenContentfulBlockTextTextNode___id'
+  | 'block___childrenContentfulBlockTextTextNode___parent___id'
+  | 'block___childrenContentfulBlockTextTextNode___parent___children'
+  | 'block___childrenContentfulBlockTextTextNode___children'
+  | 'block___childrenContentfulBlockTextTextNode___children___id'
+  | 'block___childrenContentfulBlockTextTextNode___children___children'
+  | 'block___childrenContentfulBlockTextTextNode___internal___content'
+  | 'block___childrenContentfulBlockTextTextNode___internal___contentDigest'
+  | 'block___childrenContentfulBlockTextTextNode___internal___description'
+  | 'block___childrenContentfulBlockTextTextNode___internal___fieldOwners'
+  | 'block___childrenContentfulBlockTextTextNode___internal___ignoreType'
+  | 'block___childrenContentfulBlockTextTextNode___internal___mediaType'
+  | 'block___childrenContentfulBlockTextTextNode___internal___owner'
+  | 'block___childrenContentfulBlockTextTextNode___internal___type'
+  | 'block___childrenContentfulBlockTextTextNode___text'
+  | 'block___childrenContentfulBlockTextTextNode___sys___type'
+  | 'block___childrenContentfulBlockTextTextNode___childrenMdx'
+  | 'block___childrenContentfulBlockTextTextNode___childrenMdx___rawBody'
+  | 'block___childrenContentfulBlockTextTextNode___childrenMdx___fileAbsolutePath'
+  | 'block___childrenContentfulBlockTextTextNode___childrenMdx___slug'
+  | 'block___childrenContentfulBlockTextTextNode___childrenMdx___body'
+  | 'block___childrenContentfulBlockTextTextNode___childrenMdx___excerpt'
+  | 'block___childrenContentfulBlockTextTextNode___childrenMdx___headings'
+  | 'block___childrenContentfulBlockTextTextNode___childrenMdx___html'
+  | 'block___childrenContentfulBlockTextTextNode___childrenMdx___mdxAST'
+  | 'block___childrenContentfulBlockTextTextNode___childrenMdx___tableOfContents'
+  | 'block___childrenContentfulBlockTextTextNode___childrenMdx___timeToRead'
+  | 'block___childrenContentfulBlockTextTextNode___childrenMdx___id'
+  | 'block___childrenContentfulBlockTextTextNode___childrenMdx___children'
+  | 'block___childrenContentfulBlockTextTextNode___childMdx___rawBody'
+  | 'block___childrenContentfulBlockTextTextNode___childMdx___fileAbsolutePath'
+  | 'block___childrenContentfulBlockTextTextNode___childMdx___slug'
+  | 'block___childrenContentfulBlockTextTextNode___childMdx___body'
+  | 'block___childrenContentfulBlockTextTextNode___childMdx___excerpt'
+  | 'block___childrenContentfulBlockTextTextNode___childMdx___headings'
+  | 'block___childrenContentfulBlockTextTextNode___childMdx___html'
+  | 'block___childrenContentfulBlockTextTextNode___childMdx___mdxAST'
+  | 'block___childrenContentfulBlockTextTextNode___childMdx___tableOfContents'
+  | 'block___childrenContentfulBlockTextTextNode___childMdx___timeToRead'
+  | 'block___childrenContentfulBlockTextTextNode___childMdx___id'
+  | 'block___childrenContentfulBlockTextTextNode___childMdx___children'
+  | 'block___childContentfulBlockTextTextNode___id'
+  | 'block___childContentfulBlockTextTextNode___parent___id'
+  | 'block___childContentfulBlockTextTextNode___parent___children'
+  | 'block___childContentfulBlockTextTextNode___children'
+  | 'block___childContentfulBlockTextTextNode___children___id'
+  | 'block___childContentfulBlockTextTextNode___children___children'
+  | 'block___childContentfulBlockTextTextNode___internal___content'
+  | 'block___childContentfulBlockTextTextNode___internal___contentDigest'
+  | 'block___childContentfulBlockTextTextNode___internal___description'
+  | 'block___childContentfulBlockTextTextNode___internal___fieldOwners'
+  | 'block___childContentfulBlockTextTextNode___internal___ignoreType'
+  | 'block___childContentfulBlockTextTextNode___internal___mediaType'
+  | 'block___childContentfulBlockTextTextNode___internal___owner'
+  | 'block___childContentfulBlockTextTextNode___internal___type'
+  | 'block___childContentfulBlockTextTextNode___text'
+  | 'block___childContentfulBlockTextTextNode___sys___type'
+  | 'block___childContentfulBlockTextTextNode___childrenMdx'
+  | 'block___childContentfulBlockTextTextNode___childrenMdx___rawBody'
+  | 'block___childContentfulBlockTextTextNode___childrenMdx___fileAbsolutePath'
+  | 'block___childContentfulBlockTextTextNode___childrenMdx___slug'
+  | 'block___childContentfulBlockTextTextNode___childrenMdx___body'
+  | 'block___childContentfulBlockTextTextNode___childrenMdx___excerpt'
+  | 'block___childContentfulBlockTextTextNode___childrenMdx___headings'
+  | 'block___childContentfulBlockTextTextNode___childrenMdx___html'
+  | 'block___childContentfulBlockTextTextNode___childrenMdx___mdxAST'
+  | 'block___childContentfulBlockTextTextNode___childrenMdx___tableOfContents'
+  | 'block___childContentfulBlockTextTextNode___childrenMdx___timeToRead'
+  | 'block___childContentfulBlockTextTextNode___childrenMdx___id'
+  | 'block___childContentfulBlockTextTextNode___childrenMdx___children'
+  | 'block___childContentfulBlockTextTextNode___childMdx___rawBody'
+  | 'block___childContentfulBlockTextTextNode___childMdx___fileAbsolutePath'
+  | 'block___childContentfulBlockTextTextNode___childMdx___slug'
+  | 'block___childContentfulBlockTextTextNode___childMdx___body'
+  | 'block___childContentfulBlockTextTextNode___childMdx___excerpt'
+  | 'block___childContentfulBlockTextTextNode___childMdx___headings'
+  | 'block___childContentfulBlockTextTextNode___childMdx___html'
+  | 'block___childContentfulBlockTextTextNode___childMdx___mdxAST'
+  | 'block___childContentfulBlockTextTextNode___childMdx___tableOfContents'
+  | 'block___childContentfulBlockTextTextNode___childMdx___timeToRead'
+  | 'block___childContentfulBlockTextTextNode___childMdx___id'
+  | 'block___childContentfulBlockTextTextNode___childMdx___children';
 
 export type ContentfulLinkFilterInput = {
   id?: Maybe<StringQueryOperatorInput>;
@@ -2837,13 +3448,20 @@ export type ContentfulLinkFilterInput = {
   type?: Maybe<StringQueryOperatorInput>;
   name?: Maybe<StringQueryOperatorInput>;
   label?: Maybe<StringQueryOperatorInput>;
+  url?: Maybe<StringQueryOperatorInput>;
   spaceId?: Maybe<StringQueryOperatorInput>;
   contentful_id?: Maybe<StringQueryOperatorInput>;
   createdAt?: Maybe<DateQueryOperatorInput>;
   updatedAt?: Maybe<DateQueryOperatorInput>;
   sys?: Maybe<ContentfulLinkSysFilterInput>;
   node_locale?: Maybe<StringQueryOperatorInput>;
-  url?: Maybe<StringQueryOperatorInput>;
+  page?: Maybe<ContentfulPageFilterInput>;
+  navigation?: Maybe<ContentfulNavigationFilterListInput>;
+  block?: Maybe<ContentfulBlockFilterListInput>;
+};
+
+export type ContentfulLinkFilterListInput = {
+  elemMatch?: Maybe<ContentfulLinkFilterInput>;
 };
 
 export type ContentfulLinkGroupConnection = {
@@ -2894,13 +3512,47 @@ export type ContentfulLinkSysFilterInput = {
   contentType?: Maybe<ContentfulLinkSysContentTypeFilterInput>;
 };
 
+export type ContentfulMedia = Node & {
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
+  name?: Maybe<Scalars['String']>;
+  backgroundPositionY?: Maybe<Scalars['String']>;
+  media?: Maybe<Array<Maybe<ContentfulAsset>>>;
+  mediacollection?: Maybe<Array<Maybe<ContentfulMediaCollection>>>;
+  spaceId?: Maybe<Scalars['String']>;
+  contentful_id?: Maybe<Scalars['String']>;
+  createdAt?: Maybe<Scalars['Date']>;
+  updatedAt?: Maybe<Scalars['Date']>;
+  sys?: Maybe<ContentfulMediaSys>;
+  node_locale?: Maybe<Scalars['String']>;
+};
+
+
+export type ContentfulMediaCreatedAtArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type ContentfulMediaUpdatedAtArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
 export type ContentfulMediaCollection = Node & {
   id: Scalars['ID'];
   parent?: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
   name?: Maybe<Scalars['String']>;
-  medias?: Maybe<Array<Maybe<ContentfulAsset>>>;
+  medias?: Maybe<Array<Maybe<ContentfulMedia>>>;
+  block?: Maybe<Array<Maybe<ContentfulBlock>>>;
   spaceId?: Maybe<Scalars['String']>;
   contentful_id?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['Date']>;
@@ -3079,59 +3731,468 @@ export type ContentfulMediaCollectionFieldsEnum =
   | 'medias___internal___mediaType'
   | 'medias___internal___owner'
   | 'medias___internal___type'
-  | 'medias___contentful_id'
+  | 'medias___name'
+  | 'medias___backgroundPositionY'
+  | 'medias___media'
+  | 'medias___media___id'
+  | 'medias___media___parent___id'
+  | 'medias___media___parent___children'
+  | 'medias___media___children'
+  | 'medias___media___children___id'
+  | 'medias___media___children___children'
+  | 'medias___media___internal___content'
+  | 'medias___media___internal___contentDigest'
+  | 'medias___media___internal___description'
+  | 'medias___media___internal___fieldOwners'
+  | 'medias___media___internal___ignoreType'
+  | 'medias___media___internal___mediaType'
+  | 'medias___media___internal___owner'
+  | 'medias___media___internal___type'
+  | 'medias___media___contentful_id'
+  | 'medias___media___spaceId'
+  | 'medias___media___createdAt'
+  | 'medias___media___updatedAt'
+  | 'medias___media___file___url'
+  | 'medias___media___file___fileName'
+  | 'medias___media___file___contentType'
+  | 'medias___media___title'
+  | 'medias___media___description'
+  | 'medias___media___node_locale'
+  | 'medias___media___sys___type'
+  | 'medias___media___sys___revision'
+  | 'medias___media___fixed___base64'
+  | 'medias___media___fixed___tracedSVG'
+  | 'medias___media___fixed___aspectRatio'
+  | 'medias___media___fixed___width'
+  | 'medias___media___fixed___height'
+  | 'medias___media___fixed___src'
+  | 'medias___media___fixed___srcSet'
+  | 'medias___media___fixed___srcWebp'
+  | 'medias___media___fixed___srcSetWebp'
+  | 'medias___media___resolutions___base64'
+  | 'medias___media___resolutions___tracedSVG'
+  | 'medias___media___resolutions___aspectRatio'
+  | 'medias___media___resolutions___width'
+  | 'medias___media___resolutions___height'
+  | 'medias___media___resolutions___src'
+  | 'medias___media___resolutions___srcSet'
+  | 'medias___media___resolutions___srcWebp'
+  | 'medias___media___resolutions___srcSetWebp'
+  | 'medias___media___fluid___base64'
+  | 'medias___media___fluid___tracedSVG'
+  | 'medias___media___fluid___aspectRatio'
+  | 'medias___media___fluid___src'
+  | 'medias___media___fluid___srcSet'
+  | 'medias___media___fluid___srcWebp'
+  | 'medias___media___fluid___srcSetWebp'
+  | 'medias___media___fluid___sizes'
+  | 'medias___media___sizes___base64'
+  | 'medias___media___sizes___tracedSVG'
+  | 'medias___media___sizes___aspectRatio'
+  | 'medias___media___sizes___src'
+  | 'medias___media___sizes___srcSet'
+  | 'medias___media___sizes___srcWebp'
+  | 'medias___media___sizes___srcSetWebp'
+  | 'medias___media___sizes___sizes'
+  | 'medias___media___resize___base64'
+  | 'medias___media___resize___tracedSVG'
+  | 'medias___media___resize___src'
+  | 'medias___media___resize___width'
+  | 'medias___media___resize___height'
+  | 'medias___media___resize___aspectRatio'
+  | 'medias___mediacollection'
+  | 'medias___mediacollection___id'
+  | 'medias___mediacollection___parent___id'
+  | 'medias___mediacollection___parent___children'
+  | 'medias___mediacollection___children'
+  | 'medias___mediacollection___children___id'
+  | 'medias___mediacollection___children___children'
+  | 'medias___mediacollection___internal___content'
+  | 'medias___mediacollection___internal___contentDigest'
+  | 'medias___mediacollection___internal___description'
+  | 'medias___mediacollection___internal___fieldOwners'
+  | 'medias___mediacollection___internal___ignoreType'
+  | 'medias___mediacollection___internal___mediaType'
+  | 'medias___mediacollection___internal___owner'
+  | 'medias___mediacollection___internal___type'
+  | 'medias___mediacollection___name'
+  | 'medias___mediacollection___medias'
+  | 'medias___mediacollection___medias___id'
+  | 'medias___mediacollection___medias___children'
+  | 'medias___mediacollection___medias___name'
+  | 'medias___mediacollection___medias___backgroundPositionY'
+  | 'medias___mediacollection___medias___media'
+  | 'medias___mediacollection___medias___mediacollection'
+  | 'medias___mediacollection___medias___spaceId'
+  | 'medias___mediacollection___medias___contentful_id'
+  | 'medias___mediacollection___medias___createdAt'
+  | 'medias___mediacollection___medias___updatedAt'
+  | 'medias___mediacollection___medias___node_locale'
+  | 'medias___mediacollection___block'
+  | 'medias___mediacollection___block___id'
+  | 'medias___mediacollection___block___children'
+  | 'medias___mediacollection___block___name'
+  | 'medias___mediacollection___block___type'
+  | 'medias___mediacollection___block___medias'
+  | 'medias___mediacollection___block___section'
+  | 'medias___mediacollection___block___spaceId'
+  | 'medias___mediacollection___block___contentful_id'
+  | 'medias___mediacollection___block___createdAt'
+  | 'medias___mediacollection___block___updatedAt'
+  | 'medias___mediacollection___block___node_locale'
+  | 'medias___mediacollection___block___variant'
+  | 'medias___mediacollection___block___childrenContentfulBlockTextTextNode'
+  | 'medias___mediacollection___spaceId'
+  | 'medias___mediacollection___contentful_id'
+  | 'medias___mediacollection___createdAt'
+  | 'medias___mediacollection___updatedAt'
+  | 'medias___mediacollection___sys___type'
+  | 'medias___mediacollection___sys___revision'
+  | 'medias___mediacollection___node_locale'
   | 'medias___spaceId'
+  | 'medias___contentful_id'
   | 'medias___createdAt'
   | 'medias___updatedAt'
-  | 'medias___file___url'
-  | 'medias___file___details___size'
-  | 'medias___file___fileName'
-  | 'medias___file___contentType'
-  | 'medias___title'
-  | 'medias___description'
-  | 'medias___node_locale'
   | 'medias___sys___type'
   | 'medias___sys___revision'
-  | 'medias___fixed___base64'
-  | 'medias___fixed___tracedSVG'
-  | 'medias___fixed___aspectRatio'
-  | 'medias___fixed___width'
-  | 'medias___fixed___height'
-  | 'medias___fixed___src'
-  | 'medias___fixed___srcSet'
-  | 'medias___fixed___srcWebp'
-  | 'medias___fixed___srcSetWebp'
-  | 'medias___resolutions___base64'
-  | 'medias___resolutions___tracedSVG'
-  | 'medias___resolutions___aspectRatio'
-  | 'medias___resolutions___width'
-  | 'medias___resolutions___height'
-  | 'medias___resolutions___src'
-  | 'medias___resolutions___srcSet'
-  | 'medias___resolutions___srcWebp'
-  | 'medias___resolutions___srcSetWebp'
-  | 'medias___fluid___base64'
-  | 'medias___fluid___tracedSVG'
-  | 'medias___fluid___aspectRatio'
-  | 'medias___fluid___src'
-  | 'medias___fluid___srcSet'
-  | 'medias___fluid___srcWebp'
-  | 'medias___fluid___srcSetWebp'
-  | 'medias___fluid___sizes'
-  | 'medias___sizes___base64'
-  | 'medias___sizes___tracedSVG'
-  | 'medias___sizes___aspectRatio'
-  | 'medias___sizes___src'
-  | 'medias___sizes___srcSet'
-  | 'medias___sizes___srcWebp'
-  | 'medias___sizes___srcSetWebp'
-  | 'medias___sizes___sizes'
-  | 'medias___resize___base64'
-  | 'medias___resize___tracedSVG'
-  | 'medias___resize___src'
-  | 'medias___resize___width'
-  | 'medias___resize___height'
-  | 'medias___resize___aspectRatio'
+  | 'medias___node_locale'
+  | 'block'
+  | 'block___id'
+  | 'block___parent___id'
+  | 'block___parent___parent___id'
+  | 'block___parent___parent___children'
+  | 'block___parent___children'
+  | 'block___parent___children___id'
+  | 'block___parent___children___children'
+  | 'block___parent___internal___content'
+  | 'block___parent___internal___contentDigest'
+  | 'block___parent___internal___description'
+  | 'block___parent___internal___fieldOwners'
+  | 'block___parent___internal___ignoreType'
+  | 'block___parent___internal___mediaType'
+  | 'block___parent___internal___owner'
+  | 'block___parent___internal___type'
+  | 'block___children'
+  | 'block___children___id'
+  | 'block___children___parent___id'
+  | 'block___children___parent___children'
+  | 'block___children___children'
+  | 'block___children___children___id'
+  | 'block___children___children___children'
+  | 'block___children___internal___content'
+  | 'block___children___internal___contentDigest'
+  | 'block___children___internal___description'
+  | 'block___children___internal___fieldOwners'
+  | 'block___children___internal___ignoreType'
+  | 'block___children___internal___mediaType'
+  | 'block___children___internal___owner'
+  | 'block___children___internal___type'
+  | 'block___internal___content'
+  | 'block___internal___contentDigest'
+  | 'block___internal___description'
+  | 'block___internal___fieldOwners'
+  | 'block___internal___ignoreType'
+  | 'block___internal___mediaType'
+  | 'block___internal___owner'
+  | 'block___internal___type'
+  | 'block___name'
+  | 'block___type'
+  | 'block___medias'
+  | 'block___medias___id'
+  | 'block___medias___parent___id'
+  | 'block___medias___parent___children'
+  | 'block___medias___children'
+  | 'block___medias___children___id'
+  | 'block___medias___children___children'
+  | 'block___medias___internal___content'
+  | 'block___medias___internal___contentDigest'
+  | 'block___medias___internal___description'
+  | 'block___medias___internal___fieldOwners'
+  | 'block___medias___internal___ignoreType'
+  | 'block___medias___internal___mediaType'
+  | 'block___medias___internal___owner'
+  | 'block___medias___internal___type'
+  | 'block___medias___name'
+  | 'block___medias___medias'
+  | 'block___medias___medias___id'
+  | 'block___medias___medias___children'
+  | 'block___medias___medias___name'
+  | 'block___medias___medias___backgroundPositionY'
+  | 'block___medias___medias___media'
+  | 'block___medias___medias___mediacollection'
+  | 'block___medias___medias___spaceId'
+  | 'block___medias___medias___contentful_id'
+  | 'block___medias___medias___createdAt'
+  | 'block___medias___medias___updatedAt'
+  | 'block___medias___medias___node_locale'
+  | 'block___medias___block'
+  | 'block___medias___block___id'
+  | 'block___medias___block___children'
+  | 'block___medias___block___name'
+  | 'block___medias___block___type'
+  | 'block___medias___block___medias'
+  | 'block___medias___block___section'
+  | 'block___medias___block___spaceId'
+  | 'block___medias___block___contentful_id'
+  | 'block___medias___block___createdAt'
+  | 'block___medias___block___updatedAt'
+  | 'block___medias___block___node_locale'
+  | 'block___medias___block___variant'
+  | 'block___medias___block___childrenContentfulBlockTextTextNode'
+  | 'block___medias___spaceId'
+  | 'block___medias___contentful_id'
+  | 'block___medias___createdAt'
+  | 'block___medias___updatedAt'
+  | 'block___medias___sys___type'
+  | 'block___medias___sys___revision'
+  | 'block___medias___node_locale'
+  | 'block___section'
+  | 'block___section___id'
+  | 'block___section___parent___id'
+  | 'block___section___parent___children'
+  | 'block___section___children'
+  | 'block___section___children___id'
+  | 'block___section___children___children'
+  | 'block___section___internal___content'
+  | 'block___section___internal___contentDigest'
+  | 'block___section___internal___description'
+  | 'block___section___internal___fieldOwners'
+  | 'block___section___internal___ignoreType'
+  | 'block___section___internal___mediaType'
+  | 'block___section___internal___owner'
+  | 'block___section___internal___type'
+  | 'block___section___name'
+  | 'block___section___variant'
+  | 'block___section___layout'
+  | 'block___section___spaceId'
+  | 'block___section___contentful_id'
+  | 'block___section___createdAt'
+  | 'block___section___updatedAt'
+  | 'block___section___sys___type'
+  | 'block___section___sys___revision'
+  | 'block___section___node_locale'
+  | 'block___section___blocks'
+  | 'block___section___blocks___id'
+  | 'block___section___blocks___children'
+  | 'block___section___blocks___name'
+  | 'block___section___blocks___type'
+  | 'block___section___blocks___medias'
+  | 'block___section___blocks___section'
+  | 'block___section___blocks___spaceId'
+  | 'block___section___blocks___contentful_id'
+  | 'block___section___blocks___createdAt'
+  | 'block___section___blocks___updatedAt'
+  | 'block___section___blocks___node_locale'
+  | 'block___section___blocks___variant'
+  | 'block___section___blocks___childrenContentfulBlockTextTextNode'
+  | 'block___section___page'
+  | 'block___section___page___id'
+  | 'block___section___page___children'
+  | 'block___section___page___name'
+  | 'block___section___page___title'
+  | 'block___section___page___slug'
+  | 'block___section___page___sections'
+  | 'block___section___page___spaceId'
+  | 'block___section___page___contentful_id'
+  | 'block___section___page___createdAt'
+  | 'block___section___page___updatedAt'
+  | 'block___section___page___node_locale'
+  | 'block___section___page___link'
+  | 'block___section___page___childrenContentfulPageDescriptionTextNode'
+  | 'block___spaceId'
+  | 'block___contentful_id'
+  | 'block___createdAt'
+  | 'block___updatedAt'
+  | 'block___sys___type'
+  | 'block___sys___revision'
+  | 'block___node_locale'
+  | 'block___link___id'
+  | 'block___link___parent___id'
+  | 'block___link___parent___children'
+  | 'block___link___children'
+  | 'block___link___children___id'
+  | 'block___link___children___children'
+  | 'block___link___internal___content'
+  | 'block___link___internal___contentDigest'
+  | 'block___link___internal___description'
+  | 'block___link___internal___fieldOwners'
+  | 'block___link___internal___ignoreType'
+  | 'block___link___internal___mediaType'
+  | 'block___link___internal___owner'
+  | 'block___link___internal___type'
+  | 'block___link___type'
+  | 'block___link___name'
+  | 'block___link___label'
+  | 'block___link___url'
+  | 'block___link___spaceId'
+  | 'block___link___contentful_id'
+  | 'block___link___createdAt'
+  | 'block___link___updatedAt'
+  | 'block___link___sys___type'
+  | 'block___link___sys___revision'
+  | 'block___link___node_locale'
+  | 'block___link___page___id'
+  | 'block___link___page___children'
+  | 'block___link___page___name'
+  | 'block___link___page___title'
+  | 'block___link___page___slug'
+  | 'block___link___page___sections'
+  | 'block___link___page___spaceId'
+  | 'block___link___page___contentful_id'
+  | 'block___link___page___createdAt'
+  | 'block___link___page___updatedAt'
+  | 'block___link___page___node_locale'
+  | 'block___link___page___link'
+  | 'block___link___page___childrenContentfulPageDescriptionTextNode'
+  | 'block___link___navigation'
+  | 'block___link___navigation___id'
+  | 'block___link___navigation___children'
+  | 'block___link___navigation___name'
+  | 'block___link___navigation___links'
+  | 'block___link___navigation___spaceId'
+  | 'block___link___navigation___contentful_id'
+  | 'block___link___navigation___createdAt'
+  | 'block___link___navigation___updatedAt'
+  | 'block___link___navigation___node_locale'
+  | 'block___link___block'
+  | 'block___link___block___id'
+  | 'block___link___block___children'
+  | 'block___link___block___name'
+  | 'block___link___block___type'
+  | 'block___link___block___medias'
+  | 'block___link___block___section'
+  | 'block___link___block___spaceId'
+  | 'block___link___block___contentful_id'
+  | 'block___link___block___createdAt'
+  | 'block___link___block___updatedAt'
+  | 'block___link___block___node_locale'
+  | 'block___link___block___variant'
+  | 'block___link___block___childrenContentfulBlockTextTextNode'
+  | 'block___text___id'
+  | 'block___text___parent___id'
+  | 'block___text___parent___children'
+  | 'block___text___children'
+  | 'block___text___children___id'
+  | 'block___text___children___children'
+  | 'block___text___internal___content'
+  | 'block___text___internal___contentDigest'
+  | 'block___text___internal___description'
+  | 'block___text___internal___fieldOwners'
+  | 'block___text___internal___ignoreType'
+  | 'block___text___internal___mediaType'
+  | 'block___text___internal___owner'
+  | 'block___text___internal___type'
+  | 'block___text___text'
+  | 'block___text___sys___type'
+  | 'block___text___childrenMdx'
+  | 'block___text___childrenMdx___rawBody'
+  | 'block___text___childrenMdx___fileAbsolutePath'
+  | 'block___text___childrenMdx___slug'
+  | 'block___text___childrenMdx___body'
+  | 'block___text___childrenMdx___excerpt'
+  | 'block___text___childrenMdx___headings'
+  | 'block___text___childrenMdx___html'
+  | 'block___text___childrenMdx___mdxAST'
+  | 'block___text___childrenMdx___tableOfContents'
+  | 'block___text___childrenMdx___timeToRead'
+  | 'block___text___childrenMdx___id'
+  | 'block___text___childrenMdx___children'
+  | 'block___text___childMdx___rawBody'
+  | 'block___text___childMdx___fileAbsolutePath'
+  | 'block___text___childMdx___slug'
+  | 'block___text___childMdx___body'
+  | 'block___text___childMdx___excerpt'
+  | 'block___text___childMdx___headings'
+  | 'block___text___childMdx___html'
+  | 'block___text___childMdx___mdxAST'
+  | 'block___text___childMdx___tableOfContents'
+  | 'block___text___childMdx___timeToRead'
+  | 'block___text___childMdx___id'
+  | 'block___text___childMdx___children'
+  | 'block___variant'
+  | 'block___childrenContentfulBlockTextTextNode'
+  | 'block___childrenContentfulBlockTextTextNode___id'
+  | 'block___childrenContentfulBlockTextTextNode___parent___id'
+  | 'block___childrenContentfulBlockTextTextNode___parent___children'
+  | 'block___childrenContentfulBlockTextTextNode___children'
+  | 'block___childrenContentfulBlockTextTextNode___children___id'
+  | 'block___childrenContentfulBlockTextTextNode___children___children'
+  | 'block___childrenContentfulBlockTextTextNode___internal___content'
+  | 'block___childrenContentfulBlockTextTextNode___internal___contentDigest'
+  | 'block___childrenContentfulBlockTextTextNode___internal___description'
+  | 'block___childrenContentfulBlockTextTextNode___internal___fieldOwners'
+  | 'block___childrenContentfulBlockTextTextNode___internal___ignoreType'
+  | 'block___childrenContentfulBlockTextTextNode___internal___mediaType'
+  | 'block___childrenContentfulBlockTextTextNode___internal___owner'
+  | 'block___childrenContentfulBlockTextTextNode___internal___type'
+  | 'block___childrenContentfulBlockTextTextNode___text'
+  | 'block___childrenContentfulBlockTextTextNode___sys___type'
+  | 'block___childrenContentfulBlockTextTextNode___childrenMdx'
+  | 'block___childrenContentfulBlockTextTextNode___childrenMdx___rawBody'
+  | 'block___childrenContentfulBlockTextTextNode___childrenMdx___fileAbsolutePath'
+  | 'block___childrenContentfulBlockTextTextNode___childrenMdx___slug'
+  | 'block___childrenContentfulBlockTextTextNode___childrenMdx___body'
+  | 'block___childrenContentfulBlockTextTextNode___childrenMdx___excerpt'
+  | 'block___childrenContentfulBlockTextTextNode___childrenMdx___headings'
+  | 'block___childrenContentfulBlockTextTextNode___childrenMdx___html'
+  | 'block___childrenContentfulBlockTextTextNode___childrenMdx___mdxAST'
+  | 'block___childrenContentfulBlockTextTextNode___childrenMdx___tableOfContents'
+  | 'block___childrenContentfulBlockTextTextNode___childrenMdx___timeToRead'
+  | 'block___childrenContentfulBlockTextTextNode___childrenMdx___id'
+  | 'block___childrenContentfulBlockTextTextNode___childrenMdx___children'
+  | 'block___childrenContentfulBlockTextTextNode___childMdx___rawBody'
+  | 'block___childrenContentfulBlockTextTextNode___childMdx___fileAbsolutePath'
+  | 'block___childrenContentfulBlockTextTextNode___childMdx___slug'
+  | 'block___childrenContentfulBlockTextTextNode___childMdx___body'
+  | 'block___childrenContentfulBlockTextTextNode___childMdx___excerpt'
+  | 'block___childrenContentfulBlockTextTextNode___childMdx___headings'
+  | 'block___childrenContentfulBlockTextTextNode___childMdx___html'
+  | 'block___childrenContentfulBlockTextTextNode___childMdx___mdxAST'
+  | 'block___childrenContentfulBlockTextTextNode___childMdx___tableOfContents'
+  | 'block___childrenContentfulBlockTextTextNode___childMdx___timeToRead'
+  | 'block___childrenContentfulBlockTextTextNode___childMdx___id'
+  | 'block___childrenContentfulBlockTextTextNode___childMdx___children'
+  | 'block___childContentfulBlockTextTextNode___id'
+  | 'block___childContentfulBlockTextTextNode___parent___id'
+  | 'block___childContentfulBlockTextTextNode___parent___children'
+  | 'block___childContentfulBlockTextTextNode___children'
+  | 'block___childContentfulBlockTextTextNode___children___id'
+  | 'block___childContentfulBlockTextTextNode___children___children'
+  | 'block___childContentfulBlockTextTextNode___internal___content'
+  | 'block___childContentfulBlockTextTextNode___internal___contentDigest'
+  | 'block___childContentfulBlockTextTextNode___internal___description'
+  | 'block___childContentfulBlockTextTextNode___internal___fieldOwners'
+  | 'block___childContentfulBlockTextTextNode___internal___ignoreType'
+  | 'block___childContentfulBlockTextTextNode___internal___mediaType'
+  | 'block___childContentfulBlockTextTextNode___internal___owner'
+  | 'block___childContentfulBlockTextTextNode___internal___type'
+  | 'block___childContentfulBlockTextTextNode___text'
+  | 'block___childContentfulBlockTextTextNode___sys___type'
+  | 'block___childContentfulBlockTextTextNode___childrenMdx'
+  | 'block___childContentfulBlockTextTextNode___childrenMdx___rawBody'
+  | 'block___childContentfulBlockTextTextNode___childrenMdx___fileAbsolutePath'
+  | 'block___childContentfulBlockTextTextNode___childrenMdx___slug'
+  | 'block___childContentfulBlockTextTextNode___childrenMdx___body'
+  | 'block___childContentfulBlockTextTextNode___childrenMdx___excerpt'
+  | 'block___childContentfulBlockTextTextNode___childrenMdx___headings'
+  | 'block___childContentfulBlockTextTextNode___childrenMdx___html'
+  | 'block___childContentfulBlockTextTextNode___childrenMdx___mdxAST'
+  | 'block___childContentfulBlockTextTextNode___childrenMdx___tableOfContents'
+  | 'block___childContentfulBlockTextTextNode___childrenMdx___timeToRead'
+  | 'block___childContentfulBlockTextTextNode___childrenMdx___id'
+  | 'block___childContentfulBlockTextTextNode___childrenMdx___children'
+  | 'block___childContentfulBlockTextTextNode___childMdx___rawBody'
+  | 'block___childContentfulBlockTextTextNode___childMdx___fileAbsolutePath'
+  | 'block___childContentfulBlockTextTextNode___childMdx___slug'
+  | 'block___childContentfulBlockTextTextNode___childMdx___body'
+  | 'block___childContentfulBlockTextTextNode___childMdx___excerpt'
+  | 'block___childContentfulBlockTextTextNode___childMdx___headings'
+  | 'block___childContentfulBlockTextTextNode___childMdx___html'
+  | 'block___childContentfulBlockTextTextNode___childMdx___mdxAST'
+  | 'block___childContentfulBlockTextTextNode___childMdx___tableOfContents'
+  | 'block___childContentfulBlockTextTextNode___childMdx___timeToRead'
+  | 'block___childContentfulBlockTextTextNode___childMdx___id'
+  | 'block___childContentfulBlockTextTextNode___childMdx___children'
   | 'spaceId'
   | 'contentful_id'
   | 'createdAt'
@@ -3150,13 +4211,18 @@ export type ContentfulMediaCollectionFilterInput = {
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
   name?: Maybe<StringQueryOperatorInput>;
-  medias?: Maybe<ContentfulAssetFilterListInput>;
+  medias?: Maybe<ContentfulMediaFilterListInput>;
+  block?: Maybe<ContentfulBlockFilterListInput>;
   spaceId?: Maybe<StringQueryOperatorInput>;
   contentful_id?: Maybe<StringQueryOperatorInput>;
   createdAt?: Maybe<DateQueryOperatorInput>;
   updatedAt?: Maybe<DateQueryOperatorInput>;
   sys?: Maybe<ContentfulMediaCollectionSysFilterInput>;
   node_locale?: Maybe<StringQueryOperatorInput>;
+};
+
+export type ContentfulMediaCollectionFilterListInput = {
+  elemMatch?: Maybe<ContentfulMediaCollectionFilterInput>;
 };
 
 export type ContentfulMediaCollectionGroupConnection = {
@@ -3207,6 +4273,913 @@ export type ContentfulMediaCollectionSysFilterInput = {
   contentType?: Maybe<ContentfulMediaCollectionSysContentTypeFilterInput>;
 };
 
+export type ContentfulMediaConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<ContentfulMediaEdge>;
+  nodes: Array<ContentfulMedia>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  group: Array<ContentfulMediaGroupConnection>;
+};
+
+
+export type ContentfulMediaConnectionDistinctArgs = {
+  field: ContentfulMediaFieldsEnum;
+};
+
+
+export type ContentfulMediaConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  field: ContentfulMediaFieldsEnum;
+};
+
+export type ContentfulMediaEdge = {
+  next?: Maybe<ContentfulMedia>;
+  node: ContentfulMedia;
+  previous?: Maybe<ContentfulMedia>;
+};
+
+export type ContentfulMediaFieldsEnum = 
+  | 'id'
+  | 'parent___id'
+  | 'parent___parent___id'
+  | 'parent___parent___parent___id'
+  | 'parent___parent___parent___children'
+  | 'parent___parent___children'
+  | 'parent___parent___children___id'
+  | 'parent___parent___children___children'
+  | 'parent___parent___internal___content'
+  | 'parent___parent___internal___contentDigest'
+  | 'parent___parent___internal___description'
+  | 'parent___parent___internal___fieldOwners'
+  | 'parent___parent___internal___ignoreType'
+  | 'parent___parent___internal___mediaType'
+  | 'parent___parent___internal___owner'
+  | 'parent___parent___internal___type'
+  | 'parent___children'
+  | 'parent___children___id'
+  | 'parent___children___parent___id'
+  | 'parent___children___parent___children'
+  | 'parent___children___children'
+  | 'parent___children___children___id'
+  | 'parent___children___children___children'
+  | 'parent___children___internal___content'
+  | 'parent___children___internal___contentDigest'
+  | 'parent___children___internal___description'
+  | 'parent___children___internal___fieldOwners'
+  | 'parent___children___internal___ignoreType'
+  | 'parent___children___internal___mediaType'
+  | 'parent___children___internal___owner'
+  | 'parent___children___internal___type'
+  | 'parent___internal___content'
+  | 'parent___internal___contentDigest'
+  | 'parent___internal___description'
+  | 'parent___internal___fieldOwners'
+  | 'parent___internal___ignoreType'
+  | 'parent___internal___mediaType'
+  | 'parent___internal___owner'
+  | 'parent___internal___type'
+  | 'children'
+  | 'children___id'
+  | 'children___parent___id'
+  | 'children___parent___parent___id'
+  | 'children___parent___parent___children'
+  | 'children___parent___children'
+  | 'children___parent___children___id'
+  | 'children___parent___children___children'
+  | 'children___parent___internal___content'
+  | 'children___parent___internal___contentDigest'
+  | 'children___parent___internal___description'
+  | 'children___parent___internal___fieldOwners'
+  | 'children___parent___internal___ignoreType'
+  | 'children___parent___internal___mediaType'
+  | 'children___parent___internal___owner'
+  | 'children___parent___internal___type'
+  | 'children___children'
+  | 'children___children___id'
+  | 'children___children___parent___id'
+  | 'children___children___parent___children'
+  | 'children___children___children'
+  | 'children___children___children___id'
+  | 'children___children___children___children'
+  | 'children___children___internal___content'
+  | 'children___children___internal___contentDigest'
+  | 'children___children___internal___description'
+  | 'children___children___internal___fieldOwners'
+  | 'children___children___internal___ignoreType'
+  | 'children___children___internal___mediaType'
+  | 'children___children___internal___owner'
+  | 'children___children___internal___type'
+  | 'children___internal___content'
+  | 'children___internal___contentDigest'
+  | 'children___internal___description'
+  | 'children___internal___fieldOwners'
+  | 'children___internal___ignoreType'
+  | 'children___internal___mediaType'
+  | 'children___internal___owner'
+  | 'children___internal___type'
+  | 'internal___content'
+  | 'internal___contentDigest'
+  | 'internal___description'
+  | 'internal___fieldOwners'
+  | 'internal___ignoreType'
+  | 'internal___mediaType'
+  | 'internal___owner'
+  | 'internal___type'
+  | 'name'
+  | 'backgroundPositionY'
+  | 'media'
+  | 'media___id'
+  | 'media___parent___id'
+  | 'media___parent___parent___id'
+  | 'media___parent___parent___children'
+  | 'media___parent___children'
+  | 'media___parent___children___id'
+  | 'media___parent___children___children'
+  | 'media___parent___internal___content'
+  | 'media___parent___internal___contentDigest'
+  | 'media___parent___internal___description'
+  | 'media___parent___internal___fieldOwners'
+  | 'media___parent___internal___ignoreType'
+  | 'media___parent___internal___mediaType'
+  | 'media___parent___internal___owner'
+  | 'media___parent___internal___type'
+  | 'media___children'
+  | 'media___children___id'
+  | 'media___children___parent___id'
+  | 'media___children___parent___children'
+  | 'media___children___children'
+  | 'media___children___children___id'
+  | 'media___children___children___children'
+  | 'media___children___internal___content'
+  | 'media___children___internal___contentDigest'
+  | 'media___children___internal___description'
+  | 'media___children___internal___fieldOwners'
+  | 'media___children___internal___ignoreType'
+  | 'media___children___internal___mediaType'
+  | 'media___children___internal___owner'
+  | 'media___children___internal___type'
+  | 'media___internal___content'
+  | 'media___internal___contentDigest'
+  | 'media___internal___description'
+  | 'media___internal___fieldOwners'
+  | 'media___internal___ignoreType'
+  | 'media___internal___mediaType'
+  | 'media___internal___owner'
+  | 'media___internal___type'
+  | 'media___contentful_id'
+  | 'media___spaceId'
+  | 'media___createdAt'
+  | 'media___updatedAt'
+  | 'media___file___url'
+  | 'media___file___details___size'
+  | 'media___file___fileName'
+  | 'media___file___contentType'
+  | 'media___title'
+  | 'media___description'
+  | 'media___node_locale'
+  | 'media___sys___type'
+  | 'media___sys___revision'
+  | 'media___fixed___base64'
+  | 'media___fixed___tracedSVG'
+  | 'media___fixed___aspectRatio'
+  | 'media___fixed___width'
+  | 'media___fixed___height'
+  | 'media___fixed___src'
+  | 'media___fixed___srcSet'
+  | 'media___fixed___srcWebp'
+  | 'media___fixed___srcSetWebp'
+  | 'media___resolutions___base64'
+  | 'media___resolutions___tracedSVG'
+  | 'media___resolutions___aspectRatio'
+  | 'media___resolutions___width'
+  | 'media___resolutions___height'
+  | 'media___resolutions___src'
+  | 'media___resolutions___srcSet'
+  | 'media___resolutions___srcWebp'
+  | 'media___resolutions___srcSetWebp'
+  | 'media___fluid___base64'
+  | 'media___fluid___tracedSVG'
+  | 'media___fluid___aspectRatio'
+  | 'media___fluid___src'
+  | 'media___fluid___srcSet'
+  | 'media___fluid___srcWebp'
+  | 'media___fluid___srcSetWebp'
+  | 'media___fluid___sizes'
+  | 'media___sizes___base64'
+  | 'media___sizes___tracedSVG'
+  | 'media___sizes___aspectRatio'
+  | 'media___sizes___src'
+  | 'media___sizes___srcSet'
+  | 'media___sizes___srcWebp'
+  | 'media___sizes___srcSetWebp'
+  | 'media___sizes___sizes'
+  | 'media___resize___base64'
+  | 'media___resize___tracedSVG'
+  | 'media___resize___src'
+  | 'media___resize___width'
+  | 'media___resize___height'
+  | 'media___resize___aspectRatio'
+  | 'mediacollection'
+  | 'mediacollection___id'
+  | 'mediacollection___parent___id'
+  | 'mediacollection___parent___parent___id'
+  | 'mediacollection___parent___parent___children'
+  | 'mediacollection___parent___children'
+  | 'mediacollection___parent___children___id'
+  | 'mediacollection___parent___children___children'
+  | 'mediacollection___parent___internal___content'
+  | 'mediacollection___parent___internal___contentDigest'
+  | 'mediacollection___parent___internal___description'
+  | 'mediacollection___parent___internal___fieldOwners'
+  | 'mediacollection___parent___internal___ignoreType'
+  | 'mediacollection___parent___internal___mediaType'
+  | 'mediacollection___parent___internal___owner'
+  | 'mediacollection___parent___internal___type'
+  | 'mediacollection___children'
+  | 'mediacollection___children___id'
+  | 'mediacollection___children___parent___id'
+  | 'mediacollection___children___parent___children'
+  | 'mediacollection___children___children'
+  | 'mediacollection___children___children___id'
+  | 'mediacollection___children___children___children'
+  | 'mediacollection___children___internal___content'
+  | 'mediacollection___children___internal___contentDigest'
+  | 'mediacollection___children___internal___description'
+  | 'mediacollection___children___internal___fieldOwners'
+  | 'mediacollection___children___internal___ignoreType'
+  | 'mediacollection___children___internal___mediaType'
+  | 'mediacollection___children___internal___owner'
+  | 'mediacollection___children___internal___type'
+  | 'mediacollection___internal___content'
+  | 'mediacollection___internal___contentDigest'
+  | 'mediacollection___internal___description'
+  | 'mediacollection___internal___fieldOwners'
+  | 'mediacollection___internal___ignoreType'
+  | 'mediacollection___internal___mediaType'
+  | 'mediacollection___internal___owner'
+  | 'mediacollection___internal___type'
+  | 'mediacollection___name'
+  | 'mediacollection___medias'
+  | 'mediacollection___medias___id'
+  | 'mediacollection___medias___parent___id'
+  | 'mediacollection___medias___parent___children'
+  | 'mediacollection___medias___children'
+  | 'mediacollection___medias___children___id'
+  | 'mediacollection___medias___children___children'
+  | 'mediacollection___medias___internal___content'
+  | 'mediacollection___medias___internal___contentDigest'
+  | 'mediacollection___medias___internal___description'
+  | 'mediacollection___medias___internal___fieldOwners'
+  | 'mediacollection___medias___internal___ignoreType'
+  | 'mediacollection___medias___internal___mediaType'
+  | 'mediacollection___medias___internal___owner'
+  | 'mediacollection___medias___internal___type'
+  | 'mediacollection___medias___name'
+  | 'mediacollection___medias___backgroundPositionY'
+  | 'mediacollection___medias___media'
+  | 'mediacollection___medias___media___id'
+  | 'mediacollection___medias___media___children'
+  | 'mediacollection___medias___media___contentful_id'
+  | 'mediacollection___medias___media___spaceId'
+  | 'mediacollection___medias___media___createdAt'
+  | 'mediacollection___medias___media___updatedAt'
+  | 'mediacollection___medias___media___title'
+  | 'mediacollection___medias___media___description'
+  | 'mediacollection___medias___media___node_locale'
+  | 'mediacollection___medias___mediacollection'
+  | 'mediacollection___medias___mediacollection___id'
+  | 'mediacollection___medias___mediacollection___children'
+  | 'mediacollection___medias___mediacollection___name'
+  | 'mediacollection___medias___mediacollection___medias'
+  | 'mediacollection___medias___mediacollection___block'
+  | 'mediacollection___medias___mediacollection___spaceId'
+  | 'mediacollection___medias___mediacollection___contentful_id'
+  | 'mediacollection___medias___mediacollection___createdAt'
+  | 'mediacollection___medias___mediacollection___updatedAt'
+  | 'mediacollection___medias___mediacollection___node_locale'
+  | 'mediacollection___medias___spaceId'
+  | 'mediacollection___medias___contentful_id'
+  | 'mediacollection___medias___createdAt'
+  | 'mediacollection___medias___updatedAt'
+  | 'mediacollection___medias___sys___type'
+  | 'mediacollection___medias___sys___revision'
+  | 'mediacollection___medias___node_locale'
+  | 'mediacollection___block'
+  | 'mediacollection___block___id'
+  | 'mediacollection___block___parent___id'
+  | 'mediacollection___block___parent___children'
+  | 'mediacollection___block___children'
+  | 'mediacollection___block___children___id'
+  | 'mediacollection___block___children___children'
+  | 'mediacollection___block___internal___content'
+  | 'mediacollection___block___internal___contentDigest'
+  | 'mediacollection___block___internal___description'
+  | 'mediacollection___block___internal___fieldOwners'
+  | 'mediacollection___block___internal___ignoreType'
+  | 'mediacollection___block___internal___mediaType'
+  | 'mediacollection___block___internal___owner'
+  | 'mediacollection___block___internal___type'
+  | 'mediacollection___block___name'
+  | 'mediacollection___block___type'
+  | 'mediacollection___block___medias'
+  | 'mediacollection___block___medias___id'
+  | 'mediacollection___block___medias___children'
+  | 'mediacollection___block___medias___name'
+  | 'mediacollection___block___medias___medias'
+  | 'mediacollection___block___medias___block'
+  | 'mediacollection___block___medias___spaceId'
+  | 'mediacollection___block___medias___contentful_id'
+  | 'mediacollection___block___medias___createdAt'
+  | 'mediacollection___block___medias___updatedAt'
+  | 'mediacollection___block___medias___node_locale'
+  | 'mediacollection___block___section'
+  | 'mediacollection___block___section___id'
+  | 'mediacollection___block___section___children'
+  | 'mediacollection___block___section___name'
+  | 'mediacollection___block___section___variant'
+  | 'mediacollection___block___section___layout'
+  | 'mediacollection___block___section___spaceId'
+  | 'mediacollection___block___section___contentful_id'
+  | 'mediacollection___block___section___createdAt'
+  | 'mediacollection___block___section___updatedAt'
+  | 'mediacollection___block___section___node_locale'
+  | 'mediacollection___block___section___blocks'
+  | 'mediacollection___block___section___page'
+  | 'mediacollection___block___spaceId'
+  | 'mediacollection___block___contentful_id'
+  | 'mediacollection___block___createdAt'
+  | 'mediacollection___block___updatedAt'
+  | 'mediacollection___block___sys___type'
+  | 'mediacollection___block___sys___revision'
+  | 'mediacollection___block___node_locale'
+  | 'mediacollection___block___link___id'
+  | 'mediacollection___block___link___children'
+  | 'mediacollection___block___link___type'
+  | 'mediacollection___block___link___name'
+  | 'mediacollection___block___link___label'
+  | 'mediacollection___block___link___url'
+  | 'mediacollection___block___link___spaceId'
+  | 'mediacollection___block___link___contentful_id'
+  | 'mediacollection___block___link___createdAt'
+  | 'mediacollection___block___link___updatedAt'
+  | 'mediacollection___block___link___node_locale'
+  | 'mediacollection___block___link___navigation'
+  | 'mediacollection___block___link___block'
+  | 'mediacollection___block___text___id'
+  | 'mediacollection___block___text___children'
+  | 'mediacollection___block___text___text'
+  | 'mediacollection___block___text___childrenMdx'
+  | 'mediacollection___block___variant'
+  | 'mediacollection___block___childrenContentfulBlockTextTextNode'
+  | 'mediacollection___block___childrenContentfulBlockTextTextNode___id'
+  | 'mediacollection___block___childrenContentfulBlockTextTextNode___children'
+  | 'mediacollection___block___childrenContentfulBlockTextTextNode___text'
+  | 'mediacollection___block___childrenContentfulBlockTextTextNode___childrenMdx'
+  | 'mediacollection___block___childContentfulBlockTextTextNode___id'
+  | 'mediacollection___block___childContentfulBlockTextTextNode___children'
+  | 'mediacollection___block___childContentfulBlockTextTextNode___text'
+  | 'mediacollection___block___childContentfulBlockTextTextNode___childrenMdx'
+  | 'mediacollection___spaceId'
+  | 'mediacollection___contentful_id'
+  | 'mediacollection___createdAt'
+  | 'mediacollection___updatedAt'
+  | 'mediacollection___sys___type'
+  | 'mediacollection___sys___revision'
+  | 'mediacollection___node_locale'
+  | 'spaceId'
+  | 'contentful_id'
+  | 'createdAt'
+  | 'updatedAt'
+  | 'sys___type'
+  | 'sys___revision'
+  | 'sys___contentType___sys___type'
+  | 'sys___contentType___sys___linkType'
+  | 'sys___contentType___sys___id'
+  | 'sys___contentType___sys___contentful_id'
+  | 'node_locale';
+
+export type ContentfulMediaFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  name?: Maybe<StringQueryOperatorInput>;
+  backgroundPositionY?: Maybe<StringQueryOperatorInput>;
+  media?: Maybe<ContentfulAssetFilterListInput>;
+  mediacollection?: Maybe<ContentfulMediaCollectionFilterListInput>;
+  spaceId?: Maybe<StringQueryOperatorInput>;
+  contentful_id?: Maybe<StringQueryOperatorInput>;
+  createdAt?: Maybe<DateQueryOperatorInput>;
+  updatedAt?: Maybe<DateQueryOperatorInput>;
+  sys?: Maybe<ContentfulMediaSysFilterInput>;
+  node_locale?: Maybe<StringQueryOperatorInput>;
+};
+
+export type ContentfulMediaFilterListInput = {
+  elemMatch?: Maybe<ContentfulMediaFilterInput>;
+};
+
+export type ContentfulMediaGroupConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<ContentfulMediaEdge>;
+  nodes: Array<ContentfulMedia>;
+  pageInfo: PageInfo;
+  field: Scalars['String'];
+  fieldValue?: Maybe<Scalars['String']>;
+};
+
+export type ContentfulMediaSortInput = {
+  fields?: Maybe<Array<Maybe<ContentfulMediaFieldsEnum>>>;
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
+};
+
+export type ContentfulMediaSys = {
+  type?: Maybe<Scalars['String']>;
+  revision?: Maybe<Scalars['Int']>;
+  contentType?: Maybe<ContentfulMediaSysContentType>;
+};
+
+export type ContentfulMediaSysContentType = {
+  sys?: Maybe<ContentfulMediaSysContentTypeSys>;
+};
+
+export type ContentfulMediaSysContentTypeFilterInput = {
+  sys?: Maybe<ContentfulMediaSysContentTypeSysFilterInput>;
+};
+
+export type ContentfulMediaSysContentTypeSys = {
+  type?: Maybe<Scalars['String']>;
+  linkType?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['String']>;
+  contentful_id?: Maybe<Scalars['String']>;
+};
+
+export type ContentfulMediaSysContentTypeSysFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  linkType?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  contentful_id?: Maybe<StringQueryOperatorInput>;
+};
+
+export type ContentfulMediaSysFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  revision?: Maybe<IntQueryOperatorInput>;
+  contentType?: Maybe<ContentfulMediaSysContentTypeFilterInput>;
+};
+
+export type ContentfulNavigation = Node & {
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
+  name?: Maybe<Scalars['String']>;
+  links?: Maybe<Array<Maybe<ContentfulLink>>>;
+  spaceId?: Maybe<Scalars['String']>;
+  contentful_id?: Maybe<Scalars['String']>;
+  createdAt?: Maybe<Scalars['Date']>;
+  updatedAt?: Maybe<Scalars['Date']>;
+  sys?: Maybe<ContentfulNavigationSys>;
+  node_locale?: Maybe<Scalars['String']>;
+};
+
+
+export type ContentfulNavigationCreatedAtArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type ContentfulNavigationUpdatedAtArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type ContentfulNavigationConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<ContentfulNavigationEdge>;
+  nodes: Array<ContentfulNavigation>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  group: Array<ContentfulNavigationGroupConnection>;
+};
+
+
+export type ContentfulNavigationConnectionDistinctArgs = {
+  field: ContentfulNavigationFieldsEnum;
+};
+
+
+export type ContentfulNavigationConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  field: ContentfulNavigationFieldsEnum;
+};
+
+export type ContentfulNavigationEdge = {
+  next?: Maybe<ContentfulNavigation>;
+  node: ContentfulNavigation;
+  previous?: Maybe<ContentfulNavigation>;
+};
+
+export type ContentfulNavigationFieldsEnum = 
+  | 'id'
+  | 'parent___id'
+  | 'parent___parent___id'
+  | 'parent___parent___parent___id'
+  | 'parent___parent___parent___children'
+  | 'parent___parent___children'
+  | 'parent___parent___children___id'
+  | 'parent___parent___children___children'
+  | 'parent___parent___internal___content'
+  | 'parent___parent___internal___contentDigest'
+  | 'parent___parent___internal___description'
+  | 'parent___parent___internal___fieldOwners'
+  | 'parent___parent___internal___ignoreType'
+  | 'parent___parent___internal___mediaType'
+  | 'parent___parent___internal___owner'
+  | 'parent___parent___internal___type'
+  | 'parent___children'
+  | 'parent___children___id'
+  | 'parent___children___parent___id'
+  | 'parent___children___parent___children'
+  | 'parent___children___children'
+  | 'parent___children___children___id'
+  | 'parent___children___children___children'
+  | 'parent___children___internal___content'
+  | 'parent___children___internal___contentDigest'
+  | 'parent___children___internal___description'
+  | 'parent___children___internal___fieldOwners'
+  | 'parent___children___internal___ignoreType'
+  | 'parent___children___internal___mediaType'
+  | 'parent___children___internal___owner'
+  | 'parent___children___internal___type'
+  | 'parent___internal___content'
+  | 'parent___internal___contentDigest'
+  | 'parent___internal___description'
+  | 'parent___internal___fieldOwners'
+  | 'parent___internal___ignoreType'
+  | 'parent___internal___mediaType'
+  | 'parent___internal___owner'
+  | 'parent___internal___type'
+  | 'children'
+  | 'children___id'
+  | 'children___parent___id'
+  | 'children___parent___parent___id'
+  | 'children___parent___parent___children'
+  | 'children___parent___children'
+  | 'children___parent___children___id'
+  | 'children___parent___children___children'
+  | 'children___parent___internal___content'
+  | 'children___parent___internal___contentDigest'
+  | 'children___parent___internal___description'
+  | 'children___parent___internal___fieldOwners'
+  | 'children___parent___internal___ignoreType'
+  | 'children___parent___internal___mediaType'
+  | 'children___parent___internal___owner'
+  | 'children___parent___internal___type'
+  | 'children___children'
+  | 'children___children___id'
+  | 'children___children___parent___id'
+  | 'children___children___parent___children'
+  | 'children___children___children'
+  | 'children___children___children___id'
+  | 'children___children___children___children'
+  | 'children___children___internal___content'
+  | 'children___children___internal___contentDigest'
+  | 'children___children___internal___description'
+  | 'children___children___internal___fieldOwners'
+  | 'children___children___internal___ignoreType'
+  | 'children___children___internal___mediaType'
+  | 'children___children___internal___owner'
+  | 'children___children___internal___type'
+  | 'children___internal___content'
+  | 'children___internal___contentDigest'
+  | 'children___internal___description'
+  | 'children___internal___fieldOwners'
+  | 'children___internal___ignoreType'
+  | 'children___internal___mediaType'
+  | 'children___internal___owner'
+  | 'children___internal___type'
+  | 'internal___content'
+  | 'internal___contentDigest'
+  | 'internal___description'
+  | 'internal___fieldOwners'
+  | 'internal___ignoreType'
+  | 'internal___mediaType'
+  | 'internal___owner'
+  | 'internal___type'
+  | 'name'
+  | 'links'
+  | 'links___id'
+  | 'links___parent___id'
+  | 'links___parent___parent___id'
+  | 'links___parent___parent___children'
+  | 'links___parent___children'
+  | 'links___parent___children___id'
+  | 'links___parent___children___children'
+  | 'links___parent___internal___content'
+  | 'links___parent___internal___contentDigest'
+  | 'links___parent___internal___description'
+  | 'links___parent___internal___fieldOwners'
+  | 'links___parent___internal___ignoreType'
+  | 'links___parent___internal___mediaType'
+  | 'links___parent___internal___owner'
+  | 'links___parent___internal___type'
+  | 'links___children'
+  | 'links___children___id'
+  | 'links___children___parent___id'
+  | 'links___children___parent___children'
+  | 'links___children___children'
+  | 'links___children___children___id'
+  | 'links___children___children___children'
+  | 'links___children___internal___content'
+  | 'links___children___internal___contentDigest'
+  | 'links___children___internal___description'
+  | 'links___children___internal___fieldOwners'
+  | 'links___children___internal___ignoreType'
+  | 'links___children___internal___mediaType'
+  | 'links___children___internal___owner'
+  | 'links___children___internal___type'
+  | 'links___internal___content'
+  | 'links___internal___contentDigest'
+  | 'links___internal___description'
+  | 'links___internal___fieldOwners'
+  | 'links___internal___ignoreType'
+  | 'links___internal___mediaType'
+  | 'links___internal___owner'
+  | 'links___internal___type'
+  | 'links___type'
+  | 'links___name'
+  | 'links___label'
+  | 'links___url'
+  | 'links___spaceId'
+  | 'links___contentful_id'
+  | 'links___createdAt'
+  | 'links___updatedAt'
+  | 'links___sys___type'
+  | 'links___sys___revision'
+  | 'links___node_locale'
+  | 'links___page___id'
+  | 'links___page___parent___id'
+  | 'links___page___parent___children'
+  | 'links___page___children'
+  | 'links___page___children___id'
+  | 'links___page___children___children'
+  | 'links___page___internal___content'
+  | 'links___page___internal___contentDigest'
+  | 'links___page___internal___description'
+  | 'links___page___internal___fieldOwners'
+  | 'links___page___internal___ignoreType'
+  | 'links___page___internal___mediaType'
+  | 'links___page___internal___owner'
+  | 'links___page___internal___type'
+  | 'links___page___name'
+  | 'links___page___title'
+  | 'links___page___slug'
+  | 'links___page___sections'
+  | 'links___page___sections___id'
+  | 'links___page___sections___children'
+  | 'links___page___sections___name'
+  | 'links___page___sections___variant'
+  | 'links___page___sections___layout'
+  | 'links___page___sections___spaceId'
+  | 'links___page___sections___contentful_id'
+  | 'links___page___sections___createdAt'
+  | 'links___page___sections___updatedAt'
+  | 'links___page___sections___node_locale'
+  | 'links___page___sections___blocks'
+  | 'links___page___sections___page'
+  | 'links___page___description___id'
+  | 'links___page___description___children'
+  | 'links___page___description___description'
+  | 'links___page___description___childrenMdx'
+  | 'links___page___spaceId'
+  | 'links___page___contentful_id'
+  | 'links___page___createdAt'
+  | 'links___page___updatedAt'
+  | 'links___page___sys___type'
+  | 'links___page___sys___revision'
+  | 'links___page___node_locale'
+  | 'links___page___link'
+  | 'links___page___link___id'
+  | 'links___page___link___children'
+  | 'links___page___link___type'
+  | 'links___page___link___name'
+  | 'links___page___link___label'
+  | 'links___page___link___url'
+  | 'links___page___link___spaceId'
+  | 'links___page___link___contentful_id'
+  | 'links___page___link___createdAt'
+  | 'links___page___link___updatedAt'
+  | 'links___page___link___node_locale'
+  | 'links___page___link___navigation'
+  | 'links___page___link___block'
+  | 'links___page___childrenContentfulPageDescriptionTextNode'
+  | 'links___page___childrenContentfulPageDescriptionTextNode___id'
+  | 'links___page___childrenContentfulPageDescriptionTextNode___children'
+  | 'links___page___childrenContentfulPageDescriptionTextNode___description'
+  | 'links___page___childrenContentfulPageDescriptionTextNode___childrenMdx'
+  | 'links___page___childContentfulPageDescriptionTextNode___id'
+  | 'links___page___childContentfulPageDescriptionTextNode___children'
+  | 'links___page___childContentfulPageDescriptionTextNode___description'
+  | 'links___page___childContentfulPageDescriptionTextNode___childrenMdx'
+  | 'links___navigation'
+  | 'links___navigation___id'
+  | 'links___navigation___parent___id'
+  | 'links___navigation___parent___children'
+  | 'links___navigation___children'
+  | 'links___navigation___children___id'
+  | 'links___navigation___children___children'
+  | 'links___navigation___internal___content'
+  | 'links___navigation___internal___contentDigest'
+  | 'links___navigation___internal___description'
+  | 'links___navigation___internal___fieldOwners'
+  | 'links___navigation___internal___ignoreType'
+  | 'links___navigation___internal___mediaType'
+  | 'links___navigation___internal___owner'
+  | 'links___navigation___internal___type'
+  | 'links___navigation___name'
+  | 'links___navigation___links'
+  | 'links___navigation___links___id'
+  | 'links___navigation___links___children'
+  | 'links___navigation___links___type'
+  | 'links___navigation___links___name'
+  | 'links___navigation___links___label'
+  | 'links___navigation___links___url'
+  | 'links___navigation___links___spaceId'
+  | 'links___navigation___links___contentful_id'
+  | 'links___navigation___links___createdAt'
+  | 'links___navigation___links___updatedAt'
+  | 'links___navigation___links___node_locale'
+  | 'links___navigation___links___navigation'
+  | 'links___navigation___links___block'
+  | 'links___navigation___spaceId'
+  | 'links___navigation___contentful_id'
+  | 'links___navigation___createdAt'
+  | 'links___navigation___updatedAt'
+  | 'links___navigation___sys___type'
+  | 'links___navigation___sys___revision'
+  | 'links___navigation___node_locale'
+  | 'links___block'
+  | 'links___block___id'
+  | 'links___block___parent___id'
+  | 'links___block___parent___children'
+  | 'links___block___children'
+  | 'links___block___children___id'
+  | 'links___block___children___children'
+  | 'links___block___internal___content'
+  | 'links___block___internal___contentDigest'
+  | 'links___block___internal___description'
+  | 'links___block___internal___fieldOwners'
+  | 'links___block___internal___ignoreType'
+  | 'links___block___internal___mediaType'
+  | 'links___block___internal___owner'
+  | 'links___block___internal___type'
+  | 'links___block___name'
+  | 'links___block___type'
+  | 'links___block___medias'
+  | 'links___block___medias___id'
+  | 'links___block___medias___children'
+  | 'links___block___medias___name'
+  | 'links___block___medias___medias'
+  | 'links___block___medias___block'
+  | 'links___block___medias___spaceId'
+  | 'links___block___medias___contentful_id'
+  | 'links___block___medias___createdAt'
+  | 'links___block___medias___updatedAt'
+  | 'links___block___medias___node_locale'
+  | 'links___block___section'
+  | 'links___block___section___id'
+  | 'links___block___section___children'
+  | 'links___block___section___name'
+  | 'links___block___section___variant'
+  | 'links___block___section___layout'
+  | 'links___block___section___spaceId'
+  | 'links___block___section___contentful_id'
+  | 'links___block___section___createdAt'
+  | 'links___block___section___updatedAt'
+  | 'links___block___section___node_locale'
+  | 'links___block___section___blocks'
+  | 'links___block___section___page'
+  | 'links___block___spaceId'
+  | 'links___block___contentful_id'
+  | 'links___block___createdAt'
+  | 'links___block___updatedAt'
+  | 'links___block___sys___type'
+  | 'links___block___sys___revision'
+  | 'links___block___node_locale'
+  | 'links___block___link___id'
+  | 'links___block___link___children'
+  | 'links___block___link___type'
+  | 'links___block___link___name'
+  | 'links___block___link___label'
+  | 'links___block___link___url'
+  | 'links___block___link___spaceId'
+  | 'links___block___link___contentful_id'
+  | 'links___block___link___createdAt'
+  | 'links___block___link___updatedAt'
+  | 'links___block___link___node_locale'
+  | 'links___block___link___navigation'
+  | 'links___block___link___block'
+  | 'links___block___text___id'
+  | 'links___block___text___children'
+  | 'links___block___text___text'
+  | 'links___block___text___childrenMdx'
+  | 'links___block___variant'
+  | 'links___block___childrenContentfulBlockTextTextNode'
+  | 'links___block___childrenContentfulBlockTextTextNode___id'
+  | 'links___block___childrenContentfulBlockTextTextNode___children'
+  | 'links___block___childrenContentfulBlockTextTextNode___text'
+  | 'links___block___childrenContentfulBlockTextTextNode___childrenMdx'
+  | 'links___block___childContentfulBlockTextTextNode___id'
+  | 'links___block___childContentfulBlockTextTextNode___children'
+  | 'links___block___childContentfulBlockTextTextNode___text'
+  | 'links___block___childContentfulBlockTextTextNode___childrenMdx'
+  | 'spaceId'
+  | 'contentful_id'
+  | 'createdAt'
+  | 'updatedAt'
+  | 'sys___type'
+  | 'sys___revision'
+  | 'sys___contentType___sys___type'
+  | 'sys___contentType___sys___linkType'
+  | 'sys___contentType___sys___id'
+  | 'sys___contentType___sys___contentful_id'
+  | 'node_locale';
+
+export type ContentfulNavigationFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  name?: Maybe<StringQueryOperatorInput>;
+  links?: Maybe<ContentfulLinkFilterListInput>;
+  spaceId?: Maybe<StringQueryOperatorInput>;
+  contentful_id?: Maybe<StringQueryOperatorInput>;
+  createdAt?: Maybe<DateQueryOperatorInput>;
+  updatedAt?: Maybe<DateQueryOperatorInput>;
+  sys?: Maybe<ContentfulNavigationSysFilterInput>;
+  node_locale?: Maybe<StringQueryOperatorInput>;
+};
+
+export type ContentfulNavigationFilterListInput = {
+  elemMatch?: Maybe<ContentfulNavigationFilterInput>;
+};
+
+export type ContentfulNavigationGroupConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<ContentfulNavigationEdge>;
+  nodes: Array<ContentfulNavigation>;
+  pageInfo: PageInfo;
+  field: Scalars['String'];
+  fieldValue?: Maybe<Scalars['String']>;
+};
+
+export type ContentfulNavigationSortInput = {
+  fields?: Maybe<Array<Maybe<ContentfulNavigationFieldsEnum>>>;
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
+};
+
+export type ContentfulNavigationSys = {
+  type?: Maybe<Scalars['String']>;
+  revision?: Maybe<Scalars['Int']>;
+  contentType?: Maybe<ContentfulNavigationSysContentType>;
+};
+
+export type ContentfulNavigationSysContentType = {
+  sys?: Maybe<ContentfulNavigationSysContentTypeSys>;
+};
+
+export type ContentfulNavigationSysContentTypeFilterInput = {
+  sys?: Maybe<ContentfulNavigationSysContentTypeSysFilterInput>;
+};
+
+export type ContentfulNavigationSysContentTypeSys = {
+  type?: Maybe<Scalars['String']>;
+  linkType?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['String']>;
+  contentful_id?: Maybe<Scalars['String']>;
+};
+
+export type ContentfulNavigationSysContentTypeSysFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  linkType?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  contentful_id?: Maybe<StringQueryOperatorInput>;
+};
+
+export type ContentfulNavigationSysFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  revision?: Maybe<IntQueryOperatorInput>;
+  contentType?: Maybe<ContentfulNavigationSysContentTypeFilterInput>;
+};
+
 export type ContentfulPage = Node & {
   id: Scalars['ID'];
   parent?: Maybe<Node>;
@@ -3215,8 +5188,6 @@ export type ContentfulPage = Node & {
   name?: Maybe<Scalars['String']>;
   title?: Maybe<Scalars['String']>;
   slug?: Maybe<Scalars['String']>;
-  layout?: Maybe<Scalars['String']>;
-  template?: Maybe<Scalars['String']>;
   sections?: Maybe<Array<Maybe<ContentfulSection>>>;
   description?: Maybe<ContentfulPageDescriptionTextNode>;
   spaceId?: Maybe<Scalars['String']>;
@@ -3225,6 +5196,13 @@ export type ContentfulPage = Node & {
   updatedAt?: Maybe<Scalars['Date']>;
   sys?: Maybe<ContentfulPageSys>;
   node_locale?: Maybe<Scalars['String']>;
+  link?: Maybe<Array<Maybe<ContentfulLink>>>;
+  /** Returns all children nodes filtered by type contentfulPageDescriptionTextNode */
+  childrenContentfulPageDescriptionTextNode?: Maybe<Array<Maybe<ContentfulPageDescriptionTextNode>>>;
+  /**
+   * Returns the first child node of type contentfulPageDescriptionTextNode or null
+   * if there are no children of given type on this node
+   */
   childContentfulPageDescriptionTextNode?: Maybe<ContentfulPageDescriptionTextNode>;
 };
 
@@ -3272,6 +5250,9 @@ export type ContentfulPageDescriptionTextNode = Node & {
   internal: Internal;
   description?: Maybe<Scalars['String']>;
   sys?: Maybe<ContentfulPageDescriptionTextNodeSys>;
+  /** Returns all children nodes filtered by type Mdx */
+  childrenMdx?: Maybe<Array<Maybe<Mdx>>>;
+  /** Returns the first child node of type Mdx or null if there are no children of given type on this node */
   childMdx?: Maybe<Mdx>;
 };
 
@@ -3391,15 +5372,72 @@ export type ContentfulPageDescriptionTextNodeFieldsEnum =
   | 'internal___type'
   | 'description'
   | 'sys___type'
+  | 'childrenMdx'
+  | 'childrenMdx___rawBody'
+  | 'childrenMdx___fileAbsolutePath'
+  | 'childrenMdx___frontmatter___title'
+  | 'childrenMdx___frontmatter___name'
+  | 'childrenMdx___frontmatter___description'
+  | 'childrenMdx___frontmatter___tags'
+  | 'childrenMdx___frontmatter___category'
+  | 'childrenMdx___slug'
+  | 'childrenMdx___body'
+  | 'childrenMdx___excerpt'
+  | 'childrenMdx___headings'
+  | 'childrenMdx___headings___value'
+  | 'childrenMdx___headings___depth'
+  | 'childrenMdx___html'
+  | 'childrenMdx___mdxAST'
+  | 'childrenMdx___tableOfContents'
+  | 'childrenMdx___timeToRead'
+  | 'childrenMdx___wordCount___paragraphs'
+  | 'childrenMdx___wordCount___sentences'
+  | 'childrenMdx___wordCount___words'
+  | 'childrenMdx___id'
+  | 'childrenMdx___parent___id'
+  | 'childrenMdx___parent___parent___id'
+  | 'childrenMdx___parent___parent___children'
+  | 'childrenMdx___parent___children'
+  | 'childrenMdx___parent___children___id'
+  | 'childrenMdx___parent___children___children'
+  | 'childrenMdx___parent___internal___content'
+  | 'childrenMdx___parent___internal___contentDigest'
+  | 'childrenMdx___parent___internal___description'
+  | 'childrenMdx___parent___internal___fieldOwners'
+  | 'childrenMdx___parent___internal___ignoreType'
+  | 'childrenMdx___parent___internal___mediaType'
+  | 'childrenMdx___parent___internal___owner'
+  | 'childrenMdx___parent___internal___type'
+  | 'childrenMdx___children'
+  | 'childrenMdx___children___id'
+  | 'childrenMdx___children___parent___id'
+  | 'childrenMdx___children___parent___children'
+  | 'childrenMdx___children___children'
+  | 'childrenMdx___children___children___id'
+  | 'childrenMdx___children___children___children'
+  | 'childrenMdx___children___internal___content'
+  | 'childrenMdx___children___internal___contentDigest'
+  | 'childrenMdx___children___internal___description'
+  | 'childrenMdx___children___internal___fieldOwners'
+  | 'childrenMdx___children___internal___ignoreType'
+  | 'childrenMdx___children___internal___mediaType'
+  | 'childrenMdx___children___internal___owner'
+  | 'childrenMdx___children___internal___type'
+  | 'childrenMdx___internal___content'
+  | 'childrenMdx___internal___contentDigest'
+  | 'childrenMdx___internal___description'
+  | 'childrenMdx___internal___fieldOwners'
+  | 'childrenMdx___internal___ignoreType'
+  | 'childrenMdx___internal___mediaType'
+  | 'childrenMdx___internal___owner'
+  | 'childrenMdx___internal___type'
   | 'childMdx___rawBody'
   | 'childMdx___fileAbsolutePath'
   | 'childMdx___frontmatter___title'
   | 'childMdx___frontmatter___name'
-  | 'childMdx___frontmatter___category'
+  | 'childMdx___frontmatter___description'
   | 'childMdx___frontmatter___tags'
-  | 'childMdx___frontmatter___variant'
-  | 'childMdx___frontmatter___layout'
-  | 'childMdx___frontmatter___blockLayout'
+  | 'childMdx___frontmatter___category'
   | 'childMdx___slug'
   | 'childMdx___body'
   | 'childMdx___excerpt'
@@ -3459,7 +5497,12 @@ export type ContentfulPageDescriptionTextNodeFilterInput = {
   internal?: Maybe<InternalFilterInput>;
   description?: Maybe<StringQueryOperatorInput>;
   sys?: Maybe<ContentfulPageDescriptionTextNodeSysFilterInput>;
+  childrenMdx?: Maybe<MdxFilterListInput>;
   childMdx?: Maybe<MdxFilterInput>;
+};
+
+export type ContentfulPageDescriptionTextNodeFilterListInput = {
+  elemMatch?: Maybe<ContentfulPageDescriptionTextNodeFilterInput>;
 };
 
 export type ContentfulPageDescriptionTextNodeGroupConnection = {
@@ -3580,8 +5623,6 @@ export type ContentfulPageFieldsEnum =
   | 'name'
   | 'title'
   | 'slug'
-  | 'layout'
-  | 'template'
   | 'sections'
   | 'sections___id'
   | 'sections___parent___id'
@@ -3624,6 +5665,13 @@ export type ContentfulPageFieldsEnum =
   | 'sections___name'
   | 'sections___variant'
   | 'sections___layout'
+  | 'sections___spaceId'
+  | 'sections___contentful_id'
+  | 'sections___createdAt'
+  | 'sections___updatedAt'
+  | 'sections___sys___type'
+  | 'sections___sys___revision'
+  | 'sections___node_locale'
   | 'sections___blocks'
   | 'sections___blocks___id'
   | 'sections___blocks___parent___id'
@@ -3641,22 +5689,30 @@ export type ContentfulPageFieldsEnum =
   | 'sections___blocks___internal___type'
   | 'sections___blocks___name'
   | 'sections___blocks___type'
+  | 'sections___blocks___medias'
+  | 'sections___blocks___medias___id'
+  | 'sections___blocks___medias___children'
+  | 'sections___blocks___medias___name'
+  | 'sections___blocks___medias___medias'
+  | 'sections___blocks___medias___block'
+  | 'sections___blocks___medias___spaceId'
+  | 'sections___blocks___medias___contentful_id'
+  | 'sections___blocks___medias___createdAt'
+  | 'sections___blocks___medias___updatedAt'
+  | 'sections___blocks___medias___node_locale'
   | 'sections___blocks___section'
   | 'sections___blocks___section___id'
   | 'sections___blocks___section___children'
   | 'sections___blocks___section___name'
   | 'sections___blocks___section___variant'
   | 'sections___blocks___section___layout'
-  | 'sections___blocks___section___blocks'
-  | 'sections___blocks___section___page'
   | 'sections___blocks___section___spaceId'
   | 'sections___blocks___section___contentful_id'
   | 'sections___blocks___section___createdAt'
   | 'sections___blocks___section___updatedAt'
   | 'sections___blocks___section___node_locale'
-  | 'sections___blocks___text___id'
-  | 'sections___blocks___text___children'
-  | 'sections___blocks___text___text'
+  | 'sections___blocks___section___blocks'
+  | 'sections___blocks___section___page'
   | 'sections___blocks___spaceId'
   | 'sections___blocks___contentful_id'
   | 'sections___blocks___createdAt'
@@ -3664,9 +5720,33 @@ export type ContentfulPageFieldsEnum =
   | 'sections___blocks___sys___type'
   | 'sections___blocks___sys___revision'
   | 'sections___blocks___node_locale'
+  | 'sections___blocks___link___id'
+  | 'sections___blocks___link___children'
+  | 'sections___blocks___link___type'
+  | 'sections___blocks___link___name'
+  | 'sections___blocks___link___label'
+  | 'sections___blocks___link___url'
+  | 'sections___blocks___link___spaceId'
+  | 'sections___blocks___link___contentful_id'
+  | 'sections___blocks___link___createdAt'
+  | 'sections___blocks___link___updatedAt'
+  | 'sections___blocks___link___node_locale'
+  | 'sections___blocks___link___navigation'
+  | 'sections___blocks___link___block'
+  | 'sections___blocks___text___id'
+  | 'sections___blocks___text___children'
+  | 'sections___blocks___text___text'
+  | 'sections___blocks___text___childrenMdx'
+  | 'sections___blocks___variant'
+  | 'sections___blocks___childrenContentfulBlockTextTextNode'
+  | 'sections___blocks___childrenContentfulBlockTextTextNode___id'
+  | 'sections___blocks___childrenContentfulBlockTextTextNode___children'
+  | 'sections___blocks___childrenContentfulBlockTextTextNode___text'
+  | 'sections___blocks___childrenContentfulBlockTextTextNode___childrenMdx'
   | 'sections___blocks___childContentfulBlockTextTextNode___id'
   | 'sections___blocks___childContentfulBlockTextTextNode___children'
   | 'sections___blocks___childContentfulBlockTextTextNode___text'
+  | 'sections___blocks___childContentfulBlockTextTextNode___childrenMdx'
   | 'sections___page'
   | 'sections___page___id'
   | 'sections___page___parent___id'
@@ -3685,24 +5765,23 @@ export type ContentfulPageFieldsEnum =
   | 'sections___page___name'
   | 'sections___page___title'
   | 'sections___page___slug'
-  | 'sections___page___layout'
-  | 'sections___page___template'
   | 'sections___page___sections'
   | 'sections___page___sections___id'
   | 'sections___page___sections___children'
   | 'sections___page___sections___name'
   | 'sections___page___sections___variant'
   | 'sections___page___sections___layout'
-  | 'sections___page___sections___blocks'
-  | 'sections___page___sections___page'
   | 'sections___page___sections___spaceId'
   | 'sections___page___sections___contentful_id'
   | 'sections___page___sections___createdAt'
   | 'sections___page___sections___updatedAt'
   | 'sections___page___sections___node_locale'
+  | 'sections___page___sections___blocks'
+  | 'sections___page___sections___page'
   | 'sections___page___description___id'
   | 'sections___page___description___children'
   | 'sections___page___description___description'
+  | 'sections___page___description___childrenMdx'
   | 'sections___page___spaceId'
   | 'sections___page___contentful_id'
   | 'sections___page___createdAt'
@@ -3710,16 +5789,29 @@ export type ContentfulPageFieldsEnum =
   | 'sections___page___sys___type'
   | 'sections___page___sys___revision'
   | 'sections___page___node_locale'
+  | 'sections___page___link'
+  | 'sections___page___link___id'
+  | 'sections___page___link___children'
+  | 'sections___page___link___type'
+  | 'sections___page___link___name'
+  | 'sections___page___link___label'
+  | 'sections___page___link___url'
+  | 'sections___page___link___spaceId'
+  | 'sections___page___link___contentful_id'
+  | 'sections___page___link___createdAt'
+  | 'sections___page___link___updatedAt'
+  | 'sections___page___link___node_locale'
+  | 'sections___page___link___navigation'
+  | 'sections___page___link___block'
+  | 'sections___page___childrenContentfulPageDescriptionTextNode'
+  | 'sections___page___childrenContentfulPageDescriptionTextNode___id'
+  | 'sections___page___childrenContentfulPageDescriptionTextNode___children'
+  | 'sections___page___childrenContentfulPageDescriptionTextNode___description'
+  | 'sections___page___childrenContentfulPageDescriptionTextNode___childrenMdx'
   | 'sections___page___childContentfulPageDescriptionTextNode___id'
   | 'sections___page___childContentfulPageDescriptionTextNode___children'
   | 'sections___page___childContentfulPageDescriptionTextNode___description'
-  | 'sections___spaceId'
-  | 'sections___contentful_id'
-  | 'sections___createdAt'
-  | 'sections___updatedAt'
-  | 'sections___sys___type'
-  | 'sections___sys___revision'
-  | 'sections___node_locale'
+  | 'sections___page___childContentfulPageDescriptionTextNode___childrenMdx'
   | 'description___id'
   | 'description___parent___id'
   | 'description___parent___parent___id'
@@ -3760,15 +5852,48 @@ export type ContentfulPageFieldsEnum =
   | 'description___internal___type'
   | 'description___description'
   | 'description___sys___type'
+  | 'description___childrenMdx'
+  | 'description___childrenMdx___rawBody'
+  | 'description___childrenMdx___fileAbsolutePath'
+  | 'description___childrenMdx___frontmatter___title'
+  | 'description___childrenMdx___frontmatter___name'
+  | 'description___childrenMdx___frontmatter___description'
+  | 'description___childrenMdx___frontmatter___tags'
+  | 'description___childrenMdx___frontmatter___category'
+  | 'description___childrenMdx___slug'
+  | 'description___childrenMdx___body'
+  | 'description___childrenMdx___excerpt'
+  | 'description___childrenMdx___headings'
+  | 'description___childrenMdx___headings___value'
+  | 'description___childrenMdx___headings___depth'
+  | 'description___childrenMdx___html'
+  | 'description___childrenMdx___mdxAST'
+  | 'description___childrenMdx___tableOfContents'
+  | 'description___childrenMdx___timeToRead'
+  | 'description___childrenMdx___wordCount___paragraphs'
+  | 'description___childrenMdx___wordCount___sentences'
+  | 'description___childrenMdx___wordCount___words'
+  | 'description___childrenMdx___id'
+  | 'description___childrenMdx___parent___id'
+  | 'description___childrenMdx___parent___children'
+  | 'description___childrenMdx___children'
+  | 'description___childrenMdx___children___id'
+  | 'description___childrenMdx___children___children'
+  | 'description___childrenMdx___internal___content'
+  | 'description___childrenMdx___internal___contentDigest'
+  | 'description___childrenMdx___internal___description'
+  | 'description___childrenMdx___internal___fieldOwners'
+  | 'description___childrenMdx___internal___ignoreType'
+  | 'description___childrenMdx___internal___mediaType'
+  | 'description___childrenMdx___internal___owner'
+  | 'description___childrenMdx___internal___type'
   | 'description___childMdx___rawBody'
   | 'description___childMdx___fileAbsolutePath'
   | 'description___childMdx___frontmatter___title'
   | 'description___childMdx___frontmatter___name'
-  | 'description___childMdx___frontmatter___category'
+  | 'description___childMdx___frontmatter___description'
   | 'description___childMdx___frontmatter___tags'
-  | 'description___childMdx___frontmatter___variant'
-  | 'description___childMdx___frontmatter___layout'
-  | 'description___childMdx___frontmatter___blockLayout'
+  | 'description___childMdx___frontmatter___category'
   | 'description___childMdx___slug'
   | 'description___childMdx___body'
   | 'description___childMdx___excerpt'
@@ -3807,6 +5932,342 @@ export type ContentfulPageFieldsEnum =
   | 'sys___contentType___sys___id'
   | 'sys___contentType___sys___contentful_id'
   | 'node_locale'
+  | 'link'
+  | 'link___id'
+  | 'link___parent___id'
+  | 'link___parent___parent___id'
+  | 'link___parent___parent___children'
+  | 'link___parent___children'
+  | 'link___parent___children___id'
+  | 'link___parent___children___children'
+  | 'link___parent___internal___content'
+  | 'link___parent___internal___contentDigest'
+  | 'link___parent___internal___description'
+  | 'link___parent___internal___fieldOwners'
+  | 'link___parent___internal___ignoreType'
+  | 'link___parent___internal___mediaType'
+  | 'link___parent___internal___owner'
+  | 'link___parent___internal___type'
+  | 'link___children'
+  | 'link___children___id'
+  | 'link___children___parent___id'
+  | 'link___children___parent___children'
+  | 'link___children___children'
+  | 'link___children___children___id'
+  | 'link___children___children___children'
+  | 'link___children___internal___content'
+  | 'link___children___internal___contentDigest'
+  | 'link___children___internal___description'
+  | 'link___children___internal___fieldOwners'
+  | 'link___children___internal___ignoreType'
+  | 'link___children___internal___mediaType'
+  | 'link___children___internal___owner'
+  | 'link___children___internal___type'
+  | 'link___internal___content'
+  | 'link___internal___contentDigest'
+  | 'link___internal___description'
+  | 'link___internal___fieldOwners'
+  | 'link___internal___ignoreType'
+  | 'link___internal___mediaType'
+  | 'link___internal___owner'
+  | 'link___internal___type'
+  | 'link___type'
+  | 'link___name'
+  | 'link___label'
+  | 'link___url'
+  | 'link___spaceId'
+  | 'link___contentful_id'
+  | 'link___createdAt'
+  | 'link___updatedAt'
+  | 'link___sys___type'
+  | 'link___sys___revision'
+  | 'link___node_locale'
+  | 'link___page___id'
+  | 'link___page___parent___id'
+  | 'link___page___parent___children'
+  | 'link___page___children'
+  | 'link___page___children___id'
+  | 'link___page___children___children'
+  | 'link___page___internal___content'
+  | 'link___page___internal___contentDigest'
+  | 'link___page___internal___description'
+  | 'link___page___internal___fieldOwners'
+  | 'link___page___internal___ignoreType'
+  | 'link___page___internal___mediaType'
+  | 'link___page___internal___owner'
+  | 'link___page___internal___type'
+  | 'link___page___name'
+  | 'link___page___title'
+  | 'link___page___slug'
+  | 'link___page___sections'
+  | 'link___page___sections___id'
+  | 'link___page___sections___children'
+  | 'link___page___sections___name'
+  | 'link___page___sections___variant'
+  | 'link___page___sections___layout'
+  | 'link___page___sections___spaceId'
+  | 'link___page___sections___contentful_id'
+  | 'link___page___sections___createdAt'
+  | 'link___page___sections___updatedAt'
+  | 'link___page___sections___node_locale'
+  | 'link___page___sections___blocks'
+  | 'link___page___sections___page'
+  | 'link___page___description___id'
+  | 'link___page___description___children'
+  | 'link___page___description___description'
+  | 'link___page___description___childrenMdx'
+  | 'link___page___spaceId'
+  | 'link___page___contentful_id'
+  | 'link___page___createdAt'
+  | 'link___page___updatedAt'
+  | 'link___page___sys___type'
+  | 'link___page___sys___revision'
+  | 'link___page___node_locale'
+  | 'link___page___link'
+  | 'link___page___link___id'
+  | 'link___page___link___children'
+  | 'link___page___link___type'
+  | 'link___page___link___name'
+  | 'link___page___link___label'
+  | 'link___page___link___url'
+  | 'link___page___link___spaceId'
+  | 'link___page___link___contentful_id'
+  | 'link___page___link___createdAt'
+  | 'link___page___link___updatedAt'
+  | 'link___page___link___node_locale'
+  | 'link___page___link___navigation'
+  | 'link___page___link___block'
+  | 'link___page___childrenContentfulPageDescriptionTextNode'
+  | 'link___page___childrenContentfulPageDescriptionTextNode___id'
+  | 'link___page___childrenContentfulPageDescriptionTextNode___children'
+  | 'link___page___childrenContentfulPageDescriptionTextNode___description'
+  | 'link___page___childrenContentfulPageDescriptionTextNode___childrenMdx'
+  | 'link___page___childContentfulPageDescriptionTextNode___id'
+  | 'link___page___childContentfulPageDescriptionTextNode___children'
+  | 'link___page___childContentfulPageDescriptionTextNode___description'
+  | 'link___page___childContentfulPageDescriptionTextNode___childrenMdx'
+  | 'link___navigation'
+  | 'link___navigation___id'
+  | 'link___navigation___parent___id'
+  | 'link___navigation___parent___children'
+  | 'link___navigation___children'
+  | 'link___navigation___children___id'
+  | 'link___navigation___children___children'
+  | 'link___navigation___internal___content'
+  | 'link___navigation___internal___contentDigest'
+  | 'link___navigation___internal___description'
+  | 'link___navigation___internal___fieldOwners'
+  | 'link___navigation___internal___ignoreType'
+  | 'link___navigation___internal___mediaType'
+  | 'link___navigation___internal___owner'
+  | 'link___navigation___internal___type'
+  | 'link___navigation___name'
+  | 'link___navigation___links'
+  | 'link___navigation___links___id'
+  | 'link___navigation___links___children'
+  | 'link___navigation___links___type'
+  | 'link___navigation___links___name'
+  | 'link___navigation___links___label'
+  | 'link___navigation___links___url'
+  | 'link___navigation___links___spaceId'
+  | 'link___navigation___links___contentful_id'
+  | 'link___navigation___links___createdAt'
+  | 'link___navigation___links___updatedAt'
+  | 'link___navigation___links___node_locale'
+  | 'link___navigation___links___navigation'
+  | 'link___navigation___links___block'
+  | 'link___navigation___spaceId'
+  | 'link___navigation___contentful_id'
+  | 'link___navigation___createdAt'
+  | 'link___navigation___updatedAt'
+  | 'link___navigation___sys___type'
+  | 'link___navigation___sys___revision'
+  | 'link___navigation___node_locale'
+  | 'link___block'
+  | 'link___block___id'
+  | 'link___block___parent___id'
+  | 'link___block___parent___children'
+  | 'link___block___children'
+  | 'link___block___children___id'
+  | 'link___block___children___children'
+  | 'link___block___internal___content'
+  | 'link___block___internal___contentDigest'
+  | 'link___block___internal___description'
+  | 'link___block___internal___fieldOwners'
+  | 'link___block___internal___ignoreType'
+  | 'link___block___internal___mediaType'
+  | 'link___block___internal___owner'
+  | 'link___block___internal___type'
+  | 'link___block___name'
+  | 'link___block___type'
+  | 'link___block___medias'
+  | 'link___block___medias___id'
+  | 'link___block___medias___children'
+  | 'link___block___medias___name'
+  | 'link___block___medias___medias'
+  | 'link___block___medias___block'
+  | 'link___block___medias___spaceId'
+  | 'link___block___medias___contentful_id'
+  | 'link___block___medias___createdAt'
+  | 'link___block___medias___updatedAt'
+  | 'link___block___medias___node_locale'
+  | 'link___block___section'
+  | 'link___block___section___id'
+  | 'link___block___section___children'
+  | 'link___block___section___name'
+  | 'link___block___section___variant'
+  | 'link___block___section___layout'
+  | 'link___block___section___spaceId'
+  | 'link___block___section___contentful_id'
+  | 'link___block___section___createdAt'
+  | 'link___block___section___updatedAt'
+  | 'link___block___section___node_locale'
+  | 'link___block___section___blocks'
+  | 'link___block___section___page'
+  | 'link___block___spaceId'
+  | 'link___block___contentful_id'
+  | 'link___block___createdAt'
+  | 'link___block___updatedAt'
+  | 'link___block___sys___type'
+  | 'link___block___sys___revision'
+  | 'link___block___node_locale'
+  | 'link___block___link___id'
+  | 'link___block___link___children'
+  | 'link___block___link___type'
+  | 'link___block___link___name'
+  | 'link___block___link___label'
+  | 'link___block___link___url'
+  | 'link___block___link___spaceId'
+  | 'link___block___link___contentful_id'
+  | 'link___block___link___createdAt'
+  | 'link___block___link___updatedAt'
+  | 'link___block___link___node_locale'
+  | 'link___block___link___navigation'
+  | 'link___block___link___block'
+  | 'link___block___text___id'
+  | 'link___block___text___children'
+  | 'link___block___text___text'
+  | 'link___block___text___childrenMdx'
+  | 'link___block___variant'
+  | 'link___block___childrenContentfulBlockTextTextNode'
+  | 'link___block___childrenContentfulBlockTextTextNode___id'
+  | 'link___block___childrenContentfulBlockTextTextNode___children'
+  | 'link___block___childrenContentfulBlockTextTextNode___text'
+  | 'link___block___childrenContentfulBlockTextTextNode___childrenMdx'
+  | 'link___block___childContentfulBlockTextTextNode___id'
+  | 'link___block___childContentfulBlockTextTextNode___children'
+  | 'link___block___childContentfulBlockTextTextNode___text'
+  | 'link___block___childContentfulBlockTextTextNode___childrenMdx'
+  | 'childrenContentfulPageDescriptionTextNode'
+  | 'childrenContentfulPageDescriptionTextNode___id'
+  | 'childrenContentfulPageDescriptionTextNode___parent___id'
+  | 'childrenContentfulPageDescriptionTextNode___parent___parent___id'
+  | 'childrenContentfulPageDescriptionTextNode___parent___parent___children'
+  | 'childrenContentfulPageDescriptionTextNode___parent___children'
+  | 'childrenContentfulPageDescriptionTextNode___parent___children___id'
+  | 'childrenContentfulPageDescriptionTextNode___parent___children___children'
+  | 'childrenContentfulPageDescriptionTextNode___parent___internal___content'
+  | 'childrenContentfulPageDescriptionTextNode___parent___internal___contentDigest'
+  | 'childrenContentfulPageDescriptionTextNode___parent___internal___description'
+  | 'childrenContentfulPageDescriptionTextNode___parent___internal___fieldOwners'
+  | 'childrenContentfulPageDescriptionTextNode___parent___internal___ignoreType'
+  | 'childrenContentfulPageDescriptionTextNode___parent___internal___mediaType'
+  | 'childrenContentfulPageDescriptionTextNode___parent___internal___owner'
+  | 'childrenContentfulPageDescriptionTextNode___parent___internal___type'
+  | 'childrenContentfulPageDescriptionTextNode___children'
+  | 'childrenContentfulPageDescriptionTextNode___children___id'
+  | 'childrenContentfulPageDescriptionTextNode___children___parent___id'
+  | 'childrenContentfulPageDescriptionTextNode___children___parent___children'
+  | 'childrenContentfulPageDescriptionTextNode___children___children'
+  | 'childrenContentfulPageDescriptionTextNode___children___children___id'
+  | 'childrenContentfulPageDescriptionTextNode___children___children___children'
+  | 'childrenContentfulPageDescriptionTextNode___children___internal___content'
+  | 'childrenContentfulPageDescriptionTextNode___children___internal___contentDigest'
+  | 'childrenContentfulPageDescriptionTextNode___children___internal___description'
+  | 'childrenContentfulPageDescriptionTextNode___children___internal___fieldOwners'
+  | 'childrenContentfulPageDescriptionTextNode___children___internal___ignoreType'
+  | 'childrenContentfulPageDescriptionTextNode___children___internal___mediaType'
+  | 'childrenContentfulPageDescriptionTextNode___children___internal___owner'
+  | 'childrenContentfulPageDescriptionTextNode___children___internal___type'
+  | 'childrenContentfulPageDescriptionTextNode___internal___content'
+  | 'childrenContentfulPageDescriptionTextNode___internal___contentDigest'
+  | 'childrenContentfulPageDescriptionTextNode___internal___description'
+  | 'childrenContentfulPageDescriptionTextNode___internal___fieldOwners'
+  | 'childrenContentfulPageDescriptionTextNode___internal___ignoreType'
+  | 'childrenContentfulPageDescriptionTextNode___internal___mediaType'
+  | 'childrenContentfulPageDescriptionTextNode___internal___owner'
+  | 'childrenContentfulPageDescriptionTextNode___internal___type'
+  | 'childrenContentfulPageDescriptionTextNode___description'
+  | 'childrenContentfulPageDescriptionTextNode___sys___type'
+  | 'childrenContentfulPageDescriptionTextNode___childrenMdx'
+  | 'childrenContentfulPageDescriptionTextNode___childrenMdx___rawBody'
+  | 'childrenContentfulPageDescriptionTextNode___childrenMdx___fileAbsolutePath'
+  | 'childrenContentfulPageDescriptionTextNode___childrenMdx___frontmatter___title'
+  | 'childrenContentfulPageDescriptionTextNode___childrenMdx___frontmatter___name'
+  | 'childrenContentfulPageDescriptionTextNode___childrenMdx___frontmatter___description'
+  | 'childrenContentfulPageDescriptionTextNode___childrenMdx___frontmatter___tags'
+  | 'childrenContentfulPageDescriptionTextNode___childrenMdx___frontmatter___category'
+  | 'childrenContentfulPageDescriptionTextNode___childrenMdx___slug'
+  | 'childrenContentfulPageDescriptionTextNode___childrenMdx___body'
+  | 'childrenContentfulPageDescriptionTextNode___childrenMdx___excerpt'
+  | 'childrenContentfulPageDescriptionTextNode___childrenMdx___headings'
+  | 'childrenContentfulPageDescriptionTextNode___childrenMdx___headings___value'
+  | 'childrenContentfulPageDescriptionTextNode___childrenMdx___headings___depth'
+  | 'childrenContentfulPageDescriptionTextNode___childrenMdx___html'
+  | 'childrenContentfulPageDescriptionTextNode___childrenMdx___mdxAST'
+  | 'childrenContentfulPageDescriptionTextNode___childrenMdx___tableOfContents'
+  | 'childrenContentfulPageDescriptionTextNode___childrenMdx___timeToRead'
+  | 'childrenContentfulPageDescriptionTextNode___childrenMdx___wordCount___paragraphs'
+  | 'childrenContentfulPageDescriptionTextNode___childrenMdx___wordCount___sentences'
+  | 'childrenContentfulPageDescriptionTextNode___childrenMdx___wordCount___words'
+  | 'childrenContentfulPageDescriptionTextNode___childrenMdx___id'
+  | 'childrenContentfulPageDescriptionTextNode___childrenMdx___parent___id'
+  | 'childrenContentfulPageDescriptionTextNode___childrenMdx___parent___children'
+  | 'childrenContentfulPageDescriptionTextNode___childrenMdx___children'
+  | 'childrenContentfulPageDescriptionTextNode___childrenMdx___children___id'
+  | 'childrenContentfulPageDescriptionTextNode___childrenMdx___children___children'
+  | 'childrenContentfulPageDescriptionTextNode___childrenMdx___internal___content'
+  | 'childrenContentfulPageDescriptionTextNode___childrenMdx___internal___contentDigest'
+  | 'childrenContentfulPageDescriptionTextNode___childrenMdx___internal___description'
+  | 'childrenContentfulPageDescriptionTextNode___childrenMdx___internal___fieldOwners'
+  | 'childrenContentfulPageDescriptionTextNode___childrenMdx___internal___ignoreType'
+  | 'childrenContentfulPageDescriptionTextNode___childrenMdx___internal___mediaType'
+  | 'childrenContentfulPageDescriptionTextNode___childrenMdx___internal___owner'
+  | 'childrenContentfulPageDescriptionTextNode___childrenMdx___internal___type'
+  | 'childrenContentfulPageDescriptionTextNode___childMdx___rawBody'
+  | 'childrenContentfulPageDescriptionTextNode___childMdx___fileAbsolutePath'
+  | 'childrenContentfulPageDescriptionTextNode___childMdx___frontmatter___title'
+  | 'childrenContentfulPageDescriptionTextNode___childMdx___frontmatter___name'
+  | 'childrenContentfulPageDescriptionTextNode___childMdx___frontmatter___description'
+  | 'childrenContentfulPageDescriptionTextNode___childMdx___frontmatter___tags'
+  | 'childrenContentfulPageDescriptionTextNode___childMdx___frontmatter___category'
+  | 'childrenContentfulPageDescriptionTextNode___childMdx___slug'
+  | 'childrenContentfulPageDescriptionTextNode___childMdx___body'
+  | 'childrenContentfulPageDescriptionTextNode___childMdx___excerpt'
+  | 'childrenContentfulPageDescriptionTextNode___childMdx___headings'
+  | 'childrenContentfulPageDescriptionTextNode___childMdx___headings___value'
+  | 'childrenContentfulPageDescriptionTextNode___childMdx___headings___depth'
+  | 'childrenContentfulPageDescriptionTextNode___childMdx___html'
+  | 'childrenContentfulPageDescriptionTextNode___childMdx___mdxAST'
+  | 'childrenContentfulPageDescriptionTextNode___childMdx___tableOfContents'
+  | 'childrenContentfulPageDescriptionTextNode___childMdx___timeToRead'
+  | 'childrenContentfulPageDescriptionTextNode___childMdx___wordCount___paragraphs'
+  | 'childrenContentfulPageDescriptionTextNode___childMdx___wordCount___sentences'
+  | 'childrenContentfulPageDescriptionTextNode___childMdx___wordCount___words'
+  | 'childrenContentfulPageDescriptionTextNode___childMdx___id'
+  | 'childrenContentfulPageDescriptionTextNode___childMdx___parent___id'
+  | 'childrenContentfulPageDescriptionTextNode___childMdx___parent___children'
+  | 'childrenContentfulPageDescriptionTextNode___childMdx___children'
+  | 'childrenContentfulPageDescriptionTextNode___childMdx___children___id'
+  | 'childrenContentfulPageDescriptionTextNode___childMdx___children___children'
+  | 'childrenContentfulPageDescriptionTextNode___childMdx___internal___content'
+  | 'childrenContentfulPageDescriptionTextNode___childMdx___internal___contentDigest'
+  | 'childrenContentfulPageDescriptionTextNode___childMdx___internal___description'
+  | 'childrenContentfulPageDescriptionTextNode___childMdx___internal___fieldOwners'
+  | 'childrenContentfulPageDescriptionTextNode___childMdx___internal___ignoreType'
+  | 'childrenContentfulPageDescriptionTextNode___childMdx___internal___mediaType'
+  | 'childrenContentfulPageDescriptionTextNode___childMdx___internal___owner'
+  | 'childrenContentfulPageDescriptionTextNode___childMdx___internal___type'
   | 'childContentfulPageDescriptionTextNode___id'
   | 'childContentfulPageDescriptionTextNode___parent___id'
   | 'childContentfulPageDescriptionTextNode___parent___parent___id'
@@ -3847,15 +6308,48 @@ export type ContentfulPageFieldsEnum =
   | 'childContentfulPageDescriptionTextNode___internal___type'
   | 'childContentfulPageDescriptionTextNode___description'
   | 'childContentfulPageDescriptionTextNode___sys___type'
+  | 'childContentfulPageDescriptionTextNode___childrenMdx'
+  | 'childContentfulPageDescriptionTextNode___childrenMdx___rawBody'
+  | 'childContentfulPageDescriptionTextNode___childrenMdx___fileAbsolutePath'
+  | 'childContentfulPageDescriptionTextNode___childrenMdx___frontmatter___title'
+  | 'childContentfulPageDescriptionTextNode___childrenMdx___frontmatter___name'
+  | 'childContentfulPageDescriptionTextNode___childrenMdx___frontmatter___description'
+  | 'childContentfulPageDescriptionTextNode___childrenMdx___frontmatter___tags'
+  | 'childContentfulPageDescriptionTextNode___childrenMdx___frontmatter___category'
+  | 'childContentfulPageDescriptionTextNode___childrenMdx___slug'
+  | 'childContentfulPageDescriptionTextNode___childrenMdx___body'
+  | 'childContentfulPageDescriptionTextNode___childrenMdx___excerpt'
+  | 'childContentfulPageDescriptionTextNode___childrenMdx___headings'
+  | 'childContentfulPageDescriptionTextNode___childrenMdx___headings___value'
+  | 'childContentfulPageDescriptionTextNode___childrenMdx___headings___depth'
+  | 'childContentfulPageDescriptionTextNode___childrenMdx___html'
+  | 'childContentfulPageDescriptionTextNode___childrenMdx___mdxAST'
+  | 'childContentfulPageDescriptionTextNode___childrenMdx___tableOfContents'
+  | 'childContentfulPageDescriptionTextNode___childrenMdx___timeToRead'
+  | 'childContentfulPageDescriptionTextNode___childrenMdx___wordCount___paragraphs'
+  | 'childContentfulPageDescriptionTextNode___childrenMdx___wordCount___sentences'
+  | 'childContentfulPageDescriptionTextNode___childrenMdx___wordCount___words'
+  | 'childContentfulPageDescriptionTextNode___childrenMdx___id'
+  | 'childContentfulPageDescriptionTextNode___childrenMdx___parent___id'
+  | 'childContentfulPageDescriptionTextNode___childrenMdx___parent___children'
+  | 'childContentfulPageDescriptionTextNode___childrenMdx___children'
+  | 'childContentfulPageDescriptionTextNode___childrenMdx___children___id'
+  | 'childContentfulPageDescriptionTextNode___childrenMdx___children___children'
+  | 'childContentfulPageDescriptionTextNode___childrenMdx___internal___content'
+  | 'childContentfulPageDescriptionTextNode___childrenMdx___internal___contentDigest'
+  | 'childContentfulPageDescriptionTextNode___childrenMdx___internal___description'
+  | 'childContentfulPageDescriptionTextNode___childrenMdx___internal___fieldOwners'
+  | 'childContentfulPageDescriptionTextNode___childrenMdx___internal___ignoreType'
+  | 'childContentfulPageDescriptionTextNode___childrenMdx___internal___mediaType'
+  | 'childContentfulPageDescriptionTextNode___childrenMdx___internal___owner'
+  | 'childContentfulPageDescriptionTextNode___childrenMdx___internal___type'
   | 'childContentfulPageDescriptionTextNode___childMdx___rawBody'
   | 'childContentfulPageDescriptionTextNode___childMdx___fileAbsolutePath'
   | 'childContentfulPageDescriptionTextNode___childMdx___frontmatter___title'
   | 'childContentfulPageDescriptionTextNode___childMdx___frontmatter___name'
-  | 'childContentfulPageDescriptionTextNode___childMdx___frontmatter___category'
+  | 'childContentfulPageDescriptionTextNode___childMdx___frontmatter___description'
   | 'childContentfulPageDescriptionTextNode___childMdx___frontmatter___tags'
-  | 'childContentfulPageDescriptionTextNode___childMdx___frontmatter___variant'
-  | 'childContentfulPageDescriptionTextNode___childMdx___frontmatter___layout'
-  | 'childContentfulPageDescriptionTextNode___childMdx___frontmatter___blockLayout'
+  | 'childContentfulPageDescriptionTextNode___childMdx___frontmatter___category'
   | 'childContentfulPageDescriptionTextNode___childMdx___slug'
   | 'childContentfulPageDescriptionTextNode___childMdx___body'
   | 'childContentfulPageDescriptionTextNode___childMdx___excerpt'
@@ -3892,8 +6386,6 @@ export type ContentfulPageFilterInput = {
   name?: Maybe<StringQueryOperatorInput>;
   title?: Maybe<StringQueryOperatorInput>;
   slug?: Maybe<StringQueryOperatorInput>;
-  layout?: Maybe<StringQueryOperatorInput>;
-  template?: Maybe<StringQueryOperatorInput>;
   sections?: Maybe<ContentfulSectionFilterListInput>;
   description?: Maybe<ContentfulPageDescriptionTextNodeFilterInput>;
   spaceId?: Maybe<StringQueryOperatorInput>;
@@ -3902,6 +6394,8 @@ export type ContentfulPageFilterInput = {
   updatedAt?: Maybe<DateQueryOperatorInput>;
   sys?: Maybe<ContentfulPageSysFilterInput>;
   node_locale?: Maybe<StringQueryOperatorInput>;
+  link?: Maybe<ContentfulLinkFilterListInput>;
+  childrenContentfulPageDescriptionTextNode?: Maybe<ContentfulPageDescriptionTextNodeFilterListInput>;
   childContentfulPageDescriptionTextNode?: Maybe<ContentfulPageDescriptionTextNodeFilterInput>;
 };
 
@@ -3957,225 +6451,6 @@ export type ContentfulPageSysFilterInput = {
   contentType?: Maybe<ContentfulPageSysContentTypeFilterInput>;
 };
 
-export type ContentfulPortfolioClient = Node & {
-  id: Scalars['ID'];
-  parent?: Maybe<Node>;
-  children: Array<Node>;
-  internal: Internal;
-  name?: Maybe<Scalars['String']>;
-  spaceId?: Maybe<Scalars['String']>;
-  contentful_id?: Maybe<Scalars['String']>;
-  createdAt?: Maybe<Scalars['Date']>;
-  updatedAt?: Maybe<Scalars['Date']>;
-  sys?: Maybe<ContentfulPortfolioClientSys>;
-  node_locale?: Maybe<Scalars['String']>;
-};
-
-
-export type ContentfulPortfolioClientCreatedAtArgs = {
-  formatString?: Maybe<Scalars['String']>;
-  fromNow?: Maybe<Scalars['Boolean']>;
-  difference?: Maybe<Scalars['String']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type ContentfulPortfolioClientUpdatedAtArgs = {
-  formatString?: Maybe<Scalars['String']>;
-  fromNow?: Maybe<Scalars['Boolean']>;
-  difference?: Maybe<Scalars['String']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type ContentfulPortfolioClientConnection = {
-  totalCount: Scalars['Int'];
-  edges: Array<ContentfulPortfolioClientEdge>;
-  nodes: Array<ContentfulPortfolioClient>;
-  pageInfo: PageInfo;
-  distinct: Array<Scalars['String']>;
-  group: Array<ContentfulPortfolioClientGroupConnection>;
-};
-
-
-export type ContentfulPortfolioClientConnectionDistinctArgs = {
-  field: ContentfulPortfolioClientFieldsEnum;
-};
-
-
-export type ContentfulPortfolioClientConnectionGroupArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  field: ContentfulPortfolioClientFieldsEnum;
-};
-
-export type ContentfulPortfolioClientEdge = {
-  next?: Maybe<ContentfulPortfolioClient>;
-  node: ContentfulPortfolioClient;
-  previous?: Maybe<ContentfulPortfolioClient>;
-};
-
-export type ContentfulPortfolioClientFieldsEnum = 
-  | 'id'
-  | 'parent___id'
-  | 'parent___parent___id'
-  | 'parent___parent___parent___id'
-  | 'parent___parent___parent___children'
-  | 'parent___parent___children'
-  | 'parent___parent___children___id'
-  | 'parent___parent___children___children'
-  | 'parent___parent___internal___content'
-  | 'parent___parent___internal___contentDigest'
-  | 'parent___parent___internal___description'
-  | 'parent___parent___internal___fieldOwners'
-  | 'parent___parent___internal___ignoreType'
-  | 'parent___parent___internal___mediaType'
-  | 'parent___parent___internal___owner'
-  | 'parent___parent___internal___type'
-  | 'parent___children'
-  | 'parent___children___id'
-  | 'parent___children___parent___id'
-  | 'parent___children___parent___children'
-  | 'parent___children___children'
-  | 'parent___children___children___id'
-  | 'parent___children___children___children'
-  | 'parent___children___internal___content'
-  | 'parent___children___internal___contentDigest'
-  | 'parent___children___internal___description'
-  | 'parent___children___internal___fieldOwners'
-  | 'parent___children___internal___ignoreType'
-  | 'parent___children___internal___mediaType'
-  | 'parent___children___internal___owner'
-  | 'parent___children___internal___type'
-  | 'parent___internal___content'
-  | 'parent___internal___contentDigest'
-  | 'parent___internal___description'
-  | 'parent___internal___fieldOwners'
-  | 'parent___internal___ignoreType'
-  | 'parent___internal___mediaType'
-  | 'parent___internal___owner'
-  | 'parent___internal___type'
-  | 'children'
-  | 'children___id'
-  | 'children___parent___id'
-  | 'children___parent___parent___id'
-  | 'children___parent___parent___children'
-  | 'children___parent___children'
-  | 'children___parent___children___id'
-  | 'children___parent___children___children'
-  | 'children___parent___internal___content'
-  | 'children___parent___internal___contentDigest'
-  | 'children___parent___internal___description'
-  | 'children___parent___internal___fieldOwners'
-  | 'children___parent___internal___ignoreType'
-  | 'children___parent___internal___mediaType'
-  | 'children___parent___internal___owner'
-  | 'children___parent___internal___type'
-  | 'children___children'
-  | 'children___children___id'
-  | 'children___children___parent___id'
-  | 'children___children___parent___children'
-  | 'children___children___children'
-  | 'children___children___children___id'
-  | 'children___children___children___children'
-  | 'children___children___internal___content'
-  | 'children___children___internal___contentDigest'
-  | 'children___children___internal___description'
-  | 'children___children___internal___fieldOwners'
-  | 'children___children___internal___ignoreType'
-  | 'children___children___internal___mediaType'
-  | 'children___children___internal___owner'
-  | 'children___children___internal___type'
-  | 'children___internal___content'
-  | 'children___internal___contentDigest'
-  | 'children___internal___description'
-  | 'children___internal___fieldOwners'
-  | 'children___internal___ignoreType'
-  | 'children___internal___mediaType'
-  | 'children___internal___owner'
-  | 'children___internal___type'
-  | 'internal___content'
-  | 'internal___contentDigest'
-  | 'internal___description'
-  | 'internal___fieldOwners'
-  | 'internal___ignoreType'
-  | 'internal___mediaType'
-  | 'internal___owner'
-  | 'internal___type'
-  | 'name'
-  | 'spaceId'
-  | 'contentful_id'
-  | 'createdAt'
-  | 'updatedAt'
-  | 'sys___type'
-  | 'sys___revision'
-  | 'sys___contentType___sys___type'
-  | 'sys___contentType___sys___linkType'
-  | 'sys___contentType___sys___id'
-  | 'sys___contentType___sys___contentful_id'
-  | 'node_locale';
-
-export type ContentfulPortfolioClientFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-  name?: Maybe<StringQueryOperatorInput>;
-  spaceId?: Maybe<StringQueryOperatorInput>;
-  contentful_id?: Maybe<StringQueryOperatorInput>;
-  createdAt?: Maybe<DateQueryOperatorInput>;
-  updatedAt?: Maybe<DateQueryOperatorInput>;
-  sys?: Maybe<ContentfulPortfolioClientSysFilterInput>;
-  node_locale?: Maybe<StringQueryOperatorInput>;
-};
-
-export type ContentfulPortfolioClientGroupConnection = {
-  totalCount: Scalars['Int'];
-  edges: Array<ContentfulPortfolioClientEdge>;
-  nodes: Array<ContentfulPortfolioClient>;
-  pageInfo: PageInfo;
-  field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
-};
-
-export type ContentfulPortfolioClientSortInput = {
-  fields?: Maybe<Array<Maybe<ContentfulPortfolioClientFieldsEnum>>>;
-  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
-};
-
-export type ContentfulPortfolioClientSys = {
-  type?: Maybe<Scalars['String']>;
-  revision?: Maybe<Scalars['Int']>;
-  contentType?: Maybe<ContentfulPortfolioClientSysContentType>;
-};
-
-export type ContentfulPortfolioClientSysContentType = {
-  sys?: Maybe<ContentfulPortfolioClientSysContentTypeSys>;
-};
-
-export type ContentfulPortfolioClientSysContentTypeFilterInput = {
-  sys?: Maybe<ContentfulPortfolioClientSysContentTypeSysFilterInput>;
-};
-
-export type ContentfulPortfolioClientSysContentTypeSys = {
-  type?: Maybe<Scalars['String']>;
-  linkType?: Maybe<Scalars['String']>;
-  id?: Maybe<Scalars['String']>;
-  contentful_id?: Maybe<Scalars['String']>;
-};
-
-export type ContentfulPortfolioClientSysContentTypeSysFilterInput = {
-  type?: Maybe<StringQueryOperatorInput>;
-  linkType?: Maybe<StringQueryOperatorInput>;
-  id?: Maybe<StringQueryOperatorInput>;
-  contentful_id?: Maybe<StringQueryOperatorInput>;
-};
-
-export type ContentfulPortfolioClientSysFilterInput = {
-  type?: Maybe<StringQueryOperatorInput>;
-  revision?: Maybe<IntQueryOperatorInput>;
-  contentType?: Maybe<ContentfulPortfolioClientSysContentTypeFilterInput>;
-};
-
 export type ContentfulResize = {
   base64?: Maybe<Scalars['String']>;
   tracedSVG?: Maybe<Scalars['String']>;
@@ -4226,14 +6501,14 @@ export type ContentfulSection = Node & {
   name?: Maybe<Scalars['String']>;
   variant?: Maybe<Scalars['String']>;
   layout?: Maybe<Scalars['String']>;
-  blocks?: Maybe<Array<Maybe<ContentfulBlock>>>;
-  page?: Maybe<Array<Maybe<ContentfulPage>>>;
   spaceId?: Maybe<Scalars['String']>;
   contentful_id?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['Date']>;
   updatedAt?: Maybe<Scalars['Date']>;
   sys?: Maybe<ContentfulSectionSys>;
   node_locale?: Maybe<Scalars['String']>;
+  blocks?: Maybe<Array<Maybe<ContentfulBlock>>>;
+  page?: Maybe<Array<Maybe<ContentfulPage>>>;
 };
 
 
@@ -4369,6 +6644,17 @@ export type ContentfulSectionFieldsEnum =
   | 'name'
   | 'variant'
   | 'layout'
+  | 'spaceId'
+  | 'contentful_id'
+  | 'createdAt'
+  | 'updatedAt'
+  | 'sys___type'
+  | 'sys___revision'
+  | 'sys___contentType___sys___type'
+  | 'sys___contentType___sys___linkType'
+  | 'sys___contentType___sys___id'
+  | 'sys___contentType___sys___contentful_id'
+  | 'node_locale'
   | 'blocks'
   | 'blocks___id'
   | 'blocks___parent___id'
@@ -4410,6 +6696,55 @@ export type ContentfulSectionFieldsEnum =
   | 'blocks___internal___type'
   | 'blocks___name'
   | 'blocks___type'
+  | 'blocks___medias'
+  | 'blocks___medias___id'
+  | 'blocks___medias___parent___id'
+  | 'blocks___medias___parent___children'
+  | 'blocks___medias___children'
+  | 'blocks___medias___children___id'
+  | 'blocks___medias___children___children'
+  | 'blocks___medias___internal___content'
+  | 'blocks___medias___internal___contentDigest'
+  | 'blocks___medias___internal___description'
+  | 'blocks___medias___internal___fieldOwners'
+  | 'blocks___medias___internal___ignoreType'
+  | 'blocks___medias___internal___mediaType'
+  | 'blocks___medias___internal___owner'
+  | 'blocks___medias___internal___type'
+  | 'blocks___medias___name'
+  | 'blocks___medias___medias'
+  | 'blocks___medias___medias___id'
+  | 'blocks___medias___medias___children'
+  | 'blocks___medias___medias___name'
+  | 'blocks___medias___medias___backgroundPositionY'
+  | 'blocks___medias___medias___media'
+  | 'blocks___medias___medias___mediacollection'
+  | 'blocks___medias___medias___spaceId'
+  | 'blocks___medias___medias___contentful_id'
+  | 'blocks___medias___medias___createdAt'
+  | 'blocks___medias___medias___updatedAt'
+  | 'blocks___medias___medias___node_locale'
+  | 'blocks___medias___block'
+  | 'blocks___medias___block___id'
+  | 'blocks___medias___block___children'
+  | 'blocks___medias___block___name'
+  | 'blocks___medias___block___type'
+  | 'blocks___medias___block___medias'
+  | 'blocks___medias___block___section'
+  | 'blocks___medias___block___spaceId'
+  | 'blocks___medias___block___contentful_id'
+  | 'blocks___medias___block___createdAt'
+  | 'blocks___medias___block___updatedAt'
+  | 'blocks___medias___block___node_locale'
+  | 'blocks___medias___block___variant'
+  | 'blocks___medias___block___childrenContentfulBlockTextTextNode'
+  | 'blocks___medias___spaceId'
+  | 'blocks___medias___contentful_id'
+  | 'blocks___medias___createdAt'
+  | 'blocks___medias___updatedAt'
+  | 'blocks___medias___sys___type'
+  | 'blocks___medias___sys___revision'
+  | 'blocks___medias___node_locale'
   | 'blocks___section'
   | 'blocks___section___id'
   | 'blocks___section___parent___id'
@@ -4428,31 +6763,6 @@ export type ContentfulSectionFieldsEnum =
   | 'blocks___section___name'
   | 'blocks___section___variant'
   | 'blocks___section___layout'
-  | 'blocks___section___blocks'
-  | 'blocks___section___blocks___id'
-  | 'blocks___section___blocks___children'
-  | 'blocks___section___blocks___name'
-  | 'blocks___section___blocks___type'
-  | 'blocks___section___blocks___section'
-  | 'blocks___section___blocks___spaceId'
-  | 'blocks___section___blocks___contentful_id'
-  | 'blocks___section___blocks___createdAt'
-  | 'blocks___section___blocks___updatedAt'
-  | 'blocks___section___blocks___node_locale'
-  | 'blocks___section___page'
-  | 'blocks___section___page___id'
-  | 'blocks___section___page___children'
-  | 'blocks___section___page___name'
-  | 'blocks___section___page___title'
-  | 'blocks___section___page___slug'
-  | 'blocks___section___page___layout'
-  | 'blocks___section___page___template'
-  | 'blocks___section___page___sections'
-  | 'blocks___section___page___spaceId'
-  | 'blocks___section___page___contentful_id'
-  | 'blocks___section___page___createdAt'
-  | 'blocks___section___page___updatedAt'
-  | 'blocks___section___page___node_locale'
   | 'blocks___section___spaceId'
   | 'blocks___section___contentful_id'
   | 'blocks___section___createdAt'
@@ -4460,6 +6770,103 @@ export type ContentfulSectionFieldsEnum =
   | 'blocks___section___sys___type'
   | 'blocks___section___sys___revision'
   | 'blocks___section___node_locale'
+  | 'blocks___section___blocks'
+  | 'blocks___section___blocks___id'
+  | 'blocks___section___blocks___children'
+  | 'blocks___section___blocks___name'
+  | 'blocks___section___blocks___type'
+  | 'blocks___section___blocks___medias'
+  | 'blocks___section___blocks___section'
+  | 'blocks___section___blocks___spaceId'
+  | 'blocks___section___blocks___contentful_id'
+  | 'blocks___section___blocks___createdAt'
+  | 'blocks___section___blocks___updatedAt'
+  | 'blocks___section___blocks___node_locale'
+  | 'blocks___section___blocks___variant'
+  | 'blocks___section___blocks___childrenContentfulBlockTextTextNode'
+  | 'blocks___section___page'
+  | 'blocks___section___page___id'
+  | 'blocks___section___page___children'
+  | 'blocks___section___page___name'
+  | 'blocks___section___page___title'
+  | 'blocks___section___page___slug'
+  | 'blocks___section___page___sections'
+  | 'blocks___section___page___spaceId'
+  | 'blocks___section___page___contentful_id'
+  | 'blocks___section___page___createdAt'
+  | 'blocks___section___page___updatedAt'
+  | 'blocks___section___page___node_locale'
+  | 'blocks___section___page___link'
+  | 'blocks___section___page___childrenContentfulPageDescriptionTextNode'
+  | 'blocks___spaceId'
+  | 'blocks___contentful_id'
+  | 'blocks___createdAt'
+  | 'blocks___updatedAt'
+  | 'blocks___sys___type'
+  | 'blocks___sys___revision'
+  | 'blocks___node_locale'
+  | 'blocks___link___id'
+  | 'blocks___link___parent___id'
+  | 'blocks___link___parent___children'
+  | 'blocks___link___children'
+  | 'blocks___link___children___id'
+  | 'blocks___link___children___children'
+  | 'blocks___link___internal___content'
+  | 'blocks___link___internal___contentDigest'
+  | 'blocks___link___internal___description'
+  | 'blocks___link___internal___fieldOwners'
+  | 'blocks___link___internal___ignoreType'
+  | 'blocks___link___internal___mediaType'
+  | 'blocks___link___internal___owner'
+  | 'blocks___link___internal___type'
+  | 'blocks___link___type'
+  | 'blocks___link___name'
+  | 'blocks___link___label'
+  | 'blocks___link___url'
+  | 'blocks___link___spaceId'
+  | 'blocks___link___contentful_id'
+  | 'blocks___link___createdAt'
+  | 'blocks___link___updatedAt'
+  | 'blocks___link___sys___type'
+  | 'blocks___link___sys___revision'
+  | 'blocks___link___node_locale'
+  | 'blocks___link___page___id'
+  | 'blocks___link___page___children'
+  | 'blocks___link___page___name'
+  | 'blocks___link___page___title'
+  | 'blocks___link___page___slug'
+  | 'blocks___link___page___sections'
+  | 'blocks___link___page___spaceId'
+  | 'blocks___link___page___contentful_id'
+  | 'blocks___link___page___createdAt'
+  | 'blocks___link___page___updatedAt'
+  | 'blocks___link___page___node_locale'
+  | 'blocks___link___page___link'
+  | 'blocks___link___page___childrenContentfulPageDescriptionTextNode'
+  | 'blocks___link___navigation'
+  | 'blocks___link___navigation___id'
+  | 'blocks___link___navigation___children'
+  | 'blocks___link___navigation___name'
+  | 'blocks___link___navigation___links'
+  | 'blocks___link___navigation___spaceId'
+  | 'blocks___link___navigation___contentful_id'
+  | 'blocks___link___navigation___createdAt'
+  | 'blocks___link___navigation___updatedAt'
+  | 'blocks___link___navigation___node_locale'
+  | 'blocks___link___block'
+  | 'blocks___link___block___id'
+  | 'blocks___link___block___children'
+  | 'blocks___link___block___name'
+  | 'blocks___link___block___type'
+  | 'blocks___link___block___medias'
+  | 'blocks___link___block___section'
+  | 'blocks___link___block___spaceId'
+  | 'blocks___link___block___contentful_id'
+  | 'blocks___link___block___createdAt'
+  | 'blocks___link___block___updatedAt'
+  | 'blocks___link___block___node_locale'
+  | 'blocks___link___block___variant'
+  | 'blocks___link___block___childrenContentfulBlockTextTextNode'
   | 'blocks___text___id'
   | 'blocks___text___parent___id'
   | 'blocks___text___parent___children'
@@ -4476,6 +6883,19 @@ export type ContentfulSectionFieldsEnum =
   | 'blocks___text___internal___type'
   | 'blocks___text___text'
   | 'blocks___text___sys___type'
+  | 'blocks___text___childrenMdx'
+  | 'blocks___text___childrenMdx___rawBody'
+  | 'blocks___text___childrenMdx___fileAbsolutePath'
+  | 'blocks___text___childrenMdx___slug'
+  | 'blocks___text___childrenMdx___body'
+  | 'blocks___text___childrenMdx___excerpt'
+  | 'blocks___text___childrenMdx___headings'
+  | 'blocks___text___childrenMdx___html'
+  | 'blocks___text___childrenMdx___mdxAST'
+  | 'blocks___text___childrenMdx___tableOfContents'
+  | 'blocks___text___childrenMdx___timeToRead'
+  | 'blocks___text___childrenMdx___id'
+  | 'blocks___text___childrenMdx___children'
   | 'blocks___text___childMdx___rawBody'
   | 'blocks___text___childMdx___fileAbsolutePath'
   | 'blocks___text___childMdx___slug'
@@ -4488,13 +6908,49 @@ export type ContentfulSectionFieldsEnum =
   | 'blocks___text___childMdx___timeToRead'
   | 'blocks___text___childMdx___id'
   | 'blocks___text___childMdx___children'
-  | 'blocks___spaceId'
-  | 'blocks___contentful_id'
-  | 'blocks___createdAt'
-  | 'blocks___updatedAt'
-  | 'blocks___sys___type'
-  | 'blocks___sys___revision'
-  | 'blocks___node_locale'
+  | 'blocks___variant'
+  | 'blocks___childrenContentfulBlockTextTextNode'
+  | 'blocks___childrenContentfulBlockTextTextNode___id'
+  | 'blocks___childrenContentfulBlockTextTextNode___parent___id'
+  | 'blocks___childrenContentfulBlockTextTextNode___parent___children'
+  | 'blocks___childrenContentfulBlockTextTextNode___children'
+  | 'blocks___childrenContentfulBlockTextTextNode___children___id'
+  | 'blocks___childrenContentfulBlockTextTextNode___children___children'
+  | 'blocks___childrenContentfulBlockTextTextNode___internal___content'
+  | 'blocks___childrenContentfulBlockTextTextNode___internal___contentDigest'
+  | 'blocks___childrenContentfulBlockTextTextNode___internal___description'
+  | 'blocks___childrenContentfulBlockTextTextNode___internal___fieldOwners'
+  | 'blocks___childrenContentfulBlockTextTextNode___internal___ignoreType'
+  | 'blocks___childrenContentfulBlockTextTextNode___internal___mediaType'
+  | 'blocks___childrenContentfulBlockTextTextNode___internal___owner'
+  | 'blocks___childrenContentfulBlockTextTextNode___internal___type'
+  | 'blocks___childrenContentfulBlockTextTextNode___text'
+  | 'blocks___childrenContentfulBlockTextTextNode___sys___type'
+  | 'blocks___childrenContentfulBlockTextTextNode___childrenMdx'
+  | 'blocks___childrenContentfulBlockTextTextNode___childrenMdx___rawBody'
+  | 'blocks___childrenContentfulBlockTextTextNode___childrenMdx___fileAbsolutePath'
+  | 'blocks___childrenContentfulBlockTextTextNode___childrenMdx___slug'
+  | 'blocks___childrenContentfulBlockTextTextNode___childrenMdx___body'
+  | 'blocks___childrenContentfulBlockTextTextNode___childrenMdx___excerpt'
+  | 'blocks___childrenContentfulBlockTextTextNode___childrenMdx___headings'
+  | 'blocks___childrenContentfulBlockTextTextNode___childrenMdx___html'
+  | 'blocks___childrenContentfulBlockTextTextNode___childrenMdx___mdxAST'
+  | 'blocks___childrenContentfulBlockTextTextNode___childrenMdx___tableOfContents'
+  | 'blocks___childrenContentfulBlockTextTextNode___childrenMdx___timeToRead'
+  | 'blocks___childrenContentfulBlockTextTextNode___childrenMdx___id'
+  | 'blocks___childrenContentfulBlockTextTextNode___childrenMdx___children'
+  | 'blocks___childrenContentfulBlockTextTextNode___childMdx___rawBody'
+  | 'blocks___childrenContentfulBlockTextTextNode___childMdx___fileAbsolutePath'
+  | 'blocks___childrenContentfulBlockTextTextNode___childMdx___slug'
+  | 'blocks___childrenContentfulBlockTextTextNode___childMdx___body'
+  | 'blocks___childrenContentfulBlockTextTextNode___childMdx___excerpt'
+  | 'blocks___childrenContentfulBlockTextTextNode___childMdx___headings'
+  | 'blocks___childrenContentfulBlockTextTextNode___childMdx___html'
+  | 'blocks___childrenContentfulBlockTextTextNode___childMdx___mdxAST'
+  | 'blocks___childrenContentfulBlockTextTextNode___childMdx___tableOfContents'
+  | 'blocks___childrenContentfulBlockTextTextNode___childMdx___timeToRead'
+  | 'blocks___childrenContentfulBlockTextTextNode___childMdx___id'
+  | 'blocks___childrenContentfulBlockTextTextNode___childMdx___children'
   | 'blocks___childContentfulBlockTextTextNode___id'
   | 'blocks___childContentfulBlockTextTextNode___parent___id'
   | 'blocks___childContentfulBlockTextTextNode___parent___children'
@@ -4511,6 +6967,19 @@ export type ContentfulSectionFieldsEnum =
   | 'blocks___childContentfulBlockTextTextNode___internal___type'
   | 'blocks___childContentfulBlockTextTextNode___text'
   | 'blocks___childContentfulBlockTextTextNode___sys___type'
+  | 'blocks___childContentfulBlockTextTextNode___childrenMdx'
+  | 'blocks___childContentfulBlockTextTextNode___childrenMdx___rawBody'
+  | 'blocks___childContentfulBlockTextTextNode___childrenMdx___fileAbsolutePath'
+  | 'blocks___childContentfulBlockTextTextNode___childrenMdx___slug'
+  | 'blocks___childContentfulBlockTextTextNode___childrenMdx___body'
+  | 'blocks___childContentfulBlockTextTextNode___childrenMdx___excerpt'
+  | 'blocks___childContentfulBlockTextTextNode___childrenMdx___headings'
+  | 'blocks___childContentfulBlockTextTextNode___childrenMdx___html'
+  | 'blocks___childContentfulBlockTextTextNode___childrenMdx___mdxAST'
+  | 'blocks___childContentfulBlockTextTextNode___childrenMdx___tableOfContents'
+  | 'blocks___childContentfulBlockTextTextNode___childrenMdx___timeToRead'
+  | 'blocks___childContentfulBlockTextTextNode___childrenMdx___id'
+  | 'blocks___childContentfulBlockTextTextNode___childrenMdx___children'
   | 'blocks___childContentfulBlockTextTextNode___childMdx___rawBody'
   | 'blocks___childContentfulBlockTextTextNode___childMdx___fileAbsolutePath'
   | 'blocks___childContentfulBlockTextTextNode___childMdx___slug'
@@ -4565,8 +7034,6 @@ export type ContentfulSectionFieldsEnum =
   | 'page___name'
   | 'page___title'
   | 'page___slug'
-  | 'page___layout'
-  | 'page___template'
   | 'page___sections'
   | 'page___sections___id'
   | 'page___sections___parent___id'
@@ -4585,31 +7052,6 @@ export type ContentfulSectionFieldsEnum =
   | 'page___sections___name'
   | 'page___sections___variant'
   | 'page___sections___layout'
-  | 'page___sections___blocks'
-  | 'page___sections___blocks___id'
-  | 'page___sections___blocks___children'
-  | 'page___sections___blocks___name'
-  | 'page___sections___blocks___type'
-  | 'page___sections___blocks___section'
-  | 'page___sections___blocks___spaceId'
-  | 'page___sections___blocks___contentful_id'
-  | 'page___sections___blocks___createdAt'
-  | 'page___sections___blocks___updatedAt'
-  | 'page___sections___blocks___node_locale'
-  | 'page___sections___page'
-  | 'page___sections___page___id'
-  | 'page___sections___page___children'
-  | 'page___sections___page___name'
-  | 'page___sections___page___title'
-  | 'page___sections___page___slug'
-  | 'page___sections___page___layout'
-  | 'page___sections___page___template'
-  | 'page___sections___page___sections'
-  | 'page___sections___page___spaceId'
-  | 'page___sections___page___contentful_id'
-  | 'page___sections___page___createdAt'
-  | 'page___sections___page___updatedAt'
-  | 'page___sections___page___node_locale'
   | 'page___sections___spaceId'
   | 'page___sections___contentful_id'
   | 'page___sections___createdAt'
@@ -4617,6 +7059,34 @@ export type ContentfulSectionFieldsEnum =
   | 'page___sections___sys___type'
   | 'page___sections___sys___revision'
   | 'page___sections___node_locale'
+  | 'page___sections___blocks'
+  | 'page___sections___blocks___id'
+  | 'page___sections___blocks___children'
+  | 'page___sections___blocks___name'
+  | 'page___sections___blocks___type'
+  | 'page___sections___blocks___medias'
+  | 'page___sections___blocks___section'
+  | 'page___sections___blocks___spaceId'
+  | 'page___sections___blocks___contentful_id'
+  | 'page___sections___blocks___createdAt'
+  | 'page___sections___blocks___updatedAt'
+  | 'page___sections___blocks___node_locale'
+  | 'page___sections___blocks___variant'
+  | 'page___sections___blocks___childrenContentfulBlockTextTextNode'
+  | 'page___sections___page'
+  | 'page___sections___page___id'
+  | 'page___sections___page___children'
+  | 'page___sections___page___name'
+  | 'page___sections___page___title'
+  | 'page___sections___page___slug'
+  | 'page___sections___page___sections'
+  | 'page___sections___page___spaceId'
+  | 'page___sections___page___contentful_id'
+  | 'page___sections___page___createdAt'
+  | 'page___sections___page___updatedAt'
+  | 'page___sections___page___node_locale'
+  | 'page___sections___page___link'
+  | 'page___sections___page___childrenContentfulPageDescriptionTextNode'
   | 'page___description___id'
   | 'page___description___parent___id'
   | 'page___description___parent___children'
@@ -4633,6 +7103,19 @@ export type ContentfulSectionFieldsEnum =
   | 'page___description___internal___type'
   | 'page___description___description'
   | 'page___description___sys___type'
+  | 'page___description___childrenMdx'
+  | 'page___description___childrenMdx___rawBody'
+  | 'page___description___childrenMdx___fileAbsolutePath'
+  | 'page___description___childrenMdx___slug'
+  | 'page___description___childrenMdx___body'
+  | 'page___description___childrenMdx___excerpt'
+  | 'page___description___childrenMdx___headings'
+  | 'page___description___childrenMdx___html'
+  | 'page___description___childrenMdx___mdxAST'
+  | 'page___description___childrenMdx___tableOfContents'
+  | 'page___description___childrenMdx___timeToRead'
+  | 'page___description___childrenMdx___id'
+  | 'page___description___childrenMdx___children'
   | 'page___description___childMdx___rawBody'
   | 'page___description___childMdx___fileAbsolutePath'
   | 'page___description___childMdx___slug'
@@ -4652,6 +7135,111 @@ export type ContentfulSectionFieldsEnum =
   | 'page___sys___type'
   | 'page___sys___revision'
   | 'page___node_locale'
+  | 'page___link'
+  | 'page___link___id'
+  | 'page___link___parent___id'
+  | 'page___link___parent___children'
+  | 'page___link___children'
+  | 'page___link___children___id'
+  | 'page___link___children___children'
+  | 'page___link___internal___content'
+  | 'page___link___internal___contentDigest'
+  | 'page___link___internal___description'
+  | 'page___link___internal___fieldOwners'
+  | 'page___link___internal___ignoreType'
+  | 'page___link___internal___mediaType'
+  | 'page___link___internal___owner'
+  | 'page___link___internal___type'
+  | 'page___link___type'
+  | 'page___link___name'
+  | 'page___link___label'
+  | 'page___link___url'
+  | 'page___link___spaceId'
+  | 'page___link___contentful_id'
+  | 'page___link___createdAt'
+  | 'page___link___updatedAt'
+  | 'page___link___sys___type'
+  | 'page___link___sys___revision'
+  | 'page___link___node_locale'
+  | 'page___link___page___id'
+  | 'page___link___page___children'
+  | 'page___link___page___name'
+  | 'page___link___page___title'
+  | 'page___link___page___slug'
+  | 'page___link___page___sections'
+  | 'page___link___page___spaceId'
+  | 'page___link___page___contentful_id'
+  | 'page___link___page___createdAt'
+  | 'page___link___page___updatedAt'
+  | 'page___link___page___node_locale'
+  | 'page___link___page___link'
+  | 'page___link___page___childrenContentfulPageDescriptionTextNode'
+  | 'page___link___navigation'
+  | 'page___link___navigation___id'
+  | 'page___link___navigation___children'
+  | 'page___link___navigation___name'
+  | 'page___link___navigation___links'
+  | 'page___link___navigation___spaceId'
+  | 'page___link___navigation___contentful_id'
+  | 'page___link___navigation___createdAt'
+  | 'page___link___navigation___updatedAt'
+  | 'page___link___navigation___node_locale'
+  | 'page___link___block'
+  | 'page___link___block___id'
+  | 'page___link___block___children'
+  | 'page___link___block___name'
+  | 'page___link___block___type'
+  | 'page___link___block___medias'
+  | 'page___link___block___section'
+  | 'page___link___block___spaceId'
+  | 'page___link___block___contentful_id'
+  | 'page___link___block___createdAt'
+  | 'page___link___block___updatedAt'
+  | 'page___link___block___node_locale'
+  | 'page___link___block___variant'
+  | 'page___link___block___childrenContentfulBlockTextTextNode'
+  | 'page___childrenContentfulPageDescriptionTextNode'
+  | 'page___childrenContentfulPageDescriptionTextNode___id'
+  | 'page___childrenContentfulPageDescriptionTextNode___parent___id'
+  | 'page___childrenContentfulPageDescriptionTextNode___parent___children'
+  | 'page___childrenContentfulPageDescriptionTextNode___children'
+  | 'page___childrenContentfulPageDescriptionTextNode___children___id'
+  | 'page___childrenContentfulPageDescriptionTextNode___children___children'
+  | 'page___childrenContentfulPageDescriptionTextNode___internal___content'
+  | 'page___childrenContentfulPageDescriptionTextNode___internal___contentDigest'
+  | 'page___childrenContentfulPageDescriptionTextNode___internal___description'
+  | 'page___childrenContentfulPageDescriptionTextNode___internal___fieldOwners'
+  | 'page___childrenContentfulPageDescriptionTextNode___internal___ignoreType'
+  | 'page___childrenContentfulPageDescriptionTextNode___internal___mediaType'
+  | 'page___childrenContentfulPageDescriptionTextNode___internal___owner'
+  | 'page___childrenContentfulPageDescriptionTextNode___internal___type'
+  | 'page___childrenContentfulPageDescriptionTextNode___description'
+  | 'page___childrenContentfulPageDescriptionTextNode___sys___type'
+  | 'page___childrenContentfulPageDescriptionTextNode___childrenMdx'
+  | 'page___childrenContentfulPageDescriptionTextNode___childrenMdx___rawBody'
+  | 'page___childrenContentfulPageDescriptionTextNode___childrenMdx___fileAbsolutePath'
+  | 'page___childrenContentfulPageDescriptionTextNode___childrenMdx___slug'
+  | 'page___childrenContentfulPageDescriptionTextNode___childrenMdx___body'
+  | 'page___childrenContentfulPageDescriptionTextNode___childrenMdx___excerpt'
+  | 'page___childrenContentfulPageDescriptionTextNode___childrenMdx___headings'
+  | 'page___childrenContentfulPageDescriptionTextNode___childrenMdx___html'
+  | 'page___childrenContentfulPageDescriptionTextNode___childrenMdx___mdxAST'
+  | 'page___childrenContentfulPageDescriptionTextNode___childrenMdx___tableOfContents'
+  | 'page___childrenContentfulPageDescriptionTextNode___childrenMdx___timeToRead'
+  | 'page___childrenContentfulPageDescriptionTextNode___childrenMdx___id'
+  | 'page___childrenContentfulPageDescriptionTextNode___childrenMdx___children'
+  | 'page___childrenContentfulPageDescriptionTextNode___childMdx___rawBody'
+  | 'page___childrenContentfulPageDescriptionTextNode___childMdx___fileAbsolutePath'
+  | 'page___childrenContentfulPageDescriptionTextNode___childMdx___slug'
+  | 'page___childrenContentfulPageDescriptionTextNode___childMdx___body'
+  | 'page___childrenContentfulPageDescriptionTextNode___childMdx___excerpt'
+  | 'page___childrenContentfulPageDescriptionTextNode___childMdx___headings'
+  | 'page___childrenContentfulPageDescriptionTextNode___childMdx___html'
+  | 'page___childrenContentfulPageDescriptionTextNode___childMdx___mdxAST'
+  | 'page___childrenContentfulPageDescriptionTextNode___childMdx___tableOfContents'
+  | 'page___childrenContentfulPageDescriptionTextNode___childMdx___timeToRead'
+  | 'page___childrenContentfulPageDescriptionTextNode___childMdx___id'
+  | 'page___childrenContentfulPageDescriptionTextNode___childMdx___children'
   | 'page___childContentfulPageDescriptionTextNode___id'
   | 'page___childContentfulPageDescriptionTextNode___parent___id'
   | 'page___childContentfulPageDescriptionTextNode___parent___children'
@@ -4668,6 +7256,19 @@ export type ContentfulSectionFieldsEnum =
   | 'page___childContentfulPageDescriptionTextNode___internal___type'
   | 'page___childContentfulPageDescriptionTextNode___description'
   | 'page___childContentfulPageDescriptionTextNode___sys___type'
+  | 'page___childContentfulPageDescriptionTextNode___childrenMdx'
+  | 'page___childContentfulPageDescriptionTextNode___childrenMdx___rawBody'
+  | 'page___childContentfulPageDescriptionTextNode___childrenMdx___fileAbsolutePath'
+  | 'page___childContentfulPageDescriptionTextNode___childrenMdx___slug'
+  | 'page___childContentfulPageDescriptionTextNode___childrenMdx___body'
+  | 'page___childContentfulPageDescriptionTextNode___childrenMdx___excerpt'
+  | 'page___childContentfulPageDescriptionTextNode___childrenMdx___headings'
+  | 'page___childContentfulPageDescriptionTextNode___childrenMdx___html'
+  | 'page___childContentfulPageDescriptionTextNode___childrenMdx___mdxAST'
+  | 'page___childContentfulPageDescriptionTextNode___childrenMdx___tableOfContents'
+  | 'page___childContentfulPageDescriptionTextNode___childrenMdx___timeToRead'
+  | 'page___childContentfulPageDescriptionTextNode___childrenMdx___id'
+  | 'page___childContentfulPageDescriptionTextNode___childrenMdx___children'
   | 'page___childContentfulPageDescriptionTextNode___childMdx___rawBody'
   | 'page___childContentfulPageDescriptionTextNode___childMdx___fileAbsolutePath'
   | 'page___childContentfulPageDescriptionTextNode___childMdx___slug'
@@ -4679,18 +7280,7 @@ export type ContentfulSectionFieldsEnum =
   | 'page___childContentfulPageDescriptionTextNode___childMdx___tableOfContents'
   | 'page___childContentfulPageDescriptionTextNode___childMdx___timeToRead'
   | 'page___childContentfulPageDescriptionTextNode___childMdx___id'
-  | 'page___childContentfulPageDescriptionTextNode___childMdx___children'
-  | 'spaceId'
-  | 'contentful_id'
-  | 'createdAt'
-  | 'updatedAt'
-  | 'sys___type'
-  | 'sys___revision'
-  | 'sys___contentType___sys___type'
-  | 'sys___contentType___sys___linkType'
-  | 'sys___contentType___sys___id'
-  | 'sys___contentType___sys___contentful_id'
-  | 'node_locale';
+  | 'page___childContentfulPageDescriptionTextNode___childMdx___children';
 
 export type ContentfulSectionFilterInput = {
   id?: Maybe<StringQueryOperatorInput>;
@@ -4700,14 +7290,14 @@ export type ContentfulSectionFilterInput = {
   name?: Maybe<StringQueryOperatorInput>;
   variant?: Maybe<StringQueryOperatorInput>;
   layout?: Maybe<StringQueryOperatorInput>;
-  blocks?: Maybe<ContentfulBlockFilterListInput>;
-  page?: Maybe<ContentfulPageFilterListInput>;
   spaceId?: Maybe<StringQueryOperatorInput>;
   contentful_id?: Maybe<StringQueryOperatorInput>;
   createdAt?: Maybe<DateQueryOperatorInput>;
   updatedAt?: Maybe<DateQueryOperatorInput>;
   sys?: Maybe<ContentfulSectionSysFilterInput>;
   node_locale?: Maybe<StringQueryOperatorInput>;
+  blocks?: Maybe<ContentfulBlockFilterListInput>;
+  page?: Maybe<ContentfulPageFilterListInput>;
 };
 
 export type ContentfulSectionFilterListInput = {
@@ -4762,1045 +7352,6 @@ export type ContentfulSectionSysFilterInput = {
   contentType?: Maybe<ContentfulSectionSysContentTypeFilterInput>;
 };
 
-export type ContentfulService = Node & {
-  id: Scalars['ID'];
-  parent?: Maybe<Node>;
-  children: Array<Node>;
-  internal: Internal;
-  name?: Maybe<Scalars['String']>;
-  type?: Maybe<ContentfulServiceCategory>;
-  spaceId?: Maybe<Scalars['String']>;
-  contentful_id?: Maybe<Scalars['String']>;
-  createdAt?: Maybe<Scalars['Date']>;
-  updatedAt?: Maybe<Scalars['Date']>;
-  sys?: Maybe<ContentfulServiceSys>;
-  node_locale?: Maybe<Scalars['String']>;
-};
-
-
-export type ContentfulServiceCreatedAtArgs = {
-  formatString?: Maybe<Scalars['String']>;
-  fromNow?: Maybe<Scalars['Boolean']>;
-  difference?: Maybe<Scalars['String']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type ContentfulServiceUpdatedAtArgs = {
-  formatString?: Maybe<Scalars['String']>;
-  fromNow?: Maybe<Scalars['Boolean']>;
-  difference?: Maybe<Scalars['String']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type ContentfulServiceCategory = Node & {
-  id: Scalars['ID'];
-  parent?: Maybe<Node>;
-  children: Array<Node>;
-  internal: Internal;
-  name?: Maybe<Scalars['String']>;
-  service?: Maybe<Array<Maybe<ContentfulService>>>;
-  description?: Maybe<ContentfulServiceCategoryDescriptionTextNode>;
-  spaceId?: Maybe<Scalars['String']>;
-  contentful_id?: Maybe<Scalars['String']>;
-  createdAt?: Maybe<Scalars['Date']>;
-  updatedAt?: Maybe<Scalars['Date']>;
-  sys?: Maybe<ContentfulServiceCategorySys>;
-  node_locale?: Maybe<Scalars['String']>;
-  childContentfulServiceCategoryDescriptionTextNode?: Maybe<ContentfulServiceCategoryDescriptionTextNode>;
-};
-
-
-export type ContentfulServiceCategoryCreatedAtArgs = {
-  formatString?: Maybe<Scalars['String']>;
-  fromNow?: Maybe<Scalars['Boolean']>;
-  difference?: Maybe<Scalars['String']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type ContentfulServiceCategoryUpdatedAtArgs = {
-  formatString?: Maybe<Scalars['String']>;
-  fromNow?: Maybe<Scalars['Boolean']>;
-  difference?: Maybe<Scalars['String']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type ContentfulServiceCategoryConnection = {
-  totalCount: Scalars['Int'];
-  edges: Array<ContentfulServiceCategoryEdge>;
-  nodes: Array<ContentfulServiceCategory>;
-  pageInfo: PageInfo;
-  distinct: Array<Scalars['String']>;
-  group: Array<ContentfulServiceCategoryGroupConnection>;
-};
-
-
-export type ContentfulServiceCategoryConnectionDistinctArgs = {
-  field: ContentfulServiceCategoryFieldsEnum;
-};
-
-
-export type ContentfulServiceCategoryConnectionGroupArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  field: ContentfulServiceCategoryFieldsEnum;
-};
-
-export type ContentfulServiceCategoryDescriptionTextNode = Node & {
-  id: Scalars['ID'];
-  parent?: Maybe<Node>;
-  children: Array<Node>;
-  internal: Internal;
-  description?: Maybe<Scalars['String']>;
-  sys?: Maybe<ContentfulServiceCategoryDescriptionTextNodeSys>;
-  childMdx?: Maybe<Mdx>;
-};
-
-export type ContentfulServiceCategoryDescriptionTextNodeConnection = {
-  totalCount: Scalars['Int'];
-  edges: Array<ContentfulServiceCategoryDescriptionTextNodeEdge>;
-  nodes: Array<ContentfulServiceCategoryDescriptionTextNode>;
-  pageInfo: PageInfo;
-  distinct: Array<Scalars['String']>;
-  group: Array<ContentfulServiceCategoryDescriptionTextNodeGroupConnection>;
-};
-
-
-export type ContentfulServiceCategoryDescriptionTextNodeConnectionDistinctArgs = {
-  field: ContentfulServiceCategoryDescriptionTextNodeFieldsEnum;
-};
-
-
-export type ContentfulServiceCategoryDescriptionTextNodeConnectionGroupArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  field: ContentfulServiceCategoryDescriptionTextNodeFieldsEnum;
-};
-
-export type ContentfulServiceCategoryDescriptionTextNodeEdge = {
-  next?: Maybe<ContentfulServiceCategoryDescriptionTextNode>;
-  node: ContentfulServiceCategoryDescriptionTextNode;
-  previous?: Maybe<ContentfulServiceCategoryDescriptionTextNode>;
-};
-
-export type ContentfulServiceCategoryDescriptionTextNodeFieldsEnum = 
-  | 'id'
-  | 'parent___id'
-  | 'parent___parent___id'
-  | 'parent___parent___parent___id'
-  | 'parent___parent___parent___children'
-  | 'parent___parent___children'
-  | 'parent___parent___children___id'
-  | 'parent___parent___children___children'
-  | 'parent___parent___internal___content'
-  | 'parent___parent___internal___contentDigest'
-  | 'parent___parent___internal___description'
-  | 'parent___parent___internal___fieldOwners'
-  | 'parent___parent___internal___ignoreType'
-  | 'parent___parent___internal___mediaType'
-  | 'parent___parent___internal___owner'
-  | 'parent___parent___internal___type'
-  | 'parent___children'
-  | 'parent___children___id'
-  | 'parent___children___parent___id'
-  | 'parent___children___parent___children'
-  | 'parent___children___children'
-  | 'parent___children___children___id'
-  | 'parent___children___children___children'
-  | 'parent___children___internal___content'
-  | 'parent___children___internal___contentDigest'
-  | 'parent___children___internal___description'
-  | 'parent___children___internal___fieldOwners'
-  | 'parent___children___internal___ignoreType'
-  | 'parent___children___internal___mediaType'
-  | 'parent___children___internal___owner'
-  | 'parent___children___internal___type'
-  | 'parent___internal___content'
-  | 'parent___internal___contentDigest'
-  | 'parent___internal___description'
-  | 'parent___internal___fieldOwners'
-  | 'parent___internal___ignoreType'
-  | 'parent___internal___mediaType'
-  | 'parent___internal___owner'
-  | 'parent___internal___type'
-  | 'children'
-  | 'children___id'
-  | 'children___parent___id'
-  | 'children___parent___parent___id'
-  | 'children___parent___parent___children'
-  | 'children___parent___children'
-  | 'children___parent___children___id'
-  | 'children___parent___children___children'
-  | 'children___parent___internal___content'
-  | 'children___parent___internal___contentDigest'
-  | 'children___parent___internal___description'
-  | 'children___parent___internal___fieldOwners'
-  | 'children___parent___internal___ignoreType'
-  | 'children___parent___internal___mediaType'
-  | 'children___parent___internal___owner'
-  | 'children___parent___internal___type'
-  | 'children___children'
-  | 'children___children___id'
-  | 'children___children___parent___id'
-  | 'children___children___parent___children'
-  | 'children___children___children'
-  | 'children___children___children___id'
-  | 'children___children___children___children'
-  | 'children___children___internal___content'
-  | 'children___children___internal___contentDigest'
-  | 'children___children___internal___description'
-  | 'children___children___internal___fieldOwners'
-  | 'children___children___internal___ignoreType'
-  | 'children___children___internal___mediaType'
-  | 'children___children___internal___owner'
-  | 'children___children___internal___type'
-  | 'children___internal___content'
-  | 'children___internal___contentDigest'
-  | 'children___internal___description'
-  | 'children___internal___fieldOwners'
-  | 'children___internal___ignoreType'
-  | 'children___internal___mediaType'
-  | 'children___internal___owner'
-  | 'children___internal___type'
-  | 'internal___content'
-  | 'internal___contentDigest'
-  | 'internal___description'
-  | 'internal___fieldOwners'
-  | 'internal___ignoreType'
-  | 'internal___mediaType'
-  | 'internal___owner'
-  | 'internal___type'
-  | 'description'
-  | 'sys___type'
-  | 'childMdx___rawBody'
-  | 'childMdx___fileAbsolutePath'
-  | 'childMdx___frontmatter___title'
-  | 'childMdx___frontmatter___name'
-  | 'childMdx___frontmatter___category'
-  | 'childMdx___frontmatter___tags'
-  | 'childMdx___frontmatter___variant'
-  | 'childMdx___frontmatter___layout'
-  | 'childMdx___frontmatter___blockLayout'
-  | 'childMdx___slug'
-  | 'childMdx___body'
-  | 'childMdx___excerpt'
-  | 'childMdx___headings'
-  | 'childMdx___headings___value'
-  | 'childMdx___headings___depth'
-  | 'childMdx___html'
-  | 'childMdx___mdxAST'
-  | 'childMdx___tableOfContents'
-  | 'childMdx___timeToRead'
-  | 'childMdx___wordCount___paragraphs'
-  | 'childMdx___wordCount___sentences'
-  | 'childMdx___wordCount___words'
-  | 'childMdx___id'
-  | 'childMdx___parent___id'
-  | 'childMdx___parent___parent___id'
-  | 'childMdx___parent___parent___children'
-  | 'childMdx___parent___children'
-  | 'childMdx___parent___children___id'
-  | 'childMdx___parent___children___children'
-  | 'childMdx___parent___internal___content'
-  | 'childMdx___parent___internal___contentDigest'
-  | 'childMdx___parent___internal___description'
-  | 'childMdx___parent___internal___fieldOwners'
-  | 'childMdx___parent___internal___ignoreType'
-  | 'childMdx___parent___internal___mediaType'
-  | 'childMdx___parent___internal___owner'
-  | 'childMdx___parent___internal___type'
-  | 'childMdx___children'
-  | 'childMdx___children___id'
-  | 'childMdx___children___parent___id'
-  | 'childMdx___children___parent___children'
-  | 'childMdx___children___children'
-  | 'childMdx___children___children___id'
-  | 'childMdx___children___children___children'
-  | 'childMdx___children___internal___content'
-  | 'childMdx___children___internal___contentDigest'
-  | 'childMdx___children___internal___description'
-  | 'childMdx___children___internal___fieldOwners'
-  | 'childMdx___children___internal___ignoreType'
-  | 'childMdx___children___internal___mediaType'
-  | 'childMdx___children___internal___owner'
-  | 'childMdx___children___internal___type'
-  | 'childMdx___internal___content'
-  | 'childMdx___internal___contentDigest'
-  | 'childMdx___internal___description'
-  | 'childMdx___internal___fieldOwners'
-  | 'childMdx___internal___ignoreType'
-  | 'childMdx___internal___mediaType'
-  | 'childMdx___internal___owner'
-  | 'childMdx___internal___type';
-
-export type ContentfulServiceCategoryDescriptionTextNodeFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-  description?: Maybe<StringQueryOperatorInput>;
-  sys?: Maybe<ContentfulServiceCategoryDescriptionTextNodeSysFilterInput>;
-  childMdx?: Maybe<MdxFilterInput>;
-};
-
-export type ContentfulServiceCategoryDescriptionTextNodeGroupConnection = {
-  totalCount: Scalars['Int'];
-  edges: Array<ContentfulServiceCategoryDescriptionTextNodeEdge>;
-  nodes: Array<ContentfulServiceCategoryDescriptionTextNode>;
-  pageInfo: PageInfo;
-  field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
-};
-
-export type ContentfulServiceCategoryDescriptionTextNodeSortInput = {
-  fields?: Maybe<Array<Maybe<ContentfulServiceCategoryDescriptionTextNodeFieldsEnum>>>;
-  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
-};
-
-export type ContentfulServiceCategoryDescriptionTextNodeSys = {
-  type?: Maybe<Scalars['String']>;
-};
-
-export type ContentfulServiceCategoryDescriptionTextNodeSysFilterInput = {
-  type?: Maybe<StringQueryOperatorInput>;
-};
-
-export type ContentfulServiceCategoryEdge = {
-  next?: Maybe<ContentfulServiceCategory>;
-  node: ContentfulServiceCategory;
-  previous?: Maybe<ContentfulServiceCategory>;
-};
-
-export type ContentfulServiceCategoryFieldsEnum = 
-  | 'id'
-  | 'parent___id'
-  | 'parent___parent___id'
-  | 'parent___parent___parent___id'
-  | 'parent___parent___parent___children'
-  | 'parent___parent___children'
-  | 'parent___parent___children___id'
-  | 'parent___parent___children___children'
-  | 'parent___parent___internal___content'
-  | 'parent___parent___internal___contentDigest'
-  | 'parent___parent___internal___description'
-  | 'parent___parent___internal___fieldOwners'
-  | 'parent___parent___internal___ignoreType'
-  | 'parent___parent___internal___mediaType'
-  | 'parent___parent___internal___owner'
-  | 'parent___parent___internal___type'
-  | 'parent___children'
-  | 'parent___children___id'
-  | 'parent___children___parent___id'
-  | 'parent___children___parent___children'
-  | 'parent___children___children'
-  | 'parent___children___children___id'
-  | 'parent___children___children___children'
-  | 'parent___children___internal___content'
-  | 'parent___children___internal___contentDigest'
-  | 'parent___children___internal___description'
-  | 'parent___children___internal___fieldOwners'
-  | 'parent___children___internal___ignoreType'
-  | 'parent___children___internal___mediaType'
-  | 'parent___children___internal___owner'
-  | 'parent___children___internal___type'
-  | 'parent___internal___content'
-  | 'parent___internal___contentDigest'
-  | 'parent___internal___description'
-  | 'parent___internal___fieldOwners'
-  | 'parent___internal___ignoreType'
-  | 'parent___internal___mediaType'
-  | 'parent___internal___owner'
-  | 'parent___internal___type'
-  | 'children'
-  | 'children___id'
-  | 'children___parent___id'
-  | 'children___parent___parent___id'
-  | 'children___parent___parent___children'
-  | 'children___parent___children'
-  | 'children___parent___children___id'
-  | 'children___parent___children___children'
-  | 'children___parent___internal___content'
-  | 'children___parent___internal___contentDigest'
-  | 'children___parent___internal___description'
-  | 'children___parent___internal___fieldOwners'
-  | 'children___parent___internal___ignoreType'
-  | 'children___parent___internal___mediaType'
-  | 'children___parent___internal___owner'
-  | 'children___parent___internal___type'
-  | 'children___children'
-  | 'children___children___id'
-  | 'children___children___parent___id'
-  | 'children___children___parent___children'
-  | 'children___children___children'
-  | 'children___children___children___id'
-  | 'children___children___children___children'
-  | 'children___children___internal___content'
-  | 'children___children___internal___contentDigest'
-  | 'children___children___internal___description'
-  | 'children___children___internal___fieldOwners'
-  | 'children___children___internal___ignoreType'
-  | 'children___children___internal___mediaType'
-  | 'children___children___internal___owner'
-  | 'children___children___internal___type'
-  | 'children___internal___content'
-  | 'children___internal___contentDigest'
-  | 'children___internal___description'
-  | 'children___internal___fieldOwners'
-  | 'children___internal___ignoreType'
-  | 'children___internal___mediaType'
-  | 'children___internal___owner'
-  | 'children___internal___type'
-  | 'internal___content'
-  | 'internal___contentDigest'
-  | 'internal___description'
-  | 'internal___fieldOwners'
-  | 'internal___ignoreType'
-  | 'internal___mediaType'
-  | 'internal___owner'
-  | 'internal___type'
-  | 'name'
-  | 'service'
-  | 'service___id'
-  | 'service___parent___id'
-  | 'service___parent___parent___id'
-  | 'service___parent___parent___children'
-  | 'service___parent___children'
-  | 'service___parent___children___id'
-  | 'service___parent___children___children'
-  | 'service___parent___internal___content'
-  | 'service___parent___internal___contentDigest'
-  | 'service___parent___internal___description'
-  | 'service___parent___internal___fieldOwners'
-  | 'service___parent___internal___ignoreType'
-  | 'service___parent___internal___mediaType'
-  | 'service___parent___internal___owner'
-  | 'service___parent___internal___type'
-  | 'service___children'
-  | 'service___children___id'
-  | 'service___children___parent___id'
-  | 'service___children___parent___children'
-  | 'service___children___children'
-  | 'service___children___children___id'
-  | 'service___children___children___children'
-  | 'service___children___internal___content'
-  | 'service___children___internal___contentDigest'
-  | 'service___children___internal___description'
-  | 'service___children___internal___fieldOwners'
-  | 'service___children___internal___ignoreType'
-  | 'service___children___internal___mediaType'
-  | 'service___children___internal___owner'
-  | 'service___children___internal___type'
-  | 'service___internal___content'
-  | 'service___internal___contentDigest'
-  | 'service___internal___description'
-  | 'service___internal___fieldOwners'
-  | 'service___internal___ignoreType'
-  | 'service___internal___mediaType'
-  | 'service___internal___owner'
-  | 'service___internal___type'
-  | 'service___name'
-  | 'service___type___id'
-  | 'service___type___parent___id'
-  | 'service___type___parent___children'
-  | 'service___type___children'
-  | 'service___type___children___id'
-  | 'service___type___children___children'
-  | 'service___type___internal___content'
-  | 'service___type___internal___contentDigest'
-  | 'service___type___internal___description'
-  | 'service___type___internal___fieldOwners'
-  | 'service___type___internal___ignoreType'
-  | 'service___type___internal___mediaType'
-  | 'service___type___internal___owner'
-  | 'service___type___internal___type'
-  | 'service___type___name'
-  | 'service___type___service'
-  | 'service___type___service___id'
-  | 'service___type___service___children'
-  | 'service___type___service___name'
-  | 'service___type___service___spaceId'
-  | 'service___type___service___contentful_id'
-  | 'service___type___service___createdAt'
-  | 'service___type___service___updatedAt'
-  | 'service___type___service___node_locale'
-  | 'service___type___description___id'
-  | 'service___type___description___children'
-  | 'service___type___description___description'
-  | 'service___type___spaceId'
-  | 'service___type___contentful_id'
-  | 'service___type___createdAt'
-  | 'service___type___updatedAt'
-  | 'service___type___sys___type'
-  | 'service___type___sys___revision'
-  | 'service___type___node_locale'
-  | 'service___type___childContentfulServiceCategoryDescriptionTextNode___id'
-  | 'service___type___childContentfulServiceCategoryDescriptionTextNode___children'
-  | 'service___type___childContentfulServiceCategoryDescriptionTextNode___description'
-  | 'service___spaceId'
-  | 'service___contentful_id'
-  | 'service___createdAt'
-  | 'service___updatedAt'
-  | 'service___sys___type'
-  | 'service___sys___revision'
-  | 'service___node_locale'
-  | 'description___id'
-  | 'description___parent___id'
-  | 'description___parent___parent___id'
-  | 'description___parent___parent___children'
-  | 'description___parent___children'
-  | 'description___parent___children___id'
-  | 'description___parent___children___children'
-  | 'description___parent___internal___content'
-  | 'description___parent___internal___contentDigest'
-  | 'description___parent___internal___description'
-  | 'description___parent___internal___fieldOwners'
-  | 'description___parent___internal___ignoreType'
-  | 'description___parent___internal___mediaType'
-  | 'description___parent___internal___owner'
-  | 'description___parent___internal___type'
-  | 'description___children'
-  | 'description___children___id'
-  | 'description___children___parent___id'
-  | 'description___children___parent___children'
-  | 'description___children___children'
-  | 'description___children___children___id'
-  | 'description___children___children___children'
-  | 'description___children___internal___content'
-  | 'description___children___internal___contentDigest'
-  | 'description___children___internal___description'
-  | 'description___children___internal___fieldOwners'
-  | 'description___children___internal___ignoreType'
-  | 'description___children___internal___mediaType'
-  | 'description___children___internal___owner'
-  | 'description___children___internal___type'
-  | 'description___internal___content'
-  | 'description___internal___contentDigest'
-  | 'description___internal___description'
-  | 'description___internal___fieldOwners'
-  | 'description___internal___ignoreType'
-  | 'description___internal___mediaType'
-  | 'description___internal___owner'
-  | 'description___internal___type'
-  | 'description___description'
-  | 'description___sys___type'
-  | 'description___childMdx___rawBody'
-  | 'description___childMdx___fileAbsolutePath'
-  | 'description___childMdx___frontmatter___title'
-  | 'description___childMdx___frontmatter___name'
-  | 'description___childMdx___frontmatter___category'
-  | 'description___childMdx___frontmatter___tags'
-  | 'description___childMdx___frontmatter___variant'
-  | 'description___childMdx___frontmatter___layout'
-  | 'description___childMdx___frontmatter___blockLayout'
-  | 'description___childMdx___slug'
-  | 'description___childMdx___body'
-  | 'description___childMdx___excerpt'
-  | 'description___childMdx___headings'
-  | 'description___childMdx___headings___value'
-  | 'description___childMdx___headings___depth'
-  | 'description___childMdx___html'
-  | 'description___childMdx___mdxAST'
-  | 'description___childMdx___tableOfContents'
-  | 'description___childMdx___timeToRead'
-  | 'description___childMdx___wordCount___paragraphs'
-  | 'description___childMdx___wordCount___sentences'
-  | 'description___childMdx___wordCount___words'
-  | 'description___childMdx___id'
-  | 'description___childMdx___parent___id'
-  | 'description___childMdx___parent___children'
-  | 'description___childMdx___children'
-  | 'description___childMdx___children___id'
-  | 'description___childMdx___children___children'
-  | 'description___childMdx___internal___content'
-  | 'description___childMdx___internal___contentDigest'
-  | 'description___childMdx___internal___description'
-  | 'description___childMdx___internal___fieldOwners'
-  | 'description___childMdx___internal___ignoreType'
-  | 'description___childMdx___internal___mediaType'
-  | 'description___childMdx___internal___owner'
-  | 'description___childMdx___internal___type'
-  | 'spaceId'
-  | 'contentful_id'
-  | 'createdAt'
-  | 'updatedAt'
-  | 'sys___type'
-  | 'sys___revision'
-  | 'sys___contentType___sys___type'
-  | 'sys___contentType___sys___linkType'
-  | 'sys___contentType___sys___id'
-  | 'sys___contentType___sys___contentful_id'
-  | 'node_locale'
-  | 'childContentfulServiceCategoryDescriptionTextNode___id'
-  | 'childContentfulServiceCategoryDescriptionTextNode___parent___id'
-  | 'childContentfulServiceCategoryDescriptionTextNode___parent___parent___id'
-  | 'childContentfulServiceCategoryDescriptionTextNode___parent___parent___children'
-  | 'childContentfulServiceCategoryDescriptionTextNode___parent___children'
-  | 'childContentfulServiceCategoryDescriptionTextNode___parent___children___id'
-  | 'childContentfulServiceCategoryDescriptionTextNode___parent___children___children'
-  | 'childContentfulServiceCategoryDescriptionTextNode___parent___internal___content'
-  | 'childContentfulServiceCategoryDescriptionTextNode___parent___internal___contentDigest'
-  | 'childContentfulServiceCategoryDescriptionTextNode___parent___internal___description'
-  | 'childContentfulServiceCategoryDescriptionTextNode___parent___internal___fieldOwners'
-  | 'childContentfulServiceCategoryDescriptionTextNode___parent___internal___ignoreType'
-  | 'childContentfulServiceCategoryDescriptionTextNode___parent___internal___mediaType'
-  | 'childContentfulServiceCategoryDescriptionTextNode___parent___internal___owner'
-  | 'childContentfulServiceCategoryDescriptionTextNode___parent___internal___type'
-  | 'childContentfulServiceCategoryDescriptionTextNode___children'
-  | 'childContentfulServiceCategoryDescriptionTextNode___children___id'
-  | 'childContentfulServiceCategoryDescriptionTextNode___children___parent___id'
-  | 'childContentfulServiceCategoryDescriptionTextNode___children___parent___children'
-  | 'childContentfulServiceCategoryDescriptionTextNode___children___children'
-  | 'childContentfulServiceCategoryDescriptionTextNode___children___children___id'
-  | 'childContentfulServiceCategoryDescriptionTextNode___children___children___children'
-  | 'childContentfulServiceCategoryDescriptionTextNode___children___internal___content'
-  | 'childContentfulServiceCategoryDescriptionTextNode___children___internal___contentDigest'
-  | 'childContentfulServiceCategoryDescriptionTextNode___children___internal___description'
-  | 'childContentfulServiceCategoryDescriptionTextNode___children___internal___fieldOwners'
-  | 'childContentfulServiceCategoryDescriptionTextNode___children___internal___ignoreType'
-  | 'childContentfulServiceCategoryDescriptionTextNode___children___internal___mediaType'
-  | 'childContentfulServiceCategoryDescriptionTextNode___children___internal___owner'
-  | 'childContentfulServiceCategoryDescriptionTextNode___children___internal___type'
-  | 'childContentfulServiceCategoryDescriptionTextNode___internal___content'
-  | 'childContentfulServiceCategoryDescriptionTextNode___internal___contentDigest'
-  | 'childContentfulServiceCategoryDescriptionTextNode___internal___description'
-  | 'childContentfulServiceCategoryDescriptionTextNode___internal___fieldOwners'
-  | 'childContentfulServiceCategoryDescriptionTextNode___internal___ignoreType'
-  | 'childContentfulServiceCategoryDescriptionTextNode___internal___mediaType'
-  | 'childContentfulServiceCategoryDescriptionTextNode___internal___owner'
-  | 'childContentfulServiceCategoryDescriptionTextNode___internal___type'
-  | 'childContentfulServiceCategoryDescriptionTextNode___description'
-  | 'childContentfulServiceCategoryDescriptionTextNode___sys___type'
-  | 'childContentfulServiceCategoryDescriptionTextNode___childMdx___rawBody'
-  | 'childContentfulServiceCategoryDescriptionTextNode___childMdx___fileAbsolutePath'
-  | 'childContentfulServiceCategoryDescriptionTextNode___childMdx___frontmatter___title'
-  | 'childContentfulServiceCategoryDescriptionTextNode___childMdx___frontmatter___name'
-  | 'childContentfulServiceCategoryDescriptionTextNode___childMdx___frontmatter___category'
-  | 'childContentfulServiceCategoryDescriptionTextNode___childMdx___frontmatter___tags'
-  | 'childContentfulServiceCategoryDescriptionTextNode___childMdx___frontmatter___variant'
-  | 'childContentfulServiceCategoryDescriptionTextNode___childMdx___frontmatter___layout'
-  | 'childContentfulServiceCategoryDescriptionTextNode___childMdx___frontmatter___blockLayout'
-  | 'childContentfulServiceCategoryDescriptionTextNode___childMdx___slug'
-  | 'childContentfulServiceCategoryDescriptionTextNode___childMdx___body'
-  | 'childContentfulServiceCategoryDescriptionTextNode___childMdx___excerpt'
-  | 'childContentfulServiceCategoryDescriptionTextNode___childMdx___headings'
-  | 'childContentfulServiceCategoryDescriptionTextNode___childMdx___headings___value'
-  | 'childContentfulServiceCategoryDescriptionTextNode___childMdx___headings___depth'
-  | 'childContentfulServiceCategoryDescriptionTextNode___childMdx___html'
-  | 'childContentfulServiceCategoryDescriptionTextNode___childMdx___mdxAST'
-  | 'childContentfulServiceCategoryDescriptionTextNode___childMdx___tableOfContents'
-  | 'childContentfulServiceCategoryDescriptionTextNode___childMdx___timeToRead'
-  | 'childContentfulServiceCategoryDescriptionTextNode___childMdx___wordCount___paragraphs'
-  | 'childContentfulServiceCategoryDescriptionTextNode___childMdx___wordCount___sentences'
-  | 'childContentfulServiceCategoryDescriptionTextNode___childMdx___wordCount___words'
-  | 'childContentfulServiceCategoryDescriptionTextNode___childMdx___id'
-  | 'childContentfulServiceCategoryDescriptionTextNode___childMdx___parent___id'
-  | 'childContentfulServiceCategoryDescriptionTextNode___childMdx___parent___children'
-  | 'childContentfulServiceCategoryDescriptionTextNode___childMdx___children'
-  | 'childContentfulServiceCategoryDescriptionTextNode___childMdx___children___id'
-  | 'childContentfulServiceCategoryDescriptionTextNode___childMdx___children___children'
-  | 'childContentfulServiceCategoryDescriptionTextNode___childMdx___internal___content'
-  | 'childContentfulServiceCategoryDescriptionTextNode___childMdx___internal___contentDigest'
-  | 'childContentfulServiceCategoryDescriptionTextNode___childMdx___internal___description'
-  | 'childContentfulServiceCategoryDescriptionTextNode___childMdx___internal___fieldOwners'
-  | 'childContentfulServiceCategoryDescriptionTextNode___childMdx___internal___ignoreType'
-  | 'childContentfulServiceCategoryDescriptionTextNode___childMdx___internal___mediaType'
-  | 'childContentfulServiceCategoryDescriptionTextNode___childMdx___internal___owner'
-  | 'childContentfulServiceCategoryDescriptionTextNode___childMdx___internal___type';
-
-export type ContentfulServiceCategoryFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-  name?: Maybe<StringQueryOperatorInput>;
-  service?: Maybe<ContentfulServiceFilterListInput>;
-  description?: Maybe<ContentfulServiceCategoryDescriptionTextNodeFilterInput>;
-  spaceId?: Maybe<StringQueryOperatorInput>;
-  contentful_id?: Maybe<StringQueryOperatorInput>;
-  createdAt?: Maybe<DateQueryOperatorInput>;
-  updatedAt?: Maybe<DateQueryOperatorInput>;
-  sys?: Maybe<ContentfulServiceCategorySysFilterInput>;
-  node_locale?: Maybe<StringQueryOperatorInput>;
-  childContentfulServiceCategoryDescriptionTextNode?: Maybe<ContentfulServiceCategoryDescriptionTextNodeFilterInput>;
-};
-
-export type ContentfulServiceCategoryGroupConnection = {
-  totalCount: Scalars['Int'];
-  edges: Array<ContentfulServiceCategoryEdge>;
-  nodes: Array<ContentfulServiceCategory>;
-  pageInfo: PageInfo;
-  field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
-};
-
-export type ContentfulServiceCategorySortInput = {
-  fields?: Maybe<Array<Maybe<ContentfulServiceCategoryFieldsEnum>>>;
-  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
-};
-
-export type ContentfulServiceCategorySys = {
-  type?: Maybe<Scalars['String']>;
-  revision?: Maybe<Scalars['Int']>;
-  contentType?: Maybe<ContentfulServiceCategorySysContentType>;
-};
-
-export type ContentfulServiceCategorySysContentType = {
-  sys?: Maybe<ContentfulServiceCategorySysContentTypeSys>;
-};
-
-export type ContentfulServiceCategorySysContentTypeFilterInput = {
-  sys?: Maybe<ContentfulServiceCategorySysContentTypeSysFilterInput>;
-};
-
-export type ContentfulServiceCategorySysContentTypeSys = {
-  type?: Maybe<Scalars['String']>;
-  linkType?: Maybe<Scalars['String']>;
-  id?: Maybe<Scalars['String']>;
-  contentful_id?: Maybe<Scalars['String']>;
-};
-
-export type ContentfulServiceCategorySysContentTypeSysFilterInput = {
-  type?: Maybe<StringQueryOperatorInput>;
-  linkType?: Maybe<StringQueryOperatorInput>;
-  id?: Maybe<StringQueryOperatorInput>;
-  contentful_id?: Maybe<StringQueryOperatorInput>;
-};
-
-export type ContentfulServiceCategorySysFilterInput = {
-  type?: Maybe<StringQueryOperatorInput>;
-  revision?: Maybe<IntQueryOperatorInput>;
-  contentType?: Maybe<ContentfulServiceCategorySysContentTypeFilterInput>;
-};
-
-export type ContentfulServiceConnection = {
-  totalCount: Scalars['Int'];
-  edges: Array<ContentfulServiceEdge>;
-  nodes: Array<ContentfulService>;
-  pageInfo: PageInfo;
-  distinct: Array<Scalars['String']>;
-  group: Array<ContentfulServiceGroupConnection>;
-};
-
-
-export type ContentfulServiceConnectionDistinctArgs = {
-  field: ContentfulServiceFieldsEnum;
-};
-
-
-export type ContentfulServiceConnectionGroupArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  field: ContentfulServiceFieldsEnum;
-};
-
-export type ContentfulServiceEdge = {
-  next?: Maybe<ContentfulService>;
-  node: ContentfulService;
-  previous?: Maybe<ContentfulService>;
-};
-
-export type ContentfulServiceFieldsEnum = 
-  | 'id'
-  | 'parent___id'
-  | 'parent___parent___id'
-  | 'parent___parent___parent___id'
-  | 'parent___parent___parent___children'
-  | 'parent___parent___children'
-  | 'parent___parent___children___id'
-  | 'parent___parent___children___children'
-  | 'parent___parent___internal___content'
-  | 'parent___parent___internal___contentDigest'
-  | 'parent___parent___internal___description'
-  | 'parent___parent___internal___fieldOwners'
-  | 'parent___parent___internal___ignoreType'
-  | 'parent___parent___internal___mediaType'
-  | 'parent___parent___internal___owner'
-  | 'parent___parent___internal___type'
-  | 'parent___children'
-  | 'parent___children___id'
-  | 'parent___children___parent___id'
-  | 'parent___children___parent___children'
-  | 'parent___children___children'
-  | 'parent___children___children___id'
-  | 'parent___children___children___children'
-  | 'parent___children___internal___content'
-  | 'parent___children___internal___contentDigest'
-  | 'parent___children___internal___description'
-  | 'parent___children___internal___fieldOwners'
-  | 'parent___children___internal___ignoreType'
-  | 'parent___children___internal___mediaType'
-  | 'parent___children___internal___owner'
-  | 'parent___children___internal___type'
-  | 'parent___internal___content'
-  | 'parent___internal___contentDigest'
-  | 'parent___internal___description'
-  | 'parent___internal___fieldOwners'
-  | 'parent___internal___ignoreType'
-  | 'parent___internal___mediaType'
-  | 'parent___internal___owner'
-  | 'parent___internal___type'
-  | 'children'
-  | 'children___id'
-  | 'children___parent___id'
-  | 'children___parent___parent___id'
-  | 'children___parent___parent___children'
-  | 'children___parent___children'
-  | 'children___parent___children___id'
-  | 'children___parent___children___children'
-  | 'children___parent___internal___content'
-  | 'children___parent___internal___contentDigest'
-  | 'children___parent___internal___description'
-  | 'children___parent___internal___fieldOwners'
-  | 'children___parent___internal___ignoreType'
-  | 'children___parent___internal___mediaType'
-  | 'children___parent___internal___owner'
-  | 'children___parent___internal___type'
-  | 'children___children'
-  | 'children___children___id'
-  | 'children___children___parent___id'
-  | 'children___children___parent___children'
-  | 'children___children___children'
-  | 'children___children___children___id'
-  | 'children___children___children___children'
-  | 'children___children___internal___content'
-  | 'children___children___internal___contentDigest'
-  | 'children___children___internal___description'
-  | 'children___children___internal___fieldOwners'
-  | 'children___children___internal___ignoreType'
-  | 'children___children___internal___mediaType'
-  | 'children___children___internal___owner'
-  | 'children___children___internal___type'
-  | 'children___internal___content'
-  | 'children___internal___contentDigest'
-  | 'children___internal___description'
-  | 'children___internal___fieldOwners'
-  | 'children___internal___ignoreType'
-  | 'children___internal___mediaType'
-  | 'children___internal___owner'
-  | 'children___internal___type'
-  | 'internal___content'
-  | 'internal___contentDigest'
-  | 'internal___description'
-  | 'internal___fieldOwners'
-  | 'internal___ignoreType'
-  | 'internal___mediaType'
-  | 'internal___owner'
-  | 'internal___type'
-  | 'name'
-  | 'type___id'
-  | 'type___parent___id'
-  | 'type___parent___parent___id'
-  | 'type___parent___parent___children'
-  | 'type___parent___children'
-  | 'type___parent___children___id'
-  | 'type___parent___children___children'
-  | 'type___parent___internal___content'
-  | 'type___parent___internal___contentDigest'
-  | 'type___parent___internal___description'
-  | 'type___parent___internal___fieldOwners'
-  | 'type___parent___internal___ignoreType'
-  | 'type___parent___internal___mediaType'
-  | 'type___parent___internal___owner'
-  | 'type___parent___internal___type'
-  | 'type___children'
-  | 'type___children___id'
-  | 'type___children___parent___id'
-  | 'type___children___parent___children'
-  | 'type___children___children'
-  | 'type___children___children___id'
-  | 'type___children___children___children'
-  | 'type___children___internal___content'
-  | 'type___children___internal___contentDigest'
-  | 'type___children___internal___description'
-  | 'type___children___internal___fieldOwners'
-  | 'type___children___internal___ignoreType'
-  | 'type___children___internal___mediaType'
-  | 'type___children___internal___owner'
-  | 'type___children___internal___type'
-  | 'type___internal___content'
-  | 'type___internal___contentDigest'
-  | 'type___internal___description'
-  | 'type___internal___fieldOwners'
-  | 'type___internal___ignoreType'
-  | 'type___internal___mediaType'
-  | 'type___internal___owner'
-  | 'type___internal___type'
-  | 'type___name'
-  | 'type___service'
-  | 'type___service___id'
-  | 'type___service___parent___id'
-  | 'type___service___parent___children'
-  | 'type___service___children'
-  | 'type___service___children___id'
-  | 'type___service___children___children'
-  | 'type___service___internal___content'
-  | 'type___service___internal___contentDigest'
-  | 'type___service___internal___description'
-  | 'type___service___internal___fieldOwners'
-  | 'type___service___internal___ignoreType'
-  | 'type___service___internal___mediaType'
-  | 'type___service___internal___owner'
-  | 'type___service___internal___type'
-  | 'type___service___name'
-  | 'type___service___type___id'
-  | 'type___service___type___children'
-  | 'type___service___type___name'
-  | 'type___service___type___service'
-  | 'type___service___type___spaceId'
-  | 'type___service___type___contentful_id'
-  | 'type___service___type___createdAt'
-  | 'type___service___type___updatedAt'
-  | 'type___service___type___node_locale'
-  | 'type___service___spaceId'
-  | 'type___service___contentful_id'
-  | 'type___service___createdAt'
-  | 'type___service___updatedAt'
-  | 'type___service___sys___type'
-  | 'type___service___sys___revision'
-  | 'type___service___node_locale'
-  | 'type___description___id'
-  | 'type___description___parent___id'
-  | 'type___description___parent___children'
-  | 'type___description___children'
-  | 'type___description___children___id'
-  | 'type___description___children___children'
-  | 'type___description___internal___content'
-  | 'type___description___internal___contentDigest'
-  | 'type___description___internal___description'
-  | 'type___description___internal___fieldOwners'
-  | 'type___description___internal___ignoreType'
-  | 'type___description___internal___mediaType'
-  | 'type___description___internal___owner'
-  | 'type___description___internal___type'
-  | 'type___description___description'
-  | 'type___description___sys___type'
-  | 'type___description___childMdx___rawBody'
-  | 'type___description___childMdx___fileAbsolutePath'
-  | 'type___description___childMdx___slug'
-  | 'type___description___childMdx___body'
-  | 'type___description___childMdx___excerpt'
-  | 'type___description___childMdx___headings'
-  | 'type___description___childMdx___html'
-  | 'type___description___childMdx___mdxAST'
-  | 'type___description___childMdx___tableOfContents'
-  | 'type___description___childMdx___timeToRead'
-  | 'type___description___childMdx___id'
-  | 'type___description___childMdx___children'
-  | 'type___spaceId'
-  | 'type___contentful_id'
-  | 'type___createdAt'
-  | 'type___updatedAt'
-  | 'type___sys___type'
-  | 'type___sys___revision'
-  | 'type___node_locale'
-  | 'type___childContentfulServiceCategoryDescriptionTextNode___id'
-  | 'type___childContentfulServiceCategoryDescriptionTextNode___parent___id'
-  | 'type___childContentfulServiceCategoryDescriptionTextNode___parent___children'
-  | 'type___childContentfulServiceCategoryDescriptionTextNode___children'
-  | 'type___childContentfulServiceCategoryDescriptionTextNode___children___id'
-  | 'type___childContentfulServiceCategoryDescriptionTextNode___children___children'
-  | 'type___childContentfulServiceCategoryDescriptionTextNode___internal___content'
-  | 'type___childContentfulServiceCategoryDescriptionTextNode___internal___contentDigest'
-  | 'type___childContentfulServiceCategoryDescriptionTextNode___internal___description'
-  | 'type___childContentfulServiceCategoryDescriptionTextNode___internal___fieldOwners'
-  | 'type___childContentfulServiceCategoryDescriptionTextNode___internal___ignoreType'
-  | 'type___childContentfulServiceCategoryDescriptionTextNode___internal___mediaType'
-  | 'type___childContentfulServiceCategoryDescriptionTextNode___internal___owner'
-  | 'type___childContentfulServiceCategoryDescriptionTextNode___internal___type'
-  | 'type___childContentfulServiceCategoryDescriptionTextNode___description'
-  | 'type___childContentfulServiceCategoryDescriptionTextNode___sys___type'
-  | 'type___childContentfulServiceCategoryDescriptionTextNode___childMdx___rawBody'
-  | 'type___childContentfulServiceCategoryDescriptionTextNode___childMdx___fileAbsolutePath'
-  | 'type___childContentfulServiceCategoryDescriptionTextNode___childMdx___slug'
-  | 'type___childContentfulServiceCategoryDescriptionTextNode___childMdx___body'
-  | 'type___childContentfulServiceCategoryDescriptionTextNode___childMdx___excerpt'
-  | 'type___childContentfulServiceCategoryDescriptionTextNode___childMdx___headings'
-  | 'type___childContentfulServiceCategoryDescriptionTextNode___childMdx___html'
-  | 'type___childContentfulServiceCategoryDescriptionTextNode___childMdx___mdxAST'
-  | 'type___childContentfulServiceCategoryDescriptionTextNode___childMdx___tableOfContents'
-  | 'type___childContentfulServiceCategoryDescriptionTextNode___childMdx___timeToRead'
-  | 'type___childContentfulServiceCategoryDescriptionTextNode___childMdx___id'
-  | 'type___childContentfulServiceCategoryDescriptionTextNode___childMdx___children'
-  | 'spaceId'
-  | 'contentful_id'
-  | 'createdAt'
-  | 'updatedAt'
-  | 'sys___type'
-  | 'sys___revision'
-  | 'sys___contentType___sys___type'
-  | 'sys___contentType___sys___linkType'
-  | 'sys___contentType___sys___id'
-  | 'sys___contentType___sys___contentful_id'
-  | 'node_locale';
-
-export type ContentfulServiceFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-  name?: Maybe<StringQueryOperatorInput>;
-  type?: Maybe<ContentfulServiceCategoryFilterInput>;
-  spaceId?: Maybe<StringQueryOperatorInput>;
-  contentful_id?: Maybe<StringQueryOperatorInput>;
-  createdAt?: Maybe<DateQueryOperatorInput>;
-  updatedAt?: Maybe<DateQueryOperatorInput>;
-  sys?: Maybe<ContentfulServiceSysFilterInput>;
-  node_locale?: Maybe<StringQueryOperatorInput>;
-};
-
-export type ContentfulServiceFilterListInput = {
-  elemMatch?: Maybe<ContentfulServiceFilterInput>;
-};
-
-export type ContentfulServiceGroupConnection = {
-  totalCount: Scalars['Int'];
-  edges: Array<ContentfulServiceEdge>;
-  nodes: Array<ContentfulService>;
-  pageInfo: PageInfo;
-  field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
-};
-
-export type ContentfulServiceSortInput = {
-  fields?: Maybe<Array<Maybe<ContentfulServiceFieldsEnum>>>;
-  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
-};
-
-export type ContentfulServiceSys = {
-  type?: Maybe<Scalars['String']>;
-  revision?: Maybe<Scalars['Int']>;
-  contentType?: Maybe<ContentfulServiceSysContentType>;
-};
-
-export type ContentfulServiceSysContentType = {
-  sys?: Maybe<ContentfulServiceSysContentTypeSys>;
-};
-
-export type ContentfulServiceSysContentTypeFilterInput = {
-  sys?: Maybe<ContentfulServiceSysContentTypeSysFilterInput>;
-};
-
-export type ContentfulServiceSysContentTypeSys = {
-  type?: Maybe<Scalars['String']>;
-  linkType?: Maybe<Scalars['String']>;
-  id?: Maybe<Scalars['String']>;
-  contentful_id?: Maybe<Scalars['String']>;
-};
-
-export type ContentfulServiceSysContentTypeSysFilterInput = {
-  type?: Maybe<StringQueryOperatorInput>;
-  linkType?: Maybe<StringQueryOperatorInput>;
-  id?: Maybe<StringQueryOperatorInput>;
-  contentful_id?: Maybe<StringQueryOperatorInput>;
-};
-
-export type ContentfulServiceSysFilterInput = {
-  type?: Maybe<StringQueryOperatorInput>;
-  revision?: Maybe<IntQueryOperatorInput>;
-  contentType?: Maybe<ContentfulServiceSysContentTypeFilterInput>;
-};
-
 export type ContentfulSizes = {
   base64?: Maybe<Scalars['String']>;
   tracedSVG?: Maybe<Scalars['String']>;
@@ -5821,1569 +7372,6 @@ export type ContentfulSizesFilterInput = {
   srcWebp?: Maybe<StringQueryOperatorInput>;
   srcSetWebp?: Maybe<StringQueryOperatorInput>;
   sizes?: Maybe<StringQueryOperatorInput>;
-};
-
-export type ContentfulTagType = Node & {
-  id: Scalars['ID'];
-  parent?: Maybe<Node>;
-  children: Array<Node>;
-  internal: Internal;
-  name?: Maybe<ContentfulTagTypeNameTextNode>;
-  description?: Maybe<ContentfulTagTypeDescriptionTextNode>;
-  spaceId?: Maybe<Scalars['String']>;
-  contentful_id?: Maybe<Scalars['String']>;
-  createdAt?: Maybe<Scalars['Date']>;
-  updatedAt?: Maybe<Scalars['Date']>;
-  sys?: Maybe<ContentfulTagTypeSys>;
-  node_locale?: Maybe<Scalars['String']>;
-  childContentfulTagTypeNameTextNode?: Maybe<ContentfulTagTypeNameTextNode>;
-  childContentfulTagTypeDescriptionTextNode?: Maybe<ContentfulTagTypeDescriptionTextNode>;
-};
-
-
-export type ContentfulTagTypeCreatedAtArgs = {
-  formatString?: Maybe<Scalars['String']>;
-  fromNow?: Maybe<Scalars['Boolean']>;
-  difference?: Maybe<Scalars['String']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type ContentfulTagTypeUpdatedAtArgs = {
-  formatString?: Maybe<Scalars['String']>;
-  fromNow?: Maybe<Scalars['Boolean']>;
-  difference?: Maybe<Scalars['String']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type ContentfulTagTypeConnection = {
-  totalCount: Scalars['Int'];
-  edges: Array<ContentfulTagTypeEdge>;
-  nodes: Array<ContentfulTagType>;
-  pageInfo: PageInfo;
-  distinct: Array<Scalars['String']>;
-  group: Array<ContentfulTagTypeGroupConnection>;
-};
-
-
-export type ContentfulTagTypeConnectionDistinctArgs = {
-  field: ContentfulTagTypeFieldsEnum;
-};
-
-
-export type ContentfulTagTypeConnectionGroupArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  field: ContentfulTagTypeFieldsEnum;
-};
-
-export type ContentfulTagTypeDescriptionTextNode = Node & {
-  id: Scalars['ID'];
-  parent?: Maybe<Node>;
-  children: Array<Node>;
-  internal: Internal;
-  description?: Maybe<Scalars['String']>;
-  sys?: Maybe<ContentfulTagTypeDescriptionTextNodeSys>;
-  childMdx?: Maybe<Mdx>;
-};
-
-export type ContentfulTagTypeDescriptionTextNodeConnection = {
-  totalCount: Scalars['Int'];
-  edges: Array<ContentfulTagTypeDescriptionTextNodeEdge>;
-  nodes: Array<ContentfulTagTypeDescriptionTextNode>;
-  pageInfo: PageInfo;
-  distinct: Array<Scalars['String']>;
-  group: Array<ContentfulTagTypeDescriptionTextNodeGroupConnection>;
-};
-
-
-export type ContentfulTagTypeDescriptionTextNodeConnectionDistinctArgs = {
-  field: ContentfulTagTypeDescriptionTextNodeFieldsEnum;
-};
-
-
-export type ContentfulTagTypeDescriptionTextNodeConnectionGroupArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  field: ContentfulTagTypeDescriptionTextNodeFieldsEnum;
-};
-
-export type ContentfulTagTypeDescriptionTextNodeEdge = {
-  next?: Maybe<ContentfulTagTypeDescriptionTextNode>;
-  node: ContentfulTagTypeDescriptionTextNode;
-  previous?: Maybe<ContentfulTagTypeDescriptionTextNode>;
-};
-
-export type ContentfulTagTypeDescriptionTextNodeFieldsEnum = 
-  | 'id'
-  | 'parent___id'
-  | 'parent___parent___id'
-  | 'parent___parent___parent___id'
-  | 'parent___parent___parent___children'
-  | 'parent___parent___children'
-  | 'parent___parent___children___id'
-  | 'parent___parent___children___children'
-  | 'parent___parent___internal___content'
-  | 'parent___parent___internal___contentDigest'
-  | 'parent___parent___internal___description'
-  | 'parent___parent___internal___fieldOwners'
-  | 'parent___parent___internal___ignoreType'
-  | 'parent___parent___internal___mediaType'
-  | 'parent___parent___internal___owner'
-  | 'parent___parent___internal___type'
-  | 'parent___children'
-  | 'parent___children___id'
-  | 'parent___children___parent___id'
-  | 'parent___children___parent___children'
-  | 'parent___children___children'
-  | 'parent___children___children___id'
-  | 'parent___children___children___children'
-  | 'parent___children___internal___content'
-  | 'parent___children___internal___contentDigest'
-  | 'parent___children___internal___description'
-  | 'parent___children___internal___fieldOwners'
-  | 'parent___children___internal___ignoreType'
-  | 'parent___children___internal___mediaType'
-  | 'parent___children___internal___owner'
-  | 'parent___children___internal___type'
-  | 'parent___internal___content'
-  | 'parent___internal___contentDigest'
-  | 'parent___internal___description'
-  | 'parent___internal___fieldOwners'
-  | 'parent___internal___ignoreType'
-  | 'parent___internal___mediaType'
-  | 'parent___internal___owner'
-  | 'parent___internal___type'
-  | 'children'
-  | 'children___id'
-  | 'children___parent___id'
-  | 'children___parent___parent___id'
-  | 'children___parent___parent___children'
-  | 'children___parent___children'
-  | 'children___parent___children___id'
-  | 'children___parent___children___children'
-  | 'children___parent___internal___content'
-  | 'children___parent___internal___contentDigest'
-  | 'children___parent___internal___description'
-  | 'children___parent___internal___fieldOwners'
-  | 'children___parent___internal___ignoreType'
-  | 'children___parent___internal___mediaType'
-  | 'children___parent___internal___owner'
-  | 'children___parent___internal___type'
-  | 'children___children'
-  | 'children___children___id'
-  | 'children___children___parent___id'
-  | 'children___children___parent___children'
-  | 'children___children___children'
-  | 'children___children___children___id'
-  | 'children___children___children___children'
-  | 'children___children___internal___content'
-  | 'children___children___internal___contentDigest'
-  | 'children___children___internal___description'
-  | 'children___children___internal___fieldOwners'
-  | 'children___children___internal___ignoreType'
-  | 'children___children___internal___mediaType'
-  | 'children___children___internal___owner'
-  | 'children___children___internal___type'
-  | 'children___internal___content'
-  | 'children___internal___contentDigest'
-  | 'children___internal___description'
-  | 'children___internal___fieldOwners'
-  | 'children___internal___ignoreType'
-  | 'children___internal___mediaType'
-  | 'children___internal___owner'
-  | 'children___internal___type'
-  | 'internal___content'
-  | 'internal___contentDigest'
-  | 'internal___description'
-  | 'internal___fieldOwners'
-  | 'internal___ignoreType'
-  | 'internal___mediaType'
-  | 'internal___owner'
-  | 'internal___type'
-  | 'description'
-  | 'sys___type'
-  | 'childMdx___rawBody'
-  | 'childMdx___fileAbsolutePath'
-  | 'childMdx___frontmatter___title'
-  | 'childMdx___frontmatter___name'
-  | 'childMdx___frontmatter___category'
-  | 'childMdx___frontmatter___tags'
-  | 'childMdx___frontmatter___variant'
-  | 'childMdx___frontmatter___layout'
-  | 'childMdx___frontmatter___blockLayout'
-  | 'childMdx___slug'
-  | 'childMdx___body'
-  | 'childMdx___excerpt'
-  | 'childMdx___headings'
-  | 'childMdx___headings___value'
-  | 'childMdx___headings___depth'
-  | 'childMdx___html'
-  | 'childMdx___mdxAST'
-  | 'childMdx___tableOfContents'
-  | 'childMdx___timeToRead'
-  | 'childMdx___wordCount___paragraphs'
-  | 'childMdx___wordCount___sentences'
-  | 'childMdx___wordCount___words'
-  | 'childMdx___id'
-  | 'childMdx___parent___id'
-  | 'childMdx___parent___parent___id'
-  | 'childMdx___parent___parent___children'
-  | 'childMdx___parent___children'
-  | 'childMdx___parent___children___id'
-  | 'childMdx___parent___children___children'
-  | 'childMdx___parent___internal___content'
-  | 'childMdx___parent___internal___contentDigest'
-  | 'childMdx___parent___internal___description'
-  | 'childMdx___parent___internal___fieldOwners'
-  | 'childMdx___parent___internal___ignoreType'
-  | 'childMdx___parent___internal___mediaType'
-  | 'childMdx___parent___internal___owner'
-  | 'childMdx___parent___internal___type'
-  | 'childMdx___children'
-  | 'childMdx___children___id'
-  | 'childMdx___children___parent___id'
-  | 'childMdx___children___parent___children'
-  | 'childMdx___children___children'
-  | 'childMdx___children___children___id'
-  | 'childMdx___children___children___children'
-  | 'childMdx___children___internal___content'
-  | 'childMdx___children___internal___contentDigest'
-  | 'childMdx___children___internal___description'
-  | 'childMdx___children___internal___fieldOwners'
-  | 'childMdx___children___internal___ignoreType'
-  | 'childMdx___children___internal___mediaType'
-  | 'childMdx___children___internal___owner'
-  | 'childMdx___children___internal___type'
-  | 'childMdx___internal___content'
-  | 'childMdx___internal___contentDigest'
-  | 'childMdx___internal___description'
-  | 'childMdx___internal___fieldOwners'
-  | 'childMdx___internal___ignoreType'
-  | 'childMdx___internal___mediaType'
-  | 'childMdx___internal___owner'
-  | 'childMdx___internal___type';
-
-export type ContentfulTagTypeDescriptionTextNodeFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-  description?: Maybe<StringQueryOperatorInput>;
-  sys?: Maybe<ContentfulTagTypeDescriptionTextNodeSysFilterInput>;
-  childMdx?: Maybe<MdxFilterInput>;
-};
-
-export type ContentfulTagTypeDescriptionTextNodeGroupConnection = {
-  totalCount: Scalars['Int'];
-  edges: Array<ContentfulTagTypeDescriptionTextNodeEdge>;
-  nodes: Array<ContentfulTagTypeDescriptionTextNode>;
-  pageInfo: PageInfo;
-  field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
-};
-
-export type ContentfulTagTypeDescriptionTextNodeSortInput = {
-  fields?: Maybe<Array<Maybe<ContentfulTagTypeDescriptionTextNodeFieldsEnum>>>;
-  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
-};
-
-export type ContentfulTagTypeDescriptionTextNodeSys = {
-  type?: Maybe<Scalars['String']>;
-};
-
-export type ContentfulTagTypeDescriptionTextNodeSysFilterInput = {
-  type?: Maybe<StringQueryOperatorInput>;
-};
-
-export type ContentfulTagTypeEdge = {
-  next?: Maybe<ContentfulTagType>;
-  node: ContentfulTagType;
-  previous?: Maybe<ContentfulTagType>;
-};
-
-export type ContentfulTagTypeFieldsEnum = 
-  | 'id'
-  | 'parent___id'
-  | 'parent___parent___id'
-  | 'parent___parent___parent___id'
-  | 'parent___parent___parent___children'
-  | 'parent___parent___children'
-  | 'parent___parent___children___id'
-  | 'parent___parent___children___children'
-  | 'parent___parent___internal___content'
-  | 'parent___parent___internal___contentDigest'
-  | 'parent___parent___internal___description'
-  | 'parent___parent___internal___fieldOwners'
-  | 'parent___parent___internal___ignoreType'
-  | 'parent___parent___internal___mediaType'
-  | 'parent___parent___internal___owner'
-  | 'parent___parent___internal___type'
-  | 'parent___children'
-  | 'parent___children___id'
-  | 'parent___children___parent___id'
-  | 'parent___children___parent___children'
-  | 'parent___children___children'
-  | 'parent___children___children___id'
-  | 'parent___children___children___children'
-  | 'parent___children___internal___content'
-  | 'parent___children___internal___contentDigest'
-  | 'parent___children___internal___description'
-  | 'parent___children___internal___fieldOwners'
-  | 'parent___children___internal___ignoreType'
-  | 'parent___children___internal___mediaType'
-  | 'parent___children___internal___owner'
-  | 'parent___children___internal___type'
-  | 'parent___internal___content'
-  | 'parent___internal___contentDigest'
-  | 'parent___internal___description'
-  | 'parent___internal___fieldOwners'
-  | 'parent___internal___ignoreType'
-  | 'parent___internal___mediaType'
-  | 'parent___internal___owner'
-  | 'parent___internal___type'
-  | 'children'
-  | 'children___id'
-  | 'children___parent___id'
-  | 'children___parent___parent___id'
-  | 'children___parent___parent___children'
-  | 'children___parent___children'
-  | 'children___parent___children___id'
-  | 'children___parent___children___children'
-  | 'children___parent___internal___content'
-  | 'children___parent___internal___contentDigest'
-  | 'children___parent___internal___description'
-  | 'children___parent___internal___fieldOwners'
-  | 'children___parent___internal___ignoreType'
-  | 'children___parent___internal___mediaType'
-  | 'children___parent___internal___owner'
-  | 'children___parent___internal___type'
-  | 'children___children'
-  | 'children___children___id'
-  | 'children___children___parent___id'
-  | 'children___children___parent___children'
-  | 'children___children___children'
-  | 'children___children___children___id'
-  | 'children___children___children___children'
-  | 'children___children___internal___content'
-  | 'children___children___internal___contentDigest'
-  | 'children___children___internal___description'
-  | 'children___children___internal___fieldOwners'
-  | 'children___children___internal___ignoreType'
-  | 'children___children___internal___mediaType'
-  | 'children___children___internal___owner'
-  | 'children___children___internal___type'
-  | 'children___internal___content'
-  | 'children___internal___contentDigest'
-  | 'children___internal___description'
-  | 'children___internal___fieldOwners'
-  | 'children___internal___ignoreType'
-  | 'children___internal___mediaType'
-  | 'children___internal___owner'
-  | 'children___internal___type'
-  | 'internal___content'
-  | 'internal___contentDigest'
-  | 'internal___description'
-  | 'internal___fieldOwners'
-  | 'internal___ignoreType'
-  | 'internal___mediaType'
-  | 'internal___owner'
-  | 'internal___type'
-  | 'name___id'
-  | 'name___parent___id'
-  | 'name___parent___parent___id'
-  | 'name___parent___parent___children'
-  | 'name___parent___children'
-  | 'name___parent___children___id'
-  | 'name___parent___children___children'
-  | 'name___parent___internal___content'
-  | 'name___parent___internal___contentDigest'
-  | 'name___parent___internal___description'
-  | 'name___parent___internal___fieldOwners'
-  | 'name___parent___internal___ignoreType'
-  | 'name___parent___internal___mediaType'
-  | 'name___parent___internal___owner'
-  | 'name___parent___internal___type'
-  | 'name___children'
-  | 'name___children___id'
-  | 'name___children___parent___id'
-  | 'name___children___parent___children'
-  | 'name___children___children'
-  | 'name___children___children___id'
-  | 'name___children___children___children'
-  | 'name___children___internal___content'
-  | 'name___children___internal___contentDigest'
-  | 'name___children___internal___description'
-  | 'name___children___internal___fieldOwners'
-  | 'name___children___internal___ignoreType'
-  | 'name___children___internal___mediaType'
-  | 'name___children___internal___owner'
-  | 'name___children___internal___type'
-  | 'name___internal___content'
-  | 'name___internal___contentDigest'
-  | 'name___internal___description'
-  | 'name___internal___fieldOwners'
-  | 'name___internal___ignoreType'
-  | 'name___internal___mediaType'
-  | 'name___internal___owner'
-  | 'name___internal___type'
-  | 'name___name'
-  | 'name___sys___type'
-  | 'name___childMdx___rawBody'
-  | 'name___childMdx___fileAbsolutePath'
-  | 'name___childMdx___frontmatter___title'
-  | 'name___childMdx___frontmatter___name'
-  | 'name___childMdx___frontmatter___category'
-  | 'name___childMdx___frontmatter___tags'
-  | 'name___childMdx___frontmatter___variant'
-  | 'name___childMdx___frontmatter___layout'
-  | 'name___childMdx___frontmatter___blockLayout'
-  | 'name___childMdx___slug'
-  | 'name___childMdx___body'
-  | 'name___childMdx___excerpt'
-  | 'name___childMdx___headings'
-  | 'name___childMdx___headings___value'
-  | 'name___childMdx___headings___depth'
-  | 'name___childMdx___html'
-  | 'name___childMdx___mdxAST'
-  | 'name___childMdx___tableOfContents'
-  | 'name___childMdx___timeToRead'
-  | 'name___childMdx___wordCount___paragraphs'
-  | 'name___childMdx___wordCount___sentences'
-  | 'name___childMdx___wordCount___words'
-  | 'name___childMdx___id'
-  | 'name___childMdx___parent___id'
-  | 'name___childMdx___parent___children'
-  | 'name___childMdx___children'
-  | 'name___childMdx___children___id'
-  | 'name___childMdx___children___children'
-  | 'name___childMdx___internal___content'
-  | 'name___childMdx___internal___contentDigest'
-  | 'name___childMdx___internal___description'
-  | 'name___childMdx___internal___fieldOwners'
-  | 'name___childMdx___internal___ignoreType'
-  | 'name___childMdx___internal___mediaType'
-  | 'name___childMdx___internal___owner'
-  | 'name___childMdx___internal___type'
-  | 'description___id'
-  | 'description___parent___id'
-  | 'description___parent___parent___id'
-  | 'description___parent___parent___children'
-  | 'description___parent___children'
-  | 'description___parent___children___id'
-  | 'description___parent___children___children'
-  | 'description___parent___internal___content'
-  | 'description___parent___internal___contentDigest'
-  | 'description___parent___internal___description'
-  | 'description___parent___internal___fieldOwners'
-  | 'description___parent___internal___ignoreType'
-  | 'description___parent___internal___mediaType'
-  | 'description___parent___internal___owner'
-  | 'description___parent___internal___type'
-  | 'description___children'
-  | 'description___children___id'
-  | 'description___children___parent___id'
-  | 'description___children___parent___children'
-  | 'description___children___children'
-  | 'description___children___children___id'
-  | 'description___children___children___children'
-  | 'description___children___internal___content'
-  | 'description___children___internal___contentDigest'
-  | 'description___children___internal___description'
-  | 'description___children___internal___fieldOwners'
-  | 'description___children___internal___ignoreType'
-  | 'description___children___internal___mediaType'
-  | 'description___children___internal___owner'
-  | 'description___children___internal___type'
-  | 'description___internal___content'
-  | 'description___internal___contentDigest'
-  | 'description___internal___description'
-  | 'description___internal___fieldOwners'
-  | 'description___internal___ignoreType'
-  | 'description___internal___mediaType'
-  | 'description___internal___owner'
-  | 'description___internal___type'
-  | 'description___description'
-  | 'description___sys___type'
-  | 'description___childMdx___rawBody'
-  | 'description___childMdx___fileAbsolutePath'
-  | 'description___childMdx___frontmatter___title'
-  | 'description___childMdx___frontmatter___name'
-  | 'description___childMdx___frontmatter___category'
-  | 'description___childMdx___frontmatter___tags'
-  | 'description___childMdx___frontmatter___variant'
-  | 'description___childMdx___frontmatter___layout'
-  | 'description___childMdx___frontmatter___blockLayout'
-  | 'description___childMdx___slug'
-  | 'description___childMdx___body'
-  | 'description___childMdx___excerpt'
-  | 'description___childMdx___headings'
-  | 'description___childMdx___headings___value'
-  | 'description___childMdx___headings___depth'
-  | 'description___childMdx___html'
-  | 'description___childMdx___mdxAST'
-  | 'description___childMdx___tableOfContents'
-  | 'description___childMdx___timeToRead'
-  | 'description___childMdx___wordCount___paragraphs'
-  | 'description___childMdx___wordCount___sentences'
-  | 'description___childMdx___wordCount___words'
-  | 'description___childMdx___id'
-  | 'description___childMdx___parent___id'
-  | 'description___childMdx___parent___children'
-  | 'description___childMdx___children'
-  | 'description___childMdx___children___id'
-  | 'description___childMdx___children___children'
-  | 'description___childMdx___internal___content'
-  | 'description___childMdx___internal___contentDigest'
-  | 'description___childMdx___internal___description'
-  | 'description___childMdx___internal___fieldOwners'
-  | 'description___childMdx___internal___ignoreType'
-  | 'description___childMdx___internal___mediaType'
-  | 'description___childMdx___internal___owner'
-  | 'description___childMdx___internal___type'
-  | 'spaceId'
-  | 'contentful_id'
-  | 'createdAt'
-  | 'updatedAt'
-  | 'sys___type'
-  | 'sys___revision'
-  | 'sys___contentType___sys___type'
-  | 'sys___contentType___sys___linkType'
-  | 'sys___contentType___sys___id'
-  | 'sys___contentType___sys___contentful_id'
-  | 'node_locale'
-  | 'childContentfulTagTypeNameTextNode___id'
-  | 'childContentfulTagTypeNameTextNode___parent___id'
-  | 'childContentfulTagTypeNameTextNode___parent___parent___id'
-  | 'childContentfulTagTypeNameTextNode___parent___parent___children'
-  | 'childContentfulTagTypeNameTextNode___parent___children'
-  | 'childContentfulTagTypeNameTextNode___parent___children___id'
-  | 'childContentfulTagTypeNameTextNode___parent___children___children'
-  | 'childContentfulTagTypeNameTextNode___parent___internal___content'
-  | 'childContentfulTagTypeNameTextNode___parent___internal___contentDigest'
-  | 'childContentfulTagTypeNameTextNode___parent___internal___description'
-  | 'childContentfulTagTypeNameTextNode___parent___internal___fieldOwners'
-  | 'childContentfulTagTypeNameTextNode___parent___internal___ignoreType'
-  | 'childContentfulTagTypeNameTextNode___parent___internal___mediaType'
-  | 'childContentfulTagTypeNameTextNode___parent___internal___owner'
-  | 'childContentfulTagTypeNameTextNode___parent___internal___type'
-  | 'childContentfulTagTypeNameTextNode___children'
-  | 'childContentfulTagTypeNameTextNode___children___id'
-  | 'childContentfulTagTypeNameTextNode___children___parent___id'
-  | 'childContentfulTagTypeNameTextNode___children___parent___children'
-  | 'childContentfulTagTypeNameTextNode___children___children'
-  | 'childContentfulTagTypeNameTextNode___children___children___id'
-  | 'childContentfulTagTypeNameTextNode___children___children___children'
-  | 'childContentfulTagTypeNameTextNode___children___internal___content'
-  | 'childContentfulTagTypeNameTextNode___children___internal___contentDigest'
-  | 'childContentfulTagTypeNameTextNode___children___internal___description'
-  | 'childContentfulTagTypeNameTextNode___children___internal___fieldOwners'
-  | 'childContentfulTagTypeNameTextNode___children___internal___ignoreType'
-  | 'childContentfulTagTypeNameTextNode___children___internal___mediaType'
-  | 'childContentfulTagTypeNameTextNode___children___internal___owner'
-  | 'childContentfulTagTypeNameTextNode___children___internal___type'
-  | 'childContentfulTagTypeNameTextNode___internal___content'
-  | 'childContentfulTagTypeNameTextNode___internal___contentDigest'
-  | 'childContentfulTagTypeNameTextNode___internal___description'
-  | 'childContentfulTagTypeNameTextNode___internal___fieldOwners'
-  | 'childContentfulTagTypeNameTextNode___internal___ignoreType'
-  | 'childContentfulTagTypeNameTextNode___internal___mediaType'
-  | 'childContentfulTagTypeNameTextNode___internal___owner'
-  | 'childContentfulTagTypeNameTextNode___internal___type'
-  | 'childContentfulTagTypeNameTextNode___name'
-  | 'childContentfulTagTypeNameTextNode___sys___type'
-  | 'childContentfulTagTypeNameTextNode___childMdx___rawBody'
-  | 'childContentfulTagTypeNameTextNode___childMdx___fileAbsolutePath'
-  | 'childContentfulTagTypeNameTextNode___childMdx___frontmatter___title'
-  | 'childContentfulTagTypeNameTextNode___childMdx___frontmatter___name'
-  | 'childContentfulTagTypeNameTextNode___childMdx___frontmatter___category'
-  | 'childContentfulTagTypeNameTextNode___childMdx___frontmatter___tags'
-  | 'childContentfulTagTypeNameTextNode___childMdx___frontmatter___variant'
-  | 'childContentfulTagTypeNameTextNode___childMdx___frontmatter___layout'
-  | 'childContentfulTagTypeNameTextNode___childMdx___frontmatter___blockLayout'
-  | 'childContentfulTagTypeNameTextNode___childMdx___slug'
-  | 'childContentfulTagTypeNameTextNode___childMdx___body'
-  | 'childContentfulTagTypeNameTextNode___childMdx___excerpt'
-  | 'childContentfulTagTypeNameTextNode___childMdx___headings'
-  | 'childContentfulTagTypeNameTextNode___childMdx___headings___value'
-  | 'childContentfulTagTypeNameTextNode___childMdx___headings___depth'
-  | 'childContentfulTagTypeNameTextNode___childMdx___html'
-  | 'childContentfulTagTypeNameTextNode___childMdx___mdxAST'
-  | 'childContentfulTagTypeNameTextNode___childMdx___tableOfContents'
-  | 'childContentfulTagTypeNameTextNode___childMdx___timeToRead'
-  | 'childContentfulTagTypeNameTextNode___childMdx___wordCount___paragraphs'
-  | 'childContentfulTagTypeNameTextNode___childMdx___wordCount___sentences'
-  | 'childContentfulTagTypeNameTextNode___childMdx___wordCount___words'
-  | 'childContentfulTagTypeNameTextNode___childMdx___id'
-  | 'childContentfulTagTypeNameTextNode___childMdx___parent___id'
-  | 'childContentfulTagTypeNameTextNode___childMdx___parent___children'
-  | 'childContentfulTagTypeNameTextNode___childMdx___children'
-  | 'childContentfulTagTypeNameTextNode___childMdx___children___id'
-  | 'childContentfulTagTypeNameTextNode___childMdx___children___children'
-  | 'childContentfulTagTypeNameTextNode___childMdx___internal___content'
-  | 'childContentfulTagTypeNameTextNode___childMdx___internal___contentDigest'
-  | 'childContentfulTagTypeNameTextNode___childMdx___internal___description'
-  | 'childContentfulTagTypeNameTextNode___childMdx___internal___fieldOwners'
-  | 'childContentfulTagTypeNameTextNode___childMdx___internal___ignoreType'
-  | 'childContentfulTagTypeNameTextNode___childMdx___internal___mediaType'
-  | 'childContentfulTagTypeNameTextNode___childMdx___internal___owner'
-  | 'childContentfulTagTypeNameTextNode___childMdx___internal___type'
-  | 'childContentfulTagTypeDescriptionTextNode___id'
-  | 'childContentfulTagTypeDescriptionTextNode___parent___id'
-  | 'childContentfulTagTypeDescriptionTextNode___parent___parent___id'
-  | 'childContentfulTagTypeDescriptionTextNode___parent___parent___children'
-  | 'childContentfulTagTypeDescriptionTextNode___parent___children'
-  | 'childContentfulTagTypeDescriptionTextNode___parent___children___id'
-  | 'childContentfulTagTypeDescriptionTextNode___parent___children___children'
-  | 'childContentfulTagTypeDescriptionTextNode___parent___internal___content'
-  | 'childContentfulTagTypeDescriptionTextNode___parent___internal___contentDigest'
-  | 'childContentfulTagTypeDescriptionTextNode___parent___internal___description'
-  | 'childContentfulTagTypeDescriptionTextNode___parent___internal___fieldOwners'
-  | 'childContentfulTagTypeDescriptionTextNode___parent___internal___ignoreType'
-  | 'childContentfulTagTypeDescriptionTextNode___parent___internal___mediaType'
-  | 'childContentfulTagTypeDescriptionTextNode___parent___internal___owner'
-  | 'childContentfulTagTypeDescriptionTextNode___parent___internal___type'
-  | 'childContentfulTagTypeDescriptionTextNode___children'
-  | 'childContentfulTagTypeDescriptionTextNode___children___id'
-  | 'childContentfulTagTypeDescriptionTextNode___children___parent___id'
-  | 'childContentfulTagTypeDescriptionTextNode___children___parent___children'
-  | 'childContentfulTagTypeDescriptionTextNode___children___children'
-  | 'childContentfulTagTypeDescriptionTextNode___children___children___id'
-  | 'childContentfulTagTypeDescriptionTextNode___children___children___children'
-  | 'childContentfulTagTypeDescriptionTextNode___children___internal___content'
-  | 'childContentfulTagTypeDescriptionTextNode___children___internal___contentDigest'
-  | 'childContentfulTagTypeDescriptionTextNode___children___internal___description'
-  | 'childContentfulTagTypeDescriptionTextNode___children___internal___fieldOwners'
-  | 'childContentfulTagTypeDescriptionTextNode___children___internal___ignoreType'
-  | 'childContentfulTagTypeDescriptionTextNode___children___internal___mediaType'
-  | 'childContentfulTagTypeDescriptionTextNode___children___internal___owner'
-  | 'childContentfulTagTypeDescriptionTextNode___children___internal___type'
-  | 'childContentfulTagTypeDescriptionTextNode___internal___content'
-  | 'childContentfulTagTypeDescriptionTextNode___internal___contentDigest'
-  | 'childContentfulTagTypeDescriptionTextNode___internal___description'
-  | 'childContentfulTagTypeDescriptionTextNode___internal___fieldOwners'
-  | 'childContentfulTagTypeDescriptionTextNode___internal___ignoreType'
-  | 'childContentfulTagTypeDescriptionTextNode___internal___mediaType'
-  | 'childContentfulTagTypeDescriptionTextNode___internal___owner'
-  | 'childContentfulTagTypeDescriptionTextNode___internal___type'
-  | 'childContentfulTagTypeDescriptionTextNode___description'
-  | 'childContentfulTagTypeDescriptionTextNode___sys___type'
-  | 'childContentfulTagTypeDescriptionTextNode___childMdx___rawBody'
-  | 'childContentfulTagTypeDescriptionTextNode___childMdx___fileAbsolutePath'
-  | 'childContentfulTagTypeDescriptionTextNode___childMdx___frontmatter___title'
-  | 'childContentfulTagTypeDescriptionTextNode___childMdx___frontmatter___name'
-  | 'childContentfulTagTypeDescriptionTextNode___childMdx___frontmatter___category'
-  | 'childContentfulTagTypeDescriptionTextNode___childMdx___frontmatter___tags'
-  | 'childContentfulTagTypeDescriptionTextNode___childMdx___frontmatter___variant'
-  | 'childContentfulTagTypeDescriptionTextNode___childMdx___frontmatter___layout'
-  | 'childContentfulTagTypeDescriptionTextNode___childMdx___frontmatter___blockLayout'
-  | 'childContentfulTagTypeDescriptionTextNode___childMdx___slug'
-  | 'childContentfulTagTypeDescriptionTextNode___childMdx___body'
-  | 'childContentfulTagTypeDescriptionTextNode___childMdx___excerpt'
-  | 'childContentfulTagTypeDescriptionTextNode___childMdx___headings'
-  | 'childContentfulTagTypeDescriptionTextNode___childMdx___headings___value'
-  | 'childContentfulTagTypeDescriptionTextNode___childMdx___headings___depth'
-  | 'childContentfulTagTypeDescriptionTextNode___childMdx___html'
-  | 'childContentfulTagTypeDescriptionTextNode___childMdx___mdxAST'
-  | 'childContentfulTagTypeDescriptionTextNode___childMdx___tableOfContents'
-  | 'childContentfulTagTypeDescriptionTextNode___childMdx___timeToRead'
-  | 'childContentfulTagTypeDescriptionTextNode___childMdx___wordCount___paragraphs'
-  | 'childContentfulTagTypeDescriptionTextNode___childMdx___wordCount___sentences'
-  | 'childContentfulTagTypeDescriptionTextNode___childMdx___wordCount___words'
-  | 'childContentfulTagTypeDescriptionTextNode___childMdx___id'
-  | 'childContentfulTagTypeDescriptionTextNode___childMdx___parent___id'
-  | 'childContentfulTagTypeDescriptionTextNode___childMdx___parent___children'
-  | 'childContentfulTagTypeDescriptionTextNode___childMdx___children'
-  | 'childContentfulTagTypeDescriptionTextNode___childMdx___children___id'
-  | 'childContentfulTagTypeDescriptionTextNode___childMdx___children___children'
-  | 'childContentfulTagTypeDescriptionTextNode___childMdx___internal___content'
-  | 'childContentfulTagTypeDescriptionTextNode___childMdx___internal___contentDigest'
-  | 'childContentfulTagTypeDescriptionTextNode___childMdx___internal___description'
-  | 'childContentfulTagTypeDescriptionTextNode___childMdx___internal___fieldOwners'
-  | 'childContentfulTagTypeDescriptionTextNode___childMdx___internal___ignoreType'
-  | 'childContentfulTagTypeDescriptionTextNode___childMdx___internal___mediaType'
-  | 'childContentfulTagTypeDescriptionTextNode___childMdx___internal___owner'
-  | 'childContentfulTagTypeDescriptionTextNode___childMdx___internal___type';
-
-export type ContentfulTagTypeFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-  name?: Maybe<ContentfulTagTypeNameTextNodeFilterInput>;
-  description?: Maybe<ContentfulTagTypeDescriptionTextNodeFilterInput>;
-  spaceId?: Maybe<StringQueryOperatorInput>;
-  contentful_id?: Maybe<StringQueryOperatorInput>;
-  createdAt?: Maybe<DateQueryOperatorInput>;
-  updatedAt?: Maybe<DateQueryOperatorInput>;
-  sys?: Maybe<ContentfulTagTypeSysFilterInput>;
-  node_locale?: Maybe<StringQueryOperatorInput>;
-  childContentfulTagTypeNameTextNode?: Maybe<ContentfulTagTypeNameTextNodeFilterInput>;
-  childContentfulTagTypeDescriptionTextNode?: Maybe<ContentfulTagTypeDescriptionTextNodeFilterInput>;
-};
-
-export type ContentfulTagTypeGroupConnection = {
-  totalCount: Scalars['Int'];
-  edges: Array<ContentfulTagTypeEdge>;
-  nodes: Array<ContentfulTagType>;
-  pageInfo: PageInfo;
-  field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
-};
-
-export type ContentfulTagTypeNameTextNode = Node & {
-  id: Scalars['ID'];
-  parent?: Maybe<Node>;
-  children: Array<Node>;
-  internal: Internal;
-  name?: Maybe<Scalars['String']>;
-  sys?: Maybe<ContentfulTagTypeNameTextNodeSys>;
-  childMdx?: Maybe<Mdx>;
-};
-
-export type ContentfulTagTypeNameTextNodeConnection = {
-  totalCount: Scalars['Int'];
-  edges: Array<ContentfulTagTypeNameTextNodeEdge>;
-  nodes: Array<ContentfulTagTypeNameTextNode>;
-  pageInfo: PageInfo;
-  distinct: Array<Scalars['String']>;
-  group: Array<ContentfulTagTypeNameTextNodeGroupConnection>;
-};
-
-
-export type ContentfulTagTypeNameTextNodeConnectionDistinctArgs = {
-  field: ContentfulTagTypeNameTextNodeFieldsEnum;
-};
-
-
-export type ContentfulTagTypeNameTextNodeConnectionGroupArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  field: ContentfulTagTypeNameTextNodeFieldsEnum;
-};
-
-export type ContentfulTagTypeNameTextNodeEdge = {
-  next?: Maybe<ContentfulTagTypeNameTextNode>;
-  node: ContentfulTagTypeNameTextNode;
-  previous?: Maybe<ContentfulTagTypeNameTextNode>;
-};
-
-export type ContentfulTagTypeNameTextNodeFieldsEnum = 
-  | 'id'
-  | 'parent___id'
-  | 'parent___parent___id'
-  | 'parent___parent___parent___id'
-  | 'parent___parent___parent___children'
-  | 'parent___parent___children'
-  | 'parent___parent___children___id'
-  | 'parent___parent___children___children'
-  | 'parent___parent___internal___content'
-  | 'parent___parent___internal___contentDigest'
-  | 'parent___parent___internal___description'
-  | 'parent___parent___internal___fieldOwners'
-  | 'parent___parent___internal___ignoreType'
-  | 'parent___parent___internal___mediaType'
-  | 'parent___parent___internal___owner'
-  | 'parent___parent___internal___type'
-  | 'parent___children'
-  | 'parent___children___id'
-  | 'parent___children___parent___id'
-  | 'parent___children___parent___children'
-  | 'parent___children___children'
-  | 'parent___children___children___id'
-  | 'parent___children___children___children'
-  | 'parent___children___internal___content'
-  | 'parent___children___internal___contentDigest'
-  | 'parent___children___internal___description'
-  | 'parent___children___internal___fieldOwners'
-  | 'parent___children___internal___ignoreType'
-  | 'parent___children___internal___mediaType'
-  | 'parent___children___internal___owner'
-  | 'parent___children___internal___type'
-  | 'parent___internal___content'
-  | 'parent___internal___contentDigest'
-  | 'parent___internal___description'
-  | 'parent___internal___fieldOwners'
-  | 'parent___internal___ignoreType'
-  | 'parent___internal___mediaType'
-  | 'parent___internal___owner'
-  | 'parent___internal___type'
-  | 'children'
-  | 'children___id'
-  | 'children___parent___id'
-  | 'children___parent___parent___id'
-  | 'children___parent___parent___children'
-  | 'children___parent___children'
-  | 'children___parent___children___id'
-  | 'children___parent___children___children'
-  | 'children___parent___internal___content'
-  | 'children___parent___internal___contentDigest'
-  | 'children___parent___internal___description'
-  | 'children___parent___internal___fieldOwners'
-  | 'children___parent___internal___ignoreType'
-  | 'children___parent___internal___mediaType'
-  | 'children___parent___internal___owner'
-  | 'children___parent___internal___type'
-  | 'children___children'
-  | 'children___children___id'
-  | 'children___children___parent___id'
-  | 'children___children___parent___children'
-  | 'children___children___children'
-  | 'children___children___children___id'
-  | 'children___children___children___children'
-  | 'children___children___internal___content'
-  | 'children___children___internal___contentDigest'
-  | 'children___children___internal___description'
-  | 'children___children___internal___fieldOwners'
-  | 'children___children___internal___ignoreType'
-  | 'children___children___internal___mediaType'
-  | 'children___children___internal___owner'
-  | 'children___children___internal___type'
-  | 'children___internal___content'
-  | 'children___internal___contentDigest'
-  | 'children___internal___description'
-  | 'children___internal___fieldOwners'
-  | 'children___internal___ignoreType'
-  | 'children___internal___mediaType'
-  | 'children___internal___owner'
-  | 'children___internal___type'
-  | 'internal___content'
-  | 'internal___contentDigest'
-  | 'internal___description'
-  | 'internal___fieldOwners'
-  | 'internal___ignoreType'
-  | 'internal___mediaType'
-  | 'internal___owner'
-  | 'internal___type'
-  | 'name'
-  | 'sys___type'
-  | 'childMdx___rawBody'
-  | 'childMdx___fileAbsolutePath'
-  | 'childMdx___frontmatter___title'
-  | 'childMdx___frontmatter___name'
-  | 'childMdx___frontmatter___category'
-  | 'childMdx___frontmatter___tags'
-  | 'childMdx___frontmatter___variant'
-  | 'childMdx___frontmatter___layout'
-  | 'childMdx___frontmatter___blockLayout'
-  | 'childMdx___slug'
-  | 'childMdx___body'
-  | 'childMdx___excerpt'
-  | 'childMdx___headings'
-  | 'childMdx___headings___value'
-  | 'childMdx___headings___depth'
-  | 'childMdx___html'
-  | 'childMdx___mdxAST'
-  | 'childMdx___tableOfContents'
-  | 'childMdx___timeToRead'
-  | 'childMdx___wordCount___paragraphs'
-  | 'childMdx___wordCount___sentences'
-  | 'childMdx___wordCount___words'
-  | 'childMdx___id'
-  | 'childMdx___parent___id'
-  | 'childMdx___parent___parent___id'
-  | 'childMdx___parent___parent___children'
-  | 'childMdx___parent___children'
-  | 'childMdx___parent___children___id'
-  | 'childMdx___parent___children___children'
-  | 'childMdx___parent___internal___content'
-  | 'childMdx___parent___internal___contentDigest'
-  | 'childMdx___parent___internal___description'
-  | 'childMdx___parent___internal___fieldOwners'
-  | 'childMdx___parent___internal___ignoreType'
-  | 'childMdx___parent___internal___mediaType'
-  | 'childMdx___parent___internal___owner'
-  | 'childMdx___parent___internal___type'
-  | 'childMdx___children'
-  | 'childMdx___children___id'
-  | 'childMdx___children___parent___id'
-  | 'childMdx___children___parent___children'
-  | 'childMdx___children___children'
-  | 'childMdx___children___children___id'
-  | 'childMdx___children___children___children'
-  | 'childMdx___children___internal___content'
-  | 'childMdx___children___internal___contentDigest'
-  | 'childMdx___children___internal___description'
-  | 'childMdx___children___internal___fieldOwners'
-  | 'childMdx___children___internal___ignoreType'
-  | 'childMdx___children___internal___mediaType'
-  | 'childMdx___children___internal___owner'
-  | 'childMdx___children___internal___type'
-  | 'childMdx___internal___content'
-  | 'childMdx___internal___contentDigest'
-  | 'childMdx___internal___description'
-  | 'childMdx___internal___fieldOwners'
-  | 'childMdx___internal___ignoreType'
-  | 'childMdx___internal___mediaType'
-  | 'childMdx___internal___owner'
-  | 'childMdx___internal___type';
-
-export type ContentfulTagTypeNameTextNodeFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-  name?: Maybe<StringQueryOperatorInput>;
-  sys?: Maybe<ContentfulTagTypeNameTextNodeSysFilterInput>;
-  childMdx?: Maybe<MdxFilterInput>;
-};
-
-export type ContentfulTagTypeNameTextNodeGroupConnection = {
-  totalCount: Scalars['Int'];
-  edges: Array<ContentfulTagTypeNameTextNodeEdge>;
-  nodes: Array<ContentfulTagTypeNameTextNode>;
-  pageInfo: PageInfo;
-  field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
-};
-
-export type ContentfulTagTypeNameTextNodeSortInput = {
-  fields?: Maybe<Array<Maybe<ContentfulTagTypeNameTextNodeFieldsEnum>>>;
-  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
-};
-
-export type ContentfulTagTypeNameTextNodeSys = {
-  type?: Maybe<Scalars['String']>;
-};
-
-export type ContentfulTagTypeNameTextNodeSysFilterInput = {
-  type?: Maybe<StringQueryOperatorInput>;
-};
-
-export type ContentfulTagTypeSortInput = {
-  fields?: Maybe<Array<Maybe<ContentfulTagTypeFieldsEnum>>>;
-  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
-};
-
-export type ContentfulTagTypeSys = {
-  type?: Maybe<Scalars['String']>;
-  revision?: Maybe<Scalars['Int']>;
-  contentType?: Maybe<ContentfulTagTypeSysContentType>;
-};
-
-export type ContentfulTagTypeSysContentType = {
-  sys?: Maybe<ContentfulTagTypeSysContentTypeSys>;
-};
-
-export type ContentfulTagTypeSysContentTypeFilterInput = {
-  sys?: Maybe<ContentfulTagTypeSysContentTypeSysFilterInput>;
-};
-
-export type ContentfulTagTypeSysContentTypeSys = {
-  type?: Maybe<Scalars['String']>;
-  linkType?: Maybe<Scalars['String']>;
-  id?: Maybe<Scalars['String']>;
-  contentful_id?: Maybe<Scalars['String']>;
-};
-
-export type ContentfulTagTypeSysContentTypeSysFilterInput = {
-  type?: Maybe<StringQueryOperatorInput>;
-  linkType?: Maybe<StringQueryOperatorInput>;
-  id?: Maybe<StringQueryOperatorInput>;
-  contentful_id?: Maybe<StringQueryOperatorInput>;
-};
-
-export type ContentfulTagTypeSysFilterInput = {
-  type?: Maybe<StringQueryOperatorInput>;
-  revision?: Maybe<IntQueryOperatorInput>;
-  contentType?: Maybe<ContentfulTagTypeSysContentTypeFilterInput>;
-};
-
-export type ContentfulTechnology = Node & {
-  id: Scalars['ID'];
-  parent?: Maybe<Node>;
-  children: Array<Node>;
-  internal: Internal;
-  name?: Maybe<Scalars['String']>;
-  summary?: Maybe<Scalars['String']>;
-  description?: Maybe<ContentfulTechnologyDescriptionTextNode>;
-  spaceId?: Maybe<Scalars['String']>;
-  contentful_id?: Maybe<Scalars['String']>;
-  createdAt?: Maybe<Scalars['Date']>;
-  updatedAt?: Maybe<Scalars['Date']>;
-  sys?: Maybe<ContentfulTechnologySys>;
-  node_locale?: Maybe<Scalars['String']>;
-  childContentfulTechnologyDescriptionTextNode?: Maybe<ContentfulTechnologyDescriptionTextNode>;
-};
-
-
-export type ContentfulTechnologyCreatedAtArgs = {
-  formatString?: Maybe<Scalars['String']>;
-  fromNow?: Maybe<Scalars['Boolean']>;
-  difference?: Maybe<Scalars['String']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type ContentfulTechnologyUpdatedAtArgs = {
-  formatString?: Maybe<Scalars['String']>;
-  fromNow?: Maybe<Scalars['Boolean']>;
-  difference?: Maybe<Scalars['String']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type ContentfulTechnologyConnection = {
-  totalCount: Scalars['Int'];
-  edges: Array<ContentfulTechnologyEdge>;
-  nodes: Array<ContentfulTechnology>;
-  pageInfo: PageInfo;
-  distinct: Array<Scalars['String']>;
-  group: Array<ContentfulTechnologyGroupConnection>;
-};
-
-
-export type ContentfulTechnologyConnectionDistinctArgs = {
-  field: ContentfulTechnologyFieldsEnum;
-};
-
-
-export type ContentfulTechnologyConnectionGroupArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  field: ContentfulTechnologyFieldsEnum;
-};
-
-export type ContentfulTechnologyDescriptionTextNode = Node & {
-  id: Scalars['ID'];
-  parent?: Maybe<Node>;
-  children: Array<Node>;
-  internal: Internal;
-  description?: Maybe<Scalars['String']>;
-  sys?: Maybe<ContentfulTechnologyDescriptionTextNodeSys>;
-  childMdx?: Maybe<Mdx>;
-};
-
-export type ContentfulTechnologyDescriptionTextNodeConnection = {
-  totalCount: Scalars['Int'];
-  edges: Array<ContentfulTechnologyDescriptionTextNodeEdge>;
-  nodes: Array<ContentfulTechnologyDescriptionTextNode>;
-  pageInfo: PageInfo;
-  distinct: Array<Scalars['String']>;
-  group: Array<ContentfulTechnologyDescriptionTextNodeGroupConnection>;
-};
-
-
-export type ContentfulTechnologyDescriptionTextNodeConnectionDistinctArgs = {
-  field: ContentfulTechnologyDescriptionTextNodeFieldsEnum;
-};
-
-
-export type ContentfulTechnologyDescriptionTextNodeConnectionGroupArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  field: ContentfulTechnologyDescriptionTextNodeFieldsEnum;
-};
-
-export type ContentfulTechnologyDescriptionTextNodeEdge = {
-  next?: Maybe<ContentfulTechnologyDescriptionTextNode>;
-  node: ContentfulTechnologyDescriptionTextNode;
-  previous?: Maybe<ContentfulTechnologyDescriptionTextNode>;
-};
-
-export type ContentfulTechnologyDescriptionTextNodeFieldsEnum = 
-  | 'id'
-  | 'parent___id'
-  | 'parent___parent___id'
-  | 'parent___parent___parent___id'
-  | 'parent___parent___parent___children'
-  | 'parent___parent___children'
-  | 'parent___parent___children___id'
-  | 'parent___parent___children___children'
-  | 'parent___parent___internal___content'
-  | 'parent___parent___internal___contentDigest'
-  | 'parent___parent___internal___description'
-  | 'parent___parent___internal___fieldOwners'
-  | 'parent___parent___internal___ignoreType'
-  | 'parent___parent___internal___mediaType'
-  | 'parent___parent___internal___owner'
-  | 'parent___parent___internal___type'
-  | 'parent___children'
-  | 'parent___children___id'
-  | 'parent___children___parent___id'
-  | 'parent___children___parent___children'
-  | 'parent___children___children'
-  | 'parent___children___children___id'
-  | 'parent___children___children___children'
-  | 'parent___children___internal___content'
-  | 'parent___children___internal___contentDigest'
-  | 'parent___children___internal___description'
-  | 'parent___children___internal___fieldOwners'
-  | 'parent___children___internal___ignoreType'
-  | 'parent___children___internal___mediaType'
-  | 'parent___children___internal___owner'
-  | 'parent___children___internal___type'
-  | 'parent___internal___content'
-  | 'parent___internal___contentDigest'
-  | 'parent___internal___description'
-  | 'parent___internal___fieldOwners'
-  | 'parent___internal___ignoreType'
-  | 'parent___internal___mediaType'
-  | 'parent___internal___owner'
-  | 'parent___internal___type'
-  | 'children'
-  | 'children___id'
-  | 'children___parent___id'
-  | 'children___parent___parent___id'
-  | 'children___parent___parent___children'
-  | 'children___parent___children'
-  | 'children___parent___children___id'
-  | 'children___parent___children___children'
-  | 'children___parent___internal___content'
-  | 'children___parent___internal___contentDigest'
-  | 'children___parent___internal___description'
-  | 'children___parent___internal___fieldOwners'
-  | 'children___parent___internal___ignoreType'
-  | 'children___parent___internal___mediaType'
-  | 'children___parent___internal___owner'
-  | 'children___parent___internal___type'
-  | 'children___children'
-  | 'children___children___id'
-  | 'children___children___parent___id'
-  | 'children___children___parent___children'
-  | 'children___children___children'
-  | 'children___children___children___id'
-  | 'children___children___children___children'
-  | 'children___children___internal___content'
-  | 'children___children___internal___contentDigest'
-  | 'children___children___internal___description'
-  | 'children___children___internal___fieldOwners'
-  | 'children___children___internal___ignoreType'
-  | 'children___children___internal___mediaType'
-  | 'children___children___internal___owner'
-  | 'children___children___internal___type'
-  | 'children___internal___content'
-  | 'children___internal___contentDigest'
-  | 'children___internal___description'
-  | 'children___internal___fieldOwners'
-  | 'children___internal___ignoreType'
-  | 'children___internal___mediaType'
-  | 'children___internal___owner'
-  | 'children___internal___type'
-  | 'internal___content'
-  | 'internal___contentDigest'
-  | 'internal___description'
-  | 'internal___fieldOwners'
-  | 'internal___ignoreType'
-  | 'internal___mediaType'
-  | 'internal___owner'
-  | 'internal___type'
-  | 'description'
-  | 'sys___type'
-  | 'childMdx___rawBody'
-  | 'childMdx___fileAbsolutePath'
-  | 'childMdx___frontmatter___title'
-  | 'childMdx___frontmatter___name'
-  | 'childMdx___frontmatter___category'
-  | 'childMdx___frontmatter___tags'
-  | 'childMdx___frontmatter___variant'
-  | 'childMdx___frontmatter___layout'
-  | 'childMdx___frontmatter___blockLayout'
-  | 'childMdx___slug'
-  | 'childMdx___body'
-  | 'childMdx___excerpt'
-  | 'childMdx___headings'
-  | 'childMdx___headings___value'
-  | 'childMdx___headings___depth'
-  | 'childMdx___html'
-  | 'childMdx___mdxAST'
-  | 'childMdx___tableOfContents'
-  | 'childMdx___timeToRead'
-  | 'childMdx___wordCount___paragraphs'
-  | 'childMdx___wordCount___sentences'
-  | 'childMdx___wordCount___words'
-  | 'childMdx___id'
-  | 'childMdx___parent___id'
-  | 'childMdx___parent___parent___id'
-  | 'childMdx___parent___parent___children'
-  | 'childMdx___parent___children'
-  | 'childMdx___parent___children___id'
-  | 'childMdx___parent___children___children'
-  | 'childMdx___parent___internal___content'
-  | 'childMdx___parent___internal___contentDigest'
-  | 'childMdx___parent___internal___description'
-  | 'childMdx___parent___internal___fieldOwners'
-  | 'childMdx___parent___internal___ignoreType'
-  | 'childMdx___parent___internal___mediaType'
-  | 'childMdx___parent___internal___owner'
-  | 'childMdx___parent___internal___type'
-  | 'childMdx___children'
-  | 'childMdx___children___id'
-  | 'childMdx___children___parent___id'
-  | 'childMdx___children___parent___children'
-  | 'childMdx___children___children'
-  | 'childMdx___children___children___id'
-  | 'childMdx___children___children___children'
-  | 'childMdx___children___internal___content'
-  | 'childMdx___children___internal___contentDigest'
-  | 'childMdx___children___internal___description'
-  | 'childMdx___children___internal___fieldOwners'
-  | 'childMdx___children___internal___ignoreType'
-  | 'childMdx___children___internal___mediaType'
-  | 'childMdx___children___internal___owner'
-  | 'childMdx___children___internal___type'
-  | 'childMdx___internal___content'
-  | 'childMdx___internal___contentDigest'
-  | 'childMdx___internal___description'
-  | 'childMdx___internal___fieldOwners'
-  | 'childMdx___internal___ignoreType'
-  | 'childMdx___internal___mediaType'
-  | 'childMdx___internal___owner'
-  | 'childMdx___internal___type';
-
-export type ContentfulTechnologyDescriptionTextNodeFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-  description?: Maybe<StringQueryOperatorInput>;
-  sys?: Maybe<ContentfulTechnologyDescriptionTextNodeSysFilterInput>;
-  childMdx?: Maybe<MdxFilterInput>;
-};
-
-export type ContentfulTechnologyDescriptionTextNodeGroupConnection = {
-  totalCount: Scalars['Int'];
-  edges: Array<ContentfulTechnologyDescriptionTextNodeEdge>;
-  nodes: Array<ContentfulTechnologyDescriptionTextNode>;
-  pageInfo: PageInfo;
-  field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
-};
-
-export type ContentfulTechnologyDescriptionTextNodeSortInput = {
-  fields?: Maybe<Array<Maybe<ContentfulTechnologyDescriptionTextNodeFieldsEnum>>>;
-  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
-};
-
-export type ContentfulTechnologyDescriptionTextNodeSys = {
-  type?: Maybe<Scalars['String']>;
-};
-
-export type ContentfulTechnologyDescriptionTextNodeSysFilterInput = {
-  type?: Maybe<StringQueryOperatorInput>;
-};
-
-export type ContentfulTechnologyEdge = {
-  next?: Maybe<ContentfulTechnology>;
-  node: ContentfulTechnology;
-  previous?: Maybe<ContentfulTechnology>;
-};
-
-export type ContentfulTechnologyFieldsEnum = 
-  | 'id'
-  | 'parent___id'
-  | 'parent___parent___id'
-  | 'parent___parent___parent___id'
-  | 'parent___parent___parent___children'
-  | 'parent___parent___children'
-  | 'parent___parent___children___id'
-  | 'parent___parent___children___children'
-  | 'parent___parent___internal___content'
-  | 'parent___parent___internal___contentDigest'
-  | 'parent___parent___internal___description'
-  | 'parent___parent___internal___fieldOwners'
-  | 'parent___parent___internal___ignoreType'
-  | 'parent___parent___internal___mediaType'
-  | 'parent___parent___internal___owner'
-  | 'parent___parent___internal___type'
-  | 'parent___children'
-  | 'parent___children___id'
-  | 'parent___children___parent___id'
-  | 'parent___children___parent___children'
-  | 'parent___children___children'
-  | 'parent___children___children___id'
-  | 'parent___children___children___children'
-  | 'parent___children___internal___content'
-  | 'parent___children___internal___contentDigest'
-  | 'parent___children___internal___description'
-  | 'parent___children___internal___fieldOwners'
-  | 'parent___children___internal___ignoreType'
-  | 'parent___children___internal___mediaType'
-  | 'parent___children___internal___owner'
-  | 'parent___children___internal___type'
-  | 'parent___internal___content'
-  | 'parent___internal___contentDigest'
-  | 'parent___internal___description'
-  | 'parent___internal___fieldOwners'
-  | 'parent___internal___ignoreType'
-  | 'parent___internal___mediaType'
-  | 'parent___internal___owner'
-  | 'parent___internal___type'
-  | 'children'
-  | 'children___id'
-  | 'children___parent___id'
-  | 'children___parent___parent___id'
-  | 'children___parent___parent___children'
-  | 'children___parent___children'
-  | 'children___parent___children___id'
-  | 'children___parent___children___children'
-  | 'children___parent___internal___content'
-  | 'children___parent___internal___contentDigest'
-  | 'children___parent___internal___description'
-  | 'children___parent___internal___fieldOwners'
-  | 'children___parent___internal___ignoreType'
-  | 'children___parent___internal___mediaType'
-  | 'children___parent___internal___owner'
-  | 'children___parent___internal___type'
-  | 'children___children'
-  | 'children___children___id'
-  | 'children___children___parent___id'
-  | 'children___children___parent___children'
-  | 'children___children___children'
-  | 'children___children___children___id'
-  | 'children___children___children___children'
-  | 'children___children___internal___content'
-  | 'children___children___internal___contentDigest'
-  | 'children___children___internal___description'
-  | 'children___children___internal___fieldOwners'
-  | 'children___children___internal___ignoreType'
-  | 'children___children___internal___mediaType'
-  | 'children___children___internal___owner'
-  | 'children___children___internal___type'
-  | 'children___internal___content'
-  | 'children___internal___contentDigest'
-  | 'children___internal___description'
-  | 'children___internal___fieldOwners'
-  | 'children___internal___ignoreType'
-  | 'children___internal___mediaType'
-  | 'children___internal___owner'
-  | 'children___internal___type'
-  | 'internal___content'
-  | 'internal___contentDigest'
-  | 'internal___description'
-  | 'internal___fieldOwners'
-  | 'internal___ignoreType'
-  | 'internal___mediaType'
-  | 'internal___owner'
-  | 'internal___type'
-  | 'name'
-  | 'summary'
-  | 'description___id'
-  | 'description___parent___id'
-  | 'description___parent___parent___id'
-  | 'description___parent___parent___children'
-  | 'description___parent___children'
-  | 'description___parent___children___id'
-  | 'description___parent___children___children'
-  | 'description___parent___internal___content'
-  | 'description___parent___internal___contentDigest'
-  | 'description___parent___internal___description'
-  | 'description___parent___internal___fieldOwners'
-  | 'description___parent___internal___ignoreType'
-  | 'description___parent___internal___mediaType'
-  | 'description___parent___internal___owner'
-  | 'description___parent___internal___type'
-  | 'description___children'
-  | 'description___children___id'
-  | 'description___children___parent___id'
-  | 'description___children___parent___children'
-  | 'description___children___children'
-  | 'description___children___children___id'
-  | 'description___children___children___children'
-  | 'description___children___internal___content'
-  | 'description___children___internal___contentDigest'
-  | 'description___children___internal___description'
-  | 'description___children___internal___fieldOwners'
-  | 'description___children___internal___ignoreType'
-  | 'description___children___internal___mediaType'
-  | 'description___children___internal___owner'
-  | 'description___children___internal___type'
-  | 'description___internal___content'
-  | 'description___internal___contentDigest'
-  | 'description___internal___description'
-  | 'description___internal___fieldOwners'
-  | 'description___internal___ignoreType'
-  | 'description___internal___mediaType'
-  | 'description___internal___owner'
-  | 'description___internal___type'
-  | 'description___description'
-  | 'description___sys___type'
-  | 'description___childMdx___rawBody'
-  | 'description___childMdx___fileAbsolutePath'
-  | 'description___childMdx___frontmatter___title'
-  | 'description___childMdx___frontmatter___name'
-  | 'description___childMdx___frontmatter___category'
-  | 'description___childMdx___frontmatter___tags'
-  | 'description___childMdx___frontmatter___variant'
-  | 'description___childMdx___frontmatter___layout'
-  | 'description___childMdx___frontmatter___blockLayout'
-  | 'description___childMdx___slug'
-  | 'description___childMdx___body'
-  | 'description___childMdx___excerpt'
-  | 'description___childMdx___headings'
-  | 'description___childMdx___headings___value'
-  | 'description___childMdx___headings___depth'
-  | 'description___childMdx___html'
-  | 'description___childMdx___mdxAST'
-  | 'description___childMdx___tableOfContents'
-  | 'description___childMdx___timeToRead'
-  | 'description___childMdx___wordCount___paragraphs'
-  | 'description___childMdx___wordCount___sentences'
-  | 'description___childMdx___wordCount___words'
-  | 'description___childMdx___id'
-  | 'description___childMdx___parent___id'
-  | 'description___childMdx___parent___children'
-  | 'description___childMdx___children'
-  | 'description___childMdx___children___id'
-  | 'description___childMdx___children___children'
-  | 'description___childMdx___internal___content'
-  | 'description___childMdx___internal___contentDigest'
-  | 'description___childMdx___internal___description'
-  | 'description___childMdx___internal___fieldOwners'
-  | 'description___childMdx___internal___ignoreType'
-  | 'description___childMdx___internal___mediaType'
-  | 'description___childMdx___internal___owner'
-  | 'description___childMdx___internal___type'
-  | 'spaceId'
-  | 'contentful_id'
-  | 'createdAt'
-  | 'updatedAt'
-  | 'sys___type'
-  | 'sys___revision'
-  | 'sys___contentType___sys___type'
-  | 'sys___contentType___sys___linkType'
-  | 'sys___contentType___sys___id'
-  | 'sys___contentType___sys___contentful_id'
-  | 'node_locale'
-  | 'childContentfulTechnologyDescriptionTextNode___id'
-  | 'childContentfulTechnologyDescriptionTextNode___parent___id'
-  | 'childContentfulTechnologyDescriptionTextNode___parent___parent___id'
-  | 'childContentfulTechnologyDescriptionTextNode___parent___parent___children'
-  | 'childContentfulTechnologyDescriptionTextNode___parent___children'
-  | 'childContentfulTechnologyDescriptionTextNode___parent___children___id'
-  | 'childContentfulTechnologyDescriptionTextNode___parent___children___children'
-  | 'childContentfulTechnologyDescriptionTextNode___parent___internal___content'
-  | 'childContentfulTechnologyDescriptionTextNode___parent___internal___contentDigest'
-  | 'childContentfulTechnologyDescriptionTextNode___parent___internal___description'
-  | 'childContentfulTechnologyDescriptionTextNode___parent___internal___fieldOwners'
-  | 'childContentfulTechnologyDescriptionTextNode___parent___internal___ignoreType'
-  | 'childContentfulTechnologyDescriptionTextNode___parent___internal___mediaType'
-  | 'childContentfulTechnologyDescriptionTextNode___parent___internal___owner'
-  | 'childContentfulTechnologyDescriptionTextNode___parent___internal___type'
-  | 'childContentfulTechnologyDescriptionTextNode___children'
-  | 'childContentfulTechnologyDescriptionTextNode___children___id'
-  | 'childContentfulTechnologyDescriptionTextNode___children___parent___id'
-  | 'childContentfulTechnologyDescriptionTextNode___children___parent___children'
-  | 'childContentfulTechnologyDescriptionTextNode___children___children'
-  | 'childContentfulTechnologyDescriptionTextNode___children___children___id'
-  | 'childContentfulTechnologyDescriptionTextNode___children___children___children'
-  | 'childContentfulTechnologyDescriptionTextNode___children___internal___content'
-  | 'childContentfulTechnologyDescriptionTextNode___children___internal___contentDigest'
-  | 'childContentfulTechnologyDescriptionTextNode___children___internal___description'
-  | 'childContentfulTechnologyDescriptionTextNode___children___internal___fieldOwners'
-  | 'childContentfulTechnologyDescriptionTextNode___children___internal___ignoreType'
-  | 'childContentfulTechnologyDescriptionTextNode___children___internal___mediaType'
-  | 'childContentfulTechnologyDescriptionTextNode___children___internal___owner'
-  | 'childContentfulTechnologyDescriptionTextNode___children___internal___type'
-  | 'childContentfulTechnologyDescriptionTextNode___internal___content'
-  | 'childContentfulTechnologyDescriptionTextNode___internal___contentDigest'
-  | 'childContentfulTechnologyDescriptionTextNode___internal___description'
-  | 'childContentfulTechnologyDescriptionTextNode___internal___fieldOwners'
-  | 'childContentfulTechnologyDescriptionTextNode___internal___ignoreType'
-  | 'childContentfulTechnologyDescriptionTextNode___internal___mediaType'
-  | 'childContentfulTechnologyDescriptionTextNode___internal___owner'
-  | 'childContentfulTechnologyDescriptionTextNode___internal___type'
-  | 'childContentfulTechnologyDescriptionTextNode___description'
-  | 'childContentfulTechnologyDescriptionTextNode___sys___type'
-  | 'childContentfulTechnologyDescriptionTextNode___childMdx___rawBody'
-  | 'childContentfulTechnologyDescriptionTextNode___childMdx___fileAbsolutePath'
-  | 'childContentfulTechnologyDescriptionTextNode___childMdx___frontmatter___title'
-  | 'childContentfulTechnologyDescriptionTextNode___childMdx___frontmatter___name'
-  | 'childContentfulTechnologyDescriptionTextNode___childMdx___frontmatter___category'
-  | 'childContentfulTechnologyDescriptionTextNode___childMdx___frontmatter___tags'
-  | 'childContentfulTechnologyDescriptionTextNode___childMdx___frontmatter___variant'
-  | 'childContentfulTechnologyDescriptionTextNode___childMdx___frontmatter___layout'
-  | 'childContentfulTechnologyDescriptionTextNode___childMdx___frontmatter___blockLayout'
-  | 'childContentfulTechnologyDescriptionTextNode___childMdx___slug'
-  | 'childContentfulTechnologyDescriptionTextNode___childMdx___body'
-  | 'childContentfulTechnologyDescriptionTextNode___childMdx___excerpt'
-  | 'childContentfulTechnologyDescriptionTextNode___childMdx___headings'
-  | 'childContentfulTechnologyDescriptionTextNode___childMdx___headings___value'
-  | 'childContentfulTechnologyDescriptionTextNode___childMdx___headings___depth'
-  | 'childContentfulTechnologyDescriptionTextNode___childMdx___html'
-  | 'childContentfulTechnologyDescriptionTextNode___childMdx___mdxAST'
-  | 'childContentfulTechnologyDescriptionTextNode___childMdx___tableOfContents'
-  | 'childContentfulTechnologyDescriptionTextNode___childMdx___timeToRead'
-  | 'childContentfulTechnologyDescriptionTextNode___childMdx___wordCount___paragraphs'
-  | 'childContentfulTechnologyDescriptionTextNode___childMdx___wordCount___sentences'
-  | 'childContentfulTechnologyDescriptionTextNode___childMdx___wordCount___words'
-  | 'childContentfulTechnologyDescriptionTextNode___childMdx___id'
-  | 'childContentfulTechnologyDescriptionTextNode___childMdx___parent___id'
-  | 'childContentfulTechnologyDescriptionTextNode___childMdx___parent___children'
-  | 'childContentfulTechnologyDescriptionTextNode___childMdx___children'
-  | 'childContentfulTechnologyDescriptionTextNode___childMdx___children___id'
-  | 'childContentfulTechnologyDescriptionTextNode___childMdx___children___children'
-  | 'childContentfulTechnologyDescriptionTextNode___childMdx___internal___content'
-  | 'childContentfulTechnologyDescriptionTextNode___childMdx___internal___contentDigest'
-  | 'childContentfulTechnologyDescriptionTextNode___childMdx___internal___description'
-  | 'childContentfulTechnologyDescriptionTextNode___childMdx___internal___fieldOwners'
-  | 'childContentfulTechnologyDescriptionTextNode___childMdx___internal___ignoreType'
-  | 'childContentfulTechnologyDescriptionTextNode___childMdx___internal___mediaType'
-  | 'childContentfulTechnologyDescriptionTextNode___childMdx___internal___owner'
-  | 'childContentfulTechnologyDescriptionTextNode___childMdx___internal___type';
-
-export type ContentfulTechnologyFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-  name?: Maybe<StringQueryOperatorInput>;
-  summary?: Maybe<StringQueryOperatorInput>;
-  description?: Maybe<ContentfulTechnologyDescriptionTextNodeFilterInput>;
-  spaceId?: Maybe<StringQueryOperatorInput>;
-  contentful_id?: Maybe<StringQueryOperatorInput>;
-  createdAt?: Maybe<DateQueryOperatorInput>;
-  updatedAt?: Maybe<DateQueryOperatorInput>;
-  sys?: Maybe<ContentfulTechnologySysFilterInput>;
-  node_locale?: Maybe<StringQueryOperatorInput>;
-  childContentfulTechnologyDescriptionTextNode?: Maybe<ContentfulTechnologyDescriptionTextNodeFilterInput>;
-};
-
-export type ContentfulTechnologyGroupConnection = {
-  totalCount: Scalars['Int'];
-  edges: Array<ContentfulTechnologyEdge>;
-  nodes: Array<ContentfulTechnology>;
-  pageInfo: PageInfo;
-  field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
-};
-
-export type ContentfulTechnologySortInput = {
-  fields?: Maybe<Array<Maybe<ContentfulTechnologyFieldsEnum>>>;
-  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
-};
-
-export type ContentfulTechnologySys = {
-  type?: Maybe<Scalars['String']>;
-  revision?: Maybe<Scalars['Int']>;
-  contentType?: Maybe<ContentfulTechnologySysContentType>;
-};
-
-export type ContentfulTechnologySysContentType = {
-  sys?: Maybe<ContentfulTechnologySysContentTypeSys>;
-};
-
-export type ContentfulTechnologySysContentTypeFilterInput = {
-  sys?: Maybe<ContentfulTechnologySysContentTypeSysFilterInput>;
-};
-
-export type ContentfulTechnologySysContentTypeSys = {
-  type?: Maybe<Scalars['String']>;
-  linkType?: Maybe<Scalars['String']>;
-  id?: Maybe<Scalars['String']>;
-  contentful_id?: Maybe<Scalars['String']>;
-};
-
-export type ContentfulTechnologySysContentTypeSysFilterInput = {
-  type?: Maybe<StringQueryOperatorInput>;
-  linkType?: Maybe<StringQueryOperatorInput>;
-  id?: Maybe<StringQueryOperatorInput>;
-  contentful_id?: Maybe<StringQueryOperatorInput>;
-};
-
-export type ContentfulTechnologySysFilterInput = {
-  type?: Maybe<StringQueryOperatorInput>;
-  revision?: Maybe<IntQueryOperatorInput>;
-  contentType?: Maybe<ContentfulTechnologySysContentTypeFilterInput>;
 };
 
 
@@ -7742,12 +7730,18 @@ export type File = Node & {
   blocks?: Maybe<Scalars['Int']>;
   /** Copy file to static directory and return public url to it */
   publicURL?: Maybe<Scalars['String']>;
+  /** Returns all children nodes filtered by type ImageSharp */
+  childrenImageSharp?: Maybe<Array<Maybe<ImageSharp>>>;
+  /** Returns the first child node of type ImageSharp or null if there are no children of given type on this node */
   childImageSharp?: Maybe<ImageSharp>;
+  /** Returns all children nodes filtered by type Mdx */
+  childrenMdx?: Maybe<Array<Maybe<Mdx>>>;
+  /** Returns the first child node of type Mdx or null if there are no children of given type on this node */
+  childMdx?: Maybe<Mdx>;
   id: Scalars['ID'];
   parent?: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
-  childMdx?: Maybe<Mdx>;
 };
 
 
@@ -7868,6 +7862,99 @@ export type FileFieldsEnum =
   | 'blksize'
   | 'blocks'
   | 'publicURL'
+  | 'childrenImageSharp'
+  | 'childrenImageSharp___fixed___base64'
+  | 'childrenImageSharp___fixed___tracedSVG'
+  | 'childrenImageSharp___fixed___aspectRatio'
+  | 'childrenImageSharp___fixed___width'
+  | 'childrenImageSharp___fixed___height'
+  | 'childrenImageSharp___fixed___src'
+  | 'childrenImageSharp___fixed___srcSet'
+  | 'childrenImageSharp___fixed___srcWebp'
+  | 'childrenImageSharp___fixed___srcSetWebp'
+  | 'childrenImageSharp___fixed___originalName'
+  | 'childrenImageSharp___resolutions___base64'
+  | 'childrenImageSharp___resolutions___tracedSVG'
+  | 'childrenImageSharp___resolutions___aspectRatio'
+  | 'childrenImageSharp___resolutions___width'
+  | 'childrenImageSharp___resolutions___height'
+  | 'childrenImageSharp___resolutions___src'
+  | 'childrenImageSharp___resolutions___srcSet'
+  | 'childrenImageSharp___resolutions___srcWebp'
+  | 'childrenImageSharp___resolutions___srcSetWebp'
+  | 'childrenImageSharp___resolutions___originalName'
+  | 'childrenImageSharp___fluid___base64'
+  | 'childrenImageSharp___fluid___tracedSVG'
+  | 'childrenImageSharp___fluid___aspectRatio'
+  | 'childrenImageSharp___fluid___src'
+  | 'childrenImageSharp___fluid___srcSet'
+  | 'childrenImageSharp___fluid___srcWebp'
+  | 'childrenImageSharp___fluid___srcSetWebp'
+  | 'childrenImageSharp___fluid___sizes'
+  | 'childrenImageSharp___fluid___originalImg'
+  | 'childrenImageSharp___fluid___originalName'
+  | 'childrenImageSharp___fluid___presentationWidth'
+  | 'childrenImageSharp___fluid___presentationHeight'
+  | 'childrenImageSharp___sizes___base64'
+  | 'childrenImageSharp___sizes___tracedSVG'
+  | 'childrenImageSharp___sizes___aspectRatio'
+  | 'childrenImageSharp___sizes___src'
+  | 'childrenImageSharp___sizes___srcSet'
+  | 'childrenImageSharp___sizes___srcWebp'
+  | 'childrenImageSharp___sizes___srcSetWebp'
+  | 'childrenImageSharp___sizes___sizes'
+  | 'childrenImageSharp___sizes___originalImg'
+  | 'childrenImageSharp___sizes___originalName'
+  | 'childrenImageSharp___sizes___presentationWidth'
+  | 'childrenImageSharp___sizes___presentationHeight'
+  | 'childrenImageSharp___gatsbyImage___imageData'
+  | 'childrenImageSharp___original___width'
+  | 'childrenImageSharp___original___height'
+  | 'childrenImageSharp___original___src'
+  | 'childrenImageSharp___resize___src'
+  | 'childrenImageSharp___resize___tracedSVG'
+  | 'childrenImageSharp___resize___width'
+  | 'childrenImageSharp___resize___height'
+  | 'childrenImageSharp___resize___aspectRatio'
+  | 'childrenImageSharp___resize___originalName'
+  | 'childrenImageSharp___id'
+  | 'childrenImageSharp___parent___id'
+  | 'childrenImageSharp___parent___parent___id'
+  | 'childrenImageSharp___parent___parent___children'
+  | 'childrenImageSharp___parent___children'
+  | 'childrenImageSharp___parent___children___id'
+  | 'childrenImageSharp___parent___children___children'
+  | 'childrenImageSharp___parent___internal___content'
+  | 'childrenImageSharp___parent___internal___contentDigest'
+  | 'childrenImageSharp___parent___internal___description'
+  | 'childrenImageSharp___parent___internal___fieldOwners'
+  | 'childrenImageSharp___parent___internal___ignoreType'
+  | 'childrenImageSharp___parent___internal___mediaType'
+  | 'childrenImageSharp___parent___internal___owner'
+  | 'childrenImageSharp___parent___internal___type'
+  | 'childrenImageSharp___children'
+  | 'childrenImageSharp___children___id'
+  | 'childrenImageSharp___children___parent___id'
+  | 'childrenImageSharp___children___parent___children'
+  | 'childrenImageSharp___children___children'
+  | 'childrenImageSharp___children___children___id'
+  | 'childrenImageSharp___children___children___children'
+  | 'childrenImageSharp___children___internal___content'
+  | 'childrenImageSharp___children___internal___contentDigest'
+  | 'childrenImageSharp___children___internal___description'
+  | 'childrenImageSharp___children___internal___fieldOwners'
+  | 'childrenImageSharp___children___internal___ignoreType'
+  | 'childrenImageSharp___children___internal___mediaType'
+  | 'childrenImageSharp___children___internal___owner'
+  | 'childrenImageSharp___children___internal___type'
+  | 'childrenImageSharp___internal___content'
+  | 'childrenImageSharp___internal___contentDigest'
+  | 'childrenImageSharp___internal___description'
+  | 'childrenImageSharp___internal___fieldOwners'
+  | 'childrenImageSharp___internal___ignoreType'
+  | 'childrenImageSharp___internal___mediaType'
+  | 'childrenImageSharp___internal___owner'
+  | 'childrenImageSharp___internal___type'
   | 'childImageSharp___fixed___base64'
   | 'childImageSharp___fixed___tracedSVG'
   | 'childImageSharp___fixed___aspectRatio'
@@ -7960,6 +8047,123 @@ export type FileFieldsEnum =
   | 'childImageSharp___internal___mediaType'
   | 'childImageSharp___internal___owner'
   | 'childImageSharp___internal___type'
+  | 'childrenMdx'
+  | 'childrenMdx___rawBody'
+  | 'childrenMdx___fileAbsolutePath'
+  | 'childrenMdx___frontmatter___title'
+  | 'childrenMdx___frontmatter___name'
+  | 'childrenMdx___frontmatter___description'
+  | 'childrenMdx___frontmatter___tags'
+  | 'childrenMdx___frontmatter___category'
+  | 'childrenMdx___slug'
+  | 'childrenMdx___body'
+  | 'childrenMdx___excerpt'
+  | 'childrenMdx___headings'
+  | 'childrenMdx___headings___value'
+  | 'childrenMdx___headings___depth'
+  | 'childrenMdx___html'
+  | 'childrenMdx___mdxAST'
+  | 'childrenMdx___tableOfContents'
+  | 'childrenMdx___timeToRead'
+  | 'childrenMdx___wordCount___paragraphs'
+  | 'childrenMdx___wordCount___sentences'
+  | 'childrenMdx___wordCount___words'
+  | 'childrenMdx___id'
+  | 'childrenMdx___parent___id'
+  | 'childrenMdx___parent___parent___id'
+  | 'childrenMdx___parent___parent___children'
+  | 'childrenMdx___parent___children'
+  | 'childrenMdx___parent___children___id'
+  | 'childrenMdx___parent___children___children'
+  | 'childrenMdx___parent___internal___content'
+  | 'childrenMdx___parent___internal___contentDigest'
+  | 'childrenMdx___parent___internal___description'
+  | 'childrenMdx___parent___internal___fieldOwners'
+  | 'childrenMdx___parent___internal___ignoreType'
+  | 'childrenMdx___parent___internal___mediaType'
+  | 'childrenMdx___parent___internal___owner'
+  | 'childrenMdx___parent___internal___type'
+  | 'childrenMdx___children'
+  | 'childrenMdx___children___id'
+  | 'childrenMdx___children___parent___id'
+  | 'childrenMdx___children___parent___children'
+  | 'childrenMdx___children___children'
+  | 'childrenMdx___children___children___id'
+  | 'childrenMdx___children___children___children'
+  | 'childrenMdx___children___internal___content'
+  | 'childrenMdx___children___internal___contentDigest'
+  | 'childrenMdx___children___internal___description'
+  | 'childrenMdx___children___internal___fieldOwners'
+  | 'childrenMdx___children___internal___ignoreType'
+  | 'childrenMdx___children___internal___mediaType'
+  | 'childrenMdx___children___internal___owner'
+  | 'childrenMdx___children___internal___type'
+  | 'childrenMdx___internal___content'
+  | 'childrenMdx___internal___contentDigest'
+  | 'childrenMdx___internal___description'
+  | 'childrenMdx___internal___fieldOwners'
+  | 'childrenMdx___internal___ignoreType'
+  | 'childrenMdx___internal___mediaType'
+  | 'childrenMdx___internal___owner'
+  | 'childrenMdx___internal___type'
+  | 'childMdx___rawBody'
+  | 'childMdx___fileAbsolutePath'
+  | 'childMdx___frontmatter___title'
+  | 'childMdx___frontmatter___name'
+  | 'childMdx___frontmatter___description'
+  | 'childMdx___frontmatter___tags'
+  | 'childMdx___frontmatter___category'
+  | 'childMdx___slug'
+  | 'childMdx___body'
+  | 'childMdx___excerpt'
+  | 'childMdx___headings'
+  | 'childMdx___headings___value'
+  | 'childMdx___headings___depth'
+  | 'childMdx___html'
+  | 'childMdx___mdxAST'
+  | 'childMdx___tableOfContents'
+  | 'childMdx___timeToRead'
+  | 'childMdx___wordCount___paragraphs'
+  | 'childMdx___wordCount___sentences'
+  | 'childMdx___wordCount___words'
+  | 'childMdx___id'
+  | 'childMdx___parent___id'
+  | 'childMdx___parent___parent___id'
+  | 'childMdx___parent___parent___children'
+  | 'childMdx___parent___children'
+  | 'childMdx___parent___children___id'
+  | 'childMdx___parent___children___children'
+  | 'childMdx___parent___internal___content'
+  | 'childMdx___parent___internal___contentDigest'
+  | 'childMdx___parent___internal___description'
+  | 'childMdx___parent___internal___fieldOwners'
+  | 'childMdx___parent___internal___ignoreType'
+  | 'childMdx___parent___internal___mediaType'
+  | 'childMdx___parent___internal___owner'
+  | 'childMdx___parent___internal___type'
+  | 'childMdx___children'
+  | 'childMdx___children___id'
+  | 'childMdx___children___parent___id'
+  | 'childMdx___children___parent___children'
+  | 'childMdx___children___children'
+  | 'childMdx___children___children___id'
+  | 'childMdx___children___children___children'
+  | 'childMdx___children___internal___content'
+  | 'childMdx___children___internal___contentDigest'
+  | 'childMdx___children___internal___description'
+  | 'childMdx___children___internal___fieldOwners'
+  | 'childMdx___children___internal___ignoreType'
+  | 'childMdx___children___internal___mediaType'
+  | 'childMdx___children___internal___owner'
+  | 'childMdx___children___internal___type'
+  | 'childMdx___internal___content'
+  | 'childMdx___internal___contentDigest'
+  | 'childMdx___internal___description'
+  | 'childMdx___internal___fieldOwners'
+  | 'childMdx___internal___ignoreType'
+  | 'childMdx___internal___mediaType'
+  | 'childMdx___internal___owner'
+  | 'childMdx___internal___type'
   | 'id'
   | 'parent___id'
   | 'parent___parent___id'
@@ -8045,67 +8249,7 @@ export type FileFieldsEnum =
   | 'internal___ignoreType'
   | 'internal___mediaType'
   | 'internal___owner'
-  | 'internal___type'
-  | 'childMdx___rawBody'
-  | 'childMdx___fileAbsolutePath'
-  | 'childMdx___frontmatter___title'
-  | 'childMdx___frontmatter___name'
-  | 'childMdx___frontmatter___category'
-  | 'childMdx___frontmatter___tags'
-  | 'childMdx___frontmatter___variant'
-  | 'childMdx___frontmatter___layout'
-  | 'childMdx___frontmatter___blockLayout'
-  | 'childMdx___slug'
-  | 'childMdx___body'
-  | 'childMdx___excerpt'
-  | 'childMdx___headings'
-  | 'childMdx___headings___value'
-  | 'childMdx___headings___depth'
-  | 'childMdx___html'
-  | 'childMdx___mdxAST'
-  | 'childMdx___tableOfContents'
-  | 'childMdx___timeToRead'
-  | 'childMdx___wordCount___paragraphs'
-  | 'childMdx___wordCount___sentences'
-  | 'childMdx___wordCount___words'
-  | 'childMdx___id'
-  | 'childMdx___parent___id'
-  | 'childMdx___parent___parent___id'
-  | 'childMdx___parent___parent___children'
-  | 'childMdx___parent___children'
-  | 'childMdx___parent___children___id'
-  | 'childMdx___parent___children___children'
-  | 'childMdx___parent___internal___content'
-  | 'childMdx___parent___internal___contentDigest'
-  | 'childMdx___parent___internal___description'
-  | 'childMdx___parent___internal___fieldOwners'
-  | 'childMdx___parent___internal___ignoreType'
-  | 'childMdx___parent___internal___mediaType'
-  | 'childMdx___parent___internal___owner'
-  | 'childMdx___parent___internal___type'
-  | 'childMdx___children'
-  | 'childMdx___children___id'
-  | 'childMdx___children___parent___id'
-  | 'childMdx___children___parent___children'
-  | 'childMdx___children___children'
-  | 'childMdx___children___children___id'
-  | 'childMdx___children___children___children'
-  | 'childMdx___children___internal___content'
-  | 'childMdx___children___internal___contentDigest'
-  | 'childMdx___children___internal___description'
-  | 'childMdx___children___internal___fieldOwners'
-  | 'childMdx___children___internal___ignoreType'
-  | 'childMdx___children___internal___mediaType'
-  | 'childMdx___children___internal___owner'
-  | 'childMdx___children___internal___type'
-  | 'childMdx___internal___content'
-  | 'childMdx___internal___contentDigest'
-  | 'childMdx___internal___description'
-  | 'childMdx___internal___fieldOwners'
-  | 'childMdx___internal___ignoreType'
-  | 'childMdx___internal___mediaType'
-  | 'childMdx___internal___owner'
-  | 'childMdx___internal___type';
+  | 'internal___type';
 
 export type FileFilterInput = {
   sourceInstanceName?: Maybe<StringQueryOperatorInput>;
@@ -8142,12 +8286,14 @@ export type FileFilterInput = {
   blksize?: Maybe<IntQueryOperatorInput>;
   blocks?: Maybe<IntQueryOperatorInput>;
   publicURL?: Maybe<StringQueryOperatorInput>;
+  childrenImageSharp?: Maybe<ImageSharpFilterListInput>;
   childImageSharp?: Maybe<ImageSharpFilterInput>;
+  childrenMdx?: Maybe<MdxFilterListInput>;
+  childMdx?: Maybe<MdxFilterInput>;
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
-  childMdx?: Maybe<MdxFilterInput>;
 };
 
 export type FileGroupConnection = {
@@ -8585,6 +8731,10 @@ export type ImageSharpFilterInput = {
   internal?: Maybe<InternalFilterInput>;
 };
 
+export type ImageSharpFilterListInput = {
+  elemMatch?: Maybe<ImageSharpFilterInput>;
+};
+
 export type ImageSharpFixed = {
   base64?: Maybe<Scalars['String']>;
   tracedSVG?: Maybe<Scalars['String']>;
@@ -8859,11 +9009,9 @@ export type MdxFieldsEnum =
   | 'fileAbsolutePath'
   | 'frontmatter___title'
   | 'frontmatter___name'
-  | 'frontmatter___category'
+  | 'frontmatter___description'
   | 'frontmatter___tags'
-  | 'frontmatter___variant'
-  | 'frontmatter___layout'
-  | 'frontmatter___blockLayout'
+  | 'frontmatter___category'
   | 'slug'
   | 'body'
   | 'excerpt'
@@ -8983,24 +9131,24 @@ export type MdxFilterInput = {
   internal?: Maybe<InternalFilterInput>;
 };
 
+export type MdxFilterListInput = {
+  elemMatch?: Maybe<MdxFilterInput>;
+};
+
 export type MdxFrontmatter = {
   title: Scalars['String'];
   name?: Maybe<Scalars['String']>;
-  category?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
   tags?: Maybe<Array<Maybe<Scalars['String']>>>;
-  variant?: Maybe<Scalars['String']>;
-  layout?: Maybe<Scalars['String']>;
-  blockLayout?: Maybe<Scalars['String']>;
+  category?: Maybe<Scalars['String']>;
 };
 
 export type MdxFrontmatterFilterInput = {
   title?: Maybe<StringQueryOperatorInput>;
   name?: Maybe<StringQueryOperatorInput>;
-  category?: Maybe<StringQueryOperatorInput>;
+  description?: Maybe<StringQueryOperatorInput>;
   tags?: Maybe<StringQueryOperatorInput>;
-  variant?: Maybe<StringQueryOperatorInput>;
-  layout?: Maybe<StringQueryOperatorInput>;
-  blockLayout?: Maybe<StringQueryOperatorInput>;
+  category?: Maybe<StringQueryOperatorInput>;
 };
 
 export type MdxGroupConnection = {
@@ -9107,46 +9255,26 @@ export type Query = {
   allMdx: MdxConnection;
   contentfulAsset?: Maybe<ContentfulAsset>;
   allContentfulAsset: ContentfulAssetConnection;
-  contentfulBlockTextTextNode?: Maybe<ContentfulBlockTextTextNode>;
-  allContentfulBlockTextTextNode: ContentfulBlockTextTextNodeConnection;
-  contentfulBlock?: Maybe<ContentfulBlock>;
-  allContentfulBlock: ContentfulBlockConnection;
   contentfulSection?: Maybe<ContentfulSection>;
   allContentfulSection: ContentfulSectionConnection;
-  contentfulCompanyEmployeeBioTextNode?: Maybe<ContentfulCompanyEmployeeBioTextNode>;
-  allContentfulCompanyEmployeeBioTextNode: ContentfulCompanyEmployeeBioTextNodeConnection;
-  contentfulCompanyEmployee?: Maybe<ContentfulCompanyEmployee>;
-  allContentfulCompanyEmployee: ContentfulCompanyEmployeeConnection;
-  contentfulTechnologyDescriptionTextNode?: Maybe<ContentfulTechnologyDescriptionTextNode>;
-  allContentfulTechnologyDescriptionTextNode: ContentfulTechnologyDescriptionTextNodeConnection;
-  contentfulTechnology?: Maybe<ContentfulTechnology>;
-  allContentfulTechnology: ContentfulTechnologyConnection;
-  contentfulServiceCategoryDescriptionTextNode?: Maybe<ContentfulServiceCategoryDescriptionTextNode>;
-  allContentfulServiceCategoryDescriptionTextNode: ContentfulServiceCategoryDescriptionTextNodeConnection;
-  contentfulServiceCategory?: Maybe<ContentfulServiceCategory>;
-  allContentfulServiceCategory: ContentfulServiceCategoryConnection;
-  contentfulService?: Maybe<ContentfulService>;
-  allContentfulService: ContentfulServiceConnection;
   contentfulPageDescriptionTextNode?: Maybe<ContentfulPageDescriptionTextNode>;
   allContentfulPageDescriptionTextNode: ContentfulPageDescriptionTextNodeConnection;
   contentfulPage?: Maybe<ContentfulPage>;
   allContentfulPage: ContentfulPageConnection;
-  contentfulPortfolioClient?: Maybe<ContentfulPortfolioClient>;
-  allContentfulPortfolioClient: ContentfulPortfolioClientConnection;
-  contentfulBlogPost?: Maybe<ContentfulBlogPost>;
-  allContentfulBlogPost: ContentfulBlogPostConnection;
-  contentfulTagTypeDescriptionTextNode?: Maybe<ContentfulTagTypeDescriptionTextNode>;
-  allContentfulTagTypeDescriptionTextNode: ContentfulTagTypeDescriptionTextNodeConnection;
-  contentfulTagTypeNameTextNode?: Maybe<ContentfulTagTypeNameTextNode>;
-  allContentfulTagTypeNameTextNode: ContentfulTagTypeNameTextNodeConnection;
-  contentfulTagType?: Maybe<ContentfulTagType>;
-  allContentfulTagType: ContentfulTagTypeConnection;
+  contentfulNavigation?: Maybe<ContentfulNavigation>;
+  allContentfulNavigation: ContentfulNavigationConnection;
   contentfulCompanyInfo?: Maybe<ContentfulCompanyInfo>;
   allContentfulCompanyInfo: ContentfulCompanyInfoConnection;
   contentfulCompanyAddress?: Maybe<ContentfulCompanyAddress>;
   allContentfulCompanyAddress: ContentfulCompanyAddressConnection;
   contentfulMediaCollection?: Maybe<ContentfulMediaCollection>;
   allContentfulMediaCollection: ContentfulMediaCollectionConnection;
+  contentfulBlockTextTextNode?: Maybe<ContentfulBlockTextTextNode>;
+  allContentfulBlockTextTextNode: ContentfulBlockTextTextNodeConnection;
+  contentfulBlock?: Maybe<ContentfulBlock>;
+  allContentfulBlock: ContentfulBlockConnection;
+  contentfulMedia?: Maybe<ContentfulMedia>;
+  allContentfulMedia: ContentfulMediaConnection;
   contentfulLink?: Maybe<ContentfulLink>;
   allContentfulLink: ContentfulLinkConnection;
   contentfulContentType?: Maybe<ContentfulContentType>;
@@ -9193,12 +9321,14 @@ export type QueryFileArgs = {
   blksize?: Maybe<IntQueryOperatorInput>;
   blocks?: Maybe<IntQueryOperatorInput>;
   publicURL?: Maybe<StringQueryOperatorInput>;
+  childrenImageSharp?: Maybe<ImageSharpFilterListInput>;
   childImageSharp?: Maybe<ImageSharpFilterInput>;
+  childrenMdx?: Maybe<MdxFilterListInput>;
+  childMdx?: Maybe<MdxFilterInput>;
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
-  childMdx?: Maybe<MdxFilterInput>;
 };
 
 
@@ -9387,52 +9517,6 @@ export type QueryAllContentfulAssetArgs = {
 };
 
 
-export type QueryContentfulBlockTextTextNodeArgs = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-  text?: Maybe<StringQueryOperatorInput>;
-  sys?: Maybe<ContentfulBlockTextTextNodeSysFilterInput>;
-  childMdx?: Maybe<MdxFilterInput>;
-};
-
-
-export type QueryAllContentfulBlockTextTextNodeArgs = {
-  filter?: Maybe<ContentfulBlockTextTextNodeFilterInput>;
-  sort?: Maybe<ContentfulBlockTextTextNodeSortInput>;
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-};
-
-
-export type QueryContentfulBlockArgs = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-  name?: Maybe<StringQueryOperatorInput>;
-  type?: Maybe<StringQueryOperatorInput>;
-  section?: Maybe<ContentfulSectionFilterListInput>;
-  text?: Maybe<ContentfulBlockTextTextNodeFilterInput>;
-  spaceId?: Maybe<StringQueryOperatorInput>;
-  contentful_id?: Maybe<StringQueryOperatorInput>;
-  createdAt?: Maybe<DateQueryOperatorInput>;
-  updatedAt?: Maybe<DateQueryOperatorInput>;
-  sys?: Maybe<ContentfulBlockSysFilterInput>;
-  node_locale?: Maybe<StringQueryOperatorInput>;
-  childContentfulBlockTextTextNode?: Maybe<ContentfulBlockTextTextNodeFilterInput>;
-};
-
-
-export type QueryAllContentfulBlockArgs = {
-  filter?: Maybe<ContentfulBlockFilterInput>;
-  sort?: Maybe<ContentfulBlockSortInput>;
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-};
-
-
 export type QueryContentfulSectionArgs = {
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
@@ -9441,181 +9525,20 @@ export type QueryContentfulSectionArgs = {
   name?: Maybe<StringQueryOperatorInput>;
   variant?: Maybe<StringQueryOperatorInput>;
   layout?: Maybe<StringQueryOperatorInput>;
-  blocks?: Maybe<ContentfulBlockFilterListInput>;
-  page?: Maybe<ContentfulPageFilterListInput>;
   spaceId?: Maybe<StringQueryOperatorInput>;
   contentful_id?: Maybe<StringQueryOperatorInput>;
   createdAt?: Maybe<DateQueryOperatorInput>;
   updatedAt?: Maybe<DateQueryOperatorInput>;
   sys?: Maybe<ContentfulSectionSysFilterInput>;
   node_locale?: Maybe<StringQueryOperatorInput>;
+  blocks?: Maybe<ContentfulBlockFilterListInput>;
+  page?: Maybe<ContentfulPageFilterListInput>;
 };
 
 
 export type QueryAllContentfulSectionArgs = {
   filter?: Maybe<ContentfulSectionFilterInput>;
   sort?: Maybe<ContentfulSectionSortInput>;
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-};
-
-
-export type QueryContentfulCompanyEmployeeBioTextNodeArgs = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-  bio?: Maybe<StringQueryOperatorInput>;
-  sys?: Maybe<ContentfulCompanyEmployeeBioTextNodeSysFilterInput>;
-  childMdx?: Maybe<MdxFilterInput>;
-};
-
-
-export type QueryAllContentfulCompanyEmployeeBioTextNodeArgs = {
-  filter?: Maybe<ContentfulCompanyEmployeeBioTextNodeFilterInput>;
-  sort?: Maybe<ContentfulCompanyEmployeeBioTextNodeSortInput>;
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-};
-
-
-export type QueryContentfulCompanyEmployeeArgs = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-  name?: Maybe<StringQueryOperatorInput>;
-  firstName?: Maybe<StringQueryOperatorInput>;
-  lastName?: Maybe<StringQueryOperatorInput>;
-  jobTitle?: Maybe<StringQueryOperatorInput>;
-  spaceId?: Maybe<StringQueryOperatorInput>;
-  contentful_id?: Maybe<StringQueryOperatorInput>;
-  createdAt?: Maybe<DateQueryOperatorInput>;
-  updatedAt?: Maybe<DateQueryOperatorInput>;
-  sys?: Maybe<ContentfulCompanyEmployeeSysFilterInput>;
-  node_locale?: Maybe<StringQueryOperatorInput>;
-  bio?: Maybe<ContentfulCompanyEmployeeBioTextNodeFilterInput>;
-  childContentfulCompanyEmployeeBioTextNode?: Maybe<ContentfulCompanyEmployeeBioTextNodeFilterInput>;
-};
-
-
-export type QueryAllContentfulCompanyEmployeeArgs = {
-  filter?: Maybe<ContentfulCompanyEmployeeFilterInput>;
-  sort?: Maybe<ContentfulCompanyEmployeeSortInput>;
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-};
-
-
-export type QueryContentfulTechnologyDescriptionTextNodeArgs = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-  description?: Maybe<StringQueryOperatorInput>;
-  sys?: Maybe<ContentfulTechnologyDescriptionTextNodeSysFilterInput>;
-  childMdx?: Maybe<MdxFilterInput>;
-};
-
-
-export type QueryAllContentfulTechnologyDescriptionTextNodeArgs = {
-  filter?: Maybe<ContentfulTechnologyDescriptionTextNodeFilterInput>;
-  sort?: Maybe<ContentfulTechnologyDescriptionTextNodeSortInput>;
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-};
-
-
-export type QueryContentfulTechnologyArgs = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-  name?: Maybe<StringQueryOperatorInput>;
-  summary?: Maybe<StringQueryOperatorInput>;
-  description?: Maybe<ContentfulTechnologyDescriptionTextNodeFilterInput>;
-  spaceId?: Maybe<StringQueryOperatorInput>;
-  contentful_id?: Maybe<StringQueryOperatorInput>;
-  createdAt?: Maybe<DateQueryOperatorInput>;
-  updatedAt?: Maybe<DateQueryOperatorInput>;
-  sys?: Maybe<ContentfulTechnologySysFilterInput>;
-  node_locale?: Maybe<StringQueryOperatorInput>;
-  childContentfulTechnologyDescriptionTextNode?: Maybe<ContentfulTechnologyDescriptionTextNodeFilterInput>;
-};
-
-
-export type QueryAllContentfulTechnologyArgs = {
-  filter?: Maybe<ContentfulTechnologyFilterInput>;
-  sort?: Maybe<ContentfulTechnologySortInput>;
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-};
-
-
-export type QueryContentfulServiceCategoryDescriptionTextNodeArgs = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-  description?: Maybe<StringQueryOperatorInput>;
-  sys?: Maybe<ContentfulServiceCategoryDescriptionTextNodeSysFilterInput>;
-  childMdx?: Maybe<MdxFilterInput>;
-};
-
-
-export type QueryAllContentfulServiceCategoryDescriptionTextNodeArgs = {
-  filter?: Maybe<ContentfulServiceCategoryDescriptionTextNodeFilterInput>;
-  sort?: Maybe<ContentfulServiceCategoryDescriptionTextNodeSortInput>;
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-};
-
-
-export type QueryContentfulServiceCategoryArgs = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-  name?: Maybe<StringQueryOperatorInput>;
-  service?: Maybe<ContentfulServiceFilterListInput>;
-  description?: Maybe<ContentfulServiceCategoryDescriptionTextNodeFilterInput>;
-  spaceId?: Maybe<StringQueryOperatorInput>;
-  contentful_id?: Maybe<StringQueryOperatorInput>;
-  createdAt?: Maybe<DateQueryOperatorInput>;
-  updatedAt?: Maybe<DateQueryOperatorInput>;
-  sys?: Maybe<ContentfulServiceCategorySysFilterInput>;
-  node_locale?: Maybe<StringQueryOperatorInput>;
-  childContentfulServiceCategoryDescriptionTextNode?: Maybe<ContentfulServiceCategoryDescriptionTextNodeFilterInput>;
-};
-
-
-export type QueryAllContentfulServiceCategoryArgs = {
-  filter?: Maybe<ContentfulServiceCategoryFilterInput>;
-  sort?: Maybe<ContentfulServiceCategorySortInput>;
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-};
-
-
-export type QueryContentfulServiceArgs = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-  name?: Maybe<StringQueryOperatorInput>;
-  type?: Maybe<ContentfulServiceCategoryFilterInput>;
-  spaceId?: Maybe<StringQueryOperatorInput>;
-  contentful_id?: Maybe<StringQueryOperatorInput>;
-  createdAt?: Maybe<DateQueryOperatorInput>;
-  updatedAt?: Maybe<DateQueryOperatorInput>;
-  sys?: Maybe<ContentfulServiceSysFilterInput>;
-  node_locale?: Maybe<StringQueryOperatorInput>;
-};
-
-
-export type QueryAllContentfulServiceArgs = {
-  filter?: Maybe<ContentfulServiceFilterInput>;
-  sort?: Maybe<ContentfulServiceSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
@@ -9628,6 +9551,7 @@ export type QueryContentfulPageDescriptionTextNodeArgs = {
   internal?: Maybe<InternalFilterInput>;
   description?: Maybe<StringQueryOperatorInput>;
   sys?: Maybe<ContentfulPageDescriptionTextNodeSysFilterInput>;
+  childrenMdx?: Maybe<MdxFilterListInput>;
   childMdx?: Maybe<MdxFilterInput>;
 };
 
@@ -9648,8 +9572,6 @@ export type QueryContentfulPageArgs = {
   name?: Maybe<StringQueryOperatorInput>;
   title?: Maybe<StringQueryOperatorInput>;
   slug?: Maybe<StringQueryOperatorInput>;
-  layout?: Maybe<StringQueryOperatorInput>;
-  template?: Maybe<StringQueryOperatorInput>;
   sections?: Maybe<ContentfulSectionFilterListInput>;
   description?: Maybe<ContentfulPageDescriptionTextNodeFilterInput>;
   spaceId?: Maybe<StringQueryOperatorInput>;
@@ -9658,6 +9580,8 @@ export type QueryContentfulPageArgs = {
   updatedAt?: Maybe<DateQueryOperatorInput>;
   sys?: Maybe<ContentfulPageSysFilterInput>;
   node_locale?: Maybe<StringQueryOperatorInput>;
+  link?: Maybe<ContentfulLinkFilterListInput>;
+  childrenContentfulPageDescriptionTextNode?: Maybe<ContentfulPageDescriptionTextNodeFilterListInput>;
   childContentfulPageDescriptionTextNode?: Maybe<ContentfulPageDescriptionTextNodeFilterInput>;
 };
 
@@ -9670,112 +9594,25 @@ export type QueryAllContentfulPageArgs = {
 };
 
 
-export type QueryContentfulPortfolioClientArgs = {
+export type QueryContentfulNavigationArgs = {
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
   name?: Maybe<StringQueryOperatorInput>;
+  links?: Maybe<ContentfulLinkFilterListInput>;
   spaceId?: Maybe<StringQueryOperatorInput>;
   contentful_id?: Maybe<StringQueryOperatorInput>;
   createdAt?: Maybe<DateQueryOperatorInput>;
   updatedAt?: Maybe<DateQueryOperatorInput>;
-  sys?: Maybe<ContentfulPortfolioClientSysFilterInput>;
+  sys?: Maybe<ContentfulNavigationSysFilterInput>;
   node_locale?: Maybe<StringQueryOperatorInput>;
 };
 
 
-export type QueryAllContentfulPortfolioClientArgs = {
-  filter?: Maybe<ContentfulPortfolioClientFilterInput>;
-  sort?: Maybe<ContentfulPortfolioClientSortInput>;
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-};
-
-
-export type QueryContentfulBlogPostArgs = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-  title?: Maybe<StringQueryOperatorInput>;
-  blogSlug?: Maybe<StringQueryOperatorInput>;
-  spaceId?: Maybe<StringQueryOperatorInput>;
-  contentful_id?: Maybe<StringQueryOperatorInput>;
-  createdAt?: Maybe<DateQueryOperatorInput>;
-  updatedAt?: Maybe<DateQueryOperatorInput>;
-  sys?: Maybe<ContentfulBlogPostSysFilterInput>;
-  node_locale?: Maybe<StringQueryOperatorInput>;
-};
-
-
-export type QueryAllContentfulBlogPostArgs = {
-  filter?: Maybe<ContentfulBlogPostFilterInput>;
-  sort?: Maybe<ContentfulBlogPostSortInput>;
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-};
-
-
-export type QueryContentfulTagTypeDescriptionTextNodeArgs = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-  description?: Maybe<StringQueryOperatorInput>;
-  sys?: Maybe<ContentfulTagTypeDescriptionTextNodeSysFilterInput>;
-  childMdx?: Maybe<MdxFilterInput>;
-};
-
-
-export type QueryAllContentfulTagTypeDescriptionTextNodeArgs = {
-  filter?: Maybe<ContentfulTagTypeDescriptionTextNodeFilterInput>;
-  sort?: Maybe<ContentfulTagTypeDescriptionTextNodeSortInput>;
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-};
-
-
-export type QueryContentfulTagTypeNameTextNodeArgs = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-  name?: Maybe<StringQueryOperatorInput>;
-  sys?: Maybe<ContentfulTagTypeNameTextNodeSysFilterInput>;
-  childMdx?: Maybe<MdxFilterInput>;
-};
-
-
-export type QueryAllContentfulTagTypeNameTextNodeArgs = {
-  filter?: Maybe<ContentfulTagTypeNameTextNodeFilterInput>;
-  sort?: Maybe<ContentfulTagTypeNameTextNodeSortInput>;
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-};
-
-
-export type QueryContentfulTagTypeArgs = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-  name?: Maybe<ContentfulTagTypeNameTextNodeFilterInput>;
-  description?: Maybe<ContentfulTagTypeDescriptionTextNodeFilterInput>;
-  spaceId?: Maybe<StringQueryOperatorInput>;
-  contentful_id?: Maybe<StringQueryOperatorInput>;
-  createdAt?: Maybe<DateQueryOperatorInput>;
-  updatedAt?: Maybe<DateQueryOperatorInput>;
-  sys?: Maybe<ContentfulTagTypeSysFilterInput>;
-  node_locale?: Maybe<StringQueryOperatorInput>;
-  childContentfulTagTypeNameTextNode?: Maybe<ContentfulTagTypeNameTextNodeFilterInput>;
-  childContentfulTagTypeDescriptionTextNode?: Maybe<ContentfulTagTypeDescriptionTextNodeFilterInput>;
-};
-
-
-export type QueryAllContentfulTagTypeArgs = {
-  filter?: Maybe<ContentfulTagTypeFilterInput>;
-  sort?: Maybe<ContentfulTagTypeSortInput>;
+export type QueryAllContentfulNavigationArgs = {
+  filter?: Maybe<ContentfulNavigationFilterInput>;
+  sort?: Maybe<ContentfulNavigationSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
@@ -9787,7 +9624,6 @@ export type QueryContentfulCompanyInfoArgs = {
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
   companyName?: Maybe<StringQueryOperatorInput>;
-  description?: Maybe<StringQueryOperatorInput>;
   copyright?: Maybe<StringQueryOperatorInput>;
   linkedinPageURL?: Maybe<StringQueryOperatorInput>;
   facebookPageURL?: Maybe<StringQueryOperatorInput>;
@@ -9825,6 +9661,7 @@ export type QueryContentfulCompanyAddressArgs = {
   provinceState?: Maybe<StringQueryOperatorInput>;
   country?: Maybe<StringQueryOperatorInput>;
   phone?: Maybe<StringQueryOperatorInput>;
+  fax?: Maybe<StringQueryOperatorInput>;
   websiteURL?: Maybe<StringQueryOperatorInput>;
   email?: Maybe<StringQueryOperatorInput>;
   spaceId?: Maybe<StringQueryOperatorInput>;
@@ -9850,7 +9687,8 @@ export type QueryContentfulMediaCollectionArgs = {
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
   name?: Maybe<StringQueryOperatorInput>;
-  medias?: Maybe<ContentfulAssetFilterListInput>;
+  medias?: Maybe<ContentfulMediaFilterListInput>;
+  block?: Maybe<ContentfulBlockFilterListInput>;
   spaceId?: Maybe<StringQueryOperatorInput>;
   contentful_id?: Maybe<StringQueryOperatorInput>;
   createdAt?: Maybe<DateQueryOperatorInput>;
@@ -9868,6 +9706,83 @@ export type QueryAllContentfulMediaCollectionArgs = {
 };
 
 
+export type QueryContentfulBlockTextTextNodeArgs = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  text?: Maybe<StringQueryOperatorInput>;
+  sys?: Maybe<ContentfulBlockTextTextNodeSysFilterInput>;
+  childrenMdx?: Maybe<MdxFilterListInput>;
+  childMdx?: Maybe<MdxFilterInput>;
+};
+
+
+export type QueryAllContentfulBlockTextTextNodeArgs = {
+  filter?: Maybe<ContentfulBlockTextTextNodeFilterInput>;
+  sort?: Maybe<ContentfulBlockTextTextNodeSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
+export type QueryContentfulBlockArgs = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  name?: Maybe<StringQueryOperatorInput>;
+  type?: Maybe<StringQueryOperatorInput>;
+  medias?: Maybe<ContentfulMediaCollectionFilterListInput>;
+  section?: Maybe<ContentfulSectionFilterListInput>;
+  spaceId?: Maybe<StringQueryOperatorInput>;
+  contentful_id?: Maybe<StringQueryOperatorInput>;
+  createdAt?: Maybe<DateQueryOperatorInput>;
+  updatedAt?: Maybe<DateQueryOperatorInput>;
+  sys?: Maybe<ContentfulBlockSysFilterInput>;
+  node_locale?: Maybe<StringQueryOperatorInput>;
+  link?: Maybe<ContentfulLinkFilterInput>;
+  text?: Maybe<ContentfulBlockTextTextNodeFilterInput>;
+  variant?: Maybe<StringQueryOperatorInput>;
+  childrenContentfulBlockTextTextNode?: Maybe<ContentfulBlockTextTextNodeFilterListInput>;
+  childContentfulBlockTextTextNode?: Maybe<ContentfulBlockTextTextNodeFilterInput>;
+};
+
+
+export type QueryAllContentfulBlockArgs = {
+  filter?: Maybe<ContentfulBlockFilterInput>;
+  sort?: Maybe<ContentfulBlockSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
+export type QueryContentfulMediaArgs = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  name?: Maybe<StringQueryOperatorInput>;
+  backgroundPositionY?: Maybe<StringQueryOperatorInput>;
+  media?: Maybe<ContentfulAssetFilterListInput>;
+  mediacollection?: Maybe<ContentfulMediaCollectionFilterListInput>;
+  spaceId?: Maybe<StringQueryOperatorInput>;
+  contentful_id?: Maybe<StringQueryOperatorInput>;
+  createdAt?: Maybe<DateQueryOperatorInput>;
+  updatedAt?: Maybe<DateQueryOperatorInput>;
+  sys?: Maybe<ContentfulMediaSysFilterInput>;
+  node_locale?: Maybe<StringQueryOperatorInput>;
+};
+
+
+export type QueryAllContentfulMediaArgs = {
+  filter?: Maybe<ContentfulMediaFilterInput>;
+  sort?: Maybe<ContentfulMediaSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
 export type QueryContentfulLinkArgs = {
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
@@ -9876,13 +9791,16 @@ export type QueryContentfulLinkArgs = {
   type?: Maybe<StringQueryOperatorInput>;
   name?: Maybe<StringQueryOperatorInput>;
   label?: Maybe<StringQueryOperatorInput>;
+  url?: Maybe<StringQueryOperatorInput>;
   spaceId?: Maybe<StringQueryOperatorInput>;
   contentful_id?: Maybe<StringQueryOperatorInput>;
   createdAt?: Maybe<DateQueryOperatorInput>;
   updatedAt?: Maybe<DateQueryOperatorInput>;
   sys?: Maybe<ContentfulLinkSysFilterInput>;
   node_locale?: Maybe<StringQueryOperatorInput>;
-  url?: Maybe<StringQueryOperatorInput>;
+  page?: Maybe<ContentfulPageFilterInput>;
+  navigation?: Maybe<ContentfulNavigationFilterListInput>;
+  block?: Maybe<ContentfulBlockFilterListInput>;
 };
 
 
@@ -10172,6 +10090,7 @@ export type SiteFieldsEnum =
   | 'flags___DEV_SSR'
   | 'flags___FAST_DEV'
   | 'flags___FAST_REFRESH'
+  | 'flags___ENABLE_GATSBY_REFRESH_ENDPOINT'
   | 'polyfill'
   | 'pathPrefix'
   | 'id'
@@ -10282,6 +10201,7 @@ export type SiteFlags = {
   DEV_SSR?: Maybe<Scalars['Boolean']>;
   FAST_DEV?: Maybe<Scalars['Boolean']>;
   FAST_REFRESH?: Maybe<Scalars['Boolean']>;
+  ENABLE_GATSBY_REFRESH_ENDPOINT?: Maybe<Scalars['Boolean']>;
 };
 
 export type SiteFlagsFilterInput = {
@@ -10293,6 +10213,7 @@ export type SiteFlagsFilterInput = {
   DEV_SSR?: Maybe<BooleanQueryOperatorInput>;
   FAST_DEV?: Maybe<BooleanQueryOperatorInput>;
   FAST_REFRESH?: Maybe<BooleanQueryOperatorInput>;
+  ENABLE_GATSBY_REFRESH_ENDPOINT?: Maybe<BooleanQueryOperatorInput>;
 };
 
 export type SiteGroupConnection = {
@@ -10344,24 +10265,28 @@ export type SitePageConnectionGroupArgs = {
 
 export type SitePageContext = {
   siteMetadata?: Maybe<SitePageContextSiteMetadata>;
+  pageId?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
-  displayName?: Maybe<Scalars['String']>;
-  dirName?: Maybe<Scalars['String']>;
-  fileId?: Maybe<Scalars['String']>;
-  layout?: Maybe<Scalars['String']>;
+  slug?: Maybe<Scalars['String']>;
   locale?: Maybe<Scalars['String']>;
+  layout?: Maybe<Scalars['String']>;
+  template?: Maybe<Scalars['String']>;
+  displayName?: Maybe<Scalars['String']>;
+  fileId?: Maybe<Scalars['String']>;
 };
 
 export type SitePageContextFilterInput = {
   siteMetadata?: Maybe<SitePageContextSiteMetadataFilterInput>;
+  pageId?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
   name?: Maybe<StringQueryOperatorInput>;
-  displayName?: Maybe<StringQueryOperatorInput>;
-  dirName?: Maybe<StringQueryOperatorInput>;
-  fileId?: Maybe<StringQueryOperatorInput>;
-  layout?: Maybe<StringQueryOperatorInput>;
+  slug?: Maybe<StringQueryOperatorInput>;
   locale?: Maybe<StringQueryOperatorInput>;
+  layout?: Maybe<StringQueryOperatorInput>;
+  template?: Maybe<StringQueryOperatorInput>;
+  displayName?: Maybe<StringQueryOperatorInput>;
+  fileId?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePageContextSiteMetadata = {
@@ -10495,13 +10420,15 @@ export type SitePageFieldsEnum =
   | 'context___siteMetadata___siteUrl'
   | 'context___siteMetadata___languages___langs'
   | 'context___siteMetadata___languages___defaultLangKey'
+  | 'context___pageId'
   | 'context___id'
   | 'context___name'
-  | 'context___displayName'
-  | 'context___dirName'
-  | 'context___fileId'
-  | 'context___layout'
+  | 'context___slug'
   | 'context___locale'
+  | 'context___layout'
+  | 'context___template'
+  | 'context___displayName'
+  | 'context___fileId'
   | 'pluginCreator___id'
   | 'pluginCreator___parent___id'
   | 'pluginCreator___parent___parent___id'
@@ -10550,18 +10477,14 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___theme_color'
   | 'pluginCreator___pluginOptions___display'
   | 'pluginCreator___pluginOptions___icon'
-  | 'pluginCreator___pluginOptions___include_favicon'
   | 'pluginCreator___pluginOptions___cache_busting_mode'
+  | 'pluginCreator___pluginOptions___include_favicon'
   | 'pluginCreator___pluginOptions___legacy'
   | 'pluginCreator___pluginOptions___theme_color_in_head'
   | 'pluginCreator___pluginOptions___cacheDigest'
   | 'pluginCreator___pluginOptions___spaceId'
   | 'pluginCreator___pluginOptions___accessToken'
   | 'pluginCreator___pluginOptions___environment'
-  | 'pluginCreator___pluginOptions___id'
-  | 'pluginCreator___pluginOptions___async'
-  | 'pluginCreator___pluginOptions___defer'
-  | 'pluginCreator___pluginOptions___src'
   | 'pluginCreator___pluginOptions___fileName'
   | 'pluginCreator___pluginOptions___documentPaths'
   | 'pluginCreator___pluginOptions___path'
@@ -10585,10 +10508,13 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___mergeLinkHeaders'
   | 'pluginCreator___pluginOptions___mergeCachingHeaders'
   | 'pluginCreator___pluginOptions___generateMatchPathRewrites'
-  | 'pluginCreator___pluginOptions___packageName'
   | 'pluginCreator___pluginOptions___pluginName'
-  | 'pluginCreator___pluginOptions___enableDesignSystemPages'
-  | 'pluginCreator___pluginOptions___enableDocsPages'
+  | 'pluginCreator___pluginOptions___packageName'
+  | 'pluginCreator___pluginOptions___locales'
+  | 'pluginCreator___pluginOptions___features___blog'
+  | 'pluginCreator___pluginOptions___features___portfolio'
+  | 'pluginCreator___pluginOptions___features___renderDesignSystemPages'
+  | 'pluginCreator___pluginOptions___features___renderDocsPages'
   | 'pluginCreator___pluginOptions___pathCheck'
   | 'pluginCreator___pluginOptions___allExtensions'
   | 'pluginCreator___pluginOptions___isTSX'
@@ -10786,18 +10712,14 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___theme_color'
   | 'pluginOptions___display'
   | 'pluginOptions___icon'
-  | 'pluginOptions___include_favicon'
   | 'pluginOptions___cache_busting_mode'
+  | 'pluginOptions___include_favicon'
   | 'pluginOptions___legacy'
   | 'pluginOptions___theme_color_in_head'
   | 'pluginOptions___cacheDigest'
   | 'pluginOptions___spaceId'
   | 'pluginOptions___accessToken'
   | 'pluginOptions___environment'
-  | 'pluginOptions___id'
-  | 'pluginOptions___async'
-  | 'pluginOptions___defer'
-  | 'pluginOptions___src'
   | 'pluginOptions___fileName'
   | 'pluginOptions___documentPaths'
   | 'pluginOptions___path'
@@ -10805,8 +10727,10 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___extensions'
   | 'pluginOptions___gatsbyRemarkPlugins'
   | 'pluginOptions___gatsbyRemarkPlugins___resolve'
-  | 'pluginOptions___gatsbyRemarkPlugins___options___destinationDir'
   | 'pluginOptions___gatsbyRemarkPlugins___options___maxWidth'
+  | 'pluginOptions___gatsbyRemarkPlugins___options___linkImagesToOriginal'
+  | 'pluginOptions___gatsbyRemarkPlugins___options___wrapperStyle'
+  | 'pluginOptions___gatsbyRemarkPlugins___options___destinationDir'
   | 'pluginOptions___remarkPlugins'
   | 'pluginOptions___remarkPlugins___target'
   | 'pluginOptions___remarkPlugins___rel'
@@ -10831,10 +10755,13 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___mergeLinkHeaders'
   | 'pluginOptions___mergeCachingHeaders'
   | 'pluginOptions___generateMatchPathRewrites'
-  | 'pluginOptions___packageName'
   | 'pluginOptions___pluginName'
-  | 'pluginOptions___enableDesignSystemPages'
-  | 'pluginOptions___enableDocsPages'
+  | 'pluginOptions___packageName'
+  | 'pluginOptions___locales'
+  | 'pluginOptions___features___blog'
+  | 'pluginOptions___features___portfolio'
+  | 'pluginOptions___features___renderDesignSystemPages'
+  | 'pluginOptions___features___renderDocsPages'
   | 'pluginOptions___pathCheck'
   | 'pluginOptions___allExtensions'
   | 'pluginOptions___isTSX'
@@ -10958,18 +10885,14 @@ export type SitePluginPluginOptions = {
   theme_color?: Maybe<Scalars['String']>;
   display?: Maybe<Scalars['String']>;
   icon?: Maybe<Scalars['String']>;
-  include_favicon?: Maybe<Scalars['Boolean']>;
   cache_busting_mode?: Maybe<Scalars['String']>;
+  include_favicon?: Maybe<Scalars['Boolean']>;
   legacy?: Maybe<Scalars['Boolean']>;
   theme_color_in_head?: Maybe<Scalars['Boolean']>;
   cacheDigest?: Maybe<Scalars['String']>;
   spaceId?: Maybe<Scalars['String']>;
   accessToken?: Maybe<Scalars['String']>;
   environment?: Maybe<Scalars['String']>;
-  id?: Maybe<Scalars['String']>;
-  async?: Maybe<Scalars['String']>;
-  defer?: Maybe<Scalars['String']>;
-  src?: Maybe<Scalars['String']>;
   fileName?: Maybe<Scalars['String']>;
   documentPaths?: Maybe<Array<Maybe<Scalars['String']>>>;
   path?: Maybe<Scalars['String']>;
@@ -10991,10 +10914,10 @@ export type SitePluginPluginOptions = {
   mergeLinkHeaders?: Maybe<Scalars['Boolean']>;
   mergeCachingHeaders?: Maybe<Scalars['Boolean']>;
   generateMatchPathRewrites?: Maybe<Scalars['Boolean']>;
-  packageName?: Maybe<Scalars['String']>;
   pluginName?: Maybe<Scalars['String']>;
-  enableDesignSystemPages?: Maybe<Scalars['Boolean']>;
-  enableDocsPages?: Maybe<Scalars['Boolean']>;
+  packageName?: Maybe<Scalars['String']>;
+  locales?: Maybe<Array<Maybe<Scalars['String']>>>;
+  features?: Maybe<SitePluginPluginOptionsFeatures>;
   pathCheck?: Maybe<Scalars['Boolean']>;
   allExtensions?: Maybe<Scalars['Boolean']>;
   isTSX?: Maybe<Scalars['Boolean']>;
@@ -11103,6 +11026,20 @@ export type SitePluginPluginOptionsEnvStagingPolicyFilterListInput = {
   elemMatch?: Maybe<SitePluginPluginOptionsEnvStagingPolicyFilterInput>;
 };
 
+export type SitePluginPluginOptionsFeatures = {
+  blog?: Maybe<Scalars['Boolean']>;
+  portfolio?: Maybe<Scalars['Boolean']>;
+  renderDesignSystemPages?: Maybe<Scalars['Boolean']>;
+  renderDocsPages?: Maybe<Scalars['Boolean']>;
+};
+
+export type SitePluginPluginOptionsFeaturesFilterInput = {
+  blog?: Maybe<BooleanQueryOperatorInput>;
+  portfolio?: Maybe<BooleanQueryOperatorInput>;
+  renderDesignSystemPages?: Maybe<BooleanQueryOperatorInput>;
+  renderDocsPages?: Maybe<BooleanQueryOperatorInput>;
+};
+
 export type SitePluginPluginOptionsFilterInput = {
   name?: Maybe<StringQueryOperatorInput>;
   short_name?: Maybe<StringQueryOperatorInput>;
@@ -11111,18 +11048,14 @@ export type SitePluginPluginOptionsFilterInput = {
   theme_color?: Maybe<StringQueryOperatorInput>;
   display?: Maybe<StringQueryOperatorInput>;
   icon?: Maybe<StringQueryOperatorInput>;
-  include_favicon?: Maybe<BooleanQueryOperatorInput>;
   cache_busting_mode?: Maybe<StringQueryOperatorInput>;
+  include_favicon?: Maybe<BooleanQueryOperatorInput>;
   legacy?: Maybe<BooleanQueryOperatorInput>;
   theme_color_in_head?: Maybe<BooleanQueryOperatorInput>;
   cacheDigest?: Maybe<StringQueryOperatorInput>;
   spaceId?: Maybe<StringQueryOperatorInput>;
   accessToken?: Maybe<StringQueryOperatorInput>;
   environment?: Maybe<StringQueryOperatorInput>;
-  id?: Maybe<StringQueryOperatorInput>;
-  async?: Maybe<StringQueryOperatorInput>;
-  defer?: Maybe<StringQueryOperatorInput>;
-  src?: Maybe<StringQueryOperatorInput>;
   fileName?: Maybe<StringQueryOperatorInput>;
   documentPaths?: Maybe<StringQueryOperatorInput>;
   path?: Maybe<StringQueryOperatorInput>;
@@ -11144,10 +11077,10 @@ export type SitePluginPluginOptionsFilterInput = {
   mergeLinkHeaders?: Maybe<BooleanQueryOperatorInput>;
   mergeCachingHeaders?: Maybe<BooleanQueryOperatorInput>;
   generateMatchPathRewrites?: Maybe<BooleanQueryOperatorInput>;
-  packageName?: Maybe<StringQueryOperatorInput>;
   pluginName?: Maybe<StringQueryOperatorInput>;
-  enableDesignSystemPages?: Maybe<BooleanQueryOperatorInput>;
-  enableDocsPages?: Maybe<BooleanQueryOperatorInput>;
+  packageName?: Maybe<StringQueryOperatorInput>;
+  locales?: Maybe<StringQueryOperatorInput>;
+  features?: Maybe<SitePluginPluginOptionsFeaturesFilterInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;
   allExtensions?: Maybe<BooleanQueryOperatorInput>;
   isTSX?: Maybe<BooleanQueryOperatorInput>;
@@ -11169,13 +11102,17 @@ export type SitePluginPluginOptionsGatsbyRemarkPluginsFilterListInput = {
 };
 
 export type SitePluginPluginOptionsGatsbyRemarkPluginsOptions = {
-  destinationDir?: Maybe<Scalars['String']>;
   maxWidth?: Maybe<Scalars['Int']>;
+  linkImagesToOriginal?: Maybe<Scalars['Boolean']>;
+  wrapperStyle?: Maybe<Scalars['String']>;
+  destinationDir?: Maybe<Scalars['String']>;
 };
 
 export type SitePluginPluginOptionsGatsbyRemarkPluginsOptionsFilterInput = {
-  destinationDir?: Maybe<StringQueryOperatorInput>;
   maxWidth?: Maybe<IntQueryOperatorInput>;
+  linkImagesToOriginal?: Maybe<BooleanQueryOperatorInput>;
+  wrapperStyle?: Maybe<StringQueryOperatorInput>;
+  destinationDir?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePluginPluginOptionsHeaders = {
@@ -11307,10 +11244,6 @@ export type StringQueryOperatorInput = {
   glob?: Maybe<Scalars['String']>;
 };
 
-export type MobileFluidImageFragment = { fluid?: Maybe<Pick<ContentfulFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>> };
-
-export type DesktopFluidImageFragment = { fluid?: Maybe<Pick<ContentfulFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>> };
-
 export type SiteMetadataFragment = { siteMetadata?: Maybe<(
     Pick<SiteSiteMetadata, 'title' | 'description' | 'siteUrl' | 'siteEnv'>
     & { languages?: Maybe<Pick<SiteSiteMetadataLanguages, 'defaultLangKey' | 'langs'>> }
@@ -11318,12 +11251,56 @@ export type SiteMetadataFragment = { siteMetadata?: Maybe<(
 
 export type CompanyInfoFragment = Pick<ContentfulCompanyInfo, 'companyName' | 'linkedinPageURL' | 'facebookPageURL' | 'instagramPageURL' | 'twitterPageURL' | 'metadataTwitterSite' | 'metadataTwitterCreator' | 'metadataSiteName' | 'copyright'>;
 
+export type MobileFluidImageFragment = { fluid?: Maybe<Pick<ContentfulFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>> };
+
+export type DesktopFluidImageFragment = { fluid?: Maybe<Pick<ContentfulFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>> };
+
 export type MediaCollectionFragment = (
   Pick<ContentfulMediaCollection, 'name'>
-  & { medias?: Maybe<Array<Maybe<(
-    { file?: Maybe<Pick<ContentfulAssetFile, 'url'>> }
-    & MobileFluidImageFragment
-  )>>> }
+  & { medias?: Maybe<Array<Maybe<{ media?: Maybe<Array<Maybe<(
+      { file?: Maybe<Pick<ContentfulAssetFile, 'url'>> }
+      & MobileFluidImageFragment
+    )>>> }>>> }
+);
+
+export type BlockFragment = (
+  Pick<ContentfulBlock, 'id' | 'name' | 'variant' | 'type'>
+  & { text?: Maybe<(
+    Pick<ContentfulBlockTextTextNode, 'text'>
+    & { childMdx?: Maybe<Pick<Mdx, 'body'>> }
+  )>, medias?: Maybe<Array<Maybe<(
+    Pick<ContentfulMediaCollection, 'name'>
+    & { medias?: Maybe<Array<Maybe<(
+      Pick<ContentfulMedia, 'backgroundPositionY'>
+      & { media?: Maybe<Array<Maybe<(
+        Pick<ContentfulAsset, 'id'>
+        & DesktopFluidImageFragment
+      )>>> }
+    )>>> }
+  )>>>, link?: Maybe<(
+    Pick<ContentfulLink, 'type' | 'label'>
+    & { page?: Maybe<Pick<ContentfulPage, 'slug'>> }
+  )> }
+);
+
+export type CompanyAddressFragment = Pick<ContentfulCompanyAddress, 'name' | 'phone' | 'email' | 'city' | 'postalCode' | 'provinceState' | 'websiteURL' | 'addressLine1' | 'fax'>;
+
+export type LinkFragment = (
+  Pick<ContentfulLink, 'name' | 'type' | 'label' | 'url'>
+  & { page?: Maybe<Pick<ContentfulPage, 'id' | 'name' | 'slug'>> }
+);
+
+export type PageFragmentFragment = (
+  Pick<ContentfulPage, 'id' | 'name' | 'node_locale' | 'title' | 'slug'>
+  & { description?: Maybe<(
+    Pick<ContentfulPageDescriptionTextNode, 'description'>
+    & { childMdx?: Maybe<Pick<Mdx, 'body'>> }
+  )>, sections?: Maybe<Array<Maybe<SectionFragment>>> }
+);
+
+export type SectionFragment = (
+  Pick<ContentfulSection, 'id' | 'node_locale' | 'name' | 'variant' | 'layout'>
+  & { blocks?: Maybe<Array<Maybe<BlockFragment>>> }
 );
 
 export type LayoutAllSitePageQueryVariables = Exact<{ [key: string]: never; }>;
@@ -11334,11 +11311,23 @@ export type LayoutAllSitePageQuery = { pages: (
     & { nodes: Array<(
       Pick<SitePage, 'id' | 'path'>
       & { context?: Maybe<(
-        Pick<SitePageContext, 'id' | 'name' | 'dirName' | 'locale' | 'layout'>
+        Pick<SitePageContext, 'id' | 'name' | 'locale' | 'layout' | 'template'>
         & { siteMetadata?: Maybe<(
           Pick<SitePageContextSiteMetadata, 'description' | 'siteEnv' | 'siteUrl' | 'title'>
           & { languages?: Maybe<Pick<SitePageContextSiteMetadataLanguages, 'defaultLangKey' | 'langs'>> }
         )> }
       )> }
     )> }
-  ), companyAddress?: Maybe<Pick<ContentfulCompanyAddress, 'addressLine1' | 'city' | 'provinceState' | 'postalCode' | 'websiteURL' | 'phone' | 'email'>>, companyInfo?: Maybe<Pick<ContentfulCompanyInfo, 'copyright'>> };
+  ), companyAddress?: Maybe<Pick<ContentfulCompanyAddress, 'addressLine1' | 'city' | 'provinceState' | 'postalCode' | 'websiteURL' | 'phone' | 'email' | 'fax'>>, companyInfo?: Maybe<Pick<ContentfulCompanyInfo, 'copyright'>> };
+
+export type FooterQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type FooterQuery = { contentfulNavigation?: Maybe<Pick<ContentfulNavigation, 'id' | 'name'>>, contentfulCompanyAddress?: Maybe<Pick<ContentfulCompanyAddress, 'addressLine1' | 'city' | 'provinceState' | 'postalCode' | 'websiteURL' | 'phone' | 'email' | 'fax'>>, contentfulCompanyInfo?: Maybe<Pick<ContentfulCompanyInfo, 'copyright'>> };
+
+export type PageQueryVariables = Exact<{
+  pageId?: Maybe<Scalars['String']>;
+}>;
+
+
+export type PageQuery = { site?: Maybe<SiteMetadataFragment>, companyInfo?: Maybe<CompanyInfoFragment>, page?: Maybe<PageFragmentFragment> };

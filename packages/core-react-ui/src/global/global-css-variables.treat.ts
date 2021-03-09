@@ -7,6 +7,13 @@ export const wrapper = style((theme: Theme) => ({
 
 globalStyle(`${wrapper}, html`, ({ theme, cssTheme }: Theme) => ({
   /**
+   * Colors variables
+   */
+  ['--color-text-primary']: cssTheme.colors.colorIntents.primaryText,
+  ['--color-text-secondary']: cssTheme.colors.colorIntents.secondaryText,
+  ['--color-text-tertiary']: cssTheme.colors.colorIntents.tertiaryText,
+
+  /**
    * Sizing variables
    */
   [cssTheme.sizing.varNames.x0]: cssTheme.sizing.sizes.mobile.x0,

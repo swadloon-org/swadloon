@@ -3,6 +3,7 @@ import { BsDot } from '@react-icons/all-files/bs/BsDot';
 import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
 import { CommonComponentProps } from '../props/component-common.props';
+import { Paragraph } from '../text/paragraph';
 import { getDefaultTextFromProps, getMergedClassname } from '../utilities/component.utilities';
 import * as stylesRef from './list-item.treat';
 
@@ -61,7 +62,7 @@ export const ListItem: React.FC<Props> = React.memo(
         preserveAspectRatio: `xMinYMin meet`,
       })
     ) : (
-      <BsDot className={styles.bulletIcon} size={'1.4em'} preserveAspectRatio={`xMinYMin meet`} />
+      <BsDot className={styles.bulletIcon} size={'1.6em'} preserveAspectRatio={`xMinYMin meet`} />
     );
 
     /**
@@ -77,7 +78,13 @@ export const ListItem: React.FC<Props> = React.memo(
       },
       <div className={classNames}>
         {IconSvg}
-        <div className={styles.content}>{renderedChildren}</div>
+        <div className={styles.content}>
+          {typeof renderedChildren === 'string' ? (
+            <Paragraph variant={variantSize}>{renderedChildren}</Paragraph>
+          ) : (
+            <>{renderedChildren}</>
+          )}
+        </div>
       </div>
     );
   }

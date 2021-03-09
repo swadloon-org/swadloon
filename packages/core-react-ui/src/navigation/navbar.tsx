@@ -1,9 +1,7 @@
-import { ButtonIcon, ButtonSize, ButtonVariant } from '@newrade/core-design-system';
+import { ButtonIcon, ButtonSize, Variant } from '@newrade/core-design-system';
 import { IoClose } from '@react-icons/all-files/io5/IoClose';
 import { IoMenu } from '@react-icons/all-files/io5/IoMenu';
-import { PressEvent } from '@react-types/shared';
 import React, { useEffect, useImperativeHandle, useRef, useState } from 'react';
-import { isIOS } from 'react-device-detect';
 import { useStyles } from 'react-treat';
 import { Button } from '../button/button';
 import { usePreventPinchZoom } from '../hooks/use-prevent-pinch-zoom';
@@ -48,7 +46,7 @@ type Props = CommonComponentProps & {
    * Used to set the close or menu icon
    */
   menuOpened?: boolean;
-  onPressMenuButton?: (event: PressEvent) => void;
+  onClickMenuButton?: (event: React.MouseEvent) => void;
 };
 
 /**
@@ -80,18 +78,18 @@ export const NavBar = React.forwardRef<any, Props>((props, ref) => {
   const updateDocumentBackgroundColor = (options: { multiplier: number }) => (event: Event) => {
     const scrollPosition = window.scrollY;
 
-    if (window.document.documentElement.scrollHeight - scrollPosition < options.multiplier * window.screen.height) {
+    if (window.document.documentElement.scrollHeight - scrollPosition < window.screen.height) {
       window.document.documentElement.style.backgroundColor = cssTheme.colors.colors.grey[900];
       return;
     }
-    if (window.document.documentElement.scrollHeight - scrollPosition >= options.multiplier * window.screen.height) {
+    if (window.document.documentElement.scrollHeight - scrollPosition >= window.screen.height) {
       window.document.documentElement.style.backgroundColor = cssTheme.colors.colorIntents.background0;
       return;
     }
   };
 
   useEffect(() => {
-    if (isIOS && !isInstalled) {
+    if (!isInstalled) {
       const handler = updateDocumentBackgroundColor({ multiplier: 2 });
       window.document.addEventListener('touchmove', handler, { passive: true });
       window.document.addEventListener('scroll', handler, { passive: true });
@@ -127,9 +125,9 @@ export const NavBar = React.forwardRef<any, Props>((props, ref) => {
   /**
    * Events handling
    */
-  function handlePressMenuButton(event: PressEvent) {
-    if (props.onPressMenuButton) {
-      props.onPressMenuButton(event);
+  function handlePressMenuButton(event: React.MouseEvent) {
+    if (props.onClickMenuButton) {
+      props.onClickMenuButton(event);
     }
   }
 
@@ -139,17 +137,17 @@ export const NavBar = React.forwardRef<any, Props>((props, ref) => {
     <>
       {/* Mobile */}
       <header ref={mobileNavbar} style={props.style} className={`${styles.wrapper} ${styles.mobileMenu}`}>
-        <Center maxWidth={props.maxWidth}>
+        <Center maxWidth={props.maxWidth} className={styles.content}>
           <div className={styles.mobileWrapper}>
             <BoxV2 justifyContent={['flex-start']}>
               <Button
                 aria-label={'Menu'}
                 size={ButtonSize.large}
                 collapsePadding={'left'}
-                variant={ButtonVariant.tertiary}
+                variant={Variant.tertiary}
                 icon={ButtonIcon.icon}
                 Icon={props.menuOpened ? <IoClose /> : <IoMenu />}
-                onPress={handlePressMenuButton}
+                onClick={handlePressMenuButton}
               ></Button>
             </BoxV2>
 
@@ -171,7 +169,7 @@ export const NavBar = React.forwardRef<any, Props>((props, ref) => {
 
       {/* Desktop */}
       <header ref={desktopNavbar} className={`${styles.wrapper} ${styles.desktopMenu}`} style={props.style}>
-        <Center maxWidth={props.maxWidth}>
+        <Center maxWidth={props.maxWidth} className={styles.content}>
           <Cluster justifyContent={['space-between']} alignItems={['center']} as={'nav'}>
             <BoxV2 padding={[cssTheme.sizing.var.x2, 0]} className={styles.logoWrapper} AsElement={props.HomeLink}>
               <SVGLogo Icon={DesktopSvgLogo || MobileSvgLogo} />

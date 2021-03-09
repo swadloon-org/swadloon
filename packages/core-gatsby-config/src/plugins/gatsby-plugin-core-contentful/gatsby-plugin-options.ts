@@ -17,8 +17,8 @@ export type GatsbyCoreContentfulPluginOptions = {
    * Enable or disable features
    */
   features: {
-    pageVersion: number;
-    blog: boolean;
-    portfolio: boolean;
+    renderPages: boolean;
+    renderBlogPosts: boolean;
+    renderPortfolio: boolean;
   };
 };

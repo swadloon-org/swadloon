@@ -29,7 +29,7 @@ export const babelPresetConf: ([string, object] | [string])[] = [
       corejs: '3.8',
       shippedProposals: true, // Toggles enabling support for builtin/feature proposals that have shipped in browsers.
       modules: false, // don't transform modules (webpack will do it)
-      loose: true,
+      loose: false,
       ignoreBrowserslistConfig: true,
     },
   ],

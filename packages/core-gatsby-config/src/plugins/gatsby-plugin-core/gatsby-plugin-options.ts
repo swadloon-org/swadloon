@@ -14,12 +14,14 @@ export type GatsbyCorePluginOptions = {
    * @example 'lodash'
    */
   modules?: string[];
-  /**
-   * Enable the rendering of /design-system/ pages
-   */
-  enableDesignSystemPages: boolean;
-  /**
-   * Enable the generation of doc pages (.mdx?) in /src/docs/
-   */
-  enableDocsPages: boolean;
+  features: {
+    /**
+     * Enable the rendering of /design-system/ pages
+     */
+    renderDesignSystemPages: boolean;
+    /**
+     * Enable the generation of doc pages (.mdx?) in /src/docs/
+     */
+    renderDocsPages: boolean;
+  };
 };

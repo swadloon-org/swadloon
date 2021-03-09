@@ -1,5 +1,6 @@
 import { ColorType } from '../../types';
 import { BoxStyle } from '../atoms/box';
+import { Variant } from '../components.props';
 
 export enum ButtonAs {
   button = 'button',
@@ -12,15 +13,6 @@ export enum ButtonSize {
   medium = 'medium',
   small = 'small',
   xsmall = 'xSmall',
-}
-
-export enum ButtonVariant {
-  primary = 'primary',
-  primaryReversed = 'primaryReversed',
-  secondary = 'secondary',
-  secondaryReversed = 'secondaryReversed',
-  tertiary = 'tertiary',
-  tertiaryReversed = 'tertiaryReversed',
 }
 
 export enum ButtonIcon {
@@ -45,7 +37,7 @@ export interface ButtonStyleProps {
    * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/button_role
    */
   role: string;
-  variant: ButtonVariant;
+  variant: Variant;
   icon: ButtonIcon;
   size: ButtonSize;
   state: ButtonState;
@@ -62,7 +54,7 @@ export type ButtonStyle<Override extends undefined | string = undefined> = {
 export type ButtonBoxStyle<Override extends undefined | string = undefined> = BoxStyle<Override> & {};
 
 export type ButtonVariants<Override extends undefined | string = undefined> = {
-  [key in keyof typeof ButtonVariant]: ButtonStyle<Override>;
+  [key in keyof typeof Variant]: ButtonStyle<Override>;
 };
 
 export type ButtonSizes<Override extends undefined | string = undefined> = {

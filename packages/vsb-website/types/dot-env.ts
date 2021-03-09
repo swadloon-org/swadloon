@@ -31,6 +31,7 @@ export const Env = t.intersection([
      */
     CANADA_POST_API_KEY_VSB: t.string,
     RECAPTCHA_SITE_KEY_VSB: t.string,
+    GOOGLE_MAP_API_KEY: t.string,
   }),
 ]);
 

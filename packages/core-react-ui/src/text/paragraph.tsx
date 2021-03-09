@@ -3,6 +3,7 @@ import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
 import { CommonComponentProps } from '../props/component-common.props';
 import { TextCommonProps } from '../props/text-common.props';
+import * as colorTextStylesRef from '../styles/color-text.treat';
 import { getMergedClassname } from '../utilities/component.utilities';
 import * as stylesRef from './paragraph.treat';
 
@@ -25,8 +26,9 @@ const defaultProps: Props = {
  * @see https://devdocs.io/dom/htmlparagraphelement
  */
 export const Paragraph: React.FC<Props> = React.memo(
-  ({ variant, variantStyle, variantLevel, display, className, as, ...props }) => {
-    const { styles: styles } = useStyles(stylesRef);
+  ({ variant, variantStyle, variantLevel = TEXT_LEVEL.primary, display, className, as, ...props }) => {
+    const { styles } = useStyles(stylesRef);
+    const { colorTextStyles } = useStyles(colorTextStylesRef);
 
     const type = as ? as : 'p';
     const classNames = getMergedClassname([
@@ -35,7 +37,7 @@ export const Paragraph: React.FC<Props> = React.memo(
       display === 'inline-block' ? styles.inline : '',
       styles[variant ? variant : (defaultProps.variant as PARAGRAPH_SIZE)],
       variantStyle ? styles[variantStyle] : '',
-      variantLevel ? styles[variantLevel] : '',
+      variantLevel ? colorTextStyles[variantLevel] : '',
     ]);
 
     return React.createElement(type, {

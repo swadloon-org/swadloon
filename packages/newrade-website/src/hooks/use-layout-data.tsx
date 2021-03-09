@@ -4,7 +4,7 @@ import { LayoutAllSitePageQuery } from '../../types/graphql-types';
 
 const query = graphql`
   query LayoutAllSitePage {
-    pages: allSitePage(filter: { path: { glob: "!/{docs,design-system}/{**,*}" } }) {
+    pages: allSitePage(filter: { path: { glob: "!**/{docs,design-system}/{**,*}" } }) {
       totalCount
       nodes {
         id
@@ -22,12 +22,13 @@ const query = graphql`
           }
           id
           name
-          dirName
           locale
           layout
+          template
         }
       }
     }
+
     companyAddress: contentfulCompanyAddress {
       addressLine1
       city
@@ -36,6 +37,7 @@ const query = graphql`
       websiteURL
       phone
       email
+      fax
     }
     companyInfo: contentfulCompanyInfo {
       copyright
@@ -47,12 +49,15 @@ export function useQuery() {
   return useStaticQuery<LayoutAllSitePageQuery>(query);
 }
 
-export function useNavigation(): Navigation {
+export function usePagesNavigation(): Navigation {
   const data = useQuery();
 
   return getNavigationFromPageNodes({
-    name: 'newrade sidenav',
+    name: 'Newrade sidenav',
     pageNodes: data?.pages.nodes as PageNode[],
+    sortOrderDirectories: ['services', 'la clinique', 'nous joindre'],
+    sortOrderItems: ['tout sur la vasectomie', 'formulaire vasectomie', 'examen pour transport canada'],
+    excludedItems: ['address', 'accueil'],
   });
 }
 

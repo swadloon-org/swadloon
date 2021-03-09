@@ -42,15 +42,15 @@ globalStyle(`${wrapper} .mdx-anchor-pound`, ({ cssTheme, theme }: Theme) => ({
  */
 
 globalStyle(
-  `${wrapper} > h1, ${wrapper} > h2, ${wrapper} > h3, ${wrapper} > h4, ${wrapper} > h5, ${wrapper} > h6`,
+  `${wrapper} h1:not(:last-child), ${wrapper} h2:not(:last-child), ${wrapper} h3:not(:last-child), ${wrapper} h4:not(:last-child), ${wrapper} h5:not(:last-child) ${wrapper} h6:not(:last-child)`,
   ({ cssTheme, theme }: Theme) => ({
-    marginBottom: '1.1em',
+    marginBottom: contentMarginSmall,
     position: 'relative',
   })
 );
 
 globalStyle(
-  `${wrapper} > * + h1, ${wrapper} > * + h2, ${wrapper} > * + h3, ${wrapper} > * + h4, ${wrapper} > * + h5, ${wrapper} > * + h6`,
+  `${wrapper} * + h1, ${wrapper} * + h2, ${wrapper} * + h3, ${wrapper} * + h4, ${wrapper} * + h5, ${wrapper} * + h6`,
   ({ cssTheme, theme }: Theme) => ({
     marginTop: contentMargin,
   })
@@ -65,15 +65,23 @@ globalStyle(
 // );
 
 globalStyle(`${wrapper} hr`, ({ cssTheme, theme }: Theme) => ({
-  marginTop: contentMarginLarge,
-  marginBottom: contentMarginLarge,
+  marginTop: 0,
+  marginBottom: 0,
 }));
 
 /**
  * Text content
  */
 
+globalStyle(`${wrapper} p`, ({ cssTheme, theme }: Theme) => ({
+  maxWidth: `120ch`,
+}));
+
 globalStyle(`${wrapper} p + *`, ({ cssTheme, theme }: Theme) => ({
+  marginTop: contentMargin,
+}));
+
+globalStyle(`${wrapper} * + p`, ({ cssTheme, theme }: Theme) => ({
   marginTop: contentMargin,
 }));
 
@@ -85,7 +93,7 @@ globalStyle(`${wrapper} p + ul`, ({ cssTheme, theme }: Theme) => ({
   marginTop: contentMargin,
 }));
 
-globalStyle(`${wrapper} ul + p`, ({ cssTheme, theme }: Theme) => ({
+globalStyle(`${wrapper} ul + *`, ({ cssTheme, theme }: Theme) => ({
   marginTop: contentMargin,
 }));
 
@@ -121,12 +129,28 @@ globalStyle(`${wrapper} p + blockquote`, ({ cssTheme, theme }: Theme) => ({
   marginTop: contentMargin,
 }));
 
+globalStyle(`${wrapper} blockquote + *`, ({ cssTheme, theme }: Theme) => ({
+  marginTop: contentMargin,
+}));
+
 globalStyle(`${wrapper} p + iframe`, ({ cssTheme, theme }: Theme) => ({
   marginTop: contentMargin,
 }));
 
 globalStyle(`${wrapper} iframe`, ({ cssTheme, theme }: Theme) => ({
   maxWidth: `100%`,
+}));
+
+/**
+ * List items
+ */
+
+globalStyle(`${wrapper} li`, {
+  lineHeight: '0', // ensure that the list items height collapse
+});
+
+globalStyle(`${wrapper} li p + p`, ({ cssTheme, theme }: Theme) => ({
+  marginTop: contentMarginSmall,
 }));
 
 /**
@@ -164,6 +188,13 @@ globalStyle(`${wrapper} figure`, ({ cssTheme, theme }: Theme) => ({
 
 globalStyle(`${wrapper} img`, ({ cssTheme, theme }: Theme) => ({
   maxWidth: '100%',
+}));
+
+/**
+ * Styles for https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-remark-images
+ */
+globalStyle(`${wrapper} .gatsby-resp-image-wrapper`, ({ cssTheme, theme }: Theme) => ({
+  marginLeft: 'inherit !important',
 }));
 
 /**
