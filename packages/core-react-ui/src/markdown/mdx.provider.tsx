@@ -1,7 +1,7 @@
 import { HEADING, LinkIcon, LinkVariant, PARAGRAPH_SIZE, TEXT_STYLE } from '@newrade/core-design-system';
 import React, { AnchorHTMLAttributes } from 'react';
 import { Code } from '../code/code';
-import { ListItem } from '../list-item/list-item';
+import { ListItemV2 } from '../list-item/list-item-v2';
 import { ListItems } from '../list-item/list-items';
 import { Table } from '../table/table';
 import { TableBody } from '../table/table-body';
@@ -64,8 +64,8 @@ export const mdxComponents: Partial<
     />
   ),
   ul: (props: MDXProps) => <ListItems {...props} />,
-  ol: (props: MDXProps) => <ListItems {...props} />,
-  li: (props: MDXProps) => <ListItem {...props} />,
+  ol: (props: MDXProps) => <ListItems as={'ol'} {...props} />,
+  li: (props: MDXProps) => <ListItemV2 {...props} />,
   blockquote: (props: MDXProps) => <Blockquote {...props} />,
   abbr: (props: MDXProps) => <abbr {...props} />,
 

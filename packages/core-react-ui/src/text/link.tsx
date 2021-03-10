@@ -19,7 +19,9 @@ export const Link: React.FC<Props> = React.memo(
     style,
     className,
     href,
+    rel,
     target,
+    download,
     variant,
     variantIcon,
     Icon,
@@ -85,7 +87,8 @@ export const Link: React.FC<Props> = React.memo(
       id,
       style,
       href,
-      rel: target === '_blank' ? 'noopener' : undefined,
+      rel,
+      target,
       className: allClassName,
       ref,
       children: (
@@ -94,6 +97,7 @@ export const Link: React.FC<Props> = React.memo(
           {IconSvg}
         </>
       ),
+      ...props,
     };
 
     /**

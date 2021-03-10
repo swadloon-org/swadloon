@@ -6,11 +6,11 @@ export const styles = {
     visibility: 'hidden',
     position: 'fixed',
     top: `calc(${cssTheme.layout.var.navbarHeight} + ${cssTheme.sizing.var.x3})`,
-    right: 40,
+    right: `calc(50% - ${cssTheme.layout.var.contentWidth.desktopMaxWidth} / 2 - ${cssTheme.sizing.var.x4})`,
     width: cssTheme.layout.asideWidth,
-    padding: '1em',
+    padding: '2em',
 
-    gap: cssTheme.sizing.var.x2,
+    gap: cssTheme.sizing.var.x3,
 
     backgroundColor: 'transparent',
 
@@ -24,6 +24,14 @@ export const styles = {
     color: 'inherit',
     textDecoration: 'none',
     fontWeight: 400,
+  })),
+  linksWrapper: style(({ cssTheme, theme }: Theme) => ({
+    display: 'grid',
+    gap: cssTheme.sizing.var.x2,
+    borderLeft: `1px solid ${cssTheme.colors.colors.grey[50]}`,
+    paddingTop: '0.2em',
+    paddingBottom: '0.3em',
+    paddingLeft: '1em',
   })),
   linkSelected: style(({ cssTheme, theme }: Theme) => ({
     fontWeight: 600,

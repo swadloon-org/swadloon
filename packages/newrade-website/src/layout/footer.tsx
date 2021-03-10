@@ -24,32 +24,32 @@ import * as styleRefs from './footer.treat';
 
 export const footerQuery = graphql`
   query Footer {
-    contentfulNavigation(name: { eq: "Navigation avec catégories" }) {
-      id
-      name
-      # subNavigation {
-      # id
-      # name
-      # links {
-      #   id
-      #   label
-      #   page {
-      #     slug
-      #   }
-      # }
-      # subNavigation {
-      #   id
-      #   name
-      #   links {
-      #     id
-      #     label
-      #     page {
-      #       slug
-      #     }
-      #   }
-      # }
-      # }
-    }
+    # contentfulNavigation(name: { eq: "Navigation avec catégories" }) {
+    # id
+    # name
+    # subNavigation {
+    # id
+    # name
+    # links {
+    #   id
+    #   label
+    #   page {
+    #     slug
+    #   }
+    # }
+    # subNavigation {
+    #   id
+    #   name
+    #   links {
+    #     id
+    #     label
+    #     page {
+    #       slug
+    #     }
+    #   }
+    # }
+    # }
+    # }
     contentfulCompanyAddress {
       addressLine1
 

@@ -81,10 +81,9 @@ export const CustomSectionFormVasectomy = React.forwardRef<any, Props>(
 
                         {!isSSR ? (
                           <iframe
-                            width="100%"
                             height="auto"
                             style={{
-                              width: '100%',
+                              width: 'min(700px, 100%)',
                               height: 'max(400px, 30vh)',
                             }}
                             src="https://www.youtube-nocookie.com/embed/TUOOuijeyZA"
@@ -103,7 +102,8 @@ export const CustomSectionFormVasectomy = React.forwardRef<any, Props>(
                     <React.Fragment key={index}>
                       <BlockRenderer blockComponents={blockComponents} block={block} />
 
-                      {!isSSR ? (
+                      {/* disabled form for now */}
+                      {false && !isSSR ? (
                         <React.Suspense fallback={<div />}>
                           <BlockFormVasectomy block={block} />
                         </React.Suspense>
@@ -112,7 +112,7 @@ export const CustomSectionFormVasectomy = React.forwardRef<any, Props>(
                   );
                 }
 
-                return <BlockRenderer key={index} blockComponents={blockComponents} block={block} />;
+                return null;
               })}
             </Stack>
           </BoxV2>

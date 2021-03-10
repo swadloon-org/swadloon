@@ -9,9 +9,6 @@ import {
   VIEWPORT,
 } from '@newrade/core-design-system';
 import { GatsbyLink } from '@newrade/core-gatsby-ui/src';
-import ExpoScaleEase from '@newrade/core-gsap-ui/lib/plugins/EasePack';
-import ScrollTrigger from '@newrade/core-gsap-ui/lib/plugins/ScrollTrigger';
-import { gsap } from '@newrade/core-gsap-ui/src';
 import {
   BoxV2,
   Button,
@@ -21,7 +18,6 @@ import {
   Main,
   MainWrapper,
   NavBar,
-  NavBarRefs,
   NavItem,
   Paragraph,
   Stack,
@@ -32,10 +28,8 @@ import {
 import { globalHistory } from '@reach/router';
 import { IoClose } from '@react-icons/all-files/io5/IoClose';
 import { PageProps } from 'gatsby';
-import React, { ReactNode, useEffect, useRef, useState } from 'react';
+import React, { ReactNode, useEffect, useState } from 'react';
 import { useStyles } from 'react-treat';
-import { useAnimateNavbarDesktop } from '../hooks/use-animate-navbar-desktop';
-import { useAnimateNavbarMobile } from '../hooks/use-animate-navbar-mobile';
 import { useCompanyInfo, usePagesNavigation } from '../hooks/use-layout-data';
 import LogoSymbol from '../images/logos/logo-symbol.svg';
 import LogoText from '../images/logos/logo-text.svg';
@@ -76,7 +70,6 @@ export const Layout = React.memo<LayoutProps>((props) => {
 
     return globalHistory.listen((params) => {
       setSidebarOpened(false); // close sidebar upon navigation
-      setNavbarStyle(params.location?.pathname === '/' ? 'transparent' : 'white'); // set the navbar style
       pathname = params.location?.pathname;
     });
   }, [globalHistory]);
@@ -86,55 +79,6 @@ export const Layout = React.memo<LayoutProps>((props) => {
   }
 
   const { viewport } = useViewportBreakpoint();
-
-  /**
-   * Navbar
-   */
-  const defaultNavbarState = props.location?.pathname === '/' ? 'transparent' : 'white';
-  const navbarRef = useRef<NavBarRefs>();
-  const [navbarStyle, setNavbarStyle] = useState<'white' | 'transparent'>(defaultNavbarState);
-  const [gsapLoaded, setGsapLoaded] = useState<boolean>(false);
-  useAnimateNavbarDesktop({ navbarRef, whiteStyle: navbarStyle === 'white', viewport });
-  useAnimateNavbarMobile({ navbarRef, whiteStyle: navbarStyle === 'white', viewport });
-
-  gsap.registerPlugin(ScrollTrigger, ExpoScaleEase);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setGsapLoaded(true);
-    }, 1000);
-  }, []);
-
-  useEffect(() => {
-    if (!gsapLoaded) {
-      return;
-    }
-
-    /**
-     * @see https://greensock.com/docs/v3/Plugins/ScrollTrigger
-     */
-    const scrollTrigger = new ScrollTrigger({
-      scrub: 1,
-      delay: 1,
-      toggleActions: `play none reverse none`,
-      start: '40vh',
-      end: '40vh',
-      onEnter: () => {
-        setNavbarStyle('white');
-      },
-      onEnterBack: function () {
-        if (pathname === '/') {
-          setNavbarStyle('transparent');
-        }
-      },
-    });
-
-    return () => {
-      if (scrollTrigger) {
-        scrollTrigger.kill?.();
-      }
-    };
-  }, [gsapLoaded]);
 
   useEffect(() => {
     let timeout: number;
@@ -153,7 +97,6 @@ export const Layout = React.memo<LayoutProps>((props) => {
   return (
     <MainWrapper className={styles.wrapper}>
       <NavBar
-        ref={navbarRef}
         HomeLink={<GatsbyLink to={'/'} />}
         MobileSvgLogo={<LogoText height={20} />}
         DesktopSvgLogo={<Logo />}

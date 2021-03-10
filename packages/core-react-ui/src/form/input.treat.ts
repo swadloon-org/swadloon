@@ -60,7 +60,7 @@ export const styles = {
     padding: `4px 9px 1px`,
     fontFamily: cssTheme.typography.labels.mobile.small.fontFamily,
     lineHeight: cssTheme.typography.labels.mobile.small.capsize?.lineHeight,
-    fontSize: cssTheme.typography.labels.tablet.small.capsize?.fontSize,
+    fontSize: `max(16px, ${cssTheme.typography.labels.tablet.small.capsize?.fontSize})`,
     '@media': {
       [cssTheme.layout.media.tablet]: {
         height: `calc(${cssTheme.sizing.var.x4} + ${cssTheme.typography.labels.tablet.small.capHeight}px + ${2}px)`,

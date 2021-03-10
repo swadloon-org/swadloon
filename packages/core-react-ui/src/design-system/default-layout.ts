@@ -46,7 +46,7 @@ export const defaultPartialLayout: PartialLayout = {
     [VIEWPORT.tablet]: 55,
     [VIEWPORT.mobile]: 55,
   },
-  asideWidth: 210,
+  asideWidth: 230,
   footerHeight: {
     [VIEWPORT.desktop]: 210,
     [VIEWPORT.tablet]: 210,
