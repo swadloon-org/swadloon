@@ -176,7 +176,7 @@ export const Layout = React.memo<LayoutProps>((props) => {
               Tout sur la vasectomie
             </Link>
             <Link variantSize={PARAGRAPH_SIZE.medium} AsElement={<GatsbyLink to={'/examen-pour-transports-canada/'} />}>
-              Examen pour Transport Canada
+              Examen pour Transports Canada
             </Link>
             <Link variantSize={PARAGRAPH_SIZE.medium} AsElement={<GatsbyLink to={'/equipe/'} />}>
               La clinique
