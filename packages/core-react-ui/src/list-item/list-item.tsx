@@ -14,6 +14,9 @@ type Props = CommonComponentProps &
     Icon?: React.ReactNode;
   };
 
+/**
+ * @deprecated
+ */
 export const ListItem: React.FC<Props> = React.memo(
   ({
     id,

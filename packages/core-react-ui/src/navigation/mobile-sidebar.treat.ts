@@ -9,9 +9,9 @@ export const styles = {
   wrapper: style(({ cssTheme, theme }: Theme) => ({
     position: 'fixed',
     left: 0,
-    bottom: 0,
+    bottom: `-1px`,
     width: `90vw`,
-    top: 0,
+    top: `-1px`,
     maxHeight: `calc(100vh)`,
     '@media': {
       [cssTheme.layout.media.tablet]: {

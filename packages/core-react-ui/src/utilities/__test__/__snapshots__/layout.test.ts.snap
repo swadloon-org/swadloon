@@ -2,7 +2,7 @@
 
 exports[`layout utilities getCSSLayout should create a valid CSS layout config 1`] = `
 Object {
-  "asideWidth": "210px",
+  "asideWidth": "230px",
   "breakpoints": Object {
     "desktopLarge": "1600px",
     "desktopMedium": "1440px",

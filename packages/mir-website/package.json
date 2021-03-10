@@ -1,6 +1,6 @@
 {
   "name": "@newrade/mir-website",
-  "version": "1.12.0",
+  "version": "1.12.1",
   "description": "Gatsby website for newrade's main website",
   "author": {
     "email": "info@newrade.ca",
@@ -19,7 +19,7 @@
     "pre-debug": "yarn clean",
     "preload-fonts": ". ./.env && PORT=$APP_PORT gatsby-preload-fonts --no-sandbox",
     "refresh": ". ./.env && curl -X POST http://localhost:$APP_PORT/__refresh",
-    "serve": ". ./.env && NODE_ENV=production gatsby serve --port=$APP_PORT",
+    "serve": ". ./.env && NODE_ENV=production gatsby serve --port=$APP_PORT --host 0.0.0.0",
     "start": ". ./.env && DEBUG=$DEBUG gatsby develop -p $APP_PORT -H 0.0.0.0",
     "test": "echo \"Wrtps://gatsby.dev/unit-testing\"",
     "typecheck": "yarn typecheck:build --watch --preserveWatchOutput",
@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "@newrade/core-common": "^1.2.3",
-    "@newrade/core-design-system-docs": "^1.1.0",
+    "@newrade/core-design-system-docs": "^1.2.0",
     "@newrade/core-gatsby-config": "^1.10.0",
     "@newrade/core-types": "^1.4.0",
     "@newrade/core-utils": "^1.6.3",

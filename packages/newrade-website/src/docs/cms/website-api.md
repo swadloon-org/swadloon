@@ -76,6 +76,21 @@ erDiagram
     }
 ```
 
+### Assets
+
+#### Logos
+
+| Name        | filename               | Formats    | Size    | Usage             | Link                                    |
+| ----------- | ---------------------- | ---------- | ------- | ----------------- | --------------------------------------- |
+| Main logo   | logo                   | .svg, .png | png     | todo              | todo                                    |
+| Footer logo | logo-footer            | .svg, .png | png     | todo              | todo                                    |
+| logo        | logo-symbol            | .svg, .png | png     | todo              | todo                                    |
+| logo        | logo-favicon           | .svg, .png | png     | todo              | todo                                    |
+| logo        | logo-youtube           | .svg, .png | png     | todo              | todo                                    |
+| logo        | logo-youtube-watermark | .svg, .png | 150x150 | Youtube Watermark | <Link href={youtubeDocLink}>Docs</Link> |
+
+export const youtubeDocLink = 'https://support.google.com/youtube/answer/2972003?co=GENIE.Platform%3DAndroid&hl=en#zippy=%2Cadd-your-video-watermark';
+
 ### Glossary
 
 | Word | Description               | Exemple    |

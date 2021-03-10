@@ -6,7 +6,6 @@ import React, { PropsWithChildren } from 'react';
 import { BlockGoogleMapAPI } from '../api/block-google-map.api';
 import { BlockAPI } from '../api/block.api';
 import { GatsbyLink } from '../links/gatsby-link';
-import { BlockGoogleMap } from './block-google-map';
 import { BlockImage } from './block-image';
 import { BlockImageBackground } from './block-image-background';
 import { BlockMarkdown } from './block-markdown';
@@ -16,9 +15,9 @@ const log = debug('newrade:core-gatsby-ui:block-renderer');
 const logWarn = log.extend('warn');
 const logError = log.extend('error');
 
-// const BlockGoogleMap = React.lazy(() =>
-//   import('./block-google-map').then((comp) => ({ default: comp.BlockGoogleMap }))
-// );
+const BlockGoogleMap = React.lazy(() =>
+  import('./block-google-map').then((comp) => ({ default: comp.BlockGoogleMap }))
+);
 
 /**
  * Renders a block according to its variant (type)
@@ -112,24 +111,15 @@ export function BlockRenderer<CustomBlockVariants extends string>({
     /**
      * Google Maps Block
      */
-    // case BlockType.googleMaps: {
-    //   const blockGoogleMaps = block as BlockGoogleMapAPI;
-    //   return (
-    //     <ErrorBoundary>
-    //       {!isSSR && inView ? (
-    //         <React.Suspense fallback={<div />}>
-    //           <BlockGoogleMap inView={inView} blockGoogleMaps={blockGoogleMaps} {...commonProps} />
-    //         </React.Suspense>
-    //       ) : null}
-    //     </ErrorBoundary>
-    //   );
-    // }
-
     case BlockType.googleMaps: {
       const blockGoogleMaps = block as BlockGoogleMapAPI;
       return (
         <ErrorBoundary>
-          <BlockGoogleMap inView={inView} blockGoogleMaps={blockGoogleMaps} {...commonProps} />
+          {!isSSR && inView ? (
+            <React.Suspense fallback={<div />}>
+              <BlockGoogleMap inView={inView} blockGoogleMaps={blockGoogleMaps} {...commonProps} />
+            </React.Suspense>
+          ) : null}
         </ErrorBoundary>
       );
     }

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.12.1](https://github.com/newrade/newrade/compare/@newrade/core-react-ui@1.12.0...@newrade/core-react-ui@1.12.1) (2021-03-10)
+
+### Bug Fixes
+
+- **core-gatsby-ui:** fix aside.tsx ([9ca0c18](https://github.com/newrade/newrade/commit/9ca0c18e44efa10092fe194add2d047245ad6ab0))
+- **core-react-ui:** implement list item v2 ([c193d81](https://github.com/newrade/newrade/commit/c193d811367dfe38d830ccab270e807a18a91276))
+- **vsb-website:** fix animation bug with navbar ([210e40a](https://github.com/newrade/newrade/commit/210e40a496b46af68cd2cff00d6d302a751ea070))
+
 # [1.12.0](https://github.com/newrade/newrade/compare/@newrade/core-react-ui@1.11.1...@newrade/core-react-ui@1.12.0) (2021-03-09)
 
 ### Bug Fixes

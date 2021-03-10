@@ -3,7 +3,6 @@ import {
   ButtonSize,
   HEADING,
   LABEL_SIZE,
-  LinkVariant,
   PARAGRAPH_SIZE,
   TEXT_LEVEL,
   TEXT_STYLE,
@@ -40,7 +39,6 @@ import { useStyles } from 'react-treat';
 import { useAnimateNavbarDesktop } from '../hook/use-animate-navbar-desktop';
 import { useAnimateNavbarMobile } from '../hook/use-animate-navbar-mobile';
 import { useCompanyInfo, usePagesNavigation } from '../hook/use-layout-data';
-import LogoMorph from '../images/logo-morph.svg';
 import LogoSymbol from '../images/logo-symbol.svg';
 import Logo from '../images/logo.svg';
 import { Footer } from './footer';
@@ -98,7 +96,7 @@ export const Layout = React.memo<LayoutProps>((props) => {
   const [navbarStyle, setNavbarStyle] = useState<'white' | 'transparent'>(defaultNavbarState);
   const [gsapLoaded, setGsapLoaded] = useState<boolean>(false);
   useAnimateNavbarDesktop({ navbarRef, whiteStyle: navbarStyle === 'white', viewport });
-  useAnimateNavbarMobile({ navbarRef, whiteStyle: navbarStyle === 'white', viewport });
+  useAnimateNavbarMobile({ navbarRef, whiteStyle: navbarStyle === 'white', viewport, sidebarOpened });
 
   gsap.registerPlugin(ScrollTrigger, ExpoScaleEase);
 
@@ -158,7 +156,19 @@ export const Layout = React.memo<LayoutProps>((props) => {
       <NavBar
         ref={navbarRef}
         HomeLink={<GatsbyLink to={'/'} />}
-        MobileSvgLogo={<LogoMorph height={20} />}
+        MobileSvgLogo={
+          navbarStyle === 'transparent' ? (
+            <Logo
+              height={40}
+              style={{
+                transform: `scale(2) translate(0, 17px)`,
+                fill: 'white',
+              }}
+            />
+          ) : (
+            <LogoSymbol />
+          )
+        }
         DesktopSvgLogo={<Logo />}
         MenuLinks={
           <>
@@ -186,7 +196,9 @@ export const Layout = React.memo<LayoutProps>((props) => {
             sidebarOpened={sidebarOpened}
             disableBodyScroll={true}
             onClickBackdrop={handleClickMenuButton}
-            style={{ backgroundColor: cssTheme.colors.colors.grey[800] }}
+            style={{
+              background: `linear-gradient(180deg, ${cssTheme.colors.colors.grey[800]} 0%, ${cssTheme.colors.colors.grey[800]} 50%, ${cssTheme.colors.colors.grey[50]} 50%, ${cssTheme.colors.colors.grey[50]} 100%)`,
+            }}
           >
             <Stack>
               <BoxV2
@@ -199,7 +211,11 @@ export const Layout = React.memo<LayoutProps>((props) => {
                   cssTheme.layout.var.contentMargins,
                 ]}
               >
-                <Cluster>
+                <Cluster
+                  style={{
+                    height: `auto`, // bug on safari
+                  }}
+                >
                   <LogoSymbol fill={'white'} />
 
                   <Button
@@ -279,43 +295,7 @@ export const Layout = React.memo<LayoutProps>((props) => {
                 alignItems={['stretch']}
                 padding={[cssTheme.sizing.var.x5, cssTheme.layout.var.contentMargins]}
               >
-                <Stack gap={[cssTheme.sizing.var.x5]}>
-                  <Stack gap={[cssTheme.sizing.var.x4]}>
-                    <Link
-                      variantSize={PARAGRAPH_SIZE.small}
-                      variant={LinkVariant.underline}
-                      href={`mailto:${companyAddress?.email}`}
-                    >
-                      {companyAddress?.email}
-                    </Link>
-                    <Link
-                      variantSize={PARAGRAPH_SIZE.small}
-                      variant={LinkVariant.underline}
-                      href={`tel:${companyAddress?.phone}`}
-                    >
-                      {companyAddress?.phone}
-                    </Link>
-                    <Link
-                      variantSize={PARAGRAPH_SIZE.small}
-                      variant={LinkVariant.underline}
-                      href={`fax:${companyAddress?.fax}`}
-                    >
-                      {companyAddress?.fax}
-                    </Link>
-                    <Link
-                      variantSize={PARAGRAPH_SIZE.small}
-                      variant={LinkVariant.underline}
-                      href={'https://goo.gl/maps/nndYpgQLkbDC6c7S7'}
-                      target="blank"
-                    >
-                      {companyAddress?.addressLine1}
-                      <br />
-                      {companyAddress?.addressLine2}
-                    </Link>
-                  </Stack>
-
-                  <Paragraph variant={PARAGRAPH_SIZE.small}>{companyInfo?.copyright}</Paragraph>
-                </Stack>
+                <Paragraph variant={PARAGRAPH_SIZE.xSmall}>{companyInfo?.copyright}</Paragraph>
               </BoxV2>
             </Stack>
           </MobileSideBar>

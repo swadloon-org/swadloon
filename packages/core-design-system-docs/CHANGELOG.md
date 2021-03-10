@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/newrade/newrade/compare/@newrade/core-design-system-docs@1.1.0...@newrade/core-design-system-docs@1.2.0) (2021-03-10)
+
+### Bug Fixes
+
+- **core-react-ui:** implement list item v2 ([c193d81](https://github.com/newrade/newrade/commit/c193d811367dfe38d830ccab270e807a18a91276))
+
+### Features
+
+- **add-section-docs:** add the section statement, banner, callout and showcase ([2e9cc09](https://github.com/newrade/newrade/commit/2e9cc096365e0619b8b6f4686a60964b97398b55))
+- **new-docs-sections:** adding new sections of the docs in the code folder ([548b990](https://github.com/newrade/newrade/commit/548b990a062f0c2e26cf561acabc2a63afb5cc54))
+
 # 1.1.0 (2021-03-09)
 
 ### Bug Fixes
