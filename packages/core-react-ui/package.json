@@ -1,6 +1,6 @@
 {
   "name": "@newrade/core-react-ui",
-  "version": "1.12.0",
+  "version": "1.12.1",
   "description": "UI library",
   "license": "MIT",
   "main": "./lib/index.js",

@@ -1,6 +1,6 @@
 {
   "name": "@newrade/vsb-website",
-  "version": "1.11.0",
+  "version": "1.11.1",
   "description": "Gatsby website for vsb a medical website",
   "author": {
     "email": "info@newrade.ca",
@@ -31,16 +31,16 @@
   "dependencies": {
     "@newrade/core-design-system": "^1.9.2",
     "@newrade/core-gsap-ui": "^1.1.5",
-    "@newrade/core-react-ui": "^1.12.0",
+    "@newrade/core-react-ui": "^1.12.1",
     "@newrade/vsb-api": "^1.3.3",
     "@newrade/vsb-common": "^1.3.3",
     "gatsby": "^2.32.4"
   },
   "devDependencies": {
     "@newrade/core-common": "^1.2.3",
-    "@newrade/core-design-system-docs": "^1.1.0",
+    "@newrade/core-design-system-docs": "^1.2.0",
     "@newrade/core-gatsby-config": "^1.10.0",
-    "@newrade/core-gatsby-ui": "^1.6.0",
+    "@newrade/core-gatsby-ui": "^1.6.1",
     "@newrade/core-types": "^1.4.0",
     "@newrade/core-utils": "^1.6.3",
     "@newrade/core-webpack-config": "^1.5.0"

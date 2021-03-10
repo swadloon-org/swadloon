@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.1](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-ui@1.6.0...@newrade/core-gatsby-ui@1.6.1) (2021-03-10)
+
+### Bug Fixes
+
+- **core-gatsby-ui:** add lazy loading to block-google-maps ([de2c454](https://github.com/newrade/newrade/commit/de2c454b8ff111f81ffb2e37ba8847fd018188dc))
+- **core-gatsby-ui:** fix aside.tsx ([9ca0c18](https://github.com/newrade/newrade/commit/9ca0c18e44efa10092fe194add2d047245ad6ab0))
+- **vsb-website:** fix animation bug with navbar ([210e40a](https://github.com/newrade/newrade/commit/210e40a496b46af68cd2cff00d6d302a751ea070))
+
 # [1.6.0](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-ui@1.5.1...@newrade/core-gatsby-ui@1.6.0) (2021-03-09)
 
 ### Bug Fixes

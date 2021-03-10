@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/cdpq-website@1.1.0...@newrade/cdpq-website@1.1.1) (2021-03-10)
+
+### Bug Fixes
+
+- **core-gatsby-ui:** fix aside.tsx ([9ca0c18](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/9ca0c18e44efa10092fe194add2d047245ad6ab0))
+
 # 1.1.0 (2021-03-09)
 
 ### Bug Fixes

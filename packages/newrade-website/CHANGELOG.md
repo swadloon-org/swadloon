@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.11.0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/newrade-website@1.10.0...@newrade/newrade-website@1.11.0) (2021-03-10)
+
+### Bug Fixes
+
+- **core-gatsby-ui:** add lazy loading to block-google-maps ([de2c454](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/de2c454b8ff111f81ffb2e37ba8847fd018188dc))
+- **core-gatsby-ui:** fix aside.tsx ([9ca0c18](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/9ca0c18e44efa10092fe194add2d047245ad6ab0))
+
+### Features
+
+- **add-section-docs:** add the section statement, banner, callout and showcase ([2e9cc09](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/2e9cc096365e0619b8b6f4686a60964b97398b55))
+- **new-docs-sections:** adding new sections of the docs in the code folder ([548b990](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/548b990a062f0c2e26cf561acabc2a63afb5cc54))
+
 # [1.10.0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/newrade-website@1.9.1...@newrade/newrade-website@1.10.0) (2021-03-09)
 
 ### Bug Fixes
