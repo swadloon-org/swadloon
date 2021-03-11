@@ -16,6 +16,8 @@
 #
 # https://docs.netlify.com/routing/redirects/rewrites-proxies/#custom-headers-in-proxy-redirects
 #
+# redirects for the old php website
+#
 
 [[redirects]]
 from = "/api/server/*"

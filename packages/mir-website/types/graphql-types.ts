@@ -32752,6 +32752,8 @@ export type QueryAllDirectoryArgs = {
 export type QuerySiteArgs = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  port?: Maybe<IntQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
   flags?: Maybe<SiteFlagsFilterInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
@@ -33545,6 +33547,8 @@ export type QueryAllSitePluginArgs = {
 export type Site = Node & {
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
+  port?: Maybe<Scalars['Int']>;
+  host?: Maybe<Scalars['String']>;
   flags?: Maybe<SiteFlags>;
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
@@ -33751,6 +33755,8 @@ export type SiteFieldsEnum =
   | 'siteMetadata___siteEnv'
   | 'siteMetadata___languages___langs'
   | 'siteMetadata___languages___defaultLangKey'
+  | 'port'
+  | 'host'
   | 'flags___PRESERVE_WEBPACK_CACHE'
   | 'flags___PRESERVE_FILE_DOWNLOAD_CACHE'
   | 'flags___QUERY_ON_DEMAND'
@@ -33852,6 +33858,8 @@ export type SiteFieldsEnum =
 export type SiteFilterInput = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  port?: Maybe<IntQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
   flags?: Maybe<SiteFlagsFilterInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
@@ -33945,8 +33953,6 @@ export type SitePageContext = {
   template?: Maybe<Scalars['String']>;
   blogPostId?: Maybe<Scalars['String']>;
   blogPath?: Maybe<Scalars['String']>;
-  displayName?: Maybe<Scalars['String']>;
-  fileId?: Maybe<Scalars['String']>;
 };
 
 export type SitePageContextFilterInput = {
@@ -33962,8 +33968,6 @@ export type SitePageContextFilterInput = {
   template?: Maybe<StringQueryOperatorInput>;
   blogPostId?: Maybe<StringQueryOperatorInput>;
   blogPath?: Maybe<StringQueryOperatorInput>;
-  displayName?: Maybe<StringQueryOperatorInput>;
-  fileId?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePageContextSiteMetadata = {
@@ -34108,8 +34112,6 @@ export type SitePageFieldsEnum =
   | 'context___template'
   | 'context___blogPostId'
   | 'context___blogPath'
-  | 'context___displayName'
-  | 'context___fileId'
   | 'pluginCreator___id'
   | 'pluginCreator___parent___id'
   | 'pluginCreator___parent___parent___id'
@@ -34189,10 +34191,6 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___mergeCachingHeaders'
   | 'pluginCreator___pluginOptions___generateMatchPathRewrites'
   | 'pluginCreator___pluginOptions___id'
-  | 'pluginCreator___pluginOptions___packageName'
-  | 'pluginCreator___pluginOptions___pluginName'
-  | 'pluginCreator___pluginOptions___features___renderDesignSystemPages'
-  | 'pluginCreator___pluginOptions___features___renderDocsPages'
   | 'pluginCreator___pluginOptions___pathCheck'
   | 'pluginCreator___pluginOptions___allExtensions'
   | 'pluginCreator___pluginOptions___isTSX'
@@ -34433,10 +34431,6 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___mergeCachingHeaders'
   | 'pluginOptions___generateMatchPathRewrites'
   | 'pluginOptions___id'
-  | 'pluginOptions___packageName'
-  | 'pluginOptions___pluginName'
-  | 'pluginOptions___features___renderDesignSystemPages'
-  | 'pluginOptions___features___renderDocsPages'
   | 'pluginOptions___pathCheck'
   | 'pluginOptions___allExtensions'
   | 'pluginOptions___isTSX'
@@ -34589,9 +34583,6 @@ export type SitePluginPluginOptions = {
   mergeCachingHeaders?: Maybe<Scalars['Boolean']>;
   generateMatchPathRewrites?: Maybe<Scalars['Boolean']>;
   id?: Maybe<Scalars['String']>;
-  packageName?: Maybe<Scalars['String']>;
-  pluginName?: Maybe<Scalars['String']>;
-  features?: Maybe<SitePluginPluginOptionsFeatures>;
   pathCheck?: Maybe<Scalars['Boolean']>;
   allExtensions?: Maybe<Scalars['Boolean']>;
   isTSX?: Maybe<Scalars['Boolean']>;
@@ -34700,16 +34691,6 @@ export type SitePluginPluginOptionsEnvStagingPolicyFilterListInput = {
   elemMatch?: Maybe<SitePluginPluginOptionsEnvStagingPolicyFilterInput>;
 };
 
-export type SitePluginPluginOptionsFeatures = {
-  renderDesignSystemPages?: Maybe<Scalars['Boolean']>;
-  renderDocsPages?: Maybe<Scalars['Boolean']>;
-};
-
-export type SitePluginPluginOptionsFeaturesFilterInput = {
-  renderDesignSystemPages?: Maybe<BooleanQueryOperatorInput>;
-  renderDocsPages?: Maybe<BooleanQueryOperatorInput>;
-};
-
 export type SitePluginPluginOptionsFilterInput = {
   name?: Maybe<StringQueryOperatorInput>;
   short_name?: Maybe<StringQueryOperatorInput>;
@@ -34747,9 +34728,6 @@ export type SitePluginPluginOptionsFilterInput = {
   mergeCachingHeaders?: Maybe<BooleanQueryOperatorInput>;
   generateMatchPathRewrites?: Maybe<BooleanQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
-  packageName?: Maybe<StringQueryOperatorInput>;
-  pluginName?: Maybe<StringQueryOperatorInput>;
-  features?: Maybe<SitePluginPluginOptionsFeaturesFilterInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;
   allExtensions?: Maybe<BooleanQueryOperatorInput>;
   isTSX?: Maybe<BooleanQueryOperatorInput>;
