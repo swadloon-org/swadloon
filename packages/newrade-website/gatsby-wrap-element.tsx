@@ -3,8 +3,8 @@ import { GatsbyCommonPageContext } from '@newrade/core-gatsby-config';
 import { LayoutDocs } from '@newrade/core-gatsby-ui/src';
 import { PageProps, WrapPageElementBrowserArgs } from 'gatsby';
 import React from 'react';
-import MobileLogo from './src/images/logos/logo-symbol.svg';
-import Logo from './src/images/logos/logo.svg';
+import MobileLogo from './src/images/logo-symbol.svg';
+import Logo from './src/images/logo.svg';
 import { Layout } from './src/layout/layout';
 
 type Props = PageProps<{}, GatsbyCommonPageContext>;
