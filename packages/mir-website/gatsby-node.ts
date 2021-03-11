@@ -30,21 +30,22 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions,
 
   /**
    * Page redirections for old site
+   * see netlify.toml
    */
-  createRedirect({ fromPath: '/employeur-en-personnel-specialise/', toPath: '/employeurs/', isPermanent: true });
-  createRedirect({ fromPath: '/division-secteur-industriel/', toPath: '/employeurs/', isPermanent: true });
-  createRedirect({ fromPath: '/division-entreprises-de-services/', toPath: '/employeurs/', isPermanent: true });
-  createRedirect({ fromPath: '/division-construction/', toPath: '/employeurs/', isPermanent: true });
-  createRedirect({
-    fromPath: '/candidats-recrutement-personnel-specialise/',
-    toPath: '/candidats/',
-    isPermanent: true,
-  });
-  createRedirect({
-    fromPath: '/coordonnees/',
-    toPath: '/nous-joindre/',
-    isPermanent: true,
-  });
+  // createRedirect({ fromPath: '/employeur-en-personnel-specialise/', toPath: '/employeurs/', isPermanent: true });
+  // createRedirect({ fromPath: '/division-secteur-industriel/', toPath: '/employeurs/', isPermanent: true });
+  // createRedirect({ fromPath: '/division-entreprises-de-services/', toPath: '/employeurs/', isPermanent: true });
+  // createRedirect({ fromPath: '/division-construction/', toPath: '/employeurs/', isPermanent: true });
+  // createRedirect({
+  //   fromPath: '/candidats-recrutement-personnel-specialise/',
+  //   toPath: '/candidats/',
+  //   isPermanent: true,
+  // });
+  // createRedirect({
+  //   fromPath: '/coordonnees/',
+  //   toPath: '/nous-joindre/',
+  //   isPermanent: true,
+  // });
 
   /**
    * Pages creation

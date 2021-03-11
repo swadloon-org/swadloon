@@ -84,13 +84,6 @@ const config: core.GastbySiteConfig = {
     core.getGatsbyPluginGoogleTagmanager({
       googleTagId: 'GTM-T4LK3QF',
     }),
-    core.getGastbyCorePluginConfig({
-      packageName: packageJson.name,
-      features: {
-        renderDesignSystemPages: false,
-        renderDocsPages: false,
-      },
-    }),
     /**
      * gatsby-plugin-csp
      *

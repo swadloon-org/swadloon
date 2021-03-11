@@ -36,6 +36,10 @@ export function getMetadataOpenGraphWebsiteTags({
     description ? <meta property="og:description" content={description} /> : null,
     site_name ? <meta property="og:site_name" content={site_name} /> : null,
     locale ? <meta property="og:locale" content={locale} /> : null,
+    /**
+     * TODO:
+     * <link rel="alternate" hreflang="lang_code" href="url_of_page" /> https://developers.google.com/search/docs/advanced/crawling/localized-versions
+     */
     localeAlternate ? <meta property="og:locale:alternate" content={localeAlternate} /> : null,
   ].map((tag, index) => {
     if (tag?.type === 'html') {
