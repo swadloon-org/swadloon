@@ -1,6 +1,6 @@
 {
   "name": "@newrade/core-gatsby-config",
-  "version": "1.10.0",
+  "version": "1.10.1",
   "description": "Reusable gatsby configuration files",
   "license": "MIT",
   "main": "./lib/index.js",

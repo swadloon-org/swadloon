@@ -1,6 +1,6 @@
 {
   "name": "@newrade/core-contentful-lib",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "description": "",
   "author": "",
   "license": "MIT",
@@ -22,7 +22,7 @@
   "devDependencies": {
     "@contentful-tools/cli": "^0.7.3",
     "@newrade/core-common": "^1.2.3",
-    "@newrade/core-gatsby-config": "^1.10.0",
+    "@newrade/core-gatsby-config": "^1.10.1",
     "@newrade/core-types": "^1.4.0",
     "@newrade/core-utils": "^1.6.3",
     "@newrade/core-webpack-config": "^1.5.0"

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.2](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/newrade-website@1.11.1...@newrade/newrade-website@1.11.2) (2021-03-11)
+
+### Bug Fixes
+
+- **vsb-website:** hotfix for redirects ([4020616](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/402061618bd468f0e7c194a1205c944f52a15112))
+
 ## [1.11.1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/newrade-website@1.11.0...@newrade/newrade-website@1.11.1) (2021-03-11)
 
 ### Bug Fixes

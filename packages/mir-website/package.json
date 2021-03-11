@@ -1,6 +1,6 @@
 {
   "name": "@newrade/mir-website",
-  "version": "1.12.1",
+  "version": "1.12.2",
   "description": "Gatsby website for newrade's main website",
   "author": {
     "email": "info@newrade.ca",
@@ -33,8 +33,8 @@
   },
   "devDependencies": {
     "@newrade/core-common": "^1.2.3",
-    "@newrade/core-design-system-docs": "^1.2.0",
-    "@newrade/core-gatsby-config": "^1.10.0",
+    "@newrade/core-design-system-docs": "^1.2.1",
+    "@newrade/core-gatsby-config": "^1.10.1",
     "@newrade/core-types": "^1.4.0",
     "@newrade/core-utils": "^1.6.3",
     "@newrade/core-webpack-config": "^1.5.0"

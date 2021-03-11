@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.12.2](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/mir-website@1.12.1...@newrade/mir-website@1.12.2) (2021-03-11)
+
+### Bug Fixes
+
+- **mir-website:** hotfix for blog generation ([7436d44](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/7436d448e10a41d660adb3fdb6db946f48989d11))
+
 ## [1.12.1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/mir-website@1.12.0...@newrade/mir-website@1.12.1) (2021-03-10)
 
 ### Bug Fixes

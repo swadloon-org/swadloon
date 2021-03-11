@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.2](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-ui@1.6.1...@newrade/core-gatsby-ui@1.6.2) (2021-03-11)
+
+**Note:** Version bump only for package @newrade/core-gatsby-ui
+
 ## [1.6.1](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-ui@1.6.0...@newrade/core-gatsby-ui@1.6.1) (2021-03-10)
 
 ### Bug Fixes

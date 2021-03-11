@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.10.1](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-config@1.10.0...@newrade/core-gatsby-config@1.10.1) (2021-03-11)
+
+### Bug Fixes
+
+- **mir-website:** hotfix for blog generation ([7436d44](https://github.com/newrade/newrade/commit/7436d448e10a41d660adb3fdb6db946f48989d11))
+
 # [1.10.0](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-config@1.9.1...@newrade/core-gatsby-config@1.10.0) (2021-03-09)
 
 ### Bug Fixes

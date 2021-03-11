@@ -1,6 +1,6 @@
 {
   "name": "@newrade/core-react-ui-app",
-  "version": "1.6.1",
+  "version": "1.6.2",
   "description": "UI App library",
   "license": "MIT",
   "scripts": {
@@ -15,7 +15,7 @@
     "@newrade/core-common": "^1.2.3",
     "@newrade/core-design-system": "^1.9.2",
     "@newrade/core-jest-config": "^1.5.7",
-    "@newrade/core-react-ui": "^1.12.1",
+    "@newrade/core-react-ui": "^1.12.2",
     "@newrade/core-types": "^1.4.0",
     "@newrade/core-utils": "^1.6.3",
     "@newrade/core-webpack-config": "^1.5.0"
