@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/newrade-website@1.11.0...@newrade/newrade-website@1.11.1) (2021-03-11)
+
+### Bug Fixes
+
+- **newrade-website:** fix image path ([f104391](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/f1043916a9aec2ec55b4270819da0ea74e15a4e8))
+- **newrade-website:** hotfix for image path ([84e0ee3](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/84e0ee3a9bda35b0791e26d929afbd9af0387cd4))
+
 # [1.11.0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/newrade-website@1.10.0...@newrade/newrade-website@1.11.0) (2021-03-10)
 
 ### Bug Fixes

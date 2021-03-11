@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.2](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/vsb-website@1.11.1...@newrade/vsb-website@1.11.2) (2021-03-11)
+
+### Bug Fixes
+
+- **hot-fix-vsb:** fixing the cost items section and fixing with the correct naming the navbar ([7f03ebf](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/7f03ebf5bc14b4cd297ea605be710132350a4373))
+
 ## [1.11.1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/vsb-website@1.11.0...@newrade/vsb-website@1.11.1) (2021-03-10)
 
 ### Bug Fixes
