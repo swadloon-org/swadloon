@@ -6,24 +6,23 @@ import { useStyles } from 'react-treat';
 import { BlockCostItemFragment } from '../../types/graphql-types';
 import * as styleRefs from './block-cost-item.treat';
 
-type Props = CommonComponentProps &
-  BlockProps & {
-    costItem: BlockCostItemFragment;
-  };
+type Props = CommonComponentProps & BlockProps;
 
-export const BlockCostItem: React.FC<Props> = ({ id, style, className, costItem, ...props }) => {
+export const BlockCostItem: React.FC<Props> = ({ id, style, className, block, ...props }) => {
   const { styles } = useStyles(styleRefs);
   const { theme, cssTheme } = useTreatTheme();
   const classNames = [styles.wrapper];
-  const commonProps = useCommonProps({ ...props, classNames });
+  const commonProps = useCommonProps({ ...props, style, classNames });
+
+  const item = block as BlockCostItemFragment;
 
   return (
     <div className={styles.wrapper} {...commonProps}>
       <Label variant={LABEL_SIZE.medium} className={styles.label}>
-        {costItem.text?.text}
+        {item.text?.text}
       </Label>
 
-      <Label variant={LABEL_SIZE.medium}>{costItem.priceText}</Label>
+      <Label variant={LABEL_SIZE.medium}>{item.priceText}</Label>
     </div>
   );
 };

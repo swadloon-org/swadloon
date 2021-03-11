@@ -14,10 +14,10 @@ import {
 import { graphql, PageProps } from 'gatsby';
 import React from 'react';
 import Helmet from 'react-helmet';
-import { BlockCostItemFragment, PageQuery } from '../../types/graphql-types';
-import { BlockCostItem } from '../blocks/block-cost-items';
+import { PageQuery } from '../../types/graphql-types';
 import '../fonts';
 import { CustomSectionBanner } from '../sections/custom-section-banner';
+import { CustomCostItems } from '../sections/custom-section-cost-items';
 import { CustomSectionFormVasectomy } from '../sections/section-form-vasectomy';
 import { CustomSectionSteps } from '../sections/section-steps';
 
@@ -41,10 +41,7 @@ type CustomSectionLayouts = 'customCostItems' | 'customSteps' | 'customFormVasec
 type CustomBlockVariants = 'customCostItem' | 'customStep';
 
 export const blockComponents: CustomBlockVariantComponents<CustomBlockVariants> = {
-  customCostItem: ({ block, ...props }) => {
-    const blockProps = block as BlockCostItemFragment;
-    return <BlockCostItem costItem={blockProps} {...props} />;
-  },
+  customCostItem: (props) => <div>{JSON.stringify(props, null, 2)}</div>, // not needed see CustomSectionCostItems
   customStep: (props) => <div>{JSON.stringify(props, null, 2)}</div>, // not needed see CustomSectionSteps
 };
 
@@ -53,8 +50,9 @@ export const sectionComponents: CustomSectionLayoutComponents<CustomSectionLayou
   callout: (props) => <CustomSectionBanner callout={true} nextSectionButton={false} {...props} />,
   customSteps: (props) => <CustomSectionSteps section={props.section} />,
   customFormVasectomy: (props) => <CustomSectionFormVasectomy section={props.section} />,
-  customCostItems: (props) => <div>{JSON.stringify(props, null, 2)}</div>,
+  customCostItems: (props) => <CustomCostItems section={props.section} />,
 };
+// customCostItems: (props) => <div>{JSON.stringify(props, null, 2)}</div>,
 
 export const PageTemplate: React.FC<ProjectPageProps> = ({ data, location, ...props }) => {
   return (
