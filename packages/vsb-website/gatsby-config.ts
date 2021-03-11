@@ -107,6 +107,9 @@ const config: core.GastbySiteConfig = {
       },
     }),
     core.getGatsbyPluginPreloadFonts(),
+    core.getGatsbyPluginGoogleTagmanager({
+      googleTagId: 'G-SQ2HS20JHJ',
+    }),
   ],
   /**
    * Mimic the same route that we have when deployed
