@@ -202,6 +202,7 @@ export async function fetchCliniko<Payload extends object>({
           errors: [{ name: ERROR_TYPE.HTTP_UNAUTHORIZED_401, message: 'Unable to connect to cliniko' }],
           payload: {},
         };
+        break;
       }
 
       case 404: {
@@ -212,6 +213,7 @@ export async function fetchCliniko<Payload extends object>({
           errors: [{ name: ERROR_TYPE.HTTP_NOT_FOUND_404, message: 'Not Found' }],
           payload: {},
         };
+        break;
       }
 
       case 422: {
@@ -228,6 +230,7 @@ export async function fetchCliniko<Payload extends object>({
           ],
           payload: {},
         };
+        break;
       }
 
       case 429: {
@@ -238,6 +241,7 @@ export async function fetchCliniko<Payload extends object>({
           errors: [{ name: ERROR_TYPE.RATE_LIMITING_ERROR, message: 'Rate limit' }],
           payload: {},
         };
+        break;
       }
 
       case 500: {
@@ -254,6 +258,7 @@ export async function fetchCliniko<Payload extends object>({
           ],
           payload: {},
         };
+        break;
       }
 
       default: {
@@ -270,6 +275,7 @@ export async function fetchCliniko<Payload extends object>({
           ],
           payload: {},
         };
+        break;
       }
     }
 

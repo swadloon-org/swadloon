@@ -4578,7 +4578,7 @@ export type ContentfulMediaSysFilterInput = {
   contentType?: Maybe<ContentfulMediaSysContentTypeFilterInput>;
 };
 
-export type ContentfulNavBar = Node & {
+export type ContentfulNavigation = Node & {
   id: Scalars['ID'];
   parent?: Maybe<Node>;
   children: Array<Node>;
@@ -4588,12 +4588,12 @@ export type ContentfulNavBar = Node & {
   contentful_id?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['Date']>;
   updatedAt?: Maybe<Scalars['Date']>;
-  sys?: Maybe<ContentfulNavBarSys>;
+  sys?: Maybe<ContentfulNavigationSys>;
   node_locale?: Maybe<Scalars['String']>;
 };
 
 
-export type ContentfulNavBarCreatedAtArgs = {
+export type ContentfulNavigationCreatedAtArgs = {
   formatString?: Maybe<Scalars['String']>;
   fromNow?: Maybe<Scalars['Boolean']>;
   difference?: Maybe<Scalars['String']>;
@@ -4601,41 +4601,41 @@ export type ContentfulNavBarCreatedAtArgs = {
 };
 
 
-export type ContentfulNavBarUpdatedAtArgs = {
+export type ContentfulNavigationUpdatedAtArgs = {
   formatString?: Maybe<Scalars['String']>;
   fromNow?: Maybe<Scalars['Boolean']>;
   difference?: Maybe<Scalars['String']>;
   locale?: Maybe<Scalars['String']>;
 };
 
-export type ContentfulNavBarConnection = {
+export type ContentfulNavigationConnection = {
   totalCount: Scalars['Int'];
-  edges: Array<ContentfulNavBarEdge>;
-  nodes: Array<ContentfulNavBar>;
+  edges: Array<ContentfulNavigationEdge>;
+  nodes: Array<ContentfulNavigation>;
   pageInfo: PageInfo;
   distinct: Array<Scalars['String']>;
-  group: Array<ContentfulNavBarGroupConnection>;
+  group: Array<ContentfulNavigationGroupConnection>;
 };
 
 
-export type ContentfulNavBarConnectionDistinctArgs = {
-  field: ContentfulNavBarFieldsEnum;
+export type ContentfulNavigationConnectionDistinctArgs = {
+  field: ContentfulNavigationFieldsEnum;
 };
 
 
-export type ContentfulNavBarConnectionGroupArgs = {
+export type ContentfulNavigationConnectionGroupArgs = {
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
-  field: ContentfulNavBarFieldsEnum;
+  field: ContentfulNavigationFieldsEnum;
 };
 
-export type ContentfulNavBarEdge = {
-  next?: Maybe<ContentfulNavBar>;
-  node: ContentfulNavBar;
-  previous?: Maybe<ContentfulNavBar>;
+export type ContentfulNavigationEdge = {
+  next?: Maybe<ContentfulNavigation>;
+  node: ContentfulNavigation;
+  previous?: Maybe<ContentfulNavigation>;
 };
 
-export type ContentfulNavBarFieldsEnum = 
+export type ContentfulNavigationFieldsEnum = 
   | 'id'
   | 'parent___id'
   | 'parent___parent___id'
@@ -4735,7 +4735,7 @@ export type ContentfulNavBarFieldsEnum =
   | 'sys___contentType___sys___contentful_id'
   | 'node_locale';
 
-export type ContentfulNavBarFilterInput = {
+export type ContentfulNavigationFilterInput = {
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
@@ -4745,56 +4745,56 @@ export type ContentfulNavBarFilterInput = {
   contentful_id?: Maybe<StringQueryOperatorInput>;
   createdAt?: Maybe<DateQueryOperatorInput>;
   updatedAt?: Maybe<DateQueryOperatorInput>;
-  sys?: Maybe<ContentfulNavBarSysFilterInput>;
+  sys?: Maybe<ContentfulNavigationSysFilterInput>;
   node_locale?: Maybe<StringQueryOperatorInput>;
 };
 
-export type ContentfulNavBarGroupConnection = {
+export type ContentfulNavigationGroupConnection = {
   totalCount: Scalars['Int'];
-  edges: Array<ContentfulNavBarEdge>;
-  nodes: Array<ContentfulNavBar>;
+  edges: Array<ContentfulNavigationEdge>;
+  nodes: Array<ContentfulNavigation>;
   pageInfo: PageInfo;
   field: Scalars['String'];
   fieldValue?: Maybe<Scalars['String']>;
 };
 
-export type ContentfulNavBarSortInput = {
-  fields?: Maybe<Array<Maybe<ContentfulNavBarFieldsEnum>>>;
+export type ContentfulNavigationSortInput = {
+  fields?: Maybe<Array<Maybe<ContentfulNavigationFieldsEnum>>>;
   order?: Maybe<Array<Maybe<SortOrderEnum>>>;
 };
 
-export type ContentfulNavBarSys = {
+export type ContentfulNavigationSys = {
   type?: Maybe<Scalars['String']>;
   revision?: Maybe<Scalars['Int']>;
-  contentType?: Maybe<ContentfulNavBarSysContentType>;
+  contentType?: Maybe<ContentfulNavigationSysContentType>;
 };
 
-export type ContentfulNavBarSysContentType = {
-  sys?: Maybe<ContentfulNavBarSysContentTypeSys>;
+export type ContentfulNavigationSysContentType = {
+  sys?: Maybe<ContentfulNavigationSysContentTypeSys>;
 };
 
-export type ContentfulNavBarSysContentTypeFilterInput = {
-  sys?: Maybe<ContentfulNavBarSysContentTypeSysFilterInput>;
+export type ContentfulNavigationSysContentTypeFilterInput = {
+  sys?: Maybe<ContentfulNavigationSysContentTypeSysFilterInput>;
 };
 
-export type ContentfulNavBarSysContentTypeSys = {
+export type ContentfulNavigationSysContentTypeSys = {
   type?: Maybe<Scalars['String']>;
   linkType?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['String']>;
   contentful_id?: Maybe<Scalars['String']>;
 };
 
-export type ContentfulNavBarSysContentTypeSysFilterInput = {
+export type ContentfulNavigationSysContentTypeSysFilterInput = {
   type?: Maybe<StringQueryOperatorInput>;
   linkType?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
   contentful_id?: Maybe<StringQueryOperatorInput>;
 };
 
-export type ContentfulNavBarSysFilterInput = {
+export type ContentfulNavigationSysFilterInput = {
   type?: Maybe<StringQueryOperatorInput>;
   revision?: Maybe<IntQueryOperatorInput>;
-  contentType?: Maybe<ContentfulNavBarSysContentTypeFilterInput>;
+  contentType?: Maybe<ContentfulNavigationSysContentTypeFilterInput>;
 };
 
 export type ContentfulPage = Node & {
@@ -8852,8 +8852,8 @@ export type Query = {
   allContentfulPageDescriptionTextNode: ContentfulPageDescriptionTextNodeConnection;
   contentfulPage?: Maybe<ContentfulPage>;
   allContentfulPage: ContentfulPageConnection;
-  contentfulNavBar?: Maybe<ContentfulNavBar>;
-  allContentfulNavBar: ContentfulNavBarConnection;
+  contentfulNavigation?: Maybe<ContentfulNavigation>;
+  allContentfulNavigation: ContentfulNavigationConnection;
   contentfulCompanyInfo?: Maybe<ContentfulCompanyInfo>;
   allContentfulCompanyInfo: ContentfulCompanyInfoConnection;
   contentfulCompanyAddress?: Maybe<ContentfulCompanyAddress>;
@@ -8983,8 +8983,6 @@ export type QueryAllDirectoryArgs = {
 export type QuerySiteArgs = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
-  port?: Maybe<IntQueryOperatorInput>;
-  host?: Maybe<StringQueryOperatorInput>;
   flags?: Maybe<SiteFlagsFilterInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
@@ -9009,15 +9007,15 @@ export type QuerySitePageArgs = {
   internalComponentName?: Maybe<StringQueryOperatorInput>;
   componentChunkName?: Maybe<StringQueryOperatorInput>;
   matchPath?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
   isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>;
   context?: Maybe<SitePageContextFilterInput>;
   pluginCreator?: Maybe<SitePluginFilterInput>;
   pluginCreatorId?: Maybe<StringQueryOperatorInput>;
   componentPath?: Maybe<StringQueryOperatorInput>;
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
 };
 
 
@@ -9188,7 +9186,7 @@ export type QueryAllContentfulPageArgs = {
 };
 
 
-export type QueryContentfulNavBarArgs = {
+export type QueryContentfulNavigationArgs = {
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
@@ -9198,14 +9196,14 @@ export type QueryContentfulNavBarArgs = {
   contentful_id?: Maybe<StringQueryOperatorInput>;
   createdAt?: Maybe<DateQueryOperatorInput>;
   updatedAt?: Maybe<DateQueryOperatorInput>;
-  sys?: Maybe<ContentfulNavBarSysFilterInput>;
+  sys?: Maybe<ContentfulNavigationSysFilterInput>;
   node_locale?: Maybe<StringQueryOperatorInput>;
 };
 
 
-export type QueryAllContentfulNavBarArgs = {
-  filter?: Maybe<ContentfulNavBarFilterInput>;
-  sort?: Maybe<ContentfulNavBarSortInput>;
+export type QueryAllContentfulNavigationArgs = {
+  filter?: Maybe<ContentfulNavigationFilterInput>;
+  sort?: Maybe<ContentfulNavigationSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
@@ -9470,8 +9468,6 @@ export type QueryAllSitePluginArgs = {
 export type Site = Node & {
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
-  port?: Maybe<Scalars['Int']>;
-  host?: Maybe<Scalars['String']>;
   flags?: Maybe<SiteFlags>;
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
@@ -9678,8 +9674,6 @@ export type SiteFieldsEnum =
   | 'siteMetadata___siteEnv'
   | 'siteMetadata___languages___langs'
   | 'siteMetadata___languages___defaultLangKey'
-  | 'port'
-  | 'host'
   | 'flags___PRESERVE_WEBPACK_CACHE'
   | 'flags___PRESERVE_FILE_DOWNLOAD_CACHE'
   | 'flags___QUERY_ON_DEMAND'
@@ -9781,8 +9775,6 @@ export type SiteFieldsEnum =
 export type SiteFilterInput = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
-  port?: Maybe<IntQueryOperatorInput>;
-  host?: Maybe<StringQueryOperatorInput>;
   flags?: Maybe<SiteFlagsFilterInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
@@ -9831,15 +9823,15 @@ export type SitePage = Node & {
   internalComponentName: Scalars['String'];
   componentChunkName: Scalars['String'];
   matchPath?: Maybe<Scalars['String']>;
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
   isCreatedByStatefulCreatePages?: Maybe<Scalars['Boolean']>;
   context?: Maybe<SitePageContext>;
   pluginCreator?: Maybe<SitePlugin>;
   pluginCreatorId?: Maybe<Scalars['String']>;
   componentPath?: Maybe<Scalars['String']>;
-  id: Scalars['ID'];
-  parent?: Maybe<Node>;
-  children: Array<Node>;
-  internal: Internal;
 };
 
 export type SitePageConnection = {
@@ -9927,6 +9919,92 @@ export type SitePageFieldsEnum =
   | 'internalComponentName'
   | 'componentChunkName'
   | 'matchPath'
+  | 'id'
+  | 'parent___id'
+  | 'parent___parent___id'
+  | 'parent___parent___parent___id'
+  | 'parent___parent___parent___children'
+  | 'parent___parent___children'
+  | 'parent___parent___children___id'
+  | 'parent___parent___children___children'
+  | 'parent___parent___internal___content'
+  | 'parent___parent___internal___contentDigest'
+  | 'parent___parent___internal___description'
+  | 'parent___parent___internal___fieldOwners'
+  | 'parent___parent___internal___ignoreType'
+  | 'parent___parent___internal___mediaType'
+  | 'parent___parent___internal___owner'
+  | 'parent___parent___internal___type'
+  | 'parent___children'
+  | 'parent___children___id'
+  | 'parent___children___parent___id'
+  | 'parent___children___parent___children'
+  | 'parent___children___children'
+  | 'parent___children___children___id'
+  | 'parent___children___children___children'
+  | 'parent___children___internal___content'
+  | 'parent___children___internal___contentDigest'
+  | 'parent___children___internal___description'
+  | 'parent___children___internal___fieldOwners'
+  | 'parent___children___internal___ignoreType'
+  | 'parent___children___internal___mediaType'
+  | 'parent___children___internal___owner'
+  | 'parent___children___internal___type'
+  | 'parent___internal___content'
+  | 'parent___internal___contentDigest'
+  | 'parent___internal___description'
+  | 'parent___internal___fieldOwners'
+  | 'parent___internal___ignoreType'
+  | 'parent___internal___mediaType'
+  | 'parent___internal___owner'
+  | 'parent___internal___type'
+  | 'children'
+  | 'children___id'
+  | 'children___parent___id'
+  | 'children___parent___parent___id'
+  | 'children___parent___parent___children'
+  | 'children___parent___children'
+  | 'children___parent___children___id'
+  | 'children___parent___children___children'
+  | 'children___parent___internal___content'
+  | 'children___parent___internal___contentDigest'
+  | 'children___parent___internal___description'
+  | 'children___parent___internal___fieldOwners'
+  | 'children___parent___internal___ignoreType'
+  | 'children___parent___internal___mediaType'
+  | 'children___parent___internal___owner'
+  | 'children___parent___internal___type'
+  | 'children___children'
+  | 'children___children___id'
+  | 'children___children___parent___id'
+  | 'children___children___parent___children'
+  | 'children___children___children'
+  | 'children___children___children___id'
+  | 'children___children___children___children'
+  | 'children___children___internal___content'
+  | 'children___children___internal___contentDigest'
+  | 'children___children___internal___description'
+  | 'children___children___internal___fieldOwners'
+  | 'children___children___internal___ignoreType'
+  | 'children___children___internal___mediaType'
+  | 'children___children___internal___owner'
+  | 'children___children___internal___type'
+  | 'children___internal___content'
+  | 'children___internal___contentDigest'
+  | 'children___internal___description'
+  | 'children___internal___fieldOwners'
+  | 'children___internal___ignoreType'
+  | 'children___internal___mediaType'
+  | 'children___internal___owner'
+  | 'children___internal___type'
+  | 'internal___content'
+  | 'internal___contentDigest'
+  | 'internal___description'
+  | 'internal___fieldOwners'
+  | 'internal___ignoreType'
+  | 'internal___mediaType'
+  | 'internal___owner'
+  | 'internal___type'
   | 'isCreatedByStatefulCreatePages'
   | 'context___siteMetadata___title'
   | 'context___siteMetadata___description'
@@ -10053,93 +10131,7 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___packageJson___peerDependencies___version'
   | 'pluginCreator___packageJson___keywords'
   | 'pluginCreatorId'
-  | 'componentPath'
-  | 'id'
-  | 'parent___id'
-  | 'parent___parent___id'
-  | 'parent___parent___parent___id'
-  | 'parent___parent___parent___children'
-  | 'parent___parent___children'
-  | 'parent___parent___children___id'
-  | 'parent___parent___children___children'
-  | 'parent___parent___internal___content'
-  | 'parent___parent___internal___contentDigest'
-  | 'parent___parent___internal___description'
-  | 'parent___parent___internal___fieldOwners'
-  | 'parent___parent___internal___ignoreType'
-  | 'parent___parent___internal___mediaType'
-  | 'parent___parent___internal___owner'
-  | 'parent___parent___internal___type'
-  | 'parent___children'
-  | 'parent___children___id'
-  | 'parent___children___parent___id'
-  | 'parent___children___parent___children'
-  | 'parent___children___children'
-  | 'parent___children___children___id'
-  | 'parent___children___children___children'
-  | 'parent___children___internal___content'
-  | 'parent___children___internal___contentDigest'
-  | 'parent___children___internal___description'
-  | 'parent___children___internal___fieldOwners'
-  | 'parent___children___internal___ignoreType'
-  | 'parent___children___internal___mediaType'
-  | 'parent___children___internal___owner'
-  | 'parent___children___internal___type'
-  | 'parent___internal___content'
-  | 'parent___internal___contentDigest'
-  | 'parent___internal___description'
-  | 'parent___internal___fieldOwners'
-  | 'parent___internal___ignoreType'
-  | 'parent___internal___mediaType'
-  | 'parent___internal___owner'
-  | 'parent___internal___type'
-  | 'children'
-  | 'children___id'
-  | 'children___parent___id'
-  | 'children___parent___parent___id'
-  | 'children___parent___parent___children'
-  | 'children___parent___children'
-  | 'children___parent___children___id'
-  | 'children___parent___children___children'
-  | 'children___parent___internal___content'
-  | 'children___parent___internal___contentDigest'
-  | 'children___parent___internal___description'
-  | 'children___parent___internal___fieldOwners'
-  | 'children___parent___internal___ignoreType'
-  | 'children___parent___internal___mediaType'
-  | 'children___parent___internal___owner'
-  | 'children___parent___internal___type'
-  | 'children___children'
-  | 'children___children___id'
-  | 'children___children___parent___id'
-  | 'children___children___parent___children'
-  | 'children___children___children'
-  | 'children___children___children___id'
-  | 'children___children___children___children'
-  | 'children___children___internal___content'
-  | 'children___children___internal___contentDigest'
-  | 'children___children___internal___description'
-  | 'children___children___internal___fieldOwners'
-  | 'children___children___internal___ignoreType'
-  | 'children___children___internal___mediaType'
-  | 'children___children___internal___owner'
-  | 'children___children___internal___type'
-  | 'children___internal___content'
-  | 'children___internal___contentDigest'
-  | 'children___internal___description'
-  | 'children___internal___fieldOwners'
-  | 'children___internal___ignoreType'
-  | 'children___internal___mediaType'
-  | 'children___internal___owner'
-  | 'children___internal___type'
-  | 'internal___content'
-  | 'internal___contentDigest'
-  | 'internal___description'
-  | 'internal___fieldOwners'
-  | 'internal___ignoreType'
-  | 'internal___mediaType'
-  | 'internal___owner'
-  | 'internal___type';
+  | 'componentPath';
 
 export type SitePageFilterInput = {
   path?: Maybe<StringQueryOperatorInput>;
@@ -10147,15 +10139,15 @@ export type SitePageFilterInput = {
   internalComponentName?: Maybe<StringQueryOperatorInput>;
   componentChunkName?: Maybe<StringQueryOperatorInput>;
   matchPath?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
   isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>;
   context?: Maybe<SitePageContextFilterInput>;
   pluginCreator?: Maybe<SitePluginFilterInput>;
   pluginCreatorId?: Maybe<StringQueryOperatorInput>;
   componentPath?: Maybe<StringQueryOperatorInput>;
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
 };
 
 export type SitePageGroupConnection = {
