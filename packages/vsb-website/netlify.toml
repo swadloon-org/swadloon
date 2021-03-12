@@ -23,105 +23,105 @@
 from = "/api/server/*"
 to = "/.netlify/functions/server"
 status = 200
-force = false
+force = true
 [[redirects]]
 from = "/boucher.php"
 to = "/equipe/"
 status = 301
-force = false
+force = true
 [[redirects]]
 from = "/boucher"
 to = "/equipe/"
 status = 301
-force = false
+force = true
 [[redirects]]
 from = "/plan.php"
 to = "/"
 status = 301
-force = false
+force = true
 [[redirects]]
 from = "/plan"
 to = "/"
 status = 301
-force = false
+force = true
 [[redirects]]
 from = "/consultation.php"
 to = "/vasectomie/"
 status = 301
-force = false
+force = true
 [[redirects]]
 from = "/consultation"
 to = "/vasectomie/"
 status = 301
-force = false
+force = true
 [[redirects]]
 from = "/vasectomie.php"
 to = "/vasectomie/"
 status = 301
-force = false
+force = true
 [[redirects]]
 from = "/vasectomie"
 to = "/vasectomie/"
 status = 301
-force = false
+force = true
 [[redirects]]
 from = "/couts.php"
 to = "/vasectomie/"
 status = 301
-force = false
+force = true
 [[redirects]]
 from = "/couts"
 to = "/vasectomie/"
 status = 301
-force = false
+force = true
 [[redirects]]
 from = "/spermogramme.php"
 to = "/vasectomie/"
 status = 301
-force = false
+force = true
 [[redirects]]
 from = "/spermogramme"
 to = "/vasectomie/"
 status = 301
-force = false
+force = true
 [[redirects]]
 from = "/etapes.php"
 to = "/vasectomie/"
 status = 301
-force = false
+force = true
 [[redirects]]
 from = "/etapes"
 to = "/vasectomie/"
 status = 301
-force = false
+force = true
 [[redirects]]
 from = "/meac.php"
 to = "/examen-pour-transport-canada/"
 status = 301
-force = false
+force = true
 [[redirects]]
 from = "/meac"
 to = "/examen-pour-transport-canada/"
 status = 301
-force = false
+force = true
 [[redirects]]
 from = "/media/pdf/depliant-preparatoire-vasectomie.pdf"
 to = "/vasectomie/"
 status = 301
-force = false
+force = true
 [[redirects]]
 from = "/media/pdf/carton-informations-vasectomie.pdf"
 to = "/vasectomie/"
 status = 301
-force = false
+force = true
 [[redirects]]
 from = "/joindre.php"
 to = "/contact/"
 status = 301
-force = false
+force = true
 [[redirects]]
 from = "/joindre"
 to = "/contact/"
 status = 301
-force = false
+force = true
 
