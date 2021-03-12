@@ -108,7 +108,7 @@ const config: core.GastbySiteConfig = {
     }),
     core.getGatsbyPluginPreloadFonts(),
     core.getGatsbyPluginGoogleTagmanager({
-      googleTagId: 'G-SQ2HS20JHJ',
+      googleTagId: 'GTM-MRLFBTJ',
     }),
   ],
   /**
