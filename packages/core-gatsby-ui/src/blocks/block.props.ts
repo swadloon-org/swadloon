@@ -30,6 +30,21 @@ export enum BlockType {
   googleMaps = 'googleMaps',
 }
 
+export enum BlockAlignment {
+  /**
+   * Align block content to the left
+   */
+  left = 'left',
+  /**
+   * Align block content to the left
+   */
+  center = 'center',
+  /**
+   * Align block content to the left
+   */
+  right = 'right',
+}
+
 /**
  * Props that all Block components should have
  */
