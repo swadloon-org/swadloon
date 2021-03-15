@@ -25,4 +25,10 @@ export type ColorShades10 = '100' | '200' | '300' | '300' | '400' | '500' | '600
 export type ColorPalette<ColorShades extends string = ColorShadesGrey, ColorType = Color> = Record<
   ColorShades,
   ColorType
->;
+> & {
+  /**
+   * Base color for the palette
+   */
+  baseHue?: Color['h'];
+  baseSat?: Color['s'];
+};

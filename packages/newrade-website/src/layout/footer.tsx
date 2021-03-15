@@ -1,4 +1,4 @@
-import { LABEL_SIZE, LinkVariant, PARAGRAPH_SIZE, TEXT_LEVEL, TEXT_STYLE } from '@newrade/core-design-system';
+import { LABEL_SIZE, LinkVariant, PARAGRAPH_SIZE, TEXT_STYLE } from '@newrade/core-design-system';
 import {
   Center,
   CommonComponentProps,
@@ -90,7 +90,7 @@ export const Footer: React.FC<Props> = ({ id, style, className, ...props }) => {
                   <Label
                     variantStyle={TEXT_STYLE.boldUppercase}
                     variant={LABEL_SIZE.small}
-                    variantLevel={TEXT_LEVEL.tertiary}
+                    variantLevel={Variant.tertiary}
                   >
                     {nav?.name}
                   </Label>
@@ -100,7 +100,7 @@ export const Footer: React.FC<Props> = ({ id, style, className, ...props }) => {
                       return (
                         <Link
                           key={link?.id}
-                          variantLevel={TEXT_LEVEL.primaryReversed}
+                          variantLevel={Variant.primaryReversed}
                           AsElement={<GatsbyLink to={link?.page?.slug || ''} />}
                         >
                           {link?.label}
@@ -113,19 +113,15 @@ export const Footer: React.FC<Props> = ({ id, style, className, ...props }) => {
             })} */}
 
             <Stack className={styles.joindre} gap={[cssTheme.sizing.var.x4]}>
-              <Label
-                variantStyle={TEXT_STYLE.boldUppercase}
-                variant={LABEL_SIZE.small}
-                variantLevel={TEXT_LEVEL.tertiary}
-              >
+              <Label variantStyle={TEXT_STYLE.boldUppercase} variant={LABEL_SIZE.small} variantLevel={Variant.tertiary}>
                 Nous Joindre
               </Label>
 
               <ListItems gap={[cssTheme.sizing.var.x4]}>
-                <ListItem variantLevel={TEXT_LEVEL.primaryReversed} variantIcon={'icon'} Icon={<IoMailOutline />}>
+                <ListItem variantLevel={Variant.primaryReversed} variantIcon={'icon'} Icon={<IoMailOutline />}>
                   <Link
                     className={styles.listItem}
-                    variantLevel={TEXT_LEVEL.primaryReversed}
+                    variantLevel={Variant.primaryReversed}
                     variant={LinkVariant.underline}
                     href={`mailto:${data.contentfulCompanyAddress?.email}`}
                   >
@@ -133,10 +129,10 @@ export const Footer: React.FC<Props> = ({ id, style, className, ...props }) => {
                   </Link>
                 </ListItem>
 
-                <ListItem variantLevel={TEXT_LEVEL.primaryReversed} variantIcon={'icon'} Icon={<IoCallOutline />}>
+                <ListItem variantLevel={Variant.primaryReversed} variantIcon={'icon'} Icon={<IoCallOutline />}>
                   <Link
                     className={styles.listItem}
-                    variantLevel={TEXT_LEVEL.primaryReversed}
+                    variantLevel={Variant.primaryReversed}
                     variant={LinkVariant.underline}
                     href={`tel:${data.contentfulCompanyAddress?.phone}`}
                   >
@@ -144,10 +140,10 @@ export const Footer: React.FC<Props> = ({ id, style, className, ...props }) => {
                   </Link>
                 </ListItem>
 
-                <ListItem variantLevel={TEXT_LEVEL.primaryReversed} variantIcon={'icon'} Icon={<IoPrintOutline />}>
+                <ListItem variantLevel={Variant.primaryReversed} variantIcon={'icon'} Icon={<IoPrintOutline />}>
                   <Link
                     className={styles.listItem}
-                    variantLevel={TEXT_LEVEL.primaryReversed}
+                    variantLevel={Variant.primaryReversed}
                     variant={LinkVariant.underline}
                     href={`fax:${data.contentfulCompanyAddress?.fax}`}
                   >
@@ -156,13 +152,13 @@ export const Footer: React.FC<Props> = ({ id, style, className, ...props }) => {
                 </ListItem>
 
                 <ListItem
-                  variantLevel={TEXT_LEVEL.primaryReversed}
+                  variantLevel={Variant.primaryReversed}
                   variantIcon={'icon'}
                   Icon={<IoLocationOutline style={{ verticalAlign: 'top' }} />}
                 >
                   <Link
                     className={styles.listItem}
-                    variantLevel={TEXT_LEVEL.primaryReversed}
+                    variantLevel={Variant.primaryReversed}
                     variant={LinkVariant.underline}
                     href={'https://goo.gl/maps/nndYpgQLkbDC6c7S7'}
                     target="blank"

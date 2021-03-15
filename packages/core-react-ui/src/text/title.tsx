@@ -1,4 +1,4 @@
-import { TEXT_LEVEL, TITLE } from '@newrade/core-design-system';
+import { TITLE, Variant } from '@newrade/core-design-system';
 import { kebab, pascal } from 'case';
 import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
@@ -9,7 +9,7 @@ import * as stylesRef from './title.treat';
 type Props = CommonComponentProps &
   HTMLAttributes<HTMLHeadingElement> & {
     variant?: TITLE;
-    variantLevel?: TEXT_LEVEL;
+    variantLevel?: Variant;
   };
 
 const defaultProps: Props = {

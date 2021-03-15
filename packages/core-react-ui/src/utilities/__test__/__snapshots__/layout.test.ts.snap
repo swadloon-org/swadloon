@@ -21,6 +21,7 @@ Object {
   },
   "contentWidth": Object {
     "desktopBlogMaxWidth": "800px",
+    "desktopDocsMaxWidth": "800px",
     "desktopMaxWidth": "1200px",
   },
   "footerHeight": Object {
@@ -68,6 +69,7 @@ Object {
     "contentMargins": "var(--layout-content-margins)",
     "contentWidth": Object {
       "desktopBlogMaxWidth": "var(--layout-content-width-desktop-blog-max-width)",
+      "desktopDocsMaxWidth": "var(--layout-content-width-desktop-docs-max-width)",
       "desktopMaxWidth": "var(--layout-content-width-desktop-max-width)",
     },
     "footerHeight": "var(--layout-footer-height)",
@@ -90,6 +92,7 @@ Object {
     "contentMargins": "--layout-content-margins",
     "contentWidth": Object {
       "desktopBlogMaxWidth": "--layout-content-width-desktop-blog-max-width",
+      "desktopDocsMaxWidth": "--layout-content-width-desktop-docs-max-width",
       "desktopMaxWidth": "--layout-content-width-desktop-max-width",
     },
     "footerHeight": "--layout-footer-height",

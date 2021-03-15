@@ -1,4 +1,4 @@
-import { HEADING, TEXT_LEVEL } from '@newrade/core-design-system';
+import { HEADING, Variant } from '@newrade/core-design-system';
 import { Heading, Stack, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 import { ColorPalette } from '../../../utils/color-palette';
@@ -12,26 +12,26 @@ export const TextLevel: React.FC<Props> = (props) => {
   return (
     <Stack gap={[cssTheme.sizing.var.x5]}>
       <Stack gap={[cssTheme.sizing.var.x2]}>
-        <Heading variant={HEADING.h2} variantLevel={TEXT_LEVEL.primary}>
+        <Heading variant={HEADING.h2} variantLevel={Variant.primary}>
           Primary Text
         </Heading>
-        <Heading variant={HEADING.h2} variantLevel={TEXT_LEVEL.secondary}>
+        <Heading variant={HEADING.h2} variantLevel={Variant.secondary}>
           Secondary Text
         </Heading>
-        <Heading variant={HEADING.h2} variantLevel={TEXT_LEVEL.tertiary}>
+        <Heading variant={HEADING.h2} variantLevel={Variant.tertiary}>
           Tertiary Text
         </Heading>
       </Stack>
 
       <ReversedBox>
         <Stack gap={[cssTheme.sizing.var.x2]}>
-          <Heading variant={HEADING.h2} variantLevel={TEXT_LEVEL.primaryReversed}>
+          <Heading variant={HEADING.h2} variantLevel={Variant.primaryReversed}>
             Primary Text
           </Heading>
-          <Heading variant={HEADING.h2} variantLevel={TEXT_LEVEL.secondaryReversed}>
+          <Heading variant={HEADING.h2} variantLevel={Variant.secondaryReversed}>
             Secondary Text
           </Heading>
-          <Heading variant={HEADING.h2} variantLevel={TEXT_LEVEL.tertiaryReversed}>
+          <Heading variant={HEADING.h2} variantLevel={Variant.tertiaryReversed}>
             Tertiary Text
           </Heading>
         </Stack>

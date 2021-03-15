@@ -4,7 +4,6 @@ import {
   HEADING,
   LABEL_SIZE,
   PARAGRAPH_SIZE,
-  TEXT_LEVEL,
   TEXT_STYLE,
   Variant,
   VIEWPORT,
@@ -238,13 +237,13 @@ export const Layout = React.memo<LayoutProps>((props) => {
               >
                 <Stack gap={[cssTheme.sizing.var.x5]}>
                   <Stack gap={[cssTheme.sizing.var.x3]}>
-                    <Heading variant={HEADING.h4} variantLevel={TEXT_LEVEL.primaryReversed}>
+                    <Heading variant={HEADING.h4} variantLevel={Variant.primaryReversed}>
                       Clinique Dr. Pierre Boucher Jr.
                     </Heading>
                     <Label
                       variant={LABEL_SIZE.xSmall}
                       variantStyle={TEXT_STYLE.boldUppercase}
-                      variantLevel={TEXT_LEVEL.primaryReversed}
+                      variantLevel={Variant.primaryReversed}
                     >
                       Omnipraticien CCMF (MU)
                     </Label>

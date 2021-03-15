@@ -18,7 +18,7 @@ export const styles: { [key in ButtonStyleProps['variant']]: string } &
   primary: style(({ theme, cssTheme }: Theme) => ({
     color: cssTheme.colors.colorIntents.primaryTextReversed,
     border: `2px solid ${cssTheme.colors.colorIntents.primary}`,
-    backgroundColor: cssTheme.colors.colorIntents.primary,
+    backgroundColor: cssTheme.colors.var.colors.primary[500],
     selectors: {
       '&:active': {
         filter: `brightness(90%)`,

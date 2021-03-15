@@ -47,26 +47,6 @@ export type Breakpoints<Override extends undefined | string = undefined> = {
   [key in keyof typeof BREAKPOINT]: Override extends string ? string : Breakpoint;
 };
 
-/**
- * Contains CSS variable names for layout sizes
- * @example `--layout-size-navbar`
- */
-export type LayoutVarNames = {
-  breakpoints: Breakpoints<string>;
-  contentMargins: string;
-  contentWidth: ContentWidths<string>;
-  sidebarWidth: string;
-  navbarHeight: string;
-  asideWidth: string;
-  footerHeight: string;
-};
-
-/**
- * Contains CSS statement to access CSS variables
- * @example `var(--layout-size-navbar)`
- */
-export type LayoutVars = LayoutVarNames;
-
 export type PartialLayout<Override extends undefined | string = undefined> = Omit<
   Layout<Override>,
   'var' | 'varNames' | 'media' | 'zIndex'
@@ -90,16 +70,6 @@ export interface Layout<Override extends undefined | string = undefined> {
     [key in keyof typeof VIEWPORT]: SizeType<Override>;
   };
   media: MediaQueries<Override>;
-  /**
-   * CSS variable name for each step.
-   * @example `--layout-navbar-height`
-   */
-  varNames: LayoutVarNames;
-  /**
-   * CSS statement to access CSS variables
-   * @example `var(--layout-navbar-height)`
-   */
-  var: LayoutVars;
   /**
    * One place to define the different z indexes
    */

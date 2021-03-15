@@ -1,8 +1,6 @@
 import {
   Breakpoints,
   Layout,
-  LayoutVarNames,
-  LayoutVars,
   MediaQueries,
   MediaQuery,
   MediaQueryGroup,
@@ -13,13 +11,23 @@ import {
   PartialLayout,
 } from '@newrade/core-design-system';
 import { kebab } from 'case';
+import { CSSLayout, LayoutVarNames, LayoutVars } from '../design-system/css-layout';
+import { defaultPartialLayout } from '../design-system/default-layout';
 import { cssVar } from './css-variable.utilities';
 import { keys, px } from './utilities';
+
+export const defaultLayoutVarNames: LayoutVarNames = getCSSVarNamesForLayout({
+  layout: defaultPartialLayout,
+});
+
+export const defaultLayoutVar: LayoutVars = getCSSVarForLayout({
+  layout: defaultPartialLayout,
+});
 
 /**
  * Transform the Layout object into a CSS compatible one.
  */
-export function getCSSLayout(options: Layout): Layout<string> {
+export function getCSSLayout(options: Layout): CSSLayout {
   return {
     media: getCSSMediaQueries(options.media),
     breakpoints: keys(options.breakpoints).reduce((previous, current) => {
@@ -53,8 +61,8 @@ export function getCSSLayout(options: Layout): Layout<string> {
       previous = { ...previous, [current]: px({ value }) };
       return previous;
     }, {} as Layout<string>['footerHeight']),
-    varNames: options.varNames,
-    var: options.var,
+    varNames: defaultLayoutVarNames,
+    var: defaultLayoutVar,
     zIndex: options.zIndex,
   };
 }

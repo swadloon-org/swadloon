@@ -13408,6 +13408,8 @@ export type QueryAllDirectoryArgs = {
 export type QuerySiteArgs = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  port?: Maybe<IntQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
   flags?: Maybe<SiteFlagsFilterInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
@@ -14096,6 +14098,8 @@ export type QueryAllSitePluginArgs = {
 export type Site = Node & {
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
+  port?: Maybe<Scalars['Int']>;
+  host?: Maybe<Scalars['String']>;
   flags?: Maybe<SiteFlags>;
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
@@ -14302,6 +14306,8 @@ export type SiteFieldsEnum =
   | 'siteMetadata___siteEnv'
   | 'siteMetadata___languages___langs'
   | 'siteMetadata___languages___defaultLangKey'
+  | 'port'
+  | 'host'
   | 'flags___PRESERVE_WEBPACK_CACHE'
   | 'flags___PRESERVE_FILE_DOWNLOAD_CACHE'
   | 'flags___QUERY_ON_DEMAND'
@@ -14403,6 +14409,8 @@ export type SiteFieldsEnum =
 export type SiteFilterInput = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  port?: Maybe<IntQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
   flags?: Maybe<SiteFlagsFilterInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
@@ -14721,9 +14729,6 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___destination'
   | 'pluginCreator___pluginOptions___purge'
   | 'pluginCreator___pluginOptions___createLinkInHead'
-  | 'pluginCreator___pluginOptions___host'
-  | 'pluginCreator___pluginOptions___sitemap'
-  | 'pluginCreator___pluginOptions___output'
   | 'pluginCreator___pluginOptions___headers____x'
   | 'pluginCreator___pluginOptions___mergeSecurityHeaders'
   | 'pluginCreator___pluginOptions___mergeLinkHeaders'
@@ -14741,6 +14746,9 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___allExtensions'
   | 'pluginCreator___pluginOptions___isTSX'
   | 'pluginCreator___pluginOptions___jsxPragma'
+  | 'pluginCreator___pluginOptions___host'
+  | 'pluginCreator___pluginOptions___sitemap'
+  | 'pluginCreator___pluginOptions___output'
   | 'pluginCreator___nodeAPIs'
   | 'pluginCreator___browserAPIs'
   | 'pluginCreator___ssrAPIs'
@@ -14966,13 +14974,6 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___destination'
   | 'pluginOptions___purge'
   | 'pluginOptions___createLinkInHead'
-  | 'pluginOptions___host'
-  | 'pluginOptions___sitemap'
-  | 'pluginOptions___output'
-  | 'pluginOptions___env___local___policy'
-  | 'pluginOptions___env___dev___policy'
-  | 'pluginOptions___env___staging___policy'
-  | 'pluginOptions___env___production___policy'
   | 'pluginOptions___headers____x'
   | 'pluginOptions___mergeSecurityHeaders'
   | 'pluginOptions___mergeLinkHeaders'
@@ -14990,6 +14991,13 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___allExtensions'
   | 'pluginOptions___isTSX'
   | 'pluginOptions___jsxPragma'
+  | 'pluginOptions___host'
+  | 'pluginOptions___sitemap'
+  | 'pluginOptions___output'
+  | 'pluginOptions___env___local___policy'
+  | 'pluginOptions___env___dev___policy'
+  | 'pluginOptions___env___staging___policy'
+  | 'pluginOptions___env___production___policy'
   | 'nodeAPIs'
   | 'browserAPIs'
   | 'ssrAPIs'
@@ -15130,10 +15138,6 @@ export type SitePluginPluginOptions = {
   destination?: Maybe<Scalars['String']>;
   purge?: Maybe<Scalars['Boolean']>;
   createLinkInHead?: Maybe<Scalars['Boolean']>;
-  host?: Maybe<Scalars['String']>;
-  sitemap?: Maybe<Scalars['String']>;
-  output?: Maybe<Scalars['String']>;
-  env?: Maybe<SitePluginPluginOptionsEnv>;
   headers?: Maybe<SitePluginPluginOptionsHeaders>;
   mergeSecurityHeaders?: Maybe<Scalars['Boolean']>;
   mergeLinkHeaders?: Maybe<Scalars['Boolean']>;
@@ -15148,6 +15152,10 @@ export type SitePluginPluginOptions = {
   allExtensions?: Maybe<Scalars['Boolean']>;
   isTSX?: Maybe<Scalars['Boolean']>;
   jsxPragma?: Maybe<Scalars['String']>;
+  host?: Maybe<Scalars['String']>;
+  sitemap?: Maybe<Scalars['String']>;
+  output?: Maybe<Scalars['String']>;
+  env?: Maybe<SitePluginPluginOptionsEnv>;
 };
 
 export type SitePluginPluginOptionsEnv = {
@@ -15295,10 +15303,6 @@ export type SitePluginPluginOptionsFilterInput = {
   destination?: Maybe<StringQueryOperatorInput>;
   purge?: Maybe<BooleanQueryOperatorInput>;
   createLinkInHead?: Maybe<BooleanQueryOperatorInput>;
-  host?: Maybe<StringQueryOperatorInput>;
-  sitemap?: Maybe<StringQueryOperatorInput>;
-  output?: Maybe<StringQueryOperatorInput>;
-  env?: Maybe<SitePluginPluginOptionsEnvFilterInput>;
   headers?: Maybe<SitePluginPluginOptionsHeadersFilterInput>;
   mergeSecurityHeaders?: Maybe<BooleanQueryOperatorInput>;
   mergeLinkHeaders?: Maybe<BooleanQueryOperatorInput>;
@@ -15313,6 +15317,10 @@ export type SitePluginPluginOptionsFilterInput = {
   allExtensions?: Maybe<BooleanQueryOperatorInput>;
   isTSX?: Maybe<BooleanQueryOperatorInput>;
   jsxPragma?: Maybe<StringQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
+  sitemap?: Maybe<StringQueryOperatorInput>;
+  output?: Maybe<StringQueryOperatorInput>;
+  env?: Maybe<SitePluginPluginOptionsEnvFilterInput>;
 };
 
 export type SitePluginPluginOptionsGatsbyRemarkPlugins = {

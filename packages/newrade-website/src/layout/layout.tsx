@@ -4,7 +4,6 @@ import {
   HEADING,
   LinkVariant,
   PARAGRAPH_SIZE,
-  TEXT_LEVEL,
   Variant,
   VIEWPORT,
 } from '@newrade/core-design-system';
@@ -177,7 +176,7 @@ export const Layout = React.memo<LayoutProps>((props) => {
               >
                 <Stack gap={[cssTheme.sizing.var.x5]}>
                   <Stack gap={[cssTheme.sizing.var.x3]}>
-                    <Heading variant={HEADING.h4} variantLevel={TEXT_LEVEL.primaryReversed}>
+                    <Heading variant={HEADING.h4} variantLevel={Variant.primaryReversed}>
                       Newrade
                     </Heading>
                   </Stack>

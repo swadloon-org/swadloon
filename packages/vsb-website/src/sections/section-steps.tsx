@@ -1,4 +1,4 @@
-import { PARAGRAPH_SIZE, TEXT_LEVEL, Variant } from '@newrade/core-design-system';
+import { PARAGRAPH_SIZE, Variant } from '@newrade/core-design-system';
 import {
   BlockAPI,
   BlockMarkdown,
@@ -65,7 +65,7 @@ export const CustomSectionSteps = React.forwardRef<any, Props>(
               justifyContent: 'center',
               alignItems: 'center',
             }}
-            variantLevel={TEXT_LEVEL.primaryReversed}
+            variantLevel={Variant.primaryReversed}
           >
             {index}
           </Label>

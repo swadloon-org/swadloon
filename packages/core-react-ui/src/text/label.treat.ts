@@ -1,11 +1,11 @@
-import { LABEL_SIZE, TEXT_LEVEL, TEXT_STYLE } from '@newrade/core-design-system';
+import { LABEL_SIZE, Variant, TEXT_STYLE } from '@newrade/core-design-system';
 import { style } from 'treat';
 import { Theme } from '../design-system/css-design-system';
 import { getCSSSizeTextStyles, getCSSTextStyles } from '../utilities/text.utilities';
 
 export const styles: { [key in LABEL_SIZE]: string } &
   { [key in TEXT_STYLE]: string } &
-  { [key in TEXT_LEVEL]: string } = {
+  { [key in Variant]: string } = {
   medium: style(({ theme, cssTheme }: Theme) => ({
     ...getCSSTextStyles(cssTheme.typography.labels.mobile.medium),
     '@media': {

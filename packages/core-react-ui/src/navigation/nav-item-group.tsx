@@ -1,4 +1,4 @@
-import { LABEL_SIZE, LinkProps, TEXT_LEVEL, TEXT_STYLE } from '@newrade/core-design-system';
+import { LABEL_SIZE, LinkProps, TEXT_STYLE, Variant } from '@newrade/core-design-system';
 import React, { AnchorHTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
 import { CommonComponentProps } from '../props/component-common.props';
@@ -16,7 +16,7 @@ export const NavItemGroup: React.FC<Props> = ({ id, style, className, as, AsElem
 
   return (
     <div id={id} style={style} className={allClassName}>
-      <Label variantStyle={TEXT_STYLE.boldUppercase} variant={LABEL_SIZE.xSmall} variantLevel={TEXT_LEVEL.tertiary}>
+      <Label variantStyle={TEXT_STYLE.boldUppercase} variant={LABEL_SIZE.xSmall} variantLevel={Variant.tertiary}>
         {props.children}
       </Label>
     </div>

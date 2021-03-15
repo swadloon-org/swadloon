@@ -64,44 +64,9 @@ export enum TEXT_STYLE {
 }
 
 /**
- * Level of text
- */
-export enum TEXT_LEVEL {
-  primary = 'primary',
-  primaryReversed = 'primaryReversed',
-  secondary = 'secondary',
-  secondaryReversed = 'secondaryReversed',
-  tertiary = 'tertiary',
-  tertiaryReversed = 'tertiaryReversed',
-}
-
-/**
  * Available fonts in the design system.
  */
-export type Fonts = { [key in keyof typeof TYPOGRAPHIC_STYLE]: Font[] } & {
-  /**
-   * CSS variable name for font famility.
-   * @example `--font-sans-alternate`
-   */
-  varNames: FontVarNames;
-  /**
-   * CSS statement to access font CSS variables
-   * @example `var(--font-sans-alternate)`
-   */
-  var: FontVars;
-};
-
-/**
- * Contains CSS variable names to set font-family
- * @example `--font-monospace`
- */
-export type FontVarNames = string[];
-
-/**
- * Contains CSS statement to access CSS variables
- * @example `var(--font-monospace)`
- */
-export type FontVars = string[];
+export type Fonts = { [key in keyof typeof TYPOGRAPHIC_STYLE]: Font[] };
 
 /**
  * TODO

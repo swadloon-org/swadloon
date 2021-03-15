@@ -11,6 +11,7 @@ export * from './foundations/effects';
 export * from './components/organisms/carousel';
 export * from './foundations/font';
 export * from './foundations/iconography';
+export * from './foundations/content-width';
 export * from './foundations/layout';
 export * from './foundations/media-queries';
 export * from './foundations/sizing';

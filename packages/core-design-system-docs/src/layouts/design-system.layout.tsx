@@ -3,7 +3,6 @@ import {
   ButtonSize,
   HEADING,
   LABEL_SIZE,
-  TEXT_LEVEL,
   TEXT_STYLE,
   Variant,
   VIEWPORT,
@@ -128,13 +127,13 @@ export const LayoutDesignSystem = React.memo<LayoutProps>(({ MobileSvgLogo, Desk
               >
                 <Stack gap={[cssTheme.sizing.var.x5]}>
                   <Stack gap={[cssTheme.sizing.var.x3]}>
-                    <Heading variant={HEADING.h4} variantLevel={TEXT_LEVEL.primaryReversed}>
+                    <Heading variant={HEADING.h4} variantLevel={Variant.primaryReversed}>
                       Système de design
                     </Heading>
                     <Label
                       variant={LABEL_SIZE.xSmall}
                       variantStyle={TEXT_STYLE.boldUppercase}
-                      variantLevel={TEXT_LEVEL.primaryReversed}
+                      variantLevel={Variant.primaryReversed}
                     >
                       Caisse de dépôt et placement
                     </Label>

@@ -1,4 +1,4 @@
-import { HEADING, TEXT_LEVEL } from '@newrade/core-design-system';
+import { HEADING, Variant } from '@newrade/core-design-system';
 import { pascal } from 'case';
 import React, { HTMLAttributes, useRef } from 'react';
 import { useStyles } from 'react-treat';
@@ -14,12 +14,12 @@ type Props = CommonComponentProps &
   TextCommonProps &
   HTMLAttributes<HTMLHeadingElement> & {
     variant?: HEADING;
-    variantLevel?: TEXT_LEVEL;
+    variantLevel?: Variant;
   };
 
 const defaultProps: Props = {
   variant: HEADING.h1,
-  variantLevel: TEXT_LEVEL.primary,
+  variantLevel: Variant.primary,
   children: 'Heading',
 };
 
@@ -60,7 +60,7 @@ export const Heading = React.memo(
       const defaultChildrenString = `${defaultProps.children as string} ${pascal(type)}`;
       const variantClass = `${styles[variant ? variant : (defaultProps.variant as HEADING)]}`;
       const variantLevelClass = `${
-        colorTextStyles[variantLevel ? variantLevel : (defaultProps.variantLevel as TEXT_LEVEL)]
+        colorTextStyles[variantLevel ? variantLevel : (defaultProps.variantLevel as Variant)]
       }`;
       const classNames = getMergedClassname([className, styles.wrapper, variantClass, variantLevelClass]);
 

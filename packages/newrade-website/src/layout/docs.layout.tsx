@@ -3,7 +3,6 @@ import {
   ButtonSize,
   HEADING,
   LABEL_SIZE,
-  TEXT_LEVEL,
   TEXT_STYLE,
   Variant,
   VIEWPORT,
@@ -130,13 +129,13 @@ export const LayoutDocs = React.memo<LayoutProps>(({ MobileSvgLogo, DesktopSvgLo
               >
                 <Stack gap={[cssTheme.sizing.var.x5]}>
                   <Stack gap={[cssTheme.sizing.var.x3]}>
-                    <Heading variant={HEADING.h4} variantLevel={TEXT_LEVEL.primaryReversed}>
+                    <Heading variant={HEADING.h4} variantLevel={Variant.primaryReversed}>
                       Docs
                     </Heading>
                     <Label
                       variant={LABEL_SIZE.xSmall}
                       variantStyle={TEXT_STYLE.boldUppercase}
-                      variantLevel={TEXT_LEVEL.primaryReversed}
+                      variantLevel={Variant.primaryReversed}
                     >
                       Label
                     </Label>

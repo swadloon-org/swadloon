@@ -1,4 +1,4 @@
-import { HEADING, TEXT_LEVEL } from '@newrade/core-design-system';
+import { HEADING } from '@newrade/core-design-system';
 import { style } from 'treat';
 import { Theme } from '../design-system/css-design-system';
 import { getCSSTextStyles } from '../utilities/text.utilities';
