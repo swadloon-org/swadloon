@@ -1,0 +1,149 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`buttons utilities getCSSButtons should generate CSS variable names for a given Colors object 1`] = `
+Object {
+  "sizes": Object {
+    "large": Object {
+      "border": Object {
+        "default": Object {
+          "color": undefined,
+          "radius": "3",
+          "style": "solid",
+          "width": "1px",
+        },
+      },
+      "height": "0px",
+      "width": "0px",
+    },
+    "medium": Object {
+      "border": undefined,
+      "height": "0px",
+      "width": "0px",
+    },
+    "small": Object {
+      "border": undefined,
+      "height": "0px",
+      "width": "0px",
+    },
+    "xsmall": Object {
+      "border": undefined,
+      "height": "0px",
+      "width": "0px",
+    },
+  },
+  "var": Object {
+    "sizes": Object {},
+    "variants": Object {
+      "primary": Object {
+        "backgroundColor": "var(--btn-prim-background-color)",
+        "borderColor": "var(--btn-prim-border-color)",
+        "iconColor": "var(--btn-prim-icon-color)",
+        "outlineColor": "var(--btn-prim-outline-color)",
+        "textColor": "var(--btn-prim-text-color)",
+      },
+      "primaryReversed": Object {
+        "backgroundColor": "var(--btn-prim-reversed-background-color)",
+        "borderColor": "var(--btn-prim-reversed-border-color)",
+        "iconColor": "var(--btn-prim-reversed-icon-color)",
+        "outlineColor": "var(--btn-prim-reversed-outline-color)",
+        "textColor": "var(--btn-prim-reversed-text-color)",
+      },
+      "secondary": Object {
+        "backgroundColor": "var(--btn-sec-background-color)",
+        "borderColor": "var(--btn-sec-border-color)",
+        "iconColor": "var(--btn-sec-icon-color)",
+        "outlineColor": "var(--btn-sec-outline-color)",
+        "textColor": "var(--btn-sec-text-color)",
+      },
+      "secondaryReversed": Object {
+        "backgroundColor": "var(--btn-sec-reversed-background-color)",
+        "borderColor": "var(--btn-sec-reversed-border-color)",
+        "iconColor": "var(--btn-sec-reversed-icon-color)",
+        "outlineColor": "var(--btn-sec-reversed-outline-color)",
+        "textColor": "var(--btn-sec-reversed-text-color)",
+      },
+      "tertiary": Object {
+        "backgroundColor": "var(--btn-ter-background-color)",
+        "borderColor": "var(--btn-ter-border-color)",
+        "iconColor": "var(--btn-ter-icon-color)",
+        "outlineColor": "var(--btn-ter-outline-color)",
+        "textColor": "var(--btn-ter-text-color)",
+      },
+      "tertiaryReversed": Object {
+        "backgroundColor": "var(--btn-ter-reversed-background-color)",
+        "borderColor": "var(--btn-ter-reversed-border-color)",
+        "iconColor": "var(--btn-ter-reversed-icon-color)",
+        "outlineColor": "var(--btn-ter-reversed-outline-color)",
+        "textColor": "var(--btn-ter-reversed-text-color)",
+      },
+    },
+  },
+  "varNames": Object {
+    "sizes": Object {},
+    "variants": Object {
+      "primary": Object {
+        "backgroundColor": "--btn-prim-background-color",
+        "borderColor": "--btn-prim-border-color",
+        "iconColor": "--btn-prim-icon-color",
+        "outlineColor": "--btn-prim-outline-color",
+        "textColor": "--btn-prim-text-color",
+      },
+      "primaryReversed": Object {
+        "backgroundColor": "--btn-prim-reversed-background-color",
+        "borderColor": "--btn-prim-reversed-border-color",
+        "iconColor": "--btn-prim-reversed-icon-color",
+        "outlineColor": "--btn-prim-reversed-outline-color",
+        "textColor": "--btn-prim-reversed-text-color",
+      },
+      "secondary": Object {
+        "backgroundColor": "--btn-sec-background-color",
+        "borderColor": "--btn-sec-border-color",
+        "iconColor": "--btn-sec-icon-color",
+        "outlineColor": "--btn-sec-outline-color",
+        "textColor": "--btn-sec-text-color",
+      },
+      "secondaryReversed": Object {
+        "backgroundColor": "--btn-sec-reversed-background-color",
+        "borderColor": "--btn-sec-reversed-border-color",
+        "iconColor": "--btn-sec-reversed-icon-color",
+        "outlineColor": "--btn-sec-reversed-outline-color",
+        "textColor": "--btn-sec-reversed-text-color",
+      },
+      "tertiary": Object {
+        "backgroundColor": "--btn-ter-background-color",
+        "borderColor": "--btn-ter-border-color",
+        "iconColor": "--btn-ter-icon-color",
+        "outlineColor": "--btn-ter-outline-color",
+        "textColor": "--btn-ter-text-color",
+      },
+      "tertiaryReversed": Object {
+        "backgroundColor": "--btn-ter-reversed-background-color",
+        "borderColor": "--btn-ter-reversed-border-color",
+        "iconColor": "--btn-ter-reversed-icon-color",
+        "outlineColor": "--btn-ter-reversed-outline-color",
+        "textColor": "--btn-ter-reversed-text-color",
+      },
+    },
+  },
+  "variants": Object {
+    "primary": Object {
+      "backgroundColor": "hsl(10deg 6% 7% / 100%)",
+    },
+    "primaryReversed": Object {
+      "backgroundColor": "hsl(10deg 10% 100% / 100%)",
+    },
+    "secondary": Object {
+      "backgroundColor": "hsl(10deg 6% 7% / 100%)",
+    },
+    "secondaryReversed": Object {
+      "backgroundColor": "hsl(10deg 10% 100% / 100%)",
+    },
+    "tertiary": Object {
+      "backgroundColor": "hsl(10deg 6% 7% / 100%)",
+    },
+    "tertiaryReversed": Object {
+      "backgroundColor": "hsl(10deg 10% 100% / 100%)",
+    },
+  },
+}
+`;

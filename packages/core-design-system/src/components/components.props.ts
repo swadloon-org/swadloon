@@ -12,3 +12,12 @@ export enum Variant {
   tertiary = 'tertiary',
   tertiaryReversed = 'tertiaryReversed',
 }
+
+/**
+ * Only high container components such as Boxes, Blocks, Sections need to set reversed explicitly
+ */
+export enum CompVariant {
+  primary = 'primary',
+  secondary = 'secondary',
+  tertiary = 'tertiary',
+}

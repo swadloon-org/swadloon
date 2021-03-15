@@ -1,4 +1,4 @@
-import { LABEL_SIZE, LinkVariant, PARAGRAPH_SIZE, TEXT_STYLE } from '@newrade/core-design-system';
+import { LABEL_SIZE, LinkVariant, PARAGRAPH_SIZE, TEXT_STYLE, Variant } from '@newrade/core-design-system';
 import {
   Center,
   CommonComponentProps,

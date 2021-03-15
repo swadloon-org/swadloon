@@ -5,7 +5,7 @@ import { ColorType } from '../types';
  */
 export interface ColorIntents<Override extends undefined | string = undefined> {
   /**
-   * TODO
+   * Used for outlines when elements are focused
    */
   accessibilityColor: ColorType<Override>;
 
