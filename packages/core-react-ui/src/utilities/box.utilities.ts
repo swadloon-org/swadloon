@@ -1,5 +1,9 @@
+import * as DS from '@newrade/core-design-system';
 import { Border, BorderStyles, BoxStyle, Radius } from '@newrade/core-design-system';
+import { CSSBoxVarNames } from '../design-system/css-box';
+import { CSSButtonsVarNames } from '../design-system/css-buttons';
 import { getCSSColor } from './colors.utilities';
+import { getFormattedCSSVar, getFormattedCSSVarName } from './props.utilities';
 import { keys, px } from './utilities';
 
 export function getCSSBoxStyle(box: BoxStyle): BoxStyle<string> {
@@ -45,6 +49,84 @@ export function getCSSBoxRadius(radius?: Radius): string {
   }
 
   return radius.all
-    ? `${radius.all}`
+    ? `${px({ value: radius.all })}`
     : `${radius.topLeft} ${radius.topRight} ${radius.bottomRight} ${radius.bottomLeft}`;
+}
+
+export function getCSSVarNameForBox({
+  box,
+  prefix,
+  varBrackets,
+}: {
+  box: DS.BoxStyle;
+  prefix: string;
+  varBrackets: boolean;
+}): CSSBoxVarNames {
+  const formatter = varBrackets ? getFormattedCSSVar : getFormattedCSSVarName;
+
+  return {
+    width: formatter({
+      prefix,
+      propName: 'width',
+    }),
+    height: formatter({
+      prefix,
+      propName: 'height',
+    }),
+    backgroundColor: formatter({
+      prefix,
+      propName: 'backgroundColor',
+    }),
+    padding: {
+      default: formatter({
+        prefix,
+        category: 'padding',
+        propName: '',
+      }),
+      top: formatter({
+        prefix,
+        category: 'padding',
+        propName: 'top',
+      }),
+      right: formatter({
+        prefix,
+        category: 'padding',
+        propName: 'right',
+      }),
+      bottom: formatter({
+        prefix,
+        category: 'padding',
+        propName: 'bottom',
+      }),
+      left: formatter({
+        prefix,
+        category: 'padding',
+        propName: 'left',
+      }),
+    },
+    border: {
+      default: {
+        color: formatter({
+          prefix,
+          category: 'border',
+          propName: 'color',
+        }),
+        style: formatter({
+          prefix,
+          category: 'border',
+          propName: 'style',
+        }) as 'solid' | 'dotted',
+        width: formatter({
+          prefix,
+          category: 'border',
+          propName: 'width',
+        }),
+        radius: formatter({
+          prefix,
+          category: 'border',
+          propName: 'radius',
+        }),
+      },
+    },
+  };
 }

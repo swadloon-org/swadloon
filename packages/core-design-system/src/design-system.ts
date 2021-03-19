@@ -50,6 +50,10 @@ export interface DesignSystem<Override extends undefined | string = undefined> {
    */
   components: {
     /**
+     * Styles
+     */
+
+    /**
      * Atoms
      */
     // titles: {};

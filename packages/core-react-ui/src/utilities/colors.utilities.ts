@@ -370,12 +370,12 @@ export function getCSSVarNamesForColors({
 }): CSSColorsVarNames {
   const colorsVarNames = getCSSVarNameForColorsColors<DS.Colors['colors']>({
     colors,
-    prefix: 'c',
+    prefix: 'color',
     varBrackets: false,
   });
   const colorIntentsVarNames = getCSSVarNameForColorsColors<DS.Colors['colorIntents']>({
     colors: colorIntents,
-    prefix: 'ci',
+    prefix: 'color-i',
     varBrackets: false,
   });
 
@@ -394,12 +394,12 @@ export function getCSSVarForColors({
 }): CSSColorsVars {
   const colorsVarNames = getCSSVarNameForColorsColors<DS.Colors['colors']>({
     colors,
-    prefix: 'c',
+    prefix: 'color',
     varBrackets: true,
   });
   const colorIntentsVarNames = getCSSVarNameForColorsColors<DS.Colors['colorIntents']>({
     colors: colorIntents,
-    prefix: 'ci',
+    prefix: 'color-i',
     varBrackets: true,
   });
 

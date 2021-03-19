@@ -14,7 +14,7 @@ export type Padding<Override extends undefined | string = undefined> = {
 
 export type Border<Override extends undefined | string = undefined> = {
   color?: ColorType<Override>;
-  style?: 'solid' | 'dotted';
+  style?: Override extends string ? string : 'solid' | 'dotted';
   width?: SizeType<Override>;
   radius?: RadiusType<Override>;
 };
@@ -35,8 +35,8 @@ export type Outline<Override extends undefined | string = undefined> = {
 };
 
 export type BoxStyle<Override extends undefined | string = undefined> = {
-  width?: Override;
-  height?: Override;
+  width?: SizeType<Override>;
+  height?: SizeType<Override>;
   padding?: Padding<Override>;
   border?: BorderStyles<Override>;
   outline?: {

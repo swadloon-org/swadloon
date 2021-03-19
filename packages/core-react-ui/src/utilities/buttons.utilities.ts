@@ -1,10 +1,11 @@
 import * as DS from '@newrade/core-design-system';
-import { ButtonColors, ButtonSizes, ButtonVariants, DesignSystem } from '@newrade/core-design-system';
+import { ButtonBoxStyle, ButtonColors, ButtonSizes, ButtonVariants, DesignSystem } from '@newrade/core-design-system';
 import { kebab } from 'case';
 import { CSSButtons, CSSButtonsVarNames } from '../design-system/css-buttons';
-import { getCSSBoxStyle } from './box.utilities';
+import { getCSSBoxStyle, getCSSVarNameForBox } from './box.utilities';
 import { getCSSColor, getCSSVarForColors, getCSSVarNamesForColors } from './colors.utilities';
 import { keys } from './utilities';
+import { getFormattedCSSVar, getFormattedCSSVarName } from './props.utilities';
 
 export function getCSSButtons(theme: DesignSystem): CSSButtons {
   const { colors, components } = theme;
@@ -58,65 +59,48 @@ function getCSSVarNameForButtons({
 
   keys(variants).forEach((variant) => {
     const currentVariant = variant as keyof CSSButtons['variants'];
-    const formattedCurrentVariant = kebab(currentVariant)
-      .replace('primary', 'prim')
-      .replace('secondary', 'sec')
-      .replace('tertiary', 'ter');
     if (currentVariant && currentVariant.length) {
       // handle variant
       if (variants[currentVariant] && typeof variants[currentVariant] === 'object') {
         const buttonColors = variants[currentVariant] as ButtonColors;
-        keys(buttonColors).forEach((prop) => {
-          const formattedPropName = kebab(prop);
-          // @ts-ignore
+        keys(buttonColors).forEach((propName) => {
           if (!buttonsVarNames['variants'][variant]) {
             // @ts-ignore
             buttonsVarNames['variants'][variant] = {};
           }
           if (varBrackets) {
-            // @ts-ignore
-            buttonsVarNames['variants'][variant][
-              prop
-            ] = `var(--${prefix}-${formattedCurrentVariant}-${formattedPropName})`;
+            buttonsVarNames['variants'][variant][propName] = getFormattedCSSVar({
+              prefix,
+              category: currentVariant,
+              propName,
+            });
             return;
           }
 
           // @ts-ignore
-          buttonsVarNames['variants'][variant][prop] = `--${prefix}-${formattedCurrentVariant}-${formattedPropName}`;
+          buttonsVarNames['variants'][variant][propName] = getFormattedCSSVarName({
+            prefix,
+            category: currentVariant,
+            propName,
+          });
           return;
         });
       }
     }
   });
 
-  keys(sizes).forEach((variant) => {
-    const currentVariant = variant as keyof CSSButtons['variants'];
-    const formattedCurrentVariant = kebab(currentVariant)
-      .replace('primary', 'prim')
-      .replace('secondary', 'sec')
-      .replace('tertiary', 'ter');
-    if (currentVariant && currentVariant.length) {
-      // handle variant
-      if (variants[currentVariant] && typeof variants[currentVariant] === 'object') {
-        const buttonColors = variants[currentVariant] as ButtonColors;
-        keys(buttonColors).forEach((prop) => {
-          const formattedPropName = kebab(prop);
-          // @ts-ignore
-          if (!buttonsVarNames['sizes'][variant]) {
-            // @ts-ignore
-            buttonsVarNames['sizes'][variant] = {};
-          }
-          if (varBrackets) {
-            // @ts-ignore
-            buttonsVarNames['sizes'][variant][
-              prop
-            ] = `var(--${prefix}-${formattedCurrentVariant}-${formattedPropName})`;
-            return;
-          }
+  keys(sizes).forEach((size) => {
+    const currentSize = size as keyof CSSButtons['sizes'];
+    if (currentSize && currentSize.length) {
+      // handle nested objects
+      if (sizes[currentSize] && typeof sizes[currentSize] === 'object') {
+        const buttonStyle = sizes[currentSize] as ButtonBoxStyle;
 
-          // @ts-ignore
-          buttonsVarNames['sizes'][variant][prop] = `--${prefix}-${formattedCurrentVariant}-${formattedPropName}`;
-          return;
+        // @ts-ignore
+        buttonsVarNames['sizes'][size] = getCSSVarNameForBox({
+          box: buttonStyle,
+          prefix: `${prefix}-${size}`,
+          varBrackets,
         });
       }
     }

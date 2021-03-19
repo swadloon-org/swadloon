@@ -4,7 +4,11 @@ import { kebab } from 'case';
  * @param value name of the variable
  * @param fallback optional fallback
  */
-export function cssVar(value: string, fallback?: string): string {
+export function cssVar(value?: string, fallback?: string): string {
+  if (!value) {
+    return '';
+  }
+
   return fallback ? `var(${value}, ${fallback})` : `var(${value})`;
 }
 

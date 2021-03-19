@@ -1,12 +1,4 @@
-import {
-  ButtonIcon,
-  ButtonProps,
-  ButtonSize,
-  ButtonState,
-  LABEL_SIZE,
-  TEXT_STYLE,
-  Variant,
-} from '@newrade/core-design-system';
+import { ButtonIcon, ButtonProps, ButtonSize, LABEL_SIZE, TEXT_STYLE, Variant } from '@newrade/core-design-system';
 import React, { ButtonHTMLAttributes, useRef } from 'react';
 import { useStyles } from 'react-treat';
 import { usePreventPinchZoom } from '../';
@@ -45,13 +37,20 @@ export const Button = React.forwardRef<any, Props>(
     },
     forwardedRef
   ) => {
-    const { styles } = useStyles(stylesRef);
+    const styles = useStyles(stylesRef);
     const localRef = useRef<HTMLButtonElement>(null);
     const ref = forwardedRef ? (forwardedRef as React.RefObject<HTMLButtonElement>) : localRef;
     const type = as ? as : 'button';
+    const iconClassNames = getMergedClassname([
+      styles.iconBase,
+      icon === ButtonIcon.right ? styles.right : '',
+      icon === ButtonIcon.left ? styles.left : '',
+      icon === ButtonIcon.icon ? styles.icon : '',
+    ]);
 
-    const iconClassNames = getMergedClassname([styles.iconBase, icon ? styles[icon] : '']);
-
+    /**
+     * Event handling
+     */
     usePreventPinchZoom(ref.current);
     // usePreventLongPress(ref.current);
 
@@ -63,17 +62,10 @@ export const Button = React.forwardRef<any, Props>(
           })
         : null;
 
-    const variantStateClassName = `${styles[ButtonState.rest]}`;
+    const variantStateClassName = `${styles.base}`;
     const variantClassName = `${styles[variant ? variant : Variant.primary]}`;
     const variantSizeClassName = styles[size ? size : ButtonSize.medium];
-    const activeClassName = disabled ? styles.pressed : '';
-    const allClassName = getMergedClassname([
-      variantStateClassName,
-      variantSizeClassName,
-      variantClassName,
-      activeClassName,
-      className,
-    ]);
+    const allClassName = getMergedClassname([variantStateClassName, variantSizeClassName, variantClassName, className]);
     const renderedChildren = children
       ? children
       : getDefaultTextFromProps('button', {

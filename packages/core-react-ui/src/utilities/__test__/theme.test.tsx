@@ -9,8 +9,6 @@ describe('theme utilities', () => {
       expect(defaultCSSTheme.variation).toMatchSnapshot();
       expect(defaultCSSTheme.colors).toMatchSnapshot();
       expect(defaultCSSTheme.typography).toMatchSnapshot();
-      expect(defaultCSSTheme.layout).toMatchSnapshot();
-      expect(defaultCSSTheme.components.buttons).toMatchSnapshot();
     });
   });
 });

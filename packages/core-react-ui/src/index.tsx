@@ -11,6 +11,7 @@ export * from './form/input-label';
 export * from './form/input-select';
 export * from './form/input-text';
 export * from './form/input-wrapper';
+export * from './global/global-theme-classnames';
 export * from './hooks/use-common-props.hook';
 export * from './hooks/use-is-ssr';
 export * from './hooks/use-mouse-position';
