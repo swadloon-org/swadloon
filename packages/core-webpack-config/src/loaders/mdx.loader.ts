@@ -13,6 +13,8 @@ import remarkParse from 'remark-parse';
 // @ts-ignore
 import remarkToc from 'remark-toc';
 // @ts-ignore
+import wikiLinkPlugin from 'remark-wiki-link';
+// @ts-ignore
 import remarkUnwrapImages from 'remark-unwrap-images';
 import { RuleSetRule } from 'webpack/declarations/WebpackOptions';
 import { babelPluginConf } from '../babel-plugins.conf';
@@ -43,6 +45,25 @@ export const remarkExternalLinksPlugin = [
 export const remarkTocPlugin = [remarkToc, {}];
 
 /**
+ * Parses Markdown to mdast syntax trees.
+ * @see https://github.com/remarkjs/remark/tree/main/packages/remark-parse
+ * @see https://github.com/markedjs/marked/blob/master/docs/USING_ADVANCED.md
+ */
+export const remarkParsePlugin = [remarkParse, {}];
+
+/**
+ * remark plugin to parse [[Wiki Link]].
+ * @see https://github.com/landakram/remark-wiki-link
+ */
+export const remarkWikiLinkPlugin = [
+  wikiLinkPlugin,
+  {
+    aliasDivider: '|',
+    hrefTemplate: (permalink: string) => `/docs/${permalink}`,
+  },
+];
+
+/**
  * remark plugin to remove the wrapping paragraph for images.
  * @see https://github.com/remarkjs/remark-unwrap-images
  */
@@ -50,10 +71,10 @@ export const remarkUnwrapImagesPlugin = [remarkUnwrapImages];
 
 export const remarkPlugins = [
   remarkExternalLinksPlugin,
-  remarkHtml,
-  remarkParse,
+  remarkHtmlPlugin,
+  remarkParsePlugin,
   // remarkAttr,
-  remarkToc,
+  remarkTocPlugin,
 ];
 
 export const rehypePrismPluginConf = rehypePrism;

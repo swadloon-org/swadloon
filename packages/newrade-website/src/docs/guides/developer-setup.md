@@ -2,6 +2,12 @@
 
 ## Table of Contents
 
+## Required Tools and Sofwares
+
+| Name   | Website                                             | Docs                                        | Doc Link            |
+| :----- | :-------------------------------------------------- | :------------------------------------------ | ------------------- |
+| `yarn` | [yarnpkg.com](https://classic.yarnpkg.com/lang/en/) | [docs](https://classic.yarnpkg.com/en/docs) | [[tools/yarn:Yarn]] |
+
 ## Prerequisites
 
 Install `nvm` (node version manager): https://github.com/nvm-sh/nvm
