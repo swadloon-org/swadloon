@@ -1,1 +1,1 @@
-export * from './layouts/design-system.layout';
+export * from './layouts/design-system-lazy.layout';

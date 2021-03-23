@@ -7,13 +7,7 @@ export type BlockImageAPI = {
   id: string;
   name?: string | null;
   variant?: Variant | null | string;
-  type?: BlockType | null | string;
-  text?: {
-    text?: string | null;
-    childMdx?: {
-      body: string;
-    } | null;
-  };
+  type?: BlockType.image | null | string;
   link?: LinkAPI;
   media?: MediaAPI | null;
 };

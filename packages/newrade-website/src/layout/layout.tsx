@@ -1,3 +1,4 @@
+import loadable from '@loadable/component';
 import {
   ButtonIcon,
   ButtonSize,
@@ -40,8 +41,14 @@ type LayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }
 
 let pathname: string | undefined = '/'; // needed for gsap callbacks
 
-const MobileSideBar = React.lazy(() =>
-  import('@newrade/core-react-ui/lib/navigation/mobile-sidebar').then((comp) => ({ default: comp.MobileSideBar }))
+const MobileSideBar = loadable<any>(
+  () => {
+    return import('@newrade/core-react-ui/lib/navigation/mobile-sidebar');
+  },
+  {
+    resolveComponent: (components: typeof import('@newrade/core-react-ui/lib/navigation/mobile-sidebar')) =>
+      components.MobileSideBar,
+  }
 );
 
 export const Layout = React.memo<LayoutProps>((props) => {
@@ -134,138 +141,134 @@ export const Layout = React.memo<LayoutProps>((props) => {
         menuOpened={sidebarOpened}
       ></NavBar>
 
-      {!isSSR && (
-        <React.Suspense fallback={<div />}>
-          <MobileSideBar
-            sidebarOpened={sidebarOpened}
-            disableBodyScroll={true}
-            onClickBackdrop={handleClickMenuButton}
-            style={{ backgroundColor: cssTheme.colors.colors.grey[800] }}
+      <MobileSideBar
+        sidebarOpened={sidebarOpened}
+        disableBodyScroll={true}
+        onClickBackdrop={handleClickMenuButton}
+        style={{ backgroundColor: cssTheme.colors.colors.grey[800] }}
+      >
+        <Stack>
+          <BoxV2
+            style={{ flexDirection: 'column' }}
+            alignItems={['stretch']}
+            padding={[
+              cssTheme.sizing.var.x2,
+              cssTheme.sizing.var.x1,
+              cssTheme.sizing.var.x3,
+              cssTheme.layout.var.contentMargins,
+            ]}
           >
-            <Stack>
-              <BoxV2
-                style={{ flexDirection: 'column' }}
-                alignItems={['stretch']}
-                padding={[
-                  cssTheme.sizing.var.x2,
-                  cssTheme.sizing.var.x1,
-                  cssTheme.sizing.var.x3,
-                  cssTheme.layout.var.contentMargins,
-                ]}
-              >
-                <Cluster>
-                  <LogoSymbol fill={'white'} />
+            <Cluster>
+              <LogoSymbol fill={'white'} />
 
-                  <Button
-                    aria-label={'Menu'}
-                    size={ButtonSize.large}
-                    collapsePadding={'left'}
-                    variant={Variant.tertiary}
-                    icon={ButtonIcon.icon}
-                    Icon={<IoClose fill={'white'} />}
-                    onClick={handleClickMenuButton}
-                  ></Button>
-                </Cluster>
-              </BoxV2>
+              <Button
+                aria-label={'Menu'}
+                size={ButtonSize.large}
+                collapsePadding={'left'}
+                variant={Variant.tertiary}
+                icon={ButtonIcon.icon}
+                Icon={<IoClose fill={'white'} />}
+                onClick={handleClickMenuButton}
+              ></Button>
+            </Cluster>
+          </BoxV2>
 
-              <BoxV2
-                style={{ flexDirection: 'column' }}
-                justifyContent={['flex-start']}
-                alignItems={['stretch']}
-                padding={[0, cssTheme.layout.var.contentMargins, cssTheme.sizing.var.x5]}
-              >
-                <Stack gap={[cssTheme.sizing.var.x5]}>
-                  <Stack gap={[cssTheme.sizing.var.x3]}>
-                    <Heading variant={HEADING.h4} variantLevel={Variant.primaryReversed}>
-                      Newrade
-                    </Heading>
-                  </Stack>
-                </Stack>
-              </BoxV2>
-
-              <BoxV2
-                padding={[cssTheme.sizing.var.x5, 0, cssTheme.sizing.var.x6]}
-                style={{ flexDirection: 'column', backgroundColor: cssTheme.colors.colors.grey[0] }}
-                justifyContent={['flex-start']}
-                alignItems={['stretch']}
-              >
-                <Stack gap={[cssTheme.sizing.var.x4]}>
-                  {navigation.items.map((item: any, index: number) => {
-                    return (
-                      <Stack key={index} gap={[`calc(2 * ${cssTheme.sizing.var.x1})`]}>
-                        {item.items?.length ? (
-                          <Stack>
-                            <NavItem
-                              active={'/' === props.location?.pathname}
-                              AsElement={<GatsbyLink to={'/'} noStyles={true} />}
-                            >
-                              {'Accueil'}
-                            </NavItem>
-                            {item.items?.map((item: any, itemIndex: number) => {
-                              return (
-                                <NavItem
-                                  key={itemIndex}
-                                  active={item.path === props.location?.pathname}
-                                  AsElement={<GatsbyLink to={item.path} noStyles={true} />}
-                                >
-                                  {item.name || item.displayName}
-                                </NavItem>
-                              );
-                            })}
-                          </Stack>
-                        ) : null}
-                      </Stack>
-                    );
-                  })}
-                </Stack>
-              </BoxV2>
-
-              <BoxV2
-                style={{ flexDirection: 'column', backgroundColor: cssTheme.colors.colors.grey[50] }}
-                justifyContent={['flex-start']}
-                alignItems={['stretch']}
-                padding={[cssTheme.sizing.var.x5, cssTheme.layout.var.contentMargins]}
-              >
-                <Stack gap={[cssTheme.sizing.var.x5]}>
-                  <Stack gap={[cssTheme.sizing.var.x4]}>
-                    <Link
-                      variantSize={PARAGRAPH_SIZE.small}
-                      variant={LinkVariant.underline}
-                      href={`mailto:${companyAddress?.email}`}
-                    >
-                      {companyAddress?.email}
-                    </Link>
-                    <Link
-                      variantSize={PARAGRAPH_SIZE.small}
-                      variant={LinkVariant.underline}
-                      href={`tel:${companyAddress?.phone}`}
-                    >
-                      {companyAddress?.phone}
-                    </Link>
-                    <Link
-                      variantSize={PARAGRAPH_SIZE.small}
-                      variant={LinkVariant.underline}
-                      href={`fax:${companyAddress?.fax}`}
-                    >
-                      {companyAddress?.fax}
-                    </Link>
-                    <Link
-                      variantSize={PARAGRAPH_SIZE.small}
-                      variant={LinkVariant.underline}
-                      href={'https://goo.gl/maps/nndYpgQLkbDC6c7S7'}
-                      target="blank"
-                    >
-                      {companyAddress?.addressLine1}
-                    </Link>
-                  </Stack>
-
-                  <Paragraph variant={PARAGRAPH_SIZE.small}>{companyInfo?.copyright}</Paragraph>
-                </Stack>
-              </BoxV2>
+          <BoxV2
+            style={{ flexDirection: 'column' }}
+            justifyContent={['flex-start']}
+            alignItems={['stretch']}
+            padding={[0, cssTheme.layout.var.contentMargins, cssTheme.sizing.var.x5]}
+          >
+            <Stack gap={[cssTheme.sizing.var.x5]}>
+              <Stack gap={[cssTheme.sizing.var.x3]}>
+                <Heading variant={HEADING.h4} variantLevel={Variant.primaryReversed}>
+                  Newrade
+                </Heading>
+              </Stack>
             </Stack>
-          </MobileSideBar>
-        </React.Suspense>
-      )}
+          </BoxV2>
+
+          <BoxV2
+            padding={[cssTheme.sizing.var.x5, 0, cssTheme.sizing.var.x6]}
+            style={{ flexDirection: 'column', backgroundColor: cssTheme.colors.colors.grey[0] }}
+            justifyContent={['flex-start']}
+            alignItems={['stretch']}
+          >
+            <Stack gap={[cssTheme.sizing.var.x4]}>
+              {navigation.items.map((item: any, index: number) => {
+                return (
+                  <Stack key={index} gap={[`calc(2 * ${cssTheme.sizing.var.x1})`]}>
+                    {item.items?.length ? (
+                      <Stack>
+                        <NavItem
+                          active={'/' === props.location?.pathname}
+                          AsElement={<GatsbyLink to={'/'} noStyles={true} />}
+                        >
+                          {'Accueil'}
+                        </NavItem>
+                        {item.items?.map((item: any, itemIndex: number) => {
+                          return (
+                            <NavItem
+                              key={itemIndex}
+                              active={item.path === props.location?.pathname}
+                              AsElement={<GatsbyLink to={item.path} noStyles={true} />}
+                            >
+                              {item.name || item.displayName}
+                            </NavItem>
+                          );
+                        })}
+                      </Stack>
+                    ) : null}
+                  </Stack>
+                );
+              })}
+            </Stack>
+          </BoxV2>
+
+          <BoxV2
+            style={{ flexDirection: 'column', backgroundColor: cssTheme.colors.colors.grey[50] }}
+            justifyContent={['flex-start']}
+            alignItems={['stretch']}
+            padding={[cssTheme.sizing.var.x5, cssTheme.layout.var.contentMargins]}
+          >
+            <Stack gap={[cssTheme.sizing.var.x5]}>
+              <Stack gap={[cssTheme.sizing.var.x4]}>
+                <Link
+                  variantSize={PARAGRAPH_SIZE.small}
+                  variant={LinkVariant.underline}
+                  href={`mailto:${companyAddress?.email}`}
+                >
+                  {companyAddress?.email}
+                </Link>
+                <Link
+                  variantSize={PARAGRAPH_SIZE.small}
+                  variant={LinkVariant.underline}
+                  href={`tel:${companyAddress?.phone}`}
+                >
+                  {companyAddress?.phone}
+                </Link>
+                <Link
+                  variantSize={PARAGRAPH_SIZE.small}
+                  variant={LinkVariant.underline}
+                  href={`fax:${companyAddress?.fax}`}
+                >
+                  {companyAddress?.fax}
+                </Link>
+                <Link
+                  variantSize={PARAGRAPH_SIZE.small}
+                  variant={LinkVariant.underline}
+                  href={'https://goo.gl/maps/nndYpgQLkbDC6c7S7'}
+                  target="blank"
+                >
+                  {companyAddress?.addressLine1}
+                </Link>
+              </Stack>
+
+              <Paragraph variant={PARAGRAPH_SIZE.small}>{companyInfo?.copyright}</Paragraph>
+            </Stack>
+          </BoxV2>
+        </Stack>
+      </MobileSideBar>
 
       <Main minHeight={true}>{props.children}</Main>
 

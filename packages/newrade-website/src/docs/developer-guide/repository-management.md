@@ -2,7 +2,6 @@
 category: setup
 tags:
   - git
-  - git
 ---
 
 # Repository Management
