@@ -7,6 +7,7 @@ import {
   Variant,
   VIEWPORT,
 } from '@newrade/core-design-system';
+import { GatsbyLink, NavbarStartup } from '@newrade/core-gatsby-ui/src';
 import {
   BoxV2,
   Button,
@@ -14,10 +15,10 @@ import {
   DesktopSideBar,
   Heading,
   Label,
+  Link,
   Main,
   MainWrapper,
   MobileSideBar,
-  NavBar,
   NavItem,
   NavItemGroup,
   Stack,
@@ -29,25 +30,23 @@ import { IoClose } from '@react-icons/all-files/io5/IoClose';
 import { title } from 'case';
 import { PageProps } from 'gatsby';
 import React, { ReactNode, useEffect, useState } from 'react';
-import { useDocsNavigation } from '../hooks/use-docs-navigation-data.hook';
-import { GatsbyLink } from '../links/gatsby-link';
+import { Navigation } from '../api/navigation.model';
 
-type LayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }> & {
+export type LayoutDocsProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }> & {
+  navigation?: Navigation;
   MobileSvgLogo?: React.ReactNode;
   DesktopSvgLogo?: React.ReactNode;
 };
 
-export const LayoutDocs = React.memo<LayoutProps>(({ MobileSvgLogo, DesktopSvgLogo, ...props }) => {
-  const navigation = useDocsNavigation();
+export const LayoutDocs = React.memo<LayoutDocsProps>(({ navigation, MobileSvgLogo, DesktopSvgLogo, ...props }) => {
   const isSSR = useIsSSR();
   const { cssTheme } = useTreatTheme();
+
+  /**
+   * Handle sidebar events
+   */
   const { viewport } = useViewportBreakpoint();
   const [mobileSidebarOpened, setMobileSidebarOpened] = useState<boolean>(false);
-
-  function handleClickMenuButton(event: React.MouseEvent) {
-    setMobileSidebarOpened(!mobileSidebarOpened);
-  }
-
   useEffect(() => {
     let timeout: number;
     if (viewport === VIEWPORT.desktop) {
@@ -62,18 +61,22 @@ export const LayoutDocs = React.memo<LayoutProps>(({ MobileSvgLogo, DesktopSvgLo
     };
   }, [viewport]);
 
+  function handleClickMenuButton(event: React.MouseEvent) {
+    setMobileSidebarOpened(!mobileSidebarOpened);
+  }
+
   return (
     <MainWrapper>
-      <NavBar
+      <NavbarStartup
         DesktopSvgLogo={DesktopSvgLogo}
         MobileSvgLogo={MobileSvgLogo}
         maxWidth={'100%'}
         MenuLinks={
           <>
-            <Label>Design System</Label>
+            <Link AsElement={<GatsbyLink to={'/design-system'} />}>Design System</Link>
           </>
         }
-      ></NavBar>
+      ></NavbarStartup>
 
       {!isSSR ? (
         <React.Suspense fallback={<div />}>
@@ -138,37 +141,39 @@ export const LayoutDocs = React.memo<LayoutProps>(({ MobileSvgLogo, DesktopSvgLo
                 alignItems={['stretch']}
               >
                 <Stack gap={[cssTheme.sizing.var.x4]}>
-                  {navigation.items.map((item, index) => {
-                    return (
-                      <Stack key={index} gap={[`calc(2 * ${cssTheme.sizing.var.x1})`]}>
-                        {item.items?.length ? (
-                          <NavItemGroup>{title(item.displayName || item.name || 'Home')}</NavItemGroup>
-                        ) : (
-                          <NavItem
-                            active={item.path === props.location?.pathname}
-                            AsElement={<GatsbyLink to={item.path} noStyles={true} />}
-                          >
-                            {item.name || item.displayName}
-                          </NavItem>
-                        )}
-                        {item.items?.length ? (
-                          <Stack>
-                            {item.items?.map((item, itemIndex) => {
-                              return (
-                                <NavItem
-                                  key={itemIndex}
-                                  active={item.path === props.location?.pathname}
-                                  AsElement={<GatsbyLink to={item.path} noStyles={true} />}
-                                >
-                                  {item.name || item.displayName}
-                                </NavItem>
-                              );
-                            })}
+                  {navigation
+                    ? navigation.items.map((item, index) => {
+                        return (
+                          <Stack key={index} gap={[`calc(2 * ${cssTheme.sizing.var.x1})`]}>
+                            {item.items?.length ? (
+                              <NavItemGroup>{title(item.displayName || item.name || 'Home')}</NavItemGroup>
+                            ) : (
+                              <NavItem
+                                active={item.path === props.location?.pathname}
+                                AsElement={<GatsbyLink to={item.path} noStyles={true} />}
+                              >
+                                {item.name || item.displayName}
+                              </NavItem>
+                            )}
+                            {item.items?.length ? (
+                              <Stack>
+                                {item.items?.map((item, itemIndex) => {
+                                  return (
+                                    <NavItem
+                                      key={itemIndex}
+                                      active={item.path === props.location?.pathname}
+                                      AsElement={<GatsbyLink to={item.path} noStyles={true} />}
+                                    >
+                                      {item.name || item.displayName}
+                                    </NavItem>
+                                  );
+                                })}
+                              </Stack>
+                            ) : null}
                           </Stack>
-                        ) : null}
-                      </Stack>
-                    );
-                  })}
+                        );
+                      })
+                    : null}
                 </Stack>
               </BoxV2>
             </Stack>
@@ -186,37 +191,39 @@ export const LayoutDocs = React.memo<LayoutProps>(({ MobileSvgLogo, DesktopSvgLo
               alignItems={['stretch']}
             >
               <Stack gap={[cssTheme.sizing.var.x5]}>
-                {navigation.items.map((item, index) => {
-                  return (
-                    <Stack key={index} gap={[`calc(2 * ${cssTheme.sizing.var.x1})`]}>
-                      {item.items?.length ? (
-                        <NavItemGroup>{title(item.displayName || item.name || 'Design System')}</NavItemGroup>
-                      ) : (
-                        <NavItem
-                          active={item.path === props.location?.pathname}
-                          AsElement={<GatsbyLink to={item.path} noStyles={true} />}
-                        >
-                          {item.displayName || item.name}
-                        </NavItem>
-                      )}
-                      {item.items?.length ? (
-                        <Stack>
-                          {item.items?.map((item, itemIndex) => {
-                            return (
-                              <NavItem
-                                key={itemIndex}
-                                active={item.path === props.location?.pathname}
-                                AsElement={<GatsbyLink to={item.path} noStyles={true} />}
-                              >
-                                {item.displayName || item.name}
-                              </NavItem>
-                            );
-                          })}
+                {navigation
+                  ? navigation.items.map((item, index) => {
+                      return (
+                        <Stack key={index} gap={[`calc(2 * ${cssTheme.sizing.var.x1})`]}>
+                          {item.items?.length ? (
+                            <NavItemGroup>{title(item.displayName || item.name || 'Design System')}</NavItemGroup>
+                          ) : (
+                            <NavItem
+                              active={item.path === props.location?.pathname}
+                              AsElement={<GatsbyLink to={item.path} noStyles={true} />}
+                            >
+                              {item.displayName || item.name}
+                            </NavItem>
+                          )}
+                          {item.items?.length ? (
+                            <Stack>
+                              {item.items?.map((item, itemIndex) => {
+                                return (
+                                  <NavItem
+                                    key={itemIndex}
+                                    active={item.path === props.location?.pathname}
+                                    AsElement={<GatsbyLink to={item.path} noStyles={true} />}
+                                  >
+                                    {item.displayName || item.name}
+                                  </NavItem>
+                                );
+                              })}
+                            </Stack>
+                          ) : null}
                         </Stack>
-                      ) : null}
-                    </Stack>
-                  );
-                })}
+                      );
+                    })
+                  : null}
               </Stack>
             </BoxV2>
           </DesktopSideBar>

@@ -296,7 +296,6 @@ export function SectionRenderer<CustomSectionLayouts extends string, CustomBlock
 
       if (!backgroundBlock || !contentBlock) {
         logWarn(`both blocks must be set for SectionBanner ${section.name}`);
-        return null;
       }
 
       return (
