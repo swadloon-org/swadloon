@@ -52,10 +52,10 @@ jobs:
       with:
         path: |
           node_modules
-          */*/node_modules
-          */*/lib
-          */*/.tsbuildinfo
-        key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('**/.tsbuildinfo') }}
+          **/node_modules
+          **/lib
+          **/*.tsbuildinfo
+        key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
 
     #
     # Remove buildcache infos if src files have changed
@@ -64,7 +64,7 @@ jobs:
       uses: hokify/remove-buildcache-action@v1
       with:
         changed-files: ${{ steps.filter.outputs.packages_files }}
-        tsBuildInfoFile: '.tsbuildinfo'
+        tsBuildInfoFile: 'packages/core-design-system/tsconfig.build.tsbuildinfo'
 
     - name: Install dependencies
       run: yarn
@@ -112,10 +112,10 @@ jobs:
       with:
         path: |
           node_modules
-          */*/node_modules
-          */*/lib
-          */*/.tsbuildinfo
-        key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('**/.tsbuildinfo') }}
+          **/node_modules
+          **/lib
+          **/*.tsbuildinfo
+        key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
 
     #
     # Remove buildcache infos if src files have changed
@@ -124,7 +124,7 @@ jobs:
       uses: hokify/remove-buildcache-action@v1
       with:
         changed-files: ${{ steps.filter.outputs.packages_files }}
-        tsBuildInfoFile: '.tsbuildinfo'
+        tsBuildInfoFile: 'packages/core-design-system/tsconfig.build.tsbuildinfo'
 
     - name: Install dependencies
       run: yarn
