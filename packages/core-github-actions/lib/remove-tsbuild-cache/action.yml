@@ -1,0 +1,13 @@
+name: 'Remove BuildCache Action'
+description: 'Removes typescript buildcache files depending on changed files'
+inputs:
+  changed-files: # id of input
+    description: 'JSON list of changed files'
+    required: true
+  tsBuildInfoFiles: # ids of input
+    description: 'JSON list of build info file names'
+    required: false
+    default: '[.tsbuildinfo]'
+runs:
+  using: 'node12'
+  main: 'index.js'

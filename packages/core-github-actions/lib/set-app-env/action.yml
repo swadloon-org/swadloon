@@ -3,8 +3,8 @@
 # see https://docs.github.com/en/free-pro-team@latest/actions/creating-actions/metadata-syntax-for-github-actions
 # see https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions
 #
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'Save app-env actions'
+description: 'Set APP_ENV depending on the current branch'
 inputs:
   who-to-greet: # id of input
     description: 'Who to greet'

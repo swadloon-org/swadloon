@@ -49,16 +49,13 @@ jobs:
       run: yarn
 
     - name: Set the env variable depending on the branch
-      uses: ./packages/core-github-actions/lib/build-all-packages
+      uses: ./packages/core-github-actions/lib/set-app-env
 
     - name: Lint
       run: yarn lint
 
     - name: Build Libs
       run: yarn build:core:lib
-
-    - name: Set the APP_URL variable
-      uses: ./packages/core-github-actions/lib/build-all-packages
 
     - name: Test
       run: yarn test
