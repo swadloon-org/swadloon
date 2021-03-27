@@ -34166,6 +34166,7 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___gatsbyRemarkPlugins'
   | 'pluginCreator___pluginOptions___gatsbyRemarkPlugins___resolve'
   | 'pluginCreator___pluginOptions___remarkPlugins'
+  | 'pluginCreator___pluginOptions___remarkPlugins___aliasDivider'
   | 'pluginCreator___pluginOptions___remarkPlugins___target'
   | 'pluginCreator___pluginOptions___remarkPlugins___rel'
   | 'pluginCreator___pluginOptions___rehypePlugins'
@@ -34398,6 +34399,7 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___gatsbyRemarkPlugins___options___wrapperStyle'
   | 'pluginOptions___gatsbyRemarkPlugins___options___destinationDir'
   | 'pluginOptions___remarkPlugins'
+  | 'pluginOptions___remarkPlugins___aliasDivider'
   | 'pluginOptions___remarkPlugins___target'
   | 'pluginOptions___remarkPlugins___rel'
   | 'pluginOptions___rehypePlugins'
@@ -34821,11 +34823,13 @@ export type SitePluginPluginOptionsRehypePluginsPropertiesFilterInput = {
 };
 
 export type SitePluginPluginOptionsRemarkPlugins = {
+  aliasDivider?: Maybe<Scalars['String']>;
   target?: Maybe<Scalars['String']>;
   rel?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 export type SitePluginPluginOptionsRemarkPluginsFilterInput = {
+  aliasDivider?: Maybe<StringQueryOperatorInput>;
   target?: Maybe<StringQueryOperatorInput>;
   rel?: Maybe<StringQueryOperatorInput>;
 };

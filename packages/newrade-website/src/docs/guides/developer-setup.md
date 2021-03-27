@@ -4,9 +4,9 @@
 
 ## Required Tools and Sofwares
 
-| Name   | Website                                             | Docs                                        | Doc Link            |
-| :----- | :-------------------------------------------------- | :------------------------------------------ | ------------------- |
-| `yarn` | [yarnpkg.com](https://classic.yarnpkg.com/lang/en/) | [docs](https://classic.yarnpkg.com/en/docs) | [[tools/yarn:Yarn]] |
+| Name   | Website                                             | Docs                                        | Doc Link             |
+| :----- | :-------------------------------------------------- | :------------------------------------------ | -------------------- |
+| `yarn` | [yarnpkg.com](https://classic.yarnpkg.com/lang/en/) | [docs](https://classic.yarnpkg.com/en/docs) | [[tools/yarn\|Yarn]] |
 
 ## Prerequisites
 

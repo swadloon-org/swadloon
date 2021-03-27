@@ -17,8 +17,14 @@ const log = debug('newrade:core-gatsby-ui:block-renderer');
 const logWarn = log.extend('warn');
 const logError = log.extend('error');
 
-const BlockGoogleMap = loadable<BlockGoogleMapsProps>(() =>
-  import('./block-google-map').then((comp) => ({ default: comp.BlockGoogleMap }))
+const BlockGoogleMap = loadable<BlockGoogleMapsProps>(
+  // @ts-ignore
+  () => {
+    return import('./block-google-map');
+  },
+  {
+    resolveComponent: (components: typeof import('./block-google-map')) => components.BlockGoogleMap,
+  }
 );
 
 /**

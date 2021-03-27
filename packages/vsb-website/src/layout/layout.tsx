@@ -1,3 +1,4 @@
+import loadable from '@loadable/component';
 import {
   ButtonIcon,
   ButtonSize,
@@ -47,8 +48,15 @@ type LayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }
 
 let pathname: string | undefined = '/'; // needed for gsap callbacks
 
-const MobileSideBar = React.lazy(() =>
-  import('@newrade/core-react-ui/lib/navigation/mobile-sidebar').then((comp) => ({ default: comp.MobileSideBar }))
+const MobileSideBar = loadable<any>(
+  // @ts-ignore
+  () => {
+    return import('@newrade/core-react-ui/lib/navigation/mobile-sidebar');
+  },
+  {
+    resolveComponent: (components: typeof import('@newrade/core-react-ui/lib/navigation/mobile-sidebar')) =>
+      components.MobileSideBar,
+  }
 );
 
 export const Layout = React.memo<LayoutProps>((props) => {

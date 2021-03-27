@@ -1,0 +1,465 @@
+#
+# reference: https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions
+# see: https://github.com/actions/cache/issues/459
+#
+name: build
+
+on: [push]
+
+jobs:
+
+  install-dependencies:
+    #
+    # BEGIN COMMON
+    #
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    - name: Set up Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - uses: dorny/paths-filter@v2
+      id: filter
+      with:
+        list-files: 'json'
+        filters: |
+          packages:
+            - 'packages/**'
+    - name: Restore mtime for git checkout
+      run: sudo apt install git-restore-mtime && sudo curl -o /usr/lib/git-core/git-restore-mtime https://raw.githubusercontent.com/MestreLion/git-tools/v2020.09/git-restore-mtime && git restore-mtime
+    - name: Setup cache for dependencies
+      uses: actions/cache@v2
+      id: cache-node
+      with:
+        path: |
+          node_modules
+          **/node_modules
+        key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+        restore-keys: ${{ runner.os }}-
+    - name: Setup cache for build and dependencies
+      uses: actions/cache@v2
+      id: cache-lib
+      with:
+        path: |
+          packages/**/lib
+          packages/**/*.tsbuildinfo
+        key: ${{ runner.os }}-${{ hashFiles('packages/*/src/**/*') }}
+    - uses: dorny/paths-filter@v2
+      id: filter2
+      with:
+        list-files: 'json'
+        filters: |
+          tsbuildinfo:
+            - 'packages/**/*.tsbuildinfo'
+    - name: Remove tsbuildinfo if files have changed
+      uses: ./packages/core-github-actions/lib/remove-tsbuild-cache
+      with:
+        changed-files: ${{ steps.filter.outputs.packages_files }}
+        tsBuildInfoFiles: ${{ steps.filter2.outputs.tsbuildinfo_files }}
+    - name: Set the env variable depending on the branch
+      uses: ./packages/core-github-actions/lib/set-app-env
+    #
+    # END COMMON
+    #
+
+    - name: Install dependencies
+      run: yarn
+
+  lint:
+    needs: install-dependencies
+    #
+    # BEGIN COMMON
+    #
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    - name: Set up Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - uses: dorny/paths-filter@v2
+      id: filter
+      with:
+        list-files: 'json'
+        filters: |
+          packages:
+            - 'packages/**'
+    - name: Restore mtime for git checkout
+      run: sudo apt install git-restore-mtime && sudo curl -o /usr/lib/git-core/git-restore-mtime https://raw.githubusercontent.com/MestreLion/git-tools/v2020.09/git-restore-mtime && git restore-mtime
+    - name: Setup cache for dependencies
+      uses: actions/cache@v2
+      id: cache-node
+      with:
+        path: |
+          node_modules
+          **/node_modules
+        key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+        restore-keys: ${{ runner.os }}-
+    - name: Setup cache for build and dependencies
+      uses: actions/cache@v2
+      id: cache-lib
+      with:
+        path: |
+          packages/**/lib
+          packages/**/*.tsbuildinfo
+        key: ${{ runner.os }}-${{ hashFiles('packages/*/src/**/*') }}
+    - uses: dorny/paths-filter@v2
+      id: filter2
+      with:
+        list-files: 'json'
+        filters: |
+          tsbuildinfo:
+            - 'packages/**/*.tsbuildinfo'
+    - name: Remove tsbuildinfo if files have changed
+      uses: ./packages/core-github-actions/lib/remove-tsbuild-cache
+      with:
+        changed-files: ${{ steps.filter.outputs.packages_files }}
+        tsBuildInfoFiles: ${{ steps.filter2.outputs.tsbuildinfo_files }}
+    - name: Set the env variable depending on the branch
+      uses: ./packages/core-github-actions/lib/set-app-env
+    #
+    # END COMMON
+    #
+
+    - name: Install dependencies
+      run: yarn
+
+    - name: Lint
+      run: yarn lint
+
+  test:
+    needs: install-dependencies
+    #
+    # BEGIN COMMON
+    #
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    - name: Set up Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - uses: dorny/paths-filter@v2
+      id: filter
+      with:
+        list-files: 'json'
+        filters: |
+          packages:
+            - 'packages/**'
+    - name: Restore mtime for git checkout
+      run: sudo apt install git-restore-mtime && sudo curl -o /usr/lib/git-core/git-restore-mtime https://raw.githubusercontent.com/MestreLion/git-tools/v2020.09/git-restore-mtime && git restore-mtime
+    - name: Setup cache for dependencies
+      uses: actions/cache@v2
+      id: cache-node
+      with:
+        path: |
+          node_modules
+          **/node_modules
+        key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+        restore-keys: ${{ runner.os }}-
+    - name: Setup cache for build and dependencies
+      uses: actions/cache@v2
+      id: cache-lib
+      with:
+        path: |
+          packages/**/lib
+          packages/**/*.tsbuildinfo
+        key: ${{ runner.os }}-${{ hashFiles('packages/*/src/**/*') }}
+    - uses: dorny/paths-filter@v2
+      id: filter2
+      with:
+        list-files: 'json'
+        filters: |
+          tsbuildinfo:
+            - 'packages/**/*.tsbuildinfo'
+    - name: Remove tsbuildinfo if files have changed
+      uses: ./packages/core-github-actions/lib/remove-tsbuild-cache
+      with:
+        changed-files: ${{ steps.filter.outputs.packages_files }}
+        tsBuildInfoFiles: ${{ steps.filter2.outputs.tsbuildinfo_files }}
+    - name: Set the env variable depending on the branch
+      uses: ./packages/core-github-actions/lib/set-app-env
+    #
+    # END COMMON
+    #
+
+    - name: Install dependencies
+      run: yarn
+
+    - name: Test
+      run: yarn test
+
+  build-newrade:
+    needs: install-dependencies
+    #
+    # BEGIN COMMON
+    #
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    - name: Set up Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - uses: dorny/paths-filter@v2
+      id: filter
+      with:
+        list-files: 'json'
+        filters: |
+          packages:
+            - 'packages/**'
+    - name: Restore mtime for git checkout
+      run: sudo apt install git-restore-mtime && sudo curl -o /usr/lib/git-core/git-restore-mtime https://raw.githubusercontent.com/MestreLion/git-tools/v2020.09/git-restore-mtime && git restore-mtime
+    - name: Setup cache for dependencies
+      uses: actions/cache@v2
+      id: cache-node
+      with:
+        path: |
+          node_modules
+          **/node_modules
+        key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+        restore-keys: ${{ runner.os }}-
+    - name: Setup cache for build and dependencies
+      uses: actions/cache@v2
+      id: cache-lib
+      with:
+        path: |
+          packages/**/lib
+          packages/**/*.tsbuildinfo
+        key: ${{ runner.os }}-${{ hashFiles('packages/*/src/**/*') }}
+    - uses: dorny/paths-filter@v2
+      id: filter2
+      with:
+        list-files: 'json'
+        filters: |
+          tsbuildinfo:
+            - 'packages/**/*.tsbuildinfo'
+    - name: Remove tsbuildinfo if files have changed
+      uses: ./packages/core-github-actions/lib/remove-tsbuild-cache
+      with:
+        changed-files: ${{ steps.filter.outputs.packages_files }}
+        tsBuildInfoFiles: ${{ steps.filter2.outputs.tsbuildinfo_files }}
+    - name: Set the env variable depending on the branch
+      uses: ./packages/core-github-actions/lib/set-app-env
+    #
+    # END COMMON
+    #
+
+    - name: Install dependencies
+      run: yarn
+
+    - name: Build Newrade Packages
+      run: yarn build:newrade
+      env:
+        DEBUG: 'newrade:*'
+        APP_URL: 'http://local.newrade.ca'
+        CONTENTFUL_ENV: ${{ secrets.CONTENTFUL_ENV }}
+        CONTENTFUL_SPACEID_NEWRADE: ${{ secrets.CONTENTFUL_SPACEID_NEWRADE }}
+        CONTENTFUL_DELIVERY_TOKEN_NEWRADE: ${{ secrets.CONTENTFUL_DELIVERY_TOKEN_NEWRADE }}
+        NVM_NODE_VERSION: ${{ secrets.NVM_NODE_VERSION }}
+        MASTER_GIT_HOST: ${{ secrets.MASTER_GIT_HOST }}
+        MASTER_REPO_ORG: ${{ secrets.MASTER_REPO_ORG }}
+        MASTER_REPO_NAME: ${{ secrets.MASTER_REPO_NAME }}
+        PROJECT_GIT_HOST: ${{ secrets.PROJECT_GIT_HOST }}
+        PROJECT_REPO_ORG: ${{ secrets.PROJECT_REPO_ORG }}
+        PROJECT_REPO_NAME: ${{ secrets.PROJECT_REPO_NAME }}
+
+  build-mir:
+    needs: install-dependencies
+    #
+    # BEGIN COMMON
+    #
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    - name: Set up Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - uses: dorny/paths-filter@v2
+      id: filter
+      with:
+        list-files: 'json'
+        filters: |
+          packages:
+            - 'packages/**'
+    - name: Restore mtime for git checkout
+      run: sudo apt install git-restore-mtime && sudo curl -o /usr/lib/git-core/git-restore-mtime https://raw.githubusercontent.com/MestreLion/git-tools/v2020.09/git-restore-mtime && git restore-mtime
+    - name: Setup cache for dependencies
+      uses: actions/cache@v2
+      id: cache-node
+      with:
+        path: |
+          node_modules
+          **/node_modules
+        key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+        restore-keys: ${{ runner.os }}-
+    - name: Setup cache for build and dependencies
+      uses: actions/cache@v2
+      id: cache-lib
+      with:
+        path: |
+          packages/**/lib
+          packages/**/*.tsbuildinfo
+        key: ${{ runner.os }}-${{ hashFiles('packages/*/src/**/*') }}
+    - uses: dorny/paths-filter@v2
+      id: filter2
+      with:
+        list-files: 'json'
+        filters: |
+          tsbuildinfo:
+            - 'packages/**/*.tsbuildinfo'
+    - name: Remove tsbuildinfo if files have changed
+      uses: ./packages/core-github-actions/lib/remove-tsbuild-cache
+      with:
+        changed-files: ${{ steps.filter.outputs.packages_files }}
+        tsBuildInfoFiles: ${{ steps.filter2.outputs.tsbuildinfo_files }}
+    - name: Set the env variable depending on the branch
+      uses: ./packages/core-github-actions/lib/set-app-env
+    #
+    # END COMMON
+    #
+
+    - name: Install dependencies
+      run: yarn
+
+    - name: Build MIR Packages
+      run: yarn build:mir
+      env:
+        DEBUG: 'newrade:*'
+        APP_URL: 'http://local.mirinc.ca'
+        CONTENTFUL_ENV: ${{ secrets.CONTENTFUL_ENV }}
+        CONTENTFUL_SPACEID_MIR: ${{ secrets.CONTENTFUL_SPACEID_MIR }}
+        CONTENTFUL_DELIVERY_TOKEN_MIR: ${{ secrets.CONTENTFUL_DELIVERY_TOKEN_MIR }}
+        NVM_NODE_VERSION: ${{ secrets.NVM_NODE_VERSION }}
+        MASTER_GIT_HOST: ${{ secrets.MASTER_GIT_HOST }}
+        MASTER_REPO_ORG: ${{ secrets.MASTER_REPO_ORG }}
+        MASTER_REPO_NAME: ${{ secrets.MASTER_REPO_NAME }}
+        PROJECT_GIT_HOST: ${{ secrets.PROJECT_GIT_HOST }}
+        PROJECT_REPO_ORG: ${{ secrets.PROJECT_REPO_ORG }}
+        PROJECT_REPO_NAME: ${{ secrets.PROJECT_REPO_NAME }}
+
+  build-vsb:
+    needs: install-dependencies
+    #
+    # BEGIN COMMON
+    #
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    - name: Set up Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - uses: dorny/paths-filter@v2
+      id: filter
+      with:
+        list-files: 'json'
+        filters: |
+          packages:
+            - 'packages/**'
+    - name: Restore mtime for git checkout
+      run: sudo apt install git-restore-mtime && sudo curl -o /usr/lib/git-core/git-restore-mtime https://raw.githubusercontent.com/MestreLion/git-tools/v2020.09/git-restore-mtime && git restore-mtime
+    - name: Setup cache for dependencies
+      uses: actions/cache@v2
+      id: cache-node
+      with:
+        path: |
+          node_modules
+          **/node_modules
+        key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+        restore-keys: ${{ runner.os }}-
+    - name: Setup cache for build and dependencies
+      uses: actions/cache@v2
+      id: cache-lib
+      with:
+        path: |
+          packages/**/lib
+          packages/**/*.tsbuildinfo
+        key: ${{ runner.os }}-${{ hashFiles('packages/*/src/**/*') }}
+    - uses: dorny/paths-filter@v2
+      id: filter2
+      with:
+        list-files: 'json'
+        filters: |
+          tsbuildinfo:
+            - 'packages/**/*.tsbuildinfo'
+    - name: Remove tsbuildinfo if files have changed
+      uses: ./packages/core-github-actions/lib/remove-tsbuild-cache
+      with:
+        changed-files: ${{ steps.filter.outputs.packages_files }}
+        tsBuildInfoFiles: ${{ steps.filter2.outputs.tsbuildinfo_files }}
+    - name: Set the env variable depending on the branch
+      uses: ./packages/core-github-actions/lib/set-app-env
+    #
+    # END COMMON
+    #
+
+    - name: Install dependencies
+      run: yarn
+
+    - name: Build vsb-common
+      run: yarn build --scope @newrade/vsb-common
+
+    - name: Build vsb-api
+      run: yarn build --scope @newrade/vsb-api
+      env:
+        DEBUG: 'newrade:*'
+        APP_URL: 'http://local.vasectomie-pierre-boucher.ca/api/register'
+        API_VSB_VENDOR_NAME: ${{ secrets.API_VSB_VENDOR_NAME }}
+        API_VSB_VENDOR_EMAIL: ${{ secrets.API_VSB_VENDOR_EMAIL }}
+        API_VSB_KEY_CLINIKO: ${{ secrets.API_VSB_KEY_CLINIKO }}
+        API_VSB_SHARD_ID: ${{ secrets.API_VSB_SHARD_ID }}
+        API_VSB_SECRET_KEY_RECAPTCHAT: ${{ secrets.API_VSB_SECRET_KEY_RECAPTCHAT }}
+        NVM_NODE_VERSION: ${{ secrets.NVM_NODE_VERSION }}
+        MASTER_GIT_HOST: ${{ secrets.MASTER_GIT_HOST }}
+        MASTER_REPO_ORG: ${{ secrets.MASTER_REPO_ORG }}
+        MASTER_REPO_NAME: ${{ secrets.MASTER_REPO_NAME }}
+        PROJECT_GIT_HOST: ${{ secrets.PROJECT_GIT_HOST }}
+        PROJECT_REPO_ORG: ${{ secrets.PROJECT_REPO_ORG }}
+        PROJECT_REPO_NAME: ${{ secrets.PROJECT_REPO_NAME }}
+
+    - name: Build vsb-website
+      run: yarn build --scope @newrade/vsb-website
+      env:
+        DEBUG: 'newrade:*'
+        APP_URL: 'http://local.vasectomie-pierre-boucher.ca'
+        CONTENTFUL_ENV: ${{ secrets.CONTENTFUL_ENV }}
+        CONTENTFUL_SPACEID_VSB: ${{ secrets.CONTENTFUL_SPACEID_VSB }}
+        CONTENTFUL_DELIVERY_TOKEN_VSB: ${{ secrets.CONTENTFUL_DELIVERY_TOKEN_VSB }}
+        CANADA_POST_API_KEY_VSB: ${{ secrets.CANADA_POST_API_KEY_VSB }}
+        GOOGLE_MAP_API_KEY: ${{ secrets.GOOGLE_MAP_API_KEY }}
+        RECAPTCHA_SITE_KEY_VSB: ${{ secrets.RECAPTCHA_SITE_KEY_VSB }}
+        NVM_NODE_VERSION: ${{ secrets.NVM_NODE_VERSION }}
+        MASTER_GIT_HOST: ${{ secrets.MASTER_GIT_HOST }}
+        MASTER_REPO_ORG: ${{ secrets.MASTER_REPO_ORG }}
+        MASTER_REPO_NAME: ${{ secrets.MASTER_REPO_NAME }}
+        PROJECT_GIT_HOST: ${{ secrets.PROJECT_GIT_HOST }}
+        PROJECT_REPO_ORG: ${{ secrets.PROJECT_REPO_ORG }}
+        PROJECT_REPO_NAME: ${{ secrets.PROJECT_REPO_NAME }}
+

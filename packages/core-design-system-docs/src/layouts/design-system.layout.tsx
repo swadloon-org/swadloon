@@ -41,13 +41,15 @@ import React, { ReactNode, useEffect, useState } from 'react';
 import { TreatProvider } from 'react-treat';
 import { DesignSystemFooter } from './design-system-footer';
 
-const MobileSideBar = loadable<any>(() =>
-  import('@newrade/core-react-ui/lib/navigation/mobile-sidebar').then((comp) => ({ default: comp.MobileSideBar }))
-);
+const MobileSideBar = loadable<any>(() => import('@newrade/core-react-ui/lib/navigation/mobile-sidebar'), {
+  resolveComponent: (components: typeof import('@newrade/core-react-ui/lib/navigation/mobile-sidebar')) =>
+    components.MobileSideBar,
+});
 
-const DesktopSideBar = loadable<any>(() =>
-  import('@newrade/core-react-ui/lib/navigation/desktop-sidebar').then((comp) => ({ default: comp.DesktopSideBar }))
-);
+const DesktopSideBar = loadable<any>(() => import('@newrade/core-react-ui/lib/navigation/desktop-sidebar'), {
+  resolveComponent: (components: typeof import('@newrade/core-react-ui/lib/navigation/desktop-sidebar')) =>
+    components.DesktopSideBar,
+});
 
 export type DesignSystemLayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }> & {
   treatThemeRef: string;

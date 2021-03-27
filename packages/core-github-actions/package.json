@@ -15,10 +15,11 @@
     "./lib/**/*"
   ],
   "scripts": {
-    "prebuild": "yarn create-action-file",
-    "build": "tsc --build tsconfig.build.json",
+    "prebuild-disabled": "yarn create-action-1 && yarn create-action-2",
+    "build-disabled": "tsc --build tsconfig.build.json",
     "clean": "rimraf -r lib/** && rm -f tsconfig.build.tsbuildinfo",
-    "create-action-file": "mkdir -p lib/build-all-packages && cp 'src/build-all-packages/action.yml' 'lib/build-all-packages/action.yml'",
+    "create-action-1": "mkdir -p lib/remove-tsbuild-cache && cp 'src/remove-tsbuild-cache/action.yml' 'lib/remove-tsbuild-cache/action.yml'",
+    "create-action-2": "mkdir -p lib/set-app-env && cp 'src/set-app-env/action.yml' 'lib/set-app-env/action.yml'",
     "start": "tsc --build --watch --preserveWatchOutput tsconfig.build.json"
   },
   "typings": "./lib/index.d.ts",
