@@ -91,7 +91,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 18);
+/******/ 	return __webpack_require__(__webpack_require__.s = 20);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -133,13 +133,13 @@ exports.toCommandValue = toCommandValue;
 module.exports = require("fs");
 
 /***/ }),
-/* 4 */
+/* 4 */,
+/* 5 */
 /***/ (function(module, exports) {
 
 module.exports = require("path");
 
 /***/ }),
-/* 5 */,
 /* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -166,7 +166,7 @@ const command_1 = __webpack_require__(7);
 const file_command_1 = __webpack_require__(8);
 const utils_1 = __webpack_require__(2);
 const os = __importStar(__webpack_require__(0));
-const path = __importStar(__webpack_require__(4));
+const path = __importStar(__webpack_require__(5));
 /**
  * The code to exit an action
  */
@@ -513,7 +513,9 @@ exports.issueCommand = issueCommand;
 /* 15 */,
 /* 16 */,
 /* 17 */,
-/* 18 */
+/* 18 */,
+/* 19 */,
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -559,7 +561,7 @@ const core = __importStar(__webpack_require__(6));
 
 const fs = __importStar(__webpack_require__(3));
 
-const path = __importStar(__webpack_require__(4));
+const path = __importStar(__webpack_require__(5));
 
 const delimiter = path.sep;
 
