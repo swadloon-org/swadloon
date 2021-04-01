@@ -15,7 +15,7 @@ import { IoCallOutline } from '@react-icons/all-files/io5/IoCallOutline';
 import { IoLocationOutline } from '@react-icons/all-files/io5/IoLocationOutline';
 import { IoMailOutline } from '@react-icons/all-files/io5/IoMailOutline';
 import { IoPrintOutline } from '@react-icons/all-files/io5/IoPrintOutline';
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, Link as GatsbyLink, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { clientEnv } from '../../types/dot-env-client';
@@ -24,35 +24,34 @@ import * as styleRefs from './footer.treat';
 
 export const footerQuery = graphql`
   query Footer {
-    # contentfulNavigation(name: { eq: "Navigation avec catégories" }) {
-    # id
-    # name
-    # subNavigation {
-    # id
-    # name
-    # links {
-    #   id
-    #   label
-    #   page {
-    #     slug
-    #   }
-    # }
-    # subNavigation {
-    #   id
-    #   name
-    #   links {
-    #     id
-    #     label
-    #     page {
-    #       slug
-    #     }
-    #   }
-    # }
-    # }
-    # }
+    contentfulNavigation(name: { eq: "Navigation avec catégories" }) {
+      id
+      name
+      subNavigation {
+        id
+        name
+        links {
+          id
+          label
+          page {
+            slug
+          }
+        }
+        subNavigation {
+          id
+          name
+          links {
+            id
+            label
+            page {
+              slug
+            }
+          }
+        }
+      }
+    }
     contentfulCompanyAddress {
       addressLine1
-
       city
       provinceState
       postalCode
@@ -70,17 +69,17 @@ export const footerQuery = graphql`
 type Props = CommonComponentProps;
 
 export const Footer: React.FC<Props> = ({ id, style, className, ...props }) => {
-  const { theme, cssTheme } = useTreatTheme();
   const styles = useStyles(styleRefs);
   const data = useStaticQuery<FooterQuery>(footerQuery);
   const mergedClassNames = getMergedClassname([className, styles.wrapper]);
+  const { theme, cssTheme } = useTreatTheme();
 
   return (
     <footer id={id} style={style} className={mergedClassNames}>
       <Center>
         <Stack gap={[cssTheme.sizing.var.x5]}>
           <div className={styles.grid}>
-            {/* {data.contentfulNavigation?.subNavigation?.map((nav) => {
+            {data.contentfulNavigation?.subNavigation?.map((nav) => {
               return (
                 <Stack
                   key={nav?.id}
@@ -110,7 +109,7 @@ export const Footer: React.FC<Props> = ({ id, style, className, ...props }) => {
                   </Stack>
                 </Stack>
               );
-            })} */}
+            })}
 
             <Stack className={styles.joindre} gap={[cssTheme.sizing.var.x4]}>
               <Label variantStyle={TEXT_STYLE.boldUppercase} variant={LABEL_SIZE.small} variantLevel={Variant.tertiary}>
@@ -165,6 +164,7 @@ export const Footer: React.FC<Props> = ({ id, style, className, ...props }) => {
                   >
                     {data.contentfulCompanyAddress?.addressLine1}
                     <br />
+                    {/* {data.contentfulCompanyAddress?.addressLine2} */}
                   </Link>
                 </ListItem>
               </ListItems>

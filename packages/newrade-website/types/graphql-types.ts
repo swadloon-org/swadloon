@@ -12166,7 +12166,22 @@ export type LayoutAllSitePageQuery = { pages: (
 export type FooterQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type FooterQuery = { contentfulCompanyAddress?: Maybe<Pick<ContentfulCompanyAddress, 'addressLine1' | 'city' | 'provinceState' | 'postalCode' | 'websiteURL' | 'phone' | 'email' | 'fax'>>, contentfulCompanyInfo?: Maybe<Pick<ContentfulCompanyInfo, 'copyright'>> };
+export type FooterQuery = { contentfulNavigation?: Maybe<(
+    Pick<ContentfulNavigation, 'id' | 'name'>
+    & { subNavigation?: Maybe<Array<Maybe<(
+      Pick<ContentfulNavigation, 'id' | 'name'>
+      & { links?: Maybe<Array<Maybe<(
+        Pick<ContentfulLink, 'id' | 'label'>
+        & { page?: Maybe<Pick<ContentfulPage, 'slug'>> }
+      )>>>, subNavigation?: Maybe<Array<Maybe<(
+        Pick<ContentfulNavigation, 'id' | 'name'>
+        & { links?: Maybe<Array<Maybe<(
+          Pick<ContentfulLink, 'id' | 'label'>
+          & { page?: Maybe<Pick<ContentfulPage, 'slug'>> }
+        )>>> }
+      )>>> }
+    )>>> }
+  )>, contentfulCompanyAddress?: Maybe<Pick<ContentfulCompanyAddress, 'addressLine1' | 'city' | 'provinceState' | 'postalCode' | 'websiteURL' | 'phone' | 'email' | 'fax'>>, contentfulCompanyInfo?: Maybe<Pick<ContentfulCompanyInfo, 'copyright'>> };
 
 export type PageQueryVariables = Exact<{
   pageId?: Maybe<Scalars['String']>;

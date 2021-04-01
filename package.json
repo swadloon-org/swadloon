@@ -31,6 +31,7 @@
     "clean": "lerna run clean --parallel",
     "cli": "nr",
     "commit": "lint-staged && git-cz",
+    "deduplicate": "npx yarn-deduplicate yarn.lock && yarn",
     "fork": "ts-node --script-mode scripts/fork-repo.ts",
     "format:changelog": "prettier --write packages/**/CHANGELOG.md --loglevel silent && git add packages/**/CHANGELOG.md",
     "lint": "eslint . --ext ts,tsx",

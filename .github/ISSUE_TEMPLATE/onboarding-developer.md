@@ -77,6 +77,14 @@ assignees: ''
 
 - [ ] Install `brew` from the website: https://brew.sh/
 
+### Bash profile
+
+- [ ] Create a `.profile` in `~/.profile`
+
+  ```bash
+  code ~/.profile
+  ```
+
 ### Github
 
 - [ ] Create a .ssh key ([instructions](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent))
@@ -219,6 +227,16 @@ Set permissions for the repo CLI:
 
 ```bash
 chmod a+x node_modules/.bin/nr-core-cli
+```
+
+### Apple M1
+
+Some prebuilt libs are not yet available. Here are the packages that must be installed manually.
+
+https://sharp.pixelplumbing.com/install#apple-m1
+
+```bash
+brew install vips
 ```
 
 ### NVM Warning Message About Unsupported Prefix
