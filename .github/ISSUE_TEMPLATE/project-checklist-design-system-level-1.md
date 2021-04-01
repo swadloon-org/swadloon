@@ -1,9 +1,10 @@
 ---
 name: Design System - Level 1
 about: TODO
-title: '<project-name>: Design System - Level 1'
+title: "<project-name>: Design System - Level 1"
 labels: ''
 assignees: ''
+
 ---
 
 # Design System - Level 1 - Figma Checklist
