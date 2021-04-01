@@ -28,8 +28,5 @@
     "@newrade/core-types": "^1.4.0",
     "@newrade/core-utils": "^1.6.3",
     "figma-js": "^1.11.0"
-  },
-  "devDependencies": {
-    "@newrade/core-cli": "^1.7.0"
   }
 }

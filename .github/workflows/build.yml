@@ -57,7 +57,7 @@ jobs:
           tsbuildinfo:
             - 'packages/**/*.tsbuildinfo'
     - name: Remove tsbuildinfo if files have changed
-      uses: ./packages/core-github-actions/lib/remove-tsbuild-cache
+      uses: ./packages/core-github-actions/lib/remove-ts-build-cache
       with:
         changed-files: ${{ steps.filter.outputs.packages_files }}
         tsBuildInfoFiles: ${{ steps.filter2.outputs.tsbuildinfo_files }}
@@ -120,7 +120,7 @@ jobs:
           tsbuildinfo:
             - 'packages/**/*.tsbuildinfo'
     - name: Remove tsbuildinfo if files have changed
-      uses: ./packages/core-github-actions/lib/remove-tsbuild-cache
+      uses: ./packages/core-github-actions/lib/remove-ts-build-cache
       with:
         changed-files: ${{ steps.filter.outputs.packages_files }}
         tsBuildInfoFiles: ${{ steps.filter2.outputs.tsbuildinfo_files }}
@@ -186,7 +186,7 @@ jobs:
           tsbuildinfo:
             - 'packages/**/*.tsbuildinfo'
     - name: Remove tsbuildinfo if files have changed
-      uses: ./packages/core-github-actions/lib/remove-tsbuild-cache
+      uses: ./packages/core-github-actions/lib/remove-ts-build-cache
       with:
         changed-files: ${{ steps.filter.outputs.packages_files }}
         tsBuildInfoFiles: ${{ steps.filter2.outputs.tsbuildinfo_files }}
@@ -252,7 +252,7 @@ jobs:
           tsbuildinfo:
             - 'packages/**/*.tsbuildinfo'
     - name: Remove tsbuildinfo if files have changed
-      uses: ./packages/core-github-actions/lib/remove-tsbuild-cache
+      uses: ./packages/core-github-actions/lib/remove-ts-build-cache
       with:
         changed-files: ${{ steps.filter.outputs.packages_files }}
         tsBuildInfoFiles: ${{ steps.filter2.outputs.tsbuildinfo_files }}
@@ -331,7 +331,7 @@ jobs:
           tsbuildinfo:
             - 'packages/**/*.tsbuildinfo'
     - name: Remove tsbuildinfo if files have changed
-      uses: ./packages/core-github-actions/lib/remove-tsbuild-cache
+      uses: ./packages/core-github-actions/lib/remove-ts-build-cache
       with:
         changed-files: ${{ steps.filter.outputs.packages_files }}
         tsBuildInfoFiles: ${{ steps.filter2.outputs.tsbuildinfo_files }}
@@ -410,7 +410,7 @@ jobs:
           tsbuildinfo:
             - 'packages/**/*.tsbuildinfo'
     - name: Remove tsbuildinfo if files have changed
-      uses: ./packages/core-github-actions/lib/remove-tsbuild-cache
+      uses: ./packages/core-github-actions/lib/remove-ts-build-cache
       with:
         changed-files: ${{ steps.filter.outputs.packages_files }}
         tsBuildInfoFiles: ${{ steps.filter2.outputs.tsbuildinfo_files }}

@@ -15,12 +15,10 @@
     "./lib/**/*"
   ],
   "scripts": {
-    "prebuild-disabled": "yarn create-action-1 && yarn create-action-2",
-    "build-disabled": "tsc --build tsconfig.build.json",
+    "build-local": "yarn webpack",
     "clean": "rimraf -r lib/** && rm -f tsconfig.build.tsbuildinfo",
-    "create-action-1": "mkdir -p lib/remove-tsbuild-cache && cp 'src/remove-tsbuild-cache/action.yml' 'lib/remove-tsbuild-cache/action.yml'",
-    "create-action-2": "mkdir -p lib/set-app-env && cp 'src/set-app-env/action.yml' 'lib/set-app-env/action.yml'",
-    "start": "tsc --build --watch --preserveWatchOutput tsconfig.build.json"
+    "start": "tsc --build --watch --preserveWatchOutput tsconfig.build.json",
+    "webpack": "cross-env TS_NODE_PROJECT=tsconfig.webpack.json node -r ts-node/register ../../node_modules/webpack/bin/webpack --config webpack.prod.config.ts"
   },
   "typings": "./lib/index.d.ts",
   "dependencies": {
