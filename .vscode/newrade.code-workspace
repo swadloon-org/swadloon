@@ -87,6 +87,10 @@
       "path": ".."
     },
     {
+      "name": "github",
+      "path": "../.github"
+    },
+    {
       "path": "../docs"
     },
     {
