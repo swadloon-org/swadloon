@@ -4,14 +4,14 @@
 # - reference: https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions
 #
 
-name: vsb
+name: newrade
 
 on:
   push:
     paths:
     - '.github/**/*'
     - 'packages/core-*/**/*'
-    - 'packages/vsb-*/**/*'
+    - 'packages/newrade-*/**/*'
 
 jobs:
 
@@ -39,17 +39,11 @@ jobs:
     - name: Install dependencies and build core packages
       run: yarn
 
-    - name: Build common
-      run: yarn build --scope @newrade/vsb-common
-
-    - name: Build api
-      run: yarn build --scope @newrade/vsb-api
-
     - name: Lint Src Files
-      run: yarn eslint ./packages/vsb-*/src/ --ext ts,tsx
+      run: yarn eslint ./packages/newrade-*/src/ --ext ts,tsx
 
     - name: Run unit tests
-      run: yarn test --scope @newrade/vsb-*
+      run: yarn test --scope @newrade/newrade-*
 
     - name: Build website
-      run: yarn build --scope @newrade/vsb-*
+      run: yarn build --scope @newrade/newrade-* --ignore @newrade/newrade-app

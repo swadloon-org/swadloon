@@ -14,7 +14,7 @@ on:
 
 jobs:
 
-  build-test-deploy:
+  build-test:
 
     runs-on: self-hosted
 
