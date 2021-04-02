@@ -224,7 +224,7 @@
     "gatsby-plugin-remote-images": "^2.2.0",
     "gatsby-plugin-robots-txt": "^1.5.3",
     "gatsby-plugin-sharp": "^2.13.0-next.0",
-    "gatsby-plugin-sitemap": "^2.4.12",
+    "gatsby-plugin-sitemap": "^2.10.0",
     "gatsby-plugin-ts-config": "^1.1.5",
     "gatsby-remark-abbr": "^2.0.0",
     "gatsby-remark-copy-linked-files": "^2.8.0",
