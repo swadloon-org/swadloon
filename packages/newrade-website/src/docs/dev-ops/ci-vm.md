@@ -12,6 +12,16 @@ apt install sudo -y
 #
 apt install git -y
 #
+# Create SWAP file
+#
+free -m
+sudo fallocate -l 8G /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+echo "/swapfile none swap sw 0 0" | sudo tee -a /etc/fstab
+free -m
+#
 # Install NVM and Node
 #
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
