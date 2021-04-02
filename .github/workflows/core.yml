@@ -4,13 +4,13 @@
 # - reference: https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions
 #
 
-name: newrade
+name: core
 
 on:
   push:
     paths:
-    - './.github/**/*'
-    - './packages/core-*/**/*'
+    - '.github/**/*'
+    - 'packages/core-*/**/*'
 
 jobs:
 
@@ -20,7 +20,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [14.x, 15.x]
 
     steps:
 
@@ -39,10 +39,7 @@ jobs:
       run: yarn
 
     - name: Lint Src Files
-      run: yarn eslint ./packages/newrade-*/src/ --ext ts,tsx
+      run: yarn eslint ./packages/core-*/src/ --ext ts,tsx
 
     - name: Run unit tests
-      run: yarn test --scope @newrade/newrade-*
-
-    - name: Build website
-      run: yarn build --scope @newrade/newrade-* --ignore @newrade/newrade-app
+      run: yarn test --scope @newrade/core-*
