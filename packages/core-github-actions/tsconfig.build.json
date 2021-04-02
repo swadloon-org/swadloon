@@ -13,6 +13,9 @@
     },
     {
       "path": "../core-utils/tsconfig.build.json"
+    },
+    {
+      "path": "../core-webpack-config/tsconfig.build.json"
     }
   ],
   "include": ["src/**/*"]
