@@ -7,10 +7,18 @@
 apt update -y
 apt upgrade -y
 apt install sudo -y
+apt install build-essential -y
+apt install openssl libssl-dev libz-dev libssl-dev libcurl4-gnutls-dev libexpat1-dev gettext cmake gcc -y
 #
 # Install latest version of git
 #
-apt install git -y
+wget https://github.com/git/git/archive/refs/tags/v2.31.1.tar.gz -O git.tar.gz
+tar -xf git.tar.gz
+cd git-*
+make prefix=/usr/local all
+make prefix=/usr/local install
+exec bash
+git --version
 #
 # Create SWAP file
 #
