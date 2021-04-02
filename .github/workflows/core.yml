@@ -36,7 +36,7 @@ jobs:
       uses: ./packages/core-github-actions/lib/set-app-env
 
     - name: Install dependencies and build core packages
-      run: yarn
+      run: yarn --prefer-offline
 
     - name: Lint Src Files
       run: yarn eslint ./packages/core-*/src/ --ext ts,tsx

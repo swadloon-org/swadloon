@@ -15,10 +15,10 @@ apt install git -y
 # Create SWAP file
 #
 free -m
-sudo fallocate -l 8G /swapfile
-sudo chmod 600 /swapfile
-sudo mkswap /swapfile
-sudo swapon /swapfile
+fallocate -l 8G /swapfile
+chmod 600 /swapfile
+mkswap /swapfile
+swapon /swapfile
 echo "/swapfile none swap sw 0 0" | sudo tee -a /etc/fstab
 free -m
 #
@@ -27,8 +27,10 @@ free -m
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
 nvm install v15
+#
+# Install Yarn with npm
+#
 npm install --global yarn
 #
 # Create a ci user
