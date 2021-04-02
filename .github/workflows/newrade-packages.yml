@@ -29,8 +29,9 @@ jobs:
     #
     # END COMMON
     #
-    - name: Lint Src Files
-      run: yarn lint
 
     - name: Install dependencies
       run: yarn
+
+    - name: Lint Src Files
+      run: yarn lint
