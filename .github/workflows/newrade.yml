@@ -9,8 +9,8 @@ name: core
 on:
   push:
     paths:
-    - './.github/'
-    - './packages/core-*/'
+    - './.github/**/*'
+    - './packages/core-*/**/*'
 
 jobs:
 

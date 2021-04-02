@@ -9,9 +9,8 @@ name: newrade
 on:
   push:
     paths:
-    - './.github/'
-    - './packages/core-*/'
-    - './packages/newrade-*/'
+    - './.github/**/*'
+    - './packages/core-*/**/*'
 
 jobs:
 
