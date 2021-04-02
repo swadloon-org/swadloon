@@ -75,7 +75,7 @@ jobs:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         vercel-args: 'public'
         vercel-org-id: ${{ secrets.ORG_ID}}
-        vercel-project-id: prj_AQ9KLoYgQC9WgT21Z0ZExXu9zjOA
+        vercel-project-id: 'prj_AQ9KLoYgQC9WgT21Z0ZExXu9zjOA'
         working-directory: ./packages/newrade-website
         alias-domains: {{ BRANCH }}.newrade.ca
 
@@ -88,7 +88,7 @@ jobs:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         vercel-args: 'public'
         vercel-org-id: ${{ secrets.ORG_ID}}
-        vercel-project-id: prj_AQ9KLoYgQC9WgT21Z0ZExXu9zjOA
+        vercel-project-id: 'prj_AQ9KLoYgQC9WgT21Z0ZExXu9zjOA'
         working-directory: ./packages/newrade-website
         alias-domains: pr-{{ PR_NUMBER }}.newrade.ca
 
@@ -101,7 +101,7 @@ jobs:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         vercel-args: 'public --prod'
         vercel-org-id: ${{ secrets.ORG_ID}}
-        vercel-project-id: prj_AQ9KLoYgQC9WgT21Z0ZExXu9zjOA
+        vercel-project-id: 'prj_AQ9KLoYgQC9WgT21Z0ZExXu9zjOA'
         working-directory: ./packages/newrade-website
         alias-domains: newrade.ca
 
