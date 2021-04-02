@@ -7,16 +7,12 @@
 name: newrade
 
 on:
-  pull_request:
-    branches:
-      - release
-      - master
-      - dev
   push:
     paths:
     - '.github/**/*'
     - 'packages/core-*/**/*'
     - 'packages/newrade-*/**/*'
+  pull_request_target:
 
 jobs:
 
@@ -69,4 +65,43 @@ jobs:
         CONTENTFUL_ENV: ${{ secrets.CONTENTFUL_ENV }}
         CONTENTFUL_SPACEID_NEWRADE: ${{ secrets.CONTENTFUL_SPACEID_NEWRADE }}
         CONTENTFUL_DELIVERY_TOKEN_NEWRADE: ${{ secrets.CONTENTFUL_DELIVERY_TOKEN_NEWRADE }}
+
+    - name: Deploy website (branch)
+      if: github.event_name == 'push' && github.ref != 'refs/heads/release'
+      uses: amondnet/vercel-action@v20
+      with:
+        scope: ${{ secrets.VERCEL_SCOPE }}
+        vercel-token: ${{ secrets.VERCEL_TOKEN }}
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        vercel-args: 'public'
+        vercel-org-id: ${{ secrets.ORG_ID}}
+        vercel-project-id: prj_AQ9KLoYgQC9WgT21Z0ZExXu9zjOA
+        working-directory: ./packages/newrade-website
+        alias-domains: {{ BRANCH }}.newrade.ca
+
+    - name: Deploy website (PR)
+      if: github.event_name == 'pull_request_target'
+      uses: amondnet/vercel-action@v20
+      with:
+        scope: ${{ secrets.VERCEL_SCOPE }}
+        vercel-token: ${{ secrets.VERCEL_TOKEN }}
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        vercel-args: 'public'
+        vercel-org-id: ${{ secrets.ORG_ID}}
+        vercel-project-id: prj_AQ9KLoYgQC9WgT21Z0ZExXu9zjOA
+        working-directory: ./packages/newrade-website
+        alias-domains: pr-{{ PR_NUMBER }}.newrade.ca
+
+    - name: Deploy website (prod)
+      if: github.event_name == 'push'
+      uses: amondnet/vercel-action@v20
+      with:
+        scope: ${{ secrets.VERCEL_SCOPE }}
+        vercel-token: ${{ secrets.VERCEL_TOKEN }}
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        vercel-args: 'public --prod'
+        vercel-org-id: ${{ secrets.ORG_ID}}
+        vercel-project-id: prj_AQ9KLoYgQC9WgT21Z0ZExXu9zjOA
+        working-directory: ./packages/newrade-website
+        alias-domains: newrade.ca
 

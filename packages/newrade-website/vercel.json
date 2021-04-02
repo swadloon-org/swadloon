@@ -1,13 +1,10 @@
 {
-  //
-  // https://vercel.com/docs/configuration
-  //
-  "public": false,
   "github": {
     "enabled": false,
     "silent": false,
     "autoJobCancelation": true
   },
+  "public": false,
   "headers": [
     {
       "source": "/service-worker.js",
