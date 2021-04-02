@@ -12,7 +12,8 @@
   "scripts": {
     "prebuild": "yarn typecheck:build",
     "build": "gatsby build && yarn build:functions",
-    "build:functions": ". ./.env && DEBUG=$DEBUG yarn webpack",
+    "build:functions": "yarn webpack",
+    "build:functions:local": ". ./.env && DEBUG=$DEBUG yarn webpack",
     "build:local": ". ./.env && DEBUG=$DEBUG gatsby build",
     "clean": "gatsby clean",
     "compile": "tsc --project tsconfig.gatsby.json",
