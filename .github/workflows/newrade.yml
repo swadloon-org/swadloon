@@ -7,6 +7,11 @@
 name: newrade
 
 on:
+  pull_request:
+    branches:
+      - release
+      - master
+      - dev
   push:
     paths:
     - '.github/**/*'

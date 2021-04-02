@@ -7,11 +7,17 @@
 name: mir
 
 on:
+  pull_request:
+    branches:
+      - release
+      - master
+      - dev
   push:
     paths:
     - '.github/**/*'
     - 'packages/core-*/**/*'
     - 'packages/mir-*/**/*'
+
 
 jobs:
 
