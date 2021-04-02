@@ -9,10 +9,14 @@ name: newrade
 on:
   push:
     paths:
-    - '.github/**/*'
-    - 'packages/core-*/**/*'
-    - 'packages/newrade-*/**/*'
-  pull_request_target:
+      - '.github/**/*'
+      - 'packages/core-*/**/*'
+      - 'packages/newrade-*/**/*'
+    branches:
+      - dev
+      - master
+      - release
+  pull_request:
 
 jobs:
 
