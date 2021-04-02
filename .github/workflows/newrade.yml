@@ -4,14 +4,14 @@
 # - reference: https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions
 #
 
-name: vsb
+name: newrade
 
 on:
   push:
     paths:
     - '.github/**/*'
     - 'packages/core-*/**/*'
-    - 'packages/vsb-*/**/*'
+    - 'packages/newrade-*/**/*'
 
 jobs:
 
@@ -39,17 +39,27 @@ jobs:
     - name: Install dependencies and build core packages
       run: yarn
 
-    - name: Build common
-      run: yarn build --scope @newrade/vsb-common
-
-    - name: Build api
-      run: yarn build --scope @newrade/vsb-api
-
     - name: Lint Src Files
-      run: yarn eslint ./packages/vsb-*/src/ --ext ts,tsx
+      run: yarn eslint ./packages/newrade-*/src/ --ext ts,tsx
 
     - name: Run unit tests
-      run: yarn test --scope @newrade/vsb-*
+      run: yarn test --scope @newrade/newrade-*
 
     - name: Build website
-      run: yarn build --scope @newrade/vsb-*
+      run: yarn build --scope @newrade/newrade-* --ignore @newrade/newrade-app
+      env:
+        NVM_NODE_VERSION: ${{ secrets.NVM_NODE_VERSION }}
+        MASTER_GIT_HOST: ${{ secrets.MASTER_GIT_HOST }}
+        MASTER_REPO_ORG: ${{ secrets.MASTER_REPO_ORG }}
+        MASTER_REPO_NAME: ${{ secrets.MASTER_REPO_NAME }}
+        PROJECT_GIT_HOST: ${{ secrets.PROJECT_GIT_HOST }}
+        PROJECT_REPO_ORG: ${{ secrets.PROJECT_REPO_ORG }}
+        PROJECT_REPO_NAME: ${{ secrets.PROJECT_REPO_NAME }}
+
+        DEBUG: 'newrade:*'
+        APP_URL: 'http://local.newrade.ca'
+
+        CONTENTFUL_ENV: ${{ secrets.CONTENTFUL_ENV }}
+        CONTENTFUL_SPACEID_NEWRADE: ${{ secrets.CONTENTFUL_SPACEID_NEWRADE }}
+        CONTENTFUL_DELIVERY_TOKEN_NEWRADE: ${{ secrets.CONTENTFUL_DELIVERY_TOKEN_NEWRADE }}
+
