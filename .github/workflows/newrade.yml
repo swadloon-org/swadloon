@@ -75,9 +75,10 @@ jobs:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         vercel-args: 'public'
         vercel-org-id: ${{ secrets.ORG_ID}}
-        vercel-project-id: 'prj_AQ9KLoYgQC9WgT21Z0ZExXu9zjOA'
-        working-directory: './packages/newrade-website'
-        alias-domains: {{BRANCH}}.newrade.ca
+        vercel-project-id: prj_AQ9KLoYgQC9WgT21Z0ZExXu9zjOA
+        working-directory: ./packages/newrade-website
+        alias-domains: |
+          {{ BRANCH }}.newrade.ca
 
     - name: Deploy website (PR)
       if: github.event_name == 'pull_request_target'
@@ -88,9 +89,10 @@ jobs:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         vercel-args: 'public'
         vercel-org-id: ${{ secrets.ORG_ID}}
-        vercel-project-id: 'prj_AQ9KLoYgQC9WgT21Z0ZExXu9zjOA'
-        working-directory: './packages/newrade-website'
-        alias-domains: pr-{{PR_NUMBER}}.newrade.ca
+        vercel-project-id: prj_AQ9KLoYgQC9WgT21Z0ZExXu9zjOA
+        working-directory: ./packages/newrade-website
+        alias-domains: |
+          pr-{{ PR_NUMBER }}.newrade.ca
 
     - name: Deploy website (prod)
       if: github.event_name == 'push'
@@ -101,7 +103,8 @@ jobs:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         vercel-args: 'public --prod'
         vercel-org-id: ${{ secrets.ORG_ID}}
-        vercel-project-id: 'prj_AQ9KLoYgQC9WgT21Z0ZExXu9zjOA'
-        working-directory: './packages/newrade-website'
-        alias-domains: newrade.ca
+        vercel-project-id: prj_AQ9KLoYgQC9WgT21Z0ZExXu9zjOA
+        working-directory: ./packages/newrade-website
+        alias-domains: |
+          newrade.ca
 
