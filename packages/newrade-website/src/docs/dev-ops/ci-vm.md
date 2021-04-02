@@ -20,6 +20,10 @@ make prefix=/usr/local install
 exec bash
 git --version
 #
+# Configure git
+#
+git config --global init.defaultBranch main
+#
 # Create SWAP file
 #
 free -m
