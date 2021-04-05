@@ -42,7 +42,6 @@ export const CommonEnv = t.type({
    * @example 'repo-name' in @<org>/<repo-name>
    */
   MASTER_REPO_NAME: t.string,
-
   /**
    * The repository git host
    * @default 'github.com'
@@ -58,7 +57,6 @@ export const CommonEnv = t.type({
    * @example 'repo-name' in @<org>/<repo-name>
    */
   PROJECT_REPO_NAME: t.string,
-
   /**
    * Deploy environment
    */

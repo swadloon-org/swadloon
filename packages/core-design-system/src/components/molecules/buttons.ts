@@ -43,7 +43,7 @@ export interface ButtonStyleProps {
   state: ButtonState;
 }
 
-export type ButtonStyle<Override extends undefined | string = undefined> = {
+export type ButtonColors<Override extends undefined | string = undefined> = {
   textColor?: ColorType<Override>;
   iconColor?: ColorType<Override>;
   backgroundColor?: ColorType<Override>;
@@ -54,7 +54,7 @@ export type ButtonStyle<Override extends undefined | string = undefined> = {
 export type ButtonBoxStyle<Override extends undefined | string = undefined> = BoxStyle<Override> & {};
 
 export type ButtonVariants<Override extends undefined | string = undefined> = {
-  [key in keyof typeof Variant]: ButtonStyle<Override>;
+  [key in keyof typeof Variant]: ButtonColors<Override>;
 };
 
 export type ButtonSizes<Override extends undefined | string = undefined> = {

@@ -1,4 +1,4 @@
-import { LABEL_SIZE, TEXT_LEVEL, TEXT_STYLE } from '@newrade/core-design-system';
+import { LABEL_SIZE, TEXT_STYLE, Variant } from '@newrade/core-design-system';
 import { kebab, pascal } from 'case';
 import React, { LabelHTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
@@ -9,7 +9,7 @@ type Props = CommonComponentProps &
   LabelHTMLAttributes<any> & {
     variant?: LABEL_SIZE;
     variantStyle?: TEXT_STYLE;
-    variantLevel?: TEXT_LEVEL;
+    variantLevel?: Variant;
   };
 
 const defaultProps: Props = {

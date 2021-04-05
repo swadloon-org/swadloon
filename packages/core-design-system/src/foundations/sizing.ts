@@ -19,19 +19,7 @@ export enum SIZE {
 }
 
 /**
- * Contains CSS variable names for each sizing step
- * @example `--sizing-x1`
- */
-export type SizingVarNames = { [key in keyof typeof SIZE]: string };
-
-/**
- * Contains CSS statement to access CSS variables
- * @example `var(--sizing-x1)`
- */
-export type SizingVars = { [key in keyof typeof SIZE]: string };
-
-/**
- * Defines in px, rem what a sizing step is.
+ * Defines in px what a sizing step is.
  * @example 9
  */
 export type SizingStep = number;
@@ -55,16 +43,6 @@ export interface Sizing<Override extends undefined | string = undefined> {
    * This defines what `1 rem` is.
    */
   baseFontSize: NumberType<Override>;
-  /**
-   * CSS variable name for each step.
-   * @example `--sizing-x1`
-   */
-  varNames: SizingVarNames;
-  /**
-   * CSS statement to access CSS variables
-   * @example `var(--sizing-x1)`
-   */
-  var: SizingVars;
   /**
    * The ratio by which we multiply to calculate the next size step.
    * E.g. 1.618 (Golden Ratio)

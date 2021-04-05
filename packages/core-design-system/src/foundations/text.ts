@@ -55,7 +55,7 @@ export type TextStyle<Override extends undefined | string = undefined> = {
    */
   font?: Font[];
   /**
-   * Font family which will be rendered in CSS files.
+   * Font family to use.
    *
    * @example 'Montserrat-Bold'
    * @default font.name

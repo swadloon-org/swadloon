@@ -9,8 +9,8 @@ export function keys<T extends object>(object: T) {
  * Convert a number into a px string.
  * @param px value in pixel
  */
-export function px({ value }: { value: number }): string {
-  return `${value}px`;
+export function px({ value }: { value?: number }): string {
+  return value ? `${value}px` : `0px`;
 }
 
 /**

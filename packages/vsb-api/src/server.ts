@@ -1,4 +1,5 @@
 import { DEPLOY_ENV } from '@newrade/core-common';
+import { loadDotEnv, logEnvVariables } from '@newrade/core-utils';
 import {
   API_BASE_PATH,
   API_REGISTER_PATIENT_ROUTE,
@@ -11,12 +12,24 @@ import express, { Router, urlencoded } from 'express';
 import rateLimit from 'express-rate-limit';
 import i18nextMiddleware from 'i18next-http-middleware';
 import morgan from 'morgan';
-import { env } from '../types/dot-env';
+import path from 'path';
+import { Env, ENV } from '../types/dot-env';
 import { ClinikoController } from './controller/cliniko.controller';
 import { getTranslation } from './controller/translation.controller';
 import { loggerMiddleware } from './middleware/logger.middleware';
 import { recaptchaMiddleware } from './middleware/recaptcha.middleware';
 import { i18nService, initI18nService } from './services/i18n.service';
+
+/**
+ * Load env variable
+ */
+export const env = loadDotEnv<ENV>({
+  schema: Env,
+  dotEnvPath: path.resolve(__dirname, '../../.env'),
+  dotEnvRootPath: path.resolve(__dirname, '../../../../.env'),
+  packageName: '@newrade/vsb-api',
+});
+logEnvVariables({ packageName: '@newrade/vsb-api', env });
 
 /**
  * Logging setup

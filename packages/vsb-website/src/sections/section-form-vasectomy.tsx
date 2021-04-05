@@ -1,3 +1,4 @@
+import loadable from '@loadable/component';
 import { Variant } from '@newrade/core-design-system';
 import {
   BlockRenderer,
@@ -14,8 +15,14 @@ import * as styleRefs from './section-form-vasectomy.treat';
 
 type Props = CommonComponentProps & SectionProps & {};
 
-const BlockFormVasectomy = React.lazy(() =>
-  import('../blocks/block-form-vasectomy').then((comp) => ({ default: comp.BlockFormVasectomy }))
+const BlockFormVasectomy = loadable<any>(
+  // @ts-ignore
+  () => {
+    return import('../blocks/block-form-vasectomy');
+  },
+  {
+    resolveComponent: (components: typeof import('../blocks/block-form-vasectomy')) => components.BlockFormVasectomy,
+  }
 );
 
 export const CustomSectionFormVasectomy = React.forwardRef<any, Props>(

@@ -1,10 +1,10 @@
+import loadable from '@loadable/component';
 import {
   ButtonIcon,
   ButtonSize,
   HEADING,
   LABEL_SIZE,
   PARAGRAPH_SIZE,
-  TEXT_LEVEL,
   TEXT_STYLE,
   Variant,
   VIEWPORT,
@@ -48,8 +48,15 @@ type LayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }
 
 let pathname: string | undefined = '/'; // needed for gsap callbacks
 
-const MobileSideBar = React.lazy(() =>
-  import('@newrade/core-react-ui/lib/navigation/mobile-sidebar').then((comp) => ({ default: comp.MobileSideBar }))
+const MobileSideBar = loadable<any>(
+  // @ts-ignore
+  () => {
+    return import('@newrade/core-react-ui/lib/navigation/mobile-sidebar');
+  },
+  {
+    resolveComponent: (components: typeof import('@newrade/core-react-ui/lib/navigation/mobile-sidebar')) =>
+      components.MobileSideBar,
+  }
 );
 
 export const Layout = React.memo<LayoutProps>((props) => {
@@ -238,13 +245,13 @@ export const Layout = React.memo<LayoutProps>((props) => {
               >
                 <Stack gap={[cssTheme.sizing.var.x5]}>
                   <Stack gap={[cssTheme.sizing.var.x3]}>
-                    <Heading variant={HEADING.h4} variantLevel={TEXT_LEVEL.primaryReversed}>
+                    <Heading variant={HEADING.h4} variantLevel={Variant.primaryReversed}>
                       Clinique Dr. Pierre Boucher Jr.
                     </Heading>
                     <Label
                       variant={LABEL_SIZE.xSmall}
                       variantStyle={TEXT_STYLE.boldUppercase}
-                      variantLevel={TEXT_LEVEL.primaryReversed}
+                      variantLevel={Variant.primaryReversed}
                     >
                       Omnipraticien CCMF (MU)
                     </Label>

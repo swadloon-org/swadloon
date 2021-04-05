@@ -1,4 +1,4 @@
-import { LinkIcon, LinkVariant, TEXT_LEVEL } from '@newrade/core-design-system';
+import { LinkIcon, LinkVariant, Variant } from '@newrade/core-design-system';
 import { CodeOutline, Link, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 
@@ -13,7 +13,7 @@ export const LinksExternal: React.FC<Props> = (props) => {
         href={'https://google.com'}
         target={'_blank'}
         variant={LinkVariant.underline}
-        variantLevel={TEXT_LEVEL.primary}
+        variantLevel={Variant.primary}
         variantIcon={LinkIcon.right}
       ></Link>
     </CodeOutline>

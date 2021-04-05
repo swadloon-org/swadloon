@@ -1,6 +1,7 @@
 import { MediaQueryGroup } from './foundations/media-queries';
 import { TextDecoration, TEXT_TRANSFORM } from './foundations/text';
 import { Color } from './primitives/color';
+import { Radius } from './primitives/radius';
 
 /**
  * The Override default generic
@@ -37,7 +38,7 @@ export type TextDecorationType<Override extends undefined | string> = Override e
  * BoxModel
  */
 export type SizeType<Override extends undefined | string> = Override extends string ? string : number;
-export type RadiusType<Override extends undefined | string> = Override extends string ? string : number;
+export type RadiusType<Override extends undefined | string> = Override extends string ? string : Radius;
 
 /**
  * Sizing

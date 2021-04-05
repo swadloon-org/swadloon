@@ -71,9 +71,7 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({ plu
 
 const exec = util.promisify(child_process.exec);
 
-export const onPostBuild = async (gatsbyNodeHelpers: any) => {
-  const { reporter } = gatsbyNodeHelpers;
-
+export const onPostBuild: GatsbyNode['onPostBuild'] = async ({ reporter }) => {
   const reportOut = (report: any) => {
     const { stderr, stdout } = report;
     if (stderr) reporter.error(stderr);

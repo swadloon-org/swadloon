@@ -6,11 +6,6 @@ import { TextBoolean } from './boolean-env';
  */
 export const CommonEnvGatsby = t.partial({
   /**
-   * Custom variable to enable Gatsby Cloud's incremental build.
-   * @see https://www.gatsbyjs.com/blog/2020-04-22-announcing-incremental-builds/
-   */
-  GATSBY_ENABLE_INCREMENTAL_BUILD: TextBoolean,
-  /**
    * @see https://github.com/gatsbyjs/gatsby/blob/master/docs/docs/reference/release-notes/v2.28/index.md
    */
   GATSBY_PRESERVE_WEBPACK_CACHE: TextBoolean,

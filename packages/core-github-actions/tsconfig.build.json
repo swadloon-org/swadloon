@@ -2,8 +2,7 @@
   "extends": "../../tsconfig.build.json",
   "compilerOptions": {
     "rootDir": "src",
-    "module": "commonjs",
-    "outDir": "lib"
+    "module": "commonjs"
   },
   "references": [
     {
@@ -14,6 +13,9 @@
     },
     {
       "path": "../core-utils/tsconfig.build.json"
+    },
+    {
+      "path": "../core-webpack-config/tsconfig.build.json"
     }
   ],
   "include": ["src/**/*"]

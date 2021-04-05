@@ -1,1 +1,22 @@
 /api/server/*  /.netlify/functions/server 200
+
+/boucher.php  /equipe/  301
+/boucher  /equipe/  301
+/plan.php  /  301
+/plan  /  301
+/consultation.php  /vasectomie/  301
+/consultation  /vasectomie/  301
+/vasectomie.php  /vasectomie/  301
+/vasectomie  /vasectomie/  301
+/couts.php  /vasectomie/  301
+/couts  /vasectomie/  301
+/spermogramme.php  /vasectomie/  301
+/spermogramme  /vasectomie/  301
+/etapes.php  /vasectomie/  301
+/etapes  /vasectomie/  301
+/meac.php  /examen-pour-transport-canada/  301
+/meac  /examen-pour-transport-canada/  301
+/media/pdf/depliant-preparatoire-vasectomie.pdf  /vasectomie/  301
+/media/pdf/carton-informations-vasectomie.pdf  /vasectomie/  301
+/joindre.php  /contact/  301
+/joindre  /contact/  301

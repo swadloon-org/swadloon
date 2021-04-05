@@ -6,7 +6,7 @@ export const styles = {
     visibility: 'hidden',
     position: 'fixed',
     top: `calc(${cssTheme.layout.var.navbarHeight} + ${cssTheme.sizing.var.x3})`,
-    right: `calc(50% - ${cssTheme.layout.var.contentWidth.desktopMaxWidth} / 2 - ${cssTheme.sizing.var.x4})`,
+    left: `calc(50% + ${cssTheme.layout.var.contentWidth.desktopMaxWidth} / 2 + ${cssTheme.sizing.var.x4})`,
     width: cssTheme.layout.asideWidth,
     padding: '2em',
 

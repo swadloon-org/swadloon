@@ -49,14 +49,10 @@ export interface DesignSystem<Override extends undefined | string = undefined> {
    * Components' specific settings.
    */
   components: {
-    sections?: {
-      divider: {
-        // backgroundColor
-        // padding
-        leftBlockWidth: number;
-        gap: number;
-      };
-    };
+    /**
+     * Styles
+     */
+
     /**
      * Atoms
      */
@@ -69,6 +65,7 @@ export interface DesignSystem<Override extends undefined | string = undefined> {
     // dividers: {};
     // images: {};
     // illustrations: {};
+
     /**
      * Molecules
      */
@@ -138,6 +135,13 @@ export interface DesignSystem<Override extends undefined | string = undefined> {
     //   aside: {};
     //   footer: {};
     // };
-    // sections: {};
+    sections?: {
+      divider: {
+        // backgroundColor
+        // padding
+        leftBlockWidth: number;
+        gap: number;
+      };
+    };
   };
 }

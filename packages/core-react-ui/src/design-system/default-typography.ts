@@ -1,8 +1,7 @@
 import { TEXT_TRANSFORM, Typography } from '@newrade/core-design-system';
-import { cssVar } from '../utilities/css-variable.utilities';
 import * as fonts from './default-fonts';
 
-const defaultFontVars = [
+export const defaultFontVars = [
   '--font-family-monospace',
   '--font-family-sans',
   '--font-family-sans-alternate',
@@ -15,8 +14,6 @@ export const defaultTypography: Typography = {
     sans: [fonts.defaultSansFont, ...fonts.defaultFallbackSansFonts],
     sansAlternate: [fonts.defaultSansAlternateFont, ...fonts.defaultFallbackSansFonts],
     monospace: [fonts.defaultMonospaceFont, ...fonts.defaultFallbackMonospaceFonts],
-    var: defaultFontVars,
-    varNames: defaultFontVars.map((varName) => cssVar(varName)),
   },
   titles: {
     font: [fonts.defaultSerifFont, ...fonts.defaultFallbackSerifFonts],

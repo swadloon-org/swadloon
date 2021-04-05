@@ -15,11 +15,10 @@
     "./lib/**/*"
   ],
   "scripts": {
-    "prebuild": "yarn create-action-file",
-    "build": "tsc --build tsconfig.build.json",
+    "build": "yarn webpack",
     "clean": "rimraf -r lib/** && rm -f tsconfig.build.tsbuildinfo",
-    "create-action-file": "mkdir -p lib/build-all-packages && cp 'src/build-all-packages/action.yml' 'lib/build-all-packages/action.yml'",
-    "start": "tsc --build --watch --preserveWatchOutput tsconfig.build.json"
+    "start": "tsc --build --watch --preserveWatchOutput tsconfig.build.json",
+    "webpack": "cross-env TS_NODE_PROJECT=tsconfig.webpack.json node -r ts-node/register ../../node_modules/webpack/bin/webpack --config webpack.prod.config.ts"
   },
   "typings": "./lib/index.d.ts",
   "dependencies": {
@@ -27,6 +26,7 @@
     "@actions/github": "^4.0.0",
     "@newrade/core-common": "^1.2.3",
     "@newrade/core-types": "^1.4.0",
-    "@newrade/core-utils": "^1.6.3"
+    "@newrade/core-utils": "^1.6.3",
+    "@newrade/core-webpack-config": "^1"
   }
 }

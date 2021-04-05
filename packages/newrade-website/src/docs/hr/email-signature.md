@@ -1,4 +1,8 @@
-# Guide de création de Signature - Gmail
+# Signature for Gmail
+
+Open [[assets/newrade-signature.html]] in Chrome.
+
+Copy from the top of the page to bottom of the logo into Gmail signature box.
 
 ## References
 

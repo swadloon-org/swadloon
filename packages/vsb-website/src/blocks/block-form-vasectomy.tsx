@@ -100,7 +100,7 @@ const useYupValidationResolver = (PatientValidation: SchemaOf<PatientModel>) =>
           {}
         );
 
-        if (errors.inner && errors.inner.length) {
+        if (errors.inner.length) {
           console.log(errors.inner[0]);
           const firstError = errors.inner[0] as ValidationError;
           // handleFocusControlled(firstError.path)();
@@ -440,7 +440,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, bloc
                       name={name}
                       cleaveProps={{
                         htmlRef: (htmlRef) => {
-                          htmlRef = ref;
+                          htmlRef = ref; // deepscan-disable-line UNUSED_VAR_ASSIGN
                         },
                         onChange,
                         onBlur,
@@ -473,7 +473,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, bloc
           <FormStack>
             <FormSwitcher>
               <InputWrapper>
-                <InputLabel htmlFor={'medicare'}>Numero d'assurance maladie (RAMQ)</InputLabel>
+                <InputLabel htmlFor={'medicare'}>Numero d&apos;assurance maladie (RAMQ)</InputLabel>
 
                 <Controller
                   name="medicare"
@@ -487,7 +487,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, bloc
                       type={'text'}
                       cleaveProps={{
                         htmlRef: (htmlRef) => {
-                          htmlRef = ref;
+                          htmlRef = ref; // deepscan-disable-line UNUSED_VAR_ASSIGN
                         },
                         onChange,
                         onBlur,
@@ -515,7 +515,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, bloc
                       type={'tel'}
                       cleaveProps={{
                         htmlRef: (htmlRef) => {
-                          htmlRef = ref;
+                          htmlRef = ref; // deepscan-disable-line UNUSED_VAR_ASSIGN
                         },
                         onChange,
                         onBlur,
@@ -548,7 +548,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, bloc
                       name={name}
                       cleaveProps={{
                         htmlRef: (htmlRef) => {
-                          htmlRef = ref;
+                          htmlRef = ref; // deepscan-disable-line UNUSED_VAR_ASSIGN
                         },
                         onChange,
                         onBlur,

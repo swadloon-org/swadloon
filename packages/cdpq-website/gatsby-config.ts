@@ -51,7 +51,7 @@ const config: core.GastbySiteConfig = {
         background_color: `#ffffff`,
         theme_color: `#7c997d`,
         display: `standalone`,
-        icon: `src/images/LogoIcon.svg`,
+        icon: `src/images/logo-symbol.svg`,
       },
     },
     /**

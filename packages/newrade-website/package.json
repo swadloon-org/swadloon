@@ -11,7 +11,9 @@
   "license": "MIT",
   "scripts": {
     "prebuild": "yarn typecheck:build",
-    "build": "gatsby build",
+    "build": "gatsby build && yarn build:functions",
+    "build:functions": "yarn webpack",
+    "build:functions:local": ". ./.env && DEBUG=$DEBUG yarn webpack",
     "build:local": ". ./.env && DEBUG=$DEBUG gatsby build",
     "clean": "gatsby clean",
     "compile": "tsc --project tsconfig.gatsby.json",
@@ -23,7 +25,10 @@
     "start": ". ./.env && DEBUG=$DEBUG gatsby develop -p $APP_PORT -H 0.0.0.0",
     "test": "echo \"Wrtps://gatsby.dev/unit-testing\"",
     "typecheck": "yarn typecheck:build --watch --preserveWatchOutput",
-    "typecheck:build": "tsc --project tsconfig.build.json --noEmit"
+    "typecheck:build": "tsc --project tsconfig.build.json --noEmit",
+    "vercel-deploy": ". ./.env && VERCEL_PROJECT_ID=$VERCEL_PROJECT_ID VERCEL_ORG_ID=$VERCEL_ORG_ID yarn vercel public --token $VERCEL_TOKEN --scope $VERCEL_SCOPE --confirm",
+    "vercel-dev": ". ./.env && VERCEL_PROJECT_ID=$VERCEL_PROJECT_ID VERCEL_ORG_ID=$VERCEL_ORG_ID yarn vercel dev",
+    "webpack": "cross-env TS_NODE_PROJECT=tsconfig.webpack.json node -r ts-node/register ../../node_modules/webpack/bin/webpack --config webpack.prod.config.ts"
   },
   "eslintConfig": {},
   "dependencies": {

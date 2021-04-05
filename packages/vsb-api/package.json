@@ -21,7 +21,8 @@
     "test": "echo test",
     "tsc:watch": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
     "watch": "nodemon --delay 500ms --watch dist/ --watch ../vsb-common/lib/ --exec 'yarn inspect'",
-    "webpack": "cross-env TS_NODE_PROJECT=tsconfig.webpack.json node -r ts-node/register ../../node_modules/webpack/bin/webpack --config webpack.prod.config.ts"
+    "webpack": "cross-env TS_NODE_PROJECT=tsconfig.webpack.json node -r ts-node/register ../../node_modules/webpack/bin/webpack --config webpack.prod.config.ts",
+    "webpack:watch": "cross-env TS_NODE_PROJECT=tsconfig.webpack.json node -r ts-node/register ../../node_modules/webpack/bin/webpack --config webpack.prod.config.ts"
   },
   "dependencies": {
     "@newrade/core-common": "^1.2.3",

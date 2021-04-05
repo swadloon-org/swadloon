@@ -102,11 +102,14 @@ const config: core.GastbySiteConfig = {
     core.getGastbyCorePluginConfig({
       packageName: packageJson.name,
       features: {
-        renderDesignSystemPages: true,
-        renderDocsPages: true,
+        renderDesignSystemPages: false,
+        renderDocsPages: false,
       },
     }),
     core.getGatsbyPluginPreloadFonts(),
+    core.getGatsbyPluginGoogleTagmanager({
+      googleTagId: 'GTM-MRLFBTJ',
+    }),
   ],
   /**
    * Mimic the same route that we have when deployed
@@ -114,7 +117,7 @@ const config: core.GastbySiteConfig = {
    */
   developMiddleware: (app) => {
     app.use(
-      '/api/server/',
+      '/api/',
       proxy({
         target: 'http://localhost:10003',
       })

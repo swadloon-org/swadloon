@@ -13408,8 +13408,6 @@ export type QueryAllDirectoryArgs = {
 export type QuerySiteArgs = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
-  port?: Maybe<IntQueryOperatorInput>;
-  host?: Maybe<StringQueryOperatorInput>;
   flags?: Maybe<SiteFlagsFilterInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
@@ -14098,8 +14096,6 @@ export type QueryAllSitePluginArgs = {
 export type Site = Node & {
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
-  port?: Maybe<Scalars['Int']>;
-  host?: Maybe<Scalars['String']>;
   flags?: Maybe<SiteFlags>;
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
@@ -14306,8 +14302,6 @@ export type SiteFieldsEnum =
   | 'siteMetadata___siteEnv'
   | 'siteMetadata___languages___langs'
   | 'siteMetadata___languages___defaultLangKey'
-  | 'port'
-  | 'host'
   | 'flags___PRESERVE_WEBPACK_CACHE'
   | 'flags___PRESERVE_FILE_DOWNLOAD_CACHE'
   | 'flags___QUERY_ON_DEMAND'
@@ -14409,8 +14403,6 @@ export type SiteFieldsEnum =
 export type SiteFilterInput = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
-  port?: Maybe<IntQueryOperatorInput>;
-  host?: Maybe<StringQueryOperatorInput>;
   flags?: Maybe<SiteFlagsFilterInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
@@ -14722,6 +14714,7 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___gatsbyRemarkPlugins'
   | 'pluginCreator___pluginOptions___gatsbyRemarkPlugins___resolve'
   | 'pluginCreator___pluginOptions___remarkPlugins'
+  | 'pluginCreator___pluginOptions___remarkPlugins___aliasDivider'
   | 'pluginCreator___pluginOptions___remarkPlugins___target'
   | 'pluginCreator___pluginOptions___remarkPlugins___rel'
   | 'pluginCreator___pluginOptions___rehypePlugins'
@@ -14744,6 +14737,7 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___features___portfolio'
   | 'pluginCreator___pluginOptions___features___renderDesignSystemPages'
   | 'pluginCreator___pluginOptions___features___renderDocsPages'
+  | 'pluginCreator___pluginOptions___id'
   | 'pluginCreator___pluginOptions___pathCheck'
   | 'pluginCreator___pluginOptions___allExtensions'
   | 'pluginCreator___pluginOptions___isTSX'
@@ -14962,6 +14956,7 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___gatsbyRemarkPlugins___options___wrapperStyle'
   | 'pluginOptions___gatsbyRemarkPlugins___options___destinationDir'
   | 'pluginOptions___remarkPlugins'
+  | 'pluginOptions___remarkPlugins___aliasDivider'
   | 'pluginOptions___remarkPlugins___target'
   | 'pluginOptions___remarkPlugins___rel'
   | 'pluginOptions___rehypePlugins'
@@ -14992,6 +14987,7 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___features___portfolio'
   | 'pluginOptions___features___renderDesignSystemPages'
   | 'pluginOptions___features___renderDocsPages'
+  | 'pluginOptions___id'
   | 'pluginOptions___pathCheck'
   | 'pluginOptions___allExtensions'
   | 'pluginOptions___isTSX'
@@ -15149,6 +15145,7 @@ export type SitePluginPluginOptions = {
   packageName?: Maybe<Scalars['String']>;
   locales?: Maybe<Array<Maybe<Scalars['String']>>>;
   features?: Maybe<SitePluginPluginOptionsFeatures>;
+  id?: Maybe<Scalars['String']>;
   pathCheck?: Maybe<Scalars['Boolean']>;
   allExtensions?: Maybe<Scalars['Boolean']>;
   isTSX?: Maybe<Scalars['Boolean']>;
@@ -15313,6 +15310,7 @@ export type SitePluginPluginOptionsFilterInput = {
   packageName?: Maybe<StringQueryOperatorInput>;
   locales?: Maybe<StringQueryOperatorInput>;
   features?: Maybe<SitePluginPluginOptionsFeaturesFilterInput>;
+  id?: Maybe<StringQueryOperatorInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;
   allExtensions?: Maybe<BooleanQueryOperatorInput>;
   isTSX?: Maybe<BooleanQueryOperatorInput>;
@@ -15414,11 +15412,13 @@ export type SitePluginPluginOptionsRehypePluginsPropertiesFilterInput = {
 };
 
 export type SitePluginPluginOptionsRemarkPlugins = {
+  aliasDivider?: Maybe<Scalars['String']>;
   target?: Maybe<Scalars['String']>;
   rel?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 export type SitePluginPluginOptionsRemarkPluginsFilterInput = {
+  aliasDivider?: Maybe<StringQueryOperatorInput>;
   target?: Maybe<StringQueryOperatorInput>;
   rel?: Maybe<StringQueryOperatorInput>;
 };

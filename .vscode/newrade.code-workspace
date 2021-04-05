@@ -40,13 +40,20 @@
       "**/.hg": true,
       "**/CVS": true,
       "**/.DS_Store": true,
-      "**/node_modules/**": true
+      "**/node_modules/**": false
     },
+    //
+    // deepscan
+    //
     // https://github.com/deepscan/vscode-deepscan#settings-options
     // https://deepscan.io/docs/rules
     "deepscan.enable": true,
     "deepscan.ignorePatterns": ["**/node_modules/**", "graphql-types.ts"],
-    "deepscan.ignoreRules": ["no-console", "UNUSED_DECL"]
+    "deepscan.ignoreRules": ["no-console", "UNUSED_DECL"],
+    //
+    // terminals manager
+    //
+    "terminals.multiplexer": "screen"
   },
   "extensions": {
     "recommendations": [
@@ -78,6 +85,10 @@
     {
       "name": "newrade",
       "path": ".."
+    },
+    {
+      "name": "github",
+      "path": "../.github"
     },
     {
       "path": "../docs"

@@ -1,8 +1,8 @@
-import { TEXT_LEVEL } from '@newrade/core-design-system';
+import { Variant } from '@newrade/core-design-system';
 import { style } from 'treat';
 import { Theme } from '../design-system/css-design-system';
 
-export const colorTextStyles: { [key in TEXT_LEVEL]: string } = {
+export const colorTextStyles: { [key in Variant]: string } = {
   /**
    * Text styles
    */

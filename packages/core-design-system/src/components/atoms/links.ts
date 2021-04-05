@@ -1,6 +1,7 @@
-import { PARAGRAPH_SIZE, TEXT_LEVEL } from '../../foundations/typography';
+import { PARAGRAPH_SIZE } from '../../foundations/typography';
 import { ColorType } from '../../types';
 import { BoxStyle } from '../atoms/box';
+import { Variant } from '../components.props';
 
 export enum LinkAs {
   button = 'button',
@@ -44,7 +45,7 @@ export interface LinkStyleProps {
   /**
    * Normal or reversed style
    */
-  variantLevel: TEXT_LEVEL;
+  variantLevel: Variant;
   variant: LinkVariant;
   variantSize: PARAGRAPH_SIZE; // same as paragraph sizes
   state: LinkState;

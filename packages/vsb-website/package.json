@@ -25,7 +25,8 @@
     "test": "echo \"Wrtps://gatsby.dev/unit-testing\"",
     "test:e2e": ". ./.env && DEBUG=$DEBUG jest --config jest-e2e.config.js",
     "typecheck": "yarn typecheck:build --watch --preserveWatchOutput",
-    "typecheck:build": "tsc --project tsconfig.build.json --noEmit"
+    "typecheck:build": "tsc --project tsconfig.build.json --noEmit",
+    "vercel-deploy": ". ./.env && VERCEL_PROJECT_ID=$VERCEL_PROJECT_ID VERCEL_ORG_ID=$VERCEL_ORG_ID yarn vercel public --token $VERCEL_TOKEN --scope $VERCEL_SCOPE --confirm"
   },
   "eslintConfig": {},
   "dependencies": {

@@ -23,7 +23,7 @@ export const styles = {
   content: style(({ theme, cssTheme }: Theme) => ({
     display: 'inline-block',
     minHeight: '1em',
-    paddingTop: '1px', // fix the annoying alignement issue
+    paddingTop: '3px', // fix the annoying alignement issue
     maxWidth: 'calc(100% - 3em)', // collapse the content so it does not overflow
     verticalAlign: 'text-top',
     whiteSpace: `pre-wrap`,

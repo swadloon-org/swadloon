@@ -20,15 +20,16 @@ export function getGatsbyPluginMdx(): Gatsby.PluginRef[] {
         gatsbyRemarkPlugins: [
           /**
            * @see https://github.com/remcohaszing/gatsby-remark-mermaid
+           * @note does not work with Gatsby
            */
-          // {
-          //   resolve: 'gatsby-remark-mermaid',
-          // },
+          {
+            resolve: 'gatsby-remark-mermaid',
+          },
           /**
            * gatsby-remark-prismjs
            * @see https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-remark-prismjs
+           * @deprecated Not needed as we run prism in <CodeBlock/>
            */
-          // Not needed as we run prism in <CodeBlock/>
           // {
           //   resolve: `gatsby-remark-prismjs`,
           //   options: {
@@ -61,13 +62,20 @@ export function getGatsbyPluginMdx(): Gatsby.PluginRef[] {
         ],
         /**
          * @see https://github.com/remarkjs/remark/blob/master/doc/plugins.md#list-of-plugins
+         * @seee node_modules/@mdx-js/mdx/index.js
          */
         remarkPlugins: [
+          coreWebpackConfig.remarkWikiLinkPlugin,
           coreWebpackConfig.remarkExternalLinksPlugin,
           // coreWebpackConfig.remarkUnwrapImagesPlugin,
           coreWebpackConfig.remarkHtmlPlugin,
           coreWebpackConfig.remarkTocPlugin,
-        ],
+        ].map((plugin) => {
+          if (!(plugin && plugin[0])) {
+            throw new Error('undefined plugin');
+          }
+          return plugin;
+        }),
         // see https://github.com/rehypejs/rehype/blob/master/doc/plugins.md#list-of-plugins
         rehypePlugins: [coreWebpackConfig.rehypeSlugPlugin, coreWebpackConfig.rehypeAutoLinkHeadingsPlugin],
       },

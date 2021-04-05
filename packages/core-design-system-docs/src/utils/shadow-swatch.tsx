@@ -1,4 +1,4 @@
-import { BoxShadow, TEXT_LEVEL } from '@newrade/core-design-system';
+import { BoxShadow, Variant } from '@newrade/core-design-system';
 import { Label, Stack, useTreatTheme } from '@newrade/core-react-ui';
 import { getCSSBoxShadow } from '@newrade/core-react-ui/lib/utilities';
 import { kebab } from 'case';
@@ -23,7 +23,7 @@ export const ShadowSwatch: React.FC<OwnProps> = ({ id, style, className, shadow,
     <Stack id={id} style={style} gap={[cssTheme.sizing.var.x3]} {...props}>
       <div className={styles.shadow} style={{ width: size, height: size, boxShadow: `${cssShadowString}` }}></div>
 
-      <Label variantLevel={TEXT_LEVEL.secondary}>{`${kebab(name)}`}</Label>
+      <Label variantLevel={Variant.secondary}>{`${kebab(name)}`}</Label>
     </Stack>
   );
 };

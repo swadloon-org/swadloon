@@ -1,7 +1,7 @@
 import fs from 'fs-extra';
 
 const copyFile = () => {
-  fs.copySync(`./functions`, './public/functions', {
+  fs.copySync(`./api`, './public/api', {
     recursive: true,
     overwrite: true,
   });

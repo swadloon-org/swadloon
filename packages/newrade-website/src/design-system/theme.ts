@@ -5,24 +5,22 @@ import {
   defaultButtons,
   defaultEffects,
   defaultIconography,
-  defaultLayout,
   defaultSizing,
-  defaultTypography,
 } from '@newrade/core-react-ui/lib/design-system/';
 import { createCSSTheme } from '@newrade/core-react-ui/lib/utilities';
 import { colors } from './colors';
+import { layout } from './layout';
+import { typography } from './typography';
 
 export const theme: DesignSystem = {
   name: 'newrade',
   variation: 'light',
-  colors,
+  colors: colors,
   effects: defaultEffects,
   sizing: defaultSizing,
   iconography: defaultIconography,
-  // typography,
-  typography: defaultTypography,
-  layout: defaultLayout,
-  // layout,
+  typography: typography,
+  layout: layout,
   animations: defaultAnimations,
   components: {
     buttons: defaultButtons,

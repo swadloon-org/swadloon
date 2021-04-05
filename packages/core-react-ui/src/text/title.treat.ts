@@ -1,9 +1,9 @@
-import { TEXT_LEVEL, TITLE } from '@newrade/core-design-system';
+import { Variant, TITLE } from '@newrade/core-design-system';
 import { style } from 'treat';
 import { Theme } from '../design-system/css-design-system';
 import { getCSSTextStyles } from '../utilities/text.utilities';
 
-export const styles: { [key in TITLE]: string } & { [key in TEXT_LEVEL]: string } = {
+export const styles: { [key in TITLE]: string } & { [key in Variant]: string } = {
   t1: style(({ theme, cssTheme }: Theme) => ({
     // todo should be in all titles
     wordBreak: 'normal',

@@ -1,3 +1,4 @@
+import loadable from '@loadable/component';
 import { ButtonSize, Variant } from '@newrade/core-design-system';
 import { Button, ErrorBoundary, Stack, useCommonProps, useIsSSR, useTreatTheme } from '@newrade/core-react-ui';
 import { IoArrowForwardOutline } from '@react-icons/all-files/io5/IoArrowForwardOutline';
@@ -6,6 +7,7 @@ import React, { PropsWithChildren } from 'react';
 import { BlockGoogleMapAPI } from '../api/block-google-map.api';
 import { BlockAPI } from '../api/block.api';
 import { GatsbyLink } from '../links/gatsby-link';
+import { BlockGoogleMapsProps } from './block-google-map';
 import { BlockImage } from './block-image';
 import { BlockImageBackground } from './block-image-background';
 import { BlockMarkdown } from './block-markdown';
@@ -15,8 +17,14 @@ const log = debug('newrade:core-gatsby-ui:block-renderer');
 const logWarn = log.extend('warn');
 const logError = log.extend('error');
 
-const BlockGoogleMap = React.lazy(() =>
-  import('./block-google-map').then((comp) => ({ default: comp.BlockGoogleMap }))
+const BlockGoogleMap = loadable<BlockGoogleMapsProps>(
+  // @ts-ignore
+  () => {
+    return import('./block-google-map');
+  },
+  {
+    resolveComponent: (components: typeof import('./block-google-map')) => components.BlockGoogleMap,
+  }
 );
 
 /**
@@ -116,9 +124,7 @@ export function BlockRenderer<CustomBlockVariants extends string>({
       return (
         <ErrorBoundary>
           {!isSSR && inView ? (
-            <React.Suspense fallback={<div />}>
-              <BlockGoogleMap inView={inView} blockGoogleMaps={blockGoogleMaps} {...commonProps} />
-            </React.Suspense>
+            <BlockGoogleMap inView={inView} blockGoogleMaps={blockGoogleMaps} {...commonProps} />
           ) : null}
         </ErrorBoundary>
       );

@@ -1,17 +1,9 @@
+import { ANGLE_UNIT, ColorGradients, ColorIntents, Colors } from '@newrade/core-design-system';
 import {
-  ANGLE_UNIT,
-  ColorGradients,
-  ColorIntents,
-  Colors,
-  ColorsVarNames,
-  ColorsVars,
-} from '@newrade/core-design-system';
-import {
-  createDefaultColorIntents,
   generateColorGreyPalette,
   generateColorPalette5,
   getCSSVarForColors,
-  getCSSVarNamesForColors,
+  getDefaultColorIntents,
 } from '../utilities/colors.utilities';
 
 export const defaultColorsColors: Colors['colors'] = {
@@ -65,14 +57,9 @@ export const defaultColorsColors: Colors['colors'] = {
   }),
 };
 
-export const defaultColorIntents: ColorIntents = createDefaultColorIntents(defaultColorsColors);
+export const defaultColorIntents: ColorIntents = getDefaultColorIntents(defaultColorsColors);
 
-export const defaultColorsVarNames: ColorsVarNames = getCSSVarNamesForColors({
-  colors: defaultColorsColors,
-  colorIntents: defaultColorIntents,
-});
-
-export const defaultColorsVar: ColorsVars = getCSSVarForColors({
+export const defaultColorVar = getCSSVarForColors({
   colors: defaultColorsColors,
   colorIntents: defaultColorIntents,
 });
@@ -111,8 +98,6 @@ export const defaultColorsGradients: ColorGradients = {
 };
 
 export const defaultColors: Colors = {
-  varNames: defaultColorsVarNames,
-  var: defaultColorsVar,
   colors: defaultColorsColors,
   colorIntents: defaultColorIntents,
   gradients: defaultColorsGradients,

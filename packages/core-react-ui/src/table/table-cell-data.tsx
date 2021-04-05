@@ -1,4 +1,4 @@
-import { PARAGRAPH_SIZE, TEXT_LEVEL, TEXT_STYLE } from '@newrade/core-design-system';
+import { PARAGRAPH_SIZE, TEXT_STYLE, Variant } from '@newrade/core-design-system';
 import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
 import { CommonComponentProps } from '../props/component-common.props';
@@ -8,7 +8,7 @@ type Props = CommonComponentProps &
   HTMLAttributes<HTMLHeadingElement> & {
     variant?: PARAGRAPH_SIZE;
     variantStyle?: TEXT_STYLE;
-    variantLevel?: TEXT_LEVEL;
+    variantLevel?: Variant;
   };
 
 const defaultProps: Props = {

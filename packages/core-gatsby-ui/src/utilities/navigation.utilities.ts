@@ -1,4 +1,4 @@
-import { Navigation } from '../navigation/navigation.model';
+import { Navigation } from '../api/navigation.model';
 import { NavItem } from '../navigation/nav-item.model';
 import { GatsbyCommonPageContext } from '@newrade/core-gatsby-config';
 import { title, kebab, capital, lower } from 'case';

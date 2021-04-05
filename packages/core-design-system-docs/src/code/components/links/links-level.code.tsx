@@ -1,4 +1,4 @@
-import { LinkVariant, TEXT_LEVEL } from '@newrade/core-design-system';
+import { LinkVariant, Variant } from '@newrade/core-design-system';
 import { CodeOutline, Link, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 
@@ -9,9 +9,9 @@ export const LinksLevel: React.FC<Props> = (props) => {
 
   return (
     <CodeOutline>
-      <Link href={'#'} variant={LinkVariant.underline} variantLevel={TEXT_LEVEL.primary}></Link>
-      <Link href={'#'} variant={LinkVariant.underline} variantLevel={TEXT_LEVEL.secondary}></Link>
-      <Link href={'#'} variant={LinkVariant.underline} variantLevel={TEXT_LEVEL.tertiary}></Link>
+      <Link href={'#'} variant={LinkVariant.underline} variantLevel={Variant.primary}></Link>
+      <Link href={'#'} variant={LinkVariant.underline} variantLevel={Variant.secondary}></Link>
+      <Link href={'#'} variant={LinkVariant.underline} variantLevel={Variant.tertiary}></Link>
     </CodeOutline>
   );
 };

@@ -38,6 +38,10 @@ export type CommonComponentProps<AsType = keyof ReactHTML> = Partial<{
    */
   style: CSSProperties;
   /**
+   * Inverse components colors
+   */
+  datatheme?: 'normal' | 'reversed';
+  /**
    * The default ReactNode
    */
   children: ReactNode;
