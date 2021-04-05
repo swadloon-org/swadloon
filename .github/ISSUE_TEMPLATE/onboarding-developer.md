@@ -221,6 +221,10 @@ A `.eslintrc.js` file is included.
 
 ## Troubleshooting
 
+### Build issues with `sharp`
+
+npm rebuild --verbose sharp
+
 ### Permissions issues with /scripts
 
 Set permissions for the repo CLI:
