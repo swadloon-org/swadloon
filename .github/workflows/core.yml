@@ -9,8 +9,16 @@ name: core
 on:
   push:
     paths:
-    - '.github/**/*'
-    - 'packages/core-*/**/*'
+      - '.github/**/*'
+      - '**/package.json'
+      - '**/package-lock.json'
+      - '**/yarn.lock'
+      - 'packages/core-*/**/*'
+    branches:
+      - dev
+      - master
+      - release
+  pull_request:
 
 jobs:
 

@@ -3,7 +3,7 @@ import { PatientAPIResponseBody } from '@newrade/vsb-common';
 import debug from 'debug';
 import { RequestHandler } from 'express';
 import fetch from 'node-fetch';
-import { env } from '../../types/dot-env';
+import { env } from '../server';
 
 const log = debug('newrade:vsb-api:recaptcha');
 const logError = log.extend('error');
@@ -15,9 +15,9 @@ export interface RecaptchaResponse {
 
 export const recaptchaMiddleware: RequestHandler<any, PatientAPIResponseBody, any> = async (req, res, next) => {
   try {
-    const secret_key = env.API_VSB_SECRET_KEY_RECAPTCHAT;
+    const secret_key = env.API_VSB_SECRET_KEY_RECAPTCHA;
 
-    log(`incoming request for ${req.url}`);
+    log(`incoming request for ${req ? req.url : ''}`);
 
     if (!req?.body?.payload?.recaptcha?.token) {
       logError(`invalid token`);

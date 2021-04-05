@@ -10,7 +10,7 @@ import debug from 'debug';
 import { RequestHandler } from 'express';
 import fetch from 'node-fetch';
 import { ValidationError } from 'yup';
-import { env } from '../../types/dot-env';
+import { env } from '../server';
 import { ClinikoAPIResponseError } from './cliniko.constants';
 
 const log = debug('newrade:vsb-api:cliniko');

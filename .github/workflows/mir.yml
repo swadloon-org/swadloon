@@ -9,9 +9,17 @@ name: mir
 on:
   push:
     paths:
-    - '.github/**/*'
-    - 'packages/core-*/**/*'
-    - 'packages/mir-*/**/*'
+      - '.github/**/*'
+      - '**/package.json'
+      - '**/package-lock.json'
+      - '**/yarn.lock'
+      - 'packages/core-*/**/*'
+      - 'packages/mir-*/**/*'
+    branches:
+      - dev
+      - master
+      - release
+  pull_request:
 
 jobs:
 

@@ -16,7 +16,10 @@ dotenv.config();
 const config: WebpackOptions.WebpackOptions = {
   mode: 'production',
   target: 'node',
-  entry: path.resolve(__dirname, 'src/server.ts'),
+  entry: {
+    ['server']: path.resolve(__dirname, 'src/server.ts'),
+    ['health-check']: path.resolve(__dirname, 'src/health-check.ts'),
+  },
   devtool: 'source-map',
   optimization: {
     minimize: false,
@@ -68,7 +71,7 @@ const config: WebpackOptions.WebpackOptions = {
     ],
   },
   output: {
-    filename: 'src/server.js',
+    filename: 'src/[name].js',
     path: path.join(__dirname, 'dist'),
     libraryTarget: 'umd',
   },

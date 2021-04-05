@@ -10,6 +10,9 @@ on:
   push:
     paths:
       - '.github/**/*'
+      - '**/package.json'
+      - '**/package-lock.json'
+      - '**/yarn.lock'
       - 'packages/core-*/**/*'
       - 'packages/newrade-*/**/*'
     branches:
@@ -17,10 +20,6 @@ on:
       - master
       - release
   pull_request:
-    paths:
-      - '.github/**/*'
-      - 'packages/core-*/**/*'
-      - 'packages/newrade-*/**/*'
 
 jobs:
 

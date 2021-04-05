@@ -117,7 +117,7 @@ const config: core.GastbySiteConfig = {
    */
   developMiddleware: (app) => {
     app.use(
-      '/api/server/',
+      '/api/',
       proxy({
         target: 'http://localhost:10003',
       })

@@ -18,7 +18,6 @@
     "clean": "gatsby clean",
     "compile": "tsc --project tsconfig.gatsby.json",
     "contentful-types": ". ./.env && contentful-tools generate --config=contentful-tools.js --token=$CONTENTFUL_MANAGEMENT_TOKEN_VSB",
-    "deploy": ". ./.env && VERCEL_PROJECT_ID=$VERCEL_PROJECT_ID VERCEL_ORG_ID=$VERCEL_ORG_ID yarn vercel public --token $VERCEL_TOKEN --scope $VERCEL_SCOPE --confirm",
     "pre-debug": "yarn clean",
     "preload-fonts": ". ./.env && PORT=$APP_PORT gatsby-preload-fonts --no-sandbox",
     "refresh": ". ./.env && curl -X POST http://localhost:$APP_PORT/__refresh",
@@ -27,6 +26,8 @@
     "test": "echo \"Wrtps://gatsby.dev/unit-testing\"",
     "typecheck": "yarn typecheck:build --watch --preserveWatchOutput",
     "typecheck:build": "tsc --project tsconfig.build.json --noEmit",
+    "vercel-deploy": ". ./.env && VERCEL_PROJECT_ID=$VERCEL_PROJECT_ID VERCEL_ORG_ID=$VERCEL_ORG_ID yarn vercel public --token $VERCEL_TOKEN --scope $VERCEL_SCOPE --confirm",
+    "vercel-dev": ". ./.env && VERCEL_PROJECT_ID=$VERCEL_PROJECT_ID VERCEL_ORG_ID=$VERCEL_ORG_ID yarn vercel dev",
     "webpack": "cross-env TS_NODE_PROJECT=tsconfig.webpack.json node -r ts-node/register ../../node_modules/webpack/bin/webpack --config webpack.prod.config.ts"
   },
   "eslintConfig": {},
