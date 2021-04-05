@@ -1,13 +1,13 @@
 ---
 name: Design System - Standard
-about: Figma checklist
-title: "<project-name>: Design System - Standard"
+about: Figma Checklist
+title: "<project-name>: Design System - Essential"
 labels: ''
 assignees: ''
 
 ---
 
-# Design System - Standard - Figma Checklist
+# Design System - Essential - Figma Checklist
 
 ## Setup
 
@@ -53,7 +53,7 @@ assignees: ''
 
 ### Atoms
 
-- [ ] Logo
+- [ ] Logos
 - [ ] Illustrations
 - [ ] Icons
 - [ ] Links
@@ -64,16 +64,17 @@ assignees: ''
 - [ ] Buttons
 - [ ] Breadcrumbs
 - [ ] Stacked Inputs (Text, Phone, Number, Text Area, Dropdown, Date Picker, Date Range Picker)
-- [ ] Compact Inputs
+- [ ] Compact Inputs 
 - [ ] Accordions
-- [ ] Notifications
-- [ ] Tags
-- [ ] Backgrounds
-- [ ] Steppers
+- [ ] List Items
 - [ ] Dropdown Items
 - [ ] Navbar Items
 - [ ] Sidebar Items
 - [ ] Menu Items
+- [ ] Tabs
+- [ ] Tags
+- [ ] Steppers
+- [ ] Backgrounds
 
 ### Organisms
 
@@ -81,10 +82,10 @@ assignees: ''
 - [ ] Navbar
 - [ ] Sidebar
 - [ ] Footer
-- [ ] Tables
+- [ ] Cards
 - [ ] Carousel
 - [ ] Charts & Plots
-- [ ] Cards
+
 
 ### Templates
 

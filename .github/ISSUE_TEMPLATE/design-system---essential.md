@@ -1,7 +1,7 @@
 ---
 name: Design System - Essential
 about: Figma Checklist
-title: "<project-name>: Design System - Standard"
+title: "<project-name>: Design System - Essential"
 labels: ''
 assignees: ''
 
@@ -53,7 +53,7 @@ assignees: ''
 
 ### Atoms
 
-- [ ] Logo
+- [ ] Logos
 - [ ] Illustrations
 - [ ] Icons
 - [ ] Links
@@ -65,10 +65,10 @@ assignees: ''
 - [ ] Breadcrumbs
 - [ ] Stacked Inputs (Text, Phone, Number, Text Area, Dropdown)
 - [ ] Accordions
+- [ ] List Items
 - [ ] Dropdown Items
 - [ ] Navbar Items
 - [ ] Sidebar Items
-- [ ] Menu Items
 
 ### Organisms
 
