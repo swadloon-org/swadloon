@@ -51,9 +51,10 @@
     "deepscan.ignorePatterns": ["**/node_modules/**", "graphql-types.ts"],
     "deepscan.ignoreRules": ["no-console", "UNUSED_DECL"],
     //
-    // terminals manager
+    // terminals
     //
-    "terminals.multiplexer": "screen"
+    "terminal.integrated.enablePersistentSessions": false,
+    "terminal.integrated.environmentChangesRelaunch": false
   },
   "extensions": {
     "recommendations": [

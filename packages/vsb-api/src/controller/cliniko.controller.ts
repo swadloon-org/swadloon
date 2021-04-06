@@ -41,7 +41,7 @@ const getClinikoStatus: RequestHandler<any, PatientAPIResponseBody, any> = async
     return res.status(400).send(result);
   } catch (error) {
     logError(`request failed for service status`);
-    res
+    return res
       .status(500)
       .send({ api: 'vsb-api', status: API_RESPONSE_STATUS.ERROR, message: systemError, errors: [error], payload: {} });
   }
