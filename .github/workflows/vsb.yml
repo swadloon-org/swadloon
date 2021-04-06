@@ -55,6 +55,9 @@ jobs:
     - name: Build vsb-common
       run: yarn build --scope @newrade/vsb-common
 
+    - name: Run unit tests
+      run: yarn test --scope @newrade/vsb-*
+
     - name: Build vsb-api
       run: yarn build --scope @newrade/vsb-api
       env:
@@ -96,6 +99,45 @@ jobs:
         GOOGLE_MAP_API_KEY: ${{ secrets.GOOGLE_MAP_API_KEY }}
         RECAPTCHA_SITE_KEY_VSB: ${{ secrets.RECAPTCHA_SITE_KEY_VSB }}
 
+    - name: Deploy website (branch)
+      if: github.event_name == 'push' && github.ref != 'refs/heads/release'
+      uses: amondnet/vercel-action@v20
+      with:
+        scope: ${{ secrets.VERCEL_SCOPE }}
+        vercel-token: ${{ secrets.VERCEL_TOKEN }}
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        vercel-args: 'public'
+        vercel-org-id: ${{ secrets.VERCEL_ORG_ID}}
+        vercel-project-id: prj_BSiEPXFueCLXvdowJXU7WikN1T1M
+        working-directory: ./packages/vsb-website
+        # alias-domains: |
+        #   {{ BRANCH }}.newrade.ca
 
-    - name: Run unit tests
-      run: yarn test --scope @newrade/vsb-*
+    - name: Deploy website (PR)
+      if: github.event_name == 'pull_request'
+      uses: amondnet/vercel-action@v20
+      with:
+        scope: ${{ secrets.VERCEL_SCOPE }}
+        vercel-token: ${{ secrets.VERCEL_TOKEN }}
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        vercel-args: 'public'
+        vercel-org-id: ${{ secrets.VERCEL_ORG_ID}}
+        vercel-project-id: prj_BSiEPXFueCLXvdowJXU7WikN1T1M
+        working-directory: ./packages/vsb-website
+        # alias-domains: |
+        #   pr-{{ PR_NUMBER }}.newrade.ca
+
+    - name: Deploy website (prod)
+      if: github.event_name == 'push' && github.ref == 'refs/heads/release'
+      uses: amondnet/vercel-action@v20
+      with:
+        scope: ${{ secrets.VERCEL_SCOPE }}
+        vercel-token: ${{ secrets.VERCEL_TOKEN }}
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        vercel-args: 'public --prod'
+        vercel-org-id: ${{ secrets.VERCEL_ORG_ID}}
+        vercel-project-id: prj_BSiEPXFueCLXvdowJXU7WikN1T1M
+        working-directory: ./packages/vsb-website
+        # alias-domains: |
+        #   newrade.ca
+
