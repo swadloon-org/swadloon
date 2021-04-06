@@ -110,8 +110,8 @@ jobs:
         vercel-org-id: ${{ secrets.VERCEL_ORG_ID}}
         vercel-project-id: prj_BSiEPXFueCLXvdowJXU7WikN1T1M
         working-directory: ./packages/vsb-website
-        # alias-domains: |
-        #   {{ BRANCH }}.newrade.ca
+        alias-domains: |
+          {{ BRANCH }}.vasectomie-pierre-boucher.ca
 
     - name: Deploy website (PR)
       if: github.event_name == 'pull_request'
@@ -124,8 +124,8 @@ jobs:
         vercel-org-id: ${{ secrets.VERCEL_ORG_ID}}
         vercel-project-id: prj_BSiEPXFueCLXvdowJXU7WikN1T1M
         working-directory: ./packages/vsb-website
-        # alias-domains: |
-        #   pr-{{ PR_NUMBER }}.newrade.ca
+        alias-domains: |
+          pr-{{ PR_NUMBER }}.vasectomie-pierre-boucher.ca
 
     - name: Deploy website (prod)
       if: github.event_name == 'push' && github.ref == 'refs/heads/release'
@@ -138,6 +138,6 @@ jobs:
         vercel-org-id: ${{ secrets.VERCEL_ORG_ID}}
         vercel-project-id: prj_BSiEPXFueCLXvdowJXU7WikN1T1M
         working-directory: ./packages/vsb-website
-        # alias-domains: |
-        #   newrade.ca
+        alias-domains: |
+          vasectomie-pierre-boucher.ca
 
