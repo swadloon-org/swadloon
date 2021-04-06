@@ -115,7 +115,6 @@
     "react-treat": "1.6.1",
     "remark-wiki-link": "^0.0.4",
     "schema-dts": "^0.8.2",
-    "serverless-http": "^2.7.0",
     "simple-git": "^2.35.1",
     "use-resize-observer": "^7.0.0",
     "web-animations-js": "^2.3.2",

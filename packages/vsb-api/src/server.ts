@@ -107,6 +107,4 @@ if (env.APP_ENV === DEPLOY_ENV.LOCAL) {
   });
 }
 
-const serverless = require('serverless-http');
-
-module.exports.handler = serverless(server);
+module.exports = server;
