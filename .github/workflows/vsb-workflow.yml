@@ -103,7 +103,7 @@ jobs:
         RECAPTCHA_SITE_KEY_VSB: ${{ secrets.RECAPTCHA_SITE_KEY_VSB }}
 
     - name: Deploy website (branch)
-      if: github.event_name == 'push' && github.ref != 'refs/heads/release'
+      if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref != 'refs/heads/release'
       uses: amondnet/vercel-action@v20
       with:
         scope: ${{ secrets.VERCEL_SCOPE }}
@@ -131,7 +131,7 @@ jobs:
           pr-{{ PR_NUMBER }}.vasectomie-pierre-boucher.ca
 
     - name: Deploy website (prod)
-      if: github.event_name == 'push' && github.ref == 'refs/heads/release'
+      if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/release'
       uses: amondnet/vercel-action@v20
       with:
         scope: ${{ secrets.VERCEL_SCOPE }}
