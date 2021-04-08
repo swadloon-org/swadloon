@@ -25,8 +25,8 @@ import { i18nService, initI18nService } from './services/i18n.service';
  */
 export const env = loadDotEnv<ENV>({
   schema: Env,
-  dotEnvPath: path.resolve(__dirname, '../.env'),
-  dotEnvRootPath: path.resolve(__dirname, '../../../.env'),
+  dotEnvPath: path.resolve(__dirname, '../../.env'),
+  dotEnvRootPath: path.resolve(__dirname, '../../../../.env'),
   packageName: '@newrade/vsb-api',
 });
 logEnvVariables({ packageName: '@newrade/vsb-api', env });
