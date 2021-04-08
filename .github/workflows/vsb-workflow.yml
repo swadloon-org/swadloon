@@ -20,8 +20,7 @@ on:
       - master
       - release
   pull_request:
-	repository_dispatch:
-    types: [publish-event]
+  workflow_dispatch:
 
 jobs:
 
@@ -79,6 +78,8 @@ jobs:
         API_VSB_KEY_CLINIKO: ${{ secrets.API_VSB_KEY_CLINIKO }}
         API_VSB_SHARD_ID: ${{ secrets.API_VSB_SHARD_ID }}
         API_VSB_SECRET_KEY_RECAPTCHA: ${{ secrets.API_VSB_SECRET_KEY_RECAPTCHA }}
+
+    # todo handle gatsby cache clearing github.event_name == 'workflow_dispatch'
 
     - name: Build vsb-website
       run: yarn build --scope @newrade/vsb-website
