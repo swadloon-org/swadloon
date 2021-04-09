@@ -8072,8 +8072,8 @@ const i18n_service_1 = __webpack_require__(657);
 
 exports.env = core_utils_1.loadDotEnv({
   schema: dot_env_1.Env,
-  dotEnvPath: path_1.default.resolve(__dirname, '../.env'),
-  dotEnvRootPath: path_1.default.resolve(__dirname, '../../../.env'),
+  dotEnvPath: path_1.default.resolve(__dirname, '../../.env'),
+  dotEnvRootPath: path_1.default.resolve(__dirname, '../../../../.env'),
   packageName: '@newrade/vsb-api'
 });
 core_utils_1.logEnvVariables({

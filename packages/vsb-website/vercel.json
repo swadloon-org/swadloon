@@ -30,5 +30,27 @@
       "memory": 512
     }
   },
-  "rewrites": [{ "source": "/api/server/(.*)", "destination": "/api/server" }]
+  "rewrites": [{ "source": "/api/server/(.*)", "destination": "/api/server" }],
+  "redirects": [
+    { "source": "/boucher.php", "destination": "/equipe/", "permanent": true },
+    { "source": "/boucher", "destination": "/equipe/", "permanent": true },
+    { "source": "/plan.php", "destination": "/", "permanent": true },
+    { "source": "/plan", "destination": "/", "permanent": true },
+    { "source": "/consultation.php", "destination": "/vasectomie/", "permanent": true },
+    { "source": "/consultation", "destination": "/vasectomie/", "permanent": true },
+    { "source": "/vasectomie.php", "destination": "/vasectomie/", "permanent": true },
+    { "source": "/vasectomie", "destination": "/vasectomie/", "permanent": true },
+    { "source": "/couts.php", "destination": "/vasectomie/", "permanent": true },
+    { "source": "/couts", "destination": "/vasectomie/", "permanent": true },
+    { "source": "/spermogramme.php", "destination": "/vasectomie/", "permanent": true },
+    { "source": "/spermogramme", "destination": "/vasectomie/", "permanent": true },
+    { "source": "/etapes.php", "destination": "/vasectomie/", "permanent": true },
+    { "source": "/etapes", "destination": "/vasectomie/", "permanent": true },
+    { "source": "/meac.php", "destination": "/examen-pour-transports-canada/", "permanent": true },
+    { "source": "/meac", "destination": "/examen-pour-transports-canada/", "permanent": true },
+    { "source": "/media/pdf/depliant-preparatoire-vasectomie.pdf", "destination": "/vasectomie/", "permanent": true },
+    { "source": "/media/pdf/carton-informations-vasectomie.pdf", "destination": "/vasectomie/", "permanent": true },
+    { "source": "/joindre.php", "destination": "/contact/", "permanent": true },
+    { "source": "/joindre", "destination": "/contact/", "permanent": true }
+  ]
 }
