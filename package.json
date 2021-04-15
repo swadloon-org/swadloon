@@ -106,7 +106,7 @@
     "react-google-recaptcha": "^2.1.0",
     "react-helmet": "^6.1.0",
     "react-hook-form": "^6.8.6",
-    "react-i18next": "^11.7.2",
+    "react-i18next": "^11.8.5",
     "react-lazyload": "^3.0.0",
     "react-live": "^2.2.3",
     "react-query": "^3.8.2",
