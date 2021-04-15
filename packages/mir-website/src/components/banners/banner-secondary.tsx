@@ -1,4 +1,4 @@
-import BackgroundImage from 'gatsby-background-image';
+import GatsbyBackgroundImage from 'gatsby-background-image';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import BarSVG from '../../illustrations/IllustrationBar.svg';
@@ -18,7 +18,7 @@ export const BannerSecondary: React.FC<OwnProps> = ({ title, imageData }) => {
       <div className={styles.bluebox}></div>
 
       {imageData ? (
-        <BackgroundImage Tag="div" fluid={imageData as any} className={`${styles.container}`} fadeIn={false}>
+        <GatsbyBackgroundImage Tag="div" fluid={imageData as any} className={`${styles.container}`} fadeIn={false}>
           <div className={styles.content}>
             <div className={styles.containerBarTopSecondary}>
               <BarSVG className={styles.topBarSecondary} />
@@ -32,7 +32,7 @@ export const BannerSecondary: React.FC<OwnProps> = ({ title, imageData }) => {
               <BarSVG viewBox={null} className={styles.bottomBarSecondary} />{' '}
             </div>
           </div>
-        </BackgroundImage>
+        </GatsbyBackgroundImage>
       ) : null}
 
       <div className={styles.blackbox}></div>

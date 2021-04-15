@@ -6,7 +6,7 @@ tags:
 
 <!-- CODE IMPORTS -->
 
-import { TransitionColors } from '../../src/code/motion/css-transition-colors.code';
+import { TransitionColors } from '../../src/code/css-transition-colors.code';
 
 <!-- END CODE IMPORTS -->
 

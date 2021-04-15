@@ -22,7 +22,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
   const { createPage, createRedirect } = actions;
   /**
    * Page redirections
-   * see netlify.toml
+   * see vercel.json
    */
   // createRedirect({ fromPath: '/boucher.php', toPath: '/equipe/', isPermanent: true });
   // createRedirect({ fromPath: '/boucher', toPath: '/equipe/', isPermanent: true });

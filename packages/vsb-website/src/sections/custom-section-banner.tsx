@@ -1,7 +1,7 @@
 import { MDXProvider } from '@mdx-js/react';
 import { ButtonIcon, ButtonSize, Variant } from '@newrade/core-design-system';
 import {
-  Background,
+  BackgroundImage,
   BlockAPI,
   BlockRenderer,
   SectionBanner,
@@ -149,7 +149,7 @@ export const CustomSectionBanner = React.forwardRef<any, Props>(
     const backgroundPosition = imageBlock.medias?.[0]?.medias?.[0]?.backgroundPositionY;
 
     const BackgroundBlock = (
-      <Background
+      <BackgroundImage
         effects={[
           {
             background: gradient,
@@ -162,7 +162,7 @@ export const CustomSectionBanner = React.forwardRef<any, Props>(
           style: { backgroundPositionY: backgroundPosition || '' },
           fadeIn: false,
         }}
-      ></Background>
+      ></BackgroundImage>
     );
 
     const ContentBlock = (

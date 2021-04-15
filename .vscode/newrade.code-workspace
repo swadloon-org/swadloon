@@ -113,9 +113,6 @@
       "path": "../packages/core-dev-config"
     },
     {
-      "path": "../packages/core-docs-generator"
-    },
-    {
       "path": "../packages/core-common"
     },
     {
@@ -159,6 +156,9 @@
     },
     {
       "path": "../packages/core-yo-generator"
+    },
+    {
+      "path": "../packages/newrade-demo"
     },
     {
       "path": "../packages/newrade-website"

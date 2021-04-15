@@ -17,15 +17,11 @@ type Props = {
 
 export const Aside: React.FC<Props> = (props) => {
   const { styles } = useStyles(styleRefs);
-  // const { theme, cssTheme } = useTreatTheme();
-  // const id = props.location?.hash;
-
   const currentId = useScrollSpy(props.items);
 
   return (
     <BoxV2 as={'aside'} className={styles.wrapper}>
       <Stack as={'nav'} className={styles.wrapper}>
-        <Label>Contents</Label>
         <div className={styles.linksWrapper}>
           {props.items?.filter(filterItemDepthPredicate).map((item) => {
             const href = `#${formatAnchorId(item?.value)}`;
@@ -71,13 +67,13 @@ function useScrollSpy(items: Props['items']) {
     const handleScroll = () => {
       elementsArray.forEach((element) => {
         if (element.offsetTop <= window.scrollY + 40) {
-          // console.log(element.offsetTop);
-          // console.log(window.scrollY);
           setCurrentId(element.id);
         }
       });
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, {
+      passive: true,
+    });
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };

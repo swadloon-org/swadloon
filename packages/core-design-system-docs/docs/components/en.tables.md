@@ -6,8 +6,8 @@ tags:
 
 <!-- CODE IMPORTS -->
 
-import { Tables } from '../../src/code/components/tables/tables.code';
-import TablesCode from '!!raw-loader!../../src/code/components/tables/tables.code.tsx';
+import { Tables } from '../../src/code/tables.code';
+import TablesCode from '!!raw-loader!../../src/code/tables.code.tsx';
 
 <!-- END CODE IMPORTS -->
 

@@ -5,6 +5,7 @@ import { navigationMock } from './navigation.mock';
 describe(`navigation utilities`, () => {
   describe(`${getPageDirFromPath.name}`, () => {
     it('should extract the page dir name from a path with no locale', () => {
+      expect(getPageDirFromPath('/design-system/path-a/index.page')).toBe('path-a');
       expect(getPageDirFromPath('/design-system/page-name.tsx')).toBe('');
       expect(getPageDirFromPath('dir-name/page-name.tsx')).toBe('dir-name');
       expect(getPageDirFromPath('dir-name/page-name.md')).toBe('dir-name');
@@ -17,6 +18,7 @@ describe(`navigation utilities`, () => {
     });
 
     it('should extract the page dir name from a path with locales', () => {
+      expect(getPageDirFromPath('/fr/design-system/path-a/index.page')).toBe('path-a');
       expect(getPageDirFromPath('/fr/design-system/page-name.tsx')).toBe('');
       expect(getPageDirFromPath('/fr/dir-name/page-name.tsx')).toBe('dir-name');
       expect(getPageDirFromPath('/fr/dir-name/page-name.md')).toBe('dir-name');
@@ -56,6 +58,11 @@ describe(`navigation utilities`, () => {
             path: 'path-a',
             items: [
               {
+                name: 'index',
+                displayName: 'Overview',
+                path: '/design-system/path-a/',
+              },
+              {
                 name: 'page-2',
                 displayName: 'Page 2',
                 path: '/design-system/path-a/page-2',
@@ -74,12 +81,19 @@ describe(`navigation utilities`, () => {
             items: [
               {
                 name: 'index',
-                displayName: 'Home',
+                displayName: 'Overview',
                 path: '/',
               },
+            ],
+          },
+          {
+            name: 'design-system',
+            displayName: 'Design System',
+            path: 'design-system',
+            items: [
               {
-                name: 'home',
-                displayName: 'Home',
+                name: 'index',
+                displayName: 'Overview',
                 path: '/design-system/',
               },
             ],
