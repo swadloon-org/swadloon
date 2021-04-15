@@ -151,7 +151,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
 
       let designSystemPageTemplate: string;
       try {
-        await fsp.readFile(`src/templates/design-system.template.tsx`);
+        await fsp.readFile(`src/templates/design-system-page.template.tsx`);
         reporter.info(`[${pluginOptions.pluginName}] found design-system-page template in package`);
         designSystemPageTemplate = path.resolve(`src/templates/design-system-page.template.tsx`);
       } catch (error) {

@@ -6,6 +6,7 @@ import ProvidersDocs from './src/context/providers-docs';
 import ProvidersSite from './src/context/providers-site';
 import { cssTheme, theme } from './src/design-system/theme';
 import { lightTheme } from './src/design-system/theme.treat';
+import './src/fonts';
 import LogoReversed from './src/images/logo-reversed.svg';
 import MobileLogo from './src/images/logo-symbol.svg';
 import { Layout } from './src/layout/layout';

@@ -11,6 +11,7 @@ import {
   Grid,
   Heading,
   Label,
+  Link,
   ListItem,
   ListItems,
   mdxComponents,
@@ -28,7 +29,7 @@ import { SectionDivider } from '../sections/section-divider';
 import { SectionSwitcher } from '../sections/section-switcher';
 import { SectionBaseLayout, SectionPadding } from '../sections/section.props';
 
-export const designSystemMdxComponents = {
+export const docsMdxComponents = {
   ...mdxComponents,
   Label: Label,
   Tag: Tag,
@@ -57,4 +58,5 @@ export const designSystemMdxComponents = {
   Variant: Variant,
   CodeHighlight: CodeHighlight,
   CodeBlock: CodeBlock,
+  Link: Link,
 };

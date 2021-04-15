@@ -1,14 +1,8 @@
-import { MDXProvider } from '@mdx-js/react';
 import { GatsbyMarkdownFilePageContext } from '@newrade/core-gatsby-config';
 import {
   Center,
-  CodeBlock,
   getMetaBasicTags,
   getMetadataOpenGraphWebsiteTags,
-  Hr,
-  Link,
-  MarkdownCSS,
-  mdxComponents,
   OPEN_GRAPH_TYPE,
   Stack,
   useTreatTheme,
@@ -19,6 +13,8 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { useStyles } from 'react-treat';
 import { MarkdownTemplateQuery } from '../../types/site-graphql-types';
+import { DesignSystemFooter } from '../layout/design-system-footer';
+import { DocsMarkdownCSS } from '../mdx/docs-markdown-css';
 import { Aside } from '../navigation/aside';
 import * as styleRefs from './docs.treat';
 
@@ -88,21 +84,17 @@ const Template: React.FC<MarkdownTemplateProps> = (props) => {
           site: `${data?.contentfulCompanyInfo?.metadataTwitterSite}`,
         })} */}
       </Helmet>
-      <MDXProvider components={{ ...mdxComponents, CodeBlock: CodeBlock, Link: Link }}>
-        <Center maxWidth={'800px'}>
-          <Stack gap={[cssTheme.sizing.var.x3]}>
-            <MarkdownCSS>
-              <MDXRenderer {...props}>{props.data.file?.childMdx?.body as string}</MDXRenderer>
-            </MarkdownCSS>
+      <Center maxWidth={cssTheme.layout.var.contentWidth.desktopDocsMaxWidth} style={{ paddingBottom: `60vh` }}>
+        <Stack gap={[cssTheme.sizing.var.x3]}>
+          <DocsMarkdownCSS>
+            <MDXRenderer {...props}>{props.data.file?.childMdx?.body as string}</MDXRenderer>
+          </DocsMarkdownCSS>
 
-            <Hr />
+          <DesignSystemFooter />
+        </Stack>
+      </Center>
 
-            <Link href={`https://github.com/newrade/newrade/edit/master/README.md`}>Edit this page</Link>
-          </Stack>
-        </Center>
-
-        <Aside items={props.data.file?.childMdx?.headings} location={props.location} />
-      </MDXProvider>
+      <Aside items={props.data.file?.childMdx?.headings} location={props.location} />
     </>
   );
 };

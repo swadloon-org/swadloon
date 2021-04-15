@@ -1,4 +1,3 @@
-import { MDXProvider } from '@mdx-js/react';
 import { GatsbyMarkdownFilePageContext } from '@newrade/core-gatsby-config';
 import { Aside } from '@newrade/core-gatsby-ui/src';
 import { MarkdownTemplateQuery } from '@newrade/core-gatsby-ui/types/site-graphql-types';
@@ -6,21 +5,16 @@ import {
   Center,
   getMetaBasicTags,
   getMetadataOpenGraphWebsiteTags,
-  MarkdownCSS,
   OPEN_GRAPH_TYPE,
   useTreatTheme,
-  viewportContext,
-  ViewportProvider,
 } from '@newrade/core-react-ui';
-import { GlobalCSSVariables } from '@newrade/core-react-ui/lib/global/global-css-variables';
-import { GlobalResetCSS } from '@newrade/core-react-ui/lib/global/global-reset-css';
 import { graphql, PageProps } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
 import Helmet from 'react-helmet';
 import { useStyles } from 'react-treat';
 import { DesignSystemFooter } from '../layout/design-system-footer';
-import { designSystemMdxComponents } from '../mdx/design-system-mdx-components';
+import { DocsMarkdownCSS } from '../mdx/docs-markdown-css';
 import * as styleRefs from './design-system-page.treat';
 
 export type MarkdownTemplateProps = PageProps<MarkdownTemplateQuery, GatsbyMarkdownFilePageContext>;
@@ -52,7 +46,7 @@ export const markdownTemplateQuery = graphql`
 `;
 
 /**
- * Markdown template to render .mdx? files (e.g. documentation)
+ * Markdown template to render .mdx? files for the design system
  */
 const Template: React.FC<MarkdownTemplateProps> = (props) => {
   const { styles } = useStyles(styleRefs);
@@ -89,23 +83,13 @@ const Template: React.FC<MarkdownTemplateProps> = (props) => {
           site: `${data?.contentfulCompanyInfo?.metadataTwitterSite}`,
         })} */}
       </Helmet>
-      <ViewportProvider context={viewportContext}>
-        <MDXProvider components={designSystemMdxComponents}>
-          <GlobalCSSVariables>
-            <GlobalResetCSS>
-              <Center maxWidth={cssTheme.layout.var.contentWidth.desktopDocsMaxWidth} style={{ paddingBottom: `60vh` }}>
-                <MarkdownCSS>
-                  <MDXRenderer {...{ ...props, theme, cssTheme }}>
-                    {props.data.file?.childMdx?.body as string}
-                  </MDXRenderer>
-                </MarkdownCSS>
+      <Center maxWidth={cssTheme.layout.var.contentWidth.desktopDocsMaxWidth} style={{ paddingBottom: `60vh` }}>
+        <DocsMarkdownCSS>
+          <MDXRenderer {...{ ...props, theme, cssTheme }}>{props.data.file?.childMdx?.body as string}</MDXRenderer>
+        </DocsMarkdownCSS>
 
-                <DesignSystemFooter />
-              </Center>
-            </GlobalResetCSS>
-          </GlobalCSSVariables>
-        </MDXProvider>
-      </ViewportProvider>
+        <DesignSystemFooter />
+      </Center>
 
       <Aside items={props.data.file?.childMdx?.headings} location={props.location} />
     </>
