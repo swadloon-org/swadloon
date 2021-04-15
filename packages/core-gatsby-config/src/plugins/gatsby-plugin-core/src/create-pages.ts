@@ -159,11 +159,9 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
       }
 
       try {
-        await fsp.readFile(`../core-design-system-docs/src/templates/design-system-page.template.tsx`);
+        await fsp.readFile(`../core-gatsby-ui/src/templates/design-system-page.template.tsx`);
         reporter.info(`[${pluginOptions.pluginName}] using default design-system-page template`);
-        designSystemPageTemplate = path.resolve(
-          `../core-design-system-docs/src/templates/design-system-page.template.tsx`
-        );
+        designSystemPageTemplate = path.resolve(`../core-gatsby-ui/src/templates/design-system-page.template.tsx`);
       } catch (error) {
         reporter.panic(`[${pluginOptions.pluginName}] no default template defined for design-system-page`);
       }

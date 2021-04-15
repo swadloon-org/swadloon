@@ -1,6 +1,5 @@
-import { LazyLayoutDesignSystem } from '@newrade/core-design-system-docs/src';
 import { GatsbyCommonPageContext } from '@newrade/core-gatsby-config';
-import { LazyLayoutDocs } from '@newrade/core-gatsby-ui/src';
+import { LazyLayoutDesignSystem, LazyLayoutDocs } from '@newrade/core-gatsby-ui/src';
 import { PageProps, WrapPageElementBrowserArgs } from 'gatsby';
 import React from 'react';
 import ProvidersDocs from './src/context/providers-docs';

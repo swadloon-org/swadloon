@@ -1,6 +1,6 @@
+import { lorenipsum } from '@newrade/core-gatsby-ui/src/docs-components/loren-ipsum';
 import { Details, Paragraph, Summary } from '@newrade/core-react-ui';
 import React from 'react';
-import { lorenipsum } from '../utils/loren-ipsum';
 
 type Props = {};
 

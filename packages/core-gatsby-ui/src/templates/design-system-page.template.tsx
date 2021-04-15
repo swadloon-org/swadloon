@@ -15,8 +15,8 @@ import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
 import Helmet from 'react-helmet';
 import { useStyles } from 'react-treat';
-import { DesignSystemFooter } from '../layouts/design-system-footer';
-import { designSystemMdxComponents } from '../mdx-components';
+import { DesignSystemFooter } from '../layout/design-system-footer';
+import { designSystemMdxComponents } from '../mdx/design-system-mdx-components';
 import * as styleRefs from './design-system-page.treat';
 
 export type MarkdownTemplateProps = PageProps<MarkdownTemplateQuery, GatsbyMarkdownFilePageContext>;

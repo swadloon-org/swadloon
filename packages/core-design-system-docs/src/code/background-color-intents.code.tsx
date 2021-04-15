@@ -1,7 +1,7 @@
 import { BoxV2, Stack, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
-import { ColorPalette } from '../utils/color-palette';
-import { Placeholder } from '../utils/placeholder';
+import { ColorPalette } from '../../../core-gatsby-ui/src/docs-components/color-palette';
+import { Placeholder } from '../../../core-gatsby-ui/src/docs-components/placeholder';
 
 type Props = {};
 

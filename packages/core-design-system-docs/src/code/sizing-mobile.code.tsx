@@ -1,6 +1,6 @@
 import { useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
-import { ScaleSteps } from '../utils/scale-steps';
+import { ScaleSteps } from '../../../core-gatsby-ui/src/docs-components/scale-steps';
 
 type Props = {};
 

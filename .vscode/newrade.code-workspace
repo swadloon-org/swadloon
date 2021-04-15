@@ -113,9 +113,6 @@
       "path": "../packages/core-dev-config"
     },
     {
-      "path": "../packages/core-docs-generator"
-    },
-    {
       "path": "../packages/core-common"
     },
     {

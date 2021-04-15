@@ -1,8 +1,8 @@
 import { Variant } from '@newrade/core-design-system';
 import { Button, Stack, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
-import { ColorPalette } from '../utils/color-palette';
-import { ReversedBox } from '../utils/reversed-box';
+import { ColorPalette } from '../../../core-gatsby-ui/src/docs-components/color-palette';
+import { ReversedBox } from '../../../core-gatsby-ui/src/docs-components/reversed-box';
 
 type Props = {};
 
