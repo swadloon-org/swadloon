@@ -90,7 +90,7 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
   }
 
   /**
-   *
+   * Redefine optimization
    */
   if (typeof config === 'object') {
     config.optimization = {
