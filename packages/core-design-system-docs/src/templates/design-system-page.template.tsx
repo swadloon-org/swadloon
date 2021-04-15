@@ -6,7 +6,6 @@ import {
   Center,
   getMetaBasicTags,
   getMetadataOpenGraphWebsiteTags,
-  Hr,
   MarkdownCSS,
   OPEN_GRAPH_TYPE,
   useTreatTheme,
@@ -16,6 +15,7 @@ import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
 import Helmet from 'react-helmet';
 import { useStyles } from 'react-treat';
+import { DesignSystemFooter } from '../layouts/design-system-footer';
 import { designSystemMdxComponents } from '../mdx-components';
 import * as styleRefs from './design-system-page.treat';
 
@@ -54,17 +54,19 @@ const Template: React.FC<MarkdownTemplateProps> = (props) => {
   const { styles } = useStyles(styleRefs);
   const { theme, cssTheme } = useTreatTheme();
 
+  const htmlStyleAttribute = [``].join('');
+  const bodyStyleAttribute = [`background-color: ${cssTheme.colors.colorIntents.background0}`].join('');
+
   return (
     <>
       <Helmet>
-        <html lang={props.pageContext.locale} />
+        {/* @ts-ignore  */}
+        <html lang={props.pageContext.locale} style={htmlStyleAttribute} /> {/* deepscan-disable-line */}
+        {/* @ts-ignore  */}
+        <body style={bodyStyleAttribute} /> {/* deepscan-disable-line */}
         <link rel="icon" href="/images/favicon.svg" sizes="any" type="image/svg+xml" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link href="https://fonts.googleapis.com/css2?family=Quattrocento&display=swap" rel="stylesheet" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap"
-          rel="stylesheet"
-        />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
         <link
           href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
           rel="stylesheet"
@@ -90,12 +92,12 @@ const Template: React.FC<MarkdownTemplateProps> = (props) => {
         })} */}
       </Helmet>
       <MDXProvider components={designSystemMdxComponents}>
-        <Center maxWidth={'1200px'}>
+        <Center maxWidth={cssTheme.layout.var.contentWidth.desktopDocsMaxWidth} style={{ paddingBottom: `60vh` }}>
           <MarkdownCSS>
             <MDXRenderer {...{ ...props, theme, cssTheme }}>{props.data.file?.childMdx?.body as string}</MDXRenderer>
-
-            <Hr />
           </MarkdownCSS>
+
+          <DesignSystemFooter />
         </Center>
       </MDXProvider>
 

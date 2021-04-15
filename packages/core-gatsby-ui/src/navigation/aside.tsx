@@ -25,7 +25,7 @@ export const Aside: React.FC<Props> = (props) => {
   return (
     <BoxV2 as={'aside'} className={styles.wrapper}>
       <Stack as={'nav'} className={styles.wrapper}>
-        <Label>Contents</Label>
+        {/* <Label>Contents</Label> */}
         <div className={styles.linksWrapper}>
           {props.items?.filter(filterItemDepthPredicate).map((item) => {
             const href = `#${formatAnchorId(item?.value)}`;

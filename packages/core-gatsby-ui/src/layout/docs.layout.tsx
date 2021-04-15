@@ -1,3 +1,4 @@
+import loadable from '@loadable/component';
 import {
   ButtonIcon,
   ButtonSize,
@@ -12,13 +13,11 @@ import {
   BoxV2,
   Button,
   Cluster,
-  DesktopSideBar,
   Heading,
   Label,
   Link,
   Main,
   MainWrapper,
-  MobileSideBar,
   NavItem,
   NavItemGroup,
   Stack,
@@ -38,6 +37,16 @@ export type LayoutDocsProps = Partial<Omit<PageProps, 'children'> & { children: 
   DesktopSvgLogo?: React.ReactNode;
 };
 
+const MobileSideBar = loadable<any>(() => import('@newrade/core-react-ui/lib/navigation/mobile-sidebar'), {
+  resolveComponent: (components: typeof import('@newrade/core-react-ui/lib/navigation/mobile-sidebar')) =>
+    components.MobileSideBar,
+});
+
+const DesktopSideBar = loadable<any>(() => import('@newrade/core-react-ui/lib/navigation/desktop-sidebar'), {
+  resolveComponent: (components: typeof import('@newrade/core-react-ui/lib/navigation/desktop-sidebar')) =>
+    components.DesktopSideBar,
+});
+
 export const LayoutDocs = React.memo<LayoutDocsProps>(({ navigation, MobileSvgLogo, DesktopSvgLogo, ...props }) => {
   const isSSR = useIsSSR();
   const { cssTheme } = useTreatTheme();
@@ -47,6 +56,7 @@ export const LayoutDocs = React.memo<LayoutDocsProps>(({ navigation, MobileSvgLo
    */
   const { viewport } = useViewportBreakpoint();
   const [mobileSidebarOpened, setMobileSidebarOpened] = useState<boolean>(false);
+
   useEffect(() => {
     let timeout: number;
     if (viewport === VIEWPORT.desktop) {

@@ -2,7 +2,7 @@ import { CommonComponentProps, useCommonProps, useTreatTheme } from '@newrade/co
 import { IFluidObject } from 'gatsby-background-image';
 import React from 'react';
 import { BlockAPI } from '../api/block.api';
-import { Background } from '../image/background';
+import { BackgroundImage } from '../image/background-image';
 import { BlockProps } from './block.props';
 
 type Props = CommonComponentProps & BlockProps;
@@ -26,7 +26,7 @@ export const BlockImageBackground = React.forwardRef<any, Props>(
     const backgroundPosition = imageBlock.medias?.[0]?.medias?.[0]?.backgroundPositionY;
 
     return (
-      <Background
+      <BackgroundImage
         ref={ref}
         backgroundPosition={backgroundPosition}
         backgroundImage={{
@@ -36,7 +36,7 @@ export const BlockImageBackground = React.forwardRef<any, Props>(
           fadeIn: false,
         }}
         {...commonProps}
-      ></Background>
+      ></BackgroundImage>
     );
   }
 );

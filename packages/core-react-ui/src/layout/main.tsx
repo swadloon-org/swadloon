@@ -1,10 +1,18 @@
 import React from 'react';
 import { useStyles } from 'react-treat';
+import { useCommonProps } from '../hooks/use-common-props.hook';
 import { CommonComponentProps } from '../props/component-common.props';
 import * as styleRefs from './main.treat';
-import { getMergedClassname } from '../utilities/component.utilities';
 
 type Props = CommonComponentProps & {
+  /**
+   * Offset the content to account for the sidebar (on desktop only)
+   */
+  desktopSidebarPadding?: boolean;
+  /**
+   * Offset the content to account for the aside (on desktop only)
+   */
+  desktopAsidePadding?: boolean;
   /**
    * Offset the navbar height
    */
@@ -19,21 +27,33 @@ type Props = CommonComponentProps & {
  * High level layout component to create a <main/> area in a page.
  * Should be used inside <MainWrapper/>
  */
-export const Main: React.FC<Props> = ({ as, style, className, navbarPadding, minHeight, ...props }) => {
+export const Main: React.FC<Props> = ({
+  id,
+  as,
+  style,
+  className,
+  navbarPadding,
+  desktopSidebarPadding,
+  desktopAsidePadding,
+  minHeight,
+  ...props
+}) => {
   const { styles } = useStyles(styleRefs);
   const type = as ? as : 'main';
-  const mergedClassName = getMergedClassname([
+  const commonProps = useCommonProps({
+    id,
+    style,
     className,
-    styles.wrapper,
-    navbarPadding ? styles.navbar : '',
-    minHeight ? styles.minHeight : '',
-  ]);
-
-  return React.createElement(type, {
-    style: {
-      ...style,
-    },
-    className: mergedClassName,
+    classNames: [
+      className,
+      styles.wrapper,
+      navbarPadding ? styles.navbar : '',
+      desktopSidebarPadding ? styles.desktopSidebar : '',
+      desktopAsidePadding ? styles.desktopAside : '',
+      minHeight ? styles.minHeight : '',
+    ],
     ...props,
   });
+
+  return React.createElement(type, commonProps);
 };

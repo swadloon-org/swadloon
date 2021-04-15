@@ -6,10 +6,12 @@ tags:
 
 <!-- CODE IMPORTS -->
 
-import { ColorPrimary } from '../../src/code/foundations/colors/color-primary.code';
+import { ColorPrimary } from '../../src/code/color-primary.code';
 
 <!-- END CODE IMPORTS -->
 
 # Colors
 
-<ColorPrimary />
+<ThemeWrapper>
+  <ColorPrimary />
+</ThemeWrapper>

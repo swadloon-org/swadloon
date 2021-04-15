@@ -1,26 +1,26 @@
 import { Font } from '@newrade/core-design-system';
 
 export const defaultSerifFont: Font = {
-  name: 'Quattrocento',
-  link: 'https://fonts.google.com/specimen/Quattrocento',
+  name: 'PT Serif',
+  link: 'https://fonts.google.com/specimen/PT+Serif',
   fontMetrics: {
-    capHeight: 660,
-    ascent: 848,
-    descent: -260,
+    capHeight: 700,
+    ascent: 1039,
+    descent: -286,
     lineGap: 0,
     unitsPerEm: 1000,
   },
 };
 
 export const defaultSansFont: Font = {
-  name: 'Roboto',
-  link: 'https://fonts.google.com/specimen/Roboto',
+  name: 'Inter',
+  link: 'https://fonts.google.com/specimen/Inter',
   fontMetrics: {
-    capHeight: 1456,
-    ascent: 1900,
-    descent: -500,
+    capHeight: 2048,
+    ascent: 2728,
+    descent: -680,
     lineGap: 0,
-    unitsPerEm: 2048,
+    unitsPerEm: 2816,
   },
 };
 

@@ -6,8 +6,8 @@ tags:
 
 <!-- CODE IMPORTS -->
 
-import { Accordions } from '../../src/code/components/accordions/accordions.code';
-import AccordionsCode from '!!raw-loader!../../src/code/components/accordions/accordions.code.tsx';
+import { Accordions } from '../../src/code/accordions.code';
+import AccordionsCode from '!!raw-loader!../../src/code/accordions.code.tsx';
 
 <!-- END CODE IMPORTS -->
 

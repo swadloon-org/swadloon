@@ -24,6 +24,9 @@ globalStyle(`html`, {
   // prevent the content to jump when scrolling
   overflowY: 'scroll',
   overflowX: 'hidden',
+  // prevent bouncing effect on the html element
+  overscrollBehaviorY: 'none',
+  overscrollBehaviorX: 'none',
   // prevent tap highlight
   WebkitTapHighlightColor: 'rgba(0, 0, 0, 0) ',
   // https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth

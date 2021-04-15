@@ -8,9 +8,9 @@ export type LinkAPI = {
   variant?: Variant | null | string;
   /**
    * How the link is rendered
-   * @default 'button'
+   * @default 'link'
    */
-  component?: 'link' | 'button';
+  component?: 'link' | 'button' | 'menuItem';
   icon?: boolean;
   label?: string | null;
   url?: string | null;

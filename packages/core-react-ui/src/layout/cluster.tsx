@@ -9,6 +9,7 @@ type Gap = string;
 
 type Props = CommonComponentProps &
   Partial<{
+    onClick?: (event: React.MouseEvent) => any;
     gap: GapProp;
     alignItems:
       | [Property.AlignItems]

@@ -58,7 +58,7 @@ type Props = CommonComponentProps & {
  * Navigation bar with an icon logo and language switch on mobile
  * and on desktop, a logo, and menu links
  */
-export const NavbarStartup = React.forwardRef<any, Props>((props, ref) => {
+export const NavbarStartup = React.forwardRef<any, Props>(function NavbarStartup(props, ref) {
   const { styles } = useStyles(styleRefs);
   const { theme, cssTheme } = useTreatTheme();
 

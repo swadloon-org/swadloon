@@ -161,6 +161,9 @@
       "path": "../packages/core-yo-generator"
     },
     {
+      "path": "../packages/newrade-demo"
+    },
+    {
       "path": "../packages/newrade-website"
     },
     {

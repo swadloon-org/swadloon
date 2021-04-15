@@ -1,5 +1,5 @@
 import { LABEL } from '@newrade/core-design-system-old';
-import BackgroundImage from 'gatsby-background-image';
+import GatsbyBackgroundImage from 'gatsby-background-image';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import BarSVG from '../../illustrations/IllustrationBar.svg';
@@ -21,7 +21,7 @@ export const BannerPrimary: React.FC<OwnProps> = ({ title, subTitle, imageData }
       <div className={styles.bluebox}></div>
 
       {imageData ? (
-        <BackgroundImage Tag="div" fluid={imageData as any} className={`${styles.container}`} fadeIn={false}>
+        <GatsbyBackgroundImage Tag="div" fluid={imageData as any} className={`${styles.container}`} fadeIn={false}>
           <div className={styles.content}>
             <div className={styles.containerBarTopPrimary}>
               <Label variant={LABEL.smallBoldUppercase} className={styles.subtitle}>
@@ -39,7 +39,7 @@ export const BannerPrimary: React.FC<OwnProps> = ({ title, subTitle, imageData }
               <BarSVG viewBox={null} className={styles.bottomBarPrimary} />{' '}
             </div>
           </div>
-        </BackgroundImage>
+        </GatsbyBackgroundImage>
       ) : null}
 
       <div className={styles.blackbox}></div>
