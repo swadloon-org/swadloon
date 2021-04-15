@@ -49,8 +49,8 @@ jobs:
     - name: Install dependencies and build core packages
       run: yarn --prefer-offline
 
-    - name: Clear MDX Cache
-      run: rm -r ./packages/*/.cache/caches/gatsby-plugin-mdx/
+    - name: Clear Caches
+      run: yarn clean
 
     - name: Lint Src Files
       run: yarn eslint ./packages/newrade-*/src/ --ext ts,tsx
