@@ -10,6 +10,7 @@ import {
   Details,
   Grid,
   Heading,
+  Label,
   ListItem,
   ListItems,
   mdxComponents,
@@ -17,6 +18,7 @@ import {
   Stack,
   Summary,
   Switcher,
+  Tag,
 } from '@newrade/core-react-ui';
 import { BlockMarkdown } from '../blocks/block-markdown';
 import { Placeholder } from '../docs-components/placeholder';
@@ -28,6 +30,8 @@ import { SectionBaseLayout, SectionPadding } from '../sections/section.props';
 
 export const designSystemMdxComponents = {
   ...mdxComponents,
+  Label: Label,
+  Tag: Tag,
   BoxV2: BoxV2,
   BoxV3: BoxV3,
   Center: Center,

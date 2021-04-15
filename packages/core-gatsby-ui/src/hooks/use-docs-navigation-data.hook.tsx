@@ -4,8 +4,8 @@ import { Navigation } from '../api/navigation.model';
 import { getNavigationFromPageNodes } from '../utilities/navigation.utilities';
 
 const query = graphql`
-  query DesignSystemLayoutPage {
-    pages: allSitePage(filter: { path: { glob: "/design-system/{**,*}" } }) {
+  query DocsLayout {
+    pages: allSitePage(filter: { path: { glob: "/docs/{**,*}" } }) {
       totalCount
       nodes {
         id
@@ -32,35 +32,17 @@ const query = graphql`
   }
 `;
 
-export function useDesignSystemNavigation({ locales }: { locales: SITE_LANGUAGES[] }): Navigation {
+export function useDocsNavigation({ locales }: { locales: SITE_LANGUAGES[] }): Navigation {
+  /**
+   * Retrieve all docs pages
+   */
   const data = useStaticQuery(query);
+  const pageNodes = data.pages.nodes;
 
   return getNavigationFromPageNodes({
-    name: 'design system navigation',
+    name: 'docs navigation',
     locales,
-    pageNodes: data.pages.nodes,
-    sortOrderDirectories: [
-      'design-system',
-      'home',
-      'foundations',
-      'components',
-      'content',
-      'effects',
-      'motion',
-      'examples',
-    ],
-    sortOrderItems: [
-      '',
-      'overview',
-      'index',
-      'typography',
-      'colors',
-      'color-intents',
-      'sizing',
-      'pages',
-      'sections',
-      'blocks',
-      'layout-components',
-    ],
+    pageNodes: pageNodes,
+    sortOrderDirectories: ['docs', 'home', 'developer guide', 'tools', 'hr'],
   });
 }

@@ -1,4 +1,5 @@
 import { MDXProvider } from '@mdx-js/react';
+import { SITE_LANGUAGES } from '@newrade/core-common';
 import { HEADING, VIEWPORT } from '@newrade/core-design-system';
 import { GatsbyLink, NavbarDocs, useDesignSystemNavigation } from '@newrade/core-gatsby-ui/src';
 import {
@@ -7,31 +8,20 @@ import {
   DesktopDocsSideBar,
   DesktopDocsSidebarItem,
   Heading,
-  Label,
   Link,
   Main,
   MainWrapper,
   NavItem,
   Stack,
-  Tag,
-  useIsSSR,
   useTreatTheme,
   useViewportBreakpoint,
-  viewportContext,
-  ViewportProvider,
 } from '@newrade/core-react-ui';
 import { Theme } from '@newrade/core-react-ui/lib/design-system';
-import { GlobalCSSVariables } from '@newrade/core-react-ui/lib/global/global-css-variables';
-import { GlobalResetCSS } from '@newrade/core-react-ui/lib/global/global-reset-css';
 import { PageProps } from 'gatsby';
 import React, { ReactNode, useEffect, useState } from 'react';
 import { ThemeWrapper } from '../context/theme-wrapper';
 
 export type DesignSystemLayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }> & {
-  /**
-   * Label for the documentation navbar
-   */
-  docLabel?: string;
   /**
    * A reference to the treatTheme that can be used to pass
    * an other theme to specific sections of the app.
@@ -58,8 +48,9 @@ export const LayoutDesignSystem: React.FC<DesignSystemLayoutProps> = function ({
   DesktopSvgLogo,
   ...props
 }) {
-  const navigation = useDesignSystemNavigation();
-  const isSSR = useIsSSR();
+  const navigation = useDesignSystemNavigation({
+    locales: [SITE_LANGUAGES.EN, SITE_LANGUAGES.EN_CA],
+  }); // should prob be passed by the parent
   const { cssTheme } = useTreatTheme();
   const { viewport } = useViewportBreakpoint();
   const [mobileSidebarOpened, setMobileSidebarOpened] = useState<boolean>(false);
@@ -151,19 +142,13 @@ export const LayoutDesignSystem: React.FC<DesignSystemLayoutProps> = function ({
       </DesktopDocsSideBar>
 
       <Main navbarPadding={true} desktopSidebarPadding={true} desktopAsidePadding={true} minHeight={false}>
-        <ViewportProvider context={viewportContext}>
-          <MDXProvider
-            components={{
-              Label: Label,
-              Tag: Tag,
-              ThemeWrapper: (props: any) => <ThemeWrapper treatThemeRef={treatThemeRef} theme={theme} {...props} />,
-            }}
-          >
-            <GlobalCSSVariables>
-              <GlobalResetCSS>{props.children}</GlobalResetCSS>
-            </GlobalCSSVariables>
-          </MDXProvider>
-        </ViewportProvider>
+        <MDXProvider
+          components={{
+            ThemeWrapper: (props: any) => <ThemeWrapper treatThemeRef={treatThemeRef} theme={theme} {...props} />,
+          }}
+        >
+          {props.children}
+        </MDXProvider>
       </Main>
     </MainWrapper>
   );

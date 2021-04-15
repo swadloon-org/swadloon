@@ -15,7 +15,7 @@ const siteMetadata = {
 
 export const navigationMock = {
   name: 'navigation test',
-  sortOrderItems: ['page-2', 'page-1'],
+  sortOrderItems: ['index', 'page-2', 'page-1'],
   sortOrderDirectories: ['path-a', ''],
   pageNodes: [
     // root page
@@ -40,8 +40,21 @@ export const navigationMock = {
         locale: SITE_LANGUAGES.EN,
         layout: 'designSystem' as PAGE_LAYOUT,
         template: 'designSystem' as PAGE_TEMPLATE,
-        name: 'home.page',
+        name: 'index.page',
         displayName: 'Design System',
+      },
+    },
+    // nested home page in directory
+    {
+      path: '/design-system/path-a/',
+      context: {
+        id: '6206baa6-18d0-5b8f-b457-e9425f40614d',
+        siteMetadata,
+        locale: SITE_LANGUAGES.EN,
+        layout: 'designSystem' as PAGE_LAYOUT,
+        template: 'designSystem' as PAGE_TEMPLATE,
+        name: 'index.page',
+        displayName: 'Design System - Oveview',
       },
     },
     // nested page in directory

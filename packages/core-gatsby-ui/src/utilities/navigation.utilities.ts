@@ -20,8 +20,9 @@ export type PageNode = {
 export function getNavigationFromPageNodes({
   name,
   pageNodes,
-  sortOrderDirectories,
+  locales,
   sortOrderItems,
+  sortOrderDirectories,
   excludedItems,
   uppercaseWords = ['wsl', 'ui', 'ux', 'seo', 'ssh', 'css', 'api'],
   formatName,
@@ -29,6 +30,7 @@ export function getNavigationFromPageNodes({
 }: {
   name: string;
   pageNodes?: PageNode[];
+  locales?: SITE_LANGUAGES[];
   sortOrderItems?: string[];
   sortOrderDirectories?: string[];
   excludedItems?: string[];
@@ -50,11 +52,31 @@ export function getNavigationFromPageNodes({
   const filteredPageNodes = pageNodes
     // remove 404 pages
     .filter((node) => !(/404/gi.test(node.context?.name || '') || /404/gi.test(node.path || '')))
+    // keep page in specified locale
+    .filter((node) => {
+      if (!(locales && node.context?.locale)) {
+        return node;
+      }
+
+      if (locales.find((locale) => locale === node.context?.locale)) {
+        return true;
+      }
+
+      return false;
+    })
     // remove ignored items
     .filter((node) => !normalizedIgnoredItems?.find((item) => item === normalizeName(node.context?.name)));
 
   // find the dirNames
-  const dirNames = filteredPageNodes.map((node) => getPageDirFromPath(node.path));
+  const dirNames = filteredPageNodes.map(dirNamePredicate);
+
+  function dirNamePredicate(node: PageNode) {
+    if (node.context?.name && /index/.test(node.context?.name)) {
+      return getPageDirFromPathIndex(node.path);
+    }
+
+    return getPageDirFromPath(node.path);
+  }
 
   // for item at the root the dir name is ''
   const navigation = [...new Set(dirNames)].reduce(
@@ -62,7 +84,7 @@ export function getNavigationFromPageNodes({
       // for each dir name, transform the nodes and place them in .items
       const currentDirName = current;
 
-      const dirNameNodes = filteredPageNodes.filter((node) => getPageDirFromPath(node.path) === currentDirName);
+      const dirNameNodes = filteredPageNodes.filter((node) => dirNamePredicate(node) === currentDirName);
       if (!dirNameNodes) {
         return previous;
       }
@@ -168,8 +190,24 @@ export function getPageDirFromPath(path?: string | null): string {
   return dirName || '';
 }
 
+export function getPageDirFromPathIndex(path?: string | null): string {
+  if (!path) {
+    return '';
+  }
+
+  const reg = /(\/(?<lang>fr|en|fr_CA|en_CA|fr-CA|en-CA))?(\/(?<source>docs|core-docs|design-system))?(\/(?<dirname>.+)\/)/gi;
+  const match = reg.exec(path);
+  const dirName = match?.groups?.dirname;
+  return dirName || '';
+}
+
 export function normalizeName(name?: string | null) {
-  return kebab(name || '');
+  if (!name) {
+    return '';
+  }
+  const nameWithoutLocale = name.replace(/^(en|fr)\./gi, '');
+
+  return kebab(nameWithoutLocale);
 }
 
 export function defaultFormatDisplayName({
@@ -190,7 +228,7 @@ export function defaultFormatDisplayName({
   const nameNoTrailingDash = nameWithoutDotPage.replace(/\s-\s$/, '');
 
   if (lang === SITE_LANGUAGES.FR || lang === SITE_LANGUAGES.FR_CA) {
-    const nameDefaultIndex = nameNoTrailingDash.replace('index', 'Accueil');
+    const nameDefaultIndex = nameNoTrailingDash.replace('index', 'Aperçu');
     const nameWithFRTitle = nameDefaultIndex
       .trim()
       .split('')
@@ -200,7 +238,7 @@ export function defaultFormatDisplayName({
     return nameWithUppercaseWords;
   }
 
-  const nameDefaultIndex = nameNoTrailingDash.replace('index', 'Home');
+  const nameDefaultIndex = nameNoTrailingDash.replace('index', 'Overview');
   const nametTitle = title(nameDefaultIndex);
   const nameWithUppercaseWords = getNameWithUppercaseWords({ name: nametTitle, words: uppercaseWords });
   return nameWithUppercaseWords;

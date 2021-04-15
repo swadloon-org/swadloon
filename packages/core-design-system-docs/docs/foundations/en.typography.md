@@ -18,6 +18,8 @@ import { Headings } from '../../src/code/headings.code';
 
 ## Overview
 
+## Fonts
+
 ## Titles
 
 ## Headings

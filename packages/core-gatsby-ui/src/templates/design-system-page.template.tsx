@@ -9,7 +9,11 @@ import {
   MarkdownCSS,
   OPEN_GRAPH_TYPE,
   useTreatTheme,
+  viewportContext,
+  ViewportProvider,
 } from '@newrade/core-react-ui';
+import { GlobalCSSVariables } from '@newrade/core-react-ui/lib/global/global-css-variables';
+import { GlobalResetCSS } from '@newrade/core-react-ui/lib/global/global-reset-css';
 import { graphql, PageProps } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
@@ -54,16 +58,10 @@ const Template: React.FC<MarkdownTemplateProps> = (props) => {
   const { styles } = useStyles(styleRefs);
   const { theme, cssTheme } = useTreatTheme();
 
-  const htmlStyleAttribute = [``].join('');
-  const bodyStyleAttribute = [`background-color: ${cssTheme.colors.colorIntents.background0}`].join('');
-
   return (
     <>
       <Helmet>
-        {/* @ts-ignore  */}
-        <html lang={props.pageContext.locale} style={htmlStyleAttribute} /> {/* deepscan-disable-line */}
-        {/* @ts-ignore  */}
-        <body style={bodyStyleAttribute} /> {/* deepscan-disable-line */}
+        <html lang={props.pageContext.locale} />
         <link rel="icon" href="/images/favicon.svg" sizes="any" type="image/svg+xml" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
@@ -91,15 +89,23 @@ const Template: React.FC<MarkdownTemplateProps> = (props) => {
           site: `${data?.contentfulCompanyInfo?.metadataTwitterSite}`,
         })} */}
       </Helmet>
-      <MDXProvider components={designSystemMdxComponents}>
-        <Center maxWidth={cssTheme.layout.var.contentWidth.desktopDocsMaxWidth} style={{ paddingBottom: `60vh` }}>
-          <MarkdownCSS>
-            <MDXRenderer {...{ ...props, theme, cssTheme }}>{props.data.file?.childMdx?.body as string}</MDXRenderer>
-          </MarkdownCSS>
+      <ViewportProvider context={viewportContext}>
+        <MDXProvider components={designSystemMdxComponents}>
+          <GlobalCSSVariables>
+            <GlobalResetCSS>
+              <Center maxWidth={cssTheme.layout.var.contentWidth.desktopDocsMaxWidth} style={{ paddingBottom: `60vh` }}>
+                <MarkdownCSS>
+                  <MDXRenderer {...{ ...props, theme, cssTheme }}>
+                    {props.data.file?.childMdx?.body as string}
+                  </MDXRenderer>
+                </MarkdownCSS>
 
-          <DesignSystemFooter />
-        </Center>
-      </MDXProvider>
+                <DesignSystemFooter />
+              </Center>
+            </GlobalResetCSS>
+          </GlobalCSSVariables>
+        </MDXProvider>
+      </ViewportProvider>
 
       <Aside items={props.data.file?.childMdx?.headings} location={props.location} />
     </>

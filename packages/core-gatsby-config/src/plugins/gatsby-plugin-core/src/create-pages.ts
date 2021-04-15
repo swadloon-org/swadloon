@@ -117,17 +117,17 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
 
       let markdownDocsTemplate: string;
       try {
-        await fsp.readFile(`src/templates/markdown-docs.template.tsx`);
-        reporter.info(`[${pluginOptions.pluginName}] found markdown-docs template in package`);
-        markdownDocsTemplate = path.resolve(`src/templates/markdown-docs.template.tsx`);
+        await fsp.readFile(`src/templates/docs.template.tsx`);
+        reporter.info(`[${pluginOptions.pluginName}] found docs template in package`);
+        markdownDocsTemplate = path.resolve(`src/templates/docs.template.tsx`);
       } catch (error) {
-        reporter.info(`[${pluginOptions.pluginName}] no template defined for markdown-docs in package`);
+        reporter.info(`[${pluginOptions.pluginName}] no template defined for docs in package`);
       }
 
       try {
-        await fsp.readFile(`../core-gatsby-ui/src/templates/markdown-docs.template.tsx`);
-        reporter.info(`[${pluginOptions.pluginName}] using default markdown-docs template`);
-        markdownDocsTemplate = path.resolve(`../core-gatsby-ui/src/templates/markdown-docs.template.tsx`);
+        await fsp.readFile(`../core-gatsby-ui/src/templates/docs.template.tsx`);
+        reporter.info(`[${pluginOptions.pluginName}] using default docs template`);
+        markdownDocsTemplate = path.resolve(`../core-gatsby-ui/src/templates/docs.template.tsx`);
       } catch (error) {
         reporter.panic(`[${pluginOptions.pluginName}] no default template defined for markdown-docs`);
       }
