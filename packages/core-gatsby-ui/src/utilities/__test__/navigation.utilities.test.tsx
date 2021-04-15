@@ -48,72 +48,7 @@ describe(`navigation utilities`, () => {
 
     it('should return a valid Navigation object from Gatsby page nodes', () => {
       const nav = getNavigationFromPageNodes(navigationMock);
-
-      const expectedNav: Navigation = {
-        name: 'navigation test',
-        items: [
-          {
-            name: 'path-a',
-            displayName: 'Path A',
-            path: 'path-a',
-            items: [
-              {
-                name: 'index',
-                displayName: 'Overview',
-                path: '/design-system/path-a/',
-              },
-              {
-                name: 'page-2',
-                displayName: 'Page 2',
-                path: '/design-system/path-a/page-2',
-              },
-              {
-                name: 'page-1',
-                displayName: 'Page 1',
-                path: '/design-system/path-a/page-1',
-              },
-            ],
-          },
-          {
-            name: 'Home',
-            displayName: '',
-            path: '',
-            items: [
-              {
-                name: 'index',
-                displayName: 'Overview',
-                path: '/',
-              },
-            ],
-          },
-          {
-            name: 'design-system',
-            displayName: 'Design System',
-            path: 'design-system',
-            items: [
-              {
-                name: 'index',
-                displayName: 'Overview',
-                path: '/design-system/',
-              },
-            ],
-          },
-          {
-            name: 'path-b',
-            displayName: 'Path B',
-            path: 'path-b',
-            items: [
-              {
-                name: 'page-1',
-                displayName: 'Page 1',
-                path: '/design-system/path-b/page-1',
-              },
-            ],
-          },
-        ],
-      };
-
-      expect(nav).toEqual(expectedNav);
+      expect(nav).toMatchSnapshot();
     });
   });
 });

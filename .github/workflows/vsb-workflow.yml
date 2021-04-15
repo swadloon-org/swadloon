@@ -51,7 +51,7 @@ jobs:
       run: yarn --prefer-offline
 
     - name: Clear Caches
-      run: yarn clean
+      run: yarn clean --scope @newrade/vsb-website
 
     - name: Lint Src Files
       run: yarn eslint ./packages/vsb-*/src/ --ext ts,tsx

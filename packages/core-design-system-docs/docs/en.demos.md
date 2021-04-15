@@ -1,10 +1,10 @@
 ---
-name: Overview
+name: Demos
 tags:
-  - overview
+  - demo
 ---
 
-# Design System Documentation
+# Demos
 
 These are the principles that shape how we design every aspect of the interfaces.
 

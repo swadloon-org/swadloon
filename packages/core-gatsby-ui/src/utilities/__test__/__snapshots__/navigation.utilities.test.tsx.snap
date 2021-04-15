@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`navigation utilities utility getNavigationFromPageNodes should return a valid Navigation object from Gatsby page nodes 1`] = `
+Object {
+  "items": Array [
+    Object {
+      "displayName": "Path A",
+      "items": Array [
+        Object {
+          "displayName": "Overview",
+          "name": "index",
+          "path": "/design-system/path-a/",
+        },
+        Object {
+          "displayName": "Page 2",
+          "name": "page-2",
+          "path": "/design-system/path-a/page-2",
+        },
+        Object {
+          "displayName": "Page 1",
+          "name": "page-1",
+          "path": "/design-system/path-a/page-1",
+        },
+      ],
+      "name": "path-a",
+      "path": "path-a",
+    },
+    Object {
+      "displayName": "",
+      "items": Array [
+        Object {
+          "displayName": "Overview",
+          "name": "index",
+          "path": "/",
+        },
+        Object {
+          "displayName": "Overview",
+          "name": "index",
+          "path": "/design-system/",
+        },
+      ],
+      "name": "Home",
+      "path": "",
+    },
+    Object {
+      "displayName": "Path B",
+      "items": Array [
+        Object {
+          "displayName": "Page 1",
+          "name": "page-1",
+          "path": "/design-system/path-b/page-1",
+        },
+      ],
+      "name": "path-b",
+      "path": "path-b",
+    },
+  ],
+  "name": "navigation test",
+}
+`;
