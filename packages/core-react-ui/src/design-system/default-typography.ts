@@ -57,6 +57,7 @@ export const defaultTypography: Typography = {
       h1: {
         capHeight: 24,
         lineGap: 20,
+        letterSpacing: -3,
       },
       h2: {
         capHeight: 20,
@@ -76,6 +77,7 @@ export const defaultTypography: Typography = {
       h1: {
         capHeight: 26,
         lineGap: 18,
+        letterSpacing: -3,
       },
       h2: {
         capHeight: 22,
@@ -95,6 +97,7 @@ export const defaultTypography: Typography = {
       h1: {
         capHeight: 35,
         lineGap: 18,
+        letterSpacing: -3,
       },
       h2: {
         capHeight: 24,

@@ -10,7 +10,7 @@ import { Headings } from '../../src/code/headings.code';
 
 <!-- END CODE IMPORTS -->
 
-# Typography
+# Typography - 🔠
 
 ---
 
@@ -19,6 +19,16 @@ import { Headings } from '../../src/code/headings.code';
 ## Overview
 
 ## Fonts
+
+### Sans-Serif Fonts
+
+### Serif Fonts
+
+### Numbers
+
+### Source Code
+
+## Resources
 
 ## Titles
 

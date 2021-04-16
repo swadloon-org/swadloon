@@ -43,6 +43,12 @@
       "**/node_modules/**": false
     },
     //
+    // markdown
+    //
+    "[markdown]": {
+      "editor.wordWrap": "off"
+    },
+    //
     // deepscan
     //
     // https://github.com/deepscan/vscode-deepscan#settings-options

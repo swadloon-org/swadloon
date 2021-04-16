@@ -10,7 +10,7 @@ import { ColorPrimary } from '../../src/code/color-primary.code';
 
 <!-- END CODE IMPORTS -->
 
-# Colors
+# Colors - 🌈
 
 <ThemeWrapper>
   <ColorPrimary />
