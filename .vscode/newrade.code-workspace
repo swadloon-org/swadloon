@@ -85,7 +85,8 @@
       "cssho.vscode-svgviewer",
       "deepscan.vscode-deepscan",
       "graphql.vscode-graphql",
-      "vstirbu.vscode-mermaid-preview"
+      "vstirbu.vscode-mermaid-preview",
+      "svsool.markdown-memo"
     ]
   },
   "folders": [

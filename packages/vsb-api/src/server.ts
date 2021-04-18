@@ -2,6 +2,7 @@ import { DEPLOY_ENV } from '@newrade/core-common';
 import { loadDotEnv, logEnvVariables } from '@newrade/core-utils';
 import {
   API_BASE_PATH,
+  API_HEALTH_CHECK,
   API_REGISTER_PATIENT_ROUTE,
   API_STATUS_CLINIKO,
   API_TRANSLATION_ROUTE,
@@ -14,8 +15,9 @@ import i18nextMiddleware from 'i18next-http-middleware';
 import morgan from 'morgan';
 import path from 'path';
 import { Env, ENV } from '../types/dot-env';
-import { ClinikoController } from './controller/cliniko.controller';
-import { getTranslation } from './controller/translation.controller';
+import { ClinikoController } from './controllers/cliniko.controller';
+import { HealthCheckController } from './controllers/health-check.controller';
+import { getTranslation } from './controllers/translation.controller';
 import { loggerMiddleware } from './middleware/logger.middleware';
 import { recaptchaMiddleware } from './middleware/recaptcha.middleware';
 import { i18nService, initI18nService } from './services/i18n.service';
@@ -72,6 +74,10 @@ server.use(API_BASE_PATH, i18nextMiddleware.handle(i18nService));
  * Routes
  */
 const router = Router();
+/**
+ * System
+ */
+router.route(API_HEALTH_CHECK).get(HealthCheckController.getHealthCheck);
 /**
  * Cliniko
  */

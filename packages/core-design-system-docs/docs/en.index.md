@@ -9,9 +9,9 @@ tags:
 > These are the principles that shape how we design every aspect of user
 > interfaces.
 
-## Overview
+---
 
-### Foundations
+## Foundations
 
 Foundations are principles and rules that guide the rest of the system. This
 system includes the following subjects:
@@ -25,24 +25,25 @@ system includes the following subjects:
 - **Layout**: How to organize content, for different viewports
 - **Animations**: How to animate layers and effects
 
-### Components
+## Components
 
-### Effects
+## Effects
 
-### Animations
+## Animations
 
-### Content
+## Content
 
-Every website or app has to place content (text, images, video, forms) in a page
-or a view. As designers and developers we do this quite often.
+Every website or app has to place content (text, images, video, forms, etc) in a
+page or a view. As designers and developers we do this quite **often**.
 
 The following is an opinionated way of seeing the content we place on pages. We
-call this the Website API.
+call this the **Website API**.
 
-Content is organized in Pages, Sections and Block, you can read about it in the
-[/content]()
+Content is organized with [Pages](/design-system/content/pages/),
+[Sections](/design-system/content/sections/) and
+[Blocks](/design-system/content/blocks/).
 
-## Resources
+## Additional Resources
 
 No design system is made in a vacuum. Here are our recommended reading list,
 references and design systems.

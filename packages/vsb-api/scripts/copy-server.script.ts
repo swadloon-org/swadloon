@@ -5,10 +5,6 @@ const copyFile = () => {
     recursive: true,
     overwrite: true,
   });
-  fs.copySync(`./dist/src/health-check.js`, '../vsb-website/api/health-check.js', {
-    recursive: true,
-    overwrite: true,
-  });
 };
 
 copyFile();

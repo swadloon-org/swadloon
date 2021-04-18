@@ -18,7 +18,6 @@ const config: WebpackOptions.WebpackOptions = {
   target: 'node',
   entry: {
     ['server']: path.resolve(__dirname, 'src/server.ts'),
-    ['health-check']: path.resolve(__dirname, 'src/health-check.ts'),
   },
   devtool: 'source-map',
   optimization: {

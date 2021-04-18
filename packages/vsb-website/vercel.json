@@ -25,12 +25,9 @@
     "api/server.js": {
       "memory": 1024,
       "maxDuration": 60
-    },
-    "api/health-check.js": {
-      "memory": 512
     }
   },
-  "rewrites": [{ "source": "/api/server/(.*)", "destination": "/api/server" }],
+  "rewrites": [{ "source": "/api/(.*)", "destination": "/api/server" }],
   "redirects": [
     { "source": "/boucher.php", "destination": "/equipe/", "permanent": true },
     { "source": "/boucher", "destination": "/equipe/", "permanent": true },

@@ -1,50 +1,51 @@
 ---
 name: Markdown Elements
 tags:
-  - doc
-  - doc1
   - markdown
 ---
 
-export const lorenipsum = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-esse cillum dolore eu fugiat nulla pariatur.`;
+export const lorenipsum =
+`Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris esse cillum dolore eu fugiat nulla pariatur.`;
 
 ## Content sectioning
 
-> Content sectioning elements allow you to organize the document content into logical pieces.
-> Use the sectioning elements to create a broad outline for your page content, including header
-> and footer navigation, and heading elements to identify sections of content.
+> Content sectioning elements allow you to organize the document content into
+> logical pieces. Use the sectioning elements to create a broad outline for your
+> page content, including header and footer navigation, and heading elements to
+> identify sections of content.
 > [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element#content_sectioning)
 
 ### Headings
 
 # Heading H1
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-esse cillum dolore eu fugiat nulla pariatur.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+nostrud exercitation ullamco laboris esse cillum dolore eu fugiat nulla
+pariatur.
 
 ## Heading H2
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-esse cillum dolore eu fugiat nulla pariatur.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+nostrud exercitation ullamco laboris esse cillum dolore eu fugiat nulla
+pariatur.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-esse cillum dolore eu fugiat nulla pariatur.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+incididunt ut esse cillum dolore eu fugiat nulla pariatur.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+incididunt ut
 
 ### Heading H3
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-nisi ut aliquip ex ea commodo consequat.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+incididunt ut nisi ut aliquip ex ea commodo consequat.
 
 #### Heading H4
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-nisi ut aliquip ex ea commodo consequat.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+incididunt ut nisi ut aliquip ex ea commodo consequat.
 
 ### Details & Summary
 
@@ -57,22 +58,23 @@ nisi ut aliquip ex ea commodo consequat.
 
 ## Text content
 
-> Use HTML text content elements to organize blocks or sections of
-> content placed between the opening `<body>` and closing `</body>` tags.
-> Important for accessibility and SEO, these elements identify the purpose or structure
-> of that content.
+> Use HTML text content elements to organize blocks or sections of content
+> placed between the opening `<body>` and closing `</body>` tags. Important for
+> accessibility and SEO, these elements identify the purpose or structure of
+> that content.
 > [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element#text_content)
 
 ### Paragraphs
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-nisi ut aliquip ex ea commodo consequat.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+incididunt ut nisi ut aliquip ex ea commodo consequat.
 
 ### Blockquotes
 
-> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-> labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-> in culpa qui officia deserunt mollit anim id est laborum
+> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+> incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+> nostrud exercitation ullamco laboris in culpa qui officia deserunt mollit anim
+> id est laborum
 >
 > > And, they can be nested
 
@@ -91,17 +93,19 @@ nisi ut aliquip ex ea commodo consequat.
 1. List item
 1. List item
 
-<!-- - [ ] lorenipsum
+#### Checkboxes
+
 - [ ] lorenipsum
 - [ ] lorenipsum
-- [ ] lorenipsum -->
+- [ ] lorenipsum
+- [ ] lorenipsum
 
 ---
 
 ## Inline text semantics
 
-> Use the HTML inline text semantic to define the meaning, structure, or style of a word, line, or
-> any arbitrary piece of text.
+> Use the HTML inline text semantic to define the meaning, structure, or style
+> of a word, line, or any arbitrary piece of text.
 > [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element#inline_text_semantics)
 
 ### Links / Anchor
@@ -112,8 +116,9 @@ nisi ut aliquip ex ea commodo consequat.
 
 ### Text
 
-Lorem <small>small</small> dolor <strong>sit</strong> amet, <b>consectetur</b> adipiscing elit, sed do eiusmod tempor incididunt ut
-nisi ut aliquip ex ea commodo consequat.
+Lorem <small>small</small> dolor <strong>sit</strong> amet, <b>consectetur</b>
+adipiscing elit, sed do eiusmod tempor incididunt ut nisi ut aliquip ex ea
+commodo consequat.
 
 ### Keyboard Keys
 
@@ -151,8 +156,10 @@ export function getCSSEffects(options: Effects): Effects<string> {
   font-weight: 400;
   font-display: swap;
   src: local('Open Sans Regular'), local('OpenSans-Regular'),
-    url(https://fonts.gstatic.com/s/opensans/v17/mem8YaGs126MiZpBA-UFW50bf8pkAp6a.woff2) format('woff2');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    url(https://fonts.gstatic.com/s/opensans/v17/mem8YaGs126MiZpBA-UFW50bf8pkAp6a.woff2)
+      format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB,
+    U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 ```
 
@@ -165,13 +172,11 @@ export function getCSSEffects(options: Effects): Effects<string> {
 
 ### Abbreviations
 
-The HTML specification
-is maintained by the W3C.
+The HTML specification is maintained by the W3C.
 
 <!-- see https://github.com/prettier/prettier/pull/5749 -->
 
-_[HTML]: Hyper Text Markup Language
-_[W3C]: World Wide Web Consortium
+_[HTML]: Hyper Text Markup Language _[W3C]: World Wide Web Consortium
 
 ### Datalist
 
@@ -188,8 +193,8 @@ _[W3C]: World Wide Web Consortium
 
 ## Demarcating edits
 
-Now some inline markup like _italics_, **bold**, and `code()`. Note that underscores in
-words are ignored in Markdown Extra.
+Now some inline markup like _italics_, **bold**, and `code()`. Note that
+underscores in words are ignored in Markdown Extra.
 
 Emphasis, aka italics, with _asterisks_ or _underscores_.
 
@@ -199,7 +204,8 @@ Combined emphasis with **asterisks and _underscores_**.
 
 Strikethrough uses two tildes. ~~Scratch this.~~
 
-There is <del>nothing</del> <ins>no code</ins> either <em>good</em> or bad, but <del>thinking</del>
+There is <del>nothing</del> <ins>no code</ins> either <em>good</em> or bad, but
+<del>thinking</del>
 
 <ins>running it</ins> makes it so.
 

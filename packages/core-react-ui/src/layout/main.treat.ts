@@ -25,7 +25,8 @@ export const styles = {
     paddingTop: `calc(${cssTheme.layout.var.navbarHeight} + ${cssTheme.sizing.var.x6})`,
   })),
   minHeight: style(({ cssTheme, theme }: Theme) => ({
-    minHeight: `105vh`, // to prevent the main content from collapsing
-    paddingBottom: `80vh`, // needed to reach elements that are located at the bottom of the screen
+    // to prevent the main content from collapsing
+    // it is also needed to reach elements that are located at the bottom of the screen
+    minHeight: `105vh`,
   })),
 };
