@@ -273,7 +273,7 @@ export const BlockFormVasectomy: React.FC<BlockFormVasectomyProps> = ({ id, styl
           });
         }
 
-        if (result.payload.yupValidationErrors) {
+        if (result.payload?.yupValidationErrors) {
           result.payload.yupValidationErrors.map((validationError) => {
             if (validationError) {
               logError(validationError);
@@ -292,7 +292,7 @@ export const BlockFormVasectomy: React.FC<BlockFormVasectomyProps> = ({ id, styl
 
         setApiErrors([
           ...result.errors.map((error) => error.message),
-          ...(result.payload.yupValidationErrors
+          ...(result.payload?.yupValidationErrors
             ? result.payload.yupValidationErrors.map((error) => error.errors.join(', '))
             : []),
         ]);
@@ -791,7 +791,7 @@ export const BlockFormVasectomy: React.FC<BlockFormVasectomyProps> = ({ id, styl
             ) : null}
 
             <OnlineIndicator status={apiStatus === 'en ligne' ? 'online' : 'offline'}>
-              système {apiStatus || 'en chargement...'}
+              système : {apiStatus || 'en chargement...'}
             </OnlineIndicator>
 
             <Hr></Hr>

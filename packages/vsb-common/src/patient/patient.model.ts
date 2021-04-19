@@ -1,7 +1,7 @@
 import { CLINIKO_PHONE_TYPE, CLINIKO_REMINDER_TYPE } from './patient.constant';
 
 export type PatientModelAdmin = {
-  id: string;
+  id?: string;
   firstName: string;
   lastName: string;
   email: string;
@@ -10,7 +10,7 @@ export type PatientModelAdmin = {
 };
 
 export type PatientModel = {
-  id: string;
+  id?: string;
   firstName: string;
   lastName: string;
   email: string;
@@ -31,7 +31,7 @@ export type PatientModel = {
 };
 
 export type PatientClinikoModel = {
-  id: string;
+  id?: string;
   first_name: string;
   last_name: string;
 

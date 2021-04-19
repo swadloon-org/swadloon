@@ -408,7 +408,7 @@ export const getWaitingCallPatients: RequestHandler<
         method: 'GET',
         route: `patients/${patient.id}/appointments`,
       }).then((result) => {
-        return { patientAppointment: result, patient: patient };
+        return { patientAppointments: result, patient: patient };
       });
 
       return patientAppointmentResponse;
@@ -416,38 +416,29 @@ export const getWaitingCallPatients: RequestHandler<
 
     const patientsAppointmentResults = await Promise.allSettled(patientsAppointmentRequests);
 
-    const patientsPendingFormsWithAppointments = patientsAppointmentResults.filter((result) => {
-      if (result.status === 'rejected') {
+    const patientsPendingFormsWithAppointments = patientsAppointmentResults
+      .filter((result) => {
+        if (result.status === 'rejected') {
+          return false;
+        }
+
+        // check if the patient has appointments
+        if (result.value.patientAppointments.payload?.appointments?.length) {
+          return true;
+        }
+
         return false;
-      }
-
-      // check if the patient has appointments
-      if (result.value.patientAppointment.payload?.appointments?.length) {
-        return true;
-      }
-
-      return false;
-    });
+      })
+      .map(
+        (result) =>
+          (result as PromiseFulfilledResult<{
+            patientAppointments: APIResponseBody<{
+              appointments?: ClinikoAppointment[] | undefined;
+            }>;
+            patient: PatientModelAdmin;
+          }>).value.patient
+      );
     log(`got ${patientsPendingFormsWithAppointments.length} patients with forms completed and appointments`);
-
-    log(`checking that we have at least one appointment of type`);
-
-    const patientsAppointmentRequests = patientsPendingFormsWithAppointments.map((result) => {
-      const resultFulfilled = result as PromiseFulfilledResult<{
-        patientAppointment: APIResponseBody<{
-          appointments: any[];
-        }>;
-        patient: PatientModelAdmin;
-      }>;
-      const patientAppointmentTypeResponse = fetchCliniko<any, { appointment_type?: { name: string } }>({
-        method: 'GET',
-        route: `appointment_types/${resultFulfilled.value.patientAppointment}`,
-      }).then((result) => {
-        return { patientAppointment: result, patient: result };
-      });
-
-      return patientAppointmentResponse;
-    });
 
     return res.status(200).send({
       ...allPatientsResponse,

@@ -4,7 +4,7 @@ import { PatientClinikoModel, PatientModel, PatientModelAdmin } from './patient.
 
 export function getPatientClinikoModel(patientModel: PatientModel): PatientClinikoModel {
   return {
-    id: patientModel.id,
+    id: patientModel.id || '',
     first_name: patientModel.firstName,
     last_name: patientModel.lastName,
     date_of_birth:
