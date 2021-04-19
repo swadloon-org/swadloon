@@ -665,13 +665,13 @@ export type ContentfulBlock = Node & {
   variant?: Maybe<Scalars['String']>;
   type?: Maybe<Scalars['String']>;
   section?: Maybe<Array<Maybe<ContentfulSection>>>;
-  text?: Maybe<ContentfulBlockTextTextNode>;
   spaceId?: Maybe<Scalars['String']>;
   contentful_id?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['Date']>;
   updatedAt?: Maybe<Scalars['Date']>;
   sys?: Maybe<ContentfulBlockSys>;
   node_locale?: Maybe<Scalars['String']>;
+  text?: Maybe<ContentfulBlockTextTextNode>;
   link?: Maybe<ContentfulLink>;
   medias?: Maybe<Array<Maybe<ContentfulMediaCollection>>>;
   /** Returns all children nodes filtered by type contentfulBlockTextTextNode */
@@ -1883,6 +1883,17 @@ export type ContentfulBlockFieldsEnum =
   | 'section___sys___revision'
   | 'section___node_locale'
   | 'section___variant'
+  | 'spaceId'
+  | 'contentful_id'
+  | 'createdAt'
+  | 'updatedAt'
+  | 'sys___type'
+  | 'sys___revision'
+  | 'sys___contentType___sys___type'
+  | 'sys___contentType___sys___linkType'
+  | 'sys___contentType___sys___id'
+  | 'sys___contentType___sys___contentful_id'
+  | 'node_locale'
   | 'text___id'
   | 'text___parent___id'
   | 'text___parent___parent___id'
@@ -1988,17 +1999,6 @@ export type ContentfulBlockFieldsEnum =
   | 'text___childMdx___internal___mediaType'
   | 'text___childMdx___internal___owner'
   | 'text___childMdx___internal___type'
-  | 'spaceId'
-  | 'contentful_id'
-  | 'createdAt'
-  | 'updatedAt'
-  | 'sys___type'
-  | 'sys___revision'
-  | 'sys___contentType___sys___type'
-  | 'sys___contentType___sys___linkType'
-  | 'sys___contentType___sys___id'
-  | 'sys___contentType___sys___contentful_id'
-  | 'node_locale'
   | 'link___id'
   | 'link___parent___id'
   | 'link___parent___parent___id'
@@ -2142,10 +2142,6 @@ export type ContentfulBlockFieldsEnum =
   | 'link___block___section___updatedAt'
   | 'link___block___section___node_locale'
   | 'link___block___section___variant'
-  | 'link___block___text___id'
-  | 'link___block___text___children'
-  | 'link___block___text___text'
-  | 'link___block___text___childrenMdx'
   | 'link___block___spaceId'
   | 'link___block___contentful_id'
   | 'link___block___createdAt'
@@ -2153,6 +2149,10 @@ export type ContentfulBlockFieldsEnum =
   | 'link___block___sys___type'
   | 'link___block___sys___revision'
   | 'link___block___node_locale'
+  | 'link___block___text___id'
+  | 'link___block___text___children'
+  | 'link___block___text___text'
+  | 'link___block___text___childrenMdx'
   | 'link___block___link___id'
   | 'link___block___link___children'
   | 'link___block___link___name'
@@ -2366,10 +2366,6 @@ export type ContentfulBlockFieldsEnum =
   | 'medias___block___section___updatedAt'
   | 'medias___block___section___node_locale'
   | 'medias___block___section___variant'
-  | 'medias___block___text___id'
-  | 'medias___block___text___children'
-  | 'medias___block___text___text'
-  | 'medias___block___text___childrenMdx'
   | 'medias___block___spaceId'
   | 'medias___block___contentful_id'
   | 'medias___block___createdAt'
@@ -2377,6 +2373,10 @@ export type ContentfulBlockFieldsEnum =
   | 'medias___block___sys___type'
   | 'medias___block___sys___revision'
   | 'medias___block___node_locale'
+  | 'medias___block___text___id'
+  | 'medias___block___text___children'
+  | 'medias___block___text___text'
+  | 'medias___block___text___childrenMdx'
   | 'medias___block___link___id'
   | 'medias___block___link___children'
   | 'medias___block___link___name'
@@ -2641,13 +2641,13 @@ export type ContentfulBlockFilterInput = {
   variant?: Maybe<StringQueryOperatorInput>;
   type?: Maybe<StringQueryOperatorInput>;
   section?: Maybe<ContentfulSectionFilterListInput>;
-  text?: Maybe<ContentfulBlockTextTextNodeFilterInput>;
   spaceId?: Maybe<StringQueryOperatorInput>;
   contentful_id?: Maybe<StringQueryOperatorInput>;
   createdAt?: Maybe<DateQueryOperatorInput>;
   updatedAt?: Maybe<DateQueryOperatorInput>;
   sys?: Maybe<ContentfulBlockSysFilterInput>;
   node_locale?: Maybe<StringQueryOperatorInput>;
+  text?: Maybe<ContentfulBlockTextTextNodeFilterInput>;
   link?: Maybe<ContentfulLinkFilterInput>;
   medias?: Maybe<ContentfulMediaCollectionFilterListInput>;
   childrenContentfulBlockTextTextNode?: Maybe<ContentfulBlockTextTextNodeFilterListInput>;
@@ -5418,6 +5418,13 @@ export type ContentfulLinkFieldsEnum =
   | 'block___section___sys___revision'
   | 'block___section___node_locale'
   | 'block___section___variant'
+  | 'block___spaceId'
+  | 'block___contentful_id'
+  | 'block___createdAt'
+  | 'block___updatedAt'
+  | 'block___sys___type'
+  | 'block___sys___revision'
+  | 'block___node_locale'
   | 'block___text___id'
   | 'block___text___parent___id'
   | 'block___text___parent___children'
@@ -5459,13 +5466,6 @@ export type ContentfulLinkFieldsEnum =
   | 'block___text___childMdx___timeToRead'
   | 'block___text___childMdx___id'
   | 'block___text___childMdx___children'
-  | 'block___spaceId'
-  | 'block___contentful_id'
-  | 'block___createdAt'
-  | 'block___updatedAt'
-  | 'block___sys___type'
-  | 'block___sys___revision'
-  | 'block___node_locale'
   | 'block___link___id'
   | 'block___link___parent___id'
   | 'block___link___parent___children'
@@ -6439,6 +6439,13 @@ export type ContentfulMediaCollectionFieldsEnum =
   | 'block___section___sys___revision'
   | 'block___section___node_locale'
   | 'block___section___variant'
+  | 'block___spaceId'
+  | 'block___contentful_id'
+  | 'block___createdAt'
+  | 'block___updatedAt'
+  | 'block___sys___type'
+  | 'block___sys___revision'
+  | 'block___node_locale'
   | 'block___text___id'
   | 'block___text___parent___id'
   | 'block___text___parent___children'
@@ -6480,13 +6487,6 @@ export type ContentfulMediaCollectionFieldsEnum =
   | 'block___text___childMdx___timeToRead'
   | 'block___text___childMdx___id'
   | 'block___text___childMdx___children'
-  | 'block___spaceId'
-  | 'block___contentful_id'
-  | 'block___createdAt'
-  | 'block___updatedAt'
-  | 'block___sys___type'
-  | 'block___sys___revision'
-  | 'block___node_locale'
   | 'block___link___id'
   | 'block___link___parent___id'
   | 'block___link___parent___children'
@@ -7167,10 +7167,6 @@ export type ContentfulMediaFieldsEnum =
   | 'mediacollection___block___section___updatedAt'
   | 'mediacollection___block___section___node_locale'
   | 'mediacollection___block___section___variant'
-  | 'mediacollection___block___text___id'
-  | 'mediacollection___block___text___children'
-  | 'mediacollection___block___text___text'
-  | 'mediacollection___block___text___childrenMdx'
   | 'mediacollection___block___spaceId'
   | 'mediacollection___block___contentful_id'
   | 'mediacollection___block___createdAt'
@@ -7178,6 +7174,10 @@ export type ContentfulMediaFieldsEnum =
   | 'mediacollection___block___sys___type'
   | 'mediacollection___block___sys___revision'
   | 'mediacollection___block___node_locale'
+  | 'mediacollection___block___text___id'
+  | 'mediacollection___block___text___children'
+  | 'mediacollection___block___text___text'
+  | 'mediacollection___block___text___childrenMdx'
   | 'mediacollection___block___link___id'
   | 'mediacollection___block___link___children'
   | 'mediacollection___block___link___name'
@@ -7594,10 +7594,6 @@ export type ContentfulNavigationFieldsEnum =
   | 'links___block___section___updatedAt'
   | 'links___block___section___node_locale'
   | 'links___block___section___variant'
-  | 'links___block___text___id'
-  | 'links___block___text___children'
-  | 'links___block___text___text'
-  | 'links___block___text___childrenMdx'
   | 'links___block___spaceId'
   | 'links___block___contentful_id'
   | 'links___block___createdAt'
@@ -7605,6 +7601,10 @@ export type ContentfulNavigationFieldsEnum =
   | 'links___block___sys___type'
   | 'links___block___sys___revision'
   | 'links___block___node_locale'
+  | 'links___block___text___id'
+  | 'links___block___text___children'
+  | 'links___block___text___text'
+  | 'links___block___text___childrenMdx'
   | 'links___block___link___id'
   | 'links___block___link___children'
   | 'links___block___link___name'
@@ -9071,10 +9071,6 @@ export type ContentfulPageFieldsEnum =
   | 'link___block___section___updatedAt'
   | 'link___block___section___node_locale'
   | 'link___block___section___variant'
-  | 'link___block___text___id'
-  | 'link___block___text___children'
-  | 'link___block___text___text'
-  | 'link___block___text___childrenMdx'
   | 'link___block___spaceId'
   | 'link___block___contentful_id'
   | 'link___block___createdAt'
@@ -9082,6 +9078,10 @@ export type ContentfulPageFieldsEnum =
   | 'link___block___sys___type'
   | 'link___block___sys___revision'
   | 'link___block___node_locale'
+  | 'link___block___text___id'
+  | 'link___block___text___children'
+  | 'link___block___text___text'
+  | 'link___block___text___childrenMdx'
   | 'link___block___link___id'
   | 'link___block___link___children'
   | 'link___block___link___name'
@@ -13621,13 +13621,13 @@ export type QueryContentfulBlockArgs = {
   variant?: Maybe<StringQueryOperatorInput>;
   type?: Maybe<StringQueryOperatorInput>;
   section?: Maybe<ContentfulSectionFilterListInput>;
-  text?: Maybe<ContentfulBlockTextTextNodeFilterInput>;
   spaceId?: Maybe<StringQueryOperatorInput>;
   contentful_id?: Maybe<StringQueryOperatorInput>;
   createdAt?: Maybe<DateQueryOperatorInput>;
   updatedAt?: Maybe<DateQueryOperatorInput>;
   sys?: Maybe<ContentfulBlockSysFilterInput>;
   node_locale?: Maybe<StringQueryOperatorInput>;
+  text?: Maybe<ContentfulBlockTextTextNodeFilterInput>;
   link?: Maybe<ContentfulLinkFilterInput>;
   medias?: Maybe<ContentfulMediaCollectionFilterListInput>;
   childrenContentfulBlockTextTextNode?: Maybe<ContentfulBlockTextTextNodeFilterListInput>;

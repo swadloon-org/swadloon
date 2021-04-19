@@ -3,6 +3,12 @@ import { loadDotEnv, logEnvVariables } from '@newrade/core-utils';
 import {
   API_BASE_PATH,
   API_HEALTH_CHECK,
+  API_LIST_NEW_PATIENTS_ROUTE,
+  API_LIST_PENDING_PATIENTS_ROUTE,
+  API_LIST_POST_OP_PATIENTS_ROUTE,
+  API_LIST_WAITING_PATIENTS_ROUTE,
+  API_LIST_WAITING_OP_TODAY_PATIENTS_ROUTE,
+  API_LIST_WAITING_OP_PATIENTS_ROUTE,
   API_REGISTER_PATIENT_ROUTE,
   API_STATUS_CLINIKO,
   API_TRANSLATION_ROUTE,
@@ -63,6 +69,7 @@ server.use(express.json());
 server.use(loggerMiddleware);
 server.use(morgan('common'));
 server.use(urlencoded({ extended: true }));
+
 /**
  * i18n Localization service
  * @see https://github.com/i18next/i18next-http-middleware
@@ -73,26 +80,37 @@ server.use(API_BASE_PATH, i18nextMiddleware.handle(i18nService));
 /**
  * Routes
  */
-const router = Router();
+const publicRoutes = Router();
 /**
  * System
  */
-router.route(API_HEALTH_CHECK).get(HealthCheckController.getHealthCheck);
+publicRoutes.route(API_HEALTH_CHECK).get(HealthCheckController.getHealthCheck);
 /**
  * Cliniko
  */
-router.route(API_STATUS_CLINIKO).get(ClinikoController.getClinikoStatus);
-router.route(API_REGISTER_PATIENT_ROUTE).post(recaptchaMiddleware, ClinikoController.postPatient);
-// TODO: enable router.route(API_LIST_PATIENTS_ROUTE).get(getListPatients);
+const protectedRoutes = Router();
+protectedRoutes.use((req, res, next) => {
+  console.log(req.url);
+  next();
+});
+publicRoutes.route(API_STATUS_CLINIKO).get(ClinikoController.getClinikoStatus);
+protectedRoutes.route(API_REGISTER_PATIENT_ROUTE).post(recaptchaMiddleware, ClinikoController.postPatient);
+protectedRoutes.route(API_LIST_NEW_PATIENTS_ROUTE).get(ClinikoController.getNewPatients);
+protectedRoutes.route(API_LIST_PENDING_PATIENTS_ROUTE).get(ClinikoController.getPendingFormPatients);
+protectedRoutes.route(API_LIST_WAITING_PATIENTS_ROUTE).get(ClinikoController.getCompletedFormPatients);
+protectedRoutes.route(API_LIST_WAITING_OP_PATIENTS_ROUTE).get(ClinikoController.getWaitingCallPatients);
+protectedRoutes.route(API_LIST_WAITING_OP_TODAY_PATIENTS_ROUTE).get(ClinikoController.getWaitingOpPatients);
+protectedRoutes.route(API_LIST_POST_OP_PATIENTS_ROUTE).get(ClinikoController.getPostOpPatients);
 /**
  * Translation
  */
-router.route(API_TRANSLATION_ROUTE).get(getTranslation);
+publicRoutes.route(API_TRANSLATION_ROUTE).get(getTranslation);
 
 /**
  * Startup
  */
-server.use(router);
+server.use(protectedRoutes);
+server.use(publicRoutes);
 
 server.use('/api/server', (req, res, next) => {
   return res.status(200).send('ok');

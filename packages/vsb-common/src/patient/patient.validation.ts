@@ -20,6 +20,7 @@ function removeSpaces(value: string, originalValue: string) {
 
 export const PatientValidation: SchemaOf<PatientModel> = yup
   .object({
+    id: yup.string().required('Requis'),
     firstName: yup.string().min(2, 'Trop court').max(50, 'Maximum 50 charactère').required('Requis'),
     lastName: yup.string().min(2, 'Trop court').max(50, 'Maximum 50 charactère').required('Requis'),
     dateOfBirth: yup
@@ -81,6 +82,7 @@ export const PatientValidation: SchemaOf<PatientModel> = yup
 
 export const PatientClinikoValidation: SchemaOf<Omit<PatientClinikoModel, 'emailConfirmation'>> = yup
   .object({
+    id: yup.string().required('Requis'),
     first_name: yup.string().min(2, 'Too Short').max(50, 'validation.tooShort').required('Requis'),
     last_name: yup.string().min(2, 'Too Short').max(50, 'Too Long').required('Requis'),
     date_of_birth: yup

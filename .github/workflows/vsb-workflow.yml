@@ -106,7 +106,7 @@ jobs:
         RECAPTCHA_SITE_KEY_VSB: ${{ secrets.RECAPTCHA_SITE_KEY_VSB }}
 
     - name: Deploy website (branch)
-      if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref != 'refs/heads/release'
+      if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && (github.ref == 'refs/heads/dev' || github.ref == 'refs/heads/master') # todo does this make sense?
       uses: amondnet/vercel-action@v20
       with:
         scope: ${{ secrets.VERCEL_SCOPE }}
