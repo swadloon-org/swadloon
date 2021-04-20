@@ -81,14 +81,16 @@ server.use(API_BASE_PATH, i18nextMiddleware.handle(i18nService));
  * Routes
  */
 const publicRoutes = Router();
+const protectedRoutes = Router();
+
 /**
  * System
  */
 publicRoutes.route(API_HEALTH_CHECK).get(HealthCheckController.getHealthCheck);
+
 /**
  * Cliniko
  */
-const protectedRoutes = Router();
 protectedRoutes.use((req, res, next) => {
   console.log(req.url);
   next();
@@ -101,6 +103,7 @@ protectedRoutes.route(API_LIST_WAITING_PATIENTS_ROUTE).get(ClinikoController.get
 protectedRoutes.route(API_LIST_WAITING_OP_PATIENTS_ROUTE).get(ClinikoController.getWaitingCallPatients);
 protectedRoutes.route(API_LIST_WAITING_OP_TODAY_PATIENTS_ROUTE).get(ClinikoController.getWaitingOpPatients);
 protectedRoutes.route(API_LIST_POST_OP_PATIENTS_ROUTE).get(ClinikoController.getPostOpPatients);
+
 /**
  * Translation
  */

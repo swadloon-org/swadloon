@@ -30,6 +30,7 @@
   },
   "eslintConfig": {},
   "dependencies": {
+    "@auth0/auth0-react": "^1.4.0",
     "@newrade/core-design-system": "^1.9.2",
     "@newrade/core-gsap-ui": "^1.1.5",
     "@newrade/core-react-ui": "^1.12.2",
