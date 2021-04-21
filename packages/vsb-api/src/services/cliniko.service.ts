@@ -2,7 +2,7 @@ import { APIResponseBody, API_RESPONSE_STATUS, ERROR_TYPE } from '@newrade/core-
 import fetch from 'node-fetch';
 import { env } from '../server';
 import { ClinikoAPIResponseError } from '../controllers/cliniko.constants';
-import { systemError } from '../controllers/cliniko.controller';
+import { systemError } from '../controllers/cliniko-post-patient.controller';
 import debug from 'debug';
 
 const logCliniko = debug('newrade:vsb-api:cliniko-api');
