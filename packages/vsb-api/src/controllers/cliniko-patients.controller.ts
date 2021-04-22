@@ -1,5 +1,6 @@
 import { APIResponseBody, API_RESPONSE_STATUS, ERROR_TYPE } from '@newrade/core-common';
 import {
+  CLINIKO_PATIENT_VASEC_STATUS,
   GetNewPatientsAPIRequestBody,
   GetNewPatientsAPIResponseBody,
   getPatientModel,
@@ -13,6 +14,11 @@ import { fetchCliniko } from '../services/cliniko.service';
 const log = debug('newrade:vsb-api:cliniko');
 const logWarn = log.extend('warn');
 const logError = log.extend('error');
+
+type Answers = {
+  value: string;
+  selected?: boolean;
+};
 
 /**
  * Retrieve patients list, grouped by status
@@ -31,9 +37,58 @@ export const getPatients: RequestHandler<any, GetNewPatientsAPIResponseBody, Get
       return;
     }
 
+    log(`for each patient retrieve the treatment notes`);
+
+    const patientsWithTreatmentNotesRequests = allPatientsResponse?.payload?.patients.map((patient) => {
+      const patientTreatmentNoteResponse = fetchCliniko<any, any>({
+        method: 'GET',
+        route: `treatment_notes`,
+        params: `q=patient_id:=${patient.id}`,
+      }).then((result) => {
+        const latestStatus = () => {
+          const optionResult =
+            result.payload?.treatment_notes[result.payload.treatment_notes.length - 1].content.sections[0].questions[0]
+              .answers;
+          if (optionResult !== null && optionResult !== undefined) {
+            let obj = optionResult.find((objectPayload: Answers) => objectPayload?.selected === true);
+            let index = optionResult.indexOf(obj);
+            let valueTreatmentNotes = optionResult[index].value;
+            const regexName = RegExp(/[\d][.][\d]?/g);
+
+            const arrayMatch: string[] = [...valueTreatmentNotes.match(regexName)];
+            const resultEnum: CLINIKO_PATIENT_VASEC_STATUS = arrayMatch[0] as CLINIKO_PATIENT_VASEC_STATUS;
+            return resultEnum;
+          }
+        };
+
+        const currentStatus = latestStatus();
+
+        log(JSON.stringify({ patient: getPatientModel(patient, { status: currentStatus }) }, null, 2));
+        return { patientTreatmentNoteResponse: result, patient: getPatientModel(patient) };
+      });
+
+      return patientTreatmentNoteResponse;
+    });
+
+    if (!patientsWithTreatmentNotesRequests) {
+      handleNoPatientsRequests(res);
+      return;
+    }
+
+    const patientsWithTreatmentNotesResult = await Promise.allSettled(patientsWithTreatmentNotesRequests);
+
+    log(`find the treatment notes with the right treatment_note_template id`);
+
+    log(`keep the last treatment note as source of truth`);
+
+    log(`in the treament note find the selected state and return the good status`);
+
+    log(`return the list of patient including the status`);
+
     log(`got ${allPatientsResponse?.payload?.patients?.length} patients`);
 
     const patientsWithoutFormsRequests = allPatientsResponse?.payload?.patients.map((patient) => {
+      /** REWRITE */
       const patientFormResponse = fetchCliniko<any, { patient_forms: any[] }>({
         method: 'GET',
         route: `patient_forms`,

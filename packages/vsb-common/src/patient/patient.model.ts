@@ -1,4 +1,4 @@
-import { CLINIKO_PHONE_TYPE, CLINIKO_REMINDER_TYPE } from './patient.constant';
+import { CLINIKO_PATIENT_VASEC_STATUS, CLINIKO_PHONE_TYPE, CLINIKO_REMINDER_TYPE } from './patient.constant';
 
 export type PatientModelAdmin = {
   id?: string;
@@ -7,6 +7,7 @@ export type PatientModelAdmin = {
   email: string;
   patientPhoneNumber: string;
   patientPhoneType: CLINIKO_PHONE_TYPE;
+  status?: CLINIKO_PATIENT_VASEC_STATUS;
 };
 
 export type PatientModel = {

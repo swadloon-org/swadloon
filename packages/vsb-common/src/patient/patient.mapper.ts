@@ -25,7 +25,10 @@ export function getPatientClinikoModel(patientModel: PatientModel): PatientClini
   };
 }
 
-export function getPatientModel(patientClinikoModel: PatientClinikoModel): PatientModelAdmin {
+export function getPatientModel(
+  patientClinikoModel: PatientClinikoModel,
+  options?: { status: PatientModelAdmin['status'] }
+): PatientModelAdmin {
   return {
     id: patientClinikoModel.id,
     firstName: patientClinikoModel.first_name,
@@ -33,5 +36,6 @@ export function getPatientModel(patientClinikoModel: PatientClinikoModel): Patie
     email: patientClinikoModel.email,
     patientPhoneNumber: patientClinikoModel.patient_phone_numbers?.[0]?.number,
     patientPhoneType: patientClinikoModel.patient_phone_numbers?.[0]?.phone_type,
+    status: options?.status,
   };
 }
