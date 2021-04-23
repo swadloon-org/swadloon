@@ -1,13 +1,13 @@
 ---
-name: Image de marque - Essentiel
+name: Image de marque - Avancé
 about: Checklist
-title: "<project-name>: Image de marque - Essential"
+title: "<project-name>: Image de marque - Avancé"
 labels: ''
 assignees: ''
 
 ---
 
-# Image de marque - Essential - Checklist
+# Image de marque - Avancé- Checklist
 
 ## Analyse
 
@@ -17,6 +17,25 @@ assignees: ''
 - [ ] Soumettre questionnaire au client (en ligne ou rencontre)
 - [ ] Analyser les réponses du questionnaire client
 - [ ] Brainstorm créatif avec équipe
+
+### Étude de positionnement
+
+- [ ] Définir secteur d'activité de l'entreprise
+- [ ] Définir la signification du nom de l'entreprise
+- [ ] Définir les produits ou les services de l'entreprise
+- [ ] Définir les valeurs de l'entreprise
+- [ ] Définir les concurrences de l'entreprise
+- [ ] Définir l'analyse des points de l'entreprise (points forts et points faibles de l'entreprise)
+
+### Étude de la clientèle cible
+
+- [ ] À qui s'adresse-t-on
+- [ ] Quel est la tranche d'âge du public cible
+- [ ] Pourquoi vouloir les cibler
+- [ ] De quelle façon l'entreprise essaie d'atteindre le public actuel
+- [ ] Quels sont leurs besoins
+- [ ] Quels sont leurs désirs
+
 
 ## Création
 
@@ -29,6 +48,10 @@ assignees: ''
 - [ ] Conception de moodboard 1
 - [ ] Conception de moodboard 2
 - [ ] Conception de moodboard 3
+- [ ] Conception de moodboard 4
+- [ ] Conception de moodboard 5
+- [ ] Conception de moodboard 6
+
 
 ### Choix de couleurs
 
@@ -39,6 +62,9 @@ assignees: ''
 - [ ] Conception de logo 1
 - [ ] Conception de logo 2
 - [ ] Conception de logo 3
+- [ ] Conception de logo 4
+- [ ] Conception de logo 5
+- [ ] Conception de logo 6
 
 #### Préparation du document de présentation pour le client
 
@@ -64,7 +90,7 @@ assignees: ''
 - [ ] Mettre document .ai dans le dosier du project > Image de marque
 - [ ] Chaque versions du logo dans un artboard différent
 
-- [ ] 3 visuels d'ambiance
+- [ ] 10 visuels d'ambiance
 
 #### Visuels médias sociaux
 
