@@ -16,6 +16,7 @@ import {
   STATUS_NOTE_TEMPLATE_ID,
 } from '../constants/cliniko.constant';
 import { fetchCliniko } from '../services/cliniko.service';
+import { getIdFromSelfLink } from '../utilities/cliniko.utilities';
 
 const log = debug('newrade:vsb-api:cliniko');
 const logWarn = log.extend('warn');
@@ -152,24 +153,6 @@ export async function getAllClinikoPatients() {
   return response;
 }
 
-export function getIdFromSelfLink(path?: string | null) {
-  if (!path) {
-    return undefined;
-  }
-
-  const reg = /(\/(?<id>\d+))/gi;
-
-  const match = reg.exec(path);
-  const id = match?.groups?.id;
-  const number = Number(id);
-
-  if (isNaN(number)) {
-    return undefined;
-  }
-
-  return number;
-}
-
 function handleNoPatientsFound(res: Response<APIResponseBody<any>>) {
   logError(`no patients could be found from cliniko`);
   res.status(503).send({
@@ -230,9 +213,3 @@ function getStatusFromStatusTreatmentNote(
     statusNote: noteAnswer?.value || '',
   };
 }
-
-type ControllerMethods = 'getPatients';
-
-export const ClinikoPatientsController: { [key in ControllerMethods]: RequestHandler } = {
-  getPatients,
-};

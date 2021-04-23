@@ -88,13 +88,9 @@ publicRoutes.route(API_HEALTH_CHECK).get(HealthCheckController.getHealthCheck);
 /**
  * Cliniko
  */
-protectedRoutes.use((req, res, next) => {
-  console.log(req.url);
-  next();
-});
 publicRoutes.route(API_STATUS_CLINIKO).get(getClinikoStatus);
-protectedRoutes.route(API_REGISTER_PATIENT_ROUTE).post(recaptchaMiddleware, postPatient);
 protectedRoutes.route(API_LIST_PATIENTS_ROUTE).get(getPatients);
+protectedRoutes.route(API_REGISTER_PATIENT_ROUTE).post(recaptchaMiddleware, postPatient);
 
 /**
  * Translation
@@ -110,7 +106,7 @@ server.use(publicRoutes);
 /**
  * For local setup only
  */
-if (env.APP_ENV === DEPLOY_ENV.LOCAL) {
+if (env.APP_ENV === DEPLOY_ENV.LOCAL && !env.TEST_ENV) {
   const httpServer = server.listen(port);
   log('listening on port ' + port);
 

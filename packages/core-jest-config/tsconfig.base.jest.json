@@ -6,6 +6,6 @@
     "outDir": "dist",
     "target": "es6",
     "lib": ["es6", "dom", "es2017", "ES2020"],
-    "types": ["jest", "node", "react", "expect-puppeteer", "jest-environment-puppeteer", "puppeteer"]
+    "types": ["node", "jest", "react", "expect-puppeteer", "jest-environment-puppeteer", "puppeteer"]
   }
 }
