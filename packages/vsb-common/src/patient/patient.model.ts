@@ -8,6 +8,7 @@ export type PatientModelAdmin = {
   patientPhoneNumber: string;
   patientPhoneType: CLINIKO_PHONE_TYPE;
   status?: CLINIKO_PATIENT_VASEC_STATUS;
+  statusNote?: string;
 };
 
 export type PatientModel = {

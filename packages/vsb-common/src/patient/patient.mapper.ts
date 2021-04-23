@@ -27,7 +27,7 @@ export function getPatientClinikoModel(patientModel: PatientModel): PatientClini
 
 export function getPatientModel(
   patientClinikoModel: PatientClinikoModel,
-  options?: { status: PatientModelAdmin['status'] }
+  extras?: Pick<PatientModelAdmin, 'status' | 'statusNote'>
 ): PatientModelAdmin {
   return {
     id: patientClinikoModel.id,
@@ -36,6 +36,7 @@ export function getPatientModel(
     email: patientClinikoModel.email,
     patientPhoneNumber: patientClinikoModel.patient_phone_numbers?.[0]?.number,
     patientPhoneType: patientClinikoModel.patient_phone_numbers?.[0]?.phone_type,
-    status: options?.status,
+    status: extras?.status,
+    statusNote: extras?.statusNote,
   };
 }

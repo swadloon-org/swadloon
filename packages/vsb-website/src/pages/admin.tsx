@@ -11,17 +11,9 @@ import {
   OnlineIndicator,
   Paragraph,
   Stack,
-  useNetworkStatus,
-  usePageVisibility,
   useTreatTheme,
 } from '@newrade/core-react-ui';
-import {
-  API_LIST_PATIENTS_ROUTE,
-  API_STATUS_CLINIKO,
-  CreatePatientAPIResponseBody,
-  GetNewPatientsAPIResponseBody,
-  PatientModelAdmin,
-} from '@newrade/vsb-common';
+import { API_LIST_PATIENTS_ROUTE, GetNewPatientsAPIResponseBody, PatientModelAdmin } from '@newrade/vsb-common';
 import { RouteComponentProps } from '@reach/router';
 import debug from 'debug';
 import React, { useEffect, useState } from 'react';
@@ -29,23 +21,20 @@ import React, { useEffect, useState } from 'react';
 import { useTable } from 'react-table';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './admin.treat';
+import { useCheckAPIStatus } from './use-check-api-status.hook';
 
 type Props = CommonComponentProps & RouteComponentProps & {};
 
-const log = debug('newrade:vsb-admin');
+export const log = debug('newrade:vsb-admin');
 const logWarn = log.extend('warn');
-const logError = log.extend('error');
+export const logError = log.extend('error');
 
 export const Admin: React.FC<Props> = ({ id, style, className, ...props }) => {
   const { styles } = useStyles(styleRefs);
   const { theme, cssTheme } = useTreatTheme();
-
-  const { isOnline } = useNetworkStatus();
-  const { pageVisible } = usePageVisibility();
-  const [apiStatus, setApiStatus] = useState<'en ligne' | 'hors ligne' | undefined>(undefined);
-  const [newPatients, setNewPatients] = useState<PatientModelAdmin[]>([]);
-
-  useCheckAPIStatus(isOnline, pageVisible, setApiStatus);
+  const [patients, setPatients] = useState<PatientModelAdmin[]>([]);
+  const [result, setResult] = useState<string>('');
+  const [apiStatus] = useCheckAPIStatus();
 
   useEffect(() => {
     log('retrieving new patients');
@@ -54,21 +43,26 @@ export const Admin: React.FC<Props> = ({ id, style, className, ...props }) => {
       fetch(API_LIST_PATIENTS_ROUTE)
         .then((response) => response.json())
         .then((body: GetNewPatientsAPIResponseBody) => {
-          if (body.status === API_RESPONSE_STATUS.SUCCESS) {
-            if (!body.payload) {
-              logWarn('no new patients received');
-              return;
-            }
-
-            setNewPatients(body.payload);
+          if (body.status === API_RESPONSE_STATUS.ERROR) {
+            setResult(body.message);
+            return;
           }
+
+          if (!body.payload) {
+            logWarn('no new patients received');
+            return;
+          }
+
+          setPatients(body.payload);
         })
         .catch((error) => {
-          setNewPatients([]);
+          setPatients([]);
+          setResult(error.message);
           logError('error while retrieving new patients');
         });
     } catch (error) {
-      setNewPatients([]);
+      setPatients([]);
+      setResult(error.message);
       logError('error while retrieving new patients');
     }
   }, []);
@@ -112,20 +106,14 @@ export const Admin: React.FC<Props> = ({ id, style, className, ...props }) => {
       <Stack gap={[cssTheme.sizing.var.x5]}>
         <Heading variant={HEADING.h2}>Administration</Heading>
 
-        <Stack gap={[cssTheme.sizing.var.x3]}>
-          <Heading variant={HEADING.h4}>État du système</Heading>
-
-          <OnlineIndicator status={apiStatus === 'en ligne' ? 'online' : 'offline'}>
-            système : {apiStatus || 'en chargement...'}
-          </OnlineIndicator>
-        </Stack>
-
         <Hr />
 
         <Heading variant={HEADING.h3}>Listes de patients</Heading>
 
+        {result}
+
         <Stack gap={[cssTheme.sizing.var.x2]}>
-          {newPatients.map((patient) => {
+          {patients.map((patient) => {
             return (
               <Cluster key={patient.id} gap={[cssTheme.sizing.var.x3]}>
                 <Link
@@ -139,6 +127,8 @@ export const Admin: React.FC<Props> = ({ id, style, className, ...props }) => {
                   {patient.firstName} {patient.lastName}
                 </Paragraph>
 
+                <Paragraph>{patient.status}</Paragraph>
+
                 <Link href={`mailto:${patient.email}`}>{patient.email}</Link>
 
                 <Cluster gap={[cssTheme.sizing.var.x1]}>
@@ -151,46 +141,15 @@ export const Admin: React.FC<Props> = ({ id, style, className, ...props }) => {
             );
           })}
         </Stack>
+
+        <Stack gap={[cssTheme.sizing.var.x3]}>
+          <Heading variant={HEADING.h4}>État du système</Heading>
+
+          <OnlineIndicator status={apiStatus === 'en ligne' ? 'online' : 'offline'}>
+            système : {apiStatus || 'en chargement...'}
+          </OnlineIndicator>
+        </Stack>
       </Stack>
     </Center>
   );
 };
-
-function useCheckAPIStatus(
-  isOnline: boolean,
-  pageVisible: boolean,
-  setApiStatus: React.Dispatch<React.SetStateAction<'en ligne' | 'hors ligne' | undefined>>
-) {
-  useEffect(() => {
-    function checkApiStatus() {
-      fetch(API_STATUS_CLINIKO)
-        .then((response) => response.json())
-        .then((body: CreatePatientAPIResponseBody) => {
-          if (body.status === API_RESPONSE_STATUS.SUCCESS) {
-            setApiStatus('en ligne');
-          }
-        })
-        .catch((error) => {
-          setApiStatus('hors ligne');
-          logError('api offline');
-        });
-    }
-
-    try {
-      log('checking for api status');
-      checkApiStatus();
-
-      const interval = window.setInterval(() => {
-        if (isOnline && pageVisible) {
-          checkApiStatus();
-        }
-      }, 10000);
-      return () => {
-        window.clearInterval(interval);
-      };
-    } catch (error) {
-      setApiStatus('hors ligne');
-      logError('api offline');
-    }
-  }, [setApiStatus, pageVisible, isOnline]);
-}

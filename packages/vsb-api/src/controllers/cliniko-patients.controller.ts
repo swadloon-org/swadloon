@@ -6,19 +6,20 @@ import {
   getPatientModel,
   PatientClinikoModel,
   PatientModelAdmin,
+  PatientTreatmentNote,
 } from '@newrade/vsb-common';
 import debug from 'debug';
 import { RequestHandler, Response } from 'express';
+import {
+  STATUS_NOTE_QUESTION_NAME,
+  STATUS_NOTE_QUESTION_NOTE,
+  STATUS_NOTE_TEMPLATE_ID,
+} from '../constants/cliniko.constant';
 import { fetchCliniko } from '../services/cliniko.service';
 
 const log = debug('newrade:vsb-api:cliniko');
 const logWarn = log.extend('warn');
 const logError = log.extend('error');
-
-type Answers = {
-  value: string;
-  selected?: boolean;
-};
 
 /**
  * Retrieve patients list, grouped by status
@@ -40,103 +41,98 @@ export const getPatients: RequestHandler<any, GetNewPatientsAPIResponseBody, Get
     log(`for each patient retrieve the treatment notes`);
 
     const patientsWithTreatmentNotesRequests = allPatientsResponse?.payload?.patients.map((patient) => {
-      const patientTreatmentNoteResponse = fetchCliniko<any, any>({
+      return fetchCliniko<any, { treatment_notes: PatientTreatmentNote[] }>({
         method: 'GET',
         route: `treatment_notes`,
-        params: `q=patient_id:=${patient.id}`,
+        params: `q=patient_id:=${patient.id}&sort=updated_at:desc`,
       }).then((result) => {
-        const latestStatus = () => {
-          const optionResult =
-            result.payload?.treatment_notes[result.payload.treatment_notes.length - 1].content.sections[0].questions[0]
-              .answers;
-          if (optionResult !== null && optionResult !== undefined) {
-            let obj = optionResult.find((objectPayload: Answers) => objectPayload?.selected === true);
-            let index = optionResult.indexOf(obj);
-            let valueTreatmentNotes = optionResult[index].value;
-            const regexName = RegExp(/[\d][.][\d]?/g);
+        const treatmentNotes = result.payload?.treatment_notes;
 
-            const arrayMatch: string[] = [...valueTreatmentNotes.match(regexName)];
-            const resultEnum: CLINIKO_PATIENT_VASEC_STATUS = arrayMatch[0] as CLINIKO_PATIENT_VASEC_STATUS;
-            return resultEnum;
+        if (!treatmentNotes?.length) {
+          logWarn(`no treatment notes found for patient: ${patient.id}, skipping`);
+          return;
+        }
+
+        // filter notes to find the correct type
+        const statusTreatmentNotes = treatmentNotes.filter((treatmentNote) => {
+          if (!treatmentNote.treatment_note_template.links.self) {
+            return false;
           }
-        };
 
-        const currentStatus = latestStatus();
+          const id = getIdFromSelfLink(treatmentNote.treatment_note_template.links.self);
 
-        log(JSON.stringify({ patient: getPatientModel(patient, { status: currentStatus }) }, null, 2));
-        return { patientTreatmentNoteResponse: result, patient: getPatientModel(patient) };
+          if (!id) {
+            return false;
+          }
+
+          if (id === STATUS_NOTE_TEMPLATE_ID) {
+            return true;
+          }
+
+          return false;
+        });
+
+        if (!statusTreatmentNotes.length) {
+          logWarn(`no status treatment notes found for patient: ${patient.id}, skipping`);
+          return;
+        }
+
+        // we only take the most recent treatment note
+        const status = getStatusFromStatusTreatmentNote(treatmentNotes[0]);
+
+        return { patientTreatmentNoteResponse: result, patient: getPatientModel(patient, { ...status }) };
       });
-
-      return patientTreatmentNoteResponse;
     });
 
-    if (!patientsWithTreatmentNotesRequests) {
+    // check if our array of request is defined and not empty
+    if (!patientsWithTreatmentNotesRequests.length) {
       handleNoPatientsRequests(res);
       return;
     }
 
     const patientsWithTreatmentNotesResult = await Promise.allSettled(patientsWithTreatmentNotesRequests);
 
-    log(`find the treatment notes with the right treatment_note_template id`);
+    log(`got ${patientsWithTreatmentNotesResult.length} patients with notes`);
 
-    log(`keep the last treatment note as source of truth`);
-
-    log(`in the treament note find the selected state and return the good status`);
-
-    log(`return the list of patient including the status`);
-
-    log(`got ${allPatientsResponse?.payload?.patients?.length} patients`);
-
-    const patientsWithoutFormsRequests = allPatientsResponse?.payload?.patients.map((patient) => {
-      /** REWRITE */
-      const patientFormResponse = fetchCliniko<any, { patient_forms: any[] }>({
-        method: 'GET',
-        route: `patient_forms`,
-        params: `q=patient_id:=${patient.id}`,
-      }).then((result) => {
-        return { patientFormResponse: result, patient: getPatientModel(patient) };
-      });
-
-      return patientFormResponse;
-    });
-
-    if (!patientsWithoutFormsRequests) {
-      handleNoPatientsRequests(res);
-      return;
-    }
-
-    const patientsWithoutFormsResult = await Promise.allSettled(patientsWithoutFormsRequests);
-
-    const patientsWithoutForms = patientsWithoutFormsResult
+    const patientsWithTreatmentNotes = patientsWithTreatmentNotesResult
       .filter((result) => {
         if (result.status === 'rejected') {
           return false;
         }
 
-        if (result.value.patientFormResponse.payload?.patient_forms?.length) {
-          return false;
-        }
-
         return true;
       })
-      .map(
-        (result) =>
-          (result as PromiseFulfilledResult<{
-            patientFormResponse: APIResponseBody<{
-              patient_forms: any[];
-            }>;
-            patient: PatientModelAdmin;
-          }>).value.patient
-      );
+      .map((result) => {
+        type Fullfilled = PromiseFulfilledResult<{
+          patientTreatmentNoteResponse: APIResponseBody<{
+            treatment_notes: PatientTreatmentNote[];
+          }>;
+          patient: PatientModelAdmin;
+        }>;
 
-    log(`got ${patientsWithoutForms.length} patients with no forms`);
+        if (!(result as Fullfilled).value) {
+          return undefined;
+        }
+
+        return (result as Fullfilled).value.patient;
+      })
+      .filter((patient) => !!patient);
+
+    log(`got ${patientsWithTreatmentNotes.length} patients with treatment notes`);
+
+    // check if our array of request is defined and not empty
+    if (!patientsWithTreatmentNotes) {
+      handleNoPatientsRequests(res);
+      return;
+    }
 
     return res.status(200).send({
       ...allPatientsResponse,
-      message: 'Succès pour obtenir la liste des nouveaux patients',
-      payload: patientsWithoutForms,
+      message: 'Succès pour obtenir la liste des patients',
+      payload: patientsWithTreatmentNotes as PatientModelAdmin[],
     });
   } catch (error) {
+    console.log(error);
     handleUnhandledError(res, error);
   }
 };
@@ -154,6 +150,24 @@ export async function getAllClinikoPatients() {
   });
 
   return response;
+}
+
+export function getIdFromSelfLink(path?: string | null) {
+  if (!path) {
+    return undefined;
+  }
+
+  const reg = /(\/(?<id>\d+))/gi;
+
+  const match = reg.exec(path);
+  const id = match?.groups?.id;
+  const number = Number(id);
+
+  if (isNaN(number)) {
+    return undefined;
+  }
+
+  return number;
 }
 
 function handleNoPatientsFound(res: Response<APIResponseBody<any>>) {
@@ -187,6 +201,34 @@ function handleUnhandledError(res: Response<APIResponseBody<any>>, error?: Error
     errors: [{ name: ERROR_TYPE.UNHANDLED_ERROR, message: error?.message || '' }],
     payload: payload,
   });
+}
+
+function getStatusFromStatusTreatmentNote(
+  treatmentNote?: PatientTreatmentNote | null
+): Pick<PatientModelAdmin, 'status' | 'statusNote'> {
+  const questions = treatmentNote?.content.sections?.[0].questions;
+
+  const statusQuestions = questions?.filter((question) => question.name === STATUS_NOTE_QUESTION_NAME);
+  const statusQuestion = statusQuestions?.[0];
+  const noteQuestions = questions?.filter((question) => question.name === STATUS_NOTE_QUESTION_NOTE);
+  const noteQuestion = noteQuestions?.[0];
+
+  if (!statusQuestion) {
+    return {
+      status: CLINIKO_PATIENT_VASEC_STATUS.UNKNOWN,
+      statusNote: 'Note de status introuvable',
+    };
+  }
+
+  const statusAnswers = statusQuestion.answers.filter((answer) => answer.selected);
+  const statusAnswer = statusAnswers[0];
+  const noteAnswers = noteQuestion?.answers.filter((answer) => answer.selected);
+  const noteAnswer = noteAnswers?.[0];
+
+  return {
+    status: statusAnswer.value as CLINIKO_PATIENT_VASEC_STATUS,
+    statusNote: noteAnswer?.value || '',
+  };
 }
 
 type ControllerMethods = 'getPatients';

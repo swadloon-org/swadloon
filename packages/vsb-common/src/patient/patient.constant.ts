@@ -15,10 +15,10 @@ export enum CLINIKO_PATIENT_VASEC_STATUS {
   '6_1_PLAN_RDV_EXAMEN' = '6.1', // 6.1 Rdv planifié (examen physique)
   '6_2_PLAN_RDV_VASECTOMIE_REV_POST_OP' = '6.2', // 6.2 Rdv planifié (vasectomie + suivi post-op)
   '7_WAITING_RDV_APPEL_SUIVI' = '7', // 7. En attente pour rdv appel de suivi post-op
-  '8_1_WAITING_SPERMOGRAM' = '8.1', // 8.1 En attente résultat spermogramme
-  '8_2_SPERMOGRAM_SENT' = '8.2', //  8.2 Envoie du résultat spermogramme
+  '8_WAITING_SPERMOGRAM' = '8.1', // 8. En attente du résultat spermogramme
   '9_DOSSIER_COMPLETE' = '9', // 9. Dossier complété
   '0_ABANDON' = '0.', // 0. Abandon / désistement
+  'UNKNOWN' = 'UNKNOWN', // indicates a problem in the backend
 }
 
 export enum CLINIKO_REMINDER_TYPE {

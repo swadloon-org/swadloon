@@ -19,7 +19,7 @@ export const getClinikoStatus: RequestHandler<any, GetStatusAPIResponseBody, Get
     });
 
     if (result.status === API_RESPONSE_STATUS.SUCCESS) {
-      result.message = 'Système opérationel'; // override generic message
+      result.message = 'Système en ligne'; // override generic message
       result.payload = {}; // don't return cliniko payload
       return res.status(200).send(result);
     }

@@ -44,7 +44,7 @@ export async function fetchCliniko<Payload extends object, ResponsePayload exten
       }
     );
 
-    logCliniko(`processing cliniko response with status ${request.status}`);
+    logCliniko(`processing ${request.url} cliniko response with status ${request.status}`);
 
     const clinikoResponse: ClinikoAPIResponseError = await request.json();
 

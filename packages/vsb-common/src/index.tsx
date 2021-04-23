@@ -2,6 +2,7 @@ export * from './appointment/appointment.model';
 export * from './constant/api-routes.constants';
 export * from './locales/translation';
 export * from './patient-form/patient-form.model';
+export * from './patient-treatment-note/patient-treatment-note';
 export * from './patient/patient.api';
 export * from './patient/patient.constant';
 export * from './patient/patient.mapper';
