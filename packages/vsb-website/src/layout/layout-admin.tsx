@@ -5,8 +5,8 @@ import { Router } from '@reach/router';
 import { PageProps } from 'gatsby';
 import React, { ReactNode, useEffect, useState } from 'react';
 import { useStyles } from 'react-treat';
+import { Admin } from '../admin/admin';
 import Logo from '../images/logo.svg';
-import { Admin } from '../pages/admin';
 import { Footer } from './footer';
 import * as styleRefs from './layout-admin.treat';
 

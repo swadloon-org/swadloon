@@ -2,7 +2,7 @@ import { API_RESPONSE_STATUS } from '@newrade/core-common';
 import { useNetworkStatus, usePageVisibility } from '@newrade/core-react-ui';
 import { API_STATUS_CLINIKO, CreatePatientAPIResponseBody } from '@newrade/vsb-common';
 import { useEffect, useState } from 'react';
-import { log, logError } from './admin';
+import { log, logError } from '../admin/admin';
 
 /**
  * Check for API status on an interval

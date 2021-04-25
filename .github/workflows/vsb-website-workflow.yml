@@ -4,7 +4,7 @@
 # - reference: https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions
 #
 
-name: vsb
+name: vsb-website
 
 on:
   push:
@@ -14,7 +14,8 @@ on:
       - '**/package-lock.json'
       - '**/yarn.lock'
       - 'packages/core-*/**/*'
-      - 'packages/vsb-*/**/*'
+      - 'packages/vsb-common/**/*'
+      - 'packages/vsb-website/**/*'
     branches:
       - dev
       - master
@@ -62,26 +63,6 @@ jobs:
     - name: Run unit tests
       run: yarn test --scope @newrade/vsb-*
 
-    - name: Build vsb-api
-      run: yarn build --scope @newrade/vsb-api
-      env:
-        NVM_NODE_VERSION: ${{ secrets.NVM_NODE_VERSION }}
-        MASTER_GIT_HOST: ${{ secrets.MASTER_GIT_HOST }}
-        MASTER_REPO_ORG: ${{ secrets.MASTER_REPO_ORG }}
-        MASTER_REPO_NAME: ${{ secrets.MASTER_REPO_NAME }}
-        PROJECT_GIT_HOST: ${{ secrets.PROJECT_GIT_HOST }}
-        PROJECT_REPO_ORG: ${{ secrets.PROJECT_REPO_ORG }}
-        PROJECT_REPO_NAME: ${{ secrets.PROJECT_REPO_NAME }}
-
-        DEBUG: 'newrade:*'
-        APP_URL: 'http://local.vasectomie-pierre-boucher.ca/api/register'
-
-        API_VSB_VENDOR_NAME: ${{ secrets.API_VSB_VENDOR_NAME }}
-        API_VSB_VENDOR_EMAIL: ${{ secrets.API_VSB_VENDOR_EMAIL }}
-        API_VSB_KEY_CLINIKO: ${{ secrets.API_VSB_KEY_CLINIKO }}
-        API_VSB_SHARD_ID: ${{ secrets.API_VSB_SHARD_ID }}
-        API_VSB_SECRET_KEY_RECAPTCHA: ${{ secrets.API_VSB_SECRET_KEY_RECAPTCHA }}
-
     # todo handle gatsby cache clearing github.event_name == 'workflow_dispatch'
 
     - name: Build vsb-website
@@ -105,8 +86,12 @@ jobs:
         GOOGLE_MAP_API_KEY: ${{ secrets.GOOGLE_MAP_API_KEY }}
         RECAPTCHA_SITE_KEY_VSB: ${{ secrets.RECAPTCHA_SITE_KEY_VSB }}
 
+    - name: Check for protected branches
+      if: endsWith(github.ref, 'api')
+      run: echo "branch cannot end with 'api'" && exit 1
+
     - name: Deploy website (branch)
-      if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && (github.ref == 'refs/heads/dev' || github.ref == 'refs/heads/master') # todo does this make sense?
+      if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && (github.ref == 'refs/heads/dev' || github.ref == 'refs/heads/master')
       uses: amondnet/vercel-action@v20
       with:
         scope: ${{ secrets.VERCEL_SCOPE }}

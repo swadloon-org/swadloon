@@ -9515,20 +9515,33 @@ __exportStar(__webpack_require__(84), exports);
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.NODE_ENV = exports.DEPLOY_ENV = void 0;
+exports.TEST_ENV = exports.NODE_ENV = exports.DEPLOY_ENV = void 0;
 /**
  * Standard deploy environments
  *
  * LOCAL is for dev's machines
  * DEV is for the development branch (`dev`)
- * STAGING is normally based on the master branch, but deployed with staging / draft data
- * PRODUCTION is based on the release branch with production data (e.g. in published state)
+ *
+ *
  */
 var DEPLOY_ENV;
 (function (DEPLOY_ENV) {
+    /**
+     * LOCAL is for developers' machines
+     */
     DEPLOY_ENV["LOCAL"] = "local";
+    /**
+     * DEV is for the development branch (`dev`) or any branches are are not STAGING
+     * or PRODUCTION
+     */
     DEPLOY_ENV["DEV"] = "dev";
+    /**
+     * STAGING is the preproduction environment, usually from the main/master branch
+     */
     DEPLOY_ENV["STAGING"] = "staging";
+    /**
+     * PRODUCTION is based on the release branch with production data (e.g. in published state)
+     */
     DEPLOY_ENV["PRODUCTION"] = "production";
 })(DEPLOY_ENV = exports.DEPLOY_ENV || (exports.DEPLOY_ENV = {}));
 /**
@@ -9540,6 +9553,14 @@ var NODE_ENV;
     NODE_ENV["TEST"] = "test";
     NODE_ENV["PRODUCTION"] = "production";
 })(NODE_ENV = exports.NODE_ENV || (exports.NODE_ENV = {}));
+/**
+ * Testing environment
+ */
+var TEST_ENV;
+(function (TEST_ENV) {
+    TEST_ENV["LOCAL"] = "LOCAL";
+    TEST_ENV["CI"] = "CI";
+})(TEST_ENV = exports.TEST_ENV || (exports.TEST_ENV = {}));
 //# sourceMappingURL=env.constants.js.map
 
 /***/ }),

@@ -12,7 +12,7 @@ export * from './loaders/typescript-babel.loader';
 export * from './output.conf';
 export * from './plugins/bundle-visualizer-plugin';
 export * from './plugins/lodash-plugin';
-export * from './plugins/clean-plugin';
+export * from './plugins/clean-webpack-plugin';
 export * from './plugins/stats-plugin';
 export * from './plugins/copy-plugin';
 export * from './plugins/treat-css-plugin';

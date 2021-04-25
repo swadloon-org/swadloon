@@ -6,6 +6,7 @@
 
 delete process.env.TS_NODE_PROJECT; // see https://github.com/dividab/tsconfig-paths-webpack-plugin/issues/32
 
+import * as core from '@newrade/core-webpack-config';
 import dotenv from 'dotenv';
 import path from 'path';
 import * as tsloader from 'ts-loader';
@@ -70,11 +71,12 @@ const config: WebpackOptions.WebpackOptions = {
     ],
   },
   output: {
-    filename: 'src/[name].js',
-    path: path.join(__dirname, 'dist'),
+    filename: '[name].js',
+    path: path.join(__dirname, 'public', 'api'),
     libraryTarget: 'umd',
   },
   plugins: [
+    core.getWebpackCleanPlugin(),
     // new (webpack as any).DefinePlugin({
     //   NODE_ENV: process.env.NODE_ENV ? JSON.stringify(process.env.NODE_ENV) : JSON.stringify('development'),
     //   NODE_VERSION: process.env.version ? JSON.stringify(process.env.version) : JSON.stringify('unknown'),
