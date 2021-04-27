@@ -27,7 +27,11 @@
       "destination": "https://api.vasectomie-pierre-boucher.ca/api"
     },
     {
-      "source": "(.*).vasectomie-pierre-boucher.ca/api/(.*)",
+      "source": "vasectomie-pierre-boucher.ca/api/(.*)",
+      "destination": "https://api.vasectomie-pierre-boucher.ca/api"
+    },
+    {
+      "source": "(pr|dev|master|-|\\d+)+(?!-api).vasectomie-pierre-boucher.ca/api/(.*)",
       "destination": "https://$1-api.vasectomie-pierre-boucher.ca/api"
     }
   ],
