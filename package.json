@@ -99,6 +99,7 @@
     "jest-puppeteer": "^4.4.0",
     "lodash": "^4.17.15",
     "morgan": "^1.10.0",
+    "path-to-regexp": "^6.2.0",
     "prismjs": "^1.23.0",
     "react": "^16.13.1",
     "react-device-detect": "^1.15.0",
