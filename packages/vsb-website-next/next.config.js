@@ -13,11 +13,11 @@ module.exports = {
          */
         {
           source: '/admin/',
-          destination: `https://admin.vasectomie-pierre-boucher.ca/admin/`,
+          destination: `https://admin.vasectomie-pierre-boucher.ca/`,
         },
         {
           source: '/admin/:path*',
-          destination: `https://admin.vasectomie-pierre-boucher.ca/admin/:path*`,
+          destination: `https://admin.vasectomie-pierre-boucher.ca/:path*`,
         },
         /**
          * API
@@ -42,7 +42,6 @@ module.exports = {
           ],
           destination: `https://master-api.vasectomie-pierre-boucher.ca/api/:path*`,
         },
-        // TODO: dynamic paths are not working falling back to prod api path
         {
           source: '/api/:path*',
           destination: `https://api.vasectomie-pierre-boucher.ca/api/:path*`,

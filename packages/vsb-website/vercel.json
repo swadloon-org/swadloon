@@ -21,20 +21,7 @@
       ]
     }
   ],
-  "rewrites": [
-    {
-      "source": "/admin/(.*)",
-      "destination": "https://admin.vasectomie-pierre-boucher.ca/"
-    },
-    {
-      "source": "/docs/(.*)",
-      "destination": "https://docs.vasectomie-pierre-boucher.ca"
-    },
-    {
-      "source": "/api/(.*)",
-      "destination": "https://api.vasectomie-pierre-boucher.ca/api"
-    }
-  ],
+  "rewrites": [],
   "redirects": [
     { "source": "/boucher.php", "destination": "/equipe/", "permanent": true },
     { "source": "/boucher", "destination": "/equipe/", "permanent": true },
