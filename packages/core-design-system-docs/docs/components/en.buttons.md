@@ -1,55 +1,40 @@
 ---
-name: Buttons
+name: Tags
 tags:
-  - test
+  - molecule
 ---
 
 <!-- CODE IMPORTS -->
 
-import { Buttons } from '../../src/code/components/buttons/buttons.code';
-import ButtonsCode from '!!raw-loader!../../src/code/components/buttons/buttons.code.tsx';
+import { Buttons } from '../../src/code/buttons.code';
+import ButtonsCode from '!!raw-loader!../../src/code/buttons.code.tsx';
 
-import { ButtonsReversed } from '../../src/code/components/buttons/buttons-reversed.code';
-import ButtonsReversedCode from '!!raw-loader!../../src/code/components/buttons/buttons-reversed.code.tsx';
-
-import { ButtonsSizes } from '../../src/code/components/buttons/buttons-sizes.code';
-import ButtonsSizesCode from '!!raw-loader!../../src/code/components/buttons/buttons-sizes.code.tsx';
-
-import { ButtonsIcon } from '../../src/code/components/buttons/buttons-icon.code';
-import ButtonsIconCode from '!!raw-loader!../../src/code/components/buttons/buttons-icon.code.tsx';
-
-import { ButtonsStates } from '../../src/code/components/buttons/buttons-states.code';
-import ButtonsStatesCode from '!!raw-loader!../../src/code/components/buttons/buttons-states.code.tsx';
+import { ButtonsSizes } from '../../src/code/buttons-sizes.code';
+import ButtonsSizesCode from '!!raw-loader!../../src/code/buttons-sizes.code.tsx';
 
 <!-- END CODE IMPORTS -->
 
-## Buttons
+# Tags
 
-### Variants
+## Variants
 
-<Buttons />
+<ThemeWrapper>
+  <Buttons />
+</ThemeWrapper>
 <CodeBlock>{ButtonsCode}</CodeBlock>
 
-### Reversed Variants
+## Reversed Variants
 
-<ButtonsReversed />
-<CodeBlock>{ButtonsReversedCode}</CodeBlock>
+<ThemeWrapper reversed={true}>
+  <Buttons />
+</ThemeWrapper>
 
-### Sizes
+## Sizes
 
-<ButtonsSizes />
+<ThemeWrapper>
+  <ButtonsSizes />
+</ThemeWrapper>
+
 <CodeBlock>{ButtonsSizesCode}</CodeBlock>
 
 These are the principles that shape how we design every aspect of the interfaces.
-
-### Icon
-
-<ButtonsIcon />
-<CodeBlock>{ButtonsIconCode}</CodeBlock>
-
-### States
-
-<ButtonsStates />
-<CodeBlock>{ButtonsStatesCode}</CodeBlock>
-
-These are the principles that shape how every button react with the user with the interfaces.

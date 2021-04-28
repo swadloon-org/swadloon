@@ -39,12 +39,6 @@
       "focus": false
     },
     {
-      "name": "core-docs-generator",
-      "cwd": "[workspaceFolder]/packages/core-docs-generator",
-      "open": true,
-      "focus": false
-    },
-    {
       "name": "core-common",
       "cwd": "[workspaceFolder]/packages/core-common",
       "open": true,

@@ -9,7 +9,7 @@ type Props = CommonComponentProps & {
   Icon?: React.ReactNode;
 };
 
-export const SVGLogo: React.FC<Props> = ({ id, style, className, children, as, Icon, ...props }) => {
+export const SVGLogo: React.FC<Props> = React.memo(({ id, style, className, children, as, Icon, ...props }) => {
   const { styles } = useStyles(stylesRef);
   const svgIconRef = useRef();
 
@@ -23,4 +23,4 @@ export const SVGLogo: React.FC<Props> = ({ id, style, className, children, as, I
     : null;
 
   return IconSvg;
-};
+});

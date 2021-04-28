@@ -1,20 +1,6 @@
 import { LABEL_SIZE, LinkVariant, PARAGRAPH_SIZE, TEXT_STYLE, Variant } from '@newrade/core-design-system';
-import {
-  Center,
-  CommonComponentProps,
-  Label,
-  Link,
-  ListItem,
-  ListItems,
-  Paragraph,
-  Stack,
-  useTreatTheme,
-} from '@newrade/core-react-ui';
+import { Center, CommonComponentProps, Label, Link, Paragraph, Stack, useTreatTheme } from '@newrade/core-react-ui';
 import { getMergedClassname } from '@newrade/core-react-ui/lib/utilities';
-import { IoCallOutline } from '@react-icons/all-files/io5/IoCallOutline';
-import { IoLocationOutline } from '@react-icons/all-files/io5/IoLocationOutline';
-import { IoMailOutline } from '@react-icons/all-files/io5/IoMailOutline';
-import { IoPrintOutline } from '@react-icons/all-files/io5/IoPrintOutline';
 import { graphql, Link as GatsbyLink, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { useStyles } from 'react-treat';
@@ -116,58 +102,24 @@ export const Footer: React.FC<Props> = ({ id, style, className, ...props }) => {
                 Nous Joindre
               </Label>
 
-              <ListItems gap={[cssTheme.sizing.var.x4]}>
-                <ListItem variantLevel={Variant.primaryReversed} variantIcon={'icon'} Icon={<IoMailOutline />}>
-                  <Link
-                    className={styles.listItem}
-                    variantLevel={Variant.primaryReversed}
-                    variant={LinkVariant.underline}
-                    href={`mailto:${data.contentfulCompanyAddress?.email}`}
-                  >
-                    {data.contentfulCompanyAddress?.email}
-                  </Link>
-                </ListItem>
+              <Link
+                className={styles.listItem}
+                variantLevel={Variant.primaryReversed}
+                variant={LinkVariant.underline}
+                href={`mailto:${data.contentfulCompanyAddress?.email}`}
+              >
+                {data.contentfulCompanyAddress?.email}
+              </Link>
 
-                <ListItem variantLevel={Variant.primaryReversed} variantIcon={'icon'} Icon={<IoCallOutline />}>
-                  <Link
-                    className={styles.listItem}
-                    variantLevel={Variant.primaryReversed}
-                    variant={LinkVariant.underline}
-                    href={`tel:${data.contentfulCompanyAddress?.phone}`}
-                  >
-                    {data.contentfulCompanyAddress?.phone}
-                  </Link>
-                </ListItem>
-
-                <ListItem variantLevel={Variant.primaryReversed} variantIcon={'icon'} Icon={<IoPrintOutline />}>
-                  <Link
-                    className={styles.listItem}
-                    variantLevel={Variant.primaryReversed}
-                    variant={LinkVariant.underline}
-                    href={`fax:${data.contentfulCompanyAddress?.fax}`}
-                  >
-                    {data.contentfulCompanyAddress?.fax}
-                  </Link>
-                </ListItem>
-
-                <ListItem
-                  variantLevel={Variant.primaryReversed}
-                  variantIcon={'icon'}
-                  Icon={<IoLocationOutline style={{ verticalAlign: 'top' }} />}
-                >
-                  <Link
-                    className={styles.listItem}
-                    variantLevel={Variant.primaryReversed}
-                    variant={LinkVariant.underline}
-                    href={'https://goo.gl/maps/nndYpgQLkbDC6c7S7'}
-                    target="blank"
-                  >
-                    {data.contentfulCompanyAddress?.addressLine1}
-                    <br />
-                    {/* {data.contentfulCompanyAddress?.addressLine2} */}
-                  </Link>
-                </ListItem>
-              </ListItems>
+              <Link
+                className={styles.listItem}
+                variantLevel={Variant.primaryReversed}
+                variant={LinkVariant.underline}
+                href={'https://goo.gl/maps/nndYpgQLkbDC6c7S7'}
+                target="blank"
+              >
+                {data.contentfulCompanyAddress?.addressLine1}
+              </Link>
             </Stack>
           </div>
           <Paragraph className={styles.copyright} variant={PARAGRAPH_SIZE.xSmall}>

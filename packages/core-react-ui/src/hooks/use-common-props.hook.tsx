@@ -8,7 +8,7 @@ function getFormattedId(value?: string | null): string {
 
 type Props = CommonComponentProps & {
   localStyle?: React.CSSProperties | undefined;
-  classNames?: (string | null | undefined)[];
+  classNames?: (string | null | undefined | boolean)[];
 };
 
 /**

@@ -6,26 +6,26 @@ tags:
 
 <!-- CODE IMPORTS -->
 
-import { LayoutBoxV2 } from '../../src/code/content/layout-components/box-default.code';
-import LayoutBoxV2Code from '!!raw-loader!../../src/code/content/layout-components/box-default.code.tsx';
+import { LayoutBoxV2 } from '../../src/code/box-default.code';
+import LayoutBoxV2Code from '!!raw-loader!../../src/code/box-default.code.tsx';
 
-import { LayoutBoxV3 } from '../../src/code/content/layout-components/box-padding.code';
-import LayoutBoxV3Code from '!!raw-loader!../../src/code/content/layout-components/box-padding.code.tsx';
+import { LayoutBoxV3 } from '../../src/code/box-padding.code';
+import LayoutBoxV3Code from '!!raw-loader!../../src/code/box-padding.code.tsx';
 
-import { LayoutCenter } from '../../src/code/content/layout-components/center.code';
-import LayoutCenterCode from '!!raw-loader!../../src/code/content/layout-components/center.code.tsx';
+import { LayoutCenter } from '../../src/code/center.code';
+import LayoutCenterCode from '!!raw-loader!../../src/code/center.code.tsx';
 
-import { LayoutCluster } from '../../src/code/content/layout-components/cluster.code';
-import LayoutClusterCode from '!!raw-loader!../../src/code/content/layout-components/cluster.code.tsx';
+import { LayoutCluster } from '../../src/code/cluster.code';
+import LayoutClusterCode from '!!raw-loader!../../src/code/cluster.code.tsx';
 
-import { LayoutGrid } from '../../src/code/content/layout-components/grid.code';
-import LayoutGridCode from '!!raw-loader!../../src/code/content/layout-components/grid.code.tsx';
+import { LayoutGrid } from '../../src/code/grid.code';
+import LayoutGridCode from '!!raw-loader!../../src/code/grid.code.tsx';
 
-import { LayoutStack } from '../../src/code/content/layout-components/stack.code';
-import LayoutStackCode from '!!raw-loader!../../src/code/content/layout-components/stack.code.tsx';
+import { LayoutStack } from '../../src/code/stack.code';
+import LayoutStackCode from '!!raw-loader!../../src/code/stack.code.tsx';
 
-import { LayoutSwitcher } from '../../src/code/content/layout-components/switcher.code';
-import LayoutSwitcherCode from '!!raw-loader!../../src/code/content/layout-components/switcher.code.tsx';
+import { LayoutSwitcher } from '../../src/code/switcher.code';
+import LayoutSwitcherCode from '!!raw-loader!../../src/code/switcher.code.tsx';
 
 <!-- END CODE IMPORTS -->
 

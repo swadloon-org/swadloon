@@ -6,34 +6,32 @@ tags:
 
 <!-- CODE IMPORTS -->
 
-import { SectionsDivider } from '../../src/code/content/sections/sections-divider.code';
-import SectionsDividerCode from '!!raw-loader!../../src/code/content/sections/sections-divider.code.tsx';
+import { SectionsDivider } from '../../src/code/sections-divider.code';
+import SectionsDividerCode from '!!raw-loader!../../src/code/sections-divider.code.tsx';
 
-import { SectionsPrimaryReversed } from '../../src/code/content/sections/sections-primary-reversed.code';
-import SectionsPrimaryReversedCode from '!!raw-loader!../../src/code/content/sections/sections-primary-reversed.code.tsx';
+import { SectionsPrimaryReversed } from '../../src/code/sections-primary-reversed.code';
+import SectionsPrimaryReversedCode from '!!raw-loader!../../src/code/sections-primary-reversed.code.tsx';
 
-import { SectionsPrimary } from '../../src/code/content/sections/sections-primary.code';
-import SectionsPrimaryCode from '!!raw-loader!../../src/code/content/sections/sections-primary.code.tsx';
+import { SectionsPrimary } from '../../src/code/sections-primary.code';
+import SectionsPrimaryCode from '!!raw-loader!../../src/code/sections-primary.code.tsx';
 
-import { SectionsSecondary } from '../../src/code/content/sections/sections-secondary.code';
-import SectionsSecondaryCode from '!!raw-loader!../../src/code/content/sections/sections-secondary.code.tsx';
+import { SectionsSecondary } from '../../src/code/sections-secondary.code';
+import SectionsSecondaryCode from '!!raw-loader!../../src/code/sections-secondary.code.tsx';
 
-import { SectionsSwitcher } from '../../src/code/content/sections/sections-switcher.code';
-import SectionsSwitcherCode from '!!raw-loader!../../src/code/content/sections/sections-switcher.code.tsx';
+import { SectionsSwitcher } from '../../src/code/sections-switcher.code';
+import SectionsSwitcherCode from '!!raw-loader!../../src/code/sections-switcher.code.tsx';
 
-import { SectionsBanner } from '../../src/code/content/sections/sections-banner.code';
-import SectionsBannerCode from '!!raw-loader!../../src/code/content/sections/sections-banner.code.tsx';
+import { SectionsBanner } from '../../src/code/sections-banner.code';
+import SectionsBannerCode from '!!raw-loader!../../src/code/sections-banner.code.tsx';
 
-import { SectionsCallOut } from '../../src/code/content/sections/sections-callout.code';
-import SectionsCallOutCode from '!!raw-loader!../../src/code/content/sections/sections-callout.code.tsx';
+import { SectionsCallOut } from '../../src/code/sections-callout.code';
+import SectionsCallOutCode from '!!raw-loader!../../src/code/sections-callout.code.tsx';
 
-import { SectionsStatement } from '../../src/code/content/sections/sections-statement.code';
-import SectionsStatementCode from '!!raw-loader!../../src/code/content/sections/sections-statement.code.tsx';
+import { SectionsStatement } from '../../src/code/sections-statement.code';
+import SectionsStatementCode from '!!raw-loader!../../src/code/sections-statement.code.tsx';
 
-import { SectionsShowCase } from '../../src/code/content/sections/sections-showcase.code';
-import SectionsShowCaseCode from '!!raw-loader!../../src/code/content/sections/sections-showcase.code.tsx';
-
-
+import { SectionsShowCase } from '../../src/code/sections-showcase.code';
+import SectionsShowCaseCode from '!!raw-loader!../../src/code/sections-showcase.code.tsx';
 
 <!-- END CODE IMPORTS -->
 

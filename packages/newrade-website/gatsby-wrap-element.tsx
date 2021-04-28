@@ -1,14 +1,14 @@
-import { LazyLayoutDesignSystem } from '@newrade/core-design-system-docs/src';
 import { GatsbyCommonPageContext } from '@newrade/core-gatsby-config';
-import { LazyLayoutDocs } from '@newrade/core-gatsby-ui/src';
+import { LazyLayoutDesignSystem, LazyLayoutDocs } from '@newrade/core-gatsby-ui/src';
 import { PageProps, WrapPageElementBrowserArgs } from 'gatsby';
 import React from 'react';
 import ProvidersDocs from './src/context/providers-docs';
 import ProvidersSite from './src/context/providers-site';
 import { cssTheme, theme } from './src/design-system/theme';
 import { lightTheme } from './src/design-system/theme.treat';
+import './src/fonts';
+import LogoReversed from './src/images/logo-reversed.svg';
 import MobileLogo from './src/images/logo-symbol.svg';
-import Logo from './src/images/logo.svg';
 import { Layout } from './src/layout/layout';
 
 type Props = PageProps<{}, GatsbyCommonPageContext>;
@@ -28,7 +28,7 @@ export const WrapElement: React.FC<WrapPageElementBrowserArgs> = ({ element, pro
     case 'docs': {
       return (
         <ProvidersDocs>
-          <LazyLayoutDocs DesktopSvgLogo={<Logo />} MobileSvgLogo={<MobileLogo />} {...pageProps}>
+          <LazyLayoutDocs DesktopSvgLogo={<LogoReversed />} MobileSvgLogo={<MobileLogo />} {...pageProps}>
             {element}
           </LazyLayoutDocs>
         </ProvidersDocs>
@@ -40,7 +40,7 @@ export const WrapElement: React.FC<WrapPageElementBrowserArgs> = ({ element, pro
           <LazyLayoutDesignSystem
             treatThemeRef={lightTheme}
             theme={{ theme, cssTheme }}
-            DesktopSvgLogo={<Logo />}
+            DesktopSvgLogo={<LogoReversed />}
             MobileSvgLogo={<MobileLogo />}
             {...pageProps}
           >

@@ -1,7 +1,7 @@
 ---
-name: Home
+name: Overview
 tags:
-  - test
+  - overview
 ---
 
 # Design System Documentation

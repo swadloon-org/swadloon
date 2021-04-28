@@ -6,8 +6,8 @@ tags:
 
 <!-- CODE IMPORTS -->
 
-import { Blocks } from '../../src/code/content/blocks.code';
-import BlocksCode from '!!raw-loader!../../src/code/content/blocks.code.tsx';
+import { Blocks } from '../../src/code/blocks.code';
+import BlocksCode from '!!raw-loader!../../src/code/blocks.code.tsx';
 
 <!-- END CODE IMPORTS -->
 

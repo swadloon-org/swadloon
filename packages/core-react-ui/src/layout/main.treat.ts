@@ -7,11 +7,25 @@ export const styles = {
     overflowX: 'hidden',
     backgroundColor: cssTheme.colors.colorIntents.background0,
   })),
+  desktopSidebar: style(({ cssTheme, theme }: Theme) => ({
+    ['@media']: {
+      [cssTheme.layout.media.desktopSmall]: {
+        paddingLeft: cssTheme.layout.var.sidebarWidth,
+      },
+    },
+  })),
+  desktopAside: style(({ cssTheme, theme }: Theme) => ({
+    ['@media']: {
+      [cssTheme.layout.media.desktopSmall]: {
+        paddingRight: cssTheme.layout.var.asideWidth,
+      },
+    },
+  })),
   navbar: style(({ cssTheme, theme }: Theme) => ({
     paddingTop: `calc(${cssTheme.layout.var.navbarHeight} + ${cssTheme.sizing.var.x6})`,
-    paddingBottom: `80vh`, // needed to reach elements that are located at the bottom of the screen
   })),
   minHeight: style(({ cssTheme, theme }: Theme) => ({
-    minHeight: `110vh`, // to prevent the main content from collapsing
+    minHeight: `105vh`, // to prevent the main content from collapsing
+    paddingBottom: `80vh`, // needed to reach elements that are located at the bottom of the screen
   })),
 };

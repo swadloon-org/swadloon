@@ -6,7 +6,7 @@ tags:
 
 <!-- CODE IMPORTS -->
 
-import { BoxShadows } from '../../src/code/effects/box-shadows.code';
+import { BoxShadows } from '../../src/code/box-shadows.code';
 
 <!-- END CODE IMPORTS -->
 

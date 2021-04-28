@@ -17,7 +17,7 @@ export const defaultTypography: Typography = {
   },
   titles: {
     font: [fonts.defaultSerifFont, ...fonts.defaultFallbackSerifFonts],
-    fontWeight: 500,
+    fontWeight: 700,
     mobile: {
       t1: {
         capHeight: 34,
@@ -52,6 +52,7 @@ export const defaultTypography: Typography = {
   headings: {
     font: [fonts.defaultSansFont, ...fonts.defaultFallbackSansFonts],
     fontWeight: 600,
+    letterSpacing: -2,
     mobile: {
       h1: {
         capHeight: 24,
@@ -68,7 +69,7 @@ export const defaultTypography: Typography = {
       h4: {
         capHeight: 14,
         lineGap: 14,
-        fontWeight: 500,
+        fontWeight: 600,
       },
     },
     tablet: {
@@ -87,7 +88,7 @@ export const defaultTypography: Typography = {
       h4: {
         capHeight: 14,
         lineGap: 14,
-        fontWeight: 500,
+        fontWeight: 600,
       },
     },
     desktop: {
@@ -106,7 +107,7 @@ export const defaultTypography: Typography = {
       h4: {
         capHeight: 14,
         lineGap: 14,
-        fontWeight: 500,
+        fontWeight: 600,
       },
     },
   },
@@ -115,7 +116,7 @@ export const defaultTypography: Typography = {
     fontWeight: 400,
     styles: {
       bold: {
-        fontWeight: 500,
+        fontWeight: 600,
       },
       italic: {
         fontWeight: 400,
@@ -179,10 +180,10 @@ export const defaultTypography: Typography = {
   },
   labels: {
     font: [fonts.defaultSansFont, ...fonts.defaultFallbackSansFonts],
-    fontWeight: 500,
+    fontWeight: 600,
     styles: {
       bold: {
-        fontWeight: 500,
+        fontWeight: 600,
       },
       boldUppercase: {
         fontWeight: 600,

@@ -6,12 +6,14 @@ tags:
 
 <!-- CODE IMPORTS -->
 
-import { Navigation } from '../../src/code/components/navigation/navigation.code';
-import NavigationCode from '!!raw-loader!../../src/code/components/navigation/navigation.code.tsx';
+import { Navigation } from '../../src/code/navigation.code';
+import NavigationCode from '!!raw-loader!../../src/code/navigation.code.tsx';
 
 <!-- END CODE IMPORTS -->
 
-## NabBar
+## NavBar
 
+<ThemeWrapper>
 <Navigation />
+</ThemeWrapper>
 <CodeBlock>{NavigationCode}</CodeBlock>

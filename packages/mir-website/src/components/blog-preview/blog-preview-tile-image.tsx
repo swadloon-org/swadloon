@@ -1,4 +1,4 @@
-import BackgroundImage from 'gatsby-background-image';
+import GatsbyBackgroundImage from 'gatsby-background-image';
 import { FluidObject } from 'gatsby-image';
 import React from 'react';
 import { useStyles } from 'react-treat';
@@ -19,7 +19,7 @@ export const BlogPreviewTileImage: React.FC<OwnProps> = (props) => {
   return (
     <div className={styles.wrapper}>
       {props.fluid ? (
-        <BackgroundImage fluid={props.fluid} className={styles.imgPreview} />
+        <GatsbyBackgroundImage fluid={props.fluid} className={styles.imgPreview} />
       ) : (
         <div className={styles.imgPreview}></div>
       )}
@@ -34,7 +34,7 @@ export const BlogPreviewTileImageFeatured: React.FC<OwnProps> = (props) => {
   return (
     <div className={styles.wrapperBig}>
       {props.fluid ? (
-        <BackgroundImage fluid={props.fluid} className={styles.imgPreviewBig} />
+        <GatsbyBackgroundImage fluid={props.fluid} className={styles.imgPreviewBig} />
       ) : (
         <div className={styles.imgPreviewBig}></div>
       )}
