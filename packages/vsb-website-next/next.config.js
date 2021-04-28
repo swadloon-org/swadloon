@@ -51,6 +51,26 @@ module.exports = {
          */
         {
           source: '/:path*',
+          has: [
+            {
+              type: 'host',
+              value: 'dev.vasectomie-pierre-boucher.ca',
+            },
+          ],
+          destination: `https://dev-website.vasectomie-pierre-boucher.ca/:path*`,
+        },
+        {
+          source: '/:path*',
+          has: [
+            {
+              type: 'host',
+              value: 'master.vasectomie-pierre-boucher.ca',
+            },
+          ],
+          destination: `https://master-website.vasectomie-pierre-boucher.ca/:path*`,
+        },
+        {
+          source: '/:path*',
           destination: `https://website.vasectomie-pierre-boucher.ca/:path*`,
         },
         {
