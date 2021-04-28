@@ -23,16 +23,16 @@
   ],
   "rewrites": [
     {
-      "source": "www.vasectomie-pierre-boucher.ca/api/(.*)",
-      "destination": "https://api.vasectomie-pierre-boucher.ca/api"
+      "source": "/admin/(.*)",
+      "destination": "https://admin.vasectomie-pierre-boucher.ca/"
     },
     {
-      "source": "vasectomie-pierre-boucher.ca/api/(.*)",
-      "destination": "https://api.vasectomie-pierre-boucher.ca/api"
+      "source": "/docs/(.*)",
+      "destination": "https://docs.vasectomie-pierre-boucher.ca"
     },
     {
-      "source": "(pr-\\d+|dev|master).vasectomie-pierre-boucher.ca/api/(.*)",
-      "destination": "https://$1-api.vasectomie-pierre-boucher.ca/api/$2"
+      "source": "/api/(.*)",
+      "destination": "https://api.vasectomie-pierre-boucher.ca/api"
     }
   ],
   "redirects": [

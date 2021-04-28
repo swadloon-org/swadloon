@@ -1,6 +1,7 @@
 import { API_RESPONSE_STATUS } from '@newrade/core-common';
 import debug from 'debug';
 import { RequestHandler } from 'express';
+import { env } from '../server';
 
 const log = debug('newrade:vsb-api:health-check');
 const logWarn = log.extend('warn');
@@ -18,7 +19,7 @@ const getHealthCheck: RequestHandler<any, any, any> = async (req, res) => {
   try {
     log(`request for health check`);
     log(`received health check from ip:${req.headers.origin}`);
-    res.status(200).send(`hello ${req.headers.origin}!`);
+    res.status(200).send(`hello ${req.headers.origin} on ${env.APP_ENV}!`);
   } catch (error) {
     logError(`request failed for service status`);
     return res
