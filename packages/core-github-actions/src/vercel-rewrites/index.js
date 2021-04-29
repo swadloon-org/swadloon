@@ -18,12 +18,9 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 const core = __importStar(require("@actions/core"));
-const promises_1 = __importDefault(require("fs/promises"));
+const fs_1 = require("fs"); // fix for node v12 https://stackoverflow.com/questions/64725249/fs-promises-api-in-typescript-not-compiling-in-javascript-correctly
 const github = __importStar(require("@actions/github"));
 try {
     const { context } = github;
@@ -36,7 +33,7 @@ try {
     const vercelFilePath = core.getInput('vercel-json-path');
     core.debug(`looking for vercel.json at path: ${vercelFilePath}`);
     try {
-        promises_1.default
+        fs_1.promises
             .readFile(vercelFilePath, 'utf-8')
             .then((result) => {
             core.debug(`reading vercel.json file`);

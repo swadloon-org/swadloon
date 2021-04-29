@@ -211,6 +211,12 @@ exports.toCommandValue = toCommandValue;
 
 /***/ }),
 /* 3 */
+/***/ (function(module, exports) {
+
+module.exports = require("fs");
+
+/***/ }),
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -233,12 +239,6 @@ function getUserAgent() {
 exports.getUserAgent = getUserAgent;
 //# sourceMappingURL=index.js.map
 
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports) {
-
-module.exports = require("fs");
 
 /***/ }),
 /* 5 */
@@ -610,7 +610,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 // We use any as a valid input type
 /* eslint-disable @typescript-eslint/no-explicit-any */
-const fs = __importStar(__webpack_require__(4));
+const fs = __importStar(__webpack_require__(3));
 const os = __importStar(__webpack_require__(1));
 const utils_1 = __webpack_require__(2);
 function issueCommand(command, message) {
@@ -636,7 +636,7 @@ exports.issueCommand = issueCommand;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Context = void 0;
-const fs_1 = __webpack_require__(4);
+const fs_1 = __webpack_require__(3);
 const os_1 = __webpack_require__(1);
 class Context {
     /**
@@ -696,7 +696,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
 var endpoint = __webpack_require__(34);
-var universalUserAgent = __webpack_require__(3);
+var universalUserAgent = __webpack_require__(4);
 var isPlainObject = __webpack_require__(36);
 var nodeFetch = _interopDefault(__webpack_require__(37));
 var requestError = __webpack_require__(61);
@@ -1931,7 +1931,7 @@ module.exports = require("util");
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var universalUserAgent = __webpack_require__(3);
+var universalUserAgent = __webpack_require__(4);
 var beforeAfterHook = __webpack_require__(30);
 var request = __webpack_require__(13);
 var graphql = __webpack_require__(65);
@@ -2285,7 +2285,7 @@ function removeHook (state, name, method) {
 Object.defineProperty(exports, '__esModule', { value: true });
 
 var isPlainObject = __webpack_require__(35);
-var universalUserAgent = __webpack_require__(3);
+var universalUserAgent = __webpack_require__(4);
 
 function lowercaseKeys(object) {
   if (!object) {
@@ -7679,7 +7679,7 @@ function wrappy (fn, cb) {
 Object.defineProperty(exports, '__esModule', { value: true });
 
 var request = __webpack_require__(13);
-var universalUserAgent = __webpack_require__(3);
+var universalUserAgent = __webpack_require__(4);
 
 const VERSION = "4.5.8";
 
@@ -9192,19 +9192,14 @@ var __importStar = this && this.__importStar || function (mod) {
   return result;
 };
 
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
 const core = __importStar(__webpack_require__(9));
 
-const promises_1 = __importDefault(__webpack_require__(83));
+const fs_1 = __webpack_require__(3); // fix for node v12 https://stackoverflow.com/questions/64725249/fs-promises-api-in-typescript-not-compiling-in-javascript-correctly
+
 
 const github = __importStar(__webpack_require__(17));
 
@@ -9222,7 +9217,7 @@ try {
   core.debug(`looking for vercel.json at path: ${vercelFilePath}`);
 
   try {
-    promises_1.default.readFile(vercelFilePath, 'utf-8').then(result => {
+    fs_1.promises.readFile(vercelFilePath, 'utf-8').then(result => {
       core.debug(`reading vercel.json file`);
       const vercelConfig = JSON.parse(result);
       core.debug(`current branch is: ${github.context.ref}`); // @ts-ignore
@@ -9258,12 +9253,6 @@ try {
 }
 
 core.debug(`vercel.json updated succesfully`);
-
-/***/ }),
-/* 83 */
-/***/ (function(module, exports) {
-
-module.exports = require("fs/promises");
 
 /***/ })
 /******/ ]);

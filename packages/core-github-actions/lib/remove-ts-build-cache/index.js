@@ -205,7 +205,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 // We use any as a valid input type
 /* eslint-disable @typescript-eslint/no-explicit-any */
-const fs = __importStar(__webpack_require__(4));
+const fs = __importStar(__webpack_require__(3));
 const os = __importStar(__webpack_require__(1));
 const utils_1 = __webpack_require__(2);
 function issueCommand(command, message) {
@@ -251,7 +251,7 @@ exports.toCommandValue = toCommandValue;
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /***/ (function(module, exports) {
 
 module.exports = require("fs");
@@ -302,7 +302,7 @@ Object.defineProperty(exports, "__esModule", {
 
 const core = __importStar(__webpack_require__(9));
 
-const fs = __importStar(__webpack_require__(4));
+const fs = __importStar(__webpack_require__(3));
 
 const path = __importStar(__webpack_require__(8));
 
