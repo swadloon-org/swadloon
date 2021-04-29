@@ -49,7 +49,7 @@ jobs:
     - name: Install dependencies and build core packages
       run: yarn --prefer-offline
 
-    - name: Clear Caches
+    - name: Clean
       run: yarn clean --scope @newrade/newrade-website
 
     - name: Lint Src Files

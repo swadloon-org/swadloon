@@ -4,7 +4,7 @@
 # - reference: https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions
 #
 
-name: vsb-website
+name: vsb-admin
 
 on:
   push:
@@ -15,7 +15,7 @@ on:
       - '**/yarn.lock'
       - 'packages/core-*/**/*'
       - 'packages/vsb-common/**/*'
-      - 'packages/vsb-website/**/*'
+      - 'packages/vsb-admin/**/*'
     branches:
       - dev
       - master
@@ -48,27 +48,22 @@ jobs:
     - name: Set the env variable depending on the branch
       uses: ./packages/core-github-actions/lib/set-app-env
 
-    - name: Update vercel.json rewrites
-      uses: ./packages/core-github-actions/lib/vercel-rewrites
-      with:
-        vercel-json-path: ./packages/vsb-website/vercel.json
-
     - name: Install dependencies and build core packages
       run: yarn --prefer-offline
 
-    - name: Clean
-      run: yarn clean --scope @newrade/vsb-website
+    - name: Clean package
+      run: yarn clean --scope @newrade/vsb-admin
 
     - name: Lint Src Files
-      run: yarn eslint ./packages/vsb-*/src/ --ext ts,tsx
+      run: yarn eslint ./packages/vsb-admin/src/ --ext ts,tsx
 
     - name: Build vsb-common
       run: yarn build --scope @newrade/vsb-common
 
     # todo handle gatsby cache clearing github.event_name == 'workflow_dispatch'
 
-    - name: Build vsb-website
-      run: yarn build --scope @newrade/vsb-website
+    - name: Build vsb-admin
+      run: yarn build --scope @newrade/vsb-admin
       env:
         NVM_NODE_VERSION: ${{ secrets.NVM_NODE_VERSION }}
         MASTER_GIT_HOST: ${{ secrets.MASTER_GIT_HOST }}
@@ -79,20 +74,13 @@ jobs:
         PROJECT_REPO_NAME: ${{ secrets.PROJECT_REPO_NAME }}
 
         DEBUG: 'newrade:*'
-        APP_URL: 'http://local.vasectomie-pierre-boucher.ca'
-
-        CONTENTFUL_ENV: ${{ secrets.CONTENTFUL_ENV }}
-        CONTENTFUL_SPACEID_VSB: ${{ secrets.CONTENTFUL_SPACEID_VSB }}
-        CONTENTFUL_DELIVERY_TOKEN_VSB: ${{ secrets.CONTENTFUL_DELIVERY_TOKEN_VSB }}
-        CANADA_POST_API_KEY_VSB: ${{ secrets.CANADA_POST_API_KEY_VSB }}
-        GOOGLE_MAP_API_KEY: ${{ secrets.GOOGLE_MAP_API_KEY }}
-        RECAPTCHA_SITE_KEY_VSB: ${{ secrets.RECAPTCHA_SITE_KEY_VSB }}
+        APP_URL: 'https://admin.vasectomie-pierre-boucher.ca'
 
     - name: Check for protected branches
       if: endsWith(github.ref, 'api')
       run: echo "branch cannot end with 'api'" && exit 1
 
-    - name: Deploy website (branch)
+    - name: Deploy admin (branch)
       if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && (github.ref == 'refs/heads/dev' || github.ref == 'refs/heads/master')
       uses: amondnet/vercel-action@v20
       with:
@@ -101,10 +89,10 @@ jobs:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         vercel-args: 'public'
         vercel-org-id: ${{ secrets.VERCEL_ORG_ID}}
-        vercel-project-id: prj_BSiEPXFueCLXvdowJXU7WikN1T1M
-        working-directory: ./packages/vsb-website
+        vercel-project-id: prj_XN7LTXJI3itawDz5OjeOYTWAWtVC
+        working-directory: ./packages/vsb-admin
         alias-domains: |
-          {{ BRANCH }}-website.vasectomie-pierre-boucher.ca
+          {{ BRANCH }}-admin.vasectomie-pierre-boucher.ca
 
     - name: Deploy website (PR)
       if: github.event_name == 'pull_request'
@@ -115,10 +103,10 @@ jobs:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         vercel-args: 'public'
         vercel-org-id: ${{ secrets.VERCEL_ORG_ID}}
-        vercel-project-id: prj_BSiEPXFueCLXvdowJXU7WikN1T1M
-        working-directory: ./packages/vsb-website
+        vercel-project-id: prj_XN7LTXJI3itawDz5OjeOYTWAWtVC
+        working-directory: ./packages/vsb-admin
         alias-domains: |
-          pr-{{ PR_NUMBER }}-website.vasectomie-pierre-boucher.ca
+          pr-{{ PR_NUMBER }}-admin.vasectomie-pierre-boucher.ca
 
     - name: Deploy website (prod)
       if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/release'
@@ -129,8 +117,8 @@ jobs:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         vercel-args: 'public --prod'
         vercel-org-id: ${{ secrets.VERCEL_ORG_ID}}
-        vercel-project-id: prj_BSiEPXFueCLXvdowJXU7WikN1T1M
-        working-directory: ./packages/vsb-website
+        vercel-project-id: prj_XN7LTXJI3itawDz5OjeOYTWAWtVC
+        working-directory: ./packages/vsb-admin
         alias-domains: |
-          website.vasectomie-pierre-boucher.ca
+          admin.vasectomie-pierre-boucher.ca
 

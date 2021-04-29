@@ -1,0 +1,14 @@
+#
+# see https://docs.github.com/en/free-pro-team@latest/actions/creating-actions/creating-a-javascript-action
+# see https://docs.github.com/en/free-pro-team@latest/actions/creating-actions/metadata-syntax-for-github-actions
+# see https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions
+#
+name: 'vercel-rewrites'
+description: 'Update vercel.json with Specific rewrites rules depending on the current branch or trigger'
+inputs:
+  vercel-json-path:
+    description: 'Path to vercel.json file'
+    required: true
+runs:
+  using: 'node12'
+  main: 'index.js'
