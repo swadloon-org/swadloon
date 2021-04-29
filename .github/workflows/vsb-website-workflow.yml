@@ -27,7 +27,7 @@ jobs:
 
   build-test-deploy:
 
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
 
     strategy:
       matrix:
@@ -51,7 +51,7 @@ jobs:
     - name: Update vercel.json rewrites
       uses: ./packages/core-github-actions/lib/vercel-rewrites
       with:
-        vercel-json-path: ./packages/vsb-website/vercel.json
+        working-directory: ./packages/vsb-website
 
     - name: Install dependencies and build core packages
       run: yarn --prefer-offline
@@ -104,7 +104,7 @@ jobs:
         vercel-project-id: prj_BSiEPXFueCLXvdowJXU7WikN1T1M
         working-directory: ./packages/vsb-website
         alias-domains: |
-          {{ BRANCH }}-website.vasectomie-pierre-boucher.ca
+          {{ BRANCH }}.vasectomie-pierre-boucher.ca
 
     - name: Deploy website (PR)
       if: github.event_name == 'pull_request'
@@ -118,7 +118,7 @@ jobs:
         vercel-project-id: prj_BSiEPXFueCLXvdowJXU7WikN1T1M
         working-directory: ./packages/vsb-website
         alias-domains: |
-          pr-{{ PR_NUMBER }}-website.vasectomie-pierre-boucher.ca
+          pr-{{ PR_NUMBER }}.vasectomie-pierre-boucher.ca
 
     - name: Deploy website (prod)
       if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/release'
@@ -132,5 +132,5 @@ jobs:
         vercel-project-id: prj_BSiEPXFueCLXvdowJXU7WikN1T1M
         working-directory: ./packages/vsb-website
         alias-domains: |
-          website.vasectomie-pierre-boucher.ca
+          vasectomie-pierre-boucher.ca
 

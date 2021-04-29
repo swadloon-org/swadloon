@@ -5,7 +5,7 @@ or trigger.
 
 ## Inputs
 
-### `vercel-json-path`
+### `working-directory`
 
 **Required** Path to vercel.json file, e.g. `packages/website/vercel.json`.
 
@@ -15,5 +15,5 @@ or trigger.
 - name: Update vercel.json rewrites
   uses: ./packages/core-github-actions/lib/vercel-rewrites
   with:
-    vercel-json-path: ./packages/vsb-website/vercel.json
+    working-directory: ./packages/vsb-website/vercel.json
 ```
