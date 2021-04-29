@@ -9215,52 +9215,85 @@ try {
   core.info(`workflow : ${context.workflow}`);
   const workingDir = core.getInput('working-directory'); // ./packages/package-name
 
-  core.info(`looking for vercel.json in: ${workingDir}`);
+  core.info(`looking for vercel.json files in: ${workingDir}`);
   const filenames = ['vercel.json', 'vercel.dev.json', 'vercel.master.json'];
   const vercelJsonFileFilenames = filenames.map(filename => {
-    core.info(`reading vercel.json file: ${filename}`);
-    return fs_1.promises.readFile(`${workingDir}/${filename}`, 'utf-8');
+    return readVercelConfigFile(`${workingDir}/${filename}`);
   });
 
   try {
-    Promise.all(vercelJsonFileFilenames).then(values => {
-      core.info(`reading vercel.json files:\t success ✅`);
-      const [vercelProdConfig, vercelDevConfig, vercelMasterConfig] = values.map(file => JSON.parse(file));
+    Promise.all(vercelJsonFileFilenames).then(values => values.filter(value => !!value)).then(values => {
+      if (values.length !== 3) {
+        const msg = 'vercel.json, vercel.dev.json and vercel.master.json must be provided';
+        core.error(msg);
+        throw new Error(msg);
+      }
+
+      const [vercelProdConfig, vercelDevConfig, vercelMasterConfig] = values;
+      const vercelConfigPath = `${workingDir}/${filenames[0]}`;
       core.info(`current branch is: ${github.context.ref}`); // @ts-ignore
 
       core.info(`target branch is: ${github.context.head_ref}`);
+      core.debug(`updating config file and returning both the object and the updated file for verification`);
 
       switch (github.context.ref) {
         case 'refs/heads/dev':
           {
-            core.info(`replacing .rewrites property with ${filenames[1]}'s`);
-            vercelProdConfig.rewrites = vercelDevConfig.rewrites;
-            core.info(`rewrites: ${JSON.stringify(vercelProdConfig.rewrites, null, 2)}`);
-            fs_1.promises.writeFile(filenames[1], JSON.stringify(vercelProdConfig));
-            break;
+            const updatedConfigObject = Object.assign(Object.assign({}, vercelProdConfig), vercelDevConfig);
+            return updateVercelConfigFile(vercelConfigPath, updatedConfigObject).then(updatedConfigFile => {
+              return {
+                updatedConfig: updatedConfigObject,
+                updatedConfigFile
+              };
+            });
           }
 
         case 'refs/heads/master':
           {
-            core.info(`replacing .rewrites property with ${filenames[2]}'s`);
-            vercelProdConfig.rewrites = vercelDevConfig.rewrites;
-            core.info(`rewrites: ${JSON.stringify(vercelProdConfig.rewrites, null, 2)}`);
-            fs_1.promises.writeFile(filenames[2], JSON.stringify(vercelProdConfig));
-            break;
-          }
-
-        case 'refs/heads/release':
-          {
-            break;
+            const updatedConfigObject = Object.assign(Object.assign({}, vercelProdConfig), vercelMasterConfig);
+            return updateVercelConfigFile(vercelConfigPath, updatedConfigObject).then(updatedConfigFile => {
+              return {
+                updatedConfig: updatedConfigObject,
+                updatedConfigFile
+              };
+            });
           }
 
         default:
+        case 'refs/heads/release':
           {
-            console.info('only replacing vercel.json config on branches release, master and dev');
+            console.info('only replacing vercel.json config on branches master and dev');
+            return readVercelConfigFile(`${workingDir}/${filenames[0]}`).then(updatedConfigFile => {
+              return {
+                updatedConfig: updatedConfigFile,
+                updatedConfigFile
+              };
+            });
           }
       }
+    }).then(({
+      updatedConfig,
+      updatedConfigFile
+    }) => {
+      if (!updatedConfig) {
+        const msg = 'no updated vercel config object received, aborting';
+        core.error(msg);
+        throw new Error(msg);
+      }
 
-      core.info(`vercel.json updated succesfully`);
+      if (!updatedConfigFile) {
+        const msg = 'no updated vercel config file received, aborting';
+        core.error(msg);
+        throw new Error(msg);
+      }
+
+      if (JSON.stringify(updatedConfig) !== JSON.stringify(updatedConfigFile)) {
+        const msg = 'updated vercel.json file content does not match the updated config object, aborting!';
+        core.error(msg);
+        throw new Error(msg);
+      }
+
+      core.info(`updated vercel.json file successfully ✅`);
     }).catch(error => {
       core.error(`could not find vercel.json files in the specified directory`);
       core.error(`error: ${error}`);
@@ -9270,6 +9303,23 @@ try {
   }
 } catch (error) {
   core.setFailed(error.message);
+}
+
+function readVercelConfigFile(path) {
+  core.info(`reading vercel.json file: ${path}`);
+  return fs_1.promises.readFile(path, 'utf-8').then(result => {
+    return JSON.parse(result);
+  }).catch(error => {
+    core.error(`could not read file ${path}`);
+    return undefined;
+  });
+}
+
+function updateVercelConfigFile(path, data) {
+  core.info(`replacing vercel.json file content`);
+  return fs_1.promises.writeFile(path, JSON.stringify(data, null, 2)).then(() => {
+    return readVercelConfigFile(path);
+  });
 }
 
 /***/ })
