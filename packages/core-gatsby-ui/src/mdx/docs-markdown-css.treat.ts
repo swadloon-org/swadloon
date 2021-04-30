@@ -27,9 +27,9 @@ globalStyle(
 );
 
 globalStyle(
-  `${wrapper} > * + h1, ${wrapper} > * + h2, ${wrapper} > * + h3, ${wrapper} > * + h4, ${wrapper} > * + h5, ${wrapper} > * + h6`,
+  `${wrapper} > * + h1, ${wrapper} > :not(h1) + h2, ${wrapper} > * + h3, ${wrapper} > * + h4, ${wrapper} > * + h5, ${wrapper} > * + h6`,
   ({ cssTheme, theme }: Theme) => ({
-    marginTop: '3em',
+    marginTop: '2em',
   })
 );
 
@@ -121,15 +121,15 @@ globalStyle(`${wrapper} p + img`, ({ cssTheme, theme }: Theme) => ({
 }));
 
 globalStyle(`${wrapper} figcaption`, ({ cssTheme, theme }: Theme) => ({
-  marginTop: contentMargin,
+  marginTop: '1.5em',
 }));
 
 globalStyle(`${wrapper} p + blockquote`, ({ cssTheme, theme }: Theme) => ({
-  marginTop: contentMargin,
+  marginTop: '1.5em',
 }));
 
 globalStyle(`${wrapper} blockquote + *`, ({ cssTheme, theme }: Theme) => ({
-  marginTop: contentMargin,
+  marginTop: '2em',
 }));
 
 globalStyle(`${wrapper} p + iframe`, ({ cssTheme, theme }: Theme) => ({
@@ -233,11 +233,11 @@ globalStyle(`${wrapper} kbd`, ({ cssTheme, theme }: Theme) => ({
  */
 
 globalStyle(`${wrapper} pre + pre`, ({ cssTheme, theme }: Theme) => ({
-  marginTop: halfcontentMargin,
+  marginTop: '2em',
 }));
 
 globalStyle(`${wrapper} p + pre`, ({ cssTheme, theme }: Theme) => ({
-  marginTop: contentMargin,
+  marginTop: '1.5rem',
 }));
 
 /**
@@ -249,4 +249,17 @@ globalStyle(`${wrapper} p`, ({ cssTheme, theme }: Theme) => ({
   fontSize: '16px',
   lineHeight: '1.5',
   letterSpacing: '0',
+}));
+
+/**
+ * Styles for tables
+ */
+
+globalStyle(`${wrapper} thead`, ({ cssTheme, theme }: Theme) => ({
+  fontFamily: 'Inter',
+  fontSize: '16px',
+  lineHeight: '1.5',
+  letterSpacing: '0',
+  color: '#FFFFFF',
+  backgroundColor: '#000000',
 }));

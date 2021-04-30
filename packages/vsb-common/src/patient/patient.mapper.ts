@@ -1,9 +1,10 @@
 import { formatISO, parseISO } from 'date-fns';
 import { CLINIKO_REMINDER_TYPE } from './patient.constant';
-import { PatientClinikoModel, PatientModel } from './patient.model';
+import { PatientClinikoModel, PatientModel, PatientModelAdmin } from './patient.model';
 
 export function getPatientClinikoModel(patientModel: PatientModel): PatientClinikoModel {
   return {
+    id: patientModel.id || '',
     first_name: patientModel.firstName,
     last_name: patientModel.lastName,
     date_of_birth:
@@ -21,5 +22,21 @@ export function getPatientClinikoModel(patientModel: PatientModel): PatientClini
     country: patientModel.country,
     /** disabled on the form, will be hardcoded to email */
     reminder_type: CLINIKO_REMINDER_TYPE.EMAIL,
+  };
+}
+
+export function getPatientModel(
+  patientClinikoModel: PatientClinikoModel,
+  extras?: Pick<PatientModelAdmin, 'status' | 'statusNote'>
+): PatientModelAdmin {
+  return {
+    id: patientClinikoModel.id,
+    firstName: patientClinikoModel.first_name,
+    lastName: patientClinikoModel.last_name,
+    email: patientClinikoModel.email,
+    patientPhoneNumber: patientClinikoModel.patient_phone_numbers?.[0]?.number,
+    patientPhoneType: patientClinikoModel.patient_phone_numbers?.[0]?.phone_type,
+    status: extras?.status,
+    statusNote: extras?.statusNote,
   };
 }

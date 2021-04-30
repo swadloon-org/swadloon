@@ -20,6 +20,8 @@ import {
   Stack,
   Summary,
   Switcher,
+  Table,
+  TableCellHeader,
   Tag,
 } from '@newrade/core-react-ui';
 import React from 'react';
@@ -37,6 +39,7 @@ export const docsMdxComponents = {
   ol: (props: MDXProps) => <ol {...props} />,
   li: (props: MDXProps) => <li {...props} />,
   p: (props: MDXProps) => <p {...props} />,
+  thead: (props: MDXProps) => <thead {...props} />,
   Label: Label,
   Tag: Tag,
   BoxV2: BoxV2,
@@ -65,4 +68,6 @@ export const docsMdxComponents = {
   CodeHighlight: CodeHighlight,
   CodeBlock: CodeBlock,
   Link: Link,
+  Table: Table,
+  TableCellHeader: TableCellHeader,
 };

@@ -4,8 +4,11 @@ tags:
   - demo
 ---
 
-# Demos
+# Demos - 🍿
 
-These are the principles that shape how we design every aspect of the interfaces.
+We use the Design System for every project that we create. Here's a few notable
+examples in the wild:
 
-The design system describes every aspect of the visual design of a brand
+| Company | Website                          | Design System                                                |
+| ------- | -------------------------------- | ------------------------------------------------------------ |
+| Newrade | [newrade.ca](https://newrade.ca) | [newrade.ca/design-system](https://newrade.ca/design-system) |

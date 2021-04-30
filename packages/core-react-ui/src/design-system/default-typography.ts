@@ -51,19 +51,20 @@ export const defaultTypography: Typography = {
   },
   headings: {
     font: [fonts.defaultSansFont, ...fonts.defaultFallbackSansFonts],
-    fontWeight: 600,
+    fontWeight: 700,
     letterSpacing: -2,
     mobile: {
       h1: {
         capHeight: 24,
         lineGap: 20,
+        letterSpacing: -3,
       },
       h2: {
-        capHeight: 20,
+        capHeight: 18,
         lineGap: 18,
       },
       h3: {
-        capHeight: 18,
+        capHeight: 16,
         lineGap: 16,
       },
       h4: {
@@ -76,6 +77,7 @@ export const defaultTypography: Typography = {
       h1: {
         capHeight: 26,
         lineGap: 18,
+        letterSpacing: -3,
       },
       h2: {
         capHeight: 22,
@@ -95,19 +97,19 @@ export const defaultTypography: Typography = {
       h1: {
         capHeight: 35,
         lineGap: 18,
+        letterSpacing: -3,
       },
       h2: {
-        capHeight: 24,
+        capHeight: 22,
         lineGap: 16,
       },
       h3: {
-        capHeight: 18,
+        capHeight: 17,
         lineGap: 14,
       },
       h4: {
-        capHeight: 14,
+        capHeight: 13,
         lineGap: 14,
-        fontWeight: 600,
       },
     },
   },
@@ -161,11 +163,11 @@ export const defaultTypography: Typography = {
     },
     desktop: {
       large: {
-        capHeight: 12,
+        capHeight: 15,
         lineGap: 16,
       },
       medium: {
-        capHeight: 11,
+        capHeight: 13,
         lineGap: 16,
       },
       small: {

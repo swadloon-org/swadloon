@@ -2,6 +2,8 @@ import { DEPLOY_ENV } from '@newrade/core-common';
 import { loadDotEnv, logEnvVariables } from '@newrade/core-utils';
 import {
   API_BASE_PATH,
+  API_HEALTH_CHECK,
+  API_LIST_PATIENTS_ROUTE,
   API_REGISTER_PATIENT_ROUTE,
   API_STATUS_CLINIKO,
   API_TRANSLATION_ROUTE,
@@ -13,15 +15,18 @@ import rateLimit from 'express-rate-limit';
 import i18nextMiddleware from 'i18next-http-middleware';
 import morgan from 'morgan';
 import path from 'path';
+import { getPatients } from './controllers/cliniko-patients.controller';
 import { Env, ENV } from '../types/dot-env';
-import { ClinikoController } from './controller/cliniko.controller';
-import { getTranslation } from './controller/translation.controller';
+import { postPatient } from './controllers/cliniko-post-patient.controller';
+import { getClinikoStatus } from './controllers/cliniko-status';
+import { HealthCheckController } from './controllers/health-check.controller';
+import { getTranslation } from './controllers/translation.controller';
 import { loggerMiddleware } from './middleware/logger.middleware';
 import { recaptchaMiddleware } from './middleware/recaptcha.middleware';
 import { i18nService, initI18nService } from './services/i18n.service';
 
 /**
- * Load env variable
+ * Load env variables
  */
 export const env = loadDotEnv<ENV>({
   schema: Env,
@@ -61,6 +66,7 @@ server.use(express.json());
 server.use(loggerMiddleware);
 server.use(morgan('common'));
 server.use(urlencoded({ extended: true }));
+
 /**
  * i18n Localization service
  * @see https://github.com/i18next/i18next-http-middleware
@@ -71,28 +77,36 @@ server.use(API_BASE_PATH, i18nextMiddleware.handle(i18nService));
 /**
  * Routes
  */
-const router = Router();
+const publicRoutes = Router();
+const protectedRoutes = Router();
+
+/**
+ * System
+ */
+publicRoutes.route(API_HEALTH_CHECK).get(HealthCheckController.getHealthCheck);
+
 /**
  * Cliniko
  */
-router.route(API_STATUS_CLINIKO).get(ClinikoController.getClinikoStatus);
-router.route(API_REGISTER_PATIENT_ROUTE).post(recaptchaMiddleware, ClinikoController.postPatient);
-// TODO: enable router.route(API_LIST_PATIENTS_ROUTE).get(getListPatients);
+publicRoutes.route(API_STATUS_CLINIKO).get(getClinikoStatus);
+protectedRoutes.route(API_LIST_PATIENTS_ROUTE).get(getPatients);
+protectedRoutes.route(API_REGISTER_PATIENT_ROUTE).post(recaptchaMiddleware, postPatient);
+
 /**
  * Translation
  */
-router.route(API_TRANSLATION_ROUTE).get(getTranslation);
+publicRoutes.route(API_TRANSLATION_ROUTE).get(getTranslation);
 
 /**
  * Startup
  */
-server.use(router);
+server.use(protectedRoutes);
+server.use(publicRoutes);
 
-server.use('/api/server', (req, res, next) => {
-  return res.status(200).send('ok');
-});
-
-if (env.APP_ENV === DEPLOY_ENV.LOCAL) {
+/**
+ * For local setup only
+ */
+if (env.APP_ENV === DEPLOY_ENV.LOCAL && !env.TEST_ENV) {
   const httpServer = server.listen(port);
   log('listening on port ' + port);
 

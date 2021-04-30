@@ -25,7 +25,7 @@ import {
   API_REGISTER_PATIENT_ROUTE,
   API_STATUS_CLINIKO,
   CLINIKO_PHONE_TYPE,
-  PatientAPIResponseBody,
+  CreatePatientAPIResponseBody,
   PatientModel,
   PatientValidation,
 } from '@newrade/vsb-common';
@@ -52,7 +52,7 @@ import * as styleRefs from './block-form-vasectomy.treat';
 const log = debug('newrade:vsb-website');
 const logError = log.extend('error');
 
-type Props = CommonComponentProps & BlockProps & {};
+export type BlockFormVasectomyProps = CommonComponentProps & BlockProps & {};
 
 function handleFocusControlled(name?: string) {
   return () => {
@@ -131,7 +131,7 @@ const FormStack: React.FC = (props) => {
   return <Stack gap={[cssTheme.sizing.var.x4]}>{props.children}</Stack>;
 };
 
-export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, block, ...props }) => {
+export const BlockFormVasectomy: React.FC<BlockFormVasectomyProps> = ({ id, style, className, block, ...props }) => {
   const { styles } = useStyles(styleRefs);
   const { cssTheme } = useTreatTheme();
 
@@ -149,6 +149,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, bloc
   const submitButtonRef = useRef<HTMLButtonElement>();
   const resolver = useYupValidationResolver(PatientValidation);
   const defaultValues: PatientModel = {
+    id: '',
     firstName: '',
     lastName: '',
     email: '',
@@ -206,7 +207,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, bloc
   function checkApiStatus() {
     fetch(API_STATUS_CLINIKO)
       .then((response) => response.json())
-      .then((body: PatientAPIResponseBody) => {
+      .then((body: CreatePatientAPIResponseBody) => {
         if (body.status === API_RESPONSE_STATUS.SUCCESS) {
           setApiStatus('en ligne');
         }
@@ -255,7 +256,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, bloc
       ),
     })
       .then((response) => response.json())
-      .then((result: PatientAPIResponseBody) => {
+      .then((result: CreatePatientAPIResponseBody) => {
         if (result.status === API_RESPONSE_STATUS.SUCCESS) {
           log('patient was successfully created');
           setApiSuccess([result.message]);
@@ -272,7 +273,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, bloc
           });
         }
 
-        if (result.payload.yupValidationErrors) {
+        if (result.payload?.yupValidationErrors) {
           result.payload.yupValidationErrors.map((validationError) => {
             if (validationError) {
               logError(validationError);
@@ -291,7 +292,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, bloc
 
         setApiErrors([
           ...result.errors.map((error) => error.message),
-          ...(result.payload.yupValidationErrors
+          ...(result.payload?.yupValidationErrors
             ? result.payload.yupValidationErrors.map((error) => error.errors.join(', '))
             : []),
         ]);
@@ -790,7 +791,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, bloc
             ) : null}
 
             <OnlineIndicator status={apiStatus === 'en ligne' ? 'online' : 'offline'}>
-              système {apiStatus || 'en chargement...'}
+              système : {apiStatus || 'en chargement...'}
             </OnlineIndicator>
 
             <Hr></Hr>

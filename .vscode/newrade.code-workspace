@@ -43,6 +43,12 @@
       "**/node_modules/**": false
     },
     //
+    // markdown
+    //
+    "[markdown]": {
+      "editor.wordWrap": "off"
+    },
+    //
     // deepscan
     //
     // https://github.com/deepscan/vscode-deepscan#settings-options
@@ -79,7 +85,8 @@
       "cssho.vscode-svgviewer",
       "deepscan.vscode-deepscan",
       "graphql.vscode-graphql",
-      "vstirbu.vscode-mermaid-preview"
+      "vstirbu.vscode-mermaid-preview",
+      "svsool.markdown-memo"
     ]
   },
   "folders": [
@@ -171,6 +178,12 @@
     },
     {
       "path": "../packages/mir-website"
+    },
+    {
+      "path": "../packages/vsb-admin"
+    },
+    {
+      "path": "../packages/vsb-website-next"
     },
     {
       "path": "../packages/vsb-website"

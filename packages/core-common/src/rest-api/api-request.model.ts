@@ -38,5 +38,5 @@ export type APIResponseBody<Payload> = {
   /**
    * The response payload
    */
-  payload: Payload;
+  payload?: Payload;
 };

@@ -69,13 +69,13 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({ plu
   });
 };
 
-const exec = util.promisify(child_process.exec);
+// const exec = util.promisify(child_process.exec);
 
-export const onPostBuild: GatsbyNode['onPostBuild'] = async ({ reporter }) => {
-  const reportOut = (report: any) => {
-    const { stderr, stdout } = report;
-    if (stderr) reporter.error(stderr);
-    if (stdout) reporter.info(stdout);
-  };
-  reportOut(await exec('yarn copy:functions'));
-};
+// export const onPostBuild: GatsbyNode['onPostBuild'] = async ({ reporter }) => {
+//   const reportOut = (report: any) => {
+//     const { stderr, stdout } = report;
+//     if (stderr) reporter.error(stderr);
+//     if (stdout) reporter.info(stdout);
+//   };
+//   reportOut(await exec('yarn copy:functions'));
+// };
