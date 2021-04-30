@@ -21,22 +21,15 @@ const halfcontentMargin = `1em`;
 globalStyle(
   `${wrapper} > h1:not(:last-child), ${wrapper} > h2:not(:last-child), ${wrapper} > h3:not(:last-child), ${wrapper} > h4:not(:last-child), ${wrapper} > h5:not(:last-child) ${wrapper} > h6:not(:last-child)`,
   ({ cssTheme, theme }: Theme) => ({
-    marginBottom: '1.5em',
+    marginBottom: '1.25em',
     position: 'relative',
   })
 );
 
 globalStyle(
-  `${wrapper} > * + h1, ${wrapper} > :not(h1) + h2, ${wrapper} > * + h3, ${wrapper} > * + h4, ${wrapper} > * + h5, ${wrapper} > * + h6`,
+  `${wrapper} > :not(h1) + h1, ${wrapper} > :not(h1) + h2, ${wrapper} > * + h3, ${wrapper} > * + h4, ${wrapper} > * + h5, ${wrapper} > * + h6`,
   ({ cssTheme, theme }: Theme) => ({
-    marginTop: '2em',
-  })
-);
-
-globalStyle(
-  `${wrapper} > h1 + *, ${wrapper} > h2 + *, ${wrapper} > h3 + *, ${wrapper} > h4 + *, ${wrapper} > h5 + *, ${wrapper} > h6 + *`,
-  ({ cssTheme, theme }: Theme) => ({
-    marginBottom: '1em',
+    marginTop: '2.5em',
   })
 );
 
@@ -81,35 +74,53 @@ globalStyle(`${wrapper} p`, ({ cssTheme, theme }: Theme) => ({
 }));
 
 globalStyle(`${wrapper} p + p`, ({ cssTheme, theme }: Theme) => ({
-  marginTop: '1em',
+  marginTop: '1.25em',
+}));
+
+globalStyle(`${wrapper} li p + p`, ({ cssTheme, theme }: Theme) => ({
+  marginBottom: '1.25em',
 }));
 
 globalStyle(`${wrapper} p + ul`, ({ cssTheme, theme }: Theme) => ({
-  marginTop: '1.5em',
+  marginTop: '1.125em',
 }));
 
 globalStyle(`${wrapper} ul + p`, ({ cssTheme, theme }: Theme) => ({
-  marginTop: '1.5em',
-}));
-
-globalStyle(`${wrapper} ul + *`, ({ cssTheme, theme }: Theme) => ({
-  marginTop: '1.5em',
+  marginTop: '1.125em',
+  marginBottom: '1.125em',
 }));
 
 globalStyle(`${wrapper} ul + ul`, ({ cssTheme, theme }: Theme) => ({
-  marginTop: '1em',
+  marginTop: '1.125em',
+}));
+
+globalStyle(`${wrapper} ul > li`, ({ cssTheme, theme }: Theme) => ({
+  marginTop: '0.5em',
+}));
+
+globalStyle(`${wrapper} ul > li > ul`, ({ cssTheme, theme }: Theme) => ({
+  marginLeft: '1.25em',
 }));
 
 globalStyle(`${wrapper} p + ol`, ({ cssTheme, theme }: Theme) => ({
-  marginTop: '1.5em',
+  marginTop: '1.125em',
 }));
 
 globalStyle(`${wrapper} ol + p`, ({ cssTheme, theme }: Theme) => ({
-  marginTop: '1.5em',
+  marginTop: '1.125em',
+  marginBottom: '1.125em',
+}));
+
+globalStyle(`${wrapper} ol > li`, ({ cssTheme, theme }: Theme) => ({
+  marginTop: '0.5em',
+}));
+
+globalStyle(`${wrapper} ol > li > ol`, ({ cssTheme, theme }: Theme) => ({
+  marginLeft: '1.25em',
 }));
 
 globalStyle(`${wrapper} ol + ol`, ({ cssTheme, theme }: Theme) => ({
-  marginTop: '1em',
+  marginTop: '1.25em',
 }));
 
 globalStyle(`${wrapper} p + p:not(:last)`, ({ cssTheme, theme }: Theme) => ({
@@ -125,7 +136,8 @@ globalStyle(`${wrapper} figcaption`, ({ cssTheme, theme }: Theme) => ({
 }));
 
 globalStyle(`${wrapper} p + blockquote`, ({ cssTheme, theme }: Theme) => ({
-  marginTop: '1.5em',
+  marginTop: '2em',
+  marginBottom: '2em',
 }));
 
 globalStyle(`${wrapper} blockquote + *`, ({ cssTheme, theme }: Theme) => ({
@@ -138,29 +150,6 @@ globalStyle(`${wrapper} p + iframe`, ({ cssTheme, theme }: Theme) => ({
 
 globalStyle(`${wrapper} iframe`, ({ cssTheme, theme }: Theme) => ({
   maxWidth: `100%`,
-}));
-
-/**
- * List items
- */
-
-globalStyle(`${wrapper} li p + p`, ({ cssTheme, theme }: Theme) => ({
-  marginBottom: '1em',
-}));
-
-globalStyle(`${wrapper} li`, ({ cssTheme, theme }: Theme) => ({
-  fontFamily: cssTheme.typography.fonts.sans[0].name,
-  marginBottom: '0.5em',
-}));
-
-globalStyle(`${wrapper} ol + *`, ({ cssTheme, theme }: Theme) => ({
-  fontFamily: cssTheme.typography.fonts.sans[0].name,
-  marginBottom: '1em',
-}));
-
-globalStyle(`${wrapper} ul + *`, ({ cssTheme, theme }: Theme) => ({
-  fontFamily: cssTheme.typography.fonts.sans[0].name,
-  marginBottom: '1em',
 }));
 
 /**
@@ -180,8 +169,9 @@ globalStyle(`${wrapper} details + p`, ({ cssTheme, theme }: Theme) => ({
  */
 
 globalStyle(`${wrapper} table`, ({ cssTheme, theme }: Theme) => ({
-  marginTop: '2em',
   marginBottom: '2em',
+  borderCollapse: 'separate',
+  width: '100%',
 }));
 
 /**
@@ -193,7 +183,7 @@ globalStyle(`${wrapper} figure`, ({ cssTheme, theme }: Theme) => ({
   flexDirection: 'column',
   margin: 0, // resets browser default margin on figure element
   marginTop: contentMargin,
-  marginBottom: contentMargin,
+  marginBottom: 'contentMargin',
 }));
 
 globalStyle(`${wrapper} img`, ({ cssTheme, theme }: Theme) => ({
@@ -234,10 +224,16 @@ globalStyle(`${wrapper} kbd`, ({ cssTheme, theme }: Theme) => ({
 
 globalStyle(`${wrapper} pre + pre`, ({ cssTheme, theme }: Theme) => ({
   marginTop: '2em',
+  marginBottom: '1.5em',
 }));
 
 globalStyle(`${wrapper} p + pre`, ({ cssTheme, theme }: Theme) => ({
-  marginTop: '1.5rem',
+  marginTop: '1.5em',
+  marginBottom: '1.5em',
+}));
+
+globalStyle(`${wrapper} pre`, ({ cssTheme, theme }: Theme) => ({
+  marginBottom: 0,
 }));
 
 /**
@@ -252,14 +248,53 @@ globalStyle(`${wrapper} p`, ({ cssTheme, theme }: Theme) => ({
 }));
 
 /**
+ * Styles for list items
+ */
+
+globalStyle(`${wrapper} li`, ({ cssTheme, theme }: Theme) => ({
+  fontFamily: cssTheme.typography.fonts.sans[0].name,
+}));
+
+globalStyle(`${wrapper} ul`, ({ cssTheme, theme }: Theme) => ({
+  fontFamily: cssTheme.typography.fonts.sans[0].name,
+}));
+
+globalStyle(`${wrapper} ol`, ({ cssTheme, theme }: Theme) => ({
+  fontFamily: cssTheme.typography.fonts.sans[0].name,
+}));
+
+/**
  * Styles for tables
  */
 
 globalStyle(`${wrapper} thead`, ({ cssTheme, theme }: Theme) => ({
-  fontFamily: 'Inter',
-  fontSize: '16px',
-  lineHeight: '1.5',
-  letterSpacing: '0',
   color: '#FFFFFF',
   backgroundColor: '#000000',
+}));
+
+globalStyle(`${wrapper} th`, ({ cssTheme, theme }: Theme) => ({
+  fontFamily: 'Inter',
+  fontSize: '14px',
+  fontWeight: 'bold',
+  lineHeight: '1.5',
+  textAlign: 'left',
+  wordBreak: 'normal',
+  paddingLeft: '1em',
+  paddingRight: '1em',
+  paddingTop: '0.75em',
+  paddingBottom: '0.75em',
+  border: 'none',
+}));
+
+globalStyle(`${wrapper} td`, ({ cssTheme, theme }: Theme) => ({
+  fontFamily: 'Inter',
+  fontSize: '14px',
+  lineHeight: '1.5',
+  textAlign: 'left',
+  wordBreak: 'normal',
+  paddingLeft: '1em',
+  paddingRight: '1em',
+  paddingTop: '0.75em',
+  paddingBottom: '0.75em',
+  borderBottom: 'solid 1px #e0e0e0',
 }));

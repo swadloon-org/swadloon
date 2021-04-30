@@ -21,7 +21,10 @@ import {
   Summary,
   Switcher,
   Table,
+  TableCell,
   TableCellHeader,
+  TableHeader,
+  TableRow,
   Tag,
 } from '@newrade/core-react-ui';
 import React from 'react';
@@ -40,6 +43,10 @@ export const docsMdxComponents = {
   li: (props: MDXProps) => <li {...props} />,
   p: (props: MDXProps) => <p {...props} />,
   thead: (props: MDXProps) => <thead {...props} />,
+  tr: (props: MDXProps) => <tr {...props} />,
+  th: (props: MDXProps) => <th {...props} />,
+  td: (props: MDXProps) => <td {...props} />,
+  table: (props: MDXProps) => <table {...props} />,
   Label: Label,
   Tag: Tag,
   BoxV2: BoxV2,
@@ -70,4 +77,7 @@ export const docsMdxComponents = {
   Link: Link,
   Table: Table,
   TableCellHeader: TableCellHeader,
+  TableRow: TableRow,
+  TableHeader: TableHeader,
+  TableCell: TableCell,
 };
