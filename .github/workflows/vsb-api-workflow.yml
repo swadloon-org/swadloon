@@ -116,7 +116,7 @@ jobs:
         vercel-project-id: prj_gdoOSnZGX67oP3i2oiuKePfTTMbi
         working-directory: ./packages/vsb-api
         alias-domains: |
-          {{ BRANCH }}-api.vasectomie-pierre-boucher.ca
+          {{ BRANCH }}.api.vasectomie-pierre-boucher.ca
 
     - name: Deploy api (PR)
       if: github.event_name == 'pull_request'
@@ -130,7 +130,7 @@ jobs:
         vercel-project-id: prj_gdoOSnZGX67oP3i2oiuKePfTTMbi
         working-directory: ./packages/vsb-api
         alias-domains: |
-          pr-{{ PR_NUMBER }}-api.vasectomie-pierre-boucher.ca
+          pr-{{ PR_NUMBER }}.api.vasectomie-pierre-boucher.ca
 
     - name: Deploy api (prod)
       if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/release'

@@ -91,7 +91,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 71);
+/******/ 	return __webpack_require__(__webpack_require__.s = 82);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -9141,45 +9141,20 @@ exports.paginateRest = paginateRest;
 
 
 /***/ }),
-/* 69 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.FORM_INPUT_TYPE = void 0;
-var FORM_INPUT_TYPE;
-(function (FORM_INPUT_TYPE) {
-    FORM_INPUT_TYPE["BUTTON"] = "button";
-    FORM_INPUT_TYPE["CHECKBOX"] = "checkbox";
-    FORM_INPUT_TYPE["COLOR"] = "color";
-    FORM_INPUT_TYPE["DATE"] = "date";
-    FORM_INPUT_TYPE["DATETIME_LOCAL"] = "datetime-local";
-    FORM_INPUT_TYPE["EMAIL"] = "email";
-    FORM_INPUT_TYPE["FILE"] = "file";
-    FORM_INPUT_TYPE["HIDDEN"] = "hidden";
-    FORM_INPUT_TYPE["IMAGE"] = "image";
-    FORM_INPUT_TYPE["MONTH"] = "month";
-    FORM_INPUT_TYPE["NUMBER"] = "number";
-    FORM_INPUT_TYPE["PASSWORD"] = "password";
-    FORM_INPUT_TYPE["RADIO"] = "radio";
-    FORM_INPUT_TYPE["RANGE"] = "range";
-    FORM_INPUT_TYPE["RESET"] = "reset";
-    FORM_INPUT_TYPE["SEARCH"] = "search";
-    FORM_INPUT_TYPE["SUBMIT"] = "submit";
-    FORM_INPUT_TYPE["TEL"] = "tel";
-    FORM_INPUT_TYPE["TEXT"] = "text";
-    FORM_INPUT_TYPE["TEXT_MULTILINE"] = "text_multiline";
-    FORM_INPUT_TYPE["TEXT_LONG"] = "text_long";
-    FORM_INPUT_TYPE["TIME"] = "time";
-    FORM_INPUT_TYPE["URL"] = "url";
-    FORM_INPUT_TYPE["WEEK"] = "week";
-})(FORM_INPUT_TYPE = exports.FORM_INPUT_TYPE || (exports.FORM_INPUT_TYPE = {}));
-//# sourceMappingURL=form-types.js.map
-
-/***/ }),
+/* 69 */,
 /* 70 */,
-/* 71 */
+/* 71 */,
+/* 72 */,
+/* 73 */,
+/* 74 */,
+/* 75 */,
+/* 76 */,
+/* 77 */,
+/* 78 */,
+/* 79 */,
+/* 80 */,
+/* 81 */,
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9223,323 +9198,129 @@ Object.defineProperty(exports, "__esModule", {
 
 const core = __importStar(__webpack_require__(9));
 
+const fs_1 = __webpack_require__(3); // fix for node v12 https://stackoverflow.com/questions/64725249/fs-promises-api-in-typescript-not-compiling-in-javascript-correctly
+
+
 const github = __importStar(__webpack_require__(17));
 
-const core_common_1 = __webpack_require__(72);
-
 try {
-  console.info(`github.context.ref`, github.context.ref);
-  core.exportVariable('APP_URL', 'http://localhost');
-  core.exportVariable('APP_PORT', '9000');
+  const {
+    context
+  } = github;
+  core.info(`action : ${context.action}`);
+  core.info(`ref : ${context.ref}`);
+  core.info(`eventName : ${context.eventName}`);
+  core.info(`actor : ${context.actor}`);
+  core.info(`sha : ${context.sha}`);
+  core.info(`workflow : ${context.workflow}`);
+  const workingDir = core.getInput('working-directory'); // ./packages/package-name
 
-  switch (github.context.ref) {
-    case 'refs/heads/dev':
-      {
-        core.exportVariable('APP_ENV', core_common_1.DEPLOY_ENV.DEV);
-        break;
+  core.info(`looking for vercel.json files in: ${workingDir}`);
+  const filenames = ['vercel.json', 'vercel.dev.json', 'vercel.master.json'];
+  const vercelJsonFileFilenames = filenames.map(filename => {
+    return readVercelConfigFile(`${workingDir}/${filename}`);
+  });
+
+  try {
+    Promise.all(vercelJsonFileFilenames).then(values => values.filter(value => !!value)).then(values => {
+      if (values.length !== 3) {
+        const msg = 'vercel.json, vercel.dev.json and vercel.master.json must be provided';
+        core.error(msg);
+        throw new Error(msg);
       }
 
-    case 'refs/heads/master':
-      {
-        core.exportVariable('APP_ENV', core_common_1.DEPLOY_ENV.STAGING);
-        break;
+      const [vercelProdConfig, vercelDevConfig, vercelMasterConfig] = values;
+      const vercelConfigPath = `${workingDir}/${filenames[0]}`;
+      core.info(`current branch is: ${github.context.ref}`); // @ts-ignore
+
+      core.info(`target branch is: ${github.context.head_ref}`);
+      core.debug(`updating config file and returning both the object and the updated file for verification`);
+
+      switch (github.context.ref) {
+        case 'refs/heads/dev':
+          {
+            const updatedConfigObject = Object.assign(Object.assign({}, vercelProdConfig), vercelDevConfig);
+            return updateVercelConfigFile(vercelConfigPath, updatedConfigObject).then(updatedConfigFile => {
+              return {
+                updatedConfig: updatedConfigObject,
+                updatedConfigFile
+              };
+            });
+          }
+
+        case 'refs/heads/master':
+          {
+            const updatedConfigObject = Object.assign(Object.assign({}, vercelProdConfig), vercelMasterConfig);
+            return updateVercelConfigFile(vercelConfigPath, updatedConfigObject).then(updatedConfigFile => {
+              return {
+                updatedConfig: updatedConfigObject,
+                updatedConfigFile
+              };
+            });
+          }
+
+        default:
+        case 'refs/heads/release':
+          {
+            console.info('only replacing vercel.json config on branches master and dev');
+            return readVercelConfigFile(`${workingDir}/${filenames[0]}`).then(updatedConfigFile => {
+              return {
+                updatedConfig: updatedConfigFile,
+                updatedConfigFile
+              };
+            });
+          }
+      }
+    }).then(({
+      updatedConfig,
+      updatedConfigFile
+    }) => {
+      if (!updatedConfig) {
+        const msg = 'no updated vercel config object received, aborting';
+        core.error(msg);
+        throw new Error(msg);
       }
 
-    case 'refs/heads/release':
-      {
-        core.exportVariable('APP_ENV', core_common_1.DEPLOY_ENV.PRODUCTION);
-        break;
+      if (!updatedConfigFile) {
+        const msg = 'no updated vercel config file received, aborting';
+        core.error(msg);
+        throw new Error(msg);
       }
 
-    default:
-      {
-        console.info('setting default APP_ENV');
-        core.exportVariable('APP_ENV', core_common_1.DEPLOY_ENV.DEV);
+      if (JSON.stringify(updatedConfig) !== JSON.stringify(updatedConfigFile)) {
+        const msg = 'updated vercel.json file content does not match the updated config object, aborting!';
+        core.error(msg);
+        throw new Error(msg);
       }
+
+      core.info(`updated vercel.json file successfully ✅`);
+    }).catch(error => {
+      core.error(`could not find vercel.json files in the specified directory`);
+      core.error(`error: ${error}`);
+    });
+  } catch (error) {
+    core.error(`could not find vercel.json file at the specified path`);
   }
 } catch (error) {
   core.setFailed(error.message);
 }
 
-/***/ }),
-/* 72 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __exportStar = (this && this.__exportStar) || function(m, exports) {
-    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-__exportStar(__webpack_require__(73), exports);
-__exportStar(__webpack_require__(74), exports);
-__exportStar(__webpack_require__(75), exports);
-__exportStar(__webpack_require__(76), exports);
-__exportStar(__webpack_require__(77), exports);
-__exportStar(__webpack_require__(69), exports);
-__exportStar(__webpack_require__(78), exports);
-__exportStar(__webpack_require__(79), exports);
-__exportStar(__webpack_require__(80), exports);
-__exportStar(__webpack_require__(81), exports);
-//# sourceMappingURL=index.js.map
-
-/***/ }),
-/* 73 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.TEST_ENV = exports.NODE_ENV = exports.DEPLOY_ENV = void 0;
-/**
- * Standard deploy environments
- */
-var DEPLOY_ENV;
-(function (DEPLOY_ENV) {
-    /**
-     * LOCAL is for developers' machines
-     */
-    DEPLOY_ENV["LOCAL"] = "local";
-    /**
-     * DEV is for the development branch (`dev`) or any branches are are not STAGING
-     * or PRODUCTION
-     */
-    DEPLOY_ENV["DEV"] = "dev";
-    /**
-     * STAGING is the preproduction environment, usually from the main/master branch
-     */
-    DEPLOY_ENV["STAGING"] = "staging";
-    /**
-     * PRODUCTION is based on the release branch with production data (e.g. in published state)
-     */
-    DEPLOY_ENV["PRODUCTION"] = "production";
-})(DEPLOY_ENV = exports.DEPLOY_ENV || (exports.DEPLOY_ENV = {}));
-/**
- * Standard NodeJS Environments
- */
-var NODE_ENV;
-(function (NODE_ENV) {
-    NODE_ENV["DEVELOPMENT"] = "development";
-    NODE_ENV["TEST"] = "test";
-    NODE_ENV["PRODUCTION"] = "production";
-})(NODE_ENV = exports.NODE_ENV || (exports.NODE_ENV = {}));
-/**
- * Testing environment
- */
-var TEST_ENV;
-(function (TEST_ENV) {
-    TEST_ENV["LOCAL"] = "LOCAL";
-    TEST_ENV["CI"] = "CI";
-})(TEST_ENV = exports.TEST_ENV || (exports.TEST_ENV = {}));
-//# sourceMappingURL=env.constants.js.map
-
-/***/ }),
-/* 74 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.SITE_LANGUAGES_HYPHEN = exports.SITE_LANGUAGES = void 0;
-/**
- * The locale these tags are marked up in. Of the format language_TERRITORY.
- */
-var SITE_LANGUAGES;
-(function (SITE_LANGUAGES) {
-    SITE_LANGUAGES["EN"] = "en";
-    SITE_LANGUAGES["EN_CA"] = "en_CA";
-    SITE_LANGUAGES["FR"] = "fr";
-    SITE_LANGUAGES["FR_CA"] = "fr_CA";
-})(SITE_LANGUAGES = exports.SITE_LANGUAGES || (exports.SITE_LANGUAGES = {}));
-var SITE_LANGUAGES_HYPHEN;
-(function (SITE_LANGUAGES_HYPHEN) {
-    SITE_LANGUAGES_HYPHEN["EN_CA"] = "en-CA";
-    SITE_LANGUAGES_HYPHEN["FR_CA"] = "fr-CA";
-})(SITE_LANGUAGES_HYPHEN = exports.SITE_LANGUAGES_HYPHEN || (exports.SITE_LANGUAGES_HYPHEN = {}));
-//# sourceMappingURL=site-languages.js.map
-
-/***/ }),
-/* 75 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.ERROR_TYPE = void 0;
-var ERROR_TYPE;
-(function (ERROR_TYPE) {
-    //
-    // HTTP
-    //
-    ERROR_TYPE["HTTP_BAD_REQUEST_400"] = "HTTP_BAD_REQUEST_400";
-    ERROR_TYPE["HTTP_UNAUTHORIZED_401"] = "HTTP_UNAUTHORIZED_401";
-    ERROR_TYPE["HTTP_FORBIDDEN_403"] = "HTTP_FORBIDDEN_403";
-    ERROR_TYPE["HTTP_NOT_FOUND_404"] = "HTTP_NOT_FOUND_404";
-    ERROR_TYPE["HTTP_CONFLICT_409"] = "HTTP_CONFLICT_409";
-    ERROR_TYPE["HTTP_SERVER_500"] = "HTTP_SERVER_500";
-    //
-    // tooling
-    //
-    ERROR_TYPE["LIB_ERROR"] = "LIB_ERROR";
-    ERROR_TYPE["WEBPACK_ERROR"] = "WEBPACK_ERROR";
-    ERROR_TYPE["GATSBY_ERROR"] = "GATSBY_ERROR";
-    //
-    // client side
-    //
-    ERROR_TYPE["FETCH_CANCELLED"] = "FETCH_CANCELLED";
-    ERROR_TYPE["REDUX_ERROR"] = "REDUX_ERROR";
-    ERROR_TYPE["SERVICE_ERROR"] = "SERVICE_ERROR";
-    ERROR_TYPE["SERVICE_WORKER_ERROR"] = "SERVICE_WORKER_ERROR";
-    ERROR_TYPE["LOCAL_STORAGE_ERROR"] = "LOCAL_STORAGE_ERROR";
-    ERROR_TYPE["COMPONENT_ERROR"] = "COMPONENT_ERROR";
-    ERROR_TYPE["AUTH_ERROR"] = "AUTH_ERROR";
-    ERROR_TYPE["APP_ERROR"] = "APP_ERROR";
-    ERROR_TYPE["ROUTER_ERROR"] = "ROUTER_ERROR";
-    ERROR_TYPE["USER_CONFIGURATION_ERROR"] = "USER_CONFIGURATION_ERROR";
-    ERROR_TYPE["INVALID_RESPONSE"] = "INVALID_RESPONSE";
-    ERROR_TYPE["INTERNAL_SERVER_ERROR"] = "INTERNAL_SERVER_ERROR";
-    ERROR_TYPE["EXTERNAL_SERVER_ERROR"] = "EXTERNAL_SERVER_ERROR";
-    //
-    // server side
-    //
-    ERROR_TYPE["DTO_VALIDATION_ERROR"] = "DTO_VALIDATION_ERROR";
-    ERROR_TYPE["RATE_LIMITING_ERROR"] = "RATE_LIMITING_ERROR";
-    ERROR_TYPE["UNPROCESSABLE_ENTITY"] = "UNPROCESSABLE_ENTITY";
-    //
-    // others
-    //
-    ERROR_TYPE["UNHANDLED_ERROR"] = "UNHANDLED_ERROR";
-})(ERROR_TYPE = exports.ERROR_TYPE || (exports.ERROR_TYPE = {}));
-//# sourceMappingURL=error.constant.js.map
-
-/***/ }),
-/* 76 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.AppError = void 0;
-class AppError extends Error {
-    constructor(options) {
-        super(options.message);
-        this.name = options.name;
-        this.stack = options.stack ? options.stack : undefined;
-        this.value = options.value ? options.value : undefined;
-    }
+function readVercelConfigFile(path) {
+  core.info(`reading vercel.json file: ${path}`);
+  return fs_1.promises.readFile(path, 'utf-8').then(result => {
+    return JSON.parse(result);
+  }).catch(error => {
+    core.error(`could not read file ${path}`);
+    return undefined;
+  });
 }
-exports.AppError = AppError;
-//# sourceMappingURL=error.model.js.map
 
-/***/ }),
-/* 77 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-//# sourceMappingURL=form-field.model.js.map
-
-/***/ }),
-/* 78 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-//# sourceMappingURL=form-validation.model.js.map
-
-/***/ }),
-/* 79 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-const form_types_1 = __webpack_require__(69);
-const exampleForm = {
-    name: 'contact-form',
-    fieldsMap: {
-        firstName: {
-            order: 1,
-            name: 'firstName',
-            label: 'First Name',
-            placeholder: 'Enter value',
-            type: form_types_1.FORM_INPUT_TYPE.TEXT,
-        },
-        lastName: {
-            order: 2,
-            name: 'lastname',
-            label: 'Last Name',
-            placeholder: 'Enter value',
-            type: form_types_1.FORM_INPUT_TYPE.TEXT,
-        },
-        email: {
-            order: 3,
-            name: 'email',
-            label: 'Email',
-            placeholder: 'Enter value',
-            type: form_types_1.FORM_INPUT_TYPE.TEXT,
-        },
-        startDate: {
-            order: 4,
-            name: 'startDate',
-            label: 'Start date',
-            placeholder: 'Enter start date',
-            type: form_types_1.FORM_INPUT_TYPE.DATE,
-            defaultValue: new Date('2021-12-12'),
-            validations: [
-                {
-                    dateRange: { min: '2021-12-12' },
-                },
-            ],
-        },
-        nested: {
-            name: 'nested',
-            fieldsMap: {
-                firstName: {
-                    order: 1,
-                    name: 'firstName',
-                    label: 'First Name',
-                    placeholder: 'Enter value',
-                    type: form_types_1.FORM_INPUT_TYPE.TEXT,
-                },
-            },
-        },
-    },
-};
-//# sourceMappingURL=form.model.js.map
-
-/***/ }),
-/* 80 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-//# sourceMappingURL=api-form-payload.model.js.map
-
-/***/ }),
-/* 81 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.API_RESPONSE_STATUS = void 0;
-var API_RESPONSE_STATUS;
-(function (API_RESPONSE_STATUS) {
-    API_RESPONSE_STATUS["SUCCESS"] = "SUCCESS";
-    API_RESPONSE_STATUS["ERROR"] = "ERROR";
-})(API_RESPONSE_STATUS = exports.API_RESPONSE_STATUS || (exports.API_RESPONSE_STATUS = {}));
-//# sourceMappingURL=api-request.model.js.map
+function updateVercelConfigFile(path, data) {
+  core.info(`replacing vercel.json file content`);
+  return fs_1.promises.writeFile(path, JSON.stringify(data, null, 2)).then(() => {
+    return readVercelConfigFile(path);
+  });
+}
 
 /***/ })
 /******/ ]);
