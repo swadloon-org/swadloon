@@ -22,15 +22,13 @@ const getHealthCheck: RequestHandler<any, any, any> = async (req, res) => {
     res.status(200).send(`hello ${req.headers.origin} on ${env.APP_ENV}!`);
   } catch (error) {
     logError(`request failed for service status`);
-    return res
-      .status(500)
-      .send({
-        api: 'vsb-api',
-        status: API_RESPONSE_STATUS.ERROR,
-        message: systemError,
-        errors: [error],
-        payload: {},
-      });
+    return res.status(500).send({
+      api: 'vsb-api',
+      status: API_RESPONSE_STATUS.ERROR,
+      message: systemError,
+      errors: [error],
+      payload: {},
+    });
   }
 };
 

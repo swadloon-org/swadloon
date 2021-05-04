@@ -42,7 +42,8 @@ export const Cluster: React.FC<Props> = ({
       // @ts-ignore
       '--mobile-justify-content': mobileJustifyContent,
       '--tablet-justify-content': tabletJustifyContent || mobileJustifyContent,
-      '--desktop-justify-content': desktopJustifyContent || tabletJustifyContent || mobileJustifyContent,
+      '--desktop-justify-content':
+        desktopJustifyContent || tabletJustifyContent || mobileJustifyContent,
       '--mobile-align-items': mobileAlignItems,
       '--tablet-align-items': tabletAlignItems || mobileAlignItems,
       '--desktop-align-items': desktopAlignItems || tabletAlignItems || mobileAlignItems,

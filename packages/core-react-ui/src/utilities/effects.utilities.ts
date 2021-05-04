@@ -28,7 +28,9 @@ export function getCSSEffects(options: Effects): Effects<string> {
  * Returns a CSS BoxShadow string with HSL color.
  */
 export function getCSSBoxShadow(options: BoxShadow): string {
-  return `${options.offsetX}px ${options.offsetY}px ${options.blur}px ${options.spread}px ${getCSSColor(
+  return `${options.offsetX}px ${options.offsetY}px ${options.blur}px ${
+    options.spread
+  }px ${getCSSColor(
     options.color
       ? options.color
       : {

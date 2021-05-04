@@ -22,7 +22,12 @@ export const ScaleSteps: React.FC<{ steps: SizingSteps['mobile'] }> = ({ steps }
             <Placeholder
               key={step}
               id={step}
-              style={{ width: `${varValue}px`, height: 30, padding: `inherit 0`, textAlign: 'left' }}
+              style={{
+                width: `${varValue}px`,
+                height: 30,
+                padding: `inherit 0`,
+                textAlign: 'left',
+              }}
             >
               {' '}
             </Placeholder>

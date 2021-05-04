@@ -25,7 +25,9 @@ export const ColorSwatch: React.FC<OwnProps> = ({ id, style, className, ...props
 
       <Stack gap={[cssTheme.sizing.var.x1]}>
         <Label variant={LABEL_SIZE.xSmall} variantLevel={Variant.secondary}>
-          {`${props.name ? `${kebab(props.name)}-` : ''}${props.shadeNumber ? `${kebab(props.shadeNumber)}` : ''}`}
+          {`${props.name ? `${kebab(props.name)}-` : ''}${
+            props.shadeNumber ? `${kebab(props.shadeNumber)}` : ''
+          }`}
         </Label>
         <Label variant={LABEL_SIZE.xSmall} variantLevel={Variant.secondary}>
           <code>{`${getCSSHexColor(props.color as Color)}`}</code>

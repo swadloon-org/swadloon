@@ -6,7 +6,13 @@ type Props = HTMLAttributes<any> & {
   variantContent?: 'text' | 'titles' | 'text-and-titles' | 'list';
 };
 
-export const PlaceholderMarkdown: React.FC<Props> = ({ id, style, className, variantContent = 'text', ...props }) => {
+export const PlaceholderMarkdown: React.FC<Props> = ({
+  id,
+  style,
+  className,
+  variantContent = 'text',
+  ...props
+}) => {
   switch (variantContent) {
     case 'text-and-titles': {
       return <MarkdownHeadingsText />;

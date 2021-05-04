@@ -68,19 +68,25 @@ export function getPageFormattedName(
 export function getLocalePath(nodeName: string, defaultLangKey: SITE_LANGUAGES): 'en' | 'fr' | '' {
   // extract the locale name from node name
   const patternEn = new RegExp(
-    `^\/?(${[SITE_LANGUAGES.EN, SITE_LANGUAGES.EN_CA, SITE_LANGUAGES_HYPHEN.EN_CA].join('|')})[\/|\.]`,
+    `^\/?(${[SITE_LANGUAGES.EN, SITE_LANGUAGES.EN_CA, SITE_LANGUAGES_HYPHEN.EN_CA].join(
+      '|'
+    )})[\/|\.]`,
     'gi'
   );
   const patternFr = new RegExp(
-    `^\/?(${[SITE_LANGUAGES.FR, SITE_LANGUAGES.FR_CA, SITE_LANGUAGES_HYPHEN.FR_CA].join('|')})[\/|\.]`,
+    `^\/?(${[SITE_LANGUAGES.FR, SITE_LANGUAGES.FR_CA, SITE_LANGUAGES_HYPHEN.FR_CA].join(
+      '|'
+    )})[\/|\.]`,
     'gi'
   );
   const matchEn = patternEn.exec(nodeName);
   const matchFr = patternFr.exec(nodeName);
   const fileLocaleEn = matchEn?.[1]; // en, en_CA, en-CA
   const fileLocaleFr = matchFr?.[1]; // fr, fr_CA, fr-CA
-  const defaultLocaleIsEn = defaultLangKey === SITE_LANGUAGES.EN || defaultLangKey === SITE_LANGUAGES.EN_CA;
-  const defaultLocaleIsFr = defaultLangKey === SITE_LANGUAGES.FR || defaultLangKey === SITE_LANGUAGES.FR_CA;
+  const defaultLocaleIsEn =
+    defaultLangKey === SITE_LANGUAGES.EN || defaultLangKey === SITE_LANGUAGES.EN_CA;
+  const defaultLocaleIsFr =
+    defaultLangKey === SITE_LANGUAGES.FR || defaultLangKey === SITE_LANGUAGES.FR_CA;
 
   // en lang, so a page with '/en/page' becomes '/page' and a page with path '/fr/page' becomes '/fr/page'
   if (defaultLocaleIsEn) {
@@ -163,7 +169,9 @@ export function getPathForSourceInstance(sourceInstanceName: SOURCE_INSTANCE_NAM
 /**
  * Associate file source with their template
  */
-export function getTemplateForSourceInstance(sourceInstanceName: SOURCE_INSTANCE_NAME): PAGE_TEMPLATE {
+export function getTemplateForSourceInstance(
+  sourceInstanceName: SOURCE_INSTANCE_NAME
+): PAGE_TEMPLATE {
   switch (sourceInstanceName) {
     case SOURCE_INSTANCE_NAME.MDX_PAGES: {
       return 'markdownPage';

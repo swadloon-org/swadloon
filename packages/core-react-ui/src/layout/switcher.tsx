@@ -45,7 +45,8 @@ export const Switcher: React.FC<OwnProps> = ({
       '--desktop-gap': desktopGap || tabletGap || mobileGap,
       '--mobile-justify-content': mobileJustifyContent,
       '--tablet-justify-content': tabletJustifyContent || mobileJustifyContent,
-      '--desktop-justify-content': desktopJustifyContent || tabletJustifyContent || mobileJustifyContent,
+      '--desktop-justify-content':
+        desktopJustifyContent || tabletJustifyContent || mobileJustifyContent,
       '--mobile-justify-self': mobileJustifySelf,
       '--tablet-justify-self': tabletJustifySelf || mobileJustifySelf,
       '--desktop-justify-self': desktopJustifySelf || tabletJustifySelf || mobileJustifySelf,

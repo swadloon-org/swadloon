@@ -13,7 +13,11 @@ import {
   Stack,
   useTreatTheme,
 } from '@newrade/core-react-ui';
-import { API_LIST_PATIENTS_ROUTE, GetNewPatientsAPIResponseBody, PatientModelAdmin } from '@newrade/vsb-common';
+import {
+  API_LIST_PATIENTS_ROUTE,
+  GetNewPatientsAPIResponseBody,
+  PatientModelAdmin,
+} from '@newrade/vsb-common';
 import { RouteComponentProps } from '@reach/router';
 import debug from 'debug';
 import React, { useEffect, useState } from 'react';
@@ -99,7 +103,10 @@ export const Admin: React.FC<Props> = ({ id, style, className, ...props }) => {
     []
   );
 
-  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({ columns, data });
+  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({
+    columns,
+    data,
+  });
 
   return (
     <Center>
@@ -132,7 +139,9 @@ export const Admin: React.FC<Props> = ({ id, style, className, ...props }) => {
                 <Link href={`mailto:${patient.email}`}>{patient.email}</Link>
 
                 <Cluster gap={[cssTheme.sizing.var.x1]}>
-                  <Link href={`tel:${patient.patientPhoneNumber}`}>{patient.patientPhoneNumber}</Link>
+                  <Link href={`tel:${patient.patientPhoneNumber}`}>
+                    {patient.patientPhoneNumber}
+                  </Link>
                   <Button variant={Variant.secondary} size={ButtonSize.xsmall}>
                     Copy
                   </Button>

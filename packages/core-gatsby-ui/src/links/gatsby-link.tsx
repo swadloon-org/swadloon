@@ -8,10 +8,21 @@ type Props = Omit<GatsbyLinkProps<any>, 'to'> & {
   to: string | undefined | null; // allow our wrapper to accept empty strings
 };
 
-export const GatsbyLink = React.forwardRef<any, Props>(({ id, style, className, noStyles, to = '', ...props }, ref) => {
-  const { styles } = useStyles(styleRefs);
-  const mergedClassName = `${styles.wrapper} ${noStyles ? styles.noStyles : ''} ${className || ''}`;
-  return (
-    <GastbyLinkDefault ref={ref as any} id={id} style={style} to={to || ''} {...props} className={mergedClassName} />
-  );
-});
+export const GatsbyLink = React.forwardRef<any, Props>(
+  ({ id, style, className, noStyles, to = '', ...props }, ref) => {
+    const { styles } = useStyles(styleRefs);
+    const mergedClassName = `${styles.wrapper} ${noStyles ? styles.noStyles : ''} ${
+      className || ''
+    }`;
+    return (
+      <GastbyLinkDefault
+        ref={ref as any}
+        id={id}
+        style={style}
+        to={to || ''}
+        {...props}
+        className={mergedClassName}
+      />
+    );
+  }
+);

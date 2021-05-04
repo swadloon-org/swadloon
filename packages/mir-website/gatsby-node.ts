@@ -16,7 +16,10 @@ import {
 
 let siteMetadata: GatsbyNodeSiteMetadataFragment;
 
-export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions, reporter }, options) => {
+export const createPages: GatsbyNode['createPages'] = async (
+  { graphql, actions, reporter },
+  options
+) => {
   const { createPage, createRedirect } = actions;
   const pluginOptions: GatsbyCoreContentfulMIRPluginOptions = {
     pluginName: 'gatsby-node-contentful-mir',
@@ -88,7 +91,9 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions,
      * Page creations contentful
      */
 
-    reporter.info(`[${pluginOptions.pluginName}] creating pages for locales ${pluginOptions.locales}`);
+    reporter.info(
+      `[${pluginOptions.pluginName}] creating pages for locales ${pluginOptions.locales}`
+    );
 
     const pagesData = await graphql<{
       allContentfulPage: {
@@ -131,7 +136,9 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions,
       reporter.error(`[${pluginOptions.pluginName}] did not find any pages`);
     }
 
-    reporter.info(`[${pluginOptions.pluginName}] found ${pagesData.data?.allContentfulPage.edges.length} pages`);
+    reporter.info(
+      `[${pluginOptions.pluginName}] found ${pagesData.data?.allContentfulPage.edges.length} pages`
+    );
 
     if (pagesData.errors) {
       throw new Error('Error while retrieving pages');
@@ -206,9 +213,13 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions,
         .filter((edge) => edge.node.name.includes('Blogue') && edge.node.node_locale === 'en-CA')
         .map((edge) => edge.node);
 
-      reporter.info(`[${pluginOptions.pluginName}] creating blog posts under: ${blogPageRouteEN?.[0].slug}`);
+      reporter.info(
+        `[${pluginOptions.pluginName}] creating blog posts under: ${blogPageRouteEN?.[0].slug}`
+      );
 
-      reporter.info(`[${pluginOptions.pluginName}] creating blog posts under: ${blogPageRouteFR?.[0].slug}`);
+      reporter.info(
+        `[${pluginOptions.pluginName}] creating blog posts under: ${blogPageRouteFR?.[0].slug}`
+      );
 
       blogPosts.data?.allContentfulBlogPost.edges
         .filter((edge) => {

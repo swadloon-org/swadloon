@@ -7,6 +7,7 @@ export const LazyLayoutDesignSystem = loadable<DesignSystemLayoutProps>(
     return import('./design-system.layout');
   },
   {
-    resolveComponent: (components: typeof import('./design-system.layout')) => components.LayoutDesignSystem,
+    resolveComponent: (components: typeof import('./design-system.layout')) =>
+      components.LayoutDesignSystem,
   }
 );

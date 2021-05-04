@@ -17,7 +17,9 @@ type OwnProps = SectionFragment;
 export const Newsletter: React.FC<OwnProps> = (props) => {
   const styles = useStyles(styleRefs);
 
-  const variant = props?.type?.name as SECTION_TYPE.NEWSLETTER_PRIMARY | SECTION_TYPE.NEWSLETTER_SECONDARY;
+  const variant = props?.type?.name as
+    | SECTION_TYPE.NEWSLETTER_PRIMARY
+    | SECTION_TYPE.NEWSLETTER_SECONDARY;
 
   return (
     <div className={`${styles.wrapper}`}>
@@ -39,7 +41,9 @@ export const Newsletter: React.FC<OwnProps> = (props) => {
             <GatsbyLink to={props?.link?.page?.slug}>
               <Button
                 id="SubmitButton"
-                variantType={variant !== SECTION_TYPE.NEWSLETTER_PRIMARY ? 'primaryDefault' : 'primaryReversed'}
+                variantType={
+                  variant !== SECTION_TYPE.NEWSLETTER_PRIMARY ? 'primaryDefault' : 'primaryReversed'
+                }
                 size="medium"
                 variant="text"
               >
@@ -50,7 +54,9 @@ export const Newsletter: React.FC<OwnProps> = (props) => {
             <a href={props?.link?.url}>
               <Button
                 id="SubmitButton"
-                variantType={variant !== SECTION_TYPE.NEWSLETTER_PRIMARY ? 'primaryDefault' : 'primaryReversed'}
+                variantType={
+                  variant !== SECTION_TYPE.NEWSLETTER_PRIMARY ? 'primaryDefault' : 'primaryReversed'
+                }
                 size="medium"
                 variant="text"
               >

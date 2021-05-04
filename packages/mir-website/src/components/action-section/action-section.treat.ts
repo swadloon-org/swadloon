@@ -54,7 +54,8 @@ export const container = style((theme: DesignSystem) => ({
       margin: '0 auto',
       display: 'grid',
       gridTemplateColumns: 'repeat(12, 1fr)',
-      gridTemplateAreas: "'content content content content content content content . btn btn btn btn '",
+      gridTemplateAreas:
+        "'content content content content content content content . btn btn btn btn '",
       gridTemplateRows: 'auto',
       columnGap: '20px',
     },

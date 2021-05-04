@@ -7,7 +7,10 @@ export const ReversedBox: React.FC<Props> = ({ id, style, className, ...props })
   const { cssTheme } = useTreatTheme();
 
   return (
-    <BoxV2 padding={[cssTheme.sizing.var.x2]} style={{ backgroundColor: cssTheme.colors.colors.grey[1000] }}>
+    <BoxV2
+      padding={[cssTheme.sizing.var.x2]}
+      style={{ backgroundColor: cssTheme.colors.colors.grey[1000] }}
+    >
       {props.children}
     </BoxV2>
   );

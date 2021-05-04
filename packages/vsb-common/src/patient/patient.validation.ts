@@ -8,7 +8,9 @@ const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2
 
 function parseFRDateString(format = 'dd-MM-yyyy') {
   return (value: string, originalValue: string | Date) => {
-    const parsedDate = isDate(originalValue) ? originalValue : parse(originalValue as string, format, new Date());
+    const parsedDate = isDate(originalValue)
+      ? originalValue
+      : parse(originalValue as string, format, new Date());
     return parsedDate;
   };
 }
@@ -21,7 +23,11 @@ function removeSpaces(value: string, originalValue: string) {
 export const PatientValidation: SchemaOf<PatientModel> = yup
   .object({
     id: yup.string(),
-    firstName: yup.string().min(2, 'Trop court').max(50, 'Maximum 50 charactère').required('Requis'),
+    firstName: yup
+      .string()
+      .min(2, 'Trop court')
+      .max(50, 'Maximum 50 charactère')
+      .required('Requis'),
     lastName: yup.string().min(2, 'Trop court').max(50, 'Maximum 50 charactère').required('Requis'),
     dateOfBirth: yup
       .date()
@@ -40,7 +46,11 @@ export const PatientValidation: SchemaOf<PatientModel> = yup
       )
       .typeError('Date invalide')
       .required('Requis'),
-    medicare: yup.string().transform(removeSpaces).min(12, 'Minimum 12 charactères').required('Requis'),
+    medicare: yup
+      .string()
+      .transform(removeSpaces)
+      .min(12, 'Minimum 12 charactères')
+      .required('Requis'),
     medicareExpiryDate: yup
       .date()
       .transform(parseFRDateString('MM-yy'))
@@ -48,7 +58,10 @@ export const PatientValidation: SchemaOf<PatientModel> = yup
       .typeError('Date invalide')
       .required('Requis'),
 
-    patientPhoneNumber: yup.string().matches(phoneRegExp, 'Phone number is not valid').required('Requis'),
+    patientPhoneNumber: yup
+      .string()
+      .matches(phoneRegExp, 'Phone number is not valid')
+      .required('Requis'),
     patientPhoneType: yup.mixed().oneOf([CLINIKO_PHONE_TYPE.MOBILE, CLINIKO_PHONE_TYPE.HOME]),
     email: yup
       .string()
@@ -80,7 +93,9 @@ export const PatientValidation: SchemaOf<PatientModel> = yup
   })
   .defined();
 
-export const PatientClinikoValidation: SchemaOf<Omit<PatientClinikoModel, 'emailConfirmation'>> = yup
+export const PatientClinikoValidation: SchemaOf<
+  Omit<PatientClinikoModel, 'emailConfirmation'>
+> = yup
   .object({
     id: yup.string(),
     first_name: yup.string().min(2, 'Too Short').max(50, 'validation.tooShort').required('Requis'),

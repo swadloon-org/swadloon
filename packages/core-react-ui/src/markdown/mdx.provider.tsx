@@ -1,5 +1,11 @@
 import loadable from '@loadable/component';
-import { HEADING, LinkIcon, LinkVariant, PARAGRAPH_SIZE, TEXT_STYLE } from '@newrade/core-design-system';
+import {
+  HEADING,
+  LinkIcon,
+  LinkVariant,
+  PARAGRAPH_SIZE,
+  TEXT_STYLE,
+} from '@newrade/core-design-system';
 import React, { AnchorHTMLAttributes } from 'react';
 import { Code } from '../code/code';
 import { ListItemV2 } from '../list-item/list-item-v2';
@@ -83,13 +89,28 @@ export const mdxComponents: Partial<
     />
   ),
   small: (props: MDXProps) => (
-    <Paragraph as={'small'} style={{ display: 'inline-block' }} variant={PARAGRAPH_SIZE.small} {...props} />
+    <Paragraph
+      as={'small'}
+      style={{ display: 'inline-block' }}
+      variant={PARAGRAPH_SIZE.small}
+      {...props}
+    />
   ),
   strong: (props: MDXProps) => (
-    <Paragraph as={'strong'} style={{ display: 'inline-block' }} variantStyle={TEXT_STYLE.bold} {...props} />
+    <Paragraph
+      as={'strong'}
+      style={{ display: 'inline-block' }}
+      variantStyle={TEXT_STYLE.bold}
+      {...props}
+    />
   ),
   em: (props: MDXProps) => (
-    <Paragraph as={'em'} style={{ display: 'inline-block' }} variantStyle={TEXT_STYLE.italic} {...props} />
+    <Paragraph
+      as={'em'}
+      style={{ display: 'inline-block' }}
+      variantStyle={TEXT_STYLE.italic}
+      {...props}
+    />
   ),
   del: (props: MDXProps) => <Paragraph as={'del'} style={{ display: 'inline-block' }} {...props} />,
 

@@ -29,8 +29,11 @@ export const primary = style(({ theme, cssTheme }: Theme) => ({
   backgroundColor: cssTheme.colors.colors.grey[200],
 }));
 export const primaryReversed = style(({ theme, cssTheme }: Theme) => ({}));
-globalStyle(`${globalThemeReversedSelector} ${primary}, ${primaryReversed}`, ({ theme, cssTheme }: Theme) => ({
-  borderColor: cssTheme.colors.colors.grey['0-reversed'],
-  color: cssTheme.colors.colors.grey['0-reversed'],
-  backgroundColor: cssTheme.colors.colors.transparent,
-}));
+globalStyle(
+  `${globalThemeReversedSelector} ${primary}, ${primaryReversed}`,
+  ({ theme, cssTheme }: Theme) => ({
+    borderColor: cssTheme.colors.colors.grey['0-reversed'],
+    color: cssTheme.colors.colors.grey['0-reversed'],
+    backgroundColor: cssTheme.colors.colors.transparent,
+  })
+);

@@ -10,7 +10,12 @@ import {
 import { GatsbyNode } from 'gatsby';
 import path from 'path';
 import regexEscape from 'regex-escape';
-import { RuleSetRule, RuleSetRules, RuleSetUseItem, WebpackOptions } from 'webpack/declarations/WebpackOptions';
+import {
+  RuleSetRule,
+  RuleSetRules,
+  RuleSetUseItem,
+  WebpackOptions,
+} from 'webpack/declarations/WebpackOptions';
 import { GatsbyCorePluginOptions } from '../gatsby-plugin-options';
 import ESLintPlugin from 'eslint-webpack-plugin';
 
@@ -85,7 +90,11 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
   /**
    * Replace Gatsby default entry polyfill
    */
-  if (typeof config === 'object' && config.entry && (config.entry as Record<string, string>)['polyfill']) {
+  if (
+    typeof config === 'object' &&
+    config.entry &&
+    (config.entry as Record<string, string>)['polyfill']
+  ) {
     delete (config.entry as Record<string, string>)['polyfill'];
   }
 
@@ -155,7 +164,10 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
         use: [
           {
             ...(gatsbyBabelLoaderConf.use as any)[0],
-            options: { ...(gatsbyBabelLoaderConf.use as any)[0].options, ...(es6BabelLoader.use as any)[0].options },
+            options: {
+              ...(gatsbyBabelLoaderConf.use as any)[0].options,
+              ...(es6BabelLoader.use as any)[0].options,
+            },
           },
         ],
         exclude: (modulePath) =>
@@ -230,7 +242,9 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
    * Add BundleVisualizer when building for production but local only
    */
   if (isProduction && env.APP_ENV === DEPLOY_ENV.LOCAL) {
-    config.plugins = config.plugins ? [...config.plugins, getBundleVisualizerPlugin()] : [getBundleVisualizerPlugin()];
+    config.plugins = config.plugins
+      ? [...config.plugins, getBundleVisualizerPlugin()]
+      : [getBundleVisualizerPlugin()];
   }
 
   actions.replaceWebpackConfig(config); // completely replace the webpack config with the modified object

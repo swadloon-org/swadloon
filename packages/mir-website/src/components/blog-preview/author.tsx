@@ -13,7 +13,10 @@ export const Author: React.FC<OwnProps> = (props) => {
   return (
     <div className={styles.wrapper}>
       <LazyLoad>
-        <div className={styles.imageAuthor} style={{ backgroundImage: `url(${props?.profileImageUrl})` }}></div>
+        <div
+          className={styles.imageAuthor}
+          style={{ backgroundImage: `url(${props?.profileImageUrl})` }}
+        ></div>
       </LazyLoad>
       <div className={styles.contentText}>
         <Label variant={LABEL.smallBold} className={styles.fullName}>

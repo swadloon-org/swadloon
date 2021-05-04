@@ -22,7 +22,11 @@ export const createLink: Migration.MigrationFunction = function (migration) {
     ],
   });
 
-  content.createField(COMMON_FIELD.NAME, { name: pascal(COMMON_FIELD.NAME), type: 'Symbol', required: true });
+  content.createField(COMMON_FIELD.NAME, {
+    name: pascal(COMMON_FIELD.NAME),
+    type: 'Symbol',
+    required: true,
+  });
 
   content.createField(COMMON_FIELD.LABEL, {
     name: pascal(COMMON_FIELD.LABEL),
@@ -52,6 +56,7 @@ export const createLink: Migration.MigrationFunction = function (migration) {
     validations: [{ linkContentType: [COMMON_CONTENT_TYPE.SECTION] }],
   });
   content.changeFieldControl(COMMON_FIELD.SECTION, 'builtin', CONTENTFUL_WIDGET.ENTRY_LINK_EDITOR, {
-    helpText: 'Creates a link to a section of a page, make sure that the selected section is set on the page set above',
+    helpText:
+      'Creates a link to a section of a page, make sure that the selected section is set on the page set above',
   });
 };

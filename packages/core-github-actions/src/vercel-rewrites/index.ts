@@ -38,36 +38,44 @@ try {
         // @ts-ignore
         core.info(`target branch is: ${github.context.head_ref}`);
 
-        core.debug(`updating config file and returning both the object and the updated file for verification`);
+        core.debug(
+          `updating config file and returning both the object and the updated file for verification`
+        );
 
         switch (github.context.ref) {
           case 'refs/heads/dev': {
             const updatedConfigObject = { ...vercelProdConfig, ...vercelDevConfig };
-            return updateVercelConfigFile(vercelConfigPath, updatedConfigObject).then((updatedConfigFile) => {
-              return {
-                updatedConfig: updatedConfigObject,
-                updatedConfigFile,
-              };
-            });
+            return updateVercelConfigFile(vercelConfigPath, updatedConfigObject).then(
+              (updatedConfigFile) => {
+                return {
+                  updatedConfig: updatedConfigObject,
+                  updatedConfigFile,
+                };
+              }
+            );
           }
           case 'refs/heads/master': {
             const updatedConfigObject = { ...vercelProdConfig, ...vercelMasterConfig };
-            return updateVercelConfigFile(vercelConfigPath, updatedConfigObject).then((updatedConfigFile) => {
-              return {
-                updatedConfig: updatedConfigObject,
-                updatedConfigFile,
-              };
-            });
+            return updateVercelConfigFile(vercelConfigPath, updatedConfigObject).then(
+              (updatedConfigFile) => {
+                return {
+                  updatedConfig: updatedConfigObject,
+                  updatedConfigFile,
+                };
+              }
+            );
           }
           default:
           case 'refs/heads/release': {
             console.info('only replacing vercel.json config on branches master and dev');
-            return readVercelConfigFile(`${workingDir}/${filenames[0]}`).then((updatedConfigFile) => {
-              return {
-                updatedConfig: updatedConfigFile,
-                updatedConfigFile,
-              };
-            });
+            return readVercelConfigFile(`${workingDir}/${filenames[0]}`).then(
+              (updatedConfigFile) => {
+                return {
+                  updatedConfig: updatedConfigFile,
+                  updatedConfigFile,
+                };
+              }
+            );
           }
         }
       })
@@ -85,7 +93,8 @@ try {
         }
 
         if (JSON.stringify(updatedConfig) !== JSON.stringify(updatedConfigFile)) {
-          const msg = 'updated vercel.json file content does not match the updated config object, aborting!';
+          const msg =
+            'updated vercel.json file content does not match the updated config object, aborting!';
           core.error(msg);
           throw new Error(msg);
         }

@@ -17,18 +17,24 @@ const defaultProps: Props = {
  * (beyond those of the regular HTMLElement object interface it inherits) for manipulating <p> elements.
  * @see https://devdocs.io/dom/htmlparagraphelement
  */
-export const TableCellHeader: React.FC<Props> = React.memo(({ className, variantStyle, variant, ...props }) => {
-  const { styles } = useStyles(stylesRef);
+export const TableCellHeader: React.FC<Props> = React.memo(
+  ({ className, variantStyle, variant, ...props }) => {
+    const { styles } = useStyles(stylesRef);
 
-  const type = 'th';
-  const variantClassName = `${variant ? styles[variant as LABEL_SIZE] : styles[defaultProps.variant as LABEL_SIZE]}`;
+    const type = 'th';
+    const variantClassName = `${
+      variant ? styles[variant as LABEL_SIZE] : styles[defaultProps.variant as LABEL_SIZE]
+    }`;
 
-  return React.createElement(
-    type,
-    {
-      className: `${styles.th} ${className || ''}`,
-      ...props,
-    },
-    <div className={`${variantClassName} ${variantStyle ? styles[variantStyle] : ''}`}>{props.children}</div>
-  );
-});
+    return React.createElement(
+      type,
+      {
+        className: `${styles.th} ${className || ''}`,
+        ...props,
+      },
+      <div className={`${variantClassName} ${variantStyle ? styles[variantStyle] : ''}`}>
+        {props.children}
+      </div>
+    );
+  }
+);

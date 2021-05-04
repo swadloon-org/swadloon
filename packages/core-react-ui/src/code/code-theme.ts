@@ -33,7 +33,18 @@ export const githubTheme: PrismTheme = {
       },
     },
     {
-      types: ['entity', 'url', 'symbol', 'number', 'boolean', 'variable', 'constant', 'property', 'regex', 'inserted'],
+      types: [
+        'entity',
+        'url',
+        'symbol',
+        'number',
+        'boolean',
+        'variable',
+        'constant',
+        'property',
+        'regex',
+        'inserted',
+      ],
       style: {
         color: '#36acaa',
       },

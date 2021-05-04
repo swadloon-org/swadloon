@@ -7,10 +7,11 @@ import { log, logError, handleUnhandledError } from './cliniko-post-patient.cont
 /**
  * Simple call to cliniko to make sure we can react their API.
  */
-export const getClinikoStatus: RequestHandler<any, GetStatusAPIResponseBody, GetStatusAPIRequestBody> = async (
-  req,
-  res
-) => {
+export const getClinikoStatus: RequestHandler<
+  any,
+  GetStatusAPIResponseBody,
+  GetStatusAPIRequestBody
+> = async (req, res) => {
   try {
     log(`request for service status`);
     const result = await fetchCliniko<any, any>({

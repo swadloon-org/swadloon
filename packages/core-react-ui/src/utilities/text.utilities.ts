@@ -117,7 +117,13 @@ export function convertCapsizeValuesToRem({
 /**
  * Converts capsize styles from px to rem.
  */
-export function convertLetterSpacingToEM({ value, fontSize }: { value: string; fontSize: string }): string | undefined {
+export function convertLetterSpacingToEM({
+  value,
+  fontSize,
+}: {
+  value: string;
+  fontSize: string;
+}): string | undefined {
   const exp = /(^\d+(\.\d+)?)/;
 
   const match = exp.exec(value);

@@ -26,7 +26,9 @@ export type FormField<TFormFieldConfig extends FormFieldConfig> = {
   /**
    * Type of the input
    */
-  type: TFormFieldConfig['type'] extends FORM_INPUT_TYPE ? TFormFieldConfig['type'] : FORM_INPUT_TYPE.TEXT;
+  type: TFormFieldConfig['type'] extends FORM_INPUT_TYPE
+    ? TFormFieldConfig['type']
+    : FORM_INPUT_TYPE.TEXT;
   /**
    * Placeholder
    */

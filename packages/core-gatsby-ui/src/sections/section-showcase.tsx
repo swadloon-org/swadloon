@@ -41,7 +41,13 @@ export const SectionShowcase = React.forwardRef<any, Props>(
   ) => {
     const { styles } = useStyles(styleRefs);
     const { cssTheme } = useTreatTheme();
-    const commonProps = useCommonProps({ id, style, className, classNames: [styles.wrapper], ...props });
+    const commonProps = useCommonProps({
+      id,
+      style,
+      className,
+      classNames: [styles.wrapper],
+      ...props,
+    });
 
     // const LeftTextBlockComp = LeftTextBlock
     //   ? React.cloneElement(LeftTextBlock as React.ReactElement, {

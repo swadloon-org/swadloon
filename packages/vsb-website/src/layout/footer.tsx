@@ -1,4 +1,10 @@
-import { LABEL_SIZE, LinkVariant, PARAGRAPH_SIZE, TEXT_STYLE, Variant } from '@newrade/core-design-system';
+import {
+  LABEL_SIZE,
+  LinkVariant,
+  PARAGRAPH_SIZE,
+  TEXT_STYLE,
+  Variant,
+} from '@newrade/core-design-system';
 import {
   Center,
   CommonComponentProps,
@@ -113,12 +119,20 @@ export const Footer: React.FC<Props> = ({ id, style, className, ...props }) => {
             })}
 
             <Stack className={styles.joindre} gap={[cssTheme.sizing.var.x4]}>
-              <Label variantStyle={TEXT_STYLE.boldUppercase} variant={LABEL_SIZE.small} variantLevel={Variant.tertiary}>
+              <Label
+                variantStyle={TEXT_STYLE.boldUppercase}
+                variant={LABEL_SIZE.small}
+                variantLevel={Variant.tertiary}
+              >
                 Nous Joindre
               </Label>
 
               <ListItems gap={[cssTheme.sizing.var.x4]}>
-                <ListItem variantLevel={Variant.primaryReversed} variantIcon={'icon'} Icon={<IoMailOutline />}>
+                <ListItem
+                  variantLevel={Variant.primaryReversed}
+                  variantIcon={'icon'}
+                  Icon={<IoMailOutline />}
+                >
                   <Link
                     className={styles.listItem}
                     variantLevel={Variant.primaryReversed}
@@ -129,7 +143,11 @@ export const Footer: React.FC<Props> = ({ id, style, className, ...props }) => {
                   </Link>
                 </ListItem>
 
-                <ListItem variantLevel={Variant.primaryReversed} variantIcon={'icon'} Icon={<IoCallOutline />}>
+                <ListItem
+                  variantLevel={Variant.primaryReversed}
+                  variantIcon={'icon'}
+                  Icon={<IoCallOutline />}
+                >
                   <Link
                     className={styles.listItem}
                     variantLevel={Variant.primaryReversed}
@@ -140,7 +158,11 @@ export const Footer: React.FC<Props> = ({ id, style, className, ...props }) => {
                   </Link>
                 </ListItem>
 
-                <ListItem variantLevel={Variant.primaryReversed} variantIcon={'icon'} Icon={<IoPrintOutline />}>
+                <ListItem
+                  variantLevel={Variant.primaryReversed}
+                  variantIcon={'icon'}
+                  Icon={<IoPrintOutline />}
+                >
                   <Link
                     className={styles.listItem}
                     variantLevel={Variant.primaryReversed}

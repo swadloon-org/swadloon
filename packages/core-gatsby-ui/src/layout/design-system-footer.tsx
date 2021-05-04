@@ -1,5 +1,10 @@
 import { PARAGRAPH_SIZE, Variant } from '@newrade/core-design-system/src';
-import { CommonComponentProps, Paragraph, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
+import {
+  CommonComponentProps,
+  Paragraph,
+  useCommonProps,
+  useTreatTheme,
+} from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './design-system-footer.treat';

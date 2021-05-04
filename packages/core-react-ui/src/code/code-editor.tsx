@@ -52,7 +52,11 @@ export class CodeEditor extends React.Component<Props, State> {
   };
 
   highlightCode = (code: string) => (
-    <CodeHighlight code={code} theme={this.props.theme} language={this.props.language}></CodeHighlight>
+    <CodeHighlight
+      code={code}
+      theme={this.props.theme}
+      language={this.props.language}
+    ></CodeHighlight>
   );
 
   render() {

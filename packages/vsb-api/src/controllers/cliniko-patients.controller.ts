@@ -25,10 +25,11 @@ const logError = log.extend('error');
 /**
  * Retrieve patients list, grouped by status
  */
-export const getPatients: RequestHandler<any, GetNewPatientsAPIResponseBody, GetNewPatientsAPIRequestBody> = async (
-  req,
-  res
-) => {
+export const getPatients: RequestHandler<
+  any,
+  GetNewPatientsAPIResponseBody,
+  GetNewPatientsAPIRequestBody
+> = async (req, res) => {
   try {
     log(`request to retrieve new patients`);
 
@@ -41,49 +42,54 @@ export const getPatients: RequestHandler<any, GetNewPatientsAPIResponseBody, Get
 
     log(`for each patient retrieve the treatment notes`);
 
-    const patientsWithTreatmentNotesRequests = allPatientsResponse?.payload?.patients.map((patient) => {
-      return fetchCliniko<any, { treatment_notes: PatientTreatmentNote[] }>({
-        method: 'GET',
-        route: `treatment_notes`,
-        params: `q=patient_id:=${patient.id}&sort=updated_at:desc`,
-      }).then((result) => {
-        const treatmentNotes = result.payload?.treatment_notes;
+    const patientsWithTreatmentNotesRequests = allPatientsResponse?.payload?.patients.map(
+      (patient) => {
+        return fetchCliniko<any, { treatment_notes: PatientTreatmentNote[] }>({
+          method: 'GET',
+          route: `treatment_notes`,
+          params: `q=patient_id:=${patient.id}&sort=updated_at:desc`,
+        }).then((result) => {
+          const treatmentNotes = result.payload?.treatment_notes;
 
-        if (!treatmentNotes?.length) {
-          logWarn(`no treatment notes found for patient: ${patient.id}, skipping`);
-          return;
-        }
+          if (!treatmentNotes?.length) {
+            logWarn(`no treatment notes found for patient: ${patient.id}, skipping`);
+            return;
+          }
 
-        // filter notes to find the correct type
-        const statusTreatmentNotes = treatmentNotes.filter((treatmentNote) => {
-          if (!treatmentNote.treatment_note_template.links.self) {
+          // filter notes to find the correct type
+          const statusTreatmentNotes = treatmentNotes.filter((treatmentNote) => {
+            if (!treatmentNote.treatment_note_template.links.self) {
+              return false;
+            }
+
+            const id = getIdFromSelfLink(treatmentNote.treatment_note_template.links.self);
+
+            if (!id) {
+              return false;
+            }
+
+            if (id === STATUS_NOTE_TEMPLATE_ID) {
+              return true;
+            }
+
             return false;
+          });
+
+          if (!statusTreatmentNotes.length) {
+            logWarn(`no status treatment notes found for patient: ${patient.id}, skipping`);
+            return;
           }
 
-          const id = getIdFromSelfLink(treatmentNote.treatment_note_template.links.self);
+          // we only take the most recent treatment note
+          const status = getStatusFromStatusTreatmentNote(treatmentNotes[0]);
 
-          if (!id) {
-            return false;
-          }
-
-          if (id === STATUS_NOTE_TEMPLATE_ID) {
-            return true;
-          }
-
-          return false;
+          return {
+            patientTreatmentNoteResponse: result,
+            patient: getPatientModel(patient, { ...status }),
+          };
         });
-
-        if (!statusTreatmentNotes.length) {
-          logWarn(`no status treatment notes found for patient: ${patient.id}, skipping`);
-          return;
-        }
-
-        // we only take the most recent treatment note
-        const status = getStatusFromStatusTreatmentNote(treatmentNotes[0]);
-
-        return { patientTreatmentNoteResponse: result, patient: getPatientModel(patient, { ...status }) };
-      });
-    });
+      }
+    );
 
     // check if our array of request is defined and not empty
     if (!patientsWithTreatmentNotesRequests.length) {
@@ -91,7 +97,9 @@ export const getPatients: RequestHandler<any, GetNewPatientsAPIResponseBody, Get
       return;
     }
 
-    const patientsWithTreatmentNotesResult = await Promise.allSettled(patientsWithTreatmentNotesRequests);
+    const patientsWithTreatmentNotesResult = await Promise.allSettled(
+      patientsWithTreatmentNotesRequests
+    );
 
     log(`got ${patientsWithTreatmentNotesResult.length} patients with notes`);
 
@@ -191,9 +199,13 @@ function getStatusFromStatusTreatmentNote(
 ): Pick<PatientModelAdmin, 'status' | 'statusNote'> {
   const questions = treatmentNote?.content.sections?.[0].questions;
 
-  const statusQuestions = questions?.filter((question) => question.name === STATUS_NOTE_QUESTION_NAME);
+  const statusQuestions = questions?.filter(
+    (question) => question.name === STATUS_NOTE_QUESTION_NAME
+  );
   const statusQuestion = statusQuestions?.[0];
-  const noteQuestions = questions?.filter((question) => question.name === STATUS_NOTE_QUESTION_NOTE);
+  const noteQuestions = questions?.filter(
+    (question) => question.name === STATUS_NOTE_QUESTION_NOTE
+  );
   const noteQuestion = noteQuestions?.[0];
 
   if (!statusQuestion) {

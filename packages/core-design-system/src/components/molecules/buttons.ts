@@ -51,7 +51,9 @@ export type ButtonColors<Override extends undefined | string = undefined> = {
   outlineColor?: ColorType<Override>;
 };
 
-export type ButtonBoxStyle<Override extends undefined | string = undefined> = BoxStyle<Override> & {};
+export type ButtonBoxStyle<
+  Override extends undefined | string = undefined
+> = BoxStyle<Override> & {};
 
 export type ButtonVariants<Override extends undefined | string = undefined> = {
   [key in keyof typeof Variant]: ButtonColors<Override>;

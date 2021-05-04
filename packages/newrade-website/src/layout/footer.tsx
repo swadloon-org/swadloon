@@ -1,5 +1,19 @@
-import { LABEL_SIZE, LinkVariant, PARAGRAPH_SIZE, TEXT_STYLE, Variant } from '@newrade/core-design-system';
-import { Center, CommonComponentProps, Label, Link, Paragraph, Stack, useTreatTheme } from '@newrade/core-react-ui';
+import {
+  LABEL_SIZE,
+  LinkVariant,
+  PARAGRAPH_SIZE,
+  TEXT_STYLE,
+  Variant,
+} from '@newrade/core-design-system';
+import {
+  Center,
+  CommonComponentProps,
+  Label,
+  Link,
+  Paragraph,
+  Stack,
+  useTreatTheme,
+} from '@newrade/core-react-ui';
 import { getMergedClassname } from '@newrade/core-react-ui/lib/utilities';
 import { graphql, Link as GatsbyLink, useStaticQuery } from 'gatsby';
 import React from 'react';
@@ -98,7 +112,11 @@ export const Footer: React.FC<Props> = ({ id, style, className, ...props }) => {
             })}
 
             <Stack className={styles.joindre} gap={[cssTheme.sizing.var.x4]}>
-              <Label variantStyle={TEXT_STYLE.boldUppercase} variant={LABEL_SIZE.small} variantLevel={Variant.tertiary}>
+              <Label
+                variantStyle={TEXT_STYLE.boldUppercase}
+                variant={LABEL_SIZE.small}
+                variantLevel={Variant.tertiary}
+              >
                 Nous Joindre
               </Label>
 

@@ -16,7 +16,9 @@ export const InfoTile: React.FC<OwnProps & PassProps> = (props) => {
   return (
     <div
       className={`${styles.wrapper} ${
-        props?.variants === SECTION_TYPE.TYPE_4_PRIMARY ? styles.type4Primary : styles.type4Secondary
+        props?.variants === SECTION_TYPE.TYPE_4_PRIMARY
+          ? styles.type4Primary
+          : styles.type4Secondary
       }`}
     >
       <Illustration

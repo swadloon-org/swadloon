@@ -21,15 +21,17 @@ const defaultProps: Props = {
  * (beyond those of the regular HTMLElement object interface it inherits) for manipulating <p> elements.
  * @see https://devdocs.io/dom/htmlparagraphelement
  */
-export const TableCell: React.FC<Props> = React.memo(({ className, variant, variantStyle, variantLevel, ...props }) => {
-  const { styles: styles } = useStyles(stylesRef);
+export const TableCell: React.FC<Props> = React.memo(
+  ({ className, variant, variantStyle, variantLevel, ...props }) => {
+    const { styles: styles } = useStyles(stylesRef);
 
-  const type = 'td';
+    const type = 'td';
 
-  return React.createElement(type, {
-    className: `${className || ''} ${styles.td} ${
-      styles[variant ? variant : (defaultProps.variant as PARAGRAPH_SIZE)]
-    } ${variantStyle ? styles[variantStyle] : ''}`,
-    ...props,
-  });
-});
+    return React.createElement(type, {
+      className: `${className || ''} ${styles.td} ${
+        styles[variant ? variant : (defaultProps.variant as PARAGRAPH_SIZE)]
+      } ${variantStyle ? styles[variantStyle] : ''}`,
+      ...props,
+    });
+  }
+);

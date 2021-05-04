@@ -10,14 +10,23 @@ type Props = CommonComponentProps & {
   status?: 'online' | 'offline' | 'loading';
 };
 
-export const OnlineIndicator: React.FC<Props> = ({ id, style, className, status = 'loading', children, ...props }) => {
+export const OnlineIndicator: React.FC<Props> = ({
+  id,
+  style,
+  className,
+  status = 'loading',
+  children,
+  ...props
+}) => {
   const { styles } = useStyles(styleRefs);
   const { theme, cssTheme } = useTreatTheme();
 
   return (
     <Cluster
       justifyContent={['flex-start']}
-      className={`${styles.status} ${status === 'online' ? styles.statusOnline : styles.statusOffline}`}
+      className={`${styles.status} ${
+        status === 'online' ? styles.statusOnline : styles.statusOffline
+      }`}
       gap={[cssTheme.sizing.var.x2]}
     >
       <div className={styles.statusDot}></div>

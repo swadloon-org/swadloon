@@ -28,7 +28,11 @@ export function getCSSTypography({
   const labelsStyles = createCSSVariantTextStyles({ variant: labels, baseFontSize });
 
   return {
-    fonts: { ...fonts, var: defaultFontVars, varNames: defaultFontVars.map((varName) => cssVar(varName)) },
+    fonts: {
+      ...fonts,
+      var: defaultFontVars,
+      varNames: defaultFontVars.map((varName) => cssVar(varName)),
+    },
     titles: {
       font: titles.font ? titles.font : fonts.sans, // fallback to sans font
       ...(titlesStyles as Typography<string>['titles']),
@@ -52,7 +56,11 @@ function createCSSVariantTextStyles({
   variant,
   baseFontSize,
 }: {
-  variant: Typography['titles'] | Typography['headings'] | Typography['paragraphs'] | Typography['labels'];
+  variant:
+    | Typography['titles']
+    | Typography['headings']
+    | Typography['paragraphs']
+    | Typography['labels'];
   baseFontSize: number;
 }) {
   const parentTextStyles = keys(variant)

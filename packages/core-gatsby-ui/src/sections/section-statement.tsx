@@ -23,7 +23,11 @@ export const SectionStatement = React.forwardRef<any, Props>(
       TopBlock,
       RightBlock,
       LeftBlock,
-      section: { variant = Variant.primary, baseLayout = SectionBaseLayout.center, padding = SectionPadding.large } = {
+      section: {
+        variant = Variant.primary,
+        baseLayout = SectionBaseLayout.center,
+        padding = SectionPadding.large,
+      } = {
         variant: Variant.primary,
         baseLayout: SectionBaseLayout.center,
         padding: SectionPadding.large,
@@ -49,7 +53,11 @@ export const SectionStatement = React.forwardRef<any, Props>(
         <Stack gap={[cssTheme.sizing.var.x6]}>
           <div className={styles.top}>{TopBlock}</div>
 
-          <Switcher col={2} gap={[cssTheme.sizing.var.x6]} alignItems={['flex-start', 'flex-start', 'flex-start']}>
+          <Switcher
+            col={2}
+            gap={[cssTheme.sizing.var.x6]}
+            alignItems={['flex-start', 'flex-start', 'flex-start']}
+          >
             <div className={styles.left}>{LeftBlock}</div>
             <div className={styles.right}>{RightBlock}</div>
           </Switcher>

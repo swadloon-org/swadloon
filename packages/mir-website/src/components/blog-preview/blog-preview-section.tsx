@@ -16,7 +16,10 @@ type OwnProps = SectionFragment & {
 
 export const featuredPostsQuery = graphql`
   query FeaturedPosts {
-    featuredPosts: allContentfulBlogPost(filter: { featured: { eq: true } }, sort: { fields: createdAt, order: DESC }) {
+    featuredPosts: allContentfulBlogPost(
+      filter: { featured: { eq: true } }
+      sort: { fields: createdAt, order: DESC }
+    ) {
       edges {
         node {
           ...BlogPost
@@ -52,7 +55,11 @@ export const BlogPreviewSection: React.FC<OwnProps> = (props) => {
     return (
       <div className={styles.wrapper}>
         <div className={styles.container}>
-          <RenderTitleHighlight title={props?.title} titleHighlight={'nouvelles'} className={styles.title} />
+          <RenderTitleHighlight
+            title={props?.title}
+            titleHighlight={'nouvelles'}
+            className={styles.title}
+          />
 
           <Paragraph variant="medium" className={styles.paragraph}>
             {props?.text?.text}
@@ -109,7 +116,11 @@ export const BlogPreviewSection: React.FC<OwnProps> = (props) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
-        <RenderTitleHighlight title={props?.title} titleHighlight={'nouvelles'} className={styles.title} />
+        <RenderTitleHighlight
+          title={props?.title}
+          titleHighlight={'nouvelles'}
+          className={styles.title}
+        />
 
         <Paragraph variant="medium" className={styles.paragraph}>
           {props?.text?.text}

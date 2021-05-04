@@ -1,7 +1,9 @@
 import React from 'react';
 
 export const usePreferColorScheme = () => {
-  const [colorScheme, setColorScheme] = React.useState<'light' | 'dark'>(getThemeForActiveScheme(query().matches));
+  const [colorScheme, setColorScheme] = React.useState<'light' | 'dark'>(
+    getThemeForActiveScheme(query().matches)
+  );
 
   React.useEffect(() => {
     const q = query();

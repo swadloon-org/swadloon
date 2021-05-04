@@ -1,7 +1,11 @@
 import { kebab } from 'case';
 import { cssVar, cssVarName } from './css-variable.utilities';
 
-export function getFormattedCSSVar(options: { prefix?: string; category?: string; propName?: string }) {
+export function getFormattedCSSVar(options: {
+  prefix?: string;
+  category?: string;
+  propName?: string;
+}) {
   return cssVar(getFormattedCSSVarName(options));
 }
 

@@ -21,7 +21,11 @@ export const SectionSwitcher = React.forwardRef<any, Props>(
       AsElement,
       RightBlock,
       LeftBlock,
-      section: { variant = Variant.primary, baseLayout = SectionBaseLayout.center, padding = SectionPadding.large } = {
+      section: {
+        variant = Variant.primary,
+        baseLayout = SectionBaseLayout.center,
+        padding = SectionPadding.large,
+      } = {
         variant: Variant.primary,
         baseLayout: SectionBaseLayout.center,
         padding: SectionPadding.large,
@@ -44,7 +48,11 @@ export const SectionSwitcher = React.forwardRef<any, Props>(
           padding,
         }}
       >
-        <Switcher col={2} gap={[cssTheme.sizing.var.x6]} alignItems={['flex-start', 'center', 'center']}>
+        <Switcher
+          col={2}
+          gap={[cssTheme.sizing.var.x6]}
+          alignItems={['flex-start', 'center', 'center']}
+        >
           <div className={styles.left}>{LeftBlock}</div>
           <div className={styles.right}>{RightBlock}</div>
         </Switcher>

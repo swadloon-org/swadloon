@@ -50,17 +50,29 @@ export const Footer: React.FC<OwnProps> = (props) => {
         <div className={styles.contact}>
           <Label
             className={styles.title}
-            variant={viewport === VIEWPORT.mobile ? LABEL.smallBoldUppercase : LABEL.xSmallBoldUppercase}
+            variant={
+              viewport === VIEWPORT.mobile ? LABEL.smallBoldUppercase : LABEL.xSmallBoldUppercase
+            }
           >
             Contactez-nous
           </Label>
-          <Paragraph className={styles.infoText} variant={viewport === VIEWPORT.mobile ? 'medium' : 'small'}>
+          <Paragraph
+            className={styles.infoText}
+            variant={viewport === VIEWPORT.mobile ? 'medium' : 'small'}
+          >
             Téléphone :
-            <AnchorLink className={styles.link} variant="reversed" href={`tel:${data.contentfulCompanyAddress?.phone}`}>
+            <AnchorLink
+              className={styles.link}
+              variant="reversed"
+              href={`tel:${data.contentfulCompanyAddress?.phone}`}
+            >
               {data.contentfulCompanyAddress?.phone}
             </AnchorLink>
           </Paragraph>
-          <Paragraph className={styles.infoText} variant={viewport === VIEWPORT.mobile ? 'medium' : 'small'}>
+          <Paragraph
+            className={styles.infoText}
+            variant={viewport === VIEWPORT.mobile ? 'medium' : 'small'}
+          >
             Sans frais :
             <AnchorLink
               className={styles.link}
@@ -70,7 +82,10 @@ export const Footer: React.FC<OwnProps> = (props) => {
               {data.contentfulCompanyAddress?.phoneNoFees}
             </AnchorLink>
           </Paragraph>
-          <Paragraph className={styles.infoText} variant={viewport === VIEWPORT.mobile ? 'medium' : 'small'}>
+          <Paragraph
+            className={styles.infoText}
+            variant={viewport === VIEWPORT.mobile ? 'medium' : 'small'}
+          >
             Courriel :{' '}
             <AnchorLink
               className={styles.link}
@@ -85,21 +100,35 @@ export const Footer: React.FC<OwnProps> = (props) => {
         <div className={styles.location}>
           <Label
             className={styles.title}
-            variant={viewport === VIEWPORT.mobile ? LABEL.smallBoldUppercase : LABEL.xSmallBoldUppercase}
+            variant={
+              viewport === VIEWPORT.mobile ? LABEL.smallBoldUppercase : LABEL.xSmallBoldUppercase
+            }
           >
             Visitez-nous
           </Label>
-          <Paragraph className={styles.infoText} variant={viewport === VIEWPORT.mobile ? 'medium' : 'small'}>
+          <Paragraph
+            className={styles.infoText}
+            variant={viewport === VIEWPORT.mobile ? 'medium' : 'small'}
+          >
             {data.contentfulCompanyAddress?.addressLine1}
           </Paragraph>
-          <Paragraph className={styles.infoText} variant={viewport === VIEWPORT.mobile ? 'medium' : 'small'}>
+          <Paragraph
+            className={styles.infoText}
+            variant={viewport === VIEWPORT.mobile ? 'medium' : 'small'}
+          >
             {data.contentfulCompanyAddress?.addressLine2}
           </Paragraph>
-          <Paragraph className={styles.infoText} variant={viewport === VIEWPORT.mobile ? 'medium' : 'small'}>
+          <Paragraph
+            className={styles.infoText}
+            variant={viewport === VIEWPORT.mobile ? 'medium' : 'small'}
+          >
             {data.contentfulCompanyAddress?.city}, {data.contentfulCompanyAddress?.provinceState},{' '}
             {data.contentfulCompanyAddress?.postalCode}
           </Paragraph>
-          <Paragraph className={styles.infoText} variant={viewport === VIEWPORT.mobile ? 'medium' : 'small'}>
+          <Paragraph
+            className={styles.infoText}
+            variant={viewport === VIEWPORT.mobile ? 'medium' : 'small'}
+          >
             {data.contentfulCompanyAddress?.country}
           </Paragraph>
         </div>

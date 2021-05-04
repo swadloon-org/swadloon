@@ -1,4 +1,10 @@
-import { createSizingStep, Sizing, SIZING, SizingSteps, VIEWPORT } from '@newrade/core-design-system-old';
+import {
+  createSizingStep,
+  Sizing,
+  SIZING,
+  SizingSteps,
+  VIEWPORT,
+} from '@newrade/core-design-system-old';
 import {
   DEFAULT_BASE_FONT_SIZE,
   DEFAULT_SCALING_RATIO,

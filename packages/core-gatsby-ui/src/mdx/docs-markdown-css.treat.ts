@@ -73,9 +73,12 @@ globalStyle(`${wrapper} hr`, ({ cssTheme, theme }: Theme) => ({
  * Text content
  */
 
-globalStyle(`${wrapper} p *, ${wrapper} p *::before, ${wrapper} p *::after`, ({ cssTheme, theme }: Theme) => ({
-  display: 'inline-block',
-}));
+globalStyle(
+  `${wrapper} p *, ${wrapper} p *::before, ${wrapper} p *::after`,
+  ({ cssTheme, theme }: Theme) => ({
+    display: 'inline-block',
+  })
+);
 
 globalStyle(`${wrapper} p + *`, ({ cssTheme, theme }: Theme) => ({
   marginTop: contentMargin,

@@ -50,7 +50,8 @@ export const createBlogPost: Migration.MigrationFunction = function (migration) 
     localized: true,
   });
   content.changeFieldControl(COMMON_FIELD.BLOG_EXCERPT, 'builtin', CONTENTFUL_WIDGET.MULTI_LINE, {
-    helpText: 'Short summary of the article, will default to the first lines of content if not set.',
+    helpText:
+      'Short summary of the article, will default to the first lines of content if not set.',
   });
 
   /**
@@ -61,7 +62,11 @@ export const createBlogPost: Migration.MigrationFunction = function (migration) 
     helpText: 'Select a media collection to set images on the section.',
   });
 
-  content.createField(COMMON_FIELD.TEXT, { name: pascal(COMMON_FIELD.TEXT), type: 'Text', localized: true });
+  content.createField(COMMON_FIELD.TEXT, {
+    name: pascal(COMMON_FIELD.TEXT),
+    type: 'Text',
+    localized: true,
+  });
 
   /**
    * To Tags of the blog post
@@ -81,6 +86,10 @@ export const createBlogPost: Migration.MigrationFunction = function (migration) 
   content.createField(COMMON_FIELD.BLOG_AUTHOR, {
     name: pascal(COMMON_FIELD.BLOG_AUTHOR),
     type: 'Array',
-    items: { type: 'Link', linkType: 'Entry', validations: [{ linkContentType: [COMMON_FIELD.BLOG_AUTHOR] }] },
+    items: {
+      type: 'Link',
+      linkType: 'Entry',
+      validations: [{ linkContentType: [COMMON_FIELD.BLOG_AUTHOR] }],
+    },
   });
 };

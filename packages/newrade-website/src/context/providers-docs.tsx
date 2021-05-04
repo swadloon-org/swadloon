@@ -1,7 +1,10 @@
 import { MDXProvider } from '@mdx-js/react';
 import { docsMdxComponents } from '@newrade/core-gatsby-ui/src';
 import { TreatThemeProvider, viewportContext, ViewportProvider } from '@newrade/core-react-ui';
-import { defaultCSSTheme, defaultTheme } from '@newrade/core-react-ui/lib/design-system/default-theme';
+import {
+  defaultCSSTheme,
+  defaultTheme,
+} from '@newrade/core-react-ui/lib/design-system/default-theme';
 import { GlobalCSSVariables } from '@newrade/core-react-ui/lib/global/global-css-variables';
 import { GlobalResetCSS } from '@newrade/core-react-ui/lib/global/global-reset-css';
 import React from 'react';

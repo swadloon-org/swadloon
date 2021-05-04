@@ -59,7 +59,9 @@ export type MediaQuery = string;
 /**
  * Breakpoints values in pixel.
  */
-export type MediaQueries = { [key in keyof typeof VIEWPORT]: MediaQuery } & { tabletPlus: MediaQuery };
+export type MediaQueries = { [key in keyof typeof VIEWPORT]: MediaQuery } & {
+  tabletPlus: MediaQuery;
+};
 
 /**
  * Content margins for different device formats.

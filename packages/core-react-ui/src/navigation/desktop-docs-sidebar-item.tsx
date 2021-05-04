@@ -13,7 +13,14 @@ type Props = CommonComponentProps &
     active?: boolean;
   };
 
-export const DesktopDocsSidebarItem: React.FC<Props> = ({ id, style, className, active, AsElement, ...props }) => {
+export const DesktopDocsSidebarItem: React.FC<Props> = ({
+  id,
+  style,
+  className,
+  active,
+  AsElement,
+  ...props
+}) => {
   const { styles } = useStyles(styleRefs);
   const commonProps = useCommonProps({
     id,

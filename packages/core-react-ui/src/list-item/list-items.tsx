@@ -25,7 +25,11 @@ export const ListItems: React.FC<Props> = React.memo(
      * Props
      */
     const variantStateClassName = styles.wrapper;
-    const allClassName = getMergedClassname([variantStateClassName, className, as === 'ul' ? styles.ul : styles.ol]);
+    const allClassName = getMergedClassname([
+      variantStateClassName,
+      className,
+      as === 'ul' ? styles.ul : styles.ol,
+    ]);
 
     /**
      * Default children
@@ -40,7 +44,14 @@ export const ListItems: React.FC<Props> = React.memo(
      * Render
      */
     return (
-      <Stack as={as} id={id} style={style} className={allClassName} gap={gap || [`1.4em`]} {...props}>
+      <Stack
+        as={as}
+        id={id}
+        style={style}
+        className={allClassName}
+        gap={gap || [`1.4em`]}
+        {...props}
+      >
         {renderedChildren}
       </Stack>
     );

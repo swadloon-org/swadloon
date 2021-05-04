@@ -6,7 +6,12 @@
 
 delete process.env.TS_NODE_PROJECT; // see https://github.com/dividab/tsconfig-paths-webpack-plugin/issues/32
 
-import { babelPluginConf, babelPresetConf, extractCssLoader, svgLoader } from '@newrade/core-webpack-config';
+import {
+  babelPluginConf,
+  babelPresetConf,
+  extractCssLoader,
+  svgLoader,
+} from '@newrade/core-webpack-config';
 import dotenv from 'dotenv';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
@@ -86,8 +91,12 @@ const config: WebpackOptions.WebpackOptions = {
   plugins: [
     // new CopyWebpackPlugin([{ from: '../../node_modules/graphql-voyager/dist/voyager.worker.js' }]),
     new (webpack as any).DefinePlugin({
-      NODE_ENV: process.env.NODE_ENV ? JSON.stringify(process.env.NODE_ENV) : JSON.stringify('development'),
-      NODE_VERSION: process.env.version ? JSON.stringify(process.env.version) : JSON.stringify('unknown'),
+      NODE_ENV: process.env.NODE_ENV
+        ? JSON.stringify(process.env.NODE_ENV)
+        : JSON.stringify('development'),
+      NODE_VERSION: process.env.version
+        ? JSON.stringify(process.env.version)
+        : JSON.stringify('unknown'),
     }),
     new HtmlWebpackPlugin({
       template: './src/index.html',

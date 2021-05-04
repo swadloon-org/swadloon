@@ -19,7 +19,12 @@ export type NavigationProps = {
   facebookPageURL: string | null;
   instagramPageURL: string | null;
   twitterPageURL: string | null;
-  pages: { title?: string | null; slug?: string | null; name?: string | PAGE_NAME | null; locale?: string | null }[];
+  pages: {
+    title?: string | null;
+    slug?: string | null;
+    name?: string | PAGE_NAME | null;
+    locale?: string | null;
+  }[];
 };
 
 type OwnProps = {
@@ -34,8 +39,12 @@ export const SideBar: React.FC<OwnProps> = (props) => {
   const currentLocale = props.location?.pathname.includes('/en/') ? 'en-CA' : 'fr-CA';
   const currentLocaleIsEN = currentLocale === 'en-CA';
   const currentLocaleIsFR = !currentLocaleIsEN;
-  const pagesEN = props.pages?.filter((page) => (currentLocaleIsEN ? page?.locale === 'en-CA' : page));
-  const pagesFR = props.pages?.filter((page) => (currentLocaleIsFR ? page?.locale === 'fr-CA' : page));
+  const pagesEN = props.pages?.filter((page) =>
+    currentLocaleIsEN ? page?.locale === 'en-CA' : page
+  );
+  const pagesFR = props.pages?.filter((page) =>
+    currentLocaleIsFR ? page?.locale === 'fr-CA' : page
+  );
 
   const leftToolbarPageNames: (string | PAGE_NAME)[] = [
     PAGE_NAME?.ACCUEIL,
@@ -96,7 +105,11 @@ export const SideBar: React.FC<OwnProps> = (props) => {
                   key={`${page?.name}-${page?.locale}`}
                   activeClassName={`${styles.activeItem}`}
                 >
-                  <div className={`${styles.itemMenu} ${props.currentPathname == page?.name ? styles.activeItem : ''}`}>
+                  <div
+                    className={`${styles.itemMenu} ${
+                      props.currentPathname == page?.name ? styles.activeItem : ''
+                    }`}
+                  >
                     <Heading variant="h4">{page?.title}</Heading>
                   </div>
                 </GatsbyLink>
@@ -117,7 +130,12 @@ export const SideBar: React.FC<OwnProps> = (props) => {
           </div>
           <div className={styles.listSocial}>
             {props.facebookPageURL ? (
-              <a href={props.facebookPageURL} target={'_blank'} aria-label="Facebook Page" rel="noreferrer">
+              <a
+                href={props.facebookPageURL}
+                target={'_blank'}
+                aria-label="Facebook Page"
+                rel="noreferrer"
+              >
                 <Button
                   className={styles.btnSocial}
                   variantType="secondaryReversed"
@@ -129,7 +147,12 @@ export const SideBar: React.FC<OwnProps> = (props) => {
               </a>
             ) : null}
             {props.linkedinPageURL ? (
-              <a href={props.linkedinPageURL} target={'_blank'} aria-label="LinkedIn Page" rel="noreferrer">
+              <a
+                href={props.linkedinPageURL}
+                target={'_blank'}
+                aria-label="LinkedIn Page"
+                rel="noreferrer"
+              >
                 <Button
                   className={styles.btnSocial}
                   variantType="secondaryReversed"
@@ -141,7 +164,12 @@ export const SideBar: React.FC<OwnProps> = (props) => {
               </a>
             ) : null}
             {props.twitterPageURL ? (
-              <a href={props.twitterPageURL} target={'_blank'} aria-label="Twitter Page" rel="noreferrer">
+              <a
+                href={props.twitterPageURL}
+                target={'_blank'}
+                aria-label="Twitter Page"
+                rel="noreferrer"
+              >
                 <Button
                   className={styles.btnSocial}
                   variantType="secondaryReversed"
@@ -153,7 +181,12 @@ export const SideBar: React.FC<OwnProps> = (props) => {
               </a>
             ) : null}
             {props.instagramPageURL ? (
-              <a href={props.instagramPageURL} target={'_blank'} aria-label="Instagram Page" rel="noreferrer">
+              <a
+                href={props.instagramPageURL}
+                target={'_blank'}
+                aria-label="Instagram Page"
+                rel="noreferrer"
+              >
                 <Button
                   className={styles.btnSocial}
                   variantType="secondaryReversed"

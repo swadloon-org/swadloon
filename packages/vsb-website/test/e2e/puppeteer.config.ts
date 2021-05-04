@@ -27,7 +27,10 @@ export const puppeteerConfig: {
   appURL: `${PROTOCOL}://${HOST}:${PORT}`,
   launchOptions: {
     headless: toBoolean(env.TEST_CHROME_HEADLESS),
-    defaultViewport: { width: Number(env.TEST_VIEW_WIDTH) || 1440, height: Number(env.TEST_VIEW_HEIGHT) || 900 },
+    defaultViewport: {
+      width: Number(env.TEST_VIEW_WIDTH) || 1440,
+      height: Number(env.TEST_VIEW_HEIGHT) || 900,
+    },
     args: [
       `--window-size=${env.TEST_VIEW_WIDTH},${env.TEST_VIEW_HEIGHT}`,
       '--no-sandbox',

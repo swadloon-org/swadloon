@@ -14,19 +14,25 @@ describe('colors utilities', () => {
         capHeight: 55,
         lineGap: 19,
       };
-      expect(createCSSCapsizeTextStyle({ baseFontSize: defaultBaseFontSize, ...textStyle })).toMatchSnapshot();
+      expect(
+        createCSSCapsizeTextStyle({ baseFontSize: defaultBaseFontSize, ...textStyle })
+      ).toMatchSnapshot();
     });
   });
 
   describe(`${getCSSTypography.name}`, () => {
     it('should create a valid CSS typography object', () => {
-      expect(getCSSTypography({ ...defaultTypography, baseFontSize: defaultBaseFontSize })).toMatchSnapshot();
+      expect(
+        getCSSTypography({ ...defaultTypography, baseFontSize: defaultBaseFontSize })
+      ).toMatchSnapshot();
     });
   });
 
   describe(`${getCSSTextStyles.name}`, () => {
     it('should retrieve valid text styles', () => {
-      expect(getCSSTextStyles({ ...defaultCSSTheme.typography.headings.desktop.h1 })).toMatchSnapshot();
+      expect(
+        getCSSTextStyles({ ...defaultCSSTheme.typography.headings.desktop.h1 })
+      ).toMatchSnapshot();
     });
   });
 });

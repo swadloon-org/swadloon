@@ -131,7 +131,13 @@ const FormStack: React.FC = (props) => {
   return <Stack gap={[cssTheme.sizing.var.x4]}>{props.children}</Stack>;
 };
 
-export const BlockFormVasectomy: React.FC<BlockFormVasectomyProps> = ({ id, style, className, block, ...props }) => {
+export const BlockFormVasectomy: React.FC<BlockFormVasectomyProps> = ({
+  id,
+  style,
+  className,
+  block,
+  ...props
+}) => {
   const { styles } = useStyles(styleRefs);
   const { cssTheme } = useTreatTheme();
 
@@ -322,7 +328,8 @@ export const BlockFormVasectomy: React.FC<BlockFormVasectomyProps> = ({ id, styl
     }
   }, 1000);
 
-  const onChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => debouncedSave(event.target.value);
+  const onChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) =>
+    debouncedSave(event.target.value);
 
   const handleAddressSuggest = async (searchTerm: string) => {
     const contentAddress: AddressAutoCompleteOptions = {
@@ -342,7 +349,9 @@ export const BlockFormVasectomy: React.FC<BlockFormVasectomyProps> = ({ id, styl
     }
   };
 
-  const handleSelectSuggestion = (suggestion: AddressAutoCompleteResponse) => async (event: React.MouseEvent) => {
+  const handleSelectSuggestion = (suggestion: AddressAutoCompleteResponse) => async (
+    event: React.MouseEvent
+  ) => {
     const newInfos = await onValidateById(suggestion);
 
     if (!newInfos) {
@@ -384,7 +393,11 @@ export const BlockFormVasectomy: React.FC<BlockFormVasectomyProps> = ({ id, styl
       <ul>
         {items.map((suggestion: AddressAutoCompleteResponse, index: number) => {
           return (
-            <li style={{ lineHeight: '1' }} key={index} onClick={handleSelectSuggestion(suggestion)}>
+            <li
+              style={{ lineHeight: '1' }}
+              key={index}
+              onClick={handleSelectSuggestion(suggestion)}
+            >
               {`${suggestion.Text} ${suggestion.Description}`}
             </li>
           );
@@ -738,8 +751,8 @@ export const BlockFormVasectomy: React.FC<BlockFormVasectomyProps> = ({ id, styl
             />
 
             <Paragraph>
-              Une fois la demande soumise, notre équipe vous contactera dans les plus brefs délais pour planifier les
-              prochaines étapes avec vous.
+              Une fois la demande soumise, notre équipe vous contactera dans les plus brefs délais
+              pour planifier les prochaines étapes avec vous.
             </Paragraph>
 
             <Button
@@ -798,9 +811,9 @@ export const BlockFormVasectomy: React.FC<BlockFormVasectomyProps> = ({ id, styl
           </FormStack>
 
           <Paragraph>
-            <Bold>N.B. :</Bold> Suite à l’ouverture de votre dossier, vous aurez <Bold>deux</Bold> ans pour prendre
-            rendez-vous pour la chirurgie. Après ce délais, il est possible que notre équipe vous demande de recommencer
-            la démarche.
+            <Bold>N.B. :</Bold> Suite à l’ouverture de votre dossier, vous aurez <Bold>deux</Bold>{' '}
+            ans pour prendre rendez-vous pour la chirurgie. Après ce délais, il est possible que
+            notre équipe vous demande de recommencer la démarche.
           </Paragraph>
         </Stack>
       </Form>

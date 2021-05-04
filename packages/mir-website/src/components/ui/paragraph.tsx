@@ -9,5 +9,9 @@ interface OwnProps {
 export const Paragraph: React.FC<HTMLAttributes<any> & OwnProps> = (props) => {
   const styles = useStyles(styleRefs);
 
-  return <p className={`${props.className || ''} ${styles[props.variant || 'medium']}`}>{props.children}</p>;
+  return (
+    <p className={`${props.className || ''} ${styles[props.variant || 'medium']}`}>
+      {props.children}
+    </p>
+  );
 };

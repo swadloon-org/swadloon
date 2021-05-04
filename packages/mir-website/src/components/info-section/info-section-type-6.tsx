@@ -44,7 +44,10 @@ export const InfoSectionType6: React.FC<OwnProps> = (props) => {
 
   return (
     <div className={`${styles.wrapper} ${sectionStyle()}`} key={props?.title}>
-      <Illustration className={`${styles.illustration}`} name={`illustrations/${props?.illustration?.title}`} />
+      <Illustration
+        className={`${styles.illustration}`}
+        name={`illustrations/${props?.illustration?.title}`}
+      />
 
       <Heading variant="h3" className={styles.title}>
         {props?.title}
