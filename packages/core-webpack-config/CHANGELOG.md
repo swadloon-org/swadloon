@@ -148,7 +148,7 @@ All notable changes to this project will be documented in this file. See
   ([190c9ae](https://github.com/newrade/newrade/commit/190c9ae5fbe60e0ca38b585e0a75a991bdf91c19))
 - **core-react-ui:** wip on graphql voyager
   ([1462fc2](https://github.com/newrade/newrade/commit/1462fc20bbd60602e9f8aad788fbdf35dd461700))
-- **core-react-ui-app:** fix the app version
+- **core-graphql-ui:** fix the app version
   ([b028a82](https://github.com/newrade/newrade/commit/b028a82707c60d9274210513d64d201a59c37f5d))
 - **core-webpack-config:** refactor config to be used in gatsby packages
   ([3a9f06f](https://github.com/newrade/newrade/commit/3a9f06fa246ab8b5b2b595295f02aaac5b2da86e))

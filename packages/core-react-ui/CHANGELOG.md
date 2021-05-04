@@ -589,7 +589,7 @@ All notable changes to this project will be documented in this file. See
   ([fbafca5](https://github.com/newrade/newrade/commit/fbafca59a7d94c841ad80fa45581d5d5feb41cb5))
 - **core-react-ui:** working webpack setup for development
   ([a7d9000](https://github.com/newrade/newrade/commit/a7d90008ee74bc279b1717553938d0b3219e7a1b))
-- **core-react-ui-app:** minimal setup
+- **core-graphql-ui:** minimal setup
   ([ea63871](https://github.com/newrade/newrade/commit/ea63871b6f6334b828b8b5eefd224a5f510e6d7b))
 - **lakhos-website:** fix wrong import
   ([6bb9d36](https://github.com/newrade/newrade/commit/6bb9d361e830c4a19a6cfc3fb59c72adfb95c4cc))
@@ -683,7 +683,7 @@ All notable changes to this project will be documented in this file. See
   ([916547e](https://github.com/newrade/newrade/commit/916547e4c8907af33e92753959ff84931e7173b0))
 - **core-react-ui:** wip on graphql voyager
   ([1462fc2](https://github.com/newrade/newrade/commit/1462fc20bbd60602e9f8aad788fbdf35dd461700))
-- **core-react-ui-app:** fix the app version
+- **core-graphql-ui:** fix the app version
   ([b028a82](https://github.com/newrade/newrade/commit/b028a82707c60d9274210513d64d201a59c37f5d))
 - **core-webpack-config:** refactor config to be used in gatsby packages
   ([3a9f06f](https://github.com/newrade/newrade/commit/3a9f06fa246ab8b5b2b595295f02aaac5b2da86e))

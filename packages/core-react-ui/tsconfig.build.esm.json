@@ -2,9 +2,9 @@
   "extends": "../../tsconfig.build.json",
   "compilerOptions": {
     "rootDir": "src",
-    "outDir": "lib",
+    "outDir": "lib/esm",
     "target": "es6",
-    "module": "commonjs",
+    "module": "esnext",
     "types": ["react", "react-dom", "jest", "googlemaps"],
     "lib": ["es6", "dom", "es2017"]
   },

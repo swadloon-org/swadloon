@@ -10,14 +10,18 @@
   "repository": "https://github.com/newrade/newrade-core/tree/master/packages/core-design-system",
   "license": "MIT",
   "main": "./lib/index.js",
-  "module": "./lib/index.js",
+  "module": "./lib/esm/index.js",
   "files": [
     "./lib/**/*"
   ],
   "scripts": {
-    "build": "tsc --build tsconfig.build.json",
+    "build": "yarn build:commonjs && yarn build:esm",
+    "build:commonjs": "tsc --build tsconfig.build.json",
+    "build:esm": "tsc --build tsconfig.build.esm.json",
     "clean": "rimraf -r lib/** && rm -f tsconfig.build.tsbuildinfo",
-    "start": "tsc --build --watch --preserveWatchOutput tsconfig.build.json"
+    "start": "concurrently \"yarn start:commonjs\" \"yarn start:esm\"",
+    "start:commonjs": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
+    "start:esm": "tsc --build tsconfig.build.esm.json --watch --preserveWatchOutput"
   },
   "typings": "./lib/index.d.ts"
 }

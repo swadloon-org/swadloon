@@ -1,6 +1,6 @@
 import { APIResponseBody, API_RESPONSE_STATUS, ERROR_TYPE } from '@newrade/core-common';
 import fetch from 'node-fetch';
-import { env } from '../server';
+import { env } from '../server-express';
 import { ClinikoAPIResponseError } from '../controllers/cliniko.constants';
 import { systemError } from '../controllers/cliniko-post-patient.controller';
 import debug from 'debug';
@@ -69,7 +69,9 @@ export async function fetchCliniko<Payload extends object, ResponsePayload exten
           api: 'cliniko',
           status: API_RESPONSE_STATUS.ERROR,
           message: systemError,
-          errors: [{ name: ERROR_TYPE.HTTP_UNAUTHORIZED_401, message: 'Unable to connect to cliniko' }],
+          errors: [
+            { name: ERROR_TYPE.HTTP_UNAUTHORIZED_401, message: 'Unable to connect to cliniko' },
+          ],
           payload: {} as ResponsePayload,
         };
         break;

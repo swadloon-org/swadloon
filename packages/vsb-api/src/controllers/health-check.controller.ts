@@ -1,7 +1,7 @@
 import { API_RESPONSE_STATUS } from '@newrade/core-common';
 import debug from 'debug';
 import { RequestHandler } from 'express';
-import { env } from '../server';
+import { env } from '../server-express';
 
 const log = debug('newrade:vsb-api:health-check');
 const logWarn = log.extend('warn');
@@ -24,7 +24,13 @@ const getHealthCheck: RequestHandler<any, any, any> = async (req, res) => {
     logError(`request failed for service status`);
     return res
       .status(500)
-      .send({ api: 'vsb-api', status: API_RESPONSE_STATUS.ERROR, message: systemError, errors: [error], payload: {} });
+      .send({
+        api: 'vsb-api',
+        status: API_RESPONSE_STATUS.ERROR,
+        message: systemError,
+        errors: [error],
+        payload: {},
+      });
   }
 };
 

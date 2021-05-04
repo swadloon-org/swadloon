@@ -83,7 +83,7 @@ All notable changes to this project will be documented in this file. See
 
 ### Features
 
-- **core-react-ui-app:** fix the app version
+- **core-graphql-ui:** fix the app version
   ([b028a82](https://github.com/newrade/newrade/commit/b028a82707c60d9274210513d64d201a59c37f5d))
 
 ## [1.4.2](https://github.com/newrade/newrade/compare/core-react-ui@1.4.1...core-react-ui@1.4.2) (2020-09-28)

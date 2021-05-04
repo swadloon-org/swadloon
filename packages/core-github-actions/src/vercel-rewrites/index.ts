@@ -1,6 +1,6 @@
 import * as core from '@actions/core';
-import { promises as fsp } from 'fs'; // fix for node v12 https://stackoverflow.com/questions/64725249/fs-promises-api-in-typescript-not-compiling-in-javascript-correctly
 import * as github from '@actions/github';
+import { promises as fsp } from 'fs'; // fix for node v12 https://stackoverflow.com/questions/64725249/fs-promises-api-in-typescript-not-compiling-in-javascript-correctly
 import { VercelConfig } from './vercel';
 
 try {

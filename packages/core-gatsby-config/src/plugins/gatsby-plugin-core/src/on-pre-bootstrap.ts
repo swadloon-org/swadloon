@@ -8,9 +8,12 @@ export const onPreBootstrapFunction: GatsbyNode['onPreBootstrap'] = (args, optio
   const pluginOptions = (options as unknown) as GatsbyCorePluginOptions;
   const toolName = pluginOptions.packageName;
 
-  log(`GATSBY_ENABLE_INCREMENTAL_BUILD is set to "${process.env.GATSBY_ENABLE_INCREMENTAL_BUILD}"`, {
-    toolName,
-  });
+  log(
+    `GATSBY_ENABLE_INCREMENTAL_BUILD is set to "${process.env.GATSBY_ENABLE_INCREMENTAL_BUILD}"`,
+    {
+      toolName,
+    }
+  );
 
   if (process.env.GATSBY_ENABLE_INCREMENTAL_BUILD !== 'true') {
     const resultIncrementalBuild = callback && callback(null);

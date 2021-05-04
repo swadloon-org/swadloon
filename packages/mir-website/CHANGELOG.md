@@ -687,8 +687,6 @@ All notable changes to this project will be documented in this file. See
   ([3aebb79](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/3aebb7975c6b42a3cd7ab7a4e6afe10ec1803ef2))
 - **action section:** adding the view resonsive
   ([b0985ad](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/b0985ad8f953e041a480eea27fb3c7479e853d42))
-- **cdpq-design-system:** init
-  ([bdf74c5](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/bdf74c5a996e05bf3644a43e3d2e53476e80efeb))
 - **check label, box-icon, job-section:** adding new ui component and refactor
   job-section
   ([a7da053](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/a7da0534a4c78f7d9c6cf8b1a5e4545b135791cc))
@@ -1070,8 +1068,6 @@ All notable changes to this project will be documented in this file. See
 
 ### Features
 
-- **cdpq-design-system:** init
-  ([bdf74c5](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/bdf74c5a996e05bf3644a43e3d2e53476e80efeb))
 - **check label, box-icon, job-section:** adding new ui component and refactor
   job-section
   ([a7da053](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/a7da0534a4c78f7d9c6cf8b1a5e4545b135791cc))
