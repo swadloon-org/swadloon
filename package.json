@@ -52,7 +52,7 @@
     "test": "lerna run --concurrency=4 test",
     "test:core:ui": "yarn test --scope '{@newrade/core-design-system,@newrade/core-react-ui,@newrade/core-graphql-ui}'",
     "typecheck": "lerna run typecheck --parallel",
-    "typecheck:build": "lerna run typecheck:build",
+    "typecheck:build": "lerna run --concurrency=4 typecheck:build",
     "yo": "nr-core-yo-generator"
   },
   "resolutions": {
@@ -81,6 +81,7 @@
     "eslint-loader": "^4.0.2",
     "eslint-webpack-plugin": "^2.5.2",
     "express": "^4.17.1",
+    "express-jwt": "^6.0.0",
     "express-rate-limit": "^5.2.3",
     "fp-ts": "^2.8.4",
     "framer-motion": "^2.6.5",
@@ -98,6 +99,7 @@
     "i18next-http-middleware": "^3.1.0",
     "io-ts": "^2.2.13",
     "jest-puppeteer": "^4.4.0",
+    "jwks-rsa": "^2.0.3",
     "lodash": "^4.17.15",
     "morgan": "^1.10.0",
     "path-to-regexp": "^6.2.0",

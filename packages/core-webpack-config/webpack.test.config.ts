@@ -6,7 +6,7 @@
 
 import webpack from 'webpack/declarations/WebpackOptions';
 import { ENVIRONMENT } from './src/environments';
-import { es6BabelLoader } from './src/loaders/es6-babel.loader';
+import { es6BabelLoader } from './src/loaders/babel-es6.loader';
 import { typescriptBabelLoader } from './src/loaders/typescript-babel.loader';
 import { defaultOuputConf } from './src/output.conf';
 import { getBundleVisualizerPlugin } from './src/plugins/bundle-visualizer-plugin';
