@@ -1,4 +1,6 @@
-# Agile
+# Agile and Scrum
+
+## Agile
 
 Manifesto: https://agilemanifesto.org/
 
