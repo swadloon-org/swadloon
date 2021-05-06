@@ -1,16 +1,16 @@
 import child_process from 'child_process';
 import { GatsbyNode } from 'gatsby';
 import path from 'path';
+import { loadDotEnv } from '@newrade/core-utils';
+import packageJson from './package.json';
+import { ENV, Env } from './types/dot-env';
+import { CLIENT_ENV } from './types/dot-env-client';
+
 /**
  * Gatsby Node Configuration
  *
  * @see https://www.gatsbyjs.com/docs/node-apis/
  */
-import util from 'util';
-import { loadDotEnv } from '../core-utils/src';
-import packageJson from './package.json';
-import { ENV, Env } from './types/dot-env';
-import { CLIENT_ENV } from './types/dot-env-client';
 
 const env = loadDotEnv<ENV>({
   schema: Env,
@@ -71,14 +71,3 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
     plugins: [plugins.define(clientEnv)],
   });
 };
-
-// const exec = util.promisify(child_process.exec);
-
-// export const onPostBuild: GatsbyNode['onPostBuild'] = async ({ reporter }) => {
-//   const reportOut = (report: any) => {
-//     const { stderr, stdout } = report;
-//     if (stderr) reporter.error(stderr);
-//     if (stdout) reporter.info(stdout);
-//   };
-//   reportOut(await exec('yarn copy:functions'));
-// };

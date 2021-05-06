@@ -6,8 +6,8 @@
 
 import webpack from 'webpack/declarations/WebpackOptions';
 import { ENVIRONMENT } from './src/environments';
-import { es6BabelLoader } from './src/loaders/babel-es6.loader';
-import { typescriptBabelLoader } from './src/loaders/typescript-babel.loader';
+import { babelReactLoader } from './src/loaders/babel-es6.loader';
+import { typescriptBabelReactLoader } from './src/loaders/typescript-babel.loader';
 import { defaultOuputConf } from './src/output.conf';
 import { getBundleVisualizerPlugin } from './src/plugins/bundle-visualizer-plugin';
 
@@ -20,7 +20,7 @@ const config: webpack.WebpackOptions = {
     ts: './test/typescript/index.ts',
   },
   module: {
-    rules: [typescriptBabelLoader, es6BabelLoader],
+    rules: [typescriptBabelReactLoader, babelReactLoader],
   },
   resolve: {
     alias: {

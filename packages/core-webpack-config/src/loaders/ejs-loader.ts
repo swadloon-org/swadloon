@@ -26,3 +26,5 @@ export function ejsLoader(source: string) {
   const template = _.template(source, _.extend({}, query, options));
   return 'module.exports = ' + template;
 }
+
+export default ejsLoader;

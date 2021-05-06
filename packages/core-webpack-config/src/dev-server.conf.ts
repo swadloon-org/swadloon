@@ -1,4 +1,4 @@
-import { webpackStatsConf } from './stats.conf';
+import { stats } from './stats.conf';
 
 export const devServerConfig = {
   disableHostCheck: true,
@@ -16,5 +16,5 @@ export const devServerConfig = {
     'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization',
   },
   proxy: {},
-  stats: webpackStatsConf.dev,
+  stats: stats.dev,
 };

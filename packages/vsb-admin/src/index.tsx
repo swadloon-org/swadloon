@@ -14,4 +14,5 @@ export function RootComponent() {
   );
 }
 
-ReactDOM.render(<RootComponent />, document.getElementById('app'));
+ReactDOM.render(<RootComponent />, document.getElementById('index'));
+// ReactDOM.hydrate(<RootComponent />, document.getElementById('index'));

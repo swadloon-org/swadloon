@@ -4,7 +4,7 @@ import { StatsOptions } from 'webpack/declarations/WebpackOptions';
  * @description Webpack Stats Configuration
  * @see https://webpack.js.org/configuration/stats/
  */
-export const webpackStatsConf: { [key: string]: StatsOptions } = {
+export const stats: { [key in 'debug' | 'dev' | 'prod']: StatsOptions } = {
   debug: {
     all: undefined,
     colors: true,
@@ -25,6 +25,30 @@ export const webpackStatsConf: { [key: string]: StatsOptions } = {
     warnings: true,
     version: false,
     hash: false,
+  },
+  dev: {
+    all: false,
+    colors: true,
+    assets: false,
+    children: false,
+    chunks: true,
+    chunkModules: false,
+    chunkGroups: false,
+    chunksSort: 'size',
+    entrypoints: true,
+    env: true,
+    publicPath: false,
+    errors: true,
+    errorDetails: true,
+    modules: false,
+    moduleTrace: false,
+    performance: true,
+    timings: true,
+    warnings: true,
+    version: false,
+    hash: false,
+    maxModules: Infinity, // examine all modules
+    optimizationBailout: true, // display bailout reasons
   },
   prod: {
     all: false,
@@ -47,29 +71,5 @@ export const webpackStatsConf: { [key: string]: StatsOptions } = {
     warnings: true,
     version: false,
     hash: false,
-  },
-  dev: {
-    all: false,
-    colors: true,
-    assets: false,
-    children: false,
-    chunks: false,
-    chunkModules: false,
-    chunkGroups: false,
-    chunksSort: 'size',
-    entrypoints: false,
-    env: true,
-    publicPath: false,
-    errors: true,
-    errorDetails: true,
-    modules: false,
-    moduleTrace: false,
-    performance: true,
-    timings: true,
-    warnings: true,
-    version: false,
-    hash: false,
-    maxModules: Infinity, // examine all modules
-    optimizationBailout: true, // display bailout reasons
   },
 };

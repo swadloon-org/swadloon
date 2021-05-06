@@ -6,107 +6,37 @@
 
 delete process.env.TS_NODE_PROJECT; // see https://github.com/dividab/tsconfig-paths-webpack-plugin/issues/32
 
-import {
-  babelPluginConf,
-  babelPresetConf,
-  extractCssLoader,
-  svgLoader,
-} from '@newrade/core-webpack-config';
-import dotenv from 'dotenv';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import path from 'path';
-import TreatPlugin from 'treat/webpack-plugin';
-import * as tsloader from 'ts-loader';
-import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
-import webpack from 'webpack';
+import * as core from '@newrade/core-webpack-config';
+import merge from 'webpack-merge';
+import { commonConfig } from './webpack.common.config';
 import WebpackOptions from 'webpack/declarations/WebpackOptions';
+import webpack from 'webpack';
+import path from 'path';
 
-dotenv.config();
-
-const config: WebpackOptions.WebpackOptions = {
+const devConfig: WebpackOptions.WebpackOptions = {
   mode: 'development',
-  entry: './src/index.tsx',
+  watch: true,
+  watchOptions: {
+    aggregateTimeout: 400,
+    ignored: /node_modules|dist/,
+  },
   devtool: 'inline-source-map',
   devServer: {
     port: '8001',
   },
-  stats: 'errors-warnings',
-  module: {
-    rules: [
-      svgLoader,
-      extractCssLoader,
-      {
-        test: /\.tsx?$/,
-        use: [
-          {
-            loader: 'babel-loader',
-            options: {
-              cacheDirectory: true,
-              presets: babelPresetConf,
-              plugins: babelPluginConf,
-            },
-          },
-          {
-            loader: 'ts-loader',
-            options: {
-              configFile: 'tsconfig.build.json',
-              logLevel: 'WARN',
-              projectReferences: true,
-            } as Partial<tsloader.Options>,
-          },
-        ],
-      },
-      {
-        test: /\.jsx?$/,
-        use: [
-          {
-            loader: 'babel-loader',
-            options: {
-              cacheDirectory: true,
-              presets: babelPresetConf,
-              plugins: babelPluginConf,
-            },
-          },
-        ],
-        include: [path.resolve('src/**/*'), path.resolve('../**/*')],
-      },
-    ],
-  },
-  resolve: {
-    mainFields: ['browser', 'main', 'module'],
-    extensions: ['.tsx', '.ts', '.js'],
-    plugins: [
-      // @ts-ignore
-      new TsconfigPathsPlugin({
-        configFile: 'tsconfig.build.json',
-        logLevel: 'WARN',
-      }),
-    ],
-  },
+  plugins: [new webpack.HotModuleReplacementPlugin()],
+  stats: core.stats.dev,
   output: {
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
+    publicPath: '/',
+    pathinfo: true,
+    chunkFilename: '[id].chunk.js',
+    sourceMapFilename: '[file].map',
+    globalObject: 'this',
   },
-  plugins: [
-    // new CopyWebpackPlugin([{ from: '../../node_modules/graphql-voyager/dist/voyager.worker.js' }]),
-    new (webpack as any).DefinePlugin({
-      NODE_ENV: process.env.NODE_ENV
-        ? JSON.stringify(process.env.NODE_ENV)
-        : JSON.stringify('development'),
-      NODE_VERSION: process.env.version
-        ? JSON.stringify(process.env.version)
-        : JSON.stringify('unknown'),
-    }),
-    new HtmlWebpackPlugin({
-      template: './src/index.html',
-    }),
-    new TreatPlugin({
-      outputLoaders: [MiniCssExtractPlugin.loader],
-      hmr: true,
-    }),
-    new MiniCssExtractPlugin(),
-  ],
 };
+
+const config = merge(commonConfig, devConfig);
 
 export default config;

@@ -2,7 +2,7 @@ import { RuleSetRule } from 'webpack/declarations/WebpackOptions';
 import { babelPluginConf } from '../babel-plugins.conf';
 import { babelPresetConf } from '../babel-preset.conf';
 
-export const typescriptBabelLoader: RuleSetRule = {
+export const typescriptBabelReactLoader: RuleSetRule = {
   test: /\.ts(x?)$/,
   use: [
     {
@@ -16,7 +16,7 @@ export const typescriptBabelLoader: RuleSetRule = {
     {
       loader: 'ts-loader',
       options: {
-        configFile: 'tsconfig.test.json',
+        configFile: 'tsconfig.build.json',
       },
     },
   ],

@@ -11,7 +11,7 @@ export function App() {
   return (
     <Center>
       <Stack className={styles.wrapper}>
-        <Heading>Core React App</Heading>
+        <Heading>Core React App !</Heading>
         <Paragraph>Core React App</Paragraph>
         <Button>{cssTheme.name}</Button>
       </Stack>

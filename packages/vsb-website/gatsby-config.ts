@@ -123,6 +123,12 @@ const config: core.GastbySiteConfig = {
         target: 'http://localhost:10003',
       })
     );
+    app.use(
+      '/admin/',
+      proxy({
+        target: 'http://localhost:8003',
+      })
+    );
   },
 };
 

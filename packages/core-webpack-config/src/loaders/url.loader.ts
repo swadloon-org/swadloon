@@ -1,4 +1,6 @@
-module.exports = {
+import { RuleSetRule } from 'webpack/declarations/WebpackOptions';
+
+export const urlLoader: RuleSetRule = {
   test: /\.((svg)(\?v=[0-9]\.[0-9]\.[0-9]))|(ico)$/,
   use: {
     loader: 'url-loader',
