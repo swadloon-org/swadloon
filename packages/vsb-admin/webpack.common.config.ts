@@ -24,8 +24,7 @@ const localCommonConfig: WebpackOptions = {
     ['index']: path.resolve(__dirname, 'src/index.tsx'),
   },
   output: {
-    filename: '[name].js',
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, 'public'),
   },
   plugins: [
     core.getHtmlPlugin({

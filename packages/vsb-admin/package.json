@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "build": "yarn webpack:prod",
-    "clean": "rimraf -r dist/** && rm -f tsconfig.build.tsbuildinfo",
+    "clean": "rimraf -r public/** && rm -f tsconfig.build.tsbuildinfo",
     "start": "yarn webpack:dev",
     "test-disabled": "echo ok",
     "webpack:dev": "cross-env TS_NODE_PROJECT=tsconfig.webpack.json node -r ts-node/register ../../node_modules/webpack-dev-server/bin/webpack-dev-server --config webpack.dev.config.ts",

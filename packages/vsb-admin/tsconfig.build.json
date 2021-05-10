@@ -5,7 +5,7 @@
     "declaration": true,
     "incremental": true,
     "sourceMap": true,
-    "outDir": "dist",
+    "outDir": "public",
     "baseUrl": ".",
     "target": "es6",
     "module": "esnext",

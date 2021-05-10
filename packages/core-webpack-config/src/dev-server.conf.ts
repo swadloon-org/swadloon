@@ -7,7 +7,7 @@ export const devServerConfig = {
   watchContentBase: false,
   watchOptions: {
     aggregateTimeout: 300,
-    ignored: /node_modules|dist|src\/server/,
+    ignored: /node_modules|dist|public|src\/server/,
     poll: 500,
   },
   headers: {

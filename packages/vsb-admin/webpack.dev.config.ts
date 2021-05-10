@@ -16,7 +16,7 @@ const devConfig: WebpackOptions.WebpackOptions = {
   watch: true,
   watchOptions: {
     aggregateTimeout: 400,
-    ignored: /node_modules|dist/,
+    ignored: /node_modules|public/,
   },
   devtool: 'inline-source-map',
   devServer: {
