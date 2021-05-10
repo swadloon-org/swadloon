@@ -20,12 +20,12 @@ const localCommonConfig: WebpackOptions = {
   },
   output: {
     filename: '[name].js',
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, 'public', 'api'),
     libraryTarget: 'umd',
   },
   plugins: [
     core.getWebpackCopyPlugin({
-      patterns: [{ from: 'src/**/*.graphql', to: '' }],
+      patterns: [{ from: 'src/**/*.graphql', to: '[name].[ext]' }],
     }),
   ],
 };
