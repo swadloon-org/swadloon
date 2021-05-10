@@ -23,7 +23,9 @@ export function getTypescriptBabelReactLoader(options: Options = defaultOptions)
         loader: 'babel-loader',
         options: {
           cacheDirectory: true,
-          plugins: [...babelPluginConf],
+          plugins: options.isDevelopment
+            ? [['react-refresh/babel'], ...babelPluginConf]
+            : [...babelPluginConf],
           presets: [...babelPresetConf],
         },
       },

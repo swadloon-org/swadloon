@@ -2,7 +2,6 @@
  * Babel plugins
  */
 export const babelPluginConf: ([string, object] | [string])[] = [
-  ['react-refresh/babel'],
   ['babel-plugin-lodash'],
   ['babel-plugin-treat'],
   ['@babel/plugin-proposal-nullish-coalescing-operator'],

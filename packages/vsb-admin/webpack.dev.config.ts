@@ -30,7 +30,7 @@ const devConfig: WebpackOptions.WebpackOptions = {
       isSSR: false,
     }),
   ],
-  stats: core.stats.debug,
+  stats: core.stats.dev,
   output: core.output.dev,
 };
 
