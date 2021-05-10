@@ -66,6 +66,9 @@ jobs:
     - name: Build vsb-common
       run: yarn build --scope @newrade/vsb-common
 
+    - name: Build vsb-design-system
+      run: yarn build --scope @newrade/vsb-design-system
+
     # todo handle gatsby cache clearing github.event_name == 'workflow_dispatch'
 
     - name: Build vsb-website
