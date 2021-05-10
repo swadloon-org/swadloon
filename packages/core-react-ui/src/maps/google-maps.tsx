@@ -2,7 +2,7 @@ import { GoogleMap, GoogleMapProps, LoadScript, LoadScriptProps } from '@react-g
 import { Libraries } from '@react-google-maps/api/dist/utils/make-load-script-url';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { Theme } from '../design-system/css-design-system';
+import { Theme } from '../design-system';
 import { CommonComponentProps } from '../props/component-common.props';
 import { getMergedClassname } from '../utilities/component.utilities';
 import { mapStyles } from './google-maps.styles';

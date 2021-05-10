@@ -10,10 +10,7 @@
     "target": "es6",
     "module": "esnext",
     "rootDir": ".",
-    "types": ["react", "react-dom"],
-    "paths": {
-      "@newrade/*": ["../*"]
-    }
+    "types": ["react", "react-dom"]
   },
   "references": [
     {

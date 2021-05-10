@@ -8,7 +8,7 @@ import {
 } from '@newrade/core-design-system';
 import React, { ButtonHTMLAttributes, useRef } from 'react';
 import { useStyles } from 'react-treat';
-import { usePreventPinchZoom } from '../';
+import { usePreventPinchZoom } from '../hooks/use-prevent-pinch-zoom';
 import { CommonComponentProps } from '../props/component-common.props';
 import { Label } from '../text/label';
 import { getDefaultTextFromProps, getMergedClassname } from '../utilities/component.utilities';

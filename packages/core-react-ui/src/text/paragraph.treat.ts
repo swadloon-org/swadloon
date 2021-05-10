@@ -1,6 +1,6 @@
 import { PARAGRAPH_SIZE, TEXT_STYLE } from '@newrade/core-design-system';
 import { style } from 'treat';
-import { Theme } from '../design-system/css-design-system';
+import { Theme } from '../design-system';
 import {
   getCSSFontTextStyles,
   getCSSSizeTextStyles,

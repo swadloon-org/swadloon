@@ -1,12 +1,8 @@
 import { MDXProvider } from '@mdx-js/react';
-import {
-  mdxComponents,
-  TreatThemeProvider,
-  viewportContext,
-  ViewportProvider,
-} from '@newrade/core-react-ui';
+import { TreatThemeProvider, viewportContext, ViewportProvider } from '@newrade/core-react-ui';
 import { GlobalCSSVariables } from '@newrade/core-react-ui/lib/global/global-css-variables';
 import { GlobalResetCSS } from '@newrade/core-react-ui/lib/global/global-reset-css';
+import { mdxComponents } from '@newrade/core-react-ui/lib/markdown';
 import React from 'react';
 import { TreatProvider } from 'react-treat';
 import { cssTheme, theme } from '../design-system/theme';

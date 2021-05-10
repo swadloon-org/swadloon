@@ -3,7 +3,7 @@ import {
   getDefaultColorIntents,
   generateColorPalette5,
 } from '@newrade/core-react-ui/lib/utilities';
-import { defaultColors } from '@newrade/core-react-ui/lib/design-system/index';
+import { defaultColors } from '@newrade/core-react-ui/lib/default-theme';
 
 export const colorsColors: Colors['colors'] = {
   current: 'currentColor',

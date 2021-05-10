@@ -8,10 +8,8 @@ delete process.env.TS_NODE_PROJECT; // see https://github.com/dividab/tsconfig-p
 
 import * as core from '@newrade/core-webpack-config';
 import merge from 'webpack-merge';
-import { commonConfig } from './webpack.common.config';
 import WebpackOptions from 'webpack/declarations/WebpackOptions';
-import webpack from 'webpack';
-import path from 'path';
+import { commonConfig, env } from './webpack.common.config';
 
 const devConfig: WebpackOptions.WebpackOptions = {
   mode: 'development',
@@ -22,19 +20,18 @@ const devConfig: WebpackOptions.WebpackOptions = {
   },
   devtool: 'inline-source-map',
   devServer: {
-    port: '8001',
+    host: '0.0.0.0',
+    hot: true,
+    port: env.APP_PORT,
   },
-  plugins: [new webpack.HotModuleReplacementPlugin()],
-  stats: core.stats.dev,
-  output: {
-    filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist'),
-    publicPath: '/',
-    pathinfo: true,
-    chunkFilename: '[id].chunk.js',
-    sourceMapFilename: '[file].map',
-    globalObject: 'this',
-  },
+  plugins: [
+    core.getTreatCSSPlugin({
+      isHmr: true,
+      isSSR: false,
+    }),
+  ],
+  stats: core.stats.debug,
+  output: core.output.dev,
 };
 
 const config = merge(commonConfig, devConfig);

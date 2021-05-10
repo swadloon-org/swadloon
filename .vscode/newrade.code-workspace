@@ -100,97 +100,132 @@
       "path": "../.github"
     },
     {
+      "name": "docs",
       "path": "../docs"
     },
     {
+      "name": "core-cli",
       "path": "../packages/core-cli"
     },
     {
+      "name": "core-contentful-lib",
       "path": "../packages/core-contentful-lib"
     },
     {
+      "name": "core-design-system",
       "path": "../packages/core-design-system"
     },
     {
+      "name": "core-design-system-docs",
       "path": "../packages/core-design-system-docs"
     },
     {
+      "name": "core-design-system-old",
       "path": "../packages/core-design-system-old"
     },
     {
+      "name": "core-dev-config",
       "path": "../packages/core-dev-config"
     },
     {
+      "name": "core-common",
       "path": "../packages/core-common"
     },
     {
+      "name": "core-figma-extractor",
       "path": "../packages/core-figma-extractor"
     },
     {
+      "name": "core-figma-plugins",
       "path": "../packages/core-figma-plugins"
     },
     {
+      "name": "core-gatsby-config",
       "path": "../packages/core-gatsby-config"
     },
     {
+      "name": "core-gatsby-ui",
       "path": "../packages/core-gatsby-ui"
     },
     {
+      "name": "core-github-actions",
       "path": "../packages/core-github-actions"
     },
     {
+      "name": "core-gsap-ui",
       "path": "../packages/core-gsap-ui"
     },
     {
+      "name": "core-jest-config",
       "path": "../packages/core-jest-config"
     },
     {
+      "name": "core-react-ui",
       "path": "../packages/core-react-ui"
     },
     {
+      "name": "core-react-ui-old",
       "path": "../packages/core-react-ui-old"
     },
     {
+      "name": "core-graphql-ui",
       "path": "../packages/core-graphql-ui"
     },
     {
+      "name": "core-types",
       "path": "../packages/core-types"
     },
     {
+      "name": "core-utils",
       "path": "../packages/core-utils"
     },
     {
+      "name": "core-webpack-config",
       "path": "../packages/core-webpack-config"
     },
     {
+      "name": "core-yo-generator",
       "path": "../packages/core-yo-generator"
     },
     {
+      "name": "newrade-demo",
       "path": "../packages/newrade-demo"
     },
     {
+      "name": "newrade-website",
       "path": "../packages/newrade-website"
     },
     {
+      "name": "newrade-admin",
       "path": "../packages/newrade-admin"
     },
     {
+      "name": "newrade-app",
       "path": "../packages/newrade-app"
     },
     {
+      "name": "mir-website",
       "path": "../packages/mir-website"
     },
     {
+      "name": "vsb-admin",
       "path": "../packages/vsb-admin"
     },
     {
-      "path": "../packages/vsb-website"
+      "name": "vsb-api",
+      "path": "../packages/vsb-api"
     },
     {
+      "name": "vsb-design-system",
+      "path": "../packages/vsb-design-system"
+    },
+    {
+      "name": "vsb-common",
       "path": "../packages/vsb-common"
     },
     {
-      "path": "../packages/vsb-api"
+      "name": "vsb-website",
+      "path": "../packages/vsb-website"
     }
   ]
 }

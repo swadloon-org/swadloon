@@ -1,6 +1,6 @@
 import { HEADING } from '@newrade/core-design-system';
 import { style } from 'treat';
-import { Theme } from '../design-system/css-design-system';
+import { Theme } from '../design-system';
 import { getCSSTextStyles } from '../utilities/text.utilities';
 
 export const styles: { wrapper: string } & { [key in HEADING]: string } = {

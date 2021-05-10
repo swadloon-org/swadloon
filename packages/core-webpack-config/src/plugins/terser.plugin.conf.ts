@@ -1,9 +1,11 @@
+import { WebpackPluginInstance } from 'webpack/declarations/WebpackOptions';
+
 const TerserPlugin = require('terser-webpack-plugin');
 /**
  * @see https://github.com/webpack-contrib/terser-webpack-plugin#options
  * @see https://github.com/terser-js/terser#minify-options
  */
-module.exports = new TerserPlugin({
+export const terserPlugin: WebpackPluginInstance = new TerserPlugin({
   cache: true,
   terserOptions: {
     compress: {

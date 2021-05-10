@@ -1,6 +1,6 @@
 import { DesignSystem } from '@newrade/core-design-system';
 import { createCSSTheme } from '../utilities/theme.utilities';
-import { CSSDesignSystem } from './css-design-system';
+import { CSSDesignSystem } from '../design-system';
 import { defaultAnimations } from './default-animations';
 import { defaultButtons } from './default-buttons';
 import { defaultColors } from './default-colors';

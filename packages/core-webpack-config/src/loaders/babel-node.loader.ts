@@ -19,5 +19,5 @@ export const babelNodeRule: RuleSetUseItem = {
 export const babelNodeLoader: RuleSetRule = {
   test: /\.(m?jsx?)$/,
   use: [babelNodeRule],
-  include: path.resolve('src/**/*'),
+  include: [path.resolve('src/**/*')],
 };

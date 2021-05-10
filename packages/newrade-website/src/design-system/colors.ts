@@ -1,5 +1,5 @@
 import { ColorIntents, Colors } from '@newrade/core-design-system';
-import { defaultColors } from '@newrade/core-react-ui/lib/design-system';
+import { defaultColors } from '@newrade/core-react-ui/lib/default-theme';
 import {
   getDefaultColorIntents,
   generateColorPalette5,

@@ -1,5 +1,5 @@
 import { globalStyle, style } from 'treat';
-import { Theme } from '../design-system/css-design-system';
+import { Theme } from '../design-system';
 import { getCSSFontTextStyles, getCSSTextStyles } from '../utilities/text.utilities';
 
 export const styles = {

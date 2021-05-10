@@ -1,6 +1,6 @@
+import { ColorPalette } from '@newrade/core-gatsby-ui/src/docs-components/color-palette';
 import { useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
-import { ColorPalette } from '../../../core-gatsby-ui/src/docs-components/color-palette';
 
 type Props = {};
 

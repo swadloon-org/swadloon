@@ -23,6 +23,7 @@ export * from './plugins/clean-webpack-plugin';
 export * from './plugins/copy-plugin';
 export * from './plugins/lodash-plugin';
 export * from './plugins/stats-plugin';
+export * from './plugins/terser.plugin.conf';
 export * from './plugins/treat-css-plugin';
 export * from './source-map.conf';
 export * from './stats.conf';

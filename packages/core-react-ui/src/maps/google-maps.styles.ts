@@ -1,4 +1,4 @@
-import { Theme } from '../design-system/css-design-system';
+import { Theme } from '../design-system';
 import { getCSSHexColor } from '../utilities/colors.utilities';
 
 /**

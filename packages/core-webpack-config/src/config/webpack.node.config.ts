@@ -57,8 +57,8 @@ export const nodeCommonConfig: WebpackOptions.WebpackOptions = {
     ],
   },
   resolve: {
-    mainFields: ['main', 'module'],
-    extensions: ['.tsx', '.ts', '.js'],
+    mainFields: ['module', 'main'],
+    extensions: ['.wasm', '.mjs', '.js', '.jsx', '.json', '.ts', '.tsx'],
     plugins: [
       // @ts-ignore
       new TsconfigPathsPlugin({

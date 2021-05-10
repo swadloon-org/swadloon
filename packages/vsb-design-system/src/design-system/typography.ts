@@ -1,5 +1,5 @@
 import { Font, Fonts, TEXT_TRANSFORM, Typography } from '@newrade/core-design-system';
-import { defaultTypography } from '@newrade/core-react-ui/lib/design-system';
+import { defaultTypography } from '@newrade/core-react-ui/lib/default-theme';
 
 const fontSans: Font = {
   name: 'AvenirNext LT Pro',

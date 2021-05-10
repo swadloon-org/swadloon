@@ -6,8 +6,8 @@ import {
   Typography,
   VIEWPORT,
 } from '@newrade/core-design-system';
-import { CSSTypography } from '../design-system/css-typography';
-import { defaultFontVars } from '../design-system/default-typography';
+import { CSSTypography } from '../design-system';
+import { defaultFontVars } from '../default-theme/default-typography';
 import { cssVar } from './css-variable.utilities';
 import { createCSSCapsizeTextStyle, createCSSTextStyle } from './text.utilities';
 import { keys } from './utilities';

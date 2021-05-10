@@ -1,8 +1,8 @@
 import { CapsizeTextStyle, TextStyle } from '@newrade/core-design-system';
-import { defaultFallbackSansFonts, defaultSansFont } from '../../design-system/default-fonts';
-import { defaultBaseFontSize } from '../../design-system/default-sizing';
-import { defaultCSSTheme } from '../../design-system/default-theme';
-import { defaultTypography } from '../../design-system/default-typography';
+import { defaultFallbackSansFonts, defaultSansFont } from '../../default-theme/default-fonts';
+import { defaultBaseFontSize } from '../../default-theme/default-sizing';
+import { defaultCSSTheme } from '../../default-theme/default-theme';
+import { defaultTypography } from '../../default-theme/default-typography';
 import { createCSSCapsizeTextStyle, getCSSTextStyles } from '../text.utilities';
 import { getCSSTypography } from '../typography.utilities';
 
