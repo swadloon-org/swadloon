@@ -9,10 +9,10 @@ name: vsb-admin
 on:
   push:
     paths:
+      - '.github/workflows/vsb-admin-workflow.yml'
       - '**/package.json'
       - '**/package-lock.json'
       - '**/yarn.lock'
-      - '.github/workflows/vsb-admin-workflow.yml'
       - 'packages/core-*/**/*'
       - 'packages/vsb-common/**/*'
       - 'packages/vsb-design-system/**/*'
@@ -60,6 +60,9 @@ jobs:
 
     - name: Build vsb-common
       run: yarn build --scope @newrade/vsb-common
+
+    - name: Build vsb-design-system
+      run: yarn build --scope @newrade/vsb-design-system
 
     # todo handle gatsby cache clearing github.event_name == 'workflow_dispatch'
 

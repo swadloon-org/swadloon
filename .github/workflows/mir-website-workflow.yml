@@ -9,7 +9,7 @@ name: mir
 on:
   push:
     paths:
-      - '.github/**/*'
+      - '.github/workflows/mir-website-workflow.yml'
       - '**/package.json'
       - '**/package-lock.json'
       - '**/yarn.lock'

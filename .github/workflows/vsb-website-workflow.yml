@@ -9,11 +9,10 @@ name: vsb-website
 on:
   push:
     paths:
-      - '.github/**/*'
+      - '.github/workflows/vsb-website-workflow.yml'
       - '**/package.json'
       - '**/package-lock.json'
       - '**/yarn.lock'
-      - '.github/workflows/vsb-website-workflow.yml'
       - 'packages/core-*/**/*'
       - 'packages/vsb-common/**/*'
       - 'packages/vsb-design-system/**/*'

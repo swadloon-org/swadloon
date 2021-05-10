@@ -9,10 +9,10 @@ name: vsb-api
 on:
   push:
     paths:
+      - '.github/workflows/vsb-api-workflow.yml'
       - '**/package.json'
       - '**/package-lock.json'
       - '**/yarn.lock'
-      - '.github/workflows/vsb-api-workflow.yml'
       - 'packages/core-*/**/*'
       - 'packages/vsb-common/**/*'
       - 'packages/vsb-api/**/*'
@@ -59,9 +59,6 @@ jobs:
 
     - name: Build vsb-common
       run: yarn build --scope @newrade/vsb-common
-
-    - name: Build vsb-design-system
-      run: yarn build --scope @newrade/vsb-design-system
 
     - name: Run unit tests
       run: yarn test --scope @newrade/vsb-*
