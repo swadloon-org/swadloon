@@ -87,7 +87,7 @@ jobs:
         scope: ${{ secrets.VERCEL_SCOPE }}
         vercel-token: ${{ secrets.VERCEL_TOKEN }}
         github-token: ${{ secrets.GITHUB_TOKEN }}
-        vercel-args: 'public'
+        vercel-args: 'dist'
         vercel-org-id: ${{ secrets.VERCEL_ORG_ID}}
         vercel-project-id: prj_XN7LTXJI3itawDz5OjeOYTWAWtVC
         working-directory: ./packages/vsb-admin
@@ -101,7 +101,7 @@ jobs:
         scope: ${{ secrets.VERCEL_SCOPE }}
         vercel-token: ${{ secrets.VERCEL_TOKEN }}
         github-token: ${{ secrets.GITHUB_TOKEN }}
-        vercel-args: 'public'
+        vercel-args: 'dist'
         vercel-org-id: ${{ secrets.VERCEL_ORG_ID}}
         vercel-project-id: prj_XN7LTXJI3itawDz5OjeOYTWAWtVC
         working-directory: ./packages/vsb-admin
@@ -115,7 +115,7 @@ jobs:
         scope: ${{ secrets.VERCEL_SCOPE }}
         vercel-token: ${{ secrets.VERCEL_TOKEN }}
         github-token: ${{ secrets.GITHUB_TOKEN }}
-        vercel-args: 'public --prod'
+        vercel-args: 'dist --prod'
         vercel-org-id: ${{ secrets.VERCEL_ORG_ID}}
         vercel-project-id: prj_XN7LTXJI3itawDz5OjeOYTWAWtVC
         working-directory: ./packages/vsb-admin

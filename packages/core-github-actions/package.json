@@ -16,7 +16,6 @@
   ],
   "scripts": {
     "build": "yarn webpack",
-    "clean": "rimraf -r lib/** && rm -f tsconfig.build.tsbuildinfo",
     "start": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
     "webpack": "cross-env TS_NODE_PROJECT=tsconfig.webpack.json node -r ts-node/register ../../node_modules/webpack/bin/webpack --config webpack.prod.config.ts"
   },
