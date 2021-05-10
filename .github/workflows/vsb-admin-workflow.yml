@@ -9,12 +9,13 @@ name: vsb-admin
 on:
   push:
     paths:
-      - '.github/**/*'
       - '**/package.json'
       - '**/package-lock.json'
       - '**/yarn.lock'
+      - '.github/workflows/vsb-admin-workflow.yml'
       - 'packages/core-*/**/*'
       - 'packages/vsb-common/**/*'
+      - 'packages/vsb-design-system/**/*'
       - 'packages/vsb-admin/**/*'
     branches:
       - dev
@@ -65,6 +66,7 @@ jobs:
     - name: Build vsb-admin
       run: yarn build --scope @newrade/vsb-admin
       env:
+        NODE_ENV: ${{ secrets.NODE_ENV }}
         NVM_NODE_VERSION: ${{ secrets.NVM_NODE_VERSION }}
         MASTER_GIT_HOST: ${{ secrets.MASTER_GIT_HOST }}
         MASTER_REPO_ORG: ${{ secrets.MASTER_REPO_ORG }}

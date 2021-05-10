@@ -9,10 +9,10 @@ name: vsb-api
 on:
   push:
     paths:
-      - '.github/**/*'
       - '**/package.json'
       - '**/package-lock.json'
       - '**/yarn.lock'
+      - '.github/workflows/vsb-api-workflow.yml'
       - 'packages/core-*/**/*'
       - 'packages/vsb-common/**/*'
       - 'packages/vsb-api/**/*'
