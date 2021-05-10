@@ -1,7 +1,6 @@
 import * as DS from '@newrade/core-design-system';
 import { Border, BorderStyles, BoxStyle, Radius } from '@newrade/core-design-system';
 import { CSSBoxVarNames } from '../design-system/css-box';
-import { CSSButtonsVarNames } from '../design-system/css-buttons';
 import { getCSSColor } from './colors.utilities';
 import { getFormattedCSSVar, getFormattedCSSVarName } from './props.utilities';
 import { keys, px } from './utilities';

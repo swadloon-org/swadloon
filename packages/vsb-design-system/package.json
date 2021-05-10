@@ -1,0 +1,22 @@
+{
+  "name": "@newrade/vsb-design-system",
+  "version": "1.0.0",
+  "description": "Design system configuration package",
+  "license": "MIT",
+  "module": "./lib/index.js",
+  "files": [
+    "./lib/**/*"
+  ],
+  "scripts": {
+    "build": "yarn tsc --build tsconfig.build.json",
+    "clean": "rimraf -r lib/** && rm -f tsconfig.build.tsbuildinfo",
+    "start": "tsc --build tsconfig.build.json --watch --preserveWatchOutput"
+  },
+  "sideEffects": false,
+  "typings": "./lib/index.d.ts",
+  "dependencies": {
+    "@newrade/core-common": "^1.2.3",
+    "@newrade/core-types": "^1.4.0",
+    "@newrade/core-utils": "^1.6.3"
+  }
+}

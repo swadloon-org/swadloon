@@ -1,6 +1,6 @@
 import { LinkStyleProps } from '@newrade/core-design-system';
 import { style } from 'treat';
-import { Theme } from '../design-system/css-design-system';
+import { Theme } from '../design-system';
 import { getCSSSizeTextStyles, getCSSTextStyles } from '../utilities/text.utilities';
 
 export const styles: { [key in LinkStyleProps['variantLevel']]: string } &

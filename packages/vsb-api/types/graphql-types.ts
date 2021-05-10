@@ -14,10 +14,16 @@ export type Scalars = {
   Float: number;
 };
 
+export type Cliniko = {
+  __typename?: 'Cliniko';
+  status?: Maybe<Scalars['String']>;
+};
+
 export type Query = {
   __typename?: 'Query';
   user?: Maybe<User>;
   users?: Maybe<Array<Maybe<User>>>;
+  cliniko?: Maybe<Cliniko>;
 };
 
 
@@ -114,6 +120,7 @@ export type ResolversTypes = ResolversObject<{
   ID: ResolverTypeWrapper<Partial<Scalars['ID']>>;
   User: ResolverTypeWrapper<Partial<User>>;
   String: ResolverTypeWrapper<Partial<Scalars['String']>>;
+  Cliniko: ResolverTypeWrapper<Partial<Cliniko>>;
   Boolean: ResolverTypeWrapper<Partial<Scalars['Boolean']>>;
 }>;
 
@@ -123,12 +130,19 @@ export type ResolversParentTypes = ResolversObject<{
   ID: Partial<Scalars['ID']>;
   User: Partial<User>;
   String: Partial<Scalars['String']>;
+  Cliniko: Partial<Cliniko>;
   Boolean: Partial<Scalars['Boolean']>;
+}>;
+
+export type ClinikoResolvers<ContextType = any, ParentType extends ResolversParentTypes['Cliniko'] = ResolversParentTypes['Cliniko']> = ResolversObject<{
+  status?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = ResolversObject<{
   user?: Resolver<Maybe<ResolversTypes['User']>, ParentType, ContextType, RequireFields<QueryUserArgs, never>>;
   users?: Resolver<Maybe<Array<Maybe<ResolversTypes['User']>>>, ParentType, ContextType>;
+  cliniko?: Resolver<Maybe<ResolversTypes['Cliniko']>, ParentType, ContextType>;
 }>;
 
 export type UserResolvers<ContextType = any, ParentType extends ResolversParentTypes['User'] = ResolversParentTypes['User']> = ResolversObject<{
@@ -138,6 +152,7 @@ export type UserResolvers<ContextType = any, ParentType extends ResolversParentT
 }>;
 
 export type Resolvers<ContextType = any> = ResolversObject<{
+  Cliniko?: ClinikoResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;
   User?: UserResolvers<ContextType>;
 }>;

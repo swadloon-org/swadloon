@@ -1,7 +1,7 @@
+import { ColorPalette } from '@newrade/core-gatsby-ui/src/docs-components/color-palette';
+import { Placeholder } from '@newrade/core-gatsby-ui/src/docs-components/placeholder';
 import { BoxV2, Stack, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
-import { ColorPalette } from '../../../core-gatsby-ui/src/docs-components/color-palette';
-import { Placeholder } from '../../../core-gatsby-ui/src/docs-components/placeholder';
 
 type Props = {};
 

@@ -11,8 +11,8 @@ import {
   PartialLayout,
 } from '@newrade/core-design-system';
 import { kebab } from 'case';
-import { CSSLayout, LayoutVarNames, LayoutVars } from '../design-system/css-layout';
-import { defaultPartialLayout } from '../design-system/default-layout';
+import { CSSLayout, LayoutVarNames, LayoutVars } from '../design-system';
+import { defaultPartialLayout } from '../default-theme/default-layout';
 import { cssVar } from './css-variable.utilities';
 import { keys, px } from './utilities';
 

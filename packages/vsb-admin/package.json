@@ -4,10 +4,12 @@
   "description": "VSB Admin Application for Cliniko",
   "license": "MIT",
   "scripts": {
-    "build-disabled": "cross-env TS_NODE_PROJECT=tsconfig.webpack.json node -r ts-node/register ../../node_modules/webpack/bin/webpack --config webpack.dev.config.ts",
-    "clean-disabled": "rimraf -r dist/** && rm -f tsconfig.build.tsbuildinfo",
-    "start": "cross-env TS_NODE_PROJECT=tsconfig.webpack.json node -r ts-node/register ../../node_modules/webpack-dev-server/bin/webpack-dev-server --config webpack.dev.config.ts",
-    "test-disabled": "echo ok"
+    "build": "yarn webpack:prod",
+    "clean": "rimraf -r public/** && rm -f tsconfig.build.tsbuildinfo",
+    "start": "yarn webpack:dev",
+    "test-disabled": "echo ok",
+    "webpack:dev": "cross-env TS_NODE_PROJECT=tsconfig.webpack.json node -r ts-node/register ../../node_modules/webpack-dev-server/bin/webpack-dev-server --config webpack.dev.config.ts",
+    "webpack:prod": "cross-env TS_NODE_PROJECT=tsconfig.webpack.json node -r ts-node/register ../../node_modules/webpack/bin/webpack --config webpack.prod.config.ts"
   },
   "type": "module",
   "typings": "./lib/index.d.ts",

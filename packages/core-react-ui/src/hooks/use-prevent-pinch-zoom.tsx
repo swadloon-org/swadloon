@@ -1,5 +1,5 @@
-import { isIOS } from 'react-device-detect';
 import { useEffect } from 'react';
+import { isIOS } from 'react-device-detect';
 
 type HandleScrollEvent = TouchEvent;
 
@@ -7,7 +7,7 @@ type HandleScrollEvent = TouchEvent;
 // @see https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/HandlingEvents/HandlingEvents.html#//apple_ref/doc/uid/TP40006511-SW23
 export function usePreventPinchZoom(targetElement?: HTMLElement | Document | null) {
   const handleTouchEvent = (event: HandleScrollEvent) => {
-    if ((event as any).scale && (event as any).scale !== undefined && (event as any).scale !== 1) {
+    if ((event as any).scale && (event as any).scale !== 1) {
       event.preventDefault();
     }
   };

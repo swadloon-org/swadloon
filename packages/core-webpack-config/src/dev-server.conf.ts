@@ -1,4 +1,4 @@
-import { webpackStatsConf } from './stats.conf';
+import { stats } from './stats.conf';
 
 export const devServerConfig = {
   disableHostCheck: true,
@@ -7,7 +7,7 @@ export const devServerConfig = {
   watchContentBase: false,
   watchOptions: {
     aggregateTimeout: 300,
-    ignored: /node_modules|dist|src\/server/,
+    ignored: /node_modules|dist|public|src\/server/,
     poll: 500,
   },
   headers: {
@@ -16,5 +16,5 @@ export const devServerConfig = {
     'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization',
   },
   proxy: {},
-  stats: webpackStatsConf.dev,
+  stats: stats.dev,
 };

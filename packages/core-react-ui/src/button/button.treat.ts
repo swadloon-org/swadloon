@@ -1,5 +1,5 @@
 import { globalStyle, style } from 'treat';
-import { Theme } from '../design-system/css-design-system';
+import { Theme } from '../design-system';
 import { globalThemeReversedSelector } from '../global/global-theme-classnames';
 
 const iconSize = `1.5em`;

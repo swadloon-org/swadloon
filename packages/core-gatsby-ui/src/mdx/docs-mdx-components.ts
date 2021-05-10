@@ -4,9 +4,6 @@ import {
   BoxV3,
   Center,
   Cluster,
-  Code,
-  CodeBlock,
-  CodeHighlight,
   Details,
   Grid,
   Heading,
@@ -14,13 +11,14 @@ import {
   Link,
   ListItem,
   ListItems,
-  mdxComponents,
   Paragraph,
   Stack,
   Summary,
   Switcher,
   Tag,
 } from '@newrade/core-react-ui';
+import { Code, CodeBlock, CodeHighlight } from '@newrade/core-react-ui/lib/code';
+import { mdxComponents } from '@newrade/core-react-ui/lib/markdown';
 import { BlockMarkdown } from '../blocks/block-markdown';
 import { Placeholder } from '../docs-components/placeholder';
 import { PlaceholderMarkdown } from '../docs-components/placeholder-markdown';

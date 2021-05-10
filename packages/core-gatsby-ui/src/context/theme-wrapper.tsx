@@ -1,13 +1,9 @@
 import { MDXProvider } from '@mdx-js/react';
-import {
-  CodeOutline,
-  globalThemeReversed,
-  mdxComponents,
-  TreatThemeProvider,
-  useTreatTheme,
-} from '@newrade/core-react-ui';
+import { globalThemeReversed, TreatThemeProvider, useTreatTheme } from '@newrade/core-react-ui';
+import { CodeOutline } from '@newrade/core-react-ui/lib/code';
 import { Theme } from '@newrade/core-react-ui/lib/design-system';
 import { GlobalCSSVariables } from '@newrade/core-react-ui/lib/global/global-css-variables';
+import { mdxComponents } from '@newrade/core-react-ui/lib/markdown';
 import React, { ReactNode } from 'react';
 import { TreatProvider } from 'react-treat';
 

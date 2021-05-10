@@ -1,12 +1,6 @@
 import { DEPLOY_ENV } from '@newrade/core-common';
 import { CommonEnvType } from '@newrade/core-utils';
-import {
-  es6BabelLoader,
-  getBundleVisualizerPlugin,
-  getLodashPlugin,
-  getWebpackStatsPlugin,
-  webpackStatsConf,
-} from '@newrade/core-webpack-config';
+import * as core from '@newrade/core-webpack-config';
 import { GatsbyNode } from 'gatsby';
 import path from 'path';
 import regexEscape from 'regex-escape';
@@ -17,7 +11,6 @@ import {
   WebpackOptions,
 } from 'webpack/declarations/WebpackOptions';
 import { GatsbyCorePluginOptions } from '../gatsby-plugin-options';
-import ESLintPlugin from 'eslint-webpack-plugin';
 
 export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] = (
   { stage, rules, loaders, plugins, actions, getConfig, reporter },
@@ -68,17 +61,17 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
   if (typeof config === 'object' && env.APP_ENV === DEPLOY_ENV.LOCAL) {
     config.stats = {
       ...(typeof config.stats === 'object' ? config.stats : {}),
-      ...webpackStatsConf.dev,
+      ...core.stats.dev,
     };
 
-    config.plugins?.push(getWebpackStatsPlugin());
+    config.plugins?.push(core.getWebpackStatsPlugin());
   }
 
   /**
    * Add lodash plugin
    */
   if (typeof config === 'object') {
-    config.plugins?.push(getLodashPlugin());
+    config.plugins?.push(core.getLodashPlugin());
   }
   if (typeof config === 'object' && config.resolve) {
     config.resolve.alias = {
@@ -166,7 +159,7 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
             ...(gatsbyBabelLoaderConf.use as any)[0],
             options: {
               ...(gatsbyBabelLoaderConf.use as any)[0].options,
-              ...(es6BabelLoader.use as any)[0].options,
+              ...(core.babelReactLoader.use as any)[0].options,
             },
           },
         ],
@@ -243,8 +236,8 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
    */
   if (isProduction && env.APP_ENV === DEPLOY_ENV.LOCAL) {
     config.plugins = config.plugins
-      ? [...config.plugins, getBundleVisualizerPlugin()]
-      : [getBundleVisualizerPlugin()];
+      ? [...config.plugins, core.getBundleVisualizerPlugin()]
+      : [core.getBundleVisualizerPlugin()];
   }
 
   actions.replaceWebpackConfig(config); // completely replace the webpack config with the modified object

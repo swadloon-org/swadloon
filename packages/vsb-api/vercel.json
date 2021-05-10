@@ -22,7 +22,7 @@
     }
   ],
   "functions": {
-    "api/server.js": {
+    "api/server-express.js": {
       "memory": 1024,
       "maxDuration": 60
     }
@@ -30,7 +30,7 @@
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "/api/server"
+      "destination": "/api/server-express"
     }
   ]
 }

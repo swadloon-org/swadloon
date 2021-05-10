@@ -2,7 +2,7 @@
   "extends": "../../tsconfig.build.json",
   "compilerOptions": {
     "rootDir": ".",
-    "outDir": "dist",
+    "outDir": "public/api",
     "target": "es6",
     "module": "commonjs",
     "types": ["node", "express", "jest"],

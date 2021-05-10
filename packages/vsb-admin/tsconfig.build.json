@@ -5,15 +5,12 @@
     "declaration": true,
     "incremental": true,
     "sourceMap": true,
-    "outDir": "dist",
+    "outDir": "public",
     "baseUrl": ".",
     "target": "es6",
     "module": "esnext",
     "rootDir": ".",
-    "types": ["react", "react-dom"],
-    "paths": {
-      "@newrade/*": ["../*"]
-    }
+    "types": ["react", "react-dom"]
   },
   "references": [
     {

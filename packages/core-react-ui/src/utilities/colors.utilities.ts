@@ -4,7 +4,7 @@ import { kebab } from 'case';
 import { Property } from 'csstype';
 import parseToRgb from 'polished/lib/color/parseToRgb';
 import toColorString from 'polished/lib/color/toColorString';
-import { CSSColors, CSSColorsVarNames, CSSColorsVars } from '../design-system/css-colors';
+import { CSSColors, CSSColorsVarNames, CSSColorsVars } from '../design-system';
 import { keys } from './utilities';
 
 /**

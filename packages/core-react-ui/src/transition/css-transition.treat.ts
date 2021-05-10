@@ -1,5 +1,5 @@
 import { style, Style } from 'treat';
-import { Theme } from '../design-system/css-design-system';
+import { Theme } from '../design-system';
 
 const commonAnimationStyle: Style = {
   animationDuration: `300ms`,

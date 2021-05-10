@@ -1,6 +1,6 @@
 import * as core from '@newrade/core-design-system';
 import { SIZE } from '@newrade/core-design-system';
-import { CSSSizing, SizingVarNames } from '../design-system/css-sizing';
+import { CSSSizing, SizingVarNames } from '../design-system';
 import { cssVar } from './css-variable.utilities';
 import { keys, px } from './utilities';
 

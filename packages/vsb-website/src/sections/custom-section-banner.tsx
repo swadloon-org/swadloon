@@ -13,12 +13,11 @@ import { TweenMax } from '@newrade/core-gsap-ui';
 import {
   Button,
   CommonComponentProps,
-  mdxComponents,
-  MDXProps,
   Title,
   useCommonProps,
   useTreatTheme,
 } from '@newrade/core-react-ui';
+import { mdxComponents, MDXProps } from '@newrade/core-react-ui/lib/markdown';
 import { IoChevronDownOutline } from '@react-icons/all-files/io5/IoChevronDownOutline';
 import { IFluidObject } from 'gatsby-background-image';
 import React, { useEffect, useImperativeHandle, useRef } from 'react';

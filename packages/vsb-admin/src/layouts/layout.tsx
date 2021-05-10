@@ -1,4 +1,4 @@
-import { Main, MainWrapper } from '@newrade/core-react-ui';
+import { DesktopSideBar, Main, MainWrapper, NavBar } from '@newrade/core-react-ui';
 import React from 'react';
 
 type Props = {};
@@ -6,7 +6,11 @@ type Props = {};
 export const Layout: React.FC<Props> = (props) => {
   return (
     <MainWrapper>
-      <Main minHeight={true}>{props.children}</Main>
+      <NavBar>hey</NavBar>
+      <DesktopSideBar>Hey</DesktopSideBar>
+      <Main minHeight={true} navbarPadding={true} desktopSidebarPadding={true}>
+        {props.children}
+      </Main>
     </MainWrapper>
   );
 };

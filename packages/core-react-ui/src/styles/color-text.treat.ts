@@ -1,6 +1,6 @@
 import { Variant } from '@newrade/core-design-system';
 import { style } from 'treat';
-import { Theme } from '../design-system/css-design-system';
+import { Theme } from '../design-system';
 
 export const colorTextStyles: { [key in Variant]: string } = {
   /**
