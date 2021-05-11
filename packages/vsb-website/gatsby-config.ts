@@ -122,12 +122,22 @@ const config: core.GastbySiteConfig = {
       '/api',
       proxy({
         target: 'http://localhost:10003',
+        pathRewrite: {
+          '^/api': '/api',
+        },
+        ws: true,
+        logLevel: 'debug',
       })
     );
     app.use(
-      '/admin/',
+      '/admin',
       proxy({
         target: 'http://localhost:8003',
+        pathRewrite: {
+          '^/admin': '/admin',
+        },
+        ws: true,
+        logLevel: 'debug',
       })
     );
   },

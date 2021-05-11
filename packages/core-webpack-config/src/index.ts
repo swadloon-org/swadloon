@@ -9,7 +9,6 @@ export * from './loaders/css-loader';
 export * from './loaders/ejs-loader';
 export * from './loaders/extract-css.loader';
 export * from './loaders/mdx.loader';
-export * from './loaders/scss-loader';
 export * from './loaders/html.loader';
 export * from './loaders/svg.loader';
 export * from './loaders/typescript-babel.loader';

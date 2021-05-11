@@ -67,5 +67,9 @@ export const nodeCommonConfig: WebpackOptions.WebpackOptions = {
       }),
     ],
   },
+  stats: {
+    // see https://github.com/webpack/webpack/issues/1576
+    warningsFilter: /^(?!CriticalDependenciesWarning$)/,
+  },
   plugins: [getWebpackCleanPlugin()],
 };

@@ -1,4 +1,4 @@
+import { adminCssTheme, adminTheme } from '@newrade/vsb-design-system';
 import { createTheme } from 'treat';
-import { cssTheme, theme } from '@newrade/vsb-design-system';
 
-export const light = createTheme({ theme, cssTheme });
+export const light = createTheme({ theme: adminTheme, cssTheme: adminCssTheme });

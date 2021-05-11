@@ -26,5 +26,17 @@ export const theme: DesignSystem = {
     buttons: defaultButtons,
   },
 };
-
 export const cssTheme: CSSDesignSystem = createCSSTheme(theme);
+
+export const adminTheme: DesignSystem = {
+  ...theme,
+  layout: {
+    ...theme.layout,
+    navbarHeight: {
+      mobile: 60,
+      tablet: 72,
+      desktop: 72,
+    },
+  },
+};
+export const adminCssTheme: CSSDesignSystem = createCSSTheme(adminTheme);

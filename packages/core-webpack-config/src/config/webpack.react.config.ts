@@ -16,12 +16,15 @@ import { getManifestJsonHtmlPlugin } from '../plugins/manifest-json-html.plugin.
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import webpack from 'webpack';
-import { isDevelopment } from '../utilities';
+import { inlineCssLoader } from '../loaders/inline-css.loader';
+import { compressionPlugin } from '../plugins/compression.plugin.conf';
 
 /**
  * Preconfigured base config for compiling TypeScript React Apps
  */
-export const reactCommonConfig: WebpackOptions.WebpackOptions = {
+export const getReactCommonConfig: (options: {
+  isDevelopment: boolean;
+}) => WebpackOptions.WebpackOptions = ({ isDevelopment }) => ({
   target: 'web',
   devtool: 'source-map',
   optimization: {
@@ -57,7 +60,7 @@ export const reactCommonConfig: WebpackOptions.WebpackOptions = {
         styles: {
           name: 'styles',
           test: /\.(s?css)$/,
-          chunks: 'all',
+          chunks: 'initial',
         },
         default: {
           name: 'index',
@@ -78,10 +81,11 @@ export const reactCommonConfig: WebpackOptions.WebpackOptions = {
       txtLoader,
       fileLoader,
       urlLoader,
-      extractCssLoader,
+      isDevelopment && inlineCssLoader,
+      !isDevelopment && extractCssLoader,
       babelReactLoader,
       getTypescriptBabelReactLoader(),
-    ],
+    ].filter(Boolean) as WebpackOptions.RuleSetRules,
   },
   resolve: {
     mainFields: ['browser', 'module', 'main'],
@@ -96,13 +100,14 @@ export const reactCommonConfig: WebpackOptions.WebpackOptions = {
   },
   plugins: [
     getWebpackCleanPlugin(),
-    isDevelopment() && new webpack.HotModuleReplacementPlugin(),
-    isDevelopment() && new ReactRefreshWebpackPlugin(),
-    (new MiniCssExtractPlugin() as unknown) as WebpackPluginInstance,
+    isDevelopment && new webpack.HotModuleReplacementPlugin(),
+    isDevelopment && new ReactRefreshWebpackPlugin(),
+    !isDevelopment && ((new MiniCssExtractPlugin() as unknown) as WebpackPluginInstance),
+    !isDevelopment && compressionPlugin,
   ].filter(Boolean) as WebpackPluginInstance[],
   resolveLoader: {
     alias: {
       'ejs-loader': '@newrade/core-webpack-config/lib/loaders/ejs-loader.js',
     },
   },
-};
+});
