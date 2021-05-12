@@ -64,7 +64,7 @@ const config: WebpackOptions.WebpackOptions = {
   },
   resolve: {
     mainFields: ['main', 'module'],
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: ['.tsx', '.ts', '.js', '.mjs'],
     plugins: [
       // @ts-ignore
       new TsconfigPathsPlugin({

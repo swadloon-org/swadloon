@@ -1,6 +1,5 @@
 import { style } from 'treat';
-import { Theme } from '../design-system/css-design-system';
-import { getCSSColor } from '../utilities/colors.utilities';
+import { Theme } from '../design-system';
 
 export const styles = {
   /**

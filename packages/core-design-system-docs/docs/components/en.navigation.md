@@ -1,19 +1,24 @@
 ---
 name: Navigation
 tags:
-  - test
+  - navigation
 ---
 
 <!-- CODE IMPORTS -->
 
-import { Navigation } from '../../src/code/navigation.code';
-import NavigationCode from '!!raw-loader!../../src/code/navigation.code.tsx';
+import { Navigation } from '../../src/code/navigation.code'; import
+NavigationCode from '!!raw-loader!../../src/code/navigation.code.tsx';
 
 <!-- END CODE IMPORTS -->
 
-## NavBar
+# Navigation
+
+## NavBars
 
 <ThemeWrapper>
-<Navigation />
+  <Navigation />
 </ThemeWrapper>
+
 <CodeBlock>{NavigationCode}</CodeBlock>
+
+## Sidebars

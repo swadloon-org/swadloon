@@ -2,6 +2,7 @@ import typeDefs from './graphql/schema.graphql';
 import graphqlHTTP from 'express-graphql';
 import { makeExecutableSchema } from 'graphql-tools';
 import { Resolvers, User } from '../types/graphql-types';
+import { fetchCliniko } from './services/cliniko.service';
 
 const users = [
   {
@@ -14,6 +15,10 @@ const users = [
   },
 ];
 
+/**
+ * Todos
+ *  - https://github.com/graphql/dataloader
+ */
 const resolvers: Resolvers<{ auth: boolean }> = {
   Query: {
     user(parent, args, context, info) {
@@ -24,6 +29,15 @@ const resolvers: Resolvers<{ auth: boolean }> = {
     },
     users(parent, args, context, info) {
       return users as User[];
+    },
+    async cliniko(parent, args, context, info) {
+      const result = await fetchCliniko<any, any>({
+        method: 'GET',
+        route: 'services',
+      });
+      return {
+        status: result.message,
+      };
     },
   },
   User: {
@@ -42,6 +56,9 @@ const schema = makeExecutableSchema({
   resolvers: resolvers,
 });
 
+/**
+ * @see https://github.com/graphql/express-graphql
+ */
 export const graphqlServer = graphqlHTTP({
   schema,
   graphiql: true,

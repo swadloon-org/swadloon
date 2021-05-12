@@ -5,7 +5,7 @@ import {
   defaultColorIntents,
   defaultColors,
   defaultColorsColors,
-} from '../../design-system/default-colors';
+} from '../../default-theme/default-colors';
 import {
   getCSSColor,
   getCSSColors,

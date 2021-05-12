@@ -9,7 +9,7 @@ name: core
 on:
   push:
     paths:
-      - '.github/**/*'
+      - '.github/workflows/core-workflow.yml'
       - '**/package.json'
       - '**/package-lock.json'
       - '**/yarn.lock'

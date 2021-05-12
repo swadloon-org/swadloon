@@ -1,4 +1,3 @@
-import loadable from '@loadable/component';
 import {
   HEADING,
   LinkIcon,
@@ -137,12 +136,12 @@ export const mdxComponents: Partial<
    * Code
    */
   pre: (props: MDXProps) => <>{props.children}</>,
-  code: ({ children, ...props }: MDXProps) => {
-    const CodeBlock = loadable<any>(() => import('../code/code-block'), {
-      resolveComponent: (components: typeof import('../code/code-block')) => components.CodeBlock,
-    });
-    return <CodeBlock {...props}>{children as string}</CodeBlock>;
-  },
+  // code: ({ children, ...props }: MDXProps) => {
+  //   const CodeBlock = loadable<any>(() => import('../code/code-block'), {
+  //     resolveComponent: (components: typeof import('../code/code-block')) => components.CodeBlock,
+  //   });
+  //   return <CodeBlock {...props}>{children as string}</CodeBlock>;
+  // },
 
   inlineCode: (props: MDXProps) => <Code>{props.children}</Code>,
 

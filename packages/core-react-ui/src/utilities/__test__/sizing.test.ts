@@ -1,5 +1,5 @@
 import { Sizing } from '@newrade/core-design-system';
-import { defaultSizing } from '../../design-system/default-sizing';
+import { defaultSizing } from '../../default-theme/default-sizing';
 import { getCSSSizing } from '../sizing.utilities';
 
 describe('shadows utilities', () => {

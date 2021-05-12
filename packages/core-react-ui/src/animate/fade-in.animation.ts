@@ -4,7 +4,7 @@ export default {
 };
 
 import { style, Style } from 'treat';
-import { Theme } from '../design-system/css-design-system';
+import { Theme } from '../design-system';
 
 const commonAnimationStyle: Style = {
   animationDuration: `1s`,

@@ -20,3 +20,8 @@
 
 [fetch]
 	prune = true
+
+[pull]
+  rebase = false #  (the default strategy)
+
+

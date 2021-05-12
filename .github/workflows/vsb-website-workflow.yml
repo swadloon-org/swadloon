@@ -9,12 +9,13 @@ name: vsb-website
 on:
   push:
     paths:
-      - '.github/**/*'
+      - '.github/workflows/vsb-website-workflow.yml'
       - '**/package.json'
       - '**/package-lock.json'
       - '**/yarn.lock'
       - 'packages/core-*/**/*'
       - 'packages/vsb-common/**/*'
+      - 'packages/vsb-design-system/**/*'
       - 'packages/vsb-website/**/*'
     branches:
       - dev
@@ -66,11 +67,15 @@ jobs:
     - name: Build vsb-common
       run: yarn build --scope @newrade/vsb-common
 
+    - name: Build vsb-design-system
+      run: yarn build --scope @newrade/vsb-design-system
+
     # todo handle gatsby cache clearing github.event_name == 'workflow_dispatch'
 
     - name: Build vsb-website
       run: yarn build --scope @newrade/vsb-website
       env:
+        NODE_ENV: ${{ secrets.NODE_ENV }}
         NVM_NODE_VERSION: ${{ secrets.NVM_NODE_VERSION }}
         MASTER_GIT_HOST: ${{ secrets.MASTER_GIT_HOST }}
         MASTER_REPO_ORG: ${{ secrets.MASTER_REPO_ORG }}

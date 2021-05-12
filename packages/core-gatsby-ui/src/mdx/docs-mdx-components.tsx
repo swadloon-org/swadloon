@@ -4,9 +4,6 @@ import {
   BoxV3,
   Center,
   Cluster,
-  Code,
-  CodeBlock,
-  CodeHighlight,
   Details,
   Grid,
   Heading,
@@ -14,8 +11,6 @@ import {
   Link,
   ListItem,
   ListItems,
-  mdxComponents,
-  MDXProps,
   Paragraph,
   Stack,
   Summary,
@@ -27,7 +22,10 @@ import {
   TableRow,
   Tag,
 } from '@newrade/core-react-ui';
-import React from 'react';
+import { Code, CodeBlock, CodeHighlight } from '@newrade/core-react-ui/lib/code';
+import { mdxComponents, MDXProps } from '@newrade/core-react-ui/lib/markdown';
+import { DocHeader } from 'src/context/doc-header';
+import { DocTags } from 'src/context/doc-tags';
 import { BlockMarkdown } from '../blocks/block-markdown';
 import { Placeholder } from '../docs-components/placeholder';
 import { PlaceholderMarkdown } from '../docs-components/placeholder-markdown';
@@ -36,6 +34,9 @@ import { SectionDivider } from '../sections/section-divider';
 import { SectionSwitcher } from '../sections/section-switcher';
 import { SectionBaseLayout, SectionPadding } from '../sections/section.props';
 
+/**
+ * Additional components used to render md docs and design-system documentation
+ */
 export const docsMdxComponents = {
   ...mdxComponents,
   ul: (props: MDXProps) => <ul {...props} />,
@@ -86,4 +87,6 @@ export const docsMdxComponents = {
   TableRow: TableRow,
   TableHeader: TableHeader,
   TableCell: TableCell,
+  DocTags: DocTags,
+  DocHeader: DocHeader,
 };

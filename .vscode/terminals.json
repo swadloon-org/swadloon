@@ -153,8 +153,8 @@
       "focus": false
     },
     {
-      "name": "vsb-website",
-      "cwd": "[workspaceFolder]/packages/vsb-website",
+      "name": "vsb-api",
+      "cwd": "[workspaceFolder]/packages/vsb-api",
       "open": true,
       "focus": false
     },
@@ -165,8 +165,14 @@
       "focus": false
     },
     {
-      "name": "vsb-api",
-      "cwd": "[workspaceFolder]/packages/vsb-api",
+      "name": "vsb-design-system",
+      "cwd": "[workspaceFolder]/packages/vsb-design-system",
+      "open": true,
+      "focus": false
+    },
+    {
+      "name": "vsb-website",
+      "cwd": "[workspaceFolder]/packages/vsb-website",
       "open": true,
       "focus": false
     }

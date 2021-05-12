@@ -1,21 +1,6 @@
-import {
-  LABEL_SIZE,
-  LinkVariant,
-  PARAGRAPH_SIZE,
-  TEXT_STYLE,
-  Variant,
-} from '@newrade/core-design-system';
-import {
-  Center,
-  CommonComponentProps,
-  Label,
-  Link,
-  Paragraph,
-  Stack,
-  useTreatTheme,
-} from '@newrade/core-react-ui';
+import { CommonComponentProps, FooterSimple, useTreatTheme } from '@newrade/core-react-ui';
 import { getMergedClassname } from '@newrade/core-react-ui/lib/utilities';
-import { graphql, Link as GatsbyLink, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { clientEnv } from '../../types/dot-env-client';
@@ -75,76 +60,13 @@ export const Footer: React.FC<Props> = ({ id, style, className, ...props }) => {
   const { theme, cssTheme } = useTreatTheme();
 
   return (
-    <footer id={id} style={style} className={mergedClassNames}>
-      <Center>
-        <Stack gap={[cssTheme.sizing.var.x5]}>
-          <div className={styles.grid}>
-            {data.contentfulNavigation?.subNavigation?.map((nav) => {
-              return (
-                <Stack
-                  key={nav?.id}
-                  className={/services/gi.test(nav?.name || '') ? styles.services : styles.clinique}
-                  gap={[cssTheme.sizing.var.x4]}
-                >
-                  <Label
-                    variantStyle={TEXT_STYLE.boldUppercase}
-                    variant={LABEL_SIZE.small}
-                    variantLevel={Variant.tertiary}
-                  >
-                    {nav?.name}
-                  </Label>
-
-                  <Stack gap={[cssTheme.sizing.var.x4]}>
-                    {nav?.links?.map((link) => {
-                      return (
-                        <Link
-                          key={link?.id}
-                          variantLevel={Variant.primaryReversed}
-                          AsElement={<GatsbyLink to={link?.page?.slug || ''} />}
-                        >
-                          {link?.label}
-                        </Link>
-                      );
-                    })}
-                  </Stack>
-                </Stack>
-              );
-            })}
-
-            <Stack className={styles.joindre} gap={[cssTheme.sizing.var.x4]}>
-              <Label
-                variantStyle={TEXT_STYLE.boldUppercase}
-                variant={LABEL_SIZE.small}
-                variantLevel={Variant.tertiary}
-              >
-                Nous Joindre
-              </Label>
-
-              <Link
-                className={styles.listItem}
-                variantLevel={Variant.primaryReversed}
-                variant={LinkVariant.underline}
-                href={`mailto:${data.contentfulCompanyAddress?.email}`}
-              >
-                {data.contentfulCompanyAddress?.email}
-              </Link>
-
-              <Link
-                className={styles.listItem}
-                variantLevel={Variant.primaryReversed}
-                variant={LinkVariant.underline}
-                href={'https://goo.gl/maps/nndYpgQLkbDC6c7S7'}
-                target="blank"
-              >
-                {data.contentfulCompanyAddress?.addressLine1}
-              </Link>
-            </Stack>
-          </div>
-          <Paragraph className={styles.copyright} variant={PARAGRAPH_SIZE.xSmall}>
-            {data.contentfulCompanyInfo?.copyright} - v{clientEnv.APP_VERSION}
-          </Paragraph>
-        </Stack>
-      </Center>
-    </footer>
+    <FooterSimple
+      Copyright={
+        <>
+          @ {data.contentfulCompanyInfo?.copyright} - v
+          <span style={{ fontVariantNumeric: 'tabular-nums' }}>{clientEnv.APP_VERSION}</span>
+        </>
+      }
+    ></FooterSimple>
   );
 };

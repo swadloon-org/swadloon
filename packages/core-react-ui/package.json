@@ -3,20 +3,15 @@
   "version": "1.12.2",
   "description": "UI library",
   "license": "MIT",
-  "main": "./lib/index.js",
-  "module": "./lib/esm/index.js",
+  "module": "./lib/index.js",
   "files": [
     "./lib/**/*"
   ],
   "scripts": {
-    "build": "yarn copy:assets && yarn build:commonjs && yarn build:esm",
-    "build:commonjs": "tsc --build tsconfig.build.json",
-    "build:esm": "tsc --build tsconfig.build.esm.json",
+    "build": "tsc --build tsconfig.build.json",
     "clean": "rimraf -r lib/** && rm -f tsconfig.build.tsbuildinfo",
     "copy:assets": "TS_NODE_PROJECT=tsconfig.script.json node -r ts-node/register scripts/copy-assets.script.ts",
-    "start": "concurrently \"yarn start:commonjs\" \"yarn start:esm\" \"yarn watch:assets\"",
-    "start:commonjs": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
-    "start:esm": "tsc --build tsconfig.build.esm.json --watch --preserveWatchOutput",
+    "start": "concurrently \"yarn tsc:start\" \"yarn watch:assets\"",
     "test": "jest",
     "test:watch": "jest --watch",
     "tsc:start": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
@@ -28,8 +23,7 @@
     "@newrade/core-common": "^1.2.3",
     "@newrade/core-design-system": "^1.9.2",
     "@newrade/core-jest-config": "^1.5.7",
-    "@newrade/core-types": "^1.4.0",
-    "@newrade/core-utils": "^1.6.3"
+    "@newrade/core-types": "^1.4.0"
   },
   "devDependencies": {
     "@newrade/core-cli": "^1.7.0"

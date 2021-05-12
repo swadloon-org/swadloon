@@ -1,8 +1,8 @@
 import { ButtonSize, Variant } from '@newrade/core-design-system';
 import { BlockMarkdown, SectionBanner } from '@newrade/core-gatsby-ui/src';
+import { PlaceholderMarkdown } from '@newrade/core-gatsby-ui/src/docs-components/placeholder-markdown';
 import { Button, Heading, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
-import { PlaceholderMarkdown } from '../../../core-gatsby-ui/src/docs-components/placeholder-markdown';
 type Props = {};
 export const SectionsCallOut: React.FC<Props> = (props) => {
   const { theme, cssTheme } = useTreatTheme();

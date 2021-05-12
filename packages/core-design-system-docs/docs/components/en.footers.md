@@ -2,18 +2,21 @@
 name: Footers
 tags:
   - layout
+  - navigation
 ---
 
 <!-- CODE IMPORTS -->
 
-import { Tables } from '../../src/code/tables.code';
-import TablesCode from '!!raw-loader!../../src/code/tables.code.tsx';
+<!-- prettier-ignore -->
+import { Footers } from '../../src/code/footers.code'; 
+import FootersCode from '!!raw-loader!../../src/code/footers.code.tsx';
 
 <!-- END CODE IMPORTS -->
 
-## Tables
+# Footers
 
 <ThemeWrapper>
-<Tables />
+  <Footers />
 </ThemeWrapper>
-<CodeBlock>{TablesCode}</CodeBlock>
+
+<CodeBlock>{FootersCode}</CodeBlock>

@@ -1,6 +1,6 @@
+import { Placeholder } from '@newrade/core-gatsby-ui/src/docs-components/placeholder';
 import { Stack, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
-import { Placeholder } from '../../../core-gatsby-ui/src/docs-components/placeholder';
 type Props = {};
 
 export const LayoutStack: React.FC<Props> = (props) => {

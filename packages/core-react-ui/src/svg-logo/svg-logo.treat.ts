@@ -1,5 +1,5 @@
 import { style } from 'treat';
-import { Theme } from '../design-system/css-design-system';
+import { Theme } from '../design-system';
 
 export const styles = {
   wrapper: style(({ theme, cssTheme }: Theme) => ({

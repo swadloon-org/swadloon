@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { Theme } from '../design-system/css-design-system';
+import { Theme } from '../design-system';
 
 /**
  * Context to hold the theme's tokens
