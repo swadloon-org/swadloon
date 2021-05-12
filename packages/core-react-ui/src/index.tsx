@@ -2,6 +2,7 @@ export * from './button/button';
 export * from './context/viewport.provider';
 export * from './design-system';
 export * from './error/error-boundary';
+export * from './footers/footer-simple';
 export * from './form/form';
 export * from './form/input-error';
 export * from './form/input-label';

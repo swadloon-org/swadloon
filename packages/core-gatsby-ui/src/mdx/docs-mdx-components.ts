@@ -20,6 +20,8 @@ import {
 import { Code, CodeBlock, CodeHighlight } from '@newrade/core-react-ui/lib/code';
 import { mdxComponents } from '@newrade/core-react-ui/lib/markdown';
 import { BlockMarkdown } from '../blocks/block-markdown';
+import { DocHeader } from '../context/doc-header';
+import { DocTags } from '../context/doc-tags';
 import { Placeholder } from '../docs-components/placeholder';
 import { PlaceholderMarkdown } from '../docs-components/placeholder-markdown';
 import { SectionBase } from '../sections/section-base';
@@ -27,6 +29,9 @@ import { SectionDivider } from '../sections/section-divider';
 import { SectionSwitcher } from '../sections/section-switcher';
 import { SectionBaseLayout, SectionPadding } from '../sections/section.props';
 
+/**
+ * Additional components used to render md docs and design-system documentation
+ */
 export const docsMdxComponents = {
   ...mdxComponents,
   Label: Label,
@@ -57,4 +62,6 @@ export const docsMdxComponents = {
   CodeHighlight: CodeHighlight,
   CodeBlock: CodeBlock,
   Link: Link,
+  DocTags: DocTags,
+  DocHeader: DocHeader,
 };

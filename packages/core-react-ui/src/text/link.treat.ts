@@ -71,57 +71,57 @@ export const styles: { [key in LinkStyleProps['variantLevel']]: string } &
    */
   large: style(({ theme, cssTheme }: Theme) => ({
     ...getCSSTextStyles(cssTheme.typography.paragraphs.mobile.large),
-    fontWeight: 500,
+    fontWeight: cssTheme.typography.paragraphs.styles?.bold?.fontWeight || 500,
     '@media': {
       [cssTheme.layout.media.tablet]: {
         ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.tablet.large),
-        fontWeight: 500,
+        fontWeight: cssTheme.typography.paragraphs.styles?.bold?.fontWeight || 500,
       },
       [cssTheme.layout.media.desktopSmall]: {
         ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.desktop.large),
-        fontWeight: 500,
+        fontWeight: cssTheme.typography.paragraphs.styles?.bold?.fontWeight || 500,
       },
     },
   })),
   medium: style(({ theme, cssTheme }: Theme) => ({
     ...getCSSTextStyles(cssTheme.typography.paragraphs.mobile.medium),
-    fontWeight: 500,
+    fontWeight: cssTheme.typography.paragraphs.styles?.bold?.fontWeight || 500,
     '@media': {
       [cssTheme.layout.media.tablet]: {
         ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.tablet.medium),
-        fontWeight: 500,
+        fontWeight: cssTheme.typography.paragraphs.styles?.bold?.fontWeight || 500,
       },
       [cssTheme.layout.media.desktopSmall]: {
         ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.desktop.medium),
-        fontWeight: 500,
+        fontWeight: cssTheme.typography.paragraphs.styles?.bold?.fontWeight || 500,
       },
     },
   })),
   small: style(({ theme, cssTheme }: Theme) => ({
     ...getCSSTextStyles(cssTheme.typography.paragraphs.mobile.small),
-    fontWeight: 500,
+    fontWeight: cssTheme.typography.paragraphs.styles?.bold?.fontWeight || 500,
     '@media': {
       [cssTheme.layout.media.tablet]: {
         ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.tablet.small),
-        fontWeight: 500,
+        fontWeight: cssTheme.typography.paragraphs.styles?.bold?.fontWeight || 500,
       },
       [cssTheme.layout.media.desktopSmall]: {
         ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.desktop.small),
-        fontWeight: 500,
+        fontWeight: cssTheme.typography.paragraphs.styles?.bold?.fontWeight || 500,
       },
     },
   })),
   xSmall: style(({ theme, cssTheme }: Theme) => ({
     ...getCSSTextStyles(cssTheme.typography.paragraphs.mobile.xSmall),
-    fontWeight: 500,
+    fontWeight: cssTheme.typography.paragraphs.styles?.bold?.fontWeight || 500,
     '@media': {
       [cssTheme.layout.media.tablet]: {
         ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.tablet.xSmall),
-        fontWeight: 500,
+        fontWeight: cssTheme.typography.paragraphs.styles?.bold?.fontWeight || 500,
       },
       [cssTheme.layout.media.desktopSmall]: {
         ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.desktop.xSmall),
-        fontWeight: 500,
+        fontWeight: cssTheme.typography.paragraphs.styles?.bold?.fontWeight || 500,
       },
     },
   })),

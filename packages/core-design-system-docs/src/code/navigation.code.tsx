@@ -11,8 +11,8 @@ export const Navigation: React.FC<Props> = (props) => {
     <>
       <NavBar
         style={{ position: 'relative' }}
-        MobileSvgLogo={<LogoPlaceholder height={'100%'} />}
-        DesktopSvgLogo={<LogoPlaceholder height={'100%'} />}
+        MobileSvgLogo={<LogoPlaceholder height={'30px'} />}
+        DesktopSvgLogo={<LogoPlaceholder height={'40px'} />}
         MenuLinks={
           <>
             <Label>Services</Label>

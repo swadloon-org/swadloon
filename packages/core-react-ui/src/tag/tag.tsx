@@ -18,7 +18,7 @@ export const Tag: React.FC<Props> = React.memo(
       id,
       style,
       className,
-      classNames: [styles.base, variant ? variant : Variant.primary],
+      classNames: [styles.base, variant ? styles[variant] : styles[Variant.primary]],
     });
 
     return (

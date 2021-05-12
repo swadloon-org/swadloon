@@ -161,7 +161,7 @@ export const NavbarDocs: React.FC<Props> = function NavbarDocs(props) {
                 <SVGLogo Icon={DesktopSvgLogo || MobileSvgLogo} />
               </BoxV2>
 
-              {props.tagText ? <Tag>{props.tagText}</Tag> : null}
+              {props.tagText ? <Tag variant={Variant.primaryReversed}>{props.tagText}</Tag> : null}
             </Cluster>
 
             <Cluster justifyContent={['space-between']} gap={[cssTheme.sizing.var.x4]}>
