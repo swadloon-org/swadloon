@@ -24,9 +24,10 @@ import {
 } from '@newrade/core-react-ui';
 import { Code, CodeBlock, CodeHighlight } from '@newrade/core-react-ui/lib/code';
 import { mdxComponents, MDXProps } from '@newrade/core-react-ui/lib/markdown';
-import { DocHeader } from 'src/context/doc-header';
-import { DocTags } from 'src/context/doc-tags';
+import React from 'react';
 import { BlockMarkdown } from '../blocks/block-markdown';
+import { DocHeader } from '../context/doc-header';
+import { DocTags } from '../context/doc-tags';
 import { Placeholder } from '../docs-components/placeholder';
 import { PlaceholderMarkdown } from '../docs-components/placeholder-markdown';
 import { SectionBase } from '../sections/section-base';
