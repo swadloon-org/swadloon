@@ -1,7 +1,7 @@
 ---
-name: Colors
+name: Colors - 🌈
 tags:
-  - colors
+  - foundations
 ---
 
 <!-- CODE IMPORTS -->
@@ -10,7 +10,7 @@ import { ColorPrimary } from '../../src/code/color-primary.code';
 
 <!-- END CODE IMPORTS -->
 
-# Colors - 🌈
+<DocHeader props={props}/>
 
 <ThemeWrapper>
   <ColorPrimary />

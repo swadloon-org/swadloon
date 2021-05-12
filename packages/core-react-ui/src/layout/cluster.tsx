@@ -1,6 +1,7 @@
 import { Property } from 'csstype';
 import React from 'react';
 import { useStyles } from 'react-treat';
+import { useCommonProps } from '../hooks/use-common-props.hook';
 import { CommonComponentProps } from '../props/component-common.props';
 import { GapProp } from '../props/layout.prop';
 import * as styleRefs from './cluster.treat';
@@ -9,7 +10,7 @@ type Gap = string;
 
 type Props = CommonComponentProps &
   Partial<{
-    onClick?: (event: React.MouseEvent) => any;
+    wrap?: boolean;
     gap: GapProp;
     alignItems:
       | [Property.AlignItems]
@@ -22,8 +23,10 @@ type Props = CommonComponentProps &
   }>;
 
 export const Cluster: React.FC<Props> = ({
+  id,
   as,
   className = '',
+  wrap,
   gap = '',
   style = {},
   justifyContent = ['space-between'],
@@ -31,23 +34,31 @@ export const Cluster: React.FC<Props> = ({
   ...props
 } = {}) => {
   const { styles } = useStyles(styleRefs);
+  const [mobileGap, tabletGap, desktopGap] = gap;
   const [mobileJustifyContent, tabletJustifyContent, desktopJustifyContent] = justifyContent;
   const [mobileAlignItems, tabletAlignItems, desktopAlignItems] = alignItems;
-
-  return React.createElement(as || 'div', {
-    className: `${className || ''} ${styles.wrapper}`,
+  const commonProps = useCommonProps({
+    id,
     style: {
       ...style,
-      gap,
+      // @ts-ignore
+      '--mobile-gap': mobileGap,
+      '--tablet-gap': tabletGap || mobileGap,
+      '--desktop-gap': desktopGap || tabletGap || mobileGap,
       // @ts-ignore
       '--mobile-justify-content': mobileJustifyContent,
       '--tablet-justify-content': tabletJustifyContent || mobileJustifyContent,
       '--desktop-justify-content':
         desktopJustifyContent || tabletJustifyContent || mobileJustifyContent,
+      // @ts-ignore
       '--mobile-align-items': mobileAlignItems,
       '--tablet-align-items': tabletAlignItems || mobileAlignItems,
       '--desktop-align-items': desktopAlignItems || tabletAlignItems || mobileAlignItems,
     },
+    className,
+    classNames: [styles.wrapper, wrap && styles.wrap],
     ...props,
   });
+
+  return React.createElement(as || 'div', commonProps);
 };
