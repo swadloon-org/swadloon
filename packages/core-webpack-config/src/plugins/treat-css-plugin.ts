@@ -15,7 +15,7 @@ export const getTreatCSSPlugin: (options: {
     localIdentName: `[name]_[local]_[hash:base64:5]`,
     themeIdentName: `_[name]-[local]_`,
     outputCSS: isSSR ? false : true, // https://seek-oss.github.io/treat/setup#server-side-rendering
-    outputLoaders, // e.g. MiniCssExtractPlugin.loader
+    outputLoaders: outputLoaders || ['style-loader'], // e.g. MiniCssExtractPlugin.loader or 'style-loader'
     hmr: isHmr,
   });
 };

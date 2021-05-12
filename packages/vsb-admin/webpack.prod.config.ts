@@ -5,6 +5,7 @@
 /// <reference types="./types/core-types" />
 
 delete process.env.TS_NODE_PROJECT; // see https://github.com/dividab/tsconfig-paths-webpack-plugin/issues/32
+process.env.NODE_ENV = 'production'; // ensure all tools find the correct env
 
 import * as core from '@newrade/core-webpack-config';
 import merge from 'webpack-merge';

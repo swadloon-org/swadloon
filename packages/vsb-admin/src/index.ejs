@@ -14,33 +14,23 @@
         <!-- SEO -->
         <%= require('./templates/head-robots.template.ejs')() %>
 
+        <!-- FONTS -->
+
         <!-- MANIFEST.JSON -->
         <!-- https://developer.mozilla.org/en-US/docs/Web/Manifest -->
         <!-- SEE PLUGIN manifest-json-html.plugin.conf.js-->
-        <link rel="manifest" href="/manifest.json">
+        <link rel="manifest" href="manifest.json">
 
-        <!-- FOR CORDOVA -->
-        <% if(htmlWebpackPlugin.options.isCordovaApp) { %>
+        <!-- FOR WEB -->
 
-            <!-- CORDOVA CSP META TAGS -->
-            <%= require('./templates/head-csp-cordova.template.ejs')({htmlWebpackPlugin: htmlWebpackPlugin}) %>
+        <!-- INSTALLABLE WEB APP META TAGS -->
+        <%= require('./templates/head-installable-web-app.template.ejs')({htmlWebpackPlugin: htmlWebpackPlugin}) %>
 
-            <!-- CORDOVA SCRIPT -->
-            <script src="cordova.js"></script>
+        <!-- CSP META TAGS -->
+        <meta http-equiv="Content-Security-Policy" content="">
 
-        <% } else { %>
-            <!-- FOR WEB -->
-
-            <!-- INSTALLABLE WEB APP META TAGS -->
-            <%= require('./templates/head-installable-web-app.template.ejs')({htmlWebpackPlugin: htmlWebpackPlugin}) %>
-
-            <!-- CSP META TAGS -->
-            <meta http-equiv="Content-Security-Policy" content="">
-
-            <!-- FAVICONS-->
-            <%= require('./templates/head-favicons.template.ejs')({htmlWebpackPlugin: htmlWebpackPlugin}) %>
-
-        <% } %>
+        <!-- FAVICONS-->
+        <%= require('./templates/head-favicons.template.ejs')({htmlWebpackPlugin: htmlWebpackPlugin}) %>
 
         <% if(!htmlWebpackPlugin.options.isDevServer) { %>
             <%= htmlWebpackPlugin.files.css
@@ -48,7 +38,6 @@
         <% } %>
     </head>
 <body>
-    <!-- USE GENERATED INDEX SHELL IF CREATED, FALLBACK TO NO SHELL -->
     <div id="index"></div>
 
     <noscript>

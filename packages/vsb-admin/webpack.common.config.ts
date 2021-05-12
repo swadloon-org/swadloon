@@ -1,5 +1,6 @@
 import { loadDotEnv } from '@newrade/core-utils';
 import * as core from '@newrade/core-webpack-config';
+import { isDevelopment } from '@newrade/core-webpack-config';
 import path from 'path';
 import webpack from 'webpack';
 import merge from 'webpack-merge';
@@ -24,6 +25,7 @@ const localCommonConfig: WebpackOptions = {
     ['index']: path.resolve(__dirname, 'src/index.tsx'),
   },
   output: {
+    publicPath: '/admin/',
     path: path.join(__dirname, 'public'),
   },
   plugins: [
@@ -40,4 +42,7 @@ const localCommonConfig: WebpackOptions = {
   ],
 };
 
-export const commonConfig: WebpackOptions = merge(core.reactCommonConfig, localCommonConfig);
+export const commonConfig: WebpackOptions = merge(
+  core.getReactCommonConfig({ isDevelopment: isDevelopment() }),
+  localCommonConfig
+);

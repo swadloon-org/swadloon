@@ -23,6 +23,9 @@ const devConfig: WebpackOptions.WebpackOptions = {
     host: '0.0.0.0',
     hot: true,
     port: env.APP_PORT,
+    proxy: {
+      '/api': 'http://localhost:10003',
+    },
   },
   plugins: [
     core.getTreatCSSPlugin({

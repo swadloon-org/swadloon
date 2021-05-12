@@ -12,6 +12,7 @@ const logWarn = log.extend('warn');
 const logError = log.extend('error');
 
 /**
+ * Catch all error handler
  * @see https://expressjs.com/en/guide/error-handling.html
  */
 export const errorMiddleware: ErrorRequestHandler<
