@@ -9198,10 +9198,10 @@ Object.defineProperty(exports, "__esModule", {
 
 const core = __importStar(__webpack_require__(9));
 
+const github = __importStar(__webpack_require__(17));
+
 const fs_1 = __webpack_require__(3); // fix for node v12 https://stackoverflow.com/questions/64725249/fs-promises-api-in-typescript-not-compiling-in-javascript-correctly
 
-
-const github = __importStar(__webpack_require__(17));
 
 try {
   const {

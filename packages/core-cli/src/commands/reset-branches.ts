@@ -39,7 +39,9 @@ export default class ResetBranches extends Command {
       .filter((branch) => !ignoredBranches.includes(branch));
     this.ddebug(
       `to remove: ${
-        localBranchesToBeDeleted.length ? localBranchesToBeDeleted.map((branch) => chalk.red(branch)) : '[]'
+        localBranchesToBeDeleted.length
+          ? localBranchesToBeDeleted.map((branch) => chalk.red(branch))
+          : '[]'
       }`
     );
 

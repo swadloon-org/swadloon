@@ -83,7 +83,8 @@ export const NavBar = React.forwardRef<any, Props>((props, ref) => {
       return;
     }
     if (window.document.documentElement.scrollHeight - scrollPosition >= window.screen.height) {
-      window.document.documentElement.style.backgroundColor = cssTheme.colors.colorIntents.background0;
+      window.document.documentElement.style.backgroundColor =
+        cssTheme.colors.colorIntents.background0;
       return;
     }
   };
@@ -136,7 +137,11 @@ export const NavBar = React.forwardRef<any, Props>((props, ref) => {
   return (
     <>
       {/* Mobile */}
-      <header ref={mobileNavbar} style={props.style} className={`${styles.wrapper} ${styles.mobileMenu}`}>
+      <header
+        ref={mobileNavbar}
+        style={props.style}
+        className={`${styles.wrapper} ${styles.mobileMenu}`}
+      >
         <Center maxWidth={props.maxWidth} className={styles.content}>
           <div className={styles.mobileWrapper}>
             <BoxV2 justifyContent={['flex-start']}>
@@ -160,7 +165,10 @@ export const NavBar = React.forwardRef<any, Props>((props, ref) => {
               <SVGLogo Icon={MobileSvgLogo || DesktopSvgLogo} />
             </BoxV2>
 
-            <BoxV2 justifyContent={['flex-end']} padding={[cssTheme.sizing.var.x2, cssTheme.sizing.var.x3]}>
+            <BoxV2
+              justifyContent={['flex-end']}
+              padding={[cssTheme.sizing.var.x2, cssTheme.sizing.var.x3]}
+            >
               <Label> </Label>
             </BoxV2>
           </div>
@@ -168,10 +176,18 @@ export const NavBar = React.forwardRef<any, Props>((props, ref) => {
       </header>
 
       {/* Desktop */}
-      <header ref={desktopNavbar} className={`${styles.wrapper} ${styles.desktopMenu}`} style={props.style}>
+      <header
+        ref={desktopNavbar}
+        className={`${styles.wrapper} ${styles.desktopMenu}`}
+        style={props.style}
+      >
         <Center maxWidth={props.maxWidth} className={styles.content}>
           <Cluster justifyContent={['space-between']} alignItems={['center']} as={'nav'}>
-            <BoxV2 padding={[cssTheme.sizing.var.x2, 0]} className={styles.logoWrapper} AsElement={props.HomeLink}>
+            <BoxV2
+              padding={[cssTheme.sizing.var.x2, 0]}
+              className={styles.logoWrapper}
+              AsElement={props.HomeLink}
+            >
               <SVGLogo Icon={DesktopSvgLogo || MobileSvgLogo} />
             </BoxV2>
 

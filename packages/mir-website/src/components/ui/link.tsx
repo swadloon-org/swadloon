@@ -22,7 +22,9 @@ export const Link: React.FC<HTMLAttributes<any> & OwnProps> = (props) => {
   ) : null;
 };
 
-export const MarkdownLink: React.FC<HTMLAttributes<any> & { children: string; href: string }> = (props) => {
+export const MarkdownLink: React.FC<HTMLAttributes<any> & { children: string; href: string }> = (
+  props
+) => {
   const styles = useStyles(styleRefs);
 
   return props.href ? (

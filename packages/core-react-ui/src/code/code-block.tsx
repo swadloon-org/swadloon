@@ -44,7 +44,13 @@ export const CodeBlock: React.FC<Props> = ({ children = '', className = '', live
           <LiveContext.Consumer>
             {/* @ts-ignore */}
             {({ code, language, theme, disabled, onChange }) => (
-              <CodeEditor theme={theme} code={code} language={language} disabled={disabled} onChange={onChange} />
+              <CodeEditor
+                theme={theme}
+                code={code}
+                language={language}
+                disabled={disabled}
+                onChange={onChange}
+              />
             )}
           </LiveContext.Consumer>
 
@@ -57,6 +63,11 @@ export const CodeBlock: React.FC<Props> = ({ children = '', className = '', live
   }
 
   return (
-    <CodeHighlight code={formattedCode} theme={githubTheme} language={language as Language} injectPreElement={true} />
+    <CodeHighlight
+      code={formattedCode}
+      theme={githubTheme}
+      language={language as Language}
+      injectPreElement={true}
+    />
   );
 };

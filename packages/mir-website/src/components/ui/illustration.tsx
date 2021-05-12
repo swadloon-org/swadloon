@@ -6,7 +6,12 @@ type OwnProps = {
   height?: number | string;
 };
 
-export const Illustration: React.FC<OwnProps & SVGAttributes<any>> = ({ name, height, width, ...props }) => {
+export const Illustration: React.FC<OwnProps & SVGAttributes<any>> = ({
+  name,
+  height,
+  width,
+  ...props
+}) => {
   const ImportedIconRef = useRef(null);
   const [loading, setLoading] = useState(false);
 

@@ -31,9 +31,14 @@ export const createPortfolioProject: Migration.MigrationFunction = function (mig
       },
     ],
   });
-  content.changeFieldControl(COMMON_FIELD.PORTFOLIO_PROJECT_SLUG, 'builtin', CONTENTFUL_WIDGET.SINGLE_LINE, {
-    helpText: 'Short version of the title formatted with dashes, e.g. a-new-blog-post',
-  });
+  content.changeFieldControl(
+    COMMON_FIELD.PORTFOLIO_PROJECT_SLUG,
+    'builtin',
+    CONTENTFUL_WIDGET.SINGLE_LINE,
+    {
+      helpText: 'Short version of the title formatted with dashes, e.g. a-new-blog-post',
+    }
+  );
 
   content.createField(COMMON_FIELD.SUBTITLE, {
     name: pascal(COMMON_FIELD.SUBTITLE),
@@ -46,9 +51,15 @@ export const createPortfolioProject: Migration.MigrationFunction = function (mig
     type: 'Text',
     localized: true,
   });
-  content.changeFieldControl(COMMON_FIELD.PORTFOLIO_PROJECT_EXCERPT, 'builtin', CONTENTFUL_WIDGET.MULTI_LINE, {
-    helpText: 'Short summary of the article, will default to the first lines of content if not set.',
-  });
+  content.changeFieldControl(
+    COMMON_FIELD.PORTFOLIO_PROJECT_EXCERPT,
+    'builtin',
+    CONTENTFUL_WIDGET.MULTI_LINE,
+    {
+      helpText:
+        'Short summary of the article, will default to the first lines of content if not set.',
+    }
+  );
 
   /**
    * MediaCollection the article main image
@@ -59,7 +70,11 @@ export const createPortfolioProject: Migration.MigrationFunction = function (mig
     helpText: 'Select a media collection to set images on the section.',
   });
 
-  content.createField(COMMON_FIELD.TEXT, { name: pascal(COMMON_FIELD.TEXT), type: 'Text', localized: true });
+  content.createField(COMMON_FIELD.TEXT, {
+    name: pascal(COMMON_FIELD.TEXT),
+    type: 'Text',
+    localized: true,
+  });
 
   /**
    * To Tags of the portfolio

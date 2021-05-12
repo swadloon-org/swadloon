@@ -1,7 +1,11 @@
 import { Color } from '@newrade/core-design-system';
 import { cleanup, render } from '@testing-library/react';
 import React from 'react';
-import { defaultColorIntents, defaultColors, defaultColorsColors } from '../../design-system/default-colors';
+import {
+  defaultColorIntents,
+  defaultColors,
+  defaultColorsColors,
+} from '../../design-system/default-colors';
 import {
   getCSSColor,
   getCSSColors,
@@ -50,7 +54,9 @@ describe('colors utilities', () => {
         s: 40,
         l: 50,
       };
-      const result = render(<div className="1" style={{ backgroundColor: getCSSColor(color) }}></div>);
+      const result = render(
+        <div className="1" style={{ backgroundColor: getCSSColor(color) }}></div>
+      );
       expect(result.container.firstChild).toBeDefined();
       if (result.container.firstChild) {
         const element = result.container.getElementsByClassName('1');
@@ -78,12 +84,18 @@ describe('colors utilities', () => {
 
   describe(`${getCSSVarNamesForColors.name}`, () => {
     it(`should generate CSS variable names for a given Colors object`, () => {
-      const vars = getCSSVarNamesForColors({ colors: defaultColorsColors, colorIntents: defaultColorIntents });
+      const vars = getCSSVarNamesForColors({
+        colors: defaultColorsColors,
+        colorIntents: defaultColorIntents,
+      });
       expect(vars).toMatchSnapshot();
     });
 
     it(`should generate CSS statement to access Colors CSS vars`, () => {
-      const vars = getCSSVarForColors({ colors: defaultColorsColors, colorIntents: defaultColorIntents });
+      const vars = getCSSVarForColors({
+        colors: defaultColorsColors,
+        colorIntents: defaultColorIntents,
+      });
       expect(vars).toMatchSnapshot();
     });
   });

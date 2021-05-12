@@ -1,6 +1,9 @@
 import { CommonComponentProps, useTreatTheme } from '@newrade/core-react-ui';
 import { getMergedClassname } from '@newrade/core-react-ui/lib/utilities';
-import GatsbyBackgroundImage, { IBackgroundImageProps, InferExtraProps } from 'gatsby-background-image';
+import GatsbyBackgroundImage, {
+  IBackgroundImageProps,
+  InferExtraProps,
+} from 'gatsby-background-image';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { BackgroundEffect, BackgroundEffectConfig } from './background-effect';
@@ -24,7 +27,10 @@ type Props = Omit<CommonComponentProps, 'as'> & {
 };
 
 export const BackgroundImage = React.forwardRef<any, Props>(
-  ({ id, style, className, effects, children, backgroundImage, backgroundPosition, src, ...props }, ref) => {
+  (
+    { id, style, className, effects, children, backgroundImage, backgroundPosition, src, ...props },
+    ref
+  ) => {
     const { cssTheme } = useTreatTheme();
     const { styles } = useStyles(styleRefs);
     const mergedClassNames = getMergedClassname([className, styles.wrapper]);

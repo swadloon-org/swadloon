@@ -27,8 +27,6 @@ All notable changes to this project will be documented in this file. See
 
 - **blocks-fix:** changing tableCodes for BlocksCode
   ([bb80b32](https://github.com/newrade/newrade/commit/bb80b327a4013dc377fac5f373165c097f99615d))
-- **cdpq-website:** fix imports
-  ([86ffeb9](https://github.com/newrade/newrade/commit/86ffeb96b028af4fad2c287d16a782a31b343fdf))
 - **core-design-system-docs:** init package
   ([224064a](https://github.com/newrade/newrade/commit/224064a713a5f41f998fe1e8e18ea4bfbe8b048d))
 - **core-react-ui:** fix list item, using flex now

@@ -14,7 +14,10 @@ type OwnProps = SectionFragment;
 
 export function JobSection(props: OwnProps) {
   const styles = useStyles(styleRefs);
-  const [accordionOpenState, setAccordionsOpenState] = useState([{ state: 'opened' }, { state: 'closed' }]);
+  const [accordionOpenState, setAccordionsOpenState] = useState([
+    { state: 'opened' },
+    { state: 'closed' },
+  ]);
 
   const { viewport } = useViewportBreakpoint();
 
@@ -23,7 +26,11 @@ export function JobSection(props: OwnProps) {
   return (
     <div className={`${styles.wrapper} `}>
       <div className={styles.containerWrapper}>
-        <RenderTitleHighlight className={styles.title} title={props?.title} titleHighlight={props?.titleHighlight} />
+        <RenderTitleHighlight
+          className={styles.title}
+          title={props?.title}
+          titleHighlight={props?.titleHighlight}
+        />
         {getVariantModifier(variant)}
       </div>
     </div>
@@ -38,7 +45,9 @@ export function JobSection(props: OwnProps) {
               const lengthJobs: any = props?.jobGroup?.[index]?.jobs?.length;
 
               const RowNumber: number =
-                viewport >= VIEWPORT.desktop ? Math.ceil(lengthJobs / 3) : Math.ceil(lengthJobs / 1);
+                viewport >= VIEWPORT.desktop
+                  ? Math.ceil(lengthJobs / 3)
+                  : Math.ceil(lengthJobs / 1);
 
               return (
                 <div className={styles.containerBloc} key={index}>
@@ -57,13 +66,18 @@ export function JobSection(props: OwnProps) {
                   </div>
                   <div
                     className={`${styles.content} ${styles.withCheck}  ${
-                      accordionOpenState[index].state === 'opened' ? styles.selected : styles.unselected
+                      accordionOpenState[index].state === 'opened'
+                        ? styles.selected
+                        : styles.unselected
                     }`}
                     style={{ gridTemplateRows: `repeat(${RowNumber}, 1fr)` }}
                   >
                     {props?.jobGroup?.[index]?.jobs?.map((job, index) => {
                       return (
-                        <div className={`${index % 2 == 0 ? styles.even : styles.unenven}`} key={index}>
+                        <div
+                          className={`${index % 2 == 0 ? styles.even : styles.unenven}`}
+                          key={index}
+                        >
                           <CheckLabel illustration="IllustrationCheck" size="medium">
                             {job?.title}
                           </CheckLabel>
@@ -85,7 +99,9 @@ export function JobSection(props: OwnProps) {
               const lengthJobs: any = props?.jobGroup?.[index]?.jobs?.length;
 
               const RowNumber: number =
-                viewport >= VIEWPORT.desktop ? Math.ceil(lengthJobs / 3) : Math.ceil(lengthJobs / 1);
+                viewport >= VIEWPORT.desktop
+                  ? Math.ceil(lengthJobs / 3)
+                  : Math.ceil(lengthJobs / 1);
 
               return (
                 <div className={styles.containerBloc} key={index}>
@@ -104,14 +120,19 @@ export function JobSection(props: OwnProps) {
 
                   <div
                     className={`${styles.content} ${styles.withTags} ${
-                      accordionOpenState[index].state === 'opened' ? styles.selected : styles.unselected
+                      accordionOpenState[index].state === 'opened'
+                        ? styles.selected
+                        : styles.unselected
                     }`}
                     style={{ gridTemplateRows: `repeat(${RowNumber}, 1fr)` }}
                   >
                     {props?.jobGroup?.[index]?.jobs?.map((job, index) => {
                       return (
                         <div className={styles.tagsUnique} key={index}>
-                          <Tags numberIndex={`${index < 9 ? '0' : ''}${index + 1}`}> {job?.title}</Tags>
+                          <Tags numberIndex={`${index < 9 ? '0' : ''}${index + 1}`}>
+                            {' '}
+                            {job?.title}
+                          </Tags>
                         </div>
                       );
                     })}

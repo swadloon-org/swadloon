@@ -11,7 +11,9 @@ export type ClinikoAPIRequestBody = APIRequestBody<any>;
  * Request to create a new patient
  */
 export type CreatePatientAPIRequestBody = APIRequestBody<{ patient: PatientModel }>;
-export type CreatePatientAPIResponseBody = APIResponseBody<{ yupValidationErrors?: ValidationError[] }>;
+export type CreatePatientAPIResponseBody = APIResponseBody<{
+  yupValidationErrors?: ValidationError[];
+}>;
 
 /**
  * Request to retrieve new patients

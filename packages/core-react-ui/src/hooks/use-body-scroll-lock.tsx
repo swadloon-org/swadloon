@@ -67,7 +67,9 @@ export function useBodyScrollLock({
 
   // https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollHeight#Problems_and_solutions
   const isTargetElementTotallyScrolled = (targetElement: any): boolean =>
-    targetElement ? targetElement.scrollHeight - targetElement.scrollTop <= targetElement.clientHeight : false;
+    targetElement
+      ? targetElement.scrollHeight - targetElement.scrollTop <= targetElement.clientHeight
+      : false;
 
   const target = ref.current;
 
@@ -118,7 +120,9 @@ export function useBodyScrollLock({
             10
           );
           previousBodyPaddingRight = window.document.documentElement.style.paddingRight;
-          window.document.documentElement.style.paddingRight = `${computedBodyPaddingRight + scrollBarGap}px`;
+          window.document.documentElement.style.paddingRight = `${
+            computedBodyPaddingRight + scrollBarGap
+          }px`;
         }
       }
       // If previousBodyOverflowSetting is already set, don't set it again.
@@ -206,7 +210,8 @@ export function useBodyScrollLock({
         return;
       }
 
-      const isBodyOverflowHidden = !isIosDevice || !!locks.find((lock) => lock.options.hideBodyOverflow);
+      const isBodyOverflowHidden =
+        !isIosDevice || !!locks.find((lock) => lock.options.hideBodyOverflow);
       locks = locks.filter((lock) => lock.targetElement !== targetElement);
 
       if (isIosDevice) {

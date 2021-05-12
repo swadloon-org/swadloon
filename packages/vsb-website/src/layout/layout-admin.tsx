@@ -1,6 +1,13 @@
 import { VIEWPORT } from '@newrade/core-design-system';
 import { GatsbyLink } from '@newrade/core-gatsby-ui/src';
-import { Main, MainWrapper, NavBar, useIsSSR, useTreatTheme, useViewportBreakpoint } from '@newrade/core-react-ui';
+import {
+  Main,
+  MainWrapper,
+  NavBar,
+  useIsSSR,
+  useTreatTheme,
+  useViewportBreakpoint,
+} from '@newrade/core-react-ui';
 import { Router } from '@reach/router';
 import { PageProps } from 'gatsby';
 import React, { ReactNode, useEffect, useState } from 'react';

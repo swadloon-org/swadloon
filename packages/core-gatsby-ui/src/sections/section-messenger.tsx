@@ -1,5 +1,11 @@
 import { Variant } from '@newrade/core-design-system';
-import { BoxV2, CommonComponentProps, Stack, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
+import {
+  BoxV2,
+  CommonComponentProps,
+  Stack,
+  useCommonProps,
+  useTreatTheme,
+} from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { SectionBase } from './section-base';
@@ -22,7 +28,11 @@ export const SectionMessenger = React.forwardRef<any, Props>(
       AsElement,
       LeftBlock,
       RightBlocks,
-      section: { variant = Variant.primary, baseLayout = SectionBaseLayout.center, padding = SectionPadding.large } = {
+      section: {
+        variant = Variant.primary,
+        baseLayout = SectionBaseLayout.center,
+        padding = SectionPadding.large,
+      } = {
         variant: Variant.primary,
         baseLayout: SectionBaseLayout.center,
         padding: SectionPadding.large,

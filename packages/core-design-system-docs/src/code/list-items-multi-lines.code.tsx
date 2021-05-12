@@ -1,5 +1,8 @@
 import { PARAGRAPH_SIZE } from '@newrade/core-design-system';
-import { lorenipsum, lorenipsumShort } from '@newrade/core-gatsby-ui/src/docs-components/loren-ipsum';
+import {
+  lorenipsum,
+  lorenipsumShort,
+} from '@newrade/core-gatsby-ui/src/docs-components/loren-ipsum';
 import { ListItems, ListItemV2, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 

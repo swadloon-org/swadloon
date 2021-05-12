@@ -39,10 +39,15 @@ export const GoogleMapsStatic: React.FC<Props> = React.memo(
      * Script props
      */
     const DefaultLoadingElement = () => <div className={styles.mapsLoading} />;
-    const loadingElement = script.loadingElement ? script.loadingElement : <DefaultLoadingElement />;
+    const loadingElement = script.loadingElement ? (
+      script.loadingElement
+    ) : (
+      <DefaultLoadingElement />
+    );
     const libraries: Libraries = script.libraries || defaultLibraries;
     const language: string = script.language || 'fr';
-    const googleMapsApiKey: string = script.googleMapsApiKey || 'AIzaSyDCcSCivD2CPrWHNIIGBiPexN5QCujfSkE';
+    const googleMapsApiKey: string =
+      script.googleMapsApiKey || 'AIzaSyDCcSCivD2CPrWHNIIGBiPexN5QCujfSkE';
 
     /**
      * Maps props

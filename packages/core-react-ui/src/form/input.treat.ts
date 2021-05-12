@@ -56,19 +56,25 @@ export const styles = {
    * Sizes
    */
   medium: style(({ theme, cssTheme }: Theme) => ({
-    height: `calc(${cssTheme.sizing.var.x4} + ${cssTheme.typography.labels.mobile.small.capHeight}px + ${2}px)`,
+    height: `calc(${cssTheme.sizing.var.x4} + ${
+      cssTheme.typography.labels.mobile.small.capHeight
+    }px + ${2}px)`,
     padding: `4px 9px 1px`,
     fontFamily: cssTheme.typography.labels.mobile.small.fontFamily,
     lineHeight: cssTheme.typography.labels.mobile.small.capsize?.lineHeight,
     fontSize: `max(16px, ${cssTheme.typography.labels.tablet.small.capsize?.fontSize})`,
     '@media': {
       [cssTheme.layout.media.tablet]: {
-        height: `calc(${cssTheme.sizing.var.x4} + ${cssTheme.typography.labels.tablet.small.capHeight}px + ${2}px)`,
+        height: `calc(${cssTheme.sizing.var.x4} + ${
+          cssTheme.typography.labels.tablet.small.capHeight
+        }px + ${2}px)`,
 
         fontSize: cssTheme.typography.labels.tablet.small.capsize?.fontSize,
       },
       [cssTheme.layout.media.desktopSmall]: {
-        height: `calc(${cssTheme.sizing.var.x4} + ${cssTheme.typography.labels.desktop.small.capHeight}px + ${2}px)`,
+        height: `calc(${cssTheme.sizing.var.x4} + ${
+          cssTheme.typography.labels.desktop.small.capHeight
+        }px + ${2}px)`,
         fontSize: cssTheme.typography.labels.desktop.small.capsize?.fontSize,
       },
     },

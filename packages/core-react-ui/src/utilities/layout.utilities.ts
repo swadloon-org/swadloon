@@ -125,7 +125,9 @@ export function getCSSMediaQuery(query?: MediaQueryGroup): MediaQueryType<string
   return cssQuery ? cssQuery.join('') : '';
 }
 
-export function extractQueryType(query: MediaQuery | MediaQueryGroup | MEDIA_OPERATOR | undefined): string {
+export function extractQueryType(
+  query: MediaQuery | MediaQueryGroup | MEDIA_OPERATOR | undefined
+): string {
   if (!query) {
     return ``;
   }
@@ -172,10 +174,14 @@ export function extractQueryMediaType(query: MediaQuery) {
 export function extractQueryFeature(query: MediaQuery) {
   switch (query.feature) {
     case MEDIA_FEATURE.minWidth: {
-      return query.value !== undefined ? `(${MEDIA_FEATURE.minWidth}: ${px({ value: query.value })})` : ``;
+      return query.value !== undefined
+        ? `(${MEDIA_FEATURE.minWidth}: ${px({ value: query.value })})`
+        : ``;
     }
     case MEDIA_FEATURE.maxWidth: {
-      return query.value !== undefined ? `(${MEDIA_FEATURE.maxWidth}: ${px({ value: query.value })})` : ``;
+      return query.value !== undefined
+        ? `(${MEDIA_FEATURE.maxWidth}: ${px({ value: query.value })})`
+        : ``;
     }
     default: {
       return ``;

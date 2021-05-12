@@ -25,7 +25,9 @@ export const ImageFrame: React.FC<OwnProps & HTMLAttributes<any>> = (props) => {
         height={200}
       />
       <div className={`${styles.content} ${styles[props?.variant]}`}>
-        {props?.fluid ? <GatsbyImage className={`${styles.image}`} fluid={props?.fluid}></GatsbyImage> : null}
+        {props?.fluid ? (
+          <GatsbyImage className={`${styles.image}`} fluid={props?.fluid}></GatsbyImage>
+        ) : null}
       </div>
     </div>
   );

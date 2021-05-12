@@ -58,7 +58,10 @@ const Template: React.FC<MarkdownTemplateProps> = (props) => {
         <html lang={props.pageContext.locale} />
         <link rel="icon" href="/images/favicon.svg" sizes="any" type="image/svg+xml" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+          rel="stylesheet"
+        />
         <link
           href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
           rel="stylesheet"
@@ -67,7 +70,11 @@ const Template: React.FC<MarkdownTemplateProps> = (props) => {
         {getMetaBasicTags()}
         {getMetadataOpenGraphWebsiteTags({
           type: OPEN_GRAPH_TYPE.ARTICLE,
-          title: `${props.pageContext.displayName || props.pageContext.name || props.pageContext.siteMetadata.title}`,
+          title: `${
+            props.pageContext.displayName ||
+            props.pageContext.name ||
+            props.pageContext.siteMetadata.title
+          }`,
           // url: `${data?.site?.siteMetadata?.siteUrl}${data?.contentfulBlogPost?.blogSlug}`,
           description: `${props.data.file?.childMdx?.excerpt || 'No description provided'}`,
           // image: `${data?.contentfulBlogPost?.blogMainImage?.socialMediaImage?.src}`,
@@ -83,9 +90,14 @@ const Template: React.FC<MarkdownTemplateProps> = (props) => {
           site: `${data?.contentfulCompanyInfo?.metadataTwitterSite}`,
         })} */}
       </Helmet>
-      <Center maxWidth={cssTheme.layout.var.contentWidth.desktopDocsMaxWidth} style={{ paddingBottom: `60vh` }}>
+      <Center
+        maxWidth={cssTheme.layout.var.contentWidth.desktopDocsMaxWidth}
+        style={{ paddingBottom: `60vh` }}
+      >
         <DocsMarkdownCSS>
-          <MDXRenderer {...{ ...props, theme, cssTheme }}>{props.data.file?.childMdx?.body as string}</MDXRenderer>
+          <MDXRenderer {...{ ...props, theme, cssTheme }}>
+            {props.data.file?.childMdx?.body as string}
+          </MDXRenderer>
         </DocsMarkdownCSS>
 
         <DesignSystemFooter />

@@ -9,7 +9,8 @@ export const baseJestConfig: jest.InitialOptions = {
   preset: 'ts-jest',
   transform: {
     '\\.(mjs|js|jsx)$': '../core-jest-config/transforms/babel-transform.js',
-    '\\.(ttf|eot|woff2?|svg|jpe?g|png|gif|ico)$': '../core-jest-config/transforms/file-transform.js',
+    '\\.(ttf|eot|woff2?|svg|jpe?g|png|gif|ico)$':
+      '../core-jest-config/transforms/file-transform.js',
     '\\.(mdx?)$': '../core-jest-config/transforms/mdx-transform.js',
   },
   transformIgnorePatterns: [`node_modules/(?!(${includedLibToCompile.join('|')})/)`],

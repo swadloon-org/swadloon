@@ -1,4 +1,0 @@
-{
-  "extends": "../core-jest-config/tsconfig.base.jest.json",
-  "include": ["test", "src"]
-}

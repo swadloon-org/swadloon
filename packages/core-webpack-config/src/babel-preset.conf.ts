@@ -24,7 +24,14 @@ export const babelPresetConf: ([string, object] | [string])[] = [
     '@babel/preset-env',
     {
       // see .browserslist -> for target which is a query to select browsers (ex: last 2 versions, > 5%, safari tp) using browserslist.
-      targets: ['chrome >= 85', 'firefox >= 82', 'ios_saf >=12', 'safari >=12', 'not IE 11', 'node >= 14'],
+      targets: [
+        'chrome >= 85',
+        'firefox >= 82',
+        'ios_saf >=12',
+        'safari >=12',
+        'not IE 11',
+        'node >= 14',
+      ],
       useBuiltIns: 'usage', // Adds specific imports for polyfills when they are used in each file.
       corejs: '3.8',
       shippedProposals: true, // Toggles enabling support for builtin/feature proposals that have shipped in browsers.

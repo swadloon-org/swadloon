@@ -14,8 +14,12 @@ type ViewportProviderProps = {
 export const ViewportProvider: React.FC<ViewportProviderProps> = ({ children, context }) => {
   const windowGlobal = typeof window !== 'undefined' && window;
 
-  const [width, setWidth] = React.useState<ViewportContext['width']>(windowGlobal ? windowGlobal.innerWidth : 320);
-  const [height, setHeight] = React.useState<ViewportContext['height']>(windowGlobal ? windowGlobal.innerHeight : 600);
+  const [width, setWidth] = React.useState<ViewportContext['width']>(
+    windowGlobal ? windowGlobal.innerWidth : 320
+  );
+  const [height, setHeight] = React.useState<ViewportContext['height']>(
+    windowGlobal ? windowGlobal.innerHeight : 600
+  );
 
   function handleWindowResize() {
     setWidth(windowGlobal ? windowGlobal.innerWidth : 320);

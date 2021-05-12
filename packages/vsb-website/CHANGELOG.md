@@ -37,8 +37,6 @@ All notable changes to this project will be documented in this file. See
 
 - **blocks-fix:** changing tableCodes for BlocksCode
   ([bb80b32](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/bb80b327a4013dc377fac5f373165c097f99615d))
-- **cdpq-website:** fix imports
-  ([86ffeb9](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/86ffeb96b028af4fad2c287d16a782a31b343fdf))
 - **core:** packages are building
   ([a6985ed](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/a6985ed2e5d630c8dff85ac8625a4ef5b318a602))
 - **core-design-system-docs:** init package

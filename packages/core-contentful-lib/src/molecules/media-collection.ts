@@ -66,7 +66,12 @@ export const createMediaCollection: Migration.MigrationFunction = function (migr
       linkType: 'Asset',
     },
   });
-  content.changeFieldControl(COMMON_FIELD.MEDIAS, 'builtin', CONTENTFUL_WIDGET.ASSET_GALLERY_EDITOR, {
-    helpText: 'Select and reorder the images/videos to use in the collection',
-  });
+  content.changeFieldControl(
+    COMMON_FIELD.MEDIAS,
+    'builtin',
+    CONTENTFUL_WIDGET.ASSET_GALLERY_EDITOR,
+    {
+      helpText: 'Select and reorder the images/videos to use in the collection',
+    }
+  );
 };

@@ -46,8 +46,9 @@ const MobileSideBar = loadable<any>(
     return import('@newrade/core-react-ui/lib/navigation/mobile-sidebar');
   },
   {
-    resolveComponent: (components: typeof import('@newrade/core-react-ui/lib/navigation/mobile-sidebar')) =>
-      components.MobileSideBar,
+    resolveComponent: (
+      components: typeof import('@newrade/core-react-ui/lib/navigation/mobile-sidebar')
+    ) => components.MobileSideBar,
   }
 );
 

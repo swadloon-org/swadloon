@@ -51,7 +51,9 @@ export type SectionProps = CommonComponentProps & {
  * Defines a component for each custom layout
  */
 export type CustomSectionLayoutComponents<CustomSectionLayouts extends string> = {
-  [key in CustomSectionLayouts | SectionLayout]?: (props: SectionProps) => React.ReactElement | null;
+  [key in CustomSectionLayouts | SectionLayout]?: (
+    props: SectionProps
+  ) => React.ReactElement | null;
 };
 
 /**

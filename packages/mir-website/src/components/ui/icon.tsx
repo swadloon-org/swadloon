@@ -12,5 +12,10 @@ type OwnProps = {
 export const Icon: React.FC<HTMLAttributes<any> & OwnProps> = (props) => {
   const styles = useStyles(styleRefs);
 
-  return <Illustration className={`${styles.icon} ${styles[props.size]}`} name={`icons/${props.icon}`}></Illustration>;
+  return (
+    <Illustration
+      className={`${styles.icon} ${styles[props.size]}`}
+      name={`icons/${props.icon}`}
+    ></Illustration>
+  );
 };

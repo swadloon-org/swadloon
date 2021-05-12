@@ -17,10 +17,24 @@ type Props = CommonComponentProps &
     label?: string;
   };
 
-export const DesktopDocsItemGroup: React.FC<Props> = ({ id, style, className, as, AsElement, label, ...props }) => {
+export const DesktopDocsItemGroup: React.FC<Props> = ({
+  id,
+  style,
+  className,
+  as,
+  AsElement,
+  label,
+  ...props
+}) => {
   const { theme, cssTheme } = useTreatTheme();
   const { styles } = useStyles(styleRefs);
-  const commonProps = useCommonProps({ id, style, className, classNames: [styles.wrapper], ...props });
+  const commonProps = useCommonProps({
+    id,
+    style,
+    className,
+    classNames: [styles.wrapper],
+    ...props,
+  });
   const [isOpened, setIsOpened] = useState<boolean>(true);
 
   function handleOnClick(event: React.MouseEvent) {
@@ -30,11 +44,17 @@ export const DesktopDocsItemGroup: React.FC<Props> = ({ id, style, className, as
   return (
     <Stack {...commonProps}>
       <Cluster onClick={handleOnClick} className={styles.group}>
-        <Label variantStyle={TEXT_STYLE.bold} variant={LABEL_SIZE.small} variantLevel={Variant.primary}>
+        <Label
+          variantStyle={TEXT_STYLE.bold}
+          variant={LABEL_SIZE.small}
+          variantLevel={Variant.primary}
+        >
           {label}
         </Label>
 
-        <IoChevronDownOutline className={getMergedClassname([styles.icon, isOpened && styles.iconOpened])} />
+        <IoChevronDownOutline
+          className={getMergedClassname([styles.icon, isOpened && styles.iconOpened])}
+        />
       </Cluster>
 
       {isOpened ? <div className={styles.children}>{props.children}</div> : null}

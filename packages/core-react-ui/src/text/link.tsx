@@ -1,4 +1,10 @@
-import { LinkProps, LinkState, LinkVariant, PARAGRAPH_SIZE, Variant } from '@newrade/core-design-system';
+import {
+  LinkProps,
+  LinkState,
+  LinkVariant,
+  PARAGRAPH_SIZE,
+  Variant,
+} from '@newrade/core-design-system';
 import { IoOpenOutline } from '@react-icons/all-files/io5/IoOpenOutline';
 import React, { AnchorHTMLAttributes, useRef } from 'react';
 import { useStyles } from 'react-treat';
@@ -103,7 +109,9 @@ export const Link: React.FC<Props> = React.memo(
     /**
      * Handle AsElement option
      */
-    const WrapperElement = AsElement ? React.cloneElement(AsElement as React.ReactElement, compProps) : null;
+    const WrapperElement = AsElement
+      ? React.cloneElement(AsElement as React.ReactElement, compProps)
+      : null;
 
     if (WrapperElement) {
       return WrapperElement;

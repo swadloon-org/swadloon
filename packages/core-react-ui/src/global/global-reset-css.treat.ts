@@ -186,9 +186,12 @@ globalStyle(`progress`, {
 /**
  * Correct the cursor style of increment and decrement buttons in Chrome.
  */
-globalStyle(`[type='number']::-webkit-inner-spin-button,[type='number']::-webkit-outer-spin-button`, {
-  height: 'auto',
-});
+globalStyle(
+  `[type='number']::-webkit-inner-spin-button,[type='number']::-webkit-outer-spin-button`,
+  {
+    height: 'auto',
+  }
+);
 
 /**
  * 1. Correct the odd appearance in Chrome and Safari.

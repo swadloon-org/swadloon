@@ -33,7 +33,9 @@ function getLastContextEntry(context: Context) {
 }
 
 function getMessage(e: ValidationError): string {
-  return e.message !== undefined ? e.message : `Invalid value (${stringify(e.value)}) for ${getContextPath(e.context)}`;
+  return e.message !== undefined
+    ? e.message
+    : `Invalid value (${stringify(e.value)}) for ${getContextPath(e.context)}`;
 }
 
 export type ReportResult<Model extends object> = {
@@ -42,7 +44,9 @@ export type ReportResult<Model extends object> = {
   success?: boolean;
 };
 
-export function runReport<Model extends object>(validation: Validation<Model>): ReportResult<Model> {
+export function runReport<Model extends object>(
+  validation: Validation<Model>
+): ReportResult<Model> {
   function failure(es: Array<ValidationError>) {
     return es.reduce((previous, current) => {
       // @ts-ignore

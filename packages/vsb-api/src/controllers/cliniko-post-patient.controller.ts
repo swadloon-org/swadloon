@@ -24,10 +24,11 @@ const validationError = `Veuillez vérifier tout les champs du formulaire et sou
 /**
  * Create a new patient from our form.
  */
-export const postPatient: RequestHandler<any, CreatePatientAPIResponseBody, CreatePatientAPIRequestBody> = async (
-  req,
-  res
-) => {
+export const postPatient: RequestHandler<
+  any,
+  CreatePatientAPIResponseBody,
+  CreatePatientAPIRequestBody
+> = async (req, res) => {
   try {
     log(`request to create a patient`);
 
@@ -89,7 +90,11 @@ export const postPatient: RequestHandler<any, CreatePatientAPIResponseBody, Crea
   }
 };
 
-export function handleUnhandledError(res: Response<APIResponseBody<any>>, error?: Error, payload?: any) {
+export function handleUnhandledError(
+  res: Response<APIResponseBody<any>>,
+  error?: Error,
+  payload?: any
+) {
   logError(`request failed to an unhandled error`);
   res.status(500).send({
     api: 'vsb-api',

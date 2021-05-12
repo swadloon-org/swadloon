@@ -1,5 +1,9 @@
 import { GatsbySrcPageContext } from '@newrade/core-gatsby-config';
-import { getMetaBasicTags, getMetadataOpenGraphWebsiteTags, OPEN_GRAPH_TYPE } from '@newrade/core-react-ui';
+import {
+  getMetaBasicTags,
+  getMetadataOpenGraphWebsiteTags,
+  OPEN_GRAPH_TYPE,
+} from '@newrade/core-react-ui';
 import { PageProps } from 'gatsby';
 import React, { ReactNode } from 'react';
 import Helmet from 'react-helmet';
@@ -16,7 +20,11 @@ export const SrcPageTemplate: React.FC<Props & { children: ReactNode }> = (props
         {getMetaBasicTags()}
         {getMetadataOpenGraphWebsiteTags({
           type: OPEN_GRAPH_TYPE.WEBSITE,
-          title: `${props.pageContext.displayName || props.pageContext.name || props.pageContext.siteMetadata.title}`,
+          title: `${
+            props.pageContext.displayName ||
+            props.pageContext.name ||
+            props.pageContext.siteMetadata.title
+          }`,
           // url: `${data?.site?.siteMetadata?.siteUrl}${data?.contentfulBlogPost?.blogSlug}`,
           description: `No description provided`,
           // image: `${data?.contentfulBlogPost?.blogMainImage?.socialMediaImage?.src}`,

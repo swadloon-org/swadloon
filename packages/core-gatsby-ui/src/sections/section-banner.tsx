@@ -1,5 +1,11 @@
 import { Variant } from '@newrade/core-design-system';
-import { BoxV2, Center, CommonComponentProps, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
+import {
+  BoxV2,
+  Center,
+  CommonComponentProps,
+  useCommonProps,
+  useTreatTheme,
+} from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './section-banner.treat';

@@ -18,7 +18,9 @@ try {
   LayoutComponent = require(PLUGIN_CONSTANTS.CORE_LAYOUT_COMPONENT_PATH);
 } catch (e) {
   if (e.toString().indexOf(`Error: Cannot find module`) !== -1) {
-    throw new Error(`Couldn't find layout component at "${PLUGIN_CONSTANTS.CORE_LAYOUT_COMPONENT_PATH}\n\n`);
+    throw new Error(
+      `Couldn't find layout component at "${PLUGIN_CONSTANTS.CORE_LAYOUT_COMPONENT_PATH}\n\n`
+    );
   } else {
     // Logging the error for debugging older browsers as there is no way
     // to wrap the thrown error in a try/catch.
@@ -29,12 +31,16 @@ try {
 
 try {
   if (!PLUGIN_CONSTANTS.CORE_PROVIDERS_COMPONENT_PATH) {
-    throw new Error(`Couldn't find providers component at "${PLUGIN_CONSTANTS.CORE_PROVIDERS_COMPONENT_PATH}.\n\n`);
+    throw new Error(
+      `Couldn't find providers component at "${PLUGIN_CONSTANTS.CORE_PROVIDERS_COMPONENT_PATH}.\n\n`
+    );
   }
   ProvidersComponent = require(PLUGIN_CONSTANTS.CORE_PROVIDERS_COMPONENT_PATH);
 } catch (e) {
   if (e.toString().indexOf(`Error: Cannot find module`) !== -1) {
-    throw new Error(`Couldn't find providers component at "${PLUGIN_CONSTANTS.CORE_PROVIDERS_COMPONENT_PATH}.\n\n`);
+    throw new Error(
+      `Couldn't find providers component at "${PLUGIN_CONSTANTS.CORE_PROVIDERS_COMPONENT_PATH}.\n\n`
+    );
   } else {
     // Logging the error for debugging older browsers as there is no way
     // to wrap the thrown error in a try/catch.

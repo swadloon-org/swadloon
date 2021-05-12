@@ -21,7 +21,10 @@ const logError = log.extend('error'); // deepscan-disable-line UNUSED_DECL
 /**
  * Component that will render a Section object in their layout.
  */
-export function SectionRenderer<CustomSectionLayouts extends string, CustomBlockVariants extends string>({
+export function SectionRenderer<
+  CustomSectionLayouts extends string,
+  CustomBlockVariants extends string
+>({
   id,
   className,
   style,
@@ -51,7 +54,9 @@ export function SectionRenderer<CustomSectionLayouts extends string, CustomBlock
    * Render custom sections (layouts)
    */
   if (sectionComponents && sectionComponents[sectionLayout]) {
-    const CustomSection = sectionComponents[sectionLayout] as React.ElementType<SectionProps | SectionAPI>;
+    const CustomSection = sectionComponents[sectionLayout] as React.ElementType<
+      SectionProps | SectionAPI
+    >;
 
     // @ts-ignore
     return <CustomSection section={section} {...commonProps} />;
@@ -113,7 +118,12 @@ export function SectionRenderer<CustomSectionLayouts extends string, CustomBlock
           Blocks={
             <>
               {blocks.map((block, index) => (
-                <BlockRenderer blockComponents={blockComponents} key={index} block={block} inView={sectionInView} />
+                <BlockRenderer
+                  blockComponents={blockComponents}
+                  key={index}
+                  block={block}
+                  inView={sectionInView}
+                />
               ))}
             </>
           }

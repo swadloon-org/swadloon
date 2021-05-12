@@ -30,8 +30,14 @@ export const InfoSectionType4: React.FC<OwnProps> = (props) => {
 
   if (variant === SECTION_TYPE.TYPE_4_PRIMARY) {
     return (
-      <div className={`${styles.wrapper} ${sectionStyle()} ${hasInfoTiles ? styles.extraPadding : ''}`}>
-        <RenderTitleHighlight className={styles.title} title={props?.title} titleHighlight={props?.titleHighlight} />
+      <div
+        className={`${styles.wrapper} ${sectionStyle()} ${hasInfoTiles ? styles.extraPadding : ''}`}
+      >
+        <RenderTitleHighlight
+          className={styles.title}
+          title={props?.title}
+          titleHighlight={props?.titleHighlight}
+        />
 
         <Paragraph variant={'medium'} className={styles.text}>
           {props?.text?.text}

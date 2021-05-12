@@ -28,7 +28,11 @@ export const WrapElement: React.FC<WrapPageElementBrowserArgs> = ({ element, pro
     case 'docs': {
       return (
         <ProvidersDocs>
-          <LazyLayoutDocs DesktopSvgLogo={<LogoReversed />} MobileSvgLogo={<MobileLogo />} {...pageProps}>
+          <LazyLayoutDocs
+            DesktopSvgLogo={<LogoReversed />}
+            MobileSvgLogo={<MobileLogo />}
+            {...pageProps}
+          >
             {element}
           </LazyLayoutDocs>
         </ProvidersDocs>

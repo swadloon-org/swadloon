@@ -3,12 +3,18 @@ import fsp from 'fs/promises';
 import { GatsbyNode } from 'gatsby';
 import path from 'path';
 import { GatsbyContentfulPageContext } from '../../../config/page-config';
-import { GatsbyNodeAllSiteQuery, GatsbyNodeSiteMetadataFragment } from '../../../config/site-graphql-types';
+import {
+  GatsbyNodeAllSiteQuery,
+  GatsbyNodeSiteMetadataFragment,
+} from '../../../config/site-graphql-types';
 import { GatsbyCoreContentfulPluginOptions } from '../gatsby-plugin-options';
 
 let siteMetadata: GatsbyNodeSiteMetadataFragment;
 
-export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, graphql, reporter }, options) => {
+export const createPagesFunction: GatsbyNode['createPages'] = async (
+  { actions, graphql, reporter },
+  options
+) => {
   const { createPage } = actions;
   const pluginOptions = (options as unknown) as GatsbyCoreContentfulPluginOptions;
 
@@ -51,7 +57,9 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
      * Page creations contentful
      */
 
-    reporter.info(`[${pluginOptions.pluginName}] creating pages for locales ${pluginOptions.locales}`);
+    reporter.info(
+      `[${pluginOptions.pluginName}] creating pages for locales ${pluginOptions.locales}`
+    );
 
     const pagesData = await graphql<{
       allContentfulPage: {
@@ -88,7 +96,9 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
       reporter.panic(`[${pluginOptions.pluginName}] could not retrieve pages`);
     }
 
-    reporter.info(`[${pluginOptions.pluginName}] found ${pagesData.data?.allContentfulPage.edges.length} pages`);
+    reporter.info(
+      `[${pluginOptions.pluginName}] found ${pagesData.data?.allContentfulPage.edges.length} pages`
+    );
 
     /**
      * Automatically create pages based on the Page Collection in Contentful
@@ -99,7 +109,9 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
       reporter.info(`[${pluginOptions.pluginName}] found contentful-page template in package`);
       pageTemplate = path.resolve(`src/templates/contentful-page.template.tsx`);
     } catch (error) {
-      reporter.panic(`[${pluginOptions.pluginName}] no template defined for contentful-page in package`);
+      reporter.panic(
+        `[${pluginOptions.pluginName}] no template defined for contentful-page in package`
+      );
     }
 
     // try {

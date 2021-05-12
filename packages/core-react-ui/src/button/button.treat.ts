@@ -59,11 +59,14 @@ export const primary = style(({ theme, cssTheme }: Theme) => ({
   },
 }));
 export const primaryReversed = style(({ theme, cssTheme }: Theme) => ({}));
-globalStyle(`${globalThemeReversedSelector} ${primary}, ${primaryReversed}`, ({ theme, cssTheme }: Theme) => ({
-  color: cssTheme.components.buttons.var.variants.primaryReversed.textColor,
-  border: `2px solid ${cssTheme.colors.colorIntents.primary}`,
-  backgroundColor: cssTheme.colors.colorIntents.primary,
-}));
+globalStyle(
+  `${globalThemeReversedSelector} ${primary}, ${primaryReversed}`,
+  ({ theme, cssTheme }: Theme) => ({
+    color: cssTheme.components.buttons.var.variants.primaryReversed.textColor,
+    border: `2px solid ${cssTheme.colors.colorIntents.primary}`,
+    backgroundColor: cssTheme.colors.colorIntents.primary,
+  })
+);
 globalStyle(
   `${globalThemeReversedSelector} ${primary}:active, ${primaryReversed}:active`,
   ({ theme, cssTheme }: Theme) => ({
@@ -90,11 +93,14 @@ export const secondary = style(({ theme, cssTheme }: Theme) => ({
   },
 }));
 export const secondaryReversed = style(({ theme, cssTheme }: Theme) => ({}));
-globalStyle(`${globalThemeReversedSelector} ${secondary}, ${secondaryReversed}`, ({ theme, cssTheme }: Theme) => ({
-  color: cssTheme.colors.colorIntents.primaryReversed,
-  border: `2px solid ${cssTheme.colors.colorIntents.primaryReversed}`,
-  backgroundColor: cssTheme.colors.colorIntents.transparent,
-}));
+globalStyle(
+  `${globalThemeReversedSelector} ${secondary}, ${secondaryReversed}`,
+  ({ theme, cssTheme }: Theme) => ({
+    color: cssTheme.colors.colorIntents.primaryReversed,
+    border: `2px solid ${cssTheme.colors.colorIntents.primaryReversed}`,
+    backgroundColor: cssTheme.colors.colorIntents.transparent,
+  })
+);
 globalStyle(
   `${globalThemeReversedSelector} ${secondary}:active, ${secondaryReversed}:active`,
   ({ theme, cssTheme }: Theme) => ({
@@ -119,11 +125,14 @@ export const tertiary = style(({ theme, cssTheme }: Theme) => ({
   },
 }));
 export const tertiaryReversed = style(({ theme, cssTheme }: Theme) => ({}));
-globalStyle(`${globalThemeReversedSelector} ${tertiary}, ${tertiaryReversed}`, ({ theme, cssTheme }: Theme) => ({
-  color: cssTheme.colors.colorIntents.primaryReversed,
-  border: `2px solid ${cssTheme.colors.colorIntents.transparent}`,
-  backgroundColor: cssTheme.colors.colorIntents.transparent,
-}));
+globalStyle(
+  `${globalThemeReversedSelector} ${tertiary}, ${tertiaryReversed}`,
+  ({ theme, cssTheme }: Theme) => ({
+    color: cssTheme.colors.colorIntents.primaryReversed,
+    border: `2px solid ${cssTheme.colors.colorIntents.transparent}`,
+    backgroundColor: cssTheme.colors.colorIntents.transparent,
+  })
+);
 globalStyle(
   `${globalThemeReversedSelector} ${tertiary}:active, ${tertiaryReversed}:active`,
   ({ theme, cssTheme }: Theme) => ({
@@ -135,21 +144,29 @@ globalStyle(
  * Sizes
  */
 export const large = style(({ theme, cssTheme }: Theme) => ({
-  height: `calc(2 * ${cssTheme.sizing.var.x3} + ${cssTheme.typography.labels.mobile.medium.capHeight}px + ${4}px)`,
-  minWidth: `calc(2 * ${cssTheme.sizing.var.x3} + ${cssTheme.typography.labels.mobile.medium.capHeight}px + ${4}px)`,
+  height: `calc(2 * ${cssTheme.sizing.var.x3} + ${
+    cssTheme.typography.labels.mobile.medium.capHeight
+  }px + ${4}px)`,
+  minWidth: `calc(2 * ${cssTheme.sizing.var.x3} + ${
+    cssTheme.typography.labels.mobile.medium.capHeight
+  }px + ${4}px)`,
   padding: `${cssTheme.sizing.var.x3} ${cssTheme.sizing.var.x3}`,
   fontSize: cssTheme.typography.labels.mobile.medium.capsize?.fontSize,
   borderRadius: cssTheme.components.buttons.var.sizes.large.border?.default?.radius,
   '@media': {
     [cssTheme.layout.media.tablet]: {
-      height: `calc(2 * ${cssTheme.sizing.var.x3} + ${cssTheme.typography.labels.tablet.medium.capHeight}px + ${4}px)`,
+      height: `calc(2 * ${cssTheme.sizing.var.x3} + ${
+        cssTheme.typography.labels.tablet.medium.capHeight
+      }px + ${4}px)`,
       minWidth: `calc(2 * ${cssTheme.sizing.var.x3} + ${
         cssTheme.typography.labels.tablet.medium.capHeight
       }px + ${4}px)`,
       fontSize: cssTheme.typography.labels.tablet.medium.capsize?.fontSize,
     },
     [cssTheme.layout.media.desktopSmall]: {
-      height: `calc(2 * ${cssTheme.sizing.var.x3} + ${cssTheme.typography.labels.desktop.medium.capHeight}px + ${4}px)`,
+      height: `calc(2 * ${cssTheme.sizing.var.x3} + ${
+        cssTheme.typography.labels.desktop.medium.capHeight
+      }px + ${4}px)`,
       minWidth: `calc(2 * ${cssTheme.sizing.var.x3} + ${
         cssTheme.typography.labels.desktop.medium.capHeight
       }px + ${4}px)`,
@@ -170,18 +187,28 @@ export const large = style(({ theme, cssTheme }: Theme) => ({
 }));
 export const collapsePaddingLeft = style(({ theme, cssTheme }: Theme) => ({}));
 export const medium = style(({ theme, cssTheme }: Theme) => ({
-  height: `calc(2 * ${cssTheme.sizing.var.x2} + ${cssTheme.typography.labels.mobile.small.capHeight}px + ${4}px)`,
-  minWidth: `calc(2 * ${cssTheme.sizing.var.x2} + ${cssTheme.typography.labels.mobile.small.capHeight}px + ${4}px)`,
+  height: `calc(2 * ${cssTheme.sizing.var.x2} + ${
+    cssTheme.typography.labels.mobile.small.capHeight
+  }px + ${4}px)`,
+  minWidth: `calc(2 * ${cssTheme.sizing.var.x2} + ${
+    cssTheme.typography.labels.mobile.small.capHeight
+  }px + ${4}px)`,
   padding: `${cssTheme.sizing.var.x2} ${cssTheme.sizing.var.x2}`,
   fontSize: cssTheme.typography.labels.mobile.small.capsize?.fontSize,
   '@media': {
     [cssTheme.layout.media.tablet]: {
-      height: `calc(2 * ${cssTheme.sizing.var.x2} + ${cssTheme.typography.labels.tablet.small.capHeight}px + ${4}px)`,
-      minWidth: `calc(2 * ${cssTheme.sizing.var.x2} + ${cssTheme.typography.labels.tablet.small.capHeight}px + ${4}px)`,
+      height: `calc(2 * ${cssTheme.sizing.var.x2} + ${
+        cssTheme.typography.labels.tablet.small.capHeight
+      }px + ${4}px)`,
+      minWidth: `calc(2 * ${cssTheme.sizing.var.x2} + ${
+        cssTheme.typography.labels.tablet.small.capHeight
+      }px + ${4}px)`,
       fontSize: cssTheme.typography.labels.tablet.small.capsize?.fontSize,
     },
     [cssTheme.layout.media.desktopSmall]: {
-      height: `calc(2 * ${cssTheme.sizing.var.x2} + ${cssTheme.typography.labels.desktop.small.capHeight}px + ${4}px)`,
+      height: `calc(2 * ${cssTheme.sizing.var.x2} + ${
+        cssTheme.typography.labels.desktop.small.capHeight
+      }px + ${4}px)`,
       minWidth: `calc(2 * ${cssTheme.sizing.var.x2} + ${
         cssTheme.typography.labels.desktop.small.capHeight
       }px + ${4}px)`,
@@ -201,18 +228,28 @@ export const medium = style(({ theme, cssTheme }: Theme) => ({
   },
 }));
 export const small = style(({ theme, cssTheme }: Theme) => ({
-  height: `calc(2 * ${cssTheme.sizing.var.x1} + ${cssTheme.typography.labels.mobile.small.capHeight}px + ${4}px)`,
-  minWidth: `calc(2 * ${cssTheme.sizing.var.x1} + ${cssTheme.typography.labels.mobile.small.capHeight}px + ${4}px)`,
+  height: `calc(2 * ${cssTheme.sizing.var.x1} + ${
+    cssTheme.typography.labels.mobile.small.capHeight
+  }px + ${4}px)`,
+  minWidth: `calc(2 * ${cssTheme.sizing.var.x1} + ${
+    cssTheme.typography.labels.mobile.small.capHeight
+  }px + ${4}px)`,
   padding: `${cssTheme.sizing.var.x1} ${cssTheme.sizing.var.x2}`,
   fontSize: cssTheme.typography.labels.mobile.small.capsize?.fontSize,
   '@media': {
     [cssTheme.layout.media.tablet]: {
-      height: `calc(2 * ${cssTheme.sizing.var.x1} + ${cssTheme.typography.labels.tablet.small.capHeight}px + ${4}px)`,
-      minWidth: `calc(2 * ${cssTheme.sizing.var.x1} + ${cssTheme.typography.labels.tablet.small.capHeight}px + ${4}px)`,
+      height: `calc(2 * ${cssTheme.sizing.var.x1} + ${
+        cssTheme.typography.labels.tablet.small.capHeight
+      }px + ${4}px)`,
+      minWidth: `calc(2 * ${cssTheme.sizing.var.x1} + ${
+        cssTheme.typography.labels.tablet.small.capHeight
+      }px + ${4}px)`,
       fontSize: cssTheme.typography.labels.tablet.small.capsize?.fontSize,
     },
     [cssTheme.layout.media.desktopSmall]: {
-      height: `calc(2 * ${cssTheme.sizing.var.x1} + ${cssTheme.typography.labels.desktop.small.capHeight}px + ${4}px)`,
+      height: `calc(2 * ${cssTheme.sizing.var.x1} + ${
+        cssTheme.typography.labels.desktop.small.capHeight
+      }px + ${4}px)`,
       minWidth: `calc(2 * ${cssTheme.sizing.var.x1} + ${
         cssTheme.typography.labels.desktop.small.capHeight
       }px + ${4}px)`,
@@ -232,8 +269,12 @@ export const small = style(({ theme, cssTheme }: Theme) => ({
   },
 }));
 export const xSmall = style(({ theme, cssTheme }: Theme) => ({
-  height: `calc(2 * ${cssTheme.sizing.var.x1} + ${cssTheme.typography.labels.mobile.xSmall.capHeight}px + ${4}px)`,
-  minWidth: `calc(2 * ${cssTheme.sizing.var.x1} + ${cssTheme.typography.labels.mobile.xSmall.capHeight}px + ${4}px)`,
+  height: `calc(2 * ${cssTheme.sizing.var.x1} + ${
+    cssTheme.typography.labels.mobile.xSmall.capHeight
+  }px + ${4}px)`,
+  minWidth: `calc(2 * ${cssTheme.sizing.var.x1} + ${
+    cssTheme.typography.labels.mobile.xSmall.capHeight
+  }px + ${4}px)`,
   padding: `${cssTheme.sizing.var.x1} ${cssTheme.sizing.var.x1}`,
   fontSize: cssTheme.typography.labels.mobile.xSmall.capsize?.fontSize,
   '@media': {
@@ -249,14 +290,18 @@ export const xSmall = style(({ theme, cssTheme }: Theme) => ({
       marginLeft: `calc(-1 * ${cssTheme.sizing.var.x1} + (${iconSize} - ${cssTheme.sizing.var.x3}) / 2)`,
     },
     '&[dataicon="right"]': {
-      height: `calc(2 * ${cssTheme.sizing.var.x1} + ${cssTheme.typography.labels.tablet.xSmall.capHeight}px + ${4}px)`,
+      height: `calc(2 * ${cssTheme.sizing.var.x1} + ${
+        cssTheme.typography.labels.tablet.xSmall.capHeight
+      }px + ${4}px)`,
       minWidth: `calc(2 * ${cssTheme.sizing.var.x1} + ${
         cssTheme.typography.labels.tablet.xSmall.capHeight
       }px + ${4}px)`,
       padding: `${cssTheme.sizing.var.x1} ${iconPadding} ${cssTheme.sizing.var.x1} ${cssTheme.sizing.var.x1}`,
     },
     '&[dataicon="left"]': {
-      height: `calc(2 * ${cssTheme.sizing.var.x1} + ${cssTheme.typography.labels.desktop.xSmall.capHeight}px + ${4}px)`,
+      height: `calc(2 * ${cssTheme.sizing.var.x1} + ${
+        cssTheme.typography.labels.desktop.xSmall.capHeight
+      }px + ${4}px)`,
       minWidth: `calc(2 * ${cssTheme.sizing.var.x1} + ${
         cssTheme.typography.labels.desktop.xSmall.capHeight
       }px + ${4}px)`,

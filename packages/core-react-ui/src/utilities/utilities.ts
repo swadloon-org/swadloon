@@ -36,7 +36,13 @@ export function pxToEm({ fontSize, value }: { fontSize: number; value: number })
  * @param px value in string px value
  * @param baseUnitPx font-size set on the <html/> element
  */
-export function pxStringToRem({ baseFontSize, value }: { baseFontSize: number; value: string }): string {
+export function pxStringToRem({
+  baseFontSize,
+  value,
+}: {
+  baseFontSize: number;
+  value: string;
+}): string {
   if (!value?.length) {
     return '';
   }

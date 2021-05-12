@@ -33,7 +33,8 @@ export const container = style((theme: DesignSystem) => ({
       margin: '0 auto',
       display: 'grid',
       gridTemplateColumns: 'repeat(12, 1fr)',
-      gridTemplateAreas: "'content content content content content content . form form form form .'",
+      gridTemplateAreas:
+        "'content content content content content content . form form form form .'",
       gridTemplateRows: 'auto',
       columnGap: '20px',
     },
@@ -43,7 +44,8 @@ export const container = style((theme: DesignSystem) => ({
       margin: '0 auto',
       display: 'grid',
       gridTemplateColumns: 'repeat(12, 1fr)',
-      gridTemplateAreas: "'content content content content content content content . form form form form'",
+      gridTemplateAreas:
+        "'content content content content content content content . form form form form'",
       gridTemplateRows: 'auto',
       columnGap: '20px',
     },

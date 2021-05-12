@@ -19,6 +19,14 @@ export const createCompanyAddress: Migration.MigrationFunction = function (migra
   content.createField('phone', { name: 'Phone', type: 'Symbol' });
   content.createField('phoneNoFees', { name: 'PhoneNoFees', type: 'Symbol' });
   content.createField('fax', { name: 'Fax', type: 'Symbol' });
-  content.createField('websiteURL', { name: 'WebsiteURL', type: 'Symbol', validations: urlField.validations });
-  content.createField('email', { name: 'Email', type: 'Symbol', validations: emailField.validations });
+  content.createField('websiteURL', {
+    name: 'WebsiteURL',
+    type: 'Symbol',
+    validations: urlField.validations,
+  });
+  content.createField('email', {
+    name: 'Email',
+    type: 'Symbol',
+    validations: emailField.validations,
+  });
 };

@@ -54,7 +54,10 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
   // createRedirect({ fromPath: '/joindre', toPath: '/contact/', isPermanent: true });
 };
 
-export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({ plugins, actions }) => {
+export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
+  plugins,
+  actions,
+}) => {
   const clientEnv: CLIENT_ENV = {
     NODE_ENV: JSON.stringify(env.NODE_ENV),
     NODE_VERSION: JSON.stringify(env.NODE_ENV),

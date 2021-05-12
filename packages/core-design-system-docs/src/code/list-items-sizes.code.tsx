@@ -21,13 +21,29 @@ export const ListItemsSizes: React.FC<Props> = (props) => {
       </ListItems>
 
       <ListItems gap={[cssTheme.sizing.var.x3]}>
-        <ListItem variantSize={PARAGRAPH_SIZE.large} variantIcon={'icon'} Icon={<IoMailOutline />}></ListItem>
+        <ListItem
+          variantSize={PARAGRAPH_SIZE.large}
+          variantIcon={'icon'}
+          Icon={<IoMailOutline />}
+        ></ListItem>
 
-        <ListItem variantSize={PARAGRAPH_SIZE.medium} variantIcon={'icon'} Icon={<IoMailOutline />}></ListItem>
+        <ListItem
+          variantSize={PARAGRAPH_SIZE.medium}
+          variantIcon={'icon'}
+          Icon={<IoMailOutline />}
+        ></ListItem>
 
-        <ListItem variantSize={PARAGRAPH_SIZE.small} variantIcon={'icon'} Icon={<IoMailOutline />}></ListItem>
+        <ListItem
+          variantSize={PARAGRAPH_SIZE.small}
+          variantIcon={'icon'}
+          Icon={<IoMailOutline />}
+        ></ListItem>
 
-        <ListItem variantSize={PARAGRAPH_SIZE.xSmall} variantIcon={'icon'} Icon={<IoMailOutline />}></ListItem>
+        <ListItem
+          variantSize={PARAGRAPH_SIZE.xSmall}
+          variantIcon={'icon'}
+          Icon={<IoMailOutline />}
+        ></ListItem>
       </ListItems>
     </>
   );

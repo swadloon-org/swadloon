@@ -1,5 +1,8 @@
 import { clientEnv } from '../../types/dot-env-client';
-import { AUTO_COMPLETE_API_URL, FIND_ADDRESS_BY_ID_API_URL } from '../constants/canada-post.constant';
+import {
+  AUTO_COMPLETE_API_URL,
+  FIND_ADDRESS_BY_ID_API_URL,
+} from '../constants/canada-post.constant';
 
 export type AddressAutoCompleteOptions = {
   SearchTerm: string;

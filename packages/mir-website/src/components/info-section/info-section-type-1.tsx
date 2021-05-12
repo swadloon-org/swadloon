@@ -13,7 +13,8 @@ export const InfoSectionType1: React.FC<OwnProps> = (props) => {
   const styles = useStyles(styleRefs);
 
   const variant = props.type?.name as SECTION_TYPE.TYPE_1_NORMAL | SECTION_TYPE.TYPE_1_REVERSED;
-  const sectionStyle = variant === SECTION_TYPE.TYPE_1_NORMAL ? styles.styleNormal : styles.styleReversed;
+  const sectionStyle =
+    variant === SECTION_TYPE.TYPE_1_NORMAL ? styles.styleNormal : styles.styleReversed;
 
   return (
     <div className={`${styles.wrapper} ${sectionStyle}`}>
@@ -25,7 +26,9 @@ export const InfoSectionType1: React.FC<OwnProps> = (props) => {
 
       {props.link ? (
         <SectionLinkButton
-          variant={props.type?.name === SECTION_TYPE.TYPE_1_NORMAL ? 'primaryDefault' : 'primaryReversed'}
+          variant={
+            props.type?.name === SECTION_TYPE.TYPE_1_NORMAL ? 'primaryDefault' : 'primaryReversed'
+          }
           link={props.link}
         />
       ) : null}

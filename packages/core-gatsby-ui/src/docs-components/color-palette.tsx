@@ -1,4 +1,9 @@
-import { Color, ColorPalette as ColorPaletteType, ColorShades5, ColorShadesGrey } from '@newrade/core-design-system';
+import {
+  Color,
+  ColorPalette as ColorPaletteType,
+  ColorShades5,
+  ColorShadesGrey,
+} from '@newrade/core-design-system';
 import { Stack } from '@newrade/core-react-ui';
 import { keys } from '@newrade/core-react-ui/lib/utilities';
 import React from 'react';
@@ -8,7 +13,12 @@ import { ColorSwatch } from './color-swatch';
 
 type Props = {
   colorName: string;
-  colorOrPalette: string | Color | Record<ColorShades5, Color> | Record<ColorShadesGrey, Color> | Record<string, Color>;
+  colorOrPalette:
+    | string
+    | Color
+    | Record<ColorShades5, Color>
+    | Record<ColorShadesGrey, Color>
+    | Record<string, Color>;
 };
 
 export const ColorPalette: React.FC<Props> = ({ colorName, colorOrPalette }) => {
@@ -40,7 +50,14 @@ export const ColorPalette: React.FC<Props> = ({ colorName, colorOrPalette }) => 
           if (shadeName === 'baseHue' || shadeName === 'baseSat') {
             return null;
           }
-          return <ColorSwatch key={index} shadeNumber={shadeName} name={colorName} color={color as any}></ColorSwatch>;
+          return (
+            <ColorSwatch
+              key={index}
+              shadeNumber={shadeName}
+              name={colorName}
+              color={color as any}
+            ></ColorSwatch>
+          );
         })}
       </div>
     );

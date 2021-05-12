@@ -1,7 +1,11 @@
 import React, { AnchorHTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
 import { CommonComponentProps } from '../props/component-common.props';
-import { AlignItemsViewportProps, JustifyContentViewportProps, PaddingProps } from '../props/padding.props';
+import {
+  AlignItemsViewportProps,
+  JustifyContentViewportProps,
+  PaddingProps,
+} from '../props/padding.props';
 import * as styleRefs from './box-v2.treat';
 
 type Props = CommonComponentProps &
@@ -53,7 +57,8 @@ export const BoxV2 = React.forwardRef<any, Props>(
         // @ts-ignore
         '--mobile-justify-content': mobileJustifyContent,
         '--tablet-justify-content': tabletJustifyContent || mobileJustifyContent,
-        '--desktop-justify-content': desktopJustifyContent || tabletJustifyContent || mobileJustifyContent,
+        '--desktop-justify-content':
+          desktopJustifyContent || tabletJustifyContent || mobileJustifyContent,
         '--mobile-justify-self': mobileJustifySelf,
         '--tablet-justify-self': tabletJustifySelf || mobileJustifySelf,
         '--desktop-justify-self': desktopJustifySelf || tabletJustifySelf || mobileJustifySelf,
@@ -66,7 +71,9 @@ export const BoxV2 = React.forwardRef<any, Props>(
       ref,
     };
 
-    const AsElementClone = AsElement ? React.cloneElement(AsElement as React.ReactElement, mergedProps) : null;
+    const AsElementClone = AsElement
+      ? React.cloneElement(AsElement as React.ReactElement, mergedProps)
+      : null;
 
     if (AsElementClone) {
       return AsElementClone;

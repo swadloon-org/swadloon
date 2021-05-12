@@ -12,7 +12,15 @@ type OwnProps = HTMLAttributes<any> & {
   size: number;
 };
 
-export const ShadowSwatch: React.FC<OwnProps> = ({ id, style, className, shadow, name, size, ...props }) => {
+export const ShadowSwatch: React.FC<OwnProps> = ({
+  id,
+  style,
+  className,
+  shadow,
+  name,
+  size,
+  ...props
+}) => {
   const { styles } = useStyles(stylesRef);
   const { cssTheme, theme } = useTreatTheme();
 
@@ -21,7 +29,10 @@ export const ShadowSwatch: React.FC<OwnProps> = ({ id, style, className, shadow,
 
   return (
     <Stack id={id} style={style} gap={[cssTheme.sizing.var.x3]} {...props}>
-      <div className={styles.shadow} style={{ width: size, height: size, boxShadow: `${cssShadowString}` }}></div>
+      <div
+        className={styles.shadow}
+        style={{ width: size, height: size, boxShadow: `${cssShadowString}` }}
+      ></div>
 
       <Label variantLevel={Variant.secondary}>{`${kebab(name)}`}</Label>
     </Stack>

@@ -8,7 +8,13 @@ interface OwnProps {
   as?: 'label' | 'div';
 }
 
-export const Label: React.FC<LabelHTMLAttributes<any> & OwnProps> = ({ className, variant, children, htmlFor, as }) => {
+export const Label: React.FC<LabelHTMLAttributes<any> & OwnProps> = ({
+  className,
+  variant,
+  children,
+  htmlFor,
+  as,
+}) => {
   const styles = useStyles(styleRefs);
 
   if (as === 'div') {

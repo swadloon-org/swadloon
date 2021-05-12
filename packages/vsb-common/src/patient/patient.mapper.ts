@@ -13,7 +13,9 @@ export function getPatientClinikoModel(patientModel: PatientModel): PatientClini
         : formatISO(patientModel.dateOfBirth, { representation: 'date' }),
     medicare: patientModel.medicare,
     email: patientModel.email,
-    patient_phone_numbers: [{ phone_type: patientModel.patientPhoneType, number: patientModel.patientPhoneNumber }],
+    patient_phone_numbers: [
+      { phone_type: patientModel.patientPhoneType, number: patientModel.patientPhoneNumber },
+    ],
     address_1: patientModel.address1,
     address_2: patientModel.address2,
     city: patientModel.city,

@@ -85,6 +85,7 @@
       "cssho.vscode-svgviewer",
       "deepscan.vscode-deepscan",
       "graphql.vscode-graphql",
+      "apollographql.vscode-apollo",
       "vstirbu.vscode-mermaid-preview",
       "svsool.markdown-memo"
     ]
@@ -150,7 +151,7 @@
       "path": "../packages/core-react-ui-old"
     },
     {
-      "path": "../packages/core-react-ui-app"
+      "path": "../packages/core-graphql-ui"
     },
     {
       "path": "../packages/core-types"
@@ -193,9 +194,6 @@
     },
     {
       "path": "../packages/vsb-api"
-    },
-    {
-      "path": "../packages/cdpq-website"
     }
   ]
 }

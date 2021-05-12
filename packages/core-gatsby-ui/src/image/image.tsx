@@ -10,7 +10,15 @@ type Props = Omit<CommonComponentProps, 'as'> & {
   effects?: BackgroundEffectConfig[];
 } & { image?: GatsbyImageProps };
 
-export const Image: React.FC<Props> = ({ id, style, className, effects, image, children, ...props }) => {
+export const Image: React.FC<Props> = ({
+  id,
+  style,
+  className,
+  effects,
+  image,
+  children,
+  ...props
+}) => {
   const { styles } = useStyles(styleRefs);
   const mergedClassNames = getMergedClassname([className, styles.backgroundWrapper]);
 

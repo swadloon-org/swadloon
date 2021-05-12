@@ -16,7 +16,11 @@ export function createBlock(migration: Migration.default) {
   /**
    * For all name of block as name and description
    */
-  content.createField(COMMON_FIELD.NAME, { name: pascal(COMMON_FIELD.NAME), type: 'Symbol', localized: true });
+  content.createField(COMMON_FIELD.NAME, {
+    name: pascal(COMMON_FIELD.NAME),
+    type: 'Symbol',
+    localized: true,
+  });
 
   content.createField(COMMON_FIELD.DESCRIPTION, {
     name: pascal(COMMON_FIELD.DESCRIPTION),
@@ -67,7 +71,11 @@ export function createBlock(migration: Migration.default) {
   /**
    * For Text
    */
-  content.createField(COMMON_FIELD.TEXT, { name: pascal(COMMON_FIELD.TEXT), type: 'Text', localized: true });
+  content.createField(COMMON_FIELD.TEXT, {
+    name: pascal(COMMON_FIELD.TEXT),
+    type: 'Text',
+    localized: true,
+  });
 
   /**
    * For Link,

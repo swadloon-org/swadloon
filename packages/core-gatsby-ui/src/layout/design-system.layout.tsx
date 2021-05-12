@@ -21,7 +21,9 @@ import { PageProps } from 'gatsby';
 import React, { ReactNode, useEffect, useState } from 'react';
 import { ThemeWrapper } from '../context/theme-wrapper';
 
-export type DesignSystemLayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }> & {
+export type DesignSystemLayoutProps = Partial<
+  Omit<PageProps, 'children'> & { children: ReactNode }
+> & {
   /**
    * A reference to the treatTheme that can be used to pass
    * an other theme to specific sections of the app.
@@ -108,7 +110,9 @@ export const LayoutDesignSystem: React.FC<DesignSystemLayoutProps> = function ({
                 return (
                   <Stack key={index} gap={[`calc(2 * ${cssTheme.sizing.var.x1})`]}>
                     {item.items?.length ? (
-                      <DesktopDocsItemGroup label={item.displayName || item.name || 'Design System'}>
+                      <DesktopDocsItemGroup
+                        label={item.displayName || item.name || 'Design System'}
+                      >
                         {item.items?.length ? (
                           <Stack>
                             {item.items?.map((item, itemIndex) => {
@@ -141,10 +145,17 @@ export const LayoutDesignSystem: React.FC<DesignSystemLayoutProps> = function ({
         </BoxV2>
       </DesktopDocsSideBar>
 
-      <Main navbarPadding={true} desktopSidebarPadding={true} desktopAsidePadding={true} minHeight={false}>
+      <Main
+        navbarPadding={true}
+        desktopSidebarPadding={true}
+        desktopAsidePadding={true}
+        minHeight={false}
+      >
         <MDXProvider
           components={{
-            ThemeWrapper: (props: any) => <ThemeWrapper treatThemeRef={treatThemeRef} theme={theme} {...props} />,
+            ThemeWrapper: (props: any) => (
+              <ThemeWrapper treatThemeRef={treatThemeRef} theme={theme} {...props} />
+            ),
           }}
         >
           {props.children}

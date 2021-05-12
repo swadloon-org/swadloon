@@ -65,7 +65,9 @@ export function getNavigationFromPageNodes({
       return false;
     })
     // remove ignored items
-    .filter((node) => !normalizedIgnoredItems?.find((item) => item === normalizeName(node.context?.name)));
+    .filter(
+      (node) => !normalizedIgnoredItems?.find((item) => item === normalizeName(node.context?.name))
+    );
 
   // find the dirNames
   const dirNames = filteredPageNodes.map(dirNamePredicate);
@@ -84,7 +86,9 @@ export function getNavigationFromPageNodes({
       // for each dir name, transform the nodes and place them in .items
       const currentDirName = current;
 
-      const dirNameNodes = filteredPageNodes.filter((node) => dirNamePredicate(node) === currentDirName);
+      const dirNameNodes = filteredPageNodes.filter(
+        (node) => dirNamePredicate(node) === currentDirName
+      );
       if (!dirNameNodes) {
         return previous;
       }
@@ -241,13 +245,19 @@ export function defaultFormatDisplayName({
       .split('')
       .map((char, index) => (index === 0 ? capital(char) : char))
       .join('');
-    const nameWithUppercaseWords = getNameWithUppercaseWords({ name: nameWithFRTitle, words: uppercaseWords });
+    const nameWithUppercaseWords = getNameWithUppercaseWords({
+      name: nameWithFRTitle,
+      words: uppercaseWords,
+    });
     return nameWithUppercaseWords;
   }
 
   const nameDefaultIndex = nameNoTrailingDash.replace('index', 'Overview');
   const nametTitle = title(nameDefaultIndex);
-  const nameWithUppercaseWords = getNameWithUppercaseWords({ name: nametTitle, words: uppercaseWords });
+  const nameWithUppercaseWords = getNameWithUppercaseWords({
+    name: nametTitle,
+    words: uppercaseWords,
+  });
   return nameWithUppercaseWords;
 }
 

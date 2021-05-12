@@ -18,7 +18,10 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
    */
 };
 
-export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({ plugins, actions }) => {
+export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
+  plugins,
+  actions,
+}) => {
   const clientEnv: CLIENT_ENV = {
     NODE_ENV: JSON.stringify(env.NODE_ENV),
     NODE_VERSION: JSON.stringify(env.NODE_ENV),

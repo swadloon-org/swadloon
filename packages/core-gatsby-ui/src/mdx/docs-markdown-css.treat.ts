@@ -35,14 +35,20 @@ globalStyle(
   })
 );
 
-globalStyle(`${wrapper} > h1 + *, ${wrapper} > h2 + *, ${wrapper} > h3 + *`, ({ cssTheme, theme }: Theme) => ({
-  marginTop: '1.5em',
-  marginBottom: 0,
-}));
+globalStyle(
+  `${wrapper} > h1 + *, ${wrapper} > h2 + *, ${wrapper} > h3 + *`,
+  ({ cssTheme, theme }: Theme) => ({
+    marginTop: '1.5em',
+    marginBottom: 0,
+  })
+);
 
-globalStyle(`${wrapper} > h4 + *, ${wrapper} > h5 + *, ${wrapper} > h6 + *`, ({ cssTheme, theme }: Theme) => ({
-  marginTop: '0.75em',
-}));
+globalStyle(
+  `${wrapper} > h4 + *, ${wrapper} > h5 + *, ${wrapper} > h6 + *`,
+  ({ cssTheme, theme }: Theme) => ({
+    marginTop: '0.75em',
+  })
+);
 
 globalStyle(
   `${wrapper} > * + h1, ${wrapper} > * + h2, ${wrapper} > * + h3, ${wrapper} >  * + h4, ${wrapper} > * + h5, ${wrapper} > * + h6`,
@@ -82,9 +88,12 @@ globalStyle(`${wrapper} .mdx-anchor-pound`, ({ cssTheme, theme }: Theme) => ({
  * Text content
  */
 
-globalStyle(`${wrapper} p *, ${wrapper} p *::before, ${wrapper} p *::after`, ({ cssTheme, theme }: Theme) => ({
-  display: 'inline-block',
-}));
+globalStyle(
+  `${wrapper} p *, ${wrapper} p *::before, ${wrapper} p *::after`,
+  ({ cssTheme, theme }: Theme) => ({
+    display: 'inline-block',
+  })
+);
 
 globalStyle(`${wrapper} p`, ({ cssTheme, theme }: Theme) => ({
   marginTop: '1.5em',
@@ -102,6 +111,12 @@ globalStyle(`${wrapper} p + table`, ({ cssTheme, theme }: Theme) => ({
 globalStyle(`${wrapper} li p + p`, ({ cssTheme, theme }: Theme) => ({
   marginBottom: '1.25em',
 }));
+globalStyle(
+  `${wrapper} p *, ${wrapper} p *::before, ${wrapper} p *::after`,
+  ({ cssTheme, theme }: Theme) => ({
+    display: 'inline-block',
+  })
+);
 
 globalStyle(`${wrapper} ul + p`, ({ cssTheme, theme }: Theme) => ({
   marginTop: '1.125em',

@@ -74,10 +74,18 @@ export async function focusOnElementWithText({
   }
 }
 
-export async function getElementText({ page, selector }: { page: puppeteer.Page; selector: string }) {
+export async function getElementText({
+  page,
+  selector,
+}: {
+  page: puppeteer.Page;
+  selector: string;
+}) {
   try {
     return await page.evaluate((selector) => {
-      return Array.from(document.querySelectorAll(selector)).map((element) => (element as any).innerText);
+      return Array.from(document.querySelectorAll(selector)).map(
+        (element) => (element as any).innerText
+      );
     }, selector);
   } catch (error) {
     fail(`Could not get text on element with selector '${selector}', error: ${error}`);

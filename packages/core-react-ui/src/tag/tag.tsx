@@ -11,18 +11,20 @@ type Props = CommonComponentProps &
     children?: string;
   };
 
-export const Tag: React.FC<Props> = React.memo(({ id, style, className, children, as, variant, ...props }) => {
-  const styles = useStyles(stylesRef);
-  const commonProps = useCommonProps({
-    id,
-    style,
-    className,
-    classNames: [styles.base, variant ? variant : Variant.primary],
-  });
+export const Tag: React.FC<Props> = React.memo(
+  ({ id, style, className, children, as, variant, ...props }) => {
+    const styles = useStyles(stylesRef);
+    const commonProps = useCommonProps({
+      id,
+      style,
+      className,
+      classNames: [styles.base, variant ? variant : Variant.primary],
+    });
 
-  return (
-    <div {...commonProps}>
-      <Label>{children}</Label>
-    </div>
-  );
-});
+    return (
+      <div {...commonProps}>
+        <Label>{children}</Label>
+      </div>
+    );
+  }
+);

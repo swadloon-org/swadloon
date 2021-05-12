@@ -25,7 +25,10 @@ const defaultProps: Props = {
 
 export const Heading = React.memo(
   React.forwardRef<any, Props>(
-    ({ variant, variantLevel, display, id, className, children, style, as, ...props }, forwardedRef) => {
+    (
+      { variant, variantLevel, display, id, className, children, style, as, ...props },
+      forwardedRef
+    ) => {
       const { styles } = useStyles(stylesRef);
       const { colorTextStyles } = useStyles(colorTextStylesRef);
       const localRef = useRef<HTMLButtonElement>(null);
@@ -62,7 +65,12 @@ export const Heading = React.memo(
       const variantLevelClass = `${
         colorTextStyles[variantLevel ? variantLevel : (defaultProps.variantLevel as Variant)]
       }`;
-      const classNames = getMergedClassname([className, styles.wrapper, variantClass, variantLevelClass]);
+      const classNames = getMergedClassname([
+        className,
+        styles.wrapper,
+        variantClass,
+        variantLevelClass,
+      ]);
 
       usePreventPinchZoom(ref.current);
 

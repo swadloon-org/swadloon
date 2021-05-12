@@ -42,7 +42,14 @@ export const InputText = React.memo(
     return CleaveComp ? (
       CleaveComp
     ) : (
-      <input ref={ref} type={type} id={renderedId} style={style} className={classNames} {...props} />
+      <input
+        ref={ref}
+        type={type}
+        id={renderedId}
+        style={style}
+        className={classNames}
+        {...props}
+      />
     );
   })
 );

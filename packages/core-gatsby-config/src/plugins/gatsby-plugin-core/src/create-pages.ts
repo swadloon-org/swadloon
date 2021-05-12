@@ -24,7 +24,10 @@ import { GatsbyCorePluginOptions } from '../gatsby-plugin-options';
 
 let siteMetadata: GatsbyNodeSiteMetadataFragment;
 
-export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, graphql, reporter }, options) => {
+export const createPagesFunction: GatsbyNode['createPages'] = async (
+  { actions, graphql, reporter },
+  options
+) => {
   const { createPage } = actions;
   const pluginOptions = (options as unknown) as GatsbyCorePluginOptions;
 
@@ -74,7 +77,9 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
         query GatsbyNodeMarkdownFiles {
           allFile(
             filter: {
-              sourceInstanceName: { in: ["MONO_REPO_DOCS", "DOCS", "DESIGN_SYSTEM_DOCS", "MDX_PAGES"] }
+              sourceInstanceName: {
+                in: ["MONO_REPO_DOCS", "DOCS", "DESIGN_SYSTEM_DOCS", "MDX_PAGES"]
+              }
               ext: { in: [".md", ".mdx"] }
             }
           ) {
@@ -129,7 +134,9 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
         reporter.info(`[${pluginOptions.pluginName}] using default docs template`);
         markdownDocsTemplate = path.resolve(`../core-gatsby-ui/src/templates/docs.template.tsx`);
       } catch (error) {
-        reporter.panic(`[${pluginOptions.pluginName}] no default template defined for markdown-docs`);
+        reporter.panic(
+          `[${pluginOptions.pluginName}] no default template defined for markdown-docs`
+        );
       }
 
       let markdownPageTemplate: string;
@@ -138,15 +145,21 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
         reporter.info(`[${pluginOptions.pluginName}] found markdown-page template in package`);
         markdownPageTemplate = path.resolve(`src/templates/markdown-page.template.tsx`);
       } catch (error) {
-        reporter.info(`[${pluginOptions.pluginName}] no template defined for markdown-page in package`);
+        reporter.info(
+          `[${pluginOptions.pluginName}] no template defined for markdown-page in package`
+        );
       }
 
       try {
         await fsp.readFile(`../core-gatsby-ui/src/templates/markdown-page.template.tsx`);
         reporter.info(`[${pluginOptions.pluginName}] using default markdown-page template`);
-        markdownPageTemplate = path.resolve(`../core-gatsby-ui/src/templates/markdown-page.template.tsx`);
+        markdownPageTemplate = path.resolve(
+          `../core-gatsby-ui/src/templates/markdown-page.template.tsx`
+        );
       } catch (error) {
-        reporter.panic(`[${pluginOptions.pluginName}] no default template defined for markdown-page`);
+        reporter.panic(
+          `[${pluginOptions.pluginName}] no default template defined for markdown-page`
+        );
       }
 
       let designSystemPageTemplate: string;
@@ -155,15 +168,21 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
         reporter.info(`[${pluginOptions.pluginName}] found design-system-page template in package`);
         designSystemPageTemplate = path.resolve(`src/templates/design-system-page.template.tsx`);
       } catch (error) {
-        reporter.info(`[${pluginOptions.pluginName}] no template defined for design-system-page in package`);
+        reporter.info(
+          `[${pluginOptions.pluginName}] no template defined for design-system-page in package`
+        );
       }
 
       try {
         await fsp.readFile(`../core-gatsby-ui/src/templates/design-system-page.template.tsx`);
         reporter.info(`[${pluginOptions.pluginName}] using default design-system-page template`);
-        designSystemPageTemplate = path.resolve(`../core-gatsby-ui/src/templates/design-system-page.template.tsx`);
+        designSystemPageTemplate = path.resolve(
+          `../core-gatsby-ui/src/templates/design-system-page.template.tsx`
+        );
       } catch (error) {
-        reporter.panic(`[${pluginOptions.pluginName}] no default template defined for design-system-page`);
+        reporter.panic(
+          `[${pluginOptions.pluginName}] no default template defined for design-system-page`
+        );
       }
 
       markdownFilesData?.data?.allFile.nodes.forEach((node, index) => {
@@ -173,7 +192,10 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
         // 'docs'
         const sourceDir = getPathForSourceInstance(sourceInstance);
         // 'en'
-        const localeDir = getLocalePath(node.name, siteMetadata.languages?.defaultLangKey || SITE_LANGUAGES.EN);
+        const localeDir = getLocalePath(
+          node.name,
+          siteMetadata.languages?.defaultLangKey || SITE_LANGUAGES.EN
+        );
         // 'en.readme'
         const nodePath = node.childMdx?.slug;
         // name without locale e.g 'readme'
@@ -185,9 +207,12 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
         // raw node name e.g. 'en.readme'
         const name = node.name;
         // nicely formated name for the node, defaults to frontmatter property e.g. 'Readme'
-        const displayName = getPageFormattedName(node.childMdx?.frontmatter?.name || nameWithoutLocale, {
-          locale: locale,
-        });
+        const displayName = getPageFormattedName(
+          node.childMdx?.frontmatter?.name || nameWithoutLocale,
+          {
+            locale: locale,
+          }
+        );
 
         const layout = getLayoutForSourceInstance(sourceInstance);
         const template = getTemplateForSourceInstance(sourceInstance);
@@ -199,9 +224,11 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
             : markdownDocsTemplate;
 
         reporter.info(
-          `[${pluginOptions.pluginName}] create page: layout: ${chalk.redBright(layout)}, template: ${chalk.blue(
-            template
-          )}, component: ${chalk.greenBright(component.replace(/\/.+\//gi, ''))},  path: ${chalk.blueBright(path)}`
+          `[${pluginOptions.pluginName}] create page: layout: ${chalk.redBright(
+            layout
+          )}, template: ${chalk.blue(template)}, component: ${chalk.greenBright(
+            component.replace(/\/.+\//gi, '')
+          )},  path: ${chalk.blueBright(path)}`
         );
 
         createPage<GatsbyMarkdownFilePageContext>({
@@ -232,7 +259,10 @@ export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, 
  * default behavior with gatsby-config-ts
  * @see https://github.com/newrade/newrade/issues/211
  */
-export const onCreatePageFunction: GatsbyNode['onCreatePage'] = ({ page, actions, reporter }, options) => {
+export const onCreatePageFunction: GatsbyNode['onCreatePage'] = (
+  { page, actions, reporter },
+  options
+) => {
   const pluginOptions = (options as unknown) as GatsbyCorePluginOptions;
   const { createPage, deletePage } = actions;
 
@@ -247,7 +277,10 @@ export const onCreatePageFunction: GatsbyNode['onCreatePage'] = ({ page, actions
     // '' i.e. goes to root of the site
     const sourceDir = '';
     // 'en'
-    const localeDir = getLocalePath(page.path, siteMetadata.languages?.defaultLangKey || SITE_LANGUAGES.EN);
+    const localeDir = getLocalePath(
+      page.path,
+      siteMetadata.languages?.defaultLangKey || SITE_LANGUAGES.EN
+    );
     // 'en.page.tsx'
     const nodePath = nameWithoutSlashes;
     // name without locale e.g 'page'

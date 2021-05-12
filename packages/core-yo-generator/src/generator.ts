@@ -2,7 +2,10 @@ import { Answers } from 'inquirer';
 import Generator, { Question, Questions } from 'yeoman-generator';
 
 import { CHOICES } from './generator-choices';
-import { NEW_PACKAGE_GENERATOR, NEW_PACKAGE_TEMPLATE_PROPS } from './new-package-generator/new-package.config';
+import {
+  NEW_PACKAGE_GENERATOR,
+  NEW_PACKAGE_TEMPLATE_PROPS,
+} from './new-package-generator/new-package.config';
 import { GeneratorModule } from './generator.types';
 
 /**
@@ -71,7 +74,9 @@ export default class extends Generator {
           context: {
             [NEW_PACKAGE_TEMPLATE_PROPS.SCOPE]: this.answers[NEW_PACKAGE_TEMPLATE_PROPS.SCOPE],
             [NEW_PACKAGE_TEMPLATE_PROPS.NAME]: this.answers[NEW_PACKAGE_TEMPLATE_PROPS.NAME],
-            [NEW_PACKAGE_TEMPLATE_PROPS.DESCRIPTION]: this.answers[NEW_PACKAGE_TEMPLATE_PROPS.DESCRIPTION],
+            [NEW_PACKAGE_TEMPLATE_PROPS.DESCRIPTION]: this.answers[
+              NEW_PACKAGE_TEMPLATE_PROPS.DESCRIPTION
+            ],
           },
           generator: this,
           copyTpl: this.fs.copyTpl,

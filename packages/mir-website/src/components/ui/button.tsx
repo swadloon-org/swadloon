@@ -20,18 +20,30 @@ type OwnProps = {
   icon?: string;
 } & ButtonHTMLAttributes<any>;
 
-export const Button: React.FC<OwnProps> = ({ className, variantType, size, variant, icon, ...props }) => {
+export const Button: React.FC<OwnProps> = ({
+  className,
+  variantType,
+  size,
+  variant,
+  icon,
+  ...props
+}) => {
   const styles = useStyles(styleRefs);
 
   return (
     <button
       type={props.type ? props.type : 'button'}
-      className={`${className || ''}  ${styles[variantType]} ${styles[size]} ${styles[variant]} ${styles.base}`}
+      className={`${className || ''}  ${styles[variantType]} ${styles[size]} ${styles[variant]} ${
+        styles.base
+      }`}
       {...props}
     >
       {variantType === 'primaryDefault' || variantType === 'primaryReversed' ? (
         <>
-          <CornerTopLeft className={`${styles.cornerTopLeft} ${styles.corner}`} preserveAspectRatio="xMinYMin meet" />
+          <CornerTopLeft
+            className={`${styles.cornerTopLeft} ${styles.corner}`}
+            preserveAspectRatio="xMinYMin meet"
+          />
           <CornerBottomRight
             className={`${styles.cornerBottomRight} ${styles.corner}`}
             preserveAspectRatio="xMinYMax meet"
@@ -40,7 +52,12 @@ export const Button: React.FC<OwnProps> = ({ className, variantType, size, varia
       ) : null}
 
       {variant === 'icon' && icon ? (
-        <Illustration className={`${styles.illustration}`} name={`icons/${icon}`} width={42} height={42} />
+        <Illustration
+          className={`${styles.illustration}`}
+          name={`icons/${icon}`}
+          width={42}
+          height={42}
+        />
       ) : (
         <Label as="div" className={`${styles.label}`} variant={getLabelSize(size)}>
           {props.children}

@@ -93,8 +93,8 @@
       "focus": false
     },
     {
-      "name": "core-react-ui-app",
-      "cwd": "[workspaceFolder]/packages/core-react-ui-app",
+      "name": "core-graphql-ui",
+      "cwd": "[workspaceFolder]/packages/core-graphql-ui",
       "open": true,
       "focus": false
     },
@@ -147,6 +147,12 @@
       "focus": false
     },
     {
+      "name": "vsb-admin",
+      "cwd": "[workspaceFolder]/packages/vsb-admin",
+      "open": true,
+      "focus": false
+    },
+    {
       "name": "vsb-website",
       "cwd": "[workspaceFolder]/packages/vsb-website",
       "open": true,
@@ -161,12 +167,6 @@
     {
       "name": "vsb-api",
       "cwd": "[workspaceFolder]/packages/vsb-api",
-      "open": true,
-      "focus": false
-    },
-    {
-      "name": "cdpq-website",
-      "cwd": "[workspaceFolder]/packages/cdpq-website",
       "open": true,
       "focus": false
     }
