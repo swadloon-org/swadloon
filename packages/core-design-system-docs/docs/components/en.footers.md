@@ -13,7 +13,9 @@ import FootersCode from '!!raw-loader!../../src/code/footers.code.tsx';
 
 <!-- END CODE IMPORTS -->
 
-# Footers
+<DocHeader props={props}/>
+
+## Simple
 
 <ThemeWrapper>
   <Footers />
