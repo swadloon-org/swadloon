@@ -4,7 +4,7 @@
     "rootDir": "src",
     "outDir": "lib",
     "target": "es6",
-    "module": "es6",
+    "module": "esnext",
     "types": ["react", "react-dom", "jest", "googlemaps"],
     "lib": ["es6", "dom", "es2017"]
   },

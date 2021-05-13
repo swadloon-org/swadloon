@@ -97,7 +97,7 @@ jobs:
         vercel-project-id: prj_XN7LTXJI3itawDz5OjeOYTWAWtVC
         working-directory: ./packages/vsb-admin
         alias-domains: |
-          {{ BRANCH }}-admin.vasectomie-pierre-boucher.ca
+          {{ BRANCH }}.admin.vasectomie-pierre-boucher.ca
 
     - name: Deploy website (PR)
       if: github.event_name == 'pull_request'
@@ -111,7 +111,7 @@ jobs:
         vercel-project-id: prj_XN7LTXJI3itawDz5OjeOYTWAWtVC
         working-directory: ./packages/vsb-admin
         alias-domains: |
-          pr-{{ PR_NUMBER }}-admin.vasectomie-pierre-boucher.ca
+          pr-{{ PR_NUMBER }}.admin.vasectomie-pierre-boucher.ca
 
     - name: Deploy website (prod)
       if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/release'
