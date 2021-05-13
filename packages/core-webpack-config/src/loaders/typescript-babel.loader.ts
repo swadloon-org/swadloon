@@ -36,6 +36,7 @@ export function getTypescriptBabelReactLoader(options: Options = defaultOptions)
           getCustomTransformers: () => ({
             before: options.isDevelopment ? [ReactRefreshTypeScript()] : [],
           }),
+          experimentalFileCaching: false,
         } as Partial<tsloader.Options>,
       },
     ],

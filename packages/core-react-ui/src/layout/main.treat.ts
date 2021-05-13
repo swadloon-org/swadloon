@@ -29,4 +29,7 @@ export const styles = {
     // it is also needed to reach elements that are located at the bottom of the screen
     minHeight: `105vh`,
   })),
+  fullHeight: style(({ cssTheme, theme }: Theme) => ({
+    minHeight: `100vh`,
+  })),
 };

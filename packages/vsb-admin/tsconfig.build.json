@@ -29,5 +29,5 @@
       "path": "../core-jest-config/tsconfig.build.json"
     }
   ],
-  "include": ["src/**/*", "types/**/*"]
+  "include": ["./src/**/*", "./types/**/*"]
 }

@@ -1,75 +1,29 @@
 import { API_RESPONSE_STATUS } from '@newrade/core-common';
-import { ButtonSize, HEADING, Variant } from '@newrade/core-design-system';
-import {
-  Button,
-  Center,
-  Cluster,
-  CommonComponentProps,
-  Heading,
-  Hr,
-  Link,
-  OnlineIndicator,
-  Paragraph,
-  Stack,
-  useTreatTheme,
-} from '@newrade/core-react-ui';
+import { Center, CommonComponentProps, useTreatTheme } from '@newrade/core-react-ui';
 import {
   API_LIST_PATIENTS_ROUTE,
   GetNewPatientsAPIResponseBody,
   PatientModelAdmin,
 } from '@newrade/vsb-common';
-import { RouteComponentProps } from '@reach/router';
+import { useCheckAPIStatus } from '@newrade/vsb-common/lib/index-browser';
 import debug from 'debug';
 import React, { useEffect, useState } from 'react';
-// @ts-ignore
-import { useTable } from 'react-table';
 import { useStyles } from 'react-treat';
-import { useCheckAPIStatus } from '../hook/use-check-api-status.hook';
-import * as styleRefs from './admin.treat';
-
-type Props = CommonComponentProps & RouteComponentProps & {};
+import * as styleRefs from './patients.treat';
 
 export const log = debug('newrade:vsb-admin');
 const logWarn = log.extend('warn');
 export const logError = log.extend('error');
 
-export const Admin: React.FC<Props> = ({ id, style, className, ...props }) => {
+type Props = CommonComponentProps;
+
+export const Patients: React.FC<Props> = ({ id, style, className, ...props }) => {
   const { styles } = useStyles(styleRefs);
   const { theme, cssTheme } = useTreatTheme();
+
   const [patients, setPatients] = useState<PatientModelAdmin[]>([]);
   const [result, setResult] = useState<string>('');
   const [apiStatus] = useCheckAPIStatus();
-
-  useEffect(() => {
-    log('retrieving new patients');
-
-    try {
-      fetch(API_LIST_PATIENTS_ROUTE)
-        .then((response) => response.json())
-        .then((body: GetNewPatientsAPIResponseBody) => {
-          if (body.status === API_RESPONSE_STATUS.ERROR) {
-            setResult(body.message);
-            return;
-          }
-
-          if (!body.payload) {
-            logWarn('no new patients received');
-            return;
-          }
-
-          setPatients(body.payload);
-        })
-        .catch((error) => {
-          setPatients([]);
-          setResult(error.message);
-          logError('error while retrieving new patients');
-        });
-    } catch (error) {
-      setPatients([]);
-      setResult(error.message);
-      logError('error while retrieving new patients');
-    }
-  }, []);
 
   const data = React.useMemo(
     () => [
@@ -103,10 +57,41 @@ export const Admin: React.FC<Props> = ({ id, style, className, ...props }) => {
     []
   );
 
-  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({
-    columns,
-    data,
-  });
+  // const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({
+  //   columns,
+  //   data,
+  // });
+
+  useEffect(() => {
+    log('retrieving new patients');
+
+    try {
+      fetch(API_LIST_PATIENTS_ROUTE)
+        .then((response) => response.json())
+        .then((body: GetNewPatientsAPIResponseBody) => {
+          if (body.status === API_RESPONSE_STATUS.ERROR) {
+            setResult(body.message);
+            return;
+          }
+
+          if (!body.payload) {
+            logWarn('no new patients received');
+            return;
+          }
+
+          setPatients(body.payload);
+        })
+        .catch((error) => {
+          setPatients([]);
+          setResult(error.message);
+          logError('error while retrieving new patients');
+        });
+    } catch (error) {
+      setPatients([]);
+      setResult(error.message);
+      logError('error while retrieving new patients');
+    }
+  }, []);
 
   return (
     <Center>
