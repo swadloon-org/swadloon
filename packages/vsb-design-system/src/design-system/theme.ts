@@ -34,8 +34,13 @@ export const adminTheme: DesignSystem = {
     ...theme.layout,
     navbarHeight: {
       mobile: 60,
-      tablet: 72,
-      desktop: 72,
+      tablet: 60,
+      desktop: 60,
+    },
+    contentMargins: {
+      mobile: 24,
+      tablet: 34,
+      desktop: 34,
     },
   },
 };

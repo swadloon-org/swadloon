@@ -1,20 +1,23 @@
 import { useAuth0 } from '@auth0/auth0-react';
-import { ButtonSize, PARAGRAPH_SIZE, TEXT_STYLE, Variant } from '@newrade/core-design-system';
+import { ButtonIcon, ButtonSize, PARAGRAPH_SIZE, Variant } from '@newrade/core-design-system';
 import {
+  BoxV2,
   Button,
   DesktopSideBar,
   Label,
-  Link,
   Main,
   MainWrapper,
-  NavBar,
+  NavBarApp,
+  NavItem,
   Paragraph,
+  Stack,
   useTreatTheme,
 } from '@newrade/core-react-ui';
-import { useCheckAPIStatus } from '@newrade/vsb-common/lib/index-browser';
+import { IoExitOutline } from '@react-icons/all-files/io5/IoExitOutline';
 import React, { useEffect, useState } from 'react';
 import { useStyles } from 'react-treat';
 import { clientEnv } from '../../types/dot-env-client';
+import { StatusIndicator, StatusIndicatorMobile } from '../components/status-indicator';
 import LogoSymbol from '../images/logo-symbol.svg';
 import Logo from '../images/logo.svg';
 import { Patients } from '../patients/patients';
@@ -25,11 +28,6 @@ type Props = {};
 export const Layout: React.FC<Props> = (props) => {
   const styles = useStyles(styleRefs);
   const { theme, cssTheme } = useTreatTheme();
-
-  /**
-   * vsb-api
-   */
-  const [apiStatus] = useCheckAPIStatus();
 
   /**
    * Auth0
@@ -80,20 +78,61 @@ export const Layout: React.FC<Props> = (props) => {
     }
   }, [isAuthenticated, user, getAccessTokenSilently, isLoading]);
 
-  return isAuthenticated || isLoading ? (
+  return isAuthenticated ? (
     <MainWrapper>
-      <NavBar
+      <NavBarApp
         MobileSvgLogo={<LogoSymbol />}
         DesktopSvgLogo={<LogoSymbol />}
-        maxWidth={'100%'}
-        MenuLinks={
+        MobileMenuLinks={
           <>
-            {user?.email ? <Label>{user?.email}</Label> : null}
-            <Link onClick={handleLogout}>Déconnexion</Link>
+            <StatusIndicatorMobile />
+
+            <Button
+              variant={Variant.tertiary}
+              collapsePadding={'right'}
+              icon={ButtonIcon.icon}
+              Icon={<IoExitOutline />}
+              onClick={handleLogout}
+            >
+              Déconnexion
+            </Button>
           </>
         }
-      ></NavBar>
-      <DesktopSideBar>Hey</DesktopSideBar>
+        DesktopMenuLinks={
+          <>
+            {user?.email ? <Label variantLevel={Variant.secondary}>{user?.email}</Label> : null}
+
+            <StatusIndicator />
+
+            <Button
+              size={ButtonSize.small}
+              variant={Variant.tertiary}
+              collapsePadding={'left'}
+              onClick={handleLogout}
+            >
+              Déconnexion
+            </Button>
+          </>
+        }
+      ></NavBarApp>
+
+      <DesktopSideBar>
+        <BoxV2
+          padding={[cssTheme.sizing.var.x2, 0, cssTheme.sizing.var.x6]}
+          style={{ flexDirection: 'column', backgroundColor: cssTheme.colors.colors.grey[0] }}
+          justifyContent={['flex-start']}
+          alignItems={['stretch']}
+        >
+          <Stack gap={[cssTheme.sizing.var.x4]}>
+            <Stack gap={[`calc(2 * ${cssTheme.sizing.var.x1})`]}>
+              <Stack>
+                <NavItem active={true}>Patients</NavItem>
+              </Stack>
+            </Stack>
+          </Stack>
+        </BoxV2>
+      </DesktopSideBar>
+
       <Main minHeight={true} navbarPadding={true} desktopSidebarPadding={true}>
         <Patients />
       </Main>
@@ -108,9 +147,19 @@ export const Layout: React.FC<Props> = (props) => {
       >
         <div className={styles.loginWrapper}>
           <Logo className={styles.logo} />
-          <Paragraph>Veuillez vous connecter pour accéder à l&apos;application</Paragraph>
 
-          <Button size={ButtonSize.large} style={{ width: `100%` }} onClick={handleAuth0Connection}>
+          <Paragraph>
+            {isLoading
+              ? 'Chargement...'
+              : 'Veuillez vous connecter pour accéder à l&apos;application'}
+          </Paragraph>
+
+          <Button
+            disabled={isLoading}
+            size={ButtonSize.large}
+            style={{ width: `100%` }}
+            onClick={handleAuth0Connection}
+          >
             Connexion
           </Button>
 
@@ -121,21 +170,8 @@ export const Layout: React.FC<Props> = (props) => {
           >
             v{clientEnv.APP_VERSION}
           </Paragraph>
-          {apiStatus ? (
-            <Paragraph
-              variantStyle={TEXT_STYLE.bold}
-              variant={PARAGRAPH_SIZE.small}
-              variantLevel={Variant.secondary}
-              style={{ justifySelf: `center` }}
-            >
-              État système :{' '}
-              {apiStatus === 'en ligne' ? (
-                <span className={styles.status}>OK</span>
-              ) : (
-                <span>Error</span>
-              )}
-            </Paragraph>
-          ) : null}
+
+          <StatusIndicator />
         </div>
       </Main>
     </MainWrapper>

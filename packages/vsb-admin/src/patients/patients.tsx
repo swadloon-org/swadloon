@@ -1,11 +1,23 @@
+import { useAuth0 } from '@auth0/auth0-react';
 import { API_RESPONSE_STATUS } from '@newrade/core-common';
-import { Center, CommonComponentProps, useTreatTheme } from '@newrade/core-react-ui';
+import { ButtonSize, HEADING, Variant } from '@newrade/core-design-system';
+import {
+  Button,
+  Center,
+  Cluster,
+  CommonComponentProps,
+  Heading,
+  Hr,
+  Link,
+  Paragraph,
+  Stack,
+  useTreatTheme,
+} from '@newrade/core-react-ui';
 import {
   API_LIST_PATIENTS_ROUTE,
   GetNewPatientsAPIResponseBody,
   PatientModelAdmin,
 } from '@newrade/vsb-common';
-import { useCheckAPIStatus } from '@newrade/vsb-common/lib/index-browser';
 import debug from 'debug';
 import React, { useEffect, useState } from 'react';
 import { useStyles } from 'react-treat';
@@ -23,7 +35,6 @@ export const Patients: React.FC<Props> = ({ id, style, className, ...props }) =>
 
   const [patients, setPatients] = useState<PatientModelAdmin[]>([]);
   const [result, setResult] = useState<string>('');
-  const [apiStatus] = useCheckAPIStatus();
 
   const data = React.useMemo(
     () => [
@@ -62,11 +73,23 @@ export const Patients: React.FC<Props> = ({ id, style, className, ...props }) =>
   //   data,
   // });
 
+  const { getAccessTokenSilently } = useAuth0();
+
   useEffect(() => {
     log('retrieving new patients');
 
     try {
-      fetch(API_LIST_PATIENTS_ROUTE)
+      getAccessTokenSilently({
+        audience: `https://api.vasectomie-pierre-boucher.ca/`,
+        scope: 'read:current_user read:patients',
+      })
+        .then((token) => {
+          return window.fetch(API_LIST_PATIENTS_ROUTE, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
+        })
         .then((response) => response.json())
         .then((body: GetNewPatientsAPIResponseBody) => {
           if (body.status === API_RESPONSE_STATUS.ERROR) {
@@ -134,14 +157,6 @@ export const Patients: React.FC<Props> = ({ id, style, className, ...props }) =>
               </Cluster>
             );
           })}
-        </Stack>
-
-        <Stack gap={[cssTheme.sizing.var.x3]}>
-          <Heading variant={HEADING.h4}>État du système</Heading>
-
-          <OnlineIndicator status={apiStatus === 'en ligne' ? 'online' : 'offline'}>
-            système : {apiStatus || 'en chargement...'}
-          </OnlineIndicator>
         </Stack>
       </Stack>
     </Center>

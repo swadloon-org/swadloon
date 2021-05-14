@@ -40,6 +40,7 @@ export * from './maps/google-maps';
 export * from './maps/google-maps-info-window';
 export * from './models/open-graph-metadata.model';
 export * from './models/twitter-metadata.model';
+export * from './navbars/navbar-app';
 export * from './navigation/desktop-docs-sidebar';
 export * from './navigation/desktop-docs-sidebar-item';
 export * from './navigation/desktop-docs-sidebar-item-group';
