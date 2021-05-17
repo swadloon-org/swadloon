@@ -1,20 +1,16 @@
 import { LABEL_SIZE, TEXT_STYLE, Variant } from '@newrade/core-design-system';
 import { Cluster, CommonComponentProps, Label, useTreatTheme } from '@newrade/core-react-ui';
-import { useCheckAPIStatus } from '@newrade/vsb-common/lib/index-browser';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './status-indicator.treat';
 
-type Props = CommonComponentProps;
+type Props = CommonComponentProps & {
+  apiStatus: 'en ligne' | 'hors ligne' | undefined;
+};
 
-export const StatusIndicator: React.FC<Props> = ({ id, style, className, ...props }) => {
+export const StatusIndicator: React.FC<Props> = ({ id, style, className, apiStatus, ...props }) => {
   const styles = useStyles(styleRefs);
   const { theme, cssTheme } = useTreatTheme();
-
-  /**
-   * vsb-api
-   */
-  const [apiStatus] = useCheckAPIStatus();
 
   return apiStatus ? (
     <Cluster
@@ -37,14 +33,15 @@ export const StatusIndicator: React.FC<Props> = ({ id, style, className, ...prop
   ) : null;
 };
 
-export const StatusIndicatorMobile: React.FC<Props> = ({ id, style, className, ...props }) => {
+export const StatusIndicatorMobile: React.FC<Props> = ({
+  id,
+  style,
+  className,
+  apiStatus,
+  ...props
+}) => {
   const styles = useStyles(styleRefs);
   const { theme, cssTheme } = useTreatTheme();
-
-  /**
-   * vsb-api
-   */
-  const [apiStatus] = useCheckAPIStatus();
 
   return apiStatus ? (
     <Cluster

@@ -7,6 +7,7 @@ export function getForkTsCheckerWebpackPlugin() {
   return new ForkTsCheckerWebpackPlugin({
     typescript: {
       enabled: true,
+      memoryLimit: 2 * 2048,
       configFile: 'tsconfig.build.json',
       build: true,
     },

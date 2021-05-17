@@ -125,7 +125,7 @@ const config: core.GastbySiteConfig = {
         pathRewrite: {
           '^/api': '/api',
         },
-        ws: true,
+        ws: false,
         logLevel: 'debug',
       })
     );

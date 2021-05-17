@@ -13,8 +13,9 @@ import {
   Stack,
   useTreatTheme,
 } from '@newrade/core-react-ui';
+import { useCheckAPIStatus } from '@newrade/vsb-common/lib/index-browser';
 import { IoExitOutline } from '@react-icons/all-files/io5/IoExitOutline';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useStyles } from 'react-treat';
 import { clientEnv } from '../../types/dot-env-client';
 import { StatusIndicator, StatusIndicatorMobile } from '../components/status-indicator';
@@ -28,6 +29,11 @@ type Props = {};
 export const Layout: React.FC<Props> = (props) => {
   const styles = useStyles(styleRefs);
   const { theme, cssTheme } = useTreatTheme();
+
+  /**
+   * vsb-api
+   */
+  const [apiStatus] = useCheckAPIStatus();
 
   /**
    * Auth0
@@ -52,40 +58,14 @@ export const Layout: React.FC<Props> = (props) => {
     });
   }
 
-  useEffect(() => {
-    if (isAuthenticated && user) {
-      const getUserMetadata = async () => {
-        const domain = 'vsb.us.auth0.com';
-
-        try {
-          const accessToken = await getAccessTokenSilently({
-            audience: `https://api.vasectomie-pierre-boucher.ca/`,
-            scope: 'read:current_user read:patients',
-          });
-          const response = await fetch(`/api/patients`, {
-            headers: {
-              Authorization: `Bearer ${accessToken}`,
-            },
-          });
-          const payload = await response.json();
-          console.log(payload);
-        } catch (e) {
-          console.log(e.message);
-        }
-      };
-
-      getUserMetadata();
-    }
-  }, [isAuthenticated, user, getAccessTokenSilently, isLoading]);
-
-  return isAuthenticated ? (
+  return isAuthenticated || isLoading ? (
     <MainWrapper>
       <NavBarApp
         MobileSvgLogo={<LogoSymbol />}
         DesktopSvgLogo={<LogoSymbol />}
         MobileMenuLinks={
           <>
-            <StatusIndicatorMobile />
+            <StatusIndicatorMobile apiStatus={apiStatus} />
 
             <Button
               variant={Variant.tertiary}
@@ -102,7 +82,7 @@ export const Layout: React.FC<Props> = (props) => {
           <>
             {user?.email ? <Label variantLevel={Variant.secondary}>{user?.email}</Label> : null}
 
-            <StatusIndicator />
+            <StatusIndicator apiStatus={apiStatus} />
 
             <Button
               size={ButtonSize.small}
@@ -133,7 +113,7 @@ export const Layout: React.FC<Props> = (props) => {
         </BoxV2>
       </DesktopSideBar>
 
-      <Main minHeight={true} navbarPadding={true} desktopSidebarPadding={true}>
+      <Main minHeight={false} navbarPadding={true} desktopSidebarPadding={true}>
         <Patients />
       </Main>
     </MainWrapper>
@@ -148,11 +128,7 @@ export const Layout: React.FC<Props> = (props) => {
         <div className={styles.loginWrapper}>
           <Logo className={styles.logo} />
 
-          <Paragraph>
-            {isLoading
-              ? 'Chargement...'
-              : 'Veuillez vous connecter pour accéder à l&apos;application'}
-          </Paragraph>
+          <Paragraph>Veuillez vous connecter pour accéder à l&apos;application</Paragraph>
 
           <Button
             disabled={isLoading}
@@ -171,7 +147,7 @@ export const Layout: React.FC<Props> = (props) => {
             v{clientEnv.APP_VERSION}
           </Paragraph>
 
-          <StatusIndicator />
+          <StatusIndicator apiStatus={apiStatus} />
         </div>
       </Main>
     </MainWrapper>

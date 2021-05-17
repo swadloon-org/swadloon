@@ -1,10 +1,13 @@
 ---
-name: Demos
+name: Demos - 🍿
 tags:
   - demo
+  - overview
 ---
 
-# Demos - 🍿
+<DocHeader props={props}/>
+
+## Examples
 
 We use the Design System for every project that we create. Here's a few notable
 examples in the wild:

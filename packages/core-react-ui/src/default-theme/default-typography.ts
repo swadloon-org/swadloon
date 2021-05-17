@@ -127,55 +127,55 @@ export const defaultTypography: Typography = {
     },
     mobile: {
       large: {
-        capHeight: 14,
+        fontSize: 18,
         lineGap: 16,
       },
       medium: {
-        capHeight: 12,
+        fontSize: 16,
         lineGap: 16,
       },
       small: {
-        capHeight: 10,
+        fontSize: 14,
         lineGap: 14,
       },
       xSmall: {
-        capHeight: 9,
+        fontSize: 12,
         lineGap: 12,
       },
     },
     tablet: {
       large: {
-        capHeight: 14,
+        fontSize: 18,
         lineGap: 16,
       },
       medium: {
-        capHeight: 12,
+        fontSize: 16,
         lineGap: 16,
       },
       small: {
-        capHeight: 10,
+        fontSize: 14,
         lineGap: 14,
       },
       xSmall: {
-        capHeight: 9,
+        fontSize: 12,
         lineGap: 12,
       },
     },
     desktop: {
       large: {
-        capHeight: 15,
+        fontSize: 18,
         lineGap: 16,
       },
       medium: {
-        capHeight: 13,
+        fontSize: 16,
         lineGap: 16,
       },
       small: {
-        capHeight: 10,
+        fontSize: 12,
         lineGap: 14,
       },
       xSmall: {
-        capHeight: 9,
+        fontSize: 10,
         lineGap: 12,
       },
     },

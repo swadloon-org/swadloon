@@ -1,15 +1,13 @@
 ---
-name: Overview
+name: Design System Overview
 tags:
   - overview
 ---
 
-# Design System Documentation
+<DocHeader props={props}/>
 
 > These are the principles that shape how we design every aspect of user
 > interfaces.
-
----
 
 ## Foundations
 
@@ -17,10 +15,10 @@ Foundations are principles and rules that guide the rest of the system. This
 system includes the following subjects:
 
 - **Colors**: What colors are available to use
-- **Colors intents**: how colors should be used
-- **Effects**: how shadows, transparency and other special effects are used
+- **Colors intents**: How colors should be used
+- **Effects**: How shadows, transparency and other special effects are used
 - **Sizing**: How to size and space out components
-- **Iconography**: How text is presented
+- **Iconography**: What and how icons are used in the system
 - **Typography**: What fonts to use and how text, headings, labels are presented
 - **Layout**: How to organize content, for different viewports
 - **Animations**: How to animate layers and effects
@@ -59,7 +57,7 @@ references and design systems.
 
 Here are the best and most extensive design system out there:
 
-| Company     | Website                                | Design System                                  |
-| ----------- | -------------------------------------- | ---------------------------------------------- |
-| IBM         | [website](https://www.ibm.com/)        | [link](https://www.carbondesignsystem.com/)    |
-| Salesforces | [website](https://www.salesforce.com/) | [link](https://www.lightningdesignsystem.com/) |
+| Company    | Website                                | Design System                                  |
+| ---------- | -------------------------------------- | ---------------------------------------------- |
+| IBM        | [website](https://www.ibm.com/)        | [link](https://www.carbondesignsystem.com/)    |
+| Salesforce | [website](https://www.salesforce.com/) | [link](https://www.lightningdesignsystem.com/) |

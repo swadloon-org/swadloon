@@ -1,16 +1,13 @@
 import { useAuth0 } from '@auth0/auth0-react';
 import { API_RESPONSE_STATUS } from '@newrade/core-common';
-import { ButtonSize, HEADING, Variant } from '@newrade/core-design-system';
+import { HEADING } from '@newrade/core-design-system';
 import {
-  Button,
   Center,
-  Cluster,
   CommonComponentProps,
   Heading,
-  Hr,
-  Link,
-  Paragraph,
   Stack,
+  useNetworkStatus,
+  usePageVisibility,
   useTreatTheme,
 } from '@newrade/core-react-ui';
 import {
@@ -19,8 +16,9 @@ import {
   PatientModelAdmin,
 } from '@newrade/vsb-common';
 import debug from 'debug';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useStyles } from 'react-treat';
+import { PatientsTable } from './patients-table';
 import * as styleRefs from './patients.treat';
 
 export const log = debug('newrade:vsb-admin');
@@ -35,50 +33,17 @@ export const Patients: React.FC<Props> = ({ id, style, className, ...props }) =>
 
   const [patients, setPatients] = useState<PatientModelAdmin[]>([]);
   const [result, setResult] = useState<string>('');
-
-  const data = React.useMemo(
-    () => [
-      {
-        col1: 'Hello',
-        col2: 'World',
-      },
-      {
-        col1: 'react-table',
-        col2: 'rocks',
-      },
-      {
-        col1: 'whatever',
-        col2: 'you want',
-      },
-    ],
-    []
-  );
-
-  const columns = React.useMemo(
-    () => [
-      {
-        Header: 'Column 1',
-        accessor: 'col1', // accessor is the "key" in the data
-      },
-      {
-        Header: 'Column 2',
-        accessor: 'col2',
-      },
-    ],
-    []
-  );
-
-  // const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({
-  //   columns,
-  //   data,
-  // });
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const { getAccessTokenSilently } = useAuth0();
 
-  useEffect(() => {
-    log('retrieving new patients');
+  const { isOnline } = useNetworkStatus();
+  const { pageVisible } = usePageVisibility();
+  const intervalRef = useRef<null | number>(null);
 
-    try {
+  useEffect(() => {
+    function getPatients() {
+      setIsLoading(true);
       getAccessTokenSilently({
         audience: `https://api.vasectomie-pierre-boucher.ca/`,
         scope: 'read:current_user read:patients',
@@ -103,61 +68,51 @@ export const Patients: React.FC<Props> = ({ id, style, className, ...props }) =>
           }
 
           setPatients(body.payload);
+          setIsLoading(false);
         })
         .catch((error) => {
           setPatients([]);
           setResult(error.message);
           logError('error while retrieving new patients');
+          setIsLoading(false);
         });
+    }
+
+    try {
+      log('refreshing list');
+      getPatients();
+
+      if (intervalRef.current !== null) {
+        window.clearInterval(intervalRef.current);
+      }
+
+      intervalRef.current = window.setInterval(() => {
+        getPatients();
+      }, 30000);
+      return () => {
+        if (intervalRef.current) {
+          window.clearInterval(intervalRef.current);
+        }
+      };
     } catch (error) {
       setPatients([]);
       setResult(error.message);
-      logError('error while retrieving new patients');
+      logError('error while retrieving patients');
+      setIsLoading(false);
     }
-  }, []);
+  }, [pageVisible, isOnline, getAccessTokenSilently]);
 
   return (
     <Center>
-      <Stack gap={[cssTheme.sizing.var.x5]}>
-        <Heading variant={HEADING.h2}>Administration</Heading>
+      <Stack gap={[cssTheme.sizing.var.x4]}>
+        {/* <Heading variant={HEADING.h2}>Administration</Heading>
+        <Hr /> */}
 
-        <Hr />
-
-        <Heading variant={HEADING.h3}>Listes de patients</Heading>
+        <Heading variant={HEADING.h2}>Listes de patients</Heading>
 
         {result}
 
-        <Stack gap={[cssTheme.sizing.var.x2]}>
-          {patients.map((patient) => {
-            return (
-              <Cluster key={patient.id} gap={[cssTheme.sizing.var.x3]}>
-                <Link
-                  href={`https://clinique-dr-pierre-boucher.ca1.cliniko.com/patients/${patient.id}`}
-                  target={'_blank'}
-                >
-                  {patient.id}
-                </Link>
-
-                <Paragraph>
-                  {patient.firstName} {patient.lastName}
-                </Paragraph>
-
-                <Paragraph>{patient.status}</Paragraph>
-
-                <Link href={`mailto:${patient.email}`}>{patient.email}</Link>
-
-                <Cluster gap={[cssTheme.sizing.var.x1]}>
-                  <Link href={`tel:${patient.patientPhoneNumber}`}>
-                    {patient.patientPhoneNumber}
-                  </Link>
-                  <Button variant={Variant.secondary} size={ButtonSize.xsmall}>
-                    Copy
-                  </Button>
-                </Cluster>
-              </Cluster>
-            );
-          })}
-        </Stack>
+        <PatientsTable patients={patients} isLoading={isLoading} />
       </Stack>
     </Center>
   );
