@@ -52,7 +52,7 @@ export const Link: React.FC<Props> = React.memo(
     const variantStateClassName = styles[LinkState.rest];
     const variantClassName = styles[variant ? variant : LinkVariant.noUnderline];
     const variantStyleClassName = styles[variantLevel ? variantLevel : Variant.primary];
-    const variantSizeClassName = styles[variantSize ? variantSize : PARAGRAPH_SIZE.small];
+    const variantSizeClassName = styles[variantSize ? variantSize : PARAGRAPH_SIZE.medium];
     const allClassName = getMergedClassname([
       variantStateClassName,
       variantStyleClassName,

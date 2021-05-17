@@ -1,8 +1,13 @@
 import { API_RESPONSE_STATUS } from '@newrade/core-common';
 import { useNetworkStatus, usePageVisibility } from '@newrade/core-react-ui';
-import { API_STATUS_CLINIKO, CreatePatientAPIResponseBody } from '@newrade/vsb-common';
-import { useEffect, useState } from 'react';
-import { log, logError } from '../admin/admin';
+import debug from 'debug';
+import { useEffect, useRef, useState } from 'react';
+import { API_STATUS_CLINIKO } from '../constant/api-routes.constants';
+import { CreatePatientAPIResponseBody } from '../patient/patient.api';
+
+export const log = debug('newrade:vsb-common');
+const logWarn = log.extend('warn');
+export const logError = log.extend('error');
 
 /**
  * Check for API status on an interval
@@ -11,6 +16,8 @@ export function useCheckAPIStatus() {
   const { isOnline } = useNetworkStatus();
   const { pageVisible } = usePageVisibility();
   const [apiStatus, setApiStatus] = useState<'en ligne' | 'hors ligne' | undefined>(undefined);
+
+  const intervalRef = useRef<null | number>(null);
 
   useEffect(() => {
     function checkApiStatus() {
@@ -31,13 +38,19 @@ export function useCheckAPIStatus() {
       log('checking for api status');
       checkApiStatus();
 
-      const interval = window.setInterval(() => {
+      if (intervalRef.current !== null) {
+        window.clearInterval(intervalRef.current);
+      }
+
+      intervalRef.current = window.setInterval(() => {
         if (isOnline && pageVisible) {
           checkApiStatus();
         }
-      }, 10000);
+      }, 30000);
       return () => {
-        window.clearInterval(interval);
+        if (intervalRef.current) {
+          window.clearInterval(intervalRef.current);
+        }
       };
     } catch (error) {
       setApiStatus('hors ligne');

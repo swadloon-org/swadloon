@@ -18,6 +18,7 @@ import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import webpack from 'webpack';
 import { inlineCssLoader } from '../loaders/inline-css.loader';
 import { compressionPlugin } from '../plugins/compression.plugin.conf';
+import { getForkTsCheckerWebpackPlugin } from '../plugins/fork-ts-checker.plugin.conf';
 
 /**
  * Preconfigured base config for compiling TypeScript React Apps
@@ -99,6 +100,7 @@ export const getReactCommonConfig: (options: {
     ],
   },
   plugins: [
+    getForkTsCheckerWebpackPlugin(),
     getWebpackCleanPlugin(),
     isDevelopment && new webpack.HotModuleReplacementPlugin(),
     isDevelopment && new ReactRefreshWebpackPlugin(),

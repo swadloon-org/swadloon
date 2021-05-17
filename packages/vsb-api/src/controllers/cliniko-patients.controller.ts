@@ -35,7 +35,7 @@ export const getPatients: RequestHandler<
 
     const allPatientsResponse = await getAllClinikoPatients();
 
-    if (!allPatientsResponse?.payload?.patients.length) {
+    if (!allPatientsResponse?.payload?.patients?.length) {
       handleNoPatientsFound(res);
       return;
     }
@@ -62,13 +62,15 @@ export const getPatients: RequestHandler<
               return false;
             }
 
-            const id = getIdFromSelfLink(treatmentNote.treatment_note_template.links.self);
+            const treatmentNoteTemplateId = getIdFromSelfLink(
+              treatmentNote.treatment_note_template.links.self
+            );
 
-            if (!id) {
+            if (!treatmentNoteTemplateId) {
               return false;
             }
 
-            if (id === STATUS_NOTE_TEMPLATE_ID) {
+            if (treatmentNoteTemplateId === STATUS_NOTE_TEMPLATE_ID) {
               return true;
             }
 
@@ -103,34 +105,14 @@ export const getPatients: RequestHandler<
 
     log(`got ${patientsWithTreatmentNotesResult.length} patients with notes`);
 
-    const patientsWithTreatmentNotes = patientsWithTreatmentNotesResult
-      .filter((result) => {
-        if (result.status === 'rejected') {
-          return false;
-        }
-
-        return true;
-      })
-      .map((result) => {
-        type Fullfilled = PromiseFulfilledResult<{
-          patientTreatmentNoteResponse: APIResponseBody<{
-            treatment_notes: PatientTreatmentNote[];
-          }>;
-          patient: PatientModelAdmin;
-        }>;
-
-        if (!(result as Fullfilled).value) {
-          return undefined;
-        }
-
-        return (result as Fullfilled).value.patient;
-      })
-      .filter((patient) => !!patient);
+    const patientsWithTreatmentNotes = getPatientWithFilterNotesFromRequests(
+      patientsWithTreatmentNotesResult
+    );
 
     log(`got ${patientsWithTreatmentNotes.length} patients with treatment notes`);
 
     // check if our array of request is defined and not empty
-    if (!patientsWithTreatmentNotes) {
+    if (!patientsWithTreatmentNotes.length) {
       handleNoPatientsRequests(res);
       return;
     }
@@ -146,6 +128,41 @@ export const getPatients: RequestHandler<
   }
 };
 
+function getPatientWithFilterNotesFromRequests(
+  patientsWithTreatmentNotesResult: PromiseSettledResult<
+    | {
+        patientTreatmentNoteResponse: APIResponseBody<{ treatment_notes: PatientTreatmentNote[] }>;
+        patient: PatientModelAdmin;
+      }
+    | undefined
+  >[]
+) {
+  return patientsWithTreatmentNotesResult
+    .filter((result) => {
+      if (result.status === 'rejected') {
+        logError(`error: ${result.reason}`);
+        return false;
+      }
+
+      return true;
+    })
+    .map((result) => {
+      type Fullfilled = PromiseFulfilledResult<{
+        patientTreatmentNoteResponse: APIResponseBody<{
+          treatment_notes: PatientTreatmentNote[];
+        }>;
+        patient: PatientModelAdmin;
+      }>;
+
+      if (!(result as Fullfilled).value) {
+        return undefined;
+      }
+
+      return (result as Fullfilled).value.patient;
+    })
+    .filter((patient) => !!patient);
+}
+
 export async function getAllClinikoPatients() {
   const route = 'patients';
   const paramsSearch = 'created_at';
@@ -153,7 +170,7 @@ export async function getAllClinikoPatients() {
 
   log(`retrieving all patients from cliniko`);
 
-  const response = await fetchCliniko<any, { patients: PatientClinikoModel[] }>({
+  const response = await fetchCliniko<any, { patients?: PatientClinikoModel[] }>({
     method: 'GET',
     route: `${route}${filterParams}`,
   });
@@ -215,13 +232,16 @@ function getStatusFromStatusTreatmentNote(
     };
   }
 
-  const statusAnswers = statusQuestion.answers.filter((answer) => answer.selected);
-  const statusAnswer = statusAnswers[0];
-  const noteAnswers = noteQuestion?.answers.filter((answer) => answer.selected);
+  const statusAnswers = statusQuestion.answers?.filter((answer) => answer.selected);
+  const statusAnswer = statusAnswers?.[0];
+  const noteAnswers = noteQuestion?.answers?.filter((answer) => answer.selected);
   const noteAnswer = noteAnswers?.[0];
 
+  const status =
+    (statusAnswer?.value as CLINIKO_PATIENT_VASEC_STATUS) || CLINIKO_PATIENT_VASEC_STATUS.UNKNOWN;
+
   return {
-    status: statusAnswer.value as CLINIKO_PATIENT_VASEC_STATUS,
+    status: status,
     statusNote: noteAnswer?.value || '',
   };
 }

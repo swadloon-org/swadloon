@@ -1,12 +1,12 @@
 ---
-name: Theming
+name: Theming - 🎛
 tags:
   - tech
   - code
   - configuration
 ---
 
-# Theming - 🎛
+<DocHeader props={props}/>
 
 Based on the established foundations, we have developed a theming system that
 allows designers and developers to configure, via simple

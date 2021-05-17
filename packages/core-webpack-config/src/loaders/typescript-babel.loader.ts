@@ -12,7 +12,8 @@ const defaultOptions: Options = {
 };
 
 /**
- *
+ * for babel-loader see
+ * for ts-loader see https://github.com/TypeStrong/ts-loader
  * for react-refresh see https://github.com/pmmmwh/react-refresh-webpack-plugin
  */
 export function getTypescriptBabelReactLoader(options: Options = defaultOptions): RuleSetRule {
@@ -36,6 +37,9 @@ export function getTypescriptBabelReactLoader(options: Options = defaultOptions)
           getCustomTransformers: () => ({
             before: options.isDevelopment ? [ReactRefreshTypeScript()] : [],
           }),
+          experimentalFileCaching: true, // https://github.com/TypeStrong/ts-loader#experimentalfilecaching
+          projectReferences: false,
+          transpileOnly: true, // see https://github.com/TypeStrong/ts-loader#transpileonly and https://github.com/TypeStrong/fork-ts-checker-webpack-plugin
         } as Partial<tsloader.Options>,
       },
     ],
