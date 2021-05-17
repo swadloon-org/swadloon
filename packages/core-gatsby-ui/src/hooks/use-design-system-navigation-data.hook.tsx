@@ -5,7 +5,10 @@ import { getNavigationFromPageNodes } from '../utilities/navigation.utilities';
 
 const query = graphql`
   query DesignSystemLayoutPage {
-    pages: allSitePage(filter: { path: { glob: "/design-system/{**,*}" } }) {
+    pages: allSitePage(
+      filter: { path: { glob: "/design-system/{**,*}" } }
+      sort: { fields: context___name, order: ASC }
+    ) {
       totalCount
       nodes {
         id

@@ -18,5 +18,5 @@ export const babelReactRule: RuleSetUseItem = {
 export const babelReactLoader: RuleSetRule = {
   test: /\.(m?jsx?)$/,
   use: [babelReactRule],
-  include: path.resolve('src/**/*'),
+  include: [/core-react-ui/, path.resolve('src/**/*')],
 };

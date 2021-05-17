@@ -1,4 +1,4 @@
-import { Theme } from '@newrade/core-react-ui/lib/design-system';
+import { Theme } from '@newrade/core-react-ui/src/design-system';
 import { globalStyle, style } from 'treat';
 
 export const wrapper = style(({ theme, cssTheme }: Theme) => ({
@@ -297,13 +297,6 @@ globalStyle(`${wrapper} ul + p + pre`, ({ cssTheme, theme }: Theme) => ({
  * Styles for text element
  */
 
-globalStyle(`${wrapper} p`, ({ cssTheme, theme }: Theme) => ({
-  fontFamily: 'Inter',
-  fontSize: '16px',
-  lineHeight: '1.5',
-  letterSpacing: '0',
-}));
-
 globalStyle(`${wrapper} em`, ({ cssTheme, theme }: Theme) => ({
   fontSize: '16px',
 }));
@@ -313,28 +306,28 @@ globalStyle(`${wrapper} strong`, ({ cssTheme, theme }: Theme) => ({
   fontWeight: 600,
 }));
 
-globalStyle(`${wrapper} h1`, ({ cssTheme, theme }: Theme) => ({
+globalStyle(`${wrapper} > h1`, ({ cssTheme, theme }: Theme) => ({
   fontFamily: 'Inter',
   fontWeight: 600,
   letterSpacing: '-0.01em',
   fontSize: '48px',
 }));
 
-globalStyle(`${wrapper} h2`, ({ cssTheme, theme }: Theme) => ({
+globalStyle(`${wrapper} > h2`, ({ cssTheme, theme }: Theme) => ({
   fontFamily: 'Inter',
   fontWeight: 600,
   letterSpacing: '0',
   fontSize: '32px',
 }));
 
-globalStyle(`${wrapper} h3`, ({ cssTheme, theme }: Theme) => ({
+globalStyle(`${wrapper} > h3`, ({ cssTheme, theme }: Theme) => ({
   fontFamily: 'Inter',
   fontWeight: 600,
   letterSpacing: '0',
   fontSize: '24px',
 }));
 
-globalStyle(`${wrapper} h4`, ({ cssTheme, theme }: Theme) => ({
+globalStyle(`${wrapper} > h4`, ({ cssTheme, theme }: Theme) => ({
   fontFamily: 'Inter',
   fontWeight: 700,
   letterSpacing: '0',

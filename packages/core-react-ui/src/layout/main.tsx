@@ -21,6 +21,10 @@ type Props = CommonComponentProps & {
    * Prevents the main content's height from collapsing
    */
   minHeight?: boolean;
+  /**
+   * Set the content height too 100% of the viewport
+   */
+  fullHeight?: boolean;
 };
 
 /**
@@ -36,6 +40,7 @@ export const Main: React.FC<Props> = ({
   desktopSidebarPadding,
   desktopAsidePadding,
   minHeight,
+  fullHeight,
   ...props
 }) => {
   const { styles } = useStyles(styleRefs);
@@ -51,6 +56,7 @@ export const Main: React.FC<Props> = ({
       desktopSidebarPadding ? styles.desktopSidebar : '',
       desktopAsidePadding ? styles.desktopAside : '',
       minHeight ? styles.minHeight : '',
+      fullHeight ? styles.fullHeight : '',
     ],
     ...props,
   });

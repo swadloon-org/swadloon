@@ -55,7 +55,7 @@
     // https://deepscan.io/docs/rules
     "deepscan.enable": true,
     "deepscan.ignorePatterns": ["**/node_modules/**", "graphql-types.ts"],
-    "deepscan.ignoreRules": ["no-console", "UNUSED_DECL"],
+    "deepscan.ignoreRules": ["no-console", "UNUSED_DECL", "UNUSED_PARAM"],
     //
     // terminals
     //
@@ -79,7 +79,6 @@
       "cschleiden.vscode-github-actions",
       "yzhang.markdown-all-in-one",
       "paulmolluzzo.convert-css-in-js",
-      "formulahendry.auto-rename-tag",
       "bierner.markdown-yaml-preamble",
       "jock.svg",
       "cssho.vscode-svgviewer",

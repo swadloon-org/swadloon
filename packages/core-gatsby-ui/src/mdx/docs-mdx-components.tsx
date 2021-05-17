@@ -22,8 +22,8 @@ import {
   TableRow,
   Tag,
 } from '@newrade/core-react-ui';
-import { Code, CodeBlock, CodeHighlight } from '@newrade/core-react-ui/lib/code';
-import { mdxComponents, MDXProps } from '@newrade/core-react-ui/lib/markdown';
+import { Code, CodeBlock, CodeHighlight } from '@newrade/core-react-ui/src/code';
+import { mdxComponents, MDXProps } from '@newrade/core-react-ui/src/markdown';
 import React from 'react';
 import { BlockMarkdown } from '../blocks/block-markdown';
 import { DocHeader } from '../context/doc-header';
@@ -43,7 +43,7 @@ export const docsMdxComponents = {
   ul: (props: MDXProps) => <ul {...props} />,
   ol: (props: MDXProps) => <ol {...props} />,
   li: (props: MDXProps) => <li {...props} />,
-  p: (props: MDXProps) => <p {...props} />,
+  // p: (props: MDXProps) => <p {...props} />,
   a: (props: MDXProps) => <a {...props} />,
   em: (props: MDXProps) => <em {...props} />,
   strong: (props: MDXProps) => <strong {...props} />,

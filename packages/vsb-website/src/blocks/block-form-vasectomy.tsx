@@ -17,24 +17,22 @@ import {
   Paragraph,
   Stack,
   Switcher,
-  useNetworkStatus,
-  usePageVisibility,
   useTreatTheme,
 } from '@newrade/core-react-ui';
 import {
   API_REGISTER_PATIENT_ROUTE,
-  API_STATUS_CLINIKO,
   CLINIKO_PHONE_TYPE,
   CreatePatientAPIResponseBody,
   PatientModel,
   PatientValidation,
 } from '@newrade/vsb-common';
+import { useCheckAPIStatus } from '@newrade/vsb-common/lib/index-browser';
 import { IoAlertCircleOutline } from '@react-icons/all-files/io5/IoAlertCircleOutline';
 import { IoCheckmarkCircle } from '@react-icons/all-files/io5/IoCheckmarkCircle';
 import 'cleave.js/dist/addons/cleave-phone.ca';
 import debug from 'debug';
 import debounce from 'lodash/debounce';
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { useStyles } from 'react-treat';
@@ -141,10 +139,8 @@ export const BlockFormVasectomy: React.FC<BlockFormVasectomyProps> = ({
   const { styles } = useStyles(styleRefs);
   const { cssTheme } = useTreatTheme();
 
-  const { isOnline } = useNetworkStatus();
-  const { pageVisible } = usePageVisibility();
+  const [apiStatus] = useCheckAPIStatus();
 
-  const [apiStatus, setApiStatus] = useState<'en ligne' | 'hors ligne' | undefined>(undefined);
   const [isSuggestion, setSuggestion] = useState<boolean>(false);
   const [isValueSuggestion, setValueSuggestion] = useState<any>();
 
@@ -190,39 +186,6 @@ export const BlockFormVasectomy: React.FC<BlockFormVasectomyProps> = ({
     defaultValues,
     resolver,
   });
-
-  useEffect(() => {
-    try {
-      log('checking for api status');
-      checkApiStatus();
-
-      const interval = window.setInterval(() => {
-        if (isOnline && pageVisible) {
-          checkApiStatus();
-        }
-      }, 15000);
-      return () => {
-        window.clearInterval(interval);
-      };
-    } catch (error) {
-      setApiStatus('hors ligne');
-      logError('api offline');
-    }
-  }, [pageVisible, isOnline]);
-
-  function checkApiStatus() {
-    fetch(API_STATUS_CLINIKO)
-      .then((response) => response.json())
-      .then((body: CreatePatientAPIResponseBody) => {
-        if (body.status === API_RESPONSE_STATUS.SUCCESS) {
-          setApiStatus('en ligne');
-        }
-      })
-      .catch((error) => {
-        setApiStatus('hors ligne');
-        logError('api offline');
-      });
-  }
 
   function scrollToSubmit() {
     const recaptchatPos = submitButtonRef.current ? submitButtonRef.current.offsetTop : 0;

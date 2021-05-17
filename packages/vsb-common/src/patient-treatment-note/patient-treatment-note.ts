@@ -41,17 +41,17 @@ export type PatientTreatmentNote = {
 };
 
 export type PatientTreatmentNoteSection = {
-  name: string; // 'Processus vasectomie';
-  questions: [
+  name?: string; // 'Processus vasectomie';
+  questions?: [
     {
-      name: string; // 'Statut du patient';
-      type: 'radiobuttons';
-      answers: PatientTreatmentNoteAnswer[];
+      name?: string; // 'Statut du patient';
+      type?: 'radiobuttons';
+      answers?: PatientTreatmentNoteAnswer[];
     }
   ];
 };
 
 export type PatientTreatmentNoteAnswer = {
-  value: string; // 'Nouveau (en attente du formulaire pré-op)';
+  value?: string; // 'Nouveau (en attente du formulaire pré-op)';
   selected?: boolean;
 };

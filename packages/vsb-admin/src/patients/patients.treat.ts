@@ -1,4 +1,4 @@
-import { Theme } from '@newrade/core-react-ui/lib/design-system';
+import { Theme } from '@newrade/core-react-ui';
 import { style } from 'treat';
 
 export const styles = {

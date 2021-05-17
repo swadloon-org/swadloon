@@ -1,5 +1,5 @@
 ---
-name: Theming
+name: Theming - 🎛
 tags:
   - tech
   - code
@@ -7,8 +7,11 @@ tags:
 ---
 
 <DocHeader props={props}/>
+<<<<<<< HEAD
 
 ## Theming - 🎛
+=======
+>>>>>>> refs/remotes/origin/dev
 
 Based on the established foundations, we have developed a theming system that
 allows designers and developers to configure, via simple
