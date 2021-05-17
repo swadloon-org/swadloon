@@ -88,7 +88,7 @@ export const Patients: React.FC<Props> = ({ id, style, className, ...props }) =>
 
       intervalRef.current = window.setInterval(() => {
         getPatients();
-      }, 30000);
+      }, 15 * 60 * 1000);
       return () => {
         if (intervalRef.current) {
           window.clearInterval(intervalRef.current);
