@@ -12,8 +12,7 @@ export const DocTags = ({ props }: Props) => {
   const { cssTheme } = useTreatTheme();
 
   return (
-    <Cluster justifyContent={['flex-start']} gap={[cssTheme.sizing.var.x1]}>
-      {/* <pre>{JSON.stringify(props, null, 2)}</pre> */}
+    <Cluster justifyContent={['flex-start']} gap={[cssTheme.sizing.var.x1]} wrap={true}>
       {props?.data?.file?.childMdx?.frontmatter?.tags?.map((tag, index) => (
         <Tag key={index}>{tag}</Tag>
       ))}
