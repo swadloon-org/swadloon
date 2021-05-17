@@ -6,10 +6,13 @@ tags:
 
 <!-- CODE IMPORTS -->
 
-import { Tables } from '../../src/code/tables.code';
+<!-- prettier-ignore -->
+import { Tables } from '../../src/code/tables.code'; 
 import TablesCode from '!!raw-loader!../../src/code/tables.code.tsx';
 
 <!-- END CODE IMPORTS -->
+
+<DocHeader props={props}/>
 
 ## Tables
 

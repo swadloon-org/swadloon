@@ -6,6 +6,7 @@ tags:
 
 <!-- CODE IMPORTS -->
 
+<!-- prettier-ignore -->
 import { Headings } from '../../src/code/headings.code';
 
 <!-- END CODE IMPORTS -->

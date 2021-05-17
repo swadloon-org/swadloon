@@ -6,11 +6,14 @@ tags:
 
 <!-- CODE IMPORTS -->
 
+<!-- prettier-ignore -->
 import { TransitionColors } from '../../src/code/css-transition-colors.code';
 
 <!-- END CODE IMPORTS -->
 
-# Motion
+<DocHeader props={props}/>
+
+## Motion
 
 ## Colors
 

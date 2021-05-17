@@ -2,7 +2,9 @@
 name: Accueil
 ---
 
-# Design System Documentation
+<DocHeader props={props}/>
+
+## Design System Documentation
 
 These are the principles that shape how we design every aspect of the
 interfaces.

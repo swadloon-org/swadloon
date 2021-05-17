@@ -8,15 +8,37 @@ tags:
 <!-- CODE IMPORTS -->
 
 <!-- prettier-ignore -->
-import { Footers } from '../../src/code/footers.code'; 
-import FootersCode from '!!raw-loader!../../src/code/footers.code.tsx';
+import { FootersSimple } from '../../src/code/footer-simple.code'; 
+import FootersSimpleCode from '!!raw-loader!../../src/code/footer-simple.code.tsx';
+import { FootersStandard } from '../../src/code/footer-standard.code'; 
+import FootersStandardCode from '!!raw-loader!../../src/code/footer-standard.code.tsx';
+import { FootersEnterprise} from '../../src/code/footer-enterprise.code'; 
+import FootersEnterpriseCode from '!!raw-loader!../../src/code/footer-enterprise.code.tsx';
 
 <!-- END CODE IMPORTS -->
 
-# Footers
+<DocHeader props={props}/>
+
+## Footer Simple
 
 <ThemeWrapper>
-  <Footers />
+  <FootersSimple />
 </ThemeWrapper>
 
-<CodeBlock>{FootersCode}</CodeBlock>
+<CodeBlock>{FootersSimpleCode}</CodeBlock>
+
+## Footer Standard
+
+<ThemeWrapper>
+  <FootersStandard />
+</ThemeWrapper>
+
+<CodeBlock>{FootersStandardCode}</CodeBlock>
+
+## Footer Enterprise
+
+<ThemeWrapper>
+  <FootersEnterprise />
+</ThemeWrapper>
+
+<CodeBlock>{FootersEnterpriseCode}</CodeBlock>

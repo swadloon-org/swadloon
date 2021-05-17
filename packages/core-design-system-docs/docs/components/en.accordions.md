@@ -6,12 +6,13 @@ tags:
 
 <!-- CODE IMPORTS -->
 
-import { Accordions } from '../../src/code/accordions.code';
+<!-- prettier-ignore -->
+import { Accordions } from '../../src/code/accordions.code'; 
 import AccordionsCode from '!!raw-loader!../../src/code/accordions.code.tsx';
 
 <!-- END CODE IMPORTS -->
 
-## Accordion
+<DocHeader props={props}/>
 
 <ThemeWrapper>
   <Accordions />

@@ -6,24 +6,21 @@ tags:
 
 <!-- CODE IMPORTS -->
 
-import { Links } from '../../src/code/links.code';
+<!-- prettier-ignore -->
+import { Links } from '../../src/code/links.code'; 
 import LinksCode from '!!raw-loader!../../src/code/links.code.tsx';
-
-import { LinksLevel } from '../../src/code/links-level.code';
+import { LinksLevel } from '../../src/code/links-level.code'; 
 import LinksLevelCode from '!!raw-loader!../../src/code/links-level.code.tsx';
-
-import { LinksSizes } from '../../src/code/links-sizes.code';
+import { LinksSizes } from '../../src/code/links-sizes.code'; 
 import LinksSizesCode from '!!raw-loader!../../src/code/links-sizes.code.tsx';
-
-import { LinksIcon } from '../../src/code/links-icon.code';
+import { LinksIcon } from '../../src/code/links-icon.code'; 
 import LinksIconCode from '!!raw-loader!../../src/code/links-icon.code.tsx';
-
-import { LinksExternal } from '../../src/code/links-external.code';
+import { LinksExternal } from '../../src/code/links-external.code'; 
 import LinksExternalCode from '!!raw-loader!../../src/code/links-external.code.tsx';
 
 <!-- END CODE IMPORTS -->
 
-# Links
+<DocHeader props={props}/>
 
 ## Variant
 

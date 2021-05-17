@@ -8,4 +8,6 @@ tags:
 
 <!-- END CODE IMPORTS -->
 
+<DocHeader props={props}/>
+
 ## Background Effect

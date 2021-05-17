@@ -4,7 +4,9 @@ tags:
   - demo
 ---
 
-# Demos - 🍿
+<DocHeader props={props}/>
+
+## Demos - 🍿
 
 We use the Design System for every project that we create. Here's a few notable
 examples in the wild:

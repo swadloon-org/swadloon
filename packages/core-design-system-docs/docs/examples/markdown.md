@@ -7,6 +7,8 @@ tags:
 export const lorenipsum =
 `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris esse cillum dolore eu fugiat nulla pariatur.`;
 
+<DocHeader props={props}/>
+
 ## Content sectioning
 
 > Content sectioning elements allow you to organize the document content into

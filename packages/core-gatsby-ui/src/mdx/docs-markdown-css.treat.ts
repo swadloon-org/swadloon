@@ -111,12 +111,6 @@ globalStyle(`${wrapper} p + table`, ({ cssTheme, theme }: Theme) => ({
 globalStyle(`${wrapper} li p + p`, ({ cssTheme, theme }: Theme) => ({
   marginBottom: '1.25em',
 }));
-globalStyle(
-  `${wrapper} p *, ${wrapper} p *::before, ${wrapper} p *::after`,
-  ({ cssTheme, theme }: Theme) => ({
-    display: 'inline-block',
-  })
-);
 
 globalStyle(`${wrapper} ul + p`, ({ cssTheme, theme }: Theme) => ({
   marginTop: '1.125em',

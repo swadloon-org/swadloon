@@ -6,38 +6,33 @@ tags:
 
 <!-- CODE IMPORTS -->
 
-import { SectionsDivider } from '../../src/code/sections-divider.code';
+<!-- prettier-ignore -->
+import { SectionsDivider } from '../../src/code/sections-divider.code'; 
 import SectionsDividerCode from '!!raw-loader!../../src/code/sections-divider.code.tsx';
-
-import { SectionsPrimaryReversed } from '../../src/code/sections-primary-reversed.code';
+import { SectionsPrimaryReversed } from '../../src/code/sections-primary-reversed.code'; 
 import SectionsPrimaryReversedCode from '!!raw-loader!../../src/code/sections-primary-reversed.code.tsx';
-
-import { SectionsPrimary } from '../../src/code/sections-primary.code';
+import { SectionsPrimary } from '../../src/code/sections-primary.code'; 
 import SectionsPrimaryCode from '!!raw-loader!../../src/code/sections-primary.code.tsx';
-
 import { SectionsSecondary } from '../../src/code/sections-secondary.code';
 import SectionsSecondaryCode from '!!raw-loader!../../src/code/sections-secondary.code.tsx';
-
-import { SectionsSwitcher } from '../../src/code/sections-switcher.code';
+import { SectionsSwitcher } from '../../src/code/sections-switcher.code'; 
 import SectionsSwitcherCode from '!!raw-loader!../../src/code/sections-switcher.code.tsx';
-
-import { SectionsBanner } from '../../src/code/sections-banner.code';
+import { SectionsBanner } from '../../src/code/sections-banner.code'; 
 import SectionsBannerCode from '!!raw-loader!../../src/code/sections-banner.code.tsx';
-
-import { SectionsCallOut } from '../../src/code/sections-callout.code';
+import { SectionsCallOut } from '../../src/code/sections-callout.code'; 
 import SectionsCallOutCode from '!!raw-loader!../../src/code/sections-callout.code.tsx';
-
 import { SectionsStatement } from '../../src/code/sections-statement.code';
 import SectionsStatementCode from '!!raw-loader!../../src/code/sections-statement.code.tsx';
-
-import { SectionsShowCase } from '../../src/code/sections-showcase.code';
+import { SectionsShowCase } from '../../src/code/sections-showcase.code'; 
 import SectionsShowCaseCode from '!!raw-loader!../../src/code/sections-showcase.code.tsx';
 
 <!-- END CODE IMPORTS -->
 
-# Sections
+<DocHeader props={props}/>
 
-Sections are high level components to organize content in pages. They have predefined layouts, each in a dedicated components. Content inside Sections should always be contained in one of the Blocks.
+Sections are high level components to organize content in pages. They have
+predefined layouts, each in a dedicated components. Content inside Sections
+should always be contained in one of the Blocks.
 
 ## Base Section Component
 

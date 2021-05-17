@@ -6,11 +6,12 @@ tags:
 
 <!-- CODE IMPORTS -->
 
+<!-- prettier-ignore -->
 import { BoxShadows } from '../../src/code/box-shadows.code';
 
 <!-- END CODE IMPORTS -->
 
-## Shadows
+<DocHeader props={props}/>
 
 ## Box Shadows
 
