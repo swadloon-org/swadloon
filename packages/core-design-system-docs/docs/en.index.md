@@ -5,11 +5,6 @@ tags:
 ---
 
 <DocHeader props={props}/>
-<<<<<<< HEAD
-
-## Design System Documentation
-=======
->>>>>>> refs/remotes/origin/dev
 
 > These are the principles that shape how we design every aspect of user
 > interfaces.
