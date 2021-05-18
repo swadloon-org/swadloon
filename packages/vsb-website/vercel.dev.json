@@ -1,8 +1,8 @@
 {
   "rewrites": [
     {
-      "source": "/admin/(.*)",
-      "destination": "https://dev.admin.vasectomie-pierre-boucher.ca/$1"
+      "source": "/admin(.*)",
+      "destination": "https://dev.admin.vasectomie-pierre-boucher.ca$1"
     },
     {
       "source": "/docs/(.*)",
