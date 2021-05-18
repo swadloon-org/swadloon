@@ -15,11 +15,7 @@ import { ColorAccent } from '../../src/code/color-accent.code';
 
 <DocHeader props={props}/>
 
-<<<<<<< HEAD
-# Colors - 🌈
-=======
 ## Primary
->>>>>>> refs/remotes/origin/dev
 
 <ThemeWrapper>
   <ColorPrimary />

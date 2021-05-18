@@ -19,9 +19,6 @@ import FootersEnterpriseCode from '!!raw-loader!../../src/code/footer-enterprise
 
 <DocHeader props={props}/>
 
-<<<<<<< HEAD
-## Footer Simple
-=======
 > The HTML `<footer>` element represents a footer for its nearest sectioning
 > content or sectioning root element. A `<footer>` typically contains
 > information about the author of the section, copyright data or links to
@@ -30,7 +27,6 @@ import FootersEnterpriseCode from '!!raw-loader!../../src/code/footer-enterprise
 > [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer)
 
 ## Simple
->>>>>>> refs/remotes/origin/dev
 
 <ThemeWrapper>
   <FootersSimple />
