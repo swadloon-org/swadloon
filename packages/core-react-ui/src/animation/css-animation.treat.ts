@@ -61,6 +61,199 @@ export const animations = {
     },
     ...commonAnimationStyle,
   })),
+  bounceIn: style(({ theme, cssTheme }: Theme) => ({
+    '@keyframes': {
+      'from,5%,20%,40%,60%,80%,to': {
+        animationTimingFunction: 'cubic-bezier(0.215, 0.61, 0.355, 1)',
+      },
+      '0%': {
+        opacity: 0,
+        transform: 'scale3d(0.3, 0.3, 0.3)',
+      },
+      '20%': {
+        transform: 'scale3d(1.1, 1.1, 1.1)',
+      },
+      '40%': {
+        transform: 'scale3d(0.9, 0.9, 0.9)',
+      },
+      '60%': {
+        opacity: 1,
+        transform: 'scale3d(1.03, 1.03, 1.03)',
+      },
+      '80%': {
+        transform: 'scale3d(0.97, 0.97, 0.97)',
+      },
+      to: {
+        opacity: 1,
+        transform: 'scale3d(1, 1, 1)',
+      },
+    },
+    ...commonAnimationStyle,
+  })),
+  bounceInDown: style(({ theme, cssTheme }: Theme) => ({
+    '@keyframes': {
+      'from,60%,75%,90%,to': {
+        animationTimingFunction: 'cubic-bezier(0.215, 0.61, 0.355, 1)',
+      },
+      '0%': {
+        opacity: 0,
+        transform: 'translate3d(0, -3000px, 0) scaleY(3)',
+      },
+      '60%': {
+        opacity: 1,
+        transform: 'translate3d(0, 25px, 0) scaleY(0.9)',
+      },
+      '75%': {
+        transform: 'translate3d(0, -10px, 0) scaleY(0.95)',
+      },
+      '90%': {
+        transform: 'translate3d(0, 5px, 0) scaleY(0.985)',
+      },
+      to: {
+        transform: 'translate3d(0, 0, 0)',
+      },
+    },
+    ...commonAnimationStyle,
+  })),
+  bounceInLeft: style(({ theme, cssTheme }: Theme) => ({
+    '@keyframes': {
+      'from,60%,75%,90%,to': {
+        animationTimingFunction: 'cubic-bezier(0.215, 0.61, 0.355, 1)',
+      },
+      '0%': {
+        opacity: 0,
+        transform: 'translate3d(-3000px, 0, 0) scaleX(3)',
+      },
+      '60%': {
+        opacity: 1,
+        transform: 'translate3d(25px, 0, 0) scaleX(1)',
+      },
+      '75%': {
+        transform: 'translate3d(-10px, 0, 0) scaleX(0.98)',
+      },
+      '90%': {
+        transform: 'translate3d(5px, 0, 0) scaleX(0.995)',
+      },
+      to: {
+        transform: 'translate3d(0, 0, 0)',
+      },
+    },
+    ...commonAnimationStyle,
+  })),
+  bounceInRight: style(({ theme, cssTheme }: Theme) => ({
+    '@keyframes': {
+      'from,60%,75%,90%,to': {
+        animationTimingFunction: 'cubic-bezier(0.215, 0.61, 0.355, 1)',
+      },
+      '0%': {
+        opacity: 0,
+        transform: 'translate3d(3000px, 0, 0) scaleX(3)',
+      },
+      '60%': {
+        opacity: 1,
+        transform: 'translate3d(-25px, 0, 0) scaleX(1)',
+      },
+      '75%': {
+        transform: 'translate3d(10px, 0, 0) scaleX(0.98)',
+      },
+      '90%': {
+        transform: 'translate3d(-5px, 0, 0) scaleX(0.995)',
+      },
+      to: {
+        transform: 'translate3d(0, 0, 0)',
+      },
+    },
+    ...commonAnimationStyle,
+  })),
+  bounceInUp: style(({ theme, cssTheme }: Theme) => ({
+    '@keyframes': {
+      'from,60%,75%,90%,to': {
+        animationTimingFunction: 'cubic-bezier(0.215, 0.61, 0.355, 1)',
+      },
+      '0%': {
+        opacity: 0,
+        transform: 'translate3d(0, 3000px, 0) scaleY(5)',
+      },
+      '60%': {
+        opacity: 1,
+        transform: 'translate3d(0, -20px, 0) scaleY(0.9)',
+      },
+      '75%': {
+        transform: 'translate3d(0, 10px, 0) scaleY(0.95)',
+      },
+      '90%': {
+        transform: 'translate3d(0, -5px, 0) scaleY(0.985)',
+      },
+      to: {
+        transform: 'translate3d(0, 0, 0)',
+      },
+    },
+    ...commonAnimationStyle,
+  })),
+  fadeIn: style(({ theme, cssTheme }: Theme) => ({
+    '@keyframes': {
+      '0%': {
+        opacity: 0,
+      },
+      '100%': {
+        opacity: 1,
+      },
+    },
+    ...commonAnimationStyle,
+    animationTimingFunction: 'var(--animation-func, ease-out)',
+  })),
+  fadeInDown: style(({ theme, cssTheme }: Theme) => ({
+    '@keyframes': {
+      from: {
+        opacity: 0,
+        transform: 'translate3d(0, -100%, 0)',
+      },
+      to: {
+        opacity: 1,
+        transform: 'translate3d(0, 0, 0)',
+      },
+    },
+    ...commonAnimationStyle,
+  })),
+  fadeInLeft: style(({ theme, cssTheme }: Theme) => ({
+    '@keyframes': {
+      from: {
+        opacity: 0,
+        transform: 'translate3d(-100%, 0, 0)',
+      },
+      to: {
+        opacity: 1,
+        transform: 'translate3d(0, 0, 0)',
+      },
+    },
+    ...commonAnimationStyle,
+  })),
+  fadeInRight: style(({ theme, cssTheme }: Theme) => ({
+    '@keyframes': {
+      from: {
+        opacity: 0,
+        transform: 'translate3d(100%, 0, 0)',
+      },
+      to: {
+        opacity: 1,
+        transform: 'translate3d(0, 0, 0)',
+      },
+    },
+    ...commonAnimationStyle,
+  })),
+  fadeInUp: style(({ theme, cssTheme }: Theme) => ({
+    '@keyframes': {
+      from: {
+        opacity: 0,
+        transform: 'translate3d(0, 100%, 0)',
+      },
+      to: {
+        opacity: 1,
+        transform: 'translate3d(0, 0, 0)',
+      },
+    },
+    ...commonAnimationStyle,
+  })),
   fadeOut: style(({ theme, cssTheme }: Theme) => ({
     '@keyframes': {
       '0%': {
@@ -73,13 +266,16 @@ export const animations = {
     ...commonAnimationStyle,
     animationTimingFunction: 'var(--animation-func, ease-out)',
   })),
-  fadeIn: style(({ theme, cssTheme }: Theme) => ({
+  pulse: style(({ theme, cssTheme }: Theme) => ({
     '@keyframes': {
       '0%': {
-        opacity: 0,
+        transform: 'scale3d(1, 1, 1)',
+      },
+      '50%': {
+        transform: 'scale3d(1, 1, 1)',
       },
       '100%': {
-        opacity: 1,
+        transform: 'scale3d(1.05, 1.05, 1.05)',
       },
     },
     ...commonAnimationStyle,
