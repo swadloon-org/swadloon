@@ -1,7 +1,9 @@
 ---
 name: Layout Components
+description: Responsive layout components to handle basic layout needs.
 tags:
-  - test
+  - layout
+  - component
 ---
 
 <!-- CODE IMPORTS -->
@@ -26,38 +28,44 @@ import LayoutSwitcherCode from '!!raw-loader!../../src/code/switcher.code.tsx';
 
 <DocHeader props={props}/>
 
-## Layout Components
+## Box
 
-Reusable and responsive primitive layout components.
+The `<Box/>` component is a flex container with padding.
 
-### Box
+<ThemeWrapper>
+  <LayoutBoxV2 />
+</ThemeWrapper>
 
-Flex container with padding.
-
-<LayoutBoxV2 />
 <CodeBlock>{LayoutBoxV2Code}</CodeBlock>
 
-<LayoutBoxV3 />
+### Box [v3]
+
+<TagStatus name="version" status="v3"></TagStatus>
+
+Test for BoxV3. Here the `padding` prop uses the new template literal feature
+available in TypeScript `v4.1`.
+
+<ThemeWrapper>
+  <LayoutBoxV3 />
+</ThemeWrapper>
+
 <CodeBlock>{LayoutBoxV3Code}</CodeBlock>
 
-Test for BoxV3. Here the <Code>padding</Code> prop uses the new template literal
-feature available in TypeScript v4.1.
-
-### Center
+## Center
 
 Center content respecting the content margin set on each viewport.
 
 <LayoutCenter />
 <CodeBlock>{LayoutCenterCode}</CodeBlock>
 
-### Stack
+## Stack
 
 Vertical grid container.
 
 <LayoutStack />
 <CodeBlock>{LayoutStackCode}</CodeBlock>
 
-### Switcher
+## Switcher
 
 Used to separate 2 or more blocks horizontally on desktop and vertically on
 mobile.
@@ -65,14 +73,14 @@ mobile.
 <LayoutSwitcher />
 <CodeBlock>{LayoutSwitcherCode}</CodeBlock>
 
-### Cluster
+## Cluster
 
 Used to inline content horizontally without wrapping.
 
 <LayoutCluster />
 <CodeBlock>{LayoutClusterCode}</CodeBlock>
 
-### Grid
+## Grid
 
 Used to make a grid of content horizontally or vertically.
 

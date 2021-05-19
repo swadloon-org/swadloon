@@ -70,6 +70,7 @@ export * from './table/table-cell-header';
 export * from './table/table-header';
 export * from './table/table-row';
 export * from './tag/tag';
+export * from './tag/tag-status';
 export * from './text/details';
 export * from './text/heading';
 export * from './text/hr';

@@ -263,7 +263,9 @@ export function getCSSLinearGradient({
   stops,
 }: DS.ColorGradient): Property.Background<string> {
   return `linear-gradient(${angle.value}${angle.unit}, ${stops
-    .map((stop) => `${getCSSColor(stop.color)} ${stop.position || ''}`)
+    .map(
+      (stop) => `${getCSSColor(stop.color)} ${stop.position !== undefined ? stop.position : '0'}%`
+    )
     .join(',')})`;
 }
 

@@ -10,7 +10,7 @@ export const wrapper = style(({ theme, cssTheme }: Theme) => ({
  */
 
 const contentMarginSmall = `1.4em`;
-const contentMargin = `2em`;
+const contentMargin = `1.5em`;
 const halfcontentMargin = `1em`;
 
 /**
@@ -53,11 +53,11 @@ globalStyle(
 globalStyle(
   `${wrapper} > * + h1, ${wrapper} > * + h2, ${wrapper} > * + h3, ${wrapper} >  * + h4, ${wrapper} > * + h5, ${wrapper} > * + h6`,
   ({ cssTheme, theme }: Theme) => ({
-    marginTop: '2em',
+    marginTop: contentMargin,
   })
 );
 
-globalStyle(`${wrapper} hr`, ({ cssTheme, theme }: Theme) => ({
+globalStyle(`${wrapper} > hr`, ({ cssTheme, theme }: Theme) => ({
   marginTop: '20px',
   marginBottom: 0,
 }));
@@ -95,7 +95,7 @@ globalStyle(
   })
 );
 
-globalStyle(`${wrapper} p`, ({ cssTheme, theme }: Theme) => ({
+globalStyle(`${wrapper} > p`, ({ cssTheme, theme }: Theme) => ({
   marginTop: '1.5em',
   marginBottom: '1.5em',
 }));
@@ -124,8 +124,12 @@ globalStyle(`${wrapper} ul + ul`, ({ cssTheme, theme }: Theme) => ({
   marginTop: '1.125em',
 }));
 
+globalStyle(`${wrapper} ul + div`, ({ cssTheme, theme }: Theme) => ({
+  marginTop: '1.125em',
+}));
+
 globalStyle(`${wrapper} ul > li`, ({ cssTheme, theme }: Theme) => ({
-  marginTop: '0.5em',
+  marginTop: '0.2em',
 }));
 
 globalStyle(`${wrapper} ul > li:nth-child(1)`, ({ cssTheme, theme }: Theme) => ({
@@ -172,13 +176,13 @@ globalStyle(`${wrapper} figcaption`, ({ cssTheme, theme }: Theme) => ({
   marginTop: '1.5em',
 }));
 
-globalStyle(`${wrapper} p + blockquote`, ({ cssTheme, theme }: Theme) => ({
-  marginTop: '2em',
-  marginBottom: '2em',
+globalStyle(`${wrapper} * + blockquote`, ({ cssTheme, theme }: Theme) => ({
+  marginTop: contentMargin,
+  marginBottom: contentMargin,
 }));
 
 globalStyle(`${wrapper} blockquote + *`, ({ cssTheme, theme }: Theme) => ({
-  marginTop: '2em',
+  marginTop: contentMargin,
 }));
 
 globalStyle(`${wrapper} p + iframe`, ({ cssTheme, theme }: Theme) => ({
@@ -206,7 +210,7 @@ globalStyle(`${wrapper} details + p`, ({ cssTheme, theme }: Theme) => ({
  */
 
 globalStyle(`${wrapper} table`, ({ cssTheme, theme }: Theme) => ({
-  marginBottom: '2em',
+  marginBottom: contentMargin,
   borderCollapse: 'separate',
   width: '100%',
 }));
@@ -285,7 +289,7 @@ globalStyle(`${wrapper} ul + pre`, ({ cssTheme, theme }: Theme) => ({
 }));
 
 globalStyle(`${wrapper} pre + pre`, ({ cssTheme, theme }: Theme) => ({
-  marginTop: '2em',
+  marginTop: contentMargin,
   marginBottom: '1.5em',
 }));
 
@@ -303,26 +307,26 @@ globalStyle(`${wrapper} em`, ({ cssTheme, theme }: Theme) => ({
 
 globalStyle(`${wrapper} strong`, ({ cssTheme, theme }: Theme) => ({
   fontSize: '16px',
-  fontWeight: 600,
+  fontWeight: 700,
 }));
 
 globalStyle(`${wrapper} > h1`, ({ cssTheme, theme }: Theme) => ({
   fontFamily: 'Inter',
-  fontWeight: 600,
+  fontWeight: 700,
   letterSpacing: '-0.01em',
   fontSize: '48px',
 }));
 
 globalStyle(`${wrapper} > h2`, ({ cssTheme, theme }: Theme) => ({
   fontFamily: 'Inter',
-  fontWeight: 600,
+  fontWeight: 700,
   letterSpacing: '0',
   fontSize: '32px',
 }));
 
 globalStyle(`${wrapper} > h3`, ({ cssTheme, theme }: Theme) => ({
   fontFamily: 'Inter',
-  fontWeight: 600,
+  fontWeight: 700,
   letterSpacing: '0',
   fontSize: '24px',
 }));

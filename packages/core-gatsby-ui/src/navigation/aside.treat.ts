@@ -10,7 +10,7 @@ export const styles = {
     width: cssTheme.layout.asideWidth,
     padding: '2em',
 
-    gap: cssTheme.sizing.var.x3,
+    gap: cssTheme.sizing.var.x1,
 
     backgroundColor: 'transparent',
 
@@ -20,20 +20,36 @@ export const styles = {
       },
     },
   })),
-  link: style(({ cssTheme, theme }: Theme) => ({
-    color: 'inherit',
-    textDecoration: 'none',
-    fontWeight: 400,
-  })),
   linksWrapper: style(({ cssTheme, theme }: Theme) => ({
     display: 'grid',
-    gap: cssTheme.sizing.var.x2,
-    borderLeft: `1px solid ${cssTheme.colors.colors.grey[50]}`,
     paddingTop: '0.2em',
     paddingBottom: '0.3em',
-    paddingLeft: '1em',
+    paddingLeft: '1.5em',
+    overflow: 'hidden',
+  })),
+  link: style(({ cssTheme, theme }: Theme) => ({
+    position: 'relative',
+    color: cssTheme.colors.colorIntents.primaryText,
+    listStyle: 'none',
+    textDecoration: 'none',
+    lineHeight: `1.5em`,
+    fontWeight: 600,
+    selectors: {
+      [`&:before`]: {
+        height: 'var(--aside-before-height, 2em)',
+        top: 'var(--aside-before-top, -1.7em)',
+
+        content: '""',
+        width: '.9em',
+        position: 'absolute',
+        left: '-1.5em',
+        border: `1px solid ${cssTheme.colors.colors.grey[100]}`,
+        borderWidth: '0 0 1px 1px',
+      },
+    },
   })),
   linkSelected: style(({ cssTheme, theme }: Theme) => ({
     fontWeight: 600,
+    color: cssTheme.colors.colorIntents.primary,
   })),
 };

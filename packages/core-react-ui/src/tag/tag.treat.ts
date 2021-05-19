@@ -6,7 +6,7 @@ import { globalThemeReversedSelector } from '../global/global-theme-classnames';
  * Base
  */
 export const base = style(({ theme, cssTheme }: Theme) => ({
-  display: 'flex',
+  display: 'inline-flex',
   width: 'max-content',
   wordBreak: 'normal',
   border: `1px solid`,

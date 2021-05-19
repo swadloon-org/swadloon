@@ -1,11 +1,12 @@
-import { BoxV2, Label, Stack } from '@newrade/core-react-ui';
+import { LABEL_SIZE, LinkVariant, PARAGRAPH_SIZE, TEXT_STYLE } from '@newrade/core-design-system';
+import { BoxV2, Label, Link, Stack } from '@newrade/core-react-ui';
 import { formatAnchorId } from '@newrade/core-react-ui/lib/utilities';
 import { WindowLocation } from '@reach/router';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './aside.treat';
 
-type AsideItem<TState = any> = {
+type AsideItem = {
   value?: string | null;
   depth?: number | null;
 } | null;
@@ -22,22 +23,51 @@ export const Aside: React.FC<Props> = (props) => {
   return (
     <BoxV2 as={'aside'} className={styles.wrapper}>
       <Stack as={'nav'} className={styles.wrapper}>
-        <div className={styles.linksWrapper}>
-          {props.items?.filter(filterItemDepthPredicate).map((item) => {
+        <Label variant={LABEL_SIZE.small} variantStyle={TEXT_STYLE.boldUppercase}>
+          In this page
+        </Label>
+        <ul className={styles.linksWrapper}>
+          {props.items?.filter(filterItemDepthPredicate).map((item, index) => {
             const href = `#${formatAnchorId(item?.value)}`;
             const selected = formatAnchorId(item?.value) === currentId;
             return (
-              <a href={href} className={styles.link} key={formatAnchorId(item?.value)}>
-                <Label
+              <li
+                style={{
+                  marginLeft: item?.depth ? (item.depth - 2) * 30 : '',
+                  marginTop: item?.depth ? `1em` : '',
+                  // @ts-ignore
+                  '--aside-before-top':
+                    index === 0
+                      ? `-0.7em`
+                      : // @ts-ignore
+                      item?.depth > 2 && props.items[index - 1]?.depth < item?.depth
+                      ? `-0.6em`
+                      : '',
+                  // @ts-ignore
+                  '--aside-before-height':
+                    index === 0
+                      ? `1em`
+                      : // @ts-ignore
+                      item?.depth > 2 && props.items[index - 1]?.depth < item?.depth
+                      ? `1em`
+                      : '',
+                }}
+                className={`${styles.link} ${selected ? styles.linkSelected : ''}`}
+                key={formatAnchorId(item?.value)}
+              >
+                <Link
+                  style={{ color: 'inherit', fontWeight: 'inherit' }}
+                  variant={LinkVariant.noUnderline}
+                  variantSize={PARAGRAPH_SIZE.small}
+                  href={href}
                   id={`aside-link-${item?.value}`}
-                  className={`${styles.link} ${selected ? styles.linkSelected : ''}`}
                 >
                   {item?.value}
-                </Label>
-              </a>
+                </Link>
+              </li>
             );
           })}
-        </div>
+        </ul>
       </Stack>
     </BoxV2>
   );
