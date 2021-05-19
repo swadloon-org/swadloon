@@ -1,5 +1,5 @@
 import { ButtonIcon, ButtonSize, Variant } from '@newrade/core-design-system';
-import { Button, useTreatTheme } from '@newrade/core-react-ui';
+import { Button, Stack, useTreatTheme } from '@newrade/core-react-ui';
 import { IoArrowForwardOutline } from '@react-icons/all-files/io5/IoArrowForwardOutline';
 import React from 'react';
 
@@ -9,7 +9,12 @@ export const ButtonsIcon: React.FC<Props> = (props) => {
   const { theme, cssTheme } = useTreatTheme();
 
   return (
-    <>
+    <Stack
+      style={{
+        gridTemplateColumns: 'repeat(auto-fit, 360px)',
+        gap: 'var(--sizing-x1)',
+      }}
+    >
       <Button
         size={ButtonSize.large}
         icon={ButtonIcon.right}
@@ -225,6 +230,6 @@ export const ButtonsIcon: React.FC<Props> = (props) => {
         icon={ButtonIcon.icon}
         Icon={<IoArrowForwardOutline />}
       ></Button>
-    </>
+    </Stack>
   );
 };

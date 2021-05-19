@@ -1,13 +1,13 @@
 ---
 name: Design System Overview
+description:
+  These are the principles that shape how we design every aspect of user
+  interfaces.
 tags:
   - overview
 ---
 
 <DocHeader props={props}/>
-
-> These are the principles that shape how we design every aspect of user
-> interfaces.
 
 ## Foundations
 
@@ -15,7 +15,7 @@ Foundations are principles and rules that guide the rest of the system. This
 system includes the following subjects:
 
 - **Colors**: What colors are available to use
-- **Colors intents**: How colors should be used
+- **Colors Intents**: How colors should be used
 - **Effects**: How shadows, transparency and other special effects are used
 - **Sizing**: How to size and space out components
 - **Iconography**: What and how icons are used in the system
@@ -25,14 +25,36 @@ system includes the following subjects:
 
 ## Components
 
+Components include all UI elements starting from small, undivisible ones like
+icons, separators... to more complex ones like buttons, inputs and then, larger
+ones like forms, data charts and other high-level components.
+
+This organisation follows the
+[Atomic Design Principles](https://bradfrost.com/blog/post/atomic-web-design/)
+where smaller components (atoms) compose slightly larger ones (molecules) which
+go into even larger and more complete components (organisms).
+
+![Atomic Design Illustration](https://bradfrost.com/wp-content/uploads/2019/06/atomic-design-product.jpg)
+
 ## Effects
+
+Effects are applied usually used by components, they include:
+
+- Shadows (both outer and inner)
+- Text Shadows
+- Overlay Effects (transparency)
+
+One way to have consistency between effect is to have predefined effects, e.g. 3
+level of box shadow, that components can use, resulting in fewer versions of
+those.
 
 ## Animations
 
 ## Content
 
 Every website or app has to place content (text, images, video, forms, etc) in a
-page or a view. As designers and developers we do this quite **often**.
+page or a view. As designers and developers we have to think about this for
+every project.
 
 The following is an opinionated way of seeing the content we place on pages. We
 call this the **Website API**.
@@ -53,9 +75,10 @@ references and design systems.
 - [Color within Constraints](https://medium.com/tap-to-dismiss/color-within-constraints-d6f777a3b72d):
   _A scalable color system for digital products_
 
-### Other Design Systems
+### Notable Design Systems
 
-Here are the best and most extensive design system out there:
+Here are, in our opinion, the most notable and extensive design system out
+there:
 
 | Company    | Website                                | Design System                                  |
 | ---------- | -------------------------------------- | ---------------------------------------------- |

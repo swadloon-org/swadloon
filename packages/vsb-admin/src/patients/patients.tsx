@@ -105,12 +105,7 @@ export const Patients: React.FC<Props> = ({ id, style, className, ...props }) =>
   return (
     <Center>
       <Stack gap={[cssTheme.sizing.var.x4]}>
-        {/* <Heading variant={HEADING.h2}>Administration</Heading>
-        <Hr /> */}
-
         <Heading variant={HEADING.h2}>Listes de patients</Heading>
-
-        {result}
 
         <PatientsTable patients={patients} isLoading={isLoading} />
       </Stack>

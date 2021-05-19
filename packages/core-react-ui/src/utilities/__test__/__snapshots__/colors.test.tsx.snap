@@ -123,9 +123,9 @@ Object {
     },
   },
   "gradients": Object {
-    "gradient1": "linear-gradient(45deg, hsl(200deg 50% 78% / 100%) ,hsl(200deg 50% 50% / 100%) 100)",
-    "gradient2": "linear-gradient(45deg, hsl(200deg 50% 78% / 100%) ,hsl(200deg 50% 50% / 100%) 100)",
-    "gradient3": "linear-gradient(45deg, hsl(200deg 50% 78% / 100%) ,hsl(200deg 50% 50% / 100%) 100)",
+    "gradient1": "linear-gradient(45deg, hsl(200deg 50% 78% / 100%) 0%,hsl(200deg 50% 50% / 100%) 100%)",
+    "gradient2": "linear-gradient(45deg, hsl(200deg 50% 78% / 100%) 0%,hsl(200deg 50% 50% / 100%) 100%)",
+    "gradient3": "linear-gradient(45deg, hsl(200deg 50% 78% / 100%) 0%,hsl(200deg 50% 50% / 100%) 100%)",
   },
   "var": Object {
     "colorIntents": Object {

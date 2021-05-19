@@ -2,7 +2,6 @@
   "github": {
     "enabled": false
   },
-  "trailingSlash": true,
   "headers": [
     {
       "source": "/(.*)",
@@ -22,6 +21,7 @@
       ]
     }
   ],
+  "trailingSlash": true,
   "rewrites": [
     {
       "source": "/admin/(.*)",

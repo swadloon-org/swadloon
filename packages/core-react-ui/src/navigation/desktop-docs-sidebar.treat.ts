@@ -8,7 +8,7 @@ export const styles = {
   wrapper: style(({ cssTheme, theme }: Theme) => ({
     position: 'fixed',
     // leave 0.1px since 0px gets transformed to 0 by cssnano...
-    left: `max(0.1px, calc(50% - ${cssTheme.layout.var.sidebarWidth} - ${cssTheme.layout.var.contentWidth.desktopDocsMaxWidth} / 2 - ${cssTheme.sizing.var.x4}))`,
+    left: `max(${cssTheme.layout.var.contentMargins}, calc(50% - ${cssTheme.layout.var.sidebarWidth} - ${cssTheme.layout.var.contentWidth.desktopDocsMaxWidth} / 2 - ${cssTheme.sizing.var.x4}))`,
     bottom: 0,
     marginTop: cssTheme.sizing.var.x5,
     marginBottom: cssTheme.sizing.var.x5,
