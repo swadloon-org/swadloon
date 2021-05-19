@@ -1,7 +1,8 @@
 ---
-name: Shadows
+name: Effects - ✨
 tags:
-  - test
+  - foundations
+  - effects
 ---
 
 <!-- CODE IMPORTS -->
@@ -15,4 +16,12 @@ import { BoxShadows } from '../../src/code/box-shadows.code';
 
 ## Box Shadows
 
-<BoxShadows />
+<ThemeWrapper>
+  <BoxShadows />
+</ThemeWrapper>
+
+## Inner Shadows
+
+## Text Shadows
+
+## Overlays

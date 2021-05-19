@@ -21,6 +21,7 @@ import {
   TableHeader,
   TableRow,
   Tag,
+  TagStatus,
 } from '@newrade/core-react-ui';
 import { Code, CodeBlock, CodeHighlight } from '@newrade/core-react-ui/lib/code';
 import { mdxComponents, MDXProps } from '@newrade/core-react-ui/lib/markdown';
@@ -90,4 +91,5 @@ export const docsMdxComponents = {
   TableCell: TableCell,
   DocTags: DocTags,
   DocHeader: DocHeader,
+  TagStatus: TagStatus,
 };

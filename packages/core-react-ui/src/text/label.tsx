@@ -2,11 +2,13 @@ import { LABEL_SIZE, TEXT_STYLE, Variant } from '@newrade/core-design-system';
 import { kebab, pascal } from 'case';
 import React, { LabelHTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
+import { useCommonProps } from '../hooks/use-common-props.hook';
 import { CommonComponentProps } from '../props/component-common.props';
 import * as stylesRef from './label.treat';
 
 type Props = CommonComponentProps &
   LabelHTMLAttributes<any> & {
+    href?: string;
     variant?: LABEL_SIZE;
     variantStyle?: TEXT_STYLE;
     variantLevel?: Variant;
@@ -18,7 +20,18 @@ const defaultProps: Props = {
 };
 
 export const Label: React.FC<Props> = React.memo(
-  ({ variantStyle, variant, variantLevel, className, htmlFor, children, ...props }) => {
+  ({
+    id,
+    style,
+    className,
+    as,
+    variantStyle,
+    variant,
+    variantLevel,
+    htmlFor,
+    children,
+    ...props
+  }) => {
     const { styles } = useStyles(stylesRef);
 
     // only render label when htmlFor is set
@@ -29,15 +42,25 @@ export const Label: React.FC<Props> = React.memo(
       variant || (defaultProps.variant as string)
     )} ${pascal(kebab(variantStyle || '') || '')}`;
     const child = children ? children : defaultChildrenString;
+    const commonProps = useCommonProps({
+      id,
+      style,
+      className,
+      classNames: [
+        styles.normal,
+        variant ? styles[variant as LABEL_SIZE] : styles[defaultProps.variant as LABEL_SIZE],
+        variantStyle ? styles[variantStyle] : '',
+        variantLevel ? styles[variantLevel] : '',
+      ],
+
+      ...props,
+    });
 
     return React.createElement(
       type,
       {
         htmlFor,
-        className: `${styles.normal} ${className || ''} ${
-          variant ? styles[variant as LABEL_SIZE] : styles[defaultProps.variant as LABEL_SIZE]
-        } ${variantStyle ? styles[variantStyle] : ''} ${variantLevel ? styles[variantLevel] : ''}`,
-        ...props,
+        ...commonProps,
       },
       child
     );

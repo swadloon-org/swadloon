@@ -62,10 +62,12 @@ export const defaultTypography: Typography = {
       h2: {
         capHeight: 18,
         lineGap: 18,
+        letterSpacing: -3,
       },
       h3: {
         capHeight: 16,
         lineGap: 16,
+        letterSpacing: -3,
       },
       h4: {
         capHeight: 14,
@@ -171,11 +173,11 @@ export const defaultTypography: Typography = {
         lineGap: 16,
       },
       small: {
-        fontSize: 12,
+        fontSize: 14,
         lineGap: 14,
       },
       xSmall: {
-        fontSize: 10,
+        fontSize: 12,
         lineGap: 12,
       },
     },

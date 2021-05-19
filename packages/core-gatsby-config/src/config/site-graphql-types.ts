@@ -62,6 +62,8 @@ export type MdxFrontmatter = {
   title: string;
   name?: string;
   tags?: Array<string>;
+  description?: string;
+  version?: string;
 };
 
 export type MdxHeadingMdx = {
@@ -106,7 +108,7 @@ export type MarkdownTemplateQueryVariables = Exact<{
 export type MarkdownTemplateQuery = {
   mdx?: Maybe<
     Pick<Mdx, 'slug' | 'excerpt' | 'timeToRead' | 'tableOfContents' | 'body'> & {
-      frontmatter?: Maybe<Pick<MdxFrontmatter, 'title' | 'name' | 'tags'>>;
+      frontmatter?: Maybe<Pick<MdxFrontmatter, 'title' | 'name' | 'tags' | 'description'>>;
       headings?: Maybe<Array<Maybe<Pick<MdxHeadingMdx, 'value' | 'depth'>>>>;
     }
   >;

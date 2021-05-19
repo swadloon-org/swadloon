@@ -10,7 +10,7 @@ export const styles = {
   desktopSidebar: style(({ cssTheme, theme }: Theme) => ({
     ['@media']: {
       [cssTheme.layout.media.desktopSmall]: {
-        paddingLeft: cssTheme.layout.var.sidebarWidth,
+        paddingLeft: `calc(${cssTheme.layout.var.sidebarWidth} + ${cssTheme.layout.var.contentMargins})`,
       },
     },
   })),

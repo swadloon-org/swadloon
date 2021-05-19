@@ -27,6 +27,7 @@
       "maxDuration": 60
     }
   },
+  "trailingSlash": true,
   "rewrites": [
     {
       "source": "/api/(.*)",

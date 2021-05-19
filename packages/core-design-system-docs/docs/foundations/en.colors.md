@@ -1,6 +1,7 @@
 ---
-name: Colors
+name: Colors - 🌈
 tags:
+  - foundations
   - colors
 ---
 
