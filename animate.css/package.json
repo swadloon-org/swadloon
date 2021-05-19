@@ -1,0 +1,75 @@
+{
+  "name": "animate.css",
+  "version": "4.1.1",
+  "author": {
+    "name": "Animate.css"
+  },
+  "homepage": "https://animate.style/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/animate-css/animate.css.git"
+  },
+  "license": "MIT",
+  "main": "animate.css",
+  "files": [
+    "animate.compat.css",
+    "animate.min.css",
+    "animate.css",
+    "source/**/*.css"
+  ],
+  "scripts": {
+    "compat": "npx postcss source/animate.css -o animate.compat.css --no-map --env compat",
+    "dev": "npx postcss source/animate.css -o animate.css --no-map --env development -w",
+    "docs": "npm-run-all docs:library docs:pages",
+    "docs:library": "npx postcss source/animate.css -o ./docs/animate.min.css --no-map --env production",
+    "docs:pages": "node ./docsSource/index.js",
+    "format": "prettier --write \"**/*.{js,json,md,css}\"",
+    "precommit": "lint-staged",
+    "prod": "npx postcss source/animate.css -o animate.min.css --no-map --env production",
+    "raw": "npx postcss source/animate.css -o animate.css --no-map --env development",
+    "start": "npm-run-all raw prod compat",
+    "version": "npm-run-all start docs && git add -A docs animate.css animate.min.css animate.compat.css",
+    "postversion": "git push && git push --tags"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm-run-all start precommit"
+    }
+  },
+  "lint-staged": {
+    "*.{mjs,js,json,md,css}": [
+      "prettier --write"
+    ]
+  },
+  "animateConfig": {
+    "prefix": "animate__"
+  },
+  "browserslist": [
+    "> 3%",
+    "last 2 versions"
+  ],
+  "jspm": {
+    "directories": {
+      "lib": "./"
+    },
+    "format": "global",
+    "main": "animate.css!"
+  },
+  "style": "./animate.css",
+  "devDependencies": {
+    "autoprefixer": "^10.2.5",
+    "cssnano": "^4.1.10",
+    "eslint": "^7.25.0",
+    "husky": "^4.3.8",
+    "lint-staged": "^10.5.4",
+    "markdown-it": "^12.0.6",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.2.10",
+    "postcss-cli": "^8.3.1",
+    "postcss-header": "^3.0.1",
+    "postcss-import": "^12.0.1",
+    "postcss-prefixer": "^2.1.2",
+    "postcss-preset-env": "^6.7.0",
+    "prettier": "^2.2.1"
+  }
+}

@@ -248,6 +248,122 @@ export const CSSAnimationUncontrolled: React.FC<Props> = (props) => {
       >
         <Placeholder>Zoom In Up Uncontrolled</Placeholder>
       </CSSAnimation>
+
+      <CSSAnimation
+        animation={{
+          name: 'zoomOut',
+        }}
+        showControls={true}
+      >
+        <Placeholder>Zoom Out Uncontrolled</Placeholder>
+      </CSSAnimation>
+
+      <CSSAnimation
+        animation={{
+          name: 'zoomOutDown',
+        }}
+        showControls={true}
+      >
+        <Placeholder>Zoom Out Down Uncontrolled</Placeholder>
+      </CSSAnimation>
+
+      <CSSAnimation
+        animation={{
+          name: 'zoomOutLeft',
+        }}
+        showControls={true}
+      >
+        <Placeholder>Zoom Out Left Uncontrolled</Placeholder>
+      </CSSAnimation>
+
+      <CSSAnimation
+        animation={{
+          name: 'zoomOutRight',
+        }}
+        showControls={true}
+      >
+        <Placeholder>Zoom Out Right Uncontrolled</Placeholder>
+      </CSSAnimation>
+
+      <CSSAnimation
+        animation={{
+          name: 'zoomOutUp',
+        }}
+        showControls={true}
+      >
+        <Placeholder>Zoom Out Up Uncontrolled</Placeholder>
+      </CSSAnimation>
+
+      <CSSAnimation
+        animation={{
+          name: 'slideInDown',
+        }}
+        showControls={true}
+      >
+        <Placeholder>Slide In Down Uncontrolled</Placeholder>
+      </CSSAnimation>
+
+      <CSSAnimation
+        animation={{
+          name: 'slideInLeft',
+        }}
+        showControls={true}
+      >
+        <Placeholder>Slide In Left Uncontrolled</Placeholder>
+      </CSSAnimation>
+
+      <CSSAnimation
+        animation={{
+          name: 'slideInRight',
+        }}
+        showControls={true}
+      >
+        <Placeholder>Slide In Right Uncontrolled</Placeholder>
+      </CSSAnimation>
+
+      <CSSAnimation
+        animation={{
+          name: 'slideInUp',
+        }}
+        showControls={true}
+      >
+        <Placeholder>Slide In Up Uncontrolled</Placeholder>
+      </CSSAnimation>
+      <CSSAnimation
+        animation={{
+          name: 'slideOutDown',
+        }}
+        showControls={true}
+      >
+        <Placeholder>Slide Out Down Uncontrolled</Placeholder>
+      </CSSAnimation>
+
+      <CSSAnimation
+        animation={{
+          name: 'slideOutLeft',
+        }}
+        showControls={true}
+      >
+        <Placeholder>Slide Out Left Uncontrolled</Placeholder>
+      </CSSAnimation>
+
+      <CSSAnimation
+        animation={{
+          name: 'slideOutRight',
+        }}
+        showControls={true}
+      >
+        <Placeholder>Slide Out Right Uncontrolled</Placeholder>
+      </CSSAnimation>
+
+      <CSSAnimation
+        animation={{
+          name: 'slideOutUp',
+        }}
+        showControls={true}
+      >
+        <Placeholder>Slide Out Up Uncontrolled</Placeholder>
+      </CSSAnimation>
     </>
   );
 };

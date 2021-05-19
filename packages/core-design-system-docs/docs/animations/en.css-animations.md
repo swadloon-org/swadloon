@@ -14,6 +14,9 @@ import { CSSBouncingExit } from '../../src/code/css-animation-bouncing-exit.code
 import { CSSFadingEntrance } from '../../src/code/css-animation-fading-entrance.code';
 import { CSSFadingExit } from '../../src/code/css-animation-fading-exit.code';
 import { CSSZoomingEntrance } from '../../src/code/css-animation-zooming-entrance.code';
+import { CSSZoomingExit } from '../../src/code/css-animation-zooming-exit.code';
+import { CSSSlidingEntrance } from '../../src/code/css-animation-sliding-entrance.code';
+import { CSSSlidingExit } from '../../src/code/css-animation-sliding-exit.code';
 
 <!-- END CODE IMPORTS -->
 
@@ -59,6 +62,18 @@ import { CSSZoomingEntrance } from '../../src/code/css-animation-zooming-entranc
 
 ## Zooming Exits
 
+<ThemeWrapper>
+  <CSSZoomingExit />
+</ThemeWrapper>
+
 ## Sliding Entrances
 
+<ThemeWrapper>
+  <CSSSlidingEntrance />
+</ThemeWrapper>
+
 ## Sliding Exits
+
+<ThemeWrapper>
+  <CSSSlidingExit />
+</ThemeWrapper>

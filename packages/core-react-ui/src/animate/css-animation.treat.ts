@@ -474,4 +474,175 @@ export const animations = {
     },
     ...commonAnimationStyle,
   })),
+  zoomOut: style(({ theme, cssTheme }: Theme) => ({
+    '@keyframes': {
+      from: {
+        opacity: 1,
+      },
+      '50%': {
+        opacity: 0,
+        transform: 'scale3d(0.3, 0.3, 0.3)',
+      },
+      to: {
+        opacity: 0,
+      },
+    },
+    ...commonAnimationStyle,
+  })),
+  zoomOutDown: style(({ theme, cssTheme }: Theme) => ({
+    transformOrigin: 'center bottom',
+    '@keyframes': {
+      '40%': {
+        opacity: 1,
+        transform: 'scale3d(0.475, 0.475, 0.475) translate3d(0, -60px, 0)',
+        animationTimingFunction: 'cubic-bezier(0.55, 0.055, 0.675, 0.19)',
+      },
+      to: {
+        opacity: 0,
+        transform: 'scale3d(0.1, 0.1, 0.1) translate3d(0, 2000px, 0)',
+        animationTimingFunction: 'cubic-bezier(0.175, 0.885, 0.32, 1)',
+      },
+    },
+    ...commonAnimationStyle,
+  })),
+  zoomOutLeft: style(({ theme, cssTheme }: Theme) => ({
+    transformOrigin: 'left center',
+    '@keyframes': {
+      '40%': {
+        opacity: 1,
+        transform: 'scale3d(0.475, 0.475, 0.475) translate3d(42px, 0, 0)',
+      },
+      to: {
+        opacity: 0,
+        transform: 'scale(0.1) translate3d(-2000px, 0, 0)',
+      },
+    },
+    ...commonAnimationStyle,
+  })),
+  zoomOutRight: style(({ theme, cssTheme }: Theme) => ({
+    transformOrigin: 'right center',
+    '@keyframes': {
+      '40%': {
+        opacity: 1,
+        transform: 'scale3d(0.475, 0.475, 0.475) translate3d(-42px, 0, 0)',
+      },
+      to: {
+        opacity: 0,
+        transform: 'scale(0.1) translate3d(2000px, 0, 0)',
+      },
+    },
+    ...commonAnimationStyle,
+  })),
+  zoomOutUp: style(({ theme, cssTheme }: Theme) => ({
+    transformOrigin: 'center bottom',
+    '@keyframes': {
+      '40%': {
+        opacity: 1,
+        transform: 'scale3d(0.475, 0.475, 0.475) translate3d(0, 60px, 0)',
+        animationTimingFunction: 'cubic-bezier(0.55, 0.055, 0.675, 0.19)',
+      },
+      to: {
+        opacity: 0,
+        transform: 'scale3d(0.1, 0.1, 0.1) translate3d(0, -2000px, 0)',
+        animationTimingFunction: 'cubic-bezier(0.175, 0.885, 0.32, 1)',
+      },
+    },
+    ...commonAnimationStyle,
+  })),
+  slideInDown: style(({ theme, cssTheme }: Theme) => ({
+    '@keyframes': {
+      from: {
+        transform: 'translate3d(0, -100%, 0)',
+        visibility: 'visible',
+      },
+      to: {
+        transform: 'translate3d(0, 0, 0)',
+      },
+    },
+    ...commonAnimationStyle,
+  })),
+  slideInLeft: style(({ theme, cssTheme }: Theme) => ({
+    '@keyframes': {
+      from: {
+        transform: 'translate3d(-100%, 0, 0)',
+        visibility: 'visible',
+      },
+      to: {
+        transform: 'translate3d(0, 0, 0)',
+      },
+    },
+    ...commonAnimationStyle,
+  })),
+  slideInRight: style(({ theme, cssTheme }: Theme) => ({
+    '@keyframes': {
+      from: {
+        transform: 'translate3d(-100%, 0, 0)',
+        visibility: 'visible',
+      },
+      to: {
+        transform: 'translate3d(0, 0, 0)',
+      },
+    },
+    ...commonAnimationStyle,
+  })),
+  slideInUp: style(({ theme, cssTheme }: Theme) => ({
+    '@keyframes': {
+      from: {
+        transform: 'translate3d(0, 100%, 0)',
+        visibility: 'visible',
+      },
+      to: {
+        transform: 'translate3d(0, 0, 0)',
+      },
+    },
+    ...commonAnimationStyle,
+  })),
+  slideOutDown: style(({ theme, cssTheme }: Theme) => ({
+    '@keyframes': {
+      from: {
+        transform: 'translate3d(0, 0, 0)',
+      },
+      to: {
+        visibility: 'hidden',
+        transform: 'translate3d(0, 100%, 0)',
+      },
+    },
+    ...commonAnimationStyle,
+  })),
+  slideOutLeft: style(({ theme, cssTheme }: Theme) => ({
+    '@keyframes': {
+      from: {
+        transform: 'translate3d(0, 0, 0)',
+      },
+      to: {
+        visibility: 'hidden',
+        transform: 'translate3d(-100%, 0, 0)',
+      },
+    },
+    ...commonAnimationStyle,
+  })),
+  slideOutRight: style(({ theme, cssTheme }: Theme) => ({
+    '@keyframes': {
+      from: {
+        transform: 'translate3d(0, 0, 0)',
+      },
+      to: {
+        visibility: 'hidden',
+        transform: 'translate3d(100%, 0, 0)',
+      },
+    },
+    ...commonAnimationStyle,
+  })),
+  slideOutUp: style(({ theme, cssTheme }: Theme) => ({
+    '@keyframes': {
+      from: {
+        transform: 'translate3d(0, 0, 0)',
+      },
+      to: {
+        visibility: 'hidden',
+        transform: 'translate3d(0, -100%, 0)',
+      },
+    },
+    ...commonAnimationStyle,
+  })),
 };

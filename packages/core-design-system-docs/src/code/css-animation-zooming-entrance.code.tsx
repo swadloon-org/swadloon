@@ -27,6 +27,7 @@ export const CSSZoomingEntrance: React.FC<Props> = (props) => {
       >
         <Placeholder>Zoom In Down</Placeholder>
       </CSSAnimation>
+
       <CSSAnimation
         animation={{
           name: 'zoomInLeft',
@@ -36,6 +37,7 @@ export const CSSZoomingEntrance: React.FC<Props> = (props) => {
       >
         <Placeholder>Zoom In Left</Placeholder>
       </CSSAnimation>
+
       <CSSAnimation
         animation={{
           name: 'zoomInRight',
@@ -45,6 +47,7 @@ export const CSSZoomingEntrance: React.FC<Props> = (props) => {
       >
         <Placeholder>Zoom In Right</Placeholder>
       </CSSAnimation>
+
       <CSSAnimation
         animation={{
           name: 'zoomInUp',

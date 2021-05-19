@@ -44,6 +44,19 @@ export const CSSAnimationControlled: React.FC<Props> = (props) => {
   const zoomInLeftRef = useRef<CSSAnimationHandle>(null);
   const zoomInRightRef = useRef<CSSAnimationHandle>(null);
   const zoomInUpRef = useRef<CSSAnimationHandle>(null);
+  const zoomOutRef = useRef<CSSAnimationHandle>(null);
+  const zoomOutDownRef = useRef<CSSAnimationHandle>(null);
+  const zoomOutLeftRef = useRef<CSSAnimationHandle>(null);
+  const zoomOutRightRef = useRef<CSSAnimationHandle>(null);
+  const zoomOutUpRef = useRef<CSSAnimationHandle>(null);
+  const slideInDownRef = useRef<CSSAnimationHandle>(null);
+  const slideInLeftRef = useRef<CSSAnimationHandle>(null);
+  const slideInRightRef = useRef<CSSAnimationHandle>(null);
+  const slideInUpRef = useRef<CSSAnimationHandle>(null);
+  const slideOutDownRef = useRef<CSSAnimationHandle>(null);
+  const slideOutLeftRef = useRef<CSSAnimationHandle>(null);
+  const slideOutRightRef = useRef<CSSAnimationHandle>(null);
+  const slideOutUpRef = useRef<CSSAnimationHandle>(null);
 
   function handlePlayPause(event: React.MouseEvent<any>) {
     setAnimationState(animationState === 'paused' ? 'running' : 'paused');
@@ -76,6 +89,19 @@ export const CSSAnimationControlled: React.FC<Props> = (props) => {
     zoomInLeftRef.current?.reset();
     zoomInRightRef.current?.reset();
     zoomInUpRef.current?.reset();
+    zoomOutRef.current?.reset();
+    zoomOutDownRef.current?.reset();
+    zoomOutLeftRef.current?.reset();
+    zoomOutRightRef.current?.reset();
+    zoomOutUpRef.current?.reset();
+    slideInDownRef.current?.reset();
+    slideInLeftRef.current?.reset();
+    slideInRightRef.current?.reset();
+    slideInUpRef.current?.reset();
+    slideOutDownRef.current?.reset();
+    slideOutLeftRef.current?.reset();
+    slideOutRightRef.current?.reset();
+    slideOutUpRef.current?.reset();
     setAnimationState('paused');
   }
 
@@ -304,6 +330,101 @@ export const CSSAnimationControlled: React.FC<Props> = (props) => {
           playState: animationState,
         }}
         ref={zoomInUpRef}
+      ></CSSAnimation>
+      <CSSAnimation
+        animation={{
+          name: 'zoomOut',
+          playState: animationState,
+        }}
+        ref={zoomOutRef}
+      ></CSSAnimation>
+
+      <CSSAnimation
+        animation={{
+          name: 'zoomOutDown',
+          playState: animationState,
+        }}
+        ref={zoomOutDownRef}
+      ></CSSAnimation>
+
+      <CSSAnimation
+        animation={{
+          name: 'zoomOutLeft',
+          playState: animationState,
+        }}
+        ref={zoomOutLeftRef}
+      ></CSSAnimation>
+
+      <CSSAnimation
+        animation={{
+          name: 'zoomOutRight',
+          playState: animationState,
+        }}
+        ref={zoomOutRightRef}
+      ></CSSAnimation>
+
+      <CSSAnimation
+        animation={{
+          name: 'zoomOutUp',
+          playState: animationState,
+        }}
+        ref={zoomOutUpRef}
+      ></CSSAnimation>
+      <CSSAnimation
+        animation={{
+          name: 'slideInDown',
+          playState: animationState,
+        }}
+        ref={slideInDownRef}
+      ></CSSAnimation>
+      <CSSAnimation
+        animation={{
+          name: 'slideInLeft',
+          playState: animationState,
+        }}
+        ref={slideInLeftRef}
+      ></CSSAnimation>
+      <CSSAnimation
+        animation={{
+          name: 'slideInRight',
+          playState: animationState,
+        }}
+        ref={slideInRightRef}
+      ></CSSAnimation>
+      <CSSAnimation
+        animation={{
+          name: 'slideInUp',
+          playState: animationState,
+        }}
+        ref={slideInUpRef}
+      ></CSSAnimation>
+      <CSSAnimation
+        animation={{
+          name: 'slideOutDown',
+          playState: animationState,
+        }}
+        ref={slideOutDownRef}
+      ></CSSAnimation>
+      <CSSAnimation
+        animation={{
+          name: 'slideOutLeft',
+          playState: animationState,
+        }}
+        ref={slideOutLeftRef}
+      ></CSSAnimation>
+      <CSSAnimation
+        animation={{
+          name: 'slideOutRight',
+          playState: animationState,
+        }}
+        ref={slideOutRightRef}
+      ></CSSAnimation>
+      <CSSAnimation
+        animation={{
+          name: 'slideOutUp',
+          playState: animationState,
+        }}
+        ref={slideOutUpRef}
       ></CSSAnimation>
     </Stack>
   );
