@@ -1,5 +1,6 @@
 ---
 name: CSS Animation
+description:
 tags:
   - animation
   - motion

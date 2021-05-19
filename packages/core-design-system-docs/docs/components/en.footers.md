@@ -1,5 +1,6 @@
 ---
 name: Footers
+description:
 tags:
   - layout
   - navigation
@@ -49,3 +50,5 @@ import FootersEnterpriseCode from '!!raw-loader!../../src/code/footer-enterprise
 </ThemeWrapper>
 
 <CodeBlock>{FootersEnterpriseCode}</CodeBlock>
+
+## Footer Social Only
