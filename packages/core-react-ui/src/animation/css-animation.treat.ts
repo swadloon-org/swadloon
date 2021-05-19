@@ -61,6 +61,21 @@ export const animations = {
     },
     ...commonAnimationStyle,
   })),
+  pulse: style(({ theme, cssTheme }: Theme) => ({
+    '@keyframes': {
+      '0%': {
+        transform: 'scale3d(1, 1, 1)',
+      },
+      '50%': {
+        transform: 'scale3d(1, 1, 1)',
+      },
+      '100%': {
+        transform: 'scale3d(1.05, 1.05, 1.05)',
+      },
+    },
+    ...commonAnimationStyle,
+    animationTimingFunction: 'var(--animation-func, ease-out)',
+  })),
   bounceIn: style(({ theme, cssTheme }: Theme) => ({
     '@keyframes': {
       'from,5%,20%,40%,60%,80%,to': {
@@ -190,6 +205,80 @@ export const animations = {
     },
     ...commonAnimationStyle,
   })),
+  bounceOut: style(({ theme, cssTheme }: Theme) => ({
+    '@keyframes': {
+      '20%': {
+        transform: 'scale3d(0.9, 0.9, 0.9)',
+      },
+      '50%,55%': {
+        opacity: 1,
+        transform: 'scale3d(1.1, 1.1, 1.1)',
+      },
+      to: {
+        opacity: 0,
+        transform: 'scale3d(0.3, 0.3, 0.3)',
+      },
+    },
+    ...commonAnimationStyle,
+  })),
+  bounceOutDown: style(({ theme, cssTheme }: Theme) => ({
+    '@keyframes': {
+      '20%': {
+        transform: 'translate3d(0, 10px, 0), scaleY(0.985)',
+      },
+      '40%,45%': {
+        opacity: 1,
+        transform: 'translate3d(0, -20px, 0), scaleY(0.9)',
+      },
+      to: {
+        opacity: 0,
+        transform: 'translate3d(0, 2000px, 0), scaleY(3)',
+      },
+    },
+    ...commonAnimationStyle,
+  })),
+  bounceOutLeft: style(({ theme, cssTheme }: Theme) => ({
+    '@keyframes': {
+      '20%': {
+        opacity: 1,
+        transform: 'translate3d(20px, 0, 0) scaleX(0.9)',
+      },
+      to: {
+        opacity: 0,
+        transform: 'translate3d(-2000px, 0, 0) scaleX(2)',
+      },
+    },
+    ...commonAnimationStyle,
+  })),
+  bounceOutRight: style(({ theme, cssTheme }: Theme) => ({
+    '@keyframes': {
+      '20%': {
+        opacity: 1,
+        transform: 'translate3d(-20px, 0, 0) scaleX(0.9)',
+      },
+      to: {
+        opacity: 0,
+        transform: 'translate3d(2000px, 0, 0) scaleX(2)',
+      },
+    },
+    ...commonAnimationStyle,
+  })),
+  bounceOutUp: style(({ theme, cssTheme }: Theme) => ({
+    '@keyframes': {
+      '20%': {
+        transform: 'translate3d(0, -10px, 0) scaleY(0.985)',
+      },
+      '40%,45%': {
+        opacity: 1,
+        transform: 'translate3d(0, 20px, 0) scaleY(0.9)',
+      },
+      to: {
+        opacity: 0,
+        transform: 'translate3d(0, -2000px, 0) scaleY(3)',
+      },
+    },
+    ...commonAnimationStyle,
+  })),
   fadeIn: style(({ theme, cssTheme }: Theme) => ({
     '@keyframes': {
       '0%': {
@@ -256,29 +345,133 @@ export const animations = {
   })),
   fadeOut: style(({ theme, cssTheme }: Theme) => ({
     '@keyframes': {
-      '0%': {
+      from: {
         opacity: 1,
       },
-      '100%': {
+      to: {
         opacity: 0,
       },
     },
     ...commonAnimationStyle,
-    animationTimingFunction: 'var(--animation-func, ease-out)',
   })),
-  pulse: style(({ theme, cssTheme }: Theme) => ({
+  fadeOutDown: style(({ theme, cssTheme }: Theme) => ({
     '@keyframes': {
-      '0%': {
-        transform: 'scale3d(1, 1, 1)',
+      from: {
+        opacity: 1,
       },
-      '50%': {
-        transform: 'scale3d(1, 1, 1)',
-      },
-      '100%': {
-        transform: 'scale3d(1.05, 1.05, 1.05)',
+      to: {
+        opacity: 0,
+        transform: 'translate3d(0, 100%, 0)',
       },
     },
     ...commonAnimationStyle,
-    animationTimingFunction: 'var(--animation-func, ease-out)',
+  })),
+  fadeOutLeft: style(({ theme, cssTheme }: Theme) => ({
+    '@keyframes': {
+      from: {
+        opacity: 1,
+      },
+      to: {
+        opacity: 0,
+        transform: 'translate3d(-100%, 0, 0)',
+      },
+    },
+    ...commonAnimationStyle,
+  })),
+  fadeOutRight: style(({ theme, cssTheme }: Theme) => ({
+    '@keyframes': {
+      from: {
+        opacity: 1,
+      },
+      to: {
+        opacity: 0,
+        transform: 'translate3d(100%, 0, 0)',
+      },
+    },
+    ...commonAnimationStyle,
+  })),
+  fadeOutUp: style(({ theme, cssTheme }: Theme) => ({
+    '@keyframes': {
+      from: {
+        opacity: 1,
+      },
+      to: {
+        opacity: 0,
+        transform: 'translate3d(0,-100%, 0)',
+      },
+    },
+    ...commonAnimationStyle,
+  })),
+  zoomIn: style(({ theme, cssTheme }: Theme) => ({
+    '@keyframes': {
+      '0%': {
+        opacity: 0,
+        transform: 'scale3d(0.3,0.3,0.3)',
+      },
+      '50%': {
+        opacity: 1,
+      },
+    },
+    ...commonAnimationStyle,
+  })),
+  zoomInDown: style(({ theme, cssTheme }: Theme) => ({
+    '@keyframes': {
+      from: {
+        opacity: 0,
+        transform: 'scale3d(0.1,0.1,0.1) translate3d(0, -1000px, 0)',
+        animationTimingFunction: 'cubic-bezier(0.55, 0.055, 0.675, 0.19)',
+      },
+      '60%': {
+        opacity: 1,
+        transform: 'scale3d(0.475,0.475,0.475) translate3d(0, 60px, 0)',
+        animationTimingFunction: 'cubic-bezier(0.175, 0.885, 0.32, 1)',
+      },
+    },
+    ...commonAnimationStyle,
+  })),
+  zoomInLeft: style(({ theme, cssTheme }: Theme) => ({
+    '@keyframes': {
+      from: {
+        opacity: 0,
+        transform: 'scale3d(0.1,0.1,0.1) translate3d(-1000px, 0, 0)',
+        animationTimingFunction: 'cubic-bezier(0.55, 0.055, 0.675, 0.19)',
+      },
+      '60%': {
+        opacity: 1,
+        transform: 'scale3d(0.475,0.475,0.475) translate3d(10px, 0, 0)',
+        animationTimingFunction: 'cubic-bezier(0.175, 0.885, 0.32, 1)',
+      },
+    },
+    ...commonAnimationStyle,
+  })),
+  zoomInRight: style(({ theme, cssTheme }: Theme) => ({
+    '@keyframes': {
+      from: {
+        opacity: 0,
+        transform: 'scale3d(0.1,0.1,0.1) translate3d(1000px, 0, 0)',
+        animationTimingFunction: 'cubic-bezier(0.55, 0.055, 0.675, 0.19)',
+      },
+      '60%': {
+        opacity: 1,
+        transform: 'scale3d(0.475,0.475,0.475) translate3d(-10px, 0, 0)',
+        animationTimingFunction: 'cubic-bezier(0.175, 0.885, 0.32, 1)',
+      },
+    },
+    ...commonAnimationStyle,
+  })),
+  zoomInUp: style(({ theme, cssTheme }: Theme) => ({
+    '@keyframes': {
+      from: {
+        opacity: 0,
+        transform: 'scale3d(0.1,0.1,0.1) translate3d(0, 1000px, 0)',
+        animationTimingFunction: 'cubic-bezier(0.55, 0.055, 0.675, 0.19)',
+      },
+      '60%': {
+        opacity: 1,
+        transform: 'scale3d(0.475,0.475,0.475) translate3d(0, -60px, 0)',
+        animationTimingFunction: 'cubic-bezier(0.175, 0.885, 0.32, 1)',
+      },
+    },
+    ...commonAnimationStyle,
   })),
 };

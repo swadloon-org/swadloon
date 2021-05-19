@@ -23,10 +23,19 @@ Commit your changes:
 yarn commit
 ```
 
+To see the changes:
+
+```bash
+git status
+```
+
 Push the changes:
 
 ```bash
+# for already existing branch
 git push
+# for new branch
+git push --set-upstream origin myfeature
 ```
 
 If there are changes you will need to `merge` or `rebase` them into your branch
@@ -35,6 +44,8 @@ To merge, pull the changes:
 
 ```bash
 git pull
+# to have the changes from dev branch
+git pull origin dev
 ```
 
 or
@@ -42,6 +53,8 @@ or
 ```bash
 git fetch
 git merge
+# to have the changes from dev branch
+git merge origin dev
 ```
 
 Go on the repo under the pull request tab and open a PR from the new branch
