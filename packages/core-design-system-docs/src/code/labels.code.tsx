@@ -5,7 +5,7 @@ import React from 'react';
 
 type Props = {};
 
-export const TypoLabels: React.FC<Props> = (props) => {
+export const Labels: React.FC<Props> = (props) => {
   const { theme, cssTheme } = useTreatTheme();
 
   return (

@@ -127,7 +127,12 @@ export const LayoutDocs = React.memo<LayoutDocsProps>(
           </BoxV2>
         </DesktopDocsSideBar>
 
-        <Main navbarPadding={true} minHeight={true}>
+        <Main
+          navbarPadding={true}
+          desktopSidebarPadding={true}
+          desktopAsidePadding={true}
+          minHeight={false}
+        >
           <ViewportProvider context={viewportContext}>{props.children}</ViewportProvider>
         </Main>
       </MainWrapper>

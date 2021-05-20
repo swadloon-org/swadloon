@@ -5,6 +5,7 @@ import {
   Center,
   Cluster,
   CommonComponentProps,
+  globalThemeReversed,
   Label,
   SVGLogo,
   Tag,
@@ -147,7 +148,7 @@ export const NavbarDocs: React.FC<Props> = function NavbarDocs(props) {
       {/* Desktop */}
       <header
         ref={desktopNavbar}
-        className={`${styles.wrapper} ${styles.desktopMenu}`}
+        className={`${styles.wrapper} ${styles.desktopMenu} ${globalThemeReversed}`}
         style={props.style}
       >
         <Center maxWidth={props.maxWidth} className={styles.content}>

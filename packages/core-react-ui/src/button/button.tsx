@@ -122,7 +122,7 @@ export const Button = React.forwardRef<any, Props>(
           <>
             {icon === ButtonIcon.icon ? null : (
               <Label
-                style={{ display: 'inline-block', userSelect: 'none' }}
+                style={{ display: 'inline-block', userSelect: 'none', color: 'inherit' }}
                 variantStyle={TEXT_STYLE.bold}
                 variant={getLabelSizeForButtonSize(size)}
               >
@@ -152,7 +152,7 @@ export const Button = React.forwardRef<any, Props>(
       >
         {icon === ButtonIcon.icon ? null : (
           <Label
-            style={{ display: 'inline-block', userSelect: 'none' }}
+            style={{ display: 'inline-block', userSelect: 'none', color: 'inherit' }}
             variantStyle={TEXT_STYLE.bold}
             variant={getLabelSizeForButtonSize(size)}
           >

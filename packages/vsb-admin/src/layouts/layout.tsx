@@ -113,7 +113,12 @@ export const Layout: React.FC<Props> = (props) => {
         </BoxV2>
       </DesktopSideBar>
 
-      <Main minHeight={false} navbarPadding={true} desktopSidebarPadding={true}>
+      <Main
+        minHeight={false}
+        navbarPadding={false}
+        desktopSidebarPadding={true}
+        className={styles.main}
+      >
         <Patients />
       </Main>
     </MainWrapper>

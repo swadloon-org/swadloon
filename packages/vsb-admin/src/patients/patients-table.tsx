@@ -9,6 +9,8 @@ import {
   Button,
   Cluster,
   CommonComponentProps,
+  InputLabel,
+  InputSelect,
   InputText,
   InputWrapper,
   Label,
@@ -154,18 +156,34 @@ export const PatientsTable: React.FC<Props> = ({
 
   return (
     <Stack gap={[cssTheme.sizing.var.x3]}>
-      <InputWrapper>
-        <InputText
-          name="filter"
-          autoComplete="off"
-          placeholder={'Nom du patient'}
-          state={'rest'}
-          onChange={(e) => {
-            setSearchString(e.target.value);
-          }}
-        />
-      </InputWrapper>
+      todo - emails, dates, test ipad, color status, add test and alerts
+      <Cluster justifyContent={['flex-start']}>
+        <InputWrapper>
+          <InputLabel htmlFor={'filter'}>Recherche</InputLabel>
+          <InputText
+            name="filter"
+            autoComplete="off"
+            placeholder={'Nom du patient'}
+            state={'rest'}
+            onChange={(e) => {
+              setSearchString(e.target.value);
+            }}
+          />
+        </InputWrapper>
 
+        <InputWrapper>
+          <InputLabel htmlFor={'status'}>Status</InputLabel>
+          <InputSelect
+            name="status"
+            autoComplete="off"
+            placeholder={'Status'}
+            state={'rest'}
+            onChange={(e) => {
+              setSearchString(e.target.value);
+            }}
+          />
+        </InputWrapper>
+      </Cluster>
       <div className={styles.table}>
         <div className={`${styles.tableHeader} ${styles.tableGrid}`}>
           {headers.map((header, id) => (

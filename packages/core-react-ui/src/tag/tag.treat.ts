@@ -15,6 +15,13 @@ export const base = style(({ theme, cssTheme }: Theme) => ({
 }));
 
 /**
+ * Label
+ */
+export const label = style(({ theme, cssTheme }: Theme) => ({
+  color: 'inherit',
+}));
+
+/**
  *
  * Variants
  *
@@ -24,9 +31,9 @@ export const base = style(({ theme, cssTheme }: Theme) => ({
  * Primary
  */
 export const primary = style(({ theme, cssTheme }: Theme) => ({
-  borderColor: cssTheme.colors.colors.grey[100],
+  borderColor: cssTheme.colors.colors.grey[50],
   color: cssTheme.colors.colors.grey[600],
-  backgroundColor: cssTheme.colors.colors.grey[100],
+  backgroundColor: cssTheme.colors.colors.grey[50],
 }));
 export const primaryReversed = style(({ theme, cssTheme }: Theme) => ({}));
 globalStyle(

@@ -1,4 +1,3 @@
-import { PARAGRAPH_SIZE, TEXT_STYLE } from '@newrade/core-design-system';
 import { style } from 'treat';
 import { Theme } from '../design-system';
 import {
@@ -7,10 +6,7 @@ import {
   getCSSTextStyles,
 } from '../utilities/text.utilities';
 
-export const styles: { inline: string } & { [key in TEXT_STYLE]: string } &
-  { [key in PARAGRAPH_SIZE]: string } & {
-    inline: string;
-  } = {
+export const styles = {
   large: style(({ theme, cssTheme }: Theme) => ({
     ...getCSSTextStyles(cssTheme.typography.paragraphs.mobile.large),
     '@media': {

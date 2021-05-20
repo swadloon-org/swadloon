@@ -14,7 +14,7 @@ export const styles = {
   })),
 
   tableRow: style(({ theme, cssTheme }: Theme) => ({
-    height: `calc(50vh - ${cssTheme.layout.var.navbarHeight})`,
+    height: `calc(100vh - ${cssTheme.layout.var.navbarHeight} - 7 * ${cssTheme.sizing.var.x5})`,
     overflowY: 'scroll',
   })),
 

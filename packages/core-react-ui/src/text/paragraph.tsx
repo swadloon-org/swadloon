@@ -16,6 +16,7 @@ type Props = CommonComponentProps &
   };
 
 const defaultProps: Props = {
+  variantLevel: Variant.primary,
   variant: PARAGRAPH_SIZE.medium,
   children: 'Paragraph',
 };
@@ -37,7 +38,7 @@ export const Paragraph: React.FC<Props> = React.memo(
       display === 'inline-block' ? styles.inline : '',
       styles[variant ? variant : (defaultProps.variant as PARAGRAPH_SIZE)],
       variantStyle ? styles[variantStyle] : '',
-      variantLevel ? colorTextStyles[variantLevel] : '',
+      colorTextStyles[variantLevel ? variantLevel : (defaultProps.variantLevel as Variant)],
     ]);
 
     return React.createElement(type, {
