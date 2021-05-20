@@ -94,7 +94,7 @@ export const PatientValidation: SchemaOf<PatientModel> = yup
   .defined();
 
 export const PatientClinikoValidation: SchemaOf<
-  Omit<PatientClinikoModel, 'emailConfirmation'>
+  Omit<PatientClinikoModel, 'emailConfirmation' | 'updated_at'>
 > = yup
   .object({
     id: yup.string(),

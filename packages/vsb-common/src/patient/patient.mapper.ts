@@ -38,6 +38,7 @@ export function getPatientModel(
     email: patientClinikoModel.email,
     patientPhoneNumber: patientClinikoModel.patient_phone_numbers?.[0]?.number,
     patientPhoneType: patientClinikoModel.patient_phone_numbers?.[0]?.phone_type,
+    updatedAt: patientClinikoModel.updated_at,
     status: extras?.status,
     statusNote: extras?.statusNote,
   };

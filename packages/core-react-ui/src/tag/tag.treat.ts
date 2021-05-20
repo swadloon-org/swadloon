@@ -8,6 +8,7 @@ import { globalThemeReversedSelector } from '../global/global-theme-classnames';
 export const base = style(({ theme, cssTheme }: Theme) => ({
   display: 'inline-flex',
   width: 'max-content',
+  maxWidth: '100%', // ensure it respect the parent's width
   wordBreak: 'normal',
   border: `1px solid`,
   padding: 5,

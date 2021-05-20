@@ -1,6 +1,5 @@
 import { APIResponseBody, API_RESPONSE_STATUS, ERROR_TYPE } from '@newrade/core-common';
 import {
-  CLINIKO_PATIENT_VASEC_STATUS,
   GetNewPatientsAPIRequestBody,
   GetNewPatientsAPIResponseBody,
   getPatientModel,
@@ -10,13 +9,12 @@ import {
 } from '@newrade/vsb-common';
 import debug from 'debug';
 import { RequestHandler, Response } from 'express';
-import {
-  STATUS_NOTE_QUESTION_NAME,
-  STATUS_NOTE_QUESTION_NOTE,
-  STATUS_NOTE_TEMPLATE_ID,
-} from '../constants/cliniko.constant';
+import { STATUS_NOTE_TEMPLATE_ID } from '../constants/cliniko.constant';
 import { fetchCliniko } from '../services/cliniko.service';
-import { getIdFromSelfLink } from '../utilities/cliniko.utilities';
+import {
+  getIdFromSelfLink,
+  getStatusFromStatusTreatmentNote,
+} from '../utilities/cliniko.utilities';
 
 const log = debug('newrade:vsb-api:cliniko');
 const logWarn = log.extend('warn');
@@ -58,7 +56,7 @@ export const getPatients: RequestHandler<
 
           // filter notes to find the correct type
           const statusTreatmentNotes = treatmentNotes.filter((treatmentNote) => {
-            if (!treatmentNote.treatment_note_template.links.self) {
+            if (!treatmentNote?.treatment_note_template?.links.self) {
               return false;
             }
 
@@ -209,39 +207,4 @@ function handleUnhandledError(res: Response<APIResponseBody<any>>, error?: Error
     errors: [{ name: ERROR_TYPE.UNHANDLED_ERROR, message: error?.message || '' }],
     payload: payload,
   });
-}
-
-function getStatusFromStatusTreatmentNote(
-  treatmentNote?: PatientTreatmentNote | null
-): Pick<PatientModelAdmin, 'status' | 'statusNote'> {
-  const questions = treatmentNote?.content.sections?.[0].questions;
-
-  const statusQuestions = questions?.filter(
-    (question) => question.name === STATUS_NOTE_QUESTION_NAME
-  );
-  const statusQuestion = statusQuestions?.[0];
-  const noteQuestions = questions?.filter(
-    (question) => question.name === STATUS_NOTE_QUESTION_NOTE
-  );
-  const noteQuestion = noteQuestions?.[0];
-
-  if (!statusQuestion) {
-    return {
-      status: CLINIKO_PATIENT_VASEC_STATUS.UNKNOWN,
-      statusNote: 'Note de status introuvable',
-    };
-  }
-
-  const statusAnswers = statusQuestion.answers?.filter((answer) => answer.selected);
-  const statusAnswer = statusAnswers?.[0];
-  const noteAnswers = noteQuestion?.answers?.filter((answer) => answer.selected);
-  const noteAnswer = noteAnswers?.[0];
-
-  const status =
-    (statusAnswer?.value as CLINIKO_PATIENT_VASEC_STATUS) || CLINIKO_PATIENT_VASEC_STATUS.UNKNOWN;
-
-  return {
-    status: status,
-    statusNote: noteAnswer?.value || '',
-  };
 }

@@ -2,6 +2,7 @@ import { AppError, ERROR_TYPE } from '@newrade/core-common';
 import { RequestHandler } from 'express';
 import nodemailer from 'nodemailer';
 import { env } from '../server-express';
+
 export const emailController: RequestHandler<any, any, any> = async (req, res) => {
   try {
     /**
@@ -24,7 +25,7 @@ export const emailController: RequestHandler<any, any, any> = async (req, res) =
       text: `${req.body.name} (${req.body.email}) says: ${req.body.message}`,
     };
 
-    smtpTrans.sendMail(mailOpts, (error: any, response: any) => {
+    smtpTrans.sendMail(mailOpts, (error, response) => {
       if (error) {
         throw new AppError({ name: ERROR_TYPE.EXTERNAL_SERVER_ERROR, message: `Message not send` });
       } else {
