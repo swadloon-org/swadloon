@@ -1,8 +1,9 @@
 ---
 name: List Items
 description:
+  Lists are vertical groupings of text with either a number or a bullet.
 tags:
-  - test
+  - molecule
 ---
 
 <!-- CODE IMPORTS -->
@@ -27,12 +28,16 @@ import ListItemsNumberCode from '!!raw-loader!../../src/code/list-items-number.c
 
 ### Bullet
 
+Bullet list items are used to list elements without any specific order.
+
 <ThemeWrapper>
 <ListItemsBullet />
 </ThemeWrapper>
 <CodeBlock>{ListItemsBulletCode}</CodeBlock>
 
 ### Icon
+
+Icons can be used instead of bullet points to list elements.
 
 <ThemeWrapper>
 <ListItemsIcon />
@@ -41,6 +46,8 @@ import ListItemsNumberCode from '!!raw-loader!../../src/code/list-items-number.c
 
 ### Size
 
+Four sizes are available for list items.
+
 <ThemeWrapper>
 <ListItemsSizes />
 </ThemeWrapper>
@@ -48,12 +55,16 @@ import ListItemsNumberCode from '!!raw-loader!../../src/code/list-items-number.c
 
 ### Multi-lines
 
+Multi-lines list items are always align to item on the right.
+
 <ThemeWrapper>
 <ListItemsMultiLine />
 </ThemeWrapper>
 <CodeBlock>{ListItemsMultiLineCode}</CodeBlock>
 
 ## Ordered
+
+Ordered list items are used to list elements with a specific order.
 
 ### Number
 

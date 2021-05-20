@@ -53,7 +53,7 @@ globalStyle(
 globalStyle(
   `${wrapper} > * + h1, ${wrapper} > * + h2, ${wrapper} > * + h3, ${wrapper} >  * + h4, ${wrapper} > * + h5, ${wrapper} > * + h6`,
   ({ cssTheme, theme }: Theme) => ({
-    marginTop: contentMargin,
+    marginTop: '2.5em',
   })
 );
 
@@ -96,8 +96,12 @@ globalStyle(
 );
 
 globalStyle(`${wrapper} > p`, ({ cssTheme, theme }: Theme) => ({
-  marginTop: '1.5em',
+  marginTop: '2em',
   marginBottom: '1.5em',
+}));
+
+globalStyle(`${wrapper} > h1 + p`, ({ cssTheme, theme }: Theme) => ({
+  marginTop: '2em',
 }));
 
 globalStyle(`${wrapper} p + p`, ({ cssTheme, theme }: Theme) => ({
@@ -125,7 +129,7 @@ globalStyle(`${wrapper} ul + ul`, ({ cssTheme, theme }: Theme) => ({
 }));
 
 globalStyle(`${wrapper} ul + div`, ({ cssTheme, theme }: Theme) => ({
-  marginTop: '1.125em',
+  marginTop: '1.5em',
 }));
 
 globalStyle(`${wrapper} ul > li`, ({ cssTheme, theme }: Theme) => ({
@@ -263,6 +267,10 @@ globalStyle(`${wrapper} kbd`, ({ cssTheme, theme }: Theme) => ({
  * Code
  */
 
+globalStyle(`${wrapper} pre`, ({ cssTheme, theme }: Theme) => ({
+  marginTop: '1.5em',
+}));
+
 globalStyle(
   `${wrapper} pre + h1, ${wrapper} pre + h2, ${wrapper} pre + h3, ${wrapper} pre + h4, ${wrapper} pre + h5, ${wrapper} pre + h6,`,
   ({ cssTheme, theme }: Theme) => ({
@@ -310,54 +318,25 @@ globalStyle(`${wrapper} strong`, ({ cssTheme, theme }: Theme) => ({
   fontWeight: 700,
 }));
 
-globalStyle(`${wrapper} > h1`, ({ cssTheme, theme }: Theme) => ({
-  fontFamily: 'Inter',
-  fontWeight: 700,
-  letterSpacing: '-0.01em',
-  fontSize: '48px',
-}));
-
-globalStyle(`${wrapper} > h2`, ({ cssTheme, theme }: Theme) => ({
-  fontFamily: 'Inter',
-  fontWeight: 700,
-  letterSpacing: '0',
-  fontSize: '32px',
-}));
-
-globalStyle(`${wrapper} > h3`, ({ cssTheme, theme }: Theme) => ({
-  fontFamily: 'Inter',
-  fontWeight: 700,
-  letterSpacing: '0',
-  fontSize: '24px',
-}));
-
-globalStyle(`${wrapper} > h4`, ({ cssTheme, theme }: Theme) => ({
-  fontFamily: 'Inter',
-  fontWeight: 700,
-  letterSpacing: '0',
-  fontSize: '18px',
-}));
-
 /**
  * Styles for list items
  */
 
-globalStyle(`${wrapper} li`, ({ cssTheme, theme }: Theme) => ({
+globalStyle(`${wrapper} li,`, ({ cssTheme, theme }: Theme) => ({
   fontFamily: cssTheme.typography.fonts.sans[0].name,
-  fontSize: '16px',
-  lineHeight: '1.5',
-  listStylePosition: 'outside',
-  paddingLeft: '0.25em',
+  paddingLeft: '0.25',
 }));
 
 globalStyle(`${wrapper} ul`, ({ cssTheme, theme }: Theme) => ({
   fontFamily: cssTheme.typography.fonts.sans[0].name,
-  marginLeft: '1.25em',
+  marginLeft: '0.5em',
+  lineHeight: '1.5',
 }));
 
 globalStyle(`${wrapper} ol`, ({ cssTheme, theme }: Theme) => ({
   fontFamily: cssTheme.typography.fonts.sans[0].name,
-  marginLeft: '1.25em',
+  marginLeft: '0.5em',
+  lineHeight: '1.5',
 }));
 
 /**

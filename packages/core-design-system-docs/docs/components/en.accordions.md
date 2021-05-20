@@ -1,8 +1,10 @@
 ---
 name: Accordions
 description:
+  Accordions are vertically stacked list with a level overview of the content
+  associated that can be clicked to reveal or hide.
 tags:
-  - test
+  - molecule
 ---
 
 <!-- CODE IMPORTS -->
