@@ -40,17 +40,10 @@ type Props = CommonComponentProps & {
 const columns: (ColumnType<PatientModelAdmin> & { name: keyof PatientModelAdmin })[] = [
   {
     name: 'firstName',
-    label: 'Prénom',
+    label: 'Nom',
     render: ({ value }: { value: string }) =>
       value ? <Paragraph variant={PARAGRAPH_SIZE.small}>{value}</Paragraph> : null,
   },
-  {
-    name: 'lastName',
-    label: 'Nom de famille',
-    render: ({ value }: { value: string }) =>
-      value ? <Paragraph variant={PARAGRAPH_SIZE.small}>{value}</Paragraph> : null,
-  },
-
   {
     name: 'patientPhoneNumber',
     label: 'Téléphone',
@@ -109,7 +102,7 @@ export const PatientsTable: React.FC<Props> = ({
       ? patients.map(function (patient): PatientModelAdmin {
           return {
             id: patient.id || '',
-            firstName: patient.firstName || '',
+            firstName: `${patient.firstName || ''} ${patient.lastName || ''}`,
             lastName: patient.lastName || '',
             email: patient.email || '',
             patientPhoneNumber: patient.patientPhoneNumber || '',
@@ -157,8 +150,14 @@ export const PatientsTable: React.FC<Props> = ({
   return (
     <Stack gap={[cssTheme.sizing.var.x3]}>
       todo - emails, dates, test ipad, color status, add test and alerts
-      <Cluster justifyContent={['flex-start']}>
-        <InputWrapper>
+      <Cluster
+        justifyContent={['flex-start']}
+        style={{
+          gridAutoFlow: 'initial',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 400px))',
+        }}
+      >
+        <InputWrapper style={{ maxWidth: `minmax(100vw, 400px)` }}>
           <InputLabel htmlFor={'filter'}>Recherche</InputLabel>
           <InputText
             name="filter"
@@ -171,7 +170,7 @@ export const PatientsTable: React.FC<Props> = ({
           />
         </InputWrapper>
 
-        <InputWrapper>
+        <InputWrapper style={{ maxWidth: `min(100vw, 200px)` }}>
           <InputLabel htmlFor={'status'}>Status</InputLabel>
           <InputSelect
             name="status"
@@ -181,7 +180,10 @@ export const PatientsTable: React.FC<Props> = ({
             onChange={(e) => {
               setSearchString(e.target.value);
             }}
-          />
+          >
+            <option value={CLINIKO_PHONE_TYPE.MOBILE}>{'Mobile'}</option>
+            <option value={CLINIKO_PHONE_TYPE.HOME}>{'Fixe'}</option>
+          </InputSelect>
         </InputWrapper>
       </Cluster>
       <div className={styles.table}>
@@ -193,9 +195,9 @@ export const PatientsTable: React.FC<Props> = ({
           ))}
         </div>
 
-        <div className={styles.tableRow}>
+        <div className={styles.tableContent}>
           {rows.map((row, id) => (
-            <div key={id} className={styles.tableGrid}>
+            <div key={id} className={`${styles.tableGrid} ${styles.tableRow}`}>
               {row.cells.map((cell, id) => (
                 <div key={id} className={styles.tableCell}>
                   {cell.render()}
