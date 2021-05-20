@@ -18,8 +18,8 @@ export const Env = t.intersection([
     /**
      * Stmp Settings for Gmail
      */
-    API_CONTACT_GMAIL_USER: t.string,
-    API_CONTACT_GMAIL_PASS: t.string,
+    API_VSB_STMP_USER: t.string,
+    API_VSB_STMP_PASSWORD: t.string,
   }),
 ]);
 

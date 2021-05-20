@@ -1,7 +1,4 @@
-import {
-  ClinikoPatientVasecStatus,
-  CLINIKO_PATIENT_VASEC_STATUS,
-} from '../../../../vsb-common/src';
+import { CLINIKO_PATIENT_VASEC_STATUS } from '@newrade/vsb-common';
 import {
   getClinikoPatientStatusFromRawAnswer,
   getIdFromSelfLink,

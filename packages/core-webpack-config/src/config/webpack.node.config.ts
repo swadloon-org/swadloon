@@ -3,6 +3,7 @@ import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
 import nodeExternals from 'webpack-node-externals';
 import WebpackOptions from 'webpack/declarations/WebpackOptions';
 import { babelNodeLoader, babelNodeRule } from '../loaders/babel-node.loader';
+import { htmlLoader } from '../loaders/html.loader';
 import { getWebpackCleanPlugin } from '../plugins/clean-webpack-plugin';
 
 /**
@@ -24,6 +25,7 @@ export const nodeCommonConfig: WebpackOptions.WebpackOptions = {
   },
   module: {
     rules: [
+      htmlLoader,
       /**
        * @see https://www.npmjs.com/package/node-loader
        */
@@ -66,6 +68,11 @@ export const nodeCommonConfig: WebpackOptions.WebpackOptions = {
         logLevel: 'WARN',
       }),
     ],
+  },
+  resolveLoader: {
+    alias: {
+      'ejs-loader': '@newrade/core-webpack-config/lib/loaders/ejs-loader.js',
+    },
   },
   stats: {
     // see https://github.com/webpack/webpack/issues/1576

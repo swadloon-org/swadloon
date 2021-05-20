@@ -121,7 +121,6 @@ export const getPatients: RequestHandler<
       payload: patientsWithTreatmentNotes as PatientModelAdmin[],
     });
   } catch (error) {
-    console.log(error);
     handleUnhandledError(res, error);
   }
 };

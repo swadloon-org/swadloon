@@ -9,7 +9,9 @@ import {
 import debug from 'debug';
 import { RequestHandler, Response } from 'express';
 import { ValidationError } from 'yup';
+import { env } from '../server-express';
 import { fetchCliniko } from '../services/cliniko.service';
+import { sendEmail } from '../services/email.service';
 
 export const log = debug('newrade:vsb-api:cliniko');
 const logWarn = log.extend('warn');
@@ -62,6 +64,15 @@ export const postPatient: RequestHandler<
     });
 
     log(`patient successfully created`);
+
+    try {
+      await sendEmail({
+        from: env.API_VSB_STMP_USER,
+        to: 'info@vasectomie-pierre-boucher.ca',
+        subject: 'Message automatique de VSB',
+        text: `Ceci est un message automatique`,
+      });
+    } catch (error) {}
 
     return res.status(200).send(result);
   } catch (error) {
