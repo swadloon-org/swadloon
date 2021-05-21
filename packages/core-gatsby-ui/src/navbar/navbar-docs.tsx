@@ -7,7 +7,6 @@ import {
   CommonComponentProps,
   globalThemeReversed,
   Label,
-  SVGLogo,
   Tag,
   usePreventPinchZoom,
   useTreatTheme,
@@ -110,15 +109,14 @@ export const NavbarDocs: React.FC<Props> = function NavbarDocs(props) {
       <header
         ref={mobileNavbar}
         style={props.style}
-        className={`${styles.wrapper} ${styles.mobileMenu}`}
+        className={`${styles.wrapper} ${styles.mobileMenu} ${globalThemeReversed}`}
       >
         <Center maxWidth={props.maxWidth} className={styles.content}>
           <div className={styles.mobileWrapper}>
             <BoxV2 justifyContent={['flex-start']}>
               <Button
                 aria-label={'Menu'}
-                size={ButtonSize.large}
-                collapsePadding={'left'}
+                size={ButtonSize.small}
                 variant={Variant.tertiary}
                 icon={ButtonIcon.icon}
                 Icon={props.menuOpened ? <IoClose /> : <IoMenu />}
@@ -132,7 +130,7 @@ export const NavbarDocs: React.FC<Props> = function NavbarDocs(props) {
               AsElement={props.HomeLink}
               aria-label={'Home'}
             >
-              <SVGLogo Icon={MobileSvgLogo || DesktopSvgLogo} />
+              {MobileSvgLogo || DesktopSvgLogo}
             </BoxV2>
 
             <BoxV2
@@ -159,7 +157,7 @@ export const NavbarDocs: React.FC<Props> = function NavbarDocs(props) {
                 className={styles.logoWrapper}
                 AsElement={props.HomeLink}
               >
-                <SVGLogo Icon={DesktopSvgLogo || MobileSvgLogo} />
+                {DesktopSvgLogo || MobileSvgLogo}
               </BoxV2>
 
               {props.tagText ? <Tag variant={Variant.primaryReversed}>{props.tagText}</Tag> : null}

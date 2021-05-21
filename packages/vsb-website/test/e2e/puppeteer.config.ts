@@ -11,8 +11,10 @@ const env = loadDotEnv<ENV>({
 });
 
 const PROTOCOL = env.TEST_PROTOCOL || 'http';
-const PORT = env.TEST_PORT || '9000';
+const PORT = env.TEST_PORT || env.APP_PORT || '9000';
 const HOST = env.TEST_HOST || 'localhost';
+const VIEW_WIDTH = env.TEST_VIEW_WIDTH ? Number(env.TEST_VIEW_WIDTH) : 1440;
+const VIEW_HEIGHT = env.TEST_VIEW_HEIGHT ? Number(env.TEST_VIEW_HEIGHT) : 900;
 
 export const puppeteerConfig: {
   protocol: string;
@@ -26,13 +28,16 @@ export const puppeteerConfig: {
   port: env.TEST_PORT || '9000',
   appURL: `${PROTOCOL}://${HOST}:${PORT}`,
   launchOptions: {
+    executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
     headless: toBoolean(env.TEST_CHROME_HEADLESS),
     defaultViewport: {
-      width: Number(env.TEST_VIEW_WIDTH) || 1440,
-      height: Number(env.TEST_VIEW_HEIGHT) || 900,
+      width: VIEW_WIDTH,
+      height: VIEW_HEIGHT,
     },
     args: [
-      `--window-size=${env.TEST_VIEW_WIDTH},${env.TEST_VIEW_HEIGHT}`,
+      '--disable-extensions',
+      '--shm-size=3gb',
+      `--window-size=${VIEW_WIDTH},${VIEW_HEIGHT}`,
       '--no-sandbox',
       '–-disable-setuid-sandbox',
       env.TEST_IGNORE_SSL_ERROR ? '--ignore-certificate-errors' : '',

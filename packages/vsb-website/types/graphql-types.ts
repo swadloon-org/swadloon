@@ -926,6 +926,7 @@ export type ContentfulBlockCostItemFieldsEnum =
   | 'section___internal___owner'
   | 'section___internal___type'
   | 'section___name'
+  | 'section___variant'
   | 'section___layout'
   | 'section___page'
   | 'section___page___id'
@@ -949,6 +950,7 @@ export type ContentfulBlockCostItemFieldsEnum =
   | 'section___page___sections___id'
   | 'section___page___sections___children'
   | 'section___page___sections___name'
+  | 'section___page___sections___variant'
   | 'section___page___sections___layout'
   | 'section___page___sections___page'
   | 'section___page___sections___spaceId'
@@ -956,7 +958,6 @@ export type ContentfulBlockCostItemFieldsEnum =
   | 'section___page___sections___createdAt'
   | 'section___page___sections___updatedAt'
   | 'section___page___sections___node_locale'
-  | 'section___page___sections___variant'
   | 'section___page___description___id'
   | 'section___page___description___children'
   | 'section___page___description___description'
@@ -999,7 +1000,6 @@ export type ContentfulBlockCostItemFieldsEnum =
   | 'section___sys___type'
   | 'section___sys___revision'
   | 'section___node_locale'
-  | 'section___variant'
   | 'text___id'
   | 'text___parent___id'
   | 'text___parent___parent___id'
@@ -1829,6 +1829,7 @@ export type ContentfulBlockFieldsEnum =
   | 'section___internal___owner'
   | 'section___internal___type'
   | 'section___name'
+  | 'section___variant'
   | 'section___layout'
   | 'section___page'
   | 'section___page___id'
@@ -1852,6 +1853,7 @@ export type ContentfulBlockFieldsEnum =
   | 'section___page___sections___id'
   | 'section___page___sections___children'
   | 'section___page___sections___name'
+  | 'section___page___sections___variant'
   | 'section___page___sections___layout'
   | 'section___page___sections___page'
   | 'section___page___sections___spaceId'
@@ -1859,7 +1861,6 @@ export type ContentfulBlockFieldsEnum =
   | 'section___page___sections___createdAt'
   | 'section___page___sections___updatedAt'
   | 'section___page___sections___node_locale'
-  | 'section___page___sections___variant'
   | 'section___page___description___id'
   | 'section___page___description___children'
   | 'section___page___description___description'
@@ -1902,7 +1903,6 @@ export type ContentfulBlockFieldsEnum =
   | 'section___sys___type'
   | 'section___sys___revision'
   | 'section___node_locale'
-  | 'section___variant'
   | 'spaceId'
   | 'contentful_id'
   | 'createdAt'
@@ -2086,6 +2086,7 @@ export type ContentfulBlockFieldsEnum =
   | 'link___page___sections___id'
   | 'link___page___sections___children'
   | 'link___page___sections___name'
+  | 'link___page___sections___variant'
   | 'link___page___sections___layout'
   | 'link___page___sections___page'
   | 'link___page___sections___spaceId'
@@ -2093,7 +2094,6 @@ export type ContentfulBlockFieldsEnum =
   | 'link___page___sections___createdAt'
   | 'link___page___sections___updatedAt'
   | 'link___page___sections___node_locale'
-  | 'link___page___sections___variant'
   | 'link___page___description___id'
   | 'link___page___description___children'
   | 'link___page___description___description'
@@ -2158,6 +2158,7 @@ export type ContentfulBlockFieldsEnum =
   | 'link___block___section___id'
   | 'link___block___section___children'
   | 'link___block___section___name'
+  | 'link___block___section___variant'
   | 'link___block___section___layout'
   | 'link___block___section___page'
   | 'link___block___section___spaceId'
@@ -2165,7 +2166,6 @@ export type ContentfulBlockFieldsEnum =
   | 'link___block___section___createdAt'
   | 'link___block___section___updatedAt'
   | 'link___block___section___node_locale'
-  | 'link___block___section___variant'
   | 'link___block___spaceId'
   | 'link___block___contentful_id'
   | 'link___block___createdAt'
@@ -2382,6 +2382,7 @@ export type ContentfulBlockFieldsEnum =
   | 'medias___block___section___id'
   | 'medias___block___section___children'
   | 'medias___block___section___name'
+  | 'medias___block___section___variant'
   | 'medias___block___section___layout'
   | 'medias___block___section___page'
   | 'medias___block___section___spaceId'
@@ -2389,7 +2390,6 @@ export type ContentfulBlockFieldsEnum =
   | 'medias___block___section___createdAt'
   | 'medias___block___section___updatedAt'
   | 'medias___block___section___node_locale'
-  | 'medias___block___section___variant'
   | 'medias___block___spaceId'
   | 'medias___block___contentful_id'
   | 'medias___block___createdAt'
@@ -2888,6 +2888,7 @@ export type ContentfulBlockGoogleMapFieldsEnum =
   | 'section___internal___owner'
   | 'section___internal___type'
   | 'section___name'
+  | 'section___variant'
   | 'section___layout'
   | 'section___page'
   | 'section___page___id'
@@ -2911,6 +2912,7 @@ export type ContentfulBlockGoogleMapFieldsEnum =
   | 'section___page___sections___id'
   | 'section___page___sections___children'
   | 'section___page___sections___name'
+  | 'section___page___sections___variant'
   | 'section___page___sections___layout'
   | 'section___page___sections___page'
   | 'section___page___sections___spaceId'
@@ -2918,7 +2920,6 @@ export type ContentfulBlockGoogleMapFieldsEnum =
   | 'section___page___sections___createdAt'
   | 'section___page___sections___updatedAt'
   | 'section___page___sections___node_locale'
-  | 'section___page___sections___variant'
   | 'section___page___description___id'
   | 'section___page___description___children'
   | 'section___page___description___description'
@@ -2961,7 +2962,6 @@ export type ContentfulBlockGoogleMapFieldsEnum =
   | 'section___sys___type'
   | 'section___sys___revision'
   | 'section___node_locale'
-  | 'section___variant'
   | 'spaceId'
   | 'contentful_id'
   | 'createdAt'
@@ -5158,6 +5158,7 @@ export type ContentfulLinkFieldsEnum =
   | 'page___sections___internal___owner'
   | 'page___sections___internal___type'
   | 'page___sections___name'
+  | 'page___sections___variant'
   | 'page___sections___layout'
   | 'page___sections___page'
   | 'page___sections___page___id'
@@ -5180,7 +5181,6 @@ export type ContentfulLinkFieldsEnum =
   | 'page___sections___sys___type'
   | 'page___sections___sys___revision'
   | 'page___sections___node_locale'
-  | 'page___sections___variant'
   | 'page___description___id'
   | 'page___description___parent___id'
   | 'page___description___parent___children'
@@ -5447,6 +5447,7 @@ export type ContentfulLinkFieldsEnum =
   | 'block___section___internal___owner'
   | 'block___section___internal___type'
   | 'block___section___name'
+  | 'block___section___variant'
   | 'block___section___layout'
   | 'block___section___page'
   | 'block___section___page___id'
@@ -5469,7 +5470,6 @@ export type ContentfulLinkFieldsEnum =
   | 'block___section___sys___type'
   | 'block___section___sys___revision'
   | 'block___section___node_locale'
-  | 'block___section___variant'
   | 'block___spaceId'
   | 'block___contentful_id'
   | 'block___createdAt'
@@ -6468,6 +6468,7 @@ export type ContentfulMediaCollectionFieldsEnum =
   | 'block___section___internal___owner'
   | 'block___section___internal___type'
   | 'block___section___name'
+  | 'block___section___variant'
   | 'block___section___layout'
   | 'block___section___page'
   | 'block___section___page___id'
@@ -6490,7 +6491,6 @@ export type ContentfulMediaCollectionFieldsEnum =
   | 'block___section___sys___type'
   | 'block___section___sys___revision'
   | 'block___section___node_locale'
-  | 'block___section___variant'
   | 'block___spaceId'
   | 'block___contentful_id'
   | 'block___createdAt'
@@ -7211,6 +7211,7 @@ export type ContentfulMediaFieldsEnum =
   | 'mediacollection___block___section___id'
   | 'mediacollection___block___section___children'
   | 'mediacollection___block___section___name'
+  | 'mediacollection___block___section___variant'
   | 'mediacollection___block___section___layout'
   | 'mediacollection___block___section___page'
   | 'mediacollection___block___section___spaceId'
@@ -7218,7 +7219,6 @@ export type ContentfulMediaFieldsEnum =
   | 'mediacollection___block___section___createdAt'
   | 'mediacollection___block___section___updatedAt'
   | 'mediacollection___block___section___node_locale'
-  | 'mediacollection___block___section___variant'
   | 'mediacollection___block___spaceId'
   | 'mediacollection___block___contentful_id'
   | 'mediacollection___block___createdAt'
@@ -7566,6 +7566,7 @@ export type ContentfulNavigationFieldsEnum =
   | 'links___page___sections___id'
   | 'links___page___sections___children'
   | 'links___page___sections___name'
+  | 'links___page___sections___variant'
   | 'links___page___sections___layout'
   | 'links___page___sections___page'
   | 'links___page___sections___spaceId'
@@ -7573,7 +7574,6 @@ export type ContentfulNavigationFieldsEnum =
   | 'links___page___sections___createdAt'
   | 'links___page___sections___updatedAt'
   | 'links___page___sections___node_locale'
-  | 'links___page___sections___variant'
   | 'links___page___description___id'
   | 'links___page___description___children'
   | 'links___page___description___description'
@@ -7638,6 +7638,7 @@ export type ContentfulNavigationFieldsEnum =
   | 'links___block___section___id'
   | 'links___block___section___children'
   | 'links___block___section___name'
+  | 'links___block___section___variant'
   | 'links___block___section___layout'
   | 'links___block___section___page'
   | 'links___block___section___spaceId'
@@ -7645,7 +7646,6 @@ export type ContentfulNavigationFieldsEnum =
   | 'links___block___section___createdAt'
   | 'links___block___section___updatedAt'
   | 'links___block___section___node_locale'
-  | 'links___block___section___variant'
   | 'links___block___spaceId'
   | 'links___block___contentful_id'
   | 'links___block___createdAt'
@@ -8793,6 +8793,7 @@ export type ContentfulPageFieldsEnum =
   | 'sections___internal___owner'
   | 'sections___internal___type'
   | 'sections___name'
+  | 'sections___variant'
   | 'sections___layout'
   | 'sections___page'
   | 'sections___page___id'
@@ -8816,6 +8817,7 @@ export type ContentfulPageFieldsEnum =
   | 'sections___page___sections___id'
   | 'sections___page___sections___children'
   | 'sections___page___sections___name'
+  | 'sections___page___sections___variant'
   | 'sections___page___sections___layout'
   | 'sections___page___sections___page'
   | 'sections___page___sections___spaceId'
@@ -8823,7 +8825,6 @@ export type ContentfulPageFieldsEnum =
   | 'sections___page___sections___createdAt'
   | 'sections___page___sections___updatedAt'
   | 'sections___page___sections___node_locale'
-  | 'sections___page___sections___variant'
   | 'sections___page___description___id'
   | 'sections___page___description___children'
   | 'sections___page___description___description'
@@ -8866,7 +8867,6 @@ export type ContentfulPageFieldsEnum =
   | 'sections___sys___type'
   | 'sections___sys___revision'
   | 'sections___node_locale'
-  | 'sections___variant'
   | 'description___id'
   | 'description___parent___id'
   | 'description___parent___parent___id'
@@ -9051,6 +9051,7 @@ export type ContentfulPageFieldsEnum =
   | 'link___page___sections___id'
   | 'link___page___sections___children'
   | 'link___page___sections___name'
+  | 'link___page___sections___variant'
   | 'link___page___sections___layout'
   | 'link___page___sections___page'
   | 'link___page___sections___spaceId'
@@ -9058,7 +9059,6 @@ export type ContentfulPageFieldsEnum =
   | 'link___page___sections___createdAt'
   | 'link___page___sections___updatedAt'
   | 'link___page___sections___node_locale'
-  | 'link___page___sections___variant'
   | 'link___page___description___id'
   | 'link___page___description___children'
   | 'link___page___description___description'
@@ -9123,6 +9123,7 @@ export type ContentfulPageFieldsEnum =
   | 'link___block___section___id'
   | 'link___block___section___children'
   | 'link___block___section___name'
+  | 'link___block___section___variant'
   | 'link___block___section___layout'
   | 'link___block___section___page'
   | 'link___block___section___spaceId'
@@ -9130,7 +9131,6 @@ export type ContentfulPageFieldsEnum =
   | 'link___block___section___createdAt'
   | 'link___block___section___updatedAt'
   | 'link___block___section___node_locale'
-  | 'link___block___section___variant'
   | 'link___block___spaceId'
   | 'link___block___contentful_id'
   | 'link___block___createdAt'
@@ -9581,6 +9581,7 @@ export type ContentfulSection = Node & {
   children: Array<Node>;
   internal: Internal;
   name?: Maybe<Scalars['String']>;
+  variant?: Maybe<Scalars['String']>;
   layout?: Maybe<Scalars['String']>;
   blocks?: Maybe<Array<Maybe<ContentfulBlockContentfulBlockCostItemContentfulBlockGoogleMapUnion>>>;
   page?: Maybe<Array<Maybe<ContentfulPage>>>;
@@ -9590,7 +9591,6 @@ export type ContentfulSection = Node & {
   updatedAt?: Maybe<Scalars['Date']>;
   sys?: Maybe<ContentfulSectionSys>;
   node_locale?: Maybe<Scalars['String']>;
-  variant?: Maybe<Scalars['String']>;
 };
 
 
@@ -9724,6 +9724,7 @@ export type ContentfulSectionFieldsEnum =
   | 'internal___owner'
   | 'internal___type'
   | 'name'
+  | 'variant'
   | 'layout'
   | 'page'
   | 'page___id'
@@ -9783,6 +9784,7 @@ export type ContentfulSectionFieldsEnum =
   | 'page___sections___internal___owner'
   | 'page___sections___internal___type'
   | 'page___sections___name'
+  | 'page___sections___variant'
   | 'page___sections___layout'
   | 'page___sections___page'
   | 'page___sections___page___id'
@@ -9805,7 +9807,6 @@ export type ContentfulSectionFieldsEnum =
   | 'page___sections___sys___type'
   | 'page___sections___sys___revision'
   | 'page___sections___node_locale'
-  | 'page___sections___variant'
   | 'page___description___id'
   | 'page___description___parent___id'
   | 'page___description___parent___children'
@@ -10013,8 +10014,7 @@ export type ContentfulSectionFieldsEnum =
   | 'sys___contentType___sys___linkType'
   | 'sys___contentType___sys___id'
   | 'sys___contentType___sys___contentful_id'
-  | 'node_locale'
-  | 'variant';
+  | 'node_locale';
 
 export type ContentfulSectionFilterInput = {
   id?: Maybe<StringQueryOperatorInput>;
@@ -10022,6 +10022,7 @@ export type ContentfulSectionFilterInput = {
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
   name?: Maybe<StringQueryOperatorInput>;
+  variant?: Maybe<StringQueryOperatorInput>;
   layout?: Maybe<StringQueryOperatorInput>;
   page?: Maybe<ContentfulPageFilterListInput>;
   spaceId?: Maybe<StringQueryOperatorInput>;
@@ -10030,7 +10031,6 @@ export type ContentfulSectionFilterInput = {
   updatedAt?: Maybe<DateQueryOperatorInput>;
   sys?: Maybe<ContentfulSectionSysFilterInput>;
   node_locale?: Maybe<StringQueryOperatorInput>;
-  variant?: Maybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulSectionFilterListInput = {
@@ -13528,15 +13528,15 @@ export type QuerySitePageArgs = {
   internalComponentName?: Maybe<StringQueryOperatorInput>;
   componentChunkName?: Maybe<StringQueryOperatorInput>;
   matchPath?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
   isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>;
   context?: Maybe<SitePageContextFilterInput>;
   pluginCreator?: Maybe<SitePluginFilterInput>;
   pluginCreatorId?: Maybe<StringQueryOperatorInput>;
   componentPath?: Maybe<StringQueryOperatorInput>;
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
 };
 
 
@@ -13819,6 +13819,7 @@ export type QueryContentfulSectionArgs = {
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
   name?: Maybe<StringQueryOperatorInput>;
+  variant?: Maybe<StringQueryOperatorInput>;
   layout?: Maybe<StringQueryOperatorInput>;
   page?: Maybe<ContentfulPageFilterListInput>;
   spaceId?: Maybe<StringQueryOperatorInput>;
@@ -13827,7 +13828,6 @@ export type QueryContentfulSectionArgs = {
   updatedAt?: Maybe<DateQueryOperatorInput>;
   sys?: Maybe<ContentfulSectionSysFilterInput>;
   node_locale?: Maybe<StringQueryOperatorInput>;
-  variant?: Maybe<StringQueryOperatorInput>;
 };
 
 
@@ -14553,15 +14553,15 @@ export type SitePage = Node & {
   internalComponentName: Scalars['String'];
   componentChunkName: Scalars['String'];
   matchPath?: Maybe<Scalars['String']>;
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
   isCreatedByStatefulCreatePages?: Maybe<Scalars['Boolean']>;
   context?: Maybe<SitePageContext>;
   pluginCreator?: Maybe<SitePlugin>;
   pluginCreatorId?: Maybe<Scalars['String']>;
   componentPath?: Maybe<Scalars['String']>;
-  id: Scalars['ID'];
-  parent?: Maybe<Node>;
-  children: Array<Node>;
-  internal: Internal;
 };
 
 export type SitePageConnection = {
@@ -14649,6 +14649,92 @@ export type SitePageFieldsEnum =
   | 'internalComponentName'
   | 'componentChunkName'
   | 'matchPath'
+  | 'id'
+  | 'parent___id'
+  | 'parent___parent___id'
+  | 'parent___parent___parent___id'
+  | 'parent___parent___parent___children'
+  | 'parent___parent___children'
+  | 'parent___parent___children___id'
+  | 'parent___parent___children___children'
+  | 'parent___parent___internal___content'
+  | 'parent___parent___internal___contentDigest'
+  | 'parent___parent___internal___description'
+  | 'parent___parent___internal___fieldOwners'
+  | 'parent___parent___internal___ignoreType'
+  | 'parent___parent___internal___mediaType'
+  | 'parent___parent___internal___owner'
+  | 'parent___parent___internal___type'
+  | 'parent___children'
+  | 'parent___children___id'
+  | 'parent___children___parent___id'
+  | 'parent___children___parent___children'
+  | 'parent___children___children'
+  | 'parent___children___children___id'
+  | 'parent___children___children___children'
+  | 'parent___children___internal___content'
+  | 'parent___children___internal___contentDigest'
+  | 'parent___children___internal___description'
+  | 'parent___children___internal___fieldOwners'
+  | 'parent___children___internal___ignoreType'
+  | 'parent___children___internal___mediaType'
+  | 'parent___children___internal___owner'
+  | 'parent___children___internal___type'
+  | 'parent___internal___content'
+  | 'parent___internal___contentDigest'
+  | 'parent___internal___description'
+  | 'parent___internal___fieldOwners'
+  | 'parent___internal___ignoreType'
+  | 'parent___internal___mediaType'
+  | 'parent___internal___owner'
+  | 'parent___internal___type'
+  | 'children'
+  | 'children___id'
+  | 'children___parent___id'
+  | 'children___parent___parent___id'
+  | 'children___parent___parent___children'
+  | 'children___parent___children'
+  | 'children___parent___children___id'
+  | 'children___parent___children___children'
+  | 'children___parent___internal___content'
+  | 'children___parent___internal___contentDigest'
+  | 'children___parent___internal___description'
+  | 'children___parent___internal___fieldOwners'
+  | 'children___parent___internal___ignoreType'
+  | 'children___parent___internal___mediaType'
+  | 'children___parent___internal___owner'
+  | 'children___parent___internal___type'
+  | 'children___children'
+  | 'children___children___id'
+  | 'children___children___parent___id'
+  | 'children___children___parent___children'
+  | 'children___children___children'
+  | 'children___children___children___id'
+  | 'children___children___children___children'
+  | 'children___children___internal___content'
+  | 'children___children___internal___contentDigest'
+  | 'children___children___internal___description'
+  | 'children___children___internal___fieldOwners'
+  | 'children___children___internal___ignoreType'
+  | 'children___children___internal___mediaType'
+  | 'children___children___internal___owner'
+  | 'children___children___internal___type'
+  | 'children___internal___content'
+  | 'children___internal___contentDigest'
+  | 'children___internal___description'
+  | 'children___internal___fieldOwners'
+  | 'children___internal___ignoreType'
+  | 'children___internal___mediaType'
+  | 'children___internal___owner'
+  | 'children___internal___type'
+  | 'internal___content'
+  | 'internal___contentDigest'
+  | 'internal___description'
+  | 'internal___fieldOwners'
+  | 'internal___ignoreType'
+  | 'internal___mediaType'
+  | 'internal___owner'
+  | 'internal___type'
   | 'isCreatedByStatefulCreatePages'
   | 'context___siteMetadata___title'
   | 'context___siteMetadata___description'
@@ -14778,93 +14864,7 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___packageJson___peerDependencies___version'
   | 'pluginCreator___packageJson___keywords'
   | 'pluginCreatorId'
-  | 'componentPath'
-  | 'id'
-  | 'parent___id'
-  | 'parent___parent___id'
-  | 'parent___parent___parent___id'
-  | 'parent___parent___parent___children'
-  | 'parent___parent___children'
-  | 'parent___parent___children___id'
-  | 'parent___parent___children___children'
-  | 'parent___parent___internal___content'
-  | 'parent___parent___internal___contentDigest'
-  | 'parent___parent___internal___description'
-  | 'parent___parent___internal___fieldOwners'
-  | 'parent___parent___internal___ignoreType'
-  | 'parent___parent___internal___mediaType'
-  | 'parent___parent___internal___owner'
-  | 'parent___parent___internal___type'
-  | 'parent___children'
-  | 'parent___children___id'
-  | 'parent___children___parent___id'
-  | 'parent___children___parent___children'
-  | 'parent___children___children'
-  | 'parent___children___children___id'
-  | 'parent___children___children___children'
-  | 'parent___children___internal___content'
-  | 'parent___children___internal___contentDigest'
-  | 'parent___children___internal___description'
-  | 'parent___children___internal___fieldOwners'
-  | 'parent___children___internal___ignoreType'
-  | 'parent___children___internal___mediaType'
-  | 'parent___children___internal___owner'
-  | 'parent___children___internal___type'
-  | 'parent___internal___content'
-  | 'parent___internal___contentDigest'
-  | 'parent___internal___description'
-  | 'parent___internal___fieldOwners'
-  | 'parent___internal___ignoreType'
-  | 'parent___internal___mediaType'
-  | 'parent___internal___owner'
-  | 'parent___internal___type'
-  | 'children'
-  | 'children___id'
-  | 'children___parent___id'
-  | 'children___parent___parent___id'
-  | 'children___parent___parent___children'
-  | 'children___parent___children'
-  | 'children___parent___children___id'
-  | 'children___parent___children___children'
-  | 'children___parent___internal___content'
-  | 'children___parent___internal___contentDigest'
-  | 'children___parent___internal___description'
-  | 'children___parent___internal___fieldOwners'
-  | 'children___parent___internal___ignoreType'
-  | 'children___parent___internal___mediaType'
-  | 'children___parent___internal___owner'
-  | 'children___parent___internal___type'
-  | 'children___children'
-  | 'children___children___id'
-  | 'children___children___parent___id'
-  | 'children___children___parent___children'
-  | 'children___children___children'
-  | 'children___children___children___id'
-  | 'children___children___children___children'
-  | 'children___children___internal___content'
-  | 'children___children___internal___contentDigest'
-  | 'children___children___internal___description'
-  | 'children___children___internal___fieldOwners'
-  | 'children___children___internal___ignoreType'
-  | 'children___children___internal___mediaType'
-  | 'children___children___internal___owner'
-  | 'children___children___internal___type'
-  | 'children___internal___content'
-  | 'children___internal___contentDigest'
-  | 'children___internal___description'
-  | 'children___internal___fieldOwners'
-  | 'children___internal___ignoreType'
-  | 'children___internal___mediaType'
-  | 'children___internal___owner'
-  | 'children___internal___type'
-  | 'internal___content'
-  | 'internal___contentDigest'
-  | 'internal___description'
-  | 'internal___fieldOwners'
-  | 'internal___ignoreType'
-  | 'internal___mediaType'
-  | 'internal___owner'
-  | 'internal___type';
+  | 'componentPath';
 
 export type SitePageFilterInput = {
   path?: Maybe<StringQueryOperatorInput>;
@@ -14872,15 +14872,15 @@ export type SitePageFilterInput = {
   internalComponentName?: Maybe<StringQueryOperatorInput>;
   componentChunkName?: Maybe<StringQueryOperatorInput>;
   matchPath?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
   isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>;
   context?: Maybe<SitePageContextFilterInput>;
   pluginCreator?: Maybe<SitePluginFilterInput>;
   pluginCreatorId?: Maybe<StringQueryOperatorInput>;
   componentPath?: Maybe<StringQueryOperatorInput>;
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
 };
 
 export type SitePageGroupConnection = {

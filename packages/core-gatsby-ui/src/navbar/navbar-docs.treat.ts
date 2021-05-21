@@ -44,9 +44,11 @@ export const styles = {
   })),
   logoMobile: style(({ cssTheme, theme }: Theme) => ({
     maxHeight: `100%`,
+    fill: 'white',
   })),
   logoDesktop: style(({ cssTheme, theme }: Theme) => ({
     maxHeight: `100%`,
+    fill: 'white',
   })),
   logoWrapper: style(({ cssTheme, theme }: Theme) => ({
     height: cssTheme.layout.var.navbarHeight,
