@@ -64,6 +64,7 @@
   },
   "extensions": {
     "recommendations": [
+      "eamodio.gitlens",
       "fabiospampinato.vscode-terminals",
       "fabiospampinato.vscode-open-in-node-modules",
       "jasonnutter.search-node-modules",
@@ -84,7 +85,6 @@
       "cssho.vscode-svgviewer",
       "deepscan.vscode-deepscan",
       "graphql.vscode-graphql",
-      "apollographql.vscode-apollo",
       "vstirbu.vscode-mermaid-preview",
       "svsool.markdown-memo"
     ]
