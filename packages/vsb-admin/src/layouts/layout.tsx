@@ -58,6 +58,15 @@ export const Layout: React.FC<Props> = (props) => {
     });
   }
 
+  /**
+   * Sidebar
+   */
+  const [sideBarOpened, setSideBarOpened] = useState<boolean>(false);
+
+  function handleMenuButton(event: React.MouseEvent) {
+    setSideBarOpened(!sideBarOpened);
+  }
+
   return isAuthenticated || isLoading ? (
     <MainWrapper>
       <NavBarApp
@@ -94,26 +103,37 @@ export const Layout: React.FC<Props> = (props) => {
             </Button>
           </>
         }
+        onClickMenuButton={handleMenuButton}
       ></NavBarApp>
 
-      <DesktopSideBar>
-        <BoxV2
-          padding={[cssTheme.sizing.var.x2, 0, cssTheme.sizing.var.x6]}
-          style={{ flexDirection: 'column', backgroundColor: cssTheme.colors.colors.grey[0] }}
-          justifyContent={['flex-start']}
-          alignItems={['stretch']}
-        >
-          <Stack gap={[cssTheme.sizing.var.x4]}>
-            <Stack gap={[`calc(2 * ${cssTheme.sizing.var.x1})`]}>
-              <Stack>
-                <NavItem active={true}>Patients</NavItem>
+      {sideBarOpened ? (
+        <DesktopSideBar>
+          <BoxV2
+            padding={[cssTheme.sizing.var.x2, 0, cssTheme.sizing.var.x6]}
+            style={{ flexDirection: 'column', backgroundColor: cssTheme.colors.colors.grey[0] }}
+            justifyContent={['flex-start']}
+            alignItems={['stretch']}
+          >
+            <Stack gap={[cssTheme.sizing.var.x4]}>
+              <Stack gap={[`calc(2 * ${cssTheme.sizing.var.x1})`]}>
+                <Stack>
+                  <NavItem active={true}>Patients</NavItem>
+                  <NavItem active={false} disabled={true}>
+                    Facturation
+                  </NavItem>
+                </Stack>
               </Stack>
             </Stack>
-          </Stack>
-        </BoxV2>
-      </DesktopSideBar>
+          </BoxV2>
+        </DesktopSideBar>
+      ) : null}
 
-      <Main minHeight={false} navbarPadding={true} desktopSidebarPadding={true}>
+      <Main
+        minHeight={false}
+        navbarPadding={false}
+        desktopSidebarPadding={sideBarOpened}
+        className={styles.main}
+      >
         <Patients />
       </Main>
     </MainWrapper>

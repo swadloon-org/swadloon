@@ -23,7 +23,7 @@ export const Tag: React.FC<Props> = React.memo(
 
     return (
       <div {...commonProps}>
-        <Label>{children}</Label>
+        <Label className={styles.label}>{children}</Label>
       </div>
     );
   }

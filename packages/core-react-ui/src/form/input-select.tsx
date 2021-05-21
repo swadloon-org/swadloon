@@ -1,3 +1,4 @@
+import { IoChevronDownOutline } from '@react-icons/all-files/io5/IoChevronDownOutline';
 import React, { SelectHTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
 import { CommonComponentProps } from '../props/component-common.props';
@@ -24,6 +25,11 @@ export const InputSelect = React.memo(
     ]);
     const renderedId = id || props.name || '';
 
-    return <select ref={ref} id={renderedId} style={style} className={classNames} {...props} />;
+    return (
+      <div className={styles.wrapper}>
+        <select ref={ref} id={renderedId} style={style} className={classNames} {...props}></select>
+        <IoChevronDownOutline className={styles.icon} />
+      </div>
+    );
   })
 );

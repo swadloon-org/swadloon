@@ -5,6 +5,7 @@ import { useCommonProps } from '../hooks/use-common-props.hook';
 import { usePreventPinchZoom } from '../hooks/use-prevent-pinch-zoom';
 import { CommonComponentProps } from '../props/component-common.props';
 import { Label } from '../text/label';
+import { getMergedClassname } from '../utilities';
 import * as styleRefs from './desktop-docs-sidebar-item.treat';
 
 type Props = CommonComponentProps &
@@ -26,7 +27,7 @@ export const DesktopDocsSidebarItem: React.FC<Props> = ({
     id,
     style,
     className,
-    classNames: [styles.wrapper, active && styles.active],
+    classNames: [styles.wrapper],
     ...props,
   });
 
@@ -38,7 +39,12 @@ export const DesktopDocsSidebarItem: React.FC<Props> = ({
         AsElement as React.ReactElement,
         {},
         <div {...commonProps}>
-          <Label variantStyle={TEXT_STYLE.normal}>{props.children}</Label>
+          <Label
+            variantStyle={TEXT_STYLE.normal}
+            className={getMergedClassname([styles.link, active && styles.linkActive])}
+          >
+            {props.children}
+          </Label>
         </div>
       )
     : null;
@@ -49,7 +55,12 @@ export const DesktopDocsSidebarItem: React.FC<Props> = ({
 
   return (
     <div {...commonProps}>
-      <Label variantStyle={TEXT_STYLE.normal}>{props.children}</Label>
+      <Label
+        variantStyle={TEXT_STYLE.normal}
+        className={getMergedClassname([styles.link, active && styles.linkActive])}
+      >
+        {props.children}
+      </Label>
     </div>
   );
 };

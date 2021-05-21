@@ -9,7 +9,8 @@
       "jest-environment-puppeteer",
       "puppeteer",
       "express",
-      "debug"
+      "debug",
+      "nodemailer"
     ]
   },
   "include": ["test", "src"]

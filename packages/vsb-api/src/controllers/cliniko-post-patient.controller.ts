@@ -9,7 +9,9 @@ import {
 import debug from 'debug';
 import { RequestHandler, Response } from 'express';
 import { ValidationError } from 'yup';
+import { env } from '../server-express';
 import { fetchCliniko } from '../services/cliniko.service';
+import { renderTemplateEmail, sendEmail } from '../services/email.service';
 
 export const log = debug('newrade:vsb-api:cliniko');
 const logWarn = log.extend('warn');
@@ -63,7 +65,30 @@ export const postPatient: RequestHandler<
 
     log(`patient successfully created`);
 
-    return res.status(200).send(result);
+    try {
+      const renderedTemplate = renderTemplateEmail({
+        data: {
+          name: `${clinikoPatient.first_name} ${clinikoPatient.last_name}`,
+          email: clinikoPatient.email,
+        },
+      });
+      await sendEmail(
+        {
+          from: env.API_VSB_STMP_USER,
+          to: 'info@vasectomie-pierre-boucher.ca',
+          subject: 'Message automatique de VSB',
+          html: renderedTemplate,
+        },
+        {
+          user: env.API_VSB_STMP_USER,
+          pass: env.API_VSB_STMP_PASSWORD,
+        }
+      );
+    } catch (error) {
+      logError(`failed to send email: ${error ? error.message : ''}`);
+    } finally {
+      return res.status(200).send(result);
+    }
   } catch (error) {
     logError(`request failed`);
     const yupError = error as ValidationError;

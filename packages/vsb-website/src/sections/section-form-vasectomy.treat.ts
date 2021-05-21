@@ -8,6 +8,7 @@ export const styles = {
   asideDesktop: style(({ theme, cssTheme }: Theme) => {
     // TODO: why does this create a bug ?
     // console.log(getCSSHexColor(lightenColor(theme.colors.colors.primary[100], 10)));
+    // backgroundColor: getCSSHexColor(lightenColor(theme.colors.colors.primary[100], 10)), // no class
     return {
       position: 'relative',
       right: '0',
@@ -21,7 +22,6 @@ export const styles = {
       marginRight: `calc(-1 * ${cssTheme.layout.var.contentMargins})`,
       marginBottom: `${cssTheme.sizing.var.x5}`,
       backgroundColor: `hsl(123deg 26% 94% / 100%)`,
-      // backgroundColor: getCSSHexColor(lightenColor(theme.colors.colors.primary[100], 10)), // no class
       zIndex: cssTheme.layout.zIndex.content,
 
       '@media': {

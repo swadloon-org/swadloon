@@ -32,7 +32,7 @@ export const Label: React.FC<Props> = React.memo(
     children,
     ...props
   }) => {
-    const { styles } = useStyles(stylesRef);
+    const styles = useStyles(stylesRef);
 
     // only render label when htmlFor is set
     const htmlForIsSet = !!htmlFor;
@@ -47,10 +47,10 @@ export const Label: React.FC<Props> = React.memo(
       style,
       className,
       classNames: [
-        styles.normal,
+        styles.base,
         variant ? styles[variant as LABEL_SIZE] : styles[defaultProps.variant as LABEL_SIZE],
-        variantStyle ? styles[variantStyle] : '',
-        variantLevel ? styles[variantLevel] : '',
+        variantStyle ? styles[variantStyle] : styles[TEXT_STYLE.bold],
+        variantLevel ? styles[variantLevel] : styles[Variant.primary],
       ],
 
       ...props,

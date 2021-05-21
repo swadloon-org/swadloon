@@ -9,6 +9,7 @@
     "baseUrl": ".",
     "target": "es6",
     "module": "esnext",
+    "lib": ["DOM", "ESNext"],
     "rootDir": ".",
     "types": ["react", "react-dom"]
   },

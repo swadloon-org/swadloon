@@ -1,4 +1,6 @@
-export const patientWithTreatmentNote = {
+import { PatientTreatmentNote } from '@newrade/vsb-common';
+
+export const patientTreatmentNode: { treatment_notes: PatientTreatmentNote[] } = {
   treatment_notes: [
     {
       id: '610802452278544812',
@@ -31,7 +33,7 @@ export const patientWithTreatmentNote = {
                   { value: '0. Abandon / désistement' },
                 ],
               },
-              { name: 'Note', type: 'paragraph' },
+              { name: 'Note', type: 'paragraph', answer: '<div>Test note</div>' },
             ],
           },
         ],
@@ -139,9 +141,8 @@ export const patientWithTreatmentNote = {
       links: { self: 'https://api.ca1.cliniko.com/v1/treatment_notes/608099689027340300' },
     },
   ],
-  total_entries: 3,
-  links: {
-    self:
-      'https://api.ca1.cliniko.com/v1/treatment_notes?page=1&q%5B%5D=patient_id%3A%3D608094149761042909&sort=updated_at%3Adesc',
-  },
+  // links: {
+  //   self:
+  //     'https://api.ca1.cliniko.com/v1/treatment_notes?page=1&q%5B%5D=patient_id%3A%3D608094149761042909&sort=updated_at%3Adesc',
+  // },
 };

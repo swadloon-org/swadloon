@@ -8,6 +8,7 @@ export const styles = {
     border: `1px solid rgb(255 0 255 / 40%)`,
     borderRadius: 0,
     overflowX: 'auto',
+    overflowY: 'visible',
     marginBottom: 16,
   })),
 };

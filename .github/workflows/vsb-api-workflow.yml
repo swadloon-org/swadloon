@@ -88,6 +88,9 @@ jobs:
         API_VSB_SHARD_ID: ${{ secrets.API_VSB_SHARD_ID }}
         API_VSB_SECRET_KEY_RECAPTCHA: ${{ secrets.API_VSB_SECRET_KEY_RECAPTCHA }}
 
+        API_VSB_STMP_USER: ${{ secrets.API_VSB_STMP_USER }}
+        API_VSB_STMP_PASSWORD: ${{ secrets.API_VSB_STMP_PASSWORD }}
+
     - name: Build vsb-api
       run: yarn build --scope @newrade/vsb-api
       env:
@@ -108,6 +111,9 @@ jobs:
         API_VSB_KEY_CLINIKO: ${{ secrets.API_VSB_KEY_CLINIKO }}
         API_VSB_SHARD_ID: ${{ secrets.API_VSB_SHARD_ID }}
         API_VSB_SECRET_KEY_RECAPTCHA: ${{ secrets.API_VSB_SECRET_KEY_RECAPTCHA }}
+
+        API_VSB_STMP_USER: ${{ secrets.API_VSB_STMP_USER }}
+        API_VSB_STMP_PASSWORD: ${{ secrets.API_VSB_STMP_PASSWORD }}
 
     - name: Check for protected branches
       if: endsWith(github.ref, 'api')

@@ -2,9 +2,11 @@ import { DEPLOY_ENV } from '@newrade/core-common';
 import { loadDotEnv, logEnvVariables } from '@newrade/core-utils';
 import {
   API_BASE_PATH,
+  API_GET_EMAIL_TEMPLATE,
   API_HEALTH_CHECK,
   API_LIST_PATIENTS_ROUTE,
   API_REGISTER_PATIENT_ROUTE,
+  API_SEND_EMAIL,
   API_STATUS_CLINIKO,
   API_TRANSLATION_ROUTE,
 } from '@newrade/vsb-common';
@@ -19,6 +21,7 @@ import { Env, ENV } from '../types/dot-env';
 import { getPatients } from './controllers/cliniko-patients.controller';
 import { postPatient } from './controllers/cliniko-post-patient.controller';
 import { getClinikoStatus } from './controllers/cliniko-status';
+import { getEmail, getEmailTemplate } from './controllers/email.controller';
 import { HealthCheckController } from './controllers/health-check.controller';
 import { getTranslation } from './controllers/translation.controller';
 import { auth0JwtMiddleware, authErrorMiddleware } from './middleware/authentication.middleware';
@@ -93,6 +96,14 @@ expressServer.get(API_HEALTH_CHECK, HealthCheckController.getHealthCheck);
 expressServer.get(API_STATUS_CLINIKO, getClinikoStatus);
 expressServer.post(API_REGISTER_PATIENT_ROUTE, recaptchaMiddleware, postPatient);
 expressServer.get(API_LIST_PATIENTS_ROUTE, auth0JwtMiddleware, getPatients);
+
+/**
+ * STMP (only for testing locally)
+ */
+if (env.APP_ENV === DEPLOY_ENV.LOCAL) {
+  expressServer.get(API_SEND_EMAIL, getEmail);
+  expressServer.get(API_GET_EMAIL_TEMPLATE, getEmailTemplate);
+}
 
 /**
  * Translation
