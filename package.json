@@ -141,7 +141,7 @@
     "@babel/plugin-proposal-optional-chaining": "^7.14.2",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "@babel/plugin-transform-destructuring": "^7.12.1",
-    "@babel/plugin-transform-runtime": "^7.11.5",
+    "@babel/plugin-transform-runtime": "^7.14.3",
     "@babel/preset-env": "^7.12.7",
     "@babel/preset-react": "^7.12.10",
     "@ccalamos/gatsby-source-googlemaps-static": "^2.0.1",
