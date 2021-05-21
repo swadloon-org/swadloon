@@ -1,11 +1,8 @@
 import { APIRequestBody, APIResponseBody, API_RESPONSE_STATUS } from '@newrade/core-common';
 import debug from 'debug';
 import { RequestHandler } from 'express';
-import React from 'react';
-import ReactDOMServer from 'react-dom/server';
 import { env } from '../server-express';
-import { sendEmail } from '../services/email.service';
-const template: (data: { title: string }) => string = require('./email-template.ejs');
+import { renderTemplateEmail, sendEmail } from '../services/email.service';
 
 const log = debug('newrade:vsb-api:email');
 const logWarn = log.extend('warn');
@@ -57,11 +54,10 @@ export const getEmailTemplate: RequestHandler<
   any,
   APIResponseBody<string> | string,
   APIRequestBody<any>
-> = async (req, res) => {
+> = (req, res) => {
   try {
-    const app = ReactDOMServer.renderToString(<div>hey</div>);
-    const renderedTemplate = template({
-      title: 'Nouveau patient',
+    const renderedTemplate = renderTemplateEmail({
+      data: { name: 'Nouveau patient', email: 'person@email.com' },
     });
     return res.header('Content-Type', 'text/html').status(200).send(renderedTemplate);
   } catch (error) {

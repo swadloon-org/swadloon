@@ -66,3 +66,11 @@ export async function sendEmail(
     });
   }
 }
+
+const template: (data: EmailTemplateProps) => string = require('./email-template.ejs');
+
+type EmailTemplateProps = { data: { name: string; email: string } };
+
+export function renderTemplateEmail(props: EmailTemplateProps) {
+  return template(props);
+}
