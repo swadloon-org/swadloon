@@ -196,7 +196,7 @@
     "babel-preset-gatsby": "^0.6.0",
     "capsize": "^1.1.0",
     "case": "^1.6.3",
-    "chalk": "^4.0.0",
+    "chalk": "^4.1.1",
     "clean-webpack-plugin": "^4.0.0-alpha.0",
     "cleave.js": "1.5.10",
     "compression-webpack-plugin": "^6.1.1",
