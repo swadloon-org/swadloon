@@ -37,6 +37,7 @@ echo "/swapfile none swap sw 0 0" | sudo tee -a /etc/fstab
 free -m
 #
 # Increase nodejs ram limit
+# see https://stackoverflow.com/questions/48387040/how-do-i-determine-the-correct-max-old-space-size-for-node-js
 #
 echo "export NODE_OPTIONS=--max-old-space-size=4096" >> ~/.profile
 source ~/.profile
