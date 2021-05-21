@@ -1,7 +1,8 @@
 ---
 name: Links
+description: Links are used in sentence or paragraph as navigational elements.
 tags:
-  - test
+  - molecule
 ---
 
 <!-- CODE IMPORTS -->
@@ -24,12 +25,23 @@ import LinksExternalCode from '!!raw-loader!../../src/code/links-external.code.t
 
 ## Variant
 
+There are two variants for links:
+
+- No underline
+- Underline
+
 <ThemeWrapper>
 <Links />
 </ThemeWrapper>
 <CodeBlock>{LinksCode}</CodeBlock>
 
 ## Variant Level
+
+Like most components there are three level of importance for links:
+
+- Primary
+- Secondary
+- Tertiary
 
 <ThemeWrapper>
 <LinksLevel />
@@ -38,6 +50,8 @@ import LinksExternalCode from '!!raw-loader!../../src/code/links-external.code.t
 
 ## Size
 
+Four sizes are available for links.
+
 <ThemeWrapper>
 <LinksSizes />
 </ThemeWrapper>
@@ -45,12 +59,16 @@ import LinksExternalCode from '!!raw-loader!../../src/code/links-external.code.t
 
 ## Icon
 
+The icon button variant support having the icon on the right side and only icon.
+
 <ThemeWrapper>
 <LinksIcon />
 </ThemeWrapper>
 <CodeBlock>{LinksIconCode}</CodeBlock>
 
 ## External
+
+External link have an external icon on the right side.
 
 <ThemeWrapper>
 <LinksExternal />
