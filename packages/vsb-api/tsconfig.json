@@ -1,7 +1,17 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "types": ["node", "jest"],
+    "types": [
+      "node",
+      "jest",
+      "react",
+      "expect-puppeteer",
+      "jest-environment-puppeteer",
+      "puppeteer",
+      "express",
+      "debug",
+      "nodemailer"
+    ],
     "baseUrl": ".",
     "paths": {
       "@newrade/*": ["../*/src"]

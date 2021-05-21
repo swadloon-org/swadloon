@@ -4,6 +4,13 @@ import {
   CLINIKO_REMINDER_TYPE,
 } from './patient.constant';
 
+export type PatientModelStatusObject = {
+  order: number;
+  color: string;
+  colorText: string;
+  description: string;
+};
+
 export type PatientModelAdmin = {
   id?: string;
   firstName: string;
@@ -13,6 +20,8 @@ export type PatientModelAdmin = {
   patientPhoneType: CLINIKO_PHONE_TYPE;
   status?: CLINIKO_PATIENT_VASEC_STATUS;
   statusNote?: string;
+  // statusUpdatedAt?: string; // "2021-04-22T18:14:10Z"
+  updatedAt?: string; // "2021-04-22T18:14:10Z"
 };
 
 export type PatientModel = {
@@ -38,6 +47,8 @@ export type PatientModel = {
 
 export type PatientClinikoModel = {
   id?: string;
+  updated_at?: string; // '2021-04-22T18:14:10Z'
+
   first_name: string;
   last_name: string;
 
@@ -78,4 +89,5 @@ export type PatientClinikoModel = {
   // accepted_privacy_policy: boolean | null;
   // accepted_sms_marketing: boolean;
   // accepted_email_marketing: boolean;
+  // created_at: '2021-02-16T18:20:07Z';
 };

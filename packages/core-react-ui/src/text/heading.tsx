@@ -62,14 +62,11 @@ export const Heading = React.memo(
 
       const defaultChildrenString = `${defaultProps.children as string} ${pascal(type)}`;
       const variantClass = `${styles[variant ? variant : (defaultProps.variant as HEADING)]}`;
-      const variantLevelClass = `${
-        colorTextStyles[variantLevel ? variantLevel : (defaultProps.variantLevel as Variant)]
-      }`;
       const classNames = getMergedClassname([
         className,
         styles.wrapper,
         variantClass,
-        variantLevelClass,
+        colorTextStyles[variantLevel ? variantLevel : (defaultProps.variantLevel as Variant)],
       ]);
 
       usePreventPinchZoom(ref.current);

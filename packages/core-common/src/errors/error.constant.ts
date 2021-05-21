@@ -36,6 +36,8 @@ export enum ERROR_TYPE {
   DTO_VALIDATION_ERROR = 'DTO_VALIDATION_ERROR',
   RATE_LIMITING_ERROR = 'RATE_LIMITING_ERROR',
   UNPROCESSABLE_ENTITY = 'UNPROCESSABLE_ENTITY',
+  /** Error related to email, stmp etc. */
+  STMP_ERROR = 'STMP_ERROR',
   //
   // others
   //

@@ -8,47 +8,48 @@ export type PatientTreatmentNote = {
   content: {
     sections: PatientTreatmentNoteSection[];
   };
-  draft: false;
-  title: string | 'Statut du patient';
-  deleted_at: string | null;
-  finalized_at: string | null;
-  pinned_at: string | null;
-  archived_at: string | null;
-  author_name: string | null;
+  draft?: boolean;
+  title?: string | 'Statut du patient';
+  deleted_at?: string | null;
+  finalized_at?: string | null;
+  pinned_at?: string | null;
+  archived_at?: string | null;
+  author_name?: string | null;
 
-  // patient: {
-  //   links: {
-  //     self: 'https://api.ca1.cliniko.com/v1/patients/563704455636192073';
-  //   };
-  // };
-  // practitioner: {
-  //   links: {
-  //     self: 'https://api.ca1.cliniko.com/v1/practitioners/463583618652965611';
-  //   };
-  // };
+  patient?: {
+    links?: {
+      self?: string;
+    };
+  };
+  practitioner?: {
+    links?: {
+      self?: string; // 'https://api.ca1.cliniko.com/v1/practitioners/463583618652965611'
+    };
+  };
+  total_entries?: number;
 
   /**
    * Used to retrieve the id of the note template
    */
-  treatment_note_template: {
+  treatment_note_template?: {
     links: {
       self: string; // 'https://api.ca1.cliniko.com/v1/treatment_note_templates/608098732734417720';
     };
   };
-  // links: {
-  //   self: 'https://api.ca1.cliniko.com/v1/treatment_notes/608098929296279562';
-  // };
+
+  links?: {
+    self?: string; // 'https://api.ca1.cliniko.com/v1/treatment_notes/608098929296279562'
+  };
 };
 
 export type PatientTreatmentNoteSection = {
   name?: string; // 'Processus vasectomie';
-  questions?: [
-    {
-      name?: string; // 'Statut du patient';
-      type?: 'radiobuttons';
-      answers?: PatientTreatmentNoteAnswer[];
-    }
-  ];
+  questions?: {
+    name?: string; // 'Statut du patient';
+    type?: 'radiobuttons' | 'paragraph';
+    answer?: string; // <div>Test note</div>
+    answers?: PatientTreatmentNoteAnswer[];
+  }[];
 };
 
 export type PatientTreatmentNoteAnswer = {

@@ -13,6 +13,10 @@ export const wrapper = style(({ cssTheme }: Theme) => ({
   },
 }));
 
+export const main = style(({ cssTheme }: Theme) => ({
+  paddingTop: `calc(${cssTheme.layout.var.navbarHeight} + ${cssTheme.sizing.var.x5})`,
+}));
+
 export const loginWrapper = style(({ cssTheme }: Theme) => ({
   display: 'grid',
   gap: cssTheme.sizing.var.x5,

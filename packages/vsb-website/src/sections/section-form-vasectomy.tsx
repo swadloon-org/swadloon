@@ -72,7 +72,7 @@ export const CustomSectionFormVasectomy = React.forwardRef<any, Props>(
       >
         <Stack>
           <BoxV2
-            style={{ width: `min(100%, 900px)` }}
+            style={{ width: `min(100%, calc(60% - 20px))` }}
             padding={[
               `calc(${cssTheme.layout.var.navbarHeight} + ${cssTheme.sizing.var.x6})`,
               0,

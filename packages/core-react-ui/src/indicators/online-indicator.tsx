@@ -30,7 +30,7 @@ export const OnlineIndicator: React.FC<Props> = ({
       gap={[cssTheme.sizing.var.x2]}
     >
       <div className={styles.statusDot}></div>
-      <Label>{children || status}</Label>
+      <Label style={{ color: 'inherit' }}>{children || status}</Label>
     </Cluster>
   );
 };

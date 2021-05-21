@@ -6,7 +6,7 @@ import React from 'react';
 
 type Props = {};
 
-export const TypoParagraphs: React.FC<Props> = (props) => {
+export const Paragraphs: React.FC<Props> = (props) => {
   const { theme, cssTheme } = useTreatTheme();
 
   return (

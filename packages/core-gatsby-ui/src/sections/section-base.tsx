@@ -46,9 +46,9 @@ export const SectionBase = React.forwardRef<any, Props>(
       className,
       styles.wrapper,
       variant ? styles[variant] : '',
-      variant === Variant.primaryReversed || globalThemeReversed,
-      variant === Variant.secondaryReversed || globalThemeReversed,
-      variant === Variant.tertiaryReversed || globalThemeReversed,
+      variant === Variant.primaryReversed ? globalThemeReversed : '',
+      variant === Variant.secondaryReversed ? globalThemeReversed : '',
+      variant === Variant.tertiaryReversed ? globalThemeReversed : '',
     ]);
     const paddingProp = getPaddingProp((padding as SectionPadding) || SectionPadding.large);
 
