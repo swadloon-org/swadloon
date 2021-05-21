@@ -1,7 +1,7 @@
 ---
 name: Overview
 tags:
-  - components
+  - molecule
 ---
 
 <DocHeader props={props}/>
