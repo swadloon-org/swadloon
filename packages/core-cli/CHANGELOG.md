@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-cli@1.7.0...@newrade/core-cli@1.8.0) (2021-05-21)
+
+### Bug Fixes
+
+- **lint:** fix line width to 100
+  ([49574eb](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/49574eb1fe8aa3bbdf3cf9a6067956ccf3a96561))
+
+### Features
+
+- **core-graphql-ui:** init package
+  ([7c4df6b](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/7c4df6bc867e61a8e545dc7d389f6bc58777f899))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.7.0](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-cli@1.6.1...@newrade/core-cli@1.7.0) (2021-03-09)
 
 ### Bug Fixes

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/newrade/newrade/compare/@newrade/core-react-ui-old@1.6.5...@newrade/core-react-ui-old@1.7.0) (2021-05-21)
+
+### Features
+
+- **core-graphql-ui:** init package
+  ([7c4df6b](https://github.com/newrade/newrade/commit/7c4df6bc867e61a8e545dc7d389f6bc58777f899))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.6.5](https://github.com/newrade/newrade/compare/@newrade/core-react-ui-old@1.6.4...@newrade/core-react-ui-old@1.6.5) (2021-03-09)
 
 ### Bug Fixes

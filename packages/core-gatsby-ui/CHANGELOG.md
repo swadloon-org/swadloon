@@ -3,6 +3,68 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-ui@1.6.2...@newrade/core-gatsby-ui@1.7.0) (2021-05-21)
+
+### Bug Fixes
+
+- **build:** fix workflow
+  ([ea862a9](https://github.com/newrade/newrade/commit/ea862a915644dc0465bbcb05bdff7c7bf303f786))
+- **core-gatsby-ui:** fix ssr
+  ([095be84](https://github.com/newrade/newrade/commit/095be84b95bdd1a0a867341e0bc4d4adf3190469))
+- **core-react-ui:** add wrap to Cluster and update tags docs
+  ([44dc8cc](https://github.com/newrade/newrade/commit/44dc8cc78f9d61fb9a96a7e5d80295e4eeb3dc09))
+- **core-react-ui:** fix error
+  ([4c69723](https://github.com/newrade/newrade/commit/4c69723fb1027925b057b53c58664570931b78fd))
+- **core-react-ui:** fix reversed mode for text components
+  ([bb31dd1](https://github.com/newrade/newrade/commit/bb31dd1ecf0c17b072c7ef391571a8bcbb30cdf5))
+- **lint:** fix line width to 100
+  ([49574eb](https://github.com/newrade/newrade/commit/49574eb1fe8aa3bbdf3cf9a6067956ccf3a96561))
+- **newrade-website:** fix fonts import
+  ([31dab49](https://github.com/newrade/newrade/commit/31dab491d5d13eedd8b7f15a96c333c441551b9d))
+- **vsb-api:** fix build config for vercel
+  ([5467301](https://github.com/newrade/newrade/commit/54673017ec6d176388a517bd9d0a39d80c7d136e))
+- **vsb-website:** fix section reverse class
+  ([5107576](https://github.com/newrade/newrade/commit/51075768b399e7967a8b02f145653b65eed2e25c))
+
+### Features
+
+- **core-design-system-docs:** fix nav sorting
+  ([e7ff749](https://github.com/newrade/newrade/commit/e7ff74975ec72d5e9685c09fd93c64ac8ecab582))
+- **core-gatsby-ui:** add block alignment
+  ([546b2a0](https://github.com/newrade/newrade/commit/546b2a03f655d7403ec9b141712689861c6fb1d1))
+- **core-gatsby-ui:** trying to use loadable component, wip
+  ([2b1b310](https://github.com/newrade/newrade/commit/2b1b3104fda4381121ec0d5bd1d6c6692d776d3a))
+- **core-react-ui:** add buttons theming and css variables support
+  ([8bf5e5e](https://github.com/newrade/newrade/commit/8bf5e5ece512c04ea18daf47dd18f0579c7c27cb))
+- **core-react-ui:** add CSSAnimation component
+  ([3861ec1](https://github.com/newrade/newrade/commit/3861ec1ecafec29b3ac9236aae88e740541feba8))
+- **core-react-ui:** add FooterSimple and Tag
+  ([d8ecaa3](https://github.com/newrade/newrade/commit/d8ecaa381ce1ff60aba76abd236817a459eb703a))
+- **core-react-ui:** generate css variables for colors
+  ([0c99c77](https://github.com/newrade/newrade/commit/0c99c77ff07d857d54a326a811bf67ce21c0b548))
+- **core-react-ui/src/footers:** edit footer standard, but not finished
+  ([b425f6e](https://github.com/newrade/newrade/commit/b425f6e526676dce2cc30bf6a804f1862aecf259))
+- **docs:** update docs
+  ([75a7725](https://github.com/newrade/newrade/commit/75a7725a8c3b0b59508cdd203567af1d3fa9d308))
+- **docs:** update docs layout
+  ([356e4c0](https://github.com/newrade/newrade/commit/356e4c07ebb3bc4e99dacda5559fb4d512137b8a))
+- **docs-mdx-components:** fix import
+  ([20bbd81](https://github.com/newrade/newrade/commit/20bbd818f2adba45b57fb3b00851012450adf003))
+- **mdx:** add and modify styles/spacing of table, list item, pre
+  ([671edfb](https://github.com/newrade/newrade/commit/671edfbd5a0e31163d1b25c2d0d52013a849c903))
+- **newrade-website docs:** figcaption, pre, h1,h2,h3,h4, ul, ol, li, ul and li
+  nested, table
+  ([13d3dcd](https://github.com/newrade/newrade/commit/13d3dcdec6fb593072e0f22c080e79022fdfd0af))
+- **vsb-admin:** add auth0 flows
+  ([fcdd0a8](https://github.com/newrade/newrade/commit/fcdd0a81ea10ffe4d1342440406ab7a2f92420b5))
+- **vsb-website:** refactor server to be served under /api/
+  ([34d41d8](https://github.com/newrade/newrade/commit/34d41d8d9ff09ab66aa49c413bdc2a6cf043d0e1))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.6.2](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-ui@1.6.1...@newrade/core-gatsby-ui@1.6.2) (2021-03-11)
 
 **Note:** Version bump only for package @newrade/core-gatsby-ui

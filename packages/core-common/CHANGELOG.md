@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/newrade/newrade-core/tree/master/packages/core-common/compare/@newrade/core-common@1.2.3...@newrade/core-common@1.3.0) (2021-05-21)
+
+### Bug Fixes
+
+- **lint:** fix line width to 100
+  ([49574eb](https://github.com/newrade/newrade-core/tree/master/packages/core-common/commit/49574eb1fe8aa3bbdf3cf9a6067956ccf3a96561))
+- **vsb-api:** email features
+  ([5652541](https://github.com/newrade/newrade-core/tree/master/packages/core-common/commit/56525419a71a3028d136662e20b0285aebba19c6))
+
+### Features
+
+- **vsb-api:** adding new apis
+  ([b9e43a6](https://github.com/newrade/newrade-core/tree/master/packages/core-common/commit/b9e43a6e9e1523055c57786b8abfd89ed4fdaacc))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.2.3](https://github.com/newrade/newrade-core/tree/master/packages/core-common/compare/@newrade/core-common@1.2.2...@newrade/core-common@1.2.3) (2021-03-09)
 
 ### Bug Fixes

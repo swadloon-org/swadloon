@@ -1,6 +1,6 @@
 {
   "name": "@newrade/core-gatsby-config",
-  "version": "1.10.1",
+  "version": "1.11.0",
   "description": "Reusable gatsby configuration files",
   "license": "MIT",
   "main": "./lib/index.js",
@@ -29,9 +29,9 @@
   "sideEffects": false,
   "typings": "./lib/index.d.ts",
   "dependencies": {
-    "@newrade/core-common": "^1.2.3",
-    "@newrade/core-types": "^1.4.0",
-    "@newrade/core-utils": "^1.6.3",
-    "@newrade/core-webpack-config": "^1.5.0"
+    "@newrade/core-common": "^1.3.0",
+    "@newrade/core-types": "^1.5.0",
+    "@newrade/core-utils": "^1.6.4",
+    "@newrade/core-webpack-config": "^1.6.0"
   }
 }

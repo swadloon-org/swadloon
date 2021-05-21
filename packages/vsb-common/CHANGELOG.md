@@ -3,6 +3,44 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/newrade/newrade/compare/@newrade/vsb-common@1.3.3...@newrade/vsb-common@1.4.0) (2021-05-21)
+
+### Bug Fixes
+
+- **lint:** fix line width to 100
+  ([49574eb](https://github.com/newrade/newrade/commit/49574eb1fe8aa3bbdf3cf9a6067956ccf3a96561))
+- **vsb-api:** email features
+  ([5652541](https://github.com/newrade/newrade/commit/56525419a71a3028d136662e20b0285aebba19c6))
+- **vsb-website:** fix form
+  ([9239a5c](https://github.com/newrade/newrade/commit/9239a5c5ca613cebf629902d92e6fc7bb24c1deb))
+
+### Features
+
+- **controller-get-status:** adding the current controller to modify the patient
+  to add the status
+  ([0d1fd74](https://github.com/newrade/newrade/commit/0d1fd745f7993d50564fe066dd94fcab3eda2944))
+- **core-react-ui:** add CSSAnimation component
+  ([3861ec1](https://github.com/newrade/newrade/commit/3861ec1ecafec29b3ac9236aae88e740541feba8))
+- **vsb-admin:** format patients table
+  ([9d5e1c4](https://github.com/newrade/newrade/commit/9d5e1c423c0fb9dd1a9db1550c6caa901439c3b6))
+- **vsb-admin:** implement patients
+  ([cbc0619](https://github.com/newrade/newrade/commit/cbc0619778bba7d395020d4ed1034a2f39dbab84))
+- **vsb-admin:** init app
+  ([6995766](https://github.com/newrade/newrade/commit/6995766814f853a26c2b30439680edf2e368700a))
+- **vsb-admin:** v1 almost done
+  ([afb8e78](https://github.com/newrade/newrade/commit/afb8e7892f7782dcc9a6596186b177d63a9782ce))
+- **vsb-api:** adding new apis
+  ([b9e43a6](https://github.com/newrade/newrade/commit/b9e43a6e9e1523055c57786b8abfd89ed4fdaacc))
+- **vsb-api:** v1 of the /patients api
+  ([a2ee1e2](https://github.com/newrade/newrade/commit/a2ee1e2fd6b9bf582237f19614e7403d1416718b))
+- **vsb-website:** refactor server to be served under /api/
+  ([34d41d8](https://github.com/newrade/newrade/commit/34d41d8d9ff09ab66aa49c413bdc2a6cf043d0e1))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.3.3](https://github.com/newrade/newrade/compare/@newrade/vsb-common@1.3.2...@newrade/vsb-common@1.3.3) (2021-03-09)
 
 **Note:** Version bump only for package @newrade/vsb-common

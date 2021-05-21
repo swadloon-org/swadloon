@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/newrade/newrade/compare/@newrade/core-figma-extractor@1.1.0...@newrade/core-figma-extractor@1.2.0) (2021-05-21)
+
+### Bug Fixes
+
+- **core-github-actions:** setup build for actions with webpack
+  ([b8980c0](https://github.com/newrade/newrade/commit/b8980c001cebd394a3e030eca584e6f88b19df13))
+- **lint:** fix line width to 100
+  ([49574eb](https://github.com/newrade/newrade/commit/49574eb1fe8aa3bbdf3cf9a6067956ccf3a96561))
+
+### Features
+
+- **docs:** update docs layout
+  ([356e4c0](https://github.com/newrade/newrade/commit/356e4c07ebb3bc4e99dacda5559fb4d512137b8a))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # 1.1.0 (2021-03-09)
 
 ### Bug Fixes

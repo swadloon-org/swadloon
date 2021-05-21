@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.4](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/compare/@newrade/core-utils@1.6.3...@newrade/core-utils@1.6.4) (2021-05-21)
+
+### Bug Fixes
+
+- **build:** working on gh action build
+  ([41efe00](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/commit/41efe00146700e0108b66eac17f8bbe033f4d1f6))
+- **lint:** fix line width to 100
+  ([49574eb](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/commit/49574eb1fe8aa3bbdf3cf9a6067956ccf3a96561))
+- **repo:** fix github actions config
+  ([c092f86](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/commit/c092f8608ba83fca776ded373868770aa1123765))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.6.3](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/compare/@newrade/core-utils@1.6.2...@newrade/core-utils@1.6.3) (2021-03-09)
 
 ### Bug Fixes

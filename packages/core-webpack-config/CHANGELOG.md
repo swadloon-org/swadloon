@@ -3,6 +3,51 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/newrade/newrade/compare/@newrade/core-webpack-config@1.5.0...@newrade/core-webpack-config@1.6.0) (2021-05-21)
+
+### Bug Fixes
+
+- **core-gatsby-config:** apply postcss config
+  ([c3de151](https://github.com/newrade/newrade/commit/c3de15140a17f50a414dab966c87e45cac9adeb3))
+- **core-github-actions:** setup build for actions with webpack
+  ([b8980c0](https://github.com/newrade/newrade/commit/b8980c001cebd394a3e030eca584e6f88b19df13))
+- **core-webpack-config:** update loaders and plugins config
+  ([c3810c1](https://github.com/newrade/newrade/commit/c3810c12439ca8f0b5c90436238b88bce61ca2d6))
+- **lint:** fix line width to 100
+  ([49574eb](https://github.com/newrade/newrade/commit/49574eb1fe8aa3bbdf3cf9a6067956ccf3a96561))
+- **vsb-admin:** fix react-fast-refresh babel plugin for production
+  ([3a8411c](https://github.com/newrade/newrade/commit/3a8411c6a75f374d3185db642806e464869eb611))
+- **vsb-api:** email features
+  ([5652541](https://github.com/newrade/newrade/commit/56525419a71a3028d136662e20b0285aebba19c6))
+- **vsb-api:** fix deploy settings
+  ([22fda36](https://github.com/newrade/newrade/commit/22fda366d958ee071d1375f4af7372abf1d4abf4))
+- **vsb-api:** rework the deployment sequence
+  ([12c79c6](https://github.com/newrade/newrade/commit/12c79c61f7db17d85a49b260405eb21bf6af048a))
+
+### Features
+
+- **core-gatsby-config:** add remark-wikilink
+  ([11d069b](https://github.com/newrade/newrade/commit/11d069b7ce0040cade3a0b5714ba4e2cf720afc1))
+- **core-graphql-ui:** init package
+  ([7c4df6b](https://github.com/newrade/newrade/commit/7c4df6bc867e61a8e545dc7d389f6bc58777f899))
+- **core-react-ui:** add CSSAnimation component
+  ([3861ec1](https://github.com/newrade/newrade/commit/3861ec1ecafec29b3ac9236aae88e740541feba8))
+- **vsb-admin:** add auth0 flows
+  ([fcdd0a8](https://github.com/newrade/newrade/commit/fcdd0a81ea10ffe4d1342440406ab7a2f92420b5))
+- **vsb-admin:** add navbar and sidebar
+  ([21ac2a7](https://github.com/newrade/newrade/commit/21ac2a74f9dd719da952c5e09cf94b460de26e1e))
+- **vsb-admin:** implement patients
+  ([cbc0619](https://github.com/newrade/newrade/commit/cbc0619778bba7d395020d4ed1034a2f39dbab84))
+- **vsb-api:** add error handling for auth0
+  ([0941709](https://github.com/newrade/newrade/commit/094170962aee78d608bafe7c8aae70ebc16713fe))
+- **vsb-website:** refactor server to be served under /api/
+  ([34d41d8](https://github.com/newrade/newrade/commit/34d41d8d9ff09ab66aa49c413bdc2a6cf043d0e1))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.5.0](https://github.com/newrade/newrade/compare/@newrade/core-webpack-config@1.4.4...@newrade/core-webpack-config@1.5.0) (2021-03-09)
 
 ### Bug Fixes

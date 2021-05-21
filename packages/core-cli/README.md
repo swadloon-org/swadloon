@@ -18,7 +18,7 @@ $ npm install -g @newrade/core-cli
 $ nr COMMAND
 running command...
 $ nr (-v|--version|version)
-@newrade/core-cli/1.7.0 darwin-x64 node-v14.15.3
+@newrade/core-cli/1.8.0 darwin-arm64 node-v15.14.0
 $ nr --help [COMMAND]
 USAGE
   $ nr COMMAND
@@ -52,7 +52,7 @@ EXAMPLE
   $ nr commit
 ```
 
-_See code: [src/commands/commit.ts](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/blob/v1.7.0/src/commands/commit.ts)_
+_See code: [src/commands/commit.ts](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/blob/v1.8.0/src/commands/commit.ts)_
 
 ## `nr figma-sync [FILE]`
 
@@ -72,7 +72,7 @@ EXAMPLE
   $ nr figma-sync
 ```
 
-_See code: [src/commands/figma-sync.ts](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/blob/v1.7.0/src/commands/figma-sync.ts)_
+_See code: [src/commands/figma-sync.ts](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/blob/v1.8.0/src/commands/figma-sync.ts)_
 
 ## `nr gastby-start`
 
@@ -92,7 +92,7 @@ EXAMPLE
   $ nr gatsby:start
 ```
 
-_See code: [src/commands/gastby-start.ts](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/blob/v1.7.0/src/commands/gastby-start.ts)_
+_See code: [src/commands/gastby-start.ts](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/blob/v1.8.0/src/commands/gastby-start.ts)_
 
 ## `nr hello [FILE]`
 
@@ -112,7 +112,7 @@ EXAMPLE
      hello world from ./src/hello.ts!
 ```
 
-_See code: [src/commands/hello.ts](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/blob/v1.7.0/src/commands/hello.ts)_
+_See code: [src/commands/hello.ts](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/blob/v1.8.0/src/commands/hello.ts)_
 
 ## `nr help [COMMAND]`
 
@@ -149,7 +149,7 @@ EXAMPLE
   $ nr netlify:deploy
 ```
 
-_See code: [src/commands/netlify-deploy.ts](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/blob/v1.7.0/src/commands/netlify-deploy.ts)_
+_See code: [src/commands/netlify-deploy.ts](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/blob/v1.8.0/src/commands/netlify-deploy.ts)_
 
 ## `nr reset-branches [FILE]`
 
@@ -166,5 +166,5 @@ EXAMPLE
   $ nr resetbranches
 ```
 
-_See code: [src/commands/reset-branches.ts](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/blob/v1.7.0/src/commands/reset-branches.ts)_
+_See code: [src/commands/reset-branches.ts](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/blob/v1.8.0/src/commands/reset-branches.ts)_
 <!-- commandsstop -->

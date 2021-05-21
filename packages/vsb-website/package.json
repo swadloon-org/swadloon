@@ -1,6 +1,6 @@
 {
   "name": "@newrade/vsb-website",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Gatsby website for vsb a medical website",
   "author": {
     "email": "info@newrade.ca",
@@ -30,21 +30,21 @@
   "eslintConfig": {},
   "dependencies": {
     "@auth0/auth0-react": "^1.4.0",
-    "@newrade/core-design-system": "^1.9.2",
-    "@newrade/core-gsap-ui": "^1.1.5",
-    "@newrade/core-react-ui": "^1.12.2",
-    "@newrade/vsb-api": "^1.3.4",
-    "@newrade/vsb-common": "^1.3.3",
+    "@newrade/core-design-system": "^1.10.0",
+    "@newrade/core-gsap-ui": "^1.1.6",
+    "@newrade/core-react-ui": "^1.13.0",
+    "@newrade/vsb-api": "^1.4.0",
+    "@newrade/vsb-common": "^1.4.0",
     "gatsby": "^2.32.4",
     "react-final-table": "^1.5.1"
   },
   "devDependencies": {
-    "@newrade/core-common": "^1.2.3",
-    "@newrade/core-design-system-docs": "^1.2.1",
-    "@newrade/core-gatsby-config": "^1.10.1",
-    "@newrade/core-gatsby-ui": "^1.6.2",
-    "@newrade/core-types": "^1.4.0",
-    "@newrade/core-utils": "^1.6.3",
-    "@newrade/core-webpack-config": "^1.5.0"
+    "@newrade/core-common": "^1.3.0",
+    "@newrade/core-design-system-docs": "^1.3.0",
+    "@newrade/core-gatsby-config": "^1.11.0",
+    "@newrade/core-gatsby-ui": "^1.7.0",
+    "@newrade/core-types": "^1.5.0",
+    "@newrade/core-utils": "^1.6.4",
+    "@newrade/core-webpack-config": "^1.6.0"
   }
 }

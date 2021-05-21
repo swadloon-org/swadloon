@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/newrade/newrade-core/tree/master/packages/core-common/compare/@newrade/core-types@1.4.0...@newrade/core-types@1.5.0) (2021-05-21)
+
+### Bug Fixes
+
+- **core-github-actions:** setup build for actions with webpack
+  ([b8980c0](https://github.com/newrade/newrade-core/tree/master/packages/core-common/commit/b8980c001cebd394a3e030eca584e6f88b19df13))
+
+### Features
+
+- **core-graphql-ui:** init package
+  ([7c4df6b](https://github.com/newrade/newrade-core/tree/master/packages/core-common/commit/7c4df6bc867e61a8e545dc7d389f6bc58777f899))
+- **vsb-api:** add error handling for auth0
+  ([0941709](https://github.com/newrade/newrade-core/tree/master/packages/core-common/commit/094170962aee78d608bafe7c8aae70ebc16713fe))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.4.0](https://github.com/newrade/newrade-core/tree/master/packages/core-common/compare/@newrade/core-types@1.3.2...@newrade/core-types@1.4.0) (2021-03-09)
 
 ### Bug Fixes

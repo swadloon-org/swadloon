@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.11.0](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-config@1.10.1...@newrade/core-gatsby-config@1.11.0) (2021-05-21)
+
+### Bug Fixes
+
+- **build:** working on gh action build
+  ([41efe00](https://github.com/newrade/newrade/commit/41efe00146700e0108b66eac17f8bbe033f4d1f6))
+- **core-gatsby-config:** apply postcss config
+  ([c3de151](https://github.com/newrade/newrade/commit/c3de15140a17f50a414dab966c87e45cac9adeb3))
+- **core-gatsby-ui:** fix ssr
+  ([095be84](https://github.com/newrade/newrade/commit/095be84b95bdd1a0a867341e0bc4d4adf3190469))
+- **core-webpack-config:** update loaders and plugins config
+  ([c3810c1](https://github.com/newrade/newrade/commit/c3810c12439ca8f0b5c90436238b88bce61ca2d6))
+- **lint:** fix line width to 100
+  ([49574eb](https://github.com/newrade/newrade/commit/49574eb1fe8aa3bbdf3cf9a6067956ccf3a96561))
+- **newrade-website:** fix fonts import
+  ([31dab49](https://github.com/newrade/newrade/commit/31dab491d5d13eedd8b7f15a96c333c441551b9d))
+
+### Features
+
+- **core-gatsby-config:** add remark-wikilink
+  ([11d069b](https://github.com/newrade/newrade/commit/11d069b7ce0040cade3a0b5714ba4e2cf720afc1))
+- **core-gatsby-ui:** trying to use loadable component, wip
+  ([72c0330](https://github.com/newrade/newrade/commit/72c0330e06f18a6a55034ee124ce692e8dcdaefd))
+- **core-graphql-ui:** init package
+  ([7c4df6b](https://github.com/newrade/newrade/commit/7c4df6bc867e61a8e545dc7d389f6bc58777f899))
+- **docs:** update docs
+  ([75a7725](https://github.com/newrade/newrade/commit/75a7725a8c3b0b59508cdd203567af1d3fa9d308))
+- **newrade-website:** enable mermaid
+  ([b9fcc5b](https://github.com/newrade/newrade/commit/b9fcc5b414a0d9a5add06c75365c66ebe469ff11))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.10.1](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-config@1.10.0...@newrade/core-gatsby-config@1.10.1) (2021-03-11)
 
 ### Bug Fixes
