@@ -1,6 +1,7 @@
 ---
 name: Tags
 description:
+  Information indicator used to associate content with specific keywords.
 tags:
   - molecule
   - label
@@ -16,9 +17,13 @@ import TagsCode from '!!raw-loader!../../src/code/tags.code.tsx';
 
 <DocHeader props={props}/>
 
-Information indicator used to associate content with specific keywords.
-
 ## Variants
+
+Like most components there are three level of importance for buttons:
+
+- Primary
+- Secondary
+- Tertiary
 
 <ThemeWrapper>
   <Tags />
