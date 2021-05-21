@@ -11,10 +11,7 @@
   "scripts": {
     "build": "tsc --build tsconfig.build.json",
     "clean": "rimraf -r lib/** && rm -f tsconfig.build.tsbuildinfo",
-    "clean:dist": "rimraf -r dist/**",
-    "start": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
-    "pretest": "yarn clean:dist",
-    "test": "TS_NODE_PROJECT=tsconfig.webpack.json node -r ts-node/register ../../node_modules/webpack/bin/webpack.js --config webpack.test.config.ts"
+    "start": "tsc --build tsconfig.build.json --watch --preserveWatchOutput"
   },
   "typings": "./lib/index.d.ts",
   "dependencies": {

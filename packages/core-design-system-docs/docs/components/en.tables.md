@@ -6,12 +6,17 @@ tags:
 
 <!-- CODE IMPORTS -->
 
-import { Tables } from '../../src/code/components/tables/tables.code';
-import TablesCode from '!!raw-loader!../../src/code/components/tables/tables.code.tsx';
+<!-- prettier-ignore -->
+import { Tables } from '../../src/code/tables.code'; 
+import TablesCode from '!!raw-loader!../../src/code/tables.code.tsx';
 
 <!-- END CODE IMPORTS -->
 
+<DocHeader props={props}/>
+
 ## Tables
 
+<ThemeWrapper>
 <Tables />
+</ThemeWrapper>
 <CodeBlock>{TablesCode}</CodeBlock>

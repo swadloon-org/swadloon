@@ -32,12 +32,18 @@ export type TextDecoration<ColorType = Color> = {
   style: TEXT_DECORATION_STYLE;
 };
 
+/**
+ * @see https://seek-oss.github.io/capsize/
+ */
 export type CapsizeTextStyle<Override extends undefined | string = undefined> = {
   /**
    * Desired capital letter height in pixels. (which is usually the height of the capital letter 'X')
-   * @see https://seek-oss.github.io/capsize/
    */
-  capHeight: number;
+  capHeight?: number;
+  /**
+   * Desired font size in pixels. If both the `capHeight` and `fontSize` are specified, only `fontSize` is considered.
+   */
+  fontSize?: number;
   /**
    * Desired line gap in pixels.
    * @see https://seek-oss.github.io/capsize/

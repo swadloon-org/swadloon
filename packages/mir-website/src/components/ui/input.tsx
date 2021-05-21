@@ -11,7 +11,12 @@ export const Input: React.FC<OwnProps> = ({ className, variant, placeholder, ...
   const styles = useStyles(styleRefs);
 
   return (
-    <input className={`${styles.wrapper} ${styles[variant]}`} type="text" placeholder={`${placeholder}`} {...props} />
+    <input
+      className={`${styles.wrapper} ${styles[variant]}`}
+      type="text"
+      placeholder={`${placeholder}`}
+      {...props}
+    />
   );
 };
 

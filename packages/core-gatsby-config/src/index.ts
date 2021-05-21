@@ -11,6 +11,7 @@ export * from './config/gatsby-plugin-react-svg.conf';
 export * from './config/gatsby-plugin-seo.conf';
 export * from './config/gatsby-plugin-sharp.conf';
 export * from './config/gatsby-plugin-treat.conf';
+export * from './config/gatsby-plugin-postcss.conf';
 export * from './config/gatsby-plugin-ts.conf';
 export * from './config/gatsby-plugin-catch-links.conf';
 export * from './config/gatsby-plugin-typescript.conf';

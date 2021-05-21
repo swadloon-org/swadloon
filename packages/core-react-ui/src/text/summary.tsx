@@ -25,11 +25,25 @@ type Props = CommonComponentProps &
  * @see https://devdocs.io/html/element/summary
  */
 export const Summary: React.FC<Props> = React.memo(
-  ({ id, style, className, mode = 'swap', iconType, iconOpened, iconClosed, children, ...props }) => {
+  ({
+    id,
+    style,
+    className,
+    mode = 'swap',
+    iconType,
+    iconOpened,
+    iconClosed,
+    children,
+    ...props
+  }) => {
     const { styles } = useStyles(stylesRef);
 
     const type: keyof React.ReactHTML = 'summary';
-    const classNames = getMergedClassname([className, styles.wrapper, mode === 'animate' ? styles.animate : '']);
+    const classNames = getMergedClassname([
+      className,
+      styles.wrapper,
+      mode === 'animate' ? styles.animate : '',
+    ]);
     const iconOpenedClassNames = getMergedClassname([styles.icon, styles.iconOpened]);
     const iconClosedClassNames = getMergedClassname([styles.icon, styles.iconClosed]);
     const IconOpened = iconOpened ? iconOpened : MinusIcon;

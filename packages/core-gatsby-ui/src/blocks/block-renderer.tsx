@@ -1,6 +1,13 @@
 import loadable from '@loadable/component';
 import { ButtonSize, Variant } from '@newrade/core-design-system';
-import { Button, ErrorBoundary, Stack, useCommonProps, useIsSSR, useTreatTheme } from '@newrade/core-react-ui';
+import {
+  Button,
+  ErrorBoundary,
+  Stack,
+  useCommonProps,
+  useIsSSR,
+  useTreatTheme,
+} from '@newrade/core-react-ui';
 import { IoArrowForwardOutline } from '@react-icons/all-files/io5/IoArrowForwardOutline';
 import debug from 'debug';
 import React, { PropsWithChildren } from 'react';
@@ -23,7 +30,8 @@ const BlockGoogleMap = loadable<BlockGoogleMapsProps>(
     return import('./block-google-map');
   },
   {
-    resolveComponent: (components: typeof import('./block-google-map')) => components.BlockGoogleMap,
+    resolveComponent: (components: typeof import('./block-google-map')) =>
+      components.BlockGoogleMap,
   }
 );
 
@@ -55,10 +63,14 @@ export function BlockRenderer<CustomBlockVariants extends string>({
   /**
    * Custom Blocks
    */
-  if (block.variant && blockComponents && blockComponents[block.variant as CustomBlockVariants | BlockType]) {
-    const CustomBlock = blockComponents[block.variant as CustomBlockVariants | BlockType] as React.ElementType<
-      BlockRendererProps<CustomBlockVariants>
-    >;
+  if (
+    block.variant &&
+    blockComponents &&
+    blockComponents[block.variant as CustomBlockVariants | BlockType]
+  ) {
+    const CustomBlock = blockComponents[
+      block.variant as CustomBlockVariants | BlockType
+    ] as React.ElementType<BlockRendererProps<CustomBlockVariants>>;
     if (!CustomBlock) {
       return null;
     }
@@ -99,7 +111,11 @@ export function BlockRenderer<CustomBlockVariants extends string>({
       const blockImage = block as BlockAPI;
       return (
         <ErrorBoundary>
-          <BlockImageBackground inView={inView} block={blockImage} {...commonProps}></BlockImageBackground>
+          <BlockImageBackground
+            inView={inView}
+            block={blockImage}
+            {...commonProps}
+          ></BlockImageBackground>
         </ErrorBoundary>
       );
     }

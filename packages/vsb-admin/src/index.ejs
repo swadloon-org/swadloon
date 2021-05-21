@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <base href="<%= htmlWebpackPlugin.files.publicPath %>">
+        <!-- ENCODING, VIEWPORT META TAG -->
+        <%= require('./templates/head-encoding-viewport.template.ejs')() %>
+
+        <!-- APP DESCRIPTION -->
+        <%= require('./templates/head-description.template.ejs')() %>
+
+        <!-- AUTHORS -->
+        <%= require('./templates/head-authors.template.ejs')() %>
+
+        <!-- SEO -->
+        <%= require('./templates/head-robots.template.ejs')() %>
+
+        <!-- FONTS -->
+
+        <!-- MANIFEST.JSON -->
+        <!-- https://developer.mozilla.org/en-US/docs/Web/Manifest -->
+        <!-- SEE PLUGIN manifest-json-html.plugin.conf.js-->
+        <link rel="manifest" href="manifest.json">
+
+        <!-- FOR WEB -->
+
+        <!-- INSTALLABLE WEB APP META TAGS -->
+        <%= require('./templates/head-installable-web-app.template.ejs')({htmlWebpackPlugin: htmlWebpackPlugin}) %>
+
+        <!-- CSP META TAGS -->
+        <meta http-equiv="Content-Security-Policy" content="">
+
+        <!-- FAVICONS-->
+        <%= require('./templates/head-favicons.template.ejs')({htmlWebpackPlugin: htmlWebpackPlugin}) %>
+
+        <% if(!htmlWebpackPlugin.options.isDevServer) { %>
+            <%= htmlWebpackPlugin.files.css
+                .map(css => `<style>${compilation.assets[css.substr(htmlWebpackPlugin.files.publicPath.length)].source()}</style>`).join('') %>
+        <% } %>
+    </head>
+<body>
+    <div id="index"></div>
+
+    <noscript>
+        :$ JavaScript is required to run this application.
+    </noscript>
+
+    <!-- APP SCRIPTS -->
+    <%= htmlWebpackPlugin.files.js.map(js => `<script defer src="${js}"></script>`).join('') %>
+</body>
+</html>

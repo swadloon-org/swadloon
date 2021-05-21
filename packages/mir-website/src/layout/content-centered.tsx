@@ -10,5 +10,9 @@ type OwnProps = {
 export const LayoutCentered: React.FC<OwnProps> = (props) => {
   const styles = useStyles(styleRefs);
 
-  return <div className={`${styles.wrapper} ${props.reverseOrder ? styles.reversed : ''}`}>{props.children}</div>;
+  return (
+    <div className={`${styles.wrapper} ${props.reverseOrder ? styles.reversed : ''}`}>
+      {props.children}
+    </div>
+  );
 };

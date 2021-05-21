@@ -1,0 +1,12 @@
+overwrite: true
+schema: src/graphql/schema.graphql
+documents: src/graphql/**/*.graphql
+generates:
+  types/graphql-types.ts:
+    config:
+      useIndexSignature: true
+      defaultMapper: Partial<{T}>
+    plugins:
+      - "typescript"
+      - "typescript-resolvers"
+      - "typescript-document-nodes"

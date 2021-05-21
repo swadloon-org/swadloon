@@ -29,7 +29,11 @@ export const InfoSectionType2: React.FC<OwnProps> = (props) => {
       </FadeIn>
 
       <div className={styles.block}>
-        <RenderTitleHighlight className={styles.title} title={props?.title} titleHighlight={props?.titleHighlight} />
+        <RenderTitleHighlight
+          className={styles.title}
+          title={props?.title}
+          titleHighlight={props?.titleHighlight}
+        />
 
         <Paragraph variant={'medium'} className={styles.text}>
           {props?.text?.text}

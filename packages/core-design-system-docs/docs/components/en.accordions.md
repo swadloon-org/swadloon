@@ -6,12 +6,15 @@ tags:
 
 <!-- CODE IMPORTS -->
 
-import { Accordions } from '../../src/code/components/accordions/accordions.code';
-import AccordionsCode from '!!raw-loader!../../src/code/components/accordions/accordions.code.tsx';
+<!-- prettier-ignore -->
+import { Accordions } from '../../src/code/accordions.code'; 
+import AccordionsCode from '!!raw-loader!../../src/code/accordions.code.tsx';
 
 <!-- END CODE IMPORTS -->
 
-## Accordion
+<DocHeader props={props}/>
 
-<Accordions />
+<ThemeWrapper>
+  <Accordions />
+</ThemeWrapper>
 <CodeBlock>{AccordionsCode}</CodeBlock>

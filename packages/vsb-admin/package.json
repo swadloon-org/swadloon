@@ -1,0 +1,27 @@
+{
+  "name": "@newrade/vsb-admin",
+  "version": "1.0.0",
+  "description": "VSB Admin Application for Cliniko",
+  "license": "MIT",
+  "scripts": {
+    "build": "yarn webpack:prod",
+    "clean": "rimraf -r public/** && rm -f tsconfig.build.tsbuildinfo",
+    "serve": ". ./.env && http-server --port $APP_PORT --gzip",
+    "start": "yarn webpack:dev",
+    "test-disabled": "echo ok",
+    "webpack:dev": "cross-env TS_NODE_PROJECT=tsconfig.webpack.json node -r ts-node/register ../../node_modules/webpack-dev-server/bin/webpack-dev-server --config webpack.dev.config.ts",
+    "webpack:prod": "cross-env TS_NODE_PROJECT=tsconfig.webpack.json node -r ts-node/register ../../node_modules/webpack/bin/webpack --config webpack.prod.config.ts"
+  },
+  "type": "module",
+  "typings": "./lib/index.d.ts",
+  "dependencies": {
+    "@auth0/auth0-react": "^1.5.0",
+    "@newrade/core-common": "^1.2.3",
+    "@newrade/core-design-system": "^1.9.2",
+    "@newrade/core-jest-config": "^1.5.7",
+    "@newrade/core-react-ui": "^1.12.2",
+    "@newrade/core-types": "^1.4.0",
+    "@newrade/core-utils": "^1.6.3",
+    "@newrade/core-webpack-config": "^1.5.0"
+  }
+}

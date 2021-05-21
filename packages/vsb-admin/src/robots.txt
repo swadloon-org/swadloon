@@ -1,0 +1,7 @@
+#
+# Note: Check the head-robots.template.html as well
+#
+# http://www.robotstxt.org/meta.html
+# Disallow crawling of all content
+User-agent: *
+Disallow: /

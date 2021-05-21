@@ -1,23 +1,48 @@
+import * as tsloader from 'ts-loader';
 import { RuleSetRule } from 'webpack/declarations/WebpackOptions';
 import { babelPluginConf } from '../babel-plugins.conf';
 import { babelPresetConf } from '../babel-preset.conf';
+import { isDevelopment } from '../utilities';
+import ReactRefreshTypeScript from 'react-refresh-typescript';
 
-export const typescriptBabelLoader: RuleSetRule = {
-  test: /\.ts(x?)$/,
-  use: [
-    {
-      loader: 'babel-loader',
-      options: {
-        cacheDirectory: true,
-        plugins: [...babelPluginConf],
-        presets: [...babelPresetConf],
-      },
-    },
-    {
-      loader: 'ts-loader',
-      options: {
-        configFile: 'tsconfig.test.json',
-      },
-    },
-  ],
+type Options = { isDevelopment?: boolean };
+
+const defaultOptions: Options = {
+  isDevelopment: isDevelopment(),
 };
+
+/**
+ * for babel-loader see
+ * for ts-loader see https://github.com/TypeStrong/ts-loader
+ * for react-refresh see https://github.com/pmmmwh/react-refresh-webpack-plugin
+ */
+export function getTypescriptBabelReactLoader(options: Options = defaultOptions): RuleSetRule {
+  return {
+    test: /\.tsx?$/,
+    use: [
+      {
+        loader: 'babel-loader',
+        options: {
+          cacheDirectory: true,
+          plugins: options.isDevelopment
+            ? [['react-refresh/babel'], ...babelPluginConf]
+            : [...babelPluginConf],
+          presets: [...babelPresetConf],
+        },
+      },
+      {
+        loader: 'ts-loader',
+        options: {
+          configFile: 'tsconfig.build.json',
+          getCustomTransformers: () => ({
+            before: options.isDevelopment ? [ReactRefreshTypeScript()] : [],
+          }),
+          experimentalFileCaching: true, // https://github.com/TypeStrong/ts-loader#experimentalfilecaching
+          projectReferences: false,
+          transpileOnly: true, // see https://github.com/TypeStrong/ts-loader#transpileonly and https://github.com/TypeStrong/fork-ts-checker-webpack-plugin
+        } as Partial<tsloader.Options>,
+      },
+    ],
+    exclude: /node_modules/,
+  };
+}

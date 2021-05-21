@@ -290,9 +290,10 @@ export class ColorFilterSolver {
     function fmt(idx: number, multiplier = 1) {
       return Math.round(filters[idx] * multiplier);
     }
-    return `invert(${fmt(0)}%) sepia(${fmt(1)}%) saturate(${fmt(2)}%) hue-rotate(${fmt(3, 3.6)}deg) brightness(${fmt(
-      4
-    )}%) contrast(${fmt(5)}%);`;
+    return `invert(${fmt(0)}%) sepia(${fmt(1)}%) saturate(${fmt(2)}%) hue-rotate(${fmt(
+      3,
+      3.6
+    )}deg) brightness(${fmt(4)}%) contrast(${fmt(5)}%);`;
   }
 }
 
@@ -304,7 +305,9 @@ export function hexToRgb(hex: string) {
   });
 
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-  return result ? [parseInt(result[1], 16), parseInt(result[2], 16), parseInt(result[3], 16)] : null;
+  return result
+    ? [parseInt(result[1], 16), parseInt(result[2], 16), parseInt(result[3], 16)]
+    : null;
 }
 
 export function getCSSFilterColor(targetColor: Color): Property.Filter {

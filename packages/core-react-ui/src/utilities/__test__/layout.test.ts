@@ -1,5 +1,5 @@
 import { Layout } from '@newrade/core-design-system';
-import { defaultLayout } from '../../design-system/default-layout';
+import { defaultLayout } from '../../default-theme/default-layout';
 import { getCSSLayout } from '../layout.utilities';
 
 describe('layout utilities', () => {

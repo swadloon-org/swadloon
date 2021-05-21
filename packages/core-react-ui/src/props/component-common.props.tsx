@@ -45,4 +45,8 @@ export type CommonComponentProps<AsType = keyof ReactHTML> = Partial<{
    * The default ReactNode
    */
   children: ReactNode;
+  /**
+   * Events
+   */
+  onClick?: (event: React.MouseEvent) => any;
 }>;

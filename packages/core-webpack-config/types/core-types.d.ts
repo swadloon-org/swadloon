@@ -9,5 +9,6 @@
 /// <reference types="../../core-types/lib/webpack-stats-plugin" />
 /// <reference types="../../core-types/lib/webpack-lodash-plugin" />
 /// <reference types="../../core-types/lib/webpack-bundle-analyzer" />
+/// <reference types="../../core-types/lib/webpack-node-externals" />
 /// <reference types="../../core-types/lib/mini-css-extract-plugin" />
 /// <reference types="../../core-types/lib/remark-html" />

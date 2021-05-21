@@ -48,7 +48,9 @@ export const NavBar: React.FC<OwnProps> = ({
       const indexB = pageB?.name ? leftToolbarPageNames.indexOf(pageB?.name) : 1;
       return indexA > indexB ? 1 : -1;
     });
-  const contactUsPage = (currentLocaleIsEN ? pagesEN : pagesFR)?.filter((page) => page?.name === 'Contact');
+  const contactUsPage = (currentLocaleIsEN ? pagesEN : pagesFR)?.filter(
+    (page) => page?.name === 'Contact'
+  );
 
   const alternateLocalePageLink = currentAlternateLocalePage?.length
     ? currentAlternateLocalePage?.[0]?.slug
@@ -87,7 +89,12 @@ export const NavBar: React.FC<OwnProps> = ({
         <div className={styles.desktopRightToolbar}>
           <div className={styles.desktopSocialButtons}>
             {facebookPageURL ? (
-              <a href={facebookPageURL} target={'_blank'} aria-label="Facebook Page" rel="noreferrer">
+              <a
+                href={facebookPageURL}
+                target={'_blank'}
+                aria-label="Facebook Page"
+                rel="noreferrer"
+              >
                 <Button
                   variantType="tertiaryReversed"
                   variant="icon"
@@ -98,7 +105,12 @@ export const NavBar: React.FC<OwnProps> = ({
               </a>
             ) : null}
             {linkedinPageURL ? (
-              <a href={linkedinPageURL} target={'_blank'} aria-label="LinkedIn Page" rel="noreferrer">
+              <a
+                href={linkedinPageURL}
+                target={'_blank'}
+                aria-label="LinkedIn Page"
+                rel="noreferrer"
+              >
                 <Button
                   variantType="tertiaryReversed"
                   variant="icon"
@@ -120,7 +132,12 @@ export const NavBar: React.FC<OwnProps> = ({
               </a>
             ) : null}
             {instagramPageURL ? (
-              <a href={instagramPageURL} target={'_blank'} aria-label="Instagram Page" rel="noreferrer">
+              <a
+                href={instagramPageURL}
+                target={'_blank'}
+                aria-label="Instagram Page"
+                rel="noreferrer"
+              >
                 <Button
                   variantType="tertiaryReversed"
                   variant="icon"

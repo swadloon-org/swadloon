@@ -1,13 +1,14 @@
 import { style } from 'treat';
-import { Theme } from '../design-system/css-design-system';
-import { getCSSColor } from '../utilities/colors.utilities';
+import { Theme } from '../design-system';
+import { getCSSColor } from '../utilities';
 
 export const styles = {
   normal: style(({ theme, cssTheme }: Theme) => ({
     userSelect: 'text',
-    color: cssTheme.colors.colorIntents.primaryText,
-    backgroundColor: getCSSColor({ ...theme.colors.colors.primary[100], a: 25 }),
-    borderLeft: `8px solid ${cssTheme.colors.colors.primary[500]}`,
-    padding: `20px 16px 20px 25px`,
+    borderRadius: 4,
+    color: cssTheme.colors.colors.grey[900],
+    backgroundColor: getCSSColor({ ...theme.colors.colorIntents.background1, a: 95 }),
+    border: `1px solid ${cssTheme.colors.colors.grey[50]}`,
+    padding: `${cssTheme.sizing.var.x3} ${cssTheme.sizing.var.x2}`,
   })),
 };

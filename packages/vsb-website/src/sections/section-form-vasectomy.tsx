@@ -1,4 +1,4 @@
-import loadable from '@loadable/component';
+import { lazy } from '@loadable/component';
 import { Variant } from '@newrade/core-design-system';
 import {
   BlockRenderer,
@@ -7,23 +7,25 @@ import {
   SectionPadding,
   SectionProps,
 } from '@newrade/core-gatsby-ui/src';
-import { BoxV2, CommonComponentProps, Stack, useCommonProps, useIsSSR, useTreatTheme } from '@newrade/core-react-ui';
+import {
+  BoxV2,
+  CommonComponentProps,
+  Stack,
+  useCommonProps,
+  useIsSSR,
+  useTreatTheme,
+} from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
+import type { BlockFormVasectomyProps } from '../blocks/block-form-vasectomy';
 import { blockComponents } from '../templates/contentful-page.template';
 import * as styleRefs from './section-form-vasectomy.treat';
 
 type Props = CommonComponentProps & SectionProps & {};
 
-const BlockFormVasectomy = loadable<any>(
-  // @ts-ignore
-  () => {
-    return import('../blocks/block-form-vasectomy');
-  },
-  {
-    resolveComponent: (components: typeof import('../blocks/block-form-vasectomy')) => components.BlockFormVasectomy,
-  }
-);
+const BlockFormVasectomy = lazy<BlockFormVasectomyProps>(() => {
+  return import('../blocks/block-form-vasectomy').then((component) => component.BlockFormVasectomy);
+});
 
 export const CustomSectionFormVasectomy = React.forwardRef<any, Props>(
   (
@@ -50,7 +52,13 @@ export const CustomSectionFormVasectomy = React.forwardRef<any, Props>(
     const { styles } = useStyles(styleRefs);
     const { cssTheme } = useTreatTheme();
     const isSSR = useIsSSR();
-    const commonProps = useCommonProps({ id, style, className, classNames: [styles.wrapper, className], ...props });
+    const commonProps = useCommonProps({
+      id,
+      style,
+      className,
+      classNames: [styles.wrapper, className],
+      ...props,
+    });
 
     return (
       <SectionBase
@@ -64,7 +72,7 @@ export const CustomSectionFormVasectomy = React.forwardRef<any, Props>(
       >
         <Stack>
           <BoxV2
-            style={{ width: `min(100%, 900px)` }}
+            style={{ width: `min(100%, calc(60% - 20px))` }}
             padding={[
               `calc(${cssTheme.layout.var.navbarHeight} + ${cssTheme.sizing.var.x6})`,
               0,
@@ -77,14 +85,20 @@ export const CustomSectionFormVasectomy = React.forwardRef<any, Props>(
                */}
               {blocks?.map((block, index) => {
                 if (index === 0) {
-                  return <BlockRenderer key={index} blockComponents={blockComponents} block={block} />;
+                  return (
+                    <BlockRenderer key={index} blockComponents={blockComponents} block={block} />
+                  );
                 }
 
                 if (index === 1) {
                   return (
                     <BoxV2 key={index} className={styles.asideDesktop} alignItems={['flex-start']}>
                       <Stack gap={[cssTheme.sizing.var.x5]}>
-                        <BlockRenderer blockComponents={blockComponents} key={index} block={block} />
+                        <BlockRenderer
+                          blockComponents={blockComponents}
+                          key={index}
+                          block={block}
+                        />
 
                         {!isSSR ? (
                           <iframe
@@ -104,13 +118,18 @@ export const CustomSectionFormVasectomy = React.forwardRef<any, Props>(
                   );
                 }
 
-                if (index === 2) {
+                if (index === 2 && block?.type !== 'customVasectomyForm') {
                   return (
                     <React.Fragment key={index}>
                       <BlockRenderer blockComponents={blockComponents} block={block} />
+                    </React.Fragment>
+                  );
+                }
 
-                      {/* disabled form for now */}
-                      {false && !isSSR ? (
+                if (index === 3 && block?.type === 'customVasectomyForm') {
+                  return (
+                    <React.Fragment key={index}>
+                      {!isSSR ? (
                         <React.Suspense fallback={<div />}>
                           <BlockFormVasectomy block={block} />
                         </React.Suspense>

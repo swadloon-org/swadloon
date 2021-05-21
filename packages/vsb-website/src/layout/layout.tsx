@@ -54,8 +54,9 @@ const MobileSideBar = loadable<any>(
     return import('@newrade/core-react-ui/lib/navigation/mobile-sidebar');
   },
   {
-    resolveComponent: (components: typeof import('@newrade/core-react-ui/lib/navigation/mobile-sidebar')) =>
-      components.MobileSideBar,
+    resolveComponent: (
+      components: typeof import('@newrade/core-react-ui/lib/navigation/mobile-sidebar')
+    ) => components.MobileSideBar,
   }
 );
 
@@ -103,7 +104,12 @@ export const Layout = React.memo<LayoutProps>((props) => {
   const [navbarStyle, setNavbarStyle] = useState<'white' | 'transparent'>(defaultNavbarState);
   const [gsapLoaded, setGsapLoaded] = useState<boolean>(false);
   useAnimateNavbarDesktop({ navbarRef, whiteStyle: navbarStyle === 'white', viewport });
-  useAnimateNavbarMobile({ navbarRef, whiteStyle: navbarStyle === 'white', viewport, sidebarOpened });
+  useAnimateNavbarMobile({
+    navbarRef,
+    whiteStyle: navbarStyle === 'white',
+    viewport,
+    sidebarOpened,
+  });
 
   gsap.registerPlugin(ScrollTrigger, ExpoScaleEase);
 
@@ -179,10 +185,16 @@ export const Layout = React.memo<LayoutProps>((props) => {
         DesktopSvgLogo={<Logo />}
         MenuLinks={
           <>
-            <Link variantSize={PARAGRAPH_SIZE.medium} AsElement={<GatsbyLink to={'/vasectomie/'} />}>
+            <Link
+              variantSize={PARAGRAPH_SIZE.medium}
+              AsElement={<GatsbyLink to={'/vasectomie/'} />}
+            >
               Tout sur la vasectomie
             </Link>
-            <Link variantSize={PARAGRAPH_SIZE.medium} AsElement={<GatsbyLink to={'/examen-pour-transports-canada/'} />}>
+            <Link
+              variantSize={PARAGRAPH_SIZE.medium}
+              AsElement={<GatsbyLink to={'/examen-pour-transports-canada/'} />}
+            >
               Examen pour Transports Canada
             </Link>
             <Link variantSize={PARAGRAPH_SIZE.medium} AsElement={<GatsbyLink to={'/equipe/'} />}>
@@ -297,7 +309,10 @@ export const Layout = React.memo<LayoutProps>((props) => {
               </BoxV2>
 
               <BoxV2
-                style={{ flexDirection: 'column', backgroundColor: cssTheme.colors.colors.grey[50] }}
+                style={{
+                  flexDirection: 'column',
+                  backgroundColor: cssTheme.colors.colors.grey[50],
+                }}
                 justifyContent={['flex-start']}
                 alignItems={['stretch']}
                 padding={[cssTheme.sizing.var.x5, cssTheme.layout.var.contentMargins]}

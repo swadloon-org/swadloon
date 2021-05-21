@@ -1,7 +1,12 @@
 import * as DS from '@newrade/core-design-system';
-import { ButtonBoxStyle, ButtonColors, ButtonSizes, ButtonVariants, DesignSystem } from '@newrade/core-design-system';
-import { kebab } from 'case';
-import { CSSButtons, CSSButtonsVarNames } from '../design-system/css-buttons';
+import {
+  ButtonBoxStyle,
+  ButtonColors,
+  ButtonSizes,
+  ButtonVariants,
+  DesignSystem,
+} from '@newrade/core-design-system';
+import { CSSButtons, CSSButtonsVarNames } from '../design-system';
 import { getCSSBoxStyle, getCSSVarNameForBox } from './box.utilities';
 import { getCSSColor, getCSSVarForColors, getCSSVarNamesForColors } from './colors.utilities';
 import { keys } from './utilities';

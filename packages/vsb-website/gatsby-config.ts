@@ -5,6 +5,7 @@ import proxy from 'http-proxy-middleware';
 import path from 'path';
 import packageJson from './package.json';
 import { Env, ENV } from './types/dot-env';
+import { Express } from 'express';
 
 const env = loadDotEnv<ENV>({
   schema: Env,
@@ -80,6 +81,7 @@ const config: core.GastbySiteConfig = {
     core.getGatsbyReactSvgConfig(),
     ...core.getGastbyPluginPageCreatorConfig(),
     core.getGastbyPluginTreatConfig(),
+    core.getGatsbyPluginPostCSS(),
     core.getGatsbyTransformerSharp(),
     core.getGatsbyPluginSharp(),
     ...core.getGatsbyPluginMdx(),
@@ -115,11 +117,27 @@ const config: core.GastbySiteConfig = {
    * Mimic the same route that we have when deployed
    * @see https://github.com/chimurai/http-proxy-middleware/tree/v0.21.0#readme
    */
-  developMiddleware: (app) => {
+  developMiddleware: (app: Express) => {
     app.use(
-      '/api/',
+      '/api',
       proxy({
         target: 'http://localhost:10003',
+        pathRewrite: {
+          '^/api': '/api',
+        },
+        ws: false,
+        logLevel: 'debug',
+      })
+    );
+    app.use(
+      '/admin',
+      proxy({
+        target: 'http://localhost:8003',
+        pathRewrite: {
+          '^/admin': '/admin',
+        },
+        ws: true,
+        logLevel: 'debug',
       })
     );
   },

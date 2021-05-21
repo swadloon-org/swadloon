@@ -2,6 +2,7 @@ export * from './components/atoms/box';
 export * from './components/atoms/links';
 export * from './components/components.props';
 export * from './components/molecules/buttons';
+export * from './components/molecules/tags';
 export * from './components/organisms/carousel';
 export * from './design-system';
 export * from './foundations/animations';

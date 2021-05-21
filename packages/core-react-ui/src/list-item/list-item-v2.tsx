@@ -6,10 +6,22 @@ import { Paragraph } from '../text/paragraph';
 import { getDefaultTextFromProps, getMergedClassname } from '../utilities/component.utilities';
 import * as stylesRef from './list-item-v2.treat';
 
-type Props = CommonComponentProps & HTMLAttributes<HTMLLIElement> & Pick<LinkProps, 'variantSize' | 'variantLevel'>;
+type Props = CommonComponentProps &
+  HTMLAttributes<HTMLLIElement> &
+  Pick<LinkProps, 'variantSize' | 'variantLevel'>;
 
 export const ListItemV2: React.FC<Props> = React.memo(
-  ({ id, style, className, variantLevel, variantSize = PARAGRAPH_SIZE.medium, as, AsElement, children, ...props }) => {
+  ({
+    id,
+    style,
+    className,
+    variantLevel,
+    variantSize = PARAGRAPH_SIZE.medium,
+    as,
+    AsElement,
+    children,
+    ...props
+  }) => {
     /**
      * Hooks
      */

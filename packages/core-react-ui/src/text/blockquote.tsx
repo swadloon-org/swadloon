@@ -6,7 +6,7 @@ import * as stylesRef from './blockquote.treat';
 
 type Props = CommonComponentProps & BlockquoteHTMLAttributes<any> & {};
 
-/**
+/*
  * <blockquote> The HTML <blockquote> Element (or HTML Block Quotation Element)
  * indicates that the enclosed text is an extended quotation. Usually, this is rendered
  * visually by indentation (see Notes for how to change it). A URL for the source of

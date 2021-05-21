@@ -63,7 +63,11 @@ export const InfoSectionType3: React.FC<OwnProps> = (props) => {
   function renderTabbedInfoSection(props: SectionFragment, sectionIndex: number) {
     return (
       <React.Fragment key={`${sectionIndex}`}>
-        <RenderTitleHighlight className={styleRefs.title} title={props?.title} titleHighlight={props?.titleHighlight} />
+        <RenderTitleHighlight
+          className={styleRefs.title}
+          title={props?.title}
+          titleHighlight={props?.titleHighlight}
+        />
 
         <Paragraph variant={'medium'} className={styleRefs.text}>
           {props?.text?.text}

@@ -1,9 +1,9 @@
 import { API_RESPONSE_STATUS, ERROR_TYPE } from '@newrade/core-common';
-import { PatientAPIResponseBody } from '@newrade/vsb-common';
+import { CreatePatientAPIResponseBody } from '@newrade/vsb-common';
 import debug from 'debug';
 import { RequestHandler } from 'express';
 import fetch from 'node-fetch';
-import { env } from '../server';
+import { env } from '../server-express';
 
 const log = debug('newrade:vsb-api:recaptcha');
 const logError = log.extend('error');
@@ -13,7 +13,11 @@ export interface RecaptchaResponse {
   errors?: Array<string>;
 }
 
-export const recaptchaMiddleware: RequestHandler<any, PatientAPIResponseBody, any> = async (req, res, next) => {
+export const recaptchaMiddleware: RequestHandler<any, CreatePatientAPIResponseBody, any> = async (
+  req,
+  res,
+  next
+) => {
   try {
     const secret_key = env.API_VSB_SECRET_KEY_RECAPTCHA;
 
@@ -52,7 +56,9 @@ export const recaptchaMiddleware: RequestHandler<any, PatientAPIResponseBody, an
         api: 'vsb-api',
         status: API_RESPONSE_STATUS.ERROR,
         message: `Une erreur s'est produite durant la validation du recaptcha.`,
-        errors: [{ name: ERROR_TYPE.UNHANDLED_ERROR, message: recaptchaResponse.errors?.join(', ') || '' }],
+        errors: [
+          { name: ERROR_TYPE.UNHANDLED_ERROR, message: recaptchaResponse.errors?.join(', ') || '' },
+        ],
         payload: {},
       });
     }

@@ -59,7 +59,7 @@ export const remarkWikiLinkPlugin = [
   wikiLinkPlugin,
   {
     aliasDivider: '|',
-    hrefTemplate: (permalink: string) => `/docs/${permalink}`,
+    hrefTemplate: (permalink: string) => `/design-system/${permalink.replace(/(en|fr)\./, '')}`,
   },
 ];
 

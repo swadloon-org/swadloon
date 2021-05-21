@@ -56,7 +56,11 @@ export function usePagesNavigation(): Navigation {
     name: 'VSB sidenav',
     pageNodes: data?.pages.nodes as PageNode[],
     sortOrderDirectories: ['services', 'la clinique', 'nous joindre'],
-    sortOrderItems: ['tout sur la vasectomie', 'formulaire vasectomie', 'examen pour transport canada'],
+    sortOrderItems: [
+      'tout sur la vasectomie',
+      'formulaire vasectomie',
+      'examen pour transport canada',
+    ],
     excludedItems: ['address', 'accueil'],
   });
 }

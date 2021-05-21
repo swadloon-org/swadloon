@@ -11,7 +11,13 @@ type Props = CommonComponentProps;
 export const CodeOutline: React.FC<Props> = ({ id, style, className, ...props }) => {
   const { styles } = useStyles(styleRefs);
   const { theme, cssTheme } = useTreatTheme();
-  const commonProps = useCommonProps({ id, style, className, classNames: [styles.preview], ...props });
+  const commonProps = useCommonProps({
+    id,
+    style,
+    className,
+    classNames: [styles.preview],
+    ...props,
+  });
 
   return (
     <Stack gap={[cssTheme.sizing.var.x2]} {...commonProps}>

@@ -1,10 +1,14 @@
+import { SITE_LANGUAGES } from '@newrade/core-common';
 import { graphql, useStaticQuery } from 'gatsby';
 import { Navigation } from '../api/navigation.model';
 import { getNavigationFromPageNodes } from '../utilities/navigation.utilities';
 
 const query = graphql`
   query DesignSystemLayoutPage {
-    pages: allSitePage(filter: { path: { glob: "**/design-system/{**,*}" } }) {
+    pages: allSitePage(
+      filter: { path: { glob: "/design-system/{**,*}" } }
+      sort: { fields: context___name, order: ASC }
+    ) {
       totalCount
       nodes {
         id
@@ -31,15 +35,27 @@ const query = graphql`
   }
 `;
 
-export function useDesignSystemNavigation(): Navigation {
+export function useDesignSystemNavigation({ locales }: { locales: SITE_LANGUAGES[] }): Navigation {
   const data = useStaticQuery(query);
 
   return getNavigationFromPageNodes({
     name: 'design system navigation',
+    locales,
     pageNodes: data.pages.nodes,
-    sortOrderDirectories: ['home', 'typography', 'colors', 'foundations', 'components', 'content', 'effects', 'motion'],
+    sortOrderDirectories: [
+      'design-system',
+      'home',
+      'foundations',
+      'components',
+      'content',
+      'effects',
+      'motion',
+      'examples',
+    ],
     sortOrderItems: [
       '',
+      'overview',
+      'index',
       'typography',
       'colors',
       'color-intents',

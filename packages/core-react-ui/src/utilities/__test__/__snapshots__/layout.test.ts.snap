@@ -2,7 +2,7 @@
 
 exports[`layout utilities getCSSLayout should create a valid CSS layout config 1`] = `
 Object {
-  "asideWidth": "230px",
+  "asideWidth": "260px",
   "breakpoints": Object {
     "desktopLarge": "1600px",
     "desktopMedium": "1440px",
@@ -44,7 +44,7 @@ Object {
     "tabletOnly": "screen and (min-width: 768px) and (max-width: 1280px)",
   },
   "navbarHeight": Object {
-    "desktop": "55px",
+    "desktop": "68px",
     "mobile": "55px",
     "tablet": "55px",
   },

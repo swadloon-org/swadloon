@@ -3,19 +3,18 @@
   "version": "1.12.2",
   "description": "UI library",
   "license": "MIT",
-  "main": "./lib/index.js",
   "module": "./lib/index.js",
   "files": [
     "./lib/**/*"
   ],
   "scripts": {
-    "build": "yarn copy:assets && yarn build:tsc",
-    "build:tsc": "tsc --build tsconfig.build.json",
+    "build": "concurrently \"yarn tsc:build\" \"yarn copy:assets\"",
     "clean": "rimraf -r lib/** && rm -f tsconfig.build.tsbuildinfo",
     "copy:assets": "TS_NODE_PROJECT=tsconfig.script.json node -r ts-node/register scripts/copy-assets.script.ts",
     "start": "concurrently \"yarn tsc:start\" \"yarn watch:assets\"",
     "test": "jest",
     "test:watch": "jest --watch",
+    "tsc:build": "tsc --build tsconfig.build.json",
     "tsc:start": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
     "watch:assets": "onchange -i 'src/assets/**/*' -- yarn copy:assets"
   },
@@ -25,8 +24,7 @@
     "@newrade/core-common": "^1.2.3",
     "@newrade/core-design-system": "^1.9.2",
     "@newrade/core-jest-config": "^1.5.7",
-    "@newrade/core-types": "^1.4.0",
-    "@newrade/core-utils": "^1.6.3"
+    "@newrade/core-types": "^1.4.0"
   },
   "devDependencies": {
     "@newrade/core-cli": "^1.7.0"

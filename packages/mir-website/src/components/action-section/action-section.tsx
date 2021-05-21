@@ -36,7 +36,9 @@ export const ActionSection: React.FC<OwnProps> = (props) => {
             <GatsbyLink to={props?.link.page?.slug} className={`${styles.button}`}>
               <Button
                 className={`${styles.button}`}
-                variantType={variant === SECTION_TYPE.ACTION_PRIMARY ? 'primaryDefault' : 'primaryReversed'}
+                variantType={
+                  variant === SECTION_TYPE.ACTION_PRIMARY ? 'primaryDefault' : 'primaryReversed'
+                }
                 size="medium"
                 variant="text"
               >
@@ -47,7 +49,9 @@ export const ActionSection: React.FC<OwnProps> = (props) => {
             <a href={props?.link.url} className={`${styles.button}`}>
               <Button
                 className={`${styles.button}`}
-                variantType={variant === SECTION_TYPE.ACTION_PRIMARY ? 'primaryDefault' : 'primaryReversed'}
+                variantType={
+                  variant === SECTION_TYPE.ACTION_PRIMARY ? 'primaryDefault' : 'primaryReversed'
+                }
                 size="medium"
                 variant="text"
               >

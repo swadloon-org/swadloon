@@ -1,87 +1,109 @@
-import { LABEL_SIZE, Variant, TEXT_STYLE } from '@newrade/core-design-system';
-import { style } from 'treat';
-import { Theme } from '../design-system/css-design-system';
+import { globalStyle, style } from 'treat';
+import { Theme } from '../design-system';
+import { globalThemeReversedSelector } from '../global/global-theme-classnames';
 import { getCSSSizeTextStyles, getCSSTextStyles } from '../utilities/text.utilities';
 
-export const styles: { [key in LABEL_SIZE]: string } &
-  { [key in TEXT_STYLE]: string } &
-  { [key in Variant]: string } = {
-  medium: style(({ theme, cssTheme }: Theme) => ({
-    ...getCSSTextStyles(cssTheme.typography.labels.mobile.medium),
-    '@media': {
-      [cssTheme.layout.media.tablet]: {
-        ...getCSSSizeTextStyles(cssTheme.typography.labels.tablet.medium),
-      },
+/**
+ * Base
+ */
+export const base = style(({ theme, cssTheme }: Theme) => ({
+  ...getCSSTextStyles(cssTheme.typography.labels),
+  width: 'fit-content',
+  userSelect: 'text',
+}));
 
-      [cssTheme.layout.media.desktopSmall]: {
-        ...getCSSSizeTextStyles(cssTheme.typography.labels.desktop.medium),
-      },
+/**
+ *
+ * Variants
+ *
+ */
+
+/**
+ * Sizes
+ */
+export const medium = style(({ theme, cssTheme }: Theme) => ({
+  ...getCSSTextStyles(cssTheme.typography.labels.mobile.medium),
+  '@media': {
+    [cssTheme.layout.media.tablet]: {
+      ...getCSSSizeTextStyles(cssTheme.typography.labels.tablet.medium),
     },
-  })),
-  small: style(({ theme, cssTheme }: Theme) => ({
-    ...getCSSTextStyles(cssTheme.typography.labels.mobile.small),
-    '@media': {
-      [cssTheme.layout.media.tablet]: {
-        ...getCSSSizeTextStyles(cssTheme.typography.labels.tablet.small),
-      },
-      [cssTheme.layout.media.desktopSmall]: {
-        ...getCSSSizeTextStyles(cssTheme.typography.labels.desktop.small),
-      },
+    [cssTheme.layout.media.desktopSmall]: {
+      ...getCSSSizeTextStyles(cssTheme.typography.labels.desktop.medium),
     },
-  })),
-  xSmall: style(({ theme, cssTheme }: Theme) => ({
-    ...getCSSTextStyles(cssTheme.typography.labels.mobile.xSmall),
-    '@media': {
-      [cssTheme.layout.media.tablet]: {
-        ...getCSSSizeTextStyles(cssTheme.typography.labels.tablet.xSmall),
-      },
-
-      [cssTheme.layout.media.desktopSmall]: {
-        ...getCSSSizeTextStyles(cssTheme.typography.labels.desktop.xSmall),
-      },
+  },
+}));
+export const small = style(({ theme, cssTheme }: Theme) => ({
+  ...getCSSTextStyles(cssTheme.typography.labels.mobile.small),
+  '@media': {
+    [cssTheme.layout.media.tablet]: {
+      ...getCSSSizeTextStyles(cssTheme.typography.labels.tablet.small),
     },
-  })),
+    [cssTheme.layout.media.desktopSmall]: {
+      ...getCSSSizeTextStyles(cssTheme.typography.labels.desktop.small),
+    },
+  },
+}));
+export const xSmall = style(({ theme, cssTheme }: Theme) => ({
+  ...getCSSTextStyles(cssTheme.typography.labels.mobile.xSmall),
+  '@media': {
+    [cssTheme.layout.media.tablet]: {
+      ...getCSSSizeTextStyles(cssTheme.typography.labels.tablet.xSmall),
+    },
+    [cssTheme.layout.media.desktopSmall]: {
+      ...getCSSSizeTextStyles(cssTheme.typography.labels.desktop.xSmall),
+    },
+  },
+}));
 
-  normal: style(({ theme, cssTheme }: Theme) => ({
-    ...getCSSTextStyles(cssTheme.typography.labels),
-    width: 'fit-content',
-    userSelect: 'text',
-  })),
-  italic: style(({ theme, cssTheme }: Theme) => ({
-    ...getCSSTextStyles(cssTheme.typography.labels.styles.italic),
-  })),
-  bold: style(({ theme, cssTheme }: Theme) => ({
-    ...getCSSTextStyles(cssTheme.typography.labels.styles.bold),
-  })),
-  uppercase: style(({ theme, cssTheme }: Theme) => ({
-    ...getCSSTextStyles(cssTheme.typography.labels.styles.uppercase),
-  })),
-  boldUppercase: style(({ theme, cssTheme }: Theme) => ({
-    ...getCSSTextStyles(cssTheme.typography.labels.styles.boldUppercase),
-  })),
-  italicBold: style(({ theme, cssTheme }: Theme) => ({
-    ...getCSSTextStyles(cssTheme.typography.labels.styles.italicBold),
-  })),
+/**
+ * Styles
+ */
+export const normal = style(({ theme, cssTheme }: Theme) => ({}));
+export const italic = style(({ theme, cssTheme }: Theme) => ({
+  ...getCSSTextStyles(cssTheme.typography.labels.styles.italic),
+}));
+export const bold = style(({ theme, cssTheme }: Theme) => ({
+  ...getCSSTextStyles(cssTheme.typography.labels.styles.bold),
+}));
+export const uppercase = style(({ theme, cssTheme }: Theme) => ({
+  ...getCSSTextStyles(cssTheme.typography.labels.styles.uppercase),
+}));
+export const boldUppercase = style(({ theme, cssTheme }: Theme) => ({
+  ...getCSSTextStyles(cssTheme.typography.labels.styles.boldUppercase),
+}));
+export const italicBold = style(({ theme, cssTheme }: Theme) => ({
+  ...getCSSTextStyles(cssTheme.typography.labels.styles.italicBold),
+}));
 
-  /**
-   * Text styles
-   */
-  primary: style(({ theme, cssTheme }: Theme) => ({
-    color: cssTheme.colors.colorIntents.primaryText,
-  })),
-  primaryReversed: style(({ theme, cssTheme }: Theme) => ({
+export const primary = style(({ theme, cssTheme }: Theme) => ({
+  color: cssTheme.colors.colorIntents.primaryText,
+}));
+export const primaryReversed = style(({ theme, cssTheme }: Theme) => ({}));
+globalStyle(
+  `${globalThemeReversedSelector} ${primary}, ${primaryReversed}`,
+  ({ theme, cssTheme }: Theme) => ({
     color: cssTheme.colors.colorIntents.primaryTextReversed,
-  })),
-  secondary: style(({ theme, cssTheme }: Theme) => ({
-    color: cssTheme.colors.colorIntents.secondaryText,
-  })),
-  secondaryReversed: style(({ theme, cssTheme }: Theme) => ({
+  })
+);
+
+export const secondary = style(({ theme, cssTheme }: Theme) => ({
+  color: cssTheme.colors.colorIntents.secondaryText,
+}));
+export const secondaryReversed = style(({ theme, cssTheme }: Theme) => ({}));
+globalStyle(
+  `${globalThemeReversedSelector} ${secondary}, ${secondaryReversed}`,
+  ({ theme, cssTheme }: Theme) => ({
     color: cssTheme.colors.colorIntents.secondaryTextReversed,
-  })),
-  tertiary: style(({ theme, cssTheme }: Theme) => ({
-    color: cssTheme.colors.colorIntents.tertiaryText,
-  })),
-  tertiaryReversed: style(({ theme, cssTheme }: Theme) => ({
+  })
+);
+
+export const tertiary = style(({ theme, cssTheme }: Theme) => ({
+  color: cssTheme.colors.colorIntents.tertiaryText,
+}));
+export const tertiaryReversed = style(({ theme, cssTheme }: Theme) => ({}));
+globalStyle(
+  `${globalThemeReversedSelector} ${tertiary}, ${tertiaryReversed}`,
+  ({ theme, cssTheme }: Theme) => ({
     color: cssTheme.colors.colorIntents.tertiaryTextReversed,
-  })),
-};
+  })
+);

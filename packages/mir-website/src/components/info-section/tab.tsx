@@ -8,12 +8,16 @@ interface OwnProps {
   selected: boolean;
 }
 
-export const Tab: React.FC<OwnProps & { onClick: (e: React.MouseEvent<HTMLDivElement>) => void }> = (props) => {
+export const Tab: React.FC<
+  OwnProps & { onClick: (e: React.MouseEvent<HTMLDivElement>) => void }
+> = (props) => {
   const styles = useStyles(styleRefs);
 
   return (
     <div
-      className={`${styles.wrapper} ${styles[props.size]} ${styles[props.selected ? 'selected' : 'unselected']}`}
+      className={`${styles.wrapper} ${styles[props.size]} ${
+        styles[props.selected ? 'selected' : 'unselected']
+      }`}
       onClick={props.onClick}
     >
       <Label variant={LABEL.smallBoldUppercase}>{props.children}</Label>

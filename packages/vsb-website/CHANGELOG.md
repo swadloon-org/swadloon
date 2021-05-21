@@ -1,344 +1,613 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [1.11.3](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/vsb-website@1.11.2...@newrade/vsb-website@1.11.3) (2021-03-11)
 
 ### Bug Fixes
 
-- **mir-website:** hotfix for blog generation ([7436d44](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/7436d448e10a41d660adb3fdb6db946f48989d11))
-- **vsb-website:** hotfix for redirects ([4020616](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/402061618bd468f0e7c194a1205c944f52a15112))
+- **mir-website:** hotfix for blog generation
+  ([7436d44](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/7436d448e10a41d660adb3fdb6db946f48989d11))
+- **vsb-website:** hotfix for redirects
+  ([4020616](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/402061618bd468f0e7c194a1205c944f52a15112))
 
 ## [1.11.2](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/vsb-website@1.11.1...@newrade/vsb-website@1.11.2) (2021-03-11)
 
 ### Bug Fixes
 
-- **hot-fix-vsb:** fixing the cost items section and fixing with the correct naming the navbar ([7f03ebf](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/7f03ebf5bc14b4cd297ea605be710132350a4373))
+- **hot-fix-vsb:** fixing the cost items section and fixing with the correct
+  naming the navbar
+  ([7f03ebf](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/7f03ebf5bc14b4cd297ea605be710132350a4373))
 
 ## [1.11.1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/vsb-website@1.11.0...@newrade/vsb-website@1.11.1) (2021-03-10)
 
 ### Bug Fixes
 
-- **core-gatsby-ui:** fix aside.tsx ([9ca0c18](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/9ca0c18e44efa10092fe194add2d047245ad6ab0))
-- **core-react-ui:** implement list item v2 ([c193d81](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/c193d811367dfe38d830ccab270e807a18a91276))
-- **vsb-website:** fix animation bug with navbar ([210e40a](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/210e40a496b46af68cd2cff00d6d302a751ea070))
+- **core-gatsby-ui:** fix aside.tsx
+  ([9ca0c18](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/9ca0c18e44efa10092fe194add2d047245ad6ab0))
+- **core-react-ui:** implement list item v2
+  ([c193d81](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/c193d811367dfe38d830ccab270e807a18a91276))
+- **vsb-website:** fix animation bug with navbar
+  ([210e40a](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/210e40a496b46af68cd2cff00d6d302a751ea070))
 
 # [1.11.0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/vsb-website@1.10.1...@newrade/vsb-website@1.11.0) (2021-03-09)
 
 ### Bug Fixes
 
-- **blocks-fix:** changing tableCodes for BlocksCode ([bb80b32](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/bb80b327a4013dc377fac5f373165c097f99615d))
-- **cdpq-website:** fix imports ([86ffeb9](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/86ffeb96b028af4fad2c287d16a782a31b343fdf))
-- **core:** packages are building ([a6985ed](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/a6985ed2e5d630c8dff85ac8625a4ef5b318a602))
-- **core-design-system-docs:** init package ([224064a](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/224064a713a5f41f998fe1e8e18ea4bfbe8b048d))
-- **core-gatsby-config:** fix page path for design system page ([2abccf6](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/2abccf6c6829061480eaa6950485b3d13885d177))
-- **core-gatsby-config:** refactor page creation ([9b0161c](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/9b0161c24dce482a98d55dc0fb0682f1f9ef80fa))
-- **core-gatsby-config:** things are starting to work again ([9b5dec8](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/9b5dec81b161122302006f924aa95f443ad116d2))
-- **core-gatsby-ui:** add more data models ([4fd195c](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/4fd195ce14597d5ff0f29c9b9f830b4593d394d7))
-- **core-gatsby-ui:** fixes for section components ([6007d5f](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/6007d5fbcb390d2ef1e2826312a5d0fcceec4a32))
-- **core-react-ui:** fix list item, using flex now ([5f462e4](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/5f462e45b0ced1a6ad3b891401e3b8ace802c4a7))
-- **core-react-ui:** rework sidebars ([bc6e2d1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/bc6e2d1722f0814eb47db3907452f60d91567144))
-- **core-react-ui:** trying to find issue ([a62e71c](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/a62e71c9c14b2897eb5d619457f2727eed2f2938))
-- **corereact-ui:** fix nasty bug with treat files importing other treat files ([d1644df](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/d1644df51704ce05edb1aabcf7cf3a74d91edf00))
-- **newrade-website:** clean up ([9534e61](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/9534e61b01545371bde739d05c4519ead5fbd143))
-- **newrade-website:** docs update ([08db9ce](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/08db9ce60c3779684db9260c435792e532bd6729))
-- **vbs-website:** fix steps section ([def91cc](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/def91cc31dae2c6ffc22449c87a1f90265616125))
-- **vsb-website:** fix custom form section and block ([206f09b](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/206f09b90c3418f984392deb55509c7edf2943f6))
-- **vsb-website:** fixes ([41a0aa2](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/41a0aa279971986f0a2d7f598cf1966715083fd2))
-- **vsb-website:** fixing build ([5b446af](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/5b446afda481089b7ec00c85b36f4233db305689))
-- **vsb-website:** remove old sections ([c8292a4](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/c8292a46868d22dc9229481f974f2d9bde8fff06))
-- **vsb-website:** section banner done ([0fb9609](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/0fb9609bcbc0d83aaee537e6033da01ff4dae620))
-- **vsb-website:** wip ([3b87b81](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/3b87b815f1a9062da29341c234defa8ab5d63e24))
-- **vsb-website:** wip to refactor section banner ([f19e946](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/f19e946b5c0e3817763eb67c6a0699bc5cdd677f))
-- **vsb-website:** working on sections & blocks ([8641d04](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/8641d04cb1a44737d19a7330ed038105fa9b6b7c))
+- **blocks-fix:** changing tableCodes for BlocksCode
+  ([bb80b32](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/bb80b327a4013dc377fac5f373165c097f99615d))
+- **core:** packages are building
+  ([a6985ed](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/a6985ed2e5d630c8dff85ac8625a4ef5b318a602))
+- **core-design-system-docs:** init package
+  ([224064a](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/224064a713a5f41f998fe1e8e18ea4bfbe8b048d))
+- **core-gatsby-config:** fix page path for design system page
+  ([2abccf6](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/2abccf6c6829061480eaa6950485b3d13885d177))
+- **core-gatsby-config:** refactor page creation
+  ([9b0161c](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/9b0161c24dce482a98d55dc0fb0682f1f9ef80fa))
+- **core-gatsby-config:** things are starting to work again
+  ([9b5dec8](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/9b5dec81b161122302006f924aa95f443ad116d2))
+- **core-gatsby-ui:** add more data models
+  ([4fd195c](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/4fd195ce14597d5ff0f29c9b9f830b4593d394d7))
+- **core-gatsby-ui:** fixes for section components
+  ([6007d5f](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/6007d5fbcb390d2ef1e2826312a5d0fcceec4a32))
+- **core-react-ui:** fix list item, using flex now
+  ([5f462e4](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/5f462e45b0ced1a6ad3b891401e3b8ace802c4a7))
+- **core-react-ui:** rework sidebars
+  ([bc6e2d1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/bc6e2d1722f0814eb47db3907452f60d91567144))
+- **core-react-ui:** trying to find issue
+  ([a62e71c](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/a62e71c9c14b2897eb5d619457f2727eed2f2938))
+- **corereact-ui:** fix nasty bug with treat files importing other treat files
+  ([d1644df](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/d1644df51704ce05edb1aabcf7cf3a74d91edf00))
+- **newrade-website:** clean up
+  ([9534e61](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/9534e61b01545371bde739d05c4519ead5fbd143))
+- **newrade-website:** docs update
+  ([08db9ce](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/08db9ce60c3779684db9260c435792e532bd6729))
+- **vbs-website:** fix steps section
+  ([def91cc](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/def91cc31dae2c6ffc22449c87a1f90265616125))
+- **vsb-website:** fix custom form section and block
+  ([206f09b](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/206f09b90c3418f984392deb55509c7edf2943f6))
+- **vsb-website:** fixes
+  ([41a0aa2](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/41a0aa279971986f0a2d7f598cf1966715083fd2))
+- **vsb-website:** fixing build
+  ([5b446af](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/5b446afda481089b7ec00c85b36f4233db305689))
+- **vsb-website:** remove old sections
+  ([c8292a4](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/c8292a46868d22dc9229481f974f2d9bde8fff06))
+- **vsb-website:** section banner done
+  ([0fb9609](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/0fb9609bcbc0d83aaee537e6033da01ff4dae620))
+- **vsb-website:** wip
+  ([3b87b81](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/3b87b815f1a9062da29341c234defa8ab5d63e24))
+- **vsb-website:** wip to refactor section banner
+  ([f19e946](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/f19e946b5c0e3817763eb67c6a0699bc5cdd677f))
+- **vsb-website:** working on sections & blocks
+  ([8641d04](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/8641d04cb1a44737d19a7330ed038105fa9b6b7c))
 
 ### Features
 
-- **core-design-system-docs:** adding all the fondations parts and some utilities ([f081ed9](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/f081ed958b581ea86a58df2522e7e93dce2288df))
-- **core-design-system-docs:** adding markdown files for design system docs and .code files ([f776ec2](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/f776ec285088977f141ef4b22045ff451ca2eeb3))
-- **core-gatsby-config:** refactor page creation logic for .mdx, .md, and .tsx files ([02cb1bb](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/02cb1bb2dc93be32ed8e5fda87c062ae2c05ea05))
-- **core-gatsby-ui:** implemented section banner ([6514337](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/6514337788141b7bede1d74084aee10f21b6e8c2))
-- **core-gatsby-ui:** working on new blocks, sections and api ([aa67282](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/aa67282fb497895abe7f7583d2a573f07b392cc0))
-- **core-gatsy-ui:** add block-google-maps ([4efaf57](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/4efaf578cd92ca4ed84f1bd7bb22d38b3dc38b3c))
-- **gatsby:** upgrade to latest v2 gatsby ([6ccfd11](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/6ccfd11efe789383353be0cd3b5a251e22a8f41a))
-- **gsap:** wip ([0d099eb](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/0d099ebbc78f50910e56ffada9b92d6d51025883))
-- **newrade-website:** reorg docs ([47856d1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/47856d1889c2311c01cf4cd9f94f52fadd1ac61f))
-- **newrade-website:** update docs ([999fa76](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/999fa7639941e100bf5c5aaff42fdd4fcb65236b))
-- **vsb-website:** fix fragments after refactor ([253f987](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/253f98723f264938eab85113c71bbcdddc7a041f))
-- **vsb-website:** implement v1 of callout section as a variation of banner ([ef723da](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ef723da0d9386ec7b8f6a689f074fed42e553df2))
-- **vsb-website:** working on mobile logo animation ([ba7fb5d](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ba7fb5d3226b2fbbe23090ce08555dd5965e1e61))
+- **core-design-system-docs:** adding all the fondations parts and some
+  utilities
+  ([f081ed9](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/f081ed958b581ea86a58df2522e7e93dce2288df))
+- **core-design-system-docs:** adding markdown files for design system docs and
+  .code files
+  ([f776ec2](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/f776ec285088977f141ef4b22045ff451ca2eeb3))
+- **core-gatsby-config:** refactor page creation logic for .mdx, .md, and .tsx
+  files
+  ([02cb1bb](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/02cb1bb2dc93be32ed8e5fda87c062ae2c05ea05))
+- **core-gatsby-ui:** implemented section banner
+  ([6514337](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/6514337788141b7bede1d74084aee10f21b6e8c2))
+- **core-gatsby-ui:** working on new blocks, sections and api
+  ([aa67282](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/aa67282fb497895abe7f7583d2a573f07b392cc0))
+- **core-gatsy-ui:** add block-google-maps
+  ([4efaf57](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/4efaf578cd92ca4ed84f1bd7bb22d38b3dc38b3c))
+- **gatsby:** upgrade to latest v2 gatsby
+  ([6ccfd11](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/6ccfd11efe789383353be0cd3b5a251e22a8f41a))
+- **gsap:** wip
+  ([0d099eb](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/0d099ebbc78f50910e56ffada9b92d6d51025883))
+- **newrade-website:** reorg docs
+  ([47856d1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/47856d1889c2311c01cf4cd9f94f52fadd1ac61f))
+- **newrade-website:** update docs
+  ([999fa76](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/999fa7639941e100bf5c5aaff42fdd4fcb65236b))
+- **vsb-website:** fix fragments after refactor
+  ([253f987](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/253f98723f264938eab85113c71bbcdddc7a041f))
+- **vsb-website:** implement v1 of callout section as a variation of banner
+  ([ef723da](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ef723da0d9386ec7b8f6a689f074fed42e553df2))
+- **vsb-website:** working on mobile logo animation
+  ([ba7fb5d](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ba7fb5d3226b2fbbe23090ce08555dd5965e1e61))
 
 ## [1.10.1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/vsb-website@1.10.0...@newrade/vsb-website@1.10.1) (2021-02-22)
 
 ### Bug Fixes
 
-- **eslint:** fight with eslint and goddamned gatsby ([d739497](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/d739497cbf641b3e5be26230008c5c58026f026e))
-- **newrade-website:** update configs ([90db24e](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/90db24e3ca7e9e8e4b6d41823d4a4366ed70db26))
-- **repo:** clean up eslint and gitignore files ([5a0a45d](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/5a0a45d7d6e669dc6859f361093d6d5b1e3c5d09))
-- **vsb-website:** fixes cost items section ([d35917e](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/d35917e53db9212129650eaeeb65fd176354219f))
+- **eslint:** fight with eslint and goddamned gatsby
+  ([d739497](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/d739497cbf641b3e5be26230008c5c58026f026e))
+- **newrade-website:** update configs
+  ([90db24e](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/90db24e3ca7e9e8e4b6d41823d4a4366ed70db26))
+- **repo:** clean up eslint and gitignore files
+  ([5a0a45d](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/5a0a45d7d6e669dc6859f361093d6d5b1e3c5d09))
+- **vsb-website:** fixes cost items section
+  ([d35917e](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/d35917e53db9212129650eaeeb65fd176354219f))
 
 # [1.10.0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/vsb-website@1.9.0...@newrade/vsb-website@1.10.0) (2021-02-19)
 
 ### Bug Fixes
 
-- **build:** fix gatsby build commands ([04de217](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/04de217d2cd543de974f052ea8e16eb5ad26119e))
-- **core-react-ui:** fix ssr bug ([4c5e7f4](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/4c5e7f4e4ef5610117c926bc7bed892de7ba8589))
-- **eslint:** fix new rules ([ec8cae6](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ec8cae6eb11f98fccd91fd378bd67252e47b6445))
-- **vsb-common:** fix esm build that would prevent treeshaking for gastby/webpack ([ad116b3](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ad116b38456b0eb64b6a82d7deef3d8ad66510a3))
-- **vsb-website:** fix for mobile form ([d7cf6fb](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/d7cf6fbf646dfcbe9a68fbe3403affcedc8bac91))
-- **vsb-website:** fix validation issues ([aa8f5f9](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/aa8f5f9e1f2bab9eff62c32017d9a5159750e98f))
-- **vsb-website:** only check status when page is active ([175842d](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/175842dcdb73248bf8472e05a553d1f358ce0b6b))
-- **vsb-website:** small fix for padding in form ([5c696a2](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/5c696a2aa743b655b67787e4869e7cca0825224c))
-- **vsb-website:** small fixes for e2e test ([824892f](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/824892f0db77984c9359cf12ea0a82707f09c64d))
-- **vsb-website:** use Suspense to improve SEO scores ([4f132e4](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/4f132e4a1cc71c8687a791eef4fc6cccaafd8b99))
+- **build:** fix gatsby build commands
+  ([04de217](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/04de217d2cd543de974f052ea8e16eb5ad26119e))
+- **core-react-ui:** fix ssr bug
+  ([4c5e7f4](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/4c5e7f4e4ef5610117c926bc7bed892de7ba8589))
+- **eslint:** fix new rules
+  ([ec8cae6](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ec8cae6eb11f98fccd91fd378bd67252e47b6445))
+- **vsb-common:** fix esm build that would prevent treeshaking for
+  gastby/webpack
+  ([ad116b3](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ad116b38456b0eb64b6a82d7deef3d8ad66510a3))
+- **vsb-website:** fix for mobile form
+  ([d7cf6fb](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/d7cf6fbf646dfcbe9a68fbe3403affcedc8bac91))
+- **vsb-website:** fix validation issues
+  ([aa8f5f9](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/aa8f5f9e1f2bab9eff62c32017d9a5159750e98f))
+- **vsb-website:** only check status when page is active
+  ([175842d](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/175842dcdb73248bf8472e05a553d1f358ce0b6b))
+- **vsb-website:** small fix for padding in form
+  ([5c696a2](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/5c696a2aa743b655b67787e4869e7cca0825224c))
+- **vsb-website:** small fixes for e2e test
+  ([824892f](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/824892f0db77984c9359cf12ea0a82707f09c64d))
+- **vsb-website:** use Suspense to improve SEO scores
+  ([4f132e4](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/4f132e4a1cc71c8687a791eef4fc6cccaafd8b99))
 
 ### Features
 
-- **core-gatsby-ui:** working on sections and blocks ([4d55bfd](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/4d55bfde04fd1df6d8b149a69414ba5129747fd6))
-- **core-react-ui:** add sections and blocs ([04a5386](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/04a5386073c903740c635ff38cef435963078f12))
-- **puppeteer-test:** adding navigation, api status and captcha error test ([e81d612](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/e81d6128271935eb0693fe4a7829876f34704e82))
+- **core-gatsby-ui:** working on sections and blocks
+  ([4d55bfd](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/4d55bfde04fd1df6d8b149a69414ba5129747fd6))
+- **core-react-ui:** add sections and blocs
+  ([04a5386](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/04a5386073c903740c635ff38cef435963078f12))
+- **puppeteer-test:** adding navigation, api status and captcha error test
+  ([e81d612](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/e81d6128271935eb0693fe4a7829876f34704e82))
 
 # [1.9.0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/vsb-website@1.8.0...@newrade/vsb-website@1.9.0) (2021-02-15)
 
 ### Bug Fixes
 
-- **config:** fix eslint config ([2dc1ecd](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/2dc1ecd8e17ef4bcfeec9e198af14428a3d2ea0e))
-- **core-utils:** refactor envs ([1f82218](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/1f82218b98f869c7e16202601bffe13ae085ae94))
-- **fixing-env-client:** fixing the recaptcha site key ([b5e66cf](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/b5e66cf1126dfde5c8146832891bfe28c85b1616))
-- **fixing-functions-netlify:** removing lambda ([5e2344f](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/5e2344f4eda61740f377d25f2f708e7f89e9715b))
-- **vsb-api:** fixes ([5a987dd](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/5a987dd707852165c3a1834e9e6d0ec359663c8f))
-- **vsb-website:** add e2e test ([10f9997](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/10f99976a2c97e7919335750b4184fdea8e146af))
-- **vsb-website:** finalize form valiation (client) ([7ddf34a](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/7ddf34a0443834fbdae668a7ddd53ab2c90ad805))
-- **vsb-website:** fix address service ([6e82b27](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/6e82b273011d6f5fe9647efcfb980b5c701126bb))
-- **vsb-website:** fix committed funcitons ([ca23144](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ca23144ea4868101e58f878f8a36227c3cd81ced))
-- **vsb-website:** fix for redirect ([d0fc61b](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/d0fc61b74e1f26094927441b7cfce1c48102e8d8))
-- **vsb-website:** fix missing entry in dot-env.ts ([6aa4a87](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/6aa4a879a0e7b4410738f6f046c73eaa3156a424))
-- **vsb-website:** fix rerender bug ([3101fcd](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/3101fcd4cc4600d2e701dd1bc6f99db322ae3da7))
-- **vsb-website:** fix video iframe ([ab02dca](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ab02dcaaeb475c46986030fab9a86f31590617f7))
-- **vsb-website:** wip for validation ([62e8bb3](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/62e8bb34fe83946b25e8e34f823cb608933658c7))
-- **vsb-website:** wip on fix for ssr bug ([884e643](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/884e6439e95f02bc724f84b14b571cac45a26a07))
+- **config:** fix eslint config
+  ([2dc1ecd](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/2dc1ecd8e17ef4bcfeec9e198af14428a3d2ea0e))
+- **core-utils:** refactor envs
+  ([1f82218](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/1f82218b98f869c7e16202601bffe13ae085ae94))
+- **fixing-env-client:** fixing the recaptcha site key
+  ([b5e66cf](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/b5e66cf1126dfde5c8146832891bfe28c85b1616))
+- **fixing-functions-netlify:** removing lambda
+  ([5e2344f](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/5e2344f4eda61740f377d25f2f708e7f89e9715b))
+- **vsb-api:** fixes
+  ([5a987dd](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/5a987dd707852165c3a1834e9e6d0ec359663c8f))
+- **vsb-website:** add e2e test
+  ([10f9997](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/10f99976a2c97e7919335750b4184fdea8e146af))
+- **vsb-website:** finalize form valiation (client)
+  ([7ddf34a](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/7ddf34a0443834fbdae668a7ddd53ab2c90ad805))
+- **vsb-website:** fix address service
+  ([6e82b27](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/6e82b273011d6f5fe9647efcfb980b5c701126bb))
+- **vsb-website:** fix committed funcitons
+  ([ca23144](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ca23144ea4868101e58f878f8a36227c3cd81ced))
+- **vsb-website:** fix for redirect
+  ([d0fc61b](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/d0fc61b74e1f26094927441b7cfce1c48102e8d8))
+- **vsb-website:** fix missing entry in dot-env.ts
+  ([6aa4a87](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/6aa4a879a0e7b4410738f6f046c73eaa3156a424))
+- **vsb-website:** fix rerender bug
+  ([3101fcd](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/3101fcd4cc4600d2e701dd1bc6f99db322ae3da7))
+- **vsb-website:** fix video iframe
+  ([ab02dca](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ab02dcaaeb475c46986030fab9a86f31590617f7))
+- **vsb-website:** wip for validation
+  ([62e8bb3](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/62e8bb34fe83946b25e8e34f823cb608933658c7))
+- **vsb-website:** wip on fix for ssr bug
+  ([884e643](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/884e6439e95f02bc724f84b14b571cac45a26a07))
 
 ### Features
 
-- **address-complete:** deleting the address lookup complete ([651cbb1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/651cbb15f7d639263c16588c2a60198ecb1efb40))
-- **client-env:** adding postcanada api key ([5b2cc4f](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/5b2cc4fc8cb24c6c1a15fcfed16be540f5b88e4f))
-- **logging:** implement structured loggging ([713cb45](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/713cb4501897b14ff3d53c93d32bce0686759a7c))
-- **postbuild-netlify-functions:** adding the postbuild in gatsby-node for netlify ([bbc4ae8](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/bbc4ae8eb3d999be91e57fa741d5325096ff1816))
-- **recaptcha-env:** adding client dotenv for the recaptcha ([bd0b673](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/bd0b67305a22cde0397f2e840dae5d3b8cdedc89))
-- **redirection-vsb:** adding all path needed to redirect to the vsb website ([185ca89](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/185ca892d7abb83e8088611e9144de42412f8ef3))
-- **vsb-api:** add netlify setup ([72a3830](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/72a3830dab26801c066c040632b1e64b1f974e27))
-- **vsb-api:** add validation for endpoints and form ([6d18162](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/6d18162c1d76e2f9463443d75c88f24514061afd))
-- **vsb-api:** trying to deploy to netlify ([3943583](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/394358395408463b83b8140e662ffe6062109f64))
-- **vsb-website:** adding logging ([1729ca1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/1729ca148e4de6831bf2b7beaeec9abf658a1b5c))
+- **address-complete:** deleting the address lookup complete
+  ([651cbb1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/651cbb15f7d639263c16588c2a60198ecb1efb40))
+- **client-env:** adding postcanada api key
+  ([5b2cc4f](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/5b2cc4fc8cb24c6c1a15fcfed16be540f5b88e4f))
+- **logging:** implement structured loggging
+  ([713cb45](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/713cb4501897b14ff3d53c93d32bce0686759a7c))
+- **postbuild-netlify-functions:** adding the postbuild in gatsby-node for
+  netlify
+  ([bbc4ae8](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/bbc4ae8eb3d999be91e57fa741d5325096ff1816))
+- **recaptcha-env:** adding client dotenv for the recaptcha
+  ([bd0b673](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/bd0b67305a22cde0397f2e840dae5d3b8cdedc89))
+- **redirection-vsb:** adding all path needed to redirect to the vsb website
+  ([185ca89](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/185ca892d7abb83e8088611e9144de42412f8ef3))
+- **vsb-api:** add netlify setup
+  ([72a3830](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/72a3830dab26801c066c040632b1e64b1f974e27))
+- **vsb-api:** add validation for endpoints and form
+  ([6d18162](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/6d18162c1d76e2f9463443d75c88f24514061afd))
+- **vsb-api:** trying to deploy to netlify
+  ([3943583](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/394358395408463b83b8140e662ffe6062109f64))
+- **vsb-website:** adding logging
+  ([1729ca1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/1729ca148e4de6831bf2b7beaeec9abf658a1b5c))
 
 # [1.8.0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/vsb-website@1.7.0...@newrade/vsb-website@1.8.0) (2021-02-11)
 
 ### Bug Fixes
 
-- **core-gatsby-ui:** refactor navigation ([07fad4c](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/07fad4c05c61edc455259cc2c43e369ed9974b90))
-- **core-react-ui:** fixes for markdown ([266fbbb](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/266fbbb935129dad6fd85d2d70ed108e9ae3d58b))
-- **newrade-website:** fix data ([7a3f1c4](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/7a3f1c46d8aad82c7884a506773c1f447bc95284))
-- **vsb-website:** fix contact section ([19c9194](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/19c91949d150d3449a9d5e2786d69aacba2acea4))
-- **vsb-website:** refactor patient validation ([77180b5](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/77180b59ed02a90ff8bbaeece51fc1bf78a82287))
-- **websites:** fix config for fragments ([2e0b9f7](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/2e0b9f7524461bc944dd50908b6250de540269d9))
-- **websites:** fixes for stability ([f398587](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/f3985874c00b07e7455bdff5027820f7dfd38689))
+- **core-gatsby-ui:** refactor navigation
+  ([07fad4c](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/07fad4c05c61edc455259cc2c43e369ed9974b90))
+- **core-react-ui:** fixes for markdown
+  ([266fbbb](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/266fbbb935129dad6fd85d2d70ed108e9ae3d58b))
+- **newrade-website:** fix data
+  ([7a3f1c4](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/7a3f1c46d8aad82c7884a506773c1f447bc95284))
+- **vsb-website:** fix contact section
+  ([19c9194](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/19c91949d150d3449a9d5e2786d69aacba2acea4))
+- **vsb-website:** refactor patient validation
+  ([77180b5](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/77180b59ed02a90ff8bbaeece51fc1bf78a82287))
+- **websites:** fix config for fragments
+  ([2e0b9f7](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/2e0b9f7524461bc944dd50908b6250de540269d9))
+- **websites:** fixes for stability
+  ([f398587](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/f3985874c00b07e7455bdff5027820f7dfd38689))
 
 ### Features
 
-- **address-complete-merge:** adding the validation and handler of the address complete in the block ([431ce68](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/431ce68f24d2ce5a14d53cce40a7be104868fa27))
-- **core-react-ui:** fix design system pages ([062d175](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/062d175e705eeecd8dd00a4bb95d4240c556f6b9))
-- **debounce-input:** adding the input debounce and return item from address service ([e22ffd6](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/e22ffd63412fc7880cd0c1384623b074b3d4ddd1))
-- **vsb-website:** cleanup sections ([e98250c](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/e98250ceef2a763a555e369a1f7899996cc3d99d))
-- **vsb-website:** implement forms ([d22143f](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/d22143f076e06b28d0d6f39be66a8531f57fa677))
-- **vsb-website:** wip for mapper ([679002a](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/679002ab9d8cbdb5ba4b489693b8406b2b91dd06))
+- **address-complete-merge:** adding the validation and handler of the address
+  complete in the block
+  ([431ce68](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/431ce68f24d2ce5a14d53cce40a7be104868fa27))
+- **core-react-ui:** fix design system pages
+  ([062d175](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/062d175e705eeecd8dd00a4bb95d4240c556f6b9))
+- **debounce-input:** adding the input debounce and return item from address
+  service
+  ([e22ffd6](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/e22ffd63412fc7880cd0c1384623b074b3d4ddd1))
+- **vsb-website:** cleanup sections
+  ([e98250c](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/e98250ceef2a763a555e369a1f7899996cc3d99d))
+- **vsb-website:** implement forms
+  ([d22143f](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/d22143f076e06b28d0d6f39be66a8531f57fa677))
+- **vsb-website:** wip for mapper
+  ([679002a](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/679002ab9d8cbdb5ba4b489693b8406b2b91dd06))
 
 # [1.7.0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/vsb-website@1.6.0...@newrade/vsb-website@1.7.0) (2021-02-03)
 
 ### Bug Fixes
 
-- **announcement-title:** fixing the title not used in the announcement ([a9f5ebe](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/a9f5ebe965f4c703ae27e93eb021502b83f28967))
-- **core-gatsby-config:** fix locale in create-pages ([d8f5353](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/d8f5353b870fc6ef3f9c0dc8809ba840afe1085f))
-- **core-gatsby-starter:** update for layouts ([91b30b5](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/91b30b5716c7dbd1953f4362f176c94b1de41b45))
-- **core-gatsby-ui:** fix SEO for templates ([9419f69](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/9419f699b3a034395adb44358f94a9d01728d1bc))
-- **core-react-app:** fix types references ([594baec](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/594baecc7cad830c5e080cfa32461a40b99bd1c4))
-- **core-react-ui:** add a node script to copy files ([4079d99](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/4079d99ad5f946c582579ec740c6ffa18b202d5c))
-- **core-react-ui:** fix async bundle and md providers ([8f3404a](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/8f3404aaa3962b794c359f1a626b4efdf5121e01))
-- **core-react-ui:** fix letter spacing ([b3ebc7e](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/b3ebc7e022feb3a758cf2a27fb4f31dc6b0c622a))
-- **core-react-ui:** fix suspense rendering ([1268088](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/1268088c26c77bda9d7488cf84004d55b3e2e573))
-- **core-react-ui:** fixes for background and layouts ([553c2fb](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/553c2fbc0124020aa995c295d0858a34cd304428))
-- **core-react-ui:** fixes for buttons and links ([4933704](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/49337046d67b5b1c1809732b765333378d4a18e9))
-- **core-react-ui:** fixes for cluster ([f91ebd1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/f91ebd135291c39366efdff497bf84d318f311a9))
-- **core-react-ui:** fixes for links ([8b0068f](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/8b0068f5911c6553e42d8dcacac4b83937dfc435))
-- **core-react-ui:** fixes for navbar ([de7b76f](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/de7b76f4a845cdeaae666eec5153f6d73f63c907))
-- **core-react-ui:** replace media queries ([bfc2e57](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/bfc2e5720b37600f77fd7168756799d2f3d1a263))
-- **deepscan-fixes:** fixing error flag by deepscan ([fee3386](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/fee3386d881f78036447523e48f7455ace636645))
-- **deleting-import:** removing bad import ([64b84eb](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/64b84ebb4880d4372cbe76464e1564b502a40095))
-- **fix-build:** removing treat for the form page ([b3d79e4](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/b3d79e408ec8793f37ab61952db839dcb42db350))
-- **fix-lint:** fixing lint error from the github build ([4773d0d](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/4773d0d5bfe2a3a3f87812a79e4cadb581f1c546))
-- **fragment-fix:** fixing the title announcement and removing it ([c9b73a7](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/c9b73a7ddde0591ef821deb2f060d80d71c0ba42))
-- **gatsby:** add assets ([bfe9abc](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/bfe9abc18c21b9e04878fd15ca71994d8ddc06fd))
-- **gatsby:** fixes ([1ed13f6](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/1ed13f6d8d872ab9b104df4549ee03ae1c973d43))
-- **gatsby:** various config fixes ([b1169be](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/b1169be173b416af2bbd01cd8f7786a7b3421797))
-- **lint-error:** fixing the recaptcha interface error ([e5aed0d](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/e5aed0da52bda7d9e22eb8dfbb4f80658f2797bd))
-- **mir-website:** config fixes ([8128983](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/81289832a9dd327dcecf11b357696ecccdd3338c))
-- **mir-website:** fix initial animation ([ae0e4e4](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ae0e4e422b6a48a0cafe900f68d6c0e90193ff18))
-- **mir-website:** fix mobile sidebar initial animation ([a7a56a6](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/a7a56a6185fa64ade15515b01e9ad36525854b44))
-- **mir-website:** fixes ([7aec9c0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/7aec9c083ee54b99cdea5222ede3358a26874a3f))
-- **mir-website:** maintenance ([2d5d392](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/2d5d39200c4bb1eaaa347ca600bf434d6a64ed29))
-- **newrade-website:** update to typography.ts ([4ea9943](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/4ea9943b2839d6a289ad98dd58889920cae364a3))
-- **repo:** fix linting issues ([25cd3d4](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/25cd3d4d91ada263a02177eed2eecbc4bcc0fd70))
-- **repo:** fixes after deepscan ([4e6e58f](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/4e6e58fb7788e6a4361dffd2eb593970306d9404))
-- **repo:** share .d.ts files in core-types ([4b28071](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/4b28071d704905c281b304a78c5888fbf5961de5))
-- **sites:** fixes and all assets ([c859573](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/c859573dcb8eb79e095e9a98be6b08dbb0063ff9))
-- **tile-links:** fixing the key missing ([fadd0f5](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/fadd0f5cdd7b2795f4f82b532a5125ba9c2d7833))
-- **tree-structure-error:** component were in the wrong folder ([d80935b](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/d80935ba4a832262fe7a1952d707987692ad94a2))
-- **vsb-api:** some fixes ([f93f777](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/f93f777e5c2e32507777d93936074898fdfab6a8))
-- **vsb-website:** accessibility fixes ([c5f0ee4](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/c5f0ee47822c3894625f4e495b43ce2a16e685f1))
-- **vsb-website:** add new animation for navbar ([a5b84d4](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/a5b84d486d293e8cbca50cc4b97a4d7f3f4e49a1))
-- **vsb-website:** fix build issues ([11fd560](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/11fd56082bd6eb576f5a7309b419611467a1850d))
-- **vsb-website:** fix empty dir for pages ([cc14eaa](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/cc14eaa3f8eb3c0f906ba57dfb99ae30819277ea))
-- **vsb-website:** fix ssr bug in layout ([27c7f9b](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/27c7f9b5ece784fba9e93d9c2b6b91f8bfc60555))
-- **vsb-website:** implement fixes for nav ([188087f](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/188087f8dcd1b6e836e86186d8e291aa8c537dfe))
-- **vsb-website:** implement info section ([d1eff7f](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/d1eff7f307a4f2add25587cbd7a66b7722d8cb2d))
-- **vsb-website:** lazy load google maps ([ecf9dea](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ecf9deae553e82d39a6a42124adda862b8efd2b5))
-- **vsb-website:** optimizations ([ed0a853](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ed0a853cce3c2105c8b527cd524ee2ec55875f6d))
-- **vsb-website:** optimize lcp ([875ce00](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/875ce0061ada6d2b1d12f8782983e499e4e83c6c))
-- **vsb-website:** refactor section layout ([673134c](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/673134ce8d659e0226b438d5beb5cd4acc9da690))
-- **vsb-website:** refactor sections ([b3b327b](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/b3b327be766c9e493b5e0b816875d5b8e9c364b8))
-- **websites:** add logo and fonts ([d462128](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/d46212863839125fede8bfbcc007181c3e40ebcc))
+- **announcement-title:** fixing the title not used in the announcement
+  ([a9f5ebe](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/a9f5ebe965f4c703ae27e93eb021502b83f28967))
+- **core-gatsby-config:** fix locale in create-pages
+  ([d8f5353](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/d8f5353b870fc6ef3f9c0dc8809ba840afe1085f))
+- **core-gatsby-starter:** update for layouts
+  ([91b30b5](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/91b30b5716c7dbd1953f4362f176c94b1de41b45))
+- **core-gatsby-ui:** fix SEO for templates
+  ([9419f69](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/9419f699b3a034395adb44358f94a9d01728d1bc))
+- **core-react-app:** fix types references
+  ([594baec](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/594baecc7cad830c5e080cfa32461a40b99bd1c4))
+- **core-react-ui:** add a node script to copy files
+  ([4079d99](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/4079d99ad5f946c582579ec740c6ffa18b202d5c))
+- **core-react-ui:** fix async bundle and md providers
+  ([8f3404a](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/8f3404aaa3962b794c359f1a626b4efdf5121e01))
+- **core-react-ui:** fix letter spacing
+  ([b3ebc7e](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/b3ebc7e022feb3a758cf2a27fb4f31dc6b0c622a))
+- **core-react-ui:** fix suspense rendering
+  ([1268088](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/1268088c26c77bda9d7488cf84004d55b3e2e573))
+- **core-react-ui:** fixes for background and layouts
+  ([553c2fb](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/553c2fbc0124020aa995c295d0858a34cd304428))
+- **core-react-ui:** fixes for buttons and links
+  ([4933704](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/49337046d67b5b1c1809732b765333378d4a18e9))
+- **core-react-ui:** fixes for cluster
+  ([f91ebd1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/f91ebd135291c39366efdff497bf84d318f311a9))
+- **core-react-ui:** fixes for links
+  ([8b0068f](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/8b0068f5911c6553e42d8dcacac4b83937dfc435))
+- **core-react-ui:** fixes for navbar
+  ([de7b76f](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/de7b76f4a845cdeaae666eec5153f6d73f63c907))
+- **core-react-ui:** replace media queries
+  ([bfc2e57](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/bfc2e5720b37600f77fd7168756799d2f3d1a263))
+- **deepscan-fixes:** fixing error flag by deepscan
+  ([fee3386](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/fee3386d881f78036447523e48f7455ace636645))
+- **deleting-import:** removing bad import
+  ([64b84eb](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/64b84ebb4880d4372cbe76464e1564b502a40095))
+- **fix-build:** removing treat for the form page
+  ([b3d79e4](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/b3d79e408ec8793f37ab61952db839dcb42db350))
+- **fix-lint:** fixing lint error from the github build
+  ([4773d0d](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/4773d0d5bfe2a3a3f87812a79e4cadb581f1c546))
+- **fragment-fix:** fixing the title announcement and removing it
+  ([c9b73a7](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/c9b73a7ddde0591ef821deb2f060d80d71c0ba42))
+- **gatsby:** add assets
+  ([bfe9abc](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/bfe9abc18c21b9e04878fd15ca71994d8ddc06fd))
+- **gatsby:** fixes
+  ([1ed13f6](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/1ed13f6d8d872ab9b104df4549ee03ae1c973d43))
+- **gatsby:** various config fixes
+  ([b1169be](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/b1169be173b416af2bbd01cd8f7786a7b3421797))
+- **lint-error:** fixing the recaptcha interface error
+  ([e5aed0d](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/e5aed0da52bda7d9e22eb8dfbb4f80658f2797bd))
+- **mir-website:** config fixes
+  ([8128983](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/81289832a9dd327dcecf11b357696ecccdd3338c))
+- **mir-website:** fix initial animation
+  ([ae0e4e4](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ae0e4e422b6a48a0cafe900f68d6c0e90193ff18))
+- **mir-website:** fix mobile sidebar initial animation
+  ([a7a56a6](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/a7a56a6185fa64ade15515b01e9ad36525854b44))
+- **mir-website:** fixes
+  ([7aec9c0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/7aec9c083ee54b99cdea5222ede3358a26874a3f))
+- **mir-website:** maintenance
+  ([2d5d392](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/2d5d39200c4bb1eaaa347ca600bf434d6a64ed29))
+- **newrade-website:** update to typography.ts
+  ([4ea9943](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/4ea9943b2839d6a289ad98dd58889920cae364a3))
+- **repo:** fix linting issues
+  ([25cd3d4](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/25cd3d4d91ada263a02177eed2eecbc4bcc0fd70))
+- **repo:** fixes after deepscan
+  ([4e6e58f](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/4e6e58fb7788e6a4361dffd2eb593970306d9404))
+- **repo:** share .d.ts files in core-types
+  ([4b28071](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/4b28071d704905c281b304a78c5888fbf5961de5))
+- **sites:** fixes and all assets
+  ([c859573](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/c859573dcb8eb79e095e9a98be6b08dbb0063ff9))
+- **tile-links:** fixing the key missing
+  ([fadd0f5](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/fadd0f5cdd7b2795f4f82b532a5125ba9c2d7833))
+- **tree-structure-error:** component were in the wrong folder
+  ([d80935b](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/d80935ba4a832262fe7a1952d707987692ad94a2))
+- **vsb-api:** some fixes
+  ([f93f777](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/f93f777e5c2e32507777d93936074898fdfab6a8))
+- **vsb-website:** accessibility fixes
+  ([c5f0ee4](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/c5f0ee47822c3894625f4e495b43ce2a16e685f1))
+- **vsb-website:** add new animation for navbar
+  ([a5b84d4](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/a5b84d486d293e8cbca50cc4b97a4d7f3f4e49a1))
+- **vsb-website:** fix build issues
+  ([11fd560](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/11fd56082bd6eb576f5a7309b419611467a1850d))
+- **vsb-website:** fix empty dir for pages
+  ([cc14eaa](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/cc14eaa3f8eb3c0f906ba57dfb99ae30819277ea))
+- **vsb-website:** fix ssr bug in layout
+  ([27c7f9b](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/27c7f9b5ece784fba9e93d9c2b6b91f8bfc60555))
+- **vsb-website:** implement fixes for nav
+  ([188087f](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/188087f8dcd1b6e836e86186d8e291aa8c537dfe))
+- **vsb-website:** implement info section
+  ([d1eff7f](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/d1eff7f307a4f2add25587cbd7a66b7722d8cb2d))
+- **vsb-website:** lazy load google maps
+  ([ecf9dea](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ecf9deae553e82d39a6a42124adda862b8efd2b5))
+- **vsb-website:** optimizations
+  ([ed0a853](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ed0a853cce3c2105c8b527cd524ee2ec55875f6d))
+- **vsb-website:** optimize lcp
+  ([875ce00](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/875ce0061ada6d2b1d12f8782983e499e4e83c6c))
+- **vsb-website:** refactor section layout
+  ([673134c](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/673134ce8d659e0226b438d5beb5cd4acc9da690))
+- **vsb-website:** refactor sections
+  ([b3b327b](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/b3b327be766c9e493b5e0b816875d5b8e9c364b8))
+- **websites:** add logo and fonts
+  ([d462128](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/d46212863839125fede8bfbcc007181c3e40ebcc))
 
 ### Features
 
-- **address-complete:** work in progress for the auto-complete field of the form ([19261e7](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/19261e7ac3b957807fc8ee70c677fd26fa254a9d))
-- **address-form:** correction of the post-code ([14535b1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/14535b1697e71bfccb2a2a5056d537ea1e533cb9))
-- **auto-complete:** resolving the change handler with the auto-complete of the others inputs ([f6ccb66](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/f6ccb664c7d0ee6005238777e35396718f93acaa))
-- **background-component:** adding background-position ([e98f60c](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/e98f60c8504e3dc1b18943b3e9fb01a2c21c0770))
-- **background-filter:** adding the component to wrap the background image to apply any css filter ([2fa99b0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/2fa99b0979c3dbc450e16c7c8a01152e5c126c3d))
-- **clinic-component:** modify global-mardown-css and working on clinic-preview component ([fa1ee1d](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/fa1ee1d97d5846a6a79aea6639e0cc2c4f5aa395))
-- **cluster:** adding wrap prop ([0787f36](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/0787f36af3d9d04db244dff5b84b0a9b49414aa1))
-- **core-gatsby-ui:** introduce blocks ([19e0b02](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/19e0b0225fe06e3b3a68a30a7bae052f9325732a))
-- **core-react-ui:** add layout variables ([ad22c9e](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ad22c9e493142fcf75f93f3159b64dc7a63055fa))
-- **core-react-ui:** add list item implementation ([cf2e41e](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/cf2e41e11219f4490f6a47ad4eefbd2afefe3af9))
-- **core-react-ui:** add react-aria ([b42c52a](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/b42c52aa02b8ffd00f3a2da943d362df3f2f28cd))
-- **core-react-ui:** add v1 of button.tsx ([881e2ff](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/881e2ff3ade1197c71da23cf9f5ad8677d6aaf6f))
-- **core-react-ui:** finish footer ([e5e9eb6](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/e5e9eb6822a6a6f9dd325104387f33021757dbcc))
-- **core-react-ui:** fix syntax highlighting for mdx or regular react code ([1f03fa8](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/1f03fa8d0b8345cdbc1cb54328c39baa35e979f8))
-- **core-react-ui:** implement custom google maps components ([86dbfe7](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/86dbfe75ed89e40e90dd5249cdf3c65d4949d1b3))
-- **core-react-ui:** implement v1 of links ([d0a5d74](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/d0a5d7407d764584537cce558b11beccb1dc0184))
-- **core-react-ui:** implement variantLevel in text components ([634a984](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/634a98407b096d9c2559ade698b673570125668b))
-- **core-react-ui:** improvements to ds pages ([10f9095](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/10f9095cda31b61f7b1368141243f595c6468e65))
-- **core-react-ui:** new components ([60b43ef](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/60b43efa4537e2067137ed9fd82eb7165630055c))
-- **core-react-ui:** todo for table components ([aec8839](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/aec8839e805777104e0e3d00165dce05ed421d0a))
-- **core-react-ui:** update design system demo ([7f2b472](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/7f2b47232b1509f4fa91629befd43cb2630ce927))
-- **fixing-error-lint:** fixing litteral string ([a8b51a8](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/a8b51a8ce8e5c40efd6a57a05c10f1845c4f648c))
-- **footer:** adding TextLevel in react ui component and starting the vsb footer ([1708174](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/1708174b588a0a6ad20b79f5c7dfb27eca888bd4))
-- **footer:** correct view of the footer ([b7b7ef0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/b7b7ef033854f96adcc19576158ed53271cdf1ee))
-- **form-validation:** adding Cleave lib for front-end validation of fields ([f4a6326](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/f4a63263d832bb14f480b20d82e57cde93d31428))
-- **form-validation-yup:** adding form and testing the yup errors ([53e8096](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/53e809643d48cce51bacd6abc097e5cf91429745))
-- **gatsby:** move layout components to core-gatsby-ui ([7ac5f9a](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/7ac5f9af92d86f8266abc19fc5396df012c27dc3))
-- **layout-page:** deleting the box v1 and remplacing it by boxV2 ([3f3f60e](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/3f3f60e4e35d666935eaa6940e57be6bf764ce0b))
-- **newrade-admin:** add google app scripts example ([a7a9280](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/a7a928074a09143165c6cd1f389fdc7e35b9a7cf))
-- **newrade-website:** add new config for theme ([fdf4ccd](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/fdf4ccd0ebc2ec20ace1c4672b2d17ecb2b7d94a))
-- **search-component:** advancing the address result ([80a5c3a](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/80a5c3a7d515700c95c8066cfadc1cbe032b4f1a))
-- **spam-middleware:** recaptcha and rate limiting ([dd2edb2](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/dd2edb24a527435dc45546c6753ebaa9c3464252))
-- **validation-error:** adding validation error message ([8888793](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/88887937a881be366edceca63313f36fecfb9b60))
-- **vsb:** create common package and adjust vsb-api ([5db75ab](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/5db75ab09fc2dd4e3cd6f52b4cc2bc56398863b8))
-- **vsb-api:** add i18n translation service ([76ae02f](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/76ae02fa4bc15c744b5d2629267bda27b66d9403))
-- **vsb-website:** accordions for faq section ([a19e65f](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/a19e65f39193a849186c41ab2c1dcfad157e3724))
-- **vsb-website:** add banner-link section ([406fbda](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/406fbda81f8cb1979168794e19e75b170504d5b6))
-- **vsb-website:** finish banner, background and fixes for typography ([bfe60b9](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/bfe60b9920b542e48248eaa03c8595e66c59ae20))
-- **vsb-website:** finish steps section ([4c622a1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/4c622a1cce7f71c0eb84ff6529fa76590000559d))
-- **vsb-website:** fixes ([3196c2c](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/3196c2c8cd4a5fb784b9f65e72ee51158e17e13f))
-- **vsb-website:** fixes list items ([1cda7d1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/1cda7d1276c520dc8ad470880b9755407d300338))
-- **vsb-website:** formatting for messages section ([c38821a](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/c38821a9073313677c5e36dc8fd54c0629c1254a))
-- **vsb-website:** implement sidenav ([6b57a86](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/6b57a867a88f57636c1d8268608d0605a02cc924))
-- **vsb-website:** implement tiles ([508f9db](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/508f9db45c2a91a4b1f7c3e2ceb930be8289b971))
-- **vsb-website:** scaling fixes ([dd3f9c3](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/dd3f9c3bcbc4a43d597cc3fd302495d4e66563d1))
+- **address-complete:** work in progress for the auto-complete field of the form
+  ([19261e7](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/19261e7ac3b957807fc8ee70c677fd26fa254a9d))
+- **address-form:** correction of the post-code
+  ([14535b1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/14535b1697e71bfccb2a2a5056d537ea1e533cb9))
+- **auto-complete:** resolving the change handler with the auto-complete of the
+  others inputs
+  ([f6ccb66](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/f6ccb664c7d0ee6005238777e35396718f93acaa))
+- **background-component:** adding background-position
+  ([e98f60c](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/e98f60c8504e3dc1b18943b3e9fb01a2c21c0770))
+- **background-filter:** adding the component to wrap the background image to
+  apply any css filter
+  ([2fa99b0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/2fa99b0979c3dbc450e16c7c8a01152e5c126c3d))
+- **clinic-component:** modify global-mardown-css and working on clinic-preview
+  component
+  ([fa1ee1d](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/fa1ee1d97d5846a6a79aea6639e0cc2c4f5aa395))
+- **cluster:** adding wrap prop
+  ([0787f36](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/0787f36af3d9d04db244dff5b84b0a9b49414aa1))
+- **core-gatsby-ui:** introduce blocks
+  ([19e0b02](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/19e0b0225fe06e3b3a68a30a7bae052f9325732a))
+- **core-react-ui:** add layout variables
+  ([ad22c9e](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ad22c9e493142fcf75f93f3159b64dc7a63055fa))
+- **core-react-ui:** add list item implementation
+  ([cf2e41e](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/cf2e41e11219f4490f6a47ad4eefbd2afefe3af9))
+- **core-react-ui:** add react-aria
+  ([b42c52a](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/b42c52aa02b8ffd00f3a2da943d362df3f2f28cd))
+- **core-react-ui:** add v1 of button.tsx
+  ([881e2ff](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/881e2ff3ade1197c71da23cf9f5ad8677d6aaf6f))
+- **core-react-ui:** finish footer
+  ([e5e9eb6](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/e5e9eb6822a6a6f9dd325104387f33021757dbcc))
+- **core-react-ui:** fix syntax highlighting for mdx or regular react code
+  ([1f03fa8](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/1f03fa8d0b8345cdbc1cb54328c39baa35e979f8))
+- **core-react-ui:** implement custom google maps components
+  ([86dbfe7](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/86dbfe75ed89e40e90dd5249cdf3c65d4949d1b3))
+- **core-react-ui:** implement v1 of links
+  ([d0a5d74](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/d0a5d7407d764584537cce558b11beccb1dc0184))
+- **core-react-ui:** implement variantLevel in text components
+  ([634a984](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/634a98407b096d9c2559ade698b673570125668b))
+- **core-react-ui:** improvements to ds pages
+  ([10f9095](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/10f9095cda31b61f7b1368141243f595c6468e65))
+- **core-react-ui:** new components
+  ([60b43ef](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/60b43efa4537e2067137ed9fd82eb7165630055c))
+- **core-react-ui:** todo for table components
+  ([aec8839](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/aec8839e805777104e0e3d00165dce05ed421d0a))
+- **core-react-ui:** update design system demo
+  ([7f2b472](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/7f2b47232b1509f4fa91629befd43cb2630ce927))
+- **fixing-error-lint:** fixing litteral string
+  ([a8b51a8](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/a8b51a8ce8e5c40efd6a57a05c10f1845c4f648c))
+- **footer:** adding TextLevel in react ui component and starting the vsb footer
+  ([1708174](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/1708174b588a0a6ad20b79f5c7dfb27eca888bd4))
+- **footer:** correct view of the footer
+  ([b7b7ef0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/b7b7ef033854f96adcc19576158ed53271cdf1ee))
+- **form-validation:** adding Cleave lib for front-end validation of fields
+  ([f4a6326](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/f4a63263d832bb14f480b20d82e57cde93d31428))
+- **form-validation-yup:** adding form and testing the yup errors
+  ([53e8096](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/53e809643d48cce51bacd6abc097e5cf91429745))
+- **gatsby:** move layout components to core-gatsby-ui
+  ([7ac5f9a](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/7ac5f9af92d86f8266abc19fc5396df012c27dc3))
+- **layout-page:** deleting the box v1 and remplacing it by boxV2
+  ([3f3f60e](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/3f3f60e4e35d666935eaa6940e57be6bf764ce0b))
+- **newrade-admin:** add google app scripts example
+  ([a7a9280](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/a7a928074a09143165c6cd1f389fdc7e35b9a7cf))
+- **newrade-website:** add new config for theme
+  ([fdf4ccd](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/fdf4ccd0ebc2ec20ace1c4672b2d17ecb2b7d94a))
+- **search-component:** advancing the address result
+  ([80a5c3a](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/80a5c3a7d515700c95c8066cfadc1cbe032b4f1a))
+- **spam-middleware:** recaptcha and rate limiting
+  ([dd2edb2](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/dd2edb24a527435dc45546c6753ebaa9c3464252))
+- **validation-error:** adding validation error message
+  ([8888793](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/88887937a881be366edceca63313f36fecfb9b60))
+- **vsb:** create common package and adjust vsb-api
+  ([5db75ab](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/5db75ab09fc2dd4e3cd6f52b4cc2bc56398863b8))
+- **vsb-api:** add i18n translation service
+  ([76ae02f](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/76ae02fa4bc15c744b5d2629267bda27b66d9403))
+- **vsb-website:** accordions for faq section
+  ([a19e65f](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/a19e65f39193a849186c41ab2c1dcfad157e3724))
+- **vsb-website:** add banner-link section
+  ([406fbda](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/406fbda81f8cb1979168794e19e75b170504d5b6))
+- **vsb-website:** finish banner, background and fixes for typography
+  ([bfe60b9](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/bfe60b9920b542e48248eaa03c8595e66c59ae20))
+- **vsb-website:** finish steps section
+  ([4c622a1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/4c622a1cce7f71c0eb84ff6529fa76590000559d))
+- **vsb-website:** fixes
+  ([3196c2c](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/3196c2c8cd4a5fb784b9f65e72ee51158e17e13f))
+- **vsb-website:** fixes list items
+  ([1cda7d1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/1cda7d1276c520dc8ad470880b9755407d300338))
+- **vsb-website:** formatting for messages section
+  ([c38821a](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/c38821a9073313677c5e36dc8fd54c0629c1254a))
+- **vsb-website:** implement sidenav
+  ([6b57a86](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/6b57a867a88f57636c1d8268608d0605a02cc924))
+- **vsb-website:** implement tiles
+  ([508f9db](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/508f9db45c2a91a4b1f7c3e2ceb930be8289b971))
+- **vsb-website:** scaling fixes
+  ([dd3f9c3](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/dd3f9c3bcbc4a43d597cc3fd302495d4e66563d1))
 
 # [1.6.0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/vsb-website@1.5.0...@newrade/vsb-website@1.6.0) (2021-01-04)
 
 ### Bug Fixes
 
-- **core-gatsby-ui:** move common fragments ([be6e62a](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/be6e62a911799d69763865933c23d83e4293b8af))
-- **core-gatsby-ui:** wip ([eb7b648](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/eb7b64894ee92faea0bf2dc576a4e997ae523bc5))
-- **core-react-ui:** add mdx features ([bfbee76](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/bfbee769e8f029aa4b3a2b03b75645db88877d13))
-- **core-react-ui:** css fixes ([f648b00](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/f648b0044f4c0fc595123a67d61069991dd575bf))
-- **gatsby:** fix hmr for gatsby sites ([389d3a4](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/389d3a42037976cfcca60da6832bb901fc0ea195))
-- **gatsby:** fixes typechecking ([4c3b323](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/4c3b323dce2eda2bb0b413628290f3238898c23e))
-- **gatsby:** re enable typecheck after switching to typescript plugin ([48078be](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/48078be91bcdf73f4970a98f6fe1ff3e972fe2a1))
-- **gatsby:** update gatsby site config to include new flags ([48422e7](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/48422e70dd02ff76bd4fdbd823cd1f5e34674136))
-- **mir-create-page:** fixing and updating the old setup of the page template ([5255a9e](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/5255a9ec2c5add7a03b83dad4a1cf0c375894a14))
-- **page-template:** fragment added and providers ([8e380c8](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/8e380c868e561a72929cd5dec64d72fd307fbe26))
-- **repo:** fix tsconfigs ([5a57618](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/5a5761829153b3bf18f3d774ca9a4e7d498ac29f))
+- **core-gatsby-ui:** move common fragments
+  ([be6e62a](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/be6e62a911799d69763865933c23d83e4293b8af))
+- **core-gatsby-ui:** wip
+  ([eb7b648](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/eb7b64894ee92faea0bf2dc576a4e997ae523bc5))
+- **core-react-ui:** add mdx features
+  ([bfbee76](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/bfbee769e8f029aa4b3a2b03b75645db88877d13))
+- **core-react-ui:** css fixes
+  ([f648b00](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/f648b0044f4c0fc595123a67d61069991dd575bf))
+- **gatsby:** fix hmr for gatsby sites
+  ([389d3a4](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/389d3a42037976cfcca60da6832bb901fc0ea195))
+- **gatsby:** fixes typechecking
+  ([4c3b323](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/4c3b323dce2eda2bb0b413628290f3238898c23e))
+- **gatsby:** re enable typecheck after switching to typescript plugin
+  ([48078be](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/48078be91bcdf73f4970a98f6fe1ff3e972fe2a1))
+- **gatsby:** update gatsby site config to include new flags
+  ([48422e7](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/48422e70dd02ff76bd4fdbd823cd1f5e34674136))
+- **mir-create-page:** fixing and updating the old setup of the page template
+  ([5255a9e](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/5255a9ec2c5add7a03b83dad4a1cf0c375894a14))
+- **page-template:** fragment added and providers
+  ([8e380c8](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/8e380c868e561a72929cd5dec64d72fd307fbe26))
+- **repo:** fix tsconfigs
+  ([5a57618](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/5a5761829153b3bf18f3d774ca9a4e7d498ac29f))
 
 ### Features
 
-- **banner:** start of the banner component ([eeee631](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/eeee63188f0e12ccf93108ba1f8061fec1dd7ade))
-- **component-vsb:** all component need for vsb ([9d3d4b7](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/9d3d4b70d25187ef1d4e432e752c9cb7d8aecb60))
-- **core-gatsby-config:** add new plugin ([2bd8c5c](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/2bd8c5c32cf2992eb9f2cf5a6b6c16b666b1013d))
-- **core-react-ui:** add layout utilities ([587c8e8](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/587c8e8a92fa85df4624637349b4cc48c6c24c70))
-- **core-react-ui:** adding paragraph and heading component ([ccb032e](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ccb032e23fd99727c68c2bc227ed70763e8f799e))
-- **fragment:** adding fragment and fixing project-delete-space ([ac0c165](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ac0c1657dfe5bdf9724f92c252dd82783e07c378))
-- **page-template:** progress on making the new page-template ([e45ad7f](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/e45ad7ffedb6dc0c1dbf1c4e5e694775a2e2979a))
-- **section-template:** adding all the json output in the template and fixing the treat files ([26b9046](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/26b90469b0446c51a6e3aba54c797f5808e54ffe))
-- **section-template:** adding type of section specific to the project ([d756b86](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/d756b86e5ae16f229b22afcefb5f7760df81fa65))
-- **vsb-component:** adding all the new components ([dd72794](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/dd727943b82eae7aa215051bbc18a1c442f3dc98))
-- **vsb-website:** add theme ([a93920b](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/a93920b651146b05dca9adc77d5389fa56de92cc))
-- **vsb-website:** adding content to first component of section in the home page ([6d202b8](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/6d202b8d9ddcf674ca7fa292cea39338d67524eb))
-- **vsb-website:** adding gatsby ui components ([1607429](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/16074292a2cf0ebe19f690a86011b6d750cc5380))
-- **vsb-website:** wip on the theme config ([6362338](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/6362338d7ba92b50b54710205582c0aedfb46a60))
+- **banner:** start of the banner component
+  ([eeee631](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/eeee63188f0e12ccf93108ba1f8061fec1dd7ade))
+- **component-vsb:** all component need for vsb
+  ([9d3d4b7](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/9d3d4b70d25187ef1d4e432e752c9cb7d8aecb60))
+- **core-gatsby-config:** add new plugin
+  ([2bd8c5c](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/2bd8c5c32cf2992eb9f2cf5a6b6c16b666b1013d))
+- **core-react-ui:** add layout utilities
+  ([587c8e8](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/587c8e8a92fa85df4624637349b4cc48c6c24c70))
+- **core-react-ui:** adding paragraph and heading component
+  ([ccb032e](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ccb032e23fd99727c68c2bc227ed70763e8f799e))
+- **fragment:** adding fragment and fixing project-delete-space
+  ([ac0c165](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ac0c1657dfe5bdf9724f92c252dd82783e07c378))
+- **page-template:** progress on making the new page-template
+  ([e45ad7f](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/e45ad7ffedb6dc0c1dbf1c4e5e694775a2e2979a))
+- **section-template:** adding all the json output in the template and fixing
+  the treat files
+  ([26b9046](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/26b90469b0446c51a6e3aba54c797f5808e54ffe))
+- **section-template:** adding type of section specific to the project
+  ([d756b86](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/d756b86e5ae16f229b22afcefb5f7760df81fa65))
+- **vsb-component:** adding all the new components
+  ([dd72794](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/dd727943b82eae7aa215051bbc18a1c442f3dc98))
+- **vsb-website:** add theme
+  ([a93920b](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/a93920b651146b05dca9adc77d5389fa56de92cc))
+- **vsb-website:** adding content to first component of section in the home page
+  ([6d202b8](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/6d202b8d9ddcf674ca7fa292cea39338d67524eb))
+- **vsb-website:** adding gatsby ui components
+  ([1607429](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/16074292a2cf0ebe19f690a86011b6d750cc5380))
+- **vsb-website:** wip on the theme config
+  ([6362338](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/6362338d7ba92b50b54710205582c0aedfb46a60))
 
 # [1.5.0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/vsb-website@1.4.0...@newrade/vsb-website@1.5.0) (2020-12-18)
 
 ### Bug Fixes
 
-- **build:** fix newrade-website ([070b12a](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/070b12a4a7faaf59a1a837c15191e4a6c87b79ab))
-- **build:** make each pacakge build independent ([562c720](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/562c7208f2a75b187e82139a731ab01462846cd3))
-- **build:** make some env variable optional ([60a93d6](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/60a93d6b2565bb0c63e54b167da19ccd245b58d7))
-- **contentful:** fix .env ([b220980](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/b220980ad01b6cfb7d25dc1e755acbbda0307304))
-- **contentful:** fix mir-website after migration ([301c769](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/301c769579eea0ee2f97b8fbb1fe2a6afc6a06ff))
-- **core-common:** remove browser code from core-utils ([b2595fc](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/b2595fcc496d8876b0f658592a66659840d1ec92))
-- **core-contentful-lib:** changes ([d42278c](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/d42278c313ec5ca24a450536f7dc9b624a6d2fc1))
-- **core-design-system:** wip ([36b5e4c](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/36b5e4cb0bbc348a862cc396e74c76aa1a388356))
-- **core-design-system:** wip ([92ee1a7](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/92ee1a7990fa1e2b9ba9a6892180df0082b13f9d))
-- **core-gastby-config:** separate UI components ([be3d23e](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/be3d23eafc6dbe76e293512fbec5521a8af5db73))
-- **core-gatsby-config:** commit missing files ([058477e](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/058477e49cb3d3a7b398c58bf659f4f520b8a12e))
-- **core-gatsby-starter:** add dot env files type check ([4c65040](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/4c65040705a61efbf9e55ecd585a789dbfd9f623))
-- **core-gatsby-starter:** fixes ([ec6d1be](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ec6d1be9d6b5d2b52def8f19f83faea16fddb8fc))
-- **core-gatsby-starter:** refactor templates + setup pages and markdown ([4aaa949](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/4aaa949750c94a939b35767f2bd3fb20b8fb2614))
-- **core-react-ui:** wip ([093aa8f](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/093aa8fb17d1c4b8aecca90142666984e239976d))
-- **fix-vsb-valentine:** fixing the rest of the website with the correct mdx template ([a372c30](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/a372c3091f0898d2c3c0665642638fbd9aec1d5c))
-- **gastby:** fixes for markdown file generation ([2982616](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/29826163498932d216cc22ec713d7de076812fbb))
-- **gatsby:** add CONTENTFUL_ENV ([57f970a](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/57f970aca24374baaca31eeea029912a4893dce8))
-- **repo:** add .env type checking to all packages ([d382e42](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/d382e42e2dcfbff0b635b4aa1f2c04e56deda4d7))
-- **repo:** new commands to start websites ([a35dcbe](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/a35dcbe66f5e18db3431812fc74e24564394c41b))
-- **vsb-fix:** fixing the gatsby-node ([fd5c2e6](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/fd5c2e6e4f124134f77ab5d1fb5e0c0c30a88332))
+- **build:** fix newrade-website
+  ([070b12a](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/070b12a4a7faaf59a1a837c15191e4a6c87b79ab))
+- **build:** make each pacakge build independent
+  ([562c720](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/562c7208f2a75b187e82139a731ab01462846cd3))
+- **build:** make some env variable optional
+  ([60a93d6](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/60a93d6b2565bb0c63e54b167da19ccd245b58d7))
+- **contentful:** fix .env
+  ([b220980](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/b220980ad01b6cfb7d25dc1e755acbbda0307304))
+- **contentful:** fix mir-website after migration
+  ([301c769](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/301c769579eea0ee2f97b8fbb1fe2a6afc6a06ff))
+- **core-common:** remove browser code from core-utils
+  ([b2595fc](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/b2595fcc496d8876b0f658592a66659840d1ec92))
+- **core-contentful-lib:** changes
+  ([d42278c](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/d42278c313ec5ca24a450536f7dc9b624a6d2fc1))
+- **core-design-system:** wip
+  ([36b5e4c](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/36b5e4cb0bbc348a862cc396e74c76aa1a388356))
+- **core-design-system:** wip
+  ([92ee1a7](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/92ee1a7990fa1e2b9ba9a6892180df0082b13f9d))
+- **core-gastby-config:** separate UI components
+  ([be3d23e](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/be3d23eafc6dbe76e293512fbec5521a8af5db73))
+- **core-gatsby-config:** commit missing files
+  ([058477e](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/058477e49cb3d3a7b398c58bf659f4f520b8a12e))
+- **core-gatsby-starter:** add dot env files type check
+  ([4c65040](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/4c65040705a61efbf9e55ecd585a789dbfd9f623))
+- **core-gatsby-starter:** fixes
+  ([ec6d1be](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ec6d1be9d6b5d2b52def8f19f83faea16fddb8fc))
+- **core-gatsby-starter:** refactor templates + setup pages and markdown
+  ([4aaa949](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/4aaa949750c94a939b35767f2bd3fb20b8fb2614))
+- **core-react-ui:** wip
+  ([093aa8f](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/093aa8fb17d1c4b8aecca90142666984e239976d))
+- **fix-vsb-valentine:** fixing the rest of the website with the correct mdx
+  template
+  ([a372c30](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/a372c3091f0898d2c3c0665642638fbd9aec1d5c))
+- **gastby:** fixes for markdown file generation
+  ([2982616](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/29826163498932d216cc22ec713d7de076812fbb))
+- **gatsby:** add CONTENTFUL_ENV
+  ([57f970a](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/57f970aca24374baaca31eeea029912a4893dce8))
+- **repo:** add .env type checking to all packages
+  ([d382e42](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/d382e42e2dcfbff0b635b4aa1f2c04e56deda4d7))
+- **repo:** new commands to start websites
+  ([a35dcbe](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/a35dcbe66f5e18db3431812fc74e24564394c41b))
+- **vsb-fix:** fixing the gatsby-node
+  ([fd5c2e6](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/fd5c2e6e4f124134f77ab5d1fb5e0c0c30a88332))
 
 ### Features
 
-- **core-gastby-config:** add feature to common plugin ([338812a](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/338812a356d19a3d985000def12028b1e25e0220))
-- **generate-enums:** cannot generate enums type but the basic type are generate ([6978854](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/6978854de01eb6b00f7ee3b190a03bdb976afb42))
-- **scripts:** add type checking script ([8abd27c](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/8abd27c4d4295b65cedd507cad12a612c78fca44))
-- **vsb-update-config:** updated config node of vsb for fixing purpose of github actionh ([e01fba3](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/e01fba3f59b98504dbf58cc0bb5cdaad445235d4))
+- **core-gastby-config:** add feature to common plugin
+  ([338812a](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/338812a356d19a3d985000def12028b1e25e0220))
+- **generate-enums:** cannot generate enums type but the basic type are generate
+  ([6978854](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/6978854de01eb6b00f7ee3b190a03bdb976afb42))
+- **scripts:** add type checking script
+  ([8abd27c](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/8abd27c4d4295b65cedd507cad12a612c78fca44))
+- **vsb-update-config:** updated config node of vsb for fixing purpose of github
+  actionh
+  ([e01fba3](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/e01fba3f59b98504dbf58cc0bb5cdaad445235d4))
 
 # 1.4.0 (2020-11-30)
 
 ### Bug Fixes
 
-- **core-gatsby-starter:** remove generated .js files ([8a5aa2e](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/8a5aa2ee3cf2cd461a12801f826dc4b134771680))
-- **gatsby:** re-commit generated .js files ([946585f](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/946585f41f64f6bb06af4e4de7a6463e2fc9c1bd))
-- **mir-website:** fix typo ([9c92e25](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/9c92e25a4e7fc8b712504e0bde2c4789f62554c2))
-- **repo:** add generated gatsby config file to .gitintore ([7bbfe95](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/7bbfe95e3d02959d1cae3c4f18d22cab2ffb611f))
-- **repo:** adds APP_PORT ([cc85693](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/cc85693eb834e4e68129c447ab3351561a9a3c3b))
-- **repo:** fixes for gatsby plugin close [#101](https://github.com/newrade/newrade/tree/master/packages/newrade-website/issues/101) ([5dfd08d](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/5dfd08df9e799d1fbedfa3023be87f559fa28aeb))
-- **repo:** put default values for APP_ENV and APP_URL ([e1a7315](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/e1a7315bc1bc52cbe2840dfd904126e61d5e2121))
-- **repo:** update .env environment ([6b917bd](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/6b917bd27f634c209969e1bb3fd532c250f34509))
-- **set-up:** adding correction and ajustements ([ffe2612](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ffe26125184c93a846d6eea86025241b53bb8955))
-- **set-up:** adding gitkeep in all relative folder for the project (images) ([0d5a96d](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/0d5a96d2c194f0de6e74200cd0bf03332e006425))
-- **set-up:** adding the correct version of gatsby into vsb project ([ddae5d5](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ddae5d5e31e202f6312907d704681a5b576c66c5))
+- **core-gatsby-starter:** remove generated .js files
+  ([8a5aa2e](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/8a5aa2ee3cf2cd461a12801f826dc4b134771680))
+- **gatsby:** re-commit generated .js files
+  ([946585f](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/946585f41f64f6bb06af4e4de7a6463e2fc9c1bd))
+- **mir-website:** fix typo
+  ([9c92e25](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/9c92e25a4e7fc8b712504e0bde2c4789f62554c2))
+- **repo:** add generated gatsby config file to .gitintore
+  ([7bbfe95](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/7bbfe95e3d02959d1cae3c4f18d22cab2ffb611f))
+- **repo:** adds APP_PORT
+  ([cc85693](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/cc85693eb834e4e68129c447ab3351561a9a3c3b))
+- **repo:** fixes for gatsby plugin close
+  [#101](https://github.com/newrade/newrade/tree/master/packages/newrade-website/issues/101)
+  ([5dfd08d](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/5dfd08df9e799d1fbedfa3023be87f559fa28aeb))
+- **repo:** put default values for APP_ENV and APP_URL
+  ([e1a7315](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/e1a7315bc1bc52cbe2840dfd904126e61d5e2121))
+- **repo:** update .env environment
+  ([6b917bd](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/6b917bd27f634c209969e1bb3fd532c250f34509))
+- **set-up:** adding correction and ajustements
+  ([ffe2612](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ffe26125184c93a846d6eea86025241b53bb8955))
+- **set-up:** adding gitkeep in all relative folder for the project (images)
+  ([0d5a96d](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/0d5a96d2c194f0de6e74200cd0bf03332e006425))
+- **set-up:** adding the correct version of gatsby into vsb project
+  ([ddae5d5](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ddae5d5e31e202f6312907d704681a5b576c66c5))
 
 ### Features
 
-- **set-up:** adding the two new package for vsb and valentine ([604d584](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/604d5845027f28038e2e6980d9910af29510113c))
-- **set-up:** redirection route added in vsb ([51fb94f](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/51fb94f7e332d3258d36762e8674e83958bfe71b))
+- **set-up:** adding the two new package for vsb and valentine
+  ([604d584](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/604d5845027f28038e2e6980d9910af29510113c))
+- **set-up:** redirection route added in vsb
+  ([51fb94f](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/51fb94f7e332d3258d36762e8674e83958bfe71b))

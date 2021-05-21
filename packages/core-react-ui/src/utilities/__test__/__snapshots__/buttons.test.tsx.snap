@@ -289,22 +289,22 @@ Object {
   },
   "variants": Object {
     "primary": Object {
-      "backgroundColor": "hsl(10deg 6% 7% / 100%)",
+      "backgroundColor": "hsl(0deg 6% 7% / 100%)",
     },
     "primaryReversed": Object {
-      "backgroundColor": "hsl(10deg 10% 100% / 100%)",
+      "backgroundColor": "hsl(0deg 10% 100% / 100%)",
     },
     "secondary": Object {
-      "backgroundColor": "hsl(10deg 6% 7% / 100%)",
+      "backgroundColor": "hsl(0deg 6% 7% / 100%)",
     },
     "secondaryReversed": Object {
-      "backgroundColor": "hsl(10deg 10% 100% / 100%)",
+      "backgroundColor": "hsl(0deg 10% 100% / 100%)",
     },
     "tertiary": Object {
-      "backgroundColor": "hsl(10deg 6% 7% / 100%)",
+      "backgroundColor": "hsl(0deg 6% 7% / 100%)",
     },
     "tertiaryReversed": Object {
-      "backgroundColor": "hsl(10deg 10% 100% / 100%)",
+      "backgroundColor": "hsl(0deg 10% 100% / 100%)",
     },
   },
 }

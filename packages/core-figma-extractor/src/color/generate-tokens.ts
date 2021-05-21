@@ -27,13 +27,17 @@ export const createColorPaletteCSS = (colorObject: ColorTokens, filePath: string
     colorsString += `--color-${colorObject[color].colorType}-${colorObject[color].colorLevel}: rgba(${colorObject[color].r},${colorObject[color].g},${colorObject[color].b},${colorObject[color].a});\n`;
   });
   const textContent = `:root {${colorsString}}`;
-  fs.appendFile(filePath, prettier.format(textContent, { ...prettierConfig, parser: 'css' }), (err) => {
-    if (err) {
-      logError(chalk.red(`CSS color tokens failed ❌ `));
-      throw err;
+  fs.appendFile(
+    filePath,
+    prettier.format(textContent, { ...prettierConfig, parser: 'css' }),
+    (err) => {
+      if (err) {
+        logError(chalk.red(`CSS color tokens failed ❌ `));
+        throw err;
+      }
+      log(chalk.green(`${numberColorTokens} new color tokens CSS added ✅`));
     }
-    log(chalk.green(`${numberColorTokens} new color tokens CSS added ✅`));
-  });
+  );
 };
 
 export const createColorPaletteSCSS = (colorObject: ColorTokens, filePath: string) => {
@@ -44,14 +48,18 @@ export const createColorPaletteSCSS = (colorObject: ColorTokens, filePath: strin
     allColorsString += `$color-${colorObject[color].colorType}-${colorObject[color].colorLevel}: rgba(${colorObject[color].r},${colorObject[color].g},${colorObject[color].b},${colorObject[color].a});\n`;
   });
   const textContent = `${allColorsString}`;
-  fs.appendFile(filePath, prettier.format(textContent, { ...prettierConfig, parser: 'scss' }), (err) => {
-    if (err) {
-      logError(chalk.red(`SCSS color tokens failed ❌ `));
-      throw err;
-    }
+  fs.appendFile(
+    filePath,
+    prettier.format(textContent, { ...prettierConfig, parser: 'scss' }),
+    (err) => {
+      if (err) {
+        logError(chalk.red(`SCSS color tokens failed ❌ `));
+        throw err;
+      }
 
-    log(chalk.green(`${numberColorToken} new color tokens SCSS added ✅`));
-  });
+      log(chalk.green(`${numberColorToken} new color tokens SCSS added ✅`));
+    }
+  );
 };
 
 export const createColorPaletteTS = (colorObject: ColorTokens, filePath: string) => {
@@ -72,24 +80,32 @@ export const createColorPaletteTS = (colorObject: ColorTokens, filePath: string)
   const colors = `export const colors: ColorTokens = { ${colorsKeys} }`;
   const textContent = `import { ColorTokens } from '@newrade/core-figma-extractor/src';\n ${colors}`;
 
-  fs.appendFile(filePath, prettier.format(textContent, { ...prettierConfig, parser: 'typescript' }), (err) => {
-    if (err) {
-      logError(chalk.red(`TS color tokens failed ❌ `));
-      throw err;
+  fs.appendFile(
+    filePath,
+    prettier.format(textContent, { ...prettierConfig, parser: 'typescript' }),
+    (err) => {
+      if (err) {
+        logError(chalk.red(`TS color tokens failed ❌ `));
+        throw err;
+      }
+      log(chalk.green(`${numberColorTokens} new color tokens TS added ✅`));
     }
-    log(chalk.green(`${numberColorTokens} new color tokens TS added ✅`));
-  });
+  );
 };
 
 export const createColorPaletteJSON = (colorObject: ColorTokens, filePath: string) => {
   const numberColorTokens: number = Object.keys(colorObject).length;
   const textContent = JSON.stringify(colorObject, null, 2);
 
-  fs.appendFile(filePath, prettier.format(textContent, { ...prettierConfig, parser: 'json' }), (err) => {
-    if (err) {
-      logError(chalk.red(`JSON color tokens failed ❌ `));
-      throw err;
+  fs.appendFile(
+    filePath,
+    prettier.format(textContent, { ...prettierConfig, parser: 'json' }),
+    (err) => {
+      if (err) {
+        logError(chalk.red(`JSON color tokens failed ❌ `));
+        throw err;
+      }
+      log(chalk.green(`${numberColorTokens} new color tokens JSON added ✅`));
     }
-    log(chalk.green(`${numberColorTokens} new color tokens JSON added ✅`));
-  });
+  );
 };

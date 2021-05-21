@@ -7,7 +7,14 @@ import {
   SectionPadding,
   SectionProps,
 } from '@newrade/core-gatsby-ui/src';
-import { CommonComponentProps, Label, ListItem, Stack, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
+import {
+  CommonComponentProps,
+  Label,
+  ListItem,
+  Stack,
+  useCommonProps,
+  useTreatTheme,
+} from '@newrade/core-react-ui';
 import React from 'react';
 import { isIOS } from 'react-device-detect';
 import { useStyles } from 'react-treat';
@@ -39,7 +46,13 @@ export const CustomSectionSteps = React.forwardRef<any, Props>(
   ) => {
     const { styles } = useStyles(styleRefs);
     const { cssTheme } = useTreatTheme();
-    const commonProps = useCommonProps({ id, style, className, classNames: [styles.wrapper], ...props });
+    const commonProps = useCommonProps({
+      id,
+      style,
+      className,
+      classNames: [styles.wrapper],
+      ...props,
+    });
 
     if (!blocks?.length) {
       return null;
@@ -81,7 +94,11 @@ export const CustomSectionSteps = React.forwardRef<any, Props>(
         {blockSteps?.map((step, index) => {
           return (
             <Stack key={step?.id} gap={[cssTheme.sizing.var.x3]}>
-              <ListItem variantSize={PARAGRAPH_SIZE.large} Icon={renderNumberIndicator(index + 1)} variantIcon={'icon'}>
+              <ListItem
+                variantSize={PARAGRAPH_SIZE.large}
+                Icon={renderNumberIndicator(index + 1)}
+                variantIcon={'icon'}
+              >
                 <BlockMarkdown injectMarkdownStyles={false} className={styles.text}>
                   {step?.text?.childMdx?.body}
                 </BlockMarkdown>

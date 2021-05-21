@@ -1,6 +1,6 @@
 import { Property } from 'csstype';
 import { styleMap } from 'treat';
-import { Theme } from '../design-system/css-design-system';
+import { Theme } from '../design-system';
 
 export const styles = styleMap(({ cssTheme, theme }: Theme) => ({
   wrapper: {

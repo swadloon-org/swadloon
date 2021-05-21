@@ -39,12 +39,6 @@
       "focus": false
     },
     {
-      "name": "core-docs-generator",
-      "cwd": "[workspaceFolder]/packages/core-docs-generator",
-      "open": true,
-      "focus": false
-    },
-    {
       "name": "core-common",
       "cwd": "[workspaceFolder]/packages/core-common",
       "open": true,
@@ -99,8 +93,8 @@
       "focus": false
     },
     {
-      "name": "core-react-ui-app",
-      "cwd": "[workspaceFolder]/packages/core-react-ui-app",
+      "name": "core-graphql-ui",
+      "cwd": "[workspaceFolder]/packages/core-graphql-ui",
       "open": true,
       "focus": false
     },
@@ -153,14 +147,8 @@
       "focus": false
     },
     {
-      "name": "vsb-website",
-      "cwd": "[workspaceFolder]/packages/vsb-website",
-      "open": true,
-      "focus": false
-    },
-    {
-      "name": "vsb-common",
-      "cwd": "[workspaceFolder]/packages/vsb-common",
+      "name": "vsb-admin",
+      "cwd": "[workspaceFolder]/packages/vsb-admin",
       "open": true,
       "focus": false
     },
@@ -171,8 +159,20 @@
       "focus": false
     },
     {
-      "name": "cdpq-website",
-      "cwd": "[workspaceFolder]/packages/cdpq-website",
+      "name": "vsb-common",
+      "cwd": "[workspaceFolder]/packages/vsb-common",
+      "open": true,
+      "focus": false
+    },
+    {
+      "name": "vsb-design-system",
+      "cwd": "[workspaceFolder]/packages/vsb-design-system",
+      "open": true,
+      "focus": false
+    },
+    {
+      "name": "vsb-website",
+      "cwd": "[workspaceFolder]/packages/vsb-website",
       "open": true,
       "focus": false
     }

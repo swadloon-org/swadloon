@@ -1,5 +1,3 @@
-/api/server/*  /.netlify/functions/server 200
-
 /boucher.php  /equipe/  301
 /boucher  /equipe/  301
 /plan.php  /  301

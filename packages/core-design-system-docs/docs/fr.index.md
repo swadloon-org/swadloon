@@ -2,10 +2,13 @@
 name: Accueil
 ---
 
-# Design System Documentation
+<DocHeader props={props}/>
 
-These are the principles that shape how we design every aspect of the interfaces.
+## Design System Documentation
 
-```tsx live=true
+These are the principles that shape how we design every aspect of the
+interfaces.
+
+```tsx
 <p>hey</p>
 ```

@@ -41,9 +41,10 @@ export function createCSSCapsizeTextStyle({
   textTransform,
   textDecoration,
   capHeight,
+  fontSize,
   lineGap,
 }: CapsizeTextStyleOptions): TextStyle<string> & CapsizeTextStyle<string> {
-  const compatibleCapHeight: number = capHeight;
+  const compatibleCapHeight: number | undefined = capHeight;
   if (!font) {
     throw new AppError({
       name: ERROR_TYPE.LIB_ERROR,
@@ -52,7 +53,11 @@ export function createCSSCapsizeTextStyle({
   }
   const { fontMetrics } = font[0];
 
-  const capsizePx = capsize({ capHeight: compatibleCapHeight, lineGap, fontMetrics });
+  const capsizePx = capsize(
+    fontSize
+      ? ({ fontSize: fontSize, lineGap: lineGap, fontMetrics } as any)
+      : { capHeight: compatibleCapHeight, lineGap, fontMetrics }
+  );
   return {
     ...createCSSTextStyle({
       baseFontSize,
@@ -66,6 +71,7 @@ export function createCSSCapsizeTextStyle({
     }),
     font,
     fontFamily: fontFamily ? fontFamily : font.map((font) => font.name).join(','),
+    fontSize,
     capHeight,
     lineGap,
     capsize: capsizePx,
@@ -117,7 +123,13 @@ export function convertCapsizeValuesToRem({
 /**
  * Converts capsize styles from px to rem.
  */
-export function convertLetterSpacingToEM({ value, fontSize }: { value: string; fontSize: string }): string | undefined {
+export function convertLetterSpacingToEM({
+  value,
+  fontSize,
+}: {
+  value: string;
+  fontSize: string;
+}): string | undefined {
   const exp = /(^\d+(\.\d+)?)/;
 
   const match = exp.exec(value);

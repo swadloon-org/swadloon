@@ -6,7 +6,12 @@ describe('props', () => {
   it('should render correctly', () => {
     const maxWidth = '800px';
     const { container } = renderTest(
-      <Center className="center" contentClassName="center-div" style={{ color: 'red' }} maxWidth={maxWidth}>
+      <Center
+        className="center"
+        contentClassName="center-div"
+        style={{ color: 'red' }}
+        maxWidth={maxWidth}
+      >
         Hello world
       </Center>
     );

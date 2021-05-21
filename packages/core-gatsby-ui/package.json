@@ -3,21 +3,19 @@
   "version": "1.6.2",
   "description": "Reusable UI components for Gatsby sites",
   "license": "MIT",
-  "main": "./lib/index.js",
-  "files": [
-    "./lib/**/*"
-  ],
+  "main": "",
+  "files": [],
   "scripts": {
     "build-disabled": "tsc --build tsconfig.build.json",
     "clean": "rimraf -r lib/** && rm -f tsconfig.build.tsbuildinfo",
-    "start-disabled": "yarn typecheck",
+    "start-disabled": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
     "test": "jest",
     "test:watch": "jest --watch",
     "typecheck": "yarn typecheck:build --watch --preserveWatchOutput",
     "typecheck:build": "tsc --project tsconfig.build.json --noEmit"
   },
   "sideEffects": false,
-  "typings": "./lib/index.d.ts",
+  "typings": "",
   "dependencies": {
     "@newrade/core-common": "^1.2.3",
     "@newrade/core-gatsby-config": "^1.10.1",

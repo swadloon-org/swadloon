@@ -40,7 +40,9 @@ export const NEW_PACKAGE_GENERATOR: GeneratorModule<NewPackageTemplateContext> =
     {
       type: 'input',
       name: NEW_PACKAGE_TEMPLATE_PROPS.SCOPE,
-      message: `Scope of organization? (e.g. '${NEW_PACKAGE_DEFAULT_CONTEXT_PROPS[NEW_PACKAGE_TEMPLATE_PROPS.SCOPE]}')`,
+      message: `Scope of organization? (e.g. '${
+        NEW_PACKAGE_DEFAULT_CONTEXT_PROPS[NEW_PACKAGE_TEMPLATE_PROPS.SCOPE]
+      }')`,
       default: NEW_PACKAGE_DEFAULT_CONTEXT_PROPS[NEW_PACKAGE_TEMPLATE_PROPS.SCOPE],
     },
     {
@@ -67,7 +69,15 @@ export const NEW_PACKAGE_GENERATOR: GeneratorModule<NewPackageTemplateContext> =
       ouputFilename: 'package',
       outputFileExtension: 'json',
       render: (props) => {
-        const pathToTemplateDir = path.join(__dirname, '..', '..', '..', 'src', props.templatesDir, props.templateName);
+        const pathToTemplateDir = path.join(
+          __dirname,
+          '..',
+          '..',
+          '..',
+          'src',
+          props.templatesDir,
+          props.templateName
+        );
         const from = props.generator.templatePath(pathToTemplateDir);
         const kebabName = _.kebab(props.context[NEW_PACKAGE_TEMPLATE_PROPS.NAME]);
         const filename = `${props.ouputFilename}.${props.outputFileExtension}`;
@@ -82,11 +92,28 @@ export const NEW_PACKAGE_GENERATOR: GeneratorModule<NewPackageTemplateContext> =
       ouputFilename: 'index',
       outputFileExtension: 'ts',
       render: (props) => {
-        const pathToTemplateDir = path.join(__dirname, '..', '..', '..', 'src', props.templatesDir, props.templateName);
+        const pathToTemplateDir = path.join(
+          __dirname,
+          '..',
+          '..',
+          '..',
+          'src',
+          props.templatesDir,
+          props.templateName
+        );
         const from = props.generator.templatePath(pathToTemplateDir);
         const kebabName = _.kebab(props.context[NEW_PACKAGE_TEMPLATE_PROPS.NAME]);
         const filename = `${props.ouputFilename}.${props.outputFileExtension}`;
-        const destinationPath = path.join(__dirname, '..', '..', '..', '..', kebabName, 'src', filename);
+        const destinationPath = path.join(
+          __dirname,
+          '..',
+          '..',
+          '..',
+          '..',
+          kebabName,
+          'src',
+          filename
+        );
         const to = props.generator.destinationPath(destinationPath);
         props.generator.fs.copyTpl(from, to, props.context);
       },

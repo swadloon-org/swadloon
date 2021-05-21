@@ -28,7 +28,9 @@ function getContextPath(context: Context): string {
 }
 
 function getMessage(e: ValidationError): string {
-  return e.message !== undefined ? e.message : `Invalid value (${stringify(e.value)}) for ${getContextPath(e.context)}`;
+  return e.message !== undefined
+    ? e.message
+    : `Invalid value (${stringify(e.value)}) for ${getContextPath(e.context)}`;
 }
 
 export function failure(es: Array<ValidationError>): Array<string> {

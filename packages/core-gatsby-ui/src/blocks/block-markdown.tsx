@@ -1,4 +1,5 @@
-import { BoxV2, MarkdownCSS, useCommonProps } from '@newrade/core-react-ui';
+import { BoxV2, useCommonProps } from '@newrade/core-react-ui';
+import { MarkdownCSS } from '@newrade/core-react-ui/lib/markdown';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { BlockAPI } from '../api/block.api';
@@ -22,7 +23,13 @@ export const BlockMarkdown: React.FC<Props> = ({
   ...props
 }) => {
   const { styles } = useStyles(styleRefs);
-  const commonProps = useCommonProps({ id, style, className, classNames: [styles.wrapper], ...props });
+  const commonProps = useCommonProps({
+    id,
+    style,
+    className,
+    classNames: [styles.wrapper],
+    ...props,
+  });
 
   if (!children) {
     return null;

@@ -78,7 +78,9 @@ function checkDevTools() {
 
 function checkForFailures() {
   if (failedDevTools.length) {
-    scriptLog(`missing mandatory dependencies: ${failedDevTools.map((tool) => tool.name).join(', ')}`);
+    scriptLog(
+      `missing mandatory dependencies: ${failedDevTools.map((tool) => tool.name).join(', ')}`
+    );
   }
 }
 

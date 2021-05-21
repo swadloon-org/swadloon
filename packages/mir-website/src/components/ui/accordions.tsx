@@ -39,7 +39,10 @@ export const Accordions: React.FC<
           {props.children}
         </Heading>
         {props.type === 'employer' ? (
-          <Icon size={ICON_SIZE.large} icon={props.selected ? 'IconMinusCircle' : 'IconPlusCircle'} />
+          <Icon
+            size={ICON_SIZE.large}
+            icon={props.selected ? 'IconMinusCircle' : 'IconPlusCircle'}
+          />
         ) : (
           ''
         )}

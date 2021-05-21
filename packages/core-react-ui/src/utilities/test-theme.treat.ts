@@ -1,4 +1,4 @@
 import { createTheme } from 'treat';
-import { defaultCSSTheme, defaultTheme } from '../design-system/default-theme';
+import { defaultCSSTheme, defaultTheme } from '../default-theme/default-theme';
 
 export const light = createTheme({ theme: defaultTheme, cssTheme: defaultCSSTheme });

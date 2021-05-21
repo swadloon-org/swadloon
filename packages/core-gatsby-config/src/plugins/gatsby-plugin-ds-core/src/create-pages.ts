@@ -7,7 +7,10 @@ import { GatsbyDSCorePluginOptions } from '../gatsby-plugin-options';
 
 let siteMetadata: GatsbyNodeSiteMetadataFragment;
 
-export const createPagesFunction: GatsbyNode['createPages'] = async ({ actions, graphql }, options) => {
+export const createPagesFunction: GatsbyNode['createPages'] = async (
+  { actions, graphql },
+  options
+) => {
   const { createPage, deletePage } = actions;
   const pluginOptions = (options as unknown) as GatsbyDSCorePluginOptions;
 

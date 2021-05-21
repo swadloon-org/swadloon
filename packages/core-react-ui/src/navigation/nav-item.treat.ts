@@ -1,5 +1,5 @@
 import { style } from 'treat';
-import { Theme } from '../design-system/css-design-system';
+import { Theme } from '../design-system';
 import { getCSSColor } from '../utilities/colors.utilities';
 
 export const styles = {
@@ -9,7 +9,7 @@ export const styles = {
     color: cssTheme.colors.colorIntents.secondaryText,
   })),
   active: style(({ cssTheme, theme }: Theme) => ({
-    backgroundColor: getCSSColor({ ...theme.colors.colors.primary[500], a: 5 }),
+    backgroundColor: getCSSColor({ ...theme.colors.colors.primary[500], a: 10 }),
     color: cssTheme.colors.colors.grey[1000],
     '::before': {
       content: '" "',
@@ -20,5 +20,9 @@ export const styles = {
       position: 'absolute',
       backgroundColor: cssTheme.colors.colors.primary[500],
     },
+  })),
+  disabled: style(({ cssTheme, theme }: Theme) => ({
+    backgroundColor: cssTheme.colors.var.colors.grey[25],
+    color: cssTheme.colors.colors.grey[600],
   })),
 };

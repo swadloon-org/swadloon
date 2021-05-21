@@ -1,4 +1,4 @@
-# Newrade
+# Newrade Monorepo
 
 ![build](https://github.com/newrade/newrade/workflows/build/badge.svg)
 [![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest)
@@ -13,16 +13,13 @@
 
 ### Prerequisites
 
-- bash terminal (MacOs, or WSL 2 on Windows 10)
+- bash terminal
 - [nvm](https://github.com/nvm-sh/nvm)
 - [brew](https://brew.sh/)
 
 ### Get Started
 
 ```bash
-# set permissions for cli
-chmod a+x node_modules/.bin/nr-core-cli
-
 # install correct version of node
 yarn nvm
 
@@ -35,8 +32,12 @@ yarn build
 # test packages
 yarn test
 
-# apply prettier and eslint
+# run prettier and eslint
 yarn lint
 ```
+
+## Architecture
+
+### `core` packages
 
 ---

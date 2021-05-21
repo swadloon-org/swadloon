@@ -2,7 +2,13 @@ import React from 'react';
 
 export function TextBubbleSVG() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" height="80%" width="80%" fill="none" preserveAspectRatio="none">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      height="80%"
+      width="80%"
+      fill="none"
+      preserveAspectRatio="none"
+    >
       <style>
         {`
         rect#background {
@@ -20,12 +26,25 @@ export function TextBubbleSVG() {
       </g>
 
       <defs>
-        <filter id="filter0_d" x="0" y="0" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+        <filter
+          id="filter0_d"
+          x="0"
+          y="0"
+          filterUnits="userSpaceOnUse"
+          colorInterpolationFilters="sRGB"
+        >
           <feFlood floodOpacity="0" result="BackgroundImageFix" />
-          <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
+          <feColorMatrix
+            in="SourceAlpha"
+            type="matrix"
+            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+          />
           <feOffset dy="2" />
           <feGaussianBlur stdDeviation="5" />
-          <feColorMatrix type="matrix" values="0 0 0 0 0.606629 0 0 0 0 0.606629 0 0 0 0 0.606629 0 0 0 0.5 0" />
+          <feColorMatrix
+            type="matrix"
+            values="0 0 0 0 0.606629 0 0 0 0 0.606629 0 0 0 0 0.606629 0 0 0 0.5 0"
+          />
           <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
           <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
         </filter>

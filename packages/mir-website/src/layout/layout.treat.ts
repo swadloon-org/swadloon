@@ -1,6 +1,10 @@
 import { DesignSystem } from '@newrade/core-design-system-old';
 import { style } from 'treat';
-import { applyReset, applyStylesToBodyElement, applyStylesToHtmlElement } from '../styles/global.styles';
+import {
+  applyReset,
+  applyStylesToBodyElement,
+  applyStylesToHtmlElement,
+} from '../styles/global.styles';
 
 export const global = style((theme: DesignSystem) => ({
   display: 'inherit',

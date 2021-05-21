@@ -24,6 +24,9 @@ globalStyle(`html`, {
   // prevent the content to jump when scrolling
   overflowY: 'scroll',
   overflowX: 'hidden',
+  // prevent bouncing effect on the html element
+  overscrollBehaviorY: 'none',
+  overscrollBehaviorX: 'none',
   // prevent tap highlight
   WebkitTapHighlightColor: 'rgba(0, 0, 0, 0) ',
   // https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth
@@ -183,9 +186,12 @@ globalStyle(`progress`, {
 /**
  * Correct the cursor style of increment and decrement buttons in Chrome.
  */
-globalStyle(`[type='number']::-webkit-inner-spin-button,[type='number']::-webkit-outer-spin-button`, {
-  height: 'auto',
-});
+globalStyle(
+  `[type='number']::-webkit-inner-spin-button,[type='number']::-webkit-outer-spin-button`,
+  {
+    height: 'auto',
+  }
+);
 
 /**
  * 1. Correct the odd appearance in Chrome and Safari.

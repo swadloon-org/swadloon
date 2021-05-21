@@ -1,5 +1,11 @@
 import { Variant } from '@newrade/core-design-system';
-import { BoxV2, Center, globalThemeReversed, PaddingProps, useTreatTheme } from '@newrade/core-react-ui';
+import {
+  BoxV2,
+  Center,
+  globalThemeReversed,
+  PaddingProps,
+  useTreatTheme,
+} from '@newrade/core-react-ui';
 import { getMergedClassname } from '@newrade/core-react-ui/lib/utilities';
 import React from 'react';
 import { useStyles } from 'react-treat';
@@ -16,7 +22,11 @@ export const SectionBase = React.forwardRef<any, Props>(
       className,
       as,
       AsElement,
-      section: { variant = Variant.primary, baseLayout = SectionBaseLayout.center, padding = SectionPadding.large } = {
+      section: {
+        variant = Variant.primary,
+        baseLayout = SectionBaseLayout.center,
+        padding = SectionPadding.large,
+      } = {
         variant: Variant.primary,
         baseLayout: SectionBaseLayout.center,
         padding: SectionPadding.large,
@@ -36,9 +46,9 @@ export const SectionBase = React.forwardRef<any, Props>(
       className,
       styles.wrapper,
       variant ? styles[variant] : '',
-      variant === Variant.primaryReversed || globalThemeReversed,
-      variant === Variant.secondaryReversed || globalThemeReversed,
-      variant === Variant.tertiaryReversed || globalThemeReversed,
+      variant === Variant.primaryReversed ? globalThemeReversed : '',
+      variant === Variant.secondaryReversed ? globalThemeReversed : '',
+      variant === Variant.tertiaryReversed ? globalThemeReversed : '',
     ]);
     const paddingProp = getPaddingProp((padding as SectionPadding) || SectionPadding.large);
 
@@ -47,7 +57,14 @@ export const SectionBase = React.forwardRef<any, Props>(
      */
     if (baseLayout === SectionBaseLayout.fullWidth) {
       return (
-        <BoxV2 id={id} style={style} className={classNames} as={'section'} padding={paddingProp} ref={ref}>
+        <BoxV2
+          id={id}
+          style={style}
+          className={classNames}
+          as={'section'}
+          padding={paddingProp}
+          ref={ref}
+        >
           {children}
         </BoxV2>
       );

@@ -1,7 +1,14 @@
-import { ButtonIcon, ButtonProps, ButtonSize, LABEL_SIZE, TEXT_STYLE, Variant } from '@newrade/core-design-system';
+import {
+  ButtonIcon,
+  ButtonProps,
+  ButtonSize,
+  LABEL_SIZE,
+  TEXT_STYLE,
+  Variant,
+} from '@newrade/core-design-system';
 import React, { ButtonHTMLAttributes, useRef } from 'react';
 import { useStyles } from 'react-treat';
-import { usePreventPinchZoom } from '../';
+import { usePreventPinchZoom } from '../hooks/use-prevent-pinch-zoom';
 import { CommonComponentProps } from '../props/component-common.props';
 import { Label } from '../text/label';
 import { getDefaultTextFromProps, getMergedClassname } from '../utilities/component.utilities';
@@ -9,7 +16,9 @@ import * as stylesRef from './button.treat';
 
 type Props = CommonComponentProps &
   ButtonHTMLAttributes<any> &
-  Pick<ButtonProps, 'icon' | 'role' | 'size' | 'state' | 'variant'> & { as?: 'button' | 'a' | 'div' } & {
+  Pick<ButtonProps, 'icon' | 'role' | 'size' | 'state' | 'variant'> & {
+    as?: 'button' | 'a' | 'div';
+  } & {
     disabled?: boolean;
     loading?: boolean;
     Icon?: React.ReactNode;
@@ -65,7 +74,12 @@ export const Button = React.forwardRef<any, Props>(
     const variantStateClassName = `${styles.base}`;
     const variantClassName = `${styles[variant ? variant : Variant.primary]}`;
     const variantSizeClassName = styles[size ? size : ButtonSize.medium];
-    const allClassName = getMergedClassname([variantStateClassName, variantSizeClassName, variantClassName, className]);
+    const allClassName = getMergedClassname([
+      variantStateClassName,
+      variantSizeClassName,
+      variantClassName,
+      className,
+    ]);
     const renderedChildren = children
       ? children
       : getDefaultTextFromProps('button', {
@@ -108,7 +122,7 @@ export const Button = React.forwardRef<any, Props>(
           <>
             {icon === ButtonIcon.icon ? null : (
               <Label
-                style={{ display: 'inline-block', userSelect: 'none' }}
+                style={{ display: 'inline-block', userSelect: 'none', color: 'inherit' }}
                 variantStyle={TEXT_STYLE.bold}
                 variant={getLabelSizeForButtonSize(size)}
               >
@@ -138,7 +152,7 @@ export const Button = React.forwardRef<any, Props>(
       >
         {icon === ButtonIcon.icon ? null : (
           <Label
-            style={{ display: 'inline-block', userSelect: 'none' }}
+            style={{ display: 'inline-block', userSelect: 'none', color: 'inherit' }}
             variantStyle={TEXT_STYLE.bold}
             variant={getLabelSizeForButtonSize(size)}
           >

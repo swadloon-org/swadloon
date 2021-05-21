@@ -17,7 +17,11 @@ export const SectionStack = React.forwardRef<any, Props>(
       as,
       AsElement,
       Blocks,
-      section: { variant = Variant.primary, baseLayout = SectionBaseLayout.center, padding = SectionPadding.large } = {
+      section: {
+        variant = Variant.primary,
+        baseLayout = SectionBaseLayout.center,
+        padding = SectionPadding.large,
+      } = {
         variant: Variant.primary,
         baseLayout: SectionBaseLayout.center,
         padding: SectionPadding.large,

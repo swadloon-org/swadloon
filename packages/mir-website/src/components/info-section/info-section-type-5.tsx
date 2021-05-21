@@ -24,12 +24,20 @@ export const InfoSectionType5: React.FC<OwnProps> = (props) => {
       <LayoutCentered reverseOrder={imagePosition === SECTION_IMAGE_POSITION.RIGHT}>
         <FadeIn>
           {hasImage && imageFluid ? (
-            <ImageFrame variant={'bottomRight'} fluid={imageFluid as FluidObject} className={`${styles.image}}`} />
+            <ImageFrame
+              variant={'bottomRight'}
+              fluid={imageFluid as FluidObject}
+              className={`${styles.image}}`}
+            />
           ) : null}
         </FadeIn>
 
         <div className={styles.content}>
-          <RenderTitleHighlight className={styles.title} title={props?.title} titleHighlight={props?.titleHighlight} />
+          <RenderTitleHighlight
+            className={styles.title}
+            title={props?.title}
+            titleHighlight={props?.titleHighlight}
+          />
 
           <Paragraph variant={'medium'} className={styles.text}>
             {props?.text?.text}

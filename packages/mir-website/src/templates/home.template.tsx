@@ -19,7 +19,11 @@ export const HomeTemplate: React.FC<ProjectPageProps> = (props) => {
       media: `(min-width: ${theme.layout.breakpoints.desktopSmall.px})`,
     },
   ];
-  const bannerImagesAreValid = !!(bannerImagesSource?.length && bannerImagesSource[0] && bannerImagesSource[1]);
+  const bannerImagesAreValid = !!(
+    bannerImagesSource?.length &&
+    bannerImagesSource[0] &&
+    bannerImagesSource[1]
+  );
 
   return (
     <main className={`${styles.wrapper}`}>
@@ -31,7 +35,10 @@ export const HomeTemplate: React.FC<ProjectPageProps> = (props) => {
             subTitle={page.bannerSubTitle}
           ></BannerPrimary>
         ) : (
-          <BannerSecondary imageData={bannerImagesSource} title={page?.bannerTitle}></BannerSecondary>
+          <BannerSecondary
+            imageData={bannerImagesSource}
+            title={page?.bannerTitle}
+          ></BannerSecondary>
         )
       ) : null}
 

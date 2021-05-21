@@ -13,5 +13,6 @@ type CopyWebpackPluginOptions = {
 /**
  * @see https://webpack.js.org/plugins/copy-webpack-plugin/
  */
-export const getWebpackCopyPlugin: (options: CopyWebpackPluginOptions) => WebpackPluginInstance = (options) =>
-  new CopyWebpackPlugin(options);
+export const getWebpackCopyPlugin: (options: CopyWebpackPluginOptions) => WebpackPluginInstance = (
+  options
+) => new CopyWebpackPlugin(options);

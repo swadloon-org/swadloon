@@ -4,7 +4,7 @@ import { kebab } from 'case';
 import { Property } from 'csstype';
 import parseToRgb from 'polished/lib/color/parseToRgb';
 import toColorString from 'polished/lib/color/toColorString';
-import { CSSColors, CSSColorsVarNames, CSSColorsVars } from '../design-system/css-colors';
+import { CSSColors, CSSColorsVarNames, CSSColorsVars } from '../design-system';
 import { keys } from './utilities';
 
 /**
@@ -75,7 +75,15 @@ export function getCSSColors(colors: DS.Colors): CSSColors {
   };
 }
 
-export function generateColorPalette5({ color: color, light, dark }: { color: DS.Color; light: number; dark: number }) {
+export function generateColorPalette5({
+  color: color,
+  light,
+  dark,
+}: {
+  color: DS.Color;
+  light: number;
+  dark: number;
+}) {
   if (dark > light) {
     throw new Error('the dark value must be higher than the light, e.g. 90, 10');
   }
@@ -250,9 +258,14 @@ export function getRGBColor(color: Partial<DS.Color>): DS.ColorRGB {
 /**
  * Create a CSS color string from a Color object
  */
-export function getCSSLinearGradient({ angle, stops }: DS.ColorGradient): Property.Background<string> {
+export function getCSSLinearGradient({
+  angle,
+  stops,
+}: DS.ColorGradient): Property.Background<string> {
   return `linear-gradient(${angle.value}${angle.unit}, ${stops
-    .map((stop) => `${getCSSColor(stop.color)} ${stop.position || ''}`)
+    .map(
+      (stop) => `${getCSSColor(stop.color)} ${stop.position !== undefined ? stop.position : '0'}%`
+    )
     .join(',')})`;
 }
 
@@ -446,13 +459,15 @@ function getCSSVarNameForColorsColors<T>({
             colorsVarNames[current] = {};
           }
           if (varBrackets) {
+            const value = `var(--${prefix}-${formattedCurrentColor}-${formattedColorName})`;
             // @ts-ignore
-            colorsVarNames[current][colorName] = `var(--${prefix}-${formattedCurrentColor}-${formattedColorName})`;
+            colorsVarNames[current][colorName] = value;
             return;
           }
 
+          const value = `--${prefix}-${formattedCurrentColor}-${formattedColorName}`;
           // @ts-ignore
-          colorsVarNames[current][colorName] = `--${prefix}-${formattedCurrentColor}-${formattedColorName}`;
+          colorsVarNames[current][colorName] = value;
           return;
         });
       }

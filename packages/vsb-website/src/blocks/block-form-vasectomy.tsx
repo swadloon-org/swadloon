@@ -17,24 +17,22 @@ import {
   Paragraph,
   Stack,
   Switcher,
-  useNetworkStatus,
-  usePageVisibility,
   useTreatTheme,
 } from '@newrade/core-react-ui';
 import {
   API_REGISTER_PATIENT_ROUTE,
-  API_STATUS_CLINIKO,
   CLINIKO_PHONE_TYPE,
-  PatientAPIResponseBody,
+  CreatePatientAPIResponseBody,
   PatientModel,
   PatientValidation,
 } from '@newrade/vsb-common';
+import { useCheckAPIStatus } from '@newrade/vsb-common/lib/index-browser';
 import { IoAlertCircleOutline } from '@react-icons/all-files/io5/IoAlertCircleOutline';
 import { IoCheckmarkCircle } from '@react-icons/all-files/io5/IoCheckmarkCircle';
 import 'cleave.js/dist/addons/cleave-phone.ca';
 import debug from 'debug';
 import debounce from 'lodash/debounce';
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { useStyles } from 'react-treat';
@@ -52,7 +50,7 @@ import * as styleRefs from './block-form-vasectomy.treat';
 const log = debug('newrade:vsb-website');
 const logError = log.extend('error');
 
-type Props = CommonComponentProps & BlockProps & {};
+export type BlockFormVasectomyProps = CommonComponentProps & BlockProps & {};
 
 function handleFocusControlled(name?: string) {
   return () => {
@@ -131,14 +129,18 @@ const FormStack: React.FC = (props) => {
   return <Stack gap={[cssTheme.sizing.var.x4]}>{props.children}</Stack>;
 };
 
-export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, block, ...props }) => {
+export const BlockFormVasectomy: React.FC<BlockFormVasectomyProps> = ({
+  id,
+  style,
+  className,
+  block,
+  ...props
+}) => {
   const { styles } = useStyles(styleRefs);
   const { cssTheme } = useTreatTheme();
 
-  const { isOnline } = useNetworkStatus();
-  const { pageVisible } = usePageVisibility();
+  const [apiStatus] = useCheckAPIStatus();
 
-  const [apiStatus, setApiStatus] = useState<'en ligne' | 'hors ligne' | undefined>(undefined);
   const [isSuggestion, setSuggestion] = useState<boolean>(false);
   const [isValueSuggestion, setValueSuggestion] = useState<any>();
 
@@ -149,6 +151,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, bloc
   const submitButtonRef = useRef<HTMLButtonElement>();
   const resolver = useYupValidationResolver(PatientValidation);
   const defaultValues: PatientModel = {
+    id: '',
     firstName: '',
     lastName: '',
     email: '',
@@ -183,39 +186,6 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, bloc
     defaultValues,
     resolver,
   });
-
-  useEffect(() => {
-    try {
-      log('checking for api status');
-      checkApiStatus();
-
-      const interval = window.setInterval(() => {
-        if (isOnline && pageVisible) {
-          checkApiStatus();
-        }
-      }, 15000);
-      return () => {
-        window.clearInterval(interval);
-      };
-    } catch (error) {
-      setApiStatus('hors ligne');
-      logError('api offline');
-    }
-  }, [pageVisible, isOnline]);
-
-  function checkApiStatus() {
-    fetch(API_STATUS_CLINIKO)
-      .then((response) => response.json())
-      .then((body: PatientAPIResponseBody) => {
-        if (body.status === API_RESPONSE_STATUS.SUCCESS) {
-          setApiStatus('en ligne');
-        }
-      })
-      .catch((error) => {
-        setApiStatus('hors ligne');
-        logError('api offline');
-      });
-  }
 
   function scrollToSubmit() {
     const recaptchatPos = submitButtonRef.current ? submitButtonRef.current.offsetTop : 0;
@@ -255,7 +225,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, bloc
       ),
     })
       .then((response) => response.json())
-      .then((result: PatientAPIResponseBody) => {
+      .then((result: CreatePatientAPIResponseBody) => {
         if (result.status === API_RESPONSE_STATUS.SUCCESS) {
           log('patient was successfully created');
           setApiSuccess([result.message]);
@@ -272,7 +242,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, bloc
           });
         }
 
-        if (result.payload.yupValidationErrors) {
+        if (result.payload?.yupValidationErrors) {
           result.payload.yupValidationErrors.map((validationError) => {
             if (validationError) {
               logError(validationError);
@@ -291,7 +261,7 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, bloc
 
         setApiErrors([
           ...result.errors.map((error) => error.message),
-          ...(result.payload.yupValidationErrors
+          ...(result.payload?.yupValidationErrors
             ? result.payload.yupValidationErrors.map((error) => error.errors.join(', '))
             : []),
         ]);
@@ -321,7 +291,8 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, bloc
     }
   }, 1000);
 
-  const onChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => debouncedSave(event.target.value);
+  const onChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) =>
+    debouncedSave(event.target.value);
 
   const handleAddressSuggest = async (searchTerm: string) => {
     const contentAddress: AddressAutoCompleteOptions = {
@@ -341,7 +312,9 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, bloc
     }
   };
 
-  const handleSelectSuggestion = (suggestion: AddressAutoCompleteResponse) => async (event: React.MouseEvent) => {
+  const handleSelectSuggestion = (suggestion: AddressAutoCompleteResponse) => async (
+    event: React.MouseEvent
+  ) => {
     const newInfos = await onValidateById(suggestion);
 
     if (!newInfos) {
@@ -383,7 +356,11 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, bloc
       <ul>
         {items.map((suggestion: AddressAutoCompleteResponse, index: number) => {
           return (
-            <li style={{ lineHeight: '1' }} key={index} onClick={handleSelectSuggestion(suggestion)}>
+            <li
+              style={{ lineHeight: '1' }}
+              key={index}
+              onClick={handleSelectSuggestion(suggestion)}
+            >
               {`${suggestion.Text} ${suggestion.Description}`}
             </li>
           );
@@ -737,8 +714,8 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, bloc
             />
 
             <Paragraph>
-              Une fois la demande soumise, notre équipe vous contactera dans les plus brefs délais pour planifier les
-              prochaines étapes avec vous.
+              Une fois la demande soumise, notre équipe vous contactera dans les plus brefs délais
+              pour planifier les prochaines étapes avec vous.
             </Paragraph>
 
             <Button
@@ -790,16 +767,16 @@ export const BlockFormVasectomy: React.FC<Props> = ({ id, style, className, bloc
             ) : null}
 
             <OnlineIndicator status={apiStatus === 'en ligne' ? 'online' : 'offline'}>
-              système {apiStatus || 'en chargement...'}
+              système : {apiStatus || 'en chargement...'}
             </OnlineIndicator>
 
             <Hr></Hr>
           </FormStack>
 
           <Paragraph>
-            <Bold>N.B. :</Bold> Suite à l’ouverture de votre dossier, vous aurez <Bold>deux</Bold> ans pour prendre
-            rendez-vous pour la chirurgie. Après ce délais, il est possible que notre équipe vous demande de recommencer
-            la démarche.
+            <Bold>N.B. :</Bold> Suite à l’ouverture de votre dossier, vous aurez <Bold>deux</Bold>{' '}
+            ans pour prendre rendez-vous pour la chirurgie. Après ce délais, il est possible que
+            notre équipe vous demande de recommencer la démarche.
           </Paragraph>
         </Stack>
       </Form>

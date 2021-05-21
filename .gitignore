@@ -1,5 +1,4 @@
 # IDEs
-.vs
 .idea
 
 # system
@@ -66,3 +65,4 @@ lib/
 
 # apps
 dist/
+public/

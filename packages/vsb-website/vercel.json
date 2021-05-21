@@ -21,10 +21,49 @@
       ]
     }
   ],
-  "functions": {
-    "api/server.js": {
-      "memory": 1024,
-      "maxDuration": 60
+  "trailingSlash": true,
+  "rewrites": [
+    {
+      "source": "/admin/(.*)",
+      "destination": "https://admin.vasectomie-pierre-boucher.ca/$1"
+    },
+    {
+      "source": "/docs/(.*)",
+      "destination": "https://docs.vasectomie-pierre-boucher.ca/$1"
+    },
+    {
+      "source": "/api/(.*)",
+      "destination": "https://api.vasectomie-pierre-boucher.ca/api/$1"
     }
-  }
+  ],
+  "redirects": [
+    { "source": "/boucher.php", "destination": "/equipe/", "permanent": true },
+    { "source": "/boucher", "destination": "/equipe/", "permanent": true },
+    { "source": "/plan.php", "destination": "/", "permanent": true },
+    { "source": "/plan", "destination": "/", "permanent": true },
+    { "source": "/consultation.php", "destination": "/vasectomie/", "permanent": true },
+    { "source": "/consultation", "destination": "/vasectomie/", "permanent": true },
+    { "source": "/vasectomie.php", "destination": "/vasectomie/", "permanent": true },
+    { "source": "/vasectomie", "destination": "/vasectomie/", "permanent": true },
+    { "source": "/couts.php", "destination": "/vasectomie/", "permanent": true },
+    { "source": "/couts", "destination": "/vasectomie/", "permanent": true },
+    { "source": "/spermogramme.php", "destination": "/vasectomie/", "permanent": true },
+    { "source": "/spermogramme", "destination": "/vasectomie/", "permanent": true },
+    { "source": "/etapes.php", "destination": "/vasectomie/", "permanent": true },
+    { "source": "/etapes", "destination": "/vasectomie/", "permanent": true },
+    { "source": "/meac.php", "destination": "/examen-pour-transports-canada/", "permanent": true },
+    { "source": "/meac", "destination": "/examen-pour-transports-canada/", "permanent": true },
+    {
+      "source": "/media/pdf/depliant-preparatoire-vasectomie.pdf",
+      "destination": "/vasectomie/",
+      "permanent": true
+    },
+    {
+      "source": "/media/pdf/carton-informations-vasectomie.pdf",
+      "destination": "/vasectomie/",
+      "permanent": true
+    },
+    { "source": "/joindre.php", "destination": "/contact/", "permanent": true },
+    { "source": "/joindre", "destination": "/contact/", "permanent": true }
+  ]
 }

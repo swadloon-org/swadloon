@@ -6,8 +6,8 @@ import {
   Typography,
   VIEWPORT,
 } from '@newrade/core-design-system';
-import { CSSTypography } from '../design-system/css-typography';
-import { defaultFontVars } from '../design-system/default-typography';
+import { CSSTypography } from '../design-system';
+import { defaultFontVars } from '../default-theme/default-typography';
 import { cssVar } from './css-variable.utilities';
 import { createCSSCapsizeTextStyle, createCSSTextStyle } from './text.utilities';
 import { keys } from './utilities';
@@ -28,7 +28,11 @@ export function getCSSTypography({
   const labelsStyles = createCSSVariantTextStyles({ variant: labels, baseFontSize });
 
   return {
-    fonts: { ...fonts, var: defaultFontVars, varNames: defaultFontVars.map((varName) => cssVar(varName)) },
+    fonts: {
+      ...fonts,
+      var: defaultFontVars,
+      varNames: defaultFontVars.map((varName) => cssVar(varName)),
+    },
     titles: {
       font: titles.font ? titles.font : fonts.sans, // fallback to sans font
       ...(titlesStyles as Typography<string>['titles']),
@@ -52,7 +56,11 @@ function createCSSVariantTextStyles({
   variant,
   baseFontSize,
 }: {
-  variant: Typography['titles'] | Typography['headings'] | Typography['paragraphs'] | Typography['labels'];
+  variant:
+    | Typography['titles']
+    | Typography['headings']
+    | Typography['paragraphs']
+    | Typography['labels'];
   baseFontSize: number;
 }) {
   const parentTextStyles = keys(variant)

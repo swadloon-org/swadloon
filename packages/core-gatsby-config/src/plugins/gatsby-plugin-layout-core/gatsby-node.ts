@@ -11,7 +11,9 @@ export const onPreInit: GatsbyNode['onPreInit'] = ({ store }, options) => {
   const pluginOptions = (options as unknown) as GatsbyPluginLayoutCoreOptions;
 
   if (didRunAlready) {
-    throw new Error(`You can only have single instance of gatsby-plugin-core-layout in your gatsby-config.js`);
+    throw new Error(
+      `You can only have single instance of gatsby-plugin-core-layout in your gatsby-config.js`
+    );
   }
 
   if (!pluginOptions.layoutComponentPath) {
@@ -28,13 +30,22 @@ export const onPreInit: GatsbyNode['onPreInit'] = ({ store }, options) => {
     });
   }
 
-  absoluteLayoutComponentPath = path.join(store.getState().program.directory, pluginOptions.layoutComponentPath);
-  absoluteProvidersComponentPath = path.join(store.getState().program.directory, pluginOptions.providersComponentPath);
+  absoluteLayoutComponentPath = path.join(
+    store.getState().program.directory,
+    pluginOptions.layoutComponentPath
+  );
+  absoluteProvidersComponentPath = path.join(
+    store.getState().program.directory,
+    pluginOptions.providersComponentPath
+  );
 
   didRunAlready = true;
 };
 
-export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({ actions, plugins }) => {
+export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
+  actions,
+  plugins,
+}) => {
   actions.setWebpackConfig({
     plugins: [
       plugins.define({

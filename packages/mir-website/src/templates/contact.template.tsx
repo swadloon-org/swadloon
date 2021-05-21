@@ -24,7 +24,11 @@ export const ContactTemplate: React.FC<ProjectPageProps> = (props) => {
       media: `(min-width: ${theme.layout.breakpoints.desktopSmall.px})`,
     },
   ];
-  const bannerImagesAreValid = !!(bannerImagesSource.length && bannerImagesSource[0] && bannerImagesSource[1]);
+  const bannerImagesAreValid = !!(
+    bannerImagesSource.length &&
+    bannerImagesSource[0] &&
+    bannerImagesSource[1]
+  );
 
   const [hasMounted, setHasMounted] = React.useState(false);
   React.useEffect(() => {
@@ -71,7 +75,10 @@ export const ContactTemplate: React.FC<ProjectPageProps> = (props) => {
             subTitle={page?.bannerSubTitle}
           ></BannerPrimary>
         ) : (
-          <BannerSecondary imageData={bannerImagesSource} title={page?.bannerTitle}></BannerSecondary>
+          <BannerSecondary
+            imageData={bannerImagesSource}
+            title={page?.bannerTitle}
+          ></BannerSecondary>
         )
       ) : null}
 
@@ -98,7 +105,11 @@ export const ContactTemplate: React.FC<ProjectPageProps> = (props) => {
             Contactez-nous
           </Heading>
 
-          <input type="hidden" value="https://mirinc.ca/nous-joindre/?status=success#info" name="_redirect" />
+          <input
+            type="hidden"
+            value="https://mirinc.ca/nous-joindre/?status=success#info"
+            name="_redirect"
+          />
 
           <div className={`${styles.formRow}`}>
             <Input
@@ -151,9 +162,19 @@ export const ContactTemplate: React.FC<ProjectPageProps> = (props) => {
             className={`${styles.textArea}`}
           ></TextArea>
 
-          <ReCAPTCHA size={'compact'} ref={recaptchaRef} sitekey="6Lf8XNIZAAAAADnLIXoaEsF2b6UZcY2yGryXev2S" />
+          <ReCAPTCHA
+            size={'compact'}
+            ref={recaptchaRef}
+            sitekey="6Lf8XNIZAAAAADnLIXoaEsF2b6UZcY2yGryXev2S"
+          />
 
-          <Button variantType="secondaryDefault" size="small" variant="text" id="SubmitButton" type="submit">
+          <Button
+            variantType="secondaryDefault"
+            size="small"
+            variant="text"
+            id="SubmitButton"
+            type="submit"
+          >
             Soumettre
           </Button>
         </form>

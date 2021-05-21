@@ -1,0 +1,14 @@
+type User {
+  id: ID!
+  name: String
+}
+
+type Cliniko {
+  status: String
+}
+
+type Query {
+  user(id: ID): User
+  users: [User]
+  cliniko: Cliniko
+}

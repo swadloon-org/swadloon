@@ -1,6 +1,6 @@
 import { Variant, TITLE } from '@newrade/core-design-system';
 import { style } from 'treat';
-import { Theme } from '../design-system/css-design-system';
+import { Theme } from '../design-system';
 import { getCSSTextStyles } from '../utilities/text.utilities';
 
 export const styles: { [key in TITLE]: string } & { [key in Variant]: string } = {

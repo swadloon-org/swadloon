@@ -77,7 +77,10 @@ export function getGatsbyPluginMdx(): Gatsby.PluginRef[] {
           return plugin;
         }),
         // see https://github.com/rehypejs/rehype/blob/master/doc/plugins.md#list-of-plugins
-        rehypePlugins: [coreWebpackConfig.rehypeSlugPlugin, coreWebpackConfig.rehypeAutoLinkHeadingsPlugin],
+        rehypePlugins: [
+          coreWebpackConfig.rehypeSlugPlugin,
+          coreWebpackConfig.rehypeAutoLinkHeadingsPlugin,
+        ],
       },
     },
   ];

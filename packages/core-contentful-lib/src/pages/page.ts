@@ -74,6 +74,10 @@ export function createPage(migration: Migration.default) {
   content.createField(COMMON_FIELD.SECTIONS, {
     name: pascal(COMMON_FIELD.SECTIONS),
     type: 'Array',
-    items: { type: 'Link', linkType: 'Entry', validations: [{ linkContentType: [COMMON_CONTENT_TYPE.SECTION] }] },
+    items: {
+      type: 'Link',
+      linkType: 'Entry',
+      validations: [{ linkContentType: [COMMON_CONTENT_TYPE.SECTION] }],
+    },
   });
 }

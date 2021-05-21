@@ -97,7 +97,11 @@ export const BlockGoogleMap: React.FC<BlockGoogleMapsProps> = ({
             <Marker position={place.geometry?.location} onClick={handleToggleInfoWindow}></Marker>
           ) : null}
           {place && marker && infoWindowVisible ? (
-            <GoogleMapsInfoWindow place={place} anchor={marker} onCloseClick={handleToggleInfoWindow} />
+            <GoogleMapsInfoWindow
+              place={place}
+              anchor={marker}
+              onCloseClick={handleToggleInfoWindow}
+            />
           ) : null}
         </GoogleMaps>
       ) : null}

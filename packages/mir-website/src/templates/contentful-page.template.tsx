@@ -115,7 +115,13 @@ export const PageTemplate: React.FC<ProjectPageProps> = ({ data, location, ...pr
   );
 };
 
-function getPageTemplateComponent({ pageType, props }: { pageType: string; props: ProjectPageProps }) {
+function getPageTemplateComponent({
+  pageType,
+  props,
+}: {
+  pageType: string;
+  props: ProjectPageProps;
+}) {
   switch (pageType) {
     case PAGE_TYPE.ACCUEIL: {
       return <HomeTemplate {...props} />;

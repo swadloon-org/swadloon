@@ -26,6 +26,7 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
         localIdentName: isDev ? `[name]_[local]_[hash:base64:5]` : `[hash:base64:5]`,
         themeIdentName: isDev ? `_[name]-[local]_[hash:base64:4]` : `[hash:base64:4]`,
         outputCSS: isSSR ? false : true,
+        minify: false, // can't control the css nano settings
         outputLoaders: [loaders.miniCssExtract()],
         hmr: isDev,
       }),

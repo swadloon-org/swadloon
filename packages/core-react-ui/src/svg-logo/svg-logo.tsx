@@ -9,18 +9,20 @@ type Props = CommonComponentProps & {
   Icon?: React.ReactNode;
 };
 
-export const SVGLogo: React.FC<Props> = ({ id, style, className, children, as, Icon, ...props }) => {
-  const { styles } = useStyles(stylesRef);
-  const svgIconRef = useRef();
+export const SVGLogo: React.FC<Props> = React.memo(
+  ({ id, style, className, children, as, Icon, ...props }) => {
+    const { styles } = useStyles(stylesRef);
+    const svgIconRef = useRef();
 
-  const iconClassNames = getMergedClassname([styles.wrapper]);
+    const iconClassNames = getMergedClassname([styles.wrapper]);
 
-  const IconSvg = Icon
-    ? React.cloneElement(Icon as React.ReactElement, {
-        className: iconClassNames,
-        preserveAspectRatio: `xMinYMin meet`,
-      })
-    : null;
+    const IconSvg = Icon
+      ? React.cloneElement(Icon as React.ReactElement, {
+          className: iconClassNames,
+          preserveAspectRatio: `xMinYMin meet`,
+        })
+      : null;
 
-  return IconSvg;
-};
+    return IconSvg;
+  }
+);

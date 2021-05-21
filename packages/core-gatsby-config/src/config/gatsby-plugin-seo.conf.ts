@@ -6,7 +6,11 @@ import Gatsby from 'gatsby';
  * gatsby-plugin-google-tagmanager
  * @see https://www.gatsbyjs.com/plugins/gatsby-plugin-google-tagmanager/
  */
-export function getGatsbyPluginGoogleTagmanager({ googleTagId }: { googleTagId: string }): Gatsby.PluginRef {
+export function getGatsbyPluginGoogleTagmanager({
+  googleTagId,
+}: {
+  googleTagId: string;
+}): Gatsby.PluginRef {
   return {
     resolve: 'gatsby-plugin-google-tagmanager',
     options: {

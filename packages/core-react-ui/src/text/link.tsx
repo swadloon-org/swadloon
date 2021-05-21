@@ -1,4 +1,10 @@
-import { LinkProps, LinkState, LinkVariant, PARAGRAPH_SIZE, Variant } from '@newrade/core-design-system';
+import {
+  LinkProps,
+  LinkState,
+  LinkVariant,
+  PARAGRAPH_SIZE,
+  Variant,
+} from '@newrade/core-design-system';
 import { IoOpenOutline } from '@react-icons/all-files/io5/IoOpenOutline';
 import React, { AnchorHTMLAttributes, useRef } from 'react';
 import { useStyles } from 'react-treat';
@@ -46,7 +52,7 @@ export const Link: React.FC<Props> = React.memo(
     const variantStateClassName = styles[LinkState.rest];
     const variantClassName = styles[variant ? variant : LinkVariant.noUnderline];
     const variantStyleClassName = styles[variantLevel ? variantLevel : Variant.primary];
-    const variantSizeClassName = styles[variantSize ? variantSize : PARAGRAPH_SIZE.small];
+    const variantSizeClassName = styles[variantSize ? variantSize : PARAGRAPH_SIZE.medium];
     const allClassName = getMergedClassname([
       variantStateClassName,
       variantStyleClassName,
@@ -103,7 +109,9 @@ export const Link: React.FC<Props> = React.memo(
     /**
      * Handle AsElement option
      */
-    const WrapperElement = AsElement ? React.cloneElement(AsElement as React.ReactElement, compProps) : null;
+    const WrapperElement = AsElement
+      ? React.cloneElement(AsElement as React.ReactElement, compProps)
+      : null;
 
     if (WrapperElement) {
       return WrapperElement;

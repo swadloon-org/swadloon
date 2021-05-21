@@ -1,23 +1,29 @@
 ---
 name: Blocks
+description:
+  High-level components to render text, markdown content, images, medias etc.
 tags:
-  - test
+  - markdown
+  - content
 ---
 
 <!-- CODE IMPORTS -->
 
-import { Blocks } from '../../src/code/content/blocks.code';
-import BlocksCode from '!!raw-loader!../../src/code/content/blocks.code.tsx';
+<!-- prettier-ignore -->
+import { Blocks } from '../../src/code/blocks.code'; 
+import BlocksCode from '!!raw-loader!../../src/code/blocks.code.tsx';
 
 <!-- END CODE IMPORTS -->
 
-## Blocks
-
-High-level content components to display text, markdown, images, medias etc.
+<DocHeader props={props}/>
 
 ## Markdown / Text
 
-Used to render markdown, can contain inlined links, images and anything that markdown supports. For more examples, see the Markdown section.
+Used to render markdown, can contain inlined links, images and anything that
+markdown supports. For more examples, see the Markdown section.
 
-<Blocks />
+<ThemeWrapper>
+  <Blocks />
+</ThemeWrapper>
+
 <CodeBlock>{BlocksCode}</CodeBlock>

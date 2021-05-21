@@ -1,7 +1,15 @@
 import { style } from 'treat';
-import { Theme } from '../design-system/css-design-system';
+import { right } from '../button/button.treat';
+import { Theme } from '../design-system';
 
 export const styles = {
+  /**
+   * Wrapper for the select element and icon
+   */
+  wrapper: style(({ theme, cssTheme }: Theme) => ({
+    position: 'relative',
+  })),
+
   /**
    * Variant
    */
@@ -56,32 +64,37 @@ export const styles = {
    * Sizes
    */
   medium: style(({ theme, cssTheme }: Theme) => ({
-    height: `calc(${cssTheme.sizing.var.x4} + ${cssTheme.typography.labels.mobile.small.capHeight}px + ${2}px)`,
-    padding: `4px 9px 1px`,
+    height: `calc(${cssTheme.sizing.var.x4} + ${
+      cssTheme.typography.labels.mobile.small.capHeight
+    }px + ${2}px)`,
+    padding: `5px 10px 1px`,
     fontFamily: cssTheme.typography.labels.mobile.small.fontFamily,
     lineHeight: cssTheme.typography.labels.mobile.small.capsize?.lineHeight,
     fontSize: `max(16px, ${cssTheme.typography.labels.tablet.small.capsize?.fontSize})`,
     '@media': {
       [cssTheme.layout.media.tablet]: {
-        height: `calc(${cssTheme.sizing.var.x4} + ${cssTheme.typography.labels.tablet.small.capHeight}px + ${2}px)`,
+        height: `calc(${cssTheme.sizing.var.x4} + ${
+          cssTheme.typography.labels.tablet.small.capHeight
+        }px + ${2}px)`,
 
         fontSize: cssTheme.typography.labels.tablet.small.capsize?.fontSize,
       },
       [cssTheme.layout.media.desktopSmall]: {
-        height: `calc(${cssTheme.sizing.var.x4} + ${cssTheme.typography.labels.desktop.small.capHeight}px + ${2}px)`,
+        height: `calc(${cssTheme.sizing.var.x4} + ${
+          cssTheme.typography.labels.desktop.small.capHeight
+        }px + ${2}px)`,
         fontSize: cssTheme.typography.labels.desktop.small.capsize?.fontSize,
       },
     },
-    // selectors: {
-    //   '&[datapaddingcollapse="left"]': {
-    //     marginLeft: `calc(-1 * ${cssTheme.sizing.var.x2} + (${iconSize} - ${cssTheme.sizing.var.x3}) / 2)`,
-    //   },
-    //   '&[dataicon="right"]': {
-    //     padding: `${cssTheme.sizing.var.x2} ${iconPadding} ${cssTheme.sizing.var.x2} ${cssTheme.sizing.var.x2} `,
-    //   },
-    //   '&[dataicon="left"]': {
-    //     padding: `${cssTheme.sizing.var.x2} ${cssTheme.sizing.var.x2} ${cssTheme.sizing.var.x2} ${iconPadding}`,
-    //   },
-    // },
+  })),
+
+  /**
+   * Icon
+   */
+  icon: style(({ theme, cssTheme }: Theme) => ({
+    height: '16px',
+    position: 'absolute',
+    top: `calc(50% - 8px)`,
+    right: cssTheme.sizing.var.x2,
   })),
 };

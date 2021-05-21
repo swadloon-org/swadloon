@@ -22,7 +22,15 @@ type Props = CommonComponentProps & {
  *
  * @see https://react-google-maps-api-docs.netlify.app/#infowindow
  */
-export const GoogleMapsInfoWindow: React.FC<Props> = ({ id, className, style, as, children, place, ...props }) => {
+export const GoogleMapsInfoWindow: React.FC<Props> = ({
+  id,
+  className,
+  style,
+  as,
+  children,
+  place,
+  ...props
+}) => {
   /**
    * Component props
    */
@@ -37,7 +45,9 @@ export const GoogleMapsInfoWindow: React.FC<Props> = ({ id, className, style, as
   const RatingStars = place.rating
     ? Array(Math.floor(place.rating))
         .fill(0)
-        .map((i, index) => <IoStar key={index} color={'#fbbc04'} style={{ verticalAlign: '-1px' }} />)
+        .map((i, index) => (
+          <IoStar key={index} color={'#fbbc04'} style={{ verticalAlign: '-1px' }} />
+        ))
     : null;
 
   const RatingHalfStars = place.rating ? (
@@ -60,7 +70,11 @@ export const GoogleMapsInfoWindow: React.FC<Props> = ({ id, className, style, as
           >
             Itinéraire
           </Link>
-          <Link href={`phone:${place.url}`} variantSize={PARAGRAPH_SIZE.small} variant={LinkVariant.underline}>
+          <Link
+            href={`phone:${place.url}`}
+            variantSize={PARAGRAPH_SIZE.small}
+            variant={LinkVariant.underline}
+          >
             {place.formatted_phone_number}
           </Link>
           {place.rating ? (

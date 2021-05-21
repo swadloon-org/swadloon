@@ -1,55 +1,65 @@
 ---
 name: Buttons
+description:
+  Buttons allow users to take actions, submit forms with a click or touch.
 tags:
-  - test
+  - molecule
+version: v1
 ---
 
 <!-- CODE IMPORTS -->
 
-import { Buttons } from '../../src/code/components/buttons/buttons.code';
-import ButtonsCode from '!!raw-loader!../../src/code/components/buttons/buttons.code.tsx';
-
-import { ButtonsReversed } from '../../src/code/components/buttons/buttons-reversed.code';
-import ButtonsReversedCode from '!!raw-loader!../../src/code/components/buttons/buttons-reversed.code.tsx';
-
-import { ButtonsSizes } from '../../src/code/components/buttons/buttons-sizes.code';
-import ButtonsSizesCode from '!!raw-loader!../../src/code/components/buttons/buttons-sizes.code.tsx';
-
-import { ButtonsIcon } from '../../src/code/components/buttons/buttons-icon.code';
-import ButtonsIconCode from '!!raw-loader!../../src/code/components/buttons/buttons-icon.code.tsx';
-
-import { ButtonsStates } from '../../src/code/components/buttons/buttons-states.code';
-import ButtonsStatesCode from '!!raw-loader!../../src/code/components/buttons/buttons-states.code.tsx';
+<!-- prettier-ignore -->
+import { Buttons } from '../../src/code/buttons.code'; 
+import ButtonsCode from '!!raw-loader!../../src/code/buttons.code.tsx';
+import { ButtonsSizes } from '../../src/code/buttons-sizes.code'; 
+import ButtonsSizesCode from '!!raw-loader!../../src/code/buttons-sizes.code.tsx';
+import { ButtonsIcon } from '../../src/code/buttons-icon.code'; 
+import ButtonsIconCode from '!!raw-loader!../../src/code/buttons-icon.code';
 
 <!-- END CODE IMPORTS -->
 
-## Buttons
+<DocHeader props={props}/>
 
-### Variants
+## Variants
 
-<Buttons />
+Like most components there are three level of importance for buttons:
+
+- Primary
+- Secondary
+- Tertiary
+
+<ThemeWrapper>
+  <Buttons />
+</ThemeWrapper>
 <CodeBlock>{ButtonsCode}</CodeBlock>
 
-### Reversed Variants
+Buttons support reversed mode:
 
-<ButtonsReversed />
-<CodeBlock>{ButtonsReversedCode}</CodeBlock>
+<ThemeWrapper reversed={true}>
+  <Buttons />
+</ThemeWrapper>
 
-### Sizes
+## Sizes
 
-<ButtonsSizes />
+Four sizes are available for buttons.
+
+<ThemeWrapper>
+  <ButtonsSizes />
+</ThemeWrapper>
+
 <CodeBlock>{ButtonsSizesCode}</CodeBlock>
 
-These are the principles that shape how we design every aspect of the interfaces.
+## Icon
 
-### Icon
+The icon button variant support having the icon on either side and only icon.
 
-<ButtonsIcon />
-<CodeBlock>{ButtonsIconCode}</CodeBlock>
+<ThemeWrapper>
+  <ButtonsIcon />
+</ThemeWrapper>
 
-### States
+## Accessibility
 
-<ButtonsStates />
-<CodeBlock>{ButtonsStatesCode}</CodeBlock>
-
-These are the principles that shape how every button react with the user with the interfaces.
+If no visible label is provided (e.g. an icon only button), an alternative text
+label must be provided to identify the control for accessibility. This should be
+added using the aria-label prop.

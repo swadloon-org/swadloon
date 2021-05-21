@@ -1,8 +1,12 @@
-# How to Develop on Docker Container with VS Code Remote Server Extension
+# Develop on Docker Container
 
-The next steps will to help you to create a simple Ubuntu based SSH server, this steps are based on the documentation found at https://docs.docker.com/engine/examples/running_ssh_service/
+## How to Develop on Docker Container with VS Code Remote Server Extension
 
-Prerequisites
+The next steps will to help you to create a simple Ubuntu based SSH server, this
+steps are based on the documentation found at
+https://docs.docker.com/engine/examples/running_ssh_service/
+
+### Prerequisites
 
 - ssh keys
 - VS Code installed
@@ -10,9 +14,10 @@ Prerequisites
 - Terminal with admin rights
 - Docker installed (https://docs.docker.com/docker-for-windows/install/)
 
-Procedure
+### Procedure
 
-Create a file with no extension named "Dockerfile". The path where this file is saved is not important but keep note of the path.
+Create a file with no extension named "Dockerfile". The path where this file is
+saved is not important but keep note of the path.
 
 Inside the Dockerfile write the following code:
 
@@ -40,7 +45,8 @@ CMD ["/usr/sbin/sshd", "-D"]
 
 Where `password` can be replaced by yours.
 
-Open a terminal into the path where you save the "Dockerfile" and Build the image by doing the following code:
+Open a terminal into the path where you save the "Dockerfile" and Build the
+image by doing the following code:
 
 ```bash
 docker build -t eg_sshd .
@@ -52,13 +58,17 @@ Run the container in detached mode on port `8888`:
 docker run -d -P -p 8888:22 --name sshdd eg_sshd
 ```
 
-In VS Code install the Remote Server extension: https://code.visualstudio.com/docs/remote/remote-overview
+In VS Code install the Remote Server extension:
+https://code.visualstudio.com/docs/remote/remote-overview
 
 From VS Code use the extension to connect with SSH, enter your password.
 
-You can use the command pallette (ctrl+shift+p) and search "Connect to Host...", then select "docker". A new VS Code window will appear. An alert will appear "Could not stablish connection to docker", select close.
+You can use the command pallette (ctrl+shift+p) and search "Connect to Host...",
+then select "docker". A new VS Code window will appear. An alert will appear
+"Could not stablish connection to docker", select close.
 
-To create a ssh key which you can use to connect to the container (avoiding entering password everytime):
+To create a ssh key which you can use to connect to the container (avoiding
+entering password everytime):
 
 ```bash
 ssh-keygen # name the new key id_rsa_docker
@@ -103,9 +113,12 @@ cd /home/docker/
 mkdir .ssh
 ```
 
-Paste the keys from your machine to the docker container using VS Code. To do this you can open ssh directory on a new VS code window. drag and drop config, ssh keys and known host inside vs code where the container is open
+Paste the keys from your machine to the docker container using VS Code. To do
+this you can open ssh directory on a new VS code window. drag and drop config,
+ssh keys and known host inside vs code where the container is open
 
-Inside the docker container create SSH Config file in `~/.ssh/config` with the access you need, e.g.:
+Inside the docker container create SSH Config file in `~/.ssh/config` with the
+access you need, e.g.:
 
 ```bash
 Host vs-ssh.visualstudio.com
@@ -125,8 +138,8 @@ apt-get install git -y
 git --version
 ```
 
-Install all your extension in the SSH host with the VS Code command.
-You can use the command pallette (ctrl+shift+p) "Remote: Install Local Extensions in...".
+Install all your extension in the SSH host with the VS Code command. You can use
+the command pallette (ctrl+shift+p) "Remote: Install Local Extensions in...".
 
 Switch to docker user and install nvm:
 

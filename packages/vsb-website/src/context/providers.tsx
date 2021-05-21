@@ -1,10 +1,15 @@
 import { MDXProvider } from '@mdx-js/react';
-import { mdxComponents, TreatThemeProvider, viewportContext, ViewportProvider } from '@newrade/core-react-ui';
-import { GlobalCSSVariables } from '@newrade/core-react-ui/lib/global/global-css-variables';
-import { GlobalResetCSS } from '@newrade/core-react-ui/lib/global/global-reset-css';
+import {
+  GlobalCSSVariables,
+  GlobalResetCSS,
+  TreatThemeProvider,
+  viewportContext,
+  ViewportProvider,
+} from '@newrade/core-react-ui';
+import { mdxComponents } from '@newrade/core-react-ui/lib/markdown';
+import { cssTheme, theme } from '@newrade/vsb-design-system';
 import React from 'react';
 import { TreatProvider } from 'react-treat';
-import { cssTheme, theme } from '../design-system/theme';
 import { light } from '../design-system/theme.treat';
 
 export const Providers: React.FC = (props) => {

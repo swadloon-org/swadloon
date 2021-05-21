@@ -1,11 +1,11 @@
 import { globalStyle, style } from 'treat';
-import { Theme } from '../design-system/css-design-system';
+import { Theme } from '../design-system';
 
 export const wrapper = style((theme: Theme) => ({
   display: 'inherit',
 }));
 
-globalStyle(`${wrapper}, html`, ({ theme, cssTheme }: Theme) => {
+globalStyle(`${wrapper}`, ({ theme, cssTheme }: Theme) => {
   const { sizing, layout } = cssTheme;
   return {
     /**

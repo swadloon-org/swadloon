@@ -1,7 +1,7 @@
 import { GatsbyNode } from 'gatsby';
 import path from 'path';
 import { CLIENT_ENV } from 'types/dot-env-client';
-import { loadDotEnv } from '../core-utils/src';
+import { loadDotEnv } from '@newrade/core-utils';
 import packageJson from './package.json';
 import { ENV, Env } from './types/dot-env';
 
@@ -18,7 +18,10 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
    */
 };
 
-export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({ plugins, actions }) => {
+export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
+  plugins,
+  actions,
+}) => {
   const clientEnv: CLIENT_ENV = {
     NODE_ENV: JSON.stringify(env.NODE_ENV),
     NODE_VERSION: JSON.stringify(env.NODE_ENV),

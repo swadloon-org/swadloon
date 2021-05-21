@@ -14,7 +14,11 @@ export const GlobalCSSVariables: React.FC<Props> = (props) => {
   const styles = useStyles(styleRefs);
   const stylesButtons = useStyles(styleRefsButtons);
   const stylesColors = useStyles(styleRefsColors);
-  const classNames = getMergedClassname([styles.wrapper, stylesButtons.wrapper, stylesColors.wrapper]);
+  const classNames = getMergedClassname([
+    styles.wrapper,
+    stylesButtons.wrapper,
+    stylesColors.wrapper,
+  ]);
 
   return <div className={classNames}>{props.children}</div>;
 };

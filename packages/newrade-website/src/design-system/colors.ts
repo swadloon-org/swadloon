@@ -1,6 +1,9 @@
 import { ColorIntents, Colors } from '@newrade/core-design-system';
-import { defaultColors } from '@newrade/core-react-ui/lib/design-system';
-import { getDefaultColorIntents, generateColorPalette5 } from '@newrade/core-react-ui/lib/utilities';
+import { defaultColors } from '@newrade/core-react-ui/lib/default-theme';
+import {
+  getDefaultColorIntents,
+  generateColorPalette5,
+} from '@newrade/core-react-ui/lib/utilities';
 
 export const colorsColors: Colors['colors'] = {
   current: 'currentColor',
@@ -20,21 +23,19 @@ export const colorsColors: Colors['colors'] = {
     '100': { h: 240, s: 82, l: 96 },
   },
   accent1: generateColorPalette5({
-    color: { h: 24, s: 40, l: 74 },
-    light: 94,
-    dark: 28,
+    color: { h: 24, s: 40, l: 50 },
+    light: 90,
+    dark: 15,
   }),
-  // not used
   accent2: generateColorPalette5({
     color: { h: 200, s: 50, l: 50 },
     light: 90,
-    dark: 20,
+    dark: 10,
   }),
-  // not used
   accent3: generateColorPalette5({
     color: { h: 200, s: 50, l: 50 },
-    light: 90,
-    dark: 20,
+    light: 95,
+    dark: 10,
   }),
   grey: {
     baseHue: 210,
