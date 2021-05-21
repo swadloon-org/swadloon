@@ -24,6 +24,9 @@ on:
   pull_request:
   workflow_dispatch:
 
+env:
+  NODE_OPTIONS: '--max-old-space-size=4096'
+
 jobs:
 
   build-test-deploy:

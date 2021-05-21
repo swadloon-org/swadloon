@@ -36,6 +36,13 @@ swapon /swapfile
 echo "/swapfile none swap sw 0 0" | sudo tee -a /etc/fstab
 free -m
 #
+# Increase nodejs ram limit
+#
+echo "export NODE_OPTIONS=--max-old-space-size=4096" >> ~/.profile
+source ~/.profile
+node -e 'console.log(`node heap limit = ${require("v8").getHeapStatistics().heap_size_limit / (1024 * 1024)} Mb`)'
+
+#
 # Create a ci user with password !212yeah
 #
 adduser ci
