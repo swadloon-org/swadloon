@@ -78,7 +78,7 @@ describe('in the navigation test suite', () => {
   });
 
   it('should have the recaptcha error message', async () => {
-    const form = await page.waitFor(`form`, {
+    const form = await page.waitForSelector(`form`, {
       visible: true,
     });
 
@@ -115,12 +115,12 @@ describe('in the navigation test suite', () => {
   });
 
   it('should have a the current status online', async () => {
-    await page.waitForSelector(`div[class*="online-indicator"]`, {
+    await page.waitForSelector(`#e2e-online-indicator`, {
       visible: true,
       timeout: 10000,
     });
 
-    const statusBox = await getElementText({ page, selector: `div[class*="online-indicator"]` });
+    const statusBox = await getElementText({ page, selector: `#e2e-online-indicator` });
 
     expect(statusBox.join(' ')).toMatch(/système : en ligne/gi);
   });

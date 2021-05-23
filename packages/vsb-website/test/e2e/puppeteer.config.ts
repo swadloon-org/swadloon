@@ -1,4 +1,4 @@
-import { ChromeArgOptions, LaunchOptions, BrowserOptions } from 'puppeteer';
+import { BrowserConnectOptions, BrowserLaunchArgumentOptions, LaunchOptions } from 'puppeteer';
 import { loadDotEnv, toBoolean } from '@newrade/core-utils';
 import { ENV, Env } from '../../types/dot-env';
 import path from 'path';
@@ -21,14 +21,14 @@ export const puppeteerConfig: {
   host: string;
   port: string;
   appURL: string;
-  launchOptions: LaunchOptions & ChromeArgOptions & BrowserOptions;
+  launchOptions: LaunchOptions & BrowserLaunchArgumentOptions & BrowserConnectOptions;
 } = {
   protocol: env.TEST_PROTOCOL || 'http',
   host: env.TEST_HOST || 'localhost',
   port: env.TEST_PORT || '9000',
   appURL: `${PROTOCOL}://${HOST}:${PORT}`,
   launchOptions: {
-    executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+    // executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
     headless: toBoolean(env.TEST_CHROME_HEADLESS),
     defaultViewport: {
       width: VIEW_WIDTH,

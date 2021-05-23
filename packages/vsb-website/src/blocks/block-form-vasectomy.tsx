@@ -766,7 +766,10 @@ export const BlockFormVasectomy: React.FC<BlockFormVasectomyProps> = ({
               </Stack>
             ) : null}
 
-            <OnlineIndicator status={apiStatus === 'en ligne' ? 'online' : 'offline'}>
+            <OnlineIndicator
+              status={apiStatus === 'en ligne' ? 'online' : 'offline'}
+              id={'e2e-online-indicator'}
+            >
               système : {apiStatus || 'en chargement...'}
             </OnlineIndicator>
 

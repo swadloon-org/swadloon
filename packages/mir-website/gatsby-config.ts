@@ -30,7 +30,7 @@ const config: core.GastbySiteConfig = {
   },
   siteMetadata: {
     title: `MIR Website`,
-    description: `MIR website`,
+    description: `MIR Website`,
     siteUrl: env.APP_URL,
     siteEnv: env.APP_ENV,
     languages: {

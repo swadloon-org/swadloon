@@ -25,13 +25,40 @@ on:
   workflow_dispatch:
 
 env:
+  #
+  # Debugging
+  #
+  DEBUG: 'newrade:*'
+  #
+  # Node
+  #
   NODE_OPTIONS: '--max-old-space-size=4096'
+  NODE_ENV: ${{ secrets.NODE_ENV }}
+  #
+  # NVM
+  #
+  NVM_NODE_VERSION: ${{ secrets.NVM_NODE_VERSION }}
+  #
+  # Repo
+  #
+  MASTER_GIT_HOST: ${{ secrets.MASTER_GIT_HOST }}
+  MASTER_REPO_ORG: ${{ secrets.MASTER_REPO_ORG }}
+  MASTER_REPO_NAME: ${{ secrets.MASTER_REPO_NAME }}
+  PROJECT_GIT_HOST: ${{ secrets.PROJECT_GIT_HOST }}
+  PROJECT_REPO_ORG: ${{ secrets.PROJECT_REPO_ORG }}
+  PROJECT_REPO_NAME: ${{ secrets.PROJECT_REPO_NAME }}
+  #
+  # App
+  #
+  APP_PORT: 9003
+  APP_URL: http://localhost:9003
+  # APP_ENV: set by set-app-env action
 
 jobs:
-
   build-test-deploy:
-
-    # runs-on: ubuntu-latest
+    #
+    # To enable github's runner : ubuntu-latest
+    #
     runs-on: self-hosted
 
     strategy:
@@ -39,6 +66,22 @@ jobs:
         node-version: [14.x]
 
     steps:
+    - name: Inject Github slug/short variables
+      uses: rlespinasse/github-slug-action@v3.x
+
+    - name: Print slug/short variables
+      run: |
+        echo "Slug variables"
+        echo " - ${{ env.GITHUB_REF_SLUG }}"
+        echo " - ${{ env.GITHUB_HEAD_REF_SLUG }}"
+        echo " - ${{ env.GITHUB_BASE_REF_SLUG }}"
+        echo " - ${{ env.GITHUB_REPOSITORY_SLUG }}"
+
+        echo "Slug URL variables"
+        echo " - ${{ env.GITHUB_REF_SLUG_URL }}"
+        echo " - ${{ env.GITHUB_HEAD_REF_SLUG_URL }}"
+        echo " - ${{ env.GITHUB_BASE_REF_SLUG_URL }}"
+        echo " - ${{ env.GITHUB_REPOSITORY_SLUG_URL }}"
 
     - name: Checkout
       uses: actions/checkout@v2
@@ -61,7 +104,7 @@ jobs:
       run: npm install --global yarn && yarn --version
 
     - name: Check NodeJS Options
-      run: echo $NODE_OPTIONS && node -e 'console.log(`node heap limit = ${require("v8").getHeapStatistics().heap_size_limit / (1024 * 1024)} Mb`)'
+      run: echo ${{ env.NODE_OPTIONS }} && node -e 'console.log(`node heap limit = ${require("v8").getHeapStatistics().heap_size_limit / (1024 * 1024)} Mb`)'
 
     - name: Set the env variable depending on the branch
       uses: ./packages/core-github-actions/lib/set-app-env
@@ -86,36 +129,26 @@ jobs:
     - name: Build vsb-design-system
       run: yarn build --scope @newrade/vsb-design-system
 
-    # todo handle gatsby cache clearing github.event_name == 'workflow_dispatch'
-
     - name: Build vsb-website
       run: yarn build --scope @newrade/vsb-website
       env:
-        NODE_ENV: ${{ secrets.NODE_ENV }}
-        NVM_NODE_VERSION: ${{ secrets.NVM_NODE_VERSION }}
-        MASTER_GIT_HOST: ${{ secrets.MASTER_GIT_HOST }}
-        MASTER_REPO_ORG: ${{ secrets.MASTER_REPO_ORG }}
-        MASTER_REPO_NAME: ${{ secrets.MASTER_REPO_NAME }}
-        PROJECT_GIT_HOST: ${{ secrets.PROJECT_GIT_HOST }}
-        PROJECT_REPO_ORG: ${{ secrets.PROJECT_REPO_ORG }}
-        PROJECT_REPO_NAME: ${{ secrets.PROJECT_REPO_NAME }}
+        APP_URL: 'https://vasectomie-pierre-boucher.ca'
 
-        DEBUG: 'newrade:*'
-        APP_URL: 'http://local.vasectomie-pierre-boucher.ca'
-
-        CONTENTFUL_ENV: ${{ secrets.CONTENTFUL_ENV }}
-        CONTENTFUL_SPACEID_VSB: ${{ secrets.CONTENTFUL_SPACEID_VSB }}
-        CONTENTFUL_DELIVERY_TOKEN_VSB: ${{ secrets.CONTENTFUL_DELIVERY_TOKEN_VSB }}
-        CANADA_POST_API_KEY_VSB: ${{ secrets.CANADA_POST_API_KEY_VSB }}
-        GOOGLE_MAP_API_KEY: ${{ secrets.GOOGLE_MAP_API_KEY }}
-        RECAPTCHA_SITE_KEY_VSB: ${{ secrets.RECAPTCHA_SITE_KEY_VSB }}
+    - name: Run E2E Test
+      run: yarn test:e2e
+      env:
+        TEST_PROTOCOL: https
+        TEST_HOST: localhost
+        TEST_PORT: 9003
+        TEST_IGNORE_SSL_ERROR: true
+        TEST_CHROME_HEADLESS: true
 
     - name: Check for protected branches
       if: endsWith(github.ref, 'api')
       run: echo "branch cannot end with 'api'" && exit 1
 
     - name: Deploy website (branch)
-      if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && (github.ref == 'refs/heads/dev' || github.ref == 'refs/heads/master')
+      if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && (${{ env.GITHUB_REF_SLUG_URL }} == 'dev' || ${{ env.GITHUB_REF_SLUG_URL }} == 'master')
       uses: amondnet/vercel-action@v20
       with:
         scope: ${{ secrets.VERCEL_SCOPE }}
@@ -126,7 +159,7 @@ jobs:
         vercel-project-id: prj_BSiEPXFueCLXvdowJXU7WikN1T1M
         working-directory: ./packages/vsb-website
         alias-domains: |
-          {{ BRANCH }}.vasectomie-pierre-boucher.ca
+          ${{ env.GITHUB_REF_SLUG_URL }}.vasectomie-pierre-boucher.ca
 
     - name: Deploy website (PR)
       if: github.event_name == 'pull_request'
@@ -140,7 +173,7 @@ jobs:
         vercel-project-id: prj_BSiEPXFueCLXvdowJXU7WikN1T1M
         working-directory: ./packages/vsb-website
         alias-domains: |
-          pr-{{ PR_NUMBER }}.vasectomie-pierre-boucher.ca
+          pr-${{ github.event.number }}.vasectomie-pierre-boucher.ca
 
     - name: Deploy website (prod)
       if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/release'
