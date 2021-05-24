@@ -3,7 +3,7 @@ import { TEST_ENV } from '@newrade/core-common';
 import { ENV } from '../../types/dot-env';
 
 /**
- * Export an env variable using @actions/core's utility or process.env for tests
+ * Export an env variable using @actions/core's utility (env as any) for tests
  *
  * @param name name of the variable e.g. MY_VAR
  * @param value value that will be converted to a string and assigned
@@ -24,11 +24,12 @@ export function exportVariable(env?: Partial<ENV>, name?: string, value?: string
   if (env.TEST_ENV === TEST_ENV.CI || env.TEST_ENV === TEST_ENV.LOCAL) {
     // for test purpose we simply assign
     if (typeof value === 'undefined' || value === null) {
-      process.env[name] = '';
+      (env as any)[name] = '';
       return;
     }
 
-    process.env[name] = value.toString();
+    (env as any)[name] = value.toString();
+    return;
   }
 
   // not a test so we execute the assignment with the real utility

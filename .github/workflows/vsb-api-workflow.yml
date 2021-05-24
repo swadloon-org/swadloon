@@ -72,6 +72,8 @@ jobs:
         node-version: [14.x]
 
     steps:
+    - name: Inject Github slug/short variables
+      uses: rlespinasse/github-slug-action@v3.x
 
     - name: Checkout
       uses: actions/checkout@v2
@@ -100,7 +102,7 @@ jobs:
       uses: ./packages/core-github-actions/built/set-app-env
 
     - name: Install dependencies and build core packages
-      run: yarn --prefer-offline
+      run: yarn --prefer-offline --frozen-lockfile
 
     - name: Clear Output Files
       run: yarn clean --scope @newrade/vsb-api
@@ -115,12 +117,11 @@ jobs:
       run: yarn test --scope @newrade/vsb-*
       env:
         NODE_ENV: test
-        APP_URL: 'http://local.vasectomie-pierre-boucher.ca/api/register'
 
     - name: Build vsb-api
       run: yarn build --scope @newrade/vsb-api
 
-    - name: Deploy api (PR)
+    - name: Deploy api
       if: ${{ env.APP_CI_DEPLOY }}
       uses: amondnet/vercel-action@v20
       with:

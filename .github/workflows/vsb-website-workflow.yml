@@ -95,12 +95,12 @@ jobs:
       uses: ./packages/core-github-actions/built/set-app-env
 
     - name: Update vercel.json rewrites
-      uses: ./packages/core-github-actions/lib/vercel-rewrites
+      uses: ./packages/core-github-actions/built/vercel-rewrites
       with:
         working-directory: ./packages/vsb-website
 
     - name: Install dependencies and build core packages
-      run: yarn --prefer-offline
+      run: yarn --prefer-offline --frozen-lockfile
 
     - name: Clean
       run: yarn clean --scope @newrade/vsb-website
@@ -117,7 +117,13 @@ jobs:
     - name: Build vsb-website
       run: yarn build --scope @newrade/vsb-website
       env:
-        APP_URL: 'https://vasectomie-pierre-boucher.ca'
+        CONTENTFUL_ENV: ${{ secrets.CONTENTFUL_ENV }}
+        CONTENTFUL_SPACEID_VSB: ${{ secrets.CONTENTFUL_SPACEID_VSB }}
+        CONTENTFUL_DELIVERY_TOKEN_VSB: ${{ secrets.CONTENTFUL_DELIVERY_TOKEN_VSB }}
+
+        CANADA_POST_API_KEY_VSB: ${{ secrets.CANADA_POST_API_KEY_VSB }}
+        GOOGLE_MAP_API_KEY: ${{ secrets.GOOGLE_MAP_API_KEY }}
+        RECAPTCHA_SITE_KEY_VSB: ${{ secrets.RECAPTCHA_SITE_KEY_VSB }}
 
     - name: Deploy website (branch)
       if: ${{ env.APP_CI_DEPLOY }}

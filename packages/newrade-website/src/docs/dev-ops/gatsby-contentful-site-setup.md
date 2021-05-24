@@ -80,7 +80,10 @@ Content Delivery Token and the Management Token :
 # App
 #
 APP_ENV=local
-APP_URL=https://local.<DOMAIN>.<EXT>
+APP_DOMAIN=domain.com
+APP_PROTOCOL=http
+APP_HOST=localhost
+APP_PORT=9003
 #
 # Figma
 #
@@ -129,8 +132,11 @@ For each environment/branch:
    Variables" and insert:
 
 ```
-APP_ENV=dev
-APP_URL=https://dev.<domain>.<ext>
+APP_ENV=local
+APP_DOMAIN=domain.com
+APP_PROTOCOL=http
+APP_HOST=localhost
+APP_PORT=9003
 CONTENTFUL_SPACEID_<NAME>=1234
 CONTENTFUL_DELIVERY_TOKEN_<NAME>=1234
 ```

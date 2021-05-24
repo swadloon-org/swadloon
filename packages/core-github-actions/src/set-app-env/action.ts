@@ -81,6 +81,7 @@ export function runAction(env?: ActionEnv, githubContext?: Context) {
 
     if (githubContext.eventName === 'push' || githubContext.eventName == 'workflow_dispatch') {
       console.info(`Branches without a PR won't be deployed`);
+      exportVariable(env, 'APP_ENV', DEPLOY_ENV.DEV);
       exportVariable(env, 'APP_CI_DEPLOY', 'false');
       exportVariable(env, 'APP_BRANCH_SUBDOMAIN', '');
 
@@ -116,7 +117,7 @@ export function runAction(env?: ActionEnv, githubContext?: Context) {
       exportVariable(env, 'APP_BRANCH_SUBDOMAIN');
       exportVariable(env, 'APP_CI_DEPLOY', 'true');
 
-      switch (env.GITHUB_HEAD_REF_SLUG) {
+      switch (env.GITHUB_BASE_REF_SLUG) {
         case 'dev': {
           exportVariable(env, 'APP_ENV', DEPLOY_ENV.DEV);
           exportVariable(env, 'APP_BRANCH_SUBDOMAIN', `pr-${githubContext.runNumber}.dev`);
@@ -142,6 +143,10 @@ export function runAction(env?: ActionEnv, githubContext?: Context) {
       'APP_HOST',
       `${join([env.APP_BRANCH_SUBDOMAIN, env.APP_SUBDOMAIN, env.APP_DOMAIN])}`
     );
+
+    if (!env.APP_HOST) {
+      throw Error(`APP_HOST cannot be undefined, did you set APP_DOMAIN?`);
+    }
 
     console.debug(`Output env variables:`);
     console.debug(`APP_ENV: ${env.APP_ENV}`);

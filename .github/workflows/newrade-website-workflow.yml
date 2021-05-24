@@ -22,7 +22,33 @@ on:
   pull_request:
 
 env:
+  #
+  # Debugging
+  #
+  DEBUG: 'newrade:*'
+  #
+  # Node
+  #
   NODE_OPTIONS: '--max-old-space-size=4096'
+  NODE_ENV: ${{ secrets.NODE_ENV }}
+  #
+  # NVM
+  #
+  NVM_NODE_VERSION: ${{ secrets.NVM_NODE_VERSION }}
+  #
+  # Repo
+  #
+  MASTER_GIT_HOST: ${{ secrets.MASTER_GIT_HOST }}
+  MASTER_REPO_ORG: ${{ secrets.MASTER_REPO_ORG }}
+  MASTER_REPO_NAME: ${{ secrets.MASTER_REPO_NAME }}
+  PROJECT_GIT_HOST: ${{ secrets.PROJECT_GIT_HOST }}
+  PROJECT_REPO_ORG: ${{ secrets.PROJECT_REPO_ORG }}
+  PROJECT_REPO_NAME: ${{ secrets.PROJECT_REPO_NAME }}
+  #
+  # App
+  #
+  APP_DOMAIN: newrade.ca
+  APP_SUBDOMAIN: ''
 
 jobs:
 
@@ -35,6 +61,8 @@ jobs:
         node-version: [14.x]
 
     steps:
+    - name: Inject Github slug/short variables
+      uses: rlespinasse/github-slug-action@v3.x
 
     - name: Checkout
       uses: actions/checkout@v2
@@ -63,7 +91,7 @@ jobs:
       uses: ./packages/core-github-actions/built/set-app-env
 
     - name: Install dependencies and build core packages
-      run: yarn --prefer-offline
+      run: yarn --prefer-offline --frozen-lockfile
 
     - name: Clean
       run: yarn clean --scope @newrade/newrade-website
@@ -77,23 +105,12 @@ jobs:
     - name: Build website
       run: yarn build --scope @newrade/newrade-* --ignore @newrade/newrade-app
       env:
-        NVM_NODE_VERSION: ${{ secrets.NVM_NODE_VERSION }}
-        MASTER_GIT_HOST: ${{ secrets.MASTER_GIT_HOST }}
-        MASTER_REPO_ORG: ${{ secrets.MASTER_REPO_ORG }}
-        MASTER_REPO_NAME: ${{ secrets.MASTER_REPO_NAME }}
-        PROJECT_GIT_HOST: ${{ secrets.PROJECT_GIT_HOST }}
-        PROJECT_REPO_ORG: ${{ secrets.PROJECT_REPO_ORG }}
-        PROJECT_REPO_NAME: ${{ secrets.PROJECT_REPO_NAME }}
-
-        DEBUG: 'newrade:*'
-        APP_URL: 'http://local.newrade.ca'
-
         CONTENTFUL_ENV: ${{ secrets.CONTENTFUL_ENV }}
         CONTENTFUL_SPACEID_NEWRADE: ${{ secrets.CONTENTFUL_SPACEID_NEWRADE }}
         CONTENTFUL_DELIVERY_TOKEN_NEWRADE: ${{ secrets.CONTENTFUL_DELIVERY_TOKEN_NEWRADE }}
 
-    - name: Deploy website (branch)
-      if: github.event_name == 'push' && github.ref != 'refs/heads/release'
+    - name: Deploy website
+      if: ${{ env.APP_CI_DEPLOY }}
       uses: amondnet/vercel-action@v20
       with:
         scope: ${{ secrets.VERCEL_SCOPE }}
@@ -104,33 +121,6 @@ jobs:
         vercel-project-id: prj_AQ9KLoYgQC9WgT21Z0ZExXu9zjOA
         working-directory: ./packages/newrade-website
         alias-domains: |
-          {{ BRANCH }}.newrade.ca
+          ${{ env.APP_HOST }}
 
-    - name: Deploy website (PR)
-      if: github.event_name == 'pull_request'
-      uses: amondnet/vercel-action@v20
-      with:
-        scope: ${{ secrets.VERCEL_SCOPE }}
-        vercel-token: ${{ secrets.VERCEL_TOKEN }}
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        vercel-args: 'public'
-        vercel-org-id: ${{ secrets.VERCEL_ORG_ID}}
-        vercel-project-id: prj_AQ9KLoYgQC9WgT21Z0ZExXu9zjOA
-        working-directory: ./packages/newrade-website
-        alias-domains: |
-          pr-{{ PR_NUMBER }}.newrade.ca
-
-    - name: Deploy website (prod)
-      if: github.event_name == 'push' && github.ref == 'refs/heads/release'
-      uses: amondnet/vercel-action@v20
-      with:
-        scope: ${{ secrets.VERCEL_SCOPE }}
-        vercel-token: ${{ secrets.VERCEL_TOKEN }}
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        vercel-args: 'public --prod'
-        vercel-org-id: ${{ secrets.VERCEL_ORG_ID}}
-        vercel-project-id: prj_AQ9KLoYgQC9WgT21Z0ZExXu9zjOA
-        working-directory: ./packages/newrade-website
-        alias-domains: |
-          newrade.ca
 

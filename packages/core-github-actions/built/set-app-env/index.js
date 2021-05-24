@@ -16638,6 +16638,7 @@ function runAction(env, githubContext) {
 
     if (githubContext.eventName === 'push' || githubContext.eventName == 'workflow_dispatch') {
       console.info(`Branches without a PR won't be deployed`);
+      utilities_1.exportVariable(env, 'APP_ENV', core_common_1.DEPLOY_ENV.DEV);
       utilities_1.exportVariable(env, 'APP_CI_DEPLOY', 'false');
       utilities_1.exportVariable(env, 'APP_BRANCH_SUBDOMAIN', '');
 
@@ -16678,7 +16679,7 @@ function runAction(env, githubContext) {
       utilities_1.exportVariable(env, 'APP_BRANCH_SUBDOMAIN');
       utilities_1.exportVariable(env, 'APP_CI_DEPLOY', 'true');
 
-      switch (env.GITHUB_HEAD_REF_SLUG) {
+      switch (env.GITHUB_BASE_REF_SLUG) {
         case 'dev':
           {
             utilities_1.exportVariable(env, 'APP_ENV', core_common_1.DEPLOY_ENV.DEV);
@@ -16706,6 +16707,11 @@ function runAction(env, githubContext) {
     }
 
     utilities_1.exportVariable(env, 'APP_HOST', `${utilities_1.join([env.APP_BRANCH_SUBDOMAIN, env.APP_SUBDOMAIN, env.APP_DOMAIN])}`);
+
+    if (!env.APP_HOST) {
+      throw Error(`APP_HOST cannot be undefined, did you set APP_DOMAIN?`);
+    }
+
     console.debug(`Output env variables:`);
     console.debug(`APP_ENV: ${env.APP_ENV}`);
     console.debug(`APP_DOMAIN: ${env.APP_DOMAIN}`);
@@ -16769,7 +16775,7 @@ const core = __importStar(__webpack_require__(10));
 
 const core_common_1 = __webpack_require__(11);
 /**
- * Export an env variable using @actions/core's utility or process.env for tests
+ * Export an env variable using @actions/core's utility (env as any) for tests
  *
  * @param name name of the variable e.g. MY_VAR
  * @param value value that will be converted to a string and assigned
@@ -16792,11 +16798,12 @@ function exportVariable(env, name, value) {
   if (env.TEST_ENV === core_common_1.TEST_ENV.CI || env.TEST_ENV === core_common_1.TEST_ENV.LOCAL) {
     // for test purpose we simply assign
     if (typeof value === 'undefined' || value === null) {
-      process.env[name] = '';
+      env[name] = '';
       return;
     }
 
-    process.env[name] = value.toString();
+    env[name] = value.toString();
+    return;
   } // not a test so we execute the assignment with the real utility
 
 
