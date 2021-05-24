@@ -17418,8 +17418,17 @@ function runAction(env, githubContext) {
 
         core.info(`target branch is: ${githubContext.head_ref}`);
         core.debug(`updating config file and returning both the object and the updated file for verification`);
-        const updatedConfigObject = Object.assign(Object.assign({}, vercelProdConfig), vercelCiConfig);
-        (_a = updatedConfigObject.rewrites) === null || _a === void 0 ? void 0 : _a.map(rewriteRule => rewriteRule.destination.replace('{{ APP_BRANCH_SUBDOMAIN }}', APP_BRANCH_SUBDOMAIN));
+        const updatedConfigObject = Object.assign(Object.assign({}, vercelProdConfig), Object.assign(Object.assign({}, vercelCiConfig), {
+          rewrites: (_a = vercelCiConfig.rewrites) === null || _a === void 0 ? void 0 : _a.map(rewriteRule => {
+            const currentDestination = rewriteRule.destination;
+            const newDestination = rewriteRule.destination.replace('{{ APP_BRANCH_SUBDOMAIN }}', APP_BRANCH_SUBDOMAIN);
+            core.info(`replacing '${currentDestination}' with: '${newDestination}'`);
+            return {
+              source: rewriteRule.source,
+              destination: newDestination
+            };
+          })
+        }));
         return utilities_1.updateVercelConfigFile(vercelConfigPath, updatedConfigObject).then(updatedConfigFile => {
           return {
             updatedConfig: updatedConfigObject,

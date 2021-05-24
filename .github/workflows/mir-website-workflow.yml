@@ -94,7 +94,7 @@ jobs:
     - name: Run unit tests
       run: yarn test --scope @newrade/mir-*
 
-    - name: Build website
+    - name: Build
       run: yarn build --scope @newrade/mir-*
       env:
         CONTENTFUL_ENV: ${{ secrets.CONTENTFUL_ENV }}

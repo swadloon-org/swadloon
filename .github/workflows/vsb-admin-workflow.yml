@@ -102,10 +102,10 @@ jobs:
 
     # todo handle gatsby cache clearing github.event_name == 'workflow_dispatch'
 
-    - name: Build vsb-admin
+    - name: Build
       run: yarn build --scope @newrade/vsb-admin
 
-    - name: Deploy admin (branch)
+    - name: Deploy
       if: ${{ env.APP_CI_DEPLOY }}
       uses: amondnet/vercel-action@v20
       with:

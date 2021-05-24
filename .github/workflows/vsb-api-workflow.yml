@@ -110,10 +110,10 @@ jobs:
       env:
         NODE_ENV: test
 
-    - name: Build vsb-api
+    - name: Build
       run: yarn build --scope @newrade/vsb-api
 
-    - name: Deploy api
+    - name: Deploy
       if: ${{ env.APP_CI_DEPLOY }}
       uses: amondnet/vercel-action@v20
       with:

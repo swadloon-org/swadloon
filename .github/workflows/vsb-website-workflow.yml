@@ -106,7 +106,7 @@ jobs:
     - name: Build vsb-design-system
       run: yarn build --scope @newrade/vsb-design-system
 
-    - name: Build vsb-website
+    - name: Build
       run: yarn build --scope @newrade/vsb-website
       env:
         CONTENTFUL_ENV: ${{ secrets.CONTENTFUL_ENV }}
@@ -117,7 +117,7 @@ jobs:
         GOOGLE_MAP_API_KEY: ${{ secrets.GOOGLE_MAP_API_KEY }}
         RECAPTCHA_SITE_KEY_VSB: ${{ secrets.RECAPTCHA_SITE_KEY_VSB }}
 
-    - name: Deploy website (branch)
+    - name: Deploy
       if: ${{ env.APP_CI_DEPLOY }}
       uses: amondnet/vercel-action@v20
       with:

@@ -70,11 +70,24 @@ export function runAction(env?: ActionEnv, githubContext?: Context) {
             `updating config file and returning both the object and the updated file for verification`
           );
 
-          const updatedConfigObject = { ...vercelProdConfig, ...vercelCiConfig };
-
-          updatedConfigObject.rewrites?.map((rewriteRule) =>
-            rewriteRule.destination.replace('{{ APP_BRANCH_SUBDOMAIN }}', APP_BRANCH_SUBDOMAIN)
-          );
+          const updatedConfigObject: VercelConfig = {
+            ...vercelProdConfig,
+            ...{
+              ...vercelCiConfig,
+              rewrites: vercelCiConfig.rewrites?.map((rewriteRule) => {
+                const currentDestination = rewriteRule.destination;
+                const newDestination = rewriteRule.destination.replace(
+                  '{{ APP_BRANCH_SUBDOMAIN }}',
+                  APP_BRANCH_SUBDOMAIN
+                );
+                core.info(`replacing '${currentDestination}' with: '${newDestination}'`);
+                return {
+                  source: rewriteRule.source,
+                  destination: newDestination,
+                };
+              }),
+            },
+          };
 
           return updateVercelConfigFile(vercelConfigPath, updatedConfigObject).then(
             (updatedConfigFile) => {

@@ -100,14 +100,14 @@ jobs:
     - name: Run unit tests
       run: yarn test --scope @newrade/newrade-*
 
-    - name: Build website
+    - name: Build
       run: yarn build --scope @newrade/newrade-* --ignore @newrade/newrade-app
       env:
         CONTENTFUL_ENV: ${{ secrets.CONTENTFUL_ENV }}
         CONTENTFUL_SPACEID_NEWRADE: ${{ secrets.CONTENTFUL_SPACEID_NEWRADE }}
         CONTENTFUL_DELIVERY_TOKEN_NEWRADE: ${{ secrets.CONTENTFUL_DELIVERY_TOKEN_NEWRADE }}
 
-    - name: Deploy website
+    - name: Deploy
       if: ${{ env.APP_CI_DEPLOY }}
       uses: amondnet/vercel-action@v20
       with:
