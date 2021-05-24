@@ -24,7 +24,7 @@
     "serve:ci:stop": "forever stopall",
     "start": ". ./.env && DEBUG=$DEBUG gatsby develop -p $APP_PORT -H 0.0.0.0",
     "test": "echo ok",
-    "test:e2e": ". ./.env && DEBUG=$DEBUG jest --config jest-e2e.config.js",
+    "test:e2e": "jest --config jest-e2e.config.js",
     "typecheck": "yarn typecheck:build --watch --preserveWatchOutput",
     "typecheck:build": "tsc --project tsconfig.build.json --noEmit",
     "vercel-deploy": ". ./.env && VERCEL_PROJECT_ID=$VERCEL_PROJECT_ID VERCEL_ORG_ID=$VERCEL_ORG_ID yarn vercel public --token $VERCEL_TOKEN --scope $VERCEL_SCOPE --confirm"
@@ -37,7 +37,7 @@
     "@newrade/core-react-ui": "^1.13.0",
     "@newrade/vsb-api": "^1.4.0",
     "@newrade/vsb-common": "^1.4.0",
-    "gatsby": "^2.32.4",
+    "gatsby": "^2.32.13",
     "react-final-table": "^1.5.1"
   },
   "devDependencies": {

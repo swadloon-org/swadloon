@@ -33,7 +33,6 @@ env:
   # Node
   #
   NODE_OPTIONS: '--max-old-space-size=4096'
-  NODE_ENV: ${{ secrets.NODE_ENV }}
   #
   # NVM
   #
@@ -141,7 +140,7 @@ jobs:
 
     - name: Run E2E Test
       if: ${{ env.APP_CI_DEPLOY }}
-      run: yarn test:e2e
+      run: yarn test:e2e --scope @newrade/vsb-website
       env:
         TEST_HOST: ${{ env.APP_HOST }}
 

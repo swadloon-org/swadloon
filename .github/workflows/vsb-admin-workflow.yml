@@ -33,7 +33,6 @@ env:
   # Node
   #
   NODE_OPTIONS: '--max-old-space-size=4096'
-  NODE_ENV: ${{ secrets.NODE_ENV }}
   #
   # NVM
   #

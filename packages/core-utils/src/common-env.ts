@@ -37,10 +37,6 @@ const TestEnv = t.keyof({
 export const CommonEnv = t.intersection([
   t.type({
     /**
-     * The NodeJS environment
-     */
-    NODE_ENV: NodeEnv,
-    /**
      * The NodeJS version installed by `nvm`
      */
     NVM_NODE_VERSION: t.string,
@@ -102,6 +98,10 @@ export const CommonEnv = t.intersection([
     APP_PORT: t.string,
   }),
   t.partial({
+    /**
+     * The NodeJS environment
+     */
+    NODE_ENV: NodeEnv,
     /**
      * Subdomain for the app, api, or website
      * @example "" in "website.com"

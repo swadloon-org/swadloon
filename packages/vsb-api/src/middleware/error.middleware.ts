@@ -15,17 +15,14 @@ const logError = log.extend('error');
  * Catch all error handler
  * @see https://expressjs.com/en/guide/error-handling.html
  */
-export const errorMiddleware: ErrorRequestHandler<
-  any,
-  APIResponseBody<any>,
-  APIRequestBody<any>
-> = function authErrorMiddleware(error: Error, req: Request, res: Response, next: NextFunction) {
-  logError(`unhandled error`);
-  res.status(500).send({
-    api: 'vsb-api',
-    status: API_RESPONSE_STATUS.ERROR,
-    message: `Une erreur est survenu, notre équipe a été averti`,
-    errors: [{ name: ERROR_TYPE.UNHANDLED_ERROR, message: error.message || '' }],
-    payload: {},
-  });
-};
+export const errorMiddleware: ErrorRequestHandler<any, APIResponseBody<any>, APIRequestBody<any>> =
+  function authErrorMiddleware(error: Error, req: Request, res: Response, next: NextFunction) {
+    logError(`unhandled error`);
+    res.status(500).send({
+      api: 'vsb-api',
+      status: API_RESPONSE_STATUS.ERROR,
+      message: `Une erreur est survenu, notre équipe a été averti`,
+      errors: [{ name: ERROR_TYPE.UNHANDLED_ERROR, message: error.message || '' }],
+      payload: {},
+    });
+  };
