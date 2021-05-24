@@ -69,15 +69,8 @@ jobs:
 
     - name: Checkout
       uses: actions/checkout@v2
-      if: github.event_name != 'pull_request'
       with:
         clean: false
-
-    - name: Checkout (clean)
-      uses: actions/checkout@v2
-      if: github.event_name == 'pull_request'
-      with:
-        clean: true
 
     - name: Set up Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
