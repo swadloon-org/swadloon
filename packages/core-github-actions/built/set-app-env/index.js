@@ -282,7 +282,7 @@ exports.getIndex = exports.getTags = exports.emptyTags = exports.alias = exports
 /**
  * @since 1.0.0
  */
-var Either_1 = __webpack_require__(74);
+var Either_1 = __webpack_require__(73);
 /**
  * @category Model
  * @since 1.0.0
@@ -2184,16 +2184,16 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-__exportStar(__webpack_require__(83), exports);
-__exportStar(__webpack_require__(84), exports);
-__exportStar(__webpack_require__(85), exports);
-__exportStar(__webpack_require__(86), exports);
-__exportStar(__webpack_require__(87), exports);
-__exportStar(__webpack_require__(73), exports);
 __exportStar(__webpack_require__(88), exports);
 __exportStar(__webpack_require__(89), exports);
 __exportStar(__webpack_require__(90), exports);
 __exportStar(__webpack_require__(91), exports);
+__exportStar(__webpack_require__(92), exports);
+__exportStar(__webpack_require__(74), exports);
+__exportStar(__webpack_require__(93), exports);
+__exportStar(__webpack_require__(94), exports);
+__exportStar(__webpack_require__(95), exports);
+__exportStar(__webpack_require__(96), exports);
 //# sourceMappingURL=index.js.map
 
 /***/ }),
@@ -10882,9 +10882,9 @@ exports.paginateRest = paginateRest;
  */
 
 if (typeof process === 'undefined' || process.type === 'renderer' || process.browser === true || process.__nwjs) {
-	module.exports = __webpack_require__(109);
+	module.exports = __webpack_require__(108);
 } else {
-	module.exports = __webpack_require__(111);
+	module.exports = __webpack_require__(110);
 }
 
 
@@ -10895,47 +10895,10 @@ if (typeof process === 'undefined' || process.type === 'renderer' || process.bro
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.FORM_INPUT_TYPE = void 0;
-var FORM_INPUT_TYPE;
-(function (FORM_INPUT_TYPE) {
-    FORM_INPUT_TYPE["BUTTON"] = "button";
-    FORM_INPUT_TYPE["CHECKBOX"] = "checkbox";
-    FORM_INPUT_TYPE["COLOR"] = "color";
-    FORM_INPUT_TYPE["DATE"] = "date";
-    FORM_INPUT_TYPE["DATETIME_LOCAL"] = "datetime-local";
-    FORM_INPUT_TYPE["EMAIL"] = "email";
-    FORM_INPUT_TYPE["FILE"] = "file";
-    FORM_INPUT_TYPE["HIDDEN"] = "hidden";
-    FORM_INPUT_TYPE["IMAGE"] = "image";
-    FORM_INPUT_TYPE["MONTH"] = "month";
-    FORM_INPUT_TYPE["NUMBER"] = "number";
-    FORM_INPUT_TYPE["PASSWORD"] = "password";
-    FORM_INPUT_TYPE["RADIO"] = "radio";
-    FORM_INPUT_TYPE["RANGE"] = "range";
-    FORM_INPUT_TYPE["RESET"] = "reset";
-    FORM_INPUT_TYPE["SEARCH"] = "search";
-    FORM_INPUT_TYPE["SUBMIT"] = "submit";
-    FORM_INPUT_TYPE["TEL"] = "tel";
-    FORM_INPUT_TYPE["TEXT"] = "text";
-    FORM_INPUT_TYPE["TEXT_MULTILINE"] = "text_multiline";
-    FORM_INPUT_TYPE["TEXT_LONG"] = "text_long";
-    FORM_INPUT_TYPE["TIME"] = "time";
-    FORM_INPUT_TYPE["URL"] = "url";
-    FORM_INPUT_TYPE["WEEK"] = "week";
-})(FORM_INPUT_TYPE = exports.FORM_INPUT_TYPE || (exports.FORM_INPUT_TYPE = {}));
-//# sourceMappingURL=form-types.js.map
-
-/***/ }),
-/* 74 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
 exports.getWitherable = exports.getFilterable = exports.getApplyMonoid = exports.getApplySemigroup = exports.getSemigroup = exports.getEq = exports.getShow = exports.URI = exports.throwError = exports.sequence = exports.traverse = exports.reduceRight = exports.foldMap = exports.reduce = exports.duplicate = exports.extend = exports.alt = exports.altW = exports.flatten = exports.chainFirst = exports.chainFirstW = exports.chain = exports.chainW = exports.of = exports.apSecond = exports.apFirst = exports.ap = exports.apW = exports.mapLeft = exports.bimap = exports.map = exports.filterOrElse = exports.filterOrElseW = exports.orElse = exports.swap = exports.chainNullableK = exports.fromNullableK = exports.getOrElse = exports.getOrElseW = exports.fold = exports.fromPredicate = exports.fromOption = exports.stringifyJSON = exports.parseJSON = exports.tryCatch = exports.fromNullable = exports.right = exports.left = exports.isRight = exports.isLeft = void 0;
 exports.sequenceArray = exports.traverseArray = exports.traverseArrayWithIndex = exports.apS = exports.apSW = exports.bind = exports.bindW = exports.bindTo = exports.Do = exports.exists = exports.elem = exports.toError = exports.either = exports.getValidationMonoid = exports.MonadThrow = exports.ChainRec = exports.Extend = exports.Alt = exports.Bifunctor = exports.Traversable = exports.Foldable = exports.Monad = exports.Applicative = exports.Functor = exports.getValidationSemigroup = exports.getValidation = exports.getAltValidation = exports.getApplicativeValidation = void 0;
-var ChainRec_1 = __webpack_require__(95);
-var function_1 = __webpack_require__(96);
+var ChainRec_1 = __webpack_require__(85);
+var function_1 = __webpack_require__(86);
 // -------------------------------------------------------------------------------------
 // guards
 // -------------------------------------------------------------------------------------
@@ -12204,17 +12167,54 @@ exports.sequenceArray = exports.traverseArray(function_1.identity);
 
 
 /***/ }),
+/* 74 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.FORM_INPUT_TYPE = void 0;
+var FORM_INPUT_TYPE;
+(function (FORM_INPUT_TYPE) {
+    FORM_INPUT_TYPE["BUTTON"] = "button";
+    FORM_INPUT_TYPE["CHECKBOX"] = "checkbox";
+    FORM_INPUT_TYPE["COLOR"] = "color";
+    FORM_INPUT_TYPE["DATE"] = "date";
+    FORM_INPUT_TYPE["DATETIME_LOCAL"] = "datetime-local";
+    FORM_INPUT_TYPE["EMAIL"] = "email";
+    FORM_INPUT_TYPE["FILE"] = "file";
+    FORM_INPUT_TYPE["HIDDEN"] = "hidden";
+    FORM_INPUT_TYPE["IMAGE"] = "image";
+    FORM_INPUT_TYPE["MONTH"] = "month";
+    FORM_INPUT_TYPE["NUMBER"] = "number";
+    FORM_INPUT_TYPE["PASSWORD"] = "password";
+    FORM_INPUT_TYPE["RADIO"] = "radio";
+    FORM_INPUT_TYPE["RANGE"] = "range";
+    FORM_INPUT_TYPE["RESET"] = "reset";
+    FORM_INPUT_TYPE["SEARCH"] = "search";
+    FORM_INPUT_TYPE["SUBMIT"] = "submit";
+    FORM_INPUT_TYPE["TEL"] = "tel";
+    FORM_INPUT_TYPE["TEXT"] = "text";
+    FORM_INPUT_TYPE["TEXT_MULTILINE"] = "text_multiline";
+    FORM_INPUT_TYPE["TEXT_LONG"] = "text_long";
+    FORM_INPUT_TYPE["TIME"] = "time";
+    FORM_INPUT_TYPE["URL"] = "url";
+    FORM_INPUT_TYPE["WEEK"] = "week";
+})(FORM_INPUT_TYPE = exports.FORM_INPUT_TYPE || (exports.FORM_INPUT_TYPE = {}));
+//# sourceMappingURL=form-types.js.map
+
+/***/ }),
 /* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-const ansiStyles = __webpack_require__(101);
+const ansiStyles = __webpack_require__(100);
 const {stdout: stdoutColor, stderr: stderrColor} = __webpack_require__(77);
 const {
 	stringReplaceAll,
 	stringEncaseCRLFWithFirstIndex
-} = __webpack_require__(107);
+} = __webpack_require__(106);
 
 const {isArray} = Array;
 
@@ -12423,7 +12423,7 @@ const chalkTag = (chalk, ...strings) => {
 	}
 
 	if (template === undefined) {
-		template = __webpack_require__(108);
+		template = __webpack_require__(107);
 	}
 
 	return template(chalk, parts.join(''));
@@ -12445,7 +12445,7 @@ module.exports = chalk;
 
 /* MIT license */
 /* eslint-disable no-mixed-operators */
-const cssKeywords = __webpack_require__(104);
+const cssKeywords = __webpack_require__(103);
 
 // NOTE: conversions should only return primitive values (i.e. arrays, or
 //       values that give correct `typeof` results).
@@ -13292,7 +13292,7 @@ convert.rgb.gray = function (rgb) {
 
 const os = __webpack_require__(1);
 const tty = __webpack_require__(78);
-const hasFlag = __webpack_require__(106);
+const hasFlag = __webpack_require__(105);
 
 const {env} = process;
 
@@ -13449,7 +13449,7 @@ function setup(env) {
 	createDebug.disable = disable;
 	createDebug.enable = enable;
 	createDebug.enabled = enabled;
-	createDebug.humanize = __webpack_require__(110);
+	createDebug.humanize = __webpack_require__(109);
 	createDebug.destroy = destroy;
 
 	Object.keys(env).forEach(key => {
@@ -13776,524 +13776,21 @@ var __importStar = this && this.__importStar || function (mod) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.runAction = void 0;
-
-const core = __importStar(__webpack_require__(10));
 
 const github = __importStar(__webpack_require__(21));
 
-const core_common_1 = __webpack_require__(11);
+const dot_env_1 = __webpack_require__(83);
 
-const utilities_1 = __webpack_require__(92);
-/**
- * `set-app-env` sets the env variables including the host depending on the build context.
- * For example if we have a website with an app and api, the urls would be:
- *
- *  dev.website.com
- *  dev.api.website.com
- *  dev.app.website.com
- *
- *  pr-422.website.com
- *  pr-422.api.website.com
- *  pr-422.app.website.com
- *
- *  website.com
- *  api.website.com
- *  app.website.com
- *
- * The scheme is [environment].[name].[domain] where
- *
- * - environment is `dev` for the dev branch, `staging` for the main or master branch and `''` for the production branch (release)
- * - name is a label for the package, e.g. 'api', 'docs', 'app'
- * - domain is the root domain name for the project
- *
- * @example
- *  for an `api` application on a PR (#422) branch the url would be
- *  pr-422.api.website.com
- *
- *  for an `app` application on the release branch the url would be
- *  app.website.com
- *
- * @see https://docs.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions
- *
- * Note: this action depends on [github-slug-action](https://github.com/rlespinasse/github-slug-action)
- */
-
-
-function runAction(env) {
-  if (!env) {
-    throw Error(`env must be passed to ${runAction.name}`);
-  }
-
-  try {
-    console.info(`Setting env variables for the current context (event, branch)`);
-    console.info(`Initial env variables:`);
-    console.info(`APP_ENV: ${env.APP_ENV}`);
-    console.info(`APP_DOMAIN: ${env.APP_DOMAIN}`);
-    console.info(`APP_SUBDOMAIN: ${env.APP_SUBDOMAIN}`);
-    console.info(`APP_BRANCH_SUBDOMAIN: ${env.APP_BRANCH_SUBDOMAIN}`);
-    console.info(`APP_PROTOCOL: ${env.APP_PROTOCOL}`);
-    console.info(`APP_HOST: ${env.APP_HOST}`);
-    console.info(`APP_PORT: ${env.APP_PORT}`);
-    console.info(`APP_CI_DEPLOY: ${env.APP_CI_DEPLOY}`);
-    console.info(`Current branch`, env.GITHUB_REF_SLUG_URL);
-    console.info(`Current HEAD ref`, env.GITHUB_HEAD_REF_SLUG);
-    console.info(`Base ref`, env.GITHUB_BASE_REF_SLUG);
-    console.info(`Repository`, env.GITHUB_REPOSITORY_SLUG);
-    console.info(`Current event is ${github.context.eventName}`);
-    console.info(`Setting env variables`);
-    utilities_1.exportVariable('APP_PROTOCOL', 'https'); // always https when deploying
-
-    utilities_1.exportVariable('APP_PORT', '443'); // always 443 for https
-
-    /**
-     * Build url with `dev|staging|''` for push or workflow dispatch on branches
-     * and `pr-<number>` for PRs
-     */
-
-    if (github.context.eventName === 'push' || github.context.eventName == 'workflow_dispatch') {
-      console.info(`Branches without a PR won't be deployed`);
-      utilities_1.exportVariable('APP_CI_DEPLOY', 'false');
-      utilities_1.exportVariable('APP_BRANCH_SUBDOMAIN', '');
-
-      switch (env.GITHUB_REF_SLUG_URL) {
-        case 'dev':
-          {
-            utilities_1.exportVariable('APP_ENV', core_common_1.DEPLOY_ENV.DEV);
-            utilities_1.exportVariable('APP_BRANCH_SUBDOMAIN', 'dev');
-            utilities_1.exportVariable('APP_CI_DEPLOY', 'true');
-            break;
-          }
-
-        case 'master':
-          {
-            utilities_1.exportVariable('APP_ENV', core_common_1.DEPLOY_ENV.STAGING);
-            utilities_1.exportVariable('APP_BRANCH_SUBDOMAIN', 'staging');
-            utilities_1.exportVariable('APP_CI_DEPLOY', 'true');
-            break;
-          }
-
-        case 'release':
-          {
-            utilities_1.exportVariable('APP_ENV', core_common_1.DEPLOY_ENV.PRODUCTION);
-            utilities_1.exportVariable('APP_BRANCH_SUBDOMAIN', '');
-            utilities_1.exportVariable('APP_CI_DEPLOY', 'true');
-            break;
-          }
-
-        default:
-          {}
-      }
-    }
-
-    if (github.context.eventName === 'pull_request') {
-      console.info(`Assigning PR branch sub domain`);
-      utilities_1.exportVariable('APP_BRANCH_SUBDOMAIN');
-      utilities_1.exportVariable('APP_CI_DEPLOY', 'true');
-
-      switch (env.GITHUB_HEAD_REF_SLUG) {
-        case 'dev':
-          {
-            utilities_1.exportVariable('APP_ENV', core_common_1.DEPLOY_ENV.DEV);
-            utilities_1.exportVariable('APP_BRANCH_SUBDOMAIN', `pr-${github.context.runNumber}.dev`);
-            break;
-          }
-
-        case 'master':
-          {
-            utilities_1.exportVariable('APP_ENV', core_common_1.DEPLOY_ENV.STAGING);
-            utilities_1.exportVariable('APP_BRANCH_SUBDOMAIN', `pr-${github.context.runNumber}.staging`);
-            break;
-          }
-
-        case 'release':
-          {
-            utilities_1.exportVariable('APP_ENV', core_common_1.DEPLOY_ENV.PRODUCTION);
-            utilities_1.exportVariable('APP_BRANCH_SUBDOMAIN', `pr-${github.context.runNumber}`);
-            break;
-          }
-
-        default:
-          {}
-      }
-    }
-
-    utilities_1.exportVariable('APP_HOST', `${utilities_1.join([env.APP_BRANCH_SUBDOMAIN, env.APP_SUBDOMAIN, env.APP_DOMAIN])}`);
-    console.info(`Output env variables:`);
-    console.info(`APP_ENV: ${env.APP_ENV}`);
-    console.info(`APP_DOMAIN: ${env.APP_DOMAIN}`);
-    console.info(`APP_SUBDOMAIN: ${env.APP_SUBDOMAIN}`);
-    console.info(`APP_BRANCH_SUBDOMAIN: ${env.APP_BRANCH_SUBDOMAIN}`);
-    console.info(`APP_PROTOCOL: ${env.APP_PROTOCOL}`);
-    console.info(`APP_HOST: ${env.APP_HOST}`);
-    console.info(`APP_PORT: ${env.APP_PORT}`);
-  } catch (error) {
-    core.setFailed(error.message);
-  }
-}
-
-exports.runAction = runAction;
+const action_1 = __webpack_require__(117);
 /**
  * Retrieve env and run the action
  */
 
-runAction(github.context.env);
+
+action_1.runAction(dot_env_1.env, github.context);
 
 /***/ }),
 /* 83 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.TEST_ENV = exports.NODE_ENV = exports.DEPLOY_ENV = void 0;
-/**
- * Standard deploy environments
- */
-var DEPLOY_ENV;
-(function (DEPLOY_ENV) {
-    /**
-     * LOCAL is for developers' machines
-     */
-    DEPLOY_ENV["LOCAL"] = "local";
-    /**
-     * DEV is for the development branch (`dev`) or any branches are are not STAGING
-     * or PRODUCTION
-     */
-    DEPLOY_ENV["DEV"] = "dev";
-    /**
-     * STAGING is the preproduction environment, usually from the main/master branch
-     */
-    DEPLOY_ENV["STAGING"] = "staging";
-    /**
-     * PRODUCTION is based on the release branch with production data (e.g. in published state)
-     */
-    DEPLOY_ENV["PRODUCTION"] = "production";
-})(DEPLOY_ENV = exports.DEPLOY_ENV || (exports.DEPLOY_ENV = {}));
-/**
- * Standard NodeJS Environments
- */
-var NODE_ENV;
-(function (NODE_ENV) {
-    NODE_ENV["DEVELOPMENT"] = "development";
-    NODE_ENV["TEST"] = "test";
-    NODE_ENV["PRODUCTION"] = "production";
-})(NODE_ENV = exports.NODE_ENV || (exports.NODE_ENV = {}));
-/**
- * Testing environment
- */
-var TEST_ENV;
-(function (TEST_ENV) {
-    TEST_ENV["LOCAL"] = "LOCAL";
-    TEST_ENV["CI"] = "CI";
-})(TEST_ENV = exports.TEST_ENV || (exports.TEST_ENV = {}));
-//# sourceMappingURL=env.constants.js.map
-
-/***/ }),
-/* 84 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.SITE_LANGUAGES_HYPHEN = exports.SITE_LANGUAGES = void 0;
-/**
- * The locale these tags are marked up in. Of the format language_TERRITORY.
- */
-var SITE_LANGUAGES;
-(function (SITE_LANGUAGES) {
-    SITE_LANGUAGES["EN"] = "en";
-    SITE_LANGUAGES["EN_CA"] = "en_CA";
-    SITE_LANGUAGES["FR"] = "fr";
-    SITE_LANGUAGES["FR_CA"] = "fr_CA";
-})(SITE_LANGUAGES = exports.SITE_LANGUAGES || (exports.SITE_LANGUAGES = {}));
-var SITE_LANGUAGES_HYPHEN;
-(function (SITE_LANGUAGES_HYPHEN) {
-    SITE_LANGUAGES_HYPHEN["EN_CA"] = "en-CA";
-    SITE_LANGUAGES_HYPHEN["FR_CA"] = "fr-CA";
-})(SITE_LANGUAGES_HYPHEN = exports.SITE_LANGUAGES_HYPHEN || (exports.SITE_LANGUAGES_HYPHEN = {}));
-//# sourceMappingURL=site-languages.js.map
-
-/***/ }),
-/* 85 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.ERROR_TYPE = void 0;
-var ERROR_TYPE;
-(function (ERROR_TYPE) {
-    //
-    // HTTP
-    //
-    ERROR_TYPE["HTTP_BAD_REQUEST_400"] = "HTTP_BAD_REQUEST_400";
-    ERROR_TYPE["HTTP_UNAUTHORIZED_401"] = "HTTP_UNAUTHORIZED_401";
-    ERROR_TYPE["HTTP_FORBIDDEN_403"] = "HTTP_FORBIDDEN_403";
-    ERROR_TYPE["HTTP_NOT_FOUND_404"] = "HTTP_NOT_FOUND_404";
-    ERROR_TYPE["HTTP_CONFLICT_409"] = "HTTP_CONFLICT_409";
-    ERROR_TYPE["HTTP_SERVER_500"] = "HTTP_SERVER_500";
-    //
-    // tooling
-    //
-    ERROR_TYPE["LIB_ERROR"] = "LIB_ERROR";
-    ERROR_TYPE["WEBPACK_ERROR"] = "WEBPACK_ERROR";
-    ERROR_TYPE["GATSBY_ERROR"] = "GATSBY_ERROR";
-    //
-    // client side
-    //
-    ERROR_TYPE["FETCH_CANCELLED"] = "FETCH_CANCELLED";
-    ERROR_TYPE["REDUX_ERROR"] = "REDUX_ERROR";
-    ERROR_TYPE["SERVICE_ERROR"] = "SERVICE_ERROR";
-    ERROR_TYPE["SERVICE_WORKER_ERROR"] = "SERVICE_WORKER_ERROR";
-    ERROR_TYPE["LOCAL_STORAGE_ERROR"] = "LOCAL_STORAGE_ERROR";
-    ERROR_TYPE["COMPONENT_ERROR"] = "COMPONENT_ERROR";
-    ERROR_TYPE["AUTH_ERROR"] = "AUTH_ERROR";
-    ERROR_TYPE["APP_ERROR"] = "APP_ERROR";
-    ERROR_TYPE["ROUTER_ERROR"] = "ROUTER_ERROR";
-    ERROR_TYPE["USER_CONFIGURATION_ERROR"] = "USER_CONFIGURATION_ERROR";
-    ERROR_TYPE["INVALID_RESPONSE"] = "INVALID_RESPONSE";
-    ERROR_TYPE["INTERNAL_SERVER_ERROR"] = "INTERNAL_SERVER_ERROR";
-    ERROR_TYPE["EXTERNAL_SERVER_ERROR"] = "EXTERNAL_SERVER_ERROR";
-    //
-    // server side
-    //
-    ERROR_TYPE["DTO_VALIDATION_ERROR"] = "DTO_VALIDATION_ERROR";
-    ERROR_TYPE["RATE_LIMITING_ERROR"] = "RATE_LIMITING_ERROR";
-    ERROR_TYPE["UNPROCESSABLE_ENTITY"] = "UNPROCESSABLE_ENTITY";
-    /** Error related to email, stmp etc. */
-    ERROR_TYPE["STMP_ERROR"] = "STMP_ERROR";
-    //
-    // others
-    //
-    ERROR_TYPE["UNHANDLED_ERROR"] = "UNHANDLED_ERROR";
-})(ERROR_TYPE = exports.ERROR_TYPE || (exports.ERROR_TYPE = {}));
-//# sourceMappingURL=error.constant.js.map
-
-/***/ }),
-/* 86 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.AppError = void 0;
-class AppError extends Error {
-    constructor(options) {
-        super(options.message);
-        this.name = options.name;
-        this.stack = options.stack ? options.stack : undefined;
-        this.value = options.value ? options.value : undefined;
-    }
-}
-exports.AppError = AppError;
-//# sourceMappingURL=error.model.js.map
-
-/***/ }),
-/* 87 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-//# sourceMappingURL=form-field.model.js.map
-
-/***/ }),
-/* 88 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-//# sourceMappingURL=form-validation.model.js.map
-
-/***/ }),
-/* 89 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-const form_types_1 = __webpack_require__(73);
-const exampleForm = {
-    name: 'contact-form',
-    fieldsMap: {
-        firstName: {
-            order: 1,
-            name: 'firstName',
-            label: 'First Name',
-            placeholder: 'Enter value',
-            type: form_types_1.FORM_INPUT_TYPE.TEXT,
-        },
-        lastName: {
-            order: 2,
-            name: 'lastname',
-            label: 'Last Name',
-            placeholder: 'Enter value',
-            type: form_types_1.FORM_INPUT_TYPE.TEXT,
-        },
-        email: {
-            order: 3,
-            name: 'email',
-            label: 'Email',
-            placeholder: 'Enter value',
-            type: form_types_1.FORM_INPUT_TYPE.TEXT,
-        },
-        startDate: {
-            order: 4,
-            name: 'startDate',
-            label: 'Start date',
-            placeholder: 'Enter start date',
-            type: form_types_1.FORM_INPUT_TYPE.DATE,
-            defaultValue: new Date('2021-12-12'),
-            validations: [
-                {
-                    dateRange: { min: '2021-12-12' },
-                },
-            ],
-        },
-        nested: {
-            name: 'nested',
-            fieldsMap: {
-                firstName: {
-                    order: 1,
-                    name: 'firstName',
-                    label: 'First Name',
-                    placeholder: 'Enter value',
-                    type: form_types_1.FORM_INPUT_TYPE.TEXT,
-                },
-            },
-        },
-    },
-};
-//# sourceMappingURL=form.model.js.map
-
-/***/ }),
-/* 90 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-//# sourceMappingURL=api-form-payload.model.js.map
-
-/***/ }),
-/* 91 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.API_RESPONSE_STATUS = void 0;
-var API_RESPONSE_STATUS;
-(function (API_RESPONSE_STATUS) {
-    API_RESPONSE_STATUS["SUCCESS"] = "SUCCESS";
-    API_RESPONSE_STATUS["ERROR"] = "ERROR";
-})(API_RESPONSE_STATUS = exports.API_RESPONSE_STATUS || (exports.API_RESPONSE_STATUS = {}));
-//# sourceMappingURL=api-request.model.js.map
-
-/***/ }),
-/* 92 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
-  if (k2 === undefined) k2 = k;
-  Object.defineProperty(o, k2, {
-    enumerable: true,
-    get: function () {
-      return m[k];
-    }
-  });
-} : function (o, m, k, k2) {
-  if (k2 === undefined) k2 = k;
-  o[k2] = m[k];
-});
-
-var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function (o, v) {
-  Object.defineProperty(o, "default", {
-    enumerable: true,
-    value: v
-  });
-} : function (o, v) {
-  o["default"] = v;
-});
-
-var __importStar = this && this.__importStar || function (mod) {
-  if (mod && mod.__esModule) return mod;
-  var result = {};
-  if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-
-  __setModuleDefault(result, mod);
-
-  return result;
-};
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.join = exports.exportVariable = void 0;
-
-const core = __importStar(__webpack_require__(10));
-
-const core_common_1 = __webpack_require__(11);
-
-const dot_env_1 = __webpack_require__(93);
-/**
- * Export an env variable using @actions/core's utility or process.env for tests
- *
- * @param name name of the variable e.g. MY_VAR
- * @param value value that will be converted to a string and assigned
- */
-
-
-function exportVariable(name, value) {
-  if (!dot_env_1.env) {
-    throw Error(`env must be passed to ${exportVariable.name}`);
-  }
-
-  if (!name) {
-    throw Error(`env name must be defined got: ${name}`);
-  }
-
-  if (!value) {
-    console.info(`env ${name} has value ${value}, it will be converted to empty string ''`);
-  }
-
-  if (dot_env_1.env.TEST_ENV === core_common_1.TEST_ENV.CI || dot_env_1.env.TEST_ENV === core_common_1.TEST_ENV.LOCAL) {
-    // for test purpose we simply assign
-    if (typeof value === 'undefined' || value === null) {
-      process.env[name] = '';
-      return;
-    }
-
-    process.env[name] = value.toString();
-  } // not a test so we execute the assignment with the real utility
-
-
-  core.exportVariable(name, `${value}`);
-}
-
-exports.exportVariable = exportVariable;
-
-function join(paths) {
-  if (!paths) {
-    return '';
-  }
-
-  if (!paths.length) {
-    return '';
-  }
-
-  return paths.filter(path => path && path.length > 1).join('.');
-}
-
-exports.join = join;
-
-/***/ }),
-/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14336,7 +13833,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.env = void 0;
 
-const core_utils_1 = __webpack_require__(94);
+const core_utils_1 = __webpack_require__(84);
 
 const t = __importStar(__webpack_require__(5));
 /**
@@ -14346,15 +13843,27 @@ const t = __importStar(__webpack_require__(5));
 
 
 const Env = t.intersection([core_utils_1.CommonEnv, t.type({
-  GITHUB_REF_SLUG_URL: t.string,
+  /**
+   * The branch or tag ref that triggered the workflow.
+   */
+  GITHUB_REF_SLUG: t.string,
+
+  /**
+   * The branch of the head repository.
+   * Only set for pull-request event and forked repositories.
+   */
   GITHUB_HEAD_REF_SLUG: t.string,
-  GITHUB_BASE_REF_SLUG: t.string,
-  GITHUB_REPOSITORY_SLUG: t.string
+
+  /**
+   * The branch of the base repository.
+   * Only set for pull-request event and forked repositories.
+   */
+  GITHUB_BASE_REF_SLUG: t.string
 })]);
 exports.env = process.env;
 
 /***/ }),
-/* 94 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14371,19 +13880,19 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(__webpack_require__(20), exports);
+__exportStar(__webpack_require__(87), exports);
 __exportStar(__webpack_require__(97), exports);
 __exportStar(__webpack_require__(98), exports);
 __exportStar(__webpack_require__(99), exports);
-__exportStar(__webpack_require__(100), exports);
+__exportStar(__webpack_require__(113), exports);
 __exportStar(__webpack_require__(114), exports);
 __exportStar(__webpack_require__(115), exports);
-__exportStar(__webpack_require__(116), exports);
 __exportStar(__webpack_require__(80), exports);
-__exportStar(__webpack_require__(117), exports);
+__exportStar(__webpack_require__(116), exports);
 //# sourceMappingURL=index.js.map
 
 /***/ }),
-/* 95 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14404,7 +13913,7 @@ exports.tailRec = tailRec;
 
 
 /***/ }),
-/* 96 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14653,7 +14162,7 @@ exports.bindTo_ = bindTo_;
 
 
 /***/ }),
-/* 97 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14807,7 +14316,260 @@ exports.CommonEnv = t.intersection([
 //# sourceMappingURL=common-env.js.map
 
 /***/ }),
-/* 98 */
+/* 88 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.TEST_ENV = exports.NODE_ENV = exports.DEPLOY_ENV = void 0;
+/**
+ * Standard deploy environments
+ */
+var DEPLOY_ENV;
+(function (DEPLOY_ENV) {
+    /**
+     * LOCAL is for developers' machines
+     */
+    DEPLOY_ENV["LOCAL"] = "local";
+    /**
+     * DEV is for the development branch (`dev`) or any branches are are not STAGING
+     * or PRODUCTION
+     */
+    DEPLOY_ENV["DEV"] = "dev";
+    /**
+     * STAGING is the preproduction environment, usually from the main/master branch
+     */
+    DEPLOY_ENV["STAGING"] = "staging";
+    /**
+     * PRODUCTION is based on the release branch with production data (e.g. in published state)
+     */
+    DEPLOY_ENV["PRODUCTION"] = "production";
+})(DEPLOY_ENV = exports.DEPLOY_ENV || (exports.DEPLOY_ENV = {}));
+/**
+ * Standard NodeJS Environments
+ */
+var NODE_ENV;
+(function (NODE_ENV) {
+    NODE_ENV["DEVELOPMENT"] = "development";
+    NODE_ENV["TEST"] = "test";
+    NODE_ENV["PRODUCTION"] = "production";
+})(NODE_ENV = exports.NODE_ENV || (exports.NODE_ENV = {}));
+/**
+ * Testing environment
+ */
+var TEST_ENV;
+(function (TEST_ENV) {
+    TEST_ENV["LOCAL"] = "LOCAL";
+    TEST_ENV["CI"] = "CI";
+})(TEST_ENV = exports.TEST_ENV || (exports.TEST_ENV = {}));
+//# sourceMappingURL=env.constants.js.map
+
+/***/ }),
+/* 89 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.SITE_LANGUAGES_HYPHEN = exports.SITE_LANGUAGES = void 0;
+/**
+ * The locale these tags are marked up in. Of the format language_TERRITORY.
+ */
+var SITE_LANGUAGES;
+(function (SITE_LANGUAGES) {
+    SITE_LANGUAGES["EN"] = "en";
+    SITE_LANGUAGES["EN_CA"] = "en_CA";
+    SITE_LANGUAGES["FR"] = "fr";
+    SITE_LANGUAGES["FR_CA"] = "fr_CA";
+})(SITE_LANGUAGES = exports.SITE_LANGUAGES || (exports.SITE_LANGUAGES = {}));
+var SITE_LANGUAGES_HYPHEN;
+(function (SITE_LANGUAGES_HYPHEN) {
+    SITE_LANGUAGES_HYPHEN["EN_CA"] = "en-CA";
+    SITE_LANGUAGES_HYPHEN["FR_CA"] = "fr-CA";
+})(SITE_LANGUAGES_HYPHEN = exports.SITE_LANGUAGES_HYPHEN || (exports.SITE_LANGUAGES_HYPHEN = {}));
+//# sourceMappingURL=site-languages.js.map
+
+/***/ }),
+/* 90 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ERROR_TYPE = void 0;
+var ERROR_TYPE;
+(function (ERROR_TYPE) {
+    //
+    // HTTP
+    //
+    ERROR_TYPE["HTTP_BAD_REQUEST_400"] = "HTTP_BAD_REQUEST_400";
+    ERROR_TYPE["HTTP_UNAUTHORIZED_401"] = "HTTP_UNAUTHORIZED_401";
+    ERROR_TYPE["HTTP_FORBIDDEN_403"] = "HTTP_FORBIDDEN_403";
+    ERROR_TYPE["HTTP_NOT_FOUND_404"] = "HTTP_NOT_FOUND_404";
+    ERROR_TYPE["HTTP_CONFLICT_409"] = "HTTP_CONFLICT_409";
+    ERROR_TYPE["HTTP_SERVER_500"] = "HTTP_SERVER_500";
+    //
+    // tooling
+    //
+    ERROR_TYPE["LIB_ERROR"] = "LIB_ERROR";
+    ERROR_TYPE["WEBPACK_ERROR"] = "WEBPACK_ERROR";
+    ERROR_TYPE["GATSBY_ERROR"] = "GATSBY_ERROR";
+    //
+    // client side
+    //
+    ERROR_TYPE["FETCH_CANCELLED"] = "FETCH_CANCELLED";
+    ERROR_TYPE["REDUX_ERROR"] = "REDUX_ERROR";
+    ERROR_TYPE["SERVICE_ERROR"] = "SERVICE_ERROR";
+    ERROR_TYPE["SERVICE_WORKER_ERROR"] = "SERVICE_WORKER_ERROR";
+    ERROR_TYPE["LOCAL_STORAGE_ERROR"] = "LOCAL_STORAGE_ERROR";
+    ERROR_TYPE["COMPONENT_ERROR"] = "COMPONENT_ERROR";
+    ERROR_TYPE["AUTH_ERROR"] = "AUTH_ERROR";
+    ERROR_TYPE["APP_ERROR"] = "APP_ERROR";
+    ERROR_TYPE["ROUTER_ERROR"] = "ROUTER_ERROR";
+    ERROR_TYPE["USER_CONFIGURATION_ERROR"] = "USER_CONFIGURATION_ERROR";
+    ERROR_TYPE["INVALID_RESPONSE"] = "INVALID_RESPONSE";
+    ERROR_TYPE["INTERNAL_SERVER_ERROR"] = "INTERNAL_SERVER_ERROR";
+    ERROR_TYPE["EXTERNAL_SERVER_ERROR"] = "EXTERNAL_SERVER_ERROR";
+    //
+    // server side
+    //
+    ERROR_TYPE["DTO_VALIDATION_ERROR"] = "DTO_VALIDATION_ERROR";
+    ERROR_TYPE["RATE_LIMITING_ERROR"] = "RATE_LIMITING_ERROR";
+    ERROR_TYPE["UNPROCESSABLE_ENTITY"] = "UNPROCESSABLE_ENTITY";
+    /** Error related to email, stmp etc. */
+    ERROR_TYPE["STMP_ERROR"] = "STMP_ERROR";
+    //
+    // others
+    //
+    ERROR_TYPE["UNHANDLED_ERROR"] = "UNHANDLED_ERROR";
+})(ERROR_TYPE = exports.ERROR_TYPE || (exports.ERROR_TYPE = {}));
+//# sourceMappingURL=error.constant.js.map
+
+/***/ }),
+/* 91 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AppError = void 0;
+class AppError extends Error {
+    constructor(options) {
+        super(options.message);
+        this.name = options.name;
+        this.stack = options.stack ? options.stack : undefined;
+        this.value = options.value ? options.value : undefined;
+    }
+}
+exports.AppError = AppError;
+//# sourceMappingURL=error.model.js.map
+
+/***/ }),
+/* 92 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+//# sourceMappingURL=form-field.model.js.map
+
+/***/ }),
+/* 93 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+//# sourceMappingURL=form-validation.model.js.map
+
+/***/ }),
+/* 94 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const form_types_1 = __webpack_require__(74);
+const exampleForm = {
+    name: 'contact-form',
+    fieldsMap: {
+        firstName: {
+            order: 1,
+            name: 'firstName',
+            label: 'First Name',
+            placeholder: 'Enter value',
+            type: form_types_1.FORM_INPUT_TYPE.TEXT,
+        },
+        lastName: {
+            order: 2,
+            name: 'lastname',
+            label: 'Last Name',
+            placeholder: 'Enter value',
+            type: form_types_1.FORM_INPUT_TYPE.TEXT,
+        },
+        email: {
+            order: 3,
+            name: 'email',
+            label: 'Email',
+            placeholder: 'Enter value',
+            type: form_types_1.FORM_INPUT_TYPE.TEXT,
+        },
+        startDate: {
+            order: 4,
+            name: 'startDate',
+            label: 'Start date',
+            placeholder: 'Enter start date',
+            type: form_types_1.FORM_INPUT_TYPE.DATE,
+            defaultValue: new Date('2021-12-12'),
+            validations: [
+                {
+                    dateRange: { min: '2021-12-12' },
+                },
+            ],
+        },
+        nested: {
+            name: 'nested',
+            fieldsMap: {
+                firstName: {
+                    order: 1,
+                    name: 'firstName',
+                    label: 'First Name',
+                    placeholder: 'Enter value',
+                    type: form_types_1.FORM_INPUT_TYPE.TEXT,
+                },
+            },
+        },
+    },
+};
+//# sourceMappingURL=form.model.js.map
+
+/***/ }),
+/* 95 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+//# sourceMappingURL=api-form-payload.model.js.map
+
+/***/ }),
+/* 96 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.API_RESPONSE_STATUS = void 0;
+var API_RESPONSE_STATUS;
+(function (API_RESPONSE_STATUS) {
+    API_RESPONSE_STATUS["SUCCESS"] = "SUCCESS";
+    API_RESPONSE_STATUS["ERROR"] = "ERROR";
+})(API_RESPONSE_STATUS = exports.API_RESPONSE_STATUS || (exports.API_RESPONSE_STATUS = {}));
+//# sourceMappingURL=api-request.model.js.map
+
+/***/ }),
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14844,7 +14606,7 @@ exports.DeployEnv = t.keyof({
 //# sourceMappingURL=deploy-env.js.map
 
 /***/ }),
-/* 99 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14892,7 +14654,7 @@ exports.CommonEnvGatsby = t.partial({
 //# sourceMappingURL=gatsby-env.js.map
 
 /***/ }),
-/* 100 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14924,9 +14686,9 @@ exports.loadDotEnv = void 0;
 const core_common_1 = __webpack_require__(11);
 const chalk_1 = __importDefault(__webpack_require__(75));
 const debug_1 = __importDefault(__webpack_require__(72));
-const dotenv = __importStar(__webpack_require__(112));
+const dotenv = __importStar(__webpack_require__(111));
 const path_1 = __importDefault(__webpack_require__(6));
-const reporter_1 = __webpack_require__(113);
+const reporter_1 = __webpack_require__(112);
 const log = debug_1.default('newrade:env');
 /**
  * Utility function to load the .env files in the monorepository.
@@ -14978,7 +14740,7 @@ exports.loadDotEnv = loadDotEnv;
 //# sourceMappingURL=load-env-file.js.map
 
 /***/ }),
-/* 101 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15024,7 +14786,7 @@ const setLazyProperty = (object, property, get) => {
 let colorConvert;
 const makeDynamicStyles = (wrap, targetSpace, identity, isBackground) => {
 	if (colorConvert === undefined) {
-		colorConvert = __webpack_require__(103);
+		colorConvert = __webpack_require__(102);
 	}
 
 	const offset = isBackground ? 10 : 0;
@@ -15146,10 +14908,10 @@ Object.defineProperty(module, 'exports', {
 	get: assembleStyles
 });
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(102)(module)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(101)(module)))
 
 /***/ }),
-/* 102 */
+/* 101 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -15177,11 +14939,11 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 103 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 const conversions = __webpack_require__(76);
-const route = __webpack_require__(105);
+const route = __webpack_require__(104);
 
 const convert = {};
 
@@ -15264,7 +15026,7 @@ module.exports = convert;
 
 
 /***/ }),
-/* 104 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15423,7 +15185,7 @@ module.exports = {
 
 
 /***/ }),
-/* 105 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 const conversions = __webpack_require__(76);
@@ -15526,7 +15288,7 @@ module.exports = function (fromModel) {
 
 
 /***/ }),
-/* 106 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15541,7 +15303,7 @@ module.exports = (flag, argv = process.argv) => {
 
 
 /***/ }),
-/* 107 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15587,7 +15349,7 @@ module.exports = {
 
 
 /***/ }),
-/* 108 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15728,7 +15490,7 @@ module.exports = (chalk, temporary) => {
 
 
 /***/ }),
-/* 109 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* eslint-env browser */
@@ -16003,7 +15765,7 @@ formatters.j = function (v) {
 
 
 /***/ }),
-/* 110 */
+/* 109 */
 /***/ (function(module, exports) {
 
 /**
@@ -16171,7 +15933,7 @@ function plural(ms, msAbs, n, name) {
 
 
 /***/ }),
-/* 111 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -16440,7 +16202,7 @@ formatters.O = function (v) {
 
 
 /***/ }),
-/* 112 */
+/* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* @flow */
@@ -16559,7 +16321,7 @@ module.exports.parse = parse
 
 
 /***/ }),
-/* 113 */
+/* 112 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16571,7 +16333,7 @@ module.exports.parse = parse
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PathReporter = exports.success = exports.failure = void 0;
-const Either_1 = __webpack_require__(74);
+const Either_1 = __webpack_require__(73);
 const io_ts_1 = __webpack_require__(5);
 function stringify(v) {
     if (typeof v === 'function') {
@@ -16609,7 +16371,7 @@ exports.PathReporter = {
 //# sourceMappingURL=reporter.js.map
 
 /***/ }),
-/* 114 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16645,7 +16407,7 @@ exports.log = log;
 //# sourceMappingURL=log.js.map
 
 /***/ }),
-/* 115 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16671,7 +16433,7 @@ exports.logEnvVariables = logEnvVariables;
 //# sourceMappingURL=log-env-variables.js.map
 
 /***/ }),
-/* 116 */
+/* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16707,7 +16469,7 @@ exports.NodeEnv = t.keyof({
 //# sourceMappingURL=node-env.js.map
 
 /***/ }),
-/* 117 */
+/* 116 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16752,6 +16514,310 @@ exports.TestingEnv = t.partial({
     TEST_VIEW_WIDTH: t.string,
 });
 //# sourceMappingURL=testing-env.js.map
+
+/***/ }),
+/* 117 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  Object.defineProperty(o, k2, {
+    enumerable: true,
+    get: function () {
+      return m[k];
+    }
+  });
+} : function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  o[k2] = m[k];
+});
+
+var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function (o, v) {
+  Object.defineProperty(o, "default", {
+    enumerable: true,
+    value: v
+  });
+} : function (o, v) {
+  o["default"] = v;
+});
+
+var __importStar = this && this.__importStar || function (mod) {
+  if (mod && mod.__esModule) return mod;
+  var result = {};
+  if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+
+  __setModuleDefault(result, mod);
+
+  return result;
+};
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.runAction = void 0;
+
+const core = __importStar(__webpack_require__(10));
+
+const core_common_1 = __webpack_require__(11);
+
+const utilities_1 = __webpack_require__(118);
+/**
+ * `set-app-env` sets the env variables including the host depending on the build context.
+ * For example if we have a website with an app and api, the urls would be:
+ *
+ *  dev.website.com
+ *  dev.api.website.com
+ *  dev.app.website.com
+ *
+ *  pr-422.website.com
+ *  pr-422.api.website.com
+ *  pr-422.app.website.com
+ *
+ *  website.com
+ *  api.website.com
+ *  app.website.com
+ *
+ * The scheme is [environment].[name].[domain] where
+ *
+ * - environment is `dev` for the dev branch, `staging` for the main or master branch and `''` for the production branch (release)
+ * - name is a label for the package, e.g. 'api', 'docs', 'app'
+ * - domain is the root domain name for the project
+ *
+ * @example
+ *  for an `api` application on a PR (#422) branch the url would be
+ *  pr-422.api.website.com
+ *
+ *  for an `app` application on the release branch the url would be
+ *  app.website.com
+ *
+ * @see https://docs.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions
+ *
+ * Note: this action depends on [github-slug-action](https://github.com/rlespinasse/github-slug-action)
+ */
+
+
+function runAction(env, githubContext) {
+  if (!env) {
+    throw Error(`env must be passed to ${runAction.name}`);
+  }
+
+  if (!githubContext) {
+    throw Error(`githubContext must be passed to ${runAction.name}`);
+  }
+
+  if (!env.GITHUB_REF_SLUG) {
+    throw Error(`[set-app-env] depends on [rlespinasse/github-slug-action]`);
+  }
+
+  try {
+    console.info(`Setting env variables for the current context (event, branch)`);
+    console.info(`Current event is ${githubContext.eventName}`);
+    console.debug(`Initial env variables:`);
+    console.debug(`TEST_ENV: ${env.TEST_ENV}`);
+    console.debug(`APP_ENV: ${env.APP_ENV}`);
+    console.debug(`APP_DOMAIN: ${env.APP_DOMAIN}`);
+    console.debug(`APP_SUBDOMAIN: ${env.APP_SUBDOMAIN}`);
+    console.debug(`APP_BRANCH_SUBDOMAIN: ${env.APP_BRANCH_SUBDOMAIN}`);
+    console.debug(`APP_PROTOCOL: ${env.APP_PROTOCOL}`);
+    console.debug(`APP_HOST: ${env.APP_HOST}`);
+    console.debug(`APP_PORT: ${env.APP_PORT}`);
+    console.debug(`APP_CI_DEPLOY: ${env.APP_CI_DEPLOY}`);
+    console.debug(`Branch that triggered the workflow:`, env.GITHUB_REF_SLUG);
+    console.info(`Setting env variables`);
+    utilities_1.exportVariable(env, 'APP_PROTOCOL', 'https'); // always https when deploying
+
+    utilities_1.exportVariable(env, 'APP_PORT', '443'); // always 443 for https
+
+    /**
+     * Build url with `dev|staging|''` for push or workflow dispatch on branches
+     * and `pr-<number>` for PRs
+     */
+
+    if (githubContext.eventName === 'push' || githubContext.eventName == 'workflow_dispatch') {
+      console.info(`Branches without a PR won't be deployed`);
+      utilities_1.exportVariable(env, 'APP_CI_DEPLOY', 'false');
+      utilities_1.exportVariable(env, 'APP_BRANCH_SUBDOMAIN', '');
+
+      switch (env.GITHUB_REF_SLUG) {
+        case 'dev':
+          {
+            utilities_1.exportVariable(env, 'APP_ENV', core_common_1.DEPLOY_ENV.DEV);
+            utilities_1.exportVariable(env, 'APP_BRANCH_SUBDOMAIN', 'dev');
+            utilities_1.exportVariable(env, 'APP_CI_DEPLOY', 'true');
+            break;
+          }
+
+        case 'master':
+          {
+            utilities_1.exportVariable(env, 'APP_ENV', core_common_1.DEPLOY_ENV.STAGING);
+            utilities_1.exportVariable(env, 'APP_BRANCH_SUBDOMAIN', 'staging');
+            utilities_1.exportVariable(env, 'APP_CI_DEPLOY', 'true');
+            break;
+          }
+
+        case 'release':
+          {
+            utilities_1.exportVariable(env, 'APP_ENV', core_common_1.DEPLOY_ENV.PRODUCTION);
+            utilities_1.exportVariable(env, 'APP_BRANCH_SUBDOMAIN', '');
+            utilities_1.exportVariable(env, 'APP_CI_DEPLOY', 'true');
+            break;
+          }
+
+        default:
+          {}
+      }
+    }
+
+    if (githubContext.eventName === 'pull_request') {
+      console.debug(`Current branch ref:`, env.GITHUB_HEAD_REF_SLUG);
+      console.debug(`Target branch:`, env.GITHUB_BASE_REF_SLUG);
+      console.info(`Assigning PR branch sub domain`);
+      utilities_1.exportVariable(env, 'APP_BRANCH_SUBDOMAIN');
+      utilities_1.exportVariable(env, 'APP_CI_DEPLOY', 'true');
+
+      switch (env.GITHUB_HEAD_REF_SLUG) {
+        case 'dev':
+          {
+            utilities_1.exportVariable(env, 'APP_ENV', core_common_1.DEPLOY_ENV.DEV);
+            utilities_1.exportVariable(env, 'APP_BRANCH_SUBDOMAIN', `pr-${githubContext.runNumber}.dev`);
+            break;
+          }
+
+        case 'master':
+          {
+            utilities_1.exportVariable(env, 'APP_ENV', core_common_1.DEPLOY_ENV.STAGING);
+            utilities_1.exportVariable(env, 'APP_BRANCH_SUBDOMAIN', `pr-${githubContext.runNumber}.staging`);
+            break;
+          }
+
+        case 'release':
+          {
+            utilities_1.exportVariable(env, 'APP_ENV', core_common_1.DEPLOY_ENV.PRODUCTION);
+            utilities_1.exportVariable(env, 'APP_BRANCH_SUBDOMAIN', `pr-${githubContext.runNumber}`);
+            break;
+          }
+
+        default:
+          {}
+      }
+    }
+
+    utilities_1.exportVariable(env, 'APP_HOST', `${utilities_1.join([env.APP_BRANCH_SUBDOMAIN, env.APP_SUBDOMAIN, env.APP_DOMAIN])}`);
+    console.debug(`Output env variables:`);
+    console.debug(`APP_ENV: ${env.APP_ENV}`);
+    console.debug(`APP_DOMAIN: ${env.APP_DOMAIN}`);
+    console.debug(`APP_SUBDOMAIN: ${env.APP_SUBDOMAIN}`);
+    console.debug(`APP_BRANCH_SUBDOMAIN: ${env.APP_BRANCH_SUBDOMAIN}`);
+    console.debug(`APP_PROTOCOL: ${env.APP_PROTOCOL}`);
+    console.debug(`APP_HOST: ${env.APP_HOST}`);
+    console.debug(`APP_PORT: ${env.APP_PORT}`);
+  } catch (error) {
+    core.setFailed(error.message);
+  }
+}
+
+exports.runAction = runAction;
+
+/***/ }),
+/* 118 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  Object.defineProperty(o, k2, {
+    enumerable: true,
+    get: function () {
+      return m[k];
+    }
+  });
+} : function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  o[k2] = m[k];
+});
+
+var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function (o, v) {
+  Object.defineProperty(o, "default", {
+    enumerable: true,
+    value: v
+  });
+} : function (o, v) {
+  o["default"] = v;
+});
+
+var __importStar = this && this.__importStar || function (mod) {
+  if (mod && mod.__esModule) return mod;
+  var result = {};
+  if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+
+  __setModuleDefault(result, mod);
+
+  return result;
+};
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.join = exports.exportVariable = void 0;
+
+const core = __importStar(__webpack_require__(10));
+
+const core_common_1 = __webpack_require__(11);
+/**
+ * Export an env variable using @actions/core's utility or process.env for tests
+ *
+ * @param name name of the variable e.g. MY_VAR
+ * @param value value that will be converted to a string and assigned
+ */
+
+
+function exportVariable(env, name, value) {
+  if (!env) {
+    throw Error(`env must be passed to ${exportVariable.name}`);
+  }
+
+  if (!name) {
+    throw Error(`env name must be defined got: ${name}`);
+  }
+
+  if (!value) {
+    console.info(`env ${name} has value ${value}, it will be converted to empty string ''`);
+  }
+
+  if (env.TEST_ENV === core_common_1.TEST_ENV.CI || env.TEST_ENV === core_common_1.TEST_ENV.LOCAL) {
+    // for test purpose we simply assign
+    if (typeof value === 'undefined' || value === null) {
+      process.env[name] = '';
+      return;
+    }
+
+    process.env[name] = value.toString();
+  } // not a test so we execute the assignment with the real utility
+
+
+  core.exportVariable(name, `${value}`);
+}
+
+exports.exportVariable = exportVariable;
+
+function join(paths) {
+  if (!paths) {
+    return '';
+  }
+
+  if (!paths.length) {
+    return '';
+  }
+
+  return paths.filter(path => path && path.length > 1).join('.');
+}
+
+exports.join = join;
 
 /***/ })
 /******/ ]);

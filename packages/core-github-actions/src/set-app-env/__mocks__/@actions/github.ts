@@ -1,8 +1,6 @@
 import type { Context } from '@actions/github/lib/context';
-import { ENV } from '../../../../types/dot-env';
 
-export const context: Context & { env: ENV } = {
-  env: process.env as ENV,
+export const context: Context = {
   payload: {},
   eventName: 'push',
   sha: 'asfasdfd',

@@ -1,11 +1,15 @@
 import * as core from '@actions/core';
 import * as github from '@actions/github';
 import { DEPLOY_ENV } from '@newrade/core-common';
-import { runAction } from '..';
+import { runAction } from '../action';
 import { env, ENV } from '../../../types/dot-env';
 import { exportVariable } from '../utilities';
 
 describe(`set-app-env github action`, () => {
+  beforeAll(() => {
+    exportVariable(env, 'GITHUB_REF_SLUG', 'dev');
+  });
+
   describe(`context`, () => {
     it('should mock github.context correctly', () => {
       expect(github.context.runNumber).toEqual(1);
@@ -22,18 +26,32 @@ describe(`set-app-env github action`, () => {
     });
   });
 
+  describe(`env`, () => {
+    it('should not be affected by previous test (export)', () => {
+      exportVariable(process.env, 'TEST_RUN', '1');
+      runAction(process.env, github.context);
+      expect(process.env['TEST_RUN']).toEqual('1');
+    });
+
+    it('should not be affected by previous test (read)', () => {
+      expect(process.env['TEST_VAR']).toEqual(undefined);
+      exportVariable(process.env, 'TEST_RUN', '2');
+      expect(process.env['TEST_RUN']).toEqual('2');
+    });
+  });
+
   describe(`${exportVariable.name}`, () => {
     it('should set correct env variable if executed in a jest test', () => {
-      exportVariable('TEST_VAR', 'value');
+      exportVariable(env, 'TEST_VAR', 'value');
       expect(process.env['TEST_VAR']).toEqual('value');
     });
   });
 
   describe(`the ${runAction.name} for an api package`, () => {
     it('should set correct env variable for a push on dev branch', () => {
-      exportVariable('GITHUB_REF_SLUG_URL', 'dev');
-      exportVariable('APP_DOMAIN', 'website.com');
-      exportVariable('APP_SUBDOMAIN', 'api');
+      exportVariable(env, 'GITHUB_REF_SLUG', 'dev');
+      exportVariable(env, 'APP_DOMAIN', 'website.com');
+      exportVariable(env, 'APP_SUBDOMAIN', 'api');
 
       runAction(env, github.context);
 
@@ -47,9 +65,9 @@ describe(`set-app-env github action`, () => {
     });
 
     it('should set correct env variable for a push on master branch', () => {
-      exportVariable('GITHUB_REF_SLUG_URL', 'master');
-      exportVariable('APP_DOMAIN', 'website.com');
-      exportVariable('APP_SUBDOMAIN', 'api');
+      exportVariable(env, 'GITHUB_REF_SLUG', 'master');
+      exportVariable(env, 'APP_DOMAIN', 'website.com');
+      exportVariable(env, 'APP_SUBDOMAIN', 'api');
 
       runAction(env, github.context);
 
@@ -63,9 +81,9 @@ describe(`set-app-env github action`, () => {
     });
 
     it('should set correct env variable for a push on release branch', () => {
-      exportVariable('GITHUB_REF_SLUG_URL', 'release');
-      exportVariable('APP_DOMAIN', 'website.com');
-      exportVariable('APP_SUBDOMAIN', 'api');
+      exportVariable(env, 'GITHUB_REF_SLUG', 'release');
+      exportVariable(env, 'APP_DOMAIN', 'website.com');
+      exportVariable(env, 'APP_SUBDOMAIN', 'api');
 
       runAction(env, github.context);
 
@@ -79,9 +97,9 @@ describe(`set-app-env github action`, () => {
     });
 
     it('should set correct env variable for a push on non deployed branch (without PR)', () => {
-      exportVariable('GITHUB_REF_SLUG_URL', 'feature-a');
-      exportVariable('APP_DOMAIN', 'website.com');
-      exportVariable('APP_SUBDOMAIN', 'api');
+      exportVariable(env, 'GITHUB_REF_SLUG', 'feature-a');
+      exportVariable(env, 'APP_DOMAIN', 'website.com');
+      exportVariable(env, 'APP_SUBDOMAIN', 'api');
 
       runAction(env, github.context);
 
@@ -96,10 +114,10 @@ describe(`set-app-env github action`, () => {
 
     it('should set correct env variable for a pull request targeting the master branch', () => {
       github.context.eventName = 'pull_request';
-      exportVariable('GITHUB_REF_SLUG_URL', 'feature-a');
-      exportVariable('GITHUB_HEAD_REF_SLUG', 'master');
-      exportVariable('APP_DOMAIN', 'website.com');
-      exportVariable('APP_SUBDOMAIN', 'api');
+      exportVariable(env, 'GITHUB_REF_SLUG', 'feature-a');
+      exportVariable(env, 'GITHUB_HEAD_REF_SLUG', 'master');
+      exportVariable(env, 'APP_DOMAIN', 'website.com');
+      exportVariable(env, 'APP_SUBDOMAIN', 'api');
 
       runAction(env, github.context);
 
@@ -114,10 +132,10 @@ describe(`set-app-env github action`, () => {
 
     it('should set correct env variable for a pull request targeting the release branch', () => {
       github.context.eventName = 'pull_request';
-      exportVariable('GITHUB_REF_SLUG_URL', 'master');
-      exportVariable('GITHUB_HEAD_REF_SLUG', 'release');
-      exportVariable('APP_DOMAIN', 'website.com');
-      exportVariable('APP_SUBDOMAIN', 'api');
+      exportVariable(env, 'GITHUB_REF_SLUG', 'master');
+      exportVariable(env, 'GITHUB_HEAD_REF_SLUG', 'release');
+      exportVariable(env, 'APP_DOMAIN', 'website.com');
+      exportVariable(env, 'APP_SUBDOMAIN', 'api');
 
       runAction(env, github.context);
 
@@ -134,10 +152,10 @@ describe(`set-app-env github action`, () => {
   describe(`the ${runAction.name} for an website package`, () => {
     it('should set correct env variable for a push on dev branch', () => {
       github.context.eventName = 'push';
-      exportVariable('GITHUB_REF_SLUG_URL', 'dev');
-      exportVariable('GITHUB_HEAD_REF_SLUG', '');
-      exportVariable('APP_DOMAIN', 'website.com');
-      exportVariable('APP_SUBDOMAIN', '');
+      exportVariable(env, 'GITHUB_REF_SLUG', 'dev');
+      exportVariable(env, 'GITHUB_HEAD_REF_SLUG', '');
+      exportVariable(env, 'APP_DOMAIN', 'website.com');
+      exportVariable(env, 'APP_SUBDOMAIN', '');
 
       runAction(env, github.context);
 

@@ -123,10 +123,6 @@ jobs:
         DEBUG: 'newrade:*'
         APP_URL: 'https://admin.vasectomie-pierre-boucher.ca'
 
-    - name: Check for protected branches
-      if: endsWith(github.ref, 'api')
-      run: echo "branch cannot end with 'api'" && exit 1
-
     - name: Deploy admin (branch)
       if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && (github.ref == 'refs/heads/dev' || github.ref == 'refs/heads/master')
       uses: amondnet/vercel-action@v20

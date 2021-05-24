@@ -1,6 +1,6 @@
 import * as core from '@actions/core';
 import { TEST_ENV } from '@newrade/core-common';
-import { env } from '../../types/dot-env';
+import { ENV } from '../../types/dot-env';
 
 /**
  * Export an env variable using @actions/core's utility or process.env for tests
@@ -8,7 +8,7 @@ import { env } from '../../types/dot-env';
  * @param name name of the variable e.g. MY_VAR
  * @param value value that will be converted to a string and assigned
  */
-export function exportVariable(name?: string, value?: string | null | number) {
+export function exportVariable(env?: Partial<ENV>, name?: string, value?: string | null | number) {
   if (!env) {
     throw Error(`env must be passed to ${exportVariable.name}`);
   }

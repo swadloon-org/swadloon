@@ -1,0 +1,157 @@
+import * as core from '@actions/core';
+import { Context } from '@actions/github/lib/context';
+import { DEPLOY_ENV } from '@newrade/core-common';
+import { ENV } from '../../types/dot-env';
+import { exportVariable, join } from './utilities';
+
+type ActionEnv = Partial<ENV>;
+
+/**
+ * `set-app-env` sets the env variables including the host depending on the build context.
+ * For example if we have a website with an app and api, the urls would be:
+ *
+ *  dev.website.com
+ *  dev.api.website.com
+ *  dev.app.website.com
+ *
+ *  pr-422.website.com
+ *  pr-422.api.website.com
+ *  pr-422.app.website.com
+ *
+ *  website.com
+ *  api.website.com
+ *  app.website.com
+ *
+ * The scheme is [environment].[name].[domain] where
+ *
+ * - environment is `dev` for the dev branch, `staging` for the main or master branch and `''` for the production branch (release)
+ * - name is a label for the package, e.g. 'api', 'docs', 'app'
+ * - domain is the root domain name for the project
+ *
+ * @example
+ *  for an `api` application on a PR (#422) branch the url would be
+ *  pr-422.api.website.com
+ *
+ *  for an `app` application on the release branch the url would be
+ *  app.website.com
+ *
+ * @see https://docs.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions
+ *
+ * Note: this action depends on [github-slug-action](https://github.com/rlespinasse/github-slug-action)
+ */
+export function runAction(env?: ActionEnv, githubContext?: Context) {
+  if (!env) {
+    throw Error(`env must be passed to ${runAction.name}`);
+  }
+
+  if (!githubContext) {
+    throw Error(`githubContext must be passed to ${runAction.name}`);
+  }
+
+  if (!env.GITHUB_REF_SLUG) {
+    throw Error(`[set-app-env] depends on [rlespinasse/github-slug-action]`);
+  }
+
+  try {
+    console.info(`Setting env variables for the current context (event, branch)`);
+    console.info(`Current event is ${githubContext.eventName}`);
+
+    console.debug(`Initial env variables:`);
+    console.debug(`TEST_ENV: ${env.TEST_ENV}`);
+    console.debug(`APP_ENV: ${env.APP_ENV}`);
+    console.debug(`APP_DOMAIN: ${env.APP_DOMAIN}`);
+    console.debug(`APP_SUBDOMAIN: ${env.APP_SUBDOMAIN}`);
+    console.debug(`APP_BRANCH_SUBDOMAIN: ${env.APP_BRANCH_SUBDOMAIN}`);
+    console.debug(`APP_PROTOCOL: ${env.APP_PROTOCOL}`);
+    console.debug(`APP_HOST: ${env.APP_HOST}`);
+    console.debug(`APP_PORT: ${env.APP_PORT}`);
+    console.debug(`APP_CI_DEPLOY: ${env.APP_CI_DEPLOY}`);
+
+    console.debug(`Branch that triggered the workflow:`, env.GITHUB_REF_SLUG);
+
+    console.info(`Setting env variables`);
+
+    exportVariable(env, 'APP_PROTOCOL', 'https'); // always https when deploying
+    exportVariable(env, 'APP_PORT', '443'); // always 443 for https
+
+    /**
+     * Build url with `dev|staging|''` for push or workflow dispatch on branches
+     * and `pr-<number>` for PRs
+     */
+
+    if (githubContext.eventName === 'push' || githubContext.eventName == 'workflow_dispatch') {
+      console.info(`Branches without a PR won't be deployed`);
+      exportVariable(env, 'APP_CI_DEPLOY', 'false');
+      exportVariable(env, 'APP_BRANCH_SUBDOMAIN', '');
+
+      switch (env.GITHUB_REF_SLUG) {
+        case 'dev': {
+          exportVariable(env, 'APP_ENV', DEPLOY_ENV.DEV);
+          exportVariable(env, 'APP_BRANCH_SUBDOMAIN', 'dev');
+          exportVariable(env, 'APP_CI_DEPLOY', 'true');
+          break;
+        }
+        case 'master': {
+          exportVariable(env, 'APP_ENV', DEPLOY_ENV.STAGING);
+          exportVariable(env, 'APP_BRANCH_SUBDOMAIN', 'staging');
+          exportVariable(env, 'APP_CI_DEPLOY', 'true');
+          break;
+        }
+        case 'release': {
+          exportVariable(env, 'APP_ENV', DEPLOY_ENV.PRODUCTION);
+          exportVariable(env, 'APP_BRANCH_SUBDOMAIN', '');
+          exportVariable(env, 'APP_CI_DEPLOY', 'true');
+          break;
+        }
+        default: {
+        }
+      }
+    }
+
+    if (githubContext.eventName === 'pull_request') {
+      console.debug(`Current branch ref:`, env.GITHUB_HEAD_REF_SLUG);
+      console.debug(`Target branch:`, env.GITHUB_BASE_REF_SLUG);
+
+      console.info(`Assigning PR branch sub domain`);
+      exportVariable(env, 'APP_BRANCH_SUBDOMAIN');
+      exportVariable(env, 'APP_CI_DEPLOY', 'true');
+
+      switch (env.GITHUB_HEAD_REF_SLUG) {
+        case 'dev': {
+          exportVariable(env, 'APP_ENV', DEPLOY_ENV.DEV);
+          exportVariable(env, 'APP_BRANCH_SUBDOMAIN', `pr-${githubContext.runNumber}.dev`);
+          break;
+        }
+        case 'master': {
+          exportVariable(env, 'APP_ENV', DEPLOY_ENV.STAGING);
+          exportVariable(env, 'APP_BRANCH_SUBDOMAIN', `pr-${githubContext.runNumber}.staging`);
+          break;
+        }
+        case 'release': {
+          exportVariable(env, 'APP_ENV', DEPLOY_ENV.PRODUCTION);
+          exportVariable(env, 'APP_BRANCH_SUBDOMAIN', `pr-${githubContext.runNumber}`);
+          break;
+        }
+        default: {
+        }
+      }
+    }
+
+    exportVariable(
+      env,
+      'APP_HOST',
+      `${join([env.APP_BRANCH_SUBDOMAIN, env.APP_SUBDOMAIN, env.APP_DOMAIN])}`
+    );
+
+    console.debug(`Output env variables:`);
+    console.debug(`APP_ENV: ${env.APP_ENV}`);
+    console.debug(`APP_DOMAIN: ${env.APP_DOMAIN}`);
+    console.debug(`APP_SUBDOMAIN: ${env.APP_SUBDOMAIN}`);
+    console.debug(`APP_BRANCH_SUBDOMAIN: ${env.APP_BRANCH_SUBDOMAIN}`);
+    console.debug(`APP_PROTOCOL: ${env.APP_PROTOCOL}`);
+    console.debug(`APP_HOST: ${env.APP_HOST}`);
+    console.debug(`APP_PORT: ${env.APP_PORT}`);
+  } catch (error) {
+    core.setFailed(error.message);
+  }
+}

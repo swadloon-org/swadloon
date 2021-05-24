@@ -8,10 +8,20 @@ import * as t from 'io-ts';
 const Env = t.intersection([
   CommonEnv,
   t.type({
-    GITHUB_REF_SLUG_URL: t.string,
+    /**
+     * The branch or tag ref that triggered the workflow.
+     */
+    GITHUB_REF_SLUG: t.string,
+    /**
+     * The branch of the head repository.
+     * Only set for pull-request event and forked repositories.
+     */
     GITHUB_HEAD_REF_SLUG: t.string,
+    /**
+     * The branch of the base repository.
+     * Only set for pull-request event and forked repositories.
+     */
     GITHUB_BASE_REF_SLUG: t.string,
-    GITHUB_REPOSITORY_SLUG: t.string,
   }),
 ]);
 
