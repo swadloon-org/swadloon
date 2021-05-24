@@ -10,9 +10,9 @@ const env = loadDotEnv<ENV>({
   packageName: packageJson.name,
 });
 
-const PROTOCOL = env.TEST_PROTOCOL || 'http';
-const PORT = env.TEST_PORT || env.APP_PORT || '9000';
-const HOST = env.TEST_HOST || 'localhost';
+const TEST_PROTOCOL = env.TEST_PROTOCOL || env.APP_PROTOCOL || 'https';
+const TEST_PORT = env.TEST_PORT || env.APP_PORT || '443';
+const TEST_HOST = env.TEST_HOST || env.APP_HOST || 'localhost';
 const VIEW_WIDTH = env.TEST_VIEW_WIDTH ? Number(env.TEST_VIEW_WIDTH) : 1440;
 const VIEW_HEIGHT = env.TEST_VIEW_HEIGHT ? Number(env.TEST_VIEW_HEIGHT) : 900;
 
@@ -23,20 +23,19 @@ export const puppeteerConfig: {
   appURL: string;
   launchOptions: LaunchOptions & BrowserLaunchArgumentOptions & BrowserConnectOptions;
 } = {
-  protocol: env.TEST_PROTOCOL || 'http',
-  host: env.TEST_HOST || 'localhost',
-  port: env.TEST_PORT || '9000',
-  appURL: `${PROTOCOL}://${HOST}:${PORT}`,
+  protocol: TEST_PROTOCOL,
+  host: TEST_HOST,
+  port: TEST_PORT,
+  appURL: `${TEST_PROTOCOL}://${TEST_HOST}${+TEST_PORT === 443 || ':' + TEST_PORT}`,
   launchOptions: {
-    // executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
-    headless: toBoolean(env.TEST_CHROME_HEADLESS),
+    headless: env.TEST_CHROME_HEADLESS ? toBoolean(env.TEST_CHROME_HEADLESS) : true,
     defaultViewport: {
       width: VIEW_WIDTH,
       height: VIEW_HEIGHT,
     },
     args: [
       '--disable-extensions',
-      '--shm-size=3gb',
+      '--shm-size=3gb', // needed for webpack-dev-server
       `--window-size=${VIEW_WIDTH},${VIEW_HEIGHT}`,
       '--no-sandbox',
       '–-disable-setuid-sandbox',

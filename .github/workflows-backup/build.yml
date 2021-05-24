@@ -62,7 +62,7 @@ jobs:
         changed-files: ${{ steps.filter.outputs.packages_files }}
         tsBuildInfoFiles: ${{ steps.filter2.outputs.tsbuildinfo_files }}
     - name: Set the env variable depending on the branch
-      uses: ./packages/core-github-actions/lib/set-app-env
+      uses: ./packages/core-github-actions/built/set-app-env
     #
     # END COMMON
     #
@@ -125,7 +125,7 @@ jobs:
         changed-files: ${{ steps.filter.outputs.packages_files }}
         tsBuildInfoFiles: ${{ steps.filter2.outputs.tsbuildinfo_files }}
     - name: Set the env variable depending on the branch
-      uses: ./packages/core-github-actions/lib/set-app-env
+      uses: ./packages/core-github-actions/built/set-app-env
     #
     # END COMMON
     #
@@ -191,7 +191,7 @@ jobs:
         changed-files: ${{ steps.filter.outputs.packages_files }}
         tsBuildInfoFiles: ${{ steps.filter2.outputs.tsbuildinfo_files }}
     - name: Set the env variable depending on the branch
-      uses: ./packages/core-github-actions/lib/set-app-env
+      uses: ./packages/core-github-actions/built/set-app-env
     #
     # END COMMON
     #
@@ -257,7 +257,7 @@ jobs:
         changed-files: ${{ steps.filter.outputs.packages_files }}
         tsBuildInfoFiles: ${{ steps.filter2.outputs.tsbuildinfo_files }}
     - name: Set the env variable depending on the branch
-      uses: ./packages/core-github-actions/lib/set-app-env
+      uses: ./packages/core-github-actions/built/set-app-env
     #
     # END COMMON
     #
@@ -336,7 +336,7 @@ jobs:
         changed-files: ${{ steps.filter.outputs.packages_files }}
         tsBuildInfoFiles: ${{ steps.filter2.outputs.tsbuildinfo_files }}
     - name: Set the env variable depending on the branch
-      uses: ./packages/core-github-actions/lib/set-app-env
+      uses: ./packages/core-github-actions/built/set-app-env
     #
     # END COMMON
     #
@@ -415,7 +415,7 @@ jobs:
         changed-files: ${{ steps.filter.outputs.packages_files }}
         tsBuildInfoFiles: ${{ steps.filter2.outputs.tsbuildinfo_files }}
     - name: Set the env variable depending on the branch
-      uses: ./packages/core-github-actions/lib/set-app-env
+      uses: ./packages/core-github-actions/built/set-app-env
     #
     # END COMMON
     #

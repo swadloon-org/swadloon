@@ -75,7 +75,7 @@ const config: WebpackOptions.WebpackOptions = {
   },
   output: {
     filename: `[name]/index.js`,
-    path: path.join(__dirname, 'lib'),
+    path: path.join(__dirname, 'built'),
     libraryTarget: 'umd',
   },
   plugins: [

@@ -50,9 +50,8 @@ env:
   #
   # App
   #
-  APP_PORT: 9003
-  APP_URL: http://localhost:9003
-  # APP_ENV: set by set-app-env action
+  APP_DOMAIN: vasectomie-pierre-boucher.ca
+  APP_SUBDOMAIN: ''
 
 jobs:
   build-test-deploy:
@@ -68,20 +67,6 @@ jobs:
     steps:
     - name: Inject Github slug/short variables
       uses: rlespinasse/github-slug-action@v3.x
-
-    - name: Print slug/short variables
-      run: |
-        echo "Slug variables"
-        echo " - ${{ env.GITHUB_REF_SLUG }}"
-        echo " - ${{ env.GITHUB_HEAD_REF_SLUG }}"
-        echo " - ${{ env.GITHUB_BASE_REF_SLUG }}"
-        echo " - ${{ env.GITHUB_REPOSITORY_SLUG }}"
-
-        echo "Slug URL variables"
-        echo " - ${{ env.GITHUB_REF_SLUG_URL }}"
-        echo " - ${{ env.GITHUB_HEAD_REF_SLUG_URL }}"
-        echo " - ${{ env.GITHUB_BASE_REF_SLUG_URL }}"
-        echo " - ${{ env.GITHUB_REPOSITORY_SLUG_URL }}"
 
     - name: Checkout
       uses: actions/checkout@v2
@@ -107,7 +92,7 @@ jobs:
       run: echo ${{ env.NODE_OPTIONS }} && node -e 'console.log(`node heap limit = ${require("v8").getHeapStatistics().heap_size_limit / (1024 * 1024)} Mb`)'
 
     - name: Set the env variable depending on the branch
-      uses: ./packages/core-github-actions/lib/set-app-env
+      uses: ./packages/core-github-actions/built/set-app-env
 
     - name: Update vercel.json rewrites
       uses: ./packages/core-github-actions/lib/vercel-rewrites
@@ -134,58 +119,23 @@ jobs:
       env:
         APP_URL: 'https://vasectomie-pierre-boucher.ca'
 
+    - name: Deploy website (branch)
+      if: ${{ env.APP_CI_DEPLOY }}
+      uses: amondnet/vercel-action@v20
+      with:
+        scope: ${{ secrets.VERCEL_SCOPE }}
+        vercel-token: ${{ secrets.VERCEL_TOKEN }}
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        vercel-args: 'public'
+        vercel-org-id: ${{ secrets.VERCEL_ORG_ID}}
+        vercel-project-id: prj_BSiEPXFueCLXvdowJXU7WikN1T1M
+        working-directory: ./packages/vsb-website
+        alias-domains: |
+          ${{ env.APP_HOST }}
+
     - name: Run E2E Test
+      if: ${{ env.APP_CI_DEPLOY }}
       run: yarn test:e2e
       env:
-        TEST_PROTOCOL: https
-        TEST_HOST: localhost
-        TEST_PORT: 9003
-        TEST_IGNORE_SSL_ERROR: true
-        TEST_CHROME_HEADLESS: true
-
-    - name: Check for protected branches
-      if: endsWith(github.ref, 'api')
-      run: echo "branch cannot end with 'api'" && exit 1
-
-    - name: Deploy website (branch)
-      if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && (${{ env.GITHUB_REF_SLUG_URL }} == 'dev' || ${{ env.GITHUB_REF_SLUG_URL }} == 'master')
-      uses: amondnet/vercel-action@v20
-      with:
-        scope: ${{ secrets.VERCEL_SCOPE }}
-        vercel-token: ${{ secrets.VERCEL_TOKEN }}
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        vercel-args: 'public'
-        vercel-org-id: ${{ secrets.VERCEL_ORG_ID}}
-        vercel-project-id: prj_BSiEPXFueCLXvdowJXU7WikN1T1M
-        working-directory: ./packages/vsb-website
-        alias-domains: |
-          ${{ env.GITHUB_REF_SLUG_URL }}.vasectomie-pierre-boucher.ca
-
-    - name: Deploy website (PR)
-      if: github.event_name == 'pull_request'
-      uses: amondnet/vercel-action@v20
-      with:
-        scope: ${{ secrets.VERCEL_SCOPE }}
-        vercel-token: ${{ secrets.VERCEL_TOKEN }}
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        vercel-args: 'public'
-        vercel-org-id: ${{ secrets.VERCEL_ORG_ID}}
-        vercel-project-id: prj_BSiEPXFueCLXvdowJXU7WikN1T1M
-        working-directory: ./packages/vsb-website
-        alias-domains: |
-          pr-${{ github.event.number }}.vasectomie-pierre-boucher.ca
-
-    - name: Deploy website (prod)
-      if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/release'
-      uses: amondnet/vercel-action@v20
-      with:
-        scope: ${{ secrets.VERCEL_SCOPE }}
-        vercel-token: ${{ secrets.VERCEL_TOKEN }}
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        vercel-args: 'public --prod'
-        vercel-org-id: ${{ secrets.VERCEL_ORG_ID}}
-        vercel-project-id: prj_BSiEPXFueCLXvdowJXU7WikN1T1M
-        working-directory: ./packages/vsb-website
-        alias-domains: |
-          vasectomie-pierre-boucher.ca
+        TEST_HOST: ${{ env.APP_HOST }}
 

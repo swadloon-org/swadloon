@@ -17,7 +17,11 @@
       "request": "launch",
       "name": "Jest Debug All",
       "program": "${workspaceFolder}/../../node_modules/jest/bin/jest.js",
-      "args": ["--runInBand", "--no-cache", "--config=${workspaceFolder}/config/jest/jest.config.json"],
+      "args": [
+        "--runInBand",
+        "--no-cache",
+        "--config=${workspaceFolder}/config/jest/jest.config.json"
+      ],
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen"
     },
@@ -26,7 +30,11 @@
       "request": "launch",
       "name": "Jest debug current file",
       "program": "${workspaceFolder}/../../node_modules/jest/bin/jest.js",
-      "args": ["${relativeFile}", "--no-cache", "--config=${workspaceFolder}/config/jest/jest.config.js"],
+      "args": [
+        "${relativeFile}",
+        "--no-cache",
+        "--config=${workspaceFolder}/config/jest/jest.config.js"
+      ],
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen"
     },
@@ -34,11 +42,12 @@
       "type": "node",
       "request": "launch",
       "name": "Jest debug current file (e2e)",
-      "env": {
-        "APP_URL": "dev-erp.com"
-      },
       "program": "${workspaceFolder}/../../node_modules/jest/bin/jest.js",
-      "args": ["${relativeFile}", "--no-cache", "--config=${workspaceFolder}/config/jest/jest-e2e.config.js"],
+      "args": [
+        "${relativeFile}",
+        "--no-cache",
+        "--config=${workspaceFolder}/config/jest/jest-e2e.config.js"
+      ],
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen"
     },
@@ -50,7 +59,11 @@
         "APP_ENV": "ci"
       },
       "program": "${workspaceFolder}/../../node_modules/jest/bin/jest.js",
-      "args": ["${relativeFile}", "--no-cache", "--config=${workspaceFolder}/config/jest/jest.config.js"],
+      "args": [
+        "${relativeFile}",
+        "--no-cache",
+        "--config=${workspaceFolder}/config/jest/jest.config.js"
+      ],
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen"
     }

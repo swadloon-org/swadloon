@@ -60,7 +60,7 @@ jobs:
       run: echo $NODE_OPTIONS && node -e 'console.log(`node heap limit = ${require("v8").getHeapStatistics().heap_size_limit / (1024 * 1024)} Mb`)'
 
     - name: Set the env variable depending on the branch
-      uses: ./packages/core-github-actions/lib/set-app-env
+      uses: ./packages/core-github-actions/built/set-app-env
 
     - name: Install dependencies and build core packages
       run: yarn --prefer-offline

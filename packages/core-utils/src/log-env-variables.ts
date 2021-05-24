@@ -15,5 +15,7 @@ export function logEnvVariables<ENV extends Record<string, string | undefined>>(
   logPackage(`NODE_DEBUG is ${env.NODE_DEBUG}`);
   logPackage(`DEBUG is ${env.DEBUG}`);
   logPackage(`APP_ENV is ${env.APP_ENV}`);
-  logPackage(`APP_URL is ${env.APP_URL}`);
+  logPackage(`APP_PROTOCOL is ${env.APP_PROTOCOL}`);
+  logPackage(`APP_HOST is ${env.APP_HOST}`);
+  logPackage(`APP_PORT is ${env.APP_PORT}`);
 }

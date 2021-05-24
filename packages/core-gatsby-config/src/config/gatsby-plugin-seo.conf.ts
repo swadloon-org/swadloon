@@ -49,12 +49,12 @@ export function getGatsbyPluginRobotsTxt({ env }: { env: CommonEnvType }): Gatsb
        * Host of your site
        * @default ${siteMetadata.siteUrl}
        */
-      host: `${env.APP_URL}`,
+      host: `${env.APP_PROTOCOL}://${env.APP_HOST}${+env.APP_PORT === 443 || ':' + env.APP_PORT}`,
       /**
        * Path(s) to sitemap.xml
-       * @default ${siteMetadata.siteUrl}/sitemap.xml
+       * @default /sitemap.xml
        */
-      sitemap: `${env.APP_URL}/sitemap.xml`,
+      sitemap: `/sitemap.xml`,
       /**
        * Path where to create the robots.txt
        * @default /robots.txt

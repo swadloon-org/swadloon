@@ -31,7 +31,7 @@ const config: core.GastbySiteConfig = {
   siteMetadata: {
     title: `MIR Website`,
     description: `MIR Website`,
-    siteUrl: env.APP_URL,
+    siteUrl: `${env.APP_PROTOCOL}://${env.APP_HOST}${+env.APP_PORT === 443 || ':' + env.APP_PORT}`,
     siteEnv: env.APP_ENV,
     languages: {
       langs: [common.SITE_LANGUAGES.FR_CA, common.SITE_LANGUAGES.EN_CA],
