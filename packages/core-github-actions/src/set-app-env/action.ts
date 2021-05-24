@@ -53,23 +53,23 @@ export function runAction(env?: ActionEnv, githubContext?: Context) {
   }
 
   try {
-    console.info(`Setting env variables for the current context (event, branch)`);
-    console.info(`Current event is ${githubContext.eventName}`);
+    core.info(`Setting env variables for the current context (event, branch)`);
+    core.info(`Current event is ${githubContext.eventName}`);
 
-    console.debug(`Initial env variables:`);
-    console.debug(`TEST_ENV: ${env.TEST_ENV}`);
-    console.debug(`APP_ENV: ${env.APP_ENV}`);
-    console.debug(`APP_DOMAIN: ${env.APP_DOMAIN}`);
-    console.debug(`APP_SUBDOMAIN: ${env.APP_SUBDOMAIN}`);
-    console.debug(`APP_BRANCH_SUBDOMAIN: ${env.APP_BRANCH_SUBDOMAIN}`);
-    console.debug(`APP_PROTOCOL: ${env.APP_PROTOCOL}`);
-    console.debug(`APP_HOST: ${env.APP_HOST}`);
-    console.debug(`APP_PORT: ${env.APP_PORT}`);
-    console.debug(`APP_CI_DEPLOY: ${env.APP_CI_DEPLOY}`);
+    core.debug(`Initial env variables:`);
+    core.debug(`TEST_ENV: ${env.TEST_ENV}`);
+    core.debug(`APP_ENV: ${env.APP_ENV}`);
+    core.debug(`APP_DOMAIN: ${env.APP_DOMAIN}`);
+    core.debug(`APP_SUBDOMAIN: ${env.APP_SUBDOMAIN}`);
+    core.debug(`APP_BRANCH_SUBDOMAIN: ${env.APP_BRANCH_SUBDOMAIN}`);
+    core.debug(`APP_PROTOCOL: ${env.APP_PROTOCOL}`);
+    core.debug(`APP_HOST: ${env.APP_HOST}`);
+    core.debug(`APP_PORT: ${env.APP_PORT}`);
+    core.debug(`APP_CI_DEPLOY: ${env.APP_CI_DEPLOY}`);
 
-    console.debug(`Branch that triggered the workflow:`, env.GITHUB_REF_SLUG);
+    core.debug(`Branch that triggered the workflow: ${env.GITHUB_REF_SLUG}`);
 
-    console.info(`Setting env variables`);
+    core.info(`Setting env variables`);
 
     exportVariable(env, 'APP_PROTOCOL', 'https'); // always https when deploying
     exportVariable(env, 'APP_PORT', '443'); // always 443 for https
@@ -80,7 +80,7 @@ export function runAction(env?: ActionEnv, githubContext?: Context) {
      */
 
     if (githubContext.eventName === 'push' || githubContext.eventName == 'workflow_dispatch') {
-      console.info(`Branches without a PR won't be deployed`);
+      core.info(`Branches without a PR won't be deployed`);
       exportVariable(env, 'APP_ENV', DEPLOY_ENV.DEV);
       exportVariable(env, 'APP_CI_DEPLOY', 'false');
       exportVariable(env, 'APP_BRANCH_SUBDOMAIN', '');
@@ -110,10 +110,10 @@ export function runAction(env?: ActionEnv, githubContext?: Context) {
     }
 
     if (githubContext.eventName === 'pull_request') {
-      console.debug(`Current branch ref:`, env.GITHUB_HEAD_REF_SLUG);
-      console.debug(`Target branch:`, env.GITHUB_BASE_REF_SLUG);
+      core.debug(`Current branch ref: ${env.GITHUB_HEAD_REF_SLUG}`);
+      core.debug(`Target branch: ${env.GITHUB_BASE_REF_SLUG}`);
 
-      console.info(`Assigning PR branch sub domain`);
+      core.info(`Assigning PR branch sub domain`);
       exportVariable(env, 'APP_BRANCH_SUBDOMAIN');
       exportVariable(env, 'APP_CI_DEPLOY', 'true');
 
@@ -148,14 +148,14 @@ export function runAction(env?: ActionEnv, githubContext?: Context) {
       throw Error(`APP_HOST cannot be undefined, did you set APP_DOMAIN?`);
     }
 
-    console.debug(`Output env variables:`);
-    console.debug(`APP_ENV: ${env.APP_ENV}`);
-    console.debug(`APP_DOMAIN: ${env.APP_DOMAIN}`);
-    console.debug(`APP_SUBDOMAIN: ${env.APP_SUBDOMAIN}`);
-    console.debug(`APP_BRANCH_SUBDOMAIN: ${env.APP_BRANCH_SUBDOMAIN}`);
-    console.debug(`APP_PROTOCOL: ${env.APP_PROTOCOL}`);
-    console.debug(`APP_HOST: ${env.APP_HOST}`);
-    console.debug(`APP_PORT: ${env.APP_PORT}`);
+    core.debug(`Output env variables:`);
+    core.debug(`APP_ENV: ${env.APP_ENV}`);
+    core.debug(`APP_DOMAIN: ${env.APP_DOMAIN}`);
+    core.debug(`APP_SUBDOMAIN: ${env.APP_SUBDOMAIN}`);
+    core.debug(`APP_BRANCH_SUBDOMAIN: ${env.APP_BRANCH_SUBDOMAIN}`);
+    core.debug(`APP_PROTOCOL: ${env.APP_PROTOCOL}`);
+    core.debug(`APP_HOST: ${env.APP_HOST}`);
+    core.debug(`APP_PORT: ${env.APP_PORT}`);
   } catch (error) {
     core.setFailed(error.message);
   }

@@ -91,17 +91,10 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 84);
+/******/ 	return __webpack_require__(__webpack_require__.s = 121);
 /******/ })
 /************************************************************************/
 /******/ ({
-
-/***/ 1:
-/***/ (function(module, exports) {
-
-module.exports = require("os");
-
-/***/ }),
 
 /***/ 10:
 /***/ (function(module, exports, __webpack_require__) {
@@ -138,11 +131,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getState = exports.saveState = exports.group = exports.endGroup = exports.startGroup = exports.info = exports.warning = exports.error = exports.debug = exports.isDebug = exports.setFailed = exports.setCommandEcho = exports.setOutput = exports.getBooleanInput = exports.getInput = exports.addPath = exports.setSecret = exports.exportVariable = exports.ExitCode = void 0;
-const command_1 = __webpack_require__(12);
-const file_command_1 = __webpack_require__(13);
-const utils_1 = __webpack_require__(2);
-const os = __importStar(__webpack_require__(1));
-const path = __importStar(__webpack_require__(6));
+const command_1 = __webpack_require__(16);
+const file_command_1 = __webpack_require__(17);
+const utils_1 = __webpack_require__(3);
+const os = __importStar(__webpack_require__(2));
+const path = __importStar(__webpack_require__(7));
 /**
  * The code to exit an action
  */
@@ -389,7 +382,89 @@ exports.getState = getState;
 
 /***/ }),
 
-/***/ 12:
+/***/ 121:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  Object.defineProperty(o, k2, {
+    enumerable: true,
+    get: function () {
+      return m[k];
+    }
+  });
+} : function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  o[k2] = m[k];
+});
+
+var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function (o, v) {
+  Object.defineProperty(o, "default", {
+    enumerable: true,
+    value: v
+  });
+} : function (o, v) {
+  o["default"] = v;
+});
+
+var __importStar = this && this.__importStar || function (mod) {
+  if (mod && mod.__esModule) return mod;
+  var result = {};
+  if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+
+  __setModuleDefault(result, mod);
+
+  return result;
+};
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+const core = __importStar(__webpack_require__(10));
+
+const fs = __importStar(__webpack_require__(4));
+
+const path = __importStar(__webpack_require__(7));
+
+const delimiter = path.sep;
+
+try {
+  const changedFiles = JSON.parse(core.getInput('changed-files'));
+  const tsBuildInfoFilenames = JSON.parse(core.getInput('tsBuildInfoFiles'));
+  core.info('changedFiles: ' + changedFiles.length);
+  core.info('tsBuildInfoFilenames: ' + tsBuildInfoFilenames);
+  tsBuildInfoFilenames.forEach(tsBuildInfoFilename => {
+    changedFiles.forEach(changedFile => {
+      const fileParts = path.dirname(changedFile).split(delimiter);
+      let fileFound;
+
+      do {
+        const tsbuildInfoFile = path.join(fileParts.join(delimiter), tsBuildInfoFilename); // console.log('tsbuildInfoFile', fileParts, tsbuildInfoFile, fileParts.length);
+
+        if (fs.existsSync(tsbuildInfoFile)) {
+          fileFound = tsbuildInfoFile;
+        }
+
+        fileParts.pop();
+      } while (fileParts.length > 0 && !fileFound);
+
+      if (fileFound) {
+        core.info('removing ts buildinfo file ' + fileFound);
+        fs.unlinkSync(fileFound);
+      }
+    });
+  });
+} catch (error) {
+  core.setFailed(error.message);
+}
+
+/***/ }),
+
+/***/ 16:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -415,8 +490,8 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.issue = exports.issueCommand = void 0;
-const os = __importStar(__webpack_require__(1));
-const utils_1 = __webpack_require__(2);
+const os = __importStar(__webpack_require__(2));
+const utils_1 = __webpack_require__(3);
 /**
  * Commands
  *
@@ -488,7 +563,7 @@ function escapeProperty(s) {
 
 /***/ }),
 
-/***/ 13:
+/***/ 17:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -517,9 +592,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.issueCommand = void 0;
 // We use any as a valid input type
 /* eslint-disable @typescript-eslint/no-explicit-any */
-const fs = __importStar(__webpack_require__(3));
-const os = __importStar(__webpack_require__(1));
-const utils_1 = __webpack_require__(2);
+const fs = __importStar(__webpack_require__(4));
+const os = __importStar(__webpack_require__(2));
+const utils_1 = __webpack_require__(3);
 function issueCommand(command, message) {
     const filePath = process.env[`GITHUB_${command}`];
     if (!filePath) {
@@ -538,6 +613,13 @@ exports.issueCommand = issueCommand;
 /***/ }),
 
 /***/ 2:
+/***/ (function(module, exports) {
+
+module.exports = require("os");
+
+/***/ }),
+
+/***/ 3:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -564,99 +646,17 @@ exports.toCommandValue = toCommandValue;
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /***/ (function(module, exports) {
 
 module.exports = require("fs");
 
 /***/ }),
 
-/***/ 6:
+/***/ 7:
 /***/ (function(module, exports) {
 
 module.exports = require("path");
-
-/***/ }),
-
-/***/ 84:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
-  if (k2 === undefined) k2 = k;
-  Object.defineProperty(o, k2, {
-    enumerable: true,
-    get: function () {
-      return m[k];
-    }
-  });
-} : function (o, m, k, k2) {
-  if (k2 === undefined) k2 = k;
-  o[k2] = m[k];
-});
-
-var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function (o, v) {
-  Object.defineProperty(o, "default", {
-    enumerable: true,
-    value: v
-  });
-} : function (o, v) {
-  o["default"] = v;
-});
-
-var __importStar = this && this.__importStar || function (mod) {
-  if (mod && mod.__esModule) return mod;
-  var result = {};
-  if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-
-  __setModuleDefault(result, mod);
-
-  return result;
-};
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-const core = __importStar(__webpack_require__(10));
-
-const fs = __importStar(__webpack_require__(3));
-
-const path = __importStar(__webpack_require__(6));
-
-const delimiter = path.sep;
-
-try {
-  const changedFiles = JSON.parse(core.getInput('changed-files'));
-  const tsBuildInfoFilenames = JSON.parse(core.getInput('tsBuildInfoFiles'));
-  core.info('changedFiles: ' + changedFiles.length);
-  core.info('tsBuildInfoFilenames: ' + tsBuildInfoFilenames);
-  tsBuildInfoFilenames.forEach(tsBuildInfoFilename => {
-    changedFiles.forEach(changedFile => {
-      const fileParts = path.dirname(changedFile).split(delimiter);
-      let fileFound;
-
-      do {
-        const tsbuildInfoFile = path.join(fileParts.join(delimiter), tsBuildInfoFilename); // console.log('tsbuildInfoFile', fileParts, tsbuildInfoFile, fileParts.length);
-
-        if (fs.existsSync(tsbuildInfoFile)) {
-          fileFound = tsbuildInfoFile;
-        }
-
-        fileParts.pop();
-      } while (fileParts.length > 0 && !fileFound);
-
-      if (fileFound) {
-        core.info('removing ts buildinfo file ' + fileFound);
-        fs.unlinkSync(fileFound);
-      }
-    });
-  });
-} catch (error) {
-  core.setFailed(error.message);
-}
 
 /***/ })
 

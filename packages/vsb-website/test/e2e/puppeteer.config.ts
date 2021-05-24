@@ -1,11 +1,11 @@
-import { BrowserConnectOptions, BrowserLaunchArgumentOptions, LaunchOptions } from 'puppeteer';
 import { loadDotEnv, toBoolean } from '@newrade/core-utils';
-import { ENV, Env } from '../../types/dot-env';
 import path from 'path';
+import { BrowserConnectOptions, BrowserLaunchArgumentOptions, LaunchOptions } from 'puppeteer';
 import packageJson from '../../package.json';
+import { TestEnv, TEST_ENV } from '../../types/dot-env-test-e2e';
 
-const env = loadDotEnv<ENV>({
-  schema: Env,
+const env = loadDotEnv<TEST_ENV>({
+  schema: TestEnv,
   dotEnvPath: path.resolve(__dirname, '..', '..', '.env'),
   packageName: packageJson.name,
 });
