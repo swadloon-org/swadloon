@@ -16,6 +16,9 @@
       "path": "../core-common/tsconfig.build.json"
     },
     {
+      "path": "../core-gsap-ui/tsconfig.build.json"
+    },
+    {
       "path": "../core-design-system/tsconfig.build.json"
     },
     {

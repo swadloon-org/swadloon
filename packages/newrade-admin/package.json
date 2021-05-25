@@ -17,7 +17,7 @@
   "scripts": {
     "clasp": "clasp",
     "clasp:watch": "clasp push --watch",
-    "clean": "rimraf -r lib/** && rm -f tsconfig.build.tsbuildinfo"
+    "clean": "rm -rf lib/** && rm -f tsconfig.build.tsbuildinfo"
   },
   "sideEffects": false,
   "typings": "./lib/index.d.ts",

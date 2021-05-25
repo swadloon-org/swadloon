@@ -60,6 +60,12 @@ jobs:
         node-version: [14.x]
 
     steps:
+    - name: Cancel Previous Runs
+      uses: styfle/cancel-workflow-action@0.9.0
+      with:
+        all_but_latest: true
+        access_token: ${{ github.token }}
+
     - name: Inject Github slug/short variables
       uses: rlespinasse/github-slug-action@v3.x
 
@@ -92,16 +98,16 @@ jobs:
       run: yarn --prefer-offline --frozen-lockfile
 
     - name: Clean
-      run: yarn clean --scope @newrade/newrade-website
+      run: yarn lerna:clean --scope @newrade/newrade-website
 
     - name: Lint Src Files
       run: yarn eslint ./packages/newrade-*/src/ --ext ts,tsx
 
     - name: Run unit tests
-      run: yarn test --scope @newrade/newrade-*
+      run: yarn lerna:test --scope @newrade/newrade-*
 
     - name: Build
-      run: yarn build --scope @newrade/newrade-* --ignore @newrade/newrade-app
+      run: yarn lerna:build --scope @newrade/newrade-* --ignore @newrade/newrade-app
       env:
         CONTENTFUL_ENV: ${{ secrets.CONTENTFUL_ENV }}
         CONTENTFUL_SPACEID_NEWRADE: ${{ secrets.CONTENTFUL_SPACEID_NEWRADE }}
