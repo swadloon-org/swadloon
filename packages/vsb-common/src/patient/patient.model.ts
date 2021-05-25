@@ -58,7 +58,7 @@ export type PatientClinikoModel = {
   email: string;
   patient_phone_numbers: [
     {
-      phone_type: CLINIKO_PHONE_TYPE;
+      phone_type: CLINIKO_PHONE_TYPE | string;
       number: string;
     }
   ];

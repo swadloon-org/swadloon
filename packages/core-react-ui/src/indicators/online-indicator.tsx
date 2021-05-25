@@ -1,5 +1,6 @@
 import React from 'react';
 import { useStyles } from 'react-treat';
+import { useCommonProps } from '../hooks/use-common-props.hook';
 import { useTreatTheme } from '../hooks/use-treat-theme';
 import { Cluster } from '../layout/cluster';
 import { CommonComponentProps } from '../props/component-common.props';
@@ -20,15 +21,16 @@ export const OnlineIndicator: React.FC<Props> = ({
 }) => {
   const { styles } = useStyles(styleRefs);
   const { theme, cssTheme } = useTreatTheme();
+  const commonProps = useCommonProps({
+    id,
+    style,
+    className,
+    classNames: [styles.status, status === 'online' ? styles.statusOnline : styles.statusOffline],
+    ...props,
+  });
 
   return (
-    <Cluster
-      justifyContent={['flex-start']}
-      className={`${styles.status} ${
-        status === 'online' ? styles.statusOnline : styles.statusOffline
-      }`}
-      gap={[cssTheme.sizing.var.x2]}
-    >
+    <Cluster justifyContent={['flex-start']} gap={[cssTheme.sizing.var.x2]} {...commonProps}>
       <div className={styles.statusDot}></div>
       <Label style={{ color: 'inherit' }}>{children || status}</Label>
     </Cluster>

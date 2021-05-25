@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/compare/@newrade/core-jest-config@1.5.7...@newrade/core-jest-config@1.6.0) (2021-05-21)
+
+### Bug Fixes
+
+- **lint:** fix line width to 100
+  ([49574eb](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/49574eb1fe8aa3bbdf3cf9a6067956ccf3a96561))
+
+### Features
+
+- **vsb-admin:** v1 almost done
+  ([afb8e78](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/afb8e7892f7782dcc9a6596186b177d63a9782ce))
+- **vsb-api:** v1 of the /patients api
+  ([a2ee1e2](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/a2ee1e2fd6b9bf582237f19614e7403d1416718b))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.5.7](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/compare/@newrade/core-jest-config@1.5.6...@newrade/core-jest-config@1.5.7) (2021-03-09)
 
 **Note:** Version bump only for package @newrade/core-jest-config

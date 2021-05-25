@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.10.0](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-design-system@1.9.2...@newrade/core-design-system@1.10.0) (2021-05-21)
+
+### Bug Fixes
+
+- **lint:** fix line width to 100
+  ([49574eb](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/49574eb1fe8aa3bbdf3cf9a6067956ccf3a96561))
+
+### Features
+
+- **core-design-system:** adding new properties to styles text, box, button
+  ([7417d3f](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/7417d3f8a3971587941e6a8c6bf3b92b6018121c))
+- **core-graphql-ui:** init package
+  ([7c4df6b](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/7c4df6bc867e61a8e545dc7d389f6bc58777f899))
+- **core-react-ui:** add buttons theming and css variables support
+  ([8bf5e5e](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/8bf5e5ece512c04ea18daf47dd18f0579c7c27cb))
+- **core-react-ui:** add CSSAnimation component
+  ([3861ec1](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/3861ec1ecafec29b3ac9236aae88e740541feba8))
+- **core-react-ui:** generate css variables for colors
+  ([0c99c77](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/0c99c77ff07d857d54a326a811bf67ce21c0b548))
+- **docs:** update docs layout
+  ([356e4c0](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/356e4c07ebb3bc4e99dacda5559fb4d512137b8a))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.9.2](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-design-system@1.9.1...@newrade/core-design-system@1.9.2) (2021-03-09)
 
 ### Bug Fixes

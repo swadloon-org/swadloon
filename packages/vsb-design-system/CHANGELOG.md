@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.1.0 (2021-05-21)
+
+### Features
+
+- **vsb-admin:** add auth0 flows
+  ([fcdd0a8](https://github.com/newrade/newrade/commit/fcdd0a81ea10ffe4d1342440406ab7a2f92420b5))
+- **vsb-admin:** add navbar and sidebar
+  ([21ac2a7](https://github.com/newrade/newrade/commit/21ac2a74f9dd719da952c5e09cf94b460de26e1e))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.3.3](https://github.com/newrade/newrade/compare/@newrade/vsb-common@1.3.2...@newrade/vsb-common@1.3.3) (2021-03-09)
 
 **Note:** Version bump only for package @newrade/vsb-common

@@ -1,9 +1,10 @@
 ---
 name: Designer Onboarding
 about: Cover all the steps to onboard a new designer in the team.
-title: '<NAME> Onboarding'
+title: "<NAME> Onboarding"
 labels: "admin \U0001F4BC"
 assignees: ''
+
 ---
 
 ## Admin / HR

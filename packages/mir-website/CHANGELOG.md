@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.13.0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/mir-website@1.12.2...@newrade/mir-website@1.13.0) (2021-05-21)
+
+### Bug Fixes
+
+- **core-gatsby-config:** apply postcss config
+  ([c3de151](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/c3de15140a17f50a414dab966c87e45cac9adeb3))
+- **lint:** fix line width to 100
+  ([49574eb](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/49574eb1fe8aa3bbdf3cf9a6067956ccf3a96561))
+- **vsb-website:** seo hotfix
+  ([ea527e4](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ea527e4f10acbb2265f96ec8a223d1ce16f88cac))
+
+### Features
+
+- **build:** try jobs build
+  ([cd688f5](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/cd688f5af222761f919dae63520855138e7b5918))
+- **core-graphql-ui:** init package
+  ([7c4df6b](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/7c4df6bc867e61a8e545dc7d389f6bc58777f899))
+- **docs:** update docs layout
+  ([356e4c0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/356e4c07ebb3bc4e99dacda5559fb4d512137b8a))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.12.2](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/mir-website@1.12.1...@newrade/mir-website@1.12.2) (2021-03-11)
 
 ### Bug Fixes

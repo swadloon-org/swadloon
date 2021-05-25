@@ -1,5 +1,5 @@
 import { formatISO, parseISO } from 'date-fns';
-import { CLINIKO_REMINDER_TYPE } from './patient.constant';
+import { CLINIKO_PHONE_TYPE, CLINIKO_REMINDER_TYPE } from './patient.constant';
 import { PatientClinikoModel, PatientModel, PatientModelAdmin } from './patient.model';
 
 export function getPatientClinikoModel(patientModel: PatientModel): PatientClinikoModel {
@@ -37,7 +37,8 @@ export function getPatientModel(
     lastName: patientClinikoModel.last_name,
     email: patientClinikoModel.email,
     patientPhoneNumber: patientClinikoModel.patient_phone_numbers?.[0]?.number,
-    patientPhoneType: patientClinikoModel.patient_phone_numbers?.[0]?.phone_type,
+    patientPhoneType: patientClinikoModel.patient_phone_numbers?.[0]
+      ?.phone_type as CLINIKO_PHONE_TYPE,
     updatedAt: patientClinikoModel.updated_at,
     status: extras?.status,
     statusNote: extras?.statusNote,

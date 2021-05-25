@@ -3,6 +3,111 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/vsb-website@1.11.3...@newrade/vsb-website@1.3.0) (2021-05-21)
+
+### Bug Fixes
+
+- **build:** working on gh action build
+  ([41efe00](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/41efe00146700e0108b66eac17f8bbe033f4d1f6))
+- **cdpq-website:** config fixes
+  ([c3c6674](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/c3c66746eae84981947553e8c4e20036521f6c3f))
+- **core-gatsby-config:** apply postcss config
+  ([c3de151](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/c3de15140a17f50a414dab966c87e45cac9adeb3))
+- **core-github-action:** enable rewrites
+  ([2a0bafd](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/2a0bafd36547ec742398ecf7d5fa6721637dc801))
+- **core-webpack-config:** update loaders and plugins config
+  ([c3810c1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/c3810c12439ca8f0b5c90436238b88bce61ca2d6))
+- **docs:** fix bad git merge
+  ([3d17ebb](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/3d17ebb98c66ce448a4aa5be9d8fb4a77fcb0e81))
+- **gatsby:** add workaround for mdx cache prob
+  ([8d23317](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/8d2331732571eb2a69b56d59d1ab06b4e7ec7da3))
+- **lint:** fix line width to 100
+  ([49574eb](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/49574eb1fe8aa3bbdf3cf9a6067956ccf3a96561))
+- **vsb-api:** add a test and try to fix vercel.json rewrite for vsb-website
+  ([a7e3792](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/a7e37922fba063dd6226509dc1f7abc48f3a6600))
+- **vsb-api:** fix rewrite rule for /api/server/\*
+  ([985983e](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/985983e20a08db1d06bcc13caf49297a3f17243e))
+- **vsb-api:** rework the deployment sequence
+  ([12c79c6](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/12c79c61f7db17d85a49b260405eb21bf6af048a))
+- **vsb-website:** add "trailingSlash": true to vercel
+  ([45620d4](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/45620d48a8ad59ab6f025dbc0525ba287199c1d2))
+- **vsb-website:** disable ds pages for now
+  ([a208b8b](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/a208b8b0fbe3767f33715db9b54b5306260dbfa6))
+- **vsb-website:** fix form
+  ([9239a5c](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/9239a5c5ca613cebf629902d92e6fc7bb24c1deb))
+- **vsb-website:** fix g tag manager
+  ([202e296](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/202e296d3f83737eeaab7763ef09b5352b70080d))
+- **vsb-website:** fix redirect for vsb-admin
+  ([94b3ac0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/94b3ac0962fc75ce0354c447d370d957e506bbb5))
+- **vsb-website:** fix section reverse class
+  ([5107576](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/51075768b399e7967a8b02f145653b65eed2e25c))
+- **vsb-website:** netlify is trash but ok
+  ([0a78f3e](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/0a78f3e0ff925f403f175ec3d207879e2e24189e))
+- **vsb-website:** netlify.toml is not taken into account in gatsby cloud
+  ([6d1c132](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/6d1c132c19a413f7e7915c13941a0991bb16d971))
+- **vsb-website:** seo fix again
+  ([405f580](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/405f580093543735dfe77fe371f3dd726c11bd13))
+- **vsb-website:** seo hotfix
+  ([ea527e4](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ea527e4f10acbb2265f96ec8a223d1ce16f88cac))
+- **vsb-website:** trying different rewrite rule
+  ([3074159](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/3074159ece0e940460c96ba958f1307af4129791))
+- **vsb-website:** update build config to deploy
+  ([9cf29ac](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/9cf29ac0efc86adeaa2b88178e2a5bb20ecfd5bd))
+
+### Features
+
+- **core-gatsby-ui:** trying to use loadable component, wip
+  ([2b1b310](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/2b1b3104fda4381121ec0d5bd1d6c6692d776d3a))
+- **core-github-action:** prototype of vercel-rewrite github action
+  ([6141658](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/61416588d9b6be7b8ffe1ec7b03198af9ca7cb29))
+- **core-graphql-ui:** init package
+  ([7c4df6b](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/7c4df6bc867e61a8e545dc7d389f6bc58777f899))
+- **core-react-ui:** add buttons theming and css variables support
+  ([8bf5e5e](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/8bf5e5ece512c04ea18daf47dd18f0579c7c27cb))
+- **core-react-ui:** add CSSAnimation component
+  ([3861ec1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/3861ec1ecafec29b3ac9236aae88e740541feba8))
+- **core-react-ui:** add FooterSimple and Tag
+  ([d8ecaa3](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/d8ecaa381ce1ff60aba76abd236817a459eb703a))
+- **core-react-ui:** generate css variables for colors
+  ([0c99c77](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/0c99c77ff07d857d54a326a811bf67ce21c0b548))
+- **docs:** update docs
+  ([75a7725](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/75a7725a8c3b0b59508cdd203567af1d3fa9d308))
+- **docs:** update docs layout
+  ([356e4c0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/356e4c07ebb3bc4e99dacda5559fb4d512137b8a))
+- **vsb-admin:** add auth0 flows
+  ([fcdd0a8](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/fcdd0a81ea10ffe4d1342440406ab7a2f92420b5))
+- **vsb-admin:** implement patients
+  ([cbc0619](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/cbc0619778bba7d395020d4ed1034a2f39dbab84))
+- **vsb-admin:** init app
+  ([6995766](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/6995766814f853a26c2b30439680edf2e368700a))
+- **vsb-api:** add redirect for express server
+  ([758bc0d](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/758bc0d1ed2db7cb180d4f77b5c069c685f54d33))
+- **vsb-api:** adding new apis
+  ([b9e43a6](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/b9e43a6e9e1523055c57786b8abfd89ed4fdaacc))
+- **vsb-api:** v1 of the /patients api
+  ([a2ee1e2](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/a2ee1e2fd6b9bf582237f19614e7403d1416718b))
+- **vsb-website:** add admin section
+  ([0c079b6](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/0c079b6adae0670c09bca0625f889193510962c8))
+- **vsb-website:** add reporepository_dispatch for contentful in CI
+  ([f025a2e](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/f025a2e5cd63210cc9cd32ff95c8dad527081475))
+- **vsb-website:** add verification file for vsb google account
+  ([7ed1b60](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/7ed1b60dd91933a8ddb0d5ba161f328caaa822a6))
+- **vsb-website:** enable g analytics
+  ([6941902](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/69419021e57fa9377198cba36de5f8f60123a017))
+- **vsb-website:** fix redirects
+  ([10c50fe](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/10c50fe5712d6ae13334422b4ffb2dbf313d6958))
+- **vsb-website:** fix rewrite rule
+  ([7e9fc9e](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/7e9fc9eb599650617591da4f0798e99e812a8918))
+- **vsb-website:** refactor server to be served under /api/
+  ([34d41d8](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/34d41d8d9ff09ab66aa49c413bdc2a6cf043d0e1))
+- **vsb-website-next:** init nextjs (proxy)
+  ([de60f6b](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/de60f6b2d6dd9dbdb6aee0c36a8a3e80b2e10bb7))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.11.3](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/vsb-website@1.11.2...@newrade/vsb-website@1.11.3) (2021-03-11)
 
 ### Bug Fixes

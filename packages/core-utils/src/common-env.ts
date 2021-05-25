@@ -1,5 +1,6 @@
 import * as t from 'io-ts';
 import { NODE_ENV, DEPLOY_ENV, TEST_ENV } from '@newrade/core-common';
+import { TextBoolean } from './boolean-env';
 
 /**
  * Standard NodeJS NODE_ENV values.
@@ -35,10 +36,6 @@ const TestEnv = t.keyof({
  */
 export const CommonEnv = t.intersection([
   t.type({
-    /**
-     * The NodeJS environment
-     */
-    NODE_ENV: NodeEnv,
     /**
      * The NodeJS version installed by `nvm`
      */
@@ -78,15 +75,52 @@ export const CommonEnv = t.intersection([
      */
     APP_ENV: DeployEnv,
     /**
-     * The app or site public URL
+     * Domain for the app, api, or website
+     * @example website
      */
-    APP_URL: t.string,
+    APP_DOMAIN: t.string,
     /**
-     * Local port
+     * Subdomain for the app, api, or website
+     * @example "" in "website.com"
+     * @example "api" in "api.website.com"
+     * @example "app" in "dev.app.website.com"
      */
-    APP_PORT: t.string,
+    APP_SUBDOMAIN: t.string,
   }),
   t.partial({
+    /**
+     * The NodeJS environment
+     */
+    NODE_ENV: NodeEnv,
+    /**
+     * Branch subdomain a specific build
+     * @example "" in "website.com"
+     * @example "" in "api.website.com"
+     * @example "dev" in "dev.app.website.com"
+     * @example "pr-422" in "pr-422.app.website.com"
+     */
+    APP_BRANCH_SUBDOMAIN: t.string,
+    /**
+     * Protocol used for apps e.g. http in local, https elsewhere
+     * @example http, https
+     * @default https
+     */
+    APP_PROTOCOL: t.string,
+    /**
+     * Application host
+     * @example website.com, api.website.com
+     * @default localhost
+     */
+    APP_HOST: t.string,
+    /**
+     * Local port
+     * @default 443
+     */
+    APP_PORT: t.string,
+    /**
+     * Whether the app will be deployed or not
+     */
+    APP_CI_DEPLOY: TextBoolean,
     /**
      * Test environment
      */

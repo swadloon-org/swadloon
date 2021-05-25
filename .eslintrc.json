@@ -15,7 +15,15 @@
       "jsx": true
     }
   },
-  "ignorePatterns": ["node_modules", "**/lib/**/*", ".cache", "public", "graphql-types.ts", "dist"],
+  "ignorePatterns": [
+    "node_modules",
+    "**/lib/**/*",
+    "**/built/**/*",
+    ".cache",
+    "public",
+    "graphql-types.ts",
+    "dist"
+  ],
   "env": {
     "jest": true,
     "browser": true

@@ -15,7 +15,9 @@ export const LinksExternal: React.FC<Props> = (props) => {
         variant={LinkVariant.underline}
         variantLevel={Variant.primary}
         variantIcon={LinkIcon.right}
-      ></Link>
+      >
+        www.google.com
+      </Link>
     </>
   );
 };

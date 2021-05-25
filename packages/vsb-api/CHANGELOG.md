@@ -3,6 +3,72 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/newrade/newrade-core/tree/master/packages/vsb-api/compare/@newrade/vsb-api@1.3.4...@newrade/vsb-api@1.4.0) (2021-05-21)
+
+### Bug Fixes
+
+- **build:** working on gh action build
+  ([41efe00](https://github.com/newrade/newrade-core/tree/master/packages/vsb-api/commit/41efe00146700e0108b66eac17f8bbe033f4d1f6))
+- **lint:** fix line width to 100
+  ([49574eb](https://github.com/newrade/newrade-core/tree/master/packages/vsb-api/commit/49574eb1fe8aa3bbdf3cf9a6067956ccf3a96561))
+- **vsb-api:** add a test and try to fix vercel.json rewrite for vsb-website
+  ([a7e3792](https://github.com/newrade/newrade-core/tree/master/packages/vsb-api/commit/a7e37922fba063dd6226509dc1f7abc48f3a6600))
+- **vsb-api:** email features
+  ([5652541](https://github.com/newrade/newrade-core/tree/master/packages/vsb-api/commit/56525419a71a3028d136662e20b0285aebba19c6))
+- **vsb-api:** fix build config for vercel
+  ([5467301](https://github.com/newrade/newrade-core/tree/master/packages/vsb-api/commit/54673017ec6d176388a517bd9d0a39d80c7d136e))
+- **vsb-api:** fix deploy settings
+  ([22fda36](https://github.com/newrade/newrade-core/tree/master/packages/vsb-api/commit/22fda366d958ee071d1375f4af7372abf1d4abf4))
+- **vsb-api:** fix email feature
+  ([aa36784](https://github.com/newrade/newrade-core/tree/master/packages/vsb-api/commit/aa3678420ec10df111cc51c7d91f0884a7ecd902))
+- **vsb-api:** fix rewrite rule for /api/server/\*
+  ([985983e](https://github.com/newrade/newrade-core/tree/master/packages/vsb-api/commit/985983e20a08db1d06bcc13caf49297a3f17243e))
+- **vsb-api:** remove serverless-http
+  ([9b9a0bc](https://github.com/newrade/newrade-core/tree/master/packages/vsb-api/commit/9b9a0bcd98d03846f54fabde56377a5d5dbb8fe7))
+- **vsb-api:** rework the deployment sequence
+  ([12c79c6](https://github.com/newrade/newrade-core/tree/master/packages/vsb-api/commit/12c79c61f7db17d85a49b260405eb21bf6af048a))
+- **vsb-website:** fix form
+  ([9239a5c](https://github.com/newrade/newrade-core/tree/master/packages/vsb-api/commit/9239a5c5ca613cebf629902d92e6fc7bb24c1deb))
+
+### Features
+
+- **controller-get-status:** adding the current controller to modify the patient
+  to add the status
+  ([0d1fd74](https://github.com/newrade/newrade-core/tree/master/packages/vsb-api/commit/0d1fd745f7993d50564fe066dd94fcab3eda2944))
+- **core-graphql-ui:** init package
+  ([7c4df6b](https://github.com/newrade/newrade-core/tree/master/packages/vsb-api/commit/7c4df6bc867e61a8e545dc7d389f6bc58777f899))
+- **core-react-ui:** add CSSAnimation component
+  ([3861ec1](https://github.com/newrade/newrade-core/tree/master/packages/vsb-api/commit/3861ec1ecafec29b3ac9236aae88e740541feba8))
+- **docs:** update docs
+  ([75a7725](https://github.com/newrade/newrade-core/tree/master/packages/vsb-api/commit/75a7725a8c3b0b59508cdd203567af1d3fa9d308))
+- **email-controller:** adding the nodemailer with gmail
+  ([719b809](https://github.com/newrade/newrade-core/tree/master/packages/vsb-api/commit/719b809ffcde9dab3ee3ccd0b4ff5f7d0e1cb780))
+- **vsb-admin:** add auth0 flows
+  ([fcdd0a8](https://github.com/newrade/newrade-core/tree/master/packages/vsb-api/commit/fcdd0a81ea10ffe4d1342440406ab7a2f92420b5))
+- **vsb-admin:** v1 almost done
+  ([afb8e78](https://github.com/newrade/newrade-core/tree/master/packages/vsb-api/commit/afb8e7892f7782dcc9a6596186b177d63a9782ce))
+- **vsb-api:** add error handling for auth0
+  ([0941709](https://github.com/newrade/newrade-core/tree/master/packages/vsb-api/commit/094170962aee78d608bafe7c8aae70ebc16713fe))
+- **vsb-api:** add health-check
+  ([9039f1c](https://github.com/newrade/newrade-core/tree/master/packages/vsb-api/commit/9039f1c9fdef9948d90553685ee079c66ddc554a))
+- **vsb-api:** adding new apis
+  ([b9e43a6](https://github.com/newrade/newrade-core/tree/master/packages/vsb-api/commit/b9e43a6e9e1523055c57786b8abfd89ed4fdaacc))
+- **vsb-api:** v1 of the /patients api
+  ([a2ee1e2](https://github.com/newrade/newrade-core/tree/master/packages/vsb-api/commit/a2ee1e2fd6b9bf582237f19614e7403d1416718b))
+- **vsb-website:** add admin section
+  ([0c079b6](https://github.com/newrade/newrade-core/tree/master/packages/vsb-api/commit/0c079b6adae0670c09bca0625f889193510962c8))
+- **vsb-website:** fix redirects
+  ([10c50fe](https://github.com/newrade/newrade-core/tree/master/packages/vsb-api/commit/10c50fe5712d6ae13334422b4ffb2dbf313d6958))
+- **vsb-website:** refactor server to be served under /api/
+  ([34d41d8](https://github.com/newrade/newrade-core/tree/master/packages/vsb-api/commit/34d41d8d9ff09ab66aa49c413bdc2a6cf043d0e1))
+- **vsb-website-next:** init nextjs (proxy)
+  ([de60f6b](https://github.com/newrade/newrade-core/tree/master/packages/vsb-api/commit/de60f6b2d6dd9dbdb6aee0c36a8a3e80b2e10bb7))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.3.4](https://github.com/newrade/newrade-core/tree/master/packages/vsb-api/compare/@newrade/vsb-api@1.3.3...@newrade/vsb-api@1.3.4) (2021-03-11)
 
 ### Bug Fixes

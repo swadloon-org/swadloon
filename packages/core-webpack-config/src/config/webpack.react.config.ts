@@ -104,7 +104,7 @@ export const getReactCommonConfig: (options: {
     getWebpackCleanPlugin(),
     isDevelopment && new webpack.HotModuleReplacementPlugin(),
     isDevelopment && new ReactRefreshWebpackPlugin(),
-    !isDevelopment && ((new MiniCssExtractPlugin() as unknown) as WebpackPluginInstance),
+    !isDevelopment && (new MiniCssExtractPlugin() as unknown as WebpackPluginInstance),
     !isDevelopment && compressionPlugin,
   ].filter(Boolean) as WebpackPluginInstance[],
   resolveLoader: {

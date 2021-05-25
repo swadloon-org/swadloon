@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.11](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/compare/@newrade/core-yo-generator@1.4.10...@newrade/core-yo-generator@1.4.11) (2021-05-21)
+
+### Bug Fixes
+
+- **lint:** fix line width to 100
+  ([49574eb](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/49574eb1fe8aa3bbdf3cf9a6067956ccf3a96561))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.4.10](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/compare/@newrade/core-yo-generator@1.4.9...@newrade/core-yo-generator@1.4.10) (2021-03-09)
 
 **Note:** Version bump only for package @newrade/core-yo-generator

@@ -38,7 +38,7 @@ const localCommonConfig: WebpackOptions = {
     core.getBrowserconfigHtmlPlugin({
       template: path.resolve(__dirname, 'src/browserconfig.xml.ejs'),
     }),
-    (new webpack.DefinePlugin(clientEnv) as unknown) as WebpackPluginInstance,
+    new webpack.DefinePlugin(clientEnv) as unknown as WebpackPluginInstance,
   ],
 };
 

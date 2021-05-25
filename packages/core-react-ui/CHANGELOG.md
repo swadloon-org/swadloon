@@ -3,6 +3,77 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.13.0](https://github.com/newrade/newrade/compare/@newrade/core-react-ui@1.12.2...@newrade/core-react-ui@1.13.0) (2021-05-21)
+
+### Bug Fixes
+
+- **cdpq-website:** config fixes
+  ([c3c6674](https://github.com/newrade/newrade/commit/c3c66746eae84981947553e8c4e20036521f6c3f))
+- **core-gatsby-config:** apply postcss config
+  ([c3de151](https://github.com/newrade/newrade/commit/c3de15140a17f50a414dab966c87e45cac9adeb3))
+- **core-react-ui:** add wrap to Cluster and update tags docs
+  ([44dc8cc](https://github.com/newrade/newrade/commit/44dc8cc78f9d61fb9a96a7e5d80295e4eeb3dc09))
+- **core-react-ui:** fix build command
+  ([c1e1af8](https://github.com/newrade/newrade/commit/c1e1af8048a0460826a7464df6a1404940133cc4))
+- **core-react-ui:** fix error
+  ([4c69723](https://github.com/newrade/newrade/commit/4c69723fb1027925b057b53c58664570931b78fd))
+- **core-react-ui:** fix markdown code generation
+  ([2945e7c](https://github.com/newrade/newrade/commit/2945e7cc92a42b7895a5507cd45c9fd424db41fa))
+- **core-react-ui:** fix reversed mode for text components
+  ([bb31dd1](https://github.com/newrade/newrade/commit/bb31dd1ecf0c17b072c7ef391571a8bcbb30cdf5))
+- **core-webpack-config:** update loaders and plugins config
+  ([c3810c1](https://github.com/newrade/newrade/commit/c3810c12439ca8f0b5c90436238b88bce61ca2d6))
+- **lint:** fix line width to 100
+  ([49574eb](https://github.com/newrade/newrade/commit/49574eb1fe8aa3bbdf3cf9a6067956ccf3a96561))
+- **newrade-website:** fix fonts import
+  ([31dab49](https://github.com/newrade/newrade/commit/31dab491d5d13eedd8b7f15a96c333c441551b9d))
+- **vsb-website:** fix section reverse class
+  ([5107576](https://github.com/newrade/newrade/commit/51075768b399e7967a8b02f145653b65eed2e25c))
+- **workflows:** update vsb workflows
+  ([fd6929f](https://github.com/newrade/newrade/commit/fd6929f5152eb8d1189c89c895fca6cf80a3983b))
+
+### Features
+
+- **core-design-system:** adding new properties to styles text, box, button
+  ([7417d3f](https://github.com/newrade/newrade/commit/7417d3f8a3971587941e6a8c6bf3b92b6018121c))
+- **core-design-system-docs:** fix nav sorting
+  ([e7ff749](https://github.com/newrade/newrade/commit/e7ff74975ec72d5e9685c09fd93c64ac8ecab582))
+- **core-gatsby-ui:** trying to use loadable component, wip
+  ([2b1b310](https://github.com/newrade/newrade/commit/2b1b3104fda4381121ec0d5bd1d6c6692d776d3a))
+- **core-graphql-ui:** init package
+  ([7c4df6b](https://github.com/newrade/newrade/commit/7c4df6bc867e61a8e545dc7d389f6bc58777f899))
+- **core-react-ui:** add animation
+  ([e52ecfa](https://github.com/newrade/newrade/commit/e52ecfa2f1e99b1b65519d42f4e42d85b5eff46a))
+- **core-react-ui:** add buttons theming and css variables support
+  ([8bf5e5e](https://github.com/newrade/newrade/commit/8bf5e5ece512c04ea18daf47dd18f0579c7c27cb))
+- **core-react-ui:** add CSSAnimation component
+  ([3861ec1](https://github.com/newrade/newrade/commit/3861ec1ecafec29b3ac9236aae88e740541feba8))
+- **core-react-ui:** add FooterSimple and Tag
+  ([d8ecaa3](https://github.com/newrade/newrade/commit/d8ecaa381ce1ff60aba76abd236817a459eb703a))
+- **core-react-ui:** generate css variables for colors
+  ([0c99c77](https://github.com/newrade/newrade/commit/0c99c77ff07d857d54a326a811bf67ce21c0b548))
+- **core-react-ui/src/footers:** edit footer standard, but not finished
+  ([b425f6e](https://github.com/newrade/newrade/commit/b425f6e526676dce2cc30bf6a804f1862aecf259))
+- **docs:** update docs
+  ([75a7725](https://github.com/newrade/newrade/commit/75a7725a8c3b0b59508cdd203567af1d3fa9d308))
+- **docs:** update docs layout
+  ([356e4c0](https://github.com/newrade/newrade/commit/356e4c07ebb3bc4e99dacda5559fb4d512137b8a))
+- **vsb-admin:** add navbar and sidebar
+  ([21ac2a7](https://github.com/newrade/newrade/commit/21ac2a74f9dd719da952c5e09cf94b460de26e1e))
+- **vsb-admin:** format patients table
+  ([9d5e1c4](https://github.com/newrade/newrade/commit/9d5e1c423c0fb9dd1a9db1550c6caa901439c3b6))
+- **vsb-admin:** implement patients
+  ([cbc0619](https://github.com/newrade/newrade/commit/cbc0619778bba7d395020d4ed1034a2f39dbab84))
+- **vsb-admin:** v1 almost done
+  ([afb8e78](https://github.com/newrade/newrade/commit/afb8e7892f7782dcc9a6596186b177d63a9782ce))
+- **vsb-website:** refactor server to be served under /api/
+  ([34d41d8](https://github.com/newrade/newrade/commit/34d41d8d9ff09ab66aa49c413bdc2a6cf043d0e1))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.12.2](https://github.com/newrade/newrade/compare/@newrade/core-react-ui@1.12.1...@newrade/core-react-ui@1.12.2) (2021-03-11)
 
 ### Bug Fixes

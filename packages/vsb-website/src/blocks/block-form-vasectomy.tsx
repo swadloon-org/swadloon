@@ -312,37 +312,36 @@ export const BlockFormVasectomy: React.FC<BlockFormVasectomyProps> = ({
     }
   };
 
-  const handleSelectSuggestion = (suggestion: AddressAutoCompleteResponse) => async (
-    event: React.MouseEvent
-  ) => {
-    const newInfos = await onValidateById(suggestion);
+  const handleSelectSuggestion =
+    (suggestion: AddressAutoCompleteResponse) => async (event: React.MouseEvent) => {
+      const newInfos = await onValidateById(suggestion);
 
-    if (!newInfos) {
+      if (!newInfos) {
+        setSuggestion(false);
+        return;
+      }
+
+      setValue('address1', newInfos.Line1 as string, {
+        shouldValidate: true,
+      });
+      setValue('address2', newInfos.SecondaryStreet, {
+        shouldValidate: true,
+      });
+      setValue('city', newInfos.City as string, {
+        shouldValidate: true,
+      });
+      setValue('state', newInfos.ProvinceName as string, {
+        shouldValidate: true,
+      });
+      setValue('country', newInfos.CountryName as string, {
+        shouldValidate: true,
+      });
+      setValue('postCode', newInfos.PostalCode as string, {
+        shouldValidate: true,
+      });
+
       setSuggestion(false);
-      return;
-    }
-
-    setValue('address1', newInfos.Line1 as string, {
-      shouldValidate: true,
-    });
-    setValue('address2', newInfos.SecondaryStreet, {
-      shouldValidate: true,
-    });
-    setValue('city', newInfos.City as string, {
-      shouldValidate: true,
-    });
-    setValue('state', newInfos.ProvinceName as string, {
-      shouldValidate: true,
-    });
-    setValue('country', newInfos.CountryName as string, {
-      shouldValidate: true,
-    });
-    setValue('postCode', newInfos.PostalCode as string, {
-      shouldValidate: true,
-    });
-
-    setSuggestion(false);
-  };
+    };
 
   const onValidateById = async (validate: AddressByIdOptions) => {
     const response = await getAddressById(validate);
@@ -766,7 +765,10 @@ export const BlockFormVasectomy: React.FC<BlockFormVasectomyProps> = ({
               </Stack>
             ) : null}
 
-            <OnlineIndicator status={apiStatus === 'en ligne' ? 'online' : 'offline'}>
+            <OnlineIndicator
+              status={apiStatus === 'en ligne' ? 'online' : 'offline'}
+              id={'e2e-online-indicator'}
+            >
               système : {apiStatus || 'en chargement...'}
             </OnlineIndicator>
 

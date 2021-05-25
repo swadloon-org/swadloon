@@ -1,11 +1,6 @@
-import { Property } from 'csstype';
-
 /**
  * [mobile, tablet, desktop]
  */
-export type GapProp =
-  | [Property.Gap<any>]
-  | [Property.Gap<any>, Property.Gap<any>]
-  | [Property.Gap<any>, Property.Gap<any>, Property.Gap<any>];
+export type GapProp = [string] | [string, string] | [string, string, string];
 
 export type VariantGrid = 'rows' | 'col';

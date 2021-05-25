@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.2](https://github.com/newrade/newrade/compare/@newrade/core-contentful-lib@1.7.1...@newrade/core-contentful-lib@1.7.2) (2021-05-21)
+
+### Bug Fixes
+
+- **lint:** fix line width to 100
+  ([49574eb](https://github.com/newrade/newrade/commit/49574eb1fe8aa3bbdf3cf9a6067956ccf3a96561))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.7.1](https://github.com/newrade/newrade/compare/@newrade/core-contentful-lib@1.7.0...@newrade/core-contentful-lib@1.7.1) (2021-03-11)
 
 **Note:** Version bump only for package @newrade/core-contentful-lib

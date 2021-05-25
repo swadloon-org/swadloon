@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.7.0 (2021-05-21)
+
+### Bug Fixes
+
+- **vsb-api:** fix deploy settings
+  ([22fda36](https://github.com/newrade/newrade/commit/22fda366d958ee071d1375f4af7372abf1d4abf4))
+
+### Features
+
+- **core-graphql-ui:** init package
+  ([7c4df6b](https://github.com/newrade/newrade/commit/7c4df6bc867e61a8e545dc7d389f6bc58777f899))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.6.2](https://github.com/newrade/newrade/compare/@newrade/core-graphql-ui@1.6.1...@newrade/core-graphql-ui@1.6.2) (2021-03-11)
 
 **Note:** Version bump only for package @newrade/core-graphql-ui
