@@ -86,16 +86,16 @@ jobs:
       run: yarn --prefer-offline --frozen-lockfile
 
     - name: Clean
-      run: yarn clean --scope @newrade/mir-website
+      run: yarn lerna:clean --scope @newrade/mir-website
 
     - name: Lint Src Files
       run: yarn eslint ./packages/mir-*/src/ --ext ts,tsx
 
     - name: Run unit tests
-      run: yarn test --scope @newrade/mir-*
+      run: yarn lerna:test --scope @newrade/mir-*
 
     - name: Build
-      run: yarn build --scope @newrade/mir-*
+      run: yarn lerna:build --scope @newrade/mir-*
       env:
         CONTENTFUL_ENV: ${{ secrets.CONTENTFUL_ENV }}
         CONTENTFUL_SPACEID_MIR: ${{ secrets.CONTENTFUL_SPACEID_MIR }}

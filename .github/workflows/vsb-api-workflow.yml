@@ -96,22 +96,22 @@ jobs:
     - name: Install dependencies and build core packages
       run: yarn --prefer-offline --frozen-lockfile
 
-    - name: Clear Output Files
-      run: yarn clean --scope @newrade/vsb-api
+    - name: Clean
+      run: yarn lerna:clean --scope @newrade/vsb-api
 
     - name: Lint Src Files
       run: yarn eslint ./packages/vsb-*/src/ --ext ts,tsx
 
     - name: Build vsb-common
-      run: yarn build --scope @newrade/vsb-common
+      run: yarn lerna:build --scope @newrade/vsb-common
 
     - name: Run unit tests
-      run: yarn test --scope @newrade/vsb-*
+      run: yarn lerna:test --scope @newrade/vsb-*
       env:
         NODE_ENV: test
 
     - name: Build
-      run: yarn build --scope @newrade/vsb-api
+      run: yarn lerna:build --scope @newrade/vsb-api
 
     - name: Deploy
       if: ${{ env.APP_CI_DEPLOY }}

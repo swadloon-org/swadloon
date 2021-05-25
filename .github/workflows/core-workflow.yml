@@ -70,6 +70,9 @@ jobs:
     - name: Check NodeJS Options
       run: echo $NODE_OPTIONS && node -e 'console.log(`node heap limit = ${require("v8").getHeapStatistics().heap_size_limit / (1024 * 1024)} Mb`)'
 
+    - name: Clean
+      run: yarn clean
+
     - name: Install dependencies and build core packages
       run: yarn --prefer-offline --frozen-lockfile
 

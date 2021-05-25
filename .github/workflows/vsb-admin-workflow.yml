@@ -88,22 +88,22 @@ jobs:
     - name: Install dependencies and build core packages
       run: yarn --prefer-offline --frozen-lockfile
 
-    - name: Clean package
-      run: yarn clean --scope @newrade/vsb-admin
+    - name: Clean
+      run: yarn lerna:clean --scope @newrade/vsb-admin
 
     - name: Lint Src Files
       run: yarn eslint ./packages/vsb-admin/src/ --ext ts,tsx
 
     - name: Build vsb-common
-      run: yarn build --scope @newrade/vsb-common
+      run: yarn lerna:build --scope @newrade/vsb-common
 
     - name: Build vsb-design-system
-      run: yarn build --scope @newrade/vsb-design-system
+      run: yarn lerna:build --scope @newrade/vsb-design-system
 
     # todo handle gatsby cache clearing github.event_name == 'workflow_dispatch'
 
     - name: Build
-      run: yarn build --scope @newrade/vsb-admin
+      run: yarn lerna:build --scope @newrade/vsb-admin
 
     - name: Deploy
       if: ${{ env.APP_CI_DEPLOY }}
