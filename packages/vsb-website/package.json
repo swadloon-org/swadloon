@@ -1,7 +1,7 @@
 {
   "name": "@newrade/vsb-website",
-  "version": "1.6.0",
-  "description": "Gatsby website for vsb a medical website",
+  "version": "2.0.0",
+  "description": "VSB main website",
   "author": {
     "email": "info@newrade.ca",
     "name": "VSB",
