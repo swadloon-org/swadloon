@@ -82,7 +82,7 @@ export const Patients: React.FC<Props> = ({ id, style, className, ...props }) =>
       }
       getAccessTokenSilently()
         .then((token) => {
-          return window.fetch(API_LIST_PATIENTS_ROUTE, {
+          return window.fetch(`${API_LIST_PATIENTS_ROUTE}/`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },
