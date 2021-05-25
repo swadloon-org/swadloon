@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/vsb-website@1.3.0...@newrade/vsb-website@1.5.0) (2021-05-25)
+
+### Bug Fixes
+
+- **build:** vsb-website
+  ([5aa4dee](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/5aa4dee7b7d1339c1c10ab3e3476cdd0a5fd198b))
+- **github-actions:** add utility to build url
+  ([7ee6c90](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/7ee6c90342c730088561dd6ba050b47790937c6d))
+- **patch:** fix deps
+  ([ea483f3](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ea483f365e260ef7a4d96b66de5a30afac4a397b))
+- **vsb-website:** fix navigation for design system
+  ([e1f1ad2](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/e1f1ad2225bdc6e00860db0fd056172410c62284))
+- **vsb-website:** increase the delay for navigation suite
+  ([d640aed](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/d640aedfef681a927af992492da325d3195a400b))
+
+### Features
+
+- **core-github-action:** refactor set-app-env
+  ([c31ca6c](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/c31ca6c39b2efa2c32ee3e08eb39125a3d13b8b2))
+- **core-github-actions:** update rewrite-vercel to take APP_BRANCH_SUBDOMAIN
+  into account
+  ([b3afba0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/b3afba03a8c2316b42688233c984221e7408a24e))
+- **github-actions:** fix pr number
+  ([ae96a0d](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ae96a0d8b01b3924bb56d586a705010f31734123))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.4.0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/vsb-website@1.3.0...@newrade/vsb-website@1.4.0) (2021-05-25)
 
 ### Bug Fixes
