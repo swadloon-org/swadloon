@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.1](https://github.com/newrade/newrade/compare/@newrade/core-webpack-config@1.6.0...@newrade/core-webpack-config@1.6.1) (2021-05-25)
+
+### Bug Fixes
+
+- **core-react-ui:** bug with destructuring of gap prop
+  ([39491b6](https://github.com/newrade/newrade/commit/39491b6bf7cc7c93436b77f735a653db5d2c4f33))
+- **patch:** fix deps
+  ([ea483f3](https://github.com/newrade/newrade/commit/ea483f365e260ef7a4d96b66de5a30afac4a397b))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.6.0](https://github.com/newrade/newrade/compare/@newrade/core-webpack-config@1.5.0...@newrade/core-webpack-config@1.6.0) (2021-05-21)
 
 ### Bug Fixes

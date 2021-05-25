@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/compare/@newrade/core-github-actions@1.1.0...@newrade/core-github-actions@1.2.0) (2021-05-25)
+
+### Bug Fixes
+
+- **build:** update ci sequence and yarn.lock
+  ([712ac7b](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/commit/712ac7bffc2d938f266facbbf1c05b51f5112d40))
+- **core-github-actions:** fix bug in rewrite vercel json
+  ([eb0545b](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/commit/eb0545b8ce81c5d10869063e2e6fd877f49602e9))
+- **core-github-actions:** fix env usage
+  ([ea64a42](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/commit/ea64a42c06a2ad965be612fca74ef629a405a553))
+- **core-github-actions:** fix scoping bug and add tests
+  ([edfe938](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/commit/edfe938bbfc4b335e5201552d94400d161db01a3))
+- **github-actions:** add utility to build url
+  ([7ee6c90](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/commit/7ee6c90342c730088561dd6ba050b47790937c6d))
+- **patch:** fix deps
+  ([ea483f3](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/commit/ea483f365e260ef7a4d96b66de5a30afac4a397b))
+
+### Features
+
+- **core-github-action:** refactor set-app-env
+  ([c31ca6c](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/commit/c31ca6c39b2efa2c32ee3e08eb39125a3d13b8b2))
+- **core-github-actions:** update rewrite-vercel to take APP_BRANCH_SUBDOMAIN
+  into account
+  ([b3afba0](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/commit/b3afba03a8c2316b42688233c984221e7408a24e))
+- **github-actions:** fix pr number
+  ([ae96a0d](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/commit/ae96a0d8b01b3924bb56d586a705010f31734123))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.1.0](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/compare/@newrade/core-github-actions@1.0.9...@newrade/core-github-actions@1.1.0) (2021-05-21)
 
 ### Bug Fixes

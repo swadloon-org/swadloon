@@ -3,6 +3,49 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.13.0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/newrade-website@1.12.0...@newrade/newrade-website@1.13.0) (2021-05-25)
+
+### Bug Fixes
+
+- **build:** add NODE_OPTIONS env variable
+  ([aa31935](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/aa3193598ccb65739b7860dbf7b60086197da45c))
+- **build:** add step to check NODE_OPTIONS
+  ([ff9817f](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ff9817f526a7996bc13072b7cb75994982f5dd03))
+- **build:** update ci sequence and yarn.lock
+  ([712ac7b](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/712ac7bffc2d938f266facbbf1c05b51f5112d40))
+- **core-github-actions:** fix scoping bug and add tests
+  ([edfe938](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/edfe938bbfc4b335e5201552d94400d161db01a3))
+- **github-actions:** add utility to build url
+  ([7ee6c90](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/7ee6c90342c730088561dd6ba050b47790937c6d))
+- **patch:** fix deps
+  ([ea483f3](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ea483f365e260ef7a4d96b66de5a30afac4a397b))
+- **repo:** update autorelease command to autochangelog
+  ([03ef88d](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/03ef88d2fd6fb50e2fc445b6911a5fa54b427b2c))
+- **vsb-website:** fix navigation for design system
+  ([e1f1ad2](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/e1f1ad2225bdc6e00860db0fd056172410c62284))
+
+### Features
+
+- **core-github-action:** refactor set-app-env
+  ([c31ca6c](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/c31ca6c39b2efa2c32ee3e08eb39125a3d13b8b2))
+- **core-react-ui:** adding all animations
+  ([af90823](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/af9082300efb3fb1d13bfccca8e546dcc66c1943))
+- **core-react-ui:** adding animation
+  ([ce5e946](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ce5e9469744284c2e9bd7f09c741c2061971f608))
+- **core-react-ui:** adding description in docs and change typo styles from the
+  markdown
+  ([d915abb](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/d915abbe5e8436c1ce74e5525d2a22dfd50a618c))
+- **core-react-ui core-design-system:** adding animations, add descriptions to
+  md docs
+  ([0e38a5d](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/0e38a5d912f7d5106f9bbabba4f63bbfabab7ebf))
+- **react-core-ui:** update animations
+  ([909caa3](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/909caa3daa848855b51a0eb3c6b652d5e9f61a80))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.12.0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/newrade-website@1.11.2...@newrade/newrade-website@1.12.0) (2021-05-21)
 
 ### Bug Fixes

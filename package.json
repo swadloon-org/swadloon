@@ -18,7 +18,7 @@
     }
   },
   "scripts": {
-    "autorelease": ". ./.env && GH_TOKEN=$GH_TOKEN lerna version --conventional-commits --create-release github",
+    "autochangelog": ". ./.env && GH_TOKEN=$GH_TOKEN lerna version --conventional-commits --create-release github",
     "build": "yarn lerna:build --scope @newrade/core-* --ignore @newrade/core-graphql-ui",
     "build:postinstall": "yarn lerna:build:postinstall",
     "changelog": "lerna version --conventional-commits --no-push",

@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/newrade/newrade/compare/@newrade/core-figma-extractor@1.2.0...@newrade/core-figma-extractor@1.2.1) (2021-05-25)
+
+### Bug Fixes
+
+- **build:** update ci sequence and yarn.lock
+  ([712ac7b](https://github.com/newrade/newrade/commit/712ac7bffc2d938f266facbbf1c05b51f5112d40))
+- **patch:** fix deps
+  ([ea483f3](https://github.com/newrade/newrade/commit/ea483f365e260ef7a4d96b66de5a30afac4a397b))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.2.0](https://github.com/newrade/newrade/compare/@newrade/core-figma-extractor@1.1.0...@newrade/core-figma-extractor@1.2.0) (2021-05-21)
 
 ### Bug Fixes

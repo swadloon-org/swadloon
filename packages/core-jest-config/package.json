@@ -1,6 +1,6 @@
 {
   "name": "@newrade/core-jest-config",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "description": "Default jest config and transformers",
   "author": {
     "email": "info@newrade.ca",
@@ -23,7 +23,7 @@
   "dependencies": {
     "@newrade/core-common": "^1.3.0",
     "@newrade/core-types": "^1.5.0",
-    "@newrade/core-utils": "^1.6.4"
+    "@newrade/core-utils": "^1.7.0"
   },
   "peerDependencies": {
     "react": "^16.13.1",

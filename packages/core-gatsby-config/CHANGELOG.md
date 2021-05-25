@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.12.0](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-config@1.11.0...@newrade/core-gatsby-config@1.12.0) (2021-05-25)
+
+### Bug Fixes
+
+- **github-actions:** add utility to build url
+  ([7ee6c90](https://github.com/newrade/newrade/commit/7ee6c90342c730088561dd6ba050b47790937c6d))
+- **patch:** fix deps
+  ([ea483f3](https://github.com/newrade/newrade/commit/ea483f365e260ef7a4d96b66de5a30afac4a397b))
+
+### Features
+
+- **core-github-action:** refactor set-app-env
+  ([c31ca6c](https://github.com/newrade/newrade/commit/c31ca6c39b2efa2c32ee3e08eb39125a3d13b8b2))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.11.0](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-config@1.10.1...@newrade/core-gatsby-config@1.11.0) (2021-05-21)
 
 ### Bug Fixes

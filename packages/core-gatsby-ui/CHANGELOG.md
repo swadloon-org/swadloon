@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-ui@1.7.0...@newrade/core-gatsby-ui@1.8.0) (2021-05-25)
+
+### Bug Fixes
+
+- **core-react-ui:** bug with destructuring of gap prop
+  ([39491b6](https://github.com/newrade/newrade/commit/39491b6bf7cc7c93436b77f735a653db5d2c4f33))
+- **patch:** fix deps
+  ([ea483f3](https://github.com/newrade/newrade/commit/ea483f365e260ef7a4d96b66de5a30afac4a397b))
+- **vsb-website:** fix navigation for design system
+  ([e1f1ad2](https://github.com/newrade/newrade/commit/e1f1ad2225bdc6e00860db0fd056172410c62284))
+
+### Features
+
+- **core-react-ui:** adding description in docs and change typo styles from the
+  markdown
+  ([d915abb](https://github.com/newrade/newrade/commit/d915abbe5e8436c1ce74e5525d2a22dfd50a618c))
+- **react-core-ui:** update animations
+  ([909caa3](https://github.com/newrade/newrade/commit/909caa3daa848855b51a0eb3c6b652d5e9f61a80))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.7.0](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-ui@1.6.2...@newrade/core-gatsby-ui@1.7.0) (2021-05-21)
 
 ### Bug Fixes

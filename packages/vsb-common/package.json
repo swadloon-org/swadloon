@@ -1,6 +1,6 @@
 {
   "name": "@newrade/vsb-common",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Common models and other types between vsb-website and vsb-api",
   "license": "MIT",
   "main": "./lib/index.js",
@@ -26,9 +26,9 @@
     "@newrade/core-jest-config": "^1",
     "@newrade/core-react-ui": "^1",
     "@newrade/core-types": "^1.5.0",
-    "@newrade/core-utils": "^1.6.4"
+    "@newrade/core-utils": "^1.7.0"
   },
   "devDependencies": {
-    "@newrade/core-cli": "^1.8.0"
+    "@newrade/core-cli": "^1.8.1"
   }
 }

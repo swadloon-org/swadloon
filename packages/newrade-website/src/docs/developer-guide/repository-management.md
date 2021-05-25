@@ -8,9 +8,11 @@ tags:
 
 ## Commit Style with [Commitizen](http://commitizen.github.io/cz-cli/)
 
-To commit in this repository use `git cz` (with `commitizen` installed globally) or `npm run commit` when committing.
+To commit in this repository use `git cz` (with `commitizen` installed globally)
+or `npm run commit` when committing.
 
-You'll be prompted to fill in any required fields and your commit messages will be formatted according to the standards defined by project maintainers:
+You'll be prompted to fill in any required fields and your commit messages will
+be formatted according to the standards defined by project maintainers:
 
 ```bash
 $ yarn commit
@@ -44,7 +46,7 @@ To do the same as above and also create a Github release automatically:
 
 ```bash
 # update changelogs, push commit and tags and create github release
-yarn autorelease
+yarn autochangelog
 ```
 
 ## Auto Formatting

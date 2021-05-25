@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/newrade/newrade/compare/@newrade/vsb-design-system@1.1.0...@newrade/vsb-design-system@1.1.1) (2021-05-25)
+
+**Note:** Version bump only for package @newrade/vsb-design-system
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # 1.1.0 (2021-05-21)
 
 ### Features
