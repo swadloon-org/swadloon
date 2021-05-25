@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "build": "yarn webpack:prod",
-    "clean": "rimraf -r public/** && rm -f tsconfig.build.tsbuildinfo",
+    "clean": "rm -rf public/** && rm -f tsconfig.build.tsbuildinfo",
     "serve": ". ./.env && http-server --port $APP_PORT --gzip",
     "start": "yarn webpack:dev",
     "test-disabled": "echo ok",

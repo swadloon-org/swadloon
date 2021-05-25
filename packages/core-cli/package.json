@@ -21,7 +21,7 @@
     "/oclif.manifest.json"
   ],
   "scripts": {
-    "clean": "rimraf -r lib/** && yarn postpack && rm -f tsconfig.build.tsbuildinfo",
+    "clean": "rm -rf lib/** && yarn postpack && rm -f tsconfig.build.tsbuildinfo",
     "figma-extract-color": ". ./.env && DEBUG=$DEBUG nr figma-sync $FIGMA_FILE",
     "postpack": "rm -f oclif.manifest.json",
     "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",

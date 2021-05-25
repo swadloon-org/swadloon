@@ -13,7 +13,7 @@
     "build": "yarn build:commonjs && yarn build:esm",
     "build:commonjs": "tsc --build tsconfig.build.json",
     "build:esm": "tsc --build tsconfig.build.esm.json",
-    "clean": "rimraf -r lib/** && rm -f tsconfig.build.tsbuildinfo",
+    "clean": "rm -rf lib/** && rm -f tsconfig.build.tsbuildinfo",
     "create-package-json": "yarn create-package-json-plugin-layout-core & yarn create-package-json-plugin-core-contentful & yarn create-package-json-plugin-core & yarn create-package-json-treat",
     "create-package-json-plugin-core": "mkdir -p lib/plugins/gatsby-plugin-core && cp 'src/plugins/gatsby-plugin-core/package.json' 'lib/plugins/gatsby-plugin-core/package.json'",
     "create-package-json-plugin-core-contentful": "mkdir -p lib/plugins/gatsby-plugin-core-contentful && cp 'src/plugins/gatsby-plugin-core-contentful/package.json' 'lib/plugins/gatsby-plugin-core-contentful/package.json'",

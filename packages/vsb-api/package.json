@@ -12,7 +12,7 @@
   "main": "public/api/server-express.js",
   "scripts": {
     "build": "yarn webpack --config webpack.prod.config.ts",
-    "clean": "rimraf -r public/** && rm -f tsconfig.build.tsbuildinfo",
+    "clean": "rm -rf public/** && rm -f tsconfig.build.tsbuildinfo",
     "nodemon": "nodemon --delay 1000ms --watch public/api/ --watch ../vsb-common/lib/ --exec 'yarn server'",
     "server": ". ./.env && yarn server:kill-port && NODE_DEBUG=$NODE_DEBUG DEBUG=$DEBUG node --no-warnings --inspect=0.0.0.0:9229 --experimental-modules ./public/api/server-express.js",
     "server:kill-port": ". ./.env && kill-port --port $APP_PORT && kill-port --port 9229",

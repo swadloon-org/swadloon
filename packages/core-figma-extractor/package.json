@@ -12,7 +12,7 @@
     "build": "yarn build:commonjs && yarn build:esm",
     "build:commonjs": "tsc --build tsconfig.build.json",
     "build:esm": "tsc --build tsconfig.build.esm.json",
-    "clean": "rimraf -r lib/** && rm -f tsconfig.build.tsbuildinfo",
+    "clean": "rm -rf lib/** && rm -f tsconfig.build.tsbuildinfo",
     "extract": ". ./.env && DEBUG=$DEBUG cross-env TS_NODE_PROJECT=tsconfig.bin.json node -r ts-node/register bin/run.ts",
     "start": "concurrently \"yarn start:commonjs\" \"yarn start:esm\"",
     "start:commonjs": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",

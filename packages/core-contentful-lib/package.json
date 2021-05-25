@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "build": "tsc --build tsconfig.build.json",
-    "clean": "rimraf -r lib/** && rm -f tsconfig.build.tsbuildinfo",
+    "clean": "rm -rf lib/** && rm -f tsconfig.build.tsbuildinfo",
     "export-content": ". .env && contentful space export --space-id=$CONTENTFUL_SPACEID --management-token=$CONTENTFUL_MANAGEMENT_TOKEN --environment-id=$CONTENTFUL_ENV --content-file=contentful-export-space.json",
     "import-content": "contentful space import",
     "run-migration": ". ./.env && DEBUG=$DEBUG TS_NODE_PROJECT=tsconfig.build.json node -r ts-node/register src/run-migration.ts",
