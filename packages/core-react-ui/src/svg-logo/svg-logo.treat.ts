@@ -4,9 +4,6 @@ import { Theme } from '../design-system';
 export const styles = {
   wrapper: style(({ theme, cssTheme }: Theme) => ({
     fill: cssTheme.colors.colors.primary[500],
+    maxHeight: `100%`,
   })),
 };
-
-// globalStyle(`${styles.large} ${styles.iconBase} path`, ({ theme, cssTheme }: Theme) => ({
-//   strokeWidth: 40,
-// }));

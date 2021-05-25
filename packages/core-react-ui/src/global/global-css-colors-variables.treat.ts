@@ -91,19 +91,19 @@ globalStyle(`${wrapper}`, ({ theme, cssTheme }: Theme) => {
     [colors.varNames.colors.grey[800]]: colors.colors.grey[800],
     [colors.varNames.colors.grey[900]]: colors.colors.grey[900],
     [colors.varNames.colors.grey[1000]]: colors.colors.grey[1000],
-    [colors.varNames.colors.utilityGreen.baseHue || 'undefined']: colors.colors.utilityGreen
-      .baseHue,
-    [colors.varNames.colors.utilityGreen.baseSat || 'undefined']: colors.colors.utilityGreen
-      .baseSat,
+    [colors.varNames.colors.utilityGreen.baseHue || 'undefined']:
+      colors.colors.utilityGreen.baseHue,
+    [colors.varNames.colors.utilityGreen.baseSat || 'undefined']:
+      colors.colors.utilityGreen.baseSat,
     [colors.varNames.colors.utilityGreen[100]]: colors.colors.utilityGreen[100],
     [colors.varNames.colors.utilityGreen[300]]: colors.colors.utilityGreen[300],
     [colors.varNames.colors.utilityGreen[500]]: colors.colors.utilityGreen[500],
     [colors.varNames.colors.utilityGreen[700]]: colors.colors.utilityGreen[700],
     [colors.varNames.colors.utilityGreen[900]]: colors.colors.utilityGreen[900],
-    [colors.varNames.colors.utilityYellow.baseHue || 'undefined']: colors.colors.utilityYellow
-      .baseHue,
-    [colors.varNames.colors.utilityYellow.baseSat || 'undefined']: colors.colors.utilityYellow
-      .baseSat,
+    [colors.varNames.colors.utilityYellow.baseHue || 'undefined']:
+      colors.colors.utilityYellow.baseHue,
+    [colors.varNames.colors.utilityYellow.baseSat || 'undefined']:
+      colors.colors.utilityYellow.baseSat,
     [colors.varNames.colors.utilityYellow[100]]: colors.colors.utilityYellow[100],
     [colors.varNames.colors.utilityYellow[300]]: colors.colors.utilityYellow[300],
     [colors.varNames.colors.utilityYellow[500]]: colors.colors.utilityYellow[500],

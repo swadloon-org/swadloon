@@ -7,9 +7,7 @@
 apt update -y
 apt upgrade -y
 apt install sudo -y
-sudo apt install build-essential -y
-sudo apt install openssl libssl-dev libz-dev libssl-dev libcurl4-gnutls-dev libexpat1-dev gettext cmake gcc -y
-sudo apt install gconf-service libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils wget -y
+sudo apt install build-essential openssl libssl-dev libz-dev libssl-dev libcurl4-gnutls-dev libexpat1-dev gettext cmake gcc gconf-service libvips-dev libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils wget -y
 #
 # Install latest version of git
 #
@@ -21,9 +19,6 @@ make prefix=/usr/local install
 exec bash
 cd ..
 git --version
-#
-# Configure git
-#
 git config --global init.defaultBranch main
 #
 # Create SWAP file
@@ -36,14 +31,6 @@ swapon /swapfile
 echo "/swapfile none swap sw 0 0" | sudo tee -a /etc/fstab
 free -m
 #
-# Increase nodejs ram limit
-# see https://stackoverflow.com/questions/48387040/how-do-i-determine-the-correct-max-old-space-size-for-node-js
-#
-echo "export NODE_OPTIONS=--max-old-space-size=4096" >> ~/.profile
-source ~/.profile
-node -e 'console.log(`node heap limit = ${require("v8").getHeapStatistics().heap_size_limit / (1024 * 1024)} Mb`)'
-
-#
 # Create a ci user with password !212yeah
 #
 adduser ci
@@ -51,21 +38,6 @@ usermod -aG sudo ci
 
 # switch to ci user
 su - ci
-
-#
-# Install NVM and Node
-#
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-nvm install v15
-#
-# Install Yarn with npm
-#
-npm install --global yarn
-yarn --version
-npm --version
-node --version
 
 # Create a folder
 mkdir actions-runner && cd actions-runner

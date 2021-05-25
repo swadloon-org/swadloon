@@ -188,7 +188,8 @@ export function getPageDirFromPath(path?: string | null): string {
     return '';
   }
 
-  const reg = /(\/(?<lang>fr|en|fr_CA|en_CA|fr-CA|en-CA))?(\/(?<source>docs|core-docs|design-system))?(\/?(?<dirname>.+)\/)?((?<pagename>[a-z\-]+|\/))(\.(?<ext>jsx|tsx|mdx|md))?/gi;
+  const reg =
+    /(\/(?<lang>fr|en|fr_CA|en_CA|fr-CA|en-CA))?(\/(?<source>docs|core-docs|design-system))?(\/?(?<dirname>.+)\/)?((?<pagename>[a-z\-]+|\/))(\.(?<ext>jsx|tsx|mdx|md))?/gi;
   const match = reg.exec(path);
   const dirName = match?.groups?.dirname;
 
@@ -200,7 +201,8 @@ export function getPageDirFromPathIndex(path?: string | null): string {
     return '';
   }
 
-  const reg = /(\/(?<lang>fr|en|fr_CA|en_CA|fr-CA|en-CA))?(\/(?<source>docs|core-docs|design-system))(\/(?<dirname>.+)\/)/gi;
+  const reg =
+    /(\/(?<lang>fr|en|fr_CA|en_CA|fr-CA|en-CA))?(\/(?<source>docs|core-docs|design-system))(\/(?<dirname>.+)\/)/gi;
   const match = reg.exec(path);
   const dirName = match?.groups?.dirname;
   const source = match?.groups?.source;

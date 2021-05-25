@@ -1,5 +1,25 @@
 import puppeteer from 'puppeteer';
 
+export async function scrollToElement(page: puppeteer.Page, selector: string) {
+  await page.waitForSelector(selector);
+  await page.$eval(selector, (elem) => elem.scrollIntoView());
+  await page.waitForSelector(selector, { visible: true });
+}
+
+export async function clickElement(page: puppeteer.Page, selector: string) {
+  await scrollToElement(page, selector);
+  await page.waitForSelector(selector, { visible: true });
+  // await page.click(selector); // does not work properly https://github.com/puppeteer/puppeteer/issues/3347
+  await page.$eval(selector, (elem) => (elem as any).click());
+  await page.waitForTimeout(1000);
+}
+
+export async function clickNavigationLink(page: puppeteer.Page, selector: string) {
+  await clickElement(page, selector);
+  // somehow waitForNavigation does not work
+  await page.waitForTimeout(1000);
+}
+
 export async function findElementWithText({
   page,
   selector,

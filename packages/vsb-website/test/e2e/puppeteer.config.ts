@@ -1,38 +1,41 @@
-import { ChromeArgOptions, LaunchOptions, BrowserOptions } from 'puppeteer';
-import { loadDotEnv, toBoolean } from '@newrade/core-utils';
-import { ENV, Env } from '../../types/dot-env';
+import { getAppHostConfig, getAppUrl, loadDotEnv, toBoolean } from '@newrade/core-utils';
 import path from 'path';
+import { BrowserConnectOptions, BrowserLaunchArgumentOptions, LaunchOptions } from 'puppeteer';
 import packageJson from '../../package.json';
+import { TestEnv, TEST_ENV } from '../../types/dot-env-test-e2e';
 
-const env = loadDotEnv<ENV>({
-  schema: Env,
+const env = loadDotEnv<TEST_ENV>({
+  schema: TestEnv,
   dotEnvPath: path.resolve(__dirname, '..', '..', '.env'),
   packageName: packageJson.name,
 });
 
-const PROTOCOL = env.TEST_PROTOCOL || 'http';
-const PORT = env.TEST_PORT || '9000';
-const HOST = env.TEST_HOST || 'localhost';
+const { APP_PROTOCOL, APP_HOST, APP_PORT } = getAppHostConfig(env);
+const APP_URL = getAppUrl(env);
+const VIEW_WIDTH = env.TEST_VIEW_WIDTH ? Number(env.TEST_VIEW_WIDTH) : 1440;
+const VIEW_HEIGHT = env.TEST_VIEW_HEIGHT ? Number(env.TEST_VIEW_HEIGHT) : 900;
 
 export const puppeteerConfig: {
   protocol: string;
   host: string;
   port: string;
   appURL: string;
-  launchOptions: LaunchOptions & ChromeArgOptions & BrowserOptions;
+  launchOptions: LaunchOptions & BrowserLaunchArgumentOptions & BrowserConnectOptions;
 } = {
-  protocol: env.TEST_PROTOCOL || 'http',
-  host: env.TEST_HOST || 'localhost',
-  port: env.TEST_PORT || '9000',
-  appURL: `${PROTOCOL}://${HOST}:${PORT}`,
+  protocol: APP_PROTOCOL,
+  host: APP_HOST,
+  port: APP_PORT,
+  appURL: APP_URL,
   launchOptions: {
-    headless: toBoolean(env.TEST_CHROME_HEADLESS),
+    headless: env.TEST_CHROME_HEADLESS ? toBoolean(env.TEST_CHROME_HEADLESS) : true,
     defaultViewport: {
-      width: Number(env.TEST_VIEW_WIDTH) || 1440,
-      height: Number(env.TEST_VIEW_HEIGHT) || 900,
+      width: VIEW_WIDTH,
+      height: VIEW_HEIGHT,
     },
     args: [
-      `--window-size=${env.TEST_VIEW_WIDTH},${env.TEST_VIEW_HEIGHT}`,
+      '--disable-extensions',
+      '--shm-size=3gb', // needed for webpack-dev-server
+      `--window-size=${VIEW_WIDTH},${VIEW_HEIGHT}`,
       '--no-sandbox',
       '–-disable-setuid-sandbox',
       env.TEST_IGNORE_SSL_ERROR ? '--ignore-certificate-errors' : '',

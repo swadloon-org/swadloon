@@ -33,7 +33,6 @@ export * from './markdown/markdown-renderer';
 export * from './mdx/docs-markdown-css';
 export * from './mdx/docs-mdx-components';
 export * from './navbar/navbar-docs';
-export * from './navbar/navbar-startup';
 export * from './navigation/aside';
 export * from './navigation/nav-item.model';
 export * from './pages/page.props';

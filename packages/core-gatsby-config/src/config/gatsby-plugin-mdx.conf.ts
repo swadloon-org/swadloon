@@ -25,22 +25,6 @@ export function getGatsbyPluginMdx(): Gatsby.PluginRef[] {
           {
             resolve: 'gatsby-remark-mermaid',
           },
-          /**
-           * gatsby-remark-prismjs
-           * @see https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-remark-prismjs
-           * @deprecated Not needed as we run prism in <CodeBlock/>
-           */
-          // {
-          //   resolve: `gatsby-remark-prismjs`,
-          //   options: {
-          //     classPrefix: 'language-',
-          //     showLineNumbers: false,
-          //     noInlineHighlight: false,
-          //   },
-          // },
-          // {
-          //   resolve: `gatsby-remark-abbr`,
-          // },
           {
             resolve: `gatsby-remark-images`,
             options: {

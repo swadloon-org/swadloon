@@ -1,9 +1,9 @@
 import React from 'react';
 import { useStyles } from 'react-treat';
-import * as styleRefs from './switcher.treat';
 import { CommonComponentProps } from '../props/component-common.props';
 import { GapProp } from '../props/layout.prop';
 import { AlignItemsViewportProps, JustifyContentViewportProps } from '../props/padding.props';
+import * as styleRefs from './switcher.treat';
 
 type OwnProps = CommonComponentProps &
   Partial<{
@@ -21,7 +21,7 @@ export const Switcher: React.FC<OwnProps> = ({
   style,
   as,
   col,
-  gap = [0],
+  gap = ['0px'],
   justifyContent = ['space-between'],
   justifySelf = ['flex-start'],
   alignItems = ['center'],

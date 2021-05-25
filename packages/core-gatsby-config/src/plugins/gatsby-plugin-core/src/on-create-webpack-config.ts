@@ -16,7 +16,7 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
   { stage, rules, loaders, plugins, actions, getConfig, reporter },
   options
 ) => {
-  const pluginOptions = (options as unknown) as GatsbyCorePluginOptions;
+  const pluginOptions = options as unknown as GatsbyCorePluginOptions;
   const env = process.env as CommonEnvType;
   const isProduction = stage !== `develop`;
 

@@ -22,7 +22,32 @@ on:
   pull_request:
 
 env:
+  #
+  # Debugging
+  #
+  DEBUG: 'newrade:*'
+  #
+  # Node
+  #
   NODE_OPTIONS: '--max-old-space-size=4096'
+  #
+  # NVM
+  #
+  NVM_NODE_VERSION: ${{ secrets.NVM_NODE_VERSION }}
+  #
+  # Repo
+  #
+  MASTER_GIT_HOST: ${{ secrets.MASTER_GIT_HOST }}
+  MASTER_REPO_ORG: ${{ secrets.MASTER_REPO_ORG }}
+  MASTER_REPO_NAME: ${{ secrets.MASTER_REPO_NAME }}
+  PROJECT_GIT_HOST: ${{ secrets.PROJECT_GIT_HOST }}
+  PROJECT_REPO_ORG: ${{ secrets.PROJECT_REPO_ORG }}
+  PROJECT_REPO_NAME: ${{ secrets.PROJECT_REPO_NAME }}
+  #
+  # App
+  #
+  APP_DOMAIN: mirinc.ca
+  APP_SUBDOMAIN: ''
 
 jobs:
 
@@ -35,18 +60,13 @@ jobs:
         node-version: [14.x]
 
     steps:
+    - name: Inject Github slug/short variables
+      uses: rlespinasse/github-slug-action@v3.x
 
     - name: Checkout
       uses: actions/checkout@v2
-      if: github.event_name != 'pull_request'
       with:
         clean: false
-
-    - name: Checkout (clean)
-      uses: actions/checkout@v2
-      if: github.event_name == 'pull_request'
-      with:
-        clean: true
 
     - name: Set up Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
@@ -60,10 +80,10 @@ jobs:
       run: echo $NODE_OPTIONS && node -e 'console.log(`node heap limit = ${require("v8").getHeapStatistics().heap_size_limit / (1024 * 1024)} Mb`)'
 
     - name: Set the env variable depending on the branch
-      uses: ./packages/core-github-actions/lib/set-app-env
+      uses: ./packages/core-github-actions/built/set-app-env
 
     - name: Install dependencies and build core packages
-      run: yarn --prefer-offline
+      run: yarn --prefer-offline --frozen-lockfile
 
     - name: Clean
       run: yarn clean --scope @newrade/mir-website
@@ -74,20 +94,9 @@ jobs:
     - name: Run unit tests
       run: yarn test --scope @newrade/mir-*
 
-    - name: Build website
+    - name: Build
       run: yarn build --scope @newrade/mir-*
       env:
-        NVM_NODE_VERSION: ${{ secrets.NVM_NODE_VERSION }}
-        MASTER_GIT_HOST: ${{ secrets.MASTER_GIT_HOST }}
-        MASTER_REPO_ORG: ${{ secrets.MASTER_REPO_ORG }}
-        MASTER_REPO_NAME: ${{ secrets.MASTER_REPO_NAME }}
-        PROJECT_GIT_HOST: ${{ secrets.PROJECT_GIT_HOST }}
-        PROJECT_REPO_ORG: ${{ secrets.PROJECT_REPO_ORG }}
-        PROJECT_REPO_NAME: ${{ secrets.PROJECT_REPO_NAME }}
-
-        DEBUG: 'newrade:*'
-        APP_URL: 'http://local.mirinc.ca'
-
         CONTENTFUL_ENV: ${{ secrets.CONTENTFUL_ENV }}
         CONTENTFUL_SPACEID_MIR: ${{ secrets.CONTENTFUL_SPACEID_MIR }}
         CONTENTFUL_DELIVERY_TOKEN_MIR: ${{ secrets.CONTENTFUL_DELIVERY_TOKEN_MIR }}

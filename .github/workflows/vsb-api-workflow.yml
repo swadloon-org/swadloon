@@ -24,7 +24,41 @@ on:
   workflow_dispatch:
 
 env:
+  #
+  # Debugging
+  #
+  DEBUG: 'newrade:*'
+  #
+  # Node
+  #
   NODE_OPTIONS: '--max-old-space-size=4096'
+  #
+  # NVM
+  #
+  NVM_NODE_VERSION: ${{ secrets.NVM_NODE_VERSION }}
+  #
+  # Repo
+  #
+  MASTER_GIT_HOST: ${{ secrets.MASTER_GIT_HOST }}
+  MASTER_REPO_ORG: ${{ secrets.MASTER_REPO_ORG }}
+  MASTER_REPO_NAME: ${{ secrets.MASTER_REPO_NAME }}
+  PROJECT_GIT_HOST: ${{ secrets.PROJECT_GIT_HOST }}
+  PROJECT_REPO_ORG: ${{ secrets.PROJECT_REPO_ORG }}
+  PROJECT_REPO_NAME: ${{ secrets.PROJECT_REPO_NAME }}
+  #
+  # App
+  #
+  APP_DOMAIN: vasectomie-pierre-boucher.ca
+  APP_SUBDOMAIN: api
+
+  API_VSB_VENDOR_NAME: ${{ secrets.API_VSB_VENDOR_NAME }}
+  API_VSB_VENDOR_EMAIL: ${{ secrets.API_VSB_VENDOR_EMAIL }}
+  API_VSB_KEY_CLINIKO: ${{ secrets.API_VSB_KEY_CLINIKO }}
+  API_VSB_SHARD_ID: ${{ secrets.API_VSB_SHARD_ID }}
+  API_VSB_SECRET_KEY_RECAPTCHA: ${{ secrets.API_VSB_SECRET_KEY_RECAPTCHA }}
+
+  API_VSB_STMP_USER: ${{ secrets.API_VSB_STMP_USER }}
+  API_VSB_STMP_PASSWORD: ${{ secrets.API_VSB_STMP_PASSWORD }}
 
 jobs:
 
@@ -37,18 +71,13 @@ jobs:
         node-version: [14.x]
 
     steps:
+    - name: Inject Github slug/short variables
+      uses: rlespinasse/github-slug-action@v3.x
 
     - name: Checkout
       uses: actions/checkout@v2
-      if: github.event_name != 'pull_request'
       with:
         clean: false
-
-    - name: Checkout (clean)
-      uses: actions/checkout@v2
-      if: github.event_name == 'pull_request'
-      with:
-        clean: true
 
     - name: Set up Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
@@ -62,10 +91,10 @@ jobs:
       run: echo $NODE_OPTIONS && node -e 'console.log(`node heap limit = ${require("v8").getHeapStatistics().heap_size_limit / (1024 * 1024)} Mb`)'
 
     - name: Set the env variable depending on the branch
-      uses: ./packages/core-github-actions/lib/set-app-env
+      uses: ./packages/core-github-actions/built/set-app-env
 
     - name: Install dependencies and build core packages
-      run: yarn --prefer-offline
+      run: yarn --prefer-offline --frozen-lockfile
 
     - name: Clear Output Files
       run: yarn clean --scope @newrade/vsb-api
@@ -80,56 +109,12 @@ jobs:
       run: yarn test --scope @newrade/vsb-*
       env:
         NODE_ENV: test
-        NVM_NODE_VERSION: ${{ secrets.NVM_NODE_VERSION }}
-        MASTER_GIT_HOST: ${{ secrets.MASTER_GIT_HOST }}
-        MASTER_REPO_ORG: ${{ secrets.MASTER_REPO_ORG }}
-        MASTER_REPO_NAME: ${{ secrets.MASTER_REPO_NAME }}
-        PROJECT_GIT_HOST: ${{ secrets.PROJECT_GIT_HOST }}
-        PROJECT_REPO_ORG: ${{ secrets.PROJECT_REPO_ORG }}
-        PROJECT_REPO_NAME: ${{ secrets.PROJECT_REPO_NAME }}
 
-        DEBUG: 'newrade:*'
-        APP_URL: 'http://local.vasectomie-pierre-boucher.ca/api/register'
-
-        API_VSB_VENDOR_NAME: ${{ secrets.API_VSB_VENDOR_NAME }}
-        API_VSB_VENDOR_EMAIL: ${{ secrets.API_VSB_VENDOR_EMAIL }}
-        API_VSB_KEY_CLINIKO: ${{ secrets.API_VSB_KEY_CLINIKO }}
-        API_VSB_SHARD_ID: ${{ secrets.API_VSB_SHARD_ID }}
-        API_VSB_SECRET_KEY_RECAPTCHA: ${{ secrets.API_VSB_SECRET_KEY_RECAPTCHA }}
-
-        API_VSB_STMP_USER: ${{ secrets.API_VSB_STMP_USER }}
-        API_VSB_STMP_PASSWORD: ${{ secrets.API_VSB_STMP_PASSWORD }}
-
-    - name: Build vsb-api
+    - name: Build
       run: yarn build --scope @newrade/vsb-api
-      env:
-        NODE_ENV: ${{ secrets.NODE_ENV }}
-        NVM_NODE_VERSION: ${{ secrets.NVM_NODE_VERSION }}
-        MASTER_GIT_HOST: ${{ secrets.MASTER_GIT_HOST }}
-        MASTER_REPO_ORG: ${{ secrets.MASTER_REPO_ORG }}
-        MASTER_REPO_NAME: ${{ secrets.MASTER_REPO_NAME }}
-        PROJECT_GIT_HOST: ${{ secrets.PROJECT_GIT_HOST }}
-        PROJECT_REPO_ORG: ${{ secrets.PROJECT_REPO_ORG }}
-        PROJECT_REPO_NAME: ${{ secrets.PROJECT_REPO_NAME }}
 
-        DEBUG: 'newrade:*'
-        APP_URL: 'http://local.vasectomie-pierre-boucher.ca/api/register'
-
-        API_VSB_VENDOR_NAME: ${{ secrets.API_VSB_VENDOR_NAME }}
-        API_VSB_VENDOR_EMAIL: ${{ secrets.API_VSB_VENDOR_EMAIL }}
-        API_VSB_KEY_CLINIKO: ${{ secrets.API_VSB_KEY_CLINIKO }}
-        API_VSB_SHARD_ID: ${{ secrets.API_VSB_SHARD_ID }}
-        API_VSB_SECRET_KEY_RECAPTCHA: ${{ secrets.API_VSB_SECRET_KEY_RECAPTCHA }}
-
-        API_VSB_STMP_USER: ${{ secrets.API_VSB_STMP_USER }}
-        API_VSB_STMP_PASSWORD: ${{ secrets.API_VSB_STMP_PASSWORD }}
-
-    - name: Check for protected branches
-      if: endsWith(github.ref, 'api')
-      run: echo "branch cannot end with 'api'" && exit 1
-
-    - name: Deploy api (branch)
-      if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && (github.ref == 'refs/heads/dev' || github.ref == 'refs/heads/master')
+    - name: Deploy
+      if: ${{ env.APP_CI_DEPLOY }}
       uses: amondnet/vercel-action@v20
       with:
         scope: ${{ secrets.VERCEL_SCOPE }}
@@ -140,33 +125,6 @@ jobs:
         vercel-project-id: prj_gdoOSnZGX67oP3i2oiuKePfTTMbi
         working-directory: ./packages/vsb-api
         alias-domains: |
-          {{ BRANCH }}.api.vasectomie-pierre-boucher.ca
+          ${{ env.APP_HOST }}
 
-    - name: Deploy api (PR)
-      if: github.event_name == 'pull_request'
-      uses: amondnet/vercel-action@v20
-      with:
-        scope: ${{ secrets.VERCEL_SCOPE }}
-        vercel-token: ${{ secrets.VERCEL_TOKEN }}
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        vercel-args: 'public'
-        vercel-org-id: ${{ secrets.VERCEL_ORG_ID}}
-        vercel-project-id: prj_gdoOSnZGX67oP3i2oiuKePfTTMbi
-        working-directory: ./packages/vsb-api
-        alias-domains: |
-          pr-{{ PR_NUMBER }}.api.vasectomie-pierre-boucher.ca
-
-    - name: Deploy api (prod)
-      if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/release'
-      uses: amondnet/vercel-action@v20
-      with:
-        scope: ${{ secrets.VERCEL_SCOPE }}
-        vercel-token: ${{ secrets.VERCEL_TOKEN }}
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        vercel-args: 'public --prod'
-        vercel-org-id: ${{ secrets.VERCEL_ORG_ID}}
-        vercel-project-id: prj_gdoOSnZGX67oP3i2oiuKePfTTMbi
-        working-directory: ./packages/vsb-api
-        alias-domains: |
-          api.vasectomie-pierre-boucher.ca
 

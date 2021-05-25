@@ -27,7 +27,7 @@ export const Cluster: React.FC<Props> = ({
   as,
   className = '',
   wrap,
-  gap = '',
+  gap = ['0px'],
   style = {},
   justifyContent = ['space-between'],
   alignItems = ['center'],

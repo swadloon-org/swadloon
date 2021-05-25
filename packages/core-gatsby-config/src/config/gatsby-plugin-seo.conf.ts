@@ -1,5 +1,5 @@
 import { DEPLOY_ENV } from '@newrade/core-common';
-import { CommonEnvType } from '@newrade/core-utils';
+import { CommonEnvType, getAppUrl } from '@newrade/core-utils';
 import Gatsby from 'gatsby';
 
 /**
@@ -49,12 +49,12 @@ export function getGatsbyPluginRobotsTxt({ env }: { env: CommonEnvType }): Gatsb
        * Host of your site
        * @default ${siteMetadata.siteUrl}
        */
-      host: `${env.APP_URL}`,
+      host: getAppUrl(env),
       /**
        * Path(s) to sitemap.xml
-       * @default ${siteMetadata.siteUrl}/sitemap.xml
+       * @default /sitemap.xml
        */
-      sitemap: `${env.APP_URL}/sitemap.xml`,
+      sitemap: '/sitemap.xml',
       /**
        * Path where to create the robots.txt
        * @default /robots.txt

@@ -19,6 +19,7 @@
       "**/yarn.lock": true,
       "**/lib": true,
       "**/dist": true,
+      "**/built": true,
       "**/.cache/**/*": true,
       "**/public/**/*": true,
       "**/*.js.map": true,
@@ -30,6 +31,7 @@
       "**/node_modules/**": true,
       "**/.hg/store/**": true,
       "**/dist/**": true,
+      "**/built/**": true,
       "**/public/**": true,
       "**/.cache/**": true,
       "**/lib/**": true
@@ -54,7 +56,14 @@
     // https://github.com/deepscan/vscode-deepscan#settings-options
     // https://deepscan.io/docs/rules
     "deepscan.enable": true,
-    "deepscan.ignorePatterns": ["**/node_modules/**", "graphql-types.ts"],
+    "deepscan.ignorePatterns": [
+      "**/node_modules/**",
+      "graphql-types.ts",
+      "**/built/**/*",
+      "**/lib/**/*",
+      "**/public/**/*",
+      "**/dist/**/*"
+    ],
     "deepscan.ignoreRules": ["no-console", "UNUSED_DECL", "UNUSED_PARAM"],
     //
     // terminals

@@ -1,7 +1,6 @@
 import { AppError, ERROR_TYPE } from '@newrade/core-common';
 import debug from 'debug';
 import nodemailer, { SendMailOptions } from 'nodemailer';
-import { env } from '../server-express';
 
 const log = debug('newrade:vsb-api:email-service');
 const logWarn = log.extend('warn');
@@ -55,7 +54,7 @@ export async function sendEmail(
       auth: auth,
     });
 
-    const result: EmailResult = await smtpTrans.sendMail(options);
+    const result = (await smtpTrans.sendMail(options)) as any as EmailResult;
 
     log(`sending email successful: ${result.accepted}`);
   } catch (error) {
