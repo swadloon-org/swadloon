@@ -66,7 +66,7 @@ export const Patients: React.FC<Props> = ({ id, style, className, ...props }) =>
   /**
    * Auth0
    */
-  const { getAccessTokenSilently } = useAuth0();
+  const { isAuthenticated, isLoading: isAuth0Loading, getAccessTokenSilently } = useAuth0();
 
   const { isOnline } = useNetworkStatus();
   const { pageVisible } = usePageVisibility();
@@ -74,10 +74,13 @@ export const Patients: React.FC<Props> = ({ id, style, className, ...props }) =>
 
   useEffect(() => {
     function getPatients() {
-      getAccessTokenSilently({
-        audience: `https://api.vasectomie-pierre-boucher.ca/`,
-        scope: 'read:current_user read:patients',
-      })
+      if (isAuth0Loading) {
+        return;
+      }
+      if (!isAuthenticated) {
+        return;
+      }
+      getAccessTokenSilently()
         .then((token) => {
           return window.fetch(API_LIST_PATIENTS_ROUTE, {
             headers: {
@@ -133,7 +136,7 @@ export const Patients: React.FC<Props> = ({ id, style, className, ...props }) =>
       logError('error while retrieving patients');
       setIsLoading(false);
     }
-  }, [pageVisible, isOnline, getAccessTokenSilently, isLoading]);
+  }, [pageVisible, isOnline, getAccessTokenSilently, isLoading, isAuthenticated, isAuth0Loading]);
 
   /**
    * Table Config
@@ -301,7 +304,12 @@ export const Patients: React.FC<Props> = ({ id, style, className, ...props }) =>
         <Heading variant={HEADING.h2}>Listes de patients</Heading>
 
         <Stack gap={[cssTheme.sizing.var.x3]}>
-          <Cluster justifyContent={['flex-start']} alignItems={['flex-end']} wrap={true}>
+          <Cluster
+            justifyContent={['flex-start']}
+            alignItems={['flex-end']}
+            wrap={true}
+            gap={[cssTheme.sizing.var.x1]}
+          >
             <InputWrapper style={{ width: `min(100vw, 400px)` }}>
               <InputLabel htmlFor={'filter'}>Recherche</InputLabel>
               <InputText
