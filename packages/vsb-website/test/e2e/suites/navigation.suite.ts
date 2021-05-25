@@ -12,7 +12,7 @@ describe('in the navigation test suite', () => {
     browser = await puppeteer.launch(puppeteerConfig.launchOptions);
     console.log(JSON.stringify(puppeteerConfig, null, 2));
     page = await browser.newPage();
-    jest.setTimeout(10000);
+    jest.setTimeout(30000);
   });
 
   it('should have a functional navigation', async () => {
@@ -72,10 +72,15 @@ describe('in the navigation test suite', () => {
       visible: true,
     });
 
-    expect(buttonSubmit).toBeTruthy();
+    await expect(buttonSubmit).toBeTruthy();
 
     const buttonText = await getElementText({ page, selector: `button[type="submit"]` });
-    expect(buttonText.join(' ')).toMatch(/soumettre/gi);
+    await expect(buttonText.join(' ')).toMatch(/soumettre/gi);
+  });
+
+  it('should have a submit button with the correct text', async () => {
+    const buttonText = await getElementText({ page, selector: `button[type="submit"]` });
+    await expect(buttonText.join(' ')).toMatch(/soumettre/gi);
   });
 
   it('should have the recaptcha error message', async () => {
@@ -83,7 +88,7 @@ describe('in the navigation test suite', () => {
       visible: true,
     });
 
-    expect(form).toBeTruthy();
+    await expect(form).toBeTruthy();
 
     await page.type(`#firstName`, `Joe Test`);
     await page.type(`#lastName`, `Snow`);
