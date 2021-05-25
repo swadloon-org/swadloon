@@ -80,8 +80,29 @@ export const CommonEnv = t.intersection([
      */
     APP_DOMAIN: t.string,
     /**
+     * Subdomain for the app, api, or website
+     * @example "" in "website.com"
+     * @example "api" in "api.website.com"
+     * @example "app" in "dev.app.website.com"
+     */
+    APP_SUBDOMAIN: t.string,
+  }),
+  t.partial({
+    /**
+     * The NodeJS environment
+     */
+    NODE_ENV: NodeEnv,
+    /**
+     * Branch subdomain a specific build
+     * @example "" in "website.com"
+     * @example "" in "api.website.com"
+     * @example "dev" in "dev.app.website.com"
+     * @example "pr-422" in "pr-422.app.website.com"
+     */
+    APP_BRANCH_SUBDOMAIN: t.string,
+    /**
      * Protocol used for apps e.g. http in local, https elsewhere
-     * @example http
+     * @example http, https
      * @default https
      */
     APP_PROTOCOL: t.string,
@@ -93,30 +114,9 @@ export const CommonEnv = t.intersection([
     APP_HOST: t.string,
     /**
      * Local port
-     * @default 8080
+     * @default 443
      */
     APP_PORT: t.string,
-  }),
-  t.partial({
-    /**
-     * The NodeJS environment
-     */
-    NODE_ENV: NodeEnv,
-    /**
-     * Subdomain for the app, api, or website
-     * @example "" in "website.com"
-     * @example "api" in "api.website.com"
-     * @example "app" in "dev.app.website.com"
-     */
-    APP_SUBDOMAIN: t.string,
-    /**
-     * Branch subdomain a specific build
-     * @example "" in "website.com"
-     * @example "" in "api.website.com"
-     * @example "dev" in "dev.app.website.com"
-     * @example "pr-422" in "pr-422.app.website.com"
-     */
-    APP_BRANCH_SUBDOMAIN: t.string,
     /**
      * Whether the app will be deployed or not
      */

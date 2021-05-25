@@ -74,7 +74,7 @@ export default = {
   siteMetadata: {
     title: `VSB Website`,
     description: `Dr. Boucher Clinic's website`,
-    siteUrl: `${env.APP_PROTOCOL}://${env.APP_HOST}${+env.APP_PORT === 443 || ':' + env.APP_PORT}`,
+    siteUrl: getAppUrl(env),
     siteEnv: env.APP_ENV,
     languages: {
       langs: [common.SITE_LANGUAGES.FR],

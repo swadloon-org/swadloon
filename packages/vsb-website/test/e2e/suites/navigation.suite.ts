@@ -10,6 +10,7 @@ describe('in the navigation test suite', () => {
 
   beforeAll(async () => {
     browser = await puppeteer.launch(puppeteerConfig.launchOptions);
+    console.log(JSON.stringify(puppeteerConfig, null, 2));
     page = await browser.newPage();
     jest.setTimeout(10000);
   });

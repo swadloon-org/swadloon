@@ -1,6 +1,6 @@
 import * as core from '@newrade/core-gatsby-config';
 import * as common from '@newrade/core-common';
-import { loadDotEnv, logEnvVariables, toBoolean } from '@newrade/core-utils';
+import { loadDotEnv, logEnvVariables, toBoolean, getAppUrl } from '@newrade/core-utils';
 import path from 'path';
 import packageJson from './package.json';
 import { Env, ENV } from './types/dot-env';
@@ -31,7 +31,7 @@ const config: core.GastbySiteConfig = {
   siteMetadata: {
     title: `MIR Website`,
     description: `MIR Website`,
-    siteUrl: `${env.APP_PROTOCOL}://${env.APP_HOST}${+env.APP_PORT === 443 || ':' + env.APP_PORT}`,
+    siteUrl: getAppUrl(env),
     siteEnv: env.APP_ENV,
     languages: {
       langs: [common.SITE_LANGUAGES.FR_CA, common.SITE_LANGUAGES.EN_CA],

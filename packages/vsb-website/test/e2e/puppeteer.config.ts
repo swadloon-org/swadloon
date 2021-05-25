@@ -1,4 +1,4 @@
-import { loadDotEnv, toBoolean } from '@newrade/core-utils';
+import { getAppHostConfig, getAppUrl, loadDotEnv, toBoolean } from '@newrade/core-utils';
 import path from 'path';
 import { BrowserConnectOptions, BrowserLaunchArgumentOptions, LaunchOptions } from 'puppeteer';
 import packageJson from '../../package.json';
@@ -10,9 +10,8 @@ const env = loadDotEnv<TEST_ENV>({
   packageName: packageJson.name,
 });
 
-const TEST_PROTOCOL = env.TEST_PROTOCOL || env.APP_PROTOCOL || 'https';
-const TEST_PORT = env.TEST_PORT || env.APP_PORT || '443';
-const TEST_HOST = env.TEST_HOST || env.APP_HOST || 'localhost';
+const { APP_PROTOCOL, APP_HOST, APP_PORT } = getAppHostConfig(env);
+const APP_URL = getAppUrl(env);
 const VIEW_WIDTH = env.TEST_VIEW_WIDTH ? Number(env.TEST_VIEW_WIDTH) : 1440;
 const VIEW_HEIGHT = env.TEST_VIEW_HEIGHT ? Number(env.TEST_VIEW_HEIGHT) : 900;
 
@@ -23,10 +22,10 @@ export const puppeteerConfig: {
   appURL: string;
   launchOptions: LaunchOptions & BrowserLaunchArgumentOptions & BrowserConnectOptions;
 } = {
-  protocol: TEST_PROTOCOL,
-  host: TEST_HOST,
-  port: TEST_PORT,
-  appURL: `${TEST_PROTOCOL}://${TEST_HOST}${TEST_PORT === '443' ? '' : `:${TEST_PORT}`}`,
+  protocol: APP_PROTOCOL,
+  host: APP_HOST,
+  port: APP_PORT,
+  appURL: APP_URL,
   launchOptions: {
     headless: env.TEST_CHROME_HEADLESS ? toBoolean(env.TEST_CHROME_HEADLESS) : true,
     defaultViewport: {
