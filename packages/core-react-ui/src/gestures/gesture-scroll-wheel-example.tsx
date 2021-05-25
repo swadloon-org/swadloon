@@ -1,4 +1,3 @@
-import { animated } from '@react-spring/web';
 // @ts-ignore
 import { Lethargy } from 'lethargy';
 import React, { useState } from 'react';
@@ -36,14 +35,15 @@ export const GestureScrollWheelExample: React.FC<Props> = (props) => {
   // Bind it to a component
   return (
     <>
-      <div className={styles.wrapper}>
-        <animated.div
-          {...bind()}
-          style={{ transform: `translateY(${-index * 82.5} vh)` }}
-          className={styles.box}
-          {...boxs.map((i) => <div key={i}>{i}</div>)}
-        />
-      </div>
+      {/* <div className={styles.wrapper}>
+          <animated.div
+            {...bind()}
+            style={{ transform: `translateY(${-index * 82.5} vh)` }}
+            className={styles.box}
+            {...boxs.map((i) => <div key={i}>{i}</div>)}
+          />
+        </div> */}
+      <div></div>
     </>
   );
 };

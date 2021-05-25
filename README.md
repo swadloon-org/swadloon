@@ -28,6 +28,9 @@ nvm alias default v15
 # install dependencies
 yarn
 
+# start building core packages
+yarn start
+
 # build core packages
 yarn build
 
