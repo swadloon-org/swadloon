@@ -18,7 +18,7 @@
     }
   },
   "scripts": {
-    "autorelease": ". ./.env && GH_TOKEN=$GH_TOKEN lerna version --conventional-commits --create-release github",
+    "autochangelog": ". ./.env && GH_TOKEN=$GH_TOKEN lerna version --conventional-commits --create-release github",
     "build": "lerna run build",
     "build:api": "yarn build --scope @newrade/vsb-common --scope @newrade/*-api",
     "build:core": "yarn build --scope @newrade/core-*",
