@@ -8799,10 +8799,10 @@ contentful-batch-libs@^9.0.1:
     lodash "^4.0.1"
     moment "^2.18.1"
 
-contentful-cli@^1.4.62:
-  version "1.6.36"
-  resolved "https://registry.npmjs.org/contentful-cli/-/contentful-cli-1.6.36.tgz#a59e6ece4f20368148e40f186170d4f8de65b2cc"
-  integrity sha512-ZtymV4iHo6VSPndkMdWNeziuTVlJg9ONQXjKrrVMJhPU71ktnnCkG5rlX9FjsVZW4fhmnJ+FNvhhZK8eE8XOmQ==
+contentful-cli@^1.6.37:
+  version "1.6.37"
+  resolved "https://registry.yarnpkg.com/contentful-cli/-/contentful-cli-1.6.37.tgz#2e35d0acbe6817e9f4592fde51f38d5c2ea1c01e"
+  integrity sha512-PEbj5WOFUjzZ0r3iIfQjXTX8OxPZLd7Qfs7AGGjMf4/NINjAqfsLpLstpD1uoGXQ0jJF2gBuPzvc/OiBq9tLHQ==
   dependencies:
     ast-types "^0.14.2"
     bfj "^7.0.2"
