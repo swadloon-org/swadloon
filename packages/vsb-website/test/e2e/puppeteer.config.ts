@@ -26,7 +26,7 @@ export const puppeteerConfig: {
   protocol: TEST_PROTOCOL,
   host: TEST_HOST,
   port: TEST_PORT,
-  appURL: `${TEST_PROTOCOL}://${TEST_HOST}${+TEST_PORT === 443 || ':' + TEST_PORT}`,
+  appURL: `${TEST_PROTOCOL}://${TEST_HOST}${TEST_PORT === '443' ? '' : `:${TEST_PORT}`}`,
   launchOptions: {
     headless: env.TEST_CHROME_HEADLESS ? toBoolean(env.TEST_CHROME_HEADLESS) : true,
     defaultViewport: {

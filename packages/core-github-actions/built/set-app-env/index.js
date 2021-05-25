@@ -17357,6 +17357,8 @@ exports.runAction = void 0;
 
 const core = __importStar(__webpack_require__(10));
 
+const github = __importStar(__webpack_require__(33));
+
 const core_common_1 = __webpack_require__(6);
 
 const utilities_1 = __webpack_require__(124);
@@ -17474,26 +17476,27 @@ function runAction(env, githubContext) {
       core.info(`Assigning PR branch sub domain`);
       utilities_1.exportVariable(env, 'APP_BRANCH_SUBDOMAIN');
       utilities_1.exportVariable(env, 'APP_CI_DEPLOY', 'true');
+      const prNumber = github.context.issue.number;
 
       switch (env.GITHUB_BASE_REF_SLUG) {
         case 'dev':
           {
             utilities_1.exportVariable(env, 'APP_ENV', core_common_1.DEPLOY_ENV.DEV);
-            utilities_1.exportVariable(env, 'APP_BRANCH_SUBDOMAIN', `pr-${githubContext.runNumber}.dev`);
+            utilities_1.exportVariable(env, 'APP_BRANCH_SUBDOMAIN', `pr-${prNumber}.dev`);
             break;
           }
 
         case 'master':
           {
             utilities_1.exportVariable(env, 'APP_ENV', core_common_1.DEPLOY_ENV.STAGING);
-            utilities_1.exportVariable(env, 'APP_BRANCH_SUBDOMAIN', `pr-${githubContext.runNumber}.staging`);
+            utilities_1.exportVariable(env, 'APP_BRANCH_SUBDOMAIN', `pr-${prNumber}.staging`);
             break;
           }
 
         case 'release':
           {
             utilities_1.exportVariable(env, 'APP_ENV', core_common_1.DEPLOY_ENV.PRODUCTION);
-            utilities_1.exportVariable(env, 'APP_BRANCH_SUBDOMAIN', `pr-${githubContext.runNumber}`);
+            utilities_1.exportVariable(env, 'APP_BRANCH_SUBDOMAIN', `pr-${prNumber}`);
             break;
           }
 

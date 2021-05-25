@@ -1,4 +1,5 @@
 import * as core from '@actions/core';
+import * as github from '@actions/github';
 import { Context } from '@actions/github/lib/context';
 import { DEPLOY_ENV } from '@newrade/core-common';
 import { ENV } from '../../types/dot-env';
@@ -117,20 +118,22 @@ export function runAction(env?: ActionEnv, githubContext?: Context) {
       exportVariable(env, 'APP_BRANCH_SUBDOMAIN');
       exportVariable(env, 'APP_CI_DEPLOY', 'true');
 
+      const prNumber = github.context.issue.number;
+
       switch (env.GITHUB_BASE_REF_SLUG) {
         case 'dev': {
           exportVariable(env, 'APP_ENV', DEPLOY_ENV.DEV);
-          exportVariable(env, 'APP_BRANCH_SUBDOMAIN', `pr-${githubContext.runNumber}.dev`);
+          exportVariable(env, 'APP_BRANCH_SUBDOMAIN', `pr-${prNumber}.dev`);
           break;
         }
         case 'master': {
           exportVariable(env, 'APP_ENV', DEPLOY_ENV.STAGING);
-          exportVariable(env, 'APP_BRANCH_SUBDOMAIN', `pr-${githubContext.runNumber}.staging`);
+          exportVariable(env, 'APP_BRANCH_SUBDOMAIN', `pr-${prNumber}.staging`);
           break;
         }
         case 'release': {
           exportVariable(env, 'APP_ENV', DEPLOY_ENV.PRODUCTION);
-          exportVariable(env, 'APP_BRANCH_SUBDOMAIN', `pr-${githubContext.runNumber}`);
+          exportVariable(env, 'APP_BRANCH_SUBDOMAIN', `pr-${prNumber}`);
           break;
         }
         default: {
