@@ -33,7 +33,7 @@ export const TagStatus: React.FC<Props> = React.memo(
         {...commonProps}
         justifyContent={['flex-start']}
         alignItems={['stretch']}
-        gap={[0]}
+        gap={['0px']}
       >
         <div className={styles.name}>
           <span className={styles.nameSpan}>{name}</span>

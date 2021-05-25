@@ -48,7 +48,7 @@ export const SectionDivider = React.forwardRef<any, Props>(
           padding,
         }}
       >
-        <Switcher col={2} gap={[0, cssTheme.sizing.var.x6]}>
+        <Switcher col={2} gap={['0px', cssTheme.sizing.var.x6]}>
           <div className={styles.left}>{LeftBlock}</div>
 
           <div className={styles.right}>{RightBlock}</div>
