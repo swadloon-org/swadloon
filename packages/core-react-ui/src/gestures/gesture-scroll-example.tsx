@@ -9,18 +9,15 @@ type Props = CommonComponentProps;
 
 export const GestureScrollExample: React.FC<Props> = (props) => {
   const { styles } = useStyles(styleRefs);
-  const [{ width }, api] = useSpring(() => ({ width: '0%' }));
+  const [{ width }, api] = useSpring(() => ({ width: '20% ' }));
   const height = document.documentElement.scrollHeight;
 
-  // Set the drag hook and define component movement based on gesture data
-  const bind = useScroll(({ xy: [, y] }) => {
-    api.start({ width: (y / height) * 100 + '%' });
-  });
-
-  // Bind it to a component
+  useScroll(({ xy: [, y] }) => api.start({ width: (y / height) * 100 + '% ' }));
   return (
     <div className={styles.wrapper}>
-      <animated.div {...bind()} style={{ width }} className={styles.box} />
+      <div className={styles.box}>
+        <animated.div style={{ width }} className={styles.boxScrolling} />
+      </div>
     </div>
   );
 };

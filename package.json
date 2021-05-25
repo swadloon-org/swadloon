@@ -103,6 +103,7 @@
     "io-ts": "^2.2.13",
     "jest-puppeteer": "^4.4.0",
     "jwks-rsa": "^2.0.3",
+    "lethargy": "^1.0.9",
     "lodash": "^4.17.15",
     "morgan": "^1.10.0",
     "nodemailer": "^6.4.17",

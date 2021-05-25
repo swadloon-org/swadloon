@@ -14,6 +14,7 @@ export * from './form/input-text';
 export * from './form/input-wrapper';
 export * from './gestures/gesture-drag-example';
 export * from './gestures/gesture-scroll-example';
+export * from './gestures/gesture-scroll-wheel-example';
 export * from './global/global-css-variables';
 export * from './global/global-reset-css';
 export * from './global/global-theme-classnames';
