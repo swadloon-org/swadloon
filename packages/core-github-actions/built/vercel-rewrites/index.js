@@ -17215,57 +17215,6 @@ exports.Protocol = t.keyof({
 
 "use strict";
 
-<<<<<<< HEAD:packages/core-github-actions/lib/set-app-env/index.js
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.ERROR_TYPE = void 0;
-var ERROR_TYPE;
-(function (ERROR_TYPE) {
-    //
-    // HTTP
-    //
-    ERROR_TYPE["HTTP_BAD_REQUEST_400"] = "HTTP_BAD_REQUEST_400";
-    ERROR_TYPE["HTTP_UNAUTHORIZED_401"] = "HTTP_UNAUTHORIZED_401";
-    ERROR_TYPE["HTTP_FORBIDDEN_403"] = "HTTP_FORBIDDEN_403";
-    ERROR_TYPE["HTTP_NOT_FOUND_404"] = "HTTP_NOT_FOUND_404";
-    ERROR_TYPE["HTTP_CONFLICT_409"] = "HTTP_CONFLICT_409";
-    ERROR_TYPE["HTTP_SERVER_500"] = "HTTP_SERVER_500";
-    //
-    // tooling
-    //
-    ERROR_TYPE["LIB_ERROR"] = "LIB_ERROR";
-    ERROR_TYPE["WEBPACK_ERROR"] = "WEBPACK_ERROR";
-    ERROR_TYPE["GATSBY_ERROR"] = "GATSBY_ERROR";
-    //
-    // client side
-    //
-    ERROR_TYPE["FETCH_CANCELLED"] = "FETCH_CANCELLED";
-    ERROR_TYPE["REDUX_ERROR"] = "REDUX_ERROR";
-    ERROR_TYPE["SERVICE_ERROR"] = "SERVICE_ERROR";
-    ERROR_TYPE["SERVICE_WORKER_ERROR"] = "SERVICE_WORKER_ERROR";
-    ERROR_TYPE["LOCAL_STORAGE_ERROR"] = "LOCAL_STORAGE_ERROR";
-    ERROR_TYPE["COMPONENT_ERROR"] = "COMPONENT_ERROR";
-    ERROR_TYPE["AUTH_ERROR"] = "AUTH_ERROR";
-    ERROR_TYPE["APP_ERROR"] = "APP_ERROR";
-    ERROR_TYPE["ROUTER_ERROR"] = "ROUTER_ERROR";
-    ERROR_TYPE["USER_CONFIGURATION_ERROR"] = "USER_CONFIGURATION_ERROR";
-    ERROR_TYPE["INVALID_RESPONSE"] = "INVALID_RESPONSE";
-    ERROR_TYPE["INTERNAL_SERVER_ERROR"] = "INTERNAL_SERVER_ERROR";
-    ERROR_TYPE["EXTERNAL_SERVER_ERROR"] = "EXTERNAL_SERVER_ERROR";
-    //
-    // server side
-    //
-    ERROR_TYPE["DTO_VALIDATION_ERROR"] = "DTO_VALIDATION_ERROR";
-    ERROR_TYPE["RATE_LIMITING_ERROR"] = "RATE_LIMITING_ERROR";
-    ERROR_TYPE["UNPROCESSABLE_ENTITY"] = "UNPROCESSABLE_ENTITY";
-    /** Error related to email, stmp etc. */
-    ERROR_TYPE["STMP_ERROR"] = "STMP_ERROR";
-    //
-    // others
-    //
-    ERROR_TYPE["UNHANDLED_ERROR"] = "UNHANDLED_ERROR";
-})(ERROR_TYPE = exports.ERROR_TYPE || (exports.ERROR_TYPE = {}));
-//# sourceMappingURL=error.constant.js.map
-=======
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
@@ -17302,7 +17251,6 @@ exports.TestingEnv = t.partial({
     TEST_VIEW_WIDTH: t.string,
 });
 //# sourceMappingURL=testing-env.js.map
->>>>>>> dev:packages/core-github-actions/built/vercel-rewrites/index.js
 
 /***/ }),
 /* 121 */
