@@ -5,7 +5,7 @@ export const TextBoolean = t.keyof({
   false: 'false',
 });
 
-export function toBoolean(bool?: string | null): boolean {
+export function toBoolean(bool?: string | null | boolean): boolean {
   if (bool === 'true') {
     return true;
   }

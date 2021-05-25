@@ -8,7 +8,8 @@ We have two gatsby plugin that handle page creation.
 
 ### Page API
 
-There are many way to create pages, we support `.tsx`, `.mdx` and also sourcing pages from external CMSes.
+There are many way to create pages, we support `.tsx`, `.mdx` and also sourcing
+pages from external CMSes.
 
 | Id  | Source         | Description                                  | Location               | Example               |
 | --- | -------------- | -------------------------------------------- | ---------------------- | --------------------- |
@@ -73,7 +74,7 @@ export default = {
   siteMetadata: {
     title: `VSB Website`,
     description: `Dr. Boucher Clinic's website`,
-    siteUrl: env.APP_URL,
+    siteUrl: getAppUrl(env),
     siteEnv: env.APP_ENV,
     languages: {
       langs: [common.SITE_LANGUAGES.FR],

@@ -7,8 +7,8 @@ import ProvidersSite from './src/context/providers-site';
 import { cssTheme, theme } from './src/design-system/theme';
 import { lightTheme } from './src/design-system/theme.treat';
 import './src/fonts';
-import LogoReversed from './src/images/logo-reversed.svg';
-import MobileLogo from './src/images/logo-symbol.svg';
+import LogoSymbol from './src/images/logo-symbol.svg';
+import Logo from './src/images/logo.svg';
 import { Layout } from './src/layout/layout';
 
 type Props = PageProps<{}, GatsbyCommonPageContext>;
@@ -28,11 +28,7 @@ export const WrapElement: React.FC<WrapPageElementBrowserArgs> = ({ element, pro
     case 'docs': {
       return (
         <ProvidersDocs>
-          <LazyLayoutDocs
-            DesktopSvgLogo={<LogoReversed />}
-            MobileSvgLogo={<MobileLogo />}
-            {...pageProps}
-          >
+          <LazyLayoutDocs DesktopSvgLogo={<Logo />} MobileSvgLogo={<LogoSymbol />} {...pageProps}>
             {element}
           </LazyLayoutDocs>
         </ProvidersDocs>
@@ -44,8 +40,8 @@ export const WrapElement: React.FC<WrapPageElementBrowserArgs> = ({ element, pro
           <LazyLayoutDesignSystem
             treatThemeRef={lightTheme}
             theme={{ theme, cssTheme }}
-            DesktopSvgLogo={<LogoReversed />}
-            MobileSvgLogo={<MobileLogo />}
+            DesktopSvgLogo={<Logo />}
+            MobileSvgLogo={<LogoSymbol />}
             {...pageProps}
           >
             {element}

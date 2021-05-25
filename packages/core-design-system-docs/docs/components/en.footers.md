@@ -1,5 +1,8 @@
 ---
 name: Footers
+description:
+  Footers are section at the bottom of any page of a site that allow users to
+  navigate to other page.
 tags:
   - layout
   - navigation
@@ -26,7 +29,9 @@ import FootersEnterpriseCode from '!!raw-loader!../../src/code/footer-enterprise
 >
 > [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer)
 
-## Simple
+## Simple Footer
+
+The Simple Footer include the pages navigation and social media icons.
 
 <ThemeWrapper>
   <FootersSimple />
@@ -34,7 +39,9 @@ import FootersEnterpriseCode from '!!raw-loader!../../src/code/footer-enterprise
 
 <CodeBlock>{FootersSimpleCode}</CodeBlock>
 
-## Footer Standard
+## Standard Footer
+
+The Standard Footer include a complete corporate navigation and branding.
 
 <ThemeWrapper>
   <FootersStandard />
@@ -42,10 +49,17 @@ import FootersEnterpriseCode from '!!raw-loader!../../src/code/footer-enterprise
 
 <CodeBlock>{FootersStandardCode}</CodeBlock>
 
-## Footer Enterprise
+## Enterprise Footer
+
+The Enterprise Footer include a complete corporate navigation, a form for
+newsletter and branding.
 
 <ThemeWrapper>
   <FootersEnterprise />
 </ThemeWrapper>
 
 <CodeBlock>{FootersEnterpriseCode}</CodeBlock>
+
+## Social Only Footer
+
+The Social Only Footer only include the social media icons.

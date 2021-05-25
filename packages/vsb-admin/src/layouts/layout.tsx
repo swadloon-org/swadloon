@@ -38,14 +38,8 @@ export const Layout: React.FC<Props> = (props) => {
   /**
    * Auth0
    */
-  const {
-    isAuthenticated,
-    logout,
-    isLoading,
-    user,
-    getAccessTokenSilently,
-    loginWithRedirect,
-  } = useAuth0();
+  const { isAuthenticated, logout, isLoading, user, getAccessTokenSilently, loginWithRedirect } =
+    useAuth0();
   const [userMetadata, setUserMetadata] = useState(null);
 
   function handleLogout(event: any) {

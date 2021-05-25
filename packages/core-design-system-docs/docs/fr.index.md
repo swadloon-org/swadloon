@@ -1,5 +1,7 @@
 ---
 name: Accueil
+description:
+tags:
 ---
 
 <DocHeader props={props}/>

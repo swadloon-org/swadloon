@@ -89,7 +89,6 @@ const config: WebpackOptions.WebpackOptions = {
     path: path.resolve(__dirname, 'dist'),
   },
   plugins: [
-    // new CopyWebpackPlugin([{ from: '../../node_modules/graphql-voyager/dist/voyager.worker.js' }]),
     new (webpack as any).DefinePlugin({
       NODE_ENV: process.env.NODE_ENV
         ? JSON.stringify(process.env.NODE_ENV)

@@ -55,14 +55,20 @@ available in TypeScript `v4.1`.
 
 Center content respecting the content margin set on each viewport.
 
-<LayoutCenter />
+<ThemeWrapper>
+  <LayoutCenter /> 
+</ThemeWrapper>
+
 <CodeBlock>{LayoutCenterCode}</CodeBlock>
 
 ## Stack
 
 Vertical grid container.
 
-<LayoutStack />
+<ThemeWrapper>
+  <LayoutStack />
+</ThemeWrapper>
+
 <CodeBlock>{LayoutStackCode}</CodeBlock>
 
 ## Switcher
@@ -70,19 +76,28 @@ Vertical grid container.
 Used to separate 2 or more blocks horizontally on desktop and vertically on
 mobile.
 
-<LayoutSwitcher />
+<ThemeWrapper>
+  <LayoutSwitcher />
+</ThemeWrapper>
+
 <CodeBlock>{LayoutSwitcherCode}</CodeBlock>
 
 ## Cluster
 
 Used to inline content horizontally without wrapping.
 
-<LayoutCluster />
+<ThemeWrapper>
+  <LayoutCluster />
+</ThemeWrapper>
+
 <CodeBlock>{LayoutClusterCode}</CodeBlock>
 
 ## Grid
 
 Used to make a grid of content horizontally or vertically.
 
-<LayoutGrid />
+<ThemeWrapper>
+  <LayoutGrid />
+</ThemeWrapper>
+
 <CodeBlock>{LayoutGridCode}</CodeBlock>

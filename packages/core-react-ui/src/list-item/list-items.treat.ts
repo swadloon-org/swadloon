@@ -24,7 +24,7 @@ globalStyle(`${styles.ul} li`, ({ theme, cssTheme }: Theme) => ({
 
 globalStyle(`${styles.ul} li::before`, ({ theme, cssTheme }: Theme) => ({
   content: '" " !important',
-  display: 'inline-block !important', // override capsize
+  //display: 'inline-block !important', // override capsize
   marginRight: `0.5em !important`,
   borderRadius: '0ch',
   paddingInline: '0ch',
@@ -37,7 +37,7 @@ globalStyle(`${styles.ol} li::after`, ({ theme, cssTheme }: Theme) => ({
 
 globalStyle(`${styles.ol} li::before`, ({ theme, cssTheme }: Theme) => ({
   content: '" " !important',
-  display: 'inline-block !important', // override capsize
+  // display: 'inline-block !important', // override capsize
   marginRight: `0.5em !important`,
   borderRadius: '0ch',
   paddingInline: '0ch',

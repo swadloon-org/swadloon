@@ -70,5 +70,5 @@ export function loadDotEnv<ENV = CommonEnvType>({
 
   logEnv(`.env files is ${chalk.green('valid')}`);
 
-  return (process.env as any) as ENV;
+  return process.env as any as ENV;
 }

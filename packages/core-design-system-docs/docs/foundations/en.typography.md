@@ -1,5 +1,6 @@
 ---
 name: Typography - 🔠
+description:
 tags:
   - foundations
 ---

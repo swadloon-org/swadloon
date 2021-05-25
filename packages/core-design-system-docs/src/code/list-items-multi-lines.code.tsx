@@ -3,7 +3,7 @@ import {
   lorenipsum,
   lorenipsumShort,
 } from '@newrade/core-gatsby-ui/src/docs-components/loren-ipsum';
-import { ListItems, ListItemV2, useTreatTheme } from '@newrade/core-react-ui';
+import { ListItem, Stack, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 
 type Props = {};
@@ -13,27 +13,27 @@ export const ListItemsMultiLine: React.FC<Props> = (props) => {
 
   return (
     <>
-      <ListItems as={'ul'} gap={[cssTheme.sizing.var.x4]}>
-        <ListItemV2 variantSize={PARAGRAPH_SIZE.large}>{lorenipsumShort}</ListItemV2>
-        <ListItemV2 variantSize={PARAGRAPH_SIZE.large}>{lorenipsum}</ListItemV2>
+      <Stack as={'ul'} gap={[cssTheme.sizing.var.x2]}>
+        <ListItem variantSize={PARAGRAPH_SIZE.large}>{lorenipsumShort}</ListItem>
+        <ListItem variantSize={PARAGRAPH_SIZE.large}>{lorenipsum}</ListItem>
 
-        <ListItemV2>{lorenipsumShort}</ListItemV2>
-        <ListItemV2>{lorenipsum}</ListItemV2>
+        <ListItem>{lorenipsumShort}</ListItem>
+        <ListItem>{lorenipsum}</ListItem>
 
-        <ListItemV2 variantSize={PARAGRAPH_SIZE.xSmall}>{lorenipsumShort}</ListItemV2>
-        <ListItemV2 variantSize={PARAGRAPH_SIZE.xSmall}>{lorenipsum}</ListItemV2>
-      </ListItems>
+        <ListItem variantSize={PARAGRAPH_SIZE.xSmall}>{lorenipsumShort}</ListItem>
+        <ListItem variantSize={PARAGRAPH_SIZE.xSmall}>{lorenipsum}</ListItem>
+      </Stack>
 
-      <ListItems as={'ol'} gap={[cssTheme.sizing.var.x4]}>
-        <ListItemV2 variantSize={PARAGRAPH_SIZE.large}>{lorenipsumShort}</ListItemV2>
-        <ListItemV2 variantSize={PARAGRAPH_SIZE.large}>{lorenipsum}</ListItemV2>
+      <Stack as={'ol'} gap={[cssTheme.sizing.var.x4]}>
+        <ListItem variantSize={PARAGRAPH_SIZE.large}>{lorenipsumShort}</ListItem>
+        <ListItem variantSize={PARAGRAPH_SIZE.large}>{lorenipsum}</ListItem>
 
-        <ListItemV2>{lorenipsumShort}</ListItemV2>
-        <ListItemV2>{lorenipsum}</ListItemV2>
+        <ListItem>{lorenipsumShort}</ListItem>
+        <ListItem>{lorenipsum}</ListItem>
 
-        <ListItemV2 variantSize={PARAGRAPH_SIZE.xSmall}>{lorenipsumShort}</ListItemV2>
-        <ListItemV2 variantSize={PARAGRAPH_SIZE.xSmall}>{lorenipsum}</ListItemV2>
-      </ListItems>
+        <ListItem variantSize={PARAGRAPH_SIZE.xSmall}>{lorenipsumShort}</ListItem>
+        <ListItem variantSize={PARAGRAPH_SIZE.xSmall}>{lorenipsum}</ListItem>
+      </Stack>
     </>
   );
 };

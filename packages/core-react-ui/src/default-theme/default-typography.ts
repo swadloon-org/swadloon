@@ -92,25 +92,25 @@ export const defaultTypography: Typography = {
       h4: {
         capHeight: 14,
         lineGap: 14,
-        fontWeight: 600,
+        fontWeight: 700,
       },
     },
     desktop: {
       h1: {
-        capHeight: 35,
+        fontSize: 48,
         lineGap: 18,
         letterSpacing: -3,
       },
       h2: {
-        capHeight: 22,
+        fontSize: 30,
         lineGap: 16,
       },
       h3: {
-        capHeight: 17,
+        fontSize: 24,
         lineGap: 14,
       },
       h4: {
-        capHeight: 13,
+        fontSize: 18,
         lineGap: 14,
       },
     },

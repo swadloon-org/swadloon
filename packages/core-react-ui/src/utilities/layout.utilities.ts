@@ -260,7 +260,8 @@ function getNameForLayout({
       keys(value).forEach((nestedLayoutProp: string) => {
         const formattedCurrentLayoutProp = kebab(layoutProp);
         const formattedNestedLayoutProp = kebab(`${nestedLayoutProp}`);
-        const varString = `--${prefix}-${formattedCurrentLayoutProp}-${formattedNestedLayoutProp}` as any;
+        const varString =
+          `--${prefix}-${formattedCurrentLayoutProp}-${formattedNestedLayoutProp}` as any;
         // @ts-ignore
         varNames[layoutProp][nestedLayoutProp] = wrapWithVar ? cssVar(varString) : varString;
       });

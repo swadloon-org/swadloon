@@ -74,9 +74,8 @@ export default class extends Generator {
           context: {
             [NEW_PACKAGE_TEMPLATE_PROPS.SCOPE]: this.answers[NEW_PACKAGE_TEMPLATE_PROPS.SCOPE],
             [NEW_PACKAGE_TEMPLATE_PROPS.NAME]: this.answers[NEW_PACKAGE_TEMPLATE_PROPS.NAME],
-            [NEW_PACKAGE_TEMPLATE_PROPS.DESCRIPTION]: this.answers[
-              NEW_PACKAGE_TEMPLATE_PROPS.DESCRIPTION
-            ],
+            [NEW_PACKAGE_TEMPLATE_PROPS.DESCRIPTION]:
+              this.answers[NEW_PACKAGE_TEMPLATE_PROPS.DESCRIPTION],
           },
           generator: this,
           copyTpl: this.fs.copyTpl,

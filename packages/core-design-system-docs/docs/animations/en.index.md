@@ -1,5 +1,6 @@
 ---
 name: Animations
+description:
 tags:
   - animation
   - motion

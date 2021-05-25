@@ -3,7 +3,8 @@ import { pathToRegexp } from 'path-to-regexp';
 describe(`route matching with 'path-to-regexp' as used by vercel`, () => {
   describe(`${pathToRegexp.name}`, () => {
     it('should not error while parsing vercel rewrites rules', () => {
-      const regExp = /((?:pr|dev|master|-|\d)+)(?!-api)\.vasectomie-pierre-boucher\.ca\/api\/(.*)/gi;
+      const regExp =
+        /((?:pr|dev|master|-|\d)+)(?!-api)\.vasectomie-pierre-boucher\.ca\/api\/(.*)/gi;
       const pathRegexp = pathToRegexp(
         '(pr-\\d+|dev|master)((?!-api)).vasectomie-pierre-boucher.ca/api/(.*)'
       );

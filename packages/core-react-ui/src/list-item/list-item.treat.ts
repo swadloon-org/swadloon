@@ -52,7 +52,6 @@ export const styles = {
     position: 'absolute',
     left: `calc(-1 * (${iconWidth} + ${iconMargin}) / ${iconWidthNumber})`,
     top: `-0.3em`,
-
     fontSize: `${iconWidth}`,
     display: 'inline-block',
     verticalAlign: 'middle',
@@ -61,7 +60,6 @@ export const styles = {
     position: 'absolute',
     left: `calc(-1 * (${1}em + ${iconMargin}))`,
     top: `-0.3em`,
-
     display: 'inline-block',
     verticalAlign: 'middle',
   })),

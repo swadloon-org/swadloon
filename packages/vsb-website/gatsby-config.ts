@@ -1,6 +1,6 @@
 import * as core from '@newrade/core-gatsby-config';
 import * as common from '@newrade/core-common';
-import { loadDotEnv, logEnvVariables, toBoolean } from '@newrade/core-utils';
+import { loadDotEnv, logEnvVariables, toBoolean, getAppUrl } from '@newrade/core-utils';
 import proxy from 'http-proxy-middleware';
 import path from 'path';
 import packageJson from './package.json';
@@ -33,7 +33,7 @@ const config: core.GastbySiteConfig = {
   siteMetadata: {
     title: `VSB Website`,
     description: `Dr. Boucher Clinic's website`,
-    siteUrl: env.APP_URL,
+    siteUrl: getAppUrl(env),
     siteEnv: env.APP_ENV,
     languages: {
       langs: [common.SITE_LANGUAGES.FR],
