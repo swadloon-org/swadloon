@@ -40,6 +40,13 @@ git push --set-upstream origin myfeature
 
 If there are changes you will need to `merge` or `rebase` them into your branch
 
+If you not ready to commit your changes, you can stash them before pulling:
+
+```bash
+git add --all
+git stash
+```
+
 To merge, pull the changes:
 
 ```bash
@@ -55,6 +62,12 @@ git fetch
 git merge
 # to have the changes from dev branch
 git merge origin dev
+```
+
+If you had stashed changes, don't forget to reapply them:
+
+```bash
+git stash apply
 ```
 
 Go on the repo under the pull request tab and open a PR from the new branch

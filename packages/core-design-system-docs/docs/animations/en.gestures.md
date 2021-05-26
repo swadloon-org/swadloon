@@ -11,6 +11,8 @@ tags:
 
 <!-- prettier-ignore -->
 import { GestureDrag } from '../../src/code/gesture-drag.code';
+import { GestureScroll } from '../../src/code/gesture-scroll.code';
+import { GestureScrollWheel } from '../../src/code/gesture-scroll-wheel.code';
 
 <!-- END CODE IMPORTS -->
 
@@ -24,6 +26,14 @@ import { GestureDrag } from '../../src/code/gesture-drag.code';
 
 ## Scrolling
 
+<ThemeWrapper>
+  <GestureScroll />
+</ThemeWrapper>
+
 ## Scrolling (Wheel)
+
+<ThemeWrapper>
+  <GestureScrollWheel />
+</ThemeWrapper>
 
 ## Pinch

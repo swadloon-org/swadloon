@@ -100,7 +100,7 @@ export const getReactCommonConfig: (options: {
     ],
   },
   plugins: [
-    getForkTsCheckerWebpackPlugin(),
+    // getForkTsCheckerWebpackPlugin(),
     getWebpackCleanPlugin(),
     isDevelopment && new webpack.HotModuleReplacementPlugin(),
     isDevelopment && new ReactRefreshWebpackPlugin(),
