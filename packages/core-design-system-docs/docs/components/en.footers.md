@@ -6,6 +6,7 @@ description:
 tags:
   - layout
   - navigation
+  - organism
 ---
 
 <!-- CODE IMPORTS -->

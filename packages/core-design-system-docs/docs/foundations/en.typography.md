@@ -1,6 +1,8 @@
 ---
 name: Typography - 🔠
 description:
+  Typography are based on the brand of a design system and are used to create
+  clear hierarchies and organize information.
 tags:
   - foundations
 ---
@@ -8,6 +10,11 @@ tags:
 <!-- CODE IMPORTS -->
 
 <!-- prettier-ignore -->
+import { Fonts } from '../../src/code/fonts.code';
+import { FontsSans } from '../../src/code/fonts-sans.code';
+import { FontsSansAlternate } from '../../src/code/fonts-sans-alternate.code';
+import { FontsSerif } from '../../src/code/fonts-serif.code';
+import { FontsMono } from '../../src/code/fonts-mono.code';
 import { Titles } from '../../src/code/titles.code';
 import { Headings } from '../../src/code/headings.code';
 import { Labels } from '../../src/code/labels.code';
@@ -19,15 +26,57 @@ import { Paragraphs } from '../../src/code/paragraphs.code';
 
 ## Overview
 
+Typography starts by setting a foundation of font families and weights to create
+hierarchy using size, colors and line-height.
+
 ## Fonts
 
-### Sans-Serif Fonts
+Each design system has a sans-serif typeface, sans-serif alternate typeface,
+serif typeface and mono typeface based on their branding.
 
-### Serif Fonts
+<ThemeWrapper style={{padding: '48px 16px'}}>
 
-### Numbers
+<Fonts/>
+</ThemeWrapper>
 
-### Source Code
+### Sans-Serif
+
+A sans-serif typeface doesn't have any serif.
+
+<ThemeWrapper style={{padding: '48px 16px'}}>
+
+<FontsSans/>
+</ThemeWrapper>
+
+### Sans Serif Alternate
+
+A sans-serif alternate typeface is used to alternate the main sans-serif
+typeface.
+
+<ThemeWrapper style={{padding: '48px 16px'}}>
+
+<FontsSansAlternate/>
+</ThemeWrapper>
+
+### Serif
+
+A serif typeface has serif, a small line or stroke, at the end of stroke of
+letters and symbols.
+
+<ThemeWrapper style={{padding: '48px 16px'}}>
+
+<FontsSerif/>
+</ThemeWrapper>
+
+### Mono
+
+A mono typeface has letters and characters that are mathematically the same
+width.
+
+<ThemeWrapper style={{padding: '48px 16px'}}>
+
+<FontsMono/>
+</ThemeWrapper>
 
 ## Titles
 
