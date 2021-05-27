@@ -15165,11 +15165,6 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___host'
   | 'pluginCreator___pluginOptions___sitemap'
   | 'pluginCreator___pluginOptions___output'
-  | 'pluginCreator___pluginOptions___headers____x'
-  | 'pluginCreator___pluginOptions___mergeSecurityHeaders'
-  | 'pluginCreator___pluginOptions___mergeLinkHeaders'
-  | 'pluginCreator___pluginOptions___mergeCachingHeaders'
-  | 'pluginCreator___pluginOptions___generateMatchPathRewrites'
   | 'pluginCreator___pluginOptions___pluginName'
   | 'pluginCreator___pluginOptions___packageName'
   | 'pluginCreator___pluginOptions___locales'
@@ -15413,11 +15408,6 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___env___dev___policy'
   | 'pluginOptions___env___staging___policy'
   | 'pluginOptions___env___production___policy'
-  | 'pluginOptions___headers____x'
-  | 'pluginOptions___mergeSecurityHeaders'
-  | 'pluginOptions___mergeLinkHeaders'
-  | 'pluginOptions___mergeCachingHeaders'
-  | 'pluginOptions___generateMatchPathRewrites'
   | 'pluginOptions___pluginName'
   | 'pluginOptions___packageName'
   | 'pluginOptions___locales'
@@ -15572,11 +15562,6 @@ export type SitePluginPluginOptions = {
   sitemap?: Maybe<Scalars['String']>;
   output?: Maybe<Scalars['String']>;
   env?: Maybe<SitePluginPluginOptionsEnv>;
-  headers?: Maybe<SitePluginPluginOptionsHeaders>;
-  mergeSecurityHeaders?: Maybe<Scalars['Boolean']>;
-  mergeLinkHeaders?: Maybe<Scalars['Boolean']>;
-  mergeCachingHeaders?: Maybe<Scalars['Boolean']>;
-  generateMatchPathRewrites?: Maybe<Scalars['Boolean']>;
   pluginName?: Maybe<Scalars['String']>;
   packageName?: Maybe<Scalars['String']>;
   locales?: Maybe<Array<Maybe<Scalars['String']>>>;
@@ -15735,11 +15720,6 @@ export type SitePluginPluginOptionsFilterInput = {
   sitemap?: Maybe<StringQueryOperatorInput>;
   output?: Maybe<StringQueryOperatorInput>;
   env?: Maybe<SitePluginPluginOptionsEnvFilterInput>;
-  headers?: Maybe<SitePluginPluginOptionsHeadersFilterInput>;
-  mergeSecurityHeaders?: Maybe<BooleanQueryOperatorInput>;
-  mergeLinkHeaders?: Maybe<BooleanQueryOperatorInput>;
-  mergeCachingHeaders?: Maybe<BooleanQueryOperatorInput>;
-  generateMatchPathRewrites?: Maybe<BooleanQueryOperatorInput>;
   pluginName?: Maybe<StringQueryOperatorInput>;
   packageName?: Maybe<StringQueryOperatorInput>;
   locales?: Maybe<StringQueryOperatorInput>;
@@ -15776,14 +15756,6 @@ export type SitePluginPluginOptionsGatsbyRemarkPluginsOptionsFilterInput = {
   linkImagesToOriginal?: Maybe<BooleanQueryOperatorInput>;
   wrapperStyle?: Maybe<StringQueryOperatorInput>;
   destinationDir?: Maybe<StringQueryOperatorInput>;
-};
-
-export type SitePluginPluginOptionsHeaders = {
-  _x?: Maybe<Array<Maybe<Scalars['String']>>>;
-};
-
-export type SitePluginPluginOptionsHeadersFilterInput = {
-  _x?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePluginPluginOptionsRehypePlugins = {

@@ -1,2 +1,2 @@
-import './blatant-webfonts/stylesheet.css';
-import './gilroy-webfonts/stylesheet.css';
+import './inter-webfonts/stylesheet.css';
+import './wulkan-display-webfonts/stylesheet.css';

@@ -9,7 +9,6 @@ tags:
 
 <!-- prettier-ignore -->
 import { Inputs } from '../../src/code/inputs.code';
-import { InputsSize } from '../../src/code/inputs-size.code';
 
 <!-- END CODE IMPORTS -->
 
@@ -28,10 +27,6 @@ There are two types of input: the default and the compact.
 ## Size
 
 Four sizes are available for the inputs.
-
-<ThemeWrapper>
-  <InputsSize/>
-</ThemeWrapper>
 
 ## Icon
 

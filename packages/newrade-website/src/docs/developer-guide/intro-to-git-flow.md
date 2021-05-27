@@ -1,3 +1,9 @@
+---
+name: Intro to Git Flow
+description:
+tags:
+---
+
 # Intro to Git Flow
 
 Git flow is a strategy made to help the development and release management of
