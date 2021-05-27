@@ -9,10 +9,11 @@ export const Inputs: React.FC<Props> = (props) => {
   return (
     <>
       <InputWrapper>
-        <InputText></InputText>
+        <InputText placeholder={'Placeholder'} />
       </InputWrapper>
+
       <InputWrapper>
-        <InputSelect></InputSelect>
+        <InputSelect placeholder={'Placeholder'} />
       </InputWrapper>
     </>
   );

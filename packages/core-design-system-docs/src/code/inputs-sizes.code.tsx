@@ -3,16 +3,17 @@ import React from 'react';
 
 type Props = {};
 
-export const Inputs: React.FC<Props> = (props) => {
+export const InputsSize: React.FC<Props> = (props) => {
   const { theme, cssTheme } = useTreatTheme();
 
   return (
     <>
       <InputWrapper>
-        <InputText></InputText>
+        <InputText placeholder={'Placeholder'} />
       </InputWrapper>
+
       <InputWrapper>
-        <InputSelect></InputSelect>
+        <InputSelect />
       </InputWrapper>
     </>
   );

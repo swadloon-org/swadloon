@@ -1,10 +1,6 @@
 ---
-<<<<<<< HEAD
 name: Inputs
 description:
-=======
-name: Input
->>>>>>> 3239a7f61f1c5e89bc3c3be97ad101738f6406ac
 tags:
   - molecule
 ---
@@ -13,6 +9,7 @@ tags:
 
 <!-- prettier-ignore -->
 import { Inputs } from '../../src/code/inputs.code';
+import { InputsSize } from '../../src/code/inputs-size.code';
 
 <!-- END CODE IMPORTS -->
 
@@ -31,6 +28,10 @@ There are two types of input: the default and the compact.
 ## Size
 
 Four sizes are available for the inputs.
+
+<ThemeWrapper>
+  <InputsSize/>
+</ThemeWrapper>
 
 ## Icon
 
