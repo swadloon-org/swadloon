@@ -8,7 +8,11 @@ tags:
 
 ## Components
 
-| Component    | Version | Reversed Mode | Status                                            | Doc Page                                      |
-| ------------ | ------: | ------------: | ------------------------------------------------- | --------------------------------------------- |
-| `<Title/>`   |       1 |           Yes | <TagStatus name="docs" status="OK"></TagStatus>   | [Open](/design-system/foundations/typography) |
-| `<Heading/>` |       1 |           Yes | <TagStatus name="docs" status="TODO"></TagStatus> | [Open](/design-system/foundations/typography) |
+| Component    | Version | Reversed Mode Support [^1] | Tests                                             | Docs                                              | Doc Page                                      |
+| ------------ | ------: | -------------------------: | ------------------------------------------------- | ------------------------------------------------- | --------------------------------------------- |
+| `<Title/>`   |       1 |                        Yes | <TagStatus name="docs" status="Yes"></TagStatus>  | <TagStatus name="docs" status="OK"></TagStatus>   | [Open](/design-system/foundations/typography) |
+| `<Heading/>` |       1 |                        Yes | <TagStatus name="docs" status="TODO"></TagStatus> | <TagStatus name="docs" status="TODO"></TagStatus> | [Open](/design-system/foundations/typography) |
+
+[^1]:
+    Learn about [Reversed Mode](/design-system/theming) in the theming
+    documentation
