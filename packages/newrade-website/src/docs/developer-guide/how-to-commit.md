@@ -1,4 +1,13 @@
-# How to Commit
+---
+name: How to Commit
+description:
+  Information indicator used to associate content with specific keywords.
+tags:
+  - dev
+  - practices
+---
+
+<DocHeader props={props}/>
 
 Commits formatting is very important for automated changelogs and releases. We
 follow the
