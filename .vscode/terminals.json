@@ -175,6 +175,42 @@
       "cwd": "[workspaceFolder]/packages/vsb-website",
       "open": true,
       "focus": false
+    },
+    {
+      "name": "alto-design-system",
+      "cwd": "[workspaceFolder]/packages/alto-design-system",
+      "open": true,
+      "focus": false
+    },
+    {
+      "name": "alto-website",
+      "cwd": "[workspaceFolder]/packages/alto-website",
+      "open": true,
+      "focus": false
+    },
+    {
+      "name": "cdpq-design-system",
+      "cwd": "[workspaceFolder]/packages/cdpq-design-system",
+      "open": true,
+      "focus": false
+    },
+    {
+      "name": "cdpq-design-website",
+      "cwd": "[workspaceFolder]/packages/cdpq-design-website",
+      "open": true,
+      "focus": false
+    },
+    {
+      "name": "ronin-design-system",
+      "cwd": "[workspaceFolder]/packages/ronin-design-system",
+      "open": true,
+      "focus": false
+    },
+    {
+      "name": "ronin-design-website",
+      "cwd": "[workspaceFolder]/packages/ronin-design-website",
+      "open": true,
+      "focus": false
     }
   ]
 }

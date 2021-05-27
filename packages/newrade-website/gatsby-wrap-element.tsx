@@ -5,7 +5,7 @@ import React from 'react';
 import ProvidersDocs from './src/context/providers-docs';
 import ProvidersSite from './src/context/providers-site';
 import { cssTheme, theme } from './src/design-system/theme';
-import { lightTheme } from './src/design-system/theme.treat';
+import { light } from './src/design-system/theme.treat';
 import './src/fonts';
 import LogoSymbol from './src/images/logo-symbol.svg';
 import Logo from './src/images/logo.svg';
@@ -38,7 +38,7 @@ export const WrapElement: React.FC<WrapPageElementBrowserArgs> = ({ element, pro
       return (
         <ProvidersDocs>
           <LazyLayoutDesignSystem
-            treatThemeRef={lightTheme}
+            treatThemeRef={light}
             theme={{ theme, cssTheme }}
             DesktopSvgLogo={<Logo />}
             MobileSvgLogo={<LogoSymbol />}

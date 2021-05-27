@@ -4,7 +4,7 @@
 # - reference: https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions
 #
 
-name: mir
+name: mir-website
 
 on:
   push:

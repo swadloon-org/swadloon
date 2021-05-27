@@ -1,1 +1,1 @@
-# Data Visualization - 📊 - Axis and Grids
+# Axis and Grids

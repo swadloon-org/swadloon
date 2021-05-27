@@ -21,7 +21,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "vercel-deploy": ". ./.env && VERCEL_PROJECT_ID=$VERCEL_PROJECT_ID VERCEL_ORG_ID=$VERCEL_ORG_ID yarn vercel public --token $VERCEL_TOKEN --scope $VERCEL_SCOPE --confirm",
-    "webpack": "cross-env TS_NODE_PROJECT=tsconfig.webpack.json node -r ts-node/register ../../node_modules/webpack/bin/webpack",
+    "webpack": "cross-env TS_NODE_PROJECT=../core-webpack-config/tsconfig.webpack.json node -r ts-node/register ../../node_modules/webpack/bin/webpack",
     "webpack:dev": "yarn webpack --config webpack.dev.config.ts",
     "webpack:prod": "yarn webpack --config webpack.prod.config.ts"
   },

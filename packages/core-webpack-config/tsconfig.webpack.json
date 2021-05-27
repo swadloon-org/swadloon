@@ -4,23 +4,10 @@
     "declaration": true,
     "sourceMap": true,
     "outDir": "dist",
-    "rootDir": "test",
-    "strict": false,
-    "noImplicitAny": true,
+    "rootDir": ".",
     "target": "es6",
     "module": "commonjs",
     "types": ["node"]
   },
-  "references": [
-    {
-      "path": "../core-types/tsconfig.build.json"
-    },
-    {
-      "path": "../core-utils/tsconfig.build.json"
-    },
-    {
-      "path": "../core-common/tsconfig.build.json"
-    }
-  ],
-  "include": ["src/**/*", "types/**/*", "test/**/*"]
+  "include": ["webpack.*.config.ts"]
 }

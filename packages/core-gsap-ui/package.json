@@ -12,7 +12,7 @@
     "build": "yarn copy:plugins && yarn build:tsc",
     "build:tsc": "tsc --build tsconfig.build.json",
     "clean": "rm -rf lib/** && rm -f tsconfig.build.tsbuildinfo",
-    "copy:plugins": "TS_NODE_PROJECT=tsconfig.script.json node -r ts-node/register scripts/copy-plugins.script.ts",
+    "copy:plugins": "TS_NODE_PROJECT=../core-webpack-config/tsconfig.script.json node -r ts-node/register scripts/copy-plugins.script.ts",
     "start": "concurrently \"yarn tsc:start\" \"yarn watch:plugins\"",
     "tsc:start": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
     "watch:plugins": "onchange -i 'src/plugins/**/*' -- yarn copy:plugins"
