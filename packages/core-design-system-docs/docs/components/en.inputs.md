@@ -8,6 +8,8 @@ tags:
 <!-- CODE IMPORTS -->
 
 <!-- prettier-ignore -->
+import { Inputs } from '../../src/code/inputs.code';
+
 <!-- END CODE IMPORTS -->
 
 <DocHeader props={props}/>
@@ -18,7 +20,9 @@ There are two types of input: the default and the compact.
 
 ## Variants
 
-There seven variants of inputs.
+<ThemeWrapper>
+  <Inputs/>
+</ThemeWrapper>
 
 ## Size
 
