@@ -1,8 +1,20 @@
-# How to Commit
+---
+name: How to Commit
+description:
+  Information indicator used to associate content with specific keywords.
+tags:
+  - dev
+  - practices
+---
 
-Commits formatting is very important for automated changelogs and releases. We follow the [conventional-commits](https://www.conventionalcommits.org/en/v1.0.0/) format.
+<DocHeader props={props}/>
 
-To commit in this repository you will need [`commitizen`](https://commitizen.github.io/cz-cli/).
+Commits formatting is very important for automated changelogs and releases. We
+follow the
+[conventional-commits](https://www.conventionalcommits.org/en/v1.0.0/) format.
+
+To commit in this repository you will need
+[`commitizen`](https://commitizen.github.io/cz-cli/).
 
 When you `npm install` a local version of `commitizen` can be run with:
 
@@ -10,9 +22,12 @@ When you `npm install` a local version of `commitizen` can be run with:
 npm run commit
 ```
 
-You can also use `git cz` when `commitizen` is installed globally (`npm i -g commitizen`). You may use either way.
+You can also use `git cz` when `commitizen` is installed globally
+(`npm i -g commitizen`). You may use either way.
 
-When you run `commitizen`, you'll be prompted to fill in any required fields and your commit message will be formatted according to the standards defined by project maintainers:
+When you run `commitizen`, you'll be prompted to fill in any required fields and
+your commit message will be formatted according to the standards defined by
+project maintainers:
 
 ```bash
 $ npm run commit

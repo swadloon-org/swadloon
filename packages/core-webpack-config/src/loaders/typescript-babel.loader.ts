@@ -39,7 +39,7 @@ export function getTypescriptBabelReactLoader(options: Options = defaultOptions)
           }),
           experimentalFileCaching: true, // https://github.com/TypeStrong/ts-loader#experimentalfilecaching
           projectReferences: false,
-          transpileOnly: true, // see https://github.com/TypeStrong/ts-loader#transpileonly and https://github.com/TypeStrong/fork-ts-checker-webpack-plugin
+          transpileOnly: false, // see https://github.com/TypeStrong/ts-loader#transpileonly and https://github.com/TypeStrong/fork-ts-checker-webpack-plugin
         } as Partial<tsloader.Options>,
       },
     ],

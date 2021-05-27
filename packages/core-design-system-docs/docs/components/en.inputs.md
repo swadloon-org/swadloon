@@ -1,6 +1,10 @@
 ---
+<<<<<<< HEAD
 name: Inputs
 description:
+=======
+name: Input
+>>>>>>> 3239a7f61f1c5e89bc3c3be97ad101738f6406ac
 tags:
   - molecule
 ---

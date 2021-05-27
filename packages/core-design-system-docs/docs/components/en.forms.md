@@ -15,3 +15,5 @@ tags:
 <!-- END CODE IMPORTS -->
 
 <DocHeader props={props}/>
+
+## Size

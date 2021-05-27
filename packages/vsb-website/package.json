@@ -10,7 +10,6 @@
   "repository": "https://github.com/newrade/newrade/tree/master/packages/newrade-website",
   "license": "MIT",
   "scripts": {
-    "prebuild": "yarn typecheck:build",
     "build": "gatsby build",
     "build:local": ". ./.env && DEBUG=$DEBUG gatsby build",
     "clean": "gatsby clean",

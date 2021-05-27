@@ -24,6 +24,10 @@ https://api.github.com/repos/newrade/newrade/actions/workflows/vsb-workflow.yml/
 
 https://github.com/actions/toolkit/blob/master/docs/action-debugging.md
 
+## Useful Actions
+
+- https://github.com/marketplace/actions/cancel-workflow-action
+
 ## Local Setup
 
 ### Act

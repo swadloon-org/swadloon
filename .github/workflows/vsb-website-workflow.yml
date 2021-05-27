@@ -64,6 +64,12 @@ jobs:
         node-version: [14.x]
 
     steps:
+    - name: Cancel Previous Runs
+      uses: styfle/cancel-workflow-action@0.9.0
+      with:
+        all_but_latest: true
+        access_token: ${{ github.token }}
+
     - name: Inject Github slug/short variables
       uses: rlespinasse/github-slug-action@v3.x
 
@@ -95,19 +101,19 @@ jobs:
       run: yarn --prefer-offline --frozen-lockfile
 
     - name: Clean
-      run: yarn clean --scope @newrade/vsb-website
+      run: yarn lerna:clean --scope @newrade/vsb-website
 
     - name: Lint Src Files
       run: yarn eslint ./packages/vsb-*/src/ --ext ts,tsx
 
     - name: Build vsb-common
-      run: yarn build --scope @newrade/vsb-common
+      run: yarn lerna:build --scope @newrade/vsb-common
 
     - name: Build vsb-design-system
-      run: yarn build --scope @newrade/vsb-design-system
+      run: yarn lerna:build --scope @newrade/vsb-design-system
 
     - name: Build
-      run: yarn build --scope @newrade/vsb-website
+      run: yarn lerna:build --scope @newrade/vsb-website
       env:
         CONTENTFUL_ENV: ${{ secrets.CONTENTFUL_ENV }}
         CONTENTFUL_SPACEID_VSB: ${{ secrets.CONTENTFUL_SPACEID_VSB }}
@@ -133,7 +139,7 @@ jobs:
 
     - name: Run E2E Test
       if: ${{ env.APP_CI_DEPLOY }}
-      run: yarn test:e2e --scope @newrade/vsb-website
+      run: yarn lerna:test:e2e --scope @newrade/vsb-website
       env:
         TEST_HOST: ${{ env.APP_HOST }}
 

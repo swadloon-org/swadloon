@@ -1,6 +1,8 @@
 ---
 name: Animations
 description:
+  Motion is achieve by establishing a set of base principles that are used in
+  components,
 tags:
   - animation
   - motion
@@ -18,13 +20,11 @@ import CSSAnimationUncontrolledCode from '!!raw-loader!../../src/code/css-animat
 
 <DocHeader props={props}/>
 
----
-
 ## CSS Animations
 
 > Built in animations are based on [Animation.css](https://animate.style/)
 
-### Component
+### Components
 
 We provide a simple React component `<CSSAnimation/>` that applies CSS
 animations using simple `@keyframes` to its own div and containing children.
