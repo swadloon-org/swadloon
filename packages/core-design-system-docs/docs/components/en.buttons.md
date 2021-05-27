@@ -58,6 +58,8 @@ The icon button variant support having the icon on either side and only icon.
   <ButtonsIcon />
 </ThemeWrapper>
 
+## States
+
 ## Accessibility
 
 If no visible label is provided (e.g. an icon only button), an alternative text

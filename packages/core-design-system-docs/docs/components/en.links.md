@@ -33,6 +33,10 @@ There are two variants for links:
 <ThemeWrapper>
 <Links />
 </ThemeWrapper>
+
+<ThemeWrapper reversed={true}>
+<Links />
+</ThemeWrapper>
 <CodeBlock>{LinksCode}</CodeBlock>
 
 ## Variant Level
@@ -46,6 +50,12 @@ Like most components there are three level of importance for links:
 <ThemeWrapper>
 <LinksLevel />
 </ThemeWrapper>
+
+Links support reversed mode:
+
+<ThemeWrapper reversed={true}>
+<LinksLevel />
+</ThemeWrapper>
 <CodeBlock>{LinksLevelCode}</CodeBlock>
 
 ## Size
@@ -55,6 +65,7 @@ Four sizes are available for links.
 <ThemeWrapper>
 <LinksSizes />
 </ThemeWrapper>
+
 <CodeBlock>{LinksSizesCode}</CodeBlock>
 
 ## Icon
@@ -64,6 +75,7 @@ The icon button variant support having the icon on the right side and only icon.
 <ThemeWrapper>
 <LinksIcon />
 </ThemeWrapper>
+
 <CodeBlock>{LinksIconCode}</CodeBlock>
 
 ## External
@@ -73,4 +85,5 @@ External link have an external icon on the right side.
 <ThemeWrapper>
 <LinksExternal />
 </ThemeWrapper>
+
 <CodeBlock>{LinksExternalCode}</CodeBlock>
