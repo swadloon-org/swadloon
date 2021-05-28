@@ -23,3 +23,4 @@ export * from './config/site-graphql-types';
 export * from './config/site-languages';
 export * from './config/site-metadata';
 export * from './config/gatsby-source-instances';
+export * from './config/gatsby-plugin-meta-redirect.conf';

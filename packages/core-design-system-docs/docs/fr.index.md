@@ -1,5 +1,5 @@
 ---
-name: Accueil
+name: Vue d'ensemble du système de design
 description:
 tags:
 ---
