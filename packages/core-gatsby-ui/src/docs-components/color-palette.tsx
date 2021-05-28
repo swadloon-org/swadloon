@@ -9,7 +9,8 @@ import { keys } from '@newrade/core-react-ui/lib/utilities';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import * as stylesRef from './color-palette.treat';
-import { ColorSwatch } from './color-swatch';
+import { ColorSwatchDark } from './color-swatch-dark';
+import { ColorSwatchLight } from './color-swatch-light';
 
 type Props = {
   colorName: string;
@@ -27,14 +28,14 @@ export const ColorPalette: React.FC<Props> = ({ colorName, colorOrPalette }) => 
   if (typeof colorOrPalette === 'string') {
     return (
       <Stack gap={['10px']}>
-        <ColorSwatch name={colorName} color={colorOrPalette}></ColorSwatch>
+        <ColorSwatchDark name={colorName} color={colorOrPalette}></ColorSwatchDark>
       </Stack>
     );
   }
   if (typeof colorOrPalette === 'object' && (colorOrPalette as Color)['h'] !== undefined) {
     return (
       <Stack gap={['10px']}>
-        <ColorSwatch name={colorName} color={colorOrPalette as any}></ColorSwatch>{' '}
+        <ColorSwatchDark name={colorName} color={colorOrPalette as any}></ColorSwatchDark>{' '}
       </Stack>
     );
   }
@@ -50,13 +51,34 @@ export const ColorPalette: React.FC<Props> = ({ colorName, colorOrPalette }) => 
           if (shadeName === 'baseHue' || shadeName === 'baseSat') {
             return null;
           }
+          if (
+            shadeName === '0' ||
+            shadeName === '0-reversed' ||
+            shadeName === '25' ||
+            shadeName === '50' ||
+            shadeName === '100' ||
+            shadeName === '100-reversed' ||
+            shadeName === '200' ||
+            shadeName === '200-reversed' ||
+            shadeName === '300' ||
+            shadeName === '400'
+          )
+            return (
+              <ColorSwatchLight
+                key={index}
+                shadeNumber={shadeName}
+                name={colorName}
+                color={color as any}
+              ></ColorSwatchLight>
+            );
+
           return (
-            <ColorSwatch
+            <ColorSwatchDark
               key={index}
               shadeNumber={shadeName}
               name={colorName}
               color={color as any}
-            ></ColorSwatch>
+            ></ColorSwatchDark>
           );
         })}
       </div>

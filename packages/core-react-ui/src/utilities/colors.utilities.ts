@@ -46,6 +46,26 @@ export function getCSSColors(colors: DS.Colors): CSSColors {
         baseHue: colorVar.colors.accent3.baseHue,
         baseSat: colorVar.colors.accent3.baseSat,
       }),
+      accent4: getCSSColorPalette({
+        palette: colors.colors.accent3,
+        baseHue: colorVar.colors.accent3.baseHue,
+        baseSat: colorVar.colors.accent3.baseSat,
+      }),
+      accent5: getCSSColorPalette({
+        palette: colors.colors.accent3,
+        baseHue: colorVar.colors.accent3.baseHue,
+        baseSat: colorVar.colors.accent3.baseSat,
+      }),
+      accent6: getCSSColorPalette({
+        palette: colors.colors.accent3,
+        baseHue: colorVar.colors.accent3.baseHue,
+        baseSat: colorVar.colors.accent3.baseSat,
+      }),
+      accent7: getCSSColorPalette({
+        palette: colors.colors.accent3,
+        baseHue: colorVar.colors.accent3.baseHue,
+        baseSat: colorVar.colors.accent3.baseSat,
+      }),
       grey: getCSSColorPalette({
         palette: colors.colors.grey,
         baseHue: colorVar.colors.grey.baseHue,
@@ -54,6 +74,11 @@ export function getCSSColors(colors: DS.Colors): CSSColors {
       effectTransparentLight: getCSSColor(colors.colors.effectTransparentLight),
       effectTransparentMedium: getCSSColor(colors.colors.effectTransparentMedium),
       effectTransparentHeavy: getCSSColor(colors.colors.effectTransparentHeavy),
+      utilityBlue: getCSSColorPalette({
+        palette: colors.colors.utilityGreen,
+        baseHue: colorVar.colors.utilityGreen.baseHue,
+        baseSat: colorVar.colors.utilityGreen.baseSat,
+      }),
       utilityGreen: getCSSColorPalette({
         palette: colors.colors.utilityGreen,
         baseHue: colorVar.colors.utilityGreen.baseHue,

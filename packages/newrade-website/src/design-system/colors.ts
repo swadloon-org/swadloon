@@ -1,8 +1,8 @@
 import { ColorIntents, Colors } from '@newrade/core-design-system';
 import { defaultColors } from '@newrade/core-react-ui/lib/default-theme';
 import {
-  getDefaultColorIntents,
   generateColorPalette5,
+  getDefaultColorIntents,
 } from '@newrade/core-react-ui/lib/utilities';
 
 export const colorsColors: Colors['colors'] = {

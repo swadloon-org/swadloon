@@ -10,18 +10,33 @@ export const ColorAccent: React.FC<Props> = (props) => {
   return (
     <Stack gap={[cssTheme.sizing.var.x5]}>
       <ColorPalette
-        colorName={'Primary'}
+        colorName={'Accent1'}
         colorOrPalette={theme.colors.colors.accent1}
       ></ColorPalette>
 
       <ColorPalette
-        colorName={'Primary'}
+        colorName={'Accent2'}
         colorOrPalette={theme.colors.colors.accent2}
       ></ColorPalette>
 
       <ColorPalette
-        colorName={'Primary'}
+        colorName={'Accent3'}
         colorOrPalette={theme.colors.colors.accent3}
+      ></ColorPalette>
+
+      <ColorPalette
+        colorName={'Accent4'}
+        colorOrPalette={theme.colors.colors.accent4}
+      ></ColorPalette>
+
+      <ColorPalette
+        colorName={'Accent5'}
+        colorOrPalette={theme.colors.colors.accent5}
+      ></ColorPalette>
+
+      <ColorPalette
+        colorName={'Accent6'}
+        colorOrPalette={theme.colors.colors.accent6}
       ></ColorPalette>
     </Stack>
   );

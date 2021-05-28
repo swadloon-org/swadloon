@@ -11,7 +11,7 @@ export * from './blocks/block-renderer';
 export * from './blocks/block.props';
 export * from './debug/debug-gatsby-page';
 export * from './docs-components/color-palette';
-export * from './docs-components/color-swatch';
+export * from './docs-components/color-swatch-dark';
 export * from './docs-components/font-showcase';
 export * from './docs-components/logo-placeholder';
 export * from './docs-components/loren-ipsum';
