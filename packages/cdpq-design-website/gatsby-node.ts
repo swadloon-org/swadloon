@@ -16,6 +16,12 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
   /**
    * Page redirections
    */
+  createRedirect({
+    fromPath: '/',
+    toPath: '/design-system/',
+    force: true,
+    isPermanent: true,
+  });
 };
 
 export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({

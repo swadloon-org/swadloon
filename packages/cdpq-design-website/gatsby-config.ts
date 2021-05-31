@@ -58,6 +58,7 @@ const config: core.GastbySiteConfig = {
     /**
      * Core Plugins
      */
+    core.getGatsbyPluginMetaRedirect(),
     core.getGatsbyPluginLoadableComponents(),
     ...core.getGatsbyPluginTypeScriptConfig({
       documentPaths: [

@@ -1,29 +1,30 @@
-import React, { ReactNode } from 'react';
-import { Theme } from '../design-system';
+import { LoadableComponent } from '@loadable/component';
+import { ICON } from '@newrade/core-design-system';
+import { IconContext as ReactIconContext } from '@react-icons/all-files';
+import React from 'react';
+import { CommonComponentProps } from '../props/component-common.props';
+
+export type DynamicIconImport = (iconName: ICON) => LoadableComponent<any>;
+
+type Context = {
+  importFunction?: DynamicIconImport;
+  iconStyle?: Partial<CSSStyleDeclaration & Pick<CommonComponentProps, 'className'>>;
+};
 
 /**
  * Context to hold the theme's tokens
  */
-export const IconsContext = React.createContext<Theme | null>(null);
+export const IconContext = React.createContext<Context | null>(null);
 
 /**
- * Threat theme provider to pass the tokens value to children
+ * Custom Icon provider on top on react-icon's
  */
-export const IconsProvider = ({ theme, children }: { theme: Theme; children: ReactNode }) => (
-  <IconsContext.Provider value={theme}>{children}</IconsContext.Provider>
+export const IconProvider = ({ children, ...props }: Context & { children: React.ReactNode }) => (
+  <IconContext.Provider value={props}>
+    <ReactIconContext.Provider value={props.iconStyle || {}}>{children}</ReactIconContext.Provider>
+  </IconContext.Provider>
 );
 
-/**
- * Hook to consume the theme tokens
- */
-export function useIcons(): Theme {
-  const value = React.useContext(IconsContext);
-  if (!value) {
-    throw new Error('no treat theme provided');
-  }
-  const { theme, cssTheme } = value;
-  return {
-    theme,
-    cssTheme,
-  };
+export function useIconContext() {
+  return React.useContext(IconContext);
 }

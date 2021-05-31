@@ -36,7 +36,7 @@ export interface Icon {
   /**
    * to control the stroke width on svg icons that supports it
    */
-  weight?: number;
+  svgWeight?: number;
 }
 
 export enum ICON_SIZE {
@@ -53,7 +53,7 @@ export type Icons = { [key in keyof typeof ICON]: Icon };
 
 export interface Iconography<Override extends undefined | string = undefined> {
   /**
-   * Name of the icon set.  (e.g. 'Ionicons')
+   * Name of the icon set. (e.g. 'Ionicons')
    */
   family: string;
   website: string;
