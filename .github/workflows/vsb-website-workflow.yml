@@ -146,6 +146,6 @@ jobs:
     - name: Trigger Integration Workflow
       uses: benc-uk/workflow-dispatch@v1
       with:
-        workflow: vsb-integration-workflow.yml
+        workflow: vsb-integration
         token: ${{ secrets.PERSONAL_GH_TOKEN }}
 
