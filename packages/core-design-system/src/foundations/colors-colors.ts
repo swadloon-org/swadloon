@@ -7,10 +7,10 @@ export interface ColorsColors<Override extends undefined | string = undefined> {
   accent1: ColorPalette<ColorShades5, ColorType<Override>>;
   accent2: ColorPalette<ColorShades5, ColorType<Override>>;
   accent3: ColorPalette<ColorShades5, ColorType<Override>>;
-  accent4: ColorPalette<ColorShades5, ColorType<Override>>;
-  accent5: ColorPalette<ColorShades5, ColorType<Override>>;
-  accent6: ColorPalette<ColorShades5, ColorType<Override>>;
-  accent7: ColorPalette<ColorShades5, ColorType<Override>>;
+  accent4?: ColorPalette<ColorShades5, ColorType<Override>>;
+  accent5?: ColorPalette<ColorShades5, ColorType<Override>>;
+  accent6?: ColorPalette<ColorShades5, ColorType<Override>>;
+  accent7?: ColorPalette<ColorShades5, ColorType<Override>>;
 
   current: string;
   transparent: ColorType<Override>;
@@ -20,7 +20,7 @@ export interface ColorsColors<Override extends undefined | string = undefined> {
   effectTransparentMedium: ColorType<Override>;
   effectTransparentHeavy: ColorType<Override>;
 
-  utilityBlue: ColorPalette<ColorShades5, ColorType<Override>>;
+  utilityBlue?: ColorPalette<ColorShades5, ColorType<Override>>;
   utilityGreen: ColorPalette<ColorShades5, ColorType<Override>>;
   utilityYellow: ColorPalette<ColorShades5, ColorType<Override>>;
   utilityRed: ColorPalette<ColorShades5, ColorType<Override>>;

@@ -34,37 +34,12 @@ export const defaultColorsColors: Colors['colors'] = {
     light: 90,
     dark: 20,
   }),
-  accent4: generateColorPalette5({
-    color: { h: 200, s: 50, l: 50 },
-    light: 90,
-    dark: 20,
-  }),
-  accent5: generateColorPalette5({
-    color: { h: 200, s: 50, l: 50 },
-    light: 90,
-    dark: 20,
-  }),
-  accent6: generateColorPalette5({
-    color: { h: 200, s: 50, l: 50 },
-    light: 90,
-    dark: 20,
-  }),
-  accent7: generateColorPalette5({
-    color: { h: 200, s: 50, l: 50 },
-    light: 90,
-    dark: 20,
-  }),
   grey: generateColorGreyPalette({
     hue: 0,
   }),
   effectTransparentLight: { h: 0, s: 0, l: 0, a: 10 },
   effectTransparentMedium: { h: 0, s: 0, l: 0, a: 10 },
   effectTransparentHeavy: { h: 0, s: 0, l: 0, a: 13 },
-  utilityBlue: generateColorPalette5({
-    color: { h: 112, s: 71, l: 53 },
-    light: 90,
-    dark: 5,
-  }),
   utilityGreen: generateColorPalette5({
     color: { h: 112, s: 71, l: 53 },
     light: 90,
