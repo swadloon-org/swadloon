@@ -1,6 +1,14 @@
+---
+name: Releases & Changelogs
+description:
+tags:
+---
+
 # Releases & Changelogs
 
-Since we use `commitizen` to format every commit (i.e. all commits are labeled with `feat()` or `fix()` etc) it is possible to generate complete CHANGELOG files for each package.
+Since we use `commitizen` to format every commit (i.e. all commits are labeled
+with `feat()` or `fix()` etc) it is possible to generate complete CHANGELOG
+files for each package.
 
 Lerna is used to perform this action.
 

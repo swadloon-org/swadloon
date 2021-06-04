@@ -6,8 +6,7 @@
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
 [![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
-[![DeepScan grade](https://deepscan.io/api/teams/12671/projects/15712/branches/317951/badge/grade.svg?token=a1fa0980263b30233c0ddf1e9c3ed778290db2ee)](https://deepscan.io/dashboard#view=project&tid=12671&pid=15712&bid=317951)
-[![CodeFactor](https://www.codefactor.io/repository/github/newrade/newrade/badge?s=da13bec1582852a55a1365a361f74fe5c06e0eb0)](https://www.codefactor.io/repository/github/newrade/newrade)
+[![DeepScan grade](https://deepscan.io/api/teams/14287/projects/17398/branches/397457/badge/grade.svg?token=a1fa0980263b30233c0ddf1e9c3ed778290db2ee)](https://deepscan.io/dashboard#view=project&tid=14287&pid=17398&bid=397457)
 
 ## Quickstart
 

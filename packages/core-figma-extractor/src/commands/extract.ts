@@ -77,7 +77,7 @@ export function extract({ figmaFile, figmaToken, outputDir }: ExtractConfig) {
        * Writing all export files
        */
       const project = JSON.parse(
-        fs.readFileSync(path.join(__dirname, '../../../package.json'), 'utf-8')
+        fs.readFileSync(path.join(__dirname, '../../package.json'), 'utf-8')
       );
       fs.mkdirSync(outputDir, { recursive: true });
 

@@ -1,6 +1,14 @@
+---
+name: How to Build Packages
+description:
+tags:
+---
+
 # How to Build Packages
 
-Lerna is able to run `npm` scripts in multiple packages in parallel. You may build only the packages you need by passing a `-- --scope <scope>` to every command.
+Lerna is able to run `npm` scripts in multiple packages in parallel. You may
+build only the packages you need by passing a `-- --scope <scope>` to every
+command.
 
 To start watching every packages for changes:
 

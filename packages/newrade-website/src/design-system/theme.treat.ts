@@ -4,4 +4,4 @@ import { cssTheme, theme } from './theme';
 /**
  * Treat theme reference
  */
-export const lightTheme = createTheme({ theme, cssTheme });
+export const light = createTheme({ theme, cssTheme });

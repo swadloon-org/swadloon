@@ -8,6 +8,9 @@ export type FigmaColor = {
   a: number;
 };
 
+/**
+ * Raw / Unformatted color tokens
+ */
 export type ColorTokens = {
   [key: string]: FigmaColor;
 };

@@ -1,6 +1,10 @@
 ---
 name: Installing WSL 2 On Windows 10 (Archived)
+description:
+tags:
 ---
+
+## name: Installing WSL 2 On Windows 10 (Archived)
 
 # Installing WSL 2 On Windows 10 (Archived)
 
@@ -24,7 +28,8 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
 
 Restart.
 
-If a message appear about updating the WSL kernel, visit: https://docs.microsoft.com/en-us/windows/wsl/wsl2-kernel
+If a message appear about updating the WSL kernel, visit:
+https://docs.microsoft.com/en-us/windows/wsl/wsl2-kernel
 
 Run the command:
 
@@ -32,7 +37,8 @@ Run the command:
 wsl --set-default-version 2
 ```
 
-And if no warning or errors are reported, proceed to install Ubuntu LTS from the Windows Store.
+And if no warning or errors are reported, proceed to install Ubuntu LTS from the
+Windows Store.
 
 Start the ubuntu shell with the Ubuntu app.
 

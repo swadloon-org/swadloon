@@ -1,8 +1,11 @@
 ---
 name: Navigation
 description:
+  Navigation are used for information and actions relating to the current
+  screen.
 tags:
   - navigation
+  - organism
 ---
 
 <!-- CODE IMPORTS -->
@@ -17,6 +20,9 @@ import NavigationCode from '!!raw-loader!../../src/code/navigation.code.tsx';
 
 ## NavBars
 
+Navbars are on top of the screen and provides content and actions such as
+branding, screen titles and navigation items.
+
 <ThemeWrapper>
   <Navigation />
 </ThemeWrapper>
@@ -24,3 +30,6 @@ import NavigationCode from '!!raw-loader!../../src/code/navigation.code.tsx';
 <CodeBlock>{NavigationCode}</CodeBlock>
 
 ## Sidebars
+
+Sidebars are on the right or the left side of the screen and provides actions
+such as branding and navigation items.

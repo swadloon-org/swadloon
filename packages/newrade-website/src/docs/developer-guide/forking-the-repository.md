@@ -1,3 +1,9 @@
+---
+name: Forking the Repository
+description:
+tags:
+---
+
 # Forking the Repository
 
 Fork the starter in a new repository to use the monorepo for your organisation.
@@ -34,7 +40,8 @@ git clone --bare git@github.com:newrade/newrade-core.git
 cd newrade-core.git
 ```
 
-Push the starter repo to your `<repository-name>`, then delete the clone if you don't plan on commiting to the starter project:
+Push the starter repo to your `<repository-name>`, then delete the clone if you
+don't plan on commiting to the starter project:
 
 ```bash
 git push --mirror <git repo>/<project>/<repository-name>.git

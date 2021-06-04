@@ -9,8 +9,8 @@
     "serve": ". ./.env && http-server --port $APP_PORT --gzip",
     "start": "yarn webpack:dev",
     "test-disabled": "echo ok",
-    "webpack:dev": "cross-env TS_NODE_PROJECT=tsconfig.webpack.json node -r ts-node/register ../../node_modules/webpack-dev-server/bin/webpack-dev-server --config webpack.dev.config.ts",
-    "webpack:prod": "cross-env TS_NODE_PROJECT=tsconfig.webpack.json node -r ts-node/register ../../node_modules/webpack/bin/webpack --config webpack.prod.config.ts"
+    "webpack:dev": "cross-env TS_NODE_PROJECT=../core-webpack-config/tsconfig.webpack.json node -r ts-node/register ../../node_modules/webpack-dev-server/bin/webpack-dev-server --config webpack.dev.config.ts",
+    "webpack:prod": "cross-env TS_NODE_PROJECT=../core-webpack-config/tsconfig.webpack.json node -r ts-node/register ../../node_modules/webpack/bin/webpack --config webpack.prod.config.ts"
   },
   "type": "module",
   "typings": "./lib/index.d.ts",
