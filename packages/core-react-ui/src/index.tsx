@@ -31,6 +31,7 @@ export * from './hooks/use-window-scroll-position';
 export * from './hooks/use-window-size';
 export * from './icons/icon';
 export * from './icons/icon-families';
+export * from './icons/icons-mapping';
 export * from './icons/icons-provider';
 export * from './indicators/online-indicator';
 export * from './layout/box-v2';

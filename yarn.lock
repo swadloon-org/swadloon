@@ -4307,6 +4307,11 @@
   resolved "https://registry.npmjs.org/@types/ejs/-/ejs-3.0.6.tgz#aca442289df623bfa8e47c23961f0357847b83fe"
   integrity sha512-fj1hi+ZSW0xPLrJJD+YNwIh9GZbyaIepG26E/gXvp8nCa2pYokxUYO1sK9qjGxp2g8ryZYuon7wmjpwE2cyASQ==
 
+"@types/element-resize-detector@^1.1.2":
+  version "1.1.2"
+  resolved "https://registry.npmjs.org/@types/element-resize-detector/-/element-resize-detector-1.1.2.tgz#b0189b6aec4a8c0decccb69a1d007a1458384cf0"
+  integrity sha512-fi113VLkvw1NydG4N/T+dOZos1mO9Ij04CiKem1Pw9byb2e3YxGZS8CZ9hM6It1zjPzCrMm4gQ7P8jmVZkH7qQ==
+
 "@types/eslint-visitor-keys@^1.0.0":
   version "1.0.0"
   resolved "https://registry.npmjs.org/@types/eslint-visitor-keys/-/eslint-visitor-keys-1.0.0.tgz#1ee30d79544ca84d68d4b3cdb0af4f205663dd2d"
@@ -6752,7 +6757,7 @@ basic-auth@~2.0.1:
   dependencies:
     safe-buffer "5.1.2"
 
-batch-processor@^1.0.0:
+batch-processor@1.0.0, batch-processor@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/batch-processor/-/batch-processor-1.0.0.tgz"
   integrity sha1-dclcMrdI4IUNEMKxaPa9vpiRrOg=
@@ -11072,6 +11077,13 @@ element-resize-detector@1.1.13:
   integrity sha1-9hkH6YqRsa0hX5J5C8FRE99oRE0=
   dependencies:
     batch-processor "^1.0.0"
+
+element-resize-detector@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.npmjs.org/element-resize-detector/-/element-resize-detector-1.2.2.tgz#bf7c3ff915957e4e62e86241ed2f9c86b078892b"
+  integrity sha512-+LOXRkCJc4I5WhEJxIDjhmE3raF8jtOMBDqSCgZTMz2TX3oXAX5pE2+MDeopJlGdXzP7KzPbBJaUGfNaP9HG4A==
+  dependencies:
+    batch-processor "1.0.0"
 
 ellipsize@^0.1.0:
   version "0.1.0"
