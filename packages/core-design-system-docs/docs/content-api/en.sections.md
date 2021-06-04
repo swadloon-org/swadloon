@@ -1,6 +1,6 @@
 ---
 name: Sections
-description:
+description: High-level components to render pages.
 tags:
   - test
 ---

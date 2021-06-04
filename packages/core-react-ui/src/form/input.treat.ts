@@ -1,5 +1,4 @@
 import { style } from 'treat';
-import { right } from '../button/button.treat';
 import { Theme } from '../design-system';
 
 export const styles = {

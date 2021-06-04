@@ -10,8 +10,8 @@ tags:
 
 | Component    | Version | Reversed Mode Support [^1] | Tests                                             | Docs                                              | Doc Page                                      |
 | ------------ | ------: | -------------------------: | ------------------------------------------------- | ------------------------------------------------- | --------------------------------------------- |
-| `<Title/>`   |       1 |                        Yes | <TagStatus name="docs" status="Yes"></TagStatus>  | <TagStatus name="docs" status="OK"></TagStatus>   | [Open](/design-system/foundations/typography) |
-| `<Heading/>` |       1 |                        Yes | <TagStatus name="docs" status="TODO"></TagStatus> | <TagStatus name="docs" status="TODO"></TagStatus> | [Open](/design-system/foundations/typography) |
+| `<Title/>`   |       1 |                        Yes | <TagStatus name="test" status="Yes"></TagStatus>  | <TagStatus name="docs" status="OK"></TagStatus>   | [Open](/design-system/foundations/typography) |
+| `<Heading/>` |       1 |                        Yes | <TagStatus name="test" status="TODO"></TagStatus> | <TagStatus name="docs" status="TODO"></TagStatus> | [Open](/design-system/foundations/typography) |
 
 [^1]:
     Learn about [Reversed Mode](/design-system/theming) in the theming

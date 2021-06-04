@@ -16,10 +16,12 @@ export const styles = {
   })),
   content: style(({ cssTheme, theme }: Theme) => ({
     height: `100%`,
+    gridTemplateRows: '100%',
   })),
   mobileWrapper: style(({ cssTheme, theme }: Theme) => ({
     display: 'grid',
     gridTemplateColumns: '1fr 1fr 1fr',
+    gridTemplateRows: '100%',
     height: '100%',
   })),
   desktopMenu: style(({ cssTheme, theme }: Theme) => ({

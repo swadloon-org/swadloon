@@ -13,11 +13,20 @@ tags:
 <!-- CODE IMPORTS -->
 
 <!-- prettier-ignore -->
+import { Icons } from '../../src/code/icons.code';
+
 <!-- END CODE IMPORTS -->
 
 <DocHeader props={props}/>
 
-## Icon Sets
+## Available Icon Sets
+
+| Name         | Author | Website                        | License |
+| ------------ | ------ | ------------------------------ | ------- |
+| Font Awesome | -      | https://fontawesome.com/       | MIT     |
+| Octicons     | Github | https://primer.style/octicons/ | MIT     |
+
+<Icons/>
 
 ## Usage and Examples
 

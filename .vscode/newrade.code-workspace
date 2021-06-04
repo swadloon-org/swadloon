@@ -234,6 +234,30 @@
     {
       "name": "vsb-website",
       "path": "../packages/vsb-website"
+    },
+    {
+      "name": "alto-design-system",
+      "path": "../packages/alto-design-system"
+    },
+    {
+      "name": "alto-website",
+      "path": "../packages/alto-website"
+    },
+    {
+      "name": "cdpq-design-system",
+      "path": "../packages/cdpq-design-system"
+    },
+    {
+      "name": "cdpq-design-website",
+      "path": "../packages/cdpq-design-website"
+    },
+    {
+      "name": "ronin-design-system",
+      "path": "../packages/ronin-design-system"
+    },
+    {
+      "name": "ronin-design-website",
+      "path": "../packages/ronin-design-website"
     }
   ]
 }

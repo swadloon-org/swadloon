@@ -100,7 +100,6 @@ const config: core.GastbySiteConfig = {
     core.getGatsbyPluginReactHelmet(),
     core.getGatsbyPluginSitemap(),
     core.getGatsbyPluginRobotsTxt({ env }),
-    core.getGatsbyNetlifyPlugin(),
     core.getGastbyCoreContentfulPluginConfig({
       packageName: packageJson.name,
       locales: ['fr-CA', 'en-CA'],

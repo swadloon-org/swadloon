@@ -4307,6 +4307,11 @@
   resolved "https://registry.npmjs.org/@types/ejs/-/ejs-3.0.6.tgz#aca442289df623bfa8e47c23961f0357847b83fe"
   integrity sha512-fj1hi+ZSW0xPLrJJD+YNwIh9GZbyaIepG26E/gXvp8nCa2pYokxUYO1sK9qjGxp2g8ryZYuon7wmjpwE2cyASQ==
 
+"@types/element-resize-detector@^1.1.2":
+  version "1.1.2"
+  resolved "https://registry.npmjs.org/@types/element-resize-detector/-/element-resize-detector-1.1.2.tgz#b0189b6aec4a8c0decccb69a1d007a1458384cf0"
+  integrity sha512-fi113VLkvw1NydG4N/T+dOZos1mO9Ij04CiKem1Pw9byb2e3YxGZS8CZ9hM6It1zjPzCrMm4gQ7P8jmVZkH7qQ==
+
 "@types/eslint-visitor-keys@^1.0.0":
   version "1.0.0"
   resolved "https://registry.npmjs.org/@types/eslint-visitor-keys/-/eslint-visitor-keys-1.0.0.tgz#1ee30d79544ca84d68d4b3cdb0af4f205663dd2d"
@@ -6752,7 +6757,7 @@ basic-auth@~2.0.1:
   dependencies:
     safe-buffer "5.1.2"
 
-batch-processor@^1.0.0:
+batch-processor@1.0.0, batch-processor@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/batch-processor/-/batch-processor-1.0.0.tgz"
   integrity sha1-dclcMrdI4IUNEMKxaPa9vpiRrOg=
@@ -11073,6 +11078,13 @@ element-resize-detector@1.1.13:
   dependencies:
     batch-processor "^1.0.0"
 
+element-resize-detector@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.npmjs.org/element-resize-detector/-/element-resize-detector-1.2.2.tgz#bf7c3ff915957e4e62e86241ed2f9c86b078892b"
+  integrity sha512-+LOXRkCJc4I5WhEJxIDjhmE3raF8jtOMBDqSCgZTMz2TX3oXAX5pE2+MDeopJlGdXzP7KzPbBJaUGfNaP9HG4A==
+  dependencies:
+    batch-processor "1.0.0"
+
 ellipsize@^0.1.0:
   version "0.1.0"
   resolved "https://registry.npmjs.org/ellipsize/-/ellipsize-0.1.0.tgz#9d43682d44b91ad16ebd84268ac103170a6553f8"
@@ -13291,7 +13303,7 @@ fs-extra@^6.0.1:
     jsonfile "^4.0.0"
     universalify "^0.1.0"
 
-fs-extra@^7.0.1:
+fs-extra@^7.0.0, fs-extra@^7.0.1:
   version "7.0.1"
   resolved "https://registry.npmjs.org/fs-extra/-/fs-extra-7.0.1.tgz#4f189c44aa123b895f722804f55ea23eadc348e9"
   integrity sha512-YJDaCJZEnBmcbw13fvdAM9AwNOJwOzrE4pqMqBq5nFiEqXUqHwlK4B+3pUw6JNvfSPtX05xFHtYy/1ni01eGCw==
@@ -13634,6 +13646,13 @@ gatsby-plugin-mdx@^1.10.0:
     unist-util-map "^1.0.5"
     unist-util-remove "^1.0.3"
     unist-util-visit "^1.4.1"
+
+gatsby-plugin-meta-redirect@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.npmjs.org/gatsby-plugin-meta-redirect/-/gatsby-plugin-meta-redirect-1.1.1.tgz#058e8e53edff38dc44d3bb6153109d01c910f863"
+  integrity sha512-Oc4qgU3SlDUM9qoxIMKO+re2bdMs3/a2KXrfL65gb8XMLsHylBbveWtXZRhgjd2QDL/49RX4S9SEykuadRju2w==
+  dependencies:
+    fs-extra "^7.0.0"
 
 gatsby-plugin-netlify@^2.3.15:
   version "2.11.1"

@@ -143,3 +143,9 @@ jobs:
       env:
         TEST_HOST: ${{ env.APP_HOST }}
 
+    - name: Trigger Integration Workflow
+      uses: benc-uk/workflow-dispatch@v1
+      with:
+        workflow: vsb-integration-workflow.yml
+        token: ${{ secrets.PERSONAL_GH_TOKEN }}
+

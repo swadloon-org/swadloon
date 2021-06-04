@@ -1,5 +1,6 @@
 ---
-category: setup
+name: Repository Management
+description:
 tags:
   - git
 ---

@@ -20,4 +20,10 @@ import AccordionsCode from '!!raw-loader!../../src/code/accordions.code.tsx';
 <ThemeWrapper>
   <Accordions />
 </ThemeWrapper>
+
+Accordions support reversed mode:
+
+<ThemeWrapper reversed={true}> 
+<Accordions /> 
+</ThemeWrapper>
 <CodeBlock>{AccordionsCode}</CodeBlock>

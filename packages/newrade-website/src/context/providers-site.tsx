@@ -6,11 +6,11 @@ import { mdxComponents } from '@newrade/core-react-ui/lib/markdown';
 import React from 'react';
 import { TreatProvider } from 'react-treat';
 import { cssTheme, theme } from '../design-system/theme';
-import { lightTheme } from '../design-system/theme.treat';
+import { light } from '../design-system/theme.treat';
 
 export const ProvidersSite: React.FC = (props) => {
   return (
-    <TreatProvider theme={lightTheme}>
+    <TreatProvider theme={light}>
       <ViewportProvider context={viewportContext}>
         <TreatThemeProvider theme={{ theme: theme, cssTheme: cssTheme }}>
           <MDXProvider components={mdxComponents}>
