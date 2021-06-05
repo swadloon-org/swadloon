@@ -8,6 +8,7 @@ export * from './config/gatsby-plugin-pages.conf';
 export * from './config/gatsby-plugin-preload-fonts.conf';
 export * from './config/gatsby-plugin-react-helmet.conf';
 export * from './config/gatsby-plugin-react-svg.conf';
+export * from './config/gatsby-plugin-vanilla.conf';
 export * from './config/gatsby-plugin-seo.conf';
 export * from './config/gatsby-plugin-sharp.conf';
 export * from './config/gatsby-plugin-treat.conf';

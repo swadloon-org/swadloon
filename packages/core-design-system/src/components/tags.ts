@@ -1,6 +1,6 @@
-import { ColorType } from '../../types';
-import { BoxStyle } from '../atoms/box';
-import { Variant } from '../components.props';
+import { ColorType } from '../types';
+import { BoxStyle } from './box';
+import { Variant } from './components.props';
 
 export enum TagAs {
   div = 'div',
@@ -35,11 +35,11 @@ export type TagColors<Override extends undefined | string = undefined> = {
 export type TagBoxStyle<Override extends undefined | string = undefined> = BoxStyle<Override> & {};
 
 export type TagVariants<Override extends undefined | string = undefined> = {
-  [key in keyof typeof Variant]: TagColors<Override>;
+  [key in Variant]: TagColors<Override>;
 };
 
 export type TagSizes<Override extends undefined | string = undefined> = {
-  [key in keyof typeof TagSize]: TagBoxStyle<Override>;
+  [key in TagSize]: TagBoxStyle<Override>;
 };
 
 export interface Tags<Override extends undefined | string = undefined> {

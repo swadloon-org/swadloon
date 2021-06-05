@@ -1,7 +1,7 @@
-import { PARAGRAPH_SIZE } from '../../foundations/typography';
-import { ColorType } from '../../types';
-import { BoxStyle } from '../atoms/box';
-import { Variant } from '../components.props';
+import { PARAGRAPH_SIZE } from '../foundations/typography';
+import { ColorType } from '../types';
+import { BoxStyle } from './box';
+import { Variant } from './components.props';
 
 export enum LinkAs {
   button = 'button',
@@ -62,11 +62,11 @@ export type LinkStyle<Override extends undefined | string = undefined> = {
 export type LinkBoxStyle<Override extends undefined | string = undefined> = BoxStyle<Override> & {};
 
 export type LinkVariants<Override extends undefined | string = undefined> = {
-  [key in keyof typeof LinkVariant]: LinkStyle<Override>;
+  [key in LinkVariant]: LinkStyle<Override>;
 };
 
 export type LinkSizes<Override extends undefined | string = undefined> = {
-  [key in keyof typeof LinkSize]: LinkBoxStyle<Override>;
+  [key in LinkSize]: LinkBoxStyle<Override>;
 };
 
 export interface Links<Override extends undefined | string = undefined> {

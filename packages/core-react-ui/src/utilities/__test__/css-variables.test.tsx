@@ -1,5 +1,22 @@
+import { BorderStyles } from '@newrade/core-design-system';
+import { defaultColors } from '../../default-theme/default-colors';
 import { CSSBoxVarNames } from '../../design-system/css-box';
 import { getCSSVarNameForBox } from '../box.utilities';
+
+export const defaultButtonBorder: BorderStyles = {
+  default: {
+    width: 1,
+    style: 'solid',
+    color: defaultColors.colorIntents.primary,
+    radius: {
+      all: 3,
+    },
+  },
+  top: {},
+  right: {},
+  bottom: {},
+  left: {},
+};
 
 describe('css variables utilities', () => {
   describe(`${getCSSVarNameForBox.name}`, () => {
@@ -11,6 +28,8 @@ describe('css variables utilities', () => {
           padding: {
             default: 1,
           },
+          border: defaultButtonBorder,
+          outline: {},
         },
         prefix: 'btn-large',
         varBrackets: false,
@@ -34,6 +53,12 @@ describe('css variables utilities', () => {
             width: '--btn-lg-bor-width',
             radius: '--btn-lg-bor-radius',
           },
+        },
+        outline: {
+          color: '--btn-lg-out-color',
+          style: '--btn-lg-out-style',
+          width: '--btn-lg-out-width',
+          radius: '--btn-lg-out-radius',
         },
       } as CSSBoxVarNames);
     });

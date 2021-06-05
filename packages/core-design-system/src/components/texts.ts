@@ -1,6 +1,6 @@
-import { ColorType } from '../../types';
-import { BoxStyle } from '../atoms/box';
-import { Variant } from '../components.props';
+import { ColorType } from '../types';
+import { BoxStyle } from './box';
+import { Variant } from './components.props';
 
 export enum TextAs {
   p = 'p',
@@ -37,11 +37,11 @@ export type TextColors<Override extends undefined | string = undefined> = {
 export type TextBoxStyle<Override extends undefined | string = undefined> = BoxStyle<Override> & {};
 
 export type TextVariants<Override extends undefined | string = undefined> = {
-  [key in keyof typeof Variant]: TextColors<Override>;
+  [key in Variant]: TextColors<Override>;
 };
 
 export type TextSizes<Override extends undefined | string = undefined> = {
-  [key in keyof typeof TextSize]: TextBoxStyle<Override>;
+  [key in TextSize]: TextBoxStyle<Override>;
 };
 
 export interface Texts<Override extends undefined | string = undefined> {

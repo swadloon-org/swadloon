@@ -4,6 +4,7 @@ import { HEADING, VIEWPORT } from '@newrade/core-design-system';
 import { GatsbyLink, NavbarDocs, useDesignSystemNavigation } from '@newrade/core-gatsby-ui/src';
 import {
   BoxV2,
+  defaultThemeClassName,
   DesktopDocsItemGroup,
   DesktopDocsSideBar,
   DesktopDocsSidebarItem,
@@ -34,6 +35,10 @@ export type DesignSystemLayoutProps = Partial<
    */
   theme: Theme;
   /**
+   * The application's className for its theme
+   */
+  themeClassname?: string;
+  /**
    * Logo component for mobile
    */
   MobileSvgLogo?: React.ReactNode;
@@ -46,6 +51,7 @@ export type DesignSystemLayoutProps = Partial<
 export const LayoutDesignSystem: React.FC<DesignSystemLayoutProps> = function ({
   treatThemeRef,
   theme,
+  themeClassname,
   MobileSvgLogo,
   DesktopSvgLogo,
   ...props
@@ -83,7 +89,7 @@ export const LayoutDesignSystem: React.FC<DesignSystemLayoutProps> = function ({
   );
 
   return (
-    <MainWrapper>
+    <MainWrapper className={defaultThemeClassName}>
       <NavbarDocs
         tagText={'Design System'}
         HomeLink={HomeLink}
@@ -154,7 +160,12 @@ export const LayoutDesignSystem: React.FC<DesignSystemLayoutProps> = function ({
         <MDXProvider
           components={{
             ThemeWrapper: (props: any) => (
-              <ThemeWrapper treatThemeRef={treatThemeRef} theme={theme} {...props} />
+              <ThemeWrapper
+                treatThemeRef={treatThemeRef}
+                theme={theme}
+                themeClassname={themeClassname}
+                {...props}
+              />
             ),
           }}
         >

@@ -1,7 +1,7 @@
 /**
  * Babel presets for browsers
  */
-export const babelPresetConf: ([string, object] | [string])[] = [
+export const babelPresetBrowserConf: ([string, object] | [string])[] = [
   /**
    * @see https://babeljs.io/docs/en/babel-preset-typescript
    */

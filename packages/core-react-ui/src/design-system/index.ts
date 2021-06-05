@@ -3,6 +3,7 @@ export * from './css-buttons';
 export * from './css-colors';
 export * from './css-components';
 export * from './css-design-system';
+export * from './css-iconography';
 export * from './css-fonts';
 export * from './css-layout';
 export * from './css-sizing';

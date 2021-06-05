@@ -9,7 +9,6 @@ import { getCSSSizeTextStyles, getCSSTextStyles } from '../utilities/text.utilit
 export const base = style(({ theme, cssTheme }: Theme) => ({
   ...getCSSTextStyles(cssTheme.typography.labels),
   width: 'fit-content',
-  userSelect: 'text',
 }));
 
 /**
@@ -17,6 +16,11 @@ export const base = style(({ theme, cssTheme }: Theme) => ({
  * Variants
  *
  */
+export const inline = style(({ theme, cssTheme }: Theme) => ({
+  display: 'inline-block',
+  userSelect: 'none',
+  color: 'currentColor',
+}));
 
 /**
  * Sizes

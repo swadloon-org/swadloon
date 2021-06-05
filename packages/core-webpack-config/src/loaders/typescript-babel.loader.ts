@@ -1,7 +1,7 @@
 import * as tsloader from 'ts-loader';
 import { RuleSetRule } from 'webpack/declarations/WebpackOptions';
-import { babelPluginConf } from '../babel-plugins.conf';
-import { babelPresetConf } from '../babel-preset.conf';
+import { babelPluginBrowserConf } from '../babel-plugins.conf';
+import { babelPresetBrowserConf } from '../babel-preset.conf';
 import { isDevelopment } from '../utilities';
 import ReactRefreshTypeScript from 'react-refresh-typescript';
 
@@ -25,9 +25,9 @@ export function getTypescriptBabelReactLoader(options: Options = defaultOptions)
         options: {
           cacheDirectory: true,
           plugins: options.isDevelopment
-            ? [['react-refresh/babel'], ...babelPluginConf]
-            : [...babelPluginConf],
-          presets: [...babelPresetConf],
+            ? [['react-refresh/babel'], ...babelPluginBrowserConf]
+            : [...babelPluginBrowserConf],
+          presets: [...babelPresetBrowserConf],
         },
       },
       {

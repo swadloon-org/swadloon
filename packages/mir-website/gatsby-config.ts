@@ -70,6 +70,7 @@ const config: core.GastbySiteConfig = {
     }),
     core.getGatsbyReactSvgConfig(),
     core.getGastbyPluginTreatConfig(),
+    core.getGastbyPluginVanilla(),
     core.getGatsbyPluginPostCSS(),
     core.getGatsbyTransformerSharp(),
     core.getGatsbyPluginSharp(),

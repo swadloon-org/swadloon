@@ -1,5 +1,14 @@
 import { PARAGRAPH_SIZE, Variant } from '@newrade/core-design-system';
-import { Heading, Hr, Paragraph, Stack, TagStatus, useTreatTheme } from '@newrade/core-react-ui';
+import { MdxFrontmatter } from '@newrade/core-gatsby-config';
+import {
+  Cluster,
+  Heading,
+  Hr,
+  Paragraph,
+  Stack,
+  TagStatus,
+  useTreatTheme,
+} from '@newrade/core-react-ui';
 import React from 'react';
 import { DocTags } from './doc-tags';
 
@@ -8,7 +17,7 @@ type Props = {
     data: {
       file: {
         childMdx: {
-          frontmatter: { name?: string; tags?: string[]; description?: string; version?: string };
+          frontmatter: MdxFrontmatter;
         };
       };
     };
@@ -32,9 +41,21 @@ export const DocHeader = ({ props }: Props) => {
           </Paragraph>
         ) : null}
 
-        {props?.data?.file?.childMdx?.frontmatter?.version ? (
-          <TagStatus name="version" status="v1"></TagStatus>
-        ) : null}
+        <Cluster wrap={true} justifyContent={['flex-start']} gap={[cssTheme.sizing.var.x2]}>
+          {props?.data?.file?.childMdx?.frontmatter?.version ? (
+            <TagStatus
+              name="version"
+              status={props?.data?.file?.childMdx?.frontmatter?.version || 'n/a'}
+            ></TagStatus>
+          ) : null}
+
+          {props?.data?.file?.childMdx?.frontmatter?.status ? (
+            <TagStatus
+              name="status"
+              status={props?.data?.file?.childMdx?.frontmatter?.status || 'n/a'}
+            ></TagStatus>
+          ) : null}
+        </Cluster>
 
         {props?.data?.file?.childMdx?.frontmatter?.tags?.length ? <DocTags props={props} /> : null}
       </Stack>

@@ -66,34 +66,34 @@ export enum TEXT_STYLE {
 /**
  * Available fonts in the design system.
  */
-export type Fonts = { [key in keyof typeof TYPOGRAPHIC_STYLE]: Font[] };
+export type Fonts = { [key in TYPOGRAPHIC_STYLE]: Font[] };
 
 /**
  * TODO
  */
 export type Titles<Override extends undefined | string = undefined> = {
-  [key in keyof typeof TITLE]: CapsizeTextStyle<Override> & TextStyle<Override>;
+  [key in TITLE]: CapsizeTextStyle<Override> & TextStyle<Override>;
 };
 
 /**
  * TODO
  */
 export type Headings<Override extends undefined | string = undefined> = {
-  [key in keyof typeof HEADING]: CapsizeTextStyle<Override> & TextStyle<Override>;
+  [key in HEADING]: CapsizeTextStyle<Override> & TextStyle<Override>;
 };
 
 /**
  * TODO
  */
 export type Paragraphs<Override extends undefined | string = undefined> = {
-  [key in keyof typeof PARAGRAPH_SIZE]: CapsizeTextStyle<Override> & TextStyle<Override>;
+  [key in PARAGRAPH_SIZE]: CapsizeTextStyle<Override> & TextStyle<Override>;
 };
 
 /**
  * TODO
  */
 export type Labels<Override extends undefined | string = undefined> = {
-  [key in keyof typeof LABEL_SIZE]: CapsizeTextStyle<Override> & TextStyle<Override>;
+  [key in LABEL_SIZE]: CapsizeTextStyle<Override> & TextStyle<Override>;
 };
 
 export type TextVariantStyles<Override extends undefined | string> = {
@@ -110,7 +110,7 @@ export interface Typography<Override extends undefined | string = undefined> {
    *
    */
   titles: {
-    [key in keyof typeof VIEWPORT]: Titles<Override>;
+    [key in VIEWPORT]: Titles<Override>;
   } &
     TextStyle<Override>;
 
@@ -118,7 +118,7 @@ export interface Typography<Override extends undefined | string = undefined> {
    * TODO
    */
   headings: {
-    [key in keyof typeof VIEWPORT]: Headings<Override>;
+    [key in VIEWPORT]: Headings<Override>;
   } &
     TextStyle<Override>;
 
@@ -126,7 +126,7 @@ export interface Typography<Override extends undefined | string = undefined> {
    * TODO
    */
   paragraphs: {
-    [key in keyof typeof VIEWPORT]: Paragraphs<Override>;
+    [key in VIEWPORT]: Paragraphs<Override>;
   } &
     TextStyle<Override> & { styles: TextVariantStyles<Override> };
 
@@ -134,7 +134,7 @@ export interface Typography<Override extends undefined | string = undefined> {
    * TODO
    */
   labels: {
-    [key in keyof typeof VIEWPORT]: Labels<Override>;
+    [key in VIEWPORT]: Labels<Override>;
   } &
     TextStyle<Override> & { styles: TextVariantStyles<Override> };
 }

@@ -11,7 +11,7 @@ import React from 'react';
 
 type Props = {};
 
-export const Icons: React.FC<Props> = (props) => {
+export const IconsImportExample: React.FC<Props> = (props) => {
   const { theme, cssTheme } = useTreatTheme();
 
   const octiconsImport = (iconName: ICON) => {

@@ -1,6 +1,8 @@
 import { ICON } from '@newrade/core-design-system';
 import React, { ErrorInfo, SVGAttributes, useState } from 'react';
+import { useStyles } from 'react-treat';
 import { useTreatTheme } from '../hooks/use-treat-theme';
+import * as styleRefs from './icon.treat';
 import { useIconContext } from './icons-provider';
 
 type OwnProps = {
@@ -14,9 +16,10 @@ export const IconLoader: React.FC<OwnProps> = ({ name, height, width, ...props }
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const context = useIconContext();
+  const styles = useStyles(styleRefs);
 
   const IconNotFoundError = () => {
-    return <i>Error: icon not found</i>;
+    return <>✳️</>;
   };
 
   if (!context) {
@@ -39,7 +42,7 @@ export const IconLoader: React.FC<OwnProps> = ({ name, height, width, ...props }
     return null;
   }
 
-  return <ImportedIcon />;
+  return <ImportedIcon className={styles.base} />;
 };
 
 type State = {
@@ -59,7 +62,7 @@ export class Icon extends React.Component<OwnProps, State> {
 
   render() {
     if (this.state.error) {
-      return <i>✳️</i>;
+      return <>✳️</>;
     }
     return <IconLoader {...this.props} />;
   }

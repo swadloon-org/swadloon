@@ -17,8 +17,8 @@ import wikiLinkPlugin from 'remark-wiki-link';
 // @ts-ignore
 import remarkUnwrapImages from 'remark-unwrap-images';
 import { RuleSetRule } from 'webpack/declarations/WebpackOptions';
-import { babelPluginConf } from '../babel-plugins.conf';
-import { babelPresetConf } from '../babel-preset.conf';
+import { babelPluginBrowserConf } from '../babel-plugins.conf';
+import { babelPresetBrowserConf } from '../babel-preset.conf';
 
 /**
  * remark plugin to serialize Markdown as HTML.
@@ -112,8 +112,8 @@ export const mdxLoader: RuleSetRule = {
       loader: 'babel-loader',
       options: {
         cacheDirectory: true,
-        plugins: [...babelPluginConf],
-        presets: [...babelPresetConf, '@babel/preset-react'],
+        plugins: [...babelPluginBrowserConf],
+        presets: [...babelPresetBrowserConf, '@babel/preset-react'],
       },
     },
     {

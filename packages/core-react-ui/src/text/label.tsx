@@ -12,6 +12,7 @@ type Props = CommonComponentProps &
     variant?: LABEL_SIZE;
     variantStyle?: TEXT_STYLE;
     variantLevel?: Variant;
+    variantDisplay?: 'inline';
   };
 
 const defaultProps: Props = {
@@ -28,6 +29,7 @@ export const Label: React.FC<Props> = React.memo(
     variantStyle,
     variant,
     variantLevel,
+    variantDisplay,
     htmlFor,
     children,
     ...props
@@ -50,7 +52,13 @@ export const Label: React.FC<Props> = React.memo(
         styles.base,
         variant ? styles[variant as LABEL_SIZE] : styles[defaultProps.variant as LABEL_SIZE],
         variantStyle ? styles[variantStyle] : styles[TEXT_STYLE.bold],
-        variantLevel ? styles[variantLevel] : styles[Variant.primary],
+        // if inline mode don't apply colors
+        variantDisplay
+          ? styles[variantDisplay]
+          : variantLevel
+          ? styles[variantLevel]
+          : styles[Variant.primary],
+        ,
       ],
 
       ...props,

@@ -195,7 +195,7 @@
     semver "^5.4.1"
     source-map "^0.5.0"
 
-"@babel/core@^7.0.0", "@babel/core@^7.1.0", "@babel/core@^7.12.3", "@babel/core@^7.7.5", "@babel/core@^7.8.4":
+"@babel/core@^7.0.0", "@babel/core@^7.1.0", "@babel/core@^7.12.3", "@babel/core@^7.13.10", "@babel/core@^7.7.5", "@babel/core@^7.8.4":
   version "7.14.3"
   resolved "https://registry.npmjs.org/@babel/core/-/core-7.14.3.tgz#5395e30405f0776067fbd9cf0884f15bfb770a38"
   integrity sha512-jB5AmTKOCSJIZ72sd78ECEhuPiDMKlQdDI/4QRI6lzYATx5SSogS1oQA2AoPecRCknm30gHi2l+QVvNUu3wZAg==
@@ -1445,6 +1445,11 @@
   integrity sha512-PblyY8ZhtKCr8hAdyy9UuK0Ve0+zC+2u5Z64oHtV/JPaM1wrHpzHm7qsIGKqkAeUjBG0B+dpPcBCkgjgdEsESQ==
   dependencies:
     uuid "^8.3.0"
+
+"@emotion/hash@^0.8.0":
+  version "0.8.0"
+  resolved "https://registry.npmjs.org/@emotion/hash/-/hash-0.8.0.tgz#bbbff68978fefdbe68ccb533bc8cbe1d1afb5413"
+  integrity sha512-kBJtf7PH6aWwZ6fka3zQ0p6SBYzx4fl1LoZXE2RrnYST9Xljm7WfKJrU4g/Xr3Beg72MLrp1AWNUmuYJTL7Cow==
 
 "@emotion/is-prop-valid@^0.8.2":
   version "0.8.8"
@@ -5158,6 +5163,65 @@
   version "1.1.2"
   resolved "https://registry.npmjs.org/@ungap/promise-all-settled/-/promise-all-settled-1.1.2.tgz#aa58042711d6e3275dd37dc597e5d31e8c290a44"
   integrity sha512-sL/cEvJWAnClXw0wHk85/2L0G6Sj8UB0Ctc1TEMbKSsmpRosqhwj9gWgFRZSrBr2f9tiXISwNhCPmlfqUqyb9Q==
+
+"@vanilla-extract/babel-plugin@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/@vanilla-extract/babel-plugin/-/babel-plugin-1.0.0.tgz#bdf8e13f40f761680d47001e61856869b1143b90"
+  integrity sha512-UBbycdnKDvpWVOv1j6F8Iod+FhOW2W4Fv+GVT3D/Woq2SleO2JSv/OEDoyerkN1mcCkJCVPuXnVYEdeRdxZgeQ==
+  dependencies:
+    "@babel/core" "^7.13.10"
+    "@babel/template" "^7.12.13"
+    "@vanilla-extract/integration" "^1.0.0"
+
+"@vanilla-extract/css-utils@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.npmjs.org/@vanilla-extract/css-utils/-/css-utils-0.1.1.tgz#f4f58f85347d8a841ef74c60db111ec264011860"
+  integrity sha512-9fDV8IhSfzgDd9Z+64jVcS38S2dVc6c1eOd+hgO8zPMRba6rEB8kEjg5+AQ3xPCdzl1m8olqFHnfQRNOn1OXuA==
+
+"@vanilla-extract/css@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/@vanilla-extract/css/-/css-1.0.0.tgz#6cedddd6243aa7e99d6b6920553a086b19dcd84a"
+  integrity sha512-o52t6Bj1LeEDfdVW6ZIzmHHTQSiq/D7py3yJgZZNzbUIQBNfyByK6W73ITDR5RhhywZLkX8/GVy0V++B+bOZ3A==
+  dependencies:
+    "@emotion/hash" "^0.8.0"
+    "@vanilla-extract/private" "^1.0.0"
+    chalk "^4.1.1"
+    css-selector-parser "^1.4.1"
+    cssesc "^3.0.0"
+    csstype "^3.0.7"
+    dedent "^0.7.0"
+    deep-object-diff "^1.1.0"
+
+"@vanilla-extract/integration@^1.0.0":
+  version "1.0.1"
+  resolved "https://registry.npmjs.org/@vanilla-extract/integration/-/integration-1.0.1.tgz#48ebe910f29b0da88e9876286f4d0b658a6f27ae"
+  integrity sha512-dm1dLFewXCVXuXe+3BPb1iK/EFubxkzevLOepMY8z+wUIUv0xS8PdccY3n7vXPTsSNg5f3Bm3IkaL2ynj+LcJA==
+  dependencies:
+    "@vanilla-extract/css" "^1.0.0"
+    chalk "^4.1.1"
+    dedent "^0.7.0"
+    esbuild "^0.11.16"
+    eval "^0.1.6"
+    find-up "^5.0.0"
+    javascript-stringify "^2.0.1"
+    lodash "^4.17.21"
+
+"@vanilla-extract/private@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/@vanilla-extract/private/-/private-1.0.0.tgz#10711c4481decd2f9a2f19cb85dcee60eff3f75c"
+  integrity sha512-NS/Dqenj1Fd9fX1qWz4nFP6hefbTJIpQYLgKQsJBQonJ/E0QYiYtTJ1oeUh7vpoW0ojVuuRdA1URbKb7MCJ4JA==
+
+"@vanilla-extract/webpack-plugin@^1.0.0", "@vanilla-extract/webpack-plugin@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.npmjs.org/@vanilla-extract/webpack-plugin/-/webpack-plugin-1.0.1.tgz#cd1549e4a9ff11776b46a59070c1fa52f168bb92"
+  integrity sha512-GPpMNrf8vrK+kyudZPMAk4KUfME9+FaXDDBnLAaTytspD7CJJNoIWmj3u9td1oWYeu0XMfez6G7gCkBwinCrog==
+  dependencies:
+    "@vanilla-extract/integration" "^1.0.0"
+    chalk "^4.1.1"
+    debug "^4.3.1"
+    loader-utils "^2.0.0"
+    lodash "^4.17.21"
+    virtual-resource-loader "^1.0.0"
 
 "@vercel/build-utils@2.10.1":
   version "2.10.1"
@@ -9551,7 +9615,7 @@ css-select@~1.2.0:
     domutils "1.5.1"
     nth-check "~1.0.1"
 
-css-selector-parser@^1.1.0, css-selector-parser@^1.3.0:
+css-selector-parser@^1.1.0, css-selector-parser@^1.3.0, css-selector-parser@^1.4.1:
   version "1.4.1"
   resolved "https://registry.npmjs.org/css-selector-parser/-/css-selector-parser-1.4.1.tgz#03f9cb8a81c3e5ab2c51684557d5aaf6d2569759"
   integrity sha512-HYPSb7y/Z7BNDCOrakL4raGO2zltZkbeXyAd6Tg9obzix6QhzxCotdBl6VT0Dv4vZfJGVz3WL/xaEI9Ly3ul0g==
@@ -9748,7 +9812,7 @@ csstype@^2.6.3:
   resolved "https://registry.npmjs.org/csstype/-/csstype-2.6.17.tgz#4cf30eb87e1d1a005d8b6510f95292413f6a1c0e"
   integrity sha512-u1wmTI1jJGzCJzWndZo8mk4wnPTZd1eOIYTYvuEyOQGfmDl3TrabCCfKnOC86FZwW/9djqTl933UF/cS425i9A==
 
-csstype@^3.0, csstype@^3.0.2:
+csstype@^3.0, csstype@^3.0.2, csstype@^3.0.7:
   version "3.0.8"
   resolved "https://registry.npmjs.org/csstype/-/csstype-3.0.8.tgz#d2266a792729fb227cd216fb572f43728e1ad340"
   integrity sha512-jXKhWqXPmlUeoQnF/EhTtTl4C9SnrxSH/jZUih3jmO6lBKr99rP3/+FmrMj4EFpOXzMtXHAZkd3x0E6h6Fgflw==
@@ -10356,6 +10420,11 @@ deep-is@^0.1.3, deep-is@~0.1.3:
   version "0.1.3"
   resolved "https://registry.npmjs.org/deep-is/-/deep-is-0.1.3.tgz#b369d6fb5dbc13eecf524f91b070feedc357cf34"
   integrity sha1-s2nW+128E+7PUk+RsHD+7cNXzzQ=
+
+deep-object-diff@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.npmjs.org/deep-object-diff/-/deep-object-diff-1.1.0.tgz#d6fabf476c2ed1751fc94d5ca693d2ed8c18bc5a"
+  integrity sha512-b+QLs5vHgS+IoSNcUE4n9HP2NwcHj7aqnJWsjPtuG75Rh5TOaGt0OjAYInh77d5T16V5cRDC+Pw/6ZZZiETBGw==
 
 deepmerge@4.2.2, deepmerge@^4.0.0, deepmerge@^4.2.2:
   version "4.2.2"
@@ -11428,6 +11497,11 @@ es6-weak-map@^2.0.3:
     es6-iterator "^2.0.3"
     es6-symbol "^3.1.1"
 
+esbuild@^0.11.16:
+  version "0.11.23"
+  resolved "https://registry.npmjs.org/esbuild/-/esbuild-0.11.23.tgz#c42534f632e165120671d64db67883634333b4b8"
+  integrity sha512-iaiZZ9vUF5wJV8ob1tl+5aJTrwDczlvGP0JoMmnpC2B0ppiMCu8n8gmy5ZTGl5bcG081XBVn+U+jP+mPFm5T5Q==
+
 escalade@^3.1.1:
   version "3.1.1"
   resolved "https://registry.npmjs.org/escalade/-/escalade-3.1.1.tgz#d8cfdc7000965c5a0174b4a82eaa5c0552742e40"
@@ -12015,7 +12089,7 @@ etag@~1.8.1:
   resolved "https://registry.npmjs.org/etag/-/etag-1.8.1.tgz#41ae2eeb65efa62268aebfea83ac7d79299b0887"
   integrity sha1-Qa4u62XvpiJorr/qg6x9eSmbCIc=
 
-eval@^0.1.0, eval@^0.1.2, eval@^0.1.4:
+eval@^0.1.0, eval@^0.1.2, eval@^0.1.4, eval@^0.1.6:
   version "0.1.6"
   resolved "https://registry.npmjs.org/eval/-/eval-0.1.6.tgz#9620d7d8c85515e97e6b47c5814f46ae381cb3cc"
   integrity sha512-o0XUw+5OGkXw4pJZzQoXUk+H87DHuC+7ZE//oSrRGtatTmr12oTnLfg6QOq9DyTt0c/p4TwzgmkKrBzWTSizyQ==
@@ -13814,6 +13888,15 @@ gatsby-plugin-utils@^0.9.0:
   integrity sha512-InM8PNHtx1kF87qQOlf4pVeNA8lSIsvSjImvN6dvpUjeQqOMRN1avY0W9Trh6LKTF/keWWj975Gk8Vcr+PYyDA==
   dependencies:
     joi "^17.2.1"
+
+gatsby-plugin-vanilla-extract@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.npmjs.org/gatsby-plugin-vanilla-extract/-/gatsby-plugin-vanilla-extract-1.0.5.tgz#35e8bc6707340488ec3f0e8db18b8411d14b6d08"
+  integrity sha512-6wSQ7v5y5uGUJPuQfDexu4meRaeiajw8D51eodrwYWZsNMP/FN5Hv5fe/fHmdXyDL0tMp4k9IYV2/O8lvAVPBQ==
+  dependencies:
+    "@vanilla-extract/babel-plugin" "^1.0.0"
+    "@vanilla-extract/css" "^1.0.0"
+    "@vanilla-extract/webpack-plugin" "^1.0.0"
 
 gatsby-react-router-scroll@^3.7.0:
   version "3.7.0"
@@ -17428,7 +17511,7 @@ jake@^10.6.1:
     filelist "^1.0.1"
     minimatch "^3.0.4"
 
-javascript-stringify@^2.0.0:
+javascript-stringify@^2.0.0, javascript-stringify@^2.0.1:
   version "2.1.0"
   resolved "https://registry.npmjs.org/javascript-stringify/-/javascript-stringify-2.1.0.tgz#27c76539be14d8bd128219a2d731b09337904e79"
   integrity sha512-JVAfqNPTvNq3sB/VHQJAFxN/sPgKnsKrCwyRt15zwNCdrMMJDdcEOdubuy+DuJYYdm0ox1J4uzEuYKkN+9yhVg==
@@ -29003,6 +29086,13 @@ vinyl@^2.0.1, vinyl@^2.2.0, vinyl@^2.2.1:
     cloneable-readable "^1.0.0"
     remove-trailing-separator "^1.0.1"
     replace-ext "^1.0.0"
+
+virtual-resource-loader@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/virtual-resource-loader/-/virtual-resource-loader-1.0.0.tgz#905eac5d576325ff6910d8643b0152148f4e02a3"
+  integrity sha512-MalwfaqwMcUmb2MtHb2hK6YYg3It4j7Hxv8I7FEAtm1h477kZ8hWPcqVpxZAInLIkmh0YbnCpvXwzmnyhdAyhw==
+  dependencies:
+    loader-utils "^2.0.0"
 
 vm-browserify@^1.0.1:
   version "1.1.2"

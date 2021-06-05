@@ -21,13 +21,13 @@ export enum SIZING {
  * Contains CSS variable names for each sizing step
  * @example `--sizing-x1`
  */
-export type SizeCSSVarNames = { [key in keyof typeof SIZING]: string };
+export type SizeCSSVarNames = { [key in SIZING]: string };
 
 /**
  * Contains CSS statement to access CSS variables
  * @example `var(--sizing-x1)`
  */
-export type SizeCSSVar = { [key in keyof typeof SIZING]: string };
+export type SizeCSSVar = { [key in SIZING]: string };
 
 /**
  * Defines in px, rem what a sizing step is.
@@ -60,7 +60,7 @@ export interface SizingStep {
 /**
  * Definition of the sizing steps for each viewport.
  */
-export type SizingSteps = { [key in keyof typeof VIEWPORT]: { [key in SIZING]: SizingStep } };
+export type SizingSteps = { [key in VIEWPORT]: { [key in SIZING]: SizingStep } };
 
 /**
  * A set of predefined sizes from `x1` to `x10`.

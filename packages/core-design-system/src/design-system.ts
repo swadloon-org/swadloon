@@ -1,4 +1,4 @@
-import { Buttons } from './components/molecules/buttons';
+import { Buttons } from './components/buttons';
 import { Animations } from './foundations/animations';
 import { Colors } from './foundations/colors';
 import { Effects } from './foundations/effects';
