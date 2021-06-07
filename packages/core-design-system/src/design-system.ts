@@ -8,6 +8,7 @@ import { Sizing } from './foundations/sizing';
 import { Typography } from './foundations/typography';
 
 export interface DesignSystem<Override extends undefined | string = undefined> {
+  colorIntents: any;
   /**
    * Name of the project or brand's name.
    */

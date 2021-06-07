@@ -119,6 +119,19 @@ export const colorsColors: Colors['colors'] = {
 
 export const colorIntents: ColorIntents = {
   ...getDefaultColorIntents(colorsColors),
+  primaryText: colorsColors.grey[1000],
+  secondaryText: colorsColors.grey[800],
+  tertiaryText: colorsColors.grey[700],
+  disabledText: colorsColors.grey[25],
+  successText: colorsColors.utilityGreen[900],
+  successAction: colorsColors.utilityGreen[500],
+  successBackground: colorsColors.utilityGreen[100],
+  warningText: colorsColors.utilityYellow[900],
+  warningAction: colorsColors.utilityYellow[500],
+  warningBackground: colorsColors.utilityYellow[100],
+  dangerText: colorsColors.utilityYellow[900],
+  dangerAction: colorsColors.utilityYellow[500],
+  dangerBackground: colorsColors.utilityYellow[100],
   backgroundDisabled: colorsColors.grey[25],
 };
 

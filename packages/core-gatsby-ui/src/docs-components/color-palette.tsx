@@ -28,7 +28,7 @@ export const ColorPalette: React.FC<Props> = ({ colorName, colorOrPalette }) => 
   if (typeof colorOrPalette === 'string') {
     return (
       <Stack gap={['10px']}>
-        <ColorSwatchDark name={colorName} color={colorOrPalette}></ColorSwatchDark>
+        <ColorSwatchLight name={colorName} color={colorOrPalette}></ColorSwatchLight>
       </Stack>
     );
   }
@@ -71,15 +71,15 @@ export const ColorPalette: React.FC<Props> = ({ colorName, colorOrPalette }) => 
                 color={color as any}
               ></ColorSwatchLight>
             );
-
-          return (
-            <ColorSwatchDark
-              key={index}
-              shadeNumber={shadeName}
-              name={colorName}
-              color={color as any}
-            ></ColorSwatchDark>
-          );
+          else
+            return (
+              <ColorSwatchDark
+                key={index}
+                shadeNumber={shadeName}
+                name={colorName}
+                color={color as any}
+              ></ColorSwatchDark>
+            );
         })}
       </div>
     );
