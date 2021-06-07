@@ -4,25 +4,19 @@
 # - reference: https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions
 #
 
-name: vsb-website
+name: vsb-integration
 
 on:
-  push:
-    paths:
-      - '.github/workflows/vsb-website-workflow.yml'
-      - '**/package.json'
-      - '**/package-lock.json'
-      - '**/yarn.lock'
-      - 'packages/core-*/**/*'
-      - 'packages/vsb-common/**/*'
-      - 'packages/vsb-design-system/**/*'
-      - 'packages/vsb-website/**/*'
-    branches:
-      - dev
-      - master
-      - release
-  pull_request:
   workflow_dispatch:
+    inputs:
+      ci_api:
+        description: "CI pipeline name for the api"
+        required: false
+        default: "vsb-api-workflow.yml"
+      ci_website:
+        description: "CI pipeline name for website"
+        required: false
+        default: "vsb-website-workflow.yml"
 
 env:
   #
@@ -73,6 +67,31 @@ jobs:
     - name: Inject Github slug/short variables
       uses: rlespinasse/github-slug-action@v3.x
 
+    - name: Check vsb-website Build Status
+      description: https://github.com/asarkar/build-time-tracker/tree/master/.github/workflows
+      run: |
+        output=$(curl -sSL -X GET -G -H "Accept: application/vnd.github.v3+json" -d "branch=${{ env.GITHUB_REF_SLUG }}" -d "event=push" https://api.github.com/repos/${{ github.repository }}/actions/workflows/${{ github.event.inputs.ci_website }}/runs | jq -r '.workflow_runs[0] | "\(.conclusion)"')
+        echo "::set-output name=status_website::$output"
+      id: check
+
+    - name: Abort if vsb-website was not successful
+      if: steps.check.outputs.status_website != 'success'
+      run: |
+        echo ${{ steps.check.outputs.status_website }}
+        exit 1
+
+    - name: Check vsb-api Build Status
+      run: |
+        output=$(curl -sSL -X GET -G -H "Accept: application/vnd.github.v3+json" -d "branch=${{ env.GITHUB_REF_SLUG }}" -d "event=push" https://api.github.com/repos/${{ github.repository }}/actions/workflows/${{ github.event.inputs.ci_api }}/runs | jq -r '.workflow_runs[0] | "\(.conclusion)"')
+        echo "::set-output name=status_api::$output"
+      id: check
+
+    - name: Abort if vsb-api was not successful
+      if: steps.check.outputs.status_api != 'success'
+      run: |
+        echo ${{ steps.check.outputs.status_api }}
+        exit 1
+
     - name: Checkout
       uses: actions/checkout@v2
       with:
@@ -92,60 +111,12 @@ jobs:
     - name: Set the env variable depending on the branch
       uses: ./packages/core-github-actions/built/set-app-env
 
-    - name: Update vercel.json rewrites
-      uses: ./packages/core-github-actions/built/vercel-rewrites
-      with:
-        working-directory: ./packages/vsb-website
-
     - name: Install dependencies and build core packages
       run: yarn --prefer-offline --frozen-lockfile
-
-    - name: Clean
-      run: yarn lerna:clean --scope @newrade/vsb-website
-
-    - name: Lint Src Files
-      run: yarn eslint ./packages/vsb-*/src/ --ext ts,tsx
-
-    - name: Build vsb-common
-      run: yarn lerna:build --scope @newrade/vsb-common
-
-    - name: Build vsb-design-system
-      run: yarn lerna:build --scope @newrade/vsb-design-system
-
-    - name: Build
-      run: yarn lerna:build --scope @newrade/vsb-website
-      env:
-        CONTENTFUL_ENV: ${{ secrets.CONTENTFUL_ENV }}
-        CONTENTFUL_SPACEID_VSB: ${{ secrets.CONTENTFUL_SPACEID_VSB }}
-        CONTENTFUL_DELIVERY_TOKEN_VSB: ${{ secrets.CONTENTFUL_DELIVERY_TOKEN_VSB }}
-
-        CANADA_POST_API_KEY_VSB: ${{ secrets.CANADA_POST_API_KEY_VSB }}
-        GOOGLE_MAP_API_KEY: ${{ secrets.GOOGLE_MAP_API_KEY }}
-        RECAPTCHA_SITE_KEY_VSB: ${{ secrets.RECAPTCHA_SITE_KEY_VSB }}
-
-    - name: Deploy
-      if: ${{ env.APP_CI_DEPLOY }}
-      uses: amondnet/vercel-action@v20
-      with:
-        scope: ${{ secrets.VERCEL_SCOPE }}
-        vercel-token: ${{ secrets.VERCEL_TOKEN }}
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        vercel-args: 'public'
-        vercel-org-id: ${{ secrets.VERCEL_ORG_ID}}
-        vercel-project-id: prj_BSiEPXFueCLXvdowJXU7WikN1T1M
-        working-directory: ./packages/vsb-website
-        alias-domains: |
-          ${{ env.APP_HOST }}
 
     - name: Run E2E Test
       if: ${{ env.APP_CI_DEPLOY }}
       run: yarn lerna:test:e2e --scope @newrade/vsb-website
       env:
         TEST_HOST: ${{ env.APP_HOST }}
-
-    - name: Trigger Integration Workflow
-      uses: benc-uk/workflow-dispatch@v1
-      with:
-        workflow: vsb-integration-workflow.yml
-        token: ${{ secrets.PERSONAL_GH_TOKEN }}
 

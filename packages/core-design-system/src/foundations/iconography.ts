@@ -34,7 +34,8 @@ export interface Icon {
    */
   name: string;
   /**
-   * to control the stroke width on svg icons that supports it
+   * Controls the stroke width on svg icons that supports it.
+   * This will set { strokeWidth: ... } on the <svg/> element
    */
   svgWeight?: number;
 }
