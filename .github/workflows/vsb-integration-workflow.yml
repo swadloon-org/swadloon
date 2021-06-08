@@ -71,24 +71,24 @@ jobs:
       run: |
         output=$(curl -sSL -X GET -G -H "Accept: application/vnd.github.v3+json" -d "branch=${{ env.GITHUB_REF_SLUG }}" -d "event=push" https://api.github.com/repos/${{ github.repository }}/actions/workflows/${{ github.event.inputs.ci_website }}/runs | jq -r '.workflow_runs[0] | "\(.conclusion)"')
         echo "::set-output name=status_website::$output"
-      id: check
+      id: check_website
 
     - name: Abort if vsb-website was not successful
-      if: steps.check.outputs.status_website != 'success'
+      if: steps.check_website.outputs.status_website != 'success'
       run: |
-        echo ${{ steps.check.outputs.status_website }}
+        echo ${{ steps.check_website.outputs.status_website }}
         exit 1
 
     - name: Check vsb-api Build Status
       run: |
         output=$(curl -sSL -X GET -G -H "Accept: application/vnd.github.v3+json" -d "branch=${{ env.GITHUB_REF_SLUG }}" -d "event=push" https://api.github.com/repos/${{ github.repository }}/actions/workflows/${{ github.event.inputs.ci_api }}/runs | jq -r '.workflow_runs[0] | "\(.conclusion)"')
         echo "::set-output name=status_api::$output"
-      id: check
+      id: check_api
 
     - name: Abort if vsb-api was not successful
-      if: steps.check.outputs.status_api != 'success'
+      if: steps.check_api.outputs.status_api != 'success'
       run: |
-        echo ${{ steps.check.outputs.status_api }}
+        echo ${{ steps.check_api.outputs.status_api }}
         exit 1
 
     - name: Checkout
