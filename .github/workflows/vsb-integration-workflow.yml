@@ -71,7 +71,7 @@ jobs:
       uses: ./packages/core-github-actions/built/check-workflow-status
       with:
         workflow: ${{ github.event.inputs.ci_website }}
-        github-token: ${{ secrets.GITHUB_TOKEN }}
+        github-token: ${{ secrets.PERSONAL_GH_TOKEN }}
       id: check_website
 
     - name: Abort if vsb-website was not successful
@@ -84,7 +84,7 @@ jobs:
       uses: ./packages/core-github-actions/built/check-workflow-status
       with:
         workflow: ${{ github.event.inputs.ci_api }}
-        github-token: ${{ secrets.GITHUB_TOKEN }}
+        github-token: ${{ secrets.PERSONAL_GH_TOKEN }}
       id: check_api
 
     - name: Abort if vsb-api was not successful
