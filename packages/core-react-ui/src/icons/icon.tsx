@@ -27,12 +27,10 @@ export const IconLoader: React.FC<OwnProps> = ({ name, height, width, ...props }
     return <IconNotFoundError />;
   }
 
-  if (!context.importFunction) {
-    console.log('iconFamilyImport={} must be set on <IconProvider/>');
+  if (!context.iconComponents) {
+    console.log('iconComponents={} must be set on <IconProvider/>');
     return <IconNotFoundError />;
   }
-
-  const ImportedIcon = context.importFunction(name);
 
   if (error) {
     return <IconNotFoundError />;
@@ -42,7 +40,8 @@ export const IconLoader: React.FC<OwnProps> = ({ name, height, width, ...props }
     return null;
   }
 
-  return <ImportedIcon className={styles.base} />;
+  const IconComponent = context.iconComponents[name];
+  return <IconComponent className={styles.base} />;
 };
 
 type State = {

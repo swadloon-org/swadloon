@@ -31,7 +31,30 @@ import IconsImportExampleCode from '!!raw-loader!../../src/code/icons-import-exa
 
 In the exemple below we load Octicons and provide the icon mapping:
 
-<CodeBlock>{IconsImportExampleCode}</CodeBlock>
+```ts
+import {
+  IoAddCircle,
+  IoArrowBackOutline,
+  IoArrowDownOutline,
+  IoArrowUpOutline,
+  IoCheckboxOutline,
+  IoCheckmarkOutline,
+  IoMenuOutline,
+  IoRadioButtonOnOutline,
+} from 'react-icons/io5';
+
+const ionicons5IconComponents: IconComponents<ICON> = {
+  [ICON.ARROW_UP]: IoArrowUpOutline,
+  [ICON.ARROW_DOWN]: IoArrowDownOutline,
+  [ICON.ARROW_LEFT]: IoArrowBackOutline,
+  [ICON.ARROW_RIGHT]: IoArrowForwardOutline,
+  [ICON.CHECK]: IoCheckmarkOutline,
+  [ICON.CHECKBOX_BOX]: IoCheckboxOutline,
+  [ICON.CIRCLE]: IoAddCircle,
+  [ICON.MENU]: IoMenuOutline,
+  [ICON.RADIO]: IoRadioButtonOnOutline,
+};
+```
 
 Result:
 

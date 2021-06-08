@@ -23649,6 +23649,11 @@ react-i18next@^11.8.5:
     "@babel/runtime" "^7.13.6"
     html-parse-stringify "^3.0.1"
 
+react-icons@^4.1.0:
+  version "4.2.0"
+  resolved "https://registry.npmjs.org/react-icons/-/react-icons-4.2.0.tgz#6dda80c8a8f338ff96a1851424d63083282630d0"
+  integrity sha512-rmzEDFt+AVXRzD7zDE21gcxyBizD/3NqjbX6cmViAgdqfJ2UiLer8927/QhhrXQV7dEj/1EGuOTPp7JnLYVJKQ==
+
 react-intersection-observer@^8.31.0:
   version "8.32.0"
   resolved "https://registry.npmjs.org/react-intersection-observer/-/react-intersection-observer-8.32.0.tgz#47249332e12e8bb99ed35a10bb7dd10446445a7b"
