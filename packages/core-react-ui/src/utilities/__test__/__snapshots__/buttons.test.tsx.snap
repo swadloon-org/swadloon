@@ -5,11 +5,35 @@ Object {
   "sizes": Object {
     "large": Object {
       "border": Object {
-        "default": Object {
+        "bottom": Object {
           "color": undefined,
+          "radius": "",
+          "style": "solid",
+          "width": undefined,
+        },
+        "default": Object {
+          "color": "hsl(222deg 50% 50% / 100%)",
           "radius": "3px",
           "style": "solid",
           "width": "1px",
+        },
+        "left": Object {
+          "color": undefined,
+          "radius": "",
+          "style": "solid",
+          "width": undefined,
+        },
+        "right": Object {
+          "color": undefined,
+          "radius": "",
+          "style": "solid",
+          "width": undefined,
+        },
+        "top": Object {
+          "color": undefined,
+          "radius": "",
+          "style": "solid",
+          "width": undefined,
         },
       },
       "height": "0px",
@@ -18,21 +42,114 @@ Object {
       "width": "0px",
     },
     "medium": Object {
-      "border": Object {},
+      "border": Object {
+        "bottom": Object {
+          "color": undefined,
+          "radius": "",
+          "style": "solid",
+          "width": undefined,
+        },
+        "default": Object {
+          "color": "hsl(222deg 50% 50% / 100%)",
+          "radius": "3px",
+          "style": "solid",
+          "width": "1px",
+        },
+        "left": Object {
+          "color": undefined,
+          "radius": "",
+          "style": "solid",
+          "width": undefined,
+        },
+        "right": Object {
+          "color": undefined,
+          "radius": "",
+          "style": "solid",
+          "width": undefined,
+        },
+        "top": Object {
+          "color": undefined,
+          "radius": "",
+          "style": "solid",
+          "width": undefined,
+        },
+      },
       "height": "0px",
       "outline": Object {},
       "padding": Object {},
       "width": "0px",
     },
     "small": Object {
-      "border": Object {},
+      "border": Object {
+        "bottom": Object {
+          "color": undefined,
+          "radius": "",
+          "style": "solid",
+          "width": undefined,
+        },
+        "default": Object {
+          "color": "hsl(222deg 50% 50% / 100%)",
+          "radius": "3px",
+          "style": "solid",
+          "width": "1px",
+        },
+        "left": Object {
+          "color": undefined,
+          "radius": "",
+          "style": "solid",
+          "width": undefined,
+        },
+        "right": Object {
+          "color": undefined,
+          "radius": "",
+          "style": "solid",
+          "width": undefined,
+        },
+        "top": Object {
+          "color": undefined,
+          "radius": "",
+          "style": "solid",
+          "width": undefined,
+        },
+      },
       "height": "0px",
       "outline": Object {},
       "padding": Object {},
       "width": "0px",
     },
     "xSmall": Object {
-      "border": Object {},
+      "border": Object {
+        "bottom": Object {
+          "color": undefined,
+          "radius": "",
+          "style": "solid",
+          "width": undefined,
+        },
+        "default": Object {
+          "color": "hsl(222deg 50% 50% / 100%)",
+          "radius": "3px",
+          "style": "solid",
+          "width": "1px",
+        },
+        "left": Object {
+          "color": undefined,
+          "radius": "",
+          "style": "solid",
+          "width": undefined,
+        },
+        "right": Object {
+          "color": undefined,
+          "radius": "",
+          "style": "solid",
+          "width": undefined,
+        },
+        "top": Object {
+          "color": undefined,
+          "radius": "",
+          "style": "solid",
+          "width": undefined,
+        },
+      },
       "height": "0px",
       "outline": Object {},
       "padding": Object {},

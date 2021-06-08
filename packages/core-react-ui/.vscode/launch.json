@@ -18,9 +18,16 @@
       "type": "node",
       "request": "launch",
       "name": "Jest debug current file",
-      "env": {},
+      "env": {
+        "TS_JEST_LOG": "ts-jest.log"
+      },
       "program": "${workspaceFolder}/../../node_modules/jest/bin/jest.js",
-      "args": ["${relativeFile}", "--no-cache", "--config=${workspaceFolder}/jest.config.js", "--coverage=false"],
+      "args": [
+        "${relativeFile}",
+        "--no-cache",
+        "--config=${workspaceFolder}/jest.config.js",
+        "--coverage=false"
+      ],
       "sourceMaps": true,
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen"

@@ -1,7 +1,5 @@
 import { MDXProvider } from '@mdx-js/react';
-import { ButtonSize } from '@newrade/core-design-system';
 import {
-  Button,
   CommonComponentProps,
   globalThemeReversed,
   TreatThemeProvider,
@@ -58,10 +56,10 @@ export const ThemeWrapper = ({
       <TreatThemeProvider theme={theme}>
         <GlobalCSSVariables>
           <MDXProvider components={mdxComponents}>
-            <Button size={ButtonSize.xSmall} onClick={handleToggleDefaultTheme}>
+            {/* <Button size={ButtonSize.xSmall} onClick={handleToggleDefaultTheme}>
               Toggle Theme
             </Button>
-            Theme: {isDefaultTheme ? 'default' : 'application'}
+            Theme: {isDefaultTheme ? 'default' : 'application'} */}
             <CodeOutline {...commonProps}>{children}</CodeOutline>
           </MDXProvider>
         </GlobalCSSVariables>

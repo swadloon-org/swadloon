@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the button component (v2) should render correctly 1`] = `
+<button
+  class="button-v2__1ypu3sr0 button-v2__1ypu3sr5"
+  dataicon=""
+  datapaddingcollapse="undefined"
+>
+  <div
+    class="style_theme style_theme style_theme style_theme"
+  >
+    Hello world
+  </div>
+</button>
+`;

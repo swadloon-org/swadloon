@@ -41,7 +41,7 @@ export const DocHeader = ({ props }: Props) => {
           </Paragraph>
         ) : null}
 
-        <Cluster wrap={true} justifyContent={['flex-start']} gap={[cssTheme.sizing.var.x2]}>
+        <Cluster wrap={true} justifyContent={['flex-start']} gap={[cssTheme.sizing.var.x0]}>
           {props?.data?.file?.childMdx?.frontmatter?.version ? (
             <TagStatus
               name="version"
