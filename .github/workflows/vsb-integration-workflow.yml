@@ -75,7 +75,7 @@ jobs:
       id: check_website
 
     - name: Abort if vsb-website was not successful
-      if: steps.check_website.outputs.conclusion != 'success'
+      if: steps.check_website.outputs.conclusion = 'failure'
       run: |
         echo ${{ steps.check_website.outputs.conclusion }}
         exit 1
@@ -88,35 +88,41 @@ jobs:
       id: check_api
 
     - name: Abort if vsb-api was not successful
-      if: steps.check_api.outputs.conclusion != 'success'
+      if: steps.check_api.outputs.conclusion = 'failure'
       run: |
         echo ${{ steps.check_api.outputs.conclusion }}
         exit 1
 
     - name: Checkout
+      if: steps.check_api.outputs.conclusion = 'success' && steps.check_website.outputs.conclusion = 'success'
       uses: actions/checkout@v2
       with:
         clean: false
 
     - name: Set up Node.js ${{ matrix.node-version }}
+      if: steps.check_api.outputs.conclusion = 'success' && steps.check_website.outputs.conclusion = 'success'
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
 
     - name: Set up yarn
+      if: steps.check_api.outputs.conclusion = 'success' && steps.check_website.outputs.conclusion = 'success'
       run: npm install --global yarn && yarn --version
 
     - name: Check NodeJS Options
+      if: steps.check_api.outputs.conclusion = 'success' && steps.check_website.outputs.conclusion = 'success'
       run: echo ${{ env.NODE_OPTIONS }} && node -e 'console.log(`node heap limit = ${require("v8").getHeapStatistics().heap_size_limit / (1024 * 1024)} Mb`)'
 
     - name: Set the env variable depending on the branch
+      if: steps.check_api.outputs.conclusion = 'success' && steps.check_website.outputs.conclusion = 'success'
       uses: ./packages/core-github-actions/built/set-app-env
 
     - name: Install dependencies and build core packages
+      if: steps.check_api.outputs.conclusion = 'success' && steps.check_website.outputs.conclusion = 'success'
       run: yarn --prefer-offline --frozen-lockfile
 
     - name: Run E2E Test
-      if: ${{ env.APP_CI_DEPLOY }}
+      if: ${{ env.APP_CI_DEPLOY }} && steps.check_api.outputs.conclusion = 'success' && steps.check_website.outputs.conclusion = 'success'
       run: yarn lerna:test:e2e --scope @newrade/vsb-website
       env:
         TEST_HOST: ${{ env.APP_HOST }}

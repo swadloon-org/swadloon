@@ -20,7 +20,7 @@ export function runAction(env?: ActionEnv, githubContext?: Context) {
       throw Error(`env must be passed to ${runAction.name}`);
     }
 
-    const repo = github.context.repo.repo || 'newrade/newrade';
+    const repo = `${github.context.repo.owner}/${github.context.repo.repo}`;
     const branch = env.GITHUB_REF_SLUG;
     const workflow = core.getInput('workflow');
     // https://docs.github.com/en/developers/apps/building-github-apps/authenticating-with-github-apps
@@ -58,7 +58,8 @@ export function runAction(env?: ActionEnv, githubContext?: Context) {
       })
       .then((response: { workflow_runs: { conclusion: 'success' | 'failure' }[] }) => {
         if (!response?.workflow_runs?.length) {
-          core.setFailed(`no runs received for workflow`);
+          core.info(`no runs received for workflow, skipping`);
+          core.setOutput('conclusion', 'skip');
           return;
         }
 
@@ -68,8 +69,6 @@ export function runAction(env?: ActionEnv, githubContext?: Context) {
       .catch((error) => {
         core.setFailed(error.message);
       });
-
-    // output=$(curl -sSL -X GET -G -H "Accept: application/vnd.github.v3+json" -d "branch=${{ env.GITHUB_REF_SLUG }}" -d "event=push" https://api.github.com/repos/${{ github.repository }}/actions/workflows/${{ github.event.inputs.ci_website }}/runs | jq -r '.workflow_runs[0] | "\(.conclusion)"')
   } catch (error) {
     core.setFailed(error.message);
   }
