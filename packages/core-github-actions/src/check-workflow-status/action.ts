@@ -44,8 +44,6 @@ export function runAction(env?: ActionEnv, githubContext?: Context) {
     fetch(url, {
       method: 'GET',
       headers: {
-        // @ts-ignore
-        Authorization: `Bearer ${env.GH_TOKEN}`,
         Accept: 'application/vnd.github.v3+json',
       },
     })

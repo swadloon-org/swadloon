@@ -17453,8 +17453,6 @@ function runAction(env, githubContext) {
     node_fetch_1.default(url, {
       method: 'GET',
       headers: {
-        // @ts-ignore
-        Authorization: `Bearer ${env.GH_TOKEN}`,
         Accept: 'application/vnd.github.v3+json'
       }
     }).then(result => {
