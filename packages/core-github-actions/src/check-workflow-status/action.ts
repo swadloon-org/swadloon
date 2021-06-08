@@ -54,15 +54,21 @@ export function runAction(env?: ActionEnv, githubContext?: Context) {
 
         core.setFailed(`failed to retrieve runs, status: ${result.status}`);
       })
-      .then((response: { workflow_runs: { conclusion: 'success' | 'failure' }[] }) => {
-        if (!response?.workflow_runs?.length) {
+      .then((response: { workflow_runs: { conclusion: 'success' | 'failure' | null }[] }) => {
+        const workflowRuns = response.workflow_runs;
+
+        if (!workflowRuns?.length) {
           core.info(`no runs received for workflow, skipping`);
           core.setOutput('conclusion', 'skip');
           return;
         }
 
-        core.info(response.workflow_runs[0].conclusion);
-        core.setOutput('conclusion', response.workflow_runs[0].conclusion);
+        const workflowConclusion = workflowRuns[0].conclusion
+          ? workflowRuns[0].conclusion
+          : 'failure';
+
+        core.info(`conclusion: ${workflowConclusion}`);
+        core.setOutput('conclusion', workflowConclusion);
       })
       .catch((error) => {
         core.setFailed(error.message);

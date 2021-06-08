@@ -17462,16 +17462,17 @@ function runAction(env, githubContext) {
 
       core.setFailed(`failed to retrieve runs, status: ${result.status}`);
     }).then(response => {
-      var _a;
+      const workflowRuns = response.workflow_runs;
 
-      if (!((_a = response === null || response === void 0 ? void 0 : response.workflow_runs) === null || _a === void 0 ? void 0 : _a.length)) {
+      if (!(workflowRuns === null || workflowRuns === void 0 ? void 0 : workflowRuns.length)) {
         core.info(`no runs received for workflow, skipping`);
         core.setOutput('conclusion', 'skip');
         return;
       }
 
-      core.info(response.workflow_runs[0].conclusion);
-      core.setOutput('conclusion', response.workflow_runs[0].conclusion);
+      const workflowConclusion = workflowRuns[0].conclusion ? workflowRuns[0].conclusion : 'failure';
+      core.info(`conclusion: ${workflowConclusion}`);
+      core.setOutput('conclusion', workflowConclusion);
     }).catch(error => {
       core.setFailed(error.message);
     });
