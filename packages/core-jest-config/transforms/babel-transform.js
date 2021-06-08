@@ -1,26 +1,8 @@
 const babelJest = require('babel-jest');
 
-const presets = [
-  [
-    '@babel/env',
-    {
-      targets: {
-        node: 'current',
-      },
-    },
-  ],
-  '@babel/preset-react',
-];
-const plugins = [
-  '@babel/plugin-transform-react-jsx',
-  '@babel/plugin-transform-modules-commonjs',
-  '@babel/plugin-syntax-dynamic-import',
-];
+const babelConfig = require('./babel-test.config');
 
-module.exports = babelJest.createTransformer({
-  presets,
-  plugins,
-});
+// module.exports = babelJest.createTransformer(babelConfig);
 
-module.exports.presets = presets;
-module.exports.plugins = plugins;
+module.exports.presets = babelConfig.presets;
+module.exports.plugins = babelConfig.plugins;

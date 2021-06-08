@@ -8,6 +8,7 @@ exports[`props should render correctly 1`] = `
   <div />
   <div
     class="style_theme center-div"
+    style="--max-content-width: 800px;"
   >
     Hello world
   </div>

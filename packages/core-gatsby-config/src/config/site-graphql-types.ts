@@ -64,6 +64,7 @@ export type MdxFrontmatter = {
   tags?: Array<string>;
   description?: string;
   version?: string;
+  status?: string;
 };
 
 export type MdxHeadingMdx = {

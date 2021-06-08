@@ -38,6 +38,7 @@ export const WrapElement: React.FC<WrapPageElementBrowserArgs> = ({ element, pro
       return (
         <ProvidersDocs>
           <LazyLayoutDesignSystem
+            // themeClassname={themeClassName}
             treatThemeRef={light}
             theme={{ theme, cssTheme }}
             DesktopSvgLogo={<Logo />}

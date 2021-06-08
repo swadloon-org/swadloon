@@ -6,6 +6,7 @@ import { getCSSEffects } from './effects.utilities';
 import { getCSSLayout } from './layout.utilities';
 import { getCSSSizing } from './sizing.utilities';
 import { getCSSTypography } from './typography.utilities';
+import { getCSSIconography } from './iconography.utilities';
 
 /**
  * Create a CSS compatible theme object from raw styles
@@ -17,7 +18,7 @@ export function createCSSTheme(theme: DesignSystem): CSSDesignSystem {
     colors: getCSSColors(theme.colors),
     effects: getCSSEffects(theme.effects),
     sizing: getCSSSizing(theme.sizing),
-    // iconography,
+    iconography: getCSSIconography(theme.iconography),
     typography: getCSSTypography({ ...theme.typography, baseFontSize: theme.sizing.baseFontSize }),
     layout: getCSSLayout(theme.layout),
     // animations

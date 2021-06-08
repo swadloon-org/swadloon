@@ -44,7 +44,7 @@ export type Breakpoint = number;
  * Breakpoints values in pixel
  */
 export type Breakpoints<Override extends undefined | string = undefined> = {
-  [key in keyof typeof BREAKPOINT]: Override extends string ? string : Breakpoint;
+  [key in BREAKPOINT]: Override extends string ? string : Breakpoint;
 };
 
 export type PartialLayout<Override extends undefined | string = undefined> = Omit<
@@ -60,14 +60,14 @@ export interface Layout<Override extends undefined | string = undefined> {
   contentMargins: ContentMargins<Override>;
   contentWidth: ContentWidths;
   sidebarWidth: {
-    [key in keyof typeof VIEWPORT]: SizeType<Override>;
+    [key in VIEWPORT]: SizeType<Override>;
   };
   navbarHeight: {
-    [key in keyof typeof VIEWPORT]: SizeType<Override>;
+    [key in VIEWPORT]: SizeType<Override>;
   };
   asideWidth: SizeType<Override>;
   footerHeight: {
-    [key in keyof typeof VIEWPORT]: SizeType<Override>;
+    [key in VIEWPORT]: SizeType<Override>;
   };
   media: MediaQueries<Override>;
   /**

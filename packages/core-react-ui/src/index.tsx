@@ -1,5 +1,6 @@
 export * from './animation/css-animation';
 export * from './button/button';
+export * from './button/button-v2';
 export * from './context/viewport.provider';
 export * from './design-system';
 export * from './error/error-boundary';
@@ -85,3 +86,5 @@ export * from './text/link';
 export * from './text/paragraph';
 export * from './text/summary';
 export * from './text/title';
+export * from './theme/default-buttons.css';
+export * from './theme/default-theme.css';

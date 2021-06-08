@@ -5,7 +5,7 @@ import { VIEWPORT } from './layout';
  * Content margins for each viewport formats.
  */
 export type ContentMargins<Override extends undefined | string = undefined> = {
-  [key in keyof typeof VIEWPORT]: SizeType<Override>;
+  [key in VIEWPORT]: SizeType<Override>;
 };
 
 /**

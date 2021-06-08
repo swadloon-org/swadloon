@@ -64,17 +64,17 @@ export const ButtonsIcon: React.FC<Props> = (props) => {
       ></Button>
 
       <Button
-        size={ButtonSize.xsmall}
+        size={ButtonSize.xSmall}
         icon={ButtonIcon.right}
         Icon={<IoArrowForwardOutline />}
       ></Button>
       <Button
-        size={ButtonSize.xsmall}
+        size={ButtonSize.xSmall}
         icon={ButtonIcon.left}
         Icon={<IoArrowForwardOutline />}
       ></Button>
       <Button
-        size={ButtonSize.xsmall}
+        size={ButtonSize.xSmall}
         icon={ButtonIcon.icon}
         Icon={<IoArrowForwardOutline />}
       ></Button>
@@ -138,19 +138,19 @@ export const ButtonsIcon: React.FC<Props> = (props) => {
 
       <Button
         variant={Variant.secondary}
-        size={ButtonSize.xsmall}
+        size={ButtonSize.xSmall}
         icon={ButtonIcon.right}
         Icon={<IoArrowForwardOutline />}
       ></Button>
       <Button
         variant={Variant.secondary}
-        size={ButtonSize.xsmall}
+        size={ButtonSize.xSmall}
         icon={ButtonIcon.left}
         Icon={<IoArrowForwardOutline />}
       ></Button>
       <Button
         variant={Variant.secondary}
-        size={ButtonSize.xsmall}
+        size={ButtonSize.xSmall}
         icon={ButtonIcon.icon}
         Icon={<IoArrowForwardOutline />}
       ></Button>
@@ -214,19 +214,19 @@ export const ButtonsIcon: React.FC<Props> = (props) => {
 
       <Button
         variant={Variant.tertiary}
-        size={ButtonSize.xsmall}
+        size={ButtonSize.xSmall}
         icon={ButtonIcon.right}
         Icon={<IoArrowForwardOutline />}
       ></Button>
       <Button
         variant={Variant.tertiary}
-        size={ButtonSize.xsmall}
+        size={ButtonSize.xSmall}
         icon={ButtonIcon.left}
         Icon={<IoArrowForwardOutline />}
       ></Button>
       <Button
         variant={Variant.tertiary}
-        size={ButtonSize.xsmall}
+        size={ButtonSize.xSmall}
         icon={ButtonIcon.icon}
         Icon={<IoArrowForwardOutline />}
       ></Button>

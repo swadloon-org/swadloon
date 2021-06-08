@@ -101,7 +101,7 @@ export const Button = React.forwardRef<any, Props>(
         case ButtonSize.small: {
           return LABEL_SIZE.small;
         }
-        case ButtonSize.xsmall: {
+        case ButtonSize.xSmall: {
           return LABEL_SIZE.xSmall;
         }
       }
@@ -122,7 +122,7 @@ export const Button = React.forwardRef<any, Props>(
           <>
             {icon === ButtonIcon.icon ? null : (
               <Label
-                style={{ display: 'inline-block', userSelect: 'none', color: 'inherit' }}
+                variantDisplay={'inline'}
                 variantStyle={TEXT_STYLE.bold}
                 variant={getLabelSizeForButtonSize(size)}
               >
@@ -152,7 +152,7 @@ export const Button = React.forwardRef<any, Props>(
       >
         {icon === ButtonIcon.icon ? null : (
           <Label
-            style={{ display: 'inline-block', userSelect: 'none', color: 'inherit' }}
+            variantDisplay={'inline'}
             variantStyle={TEXT_STYLE.bold}
             variant={getLabelSizeForButtonSize(size)}
           >

@@ -8,7 +8,7 @@ import * as stylesRef from './tag-status.treat';
 
 type Props = CommonComponentProps &
   TagProps & {
-    type?: 'version';
+    type?: 'version' | 'status';
     name?: string;
     status?: string;
     children?: string;

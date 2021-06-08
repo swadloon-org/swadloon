@@ -67,7 +67,7 @@ export interface Font {
 /**
  * Available fonts in the design system.
  */
-export type Fonts = { [key in keyof typeof TYPOGRAPHIC_STYLE]?: Font };
+export type Fonts = { [key in TYPOGRAPHIC_STYLE]?: Font };
 
 export interface TextStyle {
   /**
@@ -121,17 +121,17 @@ export interface TextStyle {
 /**
  * TODO
  */
-export type Headings = { [key in keyof typeof HEADING_LEVEL]: TextStyle };
+export type Headings = { [key in HEADING_LEVEL]: TextStyle };
 
 /**
  * TODO
  */
-export type Paragraphs = { [key in keyof typeof PARAGRAPH]: TextStyle };
+export type Paragraphs = { [key in PARAGRAPH]: TextStyle };
 
 /**
  * TODO
  */
-export type Labels = { [key in keyof typeof LABEL]: TextStyle };
+export type Labels = { [key in LABEL]: TextStyle };
 
 export interface Typography {
   /**
@@ -141,13 +141,13 @@ export interface Typography {
   /**
    * TODO
    */
-  headings: { [key in keyof typeof VIEWPORT]: Headings };
+  headings: { [key in VIEWPORT]: Headings };
   /**
    * TODO
    */
-  paragraphs: { [key in keyof typeof VIEWPORT]: Paragraphs };
+  paragraphs: { [key in VIEWPORT]: Paragraphs };
   /**
    * TODO
    */
-  labels: { [key in keyof typeof VIEWPORT]: Labels };
+  labels: { [key in VIEWPORT]: Labels };
 }

@@ -5,7 +5,7 @@ const base: CSSProperties = {
   display: 'block',
 };
 
-type Styles = { [key in keyof typeof LABEL]: string };
+type Styles = { [key in LABEL]: string };
 
 export const mediumBoldUppercase = style((theme: DesignSystem) => ({
   ...theme.typography.labels.mobile.mediumBoldUppercase.capsizeRem,

@@ -1,9 +1,10 @@
 /**
  * Babel plugins
  */
-export const babelPluginConf: ([string, object] | [string])[] = [
+export const babelPluginBrowserConf: ([string, object] | [string])[] = [
   ['babel-plugin-lodash'],
   ['babel-plugin-treat'],
+  ['@vanilla-extract/babel-plugin'],
   ['@babel/plugin-proposal-nullish-coalescing-operator'],
   ['@babel/plugin-proposal-private-methods', { loose: false }],
   ['@babel/plugin-transform-destructuring'],

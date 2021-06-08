@@ -137,15 +137,9 @@ jobs:
         alias-domains: |
           ${{ env.APP_HOST }}
 
-    - name: Run E2E Test
-      if: ${{ env.APP_CI_DEPLOY }}
-      run: yarn lerna:test:e2e --scope @newrade/vsb-website
-      env:
-        TEST_HOST: ${{ env.APP_HOST }}
-
     - name: Trigger Integration Workflow
       uses: benc-uk/workflow-dispatch@v1
       with:
-        workflow: vsb-integration-workflow.yml
+        workflow: vsb-integration
         token: ${{ secrets.PERSONAL_GH_TOKEN }}
 

@@ -1,36 +1,50 @@
-import { Buttons } from '@newrade/core-design-system';
-import { defaultColorIntents } from './default-colors';
+import { BorderStyles, Buttons } from '@newrade/core-design-system';
+import { defaultColorIntents, defaultColors } from './default-colors';
+
+export const defaultButtonBorder: BorderStyles = {
+  default: {
+    width: 1,
+    style: 'solid',
+    color: defaultColors.colorIntents.primary,
+    radius: {
+      all: 3,
+    },
+  },
+  top: {},
+  right: {},
+  bottom: {},
+  left: {},
+};
 
 export const defaultButtons: Buttons = {
   sizes: {
     large: {
-      border: {
-        default: {
-          width: 1,
-          style: 'solid',
-          radius: {
-            all: 3,
-          },
-        },
-      },
       padding: {
         default: 2,
       },
+      border: defaultButtonBorder,
+      outline: {},
     },
     medium: {
       padding: {
         default: 2,
       },
+      border: defaultButtonBorder,
+      outline: {},
     },
     small: {
       padding: {
         default: 2,
       },
+      border: defaultButtonBorder,
+      outline: {},
     },
-    xsmall: {
+    xSmall: {
       padding: {
         default: 2,
       },
+      border: defaultButtonBorder,
+      outline: {},
     },
   },
   variants: {

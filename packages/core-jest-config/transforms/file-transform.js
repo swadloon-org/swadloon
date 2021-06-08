@@ -4,6 +4,6 @@ const path = require('path');
 // http://facebook.github.io/jest/docs/tutorial-webpack.html
 module.exports = {
   process(src, filename) {
-    return `module.exports = ${JSON.stringify(path.basename(filename))};`;
+    return `export default ${JSON.stringify(path.basename(filename))};`;
   },
 };

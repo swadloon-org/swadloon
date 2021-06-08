@@ -35,6 +35,7 @@ export const markdownTemplateQuery = graphql`
           tags
           description
           version
+          status
         }
         timeToRead
         headings {

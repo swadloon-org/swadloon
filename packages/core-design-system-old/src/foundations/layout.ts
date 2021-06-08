@@ -33,7 +33,7 @@ export type Breakpoint = Value;
 /**
  * Breakpoints values in pixel.
  */
-export type Breakpoints = { [key in keyof typeof BREAKPOINT]: Breakpoint };
+export type Breakpoints = { [key in BREAKPOINT]: Breakpoint };
 
 /**
  * Breakpoint names.
@@ -59,14 +59,14 @@ export type MediaQuery = string;
 /**
  * Breakpoints values in pixel.
  */
-export type MediaQueries = { [key in keyof typeof VIEWPORT]: MediaQuery } & {
+export type MediaQueries = { [key in VIEWPORT]: MediaQuery } & {
   tabletPlus: MediaQuery;
 };
 
 /**
  * Content margins for different device formats.
  */
-export type ContentMargins = { [key in keyof typeof VIEWPORT]: Value };
+export type ContentMargins = { [key in VIEWPORT]: Value };
 
 /**
  * Content max width for larger viewports.

@@ -28,18 +28,6 @@ export enum ICON_WEIGHT {
   LIGHT = 'LIGHT',
 }
 
-export interface Icon {
-  /**
-   * filename of the icon's svg
-   */
-  name: string;
-  /**
-   * Controls the stroke width on svg icons that supports it.
-   * This will set { strokeWidth: ... } on the <svg/> element
-   */
-  svgWeight?: number;
-}
-
 export enum ICON_SIZE {
   large = 'large',
   medium = 'medium',
@@ -47,30 +35,18 @@ export enum ICON_SIZE {
 }
 
 export type IconSizes<Override extends undefined | string = undefined> = {
-  [key in keyof typeof ICON_SIZE]: SizingType<Override>;
+  [key in ICON_SIZE]: SizingType<Override>;
 };
 
-export type Icons = { [key in keyof typeof ICON]: Icon };
-
 export interface Iconography<Override extends undefined | string = undefined> {
-  /**
-   * Name of the icon set. (e.g. 'Ionicons')
-   */
-  family: string;
-  website: string;
   /**
    * Variation of the icon set
    */
   style?: ICON_STYLE;
   /**
-   * Default icon infos (name and optionally weight) along with
-   * extra icons.
-   */
-  icons: Icons;
-  /**
    * Icon size for each viewport.
    */
   sizes: {
-    [key in keyof typeof VIEWPORT]: IconSizes<Override>;
+    [key in VIEWPORT]: IconSizes<Override>;
   };
 }

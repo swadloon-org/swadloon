@@ -123,6 +123,11 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
               chunks: 'initial',
               test: /[\\/]node_modules[\\/](react|react-dom|scheduler)[\\/]/,
             },
+            'react-icons': {
+              name: 'react-icons',
+              chunks: 'all',
+              test: /[\\/]node_modules[\\/](@react-icons|react-icons)[\\/]/,
+            },
             gsap: {
               name: 'gsap',
               chunks: 'initial',

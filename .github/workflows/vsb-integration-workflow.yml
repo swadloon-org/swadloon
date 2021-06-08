@@ -68,28 +68,29 @@ jobs:
       uses: rlespinasse/github-slug-action@v3.x
 
     - name: Check vsb-website Build Status
-      description: https://github.com/asarkar/build-time-tracker/tree/master/.github/workflows
-      run: |
-        output=$(curl -sSL -X GET -G -H "Accept: application/vnd.github.v3+json" -d "branch=${{ env.GITHUB_REF_SLUG }}" -d "event=push" https://api.github.com/repos/${{ github.repository }}/actions/workflows/${{ github.event.inputs.ci_website }}/runs | jq -r '.workflow_runs[0] | "\(.conclusion)"')
-        echo "::set-output name=status_website::$output"
-      id: check
+      uses: ./packages/core-github-actions/built/check-workflow-status
+      with:
+        workflow: ${{ github.event.inputs.ci_website }}
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+      id: check_website
 
     - name: Abort if vsb-website was not successful
-      if: steps.check.outputs.status_website != 'success'
+      if: steps.check_website.outputs.conclusion != 'success'
       run: |
-        echo ${{ steps.check.outputs.status_website }}
+        echo ${{ steps.check_website.outputs.conclusion }}
         exit 1
 
     - name: Check vsb-api Build Status
-      run: |
-        output=$(curl -sSL -X GET -G -H "Accept: application/vnd.github.v3+json" -d "branch=${{ env.GITHUB_REF_SLUG }}" -d "event=push" https://api.github.com/repos/${{ github.repository }}/actions/workflows/${{ github.event.inputs.ci_api }}/runs | jq -r '.workflow_runs[0] | "\(.conclusion)"')
-        echo "::set-output name=status_api::$output"
-      id: check
+      uses: ./packages/core-github-actions/built/check-workflow-status
+      with:
+        workflow: ${{ github.event.inputs.ci_api }}
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+      id: check_api
 
     - name: Abort if vsb-api was not successful
-      if: steps.check.outputs.status_api != 'success'
+      if: steps.check_api.outputs.conclusion != 'success'
       run: |
-        echo ${{ steps.check.outputs.status_api }}
+        echo ${{ steps.check_api.outputs.conclusion }}
         exit 1
 
     - name: Checkout
