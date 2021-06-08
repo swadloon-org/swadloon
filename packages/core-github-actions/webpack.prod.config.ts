@@ -21,6 +21,7 @@ const config: WebpackOptions.WebpackOptions = {
   entry: {
     ['remove-ts-build-cache']: path.resolve(__dirname, 'src/remove-ts-build-cache/index.ts'),
     ['set-app-env']: path.resolve(__dirname, 'src/set-app-env/index.ts'),
+    ['check-workflow-status']: path.resolve(__dirname, 'src/check-workflow-status/index.ts'),
     ['vercel-rewrites']: path.resolve(__dirname, 'src/vercel-rewrites/index.ts'),
   },
   devtool: 'source-map',
@@ -84,6 +85,7 @@ const config: WebpackOptions.WebpackOptions = {
       patterns: [
         { from: 'src/remove-ts-build-cache/action.yml', to: 'remove-ts-build-cache/' },
         { from: 'src/set-app-env/action.yml', to: 'set-app-env/' },
+        { from: 'src/check-workflow-status/action.yml', to: 'check-workflow-status/' },
         { from: 'src/cache-build/action.yml', to: 'cache-build/' },
         { from: 'src/vercel-rewrites/action.yml', to: 'vercel-rewrites/' },
       ],

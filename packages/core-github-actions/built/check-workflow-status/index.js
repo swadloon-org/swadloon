@@ -91,7 +91,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 123);
+/******/ 	return __webpack_require__(__webpack_require__.s = 126);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -17305,7 +17305,10 @@ exports.getAppUrl = getAppUrl;
 
 /***/ }),
 /* 122 */,
-/* 123 */
+/* 123 */,
+/* 124 */,
+/* 125 */,
+/* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17351,7 +17354,7 @@ const github = __importStar(__webpack_require__(32));
 
 const dot_env_1 = __webpack_require__(83);
 
-const action_1 = __webpack_require__(124);
+const action_1 = __webpack_require__(127);
 /**
  * Retrieve env and run the action
  */
@@ -17360,7 +17363,7 @@ const action_1 = __webpack_require__(124);
 action_1.runAction(dot_env_1.env, github.context);
 
 /***/ }),
-/* 124 */
+/* 127 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17396,6 +17399,12 @@ var __importStar = this && this.__importStar || function (mod) {
   __setModuleDefault(result, mod);
 
   return result;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
 };
 
 Object.defineProperty(exports, "__esModule", {
@@ -17407,271 +17416,66 @@ const core = __importStar(__webpack_require__(15));
 
 const github = __importStar(__webpack_require__(32));
 
-const core_common_1 = __webpack_require__(4);
-
-const utilities_1 = __webpack_require__(125);
+const node_fetch_1 = __importDefault(__webpack_require__(33));
 /**
- * `set-app-env` sets the env variables including the host depending on the build context.
- * For example if we have a website with an app and api, the urls would be:
+ * `check-workflow-status` uses the Github API to retrieve the status of a workflow on a particular branch
  *
- *  dev.website.com
- *  dev.api.website.com
- *  dev.app.website.com
- *
- *  pr-422.website.com
- *  pr-422.api.website.com
- *  pr-422.app.website.com
- *
- *  website.com
- *  api.website.com
- *  app.website.com
- *
- * The scheme is [environment].[name].[domain] where
- *
- * - environment is `dev` for the dev branch, `staging` for the main or master branch and `''` for the production branch (release)
- * - name is a label for the package, e.g. 'api', 'docs', 'app'
- * - domain is the root domain name for the project
- *
- * @example
- *  for an `api` application on a PR (#422) branch the url would be
- *  pr-422.api.website.com
- *
- *  for an `app` application on the release branch the url would be
- *  app.website.com
- *
- * @see https://docs.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions
+ * . ./.env && curl -X GET -u $GH_TOKEN:x-oauth-basic 'https://api.github.com/repos/newrade/newrade/actions/workflows/vsb-api-workflow.yml/runs?branch=master&event=push'
  *
  * Note: this action depends on [github-slug-action](https://github.com/rlespinasse/github-slug-action)
  */
 
 
 function runAction(env, githubContext) {
-  if (!env) {
-    throw Error(`env must be passed to ${runAction.name}`);
-  }
-
-  if (!githubContext) {
-    throw Error(`githubContext must be passed to ${runAction.name}`);
-  }
-
-  if (!env.GITHUB_REF_SLUG) {
-    throw Error(`[set-app-env] depends on [rlespinasse/github-slug-action]`);
-  }
-
   try {
-    core.info(`Setting env variables for the current context (event, branch)`);
-    core.info(`Current event is ${githubContext.eventName}`);
-    core.debug(`Initial env variables:`);
-    core.debug(`TEST_ENV: ${env.TEST_ENV}`);
-    core.debug(`APP_ENV: ${env.APP_ENV}`);
-    core.debug(`APP_DOMAIN: ${env.APP_DOMAIN}`);
-    core.debug(`APP_SUBDOMAIN: ${env.APP_SUBDOMAIN}`);
-    core.debug(`APP_BRANCH_SUBDOMAIN: ${env.APP_BRANCH_SUBDOMAIN}`);
-    core.debug(`APP_PROTOCOL: ${env.APP_PROTOCOL}`);
-    core.debug(`APP_HOST: ${env.APP_HOST}`);
-    core.debug(`APP_PORT: ${env.APP_PORT}`);
-    core.debug(`APP_CI_DEPLOY: ${env.APP_CI_DEPLOY}`);
+    if (!env) {
+      throw Error(`env must be passed to ${runAction.name}`);
+    }
+
+    const repo = github.context.repo.repo || 'newrade/newrade';
+    const branch = env.GITHUB_REF_SLUG;
+    const workflow = core.getInput('workflow');
+
+    if (!workflow) {
+      throw Error(`workflow must be provided for this action`);
+    }
+
     core.debug(`Branch that triggered the workflow: ${env.GITHUB_REF_SLUG}`);
-    core.info(`Setting env variables`);
-    utilities_1.exportVariable(env, 'APP_PROTOCOL', 'https'); // always https when deploying
-
-    utilities_1.exportVariable(env, 'APP_PORT', '443'); // always 443 for https
-
-    /**
-     * Build url with `dev|staging|''` for push or workflow dispatch on branches
-     * and `pr-<number>` for PRs
-     */
-
-    if (githubContext.eventName === 'push' || githubContext.eventName == 'workflow_dispatch') {
-      core.info(`Branches without a PR won't be deployed`);
-      utilities_1.exportVariable(env, 'APP_ENV', core_common_1.DEPLOY_ENV.DEV);
-      utilities_1.exportVariable(env, 'APP_CI_DEPLOY', 'false');
-      utilities_1.exportVariable(env, 'APP_BRANCH_SUBDOMAIN', '');
-
-      switch (env.GITHUB_REF_SLUG) {
-        case 'dev':
-          {
-            utilities_1.exportVariable(env, 'APP_ENV', core_common_1.DEPLOY_ENV.DEV);
-            utilities_1.exportVariable(env, 'APP_BRANCH_SUBDOMAIN', 'dev');
-            utilities_1.exportVariable(env, 'APP_CI_DEPLOY', 'true');
-            break;
-          }
-
-        case 'master':
-          {
-            utilities_1.exportVariable(env, 'APP_ENV', core_common_1.DEPLOY_ENV.STAGING);
-            utilities_1.exportVariable(env, 'APP_BRANCH_SUBDOMAIN', 'staging');
-            utilities_1.exportVariable(env, 'APP_CI_DEPLOY', 'true');
-            break;
-          }
-
-        case 'release':
-          {
-            utilities_1.exportVariable(env, 'APP_ENV', core_common_1.DEPLOY_ENV.PRODUCTION);
-            utilities_1.exportVariable(env, 'APP_BRANCH_SUBDOMAIN', '');
-            utilities_1.exportVariable(env, 'APP_CI_DEPLOY', 'true');
-            break;
-          }
-
-        default:
-          {}
+    core.info(`Retrieving workflow status for ${workflow} in repo: ${repo}`);
+    const url = `https://api.github.com/repos/${repo}/actions/workflows/${workflow}/runs?branch=${branch}&event=push`;
+    core.info(`fetching: ${url}`);
+    node_fetch_1.default(url, {
+      method: 'GET',
+      headers: {
+        // @ts-ignore
+        Authorization: `Bearer ${env.GH_TOKEN}`,
+        Accept: 'application/vnd.github.v3+json'
       }
-    }
-
-    if (githubContext.eventName === 'pull_request') {
-      core.debug(`Current branch ref: ${env.GITHUB_HEAD_REF_SLUG}`);
-      core.debug(`Target branch: ${env.GITHUB_BASE_REF_SLUG}`);
-      core.info(`Assigning PR branch sub domain`);
-      utilities_1.exportVariable(env, 'APP_BRANCH_SUBDOMAIN');
-      utilities_1.exportVariable(env, 'APP_CI_DEPLOY', 'true');
-      const prNumber = github.context.issue.number;
-
-      switch (env.GITHUB_BASE_REF_SLUG) {
-        case 'dev':
-          {
-            utilities_1.exportVariable(env, 'APP_ENV', core_common_1.DEPLOY_ENV.DEV);
-            utilities_1.exportVariable(env, 'APP_BRANCH_SUBDOMAIN', `pr-${prNumber}.dev`);
-            break;
-          }
-
-        case 'master':
-          {
-            utilities_1.exportVariable(env, 'APP_ENV', core_common_1.DEPLOY_ENV.STAGING);
-            utilities_1.exportVariable(env, 'APP_BRANCH_SUBDOMAIN', `pr-${prNumber}.staging`);
-            break;
-          }
-
-        case 'release':
-          {
-            utilities_1.exportVariable(env, 'APP_ENV', core_common_1.DEPLOY_ENV.PRODUCTION);
-            utilities_1.exportVariable(env, 'APP_BRANCH_SUBDOMAIN', `pr-${prNumber}`);
-            break;
-          }
-
-        default:
-          {}
+    }).then(result => {
+      if (result.status >= 200 && result.status < 400) {
+        return result.json();
       }
-    }
 
-    utilities_1.exportVariable(env, 'APP_HOST', `${utilities_1.join([env.APP_BRANCH_SUBDOMAIN, env.APP_SUBDOMAIN, env.APP_DOMAIN])}`);
+      core.setFailed(`failed to retrieve runs, status: ${result.status}`);
+    }).then(response => {
+      var _a;
 
-    if (!env.APP_HOST) {
-      throw Error(`APP_HOST cannot be undefined, did you set APP_DOMAIN?`);
-    }
+      if (!((_a = response === null || response === void 0 ? void 0 : response.workflow_runs) === null || _a === void 0 ? void 0 : _a.length)) {
+        core.setFailed(`no runs received for workflow`);
+        return;
+      }
 
-    core.debug(`Output env variables:`);
-    core.debug(`APP_ENV: ${env.APP_ENV}`);
-    core.debug(`APP_DOMAIN: ${env.APP_DOMAIN}`);
-    core.debug(`APP_SUBDOMAIN: ${env.APP_SUBDOMAIN}`);
-    core.debug(`APP_BRANCH_SUBDOMAIN: ${env.APP_BRANCH_SUBDOMAIN}`);
-    core.debug(`APP_PROTOCOL: ${env.APP_PROTOCOL}`);
-    core.debug(`APP_HOST: ${env.APP_HOST}`);
-    core.debug(`APP_PORT: ${env.APP_PORT}`);
+      core.info(response.workflow_runs[0].conclusion);
+      core.setOutput('conclusion', response.workflow_runs[0].conclusion);
+    }).catch(error => {
+      core.setFailed(error.message);
+    }); // output=$(curl -sSL -X GET -G -H "Accept: application/vnd.github.v3+json" -d "branch=${{ env.GITHUB_REF_SLUG }}" -d "event=push" https://api.github.com/repos/${{ github.repository }}/actions/workflows/${{ github.event.inputs.ci_website }}/runs | jq -r '.workflow_runs[0] | "\(.conclusion)"')
   } catch (error) {
     core.setFailed(error.message);
   }
 }
 
 exports.runAction = runAction;
-
-/***/ }),
-/* 125 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
-  if (k2 === undefined) k2 = k;
-  Object.defineProperty(o, k2, {
-    enumerable: true,
-    get: function () {
-      return m[k];
-    }
-  });
-} : function (o, m, k, k2) {
-  if (k2 === undefined) k2 = k;
-  o[k2] = m[k];
-});
-
-var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function (o, v) {
-  Object.defineProperty(o, "default", {
-    enumerable: true,
-    value: v
-  });
-} : function (o, v) {
-  o["default"] = v;
-});
-
-var __importStar = this && this.__importStar || function (mod) {
-  if (mod && mod.__esModule) return mod;
-  var result = {};
-  if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-
-  __setModuleDefault(result, mod);
-
-  return result;
-};
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.join = exports.exportVariable = void 0;
-
-const core = __importStar(__webpack_require__(15));
-
-const core_common_1 = __webpack_require__(4);
-/**
- * Export an env variable using @actions/core's utility (env as any) for tests
- *
- * @param name name of the variable e.g. MY_VAR
- * @param value value that will be converted to a string and assigned
- */
-
-
-function exportVariable(env, name, value) {
-  if (!env) {
-    throw Error(`env must be passed to ${exportVariable.name}`);
-  }
-
-  if (!name) {
-    throw Error(`env name must be defined got: ${name}`);
-  }
-
-  if (!value) {
-    console.info(`env ${name} has value ${value}, it will be converted to empty string ''`);
-  }
-
-  if (env.TEST_ENV === core_common_1.TEST_ENV.CI || env.TEST_ENV === core_common_1.TEST_ENV.LOCAL) {
-    // for test purpose we simply assign
-    if (typeof value === 'undefined' || value === null) {
-      env[name] = '';
-      return;
-    }
-
-    env[name] = value.toString();
-    return;
-  } // not a test so we execute the assignment with the real utility
-
-
-  core.exportVariable(name, `${value}`);
-}
-
-exports.exportVariable = exportVariable;
-
-function join(paths) {
-  if (!paths) {
-    return '';
-  }
-
-  if (!paths.length) {
-    return '';
-  }
-
-  return paths.filter(path => path && path.length > 1).join('.');
-}
-
-exports.join = join;
 
 /***/ })
 /******/ ]);
