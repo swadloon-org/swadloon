@@ -23,15 +23,21 @@ export function runAction(env?: ActionEnv, githubContext?: Context) {
     const repo = github.context.repo.repo || 'newrade/newrade';
     const branch = env.GITHUB_REF_SLUG;
     const workflow = core.getInput('workflow');
+    // https://docs.github.com/en/developers/apps/building-github-apps/authenticating-with-github-apps
+    const token = core.getInput('github-token');
 
     if (!workflow) {
-      throw Error(`workflow must be provided for this action`);
+      throw Error(`"workflow" input must be provided for this action`);
+    }
+
+    if (!token) {
+      throw Error(`"github-token" input must be provided for this action`);
     }
 
     core.debug(`Branch that triggered the workflow: ${env.GITHUB_REF_SLUG}`);
     core.info(`Retrieving workflow status for ${workflow} in repo: ${repo}`);
 
-    const url = `https://api.github.com/repos/${repo}/actions/workflows/${workflow}/runs?branch=${branch}&event=push`;
+    const url = `https://x-access-token:${token}@api.github.com/repos/${repo}/actions/workflows/${workflow}/runs?branch=${branch}&event=push`;
 
     core.info(`fetching: ${url}`);
 

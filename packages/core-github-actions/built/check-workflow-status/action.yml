@@ -9,6 +9,9 @@ inputs:
   workflow:
     description: "The workflow (name-workflow.yml) to check"
     required: true
+  github-token:
+    description: "GH token to allow the action to perform call on the REST API"
+    required: true
 outputs:
   conclusion:
     description: 'The conclusion ("failure" or "success") of the last workflow run'
