@@ -3,7 +3,7 @@ import { DesignSystem, ICON_SIZE } from '@newrade/core-design-system-old';
 
 export const icon = style((theme: DesignSystem) => ({}));
 
-type Styles = { [key in keyof typeof ICON_SIZE]: string };
+type Styles = { [key in ICON_SIZE]: string };
 
 export const large = style((theme: DesignSystem) => ({
   width: theme.iconography.sizes.mobile.large.valueRem,

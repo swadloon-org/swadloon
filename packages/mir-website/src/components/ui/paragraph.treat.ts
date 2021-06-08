@@ -1,7 +1,7 @@
 import { DesignSystem, PARAGRAPH } from '@newrade/core-design-system-old';
 import { style, CSSProperties } from 'treat';
 
-type Styles = { [key in keyof typeof PARAGRAPH]: string };
+type Styles = { [key in PARAGRAPH]: string };
 
 const base: CSSProperties = {
   display: 'block',

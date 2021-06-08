@@ -102,6 +102,7 @@ export const getReactCommonConfig: (options: {
   plugins: [
     // getForkTsCheckerWebpackPlugin(),
     getWebpackCleanPlugin(),
+
     isDevelopment && new webpack.HotModuleReplacementPlugin(),
     isDevelopment && new ReactRefreshWebpackPlugin(),
     !isDevelopment && (new MiniCssExtractPlugin() as unknown as WebpackPluginInstance),

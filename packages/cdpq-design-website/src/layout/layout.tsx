@@ -2,6 +2,7 @@ import loadable from '@loadable/component';
 import {
   Main,
   MainWrapper,
+  useCommonProps,
   useIsSSR,
   useTreatTheme,
   useViewportBreakpoint,
@@ -44,8 +45,10 @@ export const Layout = React.memo<LayoutProps>((props) => {
 
   const { viewport } = useViewportBreakpoint();
 
+  const commonProps = useCommonProps({ classNames: [styles.wrapper] });
+
   return (
-    <MainWrapper className={styles.wrapper}>
+    <MainWrapper {...commonProps}>
       <Main navbarPadding={true}>{props.children}</Main>
     </MainWrapper>
   );

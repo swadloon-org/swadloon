@@ -1,6 +1,5 @@
 import { CSSBorder } from '../../css/border';
-import { BasicCSSProperties } from '../../utilities/types';
-import { SizeCSSVar, SIZING, Sizing, SizingStep } from '../../foundations/sizing';
+import { SIZING } from '../../foundations/sizing';
 
 export enum Variant {
   primary = 'primary',
@@ -39,8 +38,8 @@ export interface ButtonProps {
   state?: ButtonState;
 }
 
-export type ButtonSizes = { [key in keyof typeof ButtonSize]: ButtonSizeStyle };
-export type ButtonVariants = { [key in keyof typeof Variant]: ButtonStyle };
+export type ButtonSizes = { [key in ButtonSize]: ButtonSizeStyle };
+export type ButtonVariants = { [key in Variant]: ButtonStyle };
 
 export interface ButtonStyle {
   color?: string;

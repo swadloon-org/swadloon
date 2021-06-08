@@ -11,14 +11,22 @@ export function getCSSBoxStyle(box: BoxStyle): BoxStyle<string> {
     height: px({ value: box.height }),
     // padding: box.padding,
     border: getCSSBorderStyles(box.border),
+    padding: {},
+    outline: {},
     // outline: box.outline,
     // backgroundColor: box.backgroundColor,
   };
 }
 
-export function getCSSBorderStyles(borders?: BorderStyles): BorderStyles<string> | undefined {
+export function getCSSBorderStyles(borders?: BorderStyles): BorderStyles<string> {
   if (!borders) {
-    return undefined;
+    return {
+      default: {},
+      top: {},
+      right: {},
+      bottom: {},
+      left: {},
+    };
   }
 
   return keys(borders).reduce((previous, current) => {
@@ -103,6 +111,7 @@ export function getCSSVarNameForBox({
         propName: 'left',
       }),
     },
+    // @ts-ignore
     border: {
       default: {
         color: formatter({
@@ -126,6 +135,28 @@ export function getCSSVarNameForBox({
           propName: 'radius',
         }),
       },
+    },
+    outline: {
+      color: formatter({
+        prefix,
+        category: 'out',
+        propName: 'color',
+      }),
+      style: formatter({
+        prefix,
+        category: 'out',
+        propName: 'style',
+      }) as 'solid' | 'dotted',
+      width: formatter({
+        prefix,
+        category: 'out',
+        propName: 'width',
+      }),
+      radius: formatter({
+        prefix,
+        category: 'out',
+        propName: 'radius',
+      }),
     },
   };
 }

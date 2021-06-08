@@ -1,6 +1,6 @@
-import { ColorType } from '../../types';
-import { BoxStyle } from '../atoms/box';
-import { Variant } from '../components.props';
+import { ColorType } from '../types';
+import { BoxStyle } from './box';
+import { Variant } from './components.props';
 
 export enum ButtonAs {
   button = 'button',
@@ -12,7 +12,7 @@ export enum ButtonSize {
   large = 'large',
   medium = 'medium',
   small = 'small',
-  xsmall = 'xSmall',
+  xSmall = 'xSmall',
 }
 
 export enum ButtonIcon {
@@ -51,15 +51,14 @@ export type ButtonColors<Override extends undefined | string = undefined> = {
   outlineColor?: ColorType<Override>;
 };
 
-export type ButtonBoxStyle<Override extends undefined | string = undefined> =
-  BoxStyle<Override> & {};
+export type ButtonBoxStyle<Override extends undefined | string = undefined> = BoxStyle<Override>;
 
 export type ButtonVariants<Override extends undefined | string = undefined> = {
-  [key in keyof typeof Variant]: ButtonColors<Override>;
+  [key in Variant]: ButtonColors<Override>;
 };
 
 export type ButtonSizes<Override extends undefined | string = undefined> = {
-  [key in keyof typeof ButtonSize]: ButtonBoxStyle<Override>;
+  [key in ButtonSize]: ButtonBoxStyle<Override>;
 };
 
 export interface Buttons<Override extends undefined | string = undefined> {

@@ -12,7 +12,7 @@ export const ButtonsSizes: React.FC<Props> = (props) => {
       <Button size={ButtonSize.large}></Button>
       <Button size={ButtonSize.medium}></Button>
       <Button size={ButtonSize.small}></Button>
-      <Button size={ButtonSize.xsmall}></Button>
+      <Button size={ButtonSize.xSmall}></Button>
     </>
   );
 };

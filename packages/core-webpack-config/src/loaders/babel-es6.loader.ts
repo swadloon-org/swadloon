@@ -1,14 +1,14 @@
 import path from 'path';
 import { RuleSetRule, RuleSetUseItem } from 'webpack/declarations/WebpackOptions';
-import { babelPluginConf } from '../babel-plugins.conf';
-import { babelPresetConf } from '../babel-preset.conf';
+import { babelPluginBrowserConf } from '../babel-plugins.conf';
+import { babelPresetBrowserConf } from '../babel-preset.conf';
 
 export const babelReactRule: RuleSetUseItem = {
   loader: 'babel-loader',
   options: {
     cacheDirectory: true,
-    plugins: [...babelPluginConf],
-    presets: [...babelPresetConf],
+    plugins: [...babelPluginBrowserConf],
+    presets: [...babelPresetBrowserConf],
   },
 };
 

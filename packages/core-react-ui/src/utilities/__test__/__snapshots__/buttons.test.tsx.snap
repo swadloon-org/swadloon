@@ -5,29 +5,154 @@ Object {
   "sizes": Object {
     "large": Object {
       "border": Object {
-        "default": Object {
+        "bottom": Object {
           "color": undefined,
+          "radius": "",
+          "style": "solid",
+          "width": undefined,
+        },
+        "default": Object {
+          "color": "hsl(222deg 50% 50% / 100%)",
           "radius": "3px",
           "style": "solid",
           "width": "1px",
         },
+        "left": Object {
+          "color": undefined,
+          "radius": "",
+          "style": "solid",
+          "width": undefined,
+        },
+        "right": Object {
+          "color": undefined,
+          "radius": "",
+          "style": "solid",
+          "width": undefined,
+        },
+        "top": Object {
+          "color": undefined,
+          "radius": "",
+          "style": "solid",
+          "width": undefined,
+        },
       },
       "height": "0px",
+      "outline": Object {},
+      "padding": Object {},
       "width": "0px",
     },
     "medium": Object {
-      "border": undefined,
+      "border": Object {
+        "bottom": Object {
+          "color": undefined,
+          "radius": "",
+          "style": "solid",
+          "width": undefined,
+        },
+        "default": Object {
+          "color": "hsl(222deg 50% 50% / 100%)",
+          "radius": "3px",
+          "style": "solid",
+          "width": "1px",
+        },
+        "left": Object {
+          "color": undefined,
+          "radius": "",
+          "style": "solid",
+          "width": undefined,
+        },
+        "right": Object {
+          "color": undefined,
+          "radius": "",
+          "style": "solid",
+          "width": undefined,
+        },
+        "top": Object {
+          "color": undefined,
+          "radius": "",
+          "style": "solid",
+          "width": undefined,
+        },
+      },
       "height": "0px",
+      "outline": Object {},
+      "padding": Object {},
       "width": "0px",
     },
     "small": Object {
-      "border": undefined,
+      "border": Object {
+        "bottom": Object {
+          "color": undefined,
+          "radius": "",
+          "style": "solid",
+          "width": undefined,
+        },
+        "default": Object {
+          "color": "hsl(222deg 50% 50% / 100%)",
+          "radius": "3px",
+          "style": "solid",
+          "width": "1px",
+        },
+        "left": Object {
+          "color": undefined,
+          "radius": "",
+          "style": "solid",
+          "width": undefined,
+        },
+        "right": Object {
+          "color": undefined,
+          "radius": "",
+          "style": "solid",
+          "width": undefined,
+        },
+        "top": Object {
+          "color": undefined,
+          "radius": "",
+          "style": "solid",
+          "width": undefined,
+        },
+      },
       "height": "0px",
+      "outline": Object {},
+      "padding": Object {},
       "width": "0px",
     },
-    "xsmall": Object {
-      "border": undefined,
+    "xSmall": Object {
+      "border": Object {
+        "bottom": Object {
+          "color": undefined,
+          "radius": "",
+          "style": "solid",
+          "width": undefined,
+        },
+        "default": Object {
+          "color": "hsl(222deg 50% 50% / 100%)",
+          "radius": "3px",
+          "style": "solid",
+          "width": "1px",
+        },
+        "left": Object {
+          "color": undefined,
+          "radius": "",
+          "style": "solid",
+          "width": undefined,
+        },
+        "right": Object {
+          "color": undefined,
+          "radius": "",
+          "style": "solid",
+          "width": undefined,
+        },
+        "top": Object {
+          "color": undefined,
+          "radius": "",
+          "style": "solid",
+          "width": undefined,
+        },
+      },
       "height": "0px",
+      "outline": Object {},
+      "padding": Object {},
       "width": "0px",
     },
   },
@@ -44,6 +169,12 @@ Object {
           },
         },
         "height": "var(--btn-lg-height)",
+        "outline": Object {
+          "color": "var(--btn-lg-out-color)",
+          "radius": "var(--btn-lg-out-radius)",
+          "style": "var(--btn-lg-out-style)",
+          "width": "var(--btn-lg-out-width)",
+        },
         "padding": Object {
           "bottom": "var(--btn-lg-pad-bottom)",
           "default": "var(--btn-lg-pad)",
@@ -64,6 +195,12 @@ Object {
           },
         },
         "height": "var(--btn-md-height)",
+        "outline": Object {
+          "color": "var(--btn-md-out-color)",
+          "radius": "var(--btn-md-out-radius)",
+          "style": "var(--btn-md-out-style)",
+          "width": "var(--btn-md-out-width)",
+        },
         "padding": Object {
           "bottom": "var(--btn-md-pad-bottom)",
           "default": "var(--btn-md-pad)",
@@ -84,6 +221,12 @@ Object {
           },
         },
         "height": "var(--btn-s-height)",
+        "outline": Object {
+          "color": "var(--btn-s-out-color)",
+          "radius": "var(--btn-s-out-radius)",
+          "style": "var(--btn-s-out-style)",
+          "width": "var(--btn-s-out-width)",
+        },
         "padding": Object {
           "bottom": "var(--btn-s-pad-bottom)",
           "default": "var(--btn-s-pad)",
@@ -93,7 +236,7 @@ Object {
         },
         "width": "var(--btn-s-width)",
       },
-      "xsmall": Object {
+      "xSmall": Object {
         "backgroundColor": "var(--btn-xs-bg-color)",
         "border": Object {
           "default": Object {
@@ -104,6 +247,12 @@ Object {
           },
         },
         "height": "var(--btn-xs-height)",
+        "outline": Object {
+          "color": "var(--btn-xs-out-color)",
+          "radius": "var(--btn-xs-out-radius)",
+          "style": "var(--btn-xs-out-style)",
+          "width": "var(--btn-xs-out-width)",
+        },
         "padding": Object {
           "bottom": "var(--btn-xs-pad-bottom)",
           "default": "var(--btn-xs-pad)",
@@ -172,6 +321,12 @@ Object {
           },
         },
         "height": "--btn-lg-height",
+        "outline": Object {
+          "color": "--btn-lg-out-color",
+          "radius": "--btn-lg-out-radius",
+          "style": "--btn-lg-out-style",
+          "width": "--btn-lg-out-width",
+        },
         "padding": Object {
           "bottom": "--btn-lg-pad-bottom",
           "default": "--btn-lg-pad",
@@ -192,6 +347,12 @@ Object {
           },
         },
         "height": "--btn-md-height",
+        "outline": Object {
+          "color": "--btn-md-out-color",
+          "radius": "--btn-md-out-radius",
+          "style": "--btn-md-out-style",
+          "width": "--btn-md-out-width",
+        },
         "padding": Object {
           "bottom": "--btn-md-pad-bottom",
           "default": "--btn-md-pad",
@@ -212,6 +373,12 @@ Object {
           },
         },
         "height": "--btn-s-height",
+        "outline": Object {
+          "color": "--btn-s-out-color",
+          "radius": "--btn-s-out-radius",
+          "style": "--btn-s-out-style",
+          "width": "--btn-s-out-width",
+        },
         "padding": Object {
           "bottom": "--btn-s-pad-bottom",
           "default": "--btn-s-pad",
@@ -221,7 +388,7 @@ Object {
         },
         "width": "--btn-s-width",
       },
-      "xsmall": Object {
+      "xSmall": Object {
         "backgroundColor": "--btn-xs-bg-color",
         "border": Object {
           "default": Object {
@@ -232,6 +399,12 @@ Object {
           },
         },
         "height": "--btn-xs-height",
+        "outline": Object {
+          "color": "--btn-xs-out-color",
+          "radius": "--btn-xs-out-radius",
+          "style": "--btn-xs-out-style",
+          "width": "--btn-xs-out-width",
+        },
         "padding": Object {
           "bottom": "--btn-xs-pad-bottom",
           "default": "--btn-xs-pad",

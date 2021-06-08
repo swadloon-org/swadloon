@@ -1,8 +1,4 @@
-import { ColorType, RadiusType, SizeType } from '../../types';
-
-/**
- * NOTE: not currently used
- */
+import { ColorType, RadiusType, SizeType } from '../types';
 
 export type Padding<Override extends undefined | string = undefined> = {
   default?: SizeType<Override>;
@@ -20,16 +16,16 @@ export type Border<Override extends undefined | string = undefined> = {
 };
 
 export type BorderStyles<Override extends undefined | string = undefined> = {
-  default?: Border<Override>;
-  top?: Border<Override>;
-  right?: Border<Override>;
-  bottom?: Border<Override>;
-  left?: Border<Override>;
+  default: Border<Override>;
+  top: Border<Override>;
+  right: Border<Override>;
+  bottom: Border<Override>;
+  left: Border<Override>;
 };
 
-export type Outline<Override extends undefined | string = undefined> = {
+export type OutlineStyles<Override extends undefined | string = undefined> = {
   color?: ColorType<Override>;
-  style?: 'solid' | 'dotted';
+  style?: Override extends string ? string : 'solid' | 'dotted';
   width?: SizeType<Override>;
   radius?: RadiusType<Override>;
 };
@@ -37,14 +33,8 @@ export type Outline<Override extends undefined | string = undefined> = {
 export type BoxStyle<Override extends undefined | string = undefined> = {
   width?: SizeType<Override>;
   height?: SizeType<Override>;
-  padding?: Padding<Override>;
-  border?: BorderStyles<Override>;
-  outline?: {
-    default?: Outline<Override>;
-    top?: Outline<Override>;
-    right?: Outline<Override>;
-    bottom?: Outline<Override>;
-    left?: Outline<Override>;
-  };
+  padding: Padding<Override>;
+  border: BorderStyles<Override>;
+  outline: OutlineStyles<Override>;
   backgroundColor?: ColorType<Override>;
 };

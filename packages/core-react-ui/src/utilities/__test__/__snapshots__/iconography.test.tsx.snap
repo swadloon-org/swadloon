@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`iconography utilities getCSSIconography should create a valid CSS typography object 1`] = `
+Object {
+  "sizes": Object {
+    "desktop": Object {
+      "large": "48px",
+      "medium": "24px",
+      "small": "16px",
+    },
+    "mobile": Object {
+      "large": "48px",
+      "medium": "24px",
+      "small": "16px",
+    },
+    "tablet": Object {
+      "large": "48px",
+      "medium": "24px",
+      "small": "16px",
+    },
+  },
+  "style": "SOLID",
+}
+`;

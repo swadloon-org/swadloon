@@ -24,16 +24,16 @@ export enum ICON_SIZE {
   small = 'small',
 }
 
-export type IconSizes = { [key in keyof typeof ICON_SIZE]: SizingStep };
+export type IconSizes = { [key in ICON_SIZE]: SizingStep };
 
-// export type Icons = { [key in keyof typeof ICON_NAME]: Icon } & { [key: string]: Icon };
+// export type Icons = { [key in ICON_NAME]: Icon } & { [key: string]: Icon };
 
 export interface Iconography {
   /**
    * Icon size for each viewport.
    */
   sizes: {
-    [key in keyof typeof VIEWPORT]: IconSizes;
+    [key in VIEWPORT]: IconSizes;
   };
   /**
    * Default icon infos (name and optionally weight) along with

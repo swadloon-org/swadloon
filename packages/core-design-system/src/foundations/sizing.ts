@@ -28,7 +28,7 @@ export type SizingStep = number;
  * Definition of the sizing steps for each viewport.
  */
 export type SizingSteps<Override extends undefined | string = undefined> = {
-  [key in keyof typeof VIEWPORT]: { [key in SIZE]: Override extends string ? string : SizingStep };
+  [key in VIEWPORT]: { [key in SIZE]: Override extends string ? string : SizingStep };
 };
 
 /**

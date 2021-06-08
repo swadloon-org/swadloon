@@ -164,7 +164,7 @@ export const Patients: React.FC<Props> = ({ id, style, className, ...props }) =>
             </Link>
             <Button
               variant={Variant.tertiary}
-              size={ButtonSize.xsmall}
+              size={ButtonSize.xSmall}
               icon={ButtonIcon.icon}
               aria-label="copy"
               Icon={<IoCopyOutline />}
@@ -189,7 +189,7 @@ export const Patients: React.FC<Props> = ({ id, style, className, ...props }) =>
             </Link>
             <Button
               variant={Variant.tertiary}
-              size={ButtonSize.xsmall}
+              size={ButtonSize.xSmall}
               icon={ButtonIcon.icon}
               aria-label="copy"
               Icon={<IoCopyOutline />}

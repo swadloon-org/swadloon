@@ -98,9 +98,9 @@ export type Variants = {
 //       [key in VariantName]: Variant;
 //     };
 
-export type AnimationCurves = { [key in keyof typeof ANIMATION_CURVE]: string };
-export type AnimationDurations = { [key in keyof typeof ANIMATION_DURATION]: number };
-export type AnimationTypes = { [key in keyof typeof ANIMATION_TYPE]: Animation };
+export type AnimationCurves = { [key in ANIMATION_CURVE]: string };
+export type AnimationDurations = { [key in ANIMATION_DURATION]: number };
+export type AnimationTypes = { [key in ANIMATION_TYPE]: Animation };
 
 export interface Animations {
   curves: AnimationCurves;

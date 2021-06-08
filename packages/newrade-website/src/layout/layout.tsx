@@ -21,6 +21,7 @@ import {
   NavItem,
   Paragraph,
   Stack,
+  useCommonProps,
   useIsSSR,
   useTreatTheme,
   useViewportBreakpoint,
@@ -30,6 +31,7 @@ import { IoClose } from '@react-icons/all-files/io5/IoClose';
 import { PageProps } from 'gatsby';
 import React, { ReactNode, useEffect, useState } from 'react';
 import { useStyles } from 'react-treat';
+// import { themeClassName } from '../design-system/theme.css';
 import { useCompanyInfo, usePagesNavigation } from '../hooks/use-layout-data';
 import LogoSymbol from '../images/logo-symbol.svg';
 import LogoText from '../images/logo-text.svg';
@@ -101,8 +103,10 @@ export const Layout = React.memo<LayoutProps>((props) => {
     };
   }, [viewport]);
 
+  const commonProps = useCommonProps({ classNames: [styles.wrapper] });
+
   return (
-    <MainWrapper className={styles.wrapper}>
+    <MainWrapper {...commonProps}>
       <NavBar
         HomeLink={<GatsbyLink to={'/'} />}
         MobileSvgLogo={<LogoText height={20} />}

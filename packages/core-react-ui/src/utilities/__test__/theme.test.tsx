@@ -7,8 +7,6 @@ describe('theme utilities', () => {
       const defaultCSSTheme = createCSSTheme(defaultTheme);
       expect(defaultCSSTheme.name).toMatchSnapshot();
       expect(defaultCSSTheme.variation).toMatchSnapshot();
-      expect(defaultCSSTheme.colors).toMatchSnapshot();
-      expect(defaultCSSTheme.typography).toMatchSnapshot();
     });
   });
 });

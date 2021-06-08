@@ -1,10 +1,10 @@
 import { ButtonSize, DesignSystem } from '@newrade/core-design-system-old';
 import { style } from 'treat';
 
-type ButtonVariantStyles = { [key in keyof typeof ButtonSize]: string };
-type ButtonSizeStyles = { [key in keyof typeof ButtonSize]: string };
-type ButtonIconStyles = { [key in keyof typeof ButtonSize]: string };
-type ButtonStateStyles = { [key in keyof typeof ButtonSize]: string };
+type ButtonVariantStyles = { [key in ButtonSize]: string };
+type ButtonSizeStyles = { [key in ButtonSize]: string };
+type ButtonIconStyles = { [key in ButtonSize]: string };
+type ButtonStateStyles = { [key in ButtonSize]: string };
 type Styles = ButtonSizeStyles;
 type AllStyles = ButtonVariantStyles | ButtonSizeStyles | ButtonIconStyles | ButtonStateStyles;
 

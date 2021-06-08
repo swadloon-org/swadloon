@@ -9,6 +9,7 @@ export const iconsMapping: {
     [ICON.ARROW_RIGHT]: 'IoArrowForwardOutline',
   },
   [ICON_FAMILY.OCTICONS]: {
+    [ICON.ARROW_UP]: 'GoArrowRight',
     [ICON.ARROW_RIGHT]: 'GoArrowRight',
   },
 };
