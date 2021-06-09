@@ -14,7 +14,7 @@ inputs:
     required: true
 outputs:
   conclusion:
-    description: 'The conclusion ("failure" or "success") of the last workflow run'
+    description: 'The conclusion ("failure", "success", or "skip") of the last workflow run'
 runs:
   using: 'node12'
   main: 'index.js'

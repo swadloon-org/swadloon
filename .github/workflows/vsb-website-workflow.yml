@@ -127,6 +127,7 @@ jobs:
       if: ${{ env.APP_CI_DEPLOY }}
       uses: amondnet/vercel-action@v20
       with:
+        github-comment: false
         scope: ${{ secrets.VERCEL_SCOPE }}
         vercel-token: ${{ secrets.VERCEL_TOKEN }}
         github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -137,9 +138,18 @@ jobs:
         alias-domains: |
           ${{ env.APP_HOST }}
 
-    - name: Trigger Integration Workflow
+    - name: Trigger Integration Workflow (branch)
+      if: ${{ github.event_name == 'push' }}
       uses: benc-uk/workflow-dispatch@v1
       with:
         workflow: vsb-integration
+        token: ${{ secrets.PERSONAL_GH_TOKEN }}
+
+    - name: Trigger Integration Workflow (PR)
+      if: ${{ github.event_name == 'pull_request' }}
+      uses: benc-uk/workflow-dispatch@v1
+      with:
+        workflow: vsb-integration
+        ref: ${{ github.event.pull_request.head.ref }}
         token: ${{ secrets.PERSONAL_GH_TOKEN }}
 
