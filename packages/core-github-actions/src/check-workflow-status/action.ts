@@ -58,16 +58,20 @@ export function runAction(env?: ActionEnv, githubContext?: Context) {
         const workflowRuns = response.workflow_runs;
 
         if (!workflowRuns?.length) {
-          core.info(`no runs received for workflow, skipping`);
+          core.info(`no runs received for workflow, skipping...`);
           core.setOutput('conclusion', 'skip');
           return;
         }
 
-        const workflowConclusion = workflowRuns[0].conclusion
-          ? workflowRuns[0].conclusion
-          : 'failure';
-
+        const workflowConclusion = workflowRuns[0].conclusion;
         core.info(`conclusion: ${workflowConclusion}`);
+
+        if (!workflowConclusion) {
+          core.info(`conclusion was null, skipping`);
+          core.setOutput('conclusion', 'skip');
+          return;
+        }
+
         core.setOutput('conclusion', workflowConclusion);
       })
       .catch((error) => {
