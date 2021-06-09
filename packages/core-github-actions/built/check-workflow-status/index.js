@@ -17432,7 +17432,7 @@ function runAction(env, githubContext) {
       throw Error(`env must be passed to ${runAction.name}`);
     }
 
-    const repo = github.context.repo.repo || 'newrade/newrade';
+    const repo = `${github.context.repo.owner}/${github.context.repo.repo}`;
     const branch = env.GITHUB_REF_SLUG;
     const workflow = core.getInput('workflow'); // https://docs.github.com/en/developers/apps/building-github-apps/authenticating-with-github-apps
 
@@ -17453,8 +17453,6 @@ function runAction(env, githubContext) {
     node_fetch_1.default(url, {
       method: 'GET',
       headers: {
-        // @ts-ignore
-        Authorization: `Bearer ${env.GH_TOKEN}`,
         Accept: 'application/vnd.github.v3+json'
       }
     }).then(result => {
@@ -17464,18 +17462,20 @@ function runAction(env, githubContext) {
 
       core.setFailed(`failed to retrieve runs, status: ${result.status}`);
     }).then(response => {
-      var _a;
+      const workflowRuns = response.workflow_runs;
 
-      if (!((_a = response === null || response === void 0 ? void 0 : response.workflow_runs) === null || _a === void 0 ? void 0 : _a.length)) {
-        core.setFailed(`no runs received for workflow`);
+      if (!(workflowRuns === null || workflowRuns === void 0 ? void 0 : workflowRuns.length)) {
+        core.info(`no runs received for workflow, skipping`);
+        core.setOutput('conclusion', 'skip');
         return;
       }
 
-      core.info(response.workflow_runs[0].conclusion);
-      core.setOutput('conclusion', response.workflow_runs[0].conclusion);
+      const workflowConclusion = workflowRuns[0].conclusion ? workflowRuns[0].conclusion : 'failure';
+      core.info(`conclusion: ${workflowConclusion}`);
+      core.setOutput('conclusion', workflowConclusion);
     }).catch(error => {
       core.setFailed(error.message);
-    }); // output=$(curl -sSL -X GET -G -H "Accept: application/vnd.github.v3+json" -d "branch=${{ env.GITHUB_REF_SLUG }}" -d "event=push" https://api.github.com/repos/${{ github.repository }}/actions/workflows/${{ github.event.inputs.ci_website }}/runs | jq -r '.workflow_runs[0] | "\(.conclusion)"')
+    });
   } catch (error) {
     core.setFailed(error.message);
   }

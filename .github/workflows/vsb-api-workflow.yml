@@ -123,6 +123,7 @@ jobs:
       if: ${{ env.APP_CI_DEPLOY }}
       uses: amondnet/vercel-action@v20
       with:
+        github-comment: false
         scope: ${{ secrets.VERCEL_SCOPE }}
         vercel-token: ${{ secrets.VERCEL_TOKEN }}
         github-token: ${{ secrets.GITHUB_TOKEN }}
