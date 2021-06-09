@@ -87,7 +87,7 @@ export const colorsColors: Colors['colors'] = {
   effectTransparentLight: { h: 0, s: 0, l: 0, a: 10 },
   effectTransparentMedium: { h: 0, s: 0, l: 0, a: 10 },
   effectTransparentHeavy: { h: 0, s: 0, l: 0, a: 13 },
-  utilityBlue: {
+  utilityNeutral: {
     '900': { h: 204, s: 100, l: 15 },
     '700': { h: 203, s: 100, l: 29 },
     '500': { h: 203, s: 100, l: 38 },

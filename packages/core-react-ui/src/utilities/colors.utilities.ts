@@ -74,10 +74,10 @@ export function getCSSColors(colors: DS.Colors): CSSColors {
       effectTransparentLight: getCSSColor(colors.colors.effectTransparentLight),
       effectTransparentMedium: getCSSColor(colors.colors.effectTransparentMedium),
       effectTransparentHeavy: getCSSColor(colors.colors.effectTransparentHeavy),
-      utilityBlue: getCSSColorPalette({
-        palette: colors.colors.utilityBlue,
-        baseHue: colorVar.colors.utilityBlue.baseHue,
-        baseSat: colorVar.colors.utilityBlue.baseSat,
+      utilityNeutral: getCSSColorPalette({
+        palette: colors.colors.utilityNeutral,
+        baseHue: colorVar.colors.utilityNeutral.baseHue,
+        baseSat: colorVar.colors.utilityNeutral.baseSat,
       }),
       utilityGreen: getCSSColorPalette({
         palette: colors.colors.utilityGreen,
@@ -333,6 +333,10 @@ export function getDefaultColorIntents(colors: DS.Colors['colors']): DS.ColorInt
     disabledText: colors.grey['400'],
     disabledTextReversed: colors.grey['100'],
 
+    infoText: colors.utilityNeutral['900'],
+    infoAction: colors.utilityNeutral['500'],
+    infoBackground: colors.utilityNeutral['100'],
+
     successText: colors.utilityGreen['900'],
     successAction: colors.utilityGreen['500'],
     successBackground: colors.utilityGreen['100'],
@@ -372,6 +376,10 @@ export function getDefaultCSSVarColorIntents({ colors }: CSSColorsVars): DS.Colo
     tertiaryTextReversed: colors.grey['0-reversed'],
     disabledText: colors.grey['400'],
     disabledTextReversed: colors.grey['100'],
+
+    infoText: colors.utilityNeutral['900'],
+    infoAction: colors.utilityNeutral['500'],
+    infoBackground: colors.utilityNeutral['100'],
 
     successText: colors.utilityGreen['900'],
     successAction: colors.utilityGreen['500'],

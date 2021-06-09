@@ -82,7 +82,7 @@ export const colorsColors: Colors['colors'] = {
   effectTransparentLight: { h: 0, s: 0, l: 0, a: 10 },
   effectTransparentMedium: { h: 0, s: 0, l: 0, a: 10 },
   effectTransparentHeavy: { h: 0, s: 0, l: 0, a: 13 },
-  utilityBlue: generateColorPalette5({
+  utilityNeutral: generateColorPalette5({
     color: { h: 112, s: 71, l: 53 },
     light: 90,
     dark: 5,

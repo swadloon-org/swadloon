@@ -6,7 +6,7 @@ import { CSSLayout } from './css-layout';
 import { CSSSizing } from './css-sizing';
 import { CSSTypography } from './css-typography';
 
-export type CSSDesignSystem = Omit<DesignSystem<string>, 'iconography' | 'animations'> & {
+export type CSSDesignSystem = Omit<DesignSystem<string>, 'animations'> & {
   colors: CSSColors;
   sizing: CSSSizing;
   typography: CSSTypography;
