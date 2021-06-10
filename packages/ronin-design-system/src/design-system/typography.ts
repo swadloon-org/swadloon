@@ -2,7 +2,7 @@ import { Font, Fonts, TEXT_TRANSFORM, Typography } from '@newrade/core-design-sy
 import { defaultTypography } from '@newrade/core-react-ui/lib/default-theme';
 
 const fontSans: Font = {
-  name: 'AvenirNext LT Pro',
+  name: 'Open Sans',
   fontMetrics: {
     capHeight: 708,
     ascent: 756,
@@ -12,28 +12,16 @@ const fontSans: Font = {
   },
 };
 
-const fontSansAlternate: Font = {
-  name: 'Neue Montreal',
-  fontMetrics: {
-    capHeight: 715,
-    ascent: 975,
-    descent: -225,
-    lineGap: 0,
-    unitsPerEm: 1000,
-  },
-};
-
 export const fonts: Fonts = {
   ...defaultTypography.fonts,
   sans: [fontSans, ...defaultTypography.fonts.sans],
-  sansAlternate: [fontSansAlternate, ...defaultTypography.fonts.sans],
 };
 
 export const typography: Typography = {
   fonts,
   titles: {
-    font: [fontSansAlternate, ...defaultTypography.fonts.sans],
-    fontWeight: 500,
+    font: [fontSans, ...defaultTypography.fonts.sans],
+    fontWeight: 600,
     mobile: {
       t1: {
         capHeight: 28,
@@ -66,8 +54,8 @@ export const typography: Typography = {
     },
   },
   headings: {
-    font: [fontSansAlternate, ...defaultTypography.fonts.sans],
-    fontWeight: 500,
+    font: [fontSans, ...defaultTypography.fonts.sans],
+    fontWeight: 600,
     mobile: {
       h1: {
         capHeight: 24,
@@ -128,7 +116,7 @@ export const typography: Typography = {
     fontWeight: 400,
     styles: {
       bold: {
-        fontWeight: 500,
+        fontWeight: 700,
       },
       italic: {
         fontWeight: 400,
@@ -192,18 +180,18 @@ export const typography: Typography = {
   },
   labels: {
     font: [fontSans, ...defaultTypography.fonts.sans],
-    fontWeight: 500,
+    fontWeight: 400,
     styles: {
       bold: {
-        fontWeight: 500,
+        fontWeight: 700,
       },
       boldUppercase: {
-        fontWeight: 500,
+        fontWeight: 700,
         textTransform: TEXT_TRANSFORM.uppercase,
         letterSpacing: 10,
       },
       uppercase: {
-        fontWeight: 500,
+        fontWeight: 400,
         textTransform: TEXT_TRANSFORM.uppercase,
         letterSpacing: 10,
       },
