@@ -10,8 +10,4 @@ tags:
 
 ## Table of Contents
 
-This is the home of CDPQ design team's documentation.
-
-## UX
-
-## UI
+This is the home of Alto Infra's Documentation

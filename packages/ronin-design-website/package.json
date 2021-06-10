@@ -1,13 +1,13 @@
 {
   "name": "@newrade/ronin-design-website",
   "version": "1.0.0",
-  "description": "Gatsby website for CDPQ's design system website",
+  "description": "Gatsby website for RoninPOS's design system website",
   "author": {
     "email": "info@newrade.ca",
     "name": "Newrade",
     "url": "https://github.com/newrade/newrade"
   },
-  "repository": "https://github.com/newrade/newrade/tree/master/packages/cdpq-design-website",
+  "repository": "https://github.com/newrade/newrade/tree/master/packages/ronin-design-website",
   "license": "MIT",
   "scripts": {
     "prebuild": "yarn typecheck:build",
@@ -28,10 +28,10 @@
   },
   "eslintConfig": {},
   "dependencies": {
-    "@newrade/cdpq-design-system": "^1",
     "@newrade/core-design-system": "^1.10.1",
     "@newrade/core-gsap-ui": "^1.1.7",
     "@newrade/core-react-ui": "^1.14.0",
+    "@newrade/ronin-design-system": "^1",
     "gatsby": "^2.32.13"
   },
   "devDependencies": {

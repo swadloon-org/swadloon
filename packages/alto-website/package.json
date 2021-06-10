@@ -1,13 +1,13 @@
 {
-  "name": "@newrade/alto-design-website",
+  "name": "@newrade/alto-website",
   "version": "1.0.0",
-  "description": "Gatsby website for CDPQ's design system website",
+  "description": "Alto Infra main website",
   "author": {
     "email": "info@newrade.ca",
     "name": "Newrade",
     "url": "https://github.com/newrade/newrade"
   },
-  "repository": "https://github.com/newrade/newrade/tree/master/packages/cdpq-design-website",
+  "repository": "https://github.com/newrade/newrade/tree/master/packages/alto-website",
   "license": "MIT",
   "scripts": {
     "prebuild": "yarn typecheck:build",

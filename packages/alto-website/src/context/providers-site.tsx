@@ -1,5 +1,5 @@
 import { MDXProvider } from '@mdx-js/react';
-import { cssTheme, theme } from '@newrade/cdpq-design-system';
+import { cssTheme, theme } from '@newrade/alto-design-system';
 import { TreatThemeProvider, viewportContext, ViewportProvider } from '@newrade/core-react-ui';
 import { GlobalCSSVariables } from '@newrade/core-react-ui/lib/global/global-css-variables';
 import { GlobalResetCSS } from '@newrade/core-react-ui/lib/global/global-reset-css';

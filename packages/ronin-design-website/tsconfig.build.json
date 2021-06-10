@@ -18,7 +18,7 @@
       "path": "../core-design-system/tsconfig.build.json"
     },
     {
-      "path": "../cdpq-design-system/tsconfig.build.json"
+      "path": "../ronin-design-system/tsconfig.build.json"
     },
     {
       "path": "../core-webpack-config/tsconfig.build.json"

@@ -46,8 +46,8 @@ const config: core.GastbySiteConfig = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `CDPQ Design Website`,
-        short_name: `CDPQ DS`,
+        name: `Alto Infra`,
+        short_name: `Alto Infra`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#6061EC`,

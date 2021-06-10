@@ -46,8 +46,8 @@ const config: core.GastbySiteConfig = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `CDPQ Design Website`,
-        short_name: `CDPQ DS`,
+        name: `RoninPOS Design Website`,
+        short_name: `RoninPOS DS`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#6061EC`,
