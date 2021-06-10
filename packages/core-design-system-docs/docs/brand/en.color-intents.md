@@ -11,6 +11,7 @@ tags:
 
 <!-- prettier-ignore -->
 import { TextColorIntents } from '../../src/code/text-color-intents.code';
+import { ButtonColors } from '../../src/code/action-button-colors.code';
 import { UtilitySuccessColorIntents } from '../../src/code/utility-success-color-intents.code';
 import { UtilityWarningColorIntents } from '../../src/code/utility-warning-color-intents.code';
 import { UtilityDangerColorIntents } from '../../src/code/utility-danger-color-intents.code';
@@ -31,6 +32,10 @@ import { BackgroundColorIntents } from '../../src/code/background-color-intents.
 ## Effects
 
 ## Action
+
+<ThemeWrapper>
+  <ButtonColors/>
+</ThemeWrapper>
 
 ## Accessibility
 
