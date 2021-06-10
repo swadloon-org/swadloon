@@ -8,20 +8,24 @@ export const UtilitySuccessColorIntents: React.FC<Props> = (props) => {
 
   return (
     <Stack>
-      <Stack>
-        <ColorPalette
-          colorName={'Success Text'}
-          colorOrPalette={theme.colors.colorIntents.successText}
-        ></ColorPalette>
-        <ColorPalette
-          colorName={'Success Action'}
-          colorOrPalette={theme.colors.colorIntents.successAction}
-        ></ColorPalette>
-        <ColorPalette
-          colorName={'Success Background'}
-          colorOrPalette={theme.colors.colorIntents.successBackground}
-        ></ColorPalette>
-      </Stack>
+      <ColorPalette
+        colorName={''}
+        colorOrPalette={{
+          successText: theme.colors.colorIntents.successText,
+        }}
+      ></ColorPalette>
+      <ColorPalette
+        colorName={''}
+        colorOrPalette={{
+          successAction: theme.colors.colorIntents.successAction,
+        }}
+      ></ColorPalette>
+      <ColorPalette
+        colorName={''}
+        colorOrPalette={{
+          successBackground: theme.colors.colorIntents.successBackground,
+        }}
+      ></ColorPalette>
     </Stack>
   );
 };

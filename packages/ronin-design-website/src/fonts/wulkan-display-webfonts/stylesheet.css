@@ -1,0 +1,108 @@
+@font-face {
+    font-family: 'Wulkan Display CDPQ';
+    src: url('WulkanDisplayCDPQ-BoldItalic.woff2') format('woff2'),
+        url('WulkanDisplayCDPQ-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Wulkan Display CDPQ';
+    src: url('WulkanDisplayCDPQ-BlackItalic.woff2') format('woff2'),
+        url('WulkanDisplayCDPQ-BlackItalic.woff') format('woff');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Wulkan Display CDPQ';
+    src: url('WulkanDisplayCDPQ-Regular.woff2') format('woff2'),
+        url('WulkanDisplayCDPQ-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Wulkan Display CDPQ';
+    src: url('WulkanDisplayCDPQ-Italic.woff2') format('woff2'),
+        url('WulkanDisplayCDPQ-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Wulkan Display CDPQ';
+    src: url('WulkanDisplayCDPQ-Light.woff2') format('woff2'),
+        url('WulkanDisplayCDPQ-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Wulkan Display CDPQ';
+    src: url('WulkanDisplayCDPQ-MediumItalic.woff2') format('woff2'),
+        url('WulkanDisplayCDPQ-MediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Wulkan Display CDPQ';
+    src: url('WulkanDisplayCDPQ-Medium.woff2') format('woff2'),
+        url('WulkanDisplayCDPQ-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Wulkan Display CDPQ';
+    src: url('WulkanDisplayCDPQ-Black.woff2') format('woff2'),
+        url('WulkanDisplayCDPQ-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Wulkan Display CDPQ';
+    src: url('WulkanDisplayCDPQ-LightItalic.woff2') format('woff2'),
+        url('WulkanDisplayCDPQ-LightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Wulkan Display CDPQ';
+    src: url('WulkanDisplayCDPQ-Bold.woff2') format('woff2'),
+        url('WulkanDisplayCDPQ-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Wulkan Display CDPQ';
+    src: url('WulkanDisplayCDPQ-SemiBold.woff2') format('woff2'),
+        url('WulkanDisplayCDPQ-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Wulkan Display CDPQ';
+    src: url('WulkanDisplayCDPQ-SemiBoldItalic.woff2') format('woff2'),
+        url('WulkanDisplayCDPQ-SemiBoldItalic.woff') format('woff');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+

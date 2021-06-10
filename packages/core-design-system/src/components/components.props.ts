@@ -11,4 +11,5 @@ export enum Variant {
   secondaryReversed = 'secondaryReversed',
   tertiary = 'tertiary',
   tertiaryReversed = 'tertiaryReversed',
+  fourth = 'fourth',
 }

@@ -9,16 +9,22 @@ export const UtilityDangerColorIntents: React.FC<Props> = (props) => {
   return (
     <Stack>
       <ColorPalette
-        colorName={'Danger Text'}
-        colorOrPalette={theme.colors.colorIntents.dangerText}
+        colorName={''}
+        colorOrPalette={{
+          dangerText: theme.colors.colorIntents.dangerText,
+        }}
       ></ColorPalette>
       <ColorPalette
-        colorName={'Danger Action'}
-        colorOrPalette={theme.colors.colorIntents.dangerAction}
+        colorName={''}
+        colorOrPalette={{
+          dangerWarning: theme.colors.colorIntents.dangerAction,
+        }}
       ></ColorPalette>
       <ColorPalette
-        colorName={'Danger Background'}
-        colorOrPalette={theme.colors.colorIntents.dangerBackground}
+        colorName={''}
+        colorOrPalette={{
+          dangerBackground: theme.colors.colorIntents.dangerBackground,
+        }}
       ></ColorPalette>
     </Stack>
   );

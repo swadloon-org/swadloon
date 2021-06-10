@@ -42,6 +42,7 @@ export type ColorPalette<ColorShades extends string = ColorShadesGrey, ColorType
   /**
    * Base color for the palette
    */
+
   baseHue?: Color['h'];
   baseSat?: Color['s'];
 };

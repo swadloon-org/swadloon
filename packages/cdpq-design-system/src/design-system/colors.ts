@@ -119,6 +119,7 @@ export const colorsColors: Colors['colors'] = {
 
 export const colorIntents: ColorIntents = {
   ...getDefaultColorIntents(colorsColors),
+<<<<<<< Updated upstream
   primaryText: colorsColors.grey[1000],
   secondaryText: colorsColors.grey[800],
   tertiaryText: colorsColors.grey[700],
@@ -132,7 +133,13 @@ export const colorIntents: ColorIntents = {
   dangerText: colorsColors.utilityYellow[900],
   dangerAction: colorsColors.utilityYellow[500],
   dangerBackground: colorsColors.utilityYellow[100],
+=======
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
   backgroundDisabled: colorsColors.grey[25],
+=======
+  disabledText: colorsColors.grey[25],
+>>>>>>> Stashed changes
 };
 
 export const colors: Colors = {

@@ -1,0 +1,13 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "allowJs": true,
+    "noEmit": true,
+    "types": ["node"],
+    "baseUrl": ".",
+    "paths": {
+      "@newrade/*": ["../*/src"]
+    }
+  },
+  "exclude": ["**/node_modules/**/*", "**/dist/**/*", "**/lib/**/*"]
+}

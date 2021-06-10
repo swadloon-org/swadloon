@@ -36,9 +36,7 @@ const fontSerif: Font = {
 
 export const fonts: Fonts = {
   ...defaultTypography.fonts,
-  sans: [fontSans, ...defaultTypography.fonts.sans],
   sansAlternate: [fontSansAlternate, ...defaultTypography.fonts.sans],
-  serif: [fontSerif, ...defaultTypography.fonts.serif],
 };
 
 export const typography: Typography = {
@@ -78,7 +76,7 @@ export const typography: Typography = {
     },
   },
   headings: {
-    font: [fontSerif, ...defaultTypography.fonts.serif],
+    font: [fontSans, ...defaultTypography.fonts.sans],
     fontWeight: 500,
     mobile: {
       h1: {

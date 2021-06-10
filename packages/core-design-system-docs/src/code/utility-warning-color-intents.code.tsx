@@ -9,16 +9,22 @@ export const UtilityWarningColorIntents: React.FC<Props> = (props) => {
   return (
     <Stack>
       <ColorPalette
-        colorName={'Warning Text'}
-        colorOrPalette={theme.colors.colorIntents.warningText}
+        colorName={''}
+        colorOrPalette={{
+          warningText: theme.colors.colorIntents.warningText,
+        }}
       ></ColorPalette>
       <ColorPalette
-        colorName={'Warning Action '}
-        colorOrPalette={theme.colors.colorIntents.warningAction}
+        colorName={''}
+        colorOrPalette={{
+          warningAction: theme.colors.colorIntents.warningAction,
+        }}
       ></ColorPalette>
       <ColorPalette
-        colorName={'Warning Background'}
-        colorOrPalette={theme.colors.colorIntents.warningBackground}
+        colorName={''}
+        colorOrPalette={{
+          warningBackground: theme.colors.colorIntents.warningBackground,
+        }}
       ></ColorPalette>
     </Stack>
   );
