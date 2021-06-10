@@ -17,25 +17,16 @@ import { createTag } from '../../common-type/tag';
 import { createTagType } from '../../common-type/tag-type';
 
 const program: Migration.MigrationFunction = function Program(migration) {
-  /**
-   * Atoms
-   */
   createTranslation(migration);
   createLink(migration);
   createMedia(migration);
   createTagType(migration);
 
   createTag(migration);
-  /**
-   * Molecules
-   */
 
   createBlock(migration);
   createMediaCollection(migration);
 
-  /**
-   * Organisms
-   */
   createBlogAuthor(migration);
   createBlogPost(migration);
   createCompanyAddress(migration);

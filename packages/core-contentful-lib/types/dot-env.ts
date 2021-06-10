@@ -17,7 +17,7 @@ export const Env = t.intersection([
      * Contentful variables
      */
     CONTENTFUL_MIGRATION_FILE: t.string,
-    CONTENTFUL_PROJECT_PATH: t.string,
+    CONTENTFUL_PROJECT_NAME: t.string,
     CONTENTFUL_SPACEID: t.string,
     CONTENTFUL_MANAGEMENT_TOKEN: t.string,
     CONTENTFUL_ENV: t.string,

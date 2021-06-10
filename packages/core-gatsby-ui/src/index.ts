@@ -16,6 +16,8 @@ export * from './docs-components/font-showcase';
 export * from './docs-components/logo-placeholder';
 export * from './docs-components/loren-ipsum';
 export * from './docs-components/page-header';
+export * from './docs-components/icon-box';
+export * from './docs-components/icons';
 export * from './docs-components/placeholder';
 export * from './docs-components/placeholder-markdown';
 export * from './docs-components/reversed-box';

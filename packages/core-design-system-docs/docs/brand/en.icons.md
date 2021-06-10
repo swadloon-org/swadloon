@@ -13,7 +13,8 @@ tags:
 <!-- CODE IMPORTS -->
 
 <!-- prettier-ignore -->
-import { IconArrows } from '../../src/code/icon-arrows.code';
+import { ICON, ICON_SIZE } from '@newrade/core-design-system';
+import { IconSizes } from '../../src/code/icon-sizes.code';
 import { IconsImportExample } from '../../src/code/icons-import-example.code';
 import IconsImportExampleCode from '!!raw-loader!../../src/code/icons-import-example.code';
 
@@ -21,11 +22,25 @@ import IconsImportExampleCode from '!!raw-loader!../../src/code/icons-import-exa
 
 <DocHeader props={props}/>
 
-## Icons
+## Sizes
 
-### Arrows
+The design system defines 3 sizes of icons, for each viewport.
 
-<IconArrows/>
+#### Large
+
+<IconSizes size={ICON_SIZE.large}/>
+
+#### Medium
+
+<IconSizes size={ICON_SIZE.medium}/>
+
+#### Small
+
+<IconSizes size={ICON_SIZE.small}/>
+
+## Icons Preview
+
+<Icons/>
 
 ## Setup Example
 

@@ -7,6 +7,7 @@ import {
   Details,
   Grid,
   Heading,
+  Icon,
   Label,
   Link,
   ListItem,
@@ -30,6 +31,8 @@ import React from 'react';
 import { BlockMarkdown } from '../blocks/block-markdown';
 import { DocHeader } from '../context/doc-header';
 import { DocTags } from '../context/doc-tags';
+import { IconBox } from '../docs-components/icon-box';
+import { Icons } from '../docs-components/icons';
 import { Placeholder } from '../docs-components/placeholder';
 import { PlaceholderMarkdown } from '../docs-components/placeholder-markdown';
 import { SectionBase } from '../sections/section-base';
@@ -91,4 +94,7 @@ export const docsMdxComponents = {
   DocTags: DocTags,
   DocHeader: DocHeader,
   TagStatus: TagStatus,
+  Icon: Icon,
+  IconBox: IconBox,
+  Icons: Icons,
 };

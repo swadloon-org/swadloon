@@ -19,13 +19,7 @@ export function createBlock(migration: Migration.default) {
   content.createField(COMMON_FIELD.NAME, {
     name: pascal(COMMON_FIELD.NAME),
     type: 'Symbol',
-    localized: true,
-  });
-
-  content.createField(COMMON_FIELD.DESCRIPTION, {
-    name: pascal(COMMON_FIELD.DESCRIPTION),
-    type: 'Text',
-    localized: true,
+    localized: false,
   });
 
   /**
@@ -37,9 +31,6 @@ export function createBlock(migration: Migration.default) {
     type: 'Symbol',
     validations: [
       {
-        /**
-         * TODO CHANGE FOR GENERIC AND CUSTOM
-         */
         in: keys(Variant),
       },
     ],
@@ -57,9 +48,6 @@ export function createBlock(migration: Migration.default) {
     type: 'Symbol',
     validations: [
       {
-        /**
-         * TODO CHANGE FOR GENERIC AND CUSTOM
-         */
         in: keys(BlockType),
       },
     ],

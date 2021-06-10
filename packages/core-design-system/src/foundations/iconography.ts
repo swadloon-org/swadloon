@@ -7,20 +7,31 @@ import { VIEWPORT } from './layout';
  *    MENU = 'menu' would mean that a menu.svg icon exists in src/icons/
  */
 export enum ICON {
+  /**
+   * Arrows
+   */
   ARROW_UP = 'ARROW_UP',
   ARROW_RIGHT = 'ARROW_RIGHT',
   ARROW_DOWN = 'ARROW_DOWN',
   ARROW_LEFT = 'ARROW_LEFT',
+  /**
+   * Chevrons
+   */
+  CHEVRON_LEFT = 'CHEVRON_LEFT',
+  /**
+   * Essentials
+   */
   MENU = 'MENU',
+  /**
+   * Checkboxes
+   */
   CHECKBOX_BOX = 'CHECKBOX_BOX',
   CHECK = 'CHECK',
+  /**
+   * Radio
+   */
   RADIO = 'RADIO',
   CIRCLE = 'CIRCLE',
-}
-
-export enum ICON_STYLE {
-  SOLID = 'SOLID',
-  LINE = 'LINE',
 }
 
 export enum ICON_WEIGHT {
@@ -39,10 +50,6 @@ export type IconSizes<Override extends undefined | string = undefined> = {
 };
 
 export interface Iconography<Override extends undefined | string = undefined> {
-  /**
-   * Variation of the icon set
-   */
-  style?: ICON_STYLE;
   /**
    * Icon size for each viewport.
    */
