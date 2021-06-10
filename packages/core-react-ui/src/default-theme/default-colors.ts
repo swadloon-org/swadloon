@@ -30,7 +30,7 @@ export const defaultColorsColors: Colors['colors'] = {
     dark: 20,
   }),
   accent3: generateColorPalette5({
-    color: { h: 200, s: 50, l: 50 },
+    color: { h: 0, s: 0, l: 50 },
     light: 90,
     dark: 20,
   }),

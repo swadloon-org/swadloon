@@ -1,6 +1,6 @@
-import { cssTheme, theme } from '@newrade/cdpq-design-system';
-import LogoSymbol from '@newrade/cdpq-design-system/lib/assets/logo-symbol.svg';
-import Logo from '@newrade/cdpq-design-system/lib/assets/logo.svg';
+import { cssTheme, theme } from '@newrade/alto-design-system';
+import Logo from '@newrade/alto-design-system/lib/assets/logo-standard.svg';
+import LogoSymbol from '@newrade/alto-design-system/lib/assets/logo-symbol.svg';
 import { GatsbyCommonPageContext } from '@newrade/core-gatsby-config';
 import { LazyLayoutDesignSystem, LazyLayoutDocs } from '@newrade/core-gatsby-ui/src';
 import { PageProps, WrapPageElementBrowserArgs } from 'gatsby';

@@ -1,8 +1,9 @@
 import { ColorIntents, Colors } from '@newrade/core-design-system';
-import { defaultColors } from '@newrade/core-react-ui/lib/default-theme';
+import { defaultColors, defaultColorsColors } from '@newrade/core-react-ui/lib/default-theme';
 import { getDefaultColorIntents } from '@newrade/core-react-ui/lib/utilities';
 
 export const colorsColors: Colors['colors'] = {
+  ...defaultColorsColors,
   current: 'currentColor',
   transparent: {
     h: 0,
@@ -31,46 +32,7 @@ export const colorsColors: Colors['colors'] = {
     '300': { h: 279, s: 60, l: 80 },
     '100': { h: 277, s: 62, l: 95 },
   },
-  //not used
-  accent3: {
-    '900': { h: 223, s: 55, l: 19 },
-    '700': { h: 228, s: 43, l: 30 },
-    '500': { h: 228, s: 42, l: 40 },
-    '300': { h: 228, s: 42, l: 55 },
-    '100': { h: 227, s: 42, l: 78 },
-  },
-  //not used
-  accent4: {
-    '900': { h: 3, s: 52, l: 16 },
-    '700': { h: 2, s: 51, l: 33 },
-    '500': { h: 2, s: 52, l: 44 },
-    '300': { h: 2, s: 52, l: 58 },
-    '100': { h: 2, s: 51, l: 79 },
-  },
-  //not used
-  accent5: {
-    '900': { h: 36, s: 91, l: 25 },
-    '700': { h: 36, s: 91, l: 58 },
-    '500': { h: 36, s: 91, l: 67 },
-    '300': { h: 36, s: 91, l: 79 },
-    '100': { h: 36, s: 90, l: 92 },
-  },
-  //not used
-  accent6: {
-    '900': { h: 317, s: 38, l: 15 },
-    '700': { h: 317, s: 39, l: 22 },
-    '500': { h: 317, s: 40, l: 29 },
-    '300': { h: 317, s: 39, l: 47 },
-    '100': { h: 316, s: 38, l: 73 },
-  },
-  //not used
-  accent7: {
-    '900': { h: 206, s: 27, l: 20 },
-    '700': { h: 205, s: 27, l: 41 },
-    '500': { h: 205, s: 27, l: 54 },
-    '300': { h: 204, s: 27, l: 66 },
-    '100': { h: 206, s: 28, l: 89 },
-  },
+
   grey: {
     '1000': { h: 240, s: 2, l: 8 },
     '900': { h: 240, s: 2, l: 18 },
