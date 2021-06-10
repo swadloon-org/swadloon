@@ -1,8 +1,8 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
 import { CONTENTFUL_WIDGET } from '../../types/contentful-widget-ids';
-import { COMMON_CONTENT_TYPE } from '../common-type/common-content-types';
-import { COMMON_FIELD } from '../common-type/common-fields';
+import { COMMON_CONTENT_TYPE } from './common-content-types';
+import { COMMON_FIELD } from './common-fields';
 
 export function createNavigation(migration: Migration.default) {
   const content = migration.createContentType(COMMON_CONTENT_TYPE.NAVIGATION, {

@@ -1,9 +1,9 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
 import { CONTENTFUL_WIDGET } from '../../types/contentful-widget-ids';
-import { COMMON_CONTENT_TYPE } from '../common-type/common-content-types';
-import { COMMON_FIELD, mediaField } from '../common-type/common-fields';
-import { BlockType, Variant } from '../common-type/common-variants';
+import { COMMON_CONTENT_TYPE } from './common-content-types';
+import { COMMON_FIELD, mediaField } from './common-fields';
+import { BlockType, Variant } from './common-variants';
 import { keys } from '../utilities';
 
 export function createBlock(migration: Migration.default) {

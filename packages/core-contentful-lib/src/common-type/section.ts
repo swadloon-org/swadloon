@@ -1,9 +1,9 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
 import { CONTENTFUL_WIDGET } from '../../types/contentful-widget-ids';
-import { COMMON_CONTENT_TYPE } from '../common-type/common-content-types';
-import { COMMON_FIELD } from '../common-type/common-fields';
-import { SectionLayout, Variant } from '../common-type/common-variants';
+import { COMMON_CONTENT_TYPE } from './common-content-types';
+import { COMMON_FIELD } from './common-fields';
+import { SectionLayout, Variant } from './common-variants';
 import { keys } from '../utilities';
 
 export function createSection(migration: Migration.default) {
