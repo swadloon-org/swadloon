@@ -18,9 +18,6 @@ export interface ColorIntents<Override extends undefined | string = undefined> {
   secondary: ColorType<Override>;
   secondaryReversed: ColorType<Override>;
 
-  tertiary: ColorType<Override>;
-  tertiaryReversed: ColorType<Override>;
-
   primaryText: ColorType<Override>;
   primaryTextReversed: ColorType<Override>;
 
