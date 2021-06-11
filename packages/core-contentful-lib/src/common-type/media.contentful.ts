@@ -1,15 +1,15 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
 import { CONTENTFUL_WIDGET } from '../../types/contentful-widget-ids';
-import { COMMON_CONTENT_TYPE } from '../common-type/common-content-types';
-import { COMMON_FIELD } from '../common-type/common-fields';
+import { CONTENT_TYPE } from '@newrade/core-gatsby-ui/src';
+import { COMMON_FIELD } from './common-fields.contentful';
 
 /**
  * A MediaCollection holds one or more media (images, videos) to be used in banners, carousels
  */
 export const createMedia: Migration.MigrationFunction = function (migration) {
-  const content = migration.createContentType(COMMON_CONTENT_TYPE.MEDIA, {
-    name: pascal(COMMON_CONTENT_TYPE.MEDIA),
+  const content = migration.createContentType(CONTENT_TYPE.MEDIA, {
+    name: pascal(CONTENT_TYPE.MEDIA),
     displayField: COMMON_FIELD.NAME,
   });
 

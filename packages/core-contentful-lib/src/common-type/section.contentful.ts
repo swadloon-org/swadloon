@@ -1,14 +1,15 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
 import { CONTENTFUL_WIDGET } from '../../types/contentful-widget-ids';
-import { COMMON_CONTENT_TYPE } from './common-content-types';
-import { COMMON_FIELD } from './common-fields';
-import { SectionLayout, Variant } from './common-variants';
+import { CONTENT_TYPE } from '@newrade/core-gatsby-ui/src';
+import { COMMON_FIELD } from './common-fields.contentful';
+import { Variant } from '@newrade/core-design-system';
+import { SectionLayout } from '@newrade/core-gatsby-ui/src';
 import { keys } from '../utilities';
 
 export function createSection(migration: Migration.default) {
-  const content = migration.createContentType(COMMON_CONTENT_TYPE.SECTION, {
-    name: COMMON_CONTENT_TYPE.SECTION,
+  const content = migration.createContentType(CONTENT_TYPE.SECTION, {
+    name: CONTENT_TYPE.SECTION,
     description: 'Configurable object for sections in a page.',
     displayField: COMMON_FIELD.NAME,
   });
@@ -41,7 +42,7 @@ export function createSection(migration: Migration.default) {
       },
     ],
   });
-  content.changeFieldControl(COMMON_FIELD.VARIANT, 'builtin', CONTENTFUL_WIDGET.DROPDOWN, {
+  content.changeFieldControl(COMMON_FIELD.VARIANT, 'builtin', CONTENTFUL_WIDGET.RADIO, {
     helpText: 'Select section variant',
   });
 
@@ -79,7 +80,7 @@ export function createSection(migration: Migration.default) {
        * TODO change to custom block and basic block
        */
 
-      validations: [{ linkContentType: [COMMON_CONTENT_TYPE.BLOCK] }],
+      validations: [{ linkContentType: [CONTENT_TYPE.BLOCK] }],
     },
   });
 

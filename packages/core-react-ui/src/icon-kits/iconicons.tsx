@@ -1,4 +1,4 @@
-import { ICON } from '@newrade/core-design-system';
+import { Icon } from '@newrade/core-design-system';
 import {
   IoAddCircle,
   IoArrowBackOutline,
@@ -13,16 +13,16 @@ import {
 } from 'react-icons/io5';
 import { IconComponents } from '../icons/icons-provider';
 
-export const ionicons5Kit: IconComponents<ICON> = {
-  [ICON.ARROW_UP]: IoArrowUpOutline,
-  [ICON.ARROW_DOWN]: IoArrowDownOutline,
-  [ICON.ARROW_LEFT]: IoArrowBackOutline,
-  [ICON.ARROW_RIGHT]: IoArrowForwardOutline,
-  [ICON.CHEVRON_LEFT]: IoChevronBackOutline,
-  [ICON.CHECK]: IoCheckmarkOutline,
-  [ICON.CHECKBOX_BOX]: IoCheckboxOutline,
-  [ICON.CIRCLE]: IoAddCircle,
-  [ICON.MENU]: IoMenuOutline,
-  [ICON.RADIO]: IoRadioButtonOnOutline,
-  [ICON.RADIO]: IoRadioButtonOnOutline,
+export const ionicons5Kit: IconComponents<Icon> = {
+  [Icon.arrowUp]: IoArrowUpOutline,
+  [Icon.arrowDown]: IoArrowDownOutline,
+  [Icon.arrowLeft]: IoArrowBackOutline,
+  [Icon.arrowRight]: IoArrowForwardOutline,
+  [Icon.chevronLeft]: IoChevronBackOutline,
+  [Icon.check]: IoCheckmarkOutline,
+  [Icon.checkboxBox]: IoCheckboxOutline,
+  [Icon.circle]: IoAddCircle,
+  [Icon.menu]: IoMenuOutline,
+  [Icon.radio]: IoRadioButtonOnOutline,
+  [Icon.radio]: IoRadioButtonOnOutline,
 };

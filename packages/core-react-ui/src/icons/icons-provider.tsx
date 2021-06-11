@@ -1,5 +1,5 @@
 import { LoadableComponent } from '@loadable/component';
-import { ICON } from '@newrade/core-design-system';
+import { Icon } from '@newrade/core-design-system';
 import { IconContext as ReactIconContext } from '@react-icons/all-files';
 import React from 'react';
 import { CommonComponentProps } from '../props/component-common.props';
@@ -11,7 +11,7 @@ export interface IconBaseProps extends React.SVGAttributes<SVGElement> {
   title?: string;
 }
 
-export type DynamicIconImport = (iconName: ICON) => LoadableComponent<any> | React.ElementType;
+export type DynamicIconImport = (iconName: Icon) => LoadableComponent<any> | React.ElementType;
 export type IconComponents<Icons extends string | undefined = undefined> = {
   [key in Icons extends string ? Icons : string]: (props: IconBaseProps) => JSX.Element;
 };

@@ -1,4 +1,4 @@
-import { Variant } from '@newrade/core-design-system/src';
+import { Variant } from '@newrade/core-design-system';
 import { BlockMarkdown, SectionStatement } from '@newrade/core-gatsby-ui/src';
 import { PlaceholderMarkdown } from '@newrade/core-gatsby-ui/src/docs-components/placeholder-markdown';
 import { Heading, useTreatTheme } from '@newrade/core-react-ui';

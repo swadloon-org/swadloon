@@ -1,12 +1,12 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
 import { CONTENTFUL_WIDGET } from '../../types/contentful-widget-ids';
-import { COMMON_CONTENT_TYPE } from '../common-type/common-content-types';
-import { COMMON_FIELD, mediaField } from '../common-type/common-fields';
+import { CONTENT_TYPE } from '@newrade/core-gatsby-ui/src';
+import { COMMON_FIELD, mediaField } from './common-fields.contentful';
 
 export const createPortfolioClient: Migration.MigrationFunction = function (migration) {
-  const content = migration.createContentType(COMMON_CONTENT_TYPE.PORTFOLIO_CLIENT, {
-    name: COMMON_CONTENT_TYPE.PORTFOLIO_CLIENT,
+  const content = migration.createContentType(CONTENT_TYPE.PORTFOLIO_CLIENT, {
+    name: CONTENT_TYPE.PORTFOLIO_CLIENT,
     displayField: COMMON_FIELD.NAME,
   });
 

@@ -1,20 +1,20 @@
 import * as Migration from 'contentful-migration';
-import { createTranslation } from '../../common-type/field-translation';
-import { createBlock } from '../../common-type/block';
-import { createBlogAuthor } from '../../common-type/blog-author';
-import { createNavigation } from '../../common-type/navigation';
-import { createSection } from '../../common-type/section';
+import { createTranslation } from '../../common-type/field-translation.contentful';
+import { createBlock } from '../../common-type/block.contentful';
+import { createBlogAuthor } from '../../common-type/blog-author.contentful';
+import { createNavigation } from '../../common-type/navigation.contentful';
+import { createSection } from '../../common-type/section.contentful';
 import { createBlogPost } from '../../common-type';
-import { createCompanyAddress } from '../../common-type/company-address';
-import { createCompanyInfo } from '../../common-type/company-info';
-import { createLink } from '../../common-type/link';
-import { createMedia } from '../../common-type/media';
-import { createMediaCollection } from '../../common-type/media-collection';
-import { createPage } from '../../common-type/page';
-import { createPortfolioClient } from '../../common-type/portfolio-client';
-import { createPortfolioProject } from '../../common-type/portfolio-project';
-import { createTag } from '../../common-type/tag';
-import { createTagType } from '../../common-type/tag-type';
+import { createCompanyAddress } from '../../common-type/company-address.contentful';
+import { createCompanyInfo } from '../../common-type/company-info.contentful';
+import { createLink } from '../../common-type/link.contentful';
+import { createMedia } from '../../common-type/media.contentful';
+import { createMediaCollection } from '../../common-type/media-collection.contentful';
+import { createPage } from '../../common-type/page.contentful';
+import { createPortfolioClient } from '../../common-type/portfolio-client.contentful';
+import { createPortfolioProject } from '../../common-type/portfolio-project.contentful';
+import { createTag } from '../../common-type/tag.contentful';
+import { createTagType } from '../../common-type/tag-type.contentful';
 
 const program: Migration.MigrationFunction = function Program(migration) {
   createTranslation(migration);

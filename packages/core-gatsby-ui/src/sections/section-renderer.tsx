@@ -3,7 +3,7 @@ import { keys } from '@newrade/core-react-ui/lib/utilities';
 import debug from 'debug';
 import React, { PropsWithChildren } from 'react';
 import { useInView } from 'react-intersection-observer';
-import { SectionAPI } from '../api/section.api';
+import { SectionAPI, SectionLayout } from '../api/section.api';
 import { BlockRenderer } from '../blocks/block-renderer';
 import { SectionBanner } from './section-banner';
 import { SectionDivider } from './section-divider';
@@ -12,7 +12,7 @@ import { SectionShowcase } from './section-showcase';
 import { SectionStack } from './section-stack';
 import { SectionStatement } from './section-statement';
 import { SectionSwitcher } from './section-switcher';
-import { SectionLayout, SectionProps, SectionRendererProps } from './section.props';
+import { SectionProps, SectionRendererProps } from './section.props';
 
 const log = debug('newrade:core-gatsby-ui:section-renderer');
 const logWarn = log.extend('warn');

@@ -1,6 +1,40 @@
 import { Variant } from '@newrade/core-design-system';
 import { BlockAPI } from '../api/block.api';
-import { SectionBaseLayout, SectionLayout, SectionPadding } from '../sections/section.props';
+
+export enum SectionBaseLayout {
+  /**
+   * Will honor the content margins.
+   */
+  center = 'center',
+  /**
+   * Will take up all width available.
+   */
+  fullWidth = 'fullWidth',
+}
+
+/**
+ * Predefined section paddings
+ */
+export enum SectionPadding {
+  large = 'large',
+  medium = 'medium',
+  small = 'small',
+  none = 'none',
+}
+
+/**
+ * Predefined section layouts
+ */
+export enum SectionLayout {
+  switcher = 'switcher',
+  statement = 'statement',
+  stack = 'stack',
+  divider = 'divider',
+  banner = 'banner',
+  callout = 'callout',
+  showcase = 'showcase',
+  messenger = 'messenger',
+}
 
 export type SectionAPI = {
   /**

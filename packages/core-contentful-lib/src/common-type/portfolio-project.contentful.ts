@@ -1,12 +1,12 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
 import { CONTENTFUL_WIDGET } from '../../types/contentful-widget-ids';
-import { COMMON_CONTENT_TYPE } from '../common-type/common-content-types';
-import { COMMON_FIELD, mediaField } from '../common-type/common-fields';
+import { CONTENT_TYPE } from '@newrade/core-gatsby-ui/src';
+import { COMMON_FIELD, mediaField } from './common-fields.contentful';
 
 export const createPortfolioProject: Migration.MigrationFunction = function (migration) {
-  const content = migration.createContentType(COMMON_CONTENT_TYPE.PORTFOLIO_PROJECT, {
-    name: COMMON_CONTENT_TYPE.PORTFOLIO_PROJECT,
+  const content = migration.createContentType(CONTENT_TYPE.PORTFOLIO_PROJECT, {
+    name: CONTENT_TYPE.PORTFOLIO_PROJECT,
     displayField: COMMON_FIELD.TITLE,
   });
 
@@ -85,7 +85,7 @@ export const createPortfolioProject: Migration.MigrationFunction = function (mig
     items: {
       type: 'Link',
       linkType: 'Entry',
-      validations: [{ linkContentType: [COMMON_CONTENT_TYPE.TAG] }],
+      validations: [{ linkContentType: [CONTENT_TYPE.TAG] }],
     },
   });
   /**
@@ -97,7 +97,7 @@ export const createPortfolioProject: Migration.MigrationFunction = function (mig
     items: {
       type: 'Link',
       linkType: 'Entry',
-      validations: [{ linkContentType: [COMMON_CONTENT_TYPE.PORTFOLIO_CLIENT] }],
+      validations: [{ linkContentType: [CONTENT_TYPE.PORTFOLIO_CLIENT] }],
     },
   });
 };

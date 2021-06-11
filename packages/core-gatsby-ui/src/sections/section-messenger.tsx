@@ -8,9 +8,10 @@ import {
 } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
+import { SectionBaseLayout, SectionPadding } from '../api/section.api';
 import { SectionBase } from './section-base';
 import * as styleRefs from './section-messenger.treat';
-import { SectionBaseLayout, SectionPadding, SectionProps } from './section.props';
+import { SectionProps } from './section.props';
 
 type Props = CommonComponentProps &
   SectionProps & {

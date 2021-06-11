@@ -6,37 +6,37 @@ import { VIEWPORT } from './layout';
  * @example
  *    MENU = 'menu' would mean that a menu.svg icon exists in src/icons/
  */
-export enum ICON {
+export enum Icon {
   /**
    * Arrows
    */
-  ARROW_UP = 'ARROW_UP',
-  ARROW_RIGHT = 'ARROW_RIGHT',
-  ARROW_DOWN = 'ARROW_DOWN',
-  ARROW_LEFT = 'ARROW_LEFT',
+  arrowUp = 'arrowUp',
+  arrowRight = 'arrowRight',
+  arrowDown = 'arrowDown',
+  arrowLeft = 'arrowLeft',
   /**
    * Chevrons
    */
-  CHEVRON_LEFT = 'CHEVRON_LEFT',
+  chevronLeft = 'chevronLeft',
   /**
    * Essentials
    */
-  MENU = 'MENU',
+  menu = 'menu',
   /**
    * Checkboxes
    */
-  CHECKBOX_BOX = 'CHECKBOX_BOX',
-  CHECK = 'CHECK',
+  checkboxBox = 'checkboxBox',
+  check = 'check',
   /**
    * Radio
    */
-  RADIO = 'RADIO',
-  CIRCLE = 'CIRCLE',
+  radio = 'radio',
+  circle = 'circle',
 }
 
 export enum ICON_WEIGHT {
-  NORMAL = 'NORMAL',
-  LIGHT = 'LIGHT',
+  NORMAL = 'normal',
+  LIGHT = 'light',
 }
 
 export enum ICON_SIZE {

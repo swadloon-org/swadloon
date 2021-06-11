@@ -1,11 +1,11 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
-import { COMMON_CONTENT_TYPE } from './common-content-types';
-import { COMMON_FIELD } from './common-fields';
+import { CONTENT_TYPE } from '@newrade/core-gatsby-ui/src';
+import { COMMON_FIELD } from './common-fields.contentful';
 
-export const createTranslation: Migration.MigrationFunction = function (migration) {
-  const content = migration.createContentType(COMMON_CONTENT_TYPE.TRANSLATION, {
-    name: COMMON_CONTENT_TYPE.TRANSLATION,
+export const createTranslation: Migration.MigrationFunction = function (migration, context) {
+  const content = migration.createContentType(CONTENT_TYPE.TRANSLATION, {
+    name: CONTENT_TYPE.TRANSLATION,
     description: 'Configurable object for translation purpose.',
     displayField: COMMON_FIELD.KEY,
   });
@@ -20,5 +20,6 @@ export const createTranslation: Migration.MigrationFunction = function (migratio
     name: pascal(COMMON_FIELD.VALUE),
     type: 'Symbol',
     localized: true,
+    required: true,
   });
 };

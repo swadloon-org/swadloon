@@ -1,4 +1,13 @@
 import { ButtonIcon, PARAGRAPH_SIZE, Variant } from '@newrade/core-design-system';
+import {
+  Button,
+  Cluster,
+  Link,
+  Paragraph,
+  Stack,
+  useCommonProps,
+  useTreatTheme,
+} from '@newrade/core-react-ui';
 import { IoLogoFacebook } from '@react-icons/all-files/io5/IoLogoFacebook';
 import { IoLogoInstagram } from '@react-icons/all-files/io5/IoLogoInstagram';
 import { IoLogoLinkedin } from '@react-icons/all-files/io5/IoLogoLinkedin';
@@ -6,17 +15,10 @@ import { IoLogoTwitter } from '@react-icons/all-files/io5/IoLogoTwitter';
 import React from 'react';
 import { useContainerQuery } from 'react-container-query';
 import { useStyles } from 'react-treat';
-import { Button } from '../button/button';
-import { useCommonProps } from '../hooks/use-common-props.hook';
-import { useTreatTheme } from '../hooks/use-treat-theme';
-import { Cluster } from '../layout/cluster';
-import { Stack } from '../layout/stack';
-import { CommonComponentProps } from '../props/component-common.props';
-import { Link } from '../text/link';
-import { Paragraph } from '../text/paragraph';
 import * as styleRefs from './footer-simple.treat';
+import { FooterProps } from './footer.props';
 
-type Props = CommonComponentProps & {
+type Props = FooterProps & {
   MenuLinks?: React.ReactNode;
   SocialLinks?: React.ReactNode;
   Copyright?: React.ReactNode;

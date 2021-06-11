@@ -1,5 +1,5 @@
-import { ICON } from '@newrade/core-design-system';
-import { Icon, useTreatTheme } from '@newrade/core-react-ui';
+import { Icon } from '@newrade/core-design-system';
+import { IconComp, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 
 type Props = {};
@@ -9,8 +9,8 @@ export const IconsImportExample: React.FC<Props> = (props) => {
 
   return (
     <>
-      <Icon name={ICON.ARROW_UP} />
-      <Icon name={ICON.ARROW_RIGHT} />
+      <IconComp name={Icon.arrowUp} />
+      <IconComp name={Icon.arrowRight} />
     </>
   );
 };

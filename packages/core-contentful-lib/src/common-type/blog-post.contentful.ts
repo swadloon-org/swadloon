@@ -1,12 +1,12 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
 import { CONTENTFUL_WIDGET } from '../../types/contentful-widget-ids';
-import { COMMON_CONTENT_TYPE } from '../common-type/common-content-types';
-import { COMMON_FIELD, mediaField } from '../common-type/common-fields';
+import { CONTENT_TYPE } from '@newrade/core-gatsby-ui/src';
+import { COMMON_FIELD, mediaField } from './common-fields.contentful';
 
 export const createBlogPost: Migration.MigrationFunction = function (migration) {
-  const content = migration.createContentType(COMMON_CONTENT_TYPE.BLOG_POST, {
-    name: COMMON_CONTENT_TYPE.BLOG_POST,
+  const content = migration.createContentType(CONTENT_TYPE.BLOG_POST, {
+    name: CONTENT_TYPE.BLOG_POST,
     displayField: COMMON_FIELD.TITLE,
   });
 
@@ -35,7 +35,7 @@ export const createBlogPost: Migration.MigrationFunction = function (migration) 
     ],
   });
   content.changeFieldControl(COMMON_FIELD.BLOG_SLUG, 'builtin', CONTENTFUL_WIDGET.SINGLE_LINE, {
-    helpText: 'Short version of the title formatted with dashes, e.g. a-new-blog-post',
+    helpText: 'Short version of the title formatted with dashes, e.g. /a-new-blog-post/',
   });
 
   content.createField(COMMON_FIELD.SUBTITLE, {
@@ -48,6 +48,13 @@ export const createBlogPost: Migration.MigrationFunction = function (migration) 
     name: pascal(COMMON_FIELD.BLOG_EXCERPT),
     type: 'Text',
     localized: true,
+    validations: [
+      {
+        size: {
+          max: 160,
+        },
+      },
+    ],
   });
   content.changeFieldControl(COMMON_FIELD.BLOG_EXCERPT, 'builtin', CONTENTFUL_WIDGET.MULTI_LINE, {
     helpText:
@@ -77,9 +84,10 @@ export const createBlogPost: Migration.MigrationFunction = function (migration) 
     items: {
       type: 'Link',
       linkType: 'Entry',
-      validations: [{ linkContentType: [COMMON_CONTENT_TYPE.TAG] }],
+      validations: [{ linkContentType: [CONTENT_TYPE.TAG] }],
     },
   });
+
   /**
    * Authors of the blog post
    */

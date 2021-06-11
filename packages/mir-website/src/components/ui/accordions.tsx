@@ -1,4 +1,4 @@
-import { ICON_SIZE } from '@newrade/core-design-system-old';
+import { IconSize } from '@newrade/core-design-system-old';
 import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './accordions.treat';
@@ -40,7 +40,7 @@ export const Accordions: React.FC<
         </Heading>
         {props.type === 'employer' ? (
           <Icon
-            size={ICON_SIZE.large}
+            size={IconSize.large}
             icon={props.selected ? 'IconMinusCircle' : 'IconPlusCircle'}
           />
         ) : (

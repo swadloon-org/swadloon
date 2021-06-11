@@ -1,8 +1,9 @@
 import { Variant } from '@newrade/core-design-system';
 import { Stack, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
+import { SectionBaseLayout, SectionPadding } from '../api/section.api';
 import { SectionBase } from './section-base';
-import { SectionBaseLayout, SectionPadding, SectionProps } from './section.props';
+import { SectionProps } from './section.props';
 
 type Props = SectionProps & {
   Blocks: React.ReactNode;

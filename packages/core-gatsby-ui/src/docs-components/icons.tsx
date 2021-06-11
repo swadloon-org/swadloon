@@ -1,8 +1,8 @@
-import { ICON, ICON_SIZE } from '@newrade/core-design-system';
+import { Icon, ICON_SIZE } from '@newrade/core-design-system';
 import {
   Cluster,
   CommonComponentProps,
-  Icon,
+  IconComp,
   InputLabel,
   InputSelect,
   InputText,
@@ -67,7 +67,7 @@ export const Icons: React.FC<Props> = ({ id, style, className, ...props }) => {
         const formattedGroup = pascal(group);
         const reg = new RegExp(group, 'gi');
 
-        const groupIcons = keys(ICON).filter((key) => key.match(reg));
+        const groupIcons = keys(Icon).filter((key) => key.match(reg));
 
         if (!groupIcons.length) {
           return null;
@@ -81,7 +81,7 @@ export const Icons: React.FC<Props> = ({ id, style, className, ...props }) => {
               {groupIcons.map((iconName, index) => {
                 return (
                   <IconBox key={index} iconName={iconName}>
-                    <Icon name={iconName as ICON} />
+                    <IconComp name={iconName as Icon} />
                   </IconBox>
                 );
               })}

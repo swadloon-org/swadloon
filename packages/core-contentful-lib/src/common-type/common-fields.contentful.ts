@@ -1,6 +1,6 @@
 import { pascal } from 'case';
 import { IFieldOptions } from 'contentful-migration';
-import { COMMON_CONTENT_TYPE } from './common-content-types';
+import { CONTENT_TYPE } from '@newrade/core-gatsby-ui/src';
 
 export enum COMMON_FIELD {
   /**
@@ -15,6 +15,8 @@ export enum COMMON_FIELD {
    */
   TYPE = 'type',
   VARIANT = 'variant',
+  COMPONENT = 'component',
+  Icon = 'icon',
   LAYOUT = 'layout',
   STYLE_VARIANT = 'styleVariant',
   SIZE = 'size',
@@ -104,14 +106,12 @@ export enum COMMON_FIELD {
   /**
    * Navigation
    */
-
   NAVIGATION = 'navigation',
   SUB_NAVIGATION = 'subNavigation',
 
   /**
    * Media
    */
-
   BACKGROUND_POSITION_Y = 'backgroundPositionY',
 }
 
@@ -157,7 +157,7 @@ export const mediaField: IFieldOptions = {
   name: pascal(COMMON_FIELD.MEDIAS),
   type: 'Link',
   linkType: 'Entry',
-  validations: [{ linkContentType: [COMMON_CONTENT_TYPE.MEDIA_COLLECTION] }],
+  validations: [{ linkContentType: [CONTENT_TYPE.MEDIA_COLLECTION] }],
 };
 
 /**
@@ -186,9 +186,4 @@ export enum INPUT_TYPE {
   TIME = 'time',
   URL = 'url',
   WEEK = 'week',
-}
-
-export enum LINK_TYPE {
-  EXTERNAL_URL = 'EXTERNAL_URL',
-  INTERNAL_PAGE = 'INTERNAL_PAGE',
 }

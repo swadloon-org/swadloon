@@ -1,4 +1,4 @@
-import { ICON, ICON_SIZE } from '@newrade/core-design-system';
+import { Icon, ICON_SIZE } from '@newrade/core-design-system';
 import React, { ErrorInfo, SVGAttributes, useState } from 'react';
 import { useStyles } from 'react-treat';
 import { useCommonProps } from '../hooks/use-common-props.hook';
@@ -9,7 +9,7 @@ import { useIconContext } from './icons-provider';
 
 type Props = SVGAttributes<any> &
   CommonComponentProps & {
-    name: ICON;
+    name: Icon;
     size?: ICON_SIZE;
     width?: number | string;
     height?: number | string;
@@ -69,7 +69,7 @@ type State = {
   errorStack?: ErrorInfo;
 };
 
-export class Icon extends React.Component<Props, State> {
+export class IconComp extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = { error: undefined };

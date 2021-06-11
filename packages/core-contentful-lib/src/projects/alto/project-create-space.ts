@@ -1,18 +1,19 @@
 import * as Migration from 'contentful-migration';
 import { createBlogPost } from '../../common-type';
-import { createBlock } from '../../common-type/block';
-import { createBlogAuthor } from '../../common-type/blog-author';
-import { createCompanyAddress } from '../../common-type/company-address';
-import { createCompanyInfo } from '../../common-type/company-info';
-import { createTranslation } from '../../common-type/field-translation';
-import { createLink } from '../../common-type/link';
-import { createMedia } from '../../common-type/media';
-import { createMediaCollection } from '../../common-type/media-collection';
-import { createNavigation } from '../../common-type/navigation';
-import { createPage } from '../../common-type/page';
-import { createSection } from '../../common-type/section';
-import { createTag } from '../../common-type/tag';
+import { createBlock } from '../../common-type/block.contentful';
+import { createBlogAuthor } from '../../common-type/blog-author.contentful';
+import { createCompanyAddress } from '../../common-type/company-address.contentful';
+import { createCompanyInfo } from '../../common-type/company-info.contentful';
+import { createTranslation } from '../../common-type/field-translation.contentful';
+import { createLink } from '../../common-type/link.contentful';
+import { createMedia } from '../../common-type/media.contentful';
+import { createMediaCollection } from '../../common-type/media-collection.contentful';
+import { createNavigation } from '../../common-type/navigation.contentful';
+import { createPage } from '../../common-type/page.contentful';
+import { createSection } from '../../common-type/section.contentful';
+import { createTag } from '../../common-type/tag.contentful';
 import { createTagType } from '../../common-type';
+import { createFooter } from '../../common-type/footer.contentful';
 
 const program: Migration.MigrationFunction = function Program(migration) {
   /**
@@ -38,6 +39,12 @@ const program: Migration.MigrationFunction = function Program(migration) {
   createBlogPost(migration);
 
   /**
+   * Navigation
+   */
+  createNavigation(migration);
+  createFooter(migration);
+
+  /**
    * Block
    */
   createBlock(migration);
@@ -50,7 +57,6 @@ const program: Migration.MigrationFunction = function Program(migration) {
   /**
    * Pages
    */
-  createNavigation(migration);
   createPage(migration);
 };
 

@@ -3,8 +3,17 @@ import { PageAPI } from './page.api';
 import { SectionAPI } from './section.api';
 
 export type LinkAPI = {
+  /**
+   * Identifier of the link
+   */
   name: string;
+  /**
+   * Can be internal (pages or sections) or an external link to a url
+   */
   type: LinkType;
+  /**
+   * Importance of the link
+   */
   variant?: Variant | null | string;
   /**
    * How the link is rendered
@@ -18,7 +27,13 @@ export type LinkAPI = {
   section?: SectionAPI;
 };
 
-enum LinkType {
-  EXTERNAL_URL = 'EXTERNAL_URL',
-  INTERNAL_PAGE = 'INTERNAL_PAGE',
+export enum LinkType {
+  externalUrl = 'externalUrl',
+  internalPage = 'internalPage',
+}
+
+export enum LinkComponent {
+  link = 'link',
+  button = 'button',
+  menuitem = 'menuItem',
 }

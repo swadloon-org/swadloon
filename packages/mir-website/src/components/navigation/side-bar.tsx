@@ -1,4 +1,4 @@
-import { ICON_SIZE, LABEL } from '@newrade/core-design-system-old';
+import { IconSize, LABEL } from '@newrade/core-design-system-old';
 import useWebAnimations from '@wellyshen/use-web-animations';
 import { Link as GatsbyLink } from 'gatsby';
 import React, { HTMLAttributes, useEffect, useState } from 'react';
@@ -80,7 +80,7 @@ export const SideBar: React.FC<OwnProps> = (props) => {
       <div className={styles.topContainer}>
         {props.logoURL ? <img className={styles.logo} src={props.logoURL} /> : null}
         <div className={styles.icon} onClick={(e) => props.onOpenSideMenu()}>
-          <Icon icon="IconClose" size={ICON_SIZE.large}></Icon>
+          <Icon icon="IconClose" size={IconSize.large}></Icon>
         </div>
       </div>
 

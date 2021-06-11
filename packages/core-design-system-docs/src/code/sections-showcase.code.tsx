@@ -1,4 +1,4 @@
-import { ButtonSize, Variant } from '@newrade/core-design-system/src';
+import { ButtonSize, Variant } from '@newrade/core-design-system';
 import { BlockMarkdown, SectionShowcase } from '@newrade/core-gatsby-ui/src';
 import { PlaceholderMarkdown } from '@newrade/core-gatsby-ui/src/docs-components/placeholder-markdown';
 import { Button, Heading, useTreatTheme } from '@newrade/core-react-ui';

@@ -1,17 +1,21 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
 import { CONTENTFUL_WIDGET } from '../../types/contentful-widget-ids';
-import { COMMON_CONTENT_TYPE } from '../common-type/common-content-types';
-import { COMMON_FIELD } from '../common-type/common-fields';
-import { CAROUSEL_STYLE } from '../common-type/common-props-types';
+import { CONTENT_TYPE } from '@newrade/core-gatsby-ui/src';
+import { COMMON_FIELD } from './common-fields.contentful';
 import { keys } from '../utilities';
+
+export enum CAROUSEL_STYLE {
+  CAROUSEL_VERTICAL = 'CAROUSEL_VERTICAL',
+  CAROUSEL_HORIZONTAL = 'CAROUSEL_HORIZONTAL',
+}
 
 /**
  * A MediaCollection holds one or more media (images, videos) to be used in banners, carousels
  */
 export const createMediaCollection: Migration.MigrationFunction = function (migration) {
-  const content = migration.createContentType(COMMON_CONTENT_TYPE.MEDIA_COLLECTION, {
-    name: pascal(COMMON_CONTENT_TYPE.MEDIA_COLLECTION),
+  const content = migration.createContentType(CONTENT_TYPE.MEDIA_COLLECTION, {
+    name: pascal(CONTENT_TYPE.MEDIA_COLLECTION),
     displayField: COMMON_FIELD.NAME,
   });
 

@@ -1,14 +1,15 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
 import { CONTENTFUL_WIDGET } from '../../types/contentful-widget-ids';
-import { COMMON_CONTENT_TYPE } from './common-content-types';
-import { COMMON_FIELD, mediaField } from './common-fields';
-import { BlockType, Variant } from './common-variants';
+import { CONTENT_TYPE } from '@newrade/core-gatsby-ui/src';
+import { COMMON_FIELD, mediaField } from './common-fields.contentful';
+import { Variant } from '@newrade/core-design-system';
+import { BlockType } from '@newrade/core-gatsby-ui/src';
 import { keys } from '../utilities';
 
 export function createBlock(migration: Migration.default) {
-  const content = migration.createContentType(COMMON_CONTENT_TYPE.BLOCK, {
-    name: COMMON_CONTENT_TYPE.BLOCK,
+  const content = migration.createContentType(CONTENT_TYPE.BLOCK, {
+    name: CONTENT_TYPE.BLOCK,
     description: 'Configurable object for blocks in a section.',
     displayField: COMMON_FIELD.NAME,
   });
@@ -72,10 +73,10 @@ export function createBlock(migration: Migration.default) {
     name: pascal(COMMON_FIELD.LINK),
     type: 'Link',
     linkType: 'Entry',
-    validations: [{ linkContentType: [COMMON_CONTENT_TYPE.LINK] }],
+    validations: [{ linkContentType: [CONTENT_TYPE.LINK] }],
   });
   content.changeFieldControl(COMMON_FIELD.LINK, 'builtin', CONTENTFUL_WIDGET.ENTRY_LINK_EDITOR, {
-    helpText: 'Select a link in the block.',
+    helpText: 'Select link in the block.',
   });
 
   /**
@@ -83,7 +84,7 @@ export function createBlock(migration: Migration.default) {
    */
   content.createField(COMMON_FIELD.MEDIAS, { ...mediaField });
   content.changeFieldControl(COMMON_FIELD.MEDIAS, 'builtin', CONTENTFUL_WIDGET.ENTRY_CARD_EDITOR, {
-    helpText: 'Select a media collection to set images on the block.',
+    helpText: 'Select a media collection to set images or other media on the block.',
   });
 
   return content;

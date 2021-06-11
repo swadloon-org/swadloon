@@ -1,12 +1,12 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
 import { CONTENTFUL_WIDGET } from '../../types/contentful-widget-ids';
-import { COMMON_CONTENT_TYPE } from './common-content-types';
-import { COMMON_FIELD } from './common-fields';
+import { CONTENT_TYPE } from '@newrade/core-gatsby-ui/src';
+import { COMMON_FIELD } from './common-fields.contentful';
 
 export function createNavigation(migration: Migration.default) {
-  const content = migration.createContentType(COMMON_CONTENT_TYPE.NAVIGATION, {
-    name: COMMON_CONTENT_TYPE.NAVIGATION,
+  const content = migration.createContentType(CONTENT_TYPE.NAVIGATION, {
+    name: CONTENT_TYPE.NAVIGATION,
     description: 'Configurable object for sections in a page.',
     displayField: COMMON_FIELD.NAME,
   });
@@ -27,7 +27,7 @@ export function createNavigation(migration: Migration.default) {
     name: pascal(COMMON_FIELD.LINKS),
     type: 'Link',
     linkType: 'Entry',
-    validations: [{ linkContentType: [COMMON_CONTENT_TYPE.LINK] }],
+    validations: [{ linkContentType: [CONTENT_TYPE.LINK] }],
   });
   content.changeFieldControl(COMMON_FIELD.LINK, 'builtin', CONTENTFUL_WIDGET.ENTRY_LINK_EDITOR, {
     helpText: 'Select a link in the section.',
@@ -42,7 +42,7 @@ export function createNavigation(migration: Migration.default) {
     items: {
       type: 'Link',
       linkType: 'Entry',
-      validations: [{ linkContentType: [COMMON_CONTENT_TYPE.NAVIGATION] }],
+      validations: [{ linkContentType: [CONTENT_TYPE.NAVIGATION] }],
     },
   });
   return content;

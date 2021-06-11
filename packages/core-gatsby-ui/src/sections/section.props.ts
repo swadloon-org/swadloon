@@ -1,41 +1,6 @@
 import { CommonComponentProps } from '@newrade/core-react-ui';
-import { SectionAPI } from '../api/section.api';
+import { SectionAPI, SectionLayout } from '../api/section.api';
 import { BlockProps, BlockType } from '../blocks/block.props';
-
-export enum SectionBaseLayout {
-  /**
-   * Will honor the content margins.
-   */
-  center = 'center',
-  /**
-   * Will take up all width available.
-   */
-  fullWidth = 'fullWidth',
-}
-
-/**
- * Predefined section paddings
- */
-export enum SectionPadding {
-  large = 'large',
-  medium = 'medium',
-  small = 'small',
-  none = 'none',
-}
-
-/**
- * Predefined section layouts
- */
-export enum SectionLayout {
-  switcher = 'switcher',
-  statement = 'statement',
-  stack = 'stack',
-  divider = 'divider',
-  banner = 'banner',
-  callout = 'callout',
-  showcase = 'showcase',
-  messenger = 'messenger',
-}
 
 /**
  * Minimal props for a Section component

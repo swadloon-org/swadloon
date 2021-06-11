@@ -1,12 +1,12 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
 import { CONTENTFUL_WIDGET } from '../../types/contentful-widget-ids';
-import { COMMON_CONTENT_TYPE } from '../common-type/common-content-types';
-import { COMMON_FIELD } from '../common-type/common-fields';
+import { CONTENT_TYPE } from '@newrade/core-gatsby-ui/src';
+import { COMMON_FIELD } from './common-fields.contentful';
 
 export const createCompanyInfo: Migration.MigrationFunction = function (migration) {
-  const content = migration.createContentType(COMMON_CONTENT_TYPE.COMPANY_INFO, {
-    name: pascal(COMMON_CONTENT_TYPE.COMPANY_INFO),
+  const content = migration.createContentType(CONTENT_TYPE.COMPANY_INFO, {
+    name: pascal(CONTENT_TYPE.COMPANY_INFO),
     displayField: COMMON_FIELD.COMPANY_NAME,
   });
 
@@ -16,7 +16,7 @@ export const createCompanyInfo: Migration.MigrationFunction = function (migratio
     required: true,
   });
   content.changeFieldControl(COMMON_FIELD.COMPANY_NAME, 'builtin', CONTENTFUL_WIDGET.SINGLE_LINE, {
-    helpText: 'The complete name of the company.',
+    helpText: 'Complete name of the company.',
   });
 
   content.createField(COMMON_FIELD.DESCRIPTION, {

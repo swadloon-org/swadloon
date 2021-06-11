@@ -9,8 +9,9 @@ import {
 import { getMergedClassname } from '@newrade/core-react-ui/lib/utilities';
 import React from 'react';
 import { useStyles } from 'react-treat';
+import { SectionBaseLayout, SectionPadding } from '../api/section.api';
 import * as styleRefs from './section-base.treat';
-import { SectionBaseLayout, SectionPadding, SectionProps } from './section.props';
+import { SectionProps } from './section.props';
 
 type Props = SectionProps;
 

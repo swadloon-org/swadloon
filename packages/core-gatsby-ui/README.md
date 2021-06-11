@@ -1,4 +1,4 @@
-# CORE Gatsby UI
+# Core Gatsby UI
 
 > High level components for Gatsby Sites
 
