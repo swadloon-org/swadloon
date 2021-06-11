@@ -1,35 +1,42 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
 import { CONTENTFUL_WIDGET } from '../../types/contentful-widget-ids';
-import { CONTENT_TYPE, LinkComponent, LinkType } from '@newrade/core-gatsby-ui/src';
+import { ContentType, LinkComponent, LinkType } from '@newrade/core-gatsby-ui/src';
 import { COMMON_FIELD, urlField } from './common-fields.contentful';
 import { keys } from '../utilities';
 import { Icon, Variant } from '@newrade/core-design-system';
 
 export const createLink: Migration.MigrationFunction = function (migration) {
-  const content = migration.createContentType(CONTENT_TYPE.LINK, {
-    name: pascal(CONTENT_TYPE.LINK),
+  const content = migration.createContentType(ContentType.LINK, {
+    name: pascal(ContentType.LINK),
     displayField: COMMON_FIELD.NAME,
   });
 
+  /**
+   * Identifier for the link
+   */
   content.createField(COMMON_FIELD.NAME, {
     name: pascal(COMMON_FIELD.NAME),
     type: 'Symbol',
     required: true,
   });
 
-  content.createField(COMMON_FIELD.TYPE, {
-    name: pascal(COMMON_FIELD.TYPE),
+  /**
+   * User facing label
+   */
+  content.createField(COMMON_FIELD.LABEL, {
+    name: pascal(COMMON_FIELD.LABEL),
     type: 'Symbol',
-    required: true,
-    validations: [
-      {
-        in: keys(LinkType),
-      },
-    ],
+    localized: true,
   });
-  content.changeFieldControl(COMMON_FIELD.TYPE, 'builtin', CONTENTFUL_WIDGET.RADIO, {
-    helpText: 'Select link type',
+
+  /**
+   * Alt text description of the link
+   */
+  content.createField(COMMON_FIELD.TEXT, {
+    name: pascal(COMMON_FIELD.TEXT),
+    type: 'Text',
+    localized: true,
   });
 
   /**
@@ -62,18 +69,12 @@ export const createLink: Migration.MigrationFunction = function (migration) {
       },
     ],
   });
-  content.changeFieldControl(COMMON_FIELD.VARIANT, 'builtin', CONTENTFUL_WIDGET.RADIO, {
+  content.changeFieldControl(COMMON_FIELD.COMPONENT, 'builtin', CONTENTFUL_WIDGET.RADIO, {
     helpText: 'Select the component to render the link',
   });
 
-  content.createField(COMMON_FIELD.LABEL, {
-    name: pascal(COMMON_FIELD.LABEL),
-    type: 'Symbol',
-    localized: true,
-  });
-
-  content.createField(COMMON_FIELD.Icon, {
-    name: pascal(COMMON_FIELD.Icon),
+  content.createField(COMMON_FIELD.ICON, {
+    name: pascal(COMMON_FIELD.ICON),
     type: 'Link',
     linkType: 'Entry',
     validations: [
@@ -82,8 +83,22 @@ export const createLink: Migration.MigrationFunction = function (migration) {
       },
     ],
   });
-  content.changeFieldControl(COMMON_FIELD.SECTION, 'builtin', CONTENTFUL_WIDGET.DROPDOWN, {
-    helpText: 'Select the icon',
+  content.changeFieldControl(COMMON_FIELD.ICON, 'builtin', CONTENTFUL_WIDGET.DROPDOWN, {
+    helpText: 'Select the icon to display (apply to certain components only)',
+  });
+
+  content.createField(COMMON_FIELD.TYPE, {
+    name: pascal(COMMON_FIELD.TYPE),
+    type: 'Symbol',
+    required: true,
+    validations: [
+      {
+        in: keys(LinkType),
+      },
+    ],
+  });
+  content.changeFieldControl(COMMON_FIELD.TYPE, 'builtin', CONTENTFUL_WIDGET.RADIO, {
+    helpText: 'Select link type',
   });
 
   content.createField(COMMON_FIELD.URL, { ...urlField });
@@ -95,7 +110,7 @@ export const createLink: Migration.MigrationFunction = function (migration) {
     name: pascal(COMMON_FIELD.PAGE),
     type: 'Link',
     linkType: 'Entry',
-    validations: [{ linkContentType: [CONTENT_TYPE.PAGE] }],
+    validations: [{ linkContentType: [ContentType.PAGE] }],
   });
   content.changeFieldControl(COMMON_FIELD.PAGE, 'builtin', CONTENTFUL_WIDGET.ENTRY_LINK_EDITOR, {
     helpText: 'Creates a link to an internal page.',
@@ -105,7 +120,7 @@ export const createLink: Migration.MigrationFunction = function (migration) {
     name: pascal(COMMON_FIELD.SECTION),
     type: 'Link',
     linkType: 'Entry',
-    validations: [{ linkContentType: [CONTENT_TYPE.SECTION] }],
+    validations: [{ linkContentType: [ContentType.SECTION] }],
   });
   content.changeFieldControl(COMMON_FIELD.SECTION, 'builtin', CONTENTFUL_WIDGET.ENTRY_LINK_EDITOR, {
     helpText:

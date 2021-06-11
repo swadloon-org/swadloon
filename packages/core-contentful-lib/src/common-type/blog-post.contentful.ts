@@ -1,12 +1,12 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
 import { CONTENTFUL_WIDGET } from '../../types/contentful-widget-ids';
-import { CONTENT_TYPE } from '@newrade/core-gatsby-ui/src';
+import { ContentType } from '@newrade/core-gatsby-ui/src';
 import { COMMON_FIELD, mediaField } from './common-fields.contentful';
 
 export const createBlogPost: Migration.MigrationFunction = function (migration) {
-  const content = migration.createContentType(CONTENT_TYPE.BLOG_POST, {
-    name: CONTENT_TYPE.BLOG_POST,
+  const content = migration.createContentType(ContentType.BLOG_POST, {
+    name: ContentType.BLOG_POST,
     displayField: COMMON_FIELD.TITLE,
   });
 
@@ -84,7 +84,7 @@ export const createBlogPost: Migration.MigrationFunction = function (migration) 
     items: {
       type: 'Link',
       linkType: 'Entry',
-      validations: [{ linkContentType: [CONTENT_TYPE.TAG] }],
+      validations: [{ linkContentType: [ContentType.TAG] }],
     },
   });
 

@@ -1,12 +1,13 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
 import { CONTENTFUL_WIDGET } from '../../types/contentful-widget-ids';
-import { CONTENT_TYPE } from '@newrade/core-gatsby-ui/src';
+import { ContentType, NavComponent } from '@newrade/core-gatsby-ui/src';
 import { COMMON_FIELD } from './common-fields.contentful';
+import { keys } from '../utilities';
 
 export function createNavigation(migration: Migration.default) {
-  const content = migration.createContentType(CONTENT_TYPE.NAVIGATION, {
-    name: CONTENT_TYPE.NAVIGATION,
+  const content = migration.createContentType(ContentType.NAVIGATION, {
+    name: ContentType.NAVIGATION,
     description: 'Configurable object for sections in a page.',
     displayField: COMMON_FIELD.NAME,
   });
@@ -17,7 +18,25 @@ export function createNavigation(migration: Migration.default) {
   content.createField(COMMON_FIELD.NAME, {
     name: pascal(COMMON_FIELD.NAME),
     type: 'Symbol',
+    required: true,
     localized: true,
+  });
+
+  /**
+   * Component to associate with the Navigation entry
+   */
+  content.createField(COMMON_FIELD.COMPONENT, {
+    name: pascal(COMMON_FIELD.COMPONENT),
+    type: 'Symbol',
+    required: true,
+    validations: [
+      {
+        in: keys(NavComponent),
+      },
+    ],
+  });
+  content.changeFieldControl(COMMON_FIELD.COMPONENT, 'builtin', CONTENTFUL_WIDGET.RADIO, {
+    helpText: 'Select the component associated with the Navigation entry',
   });
 
   /**
@@ -25,12 +44,15 @@ export function createNavigation(migration: Migration.default) {
    */
   content.createField(COMMON_FIELD.LINKS, {
     name: pascal(COMMON_FIELD.LINKS),
-    type: 'Link',
-    linkType: 'Entry',
-    validations: [{ linkContentType: [CONTENT_TYPE.LINK] }],
+    type: 'Array',
+    items: {
+      type: 'Link',
+      linkType: 'Entry',
+      validations: [{ linkContentType: [ContentType.LINK] }],
+    },
   });
   content.changeFieldControl(COMMON_FIELD.LINK, 'builtin', CONTENTFUL_WIDGET.ENTRY_LINK_EDITOR, {
-    helpText: 'Select a link in the section.',
+    helpText: 'Add one or more links.',
   });
 
   /**
@@ -42,8 +64,17 @@ export function createNavigation(migration: Migration.default) {
     items: {
       type: 'Link',
       linkType: 'Entry',
-      validations: [{ linkContentType: [CONTENT_TYPE.NAVIGATION] }],
+      validations: [{ linkContentType: [ContentType.NAVIGATION] }],
     },
   });
+  content.changeFieldControl(
+    COMMON_FIELD.SUB_NAVIGATION,
+    'builtin',
+    CONTENTFUL_WIDGET.ENTRY_LINK_EDITOR,
+    {
+      helpText: 'Select sub navigation entries.',
+    }
+  );
+
   return content;
 }

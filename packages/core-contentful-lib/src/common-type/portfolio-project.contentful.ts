@@ -1,12 +1,12 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
 import { CONTENTFUL_WIDGET } from '../../types/contentful-widget-ids';
-import { CONTENT_TYPE } from '@newrade/core-gatsby-ui/src';
+import { ContentType } from '@newrade/core-gatsby-ui/src';
 import { COMMON_FIELD, mediaField } from './common-fields.contentful';
 
 export const createPortfolioProject: Migration.MigrationFunction = function (migration) {
-  const content = migration.createContentType(CONTENT_TYPE.PORTFOLIO_PROJECT, {
-    name: CONTENT_TYPE.PORTFOLIO_PROJECT,
+  const content = migration.createContentType(ContentType.PORTFOLIO_PROJECT, {
+    name: ContentType.PORTFOLIO_PROJECT,
     displayField: COMMON_FIELD.TITLE,
   });
 
@@ -85,7 +85,7 @@ export const createPortfolioProject: Migration.MigrationFunction = function (mig
     items: {
       type: 'Link',
       linkType: 'Entry',
-      validations: [{ linkContentType: [CONTENT_TYPE.TAG] }],
+      validations: [{ linkContentType: [ContentType.TAG] }],
     },
   });
   /**
@@ -97,7 +97,7 @@ export const createPortfolioProject: Migration.MigrationFunction = function (mig
     items: {
       type: 'Link',
       linkType: 'Entry',
-      validations: [{ linkContentType: [CONTENT_TYPE.PORTFOLIO_CLIENT] }],
+      validations: [{ linkContentType: [ContentType.PORTFOLIO_CLIENT] }],
     },
   });
 };

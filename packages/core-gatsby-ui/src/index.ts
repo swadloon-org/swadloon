@@ -2,6 +2,7 @@ export * from './api/block.api';
 export * from './api/content-types.api';
 export * from './api/footer.api';
 export * from './api/navigation.model';
+export * from './api/navigation.api';
 export * from './api/page.api';
 export * from './api/link.api';
 export * from './api/section.api';

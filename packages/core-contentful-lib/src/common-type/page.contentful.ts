@@ -1,12 +1,12 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
 import { CONTENTFUL_WIDGET } from '../../types/contentful-widget-ids';
-import { CONTENT_TYPE } from '@newrade/core-gatsby-ui/src';
+import { ContentType } from '@newrade/core-gatsby-ui/src';
 import { COMMON_FIELD } from './common-fields.contentful';
 
 export function createPage(migration: Migration.default) {
-  const content = migration.createContentType(CONTENT_TYPE.PAGE, {
-    name: CONTENT_TYPE.PAGE,
+  const content = migration.createContentType(ContentType.PAGE, {
+    name: ContentType.PAGE,
     description: 'Model to hold informations for pages',
     displayField: COMMON_FIELD.NAME,
   });
@@ -17,6 +17,7 @@ export function createPage(migration: Migration.default) {
   content.createField(COMMON_FIELD.NAME, {
     name: pascal(COMMON_FIELD.NAME),
     type: 'Symbol',
+    required: true,
     validations: [
       {
         unique: true,
@@ -77,7 +78,7 @@ export function createPage(migration: Migration.default) {
     items: {
       type: 'Link',
       linkType: 'Entry',
-      validations: [{ linkContentType: [CONTENT_TYPE.SECTION] }],
+      validations: [{ linkContentType: [ContentType.SECTION] }],
     },
   });
 }

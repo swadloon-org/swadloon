@@ -5,7 +5,7 @@ import { CONTENTFUL_WIDGET } from '../../types/contentful-widget-ids';
 import { keys } from '../utilities';
 import { COMMON_FIELD } from './common-fields.contentful';
 
-export function createFooter(migration: Migration.default) {
+export function createNavbar(migration: Migration.default) {
   const content = migration.createContentType(ContentType.FOOTER, {
     name: ContentType.FOOTER,
     description: 'Configuration for the footer.',

@@ -1,4 +1,4 @@
-export enum CONTENT_TYPE {
+export enum ContentType {
   /**
    * Page / section / layout content types
    */

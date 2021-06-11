@@ -1,11 +1,11 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
-import { CONTENT_TYPE } from '@newrade/core-gatsby-ui/src';
+import { ContentType } from '@newrade/core-gatsby-ui/src';
 import { COMMON_FIELD } from './common-fields.contentful';
 
 export const createTranslation: Migration.MigrationFunction = function (migration, context) {
-  const content = migration.createContentType(CONTENT_TYPE.TRANSLATION, {
-    name: CONTENT_TYPE.TRANSLATION,
+  const content = migration.createContentType(ContentType.TRANSLATION, {
+    name: ContentType.TRANSLATION,
     description: 'Configurable object for translation purpose.',
     displayField: COMMON_FIELD.KEY,
   });

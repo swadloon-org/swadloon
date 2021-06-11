@@ -1,20 +1,20 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
 import { CONTENTFUL_WIDGET } from '../../types/contentful-widget-ids';
-import { CONTENT_TYPE } from '@newrade/core-gatsby-ui/src';
+import { ContentType } from '@newrade/core-gatsby-ui/src';
 import { COMMON_FIELD } from './common-fields.contentful';
 
 /**
- * A MediaCollection holds one or more media (images, videos) to be used in banners, carousels
+ * A Media hold one media (image, video) to be used in MediaCollections
  */
 export const createMedia: Migration.MigrationFunction = function (migration) {
-  const content = migration.createContentType(CONTENT_TYPE.MEDIA, {
-    name: pascal(CONTENT_TYPE.MEDIA),
+  const content = migration.createContentType(ContentType.MEDIA, {
+    name: pascal(ContentType.MEDIA),
     displayField: COMMON_FIELD.NAME,
   });
 
   /**
-   * Unique collection name
+   * Unique media name
    */
   content.createField(COMMON_FIELD.NAME, {
     name: pascal(COMMON_FIELD.NAME),
@@ -26,28 +26,26 @@ export const createMedia: Migration.MigrationFunction = function (migration) {
     ],
   });
   content.changeFieldControl(COMMON_FIELD.NAME, 'builtin', CONTENTFUL_WIDGET.SINGLE_LINE, {
-    helpText: 'Name of the media, e.g. "Home images"',
+    helpText: 'Name of the media, e.g. "Home banner"',
   });
 
   /**
-   * Linked medias
+   * Alt text description of the media
    */
-  content.createField(COMMON_FIELD.MEDIAS, {
-    name: pascal(COMMON_FIELD.MEDIAS),
-    type: 'Array',
-    items: {
-      type: 'Link',
-      linkType: 'Asset',
-    },
+  content.createField(COMMON_FIELD.TEXT, {
+    name: pascal(COMMON_FIELD.TEXT),
+    type: 'Text',
+    localized: true,
   });
-  content.changeFieldControl(
-    COMMON_FIELD.MEDIAS,
-    'builtin',
-    CONTENTFUL_WIDGET.ASSET_GALLERY_EDITOR,
-    {
-      helpText: 'Select and reorder the images/videos to use in the collection',
-    }
-  );
+
+  /**
+   * Linked media
+   */
+  content.createField(COMMON_FIELD.MEDIA, {
+    name: pascal(COMMON_FIELD.MEDIA),
+    type: 'Link',
+    linkType: 'Asset',
+  });
 
   /**
    * Background position of the media

@@ -17527,6 +17527,9 @@ function runAction(env, githubContext) {
       const prNumber = github.context.issue.number;
 
       switch (env.GITHUB_BASE_REF_SLUG) {
+        // for PR that targets other branches
+        // default to 'dev' APP_ENV
+        default:
         case 'dev':
           {
             utilities_1.exportVariable(env, 'APP_ENV', core_common_1.DEPLOY_ENV.DEV);
@@ -17547,9 +17550,6 @@ function runAction(env, githubContext) {
             utilities_1.exportVariable(env, 'APP_BRANCH_SUBDOMAIN', `pr-${prNumber}`);
             break;
           }
-
-        default:
-          {}
       }
     }
 

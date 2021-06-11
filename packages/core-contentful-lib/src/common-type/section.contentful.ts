@@ -1,15 +1,15 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
 import { CONTENTFUL_WIDGET } from '../../types/contentful-widget-ids';
-import { CONTENT_TYPE } from '@newrade/core-gatsby-ui/src';
+import { ContentType } from '@newrade/core-gatsby-ui/src';
 import { COMMON_FIELD } from './common-fields.contentful';
 import { Variant } from '@newrade/core-design-system';
 import { SectionLayout } from '@newrade/core-gatsby-ui/src';
 import { keys } from '../utilities';
 
 export function createSection(migration: Migration.default) {
-  const content = migration.createContentType(CONTENT_TYPE.SECTION, {
-    name: CONTENT_TYPE.SECTION,
+  const content = migration.createContentType(ContentType.SECTION, {
+    name: ContentType.SECTION,
     description: 'Configurable object for sections in a page.',
     displayField: COMMON_FIELD.NAME,
   });
@@ -20,12 +20,6 @@ export function createSection(migration: Migration.default) {
   content.createField(COMMON_FIELD.NAME, {
     name: pascal(COMMON_FIELD.NAME),
     type: 'Symbol',
-    localized: true,
-  });
-
-  content.createField(COMMON_FIELD.DESCRIPTION, {
-    name: pascal(COMMON_FIELD.DESCRIPTION),
-    type: 'Text',
     localized: true,
   });
 
@@ -76,11 +70,7 @@ export function createSection(migration: Migration.default) {
     items: {
       type: 'Link',
       linkType: 'Entry',
-      /**
-       * TODO change to custom block and basic block
-       */
-
-      validations: [{ linkContentType: [CONTENT_TYPE.BLOCK] }],
+      validations: [{ linkContentType: [ContentType.BLOCK] }],
     },
   });
 

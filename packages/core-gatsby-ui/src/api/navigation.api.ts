@@ -19,7 +19,7 @@ export type NavigationAPI = {
   subNavigation?: (NavigationAPI | null | undefined)[] | null;
 };
 
-enum NavComponent {
+export enum NavComponent {
   navbar = 'navbar',
   sidebar = 'sidebar',
   link = 'link',

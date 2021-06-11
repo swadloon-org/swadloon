@@ -1,11 +1,11 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
-import { CONTENT_TYPE } from '@newrade/core-gatsby-ui/src';
+import { ContentType } from '@newrade/core-gatsby-ui/src';
 import { COMMON_FIELD } from './common-fields.contentful';
 
 export const createTagType: Migration.MigrationFunction = function (migration) {
-  const content = migration.createContentType(CONTENT_TYPE.TAG_TYPE, {
-    name: pascal(CONTENT_TYPE.TAG_TYPE),
+  const content = migration.createContentType(ContentType.TAG_TYPE, {
+    name: pascal(ContentType.TAG_TYPE),
     displayField: COMMON_FIELD.NAME,
   });
 

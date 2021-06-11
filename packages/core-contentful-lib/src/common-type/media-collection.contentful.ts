@@ -1,21 +1,21 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
 import { CONTENTFUL_WIDGET } from '../../types/contentful-widget-ids';
-import { CONTENT_TYPE } from '@newrade/core-gatsby-ui/src';
+import { ContentType } from '@newrade/core-gatsby-ui/src';
 import { COMMON_FIELD } from './common-fields.contentful';
 import { keys } from '../utilities';
 
-export enum CAROUSEL_STYLE {
-  CAROUSEL_VERTICAL = 'CAROUSEL_VERTICAL',
-  CAROUSEL_HORIZONTAL = 'CAROUSEL_HORIZONTAL',
+export enum CarouselStyle {
+  vertical = 'vertical',
+  horizontal = 'horizontal',
 }
 
 /**
  * A MediaCollection holds one or more media (images, videos) to be used in banners, carousels
  */
 export const createMediaCollection: Migration.MigrationFunction = function (migration) {
-  const content = migration.createContentType(CONTENT_TYPE.MEDIA_COLLECTION, {
-    name: pascal(CONTENT_TYPE.MEDIA_COLLECTION),
+  const content = migration.createContentType(ContentType.MEDIA_COLLECTION, {
+    name: pascal(ContentType.MEDIA_COLLECTION),
     displayField: COMMON_FIELD.NAME,
   });
 
@@ -51,7 +51,7 @@ export const createMediaCollection: Migration.MigrationFunction = function (migr
     type: 'Symbol',
     validations: [
       {
-        in: keys(CAROUSEL_STYLE),
+        in: keys(CarouselStyle),
       },
     ],
   });

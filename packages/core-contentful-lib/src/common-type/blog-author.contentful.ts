@@ -1,11 +1,11 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
-import { CONTENT_TYPE } from '@newrade/core-gatsby-ui/src';
+import { ContentType } from '@newrade/core-gatsby-ui/src';
 import { COMMON_FIELD } from './common-fields.contentful';
 
 export const createBlogAuthor: Migration.MigrationFunction = function (migration) {
-  const content = migration.createContentType(CONTENT_TYPE.BLOG_AUTHOR, {
-    name: pascal(CONTENT_TYPE.BLOG_AUTHOR),
+  const content = migration.createContentType(ContentType.BLOG_AUTHOR, {
+    name: pascal(ContentType.BLOG_AUTHOR),
     displayField: COMMON_FIELD.FIRST_NAME,
   });
 
