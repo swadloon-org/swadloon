@@ -1,7 +1,7 @@
 import { Variant } from '@newrade/core-design-system';
 import { Stack, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
+import { SectionBaseLayout, SectionPadding } from '@newrade/core-website-api';
 import React from 'react';
-import { SectionBaseLayout, SectionPadding } from '../api/section.api';
 import { SectionBase } from './section-base';
 import { SectionProps } from './section.props';
 

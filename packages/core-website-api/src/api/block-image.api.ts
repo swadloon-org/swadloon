@@ -1,5 +1,5 @@
 import { Variant } from '@newrade/core-design-system';
-import { BlockType } from '../blocks/block.props';
+import { BlockType } from './block.api';
 import { LinkAPI } from './link.api';
 import { MediaAPI } from './media.api';
 

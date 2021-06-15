@@ -1,12 +1,6 @@
 import { lazy } from '@loadable/component';
 import { Variant } from '@newrade/core-design-system';
-import {
-  BlockRenderer,
-  SectionBase,
-  SectionBaseLayout,
-  SectionPadding,
-  SectionProps,
-} from '@newrade/core-gatsby-ui/src';
+import { BlockRenderer, SectionBase, SectionProps } from '@newrade/core-gatsby-ui/src';
 import {
   BoxV2,
   CommonComponentProps,
@@ -15,6 +9,7 @@ import {
   useIsSSR,
   useTreatTheme,
 } from '@newrade/core-react-ui';
+import { SectionBaseLayout, SectionPadding } from '@newrade/core-website-api';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import type { BlockFormVasectomyProps } from '../blocks/block-form-vasectomy';

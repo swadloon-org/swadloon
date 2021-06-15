@@ -1,5 +1,5 @@
 import { CommonComponentProps } from '@newrade/core-react-ui';
-import { FooterAPI } from '../api/footer.api';
+import { FooterAPI } from '@newrade/core-website-api';
 
 /**
  * Minimal props for a Footer component

@@ -1,11 +1,12 @@
 import { GatsbyContentfulPageContext } from '@newrade/core-gatsby-config';
-import { SectionAPI, SectionRenderer } from '@newrade/core-gatsby-ui/src';
+import { SectionRenderer } from '@newrade/core-gatsby-ui/src';
 import {
   getMetaBasicTags,
   getMetadataOpenGraphWebsiteTags,
   getMetadataTwitterTags,
   OPEN_GRAPH_TYPE,
 } from '@newrade/core-react-ui';
+import { SectionAPI } from '@newrade/core-website-api';
 import { graphql, PageProps } from 'gatsby';
 import React from 'react';
 import Helmet from 'react-helmet';

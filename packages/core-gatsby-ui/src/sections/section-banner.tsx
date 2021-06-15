@@ -6,9 +6,9 @@ import {
   useCommonProps,
   useTreatTheme,
 } from '@newrade/core-react-ui';
+import { SectionBaseLayout, SectionPadding } from '@newrade/core-website-api';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { SectionBaseLayout, SectionPadding } from '../api/section.api';
 import * as styleRefs from './section-banner.treat';
 import { SectionBase } from './section-base';
 import { SectionProps } from './section.props';

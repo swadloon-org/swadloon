@@ -1,4 +1,4 @@
-import { BlockType } from '../blocks/block.props';
+import { BlockType } from './block.api';
 
 export type BlockGoogleMapAPI = {
   id: string;

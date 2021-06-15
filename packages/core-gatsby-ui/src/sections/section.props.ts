@@ -1,6 +1,6 @@
 import { CommonComponentProps } from '@newrade/core-react-ui';
-import { SectionAPI, SectionLayout } from '../api/section.api';
-import { BlockProps, BlockType } from '../blocks/block.props';
+import { BlockType, SectionAPI, SectionLayout } from '@newrade/core-website-api';
+import { BlockProps } from '../blocks/block.props';
 
 /**
  * Minimal props for a Section component

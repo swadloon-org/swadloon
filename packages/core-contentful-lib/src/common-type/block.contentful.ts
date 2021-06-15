@@ -1,10 +1,9 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
 import { CONTENTFUL_WIDGET } from '../../types/contentful-widget-ids';
-import { ContentType } from '@newrade/core-gatsby-ui/src';
+import { ContentType, BlockType } from '@newrade/core-website-api';
 import { COMMON_FIELD, mediaField } from './common-fields.contentful';
 import { Variant } from '@newrade/core-design-system';
-import { BlockType } from '@newrade/core-gatsby-ui/src';
 import { keys } from '../utilities';
 
 export function createBlock(migration: Migration.default) {

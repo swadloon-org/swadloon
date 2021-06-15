@@ -2,11 +2,8 @@ import { MDXProvider } from '@mdx-js/react';
 import { ButtonIcon, ButtonSize, Variant } from '@newrade/core-design-system';
 import {
   BackgroundImage,
-  BlockAPI,
   BlockRenderer,
   SectionBanner,
-  SectionBaseLayout,
-  SectionPadding,
   SectionProps,
 } from '@newrade/core-gatsby-ui/src';
 import { TweenMax } from '@newrade/core-gsap-ui';
@@ -18,6 +15,7 @@ import {
   useTreatTheme,
 } from '@newrade/core-react-ui';
 import { mdxComponents, MDXProps } from '@newrade/core-react-ui/lib/markdown';
+import { BlockAPI, SectionBaseLayout, SectionPadding } from '@newrade/core-website-api';
 import { IoChevronDownOutline } from '@react-icons/all-files/io5/IoChevronDownOutline';
 import { IFluidObject } from 'gatsby-background-image';
 import React, { useEffect, useImperativeHandle, useRef } from 'react';

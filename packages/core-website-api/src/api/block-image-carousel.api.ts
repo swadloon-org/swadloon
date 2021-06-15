@@ -1,5 +1,5 @@
 import { CarouselDirection, Variant } from '@newrade/core-design-system';
-import { BlockType } from '../blocks/block.props';
+import { BlockType } from './block.api';
 import { LinkAPI } from './link.api';
 import { MediaCollectionV2API } from './media-collection-v2.api';
 

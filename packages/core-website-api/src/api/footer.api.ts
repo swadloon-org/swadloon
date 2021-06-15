@@ -1,4 +1,4 @@
-import { BlockAPI } from '../api/block.api';
+import { BlockAPI } from './block.api';
 
 /**
  * Predefined footer layouts

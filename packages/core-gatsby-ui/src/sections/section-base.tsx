@@ -7,9 +7,9 @@ import {
   useTreatTheme,
 } from '@newrade/core-react-ui';
 import { getMergedClassname } from '@newrade/core-react-ui/lib/utilities';
+import { SectionBaseLayout, SectionPadding } from '@newrade/core-website-api';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { SectionBaseLayout, SectionPadding } from '../api/section.api';
 import * as styleRefs from './section-base.treat';
 import { SectionProps } from './section.props';
 

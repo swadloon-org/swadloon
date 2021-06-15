@@ -1,4 +1,4 @@
-import { ContentType, FooterLayout } from '@newrade/core-gatsby-ui/src';
+import { ContentType, FooterLayout } from '@newrade/core-website-api';
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
 import { CONTENTFUL_WIDGET } from '../../types/contentful-widget-ids';

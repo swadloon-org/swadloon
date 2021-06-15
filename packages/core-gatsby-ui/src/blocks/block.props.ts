@@ -1,49 +1,7 @@
 import { CommonComponentProps } from '@newrade/core-react-ui';
-import { BlockGoogleMapAPI } from '../api/block-google-map.api';
-import { BlockAPI } from '../api/block.api';
+import { BlockGoogleMapAPI } from '@newrade/core-website-api';
+import { BlockAPI } from '@newrade/core-website-api';
 import { CustomBlockVariantComponents } from '../sections/section.props';
-
-export enum BlockType {
-  /**
-   * Used for markdown text and content.
-   */
-  text = 'text',
-  /**
-   * Display a single image
-   */
-  image = 'image',
-  /**
-   * Display an image as background
-   */
-  imageBackground = 'imageBackground',
-  /**
-   * Display a video media
-   */
-  video = 'video',
-  /**
-   * Carousel
-   */
-  carousel = 'carousel',
-  /**
-   * Display a Google Maps
-   */
-  googleMaps = 'googleMaps',
-}
-
-export enum BlockAlignment {
-  /**
-   * Align block content to the left
-   */
-  left = 'left',
-  /**
-   * Align block content to the left
-   */
-  center = 'center',
-  /**
-   * Align block content to the left
-   */
-  right = 'right',
-}
 
 /**
  * Props that all Block components should have

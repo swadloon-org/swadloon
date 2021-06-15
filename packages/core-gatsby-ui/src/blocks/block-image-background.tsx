@@ -1,7 +1,7 @@
 import { CommonComponentProps, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
+import { BlockAPI } from '@newrade/core-website-api';
 import { IFluidObject } from 'gatsby-background-image';
 import React from 'react';
-import { BlockAPI } from '../api/block.api';
 import { BackgroundImage } from '../image/background-image';
 import { BlockProps } from './block.props';
 

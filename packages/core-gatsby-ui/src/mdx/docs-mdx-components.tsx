@@ -27,8 +27,8 @@ import {
 } from '@newrade/core-react-ui';
 import { Code, CodeBlock, CodeHighlight } from '@newrade/core-react-ui/lib/code';
 import { mdxComponents, MDXProps } from '@newrade/core-react-ui/lib/markdown';
+import { SectionBaseLayout, SectionPadding } from '@newrade/core-website-api';
 import React from 'react';
-import { SectionBaseLayout, SectionPadding } from '../api/section.api';
 import { BlockMarkdown } from '../blocks/block-markdown';
 import { DocHeader } from '../context/doc-header';
 import { DocTags } from '../context/doc-tags';

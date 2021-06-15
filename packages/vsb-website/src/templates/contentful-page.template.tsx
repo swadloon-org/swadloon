@@ -2,7 +2,6 @@ import { GatsbyContentfulPageContext } from '@newrade/core-gatsby-config';
 import {
   CustomBlockVariantComponents,
   CustomSectionLayoutComponents,
-  SectionAPI,
   SectionRenderer,
 } from '@newrade/core-gatsby-ui/src';
 import {
@@ -11,6 +10,7 @@ import {
   getMetadataTwitterTags,
   OPEN_GRAPH_TYPE,
 } from '@newrade/core-react-ui';
+import { SectionAPI } from '@newrade/core-website-api';
 import { graphql, PageProps } from 'gatsby';
 import React from 'react';
 import Helmet from 'react-helmet';

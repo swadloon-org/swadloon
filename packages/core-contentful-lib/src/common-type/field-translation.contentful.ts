@@ -1,6 +1,6 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
-import { ContentType } from '@newrade/core-gatsby-ui/src';
+import { ContentType } from '@newrade/core-website-api';
 import { COMMON_FIELD } from './common-fields.contentful';
 
 export const createTranslation: Migration.MigrationFunction = function (migration, context) {
