@@ -7,7 +7,7 @@ import {
   Details,
   Grid,
   Heading,
-  Icon,
+  IconComp,
   Label,
   Link,
   ListItem,
@@ -27,6 +27,7 @@ import {
 } from '@newrade/core-react-ui';
 import { Code, CodeBlock, CodeHighlight } from '@newrade/core-react-ui/lib/code';
 import { mdxComponents, MDXProps } from '@newrade/core-react-ui/lib/markdown';
+import { SectionBaseLayout, SectionPadding } from '@newrade/core-website-api';
 import React from 'react';
 import { BlockMarkdown } from '../blocks/block-markdown';
 import { DocHeader } from '../context/doc-header';
@@ -38,7 +39,6 @@ import { PlaceholderMarkdown } from '../docs-components/placeholder-markdown';
 import { SectionBase } from '../sections/section-base';
 import { SectionDivider } from '../sections/section-divider';
 import { SectionSwitcher } from '../sections/section-switcher';
-import { SectionBaseLayout, SectionPadding } from '../sections/section.props';
 
 /**
  * Additional components used to render md docs and design-system documentation
@@ -94,7 +94,7 @@ export const docsMdxComponents = {
   DocTags: DocTags,
   DocHeader: DocHeader,
   TagStatus: TagStatus,
-  Icon: Icon,
+  Icon: IconComp,
   IconBox: IconBox,
   Icons: Icons,
 };

@@ -1,23 +1,23 @@
-import { Iconography, VIEWPORT, ICON_SIZE } from '@newrade/core-design-system-old';
+import { Iconography, VIEWPORT, IconSize } from '@newrade/core-design-system-old';
 
 import { sizingStepMobile, sizingStepDesktop } from './sizing';
 
 export const iconography: Iconography = {
   sizes: {
     [VIEWPORT.mobile]: {
-      [ICON_SIZE.large]: sizingStepMobile.x4,
-      [ICON_SIZE.medium]: sizingStepMobile.x3,
-      [ICON_SIZE.small]: sizingStepMobile.x2,
+      [IconSize.large]: sizingStepMobile.x4,
+      [IconSize.medium]: sizingStepMobile.x3,
+      [IconSize.small]: sizingStepMobile.x2,
     },
     [VIEWPORT.tablet]: {
-      [ICON_SIZE.large]: sizingStepDesktop.x3,
-      [ICON_SIZE.medium]: sizingStepDesktop.x2,
-      [ICON_SIZE.small]: sizingStepDesktop.x1,
+      [IconSize.large]: sizingStepDesktop.x3,
+      [IconSize.medium]: sizingStepDesktop.x2,
+      [IconSize.small]: sizingStepDesktop.x1,
     },
     [VIEWPORT.desktop]: {
-      [ICON_SIZE.large]: sizingStepDesktop.x3,
-      [ICON_SIZE.medium]: sizingStepDesktop.x2,
-      [ICON_SIZE.small]: sizingStepDesktop.x1,
+      [IconSize.large]: sizingStepDesktop.x3,
+      [IconSize.medium]: sizingStepDesktop.x2,
+      [IconSize.small]: sizingStepDesktop.x1,
     },
   },
 };

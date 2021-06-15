@@ -1,8 +1,5 @@
-import { globalStyle, style } from 'treat';
-import { ANGLE_UNIT } from '../../../core-design-system/src';
+import { style } from 'treat';
 import { Theme } from '../design-system';
-import { globalThemeReversedSelector } from '../global/global-theme-classnames';
-import { getCSSLinearGradient } from '../utilities';
 
 /**
  * Base

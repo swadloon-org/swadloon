@@ -192,6 +192,10 @@
       "path": "../packages/core-webpack-config"
     },
     {
+      "name": "core-website-api",
+      "path": "../packages/core-website-api"
+    },
+    {
       "name": "core-yo-generator",
       "path": "../packages/core-yo-generator"
     },

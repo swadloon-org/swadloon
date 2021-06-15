@@ -1,7 +1,7 @@
 import { BoxV2, CommonComponentProps, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
+import { BlockAPI } from '@newrade/core-website-api';
 import { FluidObject } from 'gatsby-image';
 import React from 'react';
-import { BlockAPI } from '../api/block.api';
 import { Image } from '../image/image';
 import { BlockProps } from './block.props';
 

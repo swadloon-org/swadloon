@@ -47,6 +47,15 @@ export const styles = {
     '::-webkit-input-placeholder': {
       color: cssTheme.colors.colors.grey[300],
     },
+
+    //   input:-webkit-autofill {
+    //     box-shadow: inset 0 0 0 100px hsl(208 100% 95%);
+    // }
+
+    // input:-webkit-autofill::first-line {
+    //     font-family: 'Untitled Sans', helvetica, sans-serif;
+    //     color: hsl(208 12% 5%);
+    // }
     '@media': {
       [cssTheme.layout.media.tablet]: {
         // minWidth: 256,
@@ -63,10 +72,10 @@ export const styles = {
    * Sizes
    */
   medium: style(({ theme, cssTheme }: Theme) => ({
-    height: `calc(${cssTheme.sizing.var.x4} + ${
-      cssTheme.typography.labels.mobile.small.capHeight
-    }px + ${2}px)`,
-    padding: `5px 10px 1px`,
+    // height: `calc(${cssTheme.sizing.var.x4} + ${
+    //   cssTheme.typography.labels.mobile.small.capHeight
+    // }px + ${2}px)`,
+    padding: `0.8em ​10p`,
     fontFamily: cssTheme.typography.labels.mobile.small.fontFamily,
     lineHeight: cssTheme.typography.labels.mobile.small.capsize?.lineHeight,
     fontSize: `max(16px, ${cssTheme.typography.labels.tablet.small.capsize?.fontSize})`,

@@ -13,7 +13,7 @@ tags:
 <!-- CODE IMPORTS -->
 
 <!-- prettier-ignore -->
-import { ICON, ICON_SIZE } from '@newrade/core-design-system';
+import { Icon, ICON_SIZE } from '@newrade/core-design-system';
 import { IconSizes } from '../../src/code/icon-sizes.code';
 import { IconsImportExample } from '../../src/code/icons-import-example.code';
 import IconsImportExampleCode from '!!raw-loader!../../src/code/icons-import-example.code';
@@ -58,16 +58,16 @@ import {
   IoRadioButtonOnOutline,
 } from 'react-icons/io5';
 
-const ionicons5IconComponents: IconComponents<ICON> = {
-  [ICON.ARROW_UP]: IoArrowUpOutline,
-  [ICON.ARROW_DOWN]: IoArrowDownOutline,
-  [ICON.ARROW_LEFT]: IoArrowBackOutline,
-  [ICON.ARROW_RIGHT]: IoArrowForwardOutline,
-  [ICON.CHECK]: IoCheckmarkOutline,
-  [ICON.CHECKBOX_BOX]: IoCheckboxOutline,
-  [ICON.CIRCLE]: IoAddCircle,
-  [ICON.MENU]: IoMenuOutline,
-  [ICON.RADIO]: IoRadioButtonOnOutline,
+const ionicons5IconComponents: IconComponents<Icon> = {
+  [Icon.arrowUp]: IoArrowUpOutline,
+  [Icon.arrowDown]: IoArrowDownOutline,
+  [Icon.arrowLeft]: IoArrowBackOutline,
+  [Icon.arrowRight]: IoArrowForwardOutline,
+  [Icon.check]: IoCheckmarkOutline,
+  [Icon.checkboxBox]: IoCheckboxOutline,
+  [Icon.circle]: IoAddCircle,
+  [Icon.menu]: IoMenuOutline,
+  [Icon.radio]: IoRadioButtonOnOutline,
 };
 ```
 

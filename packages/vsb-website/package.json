@@ -46,6 +46,7 @@
     "@newrade/core-gatsby-ui": "^1.8.0",
     "@newrade/core-types": "^1.5.0",
     "@newrade/core-utils": "^1.7.0",
-    "@newrade/core-webpack-config": "^1.6.1"
+    "@newrade/core-webpack-config": "^1.6.1",
+    "@newrade/core-website-api": "^1"
   }
 }
