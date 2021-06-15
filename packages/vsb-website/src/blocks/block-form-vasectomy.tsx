@@ -705,12 +705,14 @@ export const BlockFormVasectomy: React.FC<BlockFormVasectomyProps> = ({
           </InputWrapper> */}
 
           <FormStack>
-            <ReCAPTCHA
-              hl={'fr'}
-              size={'normal'}
-              ref={recaptchaRef}
-              sitekey="6Lc0iksaAAAAALyiB9gYY0sCjQYb-rdLKI-RNP6d"
-            />
+            <div style={{ overflowX: 'auto', overflowY: 'hidden' }}>
+              <ReCAPTCHA
+                hl={'fr'}
+                size={'normal'}
+                ref={recaptchaRef}
+                sitekey="6Lc0iksaAAAAALyiB9gYY0sCjQYb-rdLKI-RNP6d"
+              />
+            </div>
 
             <Paragraph>
               Une fois la demande soumise, notre équipe vous contactera dans les plus brefs délais

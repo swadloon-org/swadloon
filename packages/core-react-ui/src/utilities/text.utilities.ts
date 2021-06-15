@@ -191,7 +191,8 @@ export function getCSSFontTextStyles(
 }
 
 type CSSTextStyleOptions = {
-  stylePseudoElements: {
+  disablePseudo?: boolean;
+  stylePseudoElements?: {
     display: Property.Display;
   };
 };
@@ -202,6 +203,15 @@ export function getCSSSizeTextStyles(
 ): Style {
   if (!textStyle) {
     return {};
+  }
+
+  if (options?.disablePseudo) {
+    return {
+      ...textStyle.capsize,
+      padding: 'inherit',
+      '::before': {},
+      '::after': {},
+    };
   }
 
   if (options?.stylePseudoElements) {

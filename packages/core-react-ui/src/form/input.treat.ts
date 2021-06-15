@@ -34,6 +34,7 @@ export const styles = {
     outline: 'none',
     lineHeight: 0,
     cursor: 'auto',
+    verticalAlign: 'middle',
     appearance: 'none',
     userSelect: 'auto',
     touchAction: 'none',
@@ -46,6 +47,7 @@ export const styles = {
     },
     '::-webkit-input-placeholder': {
       color: cssTheme.colors.colors.grey[300],
+      verticalAlign: 'middle',
     },
 
     //   input:-webkit-autofill {
@@ -72,26 +74,30 @@ export const styles = {
    * Sizes
    */
   medium: style(({ theme, cssTheme }: Theme) => ({
-    // height: `calc(${cssTheme.sizing.var.x4} + ${
-    //   cssTheme.typography.labels.mobile.small.capHeight
-    // }px + ${2}px)`,
-    padding: `0.8em ​10p`,
+    padding: `0 10px`,
     fontFamily: cssTheme.typography.labels.mobile.small.fontFamily,
-    lineHeight: cssTheme.typography.labels.mobile.small.capsize?.lineHeight,
     fontSize: `max(16px, ${cssTheme.typography.labels.tablet.small.capsize?.fontSize})`,
+    height: `56px`,
+    lineHeight: `56px`,
+    '::-webkit-input-placeholder': {
+      lineHeight: `56px`,
+    },
     '@media': {
       [cssTheme.layout.media.tablet]: {
-        height: `calc(${cssTheme.sizing.var.x4} + ${
-          cssTheme.typography.labels.tablet.small.capHeight
-        }px + ${2}px)`,
-
         fontSize: cssTheme.typography.labels.tablet.small.capsize?.fontSize,
+        height: `56px`,
+        lineHeight: `56px`,
+        '::-webkit-input-placeholder': {
+          lineHeight: `56px`,
+        },
       },
       [cssTheme.layout.media.desktopSmall]: {
-        height: `calc(${cssTheme.sizing.var.x4} + ${
-          cssTheme.typography.labels.desktop.small.capHeight
-        }px + ${2}px)`,
         fontSize: cssTheme.typography.labels.desktop.small.capsize?.fontSize,
+        height: `48px`,
+        lineHeight: `48px`,
+        '::-webkit-input-placeholder': {
+          lineHeight: `48px`,
+        },
       },
     },
   })),

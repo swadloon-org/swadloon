@@ -58,7 +58,12 @@ export const ListItemV2: React.FC<Props> = React.memo(
         ...props,
       },
       <>
-        <Paragraph variant={variantSize} className={styles.content}>
+        <Paragraph
+          variant={variantSize}
+          className={styles.content}
+          as={'div'}
+          disableCapsize={true}
+        >
           {renderedChildren}
         </Paragraph>
       </>

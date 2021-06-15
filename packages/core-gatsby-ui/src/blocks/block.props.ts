@@ -1,5 +1,5 @@
 import { CommonComponentProps } from '@newrade/core-react-ui';
-import { BlockGoogleMapAPI } from '@newrade/core-website-api';
+import { BlockGoogleMapAPI, BlockImageAPIV2, BlockImageAPIV1 } from '@newrade/core-website-api';
 import { BlockAPI } from '@newrade/core-website-api';
 import { CustomBlockVariantComponents } from '../sections/section.props';
 
@@ -10,7 +10,7 @@ export type BlockProps = CommonComponentProps & {
   /** tells the block whether it is visible in the viewport */
   inView?: boolean;
   /** block data */
-  block?: BlockAPI | BlockGoogleMapAPI | null;
+  block?: BlockAPI | BlockImageAPIV1 | BlockGoogleMapAPI | BlockImageAPIV2 | null;
 };
 
 /**

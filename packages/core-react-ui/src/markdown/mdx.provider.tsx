@@ -60,7 +60,7 @@ export const mdxComponents: Partial<
    * Text content
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element#text_content
    */
-  p: (props: MDXProps) => <Paragraph {...props} />,
+  p: (props: MDXProps) => <Paragraph {...props} readableWidth={true} />,
   a: (props: MDXProps & AnchorHTMLAttributes<any>) => (
     <Link
       variant={LinkVariant.underline}

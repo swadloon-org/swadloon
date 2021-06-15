@@ -27,7 +27,17 @@ const defaultProps: Props = {
  * @see https://devdocs.io/dom/htmlparagraphelement
  */
 export const Paragraph: React.FC<Props> = React.memo(
-  ({ variant, variantStyle, variantLevel = Variant.primary, display, className, as, ...props }) => {
+  ({
+    variant,
+    variantStyle,
+    variantLevel = Variant.primary,
+    display,
+    disableCapsize,
+    readableWidth,
+    className,
+    as,
+    ...props
+  }) => {
     const { styles } = useStyles(stylesRef);
     const { colorTextStyles } = useStyles(colorTextStylesRef);
 
@@ -36,6 +46,8 @@ export const Paragraph: React.FC<Props> = React.memo(
       className,
       styles.normal,
       display === 'inline-block' ? styles.inline : '',
+      readableWidth ? styles.readableWidth : '',
+      disableCapsize ? styles.disableCapsize : '',
       styles[variant ? variant : (defaultProps.variant as PARAGRAPH_SIZE)],
       variantStyle ? styles[variantStyle] : '',
       colorTextStyles[variantLevel ? variantLevel : (defaultProps.variantLevel as Variant)],

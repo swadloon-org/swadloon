@@ -23,56 +23,83 @@ export const styles = {
   content: style(({ theme, cssTheme }: Theme) => ({
     display: 'inline-block',
     minHeight: '1em',
-    //paddingTop: '3px', // fix the annoying alignement issue
     maxWidth: 'calc(100% - 3em)', // collapse the content so it does not overflow
     verticalAlign: 'text-top',
     whiteSpace: `pre-wrap`,
+
+    // more space between the marker and the content
+    position: 'relative',
+    left: `10px`,
   })),
 
   /**
    * Sizes (from link)
    */
   large: style(({ theme, cssTheme }: Theme) => ({
-    ...getCSSTextStyles(cssTheme.typography.paragraphs.mobile.large),
+    ...getCSSTextStyles(cssTheme.typography.paragraphs.mobile.large, {
+      disablePseudo: true,
+    }),
     '@media': {
       [cssTheme.layout.media.tablet]: {
-        ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.tablet.large),
+        ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.tablet.large, {
+          disablePseudo: true,
+        }),
       },
       [cssTheme.layout.media.desktopSmall]: {
-        ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.desktop.large),
+        ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.desktop.large, {
+          disablePseudo: true,
+        }),
       },
     },
   })),
   medium: style(({ theme, cssTheme }: Theme) => ({
-    ...getCSSTextStyles(cssTheme.typography.paragraphs.mobile.medium),
+    ...getCSSTextStyles(cssTheme.typography.paragraphs.mobile.medium, {
+      disablePseudo: true,
+    }),
     '@media': {
       [cssTheme.layout.media.tablet]: {
-        ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.tablet.medium),
+        ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.tablet.medium, {
+          disablePseudo: true,
+        }),
       },
       [cssTheme.layout.media.desktopSmall]: {
-        ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.desktop.medium),
+        ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.desktop.medium, {
+          disablePseudo: true,
+        }),
       },
     },
   })),
   small: style(({ theme, cssTheme }: Theme) => ({
-    ...getCSSTextStyles(cssTheme.typography.paragraphs.mobile.small),
+    ...getCSSTextStyles(cssTheme.typography.paragraphs.mobile.small, {
+      disablePseudo: true,
+    }),
     '@media': {
       [cssTheme.layout.media.tablet]: {
-        ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.tablet.small),
+        ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.tablet.small, {
+          disablePseudo: true,
+        }),
       },
       [cssTheme.layout.media.desktopSmall]: {
-        ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.desktop.small),
+        ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.desktop.small, {
+          disablePseudo: true,
+        }),
       },
     },
   })),
   xSmall: style(({ theme, cssTheme }: Theme) => ({
-    ...getCSSTextStyles(cssTheme.typography.paragraphs.mobile.xSmall),
+    ...getCSSTextStyles(cssTheme.typography.paragraphs.mobile.xSmall, {
+      disablePseudo: true,
+    }),
     '@media': {
       [cssTheme.layout.media.tablet]: {
-        ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.tablet.xSmall),
+        ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.tablet.xSmall, {
+          disablePseudo: true,
+        }),
       },
       [cssTheme.layout.media.desktopSmall]: {
-        ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.desktop.xSmall),
+        ...getCSSSizeTextStyles(cssTheme.typography.paragraphs.desktop.xSmall, {
+          disablePseudo: true,
+        }),
       },
     },
   })),
@@ -105,4 +132,17 @@ export const styles = {
  */
 globalStyle(`${styles.wrapper}::marker`, ({ theme, cssTheme }: Theme) => ({
   fontWeight: cssTheme.typography.paragraphs.styles?.bold?.fontWeight || 400,
+}));
+
+/**
+ * @see allowed props https://web.dev/css-marker-pseudo-element/#allowed-css-::marker-properties
+ */
+globalStyle(`${styles.wrapper} p`, ({ theme, cssTheme }: Theme) => ({
+  padding: 'inherit',
+}));
+globalStyle(`${styles.wrapper} p::after`, ({ theme, cssTheme }: Theme) => ({
+  content: 'none',
+}));
+globalStyle(`${styles.wrapper} p::before`, ({ theme, cssTheme }: Theme) => ({
+  content: 'none',
 }));

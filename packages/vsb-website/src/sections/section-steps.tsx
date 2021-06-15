@@ -8,7 +8,7 @@ import {
   useCommonProps,
   useTreatTheme,
 } from '@newrade/core-react-ui';
-import { BlockAPI, SectionBaseLayout, SectionPadding } from '@newrade/core-website-api';
+import { SectionAPI, SectionBaseLayout, SectionPadding } from '@newrade/core-website-api';
 import React from 'react';
 import { isIOS } from 'react-device-detect';
 import { useStyles } from 'react-treat';
@@ -83,7 +83,7 @@ export const CustomSectionSteps = React.forwardRef<any, Props>(
       );
     };
 
-    const renderListItems = (blockSteps?: (BlockAPI | null | undefined)[]) => (
+    const renderListItems = (blockSteps?: SectionAPI['blocks']) => (
       <>
         {blockSteps?.map((step, index) => {
           return (

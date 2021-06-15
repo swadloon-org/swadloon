@@ -44,7 +44,12 @@ export const SectionMessenger = React.forwardRef<any, Props>(
   ) => {
     const { styles } = useStyles(styleRefs);
     const { cssTheme } = useTreatTheme();
-    const commonProps = useCommonProps({ id, style, className, ...props });
+    const commonProps = useCommonProps({
+      id,
+      style,
+      className,
+      ...props,
+    });
 
     return (
       <SectionBase
