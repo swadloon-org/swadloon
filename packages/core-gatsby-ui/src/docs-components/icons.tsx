@@ -31,7 +31,29 @@ export const Icons: React.FC<Props> = ({ id, style, className, ...props }) => {
     classNames: [styles.wrapper],
     ...props,
   });
-  const iconGroups = ['arrow', 'chevron', 'check', 'menu'];
+  const iconGroups = [
+    'arrow',
+    'chevron',
+    'caret',
+    'menu',
+    'ellipsis',
+    'apps',
+    'add',
+    'remove',
+    'close',
+    'search',
+    'calendar',
+    'open',
+    'exit',
+    'download',
+    'copy',
+    'duplicate',
+    'document',
+    'layers',
+    'check',
+    'radio',
+    'logo',
+  ];
 
   function handleFilterIcon() {}
   function handleIconSize() {}

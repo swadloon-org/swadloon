@@ -6,6 +6,7 @@ import { VIEWPORT } from './layout';
  * @example
  *    MENU = 'menu' would mean that a menu.svg icon exists in src/icons/
  */
+
 export enum ICON {
   /**
    * Arrows
@@ -17,21 +18,58 @@ export enum ICON {
   /**
    * Chevrons
    */
+  CHEVRON_UP = 'CHEVRON_UP',
+  CHEVRON_RIGHT = 'CHEVRON_RIGHT',
+  CHEVRON_DOWN = 'CHEVRON_DOWN',
   CHEVRON_LEFT = 'CHEVRON_LEFT',
+  /**
+   * Caret
+   */
+  CARET_UP = 'CARET_UP',
+  CARET_RIGHT = 'CARET_RIGHT',
+  CARET_DOWN = 'CARET_DOWN',
+  CARET_LEFT = 'CARET_LEFT',
   /**
    * Essentials
    */
   MENU = 'MENU',
+  ELLIPSIS_VERTICAL = 'ELLIPSIS_VERTICAL',
+  APPS = 'APPS',
+  ADD = 'ADD',
+  REMOVE = 'REMOVE',
+  CLOSE = 'CLOSE',
+  SEARCH = 'SEARCH',
+  CALENDAR = 'CALENDAR',
   /**
-   * Checkboxes
+   * Actions
    */
-  CHECKBOX_BOX = 'CHECKBOX_BOX',
+  OPEN = 'OPEN',
+  EXIT = 'EXIT',
+  DOWNLOAD = 'DOWNLOAD',
+  COPY = 'COPY',
+  DUPLICATE = 'DUPLICATE',
+  DOCUMENT = 'DOCUMENT',
+  LAYERS = 'LAYERS',
+  /**
+   * Check
+   */
+  CHECKBOX = 'CHECKBOX',
+  CHECKMARK_CIRCLE = 'CHECKMARK_CIRCLE',
   CHECK = 'CHECK',
   /**
    * Radio
    */
-  RADIO = 'RADIO',
+  RADIO_ON = 'RADIO_ON',
+  RADIO_OFF = 'RADIO_OFF',
   CIRCLE = 'CIRCLE',
+  /**
+   * Social Media Logo
+   */
+  LOGO_TWITTER = 'LOGO_TWITTER',
+  LOGO_FACEBOOK = 'LOGO_FACEBOOK',
+  LOGO_INSTAGRAM = 'LOGO_INSTAGRAM',
+  LOGO_LINKEDIN = 'LOGO_LINKEDIN',
+  LOGO_YOUTUBE = 'LOGO_YOUTUBE',
 }
 
 export enum ICON_WEIGHT {
