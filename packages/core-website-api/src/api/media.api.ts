@@ -1,17 +1,31 @@
 import { IFixedObject, IFluidObject } from 'gatsby-background-image';
+import { PartialOrNull } from '../utilities';
 
-export type MediaAPI = {
+export type MediaAPI = PartialOrNull<{
   /**
-   * name should be required
+   * The name of the media
    */
-  name?: string | null;
-  media?: {
-    title?: string;
-    description?: string;
-    file?: any;
-    fluid?: IFluidObject;
-    fixed?: IFixedObject;
+  name: string;
+  /**
+   * Media specific for mobile
+   */
+  mediaMobile: {
+    title: string;
+    description: string;
+    file: any;
+    fluid: IFluidObject;
+    fixed: IFixedObject;
   };
-  // TODO: should we have mediaMobile, mediaDesktop in mediav2 ?
-  backgroundPositionY?: string | null;
-};
+  backgroundPositionMobileY?: string;
+  /**
+   * Media for desktop if mediaMobile is set
+   */
+  media: {
+    title: string;
+    description: string;
+    file: any;
+    fluid: IFluidObject;
+    fixed: IFixedObject;
+  };
+  backgroundPositionY?: string;
+}>;

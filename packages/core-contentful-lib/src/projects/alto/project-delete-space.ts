@@ -1,5 +1,6 @@
 import * as Migration from 'contentful-migration';
-const exportSpace: any = require('../../../contentful-export-space.json');
+import path from 'path';
+const exportSpace: any = require(path.join(__dirname, '../../../contentful-export-space.json'));
 
 const program: Migration.MigrationFunction = function IndexModel(migration) {
   const allContentTypes = exportSpace.contentTypes.map((content: any) => content.sys.id);

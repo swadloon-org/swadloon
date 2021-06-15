@@ -6,7 +6,15 @@ import { COMMON_FIELD } from './common-fields.contentful';
 export const createTag: Migration.MigrationFunction = function (migration) {
   const content = migration.createContentType(ContentType.TAG, {
     name: pascal(ContentType.TAG),
-    displayField: COMMON_FIELD.NAME,
+    displayField: COMMON_FIELD.TEXT,
+    description: 'Tags are used to annotate other content type with categories like BlogPosts.',
+  });
+
+  content.createField(COMMON_FIELD.TEXT, {
+    name: pascal(COMMON_FIELD.TEXT),
+    type: 'Symbol',
+    required: true,
+    localized: true,
   });
 
   content.createField(COMMON_FIELD.TYPE, {
@@ -19,13 +27,5 @@ export const createTag: Migration.MigrationFunction = function (migration) {
         linkContentType: [ContentType.TAG_TYPE],
       },
     ],
-  });
-
-  content.createField(COMMON_FIELD.NAME, { name: pascal(COMMON_FIELD.NAME), type: 'Symbol' });
-
-  content.createField(COMMON_FIELD.DESCRIPTION, {
-    name: pascal(COMMON_FIELD.DESCRIPTION),
-    type: 'Text',
-    localized: true,
   });
 };

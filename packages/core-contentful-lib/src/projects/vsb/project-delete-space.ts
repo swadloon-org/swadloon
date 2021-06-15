@@ -1,11 +1,10 @@
-// @ts-nocheck
 import * as Migration from 'contentful-migration';
-import exportSpace from '../../../contentful-export-space.json';
+const exportSpace: any = require('../../../contentful-export-space.json');
 
 const program: Migration.MigrationFunction = function IndexModel(migration) {
-  const allContentTypes = exportSpace.contentTypes.map((content) => content.sys.id);
+  const allContentTypes = exportSpace.contentTypes.map((content: any) => content.sys.id);
 
-  allContentTypes.forEach((type) => {
+  allContentTypes.forEach((type: any) => {
     migration.deleteContentType(type);
   });
 };

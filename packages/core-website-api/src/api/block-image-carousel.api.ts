@@ -1,20 +1,10 @@
-import { CarouselDirection, Variant } from '@newrade/core-design-system';
+import { CarouselDirection } from '@newrade/core-design-system';
+import { PartialOrNull } from '../utilities';
 import { BlockType } from './block.api';
-import { LinkAPI } from './link.api';
 import { MediaCollectionV2API } from './media-collection-v2.api';
 
-export type BlockImageAPI = {
-  id: string;
-  name?: string | null;
-  variant?: Variant | null | string;
-  type?: BlockType.carousel | null | string;
-  carrousel?: CarouselDirection | null;
-  text?: {
-    text?: string | null;
-    childMdx?: {
-      body: string;
-    } | null;
-  };
-  link?: LinkAPI;
-  medias?: MediaCollectionV2API[];
-};
+export type BlockImageCarouselAPI = PartialOrNull<{
+  type: BlockType.carousel | string;
+  carouselDirection: CarouselDirection | string;
+  medias: MediaCollectionV2API;
+}>;

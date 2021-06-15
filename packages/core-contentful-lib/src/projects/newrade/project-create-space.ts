@@ -1,6 +1,6 @@
 import * as Migration from 'contentful-migration';
 import { createTranslation } from '../../common-type/field-translation.contentful';
-import { createBlock } from '../../common-type/block.contentful';
+import { createImageBlock } from '../../common-type/block-image.contentful';
 import { createBlogAuthor } from '../../common-type/blog-author.contentful';
 import { createNavigation } from '../../common-type/navigation.contentful';
 import { createSection } from '../../common-type/section.contentful';
@@ -24,7 +24,7 @@ const program: Migration.MigrationFunction = function Program(migration) {
 
   createTag(migration);
 
-  createBlock(migration);
+  createImageBlock(migration);
   createMediaCollection(migration);
 
   createBlogAuthor(migration);

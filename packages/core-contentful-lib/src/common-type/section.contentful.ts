@@ -28,7 +28,6 @@ export function createSection(migration: Migration.default) {
    */
   content.createField(COMMON_FIELD.VARIANT, {
     name: pascal(COMMON_FIELD.VARIANT),
-
     type: 'Symbol',
     validations: [
       {
@@ -45,14 +44,9 @@ export function createSection(migration: Migration.default) {
    */
   content.createField(COMMON_FIELD.LAYOUT, {
     name: pascal(COMMON_FIELD.LAYOUT),
-
     type: 'Symbol',
     validations: [
       {
-        /**
-         * TODO Change for GatsbyUI plus custom
-         */
-
         in: keys(SectionLayout),
       },
     ],
@@ -70,7 +64,15 @@ export function createSection(migration: Migration.default) {
     items: {
       type: 'Link',
       linkType: 'Entry',
-      validations: [{ linkContentType: [ContentType.BLOCK] }],
+      validations: [
+        {
+          linkContentType: [
+            ContentType.BLOCK,
+            ContentType.BLOCK_IMAGE,
+            ContentType.BLOCK_IMAGE_CAROUSEL,
+          ],
+        },
+      ],
     },
   });
 

@@ -1,20 +1,26 @@
+import { Variant } from '@newrade/core-design-system';
+import { BlockAlignment, BlockType, ContentType } from '@newrade/core-website-api';
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
 import { CONTENTFUL_WIDGET } from '../../types/contentful-widget-ids';
-import { ContentType, BlockType } from '@newrade/core-website-api';
-import { COMMON_FIELD, mediaField } from './common-fields.contentful';
-import { Variant } from '@newrade/core-design-system';
 import { keys } from '../utilities';
+import { COMMON_FIELD } from './common-fields.contentful';
 
-export function createBlock(migration: Migration.default) {
-  const content = migration.createContentType(ContentType.BLOCK, {
-    name: ContentType.BLOCK,
-    description: 'Configurable object for blocks in a section.',
-    displayField: COMMON_FIELD.NAME,
-  });
+const baseBlockOptions: Migration.IContentTypeOptions = {
+  name: ContentType.BLOCK,
+  description: 'Configurable object for blocks in a section.',
+  displayField: COMMON_FIELD.NAME,
+};
+
+export function createBlock(
+  migration: Migration.default,
+  contentTypeId: string = ContentType.BLOCK,
+  contentTypeOptions: Migration.IContentTypeOptions = baseBlockOptions
+) {
+  const content = migration.createContentType(contentTypeId, contentTypeOptions);
 
   /**
-   * For all name of block as name and description
+   * Name of the block
    */
   content.createField(COMMON_FIELD.NAME, {
     name: pascal(COMMON_FIELD.NAME),
@@ -52,12 +58,28 @@ export function createBlock(migration: Migration.default) {
       },
     ],
   });
-  content.changeFieldControl(COMMON_FIELD.VARIANT, 'builtin', CONTENTFUL_WIDGET.RADIO, {
-    helpText: 'Select block variant',
+  content.changeFieldControl(COMMON_FIELD.TYPE, 'builtin', CONTENTFUL_WIDGET.RADIO, {
+    helpText: 'Select block type',
   });
 
   /**
-   * For Text
+   * Alignment for the block's content
+   */
+  content.createField(COMMON_FIELD.ALIGNMENT, {
+    name: pascal(COMMON_FIELD.ALIGNMENT),
+    type: 'Symbol',
+    validations: [
+      {
+        in: keys(BlockAlignment),
+      },
+    ],
+  });
+  content.changeFieldControl(COMMON_FIELD.ALIGNMENT, 'builtin', CONTENTFUL_WIDGET.RADIO, {
+    helpText: 'Select block content alignment',
+  });
+
+  /**
+   * Text content for the block
    */
   content.createField(COMMON_FIELD.TEXT, {
     name: pascal(COMMON_FIELD.TEXT),
@@ -66,7 +88,7 @@ export function createBlock(migration: Migration.default) {
   });
 
   /**
-   * For Link,
+   * A configurable Link
    */
   content.createField(COMMON_FIELD.LINK, {
     name: pascal(COMMON_FIELD.LINK),
@@ -75,15 +97,7 @@ export function createBlock(migration: Migration.default) {
     validations: [{ linkContentType: [ContentType.LINK] }],
   });
   content.changeFieldControl(COMMON_FIELD.LINK, 'builtin', CONTENTFUL_WIDGET.ENTRY_LINK_EDITOR, {
-    helpText: 'Select link in the block.',
-  });
-
-  /**
-   * For MediaCollection
-   */
-  content.createField(COMMON_FIELD.MEDIAS, { ...mediaField });
-  content.changeFieldControl(COMMON_FIELD.MEDIAS, 'builtin', CONTENTFUL_WIDGET.ENTRY_CARD_EDITOR, {
-    helpText: 'Select a media collection to set images or other media on the block.',
+    helpText: 'Select link for the the block.',
   });
 
   return content;

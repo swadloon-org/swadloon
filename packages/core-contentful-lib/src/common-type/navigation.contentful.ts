@@ -40,7 +40,7 @@ export function createNavigation(migration: Migration.default) {
   });
 
   /**
-   * For Link,
+   * For Links
    */
   content.createField(COMMON_FIELD.LINKS, {
     name: pascal(COMMON_FIELD.LINKS),
@@ -51,7 +51,7 @@ export function createNavigation(migration: Migration.default) {
       validations: [{ linkContentType: [ContentType.LINK] }],
     },
   });
-  content.changeFieldControl(COMMON_FIELD.LINK, 'builtin', CONTENTFUL_WIDGET.ENTRY_LINK_EDITOR, {
+  content.changeFieldControl(COMMON_FIELD.LINKS, 'builtin', CONTENTFUL_WIDGET.ENTRY_LINK_EDITOR, {
     helpText: 'Add one or more links.',
   });
 

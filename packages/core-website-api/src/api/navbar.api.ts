@@ -1,4 +1,6 @@
+import { PartialOrNull } from '../utilities';
 import { BlockAPI } from './block.api';
+import { NavigationAPI } from './navigation.api';
 
 /**
  * Predefined navbar layouts
@@ -10,15 +12,21 @@ export enum NavbarLayout {
   social = 'social',
 }
 
-export type NavbarAPI = {
+export type NavbarAPI = PartialOrNull<{
   /**
-   * name should be required
+   * Name of the navbar
    */
-  name?: string | null;
+  name: string;
   /**
    * Controls the layout of the footer
    */
-  layout?: NavbarLayout | null | string;
-
-  blocks?: (BlockAPI | null | undefined)[] | null;
-};
+  layout: NavbarLayout | string;
+  /**
+   * Navigation links for the Navbar
+   */
+  navigation: NavigationAPI;
+  /**
+   * Blocks of content (e.g. text) inside a
+   */
+  blocks: BlockAPI[];
+}>;

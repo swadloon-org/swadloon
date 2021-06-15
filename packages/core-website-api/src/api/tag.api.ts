@@ -1,20 +1,13 @@
+import { PartialOrNull } from '../utilities';
 import { TagTypeAPI } from './tag-type.api';
 
-export type TagAPI = {
+export type TagAPI = PartialOrNull<{
   /**
-   * The name description and type of the tag'
+   * The text content of the tag
    */
-
+  text: string;
   /**
-   * name should be required
+   * What kind of tag this is
    */
-  name?: string | '';
   type: TagTypeAPI;
-
-  description?: {
-    description?: string | null;
-    childMdx?: {
-      body: string;
-    } | null;
-  };
-};
+}>;

@@ -1,9 +1,11 @@
-export type BlogAuthorAPI = {
+import { PartialOrNull } from '../utilities';
+
+export type BlogAuthorAPI = PartialOrNull<{
   firstName: string;
-  lastName?: string | null;
-  profilePicture?: {
-    title?: string;
-    description?: string;
-    file?: any;
+  lastName: string;
+  profilePicture: {
+    title: string;
+    description: string;
+    file: any;
   };
-};
+}>;

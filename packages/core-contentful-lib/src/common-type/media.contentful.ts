@@ -39,6 +39,31 @@ export const createMedia: Migration.MigrationFunction = function (migration) {
   });
 
   /**
+   * Media for mobile
+   */
+  content.createField(COMMON_FIELD.MEDIA_MOBILE, {
+    name: pascal(COMMON_FIELD.MEDIA_MOBILE),
+    type: 'Link',
+    linkType: 'Asset',
+  });
+
+  /**
+   * Background position for the media on mobile
+   */
+  content.createField(COMMON_FIELD.BACKGROUND_POSITION_MOBILE_Y, {
+    name: pascal(COMMON_FIELD.BACKGROUND_POSITION_MOBILE_Y),
+    type: 'Symbol',
+  });
+  content.changeFieldControl(
+    COMMON_FIELD.BACKGROUND_POSITION_MOBILE_Y,
+    'builtin',
+    CONTENTFUL_WIDGET.SINGLE_LINE,
+    {
+      helpText: 'Value of background position base on the Y axis"',
+    }
+  );
+
+  /**
    * Linked media
    */
   content.createField(COMMON_FIELD.MEDIA, {
@@ -54,7 +79,12 @@ export const createMedia: Migration.MigrationFunction = function (migration) {
     name: pascal(COMMON_FIELD.BACKGROUND_POSITION_Y),
     type: 'Symbol',
   });
-  content.changeFieldControl('backgroundPositionY', 'builtin', CONTENTFUL_WIDGET.SINGLE_LINE, {
-    helpText: 'Value of background position base on the Y axis"',
-  });
+  content.changeFieldControl(
+    COMMON_FIELD.BACKGROUND_POSITION_Y,
+    'builtin',
+    CONTENTFUL_WIDGET.SINGLE_LINE,
+    {
+      helpText: 'Value of background position base on the Y axis"',
+    }
+  );
 };

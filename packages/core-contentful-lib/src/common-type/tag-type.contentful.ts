@@ -7,6 +7,7 @@ export const createTagType: Migration.MigrationFunction = function (migration) {
   const content = migration.createContentType(ContentType.TAG_TYPE, {
     name: pascal(ContentType.TAG_TYPE),
     displayField: COMMON_FIELD.NAME,
+    description: 'TagTypes are used to create different kind of tags',
   });
 
   content.createField(COMMON_FIELD.NAME, {

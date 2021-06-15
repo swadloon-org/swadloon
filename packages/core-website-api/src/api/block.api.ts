@@ -1,6 +1,6 @@
 import { Variant } from '@newrade/core-design-system';
+import { PartialOrNull } from '../utilities';
 import { LinkAPI } from './link.api';
-import { MediaCollectionAPI } from './media-collection.api';
 
 export enum BlockType {
   /**
@@ -24,7 +24,7 @@ export enum BlockType {
    */
   carousel = 'carousel',
   /**
-   * Display a Google Maps
+   * Display a Google Maps embed
    */
   googleMaps = 'googleMaps',
 }
@@ -44,18 +44,17 @@ export enum BlockAlignment {
   right = 'right',
 }
 
-export type BlockAPI = {
+export type BlockAPI = PartialOrNull<{
   id: string;
-  name?: string | null;
-  variant?: Variant | null | string;
-  type?: BlockType | null | string;
-  alignment?: BlockAlignment | null | string;
-  text?: {
-    text?: string | null;
-    childMdx?: {
+  name: string;
+  variant: Variant | string;
+  type: BlockType | string;
+  alignment: BlockAlignment | string;
+  text: {
+    text: string;
+    childMdx: {
       body: string;
-    } | null;
+    };
   };
-  link?: LinkAPI;
-  medias?: MediaCollectionAPI[];
-};
+  link: LinkAPI;
+}>;

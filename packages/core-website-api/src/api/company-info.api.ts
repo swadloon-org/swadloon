@@ -1,15 +1,17 @@
-export type CompanyInfoAPI = {
+import { PartialOrNull } from '../utilities';
+
+export type CompanyInfoAPI = PartialOrNull<{
   /**
    * The name and description of the tag type'
    */
   companyName: string;
-  description?: string | null;
-  linkedinPageURL?: string | null;
-  facebookPageURL?: string | null;
-  instagramPageURL?: string | null;
-  twitterPageURL?: string | null;
-  metadataTwitterSite?: string | null;
-  metadataTwitterCreator?: string | null;
-  metadataSiteName?: string | null;
-  copyright?: string | null;
-};
+  description: string;
+  linkedinPageURL: string;
+  facebookPageURL: string;
+  instagramPageURL: string;
+  twitterPageURL: string;
+  metadataTwitterSite: string;
+  metadataTwitterCreator: string;
+  metadataSiteName: string;
+  copyright: string;
+}>;

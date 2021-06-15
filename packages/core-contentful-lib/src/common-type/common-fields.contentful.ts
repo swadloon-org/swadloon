@@ -15,6 +15,7 @@ export enum COMMON_FIELD {
    */
   TYPE = 'type',
   VARIANT = 'variant',
+  ALIGNMENT = 'alignment',
   COMPONENT = 'component',
   ICON = 'icon',
   LAYOUT = 'layout',
@@ -47,9 +48,11 @@ export enum COMMON_FIELD {
   PRICE = 'price',
   LABEL = 'label',
   MEDIA = 'media',
+  MEDIA_MOBILE = 'mediaMobile',
   MEDIAS = 'medias',
   IMAGE = 'image',
   IMAGES = 'images',
+  CAROUSEL_DIRECTION = 'carouselDirection',
   URL = 'url',
   EMAIL = 'email',
   /**
@@ -65,6 +68,7 @@ export enum COMMON_FIELD {
    * Company related fields
    */
   COMPANY_NAME = 'companyName',
+  COMPANY_INFO = 'companyInfo',
   COPYRIGHT = 'copyright',
   LOGO = 'logo',
   LOGO_FOOTER = 'logoFooter',
@@ -114,6 +118,7 @@ export enum COMMON_FIELD {
    * Media
    */
   BACKGROUND_POSITION_Y = 'backgroundPositionY',
+  BACKGROUND_POSITION_MOBILE_Y = 'backgroundPositionMobileY',
 }
 
 /**
@@ -154,11 +159,22 @@ export const emailField: IFieldOptions = {
  * Reusable field for media collection
  * e.g. carousels, video reel etc.
  */
-export const mediaField: IFieldOptions = {
+export const mediaCollectionField: IFieldOptions = {
   name: pascal(COMMON_FIELD.MEDIAS),
   type: 'Link',
   linkType: 'Entry',
   validations: [{ linkContentType: [ContentType.MEDIA_COLLECTION] }],
+};
+
+/**
+ * Reusable field for a single media entry
+ * e.g. a banner
+ */
+export const mediaField: IFieldOptions = {
+  name: pascal(COMMON_FIELD.MEDIA),
+  type: 'Link',
+  linkType: 'Entry',
+  validations: [{ linkContentType: [ContentType.MEDIA] }],
 };
 
 /**

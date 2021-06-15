@@ -28,7 +28,6 @@ export function createFooter(migration: Migration.default) {
    */
   content.createField(COMMON_FIELD.LAYOUT, {
     name: pascal(COMMON_FIELD.LAYOUT),
-
     type: 'Symbol',
     validations: [
       {
@@ -36,7 +35,7 @@ export function createFooter(migration: Migration.default) {
       },
     ],
   });
-  content.changeFieldControl(COMMON_FIELD.VARIANT, 'builtin', CONTENTFUL_WIDGET.RADIO, {
+  content.changeFieldControl(COMMON_FIELD.LAYOUT, 'builtin', CONTENTFUL_WIDGET.RADIO, {
     helpText: 'Select footer layout',
   });
 
@@ -49,22 +48,32 @@ export function createFooter(migration: Migration.default) {
     linkType: 'Entry',
     validations: [{ linkContentType: [ContentType.NAVIGATION] }],
   });
-  content.changeFieldControl(COMMON_FIELD.LINK, 'builtin', CONTENTFUL_WIDGET.ENTRY_LINK_EDITOR, {
-    helpText: 'Navigation object for this footer',
-  });
+  content.changeFieldControl(
+    COMMON_FIELD.NAVIGATION,
+    'builtin',
+    CONTENTFUL_WIDGET.ENTRY_LINK_EDITOR,
+    {
+      helpText: 'Navigation object for this footer',
+    }
+  );
 
   /**
    * Company info config object
    */
-  content.createField(ContentType.COMPANY_INFO, {
-    name: pascal(ContentType.COMPANY_INFO),
+  content.createField(COMMON_FIELD.COMPANY_INFO, {
+    name: pascal(COMMON_FIELD.COMPANY_INFO),
     type: 'Link',
     linkType: 'Entry',
     validations: [{ linkContentType: [ContentType.COMPANY_INFO] }],
   });
-  content.changeFieldControl(COMMON_FIELD.LINK, 'builtin', CONTENTFUL_WIDGET.ENTRY_LINK_EDITOR, {
-    helpText: 'Select the CompanyInfo object for this Footer',
-  });
+  content.changeFieldControl(
+    COMMON_FIELD.COMPANY_INFO,
+    'builtin',
+    CONTENTFUL_WIDGET.ENTRY_LINK_EDITOR,
+    {
+      helpText: 'Select the CompanyInfo object for this Footer',
+    }
+  );
 
   /**
    * Blocks inside a Footer
@@ -88,7 +97,7 @@ export function createFooter(migration: Migration.default) {
     linkType: 'Entry',
     validations: [{ linkContentType: [ContentType.LINK] }],
   });
-  content.changeFieldControl(COMMON_FIELD.LINK, 'builtin', CONTENTFUL_WIDGET.ENTRY_LINK_EDITOR, {
+  content.changeFieldControl('privacyNoticeLinks', 'builtin', CONTENTFUL_WIDGET.ENTRY_LINK_EDITOR, {
     helpText: 'Select links to privacy notice pages',
   });
 
@@ -101,9 +110,14 @@ export function createFooter(migration: Migration.default) {
     linkType: 'Entry',
     validations: [{ linkContentType: [ContentType.LINK] }],
   });
-  content.changeFieldControl(COMMON_FIELD.LINK, 'builtin', CONTENTFUL_WIDGET.ENTRY_LINK_EDITOR, {
-    helpText: 'Select links to privacy notice pages',
-  });
+  content.changeFieldControl(
+    'termsOfServicesLink',
+    'builtin',
+    CONTENTFUL_WIDGET.ENTRY_LINK_EDITOR,
+    {
+      helpText: 'Select links to privacy notice pages',
+    }
+  );
 
   return content;
 }

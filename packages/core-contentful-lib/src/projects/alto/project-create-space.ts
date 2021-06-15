@@ -1,6 +1,6 @@
 import * as Migration from 'contentful-migration';
 import { createBlogPost } from '../../common-type';
-import { createBlock } from '../../common-type/block.contentful';
+import { createImageBlock } from '../../common-type/block-image.contentful';
 import { createBlogAuthor } from '../../common-type/blog-author.contentful';
 import { createCompanyAddress } from '../../common-type/company-address.contentful';
 import { createCompanyInfo } from '../../common-type/company-info.contentful';
@@ -47,7 +47,7 @@ const program: Migration.MigrationFunction = function Program(migration) {
   /**
    * Block
    */
-  createBlock(migration);
+  createImageBlock(migration);
 
   /**
    * Section

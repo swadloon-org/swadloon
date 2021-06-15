@@ -1,5 +1,13 @@
 import { LinkAPI } from './link.api';
 
+export enum NavComponent {
+  navbar = 'navbar',
+  sidebar = 'sidebar',
+  link = 'link',
+  menu = 'menu',
+  button = 'button',
+}
+
 export type NavigationAPI = {
   /**
    * The name of the navigation, e.g. 'main site footer', or 'mobile sidenav'
@@ -14,15 +22,7 @@ export type NavigationAPI = {
    */
   links: LinkAPI[];
   /**
-   * Navigation items
+   * Sub-navigation
    */
   subNavigation?: (NavigationAPI | null | undefined)[] | null;
 };
-
-export enum NavComponent {
-  navbar = 'navbar',
-  sidebar = 'sidebar',
-  link = 'link',
-  menu = 'menu',
-  button = 'button',
-}

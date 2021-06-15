@@ -44,7 +44,6 @@ export const createLink: Migration.MigrationFunction = function (migration) {
    */
   content.createField(COMMON_FIELD.VARIANT, {
     name: pascal(COMMON_FIELD.VARIANT),
-
     type: 'Symbol',
     validations: [
       {
@@ -75,8 +74,7 @@ export const createLink: Migration.MigrationFunction = function (migration) {
 
   content.createField(COMMON_FIELD.ICON, {
     name: pascal(COMMON_FIELD.ICON),
-    type: 'Link',
-    linkType: 'Entry',
+    type: 'Symbol',
     validations: [
       {
         in: keys(Icon),

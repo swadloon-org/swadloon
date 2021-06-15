@@ -1,4 +1,4 @@
-export * from './block.contentful';
+export * from './block-image.contentful';
 export * from './blog-author.contentful';
 export * from './blog-post.contentful';
 export * from './blog-author.contentful';

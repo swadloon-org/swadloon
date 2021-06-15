@@ -1,22 +1,16 @@
-export type TagTypeAPI = {
-  /**
-   * The name and description of the tag type'
-   */
+import { PartialOrNull } from '../utilities';
+import { ChildMDXAPI } from './child-mdx.api';
 
+export type TagTypeAPI = PartialOrNull<{
   /**
-   * name should be required
+   * The category name
    */
-  name?: {
-    name?: string | null;
-    childMdx?: {
-      body: string;
-    } | null;
+  name: string;
+  /**
+   * The TagType description
+   */
+  description: {
+    text: string;
+    childMdx: ChildMDXAPI;
   };
-
-  description?: {
-    description?: string | null;
-    childMdx?: {
-      body: string;
-    } | null;
-  };
-};
+}>;

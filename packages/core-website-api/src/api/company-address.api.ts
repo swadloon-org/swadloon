@@ -1,18 +1,19 @@
-export type CompanyAddressAPI = {
+import { PartialOrNull } from '../utilities';
+
+export type CompanyAddressAPI = PartialOrNull<{
   /**
    * The multiple filed of the company address'
    */
-  name?: string | null;
-  addressLine1?: string | null;
-  addressLine2?: string | null;
-  city?: string | null;
-  postalCode?: string | null;
-  provinceState?: string | null;
-  country?: string | null;
-  phone?: string | null;
-  phoneNoFees?: string | null;
-  fax?: string | null;
-  websiteURL?: string | null;
-  email?: string | null;
-  CompanyAddress?: string | null;
-};
+  name: string;
+  addressLine1: string;
+  addressLine2: string;
+  city: string;
+  postalCode: string;
+  provinceState: string;
+  country: string;
+  phone: string;
+  phoneNoFees: string;
+  fax: string;
+  websiteURL: string;
+  email: string;
+}>;

@@ -2,7 +2,7 @@ import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
 import { CONTENTFUL_WIDGET } from '../../types/contentful-widget-ids';
 import { ContentType } from '@newrade/core-website-api';
-import { COMMON_FIELD, mediaField } from './common-fields.contentful';
+import { COMMON_FIELD, mediaCollectionField } from './common-fields.contentful';
 
 export const createPortfolioProject: Migration.MigrationFunction = function (migration) {
   const content = migration.createContentType(ContentType.PORTFOLIO_PROJECT, {
@@ -65,7 +65,7 @@ export const createPortfolioProject: Migration.MigrationFunction = function (mig
    * MediaCollection the article main image
    */
 
-  content.createField(COMMON_FIELD.MEDIAS, { ...mediaField });
+  content.createField(COMMON_FIELD.MEDIAS, { ...mediaCollectionField });
   content.changeFieldControl(COMMON_FIELD.MEDIAS, 'builtin', CONTENTFUL_WIDGET.ENTRY_CARD_EDITOR, {
     helpText: 'Select a media collection to set images on the section.',
   });

@@ -1,10 +1,7 @@
+/**
+ * All content type enum value show be PascalCased
+ */
 export enum ContentType {
-  /**
-   * Page / section / layout content types
-   */
-  PAGE = 'Page',
-  SECTION = 'Section',
-
   /**
    * Navigation related types
    */
@@ -55,10 +52,18 @@ export enum ContentType {
   TRANSLATION = 'Translation',
 
   /**
-   * Section V2 && et block
+   * Page / section / layout content types
    */
-  SECTION_V2 = 'SectionV2',
+  PAGE = 'Page',
+  SECTION = 'Section',
+
+  /**
+   * Blocks
+   */
   BLOCK = 'Block',
+  BLOCK_IMAGE = 'BlockImage',
+  BLOCK_GOOGLE_MAPS = 'BlockGoogleMaps',
+  BLOCK_IMAGE_CAROUSEL = 'BlockImageCarousel',
   BLOCK_TYPE = 'BlockType',
 
   /**
@@ -66,4 +71,5 @@ export enum ContentType {
    */
   NAVIGATION = 'Navigation',
   FOOTER = 'Footer',
+  NAVBAR = 'Navbar',
 }

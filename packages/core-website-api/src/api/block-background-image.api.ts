@@ -2,12 +2,12 @@ import { PartialOrNull } from '../utilities';
 import { BlockAPI, BlockType } from './block.api';
 import { MediaAPI } from './media.api';
 
-export type BlockImageAPI = BlockAPI &
+export type BlockBackgroundImageAPI = BlockAPI &
   PartialOrNull<{
     /**
      * Type of the block should be image
      */
-    type: BlockType.image | string;
+    type: BlockType.imageBackground | string;
     /**
      * A single media
      */
