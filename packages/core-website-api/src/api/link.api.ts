@@ -1,4 +1,4 @@
-import { Icon, Variant } from '@newrade/core-design-system';
+import { ICON, Variant } from '@newrade/core-design-system';
 import { PartialOrNull } from '../utilities';
 import { PageAPI } from './page.api';
 import { SectionAPI } from './section.api';
@@ -40,7 +40,7 @@ export type LinkAPI = PartialOrNull<{
   /**
    * Certain component support the icon option
    */
-  icon: Icon;
+  icon: ICON;
   /**
    * Can be internal (pages or sections) or an external link to a url
    */

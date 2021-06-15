@@ -1,4 +1,4 @@
-import { Icon, ICON_SIZE } from '@newrade/core-design-system';
+import { ICON, ICON_SIZE } from '@newrade/core-design-system';
 import { Cluster, IconComp, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 
@@ -11,10 +11,10 @@ export const IconSizes: React.FC<Props> = ({ size }) => {
 
   return (
     <Cluster wrap={true} gap={[cssTheme.sizing.var.x3]} justifyContent={['flex-start']}>
-      <IconComp name={Icon.arrowUp} size={size} />
-      <IconComp name={Icon.arrowRight} size={size} />
-      <IconComp name={Icon.arrowDown} size={size} />
-      <IconComp name={Icon.arrowLeft} size={size} />
+      <IconComp name={ICON.ARROW_UP} size={size} />
+      <IconComp name={ICON.ARROW_RIGHT} size={size} />
+      <IconComp name={ICON.ARROW_DOWN} size={size} />
+      <IconComp name={ICON.ARROW_LEFT} size={size} />
     </Cluster>
   );
 };

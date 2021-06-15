@@ -13,7 +13,7 @@ tags:
 <!-- CODE IMPORTS -->
 
 <!-- prettier-ignore -->
-import { Icon, ICON_SIZE } from '@newrade/core-design-system';
+import { ICON, ICON_SIZE } from '@newrade/core-design-system';
 import { IconSizes } from '../../src/code/icon-sizes.code';
 import { IconsImportExample } from '../../src/code/icons-import-example.code';
 import IconsImportExampleCode from '!!raw-loader!../../src/code/icons-import-example.code';

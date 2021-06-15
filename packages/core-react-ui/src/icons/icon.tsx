@@ -1,4 +1,4 @@
-import { Icon, ICON_SIZE } from '@newrade/core-design-system';
+import { ICON, ICON_SIZE } from '@newrade/core-design-system';
 import React, { ErrorInfo, SVGAttributes, useState } from 'react';
 import { useStyles } from 'react-treat';
 import { useCommonProps } from '../hooks/use-common-props.hook';
@@ -9,7 +9,7 @@ import { useIconContext } from './icons-provider';
 
 type Props = SVGAttributes<any> &
   CommonComponentProps & {
-    name: Icon;
+    name: ICON;
     size?: ICON_SIZE;
     width?: number | string;
     height?: number | string;

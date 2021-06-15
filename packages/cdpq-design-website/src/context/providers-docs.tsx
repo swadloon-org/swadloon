@@ -1,5 +1,5 @@
 import { MDXProvider } from '@mdx-js/react';
-import { Icon } from '@newrade/core-design-system';
+import { ICON } from '@newrade/core-design-system';
 import { docsMdxComponents } from '@newrade/core-gatsby-ui/src';
 import {
   IconProvider,
@@ -23,7 +23,7 @@ export const ProvidersDocs: React.FC = (props) => {
           <MDXProvider components={docsMdxComponents}>
             <GlobalCSSVariables>
               <GlobalResetCSS>
-                <IconProvider<Icon> iconComponents={ionicons5Kit}>{props.children}</IconProvider>
+                <IconProvider<ICON> iconComponents={ionicons5Kit}>{props.children}</IconProvider>
               </GlobalResetCSS>
             </GlobalCSSVariables>
           </MDXProvider>
