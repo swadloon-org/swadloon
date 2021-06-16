@@ -46,6 +46,26 @@ export function getCSSColors(colors: DS.Colors): CSSColors {
         baseHue: colorVar.colors.accent3.baseHue,
         baseSat: colorVar.colors.accent3.baseSat,
       }),
+      accent4: getCSSColorPalette({
+        palette: colors.colors.accent4,
+        baseHue: colorVar.colors.accent4.baseHue,
+        baseSat: colorVar.colors.accent4.baseSat,
+      }),
+      accent5: getCSSColorPalette({
+        palette: colors.colors.accent5,
+        baseHue: colorVar.colors.accent5.baseHue,
+        baseSat: colorVar.colors.accent5.baseSat,
+      }),
+      accent6: getCSSColorPalette({
+        palette: colors.colors.accent6,
+        baseHue: colorVar.colors.accent6.baseHue,
+        baseSat: colorVar.colors.accent6.baseSat,
+      }),
+      accent7: getCSSColorPalette({
+        palette: colors.colors.accent7,
+        baseHue: colorVar.colors.accent7.baseHue,
+        baseSat: colorVar.colors.accent7.baseSat,
+      }),
       grey: getCSSColorPalette({
         palette: colors.colors.grey,
         baseHue: colorVar.colors.grey.baseHue,
@@ -54,6 +74,11 @@ export function getCSSColors(colors: DS.Colors): CSSColors {
       effectTransparentLight: getCSSColor(colors.colors.effectTransparentLight),
       effectTransparentMedium: getCSSColor(colors.colors.effectTransparentMedium),
       effectTransparentHeavy: getCSSColor(colors.colors.effectTransparentHeavy),
+      utilityNeutral: getCSSColorPalette({
+        palette: colors.colors.utilityNeutral,
+        baseHue: colorVar.colors.utilityNeutral.baseHue,
+        baseSat: colorVar.colors.utilityNeutral.baseSat,
+      }),
       utilityGreen: getCSSColorPalette({
         palette: colors.colors.utilityGreen,
         baseHue: colorVar.colors.utilityGreen.baseHue,
@@ -308,6 +333,10 @@ export function getDefaultColorIntents(colors: DS.Colors['colors']): DS.ColorInt
     disabledText: colors.grey['400'],
     disabledTextReversed: colors.grey['100'],
 
+    infoText: colors.utilityNeutral['900'],
+    infoAction: colors.utilityNeutral['500'],
+    infoBackground: colors.utilityNeutral['100'],
+
     successText: colors.utilityGreen['900'],
     successAction: colors.utilityGreen['500'],
     successBackground: colors.utilityGreen['100'],
@@ -347,6 +376,10 @@ export function getDefaultCSSVarColorIntents({ colors }: CSSColorsVars): DS.Colo
     tertiaryTextReversed: colors.grey['0-reversed'],
     disabledText: colors.grey['400'],
     disabledTextReversed: colors.grey['100'],
+
+    infoText: colors.utilityNeutral['900'],
+    infoAction: colors.utilityNeutral['500'],
+    infoBackground: colors.utilityNeutral['100'],
 
     successText: colors.utilityGreen['900'],
     successAction: colors.utilityGreen['500'],

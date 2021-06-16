@@ -1,12 +1,11 @@
-import { Iconography, ICON_STYLE, VIEWPORT } from '@newrade/core-design-system';
+import { Iconography, VIEWPORT } from '@newrade/core-design-system';
 
 export const defaultIconography: Iconography = {
-  style: ICON_STYLE.SOLID,
   sizes: {
     [VIEWPORT.desktop]: {
-      small: 16,
-      medium: 24,
-      large: 48,
+      small: 12,
+      medium: 16,
+      large: 24,
     },
     [VIEWPORT.tablet]: {
       small: 16,

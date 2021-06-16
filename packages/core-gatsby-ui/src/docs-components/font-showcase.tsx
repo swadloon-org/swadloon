@@ -16,7 +16,7 @@ export const FontShowcase: React.FC<Props> = (props) => {
 
   return (
     <Stack className={styles.wrapper} gap={[cssTheme.sizing.var.x5]}>
-      <Stack gap={[cssTheme.sizing.var.x4]}>
+      <Stack gap={[cssTheme.sizing.var.x3]}>
         <Heading variant={HEADING.h4}>
           {'Sans'} - {title(cssTheme.typography.fonts.sans[0].name)}
         </Heading>

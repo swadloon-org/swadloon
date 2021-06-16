@@ -163,6 +163,14 @@
       "execute": false
     },
     {
+      "name": "core-website-api",
+      "cwd": "./packages/core-website-api",
+      "open": true,
+      "focus": false,
+      "command": "yarn start",
+      "execute": false
+    },
+    {
       "name": "core-yo-generator",
       "cwd": "./packages/core-yo-generator",
       "open": true,

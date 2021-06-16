@@ -18,13 +18,13 @@ export interface Icon {
   weight?: string;
 }
 
-export enum ICON_SIZE {
+export enum IconSize {
   large = 'large',
   medium = 'medium',
   small = 'small',
 }
 
-export type IconSizes = { [key in ICON_SIZE]: SizingStep };
+export type IconSizes = { [key in IconSize]: SizingStep };
 
 // export type Icons = { [key in ICON_NAME]: Icon } & { [key: string]: Icon };
 

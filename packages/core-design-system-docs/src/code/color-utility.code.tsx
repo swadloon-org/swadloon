@@ -10,6 +10,10 @@ export const ColorUtility: React.FC<Props> = (props) => {
   return (
     <Stack gap={[cssTheme.sizing.var.x5]}>
       <ColorPalette
+        colorName={'Utility Blue'}
+        colorOrPalette={theme.colors.colors.utilityNeutral}
+      ></ColorPalette>
+      <ColorPalette
         colorName={'Utility Green'}
         colorOrPalette={theme.colors.colors.utilityGreen}
       ></ColorPalette>

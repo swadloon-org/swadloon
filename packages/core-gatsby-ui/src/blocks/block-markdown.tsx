@@ -1,8 +1,8 @@
 import { BoxV2, useCommonProps } from '@newrade/core-react-ui';
 import { MarkdownCSS } from '@newrade/core-react-ui/lib/markdown';
+import { BlockAPI } from '@newrade/core-website-api';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { BlockAPI } from '../api/block.api';
 import { MarkdownRenderer } from '../markdown/markdown-renderer';
 import * as styleRefs from './block-markdown.treat';
 import { BlockProps } from './block.props';

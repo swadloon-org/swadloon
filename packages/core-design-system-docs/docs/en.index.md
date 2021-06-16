@@ -84,3 +84,4 @@ there:
 | ---------- | -------------------------------------- | ---------------------------------------------- |
 | IBM        | [website](https://www.ibm.com/)        | [link](https://www.carbondesignsystem.com/)    |
 | Salesforce | [website](https://www.salesforce.com/) | [link](https://www.lightningdesignsystem.com/) |
+| Modulz     | [website](https://www.modulz.app/)     | [Radix UI](https://radix-ui.com/)              |

@@ -54,7 +54,18 @@ export const styles = {
   inline: style(({ theme, cssTheme }: Theme) => ({
     display: 'inline-block',
   })),
-
+  disableCapsize: style(({ theme, cssTheme }: Theme) => ({
+    padding: 'inherit',
+    '::before': {
+      display: 'none',
+    },
+    '::after': {
+      display: 'none',
+    },
+  })),
+  readableWidth: style(({ theme, cssTheme }: Theme) => ({
+    maxWidth: '80ch',
+  })),
   normal: style(({ theme, cssTheme }: Theme) => ({
     userSelect: 'text',
     ...getCSSFontTextStyles(cssTheme.typography.paragraphs),

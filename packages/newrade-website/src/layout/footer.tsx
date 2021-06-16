@@ -1,4 +1,5 @@
-import { CommonComponentProps, FooterSimple, useTreatTheme } from '@newrade/core-react-ui';
+import { FooterSimple } from '@newrade/core-gatsby-ui/src';
+import { CommonComponentProps, useTreatTheme } from '@newrade/core-react-ui';
 import { getMergedClassname } from '@newrade/core-react-ui/lib/utilities';
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';

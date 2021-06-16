@@ -1,14 +1,14 @@
-import { ICON_SIZE, LABEL } from '@newrade/core-design-system-old';
+import { IconSize, LABEL } from '@newrade/core-design-system-old';
 import React from 'react';
 import { TreatProvider, useStyles } from 'react-treat';
 import { Author } from '../components/blog-preview/author';
+import { Accordions } from '../components/ui/accordions';
+import { Heading } from '../components/ui/heading';
+import { Icon } from '../components/ui/icon';
+import { Label } from '../components/ui/label';
+import { Paragraph } from '../components/ui/paragraph';
 import { light } from '../design-system/theme.treat';
 import * as styleRefs from '../styles/design.treat';
-import { Heading } from '../components/ui/heading';
-import { Paragraph } from '../components/ui/paragraph';
-import { Label } from '../components/ui/label';
-import { Icon } from '../components/ui/icon';
-import { Accordions } from '../components/ui/accordions';
 
 export const Design: React.FC = () => {
   const style = useStyles(styleRefs);
@@ -58,9 +58,9 @@ export const Design: React.FC = () => {
         <Label variant={LABEL.xSmallBold}>Label</Label>
         <Label variant={LABEL.xSmallRegular}>Label</Label>
 
-        <Icon size={ICON_SIZE.large} icon={'IconArrowRight'} />
-        <Icon size={ICON_SIZE.medium} icon={'IconArrowRight'} />
-        <Icon size={ICON_SIZE.small} icon={'IconArrowRight'} />
+        <Icon size={IconSize.large} icon={'IconArrowRight'} />
+        <Icon size={IconSize.medium} icon={'IconArrowRight'} />
+        <Icon size={IconSize.small} icon={'IconArrowRight'} />
         <Accordions
           type="candidates"
           variant="Default"
