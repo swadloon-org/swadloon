@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/newrade/newrade/compare/@newrade/core-gsap-ui@1.1.7...@newrade/core-gsap-ui@1.2.0) (2021-06-16)
+
+### Bug Fixes
+
+- **build:** simplify build commands
+  ([433ef53](https://github.com/newrade/newrade/commit/433ef533f2812a73a9e4062f394b42f9c2c94ebf))
+
+### Features
+
+- **cdpq-website:** init
+  ([c51956f](https://github.com/newrade/newrade/commit/c51956fd40f157a59258890fa86b1779525de752))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.1.7](https://github.com/newrade/newrade/compare/@newrade/core-gsap-ui@1.1.6...@newrade/core-gsap-ui@1.1.7) (2021-05-25)
 
 **Note:** Version bump only for package @newrade/core-gsap-ui

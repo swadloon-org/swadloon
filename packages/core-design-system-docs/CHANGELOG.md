@@ -3,6 +3,64 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/newrade/newrade/compare/@newrade/core-design-system-docs@1.4.0...@newrade/core-design-system-docs@1.5.0) (2021-06-16)
+
+### Bug Fixes
+
+- **build:** simplify build commands
+  ([433ef53](https://github.com/newrade/newrade/commit/433ef533f2812a73a9e4062f394b42f9c2c94ebf))
+- **core-design-system:** add new accents color and add a utilityNeutral color
+  ([764b1e5](https://github.com/newrade/newrade/commit/764b1e52873e83d10de04e53832b1b7a3bddb747))
+- **docs:** update structure of design system docs
+  ([9ea2ea8](https://github.com/newrade/newrade/commit/9ea2ea88d5e3ad81974d19e524c44369542da21e))
+- **jest:** upgrade jest and fix test for vanilla-extract
+  ([f1fc133](https://github.com/newrade/newrade/commit/f1fc1336cf5b322598dc06685352041661c18091))
+- **react-icons:** fix react-icons import
+  ([a8506f8](https://github.com/newrade/newrade/commit/a8506f89337f593c9745f7db399969973aa5a29f))
+- **vsb:** move e2e test to a manual workflow
+  ([3b2fa02](https://github.com/newrade/newrade/commit/3b2fa0254c7e3501df79351be496af92979e8086))
+
+### Features
+
+- **cdpq-design-system:** add color intents
+  ([a6b661c](https://github.com/newrade/newrade/commit/a6b661c682c13502c85fe37b3066e4020744a74c))
+- **cdpq-design-system:** add colors intents
+  ([090ddd4](https://github.com/newrade/newrade/commit/090ddd467c784e8ef70b1b3de7bfd8b84fec5ef9))
+- **cdpq-website:** init
+  ([c51956f](https://github.com/newrade/newrade/commit/c51956fd40f157a59258890fa86b1779525de752))
+- **contentful-lib:** refactor website api and corresponding contentful scripts
+  ([3d01ca3](https://github.com/newrade/newrade/commit/3d01ca326a8bb9a74522709a617406d240686d41))
+- **core-gatsby-ui and core-react-ui:** adding fonts to the md doc and document
+  the docs
+  ([08893ba](https://github.com/newrade/newrade/commit/08893ba32b9a13c99fedc7b58c0aa820b3b769e9))
+- **core-react-ui:** add inputs
+  ([664c735](https://github.com/newrade/newrade/commit/664c735137436dd335f82e969681e5d167d67b1a))
+- **core-react-ui:** adding gesture animation
+  ([1bf1b97](https://github.com/newrade/newrade/commit/1bf1b97e8502a4dc098aa48eae82650bee273753))
+- **core-react-ui:** adding gesture animation
+  ([96689f0](https://github.com/newrade/newrade/commit/96689f0e2568e69fd02ee3cb7e2c1790e224c85c))
+- **core-react-ui:** adding inputs
+  ([ae319b3](https://github.com/newrade/newrade/commit/ae319b3bd70f5ab3122642d22c058bad4e3edce5))
+- **core-react-ui:** wip for icon provider
+  ([c0a5479](https://github.com/newrade/newrade/commit/c0a547903a9e8d38b82f3bd051c20baf77f72a63))
+- **core-react-ui & cdpq-design-system:** update color palette and add
+  typography and colors in cdpq
+  ([ab033fb](https://github.com/newrade/newrade/commit/ab033fb0c2bb83837499706b8337309b133c8703))
+- **core-react-ui & cdpq-design-website:** adding descriptions docs md and
+  adding fonts in cdpq
+  ([22f5b53](https://github.com/newrade/newrade/commit/22f5b532159a75c5e1f68ce9e15c0f65dbe7b194))
+- **core-website-api:** split api from core-gatsby-ui
+  ([e697e80](https://github.com/newrade/newrade/commit/e697e8088b0a11fb0bd7a6efbb6c0bfea7871191))
+- **docs:** add icons to the ds docs
+  ([95d6fb5](https://github.com/newrade/newrade/commit/95d6fb5c71e00f16a850c5871a1fc76d71d7f2f7))
+- **treat:** add vanilla extract
+  ([d39e010](https://github.com/newrade/newrade/commit/d39e01045115db925a6a63001471de80e540702b))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.4.0](https://github.com/newrade/newrade/compare/@newrade/core-design-system-docs@1.3.0...@newrade/core-design-system-docs@1.4.0) (2021-05-25)
 
 ### Bug Fixes

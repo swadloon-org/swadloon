@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.13.0](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-config@1.12.0...@newrade/core-gatsby-config@1.13.0) (2021-06-16)
+
+### Bug Fixes
+
+- **build:** simplify build commands
+  ([433ef53](https://github.com/newrade/newrade/commit/433ef533f2812a73a9e4062f394b42f9c2c94ebf))
+- **react-icons:** fix react-icons import
+  ([a8506f8](https://github.com/newrade/newrade/commit/a8506f89337f593c9745f7db399969973aa5a29f))
+
+### Features
+
+- **core-react-ui:** wip for icon provider
+  ([c0a5479](https://github.com/newrade/newrade/commit/c0a547903a9e8d38b82f3bd051c20baf77f72a63))
+- **treat:** add vanilla extract
+  ([d39e010](https://github.com/newrade/newrade/commit/d39e01045115db925a6a63001471de80e540702b))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.12.0](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-config@1.11.0...@newrade/core-gatsby-config@1.12.0) (2021-05-25)
 
 ### Bug Fixes

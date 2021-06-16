@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/newrade/newrade-core/tree/master/packages/vsb-api/compare/@newrade/vsb-api@1.4.1...@newrade/vsb-api@1.5.0) (2021-06-16)
+
+### Bug Fixes
+
+- **build:** simplify build commands
+  ([433ef53](https://github.com/newrade/newrade-core/tree/master/packages/vsb-api/commit/433ef533f2812a73a9e4062f394b42f9c2c94ebf))
+
+### Features
+
+- **cdpq-website:** init
+  ([c51956f](https://github.com/newrade/newrade-core/tree/master/packages/vsb-api/commit/c51956fd40f157a59258890fa86b1779525de752))
+- **core-react-ui:** wip for icon provider
+  ([c0a5479](https://github.com/newrade/newrade-core/tree/master/packages/vsb-api/commit/c0a547903a9e8d38b82f3bd051c20baf77f72a63))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.4.1](https://github.com/newrade/newrade-core/tree/master/packages/vsb-api/compare/@newrade/vsb-api@1.4.0...@newrade/vsb-api@1.4.1) (2021-05-25)
 
 ### Bug Fixes

@@ -3,6 +3,54 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.9.0](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-ui@1.8.0...@newrade/core-gatsby-ui@1.9.0) (2021-06-16)
+
+### Bug Fixes
+
+- **build:** simplify build commands
+  ([433ef53](https://github.com/newrade/newrade/commit/433ef533f2812a73a9e4062f394b42f9c2c94ebf))
+- **core-react-ui:** fix for list items
+  ([73c6c3d](https://github.com/newrade/newrade/commit/73c6c3d8f9ee90d69686b7d9603588557f4cdf93))
+- **docs:** update structure of design system docs
+  ([9ea2ea8](https://github.com/newrade/newrade/commit/9ea2ea88d5e3ad81974d19e524c44369542da21e))
+- **jest:** upgrade jest and fix test for vanilla-extract
+  ([f1fc133](https://github.com/newrade/newrade/commit/f1fc1336cf5b322598dc06685352041661c18091))
+
+### Features
+
+- **alto-design-system & ronin-design-system:** update typography for alto &
+  ronin
+  ([948af39](https://github.com/newrade/newrade/commit/948af39917c0beec8d534083877581dc3739086a))
+- **cdpq-design-system:** add color intents
+  ([a6b661c](https://github.com/newrade/newrade/commit/a6b661c682c13502c85fe37b3066e4020744a74c))
+- **cdpq-design-system:** add colors intents
+  ([090ddd4](https://github.com/newrade/newrade/commit/090ddd467c784e8ef70b1b3de7bfd8b84fec5ef9))
+- **cdpq-website:** init
+  ([c51956f](https://github.com/newrade/newrade/commit/c51956fd40f157a59258890fa86b1779525de752))
+- **contentful-lib:** adding footer, navbar and other contenttype
+  ([c94c2a3](https://github.com/newrade/newrade/commit/c94c2a3756d127345898c272bdd2e86a911f43e1))
+- **contentful-lib:** refactor website api and corresponding contentful scripts
+  ([3d01ca3](https://github.com/newrade/newrade/commit/3d01ca326a8bb9a74522709a617406d240686d41))
+- **core-gatsby-ui and core-react-ui:** adding fonts to the md doc and document
+  the docs
+  ([08893ba](https://github.com/newrade/newrade/commit/08893ba32b9a13c99fedc7b58c0aa820b3b769e9))
+- **core-react-ui:** adding icons
+  ([7d1ad9f](https://github.com/newrade/newrade/commit/7d1ad9f29d0447e1a3ea2bd2c34229bae368ec2e))
+- **core-react-ui & cdpq-design-system:** update color palette and add
+  typography and colors in cdpq
+  ([ab033fb](https://github.com/newrade/newrade/commit/ab033fb0c2bb83837499706b8337309b133c8703))
+- **core-website-api:** split api from core-gatsby-ui
+  ([e697e80](https://github.com/newrade/newrade/commit/e697e8088b0a11fb0bd7a6efbb6c0bfea7871191))
+- **docs:** add icons to the ds docs
+  ([95d6fb5](https://github.com/newrade/newrade/commit/95d6fb5c71e00f16a850c5871a1fc76d71d7f2f7))
+- **treat:** add vanilla extract
+  ([d39e010](https://github.com/newrade/newrade/commit/d39e01045115db925a6a63001471de80e540702b))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.8.0](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-ui@1.7.0...@newrade/core-gatsby-ui@1.8.0) (2021-05-25)
 
 ### Bug Fixes

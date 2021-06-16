@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.2](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/compare/@newrade/core-jest-config@1.6.1...@newrade/core-jest-config@1.6.2) (2021-06-16)
+
+### Bug Fixes
+
+- **build:** simplify build commands
+  ([433ef53](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/433ef533f2812a73a9e4062f394b42f9c2c94ebf))
+- **jest:** upgrade jest and fix test for vanilla-extract
+  ([f1fc133](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/f1fc1336cf5b322598dc06685352041661c18091))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.6.1](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/compare/@newrade/core-jest-config@1.6.0...@newrade/core-jest-config@1.6.1) (2021-05-25)
 
 **Note:** Version bump only for package @newrade/core-jest-config

@@ -3,6 +3,43 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/compare/@newrade/core-github-actions@1.2.0...@newrade/core-github-actions@1.3.0) (2021-06-16)
+
+### Bug Fixes
+
+- **action:** fix typo in check-workflow-status action
+  ([a1e9f52](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/commit/a1e9f524f7a4724d82aa66d9d690b3b3806bb8e7))
+- **actions:** add new actions because bash sucks
+  ([2c6faa2](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/commit/2c6faa26f11096b4cebf621b61c5108a478b0c1b))
+- **actions:** fix auth
+  ([0d9e6a9](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/commit/0d9e6a98316e88c2c9bf2de20c1b8538fbf74b4b))
+- **build:** simplify build commands
+  ([433ef53](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/commit/433ef533f2812a73a9e4062f394b42f9c2c94ebf))
+- **core-github-actions:** fix merge
+  ([9b893bb](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/commit/9b893bb20a07d2a375f4e9410a0462f53c132cdf))
+- **github-actions:** remove auto build command
+  ([2bdec9b](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/commit/2bdec9ba02b9a38cbf21328de4044187bf93315f))
+- **workflow:** fix typo
+  ([01cdb7a](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/commit/01cdb7ab739d07b93c80c35c8db7f3ed15132532))
+- **workflow:** fixing a bug when the workflow conclusion is null
+  ([5cbcef0](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/commit/5cbcef0eb06cec991cb2c18d027f3df56a79c38f))
+- **workflow:** handle case where conclusion is null
+  ([789eebe](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/commit/789eebe6eba95c3337aa27de9232cfd09e342782))
+
+### Features
+
+- **cdpq-website:** init
+  ([c51956f](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/commit/c51956fd40f157a59258890fa86b1779525de752))
+- **contentful-lib:** adding footer, navbar and other contenttype
+  ([c94c2a3](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/commit/c94c2a3756d127345898c272bdd2e86a911f43e1))
+- **core-react-ui:** adding gesture animation
+  ([96689f0](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/commit/96689f0e2568e69fd02ee3cb7e2c1790e224c85c))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.2.0](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/compare/@newrade/core-github-actions@1.1.0...@newrade/core-github-actions@1.2.0) (2021-05-25)
 
 ### Bug Fixes

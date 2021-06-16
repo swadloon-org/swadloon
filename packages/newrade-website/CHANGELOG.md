@@ -3,6 +3,59 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.14.0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/newrade-website@1.13.0...@newrade/newrade-website@1.14.0) (2021-06-16)
+
+### Bug Fixes
+
+- **cdpq:** disable failure on no unit tests
+  ([fcb5a41](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/fcb5a4126de6ca946fa2a40807c817de883fe0ce))
+- **cdpq:** fix icon issue
+  ([f145174](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/f145174aee7d9556f58dff2811fc50339150980d))
+- **core-design-system:** add new accents color and add a utilityNeutral color
+  ([764b1e5](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/764b1e52873e83d10de04e53832b1b7a3bddb747))
+- **docs:** update structure of design system docs
+  ([9ea2ea8](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/9ea2ea88d5e3ad81974d19e524c44369542da21e))
+- **new packages:** fix alto, ronin design system packages
+  ([9626bb1](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/9626bb1d2a72698ed4a7a6c8cdf310511fa7fd12))
+- **react-icons:** fix react-icons import
+  ([a8506f8](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/a8506f89337f593c9745f7db399969973aa5a29f))
+- **vsb:** fix workflow names
+  ([d0bcc6c](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/d0bcc6c80750a0c4dc9055da397ecbf7d318b510))
+- **vsb:** move e2e test to a manual workflow
+  ([3b2fa02](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/3b2fa0254c7e3501df79351be496af92979e8086))
+- **vsb-website:** fix build
+  ([c529aab](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/c529aab25ec6a7af1344f2a4cb31d16ccc33b56a))
+
+### Features
+
+- **cdpq-website:** init
+  ([c51956f](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/c51956fd40f157a59258890fa86b1779525de752))
+- **contentful-lib:** refactor website api and corresponding contentful scripts
+  ([3d01ca3](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/3d01ca326a8bb9a74522709a617406d240686d41))
+- **core-react-ui:** adding gesture animation
+  ([dd92d69](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/dd92d699e27d062dcfa2d37801461e8f209d6cd9))
+- **core-react-ui:** adding icons
+  ([7d1ad9f](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/7d1ad9f29d0447e1a3ea2bd2c34229bae368ec2e))
+- **core-react-ui:** wip for icon provider
+  ([c0a5479](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/c0a547903a9e8d38b82f3bd051c20baf77f72a63))
+- **core-react-ui & cdpq-design-system:** update color palette and add
+  typography and colors in cdpq
+  ([ab033fb](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/ab033fb0c2bb83837499706b8337309b133c8703))
+- **core-react-ui & cdpq-design-website:** adding descriptions docs md and
+  adding fonts in cdpq
+  ([22f5b53](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/22f5b532159a75c5e1f68ce9e15c0f65dbe7b194))
+- **core-website-api:** split api from core-gatsby-ui
+  ([e697e80](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/e697e8088b0a11fb0bd7a6efbb6c0bfea7871191))
+- **docs:** add icons to the ds docs
+  ([95d6fb5](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/95d6fb5c71e00f16a850c5871a1fc76d71d7f2f7))
+- **treat:** add vanilla extract
+  ([d39e010](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/d39e01045115db925a6a63001471de80e540702b))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.13.0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/newrade-website@1.12.0...@newrade/newrade-website@1.13.0) (2021-05-25)
 
 ### Bug Fixes

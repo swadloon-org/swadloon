@@ -3,6 +3,48 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.11.0](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-design-system@1.10.1...@newrade/core-design-system@1.11.0) (2021-06-16)
+
+### Bug Fixes
+
+- **build:** simplify build commands
+  ([433ef53](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/433ef533f2812a73a9e4062f394b42f9c2c94ebf))
+- **core-design-system:** add new accents color and add a utilityNeutral color
+  ([764b1e5](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/764b1e52873e83d10de04e53832b1b7a3bddb747))
+- **vsb:** move e2e test to a manual workflow
+  ([3b2fa02](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/3b2fa0254c7e3501df79351be496af92979e8086))
+
+### Features
+
+- **alto-design-system and ronin-design-system:** add colors and typography
+  ([fce1af0](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/fce1af0051ec08b53bd4ddcb012fe55ef0d9081f))
+- **cdpq:** added design system styles
+  ([175358b](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/175358bf22d8499b07ef10fb971142414381d545))
+- **cdpq-design-system:** add color intents
+  ([a6b661c](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/a6b661c682c13502c85fe37b3066e4020744a74c))
+- **cdpq-design-system:** add colors intents
+  ([090ddd4](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/090ddd467c784e8ef70b1b3de7bfd8b84fec5ef9))
+- **contentful-lib:** refactor website api and corresponding contentful scripts
+  ([3d01ca3](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/3d01ca326a8bb9a74522709a617406d240686d41))
+- **core-react-ui:** adding icons
+  ([7d1ad9f](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/7d1ad9f29d0447e1a3ea2bd2c34229bae368ec2e))
+- **core-react-ui:** adding inputs
+  ([ae319b3](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/ae319b3bd70f5ab3122642d22c058bad4e3edce5))
+- **core-react-ui:** wip for icon provider
+  ([c0a5479](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/c0a547903a9e8d38b82f3bd051c20baf77f72a63))
+- **core-react-ui & cdpq-design-system:** update color palette and add
+  typography and colors in cdpq
+  ([ab033fb](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/ab033fb0c2bb83837499706b8337309b133c8703))
+- **docs:** add icons to the ds docs
+  ([95d6fb5](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/95d6fb5c71e00f16a850c5871a1fc76d71d7f2f7))
+- **treat:** add vanilla extract
+  ([d39e010](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/d39e01045115db925a6a63001471de80e540702b))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.10.1](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-design-system@1.10.0...@newrade/core-design-system@1.10.1) (2021-05-25)
 
 ### Bug Fixes

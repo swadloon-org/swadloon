@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/newrade/newrade/compare/@newrade/vsb-design-system@1.1.1...@newrade/vsb-design-system@1.2.0) (2021-06-16)
+
+### Bug Fixes
+
+- **build:** simplify build commands
+  ([433ef53](https://github.com/newrade/newrade/commit/433ef533f2812a73a9e4062f394b42f9c2c94ebf))
+- **core-design-system:** add new accents color and add a utilityNeutral color
+  ([764b1e5](https://github.com/newrade/newrade/commit/764b1e52873e83d10de04e53832b1b7a3bddb747))
+
+### Features
+
+- **cdpq-website:** init
+  ([c51956f](https://github.com/newrade/newrade/commit/c51956fd40f157a59258890fa86b1779525de752))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.1.1](https://github.com/newrade/newrade/compare/@newrade/vsb-design-system@1.1.0...@newrade/vsb-design-system@1.1.1) (2021-05-25)
 
 **Note:** Version bump only for package @newrade/vsb-design-system

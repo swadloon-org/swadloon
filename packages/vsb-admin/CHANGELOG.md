@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/newrade/newrade/compare/@newrade/vsb-admin@1.1.1...@newrade/vsb-admin@1.2.0) (2021-06-16)
+
+### Bug Fixes
+
+- **build:** simplify build commands
+  ([433ef53](https://github.com/newrade/newrade/commit/433ef533f2812a73a9e4062f394b42f9c2c94ebf))
+- **jest:** upgrade jest and fix test for vanilla-extract
+  ([f1fc133](https://github.com/newrade/newrade/commit/f1fc1336cf5b322598dc06685352041661c18091))
+- **vsb-admin:** auth0 refresh token workaround
+  ([c36eaa4](https://github.com/newrade/newrade/commit/c36eaa44480b6ab28587b690461b4d0243c3d888))
+- **vsb-admin:** fix route 308 looses the auth context
+  ([30b102d](https://github.com/newrade/newrade/commit/30b102d8e90460e650589a6afca1dbadff021f70))
+
+### Features
+
+- **cdpq-website:** init
+  ([c51956f](https://github.com/newrade/newrade/commit/c51956fd40f157a59258890fa86b1779525de752))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.1.1](https://github.com/newrade/newrade/compare/@newrade/vsb-admin@1.1.0...@newrade/vsb-admin@1.1.1) (2021-05-25)
 
 ### Bug Fixes

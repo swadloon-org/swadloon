@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-design-system-old@1.4.4...@newrade/core-design-system-old@1.5.0) (2021-06-16)
+
+### Bug Fixes
+
+- **build:** simplify build commands
+  ([433ef53](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/433ef533f2812a73a9e4062f394b42f9c2c94ebf))
+
+### Features
+
+- **contentful-lib:** refactor website api and corresponding contentful scripts
+  ([3d01ca3](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/3d01ca326a8bb9a74522709a617406d240686d41))
+- **treat:** add vanilla extract
+  ([d39e010](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/d39e01045115db925a6a63001471de80e540702b))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.4.4](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-design-system-old@1.4.3...@newrade/core-design-system-old@1.4.4) (2021-05-21)
 
 ### Bug Fixes

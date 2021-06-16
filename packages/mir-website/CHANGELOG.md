@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.15.0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/mir-website@1.14.0...@newrade/mir-website@1.15.0) (2021-06-16)
+
+### Bug Fixes
+
+- **cdpq:** disable failure on no unit tests
+  ([fcb5a41](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/fcb5a4126de6ca946fa2a40807c817de883fe0ce))
+
+### Features
+
+- **contentful-lib:** refactor website api and corresponding contentful scripts
+  ([3d01ca3](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/3d01ca326a8bb9a74522709a617406d240686d41))
+- **treat:** add vanilla extract
+  ([d39e010](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/d39e01045115db925a6a63001471de80e540702b))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.14.0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/mir-website@1.13.0...@newrade/mir-website@1.14.0) (2021-05-25)
 
 ### Bug Fixes

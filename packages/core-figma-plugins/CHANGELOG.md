@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.9](https://github.com/newrade/newrade/compare/@newrade/core-figma-plugins@1.1.8...@newrade/core-figma-plugins@1.1.9) (2021-06-16)
+
+### Bug Fixes
+
+- **build:** simplify build commands
+  ([433ef53](https://github.com/newrade/newrade/commit/433ef533f2812a73a9e4062f394b42f9c2c94ebf))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.1.8](https://github.com/newrade/newrade/compare/@newrade/core-figma-plugins@1.1.7...@newrade/core-figma-plugins@1.1.8) (2021-05-25)
 
 **Note:** Version bump only for package @newrade/core-figma-plugins

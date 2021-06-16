@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.1](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/compare/@newrade/core-utils@1.7.0...@newrade/core-utils@1.7.1) (2021-06-16)
+
+### Bug Fixes
+
+- **build:** simplify build commands
+  ([433ef53](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/commit/433ef533f2812a73a9e4062f394b42f9c2c94ebf))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.7.0](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/compare/@newrade/core-utils@1.6.4...@newrade/core-utils@1.7.0) (2021-05-25)
 
 ### Bug Fixes

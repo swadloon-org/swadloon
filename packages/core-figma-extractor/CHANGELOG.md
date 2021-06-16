@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/newrade/newrade/compare/@newrade/core-figma-extractor@1.2.1...@newrade/core-figma-extractor@1.3.0) (2021-06-16)
+
+### Bug Fixes
+
+- **build:** simplify build commands
+  ([433ef53](https://github.com/newrade/newrade/commit/433ef533f2812a73a9e4062f394b42f9c2c94ebf))
+
+### Features
+
+- **core-react-ui:** wip for icon provider
+  ([c0a5479](https://github.com/newrade/newrade/commit/c0a547903a9e8d38b82f3bd051c20baf77f72a63))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.2.1](https://github.com/newrade/newrade/compare/@newrade/core-figma-extractor@1.2.0...@newrade/core-figma-extractor@1.2.1) (2021-05-25)
 
 ### Bug Fixes

@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/vsb-website@2.1.0...@newrade/vsb-website@2.2.0) (2021-06-16)
+
+### Bug Fixes
+
+- **build:** simplify build commands
+  ([433ef53](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/433ef533f2812a73a9e4062f394b42f9c2c94ebf))
+- **core-react-ui:** fix for list items
+  ([73c6c3d](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/73c6c3d8f9ee90d69686b7d9603588557f4cdf93))
+
+### Features
+
+- **cdpq-website:** init
+  ([c51956f](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/c51956fd40f157a59258890fa86b1779525de752))
+- **core-website-api:** split api from core-gatsby-ui
+  ([e697e80](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/e697e8088b0a11fb0bd7a6efbb6c0bfea7871191))
+- **treat:** add vanilla extract
+  ([d39e010](https://github.com/newrade/newrade/tree/master/packages/newrade-website/commit/d39e01045115db925a6a63001471de80e540702b))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [2.1.0](https://github.com/newrade/newrade/tree/master/packages/newrade-website/compare/@newrade/vsb-website@1.3.0...@newrade/vsb-website@2.1.0) (2021-05-25)
 
 ### Bug Fixes

@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/newrade/newrade/compare/@newrade/core-contentful-lib@1.7.3...@newrade/core-contentful-lib@1.8.0) (2021-06-16)
+
+### Bug Fixes
+
+- **build:** simplify build commands
+  ([433ef53](https://github.com/newrade/newrade/commit/433ef533f2812a73a9e4062f394b42f9c2c94ebf))
+- **contentful-lib:** add footer, navbar apis
+  ([3cc7298](https://github.com/newrade/newrade/commit/3cc7298496da695a09048607d821b71a20b9648e))
+
+### Features
+
+- **contentful-lib:** adding footer, navbar and other contenttype
+  ([c94c2a3](https://github.com/newrade/newrade/commit/c94c2a3756d127345898c272bdd2e86a911f43e1))
+- **contentful-lib:** refactor website api and corresponding contentful scripts
+  ([3d01ca3](https://github.com/newrade/newrade/commit/3d01ca326a8bb9a74522709a617406d240686d41))
+- **contentful-lib:** update content types
+  ([818242b](https://github.com/newrade/newrade/commit/818242b301a34b4c77c6fde0113b74574fa09050))
+- **core-website-api:** split api from core-gatsby-ui
+  ([e697e80](https://github.com/newrade/newrade/commit/e697e8088b0a11fb0bd7a6efbb6c0bfea7871191))
+- **docs:** add icons to the ds docs
+  ([95d6fb5](https://github.com/newrade/newrade/commit/95d6fb5c71e00f16a850c5871a1fc76d71d7f2f7))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.7.3](https://github.com/newrade/newrade/compare/@newrade/core-contentful-lib@1.7.2...@newrade/core-contentful-lib@1.7.3) (2021-05-25)
 
 **Note:** Version bump only for package @newrade/core-contentful-lib
