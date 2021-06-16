@@ -1,9 +1,9 @@
 import { ColorIntents, Colors } from '@newrade/core-design-system';
-import {
-  getDefaultColorIntents,
-  generateColorPalette5,
-} from '@newrade/core-react-ui/lib/utilities';
 import { defaultColors } from '@newrade/core-react-ui/lib/default-theme';
+import {
+  generateColorPalette5,
+  getDefaultColorIntents,
+} from '@newrade/core-react-ui/lib/utilities';
 
 export const colorsColors: Colors['colors'] = {
   current: 'currentColor',
@@ -37,6 +37,30 @@ export const colorsColors: Colors['colors'] = {
     light: 90,
     dark: 20,
   }),
+  // not used
+  accent4: generateColorPalette5({
+    color: { h: 200, s: 50, l: 50 },
+    light: 90,
+    dark: 20,
+  }),
+  // not used
+  accent5: generateColorPalette5({
+    color: { h: 200, s: 50, l: 50 },
+    light: 90,
+    dark: 20,
+  }),
+  // not used
+  accent6: generateColorPalette5({
+    color: { h: 200, s: 50, l: 50 },
+    light: 90,
+    dark: 20,
+  }),
+  // not used
+  accent7: generateColorPalette5({
+    color: { h: 200, s: 50, l: 50 },
+    light: 90,
+    dark: 20,
+  }),
   grey: {
     '1000': { h: 210, s: 6, l: 7 },
     '900': { h: 200, s: 4, l: 13 },
@@ -58,6 +82,12 @@ export const colorsColors: Colors['colors'] = {
   effectTransparentLight: { h: 0, s: 0, l: 0, a: 10 },
   effectTransparentMedium: { h: 0, s: 0, l: 0, a: 10 },
   effectTransparentHeavy: { h: 0, s: 0, l: 0, a: 13 },
+  // not used
+  utilityNeutral: generateColorPalette5({
+    color: { h: 112, s: 71, l: 53 },
+    light: 90,
+    dark: 5,
+  }),
   utilityGreen: generateColorPalette5({
     color: { h: 112, s: 71, l: 53 },
     light: 90,

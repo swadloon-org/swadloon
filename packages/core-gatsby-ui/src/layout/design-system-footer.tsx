@@ -1,4 +1,4 @@
-import { PARAGRAPH_SIZE, Variant } from '@newrade/core-design-system/src';
+import { PARAGRAPH_SIZE, Variant } from '@newrade/core-design-system';
 import {
   CommonComponentProps,
   Paragraph,

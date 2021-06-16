@@ -8,17 +8,16 @@ import {
   useIsSSR,
   useTreatTheme,
 } from '@newrade/core-react-ui';
+import { BlockAPI, BlockGoogleMapAPI, BlockType } from '@newrade/core-website-api';
 import { IoArrowForwardOutline } from '@react-icons/all-files/io5/IoArrowForwardOutline';
 import debug from 'debug';
 import React, { PropsWithChildren } from 'react';
-import { BlockGoogleMapAPI } from '../api/block-google-map.api';
-import { BlockAPI } from '../api/block.api';
 import { GatsbyLink } from '../links/gatsby-link';
 import { BlockGoogleMapsProps } from './block-google-map';
 import { BlockImage } from './block-image';
 import { BlockImageBackground } from './block-image-background';
 import { BlockMarkdown } from './block-markdown';
-import { BlockRendererProps, BlockType } from './block.props';
+import { BlockRendererProps } from './block.props';
 
 const log = debug('newrade:core-gatsby-ui:block-renderer');
 const logWarn = log.extend('warn');

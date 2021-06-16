@@ -6,11 +6,12 @@ import {
   useCommonProps,
   useTreatTheme,
 } from '@newrade/core-react-ui';
+import { SectionBaseLayout, SectionPadding } from '@newrade/core-website-api';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { SectionBase } from './section-base';
 import * as styleRefs from './section-messenger.treat';
-import { SectionBaseLayout, SectionPadding, SectionProps } from './section.props';
+import { SectionProps } from './section.props';
 
 type Props = CommonComponentProps &
   SectionProps & {
@@ -43,7 +44,12 @@ export const SectionMessenger = React.forwardRef<any, Props>(
   ) => {
     const { styles } = useStyles(styleRefs);
     const { cssTheme } = useTreatTheme();
-    const commonProps = useCommonProps({ id, style, className, ...props });
+    const commonProps = useCommonProps({
+      id,
+      style,
+      className,
+      ...props,
+    });
 
     return (
       <SectionBase

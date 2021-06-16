@@ -1,5 +1,4 @@
 import { ColorPalette } from '@newrade/core-gatsby-ui/src/docs-components/color-palette';
-import { Placeholder } from '@newrade/core-gatsby-ui/src/docs-components/placeholder';
 import { BoxV2, Stack, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 
@@ -12,16 +11,12 @@ export const BackgroundColorIntents: React.FC<Props> = (props) => {
     <Stack gap={[cssTheme.sizing.var.x5]}>
       <BoxV2
         padding={[cssTheme.sizing.var.x2]}
-        style={{ backgroundColor: cssTheme.colors.colorIntents.background0, width: `100%` }}
+        style={{ backgroundColor: cssTheme.colors.colorIntents.background1, width: `100%` }}
       >
         <BoxV2
           padding={[cssTheme.sizing.var.x2]}
           style={{ backgroundColor: cssTheme.colors.colorIntents.background1, width: `100%` }}
-        >
-          <Placeholder
-            style={{ backgroundColor: cssTheme.colors.colorIntents.background2, width: `100%` }}
-          ></Placeholder>
-        </BoxV2>
+        ></BoxV2>
       </BoxV2>
 
       <ColorPalette

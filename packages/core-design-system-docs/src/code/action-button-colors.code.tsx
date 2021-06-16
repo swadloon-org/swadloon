@@ -25,12 +25,26 @@ export const ButtonColors: React.FC<Props> = (props) => {
         </Stack>
       </ReversedBox>
 
-      <ColorPalette
-        colorName={''}
-        colorOrPalette={{
-          primary: theme.colors.colorIntents.primary,
-        }}
-      ></ColorPalette>
+      <Stack>
+        <ColorPalette
+          colorName={''}
+          colorOrPalette={{
+            primary: theme.colors.colorIntents.primary,
+          }}
+        ></ColorPalette>
+        <ColorPalette
+          colorName={''}
+          colorOrPalette={{
+            secondary: theme.colors.colorIntents.secondary,
+          }}
+        ></ColorPalette>
+        <ColorPalette
+          colorName={''}
+          colorOrPalette={{
+            primaryReversed: theme.colors.colorIntents.primaryReversed,
+          }}
+        ></ColorPalette>
+      </Stack>
     </Stack>
   );
 };

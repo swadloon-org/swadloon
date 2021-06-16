@@ -20,6 +20,8 @@ export type ColorShadesGrey =
 
 export type ColorShades5 = '100' | '300' | '500' | '700' | '900';
 
+export type ColorShades7 = '100' | '200' | '300' | '500' | '700' | '900' | '1000';
+
 export type ColorShades10 =
   | '100'
   | '200'
@@ -40,6 +42,7 @@ export type ColorPalette<ColorShades extends string = ColorShadesGrey, ColorType
   /**
    * Base color for the palette
    */
+
   baseHue?: Color['h'];
   baseSat?: Color['s'];
 };

@@ -149,7 +149,7 @@ globalStyle(`${wrapper} iframe`, ({ cssTheme, theme }: Theme) => ({
  */
 
 globalStyle(`${wrapper} li p + p`, ({ cssTheme, theme }: Theme) => ({
-  marginTop: contentMarginSmall,
+  marginTop: `0.5em`,
 }));
 
 /**

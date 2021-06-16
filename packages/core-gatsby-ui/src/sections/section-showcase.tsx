@@ -1,10 +1,11 @@
 import { Variant } from '@newrade/core-design-system';
 import { BoxV2, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
+import { SectionBaseLayout, SectionPadding } from '@newrade/core-website-api';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { SectionBase } from './section-base';
 import * as styleRefs from './section-showcase.treat';
-import { SectionBaseLayout, SectionPadding, SectionProps } from './section.props';
+import { SectionProps } from './section.props';
 
 type Props = SectionProps & {
   LeftTextBlock: React.ReactNode;

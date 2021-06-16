@@ -13,7 +13,8 @@ tags:
 <!-- CODE IMPORTS -->
 
 <!-- prettier-ignore -->
-import { IconArrows } from '../../src/code/icon-arrows.code';
+import { ICON, ICON_SIZE } from '@newrade/core-design-system';
+import { IconSizes } from '../../src/code/icon-sizes.code';
 import { IconsImportExample } from '../../src/code/icons-import-example.code';
 import IconsImportExampleCode from '!!raw-loader!../../src/code/icons-import-example.code';
 
@@ -21,11 +22,25 @@ import IconsImportExampleCode from '!!raw-loader!../../src/code/icons-import-exa
 
 <DocHeader props={props}/>
 
-## Icons
+## Sizes
 
-### Arrows
+The design system defines 3 sizes of icons, for each viewport.
 
-<IconArrows/>
+#### Large
+
+<IconSizes size={ICON_SIZE.large}/>
+
+#### Medium
+
+<IconSizes size={ICON_SIZE.medium}/>
+
+#### Small
+
+<IconSizes size={ICON_SIZE.small}/>
+
+## Icons Preview
+
+<Icons/>
 
 ## Setup Example
 
@@ -43,16 +58,16 @@ import {
   IoRadioButtonOnOutline,
 } from 'react-icons/io5';
 
-const ionicons5IconComponents: IconComponents<ICON> = {
-  [ICON.ARROW_UP]: IoArrowUpOutline,
-  [ICON.ARROW_DOWN]: IoArrowDownOutline,
-  [ICON.ARROW_LEFT]: IoArrowBackOutline,
-  [ICON.ARROW_RIGHT]: IoArrowForwardOutline,
-  [ICON.CHECK]: IoCheckmarkOutline,
-  [ICON.CHECKBOX_BOX]: IoCheckboxOutline,
-  [ICON.CIRCLE]: IoAddCircle,
-  [ICON.MENU]: IoMenuOutline,
-  [ICON.RADIO]: IoRadioButtonOnOutline,
+const ionicons5IconComponents: IconComponents<Icon> = {
+  [Icon.arrowUp]: IoArrowUpOutline,
+  [Icon.arrowDown]: IoArrowDownOutline,
+  [Icon.arrowLeft]: IoArrowBackOutline,
+  [Icon.arrowRight]: IoArrowForwardOutline,
+  [Icon.check]: IoCheckmarkOutline,
+  [Icon.checkboxBox]: IoCheckboxOutline,
+  [Icon.circle]: IoAddCircle,
+  [Icon.menu]: IoMenuOutline,
+  [Icon.radio]: IoRadioButtonOnOutline,
 };
 ```
 

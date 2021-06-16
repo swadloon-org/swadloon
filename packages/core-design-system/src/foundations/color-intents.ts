@@ -30,6 +30,10 @@ export interface ColorIntents<Override extends undefined | string = undefined> {
   disabledText: ColorType<Override>;
   disabledTextReversed: ColorType<Override>;
 
+  infoText: ColorType<Override>;
+  infoAction: ColorType<Override>;
+  infoBackground: ColorType<Override>;
+
   successText: ColorType<Override>;
   successAction: ColorType<Override>;
   successBackground: ColorType<Override>;

@@ -3,6 +3,7 @@
   "compilerOptions": {
     "rootDir": ".",
     "outDir": "lib",
+    "target": "es6",
     "module": "commonjs",
     "types": ["node"]
   },
@@ -12,6 +13,12 @@
     },
     {
       "path": "../core-utils/tsconfig.build.json"
+    },
+    {
+      "path": "../core-website-api/tsconfig.build.json"
+    },
+    {
+      "path": "../core-react-ui/tsconfig.build.json"
     }
   ],
   "include": ["src/**/*", "types", "package.json"]

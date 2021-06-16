@@ -34,6 +34,7 @@ export const styles = {
     outline: 'none',
     lineHeight: 0,
     cursor: 'auto',
+    verticalAlign: 'middle',
     appearance: 'none',
     userSelect: 'auto',
     touchAction: 'none',
@@ -46,7 +47,17 @@ export const styles = {
     },
     '::-webkit-input-placeholder': {
       color: cssTheme.colors.colors.grey[300],
+      verticalAlign: 'middle',
     },
+
+    //   input:-webkit-autofill {
+    //     box-shadow: inset 0 0 0 100px hsl(208 100% 95%);
+    // }
+
+    // input:-webkit-autofill::first-line {
+    //     font-family: 'Untitled Sans', helvetica, sans-serif;
+    //     color: hsl(208 12% 5%);
+    // }
     '@media': {
       [cssTheme.layout.media.tablet]: {
         // minWidth: 256,
@@ -63,26 +74,30 @@ export const styles = {
    * Sizes
    */
   medium: style(({ theme, cssTheme }: Theme) => ({
-    height: `calc(${cssTheme.sizing.var.x4} + ${
-      cssTheme.typography.labels.mobile.small.capHeight
-    }px + ${2}px)`,
-    padding: `5px 10px 1px`,
+    padding: `0 10px`,
     fontFamily: cssTheme.typography.labels.mobile.small.fontFamily,
-    lineHeight: cssTheme.typography.labels.mobile.small.capsize?.lineHeight,
     fontSize: `max(16px, ${cssTheme.typography.labels.tablet.small.capsize?.fontSize})`,
+    height: `56px`,
+    lineHeight: `56px`,
+    '::-webkit-input-placeholder': {
+      lineHeight: `56px`,
+    },
     '@media': {
       [cssTheme.layout.media.tablet]: {
-        height: `calc(${cssTheme.sizing.var.x4} + ${
-          cssTheme.typography.labels.tablet.small.capHeight
-        }px + ${2}px)`,
-
         fontSize: cssTheme.typography.labels.tablet.small.capsize?.fontSize,
+        height: `56px`,
+        lineHeight: `56px`,
+        '::-webkit-input-placeholder': {
+          lineHeight: `56px`,
+        },
       },
       [cssTheme.layout.media.desktopSmall]: {
-        height: `calc(${cssTheme.sizing.var.x4} + ${
-          cssTheme.typography.labels.desktop.small.capHeight
-        }px + ${2}px)`,
         fontSize: cssTheme.typography.labels.desktop.small.capsize?.fontSize,
+        height: `48px`,
+        lineHeight: `48px`,
+        '::-webkit-input-placeholder': {
+          lineHeight: `48px`,
+        },
       },
     },
   })),

@@ -1,12 +1,5 @@
 import { PARAGRAPH_SIZE, Variant } from '@newrade/core-design-system';
-import {
-  BlockAPI,
-  BlockMarkdown,
-  SectionBase,
-  SectionBaseLayout,
-  SectionPadding,
-  SectionProps,
-} from '@newrade/core-gatsby-ui/src';
+import { BlockMarkdown, SectionBase, SectionProps } from '@newrade/core-gatsby-ui/src';
 import {
   CommonComponentProps,
   Label,
@@ -15,6 +8,7 @@ import {
   useCommonProps,
   useTreatTheme,
 } from '@newrade/core-react-ui';
+import { SectionAPI, SectionBaseLayout, SectionPadding } from '@newrade/core-website-api';
 import React from 'react';
 import { isIOS } from 'react-device-detect';
 import { useStyles } from 'react-treat';
@@ -89,7 +83,7 @@ export const CustomSectionSteps = React.forwardRef<any, Props>(
       );
     };
 
-    const renderListItems = (blockSteps?: (BlockAPI | null | undefined)[]) => (
+    const renderListItems = (blockSteps?: SectionAPI['blocks']) => (
       <>
         {blockSteps?.map((step, index) => {
           return (

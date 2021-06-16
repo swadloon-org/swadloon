@@ -2,11 +2,10 @@ import { Iconography, IconSizes, VIEWPORT } from '@newrade/core-design-system';
 import { CSSIconography } from '../design-system';
 import { keys, px } from './utilities';
 
-export function getCSSIconography({ style, sizes }: Iconography): CSSIconography {
+export function getCSSIconography({ sizes }: Iconography): CSSIconography {
   const cssSizes = createCSSIconSizes({ variant: sizes });
 
   return {
-    style,
     sizes: cssSizes,
   };
 }

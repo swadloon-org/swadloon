@@ -8,10 +8,15 @@
     "./lib/**/*"
   ],
   "scripts": {
-    "build": "yarn tsc --build tsconfig.build.json",
-    "build:postinstall": "yarn build",
+    "build": "concurrently \"yarn tsc:build\" \"yarn copy:assets\"",
     "clean": "rm -rf lib/** && rm -f tsconfig.build.tsbuildinfo",
-    "start": "tsc --build tsconfig.build.json --watch --preserveWatchOutput"
+    "copy:assets": "TS_NODE_PROJECT=../core-webpack-config/tsconfig.script.json node -r ts-node/register scripts/copy-assets.script.ts",
+    "start": "concurrently \"yarn tsc:start\" \"yarn watch:assets\"",
+    "test": "echo ok",
+    "test:watch": "jest --watch",
+    "tsc:build": "tsc --build tsconfig.build.json",
+    "tsc:start": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
+    "watch:assets": "onchange -i 'src/assets/**/*' -- yarn copy:assets"
   },
   "sideEffects": false,
   "typings": "./lib/index.d.ts",

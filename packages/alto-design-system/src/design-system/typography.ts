@@ -2,7 +2,7 @@ import { Font, Fonts, TEXT_TRANSFORM, Typography } from '@newrade/core-design-sy
 import { defaultTypography } from '@newrade/core-react-ui/lib/default-theme';
 
 const fontSans: Font = {
-  name: 'AvenirNext LT Pro',
+  name: 'Gilroy',
   fontMetrics: {
     capHeight: 708,
     ascent: 756,
@@ -13,12 +13,12 @@ const fontSans: Font = {
 };
 
 const fontSansAlternate: Font = {
-  name: 'Neue Montreal',
+  name: 'Acumin Pro',
   fontMetrics: {
-    capHeight: 715,
-    ascent: 975,
-    descent: -225,
-    lineGap: 0,
+    capHeight: 708,
+    ascent: 756,
+    descent: -244,
+    lineGap: 200,
     unitsPerEm: 1000,
   },
 };
@@ -26,14 +26,14 @@ const fontSansAlternate: Font = {
 export const fonts: Fonts = {
   ...defaultTypography.fonts,
   sans: [fontSans, ...defaultTypography.fonts.sans],
-  sansAlternate: [fontSansAlternate, ...defaultTypography.fonts.sans],
+  sansAlternate: [fontSansAlternate, ...defaultTypography.fonts.sansAlternate],
 };
 
 export const typography: Typography = {
   fonts,
   titles: {
-    font: [fontSansAlternate, ...defaultTypography.fonts.sans],
-    fontWeight: 500,
+    font: [fontSans, ...defaultTypography.fonts.sans],
+    fontWeight: 600,
     mobile: {
       t1: {
         capHeight: 28,
@@ -66,8 +66,8 @@ export const typography: Typography = {
     },
   },
   headings: {
-    font: [fontSansAlternate, ...defaultTypography.fonts.sans],
-    fontWeight: 500,
+    font: [fontSans, ...defaultTypography.fonts.sans],
+    fontWeight: 600,
     mobile: {
       h1: {
         capHeight: 24,
@@ -124,11 +124,11 @@ export const typography: Typography = {
     },
   },
   paragraphs: {
-    font: [fontSans, ...defaultTypography.fonts.sans],
+    font: [fontSansAlternate, ...defaultTypography.fonts.sansAlternate],
     fontWeight: 400,
     styles: {
       bold: {
-        fontWeight: 500,
+        fontWeight: 600,
       },
       italic: {
         fontWeight: 400,
@@ -192,18 +192,18 @@ export const typography: Typography = {
   },
   labels: {
     font: [fontSans, ...defaultTypography.fonts.sans],
-    fontWeight: 500,
+    fontWeight: 400,
     styles: {
       bold: {
-        fontWeight: 500,
+        fontWeight: 600,
       },
       boldUppercase: {
-        fontWeight: 500,
+        fontWeight: 600,
         textTransform: TEXT_TRANSFORM.uppercase,
         letterSpacing: 10,
       },
       uppercase: {
-        fontWeight: 500,
+        fontWeight: 400,
         textTransform: TEXT_TRANSFORM.uppercase,
         letterSpacing: 10,
       },

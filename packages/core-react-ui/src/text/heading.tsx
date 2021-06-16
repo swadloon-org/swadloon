@@ -1,4 +1,4 @@
-import { HEADING, Variant } from '@newrade/core-design-system';
+import { HEADING, TYPOGRAPHIC_STYLE, Variant } from '@newrade/core-design-system';
 import { pascal } from 'case';
 import React, { HTMLAttributes, useRef } from 'react';
 import { useStyles } from 'react-treat';
@@ -14,10 +14,12 @@ type Props = CommonComponentProps &
   TextCommonProps &
   HTMLAttributes<HTMLHeadingElement> & {
     variant?: HEADING;
+    variantStyle?: TYPOGRAPHIC_STYLE;
     variantLevel?: Variant;
   };
 
 const defaultProps: Props = {
+  variantStyle: TYPOGRAPHIC_STYLE.sans,
   variant: HEADING.h1,
   variantLevel: Variant.primary,
   children: 'Heading',

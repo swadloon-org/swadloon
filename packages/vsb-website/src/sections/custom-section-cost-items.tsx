@@ -1,12 +1,7 @@
 import { Variant } from '@newrade/core-design-system';
-import {
-  BlockMarkdown,
-  SectionBase,
-  SectionBaseLayout,
-  SectionPadding,
-  SectionProps,
-} from '@newrade/core-gatsby-ui/src';
+import { BlockMarkdown, SectionBase, SectionProps } from '@newrade/core-gatsby-ui/src';
 import { CommonComponentProps, Stack, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
+import { SectionBaseLayout, SectionPadding } from '@newrade/core-website-api';
 import React from 'react';
 import { BlockCostItem } from '../blocks/block-cost-items';
 

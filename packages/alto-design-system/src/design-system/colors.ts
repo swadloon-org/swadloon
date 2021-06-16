@@ -1,11 +1,9 @@
 import { ColorIntents, Colors } from '@newrade/core-design-system';
-import {
-  getDefaultColorIntents,
-  generateColorPalette5,
-} from '@newrade/core-react-ui/lib/utilities';
-import { defaultColors } from '@newrade/core-react-ui/lib/default-theme';
+import { defaultColors, defaultColorsColors } from '@newrade/core-react-ui/lib/default-theme';
+import { getDefaultColorIntents } from '@newrade/core-react-ui/lib/utilities';
 
 export const colorsColors: Colors['colors'] = {
+  ...defaultColorsColors,
   current: 'currentColor',
   transparent: {
     h: 0,
@@ -14,70 +12,82 @@ export const colorsColors: Colors['colors'] = {
     a: 0,
   },
   primary: {
-    '900': { h: 120, s: 13, l: 19 },
-    '700': { h: 122, s: 10, l: 38 },
-    '500': { h: 122, s: 12, l: 42 },
-    '300': { h: 122, s: 19, l: 64 },
-    '100': { h: 123, s: 26, l: 84 },
+    '900': { h: 240, s: 70, l: 25 },
+    '700': { h: 240, s: 70, l: 37 },
+    '500': { h: 240, s: 70, l: 49 },
+    '300': { h: 240, s: 70, l: 81 },
+    '100': { h: 240, s: 69, l: 95 },
   },
-  accent1: generateColorPalette5({
-    color: { h: 24, s: 40, l: 74 },
-    light: 94,
-    dark: 28,
-  }),
-  // not used
-  accent2: generateColorPalette5({
-    color: { h: 200, s: 50, l: 50 },
-    light: 90,
-    dark: 20,
-  }),
-  // not used
-  accent3: generateColorPalette5({
-    color: { h: 200, s: 50, l: 50 },
-    light: 90,
-    dark: 20,
-  }),
+  accent1: {
+    '900': { h: 300, s: 60, l: 23 },
+    '700': { h: 300, s: 60, l: 35 },
+    '500': { h: 300, s: 60, l: 49 },
+    '300': { h: 300, s: 60, l: 80 },
+    '100': { h: 300, s: 60, l: 95 },
+  },
+  accent2: {
+    '900': { h: 279, s: 60, l: 24 },
+    '700': { h: 279, s: 60, l: 36 },
+    '500': { h: 279, s: 60, l: 48 },
+    '300': { h: 279, s: 60, l: 80 },
+    '100': { h: 277, s: 62, l: 95 },
+  },
+
   grey: {
-    '1000': { h: 210, s: 6, l: 7 },
-    '900': { h: 200, s: 4, l: 13 },
-    '800': { h: 210, s: 4, l: 26 },
-    '700': { h: 207, s: 5, l: 45 },
-    '600': { h: 207, s: 5, l: 59 },
-    '500': { h: 207, s: 5, l: 66 },
-    '400': { h: 210, s: 6, l: 73 },
-    '300': { h: 204, s: 6, l: 83 },
-    '200': { h: 210, s: 6, l: 86 },
-    '200-reversed': { h: 200, s: 6, l: 90 },
-    '100': { h: 200, s: 6, l: 90 },
-    '100-reversed': { h: 200, s: 6, l: 90 },
-    '50': { h: 180, s: 3, l: 93 },
-    '25': { h: 0, s: 0, l: 97 },
+    '1000': { h: 240, s: 2, l: 8 },
+    '900': { h: 240, s: 2, l: 18 },
+    '800': { h: 240, s: 2, l: 27 },
+    '700': { h: 240, s: 3, l: 36 },
+    '600': { h: 240, s: 3, l: 45 },
+    '500': { h: 240, s: 2, l: 54 },
+    '400': { h: 240, s: 3, l: 63 },
+    '300': { h: 240, s: 3, l: 77 },
+    '200': { h: 240, s: 2, l: 82 },
+    '200-reversed': { h: 200, s: 8, l: 78 }, //to do
+    '100': { h: 240, s: 3, l: 86 },
+    '100-reversed': { h: 200, s: 6, l: 90 }, //to do
+    '50': { h: 240, s: 2, l: 91 },
+    '25': { h: 240, s: 4, l: 95 },
     '0-reversed': { h: 0, s: 0, l: 100 },
     '0': { h: 0, s: 0, l: 100 },
   },
-  effectTransparentLight: { h: 0, s: 0, l: 0, a: 10 },
-  effectTransparentMedium: { h: 0, s: 0, l: 0, a: 10 },
-  effectTransparentHeavy: { h: 0, s: 0, l: 0, a: 13 },
-  utilityGreen: generateColorPalette5({
-    color: { h: 112, s: 71, l: 53 },
-    light: 90,
-    dark: 5,
-  }),
-  utilityYellow: generateColorPalette5({
-    color: { h: 47, s: 90, l: 54 },
-    light: 90,
-    dark: 5,
-  }),
-  utilityRed: generateColorPalette5({
-    color: { h: 360, s: 84, l: 48 },
-    light: 90,
-    dark: 5,
-  }),
+  effectTransparentLight: { h: 0, s: 0, l: 0, a: 10 }, //to do
+  effectTransparentMedium: { h: 0, s: 0, l: 0, a: 10 }, //to do
+  effectTransparentHeavy: { h: 0, s: 0, l: 0, a: 13 }, //to do
+  //not used
+  utilityNeutral: {
+    '900': { h: 204, s: 100, l: 15 },
+    '700': { h: 203, s: 100, l: 29 },
+    '500': { h: 203, s: 100, l: 38 },
+    '300': { h: 203, s: 70, l: 77 },
+    '100': { h: 203, s: 100, l: 96 },
+  },
+  utilityGreen: {
+    '900': { h: 109, s: 52, l: 6 },
+    '700': { h: 111, s: 50, l: 33 },
+    '500': { h: 112, s: 50, l: 53 },
+    '300': { h: 119, s: 50, l: 76 },
+    '100': { h: 108, s: 48, l: 94 },
+  },
+  utilityYellow: {
+    '900': { h: 46, s: 89, l: 7 },
+    '700': { h: 47, s: 90, l: 34 },
+    '500': { h: 47, s: 90, l: 54 },
+    '300': { h: 47, s: 90, l: 71 },
+    '100': { h: 47, s: 93, l: 94 },
+  },
+  utilityRed: {
+    '900': { h: 0, s: 74, l: 6 },
+    '700': { h: 0, s: 75, l: 30 },
+    '500': { h: 360, s: 75, l: 48 },
+    '300': { h: 0, s: 75, l: 68 },
+    '100': { h: 0, s: 76, l: 94 },
+  },
 };
 
 export const colorIntents: ColorIntents = {
   ...getDefaultColorIntents(colorsColors),
-  backgroundDisabled: colorsColors.grey[25],
+  disabledText: colorsColors.grey[25],
 };
 
 export const colors: Colors = {

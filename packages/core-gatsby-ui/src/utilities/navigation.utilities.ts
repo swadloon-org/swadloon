@@ -1,8 +1,8 @@
-import { Navigation } from '../api/navigation.model';
 import { NavItem } from '../navigation/nav-item.model';
 import { GatsbyCommonPageContext } from '@newrade/core-gatsby-config';
 import { title, kebab, capital, lower } from 'case';
 import { SITE_LANGUAGES } from '@newrade/core-common';
+import { Navigation } from '../navigation/navigation.model';
 
 /**
  * Simplified type for a Page Node
