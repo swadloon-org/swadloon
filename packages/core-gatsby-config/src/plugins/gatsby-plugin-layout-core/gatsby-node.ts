@@ -8,7 +8,7 @@ let absoluteLayoutComponentPath: string | undefined;
 let absoluteProvidersComponentPath: string | undefined;
 
 export const onPreInit: GatsbyNode['onPreInit'] = ({ store }, options) => {
-  const pluginOptions = options as unknown as GatsbyPluginLayoutCoreOptions;
+  const pluginOptions = (options as unknown) as GatsbyPluginLayoutCoreOptions;
 
   if (didRunAlready) {
     throw new Error(

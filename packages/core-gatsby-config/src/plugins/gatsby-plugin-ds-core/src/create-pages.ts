@@ -12,7 +12,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
   options
 ) => {
   const { createPage, deletePage } = actions;
-  const pluginOptions = options as unknown as GatsbyDSCorePluginOptions;
+  const pluginOptions = (options as unknown) as GatsbyDSCorePluginOptions;
 
   try {
     const markdownTemplate = path.resolve(`src/templates/markdown.template.tsx`);

@@ -29,7 +29,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
   options
 ) => {
   const { createPage } = actions;
-  const pluginOptions = options as unknown as GatsbyCorePluginOptions;
+  const pluginOptions = (options as unknown) as GatsbyCorePluginOptions;
 
   try {
     /**
@@ -263,7 +263,7 @@ export const onCreatePageFunction: GatsbyNode['onCreatePage'] = (
   { page, actions, reporter },
   options
 ) => {
-  const pluginOptions = options as unknown as GatsbyCorePluginOptions;
+  const pluginOptions = (options as unknown) as GatsbyCorePluginOptions;
   const { createPage, deletePage } = actions;
 
   // recreate only if a page is missing context data e.g. pages that are created by the default gastby page creator
