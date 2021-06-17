@@ -4,8 +4,9 @@ export enum NavComponent {
   navbar = 'navbar',
   sidebar = 'sidebar',
   footer = 'footer',
-  link = 'link',
   menu = 'menu',
+  links = 'links',
+  link = 'link',
   button = 'button',
 }
 

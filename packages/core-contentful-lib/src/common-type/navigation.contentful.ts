@@ -13,12 +13,20 @@ export function createNavigation(migration: Migration.default) {
   });
 
   /**
-   * For all name of navigation as name
+   * Identifier for the navigation object
    */
   content.createField(COMMON_FIELD.NAME, {
     name: pascal(COMMON_FIELD.NAME),
     type: 'Symbol',
     required: true,
+  });
+
+  /**
+   * User facing label
+   */
+  content.createField(COMMON_FIELD.LABEL, {
+    name: pascal(COMMON_FIELD.LABEL),
+    type: 'Symbol',
     localized: true,
   });
 
