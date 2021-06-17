@@ -3,6 +3,7 @@ import { LinkAPI } from './link.api';
 export enum NavComponent {
   navbar = 'navbar',
   sidebar = 'sidebar',
+  footer = 'footer',
   link = 'link',
   menu = 'menu',
   button = 'button',

@@ -9,6 +9,7 @@ export enum CONTENTFUL_WIDGET {
   SLUG_EDITOR = 'slugEditor',
   ENTRY_CARD_EDITOR = 'entryCardEditor',
   ENTRY_LINK_EDITOR = 'entryLinkEditor',
+  ENTRY_LINKS_EDITOR = 'entryLinksEditor',
   MULTI_LINE = 'multipleLine',
   SINGLE_LINE = 'singleLine',
   DROPDOWN = 'dropdown',

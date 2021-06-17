@@ -51,7 +51,7 @@ export function createNavigation(migration: Migration.default) {
       validations: [{ linkContentType: [ContentType.LINK] }],
     },
   });
-  content.changeFieldControl(COMMON_FIELD.LINKS, 'builtin', CONTENTFUL_WIDGET.ENTRY_LINK_EDITOR, {
+  content.changeFieldControl(COMMON_FIELD.LINKS, 'builtin', CONTENTFUL_WIDGET.ENTRY_LINKS_EDITOR, {
     helpText: 'Add one or more links.',
   });
 
@@ -70,7 +70,7 @@ export function createNavigation(migration: Migration.default) {
   content.changeFieldControl(
     COMMON_FIELD.SUB_NAVIGATION,
     'builtin',
-    CONTENTFUL_WIDGET.ENTRY_LINK_EDITOR,
+    CONTENTFUL_WIDGET.ENTRY_LINKS_EDITOR,
     {
       helpText: 'Select sub navigation entries.',
     }
