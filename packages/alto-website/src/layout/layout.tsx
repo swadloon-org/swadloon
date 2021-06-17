@@ -1,4 +1,5 @@
 import loadable from '@loadable/component';
+import { FooterEnterprise } from '@newrade/core-gatsby-ui/src';
 import {
   Main,
   MainWrapper,
@@ -46,7 +47,10 @@ export const Layout = React.memo<LayoutProps>((props) => {
 
   return (
     <MainWrapper className={styles.wrapper}>
-      <Main navbarPadding={true}>{props.children}</Main>
+      <Main navbarPadding={true} minHeight={true}>
+        {props.children}
+      </Main>
+      <FooterEnterprise></FooterEnterprise>
     </MainWrapper>
   );
 });

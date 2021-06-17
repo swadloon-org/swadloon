@@ -6,7 +6,7 @@ import {
   TEXT_STYLE,
   Variant,
 } from '@newrade/core-design-system';
-import React, { ButtonHTMLAttributes, useRef } from 'react';
+import React, { AnchorHTMLAttributes, ButtonHTMLAttributes, useRef } from 'react';
 import { useStyles } from 'react-treat';
 import { usePreventPinchZoom } from '../hooks/use-prevent-pinch-zoom';
 import { CommonComponentProps } from '../props/component-common.props';
@@ -15,12 +15,16 @@ import { getDefaultTextFromProps, getMergedClassname } from '../utilities/compon
 import * as stylesRef from './button.treat';
 
 type Props = CommonComponentProps &
+  Pick<AnchorHTMLAttributes<any>, 'href'> &
   ButtonHTMLAttributes<any> &
   Pick<ButtonProps, 'icon' | 'role' | 'size' | 'state' | 'variant'> & {
     as?: 'button' | 'a' | 'div';
   } & {
     disabled?: boolean;
     loading?: boolean;
+    /**
+     * Pass svg icon
+     */
     Icon?: React.ReactNode;
     dataPressed?: boolean;
     collapsePadding?: 'left' | 'right';
@@ -40,7 +44,7 @@ export const Button = React.forwardRef<any, Props>(
       size,
       state,
       disabled,
-      icon = ButtonIcon.right,
+      icon,
       Icon,
       ...props
     },
@@ -50,12 +54,6 @@ export const Button = React.forwardRef<any, Props>(
     const localRef = useRef<HTMLButtonElement>(null);
     const ref = forwardedRef ? (forwardedRef as React.RefObject<HTMLButtonElement>) : localRef;
     const type = as ? as : 'button';
-    const iconClassNames = getMergedClassname([
-      styles.iconBase,
-      icon === ButtonIcon.right ? styles.right : '',
-      icon === ButtonIcon.left ? styles.left : '',
-      icon === ButtonIcon.icon ? styles.icon : '',
-    ]);
 
     /**
      * Event handling
@@ -63,13 +61,24 @@ export const Button = React.forwardRef<any, Props>(
     usePreventPinchZoom(ref.current);
     // usePreventLongPress(ref.current);
 
-    const IconSvg =
-      icon && icon !== ButtonIcon.none && Icon
-        ? React.cloneElement(Icon as React.ReactElement, {
-            className: iconClassNames,
-            preserveAspectRatio: `xMinYMin meet`,
-          })
-        : null;
+    /**
+     * Icon
+     */
+    const dataicon = Icon ? (icon ? icon : ButtonIcon.right) : ButtonIcon.none;
+
+    const iconClassNames = getMergedClassname([
+      styles.iconBase,
+      dataicon === ButtonIcon.right ? styles.right : '',
+      dataicon === ButtonIcon.left ? styles.left : '',
+      dataicon === ButtonIcon.icon ? styles.icon : '',
+    ]);
+
+    const IconSvg = Icon
+      ? React.cloneElement(Icon as React.ReactElement, {
+          className: iconClassNames,
+          preserveAspectRatio: `xMinYMin meet`,
+        })
+      : null;
 
     const variantStateClassName = `${styles.base}`;
     const variantClassName = `${styles[variant ? variant : Variant.primary]}`;
@@ -115,7 +124,7 @@ export const Button = React.forwardRef<any, Props>(
             style,
             className: allClassName,
             ref: ref,
-            dataicon: `${icon}`,
+            dataicon,
             datapaddingcollapse: `${collapsePadding}`,
             ...props,
           },
@@ -138,6 +147,37 @@ export const Button = React.forwardRef<any, Props>(
       return CustomElement;
     }
 
+    const CustomElementAs = as
+      ? React.createElement(
+          as,
+          {
+            id,
+            style,
+            className: allClassName,
+            ref: ref,
+            dataicon,
+            datapaddingcollapse: `${collapsePadding}`,
+            ...props,
+          },
+          <>
+            {icon === ButtonIcon.icon ? null : (
+              <Label
+                variantDisplay={'inline'}
+                variantStyle={TEXT_STYLE.bold}
+                variant={getLabelSizeForButtonSize(size)}
+              >
+                {renderedChildren}
+              </Label>
+            )}
+            {IconSvg}
+          </>
+        )
+      : null;
+
+    if (CustomElementAs) {
+      return CustomElementAs;
+    }
+
     return (
       <button
         id={id}
@@ -146,7 +186,7 @@ export const Button = React.forwardRef<any, Props>(
         ref={ref}
         disabled={disabled}
         // @ts-ignore
-        dataicon={`${IconSvg ? icon : ''}`}
+        dataicon={dataicon}
         datapaddingcollapse={`${collapsePadding}`}
         {...props}
       >

@@ -105,7 +105,7 @@ globalStyle(`${wrapper} > h1 + p`, ({ cssTheme, theme }: Theme) => ({
 }));
 
 globalStyle(`${wrapper} p + p`, ({ cssTheme, theme }: Theme) => ({
-  marginTop: '0',
+  marginTop: '1em',
 }));
 
 globalStyle(`${wrapper} p + table`, ({ cssTheme, theme }: Theme) => ({
@@ -279,9 +279,9 @@ globalStyle(`${wrapper} pre + p`, ({ cssTheme, theme }: Theme) => ({
   marginTop: '1.5em',
 }));
 
-globalStyle(`${wrapper} p + pre + h1,h2,h3,h4,h5,h6`, ({ cssTheme, theme }: Theme) => ({
-  marginTop: 0,
-}));
+// globalStyle(`${wrapper} p + pre + h1,h2,h3,h4,h5,h6`, ({ cssTheme, theme }: Theme) => ({
+//   marginTop: 0,
+// }));
 
 globalStyle(`${wrapper} ul + pre`, ({ cssTheme, theme }: Theme) => ({
   marginTop: '1.5em',

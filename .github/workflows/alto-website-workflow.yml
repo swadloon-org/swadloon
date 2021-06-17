@@ -105,6 +105,10 @@ jobs:
 
     - name: Build
       run: yarn lerna:build --scope @newrade/alto-website
+      env:
+        CONTENTFUL_ENV: ${{ secrets.CONTENTFUL_ENV }}
+        CONTENTFUL_SPACEID_ALTO: ${{ secrets.CONTENTFUL_SPACEID_ALTO }}
+        CONTENTFUL_DELIVERY_TOKEN_ALTO: ${{ secrets.CONTENTFUL_DELIVERY_TOKEN_ALTO }}
 
     - name: Deploy
       if: ${{ env.APP_CI_DEPLOY }}

@@ -4,10 +4,10 @@ import { defaultTypography } from '@newrade/core-react-ui/lib/default-theme';
 const fontSans: Font = {
   name: 'Gilroy',
   fontMetrics: {
-    capHeight: 708,
-    ascent: 756,
-    descent: -244,
-    lineGap: 200,
+    capHeight: 700,
+    ascent: 920,
+    descent: -240,
+    lineGap: 0,
     unitsPerEm: 1000,
   },
 };
@@ -15,9 +15,9 @@ const fontSans: Font = {
 const fontSansAlternate: Font = {
   name: 'Acumin Pro',
   fontMetrics: {
-    capHeight: 708,
-    ascent: 756,
-    descent: -244,
+    capHeight: 696,
+    ascent: 735,
+    descent: -265,
     lineGap: 200,
     unitsPerEm: 1000,
   },
