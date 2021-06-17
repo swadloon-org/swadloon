@@ -55,6 +55,18 @@ const config: core.GastbySiteConfig = {
         icon: `src/images/favicon.svg`,
       },
     },
+    {
+      /**
+       * @see https://www.gatsbyjs.com/plugins/gatsby-source-contentful/
+       */
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: env.CONTENTFUL_SPACEID_ALTO,
+        accessToken: env.CONTENTFUL_DELIVERY_TOKEN_ALTO,
+        environment: env.CONTENTFUL_ENV,
+        downloadLocal: true,
+      },
+    },
     /**
      * Core Plugins
      */
@@ -63,6 +75,7 @@ const config: core.GastbySiteConfig = {
     ...core.getGatsbyPluginTypeScriptConfig({
       documentPaths: [
         '../core-gatsby-ui/src/fragments/gatsby/**/*.{ts,tsx}',
+        '../core-gatsby-ui/src/fragments/contentful/**/*.{ts,tsx}',
         './src/**/*.{ts,tsx}',
       ],
     }),
@@ -81,6 +94,15 @@ const config: core.GastbySiteConfig = {
     core.getGatsbyPluginReactHelmet(),
     core.getGatsbyPluginSitemap(),
     core.getGatsbyPluginRobotsTxt({ env }),
+    core.getGastbyCoreContentfulPluginConfig({
+      packageName: packageJson.name,
+      locales: ['fr-CA', 'en-CA'],
+      features: {
+        renderPages: true,
+        renderBlogPosts: false,
+        renderPortfolio: false,
+      },
+    }),
     core.getGastbyCorePluginConfig({
       packageName: packageJson.name,
       features: {

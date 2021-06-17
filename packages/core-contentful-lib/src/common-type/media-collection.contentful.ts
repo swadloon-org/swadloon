@@ -67,15 +67,11 @@ export const createMediaCollection: Migration.MigrationFunction = function (migr
     type: 'Array',
     items: {
       type: 'Link',
-      linkType: 'Asset',
+      linkType: 'Entry',
     },
+    validations: [{ linkContentType: [ContentType.MEDIA] }],
   });
-  content.changeFieldControl(
-    COMMON_FIELD.MEDIAS,
-    'builtin',
-    CONTENTFUL_WIDGET.ASSET_GALLERY_EDITOR,
-    {
-      helpText: 'Select and reorder the images/videos to use in the collection',
-    }
-  );
+  content.changeFieldControl(COMMON_FIELD.MEDIAS, 'builtin', CONTENTFUL_WIDGET.ENTRY_CARDS_EDITOR, {
+    helpText: 'Select and reorder the images/videos to use in the collection',
+  });
 };

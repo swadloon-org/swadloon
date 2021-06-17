@@ -5,7 +5,7 @@ export const linkFragment = graphql`
     name
     type
     label
-    url
+    # url
     page {
       id
       name

@@ -16,10 +16,6 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { PageQuery } from '../../types/graphql-types';
 import '../fonts';
-import { CustomSectionBanner } from '../sections/custom-section-banner';
-import { CustomCostItems } from '../sections/custom-section-cost-items';
-import { CustomSectionFormVasectomy } from '../sections/section-form-vasectomy';
-import { CustomSectionSteps } from '../sections/section-steps';
 
 export type ProjectPageProps = PageProps<PageQuery, GatsbyContentfulPageContext>;
 
@@ -37,20 +33,16 @@ export const pageQuery = graphql`
   }
 `;
 
-type CustomSectionLayouts = 'customCostItems' | 'customSteps' | 'customFormVasectomy';
-type CustomBlockVariants = 'customCostItem' | 'customStep';
+type CustomSectionLayouts = '';
+type CustomBlockVariants = 'customBlockSolution';
 
 export const blockComponents: CustomBlockVariantComponents<CustomBlockVariants> = {
-  customCostItem: (props) => <div>{JSON.stringify(props, null, 2)}</div>, // not needed see CustomSectionCostItems
-  customStep: (props) => <div>{JSON.stringify(props, null, 2)}</div>, // not needed see CustomSectionSteps
+  customBlockSolution: (props) => <div>{JSON.stringify(props, null, 2)}</div>, // not needed see CustomSectionCostItems
 };
 
 export const sectionComponents: CustomSectionLayoutComponents<CustomSectionLayouts> = {
-  banner: (props) => <CustomSectionBanner {...props} />,
-  callout: (props) => <CustomSectionBanner callout={true} nextSectionButton={false} {...props} />,
-  customSteps: (props) => <CustomSectionSteps section={props.section} />,
-  customFormVasectomy: (props) => <CustomSectionFormVasectomy section={props.section} />,
-  customCostItems: (props) => <CustomCostItems section={props.section} />,
+  // banner: (props) => <CustomSectionBanner {...props} />,
+  // callout: (props) => <CustomSectionBanner callout={true} nextSectionButton={false} {...props} />,
 };
 
 export const PageTemplate: React.FC<ProjectPageProps> = ({ data, location, ...props }) => {
