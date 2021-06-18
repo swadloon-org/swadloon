@@ -1,6 +1,8 @@
 ---
 name: Sections
 description: High-level components to render pages.
+layout: full-width
+aside: false
 tags:
   - test
 ---

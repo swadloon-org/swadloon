@@ -91,6 +91,8 @@ export const Button = React.forwardRef<any, Props>(
     ]);
     const renderedChildren = children
       ? children
+      : dataicon === ButtonIcon.icon
+      ? ' '
       : getDefaultTextFromProps('button', {
           variant,
           size,
@@ -147,32 +149,33 @@ export const Button = React.forwardRef<any, Props>(
       return CustomElement;
     }
 
-    const CustomElementAs = as
-      ? React.createElement(
-          as,
-          {
-            id,
-            style,
-            className: allClassName,
-            ref: ref,
-            dataicon,
-            datapaddingcollapse: `${collapsePadding}`,
-            ...props,
-          },
-          <>
-            {icon === ButtonIcon.icon ? null : (
-              <Label
-                variantDisplay={'inline'}
-                variantStyle={TEXT_STYLE.bold}
-                variant={getLabelSizeForButtonSize(size)}
-              >
-                {renderedChildren}
-              </Label>
-            )}
-            {IconSvg}
-          </>
-        )
-      : null;
+    const CustomElementAs =
+      type !== 'button'
+        ? React.createElement(
+            type,
+            {
+              id,
+              style,
+              className: allClassName,
+              ref: ref,
+              dataicon,
+              datapaddingcollapse: `${collapsePadding}`,
+              ...props,
+            },
+            <>
+              {icon === ButtonIcon.icon ? null : (
+                <Label
+                  variantDisplay={'inline'}
+                  variantStyle={TEXT_STYLE.bold}
+                  variant={getLabelSizeForButtonSize(size)}
+                >
+                  {renderedChildren}
+                </Label>
+              )}
+              {IconSvg}
+            </>
+          )
+        : null;
 
     if (CustomElementAs) {
       return CustomElementAs;

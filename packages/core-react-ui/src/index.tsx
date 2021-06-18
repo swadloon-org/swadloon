@@ -65,6 +65,7 @@ export * from './seo/meta-basic';
 export * from './seo/metadata-twitter';
 export * from './seo/metadata-website';
 export * from './svg-logo/svg-logo';
+export * from './switch/switch';
 export * from './table/caption';
 export * from './table/table';
 export * from './table/table-body';

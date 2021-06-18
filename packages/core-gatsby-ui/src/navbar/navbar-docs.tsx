@@ -7,6 +7,7 @@ import {
   CommonComponentProps,
   globalThemeReversed,
   Label,
+  Switch,
   Tag,
   usePreventPinchZoom,
   useTreatTheme,
@@ -14,6 +15,7 @@ import {
 import { IoClose } from '@react-icons/all-files/io5/IoClose';
 import { IoMenu } from '@react-icons/all-files/io5/IoMenu';
 import React, { useRef } from 'react';
+import { IoMoon, IoSearchOutline, IoSquare, IoSunny } from 'react-icons/io5';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './navbar-docs.treat';
 
@@ -164,6 +166,28 @@ export const NavbarDocs: React.FC<Props> = function NavbarDocs(props) {
             </Cluster>
 
             <Cluster justifyContent={['space-between']} gap={[cssTheme.sizing.var.x4]}>
+              <Button
+                icon={ButtonIcon.icon}
+                variant={Variant.tertiary}
+                Icon={<IoSquare size={24} style={{ color: 'white' }} />}
+                aria-label={'Search button'}
+              ></Button>
+
+              <Switch
+                value={'on'}
+                IconOff={<IoMoon />}
+                colorOff={cssTheme.colors.colors.grey[600]}
+                IconOn={<IoSunny />}
+                colorOn={cssTheme.colors.colors.grey[200]}
+              ></Switch>
+
+              <Button
+                icon={ButtonIcon.icon}
+                variant={Variant.tertiary}
+                Icon={<IoSearchOutline size={24} style={{ color: 'white' }} />}
+                aria-label={'Search button'}
+              ></Button>
+
               {props.MenuLinks}
             </Cluster>
           </Cluster>

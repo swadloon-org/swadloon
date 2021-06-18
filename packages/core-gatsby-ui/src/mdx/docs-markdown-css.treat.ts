@@ -53,7 +53,7 @@ globalStyle(
 globalStyle(
   `${wrapper} > * + h1, ${wrapper} > * + h2, ${wrapper} > * + h3, ${wrapper} >  * + h4, ${wrapper} > * + h5, ${wrapper} > * + h6`,
   ({ cssTheme, theme }: Theme) => ({
-    marginTop: '2.5em',
+    marginTop: '2em',
   })
 );
 
