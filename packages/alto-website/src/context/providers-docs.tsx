@@ -1,8 +1,11 @@
 import { MDXProvider } from '@mdx-js/react';
-import { ICON } from '@newrade/core-design-system';
+import { logosComponents } from '@newrade/alto-design-system';
+import { ICON, LOGO } from '@newrade/core-design-system';
 import { docsMdxComponents } from '@newrade/core-gatsby-ui/src';
 import {
   IconProvider,
+  Logo,
+  LogosProvider,
   TreatThemeProvider,
   viewportContext,
   ViewportProvider,
@@ -23,7 +26,11 @@ export const ProvidersDocs: React.FC = (props) => {
           <MDXProvider components={docsMdxComponents}>
             <GlobalCSSVariables>
               <GlobalResetCSS>
-                <IconProvider<ICON> iconComponents={ionicons5Kit}>{props.children}</IconProvider>
+                <LogosProvider<LOGO> logoComponents={logosComponents}>
+                  {/* insert svg <defs> */}
+                  <Logo name={LOGO.DEFS} style={{ height: 0, width: 0 }}></Logo>
+                  <IconProvider<ICON> iconComponents={ionicons5Kit}>{props.children}</IconProvider>
+                </LogosProvider>
               </GlobalResetCSS>
             </GlobalCSSVariables>
           </MDXProvider>

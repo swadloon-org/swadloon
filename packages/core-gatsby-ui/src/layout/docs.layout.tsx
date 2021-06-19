@@ -22,7 +22,9 @@ import React, { ReactNode, useEffect, useState } from 'react';
 import { useDocsNavigation } from '../hooks/use-docs-navigation-data.hook';
 
 export type LayoutDocsProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }> & {
+  /** @deprecated use the logo component instead <Logo name={LOGO.STANDARD}></Logo> */
   MobileSvgLogo?: React.ReactNode;
+  /** @deprecated use the logo component instead <Logo name={LOGO.STANDARD}></Logo> */
   DesktopSvgLogo?: React.ReactNode;
 };
 

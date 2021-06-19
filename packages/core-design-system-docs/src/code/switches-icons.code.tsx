@@ -12,9 +12,9 @@ export const SwitchesIcons: React.FC<Props> = (props) => {
       <Switch
         value={'on'}
         IconOff={<IoMoon />}
-        colorOff={cssTheme.colors.colors.grey[600]}
+        colorOff={cssTheme.colors.colors.grey[100]}
         IconOn={<IoSunny />}
-        colorOn={cssTheme.colors.colors.grey[200]}
+        colorOn={cssTheme.colors.colors.grey[100]}
       ></Switch>
       <Switch
         value={'on'}

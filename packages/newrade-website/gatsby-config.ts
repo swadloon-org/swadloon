@@ -87,7 +87,7 @@ const config: core.GastbySiteConfig = {
       ],
     }),
     core.getGatsbyPluginCatchLinks(),
-    core.getGatsbyReactSvgConfig(),
+    core.getGatsbyReactSvgrSvgoConfig(),
     ...core.getGastbyPluginPageCreatorConfig(),
     core.getGastbyPluginTreatConfig(),
     core.getGastbyPluginVanilla(),

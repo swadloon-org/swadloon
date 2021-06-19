@@ -101,3 +101,7 @@ Used to make a grid of content horizontally or vertically.
 </ThemeWrapper>
 
 <CodeBlock>{LayoutGridCode}</CodeBlock>
+
+## References and Credits
+
+- Our design and naming are inspired by https://every-layout.dev/

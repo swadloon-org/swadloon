@@ -15,7 +15,7 @@
         "DEBUG": "gatsby:*"
       },
       "console": "integratedTerminal",
-      "runtimeArgs": ["--lazy"],
+      "runtimeArgs": ["--preserve-symlinks", "--lazy"],
       "preLaunchTask": "pre-debug",
       "autoAttachChildProcesses": true,
       "sourceMaps": false

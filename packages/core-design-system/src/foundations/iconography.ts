@@ -2,11 +2,8 @@ import { SizingType } from '../types';
 import { VIEWPORT } from './layout';
 
 /**
- * Default icons and their filenames.
- * @example
- *    MENU = 'menu' would mean that a menu.svg icon exists in src/icons/
+ * All icon available in the system
  */
-
 export enum ICON {
   /**
    * Arrows

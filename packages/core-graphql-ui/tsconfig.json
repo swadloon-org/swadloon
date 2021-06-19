@@ -7,5 +7,5 @@
       "@newrade/*": ["../*/src"]
     }
   },
-  "exclude": ["webpack.*.config.ts"]
+  "include": ["src", "test", "types", "scripts"]
 }

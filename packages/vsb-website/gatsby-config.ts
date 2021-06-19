@@ -78,7 +78,7 @@ const config: core.GastbySiteConfig = {
         './src/**/*.{ts,tsx}',
       ],
     }),
-    core.getGatsbyReactSvgConfig(),
+    core.getGatsbyReactSvgrSvgoConfig(),
     ...core.getGastbyPluginPageCreatorConfig(),
     core.getGastbyPluginTreatConfig(),
     core.getGastbyPluginVanilla(),

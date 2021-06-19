@@ -64,10 +64,10 @@ export function useDesignSystemNavigation({ locales }: { locales: SITE_LANGUAGES
       'colors',
       'color-intents',
       'sizing',
-      'pages',
-      'sections',
-      'blocks',
       'layout-components',
+      'blocks',
+      'sections',
+      'pages',
     ],
   });
 }

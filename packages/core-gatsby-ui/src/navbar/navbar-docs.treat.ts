@@ -49,7 +49,7 @@ export const styles = {
     fill: 'white',
   })),
   logoDesktop: style(({ cssTheme, theme }: Theme) => ({
-    maxHeight: `100%`,
+    height: `70%`,
     fill: 'white',
   })),
   logoWrapper: style(({ cssTheme, theme }: Theme) => ({

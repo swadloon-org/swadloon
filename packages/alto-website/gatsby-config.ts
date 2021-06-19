@@ -30,8 +30,8 @@ const config: core.GastbySiteConfig = {
     ENABLE_GATSBY_REFRESH_ENDPOINT: toBoolean(env.ENABLE_GATSBY_REFRESH_ENDPOINT),
   },
   siteMetadata: {
-    title: `Newrade Website`,
-    description: `Newrade's main website`,
+    title: `Alto Infra`,
+    description: `Alto Infra's website`,
     siteUrl: getAppUrl(env),
     siteEnv: env.APP_ENV,
     languages: {
@@ -50,9 +50,9 @@ const config: core.GastbySiteConfig = {
         short_name: `Alto Infra`,
         start_url: `/`,
         background_color: `#ffffff`,
-        theme_color: `#6061EC`,
+        theme_color: `#1616C5`,
         display: `standalone`,
-        icon: `src/images/favicon.svg`,
+        icon: `../alto-design-system/lib/assets/logo-favicon.png`,
       },
     },
     {
@@ -80,7 +80,7 @@ const config: core.GastbySiteConfig = {
       ],
     }),
     core.getGatsbyPluginCatchLinks(),
-    core.getGatsbyReactSvgConfig(),
+    core.getGatsbyReactSvgrSvgoConfig(),
     ...core.getGastbyPluginPageCreatorConfig(),
     core.getGastbyPluginTreatConfig(),
     core.getGastbyPluginVanilla(),

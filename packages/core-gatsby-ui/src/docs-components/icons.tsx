@@ -1,7 +1,10 @@
-import { ICON, ICON_SIZE } from '@newrade/core-design-system';
+import { ButtonIcon, HEADING, ICON, ICON_SIZE } from '@newrade/core-design-system';
 import {
+  Blockquote,
+  Button,
   Cluster,
   CommonComponentProps,
+  Heading,
   IconComp,
   InputLabel,
   InputSelect,
@@ -55,7 +58,13 @@ export const Icons: React.FC<Props> = ({ id, style, className, ...props }) => {
     'logo',
   ];
 
-  function handleFilterIcon() {}
+  function handleFilterIcons(event: React.ChangeEvent<HTMLInputElement>) {
+    const inputText = event.target.value;
+
+    // 'navigation'
+    // iconMetadatas;
+  }
+
   function handleIconSize() {}
 
   return (
@@ -66,7 +75,7 @@ export const Icons: React.FC<Props> = ({ id, style, className, ...props }) => {
           <InputText
             id="filter-icons"
             placeholder={'Arrow right'}
-            onChange={handleFilterIcon}
+            onChange={handleFilterIcons}
           ></InputText>
         </InputWrapper>
 
@@ -84,6 +93,14 @@ export const Icons: React.FC<Props> = ({ id, style, className, ...props }) => {
           </InputSelect>
         </InputWrapper>
       </Cluster>
+
+      <Heading variant={HEADING.h3}>Example</Heading>
+
+      <Blockquote>
+        <Button Icon={<IconComp name={ICON.ARROW_RIGHT} />}></Button>
+        <Button Icon={<IconComp name={ICON.ARROW_RIGHT} />} icon={ButtonIcon.left}></Button>
+        <Button Icon={<IconComp name={ICON.ARROW_RIGHT} />}></Button>
+      </Blockquote>
 
       {iconGroups.map((group) => {
         const formattedGroup = pascal(group);
