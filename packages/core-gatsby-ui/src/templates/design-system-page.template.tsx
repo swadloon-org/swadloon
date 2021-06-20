@@ -33,7 +33,6 @@ export const markdownTemplateQuery = graphql`
           name
           tags
           description
-          layout
           version
           status
           editPageUrl

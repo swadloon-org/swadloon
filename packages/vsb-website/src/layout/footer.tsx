@@ -1,5 +1,6 @@
 import {
   LABEL_SIZE,
+  LinkIcon,
   LinkVariant,
   PARAGRAPH_SIZE,
   TEXT_STYLE,
@@ -23,6 +24,7 @@ import { IoMailOutline } from '@react-icons/all-files/io5/IoMailOutline';
 import { IoPrintOutline } from '@react-icons/all-files/io5/IoPrintOutline';
 import { graphql, Link as GatsbyLink, useStaticQuery } from 'gatsby';
 import React from 'react';
+import { IoOpenOutline } from 'react-icons/io5';
 import { useStyles } from 'react-treat';
 import { clientEnv } from '../../types/dot-env-client';
 import { FooterQuery } from '../../types/graphql-types';
@@ -193,8 +195,21 @@ export const Footer: React.FC<Props> = ({ id, style, className, ...props }) => {
               </ListItems>
             </Stack>
           </div>
+
           <Paragraph className={styles.copyright} variant={PARAGRAPH_SIZE.xSmall}>
-            {data.contentfulCompanyInfo?.copyright} - v{clientEnv.APP_VERSION}
+            {data.contentfulCompanyInfo?.copyright} — v{clientEnv.APP_VERSION} —{' '}
+            <Link
+              style={{ display: 'inline-block' }}
+              variantSize={PARAGRAPH_SIZE.xSmall}
+              variantLevel={Variant.primaryReversed}
+              variantIcon={LinkIcon.right}
+              variant={LinkVariant.noUnderline}
+              Icon={<IoOpenOutline></IoOpenOutline>}
+              target={'_blank'}
+              href={`https://vasectomiepierreboucher.statuspage.io/`}
+            >
+              Statut système
+            </Link>
           </Paragraph>
         </Stack>
       </Center>

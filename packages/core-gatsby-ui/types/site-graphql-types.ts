@@ -42,7 +42,6 @@ export type MdxFrontmatter = {
   description?: string;
   version?: string;
   status?: string;
-  layout?: 'full-width';
   editPageUrl?: string;
   nextPageLabel?: string;
   nextPageUrl?: string;

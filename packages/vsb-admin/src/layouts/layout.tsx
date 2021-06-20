@@ -14,13 +14,13 @@ import {
   useTreatTheme,
 } from '@newrade/core-react-ui';
 import { useCheckAPIStatus } from '@newrade/vsb-common/lib/index-browser';
+import Logo from '@newrade/vsb-design-system/lib/assets/logo-standard.svg';
+import LogoSymbol from '@newrade/vsb-design-system/lib/assets/logo-symbol.svg';
 import { IoExitOutline } from '@react-icons/all-files/io5/IoExitOutline';
 import React, { useState } from 'react';
 import { useStyles } from 'react-treat';
 import { clientEnv } from '../../types/dot-env-client';
 import { StatusIndicator, StatusIndicatorMobile } from '../components/status-indicator';
-import LogoSymbol from '../images/logo-symbol.svg';
-import Logo from '../images/logo.svg';
 import { Patients } from '../patients/patients';
 import * as styleRefs from './layout.treat';
 

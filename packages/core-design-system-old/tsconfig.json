@@ -6,5 +6,5 @@
       "@newrade/*": ["../*/src"]
     }
   },
-  "include": ["src", "types"]
+  "include": ["src", "test", "types", "scripts"]
 }

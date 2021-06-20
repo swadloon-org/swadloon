@@ -1,24 +1,18 @@
 import { RuleSetRule } from 'webpack/declarations/WebpackOptions';
+import { svgoConfig } from './svgo.conf';
 
+/**
+ * @see https://github.com/gregberge/svgr
+ */
 export const svgLoader: RuleSetRule = {
   test: /\.(svg)$/,
   use: [
     {
-      loader: 'svg-react-loader',
-    },
-    {
-      loader: 'svgo-loader',
+      loader: '@svgr/webpack',
       options: {
-        /**
-         * https://github.com/svg/svgo#configuration
-         */
-        // plugins: [
-        //   { convertPathData: false },
-        //   { convertShapeToPath: false },
-        //   { mergePaths: false },
-        //   { removeViewBox: false },
-        //   { cleanupIDs: false },
-        // ],
+        native: false,
+        ref: true,
+        svgoConfig,
       },
     },
   ],

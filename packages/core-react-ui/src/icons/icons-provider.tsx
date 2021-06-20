@@ -12,8 +12,16 @@ export interface IconBaseProps extends React.SVGAttributes<SVGElement> {
 }
 
 export type DynamicIconImport = (iconName: ICON) => LoadableComponent<any> | React.ElementType;
+
 export type IconComponents<Icons extends string | undefined = undefined> = {
   [key in Icons extends string ? Icons : string]: (props: IconBaseProps) => JSX.Element;
+};
+
+export type IconMetadata<Icons extends string | undefined = undefined> = {
+  [key in Icons extends string ? Icons : string]: {
+    description?: string;
+    tags?: string[];
+  };
 };
 
 type Context<Icons extends string | undefined = undefined> = {

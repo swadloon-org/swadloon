@@ -55,7 +55,7 @@ export const PageTemplate: React.FC<ProjectPageProps> = ({ data, location, ...pr
         {getMetaBasicTags()}
         {getMetadataOpenGraphWebsiteTags({
           type: OPEN_GRAPH_TYPE.WEBSITE,
-          title: `${data.page?.title}`,
+          title: `${data.site?.siteMetadata?.title} - ${data.page?.title}`,
           url: `${data.site?.siteMetadata?.siteUrl}${data.page?.slug}`,
           description: `${data.page?.description?.description}`,
           // image: `${data.page?.bannerImages?.medias?.[0]?.socialMediaImage?.src}`,

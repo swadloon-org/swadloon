@@ -2,6 +2,7 @@
   <path fill-rule="evenodd" clip-rule="evenodd"
     d="M1024 1024H0V0H1024V1024ZM920.869 103.264H102.998V920.669H920.869V103.264ZM252.209 256H771.79V354.61H252.209V256ZM547.108 462.728H252.209V561.338H547.108V462.728ZM252.209 669.39H350.487V768H252.209V669.39Z"
     fill="url(#gradient-logo-symbol)" />
+
   <defs>
     <linearGradient id="gradient-logo-symbol" x1="2205.54" y1="1043.12" x2="-1337.72" y2="1043.12"
       gradientUnits="userSpaceOnUse">
