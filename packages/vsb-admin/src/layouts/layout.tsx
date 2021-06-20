@@ -18,6 +18,7 @@ import Logo from '@newrade/vsb-design-system/lib/assets/logo-standard.svg';
 import LogoSymbol from '@newrade/vsb-design-system/lib/assets/logo-symbol.svg';
 import { IoExitOutline } from '@react-icons/all-files/io5/IoExitOutline';
 import React, { useState } from 'react';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { useStyles } from 'react-treat';
 import { clientEnv } from '../../types/dot-env-client';
 import { StatusIndicator, StatusIndicatorMobile } from '../components/status-indicator';
@@ -43,12 +44,12 @@ export const Layout: React.FC<Props> = (props) => {
   const [userMetadata, setUserMetadata] = useState(null);
 
   function handleLogout(event: any) {
-    logout({ returnTo: window.location.href });
+    logout({ returnTo: `${window.origin}/admin/` });
   }
 
   function handleAuth0Connection(event: any) {
     loginWithRedirect({
-      redirectUri: window.location.href,
+      redirectUri: `${window.origin}/admin/`,
     });
   }
 
@@ -128,7 +129,14 @@ export const Layout: React.FC<Props> = (props) => {
         desktopSidebarPadding={sideBarOpened}
         className={styles.main}
       >
-        <Patients />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/admin/patients" element={<Patients />} />
+            {isAuthenticated ? (
+              <Route path="/admin/" element={<Navigate to={'/admin/patients'} />} />
+            ) : null}
+          </Routes>
+        </BrowserRouter>
       </Main>
     </MainWrapper>
   ) : (
