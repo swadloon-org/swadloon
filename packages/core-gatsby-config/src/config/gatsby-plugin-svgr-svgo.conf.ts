@@ -13,7 +13,7 @@ export function getGatsbyReactSvgrSvgoConfig(): Gatsby.PluginRef {
       inlineSvgOptions: [
         {
           test: /\.svg$/,
-          native: true,
+          native: false,
           ref: true,
           svgoConfig,
         },
@@ -21,7 +21,7 @@ export function getGatsbyReactSvgrSvgoConfig(): Gatsby.PluginRef {
       urlSvgOptions: [
         {
           test: /\.url.svg$/,
-          native: true,
+          native: false,
           ref: true,
           svgoConfig,
           urlLoaderOptions: {

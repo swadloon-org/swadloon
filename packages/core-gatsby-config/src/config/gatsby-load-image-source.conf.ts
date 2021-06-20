@@ -20,7 +20,7 @@ export function getGatsbyImageFolder(options?: { pathImgDir?: string }): PluginR
       options: {
         source: imageDirPath,
         destination: '/images',
-        purge: false,
+        purge: true,
       },
     },
   ];

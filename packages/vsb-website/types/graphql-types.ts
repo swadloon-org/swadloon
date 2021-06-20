@@ -459,6 +459,9 @@ export type ContentfulAssetFieldsEnum =
   | 'localFile___childrenMdx___frontmatter___tags'
   | 'localFile___childrenMdx___frontmatter___version'
   | 'localFile___childrenMdx___frontmatter___status'
+  | 'localFile___childrenMdx___frontmatter___editPageUrl'
+  | 'localFile___childrenMdx___frontmatter___nextPageUrl'
+  | 'localFile___childrenMdx___frontmatter___nextPageLabel'
   | 'localFile___childrenMdx___slug'
   | 'localFile___childrenMdx___body'
   | 'localFile___childrenMdx___excerpt'
@@ -494,6 +497,9 @@ export type ContentfulAssetFieldsEnum =
   | 'localFile___childMdx___frontmatter___tags'
   | 'localFile___childMdx___frontmatter___version'
   | 'localFile___childMdx___frontmatter___status'
+  | 'localFile___childMdx___frontmatter___editPageUrl'
+  | 'localFile___childMdx___frontmatter___nextPageUrl'
+  | 'localFile___childMdx___frontmatter___nextPageLabel'
   | 'localFile___childMdx___slug'
   | 'localFile___childMdx___body'
   | 'localFile___childMdx___excerpt'
@@ -1069,6 +1075,9 @@ export type ContentfulBlockCostItemFieldsEnum =
   | 'text___childrenMdx___frontmatter___tags'
   | 'text___childrenMdx___frontmatter___version'
   | 'text___childrenMdx___frontmatter___status'
+  | 'text___childrenMdx___frontmatter___editPageUrl'
+  | 'text___childrenMdx___frontmatter___nextPageUrl'
+  | 'text___childrenMdx___frontmatter___nextPageLabel'
   | 'text___childrenMdx___slug'
   | 'text___childrenMdx___body'
   | 'text___childrenMdx___excerpt'
@@ -1104,6 +1113,9 @@ export type ContentfulBlockCostItemFieldsEnum =
   | 'text___childMdx___frontmatter___tags'
   | 'text___childMdx___frontmatter___version'
   | 'text___childMdx___frontmatter___status'
+  | 'text___childMdx___frontmatter___editPageUrl'
+  | 'text___childMdx___frontmatter___nextPageUrl'
+  | 'text___childMdx___frontmatter___nextPageLabel'
   | 'text___childMdx___slug'
   | 'text___childMdx___body'
   | 'text___childMdx___excerpt'
@@ -1192,6 +1204,9 @@ export type ContentfulBlockCostItemFieldsEnum =
   | 'childrenContentfulBlockCostItemTextTextNode___childrenMdx___frontmatter___tags'
   | 'childrenContentfulBlockCostItemTextTextNode___childrenMdx___frontmatter___version'
   | 'childrenContentfulBlockCostItemTextTextNode___childrenMdx___frontmatter___status'
+  | 'childrenContentfulBlockCostItemTextTextNode___childrenMdx___frontmatter___editPageUrl'
+  | 'childrenContentfulBlockCostItemTextTextNode___childrenMdx___frontmatter___nextPageUrl'
+  | 'childrenContentfulBlockCostItemTextTextNode___childrenMdx___frontmatter___nextPageLabel'
   | 'childrenContentfulBlockCostItemTextTextNode___childrenMdx___slug'
   | 'childrenContentfulBlockCostItemTextTextNode___childrenMdx___body'
   | 'childrenContentfulBlockCostItemTextTextNode___childrenMdx___excerpt'
@@ -1227,6 +1242,9 @@ export type ContentfulBlockCostItemFieldsEnum =
   | 'childrenContentfulBlockCostItemTextTextNode___childMdx___frontmatter___tags'
   | 'childrenContentfulBlockCostItemTextTextNode___childMdx___frontmatter___version'
   | 'childrenContentfulBlockCostItemTextTextNode___childMdx___frontmatter___status'
+  | 'childrenContentfulBlockCostItemTextTextNode___childMdx___frontmatter___editPageUrl'
+  | 'childrenContentfulBlockCostItemTextTextNode___childMdx___frontmatter___nextPageUrl'
+  | 'childrenContentfulBlockCostItemTextTextNode___childMdx___frontmatter___nextPageLabel'
   | 'childrenContentfulBlockCostItemTextTextNode___childMdx___slug'
   | 'childrenContentfulBlockCostItemTextTextNode___childMdx___body'
   | 'childrenContentfulBlockCostItemTextTextNode___childMdx___excerpt'
@@ -1303,6 +1321,9 @@ export type ContentfulBlockCostItemFieldsEnum =
   | 'childContentfulBlockCostItemTextTextNode___childrenMdx___frontmatter___tags'
   | 'childContentfulBlockCostItemTextTextNode___childrenMdx___frontmatter___version'
   | 'childContentfulBlockCostItemTextTextNode___childrenMdx___frontmatter___status'
+  | 'childContentfulBlockCostItemTextTextNode___childrenMdx___frontmatter___editPageUrl'
+  | 'childContentfulBlockCostItemTextTextNode___childrenMdx___frontmatter___nextPageUrl'
+  | 'childContentfulBlockCostItemTextTextNode___childrenMdx___frontmatter___nextPageLabel'
   | 'childContentfulBlockCostItemTextTextNode___childrenMdx___slug'
   | 'childContentfulBlockCostItemTextTextNode___childrenMdx___body'
   | 'childContentfulBlockCostItemTextTextNode___childrenMdx___excerpt'
@@ -1338,6 +1359,9 @@ export type ContentfulBlockCostItemFieldsEnum =
   | 'childContentfulBlockCostItemTextTextNode___childMdx___frontmatter___tags'
   | 'childContentfulBlockCostItemTextTextNode___childMdx___frontmatter___version'
   | 'childContentfulBlockCostItemTextTextNode___childMdx___frontmatter___status'
+  | 'childContentfulBlockCostItemTextTextNode___childMdx___frontmatter___editPageUrl'
+  | 'childContentfulBlockCostItemTextTextNode___childMdx___frontmatter___nextPageUrl'
+  | 'childContentfulBlockCostItemTextTextNode___childMdx___frontmatter___nextPageLabel'
   | 'childContentfulBlockCostItemTextTextNode___childMdx___slug'
   | 'childContentfulBlockCostItemTextTextNode___childMdx___body'
   | 'childContentfulBlockCostItemTextTextNode___childMdx___excerpt'
@@ -1573,6 +1597,9 @@ export type ContentfulBlockCostItemTextTextNodeFieldsEnum =
   | 'childrenMdx___frontmatter___tags'
   | 'childrenMdx___frontmatter___version'
   | 'childrenMdx___frontmatter___status'
+  | 'childrenMdx___frontmatter___editPageUrl'
+  | 'childrenMdx___frontmatter___nextPageUrl'
+  | 'childrenMdx___frontmatter___nextPageLabel'
   | 'childrenMdx___slug'
   | 'childrenMdx___body'
   | 'childrenMdx___excerpt'
@@ -1632,6 +1659,9 @@ export type ContentfulBlockCostItemTextTextNodeFieldsEnum =
   | 'childMdx___frontmatter___tags'
   | 'childMdx___frontmatter___version'
   | 'childMdx___frontmatter___status'
+  | 'childMdx___frontmatter___editPageUrl'
+  | 'childMdx___frontmatter___nextPageUrl'
+  | 'childMdx___frontmatter___nextPageLabel'
   | 'childMdx___slug'
   | 'childMdx___body'
   | 'childMdx___excerpt'
@@ -1980,6 +2010,9 @@ export type ContentfulBlockFieldsEnum =
   | 'text___childrenMdx___frontmatter___tags'
   | 'text___childrenMdx___frontmatter___version'
   | 'text___childrenMdx___frontmatter___status'
+  | 'text___childrenMdx___frontmatter___editPageUrl'
+  | 'text___childrenMdx___frontmatter___nextPageUrl'
+  | 'text___childrenMdx___frontmatter___nextPageLabel'
   | 'text___childrenMdx___slug'
   | 'text___childrenMdx___body'
   | 'text___childrenMdx___excerpt'
@@ -2015,6 +2048,9 @@ export type ContentfulBlockFieldsEnum =
   | 'text___childMdx___frontmatter___tags'
   | 'text___childMdx___frontmatter___version'
   | 'text___childMdx___frontmatter___status'
+  | 'text___childMdx___frontmatter___editPageUrl'
+  | 'text___childMdx___frontmatter___nextPageUrl'
+  | 'text___childMdx___frontmatter___nextPageLabel'
   | 'text___childMdx___slug'
   | 'text___childMdx___body'
   | 'text___childMdx___excerpt'
@@ -2524,6 +2560,9 @@ export type ContentfulBlockFieldsEnum =
   | 'childrenContentfulBlockTextTextNode___childrenMdx___frontmatter___tags'
   | 'childrenContentfulBlockTextTextNode___childrenMdx___frontmatter___version'
   | 'childrenContentfulBlockTextTextNode___childrenMdx___frontmatter___status'
+  | 'childrenContentfulBlockTextTextNode___childrenMdx___frontmatter___editPageUrl'
+  | 'childrenContentfulBlockTextTextNode___childrenMdx___frontmatter___nextPageUrl'
+  | 'childrenContentfulBlockTextTextNode___childrenMdx___frontmatter___nextPageLabel'
   | 'childrenContentfulBlockTextTextNode___childrenMdx___slug'
   | 'childrenContentfulBlockTextTextNode___childrenMdx___body'
   | 'childrenContentfulBlockTextTextNode___childrenMdx___excerpt'
@@ -2559,6 +2598,9 @@ export type ContentfulBlockFieldsEnum =
   | 'childrenContentfulBlockTextTextNode___childMdx___frontmatter___tags'
   | 'childrenContentfulBlockTextTextNode___childMdx___frontmatter___version'
   | 'childrenContentfulBlockTextTextNode___childMdx___frontmatter___status'
+  | 'childrenContentfulBlockTextTextNode___childMdx___frontmatter___editPageUrl'
+  | 'childrenContentfulBlockTextTextNode___childMdx___frontmatter___nextPageUrl'
+  | 'childrenContentfulBlockTextTextNode___childMdx___frontmatter___nextPageLabel'
   | 'childrenContentfulBlockTextTextNode___childMdx___slug'
   | 'childrenContentfulBlockTextTextNode___childMdx___body'
   | 'childrenContentfulBlockTextTextNode___childMdx___excerpt'
@@ -2635,6 +2677,9 @@ export type ContentfulBlockFieldsEnum =
   | 'childContentfulBlockTextTextNode___childrenMdx___frontmatter___tags'
   | 'childContentfulBlockTextTextNode___childrenMdx___frontmatter___version'
   | 'childContentfulBlockTextTextNode___childrenMdx___frontmatter___status'
+  | 'childContentfulBlockTextTextNode___childrenMdx___frontmatter___editPageUrl'
+  | 'childContentfulBlockTextTextNode___childrenMdx___frontmatter___nextPageUrl'
+  | 'childContentfulBlockTextTextNode___childrenMdx___frontmatter___nextPageLabel'
   | 'childContentfulBlockTextTextNode___childrenMdx___slug'
   | 'childContentfulBlockTextTextNode___childrenMdx___body'
   | 'childContentfulBlockTextTextNode___childrenMdx___excerpt'
@@ -2670,6 +2715,9 @@ export type ContentfulBlockFieldsEnum =
   | 'childContentfulBlockTextTextNode___childMdx___frontmatter___tags'
   | 'childContentfulBlockTextTextNode___childMdx___frontmatter___version'
   | 'childContentfulBlockTextTextNode___childMdx___frontmatter___status'
+  | 'childContentfulBlockTextTextNode___childMdx___frontmatter___editPageUrl'
+  | 'childContentfulBlockTextTextNode___childMdx___frontmatter___nextPageUrl'
+  | 'childContentfulBlockTextTextNode___childMdx___frontmatter___nextPageLabel'
   | 'childContentfulBlockTextTextNode___childMdx___slug'
   | 'childContentfulBlockTextTextNode___childMdx___body'
   | 'childContentfulBlockTextTextNode___childMdx___excerpt'
@@ -3263,6 +3311,9 @@ export type ContentfulBlockTextTextNodeFieldsEnum =
   | 'childrenMdx___frontmatter___tags'
   | 'childrenMdx___frontmatter___version'
   | 'childrenMdx___frontmatter___status'
+  | 'childrenMdx___frontmatter___editPageUrl'
+  | 'childrenMdx___frontmatter___nextPageUrl'
+  | 'childrenMdx___frontmatter___nextPageLabel'
   | 'childrenMdx___slug'
   | 'childrenMdx___body'
   | 'childrenMdx___excerpt'
@@ -3322,6 +3373,9 @@ export type ContentfulBlockTextTextNodeFieldsEnum =
   | 'childMdx___frontmatter___tags'
   | 'childMdx___frontmatter___version'
   | 'childMdx___frontmatter___status'
+  | 'childMdx___frontmatter___editPageUrl'
+  | 'childMdx___frontmatter___nextPageUrl'
+  | 'childMdx___frontmatter___nextPageLabel'
   | 'childMdx___slug'
   | 'childMdx___body'
   | 'childMdx___excerpt'
@@ -3589,6 +3643,9 @@ export type ContentfulBlogPostBlogExcerptTextNodeFieldsEnum =
   | 'childrenMdx___frontmatter___tags'
   | 'childrenMdx___frontmatter___version'
   | 'childrenMdx___frontmatter___status'
+  | 'childrenMdx___frontmatter___editPageUrl'
+  | 'childrenMdx___frontmatter___nextPageUrl'
+  | 'childrenMdx___frontmatter___nextPageLabel'
   | 'childrenMdx___slug'
   | 'childrenMdx___body'
   | 'childrenMdx___excerpt'
@@ -3648,6 +3705,9 @@ export type ContentfulBlogPostBlogExcerptTextNodeFieldsEnum =
   | 'childMdx___frontmatter___tags'
   | 'childMdx___frontmatter___version'
   | 'childMdx___frontmatter___status'
+  | 'childMdx___frontmatter___editPageUrl'
+  | 'childMdx___frontmatter___nextPageUrl'
+  | 'childMdx___frontmatter___nextPageLabel'
   | 'childMdx___slug'
   | 'childMdx___body'
   | 'childMdx___excerpt'
@@ -3903,6 +3963,9 @@ export type ContentfulBlogPostFieldsEnum =
   | 'blogExcerpt___childrenMdx___frontmatter___tags'
   | 'blogExcerpt___childrenMdx___frontmatter___version'
   | 'blogExcerpt___childrenMdx___frontmatter___status'
+  | 'blogExcerpt___childrenMdx___frontmatter___editPageUrl'
+  | 'blogExcerpt___childrenMdx___frontmatter___nextPageUrl'
+  | 'blogExcerpt___childrenMdx___frontmatter___nextPageLabel'
   | 'blogExcerpt___childrenMdx___slug'
   | 'blogExcerpt___childrenMdx___body'
   | 'blogExcerpt___childrenMdx___excerpt'
@@ -3938,6 +4001,9 @@ export type ContentfulBlogPostFieldsEnum =
   | 'blogExcerpt___childMdx___frontmatter___tags'
   | 'blogExcerpt___childMdx___frontmatter___version'
   | 'blogExcerpt___childMdx___frontmatter___status'
+  | 'blogExcerpt___childMdx___frontmatter___editPageUrl'
+  | 'blogExcerpt___childMdx___frontmatter___nextPageUrl'
+  | 'blogExcerpt___childMdx___frontmatter___nextPageLabel'
   | 'blogExcerpt___childMdx___slug'
   | 'blogExcerpt___childMdx___body'
   | 'blogExcerpt___childMdx___excerpt'
@@ -4026,6 +4092,9 @@ export type ContentfulBlogPostFieldsEnum =
   | 'childrenContentfulBlogPostBlogExcerptTextNode___childrenMdx___frontmatter___tags'
   | 'childrenContentfulBlogPostBlogExcerptTextNode___childrenMdx___frontmatter___version'
   | 'childrenContentfulBlogPostBlogExcerptTextNode___childrenMdx___frontmatter___status'
+  | 'childrenContentfulBlogPostBlogExcerptTextNode___childrenMdx___frontmatter___editPageUrl'
+  | 'childrenContentfulBlogPostBlogExcerptTextNode___childrenMdx___frontmatter___nextPageUrl'
+  | 'childrenContentfulBlogPostBlogExcerptTextNode___childrenMdx___frontmatter___nextPageLabel'
   | 'childrenContentfulBlogPostBlogExcerptTextNode___childrenMdx___slug'
   | 'childrenContentfulBlogPostBlogExcerptTextNode___childrenMdx___body'
   | 'childrenContentfulBlogPostBlogExcerptTextNode___childrenMdx___excerpt'
@@ -4061,6 +4130,9 @@ export type ContentfulBlogPostFieldsEnum =
   | 'childrenContentfulBlogPostBlogExcerptTextNode___childMdx___frontmatter___tags'
   | 'childrenContentfulBlogPostBlogExcerptTextNode___childMdx___frontmatter___version'
   | 'childrenContentfulBlogPostBlogExcerptTextNode___childMdx___frontmatter___status'
+  | 'childrenContentfulBlogPostBlogExcerptTextNode___childMdx___frontmatter___editPageUrl'
+  | 'childrenContentfulBlogPostBlogExcerptTextNode___childMdx___frontmatter___nextPageUrl'
+  | 'childrenContentfulBlogPostBlogExcerptTextNode___childMdx___frontmatter___nextPageLabel'
   | 'childrenContentfulBlogPostBlogExcerptTextNode___childMdx___slug'
   | 'childrenContentfulBlogPostBlogExcerptTextNode___childMdx___body'
   | 'childrenContentfulBlogPostBlogExcerptTextNode___childMdx___excerpt'
@@ -4137,6 +4209,9 @@ export type ContentfulBlogPostFieldsEnum =
   | 'childContentfulBlogPostBlogExcerptTextNode___childrenMdx___frontmatter___tags'
   | 'childContentfulBlogPostBlogExcerptTextNode___childrenMdx___frontmatter___version'
   | 'childContentfulBlogPostBlogExcerptTextNode___childrenMdx___frontmatter___status'
+  | 'childContentfulBlogPostBlogExcerptTextNode___childrenMdx___frontmatter___editPageUrl'
+  | 'childContentfulBlogPostBlogExcerptTextNode___childrenMdx___frontmatter___nextPageUrl'
+  | 'childContentfulBlogPostBlogExcerptTextNode___childrenMdx___frontmatter___nextPageLabel'
   | 'childContentfulBlogPostBlogExcerptTextNode___childrenMdx___slug'
   | 'childContentfulBlogPostBlogExcerptTextNode___childrenMdx___body'
   | 'childContentfulBlogPostBlogExcerptTextNode___childrenMdx___excerpt'
@@ -4172,6 +4247,9 @@ export type ContentfulBlogPostFieldsEnum =
   | 'childContentfulBlogPostBlogExcerptTextNode___childMdx___frontmatter___tags'
   | 'childContentfulBlogPostBlogExcerptTextNode___childMdx___frontmatter___version'
   | 'childContentfulBlogPostBlogExcerptTextNode___childMdx___frontmatter___status'
+  | 'childContentfulBlogPostBlogExcerptTextNode___childMdx___frontmatter___editPageUrl'
+  | 'childContentfulBlogPostBlogExcerptTextNode___childMdx___frontmatter___nextPageUrl'
+  | 'childContentfulBlogPostBlogExcerptTextNode___childMdx___frontmatter___nextPageLabel'
   | 'childContentfulBlogPostBlogExcerptTextNode___childMdx___slug'
   | 'childContentfulBlogPostBlogExcerptTextNode___childMdx___body'
   | 'childContentfulBlogPostBlogExcerptTextNode___childMdx___excerpt'
@@ -8557,6 +8635,9 @@ export type ContentfulPageDescriptionTextNodeFieldsEnum =
   | 'childrenMdx___frontmatter___tags'
   | 'childrenMdx___frontmatter___version'
   | 'childrenMdx___frontmatter___status'
+  | 'childrenMdx___frontmatter___editPageUrl'
+  | 'childrenMdx___frontmatter___nextPageUrl'
+  | 'childrenMdx___frontmatter___nextPageLabel'
   | 'childrenMdx___slug'
   | 'childrenMdx___body'
   | 'childrenMdx___excerpt'
@@ -8616,6 +8697,9 @@ export type ContentfulPageDescriptionTextNodeFieldsEnum =
   | 'childMdx___frontmatter___tags'
   | 'childMdx___frontmatter___version'
   | 'childMdx___frontmatter___status'
+  | 'childMdx___frontmatter___editPageUrl'
+  | 'childMdx___frontmatter___nextPageUrl'
+  | 'childMdx___frontmatter___nextPageLabel'
   | 'childMdx___slug'
   | 'childMdx___body'
   | 'childMdx___excerpt'
@@ -8964,6 +9048,9 @@ export type ContentfulPageFieldsEnum =
   | 'description___childrenMdx___frontmatter___tags'
   | 'description___childrenMdx___frontmatter___version'
   | 'description___childrenMdx___frontmatter___status'
+  | 'description___childrenMdx___frontmatter___editPageUrl'
+  | 'description___childrenMdx___frontmatter___nextPageUrl'
+  | 'description___childrenMdx___frontmatter___nextPageLabel'
   | 'description___childrenMdx___slug'
   | 'description___childrenMdx___body'
   | 'description___childrenMdx___excerpt'
@@ -8999,6 +9086,9 @@ export type ContentfulPageFieldsEnum =
   | 'description___childMdx___frontmatter___tags'
   | 'description___childMdx___frontmatter___version'
   | 'description___childMdx___frontmatter___status'
+  | 'description___childMdx___frontmatter___editPageUrl'
+  | 'description___childMdx___frontmatter___nextPageUrl'
+  | 'description___childMdx___frontmatter___nextPageLabel'
   | 'description___childMdx___slug'
   | 'description___childMdx___body'
   | 'description___childMdx___excerpt'
@@ -9340,6 +9430,9 @@ export type ContentfulPageFieldsEnum =
   | 'childrenContentfulPageDescriptionTextNode___childrenMdx___frontmatter___tags'
   | 'childrenContentfulPageDescriptionTextNode___childrenMdx___frontmatter___version'
   | 'childrenContentfulPageDescriptionTextNode___childrenMdx___frontmatter___status'
+  | 'childrenContentfulPageDescriptionTextNode___childrenMdx___frontmatter___editPageUrl'
+  | 'childrenContentfulPageDescriptionTextNode___childrenMdx___frontmatter___nextPageUrl'
+  | 'childrenContentfulPageDescriptionTextNode___childrenMdx___frontmatter___nextPageLabel'
   | 'childrenContentfulPageDescriptionTextNode___childrenMdx___slug'
   | 'childrenContentfulPageDescriptionTextNode___childrenMdx___body'
   | 'childrenContentfulPageDescriptionTextNode___childrenMdx___excerpt'
@@ -9375,6 +9468,9 @@ export type ContentfulPageFieldsEnum =
   | 'childrenContentfulPageDescriptionTextNode___childMdx___frontmatter___tags'
   | 'childrenContentfulPageDescriptionTextNode___childMdx___frontmatter___version'
   | 'childrenContentfulPageDescriptionTextNode___childMdx___frontmatter___status'
+  | 'childrenContentfulPageDescriptionTextNode___childMdx___frontmatter___editPageUrl'
+  | 'childrenContentfulPageDescriptionTextNode___childMdx___frontmatter___nextPageUrl'
+  | 'childrenContentfulPageDescriptionTextNode___childMdx___frontmatter___nextPageLabel'
   | 'childrenContentfulPageDescriptionTextNode___childMdx___slug'
   | 'childrenContentfulPageDescriptionTextNode___childMdx___body'
   | 'childrenContentfulPageDescriptionTextNode___childMdx___excerpt'
@@ -9451,6 +9547,9 @@ export type ContentfulPageFieldsEnum =
   | 'childContentfulPageDescriptionTextNode___childrenMdx___frontmatter___tags'
   | 'childContentfulPageDescriptionTextNode___childrenMdx___frontmatter___version'
   | 'childContentfulPageDescriptionTextNode___childrenMdx___frontmatter___status'
+  | 'childContentfulPageDescriptionTextNode___childrenMdx___frontmatter___editPageUrl'
+  | 'childContentfulPageDescriptionTextNode___childrenMdx___frontmatter___nextPageUrl'
+  | 'childContentfulPageDescriptionTextNode___childrenMdx___frontmatter___nextPageLabel'
   | 'childContentfulPageDescriptionTextNode___childrenMdx___slug'
   | 'childContentfulPageDescriptionTextNode___childrenMdx___body'
   | 'childContentfulPageDescriptionTextNode___childrenMdx___excerpt'
@@ -9486,6 +9585,9 @@ export type ContentfulPageFieldsEnum =
   | 'childContentfulPageDescriptionTextNode___childMdx___frontmatter___tags'
   | 'childContentfulPageDescriptionTextNode___childMdx___frontmatter___version'
   | 'childContentfulPageDescriptionTextNode___childMdx___frontmatter___status'
+  | 'childContentfulPageDescriptionTextNode___childMdx___frontmatter___editPageUrl'
+  | 'childContentfulPageDescriptionTextNode___childMdx___frontmatter___nextPageUrl'
+  | 'childContentfulPageDescriptionTextNode___childMdx___frontmatter___nextPageLabel'
   | 'childContentfulPageDescriptionTextNode___childMdx___slug'
   | 'childContentfulPageDescriptionTextNode___childMdx___body'
   | 'childContentfulPageDescriptionTextNode___childMdx___excerpt'
@@ -10878,6 +10980,9 @@ export type ContentfulTagTypeFieldsEnum =
   | 'name___childrenMdx___frontmatter___tags'
   | 'name___childrenMdx___frontmatter___version'
   | 'name___childrenMdx___frontmatter___status'
+  | 'name___childrenMdx___frontmatter___editPageUrl'
+  | 'name___childrenMdx___frontmatter___nextPageUrl'
+  | 'name___childrenMdx___frontmatter___nextPageLabel'
   | 'name___childrenMdx___slug'
   | 'name___childrenMdx___body'
   | 'name___childrenMdx___excerpt'
@@ -10913,6 +11018,9 @@ export type ContentfulTagTypeFieldsEnum =
   | 'name___childMdx___frontmatter___tags'
   | 'name___childMdx___frontmatter___version'
   | 'name___childMdx___frontmatter___status'
+  | 'name___childMdx___frontmatter___editPageUrl'
+  | 'name___childMdx___frontmatter___nextPageUrl'
+  | 'name___childMdx___frontmatter___nextPageLabel'
   | 'name___childMdx___slug'
   | 'name___childMdx___body'
   | 'name___childMdx___excerpt'
@@ -11001,6 +11109,9 @@ export type ContentfulTagTypeFieldsEnum =
   | 'childrenContentfulTagTypeNameTextNode___childrenMdx___frontmatter___tags'
   | 'childrenContentfulTagTypeNameTextNode___childrenMdx___frontmatter___version'
   | 'childrenContentfulTagTypeNameTextNode___childrenMdx___frontmatter___status'
+  | 'childrenContentfulTagTypeNameTextNode___childrenMdx___frontmatter___editPageUrl'
+  | 'childrenContentfulTagTypeNameTextNode___childrenMdx___frontmatter___nextPageUrl'
+  | 'childrenContentfulTagTypeNameTextNode___childrenMdx___frontmatter___nextPageLabel'
   | 'childrenContentfulTagTypeNameTextNode___childrenMdx___slug'
   | 'childrenContentfulTagTypeNameTextNode___childrenMdx___body'
   | 'childrenContentfulTagTypeNameTextNode___childrenMdx___excerpt'
@@ -11036,6 +11147,9 @@ export type ContentfulTagTypeFieldsEnum =
   | 'childrenContentfulTagTypeNameTextNode___childMdx___frontmatter___tags'
   | 'childrenContentfulTagTypeNameTextNode___childMdx___frontmatter___version'
   | 'childrenContentfulTagTypeNameTextNode___childMdx___frontmatter___status'
+  | 'childrenContentfulTagTypeNameTextNode___childMdx___frontmatter___editPageUrl'
+  | 'childrenContentfulTagTypeNameTextNode___childMdx___frontmatter___nextPageUrl'
+  | 'childrenContentfulTagTypeNameTextNode___childMdx___frontmatter___nextPageLabel'
   | 'childrenContentfulTagTypeNameTextNode___childMdx___slug'
   | 'childrenContentfulTagTypeNameTextNode___childMdx___body'
   | 'childrenContentfulTagTypeNameTextNode___childMdx___excerpt'
@@ -11112,6 +11226,9 @@ export type ContentfulTagTypeFieldsEnum =
   | 'childContentfulTagTypeNameTextNode___childrenMdx___frontmatter___tags'
   | 'childContentfulTagTypeNameTextNode___childrenMdx___frontmatter___version'
   | 'childContentfulTagTypeNameTextNode___childrenMdx___frontmatter___status'
+  | 'childContentfulTagTypeNameTextNode___childrenMdx___frontmatter___editPageUrl'
+  | 'childContentfulTagTypeNameTextNode___childrenMdx___frontmatter___nextPageUrl'
+  | 'childContentfulTagTypeNameTextNode___childrenMdx___frontmatter___nextPageLabel'
   | 'childContentfulTagTypeNameTextNode___childrenMdx___slug'
   | 'childContentfulTagTypeNameTextNode___childrenMdx___body'
   | 'childContentfulTagTypeNameTextNode___childrenMdx___excerpt'
@@ -11147,6 +11264,9 @@ export type ContentfulTagTypeFieldsEnum =
   | 'childContentfulTagTypeNameTextNode___childMdx___frontmatter___tags'
   | 'childContentfulTagTypeNameTextNode___childMdx___frontmatter___version'
   | 'childContentfulTagTypeNameTextNode___childMdx___frontmatter___status'
+  | 'childContentfulTagTypeNameTextNode___childMdx___frontmatter___editPageUrl'
+  | 'childContentfulTagTypeNameTextNode___childMdx___frontmatter___nextPageUrl'
+  | 'childContentfulTagTypeNameTextNode___childMdx___frontmatter___nextPageLabel'
   | 'childContentfulTagTypeNameTextNode___childMdx___slug'
   | 'childContentfulTagTypeNameTextNode___childMdx___body'
   | 'childContentfulTagTypeNameTextNode___childMdx___excerpt'
@@ -11339,6 +11459,9 @@ export type ContentfulTagTypeNameTextNodeFieldsEnum =
   | 'childrenMdx___frontmatter___tags'
   | 'childrenMdx___frontmatter___version'
   | 'childrenMdx___frontmatter___status'
+  | 'childrenMdx___frontmatter___editPageUrl'
+  | 'childrenMdx___frontmatter___nextPageUrl'
+  | 'childrenMdx___frontmatter___nextPageLabel'
   | 'childrenMdx___slug'
   | 'childrenMdx___body'
   | 'childrenMdx___excerpt'
@@ -11398,6 +11521,9 @@ export type ContentfulTagTypeNameTextNodeFieldsEnum =
   | 'childMdx___frontmatter___tags'
   | 'childMdx___frontmatter___version'
   | 'childMdx___frontmatter___status'
+  | 'childMdx___frontmatter___editPageUrl'
+  | 'childMdx___frontmatter___nextPageUrl'
+  | 'childMdx___frontmatter___nextPageLabel'
   | 'childMdx___slug'
   | 'childMdx___body'
   | 'childMdx___excerpt'
@@ -12210,6 +12336,9 @@ export type FileFieldsEnum =
   | 'childrenMdx___frontmatter___tags'
   | 'childrenMdx___frontmatter___version'
   | 'childrenMdx___frontmatter___status'
+  | 'childrenMdx___frontmatter___editPageUrl'
+  | 'childrenMdx___frontmatter___nextPageUrl'
+  | 'childrenMdx___frontmatter___nextPageLabel'
   | 'childrenMdx___slug'
   | 'childrenMdx___body'
   | 'childrenMdx___excerpt'
@@ -12269,6 +12398,9 @@ export type FileFieldsEnum =
   | 'childMdx___frontmatter___tags'
   | 'childMdx___frontmatter___version'
   | 'childMdx___frontmatter___status'
+  | 'childMdx___frontmatter___editPageUrl'
+  | 'childMdx___frontmatter___nextPageUrl'
+  | 'childMdx___frontmatter___nextPageLabel'
   | 'childMdx___slug'
   | 'childMdx___body'
   | 'childMdx___excerpt'
@@ -13160,6 +13292,9 @@ export type MdxFieldsEnum =
   | 'frontmatter___tags'
   | 'frontmatter___version'
   | 'frontmatter___status'
+  | 'frontmatter___editPageUrl'
+  | 'frontmatter___nextPageUrl'
+  | 'frontmatter___nextPageLabel'
   | 'slug'
   | 'body'
   | 'excerpt'
@@ -13290,6 +13425,9 @@ export type MdxFrontmatter = {
   tags?: Maybe<Array<Maybe<Scalars['String']>>>;
   version?: Maybe<Scalars['String']>;
   status?: Maybe<Scalars['String']>;
+  editPageUrl?: Maybe<Scalars['String']>;
+  nextPageUrl?: Maybe<Scalars['String']>;
+  nextPageLabel?: Maybe<Scalars['String']>;
 };
 
 export type MdxFrontmatterFilterInput = {
@@ -13299,6 +13437,9 @@ export type MdxFrontmatterFilterInput = {
   tags?: Maybe<StringQueryOperatorInput>;
   version?: Maybe<StringQueryOperatorInput>;
   status?: Maybe<StringQueryOperatorInput>;
+  editPageUrl?: Maybe<StringQueryOperatorInput>;
+  nextPageUrl?: Maybe<StringQueryOperatorInput>;
+  nextPageLabel?: Maybe<StringQueryOperatorInput>;
 };
 
 export type MdxGroupConnection = {
@@ -14872,6 +15013,12 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___downloadLocal'
   | 'pluginCreator___pluginOptions___fileName'
   | 'pluginCreator___pluginOptions___documentPaths'
+  | 'pluginCreator___pluginOptions___inlineSvgOptions'
+  | 'pluginCreator___pluginOptions___inlineSvgOptions___native'
+  | 'pluginCreator___pluginOptions___inlineSvgOptions___ref'
+  | 'pluginCreator___pluginOptions___urlSvgOptions'
+  | 'pluginCreator___pluginOptions___urlSvgOptions___native'
+  | 'pluginCreator___pluginOptions___urlSvgOptions___ref'
   | 'pluginCreator___pluginOptions___path'
   | 'pluginCreator___pluginOptions___ignore'
   | 'pluginCreator___pluginOptions___extensions'
@@ -15105,6 +15252,15 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___downloadLocal'
   | 'pluginOptions___fileName'
   | 'pluginOptions___documentPaths'
+  | 'pluginOptions___inlineSvgOptions'
+  | 'pluginOptions___inlineSvgOptions___native'
+  | 'pluginOptions___inlineSvgOptions___ref'
+  | 'pluginOptions___inlineSvgOptions___svgoConfig___plugins'
+  | 'pluginOptions___urlSvgOptions'
+  | 'pluginOptions___urlSvgOptions___native'
+  | 'pluginOptions___urlSvgOptions___ref'
+  | 'pluginOptions___urlSvgOptions___svgoConfig___plugins'
+  | 'pluginOptions___urlSvgOptions___urlLoaderOptions___limit'
   | 'pluginOptions___path'
   | 'pluginOptions___ignore'
   | 'pluginOptions___extensions'
@@ -15276,6 +15432,8 @@ export type SitePluginPluginOptions = {
   downloadLocal?: Maybe<Scalars['Boolean']>;
   fileName?: Maybe<Scalars['String']>;
   documentPaths?: Maybe<Array<Maybe<Scalars['String']>>>;
+  inlineSvgOptions?: Maybe<Array<Maybe<SitePluginPluginOptionsInlineSvgOptions>>>;
+  urlSvgOptions?: Maybe<Array<Maybe<SitePluginPluginOptionsUrlSvgOptions>>>;
   path?: Maybe<Scalars['String']>;
   ignore?: Maybe<Array<Maybe<Scalars['String']>>>;
   extensions?: Maybe<Array<Maybe<Scalars['String']>>>;
@@ -15436,6 +15594,8 @@ export type SitePluginPluginOptionsFilterInput = {
   downloadLocal?: Maybe<BooleanQueryOperatorInput>;
   fileName?: Maybe<StringQueryOperatorInput>;
   documentPaths?: Maybe<StringQueryOperatorInput>;
+  inlineSvgOptions?: Maybe<SitePluginPluginOptionsInlineSvgOptionsFilterListInput>;
+  urlSvgOptions?: Maybe<SitePluginPluginOptionsUrlSvgOptionsFilterListInput>;
   path?: Maybe<StringQueryOperatorInput>;
   ignore?: Maybe<StringQueryOperatorInput>;
   extensions?: Maybe<StringQueryOperatorInput>;
@@ -15487,6 +15647,52 @@ export type SitePluginPluginOptionsGatsbyRemarkPluginsOptionsFilterInput = {
   linkImagesToOriginal?: Maybe<BooleanQueryOperatorInput>;
   wrapperStyle?: Maybe<StringQueryOperatorInput>;
   destinationDir?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsInlineSvgOptions = {
+  native?: Maybe<Scalars['Boolean']>;
+  ref?: Maybe<Scalars['Boolean']>;
+  svgoConfig?: Maybe<SitePluginPluginOptionsInlineSvgOptionsSvgoConfig>;
+};
+
+export type SitePluginPluginOptionsInlineSvgOptionsFilterInput = {
+  native?: Maybe<BooleanQueryOperatorInput>;
+  ref?: Maybe<BooleanQueryOperatorInput>;
+  svgoConfig?: Maybe<SitePluginPluginOptionsInlineSvgOptionsSvgoConfigFilterInput>;
+};
+
+export type SitePluginPluginOptionsInlineSvgOptionsFilterListInput = {
+  elemMatch?: Maybe<SitePluginPluginOptionsInlineSvgOptionsFilterInput>;
+};
+
+export type SitePluginPluginOptionsInlineSvgOptionsSvgoConfig = {
+  plugins?: Maybe<Array<Maybe<SitePluginPluginOptionsInlineSvgOptionsSvgoConfigPlugins>>>;
+};
+
+export type SitePluginPluginOptionsInlineSvgOptionsSvgoConfigFilterInput = {
+  plugins?: Maybe<SitePluginPluginOptionsInlineSvgOptionsSvgoConfigPluginsFilterListInput>;
+};
+
+export type SitePluginPluginOptionsInlineSvgOptionsSvgoConfigPlugins = {
+  convertPathData?: Maybe<Scalars['Boolean']>;
+  convertShapeToPath?: Maybe<Scalars['Boolean']>;
+  mergePaths?: Maybe<Scalars['Boolean']>;
+  removeViewBox?: Maybe<Scalars['Boolean']>;
+  cleanupIDs?: Maybe<Scalars['Boolean']>;
+  prefixIds?: Maybe<Scalars['Boolean']>;
+};
+
+export type SitePluginPluginOptionsInlineSvgOptionsSvgoConfigPluginsFilterInput = {
+  convertPathData?: Maybe<BooleanQueryOperatorInput>;
+  convertShapeToPath?: Maybe<BooleanQueryOperatorInput>;
+  mergePaths?: Maybe<BooleanQueryOperatorInput>;
+  removeViewBox?: Maybe<BooleanQueryOperatorInput>;
+  cleanupIDs?: Maybe<BooleanQueryOperatorInput>;
+  prefixIds?: Maybe<BooleanQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsInlineSvgOptionsSvgoConfigPluginsFilterListInput = {
+  elemMatch?: Maybe<SitePluginPluginOptionsInlineSvgOptionsSvgoConfigPluginsFilterInput>;
 };
 
 export type SitePluginPluginOptionsRehypePlugins = {
@@ -15561,6 +15767,62 @@ export type SitePluginPluginOptionsRemarkPluginsFilterInput = {
 
 export type SitePluginPluginOptionsRemarkPluginsFilterListInput = {
   elemMatch?: Maybe<SitePluginPluginOptionsRemarkPluginsFilterInput>;
+};
+
+export type SitePluginPluginOptionsUrlSvgOptions = {
+  native?: Maybe<Scalars['Boolean']>;
+  ref?: Maybe<Scalars['Boolean']>;
+  svgoConfig?: Maybe<SitePluginPluginOptionsUrlSvgOptionsSvgoConfig>;
+  urlLoaderOptions?: Maybe<SitePluginPluginOptionsUrlSvgOptionsUrlLoaderOptions>;
+};
+
+export type SitePluginPluginOptionsUrlSvgOptionsFilterInput = {
+  native?: Maybe<BooleanQueryOperatorInput>;
+  ref?: Maybe<BooleanQueryOperatorInput>;
+  svgoConfig?: Maybe<SitePluginPluginOptionsUrlSvgOptionsSvgoConfigFilterInput>;
+  urlLoaderOptions?: Maybe<SitePluginPluginOptionsUrlSvgOptionsUrlLoaderOptionsFilterInput>;
+};
+
+export type SitePluginPluginOptionsUrlSvgOptionsFilterListInput = {
+  elemMatch?: Maybe<SitePluginPluginOptionsUrlSvgOptionsFilterInput>;
+};
+
+export type SitePluginPluginOptionsUrlSvgOptionsSvgoConfig = {
+  plugins?: Maybe<Array<Maybe<SitePluginPluginOptionsUrlSvgOptionsSvgoConfigPlugins>>>;
+};
+
+export type SitePluginPluginOptionsUrlSvgOptionsSvgoConfigFilterInput = {
+  plugins?: Maybe<SitePluginPluginOptionsUrlSvgOptionsSvgoConfigPluginsFilterListInput>;
+};
+
+export type SitePluginPluginOptionsUrlSvgOptionsSvgoConfigPlugins = {
+  convertPathData?: Maybe<Scalars['Boolean']>;
+  convertShapeToPath?: Maybe<Scalars['Boolean']>;
+  mergePaths?: Maybe<Scalars['Boolean']>;
+  removeViewBox?: Maybe<Scalars['Boolean']>;
+  cleanupIDs?: Maybe<Scalars['Boolean']>;
+  prefixIds?: Maybe<Scalars['Boolean']>;
+};
+
+export type SitePluginPluginOptionsUrlSvgOptionsSvgoConfigPluginsFilterInput = {
+  convertPathData?: Maybe<BooleanQueryOperatorInput>;
+  convertShapeToPath?: Maybe<BooleanQueryOperatorInput>;
+  mergePaths?: Maybe<BooleanQueryOperatorInput>;
+  removeViewBox?: Maybe<BooleanQueryOperatorInput>;
+  cleanupIDs?: Maybe<BooleanQueryOperatorInput>;
+  prefixIds?: Maybe<BooleanQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsUrlSvgOptionsSvgoConfigPluginsFilterListInput = {
+  elemMatch?: Maybe<SitePluginPluginOptionsUrlSvgOptionsSvgoConfigPluginsFilterInput>;
+};
+
+export type SitePluginPluginOptionsUrlSvgOptionsUrlLoaderOptions = {
+  limit?: Maybe<Scalars['Int']>;
+};
+
+export type SitePluginPluginOptionsUrlSvgOptionsUrlLoaderOptionsFilterInput = {
+  limit?: Maybe<IntQueryOperatorInput>;
 };
 
 export type SitePluginSortInput = {
@@ -15644,6 +15906,14 @@ export type MediaCollectionFragment = (
     )> }>>> }
 );
 
+export type PageFragmentFragment = (
+  Pick<ContentfulPage, 'id' | 'name' | 'node_locale' | 'title' | 'slug'>
+  & { description?: Maybe<(
+    Pick<ContentfulPageDescriptionTextNode, 'description'>
+    & { childMdx?: Maybe<Pick<Mdx, 'body'>> }
+  )>, sections?: Maybe<Array<Maybe<SectionFragment>>> }
+);
+
 export type BlockCostItemFragment = (
   Pick<ContentfulBlockCostItem, 'id' | 'title' | 'variant' | 'type' | 'priceText'>
   & { text?: Maybe<(
@@ -15679,14 +15949,6 @@ export type CompanyAddressFragment = Pick<ContentfulCompanyAddress, 'name' | 'ph
 export type LinkFragment = (
   Pick<ContentfulLink, 'name' | 'type' | 'label' | 'url'>
   & { page?: Maybe<Pick<ContentfulPage, 'id' | 'name' | 'slug'>> }
-);
-
-export type PageFragmentFragment = (
-  Pick<ContentfulPage, 'id' | 'name' | 'node_locale' | 'title' | 'slug'>
-  & { description?: Maybe<(
-    Pick<ContentfulPageDescriptionTextNode, 'description'>
-    & { childMdx?: Maybe<Pick<Mdx, 'body'>> }
-  )>, sections?: Maybe<Array<Maybe<SectionFragment>>> }
 );
 
 export type SectionFragment = (

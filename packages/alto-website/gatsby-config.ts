@@ -89,7 +89,7 @@ const config: core.GastbySiteConfig = {
     core.getGatsbyPluginSharp(),
     ...core.getGatsbyPluginMdx(),
     ...core.getGatsbyImageFolder({
-      pathImgDir: path.join(__dirname, `/src/images`),
+      pathImgDir: path.join(__dirname, `../alto-design-system/lib/assets`),
     }),
     core.getGatsbyPluginReactHelmet(),
     core.getGatsbyPluginSitemap(),

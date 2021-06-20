@@ -53,7 +53,7 @@ const config: core.GastbySiteConfig = {
         background_color: `#ffffff`,
         theme_color: `#7c997d`,
         display: `standalone`,
-        icon: `src/images/favicon.png`,
+        icon: `../vsb-design-system/lib/assets/logo-favicon.png`,
       },
     },
     {
@@ -87,7 +87,7 @@ const config: core.GastbySiteConfig = {
     core.getGatsbyPluginSharp(),
     ...core.getGatsbyPluginMdx(),
     ...core.getGatsbyImageFolder({
-      pathImgDir: path.join(__dirname, `/src/images`),
+      pathImgDir: path.join(__dirname, `../vsb-design-system/lib/assets`),
     }),
     core.getGatsbyPluginReactHelmet(),
     core.getGatsbyPluginSitemap(),

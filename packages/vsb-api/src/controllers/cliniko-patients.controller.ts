@@ -1,5 +1,6 @@
 import { APIResponseBody, API_RESPONSE_STATUS, ERROR_TYPE } from '@newrade/core-common';
 import {
+  CLINIKO_PATIENT_VASEC_STATUS,
   GetNewPatientsAPIRequestBody,
   GetNewPatientsAPIResponseBody,
   getPatientModel,
@@ -82,6 +83,10 @@ export const getPatients: RequestHandler<
 
           // we only take the most recent treatment note
           const status = getStatusFromStatusTreatmentNote(treatmentNotes[0]);
+
+          if (status.status === CLINIKO_PATIENT_VASEC_STATUS.UNKNOWN) {
+            logWarn(`could not find status not for patient: ${patient.id}`);
+          }
 
           return {
             patientTreatmentNoteResponse: result,

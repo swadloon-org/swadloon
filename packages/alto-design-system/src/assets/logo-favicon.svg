@@ -2,4 +2,11 @@
   <path fill-rule="evenodd" clip-rule="evenodd"
     d="M1024 1024H0V0H1024V1024ZM896 128H128V896H896V128ZM256 256H768V384H256V256ZM576 448H256V576H576V448ZM256 640H384V768.001H256V640Z"
     fill="url(#gradient-logo-favicon)" />
+  <defs>
+    <linearGradient id="gradient-logo-favicon" x1="2205.54" y1="1043.12" x2="-1337.72" y2="1043.12"
+      gradientUnits="userSpaceOnUse">
+      <stop offset="0.0104167" stop-color="#DE0CDE" />
+      <stop offset="1" stop-color="#1616C5" />
+    </linearGradient>
+  </defs>
 </svg>

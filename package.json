@@ -129,6 +129,7 @@
     "use-resize-observer": "^7.0.0",
     "web-animations-js": "^2.3.2",
     "webpack-node-externals": "^3.0.0",
+    "winston": "^3.3.3",
     "yup": "^0.32.8"
   },
   "devDependencies": {

@@ -22,7 +22,8 @@ import { Logos } from '../../src/code/logos.code';
 
 ### Standard
 
-The standard version of the logo is
+The standard version of the logo is to be used in all areas where the brand is
+the main focus of the content such as on the company's main website.
 
 <Logos.STANDARD/>
 
