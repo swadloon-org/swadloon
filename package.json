@@ -216,7 +216,7 @@
     "copy-webpack-plugin": "^6.4.1",
     "core-js-pure": "^3.8.2",
     "cross-env": "^7.0.3",
-    "csp-html-webpack-plugin": "^4.0.0",
+    "csp-html-webpack-plugin": "^5.1.0",
     "css-loader": "^2.1.1",
     "csstype": "^3.0",
     "cz-conventional-changelog": "^3.2.0",
