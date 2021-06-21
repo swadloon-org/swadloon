@@ -17,13 +17,13 @@ import {
   useCommonProps,
   useTreatTheme,
 } from '@newrade/core-react-ui';
+import { BlockAPI } from '@newrade/core-website-api';
 import { IoLogoFacebook } from '@react-icons/all-files/io5/IoLogoFacebook';
 import { IoLogoInstagram } from '@react-icons/all-files/io5/IoLogoInstagram';
 import { IoLogoLinkedin } from '@react-icons/all-files/io5/IoLogoLinkedin';
 import { IoLogoTwitter } from '@react-icons/all-files/io5/IoLogoTwitter';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { BlockAPI } from '../../../core-website-api/src';
 import { BlockRenderer } from '../blocks/block-renderer';
 import { FooterBase } from './footer-base';
 import * as styleRefs from './footer-standard.treat';

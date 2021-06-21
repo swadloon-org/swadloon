@@ -40,6 +40,7 @@ import {
   IoSearchOutline,
 } from 'react-icons/io5';
 import { IconComponents } from '../icons/icons-provider';
+import { newradeIconsKit } from './newrade-icons';
 
 export const ionicons5Kit: IconComponents<ICON> = {
   [ICON.ARROW_UP]: IoArrowUpOutline,
@@ -80,4 +81,5 @@ export const ionicons5Kit: IconComponents<ICON> = {
   [ICON.LOGO_INSTAGRAM]: IoLogoInstagram,
   [ICON.LOGO_LINKEDIN]: IoLogoLinkedin,
   [ICON.LOGO_YOUTUBE]: IoLogoYoutube,
+  ...newradeIconsKit,
 };

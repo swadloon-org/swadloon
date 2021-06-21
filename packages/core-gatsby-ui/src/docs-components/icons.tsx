@@ -52,6 +52,7 @@ export const Icons: React.FC<Props> = ({ id, style, className, ...props }) => {
     'copy',
     'duplicate',
     'document',
+    'layout',
     'layers',
     'check',
     'radio',

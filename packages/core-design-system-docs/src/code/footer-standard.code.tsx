@@ -9,7 +9,7 @@ export const FootersStandard: React.FC<Props> = (props) => {
 
   return (
     <>
-      <FooterStandard Copyright={<>© 2020 All Right Reserved - Company Inc.</>}></FooterStandard>
+      <FooterStandard></FooterStandard>
     </>
   );
 };
