@@ -1,15 +1,18 @@
 import loadable from '@loadable/component';
-import { FooterEnterprise } from '@newrade/core-gatsby-ui/src';
+import { FooterRenderer } from '@newrade/core-gatsby-ui/src';
 import {
   Main,
   MainWrapper,
+  NavBar,
   useIsSSR,
   useTreatTheme,
   useViewportBreakpoint,
 } from '@newrade/core-react-ui';
-import { PageProps } from 'gatsby';
+import { FooterAPI } from '@newrade/core-website-api';
+import { graphql, PageProps, useStaticQuery } from 'gatsby';
 import React, { ReactNode, useState } from 'react';
 import { useStyles } from 'react-treat';
+import { FooterQuery } from '../../types/graphql-types';
 import * as styleRefs from './layout.treat';
 
 type LayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }>;
@@ -25,8 +28,21 @@ const MobileSideBar = loadable<any>(
   }
 );
 
+export const footerQuery = graphql`
+  query Footer {
+    site {
+      ...SiteMetadata
+    }
+
+    footer: contentfulFooter(name: { eq: "Footer" }) {
+      ...FooterFragment
+    }
+  }
+`;
+
 export const Layout = React.memo<LayoutProps>((props) => {
   const isSSR = useIsSSR();
+  const footerData = useStaticQuery<FooterQuery>(footerQuery);
 
   /**
    * Styles & animations
@@ -47,10 +63,13 @@ export const Layout = React.memo<LayoutProps>((props) => {
 
   return (
     <MainWrapper className={styles.wrapper}>
+      <NavBar></NavBar>
+
       <Main navbarPadding={true} minHeight={true}>
         {props.children}
       </Main>
-      <FooterEnterprise></FooterEnterprise>
+
+      <FooterRenderer footer={footerData.footer as FooterAPI} />
     </MainWrapper>
   );
 });

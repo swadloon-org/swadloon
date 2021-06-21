@@ -54,12 +54,12 @@ export const SectionMessenger = React.forwardRef<any, Props>(
     return (
       <SectionBase
         ref={ref}
-        {...commonProps}
         section={{
           variant,
           baseLayout,
           padding,
         }}
+        {...commonProps}
       >
         <div className={styles.grid}>
           <BoxV2 className={styles.gridTitle} alignItems={['flex-start']}>

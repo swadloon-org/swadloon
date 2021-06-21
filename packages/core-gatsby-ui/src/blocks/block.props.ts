@@ -1,16 +1,27 @@
 import { CommonComponentProps } from '@newrade/core-react-ui';
-import { BlockGoogleMapAPI, BlockImageAPIV2, BlockImageAPIV1 } from '@newrade/core-website-api';
+import {
+  BlockGoogleMapAPI,
+  BlockImageAPIV2,
+  BlockImageAPIV1,
+  BlockType,
+} from '@newrade/core-website-api';
 import { BlockAPI } from '@newrade/core-website-api';
-import { CustomBlockVariantComponents } from '../sections/section.props';
 
 /**
  * Props that all Block components should have
  */
 export type BlockProps = CommonComponentProps & {
-  /** tells the block whether it is visible in the viewport */
+  /** if the block whether it is visible in the viewport */
   inView?: boolean;
   /** block data */
   block?: BlockAPI | BlockImageAPIV1 | BlockGoogleMapAPI | BlockImageAPIV2 | null;
+};
+
+/**
+ * Defines a component for each custom block variant
+ */
+export type CustomBlockVariantComponents<CustomBlockVariants extends string> = {
+  [key in CustomBlockVariants | BlockType]?: (props: BlockProps) => React.ReactElement | null;
 };
 
 /**

@@ -1,6 +1,7 @@
 import {
   ButtonIcon,
   LABEL_SIZE,
+  LOGO,
   PARAGRAPH_SIZE,
   TEXT_STYLE,
   Variant,
@@ -10,9 +11,9 @@ import {
   Cluster,
   Label,
   Link,
+  Logo,
   Paragraph,
   Stack,
-  Switcher,
   useCommonProps,
   useTreatTheme,
 } from '@newrade/core-react-ui';
@@ -22,114 +23,89 @@ import { IoLogoLinkedin } from '@react-icons/all-files/io5/IoLogoLinkedin';
 import { IoLogoTwitter } from '@react-icons/all-files/io5/IoLogoTwitter';
 import React from 'react';
 import { useStyles } from 'react-treat';
+import { BlockAPI } from '../../../core-website-api/src';
+import { BlockRenderer } from '../blocks/block-renderer';
+import { FooterBase } from './footer-base';
 import * as styleRefs from './footer-standard.treat';
 import { FooterProps } from './footer.props';
 
-type Props = FooterProps & {
-  MenuLinks?: React.ReactNode;
-  SocialLinks?: React.ReactNode;
-  Copyright?: React.ReactNode;
-};
+type Props = FooterProps;
 
-export const FooterStandard: React.FC<Props> = ({
-  id,
-  style,
-  className,
-  MenuLinks,
-  SocialLinks,
-  Copyright,
-  ...props
-}) => {
-  const { styles } = useStyles(styleRefs);
-  const { theme, cssTheme } = useTreatTheme();
-  const commonProps = useCommonProps({
-    id,
-    style,
-    className,
-    classNames: [styles.wrapper],
-    ...props,
-  });
+export const FooterStandard = React.forwardRef<any, Props>(
+  ({ id, style, className, footer, ...props }, ref) => {
+    const { styles } = useStyles(styleRefs);
+    const { theme, cssTheme } = useTreatTheme();
+    const commonProps = useCommonProps({
+      id,
+      style,
+      className,
+      ...props,
+    });
 
-  return (
-    <Stack as={'footer'} {...commonProps} gap={[cssTheme.sizing.var.x4]}>
-      <Switcher className={styles.links} gap={[cssTheme.sizing.var.x3]}>
-        <Stack className={styles.info} gap={[cssTheme.sizing.var.x2]}>
-          {/* Copyright */}
-          <Paragraph variant={PARAGRAPH_SIZE.xSmall}>
-            Making the world a better place through constructing elegant hierarchies.
-          </Paragraph>
-          {/* Social */}
-          {SocialLinks ? (
-            <div className={styles.links}>{SocialLinks}</div>
-          ) : (
-            <Cluster className={styles.links} gap={[cssTheme.sizing.var.x2]}>
-              <Button
-                Icon={<IoLogoTwitter />}
-                icon={ButtonIcon.icon}
-                variant={Variant.tertiary}
-              ></Button>
+    const blocks = footer?.blocks;
+    const copyright = footer?.companyInfo?.copyright;
 
-              <Button
-                Icon={<IoLogoFacebook />}
-                icon={ButtonIcon.icon}
-                variant={Variant.tertiary}
-              ></Button>
+    return (
+      <FooterBase {...commonProps} footer={footer} ref={ref} contentClassName={styles.wrapper}>
+        <Stack className={styles.info} gap={[cssTheme.sizing.var.x4]}>
+          {/* Logo */}
+          <Logo name={LOGO.STANDARD} className={styles.logo}></Logo>
 
-              <Button
-                Icon={<IoLogoInstagram />}
-                icon={ButtonIcon.icon}
-                variant={Variant.tertiary}
-              ></Button>
+          {/* Block */}
+          {blocks
+            ? blocks.map((block) => (
+                <BlockRenderer key={block?.id} block={block as BlockAPI}></BlockRenderer>
+              ))
+            : null}
 
-              <Button
-                Icon={<IoLogoLinkedin />}
-                icon={ButtonIcon.icon}
-                variant={Variant.tertiary}
-              ></Button>
-            </Cluster>
-          )}
+          {/* Social links */}
+          <Cluster className={styles.links} gap={[cssTheme.sizing.var.x2]}>
+            <Button
+              Icon={<IoLogoTwitter />}
+              icon={ButtonIcon.icon}
+              variant={Variant.tertiary}
+            ></Button>
+
+            <Button
+              Icon={<IoLogoFacebook />}
+              icon={ButtonIcon.icon}
+              variant={Variant.tertiary}
+            ></Button>
+
+            <Button
+              Icon={<IoLogoInstagram />}
+              icon={ButtonIcon.icon}
+              variant={Variant.tertiary}
+            ></Button>
+
+            <Button
+              Icon={<IoLogoLinkedin />}
+              icon={ButtonIcon.icon}
+              variant={Variant.tertiary}
+            ></Button>
+          </Cluster>
         </Stack>
-        {/* Links */}
-        {MenuLinks ? (
-          <div className={styles.links}>{MenuLinks}</div>
-        ) : (
-          <Stack className={styles.links} gap={[cssTheme.sizing.var.x2]}>
-            <Label
-              variantStyle={TEXT_STYLE.boldUppercase}
-              variant={LABEL_SIZE.xSmall}
-              variantLevel={Variant.tertiary}
-            >
-              Solutions
-            </Label>
-            <Link>Marketing</Link>
-            <Link>Analytics</Link>
-            <Link>Commerce</Link>
-            <Link>Insights</Link>
-          </Stack>
-        )}
-        {/* Links */}
-        {MenuLinks ? (
-          <div className={styles.links}>{MenuLinks}</div>
-        ) : (
-          <Stack className={styles.links} gap={[cssTheme.sizing.var.x2]}>
-            <Label
-              variantStyle={TEXT_STYLE.boldUppercase}
-              variant={LABEL_SIZE.xSmall}
-              variantLevel={Variant.tertiary}
-            >
-              Support
-            </Label>
-            <Link>Pricing</Link>
-            <Link>Doc</Link>
-            <Link>Guides</Link>
-            <Link>API Status</Link>
-          </Stack>
-        )}
-      </Switcher>
-      {/* Copyright */}
-      <Paragraph className={styles.copyright} variant={PARAGRAPH_SIZE.xSmall}>
-        {Copyright}
-      </Paragraph>
-    </Stack>
-  );
-};
+
+        {/* Navigation Links */}
+        <Stack className={styles.links} gap={[cssTheme.sizing.var.x2]}>
+          <Label
+            variantStyle={TEXT_STYLE.boldUppercase}
+            variant={LABEL_SIZE.xSmall}
+            variantLevel={Variant.tertiary}
+          >
+            Solutions
+          </Label>
+          <Link>Marketing</Link>
+          <Link>Analytics</Link>
+          <Link>Commerce</Link>
+          <Link>Insights</Link>
+        </Stack>
+
+        {/* Copyright */}
+        <Paragraph className={styles.copyright} variant={PARAGRAPH_SIZE.small}>
+          {copyright}
+        </Paragraph>
+      </FooterBase>
+    );
+  }
+);

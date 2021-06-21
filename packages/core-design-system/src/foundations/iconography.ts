@@ -38,6 +38,10 @@ export enum ICON {
   SEARCH = 'SEARCH',
   CALENDAR = 'CALENDAR',
   /**
+   * Layout control
+   */
+  LAYOUT_CENTER = 'LAYOUT_CENTER',
+  /**
    * Actions
    */
   OPEN = 'OPEN',

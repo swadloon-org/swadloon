@@ -44,12 +44,12 @@ export const SectionStatement = React.forwardRef<any, Props>(
     return (
       <SectionBase
         ref={ref}
-        {...commonProps}
         section={{
           variant,
           baseLayout,
           padding,
         }}
+        {...commonProps}
       >
         <Stack gap={[cssTheme.sizing.var.x6]}>
           <div className={styles.top}>{TopBlock}</div>
