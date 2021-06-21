@@ -26,6 +26,9 @@ const devConfig: WebpackOptions.WebpackOptions = {
     proxy: {
       '/api': 'http://localhost:10003',
     },
+    historyApiFallback: {
+      index: '/admin/',
+    },
   },
   plugins: [
     core.getTreatCSSPlugin({
