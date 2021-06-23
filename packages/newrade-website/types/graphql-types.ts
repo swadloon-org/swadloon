@@ -878,6 +878,9 @@ export type ContentfulBlockFieldsEnum =
   | 'text___childrenMdx___frontmatter___tags'
   | 'text___childrenMdx___frontmatter___version'
   | 'text___childrenMdx___frontmatter___status'
+  | 'text___childrenMdx___frontmatter___editPageUrl'
+  | 'text___childrenMdx___frontmatter___nextPageUrl'
+  | 'text___childrenMdx___frontmatter___nextPageLabel'
   | 'text___childrenMdx___slug'
   | 'text___childrenMdx___body'
   | 'text___childrenMdx___excerpt'
@@ -914,6 +917,9 @@ export type ContentfulBlockFieldsEnum =
   | 'text___childMdx___frontmatter___tags'
   | 'text___childMdx___frontmatter___version'
   | 'text___childMdx___frontmatter___status'
+  | 'text___childMdx___frontmatter___editPageUrl'
+  | 'text___childMdx___frontmatter___nextPageUrl'
+  | 'text___childMdx___frontmatter___nextPageLabel'
   | 'text___childMdx___slug'
   | 'text___childMdx___body'
   | 'text___childMdx___excerpt'
@@ -1696,6 +1702,9 @@ export type ContentfulBlockFieldsEnum =
   | 'childrenContentfulBlockTextTextNode___childrenMdx___frontmatter___tags'
   | 'childrenContentfulBlockTextTextNode___childrenMdx___frontmatter___version'
   | 'childrenContentfulBlockTextTextNode___childrenMdx___frontmatter___status'
+  | 'childrenContentfulBlockTextTextNode___childrenMdx___frontmatter___editPageUrl'
+  | 'childrenContentfulBlockTextTextNode___childrenMdx___frontmatter___nextPageUrl'
+  | 'childrenContentfulBlockTextTextNode___childrenMdx___frontmatter___nextPageLabel'
   | 'childrenContentfulBlockTextTextNode___childrenMdx___slug'
   | 'childrenContentfulBlockTextTextNode___childrenMdx___body'
   | 'childrenContentfulBlockTextTextNode___childrenMdx___excerpt'
@@ -1732,6 +1741,9 @@ export type ContentfulBlockFieldsEnum =
   | 'childrenContentfulBlockTextTextNode___childMdx___frontmatter___tags'
   | 'childrenContentfulBlockTextTextNode___childMdx___frontmatter___version'
   | 'childrenContentfulBlockTextTextNode___childMdx___frontmatter___status'
+  | 'childrenContentfulBlockTextTextNode___childMdx___frontmatter___editPageUrl'
+  | 'childrenContentfulBlockTextTextNode___childMdx___frontmatter___nextPageUrl'
+  | 'childrenContentfulBlockTextTextNode___childMdx___frontmatter___nextPageLabel'
   | 'childrenContentfulBlockTextTextNode___childMdx___slug'
   | 'childrenContentfulBlockTextTextNode___childMdx___body'
   | 'childrenContentfulBlockTextTextNode___childMdx___excerpt'
@@ -1809,6 +1821,9 @@ export type ContentfulBlockFieldsEnum =
   | 'childContentfulBlockTextTextNode___childrenMdx___frontmatter___tags'
   | 'childContentfulBlockTextTextNode___childrenMdx___frontmatter___version'
   | 'childContentfulBlockTextTextNode___childrenMdx___frontmatter___status'
+  | 'childContentfulBlockTextTextNode___childrenMdx___frontmatter___editPageUrl'
+  | 'childContentfulBlockTextTextNode___childrenMdx___frontmatter___nextPageUrl'
+  | 'childContentfulBlockTextTextNode___childrenMdx___frontmatter___nextPageLabel'
   | 'childContentfulBlockTextTextNode___childrenMdx___slug'
   | 'childContentfulBlockTextTextNode___childrenMdx___body'
   | 'childContentfulBlockTextTextNode___childrenMdx___excerpt'
@@ -1845,6 +1860,9 @@ export type ContentfulBlockFieldsEnum =
   | 'childContentfulBlockTextTextNode___childMdx___frontmatter___tags'
   | 'childContentfulBlockTextTextNode___childMdx___frontmatter___version'
   | 'childContentfulBlockTextTextNode___childMdx___frontmatter___status'
+  | 'childContentfulBlockTextTextNode___childMdx___frontmatter___editPageUrl'
+  | 'childContentfulBlockTextTextNode___childMdx___frontmatter___nextPageUrl'
+  | 'childContentfulBlockTextTextNode___childMdx___frontmatter___nextPageLabel'
   | 'childContentfulBlockTextTextNode___childMdx___slug'
   | 'childContentfulBlockTextTextNode___childMdx___body'
   | 'childContentfulBlockTextTextNode___childMdx___excerpt'
@@ -2087,6 +2105,9 @@ export type ContentfulBlockTextTextNodeFieldsEnum =
   | 'childrenMdx___frontmatter___tags'
   | 'childrenMdx___frontmatter___version'
   | 'childrenMdx___frontmatter___status'
+  | 'childrenMdx___frontmatter___editPageUrl'
+  | 'childrenMdx___frontmatter___nextPageUrl'
+  | 'childrenMdx___frontmatter___nextPageLabel'
   | 'childrenMdx___slug'
   | 'childrenMdx___body'
   | 'childrenMdx___excerpt'
@@ -2147,6 +2168,9 @@ export type ContentfulBlockTextTextNodeFieldsEnum =
   | 'childMdx___frontmatter___tags'
   | 'childMdx___frontmatter___version'
   | 'childMdx___frontmatter___status'
+  | 'childMdx___frontmatter___editPageUrl'
+  | 'childMdx___frontmatter___nextPageUrl'
+  | 'childMdx___frontmatter___nextPageLabel'
   | 'childMdx___slug'
   | 'childMdx___body'
   | 'childMdx___excerpt'
@@ -9749,6 +9773,9 @@ export type ContentfulPageDescriptionTextNodeFieldsEnum =
   | 'childrenMdx___frontmatter___tags'
   | 'childrenMdx___frontmatter___version'
   | 'childrenMdx___frontmatter___status'
+  | 'childrenMdx___frontmatter___editPageUrl'
+  | 'childrenMdx___frontmatter___nextPageUrl'
+  | 'childrenMdx___frontmatter___nextPageLabel'
   | 'childrenMdx___slug'
   | 'childrenMdx___body'
   | 'childrenMdx___excerpt'
@@ -9809,6 +9836,9 @@ export type ContentfulPageDescriptionTextNodeFieldsEnum =
   | 'childMdx___frontmatter___tags'
   | 'childMdx___frontmatter___version'
   | 'childMdx___frontmatter___status'
+  | 'childMdx___frontmatter___editPageUrl'
+  | 'childMdx___frontmatter___nextPageUrl'
+  | 'childMdx___frontmatter___nextPageLabel'
   | 'childMdx___slug'
   | 'childMdx___body'
   | 'childMdx___excerpt'
@@ -10565,6 +10595,9 @@ export type ContentfulPageFieldsEnum =
   | 'description___childrenMdx___frontmatter___tags'
   | 'description___childrenMdx___frontmatter___version'
   | 'description___childrenMdx___frontmatter___status'
+  | 'description___childrenMdx___frontmatter___editPageUrl'
+  | 'description___childrenMdx___frontmatter___nextPageUrl'
+  | 'description___childrenMdx___frontmatter___nextPageLabel'
   | 'description___childrenMdx___slug'
   | 'description___childrenMdx___body'
   | 'description___childrenMdx___excerpt'
@@ -10601,6 +10634,9 @@ export type ContentfulPageFieldsEnum =
   | 'description___childMdx___frontmatter___tags'
   | 'description___childMdx___frontmatter___version'
   | 'description___childMdx___frontmatter___status'
+  | 'description___childMdx___frontmatter___editPageUrl'
+  | 'description___childMdx___frontmatter___nextPageUrl'
+  | 'description___childMdx___frontmatter___nextPageLabel'
   | 'description___childMdx___slug'
   | 'description___childMdx___body'
   | 'description___childMdx___excerpt'
@@ -10679,6 +10715,9 @@ export type ContentfulPageFieldsEnum =
   | 'childrenContentfulPageDescriptionTextNode___childrenMdx___frontmatter___tags'
   | 'childrenContentfulPageDescriptionTextNode___childrenMdx___frontmatter___version'
   | 'childrenContentfulPageDescriptionTextNode___childrenMdx___frontmatter___status'
+  | 'childrenContentfulPageDescriptionTextNode___childrenMdx___frontmatter___editPageUrl'
+  | 'childrenContentfulPageDescriptionTextNode___childrenMdx___frontmatter___nextPageUrl'
+  | 'childrenContentfulPageDescriptionTextNode___childrenMdx___frontmatter___nextPageLabel'
   | 'childrenContentfulPageDescriptionTextNode___childrenMdx___slug'
   | 'childrenContentfulPageDescriptionTextNode___childrenMdx___body'
   | 'childrenContentfulPageDescriptionTextNode___childrenMdx___excerpt'
@@ -10715,6 +10754,9 @@ export type ContentfulPageFieldsEnum =
   | 'childrenContentfulPageDescriptionTextNode___childMdx___frontmatter___tags'
   | 'childrenContentfulPageDescriptionTextNode___childMdx___frontmatter___version'
   | 'childrenContentfulPageDescriptionTextNode___childMdx___frontmatter___status'
+  | 'childrenContentfulPageDescriptionTextNode___childMdx___frontmatter___editPageUrl'
+  | 'childrenContentfulPageDescriptionTextNode___childMdx___frontmatter___nextPageUrl'
+  | 'childrenContentfulPageDescriptionTextNode___childMdx___frontmatter___nextPageLabel'
   | 'childrenContentfulPageDescriptionTextNode___childMdx___slug'
   | 'childrenContentfulPageDescriptionTextNode___childMdx___body'
   | 'childrenContentfulPageDescriptionTextNode___childMdx___excerpt'
@@ -10792,6 +10834,9 @@ export type ContentfulPageFieldsEnum =
   | 'childContentfulPageDescriptionTextNode___childrenMdx___frontmatter___tags'
   | 'childContentfulPageDescriptionTextNode___childrenMdx___frontmatter___version'
   | 'childContentfulPageDescriptionTextNode___childrenMdx___frontmatter___status'
+  | 'childContentfulPageDescriptionTextNode___childrenMdx___frontmatter___editPageUrl'
+  | 'childContentfulPageDescriptionTextNode___childrenMdx___frontmatter___nextPageUrl'
+  | 'childContentfulPageDescriptionTextNode___childrenMdx___frontmatter___nextPageLabel'
   | 'childContentfulPageDescriptionTextNode___childrenMdx___slug'
   | 'childContentfulPageDescriptionTextNode___childrenMdx___body'
   | 'childContentfulPageDescriptionTextNode___childrenMdx___excerpt'
@@ -10828,6 +10873,9 @@ export type ContentfulPageFieldsEnum =
   | 'childContentfulPageDescriptionTextNode___childMdx___frontmatter___tags'
   | 'childContentfulPageDescriptionTextNode___childMdx___frontmatter___version'
   | 'childContentfulPageDescriptionTextNode___childMdx___frontmatter___status'
+  | 'childContentfulPageDescriptionTextNode___childMdx___frontmatter___editPageUrl'
+  | 'childContentfulPageDescriptionTextNode___childMdx___frontmatter___nextPageUrl'
+  | 'childContentfulPageDescriptionTextNode___childMdx___frontmatter___nextPageLabel'
   | 'childContentfulPageDescriptionTextNode___childMdx___slug'
   | 'childContentfulPageDescriptionTextNode___childMdx___body'
   | 'childContentfulPageDescriptionTextNode___childMdx___excerpt'
@@ -12627,6 +12675,9 @@ export type FileFieldsEnum =
   | 'childrenMdx___frontmatter___tags'
   | 'childrenMdx___frontmatter___version'
   | 'childrenMdx___frontmatter___status'
+  | 'childrenMdx___frontmatter___editPageUrl'
+  | 'childrenMdx___frontmatter___nextPageUrl'
+  | 'childrenMdx___frontmatter___nextPageLabel'
   | 'childrenMdx___slug'
   | 'childrenMdx___body'
   | 'childrenMdx___excerpt'
@@ -12687,6 +12738,9 @@ export type FileFieldsEnum =
   | 'childMdx___frontmatter___tags'
   | 'childMdx___frontmatter___version'
   | 'childMdx___frontmatter___status'
+  | 'childMdx___frontmatter___editPageUrl'
+  | 'childMdx___frontmatter___nextPageUrl'
+  | 'childMdx___frontmatter___nextPageLabel'
   | 'childMdx___slug'
   | 'childMdx___body'
   | 'childMdx___excerpt'
@@ -13587,6 +13641,9 @@ export type MdxFieldsEnum =
   | 'frontmatter___tags'
   | 'frontmatter___version'
   | 'frontmatter___status'
+  | 'frontmatter___editPageUrl'
+  | 'frontmatter___nextPageUrl'
+  | 'frontmatter___nextPageLabel'
   | 'slug'
   | 'body'
   | 'excerpt'
@@ -13719,6 +13776,9 @@ export type MdxFrontmatter = {
   tags?: Maybe<Array<Maybe<Scalars['String']>>>;
   version?: Maybe<Scalars['String']>;
   status?: Maybe<Scalars['String']>;
+  editPageUrl?: Maybe<Scalars['String']>;
+  nextPageUrl?: Maybe<Scalars['String']>;
+  nextPageLabel?: Maybe<Scalars['String']>;
 };
 
 export type MdxFrontmatterFilterInput = {
@@ -13728,6 +13788,9 @@ export type MdxFrontmatterFilterInput = {
   tags?: Maybe<StringQueryOperatorInput>;
   version?: Maybe<StringQueryOperatorInput>;
   status?: Maybe<StringQueryOperatorInput>;
+  editPageUrl?: Maybe<StringQueryOperatorInput>;
+  nextPageUrl?: Maybe<StringQueryOperatorInput>;
+  nextPageLabel?: Maybe<StringQueryOperatorInput>;
 };
 
 export type MdxGroupConnection = {
@@ -15913,6 +15976,14 @@ export type MediaCollectionFragment = (
     )> }>>> }
 );
 
+export type PageFragmentFragment = (
+  Pick<ContentfulPage, 'id' | 'name' | 'node_locale' | 'title' | 'slug'>
+  & { description?: Maybe<(
+    Pick<ContentfulPageDescriptionTextNode, 'description'>
+    & { childMdx?: Maybe<Pick<Mdx, 'body'>> }
+  )>, sections?: Maybe<Array<Maybe<SectionFragment>>> }
+);
+
 export type BlockFragment = (
   Pick<ContentfulBlock, 'id' | 'name' | 'variant' | 'type'>
   & { text?: Maybe<(
@@ -15938,14 +16009,6 @@ export type CompanyAddressFragment = Pick<ContentfulCompanyAddress, 'name' | 'ph
 export type LinkFragment = (
   Pick<ContentfulLink, 'name' | 'type' | 'label' | 'url'>
   & { page?: Maybe<Pick<ContentfulPage, 'id' | 'name' | 'slug'>> }
-);
-
-export type PageFragmentFragment = (
-  Pick<ContentfulPage, 'id' | 'name' | 'node_locale' | 'title' | 'slug'>
-  & { description?: Maybe<(
-    Pick<ContentfulPageDescriptionTextNode, 'description'>
-    & { childMdx?: Maybe<Pick<Mdx, 'body'>> }
-  )>, sections?: Maybe<Array<Maybe<SectionFragment>>> }
 );
 
 export type SectionFragment = (

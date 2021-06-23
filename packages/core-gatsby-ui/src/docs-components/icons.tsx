@@ -34,30 +34,8 @@ export const Icons: React.FC<Props> = ({ id, style, className, ...props }) => {
     classNames: [styles.wrapper],
     ...props,
   });
-  const iconGroups = [
-    'arrow',
-    'chevron',
-    'caret',
-    'menu',
-    'ellipsis',
-    'apps',
-    'add',
-    'remove',
-    'close',
-    'search',
-    'calendar',
-    'open',
-    'exit',
-    'download',
-    'copy',
-    'duplicate',
-    'document',
-    'layout',
-    'layers',
-    'check',
-    'radio',
-    'logo',
-  ];
+
+  const iconGroups = ['io'];
 
   function handleFilterIcons(event: React.ChangeEvent<HTMLInputElement>) {
     const inputText = event.target.value;
@@ -98,9 +76,9 @@ export const Icons: React.FC<Props> = ({ id, style, className, ...props }) => {
       <Heading variant={HEADING.h3}>Example</Heading>
 
       <Blockquote>
-        <Button Icon={<IconComp name={ICON.ARROW_RIGHT} />}></Button>
-        <Button Icon={<IconComp name={ICON.ARROW_RIGHT} />} icon={ButtonIcon.left}></Button>
-        <Button Icon={<IconComp name={ICON.ARROW_RIGHT} />}></Button>
+        <Button Icon={<IconComp name={ICON.IO_ARROW_RIGHT} />}></Button>
+        <Button Icon={<IconComp name={ICON.IO_ARROW_RIGHT} />} icon={ButtonIcon.left}></Button>
+        <Button Icon={<IconComp name={ICON.IO_ARROW_RIGHT} />}></Button>
       </Blockquote>
 
       {iconGroups.map((group) => {
