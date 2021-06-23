@@ -33,7 +33,7 @@ type Props = FooterProps;
 
 export const FooterStandard = React.forwardRef<any, Props>(
   ({ id, style, className, footer, ...props }, ref) => {
-    const { styles } = useStyles(styleRefs);
+    const styles = useStyles(styleRefs);
     const { theme, cssTheme } = useTreatTheme();
     const commonProps = useCommonProps({
       id,
@@ -44,64 +44,71 @@ export const FooterStandard = React.forwardRef<any, Props>(
 
     const blocks = footer?.blocks;
     const copyright = footer?.companyInfo?.copyright;
+    const facebookURL = footer?.companyInfo?.facebookPageURL;
+    const twitterURL = footer?.companyInfo?.twitterPageURL;
+    const instagramURL = footer?.companyInfo?.instagramPageURL;
+    const linkedinURL = footer?.companyInfo?.linkedinPageURL;
 
     return (
-      <FooterBase {...commonProps} footer={footer} ref={ref} contentClassName={styles.wrapper}>
-        <Stack className={styles.info} gap={[cssTheme.sizing.var.x4]}>
-          {/* Logo */}
-          <Logo name={LOGO.STANDARD} className={styles.logo}></Logo>
+      <FooterBase {...commonProps} footer={footer} ref={ref} contentClassName={styles.base}>
+        <Logo name={LOGO.STANDARD} className={styles.logo}></Logo>
 
-          {/* Block */}
-          {blocks
-            ? blocks.map((block) => (
-                <BlockRenderer key={block?.id} block={block as BlockAPI}></BlockRenderer>
-              ))
-            : null}
+        {blocks
+          ? blocks.map((block) => (
+              <BlockRenderer
+                key={block?.id}
+                className={styles.block}
+                block={block as BlockAPI}
+              ></BlockRenderer>
+            ))
+          : null}
 
-          {/* Social links */}
-          <Cluster className={styles.links} gap={[cssTheme.sizing.var.x2]}>
-            <Button
-              Icon={<IoLogoTwitter />}
-              icon={ButtonIcon.icon}
-              variant={Variant.tertiary}
-            ></Button>
+        <Cluster className={styles.socialLinks} gap={[cssTheme.sizing.var.x2]}>
+          <Button
+            Icon={<IoLogoTwitter />}
+            icon={ButtonIcon.icon}
+            variant={Variant.tertiary}
+          ></Button>
 
-            <Button
-              Icon={<IoLogoFacebook />}
-              icon={ButtonIcon.icon}
-              variant={Variant.tertiary}
-            ></Button>
+          <Button
+            Icon={<IoLogoFacebook />}
+            icon={ButtonIcon.icon}
+            variant={Variant.tertiary}
+          ></Button>
 
-            <Button
-              Icon={<IoLogoInstagram />}
-              icon={ButtonIcon.icon}
-              variant={Variant.tertiary}
-            ></Button>
+          <Button
+            Icon={<IoLogoInstagram />}
+            icon={ButtonIcon.icon}
+            variant={Variant.tertiary}
+          ></Button>
 
-            <Button
-              Icon={<IoLogoLinkedin />}
-              icon={ButtonIcon.icon}
-              variant={Variant.tertiary}
-            ></Button>
-          </Cluster>
-        </Stack>
+          <Button
+            Icon={<IoLogoLinkedin />}
+            icon={ButtonIcon.icon}
+            variant={Variant.tertiary}
+          ></Button>
+        </Cluster>
 
-        {/* Navigation Links */}
-        <Stack className={styles.links} gap={[cssTheme.sizing.var.x2]}>
-          <Label
-            variantStyle={TEXT_STYLE.boldUppercase}
-            variant={LABEL_SIZE.xSmall}
-            variantLevel={Variant.tertiary}
-          >
-            Solutions
-          </Label>
-          <Link>Marketing</Link>
-          <Link>Analytics</Link>
-          <Link>Commerce</Link>
-          <Link>Insights</Link>
-        </Stack>
+        <div className={styles.navLinks}>
+          {[1, 2, 3, 4].map((id) => {
+            return (
+              <Stack key={id} gap={[cssTheme.sizing.var.x2]}>
+                <Label
+                  variantStyle={TEXT_STYLE.boldUppercase}
+                  variant={LABEL_SIZE.xSmall}
+                  variantLevel={Variant.tertiary}
+                >
+                  Solutions
+                </Label>
+                <Link>Marketing</Link>
+                <Link>Analytics</Link>
+                <Link>Commerce</Link>
+                <Link>Insights</Link>
+              </Stack>
+            );
+          })}
+        </div>
 
-        {/* Copyright */}
         <Paragraph className={styles.copyright} variant={PARAGRAPH_SIZE.small}>
           {copyright}
         </Paragraph>
