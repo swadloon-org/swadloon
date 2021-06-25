@@ -12,7 +12,7 @@ export const footerFragment = graphql`
       ...BlockFragment
     }
     navigation {
-      id
+      ...NavigationFragment
     }
   }
 `;

@@ -43,9 +43,9 @@ export const colorsColors: Colors['colors'] = {
     '400': { h: 240, s: 3, l: 63 },
     '300': { h: 240, s: 3, l: 77 },
     '200': { h: 240, s: 2, l: 82 },
-    '200-reversed': { h: 200, s: 8, l: 78 }, //to do
+    '200-reversed': { h: 200, s: 8, l: 78 }, // to do
     '100': { h: 240, s: 3, l: 86 },
-    '100-reversed': { h: 200, s: 6, l: 90 }, //to do
+    '100-reversed': { h: 200, s: 6, l: 90 }, // to do
     '50': { h: 240, s: 2, l: 91 },
     '25': { h: 240, s: 4, l: 95 },
     '0-reversed': { h: 0, s: 0, l: 100 },

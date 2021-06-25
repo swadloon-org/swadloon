@@ -1014,6 +1014,7 @@ export type ContentfulBlockFieldsEnum =
   | 'link___navigation___navigation___updatedAt'
   | 'link___navigation___navigation___node_locale'
   | 'link___navigation___navigation___subNavigation'
+  | 'link___navigation___navigation___label'
   | 'link___navigation___navigation___navbar'
   | 'link___navigation___navigation___footer'
   | 'link___navigation___spaceId'
@@ -1036,8 +1037,10 @@ export type ContentfulBlockFieldsEnum =
   | 'link___navigation___subNavigation___updatedAt'
   | 'link___navigation___subNavigation___node_locale'
   | 'link___navigation___subNavigation___subNavigation'
+  | 'link___navigation___subNavigation___label'
   | 'link___navigation___subNavigation___navbar'
   | 'link___navigation___subNavigation___footer'
+  | 'link___navigation___label'
   | 'link___navigation___navbar'
   | 'link___navigation___navbar___id'
   | 'link___navigation___navbar___children'
@@ -1466,6 +1469,7 @@ export type ContentfulBlockFieldsEnum =
   | 'footer___navigation___navigation___updatedAt'
   | 'footer___navigation___navigation___node_locale'
   | 'footer___navigation___navigation___subNavigation'
+  | 'footer___navigation___navigation___label'
   | 'footer___navigation___navigation___navbar'
   | 'footer___navigation___navigation___footer'
   | 'footer___navigation___spaceId'
@@ -1488,8 +1492,10 @@ export type ContentfulBlockFieldsEnum =
   | 'footer___navigation___subNavigation___updatedAt'
   | 'footer___navigation___subNavigation___node_locale'
   | 'footer___navigation___subNavigation___subNavigation'
+  | 'footer___navigation___subNavigation___label'
   | 'footer___navigation___subNavigation___navbar'
   | 'footer___navigation___subNavigation___footer'
+  | 'footer___navigation___label'
   | 'footer___navigation___navbar'
   | 'footer___navigation___navbar___id'
   | 'footer___navigation___navbar___children'
@@ -4430,6 +4436,7 @@ export type ContentfulCompanyInfoFieldsEnum =
   | 'footer___navigation___navigation___updatedAt'
   | 'footer___navigation___navigation___node_locale'
   | 'footer___navigation___navigation___subNavigation'
+  | 'footer___navigation___navigation___label'
   | 'footer___navigation___navigation___navbar'
   | 'footer___navigation___navigation___footer'
   | 'footer___navigation___spaceId'
@@ -4452,8 +4459,10 @@ export type ContentfulCompanyInfoFieldsEnum =
   | 'footer___navigation___subNavigation___updatedAt'
   | 'footer___navigation___subNavigation___node_locale'
   | 'footer___navigation___subNavigation___subNavigation'
+  | 'footer___navigation___subNavigation___label'
   | 'footer___navigation___subNavigation___navbar'
   | 'footer___navigation___subNavigation___footer'
+  | 'footer___navigation___label'
   | 'footer___navigation___navbar'
   | 'footer___navigation___navbar___id'
   | 'footer___navigation___navbar___children'
@@ -5134,6 +5143,7 @@ export type ContentfulFooterFieldsEnum =
   | 'navigation___links___navigation___updatedAt'
   | 'navigation___links___navigation___node_locale'
   | 'navigation___links___navigation___subNavigation'
+  | 'navigation___links___navigation___label'
   | 'navigation___links___navigation___navbar'
   | 'navigation___links___navigation___footer'
   | 'navigation___links___spaceId'
@@ -5206,6 +5216,7 @@ export type ContentfulFooterFieldsEnum =
   | 'navigation___navigation___navigation___updatedAt'
   | 'navigation___navigation___navigation___node_locale'
   | 'navigation___navigation___navigation___subNavigation'
+  | 'navigation___navigation___navigation___label'
   | 'navigation___navigation___navigation___navbar'
   | 'navigation___navigation___navigation___footer'
   | 'navigation___navigation___spaceId'
@@ -5228,8 +5239,10 @@ export type ContentfulFooterFieldsEnum =
   | 'navigation___navigation___subNavigation___updatedAt'
   | 'navigation___navigation___subNavigation___node_locale'
   | 'navigation___navigation___subNavigation___subNavigation'
+  | 'navigation___navigation___subNavigation___label'
   | 'navigation___navigation___subNavigation___navbar'
   | 'navigation___navigation___subNavigation___footer'
+  | 'navigation___navigation___label'
   | 'navigation___navigation___navbar'
   | 'navigation___navigation___navbar___id'
   | 'navigation___navigation___navbar___children'
@@ -5305,6 +5318,7 @@ export type ContentfulFooterFieldsEnum =
   | 'navigation___subNavigation___navigation___updatedAt'
   | 'navigation___subNavigation___navigation___node_locale'
   | 'navigation___subNavigation___navigation___subNavigation'
+  | 'navigation___subNavigation___navigation___label'
   | 'navigation___subNavigation___navigation___navbar'
   | 'navigation___subNavigation___navigation___footer'
   | 'navigation___subNavigation___spaceId'
@@ -5327,8 +5341,10 @@ export type ContentfulFooterFieldsEnum =
   | 'navigation___subNavigation___subNavigation___updatedAt'
   | 'navigation___subNavigation___subNavigation___node_locale'
   | 'navigation___subNavigation___subNavigation___subNavigation'
+  | 'navigation___subNavigation___subNavigation___label'
   | 'navigation___subNavigation___subNavigation___navbar'
   | 'navigation___subNavigation___subNavigation___footer'
+  | 'navigation___subNavigation___label'
   | 'navigation___subNavigation___navbar'
   | 'navigation___subNavigation___navbar___id'
   | 'navigation___subNavigation___navbar___children'
@@ -5351,6 +5367,7 @@ export type ContentfulFooterFieldsEnum =
   | 'navigation___subNavigation___footer___createdAt'
   | 'navigation___subNavigation___footer___updatedAt'
   | 'navigation___subNavigation___footer___node_locale'
+  | 'navigation___label'
   | 'navigation___navbar'
   | 'navigation___navbar___id'
   | 'navigation___navbar___parent___id'
@@ -5380,6 +5397,7 @@ export type ContentfulFooterFieldsEnum =
   | 'navigation___navbar___navigation___updatedAt'
   | 'navigation___navbar___navigation___node_locale'
   | 'navigation___navbar___navigation___subNavigation'
+  | 'navigation___navbar___navigation___label'
   | 'navigation___navbar___navigation___navbar'
   | 'navigation___navbar___navigation___footer'
   | 'navigation___navbar___spaceId'
@@ -5419,6 +5437,7 @@ export type ContentfulFooterFieldsEnum =
   | 'navigation___footer___navigation___updatedAt'
   | 'navigation___footer___navigation___node_locale'
   | 'navigation___footer___navigation___subNavigation'
+  | 'navigation___footer___navigation___label'
   | 'navigation___footer___navigation___navbar'
   | 'navigation___footer___navigation___footer'
   | 'navigation___footer___companyInfo___id'
@@ -5539,6 +5558,7 @@ export type ContentfulFooterFieldsEnum =
   | 'companyInfo___footer___navigation___updatedAt'
   | 'companyInfo___footer___navigation___node_locale'
   | 'companyInfo___footer___navigation___subNavigation'
+  | 'companyInfo___footer___navigation___label'
   | 'companyInfo___footer___navigation___navbar'
   | 'companyInfo___footer___navigation___footer'
   | 'companyInfo___footer___companyInfo___id'
@@ -5682,6 +5702,7 @@ export type ContentfulFooterFieldsEnum =
   | 'blocks___link___navigation___updatedAt'
   | 'blocks___link___navigation___node_locale'
   | 'blocks___link___navigation___subNavigation'
+  | 'blocks___link___navigation___label'
   | 'blocks___link___navigation___navbar'
   | 'blocks___link___navigation___footer'
   | 'blocks___link___spaceId'
@@ -5818,6 +5839,7 @@ export type ContentfulFooterFieldsEnum =
   | 'blocks___footer___navigation___updatedAt'
   | 'blocks___footer___navigation___node_locale'
   | 'blocks___footer___navigation___subNavigation'
+  | 'blocks___footer___navigation___label'
   | 'blocks___footer___navigation___navbar'
   | 'blocks___footer___navigation___footer'
   | 'blocks___footer___companyInfo___id'
@@ -6326,6 +6348,7 @@ export type ContentfulLinkFieldsEnum =
   | 'page___link___navigation___updatedAt'
   | 'page___link___navigation___node_locale'
   | 'page___link___navigation___subNavigation'
+  | 'page___link___navigation___label'
   | 'page___link___navigation___navbar'
   | 'page___link___navigation___footer'
   | 'page___link___spaceId'
@@ -6569,6 +6592,7 @@ export type ContentfulLinkFieldsEnum =
   | 'navigation___links___navigation___updatedAt'
   | 'navigation___links___navigation___node_locale'
   | 'navigation___links___navigation___subNavigation'
+  | 'navigation___links___navigation___label'
   | 'navigation___links___navigation___navbar'
   | 'navigation___links___navigation___footer'
   | 'navigation___links___spaceId'
@@ -6641,6 +6665,7 @@ export type ContentfulLinkFieldsEnum =
   | 'navigation___navigation___navigation___updatedAt'
   | 'navigation___navigation___navigation___node_locale'
   | 'navigation___navigation___navigation___subNavigation'
+  | 'navigation___navigation___navigation___label'
   | 'navigation___navigation___navigation___navbar'
   | 'navigation___navigation___navigation___footer'
   | 'navigation___navigation___spaceId'
@@ -6663,8 +6688,10 @@ export type ContentfulLinkFieldsEnum =
   | 'navigation___navigation___subNavigation___updatedAt'
   | 'navigation___navigation___subNavigation___node_locale'
   | 'navigation___navigation___subNavigation___subNavigation'
+  | 'navigation___navigation___subNavigation___label'
   | 'navigation___navigation___subNavigation___navbar'
   | 'navigation___navigation___subNavigation___footer'
+  | 'navigation___navigation___label'
   | 'navigation___navigation___navbar'
   | 'navigation___navigation___navbar___id'
   | 'navigation___navigation___navbar___children'
@@ -6740,6 +6767,7 @@ export type ContentfulLinkFieldsEnum =
   | 'navigation___subNavigation___navigation___updatedAt'
   | 'navigation___subNavigation___navigation___node_locale'
   | 'navigation___subNavigation___navigation___subNavigation'
+  | 'navigation___subNavigation___navigation___label'
   | 'navigation___subNavigation___navigation___navbar'
   | 'navigation___subNavigation___navigation___footer'
   | 'navigation___subNavigation___spaceId'
@@ -6762,8 +6790,10 @@ export type ContentfulLinkFieldsEnum =
   | 'navigation___subNavigation___subNavigation___updatedAt'
   | 'navigation___subNavigation___subNavigation___node_locale'
   | 'navigation___subNavigation___subNavigation___subNavigation'
+  | 'navigation___subNavigation___subNavigation___label'
   | 'navigation___subNavigation___subNavigation___navbar'
   | 'navigation___subNavigation___subNavigation___footer'
+  | 'navigation___subNavigation___label'
   | 'navigation___subNavigation___navbar'
   | 'navigation___subNavigation___navbar___id'
   | 'navigation___subNavigation___navbar___children'
@@ -6786,6 +6816,7 @@ export type ContentfulLinkFieldsEnum =
   | 'navigation___subNavigation___footer___createdAt'
   | 'navigation___subNavigation___footer___updatedAt'
   | 'navigation___subNavigation___footer___node_locale'
+  | 'navigation___label'
   | 'navigation___navbar'
   | 'navigation___navbar___id'
   | 'navigation___navbar___parent___id'
@@ -6815,6 +6846,7 @@ export type ContentfulLinkFieldsEnum =
   | 'navigation___navbar___navigation___updatedAt'
   | 'navigation___navbar___navigation___node_locale'
   | 'navigation___navbar___navigation___subNavigation'
+  | 'navigation___navbar___navigation___label'
   | 'navigation___navbar___navigation___navbar'
   | 'navigation___navbar___navigation___footer'
   | 'navigation___navbar___spaceId'
@@ -6854,6 +6886,7 @@ export type ContentfulLinkFieldsEnum =
   | 'navigation___footer___navigation___updatedAt'
   | 'navigation___footer___navigation___node_locale'
   | 'navigation___footer___navigation___subNavigation'
+  | 'navigation___footer___navigation___label'
   | 'navigation___footer___navigation___navbar'
   | 'navigation___footer___navigation___footer'
   | 'navigation___footer___companyInfo___id'
@@ -7002,6 +7035,7 @@ export type ContentfulLinkFieldsEnum =
   | 'block___link___navigation___updatedAt'
   | 'block___link___navigation___node_locale'
   | 'block___link___navigation___subNavigation'
+  | 'block___link___navigation___label'
   | 'block___link___navigation___navbar'
   | 'block___link___navigation___footer'
   | 'block___link___spaceId'
@@ -7138,6 +7172,7 @@ export type ContentfulLinkFieldsEnum =
   | 'block___footer___navigation___updatedAt'
   | 'block___footer___navigation___node_locale'
   | 'block___footer___navigation___subNavigation'
+  | 'block___footer___navigation___label'
   | 'block___footer___navigation___navbar'
   | 'block___footer___navigation___footer'
   | 'block___footer___companyInfo___id'
@@ -8982,6 +9017,7 @@ export type ContentfulNavbarFieldsEnum =
   | 'navigation___links___navigation___updatedAt'
   | 'navigation___links___navigation___node_locale'
   | 'navigation___links___navigation___subNavigation'
+  | 'navigation___links___navigation___label'
   | 'navigation___links___navigation___navbar'
   | 'navigation___links___navigation___footer'
   | 'navigation___links___spaceId'
@@ -9054,6 +9090,7 @@ export type ContentfulNavbarFieldsEnum =
   | 'navigation___navigation___navigation___updatedAt'
   | 'navigation___navigation___navigation___node_locale'
   | 'navigation___navigation___navigation___subNavigation'
+  | 'navigation___navigation___navigation___label'
   | 'navigation___navigation___navigation___navbar'
   | 'navigation___navigation___navigation___footer'
   | 'navigation___navigation___spaceId'
@@ -9076,8 +9113,10 @@ export type ContentfulNavbarFieldsEnum =
   | 'navigation___navigation___subNavigation___updatedAt'
   | 'navigation___navigation___subNavigation___node_locale'
   | 'navigation___navigation___subNavigation___subNavigation'
+  | 'navigation___navigation___subNavigation___label'
   | 'navigation___navigation___subNavigation___navbar'
   | 'navigation___navigation___subNavigation___footer'
+  | 'navigation___navigation___label'
   | 'navigation___navigation___navbar'
   | 'navigation___navigation___navbar___id'
   | 'navigation___navigation___navbar___children'
@@ -9153,6 +9192,7 @@ export type ContentfulNavbarFieldsEnum =
   | 'navigation___subNavigation___navigation___updatedAt'
   | 'navigation___subNavigation___navigation___node_locale'
   | 'navigation___subNavigation___navigation___subNavigation'
+  | 'navigation___subNavigation___navigation___label'
   | 'navigation___subNavigation___navigation___navbar'
   | 'navigation___subNavigation___navigation___footer'
   | 'navigation___subNavigation___spaceId'
@@ -9175,8 +9215,10 @@ export type ContentfulNavbarFieldsEnum =
   | 'navigation___subNavigation___subNavigation___updatedAt'
   | 'navigation___subNavigation___subNavigation___node_locale'
   | 'navigation___subNavigation___subNavigation___subNavigation'
+  | 'navigation___subNavigation___subNavigation___label'
   | 'navigation___subNavigation___subNavigation___navbar'
   | 'navigation___subNavigation___subNavigation___footer'
+  | 'navigation___subNavigation___label'
   | 'navigation___subNavigation___navbar'
   | 'navigation___subNavigation___navbar___id'
   | 'navigation___subNavigation___navbar___children'
@@ -9199,6 +9241,7 @@ export type ContentfulNavbarFieldsEnum =
   | 'navigation___subNavigation___footer___createdAt'
   | 'navigation___subNavigation___footer___updatedAt'
   | 'navigation___subNavigation___footer___node_locale'
+  | 'navigation___label'
   | 'navigation___navbar'
   | 'navigation___navbar___id'
   | 'navigation___navbar___parent___id'
@@ -9228,6 +9271,7 @@ export type ContentfulNavbarFieldsEnum =
   | 'navigation___navbar___navigation___updatedAt'
   | 'navigation___navbar___navigation___node_locale'
   | 'navigation___navbar___navigation___subNavigation'
+  | 'navigation___navbar___navigation___label'
   | 'navigation___navbar___navigation___navbar'
   | 'navigation___navbar___navigation___footer'
   | 'navigation___navbar___spaceId'
@@ -9267,6 +9311,7 @@ export type ContentfulNavbarFieldsEnum =
   | 'navigation___footer___navigation___updatedAt'
   | 'navigation___footer___navigation___node_locale'
   | 'navigation___footer___navigation___subNavigation'
+  | 'navigation___footer___navigation___label'
   | 'navigation___footer___navigation___navbar'
   | 'navigation___footer___navigation___footer'
   | 'navigation___footer___companyInfo___id'
@@ -9405,6 +9450,7 @@ export type ContentfulNavigation = Node & {
   sys?: Maybe<ContentfulNavigationSys>;
   node_locale?: Maybe<Scalars['String']>;
   subNavigation?: Maybe<Array<Maybe<ContentfulNavigation>>>;
+  label?: Maybe<Scalars['String']>;
   navbar?: Maybe<Array<Maybe<ContentfulNavbar>>>;
   footer?: Maybe<Array<Maybe<ContentfulFooter>>>;
 };
@@ -9695,6 +9741,7 @@ export type ContentfulNavigationFieldsEnum =
   | 'links___navigation___navigation___updatedAt'
   | 'links___navigation___navigation___node_locale'
   | 'links___navigation___navigation___subNavigation'
+  | 'links___navigation___navigation___label'
   | 'links___navigation___navigation___navbar'
   | 'links___navigation___navigation___footer'
   | 'links___navigation___spaceId'
@@ -9717,8 +9764,10 @@ export type ContentfulNavigationFieldsEnum =
   | 'links___navigation___subNavigation___updatedAt'
   | 'links___navigation___subNavigation___node_locale'
   | 'links___navigation___subNavigation___subNavigation'
+  | 'links___navigation___subNavigation___label'
   | 'links___navigation___subNavigation___navbar'
   | 'links___navigation___subNavigation___footer'
+  | 'links___navigation___label'
   | 'links___navigation___navbar'
   | 'links___navigation___navbar___id'
   | 'links___navigation___navbar___children'
@@ -9914,6 +9963,7 @@ export type ContentfulNavigationFieldsEnum =
   | 'navigation___links___navigation___updatedAt'
   | 'navigation___links___navigation___node_locale'
   | 'navigation___links___navigation___subNavigation'
+  | 'navigation___links___navigation___label'
   | 'navigation___links___navigation___navbar'
   | 'navigation___links___navigation___footer'
   | 'navigation___links___spaceId'
@@ -9986,6 +10036,7 @@ export type ContentfulNavigationFieldsEnum =
   | 'navigation___navigation___navigation___updatedAt'
   | 'navigation___navigation___navigation___node_locale'
   | 'navigation___navigation___navigation___subNavigation'
+  | 'navigation___navigation___navigation___label'
   | 'navigation___navigation___navigation___navbar'
   | 'navigation___navigation___navigation___footer'
   | 'navigation___navigation___spaceId'
@@ -10008,8 +10059,10 @@ export type ContentfulNavigationFieldsEnum =
   | 'navigation___navigation___subNavigation___updatedAt'
   | 'navigation___navigation___subNavigation___node_locale'
   | 'navigation___navigation___subNavigation___subNavigation'
+  | 'navigation___navigation___subNavigation___label'
   | 'navigation___navigation___subNavigation___navbar'
   | 'navigation___navigation___subNavigation___footer'
+  | 'navigation___navigation___label'
   | 'navigation___navigation___navbar'
   | 'navigation___navigation___navbar___id'
   | 'navigation___navigation___navbar___children'
@@ -10085,6 +10138,7 @@ export type ContentfulNavigationFieldsEnum =
   | 'navigation___subNavigation___navigation___updatedAt'
   | 'navigation___subNavigation___navigation___node_locale'
   | 'navigation___subNavigation___navigation___subNavigation'
+  | 'navigation___subNavigation___navigation___label'
   | 'navigation___subNavigation___navigation___navbar'
   | 'navigation___subNavigation___navigation___footer'
   | 'navigation___subNavigation___spaceId'
@@ -10107,8 +10161,10 @@ export type ContentfulNavigationFieldsEnum =
   | 'navigation___subNavigation___subNavigation___updatedAt'
   | 'navigation___subNavigation___subNavigation___node_locale'
   | 'navigation___subNavigation___subNavigation___subNavigation'
+  | 'navigation___subNavigation___subNavigation___label'
   | 'navigation___subNavigation___subNavigation___navbar'
   | 'navigation___subNavigation___subNavigation___footer'
+  | 'navigation___subNavigation___label'
   | 'navigation___subNavigation___navbar'
   | 'navigation___subNavigation___navbar___id'
   | 'navigation___subNavigation___navbar___children'
@@ -10131,6 +10187,7 @@ export type ContentfulNavigationFieldsEnum =
   | 'navigation___subNavigation___footer___createdAt'
   | 'navigation___subNavigation___footer___updatedAt'
   | 'navigation___subNavigation___footer___node_locale'
+  | 'navigation___label'
   | 'navigation___navbar'
   | 'navigation___navbar___id'
   | 'navigation___navbar___parent___id'
@@ -10160,6 +10217,7 @@ export type ContentfulNavigationFieldsEnum =
   | 'navigation___navbar___navigation___updatedAt'
   | 'navigation___navbar___navigation___node_locale'
   | 'navigation___navbar___navigation___subNavigation'
+  | 'navigation___navbar___navigation___label'
   | 'navigation___navbar___navigation___navbar'
   | 'navigation___navbar___navigation___footer'
   | 'navigation___navbar___spaceId'
@@ -10199,6 +10257,7 @@ export type ContentfulNavigationFieldsEnum =
   | 'navigation___footer___navigation___updatedAt'
   | 'navigation___footer___navigation___node_locale'
   | 'navigation___footer___navigation___subNavigation'
+  | 'navigation___footer___navigation___label'
   | 'navigation___footer___navigation___navbar'
   | 'navigation___footer___navigation___footer'
   | 'navigation___footer___companyInfo___id'
@@ -10338,6 +10397,7 @@ export type ContentfulNavigationFieldsEnum =
   | 'subNavigation___links___navigation___updatedAt'
   | 'subNavigation___links___navigation___node_locale'
   | 'subNavigation___links___navigation___subNavigation'
+  | 'subNavigation___links___navigation___label'
   | 'subNavigation___links___navigation___navbar'
   | 'subNavigation___links___navigation___footer'
   | 'subNavigation___links___spaceId'
@@ -10410,6 +10470,7 @@ export type ContentfulNavigationFieldsEnum =
   | 'subNavigation___navigation___navigation___updatedAt'
   | 'subNavigation___navigation___navigation___node_locale'
   | 'subNavigation___navigation___navigation___subNavigation'
+  | 'subNavigation___navigation___navigation___label'
   | 'subNavigation___navigation___navigation___navbar'
   | 'subNavigation___navigation___navigation___footer'
   | 'subNavigation___navigation___spaceId'
@@ -10432,8 +10493,10 @@ export type ContentfulNavigationFieldsEnum =
   | 'subNavigation___navigation___subNavigation___updatedAt'
   | 'subNavigation___navigation___subNavigation___node_locale'
   | 'subNavigation___navigation___subNavigation___subNavigation'
+  | 'subNavigation___navigation___subNavigation___label'
   | 'subNavigation___navigation___subNavigation___navbar'
   | 'subNavigation___navigation___subNavigation___footer'
+  | 'subNavigation___navigation___label'
   | 'subNavigation___navigation___navbar'
   | 'subNavigation___navigation___navbar___id'
   | 'subNavigation___navigation___navbar___children'
@@ -10509,6 +10572,7 @@ export type ContentfulNavigationFieldsEnum =
   | 'subNavigation___subNavigation___navigation___updatedAt'
   | 'subNavigation___subNavigation___navigation___node_locale'
   | 'subNavigation___subNavigation___navigation___subNavigation'
+  | 'subNavigation___subNavigation___navigation___label'
   | 'subNavigation___subNavigation___navigation___navbar'
   | 'subNavigation___subNavigation___navigation___footer'
   | 'subNavigation___subNavigation___spaceId'
@@ -10531,8 +10595,10 @@ export type ContentfulNavigationFieldsEnum =
   | 'subNavigation___subNavigation___subNavigation___updatedAt'
   | 'subNavigation___subNavigation___subNavigation___node_locale'
   | 'subNavigation___subNavigation___subNavigation___subNavigation'
+  | 'subNavigation___subNavigation___subNavigation___label'
   | 'subNavigation___subNavigation___subNavigation___navbar'
   | 'subNavigation___subNavigation___subNavigation___footer'
+  | 'subNavigation___subNavigation___label'
   | 'subNavigation___subNavigation___navbar'
   | 'subNavigation___subNavigation___navbar___id'
   | 'subNavigation___subNavigation___navbar___children'
@@ -10555,6 +10621,7 @@ export type ContentfulNavigationFieldsEnum =
   | 'subNavigation___subNavigation___footer___createdAt'
   | 'subNavigation___subNavigation___footer___updatedAt'
   | 'subNavigation___subNavigation___footer___node_locale'
+  | 'subNavigation___label'
   | 'subNavigation___navbar'
   | 'subNavigation___navbar___id'
   | 'subNavigation___navbar___parent___id'
@@ -10584,6 +10651,7 @@ export type ContentfulNavigationFieldsEnum =
   | 'subNavigation___navbar___navigation___updatedAt'
   | 'subNavigation___navbar___navigation___node_locale'
   | 'subNavigation___navbar___navigation___subNavigation'
+  | 'subNavigation___navbar___navigation___label'
   | 'subNavigation___navbar___navigation___navbar'
   | 'subNavigation___navbar___navigation___footer'
   | 'subNavigation___navbar___spaceId'
@@ -10623,6 +10691,7 @@ export type ContentfulNavigationFieldsEnum =
   | 'subNavigation___footer___navigation___updatedAt'
   | 'subNavigation___footer___navigation___node_locale'
   | 'subNavigation___footer___navigation___subNavigation'
+  | 'subNavigation___footer___navigation___label'
   | 'subNavigation___footer___navigation___navbar'
   | 'subNavigation___footer___navigation___footer'
   | 'subNavigation___footer___companyInfo___id'
@@ -10665,6 +10734,7 @@ export type ContentfulNavigationFieldsEnum =
   | 'subNavigation___footer___sys___type'
   | 'subNavigation___footer___sys___revision'
   | 'subNavigation___footer___node_locale'
+  | 'label'
   | 'navbar'
   | 'navbar___id'
   | 'navbar___parent___id'
@@ -10751,6 +10821,7 @@ export type ContentfulNavigationFieldsEnum =
   | 'navbar___navigation___navigation___updatedAt'
   | 'navbar___navigation___navigation___node_locale'
   | 'navbar___navigation___navigation___subNavigation'
+  | 'navbar___navigation___navigation___label'
   | 'navbar___navigation___navigation___navbar'
   | 'navbar___navigation___navigation___footer'
   | 'navbar___navigation___spaceId'
@@ -10773,8 +10844,10 @@ export type ContentfulNavigationFieldsEnum =
   | 'navbar___navigation___subNavigation___updatedAt'
   | 'navbar___navigation___subNavigation___node_locale'
   | 'navbar___navigation___subNavigation___subNavigation'
+  | 'navbar___navigation___subNavigation___label'
   | 'navbar___navigation___subNavigation___navbar'
   | 'navbar___navigation___subNavigation___footer'
+  | 'navbar___navigation___label'
   | 'navbar___navigation___navbar'
   | 'navbar___navigation___navbar___id'
   | 'navbar___navigation___navbar___children'
@@ -10891,6 +10964,7 @@ export type ContentfulNavigationFieldsEnum =
   | 'footer___navigation___navigation___updatedAt'
   | 'footer___navigation___navigation___node_locale'
   | 'footer___navigation___navigation___subNavigation'
+  | 'footer___navigation___navigation___label'
   | 'footer___navigation___navigation___navbar'
   | 'footer___navigation___navigation___footer'
   | 'footer___navigation___spaceId'
@@ -10913,8 +10987,10 @@ export type ContentfulNavigationFieldsEnum =
   | 'footer___navigation___subNavigation___updatedAt'
   | 'footer___navigation___subNavigation___node_locale'
   | 'footer___navigation___subNavigation___subNavigation'
+  | 'footer___navigation___subNavigation___label'
   | 'footer___navigation___subNavigation___navbar'
   | 'footer___navigation___subNavigation___footer'
+  | 'footer___navigation___label'
   | 'footer___navigation___navbar'
   | 'footer___navigation___navbar___id'
   | 'footer___navigation___navbar___children'
@@ -11082,6 +11158,7 @@ export type ContentfulNavigationFilterInput = {
   sys?: Maybe<ContentfulNavigationSysFilterInput>;
   node_locale?: Maybe<StringQueryOperatorInput>;
   subNavigation?: Maybe<ContentfulNavigationFilterListInput>;
+  label?: Maybe<StringQueryOperatorInput>;
   navbar?: Maybe<ContentfulNavbarFilterListInput>;
   footer?: Maybe<ContentfulFooterFilterListInput>;
 };
@@ -11858,6 +11935,7 @@ export type ContentfulPageFieldsEnum =
   | 'link___navigation___navigation___updatedAt'
   | 'link___navigation___navigation___node_locale'
   | 'link___navigation___navigation___subNavigation'
+  | 'link___navigation___navigation___label'
   | 'link___navigation___navigation___navbar'
   | 'link___navigation___navigation___footer'
   | 'link___navigation___spaceId'
@@ -11880,8 +11958,10 @@ export type ContentfulPageFieldsEnum =
   | 'link___navigation___subNavigation___updatedAt'
   | 'link___navigation___subNavigation___node_locale'
   | 'link___navigation___subNavigation___subNavigation'
+  | 'link___navigation___subNavigation___label'
   | 'link___navigation___subNavigation___navbar'
   | 'link___navigation___subNavigation___footer'
+  | 'link___navigation___label'
   | 'link___navigation___navbar'
   | 'link___navigation___navbar___id'
   | 'link___navigation___navbar___children'
@@ -12747,6 +12827,7 @@ export type ContentfulSectionFieldsEnum =
   | 'page___link___navigation___updatedAt'
   | 'page___link___navigation___node_locale'
   | 'page___link___navigation___subNavigation'
+  | 'page___link___navigation___label'
   | 'page___link___navigation___navbar'
   | 'page___link___navigation___footer'
   | 'page___link___spaceId'
@@ -15080,15 +15161,15 @@ export type QuerySitePageArgs = {
   internalComponentName?: Maybe<StringQueryOperatorInput>;
   componentChunkName?: Maybe<StringQueryOperatorInput>;
   matchPath?: Maybe<StringQueryOperatorInput>;
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
   isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>;
   context?: Maybe<SitePageContextFilterInput>;
   pluginCreator?: Maybe<SitePluginFilterInput>;
   pluginCreatorId?: Maybe<StringQueryOperatorInput>;
   componentPath?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
 };
 
 
@@ -15455,6 +15536,7 @@ export type QueryContentfulNavigationArgs = {
   sys?: Maybe<ContentfulNavigationSysFilterInput>;
   node_locale?: Maybe<StringQueryOperatorInput>;
   subNavigation?: Maybe<ContentfulNavigationFilterListInput>;
+  label?: Maybe<StringQueryOperatorInput>;
   navbar?: Maybe<ContentfulNavbarFilterListInput>;
   footer?: Maybe<ContentfulFooterFilterListInput>;
 };
@@ -16043,15 +16125,15 @@ export type SitePage = Node & {
   internalComponentName: Scalars['String'];
   componentChunkName: Scalars['String'];
   matchPath?: Maybe<Scalars['String']>;
-  id: Scalars['ID'];
-  parent?: Maybe<Node>;
-  children: Array<Node>;
-  internal: Internal;
   isCreatedByStatefulCreatePages?: Maybe<Scalars['Boolean']>;
   context?: Maybe<SitePageContext>;
   pluginCreator?: Maybe<SitePlugin>;
   pluginCreatorId?: Maybe<Scalars['String']>;
   componentPath?: Maybe<Scalars['String']>;
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
 };
 
 export type SitePageConnection = {
@@ -16139,92 +16221,6 @@ export type SitePageFieldsEnum =
   | 'internalComponentName'
   | 'componentChunkName'
   | 'matchPath'
-  | 'id'
-  | 'parent___id'
-  | 'parent___parent___id'
-  | 'parent___parent___parent___id'
-  | 'parent___parent___parent___children'
-  | 'parent___parent___children'
-  | 'parent___parent___children___id'
-  | 'parent___parent___children___children'
-  | 'parent___parent___internal___content'
-  | 'parent___parent___internal___contentDigest'
-  | 'parent___parent___internal___description'
-  | 'parent___parent___internal___fieldOwners'
-  | 'parent___parent___internal___ignoreType'
-  | 'parent___parent___internal___mediaType'
-  | 'parent___parent___internal___owner'
-  | 'parent___parent___internal___type'
-  | 'parent___children'
-  | 'parent___children___id'
-  | 'parent___children___parent___id'
-  | 'parent___children___parent___children'
-  | 'parent___children___children'
-  | 'parent___children___children___id'
-  | 'parent___children___children___children'
-  | 'parent___children___internal___content'
-  | 'parent___children___internal___contentDigest'
-  | 'parent___children___internal___description'
-  | 'parent___children___internal___fieldOwners'
-  | 'parent___children___internal___ignoreType'
-  | 'parent___children___internal___mediaType'
-  | 'parent___children___internal___owner'
-  | 'parent___children___internal___type'
-  | 'parent___internal___content'
-  | 'parent___internal___contentDigest'
-  | 'parent___internal___description'
-  | 'parent___internal___fieldOwners'
-  | 'parent___internal___ignoreType'
-  | 'parent___internal___mediaType'
-  | 'parent___internal___owner'
-  | 'parent___internal___type'
-  | 'children'
-  | 'children___id'
-  | 'children___parent___id'
-  | 'children___parent___parent___id'
-  | 'children___parent___parent___children'
-  | 'children___parent___children'
-  | 'children___parent___children___id'
-  | 'children___parent___children___children'
-  | 'children___parent___internal___content'
-  | 'children___parent___internal___contentDigest'
-  | 'children___parent___internal___description'
-  | 'children___parent___internal___fieldOwners'
-  | 'children___parent___internal___ignoreType'
-  | 'children___parent___internal___mediaType'
-  | 'children___parent___internal___owner'
-  | 'children___parent___internal___type'
-  | 'children___children'
-  | 'children___children___id'
-  | 'children___children___parent___id'
-  | 'children___children___parent___children'
-  | 'children___children___children'
-  | 'children___children___children___id'
-  | 'children___children___children___children'
-  | 'children___children___internal___content'
-  | 'children___children___internal___contentDigest'
-  | 'children___children___internal___description'
-  | 'children___children___internal___fieldOwners'
-  | 'children___children___internal___ignoreType'
-  | 'children___children___internal___mediaType'
-  | 'children___children___internal___owner'
-  | 'children___children___internal___type'
-  | 'children___internal___content'
-  | 'children___internal___contentDigest'
-  | 'children___internal___description'
-  | 'children___internal___fieldOwners'
-  | 'children___internal___ignoreType'
-  | 'children___internal___mediaType'
-  | 'children___internal___owner'
-  | 'children___internal___type'
-  | 'internal___content'
-  | 'internal___contentDigest'
-  | 'internal___description'
-  | 'internal___fieldOwners'
-  | 'internal___ignoreType'
-  | 'internal___mediaType'
-  | 'internal___owner'
-  | 'internal___type'
   | 'isCreatedByStatefulCreatePages'
   | 'context___siteMetadata___title'
   | 'context___siteMetadata___description'
@@ -16354,7 +16350,93 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___packageJson___peerDependencies___version'
   | 'pluginCreator___packageJson___keywords'
   | 'pluginCreatorId'
-  | 'componentPath';
+  | 'componentPath'
+  | 'id'
+  | 'parent___id'
+  | 'parent___parent___id'
+  | 'parent___parent___parent___id'
+  | 'parent___parent___parent___children'
+  | 'parent___parent___children'
+  | 'parent___parent___children___id'
+  | 'parent___parent___children___children'
+  | 'parent___parent___internal___content'
+  | 'parent___parent___internal___contentDigest'
+  | 'parent___parent___internal___description'
+  | 'parent___parent___internal___fieldOwners'
+  | 'parent___parent___internal___ignoreType'
+  | 'parent___parent___internal___mediaType'
+  | 'parent___parent___internal___owner'
+  | 'parent___parent___internal___type'
+  | 'parent___children'
+  | 'parent___children___id'
+  | 'parent___children___parent___id'
+  | 'parent___children___parent___children'
+  | 'parent___children___children'
+  | 'parent___children___children___id'
+  | 'parent___children___children___children'
+  | 'parent___children___internal___content'
+  | 'parent___children___internal___contentDigest'
+  | 'parent___children___internal___description'
+  | 'parent___children___internal___fieldOwners'
+  | 'parent___children___internal___ignoreType'
+  | 'parent___children___internal___mediaType'
+  | 'parent___children___internal___owner'
+  | 'parent___children___internal___type'
+  | 'parent___internal___content'
+  | 'parent___internal___contentDigest'
+  | 'parent___internal___description'
+  | 'parent___internal___fieldOwners'
+  | 'parent___internal___ignoreType'
+  | 'parent___internal___mediaType'
+  | 'parent___internal___owner'
+  | 'parent___internal___type'
+  | 'children'
+  | 'children___id'
+  | 'children___parent___id'
+  | 'children___parent___parent___id'
+  | 'children___parent___parent___children'
+  | 'children___parent___children'
+  | 'children___parent___children___id'
+  | 'children___parent___children___children'
+  | 'children___parent___internal___content'
+  | 'children___parent___internal___contentDigest'
+  | 'children___parent___internal___description'
+  | 'children___parent___internal___fieldOwners'
+  | 'children___parent___internal___ignoreType'
+  | 'children___parent___internal___mediaType'
+  | 'children___parent___internal___owner'
+  | 'children___parent___internal___type'
+  | 'children___children'
+  | 'children___children___id'
+  | 'children___children___parent___id'
+  | 'children___children___parent___children'
+  | 'children___children___children'
+  | 'children___children___children___id'
+  | 'children___children___children___children'
+  | 'children___children___internal___content'
+  | 'children___children___internal___contentDigest'
+  | 'children___children___internal___description'
+  | 'children___children___internal___fieldOwners'
+  | 'children___children___internal___ignoreType'
+  | 'children___children___internal___mediaType'
+  | 'children___children___internal___owner'
+  | 'children___children___internal___type'
+  | 'children___internal___content'
+  | 'children___internal___contentDigest'
+  | 'children___internal___description'
+  | 'children___internal___fieldOwners'
+  | 'children___internal___ignoreType'
+  | 'children___internal___mediaType'
+  | 'children___internal___owner'
+  | 'children___internal___type'
+  | 'internal___content'
+  | 'internal___contentDigest'
+  | 'internal___description'
+  | 'internal___fieldOwners'
+  | 'internal___ignoreType'
+  | 'internal___mediaType'
+  | 'internal___owner'
+  | 'internal___type';
 
 export type SitePageFilterInput = {
   path?: Maybe<StringQueryOperatorInput>;
@@ -16362,15 +16444,15 @@ export type SitePageFilterInput = {
   internalComponentName?: Maybe<StringQueryOperatorInput>;
   componentChunkName?: Maybe<StringQueryOperatorInput>;
   matchPath?: Maybe<StringQueryOperatorInput>;
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
   isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>;
   context?: Maybe<SitePageContextFilterInput>;
   pluginCreator?: Maybe<SitePluginFilterInput>;
   pluginCreatorId?: Maybe<StringQueryOperatorInput>;
   componentPath?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
 };
 
 export type SitePageGroupConnection = {
@@ -17220,12 +17302,23 @@ export type CompanyAddressFragment = Pick<ContentfulCompanyAddress, 'name' | 'ph
 
 export type FooterFragmentFragment = (
   Pick<ContentfulFooter, 'name' | 'layout' | 'variant'>
-  & { companyInfo?: Maybe<CompanyInfoFragment>, blocks?: Maybe<Array<Maybe<BlockFragmentFragment>>>, navigation?: Maybe<Pick<ContentfulNavigation, 'id'>> }
+  & { companyInfo?: Maybe<CompanyInfoFragment>, blocks?: Maybe<Array<Maybe<BlockFragmentFragment>>>, navigation?: Maybe<NavigationFragmentFragment> }
 );
 
-export type LinkFragment = (
+export type LinkFragmentFragment = (
   Pick<ContentfulLink, 'name' | 'type' | 'label'>
   & { page?: Maybe<Pick<ContentfulPage, 'id' | 'name' | 'slug'>> }
+);
+
+export type NavigationFragmentFragment = (
+  Pick<ContentfulNavigation, 'id' | 'name' | 'component' | 'label'>
+  & { links?: Maybe<Array<Maybe<LinkFragmentFragment>>>, subNavigation?: Maybe<Array<Maybe<(
+    Pick<ContentfulNavigation, 'id' | 'name' | 'component' | 'label'>
+    & { links?: Maybe<Array<Maybe<LinkFragmentFragment>>>, subNavigation?: Maybe<Array<Maybe<(
+      Pick<ContentfulNavigation, 'id' | 'name' | 'component' | 'label'>
+      & { links?: Maybe<Array<Maybe<LinkFragmentFragment>>> }
+    )>>> }
+  )>>> }
 );
 
 export type SectionFragment = (

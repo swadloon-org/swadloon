@@ -17,7 +17,7 @@ import {
   useCommonProps,
   useTreatTheme,
 } from '@newrade/core-react-ui';
-import { BlockAPI } from '@newrade/core-website-api';
+import { BlockAPI, NavComponent } from '@newrade/core-website-api';
 import { IoLogoFacebook } from '@react-icons/all-files/io5/IoLogoFacebook';
 import { IoLogoInstagram } from '@react-icons/all-files/io5/IoLogoInstagram';
 import { IoLogoLinkedin } from '@react-icons/all-files/io5/IoLogoLinkedin';
@@ -25,6 +25,8 @@ import { IoLogoTwitter } from '@react-icons/all-files/io5/IoLogoTwitter';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { BlockRenderer } from '../blocks/block-renderer';
+import { lorenipsumMedium, lorenipsumShort } from '../docs-components/loren-ipsum';
+import { GatsbyLink } from '../links/gatsby-link';
 import { FooterBase } from './footer-base';
 import * as styleRefs from './footer-standard.treat';
 import { FooterProps } from './footer.props';
@@ -48,22 +50,26 @@ export const FooterStandard = React.forwardRef<any, Props>(
     const twitterURL = footer?.companyInfo?.twitterPageURL;
     const instagramURL = footer?.companyInfo?.instagramPageURL;
     const linkedinURL = footer?.companyInfo?.linkedinPageURL;
+    const navigation = footer?.navigation;
+    const footerNavigation = navigation?.component === NavComponent.footer ? navigation : null;
 
     return (
       <FooterBase {...commonProps} footer={footer} ref={ref} contentClassName={styles.base}>
         <Logo name={LOGO.STANDARD} className={styles.logo}></Logo>
 
-        {blocks
-          ? blocks.map((block) => (
-              <BlockRenderer
-                key={block?.id}
-                className={styles.block}
-                block={block as BlockAPI}
-              ></BlockRenderer>
-            ))
-          : null}
+        {blocks ? (
+          blocks.map((block) => (
+            <BlockRenderer
+              key={block?.id}
+              className={styles.block}
+              block={block as BlockAPI}
+            ></BlockRenderer>
+          ))
+        ) : (
+          <Paragraph className={styles.block}>{lorenipsumMedium}</Paragraph>
+        )}
 
-        <Cluster className={styles.socialLinks} gap={[cssTheme.sizing.var.x2]}>
+        <Cluster className={styles.socialLinks} gap={[cssTheme.sizing.var.x3]}>
           <Button
             Icon={<IoLogoTwitter />}
             icon={ButtonIcon.icon}
@@ -90,27 +96,50 @@ export const FooterStandard = React.forwardRef<any, Props>(
         </Cluster>
 
         <div className={styles.navLinks}>
-          {[1, 2, 3, 4].map((id) => {
+          {footerNavigation?.subNavigation?.map((subNav) => {
+            if (!subNav) {
+              return null;
+            }
+
+            const links = subNav.links;
+
             return (
-              <Stack key={id} gap={[cssTheme.sizing.var.x2]}>
+              <Stack key={subNav.id} gap={[cssTheme.sizing.var.x4]}>
                 <Label
                   variantStyle={TEXT_STYLE.boldUppercase}
                   variant={LABEL_SIZE.xSmall}
                   variantLevel={Variant.tertiary}
                 >
-                  Solutions
+                  {subNav.label || ' '}
                 </Label>
-                <Link>Marketing</Link>
-                <Link>Analytics</Link>
-                <Link>Commerce</Link>
-                <Link>Insights</Link>
+
+                <Stack
+                  key={id}
+                  gap={[cssTheme.sizing.var.x4, cssTheme.sizing.var.x4, cssTheme.sizing.var.x3]}
+                >
+                  {links?.map((link, id) => {
+                    return (
+                      <Link
+                        key={id}
+                        variantSize={PARAGRAPH_SIZE.small}
+                        AsElement={<GatsbyLink to={link?.page?.slug || ''} />}
+                      >
+                        {link?.label || ' '}
+                      </Link>
+                    );
+                  })}
+                </Stack>
               </Stack>
             );
           })}
         </div>
 
-        <Paragraph className={styles.copyright} variant={PARAGRAPH_SIZE.small}>
-          {copyright}
+        <Paragraph
+          className={styles.copyright}
+          variant={PARAGRAPH_SIZE.small}
+          variantLevel={Variant.secondary}
+        >
+          {copyright || `© ${lorenipsumShort}`}
         </Paragraph>
       </FooterBase>
     );

@@ -18,12 +18,12 @@ export const base = style(({ theme, cssTheme }: Theme) => ({
   '@media': {
     [cssTheme.layout.media.tablet]: {
       rowGap: 40,
-      gridTemplateColumns: 'repeat(12, 1fr)',
+      gridTemplateColumns: 'repeat(6, 1fr)',
       gridTemplateAreas: `
-        "logo      logo      logo      logo      logo     logo    nav    nav    nav    nav    nav    nav"
-        "block     block     block     block     block    block    nav    nav    nav    nav    nav    nav"
-        "social    social    social    social    social   social    nav    nav    nav    nav    nav    nav"
-        "copy      copy      copy      copy      copy     copy    nav    nav    nav    nav    nav    nav"
+        "logo      logo      logo     nav    nav    nav"
+        "block     block     block    nav    nav    nav"
+        "social    social    social   nav    nav    nav"
+        "copy      copy      copy     nav    nav    nav"
         `,
     },
     [cssTheme.layout.media.desktopSmall]: {
@@ -36,10 +36,10 @@ export const base = style(({ theme, cssTheme }: Theme) => ({
     },
     [cssTheme.layout.media.desktopMedium]: {
       gridTemplateAreas: `
-        "logo      logo      logo      logo      nav     nav     nav     nav     nav     nav     nav     nav"
-        "block     block     block     block     nav     nav     nav     nav     nav     nav     nav     nav"
-        "social    social    social    social    nav     nav     nav     nav     nav     nav     nav     nav"
-        "copy      copy      copy      copy      nav     nav     nav     nav     nav     nav     nav     nav"
+        "logo      logo      logo      nav     nav     nav     nav     nav     nav     nav     nav     nav"
+        "block     block     block     nav     nav     nav     nav     nav     nav     nav     nav     nav"
+        "social    social    social    nav     nav     nav     nav     nav     nav     nav     nav     nav"
+        "copy      copy      copy      nav     nav     nav     nav     nav     nav     nav     nav     nav"
         `,
     },
   },
@@ -62,10 +62,15 @@ export const socialLinks = style(({ theme, cssTheme }: Theme) => ({
 
 export const navLinks = style(({ theme, cssTheme }: Theme) => ({
   gridArea: 'nav',
-
   display: 'grid',
-  gap: cssTheme.sizing.var.x4,
-  gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
+  gap: cssTheme.sizing.var.x5,
+  gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 220px))',
+  '@media': {
+    [cssTheme.layout.media.tablet]: {
+      gridColumnEnd: 'end',
+      gridRowEnd: 'end',
+    },
+  },
 }));
 
 export const copyright = style(({ cssTheme, theme }: Theme) => ({

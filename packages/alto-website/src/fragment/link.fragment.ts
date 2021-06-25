@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby';
 
 export const linkFragment = graphql`
-  fragment Link on ContentfulLink {
+  fragment LinkFragment on ContentfulLink {
     name
     type
     label

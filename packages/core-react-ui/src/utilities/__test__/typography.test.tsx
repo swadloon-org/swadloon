@@ -20,6 +20,21 @@ describe('colors utilities', () => {
     });
   });
 
+  describe(`${createCSSCapsizeTextStyle.name}`, () => {
+    it('should respect the passed fontSize', () => {
+      const textStyle: TextStyle & CapsizeTextStyle = {
+        font: [defaultSansFont, ...defaultFallbackSansFonts],
+        fontSize: 16,
+        lineGap: 12,
+      };
+      const textStyleCSS = createCSSCapsizeTextStyle({
+        baseFontSize: defaultBaseFontSize,
+        ...textStyle,
+      });
+      expect(textStyleCSS.fontSize).toEqual(textStyle.fontSize);
+    });
+  });
+
   describe(`${getCSSTypography.name}`, () => {
     it('should create a valid CSS typography object', () => {
       expect(
