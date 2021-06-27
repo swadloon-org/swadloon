@@ -137,56 +137,56 @@ export const typography: Typography = {
     },
     mobile: {
       large: {
-        capHeight: 14,
+        fontSize: 20,
         lineGap: 16,
       },
       medium: {
-        capHeight: 12,
-        lineGap: 16,
-      },
-      small: {
-        capHeight: 11,
+        fontSize: 18,
         lineGap: 14,
       },
-      xSmall: {
-        capHeight: 9,
+      small: {
+        fontSize: 16,
         lineGap: 12,
+      },
+      xSmall: {
+        fontSize: 14,
+        lineGap: 10,
       },
     },
     tablet: {
       large: {
-        capHeight: 14,
+        fontSize: 20,
         lineGap: 16,
       },
       medium: {
-        capHeight: 12,
-        lineGap: 16,
-      },
-      small: {
-        capHeight: 10,
+        fontSize: 18,
         lineGap: 14,
       },
-      xSmall: {
-        capHeight: 9,
+      small: {
+        fontSize: 16,
         lineGap: 12,
+      },
+      xSmall: {
+        fontSize: 14,
+        lineGap: 10,
       },
     },
     desktop: {
       large: {
-        capHeight: 14,
+        fontSize: 18,
         lineGap: 18,
       },
       medium: {
-        capHeight: 12,
+        fontSize: 16,
         lineGap: 16,
       },
       small: {
-        capHeight: 10,
+        fontSize: 14,
         lineGap: 14,
       },
       xSmall: {
-        capHeight: 9,
-        lineGap: 12,
+        fontSize: 12,
+        lineGap: 10,
       },
     },
   },
@@ -200,25 +200,25 @@ export const typography: Typography = {
       boldUppercase: {
         fontWeight: 600,
         textTransform: TEXT_TRANSFORM.uppercase,
-        letterSpacing: 10,
+        letterSpacing: 8,
       },
       uppercase: {
         fontWeight: 400,
         textTransform: TEXT_TRANSFORM.uppercase,
-        letterSpacing: 10,
+        letterSpacing: 8,
       },
     },
     mobile: {
       medium: {
-        capHeight: 12,
+        fontSize: 18,
         lineGap: 12,
       },
       small: {
-        capHeight: 11,
+        fontSize: 16,
         lineGap: 12,
       },
       xSmall: {
-        capHeight: 9,
+        fontSize: 14,
         lineGap: 12,
       },
     },
@@ -238,15 +238,15 @@ export const typography: Typography = {
     },
     desktop: {
       medium: {
-        capHeight: 13,
+        fontSize: 14,
         lineGap: 10,
       },
       small: {
-        capHeight: 11,
+        fontSize: 13,
         lineGap: 8,
       },
       xSmall: {
-        capHeight: 9.5,
+        fontSize: 12,
         lineGap: 8,
       },
     },

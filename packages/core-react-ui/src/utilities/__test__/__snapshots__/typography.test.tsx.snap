@@ -701,7 +701,7 @@ Object {
   "headings": Object {
     "desktop": Object {
       "h1": Object {
-        "capHeight": undefined,
+        "capHeight": 29.0909,
         "capsize": Object {
           "::after": Object {
             "content": "''",
@@ -882,7 +882,7 @@ Object {
         "textTransform": undefined,
       },
       "h2": Object {
-        "capHeight": undefined,
+        "capHeight": 18.9091,
         "capsize": Object {
           "::after": Object {
             "content": "''",
@@ -1063,7 +1063,7 @@ Object {
         "textTransform": undefined,
       },
       "h3": Object {
-        "capHeight": undefined,
+        "capHeight": 14.5455,
         "capsize": Object {
           "::after": Object {
             "content": "''",
@@ -1244,7 +1244,7 @@ Object {
         "textTransform": undefined,
       },
       "h4": Object {
-        "capHeight": undefined,
+        "capHeight": 13.0909,
         "capsize": Object {
           "::after": Object {
             "content": "''",
@@ -4687,7 +4687,7 @@ Object {
   "paragraphs": Object {
     "desktop": Object {
       "large": Object {
-        "capHeight": undefined,
+        "capHeight": 13.0909,
         "capsize": Object {
           "::after": Object {
             "content": "''",
@@ -4868,7 +4868,7 @@ Object {
         "textTransform": undefined,
       },
       "medium": Object {
-        "capHeight": undefined,
+        "capHeight": 11.6364,
         "capsize": Object {
           "::after": Object {
             "content": "''",
@@ -5049,7 +5049,7 @@ Object {
         "textTransform": undefined,
       },
       "small": Object {
-        "capHeight": undefined,
+        "capHeight": 10.1818,
         "capsize": Object {
           "::after": Object {
             "content": "''",
@@ -5230,7 +5230,7 @@ Object {
         "textTransform": undefined,
       },
       "xSmall": Object {
-        "capHeight": undefined,
+        "capHeight": 8.7273,
         "capsize": Object {
           "::after": Object {
             "content": "''",
@@ -5486,7 +5486,7 @@ Object {
     ],
     "mobile": Object {
       "large": Object {
-        "capHeight": undefined,
+        "capHeight": 13.0909,
         "capsize": Object {
           "::after": Object {
             "content": "''",
@@ -5667,7 +5667,7 @@ Object {
         "textTransform": undefined,
       },
       "medium": Object {
-        "capHeight": undefined,
+        "capHeight": 11.6364,
         "capsize": Object {
           "::after": Object {
             "content": "''",
@@ -5848,7 +5848,7 @@ Object {
         "textTransform": undefined,
       },
       "small": Object {
-        "capHeight": undefined,
+        "capHeight": 10.1818,
         "capsize": Object {
           "::after": Object {
             "content": "''",
@@ -6029,7 +6029,7 @@ Object {
         "textTransform": undefined,
       },
       "xSmall": Object {
-        "capHeight": undefined,
+        "capHeight": 8.7273,
         "capsize": Object {
           "::after": Object {
             "content": "''",
@@ -6228,7 +6228,7 @@ Object {
     },
     "tablet": Object {
       "large": Object {
-        "capHeight": undefined,
+        "capHeight": 13.0909,
         "capsize": Object {
           "::after": Object {
             "content": "''",
@@ -6409,7 +6409,7 @@ Object {
         "textTransform": undefined,
       },
       "medium": Object {
-        "capHeight": undefined,
+        "capHeight": 11.6364,
         "capsize": Object {
           "::after": Object {
             "content": "''",
@@ -6590,7 +6590,7 @@ Object {
         "textTransform": undefined,
       },
       "small": Object {
-        "capHeight": undefined,
+        "capHeight": 10.1818,
         "capsize": Object {
           "::after": Object {
             "content": "''",
@@ -6771,7 +6771,7 @@ Object {
         "textTransform": undefined,
       },
       "xSmall": Object {
-        "capHeight": undefined,
+        "capHeight": 8.7273,
         "capsize": Object {
           "::after": Object {
             "content": "''",

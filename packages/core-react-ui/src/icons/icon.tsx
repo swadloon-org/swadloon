@@ -51,6 +51,12 @@ export const IconLoader: React.FC<Props> = ({
   }
 
   const IconComponent = context.iconComponents[name];
+
+  if (!IconComponent) {
+    console.log('iconComponents={} must be set on <IconProvider/>');
+    return <IconNotFoundError />;
+  }
+
   return <IconComponent {...commonProps} />;
 };
 

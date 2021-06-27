@@ -8,8 +8,9 @@ import {
 import { IoOpenOutline } from '@react-icons/all-files/io5/IoOpenOutline';
 import React, { AnchorHTMLAttributes, useRef } from 'react';
 import { useStyles } from 'react-treat';
+import { useCommonProps } from '../hooks/use-common-props.hook';
 import { CommonComponentProps } from '../props/component-common.props';
-import { getDefaultTextFromProps, getMergedClassname } from '../utilities/component.utilities';
+import { getDefaultTextFromProps } from '../utilities/component.utilities';
 import * as stylesRef from './link.treat';
 
 type Props = CommonComponentProps &
@@ -43,23 +44,24 @@ export const Link: React.FC<Props> = React.memo(
     /**
      * Hooks
      */
-    const { styles } = useStyles(stylesRef);
+    const styles = useStyles(stylesRef);
     const ref = useRef<HTMLElement>();
 
     /**
      * Props
      */
-    const variantStateClassName = styles[LinkState.rest];
-    const variantClassName = styles[variant ? variant : LinkVariant.noUnderline];
-    const variantStyleClassName = styles[variantLevel ? variantLevel : Variant.primary];
-    const variantSizeClassName = styles[variantSize ? variantSize : PARAGRAPH_SIZE.medium];
-    const allClassName = getMergedClassname([
-      variantStateClassName,
-      variantStyleClassName,
-      variantSizeClassName,
-      variantClassName,
+    const commonProps = useCommonProps({
+      id,
+      style,
       className,
-    ]);
+      classNames: [
+        styles[LinkState.rest],
+        styles[variant ? variant : LinkVariant.noUnderline],
+        styles[variantLevel ? variantLevel : Variant.primary],
+        styles[variantSize ? variantSize : PARAGRAPH_SIZE.medium],
+      ],
+      ...props,
+    });
 
     /**
      * Default children
@@ -90,12 +92,9 @@ export const Link: React.FC<Props> = React.memo(
      * Props
      */
     const compProps = {
-      id,
-      style,
       href,
       rel,
       target,
-      className: allClassName,
       ref,
       children: (
         <>
@@ -103,7 +102,7 @@ export const Link: React.FC<Props> = React.memo(
           {IconSvg}
         </>
       ),
-      ...props,
+      ...commonProps,
     };
 
     /**

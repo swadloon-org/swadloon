@@ -8,7 +8,7 @@ export const sectionFragment = graphql`
     variant
     layout
     blocks {
-      ...Block
+      ...BlockFragment
       # ...BlockSolution
     }
   }

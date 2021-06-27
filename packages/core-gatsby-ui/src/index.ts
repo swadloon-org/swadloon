@@ -19,6 +19,7 @@ export * from './docs-components/reversed-box';
 export * from './docs-components/scale-steps';
 export * from './docs-components/shadow-swatch';
 export * from './footers/footer-enterprise';
+export * from './footers/footer-renderer';
 export * from './footers/footer-simple';
 export * from './footers/footer-standard';
 export * from './footers/footer.props';

@@ -327,11 +327,11 @@ export function getDefaultColorIntents(colors: DS.Colors['colors']): DS.ColorInt
     primaryText: colors.grey['1000'],
     primaryTextReversed: colors.grey['0-reversed'],
     secondaryText: colors.grey['700'],
-    secondaryTextReversed: colors.grey['0-reversed'],
+    secondaryTextReversed: colors.grey[100],
     tertiaryText: colors.grey['500'],
-    tertiaryTextReversed: colors.grey['0-reversed'],
+    tertiaryTextReversed: colors.grey[300],
     disabledText: colors.grey['400'],
-    disabledTextReversed: colors.grey['100'],
+    disabledTextReversed: colors.grey[500],
 
     infoText: colors.utilityNeutral['900'],
     infoAction: colors.utilityNeutral['500'],
@@ -358,7 +358,7 @@ export function getDefaultColorIntents(colors: DS.Colors['colors']): DS.ColorInt
 
 export function getDefaultCSSVarColorIntents({ colors }: CSSColorsVars): DS.ColorIntents<string> {
   return {
-    accessibilityColor: colors.primary[500],
+    accessibilityColor: colors.primary['700'],
     current: colors.current,
     transparent: colors.transparent,
 
@@ -371,11 +371,11 @@ export function getDefaultCSSVarColorIntents({ colors }: CSSColorsVars): DS.Colo
     primaryText: colors.grey['1000'],
     primaryTextReversed: colors.grey['0-reversed'],
     secondaryText: colors.grey['700'],
-    secondaryTextReversed: colors.grey['0-reversed'],
+    secondaryTextReversed: colors.grey[100],
     tertiaryText: colors.grey['500'],
-    tertiaryTextReversed: colors.grey['0-reversed'],
+    tertiaryTextReversed: colors.grey[300],
     disabledText: colors.grey['400'],
-    disabledTextReversed: colors.grey['100'],
+    disabledTextReversed: colors.grey[500],
 
     infoText: colors.utilityNeutral['900'],
     infoAction: colors.utilityNeutral['500'],

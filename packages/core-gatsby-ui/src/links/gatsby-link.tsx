@@ -1,7 +1,8 @@
+import { useCommonProps } from '@newrade/core-react-ui/src';
 import { GatsbyLinkProps, Link as GastbyLinkDefault } from 'gatsby';
 import React from 'react';
-import * as styleRefs from './gatsby-link.treat';
 import { useStyles } from 'react-treat';
+import * as styleRefs from './gatsby-link.treat';
 
 type Props = Omit<GatsbyLinkProps<any>, 'to'> & {
   noStyles?: boolean;
@@ -11,18 +12,13 @@ type Props = Omit<GatsbyLinkProps<any>, 'to'> & {
 export const GatsbyLink = React.forwardRef<any, Props>(
   ({ id, style, className, noStyles, to = '', ...props }, ref) => {
     const { styles } = useStyles(styleRefs);
-    const mergedClassName = `${styles.wrapper} ${noStyles ? styles.noStyles : ''} ${
-      className || ''
-    }`;
-    return (
-      <GastbyLinkDefault
-        ref={ref as any}
-        id={id}
-        style={style}
-        to={to || ''}
-        {...props}
-        className={mergedClassName}
-      />
-    );
+    const commonProps = useCommonProps({
+      id,
+      style,
+      className,
+      classNames: [styles.wrapper, noStyles ? styles.noStyles : ''],
+    });
+
+    return <GastbyLinkDefault ref={ref as any} to={to || ''} {...commonProps} {...props} />;
   }
 );

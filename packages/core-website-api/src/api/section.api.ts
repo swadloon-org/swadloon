@@ -56,7 +56,13 @@ export type SectionAPI = PartialOrNull<{
    * Controls the visual importance of the section.
    */
   variant: Variant;
+  /**
+   * Predefined layouts for the section
+   */
   layout: SectionLayout | string;
+  /**
+   * Common layout options for wide or centered content
+   */
   baseLayout: SectionBaseLayout | string;
   /**
    * Presets for vertical padding.
