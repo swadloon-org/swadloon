@@ -1,6 +1,15 @@
-# Newrade Monorepo
+# Newrade Core Open Source Monorepo
 
-![build](https://github.com/newrade/newrade/workflows/build/badge.svg)
+> A collection of libraries and utilities to build design systems, website and
+> web apps.
+
+---
+
+![build](https://github.com/newrade/newrade-core/actions/workflows/core-workflow.yml/badge.svg)
+![CodeQL](https://github.com/newrade/newrade-core/actions/workflows/codeql-analysis.yml/badge.svg)
+
+---
+
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](https://commitizen.github.io/cz-cli/)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)

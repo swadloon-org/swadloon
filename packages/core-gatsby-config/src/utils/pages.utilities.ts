@@ -70,13 +70,13 @@ export function getLocalePath(nodeName: string, defaultLangKey: SITE_LANGUAGES):
   const patternEn = new RegExp(
     `^\/?(${[SITE_LANGUAGES.EN, SITE_LANGUAGES.EN_CA, SITE_LANGUAGES_HYPHEN.EN_CA].join(
       '|'
-    )})[\/|\.]`,
+    )})[\/|.]`,
     'gi'
   );
   const patternFr = new RegExp(
     `^\/?(${[SITE_LANGUAGES.FR, SITE_LANGUAGES.FR_CA, SITE_LANGUAGES_HYPHEN.FR_CA].join(
       '|'
-    )})[\/|\.]`,
+    )})[\/|.]`,
     'gi'
   );
   const matchEn = patternEn.exec(nodeName);

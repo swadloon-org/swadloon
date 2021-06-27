@@ -22,7 +22,11 @@ export const CodeBlock: React.FC<Props> = ({ children = '', className = '' }) =>
   const components = useMDXComponents();
   const language = className ? className.replace(/language-/, '') : 'tsx';
   const trimmedCode = children ? children.trim() : '';
-  const formattedCode = trimmedCode.replace(/(\r?\n|\r)+$/g, ''); // remove extra line inserted by prettier
+
+  // Because of "This part of the regular expression may cause exponential backtracking on strings containing many repetitions of '\r\n'."
+  // we set {1,6} to prevent abuses.
+  const formattedCode = trimmedCode.replace(/(\r?\n|\r){1,6}$/g, ''); // remove extra line inserted by prettier
+
   // const formattedCodePrettier = formatCode(trimmedCode).replace(/(\r?\n|\r)$/g, ''); // remove extra line inserted by prettier
 
   return (
