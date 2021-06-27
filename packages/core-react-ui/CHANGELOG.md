@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.16.0 (2021-06-27)
+
+### Bug Fixes
+
+- **core-cli:** fix build order
+  ([2a808cf](https://github.com/newrade/newrade-core/commit/2a808cff54bf9eb5af44a4cf7153eb43211069c6))
+
+### Features
+
+- **build:** enable deploy with netlify
+  ([558c12a](https://github.com/newrade/newrade-core/commit/558c12a58494f354877b6293ab5d7bf31f7d531d))
+- **core-react-ui:** init repos for webpack, a react ui lib and the design
+  system package
+  ([190c9ae](https://github.com/newrade/newrade-core/commit/190c9ae5fbe60e0ca38b585e0a75a991bdf91c19))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.15.0](https://github.com/newrade/newrade/compare/@newrade/core-react-ui@1.14.0...@newrade/core-react-ui@1.15.0) (2021-06-16)
 
 ### Bug Fixes

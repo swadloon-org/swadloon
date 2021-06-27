@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.5.1 (2021-06-27)
+
+**Note:** Version bump only for package @newrade/core-design-system-docs
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.5.0](https://github.com/newrade/newrade/compare/@newrade/core-design-system-docs@1.4.0...@newrade/core-design-system-docs@1.5.0) (2021-06-16)
 
 ### Bug Fixes

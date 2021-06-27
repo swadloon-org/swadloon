@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.9.0 (2021-06-27)
+
+### Bug Fixes
+
+- **core-cli:** add test command
+  ([9226801](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/92268017f96777148e096fe586a2cb1ecf690fa1))
+- **core-cli:** fix build order
+  ([2a808cf](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/2a808cff54bf9eb5af44a4cf7153eb43211069c6))
+- **core-cli:** fix core-cli build
+  ([18f266c](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/18f266c436c11c632ab846bf43615d8188e0d632))
+- **core-cli:** fix core-cli build
+  ([7a3e2e6](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/7a3e2e63b662f9d6555d1e2e2201e47393cb6b43))
+
+### Features
+
+- **core-cli:** add basic cli setup
+  ([57ae78e](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/57ae78e22860cf8116964220c5f5a47ed0488fcf))
+- **core-cli:** add typescript setup
+  ([11c38b5](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/11c38b54837aaa0a8fc9f4bdca0e0ae59b32e6d0))
+- **core-gatsby-config:** init package
+  ([0bd1e36](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/0bd1e368093067c80011e8f9d9e0ecd295dc2766))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.8.2](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-cli@1.8.1...@newrade/core-cli@1.8.2) (2021-06-16)
 
 ### Bug Fixes

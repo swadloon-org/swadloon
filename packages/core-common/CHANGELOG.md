@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.3.2 (2021-06-27)
+
+**Note:** Version bump only for package @newrade/core-common
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.3.1](https://github.com/newrade/newrade-core/tree/master/packages/core-common/compare/@newrade/core-common@1.3.0...@newrade/core-common@1.3.1) (2021-06-16)
 
 ### Bug Fixes

@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.7.0 (2021-06-27)
+
+### Bug Fixes
+
+- **core-cli:** fix build order
+  ([2a808cf](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/2a808cff54bf9eb5af44a4cf7153eb43211069c6))
+- **repo:** apply eslint
+  ([3aee186](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/3aee186dc3fb60867c640287a9a08297eef5eefd))
+
+### Features
+
+- **core-gatsby-config:** init package
+  ([0bd1e36](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/0bd1e368093067c80011e8f9d9e0ecd295dc2766))
+- **core-jest-config:** add base jest config package along with test
+  ([668dca4](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/668dca4388008d859e7c2f7c02b9457cae481ee5))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.6.2](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/compare/@newrade/core-jest-config@1.6.1...@newrade/core-jest-config@1.6.2) (2021-06-16)
 
 ### Bug Fixes

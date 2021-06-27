@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.12.0 (2021-06-27)
+
+### Features
+
+- **core-react-ui:** init repos for webpack, a react ui lib and the design
+  system package
+  ([190c9ae](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/190c9ae5fbe60e0ca38b585e0a75a991bdf91c19))
+- **scripts:** add repo initialization scripts
+  ([57b40a7](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/57b40a7a429b33bbe2691d48cb9b25c8d6fcf307))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.11.0](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-design-system@1.10.1...@newrade/core-design-system@1.11.0) (2021-06-16)
 
 ### Bug Fixes

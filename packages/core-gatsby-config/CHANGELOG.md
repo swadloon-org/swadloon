@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.14.0 (2021-06-27)
+
+### Features
+
+- **core-gatsby-config:** init package
+  ([0bd1e36](https://github.com/newrade/newrade-core/commit/0bd1e368093067c80011e8f9d9e0ecd295dc2766))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.13.0](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-config@1.12.0...@newrade/core-gatsby-config@1.13.0) (2021-06-16)
 
 ### Bug Fixes

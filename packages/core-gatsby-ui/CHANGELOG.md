@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.9.1 (2021-06-27)
+
+**Note:** Version bump only for package @newrade/core-gatsby-ui
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.9.0](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-ui@1.8.0...@newrade/core-gatsby-ui@1.9.0) (2021-06-16)
 
 ### Bug Fixes
