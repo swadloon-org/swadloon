@@ -58,8 +58,4 @@ To completely reset the repository and reinstall, try:
 yarn reset
 ```
 
-## Architecture
-
-### `core` packages
-
 ---

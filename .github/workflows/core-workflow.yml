@@ -19,6 +19,7 @@ on:
       - master
       - release
   pull_request:
+  workflow_dispatch:
 
 env:
   #
@@ -44,7 +45,6 @@ env:
   PROJECT_REPO_NAME: ${{ secrets.PROJECT_REPO_NAME }}
 
 jobs:
-
   build-test:
 
     runs-on: ubuntu-latest
