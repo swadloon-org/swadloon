@@ -1,14 +1,10 @@
 {
-  "extends": "../../tsconfig.base.json",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "module": "esnext",
-    "declaration": true,
-    "sourceMap": true,
-    "types": ["node"],
-    "outDir": "./lib",
-    "rootDir": "./src",
-    "target": "es6"
-  },
-  "include": ["./src/**/*"],
-  "exclude": ["./dist/", "./node_modules/"]
+    "types": ["node", "jest", "debug"],
+    "baseUrl": ".",
+    "paths": {
+      "@newrade/*": ["../*/src"]
+    }
+  }
 }

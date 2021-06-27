@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`props should render correctly 1`] = `
+<div
+  class="center style_theme"
+  style="color: red;"
+>
+  <div />
+  <div
+    class="style_theme center-div"
+    style="--max-content-width: 800px;"
+  >
+    Hello world
+  </div>
+  <div />
+</div>
+`;

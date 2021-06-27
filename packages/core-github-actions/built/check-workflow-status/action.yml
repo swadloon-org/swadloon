@@ -1,0 +1,20 @@
+#
+# see https://docs.github.com/en/free-pro-team@latest/actions/creating-actions/creating-a-javascript-action
+# see https://docs.github.com/en/free-pro-team@latest/actions/creating-actions/metadata-syntax-for-github-actions
+# see https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions
+#
+name: 'Check workflow status action'
+description: 'Retrieve a status from a workflow on a specific branch'
+inputs:
+  workflow:
+    description: "The workflow (name-workflow.yml) to check"
+    required: true
+  github-token:
+    description: "GH token to allow the action to perform call on the REST API"
+    required: true
+outputs:
+  conclusion:
+    description: 'The conclusion ("failure", "success", or "skip") of the last workflow run'
+runs:
+  using: 'node12'
+  main: 'index.js'

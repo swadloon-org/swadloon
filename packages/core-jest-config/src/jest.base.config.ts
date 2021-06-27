@@ -1,29 +1,59 @@
-// tslint:disable:readonly-array
+// const { compilerOptions } = require('../../../tsconfig.json');
 
-export const baseJestConfig: jest.InitialOptions = {
+import { includedLibToCompile } from './included-libs';
+
+export const baseJestConfig: jest.InitialOptions & { extensionsToTreatAsEsm?: string[] } = {
+  // see https://jestjs.io/docs/configuration#extensionstotreatasesm-arraystring
+  // extensionsToTreatAsEsm: ['.ts', '.tsx'],
+  preset: 'ts-jest',
   modulePaths: ['../../<rootDir>/node_modules', '<rootDir>/node_modules'],
   rootDir: '.',
   testEnvironment: 'jsdom',
-  preset: 'ts-jest',
   transform: {
-    '\\.(mjs|js|jsx)$': '../core-jest-config/transforms/babel-transform.js',
-    '\\.(ttf|eot|woff2?|svg|jpe?g|png|gif|ico)$': '../core-jest-config/transforms/file-transform.js',
+    // not needed anymore
+    // '\\.(mjs|js|jsx)$': '../core-jest-config/transforms/babel-transform.js',
+    '\\.(ttf|eot|woff2?|svg|jpe?g|png|gif|ico)$':
+      '../core-jest-config/transforms/file-transform.js',
     '\\.(mdx?)$': '../core-jest-config/transforms/mdx-transform.js',
+    '\\.(gql|graphql)$': 'jest-transform-graphql',
   },
-  transformIgnorePatterns: ['node_modules/(?!(idlize)/)'],
+  transformIgnorePatterns: [`node_modules/(?!(${includedLibToCompile.join('|')})/)`],
   moduleNameMapper: {
-    '\\.(css|less|sass|scss)$': 'identity-obj-proxy',
+    // '\\.(css|less|sass|scss)$': 'identity-obj-proxy',
+    '\\.(less|sass|scss)$': 'identity-obj-proxy',
+    '^@newrade/(.*)$': '<rootDir>/../$1/lib',
+    // ...pathsToModuleNameMapper(compilerOptions.paths /*, { prefix: '<rootDir>/' } */),
   },
   testRegex: '.+\\.test\\.tsx?',
-  testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/dist/', '(\\.js\\.map)$', '<rootDir>/package.json'],
-  watchPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/dist/', '(\\.js\\.map)$', '<rootDir>/package.json'],
+  testPathIgnorePatterns: [
+    '<rootDir>/node_modules/',
+    '<rootDir>/dist/',
+    '<rootDir>/lib/',
+    '(\\.js\\.map)$',
+    '.snap',
+    '<rootDir>/package.json',
+  ],
+  watchPathIgnorePatterns: [
+    '<rootDir>/node_modules/',
+    '<rootDir>/dist/',
+    '<rootDir>/lib/',
+    '(\\.js\\.map)$',
+    '.snap',
+    '<rootDir>/package.json',
+  ],
   moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'node', 'mjs'],
   reporters: ['default', 'jest-junit'],
   coverageDirectory: '<rootDir>/_reports/',
   roots: ['<rootDir>/src', '<rootDir>/test'],
   globals: {
     'ts-jest': {
-      tsConfig: '<rootDir>/tsconfig.jest.json',
+      tsconfig: '<rootDir>/tsconfig.jest.json',
+      // see https://huafu.github.io/ts-jest/user/config/babelConfig
+      babelConfig: '../core-jest-config/transforms/babel-test.config.js',
+      // see https://huafu.github.io/ts-jest/user/config/diagnostics
+      diagnostics: {
+        ignoreCodes: [2322],
+      },
     },
   },
 };

@@ -1,0 +1,14 @@
+{
+  "outDir": "./types/contentful.ts",
+  "space": "de6as4xv7gj7",
+  "locales": {
+    "base": "fr-CA",
+    "extra": ["en-CA"]
+  },
+  "namespace": "Content",
+  "storeClass": "ContentStore",
+  "localeOptional": true,
+  "fieldGetters": ["id"],
+  "idField": "id",
+  "whitelist": true
+}

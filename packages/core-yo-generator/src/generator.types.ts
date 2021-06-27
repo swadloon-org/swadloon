@@ -18,7 +18,10 @@ export type GeneratorTemplate<TemplateProps extends object> = {
   /** Extension of the outputted file (e.g. "json" will be appended to the output filename, <filename>.json). */
   outputFileExtension: string;
   /** Control how files are ouputted, receives props from the generator during the "writing" sequence. */
-  render: (props: { context: TemplateProps } & YeomanProps & Omit<GeneratorTemplate<TemplateProps>, 'render'>) => void;
+  render: (
+    props: { context: TemplateProps } & YeomanProps &
+      Omit<GeneratorTemplate<TemplateProps>, 'render'>
+  ) => void;
 };
 
 export type GeneratorModule<TemplateContext extends object> = {

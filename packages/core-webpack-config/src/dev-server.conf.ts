@@ -1,16 +1,13 @@
-const { webpackStatsConf } = require('@ai-ui/core-webpack-config');
+import { stats } from './stats.conf';
 
-const configPaths = require('../config-paths');
-
-module.exports = {
-  contentBase: configPaths.srcDir,
+export const devServerConfig = {
   disableHostCheck: true,
   compress: false,
   historyApiFallback: true,
   watchContentBase: false,
   watchOptions: {
     aggregateTimeout: 300,
-    ignored: /node_modules|dist|src\/server/,
+    ignored: /node_modules|dist|public|src\/server/,
     poll: 500,
   },
   headers: {
@@ -19,5 +16,5 @@ module.exports = {
     'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization',
   },
   proxy: {},
-  stats: webpackStatsConf.dev,
+  stats: stats.dev,
 };

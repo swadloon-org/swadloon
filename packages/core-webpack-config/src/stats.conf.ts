@@ -1,10 +1,10 @@
-import { WebpackOptions } from 'webpack/declarations/WebpackOptions';
+import { StatsOptions } from 'webpack/declarations/WebpackOptions';
 
 /**
  * @description Webpack Stats Configuration
  * @see https://webpack.js.org/configuration/stats/
  */
-export const webpackStatsConf: { [key: string]: WebpackOptions['stats'] } = {
+export const stats: { [key in 'debug' | 'dev' | 'prod']: StatsOptions } = {
   debug: {
     all: undefined,
     colors: true,
@@ -26,9 +26,9 @@ export const webpackStatsConf: { [key: string]: WebpackOptions['stats'] } = {
     version: false,
     hash: false,
   },
-  prod: {
+  dev: {
     all: false,
-    colors: false,
+    colors: true,
     assets: false,
     children: false,
     chunks: false,
@@ -47,19 +47,22 @@ export const webpackStatsConf: { [key: string]: WebpackOptions['stats'] } = {
     warnings: true,
     version: false,
     hash: false,
+    maxModules: Infinity, // examine all modules
+    optimizationBailout: true, // display bailout reasons
   },
-  dev: {
+  prod: {
     all: false,
-    colors: true,
-    assets: false,
+    colors: false,
+    assets: true,
     children: false,
-    chunks: false,
-    chunkModules: false,
-    chunkGroups: false,
+    chunks: true,
+    chunkModules: true,
+    chunkGroups: true,
+    assetsSort: 'size',
     chunksSort: 'size',
-    entrypoints: false,
+    entrypoints: true,
     env: true,
-    publicPath: false,
+    publicPath: true,
     errors: true,
     errorDetails: true,
     modules: false,

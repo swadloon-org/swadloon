@@ -1,27 +1,28 @@
 {
-  "name": "core-yo-generator",
-  "version": "1.2.0",
-  "description": "Yeoman generator to scafold libraries, apps, components and more.",
-  "repository": "https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator",
+  "name": "@newrade/core-yo-generator",
+  "version": "1.4.13",
+  "description": "Yeoman generators to scafold libraries, apps, components and more.",
   "author": {
-    "name": "Philippe Leger",
-    "email": "philippe.leger@newrade.ca",
+    "email": "info@newrade.ca",
+    "name": "Newrade",
     "url": "https://github.com/newrade/newrade"
   },
+  "repository": "https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator",
   "license": "MIT",
   "bin": {
     "nr-core-yo-generator": "./lib/src/cli.js"
   },
   "scripts": {
-    "postinstall": "yarn build",
-    "start": "tsc --build --watch --preserveWatchOutput",
-    "yo": "yo ./lib/src/ -- --no-insight --no-update-notifier",
-    "build": "tsc --build tsconfig.json",
-    "clean": "rimraf -r lib/**",
-    "pretest": "yarn build",
-    "test": "mocha lib/test/generator.test.js"
+    "build": "tsc --build tsconfig.build.json",
+    "clean": "rm -rf lib/** && rm -f tsconfig.build.tsbuildinfo",
+    "start": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
+    "test": "mocha lib/test/generator.test.js",
+    "yo": "yo ./lib/src/ -- --no-insight --no-update-notifier"
   },
   "dependencies": {
+    "@newrade/core-common": "^1.3.1",
+    "@newrade/core-types": "^1.5.1",
+    "@newrade/core-utils": "^1.7.1",
     "case": "^1.6.2",
     "inquirer": "^7.0.0",
     "yeoman-assert": "^3.1.1",

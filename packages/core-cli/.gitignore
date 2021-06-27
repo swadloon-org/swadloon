@@ -1,0 +1,6 @@
+# specific to oclif
+/.nyc_output
+/dist
+/lib
+/tmp
+!/bin

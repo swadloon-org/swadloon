@@ -1,0 +1,15 @@
+{
+  "extends": "../../tsconfig.build.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "lib",
+    "lib": ["es2019"],
+    "types": ["node"]
+  },
+  "references": [
+    {
+      "path": "../core-utils/tsconfig.build.json"
+    }
+  ],
+  "include": ["src/**/*", "types"]
+}

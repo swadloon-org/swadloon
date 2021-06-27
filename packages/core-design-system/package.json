@@ -1,0 +1,27 @@
+{
+  "name": "@newrade/core-design-system",
+  "version": "1.11.0",
+  "description": "Theme API to style entire application",
+  "author": {
+    "email": "info@newrade.ca",
+    "name": "Newrade",
+    "url": "https://github.com/newrade/newrade"
+  },
+  "repository": "https://github.com/newrade/newrade-core/tree/master/packages/core-design-system",
+  "license": "MIT",
+  "main": "./lib/index.js",
+  "module": "./lib/esm/index.js",
+  "files": [
+    "./lib/**/*"
+  ],
+  "scripts": {
+    "build": "yarn build:commonjs && yarn build:esm",
+    "build:commonjs": "tsc --build tsconfig.build.json",
+    "build:esm": "tsc --build tsconfig.build.esm.json",
+    "clean": "rm -rf lib/** && rm -f tsconfig.build.tsbuildinfo",
+    "start": "concurrently \"yarn start:commonjs\" \"yarn start:esm\"",
+    "start:commonjs": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
+    "start:esm": "tsc --build tsconfig.build.esm.json --watch --preserveWatchOutput"
+  },
+  "typings": "./lib/index.d.ts"
+}

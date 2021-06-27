@@ -1,5 +1,4 @@
 # IDEs
-.vs
 .idea
 
 # system
@@ -15,30 +14,25 @@ pids
 *.iml
 .lock-wscript
 
+# logs
+*-debug.log
+*-error.log
+*.log
+
 # certificates
 *.pem
 
 # npm
 node_modules
-npm-debug.log
+packages/**/package-lock.json
 
 # lerna
 lerna-debug.log
-
-# packages
-packages/**/dist/
-packages/**/package-lock.json
-packages/**/bin/
-packages/**/lib/
-packages/**/charts/
-packages/test-*
 
 # jest
 _reports
 __metrics__
 junit.xml
-
-# server
 
 # docker
 .docker
@@ -51,20 +45,24 @@ credentials
 *.secret.yaml
 *secrets.yaml
 
-# gatsby
-packages/**/public/
-.cache
-static/admin/*.bundle.*
-
-# nextjs
-.next
-
 # others
 lib-cov
 /tsd_typings/
+
+# typescript
+*.tsbuildinfo
 
 # env
 .env*
 !.env.test
 
-.vercel
+# Local Netlify folder
+.netlify
+
+# libs
+bin/
+lib/
+
+# apps
+dist/
+public/

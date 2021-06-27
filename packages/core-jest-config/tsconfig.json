@@ -1,15 +1,9 @@
 {
-  "extends": "../../tsconfig.base.json",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "declaration": true,
-    "sourceMap": true,
-    "outDir": "./lib/",
-    "rootDir": "./src/",
-    "strict": false,
-    "target": "es6",
-    "module": "commonjs",
-    "types": ["jest", "node", "expect-puppeteer", "jest-environment-puppeteer", "puppeteer"]
-  },
-  "typeRoots": ["../../node_modules/@types", "typings"],
-  "include": ["./src/", "typings"]
+    "types": ["jest", "node", "expect-puppeteer", "jest-environment-puppeteer", "puppeteer"],
+    "paths": {
+      "@newrade/*": ["../*/src"]
+    }
+  }
 }

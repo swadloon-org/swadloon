@@ -1,0 +1,64 @@
+{
+  "react": {
+    "prefix": ["react"],
+    "body": ["import React from 'react';"],
+    "description": "Insert the default React import statement."
+  },
+  "reactFCComponent": {
+    "prefix": ["FC"],
+    "body": [
+      "import React from 'react';",
+      "",
+      "type Props = {};",
+      "",
+      "export const $1: React.FC<Props> = (props) => {",
+      "  return <div></div>;",
+      "};"
+    ],
+    "description": "Insert the default React import statement."
+  },
+  "reactTreatFCComponent": {
+    "prefix": ["FCT"],
+    "body": [
+      "import React from 'react';",
+      "import * as styleRefs from '$2';",
+      "import { useStyles } from 'react-treat';",
+      "import { useTreatTheme } from '../hooks/use-treat-theme';",
+      "",
+      "type Props = {};",
+      "",
+      "export const $1: React.FC<Props> = ({ id, style, className, ...props }) => {",
+      "  const { styles } = useStyles(styleRefs);",
+      "  const { theme, cssTheme } = useTreatTheme();",
+      "",
+      "  return <div></div>;",
+      "};"
+    ],
+    "description": "Insert the default React import statement."
+  },
+  "useTreatTheme": {
+    "prefix": ["useTreatTheme"],
+    "body": ["const { theme, cssTheme } = useTreatTheme();"],
+    "description": "Import useTreatTheme for TreatCSS."
+  },
+  "treatCSSStyleRefs": {
+    "prefix": ["styleRefs"],
+    "body": ["import * as styleRefs from '$1';"],
+    "description": "Import styleRefs for TreatCSS."
+  },
+  "treatCSSStyles": {
+    "prefix": ["styles"],
+    "body": ["const { styles } = useStyles(styleRefs);"],
+    "description": "Insert useStyles() hook for TreatCSS."
+  },
+  "treatCSSStyle": {
+    "prefix": ["style"],
+    "body": ["export const $1 = style((theme: DesignSystem) => ({", "  display: 'block',", "}));"],
+    "description": "Insert style() in a Treat file."
+  },
+  "styleGlobal": {
+    "prefix": ["styleGlobal"],
+    "body": ["globalStyle(`${$1} *`, {", "  display: 'block',", "});"],
+    "description": "Insert globalStyle() in a Treat file."
+  }
+}

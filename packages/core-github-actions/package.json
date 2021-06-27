@@ -1,0 +1,34 @@
+{
+  "name": "@newrade/core-github-actions",
+  "version": "1.3.0",
+  "description": "Custom Github actions",
+  "author": {
+    "email": "info@newrade.ca",
+    "name": "Newrade",
+    "url": "https://github.com/newrade/newrade"
+  },
+  "repository": "https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions",
+  "license": "MIT",
+  "main": "./lib/index.js",
+  "module": "./lib/index.js",
+  "files": [
+    "./lib/**/*"
+  ],
+  "scripts": {
+    "build:built": "yarn webpack",
+    "clean": "rm -rf lib/** && rm -f tsconfig.build.tsbuildinfo",
+    "start": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "webpack": "cross-env TS_NODE_PROJECT=../core-webpack-config/tsconfig.webpack.json node -r ts-node/register ../../node_modules/webpack/bin/webpack --config webpack.prod.config.ts"
+  },
+  "typings": "./lib/index.d.ts",
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@actions/github": "^4.0.0",
+    "@newrade/core-common": "^1.3.1",
+    "@newrade/core-types": "^1.5.1",
+    "@newrade/core-utils": "^1.7.1",
+    "@newrade/core-webpack-config": "^1.7.0"
+  }
+}

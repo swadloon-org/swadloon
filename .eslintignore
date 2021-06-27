@@ -1,9 +1,15 @@
-dist
-es
-**/lib/**/*
-ts
-coverage
+# npm
+node_modules
+
+# libs
+lib/
+bin/
+
+# gatsby
+.cache
 node_modules
 public
-.cache
-!.storybook
+graphql-types.ts
+
+# apps
+dist

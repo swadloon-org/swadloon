@@ -1,8 +1,9 @@
 const mdx = require('@mdx-js/mdx');
 const babel = require('babel-core');
 
-const presets = require('./babel-transform').presets;
-const plugins = require('./babel-transform').plugins;
+const babelConfig = require('./babel-test.config');
+const presets = babelConfig.presets;
+const plugins = babelConfig.plugins;
 
 module.exports = {
   process(src, filename) {

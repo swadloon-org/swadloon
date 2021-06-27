@@ -1,32 +1,34 @@
 {
-  "name": "core-utils",
-  "version": "1.0.0",
-  "description": "Core utilities shared across packages.",
-  "repository": "https://github.com/newrade/newrade-core/tree/master/packages/core-cli",
+  "name": "@newrade/core-utils",
+  "version": "1.7.1",
+  "description": "@newrade/core utilities shared across packages.",
   "author": {
-    "name": "Philippe Leger",
-    "email": "philippe.leger@newrade.ca",
+    "email": "info@newrade.ca",
+    "name": "Newrade",
     "url": "https://github.com/newrade/newrade"
   },
+  "repository": "https://github.com/newrade/newrade-core/tree/master/packages/core-utils",
   "license": "MIT",
-  "type": "module",
   "bin": {
     "newrade-cli-clear": "./lib/console-clear.js",
     "newrade-cli-newline": "./lib/console-newline.js"
   },
-  "module": "./lib/index.js",
   "main": "./lib/index.js",
-  "typings": "./lib/index.d.ts",
+  "module": "./lib/index.js",
   "files": [
     "./lib/**/*"
   ],
   "scripts": {
-    "start": "tsc --build --watch --preserveWatchOutput",
-    "postinstall": "yarn build",
-    "build": "tsc --build",
-    "pretest": "yarn build",
-    "test": "echo test",
-    "clean": "rimraf -r lib/**"
+    "build": "tsc --build tsconfig.build.json",
+    "clean": "rm -rf lib/** && rm -f tsconfig.build.tsbuildinfo",
+    "start": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
-  "dependencies": {}
+  "sideEffects": false,
+  "typings": "./lib/index.d.ts",
+  "dependencies": {
+    "@newrade/core-common": "^1.3.1",
+    "@newrade/core-types": "^1.5.1"
+  }
 }

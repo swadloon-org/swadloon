@@ -1,0 +1,24 @@
+{
+  "extends": "../../tsconfig.build.json",
+  "compilerOptions": {
+    "types": ["node", "jest", "debug"],
+    "rootDir": ".",
+    "outDir": "lib",
+    "module": "commonjs"
+  },
+  "references": [
+    {
+      "path": "../core-types/tsconfig.build.json"
+    },
+    {
+      "path": "../core-common/tsconfig.build.json"
+    },
+    {
+      "path": "../core-utils/tsconfig.build.json"
+    },
+    {
+      "path": "../core-webpack-config/tsconfig.build.json"
+    }
+  ],
+  "include": ["src", "types"]
+}

@@ -1,0 +1,23 @@
+{
+  "name": "@newrade/core-graphql-ui",
+  "version": "1.8.0",
+  "description": "UI App library",
+  "license": "MIT",
+  "scripts": {
+    "build-disabled": "cross-env TS_NODE_PROJECT=../core-webpack-config/tsconfig.webpack.json node -r ts-node/register ../../node_modules/webpack/bin/webpack --config webpack.dev.config.ts",
+    "clean-disabled": "rm -rf public/** && rm -f tsconfig.build.tsbuildinfo",
+    "start": "cross-env TS_NODE_PROJECT=../core-webpack-config/tsconfig.webpack.json node -r ts-node/register ../../node_modules/webpack-dev-server/bin/webpack-dev-server --config webpack.dev.config.ts",
+    "test-disabled": "echo ok"
+  },
+  "type": "module",
+  "typings": "./lib/index.d.ts",
+  "dependencies": {
+    "@newrade/core-common": "^1.3.1",
+    "@newrade/core-design-system": "^1.11.0",
+    "@newrade/core-jest-config": "^1.6.2",
+    "@newrade/core-react-ui": "^1.15.0",
+    "@newrade/core-types": "^1.5.1",
+    "@newrade/core-utils": "^1.7.1",
+    "@newrade/core-webpack-config": "^1.7.0"
+  }
+}

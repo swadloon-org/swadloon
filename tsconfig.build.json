@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "declaration": true,
+    "incremental": true,
+    "composite": true,
+    "sourceMap": true,
+    "target": "es6",
+    "types": ["node"]
+  },
+  "exclude": ["dist", "lib", "node_modules"]
+}

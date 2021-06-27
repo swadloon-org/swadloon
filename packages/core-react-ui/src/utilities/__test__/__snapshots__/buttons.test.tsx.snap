@@ -1,0 +1,484 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`buttons utilities getCSSButtons should generate CSS variable names for a given Colors object 1`] = `
+Object {
+  "sizes": Object {
+    "large": Object {
+      "border": Object {
+        "bottom": Object {
+          "color": undefined,
+          "radius": "",
+          "style": "solid",
+          "width": undefined,
+        },
+        "default": Object {
+          "color": "hsl(222deg 50% 50% / 100%)",
+          "radius": "3px",
+          "style": "solid",
+          "width": "1px",
+        },
+        "left": Object {
+          "color": undefined,
+          "radius": "",
+          "style": "solid",
+          "width": undefined,
+        },
+        "right": Object {
+          "color": undefined,
+          "radius": "",
+          "style": "solid",
+          "width": undefined,
+        },
+        "top": Object {
+          "color": undefined,
+          "radius": "",
+          "style": "solid",
+          "width": undefined,
+        },
+      },
+      "height": "0px",
+      "outline": Object {},
+      "padding": Object {},
+      "width": "0px",
+    },
+    "medium": Object {
+      "border": Object {
+        "bottom": Object {
+          "color": undefined,
+          "radius": "",
+          "style": "solid",
+          "width": undefined,
+        },
+        "default": Object {
+          "color": "hsl(222deg 50% 50% / 100%)",
+          "radius": "3px",
+          "style": "solid",
+          "width": "1px",
+        },
+        "left": Object {
+          "color": undefined,
+          "radius": "",
+          "style": "solid",
+          "width": undefined,
+        },
+        "right": Object {
+          "color": undefined,
+          "radius": "",
+          "style": "solid",
+          "width": undefined,
+        },
+        "top": Object {
+          "color": undefined,
+          "radius": "",
+          "style": "solid",
+          "width": undefined,
+        },
+      },
+      "height": "0px",
+      "outline": Object {},
+      "padding": Object {},
+      "width": "0px",
+    },
+    "small": Object {
+      "border": Object {
+        "bottom": Object {
+          "color": undefined,
+          "radius": "",
+          "style": "solid",
+          "width": undefined,
+        },
+        "default": Object {
+          "color": "hsl(222deg 50% 50% / 100%)",
+          "radius": "3px",
+          "style": "solid",
+          "width": "1px",
+        },
+        "left": Object {
+          "color": undefined,
+          "radius": "",
+          "style": "solid",
+          "width": undefined,
+        },
+        "right": Object {
+          "color": undefined,
+          "radius": "",
+          "style": "solid",
+          "width": undefined,
+        },
+        "top": Object {
+          "color": undefined,
+          "radius": "",
+          "style": "solid",
+          "width": undefined,
+        },
+      },
+      "height": "0px",
+      "outline": Object {},
+      "padding": Object {},
+      "width": "0px",
+    },
+    "xSmall": Object {
+      "border": Object {
+        "bottom": Object {
+          "color": undefined,
+          "radius": "",
+          "style": "solid",
+          "width": undefined,
+        },
+        "default": Object {
+          "color": "hsl(222deg 50% 50% / 100%)",
+          "radius": "3px",
+          "style": "solid",
+          "width": "1px",
+        },
+        "left": Object {
+          "color": undefined,
+          "radius": "",
+          "style": "solid",
+          "width": undefined,
+        },
+        "right": Object {
+          "color": undefined,
+          "radius": "",
+          "style": "solid",
+          "width": undefined,
+        },
+        "top": Object {
+          "color": undefined,
+          "radius": "",
+          "style": "solid",
+          "width": undefined,
+        },
+      },
+      "height": "0px",
+      "outline": Object {},
+      "padding": Object {},
+      "width": "0px",
+    },
+  },
+  "var": Object {
+    "sizes": Object {
+      "large": Object {
+        "backgroundColor": "var(--btn-lg-bg-color)",
+        "border": Object {
+          "default": Object {
+            "color": "var(--btn-lg-bor-color)",
+            "radius": "var(--btn-lg-bor-radius)",
+            "style": "var(--btn-lg-bor-style)",
+            "width": "var(--btn-lg-bor-width)",
+          },
+        },
+        "height": "var(--btn-lg-height)",
+        "outline": Object {
+          "color": "var(--btn-lg-out-color)",
+          "radius": "var(--btn-lg-out-radius)",
+          "style": "var(--btn-lg-out-style)",
+          "width": "var(--btn-lg-out-width)",
+        },
+        "padding": Object {
+          "bottom": "var(--btn-lg-pad-bottom)",
+          "default": "var(--btn-lg-pad)",
+          "left": "var(--btn-lg-pad-left)",
+          "right": "var(--btn-lg-pad-right)",
+          "top": "var(--btn-lg-pad-top)",
+        },
+        "width": "var(--btn-lg-width)",
+      },
+      "medium": Object {
+        "backgroundColor": "var(--btn-md-bg-color)",
+        "border": Object {
+          "default": Object {
+            "color": "var(--btn-md-bor-color)",
+            "radius": "var(--btn-md-bor-radius)",
+            "style": "var(--btn-md-bor-style)",
+            "width": "var(--btn-md-bor-width)",
+          },
+        },
+        "height": "var(--btn-md-height)",
+        "outline": Object {
+          "color": "var(--btn-md-out-color)",
+          "radius": "var(--btn-md-out-radius)",
+          "style": "var(--btn-md-out-style)",
+          "width": "var(--btn-md-out-width)",
+        },
+        "padding": Object {
+          "bottom": "var(--btn-md-pad-bottom)",
+          "default": "var(--btn-md-pad)",
+          "left": "var(--btn-md-pad-left)",
+          "right": "var(--btn-md-pad-right)",
+          "top": "var(--btn-md-pad-top)",
+        },
+        "width": "var(--btn-md-width)",
+      },
+      "small": Object {
+        "backgroundColor": "var(--btn-s-bg-color)",
+        "border": Object {
+          "default": Object {
+            "color": "var(--btn-s-bor-color)",
+            "radius": "var(--btn-s-bor-radius)",
+            "style": "var(--btn-s-bor-style)",
+            "width": "var(--btn-s-bor-width)",
+          },
+        },
+        "height": "var(--btn-s-height)",
+        "outline": Object {
+          "color": "var(--btn-s-out-color)",
+          "radius": "var(--btn-s-out-radius)",
+          "style": "var(--btn-s-out-style)",
+          "width": "var(--btn-s-out-width)",
+        },
+        "padding": Object {
+          "bottom": "var(--btn-s-pad-bottom)",
+          "default": "var(--btn-s-pad)",
+          "left": "var(--btn-s-pad-left)",
+          "right": "var(--btn-s-pad-right)",
+          "top": "var(--btn-s-pad-top)",
+        },
+        "width": "var(--btn-s-width)",
+      },
+      "xSmall": Object {
+        "backgroundColor": "var(--btn-xs-bg-color)",
+        "border": Object {
+          "default": Object {
+            "color": "var(--btn-xs-bor-color)",
+            "radius": "var(--btn-xs-bor-radius)",
+            "style": "var(--btn-xs-bor-style)",
+            "width": "var(--btn-xs-bor-width)",
+          },
+        },
+        "height": "var(--btn-xs-height)",
+        "outline": Object {
+          "color": "var(--btn-xs-out-color)",
+          "radius": "var(--btn-xs-out-radius)",
+          "style": "var(--btn-xs-out-style)",
+          "width": "var(--btn-xs-out-width)",
+        },
+        "padding": Object {
+          "bottom": "var(--btn-xs-pad-bottom)",
+          "default": "var(--btn-xs-pad)",
+          "left": "var(--btn-xs-pad-left)",
+          "right": "var(--btn-xs-pad-right)",
+          "top": "var(--btn-xs-pad-top)",
+        },
+        "width": "var(--btn-xs-width)",
+      },
+    },
+    "variants": Object {
+      "primary": Object {
+        "backgroundColor": "var(--btn-prim-bg-color)",
+        "borderColor": "var(--btn-prim-bor-color)",
+        "iconColor": "var(--btn-prim-icon-color)",
+        "outlineColor": "var(--btn-prim-out-color)",
+        "textColor": "var(--btn-prim-text-color)",
+      },
+      "primaryReversed": Object {
+        "backgroundColor": "var(--btn-prim-rev-bg-color)",
+        "borderColor": "var(--btn-prim-rev-bor-color)",
+        "iconColor": "var(--btn-prim-rev-icon-color)",
+        "outlineColor": "var(--btn-prim-rev-out-color)",
+        "textColor": "var(--btn-prim-rev-text-color)",
+      },
+      "secondary": Object {
+        "backgroundColor": "var(--btn-sec-bg-color)",
+        "borderColor": "var(--btn-sec-bor-color)",
+        "iconColor": "var(--btn-sec-icon-color)",
+        "outlineColor": "var(--btn-sec-out-color)",
+        "textColor": "var(--btn-sec-text-color)",
+      },
+      "secondaryReversed": Object {
+        "backgroundColor": "var(--btn-sec-rev-bg-color)",
+        "borderColor": "var(--btn-sec-rev-bor-color)",
+        "iconColor": "var(--btn-sec-rev-icon-color)",
+        "outlineColor": "var(--btn-sec-rev-out-color)",
+        "textColor": "var(--btn-sec-rev-text-color)",
+      },
+      "tertiary": Object {
+        "backgroundColor": "var(--btn-ter-bg-color)",
+        "borderColor": "var(--btn-ter-bor-color)",
+        "iconColor": "var(--btn-ter-icon-color)",
+        "outlineColor": "var(--btn-ter-out-color)",
+        "textColor": "var(--btn-ter-text-color)",
+      },
+      "tertiaryReversed": Object {
+        "backgroundColor": "var(--btn-ter-rev-bg-color)",
+        "borderColor": "var(--btn-ter-rev-bor-color)",
+        "iconColor": "var(--btn-ter-rev-icon-color)",
+        "outlineColor": "var(--btn-ter-rev-out-color)",
+        "textColor": "var(--btn-ter-rev-text-color)",
+      },
+    },
+  },
+  "varNames": Object {
+    "sizes": Object {
+      "large": Object {
+        "backgroundColor": "--btn-lg-bg-color",
+        "border": Object {
+          "default": Object {
+            "color": "--btn-lg-bor-color",
+            "radius": "--btn-lg-bor-radius",
+            "style": "--btn-lg-bor-style",
+            "width": "--btn-lg-bor-width",
+          },
+        },
+        "height": "--btn-lg-height",
+        "outline": Object {
+          "color": "--btn-lg-out-color",
+          "radius": "--btn-lg-out-radius",
+          "style": "--btn-lg-out-style",
+          "width": "--btn-lg-out-width",
+        },
+        "padding": Object {
+          "bottom": "--btn-lg-pad-bottom",
+          "default": "--btn-lg-pad",
+          "left": "--btn-lg-pad-left",
+          "right": "--btn-lg-pad-right",
+          "top": "--btn-lg-pad-top",
+        },
+        "width": "--btn-lg-width",
+      },
+      "medium": Object {
+        "backgroundColor": "--btn-md-bg-color",
+        "border": Object {
+          "default": Object {
+            "color": "--btn-md-bor-color",
+            "radius": "--btn-md-bor-radius",
+            "style": "--btn-md-bor-style",
+            "width": "--btn-md-bor-width",
+          },
+        },
+        "height": "--btn-md-height",
+        "outline": Object {
+          "color": "--btn-md-out-color",
+          "radius": "--btn-md-out-radius",
+          "style": "--btn-md-out-style",
+          "width": "--btn-md-out-width",
+        },
+        "padding": Object {
+          "bottom": "--btn-md-pad-bottom",
+          "default": "--btn-md-pad",
+          "left": "--btn-md-pad-left",
+          "right": "--btn-md-pad-right",
+          "top": "--btn-md-pad-top",
+        },
+        "width": "--btn-md-width",
+      },
+      "small": Object {
+        "backgroundColor": "--btn-s-bg-color",
+        "border": Object {
+          "default": Object {
+            "color": "--btn-s-bor-color",
+            "radius": "--btn-s-bor-radius",
+            "style": "--btn-s-bor-style",
+            "width": "--btn-s-bor-width",
+          },
+        },
+        "height": "--btn-s-height",
+        "outline": Object {
+          "color": "--btn-s-out-color",
+          "radius": "--btn-s-out-radius",
+          "style": "--btn-s-out-style",
+          "width": "--btn-s-out-width",
+        },
+        "padding": Object {
+          "bottom": "--btn-s-pad-bottom",
+          "default": "--btn-s-pad",
+          "left": "--btn-s-pad-left",
+          "right": "--btn-s-pad-right",
+          "top": "--btn-s-pad-top",
+        },
+        "width": "--btn-s-width",
+      },
+      "xSmall": Object {
+        "backgroundColor": "--btn-xs-bg-color",
+        "border": Object {
+          "default": Object {
+            "color": "--btn-xs-bor-color",
+            "radius": "--btn-xs-bor-radius",
+            "style": "--btn-xs-bor-style",
+            "width": "--btn-xs-bor-width",
+          },
+        },
+        "height": "--btn-xs-height",
+        "outline": Object {
+          "color": "--btn-xs-out-color",
+          "radius": "--btn-xs-out-radius",
+          "style": "--btn-xs-out-style",
+          "width": "--btn-xs-out-width",
+        },
+        "padding": Object {
+          "bottom": "--btn-xs-pad-bottom",
+          "default": "--btn-xs-pad",
+          "left": "--btn-xs-pad-left",
+          "right": "--btn-xs-pad-right",
+          "top": "--btn-xs-pad-top",
+        },
+        "width": "--btn-xs-width",
+      },
+    },
+    "variants": Object {
+      "primary": Object {
+        "backgroundColor": "--btn-prim-bg-color",
+        "borderColor": "--btn-prim-bor-color",
+        "iconColor": "--btn-prim-icon-color",
+        "outlineColor": "--btn-prim-out-color",
+        "textColor": "--btn-prim-text-color",
+      },
+      "primaryReversed": Object {
+        "backgroundColor": "--btn-prim-rev-bg-color",
+        "borderColor": "--btn-prim-rev-bor-color",
+        "iconColor": "--btn-prim-rev-icon-color",
+        "outlineColor": "--btn-prim-rev-out-color",
+        "textColor": "--btn-prim-rev-text-color",
+      },
+      "secondary": Object {
+        "backgroundColor": "--btn-sec-bg-color",
+        "borderColor": "--btn-sec-bor-color",
+        "iconColor": "--btn-sec-icon-color",
+        "outlineColor": "--btn-sec-out-color",
+        "textColor": "--btn-sec-text-color",
+      },
+      "secondaryReversed": Object {
+        "backgroundColor": "--btn-sec-rev-bg-color",
+        "borderColor": "--btn-sec-rev-bor-color",
+        "iconColor": "--btn-sec-rev-icon-color",
+        "outlineColor": "--btn-sec-rev-out-color",
+        "textColor": "--btn-sec-rev-text-color",
+      },
+      "tertiary": Object {
+        "backgroundColor": "--btn-ter-bg-color",
+        "borderColor": "--btn-ter-bor-color",
+        "iconColor": "--btn-ter-icon-color",
+        "outlineColor": "--btn-ter-out-color",
+        "textColor": "--btn-ter-text-color",
+      },
+      "tertiaryReversed": Object {
+        "backgroundColor": "--btn-ter-rev-bg-color",
+        "borderColor": "--btn-ter-rev-bor-color",
+        "iconColor": "--btn-ter-rev-icon-color",
+        "outlineColor": "--btn-ter-rev-out-color",
+        "textColor": "--btn-ter-rev-text-color",
+      },
+    },
+  },
+  "variants": Object {
+    "primary": Object {
+      "backgroundColor": "hsl(0deg 6% 7% / 100%)",
+    },
+    "primaryReversed": Object {
+      "backgroundColor": "hsl(0deg 10% 100% / 100%)",
+    },
+    "secondary": Object {
+      "backgroundColor": "hsl(0deg 6% 7% / 100%)",
+    },
+    "secondaryReversed": Object {
+      "backgroundColor": "hsl(0deg 10% 100% / 100%)",
+    },
+    "tertiary": Object {
+      "backgroundColor": "hsl(0deg 6% 7% / 100%)",
+    },
+    "tertiaryReversed": Object {
+      "backgroundColor": "hsl(0deg 10% 100% / 100%)",
+    },
+  },
+}
+`;

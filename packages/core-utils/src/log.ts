@@ -1,4 +1,5 @@
 import chalk from 'chalk';
+import debug from 'debug';
 
 export function scriptLog(message: string) {
   console.log(`${chalk.blue(`[scripts]`)} ${message}`);
@@ -9,6 +10,8 @@ export enum LOG_LEVEL {
   ERROR,
 }
 
+const debugLogging = debug('newrade');
+
 export function log(
   message: string,
   {
@@ -18,15 +21,14 @@ export function log(
     level = LOG_LEVEL.INFO,
   }: { chalkColor?: string; toolName: string; noNewline?: boolean; level?: LOG_LEVEL }
 ) {
-  // @ts-ignore
-  const errorTemplate = `${chalk[chalkColor](`[${toolName || 'tool'}]`)} ${chalk.red(message)}`;
-  // @ts-ignore
-  const infoTemplate = `${chalk[chalkColor](`[${toolName || 'tool'}]`)} ${message}`;
+  const errorTemplate = `${chalk.red(message)}`;
+  const infoTemplate = `${message}`;
   const usedTemplate = level === LOG_LEVEL.INFO ? infoTemplate : errorTemplate;
+
+  debugLogging.extend(toolName.replace('@newrade/', ''))(usedTemplate);
 
   if (noNewline) {
     process.stdout.write(usedTemplate);
     return;
   }
-  console.log(usedTemplate);
 }
