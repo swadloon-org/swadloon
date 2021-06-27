@@ -28,6 +28,7 @@ env:
   # Debugging
   #
   DEBUG: 'newrade:*'
+  ACTIONS_STEP_DEBUG: true
   #
   # Node
   #
@@ -39,12 +40,12 @@ env:
   #
   # Repo
   #
-  MASTER_GIT_HOST: ${{ secrets.MASTER_GIT_HOST }}
-  MASTER_REPO_ORG: ${{ secrets.MASTER_REPO_ORG }}
-  MASTER_REPO_NAME: ${{ secrets.MASTER_REPO_NAME }}
-  PROJECT_GIT_HOST: ${{ secrets.PROJECT_GIT_HOST }}
-  PROJECT_REPO_ORG: ${{ secrets.PROJECT_REPO_ORG }}
-  PROJECT_REPO_NAME: ${{ secrets.PROJECT_REPO_NAME }}
+  MASTER_GIT_HOST: github.com
+  MASTER_REPO_ORG: newrade
+  MASTER_REPO_NAME: newrade-core
+  PROJECT_GIT_HOST: github.com
+  PROJECT_REPO_ORG: newrade
+  PROJECT_REPO_NAME: newrade
   #
   # App
   #
