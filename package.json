@@ -158,7 +158,7 @@
     "@graphql-codegen/typescript-document-nodes": "^1.17.11",
     "@graphql-codegen/typescript-operations": "^1.17.16",
     "@graphql-codegen/typescript-react-apollo": "^2.2.4",
-    "@graphql-codegen/typescript-resolvers": "^1.19.1",
+    "@graphql-codegen/typescript-resolvers": "^1.19.4",
     "@jest/transform": "^27",
     "@loadable/babel-plugin": "^5.13.2",
     "@loadable/webpack-plugin": "^5.14.2",
