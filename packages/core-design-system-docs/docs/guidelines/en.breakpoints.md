@@ -1,14 +1,19 @@
 ---
-name: Spacing
+name: Breakpoints
 description:
 tags:
   - guidelines
 ---
 
+<!-- CODE IMPORTS -->
+<!-- prettier-ignore -->
+import { Breakpoints } from '../../src/code/breakpoints.code';
+
+<!-- END CODE IMPORTS -->
 <DocHeader props={props}/>
 
-## Grid
+## Breakpoints
 
-## Scaling
+### Layout
 
-## Scaling
+<Breakpoints/>

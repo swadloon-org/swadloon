@@ -3,6 +3,7 @@ export * from './button/button';
 export * from './button/button-v2';
 export * from './context/viewport.provider';
 export * from './design-system';
+export * from './do-donts/do-dont';
 export * from './error/error-boundary';
 export * from './form/form';
 export * from './form/input-error';

@@ -17,6 +17,8 @@ import ButtonsSizesCode from '!!raw-loader!../../src/code/buttons-sizes.code.tsx
 import { ButtonsIcon } from '../../src/code/buttons-icon.code'; 
 import ButtonsIconCode from '!!raw-loader!../../src/code/buttons-icon.code';
 import { ButtonsStates } from '../../src/code/buttons-states.code';
+import ButtonsStatesCode from '!!raw-loader!../../src/code/buttons-states.code';
+import { DoDonts } from '../../src/code/do-donts.code';
 
 <!-- END CODE IMPORTS -->
 
@@ -77,3 +79,7 @@ The icon button variant support having the icon on either side and only icon.
 <ThemeWrapper>
   <ButtonsStates />
 </ThemeWrapper>
+
+## Do Dont
+
+<DoDonts />
