@@ -21,7 +21,11 @@ export const LogoLoader = React.forwardRef<any, Props>(
       id,
       style,
       className,
-      classNames: [styles.base, getSizeClassForName(name)],
+      classNames: [
+        styles.base,
+        // only set the size when no classname or style is applied
+        className ? '' : style && style.height ? '' : getSizeClassForName(name),
+      ],
       ...props,
     });
 

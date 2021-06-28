@@ -62,27 +62,7 @@ export function FooterRenderer<
      * Standard
      */
     case FooterLayout.standard: {
-      return (
-        <FooterStandard
-          ref={ref}
-          footer={footer}
-          // LeftBlock={
-          //   <BlockRenderer<CustomBlockVariants>
-          //     blockComponents={blockComponents}
-          //     block={leftBlock}
-          //     inView={sectionInView}
-          //   />
-          // }
-          // RightBlock={
-          //   <BlockRenderer<CustomBlockVariants>
-          //     blockComponents={blockComponents}
-          //     block={rightBlock}
-          //     inView={sectionInView}
-          //   />
-          // }
-          {...commonProps}
-        ></FooterStandard>
-      );
+      return <FooterStandard ref={ref} footer={footer} {...commonProps}></FooterStandard>;
     }
 
     /**

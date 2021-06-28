@@ -11,7 +11,7 @@ export const Logos: { [key in LOGO]: React.FC<Props> } = {
     return (
       <>
         <SvgDownloader filename={'logo-standard'}>
-          <Logo name={LOGO.STANDARD} />
+          <Logo name={LOGO.STANDARD} style={{ height: 100 }} />
         </SvgDownloader>
       </>
     );
@@ -22,7 +22,7 @@ export const Logos: { [key in LOGO]: React.FC<Props> } = {
     return (
       <>
         <SvgDownloader filename={'logo-symbol'}>
-          <Logo name={LOGO.SYMBOL} />
+          <Logo name={LOGO.SYMBOL} style={{ height: 100 }} />
         </SvgDownloader>
       </>
     );
@@ -33,7 +33,7 @@ export const Logos: { [key in LOGO]: React.FC<Props> } = {
     return (
       <>
         <SvgDownloader filename={'logo-favicon'}>
-          <Logo name={LOGO.FAVICON} />
+          <Logo name={LOGO.FAVICON} style={{ height: 32 }} />
         </SvgDownloader>
       </>
     );
