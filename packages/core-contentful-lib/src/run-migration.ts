@@ -17,7 +17,7 @@ logEnvVariables<ENV>({ packageName: packageJson.name, env });
 runMigration({
   filePath: path.resolve(
     __dirname,
-    'projects',
+    'migrations',
     env.CONTENTFUL_PROJECT_NAME,
     env.CONTENTFUL_MIGRATION_FILE
   ),

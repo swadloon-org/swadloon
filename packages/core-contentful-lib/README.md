@@ -32,6 +32,12 @@ CONTENTFUL_MANAGEMENT_TOKEN=1234
 CONTENTFUL_ENV=master
 ```
 
+If there is already data in the space, export it with:
+
+```bash
+yarn export-content
+```
+
 Run the migration:
 
 ```bash
