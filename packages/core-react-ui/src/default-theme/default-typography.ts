@@ -97,16 +97,16 @@ export const defaultTypography: Typography = {
     },
     desktop: {
       h1: {
-        fontSize: 48,
+        fontSize: 40,
         lineGap: 18,
         letterSpacing: -3,
       },
       h2: {
-        fontSize: 30,
+        fontSize: 26,
         lineGap: 16,
       },
       h3: {
-        fontSize: 24,
+        fontSize: 20,
         lineGap: 14,
       },
       h4: {

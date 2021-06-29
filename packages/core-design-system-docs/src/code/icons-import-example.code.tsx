@@ -9,8 +9,8 @@ export const IconsImportExample: React.FC<Props> = (props) => {
 
   return (
     <>
-      <IconComp name={ICON.ARROW_RIGHT} />
-      <IconComp name={ICON.ARROW_LEFT} />
+      <IconComp name={ICON.IO_ARROW_RIGHT} />
+      <IconComp name={ICON.IO_ARROW_LEFT} />
     </>
   );
 };

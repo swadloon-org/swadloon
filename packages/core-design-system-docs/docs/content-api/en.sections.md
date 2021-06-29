@@ -2,7 +2,7 @@
 name: Sections
 description: High-level components to render pages.
 tags:
-  - test
+  - website api
 ---
 
 <!-- CODE IMPORTS -->
@@ -31,17 +31,30 @@ import SectionsShowCaseCode from '!!raw-loader!../../src/code/sections-showcase.
 
 <DocHeader props={props}/>
 
-Sections are high level components to organize content in pages. They have
-predefined layouts, each in a dedicated components. Content inside Sections
+> Note: This page is best viewed on the full width layout mode, activate it in
+> the top navbar or in the menu on mobile
+
+## Overview
+
+Sections are high level components to organize content in Pages. They have
+predefined layouts represented by different components. Content inside Sections
 should always be contained in one of the Blocks.
 
-## Base Section Component
+## Features
 
-<!-- The base <Code>{`<Section/>`}</Code> component handles props that all other sections use. Those are: -->
+- Predefined responsive layouts
 
-### Examples
+## Components
 
-<SectionsPrimary />
+The base `<SectionBase/>` component handles props that all other sections use.
+Those are:
+
+### Base Section
+
+<ThemeWrapper>
+  <SectionsPrimary />
+</ThemeWrapper>
+
 <CodeBlock>{SectionsPrimaryCode}</CodeBlock>
 
 <SectionsPrimaryReversed />
@@ -50,13 +63,14 @@ should always be contained in one of the Blocks.
 <SectionsSecondary />
 <CodeBlock>{SectionsSecondaryCode}</CodeBlock>
 
-## Section Components
-
 ### The "Switcher"
 
 2 columns layout that becomes 1 on mobile.
 
-<SectionsSwitcher />
+<ThemeWrapper>
+  <SectionsSwitcher />
+</ThemeWrapper>
+
 <CodeBlock>{SectionsSwitcherCode}</CodeBlock>
 
 ### The "Divider"
@@ -70,7 +84,9 @@ should always be contained in one of the Blocks.
 
 1 background image with a centered block.
 
-<SectionsBanner />
+<ThemeWrapper>
+  <SectionsBanner />
+</ThemeWrapper>
 <CodeBlock>{SectionsBannerCode}</CodeBlock>
 
 ### The "CallOut"

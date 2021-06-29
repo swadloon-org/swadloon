@@ -41,7 +41,7 @@ export const ThemeWrapper = ({
     id,
     style: {
       ...style,
-      backgroundColor: reversed ? cssTheme.colors.colors.grey[800] : '',
+      backgroundColor: reversed ? cssTheme.colors.colors.grey[900] : '',
     },
     className,
     classNames: [reversed ? globalThemeReversed : '', isDefaultTheme ? '' : themeClassname],

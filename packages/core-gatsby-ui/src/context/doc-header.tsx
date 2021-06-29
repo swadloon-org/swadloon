@@ -1,5 +1,4 @@
 import { PARAGRAPH_SIZE, Variant } from '@newrade/core-design-system';
-import { MdxFrontmatter } from '@newrade/core-gatsby-config';
 import {
   Cluster,
   Heading,
@@ -10,6 +9,7 @@ import {
   useTreatTheme,
 } from '@newrade/core-react-ui';
 import React from 'react';
+import { MdxFrontmatter } from '../../types/site-graphql-types';
 import { DocTags } from './doc-tags';
 
 type Props = {

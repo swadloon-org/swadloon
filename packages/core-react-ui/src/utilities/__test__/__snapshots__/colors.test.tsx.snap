@@ -3,7 +3,7 @@
 exports[`colors utilities getCSSColors should generate a CSS colors from a Colors object 1`] = `
 Object {
   "colorIntents": Object {
-    "accessibilityColor": "var(--color-prim-500)",
+    "accessibilityColor": "var(--color-prim-700)",
     "background0": "var(--color-grey-0)",
     "background1": "var(--color-grey-25)",
     "background2": "var(--color-grey-50)",
@@ -13,7 +13,7 @@ Object {
     "dangerBackground": "var(--color-util-red-100)",
     "dangerText": "var(--color-util-red-900)",
     "disabledText": "var(--color-grey-400)",
-    "disabledTextReversed": "var(--color-grey-100)",
+    "disabledTextReversed": "var(--color-grey-500)",
     "infoAction": "var(--color-util-neutral-500)",
     "infoBackground": "var(--color-util-neutral-100)",
     "infoText": "var(--color-util-neutral-900)",
@@ -24,12 +24,12 @@ Object {
     "secondary": "var(--color-acc1-500)",
     "secondaryReversed": "var(--color-grey-0-reversed)",
     "secondaryText": "var(--color-grey-700)",
-    "secondaryTextReversed": "var(--color-grey-0-reversed)",
+    "secondaryTextReversed": "var(--color-grey-100)",
     "successAction": "var(--color-util-green-500)",
     "successBackground": "var(--color-util-green-100)",
     "successText": "var(--color-util-green-900)",
     "tertiaryText": "var(--color-grey-500)",
-    "tertiaryTextReversed": "var(--color-grey-0-reversed)",
+    "tertiaryTextReversed": "var(--color-grey-300)",
     "transparent": "var(--color-transparent)",
     "warningAction": "var(--color-util-yellow-500)",
     "warningBackground": "var(--color-util-yellow-100)",
@@ -120,7 +120,7 @@ Object {
       "700": "hsl(var(--color-grey-base-hue) var(--color-grey-base-sat) 46% / 100%)",
       "800": "hsl(var(--color-grey-base-hue) var(--color-grey-base-sat) 26% / 100%)",
       "900": "hsl(var(--color-grey-base-hue) var(--color-grey-base-sat) 13% / 100%)",
-      "baseHue": "0",
+      "baseHue": "222",
       "baseSat": "6%",
     },
     "primary": Object {

@@ -17,6 +17,7 @@
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
 [![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+[![DeepScan grade](https://deepscan.io/api/teams/14287/projects/17398/branches/397457/badge/grade.svg?token=a1fa0980263b30233c0ddf1e9c3ed778290db2ee)](https://deepscan.io/dashboard#view=project&tid=14287&pid=17398&bid=397457)
 
 ---
 
@@ -119,5 +120,9 @@ To completely reset the repository and reinstall, try:
 ```bash
 yarn reset
 ```
+
+## Architecture
+
+### `core` packages
 
 ---

@@ -5,11 +5,10 @@ import { style } from 'treat';
 
 export const styles = {
   wrapper: style(({ theme, cssTheme }: Theme) => ({})),
-
   lettersSansSerif: style(({ theme, cssTheme }: Theme) => ({
     ...capsize({
       fontMetrics: theme.typography.fonts.serif[0].fontMetrics,
-      capHeight: 100,
+      capHeight: 80,
       lineGap: 10,
     }),
     fontFamily: theme.typography.fonts.serif[0].name,

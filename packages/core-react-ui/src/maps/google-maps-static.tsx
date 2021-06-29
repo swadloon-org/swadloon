@@ -46,7 +46,8 @@ export const GoogleMapsStatic: React.FC<Props> = React.memo(
     );
     const libraries: Libraries = script.libraries || defaultLibraries;
     const language: string = script.language || 'fr';
-    const googleMapsApiKey: string = script.googleMapsApiKey;
+    const googleMapsApiKey: string =
+      script.googleMapsApiKey || 'AIzaSyDCcSCivD2CPrWHNIIGBiPexN5QCujfSkE';
 
     /**
      * Maps props

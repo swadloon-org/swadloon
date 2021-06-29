@@ -1,6 +1,6 @@
 import { AppError, ERROR_TYPE } from '@newrade/core-common';
 import { CapsizeTextStyle, TextDecoration, TextStyle } from '@newrade/core-design-system';
-import capsize, { CapsizeStyles } from 'capsize';
+import capsize, { CapsizeStyles, getCapHeight } from 'capsize';
 import { Property } from 'csstype';
 // @ts-ignore
 import GithubSlugger from 'github-slugger';
@@ -58,6 +58,15 @@ export function createCSSCapsizeTextStyle({
       ? ({ fontSize: fontSize, lineGap: lineGap, fontMetrics } as any)
       : { capHeight: compatibleCapHeight, lineGap, fontMetrics }
   );
+
+  // when fontSize is used instead of capHeight, we get
+  // the cap height based on the font size and metrics
+  const capHeightNumber = capHeight
+    ? capHeight
+    : fontSize !== undefined && fontSize > 0
+    ? (getCapHeight({ fontSize, fontMetrics }) as number)
+    : 16;
+
   return {
     ...createCSSTextStyle({
       baseFontSize,
@@ -72,7 +81,7 @@ export function createCSSCapsizeTextStyle({
     font,
     fontFamily: fontFamily ? fontFamily : font.map((font) => font.name).join(','),
     fontSize,
-    capHeight,
+    capHeight: capHeightNumber,
     lineGap,
     capsize: capsizePx,
   };

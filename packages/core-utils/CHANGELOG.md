@@ -3,29 +3,6 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# 1.8.0 (2021-06-27)
-
-### Bug Fixes
-
-- **core-cli:** fix build order
-  ([2a808cf](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/commit/2a808cff54bf9eb5af44a4cf7153eb43211069c6))
-- **core-utils:** add test command
-  ([90414d9](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/commit/90414d9c6129e662f7c7846c9a1d5d0d4414d38c))
-
-### Features
-
-- **core-cli:** add basic cli setup
-  ([57ae78e](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/commit/57ae78e22860cf8116964220c5f5a47ed0488fcf))
-- **core-cli:** add typescript setup
-  ([11c38b5](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/commit/11c38b54837aaa0a8fc9f4bdca0e0ae59b32e6d0))
-- **core-gatsby-config:** init package
-  ([0bd1e36](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/commit/0bd1e368093067c80011e8f9d9e0ecd295dc2766))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 ## [1.7.1](https://github.com/newrade/newrade-core/tree/master/packages/core-utils/compare/@newrade/core-utils@1.7.0...@newrade/core-utils@1.7.1) (2021-06-16)
 
 ### Bug Fixes

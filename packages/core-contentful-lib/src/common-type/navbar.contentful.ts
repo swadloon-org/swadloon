@@ -1,3 +1,4 @@
+import { Variant } from '@newrade/core-design-system';
 import { ContentType, NavbarLayout } from '@newrade/core-website-api';
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
@@ -37,6 +38,22 @@ export function createNavbar(migration: Migration.default) {
   });
   content.changeFieldControl(COMMON_FIELD.LAYOUT, 'builtin', CONTENTFUL_WIDGET.RADIO, {
     helpText: 'Select navbar layout',
+  });
+
+  /**
+   * Variant of the section
+   */
+  content.createField(COMMON_FIELD.VARIANT, {
+    name: pascal(COMMON_FIELD.VARIANT),
+    type: 'Symbol',
+    validations: [
+      {
+        in: keys(Variant),
+      },
+    ],
+  });
+  content.changeFieldControl(COMMON_FIELD.VARIANT, 'builtin', CONTENTFUL_WIDGET.RADIO, {
+    helpText: 'Select section variant',
   });
 
   /**

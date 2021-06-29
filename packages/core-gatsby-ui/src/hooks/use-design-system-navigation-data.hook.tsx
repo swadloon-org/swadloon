@@ -59,14 +59,15 @@ export function useDesignSystemNavigation({ locales }: { locales: SITE_LANGUAGES
       '',
       'overview',
       'index',
+      'fonts',
       'typography',
       'colors',
       'color-intents',
       'sizing',
-      'pages',
-      'sections',
-      'blocks',
       'layout-components',
+      'blocks',
+      'sections',
+      'pages',
     ],
   });
 }

@@ -2,6 +2,7 @@ import { Variant } from '@newrade/core-design-system';
 import {
   BoxV2,
   BoxV3,
+  Button,
   Center,
   Cluster,
   Details,
@@ -59,6 +60,7 @@ export const docsMdxComponents = {
   table: (props: MDXProps) => <table {...props} />,
   Label: Label,
   Tag: Tag,
+  Button: Button,
   BoxV2: BoxV2,
   BoxV3: BoxV3,
   Center: Center,

@@ -3,15 +3,6 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## 1.8.1 (2021-06-27)
-
-**Note:** Version bump only for package @newrade/core-contentful-lib
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 # [1.8.0](https://github.com/newrade/newrade/compare/@newrade/core-contentful-lib@1.7.3...@newrade/core-contentful-lib@1.8.0) (2021-06-16)
 
 ### Bug Fixes

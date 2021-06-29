@@ -144,7 +144,6 @@ export const mdxComponents: Partial<
     return <CodeBlock {...props}>{children as string}</CodeBlock>;
   },
   inlineCode: (props: MDXProps) => <Code>{props.children}</Code>,
-
   /**
    * Others
    */
