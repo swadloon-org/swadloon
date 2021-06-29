@@ -28,20 +28,30 @@ Design System: https://zedesignsystem.com/design-system
 
 ## Tech Stack
 
-This monorepo uses:
+### Languages
 
 - TypeScript
+- Markdown
+- CSS-in-TS
+
+### Frameworks
+
 - React
 - Jest
 - Puppeteer
 - NodeJS
 
-Tools:
+### CI/CD
 
-- Vercel
-- Github
+- Github Actions
 - CodeQL
 - [Deepscan.io](deepscan.io)
+
+### Cloud
+
+To deploy our sites, apps and APIs we use:
+
+- Vercel
 
 ## Quickstart
 
