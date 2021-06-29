@@ -54,7 +54,6 @@ export function FooterRenderer<
   }
 
   const footerLayouts = keys(FooterLayout);
-
   const blocks = footer.blocks;
 
   switch (footerLayout) {
