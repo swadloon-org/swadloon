@@ -36,9 +36,15 @@ export type Node = {
 };
 
 export type MdxFrontmatter = {
-  title: Scalars['String'];
-  name?: Maybe<Scalars['String']>;
-  tags?: Maybe<Array<Maybe<Scalars['String']>>>;
+  title: string;
+  name?: string;
+  tags?: Array<string>;
+  description?: string;
+  version?: string;
+  status?: string;
+  editPageUrl?: string;
+  nextPageLabel?: string;
+  nextPageUrl?: string;
 };
 
 export type MdxHeadingMdx = {
@@ -75,7 +81,7 @@ export type MarkdownTemplateQuery = {
   file?: Maybe<{
     childMdx?: Maybe<
       Pick<Mdx, 'slug' | 'excerpt' | 'timeToRead' | 'tableOfContents' | 'body'> & {
-        frontmatter?: Maybe<Pick<MdxFrontmatter, 'title' | 'name' | 'tags'>>;
+        frontmatter?: Maybe<MdxFrontmatter>;
         headings?: Maybe<Array<Maybe<Pick<MdxHeadingMdx, 'value' | 'depth'>>>>;
       }
     >;

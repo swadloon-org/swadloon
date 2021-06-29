@@ -52,7 +52,6 @@ export const sectionComponents: CustomSectionLayoutComponents<CustomSectionLayou
   customFormVasectomy: (props) => <CustomSectionFormVasectomy section={props.section} />,
   customCostItems: (props) => <CustomCostItems section={props.section} />,
 };
-// customCostItems: (props) => <div>{JSON.stringify(props, null, 2)}</div>,
 
 export const PageTemplate: React.FC<ProjectPageProps> = ({ data, location, ...props }) => {
   return (

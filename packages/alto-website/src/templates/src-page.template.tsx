@@ -16,10 +16,7 @@ export const SrcPageTemplate: React.FC<Props & { children: ReactNode }> = (props
   return (
     <>
       <Helmet>
-        <link rel="icon" href="/images/favicon.svg" sizes="any" type="image/svg+xml" />
-        {props.path === '/' ? (
-          <meta httpEquiv="refresh" content="0; URL='/design-system/'" />
-        ) : null}
+        <link rel="icon" href="/images/logo-favicon.svg" sizes="any" type="image/svg+xml" />
         {getMetaBasicTags()}
         {getMetadataOpenGraphWebsiteTags({
           type: OPEN_GRAPH_TYPE.WEBSITE,

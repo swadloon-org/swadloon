@@ -5,7 +5,7 @@ import { GatsbyNode } from 'gatsby';
 import { GatsbyCorePluginOptions } from '../gatsby-plugin-options';
 
 export const onPreBootstrapFunction: GatsbyNode['onPreBootstrap'] = (args, options, callback) => {
-  const pluginOptions = options as unknown as GatsbyCorePluginOptions;
+  const pluginOptions = (options as unknown) as GatsbyCorePluginOptions;
   const toolName = pluginOptions.packageName;
 
   log(

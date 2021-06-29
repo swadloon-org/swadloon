@@ -1,3 +1,4 @@
+import { Variant } from '@newrade/core-design-system';
 import { PartialOrNull } from '../utilities';
 import { BlockAPI } from './block.api';
 import { CompanyInfoAPI } from './company-info.api';
@@ -24,6 +25,10 @@ export type FooterAPI = PartialOrNull<{
    */
   layout: FooterLayout;
   /**
+   * Controls the visual importance of the footer.
+   */
+  variant: Variant;
+  /**
    * Navigation links for the Footer
    */
   navigation: NavigationAPI;
@@ -43,4 +48,8 @@ export type FooterAPI = PartialOrNull<{
    * Link to terms of service or use page
    */
   termsOfServicesLink: LinkAPI;
+  /**
+   * Version of the website or app
+   */
+  version: string;
 }>;

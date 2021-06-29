@@ -30,6 +30,5 @@
       ]
     }
   ],
-  "trailingSlash": true,
-  "redirects": [{ "source": "/", "destination": "/design-system/", "permanent": false }]
+  "trailingSlash": true
 }

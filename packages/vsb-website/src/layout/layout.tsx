@@ -31,6 +31,8 @@ import {
   useTreatTheme,
   useViewportBreakpoint,
 } from '@newrade/core-react-ui';
+import Logo from '@newrade/vsb-design-system/lib/assets/logo-standard.svg';
+import LogoSymbol from '@newrade/vsb-design-system/lib/assets/logo-symbol.svg';
 import { globalHistory } from '@reach/router';
 import { IoClose } from '@react-icons/all-files/io5/IoClose';
 import { PageProps } from 'gatsby';
@@ -39,8 +41,6 @@ import { useStyles } from 'react-treat';
 import { useAnimateNavbarDesktop } from '../hook/use-animate-navbar-desktop';
 import { useAnimateNavbarMobile } from '../hook/use-animate-navbar-mobile';
 import { useCompanyInfo, usePagesNavigation } from '../hook/use-layout-data';
-import LogoSymbol from '../images/logo-symbol.svg';
-import Logo from '../images/logo.svg';
 import { Footer } from './footer';
 import * as styleRefs from './layout.treat';
 

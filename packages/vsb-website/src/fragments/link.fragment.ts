@@ -11,9 +11,5 @@ export const linkFragment = graphql`
       name
       slug
     }
-    # section {
-    #   id
-    #   name
-    # }
   }
 `;

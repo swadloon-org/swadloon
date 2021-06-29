@@ -20,5 +20,5 @@
       "path": "../core-webpack-config/tsconfig.build.json"
     }
   ],
-  "include": ["src", "types"]
+  "include": ["src", "test", "types", "scripts"]
 }

@@ -1,6 +1,7 @@
 import { PartialOrNull } from '../utilities';
 import { BlockAPI } from './block.api';
 import { NavigationAPI } from './navigation.api';
+import { Variant } from '@newrade/core-design-system';
 
 /**
  * Predefined navbar layouts
@@ -21,6 +22,10 @@ export type NavbarAPI = PartialOrNull<{
    * Controls the layout of the footer
    */
   layout: NavbarLayout | string;
+  /**
+   * Controls the visual importance of the navbar.
+   */
+  variant: Variant;
   /**
    * Navigation links for the Navbar
    */

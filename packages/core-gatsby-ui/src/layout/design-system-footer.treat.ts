@@ -6,7 +6,8 @@ export const styles = {
     width: `100%`,
   })),
   content: style(({ cssTheme, theme }: Theme) => ({
-    margin: `${cssTheme.sizing.var.x4} 0 0`,
+    display: 'flex',
+    margin: `${cssTheme.sizing.var.x5} 0 0`,
     padding: `${cssTheme.sizing.var.x3} 0 ${cssTheme.sizing.var.x5}`,
     borderTop: `2px solid ${cssTheme.colors.colors.grey[100]}`,
   })),

@@ -16,7 +16,7 @@ import { SectionProps, SectionRendererProps } from './section.props';
 
 const log = debug('newrade:core-gatsby-ui:section-renderer');
 const logWarn = log.extend('warn');
-const logError = log.extend('error'); // deepscan-disable-line UNUSED_DECL
+const logError = log.extend('error');
 
 /**
  * Component that will render a Section object in their layout.

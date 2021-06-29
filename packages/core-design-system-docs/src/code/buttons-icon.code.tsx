@@ -15,11 +15,7 @@ export const ButtonsIcon: React.FC<Props> = (props) => {
         gap: 'var(--sizing-x1)',
       }}
     >
-      <Button
-        size={ButtonSize.large}
-        icon={ButtonIcon.right}
-        Icon={<IoArrowForwardOutline />}
-      ></Button>
+      <Button size={ButtonSize.large} Icon={<IoArrowForwardOutline />}></Button>
       <Button
         size={ButtonSize.large}
         icon={ButtonIcon.left}

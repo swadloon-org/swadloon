@@ -9,5 +9,5 @@
       "@newrade/*": ["../*/src"]
     }
   },
-  "exclude": ["**/node_modules/**/*", "**/dist/**/*", "**/lib/**/*"]
+  "include": ["src", "test", "types"]
 }

@@ -1,6 +1,4 @@
 import { cssTheme, theme } from '@newrade/alto-design-system';
-import Logo from '@newrade/alto-design-system/lib/assets/logo-standard.svg';
-import LogoSymbol from '@newrade/alto-design-system/lib/assets/logo-symbol.svg';
 import { GatsbyCommonPageContext } from '@newrade/core-gatsby-config';
 import { LazyLayoutDesignSystem, LazyLayoutDocs } from '@newrade/core-gatsby-ui/src';
 import { PageProps, WrapPageElementBrowserArgs } from 'gatsby';
@@ -28,22 +26,14 @@ export const WrapElement: React.FC<WrapPageElementBrowserArgs> = ({ element, pro
     case 'docs': {
       return (
         <ProvidersDocs>
-          <LazyLayoutDocs DesktopSvgLogo={<Logo />} MobileSvgLogo={<LogoSymbol />} {...pageProps}>
-            {element}
-          </LazyLayoutDocs>
+          <LazyLayoutDocs {...pageProps}>{element}</LazyLayoutDocs>
         </ProvidersDocs>
       );
     }
     case 'designSystem': {
       return (
         <ProvidersDocs>
-          <LazyLayoutDesignSystem
-            treatThemeRef={light}
-            theme={{ theme, cssTheme }}
-            DesktopSvgLogo={<Logo />}
-            MobileSvgLogo={<LogoSymbol />}
-            {...pageProps}
-          >
+          <LazyLayoutDesignSystem treatThemeRef={light} theme={{ theme, cssTheme }} {...pageProps}>
             {element}
           </LazyLayoutDesignSystem>
         </ProvidersDocs>

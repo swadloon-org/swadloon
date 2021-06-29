@@ -1,5 +1,5 @@
 import { ICON, ICON_SIZE } from '@newrade/core-design-system';
-import React, { ErrorInfo, SVGAttributes, useState } from 'react';
+import React, { ErrorInfo, SVGAttributes } from 'react';
 import { useStyles } from 'react-treat';
 import { useCommonProps } from '../hooks/use-common-props.hook';
 import { useTreatTheme } from '../hooks/use-treat-theme';
@@ -26,8 +26,6 @@ export const IconLoader: React.FC<Props> = ({
   ...props
 }) => {
   const { theme, cssTheme } = useTreatTheme();
-  const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false);
   const context = useIconContext();
   const styles = useStyles(styleRefs);
   const commonProps = useCommonProps({
@@ -52,15 +50,13 @@ export const IconLoader: React.FC<Props> = ({
     return <IconNotFoundError />;
   }
 
-  if (error) {
+  const IconComponent = context.iconComponents[name];
+
+  if (!IconComponent) {
+    console.log('iconComponents={} must be set on <IconProvider/>');
     return <IconNotFoundError />;
   }
 
-  if (loading) {
-    return null;
-  }
-
-  const IconComponent = context.iconComponents[name];
   return <IconComponent {...commonProps} />;
 };
 

@@ -16,5 +16,6 @@
     "paths": {
       "@newrade/*": ["../*/src"]
     }
-  }
+  },
+  "include": ["src", "test", "types", "scripts"]
 }

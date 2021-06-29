@@ -3,7 +3,7 @@
 exports[`the button component should render correctly 1`] = `
 <button
   class="style_theme style_theme style_theme"
-  dataicon=""
+  dataicon="none"
   datapaddingcollapse="undefined"
 >
   <div

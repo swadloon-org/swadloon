@@ -30,8 +30,8 @@ const config: core.GastbySiteConfig = {
     ENABLE_GATSBY_REFRESH_ENDPOINT: toBoolean(env.ENABLE_GATSBY_REFRESH_ENDPOINT),
   },
   siteMetadata: {
-    title: `Newrade Website`,
-    description: `Newrade's main website`,
+    title: `Alto Infra`,
+    description: `Alto Infra's website`,
     siteUrl: getAppUrl(env),
     siteEnv: env.APP_ENV,
     languages: {
@@ -50,9 +50,21 @@ const config: core.GastbySiteConfig = {
         short_name: `Alto Infra`,
         start_url: `/`,
         background_color: `#ffffff`,
-        theme_color: `#6061EC`,
+        theme_color: `#1616C5`,
         display: `standalone`,
-        icon: `src/images/favicon.svg`,
+        icon: `../alto-design-system/lib/assets/logo-favicon.png`,
+      },
+    },
+    {
+      /**
+       * @see https://www.gatsbyjs.com/plugins/gatsby-source-contentful/
+       */
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: env.CONTENTFUL_SPACEID_ALTO,
+        accessToken: env.CONTENTFUL_DELIVERY_TOKEN_ALTO,
+        environment: env.CONTENTFUL_ENV,
+        downloadLocal: true,
       },
     },
     /**
@@ -63,11 +75,12 @@ const config: core.GastbySiteConfig = {
     ...core.getGatsbyPluginTypeScriptConfig({
       documentPaths: [
         '../core-gatsby-ui/src/fragments/gatsby/**/*.{ts,tsx}',
+        '../core-gatsby-ui/src/fragments/contentful/**/*.{ts,tsx}',
         './src/**/*.{ts,tsx}',
       ],
     }),
     core.getGatsbyPluginCatchLinks(),
-    core.getGatsbyReactSvgConfig(),
+    core.getGatsbyReactSvgrSvgoConfig(),
     ...core.getGastbyPluginPageCreatorConfig(),
     core.getGastbyPluginTreatConfig(),
     core.getGastbyPluginVanilla(),
@@ -76,11 +89,20 @@ const config: core.GastbySiteConfig = {
     core.getGatsbyPluginSharp(),
     ...core.getGatsbyPluginMdx(),
     ...core.getGatsbyImageFolder({
-      pathImgDir: path.join(__dirname, `/src/images`),
+      pathImgDir: path.join(__dirname, `../alto-design-system/lib/assets`),
     }),
     core.getGatsbyPluginReactHelmet(),
     core.getGatsbyPluginSitemap(),
     core.getGatsbyPluginRobotsTxt({ env }),
+    core.getGastbyCoreContentfulPluginConfig({
+      packageName: packageJson.name,
+      locales: ['fr-CA', 'en-CA'],
+      features: {
+        renderPages: true,
+        renderBlogPosts: false,
+        renderPortfolio: false,
+      },
+    }),
     core.getGastbyCorePluginConfig({
       packageName: packageJson.name,
       features: {

@@ -1,6 +1,6 @@
 import { CommonComponentProps } from '@newrade/core-react-ui';
-import { BlockType, SectionAPI, SectionLayout } from '@newrade/core-website-api';
-import { BlockProps } from '../blocks/block.props';
+import { SectionAPI, SectionLayout } from '@newrade/core-website-api';
+import { CustomBlockVariantComponents } from '../blocks/block.props';
 
 /**
  * Minimal props for a Section component
@@ -19,13 +19,6 @@ export type CustomSectionLayoutComponents<CustomSectionLayouts extends string> =
   [key in CustomSectionLayouts | SectionLayout]?: (
     props: SectionProps
   ) => React.ReactElement | null;
-};
-
-/**
- * Defines a component for each custom block variant
- */
-export type CustomBlockVariantComponents<CustomBlockVariants extends string> = {
-  [key in CustomBlockVariants | BlockType]?: (props: BlockProps) => React.ReactElement | null;
 };
 
 /**

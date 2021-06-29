@@ -30,14 +30,7 @@ const query = graphql`
     }
 
     companyAddress: contentfulCompanyAddress {
-      addressLine1
-      city
-      provinceState
-      postalCode
-      websiteURL
-      phone
-      email
-      fax
+      ...CompanyAddressFragment
     }
     companyInfo: contentfulCompanyInfo {
       copyright

@@ -12,7 +12,7 @@ export enum LinkComponent {
   link = 'link',
   button = 'button',
   buttonIcon = 'buttonIcon',
-  menuitem = 'menuItem',
+  menuItem = 'menuItem',
 }
 
 export type LinkAPI = PartialOrNull<{

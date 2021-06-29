@@ -16,7 +16,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
   options
 ) => {
   const { createPage } = actions;
-  const pluginOptions = options as unknown as GatsbyCoreContentfulPluginOptions;
+  const pluginOptions = (options as unknown) as GatsbyCoreContentfulPluginOptions;
 
   try {
     /**

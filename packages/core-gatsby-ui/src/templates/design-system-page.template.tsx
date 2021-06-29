@@ -35,6 +35,9 @@ export const markdownTemplateQuery = graphql`
           description
           version
           status
+          editPageUrl
+          nextPageLabel
+          nextPageUrl
         }
         timeToRead
         headings {
@@ -103,7 +106,11 @@ const Template: React.FC<MarkdownTemplateProps> = (props) => {
           </MDXRenderer>
         </DocsMarkdownCSS>
 
-        <DesignSystemFooter />
+        <DesignSystemFooter
+          editPageUrl={props.data.file?.childMdx?.frontmatter?.editPageUrl}
+          nextPageLabel={props.data.file?.childMdx?.frontmatter?.nextPageLabel}
+          nextPageUrl={props.data.file?.childMdx?.frontmatter?.nextPageUrl}
+        />
       </Center>
 
       <Aside items={props.data.file?.childMdx?.headings} location={props.location} />

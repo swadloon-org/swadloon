@@ -11,10 +11,10 @@ export const IconSizes: React.FC<Props> = ({ size }) => {
 
   return (
     <Cluster wrap={true} gap={[cssTheme.sizing.var.x3]} justifyContent={['flex-start']}>
-      <IconComp name={ICON.ARROW_UP} size={size} />
-      <IconComp name={ICON.ARROW_RIGHT} size={size} />
-      <IconComp name={ICON.ARROW_DOWN} size={size} />
-      <IconComp name={ICON.ARROW_LEFT} size={size} />
+      <IconComp name={ICON.IO_ARROW_UP} size={size} />
+      <IconComp name={ICON.IO_ARROW_RIGHT} size={size} />
+      <IconComp name={ICON.IO_ARROW_DOWN} size={size} />
+      <IconComp name={ICON.IO_ARROW_LEFT} size={size} />
     </Cluster>
   );
 };

@@ -5,6 +5,8 @@ description:
   clear hierarchies and organize information.
 tags:
   - foundations
+nextPageUrl: /design-system/brand/colors/
+nextPageLabel: 'Next: Colors'
 ---
 
 <!-- CODE IMPORTS -->
@@ -29,55 +31,6 @@ import { Paragraphs } from '../../src/code/paragraphs.code';
 Typography starts by setting a foundation of font families and weights to create
 hierarchy using size, colors and line-height.
 
-## Fonts
-
-Each design system has a sans-serif typeface, sans-serif alternate typeface,
-serif typeface and mono typeface based on their branding.
-
-<ThemeWrapper style={{padding: '48px 16px'}}>
-
-<Fonts/>
-</ThemeWrapper>
-
-### Sans-Serif
-
-A sans-serif typeface doesn't have any serif.
-
-<ThemeWrapper style={{padding: '48px 16px'}}>
-
-<FontsSans/>
-</ThemeWrapper>
-
-### Sans Serif Alternate
-
-A sans-serif alternate typeface is used to alternate the main sans-serif
-typeface.
-
-<ThemeWrapper style={{padding: '48px 16px'}}>
-
-<FontsSansAlternate/>
-</ThemeWrapper>
-
-### Serif
-
-A serif typeface has serif, a small line or stroke, at the end of stroke of
-letters and symbols.
-
-<ThemeWrapper style={{padding: '48px 16px'}}>
-
-<FontsSerif/>
-</ThemeWrapper>
-
-### Mono
-
-A mono typeface has letters and characters that are mathematically the same
-width.
-
-<ThemeWrapper style={{padding: '48px 16px'}}>
-
-<FontsMono/>
-</ThemeWrapper>
-
 ## Titles
 
 Titles have the same semantics as Headings but they have significantly larger.
@@ -88,6 +41,7 @@ For example, on landing pages, it is very common to have a larger font size for
 the main sentence or key tagline. While we could use the `<Heading/>` component,
 we decided to separate those larger titles to it's own `<Title/>` component.
 
+<!-- prettier-ignore -->
 <ThemeWrapper style={{padding: '48px 16px'}}>
 
   <Title style={{textAlign: 'center'}}>Big Statement</Title>
@@ -98,12 +52,8 @@ This allows us to have specific font sizes and styles for both headings and
 their larger siblings that we call titles.
 
 <!-- prettier-ignore -->
-<ThemeWrapper style={{padding: '24px 16px'}}>
+<ThemeWrapper style={{padding: '24px 16px'}}> 
   <Titles/>
-</ThemeWrapper>
-
-<!-- prettier-ignore -->
-<ThemeWrapper style={{padding: '24px 16px'}} reversed="true"> <Titles/>
 </ThemeWrapper>
 
 ## Headings
@@ -115,11 +65,8 @@ Headings (h1-h4)
 >
 > [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements)
 
+<!-- prettier-ignore -->
 <ThemeWrapper>
-  <Headings/>
-</ThemeWrapper>
-
-<ThemeWrapper reversed="true">
   <Headings/>
 </ThemeWrapper>
 
@@ -127,11 +74,8 @@ Headings (h1-h4)
 
 Paragraph text comes in 4 sizes and 3 styles (normal, italic and bold).
 
+<!-- prettier-ignore -->
 <ThemeWrapper>
-  <Paragraphs/>
-</ThemeWrapper>
-
-<ThemeWrapper reversed="true">
   <Paragraphs/>
 </ThemeWrapper>
 
@@ -142,10 +86,19 @@ description are needed.
 
 There are 3 sizes of label and 3 styles (bold, uppercase, bold uppercase).
 
+<!-- prettier-ignore -->
 <ThemeWrapper>
   <Labels/>
 </ThemeWrapper>
 
-<ThemeWrapper reversed="true">
+## Reversed Color Mode
+
+All text content can be used in reversed mode.
+
+<!-- prettier-ignore -->
+<ThemeWrapper style={{padding: '24px 16px'}} reversed="true">
+  <Titles/>
+  <Headings/>
   <Labels/>
+  <Paragraphs/>
 </ThemeWrapper>

@@ -42,12 +42,12 @@ export const SectionSwitcher = React.forwardRef<any, Props>(
     return (
       <SectionBase
         ref={ref}
-        {...commonProps}
         section={{
           variant,
           baseLayout,
           padding,
         }}
+        {...commonProps}
       >
         <Switcher
           col={2}

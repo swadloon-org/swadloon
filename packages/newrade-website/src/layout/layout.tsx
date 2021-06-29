@@ -3,12 +3,11 @@ import {
   ButtonIcon,
   ButtonSize,
   HEADING,
-  LinkVariant,
   PARAGRAPH_SIZE,
   Variant,
   VIEWPORT,
 } from '@newrade/core-design-system';
-import { GatsbyLink } from '@newrade/core-gatsby-ui/src';
+import { FooterRenderer, GatsbyLink } from '@newrade/core-gatsby-ui/src';
 import {
   BoxV2,
   Button,
@@ -19,24 +18,24 @@ import {
   MainWrapper,
   NavBar,
   NavItem,
-  Paragraph,
   Stack,
   useCommonProps,
   useIsSSR,
   useTreatTheme,
   useViewportBreakpoint,
 } from '@newrade/core-react-ui';
+import { FooterAPI } from '@newrade/core-website-api';
 import { globalHistory } from '@reach/router';
 import { IoClose } from '@react-icons/all-files/io5/IoClose';
-import { PageProps } from 'gatsby';
+import { graphql, PageProps, useStaticQuery } from 'gatsby';
 import React, { ReactNode, useEffect, useState } from 'react';
 import { useStyles } from 'react-treat';
-// import { themeClassName } from '../design-system/theme.css';
+import { clientEnv } from '../../types/dot-env-client';
+import { FooterQuery } from '../../types/graphql-types';
 import { useCompanyInfo, usePagesNavigation } from '../hooks/use-layout-data';
 import LogoSymbol from '../images/logo-symbol.svg';
 import LogoText from '../images/logo-text.svg';
 import Logo from '../images/logo.svg';
-import { Footer } from './footer';
 import * as styleRefs from './layout.treat';
 
 type LayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }>;
@@ -54,6 +53,17 @@ const MobileSideBar = loadable<any>(
   }
 );
 
+export const footerQuery = graphql`
+  query Footer {
+    site {
+      ...SiteMetadata
+    }
+    footer: contentfulFooter(name: { eq: "Footer" }) {
+      ...FooterFragment
+    }
+  }
+`;
+
 export const Layout = React.memo<LayoutProps>((props) => {
   const isSSR = useIsSSR();
 
@@ -62,6 +72,7 @@ export const Layout = React.memo<LayoutProps>((props) => {
    */
   const navigation = usePagesNavigation();
   const { companyInfo, companyAddress } = useCompanyInfo();
+  const footerData = useStaticQuery<FooterQuery>(footerQuery);
 
   /**
    * Styles & animations
@@ -229,55 +240,14 @@ export const Layout = React.memo<LayoutProps>((props) => {
               })}
             </Stack>
           </BoxV2>
-
-          <BoxV2
-            style={{ flexDirection: 'column', backgroundColor: cssTheme.colors.colors.grey[50] }}
-            justifyContent={['flex-start']}
-            alignItems={['stretch']}
-            padding={[cssTheme.sizing.var.x5, cssTheme.layout.var.contentMargins]}
-          >
-            <Stack gap={[cssTheme.sizing.var.x5]}>
-              <Stack gap={[cssTheme.sizing.var.x4]}>
-                <Link
-                  variantSize={PARAGRAPH_SIZE.small}
-                  variant={LinkVariant.underline}
-                  href={`mailto:${companyAddress?.email}`}
-                >
-                  {companyAddress?.email}
-                </Link>
-                <Link
-                  variantSize={PARAGRAPH_SIZE.small}
-                  variant={LinkVariant.underline}
-                  href={`tel:${companyAddress?.phone}`}
-                >
-                  {companyAddress?.phone}
-                </Link>
-                <Link
-                  variantSize={PARAGRAPH_SIZE.small}
-                  variant={LinkVariant.underline}
-                  href={`fax:${companyAddress?.fax}`}
-                >
-                  {companyAddress?.fax}
-                </Link>
-                <Link
-                  variantSize={PARAGRAPH_SIZE.small}
-                  variant={LinkVariant.underline}
-                  href={'https://goo.gl/maps/nndYpgQLkbDC6c7S7'}
-                  target="blank"
-                >
-                  {companyAddress?.addressLine1}
-                </Link>
-              </Stack>
-
-              <Paragraph variant={PARAGRAPH_SIZE.small}>{companyInfo?.copyright}</Paragraph>
-            </Stack>
-          </BoxV2>
         </Stack>
       </MobileSideBar>
 
       <Main minHeight={true}>{props.children}</Main>
 
-      <Footer id={'footer'} style={{ zIndex: cssTheme.layout.zIndex.content }}></Footer>
+      <FooterRenderer
+        footer={{ ...(footerData.footer as FooterAPI), version: clientEnv.APP_VERSION }}
+      />
     </MainWrapper>
   );
 });
