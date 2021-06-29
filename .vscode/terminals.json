@@ -177,6 +177,22 @@
       "focus": false,
       "command": "yarn start",
       "execute": false
+    },
+    {
+      "name": "ze-design-system",
+      "cwd": "./packages/ze-design-system",
+      "open": true,
+      "focus": false,
+      "command": "yarn start",
+      "execute": false
+    },
+    {
+      "name": "ze-design-website",
+      "cwd": "./packages/ze-design-website",
+      "open": true,
+      "focus": false,
+      "command": "yarn start",
+      "execute": false
     }
   ]
 }

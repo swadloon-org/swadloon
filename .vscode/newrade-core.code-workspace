@@ -198,6 +198,14 @@
     {
       "name": "core-yo-generator",
       "path": "../packages/core-yo-generator"
+    },
+    {
+      "name": "ze-design-system",
+      "path": "../packages/ze-design-system"
+    },
+    {
+      "name": "ze-design-website",
+      "path": "../packages/ze-design-website"
     }
   ]
 }

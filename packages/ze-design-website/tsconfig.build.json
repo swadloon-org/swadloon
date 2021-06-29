@@ -1,0 +1,28 @@
+{
+  "extends": "../core-gatsby-config/src/tsconfig/tsconfig.ts-plugin.json",
+  "compilerOptions": {
+    "allowJs": true,
+    "rootDir": "."
+  },
+  "references": [
+    {
+      "path": "../core-utils/tsconfig.build.json"
+    },
+    {
+      "path": "../core-gatsby-config/tsconfig.build.json"
+    },
+    {
+      "path": "../core-react-ui/tsconfig.build.json"
+    },
+    {
+      "path": "../core-design-system/tsconfig.build.json"
+    },
+    {
+      "path": "../core-webpack-config/tsconfig.build.json"
+    },
+    {
+      "path": "../ze-design-system/tsconfig.build.json"
+    }
+  ],
+  "include": ["src", "test", "types", "scripts"]
+}
