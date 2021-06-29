@@ -1,8 +1,8 @@
-import { cssTheme, theme } from '@newrade/cdpq-design-system';
-import LogoSymbol from '@newrade/cdpq-design-system/lib/assets/logo-symbol.svg';
-import Logo from '@newrade/cdpq-design-system/lib/assets/logo.svg';
 import { GatsbyCommonPageContext } from '@newrade/core-gatsby-config';
 import { LazyLayoutDesignSystem, LazyLayoutDocs } from '@newrade/core-gatsby-ui/src';
+import { cssTheme, theme } from '@newrade/ze-design-system';
+import LogoSymbol from '@newrade/ze-design-system/lib/assets/logo-symbol.svg';
+import Logo from '@newrade/ze-design-system/lib/assets/logo.svg';
 import { PageProps, WrapPageElementBrowserArgs } from 'gatsby';
 import React from 'react';
 import ProvidersDocs from './src/context/providers-docs';

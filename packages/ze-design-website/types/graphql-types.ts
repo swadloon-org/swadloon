@@ -733,9 +733,6 @@ export type FileFieldsEnum =
   | 'childrenMdx___frontmatter___tags'
   | 'childrenMdx___frontmatter___version'
   | 'childrenMdx___frontmatter___status'
-  | 'childrenMdx___frontmatter___editPageUrl'
-  | 'childrenMdx___frontmatter___nextPageUrl'
-  | 'childrenMdx___frontmatter___nextPageLabel'
   | 'childrenMdx___slug'
   | 'childrenMdx___body'
   | 'childrenMdx___excerpt'
@@ -795,9 +792,6 @@ export type FileFieldsEnum =
   | 'childMdx___frontmatter___tags'
   | 'childMdx___frontmatter___version'
   | 'childMdx___frontmatter___status'
-  | 'childMdx___frontmatter___editPageUrl'
-  | 'childMdx___frontmatter___nextPageUrl'
-  | 'childMdx___frontmatter___nextPageLabel'
   | 'childMdx___slug'
   | 'childMdx___body'
   | 'childMdx___excerpt'
@@ -1672,9 +1666,6 @@ export type MdxFieldsEnum =
   | 'frontmatter___tags'
   | 'frontmatter___version'
   | 'frontmatter___status'
-  | 'frontmatter___editPageUrl'
-  | 'frontmatter___nextPageUrl'
-  | 'frontmatter___nextPageLabel'
   | 'slug'
   | 'body'
   | 'excerpt'
@@ -1805,9 +1796,6 @@ export type MdxFrontmatter = {
   tags?: Maybe<Array<Maybe<Scalars['String']>>>;
   version?: Maybe<Scalars['String']>;
   status?: Maybe<Scalars['String']>;
-  editPageUrl?: Maybe<Scalars['String']>;
-  nextPageUrl?: Maybe<Scalars['String']>;
-  nextPageLabel?: Maybe<Scalars['String']>;
 };
 
 export type MdxFrontmatterFilterInput = {
@@ -1817,9 +1805,6 @@ export type MdxFrontmatterFilterInput = {
   tags?: Maybe<StringQueryOperatorInput>;
   version?: Maybe<StringQueryOperatorInput>;
   status?: Maybe<StringQueryOperatorInput>;
-  editPageUrl?: Maybe<StringQueryOperatorInput>;
-  nextPageUrl?: Maybe<StringQueryOperatorInput>;
-  nextPageLabel?: Maybe<StringQueryOperatorInput>;
 };
 
 export type MdxGroupConnection = {
@@ -2042,8 +2027,6 @@ export type QueryAllDirectoryArgs = {
 export type QuerySiteArgs = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
-  port?: Maybe<IntQueryOperatorInput>;
-  host?: Maybe<StringQueryOperatorInput>;
   flags?: Maybe<SiteFlagsFilterInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
@@ -2183,8 +2166,6 @@ export type QueryAllSitePluginArgs = {
 export type Site = Node & {
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
-  port?: Maybe<Scalars['Int']>;
-  host?: Maybe<Scalars['String']>;
   flags?: Maybe<SiteFlags>;
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
@@ -2391,8 +2372,6 @@ export type SiteFieldsEnum =
   | 'siteMetadata___siteEnv'
   | 'siteMetadata___languages___langs'
   | 'siteMetadata___languages___defaultLangKey'
-  | 'port'
-  | 'host'
   | 'flags___PRESERVE_WEBPACK_CACHE'
   | 'flags___PRESERVE_FILE_DOWNLOAD_CACHE'
   | 'flags___QUERY_ON_DEMAND'
@@ -2494,8 +2473,6 @@ export type SiteFieldsEnum =
 export type SiteFilterInput = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
-  port?: Maybe<IntQueryOperatorInput>;
-  host?: Maybe<StringQueryOperatorInput>;
   flags?: Maybe<SiteFlagsFilterInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
@@ -2791,12 +2768,6 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___cacheDigest'
   | 'pluginCreator___pluginOptions___fileName'
   | 'pluginCreator___pluginOptions___documentPaths'
-  | 'pluginCreator___pluginOptions___inlineSvgOptions'
-  | 'pluginCreator___pluginOptions___inlineSvgOptions___native'
-  | 'pluginCreator___pluginOptions___inlineSvgOptions___ref'
-  | 'pluginCreator___pluginOptions___urlSvgOptions'
-  | 'pluginCreator___pluginOptions___urlSvgOptions___native'
-  | 'pluginCreator___pluginOptions___urlSvgOptions___ref'
   | 'pluginCreator___pluginOptions___path'
   | 'pluginCreator___pluginOptions___ignore'
   | 'pluginCreator___pluginOptions___extensions'
@@ -3022,15 +2993,6 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___cacheDigest'
   | 'pluginOptions___fileName'
   | 'pluginOptions___documentPaths'
-  | 'pluginOptions___inlineSvgOptions'
-  | 'pluginOptions___inlineSvgOptions___native'
-  | 'pluginOptions___inlineSvgOptions___ref'
-  | 'pluginOptions___inlineSvgOptions___svgoConfig___plugins'
-  | 'pluginOptions___urlSvgOptions'
-  | 'pluginOptions___urlSvgOptions___native'
-  | 'pluginOptions___urlSvgOptions___ref'
-  | 'pluginOptions___urlSvgOptions___svgoConfig___plugins'
-  | 'pluginOptions___urlSvgOptions___urlLoaderOptions___limit'
   | 'pluginOptions___path'
   | 'pluginOptions___ignore'
   | 'pluginOptions___extensions'
@@ -3194,8 +3156,6 @@ export type SitePluginPluginOptions = {
   cacheDigest?: Maybe<Scalars['String']>;
   fileName?: Maybe<Scalars['String']>;
   documentPaths?: Maybe<Array<Maybe<Scalars['String']>>>;
-  inlineSvgOptions?: Maybe<Array<Maybe<SitePluginPluginOptionsInlineSvgOptions>>>;
-  urlSvgOptions?: Maybe<Array<Maybe<SitePluginPluginOptionsUrlSvgOptions>>>;
   path?: Maybe<Scalars['String']>;
   ignore?: Maybe<Array<Maybe<Scalars['String']>>>;
   extensions?: Maybe<Array<Maybe<Scalars['String']>>>;
@@ -3346,8 +3306,6 @@ export type SitePluginPluginOptionsFilterInput = {
   cacheDigest?: Maybe<StringQueryOperatorInput>;
   fileName?: Maybe<StringQueryOperatorInput>;
   documentPaths?: Maybe<StringQueryOperatorInput>;
-  inlineSvgOptions?: Maybe<SitePluginPluginOptionsInlineSvgOptionsFilterListInput>;
-  urlSvgOptions?: Maybe<SitePluginPluginOptionsUrlSvgOptionsFilterListInput>;
   path?: Maybe<StringQueryOperatorInput>;
   ignore?: Maybe<StringQueryOperatorInput>;
   extensions?: Maybe<StringQueryOperatorInput>;
@@ -3397,52 +3355,6 @@ export type SitePluginPluginOptionsGatsbyRemarkPluginsOptionsFilterInput = {
   linkImagesToOriginal?: Maybe<BooleanQueryOperatorInput>;
   wrapperStyle?: Maybe<StringQueryOperatorInput>;
   destinationDir?: Maybe<StringQueryOperatorInput>;
-};
-
-export type SitePluginPluginOptionsInlineSvgOptions = {
-  native?: Maybe<Scalars['Boolean']>;
-  ref?: Maybe<Scalars['Boolean']>;
-  svgoConfig?: Maybe<SitePluginPluginOptionsInlineSvgOptionsSvgoConfig>;
-};
-
-export type SitePluginPluginOptionsInlineSvgOptionsFilterInput = {
-  native?: Maybe<BooleanQueryOperatorInput>;
-  ref?: Maybe<BooleanQueryOperatorInput>;
-  svgoConfig?: Maybe<SitePluginPluginOptionsInlineSvgOptionsSvgoConfigFilterInput>;
-};
-
-export type SitePluginPluginOptionsInlineSvgOptionsFilterListInput = {
-  elemMatch?: Maybe<SitePluginPluginOptionsInlineSvgOptionsFilterInput>;
-};
-
-export type SitePluginPluginOptionsInlineSvgOptionsSvgoConfig = {
-  plugins?: Maybe<Array<Maybe<SitePluginPluginOptionsInlineSvgOptionsSvgoConfigPlugins>>>;
-};
-
-export type SitePluginPluginOptionsInlineSvgOptionsSvgoConfigFilterInput = {
-  plugins?: Maybe<SitePluginPluginOptionsInlineSvgOptionsSvgoConfigPluginsFilterListInput>;
-};
-
-export type SitePluginPluginOptionsInlineSvgOptionsSvgoConfigPlugins = {
-  convertPathData?: Maybe<Scalars['Boolean']>;
-  convertShapeToPath?: Maybe<Scalars['Boolean']>;
-  mergePaths?: Maybe<Scalars['Boolean']>;
-  removeViewBox?: Maybe<Scalars['Boolean']>;
-  cleanupIDs?: Maybe<Scalars['Boolean']>;
-  prefixIds?: Maybe<Scalars['Boolean']>;
-};
-
-export type SitePluginPluginOptionsInlineSvgOptionsSvgoConfigPluginsFilterInput = {
-  convertPathData?: Maybe<BooleanQueryOperatorInput>;
-  convertShapeToPath?: Maybe<BooleanQueryOperatorInput>;
-  mergePaths?: Maybe<BooleanQueryOperatorInput>;
-  removeViewBox?: Maybe<BooleanQueryOperatorInput>;
-  cleanupIDs?: Maybe<BooleanQueryOperatorInput>;
-  prefixIds?: Maybe<BooleanQueryOperatorInput>;
-};
-
-export type SitePluginPluginOptionsInlineSvgOptionsSvgoConfigPluginsFilterListInput = {
-  elemMatch?: Maybe<SitePluginPluginOptionsInlineSvgOptionsSvgoConfigPluginsFilterInput>;
 };
 
 export type SitePluginPluginOptionsRehypePlugins = {
@@ -3517,62 +3429,6 @@ export type SitePluginPluginOptionsRemarkPluginsFilterInput = {
 
 export type SitePluginPluginOptionsRemarkPluginsFilterListInput = {
   elemMatch?: Maybe<SitePluginPluginOptionsRemarkPluginsFilterInput>;
-};
-
-export type SitePluginPluginOptionsUrlSvgOptions = {
-  native?: Maybe<Scalars['Boolean']>;
-  ref?: Maybe<Scalars['Boolean']>;
-  svgoConfig?: Maybe<SitePluginPluginOptionsUrlSvgOptionsSvgoConfig>;
-  urlLoaderOptions?: Maybe<SitePluginPluginOptionsUrlSvgOptionsUrlLoaderOptions>;
-};
-
-export type SitePluginPluginOptionsUrlSvgOptionsFilterInput = {
-  native?: Maybe<BooleanQueryOperatorInput>;
-  ref?: Maybe<BooleanQueryOperatorInput>;
-  svgoConfig?: Maybe<SitePluginPluginOptionsUrlSvgOptionsSvgoConfigFilterInput>;
-  urlLoaderOptions?: Maybe<SitePluginPluginOptionsUrlSvgOptionsUrlLoaderOptionsFilterInput>;
-};
-
-export type SitePluginPluginOptionsUrlSvgOptionsFilterListInput = {
-  elemMatch?: Maybe<SitePluginPluginOptionsUrlSvgOptionsFilterInput>;
-};
-
-export type SitePluginPluginOptionsUrlSvgOptionsSvgoConfig = {
-  plugins?: Maybe<Array<Maybe<SitePluginPluginOptionsUrlSvgOptionsSvgoConfigPlugins>>>;
-};
-
-export type SitePluginPluginOptionsUrlSvgOptionsSvgoConfigFilterInput = {
-  plugins?: Maybe<SitePluginPluginOptionsUrlSvgOptionsSvgoConfigPluginsFilterListInput>;
-};
-
-export type SitePluginPluginOptionsUrlSvgOptionsSvgoConfigPlugins = {
-  convertPathData?: Maybe<Scalars['Boolean']>;
-  convertShapeToPath?: Maybe<Scalars['Boolean']>;
-  mergePaths?: Maybe<Scalars['Boolean']>;
-  removeViewBox?: Maybe<Scalars['Boolean']>;
-  cleanupIDs?: Maybe<Scalars['Boolean']>;
-  prefixIds?: Maybe<Scalars['Boolean']>;
-};
-
-export type SitePluginPluginOptionsUrlSvgOptionsSvgoConfigPluginsFilterInput = {
-  convertPathData?: Maybe<BooleanQueryOperatorInput>;
-  convertShapeToPath?: Maybe<BooleanQueryOperatorInput>;
-  mergePaths?: Maybe<BooleanQueryOperatorInput>;
-  removeViewBox?: Maybe<BooleanQueryOperatorInput>;
-  cleanupIDs?: Maybe<BooleanQueryOperatorInput>;
-  prefixIds?: Maybe<BooleanQueryOperatorInput>;
-};
-
-export type SitePluginPluginOptionsUrlSvgOptionsSvgoConfigPluginsFilterListInput = {
-  elemMatch?: Maybe<SitePluginPluginOptionsUrlSvgOptionsSvgoConfigPluginsFilterInput>;
-};
-
-export type SitePluginPluginOptionsUrlSvgOptionsUrlLoaderOptions = {
-  limit?: Maybe<Scalars['Int']>;
-};
-
-export type SitePluginPluginOptionsUrlSvgOptionsUrlLoaderOptionsFilterInput = {
-  limit?: Maybe<IntQueryOperatorInput>;
 };
 
 export type SitePluginSortInput = {

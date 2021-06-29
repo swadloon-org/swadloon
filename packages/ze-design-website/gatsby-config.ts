@@ -30,8 +30,8 @@ const config: core.GastbySiteConfig = {
     ENABLE_GATSBY_REFRESH_ENDPOINT: toBoolean(env.ENABLE_GATSBY_REFRESH_ENDPOINT),
   },
   siteMetadata: {
-    title: `Newrade Website`,
-    description: `Newrade's main website`,
+    title: `Ze Design System Website`,
+    description: `Ze Design System main website`,
     siteUrl: getAppUrl(env),
     siteEnv: env.APP_ENV,
     languages: {
@@ -46,13 +46,13 @@ const config: core.GastbySiteConfig = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `CDPQ Design Website`,
-        short_name: `CDPQ DS`,
+        name: `Ze Design Website`,
+        short_name: `Ze DS`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#6061EC`,
         display: `standalone`,
-        icon: `src/images/favicon.svg`,
+        icon: `../ze-design-system/lib/assets/logo-favicon.png`,
       },
     },
     /**
@@ -67,7 +67,7 @@ const config: core.GastbySiteConfig = {
       ],
     }),
     core.getGatsbyPluginCatchLinks(),
-    core.getGatsbyReactSvgrSvgoConfig(),
+    core.getGatsbyReactSvgConfig(),
     ...core.getGastbyPluginPageCreatorConfig(),
     core.getGastbyPluginTreatConfig(),
     core.getGastbyPluginVanilla(),

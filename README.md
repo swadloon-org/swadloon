@@ -6,10 +6,8 @@
 ---
 
 ![build](https://github.com/newrade/newrade-core/actions/workflows/core-workflow.yml/badge.svg)
+![ze](https://github.com/newrade/newrade-core/actions/workflows/ze-design-website-workflow.yml/badge.svg)
 ![CodeQL](https://github.com/newrade/newrade-core/actions/workflows/codeql-analysis.yml/badge.svg)
-
----
-
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](https://commitizen.github.io/cz-cli/)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
@@ -28,10 +26,27 @@
 
 ### Get Started
 
+Clone the repository:
+
+```bash
+git clone git@github.com:newrade/newrade-core.git
+```
+
+Open the project in vscode with the provided `.code-workspace` file:
+
+```bash
+code ./.vscode/newrade-core.code-workspace
+```
+
+Install `node`, `yarn` and dependencies:
+
 ```bash
 # install correct version of node
 nvm install v15
 nvm alias default v15
+
+# install yarn
+npm install --global yarn
 
 # install dependencies
 yarn
