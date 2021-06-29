@@ -12,6 +12,7 @@ import { FooterAPI } from '@newrade/core-website-api';
 import { graphql, PageProps, useStaticQuery } from 'gatsby';
 import React, { ReactNode, useState } from 'react';
 import { useStyles } from 'react-treat';
+import { clientEnv } from '../../types/dot-env-client';
 import { FooterQuery } from '../../types/graphql-types';
 import * as styleRefs from './layout.treat';
 
@@ -69,7 +70,9 @@ export const Layout = React.memo<LayoutProps>((props) => {
         {props.children}
       </Main>
 
-      <FooterRenderer footer={footerData.footer as FooterAPI} />
+      <FooterRenderer
+        footer={{ ...(footerData.footer as FooterAPI), version: clientEnv.APP_VERSION }}
+      />
     </MainWrapper>
   );
 });

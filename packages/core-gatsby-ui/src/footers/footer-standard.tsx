@@ -51,6 +51,7 @@ export const FooterStandard = React.forwardRef<any, Props>(
     const instagramURL = footer?.companyInfo?.instagramPageURL;
     const linkedinURL = footer?.companyInfo?.linkedinPageURL;
     const navigation = footer?.navigation;
+    const version = footer?.version;
     const footerNavigation = navigation?.component === NavComponent.footer ? navigation : null;
 
     return (
@@ -140,6 +141,7 @@ export const FooterStandard = React.forwardRef<any, Props>(
           variantLevel={Variant.secondary}
         >
           {copyright || `© ${lorenipsumShort}`}
+          {version ? ` — v${version}` : ''}
         </Paragraph>
       </FooterBase>
     );

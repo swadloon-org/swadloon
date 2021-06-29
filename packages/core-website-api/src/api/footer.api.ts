@@ -48,4 +48,8 @@ export type FooterAPI = PartialOrNull<{
    * Link to terms of service or use page
    */
   termsOfServicesLink: LinkAPI;
+  /**
+   * Version of the website or app
+   */
+  version: string;
 }>;
