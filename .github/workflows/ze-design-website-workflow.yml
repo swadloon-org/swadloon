@@ -33,7 +33,7 @@ env:
   #
   # NVM
   #
-  NVM_NODE_VERSION: ${{ secrets.NVM_NODE_VERSION }}
+  NVM_NODE_VERSION: 14
   #
   # Repo
   #
@@ -111,7 +111,7 @@ jobs:
       uses: amondnet/vercel-action@v20
       with:
         github-comment: false
-        scope: ${{ secrets.VERCEL_SCOPE }}
+        scope: newrade
         vercel-token: ${{ secrets.VERCEL_TOKEN }}
         github-token: ${{ secrets.GITHUB_TOKEN }}
         vercel-args: 'public'
