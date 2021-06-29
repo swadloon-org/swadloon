@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby';
 
 export const blockFragment = graphql`
-  fragment Block on ContentfulBlock {
+  fragment BlockFragment on ContentfulBlock {
     id
     name
     variant
