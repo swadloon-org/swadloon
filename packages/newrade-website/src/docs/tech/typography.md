@@ -1,1 +1,0 @@
-http://webtypography.net/toc/

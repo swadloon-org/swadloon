@@ -1,0 +1,267 @@
+{
+  "settings": {
+    "typescript.surveys.enabled": false,
+    "terminals.sortTerminals": true,
+    "typescript.tsdk": "newrade/node_modules/typescript/lib",
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    },
+    "[yaml]": {
+      "editor.formatOnSave": false
+    },
+    "[svg]": {
+      "editor.defaultFormatter": "jock.svg"
+    },
+    "search.exclude": {
+      "**/node_modules": true,
+      "**/yarn.lock": true,
+      "**/lib": true,
+      "**/dist": true,
+      "**/built": true,
+      "**/.cache/**/*": true,
+      "**/public/**/*": true,
+      "**/*.js.map": true,
+      "**/*.tsbuildinfo": true
+    },
+    "files.watcherExclude": {
+      "**/.git/objects/**": true,
+      "**/.git/subtree-cache/**": true,
+      "**/node_modules/**": true,
+      "**/.hg/store/**": true,
+      "**/dist/**": true,
+      "**/built/**": true,
+      "**/public/**": true,
+      "**/.cache/**": true,
+      "**/lib/**": true
+    },
+    "files.exclude": {
+      "**/.git": true,
+      "**/.svn": true,
+      "**/.hg": true,
+      "**/CVS": true,
+      "**/.DS_Store": true,
+      "**/node_modules/**": false
+    },
+    //
+    // markdown
+    //
+    "[markdown]": {
+      "editor.wordWrap": "off"
+    },
+    //
+    // deepscan
+    //
+    // https://github.com/deepscan/vscode-deepscan#settings-options
+    // https://deepscan.io/docs/rules
+    "deepscan.enable": true,
+    "deepscan.ignorePatterns": [
+      "**/node_modules/**",
+      "graphql-types.ts",
+      "**/built/**/*",
+      "**/lib/**/*",
+      "**/public/**/*",
+      "**/dist/**/*"
+    ],
+    "deepscan.ignoreRules": ["no-console", "UNUSED_DECL", "UNUSED_PARAM"],
+    //
+    // terminals
+    //
+    "terminal.integrated.enablePersistentSessions": false,
+    "terminal.integrated.environmentChangesRelaunch": false
+  },
+  "extensions": {
+    "recommendations": [
+      "eamodio.gitlens",
+      "fabiospampinato.vscode-terminals",
+      "fabiospampinato.vscode-open-in-node-modules",
+      "jasonnutter.search-node-modules",
+      "esbenp.prettier-vscode",
+      "msjsdiag.debugger-for-chrome",
+      "DigitalBrainstem.javascript-ejs-support",
+      "mikestead.dotenv",
+      "silvenon.mdx",
+      "ms-vscode-remote.vscode-remote-extensionpack",
+      "eg2.vscode-npm-script",
+      "wmaurer.change-case",
+      "GitHub.vscode-pull-request-github",
+      "cschleiden.vscode-github-actions",
+      "yzhang.markdown-all-in-one",
+      "paulmolluzzo.convert-css-in-js",
+      "bierner.markdown-yaml-preamble",
+      "jock.svg",
+      "cssho.vscode-svgviewer",
+      "deepscan.vscode-deepscan",
+      "graphql.vscode-graphql",
+      "vstirbu.vscode-mermaid-preview",
+      "svsool.markdown-memo"
+    ]
+  },
+  "folders": [
+    {
+      "name": "newrade",
+      "path": ".."
+    },
+    {
+      "name": "github",
+      "path": "../.github"
+    },
+    {
+      "name": "docs",
+      "path": "../docs"
+    },
+    {
+      "name": "core-cli",
+      "path": "../packages/core-cli"
+    },
+    {
+      "name": "core-contentful-lib",
+      "path": "../packages/core-contentful-lib"
+    },
+    {
+      "name": "core-design-system",
+      "path": "../packages/core-design-system"
+    },
+    {
+      "name": "core-design-system-docs",
+      "path": "../packages/core-design-system-docs"
+    },
+    {
+      "name": "core-design-system-old",
+      "path": "../packages/core-design-system-old"
+    },
+    {
+      "name": "core-dev-config",
+      "path": "../packages/core-dev-config"
+    },
+    {
+      "name": "core-common",
+      "path": "../packages/core-common"
+    },
+    {
+      "name": "core-figma-extractor",
+      "path": "../packages/core-figma-extractor"
+    },
+    {
+      "name": "core-figma-plugins",
+      "path": "../packages/core-figma-plugins"
+    },
+    {
+      "name": "core-gatsby-config",
+      "path": "../packages/core-gatsby-config"
+    },
+    {
+      "name": "core-gatsby-ui",
+      "path": "../packages/core-gatsby-ui"
+    },
+    {
+      "name": "core-github-actions",
+      "path": "../packages/core-github-actions"
+    },
+    {
+      "name": "core-gsap-ui",
+      "path": "../packages/core-gsap-ui"
+    },
+    {
+      "name": "core-jest-config",
+      "path": "../packages/core-jest-config"
+    },
+    {
+      "name": "core-react-ui",
+      "path": "../packages/core-react-ui"
+    },
+    {
+      "name": "core-react-ui-old",
+      "path": "../packages/core-react-ui-old"
+    },
+    {
+      "name": "core-graphql-ui",
+      "path": "../packages/core-graphql-ui"
+    },
+    {
+      "name": "core-types",
+      "path": "../packages/core-types"
+    },
+    {
+      "name": "core-utils",
+      "path": "../packages/core-utils"
+    },
+    {
+      "name": "core-webpack-config",
+      "path": "../packages/core-webpack-config"
+    },
+    {
+      "name": "core-website-api",
+      "path": "../packages/core-website-api"
+    },
+    {
+      "name": "core-yo-generator",
+      "path": "../packages/core-yo-generator"
+    },
+    {
+      "name": "newrade-demo",
+      "path": "../packages/newrade-demo"
+    },
+    {
+      "name": "newrade-website",
+      "path": "../packages/newrade-website"
+    },
+    {
+      "name": "newrade-admin",
+      "path": "../packages/newrade-admin"
+    },
+    {
+      "name": "newrade-app",
+      "path": "../packages/newrade-app"
+    },
+    {
+      "name": "mir-website",
+      "path": "../packages/mir-website"
+    },
+    {
+      "name": "vsb-admin",
+      "path": "../packages/vsb-admin"
+    },
+    {
+      "name": "vsb-api",
+      "path": "../packages/vsb-api"
+    },
+    {
+      "name": "vsb-design-system",
+      "path": "../packages/vsb-design-system"
+    },
+    {
+      "name": "vsb-common",
+      "path": "../packages/vsb-common"
+    },
+    {
+      "name": "vsb-website",
+      "path": "../packages/vsb-website"
+    },
+    {
+      "name": "alto-design-system",
+      "path": "../packages/alto-design-system"
+    },
+    {
+      "name": "alto-website",
+      "path": "../packages/alto-website"
+    },
+    {
+      "name": "cdpq-design-system",
+      "path": "../packages/cdpq-design-system"
+    },
+    {
+      "name": "cdpq-design-website",
+      "path": "../packages/cdpq-design-website"
+    },
+    {
+      "name": "ronin-design-system",
+      "path": "../packages/ronin-design-system"
+    },
+    {
+      "name": "ronin-design-website",
+      "path": "../packages/ronin-design-website"
+    }
+  ]
+}

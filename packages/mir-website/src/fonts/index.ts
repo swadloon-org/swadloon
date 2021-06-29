@@ -1,1 +1,0 @@
-import './font-faces.css';

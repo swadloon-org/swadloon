@@ -1,3 +1,0 @@
-## Testing
-
-- sizzy.co
