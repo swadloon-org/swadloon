@@ -53,7 +53,7 @@ jobs:
 
   build-test-deploy:
 
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
 
     strategy:
       matrix:
