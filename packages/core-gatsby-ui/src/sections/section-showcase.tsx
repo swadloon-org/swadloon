@@ -14,7 +14,7 @@ type Props = SectionProps & {
   RightBGBlock: React.ReactNode;
 };
 
-export const SectionShowcase = React.forwardRef<any, Props>(
+export const SectionShowcase = React.forwardRef<HTMLElement, Props>(
   (
     {
       id,
@@ -42,7 +42,7 @@ export const SectionShowcase = React.forwardRef<any, Props>(
   ) => {
     const { styles } = useStyles(styleRefs);
     const { cssTheme } = useTreatTheme();
-    const commonProps = useCommonProps({
+    const commonProps = useCommonProps<'section'>({
       id,
       style,
       className,

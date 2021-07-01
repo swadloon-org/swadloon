@@ -1,7 +1,7 @@
 import { MDXProvider } from '@mdx-js/react';
 import {
-  CommonComponentProps,
   globalThemeReversed,
+  PrimitiveProps,
   TreatThemeProvider,
   useCommonProps,
   useTreatTheme,
@@ -13,7 +13,7 @@ import { mdxComponents } from '@newrade/core-react-ui/lib/markdown';
 import React, { ReactNode, useState } from 'react';
 import { TreatProvider } from 'react-treat';
 
-type Props = CommonComponentProps & {
+type Props = PrimitiveProps & {
   treatThemeRef: string;
   theme: Theme;
   themeClassname: string;

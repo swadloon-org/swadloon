@@ -1,10 +1,10 @@
 import React, { DetailsHTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
-import { CommonComponentProps } from '../props/component-common.props';
+import { PrimitiveProps } from '../primitive/primitive.props';
 import { getMergedClassname } from '../utilities/component.utilities';
 import * as stylesRef from './details.treat';
 
-type Props = CommonComponentProps & DetailsHTMLAttributes<any> & {};
+type Props = PrimitiveProps & DetailsHTMLAttributes<any> & {};
 
 /**
  * <details> The HTML Details Element (<details>) creates a disclosure

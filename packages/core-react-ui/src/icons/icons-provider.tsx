@@ -2,7 +2,7 @@ import { LoadableComponent } from '@loadable/component';
 import { ICON } from '@newrade/core-design-system';
 import { IconContext as ReactIconContext } from '@react-icons/all-files';
 import React from 'react';
-import { CommonComponentProps } from '../props/component-common.props';
+import { PrimitiveProps } from '../primitive/primitive.props';
 
 export interface IconBaseProps extends React.SVGAttributes<SVGElement> {
   children?: React.ReactNode;
@@ -26,7 +26,7 @@ export type IconMetadata<Icons extends string | undefined = undefined> = {
 
 type Context<Icons extends string | undefined = undefined> = {
   iconComponents?: IconComponents<Icons>;
-  iconStyle?: Partial<CSSStyleDeclaration & Pick<CommonComponentProps, 'className'>>;
+  iconStyle?: Partial<CSSStyleDeclaration & Pick<PrimitiveProps, 'className'>>;
 };
 
 /**

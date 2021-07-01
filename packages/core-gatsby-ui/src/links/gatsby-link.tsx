@@ -12,7 +12,7 @@ type Props = Omit<GatsbyLinkProps<any>, 'to'> & {
 export const GatsbyLink = React.forwardRef<any, Props>(
   ({ id, style, className, noStyles, to = '', ...props }, ref) => {
     const { styles } = useStyles(styleRefs);
-    const commonProps = useCommonProps({
+    const commonProps = useCommonProps<any>({
       id,
       style,
       className,

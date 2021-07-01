@@ -6,10 +6,10 @@ import { Button } from '../button/button';
 import { useTreatTheme } from '../hooks/use-treat-theme';
 import { Cluster } from '../layout/cluster';
 import { Stack } from '../layout/stack';
-import { CommonComponentProps } from '../props/component-common.props';
+import { PrimitiveProps } from '../primitive/primitive.props';
 import * as styleRefs from './img-downloader.treat';
 
-type Props = CommonComponentProps & {
+type Props = PrimitiveProps & {
   filename?: string;
 };
 

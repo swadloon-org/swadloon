@@ -9,7 +9,7 @@ import { useTreatTheme } from '../hooks/use-treat-theme';
 import { BoxV2 } from '../layout/box-v2';
 import { Center } from '../layout/center';
 import { Cluster } from '../layout/cluster';
-import { CommonComponentProps } from '../props/component-common.props';
+import { PrimitiveProps } from '../primitive/primitive.props';
 import * as styleRefs from './navbar-app.treat';
 
 export type NavBarAppRefs = {
@@ -17,7 +17,7 @@ export type NavBarAppRefs = {
   readonly desktopNavbar: HTMLDivElement | undefined;
 };
 
-type Props = CommonComponentProps & {
+type Props = PrimitiveProps & {
   /**
    * Inject a link around the logo
    * @example

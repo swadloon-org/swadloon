@@ -3,10 +3,10 @@ import { Lethargy } from 'lethargy';
 import React, { useState } from 'react';
 import { useStyles } from 'react-treat';
 import { useWheel } from 'react-use-gesture';
-import { CommonComponentProps } from '../props/component-common.props';
+import { PrimitiveProps } from '../primitive/primitive.props';
 import * as styleRefs from './gesture-scroll-wheel-example.treat';
 
-type Props = CommonComponentProps;
+type Props = PrimitiveProps;
 
 export const GestureScrollWheelExample: React.FC<Props> = (props) => {
   const { styles } = useStyles(styleRefs);

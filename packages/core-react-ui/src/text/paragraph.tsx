@@ -1,13 +1,13 @@
 import { PARAGRAPH_SIZE, TEXT_STYLE, Variant } from '@newrade/core-design-system';
 import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
-import { CommonComponentProps } from '../props/component-common.props';
+import { PrimitiveProps } from '../primitive/primitive.props';
 import { TextCommonProps } from '../props/text-common.props';
 import * as colorTextStylesRef from '../styles/color-text.treat';
 import { getMergedClassname } from '../utilities/component.utilities';
 import * as stylesRef from './paragraph.treat';
 
-type Props = CommonComponentProps &
+type Props = PrimitiveProps<any> &
   TextCommonProps &
   HTMLAttributes<HTMLHeadingElement> & {
     variant?: PARAGRAPH_SIZE;

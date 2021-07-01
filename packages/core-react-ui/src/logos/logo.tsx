@@ -1,23 +1,22 @@
 import { LOGO } from '@newrade/core-design-system';
-import React, { ErrorInfo, SVGAttributes } from 'react';
+import React, { ErrorInfo } from 'react';
 import { useStyles } from 'react-treat';
 import { useCommonProps } from '../hooks/use-common-props.hook';
 import { useTreatTheme } from '../hooks/use-treat-theme';
-import { CommonComponentProps } from '../props/component-common.props';
+import { PrimitiveProps } from '../primitive/primitive.props';
 import * as styleRefs from './logo.treat';
 import { useLogosContext } from './logos-provider';
 
-type Props = SVGAttributes<any> &
-  CommonComponentProps & {
-    name: LOGO;
-  };
+type Props = PrimitiveProps<'svg'> & {
+  name: LOGO;
+};
 
-export const LogoLoader = React.forwardRef<any, Props>(
-  ({ id, style, className, name, height, width, ...props }, ref) => {
+export const LogoLoader = React.forwardRef<'svg', Props>(
+  ({ id, style, className, name, height, width, as, ...props }, ref) => {
     const { theme, cssTheme } = useTreatTheme();
     const context = useLogosContext();
     const styles = useStyles(styleRefs);
-    const commonProps = useCommonProps({
+    const commonProps = useCommonProps<'svg'>({
       id,
       style,
       className,

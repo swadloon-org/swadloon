@@ -3,10 +3,10 @@ import { kebab, pascal } from 'case';
 import React, { LabelHTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
 import { useCommonProps } from '../hooks/use-common-props.hook';
-import { CommonComponentProps } from '../props/component-common.props';
+import { PrimitiveProps } from '../primitive/primitive.props';
 import * as stylesRef from './label.treat';
 
-type Props = CommonComponentProps &
+type Props = PrimitiveProps &
   LabelHTMLAttributes<any> & {
     href?: string;
     variant?: LABEL_SIZE;

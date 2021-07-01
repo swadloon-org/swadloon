@@ -1,10 +1,10 @@
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { CommonComponentProps } from '../props/component-common.props';
+import { PrimitiveProps } from '../primitive/primitive.props';
 import { getMergedClassname } from '../utilities/component.utilities';
 import * as styleRefs from './markdown-css.treat';
 
-type Props = CommonComponentProps;
+type Props = PrimitiveProps;
 
 /**
  * Applies CSS on md/mdx elements.

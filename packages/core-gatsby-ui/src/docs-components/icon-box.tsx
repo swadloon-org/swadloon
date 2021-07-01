@@ -1,11 +1,11 @@
 import { LABEL_SIZE, Variant } from '@newrade/core-design-system';
-import { CommonComponentProps, Label, useCommonProps } from '@newrade/core-react-ui';
+import { Label, PrimitiveProps, useCommonProps } from '@newrade/core-react-ui';
 import { pascal } from 'case';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import * as stylesRef from './icon-box.treat';
 
-type Props = CommonComponentProps & {
+type Props = PrimitiveProps & {
   iconName: string;
 };
 

@@ -2,11 +2,11 @@ import React, { useRef } from 'react';
 import { useStyles } from 'react-treat';
 import { useAnimateSideBar } from '../hooks/use-animate-sidebar';
 import { Stack } from '../layout/stack';
-import { CommonComponentProps } from '../props/component-common.props';
+import { PrimitiveProps } from '../primitive/primitive.props';
 import { getMergedClassname } from '../utilities/component.utilities';
 import * as styleRefs from './mobile-sidebar.treat';
 
-type Props = CommonComponentProps & {
+type Props = PrimitiveProps & {
   /**
    * Forcefully disable the body scroll while the sidebar is opened
    */

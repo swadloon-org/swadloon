@@ -1,11 +1,11 @@
 import React, { useRef } from 'react';
 import { useStyles } from 'react-treat';
 import { Stack } from '../layout/stack';
-import { CommonComponentProps } from '../props/component-common.props';
+import { PrimitiveProps } from '../primitive/primitive.props';
 import { getMergedClassname } from '../utilities/component.utilities';
 import * as styleRefs from './desktop-docs-sidebar.treat';
 
-type Props = CommonComponentProps & {};
+type Props = PrimitiveProps & {};
 
 /**
  * Desktop Sidebar that floats near the content.

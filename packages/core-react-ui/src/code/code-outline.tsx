@@ -3,10 +3,10 @@ import { useStyles } from 'react-treat';
 import { useCommonProps } from '../hooks/use-common-props.hook';
 import { useTreatTheme } from '../hooks/use-treat-theme';
 import { Stack } from '../layout/stack';
-import { CommonComponentProps } from '../props/component-common.props';
+import { PrimitiveProps } from '../primitive/primitive.props';
 import * as styleRefs from './code-outline.treat';
 
-type Props = CommonComponentProps;
+type Props = PrimitiveProps;
 
 export const CodeOutline: React.FC<Props> = ({ id, style, className, ...props }) => {
   const { styles } = useStyles(styleRefs);

@@ -9,12 +9,12 @@ import {
 import React, { AnchorHTMLAttributes, ButtonHTMLAttributes, useRef } from 'react';
 import { useStyles } from 'react-treat';
 import { usePreventPinchZoom } from '../hooks/use-prevent-pinch-zoom';
-import { CommonComponentProps } from '../props/component-common.props';
+import { PrimitiveProps } from '../primitive/primitive.props';
 import { Label } from '../text/label';
 import { getDefaultTextFromProps, getMergedClassname } from '../utilities/component.utilities';
 import * as stylesRef from './button.treat';
 
-type Props = CommonComponentProps &
+type Props = PrimitiveProps<'button' | 'a'> &
   Pick<AnchorHTMLAttributes<any>, 'href'> &
   ButtonHTMLAttributes<any> &
   Pick<ButtonProps, 'icon' | 'role' | 'size' | 'state' | 'variant'> & {

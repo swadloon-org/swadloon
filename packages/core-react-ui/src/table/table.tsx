@@ -1,9 +1,9 @@
 import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
-import { CommonComponentProps } from '../props/component-common.props';
+import { PrimitiveProps } from '../primitive/primitive.props';
 import * as stylesRef from './table.treat';
 
-type Props = CommonComponentProps & HTMLAttributes<HTMLHeadingElement> & {};
+type Props = PrimitiveProps & HTMLAttributes<HTMLHeadingElement> & {};
 
 const defaultProps: Props = {
   children: 'Table',

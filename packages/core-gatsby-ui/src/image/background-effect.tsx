@@ -1,4 +1,4 @@
-import { CommonComponentProps, FilterProps } from '@newrade/core-react-ui';
+import { FilterProps, PrimitiveProps } from '@newrade/core-react-ui';
 import { getMergedClassname } from '@newrade/core-react-ui/lib/utilities';
 import React from 'react';
 import { useStyles } from 'react-treat';
@@ -11,7 +11,7 @@ export type BackgroundEffectConfig = Partial<{
   zIndex: number;
 }>;
 
-type Props = Omit<CommonComponentProps, 'as'> & {
+type Props = Omit<PrimitiveProps, 'as'> & {
   effect?: BackgroundEffectConfig;
 };
 

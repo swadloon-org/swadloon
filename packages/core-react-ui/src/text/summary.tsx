@@ -6,12 +6,12 @@ import { useStyles } from 'react-treat';
  */
 import PlusIcon from '../assets/add-outline.svg';
 import MinusIcon from '../assets/remove-outline.svg';
-import { CommonComponentProps } from '../props/component-common.props';
+import { PrimitiveProps } from '../primitive/primitive.props';
 import { getMergedClassname } from '../utilities/component.utilities';
 import { Label } from './label';
 import * as stylesRef from './summary.treat';
 
-type Props = CommonComponentProps &
+type Props = PrimitiveProps &
   HTMLAttributes<HTMLHeadingElement> & {
     mode?: 'swap' | 'animate';
     iconType?: 'caret' | 'angle';

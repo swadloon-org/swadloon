@@ -3,17 +3,17 @@ import { useStyles } from 'react-treat';
 import { useCommonProps } from '../hooks/use-common-props.hook';
 import { useTreatTheme } from '../hooks/use-treat-theme';
 import { Stack } from '../layout/stack';
-import { CommonComponentProps } from '../props/component-common.props';
+import { PrimitiveProps } from '../primitive/primitive.props';
 import * as styleRefs from './do-dont.treat';
 
-type Props = CommonComponentProps & {
+type Props = PrimitiveProps<'div'> & {
   kind: 'do' | 'dont';
 };
 
-export const DoDont: React.FC<Props> = ({ id, style, className, kind, children, ...props }) => {
+export const DoDont: React.FC<Props> = ({ id, style, className, kind, children, as, ...props }) => {
   const styles = useStyles(styleRefs);
   const { theme, cssTheme } = useTreatTheme();
-  const commonProps = useCommonProps({
+  const commonProps = useCommonProps<'div'>({
     id,
     style,
     className,

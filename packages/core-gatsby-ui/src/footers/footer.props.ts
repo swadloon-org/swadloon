@@ -1,11 +1,11 @@
-import { CommonComponentProps } from '@newrade/core-react-ui';
+import { PrimitiveProps } from '@newrade/core-react-ui';
 import { FooterAPI, FooterLayout } from '@newrade/core-website-api';
 import { CustomBlockVariantComponents } from '../blocks/block.props';
 
 /**
  * Minimal props for a Footer component
  */
-export type FooterProps = CommonComponentProps & {
+export type FooterProps = PrimitiveProps<'footer'> & {
   /** footer data */
   footer?: FooterAPI;
 };

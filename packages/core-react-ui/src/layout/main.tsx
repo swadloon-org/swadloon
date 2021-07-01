@@ -1,10 +1,10 @@
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { useCommonProps } from '../hooks/use-common-props.hook';
-import { CommonComponentProps } from '../props/component-common.props';
+import { PrimitiveProps } from '../primitive/primitive.props';
 import * as styleRefs from './main.treat';
 
-type Props = CommonComponentProps & {
+type Props = PrimitiveProps & {
   /**
    * Offset the content to account for the sidebar (on desktop only)
    */

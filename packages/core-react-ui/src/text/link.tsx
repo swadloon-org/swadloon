@@ -9,11 +9,11 @@ import { IoOpenOutline } from '@react-icons/all-files/io5/IoOpenOutline';
 import React, { AnchorHTMLAttributes, useRef } from 'react';
 import { useStyles } from 'react-treat';
 import { useCommonProps } from '../hooks/use-common-props.hook';
-import { CommonComponentProps } from '../props/component-common.props';
+import { PrimitiveProps } from '../primitive/primitive.props';
 import { getDefaultTextFromProps } from '../utilities/component.utilities';
 import * as stylesRef from './link.treat';
 
-type Props = CommonComponentProps &
+type Props = PrimitiveProps &
   AnchorHTMLAttributes<any> &
   Pick<LinkProps, 'role' | 'variant' | 'variantIcon' | 'variantSize' | 'variantLevel'> & {
     as?: 'div' | 'a';

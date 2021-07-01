@@ -15,7 +15,7 @@ import { SectionProps } from './section.props';
 
 type Props = SectionProps;
 
-export const SectionBase = React.forwardRef<any, Props>(
+export const SectionBase = React.forwardRef<HTMLElement, Props>(
   (
     {
       id,
@@ -33,7 +33,7 @@ export const SectionBase = React.forwardRef<any, Props>(
         padding: SectionPadding.large,
       },
       children,
-      datatheme,
+      theme,
       ...props
     },
     ref

@@ -33,7 +33,7 @@ export function FooterRenderer<
     triggerOnce: true,
   });
   const { cssTheme, theme } = useTreatTheme();
-  const commonProps = useCommonProps({ id, style, className, ...props });
+  const commonProps = useCommonProps<'footer'>({ id, style, className, ...props });
 
   if (!footer) {
     return null;

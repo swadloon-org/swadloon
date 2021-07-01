@@ -1,8 +1,9 @@
 import { MDXProvider } from '@mdx-js/react';
-import { ICON } from '@newrade/core-design-system';
+import { ICON, LOGO } from '@newrade/core-design-system';
 import { docsMdxComponents } from '@newrade/core-gatsby-ui/src';
 import {
   IconProvider,
+  LogosProvider,
   TreatThemeProvider,
   viewportContext,
   ViewportProvider,
@@ -11,10 +12,14 @@ import { defaultCSSTheme, defaultTheme } from '@newrade/core-react-ui/lib/defaul
 import { GlobalCSSVariables } from '@newrade/core-react-ui/lib/global/global-css-variables';
 import { GlobalResetCSS } from '@newrade/core-react-ui/lib/global/global-reset-css';
 import { ionicons5Kit } from '@newrade/core-react-ui/lib/icon-kits/iconicons';
+import { logosComponents } from '@newrade/ze-design-system';
 import React from 'react';
 import { TreatProvider } from 'react-treat';
 import { docsTheme } from '../design-system/theme-docs.treat';
 
+/**
+ * Provide context over /docs/ and /design-system/ pages
+ */
 export const ProvidersDocs: React.FC = (props) => {
   return (
     <TreatProvider theme={docsTheme}>
@@ -23,7 +28,9 @@ export const ProvidersDocs: React.FC = (props) => {
           <MDXProvider components={docsMdxComponents}>
             <GlobalCSSVariables>
               <GlobalResetCSS>
-                <IconProvider<ICON> iconComponents={ionicons5Kit}>{props.children}</IconProvider>
+                <LogosProvider<LOGO> logoComponents={logosComponents}>
+                  <IconProvider<ICON> iconComponents={ionicons5Kit}>{props.children}</IconProvider>
+                </LogosProvider>
               </GlobalResetCSS>
             </GlobalCSSVariables>
           </MDXProvider>

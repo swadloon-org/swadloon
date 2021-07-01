@@ -36,6 +36,7 @@ export const FootersStandard: React.FC<Props> = (props) => {
     companyInfo: {
       copyright: '@ Company name',
     },
+    version: 'v1.0.0',
   };
 
   return (

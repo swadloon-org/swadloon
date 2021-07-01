@@ -2,12 +2,12 @@ import { LinkProps, PARAGRAPH_SIZE } from '@newrade/core-design-system';
 import { BsDot } from '@react-icons/all-files/bs/BsDot';
 import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
-import { CommonComponentProps } from '../props/component-common.props';
+import { PrimitiveProps } from '../primitive/primitive.props';
 import { Paragraph } from '../text/paragraph';
 import { getDefaultTextFromProps, getMergedClassname } from '../utilities/component.utilities';
 import * as stylesRef from './list-item.treat';
 
-type Props = CommonComponentProps &
+type Props = PrimitiveProps &
   HTMLAttributes<HTMLLIElement> &
   Pick<LinkProps, 'variantSize' | 'variantLevel'> & {
     variantIcon?: 'bullet' | 'icon' | 'number';

@@ -1,11 +1,5 @@
 import { Variant } from '@newrade/core-design-system';
-import {
-  BoxV2,
-  Center,
-  CommonComponentProps,
-  useCommonProps,
-  useTreatTheme,
-} from '@newrade/core-react-ui';
+import { BoxV2, Center, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
 import { SectionBaseLayout, SectionPadding } from '@newrade/core-website-api';
 import React from 'react';
 import { useStyles } from 'react-treat';
@@ -13,14 +7,13 @@ import * as styleRefs from './section-banner.treat';
 import { SectionBase } from './section-base';
 import { SectionProps } from './section.props';
 
-type Props = CommonComponentProps &
-  SectionProps & {
-    BackgroundBlock: React.ReactNode;
-    ContentBlock: React.ReactNode;
-    callout?: boolean;
-  };
+type Props = SectionProps & {
+  BackgroundBlock: React.ReactNode;
+  ContentBlock: React.ReactNode;
+  callout?: boolean;
+};
 
-export const SectionBanner = React.forwardRef<any, Props>(
+export const SectionBanner = React.forwardRef<HTMLElement, Props>(
   (
     {
       id,
@@ -48,7 +41,7 @@ export const SectionBanner = React.forwardRef<any, Props>(
   ) => {
     const { styles } = useStyles(styleRefs);
     const { theme, cssTheme } = useTreatTheme();
-    const commonProps = useCommonProps({
+    const commonProps = useCommonProps<'section'>({
       id,
       style,
       className,

@@ -1,6 +1,8 @@
 import {
   ButtonIcon,
+  ICON,
   LABEL_SIZE,
+  LinkIcon,
   LOGO,
   PARAGRAPH_SIZE,
   TEXT_STYLE,
@@ -9,6 +11,7 @@ import {
 import {
   Button,
   Cluster,
+  IconComp,
   Label,
   Link,
   Logo,
@@ -17,7 +20,7 @@ import {
   useCommonProps,
   useTreatTheme,
 } from '@newrade/core-react-ui';
-import { BlockAPI, NavComponent } from '@newrade/core-website-api';
+import { BlockAPI, LinkType, NavComponent } from '@newrade/core-website-api';
 import { IoLogoFacebook } from '@react-icons/all-files/io5/IoLogoFacebook';
 import { IoLogoInstagram } from '@react-icons/all-files/io5/IoLogoInstagram';
 import { IoLogoLinkedin } from '@react-icons/all-files/io5/IoLogoLinkedin';
@@ -55,7 +58,7 @@ export const FooterStandard = React.forwardRef<any, Props>(
     const footerNavigation = navigation?.component === NavComponent.footer ? navigation : null;
 
     return (
-      <FooterBase {...commonProps} footer={footer} ref={ref} contentClassName={styles.base}>
+      <FooterBase footer={footer} ref={ref} contentClassName={styles.base} {...commonProps}>
         <Logo name={LOGO.STANDARD} className={styles.logo}></Logo>
 
         {blocks ? (
@@ -97,7 +100,7 @@ export const FooterStandard = React.forwardRef<any, Props>(
         </Cluster>
 
         <div className={styles.navLinks}>
-          {footerNavigation?.subNavigation?.map((subNav) => {
+          {footerNavigation?.subNavigation?.map((subNav, subNavIndex) => {
             if (!subNav) {
               return null;
             }
@@ -105,7 +108,7 @@ export const FooterStandard = React.forwardRef<any, Props>(
             const links = subNav.links;
 
             return (
-              <Stack key={subNav.id} gap={[cssTheme.sizing.var.x4]}>
+              <Stack key={subNavIndex} gap={[cssTheme.sizing.var.x4]}>
                 <Label
                   variantStyle={TEXT_STYLE.boldUppercase}
                   variant={LABEL_SIZE.xSmall}
@@ -119,6 +122,20 @@ export const FooterStandard = React.forwardRef<any, Props>(
                   gap={[cssTheme.sizing.var.x4, cssTheme.sizing.var.x4, cssTheme.sizing.var.x3]}
                 >
                   {links?.map((link, id) => {
+                    if (link?.type === LinkType.externalUrl) {
+                      return (
+                        <Link
+                          key={id}
+                          variantSize={PARAGRAPH_SIZE.small}
+                          href={link?.url || ' '}
+                          variantIcon={LinkIcon.right}
+                          Icon={<IconComp name={ICON.IO_OPEN}></IconComp>}
+                        >
+                          {link?.label || link?.url || ' '}
+                        </Link>
+                      );
+                    }
+
                     return (
                       <Link
                         key={id}

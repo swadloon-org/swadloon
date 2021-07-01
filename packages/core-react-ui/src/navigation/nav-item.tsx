@@ -3,11 +3,11 @@ import React, { AnchorHTMLAttributes, useRef } from 'react';
 import { useStyles } from 'react-treat';
 import { useCommonProps } from '../hooks/use-common-props.hook';
 import { usePreventPinchZoom } from '../hooks/use-prevent-pinch-zoom';
-import { CommonComponentProps } from '../props/component-common.props';
+import { PrimitiveProps } from '../primitive/primitive.props';
 import { Label } from '../text/label';
 import * as styleRefs from './nav-item.treat';
 
-type Props = CommonComponentProps &
+type Props = PrimitiveProps &
   AnchorHTMLAttributes<any> &
   Pick<LinkProps, 'role' | 'variant' | 'variantIcon' | 'variantSize' | 'variantLevel'> & {
     disabled?: boolean;

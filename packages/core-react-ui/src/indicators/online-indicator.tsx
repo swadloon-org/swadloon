@@ -3,11 +3,11 @@ import { useStyles } from 'react-treat';
 import { useCommonProps } from '../hooks/use-common-props.hook';
 import { useTreatTheme } from '../hooks/use-treat-theme';
 import { Cluster } from '../layout/cluster';
-import { CommonComponentProps } from '../props/component-common.props';
+import { PrimitiveProps } from '../primitive/primitive.props';
 import { Label } from '../text/label';
 import * as styleRefs from './online-indicator.treat';
 
-type Props = CommonComponentProps & {
+type Props = PrimitiveProps & {
   status?: 'online' | 'offline' | 'loading';
 };
 
@@ -17,6 +17,8 @@ export const OnlineIndicator: React.FC<Props> = ({
   className,
   status = 'loading',
   children,
+  as,
+  AsElement,
   ...props
 }) => {
   const { styles } = useStyles(styleRefs);

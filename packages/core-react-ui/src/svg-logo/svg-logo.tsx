@@ -1,10 +1,10 @@
 import React, { useRef } from 'react';
 import { useStyles } from 'react-treat';
-import { CommonComponentProps } from '../props/component-common.props';
+import { PrimitiveProps } from '../primitive/primitive.props';
 import { getMergedClassname } from '../utilities/component.utilities';
 import * as stylesRef from './svg-logo.treat';
 
-type Props = CommonComponentProps & {
+type Props = PrimitiveProps & {
   loading?: boolean;
   Icon?: React.ReactNode;
 };

@@ -2,12 +2,12 @@ import { TITLE, Variant } from '@newrade/core-design-system';
 import { kebab, pascal } from 'case';
 import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
-import { CommonComponentProps } from '../props/component-common.props';
+import { PrimitiveProps } from '../primitive/primitive.props';
 import * as colorTextStylesRef from '../styles/color-text.treat';
 import { getMergedClassname } from '../utilities/component.utilities';
 import * as stylesRef from './title.treat';
 
-type Props = CommonComponentProps &
+type Props = PrimitiveProps &
   HTMLAttributes<HTMLHeadingElement> & {
     variant?: TITLE;
     variantLevel?: Variant;

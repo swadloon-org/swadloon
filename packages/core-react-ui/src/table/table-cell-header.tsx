@@ -1,10 +1,10 @@
 import { LABEL_SIZE, TEXT_STYLE } from '@newrade/core-design-system';
 import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
-import { CommonComponentProps } from '../props/component-common.props';
+import { PrimitiveProps } from '../primitive/primitive.props';
 import * as stylesRef from './table-cell-header.treat';
 
-type Props = CommonComponentProps &
+type Props = PrimitiveProps &
   HTMLAttributes<HTMLHeadingElement> & { variantStyle?: TEXT_STYLE; variant?: LABEL_SIZE };
 
 const defaultProps: Props = {

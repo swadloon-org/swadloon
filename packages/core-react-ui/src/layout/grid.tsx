@@ -1,13 +1,12 @@
 import React from 'react';
 import { useStyles } from 'react-treat';
-import * as styleRefs from './grid.treat';
-import { CommonComponentProps } from '../props/component-common.props';
-
+import { PrimitiveProps } from '../primitive/primitive.props';
 // import { useState, useMemo } from 'react';
 // import useResizeObserver from 'use-resize-observer';
 // import debounce from 'lodash/debounce';
 // import throttle from 'lodash/throttle';
 import { GapProp, VariantGrid } from '../props/layout.prop';
+import * as styleRefs from './grid.treat';
 
 // export function useDebouncedResizeObserver(wait: number) {
 //   const [size, setSize] = useState<{ width?: number; height?: number }>({});
@@ -27,7 +26,7 @@ import { GapProp, VariantGrid } from '../props/layout.prop';
 //   return { ref, ...size };
 // }
 
-type OwnProps = CommonComponentProps &
+type OwnProps = PrimitiveProps &
   Partial<{
     variantGrid: VariantGrid;
     gap: GapProp;

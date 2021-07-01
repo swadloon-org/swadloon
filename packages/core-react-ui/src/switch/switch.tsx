@@ -2,11 +2,11 @@ import React, { AnchorHTMLAttributes, ButtonHTMLAttributes, useRef, useState } f
 import { useStyles } from 'react-treat';
 import { useCommonProps } from '../hooks/use-common-props.hook';
 import { usePreventPinchZoom } from '../hooks/use-prevent-pinch-zoom';
-import { CommonComponentProps } from '../props/component-common.props';
+import { PrimitiveProps } from '../primitive/primitive.props';
 import { getMergedClassname } from '../utilities/component.utilities';
 import * as stylesRef from './switch.treat';
 
-type Props = CommonComponentProps &
+type Props = PrimitiveProps &
   Pick<AnchorHTMLAttributes<any>, 'href'> &
   ButtonHTMLAttributes<any> & {
     value?: 'on' | 'off';
@@ -17,7 +17,7 @@ type Props = CommonComponentProps &
     disabled?: boolean;
   };
 
-export const Switch = React.forwardRef<any, Props>(
+export const Switch = React.forwardRef<HTMLButtonElement, Props>(
   (
     {
       id,
@@ -71,7 +71,7 @@ export const Switch = React.forwardRef<any, Props>(
     /**
      * Merge props
      */
-    const commonProps = useCommonProps({
+    const commonProps = useCommonProps<'button'>({
       id,
       style: {
         ...style,
