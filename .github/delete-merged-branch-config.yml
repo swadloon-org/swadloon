@@ -6,3 +6,4 @@ exclude:
   - dev
   - master
   - release
+delete_closed_pr: true
