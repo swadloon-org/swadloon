@@ -1,11 +1,11 @@
-import { CommonComponentProps } from '@newrade/core-react-ui';
+import { PrimitiveProps } from '@newrade/core-react-ui';
 import { SectionAPI, SectionLayout } from '@newrade/core-website-api';
 import { CustomBlockVariantComponents } from '../blocks/block.props';
 
 /**
  * Minimal props for a Section component
  */
-export type SectionProps = CommonComponentProps & {
+export type SectionProps = PrimitiveProps<'section'> & {
   /** tells the section whether it is visible in the viewport */
   inView?: boolean;
   /** section data */

@@ -1,8 +1,8 @@
 import React, { LabelHTMLAttributes } from 'react';
-import { CommonComponentProps } from '../props/component-common.props';
+import { PrimitiveProps } from '../primitive/primitive.props';
 import { Label } from '../text/label';
 
-type Props = CommonComponentProps &
+type Props = PrimitiveProps &
   LabelHTMLAttributes<any> & {
     htmlFor: string;
     required?: boolean;

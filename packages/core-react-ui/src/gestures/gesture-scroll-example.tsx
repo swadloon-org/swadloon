@@ -2,10 +2,10 @@ import { animated, useSpring } from '@react-spring/web';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { useScroll } from 'react-use-gesture';
-import { CommonComponentProps } from '../props/component-common.props';
+import { PrimitiveProps } from '../primitive/primitive.props';
 import * as styleRefs from './gesture-scroll-example.treat';
 
-type Props = CommonComponentProps;
+type Props = PrimitiveProps;
 
 export const GestureScrollExample: React.FC<Props> = (props) => {
   const { styles } = useStyles(styleRefs);

@@ -41,7 +41,7 @@ export function SectionRenderer<
     triggerOnce: true,
   });
   const { cssTheme, theme } = useTreatTheme();
-  const commonProps = useCommonProps({ id, style, className, ...props });
+  const commonProps = useCommonProps<'section'>({ id, style, className, ...props });
 
   if (!section) {
     return null;

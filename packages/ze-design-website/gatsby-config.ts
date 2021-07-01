@@ -52,7 +52,8 @@ const config: core.GastbySiteConfig = {
         background_color: `#ffffff`,
         theme_color: `#6061EC`,
         display: `standalone`,
-        icon: `../ze-design-system/lib/assets/logo-favicon.png`,
+        icon: `../ze-design-system/lib/assets/logo-favicon.svg`,
+        include_favicon: false, // see page template
       },
     },
     /**
@@ -76,7 +77,7 @@ const config: core.GastbySiteConfig = {
     core.getGatsbyPluginSharp(),
     ...core.getGatsbyPluginMdx(),
     ...core.getGatsbyImageFolder({
-      pathImgDir: path.join(__dirname, `/src/images`),
+      pathImgDir: path.join(__dirname, `../ze-design-system/lib/assets`),
     }),
     core.getGatsbyPluginReactHelmet(),
     core.getGatsbyPluginSitemap(),

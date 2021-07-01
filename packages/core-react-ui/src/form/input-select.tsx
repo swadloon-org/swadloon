@@ -1,11 +1,11 @@
 import React, { SelectHTMLAttributes } from 'react';
 import { IoChevronDownOutline } from 'react-icons/io5';
 import { useStyles } from 'react-treat';
-import { CommonComponentProps } from '../props/component-common.props';
+import { PrimitiveProps } from '../primitive/primitive.props';
 import { getMergedClassname } from '../utilities/component.utilities';
 import * as styleRefs from './input.treat';
 
-type Props = CommonComponentProps<'input'> &
+type Props = PrimitiveProps<'input'> &
   SelectHTMLAttributes<any> & {
     state?: 'rest' | 'error';
   };

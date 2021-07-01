@@ -1,11 +1,11 @@
-import { BoxV2, CommonComponentProps, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
+import { BoxV2, PrimitiveProps, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
 import { BlockImageAPIV1, BlockImageAPIV2 } from '@newrade/core-website-api';
 import { FluidObject } from 'gatsby-image';
 import React from 'react';
 import { Image } from '../image/image';
 import { BlockProps } from './block.props';
 
-type Props = CommonComponentProps & BlockProps;
+type Props = PrimitiveProps & BlockProps;
 
 export const BlockImage: React.FC<Props> = ({ id, style, className, inView, block, ...props }) => {
   const { theme, cssTheme } = useTreatTheme();

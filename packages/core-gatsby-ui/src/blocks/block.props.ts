@@ -1,4 +1,4 @@
-import { CommonComponentProps } from '@newrade/core-react-ui';
+import { PrimitiveProps } from '@newrade/core-react-ui';
 import {
   BlockGoogleMapAPI,
   BlockImageAPIV2,
@@ -10,7 +10,7 @@ import { BlockAPI } from '@newrade/core-website-api';
 /**
  * Props that all Block components should have
  */
-export type BlockProps = CommonComponentProps & {
+export type BlockProps = PrimitiveProps & {
   /** if the block whether it is visible in the viewport */
   inView?: boolean;
   /** block data */

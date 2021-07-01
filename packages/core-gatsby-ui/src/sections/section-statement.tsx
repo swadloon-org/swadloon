@@ -13,7 +13,7 @@ type Props = SectionProps & {
   LeftBlock: React.ReactNode;
 };
 
-export const SectionStatement = React.forwardRef<any, Props>(
+export const SectionStatement = React.forwardRef<HTMLElement, Props>(
   (
     {
       id,
@@ -39,7 +39,7 @@ export const SectionStatement = React.forwardRef<any, Props>(
   ) => {
     const { styles } = useStyles(styleRefs);
     const { cssTheme } = useTreatTheme();
-    const commonProps = useCommonProps({ id, style, className, ...props });
+    const commonProps = useCommonProps<'section'>({ id, style, className, ...props });
 
     return (
       <SectionBase

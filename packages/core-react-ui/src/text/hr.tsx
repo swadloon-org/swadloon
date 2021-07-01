@@ -1,9 +1,9 @@
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { CommonComponentProps } from '../props/component-common.props';
+import { PrimitiveProps } from '../primitive/primitive.props';
 import * as styleRefs from './hr.treat';
 
-type Props = CommonComponentProps;
+type Props = PrimitiveProps<'hr'>;
 
 export const Hr: React.FC<Props> = (props) => {
   const { styles } = useStyles(styleRefs);

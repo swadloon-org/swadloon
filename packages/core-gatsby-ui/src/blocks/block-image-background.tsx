@@ -1,11 +1,11 @@
-import { CommonComponentProps, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
+import { PrimitiveProps, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
 import { BlockImageAPIV1, BlockImageAPIV2 } from '@newrade/core-website-api';
 import { IFluidObject } from 'gatsby-background-image';
 import React from 'react';
 import { BackgroundImage } from '../image/background-image';
 import { BlockProps } from './block.props';
 
-type Props = CommonComponentProps & BlockProps;
+type Props = PrimitiveProps & BlockProps;
 
 export const BlockImageBackground = React.forwardRef<any, Props>(
   ({ id, style, className, inView, block, ...props }, ref) => {

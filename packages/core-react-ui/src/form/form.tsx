@@ -1,9 +1,9 @@
 import React, { FormHTMLAttributes } from 'react';
 import { useTreatTheme } from '../hooks/use-treat-theme';
 import { Stack } from '../layout/stack';
-import { CommonComponentProps } from '../props/component-common.props';
+import { PrimitiveProps } from '../primitive/primitive.props';
 
-type Props = CommonComponentProps & FormHTMLAttributes<any>;
+type Props = PrimitiveProps & FormHTMLAttributes<any>;
 
 export const Form = React.forwardRef<any, Props>((props, ref) => {
   const { cssTheme } = useTreatTheme();

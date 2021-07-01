@@ -16,9 +16,6 @@
     },
     {
       "path": "../core-website-api/tsconfig.build.json"
-    },
-    {
-      "path": "../core-react-ui/tsconfig.build.json"
     }
   ],
   "include": ["src/**/*", "types", "package.json"]

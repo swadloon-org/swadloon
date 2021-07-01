@@ -1,6 +1,6 @@
 import React, { AnchorHTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
-import { CommonComponentProps } from '../props/component-common.props';
+import { PrimitiveProps } from '../primitive/primitive.props';
 import {
   AlignItemsViewportProps,
   JustifyContentViewportProps,
@@ -8,7 +8,7 @@ import {
 } from '../props/padding.props';
 import * as styleRefs from './box-v2.treat';
 
-type Props = CommonComponentProps &
+type Props = PrimitiveProps<any> &
   AnchorHTMLAttributes<any> &
   Partial<{
     padding: PaddingProps;

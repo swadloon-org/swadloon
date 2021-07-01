@@ -3,6 +3,10 @@
  */
 export const svgoConfig = {
   plugins: [
+    { removeStyleElement: false },
+    { minifyStyles: false },
+    { inlineStyles: false },
+    { mergeStyles: false },
     { convertPathData: false },
     { convertShapeToPath: false },
     { mergePaths: false },

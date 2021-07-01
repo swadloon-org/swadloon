@@ -4,10 +4,10 @@ import {
   Button,
   Center,
   Cluster,
-  CommonComponentProps,
   globalThemeReversed,
   Label,
   Logo,
+  PrimitiveProps,
   Switch,
   Tag,
   usePreventPinchZoom,
@@ -25,7 +25,7 @@ export type NavBarDocsRefs = {
   readonly desktopNavbar: HTMLDivElement | undefined;
 };
 
-type Props = CommonComponentProps & {
+type Props = PrimitiveProps & {
   /**
    * Allow to override the max-width of the content
    */

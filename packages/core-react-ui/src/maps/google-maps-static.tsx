@@ -3,12 +3,12 @@ import { Libraries } from '@react-google-maps/api/dist/utils/make-load-script-ur
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { Theme } from '../design-system';
-import { CommonComponentProps } from '../props/component-common.props';
+import { PrimitiveProps } from '../primitive/primitive.props';
 import { getMergedClassname } from '../utilities/component.utilities';
 import { mapStyles } from './google-maps.styles';
 import * as styleRefs from './google-maps.treat';
 
-type Props = CommonComponentProps & {
+type Props = PrimitiveProps & {
   theme?: Theme;
   /**
    * LoadingScripts props

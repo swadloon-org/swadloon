@@ -1,19 +1,18 @@
 import { ICON, ICON_SIZE } from '@newrade/core-design-system';
-import React, { ErrorInfo, SVGAttributes } from 'react';
+import React, { ErrorInfo } from 'react';
 import { useStyles } from 'react-treat';
 import { useCommonProps } from '../hooks/use-common-props.hook';
 import { useTreatTheme } from '../hooks/use-treat-theme';
-import { CommonComponentProps } from '../props/component-common.props';
+import { PrimitiveProps } from '../primitive/primitive.props';
 import * as styleRefs from './icon.treat';
 import { useIconContext } from './icons-provider';
 
-type Props = SVGAttributes<any> &
-  CommonComponentProps & {
-    name: ICON;
-    size?: ICON_SIZE;
-    width?: number | string;
-    height?: number | string;
-  };
+type Props = PrimitiveProps<'svg'> & {
+  name: ICON;
+  size?: ICON_SIZE;
+  width?: number | string;
+  height?: number | string;
+};
 
 export const IconLoader: React.FC<Props> = ({
   id,
@@ -23,12 +22,14 @@ export const IconLoader: React.FC<Props> = ({
   height,
   width,
   size,
+  as,
+  AsElement,
   ...props
 }) => {
   const { theme, cssTheme } = useTreatTheme();
   const context = useIconContext();
   const styles = useStyles(styleRefs);
-  const commonProps = useCommonProps({
+  const commonProps = useCommonProps<'svg'>({
     id,
     style,
     className,

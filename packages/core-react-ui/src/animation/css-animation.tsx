@@ -8,7 +8,7 @@ import { Button } from '../button/button';
 import { useCommonProps } from '../hooks/use-common-props.hook';
 import { useTreatTheme } from '../hooks/use-treat-theme';
 import { Cluster } from '../layout/cluster';
-import { CommonComponentProps } from '../props/component-common.props';
+import { PrimitiveProps } from '../primitive/primitive.props';
 import * as styleRefs from './css-animation.treat';
 
 export type CSSAnimationState = 'running' | 'paused';
@@ -47,7 +47,7 @@ export type CSSAnimationProps = {
   timingFunction?: string;
 };
 
-type Props = CommonComponentProps & {
+type Props = PrimitiveProps<'div'> & {
   animation?: CSSAnimationProps;
   showControls?: boolean;
   onAnimationEnd?: (this: HTMLDivElement, event: AnimationEvent) => void;
@@ -62,7 +62,7 @@ export type CSSAnimationHandle = React.ElementRef<typeof CSSAnimation>;
  * @see https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations
  */
 export const CSSAnimation = React.forwardRef<HTMLDivElement & { reset: () => any }, Props>(
-  ({ id, style, className, animation, onAnimationEnd, showControls, ...props }, ref) => {
+  ({ id, style, className, animation, onAnimationEnd, showControls, as, ...props }, ref) => {
     const { styles, animations } = useStyles(styleRefs);
     const { theme, cssTheme } = useTreatTheme();
 
@@ -76,7 +76,7 @@ export const CSSAnimation = React.forwardRef<HTMLDivElement & { reset: () => any
           : animation?.duration,
     };
 
-    const commonProps = useCommonProps({
+    const commonProps = useCommonProps<'div'>({
       id,
       style: { ...style, ...animationCssProps, animationPlayState: animation?.playState },
       className,

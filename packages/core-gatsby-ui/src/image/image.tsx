@@ -1,4 +1,4 @@
-import { CommonComponentProps } from '@newrade/core-react-ui';
+import { PrimitiveProps } from '@newrade/core-react-ui';
 import { getMergedClassname } from '@newrade/core-react-ui/lib/utilities';
 import GastbyImage, { GatsbyImageProps } from 'gatsby-image';
 import React from 'react';
@@ -6,7 +6,7 @@ import { useStyles } from 'react-treat';
 import { BackgroundEffect, BackgroundEffectConfig } from './background-effect';
 import * as styleRefs from './image.treat';
 
-type Props = Omit<CommonComponentProps, 'as'> & {
+type Props = Omit<PrimitiveProps, 'as'> & {
   effects?: BackgroundEffectConfig[];
 } & { image?: GatsbyImageProps };
 

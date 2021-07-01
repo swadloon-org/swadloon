@@ -2,12 +2,12 @@ import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
 import { useTreatTheme } from '../hooks/use-treat-theme';
 import { Stack } from '../layout/stack';
-import { CommonComponentProps } from '../props/component-common.props';
+import { PrimitiveProps } from '../primitive/primitive.props';
 import { GapProp } from '../props/layout.prop';
 import { getDefaultTextFromProps, getMergedClassname } from '../utilities/component.utilities';
 import * as stylesRef from './list-items.treat';
 
-type Props = CommonComponentProps &
+type Props = PrimitiveProps<'ol' | 'ul'> &
   HTMLAttributes<HTMLUListElement | HTMLOListElement> &
   Partial<{
     gap: GapProp;

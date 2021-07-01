@@ -1,6 +1,6 @@
 import { GatsbyNode } from 'gatsby';
 import path from 'path';
-import { CLIENT_ENV } from 'types/dot-env-client';
+import { CLIENT_ENV } from './types/dot-env-client';
 import { loadDotEnv } from '@newrade/core-utils';
 import packageJson from './package.json';
 import { ENV, Env } from './types/dot-env';
@@ -16,12 +16,12 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
   /**
    * Page redirections
    */
-  createRedirect({
-    fromPath: '/',
-    toPath: '/design-system/',
-    force: true,
-    isPermanent: true,
-  });
+  // createRedirect({
+  //   fromPath: '/',
+  //   toPath: '/design-system/',
+  //   force: true,
+  //   isPermanent: false,
+  // });
 };
 
 export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({

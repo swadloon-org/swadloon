@@ -1,11 +1,11 @@
 import isEqual from 'lodash/isEqual';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { CommonComponentProps } from '../props/component-common.props';
+import { PrimitiveProps } from '../primitive/primitive.props';
 import { GapProp } from '../props/layout.prop';
 import * as styleRefs from './stack.treat';
 
-type Props = CommonComponentProps &
+type Props = PrimitiveProps<any> &
   Partial<{
     gap: GapProp;
   }>;

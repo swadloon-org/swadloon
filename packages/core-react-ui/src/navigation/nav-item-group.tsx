@@ -1,11 +1,11 @@
 import { LABEL_SIZE, LinkProps, TEXT_STYLE, Variant } from '@newrade/core-design-system';
 import React, { AnchorHTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
-import { CommonComponentProps } from '../props/component-common.props';
+import { PrimitiveProps } from '../primitive/primitive.props';
 import { Label } from '../text/label';
 import * as styleRefs from './nav-item-group.treat';
 
-type Props = CommonComponentProps &
+type Props = PrimitiveProps &
   AnchorHTMLAttributes<any> &
   Pick<LinkProps, 'role' | 'variant' | 'variantIcon' | 'variantSize' | 'variantLevel'> & {};
 

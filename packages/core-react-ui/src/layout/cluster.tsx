@@ -2,13 +2,13 @@ import { Property } from 'csstype';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { useCommonProps } from '../hooks/use-common-props.hook';
-import { CommonComponentProps } from '../props/component-common.props';
+import { PrimitiveProps } from '../primitive/primitive.props';
 import { GapProp } from '../props/layout.prop';
 import * as styleRefs from './cluster.treat';
 
 type Gap = string;
 
-type Props = CommonComponentProps &
+type Props = PrimitiveProps<'div' | 'nav' | 'footer'> &
   Partial<{
     wrap?: boolean;
     gap: GapProp;

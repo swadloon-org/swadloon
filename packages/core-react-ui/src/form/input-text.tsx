@@ -2,11 +2,11 @@ import Cleave from 'cleave.js/react';
 import { Props as CleaveProps } from 'cleave.js/react/props';
 import React, { InputHTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
-import { CommonComponentProps } from '../props/component-common.props';
+import { PrimitiveProps } from '../primitive/primitive.props';
 import { getMergedClassname } from '../utilities/component.utilities';
 import * as styleRefs from './input.treat';
 
-type Props = CommonComponentProps<'input'> &
+type Props = PrimitiveProps<'input'> &
   InputHTMLAttributes<any> & {
     cleaveProps?: CleaveProps;
     state?: 'rest' | 'error';

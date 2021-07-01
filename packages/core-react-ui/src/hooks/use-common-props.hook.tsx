@@ -1,20 +1,25 @@
 import GithubSlugger from 'github-slugger';
-import { CommonComponentProps } from '../props/component-common.props';
+import { AsTypes, PrimitiveProps } from '../primitive/primitive.props';
 import { getMergedClassname } from '../utilities/component.utilities';
 
 function getFormattedId(value?: string | null): string {
   return GithubSlugger.slug(value || '');
 }
 
-type Props = CommonComponentProps & {
-  localStyle?: React.CSSProperties | undefined;
-  classNames?: (string | null | undefined | boolean)[];
-};
-
 /**
  * Hook to reduce component boilerplate. Takes care of normalizing id, classNames and styles.
  */
-export function useCommonProps({ localStyle, classNames, id, className, style, ...props }: Props) {
+export function useCommonProps<As extends AsTypes = 'div'>({
+  localStyle,
+  classNames,
+  id,
+  className,
+  style,
+  ...props
+}: PrimitiveProps<As> & {
+  localStyle?: React.CSSProperties | undefined;
+  classNames?: (string | null | undefined | boolean)[];
+}) {
   return {
     /**
      * Normalize ids

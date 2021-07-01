@@ -1,13 +1,24 @@
 import { MDXProvider } from '@mdx-js/react';
-import { TreatThemeProvider, viewportContext, ViewportProvider } from '@newrade/core-react-ui';
+import { ICON, LOGO } from '@newrade/core-design-system';
+import {
+  IconProvider,
+  LogosProvider,
+  TreatThemeProvider,
+  viewportContext,
+  ViewportProvider,
+} from '@newrade/core-react-ui';
 import { GlobalCSSVariables } from '@newrade/core-react-ui/lib/global/global-css-variables';
 import { GlobalResetCSS } from '@newrade/core-react-ui/lib/global/global-reset-css';
+import { ionicons5Kit } from '@newrade/core-react-ui/lib/icon-kits/iconicons';
 import { mdxComponents } from '@newrade/core-react-ui/lib/markdown';
-import { cssTheme, theme } from '@newrade/ze-design-system';
+import { cssTheme, logosComponents, theme } from '@newrade/ze-design-system';
 import React from 'react';
 import { TreatProvider } from 'react-treat';
 import { light } from '../design-system/theme.treat';
 
+/**
+ * Provide context on the website site pages (other than /docs/ and /design-system/)
+ */
 export const ProvidersSite: React.FC = (props) => {
   return (
     <TreatProvider theme={light}>
@@ -15,7 +26,11 @@ export const ProvidersSite: React.FC = (props) => {
         <TreatThemeProvider theme={{ theme: theme, cssTheme: cssTheme }}>
           <MDXProvider components={mdxComponents}>
             <GlobalCSSVariables>
-              <GlobalResetCSS>{props.children}</GlobalResetCSS>
+              <GlobalResetCSS>
+                <LogosProvider<LOGO> logoComponents={logosComponents}>
+                  <IconProvider<ICON> iconComponents={ionicons5Kit}>{props.children}</IconProvider>
+                </LogosProvider>
+              </GlobalResetCSS>
             </GlobalCSSVariables>
           </MDXProvider>
         </TreatThemeProvider>

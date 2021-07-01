@@ -9,7 +9,7 @@ import { useTreatTheme } from '../hooks/use-treat-theme';
 import { BoxV2 } from '../layout/box-v2';
 import { Center } from '../layout/center';
 import { Cluster } from '../layout/cluster';
-import { CommonComponentProps } from '../props/component-common.props';
+import { PrimitiveProps } from '../primitive/primitive.props';
 import { SVGLogo } from '../svg-logo/svg-logo';
 import { Label } from '../text/label';
 import * as styleRefs from './navbar.treat';
@@ -19,7 +19,7 @@ export type NavBarRefs = {
   readonly desktopNavbar: HTMLDivElement | undefined;
 };
 
-type Props = CommonComponentProps & {
+type Props = PrimitiveProps<'nav'> & {
   /**
    * Allow to override the max-width of the content
    */

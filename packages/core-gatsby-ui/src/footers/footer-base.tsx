@@ -1,5 +1,5 @@
 import { Variant } from '@newrade/core-design-system';
-import { Center, globalThemeReversed, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
+import { Center, Primitive, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './footer-base.treat';
@@ -9,47 +9,33 @@ type Props = FooterProps & {
   contentClassName?: string;
 };
 
-export const FooterBase = React.forwardRef<any, Props>(
-  (
-    {
-      id,
-      style,
-      className,
-      contentClassName,
-      as,
-      AsElement,
-      footer: { variant = Variant.primary } = {
-        variant: Variant.primary,
-      },
-      children,
-      datatheme,
-      ...props
-    },
-    ref
-  ) => {
+const defaultProps: FooterProps = {
+  footer: {
+    variant: Variant.primary,
+  },
+};
+
+export const FooterBase = React.forwardRef<HTMLElement, Props>(
+  ({ contentClassName, footer = defaultProps.footer, children, ...props }, ref) => {
+    const variant = footer?.variant;
     /**
      * Styling
      */
     const { cssTheme } = useTreatTheme();
     const styles = useStyles(styleRefs);
-    const commonProps = useCommonProps({
-      id,
-      style,
-      className,
-      classNames: [
-        styles.wrapper,
-        variant ? styles[variant] : '',
-        variant === Variant.primaryReversed ? globalThemeReversed : '',
-        variant === Variant.secondaryReversed ? globalThemeReversed : '',
-        variant === Variant.tertiaryReversed ? globalThemeReversed : '',
-      ],
-      ...props,
-    });
 
     return (
-      <Center as={'footer'} ref={ref} {...commonProps} contentClassName={contentClassName}>
-        {children}
-      </Center>
+      <Primitive
+        ref={ref}
+        variant={variant}
+        classNames={[styles.wrapper, variant ? styles[variant] : '']}
+        AsElement={
+          <Center as={'footer'} contentClassName={contentClassName}>
+            {children}
+          </Center>
+        }
+        {...props}
+      />
     );
   }
 );

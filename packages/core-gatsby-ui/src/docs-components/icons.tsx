@@ -3,7 +3,6 @@ import {
   Blockquote,
   Button,
   Cluster,
-  CommonComponentProps,
   Heading,
   IconComp,
   InputLabel,
@@ -11,6 +10,7 @@ import {
   InputText,
   InputWrapper,
   Label,
+  PrimitiveProps,
   Stack,
   useCommonProps,
   useTreatTheme,
@@ -22,7 +22,7 @@ import { useStyles } from 'react-treat';
 import { IconBox } from './icon-box';
 import * as stylesRef from './icons.treat';
 
-type Props = CommonComponentProps;
+type Props = PrimitiveProps;
 
 export const Icons: React.FC<Props> = ({ id, style, className, ...props }) => {
   const { styles } = useStyles(stylesRef);

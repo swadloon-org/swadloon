@@ -1,10 +1,10 @@
-import { CommonComponentProps } from '@newrade/core-react-ui';
+import { PrimitiveProps } from '@newrade/core-react-ui';
 import { PageLayout, PageTemplate } from '@newrade/core-gatsby-config';
 
 /**
  * UI only props
  */
-export type PageProps = CommonComponentProps & {
+export type PageProps = PrimitiveProps & {
   /**
    * Page's layout
    * @default PageLayout.default

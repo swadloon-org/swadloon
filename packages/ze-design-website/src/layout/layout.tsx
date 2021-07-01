@@ -2,6 +2,7 @@ import loadable from '@loadable/component';
 import {
   Main,
   MainWrapper,
+  NavBar,
   useCommonProps,
   useIsSSR,
   useTreatTheme,
@@ -10,6 +11,7 @@ import {
 import { PageProps } from 'gatsby';
 import React, { ReactNode, useState } from 'react';
 import { useStyles } from 'react-treat';
+import { Footer } from './footer';
 import * as styleRefs from './layout.treat';
 
 type LayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }>;
@@ -49,7 +51,13 @@ export const Layout = React.memo<LayoutProps>((props) => {
 
   return (
     <MainWrapper {...commonProps}>
-      <Main navbarPadding={true}>{props.children}</Main>
+      <NavBar></NavBar>
+
+      <Main navbarPadding={true} minHeight={true}>
+        {props.children}
+      </Main>
+
+      <Footer />
     </MainWrapper>
   );
 });

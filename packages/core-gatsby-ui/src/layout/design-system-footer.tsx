@@ -1,8 +1,8 @@
 import { LinkVariant, PARAGRAPH_SIZE, Variant } from '@newrade/core-design-system';
 import {
   Button,
-  CommonComponentProps,
   Link,
+  PrimitiveProps,
   useCommonProps,
   useTreatTheme,
 } from '@newrade/core-react-ui';
@@ -11,7 +11,7 @@ import { IoArrowForwardOutline } from 'react-icons/io5';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './design-system-footer.treat';
 
-type Props = CommonComponentProps & {
+type Props = PrimitiveProps & {
   editPageUrl?: string;
   nextPageLabel?: string;
   nextPageUrl?: string;
@@ -24,11 +24,12 @@ export const DesignSystemFooter: React.FC<Props> = ({
   editPageUrl,
   nextPageLabel,
   nextPageUrl,
+  as,
   ...props
 }) => {
   const { styles } = useStyles(styleRefs);
   const { theme, cssTheme } = useTreatTheme();
-  const commonProps = useCommonProps({
+  const commonProps = useCommonProps<'footer'>({
     id,
     style,
     className,

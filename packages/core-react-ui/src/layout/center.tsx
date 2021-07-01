@@ -1,10 +1,12 @@
 import React from 'react';
 import { useStyles } from 'react-treat';
-import * as styleRefs from './center.treat';
-import { CommonComponentProps } from '../props/component-common.props';
+import { PrimitiveProps } from '../primitive/primitive.props';
 import { getMergedClassname } from '../utilities/component.utilities';
+import * as styleRefs from './center.treat';
 
-type OwnProps = CommonComponentProps &
+type AsTypes = 'div' | 'footer' | 'section';
+
+type Props = PrimitiveProps<AsTypes> &
   Partial<{
     /**
      * Force the maxWidth of the content
@@ -16,8 +18,8 @@ type OwnProps = CommonComponentProps &
     contentClassName: string;
   }>;
 
-export const Center = React.forwardRef<any, OwnProps>(
-  ({ as, className, contentClassName, style, maxWidth, ...props } = {}, ref) => {
+export const Center = React.forwardRef<HTMLElement, Props>(
+  ({ as, className, contentClassName, style, maxWidth, ...props }, ref) => {
     const type = as ? as : 'div';
     const { styles } = useStyles(styleRefs);
     const classNames = getMergedClassname([className || '', styles.wrapper]);

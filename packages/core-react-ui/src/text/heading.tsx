@@ -3,14 +3,14 @@ import { pascal } from 'case';
 import React, { HTMLAttributes, useRef } from 'react';
 import { useStyles } from 'react-treat';
 import { usePreventPinchZoom } from '../hooks/use-prevent-pinch-zoom';
-import { CommonComponentProps } from '../props/component-common.props';
+import { PrimitiveProps } from '../primitive/primitive.props';
 import { TextCommonProps } from '../props/text-common.props';
 import * as colorTextStylesRef from '../styles/color-text.treat';
 import { getMergedClassname } from '../utilities/component.utilities';
 import { formatAnchorId } from '../utilities/text.utilities';
 import * as stylesRef from './heading.treat';
 
-type Props = CommonComponentProps &
+type Props = PrimitiveProps &
   TextCommonProps &
   HTMLAttributes<HTMLHeadingElement> & {
     variant?: HEADING;
@@ -36,7 +36,7 @@ export const Heading = React.memo(
       const localRef = useRef<HTMLButtonElement>(null);
       const ref = forwardedRef ? (forwardedRef as React.RefObject<HTMLButtonElement>) : localRef;
 
-      let type: keyof React.ReactHTML;
+      let type: keyof JSX.IntrinsicElements;
 
       switch (variant) {
         case HEADING.h1: {

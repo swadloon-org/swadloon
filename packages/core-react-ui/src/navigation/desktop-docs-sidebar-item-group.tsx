@@ -6,12 +6,12 @@ import { useCommonProps } from '../hooks/use-common-props.hook';
 import { useTreatTheme } from '../hooks/use-treat-theme';
 import { Cluster } from '../layout/cluster';
 import { Stack } from '../layout/stack';
-import { CommonComponentProps } from '../props/component-common.props';
+import { PrimitiveProps } from '../primitive/primitive.props';
 import { Label } from '../text/label';
 import { getMergedClassname } from '../utilities';
 import * as styleRefs from './desktop-docs-sidebar-item-group.treat';
 
-type Props = CommonComponentProps &
+type Props = PrimitiveProps &
   AnchorHTMLAttributes<any> &
   Pick<LinkProps, 'role' | 'variant' | 'variantIcon' | 'variantSize' | 'variantLevel'> & {
     label?: string;
@@ -28,7 +28,7 @@ export const DesktopDocsItemGroup: React.FC<Props> = ({
 }) => {
   const { theme, cssTheme } = useTreatTheme();
   const { styles } = useStyles(styleRefs);
-  const commonProps = useCommonProps({
+  const commonProps = useCommonProps<'div'>({
     id,
     style,
     className,

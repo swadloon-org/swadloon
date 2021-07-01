@@ -1,12 +1,14 @@
-import { CSSProperties, ReactHTML, ReactNode } from 'react';
+import React, { CSSProperties } from 'react';
 
-export type CommonComponentProps<AsType = keyof ReactHTML> = Partial<{
+export type AsTypes = keyof React.ReactHTML | keyof React.ReactSVG;
+
+export type PrimitiveProps<As extends AsTypes = 'div'> = Partial<{
   /**
    * Uses React.createElement with as as the element type.
    */
-  as: AsType;
+  as: As;
   /**
-   * Pass a complete React component to replace the default outer containing element.
+   * Pass a complete React component to replace the default containing element.
    */
   AsElement: React.ReactNode;
   /**
@@ -26,6 +28,10 @@ export type CommonComponentProps<AsType = keyof ReactHTML> = Partial<{
    */
   className: string;
   /**
+   * Classnames that will be combined and set to class={...}
+   */
+  classNames: (string | null | undefined | boolean)[];
+  /**
    * Inline styles that will be applied to the component's outer containing element.
    * @example
    *  ```jsx
@@ -40,13 +46,7 @@ export type CommonComponentProps<AsType = keyof ReactHTML> = Partial<{
   /**
    * Inverse components colors
    */
-  datatheme?: 'normal' | 'reversed';
-  /**
-   * The default ReactNode
-   */
-  children: ReactNode;
-  /**
-   * Events
-   */
-  onClick?: (event: React.MouseEvent) => any;
-}>;
+  theme?: 'normal' | 'reversed';
+}> &
+  // 'ref' points to the legacy ref
+  Omit<JSX.IntrinsicElements[As], 'ref'>;
