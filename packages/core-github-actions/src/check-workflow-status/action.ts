@@ -77,7 +77,7 @@ export function runAction(env?: ActionEnv, githubContext?: Context) {
       .catch((error) => {
         core.setFailed(error.message);
       });
-  } catch (error) {
+  } catch (error: any) {
     core.setFailed(error.message);
   }
 }

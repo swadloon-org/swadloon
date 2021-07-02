@@ -21,7 +21,7 @@ export function extractFigmaColors(data: FileStylesResponse['meta']['styles']) {
         dataToken[`${newColor.colorType + newColor.colorLevel}`] = newColor;
         return dataToken;
       }
-    } catch (error) {
+    } catch (error: any) {
       log(chalk.red(`${error}`));
     }
   });

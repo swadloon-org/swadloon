@@ -7,7 +7,7 @@ export function formatCode(code: string): string {
       parser: 'babel',
       plugins: [babelParser],
     });
-  } catch (error) {
+  } catch (error: any) {
     return error;
   }
 }

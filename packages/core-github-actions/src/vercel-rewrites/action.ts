@@ -124,10 +124,10 @@ export function runAction(env?: ActionEnv, githubContext?: Context) {
           core.error(`could not find vercel.json files in the specified directory`);
           core.error(`error: ${error}`);
         });
-    } catch (error) {
+    } catch (error: any) {
       core.error(`could not find vercel.json file at the specified path`);
     }
-  } catch (error) {
+  } catch (error: any) {
     core.setFailed(error.message);
   }
 }

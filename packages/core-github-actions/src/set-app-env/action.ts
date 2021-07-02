@@ -160,7 +160,7 @@ export function runAction(env?: ActionEnv, githubContext?: Context) {
     core.debug(`APP_PROTOCOL: ${env.APP_PROTOCOL}`);
     core.debug(`APP_HOST: ${env.APP_HOST}`);
     core.debug(`APP_PORT: ${env.APP_PORT}`);
-  } catch (error) {
+  } catch (error: any) {
     core.setFailed(error.message);
   }
 }

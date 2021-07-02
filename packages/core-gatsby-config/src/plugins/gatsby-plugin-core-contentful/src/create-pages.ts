@@ -108,7 +108,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
       await fsp.readFile(`src/templates/contentful-page.template.tsx`);
       reporter.info(`[${pluginOptions.pluginName}] found contentful-page template in package`);
       pageTemplate = path.resolve(`src/templates/contentful-page.template.tsx`);
-    } catch (error) {
+    } catch (error: any) {
       reporter.panic(
         `[${pluginOptions.pluginName}] no template defined for contentful-page in package`
       );
@@ -118,7 +118,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
     //   await fsp.readFile(`../core-gatsby-ui/src/templates/contentful-page.template.tsx`);
     //   reporter.info(`[${pluginOptions.pluginName}] using default contentful-page template`);
     //   pageTemplate = path.resolve(`../core-gatsby-ui/contentful-page.template.tsx`);
-    // } catch (error) {
+    // } catch (error: any) {
     //   reporter.panic(`[${pluginOptions.pluginName}] no default template defined for contentful-page`);
     // }
 
@@ -148,9 +148,8 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
           component: pageTemplate,
         });
       });
-  } catch (error) {
+  } catch (error: any) {
     reporter.error(`[${pluginOptions.pluginName}] error occured when generating pages: ${error}`);
-
     reporter.panic(error);
   }
 };

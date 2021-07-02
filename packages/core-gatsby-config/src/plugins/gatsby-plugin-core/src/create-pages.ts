@@ -125,7 +125,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
         await fsp.readFile(`src/templates/docs.template.tsx`);
         reporter.info(`[${pluginOptions.pluginName}] found docs template in package`);
         markdownDocsTemplate = path.resolve(`src/templates/docs.template.tsx`);
-      } catch (error) {
+      } catch (error: any) {
         reporter.info(`[${pluginOptions.pluginName}] no template defined for docs in package`);
       }
 
@@ -133,7 +133,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
         await fsp.readFile(`../core-gatsby-ui/src/templates/docs.template.tsx`);
         reporter.info(`[${pluginOptions.pluginName}] using default docs template`);
         markdownDocsTemplate = path.resolve(`../core-gatsby-ui/src/templates/docs.template.tsx`);
-      } catch (error) {
+      } catch (error: any) {
         reporter.panic(
           `[${pluginOptions.pluginName}] no default template defined for markdown-docs`
         );
@@ -144,7 +144,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
         await fsp.readFile(`src/templates/markdown-page.template.tsx`);
         reporter.info(`[${pluginOptions.pluginName}] found markdown-page template in package`);
         markdownPageTemplate = path.resolve(`src/templates/markdown-page.template.tsx`);
-      } catch (error) {
+      } catch (error: any) {
         reporter.info(
           `[${pluginOptions.pluginName}] no template defined for markdown-page in package`
         );
@@ -156,7 +156,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
         markdownPageTemplate = path.resolve(
           `../core-gatsby-ui/src/templates/markdown-page.template.tsx`
         );
-      } catch (error) {
+      } catch (error: any) {
         reporter.panic(
           `[${pluginOptions.pluginName}] no default template defined for markdown-page`
         );
@@ -167,7 +167,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
         await fsp.readFile(`src/templates/design-system-page.template.tsx`);
         reporter.info(`[${pluginOptions.pluginName}] found design-system-page template in package`);
         designSystemPageTemplate = path.resolve(`src/templates/design-system-page.template.tsx`);
-      } catch (error) {
+      } catch (error: any) {
         reporter.info(
           `[${pluginOptions.pluginName}] no template defined for design-system-page in package`
         );
@@ -179,7 +179,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
         designSystemPageTemplate = path.resolve(
           `../core-gatsby-ui/src/templates/design-system-page.template.tsx`
         );
-      } catch (error) {
+      } catch (error: any) {
         reporter.panic(
           `[${pluginOptions.pluginName}] no default template defined for design-system-page`
         );
@@ -247,7 +247,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
         });
       });
     }
-  } catch (error) {
+  } catch (error: any) {
     reporter.error(`[${pluginOptions.pluginName}] error occured when generating pages: ${error}`);
     reporter.panic(error);
   }

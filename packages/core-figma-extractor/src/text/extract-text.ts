@@ -49,7 +49,7 @@ export function parseFigmaTexts(data: FileStylesResponse['meta']['styles']) {
         ] = newText;
         return dataToken;
       }
-    } catch (error) {
+    } catch (error: any) {
       log(chalk.red(`${error}`));
     }
   });
@@ -130,7 +130,7 @@ export function getFigmaText(rawText: any, key: string | number): any {
 
 const createTextVariantTS = (textObject: TextTokens) => {
   const TextKeys = Object.keys(textObject).map((text) => {
-    return `'${text}': { 
+    return `'${text}': {
       id: '${textObject[text].id}',
       textType: '${textObject[text].textType}',
       mediaQuery: '${textObject[text].mediaQuery}',

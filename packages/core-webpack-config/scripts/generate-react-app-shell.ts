@@ -16,7 +16,7 @@ async function generateReactSSRRoot(url: string) {
   const html = await page.$eval('#index', (e) => e.outerHTML); // serialized HTML of page DOM.
   try {
     await fsp.writeFile('./src/client/index-shell.html', html);
-  } catch (error) {
+  } catch (error: any) {
     console.error(error);
   }
   await browser.close();

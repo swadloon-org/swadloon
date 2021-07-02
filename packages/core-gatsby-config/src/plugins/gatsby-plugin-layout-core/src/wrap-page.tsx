@@ -1,5 +1,5 @@
-import React from 'react';
 import { GatsbyBrowser, GatsbySSR } from 'gatsby';
+import React from 'react';
 import { PLUGIN_CONSTANTS } from './constants';
 
 let LayoutComponent: any;
@@ -16,16 +16,16 @@ try {
     );
   }
   LayoutComponent = require(PLUGIN_CONSTANTS.CORE_LAYOUT_COMPONENT_PATH);
-} catch (e) {
-  if (e.toString().indexOf(`Error: Cannot find module`) !== -1) {
+} catch (error: any) {
+  if (error.toString().indexOf(`Error: Cannot find module`) !== -1) {
     throw new Error(
       `Couldn't find layout component at "${PLUGIN_CONSTANTS.CORE_LAYOUT_COMPONENT_PATH}\n\n`
     );
   } else {
     // Logging the error for debugging older browsers as there is no way
     // to wrap the thrown error in a try/catch.
-    console.error(e);
-    throw e;
+    console.error(error);
+    throw error;
   }
 }
 
@@ -36,16 +36,16 @@ try {
     );
   }
   ProvidersComponent = require(PLUGIN_CONSTANTS.CORE_PROVIDERS_COMPONENT_PATH);
-} catch (e) {
-  if (e.toString().indexOf(`Error: Cannot find module`) !== -1) {
+} catch (error: any) {
+  if (error.toString().indexOf(`Error: Cannot find module`) !== -1) {
     throw new Error(
       `Couldn't find providers component at "${PLUGIN_CONSTANTS.CORE_PROVIDERS_COMPONENT_PATH}.\n\n`
     );
   } else {
     // Logging the error for debugging older browsers as there is no way
     // to wrap the thrown error in a try/catch.
-    console.error(e);
-    throw e;
+    console.error(error);
+    throw error;
   }
 }
 

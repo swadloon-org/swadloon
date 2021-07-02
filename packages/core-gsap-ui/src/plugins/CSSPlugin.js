@@ -9,9 +9,7 @@
 */
 /* eslint-disable */
 
-import {gsap, _getProperty, _numExp, _numWithUnitExp, getUnit, _isString, _isUndefined, _renderComplexString, _relExp, _forEachName, _sortPropTweensByPriority, _colorStringFilter, _checkPlugin, _replaceRandom, _plugins, GSCache, PropTween, _config, _ticker, _round, _missingPlugin, _getSetter, _getCache,
-	_setDefaults, _removeLinkedListItem //for the commented-out className feature.
-} from "./gsap-core.js";
+import { getUnit, gsap, GSCache, PropTween, _checkPlugin, _colorStringFilter, _config, _forEachName, _getCache, _getProperty, _getSetter, _isString, _isUndefined, _missingPlugin, _numExp, _numWithUnitExp, _plugins, _relExp, _renderComplexString, _replaceRandom, _round, _sortPropTweensByPriority, _ticker } from "./gsap-core.js";
 
 let _win, _doc, _docElement, _pluginInitted, _tempDiv, _tempDivStyler, _recentSetterPlugin,
 	_windowExists = () => typeof(window) !== "undefined",

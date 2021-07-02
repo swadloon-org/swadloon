@@ -121,6 +121,10 @@ To completely reset the repository and reinstall, try:
 yarn reset
 ```
 
+## License
+
+This project is licensed under the terms of the [MIT license](/LICENSE).
+
 ## Architecture
 
 ### `core` packages

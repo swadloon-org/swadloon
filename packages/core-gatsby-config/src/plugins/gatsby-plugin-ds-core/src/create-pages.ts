@@ -24,7 +24,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
     //   },
     //   component: markdownTemplate,
     // });
-  } catch (error) {
+  } catch (error: any) {
     log(`Error occured when generating pages: ${error}`, {
       toolName: pluginOptions.packageName,
       level: LOG_LEVEL.ERROR,
