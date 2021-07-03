@@ -3,6 +3,49 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-design-system-old@1.5.1...@newrade/core-design-system-old@1.6.0) (2021-07-03)
+
+### Bug Fixes
+
+- **build:** simplify build commands
+  ([433ef53](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/433ef533f2812a73a9e4062f394b42f9c2c94ebf))
+- **core-contentful-lib:** changes
+  ([d42278c](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/d42278c313ec5ca24a450536f7dc9b624a6d2fc1))
+- **core-react-ui:** fix async bundle and md providers
+  ([8f3404a](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/8f3404aaa3962b794c359f1a626b4efdf5121e01))
+- **lint:** fix line width to 100
+  ([49574eb](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/49574eb1fe8aa3bbdf3cf9a6067956ccf3a96561))
+- **linting:** fixes
+  ([6d6fd06](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/6d6fd0636bffadd57e63a337da959861282a2a0f))
+- **mir-website:** fix build
+  ([ab6b04b](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/ab6b04b26868fa94741c9a28de7c9ff0b1981ec4))
+- **repo:** add .env type checking to all packages
+  ([d382e42](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/d382e42e2dcfbff0b635b4aa1f2c04e56deda4d7))
+- **repo:** clean up eslint and gitignore files
+  ([5a0a45d](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/5a0a45d7d6e669dc6859f361093d6d5b1e3c5d09))
+- **repo:** fix linting issues
+  ([25cd3d4](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/25cd3d4d91ada263a02177eed2eecbc4bcc0fd70))
+- **repo:** fixes after deepscan
+  ([4e6e58f](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/4e6e58fb7788e6a4361dffd2eb593970306d9404))
+- **repo:** remove postinstall command for packages
+  ([7e8bd73](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/7e8bd73bcec5877233de0770becf757d8cb7787a))
+
+### Features
+
+- **contentful-lib:** refactor website api and corresponding contentful scripts
+  ([3d01ca3](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/3d01ca326a8bb9a74522709a617406d240686d41))
+- **core-react-ui:** add img-downloader component
+  ([b7f89c8](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/b7f89c812ccecb97dab7e99cb31169fe8118bdfd))
+- **csstype:** bump csstype to v3
+  ([5826b07](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/5826b07154c2c33d32dff9938ee5cdd5990cf985))
+- **treat:** add vanilla extract
+  ([d39e010](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/d39e01045115db925a6a63001471de80e540702b))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.5.0](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-design-system-old@1.4.4...@newrade/core-design-system-old@1.5.0) (2021-06-16)
 
 ### Bug Fixes

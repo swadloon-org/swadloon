@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.9.0](https://github.com/newrade/newrade-core/compare/@newrade/core-graphql-ui@1.8.1...@newrade/core-graphql-ui@1.9.0) (2021-07-03)
+
+### Bug Fixes
+
+- **build:** simplify build commands
+  ([433ef53](https://github.com/newrade/newrade-core/commit/433ef533f2812a73a9e4062f394b42f9c2c94ebf))
+- **patch:** fix deps
+  ([ea483f3](https://github.com/newrade/newrade-core/commit/ea483f365e260ef7a4d96b66de5a30afac4a397b))
+- **vsb-api:** fix deploy settings
+  ([22fda36](https://github.com/newrade/newrade-core/commit/22fda366d958ee071d1375f4af7372abf1d4abf4))
+
+### Features
+
+- **cdpq-website:** init
+  ([c51956f](https://github.com/newrade/newrade-core/commit/c51956fd40f157a59258890fa86b1779525de752))
+- **core-graphql-ui:** init package
+  ([7c4df6b](https://github.com/newrade/newrade-core/commit/7c4df6bc867e61a8e545dc7d389f6bc58777f899))
+- **core-react-ui:** add img-downloader component
+  ([b7f89c8](https://github.com/newrade/newrade-core/commit/b7f89c812ccecb97dab7e99cb31169fe8118bdfd))
+- **treat:** add vanilla extract
+  ([d39e010](https://github.com/newrade/newrade-core/commit/d39e01045115db925a6a63001471de80e540702b))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.8.0](https://github.com/newrade/newrade/compare/@newrade/core-graphql-ui@1.7.1...@newrade/core-graphql-ui@1.8.0) (2021-06-16)
 
 ### Bug Fixes

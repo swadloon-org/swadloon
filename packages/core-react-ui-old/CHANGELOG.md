@@ -3,6 +3,55 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.9.0](https://github.com/newrade/newrade-core/compare/@newrade/core-react-ui-old@1.8.1...@newrade/core-react-ui-old@1.9.0) (2021-07-03)
+
+### Bug Fixes
+
+- **build:** simplify build commands
+  ([433ef53](https://github.com/newrade/newrade-core/commit/433ef533f2812a73a9e4062f394b42f9c2c94ebf))
+- **core-common:** remove browser code from core-utils
+  ([b2595fc](https://github.com/newrade/newrade-core/commit/b2595fcc496d8876b0f658592a66659840d1ec92))
+- **core-contentful-lib:** changes
+  ([d42278c](https://github.com/newrade/newrade-core/commit/d42278c313ec5ca24a450536f7dc9b624a6d2fc1))
+- **core-gatsby-starter:** refactor templates + setup pages and markdown
+  ([4aaa949](https://github.com/newrade/newrade-core/commit/4aaa949750c94a939b35767f2bd3fb20b8fb2614))
+- **lint-fix:** fixing current lint error on the build
+  ([c28d6f3](https://github.com/newrade/newrade-core/commit/c28d6f3e688af0e4ad42abe1a8bc5630b663dbda))
+- **mir-website:** fix build
+  ([ab6b04b](https://github.com/newrade/newrade-core/commit/ab6b04b26868fa94741c9a28de7c9ff0b1981ec4))
+- **repo:** add .env type checking to all packages
+  ([d382e42](https://github.com/newrade/newrade-core/commit/d382e42e2dcfbff0b635b4aa1f2c04e56deda4d7))
+- **repo:** clean up eslint and gitignore files
+  ([5a0a45d](https://github.com/newrade/newrade-core/commit/5a0a45d7d6e669dc6859f361093d6d5b1e3c5d09))
+- **repo:** fix linting issues
+  ([25cd3d4](https://github.com/newrade/newrade-core/commit/25cd3d4d91ada263a02177eed2eecbc4bcc0fd70))
+- **repo:** improve tsconfigs and build references
+  ([22a31c1](https://github.com/newrade/newrade-core/commit/22a31c17608f6d6fda5ccd193588fd9194c68502))
+- **repo:** remove postinstall command for packages
+  ([7e8bd73](https://github.com/newrade/newrade-core/commit/7e8bd73bcec5877233de0770becf757d8cb7787a))
+- **repo:** share .d.ts files in core-types
+  ([4b28071](https://github.com/newrade/newrade-core/commit/4b28071d704905c281b304a78c5888fbf5961de5))
+- **typescript:** remove typeRoots which is almost a deprecated feature
+  ([edfab31](https://github.com/newrade/newrade-core/commit/edfab31f34f518881c56fea74aa83331957ddcaf))
+
+### Features
+
+- **core-graphql-ui:** init package
+  ([7c4df6b](https://github.com/newrade/newrade-core/commit/7c4df6bc867e61a8e545dc7d389f6bc58777f899))
+- **core-react-ui:** add img-downloader component
+  ([b7f89c8](https://github.com/newrade/newrade-core/commit/b7f89c812ccecb97dab7e99cb31169fe8118bdfd))
+- **core-react-ui:** add react-aria
+  ([b42c52a](https://github.com/newrade/newrade-core/commit/b42c52aa02b8ffd00f3a2da943d362df3f2f28cd))
+- **core-react-ui-app:** fix the app version
+  ([b028a82](https://github.com/newrade/newrade-core/commit/b028a82707c60d9274210513d64d201a59c37f5d))
+- **treat:** add vanilla extract
+  ([d39e010](https://github.com/newrade/newrade-core/commit/d39e01045115db925a6a63001471de80e540702b))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.8.0](https://github.com/newrade/newrade/compare/@newrade/core-react-ui-old@1.7.1...@newrade/core-react-ui-old@1.8.0) (2021-06-16)
 
 ### Bug Fixes
