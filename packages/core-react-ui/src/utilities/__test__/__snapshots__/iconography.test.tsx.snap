@@ -4,19 +4,19 @@ exports[`iconography utilities getCSSIconography should create a valid CSS typog
 Object {
   "sizes": Object {
     "desktop": Object {
-      "large": "24px",
-      "medium": "16px",
-      "small": "12px",
+      "large": "32px",
+      "medium": "24px",
+      "small": "20px",
     },
     "mobile": Object {
-      "large": "48px",
+      "large": "32px",
       "medium": "24px",
-      "small": "16px",
+      "small": "20px",
     },
     "tablet": Object {
-      "large": "48px",
+      "large": "32px",
       "medium": "24px",
-      "small": "16px",
+      "small": "20px",
     },
   },
 }

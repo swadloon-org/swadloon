@@ -48,5 +48,5 @@ export type PrimitiveProps<As extends AsTypes = 'div'> = Partial<{
    */
   theme?: 'normal' | 'reversed';
 }> &
-  // 'ref' points to the legacy ref
+  // 'ref' points to the legacy ref so we remove it
   Omit<JSX.IntrinsicElements[As], 'ref'>;

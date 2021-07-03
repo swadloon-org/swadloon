@@ -129,7 +129,7 @@ export const FooterStandard = React.forwardRef<any, Props>(
                           variantSize={PARAGRAPH_SIZE.small}
                           href={link?.url || ' '}
                           variantIcon={LinkIcon.right}
-                          Icon={<IconComp name={ICON.IO_OPEN}></IconComp>}
+                          Icon={<IconComp name={ICON.OPEN}></IconComp>}
                         >
                           {link?.label || link?.url || ' '}
                         </Link>

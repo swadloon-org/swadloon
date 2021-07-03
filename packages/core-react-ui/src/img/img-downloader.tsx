@@ -1,6 +1,5 @@
-import { ButtonIcon, ButtonSize, Variant } from '@newrade/core-design-system';
+import { ButtonSize, Variant } from '@newrade/core-design-system';
 import React, { useCallback, useRef } from 'react';
-import { IoDownloadOutline } from 'react-icons/io5';
 import { useStyles } from 'react-treat';
 import { Button } from '../button/button';
 import { useTreatTheme } from '../hooks/use-treat-theme';
@@ -32,12 +31,13 @@ export const SvgDownloader: React.FC<Props> = ({ filename, children, ...props })
   }
 
   const findSvgElement = useCallback(() => {
-    const wrapperChildren = wrapperRef.current?.children;
-    if (!wrapperChildren?.[0]) {
+    const svgElements = wrapperRef.current?.getElementsByTagName('svg');
+
+    if (!svgElements?.[0]) {
       return;
     }
 
-    const svgElement = wrapperChildren[0];
+    const svgElement = svgElements[0];
 
     if (!/svg/i.test(svgElement.tagName)) {
       return;
@@ -132,7 +132,7 @@ export const SvgDownloader: React.FC<Props> = ({ filename, children, ...props })
   }
 
   return (
-    <Stack {...props} ref={wrapperRef} gap={[cssTheme.sizing.var.x4]}>
+    <Stack {...props} ref={wrapperRef} gap={[cssTheme.sizing.var.x3]}>
       {/* svg must the first children */}
       {children}
 
@@ -142,25 +142,21 @@ export const SvgDownloader: React.FC<Props> = ({ filename, children, ...props })
         justifyContent={['flex-start']}
       >
         <Button
-          variant={Variant.primary}
-          size={ButtonSize.xSmall}
-          Icon={<IoDownloadOutline />}
-          icon={ButtonIcon.left}
-          onClick={handleDownloadPNG}
-          aria-label={'Download as .png file'}
-        >
-          PNG
-        </Button>
-
-        <Button
-          variant={Variant.primary}
-          size={ButtonSize.xSmall}
-          Icon={<IoDownloadOutline />}
-          icon={ButtonIcon.left}
+          variant={Variant.secondary}
+          size={ButtonSize.small}
           onClick={handleDownloadSVG}
           aria-label={'Download as .svg file'}
         >
-          SVG
+          Download SVG
+        </Button>
+
+        <Button
+          variant={Variant.secondary}
+          size={ButtonSize.small}
+          onClick={handleDownloadPNG}
+          aria-label={'Download as .png file'}
+        >
+          Download PNG
         </Button>
       </Cluster>
     </Stack>

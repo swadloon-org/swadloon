@@ -5,12 +5,10 @@ export const styles = {
   wrapper: style(({ theme, cssTheme }: Theme) => ({
     display: 'flex',
     flexDirection: 'column',
+    justifyContent: 'center',
     alignItems: 'center',
   })),
   icon: style(({ theme, cssTheme }: Theme) => ({
-    marginBottom: cssTheme.sizing.var.x2,
-    padding: cssTheme.sizing.var.x3,
-
-    boxShadow: cssTheme.effects.boxShadows.light,
+    padding: cssTheme.sizing.var.x2,
   })),
 };
