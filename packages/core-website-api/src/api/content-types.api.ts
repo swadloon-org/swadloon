@@ -35,6 +35,16 @@ export enum ContentType {
   PORTFOLIO_TAG = 'PortfolioTag',
 
   /**
+   * Customer content types
+   */
+  CUSTOMER = 'Customer',
+
+  /**
+   * Invoice content types
+   */
+  INVOICE = 'Invoice',
+
+  /**
    * Assets related types
    */
   MEDIA = 'Media',

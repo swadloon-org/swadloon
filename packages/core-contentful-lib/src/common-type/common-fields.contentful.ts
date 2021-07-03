@@ -73,6 +73,7 @@ export enum COMMON_FIELD {
   LOGO = 'logo',
   LOGO_FOOTER = 'logoFooter',
   FAVICON = 'favicon',
+  WEBSITE_PAGE_ULR = 'websitePageURL',
   LINKEDIN_PAGE_URL = 'linkedinPageURL',
   FACEBOOK_PAGE_URL = 'facebookPageURL',
   INSTAGRAM_PAGE_URL = 'instagramPageURL',
