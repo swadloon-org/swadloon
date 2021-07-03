@@ -1,6 +1,6 @@
 {
   "name": "@newrade/core-design-system-docs",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "description": "Markdown based documentation for design systems",
   "license": "MIT",
   "main": "./lib/index.js",
@@ -21,8 +21,8 @@
   "dependencies": {
     "@newrade/core-common": "^1.4.0",
     "@newrade/core-gatsby-config": "^1.14.0",
-    "@newrade/core-gatsby-ui": "^1.10.0",
-    "@newrade/core-react-ui": "^1.16.0",
+    "@newrade/core-gatsby-ui": "^1.10.1",
+    "@newrade/core-react-ui": "^1.17.0",
     "@newrade/core-types": "^1.6.0",
     "@newrade/core-utils": "^1.8.0",
     "@newrade/core-webpack-config": "^1.8.0",
