@@ -1,10 +1,11 @@
-import { ButtonIcon, ButtonSize, LOGO, Variant } from '@newrade/core-design-system';
+import { ButtonIcon, ButtonSize, ICON, LOGO, Variant } from '@newrade/core-design-system';
 import {
   BoxV2,
   Button,
   Center,
   Cluster,
   globalThemeReversed,
+  IconComp,
   Label,
   Logo,
   PrimitiveProps,
@@ -16,7 +17,7 @@ import {
 import { IoClose } from '@react-icons/all-files/io5/IoClose';
 import { IoMenu } from '@react-icons/all-files/io5/IoMenu';
 import React, { useRef } from 'react';
-import { IoMoon, IoSearchOutline, IoSquare, IoSunny } from 'react-icons/io5';
+import { IoMoon, IoSearchOutline, IoSunny } from 'react-icons/io5';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './navbar-docs.treat';
 
@@ -36,16 +37,6 @@ type Props = PrimitiveProps & {
    *  <NavBar ... HomeLink={<GatsbyLink to={'/'} />} />
    */
   HomeLink?: React.ReactNode;
-  /**
-   * Pass a React SVG to the mobile logo
-   * @deprecated use the logo component instead <Logo name={LOGO.STANDARD}></Logo>
-   */
-  MobileSvgLogo?: React.ReactNode;
-  /**
-   * Pass a React SVG to the desktop logo
-   * @deprecated use the logo component instead <Logo name={LOGO.STANDARD}></Logo>
-   */
-  DesktopSvgLogo?: React.ReactNode;
   /**
    * Navigation links
    */
@@ -157,7 +148,9 @@ export const NavbarDocs: React.FC<Props> = function NavbarDocs(props) {
               <Button
                 icon={ButtonIcon.icon}
                 variant={Variant.tertiary}
-                Icon={<IoSquare size={24} style={{ color: 'white' }} />}
+                Icon={
+                  <IconComp name={ICON.LAYOUT_CENTER} style={{ height: 24, width: 24 }}></IconComp>
+                }
                 aria-label={'Search button'}
                 onClick={props.onLayoutModeChange}
               ></Button>

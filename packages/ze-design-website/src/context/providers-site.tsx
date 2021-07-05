@@ -28,7 +28,13 @@ export const ProvidersSite: React.FC = (props) => {
             <GlobalCSSVariables>
               <GlobalResetCSS>
                 <LogosProvider<LOGO> logoComponents={logosComponents}>
-                  <IconProvider<ICON> iconComponents={ionicons5Kit}>{props.children}</IconProvider>
+                  <IconProvider<ICON>
+                    iconFamilyName={'ionicons'}
+                    iconFamilyWebsite={'https://ionic.io/ionicons'}
+                    iconComponents={ionicons5Kit}
+                  >
+                    {props.children}
+                  </IconProvider>
                 </LogosProvider>
               </GlobalResetCSS>
             </GlobalCSSVariables>

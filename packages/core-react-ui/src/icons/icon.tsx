@@ -33,7 +33,7 @@ export const IconLoader: React.FC<Props> = ({
     id,
     style,
     className,
-    classNames: [styles.base, size ? styles[size] : styles.medium],
+    classNames: [styles.base, size ? styles[size] : ''],
     ...props,
   });
 

@@ -2,19 +2,31 @@ import { ICON, ICON_SIZE } from '@newrade/core-design-system';
 import { Cluster, IconComp, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 
-type Props = {
-  size: ICON_SIZE;
-};
+type Props = {};
 
-export const IconSizes: React.FC<Props> = ({ size }) => {
+export const IconSizes: React.FC<Props> = () => {
   const { theme, cssTheme } = useTreatTheme();
 
+  const icons = [ICON.ARROW_UP, ICON.MENU, ICON.ADD];
+
   return (
-    <Cluster wrap={true} gap={[cssTheme.sizing.var.x3]} justifyContent={['flex-start']}>
-      <IconComp name={ICON.IO_ARROW_UP} size={size} />
-      <IconComp name={ICON.IO_ARROW_RIGHT} size={size} />
-      <IconComp name={ICON.IO_ARROW_DOWN} size={size} />
-      <IconComp name={ICON.IO_ARROW_LEFT} size={size} />
+    <Cluster
+      wrap={true}
+      gap={[cssTheme.sizing.var.x5]}
+      justifyContent={['flex-start']}
+      style={{
+        padding: cssTheme.sizing.var.x4,
+      }}
+    >
+      {icons.map((icon) => {
+        return (
+          <Cluster key={icon} gap={[cssTheme.sizing.var.x5]} justifyContent={['flex-start']}>
+            {[ICON_SIZE.large, ICON_SIZE.medium, ICON_SIZE.small].map((size, index) => {
+              return <IconComp key={index} name={icon} size={size} />;
+            })}
+          </Cluster>
+        );
+      })}
     </Cluster>
   );
 };

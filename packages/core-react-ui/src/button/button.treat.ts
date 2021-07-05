@@ -316,7 +316,9 @@ export const xSmall = style(({ theme, cssTheme }: Theme) => ({
 export const iconBase = style(({ theme, cssTheme }: Theme) => ({
   position: 'absolute',
   height: iconSize,
+  maxHeight: iconSize,
   width: iconSize,
+  maxWidth: iconSize,
 }));
 export const icon = style(({ theme, cssTheme }: Theme) => ({
   top: `calc(50% - ${iconSize} / 2)`,

@@ -15,7 +15,6 @@ export const base = style(({ theme, cssTheme }: Theme) => ({
 }));
 
 export const small = style(({ theme, cssTheme }: Theme) => ({
-  margin: `.25em`,
   height: cssTheme.iconography.sizes.mobile.small,
   width: cssTheme.iconography.sizes.mobile.small,
   '@media': {
@@ -31,7 +30,6 @@ export const small = style(({ theme, cssTheme }: Theme) => ({
 }));
 
 export const medium = style(({ theme, cssTheme }: Theme) => ({
-  margin: `.25em`,
   height: cssTheme.iconography.sizes.mobile.medium,
   width: cssTheme.iconography.sizes.mobile.medium,
   '@media': {
@@ -47,7 +45,6 @@ export const medium = style(({ theme, cssTheme }: Theme) => ({
 }));
 
 export const large = style(({ theme, cssTheme }: Theme) => ({
-  margin: `.25em`,
   height: cssTheme.iconography.sizes.mobile.large,
   width: cssTheme.iconography.sizes.mobile.large,
   '@media': {

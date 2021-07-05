@@ -3,19 +3,19 @@ import { Iconography, VIEWPORT } from '@newrade/core-design-system';
 export const defaultIconography: Iconography = {
   sizes: {
     [VIEWPORT.desktop]: {
-      small: 12,
-      medium: 16,
-      large: 24,
+      small: 20,
+      medium: 24,
+      large: 32,
     },
     [VIEWPORT.tablet]: {
-      small: 16,
+      small: 20,
       medium: 24,
-      large: 48,
+      large: 32,
     },
     [VIEWPORT.mobile]: {
-      small: 16,
+      small: 20,
       medium: 24,
-      large: 48,
+      large: 32,
     },
   },
 };
