@@ -12,6 +12,27 @@ export interface IconBaseProps extends React.SVGAttributes<SVGElement> {
 
 export type DynamicIconImport = (iconName: ICON) => LoadableComponent<any> | React.ElementType;
 
+export type IconConfig = {
+  /**
+   * The icon pack or kit name
+   *
+   * @example 'ionicons'
+   */
+  iconFamilyName?: string;
+  /**
+   * The icon pack or kit style variation
+   *
+   * @example 'outline'
+   */
+  iconFamilyStyle?: string;
+  /**
+   * Link to the icons documentation or original author
+   *
+   * @example 'https://ionic.io/ionicons'
+   */
+  iconFamilyWebsite?: string;
+};
+
 export type IconComponents<Icons extends string | undefined = undefined> = {
   [key in Icons extends string ? Icons : string]?: (props: IconBaseProps) => JSX.Element;
 };
@@ -33,19 +54,7 @@ export type IconMetadata<Icons extends string | undefined = undefined> = {
   };
 };
 
-type Context<Icons extends string | undefined = undefined> = {
-  /**
-   * The icon pack or kit name
-   *
-   * @example 'ionicons'
-   */
-  iconFamilyName?: string;
-  /**
-   * Link to the icons documentation or original author
-   *
-   * @example 'https://ionic.io/ionicons'
-   */
-  iconFamilyWebsite?: string;
+type Context<Icons extends string | undefined = undefined> = IconConfig & {
   /**
    * Map with components for each icon entry
    */

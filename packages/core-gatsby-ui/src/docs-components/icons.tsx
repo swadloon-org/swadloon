@@ -203,7 +203,7 @@ export const Icons: React.FC<Props> = ({ id, style, className, ...props }) => {
                 Icon={<IconComp name={ICON.OPEN} />}
                 variantIcon={LinkIcon.right}
               >
-                {iconContext?.iconFamilyName || ''}
+                {`${iconContext?.iconFamilyName} `} / {iconContext?.iconFamilyStyle || ''}
               </Link>
             </div>
 

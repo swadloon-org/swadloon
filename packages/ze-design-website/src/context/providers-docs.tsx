@@ -11,7 +11,10 @@ import {
 import { defaultCSSTheme, defaultTheme } from '@newrade/core-react-ui/lib/default-theme';
 import { GlobalCSSVariables } from '@newrade/core-react-ui/lib/global/global-css-variables';
 import { GlobalResetCSS } from '@newrade/core-react-ui/lib/global/global-reset-css';
-import { ionicons5Kit } from '@newrade/core-react-ui/lib/icon-kits/iconicons';
+import {
+  ionicons5OutlineComponents,
+  ioniconsOutlineConfig,
+} from '@newrade/core-react-ui/lib/icon-kits/iconicons-outline';
 import { logosComponents } from '@newrade/ze-design-system';
 import React from 'react';
 import { TreatProvider } from 'react-treat';
@@ -30,9 +33,8 @@ export const ProvidersDocs: React.FC = (props) => {
               <GlobalResetCSS>
                 <LogosProvider<LOGO> logoComponents={logosComponents}>
                   <IconProvider<ICON>
-                    iconFamilyName={'ionicons'}
-                    iconFamilyWebsite={'https://ionic.io/ionicons'}
-                    iconComponents={ionicons5Kit}
+                    {...ioniconsOutlineConfig}
+                    iconComponents={ionicons5OutlineComponents}
                   >
                     {props.children}
                   </IconProvider>
