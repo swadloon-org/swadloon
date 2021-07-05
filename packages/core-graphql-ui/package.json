@@ -1,6 +1,6 @@
 {
   "name": "@newrade/core-graphql-ui",
-  "version": "1.9.1",
+  "version": "1.9.2",
   "description": "UI App library",
   "license": "MIT",
   "scripts": {
@@ -13,9 +13,9 @@
   "typings": "./lib/index.d.ts",
   "dependencies": {
     "@newrade/core-common": "^1.4.0",
-    "@newrade/core-design-system": "^1.12.0",
+    "@newrade/core-design-system": "^1.13.0",
     "@newrade/core-jest-config": "^1.7.0",
-    "@newrade/core-react-ui": "^1.17.0",
+    "@newrade/core-react-ui": "^1.18.0",
     "@newrade/core-types": "^1.6.0",
     "@newrade/core-utils": "^1.8.0",
     "@newrade/core-webpack-config": "^1.8.0"

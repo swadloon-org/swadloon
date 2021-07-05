@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/newrade/newrade-core/tree/master/packages/ze-design-website/compare/@newrade/ze-design-website@1.1.1...@newrade/ze-design-website@1.2.0) (2021-07-05)
+
+### Features
+
+- **core-design-system-docs:** improve icons presentation
+  ([594a5c6](https://github.com/newrade/newrade-core/tree/master/packages/ze-design-website/commit/594a5c69e77e81196967c62089f2e2937b46ce3c))
+- **core-gatsby-ui:** add icons family and website link to context
+  ([c878ec9](https://github.com/newrade/newrade-core/tree/master/packages/ze-design-website/commit/c878ec9bea7592ed223187b9bddd580e7c538578))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.1.1](https://github.com/newrade/newrade-core/tree/master/packages/ze-design-website/compare/@newrade/ze-design-website@1.1.0...@newrade/ze-design-website@1.1.1) (2021-07-03)
 
 **Note:** Version bump only for package @newrade/ze-design-website

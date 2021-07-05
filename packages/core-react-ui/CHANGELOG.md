@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.18.0](https://github.com/newrade/newrade-core/compare/@newrade/core-react-ui@1.17.0...@newrade/core-react-ui@1.18.0) (2021-07-05)
+
+### Features
+
+- **core-design-system-docs:** improve icons presentation
+  ([594a5c6](https://github.com/newrade/newrade-core/commit/594a5c69e77e81196967c62089f2e2937b46ce3c))
+- **core-gatsby-ui:** add icons family and website link to context
+  ([c878ec9](https://github.com/newrade/newrade-core/commit/c878ec9bea7592ed223187b9bddd580e7c538578))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.17.0](https://github.com/newrade/newrade-core/compare/@newrade/core-react-ui@1.16.0...@newrade/core-react-ui@1.17.0) (2021-07-03)
 
 ### Bug Fixes

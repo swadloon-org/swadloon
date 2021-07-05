@@ -1,6 +1,6 @@
 {
   "name": "@newrade/core-cli",
-  "version": "1.10.0",
+  "version": "1.10.1",
   "description": "CLI for various purposes, automate actions, etc.",
   "author": {
     "email": "info@newrade.ca",
@@ -38,7 +38,7 @@
   "types": "lib/index.d.ts",
   "dependencies": {
     "@newrade/core-common": "^1.4.0",
-    "@newrade/core-figma-extractor": "^1.4.0",
+    "@newrade/core-figma-extractor": "^1.4.1",
     "@newrade/core-types": "^1.6.0",
     "@newrade/core-utils": "^1.8.0",
     "@oclif/command": "^1",

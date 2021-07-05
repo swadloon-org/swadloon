@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.2](https://github.com/newrade/newrade-core/compare/@newrade/ze-design-system@1.1.1...@newrade/ze-design-system@1.1.2) (2021-07-05)
+
+**Note:** Version bump only for package @newrade/ze-design-system
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.1.1](https://github.com/newrade/newrade-core/compare/@newrade/ze-design-system@1.1.0...@newrade/ze-design-system@1.1.1) (2021-07-03)
 
 **Note:** Version bump only for package @newrade/ze-design-system

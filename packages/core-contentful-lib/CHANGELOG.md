@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.2](https://github.com/newrade/newrade-core/compare/@newrade/core-contentful-lib@1.9.1...@newrade/core-contentful-lib@1.9.2) (2021-07-05)
+
+**Note:** Version bump only for package @newrade/core-contentful-lib
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.9.1](https://github.com/newrade/newrade-core/compare/@newrade/core-contentful-lib@1.9.0...@newrade/core-contentful-lib@1.9.1) (2021-07-03)
 
 **Note:** Version bump only for package @newrade/core-contentful-lib

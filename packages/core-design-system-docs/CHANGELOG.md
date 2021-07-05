@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/newrade/newrade-core/compare/@newrade/core-design-system-docs@1.6.1...@newrade/core-design-system-docs@1.7.0) (2021-07-05)
+
+### Features
+
+- **core-design-system-docs:** improve icons presentation
+  ([594a5c6](https://github.com/newrade/newrade-core/commit/594a5c69e77e81196967c62089f2e2937b46ce3c))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.6.1](https://github.com/newrade/newrade-core/compare/@newrade/core-design-system-docs@1.6.0...@newrade/core-design-system-docs@1.6.1) (2021-07-03)
 
 **Note:** Version bump only for package @newrade/core-design-system-docs
