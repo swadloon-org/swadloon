@@ -2,7 +2,6 @@ import { LoadableComponent } from '@loadable/component';
 import { ICON } from '@newrade/core-design-system';
 import { IconContext as ReactIconContext } from '@react-icons/all-files';
 import React from 'react';
-import { PrimitiveProps } from '../primitive/primitive.props';
 
 export interface IconBaseProps extends React.SVGAttributes<SVGElement> {
   children?: React.ReactNode;
@@ -25,8 +24,28 @@ export type IconMetadata<Icons extends string | undefined = undefined> = {
 };
 
 type Context<Icons extends string | undefined = undefined> = {
+  /**
+   * The icon pack or kit name
+   *
+   * @example 'ionicons'
+   */
+  iconFamilyName?: string;
+  /**
+   * Link to the icons documentation or original author
+   *
+   * @example 'https://ionic.io/ionicons'
+   */
+  iconFamilyWebsite?: string;
+  /**
+   * Map with components for each icon entry
+   */
   iconComponents?: IconComponents<Icons>;
-  iconStyle?: Partial<CSSStyleDeclaration & Pick<PrimitiveProps, 'className'>>;
+  /**
+   * Pass custom style and class to all icons rendered within the IconProvider
+   *
+   * @see https://github.com/react-icons/react-icons#configuration for what is supported
+   */
+  iconStyle?: Partial<ReactIconContext>;
 };
 
 /**

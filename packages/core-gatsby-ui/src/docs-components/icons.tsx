@@ -1,4 +1,11 @@
-import { ButtonIcon, ButtonSize, ICON, ICON_SIZE, Variant } from '@newrade/core-design-system';
+import {
+  ButtonIcon,
+  ButtonSize,
+  ICON,
+  ICON_SIZE,
+  LinkIcon,
+  Variant,
+} from '@newrade/core-design-system';
 import {
   Button,
   Cluster,
@@ -10,12 +17,14 @@ import {
   InputText,
   InputWrapper,
   Label,
+  Link,
   Paragraph,
   PrimitiveProps,
   Stack,
   SvgDownloader,
   Tag,
   useCommonProps,
+  useIconContext,
   useTreatTheme,
 } from '@newrade/core-react-ui';
 import { keys } from '@newrade/core-react-ui/lib/utilities';
@@ -42,6 +51,7 @@ export const Icons: React.FC<Props> = ({ id, style, className, ...props }) => {
     ...props,
   });
 
+  const iconContext = useIconContext();
   const [selectedIcon, setSelectedIcon] = useState<ICON>(ICON.ARROW_RIGHT);
   const [selectedIconSize, setSelectedIconSize] = useState<ICON_SIZE>(ICON_SIZE.medium);
   const [searchTerm, setSearchTerm] = useState<string>('');
@@ -150,6 +160,15 @@ export const Icons: React.FC<Props> = ({ id, style, className, ...props }) => {
           <div className={styles.usage}>
             <div className={`${styles.usageHeader} ${globalThemeReversed}`}>
               <Label>{pascal(selectedIcon)}</Label>
+
+              <Link
+                target={'_blank'}
+                href={iconContext?.iconFamilyWebsite}
+                Icon={<IconComp name={ICON.OPEN} />}
+                variantIcon={LinkIcon.right}
+              >
+                {iconContext?.iconFamilyName || ''}
+              </Link>
             </div>
 
             <Paragraph>{iconMetadatas[selectedIcon]?.description || lorenipsumShort}</Paragraph>

@@ -42,11 +42,13 @@ export const styles = {
   })),
   usageHeader: style(({ theme, cssTheme }: Theme) => ({
     display: 'flex',
-    backgroundColor: cssTheme.colors.colors.grey[800],
+    justifyContent: 'space-between',
     margin: `calc(-1 * ${cssTheme.sizing.var.x3})`,
     marginBottom: cssTheme.sizing.var.x1,
     padding: cssTheme.sizing.var.x3,
+
     color: cssTheme.colors.colorIntents.primaryReversed,
+    backgroundColor: cssTheme.colors.colors.grey[800],
   })),
   usageRow: style(({ theme, cssTheme }: Theme) => ({
     display: 'flex',
