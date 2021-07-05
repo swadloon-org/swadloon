@@ -3,7 +3,9 @@ import {
   ButtonSize,
   ICON,
   ICON_SIZE,
+  LABEL_SIZE,
   LinkIcon,
+  TEXT_STYLE,
   Variant,
 } from '@newrade/core-design-system';
 import {
@@ -37,8 +39,9 @@ import { lorenipsumShort } from './loren-ipsum';
 
 type Props = PrimitiveProps;
 
-const allIcons = keys(ICON);
+const allIcons = keys(ICON) as ICON[];
 const allIconMetadata = iconMetadatas;
+const allIconMetadataEntries = Object.entries(allIconMetadata);
 
 export const Icons: React.FC<Props> = ({ id, style, className, ...props }) => {
   const { styles } = useStyles(stylesRef);
@@ -53,10 +56,10 @@ export const Icons: React.FC<Props> = ({ id, style, className, ...props }) => {
 
   const iconContext = useIconContext();
   const [selectedIcon, setSelectedIcon] = useState<ICON>(ICON.ARROW_RIGHT);
-  const [selectedIconSize, setSelectedIconSize] = useState<ICON_SIZE>(ICON_SIZE.medium);
+  const [selectedIconSize, setSelectedIconSize] = useState<ICON_SIZE>(ICON_SIZE.large);
   const [searchTerm, setSearchTerm] = useState<string>('');
 
-  const icons = useMemo(() => {
+  const icons = useMemo<ICON[]>(() => {
     if (!searchTerm) {
       return allIcons;
     }
@@ -70,7 +73,7 @@ export const Icons: React.FC<Props> = ({ id, style, className, ...props }) => {
       (icon) => searchTermReg.map((reg) => reg.test(icon)).filter(Boolean).length > 0
     );
 
-    const resultSearchMeta: ICON[] = Object.entries(allIconMetadata)
+    const resultSearchMeta: ICON[] = allIconMetadataEntries
       .map(([icon, meta]) => {
         const matchDescription =
           searchTermReg.map((reg) => reg.test(meta.description || '')).filter(Boolean).length > 0
@@ -87,8 +90,26 @@ export const Icons: React.FC<Props> = ({ id, style, className, ...props }) => {
       })
       .filter(Boolean) as ICON[];
 
-    return [...new Set([...resultSearchName, ...resultSearchMeta])];
+    return [...new Set([...resultSearchName, ...resultSearchMeta])] as ICON[];
   }, [searchTerm]);
+
+  const iconsByGroup = icons.reduce((previous, current, index) => {
+    const meta = allIconMetadata[current];
+    const iconGroups = meta.categories?.length ? meta.categories : ['Interface'];
+
+    iconGroups.forEach((iconCategory) => {
+      const existingGroup = previous.find((group) => group.name === iconCategory);
+
+      if (!existingGroup) {
+        previous.push({ name: iconCategory, icons: [current] });
+        return;
+      }
+
+      existingGroup.icons.push(current);
+    });
+
+    return previous;
+  }, [] as { name: string; icons: ICON[] }[]);
 
   function handleFilterIcons(event: React.ChangeEvent<HTMLInputElement>) {
     const inputText = event.target.value;
@@ -104,8 +125,25 @@ export const Icons: React.FC<Props> = ({ id, style, className, ...props }) => {
     setSelectedIconSize(iconSize as ICON_SIZE);
   }
 
+  const renderIcon = (iconName: ICON, index: number): JSX.Element => {
+    return (
+      <IconBox
+        key={index}
+        style={{
+          cursor: 'pointer',
+          border:
+            iconName === selectedIcon ? `2px dotted ${cssTheme.colors.colors.primary[500]}` : '',
+
+          borderRadius: 3,
+        }}
+        onClick={(event) => handleSelectingIcon(iconName as ICON)}
+      >
+        <IconComp name={iconName as ICON} size={selectedIconSize} />
+      </IconBox>
+    );
+  };
   return (
-    <Stack gap={[cssTheme.sizing.var.x4]} {...commonProps}>
+    <Stack gap={[cssTheme.sizing.var.x5]} {...commonProps}>
       <Cluster wrap={true} gap={[cssTheme.sizing.var.x3]} justifyContent={['flex-start']}>
         <InputWrapper className={styles.inputWrapper}>
           <InputLabel htmlFor={'search-icons'}>Search</InputLabel>
@@ -131,29 +169,27 @@ export const Icons: React.FC<Props> = ({ id, style, className, ...props }) => {
         </InputWrapper>
       </Cluster>
 
-      <Stack gap={[cssTheme.sizing.var.x2]}>
-        <div className={styles.iconsGrid}>
-          {icons.map((iconName, index) => {
-            return (
-              <IconBox
-                key={index}
-                style={{
-                  cursor: 'pointer',
-                  border:
-                    iconName === selectedIcon
-                      ? `2px dotted ${cssTheme.colors.colors.primary[500]}`
-                      : '',
-
-                  borderRadius: 3,
-                }}
-                onClick={(event) => handleSelectingIcon(iconName as ICON)}
+      {searchTerm ? (
+        <Stack gap={[cssTheme.sizing.var.x2]}>
+          <div className={styles.iconsGrid}>{icons.map(renderIcon)}</div>
+        </Stack>
+      ) : (
+        iconsByGroup.map((group) => {
+          return (
+            <Stack key={group.name} gap={[cssTheme.sizing.var.x3]}>
+              <Label
+                variant={LABEL_SIZE.small}
+                variantStyle={TEXT_STYLE.boldUppercase}
+                variantLevel={Variant.secondary}
               >
-                <IconComp name={iconName as ICON} size={selectedIconSize} />
-              </IconBox>
-            );
-          })}
-        </div>
-      </Stack>
+                {group.name}
+              </Label>
+
+              <div className={styles.iconsGrid}>{group.icons.map(renderIcon)}</div>
+            </Stack>
+          );
+        })
+      )}
 
       <Stack gap={[cssTheme.sizing.var.x2]}>
         <SvgDownloader filename={pascal(selectedIcon)} style={{ gap: cssTheme.sizing.var.x2 }}>

@@ -4126,14 +4126,14 @@ Object {
       "boldUppercase": Object {
         "fontStyle": undefined,
         "fontWeight": 600,
-        "letterSpacing": "0.1em",
+        "letterSpacing": "0.06em",
         "textDecoration": undefined,
         "textTransform": "uppercase",
       },
       "uppercase": Object {
         "fontStyle": undefined,
         "fontWeight": 400,
-        "letterSpacing": "0.1em",
+        "letterSpacing": "0.06em",
         "textDecoration": undefined,
         "textTransform": "uppercase",
       },

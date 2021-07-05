@@ -18,8 +18,18 @@ export type IconComponents<Icons extends string | undefined = undefined> = {
 
 export type IconMetadata<Icons extends string | undefined = undefined> = {
   [key in Icons extends string ? Icons : string]: {
+    /**
+     * Short description of the icon and how it should be used
+     */
     description?: string;
+    /**
+     * Keywords associated with the icon
+     */
     tags?: string[];
+    /**
+     * Group icons together around a common subject or similarities
+     */
+    categories?: string[];
   };
 };
 

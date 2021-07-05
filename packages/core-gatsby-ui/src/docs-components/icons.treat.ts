@@ -60,8 +60,8 @@ export const styles = {
   iconsGrid: style(({ theme, cssTheme }: Theme) => ({
     display: 'grid',
     gap: cssTheme.sizing.var.x2,
-    gridTemplateColumns: `repeat(auto-fit, 72px)`,
-    gridAutoRows: '70px',
+    gridTemplateColumns: `repeat(auto-fit, 96px)`,
+    gridAutoRows: '94px',
     alignContent: 'center',
     alignItems: 'stretch',
   })),
