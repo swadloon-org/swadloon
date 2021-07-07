@@ -44,14 +44,11 @@ Like most components there are three level of importance for buttons:
 - Secondary
 - Tertiary
 
-<ThemeWrapper>
-  <Buttons />
-</ThemeWrapper>
-<CodeBlock>{ButtonsCode}</CodeBlock>
-
-Buttons support reversed mode:
-
-<ThemeWrapper reversed={true}>
+<!-- prettier-ignore -->
+<ThemeWrapper 
+  displayControls={true} 
+  filename={'buttons.code.tsx'} 
+  code={ButtonsCode}>
   <Buttons />
 </ThemeWrapper>
 
@@ -59,11 +56,13 @@ Buttons support reversed mode:
 
 Four sizes are available for buttons.
 
-<ThemeWrapper>
-  <ButtonsSizes />
+<!-- prettier-ignore -->
+<ThemeWrapper 
+  displayControls={true} 
+  filename={'buttons-sizes.code.tsx'} 
+  code={ButtonsSizesCode}>
+  <ButtonsSizes /> 
 </ThemeWrapper>
-
-<CodeBlock>{ButtonsSizesCode}</CodeBlock>
 
 ## Icon
 

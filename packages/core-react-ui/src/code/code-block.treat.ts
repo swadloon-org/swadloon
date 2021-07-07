@@ -2,6 +2,34 @@ import { style } from 'treat';
 import { Theme } from '../design-system';
 
 export const styles = {
+  wrapper: style(({ theme, cssTheme }: Theme) => ({
+    position: 'relative',
+  })),
+  header: style(({ theme, cssTheme }: Theme) => ({
+    position: 'relative',
+    padding: `12px 16px`,
+
+    fontFamily: 'monospace',
+    color: 'black',
+    backgroundColor: `#CCC0E9`,
+
+    userSelect: 'text',
+  })),
+  langTag: style(({ theme, cssTheme }: Theme) => ({
+    position: 'absolute',
+    right: 8,
+    top: `100%`,
+    padding: `4px 8px`,
+    borderRadius: `0 0 4px 4px`,
+
+    fontFamily: 'monospace',
+    textTransform: 'uppercase',
+    fontSize: 12,
+    color: 'black',
+    backgroundColor: `#FF9EDA`,
+
+    userSelect: 'text',
+  })),
   preview: style(({ theme, cssTheme }: Theme) => ({
     padding: 16,
     width: `100%`,

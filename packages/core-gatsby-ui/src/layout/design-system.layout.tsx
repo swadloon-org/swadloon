@@ -4,7 +4,6 @@ import { HEADING, PARAGRAPH_SIZE, VIEWPORT } from '@newrade/core-design-system';
 import { GatsbyLink, NavbarDocs, useDesignSystemNavigation } from '@newrade/core-gatsby-ui/src';
 import {
   BoxV2,
-  defaultThemeClassName,
   DesktopDocsItemGroup,
   DesktopDocsSideBar,
   DesktopDocsSidebarItem,
@@ -97,7 +96,7 @@ export const LayoutDesignSystem: React.FC<DesignSystemLayoutProps> = function ({
   );
 
   return (
-    <MainWrapper className={defaultThemeClassName}>
+    <MainWrapper>
       <NavbarDocs
         tagText={'Design System'}
         HomeLink={HomeLink}

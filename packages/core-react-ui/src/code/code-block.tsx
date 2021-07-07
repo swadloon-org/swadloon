@@ -11,12 +11,13 @@ type Props = {
   children?: string;
   className?: string;
   live?: boolean;
+  filename?: string;
 };
 
 /**
  * @see https://github.com/mdx-js/mdx/edit/master/examples/syntax-highlighting/src/pages/index.mdx
  */
-export const CodeBlock: React.FC<Props> = ({ children = '', className = '' }) => {
+export const CodeBlock: React.FC<Props> = ({ children = '', className = '', filename }) => {
   const { styles } = useStyles(styleRefs);
   const { cssTheme } = useTreatTheme();
   const components = useMDXComponents();
@@ -26,11 +27,21 @@ export const CodeBlock: React.FC<Props> = ({ children = '', className = '' }) =>
   // const formattedCodePrettier = formatCode(trimmedCode).replace(/(\r?\n|\r)$/g, ''); // remove extra line inserted by prettier
 
   return (
-    <CodeHighlight
-      code={formattedCode}
-      theme={githubTheme}
-      language={language as Language}
-      injectPreElement={true}
-    />
+    <div className={styles.wrapper}>
+      {filename ? (
+        <div className={styles.header}>
+          {filename}
+
+          <div className={styles.langTag}>{language}</div>
+        </div>
+      ) : null}
+
+      <CodeHighlight
+        code={formattedCode}
+        theme={githubTheme}
+        language={language as Language}
+        injectPreElement={true}
+      ></CodeHighlight>
+    </div>
   );
 };

@@ -3,7 +3,7 @@ import { ColorType } from '../types';
 /**
  * Contextual use of certain colors (text, action, state, etc).
  */
-export interface ColorIntents<Override extends undefined | string = undefined> {
+export type ColorIntents<Override extends undefined | string = undefined> = {
   /**
    * Used for outlines when elements are focused
    */
@@ -50,4 +50,4 @@ export interface ColorIntents<Override extends undefined | string = undefined> {
   background1: ColorType<Override>;
   background2: ColorType<Override>;
   backgroundDisabled: ColorType<Override>;
-}
+};

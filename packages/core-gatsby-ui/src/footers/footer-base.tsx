@@ -30,7 +30,11 @@ export const FooterBase = React.forwardRef<HTMLElement, Props>(
         variant={variant}
         classNames={[styles.wrapper, variant ? styles[variant] : '']}
         AsElement={
-          <Center as={'footer'} contentClassName={contentClassName}>
+          <Center
+            as={'footer'}
+            contentClassName={contentClassName}
+            maxWidth={cssTheme.layout.var.contentWidth.desktopMaxWidth}
+          >
             {children}
           </Center>
         }

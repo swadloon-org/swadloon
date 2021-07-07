@@ -8,9 +8,9 @@ const iconPadding = `3em`;
  * Base
  */
 
-import { style } from '@vanilla-extract/css';
+import { composeStyles, style } from '@vanilla-extract/css';
 import { calc } from '@vanilla-extract/css-utils';
-import { themeVars } from '../theme/default-theme.css';
+import { buttonsVars } from '../theme/default-buttons.css';
 
 export const base = style({
   display: 'block',
@@ -43,6 +43,14 @@ export const disabled = style({});
  *
  */
 
+export const primary = composeStyles(
+  base,
+  style({
+    color: buttonsVars.buttons.variants.primary.textColor,
+    backgroundColor: buttonsVars.buttons.variants.primary.backgroundColor,
+  })
+);
+
 /**
  *
  * Sizes
@@ -50,17 +58,19 @@ export const disabled = style({});
  */
 
 export const large = style({
-  padding: themeVars.buttons.medium.padding.default,
+  padding: buttonsVars.buttons.sizes.medium.padding.default,
+  borderWidth: buttonsVars.buttons.sizes.large.border.default.width,
 });
 
 export const medium = style({
-  padding: themeVars.buttons.medium.padding.default,
+  padding: buttonsVars.buttons.sizes.medium.padding.default,
+  borderWidth: buttonsVars.buttons.sizes.medium.border.default.width,
 });
 
 export const small = style({
-  padding: themeVars.buttons.medium.padding.default,
+  padding: buttonsVars.buttons.sizes.medium.padding.default,
 });
 
 export const xSmall = style({
-  padding: themeVars.buttons.medium.padding.default,
+  padding: buttonsVars.buttons.sizes.medium.padding.default,
 });

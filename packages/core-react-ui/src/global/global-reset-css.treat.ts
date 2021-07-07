@@ -10,6 +10,7 @@ import { globalStyle } from 'treat';
  */
 globalStyle(`*`, {
   boxSizing: 'border-box',
+  transition: `color, background-color 200ms`,
 });
 
 /**

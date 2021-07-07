@@ -5,7 +5,7 @@ import { ColorIntents } from './color-intents';
 /**
  * Every color defined in the system.
  */
-export interface Colors<Override extends undefined | string = undefined> {
+export type Colors<Override extends undefined | string = undefined> = {
   /**
    * Raw colors
    */
@@ -18,4 +18,4 @@ export interface Colors<Override extends undefined | string = undefined> {
    * Gradients
    */
   gradients: ColorGradients<Override>;
-}
+};

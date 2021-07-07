@@ -5,6 +5,7 @@ export * from './components/carousel';
 export * from './components/components.props';
 export * from './components/inputs';
 export * from './components/links';
+export * from './components/tabs';
 export * from './components/tags';
 export * from './design-system';
 export * from './foundations/animations';

@@ -5,6 +5,7 @@ import { PageProps, WrapPageElementBrowserArgs } from 'gatsby';
 import React from 'react';
 import ProvidersDocs from './src/context/providers-docs';
 import ProvidersSite from './src/context/providers-site';
+import './src/design-system/theme.css';
 import { light } from './src/design-system/theme.treat';
 import './src/fonts';
 import { Layout } from './src/layout/layout';
