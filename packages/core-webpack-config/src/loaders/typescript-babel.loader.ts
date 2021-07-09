@@ -1,5 +1,5 @@
 import * as tsloader from 'ts-loader';
-import { RuleSetRule } from 'webpack/declarations/WebpackOptions';
+import { RuleSetRule } from 'webpack';
 import { babelPluginBrowserConf } from '../babel-plugins.conf';
 import { babelPresetBrowserConf } from '../babel-preset.conf';
 import { isDevelopment } from '../utilities';

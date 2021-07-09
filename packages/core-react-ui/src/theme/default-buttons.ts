@@ -6,11 +6,10 @@ import {
   DesignSystem,
   OutlineStyles,
 } from '@newrade/core-design-system';
-import { createThemeContract } from '@vanilla-extract/css';
-import { colorVars } from './default-colors.css';
 
 export const placeholderButtonVariant: ButtonColors<string> = {
-  textColor: colorVars.colorIntents.primaryTextReversed,
+  // textColor: colorVars.colorIntents.primaryTextReversed,
+  textColor: 'white',
   iconColor: '',
   backgroundColor: 'black',
   borderColor: 'black',
@@ -81,24 +80,3 @@ export const defaultCSSButtons: Pick<DesignSystem<string>['components'], 'button
     },
   },
 };
-
-export const buttonsVars = createThemeContract<Pick<DesignSystem<string>['components'], 'buttons'>>(
-  {
-    buttons: {
-      variants: {
-        primary: placeholderButtonVariant,
-        primaryReversed: placeholderButtonVariant,
-        secondary: placeholderButtonVariant,
-        secondaryReversed: placeholderButtonVariant,
-        tertiary: placeholderButtonVariant,
-        tertiaryReversed: placeholderButtonVariant,
-      },
-      sizes: {
-        large: placeholderButtonSize,
-        medium: placeholderButtonSize,
-        small: placeholderButtonSize,
-        xSmall: placeholderButtonSize,
-      },
-    },
-  }
-);

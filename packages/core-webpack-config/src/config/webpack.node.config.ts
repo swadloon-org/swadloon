@@ -1,7 +1,7 @@
 import * as tsloader from 'ts-loader';
 import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
 import nodeExternals from 'webpack-node-externals';
-import WebpackOptions from 'webpack/declarations/WebpackOptions';
+import { Configuration } from 'webpack';
 import { babelNodeLoader, babelNodeRule } from '../loaders/babel-node.loader';
 import { htmlLoader } from '../loaders/html.loader';
 import { getWebpackCleanPlugin } from '../plugins/clean-webpack-plugin';
@@ -9,7 +9,7 @@ import { getWebpackCleanPlugin } from '../plugins/clean-webpack-plugin';
 /**
  * Preconfigured base config for compiling NodeJS apps
  */
-export const nodeCommonConfig: WebpackOptions.WebpackOptions = {
+export const nodeCommonConfig: Configuration = {
   target: 'node',
   // https://codeburst.io/use-webpack-with-dirname-correctly-4cad3b265a92
   node: {
@@ -20,8 +20,6 @@ export const nodeCommonConfig: WebpackOptions.WebpackOptions = {
   devtool: 'source-map',
   optimization: {
     minimize: false,
-    namedModules: true,
-    namedChunks: true,
   },
   module: {
     rules: [

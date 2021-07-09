@@ -1,5 +1,5 @@
 import path from 'path';
-import { RuleSetRule, RuleSetUseItem } from 'webpack/declarations/WebpackOptions';
+import { RuleSetRule, RuleSetUseItem } from 'webpack';
 import { babelPluginBrowserConf } from '../babel-plugins.conf';
 import { babelPresetBrowserConf } from '../babel-preset.conf';
 

@@ -33,7 +33,8 @@ export function loadDotEnv<ENV = CommonEnvType>({
 }) {
   const logEnv = log.extend(packageName.replace('@newrade/', ''));
   const logEnvError = logEnv.extend('error');
-  logEnv(`loading .env files`);
+
+  logEnv(`reading .env files in ${dotEnvPath}`);
 
   /**
    * Loads project .env file
@@ -41,6 +42,9 @@ export function loadDotEnv<ENV = CommonEnvType>({
   dotenv.config({
     path: dotEnvPath,
   });
+
+  logEnv(`reading .env files in ${dotEnvRootPath}`);
+
   /**
    * Loads repo root .env file
    */

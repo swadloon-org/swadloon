@@ -17,15 +17,15 @@ import dotenv from 'dotenv';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import path from 'path';
-import TreatPlugin from 'treat/webpack-plugin';
+import { TreatPlugin } from 'treat/webpack-plugin';
 import * as tsloader from 'ts-loader';
 import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
-import webpack from 'webpack';
-import WebpackOptions from 'webpack/declarations/WebpackOptions';
+import webpack, { WebpackOptionsNormalized } from 'webpack';
+import { Configuration } from 'webpack';
 
 dotenv.config();
 
-const config: WebpackOptions.WebpackOptions = {
+const config: Configuration | Pick<WebpackOptionsNormalized, 'devServer'> = {
   mode: 'development',
   entry: './src/index.tsx',
   devtool: 'inline-source-map',

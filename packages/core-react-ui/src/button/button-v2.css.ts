@@ -10,7 +10,7 @@ const iconPadding = `3em`;
 
 import { composeStyles, style } from '@vanilla-extract/css';
 import { calc } from '@vanilla-extract/css-utils';
-import { buttonsVars } from '../theme/default-buttons.css';
+import { buttonsVars } from '../theme/default-theme.css';
 
 export const base = style({
   display: 'block',

@@ -4,12 +4,7 @@ import * as core from '@newrade/core-webpack-config';
 import { GatsbyNode } from 'gatsby';
 import path from 'path';
 import regexEscape from 'regex-escape';
-import {
-  RuleSetRule,
-  RuleSetRules,
-  RuleSetUseItem,
-  WebpackOptions,
-} from 'webpack/declarations/WebpackOptions';
+import { RuleSetRule, RuleSetUseItem, Configuration } from 'webpack';
 import { GatsbyCorePluginOptions } from '../gatsby-plugin-options';
 
 export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] = (
@@ -21,22 +16,22 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
   const isProduction = stage !== `develop`;
 
   if (stage !== `build-javascript`) {
-    return;
+    return void 0;
   }
 
   /**
    * Retrieve the initial gatsby webpack config
    */
-  const config = getConfig() as WebpackOptions;
+  const config = getConfig() as Configuration;
 
   if (!config) {
-    return {};
+    return void 0;
   }
 
   /**
    * Replace the devtool option
    */
-  config.devtool = env.APP_ENV === DEPLOY_ENV.LOCAL ? 'source-map' : 'cheap-source-map';
+  config.devtool = 'source-map';
 
   /**
    * Enable `module` in mainfields
@@ -149,26 +144,29 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
    */
   const babelLoaderPredicate = (rule: RuleSetRule) =>
     String(rule.test) === '/\\.(js|mjs|jsx)$/' || String(rule.test) === '/\\.(js|mjs)$/';
-  const negateBabelLoaderPredicate = (rule: RuleSetRule) => !babelLoaderPredicate(rule);
+  const negateBabelLoaderPredicate = (rule: RuleSetRule | '...') =>
+    !babelLoaderPredicate(rule as RuleSetRule);
   const tsLoaderPredicate = (rule: RuleSetRule) => String(rule.test) === '/\\.tsx?$/';
   const negateTsLoaderPredicate = (rule: RuleSetRule) => !tsLoaderPredicate(rule);
   if (config.module?.rules) {
-    const [gatsbyBabelLoaderConf] = config.module.rules.filter(babelLoaderPredicate);
+    const [gatsbyBabelLoaderConf] = (config.module.rules as RuleSetRule[]).filter(
+      babelLoaderPredicate
+    );
 
     config.module.rules = [
       ...config.module.rules.filter(negateBabelLoaderPredicate),
       {
-        ...gatsbyBabelLoaderConf,
+        ...(gatsbyBabelLoaderConf as RuleSetRule),
         use: [
           {
-            ...(gatsbyBabelLoaderConf.use as any)[0],
+            ...((gatsbyBabelLoaderConf as RuleSetRule).use as any)[0],
             options: {
-              ...(gatsbyBabelLoaderConf.use as any)[0].options,
+              ...((gatsbyBabelLoaderConf as RuleSetRule).use as any)[0].options,
               ...(core.babelReactLoader.use as any)[0].options,
             },
           },
         ],
-        exclude: (modulePath) =>
+        exclude: (modulePath: string) =>
           /node_modules/.test(modulePath) &&
           // whitelist specific es6 module
           pluginOptions.modules
@@ -190,31 +188,37 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
       },
     ];
 
-    const [modifiedGatsbyBabelLoaderConf] = config.module.rules.filter(babelLoaderPredicate);
+    const [modifiedGatsbyBabelLoaderConf] = (config.module.rules as RuleSetRule[]).filter(
+      babelLoaderPredicate
+    );
   }
 
   /**
    * Replace gatsby-ts-plugin options
    */
   if (config.module?.rules) {
-    const [tsLoaderConf] = config.module.rules.filter(tsLoaderPredicate);
+    const [tsLoaderConf] = (config.module.rules as RuleSetRule[]).filter(tsLoaderPredicate);
 
     if (tsLoaderConf && tsLoaderConf.use && (tsLoaderConf.use as RuleSetUseItem[]).length) {
-      const [gatsbyBabelLoaderConf] = config.module.rules.filter(babelLoaderPredicate);
+      const [gatsbyBabelLoaderConf] = (config.module.rules as RuleSetRule[]).filter(
+        babelLoaderPredicate
+      );
       const [tsLoaderUseConf] = (tsLoaderConf.use as RuleSetUseItem[]).filter(
         (use: any) => !/babel-loader/.test(use.loader)
       );
 
-      config.module.rules = [
-        ...config.module.rules.filter(negateTsLoaderPredicate),
+      (config.module.rules as RuleSetRule[]) = [
+        ...(config.module.rules as RuleSetRule[]).filter(negateTsLoaderPredicate),
         {
           ...tsLoaderConf,
           use: [(gatsbyBabelLoaderConf as any).use[0], tsLoaderUseConf] as RuleSetRule[],
           exclude: /public|static/,
         },
-      ] as RuleSetRules;
+      ] as RuleSetRule[];
 
-      const [modifiedTsLoaderConf] = config.module.rules.filter(tsLoaderPredicate);
+      const [modifiedTsLoaderConf] = (config.module.rules as RuleSetRule[]).filter(
+        tsLoaderPredicate
+      );
     }
   }
 
@@ -222,18 +226,20 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
    * Add tsx support to babel (like gatsby-plugin-typescript)
    */
   if (config.module?.rules) {
-    const [gatsbyBabelLoaderConf] = config.module.rules.filter(babelLoaderPredicate);
+    const [gatsbyBabelLoaderConf] = (config.module.rules as RuleSetRule[]).filter(
+      babelLoaderPredicate
+    );
 
-    config.module.rules = [
-      ...config.module.rules.filter(negateTsLoaderPredicate),
+    (config.module.rules as RuleSetRule[]) = [
+      ...(config.module.rules as RuleSetRule[]).filter(negateTsLoaderPredicate),
       {
         test: '/\\.tsx?$/',
         use: [...((gatsbyBabelLoaderConf as RuleSetRule).use as RuleSetUseItem[])] as RuleSetRule[],
         exclude: /public|static/,
       },
-    ] as RuleSetRules;
+    ] as RuleSetRule[];
 
-    const [modifiedTsLoaderConf] = config.module.rules.filter(tsLoaderPredicate);
+    const [modifiedTsLoaderConf] = (config.module.rules as RuleSetRule[]).filter(tsLoaderPredicate);
   }
 
   /**
@@ -244,6 +250,9 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
       ? [...config.plugins, core.getBundleVisualizerPlugin()]
       : [core.getBundleVisualizerPlugin()];
   }
+
+  console.log(`replacing webpack config with: ${config}`);
+  reporter.info(`replacing webpack config with: ${config}`);
 
   actions.replaceWebpackConfig(config); // completely replace the webpack config with the modified object
 };

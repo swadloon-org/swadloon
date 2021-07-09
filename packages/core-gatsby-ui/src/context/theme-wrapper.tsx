@@ -65,7 +65,7 @@ export const ThemeWrapper = ({
   code,
   ...props
 }: Props) => {
-  const [selectedTheme, setSelectedTheme] = useState('default');
+  const [selectedTheme, setSelectedTheme] = useState<'default' | 'custom'>('custom');
   const [isReversed, setIsReversed] = useState(false);
   const { cssTheme } = useTreatTheme();
 
@@ -76,7 +76,10 @@ export const ThemeWrapper = ({
       backgroundColor: isReversed ? cssTheme.colors.colors.grey[900] : '',
     },
     className,
-    classNames: [isReversed ? globalThemeReversed : '', selectedTheme ? '' : themeClassname],
+    classNames: [
+      isReversed ? globalThemeReversed : '',
+      selectedTheme === 'default' ? '' : themeClassname,
+    ],
   });
 
   function handleToggleIsReversed(event: React.ChangeEvent<HTMLSelectElement>) {
@@ -85,7 +88,7 @@ export const ThemeWrapper = ({
   }
 
   function handleChangeTheme(event: React.ChangeEvent<HTMLSelectElement>) {
-    const value = event.target.value;
+    const value = event.target.value as 'default' | 'custom';
     setSelectedTheme(value);
   }
 
@@ -117,8 +120,12 @@ export const ThemeWrapper = ({
                 <option value={'reversed'}>Reversed</option>
               </InputSelect>
 
-              <InputSelect onChange={handleChangeTheme} style={{ minWidth: 170 }}>
-                <option value={'theme'}>Theme</option>
+              <InputSelect
+                onChange={handleChangeTheme}
+                value={selectedTheme}
+                style={{ minWidth: 170 }}
+              >
+                <option value={'custom'}>Custom</option>
                 <option value={'default'}>Default</option>
               </InputSelect>
             </div>

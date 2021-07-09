@@ -1,6 +1,6 @@
 import path from 'path';
 import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
-import WebpackOptions, { WebpackPluginInstance } from 'webpack/declarations/WebpackOptions';
+import { Configuration, RuleSetRule, WebpackPluginInstance } from 'webpack';
 import { babelReactLoader } from '../loaders/babel-es6.loader';
 import { extractCssLoader } from '../loaders/extract-css.loader';
 import { fileLoader } from '../loaders/file.loader';
@@ -19,13 +19,14 @@ import webpack from 'webpack';
 import { inlineCssLoader } from '../loaders/inline-css.loader';
 import { compressionPlugin } from '../plugins/compression.plugin.conf';
 import { getForkTsCheckerWebpackPlugin } from '../plugins/fork-ts-checker.plugin.conf';
+import { ResolvePluginInstance } from 'tsconfig-paths-webpack-plugin/lib/plugin.temp.types';
 
 /**
  * Preconfigured base config for compiling TypeScript React Apps
  */
-export const getReactCommonConfig: (options: {
-  isDevelopment: boolean;
-}) => WebpackOptions.WebpackOptions = ({ isDevelopment }) => ({
+export const getReactCommonConfig: (options: { isDevelopment: boolean }) => Configuration = ({
+  isDevelopment,
+}) => ({
   target: 'web',
   devtool: 'source-map',
   optimization: {
@@ -86,7 +87,7 @@ export const getReactCommonConfig: (options: {
       !isDevelopment && extractCssLoader,
       babelReactLoader,
       getTypescriptBabelReactLoader(),
-    ].filter(Boolean) as WebpackOptions.RuleSetRules,
+    ].filter(Boolean) as RuleSetRule[],
   },
   resolve: {
     mainFields: ['browser', 'module', 'main'],
@@ -96,7 +97,7 @@ export const getReactCommonConfig: (options: {
         configFile: path.join(process.cwd(), 'tsconfig.build.json'),
         mainFields: ['browser', 'module', 'main'],
         logLevel: 'WARN',
-      }),
+      }) as any,
     ],
   },
   plugins: [

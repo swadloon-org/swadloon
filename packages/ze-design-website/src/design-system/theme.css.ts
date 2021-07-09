@@ -1,21 +1,16 @@
-import {
-  buttonsVars,
-  colorVars,
-  defaultCSSButtons,
-  defaultCSSColors,
-  defaultCSSSizing,
-  sizingVars,
-  themeVars,
-} from '@newrade/core-react-ui';
-import { createGlobalTheme } from '@vanilla-extract/css';
+import { buttonsVars, defaultCSSButtons } from '@newrade/core-react-ui';
+import { createTheme } from '@vanilla-extract/css';
 
-// @ts-expect-error
-createGlobalTheme(':root', sizingVars, defaultCSSSizing);
-// @ts-expect-error
-createGlobalTheme(':root', colorVars, defaultCSSColors);
-// @ts-expect-error
-createGlobalTheme(':root', buttonsVars, defaultCSSButtons);
-
-// createTheme(buttonsVars, defaultButtons);
-
-export { themeVars };
+export const themeClass = createTheme(buttonsVars, {
+  ...defaultCSSButtons,
+  buttons: {
+    ...defaultCSSButtons.buttons,
+    variants: {
+      ...defaultCSSButtons.buttons.variants,
+      primary: {
+        ...defaultCSSButtons.buttons.variants.primary,
+        textColor: 'red',
+      },
+    },
+  },
+});

@@ -18,17 +18,7 @@ logEnvVariables<ENV>({ packageName: packageJson.name, env });
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
 const config: core.GastbySiteConfig = {
-  flags: {
-    PRESERVE_WEBPACK_CACHE: toBoolean(env.GATSBY_PRESERVE_WEBPACK_CACHE),
-    PRESERVE_FILE_DOWNLOAD_CACHE: toBoolean(env.GATSBY_PRESERVE_FILE_DOWNLOAD_CACHE),
-    QUERY_ON_DEMAND: toBoolean(env.GATSBY_QUERY_ON_DEMAND),
-    LAZY_IMAGES: toBoolean(env.GATSBY_LAZY_IMAGES),
-    PARALLEL_SOURCING: toBoolean(env.GATSBY_PARALLEL_SOURCING),
-    DEV_SSR: toBoolean(env.GATSBY_DEV_SSR),
-    FAST_DEV: toBoolean(env.GATSBY_FAST_DEV),
-    FAST_REFRESH: toBoolean(env.GATSBY_FAST_REFRESH),
-    ENABLE_GATSBY_REFRESH_ENDPOINT: toBoolean(env.ENABLE_GATSBY_REFRESH_ENDPOINT),
-  },
+  flags: core.gatsbySiteFlags,
   siteMetadata: {
     title: `Ze Design System Website`,
     description: `Ze Design System main website`,
