@@ -92,7 +92,3 @@ export * from './text/link';
 export * from './text/paragraph';
 export * from './text/summary';
 export * from './text/title';
-export * from './theme/default-buttons';
-export * from './theme/default-colors';
-export * from './theme/default-sizing';
-export * from './theme/default-theme.css';

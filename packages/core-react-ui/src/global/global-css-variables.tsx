@@ -4,6 +4,7 @@ import { getMergedClassname } from '../utilities';
 import * as styleRefsButtons from './global-css-buttons-variables.treat';
 import * as styleRefsColors from './global-css-colors-variables.treat';
 import * as styleRefs from './global-css-variables.treat';
+import * as styleRefsReset from './global-reset-css.treat';
 
 type Props = {};
 
@@ -13,8 +14,10 @@ type Props = {};
 export const GlobalCSSVariables: React.FC<Props> = (props) => {
   const styles = useStyles(styleRefs);
   const stylesButtons = useStyles(styleRefsButtons);
+  const stylesReset = useStyles(styleRefsReset);
   const stylesColors = useStyles(styleRefsColors);
   const classNames = getMergedClassname([
+    styles.wrapper,
     styles.wrapper,
     stylesButtons.wrapper,
     stylesColors.wrapper,

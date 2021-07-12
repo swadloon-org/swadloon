@@ -1,16 +1,28 @@
-import { buttonsVars, defaultCSSButtons } from '@newrade/core-react-ui';
+import { DesignSystem } from '@newrade/core-design-system';
+import {
+  buttonsVars,
+  placeholderButtonSize,
+  placeholderButtonVariant,
+} from '@newrade/core-react-ui/lib/theme';
 import { createTheme } from '@vanilla-extract/css';
 
-export const themeClass = createTheme(buttonsVars, {
-  ...defaultCSSButtons,
+export const buttons: Pick<DesignSystem<string>['components'], 'buttons'> = {
   buttons: {
-    ...defaultCSSButtons.buttons,
     variants: {
-      ...defaultCSSButtons.buttons.variants,
-      primary: {
-        ...defaultCSSButtons.buttons.variants.primary,
-        textColor: 'red',
-      },
+      primary: { ...placeholderButtonVariant, textColor: 'red' },
+      primaryReversed: placeholderButtonVariant,
+      secondary: placeholderButtonVariant,
+      secondaryReversed: placeholderButtonVariant,
+      tertiary: placeholderButtonVariant,
+      tertiaryReversed: placeholderButtonVariant,
+    },
+    sizes: {
+      large: placeholderButtonSize,
+      medium: placeholderButtonSize,
+      small: placeholderButtonSize,
+      xSmall: placeholderButtonSize,
     },
   },
-});
+};
+
+export const themeClass = createTheme(buttonsVars, buttons, 'customButtons');

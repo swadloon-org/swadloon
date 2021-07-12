@@ -251,8 +251,7 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
       : [core.getBundleVisualizerPlugin()];
   }
 
-  console.log(`replacing webpack config with: ${config}`);
-  reporter.info(`replacing webpack config with: ${config}`);
+  reporter.info(`replacing webpack config with modified one`);
 
   actions.replaceWebpackConfig(config); // completely replace the webpack config with the modified object
 };
