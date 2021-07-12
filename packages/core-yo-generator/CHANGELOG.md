@@ -3,6 +3,63 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/compare/@newrade/core-yo-generator@1.5.0...@newrade/core-yo-generator@1.6.0) (2021-07-12)
+
+### Bug Fixes
+
+- **build:** simplify build commands
+  ([433ef53](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/433ef533f2812a73a9e4062f394b42f9c2c94ebf))
+- **core-common:** remove browser code from core-utils
+  ([b2595fc](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/b2595fcc496d8876b0f658592a66659840d1ec92))
+- **core-contentful-lib:** changes
+  ([d42278c](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/d42278c313ec5ca24a450536f7dc9b624a6d2fc1))
+- **core-gatsby-starter:** refactor templates + setup pages and markdown
+  ([4aaa949](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/4aaa949750c94a939b35767f2bd3fb20b8fb2614))
+- **core-react-ui:** wip
+  ([093aa8f](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/093aa8fb17d1c4b8aecca90142666984e239976d))
+- **lint:** fix line width to 100
+  ([49574eb](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/49574eb1fe8aa3bbdf3cf9a6067956ccf3a96561))
+- **mir-website:** fix build
+  ([ab6b04b](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/ab6b04b26868fa94741c9a28de7c9ff0b1981ec4))
+- **mir-website:** remove yarn clean before each yarn build
+  ([e201a90](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/e201a90373e98a1efd21f26e977a479e755f5c07))
+- **patch:** fix deps
+  ([ea483f3](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/ea483f365e260ef7a4d96b66de5a30afac4a397b))
+- **repo:** add .env type checking to all packages
+  ([d382e42](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/d382e42e2dcfbff0b635b4aa1f2c04e56deda4d7))
+- **repo:** add missing prebuild commands
+  ([aeebd40](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/aeebd4009243fbbd1ce1473a31dcb26299b41121))
+- **repo:** clean up eslint and gitignore files
+  ([5a0a45d](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/5a0a45d7d6e669dc6859f361093d6d5b1e3c5d09))
+- **repo:** fixes for refactor and react-ui-app
+  ([91abbbd](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/91abbbd1ee9fd658b3e02c016313292e88f19af0))
+- **repo:** remove postinstall command for packages
+  ([7e8bd73](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/7e8bd73bcec5877233de0770becf757d8cb7787a))
+- **repo:** rework .gitignore and eslint config files
+  ([f8f584e](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/f8f584e5fbdcfa87e79a2b3d53780e40b51ea8c0))
+- **repo:** share .d.ts files in core-types
+  ([4b28071](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/4b28071d704905c281b304a78c5888fbf5961de5))
+- **repo:** wip
+  ([68d9f77](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/68d9f77225d5b7eae54f195f34a206f8b9f0e3ac))
+- **typescript:** remove typeRoots which is almost a deprecated feature
+  ([edfab31](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/edfab31f34f518881c56fea74aa83331957ddcaf))
+
+### Features
+
+- **core-\*:** refactor core-design-system and core-react-ui
+  ([106720e](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/106720e4214f6491beac76c23977f5d52c1cd058))
+- **core-design-system:** reorg and removing any css props from design-system
+  ([b353e4f](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/b353e4f47107dc3b1e4ff363b600033655acd044))
+- **core-react-ui:** add img-downloader component
+  ([b7f89c8](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/b7f89c812ccecb97dab7e99cb31169fe8118bdfd))
+- **core-webpack-config:** refactor config to be used in gatsby packages
+  ([3a9f06f](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/commit/3a9f06fa246ab8b5b2b595295f02aaac5b2da86e))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.5.0](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/compare/@newrade/core-yo-generator@1.5.0...@newrade/core-yo-generator@1.5.0) (2021-07-03)
 
 ### Bug Fixes

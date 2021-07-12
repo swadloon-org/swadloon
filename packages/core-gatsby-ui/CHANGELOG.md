@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/newrade/newrade-core/compare/@newrade/core-gatsby-ui@1.11.0...@newrade/core-gatsby-ui@2.0.0) (2021-07-12)
+
+### Bug Fixes
+
+- **core-react-ui:** fix bug in treat files
+  ([c0eff40](https://github.com/newrade/newrade-core/commit/c0eff40b3f6bee77a4d5ed8f218725f4c8f534c5))
+
+### Features
+
+- **core-react-ui:** add additional configuration to icons provider
+  ([143e7e4](https://github.com/newrade/newrade-core/commit/143e7e42c23921cae6aa18366c1805b69247a113))
+- **core-react-ui:** add categories to icon metadata
+  ([c6275ef](https://github.com/newrade/newrade-core/commit/c6275ef5499578f60e4be45caceb06dd5c7ac886))
+- **core-react-ui:** improve theme-wrapper
+  ([dcc5cc8](https://github.com/newrade/newrade-core/commit/dcc5cc88024f6227e4a11db27233d18631159fa4))
+- **gatsby:** upgrade to webpack v5 and gastby v3
+  ([457d1b8](https://github.com/newrade/newrade-core/commit/457d1b83a84f4416be2adf3a659df6737adcfa87))
+
+### BREAKING CHANGES
+
+- **gatsby:** webpack v5 and gatsby v3
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.11.0](https://github.com/newrade/newrade-core/compare/@newrade/core-gatsby-ui@1.10.1...@newrade/core-gatsby-ui@1.11.0) (2021-07-05)
 
 ### Features

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.14.0](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-design-system@1.13.0...@newrade/core-design-system@1.14.0) (2021-07-12)
+
+### Features
+
+- **core-react-ui:** improve theme-wrapper
+  ([dcc5cc8](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/dcc5cc88024f6227e4a11db27233d18631159fa4))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.13.0](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-design-system@1.12.0...@newrade/core-design-system@1.13.0) (2021-07-05)
 
 ### Bug Fixes

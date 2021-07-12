@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/newrade/newrade-core/compare/@newrade/core-graphql-ui@1.9.2...@newrade/core-graphql-ui@2.0.0) (2021-07-12)
+
+### Features
+
+- **gatsby:** upgrade to webpack v5 and gastby v3
+  ([457d1b8](https://github.com/newrade/newrade-core/commit/457d1b83a84f4416be2adf3a659df6737adcfa87))
+
+### BREAKING CHANGES
+
+- **gatsby:** webpack v5 and gatsby v3
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.9.2](https://github.com/newrade/newrade-core/compare/@newrade/core-graphql-ui@1.9.1...@newrade/core-graphql-ui@1.9.2) (2021-07-05)
 
 **Note:** Version bump only for package @newrade/core-graphql-ui

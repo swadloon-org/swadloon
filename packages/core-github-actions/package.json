@@ -1,6 +1,6 @@
 {
   "name": "@newrade/core-github-actions",
-  "version": "1.4.0",
+  "version": "2.0.0",
   "description": "Custom Github actions",
   "author": {
     "email": "info@newrade.ca",
@@ -27,8 +27,8 @@
     "@actions/core": "^1.2.6",
     "@actions/github": "^4.0.0",
     "@newrade/core-common": "^1.4.0",
-    "@newrade/core-types": "^1.6.0",
-    "@newrade/core-utils": "^1.8.0",
-    "@newrade/core-webpack-config": "^1.8.0"
+    "@newrade/core-types": "^2.0.0",
+    "@newrade/core-utils": "^2.0.0",
+    "@newrade/core-webpack-config": "^2.0.0"
   }
 }

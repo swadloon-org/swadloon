@@ -1,6 +1,6 @@
 {
   "name": "@newrade/core-gatsby-ui",
-  "version": "1.11.0",
+  "version": "2.0.0",
   "description": "Reusable UI components for Gatsby sites",
   "license": "MIT",
   "main": "",
@@ -18,11 +18,11 @@
   "typings": "",
   "dependencies": {
     "@newrade/core-common": "^1.4.0",
-    "@newrade/core-gatsby-config": "^1.14.0",
-    "@newrade/core-react-ui": "^1.18.0",
-    "@newrade/core-types": "^1.6.0",
-    "@newrade/core-utils": "^1.8.0",
-    "@newrade/core-webpack-config": "^1.8.0",
-    "@newrade/core-website-api": "^1.2.1"
+    "@newrade/core-gatsby-config": "^2.0.0",
+    "@newrade/core-react-ui": "^2.0.0",
+    "@newrade/core-types": "^2.0.0",
+    "@newrade/core-utils": "^2.0.0",
+    "@newrade/core-webpack-config": "^2.0.0",
+    "@newrade/core-website-api": "^1.2.2"
   }
 }

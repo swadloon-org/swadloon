@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/newrade/newrade-core/compare/@newrade/ze-design-system@1.1.2...@newrade/ze-design-system@1.2.0) (2021-07-12)
+
+### Features
+
+- **core-react-ui:** improve theme-wrapper
+  ([dcc5cc8](https://github.com/newrade/newrade-core/commit/dcc5cc88024f6227e4a11db27233d18631159fa4))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.1.2](https://github.com/newrade/newrade-core/compare/@newrade/ze-design-system@1.1.1...@newrade/ze-design-system@1.1.2) (2021-07-05)
 
 **Note:** Version bump only for package @newrade/ze-design-system

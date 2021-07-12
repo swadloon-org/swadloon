@@ -1,6 +1,6 @@
 {
   "name": "@newrade/core-website-api",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "A collection of models to represent data in websites.",
   "license": "MIT",
   "main": "./lib/index.js",
@@ -19,8 +19,8 @@
   "typings": "./lib/index.d.ts",
   "dependencies": {
     "@newrade/core-common": "^1.4.0",
-    "@newrade/core-design-system": "^1.13.0",
-    "@newrade/core-types": "^1.6.0",
-    "@newrade/core-utils": "^1.8.0"
+    "@newrade/core-design-system": "^1.14.0",
+    "@newrade/core-types": "^2.0.0",
+    "@newrade/core-utils": "^2.0.0"
   }
 }
