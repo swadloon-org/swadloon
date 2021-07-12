@@ -1,5 +1,5 @@
 import path from 'path';
-import { RuleSetRule, RuleSetUseItem } from 'webpack/declarations/WebpackOptions';
+import { RuleSetRule, RuleSetUseItem } from 'webpack';
 import { babelNodePresetConf } from '../babel-preset.conf';
 
 /**

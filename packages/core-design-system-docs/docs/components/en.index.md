@@ -13,6 +13,4 @@ tags:
 | `<Title/>`   |       1 |                        Yes | <TagStatus name="test" status="Yes"></TagStatus>  | <TagStatus name="docs" status="OK"></TagStatus>   | [Open](/design-system/foundations/typography) |
 | `<Heading/>` |       1 |                        Yes | <TagStatus name="test" status="TODO"></TagStatus> | <TagStatus name="docs" status="TODO"></TagStatus> | [Open](/design-system/foundations/typography) |
 
-[^1]:
-    Learn about [Reversed Mode](/design-system/theming) in the theming
-    documentation
+[^1]: Learn about [Reversed Mode](/theming) in the theming documentation

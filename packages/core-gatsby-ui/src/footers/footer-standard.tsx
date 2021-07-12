@@ -158,7 +158,7 @@ export const FooterStandard = React.forwardRef<any, Props>(
           variantLevel={Variant.secondary}
         >
           {copyright || `© ${lorenipsumShort}`}
-          {version ? ` — v${version}` : ''}
+          {version ? ` — ${version}` : ''}
         </Paragraph>
       </FooterBase>
     );

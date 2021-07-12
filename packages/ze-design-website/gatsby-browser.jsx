@@ -11,12 +11,6 @@ import Providers from './src/context/providers';
  * @see https://www.gatsbyjs.com/docs/api-files-gatsby-browser/
  */
 
-// @ts-ignore
-if (module.hot) {
-  // @ts-ignore
-  module.hot.accept();
-}
-
 /** @type {GatsbyBrowser['wrapPageElement']} */
 export const wrapPageElement = (args) => {
   return <WrapElement {...args} />;

@@ -37,7 +37,7 @@ export type SizingSteps<Override extends undefined | string = undefined> = {
  *
  * To optain the next size (e.g. from `x1` -> `x2`), the sizes are multipled by the ratio (e.g. `1.618` the Golden Ratio).
  */
-export interface Sizing<Override extends undefined | string = undefined> {
+export type Sizing<Override extends undefined | string = undefined> = {
   /**
    * Base font size (in px) to set on the page <html/> element.
    * This defines what `1 rem` is.
@@ -49,9 +49,9 @@ export interface Sizing<Override extends undefined | string = undefined> {
    * @see https://alistapart.com/article/more-meaningful-typography/
    * @see https://vimeo.com/17079380
    */
-  ratio: number;
+  ratio: Override extends string ? string : number;
   /**
    * Size values for each step.
    */
   sizes: SizingSteps<Override>;
-}
+};

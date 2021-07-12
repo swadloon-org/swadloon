@@ -1,4 +1,4 @@
-import { WebpackPluginInstance } from 'webpack/declarations/WebpackOptions';
+import { WebpackPluginInstance } from 'webpack';
 import { VanillaExtractPlugin } from '@vanilla-extract/webpack-plugin';
 
 /**

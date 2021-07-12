@@ -1,5 +1,5 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import { WebpackPluginInstance } from 'webpack/declarations/WebpackOptions';
+import { WebpackPluginInstance } from 'webpack';
 import { isWebpackDevServer } from '../utilities';
 
 const minifyHtmlOptions = {

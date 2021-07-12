@@ -16,7 +16,7 @@ import remarkToc from 'remark-toc';
 import wikiLinkPlugin from 'remark-wiki-link';
 // @ts-ignore
 import remarkUnwrapImages from 'remark-unwrap-images';
-import { RuleSetRule } from 'webpack/declarations/WebpackOptions';
+import { RuleSetRule } from 'webpack';
 import { babelPluginBrowserConf } from '../babel-plugins.conf';
 import { babelPresetBrowserConf } from '../babel-preset.conf';
 

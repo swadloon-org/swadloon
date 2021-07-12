@@ -120,7 +120,7 @@ export const Icons: React.FC<Props> = ({ id, style, className, ...props }) => {
     setSelectedIcon(selectedIcon);
   }
 
-  function handleIconSizeChange(event: React.ChangeEvent<HTMLInputElement>) {
+  function handleIconSizeChange(event: React.ChangeEvent<HTMLSelectElement>) {
     const iconSize = event.target.value;
     setSelectedIconSize(iconSize as ICON_SIZE);
   }

@@ -1,5 +1,7 @@
-import React from 'react';
+/// <reference types="@newrade/core-types/lib/mdx" />
+
 import { render } from '@testing-library/react';
+import React from 'react';
 
 /**
  * @description Test Jest setup itself, e.g. if the Jest test can compile from TypeScript
@@ -27,6 +29,12 @@ describe('jest', () => {
     const lazyImport = await import('./jest-setup');
     expect(lazyImport.jestSetup).toEqual('jestSetup');
   });
+
+  // TODO
+  // it('should compile .mdx files', async () => {
+  //   const lazyImport = await import('./test-mdx.md');
+  //   expect(lazyImport.default).toEqual('jestSetup');
+  // });
 
   class DummyComponent extends React.Component {
     render() {

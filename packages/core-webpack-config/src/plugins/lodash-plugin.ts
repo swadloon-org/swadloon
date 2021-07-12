@@ -1,5 +1,5 @@
 import webpackLodashPlugin from 'lodash-webpack-plugin';
-import { WebpackPluginInstance } from 'webpack/declarations/WebpackOptions';
+import { WebpackPluginInstance } from 'webpack';
 
 /**
  * @see https://github.com/lodash/lodash-webpack-plugin

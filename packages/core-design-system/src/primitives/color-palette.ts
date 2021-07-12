@@ -35,14 +35,14 @@ export type ColorShades10 =
   | '900'
   | '1000';
 
-export type ColorPalette<ColorShades extends string = ColorShadesGrey, ColorType = Color> = Record<
-  ColorShades,
-  ColorType
-> & {
+export type ColorPalette<
+  Override extends undefined | string = undefined,
+  ColorShades extends string = ColorShadesGrey,
+  ColorType = Color
+> = Record<ColorShades, ColorType> & {
   /**
    * Base color for the palette
    */
-
-  baseHue?: Color['h'];
-  baseSat?: Color['s'];
+  baseHue?: Override extends string ? string : Color['h'];
+  baseSat?: Override extends string ? string : Color['s'];
 };

@@ -1,4 +1,4 @@
-import { WebpackPluginInstance } from 'webpack/declarations/WebpackOptions';
+import { WebpackPluginInstance } from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 export const getBrowserconfigHtmlPlugin: (options: { template: string }) => WebpackPluginInstance =

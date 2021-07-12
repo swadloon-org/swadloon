@@ -1,12 +1,13 @@
-import { WebpackPluginInstance } from 'webpack/declarations/WebpackOptions';
+import { WebpackPluginInstance } from 'webpack';
+import type * as Terser from 'terser-webpack-plugin/types';
+// @ts-ignore
+import TerserPlugin from 'terser-webpack-plugin';
 
-const TerserPlugin = require('terser-webpack-plugin');
 /**
  * @see https://github.com/webpack-contrib/terser-webpack-plugin#options
  * @see https://github.com/terser-js/terser#minify-options
  */
 export const terserPlugin: WebpackPluginInstance = new TerserPlugin({
-  cache: true,
   terserOptions: {
     compress: {
       side_effects: false,
@@ -21,7 +22,6 @@ export const terserPlugin: WebpackPluginInstance = new TerserPlugin({
     keep_fnames: false,
     safari10: true,
   },
-  sourceMap: true,
   parallel: true,
   extractComments: false,
-});
+} as Terser.TerserPluginOptions);

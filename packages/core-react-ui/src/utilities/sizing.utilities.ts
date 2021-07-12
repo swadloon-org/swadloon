@@ -34,13 +34,25 @@ export const defaultSizesCSSVar: SizingVarNames = {
 
 /**
  * Create a CSS color string from a Color object
+ * @deprecated
  */
 export function getCSSSizing(options: core.Sizing): CSSSizing {
   return {
     baseFontSize: px({ value: options.baseFontSize }),
     var: defaultSizesCSSVar,
     varNames: defaultSizesCSSVarNames,
-    ratio: options.ratio,
+    ratio: options.ratio.toString(),
+    sizes: getCSSSizingStep(options.sizes),
+  };
+}
+
+/**
+ * Create a CSS color string from a Color object
+ */
+export function getCSSSizingV2(options: core.Sizing): core.Sizing<string> {
+  return {
+    baseFontSize: px({ value: options.baseFontSize }),
+    ratio: options.ratio.toString(),
     sizes: getCSSSizingStep(options.sizes),
   };
 }

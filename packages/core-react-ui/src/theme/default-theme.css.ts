@@ -1,9 +1,18 @@
-import { ButtonSizes } from '@newrade/core-design-system';
-import { createTheme } from '@vanilla-extract/css';
-import { defaultButtons } from './default-buttons.css';
+import { Colors, DesignSystem, Sizing } from '@newrade/core-design-system';
+import { createGlobalTheme, createThemeContract } from '@vanilla-extract/css';
+import { defaultCSSButtons } from './default-buttons';
+import { defaultCSSColors } from './default-colors';
+import { defaultCSSSizing } from './default-sizing';
 
-export const [defaultThemeClassName, themeVars] = createTheme<{
-  buttons: ButtonSizes<string>;
-}>({
-  buttons: defaultButtons,
-});
+type Buttons = Pick<DesignSystem<string>['components'], 'buttons'>;
+
+export const colorVars = createThemeContract<Colors<string>>(defaultCSSColors);
+export const sizingVars = createThemeContract<Sizing<string>>(defaultCSSSizing);
+export const buttonsVars = createThemeContract<Buttons>(defaultCSSButtons);
+
+// @ts-expect-error
+createGlobalTheme(':root', sizingVars, defaultCSSSizing);
+// @ts-expect-error
+createGlobalTheme(':root', colorVars, defaultCSSColors);
+// @ts-expect-error
+createGlobalTheme(':root', buttonsVars, defaultCSSButtons);

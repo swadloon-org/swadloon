@@ -1,6 +1,11 @@
-import { RuleSetConditions, RuleSetConditionsAbsolute } from 'webpack/declarations/WebpackOptions';
-
-declare module 'webpack/declarations/WebpackOptions' {
-  type RuleSetConditionsRecursive = RuleSetConditions[];
-  type RuleSetConditionsAbsoluteRecursive = RuleSetConditionAbsolute[];
-}
+export type StatsValue =
+  | boolean
+  | 'none'
+  | 'summary'
+  | 'errors-only'
+  | 'errors-warnings'
+  | 'minimal'
+  | 'normal'
+  | 'detailed'
+  | 'verbose'
+  | StatsOptions;

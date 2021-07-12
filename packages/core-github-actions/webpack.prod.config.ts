@@ -11,11 +11,11 @@ import path from 'path';
 import * as tsloader from 'ts-loader';
 import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
 import * as core from '@newrade/core-webpack-config';
-import WebpackOptions from 'webpack/declarations/WebpackOptions';
+import { Configuration } from 'webpack';
 
 dotenv.config();
 
-const config: WebpackOptions.WebpackOptions = {
+const config: Configuration = {
   mode: 'production',
   target: 'node',
   entry: {

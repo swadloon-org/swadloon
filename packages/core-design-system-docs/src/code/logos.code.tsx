@@ -1,5 +1,5 @@
 import { LOGO } from '@newrade/core-design-system';
-import { Logo, SvgDownloader, useTreatTheme } from '@newrade/core-react-ui';
+import { globalThemeLight, Logo, SvgDownloader, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 
 type Props = {};
@@ -33,7 +33,11 @@ export const Logos: { [key in LOGO]: React.FC<Props> } = {
     return (
       <>
         <SvgDownloader filename={'logo-favicon'}>
-          <Logo name={LOGO.FAVICON} style={{ height: 32 }} />
+          <Logo
+            name={LOGO.FAVICON}
+            style={{ height: 32, width: 32 }}
+            className={globalThemeLight}
+          />
         </SvgDownloader>
       </>
     );

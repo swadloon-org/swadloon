@@ -20,13 +20,16 @@ export const base = style(({ theme, cssTheme }: Theme) => ({
       rowGap: 40,
       gridTemplateColumns: 'repeat(6, 1fr)',
       gridTemplateAreas: `
-        "logo      logo      logo     nav    nav    nav"
-        "block     block     block    nav    nav    nav"
-        "social    social    social   nav    nav    nav"
-        "copy      copy      copy     nav    nav    nav"
+        "logo      logo      logo      .         .      ."
+        "block     block     block     .         .      ."
+        "social    social    social    .         .      ."
+        "nav       nav       nav       nav       nav    nav"
+        ".         .         .         .         .      ."
+        "copy      copy      copy      .         .      ."
         `,
     },
     [cssTheme.layout.media.desktopSmall]: {
+      gridTemplateColumns: 'repeat(12, 1fr)',
       gridTemplateAreas: `
         "logo      logo      logo      logo      nav    nav    nav    nav    nav     nav     nav     nav"
         "block     block     block     block     nav    nav    nav    nav    nav     nav     nav     nav"
@@ -64,11 +67,12 @@ export const navLinks = style(({ theme, cssTheme }: Theme) => ({
   gridArea: 'nav',
   display: 'grid',
   gap: cssTheme.sizing.var.x5,
-  gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 220px))',
+  gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 270px))',
   '@media': {
-    [cssTheme.layout.media.tablet]: {
+    [cssTheme.layout.media.desktopSmall]: {
       gridColumnEnd: 'end',
       gridRowEnd: 'end',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 170px))',
     },
   },
 }));
