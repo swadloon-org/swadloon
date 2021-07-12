@@ -12,18 +12,7 @@ export interface IconBaseProps extends React.SVGAttributes<SVGElement> {
 
 export type DynamicIconImport = (iconName: ICON) => LoadableComponent<any> | React.ElementType;
 
-export type IconComponents<Icons extends string | undefined = undefined> = {
-  [key in Icons extends string ? Icons : string]?: (props: IconBaseProps) => JSX.Element;
-};
-
-export type IconMetadata<Icons extends string | undefined = undefined> = {
-  [key in Icons extends string ? Icons : string]: {
-    description?: string;
-    tags?: string[];
-  };
-};
-
-type Context<Icons extends string | undefined = undefined> = {
+export type IconConfig = {
   /**
    * The icon pack or kit name
    *
@@ -31,11 +20,41 @@ type Context<Icons extends string | undefined = undefined> = {
    */
   iconFamilyName?: string;
   /**
+   * The icon pack or kit style variation
+   *
+   * @example 'outline'
+   */
+  iconFamilyStyle?: string;
+  /**
    * Link to the icons documentation or original author
    *
    * @example 'https://ionic.io/ionicons'
    */
   iconFamilyWebsite?: string;
+};
+
+export type IconComponents<Icons extends string | undefined = undefined> = {
+  [key in Icons extends string ? Icons : string]?: (props: IconBaseProps) => JSX.Element;
+};
+
+export type IconMetadata<Icons extends string | undefined = undefined> = {
+  [key in Icons extends string ? Icons : string]: {
+    /**
+     * Short description of the icon and how it should be used
+     */
+    description?: string;
+    /**
+     * Keywords associated with the icon
+     */
+    tags?: string[];
+    /**
+     * Group icons together around a common subject or similarities
+     */
+    categories?: string[];
+  };
+};
+
+type Context<Icons extends string | undefined = undefined> = IconConfig & {
   /**
    * Map with components for each icon entry
    */

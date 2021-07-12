@@ -1,7 +1,6 @@
 import { GatsbyNode } from 'gatsby';
-import { WebpackOptions } from 'webpack/declarations/WebpackOptions';
-import { getTreatCSSPlugin } from '@newrade/core-webpack-config';
-import TreatPlugin from 'treat/webpack-plugin';
+import { TreatPlugin } from 'treat/webpack-plugin';
+import { Configuration } from 'webpack';
 
 /**
  * @see https://github.com/seek-oss/treat/tree/master/packages/gatsby-plugin-treat
@@ -20,7 +19,7 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
     return;
   }
 
-  const config: WebpackOptions = {
+  const config: Configuration = {
     plugins: [
       new TreatPlugin({
         localIdentName: isDev ? `[name]_[local]_[hash:base64:5]` : `[hash:base64:5]`,

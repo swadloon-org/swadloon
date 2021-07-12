@@ -1,5 +1,3 @@
-import { RuleSetLoader, RuleSetQuery } from 'webpack/declarations/WebpackOptions';
-
 export type RuleSetUseItemObject = {
   /**
    * Unique loader identifier
@@ -8,7 +6,7 @@ export type RuleSetUseItemObject = {
   /**
    * Loader name
    */
-  loader?: RuleSetLoader;
+  loader?: string;
   /**
    * Loader options
    */

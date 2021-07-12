@@ -1,5 +1,5 @@
 import { StatsWriterPlugin } from 'webpack-stats-plugin';
-import { WebpackPluginInstance } from 'webpack/declarations/WebpackOptions';
+import { WebpackPluginInstance } from 'webpack';
 
 /**
  * @see https://github.com/FormidableLabs/webpack-stats-plugin#readme

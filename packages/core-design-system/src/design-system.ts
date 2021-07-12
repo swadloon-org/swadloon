@@ -135,13 +135,13 @@ export interface DesignSystem<Override extends undefined | string = undefined> {
     //   aside: {};
     //   footer: {};
     // };
-    sections?: {
-      divider: {
-        // backgroundColor
-        // padding
-        leftBlockWidth: number;
-        gap: number;
-      };
-    };
+    // sections?: {
+    //   divider: {
+    //     // backgroundColor
+    //     // padding
+    //     leftBlockWidth: number;
+    //     gap: number;
+    //   };
+    // };
   };
 }

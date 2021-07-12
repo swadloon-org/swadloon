@@ -1,6 +1,6 @@
-import { OutputOptions } from 'webpack/declarations/WebpackOptions';
+import { Configuration } from 'webpack';
 
-export const output: { [key in 'dev' | 'prod']: OutputOptions } = {
+export const output: { [key in 'dev' | 'prod']: Configuration['output'] } = {
   dev: {
     filename: '[name].bundle.js',
     pathinfo: true,

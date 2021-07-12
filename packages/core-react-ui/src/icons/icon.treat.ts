@@ -8,7 +8,6 @@ const iconPadding = `3em`;
  * Base
  */
 export const base = style(({ theme, cssTheme }: Theme) => ({
-  display: 'block',
   ':focus': {
     outline: 'none',
   },

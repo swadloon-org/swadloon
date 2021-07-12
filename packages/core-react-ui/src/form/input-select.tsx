@@ -5,7 +5,7 @@ import { PrimitiveProps } from '../primitive/primitive.props';
 import { getMergedClassname } from '../utilities/component.utilities';
 import * as styleRefs from './input.treat';
 
-type Props = PrimitiveProps<'input'> &
+type Props = PrimitiveProps<'select'> &
   SelectHTMLAttributes<any> & {
     state?: 'rest' | 'error';
   };

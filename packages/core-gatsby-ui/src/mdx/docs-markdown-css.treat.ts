@@ -259,7 +259,7 @@ globalStyle(`${wrapper} kbd`, ({ cssTheme, theme }: Theme) => ({
  * Code
  */
 
-globalStyle(`${wrapper} pre`, ({ cssTheme, theme }: Theme) => ({
+globalStyle(`${wrapper} > pre`, ({ cssTheme, theme }: Theme) => ({
   marginTop: '1.5em',
 }));
 

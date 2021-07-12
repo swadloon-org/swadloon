@@ -28,11 +28,11 @@
   },
   "eslintConfig": {},
   "dependencies": {
-    "@newrade/core-design-system": "^1.13.0",
-    "@newrade/core-gsap-ui": "^1.3.2",
-    "@newrade/core-react-ui": "^1.18.0",
-    "@newrade/ze-design-system": "^1.1.2",
-    "gatsby": "^2.32.13"
+    "@newrade/core-design-system": "^1.11.0",
+    "@newrade/core-gsap-ui": "^1.2.0",
+    "@newrade/core-react-ui": "^1.15.0",
+    "@newrade/ze-design-system": "^1.0.0",
+    "gatsby": "^3.5.1"
   },
   "devDependencies": {
     "@newrade/core-common": "^1.4.0",

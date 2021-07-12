@@ -1,4 +1,4 @@
-import { RuleSetRule } from 'webpack/declarations/WebpackOptions';
+import { RuleSetRule } from 'webpack';
 import { cssLoader } from './css-loader';
 import { postCssLoader } from './post-css.loader';
 

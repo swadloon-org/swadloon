@@ -8,6 +8,90 @@ import { CSSColors, CSSColorsVarNames, CSSColorsVars } from '../design-system';
 import { keys } from './utilities';
 
 /**
+ * for vanilla css
+ */
+export function getCSSColorsV2(colors: DS.Colors): DS.Colors<string> {
+  const cssColors = {
+    current: 'currentColor',
+    transparent: getCSSColor(colors.colors.transparent),
+    primary: getCSSColorPalette({
+      palette: colors.colors.primary,
+      baseHue: colors.colors.primary.baseHue,
+      baseSat: colors.colors.primary.baseSat,
+    }),
+    accent1: getCSSColorPalette({
+      palette: colors.colors.accent1,
+      baseHue: colors.colors.accent1.baseHue,
+      baseSat: colors.colors.accent1.baseSat,
+    }),
+    accent2: getCSSColorPalette({
+      palette: colors.colors.accent2,
+      baseHue: colors.colors.accent2.baseHue,
+      baseSat: colors.colors.accent2.baseSat,
+    }),
+    accent3: getCSSColorPalette({
+      palette: colors.colors.accent3,
+      baseHue: colors.colors.accent3.baseHue,
+      baseSat: colors.colors.accent3.baseSat,
+    }),
+    accent4: getCSSColorPalette({
+      palette: colors.colors.accent4,
+      baseHue: colors.colors.accent4.baseHue,
+      baseSat: colors.colors.accent4.baseSat,
+    }),
+    accent5: getCSSColorPalette({
+      palette: colors.colors.accent5,
+      baseHue: colors.colors.accent5.baseHue,
+      baseSat: colors.colors.accent5.baseSat,
+    }),
+    accent6: getCSSColorPalette({
+      palette: colors.colors.accent6,
+      baseHue: colors.colors.accent6.baseHue,
+      baseSat: colors.colors.accent6.baseSat,
+    }),
+    accent7: getCSSColorPalette({
+      palette: colors.colors.accent7,
+      baseHue: colors.colors.accent7.baseHue,
+      baseSat: colors.colors.accent7.baseSat,
+    }),
+    grey: getCSSColorPalette({
+      palette: colors.colors.grey,
+      baseHue: colors.colors.grey.baseHue,
+      baseSat: colors.colors.grey.baseSat,
+    }),
+    effectTransparentLight: getCSSColor(colors.colors.effectTransparentLight),
+    effectTransparentMedium: getCSSColor(colors.colors.effectTransparentMedium),
+    effectTransparentHeavy: getCSSColor(colors.colors.effectTransparentHeavy),
+    utilityNeutral: getCSSColorPalette({
+      palette: colors.colors.utilityNeutral,
+      baseHue: colors.colors.utilityNeutral.baseHue,
+      baseSat: colors.colors.utilityNeutral.baseSat,
+    }),
+    utilityGreen: getCSSColorPalette({
+      palette: colors.colors.utilityGreen,
+      baseHue: colors.colors.utilityGreen.baseHue,
+      baseSat: colors.colors.utilityGreen.baseSat,
+    }),
+    utilityYellow: getCSSColorPalette({
+      palette: colors.colors.utilityYellow,
+      baseHue: colors.colors.utilityYellow.baseHue,
+      baseSat: colors.colors.utilityYellow.baseSat,
+    }),
+    utilityRed: getCSSColorPalette({
+      palette: colors.colors.utilityRed,
+      baseHue: colors.colors.utilityRed.baseHue,
+      baseSat: colors.colors.utilityRed.baseSat,
+    }),
+  };
+
+  return {
+    colors: cssColors,
+    colorIntents: getDefaultCSSVarColorIntents({ colors: cssColors }),
+    gradients: getCSSColorGradients(colors.gradients),
+  };
+}
+
+/**
  * Create a CSS colors from raw color objects
  */
 export function getCSSColors(colors: DS.Colors): CSSColors {
@@ -127,10 +211,14 @@ export function generateColorPalette5({
     '500': color,
     '300': { ...color, l: color.l + 1 * lightStep },
     '100': { ...color, l: color.l + 2 * lightStep },
-  } as DS.ColorPalette<DS.ColorShades5>;
+  } as DS.ColorPalette<undefined, DS.ColorShades5>;
 }
 
-export function generateColorGreyPalette({ hue }: { hue: number }) {
+export function generateColorGreyPalette({
+  hue,
+}: {
+  hue: number;
+}): DS.ColorPalette<undefined, DS.ColorShadesGrey> {
   return {
     baseHue: hue,
     baseSat: 6,
@@ -150,7 +238,7 @@ export function generateColorGreyPalette({ hue }: { hue: number }) {
     25: { h: hue, s: 0, l: 97 },
     '0-reversed': { h: hue, s: 10, l: 100 },
     0: { h: hue, s: 0, l: 100 },
-  } as DS.ColorPalette<DS.ColorShadesGrey>;
+  };
 }
 
 export function getCSSColorPalette<ColorShades extends string>({
@@ -158,9 +246,9 @@ export function getCSSColorPalette<ColorShades extends string>({
   baseHue,
   baseSat,
 }: {
-  palette: DS.ColorPalette<ColorShades>;
-  baseHue?: number | string;
-  baseSat?: number | string;
+  palette: DS.ColorPalette<undefined, ColorShades>;
+  baseHue?: string | number;
+  baseSat?: string | number;
 }) {
   const shades = keys(palette);
   return shades.reduce((previous, current) => {
@@ -189,7 +277,7 @@ export function getCSSColorPalette<ColorShades extends string>({
     // @ts-ignore
     previous[current] = cssColor;
     return previous;
-  }, {} as ColorPalette<ColorShades, string>);
+  }, {} as ColorPalette<string, ColorShades, string>);
 }
 
 export function getCSSColorIntents(intents: DS.ColorIntents) {
@@ -232,7 +320,10 @@ export function getCSSColorVar({
   l?: number | string;
   a?: number | string;
 }): Property.Color {
-  return `hsl(${h} ${s} ${l}% / ${a === undefined ? 100 : a}%)`;
+  const sat = s ? (/var/gi.test(s.toString()) ? s : `${s}%`) : '';
+  const lum = l ? (/var/gi.test(l.toString()) ? l : `${l}%`) : '';
+
+  return `hsl(${h} ${sat} ${lum} / ${a === undefined ? 100 : a}%)`;
 }
 
 /**
@@ -356,7 +447,9 @@ export function getDefaultColorIntents(colors: DS.Colors['colors']): DS.ColorInt
   };
 }
 
-export function getDefaultCSSVarColorIntents({ colors }: CSSColorsVars): DS.ColorIntents<string> {
+export function getDefaultCSSVarColorIntents({
+  colors,
+}: Pick<DS.Colors<string>, 'colors'>): DS.ColorIntents<string> {
   return {
     accessibilityColor: colors.primary['700'],
     current: colors.current,

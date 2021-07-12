@@ -4,6 +4,7 @@ import { useStyles } from 'react-treat';
 import { useCommonProps } from '../hooks/use-common-props.hook';
 import { useTreatTheme } from '../hooks/use-treat-theme';
 import { PrimitiveProps } from '../primitive/primitive.props';
+import { getMergedClassname } from '../utilities';
 import * as styleRefs from './logo.treat';
 import { useLogosContext } from './logos-provider';
 
@@ -16,6 +17,7 @@ export const LogoLoader = React.forwardRef<'svg', Props>(
     const { theme, cssTheme } = useTreatTheme();
     const context = useLogosContext();
     const styles = useStyles(styleRefs);
+
     const commonProps = useCommonProps<'svg'>({
       id,
       style,
@@ -58,7 +60,12 @@ export const LogoLoader = React.forwardRef<'svg', Props>(
     }
 
     const LogoComponent = context.logoComponents[name];
-    return <LogoComponent {...commonProps} ref={ref} />;
+    // @ts-ignore
+    const svgClassName = LogoComponent.props?.className;
+
+    const classNames = getMergedClassname([commonProps.className, svgClassName]);
+
+    return <LogoComponent {...{ ...commonProps, className: classNames }} ref={ref} />;
   }
 );
 

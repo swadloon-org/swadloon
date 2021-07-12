@@ -1,15 +1,22 @@
-import { globalStyle } from 'treat';
+import { globalStyle, style } from 'treat';
+import { Theme } from '../design-system';
 
 /**
  * Inspired from Normalize, but targeting modern browsers only.
  * @see https://github.com/necolas/normalize.css
  */
 
+// removing this cause an error in treat
+export const wrapper = style((theme: Theme) => ({
+  display: 'inherit',
+}));
+
 /**
  * Border-box everywhere
  */
 globalStyle(`*`, {
   boxSizing: 'border-box',
+  transition: `color, background-color 200ms`,
 });
 
 /**

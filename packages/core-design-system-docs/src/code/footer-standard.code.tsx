@@ -1,6 +1,6 @@
 import { FooterStandard } from '@newrade/core-gatsby-ui/src';
 import { useTreatTheme } from '@newrade/core-react-ui';
-import { FooterAPI, NavComponent } from '@newrade/core-website-api';
+import { FooterAPI, LinkType, NavComponent } from '@newrade/core-website-api';
 import React from 'react';
 
 type Props = {};
@@ -15,14 +15,17 @@ export const FootersStandard: React.FC<Props> = (props) => {
       {
         name: 'Link to page',
         label: 'Page link',
+        type: LinkType.externalUrl,
       },
       {
         name: 'Link to page',
         label: 'Page link',
+        type: LinkType.externalUrl,
       },
       {
         name: 'Link to page',
         label: 'Page link',
+        type: LinkType.externalUrl,
       },
     ],
   };

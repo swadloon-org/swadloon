@@ -34,21 +34,25 @@ import FootersEnterpriseCode from '!!raw-loader!../../src/code/footer-enterprise
 
 The Simple Footer include the pages navigation and social media icons.
 
-<ThemeWrapper>
+<!-- prettier-ignore -->
+<ThemeWrapper 
+  displayControls={true} 
+  filename={'footer-simple.code.tsx'} 
+  code={FootersSimpleCode}>
   <FootersSimple />
 </ThemeWrapper>
-
-<CodeBlock>{FootersSimpleCode}</CodeBlock>
 
 ## Standard Footer
 
 The Standard Footer include a complete corporate navigation and branding.
 
-<ThemeWrapper>
+<!-- prettier-ignore -->
+<ThemeWrapper 
+  displayControls={true} 
+  filename={'footer-standard.code.tsx'} 
+  code={FootersStandardCode}> 
   <FootersStandard />
 </ThemeWrapper>
-
-<CodeBlock>{FootersStandardCode}</CodeBlock>
 
 ## Enterprise Footer
 
@@ -58,8 +62,6 @@ newsletter and branding.
 <ThemeWrapper>
   <FootersEnterprise />
 </ThemeWrapper>
-
-<CodeBlock>{FootersEnterpriseCode}</CodeBlock>
 
 ## Social Only Footer
 

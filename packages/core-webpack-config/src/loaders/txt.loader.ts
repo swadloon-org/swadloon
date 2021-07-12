@@ -1,4 +1,4 @@
-import { RuleSetRule } from 'webpack/declarations/WebpackOptions';
+import { RuleSetRule } from 'webpack';
 
 export const txtLoader: RuleSetRule = {
   test: /\.(txt)$/,

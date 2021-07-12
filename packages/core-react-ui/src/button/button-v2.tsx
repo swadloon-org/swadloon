@@ -83,9 +83,8 @@ export const ButtonV2 = React.forwardRef<any, Props>(
      */
     const classNames = getMergedClassname([
       className,
-      styles.base,
+      styles.primary,
       styles[size ? size : ButtonSize.medium],
-      // styles.primary,
       // styles[variant ? variant : Variant.primary],
     ]);
     const renderedChildren = children

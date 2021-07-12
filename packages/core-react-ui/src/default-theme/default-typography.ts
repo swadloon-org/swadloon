@@ -192,12 +192,12 @@ export const defaultTypography: Typography = {
       boldUppercase: {
         fontWeight: 600,
         textTransform: TEXT_TRANSFORM.uppercase,
-        letterSpacing: 10,
+        letterSpacing: 6,
       },
       uppercase: {
         fontWeight: 400,
         textTransform: TEXT_TRANSFORM.uppercase,
-        letterSpacing: 10,
+        letterSpacing: 6,
       },
     },
     mobile: {

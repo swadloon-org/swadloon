@@ -61,7 +61,7 @@ export type ButtonSizes<Override extends undefined | string = undefined> = {
   [key in ButtonSize]: ButtonBoxStyle<Override>;
 };
 
-export interface Buttons<Override extends undefined | string = undefined> {
+export type Buttons<Override extends undefined | string = undefined> = {
   variants: ButtonVariants<Override>;
   sizes: ButtonSizes<Override>;
-}
+};

@@ -13,7 +13,6 @@ import { IoLogoInstagram } from '@react-icons/all-files/io5/IoLogoInstagram';
 import { IoLogoLinkedin } from '@react-icons/all-files/io5/IoLogoLinkedin';
 import { IoLogoTwitter } from '@react-icons/all-files/io5/IoLogoTwitter';
 import React from 'react';
-import { useContainerQuery } from 'react-container-query';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './footer-simple.treat';
 import { FooterProps } from './footer.props';
@@ -22,16 +21,6 @@ type Props = FooterProps & {
   MenuLinks?: React.ReactNode;
   SocialLinks?: React.ReactNode;
   Copyright?: React.ReactNode;
-};
-
-const query = {
-  'width-between-400-and-599': {
-    minWidth: 400,
-    maxWidth: 599,
-  },
-  'width-larger-than-600': {
-    minWidth: 600,
-  },
 };
 
 export const FooterSimple: React.FC<Props> = ({
@@ -52,13 +41,10 @@ export const FooterSimple: React.FC<Props> = ({
     classNames: [styles.wrapper],
     ...props,
   });
-  // @ts-ignore
-  const [params, containerRef] = useContainerQuery(query);
 
   return (
-    <Stack as={'footer'} {...commonProps} gap={[cssTheme.sizing.var.x4]} ref={containerRef}>
+    <Stack as={'footer'} {...commonProps} gap={[cssTheme.sizing.var.x4]}>
       {/* Links */}
-      {JSON.stringify(params)}
       {MenuLinks ? (
         <div className={styles.links}>{MenuLinks}</div>
       ) : (

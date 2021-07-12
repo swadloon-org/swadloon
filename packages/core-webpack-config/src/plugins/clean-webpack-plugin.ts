@@ -1,4 +1,4 @@
-import { WebpackPluginInstance } from 'webpack/declarations/WebpackOptions';
+import { WebpackPluginInstance } from 'webpack';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 /**
  * @see https://www.npmjs.com/package/clean-webpack-plugin

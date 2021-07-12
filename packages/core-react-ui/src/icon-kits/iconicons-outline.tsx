@@ -59,10 +59,16 @@ import {
   IoRemoveOutline,
   IoSearchOutline,
 } from 'react-icons/io5';
-import { IconComponents } from '../icons/icons-provider';
+import { IconComponents, IconConfig } from '../icons/icons-provider';
 import { newradeIconsKit } from './newrade-icons';
 
-export const ionicons5Kit: IconComponents<ICON> = {
+export const ioniconsOutlineConfig: IconConfig = {
+  iconFamilyName: 'ionicons',
+  iconFamilyStyle: 'outline',
+  iconFamilyWebsite: 'https://ionic.io/ionicons',
+};
+
+export const ionicons5OutlineComponents: IconComponents<ICON> = {
   [ICON.ARROW_UP]: IoArrowUpOutline,
   [ICON.ARROW_DOWN]: IoArrowDownOutline,
   [ICON.ARROW_LEFT]: IoArrowBackOutline,

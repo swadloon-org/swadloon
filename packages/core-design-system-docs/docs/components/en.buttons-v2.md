@@ -30,10 +30,13 @@ Like most components there are three level of importance for buttons:
 - Secondary
 - Tertiary
 
-<ThemeWrapper>
+<!-- prettier-ignore -->
+<ThemeWrapper 
+  displayControls={true} 
+  filename={'buttons-v2.code.tsx'}
+  code={ButtonsV2Code}>
   <ButtonsV2 />
 </ThemeWrapper>
-<CodeBlock>{ButtonsV2Code}</CodeBlock>
 
 Buttons support reversed mode:
 

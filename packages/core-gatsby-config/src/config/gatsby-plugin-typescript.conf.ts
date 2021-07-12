@@ -1,7 +1,11 @@
 import Gatsby from 'gatsby';
+import GatsbyPluginType from 'gatsby-plugin-typegen/types';
 
 interface PluginOptions {
   fileName?: string;
+  /**
+   * @deprecated not used with `gatsby-plugin-typegen`
+   */
   documentPaths: string[];
 }
 
@@ -16,14 +20,18 @@ const defaultOptions: PluginOptions = {
 };
 
 /**
- * Return a `gatsby-plugin-ts` and `gatsby-plugin-graphql-codegen` configuration objects
+ * Return a `gatsby-plugin-ts` and `gatsby-plugin-typegen` configuration objects
  * @see https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-typescript
- * @see https://github.com/d4rekanguok/gatsby-typescript
+ * @see https://github.com/cometkim/gatsby-plugin-typegen
  */
 export function getGatsbyPluginTypeScriptConfig({
   fileName = defaultOptions.fileName,
   documentPaths = defaultOptions.documentPaths,
 }: PluginOptions = defaultOptions): Gatsby.PluginRef[] {
+  const options: GatsbyPluginType.PluginOptions = {
+    outputPath: fileName,
+  };
+
   return [
     // {
     //   resolve: `gatsby-plugin-typescript`,
@@ -34,11 +42,8 @@ export function getGatsbyPluginTypeScriptConfig({
     //   },
     // },
     {
-      resolve: `gatsby-plugin-graphql-codegen`,
-      options: {
-        fileName,
-        documentPaths,
-      },
+      resolve: `gatsby-plugin-typegen`,
+      options,
     },
   ];
 }
