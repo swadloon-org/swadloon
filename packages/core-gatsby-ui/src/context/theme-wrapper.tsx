@@ -107,9 +107,11 @@ export const ThemeWrapper = ({
             Example
           </Tab>
 
-          <Tab id={'source'} selected={activeTabId === 'source'} onClick={handleSelectTab}>
-            Source
-          </Tab>
+          {code ? (
+            <Tab id={'source'} selected={activeTabId === 'source'} onClick={handleSelectTab}>
+              Source
+            </Tab>
+          ) : null}
         </TabList>
 
         <TabContent aria-labelledby={'example'} hidden={activeTabId !== 'example'}>

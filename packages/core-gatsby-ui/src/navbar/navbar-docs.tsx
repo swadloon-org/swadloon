@@ -53,6 +53,7 @@ type Props = PrimitiveProps & {
    * callback when the mobile menu is clicked
    */
   onClickMenuButton?: (event: React.MouseEvent) => void;
+  layoutMode?: 'centered' | 'full-width';
   /**
    * callback when the layout mode is clicked
    */
@@ -149,7 +150,10 @@ export const NavbarDocs: React.FC<Props> = function NavbarDocs(props) {
                 icon={ButtonIcon.icon}
                 variant={Variant.tertiary}
                 Icon={
-                  <IconComp name={ICON.LAYOUT_CENTER} style={{ height: 24, width: 24 }}></IconComp>
+                  <IconComp
+                    name={props.layoutMode === 'centered' ? ICON.LAYOUT_CENTER : ICON.LAYOUT_WIDE}
+                    style={{ height: 24, width: 24 }}
+                  ></IconComp>
                 }
                 aria-label={'Search button'}
                 onClick={props.onLayoutModeChange}

@@ -19,6 +19,7 @@ export * from './global/global-reset-css';
 export * from './global/global-theme-classnames';
 export * from './hooks/use-common-props.hook';
 export * from './hooks/use-is-ssr';
+export * from './hooks/use-local-storage.hook';
 export * from './hooks/use-mouse-position';
 export * from './hooks/use-network-status';
 export * from './hooks/use-page-visibility.hook';
