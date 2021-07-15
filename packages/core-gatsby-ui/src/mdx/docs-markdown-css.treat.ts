@@ -2,7 +2,8 @@ import { Theme } from '@newrade/core-react-ui';
 import { globalStyle, style } from 'treat';
 
 export const wrapper = style(({ theme, cssTheme }: Theme) => ({
-  display: 'inherit',
+  display: 'flex',
+  flexDirection: 'column',
 }));
 
 /**

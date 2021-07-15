@@ -1,4 +1,4 @@
-import { BoxV2, useCommonProps } from '@newrade/core-react-ui';
+import { useCommonProps } from '@newrade/core-react-ui';
 import { MarkdownCSS } from '@newrade/core-react-ui/lib/markdown';
 import { BlockAPI } from '@newrade/core-website-api';
 import React from 'react';
@@ -36,9 +36,9 @@ export const BlockMarkdown: React.FC<Props> = ({
   }
 
   return (
-    <BoxV2 {...commonProps}>
+    <>
       {injectMarkdownStyles ? (
-        <MarkdownCSS className={styles.content}>
+        <MarkdownCSS {...commonProps}>
           {typeof children !== 'string' ? (
             // already rendered markdown
             children
@@ -58,6 +58,6 @@ export const BlockMarkdown: React.FC<Props> = ({
           )}
         </>
       )}
-    </BoxV2>
+    </>
   );
 };

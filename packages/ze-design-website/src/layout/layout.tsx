@@ -1,31 +1,23 @@
-import loadable from '@loadable/component';
+import { Variant } from '@newrade/core-design-system';
+import { GatsbyLink, NavbarStandard } from '@newrade/core-gatsby-ui/src';
 import {
   Main,
   MainWrapper,
-  NavBar,
+  SidebarContainer,
   useCommonProps,
   useIsSSR,
   useTreatTheme,
   useViewportBreakpoint,
 } from '@newrade/core-react-ui';
+import { NavbarLayout } from '@newrade/core-website-api';
 import { PageProps } from 'gatsby';
 import React, { ReactNode, useState } from 'react';
 import { useStyles } from 'react-treat';
+import { navbarNavigation } from '../navigation/navigation';
 import { Footer } from './footer';
 import * as styleRefs from './layout.treat';
 
 type LayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }>;
-
-const MobileSideBar = loadable<any>(
-  () => {
-    return import('@newrade/core-react-ui/lib/navigation/mobile-sidebar');
-  },
-  {
-    resolveComponent: (
-      components: typeof import('@newrade/core-react-ui/lib/navigation/mobile-sidebar')
-    ) => components.MobileSideBar,
-  }
-);
 
 export const Layout = React.memo<LayoutProps>((props) => {
   const isSSR = useIsSSR();
@@ -51,11 +43,20 @@ export const Layout = React.memo<LayoutProps>((props) => {
 
   return (
     <MainWrapper {...commonProps}>
-      <NavBar></NavBar>
+      <NavbarStandard
+        navbar={{
+          name: 'Navbar',
+          variant: Variant.primaryReversed,
+          layout: NavbarLayout.standard,
+          navigation: navbarNavigation,
+        }}
+        HomeLink={<GatsbyLink to={'/'} />}
+        onClickMenuButton={handleClickMenuButton}
+      ></NavbarStandard>
 
-      <Main navbarPadding={true} minHeight={true}>
-        {props.children}
-      </Main>
+      <SidebarContainer sidebarOpened={sidebarOpened} onClickBackdrop={handleClickMenuButton} />
+
+      <Main minHeight={true}>{props.children}</Main>
 
       <Footer />
     </MainWrapper>

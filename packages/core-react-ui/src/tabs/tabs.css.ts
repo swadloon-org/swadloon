@@ -77,5 +77,5 @@ export const primary = style({
  */
 
 export const medium = style({
-  padding: 16,
+  padding: `16px 24px 14px`,
 });

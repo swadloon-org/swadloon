@@ -35,7 +35,7 @@ hierarchy using size, colors and line-height.
 A sans-serif typeface doesn't have any serif.
 
 <!-- prettier-ignore -->
-<ThemeWrapper style={{padding: '48px 16px'}}>
+<ThemeWrapper>
   <FontsSans/>
 </ThemeWrapper>
 
@@ -45,7 +45,7 @@ A sans-serif alternate typeface is used to alternate the main sans-serif
 typeface.
 
 <!-- prettier-ignore -->
-<ThemeWrapper style={{padding: '48px 16px'}}>
+<ThemeWrapper>
 <FontsSansAlternate/>
 </ThemeWrapper>
 
@@ -55,7 +55,7 @@ A serif typeface has serif, a small line or stroke, at the end of stroke of
 letters and symbols.
 
 <!-- prettier-ignore -->
-<ThemeWrapper style={{padding: '48px 16px'}}>
+<ThemeWrapper>
   <FontsSerif/>
 </ThemeWrapper>
 
@@ -64,4 +64,4 @@ letters and symbols.
 A mono typeface has letters and characters that are mathematically the same
 width.
 
-<ThemeWrapper style={{padding: '48px 16px'}}> <FontsMono/> </ThemeWrapper>
+<ThemeWrapper> <FontsMono/> </ThemeWrapper>

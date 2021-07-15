@@ -37,9 +37,3 @@ Like most components there are three level of importance for buttons:
   code={ButtonsV2Code}>
   <ButtonsV2 />
 </ThemeWrapper>
-
-Buttons support reversed mode:
-
-<ThemeWrapper reversed={true}>
-  <ButtonsV2 />
-</ThemeWrapper>

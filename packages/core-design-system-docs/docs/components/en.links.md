@@ -30,15 +30,13 @@ There are two variants for links:
 - No underline
 - Underline
 
-<ThemeWrapper>
+<!-- prettier-ignore -->
+<ThemeWrapper 
+  displayControls={true} 
+  filename={'links.code.tsx'} 
+  code={LinksCode}>
   <Links />
 </ThemeWrapper>
-
-<ThemeWrapper reversed={true}>
-  <Links />
-</ThemeWrapper>
-
-<CodeBlock>{LinksCode}</CodeBlock>
 
 ## Variant Level
 
@@ -48,44 +46,34 @@ Like most components there are three level of importance for links:
 - Secondary
 - Tertiary
 
-<ThemeWrapper>
+<!-- prettier-ignore -->
+<ThemeWrapper 
+  displayControls={true} 
+  filename={'links-level.code.tsx'} 
+  code={LinksLevelCode}>
   <LinksLevel />
 </ThemeWrapper>
-
-Links support reversed mode:
-
-<ThemeWrapper reversed={true}>
-  <LinksLevel />
-</ThemeWrapper>
-
-<CodeBlock>{LinksLevelCode}</CodeBlock>
 
 ## Size
 
 Four sizes are available for links.
 
-<ThemeWrapper>
-<LinksSizes />
+<ThemeWrapper displayControls={true} code={LinksSizesCode}>
+  <LinksSizes />
 </ThemeWrapper>
-
-<CodeBlock>{LinksSizesCode}</CodeBlock>
 
 ## Icon
 
 The icon button variant support having the icon on the right side and only icon.
 
-<ThemeWrapper>
+<ThemeWrapper displayControls={true} code={LinksIconCode}>
   <LinksIcon />
 </ThemeWrapper>
-
-<CodeBlock>{LinksIconCode}</CodeBlock>
 
 ## External
 
 External link have an external icon on the right side.
 
-<ThemeWrapper>
+<ThemeWrapper displayControls={true} code={LinksExternalCode}>
   <LinksExternal />
 </ThemeWrapper>
-
-<CodeBlock>{LinksExternalCode}</CodeBlock>

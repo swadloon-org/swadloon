@@ -1,6 +1,7 @@
 import Highlight, { Language, Prism, PrismTheme } from 'prism-react-renderer';
 import React from 'react';
 import { useStyles } from 'react-treat';
+import { getMergedClassname } from '../utilities';
 import * as styleRefs from './code-highlight.treat';
 
 type Props = {
@@ -28,24 +29,33 @@ export const CodeHighlight: React.FC<Props> = ({
       {!injectPreElement
         ? ({ tokens, getLineProps, getTokenProps }) => (
             <React.Fragment>
-              {tokens.map((line, i) => (
-                <div key={i} {...getLineProps({ line, key: i })}>
-                  {line.map((token, key) => (
-                    <span key={key} {...getTokenProps({ token, key })} />
-                  ))}
-                </div>
-              ))}
+              {tokens.map((line, i) => {
+                const lineProps = { ...getLineProps({ line, key: i }) };
+                const lineClassName = getMergedClassname([lineProps.className, styles.tokenLine]);
+                return (
+                  <div key={i} {...lineProps} className={lineClassName}>
+                    {line.map((token, key) => (
+                      <span key={key} {...getTokenProps({ token, key })} />
+                    ))}
+                  </div>
+                );
+              })}
             </React.Fragment>
           )
         : ({ className, style, tokens, getLineProps, getTokenProps }) => (
             <pre className={`${className} ${styles.pre}`} style={{ ...style }}>
-              {tokens.map((line, i) => (
-                <div key={i} {...getLineProps({ line, key: i })}>
-                  {line.map((token, key) => (
-                    <span key={key} {...getTokenProps({ token, key })} />
-                  ))}
-                </div>
-              ))}
+              {tokens.map((line, i) => {
+                const lineProps = { ...getLineProps({ line, key: i }) };
+                const lineClassName = getMergedClassname([lineProps.className, styles.tokenLine]);
+
+                return (
+                  <div key={i} {...lineProps} className={lineClassName}>
+                    {line.map((token, key) => (
+                      <span key={key} {...getTokenProps({ token, key })} />
+                    ))}
+                  </div>
+                );
+              })}
             </pre>
           )}
     </Highlight>

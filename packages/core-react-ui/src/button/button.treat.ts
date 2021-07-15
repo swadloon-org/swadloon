@@ -3,6 +3,7 @@ import { Theme } from '../design-system';
 import { globalThemeReversedSelector } from '../global/global-theme-classnames';
 
 const iconSize = `1.5em`;
+const iconOnlySize = `1.8em`;
 const iconPadding = `3em`;
 
 /**
@@ -177,6 +178,9 @@ export const large = style(({ theme, cssTheme }: Theme) => ({
     '&[datapaddingcollapse="left"]': {
       marginLeft: `calc(-1 * ${cssTheme.sizing.var.x3} + (${iconSize} - ${cssTheme.sizing.var.x3}) / 2)`,
     },
+    '&[datapaddingcollapse="left-icon"]': {
+      marginLeft: `calc(-1 * ${cssTheme.sizing.var.x3} + (${iconOnlySize} - ${cssTheme.sizing.var.x3}) / 2)`,
+    },
     '&[dataicon="right"]': {
       padding: `${cssTheme.sizing.var.x3} ${iconPadding} ${cssTheme.sizing.var.x3} ${cssTheme.sizing.var.x3}`,
     },
@@ -219,6 +223,9 @@ export const medium = style(({ theme, cssTheme }: Theme) => ({
     '&[datapaddingcollapse="left"]': {
       marginLeft: `calc(-1 * ${cssTheme.sizing.var.x2} + (${iconSize} - ${cssTheme.sizing.var.x3}) / 2)`,
     },
+    '&[datapaddingcollapse="left-icon"]': {
+      marginLeft: `calc(-1 * ${cssTheme.sizing.var.x2} + (${iconOnlySize} - ${cssTheme.sizing.var.x3}) / 2)`,
+    },
     '&[dataicon="right"]': {
       padding: `${cssTheme.sizing.var.x2} ${iconPadding} ${cssTheme.sizing.var.x2} ${cssTheme.sizing.var.x2} `,
     },
@@ -260,6 +267,9 @@ export const small = style(({ theme, cssTheme }: Theme) => ({
     '&[datapaddingcollapse="left"]': {
       marginLeft: `calc(-1 * ${cssTheme.sizing.var.x2} + (${iconSize} - ${cssTheme.sizing.var.x3}) / 2)`,
     },
+    '&[datapaddingcollapse="left-icon"]': {
+      marginLeft: `calc(-1 * ${cssTheme.sizing.var.x2} + (${iconOnlySize} - ${cssTheme.sizing.var.x3}) / 2)`,
+    },
     '&[dataicon="right"]': {
       padding: `${cssTheme.sizing.var.x1} ${iconPadding} ${cssTheme.sizing.var.x1} ${cssTheme.sizing.var.x2}`,
     },
@@ -288,6 +298,9 @@ export const xSmall = style(({ theme, cssTheme }: Theme) => ({
   selectors: {
     '&[datapaddingcollapse="left"]': {
       marginLeft: `calc(-1 * ${cssTheme.sizing.var.x1} + (${iconSize} - ${cssTheme.sizing.var.x3}) / 2)`,
+    },
+    '&[datapaddingcollapse="left-icon"]': {
+      marginLeft: `calc(-1 * ${cssTheme.sizing.var.x1} + (${iconOnlySize} - ${cssTheme.sizing.var.x3}) / 2)`,
     },
     '&[dataicon="right"]': {
       height: `calc(2 * ${cssTheme.sizing.var.x1} + ${
@@ -320,9 +333,16 @@ export const iconBase = style(({ theme, cssTheme }: Theme) => ({
   width: iconSize,
   maxWidth: iconSize,
 }));
+export const iconOnly = style(({ theme, cssTheme }: Theme) => ({
+  position: 'absolute',
+  height: iconOnlySize,
+  maxHeight: iconOnlySize,
+  width: iconOnlySize,
+  maxWidth: iconOnlySize,
+}));
 export const icon = style(({ theme, cssTheme }: Theme) => ({
-  top: `calc(50% - ${iconSize} / 2)`,
-  left: `calc(50% - ${iconSize} / 2)`,
+  top: `calc(50% - ${iconOnlySize} / 2)`,
+  left: `calc(50% - ${iconOnlySize} / 2)`,
 }));
 export const right = style(({ theme, cssTheme }: Theme) => ({
   top: `calc(50% - ${iconSize} / 2)`,

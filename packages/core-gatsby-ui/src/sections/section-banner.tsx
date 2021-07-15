@@ -75,6 +75,7 @@ export const SectionBanner = React.forwardRef<HTMLElement, Props>(
         {...commonProps}
       >
         {BackgroundBlockComponent}
+
         <Center>
           <BoxV2 padding={[cssTheme.sizing.var.x7, 0]}>{ContentBlock}</BoxV2>
         </Center>

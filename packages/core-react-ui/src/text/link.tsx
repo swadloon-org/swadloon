@@ -78,15 +78,14 @@ export const Link: React.FC<Props> = React.memo(
     /**
      * Icon insertion
      */
-    const IconSvg =
-      variantIcon && Icon ? (
-        React.cloneElement(Icon as React.ReactElement, {
-          className: styles.icon,
-          preserveAspectRatio: `xMinYMin meet`,
-        })
-      ) : variantIcon ? (
-        <IoOpenOutline className={styles.icon} preserveAspectRatio="xMinYMin meet" />
-      ) : null;
+    const IconSvg = Icon ? (
+      React.cloneElement(Icon as React.ReactElement, {
+        className: styles.icon,
+        preserveAspectRatio: `xMinYMin meet`,
+      })
+    ) : variantIcon ? (
+      <IoOpenOutline className={styles.icon} preserveAspectRatio="xMinYMin meet" />
+    ) : null;
 
     /**
      * Props

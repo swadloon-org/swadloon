@@ -1,4 +1,4 @@
-import { ListItem, Stack, useTreatTheme } from '@newrade/core-react-ui';
+import { ListItems, ListItemV2, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 
 type Props = {};
@@ -8,13 +8,11 @@ export const ListItemsBullet: React.FC<Props> = (props) => {
 
   return (
     <>
-      <Stack as={'ul'} gap={[cssTheme.sizing.var.x2]}>
-        <ListItem></ListItem>
-
-        <ListItem></ListItem>
-
-        <ListItem></ListItem>
-      </Stack>
+      <ListItems as={'ul'} gap={[cssTheme.sizing.var.x2]}>
+        <ListItemV2></ListItemV2>
+        <ListItemV2></ListItemV2>
+        <ListItemV2></ListItemV2>
+      </ListItems>
     </>
   );
 };

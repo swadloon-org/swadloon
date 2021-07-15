@@ -41,7 +41,6 @@ export const styles = {
   /**
    * Backdrop
    */
-
   backdrop: style(({ cssTheme, theme }: Theme) => ({
     position: 'fixed',
     backgroundColor: `rgba(0,0,0,0.20)`,

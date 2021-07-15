@@ -62,7 +62,10 @@ export type CSSAnimationHandle = React.ElementRef<typeof CSSAnimation>;
  * @see https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations
  */
 export const CSSAnimation = React.forwardRef<HTMLDivElement & { reset: () => any }, Props>(
-  ({ id, style, className, animation, onAnimationEnd, showControls, as, ...props }, ref) => {
+  (
+    { id, style, className, animation, onAnimationEnd, showControls, as, AsElement, ...props },
+    ref
+  ) => {
     const { styles, animations } = useStyles(styleRefs);
     const { theme, cssTheme } = useTreatTheme();
 
@@ -71,9 +74,7 @@ export const CSSAnimation = React.forwardRef<HTMLDivElement & { reset: () => any
       '--animation-duration':
         typeof animation?.duration === 'number' ? `${animation.duration}ms` : animation?.duration,
       '--animation-iteration':
-        typeof animation?.iterationCount === 'number'
-          ? `${animation.iterationCount}`
-          : animation?.duration,
+        typeof animation?.iterationCount === 'number' ? `${animation.iterationCount}` : '1',
     };
 
     const commonProps = useCommonProps<'div'>({
@@ -171,7 +172,7 @@ export const CSSAnimation = React.forwardRef<HTMLDivElement & { reset: () => any
 
     // handle internal state for animation end
     function handleAnimationEnd(event: AnimationEvent) {
-      if (divRef?.current) {
+      if (divRef?.current && !animation?.playState) {
         divRef.current.style.animationPlayState = 'paused';
       }
     }
@@ -240,6 +241,14 @@ export const CSSAnimation = React.forwardRef<HTMLDivElement & { reset: () => any
           </div>
         </div>
       );
+    }
+
+    const CustomElement = AsElement
+      ? React.cloneElement(AsElement as React.ReactElement, { ref: divRef, ...commonProps })
+      : null;
+
+    if (CustomElement) {
+      return CustomElement;
     }
 
     return (

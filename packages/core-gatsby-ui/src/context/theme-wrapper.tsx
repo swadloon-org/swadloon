@@ -66,7 +66,7 @@ export const ThemeWrapper = ({
   ...props
 }: Props) => {
   const [selectedTheme, setSelectedTheme] = useState<'default' | 'custom'>('custom');
-  const [isReversed, setIsReversed] = useState(false);
+  const [isReversed, setIsReversed] = useState(reversed !== undefined ? reversed : false);
   const { cssTheme } = useTreatTheme();
 
   const commonProps = useCommonProps({
@@ -102,17 +102,17 @@ export const ThemeWrapper = ({
   return (
     <div className={styles.wrapper}>
       <Tabs>
-        <TabList>
-          <Tab id={'example'} selected={activeTabId === 'example'} onClick={handleSelectTab}>
-            Example
-          </Tab>
+        {code ? (
+          <TabList>
+            <Tab id={'example'} selected={activeTabId === 'example'} onClick={handleSelectTab}>
+              Example
+            </Tab>
 
-          {code ? (
             <Tab id={'source'} selected={activeTabId === 'source'} onClick={handleSelectTab}>
               Source
             </Tab>
-          ) : null}
-        </TabList>
+          </TabList>
+        ) : null}
 
         <TabContent aria-labelledby={'example'} hidden={activeTabId !== 'example'}>
           {displayControls ? (

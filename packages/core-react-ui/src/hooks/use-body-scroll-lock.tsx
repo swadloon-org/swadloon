@@ -1,7 +1,3 @@
-// Adopted and modified solution from Bohdan Didukh (2017)
-// https://stackoverflow.com/questions/41594997/ios-10-safari-prevent-scrolling-behind-a-fixed-overlay-and-maintain-scroll-posi
-// inspired by https://github.com/willmcpo/body-scroll-lock
-
 import { useEffect } from 'react';
 import { isIOS } from 'react-device-detect';
 
@@ -56,6 +52,12 @@ const allowTouchMove = (el: EventTarget | null): boolean =>
     return false;
   });
 
+/**
+ * @description Adopted and modified solution from Bohdan Didukh (2017)
+ * @see https://stackoverflow.com/questions/41594997/ios-10-safari-prevent-scrolling-behind-a-fixed-overlay-and-maintain-scroll-posi
+ *
+ */
+//
 export function useBodyScrollLock({
   disableScrolling,
   ref,
@@ -242,36 +244,7 @@ export function useBodyScrollLock({
     return () => {
       disableBodyScroll(target);
     };
-  }, [target, disableScrolling]);
+  }, [target, disableScrolling, isIosDevice]);
 
   return [locks, documentListenerAdded];
 }
-
-// TODO: delete it is not needed
-
-// const clearAllBodyScrollLocks = (): void => {
-//   let isBodyOverflowHidden = !isIosDevice;
-//   if (isIosDevice) {
-//     // Clear all locks ontouchstart/ontouchmove handlers, and the references.
-//     locks.forEach((lock: Lock) => {
-//       lock.targetElement.ontouchstart = null;
-//       lock.targetElement.ontouchmove = null;
-//       if (lock.options.hideBodyOverflow) {
-//         isBodyOverflowHidden = true;
-//       }
-//     });
-
-//     if (documentListenerAdded) {
-//       window.document.removeEventListener('touchmove', preventDefault);
-//       documentListenerAdded = false;
-//     }
-//     // Reset initial clientY.
-//     initialClientY = -1;
-//   }
-
-//   if (isBodyOverflowHidden) {
-//     restoreOverflowSetting();
-//   }
-
-//   locks = [];
-// };
