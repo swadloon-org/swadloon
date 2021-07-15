@@ -1,5 +1,5 @@
 import { HEADING } from '@newrade/core-design-system';
-import { Cluster, Heading, Stack, useTreatTheme } from '@newrade/core-react-ui';
+import { Cluster, Heading, Stack, useTreatTheme } from '@newrade/core-react-ui/src';
 import { title } from 'case';
 import React from 'react';
 import { useStyles } from 'react-treat';
@@ -18,7 +18,7 @@ export const FontSansAlternate: React.FC<Props> = (props) => {
     <Stack className={styles.wrapper} gap={[cssTheme.sizing.var.x5]}>
       <Stack className={styles.wrapper} gap={[cssTheme.sizing.var.x3]}>
         <Heading variant={HEADING.h4}>
-          {'Sans Alternate'} - {title(cssTheme.typography.fonts.sansAlternate[0].name)}
+          {title(cssTheme.typography.fonts.sansAlternate[0].name)}
         </Heading>
 
         <Cluster justifyContent={['flex-start']} gap={[cssTheme.sizing.var.x2]}>

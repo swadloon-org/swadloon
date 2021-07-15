@@ -7,7 +7,7 @@ import {
   Stack,
   useCommonProps,
   useTreatTheme,
-} from '@newrade/core-react-ui';
+} from '@newrade/core-react-ui/src';
 import { IoLogoFacebook } from '@react-icons/all-files/io5/IoLogoFacebook';
 import { IoLogoInstagram } from '@react-icons/all-files/io5/IoLogoInstagram';
 import { IoLogoLinkedin } from '@react-icons/all-files/io5/IoLogoLinkedin';

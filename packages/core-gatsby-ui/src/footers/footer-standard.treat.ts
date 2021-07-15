@@ -1,5 +1,5 @@
 import { style } from 'treat';
-import { Theme } from '@newrade/core-react-ui/lib/design-system';
+import { Theme } from '@newrade/core-react-ui/src/design-system';
 
 export const base = style(({ theme, cssTheme }: Theme) => ({
   display: 'grid',

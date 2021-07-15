@@ -1,4 +1,4 @@
-import { BoxV2, PrimitiveProps, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
+import { BoxV2, PrimitiveProps, useCommonProps, useTreatTheme } from '@newrade/core-react-ui/src';
 import { BlockImageAPIV1, BlockImageAPIV2 } from '@newrade/core-website-api';
 import { FluidObject } from 'gatsby-image';
 import React from 'react';

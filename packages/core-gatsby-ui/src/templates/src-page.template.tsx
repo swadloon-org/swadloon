@@ -1,13 +1,12 @@
 import { GatsbySrcPageContext } from '@newrade/core-gatsby-config';
+import {
+  getMetaBasicTags,
+  getMetadataOpenGraphWebsiteTags,
+  OPEN_GRAPH_TYPE,
+} from '@newrade/core-react-ui/src';
 import { PageProps } from 'gatsby';
 import React, { ReactNode } from 'react';
 import Helmet from 'react-helmet';
-import {
-  getMetaBasicTags,
-  Title,
-  getMetadataOpenGraphWebsiteTags,
-  OPEN_GRAPH_TYPE,
-} from '@newrade/core-react-ui';
 
 export type SrcPageTemplateProps = PageProps<{}, GatsbySrcPageContext>;
 

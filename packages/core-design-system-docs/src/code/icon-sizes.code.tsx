@@ -1,5 +1,5 @@
 import { ICON, ICON_SIZE } from '@newrade/core-design-system';
-import { Cluster, IconComp, useTreatTheme } from '@newrade/core-react-ui';
+import { Cluster, IconComp, useTreatTheme } from '@newrade/core-react-ui/src';
 import React from 'react';
 
 type Props = {};

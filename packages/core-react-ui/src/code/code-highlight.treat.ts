@@ -13,4 +13,8 @@ export const styles = {
     borderRadius: `6px`,
     userSelect: 'text',
   })),
+  tokenLine: style(({ theme, cssTheme }: Theme) => ({
+    width: 'fit-content',
+    paddingRight: 16,
+  })),
 };

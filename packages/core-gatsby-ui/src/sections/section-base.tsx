@@ -5,8 +5,8 @@ import {
   globalThemeReversed,
   PaddingProps,
   useTreatTheme,
-} from '@newrade/core-react-ui';
-import { getMergedClassname } from '@newrade/core-react-ui/lib/utilities';
+} from '@newrade/core-react-ui/src';
+import { getMergedClassname } from '@newrade/core-react-ui/src/utilities';
 import { SectionBaseLayout, SectionPadding } from '@newrade/core-website-api';
 import React from 'react';
 import { useStyles } from 'react-treat';

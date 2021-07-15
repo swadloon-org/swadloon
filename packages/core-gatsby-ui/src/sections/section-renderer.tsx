@@ -1,5 +1,5 @@
-import { useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
-import { keys } from '@newrade/core-react-ui/lib/utilities';
+import { useCommonProps, useTreatTheme } from '@newrade/core-react-ui/src';
+import { keys } from '@newrade/core-react-ui/src/utilities';
 import { SectionAPI, SectionLayout } from '@newrade/core-website-api';
 import debug from 'debug';
 import React, { PropsWithChildren } from 'react';

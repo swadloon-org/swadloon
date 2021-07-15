@@ -1,5 +1,5 @@
 import { Layout, VIEWPORT } from '@newrade/core-design-system';
-import { defaultLayout } from '@newrade/core-react-ui/lib/default-theme';
+import { defaultLayout } from '@newrade/core-react-ui/src/default-theme';
 
 export const layout: Layout = {
   ...defaultLayout,
@@ -18,8 +18,8 @@ export const layout: Layout = {
     [VIEWPORT.mobile]: 375,
   },
   navbarHeight: {
-    [VIEWPORT.desktop]: 115,
-    [VIEWPORT.tablet]: 68,
-    [VIEWPORT.mobile]: 68,
+    [VIEWPORT.desktop]: 80,
+    [VIEWPORT.tablet]: 60,
+    [VIEWPORT.mobile]: 60,
   },
 };

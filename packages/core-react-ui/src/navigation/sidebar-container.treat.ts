@@ -41,7 +41,6 @@ export const styles = {
   /**
    * Backdrop
    */
-
   backdrop: style(({ cssTheme, theme }: Theme) => ({
     position: 'fixed',
     backgroundColor: `rgba(0,0,0,0.20)`,
@@ -52,5 +51,10 @@ export const styles = {
     zIndex: cssTheme.layout.zIndex.sideBarMobile - 1,
 
     opacity: `0`, // inital animation state
+    pointerEvents: 'none',
+  })),
+
+  backdropActive: style(({ cssTheme, theme }: Theme) => ({
+    pointerEvents: 'auto',
   })),
 };

@@ -15,11 +15,12 @@ import {
   Stack,
   useTreatTheme,
   useViewportBreakpoint,
-} from '@newrade/core-react-ui';
-import { Theme } from '@newrade/core-react-ui/lib/design-system';
+} from '@newrade/core-react-ui/src';
+import { Theme } from '@newrade/core-react-ui/src/design-system';
 import { PageProps } from 'gatsby';
 import React, { ReactNode, useEffect, useState } from 'react';
 import { ThemeWrapper } from '../context/theme-wrapper';
+import { useLayoutState } from '../hooks/use-design-system-layout.hook';
 
 export type DesignSystemLayoutProps = Partial<
   Omit<PageProps, 'children'> & { children: ReactNode }
@@ -61,7 +62,7 @@ export const LayoutDesignSystem: React.FC<DesignSystemLayoutProps> = function ({
   });
   const { cssTheme } = useTreatTheme();
   const { viewport } = useViewportBreakpoint();
-  const [layoutMode, setLayoutMode] = useState<'centered' | 'full-width'>('centered');
+  const [layoutMode, setLayoutMode] = useLayoutState('centered');
   const [mobileSidebarOpened, setMobileSidebarOpened] = useState<boolean>(false);
 
   function handleClickMenuButton(event: React.MouseEvent) {
@@ -103,6 +104,7 @@ export const LayoutDesignSystem: React.FC<DesignSystemLayoutProps> = function ({
         maxWidth={'100%'}
         MenuLinks={MenuLinks}
         onClickMenuButton={handleClickMenuButton}
+        layoutMode={layoutMode}
         onLayoutModeChange={handleChangeLayoutMode}
         menuOpened={mobileSidebarOpened}
       ></NavbarDocs>

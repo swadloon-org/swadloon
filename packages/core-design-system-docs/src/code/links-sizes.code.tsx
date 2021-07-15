@@ -1,5 +1,5 @@
 import { PARAGRAPH_SIZE } from '@newrade/core-design-system';
-import { Link, useTreatTheme } from '@newrade/core-react-ui';
+import { Link, useTreatTheme } from '@newrade/core-react-ui/src';
 import React from 'react';
 
 type Props = {};

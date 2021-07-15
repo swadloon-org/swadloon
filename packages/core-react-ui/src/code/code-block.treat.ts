@@ -4,6 +4,8 @@ import { Theme } from '../design-system';
 export const styles = {
   wrapper: style(({ theme, cssTheme }: Theme) => ({
     position: 'relative',
+    width: '100%',
+    overflow: 'hidden',
   })),
   header: style(({ theme, cssTheme }: Theme) => ({
     position: 'relative',

@@ -1,5 +1,5 @@
 import { PARAGRAPH_SIZE } from '@newrade/core-design-system';
-import { ListItem, ListItems, useTreatTheme } from '@newrade/core-react-ui';
+import { ListItem, ListItems, useTreatTheme } from '@newrade/core-react-ui/src';
 import { IoMailOutline } from '@react-icons/all-files/io5/IoMailOutline';
 import React from 'react';
 

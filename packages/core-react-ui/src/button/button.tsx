@@ -8,13 +8,16 @@ import {
 } from '@newrade/core-design-system';
 import React, { AnchorHTMLAttributes, ButtonHTMLAttributes, useRef } from 'react';
 import { useStyles } from 'react-treat';
+import { useCommonProps } from '../hooks/use-common-props.hook';
 import { usePreventPinchZoom } from '../hooks/use-prevent-pinch-zoom';
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { Label } from '../text/label';
 import { getDefaultTextFromProps, getMergedClassname } from '../utilities/component.utilities';
 import * as stylesRef from './button.treat';
 
-type Props = PrimitiveProps<'button' | 'a'> &
+type AsType = 'button' | 'a';
+
+type Props = PrimitiveProps<AsType> &
   Pick<AnchorHTMLAttributes<any>, 'href'> &
   ButtonHTMLAttributes<any> &
   Pick<ButtonProps, 'icon' | 'role' | 'size' | 'state' | 'variant'> & {
@@ -36,6 +39,7 @@ export const Button = React.forwardRef<any, Props>(
       id,
       style,
       className,
+      role,
       children,
       variant,
       collapsePadding,
@@ -67,10 +71,10 @@ export const Button = React.forwardRef<any, Props>(
     const dataicon = Icon ? (icon ? icon : ButtonIcon.right) : ButtonIcon.none;
 
     const iconClassNames = getMergedClassname([
-      styles.iconBase,
+      dataicon === ButtonIcon.icon ? styles.iconOnly : styles.iconBase,
+      dataicon === ButtonIcon.icon ? styles.icon : '',
       dataicon === ButtonIcon.right ? styles.right : '',
       dataicon === ButtonIcon.left ? styles.left : '',
-      dataicon === ButtonIcon.icon ? styles.icon : '',
     ]);
 
     const IconSvg = Icon
@@ -83,12 +87,20 @@ export const Button = React.forwardRef<any, Props>(
     const variantStateClassName = `${styles.base}`;
     const variantClassName = `${styles[variant ? variant : Variant.primary]}`;
     const variantSizeClassName = styles[size ? size : ButtonSize.medium];
-    const allClassName = getMergedClassname([
-      variantStateClassName,
-      variantSizeClassName,
-      variantClassName,
+    const collapsePaddingProp =
+      dataicon === ButtonIcon.icon ? `${collapsePadding}-icon` : collapsePadding;
+    const commonProps = useCommonProps<'button'>({
+      id,
+      style,
       className,
-    ]);
+      role: as === 'button' ? '' : role,
+      classNames: [variantStateClassName, variantSizeClassName, variantClassName, className],
+      // @ts-ignore
+      dataicon: dataicon,
+      datapaddingcollapse: collapsePaddingProp,
+      ...props,
+    });
+
     const renderedChildren = children
       ? children
       : dataicon === ButtonIcon.icon
@@ -121,15 +133,7 @@ export const Button = React.forwardRef<any, Props>(
     const CustomElement = AsElement
       ? React.cloneElement(
           AsElement as React.ReactElement,
-          {
-            id,
-            style,
-            className: allClassName,
-            ref: ref,
-            dataicon,
-            datapaddingcollapse: `${collapsePadding}`,
-            ...props,
-          },
+          commonProps,
           <>
             {icon === ButtonIcon.icon ? null : (
               <Label
@@ -153,15 +157,7 @@ export const Button = React.forwardRef<any, Props>(
       type !== 'button'
         ? React.createElement(
             type,
-            {
-              id,
-              style,
-              className: allClassName,
-              ref: ref,
-              dataicon,
-              datapaddingcollapse: `${collapsePadding}`,
-              ...props,
-            },
+            commonProps,
             <>
               {icon === ButtonIcon.icon ? null : (
                 <Label
@@ -182,17 +178,7 @@ export const Button = React.forwardRef<any, Props>(
     }
 
     return (
-      <button
-        id={id}
-        style={style}
-        className={allClassName}
-        ref={ref}
-        disabled={disabled}
-        // @ts-ignore
-        dataicon={dataicon}
-        datapaddingcollapse={`${collapsePadding}`}
-        {...props}
-      >
+      <button ref={ref} disabled={disabled} {...commonProps}>
         {icon === ButtonIcon.icon ? null : (
           <Label
             variantDisplay={'inline'}

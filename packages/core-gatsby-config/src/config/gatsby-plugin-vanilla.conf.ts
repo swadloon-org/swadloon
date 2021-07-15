@@ -4,5 +4,8 @@
 export function getGastbyPluginVanilla() {
   return {
     resolve: 'gatsby-plugin-vanilla-extract',
+    // options: {
+    //   test: /\.css\.(js|jsx)$/,
+    // },
   };
 }

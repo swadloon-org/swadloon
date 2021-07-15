@@ -1,4 +1,4 @@
-import { Cluster, Tag, useTreatTheme } from '@newrade/core-react-ui';
+import { Cluster, Tag, useTreatTheme } from '@newrade/core-react-ui/src';
 import React from 'react';
 
 type Props = {

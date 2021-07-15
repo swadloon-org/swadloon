@@ -1,5 +1,5 @@
 import { Variant } from '@newrade/core-design-system';
-import { BoxV2, Center, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
+import { BoxV2, Center, useCommonProps, useTreatTheme } from '@newrade/core-react-ui/src';
 import { SectionBaseLayout, SectionPadding } from '@newrade/core-website-api';
 import React from 'react';
 import { useStyles } from 'react-treat';
@@ -75,6 +75,7 @@ export const SectionBanner = React.forwardRef<HTMLElement, Props>(
         {...commonProps}
       >
         {BackgroundBlockComponent}
+
         <Center>
           <BoxV2 padding={[cssTheme.sizing.var.x7, 0]}>{ContentBlock}</BoxV2>
         </Center>

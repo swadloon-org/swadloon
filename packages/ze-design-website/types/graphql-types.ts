@@ -615,9 +615,9 @@ type MdxFrontmatter = {
   readonly tags: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
   readonly version: Maybe<Scalars['String']>;
   readonly status: Maybe<Scalars['String']>;
-  readonly editPageUrl: Maybe<Scalars['String']>;
   readonly nextPageUrl: Maybe<Scalars['String']>;
   readonly nextPageLabel: Maybe<Scalars['String']>;
+  readonly editPageUrl: Maybe<Scalars['String']>;
 };
 
 type MdxHeadingMdx = {
@@ -801,6 +801,7 @@ type SitePluginPluginOptionsUrlSvgOptionsSvgoConfigPlugins = {
 
 type SitePluginPluginOptionsUrlSvgOptionsUrlLoaderOptions = {
   readonly limit: Maybe<Scalars['Int']>;
+  readonly name: Maybe<Scalars['String']>;
 };
 
 type SitePluginPluginOptionsGatsbyRemarkPlugins = {
@@ -1392,9 +1393,9 @@ type MdxFrontmatterFilterInput = {
   readonly tags: Maybe<StringQueryOperatorInput>;
   readonly version: Maybe<StringQueryOperatorInput>;
   readonly status: Maybe<StringQueryOperatorInput>;
-  readonly editPageUrl: Maybe<StringQueryOperatorInput>;
   readonly nextPageUrl: Maybe<StringQueryOperatorInput>;
   readonly nextPageLabel: Maybe<StringQueryOperatorInput>;
+  readonly editPageUrl: Maybe<StringQueryOperatorInput>;
 };
 
 type MdxHeadingMdxFilterListInput = {
@@ -1652,9 +1653,9 @@ type FileFieldsEnum =
   | 'childrenMdx.frontmatter.tags'
   | 'childrenMdx.frontmatter.version'
   | 'childrenMdx.frontmatter.status'
-  | 'childrenMdx.frontmatter.editPageUrl'
   | 'childrenMdx.frontmatter.nextPageUrl'
   | 'childrenMdx.frontmatter.nextPageLabel'
+  | 'childrenMdx.frontmatter.editPageUrl'
   | 'childrenMdx.slug'
   | 'childrenMdx.body'
   | 'childrenMdx.excerpt'
@@ -1714,9 +1715,9 @@ type FileFieldsEnum =
   | 'childMdx.frontmatter.tags'
   | 'childMdx.frontmatter.version'
   | 'childMdx.frontmatter.status'
-  | 'childMdx.frontmatter.editPageUrl'
   | 'childMdx.frontmatter.nextPageUrl'
   | 'childMdx.frontmatter.nextPageLabel'
+  | 'childMdx.frontmatter.editPageUrl'
   | 'childMdx.slug'
   | 'childMdx.body'
   | 'childMdx.excerpt'
@@ -2677,6 +2678,7 @@ type SitePluginPluginOptionsUrlSvgOptionsSvgoConfigPluginsFilterInput = {
 
 type SitePluginPluginOptionsUrlSvgOptionsUrlLoaderOptionsFilterInput = {
   readonly limit: Maybe<IntQueryOperatorInput>;
+  readonly name: Maybe<StringQueryOperatorInput>;
 };
 
 type SitePluginPluginOptionsGatsbyRemarkPluginsFilterListInput = {
@@ -3384,9 +3386,9 @@ type MdxFieldsEnum =
   | 'frontmatter.tags'
   | 'frontmatter.version'
   | 'frontmatter.status'
-  | 'frontmatter.editPageUrl'
   | 'frontmatter.nextPageUrl'
   | 'frontmatter.nextPageLabel'
+  | 'frontmatter.editPageUrl'
   | 'slug'
   | 'body'
   | 'excerpt'
@@ -3659,6 +3661,7 @@ type SitePluginFieldsEnum =
   | 'pluginOptions.urlSvgOptions.ref'
   | 'pluginOptions.urlSvgOptions.svgoConfig.plugins'
   | 'pluginOptions.urlSvgOptions.urlLoaderOptions.limit'
+  | 'pluginOptions.urlSvgOptions.urlLoaderOptions.name'
   | 'pluginOptions.path'
   | 'pluginOptions.ignore'
   | 'pluginOptions.base64Width'
@@ -3933,40 +3936,6 @@ type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 type PagesQueryQuery = { readonly allSiteFunction: { readonly nodes: ReadonlyArray<Pick<SiteFunction, 'functionRoute'>> }, readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
 
-type DocsLayoutQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type DocsLayoutQuery = { readonly pages: (
-    Pick<SitePageConnection, 'totalCount'>
-    & { readonly nodes: ReadonlyArray<(
-      Pick<SitePage, 'id' | 'path'>
-      & { readonly context: Maybe<(
-        Pick<SitePageContext, 'id' | 'name' | 'locale' | 'layout' | 'template'>
-        & { readonly siteMetadata: Maybe<(
-          Pick<SitePageContextSiteMetadata, 'description' | 'siteEnv' | 'siteUrl' | 'title'>
-          & { readonly languages: Maybe<Pick<SitePageContextSiteMetadataLanguages, 'defaultLangKey' | 'langs'>> }
-        )> }
-      )> }
-    )> }
-  ) };
-
-type DesignSystemLayoutPageQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type DesignSystemLayoutPageQuery = { readonly pages: (
-    Pick<SitePageConnection, 'totalCount'>
-    & { readonly nodes: ReadonlyArray<(
-      Pick<SitePage, 'id' | 'path'>
-      & { readonly context: Maybe<(
-        Pick<SitePageContext, 'id' | 'name' | 'locale' | 'layout' | 'template'>
-        & { readonly siteMetadata: Maybe<(
-          Pick<SitePageContextSiteMetadata, 'description' | 'siteEnv' | 'siteUrl' | 'title'>
-          & { readonly languages: Maybe<Pick<SitePageContextSiteMetadataLanguages, 'defaultLangKey' | 'langs'>> }
-        )> }
-      )> }
-    )> }
-  ) };
-
 type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 
 type GatsbyImageSharpFixed_tracedSVGFragment = Pick<ImageSharpFixed, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'>;
@@ -3998,6 +3967,23 @@ type SiteMetadataFragment = { readonly siteMetadata: Maybe<(
     & { readonly languages: Maybe<Pick<SiteSiteMetadataLanguages, 'defaultLangKey' | 'langs'>> }
   )> };
 
+type DocsLayoutQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type DocsLayoutQuery = { readonly pages: (
+    Pick<SitePageConnection, 'totalCount'>
+    & { readonly nodes: ReadonlyArray<(
+      Pick<SitePage, 'id' | 'path'>
+      & { readonly context: Maybe<(
+        Pick<SitePageContext, 'id' | 'name' | 'locale' | 'layout' | 'template'>
+        & { readonly siteMetadata: Maybe<(
+          Pick<SitePageContextSiteMetadata, 'description' | 'siteEnv' | 'siteUrl' | 'title'>
+          & { readonly languages: Maybe<Pick<SitePageContextSiteMetadataLanguages, 'defaultLangKey' | 'langs'>> }
+        )> }
+      )> }
+    )> }
+  ) };
+
 type MarkdownPageTemplateQueryVariables = Exact<{
   fileId: Scalars['String'];
 }>;
@@ -4007,5 +3993,22 @@ type MarkdownPageTemplateQuery = { readonly file: Maybe<{ readonly childMdx: May
       Pick<Mdx, 'slug' | 'excerpt' | 'timeToRead' | 'tableOfContents' | 'body'>
       & { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'name' | 'tags'>>, readonly headings: Maybe<ReadonlyArray<Maybe<Pick<MdxHeadingMdx, 'value' | 'depth'>>>> }
     )> }> };
+
+type DesignSystemLayoutPageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type DesignSystemLayoutPageQuery = { readonly pages: (
+    Pick<SitePageConnection, 'totalCount'>
+    & { readonly nodes: ReadonlyArray<(
+      Pick<SitePage, 'id' | 'path'>
+      & { readonly context: Maybe<(
+        Pick<SitePageContext, 'id' | 'name' | 'locale' | 'layout' | 'template'>
+        & { readonly siteMetadata: Maybe<(
+          Pick<SitePageContextSiteMetadata, 'description' | 'siteEnv' | 'siteUrl' | 'title'>
+          & { readonly languages: Maybe<Pick<SitePageContextSiteMetadataLanguages, 'defaultLangKey' | 'langs'>> }
+        )> }
+      )> }
+    )> }
+  ) };
 
 }

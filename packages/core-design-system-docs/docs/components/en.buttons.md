@@ -77,3 +77,5 @@ The icon button variant support having the icon on either side and only icon.
 <ThemeWrapper>
   <ButtonsStates />
 </ThemeWrapper>
+
+## Changelog

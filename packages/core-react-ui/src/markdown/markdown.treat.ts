@@ -2,7 +2,8 @@ import { globalStyle, style } from 'treat';
 import { Theme } from '../design-system';
 
 export const wrapper = style(({ theme, cssTheme }: Theme) => ({
-  display: 'inherit',
+  display: 'flex',
+  flexDirection: 'column',
 }));
 
 /**
@@ -81,10 +82,6 @@ globalStyle(
 );
 
 globalStyle(`${wrapper} p + *`, ({ cssTheme, theme }: Theme) => ({
-  marginTop: contentMargin,
-}));
-
-globalStyle(`${wrapper} * + p`, ({ cssTheme, theme }: Theme) => ({
   marginTop: contentMargin,
 }));
 

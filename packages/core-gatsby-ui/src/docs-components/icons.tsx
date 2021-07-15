@@ -28,8 +28,8 @@ import {
   useCommonProps,
   useIconContext,
   useTreatTheme,
-} from '@newrade/core-react-ui';
-import { keys } from '@newrade/core-react-ui/lib/utilities';
+} from '@newrade/core-react-ui/src';
+import { keys } from '@newrade/core-react-ui/src/utilities';
 import { pascal } from 'case';
 import React, { useMemo, useState } from 'react';
 import { useStyles } from 'react-treat';

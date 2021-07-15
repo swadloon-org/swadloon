@@ -31,7 +31,7 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
   /**
    * Replace the devtool option
    */
-  config.devtool = 'source-map';
+  config.devtool = 'cheap-source-map';
 
   /**
    * Enable `module` in mainfields

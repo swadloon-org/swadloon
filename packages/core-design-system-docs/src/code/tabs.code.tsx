@@ -1,4 +1,4 @@
-import { Tab, TabContent, TabList, Tabs, useTreatTheme } from '@newrade/core-react-ui';
+import { Tab, TabContent, TabList, Tabs, useTreatTheme } from '@newrade/core-react-ui/src';
 import React, { useState } from 'react';
 
 type Props = {};

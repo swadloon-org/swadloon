@@ -4,7 +4,7 @@ import { PrimitiveProps } from '../primitive/primitive.props';
 import { getMergedClassname } from '../utilities/component.utilities';
 import * as styleRefs from './center.treat';
 
-type AsTypes = 'div' | 'footer' | 'section';
+type AsTypes = 'div' | 'footer' | 'section' | 'nav';
 
 type Props = PrimitiveProps<AsTypes> &
   Partial<{

@@ -16,6 +16,44 @@ export const designSystemPage: PageAPI = {
   slug: '/design-system/',
 };
 
+export const docspage: PageAPI = {
+  name: 'Docs',
+  slug: '/docs/',
+};
+
+export const navbarNavigation: NavigationAPI = {
+  name: 'Navbar Navigation',
+  component: NavComponent.navbar,
+  subNavigation: [
+    {
+      name: 'Links for documentation',
+      label: 'Documentation',
+      component: NavComponent.link,
+      links: [
+        {
+          name: 'Link to the docs',
+          label: 'Docs',
+          component: LinkComponent.link,
+          page: docspage,
+        },
+      ],
+    },
+    {
+      name: 'Links for design',
+      label: 'Design',
+      component: NavComponent.link,
+      links: [
+        {
+          name: 'Link to design system page',
+          label: 'Design system',
+          component: LinkComponent.link,
+          page: designSystemPage,
+        },
+      ],
+    },
+  ],
+};
+
 export const footerNavigation: NavigationAPI = {
   name: 'Footer Navigation',
   component: NavComponent.footer,

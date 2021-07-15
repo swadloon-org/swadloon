@@ -5,8 +5,8 @@ import { PageProps, WrapPageElementBrowserArgs } from 'gatsby';
 import React from 'react';
 import ProvidersDocs from './src/context/providers-docs';
 import ProvidersSite from './src/context/providers-site';
-import './src/design-system/theme.css';
-import { themeClass } from './src/design-system/theme.css';
+// import './src/design-system/theme.css';
+// import { themeClass } from './src/design-system/theme.css';
 import { light } from './src/design-system/theme.treat';
 import './src/fonts';
 import { Layout } from './src/layout/layout';
@@ -36,7 +36,7 @@ export const WrapElement: React.FC<WrapPageElementBrowserArgs> = ({ element, pro
       return (
         <ProvidersDocs>
           <LazyLayoutDesignSystem
-            themeClassname={themeClass}
+            themeClassname={'themeClass'}
             treatThemeRef={light}
             theme={{ theme, cssTheme }}
             {...pageProps}

@@ -1,4 +1,4 @@
-import { Label } from '@newrade/core-react-ui';
+import { Label } from '@newrade/core-react-ui/src';
 import React, { HTMLAttributes } from 'react';
 
 type Props = HTMLAttributes<any>;

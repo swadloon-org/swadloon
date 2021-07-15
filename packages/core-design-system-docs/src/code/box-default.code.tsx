@@ -1,5 +1,5 @@
 import { Placeholder } from '@newrade/core-gatsby-ui/src/docs-components/placeholder';
-import { BoxV2, useTreatTheme } from '@newrade/core-react-ui';
+import { BoxV2, useTreatTheme } from '@newrade/core-react-ui/src';
 import React from 'react';
 
 type Props = {};

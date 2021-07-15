@@ -1,5 +1,5 @@
 import { Placeholder } from '@newrade/core-gatsby-ui/src/docs-components/placeholder';
-import { Center, useTreatTheme } from '@newrade/core-react-ui';
+import { Center, useTreatTheme } from '@newrade/core-react-ui/src';
 import React from 'react';
 type Props = {};
 

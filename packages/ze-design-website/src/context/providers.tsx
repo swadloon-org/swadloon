@@ -1,4 +1,4 @@
-import { viewportContext, ViewportProvider } from '@newrade/core-react-ui';
+import { viewportContext, ViewportProvider } from '@newrade/core-react-ui/src';
 import React from 'react';
 
 export const Providers: React.FC = (props) => {

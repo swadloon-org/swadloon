@@ -1,4 +1,4 @@
-import { Theme } from '@newrade/core-react-ui/lib/design-system';
+import { Theme } from '@newrade/core-react-ui/src/design-system';
 import { styleMap } from 'treat';
 
 export const styles = styleMap(({ cssTheme, theme }: Theme) => ({

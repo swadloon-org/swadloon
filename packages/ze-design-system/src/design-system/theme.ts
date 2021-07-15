@@ -1,12 +1,12 @@
 import { DesignSystem } from '@newrade/core-design-system';
-import { CSSDesignSystem } from '@newrade/core-react-ui/lib/design-system';
+import { CSSDesignSystem } from '@newrade/core-react-ui/src/design-system';
 import {
   defaultAnimations,
   defaultButtons,
   defaultIconography,
   defaultSizing,
-} from '@newrade/core-react-ui/lib/default-theme';
-import { createCSSTheme } from '@newrade/core-react-ui/lib/utilities';
+} from '@newrade/core-react-ui/src/default-theme';
+import { createCSSTheme } from '@newrade/core-react-ui/src/utilities';
 import { colors } from './colors';
 import { effects } from './effects';
 import { layout } from './layout';

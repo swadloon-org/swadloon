@@ -1,5 +1,5 @@
 import { Variant } from '@newrade/core-design-system';
-import { Switcher, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
+import { Switcher, useCommonProps, useTreatTheme } from '@newrade/core-react-ui/src';
 import { SectionBaseLayout, SectionPadding } from '@newrade/core-website-api';
 import React from 'react';
 import { useStyles } from 'react-treat';

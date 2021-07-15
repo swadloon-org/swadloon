@@ -30,10 +30,13 @@ import ListItemsNumberCode from '!!raw-loader!../../src/code/list-items-number.c
 
 Bullet list items are used to list elements without any specific order.
 
-<ThemeWrapper>
-<ListItemsBullet />
+<!-- prettier-ignore -->
+<ThemeWrapper
+  displayControls={true} 
+  filename={'list-items-bullet.code.tsx'} 
+  code={ListItemsBulletCode}>
+  <ListItemsBullet />
 </ThemeWrapper>
-<CodeBlock>{ListItemsBulletCode}</CodeBlock>
 
 ### Icon
 

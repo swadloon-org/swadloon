@@ -1,6 +1,6 @@
 import { LABEL_SIZE, LinkVariant, PARAGRAPH_SIZE, TEXT_STYLE } from '@newrade/core-design-system';
-import { BoxV2, Label, Link, Stack } from '@newrade/core-react-ui';
-import { formatAnchorId } from '@newrade/core-react-ui/lib/utilities';
+import { BoxV2, Label, Link, Stack } from '@newrade/core-react-ui/src';
+import { formatAnchorId } from '@newrade/core-react-ui/src/utilities';
 import { WindowLocation } from '@reach/router';
 import React from 'react';
 import { useStyles } from 'react-treat';

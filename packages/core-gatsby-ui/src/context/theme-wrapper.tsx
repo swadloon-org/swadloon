@@ -11,10 +11,10 @@ import {
   TreatThemeProvider,
   useCommonProps,
   useTreatTheme,
-} from '@newrade/core-react-ui';
-import { CodeBlock, CodeOutline } from '@newrade/core-react-ui/lib/code';
-import { GlobalCSSVariables } from '@newrade/core-react-ui/lib/global/global-css-variables';
-import { mdxComponents } from '@newrade/core-react-ui/lib/markdown';
+} from '@newrade/core-react-ui/src';
+import { CodeBlock, CodeOutline } from '@newrade/core-react-ui/src/code';
+import { GlobalCSSVariables } from '@newrade/core-react-ui/src/global/global-css-variables';
+import { mdxComponents } from '@newrade/core-react-ui/src/markdown';
 import React, { ReactNode, useState } from 'react';
 import { TreatProvider } from 'react-treat';
 import * as styles from './theme-wrapper.css';
@@ -66,7 +66,7 @@ export const ThemeWrapper = ({
   ...props
 }: Props) => {
   const [selectedTheme, setSelectedTheme] = useState<'default' | 'custom'>('custom');
-  const [isReversed, setIsReversed] = useState(false);
+  const [isReversed, setIsReversed] = useState(reversed !== undefined ? reversed : false);
   const { cssTheme } = useTreatTheme();
 
   const commonProps = useCommonProps({
@@ -102,15 +102,17 @@ export const ThemeWrapper = ({
   return (
     <div className={styles.wrapper}>
       <Tabs>
-        <TabList>
-          <Tab id={'example'} selected={activeTabId === 'example'} onClick={handleSelectTab}>
-            Example
-          </Tab>
+        {code ? (
+          <TabList>
+            <Tab id={'example'} selected={activeTabId === 'example'} onClick={handleSelectTab}>
+              Example
+            </Tab>
 
-          <Tab id={'source'} selected={activeTabId === 'source'} onClick={handleSelectTab}>
-            Source
-          </Tab>
-        </TabList>
+            <Tab id={'source'} selected={activeTabId === 'source'} onClick={handleSelectTab}>
+              Source
+            </Tab>
+          </TabList>
+        ) : null}
 
         <TabContent aria-labelledby={'example'} hidden={activeTabId !== 'example'}>
           {displayControls ? (

@@ -3,7 +3,7 @@ import {
   getMetaBasicTags,
   getMetadataOpenGraphWebsiteTags,
   OPEN_GRAPH_TYPE,
-} from '@newrade/core-react-ui';
+} from '@newrade/core-react-ui/src';
 import { PageProps } from 'gatsby';
 import React, { ReactNode } from 'react';
 import Helmet from 'react-helmet';

@@ -16,7 +16,7 @@ import {
   useViewportBreakpoint,
   viewportContext,
   ViewportProvider,
-} from '@newrade/core-react-ui';
+} from '@newrade/core-react-ui/src';
 import { PageProps } from 'gatsby';
 import React, { ReactNode, useEffect, useState } from 'react';
 import { useDocsNavigation } from '../hooks/use-docs-navigation-data.hook';

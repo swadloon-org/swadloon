@@ -1,5 +1,5 @@
-import { PrimitiveProps } from '@newrade/core-react-ui';
-import { getMergedClassname } from '@newrade/core-react-ui/lib/utilities';
+import { PrimitiveProps } from '@newrade/core-react-ui/src';
+import { getMergedClassname } from '@newrade/core-react-ui/src/utilities';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './docs-markdown-css.treat';

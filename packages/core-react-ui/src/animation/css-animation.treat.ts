@@ -20,9 +20,10 @@ export const styles = {
 const commonAnimationStyle: Style = {
   animationDuration: 'var(--animation-duration, 1s)',
   animationFillMode: 'both',
-  animationPlayState: 'paused',
   animationIterationCount: 'var(--animation-iteration, 1)',
 };
+
+const easingPower4 = 'cubic-bezier(.08,.65,0,1)';
 
 globalStyle(`${styles.wrapper}`, () => ({
   '@media': {
@@ -562,24 +563,30 @@ export const animations = {
     ...commonAnimationStyle,
   })),
   slideInLeft: style(({ theme, cssTheme }: Theme) => ({
+    animationTimingFunction: easingPower4,
     '@keyframes': {
       from: {
+        opacity: '0',
         transform: 'translate3d(-100%, 0, 0)',
         visibility: 'visible',
       },
       to: {
+        opacity: '1',
         transform: 'translate3d(0, 0, 0)',
       },
     },
     ...commonAnimationStyle,
   })),
   slideInRight: style(({ theme, cssTheme }: Theme) => ({
+    animationTimingFunction: easingPower4,
     '@keyframes': {
       from: {
+        opacity: '0',
         transform: 'translate3d(-100%, 0, 0)',
         visibility: 'visible',
       },
       to: {
+        opacity: '1',
         transform: 'translate3d(0, 0, 0)',
       },
     },
@@ -610,12 +617,14 @@ export const animations = {
     ...commonAnimationStyle,
   })),
   slideOutLeft: style(({ theme, cssTheme }: Theme) => ({
+    animationTimingFunction: easingPower4,
     '@keyframes': {
       from: {
+        opacity: '1',
         transform: 'translate3d(0, 0, 0)',
       },
       to: {
-        visibility: 'hidden',
+        opacity: '0',
         transform: 'translate3d(-100%, 0, 0)',
       },
     },

@@ -6,14 +6,14 @@ import {
   TreatThemeProvider,
   viewportContext,
   ViewportProvider,
-} from '@newrade/core-react-ui';
-import { GlobalCSSVariables } from '@newrade/core-react-ui/lib/global/global-css-variables';
-import { GlobalResetCSS } from '@newrade/core-react-ui/lib/global/global-reset-css';
+} from '@newrade/core-react-ui/src';
+import { GlobalCSSVariables } from '@newrade/core-react-ui/src/global/global-css-variables';
+import { GlobalResetCSS } from '@newrade/core-react-ui/src/global/global-reset-css';
 import {
   ionicons5OutlineComponents,
   ioniconsOutlineConfig,
-} from '@newrade/core-react-ui/lib/icon-kits/iconicons-outline';
-import { mdxComponents } from '@newrade/core-react-ui/lib/markdown';
+} from '@newrade/core-react-ui/src/icon-kits/iconicons-outline';
+import { mdxComponents } from '@newrade/core-react-ui/src/markdown';
 import { cssTheme, logosComponents, theme } from '@newrade/ze-design-system';
 import React from 'react';
 import { TreatProvider } from 'react-treat';
