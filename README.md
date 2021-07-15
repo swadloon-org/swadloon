@@ -112,6 +112,7 @@ yarn lint
 | `yarn build`    | Build all `core-*` packages                                                                                                                                                            |                                             |
 | `yarn test`     | Run test in all `core-*` packages                                                                                                                                                      |                                             |
 | `patch-package` | Execute `patch-package` on patches (see `./patches`)                                                                                                                                   |                                             |
+| `yarn release`  | Execute `lerna version`                                                                                                                                                                |                                             |
 
 ## Troubleshooting
 
@@ -124,9 +125,5 @@ yarn reset
 ## License
 
 This project is licensed under the terms of the [MIT license](/LICENSE).
-
-## Architecture
-
-### `core` packages
 
 ---
