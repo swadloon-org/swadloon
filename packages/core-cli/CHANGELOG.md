@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.11.0](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-cli@1.10.2...@newrade/core-cli@1.11.0) (2021-07-15)
+
+### Features
+
+- **core-react-ui:** add new navbar components
+  ([6d5ac76](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/commit/6d5ac76507f73eea1a5bc9c331948fa3a61ff82b))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.10.2](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-cli@1.10.1...@newrade/core-cli@1.10.2) (2021-07-12)
 
 **Note:** Version bump only for package @newrade/core-cli

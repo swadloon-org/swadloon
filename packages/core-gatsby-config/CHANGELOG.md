@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/newrade/newrade-core/compare/@newrade/core-gatsby-config@2.0.0...@newrade/core-gatsby-config@2.1.0) (2021-07-15)
+
+### Bug Fixes
+
+- **core-gatsby-config:** fix creation of 404 page
+  ([6f56d51](https://github.com/newrade/newrade-core/commit/6f56d51b6685f5c55843669eeaebe85a9423f9f5))
+- **core-react-ui:** rework sidebar-container and use-body-scroll-lock
+  ([0a22c33](https://github.com/newrade/newrade-core/commit/0a22c333e52291fa404178e82182685888c3ee81))
+
+### Features
+
+- **core-react-ui:** add new navbar components
+  ([6d5ac76](https://github.com/newrade/newrade-core/commit/6d5ac76507f73eea1a5bc9c331948fa3a61ff82b))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [2.0.0](https://github.com/newrade/newrade-core/compare/@newrade/core-gatsby-config@1.14.0...@newrade/core-gatsby-config@2.0.0) (2021-07-12)
 
 ### Bug Fixes

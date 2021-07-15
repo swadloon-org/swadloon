@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/newrade/newrade-core/compare/@newrade/ze-design-system@1.2.0...@newrade/ze-design-system@1.3.0) (2021-07-15)
+
+### Bug Fixes
+
+- **core-react-ui:** rework sidebar-container and use-body-scroll-lock
+  ([0a22c33](https://github.com/newrade/newrade-core/commit/0a22c333e52291fa404178e82182685888c3ee81))
+
+### Features
+
+- **core-react-ui:** add new navbar components
+  ([6d5ac76](https://github.com/newrade/newrade-core/commit/6d5ac76507f73eea1a5bc9c331948fa3a61ff82b))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.2.0](https://github.com/newrade/newrade-core/compare/@newrade/ze-design-system@1.1.2...@newrade/ze-design-system@1.2.0) (2021-07-12)
 
 ### Features

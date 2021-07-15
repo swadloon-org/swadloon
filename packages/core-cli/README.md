@@ -18,7 +18,7 @@ $ npm install -g @newrade/core-cli
 $ nr COMMAND
 running command...
 $ nr (-v|--version|version)
-@newrade/core-cli/1.10.2 darwin-arm64 node-v16.4.1
+@newrade/core-cli/1.11.0 darwin-arm64 node-v16.5.0
 $ nr --help [COMMAND]
 USAGE
   $ nr COMMAND
@@ -29,6 +29,7 @@ USAGE
 # Commands
 
 <!-- commands -->
+* [`nr clean-node-modules [FILE]`](#nr-clean-node-modules-file)
 * [`nr commit [FILE]`](#nr-commit-file)
 * [`nr figma-sync [FILE]`](#nr-figma-sync-file)
 * [`nr gastby-start`](#nr-gastby-start)
@@ -36,6 +37,23 @@ USAGE
 * [`nr help [COMMAND]`](#nr-help-command)
 * [`nr netlify-deploy`](#nr-netlify-deploy)
 * [`nr reset-branches [FILE]`](#nr-reset-branches-file)
+
+## `nr clean-node-modules [FILE]`
+
+find . -name 'node_modules' -type d -prune -print -exec rm -rf '{}' ;
+
+```
+USAGE
+  $ nr clean-node-modules [FILE]
+
+OPTIONS
+  -h, --help  show CLI help
+
+EXAMPLE
+  $ nr resetbranches
+```
+
+_See code: [src/commands/clean-node-modules.ts](https://github.com/newrade/newrade-core/blob/v1.11.0/src/commands/clean-node-modules.ts)_
 
 ## `nr commit [FILE]`
 
@@ -52,7 +70,7 @@ EXAMPLE
   $ nr commit
 ```
 
-_See code: [src/commands/commit.ts](https://github.com/newrade/newrade-core/blob/v1.10.2/src/commands/commit.ts)_
+_See code: [src/commands/commit.ts](https://github.com/newrade/newrade-core/blob/v1.11.0/src/commands/commit.ts)_
 
 ## `nr figma-sync [FILE]`
 
@@ -72,7 +90,7 @@ EXAMPLE
   $ nr figma-sync
 ```
 
-_See code: [src/commands/figma-sync.ts](https://github.com/newrade/newrade-core/blob/v1.10.2/src/commands/figma-sync.ts)_
+_See code: [src/commands/figma-sync.ts](https://github.com/newrade/newrade-core/blob/v1.11.0/src/commands/figma-sync.ts)_
 
 ## `nr gastby-start`
 
@@ -92,7 +110,7 @@ EXAMPLE
   $ nr gatsby:start
 ```
 
-_See code: [src/commands/gastby-start.ts](https://github.com/newrade/newrade-core/blob/v1.10.2/src/commands/gastby-start.ts)_
+_See code: [src/commands/gastby-start.ts](https://github.com/newrade/newrade-core/blob/v1.11.0/src/commands/gastby-start.ts)_
 
 ## `nr hello [FILE]`
 
@@ -112,7 +130,7 @@ EXAMPLE
      hello world from ./src/hello.ts!
 ```
 
-_See code: [src/commands/hello.ts](https://github.com/newrade/newrade-core/blob/v1.10.2/src/commands/hello.ts)_
+_See code: [src/commands/hello.ts](https://github.com/newrade/newrade-core/blob/v1.11.0/src/commands/hello.ts)_
 
 ## `nr help [COMMAND]`
 
@@ -149,7 +167,7 @@ EXAMPLE
   $ nr netlify:deploy
 ```
 
-_See code: [src/commands/netlify-deploy.ts](https://github.com/newrade/newrade-core/blob/v1.10.2/src/commands/netlify-deploy.ts)_
+_See code: [src/commands/netlify-deploy.ts](https://github.com/newrade/newrade-core/blob/v1.11.0/src/commands/netlify-deploy.ts)_
 
 ## `nr reset-branches [FILE]`
 
@@ -166,5 +184,5 @@ EXAMPLE
   $ nr resetbranches
 ```
 
-_See code: [src/commands/reset-branches.ts](https://github.com/newrade/newrade-core/blob/v1.10.2/src/commands/reset-branches.ts)_
+_See code: [src/commands/reset-branches.ts](https://github.com/newrade/newrade-core/blob/v1.11.0/src/commands/reset-branches.ts)_
 <!-- commandsstop -->
