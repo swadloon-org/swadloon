@@ -17,7 +17,7 @@ import {
   MenuSeparator,
   useCommonProps,
   useTreatTheme,
-} from '@newrade/core-react-ui';
+} from '@newrade/core-react-ui/src';
 import { LinkType, NavComponent } from '@newrade/core-website-api';
 import React from 'react';
 import { useStyles } from 'react-treat';

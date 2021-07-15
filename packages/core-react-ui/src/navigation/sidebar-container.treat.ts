@@ -51,5 +51,10 @@ export const styles = {
     zIndex: cssTheme.layout.zIndex.sideBarMobile - 1,
 
     opacity: `0`, // inital animation state
+    pointerEvents: 'none',
+  })),
+
+  backdropActive: style(({ cssTheme, theme }: Theme) => ({
+    pointerEvents: 'auto',
   })),
 };

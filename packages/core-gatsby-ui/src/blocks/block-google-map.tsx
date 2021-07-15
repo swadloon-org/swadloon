@@ -1,4 +1,4 @@
-import { GoogleMaps, GoogleMapsInfoWindow, useTreatTheme } from '@newrade/core-react-ui';
+import { GoogleMaps, GoogleMapsInfoWindow, useTreatTheme } from '@newrade/core-react-ui/src';
 import { BlockGoogleMapAPI } from '@newrade/core-website-api';
 import { Marker } from '@react-google-maps/api';
 import React, { useCallback, useEffect, useState } from 'react';

@@ -1,5 +1,5 @@
 import { ButtonIcon, ButtonSize, Variant } from '@newrade/core-design-system';
-import { Button, Stack, useTreatTheme } from '@newrade/core-react-ui';
+import { Button, Stack, useTreatTheme } from '@newrade/core-react-ui/src';
 import { IoArrowForwardOutline } from '@react-icons/all-files/io5/IoArrowForwardOutline';
 import React from 'react';
 

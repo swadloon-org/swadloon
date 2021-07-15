@@ -8,10 +8,10 @@
     "./lib/**/*"
   ],
   "scripts": {
-    "build": "concurrently \"yarn tsc:build\" \"yarn copy:assets\"",
+    "build-disabled": "concurrently \"yarn tsc:build\" \"yarn copy:assets\"",
     "clean": "rm -rf lib/** && rm -f tsconfig.build.tsbuildinfo",
     "copy:assets": "TS_NODE_PROJECT=../core-webpack-config/tsconfig.script.json node -r ts-node/register scripts/copy-assets.script.ts",
-    "start": "concurrently \"yarn tsc:start\" \"yarn watch:assets\"",
+    "start-disabled": "concurrently \"yarn tsc:start\" \"yarn watch:assets\"",
     "test": "jest",
     "test:watch": "jest --watch",
     "tsc:build": "tsc --build tsconfig.build.json",

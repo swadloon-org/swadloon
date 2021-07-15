@@ -1,4 +1,4 @@
-import { PrimitiveProps, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
+import { PrimitiveProps, useCommonProps, useTreatTheme } from '@newrade/core-react-ui/src';
 import { BlockImageAPIV1, BlockImageAPIV2 } from '@newrade/core-website-api';
 import { IFluidObject } from 'gatsby-background-image';
 import React from 'react';

@@ -4,8 +4,8 @@ import {
   ColorShades5,
   ColorShadesGrey,
 } from '@newrade/core-design-system';
-import { Stack } from '@newrade/core-react-ui';
-import { keys } from '@newrade/core-react-ui/lib/utilities';
+import { Stack } from '@newrade/core-react-ui/src';
+import { keys } from '@newrade/core-react-ui/src/utilities';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { ColorIntentSwatchDark } from './color-intent-swatch-dark';

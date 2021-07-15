@@ -15,8 +15,8 @@ import {
   Stack,
   useTreatTheme,
   useViewportBreakpoint,
-} from '@newrade/core-react-ui';
-import { Theme } from '@newrade/core-react-ui/lib/design-system';
+} from '@newrade/core-react-ui/src';
+import { Theme } from '@newrade/core-react-ui/src/design-system';
 import { PageProps } from 'gatsby';
 import React, { ReactNode, useEffect, useState } from 'react';
 import { ThemeWrapper } from '../context/theme-wrapper';

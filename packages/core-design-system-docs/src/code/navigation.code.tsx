@@ -1,5 +1,5 @@
 import { LogoPlaceholder } from '@newrade/core-gatsby-ui/src/docs-components/logo-placeholder';
-import { Label, NavBar, useTreatTheme } from '@newrade/core-react-ui';
+import { Label, NavBar, useTreatTheme } from '@newrade/core-react-ui/src';
 import React from 'react';
 
 type Props = {};

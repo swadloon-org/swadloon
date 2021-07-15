@@ -93,7 +93,7 @@ export const Button = React.forwardRef<any, Props>(
       id,
       style,
       className,
-      role: role ? role : 'button',
+      role: as === 'button' ? '' : role,
       classNames: [variantStateClassName, variantSizeClassName, variantClassName, className],
       // @ts-ignore
       dataicon: dataicon,

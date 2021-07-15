@@ -25,9 +25,9 @@ import {
   Tag,
   TagStatus,
   Title,
-} from '@newrade/core-react-ui';
-import { Code, CodeBlock, CodeHighlight } from '@newrade/core-react-ui/lib/code';
-import { mdxComponents, MDXProps } from '@newrade/core-react-ui/lib/markdown';
+} from '@newrade/core-react-ui/src';
+import { Code, CodeBlock, CodeHighlight } from '@newrade/core-react-ui/src/code';
+import { mdxComponents, MDXProps } from '@newrade/core-react-ui/src/markdown';
 import { SectionBaseLayout, SectionPadding } from '@newrade/core-website-api';
 import React from 'react';
 import { BlockMarkdown } from '../blocks/block-markdown';

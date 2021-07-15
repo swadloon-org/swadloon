@@ -1,4 +1,4 @@
-import { LogoComponents } from '@newrade/core-react-ui';
+import { LogoComponents } from '@newrade/core-react-ui/src';
 import { LOGO } from '@newrade/core-design-system';
 
 import LogoStandard from '../assets/logo-standard.svg';

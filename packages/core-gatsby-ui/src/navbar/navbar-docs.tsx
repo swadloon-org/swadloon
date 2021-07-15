@@ -13,7 +13,7 @@ import {
   Tag,
   usePreventPinchZoom,
   useTreatTheme,
-} from '@newrade/core-react-ui';
+} from '@newrade/core-react-ui/src';
 import { IoClose } from '@react-icons/all-files/io5/IoClose';
 import { IoMenu } from '@react-icons/all-files/io5/IoMenu';
 import React, { useRef } from 'react';

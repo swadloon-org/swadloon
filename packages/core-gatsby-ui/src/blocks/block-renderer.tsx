@@ -7,7 +7,7 @@ import {
   useCommonProps,
   useIsSSR,
   useTreatTheme,
-} from '@newrade/core-react-ui';
+} from '@newrade/core-react-ui/src';
 import { BlockAPI, BlockGoogleMapAPI, BlockType } from '@newrade/core-website-api';
 import { IoArrowForwardOutline } from '@react-icons/all-files/io5/IoArrowForwardOutline';
 import debug from 'debug';

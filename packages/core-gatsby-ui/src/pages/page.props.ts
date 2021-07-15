@@ -1,4 +1,4 @@
-import { PrimitiveProps } from '@newrade/core-react-ui';
+import { PrimitiveProps } from '@newrade/core-react-ui/src';
 import { PageLayout, PageTemplate } from '@newrade/core-gatsby-config';
 
 /**

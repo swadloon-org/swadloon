@@ -18,7 +18,7 @@ export function useAnimateSideBar({
   const [gsapLoaded, setGsapLoaded] = useState<boolean>(false);
   const [animationReady, setAnimationReady] = useState<boolean>(false);
   const [locks, documentListenerAdded] = useBodyScrollLock({
-    disableScrolling: isMobile && disableBodyScroll && sidebarOpened,
+    disableDocumentScrolling: isMobile && disableBodyScroll && sidebarOpened,
     ref: sideBarRef,
   });
 

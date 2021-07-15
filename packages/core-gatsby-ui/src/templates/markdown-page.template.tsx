@@ -4,8 +4,8 @@ import {
   getMetaBasicTags,
   getMetadataOpenGraphWebsiteTags,
   OPEN_GRAPH_TYPE,
-} from '@newrade/core-react-ui';
-import { MarkdownCSS } from '@newrade/core-react-ui/lib/markdown';
+} from '@newrade/core-react-ui/src';
+import { MarkdownCSS } from '@newrade/core-react-ui/src/markdown';
 import { graphql, PageProps } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';

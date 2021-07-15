@@ -6,7 +6,7 @@ import {
   TableHeader,
   TableRow,
   useTreatTheme,
-} from '@newrade/core-react-ui';
+} from '@newrade/core-react-ui/src';
 import React from 'react';
 
 type Props = {};

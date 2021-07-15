@@ -1,5 +1,5 @@
-import { Theme } from '@newrade/core-react-ui/lib/design-system';
-import { globalThemeReversedSelector } from '@newrade/core-react-ui/lib/global/global-theme-classnames';
+import { Theme } from '@newrade/core-react-ui/src/design-system';
+import { globalThemeReversedSelector } from '@newrade/core-react-ui/src/global/global-theme-classnames';
 import { globalStyle, style } from 'treat';
 
 export const wrapper = style(({ theme, cssTheme }: Theme) => ({

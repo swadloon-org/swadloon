@@ -59,11 +59,11 @@ const allowTouchMove = (el: EventTarget | null): boolean =>
  */
 //
 export function useBodyScrollLock({
-  disableScrolling,
+  disableDocumentScrolling,
   ref,
 }: {
-  disableScrolling?: boolean;
-  ref: React.MutableRefObject<HTMLDivElement | null>;
+  disableDocumentScrolling?: boolean;
+  ref?: React.MutableRefObject<HTMLDivElement | null>;
 }) {
   const isIosDevice = isIOS;
 
@@ -73,7 +73,7 @@ export function useBodyScrollLock({
       ? targetElement.scrollHeight - targetElement.scrollTop <= targetElement.clientHeight
       : false;
 
-  const target = ref.current;
+  const target = ref?.current;
 
   /**
    * Side effects below
@@ -214,13 +214,15 @@ export function useBodyScrollLock({
 
       const isBodyOverflowHidden =
         !isIosDevice || !!locks.find((lock) => lock.options.hideBodyOverflow);
+
+      // remove the target element from locks
       locks = locks.filter((lock) => lock.targetElement !== targetElement);
 
       if (isIosDevice) {
         targetElement.ontouchstart = null;
         targetElement.ontouchmove = null;
 
-        if (documentListenerAdded && locks.length === 0) {
+        if (documentListenerAdded) {
           window.document.removeEventListener('touchmove', preventDefault);
           documentListenerAdded = false;
         }
@@ -231,20 +233,22 @@ export function useBodyScrollLock({
       }
     };
 
-    if (disableScrolling) {
+    if (disableDocumentScrolling) {
       disableBodyScroll(target, {
         hideBodyOverflow: false, // TODO: enabling this break desktop scrolling
       });
     }
 
-    if (disableScrolling === false) {
+    if (disableDocumentScrolling === false) {
       enableBodyScroll(target);
     }
 
     return () => {
-      disableBodyScroll(target);
+      disableBodyScroll(target, {
+        allowTouchMove: (el) => el === target,
+      });
     };
-  }, [target, disableScrolling, isIosDevice]);
+  }, [target, disableDocumentScrolling, isIosDevice]);
 
   return [locks, documentListenerAdded];
 }

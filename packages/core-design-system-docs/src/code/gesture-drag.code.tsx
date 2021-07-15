@@ -1,4 +1,4 @@
-import { GestureDragExample, Stack, useTreatTheme } from '@newrade/core-react-ui';
+import { GestureDragExample, Stack, useTreatTheme } from '@newrade/core-react-ui/src';
 import React from 'react';
 
 type Props = {};

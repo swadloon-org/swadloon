@@ -1,4 +1,4 @@
-import { PrimitiveProps } from '@newrade/core-react-ui';
+import { PrimitiveProps } from '@newrade/core-react-ui/src';
 import {
   BlockGoogleMapAPI,
   BlockImageAPIV2,

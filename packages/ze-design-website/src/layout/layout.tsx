@@ -8,7 +8,7 @@ import {
   useIsSSR,
   useTreatTheme,
   useViewportBreakpoint,
-} from '@newrade/core-react-ui';
+} from '@newrade/core-react-ui/src';
 import { NavbarLayout } from '@newrade/core-website-api';
 import { PageProps } from 'gatsby';
 import React, { ReactNode, useState } from 'react';
@@ -54,7 +54,13 @@ export const Layout = React.memo<LayoutProps>((props) => {
         onClickMenuButton={handleClickMenuButton}
       ></NavbarStandard>
 
-      <SidebarContainer sidebarOpened={sidebarOpened} onClickBackdrop={handleClickMenuButton} />
+      <SidebarContainer
+        sidebarOpened={sidebarOpened}
+        onClickBackdrop={handleClickMenuButton}
+        disableBodyScroll={true}
+      >
+        Content Content Content Content Content
+      </SidebarContainer>
 
       <Main minHeight={true}>{props.children}</Main>
 

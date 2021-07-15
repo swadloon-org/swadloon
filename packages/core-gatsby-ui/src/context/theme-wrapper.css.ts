@@ -1,4 +1,4 @@
-import { colorVars, sizingVars } from '@newrade/core-react-ui/lib/theme';
+import { colorVars, sizingVars } from '@newrade/core-react-ui/src/theme';
 import { style } from '@vanilla-extract/css';
 
 export const wrapper = style({

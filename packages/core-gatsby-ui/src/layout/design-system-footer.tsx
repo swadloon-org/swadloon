@@ -5,7 +5,7 @@ import {
   PrimitiveProps,
   useCommonProps,
   useTreatTheme,
-} from '@newrade/core-react-ui';
+} from '@newrade/core-react-ui/src';
 import React from 'react';
 import { IoArrowForwardOutline } from 'react-icons/io5';
 import { useStyles } from 'react-treat';

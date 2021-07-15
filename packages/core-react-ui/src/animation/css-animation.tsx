@@ -47,7 +47,7 @@ export type CSSAnimationProps = {
   timingFunction?: string;
 };
 
-type Props = PrimitiveProps<'div'> & {
+type Props = PrimitiveProps<'div' | 'nav'> & {
   animation?: CSSAnimationProps;
   showControls?: boolean;
   onAnimationEnd?: (this: HTMLDivElement, event: AnimationEvent) => void;
@@ -61,9 +61,24 @@ export type CSSAnimationHandle = React.ElementRef<typeof CSSAnimation>;
 /**
  * @see https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations
  */
-export const CSSAnimation = React.forwardRef<HTMLDivElement & { reset: () => any }, Props>(
+export const CSSAnimation = React.forwardRef<
+  HTMLElement & { reset: () => any; ref: React.RefObject<HTMLDivElement> },
+  Props
+>(
   (
-    { id, style, className, animation, onAnimationEnd, showControls, as, AsElement, ...props },
+    {
+      id,
+      style,
+      className,
+      classNames,
+      animation,
+      onAnimationEnd,
+      showControls,
+      as,
+      AsElement,
+      children,
+      ...props
+    },
     ref
   ) => {
     const { styles, animations } = useStyles(styleRefs);
@@ -81,7 +96,11 @@ export const CSSAnimation = React.forwardRef<HTMLDivElement & { reset: () => any
       id,
       style: { ...style, ...animationCssProps, animationPlayState: animation?.playState },
       className,
-      classNames: [styles.wrapper, animations[animation?.name || 'bounce']],
+      classNames: [
+        ...(classNames ? classNames : []),
+        styles.wrapper,
+        animations[animation?.name || 'bounce'],
+      ],
       ...props,
     });
     const [previousState, setPreviousState] = useState<CSSAnimationState | undefined>('paused');
@@ -138,6 +157,12 @@ export const CSSAnimation = React.forwardRef<HTMLDivElement & { reset: () => any
     useEffect(() => {
       const currentRef = divRef?.current;
 
+      function handleAnimationEnd(event: AnimationEvent) {
+        if (divRef?.current && !animation?.playState) {
+          divRef.current.style.animationPlayState = 'paused';
+        }
+      }
+
       // by default, animation state does not go to pause
       // at the end, we set it correctly to be able to reset it
       if (currentRef) {
@@ -154,12 +179,12 @@ export const CSSAnimation = React.forwardRef<HTMLDivElement & { reset: () => any
           currentRef.removeEventListener('animationend', memoOnAnimationEnd);
         }
       };
-    }, [memoOnAnimationEnd]);
+    }, [memoOnAnimationEnd, animation?.playState]);
 
     // allow parent to reset the animation state
     useImperativeHandle<CSSAnimationHandle, any>(ref, () => ({
       get ref() {
-        return divRef.current;
+        return divRef;
       },
       reset() {
         reset(divRef?.current);
@@ -171,11 +196,6 @@ export const CSSAnimation = React.forwardRef<HTMLDivElement & { reset: () => any
      */
 
     // handle internal state for animation end
-    function handleAnimationEnd(event: AnimationEvent) {
-      if (divRef?.current && !animation?.playState) {
-        divRef.current.style.animationPlayState = 'paused';
-      }
-    }
 
     function play() {
       if (currentDivRef) {
@@ -237,7 +257,7 @@ export const CSSAnimation = React.forwardRef<HTMLDivElement & { reset: () => any
           <ControlButtons />
 
           <div ref={divRef} {...commonProps}>
-            {props.children}
+            {children}
           </div>
         </div>
       );
@@ -253,7 +273,7 @@ export const CSSAnimation = React.forwardRef<HTMLDivElement & { reset: () => any
 
     return (
       <div ref={divRef} {...commonProps}>
-        {props.children}
+        {children}
       </div>
     );
   }

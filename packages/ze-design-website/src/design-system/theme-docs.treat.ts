@@ -1,5 +1,5 @@
 import { createTheme } from 'treat';
-import { defaultTheme, defaultCSSTheme } from '@newrade/core-react-ui/lib/default-theme';
+import { defaultTheme, defaultCSSTheme } from '@newrade/core-react-ui/src/default-theme';
 
 /**
  * Treat theme reference

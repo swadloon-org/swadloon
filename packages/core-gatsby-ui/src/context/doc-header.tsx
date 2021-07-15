@@ -7,7 +7,7 @@ import {
   Stack,
   TagStatus,
   useTreatTheme,
-} from '@newrade/core-react-ui';
+} from '@newrade/core-react-ui/src';
 import React from 'react';
 import { MdxFrontmatter } from '../../types/site-graphql-types';
 import { DocTags } from './doc-tags';
