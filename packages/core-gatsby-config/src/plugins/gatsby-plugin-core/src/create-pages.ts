@@ -270,6 +270,12 @@ export const onCreatePageFunction: GatsbyNode['onCreatePage'] = (
   if (page && page.context && !(page.context as any).siteMetadata) {
     reporter.info(`[${pluginOptions.pluginName}] recreating page: ${page.path}`);
 
+    if (page.path === '/404.html') {
+      reporter.info(`[${pluginOptions.pluginName}] deleting and ignoring page: ${page.path}`);
+      deletePage(page);
+      return;
+    }
+
     // for file src/pages/section/en.page.tsx
 
     // raw node name e.g. '/en.page.tsx/' => 'en.page.tsx'
