@@ -3,6 +3,7 @@ import { isMobile } from 'react-device-detect';
 import { useStyles } from 'react-treat';
 import { CSSAnimation, CSSAnimationHandle } from '../animation/css-animation';
 import { useBodyScrollLock } from '../hooks/use-body-scroll-lock';
+import { useFirstRender } from '../hooks/use-first-render.hook';
 import { Stack } from '../layout/stack';
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { getMergedClassname } from '../utilities/component.utilities';
@@ -37,6 +38,7 @@ export const SidebarContainer: React.FC<Props> = ({
 }) => {
   const { styles } = useStyles(styleRefs);
   const classNames = getMergedClassname([className, styles.wrapper]);
+  const isFirstRender = useFirstRender();
 
   /**
    * Animation
@@ -55,7 +57,7 @@ export const SidebarContainer: React.FC<Props> = ({
         style={style}
         className={classNames}
         animation={{
-          duration: 200,
+          duration: isFirstRender ? 0 : 200,
           name: sidebarOpened ? 'slideInLeft' : 'slideOutLeft',
           playState: 'running',
         }}
@@ -67,7 +69,7 @@ export const SidebarContainer: React.FC<Props> = ({
       <CSSAnimation
         classNames={[styles.backdrop, sidebarOpened ? styles.backdropActive : '']}
         animation={{
-          duration: 100,
+          duration: isFirstRender ? 0 : 100,
           name: sidebarOpened ? 'fadeIn' : 'fadeOut',
           playState: 'running',
         }}
