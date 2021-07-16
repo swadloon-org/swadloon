@@ -15,6 +15,7 @@ export interface GastbySiteConfig extends Gatsby.GatsbyConfig {
     PARALLEL_SOURCING: boolean;
     FUNCTIONS: boolean;
     LMDB_STORE: boolean;
+    ENABLE_GATSBY_REFRESH_ENDPOINT: boolean;
   };
   siteMetadata: GatsbySiteMetadata;
 }
@@ -28,4 +29,5 @@ export const gatsbySiteFlags: GastbySiteConfig['flags'] = {
   PARALLEL_SOURCING: true,
   FUNCTIONS: false,
   LMDB_STORE: false,
+  ENABLE_GATSBY_REFRESH_ENDPOINT: true,
 };
