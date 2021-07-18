@@ -3,13 +3,13 @@ import React, { AnchorHTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { Label } from '../text/label';
-import * as styleRefs from './nav-item-group.treat';
+import * as styleRefs from './sidebar-item-group.treat';
 
 type Props = PrimitiveProps &
   AnchorHTMLAttributes<any> &
   Pick<LinkProps, 'role' | 'variant' | 'variantIcon' | 'variantSize' | 'variantLevel'> & {};
 
-export const NavItemGroup: React.FC<Props> = ({
+export const SidebarItemGroup: React.FC<Props> = ({
   id,
   style,
   className,

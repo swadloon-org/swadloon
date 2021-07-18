@@ -1,11 +1,11 @@
-import { LinkProps, TEXT_STYLE } from '@newrade/core-design-system';
+import { LABEL_SIZE, LinkProps } from '@newrade/core-design-system';
 import React, { AnchorHTMLAttributes, useRef } from 'react';
 import { useStyles } from 'react-treat';
 import { useCommonProps } from '../hooks/use-common-props.hook';
 import { usePreventPinchZoom } from '../hooks/use-prevent-pinch-zoom';
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { Label } from '../text/label';
-import * as styleRefs from './nav-item.treat';
+import * as styleRefs from './sidebar-item.treat';
 
 type Props = PrimitiveProps &
   AnchorHTMLAttributes<any> &
@@ -14,7 +14,7 @@ type Props = PrimitiveProps &
     active?: boolean;
   };
 
-export const NavItem: React.FC<Props> = ({
+export const SidebarItem: React.FC<Props> = ({
   id,
   style,
   className,
@@ -42,7 +42,7 @@ export const NavItem: React.FC<Props> = ({
           ...props,
         },
         <div {...commonProps}>
-          <Label variantStyle={TEXT_STYLE.normal} style={{ color: 'inherit' }}>
+          <Label style={{ color: 'inherit' }} variant={LABEL_SIZE.medium}>
             {props.children}
           </Label>
         </div>
@@ -55,7 +55,7 @@ export const NavItem: React.FC<Props> = ({
 
   return (
     <div {...commonProps}>
-      <Label variantStyle={TEXT_STYLE.normal} style={{ color: 'inherit' }}>
+      <Label style={{ color: 'inherit' }} variant={LABEL_SIZE.medium}>
         {props.children}
       </Label>
     </div>

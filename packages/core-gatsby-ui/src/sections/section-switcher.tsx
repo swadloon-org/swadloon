@@ -50,7 +50,7 @@ export const SectionSwitcher = React.forwardRef<HTMLElement, Props>(
         {...commonProps}
       >
         <Switcher
-          col={2}
+          col={[1, 1, 2]}
           gap={[cssTheme.sizing.var.x6]}
           alignItems={['flex-start', 'center', 'center']}
         >

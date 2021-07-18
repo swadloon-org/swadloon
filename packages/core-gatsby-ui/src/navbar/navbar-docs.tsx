@@ -4,7 +4,6 @@ import {
   Button,
   Center,
   Cluster,
-  globalThemeReversed,
   IconComp,
   Label,
   Logo,
@@ -14,6 +13,7 @@ import {
   usePreventPinchZoom,
   useTreatTheme,
 } from '@newrade/core-react-ui/src';
+import { globalThemeReversed } from '@newrade/core-react-ui/src/global/global-theme-classnames';
 import { IoClose } from '@react-icons/all-files/io5/IoClose';
 import { IoMenu } from '@react-icons/all-files/io5/IoMenu';
 import React, { useRef } from 'react';

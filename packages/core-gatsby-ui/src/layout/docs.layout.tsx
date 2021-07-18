@@ -10,7 +10,7 @@ import {
   Link,
   Main,
   MainWrapper,
-  NavItem,
+  SidebarItem,
   Stack,
   useTreatTheme,
   useViewportBreakpoint,
@@ -106,12 +106,12 @@ export const LayoutDocs = React.memo<LayoutDocsProps>((props) => {
                         ) : null}
                       </DesktopDocsItemGroup>
                     ) : (
-                      <NavItem
+                      <SidebarItem
                         active={item.path === props.location?.pathname}
                         AsElement={<GatsbyLink to={item.path} noStyles={true} />}
                       >
                         {item.displayName || item.name}
-                      </NavItem>
+                      </SidebarItem>
                     )}
                   </Stack>
                 );

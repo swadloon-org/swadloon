@@ -39,7 +39,7 @@ export enum SectionLayout {
   messenger = 'messenger',
 }
 
-export type SectionBlocks =
+export type SectionBlock =
   | BlockAPI
   | BlockImageAPIV1
   | BlockImageAPIV2
@@ -68,5 +68,8 @@ export type SectionAPI = PartialOrNull<{
    * Presets for vertical padding.
    */
   padding: SectionPadding | string;
-  blocks: SectionBlocks[];
+  /**
+   * Content block
+   */
+  blocks: SectionBlock[];
 }>;

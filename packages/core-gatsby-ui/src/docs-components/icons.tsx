@@ -11,7 +11,6 @@ import {
 import {
   Button,
   Cluster,
-  globalThemeReversed,
   IconComp,
   iconMetadatas,
   InputLabel,
@@ -29,6 +28,7 @@ import {
   useIconContext,
   useTreatTheme,
 } from '@newrade/core-react-ui/src';
+import { globalThemeReversed } from '@newrade/core-react-ui/src/global/global-theme-classnames';
 import { keys } from '@newrade/core-react-ui/src/utilities';
 import { pascal } from 'case';
 import React, { useMemo, useState } from 'react';

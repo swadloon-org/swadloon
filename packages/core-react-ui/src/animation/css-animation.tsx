@@ -263,8 +263,23 @@ export const CSSAnimation = React.forwardRef<
       );
     }
 
-    const CustomElement = AsElement
-      ? React.cloneElement(AsElement as React.ReactElement, { ref: divRef, ...commonProps })
+    const CustomAsElement = AsElement
+      ? React.cloneElement(
+          AsElement as React.ReactElement,
+          {
+            ref: divRef,
+            ...commonProps,
+          },
+          children
+        )
+      : null;
+
+    if (CustomAsElement) {
+      return CustomAsElement;
+    }
+
+    const CustomElement = as
+      ? React.createElement(as, { ref: divRef, ...commonProps }, children)
       : null;
 
     if (CustomElement) {

@@ -18,6 +18,10 @@ type Props = PrimitiveProps & {
    */
   navbarPadding?: boolean;
   /**
+   * Offset the navbar height and a default padding
+   */
+  contentPadding?: boolean;
+  /**
    * Prevents the main content's height from collapsing
    */
   minHeight?: boolean;
@@ -37,6 +41,7 @@ export const Main: React.FC<Props> = ({
   style,
   className,
   navbarPadding,
+  contentPadding,
   desktopSidebarPadding,
   desktopAsidePadding,
   minHeight,
@@ -53,6 +58,7 @@ export const Main: React.FC<Props> = ({
       className,
       styles.wrapper,
       navbarPadding ? styles.navbar : '',
+      contentPadding ? styles.contentPadding : '',
       desktopSidebarPadding ? styles.desktopSidebar : '',
       desktopAsidePadding ? styles.desktopAside : '',
       minHeight ? styles.minHeight : '',

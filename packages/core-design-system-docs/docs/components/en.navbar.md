@@ -11,25 +11,22 @@ tags:
 <!-- CODE IMPORTS -->
 
 <!-- prettier-ignore -->
-import { Navigation } from '../../src/code/navigation.code'; 
-import NavigationCode from '!!raw-loader!../../src/code/navigation.code.tsx';
+import { Navbars } from '../../src/code/navbars.code'; 
+import NavbarsCode from '!!raw-loader!../../src/code/navbars.code.tsx';
 
 <!-- END CODE IMPORTS -->
 
 <DocHeader props={props}/>
 
-## NavBars
+## Navbars
 
 Navbars are on top of the screen and provides content and actions such as
 branding, screen titles and navigation items.
 
-<ThemeWrapper>
-  <Navigation />
+<!-- prettier-ignore -->
+<ThemeWrapper
+  code={NavbarsCode}
+  filename={'navbars.code.tsx'}
+  displayControls={true}>
+  <Navbars />
 </ThemeWrapper>
-
-<CodeBlock>{NavigationCode}</CodeBlock>
-
-## Sidebars
-
-Sidebars are on the right or the left side of the screen and provides actions
-such as branding and navigation items.

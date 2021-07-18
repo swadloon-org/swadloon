@@ -3,8 +3,29 @@ import { globalThemeReversedSelector } from '@newrade/core-react-ui/src/global/g
 import { globalStyle, style } from 'treat';
 
 export const wrapper = style(({ theme, cssTheme }: Theme) => ({
+  position: 'fixed',
+  top: 0,
+
+  display: 'grid',
+  alignItems: 'center',
   width: '100%',
-  padding: `${cssTheme.sizing.var.x5} 0`,
+
+  height: cssTheme.layout.var.navbarHeight,
+  maxHeight: cssTheme.layout.var.navbarHeight,
+  color: cssTheme.colors.colorIntents.primaryText,
+  boxShadow: `rgba(33, 33, 33, 0.15) 0px 1px 2px`,
+  zIndex: cssTheme.layout.zIndex.navBar,
+}));
+
+globalStyle(`${wrapper} *`, ({ theme, cssTheme }: Theme) => ({
+  userSelect: 'none',
+}));
+
+/**
+ * Sidebar content
+ */
+export const content = style(({ cssTheme, theme }: Theme) => ({
+  minHeight: `105vh`,
 }));
 
 /**

@@ -18,6 +18,7 @@ export * from './api/nav-item.api';
 export * from './api/navbar.api';
 export * from './api/navigation.api';
 export * from './api/page.api';
+export * from './api/sidebar.api';
 export * from './api/portfolio-client.api';
 export * from './api/portfolio-project.api';
 export * from './api/section.api';

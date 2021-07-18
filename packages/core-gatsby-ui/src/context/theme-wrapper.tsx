@@ -1,6 +1,5 @@
 import { MDXProvider } from '@mdx-js/react';
 import {
-  globalThemeReversed,
   InputSelect,
   PrimitiveProps,
   Tab,
@@ -14,6 +13,7 @@ import {
 } from '@newrade/core-react-ui/src';
 import { CodeBlock, CodeOutline } from '@newrade/core-react-ui/src/code';
 import { GlobalCSSVariables } from '@newrade/core-react-ui/src/global/global-css-variables';
+import { globalThemeReversed } from '@newrade/core-react-ui/src/global/global-theme-classnames';
 import { mdxComponents } from '@newrade/core-react-ui/src/markdown';
 import React, { ReactNode, useState } from 'react';
 import { TreatProvider } from 'react-treat';

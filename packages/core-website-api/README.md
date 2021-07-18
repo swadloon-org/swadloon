@@ -1,7 +1,8 @@
-# Core Gatsby UI
+# Website API
 
-> High level components for Gatsby Sites
+> Primitive models, types and enums to structure content rendered on website and
+> apps.
 
-Demo: https://www.newrade.ca/design-system/
+Docs: https://www.newrade.ca/design-system/
 
 ---

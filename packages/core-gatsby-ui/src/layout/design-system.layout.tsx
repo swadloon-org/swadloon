@@ -11,7 +11,7 @@ import {
   Link,
   Main,
   MainWrapper,
-  NavItem,
+  SidebarItem,
   Stack,
   useTreatTheme,
   useViewportBreakpoint,
@@ -145,12 +145,12 @@ export const LayoutDesignSystem: React.FC<DesignSystemLayoutProps> = function ({
                           ) : null}
                         </DesktopDocsItemGroup>
                       ) : (
-                        <NavItem
+                        <SidebarItem
                           active={item.path === props.location?.pathname}
                           AsElement={<GatsbyLink to={item.path} noStyles={true} />}
                         >
                           {item.displayName || item.name}
-                        </NavItem>
+                        </SidebarItem>
                       )}
                     </Stack>
                   );
@@ -163,6 +163,7 @@ export const LayoutDesignSystem: React.FC<DesignSystemLayoutProps> = function ({
 
       <Main
         navbarPadding={true}
+        contentPadding={true}
         desktopSidebarPadding={layoutMode === 'centered'}
         desktopAsidePadding={layoutMode === 'centered'}
         minHeight={false}

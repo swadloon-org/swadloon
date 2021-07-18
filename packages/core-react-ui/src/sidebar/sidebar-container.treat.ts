@@ -32,13 +32,6 @@ export const styles = {
   })),
 
   /**
-   * Nav items
-   */
-  content: style(({ cssTheme, theme }: Theme) => ({
-    minHeight: `105vh`,
-  })),
-
-  /**
    * Backdrop
    */
   backdrop: style(({ cssTheme, theme }: Theme) => ({

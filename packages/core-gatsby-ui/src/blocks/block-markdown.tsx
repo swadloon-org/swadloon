@@ -1,6 +1,6 @@
 import { useCommonProps } from '@newrade/core-react-ui/src';
 import { MarkdownCSS } from '@newrade/core-react-ui/src/markdown';
-import { BlockAPI } from '@newrade/core-website-api';
+import { BlockAlignment, BlockAPI } from '@newrade/core-website-api';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { MarkdownRenderer } from '../markdown/markdown-renderer';
@@ -22,12 +22,12 @@ export const BlockMarkdown: React.FC<Props> = ({
   block,
   ...props
 }) => {
-  const { styles } = useStyles(styleRefs);
+  const styles = useStyles(styleRefs);
   const commonProps = useCommonProps({
     id,
     style,
     className,
-    classNames: [styles.wrapper],
+    classNames: [styles.wrapper, block?.alignment ? styles[block.alignment as BlockAlignment] : ''],
     ...props,
   });
 

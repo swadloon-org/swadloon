@@ -1,5 +1,6 @@
 import { LOGO } from '@newrade/core-design-system';
-import { globalThemeLight, Logo, SvgDownloader, useTreatTheme } from '@newrade/core-react-ui/src';
+import { Logo, SvgDownloader, useTreatTheme } from '@newrade/core-react-ui/src';
+import { globalThemeLight } from '@newrade/core-react-ui/src/global/global-theme-classnames';
 import React from 'react';
 
 type Props = {};

@@ -1,34 +1,53 @@
-import { Theme } from '@newrade/core-react-ui/src/design-system';
-import { style } from 'treat';
+import { globalThemeReversedSelector } from '@newrade/core-react-ui/src/global/global-theme-classnames';
+import { Theme } from '@newrade/core-react-ui/src';
+import { globalStyle, style } from 'treat';
 
-export const styles = {
-  /**
-   * Layout
-   */
-  wrapper: style(({ theme, cssTheme }: Theme) => ({
-    width: '100%',
-  })),
-  /**
-   * Variants
-   */
-  primary: style(({ theme, cssTheme }: Theme) => ({
-    backgroundColor: cssTheme.colors.colorIntents.background0,
-  })),
-  primaryReversed: style(({ theme, cssTheme }: Theme) => ({
-    backgroundColor: cssTheme.colors.colors.grey[900],
-  })),
-  secondary: style(({ theme, cssTheme }: Theme) => ({
-    backgroundColor: cssTheme.colors.colorIntents.background1,
-  })),
-  secondaryReversed: style(({ theme, cssTheme }: Theme) => ({
-    backgroundColor: cssTheme.colors.colors.grey[900],
-    color: cssTheme.colors.colorIntents.primaryTextReversed,
-  })),
-  tertiary: style(({ theme, cssTheme }: Theme) => ({
-    backgroundColor: cssTheme.colors.colorIntents.background2,
-  })),
-  tertiaryReversed: style(({ theme, cssTheme }: Theme) => ({
+/**
+ * Layout
+ */
+
+export const wrapper = style(({ theme, cssTheme }: Theme) => ({
+  width: '100%',
+}));
+
+/**
+ *
+ * Variants
+ *
+ */
+
+export const primary = style(({ theme, cssTheme }: Theme) => ({
+  backgroundColor: cssTheme.colors.colorIntents.background0,
+}));
+export const primaryReversed = style(({ theme, cssTheme }: Theme) => ({}));
+globalStyle(
+  `${globalThemeReversedSelector} ${primary}, ${primaryReversed}`,
+  ({ theme, cssTheme }: Theme) => ({
     backgroundColor: cssTheme.colors.colors.grey[900],
     color: cssTheme.colors.colorIntents.primaryTextReversed,
-  })),
-};
+  })
+);
+
+export const secondary = style(({ theme, cssTheme }: Theme) => ({
+  backgroundColor: cssTheme.colors.colorIntents.background1,
+}));
+export const secondaryReversed = style(({ theme, cssTheme }: Theme) => ({}));
+globalStyle(
+  `${globalThemeReversedSelector} ${secondary}, ${secondaryReversed}`,
+  ({ theme, cssTheme }: Theme) => ({
+    backgroundColor: cssTheme.colors.colors.grey[800],
+    color: cssTheme.colors.colorIntents.primaryTextReversed,
+  })
+);
+
+export const tertiary = style(({ theme, cssTheme }: Theme) => ({
+  backgroundColor: cssTheme.colors.colorIntents.background2,
+}));
+export const tertiaryReversed = style(({ theme, cssTheme }: Theme) => ({}));
+globalStyle(
+  `${globalThemeReversedSelector} ${tertiary}, ${tertiaryReversed}`,
+  ({ theme, cssTheme }: Theme) => ({
+    backgroundColor: cssTheme.colors.colors.grey[700],
+    color: cssTheme.colors.colorIntents.primaryTextReversed,
+  })
+);
