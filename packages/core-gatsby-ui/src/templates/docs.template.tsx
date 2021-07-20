@@ -1,4 +1,5 @@
 import { GatsbyMarkdownFilePageContext } from '@newrade/core-gatsby-config';
+import { MarkdownTemplateQuery } from '@newrade/core-gatsby-config/lib/esm/config/site-graphql-types';
 import {
   Center,
   getMetaBasicTags,
@@ -7,14 +8,13 @@ import {
   Stack,
   useTreatTheme,
 } from '@newrade/core-react-ui/src';
+import { MarkdownCSS } from '@newrade/core-react-ui/src/markdown';
 import { graphql, PageProps } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
 import Helmet from 'react-helmet';
 import { useStyles } from 'react-treat';
-import { MarkdownTemplateQuery } from '../../types/site-graphql-types';
 import { DesignSystemFooter } from '../layout/design-system-footer';
-import { DocsMarkdownCSS } from '../mdx/docs-markdown-css';
 import { Aside } from '../navigation/aside';
 import * as styleRefs from './docs.treat';
 
@@ -36,6 +36,7 @@ export const markdownTemplateQuery = graphql`
           description
           version
           status
+          deprecated
         }
         timeToRead
         headings {
@@ -99,9 +100,9 @@ const Template: React.FC<MarkdownTemplateProps> = (props) => {
         style={{ paddingBottom: `60vh` }}
       >
         <Stack gap={[cssTheme.sizing.var.x3]}>
-          <DocsMarkdownCSS>
+          <MarkdownCSS>
             <MDXRenderer {...props}>{props.data.file?.childMdx?.body as string}</MDXRenderer>
-          </DocsMarkdownCSS>
+          </MarkdownCSS>
 
           <DesignSystemFooter />
         </Stack>

@@ -16,6 +16,11 @@ export const designSystemPage: PageAPI = {
   slug: '/design-system/',
 };
 
+export const coreDocspage: PageAPI = {
+  name: 'Core Packages Docs',
+  slug: '/core-docs/',
+};
+
 export const docspage: PageAPI = {
   name: 'Docs',
   slug: '/docs/',
@@ -67,6 +72,12 @@ export const footerNavigation: NavigationAPI = {
           label: 'Docs',
           component: LinkComponent.link,
           page: designSystemPage,
+        },
+        {
+          name: 'Link to the docs',
+          label: 'Core Docs',
+          component: LinkComponent.link,
+          page: coreDocspage,
         },
         {
           name: 'Link to the docs',

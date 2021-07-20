@@ -27,7 +27,7 @@ export const CodeBlock: React.FC<Props> = ({ children = '', className = '', file
   // const formattedCodePrettier = formatCode(trimmedCode).replace(/(\r?\n|\r)$/g, ''); // remove extra line inserted by prettier
 
   return (
-    <div className={styles.wrapper}>
+    <code className={styles.wrapper}>
       {filename ? (
         <div className={styles.header}>
           {filename}
@@ -42,6 +42,6 @@ export const CodeBlock: React.FC<Props> = ({ children = '', className = '', file
         language={language as Language}
         injectPreElement={true}
       ></CodeHighlight>
-    </div>
+    </code>
   );
 };

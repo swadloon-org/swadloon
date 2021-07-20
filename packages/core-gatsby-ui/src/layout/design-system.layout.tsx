@@ -90,8 +90,16 @@ export const LayoutDesignSystem: React.FC<DesignSystemLayoutProps> = function ({
   const HomeLink = <GatsbyLink to={'/'} />;
   const MenuLinks = (
     <>
-      <Link variantSize={PARAGRAPH_SIZE.small} AsElement={<GatsbyLink to={'/docs'} />}>
+      <Link variantSize={PARAGRAPH_SIZE.small} AsElement={<GatsbyLink to={'/docs/'} />}>
         Docs
+      </Link>
+
+      <Link variantSize={PARAGRAPH_SIZE.small} AsElement={<GatsbyLink to={'/design-system/'} />}>
+        Design System
+      </Link>
+
+      <Link variantSize={PARAGRAPH_SIZE.small} AsElement={<GatsbyLink to={'/core-docs/'} />}>
+        Core Docs
       </Link>
     </>
   );
@@ -99,11 +107,12 @@ export const LayoutDesignSystem: React.FC<DesignSystemLayoutProps> = function ({
   return (
     <MainWrapper>
       <NavbarDocs
-        tagText={'Design System'}
+        tagText={'design system'}
         HomeLink={HomeLink}
         maxWidth={'100%'}
         MenuLinks={MenuLinks}
         onClickMenuButton={handleClickMenuButton}
+        enableLayoutModeButton={true}
         layoutMode={layoutMode}
         onLayoutModeChange={handleChangeLayoutMode}
         menuOpened={mobileSidebarOpened}

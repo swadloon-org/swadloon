@@ -8,7 +8,9 @@ import * as stylesRef from './list-item-v2.treat';
 
 type Props = PrimitiveProps &
   HTMLAttributes<HTMLLIElement> &
-  Pick<LinkProps, 'variantSize' | 'variantLevel'>;
+  Pick<LinkProps, 'variantSize' | 'variantLevel'> & {
+    ['data-custom-bullet']?: string;
+  };
 
 export const ListItemV2: React.FC<Props> = React.memo(
   ({
@@ -47,15 +49,26 @@ export const ListItemV2: React.FC<Props> = React.memo(
         });
 
     /**
+     * Custom bullet
+     */
+    const renderCustomBullet = !!props['data-custom-bullet'];
+
+    /**
      * Render
      */
     return React.createElement(
       'li',
       {
         id,
-        style,
+        style: renderCustomBullet
+          ? {
+              ...style,
+              listStyleType: 'none',
+            }
+          : style,
         className: wrapperClassNames,
         ...props,
+        ['data-custom-bullet']: renderCustomBullet ? props['data-custom-bullet'] : ' ',
       },
       <>
         <Paragraph

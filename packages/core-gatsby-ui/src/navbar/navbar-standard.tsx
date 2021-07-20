@@ -21,7 +21,6 @@ import { LinkAPI, NavComponent } from '@newrade/core-website-api';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { LinkRenderer } from '../links/link-renderer';
-import { LinkRendererSize } from '../links/link.props';
 import { NavbarBase } from './navbar-base';
 import * as styleRefs from './navbar-standard.treat';
 import { NavbarProps } from './navbar.props';
@@ -109,13 +108,7 @@ export const NavbarStandard = React.forwardRef<any, Props>(
                   gap={[cssTheme.sizing.var.x4, cssTheme.sizing.var.x4, cssTheme.sizing.var.x3]}
                 >
                   {links?.map((link, id) => {
-                    return (
-                      <LinkRenderer
-                        key={id}
-                        link={link as LinkAPI}
-                        size={LinkRendererSize.small}
-                      ></LinkRenderer>
-                    );
+                    return <LinkRenderer key={id} link={link as LinkAPI}></LinkRenderer>;
                   })}
                 </Cluster>
               </Cluster>

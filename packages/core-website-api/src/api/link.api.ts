@@ -1,4 +1,4 @@
-import { ICON, Variant } from '@newrade/core-design-system';
+import { ComponentSize, ICON, Variant } from '@newrade/core-design-system';
 import { PartialOrNull } from '../utilities';
 import { PageAPI } from './page.api';
 import { SectionAPI } from './section.api';
@@ -37,6 +37,10 @@ export type LinkAPI = PartialOrNull<{
    * @default 'link'
    */
   component: LinkComponent;
+  /**
+   * The size of the rendered component
+   */
+  size: ComponentSize;
   /**
    * Certain component support the icon option
    */

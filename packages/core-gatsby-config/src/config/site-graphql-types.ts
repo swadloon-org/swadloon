@@ -65,6 +65,22 @@ export type MdxFrontmatter = {
   description?: string;
   version?: string;
   status?: string;
+  /**
+   * Indicates if the document is deprecated
+   */
+  deprecated?: string;
+  /**
+   * Url for the edit link buton
+   */
+  editPageUrl?: string;
+  /**
+   * Label to enable the next page button
+   */
+  nextPageLabel?: string;
+  /**
+   * Url to enable the next page button
+   */
+  nextPageUrl?: string;
 };
 
 export type MdxHeadingMdx = {
@@ -107,6 +123,14 @@ export type MarkdownTemplateQueryVariables = Exact<{
 }>;
 
 export type MarkdownTemplateQuery = {
+  file?: Maybe<{
+    childMdx?: Maybe<
+      Pick<Mdx, 'slug' | 'excerpt' | 'timeToRead' | 'tableOfContents' | 'body'> & {
+        frontmatter?: Maybe<MdxFrontmatter>;
+        headings?: Maybe<Array<Maybe<Pick<MdxHeadingMdx, 'value' | 'depth'>>>>;
+      }
+    >;
+  }>;
   mdx?: Maybe<
     Pick<Mdx, 'slug' | 'excerpt' | 'timeToRead' | 'tableOfContents' | 'body'> & {
       frontmatter?: Maybe<Pick<MdxFrontmatter, 'title' | 'name' | 'tags' | 'description'>>;

@@ -1,4 +1,10 @@
-import { ButtonSize, ICON, PARAGRAPH_SIZE, Variant } from '@newrade/core-design-system';
+import {
+  ButtonSize,
+  ComponentSize,
+  ICON,
+  PARAGRAPH_SIZE,
+  Variant,
+} from '@newrade/core-design-system';
 import {
   Button,
   IconComp,
@@ -13,7 +19,7 @@ import React, { PropsWithChildren } from 'react';
 import { useStyles } from 'react-treat';
 import { GatsbyLink } from './gatsby-link';
 import * as styleRefs from './link-renderer.treat';
-import { LinkRendererProps, LinkRendererSize } from './link.props';
+import { LinkRendererProps } from './link.props';
 
 const log = debug('newrade:core-gatsby-ui:link-renderer');
 const logWarn = log.extend('warn');
@@ -29,7 +35,6 @@ export function LinkRenderer<CustomLinkVariants extends string>({
   as,
   AsElement,
   link,
-  size,
   linkComponents,
   ...props
 }: PropsWithChildren<LinkRendererProps<CustomLinkVariants>>) {
@@ -73,22 +78,22 @@ export function LinkRenderer<CustomLinkVariants extends string>({
   }
 
   const linkData = link as LinkAPI;
-  const linkSizeLink = size ? size : LinkRendererSize.small;
-  const linkSizeButton = size ? size : LinkRendererSize.medium;
+  const linkSizeLink = linkData.size ? linkData.size : ComponentSize.small;
+  const linkSizeButton = linkData.size ? linkData.size : ComponentSize.medium;
   const linkIcon = linkData.icon ? (linkData.icon as ICON) : null;
 
-  const buttonSizes: { [key in LinkRendererSize]: ButtonSize } = {
-    [LinkRendererSize.large]: ButtonSize.large,
-    [LinkRendererSize.medium]: ButtonSize.medium,
-    [LinkRendererSize.small]: ButtonSize.small,
-    [LinkRendererSize.xSmall]: ButtonSize.xSmall,
+  const buttonSizes: { [key in ComponentSize]: ButtonSize } = {
+    [ComponentSize.large]: ButtonSize.large,
+    [ComponentSize.medium]: ButtonSize.medium,
+    [ComponentSize.small]: ButtonSize.small,
+    [ComponentSize.xSmall]: ButtonSize.xSmall,
   };
 
-  const linkSizes: { [key in LinkRendererSize]: PARAGRAPH_SIZE } = {
-    [LinkRendererSize.large]: PARAGRAPH_SIZE.large,
-    [LinkRendererSize.medium]: PARAGRAPH_SIZE.medium,
-    [LinkRendererSize.small]: PARAGRAPH_SIZE.small,
-    [LinkRendererSize.xSmall]: PARAGRAPH_SIZE.small,
+  const linkSizes: { [key in ComponentSize]: PARAGRAPH_SIZE } = {
+    [ComponentSize.large]: PARAGRAPH_SIZE.large,
+    [ComponentSize.medium]: PARAGRAPH_SIZE.medium,
+    [ComponentSize.small]: PARAGRAPH_SIZE.small,
+    [ComponentSize.xSmall]: PARAGRAPH_SIZE.small,
   };
 
   switch (link.component) {

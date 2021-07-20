@@ -1,5 +1,7 @@
 import { SITE_LANGUAGES } from '@newrade/core-common';
-import { HEADING, VIEWPORT } from '@newrade/core-design-system';
+import { HEADING, PARAGRAPH_SIZE, VIEWPORT } from '@newrade/core-design-system';
+import { GatsbyMarkdownFilePageContext } from '@newrade/core-gatsby-config';
+import { SOURCE_INSTANCE_NAME } from '@newrade/core-gatsby-config/lib/esm/config/gatsby-source-instances';
 import { GatsbyLink, NavbarDocs } from '@newrade/core-gatsby-ui/src';
 import {
   BoxV2,
@@ -21,13 +23,28 @@ import { PageProps } from 'gatsby';
 import React, { ReactNode, useEffect, useState } from 'react';
 import { useDocsNavigation } from '../hooks/use-docs-navigation-data.hook';
 
-export type LayoutDocsProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }> & {};
+export type LayoutDocsProps = Partial<
+  Omit<PageProps<any, GatsbyMarkdownFilePageContext>, 'children'> & { children: ReactNode }
+> & {};
 
 export const LayoutDocs = React.memo<LayoutDocsProps>((props) => {
-  const navigation = useDocsNavigation({
-    locales: [SITE_LANGUAGES.EN, SITE_LANGUAGES.EN_CA],
-  }); // should prob be passed by the parent
   const { cssTheme } = useTreatTheme();
+
+  // Todo `locales` should prob be passed by the parent
+
+  const navigationDocs = useDocsNavigation({
+    locales: [SITE_LANGUAGES.EN, SITE_LANGUAGES.EN_CA],
+  });
+
+  const navigationCoreDocs = useDocsNavigation({
+    locales: [SITE_LANGUAGES.EN, SITE_LANGUAGES.EN_CA],
+    source: SOURCE_INSTANCE_NAME.MONO_REPO_DOCS,
+  });
+
+  const navigation =
+    props.pageContext?.sourceInstance === SOURCE_INSTANCE_NAME.DOCS
+      ? navigationDocs
+      : navigationCoreDocs;
 
   /**
    * Handle sidebar events
@@ -56,19 +73,32 @@ export const LayoutDocs = React.memo<LayoutDocsProps>((props) => {
   const HomeLink = <GatsbyLink to={'/'} />;
   const MenuLinks = (
     <>
-      <Link AsElement={<GatsbyLink to={'/design-system'} />}>Design System</Link>
+      <Link variantSize={PARAGRAPH_SIZE.small} AsElement={<GatsbyLink to={'/docs/'} />}>
+        Docs
+      </Link>
+
+      <Link variantSize={PARAGRAPH_SIZE.small} AsElement={<GatsbyLink to={'/design-system/'} />}>
+        Design System
+      </Link>
+
+      <Link variantSize={PARAGRAPH_SIZE.small} AsElement={<GatsbyLink to={'/core-docs/'} />}>
+        Core Docs
+      </Link>
     </>
   );
+
+  const tag = props.path && /core-docs/gi.test(props.path) ? 'core docs' : 'docs';
 
   return (
     <MainWrapper>
       <NavbarDocs
-        tagText={'Docs'}
+        tagText={tag}
         HomeLink={HomeLink}
         maxWidth={'100%'}
         MenuLinks={MenuLinks}
         onClickMenuButton={handleClickMenuButton}
         menuOpened={mobileSidebarOpened}
+        enableLayoutModeButton={false}
       ></NavbarDocs>
 
       <DesktopDocsSideBar>
@@ -122,6 +152,7 @@ export const LayoutDocs = React.memo<LayoutDocsProps>((props) => {
       </DesktopDocsSideBar>
 
       <Main
+        contentPadding={true}
         navbarPadding={true}
         desktopSidebarPadding={true}
         desktopAsidePadding={true}

@@ -6,6 +6,7 @@ type PluginOptions = {
   tsxPages?: boolean;
   mdxPages?: boolean;
   docsMdxPages?: boolean;
+  coreDocsMdxPages?: boolean;
   coreDesignSystemDocsMdxPages?: boolean;
 };
 
@@ -13,6 +14,7 @@ const defaultOptions: PluginOptions = {
   tsxPages: true,
   mdxPages: false,
   docsMdxPages: true,
+  coreDocsMdxPages: false,
   coreDesignSystemDocsMdxPages: true,
 };
 
@@ -24,6 +26,7 @@ export function getGastbyPluginPageCreatorConfig({
   tsxPages = defaultOptions.tsxPages,
   mdxPages = defaultOptions.mdxPages,
   docsMdxPages = defaultOptions.docsMdxPages,
+  coreDocsMdxPages = defaultOptions.coreDocsMdxPages,
   coreDesignSystemDocsMdxPages = defaultOptions.coreDesignSystemDocsMdxPages,
 }: PluginOptions = defaultOptions): PluginRef[] {
   return [
@@ -65,6 +68,19 @@ export function getGastbyPluginPageCreatorConfig({
           },
         }
       : null,
+    /**
+     * Core packages docs
+     */
+    coreDocsMdxPages
+      ? {
+          resolve: `gatsby-source-filesystem`,
+          options: {
+            name: SOURCE_INSTANCE_NAME.MONO_REPO_DOCS,
+            path: path.resolve('..', '..', 'docs'),
+            ignore: [`**/*.ts?x`],
+          },
+        }
+      : coreDocsMdxPages,
     /**
      * Design system pages
      */

@@ -10,11 +10,5 @@ export const Code: React.FC<Props> = ({ children, ...props }) => {
   const { styles } = useStyles(styleRefs);
   const commonProps = useCommonProps<'code'>({ ...props, classNames: [styles.wrapper] });
 
-  return (
-    <code {...commonProps}>
-      {'`'}
-      {children}
-      {'`'}
-    </code>
-  );
+  return <code {...commonProps}>{children}</code>;
 };

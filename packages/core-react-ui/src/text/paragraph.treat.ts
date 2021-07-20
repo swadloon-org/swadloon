@@ -57,10 +57,10 @@ export const styles = {
   disableCapsize: style(({ theme, cssTheme }: Theme) => ({
     padding: 'inherit',
     '::before': {
-      display: 'none',
+      display: 'none !important',
     },
     '::after': {
-      display: 'none',
+      display: 'none !important',
     },
   })),
   readableWidth: style(({ theme, cssTheme }: Theme) => ({

@@ -27,9 +27,8 @@ import {
   Title,
 } from '@newrade/core-react-ui/src';
 import { Code, CodeBlock, CodeHighlight } from '@newrade/core-react-ui/src/code';
-import { mdxComponents, MDXProps } from '@newrade/core-react-ui/src/markdown';
+import { mdxComponents } from '@newrade/core-react-ui/src/markdown';
 import { SectionBaseLayout, SectionPadding } from '@newrade/core-website-api';
-import React from 'react';
 import { BlockMarkdown } from '../blocks/block-markdown';
 import { DocHeader } from '../context/doc-header';
 import { DocTags } from '../context/doc-tags';
@@ -46,18 +45,6 @@ import { SectionSwitcher } from '../sections/section-switcher';
  */
 export const docsMdxComponents = {
   ...mdxComponents,
-  ul: (props: MDXProps) => <ul {...props} />,
-  ol: (props: MDXProps) => <ol {...props} />,
-  li: (props: MDXProps) => <li {...props} />,
-  // p: (props: MDXProps) => <p {...props} />,
-  a: (props: MDXProps) => <a {...props} />,
-  em: (props: MDXProps) => <em {...props} />,
-  strong: (props: MDXProps) => <strong {...props} />,
-  thead: (props: MDXProps) => <thead {...props} />,
-  tr: (props: MDXProps) => <tr {...props} />,
-  th: (props: MDXProps) => <th {...props} />,
-  td: (props: MDXProps) => <td {...props} />,
-  table: (props: MDXProps) => <table {...props} />,
   Label: Label,
   Tag: Tag,
   Button: Button,

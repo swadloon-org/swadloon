@@ -37,7 +37,6 @@ export * from './layout/design-system-lazy.layout';
 export * from './layout/docs-lazy.layout';
 export * from './links/gatsby-link';
 export * from './markdown/markdown-renderer';
-export * from './mdx/docs-markdown-css';
 export * from './mdx/docs-mdx-components';
 export * from './navigation/aside';
 export * from './sidebar/sidebar-base';

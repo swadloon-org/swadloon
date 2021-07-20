@@ -24,7 +24,7 @@ export function getNavigationFromPageNodes({
   sortOrderItems,
   sortOrderDirectories,
   excludedItems,
-  uppercaseWords = ['wsl', 'ui', 'ux', 'seo', 'ssh', 'css', 'api'],
+  uppercaseWords = ['wsl', 'ui', 'ux', 'seo', 'ssh', 'css', 'api', 'ci', 'vm', 'cms'],
   formatName,
   formatDisplayName,
 }: {

@@ -8,13 +8,13 @@ import {
   OPEN_GRAPH_TYPE,
   useTreatTheme,
 } from '@newrade/core-react-ui/src';
+import { MarkdownCSS } from '@newrade/core-react-ui/src/markdown';
 import { graphql, PageProps } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
 import Helmet from 'react-helmet';
 import { useStyles } from 'react-treat';
 import { DesignSystemFooter } from '../layout/design-system-footer';
-import { DocsMarkdownCSS } from '../mdx/docs-markdown-css';
 import * as styleRefs from './design-system-page.treat';
 
 export type MarkdownTemplateProps = PageProps<MarkdownTemplateQuery, GatsbyMarkdownFilePageContext>;
@@ -100,11 +100,11 @@ const Template: React.FC<MarkdownTemplateProps> = (props) => {
         maxWidth={cssTheme.layout.var.contentWidth.desktopDocsMaxWidth}
         style={{ paddingBottom: `60vh` }}
       >
-        <DocsMarkdownCSS>
+        <MarkdownCSS>
           <MDXRenderer {...{ ...props, theme, cssTheme }}>
             {props.data.file?.childMdx?.body as string}
           </MDXRenderer>
-        </DocsMarkdownCSS>
+        </MarkdownCSS>
 
         <DesignSystemFooter
           editPageUrl={props.data.file?.childMdx?.frontmatter?.editPageUrl}

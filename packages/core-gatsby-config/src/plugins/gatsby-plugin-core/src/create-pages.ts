@@ -241,6 +241,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
             fileId: node.id,
             locale,
             layout,
+            sourceInstance,
             template,
           },
           component,

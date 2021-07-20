@@ -23,13 +23,14 @@ export const styles = {
   content: style(({ theme, cssTheme }: Theme) => ({
     display: 'inline-block',
     minHeight: '1em',
-    maxWidth: 'calc(100% - 3em)', // collapse the content so it does not overflow
-    verticalAlign: 'text-top',
-    whiteSpace: `pre-wrap`,
+    width: `100%`,
+    maxWidth: 'min(60ch, 100% - 3em)', // collapse the content so it does not overflow
+    verticalAlign: 'top',
+    whiteSpace: `normal`,
 
     // more space between the marker and the content
     position: 'relative',
-    left: `10px`,
+    left: `0px`,
   })),
 
   /**
@@ -130,19 +131,31 @@ export const styles = {
 /**
  * @see allowed props https://web.dev/css-marker-pseudo-element/#allowed-css-::marker-properties
  */
-globalStyle(`${styles.wrapper}::marker`, ({ theme, cssTheme }: Theme) => ({
+globalStyle(`ul ${styles.wrapper}::marker`, ({ theme, cssTheme }: Theme) => ({
   fontWeight: cssTheme.typography.paragraphs.styles?.bold?.fontWeight || 400,
 }));
 
-/**
- * @see allowed props https://web.dev/css-marker-pseudo-element/#allowed-css-::marker-properties
- */
 globalStyle(`${styles.wrapper} p`, ({ theme, cssTheme }: Theme) => ({
   padding: 'inherit',
 }));
+
+// make sure that enclosed elements wrap correctly
+globalStyle(`${styles.content} *:is(em,p,strong)`, ({ cssTheme, theme }: Theme) => ({
+  whiteSpace: 'normal',
+  display: 'inline !important',
+}));
+// disable capsize on inner elements
+globalStyle(
+  `${styles.content} *::before, ${styles.content} *::after`,
+  ({ cssTheme, theme }: Theme) => ({
+    display: 'none !important',
+  })
+);
+
 globalStyle(`${styles.wrapper} p::after`, ({ theme, cssTheme }: Theme) => ({
   content: 'none',
 }));
+
 globalStyle(`${styles.wrapper} p::before`, ({ theme, cssTheme }: Theme) => ({
   content: 'none',
 }));

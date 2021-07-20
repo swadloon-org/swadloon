@@ -59,8 +59,6 @@ export const SidebarContainer = React.forwardRef<HTMLElement, Props>(
           return;
         }
 
-        console.log(swipeX);
-
         if (swipeX < 0) {
           onClickBackdrop(state.event as React.MouseEvent);
         }
