@@ -4,18 +4,19 @@ import { useStyles } from 'react-treat';
 import { useCommonProps } from '../hooks/use-common-props.hook';
 import { Cluster } from '../layout/cluster';
 import { PrimitiveProps } from '../primitive/primitive.props';
-import * as stylesRef from './tag-status.treat';
+import * as stylesRef from './badge.treat';
 
 type Props = PrimitiveProps &
   TagProps & {
     type?: 'version' | 'status';
+    kind?: 'neutral' | 'success' | 'error';
     name?: string;
     status?: string;
     children?: string;
   };
 
-export const TagStatus: React.FC<Props> = React.memo(
-  ({ id, style, className, children, as, variant, type, name, status, ...props }) => {
+export const Badge: React.FC<Props> = React.memo(
+  ({ id, style, className, children, as, variant, kind, type, name, status, ...props }) => {
     const styles = useStyles(stylesRef);
     const commonProps = useCommonProps({
       id,
@@ -23,6 +24,10 @@ export const TagStatus: React.FC<Props> = React.memo(
       className,
       classNames: [styles.base],
       ...props,
+    });
+
+    const commonPropsStatus = useCommonProps({
+      classNames: [styles.status, kind ? styles[kind] : styles.neutral],
     });
 
     const ariaTitle = `${name}: ${status}`;
@@ -39,7 +44,7 @@ export const TagStatus: React.FC<Props> = React.memo(
           <span className={styles.nameSpan}>{name}</span>
         </div>
 
-        <div className={styles.status}>
+        <div {...commonPropsStatus}>
           <span className={styles.statusSpan}>{status}</span>
         </div>
       </Cluster>

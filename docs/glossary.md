@@ -1,5 +1,5 @@
 ---
-name: Glossary
+name: Glossary - 🈂
 description: List of acronyms and technical terms with their definition
 tags:
   - reference

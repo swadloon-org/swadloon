@@ -94,6 +94,15 @@ export function useDocsNavigation(
     locales,
     pageNodes: coreDocsPagesNodes,
     sortOrderDirectories: ['docs', 'home', 'guides', 'design', 'build', 'deploy', 'monitor'],
-    sortOrderItems: ['', 'overview', 'index'],
+    sortOrderItems: [
+      '',
+      'overview',
+      'index',
+      'get-started',
+      'development-process',
+      'tech',
+      'architecture',
+      'monorepo-manual',
+    ],
   });
 }

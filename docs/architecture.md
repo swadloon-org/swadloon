@@ -1,8 +1,6 @@
 ---
-name: Documentation for Core Packages
-description:
-tags:
-  - markdown
+name: Architecture - 🏗
+description: Architecture of the monorepository and its packages
 ---
 
 <DocHeader props={props}/>

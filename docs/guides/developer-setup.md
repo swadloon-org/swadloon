@@ -1,6 +1,6 @@
 ---
 name: Developer Setup
-description: How to setup your environment to contribute.
+description: How to setup your local environment to start developing.
 tags:
   - tools
   - developer
@@ -9,11 +9,7 @@ tags:
 
 <DocHeader props={props}/>
 
-## Required Tools and Sofwares
-
-| Name   | Website                                             | Docs                                        | Doc Link             |
-| :----- | :-------------------------------------------------- | :------------------------------------------ | -------------------- |
-| `yarn` | [yarnpkg.com](https://classic.yarnpkg.com/lang/en/) | [docs](https://classic.yarnpkg.com/en/docs) | [[tools/yarn\|Yarn]] |
+## Required Tools and Software
 
 ## Prerequisites
 

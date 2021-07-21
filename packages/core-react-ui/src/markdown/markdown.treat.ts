@@ -63,28 +63,6 @@ globalStyle(`${wrapper} > hr`, ({ cssTheme, theme }: Theme) => ({
 }));
 
 /**
- * Anchor for documentation pages
- */
-
-globalStyle(`${wrapper} .mdx-anchor`, ({ cssTheme, theme }: Theme) => ({
-  position: 'absolute',
-  top: '0',
-  left: '0',
-  transform: 'translateX(-100%)',
-  paddingRight: '4px',
-  visibility: 'hidden',
-}));
-
-globalStyle(`${wrapper} .mdx-anchor-pound`, ({ cssTheme, theme }: Theme) => ({
-  visibility: 'hidden',
-  '@media': {
-    [':hover']: {
-      textDecoration: 'underline',
-    },
-  },
-}));
-
-/**
  * Text content
  */
 
@@ -97,7 +75,7 @@ globalStyle(
 
 /** Paragraphs */
 
-globalStyle(`${wrapper} > p + p`, ({ cssTheme, theme }: Theme) => ({
+globalStyle(`${wrapper} > p + p, blockquote p + p`, ({ cssTheme, theme }: Theme) => ({
   marginTop: '2em',
 }));
 

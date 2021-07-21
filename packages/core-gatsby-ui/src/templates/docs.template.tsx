@@ -43,7 +43,7 @@ export const markdownTemplateQuery = graphql`
           value
           depth
         }
-        tableOfContents(maxDepth: 3)
+        tableOfContents(maxDepth: 2)
         body
       }
     }

@@ -156,7 +156,7 @@ export const LayoutDocs = React.memo<LayoutDocsProps>((props) => {
         navbarPadding={true}
         desktopSidebarPadding={true}
         desktopAsidePadding={true}
-        minHeight={false}
+        minHeight={true}
       >
         <ViewportProvider context={viewportContext}>{props.children}</ViewportProvider>
       </Main>

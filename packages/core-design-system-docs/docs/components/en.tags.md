@@ -19,18 +19,16 @@ import TagsCode from '!!raw-loader!../../src/code/tags.code.tsx';
 
 ## Variants
 
-Like most components there are three level of importance for buttons:
+Like most components there are three level of importance for tags:
 
 - Primary
 - Secondary
 - Tertiary
 
-<ThemeWrapper>
+<!-- prettier-ignore -->
+<ThemeWrapper
+  code={TagsCode}
+  filename={'tags.code.tsx'}
+  displayControls={true}>
   <Tags />
 </ThemeWrapper>
-
-<ThemeWrapper reversed={true}>
-  <Tags />
-</ThemeWrapper>
-
-<CodeBlock>{TagsCode}</CodeBlock>

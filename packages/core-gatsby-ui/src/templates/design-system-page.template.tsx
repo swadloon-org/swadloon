@@ -1,6 +1,6 @@
 import { GatsbyMarkdownFilePageContext } from '@newrade/core-gatsby-config';
+import { MarkdownTemplateQuery } from '@newrade/core-gatsby-config/lib/esm/config/site-graphql-types';
 import { Aside } from '@newrade/core-gatsby-ui/src';
-import { MarkdownTemplateQuery } from '@newrade/core-gatsby-ui/types/site-graphql-types';
 import {
   Center,
   getMetaBasicTags,
@@ -44,7 +44,7 @@ export const markdownTemplateQuery = graphql`
           value
           depth
         }
-        tableOfContents(maxDepth: 3)
+        tableOfContents(maxDepth: 2)
         body
       }
     }

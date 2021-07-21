@@ -27,7 +27,6 @@ import FootersEnterpriseCode from '!!raw-loader!../../src/code/footer-enterprise
 > content or sectioning root element. A `<footer>` typically contains
 > information about the author of the section, copyright data or links to
 > related documents.
->
 > [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer)
 
 ## Simple Footer

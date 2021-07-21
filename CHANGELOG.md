@@ -9,6 +9,7 @@ are automated.
 ## Todos
 
 - [ ] refactor desktop-navbar-\* components as navbar-\*
+- [ ] all component should have a line height set
 
 ## Fixes
 
@@ -21,6 +22,7 @@ are automated.
 - Remove old `<NavBar/>` component
 - Renamed `<NavItem/>` component to `<SidebarItem/>`
 - Renamed `<NavItemGroup/>` component to `<SidebarItemGroup/>`
+- Renamed `<TagStatus/>` component to `<Badge/>`
 
 ## Fixes
 

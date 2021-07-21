@@ -175,7 +175,7 @@ export const LayoutDesignSystem: React.FC<DesignSystemLayoutProps> = function ({
         contentPadding={true}
         desktopSidebarPadding={layoutMode === 'centered'}
         desktopAsidePadding={layoutMode === 'centered'}
-        minHeight={false}
+        minHeight={true}
         style={
           layoutMode === 'centered'
             ? {}

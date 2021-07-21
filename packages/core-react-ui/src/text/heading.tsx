@@ -16,6 +16,10 @@ type Props = PrimitiveProps &
     variant?: HEADING;
     variantStyle?: TYPOGRAPHIC_STYLE;
     variantLevel?: Variant;
+    /**
+     * Display or hide the '#' on hover
+     */
+    enableAnchorSign?: boolean;
   };
 
 const defaultProps: Props = {
@@ -28,10 +32,21 @@ const defaultProps: Props = {
 export const Heading = React.memo(
   React.forwardRef<any, Props>(
     (
-      { variant, variantLevel, display, id, className, children, style, as, ...props },
+      {
+        variant,
+        variantLevel,
+        enableAnchorSign,
+        display,
+        id,
+        className,
+        children,
+        style,
+        as,
+        ...props
+      },
       forwardedRef
     ) => {
-      const { styles } = useStyles(stylesRef);
+      const styles = useStyles(stylesRef);
       const { colorTextStyles } = useStyles(colorTextStylesRef);
       const localRef = useRef<HTMLButtonElement>(null);
       const ref = forwardedRef ? (forwardedRef as React.RefObject<HTMLButtonElement>) : localRef;
@@ -69,22 +84,27 @@ export const Heading = React.memo(
         styles.wrapper,
         variantClass,
         colorTextStyles[variantLevel ? variantLevel : (defaultProps.variantLevel as Variant)],
+        enableAnchorSign ? 'mdx-anchor-sign-enable' : '',
       ]);
 
       usePreventPinchZoom(ref.current);
 
       const child = children ? children : defaultChildrenString;
+      const renderedId = formatAnchorId(id ? id : typeof children === 'string' ? children : '');
 
       return React.createElement(
         type,
         {
           ref: forwardedRef,
-          id: formatAnchorId(id ? id : typeof children === 'string' ? children : ''),
+          // id: ,
           style: display ? { ...style, display: display } : style,
           className: classNames,
           ...props,
         },
-        child
+        <>
+          <span className={`mdx-anchor-target`} id={renderedId}></span>
+          {child}
+        </>
       );
     }
   )

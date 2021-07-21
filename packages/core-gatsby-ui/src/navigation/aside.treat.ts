@@ -29,6 +29,7 @@ export const styles = {
   })),
   link: style(({ cssTheme, theme }: Theme) => ({
     position: 'relative',
+    userSelect: 'none',
     color: cssTheme.colors.colorIntents.primaryText,
     listStyle: 'none',
     textDecoration: 'none',
@@ -51,5 +52,23 @@ export const styles = {
   linkSelected: style(({ cssTheme, theme }: Theme) => ({
     fontWeight: 600,
     color: cssTheme.colors.colorIntents.primary,
+  })),
+  linkAfter: style(({ cssTheme, theme }: Theme) => ({
+    selectors: {
+      [`&:after`]: {
+        height: '100%',
+        top: 0,
+
+        content: '""',
+        width: '.9em',
+        position: 'absolute',
+        left: '-1.5em',
+        borderLeft: `1px solid ${cssTheme.colors.colors.grey[100]}`,
+        borderWidth: '0 0 1px 1px',
+      },
+    },
+  })),
+  anchor: style(({ cssTheme, theme }: Theme) => ({
+    userSelect: 'none',
   })),
 };

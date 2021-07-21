@@ -1,5 +1,6 @@
 import { Variant } from '@newrade/core-design-system';
 import {
+  Badge,
   BoxV2,
   BoxV3,
   Button,
@@ -23,7 +24,6 @@ import {
   TableHeader,
   TableRow,
   Tag,
-  TagStatus,
   Title,
 } from '@newrade/core-react-ui/src';
 import { Code, CodeBlock, CodeHighlight } from '@newrade/core-react-ui/src/code';
@@ -82,7 +82,7 @@ export const docsMdxComponents = {
   TableCell: TableCell,
   DocTags: DocTags,
   DocHeader: DocHeader,
-  TagStatus: TagStatus,
+  Badge: Badge,
   Icon: IconComp,
   IconBox: IconBox,
   Icons: Icons,

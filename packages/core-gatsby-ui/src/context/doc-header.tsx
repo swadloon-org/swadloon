@@ -1,12 +1,12 @@
 import { PARAGRAPH_SIZE, Variant } from '@newrade/core-design-system';
 import { MdxFrontmatter } from '@newrade/core-gatsby-config/lib/esm/config/site-graphql-types';
 import {
+  Badge,
   Cluster,
   Heading,
   Hr,
   Paragraph,
   Stack,
-  TagStatus,
   useTreatTheme,
 } from '@newrade/core-react-ui/src';
 import React from 'react';
@@ -48,17 +48,17 @@ export const DocHeader = ({ props }: Props) => {
         {showTags ? (
           <Cluster wrap={true} justifyContent={['flex-start']} gap={[cssTheme.sizing.var.x0]}>
             {props?.data?.file?.childMdx?.frontmatter?.version ? (
-              <TagStatus
+              <Badge
                 name="version"
                 status={props?.data?.file?.childMdx?.frontmatter?.version || 'n/a'}
-              ></TagStatus>
+              ></Badge>
             ) : null}
 
             {props?.data?.file?.childMdx?.frontmatter?.status ? (
-              <TagStatus
+              <Badge
                 name="status"
                 status={props?.data?.file?.childMdx?.frontmatter?.status || 'n/a'}
-              ></TagStatus>
+              ></Badge>
             ) : null}
           </Cluster>
         ) : null}

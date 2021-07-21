@@ -40,7 +40,7 @@ The `<Box/>` component is a flex container with padding.
 
 ### Box [v3]
 
-<TagStatus name="version" status="v3"></TagStatus>
+<Badge name="version" status="v3"></Badge>
 
 Test for BoxV3. Here the `padding` prop uses the new template literal feature
 available in TypeScript `v4.1`.

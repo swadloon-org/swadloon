@@ -1,4 +1,5 @@
 export * from './animation/css-animation';
+export * from './badges/badge';
 export * from './button/button';
 export * from './button/button-v2';
 export * from './context/viewport.provider';
@@ -81,7 +82,6 @@ export * from './table/table-header';
 export * from './table/table-row';
 export * from './tabs/tabs';
 export * from './tag/tag';
-export * from './tag/tag-status';
 export * from './text/blockquote';
 export * from './text/details';
 export * from './text/heading';

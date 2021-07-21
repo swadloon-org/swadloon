@@ -1,22 +1,17 @@
 ---
-name: Documentation for Core Packages
+name: Documentation Overview - 🏔
 description:
   A collection of methodologies, libraries and utilities to design and build
   (serverless) website and apps.
-tags:
-  - overview
 ---
 
 <DocHeader props={props}/>
 
 ## Overview
 
-> [Newrade](https://newrade.ca/) is a firm that specializes in building
-> high-quality website and apps for enterprises.
-
-We (Newrade) maintain an open source stack of methodologies, libraries and other
-utilities that we use to **design**, **build**, **deploy** and **monitor**
-high-quality websites and apps.
+We ([Newrade](https://newrade.ca/)) maintain an open source stack of
+methodologies, libraries and other utilities that we use to **design**,
+**build**, **deploy** and **monitor** high-quality websites and apps.
 
 The project is organized in 2 main parts:
 
@@ -27,8 +22,22 @@ The project is organized in 2 main parts:
   [Ze Design System](http://zedesignsystem.com/)
 
 The monorepository and its packages can be use to create your own design system,
-websites and apps. If you want to know more, check the
-[Get Started](#get-started) section below.
+websites and apps.
+
+> Want to know how to use this project for your own website or apps right away?
+> Skip to the [Get Started](/core-docs/get-started/) section to learn more.
+
+We will go over **what** this project is, **why** we needed it in the first
+place, **who** is it for and finally **how** it helps to solve some of the
+problems.
+
+## Motivation
+
+Designing, developing, deploying and monitoring fully-featured websites and apps
+is not an easy task.
+
+Your company's brand evolves, the tech stacks changes, and your team keep adding
+new features your websites and apps.
 
 ### Goals & Non-Goals
 
@@ -46,13 +55,7 @@ What we don't cover or work with in this project:
   <li data-custom-bullet="⛔️">Business logic</li>
 </ul>
 
-## Get Started
-
-The main way to use our work for your project is to create a fork of the
-newrade-core repository and then add your packages (websites and apps) to it.
-This is details in the guide.
-
-## Principles
+### Principles
 
 Our view is that _documentation_ (e.g. readme, design specs, libraries
 documentation...) is the most important aspect of any project.
@@ -93,58 +96,23 @@ documentation needs to present live example of code or design elements and avoid
 using screenshots that are usually out of date pretty quickly.</li>
 </ul>
 
+## Development Process
+
+We outline our methodology in our
+[Development Process](/core-docs/development-process/) section.
+
 ## Tech
 
-Designing and building apps efficiently requires a number of tools, frameworks
-and other technologies, and choosing the _right_ ones can make of break any tech
-project.
-
-We use techs that are widely used and adopted by the industry. If they are open
-source software, then we choose products that:
-
-- are supported by compagnies who have a sizable investment in it;
-- and have an active and vibrant community using the project;
-
-<b>Design</b>
-
-- **Editor:** [Figma](), and Illustrator for graphic work
-
-<b>Development</b>
-
-- **Languages:** JavaScript, TypeScript, CSS, HTML, SVG
-- **Editor:** [VSCode]()
-
-<b>Cloud</b>
-
-- **CI/CD:** Github Actions
-- **VPS/VM (for CI/CD):** [Vultr](https://vultr.com)
-- **DNS,CDN:** Vercel
-- **Hosting (static content):** Vercel
-- **Hosting (APIs):** Vercel
-- **Monitoring (logs):** Datadog
-- **Monitoring (alerts):** Datadog, [Checkly](https://www.checklyhq.com/)
-- **Alerting:** Datadog, Slack
+We describe what tech we use to design and develop applications in the
+[Tech](/core-docs/tech/) section.
 
 ## Architecture
 
-| Package name  |  Description  | License |
-| ------------- | :-----------: | ------- |
-| core-react-ui | right-aligned | MIT     |
+To learn about the organization of the monorepo and the role of each package,
+head over to the [Architecture](/core-docs/architecture/) section.
 
-## Design Process
+## Licence
 
-#### Definition
+All packages, design and associated work in this projet are MIT licensed.
 
-#### Methodologies
-
-## Building Website and Apps
-
-#### Technologies
-
-## Deploying to the Cloud
-
-## Monitoring
-
-## Guides
-
-We have several in-depth guides that covers specific subjects.
+See [LICENSE.md](https://github.com/newrade/newrade-core/blob/master/LICENSE.md)
