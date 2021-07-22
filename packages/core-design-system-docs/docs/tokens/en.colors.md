@@ -1,5 +1,5 @@
 ---
-name: Color Tokens
+title: Color Tokens
 tags:
   - test
 ---
@@ -12,6 +12,4 @@ import ColorTokensCode from '!!raw-loader!./color-tokens.scss';
 
 # Color Tokens
 
-<CodeBlock className={'language-scss'}>
-{ColorTokensCode}
-</CodeBlock>
+<CodeBlock className={'language-scss'}> {ColorTokensCode} </CodeBlock>

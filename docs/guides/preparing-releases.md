@@ -1,7 +1,9 @@
 ---
-name: Releases & Changelogs
+subject: Guides
+title: Releases & Changelogs
 description:
 tags:
+status: draft
 ---
 
 <DocHeader props={props}/>

@@ -1,5 +1,5 @@
 ---
-name: Email Templates
+title: Email Templates
 tags:
   - templates
   - email

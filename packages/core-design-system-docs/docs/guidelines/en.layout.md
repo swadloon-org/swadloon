@@ -1,5 +1,5 @@
 ---
-name: Layout - 📐
+title: Layout - 📐
 description:
 tags:
   - guidelines

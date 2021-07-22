@@ -20,14 +20,14 @@ export const defaultColorsColors: Colors['colors'] = {
     dark: 20,
   }),
   accent1: generateColorPalette5({
-    color: { h: 200, s: 50, l: 50 },
+    color: { h: 323, s: 80, l: 50 },
     light: 90,
-    dark: 20,
+    dark: 10,
   }),
   accent2: generateColorPalette5({
-    color: { h: 200, s: 50, l: 50 },
+    color: { h: 290, s: 50, l: 50 },
     light: 90,
-    dark: 20,
+    dark: 10,
   }),
   accent3: generateColorPalette5({
     color: { h: 0, s: 0, l: 50 },

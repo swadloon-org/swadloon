@@ -1,5 +1,5 @@
 ---
-name: Design System Overview
+title: Design System Overview
 description:
   These are the principles that shape how we design every aspect of user
   interfaces.

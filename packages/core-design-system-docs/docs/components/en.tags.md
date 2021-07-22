@@ -1,5 +1,5 @@
 ---
-name: Tags
+title: Tags
 description:
   Information indicator used to associate content with specific keywords.
 tags:

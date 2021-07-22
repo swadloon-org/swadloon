@@ -1,5 +1,5 @@
 ---
-name: Logos - 💎
+title: Logos - 💎
 description:
   Our logo and all of its variants help to make our brand as instantly
   recognizable as possible at all sizes and in all contexts.

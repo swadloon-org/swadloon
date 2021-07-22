@@ -232,15 +232,15 @@ export const defaultTypography: Typography = {
     },
     desktop: {
       medium: {
-        capHeight: 13,
+        fontSize: 15,
         lineGap: 12,
       },
       small: {
-        capHeight: 10,
+        fontSize: 13,
         lineGap: 12,
       },
       xSmall: {
-        capHeight: 8,
+        fontSize: 11,
         lineGap: 12,
       },
     },

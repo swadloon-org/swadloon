@@ -1,5 +1,5 @@
 ---
-name: List Items
+title: List Items
 description:
   Lists are vertical groupings of text with either a number or a bullet.
 tags:

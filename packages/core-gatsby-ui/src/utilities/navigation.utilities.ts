@@ -1,5 +1,8 @@
 import { NavItem } from '../navigation/nav-item.model';
-import { GatsbyCommonPageContext } from '@newrade/core-gatsby-config';
+import {
+  GatsbyCommonPageContext,
+  GatsbyMarkdownFilePageContext,
+} from '@newrade/core-gatsby-config';
 import { title, kebab, capital, lower } from 'case';
 import { SITE_LANGUAGES } from '@newrade/core-common';
 import { Navigation } from '../navigation/navigation.model';
@@ -10,7 +13,7 @@ import { Navigation } from '../navigation/navigation.model';
  */
 export type PageNode = {
   path: string;
-  context?: GatsbyCommonPageContext | null;
+  context?: GatsbyCommonPageContext | GatsbyMarkdownFilePageContext | null;
 };
 
 /**
@@ -24,7 +27,7 @@ export function getNavigationFromPageNodes({
   sortOrderItems,
   sortOrderDirectories,
   excludedItems,
-  uppercaseWords = ['wsl', 'ui', 'ux', 'seo', 'ssh', 'css', 'api', 'ci', 'vm', 'cms'],
+  uppercaseWords = ['wsl', 'ui', 'ux', 'seo', 'ssh', 'css', 'api', 'ci', 'vm', 'cms', 'pr'],
   formatName,
   formatDisplayName,
 }: {
@@ -175,6 +178,7 @@ export function getNavigationFromPageNodes({
           }),
       // leave the node path untouched
       path: node.path,
+      frontmatter: (node.context as GatsbyMarkdownFilePageContext)?.frontmatter,
     };
   }
 }

@@ -1,5 +1,5 @@
 ---
-name: Data Visualization - 📊
+title: Data Visualization - 📊
 tags:
   - components
   - data-viz

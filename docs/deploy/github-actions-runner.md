@@ -1,10 +1,12 @@
 ---
-name: Github Action Runner
-description: Instruction and script to set up a self-hosted Github Action runner
+title: Github Actions Runner
+description:
+  Instruction and script to set up a self-hosted Github Actions runner
 tags:
   - ci-cd
   - vm
   - linux
+status: draft
 ---
 
 <DocHeader props={props}/>

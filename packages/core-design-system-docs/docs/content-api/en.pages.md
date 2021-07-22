@@ -1,5 +1,5 @@
 ---
-name: Pages
+title: Pages
 description:
 tags:
   - test

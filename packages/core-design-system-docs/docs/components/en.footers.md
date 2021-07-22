@@ -1,5 +1,5 @@
 ---
-name: Footers
+title: Footers
 description:
   Footers are section at the bottom of any page of a site that allow users to
   navigate to other page.

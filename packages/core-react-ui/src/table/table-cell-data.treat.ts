@@ -69,6 +69,7 @@ export const styles = {
 
   td: style(({ theme, cssTheme }: Theme) => ({
     wordBreak: 'normal',
+    verticalAlign: 'middle',
     paddingLeft: cssTheme.sizing.var.x3,
     paddingRight: cssTheme.sizing.var.x3,
     paddingTop: cssTheme.sizing.var.x2,

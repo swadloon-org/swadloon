@@ -1,5 +1,5 @@
 ---
-name: Layout Components
+title: Layout Components
 description: Responsive layout components to handle basic layout needs.
 tags:
   - layout

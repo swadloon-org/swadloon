@@ -1,6 +1,6 @@
 import { MDXProvider } from '@mdx-js/react';
 import { SITE_LANGUAGES } from '@newrade/core-common';
-import { HEADING, PARAGRAPH_SIZE, VIEWPORT } from '@newrade/core-design-system';
+import { HEADING, PARAGRAPH_SIZE, TagSize, Variant, VIEWPORT } from '@newrade/core-design-system';
 import { GatsbyLink, NavbarDocs, useDesignSystemNavigation } from '@newrade/core-gatsby-ui/src';
 import {
   BoxV2,
@@ -13,6 +13,7 @@ import {
   MainWrapper,
   SidebarItem,
   Stack,
+  Tag,
   useTreatTheme,
   useViewportBreakpoint,
 } from '@newrade/core-react-ui/src';
@@ -140,13 +141,31 @@ export const LayoutDesignSystem: React.FC<DesignSystemLayoutProps> = function ({
                           {item.items?.length ? (
                             <Stack>
                               {item.items?.map((item, itemIndex) => {
+                                const status = item.frontmatter?.status;
+                                const version = item.frontmatter?.version;
+                                const deprecated = item.frontmatter?.deprecated;
+
                                 return (
                                   <DesktopDocsSidebarItem
                                     key={itemIndex}
                                     active={item.path === props.location?.pathname}
                                     AsElement={<GatsbyLink to={item.path} noStyles={true} />}
                                   >
-                                    {item.displayName || item.name}
+                                    <span style={{ marginRight: 4 }}>
+                                      {item.displayName || item.name}
+                                    </span>{' '}
+                                    {version ? (
+                                      <Tag
+                                        size={TagSize.small}
+                                        variant={Variant.tertiary}
+                                      >{`${version}`}</Tag>
+                                    ) : null}{' '}
+                                    {status ? (
+                                      <Tag
+                                        size={TagSize.small}
+                                        variant={Variant.secondary}
+                                      >{`${status.toUpperCase()}`}</Tag>
+                                    ) : null}{' '}
                                   </DesktopDocsSidebarItem>
                                 );
                               })}
@@ -157,9 +176,7 @@ export const LayoutDesignSystem: React.FC<DesignSystemLayoutProps> = function ({
                         <SidebarItem
                           active={item.path === props.location?.pathname}
                           AsElement={<GatsbyLink to={item.path} noStyles={true} />}
-                        >
-                          {item.displayName || item.name}
-                        </SidebarItem>
+                        ></SidebarItem>
                       )}
                     </Stack>
                   );

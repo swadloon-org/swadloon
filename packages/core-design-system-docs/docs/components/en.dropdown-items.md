@@ -1,5 +1,5 @@
 ---
-name: Dropdown Items
+title: Dropdown Items
 description: Dropdown items allow users to navigate to a section or a page.
 tags:
   - molecule

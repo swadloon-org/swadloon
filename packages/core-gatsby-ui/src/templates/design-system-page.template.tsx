@@ -23,21 +23,27 @@ export type MarkdownTemplateProps = PageProps<MarkdownTemplateQuery, GatsbyMarkd
  * Query to retrieve all markdown content for the markdown file
  */
 export const markdownTemplateQuery = graphql`
-  query DesignSystemPageTemplate($fileId: String!) {
+  query DesignSystemPageTemplate($fileId: String!, $locale: String!) {
     file(id: { eq: $fileId }) {
+      changeTime(formatString: "ll", locale: $locale)
       childMdx {
         slug
         excerpt(pruneLength: 160)
         frontmatter {
           title
-          name
+          subject
           tags
           description
           version
+          published
           status
+          deprecated
           editPageUrl
           nextPageLabel
           nextPageUrl
+          componentStatus
+          componentVersion
+          componentTests
         }
         timeToRead
         headings {

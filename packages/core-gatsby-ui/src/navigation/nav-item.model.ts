@@ -1,3 +1,5 @@
+import { MdxFrontmatter } from '@newrade/core-gatsby-config/lib/esm/config/site-mdx-frontmatter';
+
 export type NavItem = {
   /**
    * Raw node name of the item or dir
@@ -13,6 +15,10 @@ export type NavItem = {
    * @example /path /path/my-page/
    */
   path: string;
+  /**
+   * Only available for .md/.mdx pages
+   */
+  frontmatter?: MdxFrontmatter | null;
   /**
    * Sub items
    */

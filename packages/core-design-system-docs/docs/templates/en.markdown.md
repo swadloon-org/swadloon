@@ -1,5 +1,5 @@
 ---
-name: Markdown Elements
+title: Markdown Elements
 description:
 tags:
   - markdown

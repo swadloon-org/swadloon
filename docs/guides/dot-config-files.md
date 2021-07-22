@@ -1,15 +1,8 @@
 ---
-name: Dot Config Files
+subject: Guides
+title: Dot Config Files
 description:
-tags:
+status: draft
 ---
 
-# Dot Config Files
-
-## Git
-
-To open your git config file on your local machine:
-
-```bash
-code ~/.gitconfig
-```
+<DocHeader props={props}/>

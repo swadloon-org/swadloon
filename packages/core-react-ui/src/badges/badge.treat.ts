@@ -60,6 +60,10 @@ export const success = style(({ theme, cssTheme }: Theme) => ({
   backgroundColor: cssTheme.colors.colorIntents.successAction,
 }));
 
+export const warning = style(({ theme, cssTheme }: Theme) => ({
+  backgroundColor: cssTheme.colors.colorIntents.warningAction,
+}));
+
 export const error = style(({ theme, cssTheme }: Theme) => ({
   backgroundColor: cssTheme.colors.colorIntents.dangerAction,
 }));

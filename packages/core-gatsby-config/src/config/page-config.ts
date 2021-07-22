@@ -2,6 +2,7 @@ import { PAGE_LAYOUT, PAGE_TEMPLATE } from './page.props';
 import { GatsbyNodeSiteMetadataFragment } from './site-graphql-types';
 import { SITE_LANGUAGES } from '@newrade/core-common';
 import { SOURCE_INSTANCE_NAME } from './gatsby-source-instances';
+import { MdxFrontmatter } from './site-mdx-frontmatter';
 
 /**
  * Common page context that all page should receive.
@@ -103,6 +104,10 @@ export type GatsbyMarkdownFilePageContext = GatsbyCommonPageContext & {
    * If the page was created with a source plugin this will be set
    */
   sourceInstance?: SOURCE_INSTANCE_NAME;
+  /**
+   * Injected frontmatter
+   */
+  frontmatter?: MdxFrontmatter | null;
 };
 
 /**

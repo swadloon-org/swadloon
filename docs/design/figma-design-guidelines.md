@@ -1,9 +1,10 @@
 ---
-name: Figma Design Guidelines
+title: Figma Design Guidelines
 description: How to organize work done in Figma
 tags:
   - figma
   - design ui
+status: draft
 ---
 
 <DocHeader props={props}/>

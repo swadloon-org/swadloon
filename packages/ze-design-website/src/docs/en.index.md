@@ -1,5 +1,5 @@
 ---
-name: Docs
+title: Docs
 description: Overview of the documentation
 tags:
   - home

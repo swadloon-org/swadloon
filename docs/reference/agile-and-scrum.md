@@ -1,10 +1,12 @@
 ---
-name: Agile and Scrum - 🔁
+subject: Reference
+title: Agile and Scrum - 🔁
 description: Definitions and link to ressources on Agile and SCRUM
 tags:
   - dev
   - practices
   - methodology
+status: draft
 ---
 
 <DocHeader props={props}/>

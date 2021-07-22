@@ -1,5 +1,6 @@
 ---
-name: Netlify Functions
+subject: Deploy
+title: Netlify Functions
 description: Knowledge base on how we use netlify functions.
 deprecated: true
 tags:

@@ -9,12 +9,14 @@ export function getGastbyCorePluginConfig(
     features = {
       renderDesignSystemPages: true,
       renderDocsPages: true,
+      renderUnpublishedDocsPages: true,
     },
   }: GatsbyCorePluginOptions = {
     packageName: 'package',
     features: {
       renderDesignSystemPages: true,
       renderDocsPages: true,
+      renderUnpublishedDocsPages: true,
     },
   }
 ): PluginRef {

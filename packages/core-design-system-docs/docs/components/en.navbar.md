@@ -1,5 +1,5 @@
 ---
-name: Navigation
+title: Navigation
 description:
   Navigation are used for information and actions relating to the current
   screen.

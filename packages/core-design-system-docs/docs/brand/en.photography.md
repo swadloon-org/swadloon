@@ -1,5 +1,5 @@
 ---
-name: Photography - 🖼
+title: Photography - 🖼
 description:
   Great photography and images helps our design better connect with our users
   and clients.

@@ -1,5 +1,6 @@
 ---
-name: Fonts - 🅰
+subject: Brand
+title: Fonts - 🅰
 description: The different typefaces that are used in the system.
 tags:
   - foundations

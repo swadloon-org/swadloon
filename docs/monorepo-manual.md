@@ -1,5 +1,6 @@
 ---
-name: Monorepo Manual - 📕
+subject: Reference
+title: Monorepo Manual - 📕
 description:
   How to update a fork from the upstream repo and other useful commands.
 ---
@@ -15,6 +16,51 @@ changes and other commands when interacting with forks.
 
 - a forked repo with an remote called `upstream` pointing to the `newrade-core`
   repo
+
+## Committing
+
+Commits formatting is very important for automated changelogs and releases. We
+follow the
+[conventional-commits](https://www.conventionalcommits.org/en/v1.0.0/) format.
+
+To commit in this repository you will need
+[`commitizen`](https://commitizen.github.io/cz-cli/).
+
+When you install dependencies with `yarn` a local version of `commitizen`, is
+installed and can be run with:
+
+```bash
+yarn commit
+```
+
+You can also use `git cz` when `commitizen` is installed globally
+(`npm i -g commitizen`). You may use either way.
+
+When you run `commitizen`, you'll be prompted to fill in any required fields and
+your commit message will be formatted according to the standards defined by
+project maintainers:
+
+```bash
+$ yarn commit
+
+cz-cli@4.0.3, cz-conventional-changelog@3.0.2
+
+? Select the type of change that you're committing: (Use arrow keys)
+❯ feat:     A new feature
+  fix:      A bug fix
+  docs:     Documentation only changes
+  style:    Changes that do not affect the meaning of the code (white-space, formatting, ...
+  refactor: A code change that neither fixes a bug nor adds a feature
+  perf:     A code change that improves performance
+  test:     Adding missing tests or correcting existing tests
+(Move up and down to reveal more choices)
+```
+
+Once this is done, you can push normally:
+
+```bash
+git push
+```
 
 ## Receiving Updates
 

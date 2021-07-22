@@ -1,6 +1,8 @@
 ---
-name: Architecture - 🏗
+subject: Introduction
+title: Architecture - 🏗
 description: Architecture of the monorepository and its packages
+status: draft
 ---
 
 <DocHeader props={props}/>

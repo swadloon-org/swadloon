@@ -1,5 +1,5 @@
 ---
-name: Theming - 🎛
+title: Theming - 🎛
 description:
 tags:
   - tech

@@ -1,10 +1,10 @@
 ---
-name: Switches
+title: Switches
 description:
   Switches allow the user to toggle a control between two values, e.g. On / Off
 tags:
   - molecule
-version: v1
+componentVersion: v1
 ---
 
 <!-- CODE IMPORTS -->

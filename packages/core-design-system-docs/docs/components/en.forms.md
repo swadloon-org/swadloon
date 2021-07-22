@@ -1,5 +1,5 @@
 ---
-name: Forms
+title: Forms
 description:
   Forms is used to group inputs that allows users to provide data or configure
   options.

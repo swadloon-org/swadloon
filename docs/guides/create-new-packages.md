@@ -1,10 +1,12 @@
 ---
-name: How to Create Packages
+subject: Guides
+title: How to Create Packages
 description:
 tags:
+status: draft
 ---
 
-# How to Create Packages
+<DocHeader props={props}/>
 
 To create a new package, first open the `terminals.json` file
 

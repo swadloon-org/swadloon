@@ -1,5 +1,5 @@
 ---
-name: Sections
+title: Sections
 description: High-level components to render pages.
 tags:
   - website api

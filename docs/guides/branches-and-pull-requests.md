@@ -1,10 +1,14 @@
 ---
-name: How to Create a Branch and Pull Request
+subject: Guides
+title: How to Create a Branch and Pull Request
 description:
 tags:
+  - git
+  - tooling
+status: draft
 ---
 
-# How to Create a Branch and Pull Request
+<DocHeader props={props}/>
 
 To work on a new feature fixed, first create a new branch from `dev` or `master`
 branch

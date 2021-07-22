@@ -1,6 +1,6 @@
 ---
-name: Figma Plugins
-description: List of essential plugins for Figma
+title: Figma Plugins
+description: List of required and optional plugins for Figma
 tags:
   - figma
   - design ui

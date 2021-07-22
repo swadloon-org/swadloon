@@ -1,4 +1,14 @@
-# MacOS Knowledge Base
+---
+subject: Reference
+title: MacOS Settings Reference
+description: Useful Settings for MacOS Users
+tags:
+  - hardware
+  - OS
+status: draft
+---
+
+<DocHeader props={props}/>
 
 ## Subpixel Aliasing
 

@@ -1,5 +1,6 @@
 ---
-name: Tech - 👨‍💻👩‍💻
+subject: Reference
+title: Tech - 👨‍💻👩‍💻
 description: A list of tech we love to work with.
 ---
 
@@ -23,8 +24,10 @@ source software, then we choose products that:
 
 ### Build / Development
 
-- **Languages:** JavaScript, TypeScript, CSS, HTML, SVG
+- **Languages:** JavaScript, TypeScript (preferred over JS), CSS, HTML, SVG
 - **Editor:** [VSCode]()
+- **Formatted:** [Prettier]()
+- **Linter:** [ESLint]()
 
 ### Deploy and Monitor
 

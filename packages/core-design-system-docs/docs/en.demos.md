@@ -1,5 +1,5 @@
 ---
-name: Demos - 🍿
+title: Demos - 🍿
 description: Show and tell — live examples of the design system being used.
 tags:
   - demo

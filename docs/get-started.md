@@ -1,5 +1,7 @@
 ---
-name: Get Started - 👟
+subject: Reference
+title: Get Started - 👟
+published: true
 description:
   How to start using our packages and design system to build your own websites
   and apps.

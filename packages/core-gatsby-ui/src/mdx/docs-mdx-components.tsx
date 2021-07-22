@@ -31,7 +31,6 @@ import { mdxComponents } from '@newrade/core-react-ui/src/markdown';
 import { SectionBaseLayout, SectionPadding } from '@newrade/core-website-api';
 import { BlockMarkdown } from '../blocks/block-markdown';
 import { DocHeader } from '../context/doc-header';
-import { DocTags } from '../context/doc-tags';
 import { IconBox } from '../docs-components/icon-box';
 import { Icons } from '../docs-components/icons';
 import { Placeholder } from '../docs-components/placeholder';
@@ -80,7 +79,6 @@ export const docsMdxComponents = {
   TableRow: TableRow,
   TableHeader: TableHeader,
   TableCell: TableCell,
-  DocTags: DocTags,
   DocHeader: DocHeader,
   Badge: Badge,
   Icon: IconComp,

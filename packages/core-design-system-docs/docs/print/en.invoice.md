@@ -1,5 +1,5 @@
 ---
-name: Invoices
+title: Invoices
 tags:
   - print
   - pdf

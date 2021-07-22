@@ -1,5 +1,5 @@
 ---
-name: Badges
+title: Badges
 description: Information indicator for development or design purpose.
 tags:
   - molecule

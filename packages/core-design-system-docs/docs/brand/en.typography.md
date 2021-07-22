@@ -1,5 +1,5 @@
 ---
-name: Typography - 🔠
+title: Typography - 🔠
 description:
   Typography are based on the brand of a design system and are used to create
   clear hierarchies and organize information.

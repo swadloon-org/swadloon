@@ -1,4 +1,14 @@
-# Github Actions
+---
+title: Github Actions Reference
+description: Useful command and other resources.
+tags:
+  - ci-cd
+  - vm
+  - linux
+status: draft
+---
+
+<DocHeader props={props}/>
 
 ## Docs
 

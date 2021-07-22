@@ -23,6 +23,7 @@ are automated.
 - Renamed `<NavItem/>` component to `<SidebarItem/>`
 - Renamed `<NavItemGroup/>` component to `<SidebarItemGroup/>`
 - Renamed `<TagStatus/>` component to `<Badge/>`
+- `frontmatter?.name` is now `frontmatter?.title`
 
 ## Fixes
 

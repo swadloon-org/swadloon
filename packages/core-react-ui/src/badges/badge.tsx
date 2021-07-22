@@ -7,9 +7,9 @@ import { PrimitiveProps } from '../primitive/primitive.props';
 import * as stylesRef from './badge.treat';
 
 type Props = PrimitiveProps &
-  TagProps & {
+  Omit<TagProps, 'kind'> & {
     type?: 'version' | 'status';
-    kind?: 'neutral' | 'success' | 'error';
+    kind?: 'neutral' | 'success' | 'warning' | 'error';
     name?: string;
     status?: string;
     children?: string;

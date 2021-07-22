@@ -1,16 +1,24 @@
 ---
-name: Vim
+subject: Reference
+title: Vim Reference
 description: What is vim and how to use it?
 tags:
   - tools
   - developer
+status: draft
 ---
 
-# Introduction
+<DocHeader props={props}/>
 
 ## Usage
 
 ## Resources
+
+Git log opens vim:
+
+```bash
+git log
+```
 
 ```
 commit 45b093da000b9b47131f7be2494fd4daf54a1e60 (HEAD -> animation)
@@ -28,10 +36,4 @@ Date:   Tue May 18 10:58:09 2021 -0400
 
 commit 3d17ebb98c66ce448a4aa5be9d8fb4a77fcb0e81 (origin/dev)
 :
-```
-
-Git log opens vim:
-
-```bash
-git log
 ```

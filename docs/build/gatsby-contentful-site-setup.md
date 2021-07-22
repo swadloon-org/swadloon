@@ -1,9 +1,14 @@
 ---
-name: Gatsby + Contentful Site Setup
+subject: Build
+title: How to Setup a Gatsby Site with Contentful
 description:
 tags:
-  - gatsby
   - contentful
+  - gatsby
+  - react
+  - website
+  - development
+status: draft
 ---
 
 <DocHeader props={props}/>

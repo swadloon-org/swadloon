@@ -1,10 +1,13 @@
 ---
-name: Buttons
+subject: Components
+title: Buttons
 description:
   Buttons allow users to take actions, submit forms with a click or touch.
 tags:
   - molecule
-version: v1
+componentStatus: ready
+componentVersion: v1
+componentTests: OK
 ---
 
 <!-- CODE IMPORTS -->

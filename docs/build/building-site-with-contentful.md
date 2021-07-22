@@ -1,4 +1,16 @@
-# Building a Website with Contentful
+---
+subject: Build
+title: Building a Website with Contentful
+description:
+tags:
+  - gatsby
+  - react
+  - website
+  - development
+status: draft
+---
+
+<DocHeader props={props}/>
 
 ## Overview
 

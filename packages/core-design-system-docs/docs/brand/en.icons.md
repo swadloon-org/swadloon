@@ -1,5 +1,5 @@
 ---
-name: Icons - ✳️
+title: Icons - ✳️
 
 description:
   Our icons help users to recognize common actions in user interfaces.
