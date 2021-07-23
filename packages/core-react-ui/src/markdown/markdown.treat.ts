@@ -4,6 +4,9 @@ import { globalStyle, style } from 'treat';
 export const wrapper = style(({ theme, cssTheme }: Theme) => ({
   display: 'flex',
   flexDirection: 'column',
+  width: '100%',
+  maxWidth: '100%',
+  overflow: 'hidden',
 }));
 
 /**
@@ -123,10 +126,6 @@ globalStyle(`${wrapper} li p + p`, ({ cssTheme, theme }: Theme) => ({
 
 globalStyle(`${wrapper} > blockquote > blockquote`, ({ cssTheme, theme }: Theme) => ({
   marginTop: '1em',
-}));
-
-globalStyle(`${wrapper} > code`, ({ cssTheme, theme }: Theme) => ({
-  maxWidth: 'var(--max-content-width)',
 }));
 
 /**

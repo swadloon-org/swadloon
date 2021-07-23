@@ -27,7 +27,6 @@ export const markdownTemplateQuery = graphql`
         excerpt(pruneLength: 160)
         frontmatter {
           title
-          name
           tags
         }
         timeToRead

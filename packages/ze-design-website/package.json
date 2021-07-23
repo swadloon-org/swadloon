@@ -13,7 +13,6 @@
     "prebuild": "yarn typecheck:build",
     "build": "gatsby build",
     "build:local": ". ./.env && DEBUG=$DEBUG gatsby build",
-    "build:postinstall": "yarn build",
     "clean": "gatsby clean",
     "compile": "tsc --project tsconfig.gatsby.json",
     "pre-debug": "yarn clean",

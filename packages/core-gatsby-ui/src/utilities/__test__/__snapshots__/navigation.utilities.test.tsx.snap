@@ -8,16 +8,19 @@ Object {
       "items": Array [
         Object {
           "displayName": "Overview",
+          "frontmatter": undefined,
           "name": "index",
           "path": "/design-system/path-a/",
         },
         Object {
           "displayName": "Page 2",
+          "frontmatter": undefined,
           "name": "page-2",
           "path": "/design-system/path-a/page-2",
         },
         Object {
           "displayName": "Page 1",
+          "frontmatter": undefined,
           "name": "page-1",
           "path": "/design-system/path-a/page-1",
         },
@@ -30,11 +33,13 @@ Object {
       "items": Array [
         Object {
           "displayName": "Overview",
+          "frontmatter": undefined,
           "name": "index",
           "path": "/",
         },
         Object {
           "displayName": "Overview",
+          "frontmatter": undefined,
           "name": "index",
           "path": "/design-system/",
         },
@@ -47,6 +52,7 @@ Object {
       "items": Array [
         Object {
           "displayName": "Page 1",
+          "frontmatter": undefined,
           "name": "page-1",
           "path": "/design-system/path-b/page-1",
         },

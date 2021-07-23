@@ -20,9 +20,6 @@
       "path": "../core-design-system/tsconfig.build.json"
     },
     {
-      "path": "../core-react-ui/tsconfig.build.json"
-    },
-    {
       "path": "../core-utils/tsconfig.build.json"
     },
     {

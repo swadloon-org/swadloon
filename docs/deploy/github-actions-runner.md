@@ -35,7 +35,7 @@ a self-hosted runner:
 Virtual or physical machine with the following specs:
 
 - 4GB or more of RAM (we recommend setting a swap of 8GB)
-- at least 30GB of free disk space
+- at least 30GB of free disk space (NVME storage if possible, otherwise SSD)
 - linux (unix) based OS (we recommend debian)
 - user (`ci`) with `sudo` enabled
 - `git` version `> v2.31.1`
