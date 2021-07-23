@@ -22,6 +22,14 @@ export const CodeBlock: React.FC<Props> = ({ children = '', className = '', file
   const { cssTheme } = useTreatTheme();
   const components = useMDXComponents();
   const language = className ? className.replace(/language-/, '') : 'tsx';
+
+  if (typeof children !== 'string') {
+    console.warn(
+      `<CodeBlock/> accepts string children only, please make sure that you don't have more than one children and that there are no spaces around, e.g. <CodeBlock> {CodeString} </CodeBlock>.`
+    );
+    return null;
+  }
+
   const trimmedCode = children ? children.trim() : '';
   const formattedCode = trimmedCode.replace(/(\r?\n|\r)+$/g, ''); // remove extra line inserted by prettier
   // const formattedCodePrettier = formatCode(trimmedCode).replace(/(\r?\n|\r)$/g, ''); // remove extra line inserted by prettier
