@@ -20,6 +20,7 @@ import {
 import { LinkAPI, NavComponent } from '@newrade/core-website-api';
 import React from 'react';
 import { useStyles } from 'react-treat';
+import { GatsbyLink } from '../links/gatsby-link';
 import { LinkRenderer } from '../links/link-renderer';
 import { NavbarBase } from './navbar-base';
 import * as styleRefs from './navbar-standard.treat';
@@ -72,7 +73,9 @@ export const NavbarStandard = React.forwardRef<any, Props>(
         </BoxV2>
 
         {/* Language link */}
-        <Link className={styles.lang}>FR</Link>
+        <Link className={styles.lang} AsElement={<GatsbyLink to={'/fr/'} />}>
+          FR
+        </Link>
 
         {/*
          * Desktop
@@ -118,7 +121,11 @@ export const NavbarStandard = React.forwardRef<any, Props>(
           <MenuSeparator />
 
           {/* Language link */}
-          <Link variantSize={PARAGRAPH_SIZE.small} className={styles.langDesktop}>
+          <Link
+            variantSize={PARAGRAPH_SIZE.small}
+            className={styles.langDesktop}
+            AsElement={<GatsbyLink to={'/fr/'} />}
+          >
             FR
           </Link>
         </div>

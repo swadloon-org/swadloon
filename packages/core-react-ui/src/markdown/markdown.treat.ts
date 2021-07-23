@@ -1,5 +1,5 @@
-import { Theme } from '@newrade/core-react-ui/src';
 import { globalStyle, style } from 'treat';
+import { Theme } from '../design-system/css-design-system';
 
 export const wrapper = style(({ theme, cssTheme }: Theme) => ({
   display: 'flex',
@@ -7,6 +7,7 @@ export const wrapper = style(({ theme, cssTheme }: Theme) => ({
   width: '100%',
   maxWidth: '100%',
   overflow: 'hidden',
+  paddingTop: 12, // fixes the case where some content's height is over the capital size of the text
 }));
 
 /**

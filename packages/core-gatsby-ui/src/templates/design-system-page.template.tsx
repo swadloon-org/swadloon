@@ -1,6 +1,5 @@
 import { GatsbyMarkdownFilePageContext } from '@newrade/core-gatsby-config';
 import { MarkdownTemplateQuery } from '@newrade/core-gatsby-config/lib/esm/config/site-graphql-types';
-import { Aside } from '@newrade/core-gatsby-ui/src';
 import {
   Center,
   getMetaBasicTags,
@@ -15,6 +14,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { useStyles } from 'react-treat';
 import { DesignSystemFooter } from '../layout/design-system-footer';
+import { Aside } from '../navigation/aside';
 import * as styleRefs from './design-system-page.treat';
 
 export type MarkdownTemplateProps = PageProps<MarkdownTemplateQuery, GatsbyMarkdownFilePageContext>;

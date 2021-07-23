@@ -1,3 +1,4 @@
+import loadable from '@loadable/component';
 import { Variant } from '@newrade/core-design-system';
 import {
   Badge,
@@ -26,9 +27,10 @@ import {
   Tag,
   Title,
 } from '@newrade/core-react-ui/src';
-import { Code, CodeBlock, CodeHighlight } from '@newrade/core-react-ui/src/code';
-import { mdxComponents } from '@newrade/core-react-ui/src/markdown';
+import { Code } from '@newrade/core-react-ui/src/code';
+import { mdxComponents, MDXProps } from '@newrade/core-react-ui/src/markdown';
 import { SectionBaseLayout, SectionPadding } from '@newrade/core-website-api';
+import React from 'react';
 import { BlockMarkdown } from '../blocks/block-markdown';
 import { DocHeader } from '../context/doc-header';
 import { IconBox } from '../docs-components/icon-box';
@@ -71,8 +73,26 @@ export const docsMdxComponents = {
   SectionLayout: SectionBaseLayout,
   SectionPadding: SectionPadding,
   Variant: Variant,
-  CodeHighlight: CodeHighlight,
-  CodeBlock: CodeBlock,
+  // CodeHighlight: CodeHighlight,
+  CodeHighlight: ({ children, ...props }: MDXProps) => {
+    const CodeHighlight = loadable<any>(
+      () => import('@newrade/core-react-ui/src/code/code-highlight'),
+      {
+        resolveComponent: (
+          components: typeof import('@newrade/core-react-ui/src/code/code-highlight')
+        ) => components.CodeHighlight,
+      }
+    );
+    return <CodeHighlight {...props}>{children as string}</CodeHighlight>;
+  },
+  // CodeBlock: CodeBlock,
+  CodeBlock: ({ children, ...props }: MDXProps) => {
+    const CodeBlock = loadable<any>(() => import('@newrade/core-react-ui/src/code/code-block'), {
+      resolveComponent: (components: typeof import('@newrade/core-react-ui/src/code/code-block')) =>
+        components.CodeBlock,
+    });
+    return <CodeBlock {...props}>{children as string}</CodeBlock>;
+  },
   Link: Link,
   Table: Table,
   TableCellHeader: TableCellHeader,

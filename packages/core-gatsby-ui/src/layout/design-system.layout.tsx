@@ -1,7 +1,6 @@
 import { MDXProvider } from '@mdx-js/react';
 import { SITE_LANGUAGES } from '@newrade/core-common';
 import { HEADING, PARAGRAPH_SIZE, TagSize, Variant, VIEWPORT } from '@newrade/core-design-system';
-import { GatsbyLink, NavbarDocs, useDesignSystemNavigation } from '@newrade/core-gatsby-ui/src';
 import {
   BoxV2,
   DesktopDocsItemGroup,
@@ -22,6 +21,9 @@ import { PageProps } from 'gatsby';
 import React, { ReactNode, useEffect, useState } from 'react';
 import { ThemeWrapper } from '../context/theme-wrapper';
 import { useLayoutState } from '../hooks/use-design-system-layout.hook';
+import { useDesignSystemNavigation } from '../hooks/use-design-system-navigation-data.hook';
+import { GatsbyLink } from '../links/gatsby-link';
+import { NavbarDocs } from '../navbar/navbar-docs';
 
 export type DesignSystemLayoutProps = Partial<
   Omit<PageProps, 'children'> & { children: ReactNode }

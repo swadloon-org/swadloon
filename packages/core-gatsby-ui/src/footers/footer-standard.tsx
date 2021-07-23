@@ -74,29 +74,49 @@ export const FooterStandard = React.forwardRef<any, Props>(
         )}
 
         <Cluster className={styles.socialLinks} gap={[cssTheme.sizing.var.x3]}>
-          <Button
-            Icon={<IoLogoTwitter />}
-            icon={ButtonIcon.icon}
-            variant={Variant.tertiary}
-          ></Button>
+          {twitterURL ? (
+            <Button
+              Icon={<IoLogoTwitter />}
+              icon={ButtonIcon.icon}
+              variant={Variant.tertiary}
+              as={'a'}
+              href={twitterURL}
+              aria-label={'Twitter Profile'}
+            ></Button>
+          ) : null}
 
-          <Button
-            Icon={<IoLogoFacebook />}
-            icon={ButtonIcon.icon}
-            variant={Variant.tertiary}
-          ></Button>
+          {facebookURL ? (
+            <Button
+              Icon={<IoLogoFacebook />}
+              icon={ButtonIcon.icon}
+              variant={Variant.tertiary}
+              as={'a'}
+              href={facebookURL}
+              aria-label={'Facebook Profile'}
+            ></Button>
+          ) : null}
 
-          <Button
-            Icon={<IoLogoInstagram />}
-            icon={ButtonIcon.icon}
-            variant={Variant.tertiary}
-          ></Button>
+          {instagramURL ? (
+            <Button
+              Icon={<IoLogoInstagram />}
+              icon={ButtonIcon.icon}
+              variant={Variant.tertiary}
+              as={'a'}
+              href={instagramURL}
+              aria-label={'Instagram Profile'}
+            ></Button>
+          ) : null}
 
-          <Button
-            Icon={<IoLogoLinkedin />}
-            icon={ButtonIcon.icon}
-            variant={Variant.tertiary}
-          ></Button>
+          {linkedinURL ? (
+            <Button
+              Icon={<IoLogoLinkedin />}
+              icon={ButtonIcon.icon}
+              variant={Variant.tertiary}
+              as={'a'}
+              href={linkedinURL}
+              aria-label={'Linkedin Profile'}
+            ></Button>
+          ) : null}
         </Cluster>
 
         <div className={styles.navLinks}>

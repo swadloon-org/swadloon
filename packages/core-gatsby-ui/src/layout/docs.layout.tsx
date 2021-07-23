@@ -2,7 +2,6 @@ import { SITE_LANGUAGES } from '@newrade/core-common';
 import { HEADING, PARAGRAPH_SIZE, TagSize, Variant, VIEWPORT } from '@newrade/core-design-system';
 import { GatsbyMarkdownFilePageContext } from '@newrade/core-gatsby-config';
 import { SOURCE_INSTANCE_NAME } from '@newrade/core-gatsby-config/lib/esm/config/gatsby-source-instances';
-import { GatsbyLink, NavbarDocs } from '@newrade/core-gatsby-ui/src';
 import {
   BoxV2,
   DesktopDocsItemGroup,
@@ -23,6 +22,8 @@ import {
 import { PageProps } from 'gatsby';
 import React, { ReactNode, useEffect, useState } from 'react';
 import { useDocsNavigation } from '../hooks/use-docs-navigation-data.hook';
+import { GatsbyLink } from '../links/gatsby-link';
+import { NavbarDocs } from '../navbar/navbar-docs';
 
 export type LayoutDocsProps = Partial<
   Omit<PageProps<any, GatsbyMarkdownFilePageContext>, 'children'> & { children: ReactNode }
