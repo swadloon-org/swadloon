@@ -1,3 +1,4 @@
+import { MdxFrontmatter } from './site-mdx-frontmatter';
 import { GatsbySiteLanguages } from './site-languages';
 import { GatsbySiteMetadata } from './site-metadata';
 
@@ -56,15 +57,12 @@ export type File = {
   publicURL: string;
   size: string;
   sourceInstanceName: string;
-};
+  extension: Scalars['String'];
 
-export type MdxFrontmatter = {
-  title: string;
-  name?: string;
-  tags?: Array<string>;
-  description?: string;
-  version?: string;
-  status?: string;
+  modifiedTime: Scalars['Date'];
+  accessTime: Scalars['Date'];
+  changeTime: Scalars['Date'];
+  birthTime: Scalars['Date'];
 };
 
 export type MdxHeadingMdx = {
@@ -106,11 +104,50 @@ export type MarkdownTemplateQueryVariables = Exact<{
   slug: Scalars['String'];
 }>;
 
+// export type MarkdownTemplateQuery = {
+//   file?: Maybe<{
+//     childMdx?: Maybe<
+//       Pick<Mdx, 'slug' | 'excerpt' | 'timeToRead' | 'tableOfContents' | 'body'> & {
+//         frontmatter?: Maybe<MdxFrontmatter>;
+//         headings?: Maybe<Array<Maybe<Pick<MdxHeadingMdx, 'value' | 'depth'>>>>;
+//       }
+//     >;
+//   }>;
+//   mdx?: Maybe<
+//     Pick<Mdx, 'slug' | 'excerpt' | 'timeToRead' | 'tableOfContents' | 'body' | 'headings'> & {
+//       frontmatter?: Maybe<Pick<MdxFrontmatter, 'title' | 'tags' | 'description'>>;
+//       headings?: Maybe<Array<Maybe<Pick<MdxHeadingMdx, 'value' | 'depth'>>>>;
+//     }
+//   >;
+// };
+
 export type MarkdownTemplateQuery = {
-  mdx?: Maybe<
-    Pick<Mdx, 'slug' | 'excerpt' | 'timeToRead' | 'tableOfContents' | 'body'> & {
-      frontmatter?: Maybe<Pick<MdxFrontmatter, 'title' | 'name' | 'tags' | 'description'>>;
-      headings?: Maybe<Array<Maybe<Pick<MdxHeadingMdx, 'value' | 'depth'>>>>;
+  file: Maybe<
+    Pick<File, 'changeTime'> & {
+      childMdx: Maybe<
+        Pick<Mdx, 'slug' | 'excerpt' | 'timeToRead' | 'tableOfContents' | 'body'> & {
+          frontmatter: Maybe<
+            Pick<
+              MdxFrontmatter,
+              | 'title'
+              | 'subject'
+              | 'tags'
+              | 'description'
+              | 'version'
+              | 'published'
+              | 'status'
+              | 'deprecated'
+              | 'editPageUrl'
+              | 'nextPageLabel'
+              | 'nextPageUrl'
+              | 'componentStatus'
+              | 'componentVersion'
+              | 'componentTests'
+            >
+          >;
+          headings: Maybe<Array<Maybe<Pick<MdxHeadingMdx, 'value' | 'depth'>>>>;
+        }
+      >;
     }
   >;
 };

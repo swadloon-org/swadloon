@@ -201,16 +201,16 @@ export function generateColorPalette5({
     throw new Error('the light range must be greater or equal than 50, e.g. 60, 10');
   }
 
-  const lightStep = Math.round((light - dark) / 5);
+  const step = Math.round((light - dark) / 4);
 
   return {
     baseHue: color.h,
     baseSat: color.s,
-    '900': { ...color, l: color.l - 2 * lightStep },
-    '700': { ...color, l: color.l - 1 * lightStep },
+    '900': { ...color, l: Math.max(color.l - 2 * step, 0) },
+    '700': { ...color, l: Math.max(color.l - 1 * step, 0) },
     '500': color,
-    '300': { ...color, l: color.l + 1 * lightStep },
-    '100': { ...color, l: color.l + 2 * lightStep },
+    '300': { ...color, l: Math.min(color.l + 1 * step, 100) },
+    '100': { ...color, l: Math.min(color.l + 2 * step, 100) },
   } as DS.ColorPalette<undefined, DS.ColorShades5>;
 }
 

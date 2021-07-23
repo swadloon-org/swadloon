@@ -1,5 +1,4 @@
 # Architecture
 
-## `core-*` Packages
-
-## Non-core Packages
+See our repository architecture documentation
+[here](https://zedesignsystem.com/core-docs/architecture)

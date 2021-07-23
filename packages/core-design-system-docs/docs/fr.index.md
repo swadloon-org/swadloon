@@ -1,5 +1,5 @@
 ---
-name: Vue d'ensemble du système de design
+title: Vue d'ensemble du système de design
 description:
 tags:
 ---

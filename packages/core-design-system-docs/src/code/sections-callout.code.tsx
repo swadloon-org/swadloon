@@ -21,11 +21,14 @@ export const SectionsCallOut: React.FC<Props> = (props) => {
           ></div>
         }
         ContentBlock={
-          <BlockMarkdown>
-            <Heading>A Great Story.</Heading>
-            <PlaceholderMarkdown />
+          <>
+            <BlockMarkdown>
+              <Heading>A Great Story.</Heading>
+              <PlaceholderMarkdown />
+            </BlockMarkdown>
+
             <Button size={ButtonSize.large} variant={Variant.secondaryReversed}></Button>
-          </BlockMarkdown>
+          </>
         }
       ></SectionBanner>
     </>

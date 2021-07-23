@@ -21,7 +21,7 @@ type Props = PrimitiveProps & {
   /**
    * Inject a link around the logo
    * @example
-   *  <NavBar ... HomeLink={<GatsbyLink to={'/'} />} />
+   *  <Navbar ... HomeLink={<GatsbyLink to={'/'} />} />
    */
   HomeLink?: React.ReactNode;
   /**

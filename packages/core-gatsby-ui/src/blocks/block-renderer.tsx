@@ -1,22 +1,27 @@
 import loadable from '@loadable/component';
-import { ButtonSize, Variant } from '@newrade/core-design-system';
 import {
-  Button,
   ErrorBoundary,
   Stack,
   useCommonProps,
   useIsSSR,
   useTreatTheme,
 } from '@newrade/core-react-ui/src';
-import { BlockAPI, BlockGoogleMapAPI, BlockType } from '@newrade/core-website-api';
-import { IoArrowForwardOutline } from '@react-icons/all-files/io5/IoArrowForwardOutline';
+import {
+  BlockAlignment,
+  BlockAPI,
+  BlockGoogleMapAPI,
+  BlockType,
+  LinkAPI,
+} from '@newrade/core-website-api';
 import debug from 'debug';
 import React, { PropsWithChildren } from 'react';
-import { GatsbyLink } from '../links/gatsby-link';
+import { useStyles } from 'react-treat';
+import { LinkRenderer } from '../links/link-renderer';
 import { BlockGoogleMapsProps } from './block-google-map';
 import { BlockImage } from './block-image';
 import { BlockImageBackground } from './block-image-background';
 import { BlockMarkdown } from './block-markdown';
+import * as styleRefs from './block-renderer.treat';
 import { BlockRendererProps } from './block.props';
 
 const log = debug('newrade:core-gatsby-ui:block-renderer');
@@ -50,14 +55,21 @@ export function BlockRenderer<CustomBlockVariants extends string>({
 }: PropsWithChildren<BlockRendererProps<CustomBlockVariants>>) {
   const isSSR = useIsSSR();
   const { cssTheme, theme } = useTreatTheme();
-  const commonProps = useCommonProps({ id, style, className, ...props });
+  const styles = useStyles(styleRefs);
+  const commonProps = useCommonProps({
+    id,
+    style,
+    className,
+    classNames: [block?.alignment ? styles[block.alignment as BlockAlignment] : ''],
+    ...props,
+  });
 
   if (!block) {
     logWarn(`block was not defined`);
     return null;
   }
 
-  log(`rendering: ${block.name} with variant ${block.variant}`);
+  log(`rendering: ${block.name} with variant ${block.variant} and type ${block.type}`);
 
   /**
    * Custom Blocks
@@ -89,14 +101,7 @@ export function BlockRenderer<CustomBlockVariants extends string>({
             <BlockMarkdown block={blockText}>{blockText.text?.childMdx?.body}</BlockMarkdown>
 
             {blockText.link?.page?.slug ? (
-              <Button
-                size={ButtonSize.large}
-                variant={(blockText.variant as Variant) || Variant.secondary}
-                Icon={<IoArrowForwardOutline />}
-                AsElement={<GatsbyLink to={blockText.link?.page?.slug} />}
-              >
-                {blockText.link?.label}
-              </Button>
+              <LinkRenderer link={blockText.link as LinkAPI}></LinkRenderer>
             ) : null}
           </Stack>
         </ErrorBoundary>

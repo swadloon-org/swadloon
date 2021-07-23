@@ -21,7 +21,7 @@ export function createImageBlock(migration: Migration.default) {
     type: 'Symbol',
     validations: [
       {
-        in: [BlockType.image],
+        in: [BlockType.image, BlockType.imageBackground],
       },
     ],
   });

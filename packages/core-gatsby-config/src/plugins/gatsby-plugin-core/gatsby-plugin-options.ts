@@ -5,7 +5,7 @@ export type GatsbyCorePluginOptions = {
    */
   packageName: string;
   /**
-   * Plugin name
+   * Plugin name for logging purposes
    * @example gatsby-plugin-core
    */
   pluginName?: string;
@@ -23,5 +23,9 @@ export type GatsbyCorePluginOptions = {
      * Enable the generation of doc pages (.mdx?) in /src/docs/
      */
     renderDocsPages: boolean;
+    /**
+     * Render docs flagged with `published: false`
+     */
+    renderUnpublishedDocsPages: boolean;
   };
 };

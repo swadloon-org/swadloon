@@ -1,5 +1,5 @@
 ---
-name: Website Templates
+title: Website Templates
 tags:
   - templates
   - overview

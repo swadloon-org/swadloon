@@ -1,5 +1,5 @@
 ---
-name: Tables
+title: Tables
 description: Tables are used to organize and display information.
 tags:
   - organism

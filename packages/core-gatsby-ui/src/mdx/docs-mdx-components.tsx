@@ -1,5 +1,7 @@
+import loadable from '@loadable/component';
 import { Variant } from '@newrade/core-design-system';
 import {
+  Badge,
   BoxV2,
   BoxV3,
   Button,
@@ -23,16 +25,14 @@ import {
   TableHeader,
   TableRow,
   Tag,
-  TagStatus,
   Title,
 } from '@newrade/core-react-ui/src';
-import { Code, CodeBlock, CodeHighlight } from '@newrade/core-react-ui/src/code';
+import { Code } from '@newrade/core-react-ui/src/code';
 import { mdxComponents, MDXProps } from '@newrade/core-react-ui/src/markdown';
 import { SectionBaseLayout, SectionPadding } from '@newrade/core-website-api';
 import React from 'react';
 import { BlockMarkdown } from '../blocks/block-markdown';
 import { DocHeader } from '../context/doc-header';
-import { DocTags } from '../context/doc-tags';
 import { IconBox } from '../docs-components/icon-box';
 import { Icons } from '../docs-components/icons';
 import { Placeholder } from '../docs-components/placeholder';
@@ -46,18 +46,6 @@ import { SectionSwitcher } from '../sections/section-switcher';
  */
 export const docsMdxComponents = {
   ...mdxComponents,
-  ul: (props: MDXProps) => <ul {...props} />,
-  ol: (props: MDXProps) => <ol {...props} />,
-  li: (props: MDXProps) => <li {...props} />,
-  // p: (props: MDXProps) => <p {...props} />,
-  a: (props: MDXProps) => <a {...props} />,
-  em: (props: MDXProps) => <em {...props} />,
-  strong: (props: MDXProps) => <strong {...props} />,
-  thead: (props: MDXProps) => <thead {...props} />,
-  tr: (props: MDXProps) => <tr {...props} />,
-  th: (props: MDXProps) => <th {...props} />,
-  td: (props: MDXProps) => <td {...props} />,
-  table: (props: MDXProps) => <table {...props} />,
   Label: Label,
   Tag: Tag,
   Button: Button,
@@ -85,17 +73,34 @@ export const docsMdxComponents = {
   SectionLayout: SectionBaseLayout,
   SectionPadding: SectionPadding,
   Variant: Variant,
-  CodeHighlight: CodeHighlight,
-  CodeBlock: CodeBlock,
+  // CodeHighlight: CodeHighlight,
+  CodeHighlight: ({ children, ...props }: MDXProps) => {
+    const CodeHighlight = loadable<any>(
+      () => import('@newrade/core-react-ui/src/code/code-highlight'),
+      {
+        resolveComponent: (
+          components: typeof import('@newrade/core-react-ui/src/code/code-highlight')
+        ) => components.CodeHighlight,
+      }
+    );
+    return <CodeHighlight {...props}>{children as string}</CodeHighlight>;
+  },
+  // CodeBlock: CodeBlock,
+  CodeBlock: ({ children, ...props }: MDXProps) => {
+    const CodeBlock = loadable<any>(() => import('@newrade/core-react-ui/src/code/code-block'), {
+      resolveComponent: (components: typeof import('@newrade/core-react-ui/src/code/code-block')) =>
+        components.CodeBlock,
+    });
+    return <CodeBlock {...props}>{children as string}</CodeBlock>;
+  },
   Link: Link,
   Table: Table,
   TableCellHeader: TableCellHeader,
   TableRow: TableRow,
   TableHeader: TableHeader,
   TableCell: TableCell,
-  DocTags: DocTags,
   DocHeader: DocHeader,
-  TagStatus: TagStatus,
+  Badge: Badge,
   Icon: IconComp,
   IconBox: IconBox,
   Icons: Icons,

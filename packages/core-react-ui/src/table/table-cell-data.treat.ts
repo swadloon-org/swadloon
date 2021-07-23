@@ -69,11 +69,13 @@ export const styles = {
 
   td: style(({ theme, cssTheme }: Theme) => ({
     wordBreak: 'normal',
+    verticalAlign: 'middle',
     paddingLeft: cssTheme.sizing.var.x3,
     paddingRight: cssTheme.sizing.var.x3,
     paddingTop: cssTheme.sizing.var.x2,
     paddingBottom: cssTheme.sizing.var.x2,
     backgroundColor: cssTheme.colors?.colors.grey[0],
+    borderBottom: `solid 1px ${cssTheme.colors?.colors.grey[100]}`,
     '@media': {
       [cssTheme.layout.media.tablet]: {
         paddingLeft: cssTheme.sizing.var.x3,

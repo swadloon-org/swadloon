@@ -22,7 +22,7 @@ export interface GastbySiteConfig extends Gatsby.GatsbyConfig {
 
 export const gatsbySiteFlags: GastbySiteConfig['flags'] = {
   DEV_SSR: false,
-  QUERY_ON_DEMAND: false,
+  QUERY_ON_DEMAND: true,
   LAZY_IMAGES: true,
   PRESERVE_WEBPACK_CACHE: true,
   PRESERVE_FILE_DOWNLOAD_CACHE: true,

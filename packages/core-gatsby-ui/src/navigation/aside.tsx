@@ -13,12 +13,22 @@ type AsideItem = {
 
 type Props = {
   items?: AsideItem[] | null;
+  /**
+   * Maximum depth to display
+   * @default 2
+   */
+  maxDepth?: number;
   location?: WindowLocation<any>;
 };
 
-export const Aside: React.FC<Props> = (props) => {
+export const Aside: React.FC<Props> = ({ maxDepth = 2, ...props }) => {
   const { styles } = useStyles(styleRefs);
-  const currentId = useScrollSpy(props.items);
+  const renderedItems = props.items?.filter(filterItemDepthPredicate);
+  const currentId = useScrollSpy(renderedItems);
+
+  if (renderedItems?.length === 0) {
+    return null;
+  }
 
   return (
     <BoxV2 as={'aside'} className={styles.wrapper}>
@@ -27,11 +37,13 @@ export const Aside: React.FC<Props> = (props) => {
           In this page
         </Label>
         <ul className={styles.linksWrapper}>
-          {props.items?.filter(filterItemDepthPredicate).map((item, index) => {
+          {renderedItems?.map((item, index, items) => {
             const href = `#${formatAnchorId(item?.value)}`;
             const selected = formatAnchorId(item?.value) === currentId;
+            const hasItemAfter = !!items?.[index + 1];
             return (
               <li
+                draggable={false}
                 style={{
                   marginLeft: item?.depth ? (item.depth - 2) * 30 : '',
                   marginTop: item?.depth ? `1em` : '',
@@ -52,10 +64,14 @@ export const Aside: React.FC<Props> = (props) => {
                       ? `1em`
                       : '',
                 }}
-                className={`${styles.link} ${selected ? styles.linkSelected : ''}`}
+                className={`${styles.link} ${selected ? styles.linkSelected : ''} ${
+                  hasItemAfter ? styles.linkAfter : ''
+                }`}
                 key={formatAnchorId(item?.value)}
               >
                 <Link
+                  draggable={false}
+                  className={styles.anchor}
                   style={{ color: 'inherit', fontWeight: 'inherit' }}
                   variant={LinkVariant.noUnderline}
                   variantSize={PARAGRAPH_SIZE.small}
@@ -71,43 +87,59 @@ export const Aside: React.FC<Props> = (props) => {
       </Stack>
     </BoxV2>
   );
-};
 
-function filterItemDepthPredicate(item: AsideItem) {
-  return item !== undefined && item !== null && item.depth && item.depth > 1;
-}
+  function filterItemDepthPredicate(item: AsideItem) {
+    return (
+      item !== undefined &&
+      item !== null &&
+      item.depth &&
+      item.depth > 1 &&
+      item.depth < maxDepth + 1
+    );
+  }
 
-function useScrollSpy(items: Props['items']) {
-  const [currentId, setCurrentId] = React.useState<string | null>(null);
+  function useScrollSpy(items: Props['items']) {
+    const [currentId, setCurrentId] = React.useState<string | null>(null);
 
-  React.useEffect(() => {
-    if (!(items && items.length && items.filter(filterItemDepthPredicate).length)) {
-      setCurrentId(null);
-      return;
-    }
+    React.useEffect(() => {
+      if (!(items && items.length && items.filter(filterItemDepthPredicate).length)) {
+        setCurrentId(null);
+        return;
+      }
 
-    const elements = document.querySelectorAll<HTMLElement>(
-      items
+      const selector = items
         .filter(filterItemDepthPredicate)
         .map((item) => `[id="${formatAnchorId(item?.value)}"]`)
-        .join(',')
-    );
-    const elementsArray = Array.from(elements);
+        .join(',');
 
-    const handleScroll = () => {
-      elementsArray.forEach((element) => {
-        if (element.offsetTop <= window.scrollY + 40) {
-          setCurrentId(element.id);
-        }
+      const elements = document.querySelectorAll<HTMLElement>(selector);
+      const elementsArray = Array.from(elements);
+
+      const handleScroll = () => {
+        elementsArray.every((element, index, elements) => {
+          // check the curren element
+          if (element.offsetTop + 20 <= window.scrollY) {
+            // check the next element, if it satisfy the condition, continue, otherwise we have found the right id
+            const nextElement = elements?.[index + 1];
+            if (nextElement && nextElement.offsetTop + 20 <= window.scrollY) {
+              return true;
+            }
+
+            setCurrentId(element.id);
+            return false;
+          }
+
+          return true;
+        });
+      };
+      window.addEventListener('scroll', handleScroll, {
+        passive: true,
       });
-    };
-    window.addEventListener('scroll', handleScroll, {
-      passive: true,
-    });
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [items]);
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }, [items]);
 
-  return currentId;
-}
+    return currentId;
+  }
+};

@@ -8,7 +8,7 @@ import { SectionBase } from './section-base';
 import { SectionProps } from './section.props';
 
 type Props = SectionProps & {
-  BackgroundBlock: React.ReactNode;
+  BackgroundBlock?: React.ReactNode;
   ContentBlock: React.ReactNode;
   callout?: boolean;
 };
@@ -58,11 +58,9 @@ export const SectionBanner = React.forwardRef<HTMLElement, Props>(
       className: styles.background,
     };
 
-    const BackgroundBlockComponent = BackgroundBlock ? (
-      React.cloneElement(BackgroundBlock as React.ReactElement, innerBlockProps)
-    ) : (
-      <div {...innerBlockProps}></div>
-    );
+    const BackgroundBlockComponent = BackgroundBlock
+      ? React.cloneElement(BackgroundBlock as React.ReactElement, innerBlockProps)
+      : null;
 
     return (
       <SectionBase

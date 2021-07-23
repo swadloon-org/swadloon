@@ -1,6 +1,5 @@
 import { GatsbyMarkdownFilePageContext } from '@newrade/core-gatsby-config';
-import { Aside } from '@newrade/core-gatsby-ui/src';
-import { MarkdownTemplateQuery } from '@newrade/core-gatsby-ui/types/site-graphql-types';
+import { MarkdownTemplateQuery } from '@newrade/core-gatsby-config/lib/esm/config/site-graphql-types';
 import {
   Center,
   getMetaBasicTags,
@@ -8,13 +7,14 @@ import {
   OPEN_GRAPH_TYPE,
   useTreatTheme,
 } from '@newrade/core-react-ui/src';
+import { MarkdownCSS } from '@newrade/core-react-ui/src/markdown';
 import { graphql, PageProps } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
 import Helmet from 'react-helmet';
 import { useStyles } from 'react-treat';
 import { DesignSystemFooter } from '../layout/design-system-footer';
-import { DocsMarkdownCSS } from '../mdx/docs-markdown-css';
+import { Aside } from '../navigation/aside';
 import * as styleRefs from './design-system-page.treat';
 
 export type MarkdownTemplateProps = PageProps<MarkdownTemplateQuery, GatsbyMarkdownFilePageContext>;
@@ -23,28 +23,34 @@ export type MarkdownTemplateProps = PageProps<MarkdownTemplateQuery, GatsbyMarkd
  * Query to retrieve all markdown content for the markdown file
  */
 export const markdownTemplateQuery = graphql`
-  query DesignSystemPageTemplate($fileId: String!) {
+  query DesignSystemPageTemplate($fileId: String!, $locale: String!) {
     file(id: { eq: $fileId }) {
+      changeTime(formatString: "ll", locale: $locale)
       childMdx {
         slug
         excerpt(pruneLength: 160)
         frontmatter {
           title
-          name
+          subject
           tags
           description
           version
+          published
           status
+          deprecated
           editPageUrl
           nextPageLabel
           nextPageUrl
+          componentStatus
+          componentVersion
+          componentTests
         }
         timeToRead
         headings {
           value
           depth
         }
-        tableOfContents(maxDepth: 3)
+        tableOfContents(maxDepth: 2)
         body
       }
     }
@@ -100,11 +106,11 @@ const Template: React.FC<MarkdownTemplateProps> = (props) => {
         maxWidth={cssTheme.layout.var.contentWidth.desktopDocsMaxWidth}
         style={{ paddingBottom: `60vh` }}
       >
-        <DocsMarkdownCSS>
+        <MarkdownCSS>
           <MDXRenderer {...{ ...props, theme, cssTheme }}>
             {props.data.file?.childMdx?.body as string}
           </MDXRenderer>
-        </DocsMarkdownCSS>
+        </MarkdownCSS>
 
         <DesignSystemFooter
           editPageUrl={props.data.file?.childMdx?.frontmatter?.editPageUrl}

@@ -4,11 +4,12 @@ import { Theme } from '../design-system';
 export const styles = {
   wrapper: style(({ theme, cssTheme }: Theme) => ({
     listStylePosition: 'inside', // no side effects from the added padding
-    marginBlockStart: '0px',
-    marginBlockEnd: '0px',
+    marginBlockStart: '0.5em',
+    marginBlockEnd: '0.5em',
     marginInlineStart: '0.5em',
     marginInlineEnd: '0px',
     paddingInlineStart: '0px',
+    paddingInlineEnd: '0px',
   })),
   ul: style(({ theme, cssTheme }: Theme) => ({})),
   ol: style(({ theme, cssTheme }: Theme) => ({})),
@@ -22,13 +23,16 @@ globalStyle(`${styles.ul} li`, ({ theme, cssTheme }: Theme) => ({
   listStyleType: '"• "', // using a unicode to fix chrome margin on the default marker
 }));
 
-globalStyle(`${styles.ul} li::before`, ({ theme, cssTheme }: Theme) => ({
-  content: '" " !important',
-  //display: 'inline-block !important', // override capsize
-  marginRight: `0.5em !important`,
+globalStyle(`${styles.ul} li[data-custom-bullet]::before`, ({ theme, cssTheme }: Theme) => ({
+  content: 'attr(data-custom-bullet) !important',
+  marginRight: `1em !important`,
   borderRadius: '0ch',
   paddingInline: '0ch',
   marginInlineEnd: '0.5em',
+}));
+
+globalStyle(`${styles.ul} li[data-custom-bullet=" "]::before`, ({ theme, cssTheme }: Theme) => ({
+  marginRight: `0.5em !important`,
 }));
 
 globalStyle(`${styles.ol} li::after`, ({ theme, cssTheme }: Theme) => ({

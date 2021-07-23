@@ -1,5 +1,5 @@
 ---
-name: Links
+title: Links
 description: Links are used in sentence or paragraph as navigational elements.
 tags:
   - molecule

@@ -1,7 +1,9 @@
 ---
-name: Color Tokens
+title: Color Tokens
 tags:
-  - test
+  - css
+  - scss
+  - tokens
 ---
 
 <!-- CODE IMPORTS -->
@@ -10,8 +12,6 @@ import ColorTokensCode from '!!raw-loader!./color-tokens.scss';
 
 <!-- END CODE IMPORTS -->
 
-# Color Tokens
+<DocHeader props={props}/>
 
-<CodeBlock className={'language-scss'}>
-{ColorTokensCode}
-</CodeBlock>
+<CodeBlock className={'language-scss'}>{ColorTokensCode}</CodeBlock>

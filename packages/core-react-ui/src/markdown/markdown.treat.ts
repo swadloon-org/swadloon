@@ -1,40 +1,28 @@
 import { globalStyle, style } from 'treat';
-import { Theme } from '../design-system';
+import { Theme } from '../design-system/css-design-system';
 
 export const wrapper = style(({ theme, cssTheme }: Theme) => ({
   display: 'flex',
   flexDirection: 'column',
+  width: '100%',
+  maxWidth: '100%',
+  overflow: 'hidden',
+  paddingTop: 12, // fixes the case where some content's height is over the capital size of the text
 }));
 
 /**
+ *
  * Global classes for markdown documents
+ * This is mainly to set spacing between elements since components do not have margins
+ *
  */
-
-const contentMarginSmall = `1.4em`;
-const contentMargin = `2em`;
-const halfcontentMargin = `1em`;
-const contentMarginLarge = `4em`;
 
 /**
- * Anchor for documentation pages
+ * Gatsby
+ * Styles for https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-remark-images
  */
-
-globalStyle(`${wrapper} .mdx-anchor`, ({ cssTheme, theme }: Theme) => ({
-  position: 'absolute',
-  top: '0',
-  left: '0',
-  transform: 'translateX(-100%)',
-  paddingRight: '4px',
-  visibility: 'hidden',
-}));
-
-globalStyle(`${wrapper} .mdx-anchor-pound`, ({ cssTheme, theme }: Theme) => ({
-  visibility: 'hidden',
-  '@media': {
-    [':hover']: {
-      textDecoration: 'underline',
-    },
-  },
+globalStyle(`${wrapper} .gatsby-resp-image-wrapper`, ({ cssTheme, theme }: Theme) => ({
+  marginLeft: 'inherit !important',
 }));
 
 /**
@@ -42,32 +30,40 @@ globalStyle(`${wrapper} .mdx-anchor-pound`, ({ cssTheme, theme }: Theme) => ({
  * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element#content_sectioning
  */
 
+/** Headings */
+
+globalStyle(`${wrapper} > h1, ${wrapper} > h2`, ({ cssTheme, theme }: Theme) => ({
+  marginTop: '2em',
+  marginBottom: '1.2em',
+}));
+
 globalStyle(
-  `${wrapper} > h1:not(:last-child), ${wrapper} > h2:not(:last-child), ${wrapper} > h3:not(:last-child), ${wrapper} > h4:not(:last-child), ${wrapper} > h5:not(:last-child) ${wrapper} > h6:not(:last-child)`,
+  `${wrapper} > h3, ${wrapper} > h4, ${wrapper} > h5, ${wrapper} > h6`,
   ({ cssTheme, theme }: Theme) => ({
-    marginBottom: contentMarginSmall,
-    position: 'relative',
+    marginTop: '2em',
+    marginBottom: '1.5em',
   })
 );
 
 globalStyle(
-  `${wrapper} > * + h1, ${wrapper} > * + h2, ${wrapper} > * + h3, ${wrapper} > * + h4, ${wrapper} > * + h5, ${wrapper} > * + h6`,
+  `${wrapper} > *:is(h1,h2,h3,h4,h5,h6) + *:is(h1,h2,h3,h4,h5,h6)`,
   ({ cssTheme, theme }: Theme) => ({
-    marginTop: 'contentMargin',
+    marginTop: '0',
   })
 );
 
-// TODO: should h* have no margin top ?
-// globalStyle(
-//   `${wrapper} > *:not(h1,h2,h3,h4,h5,h6) + h1, ${wrapper} > *:not(h1,h2,h3,h4,h5,h6) + h2, ${wrapper} > *:not(h1,h2,h3,h4,h5,h6) + h3, ${wrapper} > *:not(h1,h2,h3,h4,h5,h6) + h4, ${wrapper} > *:not(h1,h2,h3,h4,h5,h6) + h5, ${wrapper} > *:not(h1,h2,h3,h4,h5,h6) + h6`,
-//   ({ cssTheme, theme }: Theme) => ({
-//     marginTop: contentMargin,
-//   })
-// );
+globalStyle(
+  `${wrapper} > *:is(h1,h2,h3,h4,h5,h6) + *:not(h1,h2,h3,h4,h5,h6)`,
+  ({ cssTheme, theme }: Theme) => ({
+    marginTop: '0',
+  })
+);
 
-globalStyle(`${wrapper} hr`, ({ cssTheme, theme }: Theme) => ({
-  marginTop: 0,
-  marginBottom: 0,
+/** Horizontal line */
+
+globalStyle(`${wrapper} > hr`, ({ cssTheme, theme }: Theme) => ({
+  marginTop: '20px',
+  marginBottom: '20px',
 }));
 
 /**
@@ -75,78 +71,62 @@ globalStyle(`${wrapper} hr`, ({ cssTheme, theme }: Theme) => ({
  */
 
 globalStyle(
-  `${wrapper} p *, ${wrapper} p *::before, ${wrapper} p *::after`,
+  `${wrapper} > *:not(h1,h2,h3,h4,h5,h6) + *:not(h1,h2,h3,h4,h5,h6)`,
   ({ cssTheme, theme }: Theme) => ({
-    display: 'inline-block',
+    marginTop: '2em',
   })
 );
 
-globalStyle(`${wrapper} p + *`, ({ cssTheme, theme }: Theme) => ({
-  marginTop: contentMargin,
+/** Paragraphs */
+
+globalStyle(`${wrapper} > p + p, blockquote p + p`, ({ cssTheme, theme }: Theme) => ({
+  marginTop: '2em',
 }));
 
-globalStyle(`${wrapper} p + p`, ({ cssTheme, theme }: Theme) => ({
-  marginTop: contentMargin,
+// hide line break and handle it with margin
+globalStyle(`${wrapper} p + br`, ({ cssTheme, theme }: Theme) => ({
+  display: 'none',
+}));
+globalStyle(`${wrapper} br + p`, ({ cssTheme, theme }: Theme) => ({
+  marginTop: '0.5em',
 }));
 
-globalStyle(`${wrapper} p + ul`, ({ cssTheme, theme }: Theme) => ({
-  marginTop: contentMargin,
+// disable capsize on paragraph internals
+globalStyle(
+  `${wrapper} p *, ${wrapper} p *::before, ${wrapper} p *::after`,
+  ({ cssTheme, theme }: Theme) => ({
+    display: 'inline',
+    content: 'none',
+    whiteSpace: 'normal',
+  })
+);
+
+globalStyle(`${wrapper} > p + table`, ({ cssTheme, theme }: Theme) => ({
+  marginBottom: '1.25em',
 }));
 
-globalStyle(`${wrapper} ul + *`, ({ cssTheme, theme }: Theme) => ({
-  marginTop: contentMargin,
+/** List items */
+
+globalStyle(
+  `${wrapper} > *:not(h1,h2,h3,h4,h5,h6) + *:is(ul,ol)`,
+  ({ cssTheme, theme }: Theme) => ({
+    marginTop: '1.6em',
+  })
+);
+
+globalStyle(`${wrapper} > *:is(ul,ol)`, ({ cssTheme, theme }: Theme) => ({
+  marginBottom: '0',
 }));
 
-globalStyle(`${wrapper} ul + ul`, ({ cssTheme, theme }: Theme) => ({
-  marginTop: contentMargin,
-}));
-
-globalStyle(`${wrapper} p + ol`, ({ cssTheme, theme }: Theme) => ({
-  marginTop: contentMargin,
-}));
-
-globalStyle(`${wrapper} ol + p`, ({ cssTheme, theme }: Theme) => ({
-  marginTop: contentMargin,
-}));
-
-globalStyle(`${wrapper} ol + ol`, ({ cssTheme, theme }: Theme) => ({
-  marginTop: contentMargin,
-}));
-
-globalStyle(`${wrapper} p + p:not(:last)`, ({ cssTheme, theme }: Theme) => ({
-  marginBottom: contentMargin,
-}));
-
-globalStyle(`${wrapper} p + img`, ({ cssTheme, theme }: Theme) => ({
-  marginTop: contentMargin,
-}));
-
-globalStyle(`${wrapper} figcaption`, ({ cssTheme, theme }: Theme) => ({
-  marginTop: contentMargin,
-}));
-
-globalStyle(`${wrapper} p + blockquote`, ({ cssTheme, theme }: Theme) => ({
-  marginTop: contentMargin,
-}));
-
-globalStyle(`${wrapper} blockquote + *`, ({ cssTheme, theme }: Theme) => ({
-  marginTop: contentMargin,
-}));
-
-globalStyle(`${wrapper} p + iframe`, ({ cssTheme, theme }: Theme) => ({
-  marginTop: contentMargin,
-}));
-
-globalStyle(`${wrapper} iframe`, ({ cssTheme, theme }: Theme) => ({
-  maxWidth: `100%`,
-}));
-
-/**
- * List items
- */
-
+// multi line list item
 globalStyle(`${wrapper} li p + p`, ({ cssTheme, theme }: Theme) => ({
-  marginTop: `0.5em`,
+  marginBottom: '1.25em',
+}));
+
+/** Quotes */
+
+globalStyle(`${wrapper} > blockquote > blockquote`, ({ cssTheme, theme }: Theme) => ({
+  marginTop: '1em',
 }));
 
 /**
@@ -154,11 +134,17 @@ globalStyle(`${wrapper} li p + p`, ({ cssTheme, theme }: Theme) => ({
  */
 
 globalStyle(`${wrapper} p + details`, ({ cssTheme, theme }: Theme) => ({
-  marginTop: '4em',
+  marginBottom: '4em',
 }));
 
 globalStyle(`${wrapper} details + p`, ({ cssTheme, theme }: Theme) => ({
-  marginTop: '4em',
+  marginBottom: '4em',
+}));
+
+/** Icons */
+
+globalStyle(`${wrapper} a svg path`, ({ cssTheme, theme }: Theme) => ({
+  strokeWidth: '40',
 }));
 
 /**
@@ -166,8 +152,9 @@ globalStyle(`${wrapper} details + p`, ({ cssTheme, theme }: Theme) => ({
  */
 
 globalStyle(`${wrapper} table`, ({ cssTheme, theme }: Theme) => ({
-  marginTop: '2em',
   marginBottom: '2em',
+  borderCollapse: 'separate',
+  width: '100%',
 }));
 
 /**
@@ -178,20 +165,68 @@ globalStyle(`${wrapper} figure`, ({ cssTheme, theme }: Theme) => ({
   display: 'flex',
   flexDirection: 'column',
   margin: 0, // resets browser default margin on figure element
-  marginTop: contentMargin,
-  marginBottom: contentMargin,
+  marginBottom: '2em',
 }));
 
 globalStyle(`${wrapper} img`, ({ cssTheme, theme }: Theme) => ({
   maxWidth: '100%',
 }));
 
-/**
- * Styles for https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-remark-images
- */
-globalStyle(`${wrapper} .gatsby-resp-image-wrapper`, ({ cssTheme, theme }: Theme) => ({
-  marginLeft: 'inherit !important',
+globalStyle(`${wrapper} > figcaption`, ({ cssTheme, theme }: Theme) => ({
+  marginBottom: '1.5em',
 }));
+
+globalStyle(`${wrapper} p + iframe`, ({ cssTheme, theme }: Theme) => ({
+  marginBottom: '1em',
+}));
+
+globalStyle(`${wrapper} iframe`, ({ cssTheme, theme }: Theme) => ({
+  maxWidth: `100%`,
+}));
+
+/**
+ * Code
+ */
+
+globalStyle(`${wrapper} > pre`, ({ cssTheme, theme }: Theme) => ({
+  marginBottom: '1.5em',
+}));
+
+globalStyle(`${wrapper} p + pre`, ({ cssTheme, theme }: Theme) => ({
+  marginBottom: '1.5em',
+}));
+
+globalStyle(`${wrapper} pre + p`, ({ cssTheme, theme }: Theme) => ({
+  marginBottom: '1.5em',
+}));
+
+// globalStyle(`${wrapper} p + pre + h1,h2,h3,h4,h5,h6`, ({ cssTheme, theme }: Theme) => ({
+//   marginBottom: 0,
+// }));
+
+globalStyle(`${wrapper} ul + pre`, ({ cssTheme, theme }: Theme) => ({
+  marginBottom: '1.5em',
+}));
+
+globalStyle(`${wrapper} pre + pre`, ({ cssTheme, theme }: Theme) => ({
+  marginBottom: '2em',
+}));
+
+globalStyle(`${wrapper} ul + p + pre`, ({ cssTheme, theme }: Theme) => ({
+  marginBottom: '1.125em',
+}));
+
+/**
+ * Styles for text element
+ */
+
+/**
+ * Styles for list items
+ */
+
+/**
+ * Styles for tables
+ */
 
 /**
  * Styles for kbd element
@@ -212,16 +247,4 @@ globalStyle(`${wrapper} kbd`, ({ cssTheme, theme }: Theme) => ({
   borderRadius: '3px',
   boxShadow: '0 1px 1px rgba(12,13,14,0.15), inset 0 1px 0 0 #fff',
   overflowWrap: 'break-word',
-}));
-
-/**
- * Code
- */
-
-globalStyle(`${wrapper} pre + pre`, ({ cssTheme, theme }: Theme) => ({
-  marginTop: halfcontentMargin,
-}));
-
-globalStyle(`${wrapper} p + pre`, ({ cssTheme, theme }: Theme) => ({
-  marginTop: contentMargin,
 }));

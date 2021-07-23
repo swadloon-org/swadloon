@@ -1,5 +1,5 @@
 ---
-name: Illustrations - 🖋
+title: Illustrations - 🖋
 description:
   Our illustrations extend our brand and vision into simple and accessible
   shapes and animations.

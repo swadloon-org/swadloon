@@ -1,5 +1,5 @@
 ---
-name: Breakpoints
+title: Breakpoints
 description:
 tags:
   - guidelines

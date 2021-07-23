@@ -1,4 +1,3 @@
-import isEqual from 'lodash/isEqual';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { Primitive } from '../primitive/primitive';
@@ -28,14 +27,7 @@ export const Stack = React.forwardRef<any, Props>(function Stack(
     '--desktop-gap': desktopGap || tabletGap || mobileGap,
   };
 
-  return <Primitive classNames={[styles.wrapper]} style={customStyle} {...props} ref={ref} />;
+  return (
+    <Primitive as={as} classNames={[styles.wrapper]} style={customStyle} {...props} ref={ref} />
+  );
 });
-
-function areEqual(prevProps: Props, nextProps: Props) {
-  const previousGap = prevProps.gap;
-  const nextGap = nextProps.gap;
-
-  const gapIsEquel = isEqual(previousGap, nextGap);
-
-  return false;
-}

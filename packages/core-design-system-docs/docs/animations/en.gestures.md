@@ -1,5 +1,5 @@
 ---
-name: Gesture - 👉
+title: Gesture - 👉
 description:
 tags:
   - animation

@@ -73,7 +73,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
       /**
        * Query for mdx files in /docs/
        */
-      const markdownFilesData = await graphql<GatsbyNodeMarkdownFilesQuery>(`
+      const markdownPages = await graphql<GatsbyNodeMarkdownFilesQuery>(`
         query GatsbyNodeMarkdownFiles {
           allFile(
             filter: {
@@ -98,9 +98,20 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
                 slug
                 excerpt
                 frontmatter {
-                  name
-                  tags
                   title
+                  subject
+                  tags
+                  description
+                  version
+                  published
+                  status
+                  deprecated
+                  editPageUrl
+                  nextPageLabel
+                  nextPageUrl
+                  componentStatus
+                  componentVersion
+                  componentTests
                 }
               }
             }
@@ -109,7 +120,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
       `);
 
       reporter.info(
-        `[${pluginOptions.pluginName}] got ${markdownFilesData?.data?.allFile?.nodes?.length} files for markdown pages`
+        `[${pluginOptions.pluginName}] got ${markdownPages?.data?.allFile?.nodes?.length} files for markdown pages`
       );
 
       /**
@@ -185,7 +196,15 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
         );
       }
 
-      markdownFilesData?.data?.allFile.nodes.forEach((node, index) => {
+      markdownPages?.data?.allFile.nodes.forEach((node, index) => {
+        const renderUnpublishedDocsPages = pluginOptions.features.renderUnpublishedDocsPages;
+        if (!renderUnpublishedDocsPages) {
+          // `renderUnpublishedDocsPages` === false, don't render pages marked with `published: 'false'`
+          if (node.childMdx?.frontmatter?.published === 'false') {
+            return;
+          }
+        }
+
         const sourceInstance = node.sourceInstanceName as SOURCE_INSTANCE_NAME;
         // for file src/docs/section/en.readme.mdx
 
@@ -208,7 +227,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
         const name = node.name;
         // nicely formated name for the node, defaults to frontmatter property e.g. 'Readme'
         const displayName = getPageFormattedName(
-          node.childMdx?.frontmatter?.name || nameWithoutLocale,
+          node.childMdx?.frontmatter?.title || nameWithoutLocale,
           {
             locale: locale,
           }
@@ -241,7 +260,9 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
             fileId: node.id,
             locale,
             layout,
+            sourceInstance,
             template,
+            frontmatter: node.childMdx?.frontmatter,
           },
           component,
         });

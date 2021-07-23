@@ -1,12 +1,12 @@
 ---
-name: Tabs
+title: Tabs
 description:
   Tabs are a set of layered sections of content, known as tab panels, that
   display one panel of content at a time. Each tab panel has an associated tab
   element, that when activated, displays the panel.
 tags:
   - molecule
-version: v1
+componentVersion: v1
 ---
 
 <!-- CODE IMPORTS -->

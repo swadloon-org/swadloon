@@ -1,11 +1,6 @@
 import { Variant } from '@newrade/core-design-system';
-import {
-  BoxV2,
-  Center,
-  globalThemeReversed,
-  PaddingProps,
-  useTreatTheme,
-} from '@newrade/core-react-ui/src';
+import { BoxV2, Center, PaddingProps, useTreatTheme } from '@newrade/core-react-ui/src';
+import { globalThemeReversed } from '@newrade/core-react-ui/src/global/global-theme-classnames';
 import { getMergedClassname } from '@newrade/core-react-ui/src/utilities';
 import { SectionBaseLayout, SectionPadding } from '@newrade/core-website-api';
 import React from 'react';
@@ -42,7 +37,7 @@ export const SectionBase = React.forwardRef<HTMLElement, Props>(
      * Styling
      */
     const { cssTheme } = useTreatTheme();
-    const { styles } = useStyles(styleRefs);
+    const styles = useStyles(styleRefs);
     const classNames = getMergedClassname([
       className,
       styles.wrapper,

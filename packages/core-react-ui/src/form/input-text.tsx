@@ -1,5 +1,5 @@
-import Cleave from 'cleave.js/react';
-import { Props as CleaveProps } from 'cleave.js/react/props';
+import loadable from '@loadable/component';
+import type { Props as CleaveProps } from 'cleave.js/react/props';
 import React, { InputHTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
 import { PrimitiveProps } from '../primitive/primitive.props';
@@ -11,6 +11,11 @@ type Props = PrimitiveProps<'input'> &
     cleaveProps?: CleaveProps;
     state?: 'rest' | 'error';
   };
+
+const LazyCleave = (props: CleaveProps) => {
+  const Cleave = loadable<any>(() => import('cleave.js/react'));
+  return <Cleave {...props}></Cleave>;
+};
 
 export const InputText = React.memo(
   React.forwardRef<HTMLInputElement, Props>(function InputText(
@@ -28,7 +33,7 @@ export const InputText = React.memo(
     const renderedId = id || cleaveProps?.id || props.name || '';
 
     const CleaveComp = cleaveProps ? (
-      <Cleave
+      <LazyCleave
         type={cleaveProps.type ? cleaveProps.type : type}
         htmlRef={(htmlRef) => (ref = htmlRef)}
         id={renderedId}
@@ -36,7 +41,7 @@ export const InputText = React.memo(
         className={classNames}
         {...props}
         {...cleaveProps}
-      ></Cleave>
+      ></LazyCleave>
     ) : null;
 
     return CleaveComp ? (

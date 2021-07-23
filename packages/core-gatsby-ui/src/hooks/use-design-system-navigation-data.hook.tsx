@@ -29,6 +29,22 @@ const query = graphql`
           locale
           layout
           template
+          frontmatter {
+            title
+            subject
+            tags
+            description
+            version
+            published
+            status
+            deprecated
+            editPageUrl
+            nextPageLabel
+            nextPageUrl
+            componentStatus
+            componentVersion
+            componentTests
+          }
         }
       }
     }

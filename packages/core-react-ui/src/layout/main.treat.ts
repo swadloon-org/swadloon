@@ -22,6 +22,9 @@ export const styles = {
     },
   })),
   navbar: style(({ cssTheme, theme }: Theme) => ({
+    paddingTop: `calc(${cssTheme.layout.var.navbarHeight})`,
+  })),
+  contentPadding: style(({ cssTheme, theme }: Theme) => ({
     paddingTop: `calc(${cssTheme.layout.var.navbarHeight} + ${cssTheme.sizing.var.x6})`,
   })),
   minHeight: style(({ cssTheme, theme }: Theme) => ({

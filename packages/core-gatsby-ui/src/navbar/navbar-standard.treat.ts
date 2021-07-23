@@ -54,7 +54,8 @@ export const langDesktop = style(({ theme, cssTheme }: Theme) => ({
 }));
 
 export const logo = style(({ theme, cssTheme }: Theme) => ({
-  height: 24,
+  height: `calc(0.45 * ${cssTheme.layout.var.navbarHeight})`,
+  maxHeight: 33,
 }));
 
 export const logoWrapper = style(({ theme, cssTheme }: Theme) => ({
@@ -69,13 +70,15 @@ export const logoWrapper = style(({ theme, cssTheme }: Theme) => ({
 }));
 
 export const logoDesktop = style(({ theme, cssTheme }: Theme) => ({
-  height: 28,
+  height: `calc(0.45 * ${cssTheme.layout.var.navbarHeight})`,
+  maxHeight: 50,
 }));
 
 export const logoDesktopWrapper = style(({ theme, cssTheme }: Theme) => ({
   gridArea: 'logo',
   display: 'none',
   justifySelf: 'flex-start',
+  height: `100%`,
 
   '@media': {
     [cssTheme.layout.media.desktopSmall]: {
@@ -85,11 +88,14 @@ export const logoDesktopWrapper = style(({ theme, cssTheme }: Theme) => ({
 }));
 
 export const navLinksDesktop = style(({ theme, cssTheme }: Theme) => ({
-  justifySelf: 'flex-end',
-  gridArea: 'nav',
   display: 'none',
+
+  gridArea: 'nav',
   gap: cssTheme.sizing.var.x4,
   gridAutoFlow: 'column',
+  justifySelf: 'flex-end',
+  alignItems: 'center',
+
   '@media': {
     [cssTheme.layout.media.desktopSmall]: {
       display: 'grid',

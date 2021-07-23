@@ -6,6 +6,6 @@ export const styles = {
     border: 'none',
     borderRight: `2px solid ${cssTheme.colors.colors.grey[100]}`,
     margin: 0,
-    height: `100%`,
+    height: `10px`,
   })),
 };

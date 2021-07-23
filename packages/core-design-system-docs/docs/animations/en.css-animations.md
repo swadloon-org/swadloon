@@ -1,5 +1,5 @@
 ---
-name: CSS Animation
+title: CSS Animation
 description:
 tags:
   - animation

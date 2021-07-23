@@ -7,7 +7,7 @@ export const styles = {
     maxWidth: '100%',
     justifySelf: 'flex-end',
     '@media': {
-      [cssTheme.layout.media.tablet]: {
+      [cssTheme.layout.media.desktopSmall]: {
         maxWidth: '80ch',
       },
     },
@@ -17,7 +17,7 @@ export const styles = {
     maxWidth: '100%',
     justifySelf: 'flex-start',
     '@media': {
-      [cssTheme.layout.media.tablet]: {
+      [cssTheme.layout.media.desktopSmall]: {
         maxWidth: '80ch',
       },
     },

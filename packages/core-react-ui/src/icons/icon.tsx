@@ -1,4 +1,6 @@
 import { ICON, ICON_SIZE } from '@newrade/core-design-system';
+import { snake } from 'case';
+import debug from 'debug';
 import React, { ErrorInfo } from 'react';
 import { useStyles } from 'react-treat';
 import { useCommonProps } from '../hooks/use-common-props.hook';
@@ -6,6 +8,10 @@ import { useTreatTheme } from '../hooks/use-treat-theme';
 import { PrimitiveProps } from '../primitive/primitive.props';
 import * as styleRefs from './icon.treat';
 import { useIconContext } from './icons-provider';
+
+const log = debug('newrade:core-react-ui:icon');
+const logWarn = log.extend('warn');
+const logError = log.extend('error');
 
 type Props = PrimitiveProps<'svg'> & {
   name: ICON;
@@ -41,20 +47,29 @@ export const IconLoader: React.FC<Props> = ({
     return <>✳️</>;
   };
 
+  if (!name) {
+    logWarn('name must be passed to IconComp');
+    return <IconNotFoundError />;
+  }
+
   if (!context) {
-    console.log('Icon must be use in <IconProvider/>');
+    logWarn('Icon must be use in <IconProvider/>');
     return <IconNotFoundError />;
   }
 
   if (!context.iconComponents) {
-    console.log('iconComponents={} must be set on <IconProvider/>');
+    logWarn('iconComponents={} must be set on <IconProvider/>');
     return <IconNotFoundError />;
   }
 
-  const IconComponent = context.iconComponents[name];
+  const IconComponent = context.iconComponents[name]
+    ? context.iconComponents[name]
+    : context.iconComponents[snake(name).toUpperCase()];
 
   if (!IconComponent) {
-    console.log('iconComponents={} must be set on <IconProvider/>');
+    logWarn(`icon ${name} was not found`);
+    logWarn(`tried with: ${name}`);
+    logWarn(`tried with: ${snake(name).toUpperCase()}`);
     return <IconNotFoundError />;
   }
 

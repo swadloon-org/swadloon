@@ -1,5 +1,5 @@
 ---
-name: Blocks
+title: Blocks
 description:
   High-level components to render text, markdown content, images, medias etc.
 tags:

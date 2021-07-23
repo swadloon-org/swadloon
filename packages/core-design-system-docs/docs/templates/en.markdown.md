@@ -1,5 +1,5 @@
 ---
-name: Markdown Elements
+title: Markdown Elements
 description:
 tags:
   - markdown
@@ -10,20 +10,11 @@ export const lorenipsum =
 
 <DocHeader props={props}/>
 
-## Content sectioning
-
-> Content sectioning elements allow you to organize the document content into
-> logical pieces. Use the sectioning elements to create a broad outline for your
-> page content, including header and footer navigation, and heading elements to
-> identify sections of content.
-> [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element#content_sectioning)
-
-### Headings
-
 # Heading H1
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, qui
+
 nostrud exercitation ullamco laboris esse cillum dolore eu fugiat nulla
 pariatur.
 
@@ -33,6 +24,10 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
 nostrud exercitation ullamco laboris esse cillum dolore eu fugiat nulla
 pariatur.
+
+- <p><strong>Some text:</strong> {lorenipsum}</p><br/><p><strong>Some text:</strong> {lorenipsum}</p>
+- <p>{lorenipsum}</p>
+- <p>{lorenipsum}</p>
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
 incididunt ut esse cillum dolore eu fugiat nulla pariatur.
@@ -50,6 +45,17 @@ incididunt ut nisi ut aliquip ex ea commodo consequat.
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
 incididunt ut nisi ut aliquip ex ea commodo consequat.
 
+# Heading H1 + H2
+
+## Heading H2 + H3
+
+### Heading H3 + H4
+
+#### Heading H4 + p
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+incididunt ut nisi ut aliquip ex ea commodo consequat.
+
 ### Details & Summary
 
 <details>
@@ -57,9 +63,15 @@ incididunt ut nisi ut aliquip ex ea commodo consequat.
   <p>{lorenipsum}</p>
 </details>
 
----
-
 ## Text content
+
+### Quotes
+
+> Content sectioning elements allow you to organize the document content into
+> logical pieces. Use the sectioning elements to create a broad outline for your
+> page content, including header and footer navigation, and heading elements to
+> identify sections of content.
+> [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element#content_sectioning)
 
 > Use HTML text content elements to organize blocks or sections of content
 > placed between the opening `<body>` and closing `</body>` tags. Important for
@@ -85,34 +97,61 @@ incididunt ut nisi ut aliquip ex ea commodo consequat.
 
 #### Unordered
 
+With short text
+
 - List item
 - List item
 - List item
 
+With longer text
+
+- <p><strong>Some text:</strong> {lorenipsum}</p>
+- <p>{lorenipsum}</p>
+- <p>{lorenipsum}</p>
+
+With custom bullet
+
+<ul>
+  <li data-custom-bullet="✅">No need to restore cache from `npm` or `yarn` installs since the machine is
+  not destroyed after each build</li>
+  <li data-custom-bullet="✅">Easier to debug build issues since we can `ssh` in the machine and inspect
+  the working directories.</li>
+</ul>
+
 #### Ordered
+
+With short text
 
 1. List item
 2. List item
 3. List item
 4. List item
 
+With longer text
+
+1. <p>{lorenipsum}</p>
+2. <p>{lorenipsum}</p>
+3. <p>{lorenipsum}</p>
+4. <p>{lorenipsum}</p>
+
 #### Nested List
 
 1. List item
-   1. List item
-   2. List item
+   1. <p>{lorenipsum}</p>
+   2. <p>{lorenipsum}</p>
 2. List item
-   1. List item
+   1. List item with `code` List item with
+      1. <p>{lorenipsum}</p>
 3. List item
+   1. List item
 
-#### Checkboxes
+<!-- TODO -->
+<!-- #### Checkboxes
 
 - [ ] lorenipsum
 - [ ] lorenipsum
 - [ ] lorenipsum
-- [ ] lorenipsum
-
----
+- [ ] lorenipsum -->
 
 ## Inline text semantics
 
@@ -138,7 +177,11 @@ Please, input "<kbd>Yes</kbd>" or "<kbd>No</kbd>"
 
 ### Code
 
-Inline `code`
+#### Inline Code
+
+`code` `ENV`
+
+#### Code Blocks
 
 ```tsx
 /**
@@ -201,8 +244,6 @@ _[HTML]: Hyper Text Markup Language _[W3C]: World Wide Web Consortium
   <option value="Safari" />
 </datalist>
 
----
-
 ## Demarcating edits
 
 Now some inline markup like _italics_, **bold**, and `code()`. Note that
@@ -221,8 +262,6 @@ There is <del>nothing</del> <ins>no code</ins> either <em>good</em> or bad, but
 
 <ins>running it</ins> makes it so.
 
----
-
 ## Table content
 
 ### Tables
@@ -235,8 +274,6 @@ There is <del>nothing</del> <ins>no code</ins> either <em>good</em> or bad, but
 | loren |    loren     |       loren | loren      |
 | loren |    loren     |       loren | loren      |
 
----
-
 ## Image and multimedia
 
 ![picture alt](https://interactive-examples.mdn.mozilla.net/media/cc0-images/elephant-660-480.jpg 'Title is optional')
@@ -248,7 +285,3 @@ There is <del>nothing</del> <ins>no code</ins> either <em>good</em> or bad, but
   ></img>
   <figcaption>An elephant at sunset</figcaption>
 </figure>
-
-## Forms
-
----

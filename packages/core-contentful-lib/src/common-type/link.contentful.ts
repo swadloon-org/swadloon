@@ -4,7 +4,7 @@ import { CONTENTFUL_WIDGET } from '../../types/contentful-widget-ids';
 import { ContentType, LinkComponent, LinkType } from '@newrade/core-website-api';
 import { COMMON_FIELD, urlField } from './common-fields.contentful';
 import { keys } from '../utilities';
-import { ICON, Variant } from '@newrade/core-design-system';
+import { ComponentSize, ICON, Variant } from '@newrade/core-design-system';
 
 export const createLink: Migration.MigrationFunction = function (migration) {
   const content = migration.createContentType(ContentType.LINK, {
@@ -70,6 +70,23 @@ export const createLink: Migration.MigrationFunction = function (migration) {
   });
   content.changeFieldControl(COMMON_FIELD.COMPONENT, 'builtin', CONTENTFUL_WIDGET.RADIO, {
     helpText: 'Select the component to render the link',
+  });
+
+  /**
+   * Size of the link component (does not apply to all component)
+   */
+  content.createField(COMMON_FIELD.SIZE, {
+    name: pascal(COMMON_FIELD.SIZE),
+    type: 'Symbol',
+    required: false,
+    validations: [
+      {
+        in: keys(ComponentSize),
+      },
+    ],
+  });
+  content.changeFieldControl(COMMON_FIELD.SIZE, 'builtin', CONTENTFUL_WIDGET.RADIO, {
+    helpText: 'Select the size for the component (does not apply to all components)',
   });
 
   content.createField(COMMON_FIELD.ICON, {

@@ -59,7 +59,9 @@ const config: core.GastbySiteConfig = {
     }),
     core.getGatsbyPluginCatchLinks(),
     core.getGatsbyReactSvgrSvgoConfig(),
-    ...core.getGastbyPluginPageCreatorConfig(),
+    ...core.getGastbyPluginPageCreatorConfig({
+      coreDocsMdxPages: true,
+    }),
     core.getGastbyPluginTreatConfig(),
     core.getGastbyPluginVanilla(),
     core.getGatsbyPluginPostCSS(),

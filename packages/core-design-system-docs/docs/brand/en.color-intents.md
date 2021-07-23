@@ -1,5 +1,5 @@
 ---
-name: Color Intents - 🌈
+title: Color Intents - 🌈
 description:
 
 tags:

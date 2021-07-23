@@ -55,19 +55,18 @@ export const defaultTypography: Typography = {
     letterSpacing: -2,
     mobile: {
       h1: {
-        capHeight: 24,
+        capHeight: 26,
         lineGap: 20,
         letterSpacing: -3,
       },
       h2: {
-        capHeight: 18,
+        capHeight: 20,
         lineGap: 18,
-        letterSpacing: -3,
       },
       h3: {
         capHeight: 16,
         lineGap: 16,
-        letterSpacing: -3,
+        fontWeight: 600,
       },
       h4: {
         capHeight: 14,
@@ -78,40 +77,43 @@ export const defaultTypography: Typography = {
     tablet: {
       h1: {
         capHeight: 26,
-        lineGap: 18,
+        lineGap: 20,
         letterSpacing: -3,
       },
       h2: {
-        capHeight: 22,
-        lineGap: 16,
+        capHeight: 20,
+        lineGap: 18,
       },
       h3: {
-        capHeight: 18,
-        lineGap: 14,
+        capHeight: 16,
+        lineGap: 16,
+        fontWeight: 600,
       },
       h4: {
         capHeight: 14,
         lineGap: 14,
-        fontWeight: 700,
+        fontWeight: 600,
       },
     },
     desktop: {
       h1: {
-        fontSize: 40,
+        fontSize: 36,
         lineGap: 18,
         letterSpacing: -3,
       },
       h2: {
-        fontSize: 26,
+        fontSize: 28,
         lineGap: 16,
       },
       h3: {
         fontSize: 20,
         lineGap: 14,
+        fontWeight: 600,
       },
       h4: {
-        fontSize: 18,
+        fontSize: 16,
         lineGap: 14,
+        fontWeight: 600,
       },
     },
   },
@@ -134,15 +136,15 @@ export const defaultTypography: Typography = {
       },
       medium: {
         fontSize: 16,
-        lineGap: 16,
+        lineGap: 14,
       },
       small: {
         fontSize: 14,
-        lineGap: 14,
+        lineGap: 12,
       },
       xSmall: {
         fontSize: 12,
-        lineGap: 12,
+        lineGap: 10,
       },
     },
     tablet: {
@@ -152,15 +154,15 @@ export const defaultTypography: Typography = {
       },
       medium: {
         fontSize: 16,
-        lineGap: 16,
+        lineGap: 14,
       },
       small: {
         fontSize: 14,
-        lineGap: 14,
+        lineGap: 12,
       },
       xSmall: {
         fontSize: 12,
-        lineGap: 12,
+        lineGap: 10,
       },
     },
     desktop: {
@@ -170,15 +172,15 @@ export const defaultTypography: Typography = {
       },
       medium: {
         fontSize: 16,
-        lineGap: 16,
+        lineGap: 14,
       },
       small: {
         fontSize: 14,
-        lineGap: 14,
+        lineGap: 12,
       },
       xSmall: {
         fontSize: 12,
-        lineGap: 12,
+        lineGap: 10,
       },
     },
   },
@@ -230,15 +232,15 @@ export const defaultTypography: Typography = {
     },
     desktop: {
       medium: {
-        capHeight: 13,
+        fontSize: 15,
         lineGap: 12,
       },
       small: {
-        capHeight: 10,
+        fontSize: 13,
         lineGap: 12,
       },
       xSmall: {
-        capHeight: 8,
+        fontSize: 11,
         lineGap: 12,
       },
     },

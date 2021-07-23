@@ -1,5 +1,5 @@
 ---
-name: Spacing
+title: Spacing
 description:
 tags:
   - guidelines

@@ -69,7 +69,12 @@
     // terminals
     //
     "terminal.integrated.enablePersistentSessions": false,
-    "terminal.integrated.environmentChangesRelaunch": false
+    "terminal.integrated.environmentChangesRelaunch": false,
+    //
+    // auto-rename plugins
+    //
+    "auto-rename-tag.activationOnLanguage": ["jsx", "tsx", "html", "svg"],
+    "auto-close-tag.activationOnLanguage": ["jsx", "tsx", "html", "svg"]
   },
   "extensions": {
     "recommendations": [

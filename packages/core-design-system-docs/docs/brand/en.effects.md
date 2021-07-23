@@ -1,5 +1,5 @@
 ---
-name: Effects - ✨
+title: Effects - ✨
 description:
   Effects are often used as a visual indication to help differentiate the
   various levels of an interface.

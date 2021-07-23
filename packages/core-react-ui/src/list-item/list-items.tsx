@@ -44,7 +44,14 @@ export const ListItems: React.FC<Props> = React.memo(
      * Render
      */
     return (
-      <Stack as={as} id={id} style={style} className={allClassName} gap={gap || [`2em`]} {...props}>
+      <Stack
+        as={as}
+        id={id}
+        style={style}
+        className={allClassName}
+        gap={gap || [`0.6em`]}
+        {...props}
+      >
         {renderedChildren}
       </Stack>
     );

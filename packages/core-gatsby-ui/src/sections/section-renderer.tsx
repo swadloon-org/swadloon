@@ -1,6 +1,6 @@
 import { useCommonProps, useTreatTheme } from '@newrade/core-react-ui/src';
 import { keys } from '@newrade/core-react-ui/src/utilities';
-import { SectionAPI, SectionLayout } from '@newrade/core-website-api';
+import { BlockType, SectionAPI, SectionLayout } from '@newrade/core-website-api';
 import debug from 'debug';
 import React, { PropsWithChildren } from 'react';
 import { useInView } from 'react-intersection-observer';
@@ -301,8 +301,8 @@ export function SectionRenderer<
      * Banner
      */
     case SectionLayout.banner: {
-      const backgroundBlock = blocks?.[0];
-      const contentBlock = blocks?.[1];
+      const backgroundBlock = blocks?.find((block) => block?.type === BlockType.imageBackground);
+      const contentBlock = blocks?.find((block) => block?.type === BlockType.text);
 
       if (!backgroundBlock || !contentBlock) {
         logWarn(`both blocks must be set for SectionBanner ${section.name}`);
@@ -335,13 +335,8 @@ export function SectionRenderer<
      * Banner
      */
     case SectionLayout.callout: {
-      const backgroundBlock = blocks?.[0];
-      const contentBlock = blocks?.[1];
-
-      if (!backgroundBlock || !contentBlock) {
-        logWarn(`both blocks must be set for SectionBanner ${section.name}`);
-        return null;
-      }
+      const backgroundBlock = blocks?.find((block) => block?.type === BlockType.imageBackground);
+      const contentBlock = blocks?.find((block) => block?.type === BlockType.text);
 
       return (
         <SectionBanner
@@ -349,11 +344,13 @@ export function SectionRenderer<
           section={section}
           inView={inView}
           BackgroundBlock={
-            <BlockRenderer<CustomBlockVariants>
-              blockComponents={blockComponents}
-              block={backgroundBlock}
-              inView={sectionInView}
-            />
+            backgroundBlock ? (
+              <BlockRenderer<CustomBlockVariants>
+                blockComponents={blockComponents}
+                block={backgroundBlock}
+                inView={sectionInView}
+              />
+            ) : null
           }
           ContentBlock={
             <BlockRenderer<CustomBlockVariants>

@@ -1,5 +1,5 @@
 ---
-name: Inputs
+title: Inputs
 description:
 tags:
   - molecule

@@ -1,5 +1,5 @@
 ---
-name: Icon
+title: Icon
 
 description:
   The icon component renders svg icon based on the design system configuration.

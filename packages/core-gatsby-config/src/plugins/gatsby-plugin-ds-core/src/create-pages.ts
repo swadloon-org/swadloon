@@ -208,7 +208,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
         const name = node.name;
         // nicely formated name for the node, defaults to frontmatter property e.g. 'Readme'
         const displayName = getPageFormattedName(
-          node.childMdx?.frontmatter?.name || nameWithoutLocale,
+          node.childMdx?.frontmatter?.title || nameWithoutLocale,
           {
             locale: locale,
           }

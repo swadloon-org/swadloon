@@ -1,5 +1,5 @@
 ---
-name: Animations
+title: Animations
 description:
   Motion is achieve by establishing a set of base principles that are used in
   components,

@@ -2,6 +2,9 @@ import React, { CSSProperties } from 'react';
 
 export type AsTypes = keyof React.ReactHTML | keyof React.ReactSVG;
 
+/**
+ * Base props that components can handle
+ */
 export type PrimitiveProps<As extends AsTypes = 'div'> = Partial<{
   /**
    * Uses React.createElement with as as the element type.
@@ -47,6 +50,11 @@ export type PrimitiveProps<As extends AsTypes = 'div'> = Partial<{
    * Inverse components colors
    */
   theme?: 'normal' | 'reversed';
+  /**
+   * Preset for component's sizes
+   * @version 2
+   */
+  // size?: 'xSmall' | 'small' | 'medium' | 'large';
 }> &
   // 'ref' points to the legacy ref so we remove it
   Omit<JSX.IntrinsicElements[As], 'ref'>;

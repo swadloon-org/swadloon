@@ -4,7 +4,6 @@ import {
   Button,
   Center,
   Cluster,
-  globalThemeReversed,
   IconComp,
   Label,
   Logo,
@@ -14,6 +13,7 @@ import {
   usePreventPinchZoom,
   useTreatTheme,
 } from '@newrade/core-react-ui/src';
+import { globalThemeReversed } from '@newrade/core-react-ui/src/global/global-theme-classnames';
 import { IoClose } from '@react-icons/all-files/io5/IoClose';
 import { IoMenu } from '@react-icons/all-files/io5/IoMenu';
 import React, { useRef } from 'react';
@@ -53,6 +53,13 @@ type Props = PrimitiveProps & {
    * callback when the mobile menu is clicked
    */
   onClickMenuButton?: (event: React.MouseEvent) => void;
+  /**
+   * Enable or disable the navbar layout mode button
+   */
+  enableLayoutModeButton?: boolean;
+  /**
+   * Controls the width of the main content
+   */
   layoutMode?: 'centered' | 'full-width';
   /**
    * callback when the layout mode is clicked
@@ -146,18 +153,20 @@ export const NavbarDocs: React.FC<Props> = function NavbarDocs(props) {
             </Cluster>
 
             <Cluster justifyContent={['space-between']} gap={[cssTheme.sizing.var.x4]}>
-              <Button
-                icon={ButtonIcon.icon}
-                variant={Variant.tertiary}
-                Icon={
-                  <IconComp
-                    name={props.layoutMode === 'centered' ? ICON.LAYOUT_CENTER : ICON.LAYOUT_WIDE}
-                    style={{ height: 24, width: 24 }}
-                  ></IconComp>
-                }
-                aria-label={'Search button'}
-                onClick={props.onLayoutModeChange}
-              ></Button>
+              {props.enableLayoutModeButton ? (
+                <Button
+                  icon={ButtonIcon.icon}
+                  variant={Variant.tertiary}
+                  Icon={
+                    <IconComp
+                      name={props.layoutMode === 'centered' ? ICON.LAYOUT_CENTER : ICON.LAYOUT_WIDE}
+                      style={{ height: 24, width: 24 }}
+                    ></IconComp>
+                  }
+                  aria-label={'Search button'}
+                  onClick={props.onLayoutModeChange}
+                ></Button>
+              ) : null}
 
               <Switch
                 value={'on'}

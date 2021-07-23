@@ -1,4 +1,5 @@
 import { GatsbyMarkdownFilePageContext } from '@newrade/core-gatsby-config';
+import { MarkdownTemplateQuery } from '@newrade/core-gatsby-config/lib/esm/config/site-graphql-types';
 import {
   Center,
   getMetaBasicTags,
@@ -11,7 +12,6 @@ import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
 import Helmet from 'react-helmet';
 import { useStyles } from 'react-treat';
-import { MarkdownTemplateQuery } from '../../types/site-graphql-types';
 import * as styleRefs from './docs.treat';
 
 export type MarkdownTemplateProps = PageProps<MarkdownTemplateQuery, GatsbyMarkdownFilePageContext>;
@@ -27,7 +27,6 @@ export const markdownTemplateQuery = graphql`
         excerpt(pruneLength: 160)
         frontmatter {
           title
-          name
           tags
         }
         timeToRead
@@ -35,7 +34,7 @@ export const markdownTemplateQuery = graphql`
           value
           depth
         }
-        tableOfContents(maxDepth: 3)
+        tableOfContents(maxDepth: 2)
         body
       }
     }

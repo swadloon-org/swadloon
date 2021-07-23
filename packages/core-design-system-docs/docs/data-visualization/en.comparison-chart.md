@@ -1,5 +1,5 @@
 ---
-name: Comparison Charts
+title: Comparison Charts
 tags:
   - components
   - data-viz

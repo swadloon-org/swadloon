@@ -1,5 +1,5 @@
 ---
-name: Colors - 🌈
+title: Colors - 🌈
 description:
   Colors allow users to apply color in a design system in a meaningful way based
   on the primary and seconday colors of a brand.

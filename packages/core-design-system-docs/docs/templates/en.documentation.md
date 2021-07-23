@@ -1,5 +1,5 @@
 ---
-name: Documentation Templates
+title: Documentation Templates
 tags:
   - templates
   - overview

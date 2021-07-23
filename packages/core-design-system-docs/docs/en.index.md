@@ -1,5 +1,5 @@
 ---
-name: Design System Overview
+title: Design System Overview
 description:
   These are the principles that shape how we design every aspect of user
   interfaces.
@@ -72,8 +72,8 @@ references and design systems.
 
 - [Design System Checklist](https://www.designsystemchecklist.com/): _An
   open-source checklist to help you plan, build and grow your design system._
-- [Color within Constraints](https://medium.com/tap-to-dismiss/color-within-constraints-d6f777a3b72d):
-  _A scalable color system for digital products_
+- [Color within Constraints](https://medium.com/tap-to-dismiss/color-within-constraints-d6f777a3b72d):&nbsp;_A
+  scalable color system for digital products_
 
 ### Notable Design Systems
 

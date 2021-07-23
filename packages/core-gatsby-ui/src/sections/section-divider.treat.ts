@@ -8,7 +8,7 @@ export const styles = {
     maxWidth: '100%',
     justifySelf: 'flex-end',
     '@media': {
-      [cssTheme.layout.media.tablet]: {
+      [cssTheme.layout.media.desktopSmall]: {
         maxWidth: '80ch',
         padding: `${cssTheme.sizing.var.x7} ${cssTheme.layout.var.contentMargins}`,
       },
@@ -20,7 +20,7 @@ export const styles = {
     minHeight: `50vh`,
     maxWidth: '100%',
     '@media': {
-      [cssTheme.layout.media.tablet]: {
+      [cssTheme.layout.media.desktopSmall]: {
         width: '50vw',
       },
     },

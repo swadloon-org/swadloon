@@ -2,7 +2,6 @@ import {
   ButtonIcon,
   ButtonSize,
   ICON,
-  LinkIcon,
   LOGO,
   PARAGRAPH_SIZE,
   Variant,
@@ -18,10 +17,11 @@ import {
   useCommonProps,
   useTreatTheme,
 } from '@newrade/core-react-ui/src';
-import { LinkType, NavComponent } from '@newrade/core-website-api';
+import { LinkAPI, NavComponent } from '@newrade/core-website-api';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { GatsbyLink } from '../links/gatsby-link';
+import { LinkRenderer } from '../links/link-renderer';
 import { NavbarBase } from './navbar-base';
 import * as styleRefs from './navbar-standard.treat';
 import { NavbarProps } from './navbar.props';
@@ -47,6 +47,7 @@ export const NavbarStandard = React.forwardRef<any, Props>(
       <NavbarBase navbar={navbar} ref={ref} contentClassName={styles.content} {...commonProps}>
         {/* Mobile */}
 
+        {/* Menu button */}
         <Button
           aria-pressed={true}
           aria-label={'Menu'}
@@ -59,6 +60,7 @@ export const NavbarStandard = React.forwardRef<any, Props>(
           onClick={onClickMenuButton}
         ></Button>
 
+        {/* Centered square logo & link */}
         <BoxV2
           aria-label={'Home'}
           draggable={false}
@@ -70,10 +72,16 @@ export const NavbarStandard = React.forwardRef<any, Props>(
           <Logo name={LOGO.SYMBOL} className={styles.logo}></Logo>
         </BoxV2>
 
-        <Link className={styles.lang}>FR</Link>
+        {/* Language link */}
+        <Link className={styles.lang} AsElement={<GatsbyLink to={'/fr/'} />}>
+          FR
+        </Link>
 
-        {/* Desktop */}
+        {/*
+         * Desktop
+         */}
 
+        {/* Standard logo & link */}
         <BoxV2
           draggable={false}
           aria-label={'Home'}
@@ -103,29 +111,7 @@ export const NavbarStandard = React.forwardRef<any, Props>(
                   gap={[cssTheme.sizing.var.x4, cssTheme.sizing.var.x4, cssTheme.sizing.var.x3]}
                 >
                   {links?.map((link, id) => {
-                    if (link?.type === LinkType.externalUrl) {
-                      return (
-                        <Link
-                          key={id}
-                          variantSize={PARAGRAPH_SIZE.small}
-                          href={link?.url || ' '}
-                          variantIcon={LinkIcon.right}
-                          Icon={<IconComp name={ICON.OPEN}></IconComp>}
-                        >
-                          {link?.label || link?.url || ' '}
-                        </Link>
-                      );
-                    }
-
-                    return (
-                      <Link
-                        key={id}
-                        variantSize={PARAGRAPH_SIZE.small}
-                        AsElement={<GatsbyLink to={link?.page?.slug || ''} />}
-                      >
-                        {link?.label || ' '}
-                      </Link>
-                    );
+                    return <LinkRenderer key={id} link={link as LinkAPI}></LinkRenderer>;
                   })}
                 </Cluster>
               </Cluster>
@@ -134,7 +120,12 @@ export const NavbarStandard = React.forwardRef<any, Props>(
 
           <MenuSeparator />
 
-          <Link variantSize={PARAGRAPH_SIZE.small} className={styles.langDesktop}>
+          {/* Language link */}
+          <Link
+            variantSize={PARAGRAPH_SIZE.small}
+            className={styles.langDesktop}
+            AsElement={<GatsbyLink to={'/fr/'} />}
+          >
             FR
           </Link>
         </div>

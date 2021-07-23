@@ -20,7 +20,7 @@ export const primaryReversed = style(({ theme, cssTheme }: Theme) => ({}));
 globalStyle(
   `${globalThemeReversedSelector} ${primary}, ${primaryReversed}`,
   ({ theme, cssTheme }: Theme) => ({
-    backgroundColor: cssTheme.colors.colors.grey[900],
+    backgroundColor: cssTheme.colors.colors.grey[1000],
   })
 );
 
@@ -42,6 +42,6 @@ export const tertiaryReversed = style(({ theme, cssTheme }: Theme) => ({}));
 globalStyle(
   `${globalThemeReversedSelector} ${secondary}, ${tertiaryReversed}`,
   ({ theme, cssTheme }: Theme) => ({
-    backgroundColor: cssTheme.colors.colors.grey[900],
+    backgroundColor: cssTheme.colors.colors.grey[800],
   })
 );

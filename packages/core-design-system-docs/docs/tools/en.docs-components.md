@@ -1,5 +1,5 @@
 ---
-name: Docs Components
+title: Docs Components
 tags:
   - tools
 ---
