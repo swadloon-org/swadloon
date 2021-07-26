@@ -215,7 +215,7 @@
     "contentful-cli": "^1.6.37",
     "conventional-changelog-cli": "^2.0.34",
     "copy-webpack-plugin": "^6.4.1",
-    "core-js-pure": "^3.8.2",
+    "core-js-pure": "^3.15.2",
     "cross-env": "^7.0.3",
     "csp-html-webpack-plugin": "^5.1.0",
     "css-loader": "^5.2.6",
