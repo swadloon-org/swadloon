@@ -19,7 +19,7 @@ import {
   viewportContext,
   ViewportProvider,
 } from '@newrade/core-react-ui/src';
-import { SidebarLayout } from '@newrade/core-website-api/src';
+import { SidebarLayout } from '@newrade/core-website-api';
 import { PageProps } from 'gatsby';
 import React, { ReactNode } from 'react';
 import { useDocsNavigation } from '../hooks/use-docs-navigation-data.hook';

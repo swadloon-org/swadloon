@@ -18,7 +18,7 @@ import {
   useViewportBreakpoint,
 } from '@newrade/core-react-ui/src';
 import { Theme } from '@newrade/core-react-ui/src/design-system';
-import { SidebarLayout } from '@newrade/core-website-api/src';
+import { SidebarLayout } from '@newrade/core-website-api';
 import { PageProps } from 'gatsby';
 import React, { ReactNode } from 'react';
 import { ThemeWrapper } from '../context/theme-wrapper';

@@ -6,7 +6,7 @@ import type {
 import { title, kebab, capital, lower } from 'case';
 import { SITE_LANGUAGES } from '@newrade/core-common';
 import { Navigation } from '../navigation/navigation.model';
-import { NavComponent, NavigationAPI } from '@newrade/core-website-api/src';
+import { NavComponent, NavigationAPI } from '@newrade/core-website-api';
 
 /**
  * Simplified type for a Page Node

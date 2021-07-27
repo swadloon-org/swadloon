@@ -1,6 +1,6 @@
 // import { SITE_LANGUAGES } from '@newrade/core-common';
 // import { SOURCE_INSTANCE_NAME } from '@newrade/core-gatsby-config/lib/esm/config/gatsby-source-instances';
-// import { NavigationAPI } from '@newrade/core-website-api/src';
+// import { NavigationAPI } from '@newrade/core-website-api';
 // import { graphql, useStaticQuery } from 'gatsby';
 // import { getNavigationFromPageNodes } from '../utilities/navigation.utilities';
 
