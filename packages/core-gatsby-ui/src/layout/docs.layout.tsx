@@ -1,5 +1,6 @@
+import loadable from '@loadable/component';
 import { SITE_LANGUAGES } from '@newrade/core-common';
-import { HEADING, PARAGRAPH_SIZE, TagSize, Variant, VIEWPORT } from '@newrade/core-design-system';
+import { HEADING, PARAGRAPH_SIZE, TagSize, Variant } from '@newrade/core-design-system';
 import { GatsbyMarkdownFilePageContext } from '@newrade/core-gatsby-config';
 import { SOURCE_INSTANCE_NAME } from '@newrade/core-gatsby-config/lib/esm/config/gatsby-source-instances';
 import {
@@ -15,15 +16,28 @@ import {
   Stack,
   Tag,
   useTreatTheme,
-  useViewportBreakpoint,
   viewportContext,
   ViewportProvider,
 } from '@newrade/core-react-ui/src';
+import { SidebarLayout } from '@newrade/core-website-api/src';
 import { PageProps } from 'gatsby';
-import React, { ReactNode, useEffect, useState } from 'react';
+import React, { ReactNode } from 'react';
 import { useDocsNavigation } from '../hooks/use-docs-navigation-data.hook';
 import { GatsbyLink } from '../links/gatsby-link';
 import { NavbarDocs } from '../navbar/navbar-docs';
+import { useSidebarState } from '../sidebar/sidebar.hooks';
+
+/**
+ * Sidebar
+ */
+const LazySidebarStandard = loadable(
+  () => import(/* webpackExports: "SidebarStandard" */ '@newrade/core-gatsby-ui/src'),
+  {
+    resolveComponent: (
+      components: typeof import('@newrade/core-gatsby-ui/src/sidebar/sidebar-standard')
+    ) => components.SidebarStandard,
+  }
+);
 
 export type LayoutDocsProps = Partial<
   Omit<PageProps<any, GatsbyMarkdownFilePageContext>, 'children'> & { children: ReactNode }
@@ -49,27 +63,12 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
       : navigationCoreDocs;
 
   /**
-   * Handle sidebar events
+   * Sidebar
    */
-  const { viewport } = useViewportBreakpoint();
-  const [mobileSidebarOpened, setMobileSidebarOpened] = useState<boolean>(false);
-
-  useEffect(() => {
-    let timeout: number;
-    if (viewport === VIEWPORT.desktop) {
-      timeout = window.setTimeout(() => {
-        setMobileSidebarOpened(false);
-      }, 300);
-    }
-    return () => {
-      if (timeout !== undefined) {
-        window.clearTimeout(timeout);
-      }
-    };
-  }, [viewport]);
+  const [sidebarOpened, setSidebarOpened] = useSidebarState({ initial: false });
 
   function handleClickMenuButton(event: React.MouseEvent) {
-    setMobileSidebarOpened(!mobileSidebarOpened);
+    setSidebarOpened(!sidebarOpened);
   }
 
   const HomeLink = <GatsbyLink to={'/'} />;
@@ -99,9 +98,21 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
         maxWidth={'100%'}
         MenuLinks={MenuLinks}
         onClickMenuButton={handleClickMenuButton}
-        menuOpened={mobileSidebarOpened}
+        menuOpened={sidebarOpened}
         enableLayoutModeButton={false}
       ></NavbarDocs>
+
+      <LazySidebarStandard
+        sidebar={{
+          name: 'Docs Sidebar',
+          layout: SidebarLayout.standard,
+        }}
+        sidebarOpened={sidebarOpened}
+        onClickMenuButton={handleClickMenuButton}
+        onClickBackdrop={handleClickMenuButton}
+        activePathname={props.location?.pathname}
+        HomeLink={<GatsbyLink to={'/'} />}
+      ></LazySidebarStandard>
 
       <DesktopDocsSideBar>
         <BoxV2
