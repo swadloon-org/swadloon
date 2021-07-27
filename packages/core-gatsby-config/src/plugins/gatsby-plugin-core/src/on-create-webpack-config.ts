@@ -7,11 +7,19 @@ import regexEscape from 'regex-escape';
 import { RuleSetRule, RuleSetUseItem, Configuration } from 'webpack';
 import { GatsbyCorePluginOptions } from '../gatsby-plugin-options';
 
+/**
+ *
+ * @see 'node_modules/gatsby/dist/utils/webpack.config.js'
+ */
 export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] = (
   { stage, rules, loaders, plugins, actions, getConfig, reporter },
   options
 ) => {
   const pluginOptions = options as unknown as GatsbyCorePluginOptions;
+  const moduleToParseByBabel = [
+    'gatsby-plugin-image',
+    ...(pluginOptions.modules ? pluginOptions.modules : []),
+  ];
   const env = process.env as CommonEnvType;
   const isProduction = stage !== `develop`;
 
@@ -78,68 +86,68 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
   /**
    * Replace Gatsby default entry polyfill
    */
-  // if (
-  //   typeof config === 'object' &&
-  //   config.entry &&
-  //   (config.entry as Record<string, string>)['polyfill']
-  // ) {
-  //   delete (config.entry as Record<string, string>)['polyfill'];
-  // }
+  if (
+    typeof config === 'object' &&
+    config.entry &&
+    (config.entry as Record<string, string>)['polyfill']
+  ) {
+    delete (config.entry as Record<string, string>)['polyfill'];
+  }
 
   /**
    * Redefine optimization
    */
-  // if (typeof config === 'object') {
-  //   config.optimization = {
-  //     ...config.optimization,
-  //     ...{
-  //       splitChunks: {
-  //         chunks: 'async',
-  //         minSize: 20000,
-  //         minChunks: 1,
-  //         maxAsyncRequests: 30,
-  //         maxInitialRequests: 30,
-  //         enforceSizeThreshold: 50000,
-  //         automaticNameDelimiter: '~',
-  //         cacheGroups: {
-  //           polyfills: {
-  //             name: 'polyfills',
-  //             chunks: 'all',
-  //             test: /(polyfills?(-only)*\.js|fetch\.umd\.js)|[\\/]node_modules[\\/](core-js(-pure)?|@babel)[\\/]/,
-  //           },
-  //           prettier: {
-  //             name: 'prettier',
-  //             chunks: 'all',
-  //             test: /[\\/]node_modules[\\/](prettier)[\\/]/,
-  //           },
-  //           prism: {
-  //             name: 'prism',
-  //             chunks: 'all',
-  //             test: /[\\/]node_modules[\\/](prism).*[\\/]/,
-  //           },
-  //           react: {
-  //             name: 'react',
-  //             chunks: 'all',
-  //             test: /[\\/]node_modules[\\/](react|react-dom|scheduler)[\\/]/,
-  //           },
-  //           'react-icons': {
-  //             name: 'react-icons',
-  //             chunks: 'all',
-  //             test: /[\\/]node_modules[\\/](@react-icons|react-icons)[\\/]/,
-  //           },
-  //           gsap: {
-  //             name: 'gsap',
-  //             chunks: 'initial',
-  //             test: /[\\/]core-gsap-ui[\\/]|[\\/]node_modules[\\/](gsap)[\\/]/,
-  //           },
-  //         },
-  //       },
-  //       runtimeChunk: 'single',
-  //       moduleIds: 'named',
-  //       chunkIds: 'named',
-  //     },
-  //   };
-  // }
+  if (typeof config === 'object') {
+    config.optimization = {
+      ...config.optimization,
+      ...{
+        splitChunks: {
+          chunks: 'async',
+          minSize: 20000,
+          minChunks: 1,
+          maxAsyncRequests: 30,
+          maxInitialRequests: 30,
+          enforceSizeThreshold: 50000,
+          automaticNameDelimiter: '~',
+          cacheGroups: {
+            polyfills: {
+              name: 'polyfills',
+              chunks: 'all',
+              test: /(polyfills?(-only)*\.js|fetch\.umd\.js)|[\\/]node_modules[\\/](core-js(-pure)?|@babel)[\\/]/,
+            },
+            prettier: {
+              name: 'prettier',
+              chunks: 'all',
+              test: /[\\/]node_modules[\\/](prettier)[\\/]/,
+            },
+            prism: {
+              name: 'prism',
+              chunks: 'all',
+              test: /[\\/]node_modules[\\/](prism).*[\\/]/,
+            },
+            react: {
+              name: 'react',
+              chunks: 'all',
+              test: /[\\/]node_modules[\\/](react|react-dom|scheduler)[\\/]/,
+            },
+            'react-icons': {
+              name: 'react-icons',
+              chunks: 'all',
+              test: /[\\/]node_modules[\\/](@react-icons|react-icons)[\\/]/,
+            },
+            gsap: {
+              name: 'gsap',
+              chunks: 'initial',
+              test: /[\\/]core-gsap-ui[\\/]|[\\/]node_modules[\\/](gsap)[\\/]/,
+            },
+          },
+        },
+        runtimeChunk: 'single',
+        moduleIds: 'named',
+        chunkIds: 'named',
+      },
+    };
+  }
 
   /**
    * Replace Gatsby default babel config
@@ -173,22 +181,12 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
         exclude: (modulePath: string) =>
           /node_modules/.test(modulePath) &&
           // whitelist specific es6 module
-          pluginOptions.modules
-            ? !new RegExp(
-                `[\\\\/](${pluginOptions.modules
-                  .map((module) => module.replace(/\//, path.sep))
-                  .map(regexEscape)
-                  .join('|')})[\\\\/]`
-              ).test(modulePath)
-            : false,
-        // pluginOptions.modules
-        //   ? !new RegExp(
-        //       `node_modules[\\\\/](${pluginOptions.modules
-        //         .map((module) => module.replace(/\//, path.sep))
-        //         .map(regexEscape)
-        //         .join('|')})[\\\\/]`
-        //     ).test(modulePath)
-        //   : false,
+          !new RegExp(
+            `[\\\\/](${moduleToParseByBabel
+              .map((module) => module.replace(/\//, path.sep))
+              .map(regexEscape)
+              .join('|')})[\\\\/]`
+          ).test(modulePath),
       },
     ];
 
@@ -257,5 +255,6 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
 
   reporter.info(`replacing webpack config with modified one`);
 
-  actions.replaceWebpackConfig(config); // completely replace the webpack config with the modified object
+  // completely replace the webpack config with the modified one
+  actions.replaceWebpackConfig(config);
 };

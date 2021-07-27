@@ -8,6 +8,9 @@ import * as styleRefsReset from './global-reset-css.treat';
 
 type Props = {};
 
+// eslint-disable-next-line mdx/no-unused-expressions
+styleRefsReset.wrapper;
+
 /**
  * Injects global the theme's CSS variables.
  */

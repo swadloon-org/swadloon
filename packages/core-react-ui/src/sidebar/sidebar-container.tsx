@@ -1,10 +1,11 @@
+import { VIEWPORT } from '@newrade/core-design-system/src';
 import React, { useRef } from 'react';
-import { isMobile } from 'react-device-detect';
 import { useStyles } from 'react-treat';
 import { useDrag } from 'react-use-gesture';
 import { CSSAnimation, CSSAnimationHandle } from '../animation/css-animation';
 import { useBodyScrollLock } from '../hooks/use-body-scroll-lock';
 import { useFirstRender } from '../hooks/use-first-render.hook';
+import { useViewportBreakpoint } from '../hooks/use-viewport';
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { getMergedClassname } from '../utilities/component.utilities';
 import * as styleRefs from './sidebar-container.treat';
@@ -33,6 +34,7 @@ export const SidebarContainer = React.forwardRef<HTMLElement, Props>(
     ref
   ) => {
     const { styles } = useStyles(styleRefs);
+    const { viewport } = useViewportBreakpoint();
     const classNames = getMergedClassname([className, styles.wrapper]);
     const isFirstRender = useFirstRender();
 
@@ -44,7 +46,7 @@ export const SidebarContainer = React.forwardRef<HTMLElement, Props>(
     // todo merge refs and pass to css animation component
 
     const [locks, documentListenerAdded] = useBodyScrollLock({
-      disableDocumentScrolling: isMobile && disableBodyScroll && sidebarOpened,
+      disableDocumentScrolling: viewport === VIEWPORT.mobile && disableBodyScroll && sidebarOpened,
       ref: sideBarRef?.current?.ref,
     });
 

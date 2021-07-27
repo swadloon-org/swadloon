@@ -19,7 +19,9 @@
     "tsc:start": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
     "watch:assets": "onchange -i 'src/assets/**/*' -- yarn copy:assets"
   },
-  "sideEffects": false,
+  "sideEffects": [
+    "*.css"
+  ],
   "typings": "./lib/index.d.ts",
   "dependencies": {
     "@newrade/core-common": "^1.4.0",

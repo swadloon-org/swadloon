@@ -1,4 +1,5 @@
 import { IFixedObject, IFluidObject } from 'gatsby-background-image';
+import { IGatsbyImageData } from 'gatsby-plugin-image';
 import { PartialOrNull } from '../utilities';
 
 export type MediaAPI = PartialOrNull<{
@@ -15,6 +16,7 @@ export type MediaAPI = PartialOrNull<{
     file: any;
     fluid: IFluidObject;
     fixed: IFixedObject;
+    fullWidth: IGatsbyImageData;
   };
   backgroundPositionMobileY?: string;
   /**
@@ -26,6 +28,7 @@ export type MediaAPI = PartialOrNull<{
     file: any;
     fluid: IFluidObject;
     fixed: IFixedObject;
+    fullWidth: IGatsbyImageData;
   };
   backgroundPositionY?: string;
 }>;

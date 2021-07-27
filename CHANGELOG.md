@@ -24,6 +24,28 @@ are automated.
 - Renamed `<NavItemGroup/>` component to `<SidebarItemGroup/>`
 - Renamed `<TagStatus/>` component to `<Badge/>`
 - `frontmatter?.name` is now `frontmatter?.title`
+- removed the following components from `core-gatsby-ui` index:
+
+```ts
+export * from './docs-components/color-palette';
+export * from './docs-components/color-swatch-dark';
+export * from './docs-components/font-showcase';
+export * from './docs-components/icon-box';
+export * from './docs-components/icons';
+export * from './docs-components/logo-placeholder';
+export * from './docs-components/loren-ipsum';
+export * from './docs-components/page-header';
+export * from './docs-components/placeholder';
+export * from './docs-components/placeholder-markdown';
+export * from './docs-components/reversed-box';
+export * from './docs-components/scale-steps';
+export * from './docs-components/shadow-swatch';
+export * from './layout/design-system-lazy.layout';
+export * from './layout/docs-lazy.layout';
+export * from './mdx/docs-mdx-components';
+```
+
+- removed `config/gatsby-plugin-sharp.conf.ts (git)`
 
 ## Fixes
 

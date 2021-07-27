@@ -116,6 +116,7 @@ export function BlockRenderer<CustomBlockVariants extends string>({
       return (
         <ErrorBoundary>
           <BlockImageBackground
+            version={'v2'}
             inView={inView}
             block={blockImage}
             {...commonProps}

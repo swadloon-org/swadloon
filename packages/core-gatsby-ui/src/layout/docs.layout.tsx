@@ -29,7 +29,7 @@ export type LayoutDocsProps = Partial<
   Omit<PageProps<any, GatsbyMarkdownFilePageContext>, 'children'> & { children: ReactNode }
 > & {};
 
-export const LayoutDocs = React.memo<LayoutDocsProps>((props) => {
+export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
   const { cssTheme } = useTreatTheme();
 
   // Todo `locales` should prob be passed by the parent
@@ -182,4 +182,4 @@ export const LayoutDocs = React.memo<LayoutDocsProps>((props) => {
       </Main>
     </MainWrapper>
   );
-});
+};

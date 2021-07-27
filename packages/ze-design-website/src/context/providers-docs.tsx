@@ -1,6 +1,6 @@
 import { MDXProvider } from '@mdx-js/react';
 import { ICON, LOGO } from '@newrade/core-design-system';
-import { docsMdxComponents } from '@newrade/core-gatsby-ui/src';
+import { docsMdxComponents } from '@newrade/core-gatsby-ui/src/mdx/docs-mdx-components';
 import {
   IconProvider,
   LogosProvider,
@@ -10,7 +10,6 @@ import {
 } from '@newrade/core-react-ui/src';
 import { defaultCSSTheme, defaultTheme } from '@newrade/core-react-ui/src/default-theme';
 import { GlobalCSSVariables } from '@newrade/core-react-ui/src/global/global-css-variables';
-import { GlobalResetCSS } from '@newrade/core-react-ui/src/global/global-reset-css';
 import {
   ionicons5OutlineComponents,
   ioniconsOutlineConfig,
@@ -30,16 +29,14 @@ export const ProvidersDocs: React.FC = (props) => {
         <TreatThemeProvider theme={{ theme: defaultTheme, cssTheme: defaultCSSTheme }}>
           <MDXProvider components={docsMdxComponents}>
             <GlobalCSSVariables>
-              <GlobalResetCSS>
-                <LogosProvider<LOGO> logoComponents={logosComponents}>
-                  <IconProvider<ICON>
-                    {...ioniconsOutlineConfig}
-                    iconComponents={ionicons5OutlineComponents}
-                  >
-                    {props.children}
-                  </IconProvider>
-                </LogosProvider>
-              </GlobalResetCSS>
+              <LogosProvider<LOGO> logoComponents={logosComponents}>
+                <IconProvider<ICON>
+                  {...ioniconsOutlineConfig}
+                  iconComponents={ionicons5OutlineComponents}
+                >
+                  {props.children}
+                </IconProvider>
+              </LogosProvider>
             </GlobalCSSVariables>
           </MDXProvider>
         </TreatThemeProvider>

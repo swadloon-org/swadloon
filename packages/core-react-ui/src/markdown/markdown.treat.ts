@@ -6,8 +6,6 @@ export const wrapper = style(({ theme, cssTheme }: Theme) => ({
   flexDirection: 'column',
   width: '100%',
   maxWidth: '100%',
-  overflow: 'hidden',
-  paddingTop: 12, // fixes the case where some content's height is over the capital size of the text
 }));
 
 /**
@@ -32,15 +30,27 @@ globalStyle(`${wrapper} .gatsby-resp-image-wrapper`, ({ cssTheme, theme }: Theme
 
 /** Headings */
 
+globalStyle(
+  `${wrapper} > h1:not(:first-child), ${wrapper} > h2:not(:first-child)`,
+  ({ cssTheme, theme }: Theme) => ({
+    marginTop: '2em',
+  })
+);
+
 globalStyle(`${wrapper} > h1, ${wrapper} > h2`, ({ cssTheme, theme }: Theme) => ({
-  marginTop: '2em',
   marginBottom: '1.2em',
 }));
 
 globalStyle(
-  `${wrapper} > h3, ${wrapper} > h4, ${wrapper} > h5, ${wrapper} > h6`,
+  `${wrapper} > h3:not(:first-child), ${wrapper} > h4:not(:first-child), ${wrapper} > h5:not(:first-child), ${wrapper} > h6:not(:first-child)`,
   ({ cssTheme, theme }: Theme) => ({
     marginTop: '2em',
+  })
+);
+
+globalStyle(
+  `${wrapper} > h3, ${wrapper} > h4, ${wrapper} > h5, ${wrapper} > h6`,
+  ({ cssTheme, theme }: Theme) => ({
     marginBottom: '1.5em',
   })
 );

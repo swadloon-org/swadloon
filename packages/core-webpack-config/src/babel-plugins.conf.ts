@@ -13,8 +13,8 @@ export const babelPluginBrowserConf: ([string, object] | [string])[] = [
   [
     '@babel/plugin-transform-runtime',
     {
-      helpers: true,
       corejs: 3,
+      helpers: true,
       regenerator: true,
       useESModules: true, // https://babeljs.io/docs/en/babel-plugin-transform-runtime#useesmodules
     },

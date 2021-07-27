@@ -12,7 +12,7 @@ export const mediaCollectionFragment = graphql`
         file {
           url
         }
-        ...MobileFluidImage
+        ...DesktopFullWidth
       }
     }
   }
