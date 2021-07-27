@@ -11,8 +11,10 @@ export interface GastbySiteConfig extends Gatsby.GatsbyConfig {
     QUERY_ON_DEMAND: boolean;
     LAZY_IMAGES: boolean;
     PRESERVE_WEBPACK_CACHE: boolean;
+    DEV_WEBPACK_CACHE: boolean;
     PRESERVE_FILE_DOWNLOAD_CACHE: boolean;
     PARALLEL_SOURCING: boolean;
+    PARALLEL_QUERY_RUNNING: boolean;
     FUNCTIONS: boolean;
     LMDB_STORE: boolean;
   };
@@ -24,8 +26,10 @@ export const gatsbySiteFlags: GastbySiteConfig['flags'] = {
   QUERY_ON_DEMAND: true,
   LAZY_IMAGES: true,
   PRESERVE_WEBPACK_CACHE: true,
+  DEV_WEBPACK_CACHE: true,
   PRESERVE_FILE_DOWNLOAD_CACHE: true,
   PARALLEL_SOURCING: true,
+  PARALLEL_QUERY_RUNNING: true,
   FUNCTIONS: false,
-  LMDB_STORE: false,
+  LMDB_STORE: true,
 };

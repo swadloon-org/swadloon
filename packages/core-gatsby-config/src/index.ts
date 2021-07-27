@@ -7,7 +7,6 @@ export * from './config/gatsby-plugin-loadable-components.conf';
 export * from './config/gatsby-plugin-mdx.conf';
 export * from './config/gatsby-plugin-meta-redirect.conf';
 export * from './config/gatsby-plugin-netlify.conf';
-export * from './config/gatsby-plugin-pages.conf';
 export * from './config/gatsby-plugin-postcss.conf';
 export * from './config/gatsby-plugin-preload-fonts.conf';
 export * from './config/gatsby-plugin-react-helmet.conf';

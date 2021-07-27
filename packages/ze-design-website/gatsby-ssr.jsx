@@ -2,7 +2,7 @@
 import { GatsbySSR } from 'gatsby';
 import React from 'react';
 import { WrapElement } from './gatsby-wrap-element';
-import { Providers } from './src/context/providers';
+import { Providers } from './src/providers/providers';
 
 /**
  * Gatsby Server Rendering APIs
@@ -12,8 +12,8 @@ import { Providers } from './src/context/providers';
  */
 
 /** @type {GatsbySSR['wrapPageElement']} */
-// @ts-ignore
 export const wrapPageElement = (args) => {
+  // @ts-ignore
   return <WrapElement {...args} />;
 };
 

@@ -60,9 +60,6 @@ const config: core.GastbySiteConfig = {
     core.getGatsbyPluginCatchLinks(),
     core.getGatsbyReactSvgrSvgoConfig(),
     ...core.getGatsbyImagePlugins(),
-    ...core.getGastbyPluginPageCreatorConfig({
-      coreDocsMdxPages: true,
-    }),
     core.getGastbyPluginTreatConfig(),
     core.getGastbyPluginVanilla(),
     core.getGatsbyPluginPostCSS(),
@@ -73,13 +70,8 @@ const config: core.GastbySiteConfig = {
     core.getGatsbyPluginReactHelmet(),
     core.getGatsbyPluginSitemap(),
     core.getGatsbyPluginRobotsTxt({ env }),
-    core.getGastbyCorePluginConfig({
+    ...core.getGastbyCorePluginConfig({
       packageName: packageJson.name,
-      features: {
-        renderDesignSystemPages: true,
-        renderDocsPages: true,
-        renderUnpublishedDocsPages: true,
-      },
     }),
     core.getGatsbyPluginPreloadFonts(),
   ],

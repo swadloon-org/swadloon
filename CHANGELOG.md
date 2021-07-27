@@ -46,6 +46,14 @@ export * from './mdx/docs-mdx-components';
 ```
 
 - removed `config/gatsby-plugin-sharp.conf.ts (git)`
+- removed gatsby-plugin-pages.conf.ts (no longer needed)
+- updated plugin
+
+```ts
+    ...core.getGastbyCorePluginConfig({
+      packageName: packageJson.name,
+    }),
+```
 
 ## Fixes
 
@@ -83,8 +91,12 @@ remove gatsby from .env
 
 use
 
-```
+````
+
 flags: core.gatsbySiteFlags,
+
 ```
 
 instead.
+```
+````

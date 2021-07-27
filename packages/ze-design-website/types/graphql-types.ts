@@ -285,8 +285,10 @@ type SiteFlags = {
   readonly QUERY_ON_DEMAND: Maybe<Scalars['Boolean']>;
   readonly LAZY_IMAGES: Maybe<Scalars['Boolean']>;
   readonly PRESERVE_WEBPACK_CACHE: Maybe<Scalars['Boolean']>;
+  readonly DEV_WEBPACK_CACHE: Maybe<Scalars['Boolean']>;
   readonly PRESERVE_FILE_DOWNLOAD_CACHE: Maybe<Scalars['Boolean']>;
   readonly PARALLEL_SOURCING: Maybe<Scalars['Boolean']>;
+  readonly PARALLEL_QUERY_RUNNING: Maybe<Scalars['Boolean']>;
   readonly FUNCTIONS: Maybe<Scalars['Boolean']>;
   readonly LMDB_STORE: Maybe<Scalars['Boolean']>;
 };
@@ -727,8 +729,6 @@ type SitePluginPluginOptions = {
   readonly base64Width: Maybe<Scalars['Int']>;
   readonly stripMetadata: Maybe<Scalars['Boolean']>;
   readonly defaultQuality: Maybe<Scalars['Int']>;
-  readonly path: Maybe<Scalars['String']>;
-  readonly ignore: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
   readonly maxWidth: Maybe<Scalars['Int']>;
   readonly linkImagesToOriginal: Maybe<Scalars['Boolean']>;
   readonly showCaptions: Maybe<Scalars['Boolean']>;
@@ -749,6 +749,7 @@ type SitePluginPluginOptions = {
   readonly lessBabel: Maybe<Scalars['Boolean']>;
   readonly mediaTypes: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
   readonly root: Maybe<Scalars['String']>;
+  readonly path: Maybe<Scalars['String']>;
   readonly source: Maybe<Scalars['String']>;
   readonly destination: Maybe<Scalars['String']>;
   readonly purge: Maybe<Scalars['Boolean']>;
@@ -759,9 +760,25 @@ type SitePluginPluginOptions = {
   readonly host: Maybe<Scalars['String']>;
   readonly sitemap: Maybe<Scalars['String']>;
   readonly env: Maybe<SitePluginPluginOptionsEnv>;
+  readonly ignore: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
   readonly packageName: Maybe<Scalars['String']>;
   readonly pluginName: Maybe<Scalars['String']>;
-  readonly features: Maybe<SitePluginPluginOptionsFeatures>;
+  readonly renderPages: Maybe<Scalars['Boolean']>;
+  readonly pagesPath: Maybe<Scalars['String']>;
+  readonly pagesPathPrefix: Maybe<Scalars['String']>;
+  readonly renderMarkdownPages: Maybe<Scalars['Boolean']>;
+  readonly markdownPagesPath: Maybe<Scalars['String']>;
+  readonly markdownPagesPathPrefix: Maybe<Scalars['String']>;
+  readonly renderDocsPages: Maybe<Scalars['Boolean']>;
+  readonly docsPagesPath: Maybe<Scalars['String']>;
+  readonly docsPagesPathPrefix: Maybe<Scalars['String']>;
+  readonly renderDesignSystemPages: Maybe<Scalars['Boolean']>;
+  readonly designSystemPagesPath: Maybe<Scalars['String']>;
+  readonly designSystemPagesPathPrefix: Maybe<Scalars['String']>;
+  readonly renderCoreDocsPages: Maybe<Scalars['Boolean']>;
+  readonly coreDocsPagesPath: Maybe<Scalars['String']>;
+  readonly coreDocsPagesPathPrefix: Maybe<Scalars['String']>;
+  readonly renderUnpublishedPages: Maybe<Scalars['Boolean']>;
   readonly pathCheck: Maybe<Scalars['Boolean']>;
   readonly allExtensions: Maybe<Scalars['Boolean']>;
   readonly isTSX: Maybe<Scalars['Boolean']>;
@@ -903,12 +920,6 @@ type SitePluginPluginOptionsEnvProduction = {
 type SitePluginPluginOptionsEnvProductionPolicy = {
   readonly userAgent: Maybe<Scalars['String']>;
   readonly allow: Maybe<Scalars['String']>;
-};
-
-type SitePluginPluginOptionsFeatures = {
-  readonly renderDesignSystemPages: Maybe<Scalars['Boolean']>;
-  readonly renderDocsPages: Maybe<Scalars['Boolean']>;
-  readonly renderUnpublishedDocsPages: Maybe<Scalars['Boolean']>;
 };
 
 type SitePluginPackageJson = {
@@ -2223,8 +2234,10 @@ type SiteFlagsFilterInput = {
   readonly QUERY_ON_DEMAND: Maybe<BooleanQueryOperatorInput>;
   readonly LAZY_IMAGES: Maybe<BooleanQueryOperatorInput>;
   readonly PRESERVE_WEBPACK_CACHE: Maybe<BooleanQueryOperatorInput>;
+  readonly DEV_WEBPACK_CACHE: Maybe<BooleanQueryOperatorInput>;
   readonly PRESERVE_FILE_DOWNLOAD_CACHE: Maybe<BooleanQueryOperatorInput>;
   readonly PARALLEL_SOURCING: Maybe<BooleanQueryOperatorInput>;
+  readonly PARALLEL_QUERY_RUNNING: Maybe<BooleanQueryOperatorInput>;
   readonly FUNCTIONS: Maybe<BooleanQueryOperatorInput>;
   readonly LMDB_STORE: Maybe<BooleanQueryOperatorInput>;
 };
@@ -2288,8 +2301,10 @@ type SiteFieldsEnum =
   | 'flags.QUERY_ON_DEMAND'
   | 'flags.LAZY_IMAGES'
   | 'flags.PRESERVE_WEBPACK_CACHE'
+  | 'flags.DEV_WEBPACK_CACHE'
   | 'flags.PRESERVE_FILE_DOWNLOAD_CACHE'
   | 'flags.PARALLEL_SOURCING'
+  | 'flags.PARALLEL_QUERY_RUNNING'
   | 'flags.FUNCTIONS'
   | 'flags.LMDB_STORE'
   | 'polyfill'
@@ -2644,8 +2659,6 @@ type SitePluginPluginOptionsFilterInput = {
   readonly base64Width: Maybe<IntQueryOperatorInput>;
   readonly stripMetadata: Maybe<BooleanQueryOperatorInput>;
   readonly defaultQuality: Maybe<IntQueryOperatorInput>;
-  readonly path: Maybe<StringQueryOperatorInput>;
-  readonly ignore: Maybe<StringQueryOperatorInput>;
   readonly maxWidth: Maybe<IntQueryOperatorInput>;
   readonly linkImagesToOriginal: Maybe<BooleanQueryOperatorInput>;
   readonly showCaptions: Maybe<BooleanQueryOperatorInput>;
@@ -2666,6 +2679,7 @@ type SitePluginPluginOptionsFilterInput = {
   readonly lessBabel: Maybe<BooleanQueryOperatorInput>;
   readonly mediaTypes: Maybe<StringQueryOperatorInput>;
   readonly root: Maybe<StringQueryOperatorInput>;
+  readonly path: Maybe<StringQueryOperatorInput>;
   readonly source: Maybe<StringQueryOperatorInput>;
   readonly destination: Maybe<StringQueryOperatorInput>;
   readonly purge: Maybe<BooleanQueryOperatorInput>;
@@ -2676,9 +2690,25 @@ type SitePluginPluginOptionsFilterInput = {
   readonly host: Maybe<StringQueryOperatorInput>;
   readonly sitemap: Maybe<StringQueryOperatorInput>;
   readonly env: Maybe<SitePluginPluginOptionsEnvFilterInput>;
+  readonly ignore: Maybe<StringQueryOperatorInput>;
   readonly packageName: Maybe<StringQueryOperatorInput>;
   readonly pluginName: Maybe<StringQueryOperatorInput>;
-  readonly features: Maybe<SitePluginPluginOptionsFeaturesFilterInput>;
+  readonly renderPages: Maybe<BooleanQueryOperatorInput>;
+  readonly pagesPath: Maybe<StringQueryOperatorInput>;
+  readonly pagesPathPrefix: Maybe<StringQueryOperatorInput>;
+  readonly renderMarkdownPages: Maybe<BooleanQueryOperatorInput>;
+  readonly markdownPagesPath: Maybe<StringQueryOperatorInput>;
+  readonly markdownPagesPathPrefix: Maybe<StringQueryOperatorInput>;
+  readonly renderDocsPages: Maybe<BooleanQueryOperatorInput>;
+  readonly docsPagesPath: Maybe<StringQueryOperatorInput>;
+  readonly docsPagesPathPrefix: Maybe<StringQueryOperatorInput>;
+  readonly renderDesignSystemPages: Maybe<BooleanQueryOperatorInput>;
+  readonly designSystemPagesPath: Maybe<StringQueryOperatorInput>;
+  readonly designSystemPagesPathPrefix: Maybe<StringQueryOperatorInput>;
+  readonly renderCoreDocsPages: Maybe<BooleanQueryOperatorInput>;
+  readonly coreDocsPagesPath: Maybe<StringQueryOperatorInput>;
+  readonly coreDocsPagesPathPrefix: Maybe<StringQueryOperatorInput>;
+  readonly renderUnpublishedPages: Maybe<BooleanQueryOperatorInput>;
   readonly pathCheck: Maybe<BooleanQueryOperatorInput>;
   readonly allExtensions: Maybe<BooleanQueryOperatorInput>;
   readonly isTSX: Maybe<BooleanQueryOperatorInput>;
@@ -2868,12 +2898,6 @@ type SitePluginPluginOptionsEnvProductionPolicyFilterListInput = {
 type SitePluginPluginOptionsEnvProductionPolicyFilterInput = {
   readonly userAgent: Maybe<StringQueryOperatorInput>;
   readonly allow: Maybe<StringQueryOperatorInput>;
-};
-
-type SitePluginPluginOptionsFeaturesFilterInput = {
-  readonly renderDesignSystemPages: Maybe<BooleanQueryOperatorInput>;
-  readonly renderDocsPages: Maybe<BooleanQueryOperatorInput>;
-  readonly renderUnpublishedDocsPages: Maybe<BooleanQueryOperatorInput>;
 };
 
 type SitePluginPackageJsonFilterInput = {
@@ -3184,8 +3208,6 @@ type SitePageFieldsEnum =
   | 'pluginCreator.pluginOptions.base64Width'
   | 'pluginCreator.pluginOptions.stripMetadata'
   | 'pluginCreator.pluginOptions.defaultQuality'
-  | 'pluginCreator.pluginOptions.path'
-  | 'pluginCreator.pluginOptions.ignore'
   | 'pluginCreator.pluginOptions.maxWidth'
   | 'pluginCreator.pluginOptions.linkImagesToOriginal'
   | 'pluginCreator.pluginOptions.showCaptions'
@@ -3210,6 +3232,7 @@ type SitePageFieldsEnum =
   | 'pluginCreator.pluginOptions.lessBabel'
   | 'pluginCreator.pluginOptions.mediaTypes'
   | 'pluginCreator.pluginOptions.root'
+  | 'pluginCreator.pluginOptions.path'
   | 'pluginCreator.pluginOptions.source'
   | 'pluginCreator.pluginOptions.destination'
   | 'pluginCreator.pluginOptions.purge'
@@ -3219,11 +3242,25 @@ type SitePageFieldsEnum =
   | 'pluginCreator.pluginOptions.query'
   | 'pluginCreator.pluginOptions.host'
   | 'pluginCreator.pluginOptions.sitemap'
+  | 'pluginCreator.pluginOptions.ignore'
   | 'pluginCreator.pluginOptions.packageName'
   | 'pluginCreator.pluginOptions.pluginName'
-  | 'pluginCreator.pluginOptions.features.renderDesignSystemPages'
-  | 'pluginCreator.pluginOptions.features.renderDocsPages'
-  | 'pluginCreator.pluginOptions.features.renderUnpublishedDocsPages'
+  | 'pluginCreator.pluginOptions.renderPages'
+  | 'pluginCreator.pluginOptions.pagesPath'
+  | 'pluginCreator.pluginOptions.pagesPathPrefix'
+  | 'pluginCreator.pluginOptions.renderMarkdownPages'
+  | 'pluginCreator.pluginOptions.markdownPagesPath'
+  | 'pluginCreator.pluginOptions.markdownPagesPathPrefix'
+  | 'pluginCreator.pluginOptions.renderDocsPages'
+  | 'pluginCreator.pluginOptions.docsPagesPath'
+  | 'pluginCreator.pluginOptions.docsPagesPathPrefix'
+  | 'pluginCreator.pluginOptions.renderDesignSystemPages'
+  | 'pluginCreator.pluginOptions.designSystemPagesPath'
+  | 'pluginCreator.pluginOptions.designSystemPagesPathPrefix'
+  | 'pluginCreator.pluginOptions.renderCoreDocsPages'
+  | 'pluginCreator.pluginOptions.coreDocsPagesPath'
+  | 'pluginCreator.pluginOptions.coreDocsPagesPathPrefix'
+  | 'pluginCreator.pluginOptions.renderUnpublishedPages'
   | 'pluginCreator.pluginOptions.pathCheck'
   | 'pluginCreator.pluginOptions.allExtensions'
   | 'pluginCreator.pluginOptions.isTSX'
@@ -3972,8 +4009,6 @@ type SitePluginFieldsEnum =
   | 'pluginOptions.base64Width'
   | 'pluginOptions.stripMetadata'
   | 'pluginOptions.defaultQuality'
-  | 'pluginOptions.path'
-  | 'pluginOptions.ignore'
   | 'pluginOptions.maxWidth'
   | 'pluginOptions.linkImagesToOriginal'
   | 'pluginOptions.showCaptions'
@@ -4006,6 +4041,7 @@ type SitePluginFieldsEnum =
   | 'pluginOptions.lessBabel'
   | 'pluginOptions.mediaTypes'
   | 'pluginOptions.root'
+  | 'pluginOptions.path'
   | 'pluginOptions.source'
   | 'pluginOptions.destination'
   | 'pluginOptions.purge'
@@ -4019,11 +4055,25 @@ type SitePluginFieldsEnum =
   | 'pluginOptions.env.dev.policy'
   | 'pluginOptions.env.staging.policy'
   | 'pluginOptions.env.production.policy'
+  | 'pluginOptions.ignore'
   | 'pluginOptions.packageName'
   | 'pluginOptions.pluginName'
-  | 'pluginOptions.features.renderDesignSystemPages'
-  | 'pluginOptions.features.renderDocsPages'
-  | 'pluginOptions.features.renderUnpublishedDocsPages'
+  | 'pluginOptions.renderPages'
+  | 'pluginOptions.pagesPath'
+  | 'pluginOptions.pagesPathPrefix'
+  | 'pluginOptions.renderMarkdownPages'
+  | 'pluginOptions.markdownPagesPath'
+  | 'pluginOptions.markdownPagesPathPrefix'
+  | 'pluginOptions.renderDocsPages'
+  | 'pluginOptions.docsPagesPath'
+  | 'pluginOptions.docsPagesPathPrefix'
+  | 'pluginOptions.renderDesignSystemPages'
+  | 'pluginOptions.designSystemPagesPath'
+  | 'pluginOptions.designSystemPagesPathPrefix'
+  | 'pluginOptions.renderCoreDocsPages'
+  | 'pluginOptions.coreDocsPagesPath'
+  | 'pluginOptions.coreDocsPagesPathPrefix'
+  | 'pluginOptions.renderUnpublishedPages'
   | 'pluginOptions.pathCheck'
   | 'pluginOptions.allExtensions'
   | 'pluginOptions.isTSX'
