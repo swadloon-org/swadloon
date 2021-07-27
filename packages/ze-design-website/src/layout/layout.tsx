@@ -19,7 +19,7 @@ import * as styleRefs from './layout.treat';
 
 type LayoutProps = Partial<Omit<PageProps, 'children'> & { children: ReactNode }>;
 
-export const Layout = React.memo<LayoutProps>((props) => {
+export const Layout: React.FC<LayoutProps> = (props) => {
   const isSSR = useIsSSR();
 
   /**
@@ -67,4 +67,4 @@ export const Layout = React.memo<LayoutProps>((props) => {
       <Footer />
     </MainWrapper>
   );
-});
+};

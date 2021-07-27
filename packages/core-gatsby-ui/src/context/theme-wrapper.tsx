@@ -14,9 +14,9 @@ import {
 import { CodeBlock, CodeOutline } from '@newrade/core-react-ui/src/code';
 import { GlobalCSSVariables } from '@newrade/core-react-ui/src/global/global-css-variables';
 import { globalThemeReversed } from '@newrade/core-react-ui/src/global/global-theme-classnames';
-import { mdxComponents } from '@newrade/core-react-ui/src/markdown';
 import React, { ReactNode, useState } from 'react';
 import { TreatProvider } from 'react-treat';
+import { mdxComponents } from '../mdx/mdx-components';
 import * as styles from './theme-wrapper.css';
 
 type Props = PrimitiveProps & {

@@ -124,7 +124,11 @@ export const SidebarStandard = React.forwardRef<any, Props>(
         {/* Bottom */}
         <div className={styles.bottom}>
           {/* Language link */}
-          <Link variantSize={PARAGRAPH_SIZE.small} className={styles.lang}>
+          <Link
+            variantSize={PARAGRAPH_SIZE.small}
+            className={styles.lang}
+            AsElement={<GatsbyLink to={'/fr/'} />}
+          >
             FR
           </Link>
 

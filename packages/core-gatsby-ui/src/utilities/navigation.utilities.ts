@@ -1,11 +1,12 @@
 import { NavItem } from '../navigation/nav-item.model';
-import {
+import type {
   GatsbyCommonPageContext,
   GatsbyMarkdownFilePageContext,
 } from '@newrade/core-gatsby-config';
 import { title, kebab, capital, lower } from 'case';
 import { SITE_LANGUAGES } from '@newrade/core-common';
 import { Navigation } from '../navigation/navigation.model';
+import { NavComponent, NavigationAPI } from '@newrade/core-website-api';
 
 /**
  * Simplified type for a Page Node
@@ -15,6 +16,176 @@ export type PageNode = {
   path: string;
   context?: GatsbyCommonPageContext | GatsbyMarkdownFilePageContext | null;
 };
+
+/**
+ * Returns a NavigationAPI from page nodes.
+ * Accepts arrays of values to sort the directories and items.
+ * @version alpha
+ */
+export function getNavigationAPIFromPageNodes({
+  name,
+  pageNodes,
+  locales,
+  sortOrderItems,
+  sortOrderDirectories,
+  excludedItems,
+  uppercaseWords = ['wsl', 'ui', 'ux', 'seo', 'ssh', 'css', 'api', 'ci', 'vm', 'cms', 'pr'],
+  formatName,
+  formatDisplayName,
+}: {
+  name: string;
+  pageNodes?: PageNode[];
+  locales?: SITE_LANGUAGES[];
+  sortOrderItems?: string[];
+  sortOrderDirectories?: string[];
+  excludedItems?: string[];
+  uppercaseWords?: string[];
+  formatName?: (name?: string | null) => string;
+  formatDisplayName?: (name?: string | null) => string;
+}) {
+  if (!pageNodes?.length) {
+    return {
+      id: name,
+      name,
+      label: '',
+      component: NavComponent.sidebar,
+      links: [],
+      subNavigation: [],
+    };
+  }
+
+  const normalizedSortOrderItems = sortOrderItems?.map((item) => normalizeName(item));
+  const normalizedSortOrderDirectories = sortOrderDirectories?.map((item) => normalizeName(item));
+  const normalizedIgnoredItems = excludedItems?.map((item) => normalizeName(item));
+
+  const filteredPageNodes = pageNodes
+    // remove 404 pages
+    .filter((node) => !(/404/gi.test(node.context?.name || '') || /404/gi.test(node.path || '')))
+    // keep page in specified locale
+    .filter((node) => {
+      if (!(locales && node.context?.locale)) {
+        return node;
+      }
+
+      if (locales.find((locale) => locale === node.context?.locale)) {
+        return true;
+      }
+
+      return false;
+    })
+    // remove ignored items
+    .filter(
+      (node) => !normalizedIgnoredItems?.find((item) => item === normalizeName(node.context?.name))
+    );
+
+  // find the dirNames
+  const dirNames = filteredPageNodes.map(dirNamePredicate);
+
+  function dirNamePredicate(node: PageNode) {
+    if (node.context?.name && /index/.test(node.context?.name)) {
+      return getPageDirFromPathIndex(node.path);
+    }
+
+    return getPageDirFromPath(node.path);
+  }
+
+  // for item at the root the dir name is ''
+  // const navigation = [...new Set(dirNames)].reduce(
+  //   (previous, current) => {
+  //     // for each dir name, transform the nodes and place them in .items
+  //     const currentDirName = current;
+
+  //     const dirNameNodes = filteredPageNodes.filter(
+  //       (node) => dirNamePredicate(node) === currentDirName
+  //     );
+  //     if (!dirNameNodes) {
+  //       return previous;
+  //     }
+
+  //     previous.items = [
+  //       ...previous.items,
+  //       // create a new item
+  //       {
+  //         name: currentDirName ? currentDirName : 'Home',
+  //         displayName: formatDisplayName
+  //           ? formatDisplayName(currentDirName)
+  //           : defaultFormatDisplayName({ name: currentDirName, uppercaseWords }),
+  //         path: currentDirName ? currentDirName : '',
+  //         // for each child nodes, creat a nav item
+  //         items: dirNameNodes
+  //           .map((node) => getNavItemShallow(node))
+  //           // apply sorting on items, if specified
+  //           .sort((a, b) => {
+  //             if (!normalizedSortOrderItems) {
+  //               return 0;
+  //             }
+
+  //             const indexA = normalizedSortOrderItems.indexOf(normalizeName(a.name));
+  //             const indexB = normalizedSortOrderItems.indexOf(normalizeName(b.name));
+
+  //             if (indexA === indexB) {
+  //               return 0;
+  //             }
+
+  //             if (indexA === -1) {
+  //               return 1;
+  //             }
+
+  //             if (indexB === -1) {
+  //               return -1;
+  //             }
+
+  //             return indexA > indexB ? 1 : -1;
+  //           }),
+  //       },
+  //       // apply sorting on directories, if specified
+  //     ].sort((a, b) => {
+  //       if (!normalizedSortOrderDirectories) {
+  //         return 0;
+  //       }
+
+  //       const indexA = normalizedSortOrderDirectories.indexOf(normalizeName(a.name));
+  //       const indexB = normalizedSortOrderDirectories.indexOf(normalizeName(b.name));
+
+  //       if (indexA === indexB) {
+  //         return 0;
+  //       }
+
+  //       if (indexA === -1) {
+  //         return 1;
+  //       }
+
+  //       if (indexB === -1) {
+  //         return -1;
+  //       }
+
+  //       return indexA > indexB ? 1 : -1;
+  //     });
+
+  //     return previous;
+  //   },
+  //   {
+  //     name,
+  //     items: [],
+  //   } as NavigationAPI
+  // );
+
+  // return navigation;
+
+  function getNavItemShallow(node: PageNode): NavigationAPI {
+    return {
+      name: formatName ? formatName(node.context?.name) : defaultFormatName(node.context?.name),
+      label: formatDisplayName
+        ? formatDisplayName(node.context?.name || node.context?.displayName)
+        : defaultFormatDisplayName({
+            name: node.context?.name || node.context?.displayName,
+            lang: node.context?.locale,
+            uppercaseWords,
+          }),
+      // frontmatter: (node.context as GatsbyMarkdownFilePageContext)?.frontmatter,
+    };
+  }
+}
 
 /**
  * Returns a Navigation object from page nodes.

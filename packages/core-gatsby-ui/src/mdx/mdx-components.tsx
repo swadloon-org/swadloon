@@ -5,24 +5,50 @@ import {
   LinkVariant,
   PARAGRAPH_SIZE,
   TEXT_STYLE,
+  Variant,
 } from '@newrade/core-design-system';
+import {
+  Badge,
+  Blockquote,
+  BoxV2,
+  BoxV3,
+  Button,
+  Center,
+  Cluster,
+  Details,
+  Grid,
+  Heading,
+  Hr,
+  IconComp,
+  Label,
+  Link,
+  ListItem,
+  ListItems,
+  ListItemV2,
+  Paragraph,
+  Stack,
+  Summary,
+  Switcher,
+  Table,
+  TableBody,
+  TableCell,
+  TableCellHeader,
+  TableHeader,
+  TableRow,
+  Tag,
+  Title,
+} from '@newrade/core-react-ui/src';
+import { Code } from '@newrade/core-react-ui/src/code';
+import { SectionBaseLayout, SectionPadding } from '@newrade/core-website-api';
 import React, { AnchorHTMLAttributes } from 'react';
-import { Code } from '../code/code';
-import { ListItemV2 } from '../list-item/list-item-v2';
-import { ListItems } from '../list-item/list-items';
-import { Table } from '../table/table';
-import { TableBody } from '../table/table-body';
-import { TableCell } from '../table/table-cell-data';
-import { TableCellHeader } from '../table/table-cell-header';
-import { TableHeader } from '../table/table-header';
-import { TableRow } from '../table/table-row';
-import { Blockquote } from '../text/blockquote';
-import { Details } from '../text/details';
-import { Heading } from '../text/heading';
-import { Hr } from '../text/hr';
-import { Link } from '../text/link';
-import { Paragraph } from '../text/paragraph';
-import { Summary } from '../text/summary';
+import { BlockMarkdown } from '../blocks/block-markdown';
+import { DocHeader } from '../context/doc-header';
+import { IconBox } from '../docs-components/icon-box';
+import { Placeholder } from '../docs-components/placeholder';
+import { PlaceholderMarkdown } from '../docs-components/placeholder-markdown';
+import { SectionBase } from '../sections/section-base';
+import { SectionDivider } from '../sections/section-divider';
+import { SectionSwitcher } from '../sections/section-switcher';
 
 /**
  * Components configuration object for <MDXProvider/>.
@@ -40,11 +66,21 @@ export const mdxComponents: Partial<
   Record<keyof React.ReactHTML, React.ReactNode> & {
     pragmaFrag: React.ReactNode;
     inlineCode: React.ReactNode;
+  } & {
+    [key: string]: React.ReactNode;
   }
 > = {
   /**
+   *
    * Content sectioning
+   *
    */
+
+  /**
+   * Heading
+   */
+  Title: Title,
+  Heading: Heading,
   h1: (props: MDXProps) => <Heading {...props} />,
   h2: (props: MDXProps) => <Heading variant={HEADING.h2} {...props} />,
   h3: (props: MDXProps) => <Heading variant={HEADING.h3} {...props} />,
@@ -138,16 +174,71 @@ export const mdxComponents: Partial<
    */
   pre: (props: MDXProps) => <>{props.children}</>,
   code: ({ children, ...props }: MDXProps) => {
-    const CodeBlock = loadable<any>(() => import('../code/code-block'), {
-      resolveComponent: (components: typeof import('../code/code-block')) => components.CodeBlock,
+    const CodeBlock = loadable<any>(() => import('@newrade/core-react-ui/src/code/code-block'), {
+      resolveComponent: (components: typeof import('@newrade/core-react-ui/src/code/code-block')) =>
+        components.CodeBlock,
     });
     return <CodeBlock {...props}>{children as string}</CodeBlock>;
   },
   inlineCode: (props: MDXProps) => <Code>{props.children}</Code>,
+  Code: Code,
+
   /**
    * Others
    */
   pragmaFrag: (props: MDXProps) => <Paragraph {...props} />,
+
+  /**
+   * Layout
+   */
+  Label: Label,
+  Tag: Tag,
+  Button: Button,
+  BoxV2: BoxV2,
+  BoxV3: BoxV3,
+
+  /**
+   * Layout
+   */
+  Center: Center,
+  Cluster: Cluster,
+
+  Details: Details,
+  ListItem: ListItem,
+  ListItems: ListItems,
+  Grid: Grid,
+  BlockMarkdown: BlockMarkdown,
+
+  Paragraph: Paragraph,
+  Placeholder: Placeholder,
+  PlaceholderMarkdown: PlaceholderMarkdown,
+  SectionSwitcher: SectionSwitcher,
+  SectionBase: SectionBase,
+  Stack: Stack,
+  Summary: Summary,
+  Switcher: Switcher,
+  SectionDivider: SectionDivider,
+  SectionLayout: SectionBaseLayout,
+  SectionPadding: SectionPadding,
+  Variant: Variant,
+  Link: Link,
+  Table: Table,
+  TableCellHeader: TableCellHeader,
+  TableRow: TableRow,
+  TableHeader: TableHeader,
+  TableCell: TableCell,
+  DocHeader: DocHeader,
+  Badge: Badge,
+
+  /**
+   * Icon
+   */
+  Icon: IconComp,
+  IconBox: IconBox,
+
+  /**
+   * Markdown
+   */
 };
 
 export type MDXProps = {

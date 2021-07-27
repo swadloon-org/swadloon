@@ -108,7 +108,7 @@ export function LinkRenderer<CustomLinkVariants extends string>({
           variantLevel={(linkData.variant as Variant) || Variant.primary}
           Icon={linkIcon ? <IconComp name={linkIcon}></IconComp> : null}
           AsElement={
-            linkData.type === LinkType.internalPage ? (
+            linkData.type !== LinkType.externalUrl ? (
               <GatsbyLink to={linkData.page?.slug} />
             ) : (
               <a href={linkData.url || ''} target={'_blank'} rel="noreferrer" />

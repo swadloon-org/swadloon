@@ -1,6 +1,7 @@
+import loadable from '@loadable/component';
 import { MDXProvider } from '@mdx-js/react';
 import { SITE_LANGUAGES } from '@newrade/core-common';
-import { HEADING, PARAGRAPH_SIZE, TagSize, Variant, VIEWPORT } from '@newrade/core-design-system';
+import { HEADING, PARAGRAPH_SIZE, TagSize, Variant } from '@newrade/core-design-system';
 import {
   BoxV2,
   DesktopDocsItemGroup,
@@ -17,13 +18,27 @@ import {
   useViewportBreakpoint,
 } from '@newrade/core-react-ui/src';
 import { Theme } from '@newrade/core-react-ui/src/design-system';
+import { SidebarLayout } from '@newrade/core-website-api';
 import { PageProps } from 'gatsby';
-import React, { ReactNode, useEffect, useState } from 'react';
+import React, { ReactNode } from 'react';
 import { ThemeWrapper } from '../context/theme-wrapper';
 import { useLayoutState } from '../hooks/use-design-system-layout.hook';
 import { useDesignSystemNavigation } from '../hooks/use-design-system-navigation-data.hook';
 import { GatsbyLink } from '../links/gatsby-link';
 import { NavbarDocs } from '../navbar/navbar-docs';
+import { useSidebarState } from '../sidebar/sidebar.hooks';
+
+/**
+ * Sidebar
+ */
+const LazySidebarStandard = loadable(
+  () => import(/* webpackExports: "SidebarStandard" */ '@newrade/core-gatsby-ui/src'),
+  {
+    resolveComponent: (
+      components: typeof import('@newrade/core-gatsby-ui/src/sidebar/sidebar-standard')
+    ) => components.SidebarStandard,
+  }
+);
 
 export type DesignSystemLayoutProps = Partial<
   Omit<PageProps, 'children'> & { children: ReactNode }
@@ -41,16 +56,6 @@ export type DesignSystemLayoutProps = Partial<
    * The application's className for its theme
    */
   themeClassname?: string;
-  /**
-   * Logo component for mobile
-   * @deprecated use the logo component instead <Logo name={LOGO.STANDARD}></Logo>
-   */
-  MobileSvgLogo?: React.ReactNode;
-  /**
-   * Logo component for Desktop
-   * @deprecated use the logo component instead <Logo name={LOGO.STANDARD}></Logo>
-   */
-  DesktopSvgLogo?: React.ReactNode;
 };
 
 export const LayoutDesignSystem: React.FC<DesignSystemLayoutProps> = function ({
@@ -66,29 +71,19 @@ export const LayoutDesignSystem: React.FC<DesignSystemLayoutProps> = function ({
   const { cssTheme } = useTreatTheme();
   const { viewport } = useViewportBreakpoint();
   const [layoutMode, setLayoutMode] = useLayoutState('centered');
-  const [mobileSidebarOpened, setMobileSidebarOpened] = useState<boolean>(false);
-
-  function handleClickMenuButton(event: React.MouseEvent) {
-    setMobileSidebarOpened(!mobileSidebarOpened);
-  }
 
   function handleChangeLayoutMode(event: React.MouseEvent) {
     setLayoutMode(layoutMode === 'centered' ? 'full-width' : 'centered');
   }
 
-  useEffect(() => {
-    let timeout: number;
-    if (viewport === VIEWPORT.desktop) {
-      timeout = window.setTimeout(() => {
-        setMobileSidebarOpened(false);
-      }, 300);
-    }
-    return () => {
-      if (timeout !== undefined) {
-        window.clearTimeout(timeout);
-      }
-    };
-  }, [viewport]);
+  /**
+   * Sidebar
+   */
+  const [sidebarOpened, setSidebarOpened] = useSidebarState({ initial: false });
+
+  function handleClickMenuButton(event: React.MouseEvent) {
+    setSidebarOpened(!sidebarOpened);
+  }
 
   const HomeLink = <GatsbyLink to={'/'} />;
   const MenuLinks = (
@@ -118,7 +113,7 @@ export const LayoutDesignSystem: React.FC<DesignSystemLayoutProps> = function ({
         enableLayoutModeButton={true}
         layoutMode={layoutMode}
         onLayoutModeChange={handleChangeLayoutMode}
-        menuOpened={mobileSidebarOpened}
+        menuOpened={sidebarOpened}
       ></NavbarDocs>
 
       {layoutMode === 'centered' ? (
@@ -188,6 +183,18 @@ export const LayoutDesignSystem: React.FC<DesignSystemLayoutProps> = function ({
           </BoxV2>
         </DesktopDocsSideBar>
       ) : null}
+
+      <LazySidebarStandard
+        sidebar={{
+          name: 'Docs Sidebar',
+          layout: SidebarLayout.standard,
+        }}
+        sidebarOpened={sidebarOpened}
+        onClickMenuButton={handleClickMenuButton}
+        onClickBackdrop={handleClickMenuButton}
+        activePathname={props.location?.pathname}
+        HomeLink={<GatsbyLink to={'/'} />}
+      ></LazySidebarStandard>
 
       <Main
         navbarPadding={true}

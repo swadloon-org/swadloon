@@ -38,6 +38,8 @@ export const babelPresetBrowserConf: ([string, object] | [string])[] = [
       modules: false, // don't transform modules (webpack will do it)
       loose: false,
       ignoreBrowserslistConfig: true,
+      // Exclude transforms that make all code slower (https://github.com/facebook/create-react-app/pull/5278)
+      exclude: [`transform-typeof-symbol`],
     },
   ],
   ['@babel/preset-react'],

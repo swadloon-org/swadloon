@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { isIOS } from 'react-device-detect';
+import { isIOS } from '../utilities/useragent';
 
 type HandleScrollEvent = TouchEvent;
 

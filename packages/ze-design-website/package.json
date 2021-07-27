@@ -32,7 +32,8 @@
     "@newrade/core-gsap-ui": "^1.3.4",
     "@newrade/core-react-ui": "^2.1.0",
     "@newrade/ze-design-system": "^1.3.0",
-    "gatsby": "^3.5.1"
+    "gatsby": "^3.10.2",
+    "gatsby-plugin-image": "^1.11.0-next.2"
   },
   "devDependencies": {
     "@newrade/core-common": "^1.4.0",

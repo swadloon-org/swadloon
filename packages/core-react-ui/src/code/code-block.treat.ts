@@ -6,6 +6,7 @@ export const styles = {
     position: 'relative',
     width: '100%',
     overflow: 'hidden',
+    maxWidth: `min(calc(100vw - 2 * ${cssTheme.layout.var.contentMargins}), var(--max-content-width))`,
   })),
   header: style(({ theme, cssTheme }: Theme) => ({
     position: 'relative',

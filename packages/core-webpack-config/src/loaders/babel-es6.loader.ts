@@ -6,6 +6,7 @@ import { babelPresetBrowserConf } from '../babel-preset.conf';
 export const babelReactRule: RuleSetUseItem = {
   loader: 'babel-loader',
   options: {
+    sourceType: `unambiguous`,
     cacheDirectory: true,
     plugins: [...babelPluginBrowserConf],
     presets: [...babelPresetBrowserConf],
@@ -18,5 +19,4 @@ export const babelReactRule: RuleSetUseItem = {
 export const babelReactLoader: RuleSetRule = {
   test: /\.(m?jsx?)$/,
   use: [babelReactRule],
-  include: [/core-react-ui/, path.resolve('src/**/*')],
 };

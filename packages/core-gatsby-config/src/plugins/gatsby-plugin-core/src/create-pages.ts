@@ -67,207 +67,223 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
     siteMetadata = allSiteData.data.site.siteMetadata;
 
     /**
-     * Render Markdown pages
+     * Query for markdown files
      */
-    if (pluginOptions.features.renderDocsPages) {
-      /**
-       * Query for mdx files in /docs/
-       */
-      const markdownPages = await graphql<GatsbyNodeMarkdownFilesQuery>(`
-        query GatsbyNodeMarkdownFiles {
-          allFile(
-            filter: {
-              sourceInstanceName: {
-                in: ["MONO_REPO_DOCS", "DOCS", "DESIGN_SYSTEM_DOCS", "MDX_PAGES"]
-              }
-              ext: { in: [".md", ".mdx"] }
+    const markdownPages = await graphql<GatsbyNodeMarkdownFilesQuery>(`
+      query GatsbyNodeMarkdownFiles {
+        allFile(
+          filter: {
+            sourceInstanceName: {
+              in: ["MONO_REPO_DOCS", "DOCS", "DESIGN_SYSTEM_DOCS", "MDX_PAGES"]
             }
-          ) {
-            nodes {
-              id
-              name
-              base
-              ext
-              dir
-              absolutePath
-              relativePath
-              publicURL
-              size
-              sourceInstanceName
-              childMdx {
-                slug
-                excerpt
-                frontmatter {
-                  title
-                  subject
-                  tags
-                  description
-                  version
-                  published
-                  status
-                  deprecated
-                  editPageUrl
-                  nextPageLabel
-                  nextPageUrl
-                  componentStatus
-                  componentVersion
-                  componentTests
-                }
+            ext: { in: [".md", ".mdx"] }
+          }
+        ) {
+          nodes {
+            id
+            name
+            base
+            ext
+            dir
+            absolutePath
+            relativePath
+            publicURL
+            size
+            sourceInstanceName
+            childMdx {
+              slug
+              excerpt
+              frontmatter {
+                title
+                subject
+                tags
+                description
+                version
+                published
+                status
+                deprecated
+                editPageUrl
+                nextPageLabel
+                nextPageUrl
+                componentStatus
+                componentVersion
+                componentTests
               }
             }
           }
         }
-      `);
+      }
+    `);
 
+    const pagesToRender = markdownPages?.data?.allFile?.nodes.filter((node) => {
+      if (node.sourceInstanceName === SOURCE_INSTANCE_NAME.MDX_PAGES) {
+        return pluginOptions.renderMarkdownPages;
+      }
+
+      if (node.sourceInstanceName === SOURCE_INSTANCE_NAME.DOCS) {
+        return pluginOptions.renderDocsPages;
+      }
+
+      if (node.sourceInstanceName === SOURCE_INSTANCE_NAME.DESIGN_SYSTEM_DOCS) {
+        return pluginOptions.renderDesignSystemPages;
+      }
+
+      if (node.sourceInstanceName === SOURCE_INSTANCE_NAME.MONO_REPO_DOCS) {
+        return pluginOptions.renderCoreDocsPages;
+      }
+
+      return true;
+    });
+
+    if (!pagesToRender?.length) {
+      reporter.info(`[${pluginOptions.pluginName}] no markdown files found for pages`);
+      return;
+    }
+
+    reporter.info(
+      `[${pluginOptions.pluginName}] got ${markdownPages?.data?.allFile?.nodes?.length} files for markdown pages`
+    );
+
+    /**
+     * Organise files to create pages.
+     *
+     * Markdown files are formatted as follow:
+     * `/<locale>/<source-instance-dir>/<mdx-slug`
+     * for example `fr.markdown.mdx` in `/docs` would become `/fr/docs/markdown`
+     */
+
+    let markdownDocsTemplate: string;
+    try {
+      await fsp.readFile(`src/templates/docs.template.tsx`);
+      reporter.info(`[${pluginOptions.pluginName}] found docs template in package`);
+      markdownDocsTemplate = path.resolve(`src/templates/docs.template.tsx`);
+    } catch (error: any) {
+      reporter.info(`[${pluginOptions.pluginName}] no template defined for docs in package`);
+    }
+
+    try {
+      await fsp.readFile(`../core-gatsby-ui/src/templates/docs.template.tsx`);
+      reporter.info(`[${pluginOptions.pluginName}] using default docs template`);
+      markdownDocsTemplate = path.resolve(`../core-gatsby-ui/src/templates/docs.template.tsx`);
+    } catch (error: any) {
+      reporter.panic(`[${pluginOptions.pluginName}] no default template defined for markdown-docs`);
+    }
+
+    let markdownPageTemplate: string;
+    try {
+      await fsp.readFile(`src/templates/markdown-page.template.tsx`);
+      reporter.info(`[${pluginOptions.pluginName}] found markdown-page template in package`);
+      markdownPageTemplate = path.resolve(`src/templates/markdown-page.template.tsx`);
+    } catch (error: any) {
       reporter.info(
-        `[${pluginOptions.pluginName}] got ${markdownPages?.data?.allFile?.nodes?.length} files for markdown pages`
+        `[${pluginOptions.pluginName}] no template defined for markdown-page in package`
+      );
+    }
+
+    try {
+      await fsp.readFile(`../core-gatsby-ui/src/templates/markdown-page.template.tsx`);
+      reporter.info(`[${pluginOptions.pluginName}] using default markdown-page template`);
+      markdownPageTemplate = path.resolve(
+        `../core-gatsby-ui/src/templates/markdown-page.template.tsx`
+      );
+    } catch (error: any) {
+      reporter.panic(`[${pluginOptions.pluginName}] no default template defined for markdown-page`);
+    }
+
+    let designSystemPageTemplate: string;
+    try {
+      await fsp.readFile(`src/templates/design-system-page.template.tsx`);
+      reporter.info(`[${pluginOptions.pluginName}] found design-system-page template in package`);
+      designSystemPageTemplate = path.resolve(`src/templates/design-system-page.template.tsx`);
+    } catch (error: any) {
+      reporter.info(
+        `[${pluginOptions.pluginName}] no template defined for design-system-page in package`
+      );
+    }
+
+    try {
+      await fsp.readFile(`../core-gatsby-ui/src/templates/design-system-page.template.tsx`);
+      reporter.info(`[${pluginOptions.pluginName}] using default design-system-page template`);
+      designSystemPageTemplate = path.resolve(
+        `../core-gatsby-ui/src/templates/design-system-page.template.tsx`
+      );
+    } catch (error: any) {
+      reporter.panic(
+        `[${pluginOptions.pluginName}] no default template defined for design-system-page`
+      );
+    }
+
+    pagesToRender.forEach((node, index) => {
+      const renderUnpublishedDocsPages = pluginOptions.renderUnpublishedPages;
+      if (!renderUnpublishedDocsPages) {
+        // `renderUnpublishedDocsPages` === false, don't render pages marked with `published: 'false'`
+        if (node.childMdx?.frontmatter?.published === 'false') {
+          return;
+        }
+      }
+
+      const sourceInstance = node.sourceInstanceName as SOURCE_INSTANCE_NAME;
+      // for file src/docs/section/en.readme.mdx
+
+      // 'docs'
+      const sourceDir = getPathForSourceInstance(sourceInstance);
+      // 'en'
+      const localeDir = getLocalePath(
+        node.name,
+        siteMetadata.languages?.defaultLangKey || SITE_LANGUAGES.EN
+      );
+      // 'en.readme'
+      const nodePath = node.childMdx?.slug;
+      // name without locale e.g 'readme'
+      const nameWithoutLocale = removeLocalePrefix(nodePath || node.name);
+      // 'docs/en/section/readme'
+      const path = getFullPageNodePath([localeDir, sourceDir, nameWithoutLocale]);
+      // SITE_LANGUAGES.EN
+      const locale = getLocaleFromPath(node.name);
+      // raw node name e.g. 'en.readme'
+      const name = node.name;
+      // nicely formated name for the node, defaults to frontmatter property e.g. 'Readme'
+      const displayName = getPageFormattedName(
+        node.childMdx?.frontmatter?.title || nameWithoutLocale,
+        {
+          locale: locale,
+        }
       );
 
-      /**
-       * Organise files to create pages.
-       *
-       * Markdown files are formatted as follow:
-       * `/<locale>/<source-instance-dir>/<mdx-slug`
-       * for example `fr.markdown.mdx` in `/docs` would become `/fr/docs/markdown`
-       */
+      const layout = getLayoutForSourceInstance(sourceInstance);
+      const template = getTemplateForSourceInstance(sourceInstance);
+      const component =
+        sourceInstance === SOURCE_INSTANCE_NAME.MDX_PAGES
+          ? markdownPageTemplate
+          : sourceInstance === SOURCE_INSTANCE_NAME.DESIGN_SYSTEM_DOCS
+          ? designSystemPageTemplate
+          : markdownDocsTemplate;
 
-      let markdownDocsTemplate: string;
-      try {
-        await fsp.readFile(`src/templates/docs.template.tsx`);
-        reporter.info(`[${pluginOptions.pluginName}] found docs template in package`);
-        markdownDocsTemplate = path.resolve(`src/templates/docs.template.tsx`);
-      } catch (error: any) {
-        reporter.info(`[${pluginOptions.pluginName}] no template defined for docs in package`);
-      }
+      reporter.info(
+        `[${pluginOptions.pluginName}] create page: layout: ${chalk.redBright(
+          layout
+        )}, template: ${chalk.blue(template)}, component: ${chalk.greenBright(
+          component.replace(/\/.+\//gi, '')
+        )},  path: ${chalk.blueBright(path)}`
+      );
 
-      try {
-        await fsp.readFile(`../core-gatsby-ui/src/templates/docs.template.tsx`);
-        reporter.info(`[${pluginOptions.pluginName}] using default docs template`);
-        markdownDocsTemplate = path.resolve(`../core-gatsby-ui/src/templates/docs.template.tsx`);
-      } catch (error: any) {
-        reporter.panic(
-          `[${pluginOptions.pluginName}] no default template defined for markdown-docs`
-        );
-      }
-
-      let markdownPageTemplate: string;
-      try {
-        await fsp.readFile(`src/templates/markdown-page.template.tsx`);
-        reporter.info(`[${pluginOptions.pluginName}] found markdown-page template in package`);
-        markdownPageTemplate = path.resolve(`src/templates/markdown-page.template.tsx`);
-      } catch (error: any) {
-        reporter.info(
-          `[${pluginOptions.pluginName}] no template defined for markdown-page in package`
-        );
-      }
-
-      try {
-        await fsp.readFile(`../core-gatsby-ui/src/templates/markdown-page.template.tsx`);
-        reporter.info(`[${pluginOptions.pluginName}] using default markdown-page template`);
-        markdownPageTemplate = path.resolve(
-          `../core-gatsby-ui/src/templates/markdown-page.template.tsx`
-        );
-      } catch (error: any) {
-        reporter.panic(
-          `[${pluginOptions.pluginName}] no default template defined for markdown-page`
-        );
-      }
-
-      let designSystemPageTemplate: string;
-      try {
-        await fsp.readFile(`src/templates/design-system-page.template.tsx`);
-        reporter.info(`[${pluginOptions.pluginName}] found design-system-page template in package`);
-        designSystemPageTemplate = path.resolve(`src/templates/design-system-page.template.tsx`);
-      } catch (error: any) {
-        reporter.info(
-          `[${pluginOptions.pluginName}] no template defined for design-system-page in package`
-        );
-      }
-
-      try {
-        await fsp.readFile(`../core-gatsby-ui/src/templates/design-system-page.template.tsx`);
-        reporter.info(`[${pluginOptions.pluginName}] using default design-system-page template`);
-        designSystemPageTemplate = path.resolve(
-          `../core-gatsby-ui/src/templates/design-system-page.template.tsx`
-        );
-      } catch (error: any) {
-        reporter.panic(
-          `[${pluginOptions.pluginName}] no default template defined for design-system-page`
-        );
-      }
-
-      markdownPages?.data?.allFile.nodes.forEach((node, index) => {
-        const renderUnpublishedDocsPages = pluginOptions.features.renderUnpublishedDocsPages;
-        if (!renderUnpublishedDocsPages) {
-          // `renderUnpublishedDocsPages` === false, don't render pages marked with `published: 'false'`
-          if (node.childMdx?.frontmatter?.published === 'false') {
-            return;
-          }
-        }
-
-        const sourceInstance = node.sourceInstanceName as SOURCE_INSTANCE_NAME;
-        // for file src/docs/section/en.readme.mdx
-
-        // 'docs'
-        const sourceDir = getPathForSourceInstance(sourceInstance);
-        // 'en'
-        const localeDir = getLocalePath(
-          node.name,
-          siteMetadata.languages?.defaultLangKey || SITE_LANGUAGES.EN
-        );
-        // 'en.readme'
-        const nodePath = node.childMdx?.slug;
-        // name without locale e.g 'readme'
-        const nameWithoutLocale = removeLocalePrefix(nodePath || node.name);
-        // 'docs/en/section/readme'
-        const path = getFullPageNodePath([localeDir, sourceDir, nameWithoutLocale]);
-        // SITE_LANGUAGES.EN
-        const locale = getLocaleFromPath(node.name);
-        // raw node name e.g. 'en.readme'
-        const name = node.name;
-        // nicely formated name for the node, defaults to frontmatter property e.g. 'Readme'
-        const displayName = getPageFormattedName(
-          node.childMdx?.frontmatter?.title || nameWithoutLocale,
-          {
-            locale: locale,
-          }
-        );
-
-        const layout = getLayoutForSourceInstance(sourceInstance);
-        const template = getTemplateForSourceInstance(sourceInstance);
-        const component =
-          sourceInstance === SOURCE_INSTANCE_NAME.MDX_PAGES
-            ? markdownPageTemplate
-            : sourceInstance === SOURCE_INSTANCE_NAME.DESIGN_SYSTEM_DOCS
-            ? designSystemPageTemplate
-            : markdownDocsTemplate;
-
-        reporter.info(
-          `[${pluginOptions.pluginName}] create page: layout: ${chalk.redBright(
-            layout
-          )}, template: ${chalk.blue(template)}, component: ${chalk.greenBright(
-            component.replace(/\/.+\//gi, '')
-          )},  path: ${chalk.blueBright(path)}`
-        );
-
-        createPage<GatsbyMarkdownFilePageContext>({
-          path,
-          context: {
-            siteMetadata,
-            id: node.id,
-            name,
-            displayName,
-            fileId: node.id,
-            locale,
-            layout,
-            sourceInstance,
-            template,
-            frontmatter: node.childMdx?.frontmatter,
-          },
-          component,
-        });
+      createPage<GatsbyMarkdownFilePageContext>({
+        path,
+        context: {
+          siteMetadata,
+          id: node.id,
+          name,
+          displayName,
+          fileId: node.id,
+          locale,
+          layout,
+          sourceInstance,
+          template,
+          frontmatter: node.childMdx?.frontmatter,
+        },
+        component,
       });
-    }
+    });
   } catch (error: any) {
     reporter.error(`[${pluginOptions.pluginName}] error occured when generating pages: ${error}`);
     reporter.panic(error);

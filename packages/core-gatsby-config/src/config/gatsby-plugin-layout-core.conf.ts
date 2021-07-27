@@ -5,7 +5,7 @@ import { GatsbyPluginLayoutCoreOptions } from '../plugins/gatsby-plugin-layout-c
 const defaultOptions: GatsbyPluginLayoutCoreOptions = {
   packageName: 'package',
   layoutComponentPath: `src/layout/layout`,
-  providersComponentPath: `src/context/providers`,
+  providersComponentPath: `src/providers/providers`,
 };
 
 export function getGastbyPluginLayoutCoreConfig({

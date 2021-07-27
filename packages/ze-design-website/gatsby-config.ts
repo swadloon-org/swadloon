@@ -1,6 +1,6 @@
 import * as common from '@newrade/core-common';
 import * as core from '@newrade/core-gatsby-config';
-import { loadDotEnv, logEnvVariables, toBoolean, getAppUrl } from '@newrade/core-utils';
+import { getAppUrl, loadDotEnv, logEnvVariables } from '@newrade/core-utils';
 import path from 'path';
 import packageJson from './package.json';
 import { Env, ENV } from './types/dot-env';
@@ -59,14 +59,10 @@ const config: core.GastbySiteConfig = {
     }),
     core.getGatsbyPluginCatchLinks(),
     core.getGatsbyReactSvgrSvgoConfig(),
-    ...core.getGastbyPluginPageCreatorConfig({
-      coreDocsMdxPages: true,
-    }),
+    ...core.getGatsbyImagePlugins(),
     core.getGastbyPluginTreatConfig(),
     core.getGastbyPluginVanilla(),
     core.getGatsbyPluginPostCSS(),
-    core.getGatsbyTransformerSharp(),
-    core.getGatsbyPluginSharp(),
     ...core.getGatsbyPluginMdx(),
     ...core.getGatsbyImageFolder({
       pathImgDir: path.join(__dirname, `../ze-design-system/lib/assets`),
@@ -74,12 +70,8 @@ const config: core.GastbySiteConfig = {
     core.getGatsbyPluginReactHelmet(),
     core.getGatsbyPluginSitemap(),
     core.getGatsbyPluginRobotsTxt({ env }),
-    core.getGastbyCorePluginConfig({
+    ...core.getGastbyCorePluginConfig({
       packageName: packageJson.name,
-      features: {
-        renderDesignSystemPages: true,
-        renderDocsPages: true,
-      },
     }),
     core.getGatsbyPluginPreloadFonts(),
   ],

@@ -8,11 +8,5 @@
       "@newrade/*": ["../*/src"]
     }
   },
-  "include": [
-    "src",
-    "test",
-    "types",
-    "scripts",
-    "../core-gatsby-ui/src/navbar/navbar-base.treat.ts"
-  ]
+  "include": ["src", "test", "types", "scripts"]
 }

@@ -1,5 +1,6 @@
 import { MDXProvider } from '@mdx-js/react';
 import { ICON, LOGO } from '@newrade/core-design-system';
+import { mdxComponents } from '@newrade/core-gatsby-ui/src/mdx/mdx-components';
 import {
   IconProvider,
   LogosProvider,
@@ -8,16 +9,14 @@ import {
   ViewportProvider,
 } from '@newrade/core-react-ui/src';
 import { GlobalCSSVariables } from '@newrade/core-react-ui/src/global/global-css-variables';
-import { GlobalResetCSS } from '@newrade/core-react-ui/src/global/global-reset-css';
 import {
   ionicons5OutlineComponents,
   ioniconsOutlineConfig,
 } from '@newrade/core-react-ui/src/icon-kits/iconicons-outline';
-import { mdxComponents } from '@newrade/core-react-ui/src/markdown';
-import { cssTheme, logosComponents, theme } from '@newrade/ze-design-system';
+import { logosComponents } from '@newrade/ze-design-system';
 import React from 'react';
 import { TreatProvider } from 'react-treat';
-import { light } from '../design-system/theme.treat';
+import { cssTheme, light, theme } from '../design-system/theme.treat';
 
 /**
  * Provide context on the website site pages (other than /docs/ and /design-system/)
@@ -29,16 +28,14 @@ export const ProvidersSite: React.FC = (props) => {
         <TreatThemeProvider theme={{ theme: theme, cssTheme: cssTheme }}>
           <MDXProvider components={mdxComponents}>
             <GlobalCSSVariables>
-              <GlobalResetCSS>
-                <LogosProvider<LOGO> logoComponents={logosComponents}>
-                  <IconProvider<ICON>
-                    {...ioniconsOutlineConfig}
-                    iconComponents={ionicons5OutlineComponents}
-                  >
-                    {props.children}
-                  </IconProvider>
-                </LogosProvider>
-              </GlobalResetCSS>
+              <LogosProvider<LOGO> logoComponents={logosComponents}>
+                <IconProvider<ICON>
+                  {...ioniconsOutlineConfig}
+                  iconComponents={ionicons5OutlineComponents}
+                >
+                  {props.children}
+                </IconProvider>
+              </LogosProvider>
             </GlobalCSSVariables>
           </MDXProvider>
         </TreatThemeProvider>
