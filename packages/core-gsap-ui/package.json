@@ -20,11 +20,11 @@
   "sideEffects": false,
   "typings": "./lib/index.d.ts",
   "dependencies": {
-    "@newrade/core-common": "^1.4.0",
-    "@newrade/core-design-system": "^1.14.0",
-    "@newrade/core-jest-config": "^2.0.0",
-    "@newrade/core-types": "^2.0.0",
-    "@newrade/core-utils": "^2.0.0"
+    "@newrade/core-common": "^1",
+    "@newrade/core-design-system": "^1",
+    "@newrade/core-jest-config": "^2",
+    "@newrade/core-types": "^2",
+    "@newrade/core-utils": "^2"
   },
   "devDependencies": {
     "@newrade/core-cli": "^1.11.0"

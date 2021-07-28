@@ -37,10 +37,10 @@
   },
   "types": "lib/index.d.ts",
   "dependencies": {
-    "@newrade/core-common": "^1.4.0",
+    "@newrade/core-common": "^1",
     "@newrade/core-figma-extractor": "^1.4.2",
-    "@newrade/core-types": "^2.0.0",
-    "@newrade/core-utils": "^2.0.0",
+    "@newrade/core-types": "^2",
+    "@newrade/core-utils": "^2",
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "@oclif/plugin-help": "^3",

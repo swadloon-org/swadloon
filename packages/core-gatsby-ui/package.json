@@ -17,12 +17,12 @@
   "sideEffects": false,
   "typings": "",
   "dependencies": {
-    "@newrade/core-common": "^1.4.0",
-    "@newrade/core-gatsby-config": "^2.1.0",
-    "@newrade/core-react-ui": "^2.1.0",
-    "@newrade/core-types": "^2.0.0",
-    "@newrade/core-utils": "^2.0.0",
-    "@newrade/core-webpack-config": "^2.0.0",
+    "@newrade/core-common": "^1",
+    "@newrade/core-gatsby-config": "^2",
+    "@newrade/core-react-ui": "^2",
+    "@newrade/core-types": "^2",
+    "@newrade/core-utils": "^2",
+    "@newrade/core-webpack-config": "^2",
     "@newrade/core-website-api": "^1.2.2"
   }
 }

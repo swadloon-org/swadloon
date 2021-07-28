@@ -23,10 +23,10 @@
   "sideEffects": false,
   "typings": "./lib/src/index.d.ts",
   "dependencies": {
-    "@newrade/core-common": "^1.4.0",
-    "@newrade/core-design-system": "^1.14.0",
-    "@newrade/core-types": "^2.0.0",
-    "@newrade/core-utils": "^2.0.0",
+    "@newrade/core-common": "^1",
+    "@newrade/core-design-system": "^1",
+    "@newrade/core-types": "^2",
+    "@newrade/core-utils": "^2",
     "figma-js": "^1.11.0"
   }
 }
