@@ -1,18 +1,21 @@
 # core-cli
 
-CLI for various purposes, automate actions, etc.
+Internal Oclif CLI for various purposes including automating some tasks in the
+monorepo.
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 
 <!-- toc -->
-* [core-cli](#core-cli)
-* [Usage](#usage)
-* [Commands](#commands)
+
+- [core-cli](#core-cli)
+- [Usage](#usage)
+- [Commands](#commands)
 <!-- tocstop -->
 
 # Usage
 
 <!-- usage -->
+
 ```sh-session
 $ npm install -g @newrade/core-cli
 $ nr COMMAND
@@ -24,19 +27,21 @@ USAGE
   $ nr COMMAND
 ...
 ```
+
 <!-- usagestop -->
 
 # Commands
 
 <!-- commands -->
-* [`nr clean-node-modules [FILE]`](#nr-clean-node-modules-file)
-* [`nr commit [FILE]`](#nr-commit-file)
-* [`nr figma-sync [FILE]`](#nr-figma-sync-file)
-* [`nr gastby-start`](#nr-gastby-start)
-* [`nr hello [FILE]`](#nr-hello-file)
-* [`nr help [COMMAND]`](#nr-help-command)
-* [`nr netlify-deploy`](#nr-netlify-deploy)
-* [`nr reset-branches [FILE]`](#nr-reset-branches-file)
+
+- [`nr clean-node-modules [FILE]`](#nr-clean-node-modules-file)
+- [`nr commit [FILE]`](#nr-commit-file)
+- [`nr figma-sync [FILE]`](#nr-figma-sync-file)
+- [`nr gastby-start`](#nr-gastby-start)
+- [`nr hello [FILE]`](#nr-hello-file)
+- [`nr help [COMMAND]`](#nr-help-command)
+- [`nr netlify-deploy`](#nr-netlify-deploy)
+- [`nr reset-branches [FILE]`](#nr-reset-branches-file)
 
 ## `nr clean-node-modules [FILE]`
 
@@ -53,7 +58,8 @@ EXAMPLE
   $ nr resetbranches
 ```
 
-_See code: [src/commands/clean-node-modules.ts](https://github.com/newrade/newrade-core/blob/v1.11.0/src/commands/clean-node-modules.ts)_
+_See code:
+[src/commands/clean-node-modules.ts](https://github.com/newrade/newrade-core/blob/v1.11.0/src/commands/clean-node-modules.ts)_
 
 ## `nr commit [FILE]`
 
@@ -70,7 +76,8 @@ EXAMPLE
   $ nr commit
 ```
 
-_See code: [src/commands/commit.ts](https://github.com/newrade/newrade-core/blob/v1.11.0/src/commands/commit.ts)_
+_See code:
+[src/commands/commit.ts](https://github.com/newrade/newrade-core/blob/v1.11.0/src/commands/commit.ts)_
 
 ## `nr figma-sync [FILE]`
 
@@ -90,7 +97,8 @@ EXAMPLE
   $ nr figma-sync
 ```
 
-_See code: [src/commands/figma-sync.ts](https://github.com/newrade/newrade-core/blob/v1.11.0/src/commands/figma-sync.ts)_
+_See code:
+[src/commands/figma-sync.ts](https://github.com/newrade/newrade-core/blob/v1.11.0/src/commands/figma-sync.ts)_
 
 ## `nr gastby-start`
 
@@ -110,7 +118,8 @@ EXAMPLE
   $ nr gatsby:start
 ```
 
-_See code: [src/commands/gastby-start.ts](https://github.com/newrade/newrade-core/blob/v1.11.0/src/commands/gastby-start.ts)_
+_See code:
+[src/commands/gastby-start.ts](https://github.com/newrade/newrade-core/blob/v1.11.0/src/commands/gastby-start.ts)_
 
 ## `nr hello [FILE]`
 
@@ -130,7 +139,8 @@ EXAMPLE
      hello world from ./src/hello.ts!
 ```
 
-_See code: [src/commands/hello.ts](https://github.com/newrade/newrade-core/blob/v1.11.0/src/commands/hello.ts)_
+_See code:
+[src/commands/hello.ts](https://github.com/newrade/newrade-core/blob/v1.11.0/src/commands/hello.ts)_
 
 ## `nr help [COMMAND]`
 
@@ -147,7 +157,8 @@ OPTIONS
   --all  see all commands in CLI
 ```
 
-_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.2/src/commands/help.ts)_
+_See code:
+[@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.2/src/commands/help.ts)_
 
 ## `nr netlify-deploy`
 
@@ -167,7 +178,8 @@ EXAMPLE
   $ nr netlify:deploy
 ```
 
-_See code: [src/commands/netlify-deploy.ts](https://github.com/newrade/newrade-core/blob/v1.11.0/src/commands/netlify-deploy.ts)_
+_See code:
+[src/commands/netlify-deploy.ts](https://github.com/newrade/newrade-core/blob/v1.11.0/src/commands/netlify-deploy.ts)_
 
 ## `nr reset-branches [FILE]`
 
@@ -184,5 +196,7 @@ EXAMPLE
   $ nr resetbranches
 ```
 
-_See code: [src/commands/reset-branches.ts](https://github.com/newrade/newrade-core/blob/v1.11.0/src/commands/reset-branches.ts)_
+_See code:
+[src/commands/reset-branches.ts](https://github.com/newrade/newrade-core/blob/v1.11.0/src/commands/reset-branches.ts)_
+
 <!-- commandsstop -->

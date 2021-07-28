@@ -34,6 +34,8 @@ export function loadDotEnv<ENV = CommonEnvType>({
   const logEnv = log.extend(packageName.replace('@newrade/', ''));
   const logEnvError = logEnv.extend('error');
 
+  debug.enable('newrade:env*');
+
   logEnv(`reading .env files in ${dotEnvPath}`);
 
   /**

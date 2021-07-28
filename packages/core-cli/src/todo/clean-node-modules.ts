@@ -3,12 +3,12 @@ import chalk from 'chalk';
 import debug from 'debug';
 import simpleGit from 'simple-git';
 
-export default class ResetBranches extends Command {
-  ddebug: debug.Debugger = debug('newrade:core-cli:reset-branches');
-  ddebugWarn: debug.Debugger = debug('newrade:core-cli:reset-branches:warn');
-  ddebugError: debug.Debugger = debug('newrade:core-cli:reset-branches:error');
+export default class CleanNodeModules extends Command {
+  ddebug: debug.Debugger = debug('newrade:core-cli:clean-node-modules');
+  ddebugWarn: debug.Debugger = debug('newrade:core-cli:clean-node-modules:warn');
+  ddebugError: debug.Debugger = debug('newrade:core-cli:clean-node-modules:error');
 
-  static description = 'delete local branches that are merged on the origin';
+  static description = `find . -name 'node_modules' -type d -prune -print -exec rm -rf '{}' \;`;
 
   static examples = [`$ nr resetbranches`];
 
@@ -16,9 +16,11 @@ export default class ResetBranches extends Command {
     help: flags.help({ char: 'h' }),
   };
 
-  static args = [{ name: 'file' }];
+  static args = [{ name: 'dir' }];
 
-  async init() {}
+  async init() {
+    debug.enable('newrade:core-cli:*');
+  }
 
   async run() {
     const git = simpleGit();
