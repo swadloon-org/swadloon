@@ -51,14 +51,6 @@
       "execute": false
     },
     {
-      "name": "core-design-system-old",
-      "cwd": "./packages/core-design-system-old",
-      "open": true,
-      "focus": false,
-      "command": "yarn start",
-      "execute": false
-    },
-    {
       "name": "core-common",
       "cwd": "./packages/core-common",
       "open": true,
@@ -117,14 +109,6 @@
     {
       "name": "core-react-ui",
       "cwd": "./packages/core-react-ui",
-      "open": true,
-      "focus": false,
-      "command": "yarn start",
-      "execute": false
-    },
-    {
-      "name": "core-react-ui-old",
-      "cwd": "./packages/core-react-ui-old",
       "open": true,
       "focus": false,
       "command": "yarn start",
