@@ -1,4 +1,4 @@
-import { VIEWPORT } from '@newrade/core-design-system/src';
+import { VIEWPORT } from '@newrade/core-design-system';
 import { useViewportBreakpoint } from '@newrade/core-react-ui/src';
 import { useEffect, useRef, useState } from 'react';
 

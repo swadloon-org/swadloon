@@ -30,31 +30,27 @@ globalStyle(`${wrapper} .gatsby-resp-image-wrapper`, ({ cssTheme, theme }: Theme
 
 /** Headings */
 
-globalStyle(
-  `${wrapper} > h1:not(:first-child), ${wrapper} > h2:not(:first-child)`,
-  ({ cssTheme, theme }: Theme) => ({
-    marginTop: '2em',
-  })
-);
+// the first element should not have margin top
+globalStyle(`${wrapper} > *:first-child`, ({ cssTheme, theme }: Theme) => ({
+  marginTop: '0',
+}));
 
+// styles for h1-h2
 globalStyle(`${wrapper} > h1, ${wrapper} > h2`, ({ cssTheme, theme }: Theme) => ({
+  marginTop: '1.75em',
   marginBottom: '1.2em',
 }));
 
-globalStyle(
-  `${wrapper} > h3:not(:first-child), ${wrapper} > h4:not(:first-child), ${wrapper} > h5:not(:first-child), ${wrapper} > h6:not(:first-child)`,
-  ({ cssTheme, theme }: Theme) => ({
-    marginTop: '2em',
-  })
-);
-
+// styles for h3-h6
 globalStyle(
   `${wrapper} > h3, ${wrapper} > h4, ${wrapper} > h5, ${wrapper} > h6`,
   ({ cssTheme, theme }: Theme) => ({
+    marginTop: '2em',
     marginBottom: '1.5em',
   })
 );
 
+// headings following headings should not have a top margin
 globalStyle(
   `${wrapper} > *:is(h1,h2,h3,h4,h5,h6) + *:is(h1,h2,h3,h4,h5,h6)`,
   ({ cssTheme, theme }: Theme) => ({
@@ -62,6 +58,7 @@ globalStyle(
   })
 );
 
+// elements following headings should not have margins since headings already have one
 globalStyle(
   `${wrapper} > *:is(h1,h2,h3,h4,h5,h6) + *:not(h1,h2,h3,h4,h5,h6)`,
   ({ cssTheme, theme }: Theme) => ({
@@ -180,6 +177,7 @@ globalStyle(`${wrapper} figure`, ({ cssTheme, theme }: Theme) => ({
 
 globalStyle(`${wrapper} img`, ({ cssTheme, theme }: Theme) => ({
   maxWidth: '100%',
+  alignSelf: 'flex-start',
 }));
 
 globalStyle(`${wrapper} > figcaption`, ({ cssTheme, theme }: Theme) => ({

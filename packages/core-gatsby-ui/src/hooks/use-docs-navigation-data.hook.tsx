@@ -125,7 +125,16 @@ export function useDocsNavigation(
     name: 'core packages docs navigation',
     locales,
     pageNodes: coreDocsPagesNodes,
-    sortOrderDirectories: ['docs', 'home', 'guides', 'design', 'build', 'deploy', 'monitor'],
+    sortOrderDirectories: [
+      'docs',
+      'home',
+      'guides',
+      'design',
+      'build',
+      'deploy',
+      'monitor',
+      'packages',
+    ],
     sortOrderItems: [
       '',
       'overview',

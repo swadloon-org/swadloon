@@ -8,7 +8,11 @@
     "url": "https://github.com/newrade/newrade"
   },
   "homepage": "https://github.com/https://github.com/newrade/newrade-core/tree/master/packages/core-cli",
-  "repository": "https://github.com/newrade/newrade-core/tree/master/packages/core-design-system",
+  "repository": {
+    "directory": "packages/core-cli",
+    "type": "git",
+    "url": "https://github.com/newrade/newrade-core.git"
+  },
   "license": "MIT",
   "bugs": "https://github.com/https://github.com/newrade/newrade-core/issues",
   "bin": {

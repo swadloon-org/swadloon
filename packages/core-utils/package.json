@@ -7,7 +7,11 @@
     "name": "Newrade",
     "url": "https://github.com/newrade/newrade"
   },
-  "repository": "https://github.com/newrade/newrade-core/tree/master/packages/core-utils",
+  "repository": {
+    "directory": "packages/core-utils",
+    "type": "git",
+    "url": "https://github.com/newrade/newrade-core.git"
+  },
   "license": "MIT",
   "bin": {
     "newrade-cli-clear": "./lib/console-clear.js",

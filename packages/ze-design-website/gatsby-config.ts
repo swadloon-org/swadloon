@@ -49,7 +49,9 @@ const config: core.GastbySiteConfig = {
     /**
      * Core Plugins
      */
-    core.getGatsbyPluginMetaRedirect(),
+    /** template */
+    core.getGatsbyPluginReactHelmet(),
+    /** js/ts/react */
     core.getGatsbyPluginLoadableComponents(),
     ...core.getGatsbyPluginTypeScriptConfig({
       documentPaths: [
@@ -57,22 +59,30 @@ const config: core.GastbySiteConfig = {
         './src/**/*.{ts,tsx}',
       ],
     }),
-    core.getGatsbyPluginCatchLinks(),
-    core.getGatsbyReactSvgrSvgoConfig(),
-    ...core.getGatsbyImagePlugins(),
-    core.getGastbyPluginTreatConfig(),
-    core.getGastbyPluginVanilla(),
-    core.getGatsbyPluginPostCSS(),
-    ...core.getGatsbyPluginMdx(),
-    ...core.getGatsbyImageFolder({
-      pathImgDir: path.join(__dirname, `../ze-design-system/lib/assets`),
-    }),
-    core.getGatsbyPluginReactHelmet(),
-    core.getGatsbyPluginSitemap(),
-    core.getGatsbyPluginRobotsTxt({ env }),
     ...core.getGastbyCorePluginConfig({
       packageName: packageJson.name,
     }),
+    /** svg */
+    core.getGatsbyReactSvgrSvgoConfig(),
+    /** gatsby plugin image */
+    ...core.getGatsbyImagePlugins(),
+    /** css */
+    core.getGastbyPluginTreatConfig(),
+    core.getGastbyPluginVanilla(),
+    core.getGatsbyPluginPostCSS(),
+    /** mdx */
+    core.getGatsbyPluginCatchLinks(),
+    ...core.getGatsbyPluginMdx(),
+    /** images and assets */
+    ...core.getGatsbyImageFolder({
+      pathImgDir: path.join(__dirname, `../ze-design-system/lib/assets`),
+    }),
+    /** seo */
+    core.getGatsbyPluginSitemap(),
+    core.getGatsbyPluginRobotsTxt({ env }),
+    /** cdn / deploy */
+    core.getGatsbyNetlifyPlugin(),
+    /** optional font loading optimization */
     core.getGatsbyPluginPreloadFonts(),
   ],
 };

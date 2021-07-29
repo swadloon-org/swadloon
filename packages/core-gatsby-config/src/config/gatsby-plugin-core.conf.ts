@@ -4,7 +4,7 @@ import * as coreWebpackConfig from '@newrade/core-webpack-config';
 import { GatsbyCorePluginOptions } from '../plugins/gatsby-plugin-core';
 import { SOURCE_INSTANCE_NAME } from './gatsby-source-instances';
 
-const defaultOptions: GatsbyCorePluginOptions = {
+const defaultOptions: Required<GatsbyCorePluginOptions> = {
   packageName: 'package',
   pluginName: 'gastby-plugin-core',
 
@@ -121,16 +121,42 @@ export function getGastbyCorePluginConfig({
     /**
      * Core packages docs
      */
-    renderCoreDocsPages
-      ? {
-          resolve: `gatsby-source-filesystem`,
-          options: {
-            name: SOURCE_INSTANCE_NAME.MONO_REPO_DOCS,
-            path: coreDocsPagesPath,
-            ignore: [`**/*.ts?x`],
+    ...(renderCoreDocsPages
+      ? [
+          {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+              name: SOURCE_INSTANCE_NAME.MONO_REPO_DOCS,
+              path: coreDocsPagesPath,
+              ignore: [`**/*.ts?x`],
+            },
           },
-        }
-      : null,
+          {
+            resolve: 'gatsby-plugin-copy-files-enhanced',
+            options: {
+              source: path.join(coreDocsPagesPath, 'assets', 'fonts'),
+              destination: '/core-docs-assets',
+              purge: true,
+            },
+          },
+          {
+            resolve: 'gatsby-plugin-copy-files-enhanced',
+            options: {
+              source: path.join(coreDocsPagesPath, 'assets', 'images'),
+              destination: '/core-docs-assets',
+              purge: true,
+            },
+          },
+          {
+            resolve: 'gatsby-plugin-copy-files-enhanced',
+            options: {
+              source: path.join(coreDocsPagesPath, 'assets', 'logos'),
+              destination: '/core-docs-assets',
+              purge: true,
+            },
+          },
+        ]
+      : []),
 
     /**
      * Configure plugin

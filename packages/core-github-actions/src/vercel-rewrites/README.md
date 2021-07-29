@@ -1,4 +1,4 @@
-# vercel-rewrites github action
+## `vercel-rewrites` Github Action
 
 Update vercel.json with Specific rewrites rules depending on the current branch
 or trigger.

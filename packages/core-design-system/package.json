@@ -7,7 +7,11 @@
     "name": "Newrade",
     "url": "https://github.com/newrade/newrade"
   },
-  "repository": "https://github.com/newrade/newrade-core/tree/master/packages/core-design-system",
+  "repository": {
+    "directory": "packages/core-design-system",
+    "type": "git",
+    "url": "https://github.com/newrade/newrade-core.git"
+  },
   "license": "MIT",
   "main": "./lib/index.js",
   "module": "./lib/esm/index.js",

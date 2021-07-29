@@ -1,4 +1,4 @@
-import { loadDotEnv, logEnvVariables } from '@newrade/core-utils';
+import { loadDotEnv } from '@newrade/core-utils';
 import { runMigration } from 'contentful-migration';
 import path from 'path';
 import packageJson from '../package.json';
@@ -8,8 +8,8 @@ const env = loadDotEnv<ENV>({
   schema: Env,
   dotEnvPath: path.resolve(__dirname, '..', '.env'),
   packageName: packageJson.name,
+  printEnvVariables: true,
 });
-logEnvVariables<ENV>({ packageName: packageJson.name, env });
 
 /**
  * @see https://github.com/contentful/contentful-migration

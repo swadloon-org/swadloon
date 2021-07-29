@@ -69,7 +69,7 @@ const Template: React.FC<MarkdownTemplateProps> = (props) => {
     <>
       <Helmet>
         <html lang={props.pageContext.locale} />
-        <link rel="icon" href="/images/favicon.svg" sizes="any" type="image/svg+xml" />
+        <link rel="icon" href="/images/logos/logo-favicon.svg" sizes="any" type="image/svg+xml" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"

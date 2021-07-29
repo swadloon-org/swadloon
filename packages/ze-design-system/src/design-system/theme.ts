@@ -12,6 +12,11 @@ import { effects } from './effects';
 import { layout } from './layout';
 import { typography } from './typography';
 
+/**
+ * Note: Do not consume exports in this file directly
+ * They must be imported only in .treat.ts or .css.ts files
+ */
+
 export const theme: DesignSystem = {
   name: 'ZE DS',
   variation: 'light',

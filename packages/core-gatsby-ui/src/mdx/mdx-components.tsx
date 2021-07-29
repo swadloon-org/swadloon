@@ -76,6 +76,8 @@ export const mdxComponents: Partial<
    *
    */
 
+  Div: (props: MDXProps) => <div {...props} />,
+
   /**
    * Heading
    */
@@ -97,15 +99,38 @@ export const mdxComponents: Partial<
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element#text_content
    */
   p: (props: MDXProps) => <Paragraph {...props} readableWidth={true} />,
-  a: (props: MDXProps & AnchorHTMLAttributes<any>) => (
-    <Link
-      variant={LinkVariant.underline}
-      variantSize={PARAGRAPH_SIZE.medium}
-      style={{ display: 'inline-block' }}
-      variantIcon={props?.href && /https?:\/\//.test(props.href) ? LinkIcon.right : undefined}
-      {...props}
-    />
-  ),
+  a: (props: MDXProps & AnchorHTMLAttributes<any>) => {
+    const linkIsExternal = props?.href && /https?:\/\//.test(props.href);
+
+    // if the child is a img tag, don't render the external icon
+    if (
+      props?.children &&
+      typeof props.children !== 'string' &&
+      // @ts-ignore
+      props.children.props?.mdxType === 'img'
+    ) {
+      return (
+        <Link
+          variant={LinkVariant.underline}
+          variantSize={PARAGRAPH_SIZE.medium}
+          style={{ display: 'inline-block' }}
+          target={linkIsExternal ? '_blank' : undefined}
+          {...props}
+        />
+      );
+    }
+
+    return (
+      <Link
+        variant={LinkVariant.underline}
+        variantSize={PARAGRAPH_SIZE.medium}
+        style={{ display: 'inline-block' }}
+        target={linkIsExternal ? '_blank' : undefined}
+        variantIcon={linkIsExternal ? LinkIcon.right : undefined}
+        {...props}
+      />
+    );
+  },
   ul: (props: MDXProps) => <ListItems {...props} />,
   ol: (props: MDXProps) => <ListItems as={'ol'} {...props} />,
   li: (props: MDXProps) => <ListItemV2 {...props} />,
