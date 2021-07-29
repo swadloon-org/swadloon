@@ -16,6 +16,8 @@
     "test:watch": "jest --watch",
     "tsc:build": "tsc --build tsconfig.build.json",
     "tsc:start": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
+    "typecheck": "yarn typecheck:build --watch --preserveWatchOutput",
+    "typecheck:build": "tsc --project tsconfig.build.json --noEmit",
     "watch:assets": "onchange -i 'src/assets/**/*' -i 'src/icon-kits/newrade-icons/**/*' -- yarn copy:assets"
   },
   "sideEffects": false,
