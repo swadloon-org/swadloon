@@ -1,3 +1,5 @@
+/// <reference types="@newrade/core-types/lib/github-slugger" />
+
 import GithubSlugger from 'github-slugger';
 import { AsTypes, PrimitiveProps } from '../primitive/primitive.props';
 import { getMergedClassname } from '../utilities/component.utilities';
