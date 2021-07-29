@@ -8,7 +8,6 @@ import {
   viewportContext,
   ViewportProvider,
 } from '@newrade/core-react-ui/src';
-import { defaultCSSTheme, defaultTheme } from '@newrade/core-react-ui/src/default-theme';
 import { GlobalCSSVariables } from '@newrade/core-react-ui/src/global/global-css-variables';
 import {
   ionicons5OutlineComponents,
@@ -17,7 +16,7 @@ import {
 import { logosComponents } from '@newrade/ze-design-system';
 import React from 'react';
 import { TreatProvider } from 'react-treat';
-import { docsTheme } from '../design-system/theme-docs.treat';
+import { defaultCSSTheme, defaultTheme, docsTheme } from '../design-system/theme-docs.treat';
 
 /**
  * Provide context over /docs/ and /design-system/ pages

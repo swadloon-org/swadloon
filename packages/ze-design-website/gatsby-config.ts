@@ -42,7 +42,7 @@ const config: core.GastbySiteConfig = {
         background_color: `#ffffff`,
         theme_color: `#6061EC`,
         display: `standalone`,
-        icon: `../ze-design-system/lib/assets/logo-favicon.svg`,
+        icon: `../ze-design-system/lib/assets/logos/logo-favicon.svg`,
         include_favicon: false, // see page template
       },
     },
