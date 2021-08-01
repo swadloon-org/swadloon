@@ -40,6 +40,11 @@ export type MdxFrontmatter = {
    */
   status?: 'published' | 'draft';
   /**
+   * Relative url for the document
+   * @example /fr/page-name/
+   */
+  slug?: string;
+  /**
    * Indicates if the document is deprecated
    */
   deprecated?: string;

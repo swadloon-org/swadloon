@@ -30,11 +30,24 @@ export type GatsbyCommonPageContext<SiteMetadataType = GatsbyNodeSiteMetadataFra
    * Locale of the page
    * @example
    *  fr.page.tsx => locale is fr
-   *  fr_CA.page.tsx => locale is fr_CA
+   *  fr-CA.page.tsx => locale is fr-CA
    *  en.doc.mdx => locale is en
-   *  doc.md (with frontmatter data) => locale is frontmatter.locale
    */
   locale: SITE_LANGUAGES;
+  /**
+   * Alternate slugs/path of the page in different locales
+   * @example
+   *  { fr: '/fr/page-name/', 'fr-CA': '/fr-ca/page-name/'}
+   */
+  alternateLocales?: { locale: SITE_LANGUAGES; path: string }[];
+  /**
+   * Original relative path of the page's node
+   */
+  relativePath: string;
+  /**
+   * Original absolute path of the page's node
+   */
+  absolutePath: string;
   /**
    * Each page can be rendered using a specific layout
    */

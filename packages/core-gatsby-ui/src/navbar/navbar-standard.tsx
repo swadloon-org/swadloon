@@ -20,7 +20,7 @@ import {
 import { LinkAPI, NavComponent } from '@newrade/core-website-api';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { GatsbyLink } from '../links/gatsby-link';
+import { useI18next } from '../i18next/use-i18next.hook';
 import { LinkRenderer } from '../links/link-renderer';
 import { NavbarBase } from './navbar-base';
 import * as styleRefs from './navbar-standard.treat';
@@ -29,9 +29,31 @@ import { NavbarProps } from './navbar.props';
 type Props = NavbarProps & {};
 
 export const NavbarStandard = React.forwardRef<any, Props>(
-  ({ id, style, className, navbar, HomeLink, onClickMenuButton, ...props }, ref) => {
+  (
+    {
+      id,
+      style,
+      className,
+      navbar,
+      HomeLink,
+      currentLanguage,
+      languages,
+      onChangeLang,
+      onClickMenuButton,
+      ...props
+    },
+    ref
+  ) => {
     const styles = useStyles(styleRefs);
     const { theme, cssTheme } = useTreatTheme();
+    const { t, getAlternativeLang } = useI18next();
+
+    /**
+     * Languages
+     */
+    const alternativeLanguage = getAlternativeLang();
+    const langChangeHandler = onChangeLang;
+
     const commonProps = useCommonProps({
       id,
       style,
@@ -39,6 +61,10 @@ export const NavbarStandard = React.forwardRef<any, Props>(
       classNames: [styles.base],
       ...props,
     });
+
+    /**
+     * Navigation
+     */
 
     const navigation = navbar?.navigation;
     const navbarNavigation = navigation?.component === NavComponent.navbar ? navigation : null;
@@ -73,9 +99,14 @@ export const NavbarStandard = React.forwardRef<any, Props>(
         </BoxV2>
 
         {/* Language link */}
-        <Link className={styles.lang} AsElement={<GatsbyLink to={'/fr/'} />}>
-          FR
-        </Link>
+        {alternativeLanguage && langChangeHandler ? (
+          <Link
+            className={styles.lang}
+            onClick={(event: React.MouseEvent) => langChangeHandler(alternativeLanguage.lang)}
+          >
+            {alternativeLanguage.label}
+          </Link>
+        ) : null}
 
         {/*
          * Desktop
@@ -121,13 +152,15 @@ export const NavbarStandard = React.forwardRef<any, Props>(
           <MenuSeparator />
 
           {/* Language link */}
-          <Link
-            variantSize={PARAGRAPH_SIZE.small}
-            className={styles.langDesktop}
-            AsElement={<GatsbyLink to={'/fr/'} />}
-          >
-            FR
-          </Link>
+          {alternativeLanguage && langChangeHandler ? (
+            <Link
+              variantSize={PARAGRAPH_SIZE.small}
+              className={styles.langDesktop}
+              onClick={(event: React.MouseEvent) => langChangeHandler(alternativeLanguage.lang)}
+            >
+              {alternativeLanguage.label}
+            </Link>
+          ) : null}
         </div>
       </NavbarBase>
     );

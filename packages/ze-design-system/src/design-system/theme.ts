@@ -1,5 +1,5 @@
 import { DesignSystem } from '@newrade/core-design-system';
-import { CSSDesignSystem } from '@newrade/core-react-ui/src/design-system';
+import { CSSDesignSystem } from '@newrade/core-react-ui/src';
 import {
   defaultAnimations,
   defaultButtons,

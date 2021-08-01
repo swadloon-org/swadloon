@@ -14,10 +14,10 @@ import {
   SidebarItem,
   Stack,
   Tag,
+  Theme,
   useTreatTheme,
   useViewportBreakpoint,
 } from '@newrade/core-react-ui/src';
-import { Theme } from '@newrade/core-react-ui/src/design-system';
 import { SidebarLayout } from '@newrade/core-website-api';
 import { PageProps } from 'gatsby';
 import React, { ReactNode } from 'react';
@@ -66,8 +66,9 @@ export const LayoutDesignSystem: React.FC<DesignSystemLayoutProps> = function ({
 }) {
   // should prob be passed by the parent
   const navigation = useDesignSystemNavigation({
-    locales: [SITE_LANGUAGES.EN, SITE_LANGUAGES.EN_CA],
+    locales: [SITE_LANGUAGES.EN, SITE_LANGUAGES.EN_CA, SITE_LANGUAGES.FR, SITE_LANGUAGES.FR_CA],
   });
+
   const { cssTheme } = useTreatTheme();
   const { viewport } = useViewportBreakpoint();
   const [layoutMode, setLayoutMode] = useLayoutState('centered');

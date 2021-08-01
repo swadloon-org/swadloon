@@ -32,6 +32,10 @@ export type OpenGraphMetadataBasic = {
    */
   url?: string;
   /**
+   * Used as default page when language is not known, defaults to `url`
+   */
+  defaultUrl?: string;
+  /**
    * A one to two sentence description of your object
    * Max 150-160 characters.
    */
@@ -55,4 +59,9 @@ export type OpenGraphMetadataBasic = {
    * @example en_CA
    */
   localeAlternate?: string;
+  /**
+   * An optional array of other locales this page is available in.
+   * @example [http://website/en-CA/, http://website/fr-CA/]
+   */
+  localeAlternateUrls?: { locale: string; url: string }[];
 };

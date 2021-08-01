@@ -1,5 +1,6 @@
 import React from 'react';
 import { OpenGraphMetadataBasic } from '../models/open-graph-metadata.model';
+import { getLangCodeUnderscore } from './meta.utilities';
 
 type Props = OpenGraphMetadataBasic;
 
@@ -22,6 +23,7 @@ export function getMetadataOpenGraphWebsiteTags({
   image,
   site_name,
   localeAlternate,
+  localeAlternateUrls,
 }: Props) {
   return [
     /* eslint-disable react/jsx-key */
@@ -37,10 +39,22 @@ export function getMetadataOpenGraphWebsiteTags({
     site_name ? <meta property="og:site_name" content={site_name} /> : null,
     locale ? <meta property="og:locale" content={locale} /> : null,
     /**
-     * TODO:
-     * <link rel="alternate" hreflang="lang_code" href="url_of_page" /> https://developers.google.com/search/docs/advanced/crawling/localized-versions
+     * @see https://developers.google.com/search/docs/advanced/crawling/localized-versions
      */
-    localeAlternate ? <meta property="og:locale:alternate" content={localeAlternate} /> : null,
+    <link rel="alternate" href={url} hrefLang="x-default" />,
+    ...(localeAlternateUrls
+      ? localeAlternateUrls.map(({ locale, url }) => (
+          <link rel="alternate" key={locale} href={url} hrefLang={locale} />
+        ))
+      : []),
+    /**
+     * @see https://developers.facebook.com/blog/post/2013/11/11/605/
+     */
+    ...(localeAlternateUrls
+      ? localeAlternateUrls.map(({ locale, url }) => (
+          <meta property="og:locale:alternate" content={getLangCodeUnderscore(locale)} />
+        ))
+      : []),
   ].map((tag, index) => {
     if (tag?.type === 'html') {
       return tag ? <html key={index} {...tag.props} /> : null;

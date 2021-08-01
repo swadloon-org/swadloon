@@ -18,7 +18,7 @@ export * from './config/gatsby-plugin-image.conf';
 export * from './config/gatsby-plugin-typescript.conf';
 export * from './config/gatsby-plugin-vanilla.conf';
 export * from './config/gatsby-source-instances';
-export * from './config/page-config';
+export * from './config/page-context';
 export * from './config/page.props';
 export * from './config/site-config';
 export * from './config/site-graphql-types';

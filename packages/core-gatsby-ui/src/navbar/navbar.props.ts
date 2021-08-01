@@ -1,3 +1,4 @@
+import { SITE_LANGUAGES } from '@newrade/core-common/src';
 import { PrimitiveProps } from '@newrade/core-react-ui/src';
 import { NavbarAPI, NavbarLayout } from '@newrade/core-website-api';
 import { CustomBlockVariantComponents } from '../blocks/block.props';
@@ -24,6 +25,15 @@ export type NavbarProps = PrimitiveProps<'nav'> & {
    * Handle the menu button event
    */
   onClickMenuButton?: (event: React.MouseEvent) => void;
+  /**
+   * Languages
+   */
+  currentLanguage?: SITE_LANGUAGES;
+  languages?: SITE_LANGUAGES[];
+  /**
+   * Handle language change
+   */
+  onChangeLang?: (lang: SITE_LANGUAGES) => void;
 };
 
 /**

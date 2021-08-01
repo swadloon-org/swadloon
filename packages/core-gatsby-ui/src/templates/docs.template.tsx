@@ -38,6 +38,7 @@ export const markdownTemplateQuery = graphql`
           version
           published
           status
+          slug
           deprecated
           editPageUrl
           nextPageLabel
@@ -69,7 +70,7 @@ const Template: React.FC<MarkdownTemplateProps> = (props) => {
     <>
       <Helmet>
         <html lang={props.pageContext.locale} />
-        <link rel="icon" href="/images/logos/logo-favicon.svg" sizes="any" type="image/svg+xml" />
+        <link rel="icon" href="/images/logo-favicon.svg" sizes="any" type="image/svg+xml" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
@@ -83,13 +84,18 @@ const Template: React.FC<MarkdownTemplateProps> = (props) => {
         {getMetaBasicTags()}
         {getMetadataOpenGraphWebsiteTags({
           type: OPEN_GRAPH_TYPE.ARTICLE,
-          title: `${
+          title: `${props.pageContext.siteMetadata.title} - ${
             props.pageContext.displayName ||
             props.pageContext.name ||
             props.pageContext.siteMetadata.title
           }`,
           // url: `${data?.site?.siteMetadata?.siteUrl}${data?.contentfulBlogPost?.blogSlug}`,
-          description: `${props.data.file?.childMdx?.excerpt || 'No description provided'}`,
+          description: `${
+            props.pageContext.frontmatter?.description ||
+            props.data.file?.childMdx?.excerpt ||
+            props.pageContext.siteMetadata.description ||
+            ''
+          }`,
           // image: `${data?.contentfulBlogPost?.blogMainImage?.socialMediaImage?.src}`,
           // site_name: `${data?.contentfulCompanyInfo?.metadataSiteName}`,
           lang: props.pageContext.locale,

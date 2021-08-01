@@ -16,11 +16,12 @@ export const SrcPageTemplate: React.FC<Props & { children: ReactNode }> = (props
   return (
     <>
       <Helmet>
-        <link rel="icon" href="/images/logos/logo-favicon.svg" sizes="any" type="image/svg+xml" />
+        <html lang={props.pageContext.locale} />
+        <link rel="icon" href="/images/logo-favicon.svg" sizes="any" type="image/svg+xml" />
         {getMetaBasicTags()}
         {getMetadataOpenGraphWebsiteTags({
           type: OPEN_GRAPH_TYPE.WEBSITE,
-          title: `${
+          title: `${props.pageContext.siteMetadata.title} - ${
             props.pageContext.displayName ||
             props.pageContext.name ||
             props.pageContext.siteMetadata.title

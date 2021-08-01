@@ -47,6 +47,7 @@ export const createSchemaCustomizationFn: GatsbyNode['createSchemaCustomization'
       version: String
       published: String
       status: String
+      slug: String
       deprecated: String
       editPageUrl: String
       nextPageLabel: String

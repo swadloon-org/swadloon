@@ -19,7 +19,7 @@ import { TreatProvider } from 'react-treat';
 import { mdxComponents } from '../mdx/mdx-components';
 import * as styles from './theme-wrapper.css';
 
-type Props = PrimitiveProps & {
+type Props = Omit<PrimitiveProps<'div'>, 'theme'> & {
   /**
    * Outer theme ref
    */
@@ -28,7 +28,13 @@ type Props = PrimitiveProps & {
    * Full theme config object
    */
   theme: Theme;
+  /**
+   * Classname to apply vanilla-extra theme css variables
+   */
   themeClassname: string;
+  /**
+   * Normal children
+   */
   children: ReactNode;
   /**
    * Activate knobs and controls

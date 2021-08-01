@@ -2,7 +2,7 @@ import { AppError, ERROR_TYPE, SITE_LANGUAGES } from '@newrade/core-common';
 import fsp from 'fs/promises';
 import { GatsbyNode } from 'gatsby';
 import path from 'path';
-import { GatsbyContentfulPageContext } from '../../../config/page-config';
+import { GatsbyContentfulPageContext } from '../../../config/page-context';
 import {
   GatsbyNodeAllSiteQuery,
   GatsbyNodeSiteMetadataFragment,
@@ -141,6 +141,8 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
             id: edge.node.id,
             name: edge.node.name,
             slug: edge.node.slug,
+            relativePath: edge.node.slug, // todo
+            absolutePath: edge.node.slug, // todo
             locale: edge.node.node_locale as SITE_LANGUAGES,
             layout: 'default',
             template: 'contentfulPage',

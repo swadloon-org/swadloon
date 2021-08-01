@@ -41,7 +41,13 @@ export function getGatsbyPluginSitemap(): Gatsby.PluginRef {
  *
  * @see https://www.gatsbyjs.com/plugins/gatsby-plugin-robots-txt/
  */
-export function getGatsbyPluginRobotsTxt({ env }: { env: CommonEnvType }): Gatsby.PluginRef {
+export function getGatsbyPluginRobotsTxt({
+  env,
+  disallowAll,
+}: {
+  env: CommonEnvType;
+  disallowAll?: boolean;
+}): Gatsby.PluginRef {
   return {
     resolve: 'gatsby-plugin-robots-txt',
     options: {
@@ -67,20 +73,35 @@ export function getGatsbyPluginRobotsTxt({ env }: { env: CommonEnvType }): Gatsb
       /**
        * List of Policy rules per environment
        */
-      env: {
-        [DEPLOY_ENV.LOCAL]: {
-          policy: [{ userAgent: '*', disallow: ['/'] }],
-        },
-        [DEPLOY_ENV.DEV]: {
-          policy: [{ userAgent: '*', disallow: ['/'] }],
-        },
-        [DEPLOY_ENV.STAGING]: {
-          policy: [{ userAgent: '*', disallow: ['/'] }],
-        },
-        [DEPLOY_ENV.PRODUCTION]: {
-          policy: [{ userAgent: '*', allow: '/' }],
-        },
-      },
+      env: disallowAll
+        ? {
+            [DEPLOY_ENV.LOCAL]: {
+              policy: [{ userAgent: '*', disallow: ['/'] }],
+            },
+            [DEPLOY_ENV.DEV]: {
+              policy: [{ userAgent: '*', disallow: ['/'] }],
+            },
+            [DEPLOY_ENV.STAGING]: {
+              policy: [{ userAgent: '*', disallow: ['/'] }],
+            },
+            [DEPLOY_ENV.PRODUCTION]: {
+              policy: [{ userAgent: '*', disallow: ['/'] }],
+            },
+          }
+        : {
+            [DEPLOY_ENV.LOCAL]: {
+              policy: [{ userAgent: '*', disallow: ['/'] }],
+            },
+            [DEPLOY_ENV.DEV]: {
+              policy: [{ userAgent: '*', disallow: ['/'] }],
+            },
+            [DEPLOY_ENV.STAGING]: {
+              policy: [{ userAgent: '*', disallow: ['/'] }],
+            },
+            [DEPLOY_ENV.PRODUCTION]: {
+              policy: [{ userAgent: '*', allow: '/' }],
+            },
+          },
     },
   };
 }

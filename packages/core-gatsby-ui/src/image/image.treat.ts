@@ -1,5 +1,5 @@
 import { style } from 'treat';
-import { Theme } from '@newrade/core-react-ui/src/design-system';
+import { Theme } from '@newrade/core-react-ui/src';
 
 export const styles = {
   wrapper: style(({ theme, cssTheme }: Theme) => ({})),

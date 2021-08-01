@@ -1,5 +1,5 @@
 import { style } from 'treat';
-import { Theme } from '@newrade/core-react-ui/src/design-system';
+import { Theme } from '@newrade/core-react-ui/src';
 
 export const base = style(({ theme, cssTheme }: Theme) => ({
   display: 'grid',
@@ -39,10 +39,10 @@ export const base = style(({ theme, cssTheme }: Theme) => ({
     },
     [cssTheme.layout.media.desktopMedium]: {
       gridTemplateAreas: `
-        "logo      logo      logo      nav     nav     nav     nav     nav     nav     nav     nav     nav"
-        "block     block     block     nav     nav     nav     nav     nav     nav     nav     nav     nav"
-        "social    social    social    nav     nav     nav     nav     nav     nav     nav     nav     nav"
-        "copy      copy      copy      nav     nav     nav     nav     nav     nav     nav     nav     nav"
+        "logo      logo      logo      logo      nav     nav     nav     nav     nav     nav     nav     nav"
+        "block     block     block     block     nav     nav     nav     nav     nav     nav     nav     nav"
+        "social    social    social    social    nav     nav     nav     nav     nav     nav     nav     nav"
+        "copy      copy      copy      copy      nav     nav     nav     nav     nav     nav     nav     nav"
         `,
     },
   },
@@ -70,9 +70,10 @@ export const navLinks = style(({ theme, cssTheme }: Theme) => ({
   gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 270px))',
   '@media': {
     [cssTheme.layout.media.desktopSmall]: {
+      gap: cssTheme.sizing.var.x6,
       gridColumnEnd: 'end',
       gridRowEnd: 'end',
-      gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 170px))',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(190px, 190px))',
     },
   },
 }));

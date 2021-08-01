@@ -37,6 +37,7 @@ export const markdownTemplateQuery = graphql`
           version
           published
           status
+          slug
           deprecated
           editPageUrl
           nextPageLabel
@@ -82,13 +83,18 @@ const Template: React.FC<MarkdownTemplateProps> = (props) => {
         {getMetaBasicTags()}
         {getMetadataOpenGraphWebsiteTags({
           type: OPEN_GRAPH_TYPE.ARTICLE,
-          title: `${
+          title: `${props.pageContext.siteMetadata.title} - ${
             props.pageContext.displayName ||
             props.pageContext.name ||
             props.pageContext.siteMetadata.title
           }`,
           // url: `${data?.site?.siteMetadata?.siteUrl}${data?.contentfulBlogPost?.blogSlug}`,
-          description: `${props.data.file?.childMdx?.excerpt || 'No description provided'}`,
+          description: `${
+            props.pageContext.frontmatter?.description ||
+            props.data.file?.childMdx?.excerpt ||
+            props.pageContext.siteMetadata.description ||
+            ''
+          }`,
           // image: `${data?.contentfulBlogPost?.blogMainImage?.socialMediaImage?.src}`,
           // site_name: `${data?.contentfulCompanyInfo?.metadataSiteName}`,
           lang: props.pageContext.locale,

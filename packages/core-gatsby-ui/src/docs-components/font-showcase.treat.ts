@@ -1,4 +1,4 @@
-import { Theme } from '@newrade/core-react-ui/src/design-system';
+import { Theme } from '@newrade/core-react-ui/src';
 import { getCSSTextStyles } from '@newrade/core-react-ui/src/utilities';
 import capsize from 'capsize';
 import { style } from 'treat';

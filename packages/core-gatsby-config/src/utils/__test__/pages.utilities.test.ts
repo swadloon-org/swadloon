@@ -1,5 +1,11 @@
 import { SITE_LANGUAGES } from '@newrade/core-common';
-import { getFullPageNodePath, getLocalePath, getPageFormattedName } from '../pages.utilities';
+import {
+  getFullPageNodePath,
+  getLocaleFromPath,
+  getLocalePath,
+  getPageFormattedName,
+  remoteExtension,
+} from '../pages.utilities';
 
 describe('dir name utilities', () => {
   describe(`${getPageFormattedName.name}`, () => {
@@ -40,6 +46,33 @@ describe('dir name utilities', () => {
       expect(getFullPageNodePath(['en', '', 'page'])).toBe('/en/page/');
       expect(getFullPageNodePath(['', '', 'page'])).toBe('/page/');
       expect(getFullPageNodePath(['', '', 'section', 'page'])).toBe('/section/page/');
+    });
+  });
+
+  describe(`${getLocaleFromPath.name}`, () => {
+    it('should retrieve the correct locale from a path', () => {
+      const defaultLocale = SITE_LANGUAGES.FR_CA;
+      expect(getLocaleFromPath('/', defaultLocale)).toBe('fr-CA');
+      expect(getLocaleFromPath('/src/pages/index.tsx', defaultLocale)).toBe('fr-CA');
+      expect(getLocaleFromPath('/src/pages/fr.index.tsx/', defaultLocale)).toBe('fr');
+      expect(getLocaleFromPath('en.index', defaultLocale)).toBe('en');
+      expect(getLocaleFromPath('index', defaultLocale)).toBe('fr-CA');
+      expect(getLocaleFromPath('/src/pages/fr.index.tsx', defaultLocale)).toBe('fr');
+      expect(getLocaleFromPath('/src/pages/fr.index.md', defaultLocale)).toBe('fr');
+      expect(getLocaleFromPath('/fr.index/', defaultLocale)).toBe('fr');
+      expect(getLocaleFromPath('/src/pages/fr.index', defaultLocale)).toBe('fr');
+      expect(getLocaleFromPath('/src/pages/en.index.tsx', defaultLocale)).toBe('en');
+      expect(getLocaleFromPath('/src/pages/folder/en.index.tsx', defaultLocale)).toBe('en');
+    });
+  });
+
+  describe(`${remoteExtension.name}`, () => {
+    it('should correctly remove an extension from a path', () => {
+      expect(remoteExtension('/')).toBe('/');
+      expect(remoteExtension('/src/pages/index.tsx')).toBe('/src/pages/index');
+      expect(remoteExtension('/src/pages/folder/en-GB.index.tsx')).toBe(
+        '/src/pages/folder/en-GB.index'
+      );
     });
   });
 

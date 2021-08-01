@@ -1,5 +1,5 @@
 import { style } from 'treat';
-import { Theme } from '@newrade/core-react-ui/src/design-system';
+import { Theme } from '@newrade/core-react-ui/src';
 
 export const base = style(({ theme, cssTheme }: Theme) => ({}));
 
@@ -45,6 +45,7 @@ export const lang = style(({ theme, cssTheme }: Theme) => ({
 
 export const langDesktop = style(({ theme, cssTheme }: Theme) => ({
   display: 'none',
+  width: 20, // to avoid layout shift when switching language
 
   '@media': {
     [cssTheme.layout.media.desktopSmall]: {

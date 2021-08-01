@@ -19,6 +19,7 @@ import {
   useCommonProps,
   useTreatTheme,
 } from '@newrade/core-react-ui/src';
+import { LinkType } from '@newrade/core-website-api';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import { GatsbyLink } from '../links/gatsby-link';
@@ -110,7 +111,13 @@ export const SidebarStandard = React.forwardRef<any, Props>(
                     <SidebarItem
                       key={id}
                       active={link?.page?.slug === activePathname}
-                      AsElement={<GatsbyLink to={link?.page?.slug} noStyles={true} />}
+                      AsElement={
+                        link?.type !== LinkType.externalUrl ? (
+                          <GatsbyLink to={link?.page?.slug} noStyles={true} />
+                        ) : (
+                          <a href={link?.url || ''} target={'_blank'} rel="noreferrer" />
+                        )
+                      }
                     >
                       {link?.label}
                     </SidebarItem>

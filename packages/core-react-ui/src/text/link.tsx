@@ -102,6 +102,9 @@ export const Link: React.FC<Props> = React.memo(
         </>
       ),
       ...commonProps,
+      ...(AsElement && (AsElement as React.ReactElement).props
+        ? (AsElement as React.ReactElement).props
+        : {}),
     };
 
     /**

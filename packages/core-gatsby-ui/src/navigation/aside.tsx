@@ -4,6 +4,7 @@ import { formatAnchorId } from '@newrade/core-react-ui/src/utilities';
 import { WindowLocation } from '@reach/router';
 import React from 'react';
 import { useStyles } from 'react-treat';
+import { useI18next } from '../i18next/use-i18next.hook';
 import * as styleRefs from './aside.treat';
 
 type AsideItem = {
@@ -25,6 +26,7 @@ export const Aside: React.FC<Props> = ({ maxDepth = 2, ...props }) => {
   const { styles } = useStyles(styleRefs);
   const renderedItems = props.items?.filter(filterItemDepthPredicate);
   const currentId = useScrollSpy(renderedItems);
+  const { t } = useI18next();
 
   if (renderedItems?.length === 0) {
     return null;
@@ -34,7 +36,7 @@ export const Aside: React.FC<Props> = ({ maxDepth = 2, ...props }) => {
     <BoxV2 as={'aside'} className={styles.wrapper}>
       <Stack as={'nav'} className={styles.wrapper}>
         <Label variant={LABEL_SIZE.small} variantStyle={TEXT_STYLE.boldUppercase}>
-          In this page
+          {t('inThisPage')}
         </Label>
         <ul className={styles.linksWrapper}>
           {renderedItems?.map((item, index, items) => {
