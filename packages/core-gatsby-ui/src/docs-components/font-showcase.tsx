@@ -21,7 +21,7 @@ export const FontShowcase: React.FC<Props> = (props) => {
           {'Sans'} - {title(cssTheme.typography.fonts.sans[0].name)}
         </Heading>
 
-        <Cluster justifyContent={['flex-start']} gap={[cssTheme.sizing.var.x2]}>
+        <Cluster justifyContent={['flex-start']} gap={[cssTheme.sizing.var.x3]}>
           <div className={`${styles.letters} ${styles.lettersSans}`}>Aa</div>
           <div className={`${styles.letters} ${styles.lettersMedium} ${styles.lettersSans}`}>
             Aa
@@ -32,32 +32,37 @@ export const FontShowcase: React.FC<Props> = (props) => {
         <p className={`${styles.paragraphSans}`}>{sampleText}</p>
       </Stack>
 
-      <Stack className={styles.wrapper} gap={[cssTheme.sizing.var.x3]}>
-        <Heading variant={HEADING.h4}>
-          {'Sans Alternate'} - {title(cssTheme.typography.fonts.sansAlternate[0].name)}
-        </Heading>
+      {cssTheme.typography.fonts.sans[0].name !==
+      cssTheme.typography.fonts.sansAlternate[0].name ? (
+        <Stack className={styles.wrapper} gap={[cssTheme.sizing.var.x3]}>
+          <Heading variant={HEADING.h4}>
+            {'Sans Alternate'} - {title(cssTheme.typography.fonts.sansAlternate[0].name)}
+          </Heading>
 
-        <Cluster justifyContent={['flex-start']} gap={[cssTheme.sizing.var.x2]}>
-          <div className={`${styles.letters} ${styles.lettersSansAlternate}`}>Aa</div>
-          <div
-            className={`${styles.letters} ${styles.lettersMedium} ${styles.lettersSansAlternate}`}
-          >
-            Aa
-          </div>
-          <div className={`${styles.letters} ${styles.lettersBold} ${styles.lettersSansAlternate}`}>
-            Aa
-          </div>
-        </Cluster>
+          <Cluster justifyContent={['flex-start']} gap={[cssTheme.sizing.var.x3]}>
+            <div className={`${styles.letters} ${styles.lettersSansAlternate}`}>Aa</div>
+            <div
+              className={`${styles.letters} ${styles.lettersMedium} ${styles.lettersSansAlternate}`}
+            >
+              Aa
+            </div>
+            <div
+              className={`${styles.letters} ${styles.lettersBold} ${styles.lettersSansAlternate}`}
+            >
+              Aa
+            </div>
+          </Cluster>
 
-        <p className={`${styles.paragraphSansAlternate}`}>{sampleText}</p>
-      </Stack>
+          <p className={`${styles.paragraphSansAlternate}`}>{sampleText}</p>
+        </Stack>
+      ) : null}
 
       <Stack className={styles.wrapper} gap={[cssTheme.sizing.var.x3]}>
         <Heading variant={HEADING.h4}>
           {'Serif'} - {title(cssTheme.typography.fonts.serif[0].name)}
         </Heading>
 
-        <Cluster justifyContent={['flex-start']} gap={[cssTheme.sizing.var.x2]}>
+        <Cluster justifyContent={['flex-start']} gap={[cssTheme.sizing.var.x3]}>
           <div className={`${styles.letters} ${styles.lettersSansSerif}`}>Aa</div>
           <div className={`${styles.letters} ${styles.lettersMedium} ${styles.lettersSansSerif}`}>
             Aa
@@ -75,7 +80,7 @@ export const FontShowcase: React.FC<Props> = (props) => {
           {'Mono'} - {title(cssTheme.typography.fonts.monospace[0].name)}
         </Heading>
 
-        <Cluster justifyContent={['flex-start']} gap={[cssTheme.sizing.var.x2]}>
+        <Cluster justifyContent={['flex-start']} gap={[cssTheme.sizing.var.x3]}>
           <div className={`${styles.letters} ${styles.lettersSansMono}`}>Aa</div>
           <div className={`${styles.letters} ${styles.lettersMedium} ${styles.lettersSansMono}`}>
             Aa

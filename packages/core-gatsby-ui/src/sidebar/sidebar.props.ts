@@ -1,3 +1,4 @@
+import { SITE_LANGUAGES } from '@newrade/core-common';
 import { PrimitiveProps } from '@newrade/core-react-ui/src';
 import { SidebarAPI, SidebarLayout } from '@newrade/core-website-api';
 import { CustomBlockVariantComponents } from '../blocks/block.props';
@@ -32,6 +33,18 @@ export type SidebarProps = PrimitiveProps<'nav'> & {
    * Handle event on the backdrop
    */
   onClickBackdrop?: (event: React.MouseEvent) => void;
+  /**
+   * Current language
+   */
+  currentLanguage?: SITE_LANGUAGES;
+  /**
+   * Available languages
+   */
+  languages?: SITE_LANGUAGES[];
+  /**
+   * Handle language change
+   */
+  onChangeLang?: (lang: SITE_LANGUAGES) => void;
 };
 
 /**

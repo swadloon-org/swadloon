@@ -26,9 +26,12 @@ export type NavbarProps = PrimitiveProps<'nav'> & {
    */
   onClickMenuButton?: (event: React.MouseEvent) => void;
   /**
-   * Languages
+   * Current language
    */
   currentLanguage?: SITE_LANGUAGES;
+  /**
+   * Available languages
+   */
   languages?: SITE_LANGUAGES[];
   /**
    * Handle language change

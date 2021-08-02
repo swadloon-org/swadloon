@@ -55,13 +55,23 @@ export const langDesktop = style(({ theme, cssTheme }: Theme) => ({
 }));
 
 export const logo = style(({ theme, cssTheme }: Theme) => ({
-  height: `calc(0.45 * ${cssTheme.layout.var.navbarHeight})`,
-  maxHeight: 33,
+  height: `calc(0.55 * ${cssTheme.layout.var.navbarHeight})`,
+  maxHeight: 45,
 }));
 
 export const logoWrapper = style(({ theme, cssTheme }: Theme) => ({
   gridArea: 'logo',
   display: 'initial',
+
+  '@media': {
+    [cssTheme.layout.media.desktopSmall]: {
+      display: 'none',
+    },
+  },
+}));
+
+export const searchButton = style(({ theme, cssTheme }: Theme) => ({
+  gridArea: 'button',
 
   '@media': {
     [cssTheme.layout.media.desktopSmall]: {

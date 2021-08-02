@@ -46,13 +46,12 @@ export const NavbarStandard = React.forwardRef<any, Props>(
   ) => {
     const styles = useStyles(styleRefs);
     const { theme, cssTheme } = useTreatTheme();
-    const { t, getAlternativeLang } = useI18next();
 
     /**
      * Languages
      */
+    const { t, getAlternativeLang } = useI18next();
     const alternativeLanguage = getAlternativeLang();
-    const langChangeHandler = onChangeLang;
 
     const commonProps = useCommonProps({
       id,
@@ -99,10 +98,10 @@ export const NavbarStandard = React.forwardRef<any, Props>(
         </BoxV2>
 
         {/* Language link */}
-        {alternativeLanguage && langChangeHandler ? (
+        {alternativeLanguage && onChangeLang ? (
           <Link
             className={styles.lang}
-            onClick={(event: React.MouseEvent) => langChangeHandler(alternativeLanguage.lang)}
+            onClick={(event: React.MouseEvent) => onChangeLang(alternativeLanguage.lang)}
           >
             {alternativeLanguage.label}
           </Link>
@@ -151,12 +150,21 @@ export const NavbarStandard = React.forwardRef<any, Props>(
 
           <MenuSeparator />
 
+          <Button
+            aria-label={'Search'}
+            size={ButtonSize.xSmall}
+            variant={Variant.tertiary}
+            Icon={<IconComp name={ICON.SEARCH} />}
+            icon={ButtonIcon.icon}
+            // onClick={onClickMenuButton}
+          ></Button>
+
           {/* Language link */}
-          {alternativeLanguage && langChangeHandler ? (
+          {alternativeLanguage && onChangeLang ? (
             <Link
               variantSize={PARAGRAPH_SIZE.small}
               className={styles.langDesktop}
-              onClick={(event: React.MouseEvent) => langChangeHandler(alternativeLanguage.lang)}
+              onClick={(event: React.MouseEvent) => onChangeLang(alternativeLanguage.lang)}
             >
               {alternativeLanguage.label}
             </Link>

@@ -94,7 +94,11 @@ export const CSSAnimation = React.forwardRef<
 
     const commonProps = useCommonProps<'div'>({
       id,
-      style: { ...style, ...animationCssProps, animationPlayState: animation?.playState },
+      style: {
+        ...style,
+        ...animationCssProps,
+        animationPlayState: animation?.playState || 'paused',
+      },
       className,
       classNames: [
         ...(classNames ? classNames : []),

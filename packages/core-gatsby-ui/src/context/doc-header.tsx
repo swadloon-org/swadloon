@@ -12,6 +12,7 @@ import {
   useTreatTheme,
 } from '@newrade/core-react-ui/src';
 import React from 'react';
+import { useI18next } from '../i18next/use-i18next.hook';
 
 type Props = {
   props: {
@@ -24,6 +25,7 @@ type Props = {
  */
 export const DocHeader = ({ props }: Props) => {
   const { cssTheme } = useTreatTheme();
+  const { t } = useI18next();
 
   const status = props?.data?.file?.childMdx?.frontmatter?.status;
   const subject = props?.data?.file?.childMdx?.frontmatter?.subject;
@@ -70,7 +72,7 @@ export const DocHeader = ({ props }: Props) => {
 
       {timeToRead ? (
         <Paragraph variantLevel={Variant.secondary} variant={PARAGRAPH_SIZE.xSmall}>
-          {lastChangedAt} · {`${timeToRead} min read`}
+          {lastChangedAt} · {`${timeToRead} ${t('minutesToRead')}`}
         </Paragraph>
       ) : null}
 

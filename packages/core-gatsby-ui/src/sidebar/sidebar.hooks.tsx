@@ -1,6 +1,7 @@
 import { VIEWPORT } from '@newrade/core-design-system';
 import { useViewportBreakpoint } from '@newrade/core-react-ui/src';
-import { useEffect, useRef, useState } from 'react';
+import { globalHistory } from '@reach/router';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 type Props = {
   /**
@@ -45,15 +46,25 @@ export function useSidebarState({
     };
   }, [viewport, sidebarOpened, delayOpen, delayClose]);
 
-  const setSidebarOpenedDelayedFn: (value: React.SetStateAction<boolean>) => void = (value) => {
-    timeoutSetSidebarFn.current = window.setTimeout(
-      () => {
-        setSidebarOpened(value);
+  const setSidebarOpenedDelayedFn: (value: React.SetStateAction<boolean>, delay?: number) => void =
+    useCallback(
+      (value, delay) => {
+        timeoutSetSidebarFn.current = window.setTimeout(
+          () => {
+            setSidebarOpened(value);
+          },
+          delay ? delay : value ? delayOpen : delayClose
+        );
+        return value;
       },
-      value ? delayOpen : delayClose
+      [delayClose, delayOpen]
     );
-    return value;
-  };
+
+  useEffect(() => {
+    return globalHistory.listen((params) => {
+      setSidebarOpenedDelayedFn(false, 600); // close sidebar upon navigation
+    });
+  }, [setSidebarOpenedDelayedFn]);
 
   return [sidebarOpened, setSidebarOpenedDelayedFn];
 }

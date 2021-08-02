@@ -19,10 +19,11 @@ import {
   useCommonProps,
   useTreatTheme,
 } from '@newrade/core-react-ui/src';
-import { LinkType } from '@newrade/core-website-api';
+import { LinkAPI } from '@newrade/core-website-api/src';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { GatsbyLink } from '../links/gatsby-link';
+import { useI18next } from '../i18next/use-i18next.hook';
+import { LinkRenderer } from '../links/link-renderer';
 import { SidebarBase } from './sidebar-base';
 import * as styleRefs from './sidebar-standard.treat';
 import { SidebarProps } from './sidebar.props';
@@ -40,6 +41,9 @@ export const SidebarStandard = React.forwardRef<any, Props>(
       onClickMenuButton,
       onClickBackdrop,
       activePathname,
+      currentLanguage,
+      languages,
+      onChangeLang,
       ...props
     },
     ref
@@ -53,6 +57,17 @@ export const SidebarStandard = React.forwardRef<any, Props>(
       classNames: [styles.base],
       ...props,
     });
+
+    /**
+     * Languages
+     */
+
+    const { t, getAlternativeLang } = useI18next();
+    const alternativeLanguage = getAlternativeLang();
+
+    /**
+     * Navigation
+     */
 
     const navigation = sidebar?.navigation;
     const sidebarNavigation = navigation;
@@ -108,18 +123,8 @@ export const SidebarStandard = React.forwardRef<any, Props>(
 
                 {links?.map((link, id) => {
                   return (
-                    <SidebarItem
-                      key={id}
-                      active={link?.page?.slug === activePathname}
-                      AsElement={
-                        link?.type !== LinkType.externalUrl ? (
-                          <GatsbyLink to={link?.page?.slug} noStyles={true} />
-                        ) : (
-                          <a href={link?.url || ''} target={'_blank'} rel="noreferrer" />
-                        )
-                      }
-                    >
-                      {link?.label}
+                    <SidebarItem key={id} active={link?.page?.slug === activePathname}>
+                      <LinkRenderer key={id} link={link as LinkAPI}></LinkRenderer>
                     </SidebarItem>
                   );
                 })}
@@ -131,13 +136,15 @@ export const SidebarStandard = React.forwardRef<any, Props>(
         {/* Bottom */}
         <div className={styles.bottom}>
           {/* Language link */}
-          <Link
-            variantSize={PARAGRAPH_SIZE.small}
-            className={styles.lang}
-            AsElement={<GatsbyLink to={'/fr/'} />}
-          >
-            FR
-          </Link>
+          {alternativeLanguage && onChangeLang ? (
+            <Link
+              variantSize={PARAGRAPH_SIZE.small}
+              className={styles.lang}
+              onClick={(event: React.MouseEvent) => onChangeLang(alternativeLanguage.lang)}
+            >
+              {alternativeLanguage.label}
+            </Link>
+          ) : null}
 
           {/* Copyright and Version */}
           <Paragraph variant={PARAGRAPH_SIZE.xSmall} variantLevel={Variant.secondary}>

@@ -25,10 +25,36 @@ export const useI18next = (ns?: Namespace, options?: UseTranslationOptions) => {
     return gatsbyNavigate(link, options);
   };
 
-  const changeLanguage = (language: string, to: string, options?: NavigateOptions<{}>) => {
-    const link = `${to}${window.location.search}`;
+  const changeLanguage = ({
+    language,
+    to,
+    alternateLocales,
+    options,
+  }: {
+    language: string;
+    to?: string;
+    alternateLocales?: {
+      locale: SITE_LANGUAGES;
+      path: string;
+    }[];
+    options?: NavigateOptions<{}>;
+  }) => {
+    const alternatePageForLocale = alternateLocales?.find(
+      (alternatePage) =>
+        alternatePage.locale === language ||
+        getLangSimpleCode(alternatePage.locale) === getLangSimpleCode(language)
+    );
+
+    const path = to
+      ? `${to}${window.location.search}`
+      : alternatePageForLocale
+      ? alternatePageForLocale.path
+      : '/';
     localStorage.setItem(LANGUAGE_KEY, language);
-    return gatsbyNavigate(link, options);
+
+    i18n.changeLanguage(language);
+
+    return gatsbyNavigate(path, options);
   };
 
   const getAlternativeLang = () => {
@@ -53,10 +79,14 @@ export const useI18next = (ns?: Namespace, options?: UseTranslationOptions) => {
   /**
    * Replaces any key:value encoutered in an object with their translation based on the current context
    */
-  function getTranslatedObject<T extends object>(object: object): T {
-    const pattern = /t\('(?<value>[a-z]+)'\)/gi;
+  function getTranslatedObject<T extends object>(object?: object): T {
+    if (!object) {
+      return {} as T;
+    }
 
     return keys(object).reduce((previous, current) => {
+      const pattern = /t\('(?<value>[a-z]+)'\)/gi;
+
       if (typeof object[current] === 'string') {
         const entry = object[current] as string;
         const matchKeyValue = pattern.exec(entry);
@@ -67,11 +97,17 @@ export const useI18next = (ns?: Namespace, options?: UseTranslationOptions) => {
           return previous;
         }
 
-        const value = matchKeyValue.groups?.value;
+        const matchValue = matchKeyValue.groups?.value;
 
-        if (value) {
+        if (matchValue) {
           // @ts-ignore
-          previous[current] = t(value);
+          previous[current] = entry.replace(
+            pattern,
+            // @ts-ignore
+            t(matchValue, {
+              lng: context.language,
+            })
+          );
           return previous;
         }
       }

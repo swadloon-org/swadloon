@@ -244,9 +244,7 @@ export function useBodyScrollLock({
     }
 
     return () => {
-      disableBodyScroll(target, {
-        allowTouchMove: (el) => el === target,
-      });
+      enableBodyScroll(target);
     };
   }, [target, disableDocumentScrolling, isIosDevice]);
 
