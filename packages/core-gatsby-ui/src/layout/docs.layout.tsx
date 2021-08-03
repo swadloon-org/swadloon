@@ -31,7 +31,7 @@ import { useSidebarState } from '../sidebar/sidebar.hooks';
  * Sidebar
  */
 const LazySidebarStandard = loadable(
-  () => import(/* webpackExports: "SidebarStandard" */ '@newrade/core-gatsby-ui/src'),
+  () => import('@newrade/core-gatsby-ui/src/sidebar/sidebar-standard'),
   {
     resolveComponent: (
       components: typeof import('@newrade/core-gatsby-ui/src/sidebar/sidebar-standard')

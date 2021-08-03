@@ -14,7 +14,9 @@
     "typecheck": "yarn typecheck:build --watch --preserveWatchOutput",
     "typecheck:build": "tsc --project tsconfig.build.json --noEmit"
   },
-  "sideEffects": false,
+  "sideEffects": [
+    "*.treat"
+  ],
   "typings": "",
   "dependencies": {
     "@newrade/core-common": "^1",

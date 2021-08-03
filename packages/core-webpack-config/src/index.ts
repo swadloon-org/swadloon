@@ -22,6 +22,7 @@ export * from './plugins/fork-ts-checker.plugin.conf';
 export * from './plugins/html.plugin.conf';
 export * from './plugins/lodash-plugin';
 export * from './plugins/manifest-json-html.plugin.conf';
+export * from './loaders/post-css.loader';
 export * from './plugins/stats-plugin';
 export * from './plugins/terser.plugin.conf';
 export * from './plugins/treat-css-plugin';
