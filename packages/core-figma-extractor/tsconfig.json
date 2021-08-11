@@ -1,6 +1,7 @@
 {
   "extends": "../../tsconfig.node-esm.json",
   "compilerOptions": {
+    "baseUrl": ".",
     "rootDir": ".",
     "outDir": "lib",
     "types": ["jest", "node"]

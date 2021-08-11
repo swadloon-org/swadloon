@@ -285,7 +285,7 @@ export function getPageDirFromPath(path?: string | null): string {
   }
 
   const reg =
-    /(\/(?<lang>fr|en|fr_CA|en_CA|fr-CA|en-CA))?(\/(?<source>[a-z_-]+))?(\/?(?<dirname>.+)\/)?((?<pagename>[a-z\-]+|\/))(\.(?<ext>jsx|tsx|mdx|md))?/gi;
+    /(\/(?<lang>fr|en|fr_CA|en_CA|fr-CA|en-CA))?(\/?(?<dirname>.+)\/)?((?<pagename>[a-z\-]+|\/))(\.(?<ext>jsx|tsx|mdx|md))?/gi;
   const match = reg.exec(path);
   const dirName = match?.groups?.dirname;
 

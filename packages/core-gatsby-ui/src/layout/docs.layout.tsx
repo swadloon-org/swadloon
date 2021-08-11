@@ -1,8 +1,7 @@
 import loadable from '@loadable/component';
 import { SITE_LANGUAGES } from '@newrade/core-common';
 import { HEADING, PARAGRAPH_SIZE, TagSize, Variant } from '@newrade/core-design-system';
-import { GatsbyMarkdownFilePageContext } from '@newrade/core-gatsby-config';
-import { SOURCE_INSTANCE_NAME } from '@newrade/core-gatsby-config/lib/esm/config/gatsby-source-instances';
+import { GatsbyMarkdownFilePageContext, SOURCE_INSTANCE_NAME } from '@newrade/core-gatsby-config';
 import {
   BoxV2,
   DesktopDocsItemGroup,

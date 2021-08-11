@@ -1,3 +1,5 @@
+/// <reference types="@newrade/core-types/lib/svg" />
+
 import { LABEL_SIZE } from '@newrade/core-design-system';
 import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';

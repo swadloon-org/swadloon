@@ -1,9 +1,10 @@
 {
-  "extends": "../../tsconfig.node-commonjs.json",
+  "extends": "./tsconfig.json",
   "compilerOptions": {
+    "module": "commonjs",
+    "baseUrl": ".",
     "rootDir": ".",
-    "outDir": "lib/commonjs",
-    "types": ["jest", "node"]
+    "outDir": "lib/commonjs"
   },
   /**
    * Other packages needed for compilation.

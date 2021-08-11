@@ -53,8 +53,11 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
   /**
    * Enable `module` in mainfields
    */
-  if (typeof config === 'object' && config.resolve) {
-    config.resolve.mainFields = ['browser', 'module', 'main'];
+  if (typeof config === 'object') {
+    config.resolve = {
+      ...config.resolve,
+      mainFields: ['browser', 'module', 'main'],
+    };
   }
 
   /**
@@ -85,10 +88,28 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
   if (typeof config === 'object') {
     config.plugins?.push(core.getLodashPlugin());
   }
-  if (typeof config === 'object' && config.resolve) {
-    config.resolve.alias = {
-      ...(typeof config.resolve.alias === 'object' ? config.resolve.alias : {}),
-      lodash: 'lodash-es',
+  if (typeof config === 'object') {
+    config.resolve = {
+      ...config.resolve,
+      alias: {
+        ...(config.resolve && typeof config.resolve.alias === 'object' ? config.resolve.alias : {}),
+        lodash: 'lodash-es',
+      },
+    };
+  }
+
+  /**
+   * Alias for core-js
+   *
+   * This is needed since gatsby uses only core-js and not the pure version
+   */
+  if (typeof config === 'object') {
+    config.resolve = {
+      ...config.resolve,
+      alias: {
+        ...(config.resolve && typeof config.resolve.alias === 'object' ? config.resolve.alias : {}),
+        'core-js-pure': 'core-js',
+      },
     };
   }
 

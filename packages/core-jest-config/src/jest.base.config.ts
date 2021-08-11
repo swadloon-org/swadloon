@@ -1,17 +1,14 @@
-// const { compilerOptions } = require('../../../tsconfig.json');
-
 import { includedLibToCompile } from './included-libs';
 
 export const baseJestConfig: jest.InitialOptions & { extensionsToTreatAsEsm?: string[] } = {
   // see https://jestjs.io/docs/configuration#extensionstotreatasesm-arraystring
-  // extensionsToTreatAsEsm: ['.ts', '.tsx'],
   preset: 'ts-jest',
   modulePaths: ['../../<rootDir>/node_modules', '<rootDir>/node_modules'],
   rootDir: '.',
   testEnvironment: 'jsdom',
   transform: {
     // not needed anymore
-    // '\\.(mjs|js|jsx)$': '../core-jest-config/transforms/babel-transform.js',
+    '\\.(mjs|js|jsx)$': '../core-jest-config/transforms/no-transform.js',
     '\\.(ttf|eot|woff2?|svg|jpe?g|png|gif|ico)$':
       '../core-jest-config/transforms/file-transform.js',
     '\\.(mdx?)$': '../core-jest-config/transforms/mdx-transform.js',
@@ -21,8 +18,10 @@ export const baseJestConfig: jest.InitialOptions & { extensionsToTreatAsEsm?: st
   moduleNameMapper: {
     // '\\.(css|less|sass|scss)$': 'identity-obj-proxy',
     '\\.(less|sass|scss)$': 'identity-obj-proxy',
-    '^@newrade/(.*)$': '<rootDir>/../$1/lib',
-    // ...pathsToModuleNameMapper(compilerOptions.paths /*, { prefix: '<rootDir>/' } */),
+    // '^@newrade/(.*)$': '<rootDir>/../$1/lib',
+    '^@newrade/core-react-ui$': '<rootDir>/../core-react-ui/src',
+    '^@newrade/core-design-system$': '<rootDir>/../core-design-system/src',
+    '^@newrade/core-common$': '<rootDir>/../core-common/lib/commonjs',
   },
   testRegex: '.+\\.test\\.tsx?',
   testPathIgnorePatterns: [

@@ -1,6 +1,7 @@
 {
   "extends": "../../tsconfig.browser-esm.json",
   "compilerOptions": {
+    "baseUrl": ".",
     "rootDir": ".",
     "outDir": "lib",
     "types": ["gatsby", "node", "jest"]

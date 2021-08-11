@@ -24,6 +24,9 @@
     "sourceMap": true,
     "strict": true,
     "target": "esnext",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "paths": {
+      "@newrade/*": ["packages/*/src"] // map packages imports to their source files
+    }
   }
 }

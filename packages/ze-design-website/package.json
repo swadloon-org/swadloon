@@ -45,6 +45,6 @@
     "@newrade/core-types": "^2",
     "@newrade/core-utils": "^2",
     "@newrade/core-webpack-config": "^2",
-    "@newrade/core-website-api": "^1.2.2"
+    "@newrade/core-website-api": "^1"
   }
 }

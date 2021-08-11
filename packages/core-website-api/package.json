@@ -3,17 +3,19 @@
   "version": "1.2.2",
   "description": "A collection of models to represent data in websites.",
   "license": "MIT",
-  "main": "./lib/index.js",
+  "main": "./lib/commonjs/index.js",
   "module": "./lib/index.js",
   "files": [
     "./lib/**/*"
   ],
   "scripts": {
-    "build": "tsc --build",
+    "build": "yarn build:commonjs && yarn build:esm",
+    "build:commonjs": "tsc --build tsconfig.commonjs.json",
+    "build:esm": "tsc --build",
     "clean": "rm -rf lib/** && rm -f *.tsbuildinfo",
-    "start": "tsc --build --watch --preserveWatchOutput --verbose",
-    "typecheck": "yarn typecheck:build --watch --preserveWatchOutput --verbose",
-    "typecheck:build": "tsc --project tsconfig.build.json --noEmit"
+    "start": "concurrently \"yarn start:commonjs\" \"yarn start:esm\"",
+    "start:commonjs": "tsc --build tsconfig.commonjs.json --watch --preserveWatchOutput --verbose",
+    "start:esm": "tsc --build --watch --preserveWatchOutput --verbose"
   },
   "sideEffects": false,
   "typings": "./lib/index.d.ts",

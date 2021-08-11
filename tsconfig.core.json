@@ -56,6 +56,12 @@
       "path": "./packages/core-figma-extractor/tsconfig.json"
     },
     {
+      "path": "./packages/core-website-api/tsconfig.json"
+    },
+    {
+      "path": "./packages/core-website-api/tsconfig.commonjs.json"
+    },
+    {
       "path": "./packages/core-figma-extractor/tsconfig.commonjs.json"
     },
     {

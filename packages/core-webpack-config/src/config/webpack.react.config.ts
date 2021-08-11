@@ -103,7 +103,6 @@ export const getReactCommonConfig: (options: { isDevelopment: boolean }) => Conf
   plugins: [
     // getForkTsCheckerWebpackPlugin(),
     getWebpackCleanPlugin(),
-
     isDevelopment && new webpack.HotModuleReplacementPlugin(),
     isDevelopment && new ReactRefreshWebpackPlugin(),
     !isDevelopment && (new MiniCssExtractPlugin() as unknown as WebpackPluginInstance),
