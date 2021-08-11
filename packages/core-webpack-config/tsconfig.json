@@ -1,11 +1,27 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "../../tsconfig.node-commonjs.json",
   "compilerOptions": {
-    "types": ["node"],
     "baseUrl": ".",
-    "paths": {
-      "@newrade/*": ["../*/src"]
-    }
+    "rootDir": "src",
+    "outDir": "lib"
   },
-  "include": ["src", "test", "types", "scripts"]
+  /**
+   * Other packages needed for compilation.
+   * Note: please keep in sync with package.json dependencies list
+   */
+  "references": [
+    {
+      "path": "../core-types/tsconfig.json"
+    },
+    {
+      "path": "../core-utils/tsconfig.json"
+    },
+    {
+      "path": "../core-common/tsconfig.json"
+    },
+    {
+      "path": "../core-common/tsconfig.commonjs.json"
+    }
+  ],
+  "include": ["src/**/*", "types/**/*"]
 }

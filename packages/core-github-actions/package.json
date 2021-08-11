@@ -20,11 +20,11 @@
   ],
   "scripts": {
     "build:built": "yarn webpack",
-    "clean": "rm -rf lib/** && rm -f tsconfig.build.tsbuildinfo",
-    "start": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
+    "clean": "rm -rf lib/** && rm -f *.tsbuildinfo",
+    "start": "tsc --build --watch --preserveWatchOutput --verbose",
     "test": "jest",
     "test:watch": "jest --watch",
-    "webpack": "cross-env TS_NODE_PROJECT=../core-webpack-config/tsconfig.webpack.json node -r ts-node/register ../../node_modules/webpack/bin/webpack --config webpack.prod.config.ts"
+    "webpack": "cross-env TS_NODE_PROJECT=../../tsconfig.node-commonjs.json node -r ts-node/register ../../node_modules/webpack/bin/webpack --config webpack.prod.config.ts"
   },
   "typings": "./lib/index.d.ts",
   "dependencies": {

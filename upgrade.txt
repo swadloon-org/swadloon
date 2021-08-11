@@ -1,6 +1,0 @@
-warning " > gatsby-plugin-load-script@1.1.0" has incorrect peer dependency "gatsby@^2.20.12".
-warning " > gatsby-plugin-ts-config@1.1.5" has incorrect peer dependency "gatsby@~2.x.x".
-warning " > gatsby-remark-abbr@2.0.0" has incorrect peer dependency "gatsby-transformer-remark@<= 3".
-warning " > gatsby-source-contentful@5.9.0" has incorrect peer dependency "sharp@^0.26.0".
-warning " > treat@1.6.1" has incorrect peer dependency "webpack@^4.30.0".
-warning "treat > css-loader@2.1.1" has incorrect peer dependency "webpack@^4.0.0".

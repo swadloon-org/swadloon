@@ -8,12 +8,12 @@
     "./lib/**/*"
   ],
   "scripts": {
-    "build-disabled": "tsc --build tsconfig.build.json",
-    "clean": "rm -rf lib/** && rm -f tsconfig.build.tsbuildinfo",
+    "build-disabled": "tsc --build",
+    "clean": "rm -rf lib/** && rm -f *.tsbuildinfo",
     "start-disabled": "yarn typecheck",
     "test-disabled": "jest",
     "test:watch-disabled": "jest --watch",
-    "typecheck": "yarn typecheck:build --watch --preserveWatchOutput",
+    "typecheck": "yarn typecheck:build --watch --preserveWatchOutput --verbose",
     "typecheck:build": "tsc --project tsconfig.build.json --noEmit"
   },
   "sideEffects": false,

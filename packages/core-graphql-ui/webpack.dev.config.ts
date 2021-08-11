@@ -20,12 +20,12 @@ import path from 'path';
 import { TreatPlugin } from 'treat/webpack-plugin';
 import * as tsloader from 'ts-loader';
 import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
-import webpack, { WebpackOptionsNormalized } from 'webpack';
+import webpack, { ConfigurationNormalized } from 'webpack';
 import { Configuration } from 'webpack';
 
 dotenv.config();
 
-const config: Configuration | Pick<WebpackOptionsNormalized, 'devServer'> = {
+const config: Configuration | Pick<ConfigurationNormalized, 'devServer'> = {
   mode: 'development',
   entry: './src/index.tsx',
   devtool: 'inline-source-map',

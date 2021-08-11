@@ -1,11 +1,10 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "../../tsconfig.node-commonjs.json",
   "compilerOptions": {
+    "outDir": "lib",
     "types": ["node", "yeoman-generator", "mocha"],
-    "baseUrl": ".",
-    "paths": {
-      "@newrade/*": ["../*/src"]
-    }
+    "rootDirs": ["src", "test"]
   },
-  "include": ["src", "test", "types", "scripts"]
+  "include": ["src", "test", "typings"],
+  "exclude": ["dist", "node_modules"]
 }

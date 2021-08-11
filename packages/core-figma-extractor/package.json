@@ -3,20 +3,20 @@
   "version": "1.4.2",
   "description": "Utility to extract colors, text styles and other tokens from figma",
   "license": "MIT",
-  "main": "./lib/src/index.js",
-  "module": "./lib/src/esm/index.js",
+  "main": "./lib/commonjs/src/index.js",
+  "module": "./lib/src/index.js",
   "files": [
     "./lib/**/*"
   ],
   "scripts": {
     "build": "yarn build:commonjs && yarn build:esm",
-    "build:commonjs": "tsc --build tsconfig.build.json",
-    "build:esm": "tsc --build tsconfig.build.esm.json",
-    "clean": "rm -rf lib/** && rm -f tsconfig.build.tsbuildinfo",
+    "build:commonjs": "tsc --build tsconfig.commonjs.json",
+    "build:esm": "tsc --build",
+    "clean": "rm -rf lib/** && rm -f *.tsbuildinfo",
     "extract": ". ./.env && DEBUG=$DEBUG cross-env TS_NODE_PROJECT=tsconfig.bin.json node -r ts-node/register bin/run.ts",
     "start": "concurrently \"yarn start:commonjs\" \"yarn start:esm\"",
-    "start:commonjs": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
-    "start:esm": "tsc --build tsconfig.build.esm.json --watch --preserveWatchOutput",
+    "start:commonjs": "tsc --build tsconfig.commonjs.json --watch --preserveWatchOutput --verbose",
+    "start:esm": "tsc --build --watch --preserveWatchOutput --verbose",
     "test": "jest",
     "test:watch": "jest --watch"
   },

@@ -13,16 +13,17 @@
     "url": "https://github.com/newrade/newrade-core.git"
   },
   "license": "MIT",
-  "main": "./lib/index.js",
+  "main": "./lib/commonjs/index.js",
   "module": "./lib/index.js",
   "files": [
     "./lib/**/*"
   ],
   "scripts": {
-    "build": "tsc --build tsconfig.build.json",
-    "clean": "rm -rf lib/** && rm -f tsconfig.build.tsbuildinfo",
-    "start": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
-    "test": "echo test"
+    "build": "yarn tsc:build",
+    "clean": "rm -rf lib/** && rm -f *.tsbuildinfo",
+    "start": "yarn tsc:start",
+    "tsc:build": "tsc --build",
+    "tsc:start": "tsc --build --watch --preserveWatchOutput --verbose"
   },
   "typings": "./lib/index.d.ts"
 }

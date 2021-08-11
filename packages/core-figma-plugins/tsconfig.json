@@ -1,11 +1,18 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "../../tsconfig.browser-esm.json",
   "compilerOptions": {
-    "types": ["node"],
-    "baseUrl": ".",
-    "paths": {
-      "@newrade/*": ["../*/src"]
-    }
+    "rootDir": "src",
+    "outDir": "lib",
+    "types": ["node"]
   },
-  "include": ["src", "test", "types", "scripts"]
+  /**
+   * Other packages needed for compilation.
+   * Note: please keep in sync with package.json dependencies list
+   */
+  "references": [
+    {
+      "path": "../core-utils/tsconfig.json"
+    }
+  ],
+  "include": ["src/**/*", "types"]
 }

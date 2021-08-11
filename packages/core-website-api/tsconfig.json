@@ -1,11 +1,31 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "../../tsconfig.iso-esm.json",
   "compilerOptions": {
-    "types": ["gatsby", "node", "jest"],
     "baseUrl": ".",
-    "paths": {
-      "@newrade/*": ["../*/src"]
-    }
+    "outDir": "lib",
+    "rootDir": "src",
+    "types": ["gatsby", "node", "jest"]
   },
-  "include": ["src", "test", "types", "scripts"]
+  /**
+   * Other packages needed for compilation.
+   * Note: please keep in sync with package.json dependencies list
+   */
+  "references": [
+    {
+      "path": "../core-types/tsconfig.json"
+    },
+    {
+      "path": "../core-utils/tsconfig.json"
+    },
+    {
+      "path": "../core-common/tsconfig.json"
+    },
+    {
+      "path": "../core-common/tsconfig.commonjs.json"
+    },
+    {
+      "path": "../core-design-system/tsconfig.json"
+    }
+  ],
+  "include": ["src/**/*", "types/**/*"]
 }

@@ -9,8 +9,8 @@
     "./lib/**/*"
   ],
   "scripts": {
-    "build": "tsc --build tsconfig.build.json",
-    "clean": "rm -rf lib/** && rm -f tsconfig.build.tsbuildinfo",
+    "build": "tsc --build",
+    "clean": "rm -rf lib/** && rm -f *.tsbuildinfo",
     "execute": "cross-env TS_NODE_PROJECT=tsconfig.build.json node -r ts-node/register src/index.ts"
   },
   "dependencies": {

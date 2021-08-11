@@ -1,29 +1,38 @@
 {
   "name": "@newrade/core-contentful-lib",
   "version": "1.9.4",
-  "description": "",
-  "author": "",
+  "description": "Scripts and models to interact with Contentful APIs and SDKs.",
+  "author": {
+    "email": "info@newrade.ca",
+    "name": "Newrade",
+    "url": "https://github.com/newrade/newrade"
+  },
+  "repository": {
+    "directory": "packages/core-contentful-lib",
+    "type": "git",
+    "url": "https://github.com/newrade/newrade-core.git"
+  },
   "license": "MIT",
   "main": "./lib/index.js",
   "files": [
     "./lib/**/*"
   ],
   "scripts": {
-    "build": "tsc --build tsconfig.build.json",
-    "clean": "rm -rf lib/** && rm -f tsconfig.build.tsbuildinfo",
+    "build": "yarn tsc:build",
+    "clean": "rm -rf lib/** && rm -f *.tsbuildinfo",
     "export-content": ". .env && contentful space export --space-id=$CONTENTFUL_SPACEID --management-token=$CONTENTFUL_MANAGEMENT_TOKEN --environment-id=$CONTENTFUL_ENV --content-file=contentful-export-space.json",
     "import-content": "contentful space import",
-    "run-migration": ". ./.env && DEBUG=$DEBUG TS_NODE_PROJECT=tsconfig.build.json node --preserve-symlinks -r ts-node/register src/run-migration.ts",
-    "start": "tsc --build --watch --preserveWatchOutput tsconfig.build.json"
+    "run-migration": ". ./.env && DEBUG=$DEBUG node --preserve-symlinks -r ts-node/register src/run-migration.ts",
+    "start": "yarn tsc:start",
+    "tsc:build": "tsc --build tsconfig.json",
+    "tsc:start": "tsc --build tsconfig.json --watch --preserveWatchOutput --verbose"
   },
   "dependencies": {
     "@newrade/core-common": "^1",
-    "@newrade/core-gatsby-config": "^2",
-    "@newrade/core-gatsby-ui": "^2",
+    "@newrade/core-design-system": "^1",
     "@newrade/core-types": "^2",
     "@newrade/core-utils": "^2",
-    "@newrade/core-webpack-config": "^2",
-    "@newrade/core-website-api": "^1.2.2",
+    "@newrade/core-website-api": "^1",
     "contentful-migration": "^2.0.4"
   },
   "devDependencies": {

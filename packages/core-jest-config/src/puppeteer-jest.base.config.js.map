@@ -1,0 +1,1 @@
+{"version":3,"file":"puppeteer-jest.base.config.js","sourceRoot":"","sources":["puppeteer-jest.base.config.ts"],"names":[],"mappings":";;;AAAA,gCAAgC;AACnB,QAAA,eAAe,GAAuD;IACjF,WAAW,EAAE,kCAAkC;IAC/C,cAAc,EAAE,qCAAqC;IACrD,eAAe,EAAE,4BAA4B;IAC7C,kBAAkB,EAAE,CAAC,kBAAkB,CAAC;CACzC,CAAC"}

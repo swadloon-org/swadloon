@@ -1,18 +1,22 @@
 {
-  "extends": "../../tsconfig.base.json",
+  "extends": "../../tsconfig.node-commonjs.json",
   "compilerOptions": {
-    "declaration": true,
-    "importHelpers": true,
-    "module": "commonjs",
-    "target": "es2017",
-    "types": ["node"],
     "outDir": "lib",
-    "rootDir": "src",
-    // with oclif, there is no easy way to provide a tsconfig for build and one to
-    // enable normal navigation in VSCode so we add the paths to packages here
-    "paths": {
-      "@newrade/*": ["../*/src"]
-    }
+    "rootDir": "src"
   },
-  "include": ["src"]
+  "references": [
+    {
+      "path": "../core-common/tsconfig.json"
+    },
+    {
+      "path": "../core-figma-extractor/tsconfig.json"
+    },
+    {
+      "path": "../core-types/tsconfig.json"
+    },
+    {
+      "path": "../core-utils/tsconfig.json"
+    }
+  ],
+  "include": ["src/**/*"]
 }

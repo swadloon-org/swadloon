@@ -25,7 +25,7 @@
     "/oclif.manifest.json"
   ],
   "scripts": {
-    "clean": "rm -rf lib/** && yarn postpack && rm -f tsconfig.build.tsbuildinfo",
+    "clean": "rm -rf lib/** && yarn postpack && rm -f *.tsbuildinfo",
     "figma-extract-color": ". ./.env && DEBUG=$DEBUG nr figma-sync $FIGMA_FILE",
     "postpack": "rm -f oclif.manifest.json",
     "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
@@ -42,7 +42,7 @@
   "types": "lib/index.d.ts",
   "dependencies": {
     "@newrade/core-common": "^1",
-    "@newrade/core-figma-extractor": "^1.4.2",
+    "@newrade/core-figma-extractor": "^1",
     "@newrade/core-types": "^2",
     "@newrade/core-utils": "^2",
     "@oclif/command": "^1",

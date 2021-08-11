@@ -162,7 +162,7 @@ export function getGastbyCorePluginConfig({
      * Configure plugin
      */
     {
-      resolve: path.resolve(__dirname, `../../lib/plugins/gatsby-plugin-core`),
+      resolve: path.resolve(__dirname, `../../commonjs/plugins/gatsby-plugin-core`),
       options: {
         packageName,
         pluginName,

@@ -1,6 +1,7 @@
 import { MdxFrontmatter } from './site-mdx-frontmatter';
 import { GatsbySiteLanguages } from './site-languages';
 import { GatsbySiteMetadata } from './site-metadata';
+import { Node } from 'gatsby';
 
 export type Maybe<T> = T | null;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };

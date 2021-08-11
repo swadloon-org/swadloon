@@ -17,9 +17,9 @@
     "nr-core-yo-generator": "./lib/src/cli.js"
   },
   "scripts": {
-    "build": "tsc --build tsconfig.build.json",
-    "clean": "rm -rf lib/** && rm -f tsconfig.build.tsbuildinfo",
-    "start": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
+    "build": "tsc --build",
+    "clean": "rm -rf lib/** && rm -f *.tsbuildinfo",
+    "start": "tsc --build --watch --preserveWatchOutput --verbose",
     "test": "mocha lib/test/generator.test.js",
     "yo": "yo ./lib/src/ -- --no-insight --no-update-notifier"
   },

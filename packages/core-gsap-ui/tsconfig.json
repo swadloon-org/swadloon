@@ -1,12 +1,34 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "../../tsconfig.browser-esm.json",
   "compilerOptions": {
-    "types": ["react", "react-dom", "jest"],
-    "lib": ["es6", "dom", "es2017"],
     "baseUrl": ".",
-    "paths": {
-      "@newrade/*": ["../*/src"]
-    }
+    "rootDir": "src",
+    "outDir": "lib",
+    "types": ["react", "react-dom", "jest"]
   },
-  "include": ["src", "test", "types", "scripts"]
+  /**
+   * Other packages needed for compilation.
+   * Note: please keep in sync with package.json dependencies list
+   */
+  "references": [
+    {
+      "path": "../core-types/tsconfig.json"
+    },
+    {
+      "path": "../core-common/tsconfig.json"
+    },
+    {
+      "path": "../core-common/tsconfig.commonjs.json"
+    },
+    {
+      "path": "../core-utils/tsconfig.json"
+    },
+    {
+      "path": "../core-design-system/tsconfig.json"
+    },
+    {
+      "path": "../core-jest-config/tsconfig.json"
+    }
+  ],
+  "include": ["src/**/*", "types/**/*"]
 }

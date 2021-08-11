@@ -1,0 +1,36 @@
+{
+  "extends": "../../tsconfig.node-commonjs.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "outDir": "lib/commonjs",
+    "types": ["jest", "node"]
+  },
+  /**
+   * Other packages needed for compilation.
+   * Note: please keep in sync with package.json dependencies list
+   */
+  "references": [
+    {
+      "path": "../core-types/tsconfig.json"
+    },
+    {
+      "path": "../core-utils/tsconfig.json"
+    },
+    {
+      "path": "../core-common/tsconfig.json"
+    },
+    {
+      "path": "../core-common/tsconfig.commonjs.json"
+    },
+    {
+      "path": "../core-design-system/tsconfig.json"
+    },
+    {
+      "path": "../core-utils/tsconfig.json"
+    },
+    {
+      "path": "../core-jest-config/tsconfig.json"
+    }
+  ],
+  "include": ["src/**/*", "types/**/*"]
+}

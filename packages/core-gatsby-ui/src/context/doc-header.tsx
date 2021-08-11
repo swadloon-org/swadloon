@@ -1,5 +1,5 @@
 import { LABEL_SIZE, PARAGRAPH_SIZE, TEXT_STYLE, Variant } from '@newrade/core-design-system';
-import { MarkdownTemplateQuery } from '@newrade/core-gatsby-config/lib/esm/config/site-graphql-types';
+import { MarkdownTemplateQuery } from '@newrade/core-gatsby-config';
 import {
   Badge,
   Cluster,

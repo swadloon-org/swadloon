@@ -36,6 +36,15 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
     return void 0;
   }
 
+  if (isDevelopSSRStage || isSSRStage) {
+    return void 0;
+  }
+
+  reporter.info(
+    `[${pluginOptions.pluginName}]process.env.TS_NODE_PROJECT: ${process.env.TS_NODE_PROJECT}`
+  );
+  delete process.env.TS_NODE_PROJECT; // see https://github.com/dividab/tsconfig-paths-webpack-plugin/issues/32
+
   /**
    * Replace the devtool option
    */
@@ -209,20 +218,25 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
         (use: any) => !/babel-loader/.test(use.loader)
       );
 
-      (config.module.rules as RuleSetRule[]) = [
-        ...(config.module.rules as RuleSetRule[]).filter(negateTsLoaderPredicate),
-        {
-          ...tsLoaderConf,
-          use: [(gatsbyBabelLoaderConf as any).use[0], tsLoaderUseConf] as RuleSetRule[],
-          exclude: /public|static/,
-        },
-      ] as RuleSetRule[];
-
-      const [modifiedTsLoaderConf] = (config.module.rules as RuleSetRule[]).filter(
-        tsLoaderPredicate
-      );
-    }
-  }
+  // if (config.module?.rules) {
+  //   reporter.info(`[${pluginOptions.pluginName}]removing built-in rules for js/mjs/jsx`);
+  //   config.module.rules = [
+  //     // ...config.module.rules.filter(negateBabelLoaderPredicate),
+  //     {
+  //       ...getBabelReactLoader({ hmr: isDevelopStage }),
+  //       test: /\.[jt]sx?$/,
+  //       // whitelist specific es6 modules
+  //       exclude: (modulePath: string) =>
+  //         /node_modules/.test(modulePath) &&
+  //         !new RegExp(
+  //           `[\\\\/](${moduleToParseByBabel
+  //             .map((module) => module.replace(/\//, path.sep))
+  //             .map(regexEscape)
+  //             .join('|')})[\\\\/]`
+  //         ).test(modulePath),
+  //     },
+  //   ];
+  // }
 
   /**
    * Add tsx support to babel (like gatsby-plugin-typescript)
@@ -235,14 +249,31 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
     (config.module.rules as RuleSetRule[]) = [
       ...(config.module.rules as RuleSetRule[]).filter(negateTsLoaderPredicate),
       {
-        test: '/\\.tsx?$/',
-        use: [...((gatsbyBabelLoaderConf as RuleSetRule).use as RuleSetUseItem[])] as RuleSetRule[],
-        exclude: /public|static/,
+        ...getTypescriptBabelReactLoader({
+          isDevelopment: isDevelopStage,
+          tsLoaderOptions: {
+            projectReferences: true,
+            transpileOnly: true, // typechecking done by fork-ts-plugin
+            logLevel: 'INFO',
+          },
+        }),
+        exclude: /public|static|node_modules|treat\.ts/,
       },
     ] as RuleSetRule[];
 
     const [modifiedTsLoaderConf] = (config.module.rules as RuleSetRule[]).filter(tsLoaderPredicate);
   }
+
+  config.resolve = {
+    ...config.resolve,
+    plugins: [
+      ...(config.resolve?.plugins || []),
+      new TsconfigPathsPlugin({
+        configFile: 'tsconfig.json',
+        logLevel: 'INFO',
+      }),
+    ],
+  };
 
   /**
    * Add BundleVisualizer when building for production but local only
@@ -253,7 +284,7 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
       : [core.getBundleVisualizerPlugin()];
   }
 
-  reporter.info(`replacing webpack config with modified one`);
+  reporter.info(`[${pluginOptions.pluginName}]replacing webpack config with modified one`);
 
   // completely replace the webpack config with the modified one
   actions.replaceWebpackConfig(config);

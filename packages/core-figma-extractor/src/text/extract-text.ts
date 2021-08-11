@@ -151,7 +151,7 @@ const createTextVariantTS = (textObject: TextTokens) => {
 
   fs.appendFile(
     path.join(__dirname, FILES_TYPE_TEXT.TS),
-    `import { TextTokens } from '@newrade/core-figma-extractor/src';\n ${texts}`,
+    `import { TextTokens } from '@newrade/core-figma-extractor';\n ${texts}`,
     (err) => {
       if (err) throw err;
       log(chalk.green(`New colors TS added`));

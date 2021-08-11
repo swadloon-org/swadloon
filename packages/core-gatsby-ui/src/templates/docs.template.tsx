@@ -1,5 +1,4 @@
-import { GatsbyMarkdownFilePageContext } from '@newrade/core-gatsby-config';
-import { MarkdownTemplateQuery } from '@newrade/core-gatsby-config/lib/esm/config/site-graphql-types';
+import { GatsbyMarkdownFilePageContext, MarkdownTemplateQuery } from '@newrade/core-gatsby-config';
 import {
   Center,
   getMetaBasicTags,

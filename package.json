@@ -1,5 +1,4 @@
 {
-  "license": "MIT",
   "private": true,
   "engines": {
     "node": ">=14"
@@ -18,7 +17,8 @@
     }
   },
   "scripts": {
-    "build": "yarn lerna:build --scope @newrade/core-* --ignore @newrade/core-graphql-ui",
+    "build": "yarn tsc:build",
+    "build:individual": "yarn lerna:build --scope @newrade/core-* --ignore @newrade/core-graphql-ui",
     "build:postinstall": "yarn lerna:build:postinstall",
     "changelog": "lerna version --conventional-commits --no-push",
     "clean": "yarn lerna:clean --scope @newrade/core-*",
@@ -36,14 +36,17 @@
     "lerna:typecheck:build": "lerna run typecheck:build --parallel --loglevel error",
     "lint": "eslint . --ext ts,tsx",
     "lint:fix": "eslint . --ext ts,tsx --fix",
-    "postinstall": "patch-package && yarn clean && yarn build && yarn build:postinstall",
+    "postinstall": "patch-package && yarn clean && yarn build:core && yarn build:postinstall",
     "push": "git push --follow-tags",
     "release": ". ./.env && GH_TOKEN=$GH_TOKEN lerna version --conventional-commits --create-release github",
     "reset": "rm -rf ./node_modules packages/**/node_modules && yarn",
-    "start": "yarn lerna:start --scope @newrade/core-* --ignore @newrade/core-graphql-ui",
+    "start": "yarn tsc:start",
+    "start:individual": "yarn lerna:start --scope @newrade/core-* --ignore @newrade/core-graphql-ui",
     "test": "yarn lerna:test --scope @newrade/core-* --ignore @newrade/core-graphql-ui",
     "test:e2e": "yarn lerna:test:e2e --scope @newrade/core-* --ignore @newrade/core-graphql-ui",
     "test:ui": "yarn lerna:test --scope '{@newrade/core-design-system,@newrade/core-react-ui,@newrade/core-graphql-ui}'",
+    "tsc:build": "tsc --build tsconfig.core.json",
+    "tsc:start": "tsc --build tsconfig.core.json --watch --preserveWatchOutput --verbose",
     "typecheck": "yarn lerna:typecheck",
     "typecheck:build": "yarn lerna:typecheck:build",
     "yo": "nr-core-yo-generator"

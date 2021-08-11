@@ -1,13 +1,28 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "../../tsconfig.browser-gatsby.json",
   "compilerOptions": {
-    "allowJs": true,
-    "noEmit": true,
-    "types": ["node"],
-    "baseUrl": ".",
-    "paths": {
-      "@newrade/*": ["../*/src"]
-    }
+    "baseUrl": "."
   },
-  "include": ["src", "test", "types", "scripts"]
+  /**
+   * Other packages needed for compilation.
+   * Note: please keep in sync with package.json dependencies list
+   */
+  "references": [
+    {
+      "path": "../core-utils/tsconfig.json"
+    },
+    {
+      "path": "../core-gatsby-config/tsconfig.json"
+    },
+    {
+      "path": "../core-design-system/tsconfig.json"
+    },
+    {
+      "path": "../core-webpack-config/tsconfig.json"
+    },
+    {
+      "path": "../ze-design-system/tsconfig.json"
+    }
+  ],
+  "include": ["src/**/*", "test/**/*", "types/**/*", "scripts/**/*"]
 }

@@ -4,9 +4,9 @@
   "description": "UI App library",
   "license": "MIT",
   "scripts": {
-    "build-disabled": "cross-env TS_NODE_PROJECT=../core-webpack-config/tsconfig.webpack.json node -r ts-node/register ../../node_modules/webpack/bin/webpack --config webpack.dev.config.ts",
-    "clean-disabled": "rm -rf public/** && rm -f tsconfig.build.tsbuildinfo",
-    "start": "cross-env TS_NODE_PROJECT=../core-webpack-config/tsconfig.webpack.json node -r ts-node/register ../../node_modules/webpack-dev-server/bin/webpack-dev-server --config webpack.dev.config.ts",
+    "build-disabled": "cross-env TS_NODE_PROJECT=../../tsconfig.node-commonjs.json node -r ts-node/register ../../node_modules/webpack/bin/webpack --config webpack.dev.config.ts",
+    "clean-disabled": "rm -rf public/** && rm -f *.tsbuildinfo",
+    "start": "cross-env TS_NODE_PROJECT=../../tsconfig.node-commonjs.json node -r ts-node/register ../../node_modules/webpack-dev-server/bin/webpack-dev-server --config webpack.dev.config.ts",
     "test-disabled": "echo ok"
   },
   "type": "module",
