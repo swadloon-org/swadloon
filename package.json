@@ -36,7 +36,7 @@
     "lerna:typecheck:build": "lerna run typecheck:build --parallel --loglevel error",
     "lint": "eslint . --ext ts,tsx",
     "lint:fix": "eslint . --ext ts,tsx --fix",
-    "postinstall": "patch-package && yarn clean && yarn build:core && yarn build:postinstall",
+    "postinstall": "patch-package && yarn clean && yarn build && yarn build:postinstall",
     "push": "git push --follow-tags",
     "release": ". ./.env && GH_TOKEN=$GH_TOKEN lerna version --conventional-commits --create-release github",
     "reset": "rm -rf ./node_modules packages/**/node_modules && yarn",

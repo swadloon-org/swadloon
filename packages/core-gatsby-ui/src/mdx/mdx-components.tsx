@@ -260,10 +260,6 @@ export const mdxComponents: Partial<
    */
   Icon: IconComp,
   IconBox: IconBox,
-
-  /**
-   * Markdown
-   */
 };
 
 export type MDXProps = {
