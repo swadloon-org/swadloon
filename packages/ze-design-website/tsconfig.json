@@ -24,5 +24,5 @@
       "path": "../ze-design-system/tsconfig.json"
     }
   ],
-  "include": ["src/**/*", "test/**/*", "types/**/*", "scripts/**/*"]
+  "include": ["gatsby-*", "src/**/*", "test/**/*", "types/**/*", "scripts/**/*"]
 }

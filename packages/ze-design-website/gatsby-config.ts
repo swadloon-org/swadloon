@@ -1,5 +1,6 @@
 import * as common from '@newrade/core-common';
 import * as core from '@newrade/core-gatsby-config';
+import * as conf from '@newrade/core-gatsby-config/lib/config';
 import { getAppUrl, loadDotEnv, logEnvVariables } from '@newrade/core-utils';
 import path from 'path';
 import packageJson from './package.json';
@@ -17,8 +18,8 @@ logEnvVariables<ENV>({ packageName: packageJson.name, env });
  *
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
-const config: core.GastbySiteConfig = {
-  flags: core.gatsbySiteFlags,
+const config: conf.GastbySiteConfig = {
+  flags: conf.gatsbySiteFlags,
   siteMetadata: {
     title: `Ze Design System Website`,
     description: `Ze Design System main website`,
@@ -81,7 +82,6 @@ const config: core.GastbySiteConfig = {
     core.getGatsbyPluginSitemap(),
     core.getGatsbyPluginRobotsTxt({ env }),
     /** cdn / deploy */
-    core.getGatsbyNetlifyPlugin(),
     /** optional font loading optimization */
     core.getGatsbyPluginPreloadFonts(),
   ],

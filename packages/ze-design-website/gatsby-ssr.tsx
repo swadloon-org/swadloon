@@ -1,4 +1,3 @@
-// @ts-check
 import { GatsbySSR } from 'gatsby';
 import React from 'react';
 import { WrapElement } from './gatsby-wrap-element';

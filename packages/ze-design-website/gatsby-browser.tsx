@@ -1,7 +1,7 @@
 import { GatsbyBrowser } from 'gatsby';
 import React from 'react';
 import { WrapElement } from './gatsby-wrap-element';
-import Providers from './src/providers/providers';
+import { Providers } from './src/providers/providers';
 
 /**
  * Gatsby Browser APIs

@@ -1,3 +1,6 @@
+/**
+ * Should only be used in NodeJS code
+ */
 export * from './config/gatsby-load-image-source.conf';
 export * from './config/gatsby-plugin-catch-links.conf';
 export * from './config/gatsby-plugin-core-contentful.conf';
@@ -16,11 +19,3 @@ export * from './config/gatsby-plugin-svgr-svgo.conf';
 export * from './config/gatsby-plugin-treat.conf';
 export * from './config/gatsby-plugin-typescript.conf';
 export * from './config/gatsby-plugin-vanilla.conf';
-export * from './config/gatsby-source-instances';
-export * from './config/page-context';
-export * from './config/page.props';
-export * from './config/site-config';
-export * from './config/site-graphql-types';
-export * from './config/site-languages';
-export * from './config/site-mdx-frontmatter';
-export * from './config/site-metadata';

@@ -1,4 +1,4 @@
-import { MdxFrontmatter } from '@newrade/core-gatsby-config';
+import { MdxFrontmatter } from '@newrade/core-gatsby-config/lib/config';
 
 export type NavItem = {
   /**

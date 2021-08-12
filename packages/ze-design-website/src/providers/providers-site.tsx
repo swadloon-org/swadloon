@@ -43,5 +43,3 @@ export const ProvidersSite: React.FC = (props) => {
     </TreatProvider>
   );
 };
-
-export default ProvidersSite;

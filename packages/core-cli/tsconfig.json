@@ -3,8 +3,15 @@
   "compilerOptions": {
     "baseUrl": ".",
     "outDir": "lib",
-    "rootDir": "src"
+    "rootDir": "src",
+    "paths": {
+      "@newrade/*": ["../*/src"] // map packages imports to their source files
+    }
   },
+  /**
+   * Other packages needed for compilation.
+   * Note: please keep in sync with package.json dependencies list
+   */
   "references": [
     {
       "path": "../core-common/tsconfig.json"

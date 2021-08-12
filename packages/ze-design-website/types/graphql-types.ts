@@ -778,11 +778,6 @@ type SitePluginPluginOptions = {
   readonly host: Maybe<Scalars['String']>;
   readonly sitemap: Maybe<Scalars['String']>;
   readonly env: Maybe<SitePluginPluginOptionsEnv>;
-  readonly headers: Maybe<SitePluginPluginOptionsHeaders>;
-  readonly mergeSecurityHeaders: Maybe<Scalars['Boolean']>;
-  readonly mergeLinkHeaders: Maybe<Scalars['Boolean']>;
-  readonly mergeCachingHeaders: Maybe<Scalars['Boolean']>;
-  readonly generateMatchPathRewrites: Maybe<Scalars['Boolean']>;
   readonly pathCheck: Maybe<Scalars['Boolean']>;
   readonly allExtensions: Maybe<Scalars['Boolean']>;
   readonly isTSX: Maybe<Scalars['Boolean']>;
@@ -924,10 +919,6 @@ type SitePluginPluginOptionsEnvProduction = {
 type SitePluginPluginOptionsEnvProductionPolicy = {
   readonly userAgent: Maybe<Scalars['String']>;
   readonly allow: Maybe<Scalars['String']>;
-};
-
-type SitePluginPluginOptionsHeaders = {
-  readonly _x: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
 };
 
 type SitePluginPackageJson = {
@@ -2714,11 +2705,6 @@ type SitePluginPluginOptionsFilterInput = {
   readonly host: Maybe<StringQueryOperatorInput>;
   readonly sitemap: Maybe<StringQueryOperatorInput>;
   readonly env: Maybe<SitePluginPluginOptionsEnvFilterInput>;
-  readonly headers: Maybe<SitePluginPluginOptionsHeadersFilterInput>;
-  readonly mergeSecurityHeaders: Maybe<BooleanQueryOperatorInput>;
-  readonly mergeLinkHeaders: Maybe<BooleanQueryOperatorInput>;
-  readonly mergeCachingHeaders: Maybe<BooleanQueryOperatorInput>;
-  readonly generateMatchPathRewrites: Maybe<BooleanQueryOperatorInput>;
   readonly pathCheck: Maybe<BooleanQueryOperatorInput>;
   readonly allExtensions: Maybe<BooleanQueryOperatorInput>;
   readonly isTSX: Maybe<BooleanQueryOperatorInput>;
@@ -2908,10 +2894,6 @@ type SitePluginPluginOptionsEnvProductionPolicyFilterListInput = {
 type SitePluginPluginOptionsEnvProductionPolicyFilterInput = {
   readonly userAgent: Maybe<StringQueryOperatorInput>;
   readonly allow: Maybe<StringQueryOperatorInput>;
-};
-
-type SitePluginPluginOptionsHeadersFilterInput = {
-  readonly _x: Maybe<StringQueryOperatorInput>;
 };
 
 type SitePluginPackageJsonFilterInput = {
@@ -3276,11 +3258,6 @@ type SitePageFieldsEnum =
   | 'pluginCreator.pluginOptions.query'
   | 'pluginCreator.pluginOptions.host'
   | 'pluginCreator.pluginOptions.sitemap'
-  | 'pluginCreator.pluginOptions.headers._x'
-  | 'pluginCreator.pluginOptions.mergeSecurityHeaders'
-  | 'pluginCreator.pluginOptions.mergeLinkHeaders'
-  | 'pluginCreator.pluginOptions.mergeCachingHeaders'
-  | 'pluginCreator.pluginOptions.generateMatchPathRewrites'
   | 'pluginCreator.pluginOptions.pathCheck'
   | 'pluginCreator.pluginOptions.allExtensions'
   | 'pluginCreator.pluginOptions.isTSX'
@@ -4096,11 +4073,6 @@ type SitePluginFieldsEnum =
   | 'pluginOptions.env.dev.policy'
   | 'pluginOptions.env.staging.policy'
   | 'pluginOptions.env.production.policy'
-  | 'pluginOptions.headers._x'
-  | 'pluginOptions.mergeSecurityHeaders'
-  | 'pluginOptions.mergeLinkHeaders'
-  | 'pluginOptions.mergeCachingHeaders'
-  | 'pluginOptions.generateMatchPathRewrites'
   | 'pluginOptions.pathCheck'
   | 'pluginOptions.allExtensions'
   | 'pluginOptions.isTSX'

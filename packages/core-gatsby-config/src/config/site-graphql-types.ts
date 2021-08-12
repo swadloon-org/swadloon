@@ -75,7 +75,7 @@ export type GatsbyNodeSiteMetadataFragment = Pick<
   GatsbySiteMetadata,
   'title' | 'description' | 'siteEnv' | 'siteUrl'
 > & {
-  languages: Pick<GatsbySiteLanguages, 'langs' | 'defaultLangKey'>;
+  languages: GatsbySiteLanguages;
 };
 
 export type GatsbyNodeSrcPagesFilesQuery = {

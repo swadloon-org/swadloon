@@ -93,7 +93,7 @@ use
 
 ````
 
-flags: core.gatsbySiteFlags,
+flags: conf.gatsbySiteFlags,
 
 ```
 

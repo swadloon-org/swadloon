@@ -1,4 +1,7 @@
-import { GatsbyMarkdownFilePageContext, MarkdownTemplateQuery } from '@newrade/core-gatsby-config';
+import {
+  GatsbyMarkdownFilePageContext,
+  MarkdownTemplateQuery,
+} from '@newrade/core-gatsby-config/lib/config';
 import {
   Center,
   getMetaBasicTags,

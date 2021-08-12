@@ -43,5 +43,3 @@ export const ProvidersDocs: React.FC = (props) => {
     </TreatProvider>
   );
 };
-
-export default ProvidersDocs;

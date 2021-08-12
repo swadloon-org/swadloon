@@ -1,3 +1,5 @@
+import { InitOptions } from 'i18next';
+
 export type GatsbyCorePluginOptions = {
   /**
    * Name of the package that runs this plugin
@@ -14,7 +16,6 @@ export type GatsbyCorePluginOptions = {
    * @example 'lodash'
    */
   modules?: string[];
-
   /**
    * Enable or disable the generation of normal pages (.tsx) in /src/pages/
    */

@@ -1,5 +1,5 @@
 import { SITE_LANGUAGES } from '@newrade/core-common';
-import { SOURCE_INSTANCE_NAME } from '@newrade/core-gatsby-config';
+import { SOURCE_INSTANCE_NAME } from '@newrade/core-gatsby-config/lib/config';
 import { graphql, useStaticQuery } from 'gatsby';
 import { Navigation } from '../navigation/navigation.model';
 import { getNavigationFromPageNodes } from '../utilities/navigation.utilities';

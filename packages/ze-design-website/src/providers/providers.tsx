@@ -4,5 +4,3 @@ import React from 'react';
 export const Providers: React.FC = (props) => {
   return <ViewportProvider context={viewportContext}>{props.children}</ViewportProvider>;
 };
-
-export default Providers;

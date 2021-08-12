@@ -1,4 +1,4 @@
-import { GatsbySrcPageContext } from '@newrade/core-gatsby-config';
+import { GatsbySrcPageContext } from '@newrade/core-gatsby-config/lib/config';
 import {
   getMetaBasicTags,
   getMetadataOpenGraphWebsiteTags,
