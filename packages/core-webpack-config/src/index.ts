@@ -3,7 +3,7 @@ export * from './babel-preset.conf';
 export * from './config/webpack.node.config';
 export * from './config/webpack.react.config';
 export * from './dev-server.conf';
-export * from './loaders/babel-es6.loader';
+export * from './loaders/babel-react.loader';
 export * from './loaders/babel-node.loader';
 export * from './loaders/css-loader';
 export * from './loaders/ejs-loader';

@@ -32,23 +32,37 @@ export const BlockImageBackground = React.forwardRef<any, Props>(
     let imageData;
     let backgroundImagePosition;
 
-    if ((imageBlock as BlockImageAPIV1).medias?.[0]?.medias?.[0]?.media?.fluid) {
-      imageData = (imageBlock as BlockImageAPIV1).medias?.[0]?.medias?.[0]?.media?.fluid;
-      backgroundImagePosition = (imageBlock as BlockImageAPIV1).medias?.[0]?.medias?.[0]
-        ?.backgroundPositionY;
-    } else if ((imageBlock as BlockImageAPIV2).media?.media?.fluid) {
-      imageData = (imageBlock as BlockImageAPIV2).media?.media?.fluid;
-      backgroundImagePosition = (imageBlock as BlockImageAPIV2).media?.backgroundPositionY;
-    } else if ((imageBlock as BlockImageAPIV2).media?.media?.fullWidth) {
-      imageData = (imageBlock as BlockImageAPIV2).media?.media?.fullWidth;
-      backgroundImagePosition = (imageBlock as BlockImageAPIV2).media?.backgroundPositionY;
+    const imageBackgroundPositionInBlockV1 = (imageBlock as BlockImageAPIV1).medias?.[0]
+      ?.medias?.[0]?.backgroundPositionY;
+    const imageDataInBlockV1 = (imageBlock as BlockImageAPIV1).medias?.[0]?.medias?.[0]?.media;
+
+    // for v1 of the BlockImageAPI
+    if (imageDataInBlockV1) {
+      if (imageDataInBlockV1.fluid) {
+        imageData = imageDataInBlockV1.fluid;
+      }
+      if (imageDataInBlockV1.fullWidth) {
+        imageData = imageDataInBlockV1.fullWidth;
+      }
+    }
+
+    const imageDataInBlockV2 = (imageBlock as BlockImageAPIV2).media?.media;
+
+    // for v2 of the BlockImageAPI
+    if (imageDataInBlockV2) {
+      if (imageDataInBlockV2.fluid) {
+        imageData = imageDataInBlockV2.fluid;
+      }
+      if (imageDataInBlockV2.fullWidth) {
+        imageData = imageDataInBlockV2.fullWidth;
+      }
     }
 
     if (version === 'v2') {
       return (
         <BackgroundImageV2
           ref={ref}
-          backgroundPosition={backgroundImagePosition}
+          backgroundPosition={imageBackgroundPositionInBlockV1}
           backgroundImage={imageData as IGatsbyImageData}
           {...commonProps}
         ></BackgroundImageV2>
@@ -62,7 +76,7 @@ export const BlockImageBackground = React.forwardRef<any, Props>(
         backgroundImage={{
           Tag: 'div',
           fluid: imageData as IFluidObject,
-          style: { backgroundPositionY: backgroundImagePosition || '' },
+          style: { backgroundPositionY: imageBackgroundPositionInBlockV1 || '' },
           fadeIn: false,
         }}
         {...commonProps}

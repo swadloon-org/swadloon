@@ -140,12 +140,16 @@ globalStyle(`${wrapper} > blockquote > blockquote`, ({ cssTheme, theme }: Theme)
  * Details & summary
  */
 
-globalStyle(`${wrapper} p + details`, ({ cssTheme, theme }: Theme) => ({
-  marginBottom: '4em',
+globalStyle(`${wrapper} details + details`, ({ cssTheme, theme }: Theme) => ({
+  marginTop: 0,
 }));
 
 globalStyle(`${wrapper} details + p`, ({ cssTheme, theme }: Theme) => ({
   marginBottom: '4em',
+}));
+
+globalStyle(`${wrapper} details p + p`, ({ cssTheme, theme }: Theme) => ({
+  marginTop: '1.5em',
 }));
 
 /** Icons */

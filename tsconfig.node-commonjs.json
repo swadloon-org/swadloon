@@ -8,9 +8,9 @@
     "declaration": true,
     "incremental": true,
     "composite": true,
-    "target": "ES2018",
+    "target": "es2020",
     "module": "commonjs",
-    "lib": ["ES2018"], // should be set according to choosen NodeJS version and its support of recent features https://node.green/
+    "lib": ["es2020"], // should be set according to choosen NodeJS version and its support of recent features https://node.green/
     "types": ["node"]
   }
 }

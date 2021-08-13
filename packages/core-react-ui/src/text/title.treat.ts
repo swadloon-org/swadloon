@@ -1,7 +1,12 @@
 import { Variant, TITLE } from '@newrade/core-design-system';
-import { style } from 'treat';
+import { globalStyle, style } from 'treat';
 import { Theme } from '../design-system';
 import { getCSSTextStyles } from '../utilities/text.utilities';
+
+export const wrapper = style(({ theme, cssTheme }: Theme) => ({
+  // position: 'relative', will break anchor calculation
+  userSelect: 'text',
+}));
 
 export const styles: { [key in TITLE]: string } & { [key in Variant]: string } = {
   t1: style(({ theme, cssTheme }: Theme) => ({
@@ -49,3 +54,38 @@ export const styles: { [key in TITLE]: string } & { [key in Variant]: string } =
     color: cssTheme.colors.colorIntents.tertiaryTextReversed,
   })),
 };
+
+/**
+ * Anchor for documentation pages
+ */
+
+// mdx-anchor-target will receive the :target pseudo selector
+globalStyle(`${wrapper} .mdx-anchor-target`, ({ cssTheme, theme }: Theme) => ({
+  visibility: 'hidden',
+  userSelect: 'none',
+  width: 0,
+}));
+
+globalStyle(`${wrapper} .mdx-anchor`, ({ cssTheme, theme }: Theme) => ({
+  visibility: 'hidden',
+
+  position: 'absolute',
+  left: '-0.9em',
+  top: '50%',
+  fontSize: '1em',
+}));
+
+globalStyle(`${wrapper}.mdx-anchor-sign-enable .mdx-anchor`, ({ cssTheme, theme }: Theme) => ({
+  visibility: 'visible',
+}));
+
+globalStyle(`${wrapper} .mdx-anchor-pound`, ({ cssTheme, theme }: Theme) => ({
+  visibility: 'hidden',
+}));
+
+globalStyle(
+  `${wrapper}:hover.mdx-anchor-sign-enable .mdx-anchor-pound`,
+  ({ cssTheme, theme }: Theme) => ({
+    visibility: 'visible',
+  })
+);

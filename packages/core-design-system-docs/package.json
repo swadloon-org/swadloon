@@ -12,9 +12,7 @@
     "clean": "rm -rf lib/** && rm -f *.tsbuildinfo",
     "start-disabled": "yarn typecheck",
     "test-disabled": "jest",
-    "test:watch-disabled": "jest --watch",
-    "typecheck": "yarn typecheck:build --watch --preserveWatchOutput --verbose",
-    "typecheck:build": "tsc --project tsconfig.build.json --noEmit"
+    "test:watch-disabled": "jest --watch"
   },
   "sideEffects": false,
   "typings": "./lib/index.d.ts",

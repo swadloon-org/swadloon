@@ -50,7 +50,7 @@ const config: Configuration | Pick<ConfigurationNormalized, 'devServer'> = {
           {
             loader: 'ts-loader',
             options: {
-              configFile: 'tsconfig.build.json',
+              configFile: 'tsconfig.json',
               logLevel: 'WARN',
               projectReferences: true,
             } as Partial<tsloader.Options>,
@@ -79,7 +79,7 @@ const config: Configuration | Pick<ConfigurationNormalized, 'devServer'> = {
     plugins: [
       // @ts-ignore
       new TsconfigPathsPlugin({
-        configFile: 'tsconfig.build.json',
+        configFile: 'tsconfig.json',
         logLevel: 'WARN',
       }),
     ],

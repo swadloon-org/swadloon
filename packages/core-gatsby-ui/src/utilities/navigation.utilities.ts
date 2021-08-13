@@ -1,5 +1,5 @@
 import { NavItem } from '../navigation/nav-item.model';
-import type {
+import {
   GatsbyCommonPageContext,
   GatsbyMarkdownFilePageContext,
 } from '@newrade/core-gatsby-config/lib/config';

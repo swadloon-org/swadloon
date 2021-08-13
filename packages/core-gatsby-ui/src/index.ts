@@ -14,6 +14,7 @@ export * from './hooks/use-design-system-navigation-data.hook';
 export * from './hooks/use-reach-router-location.hook';
 export * from './image/background-effect';
 export * from './image/background-image';
+export * from './image/background-image-v2';
 export * from './image/image';
 export * from './links/gatsby-link';
 export * from './markdown/markdown-renderer';

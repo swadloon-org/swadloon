@@ -6,7 +6,7 @@ export const urlLoader: RuleSetRule = {
     loader: 'url-loader',
     options: {
       limit: 100000,
-      name: 'assets/[name].[hash].[ext]',
+      name: 'assets/[name].[contenthash].[ext]',
     },
   },
 };

@@ -89,7 +89,7 @@ export default class GitCopyLabels extends Command {
       sourceLabels.data.forEach((label) => {
         this.log(`found label: ${label.name}`);
       });
-    } catch (error) {
+    } catch (error: any) {
       this.logError('could not retrieve labels');
       return;
     }
@@ -133,7 +133,7 @@ export default class GitCopyLabels extends Command {
           });
         })
       );
-    } catch (error) {
+    } catch (error: any) {
       this.logError('could not peform the action');
       this.logError(error);
       return;

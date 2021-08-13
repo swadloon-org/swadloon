@@ -1,5 +1,3 @@
-import { InitOptions } from 'i18next';
-
 export type GatsbyCorePluginOptions = {
   /**
    * Name of the package that runs this plugin

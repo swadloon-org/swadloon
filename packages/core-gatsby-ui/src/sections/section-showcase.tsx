@@ -50,26 +50,6 @@ export const SectionShowcase = React.forwardRef<HTMLElement, Props>(
       ...props,
     });
 
-    // const LeftTextBlockComp = LeftTextBlock
-    //   ? React.cloneElement(LeftTextBlock as React.ReactElement, {
-    //       style: {
-    //         position: 'relative',
-    //       },
-    //       className: styles.leftBlock,
-    //       children: <>{LeftBGBlock}</>,
-    //     })
-    //   : null;
-
-    // const RightTextBlockComp = RightTextBlock
-    //   ? React.cloneElement(RightTextBlock as React.ReactElement, {
-    //       style: {
-    //         position: 'relative',
-    //       },
-    //       className: styles.rightBlock,
-    //       children: <>{RightBGBlock}</>,
-    //     })
-    //   : null;
-
     return (
       <SectionBase
         ref={ref}

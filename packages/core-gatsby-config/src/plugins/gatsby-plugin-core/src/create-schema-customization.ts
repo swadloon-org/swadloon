@@ -23,6 +23,8 @@ export const createSchemaCustomizationFn: GatsbyNode['createSchemaCustomization'
       layout: String
       template: String
       frontmatter: MdxFrontmatter
+      absolutePath: String
+      relativePath: String
     }
 
     type SitePageMetadata {

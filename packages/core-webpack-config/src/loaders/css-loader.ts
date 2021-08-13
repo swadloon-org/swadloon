@@ -6,9 +6,9 @@ import { RuleSetUseItemObject } from '../webpack-config-types';
 export const cssLoader: RuleSetUseItemObject = {
   loader: 'css-loader',
   options: {
-    modules: true,
+    modules: {
+      localIdentName: '[name]_[local]_[hash:base64:5]',
+    },
     sourceMap: true,
-    localIdentName: '[name]_[local]_[hash:base64:5]',
-    camelCase: true,
   },
 };

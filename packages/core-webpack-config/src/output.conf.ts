@@ -9,9 +9,9 @@ export const output: { [key in 'dev' | 'prod']: Configuration['output'] } = {
     globalObject: 'this',
   },
   prod: {
-    filename: '[name].bundle.[hash].js',
+    filename: '[name].bundle.[contenthash].js',
     pathinfo: true,
-    chunkFilename: '[id].[hash].chunk.js',
+    chunkFilename: '[id].[contenthash].chunk.js',
     sourceMapFilename: '[file].map',
     globalObject: 'this',
   },

@@ -160,6 +160,7 @@ export const NavBarApp = React.forwardRef<any, Props>((props, ref) => {
             </BoxV2>
 
             <BoxV2
+              justifyContent={['center']}
               padding={[cssTheme.sizing.var.x2, 0]}
               className={styles.logoWrapper}
               AsElement={props.HomeLink}

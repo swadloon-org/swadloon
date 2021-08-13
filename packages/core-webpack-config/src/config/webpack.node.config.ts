@@ -47,7 +47,7 @@ export const nodeCommonConfig: Configuration = {
           {
             loader: 'ts-loader',
             options: {
-              configFile: 'tsconfig.build.json',
+              configFile: 'tsconfig.json',
               logLevel: 'WARN',
               projectReferences: true,
             } as Partial<tsloader.Options>,
@@ -62,7 +62,7 @@ export const nodeCommonConfig: Configuration = {
     plugins: [
       // @ts-ignore
       new TsconfigPathsPlugin({
-        configFile: 'tsconfig.build.json',
+        configFile: 'tsconfig.json',
         logLevel: 'WARN',
       }),
     ],
@@ -72,9 +72,8 @@ export const nodeCommonConfig: Configuration = {
       'ejs-loader': '@newrade/core-webpack-config/lib/loaders/ejs-loader.js',
     },
   },
-  stats: {
-    // see https://github.com/webpack/webpack/issues/1576
-    warningsFilter: /^(?!CriticalDependenciesWarning$)/,
-  },
+  stats: {},
+  // see https://github.com/webpack/webpack/issues/1576
+  ignoreWarnings: [/^(?!CriticalDependenciesWarning$)/],
   plugins: [getWebpackCleanPlugin()],
 };

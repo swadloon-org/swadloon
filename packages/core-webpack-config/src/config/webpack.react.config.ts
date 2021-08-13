@@ -1,7 +1,7 @@
 import path from 'path';
 import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
 import { Configuration, RuleSetRule, WebpackPluginInstance } from 'webpack';
-import { babelReactLoader } from '../loaders/babel-es6.loader';
+import { babelReactLoader, getBabelReactLoader } from '../loaders/babel-react.loader';
 import { extractCssLoader } from '../loaders/extract-css.loader';
 import { fileLoader } from '../loaders/file.loader';
 import { htmlLoader } from '../loaders/html.loader';
@@ -33,7 +33,6 @@ export const getReactCommonConfig: (options: { isDevelopment: boolean }) => Conf
     splitChunks: {
       chunks: 'all',
       minSize: 30000,
-      maxSize: 0,
       minChunks: 1,
       maxAsyncRequests: 5,
       maxInitialRequests: 5,
@@ -73,8 +72,8 @@ export const getReactCommonConfig: (options: { isDevelopment: boolean }) => Conf
       },
     },
     runtimeChunk: 'single',
-    namedModules: true,
-    namedChunks: true,
+    chunkIds: isDevelopment ? 'named' : 'deterministic',
+    moduleIds: isDevelopment ? 'named' : 'deterministic',
   },
   module: {
     rules: [
@@ -85,8 +84,12 @@ export const getReactCommonConfig: (options: { isDevelopment: boolean }) => Conf
       urlLoader,
       isDevelopment && inlineCssLoader,
       !isDevelopment && extractCssLoader,
-      babelReactLoader,
-      getTypescriptBabelReactLoader(),
+      getBabelReactLoader({
+        hmr: isDevelopment,
+      }),
+      getTypescriptBabelReactLoader({
+        isDevelopment,
+      }),
     ].filter(Boolean) as RuleSetRule[],
   },
   resolve: {
@@ -94,14 +97,17 @@ export const getReactCommonConfig: (options: { isDevelopment: boolean }) => Conf
     extensions: ['.jsx', '.js', '.mjs', '.ts', '.tsx', '.json'],
     plugins: [
       new TsconfigPathsPlugin({
-        configFile: path.join(process.cwd(), 'tsconfig.build.json'),
+        configFile: path.join(process.cwd(), 'tsconfig.json'),
         mainFields: ['browser', 'module', 'main'],
         logLevel: 'WARN',
-      }) as any,
+      }),
     ],
+    alias: {
+      'core-js': 'core-js-pure',
+    },
   },
   plugins: [
-    // getForkTsCheckerWebpackPlugin(),
+    getForkTsCheckerWebpackPlugin(),
     getWebpackCleanPlugin(),
     isDevelopment && new webpack.HotModuleReplacementPlugin(),
     isDevelopment && new ReactRefreshWebpackPlugin(),

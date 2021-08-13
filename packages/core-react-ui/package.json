@@ -14,9 +14,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "tsc:build": "tsc --build",
-    "tsc:start": "tsc --build --watch --preserveWatchOutput --verbose",
-    "typecheck": "yarn typecheck:build --watch --preserveWatchOutput --verbose",
-    "typecheck:build": "tsc --project --noEmit"
+    "tsc:start": "tsc --build --watch --preserveWatchOutput --verbose"
   },
   "sideEffects": [
     "*.treat"

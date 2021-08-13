@@ -42,7 +42,7 @@ const config: Configuration = {
           {
             loader: 'ts-loader',
             options: {
-              configFile: 'tsconfig.build.json',
+              configFile: 'tsconfig.json',
               logLevel: 'WARN',
               projectReferences: true,
             } as Partial<tsloader.Options>,
@@ -69,7 +69,7 @@ const config: Configuration = {
     plugins: [
       // @ts-ignore
       new TsconfigPathsPlugin({
-        configFile: 'tsconfig.build.json',
+        configFile: 'tsconfig.json',
         logLevel: 'WARN',
       }),
     ],

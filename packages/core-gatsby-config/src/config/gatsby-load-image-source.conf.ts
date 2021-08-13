@@ -1,5 +1,4 @@
 import { PluginRef } from 'gatsby';
-import path from 'path';
 
 type Options = { pathImgDir?: string | string[] };
 

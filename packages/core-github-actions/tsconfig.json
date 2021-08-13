@@ -1,6 +1,7 @@
 {
   "extends": "../../tsconfig.node-commonjs.json",
   "compilerOptions": {
+    "baseUrl": ".",
     "rootDir": ".",
     "outDir": "lib",
     "types": ["node", "jest", "debug"]

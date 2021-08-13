@@ -12,9 +12,9 @@ function getFormattedId(value?: string | null): string {
  * Hook to reduce component boilerplate. Takes care of normalizing id, classNames and styles.
  */
 export function useCommonProps<As extends AsTypes = 'div'>({
+  id,
   localStyle,
   classNames,
-  id,
   className,
   style,
   ...props
