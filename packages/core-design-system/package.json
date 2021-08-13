@@ -25,7 +25,8 @@
     "clean": "rm -rf lib/** && rm -f *.tsbuildinfo",
     "start": "concurrently \"yarn start:commonjs\" \"yarn start:esm\"",
     "start:commonjs": "tsc --build tsconfig.commonjs.json --watch --preserveWatchOutput --verbose",
-    "start:esm": "tsc --build --watch --preserveWatchOutput --verbose"
+    "start:esm": "tsc --build --watch --preserveWatchOutput --verbose",
+    "typecheck": "tsc --noEmit"
   },
   "typings": "./lib/index.d.ts"
 }

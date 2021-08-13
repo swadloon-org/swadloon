@@ -11,8 +11,7 @@
     "start-disabled": "tsc --build --watch --preserveWatchOutput --verbose",
     "test": "jest",
     "test:watch": "jest --watch",
-    "typecheck": "yarn typecheck:build --watch --preserveWatchOutput --verbose",
-    "typecheck:build": "tsc --project tsconfig.build.json --noEmit"
+    "typecheck": "tsc --noEmit"
   },
   "sideEffects": [
     "*.treat"

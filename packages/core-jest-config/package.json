@@ -21,7 +21,8 @@
     "build": "tsc --build",
     "clean": "rm -rf lib/** && rm -f *.tsbuildinfo",
     "start": "tsc --build --watch --preserveWatchOutput --verbose",
-    "test": "jest"
+    "test": "jest",
+    "typecheck": "tsc --noEmit"
   },
   "typings": "./lib/index.d.ts",
   "dependencies": {

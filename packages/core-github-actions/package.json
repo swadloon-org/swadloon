@@ -24,6 +24,7 @@
     "start": "tsc --build --watch --preserveWatchOutput --verbose",
     "test": "jest",
     "test:watch": "jest --watch",
+    "typecheck": "tsc --noEmit",
     "webpack": "webpack --config webpack.prod.config.ts"
   },
   "typings": "./lib/index.d.ts",

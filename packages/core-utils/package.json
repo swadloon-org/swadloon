@@ -27,7 +27,8 @@
     "clean": "rm -rf lib/** && rm -f *.tsbuildinfo",
     "start": "tsc --build --watch --preserveWatchOutput --verbose",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "typecheck": "tsc --noEmit"
   },
   "sideEffects": false,
   "typings": "./lib/index.d.ts",

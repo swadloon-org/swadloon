@@ -25,7 +25,8 @@
     "run-migration": ". ./.env && DEBUG=$DEBUG node --preserve-symlinks -r ts-node/register src/run-migration.ts",
     "start": "yarn tsc:start",
     "tsc:build": "tsc --build tsconfig.json",
-    "tsc:start": "tsc --build tsconfig.json --watch --preserveWatchOutput --verbose"
+    "tsc:start": "tsc --build tsconfig.json --watch --preserveWatchOutput --verbose",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@newrade/core-common": "^1",

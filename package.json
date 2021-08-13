@@ -32,8 +32,7 @@
     "lerna:start": "lerna run start --parallel",
     "lerna:test": "lerna run test",
     "lerna:test:e2e": "lerna run --concurrency=1 test:e2e",
-    "lerna:typecheck": "lerna run typecheck --parallel --loglevel error",
-    "lerna:typecheck:build": "lerna run typecheck:build --parallel --loglevel error",
+    "lerna:typecheck": "lerna run typecheck --concurrency=4 --loglevel info",
     "lint": "eslint . --ext ts,tsx",
     "lint:fix": "eslint . --ext ts,tsx --fix",
     "postinstall": "patch-package && yarn clean && yarn build && yarn build:postinstall",
@@ -48,7 +47,6 @@
     "tsc:build": "tsc --build tsconfig.core.json",
     "tsc:start": "tsc --build tsconfig.core.json --watch --preserveWatchOutput --verbose",
     "typecheck": "yarn lerna:typecheck",
-    "typecheck:build": "yarn lerna:typecheck:build",
     "yo": "nr-core-yo-generator"
   },
   "resolutions": {

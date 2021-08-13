@@ -18,7 +18,8 @@
     "start:commonjs": "tsc --build tsconfig.commonjs.json tsconfig.commonjs.json --watch --preserveWatchOutput --verbose",
     "start:esm": "tsc --build --watch --preserveWatchOutput --verbose",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "typecheck": "tsc --noEmit"
   },
   "sideEffects": false,
   "typings": "./lib/index.d.ts",
