@@ -5230,6 +5230,8 @@ function runAction(env, githubContext) {
 
     try {
       Promise.all(vercelJsonFileFilenames).then(values => values.filter(value => !!value)).then(values => {
+        var _a;
+
         if (values.length !== 2) {
           const msg = 'vercel.json and vercel.ci.json must be provided';
           core.error(msg);
@@ -5244,7 +5246,7 @@ function runAction(env, githubContext) {
         core.debug(`updating config file and returning both the object and the updated file for verification`);
         const updatedConfigObject = { ...vercelProdConfig,
           ...{ ...vercelCiConfig,
-            rewrites: vercelCiConfig.rewrites?.map(rewriteRule => {
+            rewrites: (_a = vercelCiConfig.rewrites) === null || _a === void 0 ? void 0 : _a.map(rewriteRule => {
               const currentDestination = rewriteRule.destination;
               const newDestination = rewriteRule.destination.replace('{{ APP_BRANCH_SUBDOMAIN }}', APP_BRANCH_SUBDOMAIN);
               core.info(`replacing '${currentDestination}' with: '${newDestination}'`);

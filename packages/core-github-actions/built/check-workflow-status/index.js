@@ -5233,7 +5233,7 @@ function runAction(env, githubContext) {
     }).then(response => {
       const workflowRuns = response.workflow_runs;
 
-      if (!workflowRuns?.length) {
+      if (!(workflowRuns === null || workflowRuns === void 0 ? void 0 : workflowRuns.length)) {
         core.info(`no runs received for workflow, skipping...`);
         core.setOutput('conclusion', 'skip');
         return;
