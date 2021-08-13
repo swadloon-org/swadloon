@@ -14,7 +14,8 @@
     "typecheck": "tsc --noEmit"
   },
   "sideEffects": [
-    "*.treat"
+    "*.treat.ts",
+    "*.treat.js"
   ],
   "typings": "",
   "dependencies": {

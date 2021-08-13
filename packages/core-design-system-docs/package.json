@@ -16,7 +16,8 @@
     "typecheck": "tsc --noEmit"
   },
   "sideEffects": [
-    "*.treat"
+    "*.treat.ts",
+    "*.treat.js"
   ],
   "typings": "./lib/index.d.ts",
   "dependencies": {

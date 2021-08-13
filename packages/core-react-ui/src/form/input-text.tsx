@@ -1,4 +1,5 @@
 import loadable from '@loadable/component';
+import 'cleave.js/dist/addons/cleave-phone.ca';
 import type { Props as CleaveProps } from 'cleave.js/react/props';
 import React, { InputHTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
@@ -12,10 +13,12 @@ type Props = PrimitiveProps<'input'> &
     state?: 'rest' | 'error';
   };
 
-const LazyCleave = (props: CleaveProps) => {
-  const Cleave = loadable<any>(() => import('cleave.js/react'));
-  return <Cleave {...props}></Cleave>;
-};
+const LazyCleave = loadable<CleaveProps>(
+  // @ts-ignore
+  () => {
+    return import('cleave.js/react');
+  }
+);
 
 export const InputText = React.memo(
   React.forwardRef<HTMLInputElement, Props>(function InputText(

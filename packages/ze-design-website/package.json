@@ -27,6 +27,10 @@
     "typecheck": "tsc --noEmit"
   },
   "eslintConfig": {},
+  "sideEffects": [
+    "*.treat.ts",
+    "*.treat.js"
+  ],
   "dependencies": {
     "@newrade/core-design-system": "^1",
     "@newrade/core-gsap-ui": "^1.3.4",

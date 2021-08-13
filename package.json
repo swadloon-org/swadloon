@@ -117,7 +117,7 @@
     "react-dom": "^16.13.1",
     "react-google-recaptcha": "^2.1.0",
     "react-helmet": "^6.1.0",
-    "react-hook-form": "^6.8.6",
+    "react-hook-form": "^6.15.8",
     "react-i18next": "^11.11.4",
     "react-icons": "^4.1.0",
     "react-lazyload": "^3.0.0",
