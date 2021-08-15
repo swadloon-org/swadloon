@@ -9,13 +9,17 @@
   ],
   "scripts": {
     "build": "yarn tsc:build",
+    "build:dll": "yarn webpack:dll",
     "clean": "rm -rf lib/** && rm -f *.tsbuildinfo",
     "start": "yarn tsc:start",
     "test": "jest",
     "test:watch": "jest --watch",
     "tsc:build": "tsc --build",
     "tsc:start": "tsc --build --watch --preserveWatchOutput --verbose",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "webpack": "TS_NODE_PROJECT=../../tsconfig.node-commonjs.json node -r ts-node/register ../../node_modules/webpack/bin/webpack",
+    "webpack:dev": "yarn webpack serve --config webpack.dev.config.ts",
+    "webpack:dll": "yarn webpack --config webpack.dll.config.ts"
   },
   "sideEffects": [
     "*.treat.ts",

@@ -34,6 +34,14 @@ import { Button } from '@newrade/core-react-ui/src';
 yarn test
 ```
 
+### DLL
+
+To build a webpack DLL for react, use:
+
+```bash
+yarn build:dll
+```
+
 ## Features
 
 TODO

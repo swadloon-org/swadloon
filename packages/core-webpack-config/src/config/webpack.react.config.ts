@@ -1,6 +1,6 @@
 import path from 'path';
 import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
-import { Configuration, RuleSetRule, WebpackPluginInstance } from 'webpack';
+import { Configuration, DllReferencePlugin, RuleSetRule, WebpackPluginInstance } from 'webpack';
 import { babelReactLoader, getBabelReactLoader } from '../loaders/babel-react.loader';
 import { extractCssLoader } from '../loaders/extract-css.loader';
 import { fileLoader } from '../loaders/file.loader';
@@ -26,97 +26,99 @@ import { ResolvePluginInstance } from 'tsconfig-paths-webpack-plugin/lib/plugin.
  */
 export const getReactCommonConfig: (options: { isDevelopment: boolean }) => Configuration = ({
   isDevelopment,
-}) => ({
-  target: 'web',
-  devtool: 'source-map',
-  optimization: {
-    splitChunks: {
-      chunks: 'all',
-      minSize: 30000,
-      minChunks: 1,
-      maxAsyncRequests: 5,
-      maxInitialRequests: 5,
-      automaticNameDelimiter: '~',
-      cacheGroups: {
-        polyfills: {
-          name: 'polyfills',
-          chunks: 'all',
-          test: /(polyfills?(-only)*\.js|fetch\.umd\.js)|[\\/]node_modules[\\/](core-js(-pure)?|@babel)[\\/]/,
-        },
-        react: {
-          name: 'react',
-          chunks: 'initial',
-          test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
-        },
-        coreDesignSystem: {
-          name: 'core-design-system',
-          chunks: 'all',
-          test: /[\\/]core-design-system[\\/]/,
-        },
-        coreReactUi: {
-          name: 'core-react-ui',
-          chunks: 'all',
-          test: /[\\/]core-react-ui[\\/]/,
-        },
-        styles: {
-          name: 'styles',
-          test: /\.(s?css)$/,
-          chunks: 'initial',
-        },
-        default: {
-          name: 'index',
-          minChunks: 2,
-          priority: -20,
-          reuseExistingChunk: true,
+}) => {
+  return {
+    target: 'web',
+    devtool: 'source-map',
+    optimization: {
+      splitChunks: {
+        chunks: 'all',
+        minSize: 30000,
+        minChunks: 1,
+        maxAsyncRequests: 5,
+        maxInitialRequests: 5,
+        automaticNameDelimiter: '~',
+        cacheGroups: {
+          polyfills: {
+            name: 'polyfills',
+            chunks: 'all',
+            test: /(polyfills?(-only)*\.js|fetch\.umd\.js)|[\\/]node_modules[\\/](core-js(-pure)?|@babel)[\\/]/,
+          },
+          react: {
+            name: 'react',
+            chunks: 'initial',
+            test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
+          },
+          coreDesignSystem: {
+            name: 'core-design-system',
+            chunks: 'all',
+            test: /[\\/]core-design-system[\\/]/,
+          },
+          coreReactUi: {
+            name: 'core-react-ui',
+            chunks: 'all',
+            test: /[\\/]core-react-ui[\\/]/,
+          },
+          styles: {
+            name: 'styles',
+            test: /\.(s?css)$/,
+            chunks: 'initial',
+          },
+          default: {
+            name: 'index',
+            minChunks: 2,
+            priority: -20,
+            reuseExistingChunk: true,
+          },
         },
       },
+      runtimeChunk: 'single',
+      chunkIds: isDevelopment ? 'named' : 'deterministic',
+      moduleIds: isDevelopment ? 'named' : 'deterministic',
     },
-    runtimeChunk: 'single',
-    chunkIds: isDevelopment ? 'named' : 'deterministic',
-    moduleIds: isDevelopment ? 'named' : 'deterministic',
-  },
-  module: {
-    rules: [
-      svgLoader,
-      htmlLoader,
-      txtLoader,
-      fileLoader,
-      urlLoader,
-      isDevelopment && inlineCssLoader,
-      !isDevelopment && extractCssLoader,
-      getBabelReactLoader({
-        hmr: isDevelopment,
-      }),
-      getTypescriptBabelReactLoader({
-        isDevelopment,
-      }),
-    ].filter(Boolean) as RuleSetRule[],
-  },
-  resolve: {
-    mainFields: ['browser', 'module', 'main'],
-    extensions: ['.jsx', '.js', '.mjs', '.ts', '.tsx', '.json'],
+    module: {
+      rules: [
+        svgLoader,
+        htmlLoader,
+        txtLoader,
+        fileLoader,
+        urlLoader,
+        isDevelopment && inlineCssLoader,
+        !isDevelopment && extractCssLoader,
+        getBabelReactLoader({
+          hmr: isDevelopment,
+        }),
+        getTypescriptBabelReactLoader({
+          isDevelopment,
+        }),
+      ].filter(Boolean) as RuleSetRule[],
+    },
+    resolve: {
+      mainFields: ['browser', 'module', 'main'],
+      extensions: ['.jsx', '.js', '.mjs', '.ts', '.tsx', '.json'],
+      plugins: [
+        new TsconfigPathsPlugin({
+          configFile: path.join(process.cwd(), 'tsconfig.json'),
+          mainFields: ['browser', 'module', 'main'],
+          logLevel: 'WARN',
+        }),
+      ],
+      alias: {
+        'core-js': 'core-js-pure',
+      },
+    },
     plugins: [
-      new TsconfigPathsPlugin({
-        configFile: path.join(process.cwd(), 'tsconfig.json'),
-        mainFields: ['browser', 'module', 'main'],
-        logLevel: 'WARN',
-      }),
-    ],
-    alias: {
-      'core-js': 'core-js-pure',
+      getWebpackCleanPlugin(),
+      getForkTsCheckerWebpackPlugin(),
+      isDevelopment && new webpack.HotModuleReplacementPlugin(),
+      isDevelopment && new ReactRefreshWebpackPlugin(),
+      !isDevelopment && (new MiniCssExtractPlugin() as unknown as WebpackPluginInstance),
+      !isDevelopment && compressionPlugin,
+    ].filter(Boolean) as WebpackPluginInstance[],
+    resolveLoader: {
+      alias: {
+        'ejs-loader': '@newrade/core-webpack-config/lib/loaders/ejs-loader.js',
+      },
     },
-  },
-  plugins: [
-    getForkTsCheckerWebpackPlugin(),
-    getWebpackCleanPlugin(),
-    isDevelopment && new webpack.HotModuleReplacementPlugin(),
-    isDevelopment && new ReactRefreshWebpackPlugin(),
-    !isDevelopment && (new MiniCssExtractPlugin() as unknown as WebpackPluginInstance),
-    !isDevelopment && compressionPlugin,
-  ].filter(Boolean) as WebpackPluginInstance[],
-  resolveLoader: {
-    alias: {
-      'ejs-loader': '@newrade/core-webpack-config/lib/loaders/ejs-loader.js',
-    },
-  },
-});
+  };
+};

@@ -5,7 +5,6 @@ export const styles = {
   wrapper: style(({ cssTheme, theme }: Theme) => ({
     width: `100%`,
     overflowX: 'hidden',
-    backgroundColor: cssTheme.colors.colorIntents.background0,
   })),
   desktopSidebar: style(({ cssTheme, theme }: Theme) => ({
     ['@media']: {
