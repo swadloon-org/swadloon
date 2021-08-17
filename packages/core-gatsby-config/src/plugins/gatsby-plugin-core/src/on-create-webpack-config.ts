@@ -48,7 +48,18 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
   /**
    * Replace the devtool option
    */
+<<<<<<< HEAD
   // config.devtool = 'cheap-source-map';
+=======
+  config.devtool = isProduction ? false : 'eval-cheap-module-source-map';
+
+  /**
+   * Remove es5 target
+   */
+  if (typeof config === 'object') {
+    config.target = ['web'];
+  }
+>>>>>>> 058d3f73 (fix(core): fix babel loader config)
 
   /**
    * Enable `module` in mainfields
@@ -294,6 +305,14 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
         logLevel: 'INFO',
       }),
     ],
+  };
+
+  /**
+   * Avoid parsing react and react-dom
+   */
+  config.module = {
+    ...config.module,
+    noParse: /node_modules\/(react|react-dom)\//,
   };
 
   /**

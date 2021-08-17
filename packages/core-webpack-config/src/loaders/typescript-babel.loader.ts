@@ -12,7 +12,7 @@ const defaultOptions: Options = {
 };
 
 /**
- * for babel-loader see
+ * for babel-loader see https://webpack.js.org/loaders/babel-loader/
  * for ts-loader see https://github.com/TypeStrong/ts-loader
  * for react-refresh see https://github.com/pmmmwh/react-refresh-webpack-plugin
  */
@@ -24,9 +24,14 @@ export function getTypescriptBabelReactLoader(options: Options = defaultOptions)
         loader: 'babel-loader',
         options: {
           cacheDirectory: true,
+<<<<<<< HEAD
           plugins: options.isDevelopment
             ? [['react-refresh/babel'], ...babelPluginBrowserConf]
             : [...babelPluginBrowserConf],
+=======
+          cacheCompression: false,
+          plugins: [...babelPluginBrowserConf],
+>>>>>>> 058d3f73 (fix(core): fix babel loader config)
           presets: [...babelPresetBrowserConf],
         },
       },

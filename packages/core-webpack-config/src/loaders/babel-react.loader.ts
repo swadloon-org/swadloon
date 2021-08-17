@@ -20,3 +20,36 @@ export const babelReactLoader: RuleSetRule = {
   test: /\.(m?jsx?)$/,
   use: [babelReactRule],
 };
+<<<<<<< HEAD
+=======
+
+type Options = { hmr?: boolean };
+
+const defaultOptions: Options = {
+  hmr: isDevelopment(),
+};
+
+/**
+ * for babel-loader see
+ * for react-refresh see https://github.com/pmmmwh/react-refresh-webpack-plugin
+ */
+export function getBabelReactLoader(options: Options = defaultOptions): RuleSetRule {
+  return {
+    test: /\.jsx?$/,
+    use: [
+      {
+        loader: 'babel-loader',
+        options: {
+          cacheDirectory: true,
+          cacheCompression: false,
+          plugins: options.hmr
+            ? [['react-refresh/babel'], ...babelPluginBrowserConf]
+            : [...babelPluginBrowserConf],
+          presets: [...babelPresetBrowserConf],
+        },
+      },
+    ],
+    exclude: /node_modules/,
+  };
+}
+>>>>>>> 058d3f73 (fix(core): fix babel loader config)
