@@ -3,20 +3,12 @@ name: Cache Build
 runs:
   using: "composite"
   steps:
-    - name: Set up nvm
-      run: |
-        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
-        source ~/.profile
-        nvm --version
 
     - name: Set up Node.js ${{ matrix.node-version }}
-      run: |
-        which node
-        source ~/.profile
-        nvm install v16
-        nvm use v16
-        node -v
-        node -e 'console.log(process.arch)'
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16'
+        architecture: 'arm64'
 
     - uses: dorny/paths-filter@v2
       id: filter

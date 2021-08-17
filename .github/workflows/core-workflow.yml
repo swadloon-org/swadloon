@@ -48,11 +48,11 @@ jobs:
 
   build-test:
 
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [16.x]
 
     steps:
     - name: Cancel Previous Runs
@@ -66,23 +66,14 @@ jobs:
       with:
         clean: false
 
-    - name: Set up nvm
-      run: |
-        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
-        source ~/.profile
-        nvm --version
-
     - name: Set up Node.js ${{ matrix.node-version }}
-      run: |
-        which node
-        source ~/.profile
-        nvm install v16
-        nvm use v16
-        node -v
-        node -e 'console.log(process.arch)'
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16'
+        architecture: 'arm64'
 
     - name: Set up yarn
-      run: curl -o- -L https://yarnpkg.com/install.sh | bash && yarn --version
+      run: npm i -g yarn && yarn --version
 
     - name: Check NodeJS Options
       run: echo $NODE_OPTIONS && node -e 'console.log(`node heap limit = ${require("v8").getHeapStatistics().heap_size_limit / (1024 * 1024)} Mb`)'

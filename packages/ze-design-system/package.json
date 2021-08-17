@@ -9,7 +9,6 @@
   ],
   "scripts": {
     "build": "yarn tsc:build",
-    "build:postinstall": "yarn build",
     "clean": "rm -rf lib/** && rm -f *.tsbuildinfo",
     "start": "yarn clean && yarn tsc:start",
     "test": "echo ok",
