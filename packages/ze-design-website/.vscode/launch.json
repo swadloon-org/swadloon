@@ -12,7 +12,7 @@
       "program": "${workspaceFolder}/node_modules/.bin/gatsby",
       "args": ["develop", "--verbose"],
       "env": {
-        "NVM_NODE_VERSION": "v15",
+        "NVM_NODE_VERSION": "v16",
         "MASTER_GIT_HOST": "github.com",
         "MASTER_REPO_ORG": "newrade",
         "MASTER_REPO_NAME": "newrade",
@@ -35,7 +35,7 @@
       "program": "${workspaceFolder}/node_modules/.bin/gatsby",
       "args": ["build", "--verbose"],
       "env": {
-        "NVM_NODE_VERSION": "v15",
+        "NVM_NODE_VERSION": "v16",
         "MASTER_GIT_HOST": "github.com",
         "MASTER_REPO_ORG": "newrade",
         "MASTER_REPO_NAME": "newrade",

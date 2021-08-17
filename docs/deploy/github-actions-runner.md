@@ -40,7 +40,7 @@ Virtual or physical machine with the following specs:
 - user (`ci`) with `sudo` enabled
 - `git` version `> v2.31.1`
 
-## Setup
+## Setup (Linux Runner)
 
 For a Debian-based system, here is a sample script to get the VM set up:
 
@@ -119,7 +119,45 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [16.x]
+```
+
+## Setup (MacOS Runner)
+
+For a Macos system, here is a sample script to get the runner set up:
+
+```bash
+# Create a folder
+mkdir actions-runner && cd actions-runner
+# Download the latest runner package
+curl -o actions-runner-linux-x64-2.277.1.tar.gz -L https://github.com/actions/runner/releases/download/v2.277.1/actions-runner-linux-x64-2.277.1.tar.gz
+# Extract the installer
+tar xzf ./actions-runner-linux-x64-2.277.1.tar.gz
+
+# Create the runner and start the configuration experience
+# visit https://github.com/newrade/newrade/settings/actions/runners/new?arch=x64&os=osx to get a fresh token
+./config.sh --url https://github.com/newrade/newrade --token ACJSWQ6ZVPRDAHJ2P76OAFLAM4IS4
+
+# Start the Runner as a service
+./svc.sh install
+./svc.sh start
+./svc.sh status
+```
+
+Once the VM is ready to accept jobs, open the workflows to execute on the
+self-hosted runner and change the `runs-on` property:
+
+```diff
+jobs:
+
+  build-test-deploy:
+
+-   runs-on: ubuntu-latest
++   runs-on: self-hosted
+
+    strategy:
+      matrix:
+        node-version: [16.x]
 ```
 
 ## Resources
