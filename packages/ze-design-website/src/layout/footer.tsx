@@ -1,5 +1,5 @@
 import { Variant } from '@newrade/core-design-system';
-import { FooterStandard } from '@newrade/core-gatsby-ui/src';
+import { FooterStandard } from '@newrade/core-gatsby-ui';
 import { FooterAPI, FooterLayout } from '@newrade/core-website-api';
 import React from 'react';
 import { footerNavigation } from '../navigation/navigation';

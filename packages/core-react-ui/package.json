@@ -22,6 +22,7 @@
     "webpack:dll": "yarn webpack --config webpack.dll.config.ts"
   },
   "sideEffects": [
+    "*.css",
     "*.treat.ts",
     "*.treat.js"
   ],

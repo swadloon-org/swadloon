@@ -71,6 +71,8 @@ const config: Configuration = {
       new TsconfigPathsPlugin({
         configFile: 'tsconfig.json',
         logLevel: 'WARN',
+        mainFields: ['main', 'module'],
+        extensions: ['.tsx', '.ts', '.js', '.mjs'],
       }),
     ],
   },

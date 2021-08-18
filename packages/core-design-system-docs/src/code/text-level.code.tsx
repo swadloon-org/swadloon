@@ -1,7 +1,7 @@
 import { HEADING, Variant } from '@newrade/core-design-system';
-import { ColorPalette } from '@newrade/core-gatsby-ui/src/docs-components/color-palette';
-import { ReversedBox } from '@newrade/core-gatsby-ui/src/docs-components/reversed-box';
-import { Heading, Stack, useTreatTheme } from '@newrade/core-react-ui/src';
+import { ColorPalette } from '@newrade/core-gatsby-ui/lib/docs-components/color-palette';
+import { ReversedBox } from '@newrade/core-gatsby-ui/lib/docs-components/reversed-box';
+import { Heading, Stack, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 
 type Props = {};

@@ -16,8 +16,7 @@
   "scripts": {
     "build": "gatsby build",
     "build:local": ". ./.env && DEBUG=$DEBUG gatsby build",
-    "clean": "gatsby clean",
-    "compile": "tsc --project tsconfig.gatsby.json",
+    "clean": "gatsby clean && rm -rf ./node_modules/.cache",
     "pre-debug": "yarn clean",
     "preload-fonts": ". ./.env && PORT=$APP_PORT gatsby-preload-fonts --no-sandbox",
     "refresh": ". ./.env && curl -X POST http://localhost:$APP_PORT/__refresh",
@@ -28,6 +27,7 @@
   },
   "eslintConfig": {},
   "sideEffects": [
+    "*.css",
     "*.treat.ts",
     "*.treat.js"
   ],

@@ -15,12 +15,10 @@ status: draft
 ```tsx
 const LazySidebarRenderer = loadable(
   () =>
-    import(
-      /* webpackExports: ["SidebarRenderer"] */ '@newrade/core-gatsby-ui/src'
-    ),
+    import(/* webpackExports: ["SidebarRenderer"] */ '@newrade/core-gatsby-ui'),
   {
     resolveComponent: (
-      components: typeof import('@newrade/core-gatsby-ui/src/sidebar/sidebar-renderer')
+      components: typeof import('@newrade/core-gatsby-ui/lib/sidebar/sidebar-renderer')
     ) => components.SidebarRenderer,
   }
 );

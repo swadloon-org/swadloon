@@ -44,9 +44,6 @@
       "path": "./packages/core-design-system/tsconfig.json"
     },
     {
-      "path": "./packages/core-react-ui/tsconfig.json"
-    },
-    {
       "path": "./packages/core-gsap-ui/tsconfig.json"
     },
     {
@@ -69,9 +66,6 @@
     },
     {
       "path": "./packages/core-yo-generator/tsconfig.json"
-    },
-    {
-      "path": "./packages/core-design-system-docs/tsconfig.json"
     }
   ],
   "include": ["./packages/core-build/**/*"],

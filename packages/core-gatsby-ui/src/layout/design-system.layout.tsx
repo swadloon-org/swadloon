@@ -32,10 +32,10 @@ import { useSidebarState } from '../sidebar/sidebar.hooks';
  * Sidebar
  */
 const LazySidebarStandard = loadable(
-  () => import('@newrade/core-gatsby-ui/src/sidebar/sidebar-standard'),
+  () => import('@newrade/core-gatsby-ui/lib/sidebar/sidebar-standard'),
   {
     resolveComponent: (
-      components: typeof import('@newrade/core-gatsby-ui/src/sidebar/sidebar-standard')
+      components: typeof import('@newrade/core-gatsby-ui/lib/sidebar/sidebar-standard')
     ) => components.SidebarStandard,
   }
 );

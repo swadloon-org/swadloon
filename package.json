@@ -44,7 +44,7 @@
     "test": "yarn lerna:test --scope @newrade/core-* --ignore @newrade/core-graphql-ui",
     "test:e2e": "yarn lerna:test:e2e --scope @newrade/core-* --ignore @newrade/core-graphql-ui",
     "test:ui": "yarn lerna:test --scope '{@newrade/core-design-system,@newrade/core-react-ui,@newrade/core-graphql-ui}'",
-    "tsc:build": "tsc --build tsconfig.core.json",
+    "tsc:build": "tsc --build tsconfig.core.json --verbose",
     "tsc:start": "tsc --build tsconfig.core.json --watch --preserveWatchOutput --verbose",
     "typecheck": "yarn lerna:typecheck",
     "yo": "nr-core-yo-generator"
@@ -259,7 +259,7 @@
     "gatsby-plugin-sharp": "^3.11.0-next.2",
     "gatsby-plugin-sitemap": "^4.5.0",
     "gatsby-plugin-svgr-svgo": "^1.2.2",
-    "gatsby-plugin-ts-config": "^1.1.5",
+    "gatsby-plugin-ts-config": "^2.0.0",
     "gatsby-plugin-typegen": "^2.2.4",
     "gatsby-plugin-vanilla-extract": "^1.0.5",
     "gatsby-remark-abbr": "^2.0.0",

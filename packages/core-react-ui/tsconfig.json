@@ -4,6 +4,7 @@
     "baseUrl": ".",
     "rootDir": "src",
     "outDir": "lib",
+    "noEmit": true, // this package should be consumed by /src/ for now
     "types": ["react", "react-dom", "jest", "googlemaps"]
   },
   /**
@@ -12,22 +13,10 @@
    */
   "references": [
     {
-      "path": "../core-types/tsconfig.json"
-    },
-    {
-      "path": "../core-common/tsconfig.json"
-    },
-    {
-      "path": "../core-common/tsconfig.commonjs.json"
-    },
-    {
       "path": "../core-gsap-ui/tsconfig.json"
     },
     {
       "path": "../core-design-system/tsconfig.json"
-    },
-    {
-      "path": "../core-jest-config/tsconfig.json"
     }
   },
   "include": ["src", "test", "types", "scripts"]

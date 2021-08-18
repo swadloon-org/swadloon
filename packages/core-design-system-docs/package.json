@@ -16,6 +16,7 @@
     "typecheck": "tsc --noEmit"
   },
   "sideEffects": [
+    "*.css",
     "*.treat.ts",
     "*.treat.js"
   ],

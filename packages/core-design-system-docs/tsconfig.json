@@ -4,16 +4,17 @@
     "baseUrl": ".",
     "rootDir": "src",
     "outDir": "lib",
-    "types": ["gatsby", "node", "jest"]
+    "types": ["gatsby", "node", "jest"],
+    "paths": {
+      "@newrade/core-react-ui": ["../core-react-ui/src"],
+      "@newrade/core-react-ui/lib/*": ["../core-react-ui/src/*"]
+    }
   },
   /**
    * Other packages needed for compilation.
    * Note: please keep in sync with package.json dependencies list
    */
   "references": [
-    {
-      "path": "../core-react-ui/tsconfig.json"
-    },
     {
       "path": "../core-design-system/tsconfig.json"
     },

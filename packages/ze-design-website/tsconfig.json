@@ -1,7 +1,19 @@
 {
   "extends": "../../tsconfig.browser-gatsby.json",
   "compilerOptions": {
-    "baseUrl": "."
+    "baseUrl": ".",
+    /**
+     * We reference the packages below to their src files to make
+     * development faster (since tsc rewrite all emmited files)
+     */
+    "paths": {
+      "@newrade/core-react-ui": ["../core-react-ui/src"],
+      "@newrade/core-react-ui/lib/*": ["../core-react-ui/src/*"],
+      "@newrade/core-gatsby-ui": ["../core-gatsby-ui/src"],
+      "@newrade/core-gatsby-ui/lib/*": ["../core-gatsby-ui/src/*"],
+      "@newrade/ze-design-system": ["../ze-design-system/src"],
+      "@newrade/ze-design-system/lib/*": ["../ze-design-system/src/*"]
+    }
   },
   /**
    * Other packages needed for compilation.
@@ -9,19 +21,10 @@
    */
   "references": [
     {
-      "path": "../core-utils/tsconfig.json"
-    },
-    {
-      "path": "../core-gatsby-config/tsconfig.json"
-    },
-    {
       "path": "../core-design-system/tsconfig.json"
     },
     {
-      "path": "../core-webpack-config/tsconfig.json"
-    },
-    {
-      "path": "../ze-design-system/tsconfig.json"
+      "path": "../core-website-api/tsconfig.json"
     }
   ],
   "include": ["gatsby-*", "src/**/*", "test/**/*", "types/**/*", "scripts/**/*"]

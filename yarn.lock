@@ -14548,10 +14548,10 @@ gatsby-plugin-svgr-svgo@^1.2.2:
     svgo "^1.3.2"
     svgo-loader "^2.2.1"
 
-gatsby-plugin-ts-config@^1.1.5:
-  version "1.1.5"
-  resolved "https://registry.npmjs.org/gatsby-plugin-ts-config/-/gatsby-plugin-ts-config-1.1.5.tgz#7e3f01cafc8313b8f1ce0149e8e3cc64ad30591f"
-  integrity sha512-HSacWVXJ/AToj6JUSasH+y3sZsloJUirOb4wA7Qx7JNqouYz43urHSWtMR7WxRbbvjSVB13Kh2CO3tgfb3TfxQ==
+gatsby-plugin-ts-config@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.npmjs.org/gatsby-plugin-ts-config/-/gatsby-plugin-ts-config-2.0.0.tgz#d09a45b6fbb36465569694273a931b547fdb09dd"
+  integrity sha512-3ZT7Z1JZi6EleolHCMjbCQ5tSX9i6oH09OsnPCTLRQAKXpCh5rb+5rFkPIwaAo/NWlzTotYiYHzEXsjUlwqQrg==
   dependencies:
     "@babel/plugin-proposal-nullish-coalescing-operator" "^7.10.1"
     "@babel/plugin-proposal-optional-chaining" "^7.10.3"
@@ -14565,9 +14565,16 @@ gatsby-plugin-ts-config@^1.1.5:
     "@babel/register" "^7.8.6"
     "@babel/runtime" "^7.8.7"
     babel-plugin-dynamic-import-node "^2.3.3"
+    callsites "^3.1.0"
+    enhanced-resolve "^5.8.0"
+    find-up "^5.0.0"
     fs-extra "^8.1.0"
+    lodash "^4.17.21"
     lodash.mergewith "^4.6.2"
+    serialize-error "^8.1.0"
     ts-node "^9.0.0"
+    tslog "^3.2.0"
+    type-fest "^0.12.0"
 
 gatsby-plugin-typegen@^2.2.4:
   version "2.2.4"
@@ -26007,6 +26014,13 @@ serialize-error@^7.0.1:
   dependencies:
     type-fest "^0.13.1"
 
+serialize-error@^8.1.0:
+  version "8.1.0"
+  resolved "https://registry.npmjs.org/serialize-error/-/serialize-error-8.1.0.tgz#3a069970c712f78634942ddd50fbbc0eaebe2f67"
+  integrity sha512-3NnuWfM6vBYoy5gZFvHiYsVbafvI9vZv/+jlIigFn4oP4zjNPK3LhcY0xSCgeb1a5L8jO71Mit9LlNoi2UfDDQ==
+  dependencies:
+    type-fest "^0.20.2"
+
 serialize-javascript@5.0.1, serialize-javascript@^5.0.1:
   version "5.0.1"
   resolved "https://registry.npmjs.org/serialize-javascript/-/serialize-javascript-5.0.1.tgz#7886ec848049a462467a97d3d918ebb2aaf934f4"
@@ -28166,6 +28180,13 @@ tslib@~2.2.0:
   resolved "https://registry.npmjs.org/tslib/-/tslib-2.2.0.tgz"
   integrity sha512-gS9GVHRU+RGn5KQM2rllAlR3dU6m7AcpJKdtH8gFvQiC4Otgk98XnmMU+nZenHt/+VhnBPWwgrJsyrdcw6i23w==
 
+tslog@^3.2.0:
+  version "3.2.1"
+  resolved "https://registry.npmjs.org/tslog/-/tslog-3.2.1.tgz#37df1301211901eb65fd61b9ad7c8554264a7699"
+  integrity sha512-m8wAtox9wt+h6UDcN1WAQnYwRDOGhMIOp+GAuuufo8T8qKuu726i2W3r47BrA69goVOwgUkp5YwDTvAxTktvPg==
+  dependencies:
+    source-map-support "^0.5.19"
+
 tsutils@^3.17.1, tsutils@^3.21.0:
   version "3.21.0"
   resolved "https://registry.npmjs.org/tsutils/-/tsutils-3.21.0.tgz#b48717d394cea6c1e096983eed58e9d61715b623"
@@ -28243,6 +28264,11 @@ type-fest@^0.11.0:
   version "0.11.0"
   resolved "https://registry.npmjs.org/type-fest/-/type-fest-0.11.0.tgz#97abf0872310fed88a5c466b25681576145e33f1"
   integrity sha512-OdjXJxnCN1AvyLSzeKIgXTXxV+99ZuXl3Hpo9XpJAv9MBcHrrJOQ5kV7ypXOuQie+AmWG25hLbiKdwYTifzcfQ==
+
+type-fest@^0.12.0:
+  version "0.12.0"
+  resolved "https://registry.npmjs.org/type-fest/-/type-fest-0.12.0.tgz#f57a27ab81c68d136a51fd71467eff94157fa1ee"
+  integrity sha512-53RyidyjvkGpnWPMF9bQgFtWp+Sl8O2Rp13VavmJgfAP9WWG6q6TkrKU8iyJdnwnfgHI6k2hTlgqH4aSdjoTbg==
 
 type-fest@^0.13.1:
   version "0.13.1"

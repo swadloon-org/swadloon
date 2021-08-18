@@ -24,14 +24,8 @@ export function getTypescriptBabelReactLoader(options: Options = defaultOptions)
         loader: 'babel-loader',
         options: {
           cacheDirectory: true,
-<<<<<<< HEAD
-          plugins: options.isDevelopment
-            ? [['react-refresh/babel'], ...babelPluginBrowserConf]
-            : [...babelPluginBrowserConf],
-=======
           cacheCompression: false,
           plugins: [...babelPluginBrowserConf],
->>>>>>> 058d3f73 (fix(core): fix babel loader config)
           presets: [...babelPresetBrowserConf],
         },
       },
@@ -43,8 +37,11 @@ export function getTypescriptBabelReactLoader(options: Options = defaultOptions)
             before: options.isDevelopment ? [ReactRefreshTypeScript()] : [],
           }),
           experimentalFileCaching: true, // https://github.com/TypeStrong/ts-loader#experimentalfilecaching
-          projectReferences: false,
-          transpileOnly: false, // see https://github.com/TypeStrong/ts-loader#transpileonly and https://github.com/TypeStrong/fork-ts-checker-webpack-plugin
+          projectReferences: options.isDevelopment ? false : true,
+          transpileOnly: options.isDevelopment ? true : false, // see https://github.com/TypeStrong/ts-loader#transpileonly and https://github.com/TypeStrong/fork-ts-checker-webpack-plugin
+          allowTsInNodeModules: true,
+          experimentalWatchApi: options.isDevelopment ? true : false, // see https://github.com/TypeStrong/ts-loader/issues/1193
+          ...options.tsLoaderOptions,
         } as Partial<tsloader.Options>,
       },
     ],

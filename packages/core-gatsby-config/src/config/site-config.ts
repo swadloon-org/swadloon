@@ -26,7 +26,7 @@ export const gatsbySiteFlags: GastbySiteConfig['flags'] = {
   QUERY_ON_DEMAND: true,
   LAZY_IMAGES: true,
   PRESERVE_WEBPACK_CACHE: true,
-  DEV_WEBPACK_CACHE: true,
+  DEV_WEBPACK_CACHE: false,
   PRESERVE_FILE_DOWNLOAD_CACHE: true,
   PARALLEL_SOURCING: true,
   PARALLEL_QUERY_RUNNING: true,

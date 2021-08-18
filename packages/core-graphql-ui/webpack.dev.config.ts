@@ -81,6 +81,8 @@ const config: Configuration | Pick<ConfigurationNormalized, 'devServer'> = {
       new TsconfigPathsPlugin({
         configFile: 'tsconfig.json',
         logLevel: 'WARN',
+        mainFields: ['main', 'module'],
+        extensions: ['.tsx', '.ts', '.js', '.mjs'],
       }),
     ],
   },

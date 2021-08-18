@@ -1,4 +1,4 @@
-import { I18nextContext } from '@newrade/core-gatsby-ui/src/i18next/i18next-context';
+import { I18nextContext } from '@newrade/core-gatsby-ui/lib/i18next/i18next-context';
 import { PageProps, WrapPageElementBrowserArgs } from 'gatsby';
 /**
  * i18n

@@ -12,22 +12,7 @@
    */
   "references": [
     {
-      "path": "../core-types/tsconfig.json"
-    },
-    {
-      "path": "../core-common/tsconfig.json"
-    },
-    {
-      "path": "../core-common/tsconfig.commonjs.json"
-    },
-    {
-      "path": "../core-utils/tsconfig.json"
-    },
-    {
       "path": "../core-design-system/tsconfig.json"
-    },
-    {
-      "path": "../core-jest-config/tsconfig.json"
     }
   ],
   "include": ["src/**/*", "types/**/*"]

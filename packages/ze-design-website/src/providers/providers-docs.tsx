@@ -1,6 +1,6 @@
 import { MDXProvider } from '@mdx-js/react';
 import { ICON, LOGO } from '@newrade/core-design-system';
-import { docsMdxComponents } from '@newrade/core-gatsby-ui/src/mdx/docs-mdx-components';
+import { docsMdxComponents } from '@newrade/core-gatsby-ui/lib/mdx/docs-mdx-components';
 import {
   IconProvider,
   LogosProvider,

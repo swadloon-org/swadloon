@@ -95,12 +95,13 @@ export const getReactCommonConfig: (options: { isDevelopment: boolean }) => Conf
     },
     resolve: {
       mainFields: ['browser', 'module', 'main'],
-      extensions: ['.jsx', '.js', '.mjs', '.ts', '.tsx', '.json'],
+      extensions: ['.js', '.json', '.wasm', '.ts', '.tsx', '.jsx', '.css'],
       plugins: [
         new TsconfigPathsPlugin({
           configFile: path.join(process.cwd(), 'tsconfig.json'),
-          mainFields: ['browser', 'module', 'main'],
           logLevel: 'WARN',
+          mainFields: ['browser', 'module', 'main'],
+          extensions: ['.js', '.json', '.wasm', '.ts', '.tsx', '.jsx', '.css'],
         }),
       ],
       alias: {

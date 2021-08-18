@@ -58,12 +58,14 @@ export const nodeCommonConfig: Configuration = {
   },
   resolve: {
     mainFields: ['module', 'main'],
-    extensions: ['.wasm', '.mjs', '.js', '.jsx', '.json', '.ts', '.tsx'],
+    extensions: ['.js', '.json', '.wasm', '.ts', '.tsx', '.jsx', '.css'],
     plugins: [
       // @ts-ignore
       new TsconfigPathsPlugin({
         configFile: 'tsconfig.json',
         logLevel: 'WARN',
+        mainFields: ['module', 'main'],
+        extensions: ['.js', '.json', '.wasm', '.ts', '.tsx', '.jsx', '.css'],
       }),
     ],
   },

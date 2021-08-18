@@ -4,7 +4,15 @@
     "baseUrl": ".",
     "rootDir": "src",
     "outDir": "lib",
-    "types": []
+    "types": [],
+    /**
+     * We reference the packages below to their src files to make
+     * development faster (since tsc rewrite all emmited files)
+     */
+    "paths": {
+      "@newrade/core-react-ui": ["../core-react-ui/src"],
+      "@newrade/core-react-ui/lib/*": ["../core-react-ui/src/*"]
+    }
   },
   /**
    * Other packages needed for compilation.
@@ -12,25 +20,7 @@
    */
   "references": [
     {
-      "path": "../core-types/tsconfig.json"
-    },
-    {
-      "path": "../core-utils/tsconfig.json"
-    },
-    {
-      "path": "../core-common/tsconfig.json"
-    },
-    {
-      "path": "../core-common/tsconfig.commonjs.json"
-    },
-    {
-      "path": "../core-jest-config/tsconfig.json"
-    },
-    {
       "path": "../core-design-system/tsconfig.json"
-    },
-    {
-      "path": "../core-react-ui/tsconfig.json"
     }
   ],
   "include": ["src/**/*", "types/**/*"]

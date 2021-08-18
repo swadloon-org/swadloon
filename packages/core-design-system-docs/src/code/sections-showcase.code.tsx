@@ -1,7 +1,7 @@
 import { ButtonSize, Variant } from '@newrade/core-design-system';
-import { BlockMarkdown, SectionShowcase } from '@newrade/core-gatsby-ui/src';
-import { PlaceholderMarkdown } from '@newrade/core-gatsby-ui/src/docs-components/placeholder-markdown';
-import { Button, Heading, useTreatTheme } from '@newrade/core-react-ui/src';
+import { BlockMarkdown, SectionShowcase } from '@newrade/core-gatsby-ui';
+import { PlaceholderMarkdown } from '@newrade/core-gatsby-ui/lib/docs-components/placeholder-markdown';
+import { Button, Heading, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 
 type Props = {};

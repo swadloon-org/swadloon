@@ -1,5 +1,5 @@
-import { FontSans } from '@newrade/core-gatsby-ui/src/docs-components/font-sans';
-import { useTreatTheme } from '@newrade/core-react-ui/src';
+import { FontSans } from '@newrade/core-gatsby-ui/lib/docs-components/font-sans';
+import { useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 
 type Props = {};
