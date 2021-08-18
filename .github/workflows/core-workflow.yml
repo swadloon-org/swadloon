@@ -88,4 +88,4 @@ jobs:
       run: yarn eslint ./packages/core-*/src/ --ext ts,tsx
 
     - name: Run unit tests
-      run: yarn test --scope @newrade/core-*
+      run: yarn test --scope @newrade/core-* --ignore @newrade/core-react-ui
