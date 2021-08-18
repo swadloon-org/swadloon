@@ -14548,7 +14548,7 @@ gatsby-plugin-svgr-svgo@^1.2.2:
     svgo "^1.3.2"
     svgo-loader "^2.2.1"
 
-gatsby-plugin-ts-config@2.0.0:
+gatsby-plugin-ts-config@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/gatsby-plugin-ts-config/-/gatsby-plugin-ts-config-2.0.0.tgz#d09a45b6fbb36465569694273a931b547fdb09dd"
   integrity sha512-3ZT7Z1JZi6EleolHCMjbCQ5tSX9i6oH09OsnPCTLRQAKXpCh5rb+5rFkPIwaAo/NWlzTotYiYHzEXsjUlwqQrg==

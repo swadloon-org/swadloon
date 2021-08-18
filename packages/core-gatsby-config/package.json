@@ -25,6 +25,7 @@
   "typings": "./lib/index.d.ts",
   "dependencies": {
     "@newrade/core-common": "^1",
+    "@newrade/core-gatsby-ui": "^2",
     "@newrade/core-types": "^2",
     "@newrade/core-utils": "^2",
     "@newrade/core-webpack-config": "^2"
