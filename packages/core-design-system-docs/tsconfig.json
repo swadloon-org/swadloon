@@ -3,27 +3,8 @@
   "compilerOptions": {
     "baseUrl": ".",
     "rootDir": "src",
-    "outDir": "lib",
-    "types": ["gatsby", "node", "jest"],
-    "paths": {
-      "@newrade/core-react-ui": ["../core-react-ui/src"],
-      "@newrade/core-react-ui/lib/*": ["../core-react-ui/src/*"]
-    }
+    "outDir": "dist",
+    "types": ["gatsby", "node", "jest"]
   },
-  /**
-   * Other packages needed for compilation.
-   * Note: please keep in sync with package.json dependencies list
-   */
-  "references": [
-    {
-      "path": "../core-design-system/tsconfig.json"
-    },
-    {
-      "path": "../core-website-api/tsconfig.json"
-    },
-    {
-      "path": "../cdpq-design-system/tsconfig.json"
-    }
-  ],
-  "include": ["src/**/*", "docs/**/*", "types/**/*"]
+  "include": ["src", "docs/**/*", "types"]
 }

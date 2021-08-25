@@ -1,4 +1,4 @@
-import { locales as gatsbyUILocales } from '@newrade/core-gatsby-ui/lib/i18next/locales';
+import { locales as gatsbyUILocales } from '@newrade/core-gatsby-ui/src/i18next/locales';
 import { enTranslation } from './en.locales';
 import { frTranslation } from './fr.locales';
 

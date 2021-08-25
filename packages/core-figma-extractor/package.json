@@ -3,29 +3,28 @@
   "version": "1.4.2",
   "description": "Utility to extract colors, text styles and other tokens from figma",
   "license": "MIT",
-  "main": "./lib/commonjs/src/index.js",
-  "module": "./lib/src/index.js",
+  "main": "dist/newrade-core-figma-extractor.cjs.js",
+  "module": "dist/newrade-core-figma-extractor.esm.js",
   "files": [
-    "./lib/**/*"
+    "/dist"
   ],
   "scripts": {
-    "build": "yarn build:commonjs && yarn build:esm",
-    "build:commonjs": "tsc --build tsconfig.commonjs.json",
-    "build:esm": "tsc --build",
-    "clean": "rm -rf lib/** && rm -f *.tsbuildinfo",
-    "extract": ". ./.env && DEBUG=$DEBUG cross-env TS_NODE_PROJECT=tsconfig.bin.json node -r ts-node/register bin/run.ts",
-    "start": "concurrently \"yarn start:commonjs\" \"yarn start:esm\"",
-    "start:commonjs": "tsc --build tsconfig.commonjs.json --watch --preserveWatchOutput --verbose",
-    "start:esm": "tsc --build --watch --preserveWatchOutput --verbose",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "typecheck": "tsc --noEmit"
+    "build": "yarn clean && yarn build:dist && nr prepare-exports",
+    "build:dist": "tsc --project tsconfig.json",
+    "clean": "yarn clean:tsc && yarn clean:dist",
+    "clean:dist": "rm -rf dist/** lib/**",
+    "clean:tsc": "rm -f ./**/*.tsbuildinfo *.tsbuildinfo",
+    "extract": ". ./.env && DEBUG=$DEBUG TS_NODE_PROJECT=tsconfig.bin.json node -r ts-node/register bin/run.ts",
+    "extract2": ". ./.env && DEBUG=$DEBUG TS_NODE_PROJECT=../../tsconfig.node-commonjs.json node -r ts-node/register bin/run.ts",
+    "start": "yarn clean && yarn preconstruct dev",
+    "test": "nr jest",
+    "test:watch": "nr jest --watch"
   },
   "sideEffects": false,
-  "typings": "./lib/src/index.d.ts",
   "dependencies": {
     "@newrade/core-common": "^1",
     "@newrade/core-design-system": "^1",
+    "@newrade/core-jest-config": "*",
     "@newrade/core-types": "^2",
     "@newrade/core-utils": "^2",
     "figma-js": "^1.11.0"

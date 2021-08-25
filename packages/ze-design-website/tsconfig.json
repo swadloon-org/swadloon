@@ -7,25 +7,9 @@
      * development faster (since tsc rewrite all emmited files)
      */
     "paths": {
-      "@newrade/core-react-ui": ["../core-react-ui/src"],
-      "@newrade/core-react-ui/lib/*": ["../core-react-ui/src/*"],
-      "@newrade/core-gatsby-ui": ["../core-gatsby-ui/src"],
-      "@newrade/core-gatsby-ui/lib/*": ["../core-gatsby-ui/src/*"],
       "@newrade/ze-design-system": ["../ze-design-system/src"],
       "@newrade/ze-design-system/lib/*": ["../ze-design-system/src/*"]
     }
   },
-  /**
-   * Other packages needed for compilation.
-   * Note: please keep in sync with package.json dependencies list
-   */
-  "references": [
-    {
-      "path": "../core-design-system/tsconfig.json"
-    },
-    {
-      "path": "../core-website-api/tsconfig.json"
-    }
-  ],
-  "include": ["gatsby-*", "src/**/*", "test/**/*", "types/**/*", "scripts/**/*"]
+  "include": ["gatsby-*", "src", "test", "types", "scripts/**/*"]
 }

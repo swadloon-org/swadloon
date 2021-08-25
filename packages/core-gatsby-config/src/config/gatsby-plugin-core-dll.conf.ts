@@ -15,7 +15,7 @@ export function getGastbyPluginCoreDllConfig({
   pluginName = defaultOptions.pluginName,
 }: GatsbyPluginCoreDllOptions = defaultOptions): PluginRef {
   return {
-    resolve: path.resolve(__dirname, `../../commonjs/plugins/gatsby-plugin-core-dll`),
+    resolve: require.resolve(`../plugins/gatsby-plugin-core-dll`),
     options: {
       packageName,
       pluginName,

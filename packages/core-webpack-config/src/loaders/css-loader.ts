@@ -1,4 +1,4 @@
-import { RuleSetUseItemObject } from '../webpack-config-types';
+import { RuleSetUseItemObject } from '../types/webpack-config-types';
 
 /**
  * @see https://webpack.js.org/loaders/css-loader/

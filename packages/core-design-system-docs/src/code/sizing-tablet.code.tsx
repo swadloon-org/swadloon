@@ -1,4 +1,4 @@
-import { ScaleSteps } from '@newrade/core-gatsby-ui/lib/docs-components/scale-steps';
+import { ScaleSteps } from '@newrade/core-gatsby-ui/src/docs-components/scale-steps';
 import { useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 

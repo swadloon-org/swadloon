@@ -1,4 +1,4 @@
-import { GatsbyCommonPageContext } from '@newrade/core-gatsby-config/lib/config';
+import { GatsbyCommonPageContext } from '@newrade/core-gatsb-config/config';
 import { PageProps, WrapPageElementBrowserArgs } from 'gatsby';
 /**
  * i18n

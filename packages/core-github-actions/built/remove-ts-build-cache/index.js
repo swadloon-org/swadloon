@@ -824,47 +824,40 @@ var __webpack_exports__ = {};
 (() => {
 var exports = __webpack_exports__;
 
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-
+Object.defineProperty(exports, "__esModule", ({ value: true }));
 const tslib_1 = __webpack_require__(5163);
-
 const core = (0, tslib_1.__importStar)(__webpack_require__(7068));
 const fs = (0, tslib_1.__importStar)(__webpack_require__(5747));
 const path = (0, tslib_1.__importStar)(__webpack_require__(5622));
 const delimiter = path.sep;
-
 try {
-  const changedFiles = JSON.parse(core.getInput('changed-files'));
-  const tsBuildInfoFilenames = JSON.parse(core.getInput('tsBuildInfoFiles'));
-  core.info('changedFiles: ' + changedFiles.length);
-  core.info('tsBuildInfoFilenames: ' + tsBuildInfoFilenames);
-  tsBuildInfoFilenames.forEach(tsBuildInfoFilename => {
-    changedFiles.forEach(changedFile => {
-      const fileParts = path.dirname(changedFile).split(delimiter);
-      let fileFound;
-
-      do {
-        const tsbuildInfoFile = path.join(fileParts.join(delimiter), tsBuildInfoFilename); // console.log('tsbuildInfoFile', fileParts, tsbuildInfoFile, fileParts.length);
-
-        if (fs.existsSync(tsbuildInfoFile)) {
-          fileFound = tsbuildInfoFile;
-        }
-
-        fileParts.pop();
-      } while (fileParts.length > 0 && !fileFound);
-
-      if (fileFound) {
-        core.info('removing ts buildinfo file ' + fileFound);
-        fs.unlinkSync(fileFound);
-      }
+    const changedFiles = JSON.parse(core.getInput('changed-files'));
+    const tsBuildInfoFilenames = JSON.parse(core.getInput('tsBuildInfoFiles'));
+    core.info('changedFiles: ' + changedFiles.length);
+    core.info('tsBuildInfoFilenames: ' + tsBuildInfoFilenames);
+    tsBuildInfoFilenames.forEach((tsBuildInfoFilename) => {
+        changedFiles.forEach((changedFile) => {
+            const fileParts = path.dirname(changedFile).split(delimiter);
+            let fileFound;
+            do {
+                const tsbuildInfoFile = path.join(fileParts.join(delimiter), tsBuildInfoFilename);
+                // console.log('tsbuildInfoFile', fileParts, tsbuildInfoFile, fileParts.length);
+                if (fs.existsSync(tsbuildInfoFile)) {
+                    fileFound = tsbuildInfoFile;
+                }
+                fileParts.pop();
+            } while (fileParts.length > 0 && !fileFound);
+            if (fileFound) {
+                core.info('removing ts buildinfo file ' + fileFound);
+                fs.unlinkSync(fileFound);
+            }
+        });
     });
-  });
-} catch (error) {
-  core.setFailed(error.message);
 }
+catch (error) {
+    core.setFailed(error.message);
+}
+
 })();
 
 /******/ 	return __webpack_exports__;

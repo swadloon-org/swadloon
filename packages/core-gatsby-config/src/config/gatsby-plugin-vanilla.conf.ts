@@ -5,6 +5,6 @@ import path from 'path';
  */
 export function getGastbyPluginVanilla() {
   return {
-    resolve: path.resolve(__dirname, `../../commonjs/plugins/gatsby-plugin-vanilla`),
+    resolve: require.resolve(`../plugins/gatsby-plugin-vanilla`),
   };
 }

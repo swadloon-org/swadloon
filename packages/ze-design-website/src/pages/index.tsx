@@ -1,5 +1,5 @@
 import { HEADING, Variant } from '@newrade/core-design-system';
-import { BlockMarkdown, SectionBanner, SectionDivider } from '@newrade/core-gatsby-ui';
+import { BlockMarkdown, SectionBanner, SectionDivider } from '@newrade/core-gatsby-ui/src';
 import { Heading, Paragraph, Stack, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 import SectionOpenSource from '../sections/section-open-source.md';

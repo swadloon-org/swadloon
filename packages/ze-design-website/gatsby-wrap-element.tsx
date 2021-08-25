@@ -1,6 +1,6 @@
-import { GatsbyCommonPageContext } from '@newrade/core-gatsby-config/lib/config';
-import { LazyLayoutDesignSystem } from '@newrade/core-gatsby-ui/lib/layout/design-system-lazy.layout';
-import { LazyLayoutDocs } from '@newrade/core-gatsby-ui/lib/layout/docs-lazy.layout';
+import { GatsbyCommonPageContext } from '@newrade/core-gatsb-config/config';
+import { LazyLayoutDesignSystem } from '@newrade/core-gatsby-ui/src/layout/design-system-lazy.layout';
+import { LazyLayoutDocs } from '@newrade/core-gatsby-ui/src/layout/docs-lazy.layout';
 import '@newrade/ze-design-system/src/assets/fonts/inter-webfonts/stylesheet.css';
 import { PageProps, WrapPageElementBrowserArgs } from 'gatsby';
 import React from 'react';

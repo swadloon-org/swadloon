@@ -33,3 +33,5 @@
 //   postId: '12312',
 //   commentId: '223'
 // };
+
+export {};

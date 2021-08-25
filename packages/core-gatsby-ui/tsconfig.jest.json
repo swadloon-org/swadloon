@@ -1,14 +1,5 @@
 {
   "extends": "../core-jest-config/tsconfig.base.jest.json",
-  "compilerOptions": {
-    /**
-     * We reference the packages below to their src files to make
-     * development faster (since tsc rewrite all emmited files)
-     */
-    "paths": {
-      "@newrade/core-react-ui": ["../core-react-ui/src"],
-      "@newrade/core-react-ui/lib/*": ["../core-react-ui/src/*"]
-    }
-  },
+  "compilerOptions": {},
   "include": ["test", "src"]
 }

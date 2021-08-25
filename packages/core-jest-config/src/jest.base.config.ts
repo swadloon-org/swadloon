@@ -1,3 +1,5 @@
+/// <reference types="@newrade/core-types/src/jest-options" />
+
 import { includedLibToCompile } from './included-libs';
 
 export const baseJestConfig: jest.InitialOptions & { extensionsToTreatAsEsm?: string[] } = {
@@ -19,7 +21,6 @@ export const baseJestConfig: jest.InitialOptions & { extensionsToTreatAsEsm?: st
     // '\\.(css|less|sass|scss)$': 'identity-obj-proxy',
     '\\.(less|sass|scss)$': 'identity-obj-proxy',
     // '^@newrade/(.*)$': '<rootDir>/../$1/lib',
-    '^@newrade/core-react-ui$': '<rootDir>/../core-react-ui/src',
     '^@newrade/core-design-system$': '<rootDir>/../core-design-system/src',
     '^@newrade/core-common$': '<rootDir>/../core-common/lib/commonjs',
   },

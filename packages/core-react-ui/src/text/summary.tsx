@@ -1,13 +1,13 @@
-/// <reference types="@newrade/core-types/lib/svg" />
+/// <reference types="@newrade/core-types/src/svg" />
 
 import { LABEL_SIZE } from '@newrade/core-design-system';
-import React, { HTMLAttributes } from 'react';
-import { useStyles } from 'react-treat';
 /**
  * Built in icons
  */
-import PlusIcon from '../assets/add-outline.svg';
-import MinusIcon from '../assets/remove-outline.svg';
+import PlusIcon from '@newrade/core-react-ui/src/assets/add-outline.svg';
+import MinusIcon from '@newrade/core-react-ui/src/assets/remove-outline.svg';
+import React, { HTMLAttributes } from 'react';
+import { useStyles } from 'react-treat';
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { getMergedClassname } from '../utilities/component.utilities';
 import { Label } from './label';
@@ -48,8 +48,8 @@ export const Summary: React.FC<Props> = React.memo(
     ]);
     const iconOpenedClassNames = getMergedClassname([styles.icon, styles.iconOpened]);
     const iconClosedClassNames = getMergedClassname([styles.icon, styles.iconClosed]);
-    const IconOpened = iconOpened ? iconOpened : MinusIcon;
-    const IconClosed = iconClosed ? iconClosed : PlusIcon;
+    const IconOpened = iconOpened ? iconOpened : MinusIcon.default;
+    const IconClosed = iconClosed ? iconClosed : PlusIcon.default;
 
     return React.createElement(
       type,

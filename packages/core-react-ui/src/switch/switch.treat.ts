@@ -1,7 +1,7 @@
 import { globalStyle, style } from 'treat';
 import { Theme } from '../design-system';
 import { globalThemeReversedSelector } from '../global/global-theme-classnames';
-import { cssVar, px } from '../utilities';
+import { px } from '../utilities/utilities';
 
 /**
  * Base

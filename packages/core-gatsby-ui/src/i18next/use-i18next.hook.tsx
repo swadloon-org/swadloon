@@ -1,6 +1,6 @@
 import { SITE_LANGUAGES } from '@newrade/core-common';
-import { getLangSimpleCode } from '@newrade/core-react-ui/src';
-import { keys } from '@newrade/core-react-ui/src/utilities';
+import { getLangSimpleCode } from '@newrade/core-react-ui';
+import { keys } from '@newrade/core-react-ui/utilities';
 import { NavigateOptions } from '@reach/router';
 import { navigate as gatsbyNavigate } from 'gatsby';
 import { useContext } from 'react';

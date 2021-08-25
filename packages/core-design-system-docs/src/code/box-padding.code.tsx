@@ -1,4 +1,4 @@
-import { Placeholder } from '@newrade/core-gatsby-ui/lib/docs-components/placeholder';
+import { Placeholder } from '@newrade/core-gatsby-ui/src/docs-components/placeholder';
 import { BoxV3, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 

@@ -1,25 +1,21 @@
+import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import path from 'path';
 import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
-import { Configuration, DllReferencePlugin, RuleSetRule, WebpackPluginInstance } from 'webpack';
-import { babelReactLoader, getBabelReactLoader } from '../loaders/babel-react.loader';
+import webpack, { Configuration, RuleSetRule, WebpackPluginInstance } from 'webpack';
+import { getBabelReactLoader } from '../loaders/babel-react.loader';
 import { extractCssLoader } from '../loaders/extract-css.loader';
 import { fileLoader } from '../loaders/file.loader';
 import { htmlLoader } from '../loaders/html.loader';
+import { inlineCssLoader } from '../loaders/inline-css.loader';
 import { svgLoader } from '../loaders/svg.loader';
+import { getTreatLoader } from '../loaders/treat.loader';
 import { txtLoader } from '../loaders/txt.loader';
 import { getTypescriptBabelReactLoader } from '../loaders/typescript-babel.loader';
 import { urlLoader } from '../loaders/url.loader';
-import { getBrowserconfigHtmlPlugin } from '../plugins/browserconfig-html.plugin.conf';
 import { getWebpackCleanPlugin } from '../plugins/clean-webpack-plugin';
-import { getHtmlPlugin } from '../plugins/html.plugin.conf';
-import { getManifestJsonHtmlPlugin } from '../plugins/manifest-json-html.plugin.conf';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
-import webpack from 'webpack';
-import { inlineCssLoader } from '../loaders/inline-css.loader';
 import { compressionPlugin } from '../plugins/compression.plugin.conf';
 import { getForkTsCheckerWebpackPlugin } from '../plugins/fork-ts-checker.plugin.conf';
-import { ResolvePluginInstance } from 'tsconfig-paths-webpack-plugin/lib/plugin.temp.types';
 
 /**
  * Preconfigured base config for compiling TypeScript React Apps
@@ -87,23 +83,32 @@ export const getReactCommonConfig: (options: { isDevelopment: boolean }) => Conf
         !isDevelopment && extractCssLoader,
         getBabelReactLoader({
           hmr: isDevelopment,
+          plugins: [['@vanilla-extract/babel-plugin']],
         }),
         getTypescriptBabelReactLoader({
           isDevelopment,
+        }),
+        getTreatLoader({
+          hmr: isDevelopment,
         }),
       ].filter(Boolean) as RuleSetRule[],
     },
     resolve: {
       mainFields: ['browser', 'module', 'main'],
-      extensions: ['.js', '.json', '.wasm', '.ts', '.tsx', '.jsx', '.css'],
+      extensions: ['.js', '.json', '.wasm', '.ts', '.tsx', '.jsx'],
       plugins: [
         new TsconfigPathsPlugin({
           configFile: path.join(process.cwd(), 'tsconfig.json'),
           logLevel: 'WARN',
           mainFields: ['browser', 'module', 'main'],
-          extensions: ['.js', '.json', '.wasm', '.ts', '.tsx', '.jsx', '.css'],
+          extensions: ['.js', '.json', '.wasm', '.ts', '.tsx', '.jsx'],
         }),
       ],
+      fallback: {
+        fs: false,
+        os: false,
+        assert: false,
+      },
       alias: {
         'core-js': 'core-js-pure',
       },

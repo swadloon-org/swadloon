@@ -1,5 +1,5 @@
-import { BlockMarkdown, SectionSwitcher } from '@newrade/core-gatsby-ui';
-import { PlaceholderMarkdown } from '@newrade/core-gatsby-ui/lib/docs-components/placeholder-markdown';
+import { BlockMarkdown, SectionSwitcher } from '@newrade/core-gatsby-ui/src';
+import { PlaceholderMarkdown } from '@newrade/core-gatsby-ui/src/docs-components/placeholder-markdown';
 import { useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 

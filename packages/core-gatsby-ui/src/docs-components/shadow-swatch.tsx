@@ -1,6 +1,6 @@
 import { BoxShadow, Variant } from '@newrade/core-design-system';
-import { Label, Stack, useTreatTheme } from '@newrade/core-react-ui/src';
-import { getCSSBoxShadow } from '@newrade/core-react-ui/src/utilities';
+import { Label, Stack, useTreatTheme } from '@newrade/core-react-ui';
+import { getCSSBoxShadow } from '@newrade/core-react-ui/utilities';
 import { kebab } from 'case';
 import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';

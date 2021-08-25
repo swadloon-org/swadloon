@@ -31,14 +31,10 @@ import { useSidebarState } from '../sidebar/sidebar.hooks';
 /**
  * Sidebar
  */
-const LazySidebarStandard = loadable(
-  () => import('@newrade/core-gatsby-ui/lib/sidebar/sidebar-standard'),
-  {
-    resolveComponent: (
-      components: typeof import('@newrade/core-gatsby-ui/lib/sidebar/sidebar-standard')
-    ) => components.SidebarStandard,
-  }
-);
+const LazySidebarStandard = loadable(() => import('../sidebar/sidebar-standard'), {
+  resolveComponent: (components: typeof import('../sidebar/sidebar-standard')) =>
+    components.SidebarStandard,
+});
 
 export type DesignSystemLayoutProps = Partial<
   Omit<PageProps, 'children'> & { children: ReactNode }

@@ -37,8 +37,8 @@ import {
   TableRow,
   Tag,
   Title,
-} from '@newrade/core-react-ui/src';
-import { Code } from '@newrade/core-react-ui/src/code';
+} from '@newrade/core-react-ui';
+import { Code } from '@newrade/core-react-ui/code';
 import { SectionBaseLayout, SectionPadding } from '@newrade/core-website-api';
 import React, { AnchorHTMLAttributes } from 'react';
 import { BlockMarkdown } from '../blocks/block-markdown';
@@ -200,9 +200,9 @@ export const mdxComponents: Partial<
   pre: (props: MDXProps) => <>{props.children}</>,
   CodeBlock: ({ children, ...props }: MDXProps) => {
     const CodeBlock = loadable<any>(
-      () => import(/* webpackExports: ["CodeBlock"] */ '@newrade/core-react-ui/lib/code'),
+      () => import(/* webpackExports: ["CodeBlock"] */ '@newrade/core-react-ui/code'),
       {
-        resolveComponent: (components: typeof import('@newrade/core-react-ui/lib/code')) =>
+        resolveComponent: (components: typeof import('@newrade/core-react-ui/code')) =>
           components.CodeBlock,
       }
     );

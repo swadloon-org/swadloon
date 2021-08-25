@@ -3,28 +3,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "outDir": "lib",
-    "rootDir": "src",
-    "paths": {
-      "@newrade/*": ["../*/src"] // map packages imports to their source files
-    }
+    "rootDir": "src"
   },
-  /**
-   * Other packages needed for compilation.
-   * Note: please keep in sync with package.json dependencies list
-   */
-  "references": [
-    {
-      "path": "../core-common/tsconfig.json"
-    },
-    {
-      "path": "../core-figma-extractor/tsconfig.json"
-    },
-    {
-      "path": "../core-types/tsconfig.json"
-    },
-    {
-      "path": "../core-utils/tsconfig.json"
-    }
-  ],
-  "include": ["src/**/*"]
+  "include": ["src", "../../package.json"]
 }

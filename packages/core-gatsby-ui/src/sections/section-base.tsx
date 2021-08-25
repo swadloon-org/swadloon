@@ -1,7 +1,7 @@
 import { Variant } from '@newrade/core-design-system';
-import { BoxV2, Center, PaddingProps, useTreatTheme } from '@newrade/core-react-ui/src';
-import { globalThemeReversed } from '@newrade/core-react-ui/src/global/global-theme-classnames';
-import { getMergedClassname } from '@newrade/core-react-ui/src/utilities';
+import { BoxV2, Center, PaddingProps, useTreatTheme } from '@newrade/core-react-ui';
+import { globalThemeReversed } from '@newrade/core-react-ui/global';
+import { getMergedClassname } from '@newrade/core-react-ui/utilities';
 import { SectionBaseLayout, SectionPadding } from '@newrade/core-website-api';
 import React from 'react';
 import { useStyles } from 'react-treat';

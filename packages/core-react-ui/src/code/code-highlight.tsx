@@ -1,7 +1,7 @@
 import Highlight, { Language, Prism, PrismTheme } from 'prism-react-renderer';
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { getMergedClassname } from '../utilities';
+import { getMergedClassname } from '../utilities/component.utilities';
 import * as styleRefs from './code-highlight.treat';
 
 type Props = {

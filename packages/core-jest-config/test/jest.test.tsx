@@ -1,11 +1,11 @@
-/// <reference types="@newrade/core-types/lib/mdx" />
+/// <reference types="@newrade/core-types/src/mdx" />
 
 import { render } from '@testing-library/react';
 import React from 'react';
 
 /**
  * @description Test Jest setup itself, e.g. if the Jest test can compile from TypeScript
- *     or if they can handle ES6 features like dynamic import()
+ * or if they can handle ES6 features like dynamic import()
  */
 describe('jest', () => {
   it('should compile typescript', () => {

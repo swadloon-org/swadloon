@@ -3,17 +3,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "rootDir": ".",
-    "outDir": "lib",
+    "outDir": "dist",
     "noEmit": true, // this package should be consumed by /src/ for now
-    "types": ["gatsby", "node", "jest"],
-    /**
-     * We reference the packages below to their src files to make
-     * development faster (since tsc rewrite all emmited files)
-     */
-    "paths": {
-      "@newrade/core-react-ui": ["../core-react-ui/src"],
-      "@newrade/core-react-ui/lib/*": ["../core-react-ui/src/*"]
-    }
+    "types": ["gatsby", "node", "jest"]
   },
-  "include": ["src/**/*", "types/**/*"]
+  "include": ["src", "types"]
 }

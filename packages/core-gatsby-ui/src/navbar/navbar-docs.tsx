@@ -12,12 +12,10 @@ import {
   Tag,
   usePreventPinchZoom,
   useTreatTheme,
-} from '@newrade/core-react-ui/src';
-import { globalThemeReversed } from '@newrade/core-react-ui/src/global/global-theme-classnames';
-import { IoClose } from '@react-icons/all-files/io5/IoClose';
-import { IoMenu } from '@react-icons/all-files/io5/IoMenu';
+} from '@newrade/core-react-ui';
+import { globalThemeReversed } from '@newrade/core-react-ui/global';
 import React, { useRef } from 'react';
-import { IoMoon, IoSearchOutline, IoSunny } from 'react-icons/io5';
+import { IoClose, IoMenu, IoMoon, IoSearchOutline, IoSunny } from 'react-icons/io5';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './navbar-docs.treat';
 

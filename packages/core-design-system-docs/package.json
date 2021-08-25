@@ -3,16 +3,14 @@
   "version": "2.1.0",
   "description": "Markdown based documentation for design systems",
   "license": "MIT",
-  "main": "./lib/index.js",
   "files": [
-    "./lib/**/*"
+    "/src"
   ],
   "scripts": {
-    "build": "yarn tsc:build",
-    "clean": "rm -rf lib/** && rm -f *.tsbuildinfo",
-    "start": "yarn clean && yarn tsc:start",
-    "tsc:build": "tsc --build tsconfig.json",
-    "tsc:start": "tsc --build tsconfig.json --watch --preserveWatchOutput --verbose",
+    "build": "yarn clean && yarn typecheck",
+    "clean": "yarn clean:tsc && yarn clean:dist",
+    "clean:dist": "rm -rf dist/** lib/**",
+    "clean:tsc": "rm -f ./**/*.tsbuildinfo *.tsbuildinfo",
     "typecheck": "tsc --noEmit"
   },
   "sideEffects": [
@@ -20,15 +18,20 @@
     "*.treat.ts",
     "*.treat.js"
   ],
-  "typings": "./lib/index.d.ts",
   "dependencies": {
-    "@newrade/core-common": "^1",
-    "@newrade/core-gatsby-config": "^2",
+    "@newrade/core-design-system": "^1",
     "@newrade/core-gatsby-ui": "^2",
+    "@newrade/core-gsap-ui": "^1.2.0",
     "@newrade/core-react-ui": "^2",
+    "gatsby": "^3.10.2",
+    "gatsby-plugin-image": "^1.11.0-next.2"
+  },
+  "devDependencies": {
+    "@newrade/core-common": "^1",
+    "@newrade/core-gatsb-config": "^2",
     "@newrade/core-types": "^2",
     "@newrade/core-utils": "^2",
     "@newrade/core-webpack-config": "^2",
-    "@newrade/core-website-api": "^1"
+    "@newrade/core-website-api": "^1.1.0"
   }
 }

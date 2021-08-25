@@ -3,18 +3,28 @@
   "version": "2.0.0",
   "description": "Reusable webpack configuration files",
   "license": "MIT",
-  "main": "./lib/index.js",
-  "module": "./lib/index.js",
+  "main": "dist/newrade-core-webpack-config.cjs.js",
+  "module": "dist/newrade-core-webpack-config.esm.js",
   "files": [
-    "./lib/**/*"
+    "/dist",
+    "/config"
   ],
   "scripts": {
-    "build": "tsc --build",
-    "clean": "rm -rf lib/** && rm -f *.tsbuildinfo",
-    "start": "tsc --build --watch --preserveWatchOutput --verbose",
-    "typecheck": "tsc --noEmit"
+    "build": "yarn clean && yarn build:dist && yarn build:config && nr prepare-exports",
+    "build:config": "tsc --project tsconfig.config.json",
+    "build:dist": "tsc --project tsconfig.json",
+    "clean": "yarn clean:tsc && yarn clean:dist && yarn clean:config",
+    "clean:config": "rm -rf config/dist/**",
+    "clean:dist": "rm -rf dist/** lib/**",
+    "clean:tsc": "rm -f ./**/*.tsbuildinfo *.tsbuildinfo",
+    "start": "yarn clean && yarn preconstruct dev"
   },
-  "typings": "./lib/index.d.ts",
+  "preconstruct": {
+    "entrypoints": [
+      "index.ts",
+      "config/index.ts"
+    ]
+  },
   "dependencies": {
     "@newrade/core-common": "^1",
     "@newrade/core-jest-config": "^2",

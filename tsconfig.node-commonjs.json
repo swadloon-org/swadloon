@@ -5,12 +5,13 @@
 {
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
+    "isolatedModules": false,
     "declaration": true,
     "incremental": true,
     "composite": true,
     "target": "es2018",
     "module": "commonjs",
     "lib": ["es2020"], // should be set according to choosen NodeJS version and its support of recent features https://node.green/
-    "types": ["node"]
+    "types": ["node", "jest"]
   }
 }

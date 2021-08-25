@@ -2,35 +2,8 @@
   "extends": "../../tsconfig.node-esm.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "rootDir": ".",
-    "outDir": "lib"
+    "rootDir": "src",
+    "outDir": "dist"
   },
-  /**
-   * Other packages needed for compilation.
-   * Note: please keep in sync with package.json dependencies list
-   */
-  "references": [
-    {
-      "path": "../core-common/tsconfig.json"
-    },
-    {
-      "path": "../core-common/tsconfig.commonjs.json"
-    },
-    {
-      "path": "../core-common/tsconfig.commonjs.json"
-    },
-    {
-      "path": "../core-types/tsconfig.json"
-    },
-    {
-      "path": "../core-utils/tsconfig.json"
-    },
-    {
-      "path": "../core-website-api/tsconfig.json"
-    },
-    {
-      "path": "../core-design-system/tsconfig.json"
-    }
-  ],
-  "include": ["src/**/*", "types/**/*", "package.json"]
+  "include": ["src"]
 }

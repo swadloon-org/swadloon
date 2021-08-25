@@ -1,7 +1,7 @@
 import {
   GatsbyMarkdownFilePageContext,
   MarkdownTemplateQuery,
-} from '@newrade/core-gatsby-config/lib/config';
+} from '@newrade/core-gatsb-config/config';
 import {
   Center,
   getMetaBasicTags,
@@ -9,8 +9,8 @@ import {
   OPEN_GRAPH_TYPE,
   Stack,
   useTreatTheme,
-} from '@newrade/core-react-ui/src';
-import { MarkdownCSS } from '@newrade/core-react-ui/src/markdown';
+} from '@newrade/core-react-ui';
+import { MarkdownCSS } from '@newrade/core-react-ui/markdown';
 import { graphql, PageProps } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';

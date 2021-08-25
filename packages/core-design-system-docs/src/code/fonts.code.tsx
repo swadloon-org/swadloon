@@ -1,4 +1,4 @@
-import { FontShowcase } from '@newrade/core-gatsby-ui/lib/docs-components/font-showcase';
+import { FontShowcase } from '@newrade/core-gatsby-ui/src/docs-components/font-showcase';
 import { useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 

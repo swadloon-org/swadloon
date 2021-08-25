@@ -2,7 +2,7 @@ import { NavItem } from '../navigation/nav-item.model';
 import {
   GatsbyCommonPageContext,
   GatsbyMarkdownFilePageContext,
-} from '@newrade/core-gatsby-config/lib/config';
+} from '@newrade/core-gatsb-config/config';
 import { title, kebab, capital, lower } from 'case';
 import { SITE_LANGUAGES } from '@newrade/core-common';
 import { Navigation } from '../navigation/navigation.model';

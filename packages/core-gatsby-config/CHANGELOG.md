@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [2.1.0](https://github.com/newrade/newrade-core/compare/@newrade/core-gatsby-config@2.0.0...@newrade/core-gatsby-config@2.1.0) (2021-07-15)
+# [2.1.0](https://github.com/newrade/newrade-core/compare/@newrade/core-gatsb-config@2.0.0...@newrade/core-gatsb-config@2.1.0) (2021-07-15)
 
 ### Bug Fixes
 
@@ -22,7 +22,7 @@ All notable changes to this project will be documented in this file. See
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [2.0.0](https://github.com/newrade/newrade-core/compare/@newrade/core-gatsby-config@1.14.0...@newrade/core-gatsby-config@2.0.0) (2021-07-12)
+# [2.0.0](https://github.com/newrade/newrade-core/compare/@newrade/core-gatsb-config@1.14.0...@newrade/core-gatsb-config@2.0.0) (2021-07-12)
 
 ### Bug Fixes
 
@@ -334,7 +334,7 @@ All notable changes to this project will be documented in this file. See
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [1.14.0](https://github.com/newrade/newrade-core/compare/@newrade/core-gatsby-config@1.14.0...@newrade/core-gatsby-config@1.14.0) (2021-07-03)
+# [1.14.0](https://github.com/newrade/newrade-core/compare/@newrade/core-gatsb-config@1.14.0...@newrade/core-gatsb-config@1.14.0) (2021-07-03)
 
 ### Bug Fixes
 
@@ -638,7 +638,7 @@ All notable changes to this project will be documented in this file. See
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [1.13.0](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-config@1.12.0...@newrade/core-gatsby-config@1.13.0) (2021-06-16)
+# [1.13.0](https://github.com/newrade/newrade/compare/@newrade/core-gatsb-config@1.12.0...@newrade/core-gatsb-config@1.13.0) (2021-06-16)
 
 ### Bug Fixes
 
@@ -659,7 +659,7 @@ All notable changes to this project will be documented in this file. See
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [1.12.0](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-config@1.11.0...@newrade/core-gatsby-config@1.12.0) (2021-05-25)
+# [1.12.0](https://github.com/newrade/newrade/compare/@newrade/core-gatsb-config@1.11.0...@newrade/core-gatsb-config@1.12.0) (2021-05-25)
 
 ### Bug Fixes
 
@@ -678,7 +678,7 @@ All notable changes to this project will be documented in this file. See
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [1.11.0](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-config@1.10.1...@newrade/core-gatsby-config@1.11.0) (2021-05-21)
+# [1.11.0](https://github.com/newrade/newrade/compare/@newrade/core-gatsb-config@1.10.1...@newrade/core-gatsb-config@1.11.0) (2021-05-21)
 
 ### Bug Fixes
 
@@ -713,14 +713,14 @@ All notable changes to this project will be documented in this file. See
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [1.10.1](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-config@1.10.0...@newrade/core-gatsby-config@1.10.1) (2021-03-11)
+## [1.10.1](https://github.com/newrade/newrade/compare/@newrade/core-gatsb-config@1.10.0...@newrade/core-gatsb-config@1.10.1) (2021-03-11)
 
 ### Bug Fixes
 
 - **mir-website:** hotfix for blog generation
   ([7436d44](https://github.com/newrade/newrade/commit/7436d448e10a41d660adb3fdb6db946f48989d11))
 
-# [1.10.0](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-config@1.9.1...@newrade/core-gatsby-config@1.10.0) (2021-03-09)
+# [1.10.0](https://github.com/newrade/newrade/compare/@newrade/core-gatsb-config@1.9.1...@newrade/core-gatsb-config@1.10.0) (2021-03-09)
 
 ### Bug Fixes
 
@@ -766,7 +766,7 @@ All notable changes to this project will be documented in this file. See
 - **vsb-website:** fix fragments after refactor
   ([253f987](https://github.com/newrade/newrade/commit/253f98723f264938eab85113c71bbcdddc7a041f))
 
-## [1.9.1](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-config@1.9.0...@newrade/core-gatsby-config@1.9.1) (2021-02-22)
+## [1.9.1](https://github.com/newrade/newrade/compare/@newrade/core-gatsb-config@1.9.0...@newrade/core-gatsb-config@1.9.1) (2021-02-22)
 
 ### Bug Fixes
 
@@ -777,7 +777,7 @@ All notable changes to this project will be documented in this file. See
 - **repo:** clean up eslint and gitignore files
   ([5a0a45d](https://github.com/newrade/newrade/commit/5a0a45d7d6e669dc6859f361093d6d5b1e3c5d09))
 
-# [1.9.0](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-config@1.8.0...@newrade/core-gatsby-config@1.9.0) (2021-02-19)
+# [1.9.0](https://github.com/newrade/newrade/compare/@newrade/core-gatsb-config@1.8.0...@newrade/core-gatsb-config@1.9.0) (2021-02-19)
 
 ### Bug Fixes
 
@@ -790,7 +790,7 @@ All notable changes to this project will be documented in this file. See
 - **core-gatsby-ui:** working on sections and blocks
   ([4d55bfd](https://github.com/newrade/newrade/commit/4d55bfde04fd1df6d8b149a69414ba5129747fd6))
 
-# [1.8.0](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-config@1.7.1...@newrade/core-gatsby-config@1.8.0) (2021-02-15)
+# [1.8.0](https://github.com/newrade/newrade/compare/@newrade/core-gatsb-config@1.7.1...@newrade/core-gatsb-config@1.8.0) (2021-02-15)
 
 ### Bug Fixes
 
@@ -806,7 +806,7 @@ All notable changes to this project will be documented in this file. See
 - **logging:** implement structured loggging
   ([713cb45](https://github.com/newrade/newrade/commit/713cb4501897b14ff3d53c93d32bce0686759a7c))
 
-## [1.7.1](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-config@1.7.0...@newrade/core-gatsby-config@1.7.1) (2021-02-11)
+## [1.7.1](https://github.com/newrade/newrade/compare/@newrade/core-gatsb-config@1.7.0...@newrade/core-gatsb-config@1.7.1) (2021-02-11)
 
 ### Bug Fixes
 
@@ -817,7 +817,7 @@ All notable changes to this project will be documented in this file. See
 - **websites:** fixes for stability
   ([f398587](https://github.com/newrade/newrade/commit/f3985874c00b07e7455bdff5027820f7dfd38689))
 
-# [1.7.0](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-config@1.6.0...@newrade/core-gatsby-config@1.7.0) (2021-02-03)
+# [1.7.0](https://github.com/newrade/newrade/compare/@newrade/core-gatsb-config@1.6.0...@newrade/core-gatsb-config@1.7.0) (2021-02-03)
 
 ### Bug Fixes
 
@@ -875,7 +875,7 @@ All notable changes to this project will be documented in this file. See
 - **vsb-website:** implement sidenav
   ([6b57a86](https://github.com/newrade/newrade/commit/6b57a867a88f57636c1d8268608d0605a02cc924))
 
-# [1.6.0](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-config@1.5.0...@newrade/core-gatsby-config@1.6.0) (2021-01-04)
+# [1.6.0](https://github.com/newrade/newrade/compare/@newrade/core-gatsb-config@1.5.0...@newrade/core-gatsb-config@1.6.0) (2021-01-04)
 
 ### Bug Fixes
 
@@ -907,7 +907,7 @@ All notable changes to this project will be documented in this file. See
 - **vsb-website:** wip on the theme config
   ([6362338](https://github.com/newrade/newrade/commit/6362338d7ba92b50b54710205582c0aedfb46a60))
 
-# [1.5.0](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-config@1.4.2...@newrade/core-gatsby-config@1.5.0) (2020-12-18)
+# [1.5.0](https://github.com/newrade/newrade/compare/@newrade/core-gatsb-config@1.4.2...@newrade/core-gatsb-config@1.5.0) (2020-12-18)
 
 ### Bug Fixes
 
@@ -953,11 +953,11 @@ All notable changes to this project will be documented in this file. See
 - **core-react-ui:** add CSSReset component and other utilities
   ([dadedcb](https://github.com/newrade/newrade/commit/dadedcb398a615c60a6a9785faa4cdfd5e9b0c6e))
 
-## [1.4.2](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-config@1.4.1...@newrade/core-gatsby-config@1.4.2) (2020-11-30)
+## [1.4.2](https://github.com/newrade/newrade/compare/@newrade/core-gatsb-config@1.4.1...@newrade/core-gatsb-config@1.4.2) (2020-11-30)
 
-**Note:** Version bump only for package @newrade/core-gatsby-config
+**Note:** Version bump only for package @newrade/core-gatsb-config
 
-## [1.4.1](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-config@1.4.0...@newrade/core-gatsby-config@1.4.1) (2020-11-26)
+## [1.4.1](https://github.com/newrade/newrade/compare/@newrade/core-gatsb-config@1.4.0...@newrade/core-gatsb-config@1.4.1) (2020-11-26)
 
 ### Bug Fixes
 

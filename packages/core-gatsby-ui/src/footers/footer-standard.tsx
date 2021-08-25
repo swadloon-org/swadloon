@@ -21,11 +21,8 @@ import {
   useTreatTheme,
 } from '@newrade/core-react-ui/src';
 import { BlockAPI, LinkType, NavComponent } from '@newrade/core-website-api';
-import { IoLogoFacebook } from '@react-icons/all-files/io5/IoLogoFacebook';
-import { IoLogoInstagram } from '@react-icons/all-files/io5/IoLogoInstagram';
-import { IoLogoLinkedin } from '@react-icons/all-files/io5/IoLogoLinkedin';
-import { IoLogoTwitter } from '@react-icons/all-files/io5/IoLogoTwitter';
 import React from 'react';
+import { IoLogoFacebook, IoLogoInstagram, IoLogoLinkedin, IoLogoTwitter } from 'react-icons/io5';
 import { useStyles } from 'react-treat';
 import { BlockRenderer } from '../blocks/block-renderer';
 import { lorenipsumMedium, lorenipsumShort } from '../docs-components/loren-ipsum';

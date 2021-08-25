@@ -1,11 +1,15 @@
 import * as tsloader from 'ts-loader';
 import { RuleSetRule } from 'webpack';
-import { babelPluginBrowserConf } from '../babel-plugins.conf';
-import { babelPresetBrowserConf } from '../babel-preset.conf';
-import { isDevelopment } from '../utilities';
+import { babelPluginBrowserConf } from '../babel/babel-plugins.conf';
+import { babelPresetBrowserConf } from '../babel/babel-preset.conf';
+import { isDevelopment } from '../utilities/webpack-dev-server.utilities';
 import ReactRefreshTypeScript from 'react-refresh-typescript';
 
-type Options = { isDevelopment?: boolean };
+type Options = {
+  isDevelopment?: boolean;
+  tsLoaderOptions?: Partial<tsloader.Options>;
+  babelPlugins?: string[][];
+};
 
 const defaultOptions: Options = {
   isDevelopment: isDevelopment(),
@@ -25,7 +29,7 @@ export function getTypescriptBabelReactLoader(options: Options = defaultOptions)
         options: {
           cacheDirectory: true,
           cacheCompression: false,
-          plugins: [...babelPluginBrowserConf],
+          plugins: [...babelPluginBrowserConf, ...(options.babelPlugins || [])],
           presets: [...babelPresetBrowserConf],
         },
       },
@@ -38,13 +42,14 @@ export function getTypescriptBabelReactLoader(options: Options = defaultOptions)
           }),
           experimentalFileCaching: true, // https://github.com/TypeStrong/ts-loader#experimentalfilecaching
           projectReferences: options.isDevelopment ? false : true,
-          transpileOnly: options.isDevelopment ? true : false, // see https://github.com/TypeStrong/ts-loader#transpileonly and https://github.com/TypeStrong/fork-ts-checker-webpack-plugin
+          transpileOnly: true, // typechecking done by fork-ts-plugin  see https://github.com/TypeStrong/ts-loader#transpileonly and https://github.com/TypeStrong/fork-ts-checker-webpack-plugin
           allowTsInNodeModules: true,
           experimentalWatchApi: options.isDevelopment ? true : false, // see https://github.com/TypeStrong/ts-loader/issues/1193
+          logLevel: 'INFO',
           ...options.tsLoaderOptions,
         } as Partial<tsloader.Options>,
       },
     ],
-    exclude: /node_modules/,
+    exclude: /node_modules|\.treat\.ts|\.svg\.tsx/, // see `treat.loader.ts` and `svgr-macro.loader.ts`
   };
 }

@@ -1,6 +1,6 @@
 import * as common from '@newrade/core-common';
-import * as core from '@newrade/core-gatsby-config';
-import * as conf from '@newrade/core-gatsby-config/lib/config';
+import * as core from '@newrade/core-gatsb-config';
+import * as conf from '@newrade/core-gatsb-config/config';
 import { getAppUrl, loadDotEnv, logEnvVariables } from '@newrade/core-utils';
 import path from 'path';
 import packageJson from './package.json';
@@ -43,7 +43,7 @@ const config: conf.GastbySiteConfig = {
         background_color: `#ffffff`,
         theme_color: `#6061EC`,
         display: `standalone`,
-        icon: `../ze-design-system/lib/assets/logos/logo-favicon.svg`,
+        icon: `../ze-design-system/src/assets/logos/logo-favicon.svg`,
         include_favicon: false, // see page template
       },
     },
@@ -76,7 +76,12 @@ const config: conf.GastbySiteConfig = {
     ...core.getGatsbyPluginMdx(),
     /** images and assets */
     ...core.getGatsbyImageFolder({
-      pathImgDir: path.join(__dirname, `../ze-design-system/lib/assets`),
+      pathImgDir: [
+        path.join(__dirname, `../ze-design-system/src/assets/fonts`),
+        path.join(__dirname, `../ze-design-system/src/assets/images`),
+        path.join(__dirname, `../ze-design-system/src/assets/logos`),
+        path.join(__dirname, `./src/images`),
+      ],
     }),
     /** seo */
     core.getGatsbyPluginSitemap(),

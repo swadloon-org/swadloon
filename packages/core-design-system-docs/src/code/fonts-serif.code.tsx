@@ -1,4 +1,4 @@
-import { FontSerif } from '@newrade/core-gatsby-ui/lib/docs-components/font-serif';
+import { FontSerif } from '@newrade/core-gatsby-ui/src/docs-components/font-serif';
 import { useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 

@@ -21,14 +21,14 @@ status: draft
 Docs:
 https://docs.github.com/en/rest/reference/actions#create-a-workflow-dispatch-event
 
+```bash
 curl \
  -X POST \
  -H "Accept: application/vnd.github.v3+json" \
  -H "Authorization: Bearer ..." \
-
-https://api.github.com/repos/newrade/newrade/actions/workflows/vsb-workflow.yml/dispatches
-\
+ https://api.github.com/repos/newrade/newrade/actions/workflows/vsb-workflow.yml/dispatches \
  -d '{"ref":"refs/heads/dev"}'
+```
 
 ## Debugging Logs
 

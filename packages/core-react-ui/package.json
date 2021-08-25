@@ -3,36 +3,76 @@
   "version": "2.1.0",
   "description": "UI library",
   "license": "MIT",
-  "module": "./lib/index.js",
+  "main": "dist/newrade-core-react-ui.cjs.js",
+  "module": "dist/newrade-core-react-ui.esm.js",
   "files": [
-    "./lib/**/*"
+    "/dist",
+    "/utilities",
+    "/global",
+    "/default-theme",
+    "/theme",
+    "/code",
+    "/markdown",
+    "/icons-kit-ionicons-outline"
   ],
   "scripts": {
-    "build": "yarn tsc:build",
+    "build": "yarn clean && yarn build:dist && nr prepare-exports",
+    "build:dist": "tsc --build tsconfig.json",
     "build:dll": "yarn webpack:dll",
-    "clean": "rm -rf lib/** && rm -f *.tsbuildinfo",
-    "start": "yarn tsc:start",
-    "test": "jest",
-    "test:watch": "jest --watch",
+    "clean": "yarn clean:tsc && yarn clean:dist",
+    "clean:dist": "rm -rf dist/** lib/**",
+    "clean:tsc": "rm -f ./**/*.tsbuildinfo *.tsbuildinfo",
+    "start": "yarn clean && yarn preconstruct dev",
+    "test": "nr jest",
+    "test:watch": "nr jest --watch",
     "tsc:build": "tsc --build",
     "tsc:start": "tsc --build --watch --preserveWatchOutput --verbose",
-    "typecheck": "tsc --noEmit",
     "webpack": "TS_NODE_PROJECT=../../tsconfig.node-commonjs.json node -r ts-node/register ../../node_modules/webpack/bin/webpack",
     "webpack:dev": "yarn webpack serve --config webpack.dev.config.ts",
     "webpack:dll": "yarn webpack --config webpack.dll.config.ts"
+  },
+  "preconstruct": {
+    "entrypoints": [
+      "index.ts",
+      "utilities.ts",
+      "global.ts",
+      "theme.ts",
+      "default-theme.ts",
+      "code.ts",
+      "markdown.ts",
+      "icons-kit-ionicons-outline.ts"
+    ]
   },
   "sideEffects": [
     "*.css",
     "*.treat.ts",
     "*.treat.js"
   ],
-  "typings": "./lib/index.d.ts",
   "dependencies": {
+    "@loadable/component": "^5.14.1",
     "@newrade/core-common": "^1",
     "@newrade/core-design-system": "^1",
     "@newrade/core-gsap-ui": "^1.3.4",
     "@newrade/core-jest-config": "^2",
-    "@newrade/core-types": "^2"
+    "@newrade/core-types": "^2",
+    "@react-google-maps/api": "^2.1.1",
+    "@react-spring/web": "^9.1.2",
+    "@vanilla-extract/css": "^1.1.0",
+    "capsize": "^1.1.0",
+    "case": "^1.6.3",
+    "cleave.js": "1.5.10",
+    "debug": "^4.3.1",
+    "github-slugger": "^1.3.0",
+    "lethargy": "^1.0.9",
+    "lodash": "^4.17.15",
+    "polished": "^3.6.6",
+    "prism-react-renderer": "^1.2.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-icons": "^4.1.0",
+    "react-treat": "^2.0.1",
+    "react-use-gesture": "^9.1.3",
+    "treat": "^2.0.2"
   },
   "devDependencies": {
     "@newrade/core-cli": "^1.11.0"

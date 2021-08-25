@@ -1,5 +1,5 @@
 import { Variant } from '@newrade/core-design-system';
-import { GatsbyLink, NavbarStandard } from '@newrade/core-gatsby-ui';
+import { GatsbyLink, NavbarStandard } from '@newrade/core-gatsby-ui/src';
 import {
   Main,
   MainWrapper,

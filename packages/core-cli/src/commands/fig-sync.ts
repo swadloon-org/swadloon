@@ -1,4 +1,4 @@
-import { extract } from '@newrade/core-figma-extractor';
+// import { extract } from '@newrade/core-figma-extractor';
 import { loadDotEnv } from '@newrade/core-utils';
 import { Command, flags } from '@oclif/command';
 import debug from 'debug';
@@ -43,10 +43,10 @@ export default class FigmaSync extends Command {
 
     const { args, flags } = this.parse(FigmaSync);
 
-    extract({
-      figmaFile: env.FIGMA_FILE,
-      figmaToken: env.FIGMA_TOKEN,
-      outputDir: 'dist',
-    });
+    // extract({
+    //   figmaFile: env.FIGMA_FILE,
+    //   figmaToken: env.FIGMA_TOKEN,
+    //   outputDir: 'dist',
+    // });
   }
 }

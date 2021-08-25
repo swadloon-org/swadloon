@@ -1,6 +1,6 @@
 import { LinkProps, PARAGRAPH_SIZE } from '@newrade/core-design-system';
-import { BsDot } from '@react-icons/all-files/bs/BsDot';
 import React, { HTMLAttributes } from 'react';
+import { BsDot } from 'react-icons/bs';
 import { useStyles } from 'react-treat';
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { Paragraph } from '../text/paragraph';

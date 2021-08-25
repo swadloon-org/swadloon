@@ -10,10 +10,9 @@ import {
   TreatThemeProvider,
   useCommonProps,
   useTreatTheme,
-} from '@newrade/core-react-ui/src';
-import { CodeBlock, CodeOutline } from '@newrade/core-react-ui/src/code';
-import { GlobalCSSVariables } from '@newrade/core-react-ui/src/global/global-css-variables';
-import { globalThemeReversed } from '@newrade/core-react-ui/src/global/global-theme-classnames';
+} from '@newrade/core-react-ui';
+import { CodeBlock, CodeOutline } from '@newrade/core-react-ui/code';
+import { GlobalCSSVariables, globalThemeReversed } from '@newrade/core-react-ui/global';
 import React, { ReactNode, useState } from 'react';
 import { TreatProvider } from 'react-treat';
 import { mdxComponents } from '../mdx/mdx-components';

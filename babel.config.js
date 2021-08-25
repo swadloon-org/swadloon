@@ -1,0 +1,10 @@
+/**
+ * minimal config for preconstruct
+ */
+module.exports = {
+  presets: [
+    ['@babel/preset-env', { targets: { node: 12 } }],
+    '@babel/preset-react',
+    '@babel/preset-typescript',
+  ],
+};

@@ -1,4 +1,4 @@
-/// <reference types="@newrade/core-types/lib/github-slugger" />
+/// <reference types="@newrade/core-types/src/github-slugger" />
 
 import GithubSlugger from 'github-slugger';
 import { AsTypes, PrimitiveProps } from '../primitive/primitive.props';

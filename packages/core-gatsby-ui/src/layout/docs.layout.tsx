@@ -4,7 +4,7 @@ import { HEADING, PARAGRAPH_SIZE, TagSize, Variant } from '@newrade/core-design-
 import {
   GatsbyMarkdownFilePageContext,
   SOURCE_INSTANCE_NAME,
-} from '@newrade/core-gatsby-config/lib/config';
+} from '@newrade/core-gatsb-config/config';
 import {
   BoxV2,
   DesktopDocsItemGroup,
@@ -32,14 +32,10 @@ import { useSidebarState } from '../sidebar/sidebar.hooks';
 /**
  * Sidebar
  */
-const LazySidebarStandard = loadable(
-  () => import('@newrade/core-gatsby-ui/lib/sidebar/sidebar-standard'),
-  {
-    resolveComponent: (
-      components: typeof import('@newrade/core-gatsby-ui/lib/sidebar/sidebar-standard')
-    ) => components.SidebarStandard,
-  }
-);
+const LazySidebarStandard = loadable(() => import('../sidebar/sidebar-standard'), {
+  resolveComponent: (components: typeof import('../sidebar/sidebar-standard')) =>
+    components.SidebarStandard,
+});
 
 export type LayoutDocsProps = Partial<
   Omit<PageProps<any, GatsbyMarkdownFilePageContext>, 'children'> & { children: ReactNode }

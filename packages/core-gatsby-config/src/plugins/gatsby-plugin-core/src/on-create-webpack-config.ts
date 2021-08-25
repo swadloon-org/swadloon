@@ -8,9 +8,9 @@ import {
   getWebpackStatsPlugin,
   stats,
 } from '@newrade/core-webpack-config';
-import fs from 'fs';
 import { GatsbyNode } from 'gatsby';
 import path from 'path';
+import fs from 'fs';
 import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
 import { Configuration, RuleSetRule } from 'webpack';
 import { GatsbyCorePluginOptions } from '../gatsby-plugin-options';
@@ -24,16 +24,18 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
   options
 ) => {
   const pluginOptions = options as unknown as GatsbyCorePluginOptions;
+  const env = process.env as CommonEnvType;
+
+  const isProduction = process.env.NODE_ENV === 'production';
+  const isDevelopStage = stage === 'develop';
+  const isDevelopSSRStage = stage === 'develop-html';
+  const isBuildJavaScriptStage = stage === 'build-javascript';
+  const isSSRStage = stage === 'build-html';
+
   const moduleToParseByBabel = [
     'gatsby-plugin-image',
     ...(pluginOptions.modules ? pluginOptions.modules : []),
   ];
-  const env = process.env as CommonEnvType;
-  const isProduction = stage !== `develop`;
-
-  if (stage !== `build-javascript`) {
-    return void 0;
-  }
 
   /**
    * Retrieve the initial gatsby webpack config
@@ -51,30 +53,22 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
   reporter.info(
     `[${pluginOptions.pluginName}]process.env.TS_NODE_PROJECT: ${process.env.TS_NODE_PROJECT}`
   );
-  delete process.env.TS_NODE_PROJECT; // see https://github.com/dividab/tsconfig-paths-webpack-plugin/issues/32
+  delete process.env.TS_NODE_PROJECT; // avoid using external tsconfig for ts-loader or other tools
 
   /**
    * Replace the devtool option
    */
-<<<<<<< HEAD
-  // config.devtool = 'cheap-source-map';
-=======
   config.devtool = isProduction ? false : 'eval-cheap-module-source-map';
 
   /**
    * Remove es5 target
    */
-<<<<<<< HEAD
-  if (typeof config === 'object') {
-    config.target = ['web'];
-  }
->>>>>>> 058d3f73 (fix(core): fix babel loader config)
-=======
   config.target = ['web'];
 
   /**
    * Replace the default caching strategy
    */
+  // config.cache = undefined; // does not work with treat right now, disabling...
   config.cache = {
     type: 'filesystem',
     buildDependencies: {
@@ -113,7 +107,6 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
       ],
     },
   };
->>>>>>> 95ef918b (fix(core): fix once and for all the paths for core-react-ui and core-gatsby-ui)
 
   /**
    * Enable `module` in mainfields
@@ -137,35 +130,17 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
   if (env.APP_ENV === DEPLOY_ENV.LOCAL) {
     config.stats = {
       ...(typeof config.stats === 'object' ? config.stats : {}),
-      ...core.stats.dev,
+      ...stats.dev,
     };
   }
 
-<<<<<<< HEAD
-    config.plugins?.push(core.getWebpackStatsPlugin());
-=======
   if (isProduction) {
     config.plugins?.push(getWebpackStatsPlugin());
->>>>>>> 95ef918b (fix(core): fix once and for all the paths for core-react-ui and core-gatsby-ui)
   }
 
   /**
    * Add lodash plugin
    */
-<<<<<<< HEAD
-  if (typeof config === 'object') {
-    config.plugins?.push(core.getLodashPlugin());
-  }
-  if (typeof config === 'object') {
-    config.resolve = {
-      ...config.resolve,
-      alias: {
-        ...(config.resolve && typeof config.resolve.alias === 'object' ? config.resolve.alias : {}),
-        lodash: 'lodash-es',
-      },
-    };
-  }
-=======
   config.plugins?.push(getLodashPlugin());
   config.resolve = {
     ...config.resolve,
@@ -174,7 +149,6 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
       lodash: 'lodash-es',
     },
   };
->>>>>>> 95ef918b (fix(core): fix once and for all the paths for core-react-ui and core-gatsby-ui)
 
   /**
    * Alias for core-js
@@ -193,6 +167,7 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
    * Replace Gatsby default entry polyfill
    */
   if (
+    isProduction &&
     typeof config === 'object' &&
     config.entry &&
     (config.entry as Record<string, string>)['polyfill']
@@ -203,7 +178,7 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
   /**
    * Redefine optimization
    */
-  if (typeof config === 'object') {
+  if (isProduction && typeof config === 'object') {
     config.optimization = {
       ...config.optimization,
       ...{
@@ -256,11 +231,6 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
   }
 
   /**
-<<<<<<< HEAD
-   * Replace Gatsby default babel config
-   *
-   * @see https://github.com/gatsbyjs/gatsby/blob/master/packages/babel-preset-gatsby/src/dependencies.ts
-=======
    * Remove gatsby-plugin-mdx from webpack cache
    */
   //   const buildDependencies: { [index in 'config']: string[] } = (config.cache as any)?.[
@@ -274,62 +244,24 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
 
   /**
    * Filters to find the correct webpack rules
->>>>>>> 95ef918b (fix(core): fix once and for all the paths for core-react-ui and core-gatsby-ui)
    */
+
   const babelLoaderPredicate = (rule: RuleSetRule) =>
-    String(rule.test) === '/\\.(js|mjs|jsx)$/' || String(rule.test) === '/\\.(js|mjs)$/';
+    String(rule.test) === '/\\.(js|mjs|jsx)$/' ||
+    String(rule.test) === '/\\.(js|mjs)$/' || // since gatsby v3
+    String(rule.test) === '/\\.js$/i' || // since gatsby v3
+    String(rule.test) === '/\\.mjs$/i'; // since gatsby v3
   const negateBabelLoaderPredicate = (rule: RuleSetRule | '...') =>
     !babelLoaderPredicate(rule as RuleSetRule);
+
   const tsLoaderPredicate = (rule: RuleSetRule) => String(rule.test) === '/\\.tsx?$/';
   const negateTsLoaderPredicate = (rule: RuleSetRule) => !tsLoaderPredicate(rule);
-  if (config.module?.rules) {
-    const [gatsbyBabelLoaderConf] = (config.module.rules as RuleSetRule[]).filter(
-      babelLoaderPredicate
-    );
-
-    config.module.rules = [
-      ...config.module.rules.filter(negateBabelLoaderPredicate),
-      {
-        ...(gatsbyBabelLoaderConf as RuleSetRule),
-        use: [
-          {
-            ...((gatsbyBabelLoaderConf as RuleSetRule).use as any)[0],
-            options: {
-              ...((gatsbyBabelLoaderConf as RuleSetRule).use as any)[0].options,
-              ...(core.babelReactLoader.use as any)[0].options,
-            },
-          },
-        ],
-        exclude: (modulePath: string) =>
-          /node_modules/.test(modulePath) &&
-          // whitelist specific es6 module
-          !new RegExp(
-            `[\\\\/](${moduleToParseByBabel
-              .map((module) => module.replace(/\//, path.sep))
-              .map(regexEscape)
-              .join('|')})[\\\\/]`
-          ).test(modulePath),
-      },
-    ];
-
-    const [modifiedGatsbyBabelLoaderConf] = (config.module.rules as RuleSetRule[]).filter(
-      babelLoaderPredicate
-    );
-  }
 
   /**
-   * Replace gatsby-ts-plugin options
+   * Replace Gatsby default babel config
+   *
+   * @see https://github.com/gatsbyjs/gatsby/blob/master/packages/babel-preset-gatsby/src/dependencies.ts
    */
-  if (config.module?.rules) {
-    const [tsLoaderConf] = (config.module.rules as RuleSetRule[]).filter(tsLoaderPredicate);
-
-    if (tsLoaderConf && tsLoaderConf.use && (tsLoaderConf.use as RuleSetUseItem[]).length) {
-      const [gatsbyBabelLoaderConf] = (config.module.rules as RuleSetRule[]).filter(
-        babelLoaderPredicate
-      );
-      const [tsLoaderUseConf] = (tsLoaderConf.use as RuleSetUseItem[]).filter(
-        (use: any) => !/babel-loader/.test(use.loader)
-      );
 
   // if (config.module?.rules) {
   //   reporter.info(`[${pluginOptions.pluginName}]removing built-in rules for js/mjs/jsx`);
@@ -352,31 +284,20 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
   // }
 
   /**
-   * Add tsx support to babel (like gatsby-plugin-typescript)
+   * Add tsx support with ts-loader
    */
   if (config.module?.rules) {
-    const [gatsbyBabelLoaderConf] = (config.module.rules as RuleSetRule[]).filter(
-      babelLoaderPredicate
-    );
-
     (config.module.rules as RuleSetRule[]) = [
       ...(config.module.rules as RuleSetRule[]).filter(negateTsLoaderPredicate),
-      {
-        ...getTypescriptBabelReactLoader({
-          isDevelopment: isDevelopStage,
-          tsLoaderOptions: {
-            transpileOnly: true, // typechecking done by fork-ts-plugin
-            projectReferences: true,
-            logLevel: 'INFO',
-          },
-        }),
-        exclude: /public|static|node_modules|\.treat\.ts/, // required since the treat plugin already have HMR logic
-      },
+      getTypescriptBabelReactLoader({
+        isDevelopment: isDevelopStage,
+        tsLoaderOptions: {
+          projectReferences: false,
+        },
+        babelPlugins: [['@vanilla-extract/babel-plugin']],
+      }),
     ] as RuleSetRule[];
 
-<<<<<<< HEAD
-    const [modifiedTsLoaderConf] = (config.module.rules as RuleSetRule[]).filter(tsLoaderPredicate);
-=======
     config.plugins?.push(getForkTsCheckerWebpackPlugin());
 
     // can be used to counter tsc emitting all files again but it's slower for the first webpack build
@@ -386,7 +307,6 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
     //     hash: true,
     //   },
     // };
->>>>>>> 95ef918b (fix(core): fix once and for all the paths for core-react-ui and core-gatsby-ui)
   }
 
   // add tsconfig path to webpack aliases
@@ -395,15 +315,14 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
     alias: {
       ...config.resolve?.alias,
     },
-    extensions: ['.js', '.json', '.wasm', '.ts', '.tsx', '.jsx', '.css'],
+    extensions: ['.js', '.json', '.wasm', '.ts', '.jsx', '.tsx'],
     plugins: [
       ...(config.resolve?.plugins || []),
       new TsconfigPathsPlugin({
         configFile: 'tsconfig.json',
         logLevel: 'INFO',
         logInfoToStdOut: true,
-        extensions: ['.js', '.json', '.wasm', '.ts', '.tsx', '.jsx', '.css'],
-        mainFields: ['browser', 'module', 'main'],
+        extensions: ['.js', '.json', '.wasm', '.ts', '.jsx', '.tsx'],
       }),
     ],
   };
@@ -421,8 +340,8 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
    */
   if (isProduction && env.APP_ENV === DEPLOY_ENV.LOCAL) {
     config.plugins = config.plugins
-      ? [...config.plugins, core.getBundleVisualizerPlugin()]
-      : [core.getBundleVisualizerPlugin()];
+      ? [...config.plugins, getBundleVisualizerPlugin()]
+      : [getBundleVisualizerPlugin()];
   }
 
   reporter.info(`[${pluginOptions.pluginName}] replacing webpack config with modified one`);

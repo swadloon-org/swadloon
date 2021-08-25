@@ -1,5 +1,5 @@
-import { Theme } from '@newrade/core-react-ui/src';
-import { getCSSTextStyles } from '@newrade/core-react-ui/src/utilities';
+import { Theme } from '@newrade/core-react-ui';
+import { getCSSTextStyles } from '@newrade/core-react-ui/utilities';
 import capsize from 'capsize';
 import { style } from 'treat';
 

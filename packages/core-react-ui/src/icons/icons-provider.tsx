@@ -1,7 +1,7 @@
 import { LoadableComponent } from '@loadable/component';
 import { ICON } from '@newrade/core-design-system';
-import { IconContext as ReactIconContext } from '@react-icons/all-files';
 import React from 'react';
+import { IconContext as ReactIconContext } from 'react-icons';
 
 export interface IconBaseProps extends React.SVGAttributes<SVGElement> {
   children?: React.ReactNode;

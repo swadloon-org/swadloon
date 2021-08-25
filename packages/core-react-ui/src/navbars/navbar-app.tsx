@@ -1,7 +1,6 @@
 import { ButtonIcon, Variant } from '@newrade/core-design-system';
-import { IoClose } from '@react-icons/all-files/io5/IoClose';
-import { IoMenu } from '@react-icons/all-files/io5/IoMenu';
 import React, { useImperativeHandle, useRef, useState } from 'react';
+import { IoClose, IoMenu } from 'react-icons/io5';
 import { useStyles } from 'react-treat';
 import { Button } from '../button/button';
 import { usePreventPinchZoom } from '../hooks/use-prevent-pinch-zoom';

@@ -14,7 +14,7 @@ export function getGastbyPluginLayoutCoreConfig({
   providersComponentPath = defaultOptions.providersComponentPath,
 }: GatsbyPluginLayoutCoreOptions = defaultOptions): PluginRef {
   return {
-    resolve: path.resolve(__dirname, `../../lib/plugins/gatsby-plugin-layout-core`),
+    resolve: require.resolve(`../../lib/plugins/gatsby-plugin-layout-core`),
     options: {
       packageName,
       layoutComponentPath,

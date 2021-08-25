@@ -4,13 +4,16 @@
   "description": "Reusable UI components for Gatsby sites",
   "license": "MIT",
   "main": "",
-  "files": [],
+  "files": [
+    "/src"
+  ],
   "scripts": {
-    "build-disabled": "tsc --build",
-    "clean": "rm -rf lib/** && rm -f *.tsbuildinfo",
-    "start-disabled": "tsc --build --watch --preserveWatchOutput --verbose",
-    "test": "jest",
-    "test:watch": "jest --watch",
+    "build": "yarn clean && yarn typecheck",
+    "clean": "yarn clean:tsc && yarn clean:dist",
+    "clean:dist": "rm -rf dist/** lib/**",
+    "clean:tsc": "rm -f ./**/*.tsbuildinfo *.tsbuildinfo",
+    "test": "nr jest",
+    "test:watch": "nr jest --watch",
     "typecheck": "tsc --noEmit"
   },
   "sideEffects": [
@@ -18,10 +21,9 @@
     "*.treat.ts",
     "*.treat.js"
   ],
-  "typings": "",
   "dependencies": {
     "@newrade/core-common": "^1",
-    "@newrade/core-gatsby-config": "^2",
+    "@newrade/core-gatsb-config": "^2",
     "@newrade/core-react-ui": "^2",
     "@newrade/core-types": "^2",
     "@newrade/core-utils": "^2",

@@ -7,12 +7,9 @@ import {
   Stack,
   useCommonProps,
   useTreatTheme,
-} from '@newrade/core-react-ui/src';
-import { IoLogoFacebook } from '@react-icons/all-files/io5/IoLogoFacebook';
-import { IoLogoInstagram } from '@react-icons/all-files/io5/IoLogoInstagram';
-import { IoLogoLinkedin } from '@react-icons/all-files/io5/IoLogoLinkedin';
-import { IoLogoTwitter } from '@react-icons/all-files/io5/IoLogoTwitter';
+} from '@newrade/core-react-ui';
 import React from 'react';
+import { IoLogoFacebook, IoLogoInstagram, IoLogoLinkedin, IoLogoTwitter } from 'react-icons/io5';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './footer-simple.treat';
 import { FooterProps } from './footer.props';

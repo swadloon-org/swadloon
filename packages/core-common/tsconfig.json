@@ -2,8 +2,8 @@
   "extends": "../../tsconfig.node-esm.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "outDir": "lib",
+    "outDir": "dist",
     "rootDir": "src"
   },
-  "include": ["src/**/*"]
+  "include": ["src"]
 }

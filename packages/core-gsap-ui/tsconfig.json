@@ -6,14 +6,5 @@
     "outDir": "lib",
     "types": ["react", "react-dom", "jest"]
   },
-  /**
-   * Other packages needed for compilation.
-   * Note: please keep in sync with package.json dependencies list
-   */
-  "references": [
-    {
-      "path": "../core-design-system/tsconfig.json"
-    }
-  ],
-  "include": ["src/**/*", "types/**/*"]
+  "include": ["src", "types"]
 }

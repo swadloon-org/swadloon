@@ -1,5 +1,5 @@
-import { useCommonProps } from '@newrade/core-react-ui/src';
-import { MarkdownCSS } from '@newrade/core-react-ui/src/markdown';
+import { useCommonProps } from '@newrade/core-react-ui';
+import { MarkdownCSS } from '@newrade/core-react-ui/markdown';
 import { BlockAlignment, BlockAPI } from '@newrade/core-website-api';
 import React from 'react';
 import { useStyles } from 'react-treat';

@@ -1,6 +1,6 @@
 import { Variant } from '@newrade/core-design-system';
-import { SidebarContainer, Stack, useTreatTheme } from '@newrade/core-react-ui/src';
-import { getMergedClassname } from '@newrade/core-react-ui/src/utilities';
+import { SidebarContainer, Stack, useTreatTheme } from '@newrade/core-react-ui';
+import { getMergedClassname } from '@newrade/core-react-ui/utilities';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './sidebar-base.treat';

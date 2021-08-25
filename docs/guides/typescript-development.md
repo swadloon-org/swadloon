@@ -151,7 +151,7 @@ Here is an example for a NodeJS library that is built for CommonJS and ESM:
     "tsBuildInfoFile": "tsconfig.commonjs.tsbuildinfo",
     "rootDir": "src"
   },
-  "include": ["src/**/*", "test/**/*"]
+  "include": ["src", "test"]
 }
 ```
 
@@ -164,7 +164,7 @@ Here is an example for a NodeJS library that is built for CommonJS and ESM:
     "outDir": "lib",
     "rootDir": "src"
   },
-  "include": ["src/**/*", "test/**/*"]
+  "include": ["src", "test"]
 }
 ```
 
@@ -180,7 +180,7 @@ For a modern UI library:
     "outDir": "lib",
     "rootDir": "src"
   },
-  "include": ["src/**/*", "test/**/*"]
+  "include": ["src", "test"]
 }
 ```
 

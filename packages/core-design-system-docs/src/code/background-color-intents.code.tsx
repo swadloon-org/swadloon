@@ -1,4 +1,4 @@
-import { ColorPalette } from '@newrade/core-gatsby-ui/lib/docs-components/color-palette';
+import { ColorPalette } from '@newrade/core-gatsby-ui/src/docs-components/color-palette';
 import { BoxV2, Stack, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 

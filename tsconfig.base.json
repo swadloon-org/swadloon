@@ -8,6 +8,7 @@
     "allowSyntheticDefaultImports": true,
     "allowUnreachableCode": false,
     "checkJs": false,
+    "isolatedModules": true,
     "composite": false,
     "declaration": false,
     "diagnostics": false,

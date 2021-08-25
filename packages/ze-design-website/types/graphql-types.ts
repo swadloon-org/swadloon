@@ -237,6 +237,8 @@ declare namespace GatsbyTypes {
   type Site = Node & {
     readonly buildTime: Maybe<Scalars['Date']>;
     readonly siteMetadata: Maybe<SiteSiteMetadata>;
+    readonly port: Maybe<Scalars['Int']>;
+    readonly host: Maybe<Scalars['String']>;
     readonly flags: Maybe<SiteFlags>;
     readonly polyfill: Maybe<Scalars['Boolean']>;
     readonly pathPrefix: Maybe<Scalars['String']>;
@@ -319,6 +321,8 @@ declare namespace GatsbyTypes {
     readonly layout: Maybe<Scalars['String']>;
     readonly template: Maybe<Scalars['String']>;
     readonly frontmatter: Maybe<MdxFrontmatter>;
+    readonly absolutePath: Maybe<Scalars['String']>;
+    readonly relativePath: Maybe<Scalars['String']>;
     readonly id: Scalars['ID'];
     readonly parent: Maybe<Node>;
     readonly children: ReadonlyArray<Node>;
@@ -703,6 +707,7 @@ declare namespace GatsbyTypes {
     readonly base64Width: Maybe<Scalars['Int']>;
     readonly stripMetadata: Maybe<Scalars['Boolean']>;
     readonly defaultQuality: Maybe<Scalars['Int']>;
+    readonly postCssPlugins: Maybe<ReadonlyArray<Maybe<SitePluginPluginOptionsPostCssPlugins>>>;
     readonly createLinkInHead: Maybe<Scalars['Boolean']>;
     readonly output: Maybe<Scalars['String']>;
     readonly entryLimit: Maybe<Scalars['Int']>;
@@ -814,6 +819,15 @@ declare namespace GatsbyTypes {
 
   type SitePluginPluginOptionsUrlSvgOptionsUrlLoaderOptions = {
     readonly limit: Maybe<Scalars['Int']>;
+  };
+
+  type SitePluginPluginOptionsPostCssPlugins = {
+    readonly postcssPlugin: Maybe<Scalars['String']>;
+    readonly options: Maybe<SitePluginPluginOptionsPostCssPluginsOptions>;
+  };
+
+  type SitePluginPluginOptionsPostCssPluginsOptions = {
+    readonly grid: Maybe<Scalars['Boolean']>;
   };
 
   type SitePluginPluginOptionsEnv = {
@@ -1026,6 +1040,8 @@ declare namespace GatsbyTypes {
   type Query_siteArgs = {
     buildTime: Maybe<DateQueryOperatorInput>;
     siteMetadata: Maybe<SiteSiteMetadataFilterInput>;
+    port: Maybe<IntQueryOperatorInput>;
+    host: Maybe<StringQueryOperatorInput>;
     flags: Maybe<SiteFlagsFilterInput>;
     polyfill: Maybe<BooleanQueryOperatorInput>;
     pathPrefix: Maybe<StringQueryOperatorInput>;
@@ -1096,6 +1112,8 @@ declare namespace GatsbyTypes {
     layout: Maybe<StringQueryOperatorInput>;
     template: Maybe<StringQueryOperatorInput>;
     frontmatter: Maybe<MdxFrontmatterFilterInput>;
+    absolutePath: Maybe<StringQueryOperatorInput>;
+    relativePath: Maybe<StringQueryOperatorInput>;
     id: Maybe<StringQueryOperatorInput>;
     parent: Maybe<NodeFilterInput>;
     children: Maybe<NodeFilterListInput>;
@@ -2195,6 +2213,8 @@ declare namespace GatsbyTypes {
     | 'siteMetadata.siteEnv'
     | 'siteMetadata.languages.langs'
     | 'siteMetadata.languages.defaultLangKey'
+    | 'port'
+    | 'host'
     | 'flags.DEV_SSR'
     | 'flags.QUERY_ON_DEMAND'
     | 'flags.LAZY_IMAGES'
@@ -2306,6 +2326,8 @@ declare namespace GatsbyTypes {
   type SiteFilterInput = {
     readonly buildTime: Maybe<DateQueryOperatorInput>;
     readonly siteMetadata: Maybe<SiteSiteMetadataFilterInput>;
+    readonly port: Maybe<IntQueryOperatorInput>;
+    readonly host: Maybe<StringQueryOperatorInput>;
     readonly flags: Maybe<SiteFlagsFilterInput>;
     readonly polyfill: Maybe<BooleanQueryOperatorInput>;
     readonly pathPrefix: Maybe<StringQueryOperatorInput>;
@@ -2493,6 +2515,8 @@ declare namespace GatsbyTypes {
     readonly layout: Maybe<StringQueryOperatorInput>;
     readonly template: Maybe<StringQueryOperatorInput>;
     readonly frontmatter: Maybe<MdxFrontmatterFilterInput>;
+    readonly absolutePath: Maybe<StringQueryOperatorInput>;
+    readonly relativePath: Maybe<StringQueryOperatorInput>;
     readonly id: Maybe<StringQueryOperatorInput>;
     readonly parent: Maybe<NodeFilterInput>;
     readonly children: Maybe<NodeFilterListInput>;
@@ -2593,6 +2617,7 @@ declare namespace GatsbyTypes {
     readonly base64Width: Maybe<IntQueryOperatorInput>;
     readonly stripMetadata: Maybe<BooleanQueryOperatorInput>;
     readonly defaultQuality: Maybe<IntQueryOperatorInput>;
+    readonly postCssPlugins: Maybe<SitePluginPluginOptionsPostCssPluginsFilterListInput>;
     readonly createLinkInHead: Maybe<BooleanQueryOperatorInput>;
     readonly output: Maybe<StringQueryOperatorInput>;
     readonly entryLimit: Maybe<IntQueryOperatorInput>;
@@ -2730,6 +2755,19 @@ declare namespace GatsbyTypes {
 
   type SitePluginPluginOptionsUrlSvgOptionsUrlLoaderOptionsFilterInput = {
     readonly limit: Maybe<IntQueryOperatorInput>;
+  };
+
+  type SitePluginPluginOptionsPostCssPluginsFilterListInput = {
+    readonly elemMatch: Maybe<SitePluginPluginOptionsPostCssPluginsFilterInput>;
+  };
+
+  type SitePluginPluginOptionsPostCssPluginsFilterInput = {
+    readonly postcssPlugin: Maybe<StringQueryOperatorInput>;
+    readonly options: Maybe<SitePluginPluginOptionsPostCssPluginsOptionsFilterInput>;
+  };
+
+  type SitePluginPluginOptionsPostCssPluginsOptionsFilterInput = {
+    readonly grid: Maybe<BooleanQueryOperatorInput>;
   };
 
   type SitePluginPluginOptionsEnvFilterInput = {
@@ -2992,6 +3030,8 @@ declare namespace GatsbyTypes {
     | 'context.frontmatter.componentStatus'
     | 'context.frontmatter.componentVersion'
     | 'context.frontmatter.componentTests'
+    | 'context.absolutePath'
+    | 'context.relativePath'
     | 'context.id'
     | 'context.parent.id'
     | 'context.parent.parent.id'
@@ -3142,6 +3182,8 @@ declare namespace GatsbyTypes {
     | 'pluginCreator.pluginOptions.base64Width'
     | 'pluginCreator.pluginOptions.stripMetadata'
     | 'pluginCreator.pluginOptions.defaultQuality'
+    | 'pluginCreator.pluginOptions.postCssPlugins'
+    | 'pluginCreator.pluginOptions.postCssPlugins.postcssPlugin'
     | 'pluginCreator.pluginOptions.createLinkInHead'
     | 'pluginCreator.pluginOptions.output'
     | 'pluginCreator.pluginOptions.entryLimit'
@@ -3273,6 +3315,8 @@ declare namespace GatsbyTypes {
     | 'frontmatter.componentStatus'
     | 'frontmatter.componentVersion'
     | 'frontmatter.componentTests'
+    | 'absolutePath'
+    | 'relativePath'
     | 'id'
     | 'parent.id'
     | 'parent.parent.id'
@@ -3933,6 +3977,9 @@ declare namespace GatsbyTypes {
     | 'pluginOptions.base64Width'
     | 'pluginOptions.stripMetadata'
     | 'pluginOptions.defaultQuality'
+    | 'pluginOptions.postCssPlugins'
+    | 'pluginOptions.postCssPlugins.postcssPlugin'
+    | 'pluginOptions.postCssPlugins.options.grid'
     | 'pluginOptions.createLinkInHead'
     | 'pluginOptions.output'
     | 'pluginOptions.entryLimit'
@@ -4130,279 +4177,5 @@ declare namespace GatsbyTypes {
   type SiteBuildMetadataSortInput = {
     readonly fields: Maybe<ReadonlyArray<Maybe<SiteBuildMetadataFieldsEnum>>>;
     readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
-  };
-
-  type GatsbyImageSharpFixedFragment = Pick<
-    ImageSharpFixed,
-    'base64' | 'width' | 'height' | 'src' | 'srcSet'
-  >;
-
-  type GatsbyImageSharpFixed_tracedSVGFragment = Pick<
-    ImageSharpFixed,
-    'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'
-  >;
-
-  type GatsbyImageSharpFixed_withWebpFragment = Pick<
-    ImageSharpFixed,
-    'base64' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'
-  >;
-
-  type GatsbyImageSharpFixed_withWebp_tracedSVGFragment = Pick<
-    ImageSharpFixed,
-    'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'
-  >;
-
-  type GatsbyImageSharpFixed_noBase64Fragment = Pick<
-    ImageSharpFixed,
-    'width' | 'height' | 'src' | 'srcSet'
-  >;
-
-  type GatsbyImageSharpFixed_withWebp_noBase64Fragment = Pick<
-    ImageSharpFixed,
-    'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'
-  >;
-
-  type GatsbyImageSharpFluidFragment = Pick<
-    ImageSharpFluid,
-    'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'
-  >;
-
-  type GatsbyImageSharpFluidLimitPresentationSizeFragment = {
-    maxHeight: ImageSharpFluid['presentationHeight'];
-    maxWidth: ImageSharpFluid['presentationWidth'];
-  };
-
-  type GatsbyImageSharpFluid_tracedSVGFragment = Pick<
-    ImageSharpFluid,
-    'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'
-  >;
-
-  type GatsbyImageSharpFluid_withWebpFragment = Pick<
-    ImageSharpFluid,
-    'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'
-  >;
-
-  type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = Pick<
-    ImageSharpFluid,
-    'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'
-  >;
-
-  type GatsbyImageSharpFluid_noBase64Fragment = Pick<
-    ImageSharpFluid,
-    'aspectRatio' | 'src' | 'srcSet' | 'sizes'
-  >;
-
-  type GatsbyImageSharpFluid_withWebp_noBase64Fragment = Pick<
-    ImageSharpFluid,
-    'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'
-  >;
-
-  type DesignSystemLayoutPageQueryVariables = Exact<{ [key: string]: never }>;
-
-  type DesignSystemLayoutPageQuery = {
-    readonly pages: Pick<SitePageConnection, 'totalCount'> & {
-      readonly nodes: ReadonlyArray<
-        Pick<SitePage, 'id' | 'path'> & {
-          readonly context: Maybe<
-            Pick<SitePageContext, 'id' | 'name' | 'locale' | 'layout' | 'template'> & {
-              readonly siteMetadata: Maybe<
-                Pick<SitePageMetadata, 'description' | 'siteEnv' | 'siteUrl' | 'title'> & {
-                  readonly languages: Maybe<Pick<SiteLanguages, 'defaultLangKey' | 'langs'>>;
-                }
-              >;
-              readonly frontmatter: Maybe<
-                Pick<
-                  MdxFrontmatter,
-                  | 'title'
-                  | 'subject'
-                  | 'tags'
-                  | 'description'
-                  | 'version'
-                  | 'published'
-                  | 'status'
-                  | 'deprecated'
-                  | 'editPageUrl'
-                  | 'nextPageLabel'
-                  | 'nextPageUrl'
-                  | 'componentStatus'
-                  | 'componentVersion'
-                  | 'componentTests'
-                >
-              >;
-            }
-          >;
-        }
-      >;
-    };
-  };
-
-  type DesignSystemPageTemplateQueryVariables = Exact<{
-    fileId: Scalars['String'];
-    locale: Scalars['String'];
-  }>;
-
-  type DesignSystemPageTemplateQuery = {
-    readonly file: Maybe<
-      Pick<File, 'changeTime'> & {
-        readonly childMdx: Maybe<
-          Pick<Mdx, 'slug' | 'excerpt' | 'timeToRead' | 'tableOfContents' | 'body'> & {
-            readonly frontmatter: Maybe<
-              Pick<
-                MdxFrontmatter,
-                | 'title'
-                | 'subject'
-                | 'tags'
-                | 'description'
-                | 'version'
-                | 'published'
-                | 'status'
-                | 'slug'
-                | 'deprecated'
-                | 'editPageUrl'
-                | 'nextPageLabel'
-                | 'nextPageUrl'
-                | 'componentStatus'
-                | 'componentVersion'
-                | 'componentTests'
-              >
-            >;
-            readonly headings: Maybe<ReadonlyArray<Maybe<Pick<MdxHeadingMdx, 'value' | 'depth'>>>>;
-          }
-        >;
-      }
-    >;
-  };
-
-  type SiteMetadataFragment = {
-    readonly siteMetadata: Maybe<
-      Pick<SiteSiteMetadata, 'title' | 'description' | 'siteUrl' | 'siteEnv'> & {
-        readonly languages: Maybe<Pick<SiteSiteMetadataLanguages, 'defaultLangKey' | 'langs'>>;
-      }
-    >;
-  };
-
-  type MarkdownPageTemplateQueryVariables = Exact<{
-    fileId: Scalars['String'];
-  }>;
-
-  type MarkdownPageTemplateQuery = {
-    readonly file: Maybe<{
-      readonly childMdx: Maybe<
-        Pick<Mdx, 'slug' | 'excerpt' | 'timeToRead' | 'tableOfContents' | 'body'> & {
-          readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'tags'>>;
-          readonly headings: Maybe<ReadonlyArray<Maybe<Pick<MdxHeadingMdx, 'value' | 'depth'>>>>;
-        }
-      >;
-    }>;
-  };
-
-  type MarkdownDocsTemplateQueryVariables = Exact<{
-    fileId: Scalars['String'];
-    locale: Scalars['String'];
-  }>;
-
-  type MarkdownDocsTemplateQuery = {
-    readonly file: Maybe<
-      Pick<File, 'changeTime'> & {
-        readonly childMdx: Maybe<
-          Pick<Mdx, 'slug' | 'excerpt' | 'timeToRead' | 'tableOfContents' | 'body'> & {
-            readonly frontmatter: Maybe<
-              Pick<
-                MdxFrontmatter,
-                | 'title'
-                | 'subject'
-                | 'tags'
-                | 'description'
-                | 'version'
-                | 'published'
-                | 'status'
-                | 'slug'
-                | 'deprecated'
-                | 'editPageUrl'
-                | 'nextPageLabel'
-                | 'nextPageUrl'
-                | 'componentStatus'
-                | 'componentVersion'
-                | 'componentTests'
-              >
-            >;
-            readonly headings: Maybe<ReadonlyArray<Maybe<Pick<MdxHeadingMdx, 'value' | 'depth'>>>>;
-          }
-        >;
-      }
-    >;
-  };
-
-  type DocsPagesQueryVariables = Exact<{ [key: string]: never }>;
-
-  type DocsPagesQuery = {
-    readonly pages: Pick<SitePageConnection, 'totalCount'> & {
-      readonly nodes: ReadonlyArray<
-        Pick<SitePage, 'id' | 'path'> & {
-          readonly context: Maybe<
-            Pick<SitePageContext, 'id' | 'name' | 'locale' | 'layout' | 'template'> & {
-              readonly siteMetadata: Maybe<
-                Pick<SitePageMetadata, 'description' | 'siteEnv' | 'siteUrl' | 'title'> & {
-                  readonly languages: Maybe<Pick<SiteLanguages, 'defaultLangKey' | 'langs'>>;
-                }
-              >;
-              readonly frontmatter: Maybe<
-                Pick<
-                  MdxFrontmatter,
-                  | 'title'
-                  | 'subject'
-                  | 'tags'
-                  | 'description'
-                  | 'version'
-                  | 'published'
-                  | 'status'
-                  | 'deprecated'
-                  | 'editPageUrl'
-                  | 'nextPageLabel'
-                  | 'nextPageUrl'
-                  | 'componentStatus'
-                  | 'componentVersion'
-                  | 'componentTests'
-                >
-              >;
-            }
-          >;
-        }
-      >;
-    };
-    readonly coreDocsPages: Pick<SitePageConnection, 'totalCount'> & {
-      readonly nodes: ReadonlyArray<
-        Pick<SitePage, 'id' | 'path'> & {
-          readonly context: Maybe<
-            Pick<SitePageContext, 'id' | 'name' | 'locale' | 'layout' | 'template'> & {
-              readonly siteMetadata: Maybe<
-                Pick<SitePageMetadata, 'description' | 'siteEnv' | 'siteUrl' | 'title'> & {
-                  readonly languages: Maybe<Pick<SiteLanguages, 'defaultLangKey' | 'langs'>>;
-                }
-              >;
-              readonly frontmatter: Maybe<
-                Pick<
-                  MdxFrontmatter,
-                  | 'title'
-                  | 'subject'
-                  | 'tags'
-                  | 'description'
-                  | 'version'
-                  | 'published'
-                  | 'status'
-                  | 'deprecated'
-                  | 'editPageUrl'
-                  | 'nextPageLabel'
-                  | 'nextPageUrl'
-                  | 'componentStatus'
-                  | 'componentVersion'
-                  | 'componentTests'
-                >
-              >;
-            }
-          >;
-        }
-      >;
-    };
   };
 }

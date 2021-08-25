@@ -1,5 +1,5 @@
-import { PrimitiveProps, useTreatTheme } from '@newrade/core-react-ui/src';
-import { getMergedClassname } from '@newrade/core-react-ui/src/utilities';
+import { PrimitiveProps, useTreatTheme } from '@newrade/core-react-ui';
+import { getMergedClassname } from '@newrade/core-react-ui/utilities';
 import GatsbyBackgroundImage, {
   IBackgroundImageProps,
   InferExtraProps,

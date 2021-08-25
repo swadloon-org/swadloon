@@ -14,20 +14,20 @@ export const docsMdxComponents = {
     return <Icons {...props}>{children}</Icons>;
   },
   CodeHighlight: ({ children, ...props }: MDXProps) => {
-    const CodeHighlight = loadable<any>(
-      () => import(/* webpackExports: ["CodeHighlight"] */ '@newrade/core-react-ui/lib/code'),
+    const CodeHighlight = loadable(
+      () => import(/* webpackExports: ["CodeHighlight"] */ '@newrade/core-react-ui/code'),
       {
-        resolveComponent: (components: typeof import('@newrade/core-react-ui/lib/code')) =>
+        resolveComponent: (components: typeof import('@newrade/core-react-ui/code')) =>
           components.CodeHighlight,
       }
     );
     return <CodeHighlight {...props}>{children as string}</CodeHighlight>;
   },
   CodeBlock: ({ children, ...props }: MDXProps) => {
-    const CodeBlock = loadable<any>(
-      () => import(/* webpackExports: ["CodeBlock"] */ '@newrade/core-react-ui/lib/code'),
+    const CodeBlock = loadable(
+      () => import(/* webpackExports: ["CodeBlock"] */ '@newrade/core-react-ui/code'),
       {
-        resolveComponent: (components: typeof import('@newrade/core-react-ui/lib/code')) =>
+        resolveComponent: (components: typeof import('@newrade/core-react-ui/code')) =>
           components.CodeBlock,
       }
     );

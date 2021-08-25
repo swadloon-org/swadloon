@@ -27,7 +27,7 @@ There is no need to build this package with `tsc` since it is consumed by
 importing source files directly:
 
 ```bash
-import { Button } from '@newrade/core-gatsby-ui';
+import { Button } from '@newrade/core-gatsby-ui/src';
 ```
 
 ### Test

@@ -1,4 +1,4 @@
-import { lorenipsum } from '@newrade/core-gatsby-ui/lib/docs-components/loren-ipsum';
+import { lorenipsum } from '@newrade/core-gatsby-ui/src/docs-components/loren-ipsum';
 import { Details, Paragraph, Summary } from '@newrade/core-react-ui';
 import React from 'react';
 

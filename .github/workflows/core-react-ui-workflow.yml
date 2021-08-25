@@ -9,6 +9,7 @@ name: core-react-ui
 on:
   push:
     paths:
+      - '.github/actions/core-base.yml'
       - '.github/workflows/core-react-ui-workflow.yml'
       - '**/package.json'
       - '**/package-lock.json'
@@ -46,50 +47,22 @@ env:
   PROJECT_REPO_NAME: newrade-core
 
 jobs:
-
   build-test:
-
     runs-on: self-hosted
 
-    strategy:
-      matrix:
-        node-version: [16.x]
-
     steps:
-    - name: Cancel Previous Runs
-      uses: styfle/cancel-workflow-action@0.9.0
-      with:
-        all_but_latest: false
-        access_token: ${{ github.token }}
+      - uses: ./.github/actions/core-base.yml
 
-    - name: Checkout
-      uses: actions/checkout@v2
-      with:
-        clean: false
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          clean: false
 
-    - name: Set up Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
-      with:
-        node-version: '16'
-        architecture: 'arm64'
+      - name: Build core-react-ui
+        run: yarn lerna exec --scope @newrade/core-react-ui 'tsc --build --verbose'
 
-    - name: Set up yarn
-      run: npm i -g yarn && yarn --version
+      - name: Lint Src Files
+        run: yarn eslint ./packages/core-react-ui/src/ --ext ts,tsx
 
-    - name: Check NodeJS Options
-      run: echo $NODE_OPTIONS && node -e 'console.log(`node heap limit = ${require("v8").getHeapStatistics().heap_size_limit / (1024 * 1024)} Mb`)'
-
-    - name: Clean
-      run: yarn clean
-
-    - name: Install dependencies and build core packages
-      run: yarn --prefer-offline --frozen-lockfile
-
-    - name: Build core-react-ui
-      run: yarn lerna exec --scope @newrade/core-react-ui 'tsc --build --verbose'
-
-    - name: Lint Src Files
-      run: yarn eslint ./packages/core-react-ui/src/ --ext ts,tsx
-
-    - name: Run unit tests
-      run: yarn test --scope @newrade/core-react-ui
+      - name: Run unit tests
+        run: yarn test --scope @newrade/core-react-ui

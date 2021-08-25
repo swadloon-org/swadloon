@@ -21,9 +21,9 @@
   "scripts": {
     "build:built": "yarn webpack",
     "clean": "rm -rf lib/** && rm -f *.tsbuildinfo",
-    "start": "tsc --build --watch --preserveWatchOutput --verbose",
-    "test": "jest",
-    "test:watch": "jest --watch",
+    "start": "tsc --noEmit --watch --preserveWatchOutput",
+    "test": "nr jest",
+    "test:watch": "nr jest --watch",
     "typecheck": "tsc --noEmit",
     "webpack": "webpack --config webpack.prod.config.ts"
   },

@@ -1,6 +1,6 @@
-import { ShadowSwatch } from '@newrade/core-gatsby-ui/lib/docs-components/shadow-swatch';
+import { ShadowSwatch } from '@newrade/core-gatsby-ui/src/docs-components/shadow-swatch';
 import { BoxV2, useTreatTheme } from '@newrade/core-react-ui';
-import { keys } from '@newrade/core-react-ui/lib/utilities';
+import { keys } from '@newrade/core-react-ui/utilities';
 import React from 'react';
 
 type Props = {};

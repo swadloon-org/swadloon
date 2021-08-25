@@ -1,4 +1,4 @@
-import { FontMono } from '@newrade/core-gatsby-ui/lib/docs-components/font-mono';
+import { FontMono } from '@newrade/core-gatsby-ui/src/docs-components/font-mono';
 import { useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 

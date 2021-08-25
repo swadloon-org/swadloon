@@ -3,21 +3,8 @@
   "compilerOptions": {
     "baseUrl": ".",
     "rootDir": "src",
-    "outDir": "lib",
-    "noEmit": true, // this package should be consumed by /src/ for now
+    "outDir": "dist",
     "types": ["react", "react-dom", "jest", "googlemaps"]
   },
-  /**
-   * Other packages needed for compilation.
-   * Note: please keep in sync with package.json dependencies list
-   */
-  "references": [
-    {
-      "path": "../core-gsap-ui/tsconfig.json"
-    },
-    {
-      "path": "../core-design-system/tsconfig.json"
-    }
-  },
-  "include": ["src", "test", "types", "scripts"]
+  "include": ["src", "types"]
 }
