@@ -51,7 +51,7 @@ jobs:
     runs-on: self-hosted
 
     steps:
-      - uses: ./.github/actions/core-base.yml
+      - uses: ./.github/actions/base-node-setup
 
       - name: Checkout
         uses: actions/checkout@v2
