@@ -5,17 +5,20 @@
 # - composite actions: https://docs.github.com/en/actions/creating-actions/creating-a-composite-action
 #
 
-name: core
+name: core-cli
 
 on:
   push:
     paths:
       - '.github/actions/core-base.yml'
-      - '.github/workflows/core-workflow.yml'
+      - '.github/workflows/core-cli-workflow.yml'
       - '**/package.json'
       - '**/package-lock.json'
       - '**/yarn.lock'
-      - 'packages/core-*/**/*'
+      - 'packages/core-common-*/**/*'
+      - 'packages/core-figma-extractor-*/**/*'
+      - 'packages/core-types-*/**/*'
+      - 'packages/core-utils-*/**/*'
     branches:
       - dev
       - master
@@ -27,7 +30,7 @@ env:
   #
   # Debugging
   #
-  DEBUG: 'newrade:*'
+  DEBUG: 'nr:*'
   #
   # Node
   #
@@ -54,8 +57,12 @@ jobs:
       - name: 'Checkout, Setup NodeJS + yarn and install dependencies'
         uses: ./.github/actions/base-node-setup
 
+      - name: Typecheck
+        run: yarn typecheck --scope @newrade/core-cli
+
       - name: Lint Src Files
-        run: yarn eslint ./packages/core-*/src/ --ext ts,tsx
+        run: yarn eslint ./packages/core-cli/src/ --ext ts,tsx
 
       - name: Run unit tests
-        run: yarn test --scope @newrade/core-* --ignore @newrade/core-react-ui
+        run: yarn test --scope @newrade/core-cli
+

@@ -44,6 +44,9 @@ USAGE
 * [`nr git-copy-labels SOURCE DESTINATION`](#nr-git-copy-labels-source-destination)
 * [`nr hello [FILE]`](#nr-hello-file)
 * [`nr help [COMMAND]`](#nr-help-command)
+* [`nr jest [ARGS]`](#nr-jest-args)
+* [`nr prepare-dev`](#nr-prepare-dev)
+* [`nr prepare-exports`](#nr-prepare-exports)
 * [`nr vercel-deploy`](#nr-vercel-deploy)
 
 ## `nr commit`
@@ -154,6 +157,48 @@ OPTIONS
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.2/src/commands/help.ts)_
+
+## `nr jest [ARGS]`
+
+Shortcut to run jest with typescript (ts-node)
+
+```
+USAGE
+  $ nr jest [ARGS]
+
+EXAMPLE
+  $ nr jest
+```
+
+_See code: [src/commands/jest.ts](https://github.com/newrade/newrade-core/blob/v1.11.0/src/commands/jest.ts)_
+
+## `nr prepare-dev`
+
+execute preconstruct dev
+
+```
+USAGE
+  $ nr prepare-dev
+
+EXAMPLE
+  $ nr prepare-dev
+```
+
+_See code: [src/commands/prepare-dev.ts](https://github.com/newrade/newrade-core/blob/v1.11.0/src/commands/prepare-dev.ts)_
+
+## `nr prepare-exports`
+
+create export stubs for published packages
+
+```
+USAGE
+  $ nr prepare-exports
+
+EXAMPLE
+  $ nr prepare-exports
+```
+
+_See code: [src/commands/prepare-exports.ts](https://github.com/newrade/newrade-core/blob/v1.11.0/src/commands/prepare-exports.ts)_
 
 ## `nr vercel-deploy`
 
