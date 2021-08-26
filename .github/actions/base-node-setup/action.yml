@@ -11,9 +11,24 @@ description: 'Basic steps to setup a build with NodeJS and yarn'
 runs:
     using: "composite"
     steps:
+      - name: Inject Github slug/short variables
+        uses: rlespinasse/github-slug-action@v3.x
+
+      #
+      # If the PR is coming from a fork (pull_request_target), ensure it's opened by "dependabot[bot]".
+      # Otherwise, clone it normally.
+      #
       - name: Checkout
+        if: ${{ github.event_name != 'pull_request_target' }}
         uses: actions/checkout@v2
         with:
+          clean: false
+
+      - name: Checkout PR
+        if: ${{ github.event_name == 'pull_request_target' }}
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
           clean: false
 
       - name: Set up Node.js
@@ -22,12 +37,15 @@ runs:
           node-version: '16'
           architecture: 'arm64'
 
-      - name: Set up yarn
-        run: npm i -g yarn && yarn --version
-        shell: bash
-
       - name: Check NodeJS Options
         run: echo $NODE_OPTIONS && node -e 'console.log(`node heap limit = ${require("v8").getHeapStatistics().heap_size_limit / (1024 * 1024)} Mb`)'
+        shell: bash
+
+      - name: Set the env variable depending on the branch
+        uses: ./packages/core-github-actions/built/set-app-env
+
+      - name: Set up yarn
+        run: npm i -g yarn && yarn --version
         shell: bash
 
       - name: Install dependencies and build core packages

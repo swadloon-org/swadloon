@@ -1,8 +1,21 @@
 # Change Log
 
 All general changes to the repo or main dependencies will be documented in this
-file. This files is written manually where as other changelogs in `/packages/`
+file. This file is written manually where as other changelogs in `/packages/`
 are automated.
+
+# 2021 August Update - #1 - (2021-08-26)
+
+## Breaking changes
+
+## Features
+
+## Fixes
+
+- refactor dependencies (no more devDeps) + moving deps to packages
+- remove `gatsby-plugin-ts-config` for the `nr gatsby` command
+
+---
 
 # 2021 July Update - #3 - (2021-07-xx)
 

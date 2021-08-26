@@ -117,9 +117,6 @@ jobs:
 -   runs-on: ubuntu-latest
 +   runs-on: self-hosted
 
-    strategy:
-      matrix:
-        node-version: [16.x]
 ```
 
 ## Setup (MacOS Runner)
@@ -155,9 +152,6 @@ jobs:
 -   runs-on: ubuntu-latest
 +   runs-on: self-hosted
 
-    strategy:
-      matrix:
-        node-version: [16.x]
 ```
 
 ## Resources

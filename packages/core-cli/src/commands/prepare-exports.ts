@@ -95,12 +95,21 @@ export default class PrepareExports extends Command {
       const pathToIndex = entryPointId === 'dist' ? 'index' : `${entryPointId}/index`;
 
       this.log(`creating cjs stubs: ${chalk.green(cjsExportPath)}`);
+      if (fs.existsSync(cjsExportPath)) {
+        fs.unlinkSync(cjsExportPath);
+      }
       fs.writeFileSync(cjsExportPath, cjsTemplate({ pathToIndex }));
 
       this.log(`creating cjs declaration stubs: ${chalk.green(cjsDeclarationExportPath)}`);
+      if (fs.existsSync(cjsDeclarationExportPath)) {
+        fs.unlinkSync(cjsDeclarationExportPath);
+      }
       fs.writeFileSync(cjsDeclarationExportPath, cjsDeclarationTemplate({ pathToIndex }));
 
       this.log(`creating esm index: ${chalk.green(esmExportPath)}`);
+      if (fs.existsSync(esmExportPath)) {
+        fs.unlinkSync(esmExportPath);
+      }
       fs.writeFileSync(esmExportPath, esmTemplate({ pathToIndex }));
     });
   }
