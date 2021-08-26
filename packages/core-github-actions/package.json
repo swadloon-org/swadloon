@@ -32,8 +32,11 @@
     "@actions/core": "^1.2.6",
     "@actions/github": "^4.0.0",
     "@newrade/core-common": "^1",
-    "@newrade/core-types": "^2",
+    "@newrade/core-jest-config": "*",
     "@newrade/core-utils": "^2",
-    "@newrade/core-webpack-config": "^2"
+    "@newrade/core-webpack-config": "^2",
+    "fp-ts": "^2.11.1",
+    "io-ts": "^2",
+    "node-fetch": "^2"
   }
 }

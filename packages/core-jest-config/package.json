@@ -24,16 +24,14 @@
     "clean": "yarn clean:tsc && yarn clean:dist",
     "clean:dist": "rm -rf dist/** lib/**",
     "clean:tsc": "rm -f ./**/*.tsbuildinfo *.tsbuildinfo",
-    "start": "yarn clean && yarn preconstruct dev",
+    "dev": "yarn clean && yarn preconstruct dev",
     "test": "nr jest"
   },
   "dependencies": {
-    "@newrade/core-common": "^1",
-    "@newrade/core-types": "^2",
-    "@newrade/core-utils": "^2"
-  },
-  "peerDependencies": {
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "@babel/core": "^7",
+    "@mdx-js/mdx": "^1",
+    "@testing-library/jest-dom": "^5",
+    "@testing-library/react": "^12",
+    "babel-jest": "^27.0.6"
   }
 }

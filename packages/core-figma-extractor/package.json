@@ -14,19 +14,22 @@
     "clean": "yarn clean:tsc && yarn clean:dist",
     "clean:dist": "rm -rf dist/** lib/**",
     "clean:tsc": "rm -f ./**/*.tsbuildinfo *.tsbuildinfo",
+    "dev": "yarn clean && yarn preconstruct dev",
     "extract": ". ./.env && DEBUG=$DEBUG TS_NODE_PROJECT=tsconfig.bin.json node -r ts-node/register bin/run.ts",
     "extract2": ". ./.env && DEBUG=$DEBUG TS_NODE_PROJECT=../../tsconfig.node-commonjs.json node -r ts-node/register bin/run.ts",
-    "start": "yarn clean && yarn preconstruct dev",
     "test": "nr jest",
     "test:watch": "nr jest --watch"
   },
   "sideEffects": false,
   "dependencies": {
-    "@newrade/core-common": "^1",
-    "@newrade/core-design-system": "^1",
     "@newrade/core-jest-config": "*",
-    "@newrade/core-types": "^2",
     "@newrade/core-utils": "^2",
-    "figma-js": "^1.11.0"
+    "case": "^1",
+    "chalk": "^4",
+    "figma-js": "^1.11.0",
+    "fp-ts": "^2.11.1",
+    "io-ts": "^2",
+    "node-fetch": "^2",
+    "prettier": "^2"
   }
 }

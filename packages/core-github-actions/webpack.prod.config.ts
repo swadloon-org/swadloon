@@ -4,15 +4,12 @@
  */
 /// <reference types="./types/core-types" />
 
-delete process.env.TS_NODE_PROJECT; // see https://github.com/dividab/tsconfig-paths-webpack-plugin/issues/32
+delete process.env.TS_NODE_PROJECT; // avoid using external tsconfig for ts-loader or other tools
 
 import * as core from '@newrade/core-webpack-config';
-import dotenv from 'dotenv';
 import path from 'path';
 import * as tsloader from 'ts-loader';
 import { Configuration } from 'webpack';
-
-dotenv.config();
 
 const config: Configuration = {
   mode: 'production',

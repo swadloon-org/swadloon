@@ -1,5 +1,5 @@
 import { Command, flags } from '@oclif/command';
-import chalk from 'chalk';
+import * as chalk from 'chalk';
 import debug from 'debug';
 import simpleGit from 'simple-git';
 

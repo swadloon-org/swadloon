@@ -1,5 +1,5 @@
 import { createTheme } from 'treat';
-import { cssTheme, theme } from '@newrade/ze-design-system/lib/design-system/theme';
+import { cssTheme, theme } from '@newrade/ze-design-system/src/design-system/theme';
 
 /**
  * Export theme object so they are compiled by treat

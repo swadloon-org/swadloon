@@ -16,9 +16,6 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@figma/plugin-typings": "^1",
-    "@newrade/core-common": "^1",
-    "@newrade/core-types": "^2",
-    "@newrade/core-utils": "^2"
+    "@figma/plugin-typings": "^1"
   }
 }

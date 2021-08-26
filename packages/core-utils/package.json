@@ -28,11 +28,15 @@
     "clean": "yarn clean:tsc && yarn clean:dist",
     "clean:dist": "rm -rf dist/** lib/**",
     "clean:tsc": "rm -f ./**/*.tsbuildinfo *.tsbuildinfo",
-    "start": "yarn clean && yarn preconstruct dev"
+    "dev": "yarn clean && yarn preconstruct dev"
   },
   "sideEffects": false,
   "dependencies": {
-    "@newrade/core-common": "^1",
-    "@newrade/core-types": "^2"
+    "@newrade/core-common": "*",
+    "@newrade/core-jest-config": "*",
+    "chalk": "^4",
+    "dotenv": "^10",
+    "fp-ts": "^2.11.1",
+    "io-ts": "^2"
   }
 }

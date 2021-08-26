@@ -1,13 +1,9 @@
 /// <reference types="@newrade/core-types/src/svg" />
 
-import { LABEL_SIZE } from '@newrade/core-design-system';
-/**
- * Built in icons
- */
-import PlusIcon from '@newrade/core-react-ui/src/assets/add-outline.svg';
-import MinusIcon from '@newrade/core-react-ui/src/assets/remove-outline.svg';
+import { ICON, LABEL_SIZE } from '@newrade/core-design-system';
 import React, { HTMLAttributes } from 'react';
 import { useStyles } from 'react-treat';
+import { IconComp } from '..';
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { getMergedClassname } from '../utilities/component.utilities';
 import { Label } from './label';
@@ -16,7 +12,6 @@ import * as stylesRef from './summary.treat';
 type Props = PrimitiveProps &
   HTMLAttributes<HTMLHeadingElement> & {
     mode?: 'swap' | 'animate';
-    iconType?: 'caret' | 'angle';
     iconOpened?: React.ReactNode;
     iconClosed?: React.ReactNode;
   };
@@ -27,17 +22,7 @@ type Props = PrimitiveProps &
  * @see https://devdocs.io/html/element/summary
  */
 export const Summary: React.FC<Props> = React.memo(
-  ({
-    id,
-    style,
-    className,
-    mode = 'swap',
-    iconType,
-    iconOpened,
-    iconClosed,
-    children,
-    ...props
-  }) => {
+  ({ id, style, className, mode = 'swap', iconOpened, iconClosed, children, ...props }) => {
     const { styles } = useStyles(stylesRef);
 
     const type: keyof React.ReactHTML = 'summary';
@@ -48,8 +33,8 @@ export const Summary: React.FC<Props> = React.memo(
     ]);
     const iconOpenedClassNames = getMergedClassname([styles.icon, styles.iconOpened]);
     const iconClosedClassNames = getMergedClassname([styles.icon, styles.iconClosed]);
-    const IconOpened = iconOpened ? iconOpened : MinusIcon.default;
-    const IconClosed = iconClosed ? iconClosed : PlusIcon.default;
+    const IconOpened = <IconComp name={ICON.REMOVE} className={iconOpenedClassNames}></IconComp>;
+    const IconClosed = <IconComp name={ICON.ADD} className={iconClosedClassNames}></IconComp>;
 
     return React.createElement(
       type,
@@ -63,8 +48,8 @@ export const Summary: React.FC<Props> = React.memo(
       },
       <Label variant={LABEL_SIZE.medium}>
         {children}
-        <IconOpened className={iconOpenedClassNames} />
-        <IconClosed className={iconClosedClassNames} />
+        {IconOpened}
+        {IconClosed}
       </Label>
     );
   }

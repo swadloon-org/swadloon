@@ -28,6 +28,8 @@
     "@newrade/core-types": "^2",
     "@newrade/core-utils": "^2",
     "@newrade/core-webpack-config": "^2",
-    "@newrade/core-website-api": "^1"
+    "@newrade/core-website-api": "^1",
+    "gatsby-background-image": "^1",
+    "i18next": "^19.8.4"
   }
 }

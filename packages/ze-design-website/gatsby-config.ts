@@ -6,6 +6,8 @@ import path from 'path';
 import packageJson from './package.json';
 import { Env, ENV } from './types/dot-env';
 
+delete process.env.TS_NODE_PROJECT; // avoid using external tsconfig for ts-loader or other tools
+
 const env = loadDotEnv<ENV>({
   schema: Env,
   dotEnvPath: path.resolve(__dirname, '.env'),

@@ -4,7 +4,7 @@
  */
 /// <reference types="./types/core-types" />
 
-delete process.env.TS_NODE_PROJECT; // see https://github.com/dividab/tsconfig-paths-webpack-plugin/issues/32
+delete process.env.TS_NODE_PROJECT; // avoid using external tsconfig for ts-loader or other tools
 
 import {
   babelPluginBrowserConf,

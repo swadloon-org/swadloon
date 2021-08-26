@@ -3,7 +3,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "rootDir": "src",
-    "outDir": "lib",
+    "outDir": "dist",
     "types": ["react", "react-dom", "jest"]
   },
   "include": ["src", "types"]

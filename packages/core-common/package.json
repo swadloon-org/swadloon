@@ -24,6 +24,6 @@
     "clean": "yarn clean:tsc && yarn clean:dist",
     "clean:dist": "rm -rf dist/** lib/**",
     "clean:tsc": "rm -f ./**/*.tsbuildinfo *.tsbuildinfo",
-    "start": "yarn clean && yarn preconstruct dev"
+    "dev": "yarn clean && yarn preconstruct dev"
   }
 }
