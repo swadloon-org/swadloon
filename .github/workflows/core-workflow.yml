@@ -10,7 +10,7 @@ name: core
 on:
   push:
     paths:
-      - '.github/actions/core-base.yml'
+      - '.github/actions/**/*'
       - '.github/workflows/core-workflow.yml'
       - '**/package.json'
       - '**/package-lock.json'
@@ -53,9 +53,3 @@ jobs:
     steps:
       - name: 'Checkout, Setup NodeJS + yarn and install dependencies'
         uses: ./.github/actions/base-node-setup
-
-      - name: Lint Src Files
-        run: yarn eslint ./packages/core-*/src/ --ext ts,tsx
-
-      - name: Run unit tests
-        run: yarn test --scope @newrade/core-* --ignore @newrade/core-react-ui

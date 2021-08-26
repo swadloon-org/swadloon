@@ -10,16 +10,18 @@ name: core-contentful-lib
 on:
   push:
     paths:
-      - '.github/actions/core-base.yml'
-      - '.github/workflows/core-core-contentful-lib-workflow.yml'
+      - '.github/actions/**/*'
+      - '.github/workflows/core-contentful-lib-workflow.yml'
       - '**/package.json'
       - '**/package-lock.json'
       - '**/yarn.lock'
-      - 'packages/core-common/**/*'
-      - 'packages/core-design-system/**/*'
       - 'packages/core-types/**/*'
       - 'packages/core-utils/**/*'
+      - 'packages/core-common/**/*'
+      - 'packages/core-jest-config/**/*'
+      - 'packages/core-design-system/**/*'
       - 'packages/core-website-api/**/*'
+      - 'packages/core-contentful-lib/**/*'
     branches:
       - dev
       - master
@@ -58,15 +60,12 @@ jobs:
       - name: 'Checkout, Setup NodeJS + yarn and install dependencies'
         uses: ./.github/actions/base-node-setup
 
-      - name: Typecheck
-        run: yarn typecheck --scope @newrade/core-contentful-lib
-
-      - name: Lint Src Files
+      - name: Lint source files
         run: yarn eslint ./packages/core-contentful-lib/src/ --ext ts,tsx
 
       - name: Run unit tests
-        run: yarn test --scope @newrade/core-contentful-lib
+        run: yarn lerna:test --scope @newrade/core-contentful-lib
 
-      - name: Build
-        run: yarn build --scope @newrade/core-contentful-lib
+      - name: Build package
+        run: yarn lerna:build --scope @newrade/core-contentful-lib
 

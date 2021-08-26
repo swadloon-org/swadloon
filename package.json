@@ -18,8 +18,7 @@
     }
   },
   "scripts": {
-    "build": "yarn lerna:build",
-    "build:core": "yarn lerna:build --scope @newrade/core-* --ignore @newrade/core-graphql-ui",
+    "build": "yarn lerna:build --scope @newrade/core-* --ignore @newrade/core-graphql-ui",
     "build:essential": "yarn lerna:build --scope @newrade/core-gatsb-config",
     "build:postinstall": "yarn lerna:build:postinstall",
     "changelog": "lerna version --conventional-commits --no-push",
@@ -47,7 +46,7 @@
     "test": "yarn lerna:test --scope @newrade/core-* --ignore @newrade/core-graphql-ui",
     "test:e2e": "yarn lerna:test:e2e --scope @newrade/core-* --ignore @newrade/core-graphql-ui",
     "test:ui": "yarn lerna:test --scope '{@newrade/core-design-system,@newrade/core-react-ui,@newrade/core-graphql-ui}'",
-    "typecheck": "yarn lerna:typecheck",
+    "typecheck": "yarn lerna:typecheck --scope @newrade/core-* --ignore @newrade/core-graphql-ui",
     "yo": "nr-core-yo-generator"
   },
   "preconstruct": {

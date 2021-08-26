@@ -5,17 +5,17 @@
 # - composite actions: https://docs.github.com/en/actions/creating-actions/creating-a-composite-action
 #
 
-name: core-cli
+name: core-design-system
 
 on:
   push:
     paths:
       - '.github/actions/**/*'
-      - '.github/workflows/core-cli-workflow.yml'
+      - '.github/workflows/core-design-system-workflow.yml'
       - '**/package.json'
       - '**/package-lock.json'
       - '**/yarn.lock'
-      - 'packages/core-*/**/*'
+      - 'packages/core-design-system/**/*'
     branches:
       - dev
       - master
@@ -54,12 +54,11 @@ jobs:
       - name: 'Checkout, Setup NodeJS + yarn and install dependencies'
         uses: ./.github/actions/base-node-setup
 
-      - name: Typecheck
-        run: yarn lerna:typecheck --scope @newrade/core-cli
-
       - name: Lint source files
-        run: yarn eslint ./packages/core-cli/src/ --ext ts,tsx
+        run: yarn eslint ./packages/core-design-system/src/ --ext ts,tsx
 
       - name: Run unit tests
-        run: yarn lerna:test --scope @newrade/core-cli
+        run: yarn lerna:test --scope @newrade/core-design-system
 
+      - name: Build package
+        run: yarn lerna:build --scope @newrade/core-design-system

@@ -5,8 +5,14 @@
 
 ---
 
-![Build](https://github.com/newrade/newrade-core/actions/workflows/core-workflow.yml/badge.svg)
+![core-build](https://github.com/newrade/newrade-core/actions/workflows/core-workflow.yml/badge.svg)
+![core-cli](https://github.com/newrade/newrade-core/actions/workflows/core-cli-workflow.yml/badge.svg)
+![core-contentful-lib](https://github.com/newrade/newrade-core/actions/workflows/core-contentful-lib-workflow.yml/badge.svg)
+![core-react-ui](https://github.com/newrade/newrade-core/actions/workflows/core-react-ui-workflow.yml/badge.svg)
 ![ze](https://github.com/newrade/newrade-core/actions/workflows/ze-design-website-workflow.yml/badge.svg)
+
+---
+
 ![CodeQL](https://github.com/newrade/newrade-core/actions/workflows/codeql-analysis.yml/badge.svg)
 [![DeepScan grade](https://deepscan.io/api/teams/14287/projects/17743/branches/415210/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=14287&pid=17743&bid=415210)
 [![Commitizen Friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](https://commitizen.github.io/cz-cli/)

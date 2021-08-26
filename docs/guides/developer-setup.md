@@ -123,7 +123,7 @@ To build for production:
 yarn build
 
 # to run for packages that matches core-docs-*
-yarn build --scope @<org-name>/core-docs-*
+yarn lerna:build --scope @<org-name>/core-docs-*
 ```
 
 To run tests in watch mode:
@@ -133,7 +133,7 @@ To run tests in watch mode:
 yarn test
 
 # to run for packages that matches @<org-name>/core-docs-*
-yarn test --scope @<org-name>/core-docs-*
+yarn lerna:test --scope @<org-name>/core-docs-*
 ```
 
 ## Dot Config Files

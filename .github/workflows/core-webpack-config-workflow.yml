@@ -5,17 +5,21 @@
 # - composite actions: https://docs.github.com/en/actions/creating-actions/creating-a-composite-action
 #
 
-name: core-cli
+name: core-webpack-config
 
 on:
   push:
     paths:
       - '.github/actions/**/*'
-      - '.github/workflows/core-cli-workflow.yml'
+      - '.github/workflows/core-webpack-config-workflow.yml'
       - '**/package.json'
       - '**/package-lock.json'
       - '**/yarn.lock'
-      - 'packages/core-*/**/*'
+      - 'packages/core-webpack-config/**/*'
+      - 'packages/core-common/**/*'
+      - 'packages/core-jest-config/**/*'
+      - 'packages/core-types/**/*'
+      - 'packages/core-utils/**/*'
     branches:
       - dev
       - master
@@ -54,12 +58,14 @@ jobs:
       - name: 'Checkout, Setup NodeJS + yarn and install dependencies'
         uses: ./.github/actions/base-node-setup
 
-      - name: Typecheck
-        run: yarn lerna:typecheck --scope @newrade/core-cli
+      - name: Build core-webpack-config
+        run: yarn lerna:build --scope @newrade/core-webpack-config
 
       - name: Lint source files
-        run: yarn eslint ./packages/core-cli/src/ --ext ts,tsx
+        run: yarn eslint ./packages/core-webpack-config/src/ --ext ts,tsx
 
       - name: Run unit tests
-        run: yarn lerna:test --scope @newrade/core-cli
+        run: yarn lerna:test --scope @newrade/core-webpack-config
 
+      - name: Build package
+        run: yarn lerna:build --scope @newrade/core-webpack-config

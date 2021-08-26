@@ -31,5 +31,5 @@ runs:
         shell: bash
 
       - name: Install dependencies and build core packages
-        run: yarn --prefer-offline --frozen-lockfile
+        run: YARN_CACHE_FOLDER=$(pwd)/../.yarn-cache yarn --prefer-offline --frozen-lockfile
         shell: bash

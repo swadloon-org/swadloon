@@ -1,7 +1,13 @@
 import { Command, flags } from '@oclif/command';
 import { spawnSync } from 'child_process';
+import debug from 'debug';
+import { NS } from '../utilities/log.utilities';
 
 export default class Webpack extends Command {
+  log = debug(`${NS}:webpack`);
+  logWarn = debug(`${NS}:webpack:warn`);
+  logError = debug(`${NS}:webpack:error`);
+
   static description = 'Shortcut to run webpack with typescript (ts-node)';
 
   static examples = [`$ nr webpack serve --config webpack.dev.config.ts`];
@@ -19,7 +25,7 @@ export default class Webpack extends Command {
       args.command || ''
     } --config ${flags.config}`;
 
-    console.log(`running: ${command}`);
+    this.log(`running: ${command}`);
 
     spawnSync(command, {
       shell: true,

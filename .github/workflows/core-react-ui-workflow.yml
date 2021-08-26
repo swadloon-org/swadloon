@@ -10,13 +10,12 @@ name: core-react-ui
 on:
   push:
     paths:
-      - '.github/actions/core-base.yml'
+      - '.github/actions/**/*'
       - '.github/workflows/core-react-ui-workflow.yml'
       - '**/package.json'
       - '**/package-lock.json'
       - '**/yarn.lock'
-      - 'packages/core-react-ui/**/*'
-      - 'packages/core-design-system/**/*'
+      - 'packages/core-*/**/*'
     branches:
       - dev
       - master
@@ -55,16 +54,11 @@ jobs:
       - name: 'Checkout, Setup NodeJS + yarn and install dependencies'
         uses: ./.github/actions/base-node-setup
 
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          clean: false
-
-      - name: Build core-react-ui
-        run: yarn lerna exec --scope @newrade/core-react-ui 'tsc --build --verbose'
-
-      - name: Lint Src Files
+      - name: Lint source files
         run: yarn eslint ./packages/core-react-ui/src/ --ext ts,tsx
 
       - name: Run unit tests
-        run: yarn test --scope @newrade/core-react-ui
+        run: yarn lerna:test --scope @newrade/core-react-ui
+
+      - name: Build package
+        run: yarn lerna:build --scope @newrade/core-react-ui
