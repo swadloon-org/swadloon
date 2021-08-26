@@ -2,14 +2,11 @@
   "extends": "../../tsconfig.browser-gatsby.json",
   "compilerOptions": {
     "baseUrl": ".",
-    /**
-     * We reference the packages below to their src files to make
-     * development faster (since tsc rewrite all emmited files)
-     */
-    "paths": {
-      "@newrade/ze-design-system": ["../ze-design-system/src"],
-      "@newrade/ze-design-system/lib/*": ["../ze-design-system/src/*"]
-    }
+    "outDir": "lib"
   },
-  "include": ["gatsby-*", "src", "test", "types", "scripts/**/*"]
+  "include": ["gatsby-*.ts", "src", "test", "types", "scripts/**/*"],
+  "ts-node": {
+    "transpileOnly": true,
+    "compilerOptions": {}
+  }
 }

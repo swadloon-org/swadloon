@@ -26,12 +26,15 @@
     "clean:tsc": "rm -f ./**/*.tsbuildinfo *.tsbuildinfo",
     "export-content": ". .env && contentful space export --space-id=$CONTENTFUL_SPACEID --management-token=$CONTENTFUL_MANAGEMENT_TOKEN --environment-id=$CONTENTFUL_ENV --content-file=contentful/contentful-export-space.json",
     "import-content": "contentful space import",
-    "run-migration": ". ./.env && DEBUG=$DEBUG node --preserve-symlinks -r ts-node/register src/run-migration.ts",
-    "start": "yarn clean && yarn preconstruct dev"
+    "run-migration": ". ./.env && DEBUG=$DEBUG node -r ts-node/register src/run-migration.ts",
+    "start": "yarn clean && yarn preconstruct dev",
+    "test": "nr jest",
+    "test:watch": "nr jest --watch"
   },
   "dependencies": {
     "@newrade/core-common": "^1",
     "@newrade/core-design-system": "^1",
+    "@newrade/core-jest-config": "*",
     "@newrade/core-types": "^2",
     "@newrade/core-utils": "^2",
     "@newrade/core-website-api": "^1",

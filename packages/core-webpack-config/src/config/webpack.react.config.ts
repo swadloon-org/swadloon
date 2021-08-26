@@ -123,7 +123,7 @@ export const getReactCommonConfig: (options: { isDevelopment: boolean }) => Conf
     ].filter(Boolean) as WebpackPluginInstance[],
     resolveLoader: {
       alias: {
-        'ejs-loader': '@newrade/core-webpack-config/lib/loaders/ejs-loader.js',
+        'ejs-loader': '@newrade/core-webpack-config/ejs-loader',
       },
     },
   };

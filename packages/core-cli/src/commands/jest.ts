@@ -2,6 +2,10 @@ import { Command } from '@oclif/command';
 import { spawnSync } from 'child_process';
 
 export default class Jest extends Command {
+  log = debug(`${NS}:git-clean-branches`);
+  logWarn = debug(`${NS}:git-clean-branches:warn`);
+  logError = debug(`${NS}:git-clean-branches:error`);
+
   static description = 'Shortcut to run jest with typescript (ts-node)';
 
   static examples = [`$ nr jest`];

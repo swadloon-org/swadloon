@@ -1,0 +1,4 @@
+{
+  "main": "dist/newrade-core-webpack-config-ejs-loader.cjs.js",
+  "module": "dist/newrade-core-webpack-config-ejs-loader.esm.js"
+}

@@ -7,7 +7,8 @@
   "module": "dist/newrade-core-webpack-config.esm.js",
   "files": [
     "/dist",
-    "/config"
+    "/config",
+    "/ejs-loader"
   ],
   "scripts": {
     "build": "yarn clean && yarn build:dist && yarn build:config && nr prepare-exports",
@@ -22,7 +23,8 @@
   "preconstruct": {
     "entrypoints": [
       "index.ts",
-      "config/index.ts"
+      "config/index.ts",
+      "ejs-loader/index.ts"
     ]
   },
   "dependencies": {

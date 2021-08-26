@@ -9,6 +9,6 @@
     "composite": true,
     "target": "ES2018",
     "lib": ["ES2018"], // should be set according to choosen NodeJS version and its support of recent features https://node.green/
-    "types": ["node"]
+    "types": ["node", "jest"]
   }
 }

@@ -7,7 +7,6 @@
     "outDir": "lib", // normally is not used but we set it in case files are emitted
     "noEmit": true, // we don't want to emit a site source files, loaders will handle this
     "declaration": true,
-    "isolatedModules": false, // not needed since we use ts-loader
     "allowJs": true,
     "jsx": "preserve",
     "incremental": false, // needed to that ts-loader can use references

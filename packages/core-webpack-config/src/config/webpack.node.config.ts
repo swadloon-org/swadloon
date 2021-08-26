@@ -71,7 +71,7 @@ export const nodeCommonConfig: Configuration = {
   },
   resolveLoader: {
     alias: {
-      'ejs-loader': '@newrade/core-webpack-config/lib/loaders/ejs-loader.js',
+      'ejs-loader': '@newrade/core-webpack-config/ejs-loader',
     },
   },
   stats: {},

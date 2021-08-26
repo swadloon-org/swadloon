@@ -1,6 +1,7 @@
 /// <reference types="@newrade/core-types/src/mdx" />
 
 import { render } from '@testing-library/react';
+import { spawnSync } from 'child_process';
 import React from 'react';
 
 /**
@@ -52,5 +53,15 @@ describe('jest', () => {
     const { getByText, getByTestId } = render(<DummyComponent />);
     getByText(/hello/i);
     getByTestId(/hello/i);
+  });
+
+  it('should run commands correctly', () => {
+    const command = spawnSync(`echo ok`, {
+      shell: true,
+      stdio: 'pipe',
+      env: process.env,
+    });
+
+    expect(command.stdout.toString()).toMatch(/ok/);
   });
 });

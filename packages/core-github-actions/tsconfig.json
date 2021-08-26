@@ -2,6 +2,7 @@
   "extends": "../../tsconfig.node-commonjs.json",
   "compilerOptions": {
     "rootDir": "../.",
+    "declaration": false,
     "baseUrl": ".",
     "outDir": "lib",
     "target": "es2018", // for github runner (currently v12)

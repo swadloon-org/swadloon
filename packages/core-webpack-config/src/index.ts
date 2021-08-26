@@ -4,7 +4,7 @@ export * from './other/dev-server.conf';
 export * from './loaders/babel-react.loader';
 export * from './loaders/babel-node.loader';
 export * from './loaders/css-loader';
-export * from './loaders/ejs-loader';
+export * from './ejs-loader';
 export * from './loaders/extract-css.loader';
 export * from './loaders/html.loader';
 export * from './loaders/mdx.loader';

@@ -14,12 +14,7 @@ const env = loadDotEnv<ENV>({
  * @see https://github.com/contentful/contentful-migration
  */
 runMigration({
-  filePath: path.resolve(
-    __dirname,
-    'migrations',
-    env.CONTENTFUL_PROJECT_NAME,
-    env.CONTENTFUL_MIGRATION_FILE
-  ),
+  filePath: env.CONTENTFUL_MIGRATION_FILE,
   environmentId: env.CONTENTFUL_ENV,
   spaceId: env.CONTENTFUL_SPACEID,
   accessToken: env.CONTENTFUL_MANAGEMENT_TOKEN,
