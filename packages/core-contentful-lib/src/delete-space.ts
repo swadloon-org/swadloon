@@ -14,7 +14,7 @@ const env = loadDotEnv<ENV>({
  * @see https://github.com/contentful/contentful-migration
  */
 runMigration({
-  filePath: path.resolve(__dirname, env.CONTENTFUL_PROJECT_NAME, 'project-delete-space.ts'),
+  filePath: path.resolve(process.cwd(), env.CONTENTFUL_MIGRATION_FILE),
   environmentId: env.CONTENTFUL_ENV,
   spaceId: env.CONTENTFUL_SPACEID,
   accessToken: env.CONTENTFUL_MANAGEMENT_TOKEN,
