@@ -55,8 +55,24 @@ jobs:
     runs-on: self-hosted
 
     steps:
+      - name: Checkout
+        if: ${{ github.event_name != 'pull_request_target' }}
+        uses: actions/checkout@v2
+        with:
+          clean: false
+
+      - name: Checkout PR
+        if: ${{ github.event_name == 'pull_request_target' }}
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          clean: false
+
       - name: 'Checkout, Setup NodeJS + yarn and install dependencies'
         uses: ./.github/actions/base-node-setup
+
+      - name: Verify dependencies
+        run: yarn lerna:depcheck --scope @newrade/core-webpack-config
 
       - name: Build core-webpack-config
         run: yarn lerna:build --scope @newrade/core-webpack-config

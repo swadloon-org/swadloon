@@ -6,6 +6,8 @@
 # see https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions
 #
 
+
+
 name: 'Checkout, Setup NodeJS + yarn and install dependencies'
 description: 'Basic steps to setup a build with NodeJS and yarn'
 runs:
@@ -18,18 +20,24 @@ runs:
       # If the PR is coming from a fork (pull_request_target), ensure it's opened by "dependabot[bot]".
       # Otherwise, clone it normally.
       #
-      - name: Checkout
-        if: ${{ github.event_name != 'pull_request_target' }}
-        uses: actions/checkout@v2
-        with:
-          clean: false
 
-      - name: Checkout PR
-        if: ${{ github.event_name == 'pull_request_target' }}
-        uses: actions/checkout@v2
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
-          clean: false
+      #
+      # Note: if is not supported yet, see https://github.com/actions/runner/issues/834
+      # Enable below when it is
+      #
+
+      # - name: Checkout
+      #   if: ${{ github.event_name != 'pull_request_target' }}
+      #   uses: actions/checkout@v2
+      #   with:
+      #     clean: false
+
+      # - name: Checkout PR
+      #   if: ${{ github.event_name == 'pull_request_target' }}
+      #   uses: actions/checkout@v2
+      #   with:
+      #     ref: ${{ github.event.pull_request.head.sha }}
+      #     clean: false
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
