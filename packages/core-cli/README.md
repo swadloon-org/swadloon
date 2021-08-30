@@ -39,7 +39,10 @@ USAGE
 
 <!-- commands -->
 * [`nr commit`](#nr-commit)
+* [`nr contentful-migrate [FILE]`](#nr-contentful-migrate-file)
+* [`nr depcheck [ARGS]`](#nr-depcheck-args)
 * [`nr fig-sync [FILE]`](#nr-fig-sync-file)
+* [`nr gatsby [COMMAND]`](#nr-gatsby-command)
 * [`nr git-clean-branches`](#nr-git-clean-branches)
 * [`nr git-copy-labels SOURCE DESTINATION`](#nr-git-copy-labels-source-destination)
 * [`nr hello [FILE]`](#nr-hello-file)
@@ -48,6 +51,7 @@ USAGE
 * [`nr prepare-dev`](#nr-prepare-dev)
 * [`nr prepare-exports`](#nr-prepare-exports)
 * [`nr vercel-deploy`](#nr-vercel-deploy)
+* [`nr webpack [COMMAND]`](#nr-webpack-command)
 
 ## `nr commit`
 
@@ -61,7 +65,35 @@ EXAMPLE
   $ nr commit
 ```
 
-_See code: [src/commands/commit.ts](https://github.com/newrade/newrade-core/blob/v1.11.0/src/commands/commit.ts)_
+## `nr contentful-migrate [FILE]`
+
+sync design tokens from figma file
+
+```
+USAGE
+  $ nr contentful-migrate [FILE]
+
+ARGUMENTS
+  FILE  figma file id
+
+OPTIONS
+  -h, --help  show CLI help
+
+EXAMPLE
+  $ nr figma-sync
+```
+
+## `nr depcheck [ARGS]`
+
+Shortcut to run depcheck
+
+```
+USAGE
+  $ nr depcheck [ARGS]
+
+EXAMPLE
+  $ nr depcheck
+```
 
 ## `nr fig-sync [FILE]`
 
@@ -81,7 +113,23 @@ EXAMPLE
   $ nr figma-sync
 ```
 
-_See code: [src/commands/fig-sync.ts](https://github.com/newrade/newrade-core/blob/v1.11.0/src/commands/fig-sync.ts)_
+## `nr gatsby [COMMAND]`
+
+Shortcut to run Gatsby with typescript (ts-node)
+
+```
+USAGE
+  $ nr gatsby [COMMAND]
+
+OPTIONS
+  -H, --host=host  gatsby host option
+  -p, --port=port  gatsby port option
+  --no-uglify      gatsby --no-uglify flag
+  --verbose        gatsby verbose command
+
+EXAMPLE
+  $ nr gatsby build
+```
 
 ## `nr git-clean-branches`
 
@@ -97,8 +145,6 @@ OPTIONS
 EXAMPLE
   $ nr git-clean-branches
 ```
-
-_See code: [src/commands/git-clean-branches.ts](https://github.com/newrade/newrade-core/blob/v1.11.0/src/commands/git-clean-branches.ts)_
 
 ## `nr git-copy-labels SOURCE DESTINATION`
 
@@ -119,8 +165,6 @@ EXAMPLE
   $ nr git-copy-labels
 ```
 
-_See code: [src/commands/git-copy-labels.ts](https://github.com/newrade/newrade-core/blob/v1.11.0/src/commands/git-copy-labels.ts)_
-
 ## `nr hello [FILE]`
 
 describe the command here
@@ -138,8 +182,6 @@ EXAMPLE
   $ nr hello
      hello world from ./src/hello.ts!
 ```
-
-_See code: [src/commands/hello.ts](https://github.com/newrade/newrade-core/blob/v1.11.0/src/commands/hello.ts)_
 
 ## `nr help [COMMAND]`
 
@@ -166,11 +208,12 @@ Shortcut to run jest with typescript (ts-node)
 USAGE
   $ nr jest [ARGS]
 
+OPTIONS
+  --config=config  [default: jest.config.ts] path to jest config file
+
 EXAMPLE
   $ nr jest
 ```
-
-_See code: [src/commands/jest.ts](https://github.com/newrade/newrade-core/blob/v1.11.0/src/commands/jest.ts)_
 
 ## `nr prepare-dev`
 
@@ -184,8 +227,6 @@ EXAMPLE
   $ nr prepare-dev
 ```
 
-_See code: [src/commands/prepare-dev.ts](https://github.com/newrade/newrade-core/blob/v1.11.0/src/commands/prepare-dev.ts)_
-
 ## `nr prepare-exports`
 
 create export stubs for published packages
@@ -197,8 +238,6 @@ USAGE
 EXAMPLE
   $ nr prepare-exports
 ```
-
-_See code: [src/commands/prepare-exports.ts](https://github.com/newrade/newrade-core/blob/v1.11.0/src/commands/prepare-exports.ts)_
 
 ## `nr vercel-deploy`
 
@@ -215,5 +254,18 @@ EXAMPLE
   $ nr vercel-deploy
 ```
 
-_See code: [src/commands/vercel-deploy.ts](https://github.com/newrade/newrade-core/blob/v1.11.0/src/commands/vercel-deploy.ts)_
+## `nr webpack [COMMAND]`
+
+Shortcut to run webpack with typescript (ts-node)
+
+```
+USAGE
+  $ nr webpack [COMMAND]
+
+OPTIONS
+  -c, --config=config  path to config file (.ts)
+
+EXAMPLE
+  $ nr webpack serve --config webpack.dev.config.ts
+```
 <!-- commandsstop -->
