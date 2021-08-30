@@ -77,6 +77,9 @@ jobs:
       - name: Build core-webpack-config
         run: yarn lerna:build --scope @newrade/core-webpack-config
 
+      - name: Lint (ls-lint) source files
+        run: yarn lerna:ls-lint --scope @newrade/core-webpack-config
+
       - name: Lint source files
         run: yarn eslint ./packages/core-webpack-config/src/ --ext ts,tsx
 

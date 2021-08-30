@@ -70,6 +70,9 @@ jobs:
       - name: Verify dependencies
         run: yarn lerna:depcheck --scope @newrade/core-react-ui
 
+      - name: Lint (ls-lint) source files
+        run: yarn lerna:ls-lint --scope @newrade/core-react-ui
+
       - name: Lint source files
         run: yarn eslint ./packages/core-react-ui/src/ --ext ts,tsx
 

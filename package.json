@@ -32,12 +32,14 @@
     "lerna:build:postinstall": "lerna run build:postinstall --parallel",
     "lerna:clean": "lerna run clean",
     "lerna:depcheck": "lerna exec 'nr depcheck' --concurrency=1",
+    "lerna:ls-lint": "lerna exec --concurrency=1 ls-lint",
     "lerna:start": "lerna run start --parallel",
     "lerna:test": "lerna run test",
     "lerna:test:e2e": "lerna run --concurrency=1 test:e2e",
     "lerna:typecheck": "lerna run typecheck --concurrency=4 --loglevel info",
     "lint": "eslint . --ext ts,tsx",
     "lint:fix": "eslint . --ext ts,tsx --fix",
+    "ls-lint": "ls-lint",
     "postinstall": "patch-package && yarn preconstruct:dev && yarn build:postinstall",
     "preconstruct:dev": "preconstruct dev",
     "push": "git push --follow-tags",
@@ -267,7 +269,6 @@
     "react-helmet": "^6.1.0",
     "react-hook-form": "^6.15.8",
     "react-i18next": "^11.11.4",
-    "react-icons": "^4.1.0",
     "react-intersection-observer": "^8.31.0",
     "react-lazyload": "^3.0.0",
     "react-router": "^6.0.0-beta.0",
@@ -297,5 +298,8 @@
     "winston": "^3.3.3",
     "yo": "^3.1.1",
     "yup": "^0.32.8"
+  },
+  "devDependencies": {
+    "@ls-lint/ls-lint": "^1.10.0"
   }
 }

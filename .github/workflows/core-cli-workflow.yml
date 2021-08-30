@@ -73,6 +73,9 @@ jobs:
       - name: Typecheck
         run: yarn lerna:typecheck --scope @newrade/core-cli
 
+      - name: Lint (ls-lint) source files
+        run: yarn lerna:ls-lint --scope @newrade/core-cli
+
       - name: Lint source files
         run: yarn eslint ./packages/core-cli/src/ --ext ts,tsx
 
