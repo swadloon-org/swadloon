@@ -11,6 +11,7 @@ ls:
 
 ignore:
     - .git
+    - .cache
     - node_modules
     - public
     - dist

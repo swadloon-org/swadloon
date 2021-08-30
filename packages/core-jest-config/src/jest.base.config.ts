@@ -20,9 +20,6 @@ export const baseJestConfig: jest.InitialOptions & { extensionsToTreatAsEsm?: st
   moduleNameMapper: {
     // '\\.(css|less|sass|scss)$': 'identity-obj-proxy',
     '\\.(less|sass|scss)$': 'identity-obj-proxy',
-    // '^@newrade/(.*)$': '<rootDir>/../$1/lib',
-    '^@newrade/core-design-system$': '<rootDir>/../core-design-system/src',
-    '^@newrade/core-common$': '<rootDir>/../core-common/lib/commonjs',
   },
   testRegex: '.+\\.test\\.tsx?',
   testPathIgnorePatterns: [

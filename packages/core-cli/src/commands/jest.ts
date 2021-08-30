@@ -1,4 +1,4 @@
-import { Command } from '@oclif/command';
+import { Command, flags } from '@oclif/command';
 import { spawnSync } from 'child_process';
 import debug from 'debug';
 import { NS } from '../utilities/log.utilities';
@@ -14,18 +14,25 @@ export default class Jest extends Command {
 
   static args = [{ name: 'args' }];
 
-  async run() {
-    const { args } = this.parse(Jest);
+  static flags = {
+    config: flags.string({ description: 'path to jest config file', default: 'jest.config.ts' }),
+  };
 
-    spawnSync(
-      `TS_NODE_PROJECT=../../tsconfig.node-commonjs.json node -r ts-node/register ../../node_modules/jest/bin/jest --config jest.config.ts ${
-        args.args || ''
-      }`,
-      {
-        shell: true,
-        stdio: 'inherit',
-        env: process.env,
-      }
-    );
+  async run() {
+    const { args, flags } = this.parse(Jest);
+
+    const command = [
+      `TS_NODE_PROJECT=../../tsconfig.node-commonjs.json node -r ts-node/register ../../node_modules/jest/bin/jest`,
+      `${flags.config ? '--config ' + flags.config : ''}`,
+      `${args.args || ''}`,
+    ].join(' ');
+
+    this.log(`running: ${command}`);
+
+    spawnSync(command, {
+      shell: true,
+      stdio: 'inherit',
+      env: process.env,
+    });
   }
 }
