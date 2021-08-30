@@ -19,17 +19,18 @@
     "*.treat.js"
   ],
   "dependencies": {
-    "@newrade/core-common": "^1",
-    "@newrade/core-design-system": "^1",
-    "@newrade/core-gatsb-config": "^2",
-    "@newrade/core-gatsby-ui": "^2",
-    "@newrade/core-gsap-ui": "^1.2.0",
-    "@newrade/core-react-ui": "^2",
-    "@newrade/core-types": "^2",
-    "@newrade/core-utils": "^2",
-    "@newrade/core-webpack-config": "^2",
-    "@newrade/core-website-api": "^1.1.0",
+    "@newrade/core-common": "*",
+    "@newrade/core-design-system": "*",
+    "@newrade/core-gatsb-config": "*",
+    "@newrade/core-gatsby-ui": "*",
+    "@newrade/core-gsap-ui": "*",
+    "@newrade/core-react-ui": "*",
+    "@newrade/core-types": "*",
+    "@newrade/core-utils": "*",
+    "@newrade/core-webpack-config": "*",
+    "@newrade/core-website-api": "*",
     "gatsby": "^3.10.2",
-    "gatsby-plugin-image": "^1.11.0-next.2"
+    "gatsby-plugin-image": "^1.11.0-next.2",
+    "react-icons": "^4.1.0"
   }
 }

@@ -22,14 +22,27 @@
     "*.treat.js"
   ],
   "dependencies": {
-    "@newrade/core-common": "^1",
-    "@newrade/core-gatsb-config": "^2",
-    "@newrade/core-react-ui": "^2",
-    "@newrade/core-types": "^2",
-    "@newrade/core-utils": "^2",
-    "@newrade/core-webpack-config": "^2",
-    "@newrade/core-website-api": "^1",
+    "@mdx-js/react": "^1.6.22",
+    "@newrade/core-common": "*",
+    "@newrade/core-design-system": "*",
+    "@newrade/core-gatsb-config": "*",
+    "@newrade/core-jest-config": "*",
+    "@newrade/core-react-ui": "*",
+    "@newrade/core-types": "*",
+    "@newrade/core-website-api": "*",
+    "@reach/router": "^1",
+    "@react-google-maps/api": "^2.1.1",
+    "@vanilla-extract/css": "^1.1.0",
+    "capsize": "^1",
+    "case": "^1.6.3",
+    "gatsby": "^3.10.2",
     "gatsby-background-image": "^1",
-    "i18next": "^19.8.4"
+    "gatsby-image": "^2.9.0",
+    "i18next": "^19",
+    "react-i18next": "^11",
+    "react-icons": "^4.1.0",
+    "react-intersection-observer": "^8.31.0",
+    "react-treat": "^2",
+    "treat": "^2"
   }
 }

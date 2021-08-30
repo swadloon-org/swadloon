@@ -13,7 +13,6 @@ import {
   svgLoader,
 } from '@newrade/core-webpack-config';
 
-import dotenv from 'dotenv';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import path from 'path';
@@ -22,8 +21,6 @@ import * as tsloader from 'ts-loader';
 import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
 import webpack, { WebpackOptionsNormalized } from 'webpack';
 import { Configuration } from 'webpack';
-
-dotenv.config();
 
 const config: Configuration & Pick<WebpackOptionsNormalized, 'devServer'> = {
   mode: 'development',

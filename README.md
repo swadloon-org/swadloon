@@ -33,6 +33,8 @@ Documentation: https://zedesignsystem.com/docs
 
 Design System: https://zedesignsystem.com/design-system
 
+![Visualization of this repo](./docs/assets/images/core-repo-diagram.svg)
+
 ## Tech Stack
 
 ### Languages

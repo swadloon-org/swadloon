@@ -13,12 +13,12 @@
   "type": "module",
   "typings": "./lib/index.d.ts",
   "dependencies": {
-    "@newrade/core-common": "^1",
-    "@newrade/core-design-system": "^1",
-    "@newrade/core-jest-config": "^2",
-    "@newrade/core-react-ui": "^2",
-    "@newrade/core-types": "^2",
-    "@newrade/core-utils": "^2",
-    "@newrade/core-webpack-config": "^2"
+    "@newrade/core-types": "*",
+    "@newrade/core-utils": "*",
+    "@newrade/core-webpack-config": "*",
+    "fp-ts": "^2",
+    "graphiql": "^1.4.2",
+    "io-ts": "^2",
+    "treat": "^2"
   }
 }

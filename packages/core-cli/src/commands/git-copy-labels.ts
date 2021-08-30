@@ -1,5 +1,5 @@
 import { Command, flags } from '@oclif/command';
-import * as chalk from 'chalk';
+import chalk from 'chalk';
 import debug from 'debug';
 
 import { Octokit } from 'octokit';
@@ -33,7 +33,7 @@ export default class GitCopyLabels extends Command {
   ];
 
   async init() {
-    debug.enable('newrade*');
+    debug.enable('nr:core-cli:*');
   }
 
   async run() {
@@ -45,8 +45,8 @@ export default class GitCopyLabels extends Command {
     const [sourceOrg, sourceRepo] = source.split('/');
     const [destinationOrg, destinationRepo] = destination.split('/');
 
-    this.log(`source owner: \t ${chalk.blue(sourceOrg)}`);
-    this.log(`source repo:  \t ${chalk.blue(sourceRepo)}`);
+    this.log(`source owner: \t\t ${chalk.blue(sourceOrg)}`);
+    this.log(`source repo:  \t\t ${chalk.blue(sourceRepo)}`);
 
     this.log(`destination owner: \t ${chalk.green(destinationOrg)}`);
     this.log(`destination repo:  \t ${chalk.green(destinationRepo)}`);
@@ -64,6 +64,10 @@ export default class GitCopyLabels extends Command {
       dotEnvRootPath: '../../.env',
       packageName: 'core-cli',
     });
+
+    if (!env.GH_TOKEN) {
+      this.logError('missing env GH_TOKEN');
+    }
 
     this.log('validate credentials');
 

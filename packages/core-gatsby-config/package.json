@@ -29,14 +29,19 @@
   },
   "sideEffects": false,
   "dependencies": {
-    "@newrade/core-common": "^1",
+    "@ccalamos/gatsby-source-googlemaps-static": "^3.1.1",
+    "@mdx-js/mdx": "^1.6.18",
+    "@newrade/core-common": "*",
     "@newrade/core-jest-config": "*",
-    "@newrade/core-utils": "^2",
-    "@newrade/core-webpack-config": "^2",
+    "@newrade/core-utils": "*",
+    "@newrade/core-webpack-config": "*",
     "add-asset-html-webpack-plugin": "^3.2.0",
     "case": "^1",
     "chalk": "^4",
     "gatsby": "^3.10.2",
-    "i18next": "^19.8.4"
+    "i18next": "^19",
+    "intersection-observer": "^0.11.0",
+    "react-i18next": "^11",
+    "treat": "^2"
   }
 }

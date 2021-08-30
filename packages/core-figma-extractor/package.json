@@ -23,7 +23,7 @@
   "sideEffects": false,
   "dependencies": {
     "@newrade/core-jest-config": "*",
-    "@newrade/core-utils": "^2",
+    "@newrade/core-utils": "*",
     "case": "^1",
     "chalk": "^4",
     "figma-js": "^1.11.0",

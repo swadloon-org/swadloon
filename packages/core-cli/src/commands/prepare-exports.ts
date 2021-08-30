@@ -1,6 +1,6 @@
 import { Command } from '@oclif/command';
 import { kebab } from 'case';
-import * as chalk from 'chalk';
+import chalk from 'chalk';
 import debug from 'debug';
 import * as fs from 'fs';
 import * as path from 'path';
