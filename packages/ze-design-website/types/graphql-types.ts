@@ -4306,6 +4306,11 @@ type SiteBuildMetadataSortInput = {
   readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
 };
 
+type SiteMetadataFragment = { readonly siteMetadata: Maybe<(
+    Pick<SiteSiteMetadata, 'title' | 'description' | 'siteUrl' | 'siteEnv'>
+    & { readonly languages: Maybe<Pick<SiteSiteMetadataLanguages, 'defaultLangKey' | 'langs'>> }
+  )> };
+
 type DesignSystemLayoutPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -4349,11 +4354,6 @@ type GatsbyImageSharpFluid_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio
 
 type GatsbyImageSharpFluid_withWebp_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
 
-type SiteMetadataFragment = { readonly siteMetadata: Maybe<(
-    Pick<SiteSiteMetadata, 'title' | 'description' | 'siteUrl' | 'siteEnv'>
-    & { readonly languages: Maybe<Pick<SiteSiteMetadataLanguages, 'defaultLangKey' | 'langs'>> }
-  )> };
-
 type DocsPagesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -4383,13 +4383,13 @@ type DocsPagesQuery = { readonly pages: (
     )> }
   ) };
 
-type MarkdownDocsTemplateQueryVariables = Exact<{
+type DesignSystemPageTemplateQueryVariables = Exact<{
   fileId: Scalars['String'];
   locale: Scalars['String'];
 }>;
 
 
-type MarkdownDocsTemplateQuery = { readonly file: Maybe<(
+type DesignSystemPageTemplateQuery = { readonly file: Maybe<(
     Pick<File, 'changeTime'>
     & { readonly childMdx: Maybe<(
       Pick<Mdx, 'slug' | 'excerpt' | 'timeToRead' | 'tableOfContents' | 'body'>
@@ -4407,13 +4407,13 @@ type MarkdownPageTemplateQuery = { readonly file: Maybe<{ readonly childMdx: May
       & { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'tags'>>, readonly headings: Maybe<ReadonlyArray<Maybe<Pick<MdxHeadingMdx, 'value' | 'depth'>>>> }
     )> }> };
 
-type DesignSystemPageTemplateQueryVariables = Exact<{
+type MarkdownDocsTemplateQueryVariables = Exact<{
   fileId: Scalars['String'];
   locale: Scalars['String'];
 }>;
 
 
-type DesignSystemPageTemplateQuery = { readonly file: Maybe<(
+type MarkdownDocsTemplateQuery = { readonly file: Maybe<(
     Pick<File, 'changeTime'>
     & { readonly childMdx: Maybe<(
       Pick<Mdx, 'slug' | 'excerpt' | 'timeToRead' | 'tableOfContents' | 'body'>

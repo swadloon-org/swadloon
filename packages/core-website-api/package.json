@@ -9,8 +9,8 @@
     "/dist"
   ],
   "scripts": {
-    "build": "yarn clean && yarn build:dist",
-    "build:dist": "tsc --build tsconfig.json && cp src/*.cjs.d.ts src/*.cjs.js dist",
+    "build": "yarn clean && yarn build:dist && nr prepare-exports",
+    "build:dist": "tsc --build tsconfig.json",
     "clean": "yarn clean:tsc && yarn clean:dist",
     "clean:dist": "rm -rf dist/** lib/**",
     "clean:tsc": "rm -f ./**/*.tsbuildinfo *.tsbuildinfo",
