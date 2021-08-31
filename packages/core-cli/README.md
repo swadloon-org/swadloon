@@ -49,6 +49,7 @@ USAGE
 * [`nr hello [FILE]`](#nr-hello-file)
 * [`nr help [COMMAND]`](#nr-help-command)
 * [`nr jest [ARGS]`](#nr-jest-args)
+* [`nr micromatch [PATH] [PATTERN]`](#nr-micromatch-path-pattern)
 * [`nr prepare-dev`](#nr-prepare-dev)
 * [`nr prepare-exports`](#nr-prepare-exports)
 * [`nr vercel-deploy`](#nr-vercel-deploy)
@@ -178,8 +179,6 @@ EXAMPLE
   $ nr globby
 ```
 
-_See code: [lib/commands/globby.js](https://github.com/newrade/newrade-core/blob/v1.11.0/lib/commands/globby.js)_
-
 ## `nr hello [FILE]`
 
 describe the command here
@@ -230,6 +229,20 @@ EXAMPLE
   $ nr jest
 ```
 
+## `nr micromatch [PATH] [PATTERN]`
+
+Execute micromatch as CLI
+
+```
+USAGE
+  $ nr micromatch [PATH] [PATTERN]
+
+EXAMPLE
+  $ nr micromatch
+```
+
+_See code: [lib/commands/micromatch.js](https://github.com/newrade/newrade-core/blob/v1.11.0/lib/commands/micromatch.js)_
+
 ## `nr prepare-dev`
 
 execute preconstruct dev
@@ -253,6 +266,8 @@ USAGE
 EXAMPLE
   $ nr prepare-exports
 ```
+
+_See code: [lib/commands/prepare-exports.js](https://github.com/newrade/newrade-core/blob/v1.11.0/lib/commands/prepare-exports.js)_
 
 ## `nr vercel-deploy`
 
