@@ -8,7 +8,8 @@ export function getForkTsCheckerWebpackPlugin() {
     typescript: {
       enabled: true,
       memoryLimit: 2048,
-      configFile: 'tsconfig.build.json',
+      configFile: 'tsconfig.json',
+      mode: 'write-tsbuildinfo',
       build: true,
     },
   });

@@ -52,11 +52,12 @@ USAGE
 * [`nr micromatch [PATH] [PATTERN]`](#nr-micromatch-path-pattern)
 * [`nr prepare-dev`](#nr-prepare-dev)
 * [`nr prepare-exports`](#nr-prepare-exports)
+* [`nr vercel-deploy`](#nr-vercel-deploy)
 * [`nr webpack [COMMAND]`](#nr-webpack-command)
 
 ## `nr commit`
 
-call the commit script
+call the commit script in the repo root
 
 ```
 USAGE
@@ -262,6 +263,21 @@ USAGE
 
 EXAMPLE
   $ nr prepare-exports
+```
+
+## `nr vercel-deploy`
+
+deploy site with vercel using env variables
+
+```
+USAGE
+  $ nr vercel-deploy
+
+OPTIONS
+  -h, --help  show CLI help
+
+EXAMPLE
+  $ nr vercel-deploy
 ```
 
 ## `nr webpack [COMMAND]`

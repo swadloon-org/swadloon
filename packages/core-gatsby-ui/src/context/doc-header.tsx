@@ -10,7 +10,7 @@ import {
   Stack,
   Tag,
   useTreatTheme,
-} from '@newrade/core-react-ui/src';
+} from '@newrade/core-react-ui';
 import React from 'react';
 import { useI18next } from '../i18next/use-i18next.hook';
 

@@ -1,7 +1,7 @@
 import debug from 'debug';
 import { CommonEnvType } from './common-env';
 
-const log = debug('newrade:env');
+const log = debug('nr:env');
 
 export function logEnvVariables<ENV extends CommonEnvType | Record<string, any>>({
   packageName,

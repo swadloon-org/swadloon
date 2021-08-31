@@ -1,5 +1,5 @@
 import { SITE_LANGUAGES } from '@newrade/core-common';
-import { PrimitiveProps } from '@newrade/core-react-ui/src';
+import { PrimitiveProps } from '@newrade/core-react-ui';
 import { SidebarAPI, SidebarLayout } from '@newrade/core-website-api';
 import { CustomBlockVariantComponents } from '../blocks/block.props';
 

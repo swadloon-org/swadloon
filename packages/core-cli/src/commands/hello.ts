@@ -1,7 +1,17 @@
-import { log } from '@newrade/core-utils';
 import { Command, flags } from '@oclif/command';
+import { IConfig } from '@oclif/config';
+import debug from 'debug';
+import { NS } from '../utilities/log.utilities';
 
 export default class Hello extends Command {
+  log = debug(`${NS}:hello`);
+  logWarn = debug(`${NS}:hello:warn`);
+  logError = debug(`${NS}:hello:error`);
+
+  constructor(argv: string[], config: IConfig) {
+    super(argv, config);
+  }
+
   static description = 'describe the command here';
 
   static examples = [
@@ -20,13 +30,10 @@ export default class Hello extends Command {
 
   static args = [{ name: 'file' }];
 
+  async init() {}
+
   async run() {
     const { args, flags } = this.parse(Hello);
-
-    log('1.0.0', {
-      toolName: 'core-cli',
-    });
-
     const name = flags.name ?? 'world';
     console.log(`hello ${name} from ./src/commands/hello.ts`);
     if (args.file && flags.force) {

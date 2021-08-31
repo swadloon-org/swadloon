@@ -7,7 +7,7 @@ import { useInView } from 'react-intersection-observer';
 import { NavbarStandard } from './navbar-standard';
 import { NavbarProps, NavbarRendererProps } from './navbar.props';
 
-const log = debug('newrade:core-gatsby-ui:navbar-renderer');
+const log = debug('nr:core-gatsby-ui:navbar-renderer');
 const logWarn = log.extend('warn');
 const logError = log.extend('error');
 

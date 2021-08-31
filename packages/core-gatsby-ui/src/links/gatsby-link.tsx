@@ -1,4 +1,4 @@
-import { useCommonProps } from '@newrade/core-react-ui/src';
+import { useCommonProps } from '@newrade/core-react-ui';
 import { GatsbyLinkProps, Link as GastbyLinkDefault } from 'gatsby';
 import React from 'react';
 import { useStyles } from 'react-treat';

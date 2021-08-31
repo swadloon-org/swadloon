@@ -1,5 +1,5 @@
 import { Variant } from '@newrade/core-design-system';
-import { Center, Primitive, useTreatTheme } from '@newrade/core-react-ui/src';
+import { Center, Primitive, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 import { useStyles } from 'react-treat';
 import * as styleRefs from './footer-base.treat';

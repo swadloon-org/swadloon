@@ -2,11 +2,12 @@ import { Command, flags } from '@oclif/command';
 import chalk from 'chalk';
 import debug from 'debug';
 import simpleGit from 'simple-git';
+import { NS } from '../utilities/log.utilities';
 
-export default class GitResetBranches extends Command {
-  log: debug.Debugger = debug('newrade:core-cli:git-reset-branches');
-  logWarn: debug.Debugger = debug('newrade:core-cli:git-reset-branches:warn');
-  logError: debug.Debugger = debug('newrade:core-cli:git-reset-branches:error');
+export default class GitCleanBranches extends Command {
+  log = debug(`${NS}:git-clean-branches`);
+  logWarn = debug(`${NS}:git-clean-branches:warn`);
+  logError = debug(`${NS}:git-clean-branches:error`);
 
   static description = 'delete local branches that are already merged on origin';
 
@@ -18,9 +19,7 @@ export default class GitResetBranches extends Command {
 
   static args = [];
 
-  async init() {
-    debug.enable('newrade*');
-  }
+  async init() {}
 
   async run() {
     const git = simpleGit();

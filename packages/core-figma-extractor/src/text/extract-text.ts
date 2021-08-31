@@ -14,7 +14,7 @@ import {
   TextTokens,
 } from './figma-texts.model';
 
-const log = debug('newrade:core-cli');
+const log = debug('nr:core-cli');
 
 export function parseFigmaTexts(data: FileStylesResponse['meta']['styles']) {
   const project = JSON.parse(fs.readFileSync(path.join(__dirname, '../../package.json'), 'utf-8'));

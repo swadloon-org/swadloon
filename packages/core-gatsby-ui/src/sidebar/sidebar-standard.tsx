@@ -18,7 +18,7 @@ import {
   Stack,
   useCommonProps,
   useTreatTheme,
-} from '@newrade/core-react-ui/src';
+} from '@newrade/core-react-ui';
 import { LinkAPI } from '@newrade/core-website-api/src';
 import React from 'react';
 import { useStyles } from 'react-treat';

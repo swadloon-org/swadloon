@@ -59,6 +59,7 @@
       "packages/core-common",
       "packages/core-utils",
       "packages/core-react-ui",
+      "packages/core-gatsby-config",
       "packages/core-webpack-config",
       "packages/core-website-api",
       "packages/core-gsap-ui",

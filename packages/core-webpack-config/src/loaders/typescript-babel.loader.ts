@@ -36,7 +36,7 @@ export function getTypescriptBabelReactLoader(options: Options = defaultOptions)
       {
         loader: 'ts-loader',
         options: {
-          configFile: 'tsconfig.build.json',
+          configFile: 'tsconfig.json',
           getCustomTransformers: () => ({
             before: options.isDevelopment ? [ReactRefreshTypeScript()] : [],
           }),

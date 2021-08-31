@@ -1,4 +1,4 @@
-import { PrimitiveProps } from '@newrade/core-react-ui/src';
+import { PrimitiveProps } from '@newrade/core-react-ui';
 import { FooterAPI, FooterLayout } from '@newrade/core-website-api';
 import { CustomBlockVariantComponents } from '../blocks/block.props';
 

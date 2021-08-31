@@ -4,9 +4,9 @@ import debug from 'debug';
 import simpleGit from 'simple-git';
 
 export default class CleanNodeModules extends Command {
-  ddebug: debug.Debugger = debug('newrade:core-cli:clean-node-modules');
-  ddebugWarn: debug.Debugger = debug('newrade:core-cli:clean-node-modules:warn');
-  ddebugError: debug.Debugger = debug('newrade:core-cli:clean-node-modules:error');
+  ddebug: debug.Debugger = debug('nr:core-cli:clean-node-modules');
+  ddebugWarn: debug.Debugger = debug('nr:core-cli:clean-node-modules:warn');
+  ddebugError: debug.Debugger = debug('nr:core-cli:clean-node-modules:error');
 
   static description = `find . -name 'node_modules' -type d -prune -print -exec rm -rf '{}' \;`;
 
@@ -19,7 +19,7 @@ export default class CleanNodeModules extends Command {
   static args = [{ name: 'dir' }];
 
   async init() {
-    debug.enable('newrade:core-cli:*');
+    debug.enable('nr:core-cli:*');
   }
 
   async run() {

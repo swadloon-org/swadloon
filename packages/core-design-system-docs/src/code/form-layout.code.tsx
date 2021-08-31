@@ -7,7 +7,7 @@ import {
   Label,
   Stack,
   useTreatTheme,
-} from '@newrade/core-react-ui/src';
+} from '@newrade/core-react-ui';
 import React from 'react';
 
 type Props = {};

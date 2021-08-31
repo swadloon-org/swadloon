@@ -5,7 +5,7 @@ import {
   useCommonProps,
   useIsSSR,
   useTreatTheme,
-} from '@newrade/core-react-ui/src';
+} from '@newrade/core-react-ui';
 import {
   BlockAlignment,
   BlockAPI,
@@ -24,7 +24,7 @@ import { BlockMarkdown } from './block-markdown';
 import * as styleRefs from './block-renderer.treat';
 import { BlockRendererProps } from './block.props';
 
-const log = debug('newrade:core-gatsby-ui:block-renderer');
+const log = debug('nr:core-gatsby-ui:block-renderer');
 const logWarn = log.extend('warn');
 const logError = log.extend('error');
 

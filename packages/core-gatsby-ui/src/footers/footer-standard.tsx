@@ -19,7 +19,7 @@ import {
   Stack,
   useCommonProps,
   useTreatTheme,
-} from '@newrade/core-react-ui/src';
+} from '@newrade/core-react-ui';
 import { BlockAPI, LinkType, NavComponent } from '@newrade/core-website-api';
 import React from 'react';
 import { IoLogoFacebook, IoLogoInstagram, IoLogoLinkedin, IoLogoTwitter } from 'react-icons/io5';

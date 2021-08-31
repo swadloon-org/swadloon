@@ -8,7 +8,7 @@ import { CommonEnvType } from './common-env';
 import { logEnvVariables } from './log-env-variables';
 import { PathReporter } from './reporter';
 
-const log = debug('newrade:env');
+const log = debug('nr:env');
 
 /**
  * Utility function to load the .env files in the monorepository.

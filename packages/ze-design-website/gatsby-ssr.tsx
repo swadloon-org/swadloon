@@ -15,7 +15,6 @@ export const wrapPageElement: GatsbySSR['wrapPageElement'] = (args) => {
   return <WrapElement {...args} />;
 };
 
-// @ts-ignore
-export const wrapRootElement: GatsbySSR['wrapPageElement'] = ({ element }) => {
+export const wrapRootElement: GatsbySSR['wrapRootElement'] = ({ element }) => {
   return <Providers>{element}</Providers>;
 };

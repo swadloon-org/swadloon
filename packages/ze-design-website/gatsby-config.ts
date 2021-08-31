@@ -56,12 +56,7 @@ const config: conf.GastbySiteConfig = {
     core.getGatsbyPluginReactHelmet(),
     /** js/ts/react */
     core.getGatsbyPluginLoadableComponents(),
-    ...core.getGatsbyPluginTypeScriptConfig({
-      documentPaths: [
-        '../core-gatsby-ui/src/fragments/gatsby/**/*.{ts,tsx}',
-        './src/**/*.{ts,tsx}',
-      ],
-    }),
+    ...core.getGatsbyPluginTypeScriptConfig(),
     ...core.getGastbyCorePluginConfig({
       packageName: packageJson.name,
     }),

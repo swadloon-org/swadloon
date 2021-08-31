@@ -1,4 +1,11 @@
-import * as coreWebpackConfig from '@newrade/core-webpack-config';
+import {
+  rehypeAutoLinkHeadingsPlugin,
+  rehypeSlugPlugin,
+  remarkExternalLinksPlugin,
+  remarkHtmlPlugin,
+  remarkTocPlugin,
+  remarkWikiLinkPlugin,
+} from '@newrade/core-webpack-config';
 import Gatsby from 'gatsby';
 
 /**
@@ -49,11 +56,11 @@ export function getGatsbyPluginMdx(): Gatsby.PluginRef[] {
          * @seee node_modules/@mdx-js/mdx/index.js
          */
         remarkPlugins: [
-          coreWebpackConfig.remarkWikiLinkPlugin,
-          coreWebpackConfig.remarkExternalLinksPlugin,
-          // coreWebpackConfig.remarkUnwrapImagesPlugin,
-          coreWebpackConfig.remarkHtmlPlugin,
-          coreWebpackConfig.remarkTocPlugin,
+          remarkWikiLinkPlugin,
+          remarkExternalLinksPlugin,
+          // remarkUnwrapImagesPlugin,
+          remarkHtmlPlugin,
+          remarkTocPlugin,
         ].map((plugin) => {
           if (!(plugin && plugin[0])) {
             throw new Error('undefined plugin');
@@ -61,10 +68,7 @@ export function getGatsbyPluginMdx(): Gatsby.PluginRef[] {
           return plugin;
         }),
         // see https://github.com/rehypejs/rehype/blob/master/doc/plugins.md#list-of-plugins
-        rehypePlugins: [
-          coreWebpackConfig.rehypeSlugPlugin,
-          coreWebpackConfig.rehypeAutoLinkHeadingsPlugin,
-        ],
+        rehypePlugins: [rehypeSlugPlugin, rehypeAutoLinkHeadingsPlugin],
       },
     },
   ];

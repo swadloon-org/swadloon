@@ -3,7 +3,7 @@ import { spawnSync } from 'child_process';
 import * as path from 'path';
 
 export default class Commit extends Command {
-  static description = 'call the commit script';
+  static description = 'call the commit script in the repo root';
 
   static examples = [`$ nr commit`];
 

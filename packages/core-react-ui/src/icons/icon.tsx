@@ -9,7 +9,7 @@ import { PrimitiveProps } from '../primitive/primitive.props';
 import * as styleRefs from './icon.treat';
 import { useIconContext } from './icons-provider';
 
-const log = debug('newrade:core-react-ui:icon');
+const log = debug('nr:core-react-ui:icon');
 const logWarn = log.extend('warn');
 const logError = log.extend('error');
 

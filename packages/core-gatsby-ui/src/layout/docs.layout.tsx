@@ -20,7 +20,7 @@ import {
   useTreatTheme,
   viewportContext,
   ViewportProvider,
-} from '@newrade/core-react-ui/src';
+} from '@newrade/core-react-ui';
 import { SidebarLayout } from '@newrade/core-website-api';
 import { PageProps } from 'gatsby';
 import React, { ReactNode } from 'react';
@@ -86,7 +86,8 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
     </>
   );
 
-  const tag = props.path && /core-docs/gi.test(props.path) ? 'core docs' : 'docs';
+  const tag =
+    props.location?.pathname && /core-docs/gi.test(props.location?.pathname) ? 'core docs' : 'docs';
 
   return (
     <MainWrapper>

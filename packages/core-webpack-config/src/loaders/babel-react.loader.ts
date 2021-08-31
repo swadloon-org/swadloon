@@ -1,4 +1,3 @@
-import path from 'path';
 import { RuleSetRule, RuleSetUseItem } from 'webpack';
 import { babelPluginBrowserConf } from '../babel/babel-plugins.conf';
 import { babelPresetBrowserConf } from '../babel/babel-preset.conf';

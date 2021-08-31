@@ -1,10 +1,10 @@
 import { Command, flags } from '@oclif/command';
 import chalk from 'chalk';
 import debug from 'debug';
-
-import { Octokit } from 'octokit';
 import * as t from 'io-ts';
+import { Octokit } from 'octokit';
 import { loadDotEnv } from '@newrade/core-utils';
+import { NS } from '../utilities/log.utilities';
 
 export type ENV = t.TypeOf<typeof Env>;
 export const Env = t.intersection([
@@ -15,9 +15,9 @@ export const Env = t.intersection([
 ]);
 
 export default class GitCopyLabels extends Command {
-  log: debug.Debugger = debug('newrade:core-cli:git-copy-labels');
-  logWarn: debug.Debugger = debug('newrade:core-cli:git-copy-labels:warn');
-  logError: debug.Debugger = debug('newrade:core-cli:git-copy-labels:error');
+  log = debug(`${NS}:git-copy-labels`);
+  logWarn = debug(`${NS}:git-copy-labels:warn`);
+  logError = debug(`${NS}:git-copy-labels:error`);
 
   static description = 'copy labels from a repo to another';
 

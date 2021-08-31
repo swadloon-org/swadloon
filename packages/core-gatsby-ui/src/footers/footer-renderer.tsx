@@ -7,7 +7,7 @@ import { useInView } from 'react-intersection-observer';
 import { FooterStandard } from './footer-standard';
 import { FooterProps, FooterRendererProps } from './footer.props';
 
-const log = debug('newrade:core-gatsby-ui:footer-renderer');
+const log = debug('nr:core-gatsby-ui:footer-renderer');
 const logWarn = log.extend('warn');
 const logError = log.extend('error');
 

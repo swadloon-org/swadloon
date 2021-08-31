@@ -3,6 +3,7 @@ import { loadDotEnv } from '@newrade/core-utils';
 import { Command, flags } from '@oclif/command';
 import debug from 'debug';
 import * as t from 'io-ts';
+import { NS } from '../utilities/log.utilities';
 
 // import packageJson from '../../package.json'; // TODO: check if possible to load local package json
 
@@ -16,9 +17,9 @@ export const Env = t.intersection([
 ]);
 
 export default class FigmaSync extends Command {
-  log: debug.Debugger = debug('newrade:core-cli:fig-sync');
-  logWarn: debug.Debugger = debug('newrade:core-cli:fig-sync:warn');
-  logError: debug.Debugger = debug('newrade:core-cli:fig-sync:error');
+  log = debug(`${NS}:figma-sync`);
+  logWarn = debug(`${NS}:figma-sync:warn`);
+  logError = debug(`${NS}:figma-sync:error`);
 
   static description = 'sync design tokens from figma file';
 
@@ -31,7 +32,7 @@ export default class FigmaSync extends Command {
   static args = [{ name: 'file', description: 'figma file id' }];
 
   async init() {
-    debug.enable('newrade:core-cli:*');
+    debug.enable('nr:core-cli:*');
   }
 
   async run() {

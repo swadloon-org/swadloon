@@ -12,7 +12,7 @@ import {
   useCommonProps,
   useIsSSR,
   useTreatTheme,
-} from '@newrade/core-react-ui/src';
+} from '@newrade/core-react-ui';
 import { LinkAPI, LinkComponent, LinkType } from '@newrade/core-website-api';
 import debug from 'debug';
 import React, { PropsWithChildren } from 'react';
@@ -21,7 +21,7 @@ import { GatsbyLink } from './gatsby-link';
 import * as styleRefs from './link-renderer.treat';
 import { LinkRendererProps } from './link.props';
 
-const log = debug('newrade:core-gatsby-ui:link-renderer');
+const log = debug('nr:core-gatsby-ui:link-renderer');
 const logWarn = log.extend('warn');
 const logError = log.extend('error');
 

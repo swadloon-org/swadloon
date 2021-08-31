@@ -14,7 +14,7 @@ import { SectionStatement } from './section-statement';
 import { SectionSwitcher } from './section-switcher';
 import { SectionProps, SectionRendererProps } from './section.props';
 
-const log = debug('newrade:core-gatsby-ui:section-renderer');
+const log = debug('nr:core-gatsby-ui:section-renderer');
 const logWarn = log.extend('warn');
 const logError = log.extend('error');
 
