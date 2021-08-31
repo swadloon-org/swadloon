@@ -75,6 +75,9 @@ jobs:
       - name: 'Checkout, Setup NodeJS + yarn and install dependencies'
         uses: ./.github/actions/base-node-setup
 
+      - name: Set the env variable depending on the branch
+        uses: ./packages/core-github-actions/built/set-app-env
+
       - name: Verify dependencies
         run: yarn lerna:depcheck --scope @newrade/ze-*
 
