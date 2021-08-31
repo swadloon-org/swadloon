@@ -49,9 +49,6 @@ runs:
         run: echo $NODE_OPTIONS && node -e 'console.log(`node heap limit = ${require("v8").getHeapStatistics().heap_size_limit / (1024 * 1024)} Mb`)'
         shell: bash
 
-      - name: Set the env variable depending on the branch
-        uses: ./packages/core-github-actions/built/set-app-env
-
       - name: Set up yarn
         run: npm i -g yarn && yarn --version
         shell: bash
