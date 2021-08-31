@@ -10,6 +10,7 @@ name: ze-design-website
 on:
   push:
     paths:
+      - '.github/actions/**/*'
       - '.github/workflows/ze-design-website-workflow.yml'
       - '**/package.json'
       - '**/package-lock.json'
@@ -35,7 +36,7 @@ env:
   #
   # NVM
   #
-  NVM_NODE_VERSION: 14
+  NVM_NODE_VERSION: v16
   #
   # Repo
   #
@@ -57,70 +58,60 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [14.x]
-
     steps:
-    - name: Cancel Previous Runs
-      uses: styfle/cancel-workflow-action@0.9.0
-      with:
-        all_but_latest: false
-        access_token: ${{ github.token }}
+      - name: Checkout
+        if: ${{ github.event_name != 'pull_request_target' }}
+        uses: actions/checkout@v2
+        with:
+          clean: false
 
-    - name: Inject Github slug/short variables
-      uses: rlespinasse/github-slug-action@v3.x
+      - name: Checkout PR
+        if: ${{ github.event_name == 'pull_request_target' }}
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          clean: false
 
-    - name: Checkout
-      uses: actions/checkout@v2
-      with:
-        clean: false
+      - name: 'Checkout, Setup NodeJS + yarn and install dependencies'
+        uses: ./.github/actions/base-node-setup
 
-    - name: Set up Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
+      - name: Verify dependencies
+        run: yarn lerna:depcheck --scope @newrade/ze-*
 
-    - name: Set up yarn
-      run: npm install --global yarn && yarn --version
+      - name: Typecheck
+        run: yarn lerna:typecheck --scope @newrade/ze-*
 
-    - name: Check NodeJS Options
-      run: echo $NODE_OPTIONS && node -e 'console.log(`node heap limit = ${require("v8").getHeapStatistics().heap_size_limit / (1024 * 1024)} Mb`)'
+      - name: Lint (ls-lint) source files (core-docs)
+        run: yarn ls-lint
 
-    - name: Set the env variable depending on the branch
-      uses: ./packages/core-github-actions/built/set-app-env
+      - name: Lint (ls-lint) source files
+        run: yarn lerna:ls-lint --scope @newrade/ze-*
 
-    - name: Install dependencies and build core packages
-      run: yarn --prefer-offline --frozen-lockfile
+      - name: Lint source files
+        run: yarn eslint ./packages/ze-*/src/ --ext ts,tsx
 
-    - name: Clean
-      run: yarn lerna:clean --scope @newrade/ze-*
+      - name: Build ze-design-system
+        run: yarn lerna:build --scope @newrade/ze-design-system
 
-    - name: Lint Src Files
-      run: yarn eslint ./packages/ze-*/src/ --ext ts,tsx
+      - name: Run unit tests
+        run: yarn lerna:test --scope @newrade/ze-*
 
-    - name: Build ze-design-system
-      run: yarn lerna:build --scope @newrade/ze-design-system
+      - name: Build
+        run: yarn lerna:build --scope @newrade/ze-design-website
 
-    - name: Run unit tests
-      run: yarn lerna:test --scope @newrade/ze-*
-
-    - name: Build
-      run: yarn lerna:build --scope @newrade/ze-design-website
-
-    - name: Deploy
-      if: ${{ env.APP_CI_DEPLOY }}
-      uses: amondnet/vercel-action@v20
-      with:
-        github-comment: false
-        scope: newrade
-        vercel-token: ${{ secrets.VERCEL_TOKEN }}
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        vercel-args: 'public'
-        vercel-org-id: ${{ secrets.VERCEL_ORG_ID}}
-        vercel-project-id: prj_Iu3M9OUBoUrzzQbljsaq6Z3WiRXJ
-        working-directory: ./packages/ze-design-website
-        alias-domains: |
-          ${{ env.APP_HOST }}
+      - name: Deploy
+        if: ${{ env.APP_CI_DEPLOY }}
+        uses: amondnet/vercel-action@v20
+        with:
+          github-comment: false
+          scope: newrade
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          vercel-args: 'public'
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID}}
+          vercel-project-id: prj_Iu3M9OUBoUrzzQbljsaq6Z3WiRXJ
+          working-directory: ./packages/ze-design-website
+          alias-domains: |
+            ${{ env.APP_HOST }}
 
 

@@ -43,7 +43,7 @@ runs:
         uses: actions/setup-node@v2
         with:
           node-version: '16'
-          architecture: 'x64'
+          architecture: 'arm64'
 
       - name: Check NodeJS Options
         run: echo $NODE_OPTIONS && node -e 'console.log(`node heap limit = ${require("v8").getHeapStatistics().heap_size_limit / (1024 * 1024)} Mb`)'

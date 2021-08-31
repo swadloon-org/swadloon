@@ -52,12 +52,11 @@ USAGE
 * [`nr micromatch [PATH] [PATTERN]`](#nr-micromatch-path-pattern)
 * [`nr prepare-dev`](#nr-prepare-dev)
 * [`nr prepare-exports`](#nr-prepare-exports)
-* [`nr vercel-deploy`](#nr-vercel-deploy)
 * [`nr webpack [COMMAND]`](#nr-webpack-command)
 
 ## `nr commit`
 
-call the commit script in the repo root
+call the commit script
 
 ```
 USAGE
@@ -241,8 +240,6 @@ EXAMPLE
   $ nr micromatch
 ```
 
-_See code: [lib/commands/micromatch.js](https://github.com/newrade/newrade-core/blob/v1.11.0/lib/commands/micromatch.js)_
-
 ## `nr prepare-dev`
 
 execute preconstruct dev
@@ -265,23 +262,6 @@ USAGE
 
 EXAMPLE
   $ nr prepare-exports
-```
-
-_See code: [lib/commands/prepare-exports.js](https://github.com/newrade/newrade-core/blob/v1.11.0/lib/commands/prepare-exports.js)_
-
-## `nr vercel-deploy`
-
-deploy site with vercel using env variables
-
-```
-USAGE
-  $ nr vercel-deploy
-
-OPTIONS
-  -h, --help  show CLI help
-
-EXAMPLE
-  $ nr vercel-deploy
 ```
 
 ## `nr webpack [COMMAND]`
