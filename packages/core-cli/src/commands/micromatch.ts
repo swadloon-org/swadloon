@@ -22,6 +22,7 @@ export default class Micromatch extends Command {
 
     this.log(`path: ${chalk.blueBright(args.path)}, pattern: ${chalk.bgBlue(args.pattern)}`);
 
+    // const format = (str: string) => str.replace(/^\.\//, '');
     const result = micromatch.isMatch(args.path, args.pattern);
 
     this.log(`match: ${result ? chalk.green(result) : chalk.red(result)}`);
