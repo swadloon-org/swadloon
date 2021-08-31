@@ -75,5 +75,5 @@ jobs:
         with:
           commit_message: "chore(core): update diagram"
           output_file: "docs/assets/images/core-repo-diagram.svg"
-          excluded_globs: "**/node_modules/*,**/dist/*,**/lib/*,**/built/*,**/public/*,**/.cache/*"
-          excluded_paths: "node_modules,dist,lib,built,.cache,public,out,build,.yarn,.vscode,package-lock.json,yarn.lock"
+          excluded_globs: "**/node_modules/**,**/dist/**,**/lib/**,**/built/**,**/public/**,**/.cache/**"
+          excluded_paths: "node_modules,dist,lib,built,.cache,public,out,build,.yarn,.vscode,package-lock.json,yarn.lock,packages/**/node_modules,packages/**/dist,packages/**/lib,packages/**/built,packages/**/.cache,packages/**/public,packages/**/out,packages/**/build"
