@@ -15,7 +15,7 @@ on:
   push:
     paths:
       - '.github/actions/**/*'
-      - '.github/workflows/core-workflow.yml'
+      - '.github/workflows/core-repo-diagram-workflow.yml'
       - '**/package.json'
       - '**/package-lock.json'
       - '**/yarn.lock'
