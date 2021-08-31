@@ -1,34 +1,42 @@
 {
   "name": "@newrade/core-utils",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "@newrade/core utilities shared across packages.",
   "author": {
     "email": "info@newrade.ca",
     "name": "Newrade",
     "url": "https://github.com/newrade/newrade"
   },
-  "repository": "https://github.com/newrade/newrade-core/tree/master/packages/core-utils",
+  "repository": {
+    "directory": "packages/core-utils",
+    "type": "git",
+    "url": "https://github.com/newrade/newrade-core.git"
+  },
   "license": "MIT",
   "bin": {
     "newrade-cli-clear": "./lib/console-clear.js",
     "newrade-cli-newline": "./lib/console-newline.js"
   },
-  "main": "./lib/index.js",
-  "module": "./lib/index.js",
+  "main": "dist/newrade-core-utils.cjs.js",
+  "module": "dist/newrade-core-utils.esm.js",
   "files": [
-    "./lib/**/*"
+    "/dist"
   ],
   "scripts": {
-    "build": "tsc --build tsconfig.build.json",
-    "clean": "rm -rf lib/** && rm -f tsconfig.build.tsbuildinfo",
-    "start": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
-    "test": "jest",
-    "test:watch": "jest --watch"
+    "build": "yarn clean && yarn build:dist && nr prepare-exports",
+    "build:dist": "tsc --project tsconfig.json",
+    "clean": "yarn clean:tsc && yarn clean:dist",
+    "clean:dist": "rm -rf dist/** lib/**",
+    "clean:tsc": "rm -f ./**/*.tsbuildinfo *.tsbuildinfo",
+    "dev": "yarn clean && yarn preconstruct dev"
   },
   "sideEffects": false,
-  "typings": "./lib/index.d.ts",
   "dependencies": {
-    "@newrade/core-common": "^1.4.0",
-    "@newrade/core-types": "^2.0.0"
+    "@newrade/core-common": "^1.4.1",
+    "@newrade/core-jest-config": "^2.0.1",
+    "chalk": "^4",
+    "dotenv": "^10",
+    "fp-ts": "^2.11.1",
+    "io-ts": "^2"
   }
 }

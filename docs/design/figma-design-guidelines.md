@@ -123,17 +123,17 @@ Light/Newrade/Primary/100
 
 ```
 
-# Typography
+## Typography
 
-## Typefaces
+### Typefaces
 
-## Headlines
+### Headlines
 
-## Naming Headlines Convention
+### Naming Headlines Convention
 
-## Paragraphs
+### Paragraphs
 
-## Naming Paragraphs Convention
+### Naming Paragraphs Convention
 
 ```
 <Type>/<Variant>/<Viewport>/<Size>
@@ -142,7 +142,7 @@ Paragraph/Sans/Desktop/Large
 
 ```
 
-## Links
+### Links
 
 ## Naming Links Convention
 
@@ -163,3 +163,13 @@ Label/Mobile/Small/Bold
 Label/Mobile/Small/Bold
 
 ```
+
+## Logos
+
+TODO
+
+- [ ] list all logos sizes
+
+- `logo-standard`
+
+https://w3c.github.io/manifest/#icon-masks

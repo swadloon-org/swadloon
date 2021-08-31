@@ -4,7 +4,7 @@ import { useStyles } from 'react-treat';
 import { useCommonProps } from '../hooks/use-common-props.hook';
 import { useTreatTheme } from '../hooks/use-treat-theme';
 import { PrimitiveProps } from '../primitive/primitive.props';
-import { getMergedClassname } from '../utilities';
+import { getMergedClassname } from '../utilities/component.utilities';
 import * as styleRefs from './logo.treat';
 import { useLogosContext } from './logos-provider';
 

@@ -1,4 +1,4 @@
-import { Theme } from '@newrade/core-react-ui/src/design-system';
+import { Theme } from '@newrade/core-react-ui';
 import { globalThemeReversedSelector } from '@newrade/core-react-ui/src/global/global-theme-classnames';
 import { globalStyle, style } from 'treat';
 

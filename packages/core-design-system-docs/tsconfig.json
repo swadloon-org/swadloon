@@ -1,11 +1,10 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "../../tsconfig.browser-esm.json",
   "compilerOptions": {
-    "types": ["gatsby", "node", "jest"],
     "baseUrl": ".",
-    "paths": {
-      "@newrade/*": ["../*/src"]
-    }
+    "rootDir": "src",
+    "outDir": "dist",
+    "types": ["gatsby", "node", "jest"]
   },
-  "include": ["src", "test", "types", "scripts"]
+  "include": ["src", "docs/**/*", "types"]
 }

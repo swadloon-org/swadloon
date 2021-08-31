@@ -8,7 +8,7 @@ import {
   useIsSSR,
   useTreatTheme,
   useViewportBreakpoint,
-} from '@newrade/core-react-ui/src';
+} from '@newrade/core-react-ui';
 import { NavbarLayout } from '@newrade/core-website-api';
 import { PageProps } from 'gatsby';
 import React, { ReactNode, useState } from 'react';

@@ -3,7 +3,7 @@ import {
   defaultColorIntents,
   defaultColorsColors,
   defaultColorsGradients,
-} from '@newrade/core-react-ui/src/default-theme';
+} from '@newrade/core-react-ui/default-theme';
 
 export const colors: Colors = {
   colors: defaultColorsColors,

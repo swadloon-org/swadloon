@@ -1,5 +1,5 @@
-import { useCommonProps, useTreatTheme } from '@newrade/core-react-ui/src';
-import { keys } from '@newrade/core-react-ui/src/utilities';
+import { useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
+import { keys } from '@newrade/core-react-ui/utilities';
 import { BlockType, SectionAPI, SectionLayout } from '@newrade/core-website-api';
 import debug from 'debug';
 import React, { PropsWithChildren } from 'react';
@@ -14,7 +14,7 @@ import { SectionStatement } from './section-statement';
 import { SectionSwitcher } from './section-switcher';
 import { SectionProps, SectionRendererProps } from './section.props';
 
-const log = debug('newrade:core-gatsby-ui:section-renderer');
+const log = debug('nr:core-gatsby-ui:section-renderer');
 const logWarn = log.extend('warn');
 const logError = log.extend('error');
 

@@ -1,4 +1,3 @@
-import 'jest';
 import _ from 'case';
 import rimraf from 'rimraf';
 import path from 'path';

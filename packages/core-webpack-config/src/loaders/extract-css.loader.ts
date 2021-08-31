@@ -1,4 +1,4 @@
-/// <reference types="../../types/core-types" />
+/// <reference types="../types/core-types" />
 
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { RuleSetRule } from 'webpack';

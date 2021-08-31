@@ -1,4 +1,4 @@
-import { useTreatTheme } from '@newrade/core-react-ui/src';
+import { useTreatTheme } from '@newrade/core-react-ui';
 import React, { SVGAttributes } from 'react';
 
 type Props = SVGAttributes<any>;

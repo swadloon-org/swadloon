@@ -1,4 +1,4 @@
-import { Center, Heading, Paragraph, Stack, useTreatTheme } from '@newrade/core-react-ui/src';
+import { Center, Heading, Paragraph, Stack, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 import { SrcPageTemplate, SrcPageTemplateProps } from '../templates/src-page.template';
 

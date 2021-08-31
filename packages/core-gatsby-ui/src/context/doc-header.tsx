@@ -1,5 +1,5 @@
 import { LABEL_SIZE, PARAGRAPH_SIZE, TEXT_STYLE, Variant } from '@newrade/core-design-system';
-import { MarkdownTemplateQuery } from '@newrade/core-gatsby-config/lib/esm/config/site-graphql-types';
+import { MarkdownTemplateQuery } from '@newrade/core-gatsb-config/config';
 import {
   Badge,
   Cluster,
@@ -10,8 +10,9 @@ import {
   Stack,
   Tag,
   useTreatTheme,
-} from '@newrade/core-react-ui/src';
+} from '@newrade/core-react-ui';
 import React from 'react';
+import { useI18next } from '../i18next/use-i18next.hook';
 
 type Props = {
   props: {
@@ -24,6 +25,7 @@ type Props = {
  */
 export const DocHeader = ({ props }: Props) => {
   const { cssTheme } = useTreatTheme();
+  const { t } = useI18next();
 
   const status = props?.data?.file?.childMdx?.frontmatter?.status;
   const subject = props?.data?.file?.childMdx?.frontmatter?.subject;
@@ -70,7 +72,7 @@ export const DocHeader = ({ props }: Props) => {
 
       {timeToRead ? (
         <Paragraph variantLevel={Variant.secondary} variant={PARAGRAPH_SIZE.xSmall}>
-          {lastChangedAt} · {`${timeToRead} min read`}
+          {lastChangedAt} · {`${timeToRead} ${t('minutesToRead')}`}
         </Paragraph>
       ) : null}
 

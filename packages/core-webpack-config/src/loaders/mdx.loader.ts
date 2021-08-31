@@ -17,8 +17,8 @@ import wikiLinkPlugin from 'remark-wiki-link';
 // @ts-ignore
 import remarkUnwrapImages from 'remark-unwrap-images';
 import { RuleSetRule } from 'webpack';
-import { babelPluginBrowserConf } from '../babel-plugins.conf';
-import { babelPresetBrowserConf } from '../babel-preset.conf';
+import { babelPluginBrowserConf } from '../babel/babel-plugins.conf';
+import { babelPresetBrowserConf } from '../babel/babel-preset.conf';
 
 /**
  * remark plugin to serialize Markdown as HTML.

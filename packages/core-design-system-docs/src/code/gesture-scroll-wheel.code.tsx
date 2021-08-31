@@ -1,4 +1,4 @@
-import { GestureScrollWheelExample, Stack, useTreatTheme } from '@newrade/core-react-ui/src';
+import { GestureScrollWheelExample, Stack, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 
 type Props = {};

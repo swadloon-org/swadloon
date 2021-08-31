@@ -1,13 +1,11 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "../../tsconfig.browser-gatsby.json",
   "compilerOptions": {
-    "allowJs": true,
-    "noEmit": true,
-    "types": ["node"],
     "baseUrl": ".",
-    "paths": {
-      "@newrade/*": ["../*/src"]
-    }
+    "outDir": "lib"
   },
-  "include": ["src", "test", "types", "scripts"]
+  "include": ["gatsby-*.ts", "src", "test", "types", "scripts/**/*"],
+  "ts-node": {
+    "transpileOnly": true
+  }
 }

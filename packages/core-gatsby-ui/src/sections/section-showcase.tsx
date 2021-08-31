@@ -1,5 +1,5 @@
 import { Variant } from '@newrade/core-design-system';
-import { BoxV2, useCommonProps, useTreatTheme } from '@newrade/core-react-ui/src';
+import { BoxV2, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
 import { SectionBaseLayout, SectionPadding } from '@newrade/core-website-api';
 import React from 'react';
 import { useStyles } from 'react-treat';
@@ -49,26 +49,6 @@ export const SectionShowcase = React.forwardRef<HTMLElement, Props>(
       classNames: [styles.wrapper],
       ...props,
     });
-
-    // const LeftTextBlockComp = LeftTextBlock
-    //   ? React.cloneElement(LeftTextBlock as React.ReactElement, {
-    //       style: {
-    //         position: 'relative',
-    //       },
-    //       className: styles.leftBlock,
-    //       children: <>{LeftBGBlock}</>,
-    //     })
-    //   : null;
-
-    // const RightTextBlockComp = RightTextBlock
-    //   ? React.cloneElement(RightTextBlock as React.ReactElement, {
-    //       style: {
-    //         position: 'relative',
-    //       },
-    //       className: styles.rightBlock,
-    //       children: <>{RightBGBlock}</>,
-    //     })
-    //   : null;
 
     return (
       <SectionBase

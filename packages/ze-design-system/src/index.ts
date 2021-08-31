@@ -1,5 +1,5 @@
-/// <reference types="@newrade/core-types/lib/svg" />
-/// <reference types="@newrade/core-types/lib/github-slugger" />
+/// <reference types="@newrade/core-types/src/svg" />
+/// <reference types="@newrade/core-types/src/github-slugger" />
 
 export * from './design-system/colors';
 export * from './design-system/effects';

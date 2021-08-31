@@ -1,8 +1,6 @@
 import { ButtonIcon, ButtonSize, Variant } from '@newrade/core-design-system';
-import { IoPauseOutline } from '@react-icons/all-files/io5/IoPauseOutline';
-import { IoPlayOutline } from '@react-icons/all-files/io5/IoPlayOutline';
-import { IoReloadOutline } from '@react-icons/all-files/io5/IoReloadOutline';
 import React, { useCallback, useEffect, useImperativeHandle, useRef, useState } from 'react';
+import { IoPauseOutline, IoPlayOutline, IoReloadOutline } from 'react-icons/io5';
 import { useStyles } from 'react-treat';
 import { Button } from '../button/button';
 import { useCommonProps } from '../hooks/use-common-props.hook';
@@ -94,7 +92,11 @@ export const CSSAnimation = React.forwardRef<
 
     const commonProps = useCommonProps<'div'>({
       id,
-      style: { ...style, ...animationCssProps, animationPlayState: animation?.playState },
+      style: {
+        ...style,
+        ...animationCssProps,
+        animationPlayState: animation?.playState || 'paused',
+      },
       className,
       classNames: [
         ...(classNames ? classNames : []),

@@ -1,8 +1,10 @@
 import loadable from '@loadable/component';
 import { SITE_LANGUAGES } from '@newrade/core-common';
 import { HEADING, PARAGRAPH_SIZE, TagSize, Variant } from '@newrade/core-design-system';
-import { GatsbyMarkdownFilePageContext } from '@newrade/core-gatsby-config';
-import { SOURCE_INSTANCE_NAME } from '@newrade/core-gatsby-config/lib/esm/config/gatsby-source-instances';
+import {
+  GatsbyMarkdownFilePageContext,
+  SOURCE_INSTANCE_NAME,
+} from '@newrade/core-gatsb-config/config';
 import {
   BoxV2,
   DesktopDocsItemGroup,
@@ -18,7 +20,7 @@ import {
   useTreatTheme,
   viewportContext,
   ViewportProvider,
-} from '@newrade/core-react-ui/src';
+} from '@newrade/core-react-ui';
 import { SidebarLayout } from '@newrade/core-website-api';
 import { PageProps } from 'gatsby';
 import React, { ReactNode } from 'react';
@@ -30,14 +32,10 @@ import { useSidebarState } from '../sidebar/sidebar.hooks';
 /**
  * Sidebar
  */
-const LazySidebarStandard = loadable(
-  () => import(/* webpackExports: "SidebarStandard" */ '@newrade/core-gatsby-ui/src'),
-  {
-    resolveComponent: (
-      components: typeof import('@newrade/core-gatsby-ui/src/sidebar/sidebar-standard')
-    ) => components.SidebarStandard,
-  }
-);
+const LazySidebarStandard = loadable(() => import('../sidebar/sidebar-standard'), {
+  resolveComponent: (components: typeof import('../sidebar/sidebar-standard')) =>
+    components.SidebarStandard,
+});
 
 export type LayoutDocsProps = Partial<
   Omit<PageProps<any, GatsbyMarkdownFilePageContext>, 'children'> & { children: ReactNode }
@@ -88,7 +86,8 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
     </>
   );
 
-  const tag = props.path && /core-docs/gi.test(props.path) ? 'core docs' : 'docs';
+  const tag =
+    props.location?.pathname && /core-docs/gi.test(props.location?.pathname) ? 'core docs' : 'docs';
 
   return (
     <MainWrapper>

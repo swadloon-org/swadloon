@@ -3,10 +3,12 @@ name: Cache Build
 runs:
   using: "composite"
   steps:
+
     - name: Set up Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v2
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: '16'
+        architecture: 'arm64'
 
     - uses: dorny/paths-filter@v2
       id: filter

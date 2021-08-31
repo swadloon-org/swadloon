@@ -1,15 +1,20 @@
 import debug from 'debug';
+import { CommonEnvType } from './common-env';
 
-const log = debug('newrade:env');
+const log = debug('nr:env');
 
-export function logEnvVariables<ENV extends Record<string, string | undefined>>({
+export function logEnvVariables<ENV extends CommonEnvType | Record<string, any>>({
   packageName,
   env,
+  debugFn,
 }: {
   packageName: string;
   env: Partial<ENV>;
+  debugFn?: debug.Debugger;
 }) {
-  const logPackage = log.extend(packageName.replace('@newrade/', ''));
+  const logPackage = debugFn
+    ? debugFn.extend(packageName.replace('@newrade/', ''))
+    : log.extend(packageName.replace('@newrade/', ''));
 
   logPackage(`NODE_ENV is ${env.NODE_ENV}`);
   logPackage(`NODE_DEBUG is ${env.NODE_DEBUG}`);

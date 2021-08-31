@@ -3,6 +3,45 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/newrade/newrade-core/compare/@newrade/core-github-actions@2.0.0...@newrade/core-github-actions@2.0.1) (2021-08-31)
+
+### Bug Fixes
+
+- **core:** add ls-lint
+  ([76728ca](https://github.com/newrade/newrade-core/commit/76728ca9b5e340d7587f596e3e4ca373e788ca91))
+- **core:** big cleanup of unnecessary tsconfig files
+  ([36cbad5](https://github.com/newrade/newrade-core/commit/36cbad539a31dc00c8ab7cf12e6a1916692917a7))
+- **core:** create additionnal workflows
+  ([02e4041](https://github.com/newrade/newrade-core/commit/02e4041ff7a755ff2f69f5c2c3d4410c318978ec))
+- **core:** fix config files for gatsby
+  ([5f495d0](https://github.com/newrade/newrade-core/commit/5f495d071b5e8f078d7be39f2618ecc57905273b))
+- **core:** fix deps in packages
+  ([112f5c4](https://github.com/newrade/newrade-core/commit/112f5c421e3e5aef5ffb510cc6cf3d615ef7aba1))
+- **core:** fix for imports
+  ([5cc63ef](https://github.com/newrade/newrade-core/commit/5cc63ef99078f5cf01835c9d2116f15300f5fb63))
+- **core:** fix ls-lint config
+  ([bb554f2](https://github.com/newrade/newrade-core/commit/bb554f2427845dc80b0cc0d4493874fac539cb5e))
+- **core:** fix node tsconfig for commonjs
+  ([f17ea23](https://github.com/newrade/newrade-core/commit/f17ea236f56c47bee3b335cfb960a9c1d6123110))
+- **core:** fix once and for all the paths for core-react-ui and core-gatsby-ui
+  ([3a4691c](https://github.com/newrade/newrade-core/commit/3a4691cf9642377b65960f1ad8c7f6264e318c64))
+- **core:** fix typecheck command
+  ([4bab26c](https://github.com/newrade/newrade-core/commit/4bab26c27b1f679dc8376b84347aa94d2d235eea))
+- **core:** fixes for workflows actions
+  ([3d25903](https://github.com/newrade/newrade-core/commit/3d25903450b874a5bf805549ecb17ae59361132f))
+- **core:** improvements for workflows
+  ([7a2710e](https://github.com/newrade/newrade-core/commit/7a2710e9e861b4d88ee56524a6ea141864a9c8ce))
+- **core:** various fixes for core packages targeting documentation & core docs
+  update
+  ([3ce203f](https://github.com/newrade/newrade-core/commit/3ce203fbbc073394a71adcad1979cc1ef1031903))
+- **root:** fixes for webpack and gatsby config
+  ([0421692](https://github.com/newrade/newrade-core/commit/04216928e08cfdf9be562e8b0ac4263db22943ec))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [2.0.0](https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions/compare/@newrade/core-github-actions@1.4.0...@newrade/core-github-actions@2.0.0) (2021-07-12)
 
 ### Features

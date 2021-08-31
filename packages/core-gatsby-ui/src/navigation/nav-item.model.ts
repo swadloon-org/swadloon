@@ -1,4 +1,4 @@
-import { MdxFrontmatter } from '@newrade/core-gatsby-config/lib/esm/config/site-mdx-frontmatter';
+import { MdxFrontmatter } from '@newrade/core-gatsb-config/config';
 
 export type NavItem = {
   /**

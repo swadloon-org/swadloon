@@ -1,5 +1,5 @@
 import { SITE_LANGUAGES } from '@newrade/core-common';
-import { SOURCE_INSTANCE_NAME } from '@newrade/core-gatsby-config/lib/esm/config/gatsby-source-instances';
+import { SOURCE_INSTANCE_NAME } from '@newrade/core-gatsb-config/config';
 import { graphql, useStaticQuery } from 'gatsby';
 import { Navigation } from '../navigation/navigation.model';
 import { getNavigationFromPageNodes } from '../utilities/navigation.utilities';
@@ -125,7 +125,16 @@ export function useDocsNavigation(
     name: 'core packages docs navigation',
     locales,
     pageNodes: coreDocsPagesNodes,
-    sortOrderDirectories: ['docs', 'home', 'guides', 'design', 'build', 'deploy', 'monitor'],
+    sortOrderDirectories: [
+      'docs',
+      'home',
+      'guides',
+      'design',
+      'build',
+      'deploy',
+      'monitor',
+      'packages',
+    ],
     sortOrderItems: [
       '',
       'overview',

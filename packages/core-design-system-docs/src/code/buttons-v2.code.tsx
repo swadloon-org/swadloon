@@ -1,5 +1,5 @@
 import { Variant } from '@newrade/core-design-system';
-import { ButtonV2, useTreatTheme } from '@newrade/core-react-ui/src';
+import { ButtonV2, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 
 type Props = {};

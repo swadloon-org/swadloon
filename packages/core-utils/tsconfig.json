@@ -1,11 +1,10 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "../../tsconfig.node-commonjs.json",
   "compilerOptions": {
-    "types": ["node", "jest", "debug"],
     "baseUrl": ".",
-    "paths": {
-      "@newrade/*": ["../*/src"]
-    }
+    "outDir": "dist",
+    "rootDir": "src",
+    "types": ["node", "jest", "debug"]
   },
-  "include": ["src", "test", "types", "scripts"]
+  "include": ["src"]
 }

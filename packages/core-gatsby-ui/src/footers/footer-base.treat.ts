@@ -1,8 +1,9 @@
-import { Theme } from '@newrade/core-react-ui/src/design-system';
+import { Theme } from '@newrade/core-react-ui';
 import { globalThemeReversedSelector } from '@newrade/core-react-ui/src/global/global-theme-classnames';
 import { globalStyle, style } from 'treat';
 
 export const wrapper = style(({ theme, cssTheme }: Theme) => ({
+  zIndex: cssTheme.layout.zIndex.sideBarDesktop + 1,
   width: '100%',
   padding: `${cssTheme.sizing.var.x5} 0`,
 }));

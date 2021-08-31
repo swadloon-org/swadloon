@@ -6,8 +6,8 @@ import {
   TableHeader,
   TableRow,
   useTreatTheme,
-} from '@newrade/core-react-ui/src';
-import { keys } from '@newrade/core-react-ui/src/utilities';
+} from '@newrade/core-react-ui';
+import { keys } from '@newrade/core-react-ui/utilities';
 import React from 'react';
 
 type Props = {};

@@ -6,5 +6,6 @@ lib/
 # contentful
 import/
 export/
+contentful.json
 contentful-export-*.json
 contentful-import-*.json

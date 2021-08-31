@@ -1,6 +1,6 @@
 import { style } from 'treat';
 import { Theme } from '../design-system';
-import { getCSSColor } from '../utilities';
+import { getCSSColor } from '../utilities/colors.utilities';
 
 export const styles = {
   normal: style(({ theme, cssTheme }: Theme) => ({

@@ -1,4 +1,4 @@
-import { Theme } from '@newrade/core-react-ui/src';
+import { Theme } from '@newrade/core-react-ui';
 import { style } from 'treat';
 
 export const styles = {
@@ -46,6 +46,7 @@ export const styles = {
   })),
   logoMobile: style(({ cssTheme, theme }: Theme) => ({
     maxHeight: `24px`,
+    height: `28px`,
     fill: 'white',
   })),
   logoDesktop: style(({ cssTheme, theme }: Theme) => ({

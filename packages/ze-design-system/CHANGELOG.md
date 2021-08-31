@@ -3,6 +3,54 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/newrade/newrade-core/compare/@newrade/ze-design-system@1.3.0...@newrade/ze-design-system@1.4.0) (2021-08-31)
+
+### Bug Fixes
+
+- **core:** add ls-lint
+  ([76728ca](https://github.com/newrade/newrade-core/commit/76728ca9b5e340d7587f596e3e4ca373e788ca91))
+- **core:** big cleanup of unnecessary tsconfig files
+  ([36cbad5](https://github.com/newrade/newrade-core/commit/36cbad539a31dc00c8ab7cf12e6a1916692917a7))
+- **core:** build fixes for ze-packages
+  ([b3a24d8](https://github.com/newrade/newrade-core/commit/b3a24d88337038b861ab5eccc479f118543c4d21))
+- **core:** fix config files for gatsby
+  ([5f495d0](https://github.com/newrade/newrade-core/commit/5f495d071b5e8f078d7be39f2618ecc57905273b))
+- **core:** fix deps in packages
+  ([112f5c4](https://github.com/newrade/newrade-core/commit/112f5c421e3e5aef5ffb510cc6cf3d615ef7aba1))
+- **core:** fix inter default fonts
+  ([9a4a788](https://github.com/newrade/newrade-core/commit/9a4a7884c51f6ed17efd43601c722fc64484efbb))
+- **core:** fix ls-lint config
+  ([bb554f2](https://github.com/newrade/newrade-core/commit/bb554f2427845dc80b0cc0d4493874fac539cb5e))
+- **core:** fix once and for all the paths for core-react-ui and core-gatsby-ui
+  ([3a4691c](https://github.com/newrade/newrade-core/commit/3a4691cf9642377b65960f1ad8c7f6264e318c64))
+- **core:** fix test config
+  ([9d3757b](https://github.com/newrade/newrade-core/commit/9d3757be70590a7b59f536258c8c6bb9215e1076))
+- **core:** fix typecheck command
+  ([4bab26c](https://github.com/newrade/newrade-core/commit/4bab26c27b1f679dc8376b84347aa94d2d235eea))
+- **core:** fixes for page generation (i18)
+  ([d16b451](https://github.com/newrade/newrade-core/commit/d16b4517a8a8c676cf60c5e7cb239905ac0b2bfd))
+- **core:** fixes for ze-design-website
+  ([bcbee46](https://github.com/newrade/newrade-core/commit/bcbee46a144116bf1ec72067ede8ee41d5291da7))
+- **core:** improvements for workflows
+  ([7a2710e](https://github.com/newrade/newrade-core/commit/7a2710e9e861b4d88ee56524a6ea141864a9c8ce))
+- **core:** various fixes for core packages targeting documentation & core docs
+  update
+  ([3ce203f](https://github.com/newrade/newrade-core/commit/3ce203fbbc073394a71adcad1979cc1ef1031903))
+- **core-react-ui:** fix bad import
+  ([46caa70](https://github.com/newrade/newrade-core/commit/46caa70461d41762723fe3d152475117f6a397c2))
+- **ze:** fix build script
+  ([b23b606](https://github.com/newrade/newrade-core/commit/b23b6064c400d4e124d101d436e828fcde9082ed))
+
+### Features
+
+- **core:** upgrade gatsby, gatsby-plugin-image
+  ([d05676e](https://github.com/newrade/newrade-core/commit/d05676e05fc6b37d9ce82a56109c8e94398f18fd))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.3.0](https://github.com/newrade/newrade-core/compare/@newrade/ze-design-system@1.2.0...@newrade/ze-design-system@1.3.0) (2021-07-15)
 
 ### Bug Fixes

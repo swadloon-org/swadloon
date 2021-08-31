@@ -1,23 +1,24 @@
 {
   "name": "@newrade/core-graphql-ui",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "UI App library",
   "license": "MIT",
   "scripts": {
-    "build-disabled": "cross-env TS_NODE_PROJECT=../core-webpack-config/tsconfig.webpack.json node -r ts-node/register ../../node_modules/webpack/bin/webpack --config webpack.dev.config.ts",
-    "clean-disabled": "rm -rf public/** && rm -f tsconfig.build.tsbuildinfo",
-    "start": "cross-env TS_NODE_PROJECT=../core-webpack-config/tsconfig.webpack.json node -r ts-node/register ../../node_modules/webpack-dev-server/bin/webpack-dev-server --config webpack.dev.config.ts",
-    "test-disabled": "echo ok"
+    "build-disabled": "nr webpack --config webpack.dev.config.ts",
+    "clean-disabled": "rm -rf public/** && rm -f *.tsbuildinfo",
+    "start": "nr webpack serve --config webpack.dev.config.ts",
+    "test-disabled": "echo ok",
+    "typecheck": "tsc --noEmit"
   },
   "type": "module",
   "typings": "./lib/index.d.ts",
   "dependencies": {
-    "@newrade/core-common": "^1.4.0",
-    "@newrade/core-design-system": "^1.14.0",
-    "@newrade/core-jest-config": "^2.0.0",
-    "@newrade/core-react-ui": "^2.1.0",
-    "@newrade/core-types": "^2.0.0",
-    "@newrade/core-utils": "^2.0.0",
-    "@newrade/core-webpack-config": "^2.0.0"
+    "@newrade/core-types": "^2.0.1",
+    "@newrade/core-utils": "^2.1.0",
+    "@newrade/core-webpack-config": "^2.1.0",
+    "fp-ts": "^2",
+    "graphiql": "^1.4.2",
+    "io-ts": "^2",
+    "treat": "^2"
   }
 }

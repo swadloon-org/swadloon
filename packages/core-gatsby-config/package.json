@@ -1,37 +1,47 @@
 {
-  "name": "@newrade/core-gatsby-config",
-  "version": "2.1.0",
+  "name": "@newrade/core-gatsb-config",
+  "version": "3.0.0",
   "description": "Reusable gatsby configuration files",
   "license": "MIT",
-  "main": "./lib/index.js",
-  "module": "./lib/esm/index.js",
+  "main": "dist/newrade-core-gatsb-config.cjs.js",
+  "module": "dist/newrade-core-gatsb-config.esm.js",
   "files": [
-    "./lib/**/*"
+    "/dist",
+    "/config"
   ],
   "scripts": {
-    "prebuild": "yarn create-package-json",
-    "build": "yarn build:commonjs && yarn build:esm",
-    "build:commonjs": "tsc --build tsconfig.build.json",
-    "build:esm": "tsc --build tsconfig.build.esm.json",
-    "clean": "rm -rf lib/** && rm -f tsconfig.build.tsbuildinfo",
-    "create-package-json": "yarn create-package-json-plugin-layout-core & yarn create-package-json-plugin-core-contentful & yarn create-package-json-plugin-core & yarn create-package-json-treat",
-    "create-package-json-plugin-core": "mkdir -p lib/plugins/gatsby-plugin-core && cp 'src/plugins/gatsby-plugin-core/package.json' 'lib/plugins/gatsby-plugin-core/package.json'",
-    "create-package-json-plugin-core-contentful": "mkdir -p lib/plugins/gatsby-plugin-core-contentful && cp 'src/plugins/gatsby-plugin-core-contentful/package.json' 'lib/plugins/gatsby-plugin-core-contentful/package.json'",
-    "create-package-json-plugin-layout-core": "mkdir -p lib/plugins/gatsby-plugin-layout-core && cp 'src/plugins/gatsby-plugin-layout-core/package.json' 'lib/plugins/gatsby-plugin-layout-core/package.json'",
-    "create-package-json-treat": "mkdir -p lib/plugins/gatsby-plugin-treat && cp 'src/plugins/gatsby-plugin-treat/package.json' 'lib/plugins/gatsby-plugin-treat/package.json'",
-    "prestart": "yarn create-package-json",
-    "start": "concurrently \"yarn start:commonjs\" \"yarn start:esm\"",
-    "start:commonjs": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
-    "start:esm": "tsc --build tsconfig.build.esm.json --watch --preserveWatchOutput",
-    "test": "jest",
-    "test:watch": "jest --watch"
+    "build": "yarn clean && yarn build:dist && yarn build:config && nr prepare-exports",
+    "build:config": "tsc --project tsconfig.config.json",
+    "build:dist": "tsc --project tsconfig.json",
+    "clean": "yarn clean:tsc && yarn clean:dist && yarn clean:config",
+    "clean:config": "rm -rf config/dist/**",
+    "clean:dist": "rm -rf dist/** lib/**",
+    "clean:tsc": "rm -f ./**/*.tsbuildinfo *.tsbuildinfo",
+    "dev": "yarn clean && yarn preconstruct dev",
+    "start": "yarn clean && nr prepare-exports && concurrently \"yarn build:dist -w\" \"yarn build:config -w\"",
+    "start:tsc": "yarn build:dist -w && yarn build:config -w && nr prepare-exports"
+  },
+  "preconstruct": {
+    "entrypoints": [
+      "index.ts",
+      "config/index.ts"
+    ]
   },
   "sideEffects": false,
-  "typings": "./lib/index.d.ts",
   "dependencies": {
-    "@newrade/core-common": "^1.4.0",
-    "@newrade/core-types": "^2.0.0",
-    "@newrade/core-utils": "^2.0.0",
-    "@newrade/core-webpack-config": "^2.0.0"
+    "@ccalamos/gatsby-source-googlemaps-static": "^3.1.1",
+    "@mdx-js/mdx": "^1.6.18",
+    "@newrade/core-common": "^1.4.1",
+    "@newrade/core-jest-config": "^2.0.1",
+    "@newrade/core-utils": "^2.1.0",
+    "@newrade/core-webpack-config": "^2.1.0",
+    "add-asset-html-webpack-plugin": "^3.2.0",
+    "case": "^1",
+    "chalk": "^4",
+    "gatsby": "^3.10.2",
+    "i18next": "^19",
+    "intersection-observer": "^0.11.0",
+    "react-i18next": "^11",
+    "treat": "^2"
   }
 }

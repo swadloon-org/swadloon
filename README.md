@@ -5,9 +5,17 @@
 
 ---
 
-![Build](https://github.com/newrade/newrade-core/actions/workflows/core-workflow.yml/badge.svg)
-![ze](https://github.com/newrade/newrade-core/actions/workflows/ze-design-website-workflow.yml/badge.svg)
-![CodeQL](https://github.com/newrade/newrade-core/actions/workflows/codeql-analysis.yml/badge.svg)
+![core-build](https://github.com/newrade/newrade-core/actions/workflows/core-workflow.yml/badge.svg)
+![core-cli](https://github.com/newrade/newrade-core/actions/workflows/core-cli-workflow.yml/badge.svg)
+![core-contentful-lib](https://github.com/newrade/newrade-core/actions/workflows/core-contentful-lib-workflow.yml/badge.svg)
+![core-react-ui](https://github.com/newrade/newrade-core/actions/workflows/core-react-ui-workflow.yml/badge.svg)
+![core-design-system](https://github.com/newrade/newrade-core/actions/workflows/core-design-system-workflow.yml/badge.svg)
+![core-webpack-config](https://github.com/newrade/newrade-core/actions/workflows/core-webpack-config-workflow.yml/badge.svg)
+![ze-design-website](https://github.com/newrade/newrade-core/actions/workflows/ze-design-website-workflow.yml/badge.svg)
+![code-ql](https://github.com/newrade/newrade-core/actions/workflows/codeql-analysis.yml/badge.svg)
+
+---
+
 [![DeepScan grade](https://deepscan.io/api/teams/14287/projects/17743/branches/415210/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=14287&pid=17743&bid=415210)
 [![Commitizen Friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](https://commitizen.github.io/cz-cli/)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
@@ -26,6 +34,8 @@
 Documentation: https://zedesignsystem.com/docs
 
 Design System: https://zedesignsystem.com/design-system
+
+[Visualization of this repo](https://octo-repo-visualization.vercel.app/?repo=newrade%2Fnewrade-core)
 
 ## Tech Stack
 

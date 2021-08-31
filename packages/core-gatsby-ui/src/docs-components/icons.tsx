@@ -27,9 +27,9 @@ import {
   useCommonProps,
   useIconContext,
   useTreatTheme,
-} from '@newrade/core-react-ui/src';
-import { globalThemeReversed } from '@newrade/core-react-ui/src/global/global-theme-classnames';
-import { keys } from '@newrade/core-react-ui/src/utilities';
+} from '@newrade/core-react-ui';
+import { globalThemeReversed } from '@newrade/core-react-ui/global';
+import { keys } from '@newrade/core-react-ui/utilities';
 import { pascal } from 'case';
 import React, { useMemo, useState } from 'react';
 import { useStyles } from 'react-treat';

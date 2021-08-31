@@ -1,5 +1,5 @@
 import { globalThemeReversedSelector } from '@newrade/core-react-ui/src/global/global-theme-classnames';
-import { Theme } from '@newrade/core-react-ui/src';
+import { Theme } from '@newrade/core-react-ui';
 import { globalStyle, style } from 'treat';
 
 /**

@@ -30,9 +30,9 @@ function getIPad13() {
   return isIOS13Check('iPad');
 }
 
-function isIOS13Check(type: string) {
+function isIOS13Check(type: string): boolean {
   const nav = getNavigatorInstance();
-  return (
+  return !!(
     nav &&
     nav.platform &&
     (nav.platform.indexOf(type) !== -1 ||

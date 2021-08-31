@@ -16,7 +16,7 @@ status: draft
 const LazySidebarRenderer = loadable(
   () =>
     import(
-      /* webpackExports: "SidebarRenderer" */ '@newrade/core-gatsby-ui/src'
+      /* webpackExports: ["SidebarRenderer"] */ '@newrade/core-gatsby-ui/src'
     ),
   {
     resolveComponent: (

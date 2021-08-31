@@ -5,7 +5,7 @@ import { useCommonProps } from '../hooks/use-common-props.hook';
 import { usePreventPinchZoom } from '../hooks/use-prevent-pinch-zoom';
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { Label } from '../text/label';
-import { getMergedClassname } from '../utilities';
+import { getMergedClassname } from '../utilities/component.utilities';
 import * as styleRefs from './desktop-docs-sidebar-item.treat';
 
 type Props = PrimitiveProps &

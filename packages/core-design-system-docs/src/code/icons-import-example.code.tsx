@@ -1,5 +1,5 @@
 import { ICON } from '@newrade/core-design-system';
-import { IconComp, useTreatTheme } from '@newrade/core-react-ui/src';
+import { IconComp, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 
 type Props = {};

@@ -1,32 +1,35 @@
 {
   "name": "@newrade/core-figma-extractor",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "Utility to extract colors, text styles and other tokens from figma",
   "license": "MIT",
-  "main": "./lib/src/index.js",
-  "module": "./lib/src/esm/index.js",
+  "main": "dist/newrade-core-figma-extractor.cjs.js",
+  "module": "dist/newrade-core-figma-extractor.esm.js",
   "files": [
-    "./lib/**/*"
+    "/dist"
   ],
   "scripts": {
-    "build": "yarn build:commonjs && yarn build:esm",
-    "build:commonjs": "tsc --build tsconfig.build.json",
-    "build:esm": "tsc --build tsconfig.build.esm.json",
-    "clean": "rm -rf lib/** && rm -f tsconfig.build.tsbuildinfo",
-    "extract": ". ./.env && DEBUG=$DEBUG cross-env TS_NODE_PROJECT=tsconfig.bin.json node -r ts-node/register bin/run.ts",
-    "start": "concurrently \"yarn start:commonjs\" \"yarn start:esm\"",
-    "start:commonjs": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
-    "start:esm": "tsc --build tsconfig.build.esm.json --watch --preserveWatchOutput",
-    "test": "jest",
-    "test:watch": "jest --watch"
+    "build": "yarn clean && yarn build:dist && nr prepare-exports",
+    "build:dist": "tsc --project tsconfig.json",
+    "clean": "yarn clean:tsc && yarn clean:dist",
+    "clean:dist": "rm -rf dist/** lib/**",
+    "clean:tsc": "rm -f ./**/*.tsbuildinfo *.tsbuildinfo",
+    "dev": "yarn clean && yarn preconstruct dev",
+    "extract": ". ./.env && DEBUG=$DEBUG TS_NODE_PROJECT=tsconfig.bin.json node -r ts-node/register bin/run.ts",
+    "extract2": ". ./.env && DEBUG=$DEBUG TS_NODE_PROJECT=../../tsconfig.node-commonjs.json node -r ts-node/register bin/run.ts",
+    "test": "nr jest",
+    "test:watch": "nr jest --watch"
   },
   "sideEffects": false,
-  "typings": "./lib/src/index.d.ts",
   "dependencies": {
-    "@newrade/core-common": "^1.4.0",
-    "@newrade/core-design-system": "^1.14.0",
-    "@newrade/core-types": "^2.0.0",
-    "@newrade/core-utils": "^2.0.0",
-    "figma-js": "^1.11.0"
+    "@newrade/core-jest-config": "^2.0.1",
+    "@newrade/core-utils": "^2.1.0",
+    "case": "^1",
+    "chalk": "^4",
+    "figma-js": "^1.11.0",
+    "fp-ts": "^2.11.1",
+    "io-ts": "^2",
+    "node-fetch": "^2",
+    "prettier": "^2"
   }
 }

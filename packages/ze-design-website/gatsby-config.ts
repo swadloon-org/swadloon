@@ -1,24 +1,27 @@
 import * as common from '@newrade/core-common';
-import * as core from '@newrade/core-gatsby-config';
-import { getAppUrl, loadDotEnv, logEnvVariables } from '@newrade/core-utils';
+import * as core from '@newrade/core-gatsb-config';
+import * as conf from '@newrade/core-gatsb-config/config';
+import { getAppUrl, loadDotEnv } from '@newrade/core-utils';
 import path from 'path';
 import packageJson from './package.json';
 import { Env, ENV } from './types/dot-env';
+
+delete process.env.TS_NODE_PROJECT; // avoid using external tsconfig for ts-loader or other tools
 
 const env = loadDotEnv<ENV>({
   schema: Env,
   dotEnvPath: path.resolve(__dirname, '.env'),
   packageName: packageJson.name,
+  printEnvVariables: true,
 });
-logEnvVariables<ENV>({ packageName: packageJson.name, env });
 
 /**
  * Configure your Gatsby site with this file.
  *
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
-const config: core.GastbySiteConfig = {
-  flags: core.gatsbySiteFlags,
+const config: conf.GastbySiteConfig = {
+  flags: conf.gatsbySiteFlags,
   siteMetadata: {
     title: `Ze Design System Website`,
     description: `Ze Design System main website`,
@@ -42,37 +45,46 @@ const config: core.GastbySiteConfig = {
         background_color: `#ffffff`,
         theme_color: `#6061EC`,
         display: `standalone`,
-        icon: `../ze-design-system/lib/assets/logo-favicon.svg`,
+        icon: `../ze-design-system/src/assets/logos/logo-favicon.svg`,
         include_favicon: false, // see page template
       },
     },
     /**
      * Core Plugins
      */
-    core.getGatsbyPluginMetaRedirect(),
-    core.getGatsbyPluginLoadableComponents(),
-    ...core.getGatsbyPluginTypeScriptConfig({
-      documentPaths: [
-        '../core-gatsby-ui/src/fragments/gatsby/**/*.{ts,tsx}',
-        './src/**/*.{ts,tsx}',
-      ],
-    }),
-    core.getGatsbyPluginCatchLinks(),
-    core.getGatsbyReactSvgrSvgoConfig(),
-    ...core.getGatsbyImagePlugins(),
-    core.getGastbyPluginTreatConfig(),
-    core.getGastbyPluginVanilla(),
-    core.getGatsbyPluginPostCSS(),
-    ...core.getGatsbyPluginMdx(),
-    ...core.getGatsbyImageFolder({
-      pathImgDir: path.join(__dirname, `../ze-design-system/lib/assets`),
-    }),
+    /** template */
     core.getGatsbyPluginReactHelmet(),
-    core.getGatsbyPluginSitemap(),
-    core.getGatsbyPluginRobotsTxt({ env }),
+    /** js/ts/react */
+    core.getGatsbyPluginLoadableComponents(),
+    ...core.getGatsbyPluginTypeScriptConfig(),
     ...core.getGastbyCorePluginConfig({
       packageName: packageJson.name,
     }),
+    /** svg */
+    core.getGatsbyReactSvgrSvgoConfig(),
+    /** gatsby plugin image */
+    ...core.getGatsbyImagePlugins(),
+    /** css */
+    core.getGastbyPluginTreatConfig(),
+    core.getGastbyPluginVanilla(),
+    core.getGatsbyPluginPostCSS(),
+    /** mdx */
+    core.getGatsbyPluginCatchLinks(),
+    ...core.getGatsbyPluginMdx(),
+    /** images and assets */
+    ...core.getGatsbyImageFolder({
+      pathImgDir: [
+        path.join(__dirname, `../ze-design-system/src/assets/fonts`),
+        path.join(__dirname, `../ze-design-system/src/assets/images`),
+        path.join(__dirname, `../ze-design-system/src/assets/logos`),
+        path.join(__dirname, `./src/images`),
+      ],
+    }),
+    /** seo */
+    core.getGatsbyPluginSitemap(),
+    core.getGatsbyPluginRobotsTxt({ env }),
+    /** cdn / deploy */
+    /** optional font loading optimization */
     core.getGatsbyPluginPreloadFonts(),
   ],
 };

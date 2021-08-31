@@ -1,6 +1,7 @@
 import { MdxFrontmatter } from './site-mdx-frontmatter';
 import { GatsbySiteLanguages } from './site-languages';
 import { GatsbySiteMetadata } from './site-metadata';
+import { Node } from 'gatsby';
 
 export type Maybe<T> = T | null;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -74,11 +75,11 @@ export type GatsbyNodeSiteMetadataFragment = Pick<
   GatsbySiteMetadata,
   'title' | 'description' | 'siteEnv' | 'siteUrl'
 > & {
-  languages?: Pick<GatsbySiteLanguages, 'langs' | 'defaultLangKey'>;
+  languages: GatsbySiteLanguages;
 };
 
-export type GatsbyNodeSrcPagesQuery = {
-  allSitePage: { nodes: Array<{ id: string; path: string; component: string }> };
+export type GatsbyNodeSrcPagesFilesQuery = {
+  allFile: { nodes: Array<{ id: string; absolutePath: string }> };
 };
 
 export type GatsbyNodeSrcPageFilesQuery = {
@@ -93,8 +94,45 @@ export type GatsbyNodeSrcPageFilesQuery = {
 export type GatsbyNodeMarkdownFilesQuery = {
   allFile: {
     nodes: Array<
-      File & {
-        childMdx?: Mdx;
+      Pick<
+        File,
+        | 'id'
+        | 'name'
+        | 'base'
+        | 'ext'
+        | 'dir'
+        | 'absolutePath'
+        | 'relativePath'
+        | 'publicURL'
+        | 'size'
+        | 'sourceInstanceName'
+        | 'changeTime'
+      > & {
+        childMdx: Maybe<
+          Pick<Mdx, 'slug' | 'excerpt' | 'timeToRead' | 'tableOfContents' | 'body'> & {
+            frontmatter: Maybe<
+              Pick<
+                MdxFrontmatter,
+                | 'title'
+                | 'subject'
+                | 'tags'
+                | 'description'
+                | 'version'
+                | 'published'
+                | 'status'
+                | 'slug'
+                | 'deprecated'
+                | 'editPageUrl'
+                | 'nextPageLabel'
+                | 'nextPageUrl'
+                | 'componentStatus'
+                | 'componentVersion'
+                | 'componentTests'
+              >
+            >;
+            headings: Maybe<ReadonlyArray<Maybe<Pick<MdxHeadingMdx, 'value' | 'depth'>>>>;
+          }
+        >;
       }
     >;
   };

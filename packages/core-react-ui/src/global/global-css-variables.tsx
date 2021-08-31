@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStyles } from 'react-treat';
-import { getMergedClassname } from '../utilities';
+import { getMergedClassname } from '../utilities/component.utilities';
 import * as styleRefsButtons from './global-css-buttons-variables.treat';
 import * as styleRefsColors from './global-css-colors-variables.treat';
 import * as styleRefs from './global-css-variables.treat';

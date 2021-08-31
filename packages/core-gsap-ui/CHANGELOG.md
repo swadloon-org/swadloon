@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.5](https://github.com/newrade/newrade-core/compare/@newrade/core-gsap-ui@1.3.4...@newrade/core-gsap-ui@1.3.5) (2021-08-31)
+
+### Bug Fixes
+
+- **core:** add ls-lint
+  ([76728ca](https://github.com/newrade/newrade-core/commit/76728ca9b5e340d7587f596e3e4ca373e788ca91))
+- **core:** big cleanup of unnecessary tsconfig files
+  ([36cbad5](https://github.com/newrade/newrade-core/commit/36cbad539a31dc00c8ab7cf12e6a1916692917a7))
+- **core:** fix config files for gatsby
+  ([5f495d0](https://github.com/newrade/newrade-core/commit/5f495d071b5e8f078d7be39f2618ecc57905273b))
+- **core:** fix ls-lint config
+  ([bb554f2](https://github.com/newrade/newrade-core/commit/bb554f2427845dc80b0cc0d4493874fac539cb5e))
+- **core:** fix once and for all the paths for core-react-ui and core-gatsby-ui
+  ([3a4691c](https://github.com/newrade/newrade-core/commit/3a4691cf9642377b65960f1ad8c7f6264e318c64))
+- **core:** fix typecheck command
+  ([4bab26c](https://github.com/newrade/newrade-core/commit/4bab26c27b1f679dc8376b84347aa94d2d235eea))
+- **root:** fixes for webpack and gatsby config
+  ([0421692](https://github.com/newrade/newrade-core/commit/04216928e08cfdf9be562e8b0ac4263db22943ec))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.3.4](https://github.com/newrade/newrade-core/compare/@newrade/core-gsap-ui@1.3.3...@newrade/core-gsap-ui@1.3.4) (2021-07-15)
 
 **Note:** Version bump only for package @newrade/core-gsap-ui

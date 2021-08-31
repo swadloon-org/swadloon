@@ -5,9 +5,10 @@ import * as dotenv from 'dotenv';
 import * as t from 'io-ts';
 import path from 'path';
 import { CommonEnvType } from './common-env';
+import { logEnvVariables } from './log-env-variables';
 import { PathReporter } from './reporter';
 
-const log = debug('newrade:env');
+const log = debug('nr:env');
 
 /**
  * Utility function to load the .env files in the monorepository.
@@ -25,11 +26,13 @@ export function loadDotEnv<ENV = CommonEnvType>({
   dotEnvPath,
   dotEnvRootPath = path.resolve(__dirname, '..', '..', '..', '.env'),
   packageName,
+  printEnvVariables = false,
 }: {
   schema: t.IntersectionC<any>;
   dotEnvPath: string;
   dotEnvRootPath?: string;
   packageName: string;
+  printEnvVariables?: boolean;
 }) {
   const logEnv = log.extend(packageName.replace('@newrade/', ''));
   const logEnvError = logEnv.extend('error');
@@ -73,6 +76,10 @@ export function loadDotEnv<ENV = CommonEnvType>({
   }
 
   logEnv(`.env files is ${chalk.green('valid')}`);
+
+  if (printEnvVariables) {
+    logEnvVariables<any>({ packageName, env: process.env as any as ENV, debugFn: log });
+  }
 
   return process.env as any as ENV;
 }

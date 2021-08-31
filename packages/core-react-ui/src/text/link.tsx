@@ -5,8 +5,8 @@ import {
   PARAGRAPH_SIZE,
   Variant,
 } from '@newrade/core-design-system';
-import { IoOpenOutline } from '@react-icons/all-files/io5/IoOpenOutline';
 import React, { AnchorHTMLAttributes, useRef } from 'react';
+import { IoOpenOutline } from 'react-icons/io5';
 import { useStyles } from 'react-treat';
 import { useCommonProps } from '../hooks/use-common-props.hook';
 import { PrimitiveProps } from '../primitive/primitive.props';
@@ -102,6 +102,9 @@ export const Link: React.FC<Props> = React.memo(
         </>
       ),
       ...commonProps,
+      ...(AsElement && (AsElement as React.ReactElement).props
+        ? (AsElement as React.ReactElement).props
+        : {}),
     };
 
     /**

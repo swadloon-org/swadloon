@@ -1,4 +1,4 @@
-import { Badge, Cluster, useTreatTheme } from '@newrade/core-react-ui/src';
+import { Badge, Cluster, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 
 type Props = {};

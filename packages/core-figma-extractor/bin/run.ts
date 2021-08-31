@@ -13,5 +13,5 @@ const env = loadDotEnv<ENV>({
 extract({
   figmaFile: env.FIGMA_FILE,
   figmaToken: env.FIGMA_TOKEN,
-  outputDir: path.join(__dirname, '..', 'dist'),
+  outputDir: path.join(__dirname, '..', 'figma-export'),
 });

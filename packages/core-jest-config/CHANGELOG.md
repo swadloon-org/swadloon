@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/newrade/newrade-core/compare/@newrade/core-jest-config@2.0.0...@newrade/core-jest-config@2.0.1) (2021-08-31)
+
+### Bug Fixes
+
+- **core:** add ls-lint
+  ([76728ca](https://github.com/newrade/newrade-core/commit/76728ca9b5e340d7587f596e3e4ca373e788ca91))
+- **core:** big cleanup of unnecessary tsconfig files
+  ([36cbad5](https://github.com/newrade/newrade-core/commit/36cbad539a31dc00c8ab7cf12e6a1916692917a7))
+- **core:** fix config files for gatsby
+  ([5f495d0](https://github.com/newrade/newrade-core/commit/5f495d071b5e8f078d7be39f2618ecc57905273b))
+- **core:** fix deps in packages
+  ([112f5c4](https://github.com/newrade/newrade-core/commit/112f5c421e3e5aef5ffb510cc6cf3d615ef7aba1))
+- **core:** fix for imports
+  ([5cc63ef](https://github.com/newrade/newrade-core/commit/5cc63ef99078f5cf01835c9d2116f15300f5fb63))
+- **core:** fix issue with jest v27 setTimeout see
+  https://github.com/facebook/jest/issues/11607
+  ([52793a2](https://github.com/newrade/newrade-core/commit/52793a2176c623979b935df83f3693176033052d))
+- **core:** fix ls-lint config
+  ([bb554f2](https://github.com/newrade/newrade-core/commit/bb554f2427845dc80b0cc0d4493874fac539cb5e))
+- **core:** fix test config
+  ([9d3757b](https://github.com/newrade/newrade-core/commit/9d3757be70590a7b59f536258c8c6bb9215e1076))
+- **core:** fix typecheck command
+  ([4bab26c](https://github.com/newrade/newrade-core/commit/4bab26c27b1f679dc8376b84347aa94d2d235eea))
+- **core:** various fixes for core packages targeting documentation & core docs
+  update
+  ([3ce203f](https://github.com/newrade/newrade-core/commit/3ce203fbbc073394a71adcad1979cc1ef1031903))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [2.0.0](https://github.com/newrade/newrade-core/tree/master/packages/core-yo-generator/compare/@newrade/core-jest-config@1.7.0...@newrade/core-jest-config@2.0.0) (2021-07-12)
 
 ### Bug Fixes

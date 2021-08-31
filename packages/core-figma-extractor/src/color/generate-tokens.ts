@@ -4,7 +4,7 @@ import * as fs from 'fs';
 import * as prettier from 'prettier';
 import { ColorTokens } from './figma-colors.model';
 
-const log = debug('newrade:core-figma-extractor');
+const log = debug('nr:core-figma-extractor');
 const logError = log.extend('error');
 
 const prettierConfig = {
@@ -78,7 +78,7 @@ export const createColorPaletteTS = (colorObject: ColorTokens, filePath: string)
   });
 
   const colors = `export const colors: ColorTokens = { ${colorsKeys} }`;
-  const textContent = `import { ColorTokens } from '@newrade/core-figma-extractor/src';\n ${colors}`;
+  const textContent = `import { ColorTokens } from '@newrade/core-figma-extractor';\n ${colors}`;
 
   fs.appendFile(
     filePath,

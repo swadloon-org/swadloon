@@ -1,10 +1,9 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "../../tsconfig.iso-esm.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "paths": {
-      "@newrade/*": ["../*/src"]
-    }
+    "rootDir": "src",
+    "outDir": "dist"
   },
-  "include": ["src", "test", "types", "scripts"]
+  "include": ["src"]
 }

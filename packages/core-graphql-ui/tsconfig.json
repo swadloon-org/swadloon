@@ -1,11 +1,10 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "../../tsconfig.browser-esm.json",
   "compilerOptions": {
-    "types": ["node", "react", "react-dom"],
     "baseUrl": ".",
-    "paths": {
-      "@newrade/*": ["../*/src"]
-    }
+    "outDir": "dist",
+    "rootDir": ".",
+    "types": ["react", "react-dom"]
   },
-  "include": ["src", "test", "types", "scripts"]
+  "include": ["src", "types"]
 }

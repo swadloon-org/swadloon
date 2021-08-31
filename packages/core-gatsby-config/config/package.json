@@ -1,0 +1,4 @@
+{
+  "main": "dist/newrade-core-gatsb-config-config.cjs.js",
+  "module": "dist/newrade-core-gatsb-config-config.esm.js"
+}

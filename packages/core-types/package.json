@@ -1,24 +1,19 @@
 {
   "name": "@newrade/core-types",
-  "version": "2.0.0",
-  "description": "shared .d.ts files",
+  "version": "2.0.1",
+  "description": "Shared .d.ts files for untyped packages",
   "author": {
     "email": "info@newrade.ca",
     "name": "Newrade",
     "url": "https://github.com/newrade/newrade"
   },
-  "repository": "https://github.com/newrade/newrade-core/tree/master/packages/core-common",
-  "license": "MIT",
-  "main": "./lib/index.js",
-  "module": "./lib/index.js",
-  "files": [
-    "./lib/**/*"
-  ],
-  "scripts": {
-    "build": "tsc --build tsconfig.build.json",
-    "clean": "rm -rf lib/** && rm -f tsconfig.build.tsbuildinfo",
-    "start": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
-    "test": "echo test"
+  "repository": {
+    "directory": "packages/core-types",
+    "type": "git",
+    "url": "https://github.com/newrade/newrade-core.git"
   },
-  "typings": "./lib/index.d.ts"
+  "license": "MIT",
+  "files": [
+    "src"
+  ]
 }

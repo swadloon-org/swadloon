@@ -4,7 +4,7 @@
  */
 /// <reference types="./types/core-types" />
 
-delete process.env.TS_NODE_PROJECT; // see https://github.com/dividab/tsconfig-paths-webpack-plugin/issues/32
+delete process.env.TS_NODE_PROJECT; // avoid using external tsconfig for ts-loader or other tools
 
 import {
   babelPluginBrowserConf,
@@ -13,7 +13,6 @@ import {
   svgLoader,
 } from '@newrade/core-webpack-config';
 
-import dotenv from 'dotenv';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import path from 'path';
@@ -23,9 +22,7 @@ import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
 import webpack, { WebpackOptionsNormalized } from 'webpack';
 import { Configuration } from 'webpack';
 
-dotenv.config();
-
-const config: Configuration | Pick<WebpackOptionsNormalized, 'devServer'> = {
+const config: Configuration & Pick<WebpackOptionsNormalized, 'devServer'> = {
   mode: 'development',
   entry: './src/index.tsx',
   devtool: 'inline-source-map',
@@ -50,7 +47,7 @@ const config: Configuration | Pick<WebpackOptionsNormalized, 'devServer'> = {
           {
             loader: 'ts-loader',
             options: {
-              configFile: 'tsconfig.build.json',
+              configFile: 'tsconfig.json',
               logLevel: 'WARN',
               projectReferences: true,
             } as Partial<tsloader.Options>,
@@ -79,8 +76,10 @@ const config: Configuration | Pick<WebpackOptionsNormalized, 'devServer'> = {
     plugins: [
       // @ts-ignore
       new TsconfigPathsPlugin({
-        configFile: 'tsconfig.build.json',
+        configFile: 'tsconfig.json',
         logLevel: 'WARN',
+        mainFields: ['browser', 'main', 'module'],
+        extensions: ['.tsx', '.ts', '.js', '.mjs'],
       }),
     ],
   },

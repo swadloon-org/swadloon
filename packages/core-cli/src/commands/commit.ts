@@ -1,21 +1,15 @@
-import { Command, flags } from '@oclif/command';
-import * as path from 'path';
+import { Command } from '@oclif/command';
 import { spawnSync } from 'child_process';
+import * as path from 'path';
 
 export default class Commit extends Command {
-  static description = 'call the commit script';
+  static description = 'call the commit script in the repo root';
 
   static examples = [`$ nr commit`];
 
-  static flags = {
-    help: flags.help({ char: 'h' }),
-  };
-
-  static args = [{ name: 'file' }];
-
   async run() {
     spawnSync(`yarn commit`, {
-      cwd: path.join(__dirname, '..', '..', '..', '..'),
+      cwd: path.join('..', '..'),
       shell: true,
       stdio: 'inherit',
       env: process.env,

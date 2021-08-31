@@ -4,6 +4,6 @@ const path = require('path');
 // https://jestjs.io/docs/webpack
 module.exports = {
   process(src, filename) {
-    return `export default ${JSON.stringify(path.basename(filename))};`;
+    return `module.exports = ${JSON.stringify(path.basename(filename))};`;
   },
 };

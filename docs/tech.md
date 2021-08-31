@@ -24,10 +24,10 @@ source software, then we choose products that:
 
 ### Build / Development
 
-- **Languages:** JavaScript, TypeScript (preferred over JS), CSS, HTML, SVG
+- **Languages:** TypeScript (preferred over plain JavaScript), CSS, HTML, SVG
 - **Editor:** [VSCode]()
-- **Formatted:** [Prettier]()
-- **Linter:** [ESLint]()
+- **Formatter:** [Prettier]()
+- **Linters:** [ESLint]() and [ls-lint](https://ls-lint.org/)
 
 ### Deploy and Monitor
 

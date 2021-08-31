@@ -1,3 +1,5 @@
+/// <reference types="@newrade/core-types/src/github-slugger" />
+
 import GithubSlugger from 'github-slugger';
 import { AsTypes, PrimitiveProps } from '../primitive/primitive.props';
 import { getMergedClassname } from '../utilities/component.utilities';
@@ -10,9 +12,9 @@ function getFormattedId(value?: string | null): string {
  * Hook to reduce component boilerplate. Takes care of normalizing id, classNames and styles.
  */
 export function useCommonProps<As extends AsTypes = 'div'>({
+  id,
   localStyle,
   classNames,
-  id,
   className,
   style,
   ...props

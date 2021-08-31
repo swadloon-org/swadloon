@@ -1,12 +1,10 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "../../tsconfig.node-esm.json",
   "compilerOptions": {
-    "types": ["node", "jest"],
-    "lib": ["es6", "dom", "es2017"],
     "baseUrl": ".",
-    "paths": {
-      "@newrade/*": ["../*/src"]
-    }
+    "rootDir": "src",
+    "outDir": "dist",
+    "types": ["jest", "node"]
   },
-  "include": ["src", "test", "types", "scripts"]
+  "include": ["src"]
 }

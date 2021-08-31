@@ -37,8 +37,8 @@ import {
   TableRow,
   Tag,
   Title,
-} from '@newrade/core-react-ui/src';
-import { Code } from '@newrade/core-react-ui/src/code';
+} from '@newrade/core-react-ui';
+import { Code } from '@newrade/core-react-ui/code';
 import { SectionBaseLayout, SectionPadding } from '@newrade/core-website-api';
 import React, { AnchorHTMLAttributes } from 'react';
 import { BlockMarkdown } from '../blocks/block-markdown';
@@ -76,6 +76,8 @@ export const mdxComponents: Partial<
    *
    */
 
+  Div: (props: MDXProps) => <div {...props} />,
+
   /**
    * Heading
    */
@@ -97,15 +99,38 @@ export const mdxComponents: Partial<
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element#text_content
    */
   p: (props: MDXProps) => <Paragraph {...props} readableWidth={true} />,
-  a: (props: MDXProps & AnchorHTMLAttributes<any>) => (
-    <Link
-      variant={LinkVariant.underline}
-      variantSize={PARAGRAPH_SIZE.medium}
-      style={{ display: 'inline-block' }}
-      variantIcon={props?.href && /https?:\/\//.test(props.href) ? LinkIcon.right : undefined}
-      {...props}
-    />
-  ),
+  a: (props: MDXProps & AnchorHTMLAttributes<any>) => {
+    const linkIsExternal = props?.href && /https?:\/\//.test(props.href);
+
+    // if the child is a img tag, don't render the external icon
+    if (
+      props?.children &&
+      typeof props.children !== 'string' &&
+      // @ts-ignore
+      props.children.props?.mdxType === 'img'
+    ) {
+      return (
+        <Link
+          variant={LinkVariant.underline}
+          variantSize={PARAGRAPH_SIZE.medium}
+          style={{ display: 'inline-block' }}
+          target={linkIsExternal ? '_blank' : undefined}
+          {...props}
+        />
+      );
+    }
+
+    return (
+      <Link
+        variant={LinkVariant.underline}
+        variantSize={PARAGRAPH_SIZE.medium}
+        style={{ display: 'inline-block' }}
+        target={linkIsExternal ? '_blank' : undefined}
+        variantIcon={linkIsExternal ? LinkIcon.right : undefined}
+        {...props}
+      />
+    );
+  },
   ul: (props: MDXProps) => <ListItems {...props} />,
   ol: (props: MDXProps) => <ListItems as={'ol'} {...props} />,
   li: (props: MDXProps) => <ListItemV2 {...props} />,
@@ -173,11 +198,14 @@ export const mdxComponents: Partial<
    * Code
    */
   pre: (props: MDXProps) => <>{props.children}</>,
-  code: ({ children, ...props }: MDXProps) => {
-    const CodeBlock = loadable<any>(() => import('@newrade/core-react-ui/src/code/code-block'), {
-      resolveComponent: (components: typeof import('@newrade/core-react-ui/src/code/code-block')) =>
-        components.CodeBlock,
-    });
+  CodeBlock: ({ children, ...props }: MDXProps) => {
+    const CodeBlock = loadable<any>(
+      () => import(/* webpackExports: ["CodeBlock"] */ '@newrade/core-react-ui/code'),
+      {
+        resolveComponent: (components: typeof import('@newrade/core-react-ui/code')) =>
+          components.CodeBlock,
+      }
+    );
     return <CodeBlock {...props}>{children as string}</CodeBlock>;
   },
   inlineCode: (props: MDXProps) => <Code>{props.children}</Code>,
@@ -235,10 +263,6 @@ export const mdxComponents: Partial<
    */
   Icon: IconComp,
   IconBox: IconBox,
-
-  /**
-   * Markdown
-   */
 };
 
 export type MDXProps = {

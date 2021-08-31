@@ -1,0 +1,4 @@
+{
+  "main": "dist/newrade-core-react-ui-markdown.cjs.js",
+  "module": "dist/newrade-core-react-ui-markdown.esm.js"
+}

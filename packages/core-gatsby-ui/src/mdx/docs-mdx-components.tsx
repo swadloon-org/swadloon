@@ -1,6 +1,5 @@
 import loadable from '@loadable/component';
 import React from 'react';
-import { Icons } from '../docs-components/icons';
 import { mdxComponents, MDXProps } from './mdx-components';
 
 /**
@@ -8,25 +7,30 @@ import { mdxComponents, MDXProps } from './mdx-components';
  */
 export const docsMdxComponents = {
   ...mdxComponents,
-  Icons: Icons,
-  // CodeHighlight: CodeHighlight,
+  Icons: ({ children, ...props }: MDXProps) => {
+    const Icons = loadable<any>(() => import('../docs-components/icons'), {
+      resolveComponent: (components: typeof import('../docs-components/icons')) => components.Icons,
+    });
+    return <Icons {...props}>{children}</Icons>;
+  },
   CodeHighlight: ({ children, ...props }: MDXProps) => {
-    const CodeHighlight = loadable<any>(
-      () => import('@newrade/core-react-ui/src/code/code-highlight'),
+    const CodeHighlight = loadable(
+      () => import(/* webpackExports: ["CodeHighlight"] */ '@newrade/core-react-ui/code'),
       {
-        resolveComponent: (
-          components: typeof import('@newrade/core-react-ui/src/code/code-highlight')
-        ) => components.CodeHighlight,
+        resolveComponent: (components: typeof import('@newrade/core-react-ui/code')) =>
+          components.CodeHighlight,
       }
     );
     return <CodeHighlight {...props}>{children as string}</CodeHighlight>;
   },
-  // CodeBlock: CodeBlock,
   CodeBlock: ({ children, ...props }: MDXProps) => {
-    const CodeBlock = loadable<any>(() => import('@newrade/core-react-ui/src/code/code-block'), {
-      resolveComponent: (components: typeof import('@newrade/core-react-ui/src/code/code-block')) =>
-        components.CodeBlock,
-    });
+    const CodeBlock = loadable(
+      () => import(/* webpackExports: ["CodeBlock"] */ '@newrade/core-react-ui/code'),
+      {
+        resolveComponent: (components: typeof import('@newrade/core-react-ui/code')) =>
+          components.CodeBlock,
+      }
+    );
     return <CodeBlock {...props}>{children as string}</CodeBlock>;
   },
 };

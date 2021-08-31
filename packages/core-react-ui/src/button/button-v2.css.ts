@@ -23,7 +23,7 @@ export const base = style({
   touchAction: 'none',
   WebkitAppearance: 'none',
   whiteSpace: 'nowrap', // don't allow wrapping
-  borderRadius: 4,
+  borderRadius: 2,
   width: 'fit-content',
   ':focus': {
     // boxShadow: `0 0 0 1px ${cssTheme.colors.colors.primary[700]}`,

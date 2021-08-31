@@ -10,16 +10,15 @@ import {
   TreatThemeProvider,
   useCommonProps,
   useTreatTheme,
-} from '@newrade/core-react-ui/src';
-import { CodeBlock, CodeOutline } from '@newrade/core-react-ui/src/code';
-import { GlobalCSSVariables } from '@newrade/core-react-ui/src/global/global-css-variables';
-import { globalThemeReversed } from '@newrade/core-react-ui/src/global/global-theme-classnames';
+} from '@newrade/core-react-ui';
+import { CodeBlock, CodeOutline } from '@newrade/core-react-ui/code';
+import { GlobalCSSVariables, globalThemeReversed } from '@newrade/core-react-ui/global';
 import React, { ReactNode, useState } from 'react';
 import { TreatProvider } from 'react-treat';
 import { mdxComponents } from '../mdx/mdx-components';
 import * as styles from './theme-wrapper.css';
 
-type Props = PrimitiveProps & {
+type Props = Omit<PrimitiveProps<'div'>, 'theme'> & {
   /**
    * Outer theme ref
    */
@@ -28,7 +27,13 @@ type Props = PrimitiveProps & {
    * Full theme config object
    */
   theme: Theme;
+  /**
+   * Classname to apply vanilla-extra theme css variables
+   */
   themeClassname: string;
+  /**
+   * Normal children
+   */
   children: ReactNode;
   /**
    * Activate knobs and controls

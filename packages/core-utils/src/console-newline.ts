@@ -3,3 +3,5 @@
 (function () {
   process.stdout.write('\n');
 })();
+
+export {};

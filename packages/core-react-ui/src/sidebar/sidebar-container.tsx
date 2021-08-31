@@ -1,4 +1,4 @@
-import { VIEWPORT } from '@newrade/core-design-system/src';
+import { VIEWPORT } from '@newrade/core-design-system';
 import React, { useRef } from 'react';
 import { useStyles } from 'react-treat';
 import { useDrag } from 'react-use-gesture';

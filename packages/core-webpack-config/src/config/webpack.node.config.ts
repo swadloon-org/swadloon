@@ -47,7 +47,7 @@ export const nodeCommonConfig: Configuration = {
           {
             loader: 'ts-loader',
             options: {
-              configFile: 'tsconfig.build.json',
+              configFile: 'tsconfig.json',
               logLevel: 'WARN',
               projectReferences: true,
             } as Partial<tsloader.Options>,
@@ -58,23 +58,24 @@ export const nodeCommonConfig: Configuration = {
   },
   resolve: {
     mainFields: ['module', 'main'],
-    extensions: ['.wasm', '.mjs', '.js', '.jsx', '.json', '.ts', '.tsx'],
+    extensions: ['.js', '.json', '.wasm', '.ts', '.tsx', '.jsx', '.css'],
     plugins: [
       // @ts-ignore
       new TsconfigPathsPlugin({
-        configFile: 'tsconfig.build.json',
+        configFile: 'tsconfig.json',
         logLevel: 'WARN',
+        mainFields: ['module', 'main'],
+        extensions: ['.js', '.json', '.wasm', '.ts', '.tsx', '.jsx', '.css'],
       }),
     ],
   },
   resolveLoader: {
     alias: {
-      'ejs-loader': '@newrade/core-webpack-config/lib/loaders/ejs-loader.js',
+      'ejs-loader': '@newrade/core-webpack-config/ejs-loader',
     },
   },
-  stats: {
-    // see https://github.com/webpack/webpack/issues/1576
-    warningsFilter: /^(?!CriticalDependenciesWarning$)/,
-  },
+  stats: {},
+  // see https://github.com/webpack/webpack/issues/1576
+  ignoreWarnings: [/^(?!CriticalDependenciesWarning$)/],
   plugins: [getWebpackCleanPlugin()],
 };

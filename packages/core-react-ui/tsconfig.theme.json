@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.browser-esm.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "rootDir": "src",
+    "outDir": "theme/dist",
+    "types": ["react", "react-dom", "jest", "googlemaps"]
+  },
+  "include": ["src", "types"]
+}

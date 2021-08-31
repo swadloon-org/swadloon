@@ -1,4 +1,4 @@
-import { CSSAnimation, Placeholder } from '@newrade/core-react-ui/src';
+import { CSSAnimation, Placeholder } from '@newrade/core-react-ui';
 import React from 'react';
 
 type Props = {};

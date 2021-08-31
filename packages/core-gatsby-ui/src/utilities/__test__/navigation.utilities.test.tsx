@@ -5,8 +5,8 @@ import { navigationMock } from './navigation.mock';
 describe(`navigation utilities`, () => {
   describe(`${getPageDirFromPath.name}`, () => {
     it('should extract the page dir name from a path with no locale', () => {
-      expect(getPageDirFromPath('/design-system/path-a/index.page')).toBe('path-a');
-      expect(getPageDirFromPath('/design-system/page-name.tsx')).toBe('');
+      expect(getPageDirFromPath('/design-system/path-a/index.page')).toBe('design-system/path-a');
+      expect(getPageDirFromPath('/design-system/page-name.tsx')).toBe('design-system');
       expect(getPageDirFromPath('dir-name/page-name.tsx')).toBe('dir-name');
       expect(getPageDirFromPath('dir-name/page-name.md')).toBe('dir-name');
       expect(getPageDirFromPath('dir-name/page-name.mdx')).toBe('dir-name');
@@ -18,8 +18,10 @@ describe(`navigation utilities`, () => {
     });
 
     it('should extract the page dir name from a path with locales', () => {
-      expect(getPageDirFromPath('/fr/design-system/path-a/index.page')).toBe('path-a');
-      expect(getPageDirFromPath('/fr/design-system/page-name.tsx')).toBe('');
+      expect(getPageDirFromPath('/fr/design-system/path-a/index.page')).toBe(
+        'design-system/path-a'
+      );
+      expect(getPageDirFromPath('/fr/design-system/page-name.tsx')).toBe('design-system');
       expect(getPageDirFromPath('/fr/dir-name/page-name.tsx')).toBe('dir-name');
       expect(getPageDirFromPath('/fr/dir-name/page-name.md')).toBe('dir-name');
       expect(getPageDirFromPath('/fr/dir-name/page-name.mdx')).toBe('dir-name');

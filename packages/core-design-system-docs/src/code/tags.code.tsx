@@ -1,5 +1,5 @@
 import { Variant } from '@newrade/core-design-system';
-import { Cluster, Tag, useTreatTheme } from '@newrade/core-react-ui/src';
+import { Cluster, Tag, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 
 type Props = {};

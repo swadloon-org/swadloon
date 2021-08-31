@@ -22,7 +22,7 @@ const defaultProps: Props = {
 export const Title = React.memo(
   React.forwardRef<any, Props>(
     ({ variant = TITLE.t1, variantLevel, id, className, children, ...props }, ref) => {
-      const { styles } = useStyles(stylesRef);
+      const { styles, wrapper } = useStyles(stylesRef);
       const { colorTextStyles } = useStyles(colorTextStylesRef);
 
       const type = variant === TITLE.t1 ? 'h1' : 'h2';
@@ -30,6 +30,7 @@ export const Title = React.memo(
       const child = children ? children : defaultChildrenString;
       const classNames = getMergedClassname([
         className || '',
+        wrapper,
         styles[variant ? variant : (defaultProps.variant as TITLE)],
         colorTextStyles[variantLevel ? variantLevel : (defaultProps.variantLevel as Variant)],
       ]);
