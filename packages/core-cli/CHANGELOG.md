@@ -3,6 +3,68 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.12.0](https://github.com/newrade/newrade-core/compare/@newrade/core-cli@1.11.0...@newrade/core-cli@1.12.0) (2021-08-31)
+
+### Bug Fixes
+
+- **core:** add ls-lint
+  ([76728ca](https://github.com/newrade/newrade-core/commit/76728ca9b5e340d7587f596e3e4ca373e788ca91))
+- **core:** big cleanup of unnecessary tsconfig files
+  ([36cbad5](https://github.com/newrade/newrade-core/commit/36cbad539a31dc00c8ab7cf12e6a1916692917a7))
+- **core:** create additionnal workflows
+  ([02e4041](https://github.com/newrade/newrade-core/commit/02e4041ff7a755ff2f69f5c2c3d4410c318978ec))
+- **core:** fix config files for gatsby
+  ([5f495d0](https://github.com/newrade/newrade-core/commit/5f495d071b5e8f078d7be39f2618ecc57905273b))
+- **core:** fix contentful typo
+  ([f3074ba](https://github.com/newrade/newrade-core/commit/f3074bad28122733cef54e64a0c13c7a7724513f))
+- **core:** fix core-repo-diagram workflow
+  ([698b596](https://github.com/newrade/newrade-core/commit/698b596b3edc66de0de6d3eb5f515b3aed91c2b3))
+- **core:** fix core-webpack-config entry
+  ([e1bdf14](https://github.com/newrade/newrade-core/commit/e1bdf14466b3e3f20ae7397faf2da79382a94e40))
+- **core:** fix deps in packages
+  ([112f5c4](https://github.com/newrade/newrade-core/commit/112f5c421e3e5aef5ffb510cc6cf3d615ef7aba1))
+- **core:** fix for base node setup workflow
+  ([18a4374](https://github.com/newrade/newrade-core/commit/18a437411e87c35aa253211810206d0efb8d5d5b))
+- **core:** fix for core-repo-diagram-workflow
+  ([a588d68](https://github.com/newrade/newrade-core/commit/a588d6845c3f10e08914cafbfc7672ae928c115b))
+- **core:** fix for core-repo-diagram-workflow
+  ([d8e3be3](https://github.com/newrade/newrade-core/commit/d8e3be339ba548dae5abee1b3f3ee09d73803a1b))
+- **core:** fix for imports
+  ([5cc63ef](https://github.com/newrade/newrade-core/commit/5cc63ef99078f5cf01835c9d2116f15300f5fb63))
+- **core:** fix ls-lint config
+  ([bb554f2](https://github.com/newrade/newrade-core/commit/bb554f2427845dc80b0cc0d4493874fac539cb5e))
+- **core:** fix test config
+  ([9d3757b](https://github.com/newrade/newrade-core/commit/9d3757be70590a7b59f536258c8c6bb9215e1076))
+- **core:** fix typecheck command
+  ([4bab26c](https://github.com/newrade/newrade-core/commit/4bab26c27b1f679dc8376b84347aa94d2d235eea))
+- **core:** fix typescript version and husky push hook
+  ([3b8e031](https://github.com/newrade/newrade-core/commit/3b8e0318e64ccaf58afd948b1d6d127cbbfe85d2))
+- **core:** various fixes for core packages targeting documentation & core docs
+  update
+  ([3ce203f](https://github.com/newrade/newrade-core/commit/3ce203fbbc073394a71adcad1979cc1ef1031903))
+- **core-cli:** fixes after merge
+  ([6fb4f7a](https://github.com/newrade/newrade-core/commit/6fb4f7adfd1c6b38cf9631c7a4683c0398c51c5b))
+- **core-cli:** update manifest
+  ([2932554](https://github.com/newrade/newrade-core/commit/2932554511cfc2edcbf041965b9a86bf328fca3f))
+- **core-react-ui:** fix bad import
+  ([46caa70](https://github.com/newrade/newrade-core/commit/46caa70461d41762723fe3d152475117f6a397c2))
+- **root:** fixes for webpack and gatsby config
+  ([0421692](https://github.com/newrade/newrade-core/commit/04216928e08cfdf9be562e8b0ac4263db22943ec))
+- **ze:** fixes for ze demo website
+  ([0f31dbf](https://github.com/newrade/newrade-core/commit/0f31dbf5434b749562cb98c9fa20b2591ecaebcb))
+
+### Features
+
+- **core:** add i18n component
+  ([756b0f1](https://github.com/newrade/newrade-core/commit/756b0f1e958be77689b3733e62157a3c1d029adc))
+- **core-cli:** add new command to copy github labels
+  ([031f3c8](https://github.com/newrade/newrade-core/commit/031f3c80132fc9e85ef51db82e40f33b37b6d7ef))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.11.0](https://github.com/newrade/newrade-core/tree/master/packages/core-design-system/compare/@newrade/core-cli@1.10.2...@newrade/core-cli@1.11.0) (2021-07-15)
 
 ### Features

@@ -3,6 +3,72 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/newrade/newrade-core/compare/@newrade/core-react-ui@2.1.0...@newrade/core-react-ui@2.2.0) (2021-08-31)
+
+### Bug Fixes
+
+- **core:** add ls-lint
+  ([76728ca](https://github.com/newrade/newrade-core/commit/76728ca9b5e340d7587f596e3e4ca373e788ca91))
+- **core:** add typecheck to core-react-ui (build is currently disabled)
+  ([b732a4c](https://github.com/newrade/newrade-core/commit/b732a4c95a01afb8f7d66b774107775013e1e696))
+- **core:** big cleanup of unnecessary tsconfig files
+  ([36cbad5](https://github.com/newrade/newrade-core/commit/36cbad539a31dc00c8ab7cf12e6a1916692917a7))
+- **core:** build fixes for ze-packages
+  ([b3a24d8](https://github.com/newrade/newrade-core/commit/b3a24d88337038b861ab5eccc479f118543c4d21))
+- **core:** fix bad imports in core-react-ui and core-gatsby-ui
+  ([9026bee](https://github.com/newrade/newrade-core/commit/9026bee25ece71e555a4a877d285f65042b41b88))
+- **core:** fix bug in code-block
+  ([5516f73](https://github.com/newrade/newrade-core/commit/5516f739150251ad32abe91ebb0c8185d1631145))
+- **core:** fix config files for gatsby
+  ([5f495d0](https://github.com/newrade/newrade-core/commit/5f495d071b5e8f078d7be39f2618ecc57905273b))
+- **core:** fix css side effect
+  ([9ba6ea8](https://github.com/newrade/newrade-core/commit/9ba6ea836e0c9348799470178931d6f0bfde128e))
+- **core:** fix deps in packages
+  ([112f5c4](https://github.com/newrade/newrade-core/commit/112f5c421e3e5aef5ffb510cc6cf3d615ef7aba1))
+- **core:** fix layout component for docs and design system
+  ([79da8c8](https://github.com/newrade/newrade-core/commit/79da8c83a3d4937e10e85faf1dcddc6f6a82470f))
+- **core:** fix ls-lint config
+  ([bb554f2](https://github.com/newrade/newrade-core/commit/bb554f2427845dc80b0cc0d4493874fac539cb5e))
+- **core:** fix once and for all the paths for core-react-ui and core-gatsby-ui
+  ([3a4691c](https://github.com/newrade/newrade-core/commit/3a4691cf9642377b65960f1ad8c7f6264e318c64))
+- **core:** fix ssr issues
+  ([87252fe](https://github.com/newrade/newrade-core/commit/87252fe76803f36476b146fe01d668c47b2f1ba8))
+- **core:** fix test config
+  ([9d3757b](https://github.com/newrade/newrade-core/commit/9d3757be70590a7b59f536258c8c6bb9215e1076))
+- **core:** fix typecheck command
+  ([4bab26c](https://github.com/newrade/newrade-core/commit/4bab26c27b1f679dc8376b84347aa94d2d235eea))
+- **core:** fixes for page generation (i18)
+  ([d16b451](https://github.com/newrade/newrade-core/commit/d16b4517a8a8c676cf60c5e7cb239905ac0b2bfd))
+- **core:** improvements for documentation generation
+  ([a5ff9ab](https://github.com/newrade/newrade-core/commit/a5ff9ab5bb420b7bf5a7f5facd29f143d2e08aad))
+- **core:** update docs + fix badge component
+  ([3fbb3a2](https://github.com/newrade/newrade-core/commit/3fbb3a2b5fc784cea661151d3896a3685de94649))
+- **core:** various fixes for core packages targeting documentation & core docs
+  update
+  ([3ce203f](https://github.com/newrade/newrade-core/commit/3ce203fbbc073394a71adcad1979cc1ef1031903))
+- **core-gatsby-ui:** documentation improvements
+  ([ec944bb](https://github.com/newrade/newrade-core/commit/ec944bbc27b0252024cf30ef948204d7ca5410ae))
+- **core-react-ui:** fix bad import
+  ([46caa70](https://github.com/newrade/newrade-core/commit/46caa70461d41762723fe3d152475117f6a397c2))
+- **core-react-ui:** fix typing issue
+  ([72174c3](https://github.com/newrade/newrade-core/commit/72174c312ade5c1db520a5de7b7b043fb9688c9f))
+- **root:** fixes for webpack and gatsby config
+  ([0421692](https://github.com/newrade/newrade-core/commit/04216928e08cfdf9be562e8b0ac4263db22943ec))
+
+### Features
+
+- **core:** add example for webpack dll plugin
+  ([d212163](https://github.com/newrade/newrade-core/commit/d21216351454f5b35d14f1bd2427e743ed34a325))
+- **core:** upgrade gatsby, gatsby-plugin-image
+  ([d05676e](https://github.com/newrade/newrade-core/commit/d05676e05fc6b37d9ce82a56109c8e94398f18fd))
+- **core-react-ui:** refactor navigation components
+  ([0f579fc](https://github.com/newrade/newrade-core/commit/0f579fc0c8bd6ade42237230c5ab0c8e608255db))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [2.1.0](https://github.com/newrade/newrade-core/compare/@newrade/core-react-ui@2.0.0...@newrade/core-react-ui@2.1.0) (2021-07-15)
 
 ### Bug Fixes

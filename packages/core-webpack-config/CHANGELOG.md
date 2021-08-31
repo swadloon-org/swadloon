@@ -3,6 +3,51 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/newrade/newrade-core/compare/@newrade/core-webpack-config@2.0.0...@newrade/core-webpack-config@2.1.0) (2021-08-31)
+
+### Bug Fixes
+
+- **core:** add ls-lint
+  ([76728ca](https://github.com/newrade/newrade-core/commit/76728ca9b5e340d7587f596e3e4ca373e788ca91))
+- **core:** big cleanup of unnecessary tsconfig files
+  ([36cbad5](https://github.com/newrade/newrade-core/commit/36cbad539a31dc00c8ab7cf12e6a1916692917a7))
+- **core:** fix babel loader config
+  ([14ed3c5](https://github.com/newrade/newrade-core/commit/14ed3c5f777cbf952f69e75fdb0edc5efd86e646))
+- **core:** fix config files for gatsby
+  ([5f495d0](https://github.com/newrade/newrade-core/commit/5f495d071b5e8f078d7be39f2618ecc57905273b))
+- **core:** fix core-webpack-config entry
+  ([e1bdf14](https://github.com/newrade/newrade-core/commit/e1bdf14466b3e3f20ae7397faf2da79382a94e40))
+- **core:** fix deps in packages
+  ([112f5c4](https://github.com/newrade/newrade-core/commit/112f5c421e3e5aef5ffb510cc6cf3d615ef7aba1))
+- **core:** fix for imports
+  ([5cc63ef](https://github.com/newrade/newrade-core/commit/5cc63ef99078f5cf01835c9d2116f15300f5fb63))
+- **core:** fix ls-lint config
+  ([bb554f2](https://github.com/newrade/newrade-core/commit/bb554f2427845dc80b0cc0d4493874fac539cb5e))
+- **core:** fix once and for all the paths for core-react-ui and core-gatsby-ui
+  ([3a4691c](https://github.com/newrade/newrade-core/commit/3a4691cf9642377b65960f1ad8c7f6264e318c64))
+- **core:** fix ssr issues
+  ([87252fe](https://github.com/newrade/newrade-core/commit/87252fe76803f36476b146fe01d668c47b2f1ba8))
+- **core:** fix test config
+  ([9d3757b](https://github.com/newrade/newrade-core/commit/9d3757be70590a7b59f536258c8c6bb9215e1076))
+- **core:** fix typecheck command
+  ([4bab26c](https://github.com/newrade/newrade-core/commit/4bab26c27b1f679dc8376b84347aa94d2d235eea))
+- **core-react-ui:** fix bad import
+  ([46caa70](https://github.com/newrade/newrade-core/commit/46caa70461d41762723fe3d152475117f6a397c2))
+- **root:** fixes for webpack and gatsby config
+  ([0421692](https://github.com/newrade/newrade-core/commit/04216928e08cfdf9be562e8b0ac4263db22943ec))
+
+### Features
+
+- **core:** add example for webpack dll plugin
+  ([d212163](https://github.com/newrade/newrade-core/commit/d21216351454f5b35d14f1bd2427e743ed34a325))
+- **core:** upgrade gatsby, gatsby-plugin-image
+  ([d05676e](https://github.com/newrade/newrade-core/commit/d05676e05fc6b37d9ce82a56109c8e94398f18fd))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [2.0.0](https://github.com/newrade/newrade-core/compare/@newrade/core-webpack-config@1.8.0...@newrade/core-webpack-config@2.0.0) (2021-07-12)
 
 ### Bug Fixes

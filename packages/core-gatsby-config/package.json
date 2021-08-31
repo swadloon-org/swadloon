@@ -1,6 +1,6 @@
 {
   "name": "@newrade/core-gatsb-config",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "description": "Reusable gatsby configuration files",
   "license": "MIT",
   "main": "dist/newrade-core-gatsb-config.cjs.js",
@@ -31,10 +31,10 @@
   "dependencies": {
     "@ccalamos/gatsby-source-googlemaps-static": "^3.1.1",
     "@mdx-js/mdx": "^1.6.18",
-    "@newrade/core-common": "*",
-    "@newrade/core-jest-config": "*",
-    "@newrade/core-utils": "*",
-    "@newrade/core-webpack-config": "*",
+    "@newrade/core-common": "^1.4.1",
+    "@newrade/core-jest-config": "^2.0.1",
+    "@newrade/core-utils": "^2.1.0",
+    "@newrade/core-webpack-config": "^2.1.0",
     "add-asset-html-webpack-plugin": "^3.2.0",
     "case": "^1",
     "chalk": "^4",

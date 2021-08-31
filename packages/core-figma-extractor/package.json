@@ -1,6 +1,6 @@
 {
   "name": "@newrade/core-figma-extractor",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "Utility to extract colors, text styles and other tokens from figma",
   "license": "MIT",
   "main": "dist/newrade-core-figma-extractor.cjs.js",
@@ -22,8 +22,8 @@
   },
   "sideEffects": false,
   "dependencies": {
-    "@newrade/core-jest-config": "*",
-    "@newrade/core-utils": "*",
+    "@newrade/core-jest-config": "^2.0.1",
+    "@newrade/core-utils": "^2.1.0",
     "case": "^1",
     "chalk": "^4",
     "figma-js": "^1.11.0",

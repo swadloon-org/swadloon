@@ -27,7 +27,7 @@ $ npm install -g @newrade/core-cli
 $ nr COMMAND
 running command...
 $ nr (-v|--version|version)
-@newrade/core-cli/1.11.0 darwin-arm64 node-v16.5.0
+@newrade/core-cli/1.12.0 darwin-arm64 node-v16.5.0
 $ nr --help [COMMAND]
 USAGE
   $ nr COMMAND
@@ -265,7 +265,7 @@ EXAMPLE
   $ nr prepare-exports
 ```
 
-_See code: [lib/commands/prepare-exports.js](https://github.com/newrade/newrade-core/blob/v1.11.0/lib/commands/prepare-exports.js)_
+_See code: [lib/commands/prepare-exports.js](https://github.com/newrade/newrade-core/blob/v1.12.0/lib/commands/prepare-exports.js)_
 
 ## `nr vercel-deploy`
 
