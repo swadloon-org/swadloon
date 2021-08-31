@@ -11,8 +11,8 @@
 ![core-react-ui](https://github.com/newrade/newrade-core/actions/workflows/core-react-ui-workflow.yml/badge.svg)
 ![core-design-system](https://github.com/newrade/newrade-core/actions/workflows/core-design-system-workflow.yml/badge.svg)
 ![core-webpack-config](https://github.com/newrade/newrade-core/actions/workflows/core-webpack-config-workflow.yml/badge.svg)
-![ze](https://github.com/newrade/newrade-core/actions/workflows/ze-design-website-workflow.yml/badge.svg)
-![CodeQL](https://github.com/newrade/newrade-core/actions/workflows/codeql-analysis.yml/badge.svg)
+![ze-design-website](https://github.com/newrade/newrade-core/actions/workflows/ze-design-website-workflow.yml/badge.svg)
+![code-ql](https://github.com/newrade/newrade-core/actions/workflows/codeql-analysis.yml/badge.svg)
 
 ---
 
@@ -35,7 +35,7 @@ Documentation: https://zedesignsystem.com/docs
 
 Design System: https://zedesignsystem.com/design-system
 
-![Visualization of this repo](./docs/assets/images/core-repo-diagram.svg)
+[Visualization of this repo](https://octo-repo-visualization.vercel.app/?repo=newrade%2Fnewrade-core)
 
 ## Tech Stack
 
