@@ -73,5 +73,7 @@ jobs:
       - name: Update diagram
         uses: githubocto/repo-visualizer@main
         with:
+          commit_message: "chore(core): update diagram"
           output_file: "docs/assets/images/core-repo-diagram.svg"
-          excluded_paths: "node_modules,**/node_modules,**/dist,**/lib,**/built,**/public,**/out,**/build,**/built,.yarn,.vscode,package-lock.json,yarn.lock"
+          excluded_globs: "**/node_modules,**/dist,**/lib,**/built,**/public,**/.cache"
+          excluded_paths: "node_modules,dist,lib,built,public,out,build,.yarn,.vscode,package-lock.json,yarn.lock"

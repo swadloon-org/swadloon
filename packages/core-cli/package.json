@@ -37,6 +37,7 @@
   "oclif": {
     "bin": "nr",
     "commands": "./lib/commands",
+    "dirname": ".cache/oclif",
     "plugins": [
       "@oclif/plugin-help"
     ]
@@ -62,6 +63,7 @@
     "eslint-config-oclif": "^3.1",
     "eslint-config-oclif-typescript": "^0.2",
     "fp-ts": "^2",
+    "glob": "^7",
     "io-ts": "^2",
     "mocha": "^5",
     "nyc": "^14",

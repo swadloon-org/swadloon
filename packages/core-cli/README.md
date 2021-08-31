@@ -45,6 +45,7 @@ USAGE
 * [`nr gatsby [COMMAND]`](#nr-gatsby-command)
 * [`nr git-clean-branches`](#nr-git-clean-branches)
 * [`nr git-copy-labels SOURCE DESTINATION`](#nr-git-copy-labels-source-destination)
+* [`nr globby [ARGS]`](#nr-globby-args)
 * [`nr hello [FILE]`](#nr-hello-file)
 * [`nr help [COMMAND]`](#nr-help-command)
 * [`nr jest [ARGS]`](#nr-jest-args)
@@ -164,6 +165,20 @@ OPTIONS
 EXAMPLE
   $ nr git-copy-labels
 ```
+
+## `nr globby [ARGS]`
+
+Execute globby as CLI
+
+```
+USAGE
+  $ nr globby [ARGS]
+
+EXAMPLE
+  $ nr globby
+```
+
+_See code: [lib/commands/globby.js](https://github.com/newrade/newrade-core/blob/v1.11.0/lib/commands/globby.js)_
 
 ## `nr hello [FILE]`
 

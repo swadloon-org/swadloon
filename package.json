@@ -104,6 +104,7 @@
     "@jest/transform": "^27",
     "@loadable/babel-plugin": "^5.13.2",
     "@loadable/component": "^5.14.1",
+    "@ls-lint/ls-lint": "^1.10.0",
     "@mdx-js/mdx": "^1.6.18",
     "@mdx-js/react": "^1.6.22",
     "@popmotion/popcorn": "^0.4.4",
@@ -254,8 +255,5 @@
     "webpack-cli": "^4.7.2",
     "webpack-dev-server": "^3.11",
     "yo": "^3.1.1"
-  },
-  "devDependencies": {
-    "@ls-lint/ls-lint": "^1.10.0"
   }
 }
