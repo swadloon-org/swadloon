@@ -6,7 +6,6 @@
   },
   "include": ["gatsby-*.ts", "src", "test", "types", "scripts/**/*"],
   "ts-node": {
-    "transpileOnly": true,
-    "compilerOptions": {}
+    "transpileOnly": true
   }
 }

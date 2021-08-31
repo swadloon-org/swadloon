@@ -265,6 +265,8 @@ EXAMPLE
   $ nr prepare-exports
 ```
 
+_See code: [lib/commands/prepare-exports.js](https://github.com/newrade/newrade-core/blob/v1.11.0/lib/commands/prepare-exports.js)_
+
 ## `nr vercel-deploy`
 
 deploy site with vercel using env variables
