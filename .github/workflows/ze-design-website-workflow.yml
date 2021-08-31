@@ -22,6 +22,9 @@ on:
       - master
       - release
   pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+  pull_request_target:
+    types: [opened, synchronize, reopened, ready_for_review]
   workflow_dispatch:
 
 env:
@@ -55,8 +58,11 @@ env:
 jobs:
 
   build-test-deploy:
-
     runs-on: ubuntu-latest
+
+    if: |
+        (github.event_name == 'pull_request_target' && github.actor == 'dependabot[bot]') ||
+        (github.event_name != 'pull_request_target' && github.actor != 'dependabot[bot]')
 
     steps:
       - name: Checkout
