@@ -12,18 +12,6 @@ Object {
           "name": "index",
           "path": "/design-system/path-a/",
         },
-        Object {
-          "displayName": "Page 2",
-          "frontmatter": undefined,
-          "name": "page-2",
-          "path": "/design-system/path-a/page-2",
-        },
-        Object {
-          "displayName": "Page 1",
-          "frontmatter": undefined,
-          "name": "page-1",
-          "path": "/design-system/path-a/page-1",
-        },
       ],
       "name": "path-a",
       "path": "path-a",
@@ -48,7 +36,26 @@ Object {
       "path": "",
     },
     Object {
-      "displayName": "Path B",
+      "displayName": "Design System Path A",
+      "items": Array [
+        Object {
+          "displayName": "Page 2",
+          "frontmatter": undefined,
+          "name": "page-2",
+          "path": "/design-system/path-a/page-2",
+        },
+        Object {
+          "displayName": "Page 1",
+          "frontmatter": undefined,
+          "name": "page-1",
+          "path": "/design-system/path-a/page-1",
+        },
+      ],
+      "name": "design-system/path-a",
+      "path": "design-system/path-a",
+    },
+    Object {
+      "displayName": "Design System Path B",
       "items": Array [
         Object {
           "displayName": "Page 1",
@@ -57,8 +64,8 @@ Object {
           "path": "/design-system/path-b/page-1",
         },
       ],
-      "name": "path-b",
-      "path": "path-b",
+      "name": "design-system/path-b",
+      "path": "design-system/path-b",
     },
   ],
   "name": "navigation test",

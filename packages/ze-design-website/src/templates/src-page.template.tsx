@@ -1,9 +1,9 @@
-import { GatsbySrcPageContext } from '@newrade/core-gatsby-config';
+import { GatsbySrcPageContext } from '@newrade/core-gatsb-config/config';
 import {
   getMetaBasicTags,
   getMetadataOpenGraphWebsiteTags,
   OPEN_GRAPH_TYPE,
-} from '@newrade/core-react-ui/src';
+} from '@newrade/core-react-ui';
 import { PageProps } from 'gatsby';
 import React, { ReactNode } from 'react';
 import Helmet from 'react-helmet';

@@ -3,21 +3,68 @@
   "version": "2.0.0",
   "description": "Reusable webpack configuration files",
   "license": "MIT",
-  "main": "./lib/index.js",
-  "module": "./lib/index.js",
+  "main": "dist/newrade-core-webpack-config.cjs.js",
+  "module": "dist/newrade-core-webpack-config.esm.js",
   "files": [
-    "./lib/**/*"
+    "/dist",
+    "/config",
+    "/ejs-loader"
   ],
   "scripts": {
-    "build": "tsc --build tsconfig.build.json",
-    "clean": "rm -rf lib/** && rm -f tsconfig.build.tsbuildinfo",
-    "start": "tsc --build tsconfig.build.json --watch --preserveWatchOutput"
+    "build": "yarn clean && yarn build:dist && yarn build:config && nr prepare-exports",
+    "build:config": "tsc --project tsconfig.config.json",
+    "build:dist": "tsc --project tsconfig.json",
+    "clean": "yarn clean:tsc && yarn clean:dist && yarn clean:config",
+    "clean:config": "rm -rf config/dist/**",
+    "clean:dist": "rm -rf dist/** lib/**",
+    "clean:tsc": "rm -f ./**/*.tsbuildinfo *.tsbuildinfo",
+    "dev": "yarn clean && yarn preconstruct dev"
   },
-  "typings": "./lib/index.d.ts",
+  "preconstruct": {
+    "entrypoints": [
+      "index.ts",
+      "config/index.ts",
+      "ejs-loader/index.ts"
+    ]
+  },
   "dependencies": {
-    "@newrade/core-common": "^1.4.0",
-    "@newrade/core-jest-config": "^2.0.0",
-    "@newrade/core-types": "^2.0.0",
-    "@newrade/core-utils": "^2.0.0"
+    "@mapbox/rehype-prism": "^0.5.0",
+    "@newrade/core-utils": "*",
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.0-beta.8",
+    "@vanilla-extract/webpack-plugin": "^1.0.1",
+    "autoprefixer": "^10.3.1",
+    "clean-webpack-plugin": "^4.0.0-alpha.0",
+    "compression-webpack-plugin": "^6.1.1",
+    "copy-webpack-plugin": "^6.4.1",
+    "csp-html-webpack-plugin": "^5.1.0",
+    "cssnano": "^5",
+    "duplicate-package-checker-webpack-plugin": "^3",
+    "fork-ts-checker-webpack-plugin": "6.2.9",
+    "html-webpack-plugin": "^5.3.1",
+    "loader-utils": "^2",
+    "lodash": "^4",
+    "lodash-webpack-plugin": "^0.11.6",
+    "mini-css-extract-plugin": "^2.1.0",
+    "postcss-preset-env": "^6.7.0",
+    "preload-webpack-plugin": "^2",
+    "react-refresh": "^0.10.0",
+    "react-refresh-typescript": "^2.0.0",
+    "react-router-dom": "^6.0.0-beta.0",
+    "rehype-autolink-headings": "^5.0.1",
+    "rehype-slug": "^4.0.1",
+    "remark-external-links": "^8.0.0",
+    "remark-html": "^13.0.1",
+    "remark-parse": "^9.0.0",
+    "remark-toc": "^7.0.0",
+    "remark-unwrap-images": "^2.0.0",
+    "remark-wiki-link": "^0.0.4",
+    "terser-webpack-plugin": "^5",
+    "treat": "^2",
+    "tsconfig-paths-webpack-plugin": "^3.5.1",
+    "unist-util-visit": "^4",
+    "webpack-bundle-analyzer": "^4.4.1",
+    "webpack-manifest-plugin": "^4",
+    "webpack-node-externals": "^3.0.0",
+    "webpack-stats-plugin": "^1.0.3"
   }
 }

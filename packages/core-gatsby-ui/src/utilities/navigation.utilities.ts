@@ -1,12 +1,13 @@
 import { NavItem } from '../navigation/nav-item.model';
-import type {
+import {
   GatsbyCommonPageContext,
   GatsbyMarkdownFilePageContext,
-} from '@newrade/core-gatsby-config';
+} from '@newrade/core-gatsb-config/config';
 import { title, kebab, capital, lower } from 'case';
 import { SITE_LANGUAGES } from '@newrade/core-common';
 import { Navigation } from '../navigation/navigation.model';
 import { NavComponent, NavigationAPI } from '@newrade/core-website-api';
+import { getLangSimpleCode } from '@newrade/core-react-ui';
 
 /**
  * Simplified type for a Page Node
@@ -89,89 +90,6 @@ export function getNavigationAPIFromPageNodes({
     return getPageDirFromPath(node.path);
   }
 
-  // for item at the root the dir name is ''
-  // const navigation = [...new Set(dirNames)].reduce(
-  //   (previous, current) => {
-  //     // for each dir name, transform the nodes and place them in .items
-  //     const currentDirName = current;
-
-  //     const dirNameNodes = filteredPageNodes.filter(
-  //       (node) => dirNamePredicate(node) === currentDirName
-  //     );
-  //     if (!dirNameNodes) {
-  //       return previous;
-  //     }
-
-  //     previous.items = [
-  //       ...previous.items,
-  //       // create a new item
-  //       {
-  //         name: currentDirName ? currentDirName : 'Home',
-  //         displayName: formatDisplayName
-  //           ? formatDisplayName(currentDirName)
-  //           : defaultFormatDisplayName({ name: currentDirName, uppercaseWords }),
-  //         path: currentDirName ? currentDirName : '',
-  //         // for each child nodes, creat a nav item
-  //         items: dirNameNodes
-  //           .map((node) => getNavItemShallow(node))
-  //           // apply sorting on items, if specified
-  //           .sort((a, b) => {
-  //             if (!normalizedSortOrderItems) {
-  //               return 0;
-  //             }
-
-  //             const indexA = normalizedSortOrderItems.indexOf(normalizeName(a.name));
-  //             const indexB = normalizedSortOrderItems.indexOf(normalizeName(b.name));
-
-  //             if (indexA === indexB) {
-  //               return 0;
-  //             }
-
-  //             if (indexA === -1) {
-  //               return 1;
-  //             }
-
-  //             if (indexB === -1) {
-  //               return -1;
-  //             }
-
-  //             return indexA > indexB ? 1 : -1;
-  //           }),
-  //       },
-  //       // apply sorting on directories, if specified
-  //     ].sort((a, b) => {
-  //       if (!normalizedSortOrderDirectories) {
-  //         return 0;
-  //       }
-
-  //       const indexA = normalizedSortOrderDirectories.indexOf(normalizeName(a.name));
-  //       const indexB = normalizedSortOrderDirectories.indexOf(normalizeName(b.name));
-
-  //       if (indexA === indexB) {
-  //         return 0;
-  //       }
-
-  //       if (indexA === -1) {
-  //         return 1;
-  //       }
-
-  //       if (indexB === -1) {
-  //         return -1;
-  //       }
-
-  //       return indexA > indexB ? 1 : -1;
-  //     });
-
-  //     return previous;
-  //   },
-  //   {
-  //     name,
-  //     items: [],
-  //   } as NavigationAPI
-  // );
-
-  // return navigation;
-
   function getNavItemShallow(node: PageNode): NavigationAPI {
     return {
       name: formatName ? formatName(node.context?.name) : defaultFormatName(node.context?.name),
@@ -182,7 +100,6 @@ export function getNavigationAPIFromPageNodes({
             lang: node.context?.locale,
             uppercaseWords,
           }),
-      // frontmatter: (node.context as GatsbyMarkdownFilePageContext)?.frontmatter,
     };
   }
 }
@@ -198,7 +115,7 @@ export function getNavigationFromPageNodes({
   sortOrderItems,
   sortOrderDirectories,
   excludedItems,
-  uppercaseWords = ['wsl', 'ui', 'ux', 'seo', 'ssh', 'css', 'api', 'ci', 'vm', 'cms', 'pr'],
+  uppercaseWords = ['wsl', 'ui', 'ux', 'seo', 'ssh', 'css', 'api', 'ci', 'vm', 'cms', 'pr', 'cli'],
   formatName,
   formatDisplayName,
 }: {
@@ -232,7 +149,11 @@ export function getNavigationFromPageNodes({
         return node;
       }
 
-      if (locales.find((locale) => locale === node.context?.locale)) {
+      if (
+        locales.find(
+          (locale) => getLangSimpleCode(locale) === getLangSimpleCode(node.context?.locale)
+        )
+      ) {
         return true;
       }
 
@@ -364,7 +285,7 @@ export function getPageDirFromPath(path?: string | null): string {
   }
 
   const reg =
-    /(\/(?<lang>fr|en|fr_CA|en_CA|fr-CA|en-CA))?(\/(?<source>docs|core-docs|design-system))?(\/?(?<dirname>.+)\/)?((?<pagename>[a-z\-]+|\/))(\.(?<ext>jsx|tsx|mdx|md))?/gi;
+    /(\/(?<lang>fr|en|fr_CA|en_CA|fr-CA|en-CA))?(\/?(?<dirname>.+)\/)?((?<pagename>[a-z\-]+|\/))(\.(?<ext>jsx|tsx|mdx|md))?/gi;
   const match = reg.exec(path);
   const dirName = match?.groups?.dirname;
 
@@ -377,7 +298,7 @@ export function getPageDirFromPathIndex(path?: string | null): string {
   }
 
   const reg =
-    /(\/(?<lang>fr|en|fr_CA|en_CA|fr-CA|en-CA))?(\/(?<source>docs|core-docs|design-system))(\/(?<dirname>.+)\/)/gi;
+    /(\/(?<lang>fr|en|fr_CA|en_CA|fr-CA|en-CA))?(\/(?<source>[a-z_-]+))(\/(?<dirname>.+)\/)/gi;
   const match = reg.exec(path);
   const dirName = match?.groups?.dirname;
   const source = match?.groups?.source;

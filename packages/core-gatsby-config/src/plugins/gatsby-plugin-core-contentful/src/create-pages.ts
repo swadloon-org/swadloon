@@ -2,7 +2,7 @@ import { AppError, ERROR_TYPE, SITE_LANGUAGES } from '@newrade/core-common';
 import fsp from 'fs/promises';
 import { GatsbyNode } from 'gatsby';
 import path from 'path';
-import { GatsbyContentfulPageContext } from '../../../config/page-config';
+import { GatsbyContentfulPageContext } from '../../../config/page-context';
 import {
   GatsbyNodeAllSiteQuery,
   GatsbyNodeSiteMetadataFragment,
@@ -63,26 +63,22 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
 
     const pagesData = await graphql<{
       allContentfulPage: {
-        edges: {
-          node: {
-            node_locale: string;
-            id: string;
-            name: string;
-            slug: string;
-          };
+        nodes: {
+          node_locale: string;
+          id: string;
+          name: string;
+          slug: string;
         }[];
       };
     }>(
       `
         query GatsbyContentfulPages($locales: [String]) {
           allContentfulPage(filter: { node_locale: { in: $locales } }) {
-            edges {
-              node {
-                node_locale
-                id
-                name
-                slug
-              }
+            nodes {
+              node_locale
+              id
+              name
+              slug
             }
           }
         }
@@ -92,12 +88,12 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
       }
     );
 
-    if (!pagesData.data?.allContentfulPage.edges.length) {
+    if (!pagesData.data?.allContentfulPage.nodes.length) {
       reporter.panic(`[${pluginOptions.pluginName}] could not retrieve pages`);
     }
 
     reporter.info(
-      `[${pluginOptions.pluginName}] found ${pagesData.data?.allContentfulPage.edges.length} pages`
+      `[${pluginOptions.pluginName}] found ${pagesData.data?.allContentfulPage.nodes.length} pages`
     );
 
     /**
@@ -122,32 +118,26 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
     //   reporter.panic(`[${pluginOptions.pluginName}] no default template defined for contentful-page`);
     // }
 
-    pagesData.data?.allContentfulPage.edges
-      .filter((edge) => {
-        if (!(edge && edge.node)) {
-          return false;
-        }
+    pagesData.data?.allContentfulPage.nodes.forEach((node, index) => {
+      reporter.info(`[${pluginOptions.pluginName}] creating page: ${node.slug}`);
 
-        return true;
-      })
-      .forEach((edge, index) => {
-        reporter.info(`[${pluginOptions.pluginName}] creating page: ${edge.node.slug}`);
-
-        createPage<GatsbyContentfulPageContext>({
-          path: edge.node.slug,
-          context: {
-            siteMetadata,
-            pageId: edge.node.id,
-            id: edge.node.id,
-            name: edge.node.name,
-            slug: edge.node.slug,
-            locale: edge.node.node_locale as SITE_LANGUAGES,
-            layout: 'default',
-            template: 'contentfulPage',
-          },
-          component: pageTemplate,
-        });
+      createPage<GatsbyContentfulPageContext>({
+        path: node.slug,
+        context: {
+          siteMetadata,
+          pageId: node.id,
+          id: node.id,
+          name: node.name,
+          slug: node.slug,
+          locale: node.node_locale as SITE_LANGUAGES,
+          layout: 'default',
+          template: 'contentfulPage',
+          absolutePath: '',
+          relativePath: '',
+        },
+        component: pageTemplate,
       });
+    });
   } catch (error: any) {
     reporter.error(`[${pluginOptions.pluginName}] error occured when generating pages: ${error}`);
     reporter.panic(error);

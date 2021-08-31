@@ -811,11 +811,11 @@ All notable changes to this project will be documented in this file. See
 - **core-react-ui:** wip for typography
   ([7974d81](https://github.com/newrade/newrade/commit/7974d813caa29f325729e37dc6328478fc2b403b))
 
-## [1.4.2](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-config@1.4.1...@newrade/core-gatsby-config@1.4.2) (2020-11-30)
+## [1.4.2](https://github.com/newrade/newrade/compare/@newrade/core-gatsb-config@1.4.1...@newrade/core-gatsb-config@1.4.2) (2020-11-30)
 
-**Note:** Version bump only for package @newrade/core-gatsby-config
+**Note:** Version bump only for package @newrade/core-gatsb-config
 
-## [1.4.1](https://github.com/newrade/newrade/compare/@newrade/core-gatsby-config@1.4.0...@newrade/core-gatsby-config@1.4.1) (2020-11-26)
+## [1.4.1](https://github.com/newrade/newrade/compare/@newrade/core-gatsb-config@1.4.0...@newrade/core-gatsb-config@1.4.1) (2020-11-26)
 
 ### Bug Fixes
 

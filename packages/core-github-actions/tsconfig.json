@@ -1,11 +1,13 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "../../tsconfig.node-commonjs.json",
   "compilerOptions": {
-    "types": ["node", "jest", "debug"],
+    "rootDir": "../.",
+    "declaration": false,
     "baseUrl": ".",
-    "paths": {
-      "@newrade/*": ["../*/src"]
-    }
+    "outDir": "lib",
+    "target": "es2018", // for github runner (currently v12)
+    "lib": ["es2018"], // for github runner (currently v12)
+    "types": ["node", "jest", "debug"]
   },
-  "include": ["src", "test", "types", "scripts"]
+  "include": ["src", "test", "types", "scripts/**/*"]
 }

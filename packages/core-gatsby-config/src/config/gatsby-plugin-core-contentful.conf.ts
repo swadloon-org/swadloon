@@ -23,7 +23,7 @@ export function getGastbyCoreContentfulPluginConfig({
   },
 }: GatsbyCoreContentfulPluginOptions = defaultOptions): PluginRef {
   return {
-    resolve: path.resolve(__dirname, `../../lib/plugins/gatsby-plugin-core-contentful`),
+    resolve: require.resolve(`../plugins/gatsby-plugin-core-contentful`),
     options: {
       pluginName,
       packageName,

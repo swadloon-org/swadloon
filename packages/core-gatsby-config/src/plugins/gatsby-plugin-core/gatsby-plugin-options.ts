@@ -14,7 +14,6 @@ export type GatsbyCorePluginOptions = {
    * @example 'lodash'
    */
   modules?: string[];
-
   /**
    * Enable or disable the generation of normal pages (.tsx) in /src/pages/
    */

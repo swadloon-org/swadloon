@@ -1,11 +1,10 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "../../tsconfig.node-commonjs.json",
   "compilerOptions": {
-    "types": ["node"],
     "baseUrl": ".",
-    "paths": {
-      "@newrade/*": ["../*/src"]
-    }
+    "rootDir": "src",
+    "outDir": "dist"
   },
-  "include": ["src", "test", "types", "scripts"]
+  "include": ["src"],
+  "exclude": ["src/config"]
 }

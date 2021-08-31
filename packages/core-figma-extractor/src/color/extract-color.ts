@@ -6,7 +6,7 @@ import { regexName } from '../constants/figma-colors.constants';
 import { fetchObjectById } from '../service/figma-api';
 import { ColorTokens, FigmaColor } from './figma-colors.model';
 
-const log = debug('newrade:core-figma-extractor');
+const log = debug('nr:core-figma-extractor');
 
 export function extractFigmaColors(data: FileStylesResponse['meta']['styles']) {
   const dataToken: ColorTokens = {};

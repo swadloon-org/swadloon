@@ -93,6 +93,16 @@ export const CommonEnv = t.intersection([
      */
     NODE_ENV: NodeEnv,
     /**
+     * NodeJS internal debug env variable
+     * @see https://nodejs.org/api/cli.html#cli_node_debug_module
+     */
+    NODE_DEBUG: t.string,
+    /**
+     * Debug env variable to enable output in the console, based on the namespace set
+     * @see https://github.com/visionmedia/debug for documentation
+     */
+    DEBUG: t.string,
+    /**
      * Branch subdomain a specific build
      * @example "" in "website.com"
      * @example "" in "api.website.com"

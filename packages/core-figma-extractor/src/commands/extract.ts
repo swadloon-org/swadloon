@@ -11,7 +11,7 @@ import {
   createColorPaletteTS,
 } from '../color/generate-tokens';
 import { FileType, outputColorFiles } from '../constants/figma-colors.constants';
-const log = debug('newrade:core-figma-extractor:extract');
+const log = debug('nr:core-figma-extractor:extract');
 const logWarn = log.extend('warn');
 const logError = log.extend('error');
 

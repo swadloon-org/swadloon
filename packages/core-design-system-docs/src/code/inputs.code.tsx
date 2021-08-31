@@ -1,4 +1,4 @@
-import { InputSelect, InputText, InputWrapper, useTreatTheme } from '@newrade/core-react-ui/src';
+import { InputSelect, InputText, InputWrapper, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 
 type Props = {};

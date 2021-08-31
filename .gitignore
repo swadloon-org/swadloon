@@ -66,3 +66,6 @@ lib/
 # apps
 dist/
 public/
+
+# graphql
+graphql.config.js

@@ -1,11 +1,12 @@
-/// <reference types="@newrade/core-types/lib/mdx" />
+/// <reference types="@newrade/core-types/src/mdx" />
 
 import { render } from '@testing-library/react';
+import { spawnSync } from 'child_process';
 import React from 'react';
 
 /**
  * @description Test Jest setup itself, e.g. if the Jest test can compile from TypeScript
- *     or if they can handle ES6 features like dynamic import()
+ * or if they can handle ES6 features like dynamic import()
  */
 describe('jest', () => {
   it('should compile typescript', () => {
@@ -52,5 +53,15 @@ describe('jest', () => {
     const { getByText, getByTestId } = render(<DummyComponent />);
     getByText(/hello/i);
     getByTestId(/hello/i);
+  });
+
+  it('should run commands correctly', () => {
+    const command = spawnSync(`echo ok`, {
+      shell: true,
+      stdio: 'pipe',
+      env: process.env,
+    });
+
+    expect(command.stdout.toString()).toMatch(/ok/);
   });
 });

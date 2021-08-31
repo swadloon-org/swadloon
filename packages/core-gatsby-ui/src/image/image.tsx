@@ -1,5 +1,5 @@
-import { PrimitiveProps } from '@newrade/core-react-ui/src';
-import { getMergedClassname } from '@newrade/core-react-ui/src/utilities';
+import { PrimitiveProps } from '@newrade/core-react-ui';
+import { getMergedClassname } from '@newrade/core-react-ui/utilities';
 import GastbyImage, { GatsbyImageProps } from 'gatsby-image';
 import React from 'react';
 import { useStyles } from 'react-treat';

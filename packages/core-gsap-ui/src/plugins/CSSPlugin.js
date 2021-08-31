@@ -123,7 +123,7 @@ let _win, _doc, _docElement, _pluginInitted, _tempDiv, _tempDivStyler, _recentSe
 		let bounds;
 		try {
 			bounds = target.getBBox(); //Firefox throws errors if you try calling getBBox() on an SVG element that's not rendered (like in a <symbol> or <defs>). https://bugzilla.mozilla.org/show_bug.cgi?id=612118
-		} catch (error) {
+		} catch (error: any) {
 			bounds = _getBBoxHack.call(target, true);
 		}
 		(bounds && (bounds.width || bounds.height)) || target.getBBox === _getBBoxHack || (bounds = _getBBoxHack.call(target, true));

@@ -1,12 +1,9 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "../../tsconfig.browser-esm.json",
   "compilerOptions": {
-    "types": [],
-    "lib": ["es6", "dom", "es2017"],
     "baseUrl": ".",
-    "paths": {
-      "@newrade/*": ["../*/src"]
-    }
+    "outDir": "dist",
+    "rootDir": "src"
   },
-  "include": ["src", "test", "types", "scripts"]
+  "include": ["src", "types"]
 }

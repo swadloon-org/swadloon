@@ -1,6 +1,6 @@
 import { pascal } from 'case';
 import * as Migration from 'contentful-migration';
-import { CONTENTFUL_WIDGET } from '../../types/contentful-widget-ids';
+import { CONTENTFUL_WIDGET } from '../types/contentful-widget-ids';
 import { ContentType, LinkComponent, LinkType } from '@newrade/core-website-api';
 import { COMMON_FIELD, urlField } from './common-fields.contentful';
 import { keys } from '../utilities';

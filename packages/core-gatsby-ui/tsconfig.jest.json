@@ -1,4 +1,5 @@
 {
   "extends": "../core-jest-config/tsconfig.base.jest.json",
+  "compilerOptions": {},
   "include": ["test", "src"]
 }

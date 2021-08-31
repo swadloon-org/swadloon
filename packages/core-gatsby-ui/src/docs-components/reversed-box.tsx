@@ -1,4 +1,4 @@
-import { BoxV2, useTreatTheme } from '@newrade/core-react-ui/src';
+import { BoxV2, useTreatTheme } from '@newrade/core-react-ui';
 import React, { HTMLAttributes } from 'react';
 
 type Props = HTMLAttributes<any>;

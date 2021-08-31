@@ -2,6 +2,7 @@
 	c = commit
 	ck = checkout
 	a = add --all
+	pu = pull --all
 	p = push
 	po = push --set-upstream origin
 	lazy = push --no-verify

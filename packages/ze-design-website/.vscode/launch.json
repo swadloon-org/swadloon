@@ -12,7 +12,7 @@
       "program": "${workspaceFolder}/node_modules/.bin/gatsby",
       "args": ["develop", "--verbose"],
       "env": {
-        "NVM_NODE_VERSION": "v15",
+        "NVM_NODE_VERSION": "v16",
         "MASTER_GIT_HOST": "github.com",
         "MASTER_REPO_ORG": "newrade",
         "MASTER_REPO_NAME": "newrade",
@@ -22,7 +22,7 @@
       },
       "envFile": "${workspaceFolder}/.env",
       "console": "integratedTerminal",
-      "runtimeArgs": ["--preserve-symlinks", "--lazy"],
+      "runtimeArgs": ["--nolazy"],
       "preLaunchTask": "pre-debug",
       "autoAttachChildProcesses": true,
       "sourceMaps": true
@@ -33,9 +33,9 @@
       "request": "launch",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/node_modules/.bin/gatsby",
-      "args": ["build", "--no-uglify", "--verbose"],
+      "args": ["build", "--verbose"],
       "env": {
-        "NVM_NODE_VERSION": "v15",
+        "NVM_NODE_VERSION": "v16",
         "MASTER_GIT_HOST": "github.com",
         "MASTER_REPO_ORG": "newrade",
         "MASTER_REPO_NAME": "newrade",
@@ -45,7 +45,7 @@
       },
       "envFile": "${workspaceFolder}/.env",
       "console": "integratedTerminal",
-      "runtimeArgs": ["--preserve-symlinks", "--lazy"],
+      "runtimeArgs": ["--nolazy"],
       "preLaunchTask": "pre-debug",
       "autoAttachChildProcesses": true,
       "sourceMaps": true
@@ -55,11 +55,7 @@
       "request": "launch",
       "name": "Jest debug current file",
       "program": "${workspaceFolder}/../../node_modules/jest/bin/jest.js",
-      "args": [
-        "${relativeFile}",
-        "--no-cache",
-        "--config=${workspaceFolder}/config/jest/jest.config.js"
-      ],
+      "args": ["${relativeFile}", "--no-cache", "--config=${workspaceFolder}/jest.config.js"],
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen"
     }

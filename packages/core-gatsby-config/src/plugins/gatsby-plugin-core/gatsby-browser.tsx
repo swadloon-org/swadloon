@@ -1,4 +1,5 @@
 import { GatsbyBrowser } from 'gatsby';
+
 /**
  * Gatsby Browser APIs
  *

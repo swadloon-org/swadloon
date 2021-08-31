@@ -1,26 +1,35 @@
-# Github Actions
+> **Note:** this README is available online at
+> [zedesignsystem.com/core-docs/packages/core-github-actions/](https://zedesignsystem.com/core-docs/packages/core-github-actions/)
 
-Custom github action writen in TypeScript to automate various tasks in the
-monorepos.
-
-Built lib files are outputted in `/built` where as `/lib` contains the tsc
-output files when compiling all core packages (during normal development).
+---
 
 ## How to Use
 
 ### Development
 
+Normally you will want to start the development build from the root directory to
+build all required core packages at once — but in some cases you might want to
+build just a specific package.
+
 ```bash
 yarn start
 ```
 
-### Build for Production
+### Build
+
+> **Note:** Built lib files are outputted in `/built` where as `/lib` contains
+> the tsc output files when compiling all core packages (during development).
+
+To build the github actions files (with `webpack`) run:
 
 ```bash
-yarn build
+yarn build:built
 ```
 
-## Test
+Output files in `/built/` should be commited since we don't compile the actions
+code on the build.
+
+### Test
 
 ```bash
 yarn test

@@ -15,3 +15,5 @@
 
 // export const wrapPageElement = wrapPageElementSSRFunction;
 // export const wrapRootElement = wrapRootElementSSRFunction;
+
+export {};

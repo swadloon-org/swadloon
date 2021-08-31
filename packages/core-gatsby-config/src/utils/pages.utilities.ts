@@ -1,7 +1,12 @@
+import { SITE_LANGUAGES, SITE_LANGUAGE_SHORT } from '@newrade/core-common';
 import { capital, lower, title } from 'case';
-import { PAGE_LAYOUT, PAGE_TEMPLATE } from '../config/page.props';
-import { SITE_LANGUAGES, SITE_LANGUAGES_HYPHEN } from '@newrade/core-common';
+import { Page } from 'gatsby';
 import { SOURCE_INSTANCE_NAME } from '../config/gatsby-source-instances';
+import { GatsbyMarkdownFilePageContext } from '../config/page-context';
+import { PAGE_LAYOUT, PAGE_TEMPLATE } from '../config/page.props';
+
+export const patternLocaleInPath =
+  /\/?(?:(?<locale>[a-z]{2}(?:(?:-|_)[a-z]{0,2})?)\.)?(?<name>[a-z-_]+)(?<extension>\.(?:tsx|md|mdx))?\/?$/i;
 
 /**
  * Format raw page path
@@ -65,18 +70,14 @@ export function getPageFormattedName(
  *
  * @param nodeName the mdx page node name e.g. fr.readme.md
  */
-export function getLocalePath(nodeName: string, defaultLangKey: SITE_LANGUAGES): 'en' | 'fr' | '' {
+export function getLocalePath(nodeName: string, defaultLocal: SITE_LANGUAGES): SITE_LANGUAGE_SHORT {
   // extract the locale name from node name
   const patternEn = new RegExp(
-    `^\/?(${[SITE_LANGUAGES.EN, SITE_LANGUAGES.EN_CA, SITE_LANGUAGES_HYPHEN.EN_CA].join(
-      '|'
-    )})[\/|\.]`,
+    `^\/?(${[SITE_LANGUAGES.EN, SITE_LANGUAGES.EN_CA].join('|')})[\/|\.]`,
     'gi'
   );
   const patternFr = new RegExp(
-    `^\/?(${[SITE_LANGUAGES.FR, SITE_LANGUAGES.FR_CA, SITE_LANGUAGES_HYPHEN.FR_CA].join(
-      '|'
-    )})[\/|\.]`,
+    `^\/?(${[SITE_LANGUAGES.FR, SITE_LANGUAGES.FR_CA].join('|')})[\/|\.]`,
     'gi'
   );
   const matchEn = patternEn.exec(nodeName);
@@ -84,43 +85,58 @@ export function getLocalePath(nodeName: string, defaultLangKey: SITE_LANGUAGES):
   const fileLocaleEn = matchEn?.[1]; // en, en_CA, en-CA
   const fileLocaleFr = matchFr?.[1]; // fr, fr_CA, fr-CA
   const defaultLocaleIsEn =
-    defaultLangKey === SITE_LANGUAGES.EN || defaultLangKey === SITE_LANGUAGES.EN_CA;
+    defaultLocal === SITE_LANGUAGES.EN || defaultLocal === SITE_LANGUAGES.EN_CA;
   const defaultLocaleIsFr =
-    defaultLangKey === SITE_LANGUAGES.FR || defaultLangKey === SITE_LANGUAGES.FR_CA;
+    defaultLocal === SITE_LANGUAGES.FR || defaultLocal === SITE_LANGUAGES.FR_CA;
 
   // en lang, so a page with '/en/page' becomes '/page' and a page with path '/fr/page' becomes '/fr/page'
   if (defaultLocaleIsEn) {
     if (fileLocaleEn) {
-      return '';
+      return SITE_LANGUAGE_SHORT.DEFAULT;
     }
 
     if (fileLocaleFr) {
-      return 'fr';
+      return SITE_LANGUAGE_SHORT.FR;
     }
 
-    return '';
+    return SITE_LANGUAGE_SHORT.DEFAULT;
   }
 
   if (defaultLocaleIsFr) {
     if (fileLocaleFr) {
-      return '';
+      return SITE_LANGUAGE_SHORT.DEFAULT;
     }
 
     if (fileLocaleEn) {
-      return 'en';
+      return SITE_LANGUAGE_SHORT.EN;
     }
 
-    return '';
+    return SITE_LANGUAGE_SHORT.DEFAULT;
   }
 
-  return '';
+  return SITE_LANGUAGE_SHORT.DEFAULT;
 }
 
 /**
  * Retrieve the locale from a nodename or page path
  */
-export function getLocaleFromPath(nodeName?: string | null): SITE_LANGUAGES {
-  return /fr\.+/.test(nodeName || '') ? SITE_LANGUAGES.FR : SITE_LANGUAGES.EN;
+export function getLocaleFromPath(
+  nodeName: string | null,
+  defaultLocale: SITE_LANGUAGES
+): SITE_LANGUAGES {
+  if (!nodeName) {
+    return defaultLocale || SITE_LANGUAGES.EN;
+  }
+
+  const match = patternLocaleInPath.exec(nodeName);
+  const locale = match?.groups?.locale as SITE_LANGUAGES | undefined;
+
+  // no match for locale, assume the default
+  if (!locale) {
+    return defaultLocale || SITE_LANGUAGES.EN;
+  }
+
+  return locale;
 }
 
 /**
@@ -141,6 +157,40 @@ export function removeLocalePrefix(name?: string | null): string {
     return '';
   }
   return name.replace(/(en|fr)\./gi, '');
+}
+
+/**
+ * Remove the extension from a path
+ * e.g. '/src/pages/en.my-doc.tsx' => '/src/pages/en.my-doc'
+ */
+export function remoteExtension(name?: string | null): string {
+  if (!name) {
+    return '';
+  }
+
+  const match = patternLocaleInPath.exec(name);
+  const extension = match?.groups?.extension;
+
+  // no match for extension
+  if (!extension) {
+    return name;
+  }
+
+  return name.replace(new RegExp(`${extension}$`, 'i'), '');
+}
+
+/**
+ * Return the most simple country code, removing the regional part
+ * @example
+ *   fr-CA => fr
+ *   fr_CA => fr
+ *   ca => ca
+ */
+export function getLangSimpleCode(lang: string): SITE_LANGUAGE_SHORT {
+  if (!lang) {
+    return SITE_LANGUAGE_SHORT.DEFAULT;
+  }
+  return lang.replace(/(_|-)[a-z]+$/i, '').toLowerCase() as SITE_LANGUAGE_SHORT;
 }
 
 /**
@@ -212,4 +262,94 @@ export function getLayoutForSourceInstance(sourceInstanceName: SOURCE_INSTANCE_N
       return 'default';
     }
   }
+}
+
+export type MatchingPageInput = Pick<
+  Page<Pick<GatsbyMarkdownFilePageContext, 'absolutePath' | 'locale'>>,
+  'context' | 'path'
+>;
+export type MatchingPageOutput = Partial<{
+  [absolutePath: string]: {
+    locale: SITE_LANGUAGES;
+    path: string;
+  }[];
+}>;
+
+/**
+ * find alternate locale pages e.g.
+ * for page `fr.page.md`, if there is a page called `en.page.md`
+ * and another one called `page.md` with frontmatter slug /es/page
+ * alternateLocales will be
+ * { en: /en/page/, es: /es/page/ }
+ */
+export function getMatchingPageLocales(
+  pages?: (MatchingPageInput | undefined)[]
+): MatchingPageOutput {
+  if (!pages) {
+    return {};
+  }
+
+  // find dirs that have 2 or more matching pages (same dir, same name, different locale)
+  const pageDirNames = pages.reduce((previous, current) => {
+    if (!current) {
+      return previous;
+    }
+
+    const dir = current.context.absolutePath.replace(patternLocaleInPath, '');
+    const match = patternLocaleInPath.exec(current.context.absolutePath);
+    const locale = (match?.groups?.locale as SITE_LANGUAGES) || current.context.locale;
+    const name = match?.groups?.name;
+    const extension = match?.groups?.extension;
+    const pageDirName = `${dir}/${name}${extension}`;
+
+    if (!match) {
+      return previous;
+    }
+
+    if (!previous[pageDirName]) {
+      previous[pageDirName] = [
+        { locale: locale, absolutePath: current.context.absolutePath, path: current.path },
+      ];
+      return previous;
+    }
+
+    if (previous[pageDirName]) {
+      previous[pageDirName] = [
+        ...(previous[pageDirName] as {
+          locale: SITE_LANGUAGES;
+          absolutePath: string;
+          path: string;
+        }[]),
+        { locale: locale, absolutePath: current.context.absolutePath, path: current.path },
+      ];
+      return previous;
+    }
+
+    return previous;
+  }, {} as Partial<{ [key: string]: { locale: SITE_LANGUAGES; absolutePath: string; path: string }[] }>);
+
+  const matchinPageDirNames = Object.keys(pageDirNames).reduce((previous, current) => {
+    if (!pageDirNames?.[current]) {
+      return previous;
+    }
+
+    const matchingPages = pageDirNames[current];
+
+    if (matchingPages && matchingPages.length <= 1) {
+      return previous;
+    }
+
+    matchingPages?.forEach((matchingPage) => {
+      if (!previous[matchingPage.absolutePath]) {
+        previous[matchingPage.absolutePath] = matchingPages.map((matchingPageInner) => ({
+          locale: matchingPageInner.locale,
+          path: matchingPageInner.path,
+        }));
+      }
+    });
+
+    return previous;
+  }, {} as Partial<{ [absolutePath: string]: { locale: SITE_LANGUAGES; path: string }[] }>);
+
+  return matchinPageDirNames;
 }

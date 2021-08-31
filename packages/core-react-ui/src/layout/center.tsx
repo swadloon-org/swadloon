@@ -19,7 +19,7 @@ type Props = PrimitiveProps<AsTypes> &
   }>;
 
 export const Center = React.forwardRef<HTMLElement, Props>(
-  ({ as, className, contentClassName, style, maxWidth, ...props }, ref) => {
+  ({ id, as, AsElement, className, contentClassName, style, maxWidth, ...props }, ref) => {
     const type = as ? as : 'div';
     const { styles } = useStyles(styleRefs);
     const classNames = getMergedClassname([className || '', styles.wrapper]);
@@ -27,6 +27,7 @@ export const Center = React.forwardRef<HTMLElement, Props>(
     return React.createElement(
       type,
       {
+        id,
         ref,
         style: {
           ...style,

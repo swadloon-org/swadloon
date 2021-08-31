@@ -14,10 +14,10 @@ import {
   SidebarItem,
   Stack,
   Tag,
+  Theme,
   useTreatTheme,
   useViewportBreakpoint,
-} from '@newrade/core-react-ui/src';
-import { Theme } from '@newrade/core-react-ui/src/design-system';
+} from '@newrade/core-react-ui';
 import { SidebarLayout } from '@newrade/core-website-api';
 import { PageProps } from 'gatsby';
 import React, { ReactNode } from 'react';
@@ -31,14 +31,10 @@ import { useSidebarState } from '../sidebar/sidebar.hooks';
 /**
  * Sidebar
  */
-const LazySidebarStandard = loadable(
-  () => import(/* webpackExports: "SidebarStandard" */ '@newrade/core-gatsby-ui/src'),
-  {
-    resolveComponent: (
-      components: typeof import('@newrade/core-gatsby-ui/src/sidebar/sidebar-standard')
-    ) => components.SidebarStandard,
-  }
-);
+const LazySidebarStandard = loadable(() => import('../sidebar/sidebar-standard'), {
+  resolveComponent: (components: typeof import('../sidebar/sidebar-standard')) =>
+    components.SidebarStandard,
+});
 
 export type DesignSystemLayoutProps = Partial<
   Omit<PageProps, 'children'> & { children: ReactNode }
@@ -66,8 +62,9 @@ export const LayoutDesignSystem: React.FC<DesignSystemLayoutProps> = function ({
 }) {
   // should prob be passed by the parent
   const navigation = useDesignSystemNavigation({
-    locales: [SITE_LANGUAGES.EN, SITE_LANGUAGES.EN_CA],
+    locales: [SITE_LANGUAGES.EN, SITE_LANGUAGES.EN_CA, SITE_LANGUAGES.FR, SITE_LANGUAGES.FR_CA],
   });
+
   const { cssTheme } = useTreatTheme();
   const { viewport } = useViewportBreakpoint();
   const [layoutMode, setLayoutMode] = useLayoutState('centered');

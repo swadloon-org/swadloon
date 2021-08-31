@@ -3,24 +3,23 @@
   "version": "1.2.2",
   "description": "A collection of models to represent data in websites.",
   "license": "MIT",
-  "main": "./lib/index.js",
-  "module": "./lib/index.js",
+  "main": "dist/newrade-core-website-api.cjs.js",
+  "module": "dist/newrade-core-website-api.esm.js",
   "files": [
-    "./lib/**/*"
+    "/dist"
   ],
   "scripts": {
-    "build": "tsc --build tsconfig.build.json",
-    "clean": "rm -rf lib/** && rm -f tsconfig.build.tsbuildinfo",
-    "start": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
-    "typecheck": "yarn typecheck:build --watch --preserveWatchOutput",
-    "typecheck:build": "tsc --project tsconfig.build.json --noEmit"
+    "build": "yarn clean && yarn build:dist && nr prepare-exports",
+    "build:dist": "tsc --build tsconfig.json",
+    "clean": "yarn clean:tsc && yarn clean:dist",
+    "clean:dist": "rm -rf dist/** lib/**",
+    "clean:tsc": "rm -f ./**/*.tsbuildinfo *.tsbuildinfo",
+    "dev": "yarn clean && yarn preconstruct dev"
   },
   "sideEffects": false,
-  "typings": "./lib/index.d.ts",
   "dependencies": {
-    "@newrade/core-common": "^1.4.0",
-    "@newrade/core-design-system": "^1.14.0",
-    "@newrade/core-types": "^2.0.0",
-    "@newrade/core-utils": "^2.0.0"
+    "@newrade/core-design-system": "*",
+    "gatsby-background-image": "^1",
+    "gatsby-plugin-image": "^1.11.0-next.2"
   }
 }

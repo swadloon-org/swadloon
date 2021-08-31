@@ -1,4 +1,4 @@
-import { ListItems, ListItemV2, useTreatTheme } from '@newrade/core-react-ui/src';
+import { ListItems, ListItemV2, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 
 type Props = {};

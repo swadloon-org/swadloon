@@ -3,7 +3,7 @@ import {
   buttonsVars,
   placeholderButtonSize,
   placeholderButtonVariant,
-} from '@newrade/core-react-ui/src/theme';
+} from '@newrade/core-react-ui/theme';
 import { createTheme } from '@vanilla-extract/css';
 
 export const buttons: Pick<DesignSystem<string>['components'], 'buttons'> = {

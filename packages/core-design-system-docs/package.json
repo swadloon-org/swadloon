@@ -3,29 +3,34 @@
   "version": "2.1.0",
   "description": "Markdown based documentation for design systems",
   "license": "MIT",
-  "main": "./lib/index.js",
   "files": [
-    "./lib/**/*"
+    "/src"
   ],
   "scripts": {
-    "build-disabled": "tsc --build tsconfig.build.json",
-    "clean": "rm -rf lib/** && rm -f tsconfig.build.tsbuildinfo",
-    "start-disabled": "yarn typecheck",
-    "test-disabled": "jest",
-    "test:watch-disabled": "jest --watch",
-    "typecheck": "yarn typecheck:build --watch --preserveWatchOutput",
-    "typecheck:build": "tsc --project tsconfig.build.json --noEmit"
+    "build": "yarn clean && yarn typecheck",
+    "clean": "yarn clean:tsc && yarn clean:dist",
+    "clean:dist": "rm -rf dist/** lib/**",
+    "clean:tsc": "rm -f ./**/*.tsbuildinfo *.tsbuildinfo",
+    "typecheck": "tsc --noEmit"
   },
-  "sideEffects": false,
-  "typings": "./lib/index.d.ts",
+  "sideEffects": [
+    "*.css",
+    "*.treat.ts",
+    "*.treat.js"
+  ],
   "dependencies": {
-    "@newrade/core-common": "^1.4.0",
-    "@newrade/core-gatsby-config": "^2.1.0",
-    "@newrade/core-gatsby-ui": "^2.1.0",
-    "@newrade/core-react-ui": "^2.1.0",
-    "@newrade/core-types": "^2.0.0",
-    "@newrade/core-utils": "^2.0.0",
-    "@newrade/core-webpack-config": "^2.0.0",
-    "@newrade/core-website-api": "^1.2.2"
+    "@newrade/core-common": "*",
+    "@newrade/core-design-system": "*",
+    "@newrade/core-gatsb-config": "*",
+    "@newrade/core-gatsby-ui": "*",
+    "@newrade/core-gsap-ui": "*",
+    "@newrade/core-react-ui": "*",
+    "@newrade/core-types": "*",
+    "@newrade/core-utils": "*",
+    "@newrade/core-webpack-config": "*",
+    "@newrade/core-website-api": "*",
+    "gatsby": "^3.10.2",
+    "gatsby-plugin-image": "^1.11.0-next.2",
+    "react-icons": "^4.1.0"
   }
 }

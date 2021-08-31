@@ -7,12 +7,12 @@ import {
   TreatThemeProvider,
   viewportContext,
   ViewportProvider,
-} from '@newrade/core-react-ui/src';
-import { GlobalCSSVariables } from '@newrade/core-react-ui/src/global/global-css-variables';
+} from '@newrade/core-react-ui';
+import { GlobalCSSVariables } from '@newrade/core-react-ui/global';
 import {
   ionicons5OutlineComponents,
   ioniconsOutlineConfig,
-} from '@newrade/core-react-ui/src/icon-kits/iconicons-outline';
+} from '@newrade/core-react-ui/icons-kit-ionicons-outline';
 import { logosComponents } from '@newrade/ze-design-system';
 import React from 'react';
 import { TreatProvider } from 'react-treat';
@@ -43,5 +43,3 @@ export const ProvidersSite: React.FC = (props) => {
     </TreatProvider>
   );
 };
-
-export default ProvidersSite;

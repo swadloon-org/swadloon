@@ -12,10 +12,16 @@ type Props = PrimitiveProps<'input'> &
     state?: 'rest' | 'error';
   };
 
-const LazyCleave = (props: CleaveProps) => {
-  const Cleave = loadable<any>(() => import('cleave.js/react'));
-  return <Cleave {...props}></Cleave>;
-};
+const InputTextCleave = loadable(
+  // @ts-ignore
+  () => {
+    return import('./input-text-cleave');
+  },
+  {
+    resolveComponent: (components: typeof import('./input-text-cleave')) =>
+      components.InputTextCleave,
+  }
+);
 
 export const InputText = React.memo(
   React.forwardRef<HTMLInputElement, Props>(function InputText(
@@ -33,15 +39,16 @@ export const InputText = React.memo(
     const renderedId = id || cleaveProps?.id || props.name || '';
 
     const CleaveComp = cleaveProps ? (
-      <LazyCleave
+      <InputTextCleave
         type={cleaveProps.type ? cleaveProps.type : type}
+        // @ts-ignore
         htmlRef={(htmlRef) => (ref = htmlRef)}
         id={renderedId}
         style={style}
         className={classNames}
+        cleaveProps={cleaveProps}
         {...props}
-        {...cleaveProps}
-      ></LazyCleave>
+      ></InputTextCleave>
     ) : null;
 
     return CleaveComp ? (

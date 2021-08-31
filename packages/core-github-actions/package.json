@@ -7,7 +7,11 @@
     "name": "Newrade",
     "url": "https://github.com/newrade/newrade"
   },
-  "repository": "https://github.com/newrade/newrade-core/tree/master/packages/core-github-actions",
+  "repository": {
+    "directory": "packages/core-github-actions",
+    "type": "git",
+    "url": "https://github.com/newrade/newrade-core.git"
+  },
   "license": "MIT",
   "main": "./lib/index.js",
   "module": "./lib/index.js",
@@ -16,19 +20,23 @@
   ],
   "scripts": {
     "build:built": "yarn webpack",
-    "clean": "rm -rf lib/** && rm -f tsconfig.build.tsbuildinfo",
-    "start": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "webpack": "cross-env TS_NODE_PROJECT=../core-webpack-config/tsconfig.webpack.json node -r ts-node/register ../../node_modules/webpack/bin/webpack --config webpack.prod.config.ts"
+    "clean": "rm -rf lib/** && rm -f *.tsbuildinfo",
+    "start": "tsc --noEmit --watch --preserveWatchOutput",
+    "test": "nr jest",
+    "test:watch": "nr jest --watch",
+    "typecheck": "tsc --noEmit",
+    "webpack": "nr webpack --config webpack.prod.config.ts"
   },
   "typings": "./lib/index.d.ts",
   "dependencies": {
     "@actions/core": "^1.2.6",
     "@actions/github": "^4.0.0",
-    "@newrade/core-common": "^1.4.0",
-    "@newrade/core-types": "^2.0.0",
-    "@newrade/core-utils": "^2.0.0",
-    "@newrade/core-webpack-config": "^2.0.0"
+    "@newrade/core-common": "*",
+    "@newrade/core-jest-config": "*",
+    "@newrade/core-utils": "*",
+    "@newrade/core-webpack-config": "*",
+    "fp-ts": "^2.11.1",
+    "io-ts": "^2",
+    "node-fetch": "^2"
   }
 }

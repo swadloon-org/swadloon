@@ -1,0 +1,84 @@
+#
+# Github Workflow config file
+#
+# - reference: https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions
+# - composite actions: https://docs.github.com/en/actions/creating-actions/creating-a-composite-action
+#
+
+name: core-cli
+
+on:
+  push:
+    paths:
+      - '.github/actions/**/*'
+      - '.github/workflows/core-cli-workflow.yml'
+      - '**/package.json'
+      - '**/package-lock.json'
+      - '**/yarn.lock'
+      - 'packages/core-*/**/*'
+    branches:
+      - dev
+      - master
+      - release
+  pull_request:
+  workflow_dispatch:
+
+env:
+  #
+  # Debugging
+  #
+  DEBUG: 'nr:*'
+  #
+  # Node
+  #
+  NODE_OPTIONS: '--max-old-space-size=4096'
+  #
+  # NVM
+  #
+  NVM_NODE_VERSION: ${{ secrets.NVM_NODE_VERSION }}
+  #
+  # Repo
+  #
+  MASTER_GIT_HOST: github.com
+  MASTER_REPO_ORG: newrade
+  MASTER_REPO_NAME: newrade-core
+  PROJECT_GIT_HOST: github.com
+  PROJECT_REPO_ORG: newrade
+  PROJECT_REPO_NAME: newrade-core
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        if: ${{ github.event_name != 'pull_request_target' }}
+        uses: actions/checkout@v2
+        with:
+          clean: false
+
+      - name: Checkout PR
+        if: ${{ github.event_name == 'pull_request_target' }}
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          clean: false
+
+      - name: 'Checkout, Setup NodeJS + yarn and install dependencies'
+        uses: ./.github/actions/base-node-setup
+
+      - name: Verify dependencies
+        run: yarn lerna:depcheck --scope @newrade/core-cli
+
+      - name: Typecheck
+        run: yarn lerna:typecheck --scope @newrade/core-cli
+
+      - name: Lint (ls-lint) source files
+        run: yarn lerna:ls-lint --scope @newrade/core-cli
+
+      - name: Lint source files
+        run: yarn eslint ./packages/core-cli/src/ --ext ts,tsx
+
+      - name: Run unit tests
+        run: yarn lerna:test --scope @newrade/core-cli
+

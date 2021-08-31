@@ -1,11 +1,10 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "../../tsconfig.iso-esm.json",
   "compilerOptions": {
-    "types": ["gatsby", "node", "jest"],
     "baseUrl": ".",
-    "paths": {
-      "@newrade/*": ["../*/src"]
-    }
+    "outDir": "dist",
+    "rootDir": "src",
+    "types": ["gatsby", "node", "jest"]
   },
-  "include": ["src", "test", "types", "scripts"]
+  "include": ["src", "types"]
 }

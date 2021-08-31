@@ -1,5 +1,5 @@
 import { LinkVariant } from '@newrade/core-design-system';
-import { Link, useTreatTheme } from '@newrade/core-react-ui/src';
+import { Link, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 
 type Props = {};

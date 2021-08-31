@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.node-esm.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "rootDir": "src",
+    "outDir": "config/dist",
+    "allowJs": true,
+    "module": "commonjs",
+    "lib": ["DOM", "ES2018"],
+    "types": ["gatsby", "node", "jest"]
+  },
+  "include": ["src", "types", "src/plugins/**/package.json"],
+  "exclude": ["src/index.ts"]
+}

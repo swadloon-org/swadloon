@@ -43,3 +43,4 @@
 //     size: string,
 //     variant: string
 //   };
+export {};

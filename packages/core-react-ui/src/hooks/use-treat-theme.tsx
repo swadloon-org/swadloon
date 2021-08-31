@@ -1,5 +1,7 @@
 import React, { ReactNode } from 'react';
 import { Theme } from '../design-system';
+import { logError } from '../utilities/log.utilities';
+import { useIsSSR } from './use-is-ssr';
 
 /**
  * Context to hold the theme's tokens
@@ -18,8 +20,10 @@ export const TreatThemeProvider = ({ theme, children }: { theme: Theme; children
  */
 export function useTreatTheme(): Theme {
   const value = React.useContext(TreatThemeContext);
+  const isSSR = useIsSSR();
   if (!value) {
-    throw new Error('no treat theme provided');
+    logError(`no treat theme provided, ssr: ${isSSR}`);
+    throw new Error(`no treat theme provided, isSSR: ${isSSR}`);
   }
   const { theme, cssTheme } = value;
   return {

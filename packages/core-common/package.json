@@ -1,24 +1,29 @@
 {
   "name": "@newrade/core-common",
   "version": "1.4.0",
-  "description": "env utilities shared across packages.",
+  "description": "Commone utilities shared across packages.",
   "author": {
     "email": "info@newrade.ca",
     "name": "Newrade",
     "url": "https://github.com/newrade/newrade"
   },
-  "repository": "https://github.com/newrade/newrade-core/tree/master/packages/core-common",
+  "repository": {
+    "directory": "packages/core-common",
+    "type": "git",
+    "url": "https://github.com/newrade/newrade-core.git"
+  },
   "license": "MIT",
-  "main": "./lib/index.js",
-  "module": "./lib/index.js",
+  "main": "dist/newrade-core-common.cjs.js",
+  "module": "dist/newrade-core-common.esm.js",
   "files": [
-    "./lib/**/*"
+    "/dist"
   ],
   "scripts": {
-    "build": "tsc --build tsconfig.build.json",
-    "clean": "rm -rf lib/** && rm -f tsconfig.build.tsbuildinfo",
-    "start": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
-    "test": "echo test"
-  },
-  "typings": "./lib/index.d.ts"
+    "build": "yarn clean && yarn build:dist && nr prepare-exports",
+    "build:dist": "tsc --project tsconfig.json",
+    "clean": "yarn clean:tsc && yarn clean:dist",
+    "clean:dist": "rm -rf dist/** lib/**",
+    "clean:tsc": "rm -f ./**/*.tsbuildinfo *.tsbuildinfo",
+    "dev": "yarn clean && yarn preconstruct dev"
+  }
 }

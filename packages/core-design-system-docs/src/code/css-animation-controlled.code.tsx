@@ -8,7 +8,7 @@ import {
   Placeholder,
   Stack,
   useTreatTheme,
-} from '@newrade/core-react-ui/src';
+} from '@newrade/core-react-ui';
 import React, { useRef, useState } from 'react';
 
 type Props = {};

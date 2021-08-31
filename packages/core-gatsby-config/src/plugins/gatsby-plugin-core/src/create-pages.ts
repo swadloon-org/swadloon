@@ -1,28 +1,34 @@
 import { AppError, ERROR_TYPE, SITE_LANGUAGES } from '@newrade/core-common';
 import chalk from 'chalk';
 import fsp from 'fs/promises';
-import { GatsbyNode } from 'gatsby';
+import { GatsbyNode, Page } from 'gatsby';
 import path from 'path';
 import { SOURCE_INSTANCE_NAME } from '../../../config/gatsby-source-instances';
-import { GatsbyMarkdownFilePageContext, GatsbySrcPageContext } from '../../../config/page-config';
+import { GatsbyMarkdownFilePageContext, GatsbySrcPageContext } from '../../../config/page-context';
 import {
   GatsbyNodeAllSiteQuery,
   GatsbyNodeMarkdownFilesQuery,
   GatsbyNodeSiteMetadataFragment,
+  GatsbyNodeSrcPagesFilesQuery,
 } from '../../../config/site-graphql-types';
 import {
   getFullPageNodePath,
+  getLangSimpleCode,
   getLayoutForSourceInstance,
   getLocaleFromPath,
   getLocalePath,
+  getMatchingPageLocales,
   getPageFormattedName,
   getPathForSourceInstance,
   getTemplateForSourceInstance,
+  MatchingPageOutput,
+  remoteExtension,
   removeLocalePrefix,
 } from '../../../utils/pages.utilities';
 import { GatsbyCorePluginOptions } from '../gatsby-plugin-options';
 
 let siteMetadata: GatsbyNodeSiteMetadataFragment;
+let matchingTsxPageDirNames: MatchingPageOutput;
 
 export const createPagesFunction: GatsbyNode['createPages'] = async (
   { actions, graphql, reporter },
@@ -49,7 +55,6 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
         description
         siteEnv
         siteUrl
-
         languages {
           langs
           defaultLangKey
@@ -67,9 +72,36 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
     siteMetadata = allSiteData.data.site.siteMetadata;
 
     /**
+     * Query for regular tsx pages files
+     */
+    const srcTsxPages = await graphql<GatsbyNodeSrcPagesFilesQuery>(`
+      query GatsbyNodeTsxPageFiles {
+        allFile(filter: { absolutePath: { glob: "**/src/pages/**/*.tsx" } }) {
+          nodes {
+            id
+            absolutePath
+          }
+        }
+      }
+    `);
+
+    if (srcTsxPages?.errors) {
+      if (srcTsxPages.errors.length) {
+        srcTsxPages.errors.forEach((error: Error) => {
+          reporter.panic(
+            `[${pluginOptions.pluginName}] error in query GatsbyNodeTsxPageFiles: ${error}`
+          );
+        });
+      }
+      return;
+    }
+
+    const tsxPagesToRender = srcTsxPages?.data?.allFile?.nodes;
+
+    /**
      * Query for markdown files
      */
-    const markdownPages = await graphql<GatsbyNodeMarkdownFilesQuery>(`
+    const markdownPagesData = await graphql<GatsbyNodeMarkdownFilesQuery>(`
       query GatsbyNodeMarkdownFiles {
         allFile(
           filter: {
@@ -87,6 +119,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
             dir
             absolutePath
             relativePath
+            changeTime
             publicURL
             size
             sourceInstanceName
@@ -101,6 +134,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
                 version
                 published
                 status
+                slug
                 deprecated
                 editPageUrl
                 nextPageLabel
@@ -115,7 +149,18 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
       }
     `);
 
-    const pagesToRender = markdownPages?.data?.allFile?.nodes.filter((node) => {
+    if (markdownPagesData?.errors) {
+      if (markdownPagesData.errors.length) {
+        markdownPagesData.errors.forEach((error: Error) => {
+          reporter.panic(
+            `[${pluginOptions.pluginName}] error in query GatsbyNodeMarkdownFiles: ${error}`
+          );
+        });
+      }
+      return;
+    }
+
+    const markdownPagesToRender = markdownPagesData?.data?.allFile?.nodes.filter((node) => {
       if (node.sourceInstanceName === SOURCE_INSTANCE_NAME.MDX_PAGES) {
         return pluginOptions.renderMarkdownPages;
       }
@@ -135,13 +180,13 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
       return true;
     });
 
-    if (!pagesToRender?.length) {
+    if (!markdownPagesToRender?.length) {
       reporter.info(`[${pluginOptions.pluginName}] no markdown files found for pages`);
       return;
     }
 
     reporter.info(
-      `[${pluginOptions.pluginName}] got ${markdownPages?.data?.allFile?.nodes?.length} files for markdown pages`
+      `[${pluginOptions.pluginName}] got ${markdownPagesData?.data?.allFile?.nodes?.length} files for markdown pages`
     );
 
     /**
@@ -152,7 +197,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
      * for example `fr.markdown.mdx` in `/docs` would become `/fr/docs/markdown`
      */
 
-    let markdownDocsTemplate: string;
+    let markdownDocsTemplate: string = '';
     try {
       await fsp.readFile(`src/templates/docs.template.tsx`);
       reporter.info(`[${pluginOptions.pluginName}] found docs template in package`);
@@ -161,15 +206,19 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
       reporter.info(`[${pluginOptions.pluginName}] no template defined for docs in package`);
     }
 
-    try {
-      await fsp.readFile(`../core-gatsby-ui/src/templates/docs.template.tsx`);
-      reporter.info(`[${pluginOptions.pluginName}] using default docs template`);
-      markdownDocsTemplate = path.resolve(`../core-gatsby-ui/src/templates/docs.template.tsx`);
-    } catch (error: any) {
-      reporter.panic(`[${pluginOptions.pluginName}] no default template defined for markdown-docs`);
+    if (!markdownDocsTemplate) {
+      try {
+        await fsp.readFile(`../core-gatsby-ui/src/templates/docs.template.tsx`);
+        reporter.info(`[${pluginOptions.pluginName}] using default docs template`);
+        markdownDocsTemplate = path.resolve(`../core-gatsby-ui/src/templates/docs.template.tsx`);
+      } catch (error: any) {
+        reporter.panic(
+          `[${pluginOptions.pluginName}] no default template defined for markdown-docs`
+        );
+      }
     }
 
-    let markdownPageTemplate: string;
+    let markdownPageTemplate: string = '';
     try {
       await fsp.readFile(`src/templates/markdown-page.template.tsx`);
       reporter.info(`[${pluginOptions.pluginName}] found markdown-page template in package`);
@@ -180,17 +229,21 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
       );
     }
 
-    try {
-      await fsp.readFile(`../core-gatsby-ui/src/templates/markdown-page.template.tsx`);
-      reporter.info(`[${pluginOptions.pluginName}] using default markdown-page template`);
-      markdownPageTemplate = path.resolve(
-        `../core-gatsby-ui/src/templates/markdown-page.template.tsx`
-      );
-    } catch (error: any) {
-      reporter.panic(`[${pluginOptions.pluginName}] no default template defined for markdown-page`);
+    if (!markdownPageTemplate) {
+      try {
+        await fsp.readFile(`../core-gatsby-ui/src/templates/markdown-page.template.tsx`);
+        reporter.info(`[${pluginOptions.pluginName}] using default markdown-page template`);
+        markdownPageTemplate = path.resolve(
+          `../core-gatsby-ui/src/templates/markdown-page.template.tsx`
+        );
+      } catch (error: any) {
+        reporter.panic(
+          `[${pluginOptions.pluginName}] no default template defined for markdown-page`
+        );
+      }
     }
 
-    let designSystemPageTemplate: string;
+    let designSystemPageTemplate: string = '';
     try {
       await fsp.readFile(`src/templates/design-system-page.template.tsx`);
       reporter.info(`[${pluginOptions.pluginName}] found design-system-page template in package`);
@@ -201,22 +254,25 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
       );
     }
 
-    try {
-      await fsp.readFile(`../core-gatsby-ui/src/templates/design-system-page.template.tsx`);
-      reporter.info(`[${pluginOptions.pluginName}] using default design-system-page template`);
-      designSystemPageTemplate = path.resolve(
-        `../core-gatsby-ui/src/templates/design-system-page.template.tsx`
-      );
-    } catch (error: any) {
-      reporter.panic(
-        `[${pluginOptions.pluginName}] no default template defined for design-system-page`
-      );
+    if (!designSystemPageTemplate) {
+      try {
+        await fsp.readFile(`../core-gatsby-ui/src/templates/design-system-page.template.tsx`);
+        reporter.info(`[${pluginOptions.pluginName}] using default design-system-page template`);
+        designSystemPageTemplate = path.resolve(
+          `../core-gatsby-ui/src/templates/design-system-page.template.tsx`
+        );
+      } catch (error: any) {
+        reporter.panic(
+          `[${pluginOptions.pluginName}] no default template defined for design-system-page`
+        );
+      }
     }
 
-    pagesToRender.forEach((node, index) => {
+    // prepare page object for creation
+    const markdownPages = markdownPagesToRender.map((node, index) => {
+      // if `renderUnpublishedDocsPages` === false, don't render pages marked with `published: 'false'`
       const renderUnpublishedDocsPages = pluginOptions.renderUnpublishedPages;
       if (!renderUnpublishedDocsPages) {
-        // `renderUnpublishedDocsPages` === false, don't render pages marked with `published: 'false'`
         if (node.childMdx?.frontmatter?.published === 'false') {
           return;
         }
@@ -236,10 +292,14 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
       const nodePath = node.childMdx?.slug;
       // name without locale e.g 'readme'
       const nameWithoutLocale = removeLocalePrefix(nodePath || node.name);
+      // override the path if set in the document
+      const frontmatterSlug = node.childMdx?.frontmatter?.slug;
       // 'docs/en/section/readme'
-      const path = getFullPageNodePath([localeDir, sourceDir, nameWithoutLocale]);
+      const path = frontmatterSlug
+        ? frontmatterSlug
+        : getFullPageNodePath([localeDir, sourceDir, nameWithoutLocale]);
       // SITE_LANGUAGES.EN
-      const locale = getLocaleFromPath(node.name);
+      const locale = getLocaleFromPath(node.name, siteMetadata.languages.defaultLangKey);
       // raw node name e.g. 'en.readme'
       const name = node.name;
       // nicely formated name for the node, defaults to frontmatter property e.g. 'Readme'
@@ -267,7 +327,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
         )},  path: ${chalk.blueBright(path)}`
       );
 
-      createPage<GatsbyMarkdownFilePageContext>({
+      return {
         path,
         context: {
           siteMetadata,
@@ -276,13 +336,75 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
           displayName,
           fileId: node.id,
           locale,
+          relativePath: node.relativePath,
+          absolutePath: node.absolutePath,
           layout,
           sourceInstance,
           template,
           frontmatter: node.childMdx?.frontmatter,
         },
         component,
-      });
+      } as Page<GatsbyMarkdownFilePageContext>;
+    });
+
+    const matchingMarkdownPageDirNames = getMatchingPageLocales(markdownPages);
+
+    // save tsx alternate locale pages for later
+    matchingTsxPageDirNames = getMatchingPageLocales(
+      tsxPagesToRender?.map((rawPage) => {
+        // 'dir/en.index.tsx'
+        const pathWithExtension = rawPage.absolutePath.replace(/.+\/src\/pages/i, '');
+        // 'dir/en.index'
+        const pathWithoutExtension = remoteExtension(pathWithExtension);
+        // name without locale e.g 'readme'
+        const nameWithoutLocale = removeLocalePrefix(pathWithoutExtension);
+        // 'en'
+        const localeDir = getLocalePath(
+          pathWithoutExtension,
+          siteMetadata.languages?.defaultLangKey || SITE_LANGUAGES.EN
+        );
+        // 'docs/en/section/readme'
+        const path = getFullPageNodePath([localeDir, '', nameWithoutLocale]);
+        // SITE_LANGUAGES.EN
+        const locale = getLocaleFromPath(
+          pathWithoutExtension,
+          siteMetadata.languages?.defaultLangKey
+        );
+
+        return {
+          id: rawPage.id,
+          path: path,
+          context: {
+            absolutePath: rawPage.absolutePath,
+            locale: locale,
+          },
+        };
+      })
+    );
+
+    markdownPages.forEach((page) => {
+      if (!page) {
+        return;
+      }
+
+      const pagesInOtherLocales = matchingMarkdownPageDirNames?.[page.context.absolutePath]?.filter(
+        (matchinPage) =>
+          matchinPage.locale !== page.context.locale ||
+          getLangSimpleCode(matchinPage.locale) !== getLangSimpleCode(page.context.locale)
+      );
+
+      if (pagesInOtherLocales?.length) {
+        createPage<GatsbyMarkdownFilePageContext>({
+          ...page,
+          context: {
+            ...page.context,
+            alternateLocales: pagesInOtherLocales,
+          },
+        });
+        return;
+      }
+
+      createPage<GatsbyMarkdownFilePageContext>(page);
     });
   } catch (error: any) {
     reporter.error(`[${pluginOptions.pluginName}] error occured when generating pages: ${error}`);
@@ -296,15 +418,29 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
  * default behavior with gatsby-config-ts
  * @see https://github.com/newrade/newrade/issues/211
  */
-export const onCreatePageFunction: GatsbyNode['onCreatePage'] = (
+export const onCreatePageFunction: GatsbyNode<{}, GatsbyMarkdownFilePageContext>['onCreatePage'] = (
   { page, actions, reporter },
   options
 ) => {
   const pluginOptions = options as unknown as GatsbyCorePluginOptions;
   const { createPage, deletePage } = actions;
+  const pluginSourceInstances = Object.keys(SOURCE_INSTANCE_NAME);
+
+  // delete markdown pages created by the default `gatsby-plugin-page-creator`
+  if (
+    page &&
+    page.context &&
+    /.md$/.test(page.component) &&
+    (!page.context.sourceInstance ||
+      !pluginSourceInstances.find((source) => source === page.context.sourceInstance))
+  ) {
+    reporter.info(`[${pluginOptions.pluginName}] deleting and ignoring page: ${page.path}`);
+    deletePage(page);
+    return;
+  }
 
   // recreate only if a page is missing context data e.g. pages that are created by the default gastby page creator
-  if (page && page.context && !(page.context as any).siteMetadata) {
+  if (page && page.context && !page.context.siteMetadata) {
     reporter.info(`[${pluginOptions.pluginName}] recreating page: ${page.path}`);
 
     if (page.path === '/404.html') {
@@ -331,8 +467,7 @@ export const onCreatePageFunction: GatsbyNode['onCreatePage'] = (
     // '/en/section/page'
     const path = getFullPageNodePath([localeDir, sourceDir, nameWithoutLocale]);
     // SITE_LANGUAGES.EN
-    const locale = getLocaleFromPath(page.path);
-
+    const locale = getLocaleFromPath(page.path, siteMetadata.languages?.defaultLangKey);
     // nicely formated name for the page, e.g. en.page.tsx => Page
     const displayName = getPageFormattedName(nameWithoutLocale, {
       locale: locale,
@@ -341,6 +476,32 @@ export const onCreatePageFunction: GatsbyNode['onCreatePage'] = (
     deletePage(page);
 
     reporter.info(`[${pluginOptions.pluginName}] creating page: ${path}`);
+
+    const pagesInOtherLocales = matchingTsxPageDirNames?.[page.component]?.filter(
+      (matchinPage) =>
+        matchinPage.locale !== locale ||
+        getLangSimpleCode(matchinPage.locale) !== getLangSimpleCode(locale)
+    );
+
+    if (pagesInOtherLocales?.length) {
+      createPage<GatsbySrcPageContext>({
+        ...page,
+        path,
+        context: {
+          ...page.context,
+          id: page.path,
+          name: nameWithoutSlashes,
+          displayName,
+          siteMetadata,
+          fileId: '',
+          locale,
+          alternateLocales: pagesInOtherLocales,
+          layout: 'default',
+          template: 'default',
+        },
+      });
+      return;
+    }
 
     createPage<GatsbySrcPageContext>({
       ...page,

@@ -12,7 +12,7 @@ import {
   useCommonProps,
   useIsSSR,
   useTreatTheme,
-} from '@newrade/core-react-ui/src';
+} from '@newrade/core-react-ui';
 import { LinkAPI, LinkComponent, LinkType } from '@newrade/core-website-api';
 import debug from 'debug';
 import React, { PropsWithChildren } from 'react';
@@ -21,7 +21,7 @@ import { GatsbyLink } from './gatsby-link';
 import * as styleRefs from './link-renderer.treat';
 import { LinkRendererProps } from './link.props';
 
-const log = debug('newrade:core-gatsby-ui:link-renderer');
+const log = debug('nr:core-gatsby-ui:link-renderer');
 const logWarn = log.extend('warn');
 const logError = log.extend('error');
 
@@ -80,7 +80,8 @@ export function LinkRenderer<CustomLinkVariants extends string>({
   const linkData = link as LinkAPI;
   const linkSizeLink = linkData.size ? linkData.size : ComponentSize.small;
   const linkSizeButton = linkData.size ? linkData.size : ComponentSize.medium;
-  const linkIcon = linkData.icon ? (linkData.icon as ICON) : null;
+  const linkIsExternal = linkData.type === LinkType.externalUrl;
+  const linkIcon = linkData.icon ? (linkData.icon as ICON) : linkIsExternal ? ICON.OPEN : null;
 
   const buttonSizes: { [key in ComponentSize]: ButtonSize } = {
     [ComponentSize.large]: ButtonSize.large,
@@ -108,7 +109,7 @@ export function LinkRenderer<CustomLinkVariants extends string>({
           variantLevel={(linkData.variant as Variant) || Variant.primary}
           Icon={linkIcon ? <IconComp name={linkIcon}></IconComp> : null}
           AsElement={
-            linkData.type !== LinkType.externalUrl ? (
+            !linkIsExternal ? (
               <GatsbyLink to={linkData.page?.slug} />
             ) : (
               <a href={linkData.url || ''} target={'_blank'} rel="noreferrer" />

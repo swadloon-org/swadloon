@@ -1,5 +1,5 @@
-import { useCommonProps, useTreatTheme } from '@newrade/core-react-ui/src';
-import { keys } from '@newrade/core-react-ui/src/utilities';
+import { useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
+import { keys } from '@newrade/core-react-ui/utilities';
 import { SidebarLayout } from '@newrade/core-website-api';
 import debug from 'debug';
 import React, { PropsWithChildren } from 'react';
@@ -7,7 +7,7 @@ import { useInView } from 'react-intersection-observer';
 import { SidebarStandard } from './sidebar-standard';
 import { SidebarProps, SidebarRendererProps } from './sidebar.props';
 
-const log = debug('newrade:core-gatsby-ui:sidebar-renderer');
+const log = debug('nr:core-gatsby-ui:sidebar-renderer');
 const logWarn = log.extend('warn');
 const logError = log.extend('error');
 

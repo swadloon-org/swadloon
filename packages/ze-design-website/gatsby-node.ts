@@ -13,15 +13,6 @@ const env = loadDotEnv<ENV>({
 
 export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions;
-  /**
-   * Page redirections
-   */
-  // createRedirect({
-  //   fromPath: '/',
-  //   toPath: '/design-system/',
-  //   force: true,
-  //   isPermanent: false,
-  // });
 };
 
 export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({

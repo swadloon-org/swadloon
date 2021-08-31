@@ -1,5 +1,5 @@
 import { Variant } from '@newrade/core-design-system';
-import { BoxV2, Center, useCommonProps, useTreatTheme } from '@newrade/core-react-ui/src';
+import { BoxV2, Center, useCommonProps, useTreatTheme } from '@newrade/core-react-ui';
 import { SectionBaseLayout, SectionPadding } from '@newrade/core-website-api';
 import React from 'react';
 import { useStyles } from 'react-treat';

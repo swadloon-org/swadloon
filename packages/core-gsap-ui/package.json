@@ -3,30 +3,23 @@
   "version": "1.3.4",
   "description": "UI library",
   "license": "MIT",
-  "main": "./lib/index.js",
-  "module": "./lib/index.js",
+  "main": "dist/newrade-core-gsap-ui.cjs.js",
+  "module": "dist/newrade-core-gsap-ui.esm.js",
   "files": [
-    "./lib/**/*"
+    "/dist"
   ],
   "scripts": {
     "build": "yarn copy:plugins && yarn build:tsc",
-    "build:tsc": "tsc --build tsconfig.build.json",
-    "clean": "rm -rf lib/** && rm -f tsconfig.build.tsbuildinfo",
-    "copy:plugins": "TS_NODE_PROJECT=../core-webpack-config/tsconfig.script.json node -r ts-node/register scripts/copy-plugins.script.ts",
+    "build:tsc": "tsc --build",
+    "clean": "rm -rf lib/** && rm -f *.tsbuildinfo",
+    "copy:plugins": "TS_NODE_PROJECT=../../tsconfig.node-commonjs.json node -r ts-node/register scripts/copy-plugins.script.ts",
     "start": "concurrently \"yarn tsc:start\" \"yarn watch:plugins\"",
-    "tsc:start": "tsc --build tsconfig.build.json --watch --preserveWatchOutput",
+    "tsc:start": "tsc --build --watch --preserveWatchOutput --verbose",
+    "typecheck": "tsc --noEmit",
     "watch:plugins": "onchange -i 'src/plugins/**/*' -- yarn copy:plugins"
   },
   "sideEffects": false,
-  "typings": "./lib/index.d.ts",
   "dependencies": {
-    "@newrade/core-common": "^1.4.0",
-    "@newrade/core-design-system": "^1.14.0",
-    "@newrade/core-jest-config": "^2.0.0",
-    "@newrade/core-types": "^2.0.0",
-    "@newrade/core-utils": "^2.0.0"
-  },
-  "devDependencies": {
-    "@newrade/core-cli": "^1.11.0"
+    "gsap": "^3.6.0"
   }
 }

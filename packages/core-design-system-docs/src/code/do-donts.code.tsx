@@ -1,4 +1,4 @@
-import { DoDont, useTreatTheme } from '@newrade/core-react-ui/src';
+import { DoDont, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 
 type Props = {};

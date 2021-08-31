@@ -135,10 +135,6 @@
       "path": "../packages/core-design-system-docs"
     },
     {
-      "name": "core-design-system-old",
-      "path": "../packages/core-design-system-old"
-    },
-    {
       "name": "core-dev-config",
       "path": "../packages/core-dev-config"
     },
@@ -177,10 +173,6 @@
     {
       "name": "core-react-ui",
       "path": "../packages/core-react-ui"
-    },
-    {
-      "name": "core-react-ui-old",
-      "path": "../packages/core-react-ui-old"
     },
     {
       "name": "core-graphql-ui",

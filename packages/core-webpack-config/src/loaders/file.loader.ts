@@ -5,7 +5,7 @@ export const fileLoader: RuleSetRule = {
   use: {
     loader: 'file-loader',
     options: {
-      name: 'assets/[name].[hash].[ext]',
+      name: 'assets/[name].[contenthash].[ext]',
     },
   },
 };

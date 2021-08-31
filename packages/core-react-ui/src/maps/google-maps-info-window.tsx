@@ -1,9 +1,8 @@
 import { LABEL_SIZE, LinkIcon, LinkVariant, PARAGRAPH_SIZE } from '@newrade/core-design-system';
 import { InfoWindow, InfoWindowProps } from '@react-google-maps/api';
-import { IoStar } from '@react-icons/all-files/io5/IoStar';
-import { IoStarHalf } from '@react-icons/all-files/io5/IoStarHalf';
 import { title } from 'case';
 import React from 'react';
+import { IoStar, IoStarHalf } from 'react-icons/io5';
 import { useStyles } from 'react-treat';
 import { useTreatTheme } from '../hooks/use-treat-theme';
 import { Stack } from '../layout/stack';

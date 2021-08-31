@@ -1,6 +1,7 @@
 import { DEPLOY_ENV } from '@newrade/core-common';
-import { PAGE_LAYOUT, PAGE_TEMPLATE } from '@newrade/core-gatsby-config';
+import { PAGE_LAYOUT, PAGE_TEMPLATE } from '@newrade/core-gatsb-config/config';
 import { SITE_LANGUAGES } from '@newrade/core-common';
+import { PageNode } from '../navigation.utilities';
 
 const siteMetadata = {
   title: 'Website',
@@ -96,5 +97,5 @@ export const navigationMock = {
         displayName: 'Design System - MicroInteractions',
       },
     },
-  ],
+  ] as PageNode[],
 };

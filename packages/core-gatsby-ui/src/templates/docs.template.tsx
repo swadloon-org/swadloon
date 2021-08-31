@@ -1,5 +1,7 @@
-import { GatsbyMarkdownFilePageContext } from '@newrade/core-gatsby-config';
-import { MarkdownTemplateQuery } from '@newrade/core-gatsby-config/lib/esm/config/site-graphql-types';
+import {
+  GatsbyMarkdownFilePageContext,
+  MarkdownTemplateQuery,
+} from '@newrade/core-gatsb-config/config';
 import {
   Center,
   getMetaBasicTags,
@@ -7,8 +9,8 @@ import {
   OPEN_GRAPH_TYPE,
   Stack,
   useTreatTheme,
-} from '@newrade/core-react-ui/src';
-import { MarkdownCSS } from '@newrade/core-react-ui/src/markdown';
+} from '@newrade/core-react-ui';
+import { MarkdownCSS } from '@newrade/core-react-ui/markdown';
 import { graphql, PageProps } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
@@ -38,6 +40,7 @@ export const markdownTemplateQuery = graphql`
           version
           published
           status
+          slug
           deprecated
           editPageUrl
           nextPageLabel
@@ -69,12 +72,7 @@ const Template: React.FC<MarkdownTemplateProps> = (props) => {
     <>
       <Helmet>
         <html lang={props.pageContext.locale} />
-        <link rel="icon" href="/images/favicon.svg" sizes="any" type="image/svg+xml" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
-          rel="stylesheet"
-        />
+        <link rel="icon" href="/images/logo-favicon.svg" sizes="any" type="image/svg+xml" />
         <link
           href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
           rel="stylesheet"
@@ -83,13 +81,18 @@ const Template: React.FC<MarkdownTemplateProps> = (props) => {
         {getMetaBasicTags()}
         {getMetadataOpenGraphWebsiteTags({
           type: OPEN_GRAPH_TYPE.ARTICLE,
-          title: `${
+          title: `${props.pageContext.siteMetadata.title} - ${
             props.pageContext.displayName ||
             props.pageContext.name ||
             props.pageContext.siteMetadata.title
           }`,
           // url: `${data?.site?.siteMetadata?.siteUrl}${data?.contentfulBlogPost?.blogSlug}`,
-          description: `${props.data.file?.childMdx?.excerpt || 'No description provided'}`,
+          description: `${
+            props.pageContext.frontmatter?.description ||
+            props.data.file?.childMdx?.excerpt ||
+            props.pageContext.siteMetadata.description ||
+            ''
+          }`,
           // image: `${data?.contentfulBlogPost?.blogMainImage?.socialMediaImage?.src}`,
           // site_name: `${data?.contentfulCompanyInfo?.metadataSiteName}`,
           lang: props.pageContext.locale,

@@ -1,6 +1,7 @@
-import { VIEWPORT } from '@newrade/core-design-system/src';
-import { useViewportBreakpoint } from '@newrade/core-react-ui/src';
-import { useEffect, useRef, useState } from 'react';
+import { VIEWPORT } from '@newrade/core-design-system';
+import { useViewportBreakpoint } from '@newrade/core-react-ui';
+import { globalHistory } from '@reach/router';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 type Props = {
   /**
@@ -12,31 +13,58 @@ type Props = {
    * Delay after which the sidebar is closed on desktop
    * @default 300
    */
-  delay?: number;
+  delayOpen?: number;
+  delayClose?: number;
 };
 
 export function useSidebarState({
   initial = false,
-  delay = 300,
+  delayOpen = 300,
+  delayClose = 160,
 }: Props): [boolean, React.Dispatch<React.SetStateAction<boolean>>] {
   const [sidebarOpened, setSidebarOpened] = useState<boolean>(initial);
   const { viewport } = useViewportBreakpoint();
   let timeout = useRef<number | null>(null);
+  let timeoutSetSidebarFn = useRef<number | null>(null);
 
   // automatically close the sidebar if the viewport is desktop
   useEffect(() => {
     if (viewport === VIEWPORT.desktop && sidebarOpened) {
       timeout.current = window.setTimeout(() => {
         setSidebarOpened(false);
-      }, delay);
+      }, delayClose);
     }
 
     return () => {
       if (timeout !== undefined && typeof timeout === 'number') {
         window.clearTimeout(timeout);
       }
-    };
-  }, [viewport, sidebarOpened, delay]);
 
-  return [sidebarOpened, setSidebarOpened];
+      if (timeoutSetSidebarFn !== undefined && typeof timeoutSetSidebarFn === 'number') {
+        window.clearTimeout(timeoutSetSidebarFn);
+      }
+    };
+  }, [viewport, sidebarOpened, delayOpen, delayClose]);
+
+  const setSidebarOpenedDelayedFn: (value: React.SetStateAction<boolean>, delay?: number) => void =
+    useCallback(
+      (value, delay) => {
+        timeoutSetSidebarFn.current = window.setTimeout(
+          () => {
+            setSidebarOpened(value);
+          },
+          delay ? delay : value ? delayOpen : delayClose
+        );
+        return value;
+      },
+      [delayClose, delayOpen]
+    );
+
+  useEffect(() => {
+    return globalHistory.listen((params) => {
+      setSidebarOpenedDelayedFn(false, 600); // close sidebar upon navigation
+    });
+  }, [setSidebarOpenedDelayedFn]);
+
+  return [sidebarOpened, setSidebarOpenedDelayedFn];
 }

@@ -4,16 +4,12 @@
  */
 /// <reference types="./types/core-types" />
 
-delete process.env.TS_NODE_PROJECT; // see https://github.com/dividab/tsconfig-paths-webpack-plugin/issues/32
+delete process.env.TS_NODE_PROJECT; // avoid using external tsconfig for ts-loader or other tools
 
-import dotenv from 'dotenv';
+import * as core from '@newrade/core-webpack-config';
 import path from 'path';
 import * as tsloader from 'ts-loader';
-import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
-import * as core from '@newrade/core-webpack-config';
 import { Configuration } from 'webpack';
-
-dotenv.config();
 
 const config: Configuration = {
   mode: 'production',
@@ -34,45 +30,20 @@ const config: Configuration = {
         test: /\.tsx?$/,
         use: [
           {
-            loader: 'babel-loader',
-            options: {
-              cacheDirectory: true,
-            },
-          },
-          {
             loader: 'ts-loader',
             options: {
-              configFile: 'tsconfig.build.json',
-              logLevel: 'WARN',
-              projectReferences: true,
+              configFile: 'tsconfig.json',
+              logLevel: 'INFO',
+              projectReferences: false,
             } as Partial<tsloader.Options>,
           },
         ],
       },
-      {
-        test: /\.jsx?$/,
-        use: [
-          {
-            loader: 'babel-loader',
-            options: {
-              cacheDirectory: true,
-            },
-          },
-        ],
-        include: [path.resolve('src/**/*'), path.resolve('../**/*')],
-      },
     ],
   },
   resolve: {
-    mainFields: ['main', 'module'],
+    mainFields: ['module', 'main'],
     extensions: ['.tsx', '.ts', '.js', '.mjs'],
-    plugins: [
-      // @ts-ignore
-      new TsconfigPathsPlugin({
-        configFile: 'tsconfig.build.json',
-        logLevel: 'WARN',
-      }),
-    ],
   },
   output: {
     filename: `[name]/index.js`,

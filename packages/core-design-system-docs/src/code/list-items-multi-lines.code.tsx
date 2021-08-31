@@ -3,7 +3,7 @@ import {
   lorenipsum,
   lorenipsumShort,
 } from '@newrade/core-gatsby-ui/src/docs-components/loren-ipsum';
-import { ListItem, Stack, useTreatTheme } from '@newrade/core-react-ui/src';
+import { ListItem, Stack, useTreatTheme } from '@newrade/core-react-ui';
 import React from 'react';
 
 type Props = {};

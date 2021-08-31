@@ -22,14 +22,14 @@ export interface GastbySiteConfig extends Gatsby.GatsbyConfig {
 }
 
 export const gatsbySiteFlags: GastbySiteConfig['flags'] = {
-  DEV_SSR: false,
-  QUERY_ON_DEMAND: true,
+  DEV_SSR: true,
+  QUERY_ON_DEMAND: false,
   LAZY_IMAGES: true,
-  PRESERVE_WEBPACK_CACHE: true,
-  DEV_WEBPACK_CACHE: true,
+  PRESERVE_WEBPACK_CACHE: false,
+  DEV_WEBPACK_CACHE: false,
   PRESERVE_FILE_DOWNLOAD_CACHE: true,
-  PARALLEL_SOURCING: true,
-  PARALLEL_QUERY_RUNNING: true,
+  PARALLEL_SOURCING: false,
+  PARALLEL_QUERY_RUNNING: false,
   FUNCTIONS: false,
-  LMDB_STORE: true,
+  LMDB_STORE: false,
 };
