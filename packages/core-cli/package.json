@@ -46,8 +46,8 @@
   "dependencies": {
     "@contentful-tools/cli": "^0.7.3",
     "@contentful-tools/store": "^0.7.3",
-    "@newrade/core-figma-extractor": "^1.4.3",
-    "@newrade/core-utils": "^2.1.0",
+    "@newrade/core-figma-extractor": "*",
+    "@newrade/core-utils": "*",
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "@oclif/dev-cli": "^1",
