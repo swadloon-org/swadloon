@@ -62,7 +62,6 @@
       "packages/core-gatsby-config",
       "packages/core-webpack-config",
       "packages/core-website-api",
-      "packages/core-gsap-ui",
       "packages/core-figma-extractor",
       "packages/core-jest-config"
     ]

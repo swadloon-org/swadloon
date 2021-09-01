@@ -9,4 +9,3 @@
 /// <reference types="@newrade/core-types/src/treat-webpack-plugin" />
 /// <reference types="@newrade/core-types/src/mini-css-extract-plugin" />
 /// <reference types="@newrade/core-types/src/github-slugger" />
-/// <reference types="@newrade/core-gsap-ui/lib/types" />

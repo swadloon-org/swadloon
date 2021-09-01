@@ -6,4 +6,3 @@
 /// <reference types="@newrade/core-types/src/react-helmet" />
 /// <reference types="@newrade/core-types/src/svg" />
 /// <reference types="@newrade/core-types/src/github-slugger" />
-/// <reference types="@newrade/core-gsap-ui/lib/types" />
