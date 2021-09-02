@@ -34,6 +34,7 @@ export function loadDotEnv<ENV = CommonEnvType>({
   packageName: string;
   printEnvVariables?: boolean;
 }) {
+  debug.enable('nr:env*'); // always print out infos
   const logEnv = log.extend(packageName.replace('@newrade/', ''));
   const logEnvError = logEnv.extend('error');
 
