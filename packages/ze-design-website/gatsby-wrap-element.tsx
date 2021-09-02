@@ -23,7 +23,7 @@ export const WrapElement: React.FC<WrapPageElementBrowserArgs> = ({ element, pro
         <WrapElementWithi18N
           props={props}
           i18nOptions={{
-            fallbackLng: 'fr',
+            fallbackLng: 'en',
             resources: locales,
           }}
         >
@@ -38,7 +38,7 @@ export const WrapElement: React.FC<WrapPageElementBrowserArgs> = ({ element, pro
         <WrapElementWithi18N
           props={props}
           i18nOptions={{
-            fallbackLng: 'fr',
+            fallbackLng: 'en',
             resources: locales,
           }}
         >
@@ -61,7 +61,7 @@ export const WrapElement: React.FC<WrapPageElementBrowserArgs> = ({ element, pro
         <WrapElementWithi18N
           props={props}
           i18nOptions={{
-            fallbackLng: 'fr',
+            fallbackLng: 'en',
             resources: locales,
           }}
         >

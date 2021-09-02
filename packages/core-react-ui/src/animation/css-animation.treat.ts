@@ -1,5 +1,6 @@
 import { globalStyle, style, Style } from 'treat';
 import { Theme } from '../design-system';
+import { easingPower4 } from './css-easings';
 
 export const styles = {
   wrapper: style(({ theme, cssTheme }: Theme) => ({
@@ -18,12 +19,11 @@ export const styles = {
 };
 
 const commonAnimationStyle: Style = {
+  animationDelay: 'var(--animation-delay, 0s)',
   animationDuration: 'var(--animation-duration, 1s)',
   animationFillMode: 'both',
   animationIterationCount: 'var(--animation-iteration, 1)',
 };
-
-const easingPower4 = 'cubic-bezier(.08,.65,0,1)';
 
 globalStyle(`${styles.wrapper}`, () => ({
   '@media': {
@@ -554,7 +554,6 @@ export const animations = {
     '@keyframes': {
       from: {
         transform: 'translate3d(0, -100%, 0)',
-        visibility: 'visible',
       },
       to: {
         transform: 'translate3d(0, 0, 0)',
@@ -566,12 +565,27 @@ export const animations = {
     animationTimingFunction: easingPower4,
     '@keyframes': {
       from: {
-        opacity: '0',
+        filter: `drop-shadow(1px 1px 2px rgba(33, 33, 33, 0.15))`,
         transform: 'translate3d(-100%, 0, 0)',
-        visibility: 'visible',
       },
       to: {
-        opacity: '1',
+        filter: `drop-shadow(1px 1px 2px rgba(33, 33, 33, 0))`,
+        transform: 'translate3d(0, 0, 0)',
+      },
+    },
+    ...commonAnimationStyle,
+  })),
+  slideInLeftSidebar: style(({ theme, cssTheme }: Theme) => ({
+    animationTimingFunction: easingPower4,
+    '@keyframes': {
+      from: {
+        opacity: 0,
+        filter: `drop-shadow(1px 1px 2px rgba(33, 33, 33, 0))`,
+        transform: 'translate3d(-100%, 0, 0)',
+      },
+      to: {
+        opacity: 1,
+        filter: `drop-shadow(1px 1px 2px rgba(33, 33, 33, 0.15))`,
         transform: 'translate3d(0, 0, 0)',
       },
     },
@@ -581,12 +595,9 @@ export const animations = {
     animationTimingFunction: easingPower4,
     '@keyframes': {
       from: {
-        opacity: '0',
         transform: 'translate3d(-100%, 0, 0)',
-        visibility: 'visible',
       },
       to: {
-        opacity: '1',
         transform: 'translate3d(0, 0, 0)',
       },
     },
@@ -596,7 +607,6 @@ export const animations = {
     '@keyframes': {
       from: {
         transform: 'translate3d(0, 100%, 0)',
-        visibility: 'visible',
       },
       to: {
         transform: 'translate3d(0, 0, 0)',
@@ -620,11 +630,26 @@ export const animations = {
     animationTimingFunction: easingPower4,
     '@keyframes': {
       from: {
-        opacity: '1',
         transform: 'translate3d(0, 0, 0)',
       },
       to: {
-        opacity: '0',
+        visibility: 'hidden',
+        transform: 'translate3d(-100%, 0, 0)',
+      },
+    },
+    ...commonAnimationStyle,
+  })),
+  slideOutLeftSidebar: style(({ theme, cssTheme }: Theme) => ({
+    animationTimingFunction: easingPower4,
+    '@keyframes': {
+      from: {
+        opacity: 1,
+        filter: `drop-shadow(1px 1px 2px rgba(33, 33, 33, 0.15))`,
+        transform: 'translate3d(0, 0, 0)',
+      },
+      to: {
+        opacity: 0,
+        filter: `drop-shadow(1px 1px 2px rgba(33, 33, 33, 0))`,
         transform: 'translate3d(-100%, 0, 0)',
       },
     },

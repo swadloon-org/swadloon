@@ -1,8 +1,8 @@
 ---
-title: Navigation
+title: Navbars
 description:
-  Navigation are used for information and actions relating to the current
-  screen.
+  Navbars or navigation bars, are used for information and actions relating to
+  the current screen.
 tags:
   - navigation
   - organism

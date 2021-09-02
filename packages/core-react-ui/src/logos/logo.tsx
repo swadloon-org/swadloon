@@ -60,6 +60,11 @@ export const LogoLoader = React.forwardRef<'svg', Props>(
     }
 
     const LogoComponent = context.logoComponents[name];
+
+    if (!LogoComponent) {
+      console.log('LogoComponent was not found');
+      return <LogoNotFoundError />;
+    }
     // @ts-ignore
     const svgClassName = LogoComponent.props?.className;
 

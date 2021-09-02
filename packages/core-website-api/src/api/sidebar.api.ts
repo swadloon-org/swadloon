@@ -9,9 +9,7 @@ import { CompanyInfoAPI } from './company-info.api';
  */
 export enum SidebarLayout {
   standard = 'standard',
-  enterprise = 'enterprise',
-  simple = 'simple',
-  social = 'social',
+  documentation = 'documentation',
 }
 
 export type SidebarAPI = PartialOrNull<{
@@ -20,7 +18,7 @@ export type SidebarAPI = PartialOrNull<{
    */
   name: string;
   /**
-   * Controls the layout of the footer
+   * Controls the layout of the sidebar
    */
   layout: SidebarLayout | string;
   /**
