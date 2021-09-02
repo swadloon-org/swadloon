@@ -6,13 +6,13 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as prettier from 'prettier';
 import { FILES_TYPE_TEXT, regexName } from '../constants/figma-texts.constants';
-import { fetchObjectById } from '../service/figma-api';
+import { fetchObjectById } from '../service/figma-api.service';
 import {
   FigmaTextHeading,
   FigmaTextLabel,
   FigmaTextParagraphe,
   TextTokens,
-} from './figma-texts.model';
+} from '../models/figma-texts.model';
 
 const log = debug('nr:core-cli');
 

@@ -23,4 +23,5 @@ export function logEnvVariables<ENV extends CommonEnvType | Record<string, any>>
   logPackage(`APP_PROTOCOL is ${env.APP_PROTOCOL}`);
   logPackage(`APP_HOST is ${env.APP_HOST}`);
   logPackage(`APP_PORT is ${env.APP_PORT}`);
+  logPackage(`DEBUG is ${env.DEBUG}`);
 }
