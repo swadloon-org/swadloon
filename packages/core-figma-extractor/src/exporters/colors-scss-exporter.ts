@@ -1,26 +1,42 @@
-import chalk from 'chalk';
-import { log } from 'debug';
-import * as fs from 'fs';
+import { formatNameNumberKebabCase, formatOutput } from '../utilities/formatting.utilities';
+import { sortColorNames } from '../utilities/sorting.utilities';
+import { ColorsExporter } from './colors-exporter.api';
 
-import { ColorTokens } from '../models/figma-colors.model';
-import { logError } from '../service/logging.service';
-import { formatOutput } from '../utilities/formatting.utilities';
+/**
+ * Convert FigmaColor objects into scss variables
+ */
+export const exportScssColorTokens: ColorsExporter = (colorTokens, options) => {
+  let cssVariables = '';
 
-export const exportScssColorTokens = (colorObject: ColorTokens, filePath: string) => {
-  const numberColorToken: number = Object.keys(colorObject).length;
+  const colorNames = Object.keys(colorTokens);
+  const sortedColorNames = sortColorNames(colorNames);
 
-  let allColorsString = '';
+  sortedColorNames.forEach((colorName) => {
+    const color = colorTokens[colorName];
+    const colorNamespace = color.colorNamespace;
+    const colorTheme = color.colorTheme;
+    const colorType = color.colorType;
+    const colorLevel = color.colorLevel;
+    const colorR = color.r;
+    const colorG = color.g;
+    const colorB = color.b;
+    const colorA = color.a;
 
-  Object.keys(colorObject).forEach((color) => {
-    allColorsString += `$color-${colorObject[color].colorType}-${colorObject[color].colorLevel}: rgba(${colorObject[color].r},${colorObject[color].g},${colorObject[color].b},${colorObject[color].a});\n`;
+    const colorCssVariableDeclaration = [
+      `$color`,
+      formatNameNumberKebabCase(colorNamespace),
+      formatNameNumberKebabCase(colorTheme),
+      formatNameNumberKebabCase(colorType),
+      formatNameNumberKebabCase(colorLevel),
+    ]
+      .filter((part) => !!part)
+      .join('-');
+
+    const colorCssVariableValue = `rbga(${colorR}, ${colorG}, ${colorB}, ${colorA})`;
+
+    cssVariables += `${colorCssVariableDeclaration}: ${colorCssVariableValue};` + '\n';
   });
-  const textContent = `${allColorsString}`;
-  fs.appendFile(filePath, formatOutput(textContent, { parser: 'scss' }), (err) => {
-    if (err) {
-      logError(chalk.red(`SCSS color tokens failed ❌ `));
-      throw err;
-    }
+  const textContent = `${cssVariables}`;
 
-    log(chalk.green(`${numberColorToken} color tokens SCSS generated`));
-  });
+  return formatOutput(textContent, { parser: 'scss' });
 };

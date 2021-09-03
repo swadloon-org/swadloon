@@ -1,6 +1,6 @@
 import { getFigmaColor, getFormattedColorNode } from '../colors-extractor';
 import { FigmaColor } from '../../models/figma-colors.model';
-import { ExtractOptions } from '../..';
+import { defaultOutputColorFiles, ExtractOptions } from '../..';
 import path from 'path';
 
 describe('colors utilities', () => {
@@ -26,6 +26,7 @@ describe('colors utilities', () => {
             {
               blendMode: 'NORMAL',
               type: 'SOLID',
+              opacity: 0.0099999,
               color: {
                 r: 0.48627451062202454,
                 g: 0.60000002384185791,
@@ -43,10 +44,14 @@ describe('colors utilities', () => {
     },
   };
 
-  const options: ExtractOptions = {
+  const options: Required<ExtractOptions> = {
+    figmaFile: '',
+    figmaToken: '',
     inputColorThemeNamespace: true,
     outputDir: path.join(__dirname, '..', 'figma-export'),
     outputColorNamespace: '',
+    outputColorFiles: defaultOutputColorFiles,
+    outputCSSColorFormat: 'rgba',
   };
 
   describe(`${getFigmaColor.name}`, () => {
@@ -59,10 +64,10 @@ describe('colors utilities', () => {
         colorTheme: 'namespace',
         colorType: 'primary',
         colorLevel: '500',
-        r: 0.48627451062202454,
-        g: 0.60000002384185791,
-        b: 0.49019607901573181,
-        a: 1.0,
+        r: 124,
+        g: 153,
+        b: 125,
+        a: 0.01,
       };
 
       expect(getFigmaColor(rawStyle.nodes['503:4824'] as any, options)).toEqual(expectedColor);

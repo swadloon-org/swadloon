@@ -1,5 +1,7 @@
+import chalk from 'chalk';
 import fs from 'fs';
 import path from 'path';
+import { log, logError } from './logging.service';
 
 const projectJson = JSON.parse(
   fs.readFileSync(path.join(__dirname, '../../package.json'), 'utf-8')
@@ -23,4 +25,23 @@ export function createExportFile(options: { path: string; data?: string }) {
 export function createExportJSONFile(options: { path: string; data?: string }) {
   // no comments are allowed in JSON
   fs.writeFileSync(path.join(options.path), options.data ? options.data : ``);
+}
+
+/**
+ * Append content to existing files
+ */
+export function appendFile(options: { path: string; data?: string }) {
+  if (!options.data) {
+    const msg = chalk.red(`no data to append to file ${options.path}`);
+    logError(msg);
+    throw new Error(msg);
+  }
+
+  fs.appendFile(options.path, options.data, (err) => {
+    if (err) {
+      logError(chalk.red(`CSS color tokens failed ❌ `));
+      throw err;
+    }
+    log(chalk.green(`updated file: ${options.path}`));
+  });
 }

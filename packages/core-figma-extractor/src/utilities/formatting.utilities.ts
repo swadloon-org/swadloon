@@ -1,9 +1,10 @@
+import { kebab } from 'case';
 import * as prettier from 'prettier';
 
 const prettierConfig = {
   singleQuote: true,
   tabWidth: 2,
-  printWidth: 80,
+  printWidth: 120,
 };
 
 /**
@@ -11,4 +12,22 @@ const prettierConfig = {
  */
 export function formatOutput(textContent: string, options: prettier.Options) {
   return prettier.format(textContent, { ...prettierConfig, ...options });
+}
+
+/**
+ * Split numbers in camel case with '-'
+ * @example info900 => info-900
+ */
+export function formatNameNumberKebabCase(text: string) {
+  const kebabText = kebab(text);
+  const match = /[a-z](\d+)/gi.exec(kebabText);
+
+  if (!match) {
+    return kebabText;
+  }
+
+  const splittedText = [kebabText.slice(0, match.index + 1), kebabText.slice(match.index + 1)].join(
+    '-'
+  );
+  return splittedText;
 }

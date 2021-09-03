@@ -1,6 +1,7 @@
 import fetch from 'node-fetch';
 
 /**
+ * Retrieve nodes object from the API
  * @see https://www.figma.com/developers/api#get-file-nodes-endpoint
  */
 export async function fetchObjectById(node_id: string | number | (string | number)[]) {

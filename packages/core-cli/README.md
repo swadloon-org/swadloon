@@ -41,7 +41,7 @@ USAGE
 * [`nr commit`](#nr-commit)
 * [`nr contentful-migrate [FILE]`](#nr-contentful-migrate-file)
 * [`nr depcheck [ARGS]`](#nr-depcheck-args)
-* [`nr fig-sync [FILE]`](#nr-fig-sync-file)
+* [`nr figma-sync [PATH]`](#nr-figma-sync-path)
 * [`nr gatsby [COMMAND]`](#nr-gatsby-command)
 * [`nr git-clean-branches`](#nr-git-clean-branches)
 * [`nr git-copy-labels SOURCE DESTINATION`](#nr-git-copy-labels-source-destination)
@@ -67,6 +67,8 @@ EXAMPLE
   $ nr commit
 ```
 
+_See code: [lib/commands/commit.js](https://github.com/newrade/newrade-core/blob/v1.12.0/lib/commands/commit.js)_
+
 ## `nr contentful-migrate [FILE]`
 
 sync design tokens from figma file
@@ -85,6 +87,8 @@ EXAMPLE
   $ nr figma-sync
 ```
 
+_See code: [lib/commands/contentful-migrate.js](https://github.com/newrade/newrade-core/blob/v1.12.0/lib/commands/contentful-migrate.js)_
+
 ## `nr depcheck [ARGS]`
 
 Shortcut to run depcheck
@@ -97,16 +101,18 @@ EXAMPLE
   $ nr depcheck
 ```
 
-## `nr fig-sync [FILE]`
+_See code: [lib/commands/depcheck.js](https://github.com/newrade/newrade-core/blob/v1.12.0/lib/commands/depcheck.js)_
+
+## `nr figma-sync [PATH]`
 
 sync design tokens from figma file
 
 ```
 USAGE
-  $ nr fig-sync [FILE]
+  $ nr figma-sync [PATH]
 
 ARGUMENTS
-  FILE  figma file id
+  PATH  relative output path
 
 OPTIONS
   -h, --help  show CLI help
@@ -114,6 +120,8 @@ OPTIONS
 EXAMPLE
   $ nr figma-sync
 ```
+
+_See code: [lib/commands/figma-sync.js](https://github.com/newrade/newrade-core/blob/v1.12.0/lib/commands/figma-sync.js)_
 
 ## `nr gatsby [COMMAND]`
 
@@ -133,6 +141,8 @@ EXAMPLE
   $ nr gatsby build
 ```
 
+_See code: [lib/commands/gatsby.js](https://github.com/newrade/newrade-core/blob/v1.12.0/lib/commands/gatsby.js)_
+
 ## `nr git-clean-branches`
 
 delete local branches that are already merged on origin
@@ -147,6 +157,8 @@ OPTIONS
 EXAMPLE
   $ nr git-clean-branches
 ```
+
+_See code: [lib/commands/git-clean-branches.js](https://github.com/newrade/newrade-core/blob/v1.12.0/lib/commands/git-clean-branches.js)_
 
 ## `nr git-copy-labels SOURCE DESTINATION`
 
@@ -167,6 +179,8 @@ EXAMPLE
   $ nr git-copy-labels
 ```
 
+_See code: [lib/commands/git-copy-labels.js](https://github.com/newrade/newrade-core/blob/v1.12.0/lib/commands/git-copy-labels.js)_
+
 ## `nr globby [ARGS]`
 
 Execute globby as CLI
@@ -178,6 +192,8 @@ USAGE
 EXAMPLE
   $ nr globby
 ```
+
+_See code: [lib/commands/globby.js](https://github.com/newrade/newrade-core/blob/v1.12.0/lib/commands/globby.js)_
 
 ## `nr hello [FILE]`
 
@@ -196,6 +212,8 @@ EXAMPLE
   $ nr hello
      hello world from ./src/hello.ts!
 ```
+
+_See code: [lib/commands/hello.js](https://github.com/newrade/newrade-core/blob/v1.12.0/lib/commands/hello.js)_
 
 ## `nr help [COMMAND]`
 
@@ -229,6 +247,8 @@ EXAMPLE
   $ nr jest
 ```
 
+_See code: [lib/commands/jest.js](https://github.com/newrade/newrade-core/blob/v1.12.0/lib/commands/jest.js)_
+
 ## `nr micromatch [PATH] [PATTERN]`
 
 Execute micromatch as CLI
@@ -241,6 +261,8 @@ EXAMPLE
   $ nr micromatch
 ```
 
+_See code: [lib/commands/micromatch.js](https://github.com/newrade/newrade-core/blob/v1.12.0/lib/commands/micromatch.js)_
+
 ## `nr prepare-dev`
 
 execute preconstruct dev
@@ -252,6 +274,8 @@ USAGE
 EXAMPLE
   $ nr prepare-dev
 ```
+
+_See code: [lib/commands/prepare-dev.js](https://github.com/newrade/newrade-core/blob/v1.12.0/lib/commands/prepare-dev.js)_
 
 ## `nr prepare-exports`
 
@@ -282,6 +306,8 @@ EXAMPLE
   $ nr vercel-deploy
 ```
 
+_See code: [lib/commands/vercel-deploy.js](https://github.com/newrade/newrade-core/blob/v1.12.0/lib/commands/vercel-deploy.js)_
+
 ## `nr webpack [COMMAND]`
 
 Shortcut to run webpack with typescript (ts-node)
@@ -296,4 +322,6 @@ OPTIONS
 EXAMPLE
   $ nr webpack serve --config webpack.dev.config.ts
 ```
+
+_See code: [lib/commands/webpack.js](https://github.com/newrade/newrade-core/blob/v1.12.0/lib/commands/webpack.js)_
 <!-- commandsstop -->

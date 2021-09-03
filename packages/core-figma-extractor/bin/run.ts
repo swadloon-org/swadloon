@@ -14,6 +14,7 @@ const env = loadDotEnv<ENV>({
 extract({
   figmaFile: env.FIGMA_FILE,
   figmaToken: env.FIGMA_TOKEN,
+  inputColorThemeNamespace: true,
   outputDir: path.join(__dirname, '..', 'figma-export'),
   outputColorNamespace: '',
 });

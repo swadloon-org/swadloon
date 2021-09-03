@@ -1,13 +1,13 @@
 import chalk from 'chalk';
-import debug, { log } from 'debug';
+import debug from 'debug';
 import * as Figma from 'figma-js'; // DON'T import Figma from 'figma-js'
 import fs from 'fs';
 import path from 'path';
 import { extractColorsFromFigmaStyles } from './extractors/colors-extractor';
 import { exportCssColorTokens } from './exporters/colors-css-exporter';
 import { FileType, defaultOutputColorFiles, PathExport } from './constants/figma-colors.constants';
-import { createExportFile, createExportJSONFile } from './service/file.service';
-import { logErrorConfig, logConfig, logError, logWarn } from './service/logging.service';
+import { appendFile, createExportFile, createExportJSONFile } from './service/file.service';
+import { log, logErrorConfig, logConfig, logError, logWarn } from './service/logging.service';
 import { exportScssColorTokens } from './exporters/colors-scss-exporter';
 import { exportTSColorTokens } from './exporters/colors-ts-exporter';
 import { exportJSONColorTokens } from './exporters/colors-json-exporter';
@@ -29,56 +29,65 @@ export type ExtractOptions = {
    * @example true would mean that colors are named like this: 'light/primary/500'
    * @default 'true'
    */
-  inputColorThemeNamespace?: boolean;
+  inputColorThemeNamespace: boolean;
+  /**
+   * Absolute path to the output directory
+   */
   outputDir: string;
+  /**
+   * Filenames of export files (for each format)
+   */
   outputColorFiles?: PathExport;
   /**
    * Export namespace of colors
    * @example 'my-org' would mean that colors are exported with a prefix '--my-org-light-primary-500: red'
    * @default '""'
    */
-  outputColorNamespace: string;
+  outputColorNamespace?: string;
+  /**
+   * Color format for css and scss outputs
+   * @default '"hsla"'
+   */
+  outputCSSColorFormat?: 'rgba' | 'hsla' | 'hex';
+  debug?: boolean;
+};
+
+export const defaultExtractOptions: ExtractOptions = {
+  inputColorThemeNamespace: true,
+  outputDir: path.join(__dirname, '..', 'figma-export'),
+  outputColorFiles: defaultOutputColorFiles,
+  outputColorNamespace: '',
+  outputCSSColorFormat: 'hsla',
 };
 
 /**
  * High level function that retrieve style nodes from a figma file and
  * write generated tokens to disk
  */
-export async function extract({
-  figmaFile,
-  figmaToken,
-  inputColorThemeNamespace = true,
-  outputDir,
-  outputColorFiles = defaultOutputColorFiles,
-  outputColorNamespace = '',
-}: ExtractOptions) {
-  const options = {
-    figmaFile,
-    figmaToken,
-    inputColorThemeNamespace,
-    outputDir,
-    outputColorFiles,
-    outputColorNamespace,
-  };
+export async function extract(options: ExtractOptions) {
+  debug.enable('nr:core-figma-extractor:*');
+
   /**
    *
    * Options validation
    *
    */
 
-  if (!figmaFile) {
+  if (!options.figmaFile) {
     logErrorConfig('no figma file specified');
     throw Error('no figma file specified');
   }
 
-  if (!figmaToken) {
+  if (!options.figmaToken) {
     logErrorConfig('no figma token specified');
     throw Error('no figma token specified');
   }
 
-  logConfig(`export directory: ${chalk.blueBright(outputDir)}`);
+  const validatedOptions = { ...defaultExtractOptions, ...options } as Required<ExtractOptions>;
+
+  logConfig(`export directory: ${chalk.blueBright(validatedOptions.outputDir)}`);
   logConfig(
-    `export color files: ${Object.values(outputColorFiles)
+    `export color files: ${Object.values(validatedOptions.outputColorFiles)
       .map((value) => chalk.blueBright(value))
       .join(', ')}`
   );
@@ -91,12 +100,16 @@ export async function extract({
      */
 
     const client = Figma.Client({
-      personalAccessToken: figmaToken,
+      personalAccessToken: validatedOptions.figmaToken,
     });
 
-    log(`connecting to Figma API and loading file id: ${chalk.blueBright(figmaFile)}...`);
+    log(
+      `connecting to Figma API and loading file id: ${chalk.blueBright(
+        validatedOptions.figmaFile
+      )}...`
+    );
 
-    const fileData = await client.file(figmaFile, { depth: 1 });
+    const fileData = await client.file(validatedOptions.figmaFile, { depth: 1 });
 
     log(
       `found figma file with name: "${chalk.blueBright(
@@ -110,11 +123,14 @@ export async function extract({
      *
      */
 
-    fs.mkdirSync(outputDir, { recursive: true });
+    fs.mkdirSync(validatedOptions.outputDir, { recursive: true });
 
-    Object.keys(outputColorFiles).forEach((fileType: string) => {
+    Object.keys(validatedOptions.outputColorFiles).forEach((fileType: string) => {
       const type = fileType as FileType;
-      const filePath = path.join(outputDir, outputColorFiles[fileType as FileType]);
+      const filePath = path.join(
+        validatedOptions.outputDir,
+        validatedOptions.outputColorFiles[fileType as FileType]
+      );
 
       log(`creating file: ${chalk.blueBright(filePath)}`);
 
@@ -137,7 +153,7 @@ export async function extract({
 
     log(`retrieving file styles...`);
 
-    const stylesData = await client.fileStyles(figmaFile);
+    const stylesData = await client.fileStyles(validatedOptions.figmaFile);
 
     if (!stylesData.data.meta.styles?.length) {
       logError(`no styles found, aborting`);
@@ -152,7 +168,7 @@ export async function extract({
      * Exporting raw styles
      */
 
-    const figmaStylesFilePath = path.join(outputDir, 'figma-styles.json');
+    const figmaStylesFilePath = path.join(validatedOptions.outputDir, 'figma-styles.json');
     log(`creating file: ${chalk.blueBright(figmaStylesFilePath)}`);
 
     createExportJSONFile({
@@ -162,7 +178,10 @@ export async function extract({
 
     log(`extracting color styles...`);
 
-    const colorTokens = await extractColorsFromFigmaStyles(stylesData.data.meta.styles, options);
+    const colorTokens = await extractColorsFromFigmaStyles(
+      stylesData.data.meta.styles,
+      validatedOptions
+    );
 
     if (!colorTokens) {
       logError(`extracting colors failed ❌ `);
@@ -184,12 +203,36 @@ export async function extract({
 
     log(chalk(`found ${colorsNumber} colors`));
 
-    exportCssColorTokens(colorTokens, path.join(outputDir, outputColorFiles.CSS));
-    exportScssColorTokens(colorTokens, path.join(outputDir, outputColorFiles.SCSS));
-    exportTSColorTokens(colorTokens, path.join(outputDir, outputColorFiles.TS));
-    exportJSONColorTokens(colorTokens, path.join(outputDir, outputColorFiles.JSON));
+    const cssColorTokens = exportCssColorTokens(colorTokens, options);
+    const scssColorTokens = exportScssColorTokens(colorTokens, options);
+    const tsColorTokens = exportTSColorTokens(colorTokens, options);
+    const jsonColorTokens = exportJSONColorTokens(colorTokens, options);
 
     log(`extracting colors:\t ${chalk.green('done')}`);
+
+    log(`writing tokens to files...`);
+
+    appendFile({
+      path: path.join(validatedOptions.outputDir, validatedOptions.outputColorFiles.CSS),
+      data: cssColorTokens,
+    });
+
+    appendFile({
+      path: path.join(validatedOptions.outputDir, validatedOptions.outputColorFiles.SCSS),
+      data: scssColorTokens,
+    });
+
+    appendFile({
+      path: path.join(validatedOptions.outputDir, validatedOptions.outputColorFiles.TS),
+      data: tsColorTokens,
+    });
+
+    appendFile({
+      path: path.join(validatedOptions.outputDir, validatedOptions.outputColorFiles.JSON),
+      data: jsonColorTokens,
+    });
+
+    log(`writing files done:\t ${chalk.green('done')}`);
   } catch (error: any) {
     logError(`error occured: ${error.message}`);
   }

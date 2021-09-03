@@ -14,7 +14,7 @@ const logError = log.extend('error');
 
 export async function extractColorsFromFigmaStyles(
   data: FileStylesResponse['meta']['styles'],
-  options: ExtractOptions
+  options: Required<ExtractOptions>
 ): Promise<ColorTokens> {
   const dataToken: ColorTokens = {};
 
@@ -83,15 +83,20 @@ export function getFormattedColorTokenName(color: FigmaColor): string {
 
 export function getFigmaColor(
   node: Partial<Pick<FileNodesResponse, 'nodes'>['nodes'][0]>,
-  options: ExtractOptions
+  options: Required<ExtractOptions>
 ): FigmaColor {
+  const opacity = (node?.document as any)?.fills?.[0].opacity;
+
   const newFigmaColor: FigmaColor = {
     id: `${node?.document?.id}`,
     ...getFormattedColorNode(node?.document?.name, options),
-    r: (node?.document as any)?.fills?.[0].color['r'],
-    g: (node?.document as any)?.fills?.[0].color['g'],
-    b: (node?.document as any)?.fills?.[0].color['b'],
-    a: (node?.document as any)?.fills?.[0].color['a'],
+    r: Math.round(255 * (node?.document as any)?.fills?.[0].color['r']),
+    g: Math.round(255 * (node?.document as any)?.fills?.[0].color['g']),
+    b: Math.round(255 * (node?.document as any)?.fills?.[0].color['b']),
+    a:
+      opacity !== undefined
+        ? Math.round(100 * opacity) / 100
+        : (node?.document as any)?.fills?.[0].color['a'],
   };
 
   log(
@@ -103,7 +108,7 @@ export function getFigmaColor(
 
 export function getFormattedColorNode(
   name: undefined | null | string,
-  options: ExtractOptions
+  options: Required<ExtractOptions>
 ): Pick<FigmaColor, 'colorNamespace' | 'colorTheme' | 'colorType' | 'colorLevel'> {
   if (!name) {
     return {
