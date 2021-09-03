@@ -35,6 +35,7 @@
     "@mdx-js/react": "^1.6.22",
     "@newrade/core-common": "*",
     "@newrade/core-design-system": "*",
+    "@newrade/core-figma-extractor": "*",
     "@newrade/core-gatsb-config": "*",
     "@newrade/core-gatsby-ui": "*",
     "@newrade/core-react-ui": "*",
