@@ -1,24 +1,28 @@
+import { formatOutput } from '../utilities/formatting.utilities';
+import { sortColorNames } from '../utilities/sorting.utilities';
 import { ColorsExporter } from './colors-exporter.api';
 
-export const exportTSColorTokens: ColorsExporter = (colorObject, options) => {
-  const numberColorTokens: number = Object.keys(colorObject).length;
-  const colorsKeys = Object.keys(colorObject).map((color) => {
+export const exportTSColorTokens: ColorsExporter = (colorTokens, options) => {
+  const colorNames = Object.keys(colorTokens);
+  const sortedColorNames = sortColorNames(colorNames);
+
+  const colorsKeys = sortedColorNames.map((colorName) => {
     return `
-    '${color}': {
-      id: '${colorObject[color].id}',
-      colorNamespace: '${colorObject[color].colorNamespace}',
-      colorTheme: '${colorObject[color].colorTheme}',
-      colorType: '${colorObject[color].colorType}',
-      colorLevel: '${colorObject[color].colorLevel}',
-      r: ${colorObject[color].r},
-      g: ${colorObject[color].g},
-      b: ${colorObject[color].b},
-      a: ${colorObject[color].a}
+    ${colorName}: {
+      id: '${colorTokens[colorName].id}',
+      colorNamespace: '${colorTokens[colorName].colorNamespace}',
+      colorTheme: '${colorTokens[colorName].colorTheme}',
+      colorType: '${colorTokens[colorName].colorType}',
+      colorLevel: '${colorTokens[colorName].colorLevel}',
+      r: ${colorTokens[colorName].r},
+      g: ${colorTokens[colorName].g},
+      b: ${colorTokens[colorName].b},
+      a: ${colorTokens[colorName].a}
     }`;
   });
 
   const colors = `export const colors: ColorTokens = { ${colorsKeys} }`;
   const textContent = `import { ColorTokens } from '@newrade/core-figma-extractor';\n ${colors}`;
 
-  return textContent;
+  return formatOutput(textContent, { parser: 'typescript' });
 };

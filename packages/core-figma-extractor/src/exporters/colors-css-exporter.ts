@@ -1,5 +1,4 @@
-import { kebab } from 'case';
-import { formatOutput } from '../utilities/formatting.utilities';
+import { formatNameNumberKebabCase, formatOutput } from '../utilities/formatting.utilities';
 import { sortColorNames } from '../utilities/sorting.utilities';
 import { ColorsExporter } from './colors-exporter.api';
 
@@ -25,10 +24,10 @@ export const exportCssColorTokens: ColorsExporter = (colorTokens, options) => {
 
     const colorCssVariableDeclaration = [
       `--color`,
-      kebab(colorNamespace),
-      kebab(colorTheme),
-      kebab(colorType),
-      kebab(colorLevel),
+      formatNameNumberKebabCase(colorNamespace),
+      formatNameNumberKebabCase(colorTheme),
+      formatNameNumberKebabCase(colorType),
+      formatNameNumberKebabCase(colorLevel),
     ]
       .filter((part) => !!part)
       .join('-');

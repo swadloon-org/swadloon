@@ -23,16 +23,30 @@ export function sortColorNames(
   colorNamesSortOrder = defaultColorNamesSortOrder,
   colorLevelSortOrder = defaultColorLevelSortOrder
 ) {
-  return (
+  const colorNamesByTheme = colorThemeSortOrder.map((theme) =>
     colorNames
-      // sort by name
+      .filter((colorName) => new RegExp(`^${theme}`, 'gi').test(colorName))
       .sort((nameA, nameB) => {
         if (!colorNamesSortOrder) {
           return 0;
         }
 
-        const indexAMatch = colorNamesSortOrder.find((name) => new RegExp(name, 'gi').test(nameA));
-        const indexBMatch = colorNamesSortOrder.find((name) => new RegExp(name, 'gi').test(nameB));
+        const indexAThemeMatch = colorThemeSortOrder.find((name) =>
+          new RegExp(`^${name}`, 'gi').test(nameA)
+        );
+        const indexBThemeMatch = colorThemeSortOrder.find((name) =>
+          new RegExp(`^${name}`, 'gi').test(nameB)
+        );
+
+        const nameAWithoutTheme = indexAThemeMatch ? nameA.replace(indexAThemeMatch, '') : nameA;
+        const nameBWithoutTheme = indexBThemeMatch ? nameB.replace(indexBThemeMatch, '') : nameB;
+
+        const indexAMatch = colorNamesSortOrder.find((name) =>
+          new RegExp(name, 'gi').test(nameAWithoutTheme)
+        );
+        const indexBMatch = colorNamesSortOrder.find((name) =>
+          new RegExp(name, 'gi').test(nameBWithoutTheme)
+        );
 
         const indexA = indexAMatch ? colorNamesSortOrder.indexOf(indexAMatch) : -1;
         const indexB = indexBMatch ? colorNamesSortOrder.indexOf(indexBMatch) : -1;
@@ -81,10 +95,10 @@ export function sortColorNames(
         const matchNameIndexBResultNumeric = matchNameIndexB[2];
 
         const indexAMatch = colorLevelSortOrder.find((colorLevel) =>
-          new RegExp(colorLevel, 'gi').test(matchNameIndexAResultNumeric)
+          new RegExp(`^${colorLevel}$`, 'gi').test(matchNameIndexAResultNumeric)
         );
         const indexBMatch = colorLevelSortOrder.find((colorLevel) =>
-          new RegExp(colorLevel, 'gi').test(matchNameIndexBResultNumeric)
+          new RegExp(`^${colorLevel}$`, 'gi').test(matchNameIndexBResultNumeric)
         );
 
         const indexA = indexAMatch ? colorLevelSortOrder.indexOf(indexAMatch) : -1;
@@ -104,31 +118,7 @@ export function sortColorNames(
 
         return indexA > indexB ? 1 : -1;
       })
-      // sort by theme
-      .sort((nameA, nameB) => {
-        if (!colorThemeSortOrder) {
-          return 0;
-        }
-
-        const indexAMatch = colorThemeSortOrder.find((name) => new RegExp(name, 'gi').test(nameA));
-        const indexBMatch = colorThemeSortOrder.find((name) => new RegExp(name, 'gi').test(nameB));
-
-        const indexA = indexAMatch ? colorThemeSortOrder.indexOf(indexAMatch) : -1;
-        const indexB = indexBMatch ? colorThemeSortOrder.indexOf(indexBMatch) : -1;
-
-        if (indexA === indexB) {
-          return 0;
-        }
-
-        if (indexA === -1) {
-          return 1;
-        }
-
-        if (indexB === -1) {
-          return -1;
-        }
-
-        return indexA > indexB ? 1 : -1;
-      })
   );
+
+  return colorNamesByTheme.flatMap((colorName) => colorName);
 }

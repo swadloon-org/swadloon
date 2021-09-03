@@ -1,7 +1,7 @@
 import { kebab } from 'case';
-import * as prettier from 'prettier';
+import prettier, { Options } from 'prettier';
 
-const prettierConfig = {
+const prettierConfig: Options = {
   singleQuote: true,
   tabWidth: 2,
   printWidth: 120,
