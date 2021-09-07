@@ -52,8 +52,8 @@ env:
   #
   # Figma (core-figma-extractor test project)
   #
-  FIGMA_TOKEN: 159482-6c94e604-65f8-45df-aa3c-c706d59fd577
-  FIGMA_FILE: Hcc7o8UnlnL6UOaVDnBhpm
+  FIGMA_TOKEN: ${{ secrets.FIGMA_TEST_TOKEN }}
+  FIGMA_FILE: ${{ secrets.FIGMA_TEST_FILE }}
 
 jobs:
   build-test:
