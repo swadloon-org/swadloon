@@ -3,9 +3,8 @@ import { loadDotEnv } from '@newrade/core-utils';
 import { Command, flags } from '@oclif/command';
 import debug from 'debug';
 import * as t from 'io-ts';
+import path from 'path';
 import { NS } from '../utilities/log.utilities';
-
-// import packageJson from '../../package.json'; // TODO: check if possible to load local package json
 
 export type ENV = t.TypeOf<typeof Env>;
 export const Env = t.intersection([
@@ -29,11 +28,9 @@ export default class FigmaSync extends Command {
     help: flags.help({ char: 'h' }),
   };
 
-  static args = [{ name: 'file', description: 'figma file id' }];
+  static args = [{ name: 'path', description: 'relative output path' }];
 
-  async init() {
-    debug.enable('nr:core-cli:*');
-  }
+  async init() {}
 
   async run() {
     const env = loadDotEnv<ENV>({
@@ -44,10 +41,15 @@ export default class FigmaSync extends Command {
 
     const { args, flags } = this.parse(FigmaSync);
 
-    extract({
+    this.log(`running: extract command`);
+
+    await extract({
       figmaFile: env.FIGMA_FILE,
       figmaToken: env.FIGMA_TOKEN,
-      outputDir: 'dist',
+      outputDir: path.resolve(process.cwd(), args && args.path ? args.path : 'figma-export'),
+      inputColorThemeNamespace: false,
     });
+
+    this.log(`running: extract command`);
   }
 }

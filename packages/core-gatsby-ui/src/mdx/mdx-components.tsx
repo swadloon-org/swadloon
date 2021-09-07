@@ -198,6 +198,17 @@ export const mdxComponents: Partial<
    * Code
    */
   pre: (props: MDXProps) => <>{props.children}</>,
+  inlineCode: (props: MDXProps) => <Code>{props.children}</Code>,
+  code: ({ children, ...props }: MDXProps) => {
+    const CodeBlock = loadable<any>(
+      () => import(/* webpackExports: ["CodeBlock"] */ '@newrade/core-react-ui/code'),
+      {
+        resolveComponent: (components: typeof import('@newrade/core-react-ui/code')) =>
+          components.CodeBlock,
+      }
+    );
+    return <CodeBlock {...props}>{children as string}</CodeBlock>;
+  },
   CodeBlock: ({ children, ...props }: MDXProps) => {
     const CodeBlock = loadable<any>(
       () => import(/* webpackExports: ["CodeBlock"] */ '@newrade/core-react-ui/code'),
@@ -208,7 +219,6 @@ export const mdxComponents: Partial<
     );
     return <CodeBlock {...props}>{children as string}</CodeBlock>;
   },
-  inlineCode: (props: MDXProps) => <Code>{props.children}</Code>,
   Code: Code,
 
   /**

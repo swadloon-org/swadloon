@@ -5,17 +5,17 @@
 # - composite actions: https://docs.github.com/en/actions/creating-actions/creating-a-composite-action
 #
 
-name: core-webpack-config
+name: core-figma-extractor
 
 on:
   push:
     paths:
       - '.github/actions/**/*'
-      - '.github/workflows/core-webpack-config-workflow.yml'
+      - '.github/workflows/core-figma-extractor-workflow.yml'
       - '**/package.json'
       - '**/package-lock.json'
       - '**/yarn.lock'
-      - 'packages/core-webpack-config/**/*'
+      - 'packages/core-figma-extractor/**/*'
       - 'packages/core-common/**/*'
       - 'packages/core-jest-config/**/*'
       - 'packages/core-types/**/*'
@@ -49,6 +49,11 @@ env:
   PROJECT_GIT_HOST: github.com
   PROJECT_REPO_ORG: newrade
   PROJECT_REPO_NAME: newrade-core
+  #
+  # Figma (core-figma-extractor test project)
+  #
+  FIGMA_TOKEN: ${{ secrets.FIGMA_TEST_TOKEN }}
+  FIGMA_FILE: ${{ secrets.FIGMA_TEST_FILE }}
 
 jobs:
   build-test:
@@ -72,16 +77,16 @@ jobs:
         uses: ./.github/actions/base-node-setup
 
       - name: Verify dependencies
-        run: yarn lerna:depcheck --scope @newrade/core-webpack-config
+        run: yarn lerna:depcheck --scope @newrade/core-figma-extractor
 
       - name: Lint (ls-lint) source files
-        run: yarn lerna:ls-lint --scope @newrade/core-webpack-config
+        run: yarn lerna:ls-lint --scope @newrade/core-figma-extractor
 
       - name: Lint source files
-        run: yarn eslint ./packages/core-webpack-config/src/ --ext ts,tsx
+        run: yarn eslint ./packages/core-figma-extractor/src/ --ext ts,tsx
 
       - name: Run unit tests
-        run: yarn lerna:test --scope @newrade/core-webpack-config
+        run: yarn lerna:test --scope @newrade/core-figma-extractor
 
       - name: Build package
-        run: yarn lerna:build --scope @newrade/core-webpack-config
+        run: yarn lerna:build --scope @newrade/core-figma-extractor

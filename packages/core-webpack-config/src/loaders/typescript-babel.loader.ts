@@ -43,7 +43,7 @@ export function getTypescriptBabelReactLoader(options: Options = defaultOptions)
           experimentalFileCaching: true, // https://github.com/TypeStrong/ts-loader#experimentalfilecaching
           projectReferences: options.isDevelopment ? false : true,
           transpileOnly: true, // typechecking done by fork-ts-plugin  see https://github.com/TypeStrong/ts-loader#transpileonly and https://github.com/TypeStrong/fork-ts-checker-webpack-plugin
-          allowTsInNodeModules: true,
+          allowTsInNodeModules: false,
           experimentalWatchApi: options.isDevelopment ? true : false, // see https://github.com/TypeStrong/ts-loader/issues/1193
           logLevel: 'INFO',
           ...options.tsLoaderOptions,

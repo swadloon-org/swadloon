@@ -15,12 +15,17 @@ type Props = {
    */
   delayOpen?: number;
   delayClose?: number;
+  /**
+   * Controls if the sidebar automatically close when switching to desktop
+   */
+  autoCloseOnDesktop?: boolean;
 };
 
 export function useSidebarState({
   initial = false,
   delayOpen = 300,
-  delayClose = 160,
+  delayClose = 300,
+  autoCloseOnDesktop = true,
 }: Props): [boolean, React.Dispatch<React.SetStateAction<boolean>>] {
   const [sidebarOpened, setSidebarOpened] = useState<boolean>(initial);
   const { viewport } = useViewportBreakpoint();
@@ -29,6 +34,10 @@ export function useSidebarState({
 
   // automatically close the sidebar if the viewport is desktop
   useEffect(() => {
+    if (!autoCloseOnDesktop) {
+      return;
+    }
+
     if (viewport === VIEWPORT.desktop && sidebarOpened) {
       timeout.current = window.setTimeout(() => {
         setSidebarOpened(false);

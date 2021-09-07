@@ -41,7 +41,7 @@ USAGE
 * [`nr commit`](#nr-commit)
 * [`nr contentful-migrate [FILE]`](#nr-contentful-migrate-file)
 * [`nr depcheck [ARGS]`](#nr-depcheck-args)
-* [`nr fig-sync [FILE]`](#nr-fig-sync-file)
+* [`nr figma-sync [PATH]`](#nr-figma-sync-path)
 * [`nr gatsby [COMMAND]`](#nr-gatsby-command)
 * [`nr git-clean-branches`](#nr-git-clean-branches)
 * [`nr git-copy-labels SOURCE DESTINATION`](#nr-git-copy-labels-source-destination)
@@ -97,16 +97,16 @@ EXAMPLE
   $ nr depcheck
 ```
 
-## `nr fig-sync [FILE]`
+## `nr figma-sync [PATH]`
 
 sync design tokens from figma file
 
 ```
 USAGE
-  $ nr fig-sync [FILE]
+  $ nr figma-sync [PATH]
 
 ARGUMENTS
-  FILE  figma file id
+  PATH  relative output path
 
 OPTIONS
   -h, --help  show CLI help

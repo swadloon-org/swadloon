@@ -1,5 +1,5 @@
 import { ButtonIcon, ButtonSize, Variant } from '@newrade/core-design-system';
-import React, { useCallback, useEffect, useImperativeHandle, useRef, useState } from 'react';
+import React, { useEffect, useImperativeHandle, useRef, useState } from 'react';
 import { IoPauseOutline, IoPlayOutline, IoReloadOutline } from 'react-icons/io5';
 import { useStyles } from 'react-treat';
 import { Button } from '../button/button';
@@ -48,7 +48,7 @@ export type CSSAnimationProps = {
 type Props = PrimitiveProps<'div' | 'nav'> & {
   animation?: CSSAnimationProps;
   showControls?: boolean;
-  onAnimationEnd?: (this: HTMLDivElement, event: AnimationEvent) => void;
+  onAnimationEnd?: (event: AnimationEvent) => void;
 };
 
 /**
@@ -84,6 +84,8 @@ export const CSSAnimation = React.forwardRef<
 
     // pass animation values as custom properties
     const animationCssProps = {
+      '--animation-delay':
+        typeof animation?.delay === 'number' ? `${animation.delay}ms` : animation?.delay,
       '--animation-duration':
         typeof animation?.duration === 'number' ? `${animation.duration}ms` : animation?.duration,
       '--animation-iteration':
@@ -151,8 +153,6 @@ export const CSSAnimation = React.forwardRef<
       }
     }
 
-    const memoOnAnimationEnd = useCallback(() => onAnimationEnd, [onAnimationEnd]);
-
     /**
      * Handle event listeners
      */
@@ -163,25 +163,25 @@ export const CSSAnimation = React.forwardRef<
         if (divRef?.current && !animation?.playState) {
           divRef.current.style.animationPlayState = 'paused';
         }
+
+        if (onAnimationEnd) {
+          onAnimationEnd(event);
+        }
       }
 
       // by default, animation state does not go to pause
       // at the end, we set it correctly to be able to reset it
       if (currentRef) {
         currentRef.addEventListener('animationend', handleAnimationEnd);
-
-        currentRef.addEventListener('animationend', memoOnAnimationEnd);
       }
 
       return () => {
         // clean up event listener
         if (currentRef) {
           currentRef.removeEventListener('animationend', handleAnimationEnd);
-
-          currentRef.removeEventListener('animationend', memoOnAnimationEnd);
         }
       };
-    }, [memoOnAnimationEnd, animation?.playState]);
+    }, [onAnimationEnd, animation?.playState]);
 
     // allow parent to reset the animation state
     useImperativeHandle<CSSAnimationHandle, any>(ref, () => ({

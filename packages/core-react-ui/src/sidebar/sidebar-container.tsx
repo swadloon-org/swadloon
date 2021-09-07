@@ -35,8 +35,8 @@ export const SidebarContainer = React.forwardRef<HTMLElement, Props>(
   ) => {
     const { styles } = useStyles(styleRefs);
     const { viewport } = useViewportBreakpoint();
-    const classNames = getMergedClassname([className, styles.wrapper]);
     const isFirstRender = useFirstRender();
+    const classNames = getMergedClassname([className, styles.wrapper]);
 
     /**
      * Animation
@@ -82,9 +82,9 @@ export const SidebarContainer = React.forwardRef<HTMLElement, Props>(
           style={style}
           className={classNames}
           animation={{
-            duration: isFirstRender ? 0 : 200,
-            delay: 100,
-            name: sidebarOpened ? 'slideInLeft' : 'slideOutLeft',
+            delay: isFirstRender ? 0 : 100,
+            duration: isFirstRender ? 0 : 300,
+            name: sidebarOpened ? 'slideInLeftSidebar' : 'slideOutLeftSidebar',
             playState: 'running',
           }}
           as={'nav'}
@@ -96,7 +96,8 @@ export const SidebarContainer = React.forwardRef<HTMLElement, Props>(
         <CSSAnimation
           classNames={[styles.backdrop, sidebarOpened ? styles.backdropActive : '']}
           animation={{
-            duration: isFirstRender ? 0 : 100,
+            delay: isFirstRender ? 0 : 200,
+            duration: isFirstRender ? 0 : 500,
             name: sidebarOpened ? 'fadeIn' : 'fadeOut',
             playState: 'running',
           }}

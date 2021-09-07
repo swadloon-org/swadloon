@@ -9,7 +9,6 @@ const iconPadding = `3em`;
  */
 
 import { composeStyles, style } from '@vanilla-extract/css';
-import { calc } from '@vanilla-extract/css-utils';
 import { buttonsVars } from '../theme/default-theme.css';
 
 export const base = style({
@@ -23,7 +22,7 @@ export const base = style({
   touchAction: 'none',
   WebkitAppearance: 'none',
   whiteSpace: 'nowrap', // don't allow wrapping
-  borderRadius: 2,
+  borderRadius: 4,
   width: 'fit-content',
   ':focus': {
     // boxShadow: `0 0 0 1px ${cssTheme.colors.colors.primary[700]}`,
