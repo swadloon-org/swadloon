@@ -1,7 +1,7 @@
 import { GatsbyCommonPageContext } from '@newrade/core-gatsb-config/config';
 import { WrapElementWithi18N } from '@newrade/core-gatsby-ui/src/i18next/wrap-element-i18n';
-import { LazyLayoutDesignSystem } from '@newrade/core-gatsby-ui/src/layout/design-system-lazy.layout';
-import { LazyLayoutDocs } from '@newrade/core-gatsby-ui/src/layout/docs-lazy.layout';
+import { LayoutDesignSystem } from '@newrade/core-gatsby-ui/src/layout/design-system.layout';
+import { LayoutDocs } from '@newrade/core-gatsby-ui/src/layout/docs.layout';
 import '@newrade/ze-design-system/src/assets/fonts/inter-webfonts/stylesheet.css';
 import { PageProps, WrapPageElementBrowserArgs } from 'gatsby';
 import React from 'react';
@@ -28,7 +28,7 @@ export const WrapElement: React.FC<WrapPageElementBrowserArgs> = ({ element, pro
           }}
         >
           <ProvidersDocs>
-            <LazyLayoutDocs {...pageProps}>{element}</LazyLayoutDocs>
+            <LayoutDocs {...pageProps}>{element}</LayoutDocs>
           </ProvidersDocs>
         </WrapElementWithi18N>
       );
@@ -43,14 +43,14 @@ export const WrapElement: React.FC<WrapPageElementBrowserArgs> = ({ element, pro
           }}
         >
           <ProvidersDocs>
-            <LazyLayoutDesignSystem
+            <LayoutDesignSystem
               themeClassname={themeClass}
               treatThemeRef={light}
               theme={{ theme, cssTheme }}
               {...pageProps}
             >
               {element}
-            </LazyLayoutDesignSystem>
+            </LayoutDesignSystem>
           </ProvidersDocs>
         </WrapElementWithi18N>
       );

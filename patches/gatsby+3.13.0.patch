@@ -1,0 +1,16 @@
+diff --git a/node_modules/gatsby/dist/utils/dev-ssr/render-dev-html-child.js b/node_modules/gatsby/dist/utils/dev-ssr/render-dev-html-child.js
+index 2b3fb31..5b03b16 100644
+--- a/node_modules/gatsby/dist/utils/dev-ssr/render-dev-html-child.js
++++ b/node_modules/gatsby/dist/utils/dev-ssr/render-dev-html-child.js
+@@ -56,9 +56,9 @@ const parseError = function ({
+   const stackObject = stack.split(`\n`);
+   const position = getPosition(stackObject); // Remove the `/lib/` added by webpack
+ 
+-  const filename = sysPath.join(directory, // Don't need to use path.sep as webpack always uses a single forward slash
++  const filename = position.filename ? sysPath.join(directory, // Don't need to use path.sep as webpack always uses a single forward slash
+   // as a path separator.
+-  ...position.filename.split(sysPath.sep).slice(2));
++  ...position.filename.split(sysPath.sep).slice(2)) : componentPath;
+   let sourceContent;
+ 
+   try {

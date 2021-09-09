@@ -43,26 +43,38 @@ export default class Gatsby extends Command {
 
     let errors: any[] = [];
 
-    cmd.stdout.on('data', (chunk: Buffer) => {
+    function handleData(chunk: Buffer) {
       // gatsby cli does not use stderr correctly, so we have to parse stdout
       const chunkString = chunk.toString();
-      if (/error/gi.test(chunkString) && !/\.gitkeep/gi.test(chunkString)) {
-        errors.push(chunkString);
+      if (/error/gi.test(chunkString)) {
+        process.stderr.write(chunk);
+        if (!/\.gitkeep/gi.test(chunkString)) {
+          errors.push(chunkString);
+        }
         return;
       }
-      this.log(chunk.toString());
-    });
+      process.stdout.write(chunk);
+    }
 
-    cmd.stdout.on('error', (error: Error) => {
+    function handleError(error: Error) {
       errors.push(error.toString());
-    });
+      process.stderr.write(error.toString());
+    }
 
-    cmd.stdout.on('close', (error: Error) => {
+    function handleClose(args: any[]) {
       if (errors.length) {
-        this.logError(`finished with ${errors.length} errors`);
-        throw new Error(errors.join(''));
+        process.stderr.write(`finished with ${errors.length} errors`);
+        process.stderr.write(errors.join(''));
       }
-      this.log('done');
-    });
+    }
+
+    cmd.stdout.on('data', handleData);
+    cmd.stderr.on('data', handleData);
+
+    cmd.stdout.on('error', handleError);
+    cmd.stderr.on('error', handleError);
+
+    cmd.stdout.on('close', handleClose);
+    cmd.stderr.on('close', handleClose);
   }
 }

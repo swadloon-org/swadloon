@@ -17,9 +17,14 @@ export const WrapElementWithi18N: React.FC<
   }
 > = ({ props, i18nOptions, children }) => {
   const pageProps = props as Props;
+
+  if (!pageProps.pageContext.siteMetadata?.languages) {
+    return <>{children}</>;
+  }
+
   const pageLang = pageProps.pageContext.locale;
-  const pageLangs = pageProps.pageContext.siteMetadata.languages.langs;
-  const defaultLang = pageProps.pageContext.siteMetadata.languages.defaultLangKey;
+  const pageLangs = pageProps.pageContext.siteMetadata?.languages?.langs;
+  const defaultLang = pageProps.pageContext.siteMetadata?.languages?.defaultLangKey;
 
   const i18nDefaultOptions: InitOptions = {
     load: 'all',
