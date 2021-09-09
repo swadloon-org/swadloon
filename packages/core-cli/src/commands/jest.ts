@@ -1,38 +1,67 @@
 import { Command, flags } from '@oclif/command';
-import { spawnSync } from 'child_process';
 import debug from 'debug';
 import { NS } from '../utilities/log.utilities';
+import * as t from 'io-ts';
+import { loadDotEnv } from '@newrade/core-utils';
+import { spawnSync } from 'child_process';
 
-export default class Jest extends Command {
-  log = debug(`${NS}:jest`);
-  logWarn = debug(`${NS}:jest:warn`);
-  logError = debug(`${NS}:jest:error`);
+export type ENV = t.TypeOf<typeof Env>;
+export const Env = t.intersection([
+  t.type({}),
+  t.type({
+    VERCEL_PROJECT_ID: t.string,
+    VERCEL_ORG_ID: t.string,
+    VERCEL_TOKEN: t.string,
+    VERCEL_SCOPE: t.string,
+  }),
+]);
 
-  static description = 'Shortcut to run jest with typescript (ts-node)';
+export default class VercelDeploy extends Command {
+  log = debug(`${NS}:vercel-deploy`);
+  logWarn = debug(`${NS}:vercel-deploy:warn`);
+  logError = debug(`${NS}:vercel-deploy:error`);
 
-  static examples = [`$ nr jest`];
+  static description = 'deploy site with vercel using env variables';
 
-  static args = [{ name: 'args' }];
+  static examples = [`$ nr vercel-deploy`];
 
   static flags = {
-    config: flags.string({ description: 'path to jest config file', default: 'jest.config.ts' }),
+    help: flags.help({ char: 'h' }),
   };
 
+  static args = [];
+
+  async init() {}
+
   async run() {
-    const { args, flags } = this.parse(Jest);
+    this.log(`running in ${process.cwd()}`);
+    this.log('validating env variables');
+    this.log('loading .env file');
 
-    const command = [
-      `TS_NODE_PROJECT=../../tsconfig.node-commonjs.json node -r ts-node/register ../../node_modules/jest/bin/jest`,
-      `${flags.config ? '--config ' + flags.config : ''}`,
-      `${args.args || ''}`,
-    ].join(' ');
-
-    this.log(`running: ${command}`);
-
-    spawnSync(command, {
-      shell: true,
-      stdio: 'inherit',
-      env: process.env,
+    const env = loadDotEnv<ENV>({
+      schema: Env,
+      dotEnvPath: '.env',
+      dotEnvRootPath: '../../.env',
+      packageName: 'core-cli',
     });
+
+    this.log('running vercel deploy');
+
+    // use yarn to use the locally installed vercel-cli
+    const cmd = spawnSync(
+      `yarn vercel public --token $VERCEL_TOKEN --scope $VERCEL_SCOPE --confirm`,
+      {
+        cwd: '.',
+        shell: true,
+        stdio: ['inherit', 'inherit', 'pipe'],
+        env: env,
+      }
+    );
+
+    if (cmd.stderr) {
+      throw new Error(cmd.stderr.toString());
+    }
+
+    this.log('done! ✅');
   }
 }

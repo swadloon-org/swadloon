@@ -27,10 +27,14 @@ export default class Webpack extends Command {
 
     this.log(`running: ${command}`);
 
-    spawnSync(command, {
+    const cmd = spawnSync(command, {
       shell: true,
-      stdio: 'inherit',
+      stdio: ['inherit', 'inherit', 'pipe'],
       env: process.env,
     });
+
+    if (cmd.stderr) {
+      throw new Error(cmd.stderr.toString());
+    }
   }
 }
