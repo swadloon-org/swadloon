@@ -1,6 +1,6 @@
 {
   "name": "@newrade/core-gatsb-config",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Reusable gatsby configuration files",
   "license": "MIT",
   "main": "dist/newrade-core-gatsb-config.cjs.js",
@@ -33,8 +33,8 @@
     "@mdx-js/mdx": "^1.6.18",
     "@newrade/core-common": "*",
     "@newrade/core-jest-config": "*",
-    "@newrade/core-utils": "*",
-    "@newrade/core-webpack-config": "*",
+    "@newrade/core-utils": "^2.2.0",
+    "@newrade/core-webpack-config": "^2.1.1",
     "add-asset-html-webpack-plugin": "^3.2.0",
     "case": "^1",
     "chalk": "^4",

@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.1](https://github.com/newrade/newrade-core/compare/@newrade/core-react-ui@2.2.0...@newrade/core-react-ui@2.2.1) (2021-09-09)
+
+### Bug Fixes
+
+- **core:** fix code block issue in mdx + update sidebar documentation
+  ([69725f2](https://github.com/newrade/newrade-core/commit/69725f29148494a574061b808c374359de308a53))
+- **core-cli:** fix gatsby wrapper
+  ([6d704df](https://github.com/newrade/newrade-core/commit/6d704df752c488b332b1ae7db58ead77e044ab40))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [2.2.0](https://github.com/newrade/newrade-core/compare/@newrade/core-react-ui@2.1.0...@newrade/core-react-ui@2.2.0) (2021-08-31)
 
 ### Bug Fixes

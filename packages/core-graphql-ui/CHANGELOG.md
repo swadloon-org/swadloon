@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.3](https://github.com/newrade/newrade-core/compare/@newrade/core-graphql-ui@2.0.2...@newrade/core-graphql-ui@2.0.3) (2021-09-09)
+
+**Note:** Version bump only for package @newrade/core-graphql-ui
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [2.0.2](https://github.com/newrade/newrade-core/compare/@newrade/core-graphql-ui@2.0.1...@newrade/core-graphql-ui@2.0.2) (2021-08-31)
 
 ### Bug Fixes

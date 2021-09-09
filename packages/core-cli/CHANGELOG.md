@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.13.0](https://github.com/newrade/newrade-core/compare/@newrade/core-cli@1.12.0...@newrade/core-cli@1.13.0) (2021-09-09)
+
+### Bug Fixes
+
+- **core-cli:** fix for jest wrapper
+  ([398e394](https://github.com/newrade/newrade-core/commit/398e3942a367ace048e7fdf614737b1ce9a3c906))
+- **core-cli:** fix gatsby wrapper
+  ([6d704df](https://github.com/newrade/newrade-core/commit/6d704df752c488b332b1ae7db58ead77e044ab40))
+- **core-cli:** fix manifest for new version
+  ([8c799d4](https://github.com/newrade/newrade-core/commit/8c799d4ec98a54e34585d1618d8332766950fab3))
+- **core-cli:** fix stderr handling
+  ([8f30647](https://github.com/newrade/newrade-core/commit/8f3064757f02673547a69fa86ec0171d9054c7ca))
+- **core-cli:** fix wrong jest command file
+  ([52cc45b](https://github.com/newrade/newrade-core/commit/52cc45b6fd5fcb1b952e3cd8f7eef76a07cf1dd0))
+- **core-figma-extractor:** fix rgba exporter bug
+  ([e646535](https://github.com/newrade/newrade-core/commit/e646535461c52eff21edebdc5a551914673720a5))
+- **ze:** fix dependencies
+  ([77b25c0](https://github.com/newrade/newrade-core/commit/77b25c018d6d4c00b8fc2c193ce9a07d1b86f8a3))
+
+### Features
+
+- **core-figma-extractor:** finalize v1
+  ([3da3cfe](https://github.com/newrade/newrade-core/commit/3da3cfefcc6f8c3efd2ea1025b7bef2125f1742f))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.12.0](https://github.com/newrade/newrade-core/compare/@newrade/core-cli@1.11.0...@newrade/core-cli@1.12.0) (2021-08-31)
 
 ### Bug Fixes

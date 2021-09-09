@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/newrade/newrade-core/compare/@newrade/core-utils@2.1.0...@newrade/core-utils@2.2.0) (2021-09-09)
+
+### Bug Fixes
+
+- **core-utils:** always print out load env logs
+  ([ff69b6c](https://github.com/newrade/newrade-core/commit/ff69b6c4271b9e2a84fc05ba23568f9b958d500a))
+
+### Features
+
+- **core-figma-extractor:** rework utility functions
+  ([6e96569](https://github.com/newrade/newrade-core/commit/6e9656917e1879152b72b87daaac484838595bf9))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [2.1.0](https://github.com/newrade/newrade-core/compare/@newrade/core-utils@2.0.0...@newrade/core-utils@2.1.0) (2021-08-31)
 
 ### Bug Fixes

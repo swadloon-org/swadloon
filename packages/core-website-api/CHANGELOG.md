@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.1](https://github.com/newrade/newrade-core/compare/@newrade/core-website-api@1.3.0...@newrade/core-website-api@1.3.1) (2021-09-09)
+
+### Bug Fixes
+
+- **core:** fix code block issue in mdx + update sidebar documentation
+  ([69725f2](https://github.com/newrade/newrade-core/commit/69725f29148494a574061b808c374359de308a53))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.3.0](https://github.com/newrade/newrade-core/compare/@newrade/core-website-api@1.2.2...@newrade/core-website-api@1.3.0) (2021-08-31)
 
 ### Bug Fixes

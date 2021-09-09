@@ -1,6 +1,6 @@
 {
   "name": "@newrade/core-graphql-ui",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "UI App library",
   "license": "MIT",
   "scripts": {
@@ -14,8 +14,8 @@
   "typings": "./lib/index.d.ts",
   "dependencies": {
     "@newrade/core-types": "*",
-    "@newrade/core-utils": "*",
-    "@newrade/core-webpack-config": "*",
+    "@newrade/core-utils": "^2.2.0",
+    "@newrade/core-webpack-config": "^2.1.1",
     "fp-ts": "^2",
     "graphiql": "^1.4.2",
     "io-ts": "^2",

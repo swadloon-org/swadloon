@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/newrade/newrade-core/compare/@newrade/ze-design-system@1.4.0...@newrade/ze-design-system@1.5.0) (2021-09-09)
+
+### Bug Fixes
+
+- **core-figma-extractor:** fix rgba exporter bug
+  ([e646535](https://github.com/newrade/newrade-core/commit/e646535461c52eff21edebdc5a551914673720a5))
+- **ze:** fix missing dependency
+  ([d55e6d6](https://github.com/newrade/newrade-core/commit/d55e6d63ea6e5489abe0a1d0fbdc4db406afd96d))
+
+### Features
+
+- **core-figma-extractor:** finalize v1
+  ([3da3cfe](https://github.com/newrade/newrade-core/commit/3da3cfefcc6f8c3efd2ea1025b7bef2125f1742f))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.4.0](https://github.com/newrade/newrade-core/compare/@newrade/ze-design-system@1.3.0...@newrade/ze-design-system@1.4.0) (2021-08-31)
 
 ### Bug Fixes

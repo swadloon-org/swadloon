@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/newrade/newrade-core/compare/@newrade/core-figma-extractor@1.4.3...@newrade/core-figma-extractor@1.5.0) (2021-09-09)
+
+### Bug Fixes
+
+- **core-cli:** fix stderr handling
+  ([8f30647](https://github.com/newrade/newrade-core/commit/8f3064757f02673547a69fa86ec0171d9054c7ca))
+- **core-figma-extractor:** fix rgba exporter bug
+  ([e646535](https://github.com/newrade/newrade-core/commit/e646535461c52eff21edebdc5a551914673720a5))
+- **core-figma-extractor:** fix sorting bugs
+  ([6f368cb](https://github.com/newrade/newrade-core/commit/6f368cb6e13a739cd0cc8e54e598e167e9927a36))
+
+### Features
+
+- **core-figma-extractor:** finalize v1
+  ([3da3cfe](https://github.com/newrade/newrade-core/commit/3da3cfefcc6f8c3efd2ea1025b7bef2125f1742f))
+- **core-figma-extractor:** rework utility functions
+  ([6e96569](https://github.com/newrade/newrade-core/commit/6e9656917e1879152b72b87daaac484838595bf9))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.4.3](https://github.com/newrade/newrade-core/compare/@newrade/core-figma-extractor@1.4.2...@newrade/core-figma-extractor@1.4.3) (2021-08-31)
 
 ### Bug Fixes

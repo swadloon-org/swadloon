@@ -27,7 +27,7 @@ $ npm install -g @newrade/core-cli
 $ nr COMMAND
 running command...
 $ nr (-v|--version|version)
-@newrade/core-cli/1.12.0 darwin-arm64 node-v16.5.0
+@newrade/core-cli/1.13.0 darwin-arm64 node-v16.5.0
 $ nr --help [COMMAND]
 USAGE
   $ nr COMMAND
