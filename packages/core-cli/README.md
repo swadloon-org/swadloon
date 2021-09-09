@@ -133,6 +133,8 @@ EXAMPLE
   $ nr gatsby build
 ```
 
+_See code: [lib/commands/gatsby.js](https://github.com/newrade/newrade-core/blob/v1.12.0/lib/commands/gatsby.js)_
+
 ## `nr git-clean-branches`
 
 delete local branches that are already merged on origin
@@ -228,6 +230,8 @@ OPTIONS
 EXAMPLE
   $ nr jest
 ```
+
+_See code: [lib/commands/jest.js](https://github.com/newrade/newrade-core/blob/v1.12.0/lib/commands/jest.js)_
 
 ## `nr micromatch [PATH] [PATTERN]`
 
