@@ -1,5 +1,5 @@
 import { Command, flags } from '@oclif/command';
-import { spawnSync } from 'child_process';
+import { spawn } from 'child_process';
 import debug from 'debug';
 import { NS } from '../utilities/log.utilities';
 
@@ -35,14 +35,34 @@ export default class Gatsby extends Command {
 
     this.log(`running: ${command}`);
 
-    const cmd = spawnSync(command, {
+    const cmd = spawn(command, {
       shell: true,
-      stdio: ['inherit', 'inherit', 'pipe'],
+      stdio: ['inherit', 'pipe', 'pipe'],
       env: process.env,
     });
 
-    if (cmd.stderr) {
-      throw new Error(cmd.stderr.toString());
-    }
+    let errors: any[] = [];
+
+    cmd.stdout.on('data', (chunk: Buffer) => {
+      // gatsby cli does not use stderr correctly, so we have to parse stdout
+      const chunkString = chunk.toString();
+      if (/error/gi.test(chunkString) && !/\.gitkeep/gi.test(chunkString)) {
+        errors.push(chunkString);
+        return;
+      }
+      this.log(chunk.toString());
+    });
+
+    cmd.stdout.on('error', (error: Error) => {
+      errors.push(error.toString());
+    });
+
+    cmd.stdout.on('close', (error: Error) => {
+      if (errors.length) {
+        this.logError(`finished with ${errors.length} errors`);
+        throw new Error(errors.join(''));
+      }
+      this.log('done');
+    });
   }
 }
