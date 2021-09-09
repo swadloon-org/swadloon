@@ -236,7 +236,6 @@
     "puppeteer": "^9",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-helmet": "^6.1.0",
     "regex-escape": "^3.4.10",
     "rimraf": "^3.0.2",
     "schema-dts": "^0.8.2",

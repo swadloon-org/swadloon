@@ -82,8 +82,8 @@ jobs:
       - name: Lint source files
         run: yarn eslint ./packages/core-contentful-lib/src/ --ext ts,tsx
 
-      - name: Run unit tests
-        run: yarn lerna:test --scope @newrade/core-contentful-lib
+      # - name: Run unit tests
+      #   run: yarn lerna:test --scope @newrade/core-contentful-lib
 
       - name: Build package
         run: yarn lerna:build --scope @newrade/core-contentful-lib

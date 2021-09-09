@@ -8,13 +8,9 @@ describe(`${extract} command`, () => {
     const cmd = spawnSync(`yarn nr figma-sync`, {
       cwd: process.cwd(),
       shell: true,
-      stdio: ['inherit', 'inherit', 'pipe'],
+      stdio: ['inherit', 'inherit', 'inherit'],
       env: process.env,
     });
-
-    if (cmd.stderr) {
-      throw new Error(cmd.stderr.toString());
-    }
 
     const figmaColorJsonFile = fs.readFileSync(
       path.resolve(process.cwd(), 'figma-export', 'figma-color.json'),
