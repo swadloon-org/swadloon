@@ -261,8 +261,6 @@ type Directory_ctimeArgs = {
 type Site = Node & {
   readonly buildTime: Maybe<Scalars['Date']>;
   readonly siteMetadata: Maybe<SiteSiteMetadata>;
-  readonly port: Maybe<Scalars['Int']>;
-  readonly host: Maybe<Scalars['String']>;
   readonly flags: Maybe<SiteFlags>;
   readonly polyfill: Maybe<Scalars['Boolean']>;
   readonly pathPrefix: Maybe<Scalars['String']>;
@@ -343,11 +341,17 @@ type SitePageContext = Node & {
   readonly template: Maybe<Scalars['String']>;
   readonly frontmatter: Maybe<MdxFrontmatter>;
   readonly absolutePath: Maybe<Scalars['String']>;
+  readonly alternateLocales: Maybe<ReadonlyArray<Maybe<SitePageAlternateLocale>>>;
   readonly relativePath: Maybe<Scalars['String']>;
   readonly id: Scalars['ID'];
   readonly parent: Maybe<Node>;
   readonly children: ReadonlyArray<Node>;
   readonly internal: Internal;
+};
+
+type SitePageAlternateLocale = {
+  readonly locale: Maybe<Scalars['String']>;
+  readonly path: Maybe<Scalars['String']>;
 };
 
 type SitePageMetadata = {
@@ -1104,8 +1108,6 @@ type Query_allDirectoryArgs = {
 type Query_siteArgs = {
   buildTime: Maybe<DateQueryOperatorInput>;
   siteMetadata: Maybe<SiteSiteMetadataFilterInput>;
-  port: Maybe<IntQueryOperatorInput>;
-  host: Maybe<StringQueryOperatorInput>;
   flags: Maybe<SiteFlagsFilterInput>;
   polyfill: Maybe<BooleanQueryOperatorInput>;
   pathPrefix: Maybe<StringQueryOperatorInput>;
@@ -1183,6 +1185,7 @@ type Query_sitePageContextArgs = {
   template: Maybe<StringQueryOperatorInput>;
   frontmatter: Maybe<MdxFrontmatterFilterInput>;
   absolutePath: Maybe<StringQueryOperatorInput>;
+  alternateLocales: Maybe<SitePageAlternateLocaleFilterListInput>;
   relativePath: Maybe<StringQueryOperatorInput>;
   id: Maybe<StringQueryOperatorInput>;
   parent: Maybe<NodeFilterInput>;
@@ -2305,8 +2308,6 @@ type SiteFieldsEnum =
   | 'siteMetadata.siteEnv'
   | 'siteMetadata.languages.langs'
   | 'siteMetadata.languages.defaultLangKey'
-  | 'port'
-  | 'host'
   | 'flags.FAST_DEV'
   | 'flags.DEV_SSR'
   | 'flags.PRESERVE_FILE_DOWNLOAD_CACHE'
@@ -2414,8 +2415,6 @@ type SiteGroupConnection = {
 type SiteFilterInput = {
   readonly buildTime: Maybe<DateQueryOperatorInput>;
   readonly siteMetadata: Maybe<SiteSiteMetadataFilterInput>;
-  readonly port: Maybe<IntQueryOperatorInput>;
-  readonly host: Maybe<StringQueryOperatorInput>;
   readonly flags: Maybe<SiteFlagsFilterInput>;
   readonly polyfill: Maybe<BooleanQueryOperatorInput>;
   readonly pathPrefix: Maybe<StringQueryOperatorInput>;
@@ -2609,6 +2608,7 @@ type SitePageContextFilterInput = {
   readonly template: Maybe<StringQueryOperatorInput>;
   readonly frontmatter: Maybe<MdxFrontmatterFilterInput>;
   readonly absolutePath: Maybe<StringQueryOperatorInput>;
+  readonly alternateLocales: Maybe<SitePageAlternateLocaleFilterListInput>;
   readonly relativePath: Maybe<StringQueryOperatorInput>;
   readonly id: Maybe<StringQueryOperatorInput>;
   readonly parent: Maybe<NodeFilterInput>;
@@ -2628,6 +2628,15 @@ type SitePageMetadataFilterInput = {
 type SiteLanguagesFilterInput = {
   readonly defaultLangKey: Maybe<StringQueryOperatorInput>;
   readonly langs: Maybe<StringQueryOperatorInput>;
+};
+
+type SitePageAlternateLocaleFilterListInput = {
+  readonly elemMatch: Maybe<SitePageAlternateLocaleFilterInput>;
+};
+
+type SitePageAlternateLocaleFilterInput = {
+  readonly locale: Maybe<StringQueryOperatorInput>;
+  readonly path: Maybe<StringQueryOperatorInput>;
 };
 
 type SitePluginFilterInput = {
@@ -3129,6 +3138,9 @@ type SitePageFieldsEnum =
   | 'context.frontmatter.componentVersion'
   | 'context.frontmatter.componentTests'
   | 'context.absolutePath'
+  | 'context.alternateLocales'
+  | 'context.alternateLocales.locale'
+  | 'context.alternateLocales.path'
   | 'context.relativePath'
   | 'context.id'
   | 'context.parent.id'
@@ -3419,6 +3431,9 @@ type SitePageContextFieldsEnum =
   | 'frontmatter.componentVersion'
   | 'frontmatter.componentTests'
   | 'absolutePath'
+  | 'alternateLocales'
+  | 'alternateLocales.locale'
+  | 'alternateLocales.path'
   | 'relativePath'
   | 'id'
   | 'parent.id'
@@ -4302,56 +4317,6 @@ type SiteBuildMetadataSortInput = {
   readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
 };
 
-type MarkdownDocsTemplateQueryVariables = Exact<{
-  fileId: Scalars['String'];
-  locale: Scalars['String'];
-}>;
-
-
-type MarkdownDocsTemplateQuery = { readonly file: Maybe<(
-    Pick<File, 'changeTime'>
-    & { readonly childMdx: Maybe<(
-      Pick<Mdx, 'slug' | 'excerpt' | 'timeToRead' | 'tableOfContents' | 'body'>
-      & { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'subject' | 'tags' | 'description' | 'version' | 'published' | 'status' | 'slug' | 'deprecated' | 'editPageUrl' | 'nextPageLabel' | 'nextPageUrl' | 'componentStatus' | 'componentVersion' | 'componentTests'>>, readonly headings: Maybe<ReadonlyArray<Maybe<Pick<MdxHeadingMdx, 'value' | 'depth'>>>> }
-    )> }
-  )> };
-
-type DesignSystemPageTemplateQueryVariables = Exact<{
-  fileId: Scalars['String'];
-  locale: Scalars['String'];
-}>;
-
-
-type DesignSystemPageTemplateQuery = { readonly file: Maybe<(
-    Pick<File, 'changeTime'>
-    & { readonly childMdx: Maybe<(
-      Pick<Mdx, 'slug' | 'excerpt' | 'timeToRead' | 'tableOfContents' | 'body'>
-      & { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'subject' | 'tags' | 'description' | 'version' | 'published' | 'status' | 'slug' | 'deprecated' | 'editPageUrl' | 'nextPageLabel' | 'nextPageUrl' | 'componentStatus' | 'componentVersion' | 'componentTests'>>, readonly headings: Maybe<ReadonlyArray<Maybe<Pick<MdxHeadingMdx, 'value' | 'depth'>>>> }
-    )> }
-  )> };
-
-type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type PagesQueryQuery = { readonly allSiteFunction: { readonly nodes: ReadonlyArray<Pick<SiteFunction, 'functionRoute'>> }, readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
-
-type DesignSystemLayoutPageQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type DesignSystemLayoutPageQuery = { readonly pages: (
-    Pick<SitePageConnection, 'totalCount'>
-    & { readonly nodes: ReadonlyArray<(
-      Pick<SitePage, 'id' | 'path'>
-      & { readonly context: Maybe<(
-        Pick<SitePageContext, 'id' | 'name' | 'locale' | 'layout' | 'template'>
-        & { readonly siteMetadata: Maybe<(
-          Pick<SitePageMetadata, 'description' | 'siteEnv' | 'siteUrl' | 'title'>
-          & { readonly languages: Maybe<Pick<SiteLanguages, 'defaultLangKey' | 'langs'>> }
-        )>, readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'subject' | 'tags' | 'description' | 'version' | 'published' | 'status' | 'deprecated' | 'editPageUrl' | 'nextPageLabel' | 'nextPageUrl' | 'componentStatus' | 'componentVersion' | 'componentTests'>> }
-      )> }
-    )> }
-  ) };
-
 type DocsPagesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -4407,9 +4372,32 @@ type GatsbyImageSharpFluid_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio
 
 type GatsbyImageSharpFluid_withWebp_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
 
-type SiteMetadataFragment = { readonly siteMetadata: Maybe<(
-    Pick<SiteSiteMetadata, 'title' | 'description' | 'siteUrl' | 'siteEnv'>
-    & { readonly languages: Maybe<Pick<SiteSiteMetadataLanguages, 'defaultLangKey' | 'langs'>> }
+type DesignSystemPageTemplateQueryVariables = Exact<{
+  fileId: Scalars['String'];
+  locale: Scalars['String'];
+}>;
+
+
+type DesignSystemPageTemplateQuery = { readonly file: Maybe<(
+    Pick<File, 'changeTime'>
+    & { readonly childMdx: Maybe<(
+      Pick<Mdx, 'slug' | 'excerpt' | 'timeToRead' | 'tableOfContents' | 'body'>
+      & { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'subject' | 'tags' | 'description' | 'version' | 'published' | 'status' | 'slug' | 'deprecated' | 'editPageUrl' | 'nextPageLabel' | 'nextPageUrl' | 'componentStatus' | 'componentVersion' | 'componentTests'>>, readonly headings: Maybe<ReadonlyArray<Maybe<Pick<MdxHeadingMdx, 'value' | 'depth'>>>> }
+    )> }
+  )> };
+
+type MarkdownDocsTemplateQueryVariables = Exact<{
+  fileId: Scalars['String'];
+  locale: Scalars['String'];
+}>;
+
+
+type MarkdownDocsTemplateQuery = { readonly file: Maybe<(
+    Pick<File, 'changeTime'>
+    & { readonly childMdx: Maybe<(
+      Pick<Mdx, 'slug' | 'excerpt' | 'timeToRead' | 'tableOfContents' | 'body'>
+      & { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'subject' | 'tags' | 'description' | 'version' | 'published' | 'status' | 'slug' | 'deprecated' | 'editPageUrl' | 'nextPageLabel' | 'nextPageUrl' | 'componentStatus' | 'componentVersion' | 'componentTests'>>, readonly headings: Maybe<ReadonlyArray<Maybe<Pick<MdxHeadingMdx, 'value' | 'depth'>>>> }
+    )> }
   )> };
 
 type MarkdownPageTemplateQueryVariables = Exact<{
@@ -4421,5 +4409,44 @@ type MarkdownPageTemplateQuery = { readonly file: Maybe<{ readonly childMdx: May
       Pick<Mdx, 'slug' | 'excerpt' | 'timeToRead' | 'tableOfContents' | 'body'>
       & { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'tags'>>, readonly headings: Maybe<ReadonlyArray<Maybe<Pick<MdxHeadingMdx, 'value' | 'depth'>>>> }
     )> }> };
+
+type DesignSystemLayoutPageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type DesignSystemLayoutPageQuery = { readonly pages: (
+    Pick<SitePageConnection, 'totalCount'>
+    & { readonly nodes: ReadonlyArray<(
+      Pick<SitePage, 'id' | 'path'>
+      & { readonly context: Maybe<(
+        Pick<SitePageContext, 'id' | 'name' | 'locale' | 'layout' | 'template'>
+        & { readonly siteMetadata: Maybe<(
+          Pick<SitePageMetadata, 'description' | 'siteEnv' | 'siteUrl' | 'title'>
+          & { readonly languages: Maybe<Pick<SiteLanguages, 'defaultLangKey' | 'langs'>> }
+        )>, readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'subject' | 'tags' | 'description' | 'version' | 'published' | 'status' | 'deprecated' | 'editPageUrl' | 'nextPageLabel' | 'nextPageUrl' | 'componentStatus' | 'componentVersion' | 'componentTests'>> }
+      )> }
+    )> }
+  ) };
+
+type SiteMetadataFragment = { readonly siteMetadata: Maybe<(
+    Pick<SiteSiteMetadata, 'title' | 'description' | 'siteUrl' | 'siteEnv'>
+    & { readonly languages: Maybe<Pick<SiteSiteMetadataLanguages, 'defaultLangKey' | 'langs'>> }
+  )> };
+
+type NavigationQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type NavigationQuery = { readonly pages: (
+    Pick<SitePageConnection, 'totalCount'>
+    & { readonly nodes: ReadonlyArray<(
+      Pick<SitePage, 'id' | 'path'>
+      & { readonly context: Maybe<(
+        Pick<SitePageContext, 'id' | 'name' | 'locale' | 'layout' | 'template'>
+        & { readonly siteMetadata: Maybe<(
+          Pick<SitePageMetadata, 'description' | 'siteEnv' | 'siteUrl' | 'title'>
+          & { readonly languages: Maybe<Pick<SiteLanguages, 'defaultLangKey' | 'langs'>> }
+        )>, readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'subject' | 'tags' | 'description' | 'version' | 'published' | 'status' | 'deprecated' | 'editPageUrl' | 'nextPageLabel' | 'nextPageUrl' | 'componentStatus' | 'componentVersion' | 'componentTests'>> }
+      )> }
+    )> }
+  ) };
 
 }

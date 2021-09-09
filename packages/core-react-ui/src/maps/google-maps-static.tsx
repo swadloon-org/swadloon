@@ -5,7 +5,7 @@ import { useStyles } from 'react-treat';
 import { Theme } from '../design-system';
 import { PrimitiveProps } from '../primitive/primitive.props';
 import { getMergedClassname } from '../utilities/component.utilities';
-import { mapStyles } from './google-maps.styles';
+import { mapStyles } from './google-maps-styles';
 import * as styleRefs from './google-maps.treat';
 
 type Props = PrimitiveProps & {
