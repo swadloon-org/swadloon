@@ -32,7 +32,7 @@ export const exportScssColorTokens: ColorsExporter = (colorTokens, options) => {
       .filter((part) => !!part)
       .join('-');
 
-    const colorCssVariableValue = `rbga(${colorR}, ${colorG}, ${colorB}, ${colorA})`;
+    const colorCssVariableValue = `rgba(${colorR}, ${colorG}, ${colorB}, ${colorA})`;
 
     cssVariables += `${colorCssVariableDeclaration}: ${colorCssVariableValue};` + '\n';
   });
