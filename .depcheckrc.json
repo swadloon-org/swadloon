@@ -23,7 +23,6 @@
     "graphql-*",
     "jest",
     "puppeteer",
-    "react-helmet",
     "react-dom",
     "react",
     "rimraf",

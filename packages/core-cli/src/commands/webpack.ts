@@ -33,7 +33,7 @@ export default class Webpack extends Command {
       env: process.env,
     });
 
-    if (cmd.stderr) {
+    if (cmd.stderr && cmd.stderr.toString().length) {
       throw new Error(cmd.stderr.toString());
     }
   }

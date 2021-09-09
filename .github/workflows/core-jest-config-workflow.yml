@@ -5,23 +5,20 @@
 # - composite actions: https://docs.github.com/en/actions/creating-actions/creating-a-composite-action
 #
 
-name: core-contentful-lib
+name: core-jest-config
 
 on:
   push:
     paths:
       - '.github/actions/**/*'
-      - '.github/workflows/core-contentful-lib-workflow.yml'
+      - '.github/workflows/core-jest-config-workflow.yml'
       - '**/package.json'
       - '**/package-lock.json'
       - '**/yarn.lock'
+      - 'packages/core-jest-config/**/*'
+      - 'packages/core-common/**/*'
       - 'packages/core-types/**/*'
       - 'packages/core-utils/**/*'
-      - 'packages/core-common/**/*'
-      - 'packages/core-jest-config/**/*'
-      - 'packages/core-design-system/**/*'
-      - 'packages/core-website-api/**/*'
-      - 'packages/core-contentful-lib/**/*'
     branches:
       - dev
       - master
@@ -74,17 +71,16 @@ jobs:
         uses: ./.github/actions/base-node-setup
 
       - name: Verify dependencies
-        run: yarn lerna:depcheck --scope @newrade/core-contentful-lib
+        run: yarn lerna:depcheck --scope @newrade/core-jest-config
 
       - name: Lint (ls-lint) source files
-        run: yarn lerna:ls-lint --scope @newrade/core-contentful-lib
+        run: yarn lerna:ls-lint --scope @newrade/core-jest-config
 
       - name: Lint source files
-        run: yarn eslint ./packages/core-contentful-lib/src/ --ext ts,tsx
+        run: yarn eslint ./packages/core-jest-config/src/ --ext ts,tsx
 
-      # - name: Run unit tests
-      #   run: yarn lerna:test --scope @newrade/core-contentful-lib
+      - name: Run unit tests
+        run: yarn lerna:test --scope @newrade/core-jest-config
 
       - name: Build package
-        run: yarn lerna:build --scope @newrade/core-contentful-lib
-
+        run: yarn lerna:build --scope @newrade/core-jest-config
