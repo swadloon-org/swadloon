@@ -31,12 +31,17 @@ export default class Jest extends Command {
 
     const cmd = spawnSync(command, {
       shell: true,
-      stdio: ['inherit', 'inherit', 'pipe'],
+      stdio: ['inherit', 'inherit', 'pipe'], // jest only uses stderr as output https://github.com/facebook/jest/issues/5064
       env: process.env,
     });
 
-    if (cmd.stderr) {
-      throw new Error(cmd.stderr.toString());
+    if (cmd.stderr && cmd.stderr.toString().length) {
+      const stderr = cmd.stderr.toString();
+      if (/FAIL/gi.test(stderr)) {
+        this.logError(`${stderr}`);
+        throw new Error(stderr);
+      }
+      this.log(`${stderr}`);
     }
   }
 }
