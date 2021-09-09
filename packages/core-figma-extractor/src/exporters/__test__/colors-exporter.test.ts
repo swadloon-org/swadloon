@@ -78,37 +78,37 @@ describe('colors scss', () => {
       expect(exportCssColorTokens(testColor, defaultExtractOptions)).toEqual(
         formatOutput(
           `:root {
-          --color-light-primary-1000: rbga(
+          --color-light-primary-1000: rgba(
             0.006299987435340881,
             0.1737000197172165,
             0.16811999678611755,
             1
           );
-          --color-light-primary-500: rbga(
+          --color-light-primary-500: rgba(
             0.006299987435340881,
             0.1737000197172165,
             0.16811999678611755,
             1
           );
-          --color-light-secondary-900: rbga(
+          --color-light-secondary-900: rgba(
             0.006299987435340881,
             0.1737000197172165,
             0.16811999678611755,
             1
           );
-          --color-light-greyscale-transparent: rbga(
+          --color-light-greyscale-transparent: rgba(
             255,
             255,
             255,
             0.01
           );
-          --color-light-bg-1: rbga(
+          --color-light-bg-1: rgba(
             0.006299987435340881,
             0.1737000197172165,
             0.16811999678611755,
             1
           );
-          --color-light-bg-2: rbga(
+          --color-light-bg-2: rgba(
             0.006299987435340881,
             0.1737000197172165,
             0.16811999678611755,
