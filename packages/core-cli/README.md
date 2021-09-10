@@ -110,6 +110,7 @@ ARGUMENTS
 
 OPTIONS
   -h, --help  show CLI help
+  -t, --test  the test flag is used in integration tests, it will not output versions or dates
 
 EXAMPLE
   $ nr figma-sync

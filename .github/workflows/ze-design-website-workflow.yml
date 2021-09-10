@@ -107,6 +107,9 @@ jobs:
       - name: Run unit tests
         run: yarn lerna:test --scope @newrade/ze-*
 
+      - name: Clean package
+        run: yarn lerna:clean --scope @newrade/ze-design-website
+
       - name: Build package
         run: yarn lerna:build --scope @newrade/ze-design-website
 
