@@ -60,6 +60,7 @@ const config: conf.GastbySiteConfig = {
     ...core.getGastbyCorePluginConfig({
       packageName: packageJson.name,
     }),
+    core.getGastbyPluginTsCacheConfig(),
     /** svg */
     core.getGatsbyReactSvgrSvgoConfig(),
     /** gatsby plugin image */
