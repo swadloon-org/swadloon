@@ -48,9 +48,11 @@ export default class Gatsby extends Command {
       const chunkString = chunk.toString();
       if (/error/gi.test(chunkString)) {
         process.stderr.write(chunk);
-        if (!/\.gitkeep/gi.test(chunkString)) {
+
+        if (!/(\.gitkeep|DeprecationWarning)/gi.test(chunkString)) {
           errors.push(chunkString);
         }
+
         return;
       }
       process.stdout.write(chunk);
