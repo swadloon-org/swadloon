@@ -11,6 +11,7 @@ export const createSchemaCustomizationFn: GatsbyNode['createSchemaCustomization'
   /**
    * Create custom fields on SitePageContext
    * @see site-mdx-frontmatter.ts
+   * @see page-context.ts
    */
   const typeDefs = `
     type SitePageContext implements Node @dontInfer {
@@ -24,7 +25,13 @@ export const createSchemaCustomizationFn: GatsbyNode['createSchemaCustomization'
       template: String
       frontmatter: MdxFrontmatter
       absolutePath: String
+      alternateLocales: [SitePageAlternateLocale]
       relativePath: String
+    }
+
+    type SitePageAlternateLocale {
+      locale: String
+      path: String
     }
 
     type SitePageMetadata {

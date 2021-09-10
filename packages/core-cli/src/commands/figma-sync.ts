@@ -25,6 +25,11 @@ export default class FigmaSync extends Command {
   static examples = [`$ nr figma-sync`];
 
   static flags = {
+    test: flags.boolean({
+      char: 't',
+      description:
+        'the test flag is used in integration tests, it will not output versions or dates',
+    }),
     help: flags.help({ char: 'h' }),
   };
 
@@ -48,6 +53,8 @@ export default class FigmaSync extends Command {
       figmaToken: env.FIGMA_TOKEN,
       outputDir: path.resolve(process.cwd(), args && args.path ? args.path : 'figma-export'),
       inputColorThemeNamespace: false,
+      outputVersion: flags.test ? false : true,
+      outputDate: flags.test ? false : true,
     });
 
     this.log(`running: extract command`);

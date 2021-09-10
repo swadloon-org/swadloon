@@ -30,7 +30,7 @@ env:
   #
   # Debugging
   #
-  DEBUG: 'newrade:*'
+  DEBUG: 'nr:*'
   ACTIONS_STEP_DEBUG: true
   #
   # Node

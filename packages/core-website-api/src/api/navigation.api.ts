@@ -1,3 +1,4 @@
+import { TagAPI } from '..';
 import { PartialOrNull } from '../utilities';
 import { LinkAPI } from './link.api';
 
@@ -36,4 +37,8 @@ export type NavigationAPI = PartialOrNull<{
    * Sub-navigation
    */
   subNavigation?: (NavigationAPI | null | undefined)[] | null;
+  /**
+   * Tags related to the navigation, e.g. a "new", "updated" or version tag "v2"
+   */
+  tags?: TagAPI[];
 }>;

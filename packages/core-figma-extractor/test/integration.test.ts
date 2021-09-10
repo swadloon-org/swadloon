@@ -5,7 +5,7 @@ import path from 'path';
 
 describe(`${extract} command`, () => {
   it('should produce the correct tokens from the figma reference file (https://www.figma.com/file/Hcc7o8UnlnL6UOaVDnBhpm/integration-test?node-id=2233%3A5341)', () => {
-    const cmd = spawnSync(`yarn nr figma-sync`, {
+    const cmd = spawnSync(`yarn nr figma-sync --test`, {
       cwd: process.cwd(),
       shell: true,
       stdio: ['inherit', 'inherit', 'inherit'],

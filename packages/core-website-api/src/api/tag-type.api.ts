@@ -3,14 +3,18 @@ import { ChildMDXAPI } from './child-mdx.api';
 
 export type TagTypeAPI = PartialOrNull<{
   /**
-   * The category name
+   * The tag type name
    */
   name: string;
   /**
-   * The TagType description
+   * The description
    */
   description: {
     text: string;
     childMdx: ChildMDXAPI;
   };
+  //   /**
+  //  * Text color
+  //  */
+  //    text: string;
 }>;

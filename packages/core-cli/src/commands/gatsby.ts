@@ -43,7 +43,7 @@ export default class Gatsby extends Command {
 
     let errors: any[] = [];
 
-    function handleData(chunk: Buffer) {
+    const handleData = (chunk: Buffer) => {
       // gatsby cli does not use stderr correctly, so we have to parse stdout
       const chunkString = chunk.toString();
       if (/error/gi.test(chunkString)) {
@@ -54,19 +54,22 @@ export default class Gatsby extends Command {
         return;
       }
       process.stdout.write(chunk);
-    }
+    };
 
-    function handleError(error: Error) {
+    const handleError = (error: Error) => {
       errors.push(error.toString());
       process.stderr.write(error.toString());
-    }
+    };
 
-    function handleClose(args: any[]) {
+    const handleClose = (args: any[]) => {
       if (errors.length) {
-        process.stderr.write(`finished with ${errors.length} errors`);
         process.stderr.write(errors.join(''));
+        this.logError(`finished with ${errors.length} errors`);
+        process.exit(1);
       }
-    }
+      this.log(`finished`);
+      process.exit(0);
+    };
 
     cmd.stdout.on('data', handleData);
     cmd.stderr.on('data', handleData);

@@ -50,6 +50,14 @@ export type ExtractOptions = {
    */
   outputCSSColorFormat?: 'rgba' | 'hsla' | 'hex';
   debug?: boolean;
+  /**
+   * Enable or disable the version tag in output files
+   */
+  outputVersion?: boolean;
+  /**
+   * Enable or disable the date in outputfiles
+   */
+  outputDate?: boolean;
 };
 
 export const defaultExtractOptions: ExtractOptions = {
@@ -58,6 +66,8 @@ export const defaultExtractOptions: ExtractOptions = {
   outputColorFiles: defaultOutputColorFiles,
   outputColorNamespace: '',
   outputCSSColorFormat: 'hsla',
+  outputVersion: true,
+  outputDate: true,
 };
 
 /**
@@ -140,7 +150,7 @@ export async function extract(options: ExtractOptions) {
         });
         return;
       }
-      createExportFile({ path: filePath });
+      createExportFile({ path: filePath }, validatedOptions);
     });
 
     /**

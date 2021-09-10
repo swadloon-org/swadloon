@@ -394,6 +394,12 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
       );
 
       if (pagesInOtherLocales?.length) {
+        reporter.info(
+          `[${pluginOptions.pluginName}] page ${
+            page.path
+          } has alternate locales: ${pagesInOtherLocales?.map((page) => page.path)}`
+        );
+
         createPage<GatsbyMarkdownFilePageContext>({
           ...page,
           context: {
@@ -442,11 +448,6 @@ export const onCreatePageFunction: GatsbyNode<{}, GatsbyMarkdownFilePageContext>
   // recreate only if a page is missing context data e.g. pages that are created by the default gastby page creator
   if (page && page.context && !page.context.siteMetadata) {
     reporter.info(`[${pluginOptions.pluginName}] recreating page: ${page.path}`);
-
-    if (/dev-404-page/.test(page.path)) {
-      reporter.info(`[${pluginOptions.pluginName}] ignoring page: ${page.path}`);
-      return;
-    }
 
     if (page.path === '/404.html') {
       reporter.info(`[${pluginOptions.pluginName}] deleting and ignoring page: ${page.path}`);

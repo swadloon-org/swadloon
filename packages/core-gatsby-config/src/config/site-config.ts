@@ -22,6 +22,6 @@ export const gatsbySiteFlags: GastbySiteConfig['flags'] = {
   DEV_SSR: true,
   PRESERVE_FILE_DOWNLOAD_CACHE: true,
   PARALLEL_SOURCING: true,
-  PARALLEL_QUERY_RUNNING: true,
+  PARALLEL_QUERY_RUNNING: false, // see https://github.com/gatsbyjs/gatsby/discussions/32389
   LMDB_STORE: true,
 };

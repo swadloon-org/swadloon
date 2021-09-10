@@ -26,6 +26,12 @@ Object {
           "path": "/",
         },
         Object {
+          "displayName": "Aperçu",
+          "frontmatter": undefined,
+          "name": "index",
+          "path": "/fr/",
+        },
+        Object {
           "displayName": "Overview",
           "frontmatter": undefined,
           "name": "index",

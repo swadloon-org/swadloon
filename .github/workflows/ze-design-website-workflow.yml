@@ -31,7 +31,7 @@ env:
   #
   # Debugging
   #
-  DEBUG: 'newrade:*'
+  DEBUG: 'nr:*'
   #
   # Node
   #

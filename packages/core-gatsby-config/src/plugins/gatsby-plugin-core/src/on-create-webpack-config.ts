@@ -46,25 +46,6 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
     return void 0;
   }
 
-  if (isSSRStage) {
-    return void 0;
-  }
-
-  reporter.info(
-    `[${pluginOptions.pluginName}]process.env.TS_NODE_PROJECT: ${process.env.TS_NODE_PROJECT}`
-  );
-  delete process.env.TS_NODE_PROJECT; // avoid using external tsconfig for ts-loader or other tools
-
-  /**
-   * Replace the devtool option
-   */
-  config.devtool = isProduction ? false : 'eval-cheap-module-source-map';
-
-  /**
-   * Remove es5 target
-   */
-  config.target = ['web'];
-
   /**
    * Replace the default caching strategy
    */
@@ -107,6 +88,26 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
       ],
     },
   };
+
+  if (isSSRStage) {
+    actions.replaceWebpackConfig(config);
+    return void 0;
+  }
+
+  reporter.info(
+    `[${pluginOptions.pluginName}]process.env.TS_NODE_PROJECT: ${process.env.TS_NODE_PROJECT}`
+  );
+  delete process.env.TS_NODE_PROJECT; // avoid using external tsconfig for ts-loader or other tools
+
+  /**
+   * Replace the devtool option
+   */
+  config.devtool = isProduction ? false : 'eval-cheap-module-source-map';
+
+  /**
+   * Remove es5 target
+   */
+  config.target = ['web'];
 
   /**
    * Enable `module` in mainfields

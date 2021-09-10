@@ -30,7 +30,7 @@ export function getLangCodeUnderscore(lang: string): string {
  *   fr_CA => fr
  *   ca => ca
  */
-export function getLangSimpleCode(lang?: string): string {
+export function getLangSimpleCode(lang?: string | null): string {
   if (!lang) {
     return '';
   }

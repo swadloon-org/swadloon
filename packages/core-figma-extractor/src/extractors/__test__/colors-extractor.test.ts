@@ -53,6 +53,8 @@ describe('colors utilities', () => {
     outputColorFiles: defaultOutputColorFiles,
     outputCSSColorFormat: 'rgba',
     debug: true,
+    outputDate: false,
+    outputVersion: false,
   };
 
   describe(`${getFigmaColor.name}`, () => {

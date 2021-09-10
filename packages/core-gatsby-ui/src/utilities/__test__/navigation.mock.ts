@@ -1,7 +1,7 @@
 import { DEPLOY_ENV } from '@newrade/core-common';
 import { PAGE_LAYOUT, PAGE_TEMPLATE } from '@newrade/core-gatsb-config/config';
 import { SITE_LANGUAGES } from '@newrade/core-common';
-import { PageNode } from '../navigation.utilities';
+import { GatsbyPageNode } from '../gatsby-page-node';
 
 const siteMetadata = {
   title: 'Website',
@@ -10,7 +10,7 @@ const siteMetadata = {
   siteUrl: '',
   languages: {
     defaultLangKey: SITE_LANGUAGES.EN,
-    langs: [SITE_LANGUAGES.EN],
+    langs: [SITE_LANGUAGES.EN, SITE_LANGUAGES.FR],
   },
 };
 
@@ -30,6 +30,19 @@ export const navigationMock = {
         template: 'designSystem' as PAGE_TEMPLATE,
         name: 'index.page',
         displayName: 'Design System',
+      },
+    },
+    // root page in different localte
+    {
+      path: '/fr/',
+      context: {
+        id: '54e31cc0-ebe2-5af2-a6aa-9ff3f481ab23',
+        siteMetadata,
+        locale: SITE_LANGUAGES.FR,
+        layout: 'designSystem' as PAGE_LAYOUT,
+        template: 'designSystem' as PAGE_TEMPLATE,
+        name: 'index.page',
+        displayName: 'Système de design',
       },
     },
     // root path with prefix
@@ -97,5 +110,5 @@ export const navigationMock = {
         displayName: 'Design System - MicroInteractions',
       },
     },
-  ] as PageNode[],
+  ] as GatsbyPageNode[],
 };
