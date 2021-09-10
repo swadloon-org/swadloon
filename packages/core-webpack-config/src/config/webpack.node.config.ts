@@ -1,6 +1,5 @@
 import * as tsloader from 'ts-loader';
 import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
-import nodeExternals from 'webpack-node-externals';
 import { Configuration } from 'webpack';
 import { babelNodeLoader, babelNodeRule } from '../loaders/babel-node.loader';
 import { htmlLoader } from '../loaders/html.loader';
@@ -16,7 +15,7 @@ export const nodeCommonConfig: Configuration = {
     __dirname: false,
     __filename: false,
   },
-  externals: [nodeExternals()],
+  externalsPresets: { node: true }, // only use externals: [nodeExternals()], in development mode
   devtool: 'source-map',
   optimization: {
     minimize: false,
