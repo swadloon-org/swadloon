@@ -45,7 +45,7 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
   }
 
   reporter.info(
-    `[${pluginOptions.pluginName}]process.env.TS_NODE_PROJECT: ${process.env.TS_NODE_PROJECT}`
+    `[${pluginOptions.pluginName}] process.env.TS_NODE_PROJECT: ${process.env.TS_NODE_PROJECT}`
   );
   delete process.env.TS_NODE_PROJECT; // avoid using external tsconfig for ts-loader or other tools
 
@@ -113,85 +113,6 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
       'core-js-pure': 'core-js',
     },
   };
-
-  /**
-   * Replace Gatsby default entry polyfill
-   */
-  if (
-    isProduction &&
-    typeof config === 'object' &&
-    config.entry &&
-    (config.entry as Record<string, string>)['polyfill']
-  ) {
-    delete (config.entry as Record<string, string>)['polyfill'];
-  }
-
-  /**
-   * Redefine optimization
-   */
-  if (isProduction && typeof config === 'object') {
-    config.optimization = {
-      ...config.optimization,
-      ...{
-        splitChunks: {
-          chunks: 'async',
-          minSize: 20000,
-          minChunks: 1,
-          maxAsyncRequests: 30,
-          maxInitialRequests: 30,
-          enforceSizeThreshold: 50000,
-          automaticNameDelimiter: '~',
-          cacheGroups: {
-            polyfills: {
-              name: 'polyfills',
-              chunks: 'all',
-              test: /(polyfills?(-only)*\.js|fetch\.umd\.js)|[\\/]node_modules[\\/](core-js(-pure)?|@babel)[\\/]/,
-            },
-            prettier: {
-              name: 'prettier',
-              chunks: 'all',
-              test: /[\\/]node_modules[\\/](prettier)[\\/]/,
-            },
-            prism: {
-              name: 'prism',
-              chunks: 'all',
-              test: /[\\/]node_modules[\\/](prism).*[\\/]/,
-            },
-            react: {
-              name: 'react',
-              chunks: 'all',
-              test: /[\\/]node_modules[\\/](react|react-dom|scheduler)[\\/]/,
-            },
-            'react-icons': {
-              name: 'react-icons',
-              chunks: 'all',
-              test: /[\\/]node_modules[\\/](@react-icons|react-icons)[\\/]/,
-            },
-            gsap: {
-              name: 'gsap',
-              chunks: 'initial',
-              test: /[\\/]core-gsap-ui[\\/]|[\\/]node_modules[\\/](gsap)[\\/]/,
-            },
-          },
-        },
-        runtimeChunk: 'single',
-        moduleIds: 'named',
-        chunkIds: 'named',
-      },
-    };
-  }
-
-  /**
-   * Remove gatsby-plugin-mdx from webpack cache
-   */
-  //   const buildDependencies: { [index in 'config']: string[] } = (config.cache as any)?.[
-  //     'buildDependencies'
-  //   ];
-  //   if (buildDependencies && buildDependencies['config']) {
-  //     (config.cache as any)['buildDependencies']['config'] = (config.cache as any)[
-  //       'buildDependencies'
-  //     ]['config'].filter((entry: string) => !/gatsby-plugin-mdx/.test(entry));
-  //   }
 
   /**
    * Filters to find the correct webpack rules

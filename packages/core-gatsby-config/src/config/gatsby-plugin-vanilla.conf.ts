@@ -1,5 +1,3 @@
-import path from 'path';
-
 /**
  * @see https://github.com/KyleAMathews/gatsby-plugin-vanilla-extract
  */

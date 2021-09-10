@@ -25,10 +25,6 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
   const isBuildJavaScriptStage = stage === 'build-javascript';
   const isSSRStage = stage === 'build-html';
 
-  if (isSSRStage) {
-    return;
-  }
-
   const config: Configuration = {
     plugins: [new VanillaExtractPlugin({})],
   };
