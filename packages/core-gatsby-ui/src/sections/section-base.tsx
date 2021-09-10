@@ -41,7 +41,7 @@ export const SectionBase = React.forwardRef<HTMLElement, Props>(
     const classNames = getMergedClassname([
       className,
       styles.wrapper,
-      variant ? styles[variant] : '',
+      variant ? styles[variant] : variant === null ? styles.primary : '',
       variant === Variant.primaryReversed ? globalThemeReversed : '',
       variant === Variant.secondaryReversed ? globalThemeReversed : '',
       variant === Variant.tertiaryReversed ? globalThemeReversed : '',

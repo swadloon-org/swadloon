@@ -8,7 +8,7 @@ import {
 
 const query = graphql`
   query Navigation {
-    pages: allSitePage {
+    pages: allSitePage(filter: { path: { glob: "!**/dev-404-page/{**,*}" } }) {
       totalCount
       nodes {
         id
