@@ -99,7 +99,7 @@ don't plan on commiting to the `newrade-core` repo directly:
 ```bash
 git push --mirror git@github.com:<org-name>/<repository-name>.git
 cd ..
-rm -rf newrade-core.git
+rimraf -rf newrade-core.git
 ```
 
 Checkout from your `<repository-name>` so you can work on it:
@@ -112,26 +112,6 @@ Add the `newrade-core` repo as `upstream`:
 
 ```
 git remote add upstream git@github.com:newrade/newrade-core.git
-```
-
-### Env Variables
-
-Review the environment variables set in the root `.env` file and update
-accordingly.
-
-`PROJECT_GIT_HOST`, `PROJECT_REPO_ORG` and `PROJECT_REPO_NAME` should be set
-according your monorepo values.
-
-```bash
-NVM_NODE_VERSION=v14
-
-MASTER_GIT_HOST=github.com
-MASTER_REPO_ORG=newrade
-MASTER_REPO_NAME=newrade
-
-PROJECT_GIT_HOST=github.com
-PROJECT_REPO_ORG=<org-name>
-PROJECT_REPO_NAME=<repository-name>
 ```
 
 ### VSCode Workspace

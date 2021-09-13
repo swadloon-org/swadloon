@@ -11,8 +11,8 @@
   "scripts": {
     "build": "yarn clean && yarn typecheck",
     "clean": "yarn clean:tsc && yarn clean:dist",
-    "clean:dist": "rm -rf dist/** lib/**",
-    "clean:tsc": "rm -f ./**/*.tsbuildinfo *.tsbuildinfo",
+    "clean:dist": "rimraf -rf dist/** lib/**",
+    "clean:tsc": "rimraf -f ./**/*.tsbuildinfo *.tsbuildinfo",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

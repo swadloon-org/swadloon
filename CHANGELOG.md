@@ -4,6 +4,21 @@ All general changes to the repo or main dependencies will be documented in this
 file. This file is written manually where as other changelogs in `/packages/`
 are automated.
 
+# 2021 Sept Update - #1 - (2021-09)
+
+## Breaking changes
+
+- remove .env at root requirements and move ENV variable to specific core-cli
+  command
+
+## Features
+
+- add windows compatibility (rimraf, crossenv etc)
+
+## Fixes
+
+---
+
 # 2021 August Update - #1 - (2021-08-26)
 
 ## Breaking changes

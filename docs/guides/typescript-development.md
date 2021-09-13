@@ -95,7 +95,7 @@ Here is an example of a `package.json`:
   "files": ["./lib/**/*"],
   "scripts": {
     "build": "yarn tsc:build",
-    "clean": "rm -rf lib/** && rm -f *.tsbuildinfo",
+    "clean": "rimraf -rf lib/** && rimraf -f *.tsbuildinfo",
     "start": "yarn tsc:start",
     "tsc:build": "tsc --build",
     "tsc:start": "tsc --build --watch --preserveWatchOutput --verbose"
@@ -190,7 +190,7 @@ For a modern UI library:
 {
   "build": "concurrently \"yarn tsc:build\" \"yarn copy:assets\"",
   "build:postinstall": "yarn build",
-  "clean": "rm -rf lib/** && rm -f *.tsbuildinfo",
+  "clean": "rimraf -rf lib/** && rimraf -f *.tsbuildinfo",
   "start": "yarn clean && concurrently \"yarn tsc:start\" \"yarn watch:assets\"",
   "test": "echo ok",
   "test:watch": "jest --watch",

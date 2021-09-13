@@ -1,10 +1,42 @@
-// #!/usr/bin/env ts-node-script
+import debug from 'debug';
+import * as t from 'io-ts';
 
-// import { spawn } from 'child_process';
-// import { scriptLog } from '@newrade/core-utils';
-// import { dotEnvProcess, loadDotEnv } from '../utilities/utils';
-
-// loadDotEnv();
+export type ENV = t.TypeOf<typeof Env>;
+export const Env = t.intersection([
+  t.type({}),
+  t.type({
+    /**
+     * The master repository's git host
+     * @default 'github.com'
+     */
+    MASTER_GIT_HOST: t.string,
+    /**
+     * The master repository's organization
+     * @example '@newrade'
+     */
+    MASTER_REPO_ORG: t.string,
+    /**
+     * The master repository's name
+     * @example 'repo-name' in @<org>/<repo-name>
+     */
+    MASTER_REPO_NAME: t.string,
+    /**
+     * The repository git host
+     * @default 'github.com'
+     */
+    PROJECT_GIT_HOST: t.string,
+    /**
+     * The repository's organization
+     * @example '@newrade'
+     */
+    PROJECT_REPO_ORG: t.string,
+    /**
+     * The repository name
+     * @example 'repo-name' in @<org>/<repo-name>
+     */
+    PROJECT_REPO_NAME: t.string,
+  }),
+]);
 
 // scriptLog(`forking master repo...`);
 

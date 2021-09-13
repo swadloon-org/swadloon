@@ -16,7 +16,7 @@
   "scripts": {
     "build": "nr gatsby build --verbose",
     "build:local": ". ./.env && DEBUG=$DEBUG nr gatsby build --verbose",
-    "clean": "gatsby clean && rm -rf ./node_modules/.cache",
+    "clean": "gatsby clean && rimraf -rf ./node_modules/.cache",
     "pre-debug": "yarn clean",
     "preload-fonts": ". ./.env && PORT=$APP_PORT gatsby-preload-fonts --no-sandbox",
     "refresh": ". ./.env && curl -X POST http://localhost:$APP_PORT/__refresh",

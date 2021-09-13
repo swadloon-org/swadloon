@@ -26,8 +26,8 @@
     "build": "yarn clean && yarn build:dist && nr prepare-exports",
     "build:dist": "tsc --project tsconfig.json",
     "clean": "yarn clean:tsc && yarn clean:dist",
-    "clean:dist": "rm -rf dist/** lib/**",
-    "clean:tsc": "rm -f ./**/*.tsbuildinfo *.tsbuildinfo",
+    "clean:dist": "rimraf -rf dist/** lib/**",
+    "clean:tsc": "rimraf -f ./**/*.tsbuildinfo *.tsbuildinfo",
     "dev": "yarn clean && yarn preconstruct dev"
   },
   "sideEffects": false,

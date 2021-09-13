@@ -13,8 +13,8 @@
     "build:dist": "tsc --build tsconfig.json",
     "build:postinstall": "yarn clean && yarn dev",
     "clean": "yarn clean:tsc && yarn clean:dist",
-    "clean:dist": "rm -rf dist/** lib/**",
-    "clean:tsc": "rm -f ./**/*.tsbuildinfo *.tsbuildinfo",
+    "clean:dist": "rimraf -rf dist/** lib/**",
+    "clean:tsc": "rimraf -f ./**/*.tsbuildinfo *.tsbuildinfo",
     "dev": "yarn clean && yarn preconstruct dev"
   },
   "sideEffects": [

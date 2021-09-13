@@ -33,49 +33,117 @@
 
 ## Overview
 
-Documentation: https://zedesignsystem.com/docs
+This repository contains several packages to build design systems, documentation
+sites, websites and web apps.
 
-Design System: https://zedesignsystem.com/design-system
+The packages are all written in TypeScript and the repo works with lerna, yarn
+and preconstruct.
 
-[Visualization of this repo](https://octo-repo-visualization.vercel.app/?repo=newrade%2Fnewrade-core)
+This readme contains the essential instructions to get started; for the full
+documentation, see the [core-docs](https://zedesignsystem.com/core-docs/)
+website.
 
-## Tech Stack
+At a glance, this repository contains:
 
-### Languages
+- A design system model, along with a default theme and UI components
+- A reference design system implementation called
+  [Ze Design System](https://zedesignsystem.com/design-system)
+- A website built with the Ze Design System (https://zedesignsystem.com)
+- CLI tools to automate various tasks like creating design tokens from Figma
+- Configuration files for TypeScript / React / Node / Webpack / Jest and other
+  essential tooling
+- Github Actions workflows
 
-- TypeScript
-- Markdown
-- CSS-in-TS
+You can also check a
+[visualization of this repo](https://octo-repo-visualization.vercel.app/?repo=newrade%2Fnewrade-core).
 
-### Frameworks
+## Docs
 
-- React
-- Jest
-- Puppeteer
-- NodeJS
+- Core docs home: https://zedesignsystem.com/core-docs/
+- Ze Design System reference: https://zedesignsystem.com/design-system
+- Ze Design System Website: https://zedesignsystem.com
+- Techs used in this project: https://zedesignsystem.com/core-docs/tech/
 
-### CI/CD
+Package-specific documentation:
 
-- Github Actions
-- CodeQL
-- [Deepscan.io](deepscan.io)
+- `packages/core-cli` — _oclif cli to automate tasks_ —
+  [docs](https://zedesignsystem.com/core-docs/packages/core-cli/)
+- `packages/core-figma-extractor` — _cli to extract design tokens from figma
+  files_ —
+  [docs](https://zedesignsystem.com/core-docs/packages/core-figma-extractor/)
 
-### Cloud
+## Get Started
 
-To deploy our sites, apps and APIs we use:
+There are three ways to use this project:
 
-- Vercel
+1. Install published versions of the packages you need
+2. Contribute to this repo and its core packages to add functionnalities, tests
+   and fix bugs
+3. Create your own fork / mirror to add your own design system, websites and
+   apps while leveraging the monorepo's packages and tools.
 
-## Quickstart
+### Install NodeJS and Yarn
 
-### Prerequisites
+Install `nvm` to manage the NodeJS version on your machine:
 
-- linux or macos machine
-- bash terminal
-- [nvm](https://github.com/nvm-sh/nvm)
-- [brew](https://brew.sh/)
+- [nvm](https://github.com/nvm-sh/nvm) for Linux/MacOS
+- [nvm-windows](https://github.com/coreybutler/nvm-windows) for Windows
 
-### Get Started
+You'll need to restart VSCode for the PATH to update.
+
+> **Note for Windows users**: VSCode will need to be run with administration
+> priviledges for build commands to run normally
+
+Install NodeJS with:
+
+```bash
+# on linux / macos
+nvm install v16
+nvm use v16
+nvm alias default v16
+
+# on windows
+# nvm-windows needs an exact version, see https://nodejs.org/en/ for exact released version
+nvm install 16.9.1
+nvm use 16.9.1
+
+# test nvm command
+nvm v
+```
+
+Install `yarn` v1.x.x with `npm`:
+
+```bash
+npm install --global yarn
+```
+
+If you can do:
+
+```bash
+node -v
+yarn -v
+```
+
+Then `node` and `yarn` should be correctly installed.
+
+### Steps to Install Published Packages
+
+> As of 09/2021, packages are not yet published to npm, this will likely happen
+> before this end of the year
+
+```bash
+# with npm
+npm i --save @newrade/core-figma-extractor
+# with yarn
+yarn add @newrade/core-figma-extractor
+```
+
+### Steps to Create your Own Fork
+
+See the complete guide on
+[Creating your own fork](https://dev.zedesignsystem.com/core-docs/get-started/).
+
+### Steps to Contribute to the Core Repo
 
 Clone the repository:
 
@@ -89,46 +157,35 @@ Open the project in vscode with the provided `.code-workspace` file:
 code ./.vscode/newrade-core.code-workspace
 ```
 
-Install `node`, `yarn` and dependencies:
+Install dependencies with:
 
 ```bash
-# install correct version of node
-nvm install v15
-nvm alias default v15
-
-# install yarn
-npm install --global yarn
-
-# install dependencies
 yarn
-
-# start building core packages
-yarn start
-
-# build core packages
-yarn build
-
-# test core packages
-yarn test
-
-# run prettier and eslint
-yarn lint
 ```
 
-### Commands Description
+After dependencies are installed, each package will be set up so you can develop
+locally.
 
-| Command         | Description                                                                                                                                                                            | Docs                                        |
-| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- |
-| `yarn`          | Execute `patch-package`, `yarn clean`, `yarn build` in all core packages and then execute `yarn build:postinstall` for the packages that needs to do something after the core packages | [docs](https://classic.yarnpkg.com/en/docs) |
-| `yarn clean`    | Execute `yarn clean` in all packages (core and non core)                                                                                                                               |                                             |
-| `yarn build`    | Build all `core-*` packages                                                                                                                                                            |                                             |
-| `yarn test`     | Run test in all `core-*` packages                                                                                                                                                      |                                             |
-| `patch-package` | Execute `patch-package` on patches (see `./patches`)                                                                                                                                   |                                             |
-| `yarn release`  | Execute `lerna version`                                                                                                                                                                |                                             |
+Each package dependency is resolved by lerna and preconstruct and symlinks are
+created, there is need to build packages manually while developping.
+
+To start developing a package, use the `yarn dev` or `yarn start` command.
+
+## Commands and Scripts Available
+
+| Command         | Description                                                                                                                                                                   | Docs                                        |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- |
+| `yarn`          | Execute `patch-package`,`preconstruct dev` in all core packages and then execute `yarn build:postinstall` for the packages that needs to do something after the core packages | [docs](https://classic.yarnpkg.com/en/docs) |
+| `yarn clean`    | Execute `yarn clean` in all packages                                                                                                                                          |                                             |
+| `yarn build`    | Build all `core-*` packages                                                                                                                                                   |                                             |
+| `yarn test`     | Run test in all `core-*` packages                                                                                                                                             |                                             |
+| `patch-package` | Execute `patch-package` on patches (see `./patches`)                                                                                                                          |                                             |
+| `yarn release`  | Execute `lerna version`                                                                                                                                                       |                                             |
 
 ## Troubleshooting
 
-To completely reset the repository and reinstall, try:
+To completely reset the repository, reinstall node_modules and recreate
+symlinks, try:
 
 ```bash
 yarn reset
@@ -136,6 +193,7 @@ yarn reset
 
 ## License
 
-This project is licensed under the terms of the [MIT license](/LICENSE).
+All `core-*` packages are [MIT licensed](/LICENSE), refer to each package's
+package.json license information for more details.
 
 ---

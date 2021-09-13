@@ -35,19 +35,7 @@ env:
   # Node
   #
   NODE_OPTIONS: '--max-old-space-size=4096'
-  #
-  # NVM
-  #
-  NVM_NODE_VERSION: ${{ secrets.NVM_NODE_VERSION }}
-  #
-  # Repo
-  #
-  MASTER_GIT_HOST: github.com
-  MASTER_REPO_ORG: newrade
-  MASTER_REPO_NAME: newrade-core
-  PROJECT_GIT_HOST: github.com
-  PROJECT_REPO_ORG: newrade
-  PROJECT_REPO_NAME: newrade-core
+
 
 jobs:
   build-test:

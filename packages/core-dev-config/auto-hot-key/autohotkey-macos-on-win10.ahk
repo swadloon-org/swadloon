@@ -39,7 +39,7 @@ F11::SendInput {Volume_Down}
 F12::SendInput {Volume_Up}
 
 ; swap left command/windows key with left alt
-LWin::LAlt
+;LWin::LAlt
 ;LAlt::LWin ; add a semicolon in front of this line if you want to disable the windows key
 
 ; Remap Windows + Left OR Right to enable previous or next web page
@@ -47,10 +47,19 @@ LWin::LAlt
 ;Lwin & Left::Send, !{Left}
 ;Lwin & Right::Send, !{Right}
 
+; Eject Key
+;F20::SendInput {Insert} ; F20 doesn't show up on AHK anymore, see #3
+
 ; F13-15, standard windows mapping
 F13::SendInput {PrintScreen}
 F14::SendInput {ScrollLock}
 F15::SendInput {Pause}
+
+;F16-19 custom app launchers, see http://www.autohotkey.com/docs/Tutorial.htm for usage info
+F16::Run http://twitter.com
+F17::Run http://tumblr.com
+F18::Run http://www.reddit.com
+F19::Run https://facebook.com
 
 ; --------------------------------------------------------------
 ; OS X system shortcuts
@@ -81,12 +90,15 @@ F15::SendInput {Pause}
 #z::Send ^z
 
 ; Redo
-#+z::Send ^+z
+#y::Send ^y
+
+; Redo with shift
+#+z::Send ^y
 
 ; New tab
 #t::Send ^t
 
-; Close tab
+; close tab
 #w::Send ^w
 
 ; Close windows (cmd + q to Alt + F4)
@@ -97,13 +109,6 @@ Lwin & Tab::AltTab
 
 ; minimize windows
 #m::WinMinimize,a
-
-; Override Windows key
-; #::Send, ^
-
-; Open ace jump
-#;::Send, ^;
-
 
 ; --------------------------------------------------------------
 ; OS X keyboard mappings for special chars
@@ -157,8 +162,6 @@ Lwin & Tab::AltTab
 ; Map Alt + 3 to #
 !3::SendInput {#}
 
-
-
 ; --------------------------------------------------------------
 ; Custom mappings for special chars
 ; --------------------------------------------------------------
@@ -168,7 +171,6 @@ Lwin & Tab::AltTab
 
 ;^ö::SendInput {{}
 ;^ä::SendInput {}}
-
 
 ; --------------------------------------------------------------
 ; Application specific
@@ -195,24 +197,35 @@ Lwin & Tab::AltTab
 ; Open command
 #+p::Send, ^+p
 
+; Select matching
+#d::Send, ^d
+
 ; Clears console
 #k::Send, ^k
+
+; Search everywhere
+#+f::Send, ^+f
+
+; Replace everywhere
+#+h::Send, ^+h
+
+; Perform replace everywhere
+!#Enter::Send, ^!{return}
 
 ; Open Extensions Page
 #<+x::Send, ^+x
 
 ; Close all tabs
-#r::Send, !r
+#r::Send, ^r
 
 ; Close all other tabs
-#e::Send, !e
+#e::Send, ^e
 
-#\::Send, !{\}
+; Go back
+#\::Send, ^\
 
-; Disable start menu on left winkey
-; LWin & vk07::return
-; LWin::return ; (or run Launchy)
-
+; Go forward
+#+\::Send, ^+\
 
 ; --------------------------------------------------------------
 ; Others
@@ -243,12 +256,14 @@ Lwin & Tab::AltTab
 
 ; Selection (uses a combination of the above with shift)
 
-+#Left::Send {shift down}{Home}}{shift up}
-+#Right::Send {shift down}{End}}{shift up}
-!+Up::Send {ctrl down}{shift down}{Up}}{shift up}{ctrl up}
-!+Down::Send {ctrl down}{shift down}{Down}}{shift up}{ctrl up}
-#+Up::Send {Lctrl down}{shift down}{Home}}{shift up}{Lctrl up}
-#+Down::Send {Lctrl down}{shift down}{End}}{shift up}{Lctrl up}
++#Left::Send {shift down}{Home}{shift up}
++#Right::Send {shift down}{End}{shift up}
+!+Up::Send {ctrl down}{shift down}{Up}{shift up}{ctrl up}
+!+Down::Send {ctrl down}{shift down}{Down}{shift up}{ctrl up}
+#+Up::Send {Lctrl down}{shift down}{Home}{shift up}{Lctrl up}
+#+Down::Send {Lctrl down}{shift down}{End}{shift up}{Lctrl up}
 
-
+; Disable start menu on left winkey
+LWin & vk07::return
+LWin::return ; (or run Launchy)
 

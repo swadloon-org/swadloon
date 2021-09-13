@@ -37,40 +37,6 @@ const TestEnv = t.keyof({
 export const CommonEnv = t.intersection([
   t.type({
     /**
-     * The NodeJS version installed by `nvm`
-     */
-    NVM_NODE_VERSION: t.string,
-    /**
-     * The master repository's git host
-     * @default 'github.com'
-     */
-    MASTER_GIT_HOST: t.string,
-    /**
-     * The master repository's organization
-     * @example '@newrade'
-     */
-    MASTER_REPO_ORG: t.string,
-    /**
-     * The master repository's name
-     * @example 'repo-name' in @<org>/<repo-name>
-     */
-    MASTER_REPO_NAME: t.string,
-    /**
-     * The repository git host
-     * @default 'github.com'
-     */
-    PROJECT_GIT_HOST: t.string,
-    /**
-     * The repository's organization
-     * @example '@newrade'
-     */
-    PROJECT_REPO_ORG: t.string,
-    /**
-     * The repository name
-     * @example 'repo-name' in @<org>/<repo-name>
-     */
-    PROJECT_REPO_NAME: t.string,
-    /**
      * Deploy environment
      */
     APP_ENV: DeployEnv,
@@ -97,6 +63,18 @@ export const CommonEnv = t.intersection([
      * @see https://nodejs.org/api/cli.html#cli_node_debug_module
      */
     NODE_DEBUG: t.string,
+    /**
+     * NodeJS internal options env variable
+     * @see https://nodejs.org/api/cli.html#cli_node_options_options
+     * @example NODE_OPTIONS='--max-old-space-size=4096'
+     */
+    NODE_OPTIONS: t.string,
+    /**
+     * NodeJS internal env to silence process deprecation warnings
+     * @see https://nodejs.org/api/cli.html#cli_node_no_warnings_1
+     * @example NODE_NO_WARNINGS=1
+     */
+    NODE_NO_WARNINGS: t.string,
     /**
      * Debug env variable to enable output in the console, based on the namespace set
      * @see https://github.com/visionmedia/debug for documentation

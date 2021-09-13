@@ -18,7 +18,7 @@
   },
   "scripts": {
     "build": "tsc --build",
-    "clean": "rm -rf lib/** && rm -f *.tsbuildinfo",
+    "clean": "rimraf -rf lib/** && rimraf -f *.tsbuildinfo",
     "start": "tsc --build --watch --preserveWatchOutput --verbose",
     "test": "mocha lib/test/generator.test.js",
     "typecheck": "tsc --noEmit",

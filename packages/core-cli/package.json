@@ -26,10 +26,10 @@
   ],
   "scripts": {
     "build:postinstall": "yarn prepack",
-    "clean": "rm -rf lib/** && yarn postpack && rm -f *.tsbuildinfo",
+    "clean": "rimraf -rf lib/** && yarn postpack && rimraf -f *.tsbuildinfo",
     "figma-extract-color": ". ./.env && DEBUG=$DEBUG nr figma-sync $FIGMA_FILE",
-    "postpack": "rm -f oclif.manifest.json",
-    "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
+    "postpack": "rimraf -f oclif.manifest.json",
+    "prepack": "rimraf -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
     "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
     "typecheck": "tsc --noEmit",
     "version": "oclif-dev readme && git add README.md"

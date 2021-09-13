@@ -1,10 +1,9 @@
 ---
 name: Developer Onboarding
 about: Cover all the steps to onboard a new developer in the team.
-title: "<NAME> Onboarding"
+title: '<NAME> Onboarding'
 labels: "admin \U0001F4BC"
 assignees: ''
-
 ---
 
 ## Admin / HR
@@ -67,12 +66,15 @@ assignees: ''
 - [ ] Total Spaces https://totalspaces.binaryage.com/
 - [ ] Dato https://apps.apple.com/ca/app/dato/id1470584107?mt=12
 - [ ] Macs Fan Control https://crystalidea.com/macs-fan-control
-- [ ] Giphy https://apps.apple.com/ca/app/giphy-capture-the-gif-maker/id668208984?mt=12
+- [ ] Giphy
+      https://apps.apple.com/ca/app/giphy-capture-the-gif-maker/id668208984?mt=12
 
 ### Keyboard
 
-- [ ] Install the US Keyboard (MacOS Settings > Keyboard > Input Sources > Add US keyboard)
-- [ ] Install the commonly used Quebec keyboard from this repo: https://github.com/ergosteur/cf-keylayout
+- [ ] Install the US Keyboard (MacOS Settings > Keyboard > Input Sources > Add
+      US keyboard)
+- [ ] Install the commonly used Quebec keyboard from this repo:
+      https://github.com/ergosteur/cf-keylayout
 
 ### Homebrew
 
@@ -88,7 +90,8 @@ assignees: ''
 
 ### Github
 
-- [ ] Create a .ssh key ([instructions](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent))
+- [ ] Create a .ssh key
+      ([instructions](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent))
 - [ ] Checkout from the repos you need
 
 - [ ] Change the terminal to bash:
@@ -118,7 +121,8 @@ brew install act
 
 ### NVM
 
-- [ ] Install `nvm` (node version manager) by following the instructions here https://github.com/nvm-sh/nvm
+- [ ] Install `nvm` (node version manager) by following the instructions here
+      https://github.com/nvm-sh/nvm
 
   You may have to restart VS Code for changes to be applied to your path.
 
@@ -144,23 +148,11 @@ brew install act
 
 ### VS Code
 
-Opening the folder with VSCode will prompt to install extensions listed in `.vscode/extensions.json`.
+Opening the folder with VSCode will prompt to install extensions listed in
+`.vscode/extensions.json`.
 
-- [ ] Setup a .env variable file:
-
-  ```env
-  NVM_NODE_VERSION=v14
-
-  MASTER_GIT_HOST=github.com
-  MASTER_REPO_ORG=newrade
-  MASTER_REPO_NAME=newrade
-
-  PROJECT_GIT_HOST=github.com
-  PROJECT_REPO_ORG=newrade
-  PROJECT_REPO_NAME=newrade
-  ```
-
-- [ ] configure Settings Sync https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync
+- [ ] configure Settings Sync
+      https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync
 
 #### .editorconfig
 
@@ -170,13 +162,17 @@ An `.editorconfig` is included so your IDE should pick up the rules.
 
 A `.eslintrc.js` file is included.
 
-- [ ] Install the [VSCode plugin](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+- [ ] Install the
+      [VSCode plugin](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 
 #### Prettier
 
-[Prettier](https://prettier.io/) is used to format the codebase. It's recommended to install an IDE plugin so that `prettier` is applied on each save.
+[Prettier](https://prettier.io/) is used to format the codebase. It's
+recommended to install an IDE plugin so that `prettier` is applied on each save.
 
-- [ ] Install the [prettier plugin](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) and then enable `formatOnSave` in your config:
+- [ ] Install the
+      [prettier plugin](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+      and then enable `formatOnSave` in your config:
 
   ```json
   {
@@ -211,7 +207,8 @@ A `.eslintrc.js` file is included.
 
 ## Design Resources
 
-- [ ] Access to the projects' google drive (https://drive.google.com/drive/u/1/folders/1LAAdEZzm5btu1xR6mvw62oL6P7vIgago)
+- [ ] Access to the projects' google drive
+      (https://drive.google.com/drive/u/1/folders/1LAAdEZzm5btu1xR6mvw62oL6P7vIgago)
 - [ ] install the desktop figma app https://www.figma.com/downloads/
 
 ## Done!
@@ -236,7 +233,8 @@ chmod a+x node_modules/.bin/nr-core-cli
 
 ### Apple M1
 
-Some prebuilt libs are not yet available. Here are the packages that must be installed manually.
+Some prebuilt libs are not yet available. Here are the packages that must be
+installed manually.
 
 https://sharp.pixelplumbing.com/install#apple-m1
 

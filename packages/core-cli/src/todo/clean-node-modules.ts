@@ -8,7 +8,7 @@ export default class CleanNodeModules extends Command {
   ddebugWarn: debug.Debugger = debug('nr:core-cli:clean-node-modules:warn');
   ddebugError: debug.Debugger = debug('nr:core-cli:clean-node-modules:error');
 
-  static description = `find . -name 'node_modules' -type d -prune -print -exec rm -rf '{}' \;`;
+  static description = `find . -name 'node_modules' -type d -prune -print -exec rimraf -rf '{}' \;`;
 
   static examples = [`$ nr resetbranches`];
 
