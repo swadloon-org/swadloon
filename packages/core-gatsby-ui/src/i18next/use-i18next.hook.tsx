@@ -58,7 +58,7 @@ export const useI18next = (ns?: Namespace, options?: UseTranslationOptions) => {
   };
 
   const getAlternativeLang = () => {
-    const alternativeLanguages = context.languages?.filter(
+    const alternativeLanguages = context?.languages?.filter(
       (lang) => removeLocaleExtension(lang) !== context.language
     );
     const alternativeLanguage = alternativeLanguages?.length ? alternativeLanguages[0] : null;
@@ -79,7 +79,7 @@ export const useI18next = (ns?: Namespace, options?: UseTranslationOptions) => {
   /**
    * Replaces any key:value encoutered in an object with their translation based on the current context
    */
-  function getTranslatedObject<T extends object>(object?: object): T {
+  function getTranslatedObject<T extends object>(object?: object | null): T {
     if (!object) {
       return {} as T;
     }

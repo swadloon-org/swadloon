@@ -14,7 +14,7 @@ tags:
 <!-- CODE IMPORTS -->
 
 <!-- prettier-ignore -->
-import Readme from '@newrade/core-react-ui/README.md';
+import Readme from '@newrade/core-cli/README.md';
 
 <!-- END CODE IMPORTS -->
 

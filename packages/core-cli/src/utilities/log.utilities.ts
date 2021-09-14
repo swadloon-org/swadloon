@@ -5,6 +5,20 @@ import debug from 'debug';
  */
 export const NS = 'nr:core-cli';
 
+export const debugInstance = debug;
+
 // there is an error with .extend in oclif, using separate debug instances instead
 // always enable logging for the cli tools
-debug.enable('nr:core-cli:*');
+export function enableDebug() {
+  if (!process.env.DEBUG) {
+    debugInstance.enable('nr:core-cli:*');
+  }
+
+  /**
+   * Enable default logging
+   */
+  if (process.env.DEBUG) {
+    console.log(`process.env.DEBUG: ${process.env.DEBUG}`);
+    debugInstance.enable(process.env.DEBUG);
+  }
+}

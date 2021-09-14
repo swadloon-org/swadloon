@@ -203,6 +203,9 @@ Lwin & Tab::AltTab
 ; Clears console
 #k::Send, ^k
 
+; Open terminal
+#j::Send, ^j
+
 ; Search everywhere
 #+f::Send, ^+f
 

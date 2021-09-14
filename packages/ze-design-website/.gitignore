@@ -10,4 +10,5 @@ functions
 dist/
 public/
 .cache/
+loadable-stats-build-javascript.json
 # graphql-types.ts

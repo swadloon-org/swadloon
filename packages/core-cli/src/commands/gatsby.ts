@@ -1,12 +1,11 @@
 import { Command, flags } from '@oclif/command';
 import { spawn } from 'child_process';
-import debug from 'debug';
-import { NS } from '../utilities/log.utilities';
+import { debugInstance, enableDebug, NS } from '../utilities/log.utilities';
 
 export default class Gatsby extends Command {
-  log = debug(`${NS}:gatsby`);
-  logWarn = debug(`${NS}:gatsby:warn`);
-  logError = debug(`${NS}:gatsby:error`);
+  log = debugInstance(`${NS}:gatsby`);
+  logWarn = debugInstance(`${NS}:gatsby:warn`);
+  logError = debugInstance(`${NS}:gatsby:error`);
 
   static description = 'Shortcut to run Gatsby with typescript (ts-node)';
 
@@ -22,10 +21,12 @@ export default class Gatsby extends Command {
   };
 
   async run() {
+    enableDebug();
+
     const { args, flags } = this.parse(Gatsby);
 
     const command = [
-      `TS_NODE_PROJECT=../../tsconfig.node-commonjs.json node -r ts-node/register ./node_modules/.bin/gatsby`,
+      `cross-env TS_NODE_PROJECT=../../tsconfig.node-commonjs.json node -r ts-node/register ../../node_modules/gatsby/dist/bin/gatsby.js`,
       `${args.command || ''}`,
       `${flags['no-uglify'] ? '--no-uglify' : ''}`,
       `${flags.verbose ? '--verbose' : ''}`,

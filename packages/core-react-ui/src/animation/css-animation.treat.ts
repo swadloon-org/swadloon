@@ -28,10 +28,9 @@ const commonAnimationStyle: Style = {
 globalStyle(`${styles.wrapper}`, () => ({
   '@media': {
     ['print, (prefers-reduced-motion: reduce)']: {
-      animationDuration: '1ms !important',
-      transitionDuration: '1ms !important',
-      animationIterationCount: '1 !important',
-      // opacity: '1 !important', // not sure we want to enable this
+      animationDuration: '0ms !important',
+      animationDelay: '0ms !important',
+      transitionDuration: '0ms !important',
     },
   },
 }));

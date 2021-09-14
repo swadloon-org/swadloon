@@ -15,13 +15,12 @@
   "license": "MIT",
   "scripts": {
     "build": "nr gatsby build --verbose",
-    "build:local": ". ./.env && DEBUG=$DEBUG nr gatsby build --verbose",
     "clean": "gatsby clean && rimraf -rf ./node_modules/.cache",
     "pre-debug": "yarn clean",
-    "preload-fonts": ". ./.env && PORT=$APP_PORT gatsby-preload-fonts --no-sandbox",
-    "refresh": ". ./.env && curl -X POST http://localhost:$APP_PORT/__refresh",
-    "serve": ". ./.env && DEBUG=$DEBUG nr gatsby serve --port=$APP_PORT --host 0.0.0.0",
-    "start": ". ./.env && DEBUG=$DEBUG nr gatsby develop --verbose -p $APP_PORT -H 0.0.0.0",
+    "preload-fonts": "env-cmd -x PORT=$APP_PORT gatsby-preload-fonts --no-sandbox",
+    "refresh": "env-cmd -x curl -X POST http://localhost:$APP_PORT/__refresh",
+    "serve": "env-cmd -x nr gatsby serve --port $APP_PORT --host 0.0.0.0",
+    "start": "env-cmd -x nr gatsby develop --verbose --port $APP_PORT --host 0.0.0.0",
     "test": "echo ok",
     "typecheck": "tsc --noEmit"
   },

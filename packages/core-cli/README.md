@@ -41,6 +41,7 @@ USAGE
 * [`nr commit`](#nr-commit)
 * [`nr contentful-migrate [FILE]`](#nr-contentful-migrate-file)
 * [`nr depcheck [ARGS]`](#nr-depcheck-args)
+* [`nr dotenv`](#nr-dotenv)
 * [`nr figma-sync [PATH]`](#nr-figma-sync-path)
 * [`nr gatsby [COMMAND]`](#nr-gatsby-command)
 * [`nr git-clean-branches`](#nr-git-clean-branches)
@@ -95,6 +96,21 @@ USAGE
 
 EXAMPLE
   $ nr depcheck
+```
+
+## `nr dotenv`
+
+read .env file and add it to process.env
+
+```
+USAGE
+  $ nr dotenv
+
+OPTIONS
+  -h, --help  show CLI help
+
+EXAMPLE
+  $ nr dotenv
 ```
 
 ## `nr figma-sync [PATH]`
@@ -265,6 +281,8 @@ USAGE
 EXAMPLE
   $ nr prepare-exports
 ```
+
+_See code: [lib/commands/prepare-exports.js](https://github.com/newrade/newrade-core/blob/v1.13.0/lib/commands/prepare-exports.js)_
 
 ## `nr vercel-deploy`
 

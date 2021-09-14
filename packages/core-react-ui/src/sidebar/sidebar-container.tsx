@@ -94,7 +94,10 @@ export const SidebarContainer = React.forwardRef<HTMLElement, Props>(
 
         {/* Backdrop */}
         <CSSAnimation
-          classNames={[styles.backdrop, sidebarOpened ? styles.backdropActive : '']}
+          classNames={[
+            styles.backdrop,
+            isFirstRender ? '' : sidebarOpened ? styles.backdropActive : '',
+          ]}
           animation={{
             delay: isFirstRender ? 0 : 200,
             duration: isFirstRender ? 0 : 500,
