@@ -11,7 +11,7 @@ export type GatsbyCommonPageContext<SiteMetadataType = GatsbyNodeSiteMetadataFra
   /**
    * Contains general info about the Gatsby site.
    */
-  siteMetadata: SiteMetadataType;
+  siteMetadata?: SiteMetadataType;
   /**
    * Can be the page id, file id, or the path if none are available
    */

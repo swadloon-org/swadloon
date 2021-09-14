@@ -23,7 +23,7 @@ export const SrcPageTemplate: React.FC<Props & { children: ReactNode }> = (props
           title: `${
             props.pageContext.displayName ||
             props.pageContext.name ||
-            props.pageContext.siteMetadata.title
+            props.pageContext.siteMetadata?.title
           }`,
           // url: `${data?.site?.siteMetadata?.siteUrl}${data?.contentfulBlogPost?.blogSlug}`,
           description: `No description provided`,

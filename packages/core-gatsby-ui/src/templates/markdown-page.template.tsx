@@ -65,13 +65,13 @@ const Template: React.FC<MarkdownTemplateProps> = (props) => {
           title: `${
             props.pageContext.displayName ||
             props.pageContext.name ||
-            props.pageContext.siteMetadata.title
+            props.pageContext.siteMetadata?.title
           }`,
           // url: `${data?.site?.siteMetadata?.siteUrl}${data?.contentfulBlogPost?.blogSlug}`,
           description: `${
             props.pageContext.frontmatter?.description ||
             props.data.file?.childMdx?.excerpt ||
-            props.pageContext.siteMetadata.description ||
+            props.pageContext.siteMetadata?.description ||
             ''
           }`,
           // image: `${data?.contentfulBlogPost?.blogMainImage?.socialMediaImage?.src}`,

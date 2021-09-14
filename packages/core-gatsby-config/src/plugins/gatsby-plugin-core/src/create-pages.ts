@@ -27,7 +27,7 @@ import {
 } from '../../../utils/pages.utilities';
 import { GatsbyCorePluginOptions } from '../gatsby-plugin-options';
 
-let siteMetadata: GatsbyNodeSiteMetadataFragment;
+let siteMetadata: GatsbyNodeSiteMetadataFragment | undefined;
 let matchingTsxPageDirNames: MatchingPageOutput;
 
 export const createPagesFunction: GatsbyNode['createPages'] = async (
@@ -286,7 +286,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
       // 'en'
       const localeDir = getLocalePath(
         node.name,
-        siteMetadata.languages?.defaultLangKey || SITE_LANGUAGES.EN
+        siteMetadata?.languages?.defaultLangKey || SITE_LANGUAGES.EN
       );
       // 'en.readme'
       const nodePath = node.childMdx?.slug;
@@ -299,7 +299,10 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
         ? frontmatterSlug
         : getFullPageNodePath([localeDir, sourceDir, nameWithoutLocale]);
       // SITE_LANGUAGES.EN
-      const locale = getLocaleFromPath(node.name, siteMetadata.languages.defaultLangKey);
+      const locale = getLocaleFromPath(
+        node.name,
+        siteMetadata?.languages.defaultLangKey || SITE_LANGUAGES.EN
+      );
       // raw node name e.g. 'en.readme'
       const name = node.name;
       // nicely formated name for the node, defaults to frontmatter property e.g. 'Readme'
@@ -361,14 +364,14 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
         // 'en'
         const localeDir = getLocalePath(
           pathWithoutExtension,
-          siteMetadata.languages?.defaultLangKey || SITE_LANGUAGES.EN
+          siteMetadata?.languages?.defaultLangKey || SITE_LANGUAGES.EN
         );
         // 'docs/en/section/readme'
         const path = getFullPageNodePath([localeDir, '', nameWithoutLocale]);
         // SITE_LANGUAGES.EN
         const locale = getLocaleFromPath(
           pathWithoutExtension,
-          siteMetadata.languages?.defaultLangKey
+          siteMetadata?.languages?.defaultLangKey || SITE_LANGUAGES.EN
         );
 
         return {
@@ -469,7 +472,7 @@ export const onCreatePageFunction: GatsbyNode<{}, GatsbyMarkdownFilePageContext>
     // 'en'
     const localeDir = getLocalePath(
       page.path,
-      siteMetadata.languages?.defaultLangKey || SITE_LANGUAGES.EN
+      siteMetadata?.languages?.defaultLangKey || SITE_LANGUAGES.EN
     );
     // 'en.page.tsx'
     const nodePath = nameWithoutSlashes;
@@ -478,7 +481,10 @@ export const onCreatePageFunction: GatsbyNode<{}, GatsbyMarkdownFilePageContext>
     // '/en/section/page'
     const path = getFullPageNodePath([localeDir, sourceDir, nameWithoutLocale]);
     // SITE_LANGUAGES.EN
-    const locale = getLocaleFromPath(page.path, siteMetadata.languages?.defaultLangKey);
+    const locale = getLocaleFromPath(
+      page.path,
+      siteMetadata?.languages?.defaultLangKey || SITE_LANGUAGES.EN
+    );
     // nicely formated name for the page, e.g. en.page.tsx => Page
     const displayName = getPageFormattedName(nameWithoutLocale, {
       locale: locale,
