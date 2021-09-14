@@ -41,7 +41,6 @@ USAGE
 * [`nr commit`](#nr-commit)
 * [`nr contentful-migrate [FILE]`](#nr-contentful-migrate-file)
 * [`nr depcheck [ARGS]`](#nr-depcheck-args)
-* [`nr dotenv`](#nr-dotenv)
 * [`nr figma-sync [PATH]`](#nr-figma-sync-path)
 * [`nr gatsby [COMMAND]`](#nr-gatsby-command)
 * [`nr git-clean-branches`](#nr-git-clean-branches)
@@ -98,21 +97,6 @@ EXAMPLE
   $ nr depcheck
 ```
 
-## `nr dotenv`
-
-read .env file and add it to process.env
-
-```
-USAGE
-  $ nr dotenv
-
-OPTIONS
-  -h, --help  show CLI help
-
-EXAMPLE
-  $ nr dotenv
-```
-
 ## `nr figma-sync [PATH]`
 
 sync design tokens from figma file
@@ -149,6 +133,8 @@ OPTIONS
 EXAMPLE
   $ nr gatsby build
 ```
+
+_See code: [lib/commands/gatsby.js](https://github.com/newrade/newrade-core/blob/v1.13.0/lib/commands/gatsby.js)_
 
 ## `nr git-clean-branches`
 
