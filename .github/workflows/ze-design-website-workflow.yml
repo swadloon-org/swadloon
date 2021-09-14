@@ -46,7 +46,10 @@ env:
 jobs:
 
   build-test-deploy:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+        matrix:
+            os: [ubuntu-latest, windows-latest]
 
     # If the PR is coming from a fork (pull_request_target), ensure it's opened by "dependabot[bot]".
     # Otherwise, clone it normally.
@@ -102,7 +105,7 @@ jobs:
         run: yarn lerna:build --scope @newrade/ze-design-website
 
       - name: Deploy
-        if: ${{ env.APP_CI_DEPLOY }}
+        if: ${{ env.APP_CI_DEPLOY && matrix.os == "ubuntu-latest" }}
         uses: amondnet/vercel-action@v20
         with:
           github-comment: false
