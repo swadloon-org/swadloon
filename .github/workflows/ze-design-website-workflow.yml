@@ -105,7 +105,7 @@ jobs:
         run: yarn lerna:build --scope @newrade/ze-design-website
 
       - name: Deploy
-        if: ${{ env.APP_CI_DEPLOY && matrix.os == "ubuntu-latest" }}
+        if: ${{ env.APP_CI_DEPLOY && matrix.os == 'ubuntu-latest' }}
         uses: amondnet/vercel-action@v20
         with:
           github-comment: false
