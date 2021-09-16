@@ -55,7 +55,7 @@ export function LinkRenderer<CustomLinkVariants extends string>({
   }
 
   log(
-    `rendering: ${link.name} with variant ${link.variant} and type ${link.type} and component ${link.component}`
+    `rendering: ${link.label} with variant ${link.variant} and type ${link.type} and component ${link.component}`
   );
 
   /**

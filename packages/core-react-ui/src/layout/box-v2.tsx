@@ -8,7 +8,9 @@ import {
 } from '../props/padding.props';
 import * as styleRefs from './box-v2.treat';
 
-type Props = PrimitiveProps<any> &
+type Tag = 'div' | 'section' | 'aside';
+
+type Props = PrimitiveProps<Tag> &
   AnchorHTMLAttributes<any> &
   Partial<{
     padding: PaddingProps;

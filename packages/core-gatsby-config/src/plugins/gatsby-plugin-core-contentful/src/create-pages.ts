@@ -2,11 +2,15 @@ import { AppError, ERROR_TYPE, SITE_LANGUAGES } from '@newrade/core-common';
 import fsp from 'fs/promises';
 import { GatsbyNode } from 'gatsby';
 import path from 'path';
-import { GatsbyContentfulPageContext } from '../../../config/page-context';
+import {
+  GatsbyContentfulPageContext,
+  GatsbyPageAlternateLocale,
+} from '../../../config/page-context';
 import {
   GatsbyNodeAllSiteQuery,
   GatsbyNodeSiteMetadataFragment,
 } from '../../../config/site-graphql-types';
+import { getLangSimpleCode } from '../../../utils/pages.utilities';
 import { GatsbyCoreContentfulPluginOptions } from '../gatsby-plugin-options';
 
 let siteMetadata: GatsbyNodeSiteMetadataFragment;
@@ -88,13 +92,14 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
       }
     );
 
-    if (!pagesData.data?.allContentfulPage.nodes.length) {
+    const contentfulPageNodes = pagesData.data?.allContentfulPage.nodes;
+
+    if (!contentfulPageNodes?.length) {
       reporter.panic(`[${pluginOptions.pluginName}] could not retrieve pages`);
+      return;
     }
 
-    reporter.info(
-      `[${pluginOptions.pluginName}] found ${pagesData.data?.allContentfulPage.nodes.length} pages`
-    );
+    reporter.info(`[${pluginOptions.pluginName}] found ${contentfulPageNodes.length} pages`);
 
     /**
      * Automatically create pages based on the Page Collection in Contentful
@@ -110,16 +115,28 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
       );
     }
 
-    // try {
-    //   await fsp.readFile(`../core-gatsby-ui/src/templates/contentful-page.template.tsx`);
-    //   reporter.info(`[${pluginOptions.pluginName}] using default contentful-page template`);
-    //   pageTemplate = path.resolve(`../core-gatsby-ui/contentful-page.template.tsx`);
-    // } catch (error: any) {
-    //   reporter.panic(`[${pluginOptions.pluginName}] no default template defined for contentful-page`);
-    // }
-
-    pagesData.data?.allContentfulPage.nodes.forEach((node, index) => {
+    contentfulPageNodes.forEach((node, index) => {
       reporter.info(`[${pluginOptions.pluginName}] creating page: ${node.slug}`);
+
+      const pagesInOtherLocales: GatsbyPageAlternateLocale[] = contentfulPageNodes
+        ?.filter(
+          (matchinPage) =>
+            matchinPage.name === node.name && // name must match
+            (matchinPage.node_locale !== node.node_locale || // locale must be different
+              getLangSimpleCode(matchinPage.node_locale) !== getLangSimpleCode(node.node_locale))
+        )
+        .map((node) => ({
+          locale: node.node_locale as SITE_LANGUAGES,
+          path: node.slug,
+        }));
+
+      if (pagesInOtherLocales?.length) {
+        reporter.info(
+          `[${pluginOptions.pluginName}] page ${
+            node.slug
+          } has alternate locales: ${pagesInOtherLocales?.map((page) => page.path)}`
+        );
+      }
 
       createPage<GatsbyContentfulPageContext>({
         path: node.slug,
@@ -130,6 +147,7 @@ export const createPagesFunction: GatsbyNode['createPages'] = async (
           name: node.name,
           slug: node.slug,
           locale: node.node_locale as SITE_LANGUAGES,
+          alternateLocales: pagesInOtherLocales,
           layout: 'default',
           template: 'contentfulPage',
           absolutePath: '',

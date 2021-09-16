@@ -35,6 +35,11 @@ globalStyle(`${wrapper} > *:first-child`, ({ cssTheme, theme }: Theme) => ({
   marginTop: '0',
 }));
 
+// if there are only one element, no bottom margin
+globalStyle(`${wrapper} > *:only-child`, ({ cssTheme, theme }: Theme) => ({
+  marginBottom: '0',
+}));
+
 // styles for h1-h2
 globalStyle(`${wrapper} > h1, ${wrapper} > h2`, ({ cssTheme, theme }: Theme) => ({
   marginTop: '1.75em',

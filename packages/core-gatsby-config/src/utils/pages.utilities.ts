@@ -2,7 +2,7 @@ import { SITE_LANGUAGES, SITE_LANGUAGE_SHORT } from '@newrade/core-common';
 import { capital, lower, title } from 'case';
 import { Page } from 'gatsby';
 import { SOURCE_INSTANCE_NAME } from '../config/gatsby-source-instances';
-import { GatsbyMarkdownFilePageContext } from '../config/page-context';
+import { GatsbyMarkdownFilePageContext, GatsbyPageAlternateLocale } from '../config/page-context';
 import { PAGE_LAYOUT, PAGE_TEMPLATE } from '../config/page.props';
 
 export const patternLocaleInPath =
@@ -349,7 +349,7 @@ export function getMatchingPageLocales(
     });
 
     return previous;
-  }, {} as Partial<{ [absolutePath: string]: { locale: SITE_LANGUAGES; path: string }[] }>);
+  }, {} as Partial<{ [absolutePath: string]: GatsbyPageAlternateLocale[] }>);
 
   return matchinPageDirNames;
 }

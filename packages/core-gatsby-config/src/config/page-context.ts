@@ -39,7 +39,7 @@ export type GatsbyCommonPageContext<SiteMetadataType = GatsbyNodeSiteMetadataFra
    * @example
    *  { fr: '/fr/page-name/', 'fr-CA': '/fr-ca/page-name/'}
    */
-  alternateLocales?: { locale: SITE_LANGUAGES; path: string }[];
+  alternateLocales?: GatsbyPageAlternateLocale[];
   /**
    * Original relative path of the page's node
    */
@@ -136,4 +136,9 @@ export type GatsbyDesignSystemPageContext = GatsbyCommonPageContext & {
    *    `query Page($slug: String) {...}`
    *  ```
    */
+};
+
+export type GatsbyPageAlternateLocale = {
+  locale: SITE_LANGUAGES;
+  path: string;
 };

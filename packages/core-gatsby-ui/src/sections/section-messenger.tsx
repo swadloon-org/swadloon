@@ -55,7 +55,11 @@ export const SectionMessenger = React.forwardRef<HTMLElement, Props>(
         {...commonProps}
       >
         <div className={styles.grid}>
-          <BoxV2 className={styles.gridTitle} alignItems={['flex-start']}>
+          <BoxV2
+            className={styles.gridTitle}
+            alignItems={['flex-start']}
+            justifySelf={['flex-start', 'flex-start', 'flex-end']}
+          >
             {LeftBlock}
           </BoxV2>
 

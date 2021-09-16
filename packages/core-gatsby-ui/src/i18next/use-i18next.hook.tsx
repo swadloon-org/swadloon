@@ -59,7 +59,7 @@ export const useI18next = (ns?: Namespace, options?: UseTranslationOptions) => {
 
   const getAlternativeLang = () => {
     const alternativeLanguages = context?.languages?.filter(
-      (lang) => removeLocaleExtension(lang) !== context.language
+      (lang) => removeLocaleExtension(lang) !== removeLocaleExtension(context.language)
     );
     const alternativeLanguage = alternativeLanguages?.length ? alternativeLanguages[0] : null;
     const alternativeLanguageLabel = alternativeLanguage

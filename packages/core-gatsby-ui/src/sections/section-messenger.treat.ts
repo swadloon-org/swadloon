@@ -13,7 +13,7 @@ export const styles = {
       [cssTheme.layout.media.desktopSmall]: {
         gridTemplateColumns: 'repeat(12, 1fr)',
         gap: cssTheme.sizing.var.x6,
-        gridTemplateAreas: `". title title title messages messages messages messages messages messages . ."`,
+        gridTemplateAreas: `". title title title title messages messages messages messages messages . ."`,
       },
     },
   })),
