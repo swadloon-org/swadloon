@@ -55,7 +55,6 @@ export function loadDotEnv<ENV = CommonEnvType>({
    * Enable default logging
    */
   if (process.env.DEBUG) {
-    console.log(`process.env.DEBUG: ${process.env.DEBUG}`);
     debug.enable(process.env.DEBUG);
   }
   if (!process.env.DEBUG) {

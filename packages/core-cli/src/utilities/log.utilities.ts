@@ -18,7 +18,6 @@ export function enableDebug() {
    * Enable default logging
    */
   if (process.env.DEBUG) {
-    console.log(`process.env.DEBUG: ${process.env.DEBUG}`);
     debugInstance.enable(process.env.DEBUG);
   }
 }

@@ -1,12 +1,11 @@
 import { Command, flags } from '@oclif/command';
 import { spawnSync } from 'child_process';
-import debug from 'debug';
-import { NS } from '../utilities/log.utilities';
+import { debugInstance, enableDebug, NS } from '../utilities/log.utilities';
 
 export default class Webpack extends Command {
-  log = debug(`${NS}:webpack`);
-  logWarn = debug(`${NS}:webpack:warn`);
-  logError = debug(`${NS}:webpack:error`);
+  log = debugInstance(`${NS}:webpack`);
+  logWarn = debugInstance(`${NS}:webpack:warn`);
+  logError = debugInstance(`${NS}:webpack:error`);
 
   static description = 'Shortcut to run webpack with typescript (ts-node)';
 
@@ -19,6 +18,8 @@ export default class Webpack extends Command {
   };
 
   async run() {
+    enableDebug();
+
     const { args, flags } = this.parse(Webpack);
 
     const command = `TS_NODE_PROJECT=../../tsconfig.node-commonjs.json node -r ts-node/register ../../node_modules/webpack/bin/webpack ${
@@ -34,7 +35,14 @@ export default class Webpack extends Command {
     });
 
     if (cmd.stderr && cmd.stderr.toString().length) {
-      throw new Error(cmd.stderr.toString());
+      const stderr = cmd.stderr.toString();
+      if (/error/gi.test(stderr)) {
+        this.logError(`${stderr}`);
+        throw new Error(stderr);
+      }
+      this.log(`${stderr}`);
     }
+
+    this.log(`finished`);
   }
 }
