@@ -2,7 +2,7 @@ import { Command, flags } from '@oclif/command';
 import { spawnSync } from 'child_process';
 import { debugInstance, enableDebug, NS } from '../utilities/log.utilities';
 
-export default class Jest extends Command {
+export default class JestWatch extends Command {
   log = debugInstance(`${NS}:jest`);
   logWarn = debugInstance(`${NS}:jest:warn`);
   logError = debugInstance(`${NS}:jest:error`);
@@ -20,29 +20,20 @@ export default class Jest extends Command {
   async run() {
     enableDebug();
 
-    const { args, flags } = this.parse(Jest);
+    const { args, flags } = this.parse(JestWatch);
 
     const command = [
       `cross-env TS_NODE_PROJECT=../../tsconfig.node-commonjs.json node -r ts-node/register ../../node_modules/jest/bin/jest`,
       `${flags.config ? '--config ' + flags.config : ''}`,
-      `${args.args || ''}`,
+      `${args.args || '--watch'}`,
     ].join(' ');
 
     this.log(`running: ${command}`);
 
     const cmd = spawnSync(command, {
       shell: true,
-      stdio: ['inherit', 'inherit', 'pipe'], // jest only uses stderr as output https://github.com/facebook/jest/issues/5064
+      stdio: ['inherit', 'inherit', 'inherit'], // jest only uses stderr as output https://github.com/facebook/jest/issues/5064
       env: process.env,
     });
-
-    if (cmd.stderr && cmd.stderr.toString().length) {
-      const stderr = cmd.stderr.toString();
-      if (/FAIL/gi.test(stderr)) {
-        this.logError(`${stderr}`);
-        throw new Error(stderr);
-      }
-      this.log(`${stderr}`);
-    }
   }
 }

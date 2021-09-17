@@ -49,6 +49,7 @@ USAGE
 * [`nr hello [FILE]`](#nr-hello-file)
 * [`nr help [COMMAND]`](#nr-help-command)
 * [`nr jest [ARGS]`](#nr-jest-args)
+* [`nr jest-watch [ARGS]`](#nr-jest-watch-args)
 * [`nr micromatch [PATH] [PATTERN]`](#nr-micromatch-path-pattern)
 * [`nr prepare-dev`](#nr-prepare-dev)
 * [`nr prepare-exports`](#nr-prepare-exports)
@@ -222,6 +223,21 @@ Shortcut to run jest with typescript (ts-node)
 ```
 USAGE
   $ nr jest [ARGS]
+
+OPTIONS
+  --config=config  [default: jest.config.ts] path to jest config file
+
+EXAMPLE
+  $ nr jest
+```
+
+## `nr jest-watch [ARGS]`
+
+Shortcut to run jest with typescript (ts-node)
+
+```
+USAGE
+  $ nr jest-watch [ARGS]
 
 OPTIONS
   --config=config  [default: jest.config.ts] path to jest config file
