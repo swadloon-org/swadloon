@@ -1,5 +1,5 @@
 diff --git a/node_modules/gatsby/dist/utils/dev-ssr/render-dev-html-child.js b/node_modules/gatsby/dist/utils/dev-ssr/render-dev-html-child.js
-index 2b3fb31..5b03b16 100644
+index 2b3fb31..c82ac10 100644
 --- a/node_modules/gatsby/dist/utils/dev-ssr/render-dev-html-child.js
 +++ b/node_modules/gatsby/dist/utils/dev-ssr/render-dev-html-child.js
 @@ -56,9 +56,9 @@ const parseError = function ({

@@ -1,3 +1,4 @@
+import { SITE_LANGUAGES } from '@newrade/core-common';
 import { GatsbyCommonPageContext } from '@newrade/core-gatsb-config/config';
 import { PageProps, WrapPageElementBrowserArgs } from 'gatsby';
 /**
@@ -18,13 +19,10 @@ export const WrapElementWithi18N: React.FC<
 > = ({ props, i18nOptions, children }) => {
   const pageProps = props as Props;
 
-  if (!pageProps.pageContext.siteMetadata?.languages) {
-    return <>{children}</>;
-  }
-
-  const pageLang = pageProps.pageContext.locale;
-  const pageLangs = pageProps.pageContext.siteMetadata?.languages?.langs;
-  const defaultLang = pageProps.pageContext.siteMetadata?.languages?.defaultLangKey;
+  const pageLang = pageProps.pageContext.locale || SITE_LANGUAGES.EN;
+  const pageLangs = pageProps.pageContext.siteMetadata?.languages?.langs || [SITE_LANGUAGES.EN];
+  const defaultLang =
+    pageProps.pageContext.siteMetadata?.languages?.defaultLangKey || SITE_LANGUAGES.EN;
 
   const i18nDefaultOptions: InitOptions = {
     load: 'all',

@@ -13,6 +13,8 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
 ) => {
   const pluginOptions = options as unknown as GatsbyPluginTsCacheOptions;
 
+  const isProduction = process.env.NODE_ENV === 'production';
+
   /**
    * Retrieve the initial gatsby webpack config
    */
@@ -27,11 +29,20 @@ export const onCreateWebpackConfigFunction: GatsbyNode['onCreateWebpackConfig'] 
   /**
    * Replace the default caching strategy
    */
+
+  if (!isProduction) {
+    reporter.info(`[${pluginOptions.pluginName}]: disabling webpack cache in development`);
+    config.cache = undefined; // disabling all cache during development
+    actions.replaceWebpackConfig(config);
+    return;
+  }
+
   config.cache = {
     type: 'filesystem',
     buildDependencies: {
       config: [
         __filename,
+        path.resolve(process.cwd(), '..', '..', 'package.json'),
         path.resolve(process.cwd(), 'package.json'),
         path.resolve(process.cwd(), 'tsconfig.json'),
         ...store
