@@ -1,30 +1,26 @@
 import loadable from '@loadable/component';
 import { SITE_LANGUAGES } from '@newrade/core-common';
-import { HEADING, PARAGRAPH_SIZE, TagSize, Variant } from '@newrade/core-design-system';
+import { HEADING, PARAGRAPH_SIZE } from '@newrade/core-design-system';
 import {
   GatsbyMarkdownFilePageContext,
   SOURCE_INSTANCE_NAME,
 } from '@newrade/core-gatsb-config/config';
 import {
   BoxV2,
-  DesktopDocsItemGroup,
   DesktopDocsSideBar,
-  DesktopDocsSidebarItem,
   Heading,
   Link,
   Main,
   MainWrapper,
-  SidebarItem,
   Stack,
-  Tag,
   useTreatTheme,
   viewportContext,
   ViewportProvider,
 } from '@newrade/core-react-ui';
-import { SidebarLayout } from '@newrade/core-website-api';
+import { NavComponent, SidebarLayout } from '@newrade/core-website-api';
 import { PageProps } from 'gatsby';
 import React, { ReactNode } from 'react';
-import { useDocsNavigation } from '../hooks/use-docs-navigation-data.hook';
+import { useNavigationAPI } from '../hooks/use-navigation-api.hook';
 import { GatsbyLink } from '../links/gatsby-link';
 import { NavbarDocs } from '../navbar/navbar-docs';
 import { useSidebarState } from '../sidebar/sidebar.hooks';
@@ -46,13 +42,16 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
 
   // Todo `locales` should prob be passed by the parent
 
-  const navigationDocs = useDocsNavigation({
-    locales: [SITE_LANGUAGES.EN, SITE_LANGUAGES.EN_CA],
+  const navigationDocs = useNavigationAPI({
+    navigationName: 'Docs navigation',
+    navigationComponent: NavComponent.sidebar,
+    includeLocales: [SITE_LANGUAGES.EN, SITE_LANGUAGES.EN_CA],
   });
 
-  const navigationCoreDocs = useDocsNavigation({
-    locales: [SITE_LANGUAGES.EN, SITE_LANGUAGES.EN_CA],
-    source: SOURCE_INSTANCE_NAME.MONO_REPO_DOCS,
+  const navigationCoreDocs = useNavigationAPI({
+    navigationName: 'Docs navigation',
+    navigationComponent: NavComponent.sidebar,
+    includeLocales: [SITE_LANGUAGES.EN, SITE_LANGUAGES.EN_CA],
   });
 
   const navigation =
@@ -124,10 +123,11 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
             <Heading variant={HEADING.h3}>Documentation</Heading>
 
             <Stack>
-              {navigation.items.map((item, index) => {
+              {navigation.subNavigation?.map((nav, index) => {
                 return (
                   <Stack key={index} gap={[`calc(2 * ${cssTheme.sizing.var.x1})`]}>
-                    {item.items?.length ? (
+                    <div>{nav?.label}</div>
+                    {/* {item.items?.length ? (
                       <DesktopDocsItemGroup
                         label={item.displayName || item.name || 'Design System'}
                       >
@@ -172,7 +172,7 @@ export const LayoutDocs: React.FC<LayoutDocsProps> = (props) => {
                       >
                         {item.displayName || item.name}
                       </SidebarItem>
-                    )}
+                    )} */}
                   </Stack>
                 );
               })}

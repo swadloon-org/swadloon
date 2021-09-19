@@ -15,6 +15,7 @@ export const createSchemaCustomizationFn: GatsbyNode['createSchemaCustomization'
    */
   const typeDefs = `
     type SitePageContext implements Node @dontInfer {
+      id: String
       siteMetadata: SitePageMetadata
       name: String
       fileId: String
