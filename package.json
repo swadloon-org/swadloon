@@ -70,7 +70,7 @@
     "@types/jest": "^26",
     "core-js": "^3",
     "core-js-pure": "^3",
-    "gatsby": "^3.13.1",
+    "gatsby": "^3.14.0",
     "jest": "^27",
     "minipass": "^2.8.5",
     "puppeteer": "^9",
