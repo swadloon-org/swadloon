@@ -22,6 +22,10 @@ export type NavigationAPI = PartialOrNull<{
    */
   name: string;
   /**
+   * The partial path for navigation level
+   */
+  path: string;
+  /**
    * User facing label
    */
   label: string;

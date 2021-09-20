@@ -452,11 +452,6 @@ export const onCreatePageFunction: GatsbyNode<{}, GatsbyMarkdownFilePageContext>
   if (page && page.context && !page.context.siteMetadata) {
     reporter.info(`[${pluginOptions.pluginName}] recreating page: ${page.path}`);
 
-    if (/dev-404-page/.test(page.path)) {
-      reporter.info(`[${pluginOptions.pluginName}] ignoring page: ${page.path}`);
-      return;
-    }
-
     if (page.path === '/404.html') {
       reporter.info(`[${pluginOptions.pluginName}] deleting and ignoring page: ${page.path}`);
       deletePage(page);

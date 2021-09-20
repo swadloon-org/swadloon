@@ -23,7 +23,7 @@
       "args": [
         "${relativeFile}",
         "--no-cache",
-        "--config=${workspaceFolder}/jest.config.js",
+        "--config=${workspaceFolder}/jest.config.ts",
         "--coverage=false"
       ],
       "sourceMaps": true,
