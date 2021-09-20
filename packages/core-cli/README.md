@@ -98,6 +98,8 @@ EXAMPLE
   $ nr depcheck
 ```
 
+_See code: [lib/commands/depcheck.js](https://github.com/newrade/newrade-core/blob/v1.13.0/lib/commands/depcheck.js)_
+
 ## `nr figma-sync [PATH]`
 
 sync design tokens from figma file
@@ -281,6 +283,8 @@ USAGE
 EXAMPLE
   $ nr prepare-exports
 ```
+
+_See code: [lib/commands/prepare-exports.js](https://github.com/newrade/newrade-core/blob/v1.13.0/lib/commands/prepare-exports.js)_
 
 ## `nr vercel-deploy`
 
