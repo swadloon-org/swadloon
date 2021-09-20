@@ -1,12 +1,11 @@
 import { Command } from '@oclif/command';
 import { spawnSync } from 'child_process';
-import debug from 'debug';
-import { NS } from '../utilities/log.utilities';
+import { debugInstance, enableDebug, NS } from '../utilities/log.utilities';
 
 export default class Depcheck extends Command {
-  log = debug(`${NS}:depcheck`);
-  logWarn = debug(`${NS}:depcheck:warn`);
-  logError = debug(`${NS}:depcheck:error`);
+  log = debugInstance(`${NS}:depcheck`);
+  logWarn = debugInstance(`${NS}:depcheck:warn`);
+  logError = debugInstance(`${NS}:depcheck:error`);
 
   static description = 'Shortcut to run depcheck';
 
@@ -15,11 +14,13 @@ export default class Depcheck extends Command {
   static args = [{ name: 'args' }];
 
   async run() {
+    enableDebug();
+
     const { args } = this.parse(Depcheck);
 
     this.log(`running in ${process.cwd()}`);
 
-    const command = spawnSync(`depcheck ${args.args || ''}`, {
+    const command = spawnSync(`yarn depcheck ${args.args || ''}`, {
       shell: true,
       stdio: ['inherit', 'pipe', 'pipe'],
       env: process.env,
