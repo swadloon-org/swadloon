@@ -39,6 +39,7 @@
     "gatsby-background-image": "^1",
     "gatsby-image": "^2.9.0",
     "i18next": "^19",
+    "react-helmet": "^6.1.0",
     "react-i18next": "^11",
     "react-icons": "^4.1.0",
     "react-intersection-observer": "^8.31.0",
