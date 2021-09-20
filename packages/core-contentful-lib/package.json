@@ -27,7 +27,7 @@
     "dev": "yarn clean && yarn preconstruct dev",
     "export-content": ". .env && contentful space export --space-id=$CONTENTFUL_SPACEID --management-token=$CONTENTFUL_MANAGEMENT_TOKEN --environment-id=$CONTENTFUL_ENV --content-file=contentful/contentful-export-space.json",
     "import-content": "contentful space import",
-    "run-migration": ". ./.env && DEBUG=$DEBUG node -r ts-node/register src/run-migration.ts",
+    "run-migration": "env-cmd -x node -r ts-node/register src/run-migration.ts",
     "test": "nr jest",
     "test:watch": "nr jest --watch"
   },

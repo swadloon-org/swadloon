@@ -27,7 +27,6 @@
   "scripts": {
     "build:postinstall": "yarn prepack",
     "clean": "rimraf -rf lib/** && yarn postpack && rimraf -f *.tsbuildinfo",
-    "figma-extract-color": ". ./.env && DEBUG=$DEBUG nr figma-sync $FIGMA_FILE",
     "postpack": "rimraf -f oclif.manifest.json",
     "prepack": "rimraf -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
     "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",

@@ -15,7 +15,7 @@
     "clean:dist": "rimraf -rf dist/** lib/**",
     "clean:tsc": "rimraf -f ./**/*.tsbuildinfo *.tsbuildinfo",
     "dev": "yarn clean && yarn preconstruct dev",
-    "extract": ". ./.env && DEBUG=$DEBUG TS_NODE_PROJECT=../../tsconfig.node-commonjs.json node -r ts-node/register bin/run.ts",
+    "extract": "env-cmd -x cross-env TS_NODE_PROJECT=../../tsconfig.node-commonjs.json node -r ts-node/register bin/run.ts",
     "test": "nr jest",
     "test:watch": "nr jest --watch"
   },

@@ -10,7 +10,7 @@ type ActionInput = 'workflow';
 /**
  * `check-workflow-status` uses the Github API to retrieve the status of a workflow on a particular branch
  *
- * . ./.env && curl -X GET -u $GH_TOKEN:x-oauth-basic 'https://api.github.com/repos/newrade/newrade/actions/workflows/vsb-api-workflow.yml/runs?branch=master&event=push'
+ * env-cmd -x curl -X GET -u $GH_TOKEN:x-oauth-basic 'https://api.github.com/repos/newrade/newrade/actions/workflows/vsb-api-workflow.yml/runs?branch=master&event=push'
  *
  * Note: this action depends on [github-slug-action](https://github.com/rlespinasse/github-slug-action)
  */
