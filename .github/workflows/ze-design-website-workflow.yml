@@ -44,10 +44,10 @@ env:
   APP_SUBDOMAIN: ''
 
 jobs:
-
   build-test-deploy:
     runs-on: ${{ matrix.os }}
     strategy:
+        fail-fast: false
         matrix:
             os: [ubuntu-latest, windows-latest]
 

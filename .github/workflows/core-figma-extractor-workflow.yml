@@ -39,8 +39,6 @@ env:
   # Node
   #
   NODE_OPTIONS: '--max-old-space-size=4096'
-
-
   #
   # Figma (core-figma-extractor test project)
   #
@@ -49,7 +47,11 @@ env:
 
 jobs:
   build-test:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+        fail-fast: false
+        matrix:
+            os: [ubuntu-latest, windows-latest]
 
     # If the PR is coming from a fork (pull_request_target), ensure it's opened by "dependabot[bot]".
     # Otherwise, clone it normally.

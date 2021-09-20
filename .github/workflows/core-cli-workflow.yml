@@ -39,7 +39,11 @@ env:
 
 jobs:
   build-test:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+        fail-fast: false
+        matrix:
+            os: [ubuntu-latest, windows-latest]
 
     # If the PR is coming from a fork (pull_request_target), ensure it's opened by "dependabot[bot]".
     # Otherwise, clone it normally.
